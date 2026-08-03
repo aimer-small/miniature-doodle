@@ -10,7 +10,7 @@
 // NB these functions don't have to be nomask if you prevent objects shadowing
 // them in the same circumstances that shadowing query is not allowed.
 
-nosave nomask protected mixed _query( mapping map, string *parts )
+protected mixed _query( mapping map, string *parts )
 {
 	mixed value;
 	int i, s;
@@ -26,7 +26,7 @@ nosave nomask protected mixed _query( mapping map, string *parts )
 	return value;
 }
 
-nosave nomask protected int _delete( mapping map, string *parts )
+protected int _delete( mapping map, string *parts )
 {
 	if( sizeof( parts ) == 1 ) {
 		map_delete( map, parts[0] );
@@ -37,7 +37,7 @@ nosave nomask protected int _delete( mapping map, string *parts )
 	return _delete( map[parts[0]], parts[1..sizeof(parts)-1] );
 }
 
-nosave nomask protected mixed _set( mapping map, string *parts, mixed value )
+protected mixed _set( mapping map, string *parts, mixed value )
 {
 	if( sizeof( parts ) == 1 )
 		return map[parts[0]] = value;

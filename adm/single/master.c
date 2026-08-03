@@ -81,7 +81,7 @@ protected string *update_file(string file)
 		return ({});
 	list = explode(str, "\n");
 	for (i = 0; i < sizeof(list); i++) {
-		if (list[i][0] == '#') {
+		if (sizeof(list[i]) > 0 && list[i][0] == '#') {
 			list[i] = 0;
 		}
 	}
@@ -92,10 +92,7 @@ protected string *update_file(string file)
 // Return:              List of files to preload
 string *epilog(int load_empty)
 {
-	string *items;
-
-	items = update_file(CONFIG_DIR + "preload");
-	return items;
+	return update_file("/adm/etc/preload");
 }
 
 // preload an object
