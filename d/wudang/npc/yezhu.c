@@ -1,16 +1,16 @@
-// NPC : /d/wudang/npc/yezhu.c Ò°Öí
+// NPC : /d/wudang/npc/yezhu.c é‡ŽçŒª
 
 inherit NPC;
 void create()
 {
-        set_name("Ò°Öí", ({ "ye zhu","zhu" }) );
-        set("race", "Ò°ÊÞ");
+        set_name("é‡ŽçŒª", ({ "ye zhu","zhu" }) );
+        set("race", "é‡Žå…½");
         set("age", 6);
         set("con", 100);
         set("str", 100);
-        set("long", "Ò»Ö»ÑÛ¾¦ÑªºìµÄÒ°Öí¡£\n");
+        set("long", "ä¸€åªçœ¼ç›è¡€çº¢çš„é‡ŽçŒªã€‚\n");
         set("attitude", "aggressive");
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°×¦", "ºó×¦", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰çˆª", "åŽçˆª", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
         set("combat_exp", 250000);
 	 set_temp("apply/attack", 30);
@@ -23,7 +23,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$NÆà²ÒµÄº¿ÁË¼¸Éù£¬ËÀÁË¡£\n", this_object());
+	message_vision("$Nå‡„æƒ¨çš„åšŽäº†å‡ å£°ï¼Œæ­»äº†ã€‚\n", this_object());
         ob = new(FOOD_D("yzhurou"));
 	ob->move(environment(this_object()));
 	destruct(this_object());

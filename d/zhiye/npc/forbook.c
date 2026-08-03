@@ -16,38 +16,38 @@ nosave string *all_list =
 	"cap","boot","coat","armor","mantle","belt","glove",
 	});
 nosave mapping get_chinese = ([
-	"axe":"¸«",
-	"brush":"±Ê",
-	"fork":"²æ",
-	"hook":"¹³",
-        "spear":"Ç¹", 
-//        "arrow":"¹­", 
-	"whip":"±Ş",
-	"stick":"°ô",
-	"sword":"½£",
-   "xiao":"óï",
-	"blade":"µ¶",
-	"dagger":"Ø°Ê×",
-	"club":"¹÷",
-	"staff":"ÕÈ",
-	"hammer":"·¨ÂÖ",
-	"throwing":"°µÆ÷",
-	"cap":"Í·¿ø",
-	"glove":"ÊÖÌ×",
-	"boot":"Ñ¥",
-	"belt":"Ñü´ø",
-	"mantle":"Åû·ç",
-	"coat":"²ÊÒÂ",
-	"armor":"¼×ëĞ",
-	"cloth":"ÒÂ·ş",
-	"finger":"½äÖ¸",
-	"neck":"ÏîÁ´",	
-	"wrists":"»¤ĞØ",	
-	"hands":"Ö¸Ì×",
-	"mineral":"¿óÊ¯",
-	"jade":"Óñ",
-	"silk":"Ë¿",
-	"cloths":"²¼",
+	"axe":"æ–§",
+	"brush":"ç¬”",
+	"fork":"å‰",
+	"hook":"é’©",
+        "spear":"æª", 
+//        "arrow":"å¼“", 
+	"whip":"é­",
+	"stick":"æ£’",
+	"sword":"å‰‘",
+   "xiao":"ç®«",
+	"blade":"åˆ€",
+	"dagger":"åŒ•é¦–",
+	"club":"æ£",
+	"staff":"æ–",
+	"hammer":"æ³•è½®",
+	"throwing":"æš—å™¨",
+	"cap":"å¤´ç›”",
+	"glove":"æ‰‹å¥—",
+	"boot":"é´",
+	"belt":"è…°å¸¦",
+	"mantle":"æŠ«é£",
+	"coat":"å½©è¡£",
+	"armor":"ç”²èƒ„",
+	"cloth":"è¡£æœ",
+	"finger":"æˆ’æŒ‡",
+	"neck":"é¡¹é“¾",	
+	"wrists":"æŠ¤èƒ¸",	
+	"hands":"æŒ‡å¥—",
+	"mineral":"çŸ¿çŸ³",
+	"jade":"ç‰",
+	"silk":"ä¸",
+	"cloths":"å¸ƒ",
 ]);
 
 string getscore(string* vb)
@@ -57,13 +57,13 @@ string getscore(string* vb)
 	
 	if(!arrayp(vb)) return "";
 	i = sizeof(vb);	
-	if (i<=0) str = HIY "ÄãÄ¿Ç°²»»áÈÎºÎ¹¤½³¼¼ÄÜ¡£\n"NOR;
+	if (i<=0) str = HIY "ä½ ç›®å‰ä¸ä¼šä»»ä½•å·¥åŒ æŠ€èƒ½ã€‚\n"NOR;
 	else {
-		str = HIY"ÄãÒÑ¾­Ñ§»áÁË";
+		str = HIY"ä½ å·²ç»å­¦ä¼šäº†";
 		while(i--)
-			str +=get_chinese[vb[i]]+"("+capitalize(vb[i])+")¡¢";
-		str += "µÄ¹¤½³¼¼Êõ¡£\n"NOR;
-		str = replace_string(str,"¡¢µÄ","µÄ");
+			str +=get_chinese[vb[i]]+"("+capitalize(vb[i])+")ã€";
+		str += "çš„å·¥åŒ æŠ€æœ¯ã€‚\n"NOR;
+		str = replace_string(str,"ã€çš„","çš„");
 	}	
 	return str;	
 }
@@ -80,7 +80,7 @@ int accept_object(object who, object ob, object me){
 	{
 		command("ah");
 		command("thank "+getuid(who));
-		command("whisper "+getuid(who)+" ÎÒÒ²²»ºÃÊ²Ã´¶¼²»±íÊ¾£¬¾ÍÇëÎ¤À¼ÔÙ°ïÄã´òÔìÒ»´Î°É¡£");
+		command("whisper "+getuid(who)+" æˆ‘ä¹Ÿä¸å¥½ä»€ä¹ˆéƒ½ä¸è¡¨ç¤ºï¼Œå°±è¯·éŸ¦å…°å†å¸®ä½ æ‰“é€ ä¸€æ¬¡å§ã€‚");
 		call_out("destroying", 1, ob);
 		who->add("imbue_reward",1);
 		return 1;
@@ -89,47 +89,47 @@ int accept_object(object who, object ob, object me){
 	if(me->query("forg_type")!="weapon" && me->query("forg_type")!="armor" && me->query("forg_type")!="all" ) return 0;
 	if(me->query("forg_type")=="weapon"){
 		skill = "duanzao";
-		skill_name = "¶ÍÔì";
+		skill_name = "é”»é€ ";
 		vb = weapon_list;
 	}
 	else if(me->query("forg_type")=="armor"){
 		skill = "zhizao";
-		skill_name = "Ö¯Ôì";
+		skill_name = "ç»‡é€ ";
 		vb = armor_list;
 	}
 	else if(me->query("forg_type")=="all"){
 		skill = "";
-		skill_name = "¹¤½³";
+		skill_name = "å·¥åŒ ";
 		vb = all_list;
 	}
-	if (skill=="" && ob->query("name") == HIW"¸¶º«ĞÖÊé"NOR && me->query("id")=="han tiejiang" && !mapp(who->query("forging")))
+	if (skill=="" && ob->query("name") == HIW"ä»˜éŸ©å…„ä¹¦"NOR && me->query("id")=="han tiejiang" && !mapp(who->query("forging")))
 	{
-		message_vision("$NÉÏÏÂ´òÁ¿ÁË$nÁ½ÑÛ¡£\n$NºöÈ»³¤Ì¾£º¡¸ÈıÊ®¶àÄêÀ²£¬½ñÈÕÖ®½­ºşÒÑ·ÇÍùÈÕÖ®½­ºş°¡¡£ÍòÀÏÍ·È´»¹ÔÚ½Ìµ¼ÍŞ¶ù£¬Õâ·İ¿àĞÄÎÒ×ÔÀ¢²»Èç°¡¡£¡¹\n",
+		message_vision("$Nä¸Šä¸‹æ‰“é‡äº†$nä¸¤çœ¼ã€‚\n$Nå¿½ç„¶é•¿å¹ï¼šã€Œä¸‰åå¤šå¹´å•¦ï¼Œä»Šæ—¥ä¹‹æ±Ÿæ¹–å·²éå¾€æ—¥ä¹‹æ±Ÿæ¹–å•Šã€‚ä¸‡è€å¤´å´è¿˜åœ¨æ•™å¯¼å¨ƒå„¿ï¼Œè¿™ä»½è‹¦å¿ƒæˆ‘è‡ªæ„§ä¸å¦‚å•Šã€‚ã€\n",
 		me,who);
-		command("say ¼ÈÈç´Ë£¬ÎÒ¾Í´«ÊÚÍŞ¶ùÄãÒ»Ğ©¹¤½³Ö®Êõ¡£");
-		title = "¹¤½³Ö®Êõ£¬´«×ÔĞùÔ¯£¬ÎäÁÖÖĞ¸ü·ÖÎª";
+		command("say æ—¢å¦‚æ­¤ï¼Œæˆ‘å°±ä¼ æˆå¨ƒå„¿ä½ ä¸€äº›å·¥åŒ ä¹‹æœ¯ã€‚");
+		title = "å·¥åŒ ä¹‹æœ¯ï¼Œä¼ è‡ªè½©è¾•ï¼Œæ­¦æ—ä¸­æ›´åˆ†ä¸º";
 		for(i=0;i<sizeof(vb);i++)
 			title += get_chinese[vb[i]]+"("+vb[i]+") ";
-		title +="µÈ";
+		title +="ç­‰";
 		command("say "+title);
-		tell_object(who, YEL "ÇëÊäÈëtaojiao Ïà¹Ø´òÔì¼¼ÄÜµÄÎ÷ÎÄ´úÂë from id À´Ñ§Ï°ÄãÏëÒªµÄ¹¤½³Ö®Êõ¡£\n"NOR);
-		tell_object(who, YEL "±ÈÈçÄãÒªÑ§Ï°´òÔì½££¬Äã¿ÉÒÔÊäÈëtaojiao sword from han¡£\n"NOR);
-		who->set("dazao/give",1);//±ÜÃâÍæ¼ÒÀëÏßËğÊ§£¬¸Ä³ÉÓÀ¾Ã±äÁ¿
+		tell_object(who, YEL "è¯·è¾“å…¥taojiao ç›¸å…³æ‰“é€ æŠ€èƒ½çš„è¥¿æ–‡ä»£ç  from id æ¥å­¦ä¹ ä½ æƒ³è¦çš„å·¥åŒ ä¹‹æœ¯ã€‚\n"NOR);
+		tell_object(who, YEL "æ¯”å¦‚ä½ è¦å­¦ä¹ æ‰“é€ å‰‘ï¼Œä½ å¯ä»¥è¾“å…¥taojiao sword from hanã€‚\n"NOR);
+		who->set("dazao/give",1);//é¿å…ç©å®¶ç¦»çº¿æŸå¤±ï¼Œæ”¹æˆæ°¸ä¹…å˜é‡
 		call_out("destroying", 1, ob);
 		return 1;
 	}	
 	else if ( ob->query("for_forg") ){
 	command("look "+who->query("id",1));
 	if (who->query("dazao/give")){
-		command("say ÄãĞ¡Ğ¡Äê¼Í£¬µ¹ÊÇÕÒµ½ºÜ¶àºÃ¶«Î÷£¬²»¹ıÄãÇ°Ò»´Î»ú»á»¹Ã»ÓÃµôÄØ£¡");
-		command("say µÈÄãÓÃµôºó(taojiao ***)ÔÙ¸øÎÒ°É£¡");
+		command("say ä½ å°å°å¹´çºªï¼Œå€’æ˜¯æ‰¾åˆ°å¾ˆå¤šå¥½ä¸œè¥¿ï¼Œä¸è¿‡ä½ å‰ä¸€æ¬¡æœºä¼šè¿˜æ²¡ç”¨æ‰å‘¢ï¼");
+		command("say ç­‰ä½ ç”¨æ‰å(taojiao ***)å†ç»™æˆ‘å§ï¼");
 		return 0;
 	}
 	
-	title = skill_name+"Ö®Êõ£¬´«×ÔĞùÔ¯£¬ÎäÁÖÖĞ¸ü·ÖÎª";
+	title = skill_name+"ä¹‹æœ¯ï¼Œä¼ è‡ªè½©è¾•ï¼Œæ­¦æ—ä¸­æ›´åˆ†ä¸º";
 	for(i=0;i<sizeof(vb);i++)
 		title += get_chinese[vb[i]]+"("+vb[i]+") ";
-	title +="µÈ";
+	title +="ç­‰";
 	command("say "+title);
 			
 	myskill = who->query("forging");
@@ -139,45 +139,45 @@ int accept_object(object who, object ob, object me){
 	if (!mapp(myskill)) i = 0;
 	
 	if ( who->query_skill(skill,1) / 30 <= i && who->query_skill(skill,1)!=0 ){
-	command("say ²»¹ıÄã"+skill_name+"ÊõÑ§ÒÕ²»¾«£¬ÔÙ¶àµÄÊéÒ²Ã»ÓĞÓÃ£¬»¹ÊÇÏÈ»ØÈ¥°É£¬µÈÄã"+skill_name+"Êõ¸ßÊ±ÕÒÎÒ²»³Ù£¡");
+	command("say ä¸è¿‡ä½ "+skill_name+"æœ¯å­¦è‰ºä¸ç²¾ï¼Œå†å¤šçš„ä¹¦ä¹Ÿæ²¡æœ‰ç”¨ï¼Œè¿˜æ˜¯å…ˆå›å»å§ï¼Œç­‰ä½ "+skill_name+"æœ¯é«˜æ—¶æ‰¾æˆ‘ä¸è¿Ÿï¼");
 	return 0;
 	}		
-	command("say Ã»Ïëµ½¾¹ÓĞÕâÑùµÄÇ°±²ÃØ¼®ÔÚÄãµÄÊÖÉÏ£¬ÎÒÒ²²»ÄÜ°×ÊÕÄã£¬ÎÒÃÇ¿ÉÒ»Æğ²ÎÏê"+skill_name+"µÄÉÏ³Ë¼¼Êõ¡£");
+	command("say æ²¡æƒ³åˆ°ç«Ÿæœ‰è¿™æ ·çš„å‰è¾ˆç§˜ç±åœ¨ä½ çš„æ‰‹ä¸Šï¼Œæˆ‘ä¹Ÿä¸èƒ½ç™½æ”¶ä½ ï¼Œæˆ‘ä»¬å¯ä¸€èµ·å‚è¯¦"+skill_name+"çš„ä¸Šä¹˜æŠ€æœ¯ã€‚");
 
 	switch(i){
 		case 0:
-		command("say "+RANK_D->query_respect(who)+"¶ÔÓÚ"+skill_name+"Ö®µÀÖ»ÖªÒ»¶şÈ´ÓĞÔµµÃ´Ë±¦Êé£¬ÊµÄË¸£ÔóÉîºñ°¡¡£");
+		command("say "+RANK_D->query_respect(who)+"å¯¹äº"+skill_name+"ä¹‹é“åªçŸ¥ä¸€äºŒå´æœ‰ç¼˜å¾—æ­¤å®ä¹¦ï¼Œå®ä¹ƒç¦æ³½æ·±åšå•Šã€‚");
 		break;
 		case 4:
-		command("say "+RANK_D->query_respect(who)+skill_name+"¼¼ÊõÒÑ¾­Â¯»ğ´¿Çà,ÏàĞÅ´ËÊéÄÜÖúÄãÒ»±ÛÖ®Á¦¡£");
+		command("say "+RANK_D->query_respect(who)+skill_name+"æŠ€æœ¯å·²ç»ç‚‰ç«çº¯é’,ç›¸ä¿¡æ­¤ä¹¦èƒ½åŠ©ä½ ä¸€è‡‚ä¹‹åŠ›ã€‚");
 		break;
 		case 8:
-		command("say "+RANK_D->query_respect(who)+"ÒÑ¾­ÉîÚÏ´ËµÀ£¬µÃ´ËÉñÊé¸üÊÇÈç»¢ÌíÒí£¡");
+		command("say "+RANK_D->query_respect(who)+"å·²ç»æ·±è°™æ­¤é“ï¼Œå¾—æ­¤ç¥ä¹¦æ›´æ˜¯å¦‚è™æ·»ç¿¼ï¼");
 		command("tsk "+who->query("id",1));
 		break;
 		case 12:
-		command("say "+RANK_D->query_respect(who)+"½ñÈÕÖ®³É¾Í¿É×·µ±Äê¸É½«ÄªĞ°£¡");
+		command("say "+RANK_D->query_respect(who)+"ä»Šæ—¥ä¹‹æˆå°±å¯è¿½å½“å¹´å¹²å°†è«é‚ªï¼");
 		command("flatter "+who->query("id",1));
 		break;
 		case MAX_SKILLS:
-		command("say "+RANK_D->query_respect(who)+"ÒÑÈëÉñ½³Ö®ÁĞ£¬´ËÊéÔÙÒ²ÓÃ²»×ÅÁË¡£");
-		title = "Éñ½³ " + who->query("name") + "(" + capitalize(who->query("id")) + ")";
+		command("say "+RANK_D->query_respect(who)+"å·²å…¥ç¥åŒ ä¹‹åˆ—ï¼Œæ­¤ä¹¦å†ä¹Ÿç”¨ä¸ç€äº†ã€‚");
+		title = "ç¥åŒ  " + who->query("name") + "(" + capitalize(who->query("id")) + ")";
 		who->set_temp("apply/short", ({title}));
 		return 0;
 		default:
-		command("say Ï£Íû"+RANK_D->query_respect(who)+"ºÃºÃÑĞÏ°´ËÊé£¬ÈÕºó±ØµÃ´óÖú");
+		command("say å¸Œæœ›"+RANK_D->query_respect(who)+"å¥½å¥½ç ”ä¹ æ­¤ä¹¦ï¼Œæ—¥åå¿…å¾—å¤§åŠ©");
 		command("addoil "+who->query("id",1));
 	}
-	command("say ÄÇÎÒÃÇ¾ÍÌÖ½ÌÒ»ÏÂÓĞ¹Ø"+skill_name+"Ö®Êõ°É!");
+	command("say é‚£æˆ‘ä»¬å°±è®¨æ•™ä¸€ä¸‹æœ‰å…³"+skill_name+"ä¹‹æœ¯å§!");
 	tell_object(who,getscore(vb));
-	tell_object(who, YEL "ÇëÊäÈëtaojiao Ïà¹Ø´òÔì¼¼ÄÜµÄÎ÷ÎÄ´úÂë from id À´Ñ§Ï°ÄãÏëÒªµÄ"+skill_name+"Ö®Êõ¡£\n"NOR);
-	//tell_object(who, YEL "±ÈÈçÄãÒªÑ§Ï°´òÔì½££¬Äã¿ÉÒÔÊäÈëtaojiao sword¡£\n"NOR);
+	tell_object(who, YEL "è¯·è¾“å…¥taojiao ç›¸å…³æ‰“é€ æŠ€èƒ½çš„è¥¿æ–‡ä»£ç  from id æ¥å­¦ä¹ ä½ æƒ³è¦çš„"+skill_name+"ä¹‹æœ¯ã€‚\n"NOR);
+	//tell_object(who, YEL "æ¯”å¦‚ä½ è¦å­¦ä¹ æ‰“é€ å‰‘ï¼Œä½ å¯ä»¥è¾“å…¥taojiao swordã€‚\n"NOR);
 	who->set("dazao/give",1);
 	call_out("destroying", 1, ob);
 	return 1;
 	}
-       message_vision(CYN "$N" CYN "°Ñ$n" CYN "µİ¹ıÈ¥µÄ" + ob->name() +
-                                       CYN "ÍÆÁË»ØÀ´£¬Ò¡Í·µÀ£ºÎŞ¹¦²»ÊÜÂ»¡£\n" NOR,
+       message_vision(CYN "$N" CYN "æŠŠ$n" CYN "é€’è¿‡å»çš„" + ob->name() +
+                                       CYN "æ¨äº†å›æ¥ï¼Œæ‘‡å¤´é“ï¼šæ— åŠŸä¸å—ç¦„ã€‚\n" NOR,
                                        this_object(), who);
 	return 0;
 }
@@ -198,17 +198,17 @@ int do_taojiao(string arg)
 	if(me->query("forg_type")!="weapon" && me->query("forg_type")!="armor" && me->query("forg_type")!="all" ) return 0;
 	if(me->query("forg_type")=="weapon"){
 		skill = "duanzao";
-		skill_name = "¶ÍÔì";
+		skill_name = "é”»é€ ";
 		vb = weapon_list;
 	}
 	else if(me->query("forg_type")=="armor"){
 		skill = "zhizao";
-		skill_name = "Ö¯Ôì";
+		skill_name = "ç»‡é€ ";
 		vb = armor_list;
 	}
 	else if(me->query("forg_type")=="all"){
 		skill = "";
-		skill_name = "¹¤½³";
+		skill_name = "å·¥åŒ ";
 		vb = all_list;
 	}
 	
@@ -217,42 +217,42 @@ int do_taojiao(string arg)
 	myskill = me->query("forging");
 	if(!mapp(myskill)) myskill=([]);
 	if( !arg || sscanf(arg,"%s from %s",arg,sf) !=2 || !sf)
-		return notify_fail("ÄãÒªÏòË­ÌÖ½ÌÊ²Ã´£¿\n");	
+		return notify_fail("ä½ è¦å‘è°è®¨æ•™ä»€ä¹ˆï¼Ÿ\n");	
 	if(!objectp(ob = present(sf,environment(me))))
-		return notify_fail("ÕâÀïÃ»Õâ¸öÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡è¿™ä¸ªäººã€‚\n");
 	if(ob->parse_command_id_list()[0] != this_object()->parse_command_id_list()[0]) return 0;
 	//if ((int)me->query_skill(skill,1) < 10){
-		//command("say "+RANK_D->query_self(this_object())+"ÕâÀïÑ§Ï°´òÔìÏîÄ¿£¬ÖÁÉÙĞèÒª"+skill_name+"ÊõÊ®¼¶¡£");
+		//command("say "+RANK_D->query_self(this_object())+"è¿™é‡Œå­¦ä¹ æ‰“é€ é¡¹ç›®ï¼Œè‡³å°‘éœ€è¦"+skill_name+"æœ¯åçº§ã€‚");
 		//return 1;
 	//}
 	if( !arg || arg=="" ) {
-		arg = skill_name+"Ö®Êõ£¬´«×ÔĞùÔ¯£¬ÎäÁÖÖĞ¸ü·ÖÎª";
+		arg = skill_name+"ä¹‹æœ¯ï¼Œä¼ è‡ªè½©è¾•ï¼Œæ­¦æ—ä¸­æ›´åˆ†ä¸º";
 		for(i=0;i<sizeof(vb);i++)
 			arg += get_chinese[vb[i]]+"("+vb[i]+") ";
-		arg +="µÈ";
+		arg +="ç­‰";
 		command("say "+arg);
-		command("say ÄÇÎÒÃÇ¾ÍÌÖ½ÌÒ»ÏÂÓĞ¹Ø"+skill_name+"Ö®Êõ°É!");
+		command("say é‚£æˆ‘ä»¬å°±è®¨æ•™ä¸€ä¸‹æœ‰å…³"+skill_name+"ä¹‹æœ¯å§!");
 		vb = keys(myskill);
 		tell_object(me,getscore(vb));
-		tell_object(me, YEL "ÇëÊäÈëtaojiao Ïà¹Ø¹¤½³¼¼ÄÜµÄÎ÷ÎÄ´úÂë from id À´Ñ§Ï°ÄãÏëÒªµÄ"+skill_name+"Ö®Êõ¡£\n"NOR);
-		//tell_object(me, YEL "±ÈÈçÄãÒªÑ§Ï°´òÔì½££¬Äã¿ÉÒÔÊäÈëtaojiao sword¡£\n"NOR);
+		tell_object(me, YEL "è¯·è¾“å…¥taojiao ç›¸å…³å·¥åŒ æŠ€èƒ½çš„è¥¿æ–‡ä»£ç  from id æ¥å­¦ä¹ ä½ æƒ³è¦çš„"+skill_name+"ä¹‹æœ¯ã€‚\n"NOR);
+		//tell_object(me, YEL "æ¯”å¦‚ä½ è¦å­¦ä¹ æ‰“é€ å‰‘ï¼Œä½ å¯ä»¥è¾“å…¥taojiao swordã€‚\n"NOR);
 		return 1;
 	}
 	
 	if( member_array(arg,vb) == -1 ){
 	command("ah");
-	return notify_fail(this_object()->name()+"²»Ôø¼ÇµÃÊÇ·ñ»¹ÓĞ´Ë¼¼°¡¡­¡­\n");
+	return notify_fail(this_object()->name()+"ä¸æ›¾è®°å¾—æ˜¯å¦è¿˜æœ‰æ­¤æŠ€å•Šâ€¦â€¦\n");
 	}
 	if (mapp(myskill)){
 		vb = keys(myskill);
 		if( member_array(arg,vb) != -1 ){
 		command("shake");
-		return notify_fail("Äã¼ÈÈ»ÒÑ¾­Ñ§»á´Ë¼¼£¬ºÎ±ØÀË·Ñ»úÓöÄØ£¿\n");
+		return notify_fail("ä½ æ—¢ç„¶å·²ç»å­¦ä¼šæ­¤æŠ€ï¼Œä½•å¿…æµªè´¹æœºé‡å‘¢ï¼Ÿ\n");
 		}
 		
 		if (skill!="" && me->query_skill(skill,1) / 30 <= sizeof(vb) ){
-		command("say Äã"+skill_name+"Ö®ÊõÑ§ÒÕ²»¾«£¬ÔÙ¶àµÄÊéÒ²Ã»ÓĞÓÃ£¬»¹ÊÇÏÈ»ØÈ¥°É£¬Õâ´Î»ú»áÎÒ¸øÄã±£Áô×Å£¬µÈÄã"+skill_name+"Ö®Êõ¸ßÊ±ÕÒÎÒ²»³Ù£¡");
-		//command("say ÒÀÎÒ¿´£¬ÄãÄ¿Ç°µÄ¼¼ÄÜ×î¶à¿ÉÒÔÑ§"+HIY+chinese_number(me->query_skill("forging",1) / 30)+NOR+"Ïî´òÔìÏîÄ¿");
+		command("say ä½ "+skill_name+"ä¹‹æœ¯å­¦è‰ºä¸ç²¾ï¼Œå†å¤šçš„ä¹¦ä¹Ÿæ²¡æœ‰ç”¨ï¼Œè¿˜æ˜¯å…ˆå›å»å§ï¼Œè¿™æ¬¡æœºä¼šæˆ‘ç»™ä½ ä¿ç•™ç€ï¼Œç­‰ä½ "+skill_name+"ä¹‹æœ¯é«˜æ—¶æ‰¾æˆ‘ä¸è¿Ÿï¼");
+		//command("say ä¾æˆ‘çœ‹ï¼Œä½ ç›®å‰çš„æŠ€èƒ½æœ€å¤šå¯ä»¥å­¦"+HIY+chinese_number(me->query_skill("forging",1) / 30)+NOR+"é¡¹æ‰“é€ é¡¹ç›®");
 		return 1;
 		}
 	}
@@ -261,7 +261,7 @@ int do_taojiao(string arg)
 	me->set("forging/"+arg,1);
 	me->delete("dazao/give");
 	if(stringp(get_chinese[arg])) arg = get_chinese[arg];
-	message_vision("$NÏò$n×ĞÏ¸ÌÖ½ÌÁËÓĞ¹Ø"+HIY+arg+NOR+"·½ÃæµÄ´òÔìÖªÊ¶¡£\n",me,  this_object());
-	tell_object(me, WHT "ÄãÑ§»áÁËµÄ"+HIY+arg+WHT+"·½Ãæ´òÔìÖªÊ¶£¬¸Ğ¾õ×Ô¼ºµÄ"+skill_name+"ÊõÒ²ÓĞËùÌá¸ß¡£\n"NOR);
+	message_vision("$Nå‘$nä»”ç»†è®¨æ•™äº†æœ‰å…³"+HIY+arg+NOR+"æ–¹é¢çš„æ‰“é€ çŸ¥è¯†ã€‚\n",me,  this_object());
+	tell_object(me, WHT "ä½ å­¦ä¼šäº†çš„"+HIY+arg+WHT+"æ–¹é¢æ‰“é€ çŸ¥è¯†ï¼Œæ„Ÿè§‰è‡ªå·±çš„"+skill_name+"æœ¯ä¹Ÿæœ‰æ‰€æé«˜ã€‚\n"NOR);
 	return 1;
 }

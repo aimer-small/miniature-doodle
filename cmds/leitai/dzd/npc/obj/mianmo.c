@@ -7,19 +7,19 @@ int do_zhuang(string arg);
 
 void create()
 {
-	set_name("ÃæÄ¤",({"mian mo","mian","mo"}));
+	set_name("é¢è†œ",({"mian mo","mian","mo"}));
 	set_weight(50);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ö");
+		set("unit", "ä¸ª");
 		set("value",1000);
                 set("material", "cloth");   
              set("dzd",1);
              
                 set("long",@LONG
-ÃæÄ¤£¿ÃÀÈÝÓÃµÄ£¿Å¶Ô­À´ÊÇ°¢ÖìÔø¾­ÓÃ¹ýµÄÃæÄ¤£¬²»ÖªµÀÓÐÊ²Ã´Ææ¹ÖµÄÓÃÍ¾¡£
-Äã¿ÉÒÔ³¢ÊÔÒ»ÏÂÎ±×°(weizhuang)¡£
+é¢è†œï¼Ÿç¾Žå®¹ç”¨çš„ï¼Ÿå“¦åŽŸæ¥æ˜¯é˜¿æœ±æ›¾ç»ç”¨è¿‡çš„é¢è†œï¼Œä¸çŸ¥é“æœ‰ä»€ä¹ˆå¥‡æ€ªçš„ç”¨é€”ã€‚
+ä½ å¯ä»¥å°è¯•ä¸€ä¸‹ä¼ªè£…(weizhuang)ã€‚
 LONG
 		);
 	}
@@ -44,7 +44,7 @@ void weizhuang_back(object ob)
 	delete_temp("zb_id");
 	delete_temp("zb_master");	
 	
-	tell_object(ob,"Äã»Ö¸´ÁËÄãÔ­À´µÄÃæÄ¿¡£\n");
+	tell_object(ob,"ä½ æ¢å¤äº†ä½ åŽŸæ¥çš„é¢ç›®ã€‚\n");
 }
 
 int do_zhuang(string arg)
@@ -57,7 +57,7 @@ int do_zhuang(string arg)
         
         if(query_temp("zb_id")==arg || (!query_temp("zb_id") && arg==getuid(ob)  )  )
         {
-        	return notify_fail("ÄãÕýÔÚÎ±×°³É´ËÈË¡£\n");
+        	return notify_fail("ä½ æ­£åœ¨ä¼ªè£…æˆæ­¤äººã€‚\n");
         }
         
         if(arg==getuid(ob))
@@ -67,12 +67,12 @@ int do_zhuang(string arg)
         }
         if(!objectp(target = LOGIN_D->find_body(arg)))
         {
-        	return notify_fail("ÓÐÕâ¸öÈËÃ´£¿\n");	
+        	return notify_fail("æœ‰è¿™ä¸ªäººä¹ˆï¼Ÿ\n");	
         }        
         //if(wizlevel(target) > wizleve(ob) )
-        //	return notify_fail("Äã·´À²Äã£¿£¿\n");
+        //	return notify_fail("ä½ åå•¦ä½ ï¼Ÿï¼Ÿ\n");
         //
-        if(wizardp(target)) return notify_fail("Äã¼¼Êõ²»µ½¼Ò£¬Î±×°²»³É"+target->name()+"¡£\n");
+        if(wizardp(target)) return notify_fail("ä½ æŠ€æœ¯ä¸åˆ°å®¶ï¼Œä¼ªè£…ä¸æˆ"+target->name()+"ã€‚\n");
         //ob->set_temp("apply/name",({target->name(),}));
         //ob->set_temp("apply/id",({target->query("id"),}));
         ob->set_temp("apply/short",({target->short(1),}));        
@@ -81,7 +81,7 @@ int do_zhuang(string arg)
         set_temp("zb_id",arg);
         set_temp("zb_master",ob);
         
-        tell_object(ob,"ÄãºÙºÙµÃ¼éÐ¦ÁË¼¸ÏÂ¡£¿´À´ÄãÒÑ¾­³É¹¦µÄ°Ñ×Ô¼º¼Ù°ç³É"+target->query("name")+"¡£\n");
+        tell_object(ob,"ä½ å˜¿å˜¿å¾—å¥¸ç¬‘äº†å‡ ä¸‹ã€‚çœ‹æ¥ä½ å·²ç»æˆåŠŸçš„æŠŠè‡ªå·±å‡æ‰®æˆ"+target->query("name")+"ã€‚\n");
          
         return 1;
 }

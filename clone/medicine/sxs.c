@@ -1,16 +1,16 @@
-// É¢
+// æ•£
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-        set_name(HIB "ÈýÐ¦åÐÒ£É¢" NOR, ({ "sanxiao san", "san" }));
+        set_name(HIB "ä¸‰ç¬‘é€é¥æ•£" NOR, ({ "sanxiao san", "san" }));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°ü");
-                set("long", "Ò»°üÀ¶É«µÄÉ¢¼Á£¬Ò»¿´¾Íº¬ÓÐ¾ç¶¾¡£\n");
+                set("unit", "åŒ…");
+                set("long", "ä¸€åŒ…è“è‰²çš„æ•£å‰‚ï¼Œä¸€çœ‹å°±å«æœ‰å‰§æ¯’ã€‚\n");
                 set("value", 1000);
                 set("material", "paper");   
                 set("no_sell", 1);             
@@ -32,30 +32,30 @@ int do_tan(string arg)
        me = this_player(); 
        fam = me->query("family");  
 
-       if (!fam || fam["family_name"] != "ÐÇËÞÅÉ")
-               return notify_fail("Äã²»ÊÇÐÇËÞµÜ×Ó£¬ËùÒÔ²»¶®Õâ¸ö¶«Î÷ÈçºÎÊ¹ÓÃ¡£\n");
+       if (!fam || fam["family_name"] != "æ˜Ÿå®¿æ´¾")
+               return notify_fail("ä½ ä¸æ˜¯æ˜Ÿå®¿å¼Ÿå­ï¼Œæ‰€ä»¥ä¸æ‡‚è¿™ä¸ªä¸œè¥¿å¦‚ä½•ä½¿ç”¨ã€‚\n");
 
        if( me->is_busy() || me->is_fighting())
-               return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+               return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-       if (!arg) return notify_fail("ÄãÒª¶ÔË­ÏÂÊÖ£¿\n");       
+       if (!arg) return notify_fail("ä½ è¦å¯¹è°ä¸‹æ‰‹ï¼Ÿ\n");       
 
        ob = present(arg, environment(me));
-       if (!ob) return notify_fail("ÕÒ²»µ½Õâ¸öÉúÎï¡£\n");
+       if (!ob) return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªç”Ÿç‰©ã€‚\n");
 
        i = ob->query_skill("dodge", 1) + ob->query_skill("parry", 1);
        i = random(i/2) - 20;
 
        if( environment(me)->query("no_fight") )
-                return notify_fail("Äã²»ÄÜÔÚÕâÀï¶¯ÊÖ¡£\n");
+                return notify_fail("ä½ ä¸èƒ½åœ¨è¿™é‡ŒåŠ¨æ‰‹ã€‚\n");
 
        if(me->is_busy())
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
        if(me->query("neili") < 500)
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»ÓÃÀ´¶¯ÊÖ¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç”¨æ¥åŠ¨æ‰‹ã€‚\n");
 
-       msg = BLU"\n$NÇáÇá»ÓÁË»ÓÐäÅÛ£¡\n"NOR;       
+       msg = BLU"\n$Nè½»è½»æŒ¥äº†æŒ¥è¢–è¢ï¼\n"NOR;       
        me->start_busy(2);
        me->add("neili", -100);
        me->add("jingli", -20);
@@ -65,8 +65,8 @@ int do_tan(string arg)
               ob->apply_condition("sxs_poison", 5);
        }
        else {
-          msg +=RED"$nÆ¾×ÅÉîºñµÄÄÚÁ¦£¬½«ÈýÐ¦É¢µÄÍþÁ¦Ó²ÉúÉú¶¥ÁË»ØÈ¥¡£\n"NOR;
-          msg +=RED"$N¸Ð¾õµ½ÈýÐ¦É¢µÄ¶¾ÒÑ¾­ÇÖÈëÁË×Ô¼ºÌåÄÚ¡£"NOR;
+          msg +=RED"$nå‡­ç€æ·±åŽšçš„å†…åŠ›ï¼Œå°†ä¸‰ç¬‘æ•£çš„å¨åŠ›ç¡¬ç”Ÿç”Ÿé¡¶äº†å›žåŽ»ã€‚\n"NOR;
+          msg +=RED"$Næ„Ÿè§‰åˆ°ä¸‰ç¬‘æ•£çš„æ¯’å·²ç»ä¾µå…¥äº†è‡ªå·±ä½“å†…ã€‚"NOR;
           ob->add("jingli", -50);
           me->apply_condition("sxs_poison", 5);
        }              

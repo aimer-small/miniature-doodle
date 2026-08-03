@@ -17,47 +17,47 @@ int perform(object me,object target)
          || !me->is_fighting(target)
          || !objectp(target)
          || environment(target)!= environment(me))
-                return notify_fail("µ¶Ó°ÕÆÖ»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");                
+                return notify_fail("åˆ€å½±æŽŒåªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");                
 
         if( (int)me->query_skill("shenyuan-gong", 1) < 100 )
-                return notify_fail("ÄãµÄÄÚ¹¦»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃµ¶Ó°ÕÆ£¡\n");    
+                return notify_fail("ä½ çš„å†…åŠŸè¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨åˆ€å½±æŽŒï¼\n");    
 
         if( (int)me->query_skill("murong-daofa", 1) < 100 )
-                return notify_fail("ÄãµÄµ¶·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃµ¶Ó°ÕÆ£¡\n");        
+                return notify_fail("ä½ çš„åˆ€æ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨åˆ€å½±æŽŒï¼\n");        
 
         if (!weapon
          || weapon->query("skill_type") != "blade"
          || me->query_skill_mapped("blade") != "murong-daofa")
-                return notify_fail("ÄãÊÖÀïÃ»ÓÐµ¶£¬ÎÞ·¨Ê¹ÓÃµ¶Ó°ÕÆ£¡\n");
+                return notify_fail("ä½ æ‰‹é‡Œæ²¡æœ‰åˆ€ï¼Œæ— æ³•ä½¿ç”¨åˆ€å½±æŽŒï¼\n");
 
         if((int)me->query_skill("xingyi-zhang", 1) < 100 )
-                return notify_fail("ÄãµÄÕÆ·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃµ¶Ó°ÕÆ£¡\n");  
+                return notify_fail("ä½ çš„æŽŒæ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨åˆ€å½±æŽŒï¼\n");  
 /*
         if(me->query_skill_mapped("force") != "shenyuan-gong")
-                return notify_fail("ÄãµÄÄÚ¹¦²»ÊÇÉñÔª¹¦£¬ÎÞ·¨Ê¹ÓÃµ¶Ó°ÕÆ£¡\n");      
+                return notify_fail("ä½ çš„å†…åŠŸä¸æ˜¯ç¥žå…ƒåŠŸï¼Œæ— æ³•ä½¿ç”¨åˆ€å½±æŽŒï¼\n");      
 */
         if(me->query_skill_mapped("strike") != "xingyi-zhang" 
          || me->query_skill_prepared("strike") != "xingyi-zhang")
-                return notify_fail("ÄãÃ»ÓÐÓÃÕÆ£¬ÎÞ·¨Ê¹ÓÃµ¶Ó°ÕÆ£¡\n");
+                return notify_fail("ä½ æ²¡æœ‰ç”¨æŽŒï¼Œæ— æ³•ä½¿ç”¨åˆ€å½±æŽŒï¼\n");
 
         if(me->query_skill_mapped("parry") != "xingyi-zhang")
         if(me->query_skill_mapped("parry") != "douzhuan-xingyi")
          if(me->query_skill_mapped("parry") != "murong-daofa")
-                return notify_fail("ÄãµÄÕÐ¼Ü¹¦·ò²»¶Ô£¬ÎÞ·¨Ê¹ÓÃµ¶Ó°ÕÆ£¡\n");
+                return notify_fail("ä½ çš„æ‹›æž¶åŠŸå¤«ä¸å¯¹ï¼Œæ— æ³•ä½¿ç”¨åˆ€å½±æŽŒï¼\n");
 
         if((int)me->query("max_neili") < 1200 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦ÐÞÎª²»¹»£¬²»ÄÜÊ¹ÓÃµ¶Ó°ÕÆ£¡\n");      
+                return notify_fail("ä½ çŽ°åœ¨å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨åˆ€å½±æŽŒï¼\n");      
 
         if((int)me->query("neili") < 600 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»×ã£¬²»ÄÜÊ¹ÓÃµ¶Ó°ÕÆ£¡\n");      
+                return notify_fail("ä½ çŽ°åœ¨å†…åŠ›ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨åˆ€å½±æŽŒï¼\n");      
 
         if((int)me->query_skill("blade", 1) < 100 )
-                return notify_fail("ÄãµÄ»ù±¾µ¶·¨²»¹»æµÊì£¬²»ÄÜÔÚµ¶ÕÐÖÐ¼ÐÔÓÊ¹ÓÃµ¶Ó°ÕÆ¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬åˆ€æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨åˆ€æ‹›ä¸­å¤¹æ‚ä½¿ç”¨åˆ€å½±æŽŒã€‚\n");
 
         if((int)me->query_skill("strike", 1) < 100 )
-                return notify_fail("ÄãµÄ»ù±¾ÕÆ·¨²»¹»æµÊì£¬²»ÄÜÔÚµ¶ÕÐÖÐ¼ÐÔÓÊ¹ÓÃµ¶Ó°ÕÆ¡£\n");     
+                return notify_fail("ä½ çš„åŸºæœ¬æŽŒæ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨åˆ€æ‹›ä¸­å¤¹æ‚ä½¿ç”¨åˆ€å½±æŽŒã€‚\n");     
 
-        message_vision(HIR"\n$N´óºðÒ»ÉùÊ¹³öÄ½ÈÝ¾ø¼¼¡¸µ¶Ó°ÕÆ¡¹£¬Ö»¼û$PÕÆËæµ¶×ß£¬Æ¬Æ¬µ¶¹âÖÐ¼ÐÔÓ×ÅÕóÕóÕÆ·çÒ»Æð±¼Ïò$n£¡\n"NOR, me,target);
+        message_vision(HIR"\n$Nå¤§å¼ä¸€å£°ä½¿å‡ºæ…•å®¹ç»æŠ€ã€Œåˆ€å½±æŽŒã€ï¼Œåªè§$PæŽŒéšåˆ€èµ°ï¼Œç‰‡ç‰‡åˆ€å…‰ä¸­å¤¹æ‚ç€é˜µé˜µæŽŒé£Žä¸€èµ·å¥”å‘$nï¼\n"NOR, me,target);
 if(j<= 300 && !userp(target))
  { j = j * 2;
   target->add_busy(2);
@@ -67,7 +67,7 @@ if(j<= 300 && !userp(target))
         me->set_temp("mr_daoying",1);
         me->add("neili", -200); 
         me->add("jingli", -50);
-        me->start_perform(4,"µ¶Ó°ÕÆ");  
+        me->start_perform(4,"åˆ€å½±æŽŒ");  
         me->add_temp("apply/attack", j); 
         me->add_temp("apply/strength",j /10);
         me->add_temp("apply/blade",j);
@@ -108,4 +108,4 @@ if(me->query_skill("shenyuan-gong",1)<=450 )
         me->delete_temp("mr_daoying");
         return 1;
 }
-string perform_name(){ return HIR"µ¶Ó°ÕÆ"NOR; }
+string perform_name(){ return HIR"åˆ€å½±æŽŒ"NOR; }

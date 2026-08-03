@@ -1,15 +1,15 @@
 #include <ansi.h>
-//skill level Ìá¸ß
+//skill level æé«˜
 inherit NPC;
 inherit F_MASTER;
 
 
 void create()
 {
-        set_name("¶¡Ãã", ({ "ding mian", "ding", "mian" }));
-        set("nickname", "ÍÐËþÊÖ");
-        set("long", "ÕâÊÇÎ»·ÊÅÖµÄÀÏÕß£¬ËûÉí²Ä¿ýÎ°£¬ÊÇáÔÉ½ÅÉÕÆÃÅÈËµÄ¶þÊ¦µÜÍÐËþÊÖ¶¡Ãã¡£\n");
-        set("gender", "ÄÐÐÔ");
+        set_name("ä¸å‹‰", ({ "ding mian", "ding", "mian" }));
+        set("nickname", "æ‰˜å¡”æ‰‹");
+        set("long", "è¿™æ˜¯ä½è‚¥èƒ–çš„è€è€…ï¼Œä»–èº«æé­ä¼Ÿï¼Œæ˜¯åµ©å±±æ´¾æŽŒé—¨äººçš„äºŒå¸ˆå¼Ÿæ‰˜å¡”æ‰‹ä¸å‹‰ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 51);
         set("per", 18);
         set("attitude", "heroism");
@@ -43,11 +43,11 @@ void create()
         set("max_neili", 3500);
     map_skill("sword", "songshan-jian");
     prepare_skill("strike", "songyang-zhang");
-    create_family("áÔÉ½ÅÉ", 4, "µÜ×Ó");
+    create_family("åµ©å±±æ´¾", 4, "å¼Ÿå­");
     
     set("inquiry", ([
-                "¾ø¼¼": "Õâ¾øÕÐÓÐ¸öÃû×Ö½Ð£º¡¸¾þ¼«ÉñÕÆ(junji)¡¹£¬È¡×Ô´Ë¾þ¼«·å¡£",
-                "´óáÔÑôÉñÕÆ": "ºÙºÙ£¬Ïëµ±ÄêÎÒÁ½ÕÆÕðÉËºãÉ½¶¨ÒÝÀÏÄá£¬ÓÃµÄ¾ÍÊÇÕâÌ×ÕÆ·¨µÄ¾ø¼¼¡£",
+                "ç»æŠ€": "è¿™ç»æ‹›æœ‰ä¸ªåå­—å«ï¼šã€Œå³»æžç¥žæŽŒ(junji)ã€ï¼Œå–è‡ªæ­¤å³»æžå³°ã€‚",
+                "å¤§åµ©é˜³ç¥žæŽŒ": "å˜¿å˜¿ï¼Œæƒ³å½“å¹´æˆ‘ä¸¤æŽŒéœ‡ä¼¤æ’å±±å®šé€¸è€å°¼ï¼Œç”¨çš„å°±æ˜¯è¿™å¥—æŽŒæ³•çš„ç»æŠ€ã€‚",
         ]));
     set("chat_chance_combat", 10);
     set("chat_msg_combat", ({
@@ -63,10 +63,10 @@ void attempt_apprentice(object ob)
      if(ob->query_skill("songshan-qigong",1) < 90 ||
         ob->query_skill("songshan-jian",1) < 90 ||
         ob->query_skill("songyang-zhang",1) < 90){
-        command("say ÄãµÄÎä¹¦»¹²»¹»æµÊì£¬ÔÙ»ØÈ¥Á·Á·°É¡£");
+        command("say ä½ çš„æ­¦åŠŸè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œå†å›žåŽ»ç»ƒç»ƒå§ã€‚");
         return;
         }
-     command("say ºÃ°É£¬¿´Ñù×ÓÄã»¹Ëã¸öÁ·ÎäµÄÁÏ¡£");
+     command("say å¥½å§ï¼Œçœ‹æ ·å­ä½ è¿˜ç®—ä¸ªç»ƒæ­¦çš„æ–™ã€‚");
      command("recruit " + ob->query("id"));
 }
 

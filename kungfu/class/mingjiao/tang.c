@@ -1,16 +1,16 @@
-// tang.c ÌÆÑó
+// tang.c å”æ´‹
 // Modify By River@sj 99.06
 inherit NPC;
 string ask_xunluo();
 string ask_jihe();
 void create()
 {
-        set_name("ÌÆÑó", ({ "tang yang", "tang", "yang" }));
-        set("gender", "ÄĞĞÔ");
-        create_family("Ã÷½Ì",37,"µÜ×Ó");
+        set_name("å”æ´‹", ({ "tang yang", "tang", "yang" }));
+        set("gender", "ç”·æ€§");
+        create_family("æ˜æ•™",37,"å¼Ÿå­");
         set("age", 44);                
-        set("rank_info/respect","ÆìÖ÷");
-        set("title","Ã÷½ÌºéË®ÆìÕÆÆìÊ¹");
+        set("rank_info/respect","æ——ä¸»");
+        set("title","æ˜æ•™æ´ªæ°´æ——æŒæ——ä½¿");
         set("str", 25);
         set("int", 20);
         set("con", 24);
@@ -41,8 +41,8 @@ void create()
         map_skill("cuff","taizu-quan");
         prepare_skill("cuff","taizu-quan");
         set("inquiry", ([
-                "»­Ó¡"  : (: ask_xunluo :),
-                "¼¯ºÏ"  : (: ask_jihe :),
+                "ç”»å°"  : (: ask_xunluo :),
+                "é›†åˆ"  : (: ask_jihe :),
         ]));
         set("xl", 5);
         set("xl2", "tang");      
@@ -54,17 +54,17 @@ void create()
 string ask_jihe()
 {
         if (!this_player()->query_temp("mj/ling"))
-           return "¼¯ºÏÊ²Ã´Ñ½£¿³Ô·¹Ê±¼äµ½ÁË£¿";
+           return "é›†åˆä»€ä¹ˆå‘€ï¼Ÿåƒé¥­æ—¶é—´åˆ°äº†ï¼Ÿ";
         command("nod");
-        command("say ÎÒÁ¢¿Ìµ½¹âÃ÷¶¥¹ã³¡¼¯ºÏ¡£");
+        command("say æˆ‘ç«‹åˆ»åˆ°å…‰æ˜é¡¶å¹¿åœºé›†åˆã€‚");
         this_object()->move("/d/mingjiao/gmd");
-        return "ÄãÈ¥ÇëÆäËûµÄÆìÊ¹°É";
+        return "ä½ å»è¯·å…¶ä»–çš„æ——ä½¿å§";
 }
 
 void attempt_apprentice(object ob)
 {     
-        command("say ÓÉÓÚ½ÌÊÂ·±Ã¦£¬ÎÒÒÑĞí¾Ã²»ÊÕµÜ×ÓÁË¡£");
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"»¹ÊÇÇë»Ø°É¡£");
+        command("say ç”±äºæ•™äº‹ç¹å¿™ï¼Œæˆ‘å·²è®¸ä¹…ä¸æ”¶å¼Ÿå­äº†ã€‚");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"è¿˜æ˜¯è¯·å›å§ã€‚");
         return;
 }
 

@@ -1,4 +1,4 @@
-// gcreate.c  ¿ª°ï
+// gcreate.c  å¼€å¸®
 // by augx@sj 4/11/2002
 
 // Modified by mxzhao 2004/02/18
@@ -8,29 +8,29 @@ inherit F_CLEAN_UP;
 #include <mudlib.h>
 #include <group.h>
 
-nosave string * valid_group_name = ({ "°ï","»á","ÃÅ","ÅÉ","Â¥","É½","½Ì","µº","¹¬","ÃË","¹È","¹İ","¹Û","Ôº","±¤","Ô°","µê",
-				      "·»","¸ó","ÌÃ","¶æ","¶´","ËÂ","Ô´","Ãí","×¯","×å","ÍÅ", "¸®", "Õ¯", "×é","³Ç" });				      
-nosave string * invalid_group_name = ({ "Ø¤°ï","Îäµ±ÅÉ","ÉÙÁÖÅÉ" });
+nosave string * valid_group_name = ({ "å¸®","ä¼š","é—¨","æ´¾","æ¥¼","å±±","æ•™","å²›","å®«","ç›Ÿ","è°·","é¦†","è§‚","é™¢","å ¡","å›­","åº—",
+				      "åŠ","é˜","å ‚","èˆµ","æ´","å¯º","æº","åº™","åº„","æ—","å›¢", "åºœ", "å¯¨", "ç»„","åŸ" });				      
+nosave string * invalid_group_name = ({ "ä¸å¸®","æ­¦å½“æ´¾","å°‘æ—æ´¾" });
 nosave string * invalid_group_id = ({ "obj","npc","entry" });
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
-gcreate [°ïÅÉÖĞÎÄÃû(¶şÖÁÁù¸öºº×Ö)] [°ïÅÉÓ¢ÎÄ±íÊ¾(3µ½8¸öÓ¢ÎÄ×ÖÄ¸)]
-        [Ê×ÄÔµÄ³ÆÎ½Ò»] [Ê×ÄÔµÄ³ÆÎ½¶ş] [Ê×ÄÔµÄ³ÆÎ½Èı] [°ïÖÚµÄ³ÆÎ½]
+æŒ‡ä»¤æ ¼å¼ :
+gcreate [å¸®æ´¾ä¸­æ–‡å(äºŒè‡³å…­ä¸ªæ±‰å­—)] [å¸®æ´¾è‹±æ–‡è¡¨ç¤º(3åˆ°8ä¸ªè‹±æ–‡å­—æ¯)]
+        [é¦–è„‘çš„ç§°è°“ä¸€] [é¦–è„‘çš„ç§°è°“äºŒ] [é¦–è„‘çš„ç§°è°“ä¸‰] [å¸®ä¼—çš„ç§°è°“]
 
-Õâ¸öÖ¸ÁîÈÃÄã¿ªÉè×Ô¼ºµÄ°ïÅÉ¡£°ïÅÉÖĞÎÄÃûºÍÊ×ÁìµÄ³ÆÎ½ÖĞ¿ÉÒÔ´øÓĞÉ«²Ê×Ö´®£¬
-¾ßÌå¼ÓÑÕÉ«µÄ·½Ê½ºÍnickÃüÁîÏàÍ¬£¬Çë²Î¼ûhelp nick¡£
-°ïÅÉÖĞÎÄÃûµÄ×îºóÒ»¸ö×Ö£¬±ØĞëÊÇÏÂÁĞÎÄ×ÖÖ®Ò»£º
-    °ï¡¢»á¡¢ÃÅ¡¢ÅÉ¡¢Â¥¡¢É½¡¢½Ì¡¢ÃË¡¢µº¡¢¹¬¡¢¹È¡¢¹İ¡¢×¯¡¢ÍÅ¡¢¸®¡¢µê¡¢
-    ¹Û¡¢Ôº¡¢±¤¡¢Ô°¡¢·»¡¢¸ó¡¢ÌÃ¡¢¶æ¡¢¶´¡¢ËÂ¡¢Ô´¡¢Ãí¡¢×å¡¢×é¡¢Õ¯¡¢³Ç¡£
-°ïÅÉÃû³Æ¡¢Ó¢ÎÄ±íÊ¾¡¢Ê×Áì³ÆÎ½ÖĞÇëÎğÊ¹ÓÃ²»µ±(ÕşÖÎĞÔ¡¢Òù»à)£¬»ò¿ÉÄÜÒıÆğ»ì
-Ïı(½ğÓ¹Ğ¡ËµÖĞÒÑÓĞµÄÃÅÅÉ)µÄÎÄ×Ö¡£·ñÔò½«É¾³ı´Ë°ïÅÉ£¬²¢¸ù¾İÇé½ÚÇáÖØ¸øÓèÏà
-Ó¦´¦·£¡£Ê×ÁìµÄ³ÆÎ½¾ÍÊÇÖ¸¡°°ïÖ÷¡±£¬¡°¸±°ïÖ÷¡±......
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ å¼€è®¾è‡ªå·±çš„å¸®æ´¾ã€‚å¸®æ´¾ä¸­æ–‡åå’Œé¦–é¢†çš„ç§°è°“ä¸­å¯ä»¥å¸¦æœ‰è‰²å½©å­—ä¸²ï¼Œ
+å…·ä½“åŠ é¢œè‰²çš„æ–¹å¼å’Œnickå‘½ä»¤ç›¸åŒï¼Œè¯·å‚è§help nickã€‚
+å¸®æ´¾ä¸­æ–‡åçš„æœ€åä¸€ä¸ªå­—ï¼Œå¿…é¡»æ˜¯ä¸‹åˆ—æ–‡å­—ä¹‹ä¸€ï¼š
+    å¸®ã€ä¼šã€é—¨ã€æ´¾ã€æ¥¼ã€å±±ã€æ•™ã€ç›Ÿã€å²›ã€å®«ã€è°·ã€é¦†ã€åº„ã€å›¢ã€åºœã€åº—ã€
+    è§‚ã€é™¢ã€å ¡ã€å›­ã€åŠã€é˜ã€å ‚ã€èˆµã€æ´ã€å¯ºã€æºã€åº™ã€æ—ã€ç»„ã€å¯¨ã€åŸã€‚
+å¸®æ´¾åç§°ã€è‹±æ–‡è¡¨ç¤ºã€é¦–é¢†ç§°è°“ä¸­è¯·å‹¿ä½¿ç”¨ä¸å½“(æ”¿æ²»æ€§ã€æ·«ç§½)ï¼Œæˆ–å¯èƒ½å¼•èµ·æ··
+æ·†(é‡‘åº¸å°è¯´ä¸­å·²æœ‰çš„é—¨æ´¾)çš„æ–‡å­—ã€‚å¦åˆ™å°†åˆ é™¤æ­¤å¸®æ´¾ï¼Œå¹¶æ ¹æ®æƒ…èŠ‚è½»é‡ç»™äºˆç›¸
+åº”å¤„ç½šã€‚é¦–é¢†çš„ç§°è°“å°±æ˜¯æŒ‡â€œå¸®ä¸»â€ï¼Œâ€œå‰¯å¸®ä¸»â€......
 
-ÀıÈç£ºgcreate $YEL$¸«Í·°ï futou °ïÖ÷ ¸±°ïÖ÷ ÌÃÖ÷ °ïÖÚ
-      gcreate $MAG$·çÓê$GRN$Â¥ fengyu $MAG$Â¥Ö÷ ¸±Â¥Ö÷ ÏãÖ÷ µÜ×Ó
+ä¾‹å¦‚ï¼šgcreate $YEL$æ–§å¤´å¸® futou å¸®ä¸» å‰¯å¸®ä¸» å ‚ä¸» å¸®ä¼—
+      gcreate $MAG$é£é›¨$GRN$æ¥¼ fengyu $MAG$æ¥¼ä¸» å‰¯æ¥¼ä¸» é¦™ä¸» å¼Ÿå­
 
 HELP
 	);
@@ -47,14 +47,14 @@ int main(object me, string arg)
 		return help(me);
 		
 	if( me->query("registered") < 3 )
-		return notify_fail("±§Ç¸£¬µ±Ç°Ö»ÔÊĞí¹ó±öÍæ¼Ò²ÅÄÜ´´½¨°ïÅÉ£¬ÈçºÎ¼ÓÈë¹ó±öÇë "HIG"help vip"NOR" ½øĞĞä¯ÀÀ¡£\n");
+		return notify_fail("æŠ±æ­‰ï¼Œå½“å‰åªå…è®¸è´µå®¾ç©å®¶æ‰èƒ½åˆ›å»ºå¸®æ´¾ï¼Œå¦‚ä½•åŠ å…¥è´µå®¾è¯· "HIG"help vip"NOR" è¿›è¡Œæµè§ˆã€‚\n");
 
 	if( me->query("combat_exp") < EXP_REQUIRE )
-		return notify_fail("ÄãµÄ×ÊÀúÌ«Ç³£¬¿ÖÅÂÄÑÒÔ×éÖ¯Æğ×Ô¼ºµÄ°ïÅÉ¡£\n");
+		return notify_fail("ä½ çš„èµ„å†å¤ªæµ…ï¼Œææ€•éš¾ä»¥ç»„ç»‡èµ·è‡ªå·±çš„å¸®æ´¾ã€‚\n");
 	if( me->query("group/class") == 1 )
-		return notify_fail("ÄãÒÑ¾­×éÖ¯ÁË×Ô¼ºµÄ°ïÅÉ¡£\n");
+		return notify_fail("ä½ å·²ç»ç»„ç»‡äº†è‡ªå·±çš„å¸®æ´¾ã€‚\n");
 	if( me->query("group/id") )
-		return notify_fail("ÄãÒÑ¾­¼ÓÈëÁË±ğµÄ°ïÅÉ¡£\n");
+		return notify_fail("ä½ å·²ç»åŠ å…¥äº†åˆ«çš„å¸®æ´¾ã€‚\n");
 
 
 
@@ -69,23 +69,23 @@ int main(object me, string arg)
 	gname2 = strip(gname);
 	printf("%s\n",gname2);
 	if( (strlen(gname2)%2)==1 || strlen(gname2)<4 || strlen(gname2)>12 || strlen(gid)<4 || strlen(gid)>8 )
-		return notify_fail("°ïÅÉÖĞÎÄÃû»òÓ¢ÎÄ±êÊ¶³¤¶È²»·ûºÏÒªÇó£¬Çë²Î¼ûhelp group¡£\n");
+		return notify_fail("å¸®æ´¾ä¸­æ–‡åæˆ–è‹±æ–‡æ ‡è¯†é•¿åº¦ä¸ç¬¦åˆè¦æ±‚ï¼Œè¯·å‚è§help groupã€‚\n");
 
 	for(i=0;i<sizeof(valid_group_name);i++)
 		if( gname2[<2..<1] == valid_group_name[i] ) break;
 	if( i >= sizeof(valid_group_name) )
-		return notify_fail("°ïÅÉÖĞÎÄÃû×îºóÒ»¸ö×Ö²»·ûºÏÒªÇó£¬²Î¼ûhelp group¡£\n");
+		return notify_fail("å¸®æ´¾ä¸­æ–‡åæœ€åä¸€ä¸ªå­—ä¸ç¬¦åˆè¦æ±‚ï¼Œå‚è§help groupã€‚\n");
 
 	for(i=0;i<sizeof(invalid_group_name);i++)
 		if( gname2 == invalid_group_name[i] ) break;
 	if( i < sizeof(invalid_group_name) )
-		return notify_fail("°ïÅÉÃû³Æ²»·ûºÏÒªÇó£¬²Î¼ûhelp group¡£\n");
+		return notify_fail("å¸®æ´¾åç§°ä¸ç¬¦åˆè¦æ±‚ï¼Œå‚è§help groupã€‚\n");
 
 	// group id check
 	for(i=0;i<sizeof(invalid_group_id);i++)
 		if( gid == invalid_group_id[i] ) break;
 	if( i < sizeof(invalid_group_id) )
-		return notify_fail("°ïÅÉÓ¢ÎÄ±êÊ¶²»·ûºÏÒªÇó£¬²Î¼ûhelp group¡£\n");
+		return notify_fail("å¸®æ´¾è‹±æ–‡æ ‡è¯†ä¸ç¬¦åˆè¦æ±‚ï¼Œå‚è§help groupã€‚\n");
 
 
 
@@ -97,10 +97,10 @@ int main(object me, string arg)
              if( gname == mp["name"]) j++; 
                                  }
      if(j>=1)
-              return notify_fail("Õâ¸öÃû×ÖÒÑ¾­±»Ê¹ÓÃÁË£¬ÇëÁíÍâÏëÒ»¸öÏìÁÁµãµÄÃû×Ö¡£\n");
+              return notify_fail("è¿™ä¸ªåå­—å·²ç»è¢«ä½¿ç”¨äº†ï¼Œè¯·å¦å¤–æƒ³ä¸€ä¸ªå“äº®ç‚¹çš„åå­—ã€‚\n");
 
      if(GROUP_D->site_now(gid)) 
-              return notify_fail("ÒÑ¾­ÓĞÆäËû°ïÅÉÊ¹ÓÃ¹ıÕâ¸ö±êÊ¶ÁË£¬ÇëÊ¹ÓÃglistÀ´²é¿´¡£¡£\n");
+              return notify_fail("å·²ç»æœ‰å…¶ä»–å¸®æ´¾ä½¿ç”¨è¿‡è¿™ä¸ªæ ‡è¯†äº†ï¼Œè¯·ä½¿ç”¨glistæ¥æŸ¥çœ‹ã€‚ã€‚\n");
 
 
 	me->set("group/id",gid);
@@ -110,8 +110,8 @@ int main(object me, string arg)
 	mkdir("/data/npc/group/"+gid);
 	GROUP_D->create_group(me,gid,gname,title1,title2,title3,title4);
 
-	tell_object(me,sprintf("Äã½¨Á¢ÁË×Ô¼ºµÄ°ïÅÉ£º%s(%s)¡£\n",gname,gid));
-	CHANNEL_D->do_channel(me,"chat",HIY+RANK_D->query_self(me)+"½ñÈÕ¿ª´´"+gname+HIY+"("+gid+")£¬Ï£Íû¸÷Î»½­ºşÅóÓÑ¶à¶àÅõ³¡¡£"NOR);
+	tell_object(me,sprintf("ä½ å»ºç«‹äº†è‡ªå·±çš„å¸®æ´¾ï¼š%s(%s)ã€‚\n",gname,gid));
+	CHANNEL_D->do_channel(me,"chat",HIY+RANK_D->query_self(me)+"ä»Šæ—¥å¼€åˆ›"+gname+HIY+"("+gid+")ï¼Œå¸Œæœ›å„ä½æ±Ÿæ¹–æœ‹å‹å¤šå¤šæ§åœºã€‚"NOR);
 	log_file("group/group",sprintf("create :%-12s:%-8s:%-8i:%s(%s)",gname,gid,me->query("combat_exp"),me->name(),me->query("id")),me);
 
 	return 1;

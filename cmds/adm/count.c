@@ -1,7 +1,7 @@
 // count.c
 
 #include <ansi.h>
-#define SYNTAX  "÷∏¡Ó∏Ò Ω£∫count [all | a-z]\n"
+#define SYNTAX  "Êåá‰ª§Ê†ºÂºèÔºöcount [all | a-z]\n"
 
 inherit F_CLEAN_UP;
 
@@ -10,7 +10,7 @@ private int do_count_players(string letter);
 int main(object me, string arg)
 {
 	if (me != this_player(1) || wiz_level(me) < wiz_level("(arch)"))
-		return notify_fail("ƒ„√ª”–»®¡¶ π”√’‚∏ˆ÷∏¡Ó°£\n");
+		return notify_fail("‰Ω†Ê≤°ÊúâÊùÉÂäõ‰ΩøÁî®Ëøô‰∏™Êåá‰ª§„ÄÇ\n");
 
 	if( !arg )
 		return notify_fail(SYNTAX);
@@ -32,7 +32,7 @@ private int do_count_players(string letter)
 	mixed *info;
 
 	seteuid(getuid());
-	write("\n*** ’˚¿ÌÕÊº“¥¢¥Êµµ÷–£¨«Î…‘∫Ú.... ***\n");
+	write("\n*** Êï¥ÁêÜÁé©ÂÆ∂ÂÇ®Â≠òÊ°£‰∏≠ÔºåËØ∑Á®çÂÄô.... ***\n");
 	
 	if( letter == "all" ){
 		dir = get_dir(DATA_DIR + "login/");
@@ -47,10 +47,10 @@ private int do_count_players(string letter)
 					x++;
 			}
 			k += x;
-			write(" " + dir[i] + " : " + x + " Œª°£\n");
+			write(" " + dir[i] + " : " + x + " ‰Ωç„ÄÇ\n");
 			flush_messages();
 		}
-		write("\n\n◊‹π≤”– " + k + " Œª π”√’ﬂ°£\n");
+		write("\n\nÊÄªÂÖ±Êúâ " + k + " ‰Ωç‰ΩøÁî®ËÄÖ„ÄÇ\n");
 	}
 	
 	else {
@@ -60,7 +60,7 @@ private int do_count_players(string letter)
 			if (sscanf(info[j][0]+"$", "%s.o$", name)==1 ) 
 				k++;
 		}
-		write("\n“‘ " + letter + " ◊÷ƒ∏¥ÚÕ∑µƒ◊‹π≤”– " + k + " Œª π”√’ﬂ°£\n");
+		write("\n‰ª• " + letter + " Â≠óÊØçÊâìÂ§¥ÁöÑÊÄªÂÖ±Êúâ " + k + " ‰Ωç‰ΩøÁî®ËÄÖ„ÄÇ\n");
 	}
 	
 	return 1;

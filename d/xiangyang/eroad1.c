@@ -5,14 +5,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÇàÁúÃÅÄÚ½Ö");
+	set("short", "é’é¾™é—¨å†…è¡—");
 	set("long", @LONG
-ÕâÀïÊÇ¾üÊÂÖØÕòÏåÑô³ÇµÄ¶«ÃÅÄÚ£¬²»Ê±µØÓÐ¶¥¿ø¹á¼×µÄÊ¿±ø×ßÀ´×ßÈ¥¡£Ïò
-¶«³ö³Ç¿ÉÒÔ½øÈë°²»Õ¡¢½­ËÕ¾³ÄÚ¡£ÄÏ±ßÓÐÌõÐ¡Ïï£¬Ð¡ÏïÁ½±ßÖÖ×ÅÐí¶à´óÊ÷¡£±±
-ÃæÊÇÏåÑôÎä¹Ý¡£
+è¿™é‡Œæ˜¯å†›äº‹é‡é•‡è¥„é˜³åŸŽçš„ä¸œé—¨å†…ï¼Œä¸æ—¶åœ°æœ‰é¡¶ç›”è´¯ç”²çš„å£«å…µèµ°æ¥èµ°åŽ»ã€‚å‘
+ä¸œå‡ºåŸŽå¯ä»¥è¿›å…¥å®‰å¾½ã€æ±Ÿè‹å¢ƒå†…ã€‚å—è¾¹æœ‰æ¡å°å··ï¼Œå°å··ä¸¤è¾¹ç§ç€è®¸å¤šå¤§æ ‘ã€‚åŒ—
+é¢æ˜¯è¥„é˜³æ­¦é¦†ã€‚
 LONG
 	);
-        set("outdoors", "ÏåÑô");
+        set("outdoors", "è¥„é˜³");
         set("xyjob", 1);
 	set("exits", ([
 		"west" : __DIR__"djie2",
@@ -36,7 +36,7 @@ void init()
 			me->set("bxsj_bonus/age", 1);
 		}
 	}
-	// ²¿·Ö Skill µ÷Õû
+	// éƒ¨åˆ† Skill è°ƒæ•´
 	if ( me->query_skill("literate", 1) > me->query("int") * 10)
 		me->set_skill("literate", me->query("int") * 10);
 	if ( me->query_skill("bangjue", 1) > 200)
@@ -63,7 +63,7 @@ void init()
 	if (! me->query("tls")
 	 && me->query_skill("liumai-shenjian", 1)){
 		me->delete_skill("liumai-shenjian", 1);
-		tell_object(me, HIG"ÌìÁúËÂË×¼ÒµÜ×ÓÏµÍ³×Ô¶¯È¥µôÁùÂöÉñ½£¡£\n"NOR);
+		tell_object(me, HIG"å¤©é¾™å¯ºä¿—å®¶å¼Ÿå­ç³»ç»Ÿè‡ªåŠ¨åŽ»æŽ‰å…­è„‰ç¥žå‰‘ã€‚\n"NOR);
 	}
 
 
@@ -71,7 +71,7 @@ void init()
 		if ( time() - me->query("bxsj_bonus/no_pk") > 1296000 ){
 			me->delete("no_pk");
 			me->delete("bxsj_bonus/no_pk");
-			tell_object(me,HIG"\n15ÌìÊ±¼äÒÑµ½£¬ÏµÍ³×Ô¶¯°ïÄú½â³ý½ðÅèÏ´ÊÖ×´Ì¬¡£\n"NOR);
+			tell_object(me,HIG"\n15å¤©æ—¶é—´å·²åˆ°ï¼Œç³»ç»Ÿè‡ªåŠ¨å¸®æ‚¨è§£é™¤é‡‘ç›†æ´—æ‰‹çŠ¶æ€ã€‚\n"NOR);
 
 		}
 	}

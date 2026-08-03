@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 // Room: /d/changan/duchang2
@@ -8,17 +8,17 @@ inherit ROOM;
 
 void create()
 {
-  set ("short", "ÆÆ¾É¶Ä·»");
+  set ("short", "ç ´æ—§èµŒåŠ");
   set ("long", @LONG
 
-ÕâÀï°Ú×ÅÒ»¸öÖ§ÀëÆÆËéµÄ°ËÏÉ×À£¬ËÄ´¦Ö©ÖëÍøÁ¬½Ó¡£
+è¿™é‡Œæ‘†ç€ä¸€ä¸ªæ”¯ç¦»ç ´ç¢çš„å…«ä»™æ¡Œï¼Œå››å¤„èœ˜è››ç½‘è¿æ¥ã€‚
 LONG);
 
   set("item_desc",([
-    "paizi" : "ÑºÍ·²Ê÷»£º gutou tc <amount> <money>\n"+ 
-              "ÑºË«¶Ô÷»£º gutou sd <amount> <money>\n"+ 
-              "ÑºÆßĞÇ÷»£º gutou qx <amount> <money>\n"+ 
-              "ÑºÉ¢ĞÇ÷»£º gutou sx <amount> <money>\n" 
+    "paizi" : "æŠ¼å¤´å½©éª°ï¼š gutou tc <amount> <money>\n"+ 
+              "æŠ¼åŒå¯¹éª°ï¼š gutou sd <amount> <money>\n"+ 
+              "æŠ¼ä¸ƒæ˜Ÿéª°ï¼š gutou qx <amount> <money>\n"+ 
+              "æŠ¼æ•£æ˜Ÿéª°ï¼š gutou sx <amount> <money>\n" 
   ])); 
 
   set("exits", ([ /* sizeof() == 1 */
@@ -27,5 +27,5 @@ LONG);
 
   setup();
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

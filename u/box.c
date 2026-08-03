@@ -1,22 +1,22 @@
-// By Spiderii@yt btÎïÆ·
+// By Spiderii@yt btç‰©å“
 #include <ansi.h>
 inherit SPEC;
 void create()
 {
-        set_name(HIW"ÉñÃØ±¦ºĞ"NOR, ({ "box","baohe" }) );
+        set_name(HIW"ç¥ç§˜å®ç›’"NOR, ({ "box","baohe" }) );
         set_weight(10);
-                set("unit", "¸ö");
-                set("long", "Ò»¸öÉñÃØµÄÎå²ÊºĞ×Ó¡£\nÊÇ´«ËµÖĞÌìÉñ¹ÜÀíÔ±ÒÅÂä·²¼äµÄ±¦Îï£¬ËüÊÇÄÜ¸øÈËÃÇ´øÀ´ĞÒÔËºÍ¶òÔËµÄÄ§Á¦Ö®ºĞ¡£\nÊÇ²»ÊÇ¾­²»ÆğËüµÄÓÕ»óÄØ£¬ÄÇ¾Í¿ì´ò¿ª£¨open£©Ëü°É¡£¡£¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "ä¸€ä¸ªç¥ç§˜çš„äº”å½©ç›’å­ã€‚\næ˜¯ä¼ è¯´ä¸­å¤©ç¥ç®¡ç†å‘˜é—è½å‡¡é—´çš„å®ç‰©ï¼Œå®ƒæ˜¯èƒ½ç»™äººä»¬å¸¦æ¥å¹¸è¿å’Œå„è¿çš„é­”åŠ›ä¹‹ç›’ã€‚\næ˜¯ä¸æ˜¯ç»ä¸èµ·å®ƒçš„è¯±æƒ‘å‘¢ï¼Œé‚£å°±å¿«æ‰“å¼€ï¼ˆopenï¼‰å®ƒå§ã€‚ã€‚ã€‚\n");
                 set("value", 0);
                 set("material", "wood");
-                set("no_drop", "ÕâÑù¹óÖØµÄ¶«Î÷ÔõÃ´ÄÜËæ±ãÂÒ¶ªÄØ¡£\n");
-                set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
+                set("no_drop", "è¿™æ ·è´µé‡çš„ä¸œè¥¿æ€ä¹ˆèƒ½éšä¾¿ä¹±ä¸¢å‘¢ã€‚\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
                 set_weight(100);
                 set("value",3000000);
                 set("treasure",1);
                 set("degree",1);
                 set("flag","spec/baohe");
-                set("desc","¾İËµ´ò¿ªºĞ×Ó»áÓĞ±¦Óñ³öÏÖ¡£");
+                set("desc","æ®è¯´æ‰“å¼€ç›’å­ä¼šæœ‰å®ç‰å‡ºç°ã€‚");
                 set("credit",1200);  
 
        setup();
@@ -32,13 +32,13 @@ int do_open(string arg)
        object me = this_player();
        object obj;
        if(arg!="box" && arg!="baohe")
-                    return notify_fail("ÄãÒª´ò¿ªÊ²Ã´?\n");
+                    return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆ?\n");
       i = random(4)?4:5 ; 
         obj = new("/d/zhiye/obj/othermaterial");
         if(obj && obj->set_level(i+1))
         {
                 obj->move(this_player());
-                message_vision(HIW"$N´Ó±¦ºĞÖĞµÃµ½ÁËÒ»"+obj->query("unit")+obj->name()+"¡£\n\n"NOR,me); 
+                message_vision(HIW"$Nä»å®ç›’ä¸­å¾—åˆ°äº†ä¸€"+obj->query("unit")+obj->name()+"ã€‚\n\n"NOR,me); 
         }
                 destruct(this_object());
                 return 1;

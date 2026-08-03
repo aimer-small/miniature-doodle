@@ -25,7 +25,7 @@ void do_kill(object dest)
 	remove_call_out("do_kill");
 	if (objectp(dest) && present(dest, env) && !dest->is_busy()
 	&& !env->query("no_fight") && !env->query("sleep_room")) {
-		message_vision(HIR "$N¶Ô$nÒõÒõÒ»Ğ¦£ºËÍÉÏÃÅµÄ·ÊÈâ£¬"+RANK_D->query_rude(dest)+"£¬Åã´óÒ¯ÎÒÁ·Á·°É£¡\n" NOR, me, dest);
+		message_vision(HIR "$Nå¯¹$né˜´é˜´ä¸€ç¬‘ï¼šé€ä¸Šé—¨çš„è‚¥è‚‰ï¼Œ"+RANK_D->query_rude(dest)+"ï¼Œé™ªå¤§çˆ·æˆ‘ç»ƒç»ƒå§ï¼\n" NOR, me, dest);
 		set_leader(dest);
 		kill_ob(dest);
 		dest->fight_ob(me);
@@ -80,7 +80,7 @@ void checking(object dest)
 	&& ob->query("victim_id") == dest->query("id") )
 	{
 		command("chat* kick corpse");
-		tell_room(environment(), query("name")+"ÅÄÁËÅÄÉíÉÏµÄ»Ò³¾£¬¿ì²½×ßÁË³öÈ¥¡£\n" NOR);
+		tell_room(environment(), query("name")+"æ‹äº†æ‹èº«ä¸Šçš„ç°å°˜ï¼Œå¿«æ­¥èµ°äº†å‡ºå»ã€‚\n" NOR);
 		call_out("do_back", 2);
 		return;
 	}

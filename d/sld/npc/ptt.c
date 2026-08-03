@@ -1,4 +1,4 @@
-// ÅÖÍ·ÍÓ
+// èƒ–å¤´é™€
 
 inherit F_MASTER;
 inherit NPC;
@@ -7,10 +7,10 @@ int ask_book();
 
 void create()
 {
-	set_name("ÅÖÍ·ÍÓ", ({ "pang toutuo","toutuo","pang" }));
-	set("long","ËûÊÝµÃ³öÆæ£¬Á³ÉÏÆ¤°ü¹ÇÍ·£¬Ë«ÑÛÉîÏÝ£¬µ±Õæ±ãÈç½©Ê¬Ò»°ã£¬³¤·¢´¹¼ç£¬\nÍ·¶¥Ò»¸öÍ­¹¿Êø×¡³¤·¢£¬ÉíÉÏ´©¼þ²¼ÅÛ£¬¿í¿íµ´µ´£¬±ãÈçÊÇ¹ÒÔÚÒÂ¼ÜÉÏÒ»°ã£¬\nËûÊÇÉñÁú½ÌµÄ»¤·¨¡£\n");
-	set("gender", "ÄÐÐÔ");
-	set("title", "ÉñÁú½Ì»¤·¨");	
+	set_name("èƒ–å¤´é™€", ({ "pang toutuo","toutuo","pang" }));
+	set("long","ä»–ç˜¦å¾—å‡ºå¥‡ï¼Œè„¸ä¸Šçš®åŒ…éª¨å¤´ï¼ŒåŒçœ¼æ·±é™·ï¼Œå½“çœŸä¾¿å¦‚åƒµå°¸ä¸€èˆ¬ï¼Œé•¿å‘åž‚è‚©ï¼Œ\nå¤´é¡¶ä¸€ä¸ªé“œç®æŸä½é•¿å‘ï¼Œèº«ä¸Šç©¿ä»¶å¸ƒè¢ï¼Œå®½å®½è¡è¡ï¼Œä¾¿å¦‚æ˜¯æŒ‚åœ¨è¡£æž¶ä¸Šä¸€èˆ¬ï¼Œ\nä»–æ˜¯ç¥žé¾™æ•™çš„æŠ¤æ³•ã€‚\n");
+	set("gender", "ç”·æ€§");
+	set("title", "ç¥žé¾™æ•™æŠ¤æ³•");	
 	set("age", 40);       
 	set("str", 40);
 	set("int", 12);
@@ -51,15 +51,15 @@ void create()
 	prepare_skill("leg","shenlong-tuifa");
 
 	set("inquiry", ([
-		"»ù±¾¹³·¨" : (: ask_book :),
+		"åŸºæœ¬é’©æ³•" : (: ask_book :),
 		"book" : (: ask_book :),
 	]) );
          set("chat_chance", 3);
         set("chat_msg", ({
-                "ÅÖÍ·ÍÓËµµÀ£º¿ÉÏ§°¡£¬±¦¹³¾ÓÈ»±»ÒÅÂäÔÚÄÇ¸öµØ·½£¬¿ÖÅÂÃ»ÓÐË­¸ÒÈ¥ÕÒ»ØÀ´£¬°¦£¡\n",
+                "èƒ–å¤´é™€è¯´é“ï¼šå¯æƒœå•Šï¼Œå®é’©å±…ç„¶è¢«é—è½åœ¨é‚£ä¸ªåœ°æ–¹ï¼Œææ€•æ²¡æœ‰è°æ•¢åŽ»æ‰¾å›žæ¥ï¼Œå”‰ï¼\n",
         }) );
 
-      create_family("ÉñÁú½Ì",2, "»¤·¨");
+      create_family("ç¥žé¾™æ•™",2, "æŠ¤æ³•");
       setup();
       carry_object(__DIR__"obj/bupao")->wear(); 
       carry_object(__DIR__"obj/hook")->wield();    
@@ -72,17 +72,17 @@ int ask_book()
 	object me=this_player();
 
 	myfam = (mapping)me->query("family");
-	if(!myfam || myfam["family_name"] != "ÉñÁú½Ì")
+	if(!myfam || myfam["family_name"] != "ç¥žé¾™æ•™")
 		return 0;
 
 	book= unew(__DIR__"obj/hook-book");
 	if (!book)  
 	{
-		command("say »ù±¾¹³·¨ÒÑ¾­¸ø±ðÈËÄÃ×ßÁË£¡");
+		command("say åŸºæœ¬é’©æ³•å·²ç»ç»™åˆ«äººæ‹¿èµ°äº†ï¼");
 		return 1;
 	}
 
-	command("say ºÃ°É£¬Õâ±¾¡¶»ù±¾¹³·¨¡·"+me->query("name")+"Äã¾ÍÄÃÈ¥ºÃºÃ¿´¿´°É¡£");
+	command("say å¥½å§ï¼Œè¿™æœ¬ã€ŠåŸºæœ¬é’©æ³•ã€‹"+me->query("name")+"ä½ å°±æ‹¿åŽ»å¥½å¥½çœ‹çœ‹å§ã€‚");
 	book->move(me);      
         me->start_busy(2);
 
@@ -100,15 +100,15 @@ int recognize_apprentice(object ob)
 	object hw;
 
 	myfam = (mapping)ob->query("family");
-	if(myfam && (myfam["family_name"] == "ÉñÁú½Ì")&&(ob->query("shen",1) >0))  {
-		command("say ºß£¡Äã¾¹È»¸ÒºÍ°×µÀÖÐÈË¸ãÔÚÒ»Æð£¬ÊÇ²»ÊÇ²»Ïë»îÁË£¿£¡È¥ºÚÎÝºÃºÃ·´Ê¡·´Ê¡°É£¡");
+	if(myfam && (myfam["family_name"] == "ç¥žé¾™æ•™")&&(ob->query("shen",1) >0))  {
+		command("say å“¼ï¼ä½ ç«Ÿç„¶æ•¢å’Œç™½é“ä¸­äººæžåœ¨ä¸€èµ·ï¼Œæ˜¯ä¸æ˜¯ä¸æƒ³æ´»äº†ï¼Ÿï¼åŽ»é»‘å±‹å¥½å¥½åçœåçœå§ï¼");
 		if(!objectp(hw=find_object("/d/sld/npc/obj/heiwu")))
 			hw=load_object("/d/sld/npc/obj/heiwu");
 		ob->set("in_heiwu",time());
 		ob->move(hw);        
 		return 0;
 	}
-       if(myfam && (myfam["family_name"] == "ÉñÁú½Ì")&&(ob->query("shen",1) < -30000)
+       if(myfam && (myfam["family_name"] == "ç¥žé¾™æ•™")&&(ob->query("shen",1) < -30000)
           && (ob->query_skill("dulong-dafa",1)>=100) && 
           (ob->query_skill("huagu-mianzhang",1)>=100))
         {

@@ -11,29 +11,29 @@ int do_tu(string arg)
        object ob;
        int i;
 
-       if (!(fam = this_player()->query("family")) || fam["family_name"] != "–«Àﬁ≈…")
-       return notify_fail("ƒ„”÷≤ª «–«Àﬁµ‹◊”£¨‘ıƒ‹”√’‚÷÷“ıœ’µƒ’– ˝£°");
+       if (!(fam = this_player()->query("family")) || fam["family_name"] != "ÊòüÂÆøÊ¥æ")
+       return notify_fail("‰Ω†Âèà‰∏çÊòØÊòüÂÆøÂºüÂ≠êÔºåÊÄéËÉΩÁî®ËøôÁßçÈò¥Èô©ÁöÑÊãõÊï∞ÔºÅ");
 
-       if( this_player()->is_busy() )   return notify_fail("ƒ„’˝√¶◊≈ƒÿ£°\n");
+       if( this_player()->is_busy() )   return notify_fail("‰Ω†Ê≠£ÂøôÁùÄÂë¢ÔºÅ\n");
        i = (this_player()->query_skill("poison")/10)+3;
       
        if( !arg
        ||      sscanf(arg, "%s on %s", me, what)!=2
        ||      !id(me) )
-               return notify_fail("√¸¡Ó∏Ò Ω: tu <“©> on <Œ‰∆˜>°£\n");
+               return notify_fail("ÂëΩ‰ª§Ê†ºÂºè: tu <ËçØ> on <Ê≠¶Âô®>„ÄÇ\n");
 
        ob = present(what, this_player());
        if( !ob )
-               return notify_fail("ƒ„…Ì…œ√ª”–" + what + "’‚—˘∂´Œ˜°£\n");
+               return notify_fail("‰Ω†Ë∫´‰∏äÊ≤°Êúâ" + what + "ËøôÊ†∑‰∏úË•ø„ÄÇ\n");
        if( !ob->query("weapon_prop") )
-               return notify_fail("÷ªƒ‹Õø‘⁄Œ‰∆˜…œ°£\n");
+               return notify_fail("Âè™ËÉΩÊ∂ÇÂú®Ê≠¶Âô®‰∏ä„ÄÇ\n");
                
        
        ob->set("poisoned", query("poison"));
        ob->set("poison_number", ob->query("poison_number")+i);
 
-       ob->set_temp("apply/long", ({ob->query("long")+"µ´ø¥…œ»•"+query("drug_color")+"£¨∫√œÛ «±ªŒπ¡ÀæÁ∂æ°£\n"}));
-       message_vision("$N±≥π˝…Ì»•£¨Ω´$n∑≈‘⁄"+query("name")+"…œ¬˝¬˝—¨øæ°£\n", this_player(),ob);
+       ob->set_temp("apply/long", ({ob->query("long")+"‰ΩÜÁúã‰∏äÂéª"+query("drug_color")+"ÔºåÂ•ΩË±°ÊòØË¢´ÂñÇ‰∫ÜÂâßÊØí„ÄÇ\n"}));
+       message_vision("$NËÉåËøáË∫´ÂéªÔºåÂ∞Ü$nÊîæÂú®"+query("name")+"‰∏äÊÖ¢ÊÖ¢ÁÜèÁÉ§„ÄÇ\n", this_player(),ob);
        this_player()->start_busy(2);
        add_amount(-1);
        return 1;
@@ -41,7 +41,7 @@ int do_tu(string arg)
 
 void destruct(object ob)
 {
-   message_vision("$N¬˝¬˝µÿ»º…’ÕÍ¡À°£\n",ob);
+   message_vision("$NÊÖ¢ÊÖ¢Âú∞ÁáÉÁÉßÂÆå‰∫Ü„ÄÇ\n",ob);
    ob->add_amount(-1);
    return;
 }   

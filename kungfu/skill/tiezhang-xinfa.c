@@ -1,4 +1,4 @@
-// tiezhang-xinfa.cÈ ÌúÕÆĞÄ·¨
+// tiezhang-xinfa.cï¿½ é“æŒå¿ƒæ³•
 inherit SKILL;
 
 void create() { seteuid(getuid()); }
@@ -8,12 +8,12 @@ string type() { return "knowledge"; }
 int valid_learn(object me) 
 {
         if( (int)me->query_skill("tiezhang-xinfa", 1) >= 200 )
-             return notify_fail("Äã²»ÄÜÔÙÑ§Ï°ÌúÕÆĞÄ·¨ÁË¡£\n");
+             return notify_fail("ä½ ä¸èƒ½å†å­¦ä¹ é“æŒå¿ƒæ³•äº†ã€‚\n");
         return 1;
 }
 int practice_skill(object me)
 {
-        return notify_fail("ÌúÕÆĞÄ·¨Ö»ÄÜ¿¿Ñ§(learn)À´Ìá¸ß¡£\n");
+        return notify_fail("é“æŒå¿ƒæ³•åªèƒ½é å­¦(learn)æ¥æé«˜ã€‚\n");
 }
 
 

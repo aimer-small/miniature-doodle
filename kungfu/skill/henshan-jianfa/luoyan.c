@@ -1,8 +1,8 @@
-// Ò»½£Âä¾ÅÑã by hongba
+// ä¸€å‰‘è½ä¹é› by hongba
 #include <ansi.h>
 inherit F_SSERVER;
     
-   string perform_name(){ return HIM"Ò»½£Âä¾ÅÑã"NOR; }
+   string perform_name(){ return HIM"ä¸€å‰‘è½ä¹é›"NOR; }
     
    int perform(object me,object target)
  {
@@ -13,30 +13,30 @@ inherit F_SSERVER;
        
        if( !objectp (target) || !me->is_fighting(target) || !living(target)
           || environment(target)!=environment(me))
-                   return notify_fail("Ò»½£Âä¾ÅÑãÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                   return notify_fail("ä¸€å‰‘è½ä¹é›åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
   
       
        if( (int)me->query_skill("hengshan-jianfa", 1) < 250 ) 
-                   return notify_fail("ÄãµÄºâÉ½½£·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃÒ»½£Âä¾ÅÑã£¡\n");
+                   return notify_fail("ä½ çš„è¡¡å±±å‰‘æ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨ä¸€å‰‘è½ä¹é›ï¼\n");
 
                  
        if((int)me->query_skill("sword", 1) < 250 )
-                   return notify_fail("ÄãµÄ»ù±¾½£·¨²»¹»æµÊì£¬²»ÄÜÔÚÊ¹ÓÃÒ»½£Âä¾ÅÑã¡£\n");
+                   return notify_fail("ä½ çš„åŸºæœ¬å‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨ä½¿ç”¨ä¸€å‰‘è½ä¹é›ã€‚\n");
       
    if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "sword"
            || me->query_skill_mapped("sword") != "hengshan-jianfa"
            || me->query_skill_mapped("parry") != "hengshan-jianfa")
-                   return notify_fail("ÄãÏÖÔÚÊ¹µÃÁËÒ»½£Âä¾ÅÑãÃ´£¿\n");
+                   return notify_fail("ä½ ç°åœ¨ä½¿å¾—äº†ä¸€å‰‘è½ä¹é›ä¹ˆï¼Ÿ\n");
                    
        if((int)me->query("max_neili") < 4500 )
-                  return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»£¬²»ÄÜÊ¹ÓÃÒ»½£Âä¾ÅÑã£¡\n");
+                  return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ä¸€å‰‘è½ä¹é›ï¼\n");
        if((int)me->query("neili") < 2000 )
-                 return notify_fail("ÄãÏÖÔÚÕæÆø²»×ã£¬²»ÄÜÊ¹ÓÃÒ»½£Âä¾ÅÑã£¡\n");
+                 return notify_fail("ä½ ç°åœ¨çœŸæ°”ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨ä¸€å‰‘è½ä¹é›ï¼\n");
   
-          message_vision(HIW"\n$NÉíĞÎÒ»±äÈç·Ö¹âÂÓÓ°Ò»°ãÊ¹³öÆ½Éú¾øÑ§¡£\n",me);
-           message_vision(HIM"ÕâÕıÊÇºâÉ½½£·¨µÄ¾øÕĞ¡¸Ò»½£Âä¾ÅÑã¡¹,¾İËµ´ËÕĞÁ·µ½¾ø¶¥±ã¿ÉÒ»½£´ÌÂä¾ÅÖ»´óÑã¡£\n",me);
+          message_vision(HIW"\n$Nèº«å½¢ä¸€å˜å¦‚åˆ†å…‰æ å½±ä¸€èˆ¬ä½¿å‡ºå¹³ç”Ÿç»å­¦ã€‚\n",me);
+           message_vision(HIM"è¿™æ­£æ˜¯è¡¡å±±å‰‘æ³•çš„ç»æ‹›ã€Œä¸€å‰‘è½ä¹é›ã€,æ®è¯´æ­¤æ‹›ç»ƒåˆ°ç»é¡¶ä¾¿å¯ä¸€å‰‘åˆºè½ä¹åªå¤§é›ã€‚\n",me);
           
-   me->start_perform(2,"¡¸Ò»½£Âä¾ÅÑã¡¹");
+   me->start_perform(2,"ã€Œä¸€å‰‘è½ä¹é›ã€");
        i = (int)me->query_skill("hengshan-jianfa",1);
       me->add("neili", -300);
           me->add_temp("apply/attack",  i);
@@ -56,7 +56,7 @@ inherit F_SSERVER;
            me->add_temp("apply/damage",  -i/4);
   
       if(me->query("hsjf_ly")){
-   message_vision(HBYEL"$NÒÑµÃ¡¸Ò»½£Âä¾ÅÑã¡¹Ö®¾«Òª£¬³öÕĞĞĞÔÆÁ÷Ë®£¬É²ÄÇ¼ä$nÒÑ²»ÖªÈçºÎµÖµ²¡£"NOR,me,target);
+   message_vision(HBYEL"$Nå·²å¾—ã€Œä¸€å‰‘è½ä¹é›ã€ä¹‹ç²¾è¦ï¼Œå‡ºæ‹›è¡Œäº‘æµæ°´ï¼Œåˆ¹é‚£é—´$nå·²ä¸çŸ¥å¦‚ä½•æŠµæŒ¡ã€‚"NOR,me,target);
  target->start_busy(3);
           me->add_temp("apply/attack",  i);
   me->add_temp("apply/damage",  i);
@@ -73,11 +73,11 @@ inherit F_SSERVER;
 if (random(me->query("kar")) > 10 && random(me->query("pur")) > 10 && me->query("hsjf_ly")){
                    if (wizardp(me))
                    
-   message_vision(HIM"\n$N½£ÕĞÒ»¶Ù£¬Í»È»Ê¹³öÒ»ÕĞ¡¸"HBRED"°Ù±äÇ§»ÃÔÆÎíÊ®ÈıÊ½"NOR""HIM"¡¹¡£
-Õâ¡°°Ù±äÇ§»ÃÔÆÎíÊ®ÈıÊ½¡±ÄËÊÇºâÉ½ÅÉÒ»Î»Ç°±²Ëù´´£¬
-±¾ÊÇÓÉ½­ºşÔÓË£Ñİ»¯¶øÀ´£¬´Ë¿Ì$NÊ¹³ö£¬È´ÊÇÍşÁ¦ÎŞ±È¡£\n"NOR, me, target);
- message_vision(CYN"\n$nÒ»¼ûÖ®ÏÂ£¬¾¹È»ÎŞ·¨¶ã¹ı£¬ĞØÇ°¶Ô´©Ò»¸öÈ­´óµÄÑª¶´£¬ÑÛ¼ûÒÑÎŞÉúµØ¡£\n"NOR, me, target);
-          target->die();   // Ã²ËÆºÜÁ÷Ã¥£¬Ìõ¼şºÜ¿í°¡£¬ºÙºÙ£¬Åª×ÅÍæßÂ¡£
+   message_vision(HIM"\n$Nå‰‘æ‹›ä¸€é¡¿ï¼Œçªç„¶ä½¿å‡ºä¸€æ‹›ã€Œ"HBRED"ç™¾å˜åƒå¹»äº‘é›¾åä¸‰å¼"NOR""HIM"ã€ã€‚
+è¿™â€œç™¾å˜åƒå¹»äº‘é›¾åä¸‰å¼â€ä¹ƒæ˜¯è¡¡å±±æ´¾ä¸€ä½å‰è¾ˆæ‰€åˆ›ï¼Œ
+æœ¬æ˜¯ç”±æ±Ÿæ¹–æ‚è€æ¼”åŒ–è€Œæ¥ï¼Œæ­¤åˆ»$Nä½¿å‡ºï¼Œå´æ˜¯å¨åŠ›æ— æ¯”ã€‚\n"NOR, me, target);
+ message_vision(CYN"\n$nä¸€è§ä¹‹ä¸‹ï¼Œç«Ÿç„¶æ— æ³•èº²è¿‡ï¼Œèƒ¸å‰å¯¹ç©¿ä¸€ä¸ªæ‹³å¤§çš„è¡€æ´ï¼Œçœ¼è§å·²æ— ç”Ÿåœ°ã€‚\n"NOR, me, target);
+          target->die();   // è²Œä¼¼å¾ˆæµæ°“ï¼Œæ¡ä»¶å¾ˆå®½å•Šï¼Œå˜¿å˜¿ï¼Œå¼„ç€ç©å‘—ã€‚
             }
       me->delete_temp("hsjf_ly");
       me->start_busy(1);

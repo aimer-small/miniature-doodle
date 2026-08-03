@@ -1,4 +1,4 @@
-// zhelemi.c ÕßÀÕÃ×
+// zhelemi.c è€…å‹’ç±³
 
 inherit NPC;
 #include <ansi.h>
@@ -6,13 +6,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÕßÀÕÃ×", ({ "zhe lemi", "zhelemi","zhele","mi"}));
-	set("gender", "ÄĞĞÔ");
-        set("title",HIR"Éñ·çÓªÇ§·ò³¤"NOR);
+	set_name("è€…å‹’ç±³", ({ "zhe lemi", "zhelemi","zhele","mi"}));
+	set("gender", "ç”·æ€§");
+        set("title",HIR"ç¥é£è¥åƒå¤«é•¿"NOR);
 	set("age", 30);
 	set("str", 30);
 	set("dex", 25);
-	set("long", "Ëû¸ö×Ó²»¸ß£¬µ«¼¡ÈâÔú½á£¬ÉíÌå·Ç³£Ç¿½¡£¬ò¥ÏÂÁô×Å¶ÌĞë¡£\nËû¾Ã¾­É³³¡£¬ÊÇÃÉ¹Å×åÖøÃûµÄÓÂÊ¿¡£");
+	set("long", "ä»–ä¸ªå­ä¸é«˜ï¼Œä½†è‚Œè‚‰æ‰ç»“ï¼Œèº«ä½“éå¸¸å¼ºå¥ï¼Œé¢”ä¸‹ç•™ç€çŸ­é¡»ã€‚\nä»–ä¹…ç»æ²™åœºï¼Œæ˜¯è’™å¤æ—è‘—åçš„å‹‡å£«ã€‚");
 	set("max_qi",700);
 	set("eff_jing",300);
 	set("max_jing",300);

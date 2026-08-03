@@ -14,10 +14,10 @@ string type()
 
 int valid_learn(object me) 
 {
-	return notify_fail("战术只能通过读军事书籍或战争才可以提升。\n");
+	return notify_fail("鎴樻湳鍙兘閫氳繃璇诲啗浜嬩功绫嶆垨鎴樹簤鎵嶅彲浠ユ彁鍗囥�俓n");
 }
 
 int practice_skill(object me)
 {	
-	return notify_fail("战术只能通过读军事书籍或战争才可以提升。\n");
+	return notify_fail("鎴樻湳鍙兘閫氳繃璇诲啗浜嬩功绫嶆垨鎴樹簤鎵嶅彲浠ユ彁鍗囥�俓n");
 }

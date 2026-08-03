@@ -11,18 +11,18 @@ int update_condition(object me, int duration)
  foreach (ob in inv){
      if( ob->query("id")=="xiong huang" )
 {        me->apply_condition("snake_poison", duration - 1);
- message_vision(BLU "$N���ϵ��ۻư�$N����˲����߶��Ķ��ԣ����$Nû�ܵ��κ�Ӱ�졣\n" NOR, me);
+ message_vision(BLU "$N身上的雄黄帮$N祛除了部分蛇毒的毒性，结果$N没受到任何影响。\n" NOR, me);
         return 1;
 }
                     }
         me->receive_wound("jing", 1);
         me->receive_damage("jing", 1);
-	me->set_temp("last_damage_from", "�߶�����");
+	me->set_temp("last_damage_from", "蛇毒发作");
 	me->apply_condition("snake_poison", duration - 1);
 	if (living(me))
-		message_vision(BLU "$N���۷�ֱ������ɪɪ����������\n" NOR, me);
+		message_vision(BLU "$N两眼发直，身子瑟瑟抖了起来！\n" NOR, me);
 	else
-		message_vision(BLU "$Nʹ���������һ����\n" NOR, me);
+		message_vision(BLU "$N痛苦地呻咛了一声！\n" NOR, me);
 	me->add_busy(2); 
 	if( duration < 1 ) return 0;
 	return 1;

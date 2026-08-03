@@ -6,10 +6,10 @@ inherit SPEC;
 
 void create()
 {
-     set_name (HIG"ÉñÆæÆÏÌÑ"NOR, ({ "putao"}));
-     set("long",GRN"ÕâÊÇÒ»´®ÓÉ´ïÄ¦´«ÈëÖĞÍÁµÄÉñÆæÆÏÌÑ,³Ô(eat)ÏÂËü»á·¢ÉúÆæ¹ÖµÄÊÂÇé¡£\n"NOR);
+     set_name (HIG"ç¥å¥‡è‘¡è„"NOR, ({ "putao"}));
+     set("long",GRN"è¿™æ˜¯ä¸€ä¸²ç”±è¾¾æ‘©ä¼ å…¥ä¸­åœŸçš„ç¥å¥‡è‘¡è„,åƒ(eat)ä¸‹å®ƒä¼šå‘ç”Ÿå¥‡æ€ªçš„äº‹æƒ…ã€‚\n"NOR);
 
-     set("unit","´®");
+     set("unit","ä¸²");
      set_weight(100);
      set("value",3000000);
      set("no_give",1);
@@ -18,7 +18,7 @@ void create()
      set("degree",3);
      set("flag","spec/putao");
      set("rest",9);
-     set("desc","Ôö¼ÓÇ±ÄÜÈıÇ§µã¡£");
+     set("desc","å¢åŠ æ½œèƒ½ä¸‰åƒç‚¹ã€‚");
      set("credit",20);
      setup(); 
 
@@ -36,12 +36,12 @@ int do_eat(string arg)
      
          
      if (arg!="putao")
-                     return notify_fail("ÄãÒª³ÔÊ²Ã´?\n");
+                     return notify_fail("ä½ è¦åƒä»€ä¹ˆ?\n");
             
-	if (!restrict()&& !me->query("buyvip")) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
+	if (!restrict()&& !me->query("buyvip")) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
 
             me->add("potential",1000);
-    write(HIY"Äã³ÔÏÂÒ»¿Å"HIG"ÉñÆæÆÏÌÑ"HIY"·¢ÏÖ×Ô¼ºµÄÇ±ÄÜ´óÔö!\n"NOR);
+    write(HIY"ä½ åƒä¸‹ä¸€é¢—"HIG"ç¥å¥‡è‘¡è„"HIY"å‘ç°è‡ªå·±çš„æ½œèƒ½å¤§å¢!\n"NOR);
 set("no_cun",1);
      degree();
     return 1;

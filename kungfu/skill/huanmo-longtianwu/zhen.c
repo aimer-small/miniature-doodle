@@ -1,7 +1,7 @@
 #include <ansi.h>
 #include <combat.h>
 
-#define ZHEN "¡¸" HIW "·´è±¹éÕæ" NOR "¡¹"
+#define ZHEN "ã€Œ" HIW "åç’å½’çœŸ" NOR "ã€"
 
 inherit F_SSERVER;
 
@@ -16,26 +16,26 @@ string msg;
          || !me->is_fighting(target)
          || !objectp(target)
          || environment(target)!= environment(me))
-        return notify_fail("¡¸·µè±¹éÕæ¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+        return notify_fail("ã€Œè¿”ç’å½’çœŸã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
     if( objectp(me->query_temp("weapon")) )
-        return notify_fail("Äã±ØĞë¿ÕÊÖÊ¹ÓÃ¡¸·µè±¹éÕæ¡¹£¡\n");
+        return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹ä½¿ç”¨ã€Œè¿”ç’å½’çœŸã€ï¼\n");
 
     if( (int)me->query_skill("huanmo-longtianwu", 1) < 100 )
-        return notify_fail("ÄãµÄ»ÃÄ§ëÊÌìÎè²»¹»æµÊì£¬ÎŞ·¨Ê©Õ¹³ö¡¸·µè±¹éÕæ¡¹¡£\n");
+        return notify_fail("ä½ çš„å¹»é­”èƒ§å¤©èˆä¸å¤Ÿå¨´ç†Ÿï¼Œæ— æ³•æ–½å±•å‡ºã€Œè¿”ç’å½’çœŸã€ã€‚\n");
 
     if( (int)me->query_skill("force", 1) < 100 )
-        return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦²»¹»æµÊì£¬ÎŞ·¨Ê©Õ¹³ö¡¸·µè±¹éÕæ¡¹¡£\n");
+        return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸä¸å¤Ÿå¨´ç†Ÿï¼Œæ— æ³•æ–½å±•å‡ºã€Œè¿”ç’å½’çœŸã€ã€‚\n");
    
     if ( (int)me->query("max_neili") < 3000)
-        return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»£¬ÎŞ·¨Ê©Õ¹³ö¡¸·µè±¹éÕæ¡¹¡£\n");
+        return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•æ–½å±•å‡ºã€Œè¿”ç’å½’çœŸã€ã€‚\n");
 
     if ( (int)me->query("neili") < 1000)
-        return notify_fail("ÄãµÄÕæÆø²»¹»£¬ÎŞ·¨Ê©Õ¹³ö¡¸·µè±¹éÕæ¡¹¡£\n");
+        return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•æ–½å±•å‡ºã€Œè¿”ç’å½’çœŸã€ã€‚\n");
    
     if (me->query_skill_prepared("strike") != "huanmo-longtianwu"
         || me->query_skill_mapped("strike") != "huanmo-longtianwu")
-        return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸·µè±¹éÕæ¡¹£¡\n");  
+        return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€Œè¿”ç’å½’çœŸã€ï¼\n");  
         
     me->add_temp("apply/attack", extra);
     me->add_temp("apply/strike", extra/2);
@@ -43,33 +43,33 @@ string msg;
     me->add("neili", -350);
     target->add_busy(1);
 
-        message_vision(HIR "¶¸È»¼ä$N" HIR "Ê©³ö¡¸" HIY "·´" HIR "¡¹×Ö¾÷£¬Ë«ÕÆÏò$n"
-              HIR "Æ½Æ½ÍÆÈ¥£¬ÕĞÊıÆÓÊµÎŞ»ª£¬ºÁÎŞ°ëµã»¨ÇÉ¿ÉÑÔ¡£\n" NOR, me,target);
+        message_vision(HIR "é™¡ç„¶é—´$N" HIR "æ–½å‡ºã€Œ" HIY "å" HIR "ã€å­—è¯€ï¼ŒåŒæŒå‘$n"
+              HIR "å¹³å¹³æ¨å»ï¼Œæ‹›æ•°æœ´å®æ— åï¼Œæ¯«æ— åŠç‚¹èŠ±å·§å¯è¨€ã€‚\n" NOR, me,target);
 i = 1;
 if(userp(me)) i = 3;              
     COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg); 
     
-    message_vision(HIB "\n½ô½Ó×Å$N" HIB "±äÕĞ¡¸" HIC "è±" HIB "¡¹×Ö¾÷£¬ö®"
-               "Ê±Ö»¼û$N" HIR "Ë«ÕÆ·×·É£¬»¯³öÂşÌìÕÆÓ°ÁıÕÖ$n" HIW "ËÄÃæ"
-               "°Ë·½¡£\n" NOR, me,target); 
+    message_vision(HIB "\nç´§æ¥ç€$N" HIB "å˜æ‹›ã€Œ" HIC "ç’" HIB "ã€å­—è¯€ï¼Œéœ"
+               "æ—¶åªè§$N" HIR "åŒæŒçº·é£ï¼ŒåŒ–å‡ºæ¼«å¤©æŒå½±ç¬¼ç½©$n" HIW "å››é¢"
+               "å…«æ–¹ã€‚\n" NOR, me,target); 
     COMBAT_D->do_attack(me,target, me->query_temp("weapon"),i,msg);
     
-    message_vision(HIM "\n½ô½Ó×Å$N" HIM "±äÕĞ¡¸" HIY "¹é" HIM "¡¹×Ö¾÷£¬ö®"
-               "Ê±Ö»¼û$N" HIR "Ë«ÕÆ·×·É£¬»¯³öÂşÌìÕÆÓ°ÁıÕÖ$n" HIW "ËÄÃæ"
-               "°Ë·½¡£\n" NOR, me,target); 
+    message_vision(HIM "\nç´§æ¥ç€$N" HIM "å˜æ‹›ã€Œ" HIY "å½’" HIM "ã€å­—è¯€ï¼Œéœ"
+               "æ—¶åªè§$N" HIR "åŒæŒçº·é£ï¼ŒåŒ–å‡ºæ¼«å¤©æŒå½±ç¬¼ç½©$n" HIW "å››é¢"
+               "å…«æ–¹ã€‚\n" NOR, me,target); 
     COMBAT_D->do_attack(me,target, me->query_temp("weapon"),i,msg);
     
-    message_vision(HIC "\n×îºó×Å$N" HIC "±äÕĞ¡¸" HIG "Õæ" HIC "¡¹×Ö¾÷£¬ö®"
-               "Ê±Ö»¼û$N" HIR "Ë«ÕÆ·×·É£¬»¯³öÂşÌìÕÆÓ°ÁıÕÖ$n" HIW "ËÄÃæ"
-               "°Ë·½¡£\n" NOR, me,target); 
+    message_vision(HIC "\næœ€åç€$N" HIC "å˜æ‹›ã€Œ" HIG "çœŸ" HIC "ã€å­—è¯€ï¼Œéœ"
+               "æ—¶åªè§$N" HIR "åŒæŒçº·é£ï¼ŒåŒ–å‡ºæ¼«å¤©æŒå½±ç¬¼ç½©$n" HIW "å››é¢"
+               "å…«æ–¹ã€‚\n" NOR, me,target); 
     COMBAT_D->do_attack(me,target, me->query_temp("weapon"),i,msg);
     
     me->add_temp("apply/attack", -extra);
     me->add_temp("apply/strike", -extra/2);
     me->add_temp("apply/damage", -extra);
     target->start_busy(random(2));
-    me->start_perform(3+random(2),"¡¸·µè±¹éÕæ¡¹");
+    me->start_perform(3+random(2),"ã€Œè¿”ç’å½’çœŸã€");
     return 1;
 }
 
-string perform_name(){ return HIR"·µè±¹éÕæ"NOR; }
+string perform_name(){ return HIR"è¿”ç’å½’çœŸ"NOR; }

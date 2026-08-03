@@ -10,16 +10,16 @@ string ask_for_join()
 {
 	object me = this_player();
 
-	if ( me->query("family/family_name") != "¶ëáÒÅÉ")
-		return "¶ëáÒÉ½¿ÉÈÝ²»ÏÂÊ©Ö÷ÕâÃ´Îä¹¦¸ßÇ¿µÄÈË¡£\n";
+	if ( me->query("family/family_name") != "å³¨åµ‹æ´¾")
+		return "å³¨åµ‹å±±å¯å®¹ä¸ä¸‹æ–½ä¸»è¿™ä¹ˆæ­¦åŠŸé«˜å¼ºçš„äººã€‚\n";
 	if ((string)me->query("class")=="bonze" )
-		return "°¢ÃÖÍÓ·ð£¡ÄãÎÒÍ¬ÊÇ³ö¼ÒÈË£¬ºÎ¹Ê¸úÆ¶Äá¿ªÕâµÈÍæÐ¦£¿\n";
-	if ((string)me->query("gender") != "Å®ÐÔ" )
-		return "°¢ÃÖÍÓ·ð£¡ÉÆÔÕ£¡ÉÆÔÕ£¡Ê©Ö÷ÈôÕæÐÄð§ÒÀÎÒ·ð£¬¿ÉÈ¥áÔÉ½ÉÙÁÖËÂÊÜ½ä¡£\n";
+		return "é˜¿å¼¥é™€ä½›ï¼ä½ æˆ‘åŒæ˜¯å‡ºå®¶äººï¼Œä½•æ•…è·Ÿè´«å°¼å¼€è¿™ç­‰çŽ©ç¬‘ï¼Ÿ\n";
+	if ((string)me->query("gender") != "å¥³æ€§" )
+		return "é˜¿å¼¥é™€ä½›ï¼å–„å“‰ï¼å–„å“‰ï¼æ–½ä¸»è‹¥çœŸå¿ƒçšˆä¾æˆ‘ä½›ï¼Œå¯åŽ»åµ©å±±å°‘æž—å¯ºå—æˆ’ã€‚\n";
 	if (me->query("marry"))
-		return "°¢ÃÖÍÓ·ð£¡ÉÆÔÕ£¡ÉÆÔÕ£¡ÄãÒµÒÑ½á»é£¬Èç¹û³ö¼ÒÁË£¬ÄãÕÉ·òÔõÃ´°ì°¡£¿";
+		return "é˜¿å¼¥é™€ä½›ï¼å–„å“‰ï¼å–„å“‰ï¼ä½ ä¸šå·²ç»“å©šï¼Œå¦‚æžœå‡ºå®¶äº†ï¼Œä½ ä¸ˆå¤«æ€Žä¹ˆåŠžå•Šï¼Ÿ";
 	me->set_temp("pending/join_bonze", 1);
-	return "°¢ÃÖÍÓ·ð£¡ÉÆÔÕ£¡ÉÆÔÕ£¡Ê©Ö÷ÈôÕæÐÄð§ÒÀÎÒ·ð£¬Çë¹òÏÂ(kneel)ÊÜ½ä¡£\n";
+	return "é˜¿å¼¥é™€ä½›ï¼å–„å“‰ï¼å–„å“‰ï¼æ–½ä¸»è‹¥çœŸå¿ƒçšˆä¾æˆ‘ä½›ï¼Œè¯·è·ªä¸‹(kneel)å—æˆ’ã€‚\n";
 }
 
 int do_kneel()
@@ -30,23 +30,23 @@ int do_kneel()
 	if (!me->query_temp("pending/join_bonze")) return 0;
 
 	message_vision(
-		"$NË«ÊÖºÏÊ®£¬¹§¹§¾´¾´µØ¹òÁËÏÂÀ´¡£\n\n"
-		"$nÉì³öÊÖÕÆ£¬ÔÚ$NÍ·¶¥ÇáÇáµØÄ¦êýÁË¼¸ÏÂ£¬½«$NµÄÒ»ÂÆÇàË¿¾¡ÊýÌêÈ¥¡£\n\n",
+		"$NåŒæ‰‹åˆåï¼Œæ­æ­æ•¬æ•¬åœ°è·ªäº†ä¸‹æ¥ã€‚\n\n"
+		"$nä¼¸å‡ºæ‰‹æŽŒï¼Œåœ¨$Nå¤´é¡¶è½»è½»åœ°æ‘©æŒ²äº†å‡ ä¸‹ï¼Œå°†$Nçš„ä¸€ç¼•é’ä¸å°½æ•°å‰ƒåŽ»ã€‚\n\n",
 		me, this_object() );
 	name = me->query("name");
-	new_name = "ÎÄ" + name[<2..<1];
-	command("say ´Ó½ñÒÔºóÄãµÄ·¨Ãû½Ð×ö" + new_name + "¡£");
+	new_name = "æ–‡" + name[<2..<1];
+	command("say ä»Žä»Šä»¥åŽä½ çš„æ³•åå«åš" + new_name + "ã€‚");
 	command("smile");
 	command("recruit " + me->query("id"));
 	command("chat " + me->query("title") + me->query("name") +
-		"ÓÚ½ñÈÕ" + NATURE_D->game_time() + "ÔÚ¶ëÃ¼É½ÊÜ½ä³ö¼Ò£¬È¡·¨Ãû" + new_name + "£¡");
+		"äºŽä»Šæ—¥" + NATURE_D->game_time() + "åœ¨å³¨çœ‰å±±å—æˆ’å‡ºå®¶ï¼Œå–æ³•å" + new_name + "ï¼");
 	me->delete_temp("pending/join_bonze");
 	me->set("name", new_name);
 	me->set("class", "bonze");
 	me->set("K_record", me->query("PKS") + me->query("MKS"));
 	me->set("shen_record", me->query("shen"));
 	me->set("shen", 0);
-	me->set("title", "¶ëáÒÅÉµÚÎå´úµÜ×Ó");
+	me->set("title", "å³¨åµ‹æ´¾ç¬¬äº”ä»£å¼Ÿå­");
 	return 1;
 }
 
@@ -56,25 +56,25 @@ void attempt_apprentice(object ob)
 	mapping ob_fam;
 	mapping my_fam  = me->query("family");
 
-	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "¶ëáÒÅÉ"){
-		command("say " + RANK_D->query_respect(ob) + "Óë±¾ÅÉËØÎÞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æð£¿");
+	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "å³¨åµ‹æ´¾"){
+		command("say " + RANK_D->query_respect(ob) + "ä¸Žæœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»Žä½•è°ˆèµ·ï¼Ÿ");
 		return;
 	}
-	if ((string)ob->query("class")!="bonze" && ob_fam["family_name"] == "¶ëáÒÅÉ"){
-		command("say " + RANK_D->query_respect(ob) + "ÊÇË×¼ÒµÜ×Ó£¬²»ÄÜ¸úÎÒÑ§ÒÕ¡£");
+	if ((string)ob->query("class")!="bonze" && ob_fam["family_name"] == "å³¨åµ‹æ´¾"){
+		command("say " + RANK_D->query_respect(ob) + "æ˜¯ä¿—å®¶å¼Ÿå­ï¼Œä¸èƒ½è·Ÿæˆ‘å­¦è‰ºã€‚");
 		return;
 	}
 	if (ob_fam["generation"] == 0 ){
-		command("say °¢ÃÖÍÓ·ð£¡Æ¶Äá¾ÍÊÕÏÂÄã×öÎÒµÄµÜ×ÓÁË¡£");
+		command("say é˜¿å¼¥é™€ä½›ï¼è´«å°¼å°±æ”¶ä¸‹ä½ åšæˆ‘çš„å¼Ÿå­äº†ã€‚");
 		command("recruit " + ob->query("id"));
 		return;
 	}
 	if (ob_fam["generation"] == (my_fam["generation"] + 1) ){
-		command("say " + ob_fam["master_name"] + "µÄÍ½µÜÔõ÷áÅÜµ½ÎÒÕâ¶ùÀ´ÁË£¬¹þ¹þ¹þ !");
+		command("say " + ob_fam["master_name"] + "çš„å¾’å¼Ÿæ€Žéº½è·‘åˆ°æˆ‘è¿™å„¿æ¥äº†ï¼Œå“ˆå“ˆå“ˆ !");
 		command("recruit " + ob->query("id"));
 	}
 	if (ob_fam["generation"] <= my_fam["generation"]){
-		command("say " + RANK_D->query_respect(ob) + "£¬Æ¶ÄáÄÄÀï¸Òµ± !");
+		command("say " + RANK_D->query_respect(ob) + "ï¼Œè´«å°¼å“ªé‡Œæ•¢å½“ !");
 		return;
 	}
 	return;

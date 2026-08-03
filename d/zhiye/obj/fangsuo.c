@@ -1,4 +1,4 @@
-// fangsuo.c ·ÄËó
+// fangsuo.c çººæ¢­
 // by augx@sj 10/9/2001
 
 #include <weapon.h>
@@ -10,18 +10,18 @@ int query_status();
 
 void create()
 {
-	set_name("·ÄËó", ({ "fang suo","fangsuo" }));
+	set_name("çººæ¢­", ({ "fang suo","fangsuo" }));
 	set_weight(13500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ö§");
-		set("long",  "ÕâÊÇÒ»Ö§·ÄËó¡£\n");
-		set("olong", "ÕâÊÇÒ»±ú·ÄËó¡£\n");
+		set("unit", "æ”¯");
+		set("long",  "è¿™æ˜¯ä¸€æ”¯çººæ¢­ã€‚\n");
+		set("olong", "è¿™æ˜¯ä¸€æŸ„çººæ¢­ã€‚\n");
 		set("value", 5000);
 		set("material", "steel");
-		set("wield_msg", "$NÄÃÆğÒ»Ö§$n¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·ÅÏÂ¡£\n");
+		set("wield_msg", "$Næ‹¿èµ·ä¸€æ”¯$nã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¾ä¸‹ã€‚\n");
 		set("worker_tool",1);
 	}
 	set("used",75);
@@ -40,11 +40,11 @@ void set_status(int i)
 {
 	int j;
 	j = (int)(i*100/query("oused"));
-	if(j>90) set("long",query("olong")+"¿´ÆğÀ´»¹ÊÇÍêºÃµÄ¡£\n");
-	else if(j>50) set("long",query("olong")+"¿´ÆğÀ´ÒÑ¾­ÓÃ¹ıÒ»¶ÎÊ±¼äÁË¡£\n");
-	else if(j>20) set("long",query("olong")+"¿´ÆğÀ´ÒÑ¾­ÓĞĞ©ÆÆËğÁË¡£\n");
-	else if(j>0) set("long",query("olong")+"¿´ÆğÀ´¾ÍÒª»µÁË¡£\n");
-	else set("long",query("olong")+"¿´ÆğÀ´ÒÑ¾­»µµôÁË¡£\n");
+	if(j>90) set("long",query("olong")+"çœ‹èµ·æ¥è¿˜æ˜¯å®Œå¥½çš„ã€‚\n");
+	else if(j>50) set("long",query("olong")+"çœ‹èµ·æ¥å·²ç»ç”¨è¿‡ä¸€æ®µæ—¶é—´äº†ã€‚\n");
+	else if(j>20) set("long",query("olong")+"çœ‹èµ·æ¥å·²ç»æœ‰äº›ç ´æŸäº†ã€‚\n");
+	else if(j>0) set("long",query("olong")+"çœ‹èµ·æ¥å°±è¦åäº†ã€‚\n");
+	else set("long",query("olong")+"çœ‹èµ·æ¥å·²ç»åæ‰äº†ã€‚\n");
 	set("used",i);
 }
 
@@ -58,13 +58,13 @@ void use()
 	object me = environment(this_object());
 	if( query_status()<=0 ) return;
 	if( query_status()>2 && (time()-query("stime"))>7200 ) {
-		tell_object(me,"ÄãµÄ"+query("name")+"ËÆºõÓĞĞ©ÉúĞâÁË£¡\n");
+		tell_object(me,"ä½ çš„"+query("name")+"ä¼¼ä¹æœ‰äº›ç”Ÿé”ˆäº†ï¼\n");
 		set_status(2);
 	}
 	set_status(query_status()-1);
 	if( query_status()<=0 ) {
 		if( objectp(me) && userp(me) )
-			tell_object(me,"ÄãµÄ"+query("name")+"»µµôÁË£¡\n");
-		broken("»µµôµÄ");
+			tell_object(me,"ä½ çš„"+query("name")+"åæ‰äº†ï¼\n");
+		broken("åæ‰çš„");
 	}
 }

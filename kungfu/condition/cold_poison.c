@@ -6,16 +6,16 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
 	if( !living(me) ) {
-		message("vision",HIW + me->name() + "ÉªÉª·¢¶¶£¬È«Éí½áÉÏÒ»²ã±¡±¡µÄ°×Ëª£¬¡£\n"NOR, environment(me), me);
+		message("vision",HIW + me->name() + "ç‘Ÿç‘Ÿå‘æŠ–ï¼Œå…¨èº«ç»“ä¸Šä¸€å±‚è–„è–„çš„ç™½éœœï¼Œã€‚\n"NOR, environment(me), me);
 	}
 	else {
-		tell_object(me, HIW "ºöÈ»Ò»¹Éº®ÆøÓÌËÆ±ù¼ý£¬Ñ­×ÅÊÖ±Û£¬Ñ¸ËÙÎÞÂ×µÄÉäÈëÐØÌÅ£¬ÄãÖÐµÄº®¶¾·¢×÷ÁË£¡\n" NOR );
-		message("vision", HIW + me->name() + "È«Éí·¢²ü£¬ÑÀ¹Ø¸ñ¸ñÖ±Ïì£¬¹ýµÃÆ¬¿Ì£¬×ì´½Ò²×ÏÁË£¬Á³É«½¥½¥ÓÉÇà¶ø°×¡£\n"NOR,
+		tell_object(me, HIW "å¿½ç„¶ä¸€è‚¡å¯’æ°”çŠ¹ä¼¼å†°ç®­ï¼Œå¾ªç€æ‰‹è‡‚ï¼Œè¿…é€Ÿæ— ä¼¦çš„å°„å…¥èƒ¸è†›ï¼Œä½ ä¸­çš„å¯’æ¯’å‘ä½œäº†ï¼\n" NOR );
+		message("vision", HIW + me->name() + "å…¨èº«å‘é¢¤ï¼Œç‰™å…³æ ¼æ ¼ç›´å“ï¼Œè¿‡å¾—ç‰‡åˆ»ï¼Œå˜´å”‡ä¹Ÿç´«äº†ï¼Œè„¸è‰²æ¸æ¸ç”±é’è€Œç™½ã€‚\n"NOR,
 				environment(me), me);
-		me->receive_damage("qi", 50+random(50),"º®¶¾·¢×÷" );
+		me->receive_damage("qi", 50+random(50),"å¯’æ¯’å‘ä½œ" );
 		if(userp(me))
-			me->receive_wound("jing", 50+random(30),"º®¶¾·¢×÷");
-		else me->receive_wound("jing", 40+random(50),"º®¶¾·¢×÷");
+			me->receive_wound("jing", 50+random(30),"å¯’æ¯’å‘ä½œ");
+		else me->receive_wound("jing", 40+random(50),"å¯’æ¯’å‘ä½œ");
 	}
 	
 //	me->add_busy(2);

@@ -5,13 +5,13 @@
 // last modify by snowman@SJ 13/03/2000
 // modified by tiantian@sj 5/24/2000
 // Modified by snowman@SJ 05/06/2000
-// Tiantian, ÎÒ½« exert_function ÀïµÄ douzhuan É¾³ıÁË£¬Ö»±£Áô perform_action ÀïµÄ¡£
+// Tiantian, æˆ‘å°† exert_function é‡Œçš„ douzhuan åˆ é™¤äº†ï¼Œåªä¿ç•™ perform_action é‡Œçš„ã€‚
 /* 
    Modified by snowman@SJ 08/12/2000
-   ½« exert_function() & perform_action() ´ÓÕâÀï·Ö±ğ°áµ½ exert.c & perform.c
-   ÀíÂÛÉÏÊÇ·ñ¿ÉÒÔ½ÚÔ¼Ò»Ğ©ÄÚ´æ£¿ :-)
+   å°† exert_function() & perform_action() ä»è¿™é‡Œåˆ†åˆ«æ¬åˆ° exert.c & perform.c
+   ç†è®ºä¸Šæ˜¯å¦å¯ä»¥èŠ‚çº¦ä¸€äº›å†…å­˜ï¼Ÿ :-)
 */
-// Ôö¼ÓÒ»¸öskillµÄ¸½¼ÓÊôĞÔ by augx@sj
+// å¢åŠ ä¸€ä¸ªskillçš„é™„åŠ å±æ€§ by augx@sj
 
 #include <ansi.h>
 inherit F_SSERVER;
@@ -44,7 +44,7 @@ int valid_effect(object me, object weapon, string action_name, int skill)
 // This function should return the type of the skill. The skill type now
 // affects if the skill requires combat exp in order to be learned (see
 // /cmds/std/learn.c ) and the ranking of a skill level (see 
-// /cmds/usr/skills.c )¡£
+// /cmds/usr/skills.c )ã€‚
 // Currently we have only 2 types of skill: "martial" and "knowledge".
 
 string type() { return "martial"; }

@@ -5,12 +5,12 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIW"ĞÜÆ¤"NOR, ({ "xiong pi", "pi" }) );
+        set_name(HIW"ç†Šçš®"NOR, ({ "xiong pi", "pi" }) );
         set_weight(9000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿é");
+                set("unit", "å—");
                 set("material", "fur");
 		set("value", 30000);
                 set("warm_cloth", 1);

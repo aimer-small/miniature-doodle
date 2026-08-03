@@ -165,7 +165,7 @@ varargs int skill_death_penalty(int mode)
 	return 1;
 }
 
-// Îª¶àÖ°ÒµÏµÍ³£¬Ôö¼ÓÒ»Ğ©¼ì²é by augx@sj
+// ä¸ºå¤šèŒä¸šç³»ç»Ÿï¼Œå¢åŠ ä¸€äº›æ£€æŸ¥ by augx@sj
 varargs void improve_skill(string skill, int amount, int weak_mode)
 {
 	int spi = 40;
@@ -212,13 +212,13 @@ varargs void improve_skill(string skill, int amount, int weak_mode)
 		learned[skill] = spi;
 		if (weak_mode > 1) {
 			if (!random(5)) tell_object(me,
-				HIY "ÓÉÓÚÊµÕ½¾­Ñé²»×ã£¬×è°­ÁËÄãµÄ¡¸" + to_chinese(skill) + "¡¹½ø²½£¡\n" NOR);
+				HIY "ç”±äºå®æˆ˜ç»éªŒä¸è¶³ï¼Œé˜»ç¢äº†ä½ çš„ã€Œ" + to_chinese(skill) + "ã€è¿›æ­¥ï¼\n" NOR);
 		} else if (!weak_mode) {
 			// Add limit for multi-career system
 			/*
 			if( SKILL_D(skill)->type() == "martial" ) {
 				if( skills[skill]>=200 && query_user_type()!="martial") {
-					tell_object(me, HIY"ÄãµÄÁéĞÔ²»×ã£¬ÏŞÖÆÁËÄã´ËÏî¼¼ÄÜµÄÌáÉı£¡\n"NOR);
+					tell_object(me, HIY"ä½ çš„çµæ€§ä¸è¶³ï¼Œé™åˆ¶äº†ä½ æ­¤é¡¹æŠ€èƒ½çš„æå‡ï¼\n"NOR);
 					return;
 				}
 			}			
@@ -226,23 +226,23 @@ varargs void improve_skill(string skill, int amount, int weak_mode)
 			if( SKILL_D(skill)->type2() == "worker" ) {
 				/*			
 				if( skills[skill]>=200 && query_user_type()!="worker") {
-					tell_object(me, HIY"ÄãµÄÁéĞÔ²»×ã£¬ÏŞÖÆÁËÄã´ËÏî¼¼ÄÜµÄÌáÉı£¡\n"NOR);
+					tell_object(me, HIY"ä½ çš„çµæ€§ä¸è¶³ï¼Œé™åˆ¶äº†ä½ æ­¤é¡¹æŠ€èƒ½çš„æå‡ï¼\n"NOR);
 					return;
 				}
 				*/
 				//if ( skills[skill]>=400 ) {
-				//	tell_object(me, HIY"´ËÏî¼¼ÄÜÄãÒÑ¾­ÎŞ·¨ÌáÉıÁË£¡\n"NOR);
+				//	tell_object(me, HIY"æ­¤é¡¹æŠ€èƒ½ä½ å·²ç»æ— æ³•æå‡äº†ï¼\n"NOR);
 				//	return;
 				//}
 				if ( (int)me->worker_skill("limit")>2000 ) {
 					me->delete_temp("worker_skill_limit");
-					tell_object(me, HIY"ÄãµÄÁéĞÔ²»×ã£¬ÏŞÖÆÁËÄã´ËÏî¼¼ÄÜµÄÌáÉı£¡\n"NOR);
+					tell_object(me, HIY"ä½ çš„çµæ€§ä¸è¶³ï¼Œé™åˆ¶äº†ä½ æ­¤é¡¹æŠ€èƒ½çš„æå‡ï¼\n"NOR);
 					return;
 				}
 			}
 			skills[skill]++;
 			learned[skill] = 0;
-			tell_object(this_object(), HIC "ÄãµÄ¡¸" + to_chinese(skill) + "¡¹½ø²½ÁË£¡\n" NOR);
+			tell_object(this_object(), HIC "ä½ çš„ã€Œ" + to_chinese(skill) + "ã€è¿›æ­¥äº†ï¼\n" NOR);
 			SKILL_D(skill)->skill_improved(this_object());
 		}
 	}
@@ -270,12 +270,12 @@ string query_user_type()
 	if(a<220 && b>220) {
 		this_object()->set_temp("user_type","worker");
 		return "worker";
-	}//worker ĞŞÁ¶ÎäÑ§¼¼ÄÜÄÑ¶È¼Ó´ó
+	}//worker ä¿®ç‚¼æ­¦å­¦æŠ€èƒ½éš¾åº¦åŠ å¤§
 	if(a>b && a>220){
 		this_object()->set_temp("user_type","martial");
 		return "martial";
-	}//martial ½«½ûÖ¹²Î¼Ó¹¤½³µÄ²¿·ÖJob ĞŞÁ¶
-	return "martial";//ÆÕÍ¨ ²»½øĞĞset_temp Ò²¾ÍÊÇ¼´¿ÉÒÔ²ÎÓë¹¤½³µÄĞŞÁ¶ ¶øÇÒĞŞÁ¶ÎäÑ§¼¼ÄÜµÄËÙ¶È¸ú martial Ò»Ñù
+	}//martial å°†ç¦æ­¢å‚åŠ å·¥åŒ çš„éƒ¨åˆ†Job ä¿®ç‚¼
+	return "martial";//æ™®é€š ä¸è¿›è¡Œset_temp ä¹Ÿå°±æ˜¯å³å¯ä»¥å‚ä¸å·¥åŒ çš„ä¿®ç‚¼ è€Œä¸”ä¿®ç‚¼æ­¦å­¦æŠ€èƒ½çš„é€Ÿåº¦è·Ÿ martial ä¸€æ ·
 	/*if (a>b) {
 		this_object()->set_temp("user_type","martial");
 		return "martial";
@@ -308,7 +308,7 @@ int worker_skill(string flag)
 		}
 	}	
 	this_object()->set_temp("worker_skill_limit",limit);
-	this_object()->set_temp("worker_skill_highest",b);//·ÀÖ¹¸úÏÖÓĞCode³åÍ»
+	this_object()->set_temp("worker_skill_highest",b);//é˜²æ­¢è·Ÿç°æœ‰Codeå†²çª
 	if(flag=="limit") return limit;
 	if(flag=="highest") return b;
 	return 0;

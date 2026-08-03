@@ -1,4 +1,4 @@
-// Õë
+// é’ˆ
 
 #include <weapon.h>
 #include <ansi.h>
@@ -8,13 +8,13 @@ inherit HAMMER;
 
 void create()
 {
-	set_name("Á÷ĞÇ´¸", ({ "liuxing chui", "chui", "hammer" }));
+	set_name("æµæ˜Ÿé”¤", ({ "liuxing chui", "chui", "hammer" }));
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-		set("long", "Ò»±ú¾«ÌúÖÆµÄÁ÷ĞÇ´¸¡£\n");
+		set("unit", "æŸ„");
+		set("long", "ä¸€æŸ„ç²¾é“åˆ¶çš„æµæ˜Ÿé”¤ã€‚\n");
 		set("value", 1000);
                 set("weapon_prop/parry", 1);
 		set("material", "steel");		

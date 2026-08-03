@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "³¤½Ö");
+        set("short", "é•¿è¡—");
         set("long", @LONG
-ÕâÊÇÒ»Ìõ³¤³¤µÄ½Ö£¬Ò»ÑÛÍû²»µ½Í·£¬²»ÖªµÀÍ¨ÏòÄÄÀï¡£
+è¿™æ˜¯ä¸€æ¡é•¿é•¿çš„è¡—ï¼Œä¸€çœ¼æœ›ä¸åˆ°å¤´ï¼Œä¸çŸ¥é“é€šå‘å“ªé‡Œã€‚
 LONG
         );
-        set("outdoors", "³¤°²");
+        set("outdoors", "é•¿å®‰");
 
         set("exits", ([
                 "east"   : __DIR__"changjie1",
@@ -30,14 +30,14 @@ int valid_leave(object me, string dir)
         if( me->query_temp("ca_chj") > 5 + random(5) ) {
                 me->move(__DIR__"changjie2");
                 me->delete_temp("ca_chj");
-                return notify_fail("ÄãÀÛµÃ°ëËÀ£¬ÖÕÓÚ×ßÍêÁËÕâ³¤³¤µÄ½Ö¡£\n");
+                return notify_fail("ä½ ç´¯å¾—åŠæ­»ï¼Œç»ˆäºèµ°å®Œäº†è¿™é•¿é•¿çš„è¡—ã€‚\n");
                 }
         }
         if( dir =="west") {
         if( me->query_temp("ca_chj") > 5 + random(5) ) {
                 me->move(__DIR__"southjie3");
                 me->delete_temp("ca_chj");
-                return notify_fail("ÄãÀÛµÃ°ëËÀ£¬ÖÕÓÚ×ßÍêÁËÕâ³¤³¤µÄ½Ö¡£\n");
+                return notify_fail("ä½ ç´¯å¾—åŠæ­»ï¼Œç»ˆäºèµ°å®Œäº†è¿™é•¿é•¿çš„è¡—ã€‚\n");
                 }
         }
         return ::valid_leave(me,dir);

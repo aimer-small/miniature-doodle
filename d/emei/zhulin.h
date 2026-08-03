@@ -1,5 +1,5 @@
 // zhulin.h
-// ÖñÁÖ
+// ç«¹æ—
 
 
 int valid_leave(object me, string dir)
@@ -88,9 +88,9 @@ void init()
        me = this_player();
        ob = all_inventory(environment(me));
        if (random((int)me->query("kar") + 1) <= 3 ) {
-		message_vision(YEL"Í»È»Ò»¹ÉÆæÒìµÄÏãÆøÆË±Ç¶øÀ´£¬ÄãÖ»¾õµÃÒ»ÕóÍ·ÔÎÄ¿Ñ£......\n\n"NOR, me);              
+		message_vision(YEL"çªç„¶ä¸€è‚¡å¥‡å¼‚çš„é¦™æ°”æ‰‘é¼»è€Œæ¥ï¼Œä½ åªè§‰å¾—ä¸€é˜µå¤´æ™•ç›®çœ©......\n\n"NOR, me);              
 		for(i=0; i<sizeof(ob); i++) {
-       			tell_object(ob[i], HIR"Äã¾õµÃ×Ô¼ºÒÑ¾­³ÁÃÔÓÚÏãÆøÖ®ÖĞ£¬½¥½¥µÄÊÖ½ÅÒÑ¾­²»ÌıÊ¹»½ÁË¡­¡­\n"NOR);      
+       			tell_object(ob[i], HIR"ä½ è§‰å¾—è‡ªå·±å·²ç»æ²‰è¿·äºé¦™æ°”ä¹‹ä¸­ï¼Œæ¸æ¸çš„æ‰‹è„šå·²ç»ä¸å¬ä½¿å”¤äº†â€¦â€¦\n"NOR);      
 			ob[i]->unconcious();
 			if (ob[i]) {
 	ob[i]->move(__DIR__"lengshanlin1");    
@@ -117,12 +117,12 @@ void do_back(object room)
 
 int do_save()
 {
-	write("ÕâÀï²»×¼´æÅÌ£¡\n");
+	write("è¿™é‡Œä¸å‡†å­˜ç›˜ï¼\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("ÕâÀï²»×¼ÍË³ö£¡\n");
+	write("è¿™é‡Œä¸å‡†é€€å‡ºï¼\n");
 	return 1;
 }

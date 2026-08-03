@@ -1,4 +1,4 @@
-// ²¹³¥ NPC
+// è¡¥å¿ NPC
 // Modify By Lane@sj 2005.01
 
 
@@ -9,12 +9,12 @@ inherit NPC;
 string ask_gold();
 void create()
 {
-	set_name("Ç®Ò¯", ({ "qian ye","qian","ye" }) );
-	set("title", "·çÁ÷ÙÃÙÎ");
-	set("nickname", HIY"Ç®Ì«¶à"NOR);
-	set("gender", "ÄĞĞÔ");
+	set_name("é’±çˆ·", ({ "qian ye","qian","ye" }) );
+	set("title", "é£æµå€œå‚¥");
+	set("nickname", HIY"é’±å¤ªå¤š"NOR);
+	set("gender", "ç”·æ€§");
 	set("age",36);
-	set("long","Ëû¾ÍÊÇÂùÁ¦µÄºóÉí£¬ÌıËµºóÀ´×öÁË»ÊµÛ£¬È¢ÁË1800¸öÀÏÆÅ¡£\nÁÉÄşÕ¾µÄÍæ¼Ò¿ÉÒÔÍ¨¹ı'ask qian ye about ²¹³¥'À´»ñµÃÒ»Ğ©ºÃ´¦¡£");
+	set("long","ä»–å°±æ˜¯è›®åŠ›çš„åèº«ï¼Œå¬è¯´åæ¥åšäº†çš‡å¸ï¼Œå¨¶äº†1800ä¸ªè€å©†ã€‚\nè¾½å®ç«™çš„ç©å®¶å¯ä»¥é€šè¿‡'ask qian ye about è¡¥å¿'æ¥è·å¾—ä¸€äº›å¥½å¤„ã€‚");
 	set("str", 30);
 	set("int", 20);
 	set("con", 20);
@@ -23,10 +23,10 @@ void create()
 	set("shen_type",1);
 	set("combat_exp", 4500000);
 	set("unique", 1);
-	set("quest/ÌìÁú°Ë²¿/Îä¹¦/quanli",1);
+	set("quest/å¤©é¾™å…«éƒ¨/æ­¦åŠŸ/quanli",1);
 
 	set("inquiry", ([
-		"²¹³¥"  : (: ask_gold :),
+		"è¡¥å¿"  : (: ask_gold :),
 	]));
 
 	set("chat_chance_combat", 50);
@@ -83,18 +83,18 @@ string ask_gold()
 	ob = this_object();
 	
 	if (me->query("vip/redeem_gold"))
-		return "ÓĞµÀÊÇ£ºÈËÎª²ÆËÀ£¬ÄñÎªÊ³Íö£¬"+me->query("name")+"Õâ¸ö"+RANK_D->query_rude(me)+"£¬\nÎÒËäÈ»ÊÇ¸öNPC£¬¿ÉÊÇÑÛ¾¦²»Ï¹£¬ÄãÒÑ¾­²¹³¥¹ıÁË£¬ÔÙÎÊÎÒÒª£¬²»ÅÂÎÒ°ÑÄã´æ¿î¶³½á£¿\n";
+		return "æœ‰é“æ˜¯ï¼šäººä¸ºè´¢æ­»ï¼Œé¸Ÿä¸ºé£Ÿäº¡ï¼Œ"+me->query("name")+"è¿™ä¸ª"+RANK_D->query_rude(me)+"ï¼Œ\næˆ‘è™½ç„¶æ˜¯ä¸ªNPCï¼Œå¯æ˜¯çœ¼ç›ä¸çï¼Œä½ å·²ç»è¡¥å¿è¿‡äº†ï¼Œå†é—®æˆ‘è¦ï¼Œä¸æ€•æˆ‘æŠŠä½ å­˜æ¬¾å†»ç»“ï¼Ÿ\n";
 	if( me->query("combat_exp") < 100000 && me->query("birthday") < 1104508800 && !me->query("vip/redeem_gold"))
-		return RANK_D->query_respect(me)+"£¬ÎÒ¿´Äã»¹ÊÇÏÈÁ·ºÃÎä¹¦°É£¡";
+		return RANK_D->query_respect(me)+"ï¼Œæˆ‘çœ‹ä½ è¿˜æ˜¯å…ˆç»ƒå¥½æ­¦åŠŸå§ï¼";
 		
 	if( end_time - time() > 0 && !me->query("vip/redeem_gold") && me->query("birthday") < 1104508800 && site=="ln") //1104508800 January 1, 2005, 12:00 am
 	{
 		me->add("balance", 1000000);
-		me->set("vip/redeem_gold",1);//±ê¼Ç
+		me->set("vip/redeem_gold",1);//æ ‡è®°
 		log_file("static/REDEEM",
-				sprintf("%s »ñµÃ»Æ½ğ²¹³¥¡£\n",me->query("id")));
-		return "ÌıËµÕâÀïÇ°¶ÎÊ±¼äÀÏÊÇµ±»ú£¬ÎÒ¾ÍÏÈ¸øÄãÒ»°ÙÁ½»Æ½ğ×ö²¹³¥£¬ÂíÉÏ´æÈëÄãÒøĞĞ£¡\n";
+				sprintf("%s è·å¾—é»„é‡‘è¡¥å¿ã€‚\n",me->query("id")));
+		return "å¬è¯´è¿™é‡Œå‰æ®µæ—¶é—´è€æ˜¯å½“æœºï¼Œæˆ‘å°±å…ˆç»™ä½ ä¸€ç™¾ä¸¤é»„é‡‘åšè¡¥å¿ï¼Œé©¬ä¸Šå­˜å…¥ä½ é“¶è¡Œï¼\n";
 	}
 
-	return "ÒªÇ®Ã»ÓĞ£¬Ãüµ½ÊÇÓĞÒ»Ìõ£¡\n";
+	return "è¦é’±æ²¡æœ‰ï¼Œå‘½åˆ°æ˜¯æœ‰ä¸€æ¡ï¼\n";
 }

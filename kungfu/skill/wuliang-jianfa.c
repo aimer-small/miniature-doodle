@@ -1,27 +1,27 @@
-// wuliang-jianfa.c ÎÞÁ¿½£·¨
+// wuliang-jianfa.c æ— é‡å‰‘æ³•
 
 inherit SKILL;
 
 mapping *action = ({
-([     "action" : "$NÎ´µÈÕÐÊýÎ´ÀÏ£¬¶¸È»ÊÕÊÆ£¬½£¼âÔÚ°ë¿ÕÖÐÎ¢Î¢Ò»¶¶£¬Ò»¸ö½£»¨£¬±äÕÐÐ±´Ì$n$l",
+([     "action" : "$Næœªç­‰æ‹›æ•°æœªè€ï¼Œé™¡ç„¶æ”¶åŠ¿ï¼Œå‰‘å°–åœ¨åŠç©ºä¸­å¾®å¾®ä¸€æŠ–ï¼Œä¸€ä¸ªå‰‘èŠ±ï¼Œå˜æ‹›æ–œåˆº$n$l",
        "force" : 240,
        "damage" : 30,
        "lvl" : 0,
-       "damage_type" : "´ÌÉË"
+       "damage_type" : "åˆºä¼¤"
 ]),
-([     "action" : "$N³¤½£ÉÏÁÃ£¬Ê¹ÕÐ¡¸Íò»ÜÕùÑÞ¡¹£¬½£¹âÂÒ²ü£¬ÀÎÀÎ½«ÉÏÅÌ·â×¡",
+([     "action" : "$Né•¿å‰‘ä¸Šæ’©ï¼Œä½¿æ‹›ã€Œä¸‡å‰äº‰è‰³ã€ï¼Œå‰‘å…‰ä¹±é¢¤ï¼Œç‰¢ç‰¢å°†ä¸Šç›˜å°ä½",
        "force" : 270,
         "dodge" : 5,
        "damage" : 35,
        "lvl" : 15,
-       "damage_type" : "´ÌÉË"
+       "damage_type" : "åˆºä¼¤"
 ]),
-([     "action" : "$NÒ»ÕÐ¡¸Ë³Ë®ÍÆÖÛ¡¹£¬½£·æ³ËÊÆÏò$nµÄ$lÍÆÈ¥",
+([     "action" : "$Nä¸€æ‹›ã€Œé¡ºæ°´æŽ¨èˆŸã€ï¼Œå‰‘é”‹ä¹˜åŠ¿å‘$nçš„$læŽ¨åŽ»",
        "force" : 290,
         "dodge" : 5,
        "damage" : 40,
        "lvl" : 20,
-       "damage_type" : "´ÌÉË"
+       "damage_type" : "åˆºä¼¤"
 ]),
 });
 
@@ -31,9 +31,9 @@ int valid_enable(string usage) { return (usage == "sword") || (usage == "parry")
 int valid_learn(object me)
 {
        if ((int)me->query("max_neili") < 100)
-               return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+               return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
        if ((int)me->query_skill("wuliang-shengong", 1) < 20)
-               return notify_fail("ÄãµÄÎÞÁ¿Éñ¹¦»ðºòÌ«Ç³¡£\n");
+               return notify_fail("ä½ çš„æ— é‡ç¥žåŠŸç«å€™å¤ªæµ…ã€‚\n");
        return 1;
 }
 
@@ -60,9 +60,9 @@ int practice_skill(object me)
 
        if (!objectp(weapon = me->query_temp("weapon"))
        || (string)weapon->query("skill_type") != "sword")
-               return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+               return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
        if ((int)me->query("jingli") < 50)
-               return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·ÎÞÁ¿½£·¨¡£\n");
+               return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒæ— é‡å‰‘æ³•ã€‚\n");
        me->receive_damage("jingli", 35);
        return 1;
 }

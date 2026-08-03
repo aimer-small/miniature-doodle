@@ -1,4 +1,4 @@
-// Ïã½¶
+// é¦™è•‰
 
 #include <ansi.h>
 inherit ITEM;
@@ -6,10 +6,10 @@ inherit ITEM;
 void create()
 {
 	seteuid(getuid());
-	set_name(HIY"Ïã½¶"NOR, ({ "xiang jiao","jiao","banana" }) );
-	set("long", "Ò»Ö»»Æ³È³ÈµÄ´óÏã½¶¡£\n");
+	set_name(HIY"é¦™è•‰"NOR, ({ "xiang jiao","jiao","banana" }) );
+	set("long", "ä¸€åªé»„æ©™æ©™çš„å¤§é¦™è•‰ã€‚\n");
 	set("value", 2000);
-	set("unit", "Ö»");
+	set("unit", "åª");
 	set_weight(10);
 	setup();
 }
@@ -27,16 +27,16 @@ int do_bo(string arg)
 	object ob = this_object();
 
 	if( !arg || arg!="xiangjiao" && arg!="xiang jiao" && arg!="banana" )
-		return notify_fail("ÄãÒª²¦Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‹¨ä»€ä¹ˆï¼Ÿ\n");
 
-	if( ob->query_temp("banana") ) return notify_fail("Ïã½¶ÒÑ¾­±»²¦¹ıÆ¤ÁË¡£\n");
+	if( ob->query_temp("banana") ) return notify_fail("é¦™è•‰å·²ç»è¢«æ‹¨è¿‡çš®äº†ã€‚\n");
 
 	me->set_temp("banana", 1);
 	ob->set_temp("banana", 1);
 
 	me->set_temp("banana2", 1);
 	new(__DIR__"banana2")->move(me);
-	message_vision(HIW"$N²¦¿ªÁËÒ»Ö»Ïã½¶¡£\n"NOR, me);
+	message_vision(HIW"$Næ‹¨å¼€äº†ä¸€åªé¦™è•‰ã€‚\n"NOR, me);
 	me->delete_temp("banana2");
 
         return 1;
@@ -48,13 +48,13 @@ int do_eat(string arg)
 	object ob = this_object();
 
 	if( !arg || arg!="xiangjiao" && arg!="xiang jiao" && arg!="banana" )
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
-	if( !ob->query_temp("banana") ) return notify_fail("ÄãÏëÁ¬Æ¤³ÔÏÂÃ´£¿\n");
+	if( !ob->query_temp("banana") ) return notify_fail("ä½ æƒ³è¿çš®åƒä¸‹ä¹ˆï¼Ÿ\n");
 
 	me->delete_temp("banana");
 	me->add("food",40);
-	message_vision(HIY"$N³ÔÏÂÒ»Ö»Ïã½¶¡£\n"NOR, me);
+	message_vision(HIY"$Nåƒä¸‹ä¸€åªé¦™è•‰ã€‚\n"NOR, me);
 	destruct(this_object());
 
         return 1;

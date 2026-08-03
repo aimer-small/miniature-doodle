@@ -14,12 +14,12 @@ int valid_learn(object me)
 		return 1;
 	}
 
-	if( (me->query("family/family_name") =="ÉÙÁÖÅÉ"
-	|| me->query("family/family_name") =="¶ëáÒÅÉ"
-	|| me->query("family/family_name") =="ÌìÁúËÂ")
+	if( (me->query("family/family_name") =="å°‘æ—æ´¾"
+	|| me->query("family/family_name") =="å³¨åµ‹æ´¾"
+	|| me->query("family/family_name") =="å¤©é¾™å¯º")
 	&& me->query("class") == "bonze"
 	&& me->query_skill("literate", 1) < 100)
 		return 1;
 
-	return notify_fail("Äã±ØĞëÈ¥Ñ§ÌÃÑ§Ï°¶ÁÊéĞ´×Ö¡£\n");
+	return notify_fail("ä½ å¿…é¡»å»å­¦å ‚å­¦ä¹ è¯»ä¹¦å†™å­—ã€‚\n");
 }

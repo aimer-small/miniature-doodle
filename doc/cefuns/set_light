@@ -1,14 +1,14 @@
 
 	set_light(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		set_light() - ¸ü¸Ä»òÑ¯ÎÊÒ»¸öÎï¼şµÄÕÕÃ÷³Ì¶È (light level).
-	Óï·¨:
+	åç§°:
+		set_light() - æ›´æ”¹æˆ–è¯¢é—®ä¸€ä¸ªç‰©ä»¶çš„ç…§æ˜ç¨‹åº¦ (light level).
+	è¯­æ³•:
 		int set_light( int light_level_adjustment );
 
-		ÕûÊı set_light( ÕûÊı light_level_adjustment );
-	ÓÃ·¨:
-		½« light_level_adjustment Ö¸¶¨Îª 0, ÔòÑ¯ÎÊÎï¼şÄ¿Ç°µÄ
-		ÕÕÃ÷³Ì¶È. Ö¸¶¨ÎªÕıÕûÊıÔòÔö¼ÓÕÕÃ÷µÄ³Ì¶È, ¸ºÕûÊı½µµÍ.
-	·­Òë:
+		æ•´æ•° set_light( æ•´æ•° light_level_adjustment );
+	ç”¨æ³•:
+		å°† light_level_adjustment æŒ‡å®šä¸º 0, åˆ™è¯¢é—®ç‰©ä»¶ç›®å‰çš„
+		ç…§æ˜ç¨‹åº¦. æŒ‡å®šä¸ºæ­£æ•´æ•°åˆ™å¢åŠ ç…§æ˜çš„ç¨‹åº¦, è´Ÿæ•´æ•°é™ä½.
+	ç¿»è¯‘:
 		Spock @ FF	97.Jul.21.		(printed 3/16/95)

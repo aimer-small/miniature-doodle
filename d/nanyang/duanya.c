@@ -5,14 +5,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¶ÏÑÂ");
+	set("short", "æ–­å´–");
 	set("long", @LONG
-Ç°ÃæÊÇÒ»´¦Ê®·Ö¶¸ÇÍµÄ¶ÏÑÂ£¬ÏÕ¾şÒì³££¬ÄÑÒÔÅÀÔ½(pa)¡£ÕâÀïÀë»ÆºÓ²»Ô¶£¬
-»ÆºÓÁ÷ÌÊµ½ÕâÀï£¬ºÓ´²¿íÀ«¡£»ÆÉ«µÄºÓË®ÔÚ¾²¾²µØÏò¶«Á÷È¥£¬Ê¹ÈËÍü¼ÇËü·¢ºé
-Ë®Ê±µÄ¿ñÍş¡£
+å‰é¢æ˜¯ä¸€å¤„ååˆ†é™¡å³­çš„æ–­å´–ï¼Œé™©å³»å¼‚å¸¸ï¼Œéš¾ä»¥çˆ¬è¶Š(pa)ã€‚è¿™é‡Œç¦»é»„æ²³ä¸è¿œï¼Œ
+é»„æ²³æµæ·Œåˆ°è¿™é‡Œï¼Œæ²³åºŠå®½é˜”ã€‚é»„è‰²çš„æ²³æ°´åœ¨é™é™åœ°å‘ä¸œæµå»ï¼Œä½¿äººå¿˜è®°å®ƒå‘æ´ª
+æ°´æ—¶çš„ç‹‚å¨ã€‚
 LONG
 	);
-	set("outdoors", "»ÆºÓ");
+	set("outdoors", "é»„æ²³");
 	set("exits", ([
 		"north" : __DIR__"yidao4",
 	]));
@@ -33,25 +33,25 @@ int do_pa(string arg)
 
 	if ( !arg ) return 0;
 	if (arg != "ya" && arg!="up")
-		return notify_fail("ÄãÒªÍùÄÇÀïÅÀ£¿\n");
+		return notify_fail("ä½ è¦å¾€é‚£é‡Œçˆ¬ï¼Ÿ\n");
 
 	if (!living(me)) return 0;
 
 	inv = filter_array(deep_inventory(me), (: userp :));
 	if (sizeof(inv) || !me->query_temp("gb_job2")) {
-		message_vision("$NÆø´­ĞêĞê£¬¸Ğµ½ÎŞ·¨ÅÀÉÏÈ¥£¬Ë¤ÁËÏÂÀ´£¡\n", me);
-		me->set_temp("last_damage_from", "´Ó¶ÏÑÂÉÏµôÏÂÀ´Ë¤");
+		message_vision("$Næ°”å–˜å˜˜å˜˜ï¼Œæ„Ÿåˆ°æ— æ³•çˆ¬ä¸Šå»ï¼Œæ‘”äº†ä¸‹æ¥ï¼\n", me);
+		me->set_temp("last_damage_from", "ä»æ–­å´–ä¸Šæ‰ä¸‹æ¥æ‘”");
 		me->receive_wound("qi", 50+random(50));
 		return 1;
 	}
 	if (me->query_skill("dodge",1) < 80){
-		message_vision(HIR"$NÏëÒªÅÀÉÏÉ½¶¥£¬ÎŞÄÎÇá¹¦²»¹»£¬Ë¤ÁËÏÂÀ´£¡\n"NOR, me);
-		me->set_temp("last_damage_from", "´Ó¶ÏÑÂÉÏµôÏÂÀ´Ë¤");
+		message_vision(HIR"$Næƒ³è¦çˆ¬ä¸Šå±±é¡¶ï¼Œæ— å¥ˆè½»åŠŸä¸å¤Ÿï¼Œæ‘”äº†ä¸‹æ¥ï¼\n"NOR, me);
+		me->set_temp("last_damage_from", "ä»æ–­å´–ä¸Šæ‰ä¸‹æ¥æ‘”");
 		me->receive_wound("qi", 50+random(50));
 		return 1;
 	}
-	message_vision("$N°Ç×¡Í»³öµÄÑÒÊ¯£¬Ê©Õ¹Çá¹¦ÅÀÁËÉÏÈ¥¡£\n", me);
+	message_vision("$Næ‰’ä½çªå‡ºçš„å²©çŸ³ï¼Œæ–½å±•è½»åŠŸçˆ¬äº†ä¸Šå»ã€‚\n", me);
 	me->move("/d/gb/yading");
-	tell_room(environment(me), me->name() + "´ÓÏÂÃæÅÀÁËÉÏÀ´¡£\n", ({ me }));
+	tell_room(environment(me), me->name() + "ä»ä¸‹é¢çˆ¬äº†ä¸Šæ¥ã€‚\n", ({ me }));
 	return 1;
 }

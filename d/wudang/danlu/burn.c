@@ -1,4 +1,4 @@
-// burn.h Cht@SJ 2000-3-12 ÐÞ¸Ä
+// burn.h Cht@SJ 2000-3-12 ä¿®æ”¹
 #include <ansi.h>
 int do_burn(string arg)
 {
@@ -7,35 +7,35 @@ int do_burn(string arg)
         ob = this_player();
 
         if( ob->is_busy() ) 
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if( ob->is_fighting() )
-                return notify_fail("ÄãÕýÔÚÕ½¶·ÖÐ¡£\n");
+                return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ã€‚\n");
 
         if( !ob->query_temp("doing", 1) )
-                return notify_fail("ÄãÃ»ÔÚ°¾Ò©¡£\n");
+                return notify_fail("ä½ æ²¡åœ¨ç†¬è¯ã€‚\n");
 
         if( me->query("marks/open", 1) )
-                return notify_fail("µ¤Â¯µÄ¸Ç×ÓÃ»ÓÐ¸ÇÉÏ¡£\n");
+                return notify_fail("ä¸¹ç‚‰çš„ç›–å­æ²¡æœ‰ç›–ä¸Šã€‚\n");
 
         if( !me->query("marks/fired", 1) )
-                return notify_fail("µ¤Â¯ÄÚ»¹Ã»ÓÐÉú»ð£¬ÄãÔõÃ´ÄÜ¹»Ê¹²ñ»ðÈ¼ÉÕÆðÀ´£¿\n");
+                return notify_fail("ä¸¹ç‚‰å†…è¿˜æ²¡æœ‰ç”Ÿç«ï¼Œä½ æ€Žä¹ˆèƒ½å¤Ÿä½¿æŸ´ç«ç‡ƒçƒ§èµ·æ¥ï¼Ÿ\n");
 
         if( me->query("marks/burned", 1))
-                return notify_fail("µ¤Â¯ÀïµÄ»ðÑæÒÑ¾­ºÜ´óÁË£¬²»ÓÃÔÙ¼Ó´ó»ðÁ¦ÁË¡£\n");
+                return notify_fail("ä¸¹ç‚‰é‡Œçš„ç«ç„°å·²ç»å¾ˆå¤§äº†ï¼Œä¸ç”¨å†åŠ å¤§ç«åŠ›äº†ã€‚\n");
 
         if( !arg || arg =="" || arg != "coal")
-                return notify_fail("ÄãÒªÈ¼ÉÕÊ²Ã´¶«Î÷£¿\n"); 
+                return notify_fail("ä½ è¦ç‡ƒçƒ§ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n"); 
                 
         if( (int)ob->query("neili", 1)  <= 1000 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬µã×ÅÁË»ðÒ²À­²»¶¯·çÏä¡£\n");           
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œç‚¹ç€äº†ç«ä¹Ÿæ‹‰ä¸åŠ¨é£Žç®±ã€‚\n");           
                 
         if( (int)ob->query("max_neili", 1)  <= 1500 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬µã×ÅÁË»ðÒ²À­²»¶¯·çÏä¡£\n");                           
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œç‚¹ç€äº†ç«ä¹Ÿæ‹‰ä¸åŠ¨é£Žç®±ã€‚\n");                           
 
         if( arg =="coal") 
         {
-                message_vision(HIC"\n$NÊ¹¾¢µØÀ­¶¯·çÏä£¬µ¤Â¯ÀïÃ°³öÕóÕóÇàÑÌ¡£\n"NOR, ob);
+                message_vision(HIC"\n$Nä½¿åŠ²åœ°æ‹‰åŠ¨é£Žç®±ï¼Œä¸¹ç‚‰é‡Œå†’å‡ºé˜µé˜µé’çƒŸã€‚\n"NOR, ob);
                 remove_call_out("do_ready");
                 call_out("do_ready", 30, me);
                 me->set("marks/burned", 1);
@@ -49,7 +49,7 @@ int do_burn(string arg)
 void do_ready(object ob)
 {
         object me = this_object();
-        message_vision(HIW"\n»ðÊÆ½¥½¥´óÁËÆðÀ´£¬Ò»¹ÉÅ¨ÖØµÄ²ÝÒ©Î¶µÀÆË±Ç¶øÀ´¡£Ó¦¸Ã°¾Ò©ÁË¡£\n"NOR, ob);
+        message_vision(HIW"\nç«åŠ¿æ¸æ¸å¤§äº†èµ·æ¥ï¼Œä¸€è‚¡æµ“é‡çš„è‰è¯å‘³é“æ‰‘é¼»è€Œæ¥ã€‚åº”è¯¥ç†¬è¯äº†ã€‚\n"NOR, ob);
         ob->start_busy(2);
         remove_call_out("do_confirm");
         call_out("do_confirm", 30+random(10), me);
@@ -64,7 +64,7 @@ void do_confirm(object ob)
         {
                 remove_call_out("confirm");
                 remove_call_out("ready");
-                message_vision(HIR"\nÒ©¿ì°¾ºÃÁË£¬¸Ï½ôÃð»ð°É£¡\n"NOR, ob);
+                message_vision(HIR"\nè¯å¿«ç†¬å¥½äº†ï¼Œèµ¶ç´§ç­ç«å§ï¼\n"NOR, ob);
                 remove_call_out("do_check");
                 call_out("do_check", 70, me);
                 me->delete("marks/burned");
@@ -72,7 +72,7 @@ void do_confirm(object ob)
         }
         else 
         {
-                write(HIY"Ò»¹É½¹ºýÎ¶µÀÆË±Ç¶øÀ´¡£\n"NOR, ob);
+                write(HIY"ä¸€è‚¡ç„¦ç³Šå‘³é“æ‰‘é¼»è€Œæ¥ã€‚\n"NOR, ob);
                 ob->start_busy(7);
                 remove_call_out("do_failed"); 
                 call_out("do_failed", 7, me);
@@ -91,9 +91,9 @@ void do_failed(object ob)
         for(i=0; i<sizeof(obj); i++) {
         destruct(obj[i]);
         }
-        message_vision("µ¤Â¯ÀïÃæÒ»Æ¬½¹ºÚ£¬$NÊ²Ã´µ¤Ò©Ò²Ã»Á·³öÀ´¡£\n", ob);
+        message_vision("ä¸¹ç‚‰é‡Œé¢ä¸€ç‰‡ç„¦é»‘ï¼Œ$Nä»€ä¹ˆä¸¹è¯ä¹Ÿæ²¡ç»ƒå‡ºæ¥ã€‚\n", ob);
         if( userp(ob) ) log_file("LIAN_DAN",
-        sprintf("%s %s(%s) ÒòÎª¼åºýµ¤Â¯Á¶µ¤Ê§°Ü ÓÚ %s\n", ob->query("title"), ob->name(1), geteuid(ob), ctime(time())[4..19] ) ); 
+        sprintf("%s %s(%s) å› ä¸ºç…Žç³Šä¸¹ç‚‰ç‚¼ä¸¹å¤±è´¥ äºŽ %s\n", ob->query("title"), ob->name(1), geteuid(ob), ctime(time())[4..19] ) ); 
         remove_call_out("do_ready");
         remove_call_out("do_confirm");
         me->delete("marks/aoyao");

@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIG "Ò©²İ" NOR, ({"yao cao","cao"}));
+        set_name(HIG "è¯è‰" NOR, ({"yao cao","cao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÕâÊÇÒ»ÖêÓÃÓÚÉñÁúµºÖÆÒ©µÄÒ©²İ£¬");
-		set("unit", "Öê");
-		set("5type","ÍÁ");
-		set("8type","Ç¬");
+		set("long", "è¿™æ˜¯ä¸€æ ªç”¨äºç¥é¾™å²›åˆ¶è¯çš„è¯è‰ï¼Œ");
+		set("unit", "æ ª");
+		set("5type","åœŸ");
+		set("8type","ä¹¾");
 		set("stime",0);
 		set("times",0);
 		set("bad",0);

@@ -1,14 +1,14 @@
-//Modifyed BY LinuX@SJ Ôö¼ÓÑÕÉ«ÏÔÊ¾
-// Modified by Ciwei@SJ ÓÅ»¯
+//Modifyed BY LinuX@SJ å¢åŠ é¢œè‰²æ˜¾ç¤º
+// Modified by Ciwei@SJ ä¼˜åŒ–
 /*
-help map xxxx    ÏÔÊ¾/help/map/ÏÂµÄÎÄ¼ş xxxx ¶ÔÓ¦ÎÄ¼şÃû
-help job xxxx    ÏÔÊ¾/help/job/ÏÂµÄÎÄ¼ş xxxx ¶ÔÓ¦ÎÄ¼şÃû
-help group xxxx  ÏÔÊ¾/help/group/ÏÂµÄÎÄ¼ş xxxx ¶ÔÓ¦ÎÄ¼şÃû
-help dazao xxxx  ÏÔÊ¾/help/dazao/ÏÂµÄÎÄ¼ş xxxx ¶ÔÓ¦ÎÄ¼şÃû
-help quest xxxx  ÏÔÊ¾/help/quest/ÏÂµÄÎÄ¼ş xxxx ¶ÔÓ¦ÎÄ¼şÃû
-help party xxxx  ÏÔÊ¾/help/party/ÏÂµÄÎÄ¼ş xxxx ¶ÔÓ¦ÎÄ¼şÃû
-help xxxx        ÏÔÊ¾/help/topic/ »òÕß /help/misc/ÏÂµÄ¶Ô
-		 Ó¦ xxxx ¶ÔÓ¦ÎÄ¼şÃû£¬ÓÅÏÈ¿¼ÂÇ/topic/
+help map xxxx    æ˜¾ç¤º/help/map/ä¸‹çš„æ–‡ä»¶ xxxx å¯¹åº”æ–‡ä»¶å
+help job xxxx    æ˜¾ç¤º/help/job/ä¸‹çš„æ–‡ä»¶ xxxx å¯¹åº”æ–‡ä»¶å
+help group xxxx  æ˜¾ç¤º/help/group/ä¸‹çš„æ–‡ä»¶ xxxx å¯¹åº”æ–‡ä»¶å
+help dazao xxxx  æ˜¾ç¤º/help/dazao/ä¸‹çš„æ–‡ä»¶ xxxx å¯¹åº”æ–‡ä»¶å
+help quest xxxx  æ˜¾ç¤º/help/quest/ä¸‹çš„æ–‡ä»¶ xxxx å¯¹åº”æ–‡ä»¶å
+help party xxxx  æ˜¾ç¤º/help/party/ä¸‹çš„æ–‡ä»¶ xxxx å¯¹åº”æ–‡ä»¶å
+help xxxx        æ˜¾ç¤º/help/topic/ æˆ–è€… /help/misc/ä¸‹çš„å¯¹
+		 åº” xxxx å¯¹åº”æ–‡ä»¶åï¼Œä¼˜å…ˆè€ƒè™‘/topic/
 
 */
 inherit F_CLEAN_UP;
@@ -29,7 +29,7 @@ int main(object me, string arg )
         if( !arg ) 
         {
                 if(show_the_help(me,HELP_DIR + "topics")) return 1;
-                error("help topics ±»·Ç·¨ÒÆ¶¯ÁË");
+                error("help topics è¢«éæ³•ç§»åŠ¨äº†");
                 return 1;
                 //write(color_filter(read_file(HELP_DIR + "topics")));
                 //return 1;
@@ -44,7 +44,7 @@ int main(object me, string arg )
                 //return 1;	
                 }
                 else
-                	return notify_fail("Ä¿Ç°»¹Ã»ÓĞ "+HIY+arg+NOR+ " Õâ¸öµØÍ¼°ïÖúÎÄ¼ş¡£\n");          
+                	return notify_fail("ç›®å‰è¿˜æ²¡æœ‰ "+HIY+arg+NOR+ " è¿™ä¸ªåœ°å›¾å¸®åŠ©æ–‡ä»¶ã€‚\n");          
           
         } 
         
@@ -57,7 +57,7 @@ int main(object me, string arg )
                 //return 1;	
                 }
                 else
-                	return notify_fail("Ä¿Ç°»¹Ã»ÓĞ "+HIY+arg+NOR+ " Õâ¸ö½­ºşÃØÃÜ°ïÖúÎÄ¼ş¡£\n");          
+                	return notify_fail("ç›®å‰è¿˜æ²¡æœ‰ "+HIY+arg+NOR+ " è¿™ä¸ªæ±Ÿæ¹–ç§˜å¯†å¸®åŠ©æ–‡ä»¶ã€‚\n");          
           
         } 
         
@@ -69,7 +69,7 @@ int main(object me, string arg )
                 //return 1;	
                 }
                 else
-                	return notify_fail("Ä¿Ç°»¹Ã»ÓĞ "+HIY+arg+NOR+ " Õâ¸ö°ïÅÉ°ïÖúÎÄ¼ş¡£\n");  
+                	return notify_fail("ç›®å‰è¿˜æ²¡æœ‰ "+HIY+arg+NOR+ " è¿™ä¸ªå¸®æ´¾å¸®åŠ©æ–‡ä»¶ã€‚\n");  
         } 
         
         if( sscanf(arg, "dazao %s", arg) ) 
@@ -80,7 +80,7 @@ int main(object me, string arg )
                 //return 1;	
                 }
                 else
-                	return notify_fail("Ä¿Ç°»¹Ã»ÓĞ "+HIY+arg+NOR+ " Õâ¸ö´òÔìÏµÍ³°ïÖúÎÄ¼ş¡£\n");  
+                	return notify_fail("ç›®å‰è¿˜æ²¡æœ‰ "+HIY+arg+NOR+ " è¿™ä¸ªæ‰“é€ ç³»ç»Ÿå¸®åŠ©æ–‡ä»¶ã€‚\n");  
         } 
         /*
         if( sscanf(arg, "career %s", arg) ) 
@@ -90,7 +90,7 @@ int main(object me, string arg )
                 return 1;	
                 }
                 else
-                	return notify_fail("Ä¿Ç°»¹Ã»ÓĞ "+HIY+arg+NOR+ " Õâ¸öÖ°ÒµÏµÍ³°ïÖúÎÄ¼ş¡£\n");
+                	return notify_fail("ç›®å‰è¿˜æ²¡æœ‰ "+HIY+arg+NOR+ " è¿™ä¸ªèŒä¸šç³»ç»Ÿå¸®åŠ©æ–‡ä»¶ã€‚\n");
                 
                 
           
@@ -105,7 +105,7 @@ int main(object me, string arg )
                 //return 1;
        		 }
        		else
-       			 return notify_fail("Ä¿Ç°ÉĞÃ»ÓĞ "+HIY+arg+NOR+" Õâ¸öÈÎÎñ»òÊÇÕâ¸öÈÎÎñÉĞÃ»ÓĞ°ïÖúÎÄ¼ş¡£\n");
+       			 return notify_fail("ç›®å‰å°šæ²¡æœ‰ "+HIY+arg+NOR+" è¿™ä¸ªä»»åŠ¡æˆ–æ˜¯è¿™ä¸ªä»»åŠ¡å°šæ²¡æœ‰å¸®åŠ©æ–‡ä»¶ã€‚\n");
         }
 		
 	if( sscanf(arg, "party %s", arg) ) 
@@ -117,14 +117,14 @@ int main(object me, string arg )
                 //return 1;
         	}
         	else
-        	return notify_fail("Ä¿Ç°ÉĞÃ»ÓĞ "+HIY+arg+NOR+" Õâ¸öÃÅÅÉµÄ×ÊÁÏ¡£\n");
+        	return notify_fail("ç›®å‰å°šæ²¡æœ‰ "+HIY+arg+NOR+" è¿™ä¸ªé—¨æ´¾çš„èµ„æ–™ã€‚\n");
         } 
 
         arg = ALIAS_D->process_global_alias( arg );
         if( stringp( file = me->find_command( arg )) ) 
         {
-                notify_fail("ÓĞÕâ¸öÖ¸Áî´æÔÚ£¬²¢Ã»ÓĞËµÃ÷ÎÄ¼ş¡£\n");
-                return write( HIG"¡ò"HIW+CHINESE_MUD_NAME+HIG" ¡ò"NOR"\n") + file->help( me );
+                notify_fail("æœ‰è¿™ä¸ªæŒ‡ä»¤å­˜åœ¨ï¼Œå¹¶æ²¡æœ‰è¯´æ˜æ–‡ä»¶ã€‚\n");
+                return write( HIG"â—"HIW+CHINESE_MUD_NAME+HIG" â—"NOR"\n") + file->help( me );
         }
 
         if( pointerp( search = me->query( "help_search_path" ) ) ) 
@@ -152,7 +152,7 @@ int main(object me, string arg )
                 }
         }
 
-        return notify_fail("Ã»ÓĞÕë¶Ô "HIY+arg+NOR" ÕâÏîÖ÷ÌâµÄËµÃ÷ÎÄ¼ş¡£\n");
+        return notify_fail("æ²¡æœ‰é’ˆå¯¹ "HIY+arg+NOR" è¿™é¡¹ä¸»é¢˜çš„è¯´æ˜æ–‡ä»¶ã€‚\n");
 }
 private int show_the_help(object me,string file)
 {
@@ -161,7 +161,7 @@ private int show_the_help(object me,string file)
 		if (file_size(file) > 8192 )
 		{
 			tell_object(me,
-                	HIY"ºÜ±§Ç¸£¬ÒòÎªÄúËù²éÔÄµÄÎÄ¼ş±È½Ï´ó£¬Ö»ÄÜÒ»Ò³Ò³ÏÔÊ¾¡£\n"NOR);
+                	HIY"å¾ˆæŠ±æ­‰ï¼Œå› ä¸ºæ‚¨æ‰€æŸ¥é˜…çš„æ–‡ä»¶æ¯”è¾ƒå¤§ï¼Œåªèƒ½ä¸€é¡µé¡µæ˜¾ç¤ºã€‚\n"NOR);
 			me->start_more( color_filter( read_file(file) ) );
 		}
 		else write(color_filter( read_file(file) ));
@@ -256,20 +256,20 @@ int help(object me)
 {
         write(@HELP
 ----------------------------------------
-Ö¸Áî¸ñÊ½£ºhelp <Ö÷Ìâ>
+æŒ‡ä»¤æ ¼å¼ï¼šhelp <ä¸»é¢˜>
 
-help <º¯ÊıÃû³Æ>
+help <å‡½æ•°åç§°>
       
-ÀıÈç£º> help cmds
+ä¾‹å¦‚ï¼š> help cmds
 
-Õâ¸öÖ¸ÁîÌá¹©ÄãÕë¶ÔÄ³Ò»Ö÷ÌâµÄÏêÏ¸ËµÃ÷ÎÄ¼ş£¬ÈôÊÇ²»Ö¸¶¨Ö÷Ìâ£¬
-ÔòÌá¹©ÄãÓĞ¹ØÖ÷ÌâµÄÎÄ¼ş¡£
+è¿™ä¸ªæŒ‡ä»¤æä¾›ä½ é’ˆå¯¹æŸä¸€ä¸»é¢˜çš„è¯¦ç»†è¯´æ˜æ–‡ä»¶ï¼Œè‹¥æ˜¯ä¸æŒ‡å®šä¸»é¢˜ï¼Œ
+åˆ™æä¾›ä½ æœ‰å…³ä¸»é¢˜çš„æ–‡ä»¶ã€‚
 
 /*help map
-²é¿´µØÍ¼
+æŸ¥çœ‹åœ°å›¾
 
-help group <°ïÅÉÃû³Æ>
-²é¿´°ïÅÉ¼ò½é*/
+help group <å¸®æ´¾åç§°>
+æŸ¥çœ‹å¸®æ´¾ç®€ä»‹*/
 ----------------------------------------
 HELP
         );

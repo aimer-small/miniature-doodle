@@ -3,14 +3,14 @@ inherit __DIR__"animal";
 
 void create()
 {
-	set_name("�ϻ�",({"tiger","laohu"}));
-	set("race","Ұ��");
-	set("limbs", ({ "ͷ��", "����", "ǰצ", "��צ", "β��" }) );
+	set_name("老虎",({"tiger","laohu"}));
+	set("race","野兽");
+	set("limbs", ({ "头部", "身体", "前爪", "后爪", "尾巴" }) );
 	set("verbs",({"claw","bite"}));
 	set("attitude","peaceful");
 	set("age",5);
 	set("combat_exp",3000000);
-	set("long","����һֻ���͵��ϻ���\n");
+	set("long","这是一只凶猛的老虎。\n");
 	set("max_qi",8000);
 	set("max_jing",3500);
 	set("max_neili",7000);
@@ -24,8 +24,8 @@ void create()
 	set("chat_chance", 10);
        set("chat_msg", ({
 		(: random_move :),
-		"�ϻ�ͻȻ���һ����������һ����\n",
-		"�ϻ��������������β�͡�\n",
+		"老虎突然大吼一声，吓了你一跳。\n",
+		"老虎懒洋洋的翘了翘尾巴。\n",
 		}));
 	set_temp("apply/attack",200);
 	set_temp("apply/damage",200);

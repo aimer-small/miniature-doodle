@@ -1,7 +1,7 @@
 // Modified by Darken@SJ
 #include <ansi.h>
 
-string exert_name() { return HIG"¸½¹Ç¶¤¡¢´ß"NOR; }
+string exert_name() { return HIG"é™„éª¨é’‰ã€å‚¬"NOR; }
 
 int exert(object me, object target)
 {
@@ -9,21 +9,21 @@ int exert(object me, object target)
         int num;
 
         if( !objectp(target) )
-                return notify_fail("ÄãÒª´ß¶¯Ë­µÄ¶¾ĞÔ£¿\n");
+                return notify_fail("ä½ è¦å‚¬åŠ¨è°çš„æ¯’æ€§ï¼Ÿ\n");
         if( environment(me)->query("no_fight") )
-                return notify_fail("ÕâÀï²»ÄÜ´ß¶¾¡£\n");
+                return notify_fail("è¿™é‡Œä¸èƒ½å‚¬æ¯’ã€‚\n");
         if( me->is_fighting() || target->is_fighting())
-                return notify_fail("Õ½¶·ÖĞ´ß¶¾£¿ÕÒËÀ°¡£¿\n");
+                return notify_fail("æˆ˜æ–—ä¸­å‚¬æ¯’ï¼Ÿæ‰¾æ­»å•Šï¼Ÿ\n");
         if ((int)me->query_skill("bihai-chaosheng", 1) < 200)
-                return notify_fail("ÄãµÄ±Ìº£³±Éú¹¦ĞŞÎª»¹²»¹»¡£\n");
+                return notify_fail("ä½ çš„ç¢§æµ·æ½®ç”ŸåŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
         if( (int)me->query("max_neili") < 1000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿã€‚\n");
         if( (int)me->query("neili") < 1000 )
-                return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
         if( me == target ) 
-                return notify_fail("ÄãÓĞÎÊÌâ°¡£¿\n");
+                return notify_fail("ä½ æœ‰é—®é¢˜å•Šï¼Ÿ\n");
         if(!target->query("thd/fugu"))
-                return notify_fail("´ËÈËÃ»ÓĞÖĞ¸½¹Ç¶¤¡£\n");
+                return notify_fail("æ­¤äººæ²¡æœ‰ä¸­é™„éª¨é’‰ã€‚\n");
 
         num = target->query("thd/fugu");        
         me->add("neili", -300);
@@ -33,8 +33,8 @@ int exert(object me, object target)
         target->set_temp("last_damage_from", me);
         target->add("neili",-random(level));
         target->start_busy(2);
-        message_vision(HIW"$NÔËÆğ±Ìº£³±Éú¹¦£¬´ß¶¯$nµÄ¸½¹Ç¶¤Ö®¶¾£¡"NOR,me,target);
-        message_vision(HIW"$nµÄ"HIR"¸½¹Ç¶¤"HIW"Ö®¶¾·¢×÷ÁË£¡\n"NOR,me,target);
+        message_vision(HIW"$Nè¿èµ·ç¢§æµ·æ½®ç”ŸåŠŸï¼Œå‚¬åŠ¨$nçš„é™„éª¨é’‰ä¹‹æ¯’ï¼"NOR,me,target);
+        message_vision(HIW"$nçš„"HIR"é™„éª¨é’‰"HIW"ä¹‹æ¯’å‘ä½œäº†ï¼\n"NOR,me,target);
         if(!target->is_killing(me)) me->kill_ob(target);
         me->start_busy(5);
         return 1;
@@ -42,15 +42,15 @@ int exert(object me, object target)
 
 int help(object me)
 {
-        write(HIG"\n¡¸¸½¹Ç¶¤¡¢´ß¡¹£º"NOR"\n");
+        write(HIG"\nã€Œé™„éª¨é’‰ã€å‚¬ã€ï¼š"NOR"\n");
         write(@HELP
 
-        Ê¹ÓÃ±Ìº£³±Éú¹¦´ß¶¯¸½¹Ç¶¤µÄ¶¾ĞÔ£¬ÈÃÄ¿±êµÄ¾«Æø½ÔÊÜµ½ËğÉË£¬Í¬Ê±¶¾ÇÖµ¤
-        Ìï£¬´òÉ¢²¿·Ö¾Û¼¯µÄÕæÆø¡£
+        ä½¿ç”¨ç¢§æµ·æ½®ç”ŸåŠŸå‚¬åŠ¨é™„éª¨é’‰çš„æ¯’æ€§ï¼Œè®©ç›®æ ‡çš„ç²¾æ°”çš†å—åˆ°æŸä¼¤ï¼ŒåŒæ—¶æ¯’ä¾µä¸¹
+        ç”°ï¼Œæ‰“æ•£éƒ¨åˆ†èšé›†çš„çœŸæ°”ã€‚
 
-        ÒªÇó£º  ±Ìº£³±ÉúµÈ¼¶ 200 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 1000 ÒÔÉÏ£»
-                ·ÇÕ½¶··½ÄÜÊ¹ÓÃ¡£
+        è¦æ±‚ï¼š  ç¢§æµ·æ½®ç”Ÿç­‰çº§ 200 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 1000 ä»¥ä¸Šï¼›
+                éæˆ˜æ–—æ–¹èƒ½ä½¿ç”¨ã€‚
 HELP
         );
         return 1;

@@ -1,4 +1,4 @@
-// xtong3.c Ğ¡Í¯
+// xtong3.c å°ç«¥
 
 inherit NPC;
 #include <ansi.h>
@@ -6,10 +6,10 @@ void greeting(object);
 void init();
 void create()
 {
-        set_name("Ğ¡Í¯", ({ "xiao tong","xiao","tong" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("å°ç«¥", ({ "xiao tong","xiao","tong" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 13);
-        set("long", "ÕâÊÇÒ»¸öÇåĞãµÄĞ¡Í¯£¬Éí×ÅÒ»ÉíÇàÒÂ£¬Ò»¸¶¿É°®µÄÑù×Ó¡£\n");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªæ¸…ç§€çš„å°ç«¥ï¼Œèº«ç€ä¸€èº«é’è¡£ï¼Œä¸€ä»˜å¯çˆ±çš„æ ·å­ã€‚\n");
         set("shen_type", 1);
         set("combat_exp", 50000);
         set("str", 20);
@@ -46,15 +46,15 @@ void greeting(object ob)
 
 	fam = ob->query("family");
         if( !ob || environment(ob) != environment() ) return;
-        if( fam && fam["family_name"] == "Ã÷½Ì"){
-             say(CYN"Ğ¡Í¯Ğ¦Ò÷Ò÷µØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-             + "Äú¶öÁË°É£¬ÇëÓÃ²Í¡£\n"NOR);
+        if( fam && fam["family_name"] == "æ˜æ•™"){
+             say(CYN"å°ç«¥ç¬‘åŸåŸåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+             + "æ‚¨é¥¿äº†å§ï¼Œè¯·ç”¨é¤ã€‚\n"NOR);
              food = new(foods[random(sizeof(foods))]);
              food->set("value",0);
              food->move(ob);
         }
         else 
-          say(CYN"Ğ¡Í¯Õ£Õ£ÑÛ¾¦£¬Ğ¦Ò÷Ò÷µØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-             + "£¬»¶Ó­À´ºûµû¹È×ö¿Í£¬µ«²»ÒªÍµ³ÔÓ´£¡\n"NOR);
+          say(CYN"å°ç«¥çœ¨çœ¨çœ¼ç›ï¼Œç¬‘åŸåŸåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+             + "ï¼Œæ¬¢è¿æ¥è´è¶è°·åšå®¢ï¼Œä½†ä¸è¦å·åƒå“Ÿï¼\n"NOR);
         return;
 }

@@ -1,4 +1,4 @@
-// daopao.c ÇàÉ«µÀÅÛ
+// daopao.c é’è‰²é“è¢
 // By XiaoYao
 
 #include <armor.h>
@@ -7,13 +7,13 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("ÇàÉ«µÀÅÛ", ({"qingse daopao", "cloth", "dao pao"}) );
+	set_name("é’è‰²é“è¢", ({"qingse daopao", "cloth", "dao pao"}) );
 	set_weight(1500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¼ş");
-		set("long", "ÕâÊÇ¼şÏ´ÁË·¢°×µÄÇàÉ«µÀÅÛ¡£\n");
+		set("unit", "ä»¶");
+		set("long", "è¿™æ˜¯ä»¶æ´—äº†å‘ç™½çš„é’è‰²é“è¢ã€‚\n");
 		set("material", "cloth");
                 set("armor_prop/armor", 10);
 	}

@@ -14,16 +14,16 @@ void init()
 
 void create()
 {
-	set_name(HIY"¾ÅÑ©±ÌÔÆµ¤"NOR, ({"jiuxuebiyun dan","dan"}));
+	set_name(HIY"ä¹é›ªç¢§äº‘ä¸¹"NOR, ({"jiuxuebiyun dan","dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿Å¾§Ó¨ÌŞÍ¸µÄµ¤Ò©¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—æ™¶è¹å‰”é€çš„ä¸¹è¯ã€‚\n");
 		set("value", 10000);
-		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-		set("no_give", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-		set("no_get", "ÕâÑù¶«Î÷Äã¼ñ²»ÆğÀ´¡£\n");
+		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+		set("no_give", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+		set("no_get", "è¿™æ ·ä¸œè¥¿ä½ æ¡ä¸èµ·æ¥ã€‚\n");
 	}
 	set("wudu",1);
 	setup();
@@ -34,8 +34,8 @@ int do_fu(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("Äãº¬³ÔÊ²Ã´£¿\n");
-	message_vision(HIY "$N°ÑÒ»¿Å¾ÅÑ©±ÌÔÆµ¤£¬ÇáÇáÒ§Ëéº¬½ø×ìÀï£¬¶Ù¾õÉñÃ÷ÒâÀÊ£¬Á³É«ºìÈó¡£\n" NOR, me);	
+		return notify_fail("ä½ å«åƒä»€ä¹ˆï¼Ÿ\n");
+	message_vision(HIY "$NæŠŠä¸€é¢—ä¹é›ªç¢§äº‘ä¸¹ï¼Œè½»è½»å’¬ç¢å«è¿›å˜´é‡Œï¼Œé¡¿è§‰ç¥æ˜æ„æœ—ï¼Œè„¸è‰²çº¢æ¶¦ã€‚\n" NOR, me);	
 	destruct(this_object());
 	return 1;
 } 

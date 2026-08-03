@@ -13,16 +13,16 @@ int valid_learn(object me)
         if ((i >= 10 && (int)me->query("shen") < i * 5) ||
             (i >= 50 && (int)me->query("shen") < i * 8) ||
             (i >= 100 && (int)me->query("shen") < i * 10))
-        return notify_fail("´óÀíÄËÊÇÃ÷ÃÅÕıÅÉ£¬¿´À´ÄãµÄÏÀÒåÕıÆø»¹²»¹»°¡£¡\n");
+        return notify_fail("å¤§ç†ä¹ƒæ˜¯æ˜é—¨æ­£æ´¾ï¼Œçœ‹æ¥ä½ çš„ä¾ ä¹‰æ­£æ°”è¿˜ä¸å¤Ÿå•Šï¼\n");
 
         if (i > 10 && i < 150 && l < i - 10)
-        return notify_fail("ÄãµÄ·ğÑ§ĞŞÎª¿´À´²»ÄÜÒÖÖ¹ÄãµÄĞÄÖĞµÄºÃÊ¤Ö®ĞÄÁË£¡\n");
+        return notify_fail("ä½ çš„ä½›å­¦ä¿®ä¸ºçœ‹æ¥ä¸èƒ½æŠ‘æ­¢ä½ çš„å¿ƒä¸­çš„å¥½èƒœä¹‹å¿ƒäº†ï¼\n");
 
         if (me->query_skill("force", 1) < 20)
-                 return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò»¹²»¹»£¬ÎŞ·¨Áì»áÇ¬ÌìÒ»Ñô¹¦¡£\n");
+                 return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šä¹¾å¤©ä¸€é˜³åŠŸã€‚\n");
 
-        if (i > 99 && (string)me->query("gender") != "ÄĞĞÔ")
-                 return notify_fail("Äã²»ÊÇ´¿ÑôÖ®Éí£¬ÎŞ·¨Áì»á¸ü¸ß²ãµÄÇ¬ÌìÒ»Ñô¹¦¡£\n");
+        if (i > 99 && (string)me->query("gender") != "ç”·æ€§")
+                 return notify_fail("ä½ ä¸æ˜¯çº¯é˜³ä¹‹èº«ï¼Œæ— æ³•é¢†ä¼šæ›´é«˜å±‚çš„ä¹¾å¤©ä¸€é˜³åŠŸã€‚\n");
 
         if ( 
            me->query_skill("hamagong",1)
@@ -30,7 +30,7 @@ int valid_learn(object me)
         || me->query_skill("guiyuan-tunafa",1)
         || me->query_skill("xixing-dafa",1)
         )
-        return notify_fail("Ç¬ÌìÒ»Ñô¹¦Ôõ¿ÉºÍĞ°ÅÉÄÚ¹¦»ìÎªÒ»Ìå£¿\n");
+        return notify_fail("ä¹¾å¤©ä¸€é˜³åŠŸæ€å¯å’Œé‚ªæ´¾å†…åŠŸæ··ä¸ºä¸€ä½“ï¼Ÿ\n");
 
         return 1;
 }
@@ -38,7 +38,7 @@ int valid_learn(object me)
 
 int practice_skill(object me)
 {
-            return notify_fail("Ç¬ÌìÒ»Ñô¹¦Ö»ÄÜÓÃÑ§(learn)À´Ôö¼ÓÊìÁ·¶È¡£\n");
+            return notify_fail("ä¹¾å¤©ä¸€é˜³åŠŸåªèƒ½ç”¨å­¦(learn)æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)

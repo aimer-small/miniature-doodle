@@ -6,16 +6,16 @@ inherit ITEM;
 
 void create()
 {
-	set_name("²§ÓÛ",({"bo yu","boyu"}));
+	set_name("é’µç›‚",({"bo yu","boyu"}));
 	set_weight(400);
 	if(clonep())
 		set_default_object(__FILE__);
 	else
 	{
 		set("task_owner","xingzhe");
-		set("task_owner_cname","ÐÐÕß");
+		set("task_owner_cname","è¡Œè€…");
 		set("reward_point",1);
-		set("unit","¸ö");
+		set("unit","ä¸ª");
 		set("no_sell",1);
                 set("no_beg",1);
 		set("value",2000);

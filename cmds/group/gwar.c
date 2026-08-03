@@ -1,4 +1,4 @@
-// gwar.c  °ïÅÉÕ½¶·×´¿ö
+// gwar.c  å¸®æ´¾æˆ˜æ–—çŠ¶å†µ
 // by augx@sj 3/18/2002
 
 #include <ansi.h>
@@ -9,9 +9,9 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
+æŒ‡ä»¤æ ¼å¼ :
 gwar
-ÁĞ³ö°ïÅÉÕ½¶·×´¿ö¡£
+åˆ—å‡ºå¸®æ´¾æˆ˜æ–—çŠ¶å†µã€‚
 
 HELP
 	);
@@ -27,12 +27,12 @@ int main(object me, string arg)
 	string * sk;
 	mapping * sv;
 
-	if( me->is_busy() ) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if( me->is_busy() ) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	write("\n¡ò "+CHINESE_MUD_NAME+"("+INTERMUD_MUD_NAME+") °ïÅÉÕ½¶·×´¿ö£º\n");
-	write("©³©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ó©¥©¥©¥©¥©¥©¥©Ó©¥©¥©¥©¥©¥©¥©Ó©¥©¥©¥©¥©¥©¥©Ó©¥©¥©¥©¥©¥©¥©Ó©¥©¥©¥©¥©¥©¥©·\n");
-	write("©§    ½»  Õ½  °ï  ÅÉ    ©¦ ½áÃË°ïÅÉÒ» ©¦ ½áÃË°ïÅÉ¶ş ©¦ ½áÃË°ïÅÉÈı ©¦ ½áÃË°ïÅÉËÄ ©¦ ½áÃË°ïÅÉÎå ©§\n");
-	write("©Ä©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©Ì\n");
+	write("\nâ— "+CHINESE_MUD_NAME+"("+INTERMUD_MUD_NAME+") å¸®æ´¾æˆ˜æ–—çŠ¶å†µï¼š\n");
+	write("â”â”â”â”â”â”â”â”â”â”â”â”â”¯â”â”â”â”â”â”â”¯â”â”â”â”â”â”â”¯â”â”â”â”â”â”â”¯â”â”â”â”â”â”â”¯â”â”â”â”â”â”â”“\n");
+	write("â”ƒ    äº¤  æˆ˜  å¸®  æ´¾    â”‚ ç»“ç›Ÿå¸®æ´¾ä¸€ â”‚ ç»“ç›Ÿå¸®æ´¾äºŒ â”‚ ç»“ç›Ÿå¸®æ´¾ä¸‰ â”‚ ç»“ç›Ÿå¸®æ´¾å›› â”‚ ç»“ç›Ÿå¸®æ´¾äº” â”ƒ\n");
+	write("â” â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”¨\n");
 
 	gtmp = GROUP_D->get_groups(1);
 	sk = keys(gtmp);
@@ -44,23 +44,23 @@ int main(object me, string arg)
 		tid = sv[i]["target"];
 		showed[tid] = 1;
 
-		if(k) write("©Ä©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ì\n");
+		if(k) write("â” â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¨\n");
 		k++;
 
-		write(sprintf("©§%12s%-10s  %-12s  %-12s  %-12s  %-12s  %-12s©§\n",GROUP_D->get_group_name(sk[i]),"("+sk[i]+")",
+		write(sprintf("â”ƒ%12s%-10s  %-12s  %-12s  %-12s  %-12s  %-12sâ”ƒ\n",GROUP_D->get_group_name(sk[i]),"("+sk[i]+")",
 			GROUP_D->get_group_name(sv[i]["friend1"]),
 			GROUP_D->get_group_name(sv[i]["friend2"]),
 			GROUP_D->get_group_name(sv[i]["friend3"]),
 			GROUP_D->get_group_name(sv[i]["friend4"]),
 			GROUP_D->get_group_name(sv[i]["friend5"]) ));
 
-		write(sprintf("©§        %7s        ¡¾Ê£ÓàÊ±¼ä¡¿£º%3d·ÖÖÓ  ¡¾ÊµÁ¦¡¿£º%7d:%-7d  ¡¾Õ½¼¨¡¿£º%4d:%-4d©§\n",
+		write(sprintf("â”ƒ        %7s        ã€å‰©ä½™æ—¶é—´ã€‘ï¼š%3dåˆ†é’Ÿ  ã€å®åŠ›ã€‘ï¼š%7d:%-7d  ã€æˆ˜ç»©ã€‘ï¼š%4d:%-4dâ”ƒ\n",
 			(sv[i]["war"]==3)?"PREPARE":"   VS  ",
 			to_int(((sv[i]["time"] + ((sv[i]["war"]==3)?WAR_PREPARE:WAR_TIME) *60) - time()) / 60),
 			sv[i]["league_power"],gtmp[tid]["league_power"],
 			sv[i]["war_score"],gtmp[tid]["war_score"] ));
 
-		write(sprintf("©§%12s%-10s  %-12s  %-12s  %-12s  %-12s  %-12s©§\n",GROUP_D->get_group_name(tid),"("+tid+")",
+		write(sprintf("â”ƒ%12s%-10s  %-12s  %-12s  %-12s  %-12s  %-12sâ”ƒ\n",GROUP_D->get_group_name(tid),"("+tid+")",
 			GROUP_D->get_group_name(gtmp[tid]["friend1"]),
 			GROUP_D->get_group_name(gtmp[tid]["friend2"]),
 			GROUP_D->get_group_name(gtmp[tid]["friend3"]),
@@ -68,7 +68,7 @@ int main(object me, string arg)
 			GROUP_D->get_group_name(gtmp[tid]["friend5"]) ));
 	}
 
-	write("©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n");
+	write("â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n");
 
 	me->start_busy(1);
 	return 1;

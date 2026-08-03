@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Çîºº", ({ "qiong han", "poor man", "man" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("ç©·æ±‰", ({ "qiong han", "poor man", "man" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 33);
-        set("long", "Ò»¸ö¹ÇÊİÈç²ñ£¬ÂúÁ³²ËÉ«µÄÇîºº¡£\n");
+        set("long", "ä¸€ä¸ªéª¨ç˜¦å¦‚æŸ´ï¼Œæ»¡è„¸èœè‰²çš„ç©·æ±‰ã€‚\n");
         set("attitude", "friendly");
         set("combat_exp", 15250);
         set("shen_type", 1);
@@ -18,8 +18,8 @@ void create()
         setup();
         set("chat_chance", 15);
         set("chat_msg", ({
-		"ÇîººÀÁÑóÑóµØ´òÁË¸ö¹şÇ·¡£\n",
-		"ÇîººÉìÊÖ×½×¡ÁËÉíÉÏµÄÊ­×Ó£¬ÂîµÀ£ºÀÏ×ÓÉíÉÏÃ»¼¸Á½Èâ£¬È«½ĞÄãÃÇ¸øÒ§ÁË¡£ \n",
+		"ç©·æ±‰æ‡’æ´‹æ´‹åœ°æ‰“äº†ä¸ªå“ˆæ¬ ã€‚\n",
+		"ç©·æ±‰ä¼¸æ‰‹æ‰ä½äº†èº«ä¸Šçš„è™±å­ï¼Œéª‚é“ï¼šè€å­èº«ä¸Šæ²¡å‡ ä¸¤è‚‰ï¼Œå…¨å«ä½ ä»¬ç»™å’¬äº†ã€‚ \n",
                 (: random_move :)
         }) );
         carry_object(ARMOR_D("armor/cloth"))->wear();

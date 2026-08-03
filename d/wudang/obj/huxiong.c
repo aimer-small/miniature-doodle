@@ -1,5 +1,5 @@
 // huxiong.c                                                                           
-// caiji@SJ 8/27/2000 ¸ù¾İÉÙÁÖ»¤ĞÄĞŞ¸Ä£¬Èç¸Ğ¾õÀ×Í¬µÄ»°£¬Çë°ïÃ¦CUT¡£
+// caiji@SJ 8/27/2000 æ ¹æ®å°‘æ—æŠ¤å¿ƒä¿®æ”¹ï¼Œå¦‚æ„Ÿè§‰é›·åŒçš„è¯ï¼Œè¯·å¸®å¿™CUTã€‚
 
 #include <ansi.h>
 #include <armor.h>
@@ -8,13 +8,13 @@ inherit WRISTS;
 
 void create()
 {
-        set_name(HIY "Ì´Ä¾»¤ĞØ" NOR, ({ "tanmu huxiong", "huxiong" }) );
+        set_name(HIY "æª€æœ¨æŠ¤èƒ¸" NOR, ({ "tanmu huxiong", "huxiong" }) );
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ë«");
-                set("long", "ÕâÊÇÒ»Ë«ºÜÄÍÓÃµÄ·ÀÉí»¤¾ß¡£\n");
+                set("unit", "åŒ");
+                set("long", "è¿™æ˜¯ä¸€åŒå¾ˆè€ç”¨çš„é˜²èº«æŠ¤å…·ã€‚\n");
                 set("value", 6000);
                 set("material", "wrists");
                 set("armor_prop/armor", 4);

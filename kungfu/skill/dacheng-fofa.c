@@ -1,4 +1,4 @@
-// dacheng-fofa.c ´ó³Ë·ğ·¨
+// dacheng-fofa.c å¤§ä¹˜ä½›æ³•
 inherit SKILL;
 
 void create() { seteuid(getuid()); }
@@ -11,12 +11,12 @@ int valid_learn(object me)
         
         lvl = (int)me->query_skill("dacheng-fofa", 1);
         
-        if(me->query("gender") == "ÎŞĞÔ" && lvl > 10)
-                return notify_fail("Äã¸ÕÌıÒ»»á¶ù£¬±ã¾õĞÄÖÇÃÔºı£¬Ô­À´Äã¼ÈÃ»ÓĞÒõÈáÖ®Æø£¬ÎŞ·¨Áì»á´ó³Ë·ğ·¨ÖĞ¸ßÉîÄª²àµÄ±ä»¯Ö®µÀ¡£\n");
+        if(me->query("gender") == "æ— æ€§" && lvl > 10)
+                return notify_fail("ä½ åˆšå¬ä¸€ä¼šå„¿ï¼Œä¾¿è§‰å¿ƒæ™ºè¿·ç³Šï¼ŒåŸæ¥ä½ æ—¢æ²¡æœ‰é˜´æŸ”ä¹‹æ°”ï¼Œæ— æ³•é¢†ä¼šå¤§ä¹˜ä½›æ³•ä¸­é«˜æ·±è«ä¾§çš„å˜åŒ–ä¹‹é“ã€‚\n");
         return 1;
 }
 
 int practice_skill(object me)
 {       
-        return notify_fail("´ó³Ë·ğ·¨Ö»ÄÜ¿¿Ñ§Ï°À´Ìá¸ß¡£\n");
+        return notify_fail("å¤§ä¹˜ä½›æ³•åªèƒ½é å­¦ä¹ æ¥æé«˜ã€‚\n");
 }

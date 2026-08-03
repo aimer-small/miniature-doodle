@@ -1,25 +1,25 @@
 
-//Ê¹ÓÃÊı¾İ¿âµÄ×Ô¶¯¸üĞÂÎÄ¼ş by Ciwei@SJ 2004 4 27
-//±¾ÎÄ¼şÖ»ÄÜÊÖ¶¯¸üĞÂ
+//ä½¿ç”¨æ•°æ®åº“çš„è‡ªåŠ¨æ›´æ–°æ–‡ä»¶ by Ciwei@SJ 2004 4 27
+//æœ¬æ–‡ä»¶åªèƒ½æ‰‹åŠ¨æ›´æ–°
 
 #include <ansi.h>
 #include <mudlib.h>
 
 #define JIAMI_C "/cmds/common/jiami.c"
 #define EV_DATA 1000
-/*Ã¿´ÎÉÏ´«ÏÂÔØµÄ×î´ó×Ö·û*/
+/*æ¯æ¬¡ä¸Šä¼ ä¸‹è½½çš„æœ€å¤§å­—ç¬¦*/
 #define FILE_DB_NAME "discuz"
-/*Web·şÎñÆ÷ÖĞ´æ·ÅÎÄ¼şÊı¾İ±íµÄÊı¾İ¿âÃû³Æ*/
+/*WebæœåŠ¡å™¨ä¸­å­˜æ”¾æ–‡ä»¶æ•°æ®è¡¨çš„æ•°æ®åº“åç§°*/
 #define TICK_TIME 60
-/*¶¨Ê±¸üĞÂÊ±¼ä*/
+/*å®šæ—¶æ›´æ–°æ—¶é—´*/
 #define DB_DATA "mfile_data"
 #define DB_FLAG "mfile_flag"
 
 string* for_bid = ({
-	"§Ñ","§Ò","§Ó","§Ô","§Õ","§Ö","§Ø","§Ù","§Ú","§Û",
-	"§Ü","§İ","§Ş","§ß","§à","§á","§â","§ã","§ä","§å",
-	"§æ","§ç","§è","§é","§ê","§ë","§ì","§í","§ï","§î",
-	"§ğ","§ñ","§×",});
+	"Ğ°","Ğ±","Ğ²","Ğ³","Ğ´","Ğµ","Ğ¶","Ğ·","Ğ¸","Ğ¹",
+	"Ğº","Ğ»","Ğ¼","Ğ½","Ğ¾","Ğ¿","Ñ€","Ñ","Ñ‚","Ñƒ",
+	"Ñ„","Ñ…","Ñ†","Ñ‡","Ñˆ","Ñ‰","ÑŠ","Ñ‹","Ñ","ÑŒ",
+	"Ñ","Ñ","Ñ‘",});
 ///////////////////////////
 int stas = 0;
 string name="";
@@ -30,7 +30,7 @@ int u_part=0;
 
 //"LN","CQ",
 string* sites = ({"SJ","SJCB",});
-/*ÔËĞĞÕ¾*/
+/*è¿è¡Œç«™*/
 int now_site = 0;
 
 string *allow = ({
@@ -42,7 +42,7 @@ string *allow = ({
 void create()
 {
 	seteuid(getuid());
-	// ¼õÇáÍøÂç¸ºµ££¬Ö»ĞèÒª¿ª·¢Õ¾¸ºÔğÇåÀíÊı¾İ¿â & ÔËĞĞÕ¾²Å»áÏÂÔØ¸üĞÂµÄÎÄ¼ş
+	// å‡è½»ç½‘ç»œè´Ÿæ‹…ï¼Œåªéœ€è¦å¼€å‘ç«™è´Ÿè´£æ¸…ç†æ•°æ®åº“ & è¿è¡Œç«™æ‰ä¼šä¸‹è½½æ›´æ–°çš„æ–‡ä»¶
 	if (member_array(INTERMUD_MUD_NAME, sites ) != -1)
 		call_out("down_file",TICK_TIME);
 	if (member_array(INTERMUD_MUD_NAME, sites ) == -1)
@@ -52,7 +52,7 @@ void create()
 string query(string arg)
 {
 	if (arg == "channel_id")
-        	return "´«ËÍ¾«Áé";
+        	return "ä¼ é€ç²¾çµ";
 }
 
 void debug(string arg)
@@ -68,83 +68,83 @@ int main(object me, string filename)
 	me = this_player(1);
 		
 	if (member_array(geteuid(me), allow) == -1)
-		return notify_fail("³¬¼¶Á÷Ã¥ "+implode(allow, " ")+" ×¨ÓÃÃüÁî¡£\n");
+		return notify_fail("è¶…çº§æµæ°“ "+implode(allow, " ")+" ä¸“ç”¨å‘½ä»¤ã€‚\n");
 	
 	if(getuid(me)!="action")
-		return notify_fail("½¨ÒéÊ¹ÓÃnewucp ²é¿´help newucp¡£\n");
+		return notify_fail("å»ºè®®ä½¿ç”¨newucp æŸ¥çœ‹help newucpã€‚\n");
 	
 	if (!filename || sscanf(filename,"%s %s",filename,reascon)!=2 )
-		return notify_fail("¸ñÊ½²»¶Ô£¬Çë²é¿´°ïÖú¡£ \n");
-	//±ØĞë<30
+		return notify_fail("æ ¼å¼ä¸å¯¹ï¼Œè¯·æŸ¥çœ‹å¸®åŠ©ã€‚ \n");
+	//å¿…é¡»<30
 	
 	if(sizeof(reascon)>30 || sizeof(reascon)<10)
-		return notify_fail("ÄãµÄÔ­Òò±ØĞëÔÚ10-30¸ö×ÖÖ®¼ä£¬±í´ïÇåÎú£¬ÓĞ¿ÉÄÜÌá¹©Íæ¼Ò²éÑ¯¡£\n");
+		return notify_fail("ä½ çš„åŸå› å¿…é¡»åœ¨10-30ä¸ªå­—ä¹‹é—´ï¼Œè¡¨è¾¾æ¸…æ™°ï¼Œæœ‰å¯èƒ½æä¾›ç©å®¶æŸ¥è¯¢ã€‚\n");
 	seteuid(geteuid(me));
 	
 	if (member_array(INTERMUD_MUD_NAME, sites ) != -1)
-		return notify_fail("¸ÃÖ¸ÁîÖ»ÄÜÔÚ¿ª·¢Õ¾Ê¹ÓÃ¡£\n");
+		return notify_fail("è¯¥æŒ‡ä»¤åªèƒ½åœ¨å¼€å‘ç«™ä½¿ç”¨ã€‚\n");
 	
-	if(stas!=0) return notify_fail("¶Ô²»Æğ£¬¸ÃÖ¸Áî»¹Ã»ÓĞÊ¹ÓÃÍê±Ï£¬ÇëÉÔµÈºò¡£\n");
+	if(stas!=0) return notify_fail("å¯¹ä¸èµ·ï¼Œè¯¥æŒ‡ä»¤è¿˜æ²¡æœ‰ä½¿ç”¨å®Œæ¯•ï¼Œè¯·ç¨ç­‰å€™ã€‚\n");
 	
 	filename = resolve_path(me->query("cwd"), filename);
 
 	if ( file_size(filename) < 1)
-		return notify_fail("Ã»ÓĞ "+filename+" Õâ¸öÎÄ¼ş£¬»òÕß½ûÖ¹¿½±´´ËÎÄ¼ş£¬»òÕßÕâÊÇÒ»¸öÄ¿Â¼¡£\n");
+		return notify_fail("æ²¡æœ‰ "+filename+" è¿™ä¸ªæ–‡ä»¶ï¼Œæˆ–è€…ç¦æ­¢æ‹·è´æ­¤æ–‡ä»¶ï¼Œæˆ–è€…è¿™æ˜¯ä¸€ä¸ªç›®å½•ã€‚\n");
 
 	if( !SECURITY_D->valid_write(filename, me, "write_file")
 	|| !SECURITY_D->valid_read(filename, me, "read_file") )
-		return notify_fail("Sorry£¬ÄãÃ»ÓĞ¶ÁĞ´ "+filename+" Õâ¸öÎÄ¼şµÄÈ¨Á¦¡£\n");
+		return notify_fail("Sorryï¼Œä½ æ²¡æœ‰è¯»å†™ "+filename+" è¿™ä¸ªæ–‡ä»¶çš„æƒåŠ›ã€‚\n");
 	
 	name = filename;
 	
-	//ÕâÀïÓ¦¸ÃÏÈ½øĞĞ¼ÓÃÜ´¦Àí
-	//»òÕß´«ËÍµ½ÁËÒÔºóÔÙ¼ÓÃÜÒ²ĞĞ :D		
-	//¼ÓÃÜ	
+	//è¿™é‡Œåº”è¯¥å…ˆè¿›è¡ŒåŠ å¯†å¤„ç†
+	//æˆ–è€…ä¼ é€åˆ°äº†ä»¥åå†åŠ å¯†ä¹Ÿè¡Œ :D		
+	//åŠ å¯†	
 	/*
 	w =  strsrch(name,"/",-1);
 	filename = name[0..w]+"temp_"+ name[w+1..<1];
-	if(!cp(name,filename)) return notify_fail("Ôİ´¢ÎÄ¼ş¸´ÖÆÊ§°Ü¡£\n");
+	if(!cp(name,filename)) return notify_fail("æš‚å‚¨æ–‡ä»¶å¤åˆ¶å¤±è´¥ã€‚\n");
 	
 	
 	JIAMI_C->main(this_object(),filename);
 	
 	file_data = read_file(filename);
 	
-	if(!rm(filename)) write("ÎÄ¼ş"+filename+"É¾³ıÊ§°Ü¡£\n");
+	if(!rm(filename)) write("æ–‡ä»¶"+filename+"åˆ é™¤å¤±è´¥ã€‚\n");
 	
 	*/
 	file_data = read_file(filename);
 	
 	if(!file_data)
 	{
-		return notify_fail("ÎÄ¼şÌ«´ó£¬»òÕßÆäËûÒì³££¬ÇëÊÖ¶¯¸üĞÂ¡£\n");
+		return notify_fail("æ–‡ä»¶å¤ªå¤§ï¼Œæˆ–è€…å…¶ä»–å¼‚å¸¸ï¼Œè¯·æ‰‹åŠ¨æ›´æ–°ã€‚\n");
 	}	
 					
-	notify_fail("ÌØÊâ×Ö·ûÏŞÖÆ£¬¸ÃÎÄ¼şÖ»ÄÜÊÖ¶¯´«ËÍ¡£\n");	
+	notify_fail("ç‰¹æ®Šå­—ç¬¦é™åˆ¶ï¼Œè¯¥æ–‡ä»¶åªèƒ½æ‰‹åŠ¨ä¼ é€ã€‚\n");	
 	if(strsrch(file_data,"")!=-1) return 0;
 	if(strsrch(file_data,"")!=-1) return 0;
 	if(strsrch(file_data,"")!=-1) return 0;
 	if(strsrch(file_data,"")!=-1) return 0;
-	if(strsrch(file_data,"§×")!=-1) return 0;
-	if(strsrch(file_data,"§ñ")!=-1) return 0;
-	if(strsrch(file_data,"§ğ")!=-1) return 0;
-	if(strsrch(file_data,"§î")!=-1) return 0;
-	if(strsrch(file_data,"§ï")!=-1) return 0;
+	if(strsrch(file_data,"Ñ‘")!=-1) return 0;
+	if(strsrch(file_data,"Ñ")!=-1) return 0;
+	if(strsrch(file_data,"Ñ")!=-1) return 0;
+	if(strsrch(file_data,"ÑŒ")!=-1) return 0;
+	if(strsrch(file_data,"Ñ")!=-1) return 0;
 	
 	file_data = replace_string(file_data, "
 ", "");
 	file_data = replace_string(file_data, "\\", "");
 	file_data = replace_string(file_data, "\"", "");
 	file_data = replace_string(file_data, "'", "");
-	file_data = replace_string(file_data, ";", "§×");
-	file_data = replace_string(file_data, ",", "§ñ");
-	file_data = replace_string(file_data, "&", "§ğ");
-	file_data = replace_string(file_data, "+", "§î");
-	file_data = replace_string(file_data, "*", "§ï");
+	file_data = replace_string(file_data, ";", "Ñ‘");
+	file_data = replace_string(file_data, ",", "Ñ");
+	file_data = replace_string(file_data, "&", "Ñ");
+	file_data = replace_string(file_data, "+", "ÑŒ");
+	file_data = replace_string(file_data, "*", "Ñ");
 	stas = 1;
 	u_part=0;
 	id = getuid(me);
-	CHANNEL_D->do_channel(this_object(),"sys","¿ªÊ¼´«ËÍ"+name+"µ½¸÷¸ö·ÖÕ¾£¬ÇëÔÚ´«ËÍÍê±ÏÒÔºó£¬ÔÚ¸÷·ÖÕ¾¼ì²é¸üĞÂ¡£");
+	CHANNEL_D->do_channel(this_object(),"sys","å¼€å§‹ä¼ é€"+name+"åˆ°å„ä¸ªåˆ†ç«™ï¼Œè¯·åœ¨ä¼ é€å®Œæ¯•ä»¥åï¼Œåœ¨å„åˆ†ç«™æ£€æŸ¥æ›´æ–°ã€‚");
 	call_out("update_file",0);
 	return 1;
 }
@@ -203,7 +203,7 @@ void update_flag()
 	
 	if(now_site>=sizeof(sites))
 	{		
-		CHANNEL_D->do_channel(this_object(),"sys","´«ËÍ"+name+"³É¹¦£¬Çëµ½¸÷·ÖÕ¾µÈ´ı¼ì²é¸üĞÂ¡£");
+		CHANNEL_D->do_channel(this_object(),"sys","ä¼ é€"+name+"æˆåŠŸï¼Œè¯·åˆ°å„åˆ†ç«™ç­‰å¾…æ£€æŸ¥æ›´æ–°ã€‚");
 		stas=0;
 		return;
 	}
@@ -225,14 +225,14 @@ void readback2(mixed ret)
 
 void failed()
 {
-	CHANNEL_D->do_channel(this_object(),"sys","´«ËÍ"+name+"Ê§°Ü£¬Çë¼ì²éÍøÂçÊÇ·ñ¿ÉÓÃ¡£");
+	CHANNEL_D->do_channel(this_object(),"sys","ä¼ é€"+name+"å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘ç»œæ˜¯å¦å¯ç”¨ã€‚");
 	//log
 	stas = 0;
 	name="";
 	file_data="";
 	remove_call_out("update_file");	
 }
-/////////////////////////////////////////ÉÏ´«²¿·Ö½áÊø///////////////////////////////////////
+/////////////////////////////////////////ä¸Šä¼ éƒ¨åˆ†ç»“æŸ///////////////////////////////////////
 int d_stas = 0;
 string d_file="";
 string d_data;
@@ -262,7 +262,7 @@ void readback3(mixed ret)
 		d_stas = 1;
 		d_file = ret[i][0];
 		d_part = 0;
-		CHANNEL_D->do_channel(this_object(),"sys","Õı×¼±¸´ÓÍøÂçÖĞÏÂÔØ"+d_file+"¡£");		
+		CHANNEL_D->do_channel(this_object(),"sys","æ­£å‡†å¤‡ä»ç½‘ç»œä¸­ä¸‹è½½"+d_file+"ã€‚");		
 		call_out("down_the_file",0);
 	}
 	else call_out("down_file",TICK_TIME);
@@ -281,7 +281,7 @@ void readback4(mixed ret)
 	{
 		d_stas=0;
 		call_out("down_file",TICK_TIME);
-		error("Êı¾İ¿â´íÎó£¡£¡");
+		error("æ•°æ®åº“é”™è¯¯ï¼ï¼");
 		return;
 	}	
 	if(!sizeof(ret))
@@ -295,17 +295,17 @@ void readback4(mixed ret)
 		d_data = replace_string(d_data, "", "\"");
 		d_data = replace_string(d_data, "", "'");
 						
-		d_data = replace_string(d_data, "§×",";");
-		d_data = replace_string(d_data, "§ñ",",");
-		d_data = replace_string(d_data, "§ğ","&");
-		d_data = replace_string(d_data, "§î","+");
-		d_data = replace_string(d_data, "§ï","*");
+		d_data = replace_string(d_data, "Ñ‘",";");
+		d_data = replace_string(d_data, "Ñ",",");
+		d_data = replace_string(d_data, "Ñ","&");
+		d_data = replace_string(d_data, "ÑŒ","+");
+		d_data = replace_string(d_data, "Ñ","*");
 				
 		write_file(d_file,d_data,1);
 		
-		//¸ÄÔÚÕâÀï¼ÓÃÜ
+		//æ”¹åœ¨è¿™é‡ŒåŠ å¯†
 		JIAMI_C->main(this_object(),d_file);
-		CHANNEL_D->do_channel(this_object(),"sys","ÏÂÔØ"+d_file+"Íê³É£¬ÇëÔÚÏß¹¤×÷ÈËÔ±¸üĞÂÏà¹ØÓ¦ÓÃ³ÌĞò¡£");
+		CHANNEL_D->do_channel(this_object(),"sys","ä¸‹è½½"+d_file+"å®Œæˆï¼Œè¯·åœ¨çº¿å·¥ä½œäººå‘˜æ›´æ–°ç›¸å…³åº”ç”¨ç¨‹åºã€‚");
 		BBS_D->add_Bbs_Up_Map(FILE_DB_NAME,"REPLACE "+DB_FLAG+" SET U_Name='" + d_file + "',U_Site='" + INTERMUD_MUD_NAME + "',U_Data='1'",this_object(),"over_back");	
 		call_out("d_failed",300);
 		return;
@@ -315,7 +315,7 @@ void readback4(mixed ret)
 	{
 		d_stas=0;
 		call_out("down_file",TICK_TIME);
-		error("Êı¾İ¿â´íÎó£¡£¡");
+		error("æ•°æ®åº“é”™è¯¯ï¼ï¼");
 		return;
 	}
 			
@@ -326,11 +326,11 @@ void readback4(mixed ret)
 		d_data = ret[0][0];
 				
 		//add log here	
-		if(!d_part) log_file("static/super_ftp",sprintf("ÓÉÓÚ%-30s,%-8s¸üĞÂ%s",be,wizard,d_file),this_object());
+		if(!d_part) log_file("static/super_ftp",sprintf("ç”±äº%-30s,%-8sæ›´æ–°%s",be,wizard,d_file),this_object());
 		//add test
 		if(!write_file(d_file,d_data,!d_part?1:0))
 		{
-			CHANNEL_D->do_channel(this_object(),"sys","ÏÂÔØ"+d_file+"Ê§°Ü£¬ÇëÔÚÏß¹¤×÷ÈËÔ±°²È«ÎÄ¼ş¡£");
+			CHANNEL_D->do_channel(this_object(),"sys","ä¸‹è½½"+d_file+"å¤±è´¥ï¼Œè¯·åœ¨çº¿å·¥ä½œäººå‘˜å®‰å…¨æ–‡ä»¶ã€‚");
 			//change db
 			d_stas=0;
 			call_out("down_file",TICK_TIME);
@@ -353,10 +353,10 @@ void d_failed()
 {
 	d_stas=0;
 	call_out("down_file",TICK_TIME);
-	CHANNEL_D->do_channel(this_object(),"sys","ÏÂÔØ"+d_file+"Ê§°Ü£¬Çë¼ì²éÍøÂçÊÇ·ñ¿ÉÓÃ¡£");
+	CHANNEL_D->do_channel(this_object(),"sys","ä¸‹è½½"+d_file+"å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘ç»œæ˜¯å¦å¯ç”¨ã€‚");
 	return;
 }
-/////////////////////////////////////ÏÂÔØ²¿·Ö½áÊø///////////////////////////////////////////
+/////////////////////////////////////ä¸‹è½½éƒ¨åˆ†ç»“æŸ///////////////////////////////////////////
 
 int delete_busy = 0;
 mixed hash;
@@ -430,30 +430,30 @@ void delete_back(mixed ret)
 	delete_busy = 1;
 	call_out("check_hash",0);
 }
-//////////////////////ÇåÀí²¿·Ö½áÊø//////////////////////////////////////////
+//////////////////////æ¸…ç†éƒ¨åˆ†ç»“æŸ//////////////////////////////////////////
 
 void remove(string id)
 {
 	if( id!="ciwei" && (delete_busy!=0 || stas!=0 || d_stas!=0) )
 	{
-		log_file("static/super_ftp","ÎÄ¼şÒì³£±¨¸æ£ºÕıÔÚÉÏ´«»òÕßÏÂÔØ»òÕß¼ì²é¸üĞÂµÄ¹ı³ÌÖĞ³ÌĞò±»Çå³ı£¬¿ÉÄÜÉæ¼°µ½µÄÎÄ¼ş£º"+name+" and "+d_file,this_object());
-		error("ÄãÆ¤ÔÚÑ÷°¡£¿");
+		log_file("static/super_ftp","æ–‡ä»¶å¼‚å¸¸æŠ¥å‘Šï¼šæ­£åœ¨ä¸Šä¼ æˆ–è€…ä¸‹è½½æˆ–è€…æ£€æŸ¥æ›´æ–°çš„è¿‡ç¨‹ä¸­ç¨‹åºè¢«æ¸…é™¤ï¼Œå¯èƒ½æ¶‰åŠåˆ°çš„æ–‡ä»¶ï¼š"+name+" and "+d_file,this_object());
+		error("ä½ çš®åœ¨ç—’å•Šï¼Ÿ");
 	}
 }
 
 int help(object me)
 {
 	write("
-´Ó¿ª·¢Õ¾¿½±´ÎÄ¼şµ½ÔËĞĞÕ¾
-Ö¸Áî¸ñÊ½: ucp <ÎÄ¼şÃû> <Ô­Òò>
+ä»å¼€å‘ç«™æ‹·è´æ–‡ä»¶åˆ°è¿è¡Œç«™
+æŒ‡ä»¤æ ¼å¼: ucp <æ–‡ä»¶å> <åŸå› >
 
-×¢Òâ£º³¬¼¶Á÷Ã¥ "+implode(allow, " ")+" ×¨ÓÃ£¬
-ucp ÒÔºóÇë update ÔËĞĞÕ¾ÏàÓ¦³ÌĞò£¬²¢ÔÚÏß¹Û²ìÖÁÉÙÒ»Ğ¡Ê±¡£
-Èç¹û¶Ô×Ô¼º½«¿½±´µÄÎÄ¼şÃ»ÓĞ×ã¹»µÄ°ÑÎÕ£¬ÇĞÎğÊ¹ÓÃ±¾ÃüÁî£¡£¡£¡
-Èç¹ûÃ»ÓĞ×ã¹»µÄÊ±¼ä¹Û²ì£¬ÇĞÎğÊ¹ÓÃ±¾ÃüÁî£¡£¡£¡
-Èç¹û·¢ÏÖÒâÍâ£¬ÇëÁ¢¼´ÇëËùÓĞÈË³Ô·¹¡£
+æ³¨æ„ï¼šè¶…çº§æµæ°“ "+implode(allow, " ")+" ä¸“ç”¨ï¼Œ
+ucp ä»¥åè¯· update è¿è¡Œç«™ç›¸åº”ç¨‹åºï¼Œå¹¶åœ¨çº¿è§‚å¯Ÿè‡³å°‘ä¸€å°æ—¶ã€‚
+å¦‚æœå¯¹è‡ªå·±å°†æ‹·è´çš„æ–‡ä»¶æ²¡æœ‰è¶³å¤Ÿçš„æŠŠæ¡ï¼Œåˆ‡å‹¿ä½¿ç”¨æœ¬å‘½ä»¤ï¼ï¼ï¼
+å¦‚æœæ²¡æœ‰è¶³å¤Ÿçš„æ—¶é—´è§‚å¯Ÿï¼Œåˆ‡å‹¿ä½¿ç”¨æœ¬å‘½ä»¤ï¼ï¼ï¼
+å¦‚æœå‘ç°æ„å¤–ï¼Œè¯·ç«‹å³è¯·æ‰€æœ‰äººåƒé¥­ã€‚
 
-¼òµ¥µÄËµÃ÷ÏÂ¸üĞÂÔ­Òò¡£
+ç®€å•çš„è¯´æ˜ä¸‹æ›´æ–°åŸå› ã€‚
 "
 	);
 	return 1;

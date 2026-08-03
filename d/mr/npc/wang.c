@@ -1,4 +1,4 @@
-// /u/beyond/mr/npc/wang.c Íõ·òÈË
+// /u/beyond/mr/npc/wang.c ç‹å¤«äºº
 // this is made by beyond
 // update 1997.6.29
 #include <ansi.h>
@@ -11,12 +11,12 @@ int ask_ok();
 
 void create()
 {
-        set_name("Íõ·òÈË",({"wang furen","wang","furen"}));
-        set("gender", "Å®ĞÔ");
-        set("rank_info/respect", "·òÈË");
-        set("title","ÂüÙ¢ÂŞÉ½×¯Ö÷");
+        set_name("ç‹å¤«äºº",({"wang furen","wang","furen"}));
+        set("gender", "å¥³æ€§");
+        set("rank_info/respect", "å¤«äºº");
+        set("title","æ›¼ä½—ç½—å±±åº„ä¸»");
         set("long", 
-              "Ëı¾ÍÊÇÂüÙ¢ÂŞÉ½×¯µÄÖ÷ÈË£¬Ëı¿´ÉÏÈ¥ËäÒÔËÄÊ®ÓĞ¼Ó£¬µ«·çÔÏÓÈ´æ¡£\n");
+              "å¥¹å°±æ˜¯æ›¼ä½—ç½—å±±åº„çš„ä¸»äººï¼Œå¥¹çœ‹ä¸Šå»è™½ä»¥å››åæœ‰åŠ ï¼Œä½†é£éŸµå°¤å­˜ã€‚\n");
         set("age", 40);
         set("attitude", "friendly");
         set("no_bark",1);
@@ -55,16 +55,16 @@ void create()
         carry_object(__DIR__"obj/shoe")->wear();
         carry_object(__DIR__"obj/red_silk")->wear();
         carry_object(__DIR__"obj/skirt")->wear();
-        create_family("¹ÃËÕÄ½Èİ",3,"µÜ×Ó");
+        create_family("å§‘è‹æ…•å®¹",3,"å¼Ÿå­");
         set("inquiry", ([
-            "name" : "ÎÒ¾ÍÊÇÂüÙ¢ÂŞÉ½×¯µÄÖ÷ÈË£¬¼ûµ½ÎÒÄÑµÀÃ»ÓĞÊ²Ã´±íÊ¾Âğ£¿\n",
-            "here" : "ÕâÀïÊÇÂüÙ¢ÂŞÉ½×¯µÄ×¯ÔºÖ®ËùÔÚ£¬´Ë´¦ÃûÎªÔÆ½õÂ¥£¿\n",
-            "rumors" : "×î½üÎÒÄÇ±íÇ×Ä½Èİ²©²»ĞÒÏÉÊÅÁË¡£\n",
-            "ÍõÓïæÌ" : "ÓïæÌÊÇÎÒµÄ±¦±´Å®¶ù£¬Äã¿É±ğÏë´òËıµÄÖ÷Òâ¡£\n",
-            "Ä½Èİ¸´" : "Ä½Èİ¸´ÊÇÎÒÄÇ²»³ÉÆ÷µÄÖ¶¶ù£¬Á·¾ÍÁËÒÔ±ËÖ®µÀ»¹Ê©±ËÉíµÄ¾ø¼¼£¬ÃûÕğ½­ºş¡£\n",
-            "ÄïçÙÓñ¶´" : "ÄïçÙÓñ¶´ÊÇÎÒÂüÙ¢ÂŞÉ½×¯µÄ²ØÊéÖ®´¦£¬Ò»°ãÈËÊÇ±ğÏë½øÈ¥ÁË¡£\n",
-            "ÂüÙ¢ÂŞÉ½×¯" : "ÕâÀï¾ÍÊÇÂüÙ¢ÂŞÉ½×¯£¬ÎÒ¾ÍÊÇÕâÀïµÄÖ÷ÈË¡£\n",
-            "»¹Ê©Ë®¸ó" : "ÄÇÊÇÑà×ÓÎëµÄÃØÃÜÖ®ËùÔÚ£¬²»¹ı»¹Ê©Ë®¸óµÄ²ØÊé±ÈÄÇÀï¿ÉÊÇ¶àµÄ¶àÑ½¡£\n",       
+            "name" : "æˆ‘å°±æ˜¯æ›¼ä½—ç½—å±±åº„çš„ä¸»äººï¼Œè§åˆ°æˆ‘éš¾é“æ²¡æœ‰ä»€ä¹ˆè¡¨ç¤ºå—ï¼Ÿ\n",
+            "here" : "è¿™é‡Œæ˜¯æ›¼ä½—ç½—å±±åº„çš„åº„é™¢ä¹‹æ‰€åœ¨ï¼Œæ­¤å¤„åä¸ºäº‘é”¦æ¥¼ï¼Ÿ\n",
+            "rumors" : "æœ€è¿‘æˆ‘é‚£è¡¨äº²æ…•å®¹åšä¸å¹¸ä»™é€äº†ã€‚\n",
+            "ç‹è¯­å«£" : "è¯­å«£æ˜¯æˆ‘çš„å®è´å¥³å„¿ï¼Œä½ å¯åˆ«æƒ³æ‰“å¥¹çš„ä¸»æ„ã€‚\n",
+            "æ…•å®¹å¤" : "æ…•å®¹å¤æ˜¯æˆ‘é‚£ä¸æˆå™¨çš„ä¾„å„¿ï¼Œç»ƒå°±äº†ä»¥å½¼ä¹‹é“è¿˜æ–½å½¼èº«çš„ç»æŠ€ï¼Œåéœ‡æ±Ÿæ¹–ã€‚\n",
+            "å¨˜ç¼³ç‰æ´" : "å¨˜ç¼³ç‰æ´æ˜¯æˆ‘æ›¼ä½—ç½—å±±åº„çš„è—ä¹¦ä¹‹å¤„ï¼Œä¸€èˆ¬äººæ˜¯åˆ«æƒ³è¿›å»äº†ã€‚\n",
+            "æ›¼ä½—ç½—å±±åº„" : "è¿™é‡Œå°±æ˜¯æ›¼ä½—ç½—å±±åº„ï¼Œæˆ‘å°±æ˜¯è¿™é‡Œçš„ä¸»äººã€‚\n",
+            "è¿˜æ–½æ°´é˜" : "é‚£æ˜¯ç‡•å­åçš„ç§˜å¯†ä¹‹æ‰€åœ¨ï¼Œä¸è¿‡è¿˜æ–½æ°´é˜çš„è—ä¹¦æ¯”é‚£é‡Œå¯æ˜¯å¤šçš„å¤šå‘€ã€‚\n",       
             "job" : (: ask_job :),
             "ok"  : (: ask_ok :),
        ]));
@@ -76,25 +76,25 @@ string ask_job()
         mapping fam;
         object me = this_player();
         
-        if (!(fam = me->query("family")) || fam["family_name"] != "¹ÃËÕÄ½Èİ") // ±ØĞëÊÇÄ½ÈİÅÉµÜ×Ó
+        if (!(fam = me->query("family")) || fam["family_name"] != "å§‘è‹æ…•å®¹") // å¿…é¡»æ˜¯æ…•å®¹æ´¾å¼Ÿå­
                return RANK_D->query_respect(me) +
-               "Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+               "ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 
         if(me->query_condition("mrhua_job") ||
          me->query_condition("job_busy"))
-               return "ÎÒÕıÔÚÃÀÈİ£¬Äã¹ıÒ»»áÔÙÀ´°É¡£\n";       
+               return "æˆ‘æ­£åœ¨ç¾å®¹ï¼Œä½ è¿‡ä¸€ä¼šå†æ¥å§ã€‚\n";       
                
         if ((int)me->query("combat_exp") > 100000 )
-               return "ÄãÒÔºó²»ÓÃÀ´ÁË¡£";
+               return "ä½ ä»¥åä¸ç”¨æ¥äº†ã€‚";
                
         if (me->query_temp("mrhua")||me->query_temp("yanpopo"))
-               return "Äã²»ÊÇÒÑ¾­ÁìÁË¹¤×÷Ã´£¬»¹²»¿ìÈ¥×ö£¡";
+               return "ä½ ä¸æ˜¯å·²ç»é¢†äº†å·¥ä½œä¹ˆï¼Œè¿˜ä¸å¿«å»åšï¼";
                
         me->set_temp("mrhua",1);
         me->set_temp("yanpopo",1);
         me->apply_condition("mrhua_job",random(5) + 6);
         me->apply_condition("job_busy", 6);
-        return "×¯ÃÅ¿ÚµÄ²è»¨×î½ü¿ªµÄ²»Ê¢£¬¸ÃºÃºÃÕÕÁÏÒ»ÏÂÁË£¬ÄãÈ¥ÕÒÑÏÆÅÆÅ£¬ÌıËı°²ÅÅ°É¡£\n";
+        return "åº„é—¨å£çš„èŒ¶èŠ±æœ€è¿‘å¼€çš„ä¸ç››ï¼Œè¯¥å¥½å¥½ç…§æ–™ä¸€ä¸‹äº†ï¼Œä½ å»æ‰¾ä¸¥å©†å©†ï¼Œå¬å¥¹å®‰æ’å§ã€‚\n";
 }
 
 int ask_ok()
@@ -102,7 +102,7 @@ int ask_ok()
         object me = this_player();
         int exp, pot, gold;
         
-        if(me->query_temp("mark/»¹ÁË")){                             
+        if(me->query_temp("mark/è¿˜äº†")){                             
                 exp = random(30)+me->query("max_pot")/2;
 
                 if(me->query_temp("killke"))
@@ -118,16 +118,16 @@ int ask_ok()
                 if(me->query("potential") > me->query("max_pot"))
 			me->set("potential", me->query("max_pot"));
                 
-                tell_object(me,HIW"Äã±»½±ÀøÁË£º\n" + 
-                       chinese_number(exp) + "µãÊµÕ½¾­Ñé\n" +
-                       chinese_number(pot) + "µãÇ±ÄÜ\n"+
-                       chinese_number(gold/100)+"Á½°×Òø¡£\n"NOR);
-                me->delete_temp("mark/»¹ÁË");
+                tell_object(me,HIW"ä½ è¢«å¥–åŠ±äº†ï¼š\n" + 
+                       chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒ\n" +
+                       chinese_number(pot) + "ç‚¹æ½œèƒ½\n"+
+                       chinese_number(gold/100)+"ä¸¤ç™½é“¶ã€‚\n"NOR);
+                me->delete_temp("mark/è¿˜äº†");
                 me->delete_temp("mrhua");
                 me->delete_temp("yanpopo");
                 me->delete_temp("killke");      
                 
-		log_file("job/jiaohua",sprintf("%8s%-10sÄ½ÈİÖÖ»¨ÈÎÎñµÃ%3d¾­Ñé£¬%2dÇ±ÄÜ£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
+		log_file("job/jiaohua",sprintf("%8s%-10sæ…•å®¹ç§èŠ±ä»»åŠ¡å¾—%3dç»éªŒï¼Œ%2dæ½œèƒ½ï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
 			me->name(1), "("+geteuid(me)+")",exp,pot,me->query("combat_exp")), me);
          }
          return 1;
@@ -135,7 +135,7 @@ int ask_ok()
 
 void attempt_apprentice(object ob)
 {
-        command("say àÅ£¬¿´Äã»¹ÊÇ¸öÑ§ÎäµÄÁÏ£¬ÎÒ¾ÍÊÕÏÂÄã°É£¡");
+        command("say å—¯ï¼Œçœ‹ä½ è¿˜æ˜¯ä¸ªå­¦æ­¦çš„æ–™ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ å§ï¼");
         command("recruit " + ob->query("id"));
-        ob->set("title","¹ÃËÕÄ½ÈİµÚËÄ´úµÜ×Ó");
+        ob->set("title","å§‘è‹æ…•å®¹ç¬¬å››ä»£å¼Ÿå­");
 }

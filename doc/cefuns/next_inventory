@@ -1,19 +1,19 @@
 
 	next_inventory(3)	MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		next_inventory() - ´«»ØÍ¬Ò»Îï¼şÄÚÈİÎï (inventory)ÖĞµÄ 
-		ÏÂÒ»¸öÎï¼ş.
-	Óï·¨:
+	åç§°:
+		next_inventory() - ä¼ å›åŒä¸€ç‰©ä»¶å†…å®¹ç‰© (inventory)ä¸­çš„ 
+		ä¸‹ä¸€ä¸ªç‰©ä»¶.
+	è¯­æ³•:
 		object next_inventory( object ob );
 
-		Îï¼ş next_inventory( Îï¼ş ob );
-	ÓÃ·¨:
-		´«»ØÔÚÎï¼şµÄÄÚÈİÎïÖĞ, ÔÚ ob Ö®ááµÄÏÂÒ»¸öÎï¼ş.
+		ç‰©ä»¶ next_inventory( ç‰©ä»¶ ob );
+	ç”¨æ³•:
+		ä¼ å›åœ¨ç‰©ä»¶çš„å†…å®¹ç‰©ä¸­, åœ¨ ob ä¹‹å¾Œçš„ä¸‹ä¸€ä¸ªç‰©ä»¶.
 
-		¾¯¸æ: Èç¹ûÎï¼ş ob ±» move_object()  ÒÆ×ß, Ôò 
-		next_inventory() »á´ÓĞÂµÄÄÚÈİÎïÁĞ±íÖĞ´«»ØÎï¼ş.
-	²Î¿¼:
+		è­¦å‘Š: å¦‚æœç‰©ä»¶ ob è¢« move_object()  ç§»èµ°, åˆ™ 
+		next_inventory() ä¼šä»æ–°çš„å†…å®¹ç‰©åˆ—è¡¨ä¸­ä¼ å›ç‰©ä»¶.
+	å‚è€ƒ:
 		first_inventory(3), all_inventory(3), deep_inventory(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Apr.24.		(printed 3/16/95)

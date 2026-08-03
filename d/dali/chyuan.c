@@ -5,18 +5,18 @@ inherit ROOM;
 #include <wanted.h>
 void create()
 {
-        set("short",HIC"²è»¨Ô°"NOR);
+        set("short",HIC"èŒ¶èŠ±å›­"NOR);
         set("long", @LONG
-´óÀí²è»¨ÃûÂúÌìÏÂ£¬Õâ¸öÀïÊÇÒ»¸öĞ¡É½ÆÂ£¬»¨Ô°ÒÀÉ½¶ø½¨£¬É½ÆÂÉÏÖÖÂúÁË
-²è»¨£¬ÓĞÉÏµÈÆ·ÖÖ¡¸ºì×±ËØ¹ü¡¹£¬¡¸Ê®°ËÑ§Ê¿¡¹£¬Ò²ÓĞ²îÒ»Ğ©µÄ¡¸ÂäµÚĞã²Å¡¹£¬
-ºÍ¡¸×¥ÆÆÃÀÈËÁ³¡¹¡£
+å¤§ç†èŒ¶èŠ±åæ»¡å¤©ä¸‹ï¼Œè¿™ä¸ªé‡Œæ˜¯ä¸€ä¸ªå°å±±å¡ï¼ŒèŠ±å›­ä¾å±±è€Œå»ºï¼Œå±±å¡ä¸Šç§æ»¡äº†
+èŒ¶èŠ±ï¼Œæœ‰ä¸Šç­‰å“ç§ã€Œçº¢å¦†ç´ è£¹ã€ï¼Œã€Œåå…«å­¦å£«ã€ï¼Œä¹Ÿæœ‰å·®ä¸€äº›çš„ã€Œè½ç¬¬ç§€æ‰ã€ï¼Œ
+å’Œã€ŒæŠ“ç ´ç¾äººè„¸ã€ã€‚
 LONG
        );
         set("exits", ([ 
            "northup" : __DIR__"chyuan2",
            "west" : __DIR__"dongjie6",
 	]));
-        set("outdoors","´óÀí");
+        set("outdoors","å¤§ç†");
         set("objects", ([
              __DIR__"npc/xiaosi" : 1, 
         ]));        
@@ -28,6 +28,6 @@ int valid_leave(object me, string dir)
 	if (dir == "northup" && is_wanted(me))
 		return 0;
 	if ( !me->query_temp("flower_paid") && dir == "northup" )
-	return notify_fail("Ïë¿´²è»¨Ô°£¬ÏÈ¸¶Ç®°¡£¡\n");     
+	return notify_fail("æƒ³çœ‹èŒ¶èŠ±å›­ï¼Œå…ˆä»˜é’±å•Šï¼\n");     
 	return ::valid_leave(me, dir);
 }

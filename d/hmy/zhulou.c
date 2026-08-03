@@ -6,17 +6,17 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "ÖñÂ¨");
+	set("short", "ç«¹ç¯“");
 	set("long", @LONG
-×øÔÚÖñÂ¨µ±ÖĞ£¬ÑÛ¼ûÇáÑÌ±¡Îí´ÓÉíÅÔÆ®¹ı£¬ÑöÍ·ÏòºÚÄ¾ÑÂÉÏÍûÈ¥£¬µ«¼ûÄÇ
-×ùººÓñÅÆÂ¥·¢³öÒ«ÑÛµÄ¹âÃ¢¡£
+ååœ¨ç«¹ç¯“å½“ä¸­ï¼Œçœ¼è§è½»çƒŸè–„é›¾ä»èº«æ—é£˜è¿‡ï¼Œä»°å¤´å‘é»‘æœ¨å´–ä¸Šæœ›å»ï¼Œä½†è§é‚£
+åº§æ±‰ç‰ç‰Œæ¥¼å‘å‡ºè€€çœ¼çš„å…‰èŠ’ã€‚
 LONG
 	);
         set("no_fight", "1");
         set("no_sleep_room", 1); 
         set("side", "ryping");
 
-	set("outdoors", "ºÚÄ¾ÑÂ");
+	set("outdoors", "é»‘æœ¨å´–");
 	setup();
 }
 
@@ -34,8 +34,8 @@ int arrive(string arg)
 	if(room = find_object(__DIR__+ob->query("side"))){
 		ob->set("exits/out", __DIR__+ob->query("side"));
 		room->set("exits/enter", SHIP);
-		message("vision", "\nÖñÂ¨»ÎÁË¼¸ÏÂ£¬ÔÚÒ»¼äÊ¯ÎİÖ®ÄÚÍ£ÁËÏÂÀ´¡£\n", ob);        
-		message("vision", "\nÒ»¸ö´óÖñÂ¨»º»ºµØ½µÁËÏÂÀ´£¬Í£ÔÚÄãµÄÃæÇ°£¬¿´ÆğÀ´Äã¿ÉÒÔ¿ç½øÖñÂ¨(enter)¡£\n", room);
+		message("vision", "\nç«¹ç¯“æ™ƒäº†å‡ ä¸‹ï¼Œåœ¨ä¸€é—´çŸ³å±‹ä¹‹å†…åœäº†ä¸‹æ¥ã€‚\n", ob);        
+		message("vision", "\nä¸€ä¸ªå¤§ç«¹ç¯“ç¼“ç¼“åœ°é™äº†ä¸‹æ¥ï¼Œåœåœ¨ä½ çš„é¢å‰ï¼Œçœ‹èµ·æ¥ä½ å¯ä»¥è·¨è¿›ç«¹ç¯“(enter)ã€‚\n", room);
 		remove_call_out("on_board");
 		call_out("on_board", 20);
 	}
@@ -48,10 +48,10 @@ void flying1()
 
 	if( room = find_object(__DIR__"zhulou")) {
 		if( this_object()->query("side") == "yading")
-			message("vision", HIC"\nºÚÒ¹Ö®ÖĞ£¬ÈÔ¿É¼ûµ½Ò»Æ¬Æ¬ÇáÔÆ´ÓÍ·¶¥Æ®¹ı¡£\n"
-					HIB"\nÔÙ¹ıÒ»»á£¬ÉíÈëÔÆÎí£¬¸©ÊÓÂ¨µ×£¬µ«¼ûºÚ³Á³ÁµÄÒ»Æ¬£¬Á¬µÆ»ğÒ²Íû²»µ½ÁË¡£¡£\n"NOR,room);
+			message("vision", HIC"\né»‘å¤œä¹‹ä¸­ï¼Œä»å¯è§åˆ°ä¸€ç‰‡ç‰‡è½»äº‘ä»å¤´é¡¶é£˜è¿‡ã€‚\n"
+					HIB"\nå†è¿‡ä¸€ä¼šï¼Œèº«å…¥äº‘é›¾ï¼Œä¿¯è§†ç¯“åº•ï¼Œä½†è§é»‘æ²‰æ²‰çš„ä¸€ç‰‡ï¼Œè¿ç¯ç«ä¹Ÿæœ›ä¸åˆ°äº†ã€‚ã€‚\n"NOR,room);
 		else
-			message("vision", HIY"\nÖñÂ¨²»¶ÏÏÂ½µ£¬¾ÙÍ·ÉÏÍû£¬Í·¶¥Êıµã»ğĞÇ£¬Ò£²»¿É¼°¡£\n"NOR,room);
+			message("vision", HIY"\nç«¹ç¯“ä¸æ–­ä¸‹é™ï¼Œä¸¾å¤´ä¸Šæœ›ï¼Œå¤´é¡¶æ•°ç‚¹ç«æ˜Ÿï¼Œé¥ä¸å¯åŠã€‚\n"NOR,room);
 	}
     	remove_call_out("arrive");
     	call_out("arrive", 10+random(10));
@@ -63,10 +63,10 @@ void flying()
     
 	if( room = find_object(__DIR__"zhulou")) {
 		if( this_object()->query("side") == "yading")
-			message("vision", HIY"\nÖñÂ¨²»¶ÏÉÏÉı£¬¾ÙÍ·ÉÏÍû£¬Í·¶¥Êıµã»ğĞÇ£¬Ò£²»¿É¼°¡£\n"NOR,room);
+			message("vision", HIY"\nç«¹ç¯“ä¸æ–­ä¸Šå‡ï¼Œä¸¾å¤´ä¸Šæœ›ï¼Œå¤´é¡¶æ•°ç‚¹ç«æ˜Ÿï¼Œé¥ä¸å¯åŠã€‚\n"NOR,room);
 		else
-			message("vision", HIC"\nºÚÒ¹Ö®ÖĞ£¬ÈÔ¿É¼ûµ½Ò»Æ¬Æ¬ÇáÔÆ´ÓÍ·¶¥Æ®¹ı¡£\n"
-					HIB"\nÔÙ¹ıÒ»»á£¬ÉíÈëÔÆÎí£¬¸©ÊÓÂ¨µ×£¬µ«¼ûºÚ³Á³ÁµÄÒ»Æ¬£¬Á¬µÆ»ğÒ²Íû²»µ½ÁË¡£¡£\n"NOR,room);
+			message("vision", HIC"\né»‘å¤œä¹‹ä¸­ï¼Œä»å¯è§åˆ°ä¸€ç‰‡ç‰‡è½»äº‘ä»å¤´é¡¶é£˜è¿‡ã€‚\n"
+					HIB"\nå†è¿‡ä¸€ä¼šï¼Œèº«å…¥äº‘é›¾ï¼Œä¿¯è§†ç¯“åº•ï¼Œä½†è§é»‘æ²‰æ²‰çš„ä¸€ç‰‡ï¼Œè¿ç¯ç«ä¹Ÿæœ›ä¸åˆ°äº†ã€‚ã€‚\n"NOR,room);
 	}
 	remove_call_out("flying1");
 	call_out("flying1", 10+random(10));
@@ -85,16 +85,16 @@ void on_board()
 		obj = all_inventory(ob);
 		for(i = 0; i < sizeof(obj); i++) {
 			if (userp(obj[i]) && obj[i]->query_temp("side") != ob->query("side")) {
-				if (!living(obj[i])) message_vision("½ÌÖÚ°Ñ$NÌ§ÏÂÁËÖñÂ¨¡£\n", obj[i]);
+				if (!living(obj[i])) message_vision("æ•™ä¼—æŠŠ$NæŠ¬ä¸‹äº†ç«¹ç¯“ã€‚\n", obj[i]);
 				obj[i]->move(room);
 				obj[i]->delete_temp("side");
-				if (!living(obj[i])) tell_room(room, obj[i]->name() + "±»Ì§ÏÂÁËÖñÂ¨¡£\n", ({obj[i]}));
-				else tell_room(room, obj[i]->name() + "¿ç³öÁËÖñÂ¨¡£\n", ({obj[i]}));
+				if (!living(obj[i])) tell_room(room, obj[i]->name() + "è¢«æŠ¬ä¸‹äº†ç«¹ç¯“ã€‚\n", ({obj[i]}));
+				else tell_room(room, obj[i]->name() + "è·¨å‡ºäº†ç«¹ç¯“ã€‚\n", ({obj[i]}));
 			}
 		}
 		room->delete("exits/enter");
-		message("vision", "\nÍ­ÂàÈıÏì£¬ÑÂ¶¥µÄ½ÊÅÌ¿ªÊ¼×ª¶¯£¬ÖñÂ¨»º»ºÒÆ¶¯¡£\n", this_object());
-		message("vision", "\nÈÕÔÂ½ÌÖÚº°ÁËÒ»Éù¡°×øÎÈà¶¡±£¬½ÊÅÌ¿ªÊ¼×ª¶¯£¬ÖñÂ¨»º»ºÒÆ¶¯¡£\n", room);
+		message("vision", "\né“œé”£ä¸‰å“ï¼Œå´–é¡¶çš„ç»ç›˜å¼€å§‹è½¬åŠ¨ï¼Œç«¹ç¯“ç¼“ç¼“ç§»åŠ¨ã€‚\n", this_object());
+		message("vision", "\næ—¥æœˆæ•™ä¼—å–Šäº†ä¸€å£°â€œåç¨³å–½â€ï¼Œç»ç›˜å¼€å§‹è½¬åŠ¨ï¼Œç«¹ç¯“ç¼“ç¼“ç§»åŠ¨ã€‚\n", room);
 	}
 	delete("exits/out");
 	if(ob->query("side") == "yading") ob->set("side", "ryping");

@@ -10,29 +10,29 @@ string ask_pigexp();
 
 void create()
 {
-    set_name("Ç®ÀÏ±¾", ({ "qian laoben", "qian" }) );
-    set("gender", "ÄĞĞÔ" );
+    set_name("é’±è€æœ¬", ({ "qian laoben", "qian" }) );
+    set("gender", "ç”·æ€§" );
     set("age", 47);
     set("long", 
-   "Ëûµ±ÄêÊÇÌìµØ»á¹°ÖíµÚÒ»¸ßÊÖ£¬ÏÖÔÚÒÑ¾­Àë¿ª¹°Ì³¶àÄêÁË¡£\n");
+   "ä»–å½“å¹´æ˜¯å¤©åœ°ä¼šæ‹±çŒªç¬¬ä¸€é«˜æ‰‹ï¼Œç°åœ¨å·²ç»ç¦»å¼€æ‹±å›å¤šå¹´äº†ã€‚\n");
 
     set("shen_type", 1);
 
     set("attitude", "heroism");
     set("inquiry", ([
-        "³É¼¨" : "ÓÃ pigscore ¿ÉÒÔ²é×Ô¼º¹°ÖíºÍµÃÖíÍ·µÄ´ÎÊı¡£\n",
-        "pigscore" : "ÓÃ pigscore ¿ÉÒÔ²é×Ô¼º¹°ÖíºÍµÃÖíÍ·µÄ´ÎÊı¡£\n",
-        "¹°Öí" : "help pig_cmds ¹°ÖíµÄÓĞ¹ØÃüÁî£¬help pig_rules ¹æÔò£¬pigscore ³É¼¨¡£\n",
-        "¹°Öí°ï" : (:ask_degree:),
+        "æˆç»©" : "ç”¨ pigscore å¯ä»¥æŸ¥è‡ªå·±æ‹±çŒªå’Œå¾—çŒªå¤´çš„æ¬¡æ•°ã€‚\n",
+        "pigscore" : "ç”¨ pigscore å¯ä»¥æŸ¥è‡ªå·±æ‹±çŒªå’Œå¾—çŒªå¤´çš„æ¬¡æ•°ã€‚\n",
+        "æ‹±çŒª" : "help pig_cmds æ‹±çŒªçš„æœ‰å…³å‘½ä»¤ï¼Œhelp pig_rules è§„åˆ™ï¼Œpigscore æˆç»©ã€‚\n",
+        "æ‹±çŒªå¸®" : (:ask_degree:),
         "rank" : (:ask_degree:),
-        "³ÔµÄ" : (: ask_food :),
+        "åƒçš„" : (: ask_food :),
         "food" : (: ask_food :),
         "pighead" : (: ask_pighead :),
-        "ÖíÍ·" : (: ask_pighead :),
+        "çŒªå¤´" : (: ask_pighead :),
         "highhand" : (: ask_highhand :),
-        "ÅÅÃû" : (: ask_highhand :),
+        "æ’å" : (: ask_highhand :),
         "pigexp" : (: ask_pigexp :),
-        "¾­Ñé" : (: ask_pigexp :),
+        "ç»éªŒ" : (: ask_pigexp :),
     ]));
 
     setup();
@@ -46,7 +46,7 @@ void init()
     object me = this_player();
 
     add_action("do_check", "pigscore");
-    add_action("do_clearpig", "ÎÒÒª·ÅÆúÄ¿Ç°µÄ¹°Öí³É¼¨¡£");
+    add_action("do_clearpig", "æˆ‘è¦æ”¾å¼ƒç›®å‰çš„æ‹±çŒªæˆç»©ã€‚");
 
     ::init();
     if (interactive(me = this_player())) {
@@ -67,47 +67,47 @@ string ask_degree()
 
     title = me->query("title");
     if (title) {
-        index = strsrch(title,"¡¢");
+        index = strsrch(title,"ã€");
         if (index>1) 
             title = title[0..(index-1)];
         else if (index!=-1)
-            return ("ÄãµÄ³ÆºÅÌ«¹Ö£¬ÎÒÃ»·¨¸Ä¡£\n");
+            return ("ä½ çš„ç§°å·å¤ªæ€ªï¼Œæˆ‘æ²¡æ³•æ”¹ã€‚\n");
     }
     me->set("title",title);
 
     level = (pigmade-pighead)*(pigmade+1)/(pighead+1);
 
-    if (level < 1 ) newtitle = "ĞÂÊÖ";
-    else if (level < 4) newtitle = "Ñ§Í¯";
-    else if (level < 9) newtitle = "Í¯Éú";
-    else if (level < 16) newtitle = "ÊéÉú";
-    else if (level < 25) newtitle = "Ğã²Å";
-    else if (level < 36) newtitle = "¾ÙÈË";
-    else if (level < 49) newtitle = "½âÔª";
-    else if (level < 64) newtitle = "¹±Ê¿";
-    else if (level < 81) newtitle = "»áÔª";
-    else if (level < 100) newtitle = "½øÊ¿";
-    else if (level < 121) newtitle = "Êü¼ªÊ¿";
-    else if (level < 144) newtitle = "´«ëÍ";
-    else if (level < 169) newtitle = "Ì½»¨";
-    else if (level < 196) newtitle = "°ñÑÛ";
-    else if (level < 225) newtitle = "×´Ôª";
-    else if (level < 256) newtitle = "º²ÁÖ";
-    else if (level < 289) newtitle = "Ñ§Ê¿";
-    else if (level < 324) newtitle = "´óÑ§Ê¿";
-    else if (level < 361) newtitle = "Ê×¸¨";
-    else if (level < 400) newtitle = "ÁìĞä";
-    else if (level < 500) newtitle = "´ó×ÚÊ¦";
-    else newtitle = "°ïÖ÷";
+    if (level < 1 ) newtitle = "æ–°æ‰‹";
+    else if (level < 4) newtitle = "å­¦ç«¥";
+    else if (level < 9) newtitle = "ç«¥ç”Ÿ";
+    else if (level < 16) newtitle = "ä¹¦ç”Ÿ";
+    else if (level < 25) newtitle = "ç§€æ‰";
+    else if (level < 36) newtitle = "ä¸¾äºº";
+    else if (level < 49) newtitle = "è§£å…ƒ";
+    else if (level < 64) newtitle = "è´¡å£«";
+    else if (level < 81) newtitle = "ä¼šå…ƒ";
+    else if (level < 100) newtitle = "è¿›å£«";
+    else if (level < 121) newtitle = "åº¶å‰å£«";
+    else if (level < 144) newtitle = "ä¼ èƒª";
+    else if (level < 169) newtitle = "æ¢èŠ±";
+    else if (level < 196) newtitle = "æ¦œçœ¼";
+    else if (level < 225) newtitle = "çŠ¶å…ƒ";
+    else if (level < 256) newtitle = "ç¿°æ—";
+    else if (level < 289) newtitle = "å­¦å£«";
+    else if (level < 324) newtitle = "å¤§å­¦å£«";
+    else if (level < 361) newtitle = "é¦–è¾…";
+    else if (level < 400) newtitle = "é¢†è¢–";
+    else if (level < 500) newtitle = "å¤§å®—å¸ˆ";
+    else newtitle = "å¸®ä¸»";
 
-    if (title && title!="") title = title+"¡¢¹°Öí°ï" + newtitle;
+    if (title && title!="") title = title+"ã€æ‹±çŒªå¸®" + newtitle;
     else title = newtitle;
 
     title = title + " " + me->query("name") + 
         "(" + capitalize(me->query("id")) + ")";
     me->set_temp("apply/short", ({title}));
 
-    return "Æ¾¸óÏÂµÄ¹°Öí¾­Ñé£¬ÒÀÀÏ·ò¿´£¬Äã¿ÉÒÔ×ö¹°ÖíÃÅ"+newtitle+"¡£\n";
+    return "å‡­é˜ä¸‹çš„æ‹±çŒªç»éªŒï¼Œä¾è€å¤«çœ‹ï¼Œä½ å¯ä»¥åšæ‹±çŒªé—¨"+newtitle+"ã€‚\n";
 }
 
 int do_check()
@@ -118,9 +118,9 @@ int do_check()
     int pigmade = (int)me->query("pig_new/pig_made");
     int score = (int)me->query("pig_new/score");
 
-    write("ÄãÍæÁË " + pigplayed +  " ´Î¹°Öí£¬¹°³ö " +
-        pigmade + " ¸öÖíÍ·£¬ÄãµÃÁË " + pighead + " ¸öÖíÍ·£¬×Ü·Ö " + 
-        score + " ·Ö¡£\n");
+    write("ä½ ç©äº† " + pigplayed +  " æ¬¡æ‹±çŒªï¼Œæ‹±å‡º " +
+        pigmade + " ä¸ªçŒªå¤´ï¼Œä½ å¾—äº† " + pighead + " ä¸ªçŒªå¤´ï¼Œæ€»åˆ† " + 
+        score + " åˆ†ã€‚\n");
 
 
     return 1;
@@ -143,9 +143,9 @@ void greeting(object me)
 
         case 2:
             if (total == 0) 
-                        command("say Äã¿´Ñù×Ó»¹ÊÇ¸ö¹°Ì³ĞÂÊÖ°É¡£");
+                        command("say ä½ çœ‹æ ·å­è¿˜æ˜¯ä¸ªæ‹±å›æ–°æ‰‹å§ã€‚");
         else if (total > 100) 
-            command("say ÄãÍæµÃÕæ²»ÉÙ°¡£¡");
+            command("say ä½ ç©å¾—çœŸä¸å°‘å•Šï¼");
           else 
                         command("pig " + me->query("id"));
                 break;
@@ -159,16 +159,16 @@ void greeting(object me)
 
         case 4:
         if (total * (-100 ) < score) 
-            command("say ÄãÍæµÃ¶à£¬µÃÖíÉÙ£¬ºÃÑùµÄ£¡");
+            command("say ä½ ç©å¾—å¤šï¼Œå¾—çŒªå°‘ï¼Œå¥½æ ·çš„ï¼");
         else if (pighead>0) 
-            command("say àæ£¬ÄãÔõÃ´³¤×Å" + 
-                CHINESE_D->chinese_number(pighead) + "¸öÖíÍ·£¿");
+            command("say å™«ï¼Œä½ æ€ä¹ˆé•¿ç€" + 
+                CHINESE_D->chinese_number(pighead) + "ä¸ªçŒªå¤´ï¼Ÿ");
                 break;
 
         case 5:
         if (pighead>0) 
-            command("say àæ£¬ÄãÔõÃ´³¤×Å" + 
-                CHINESE_D->chinese_number(pighead) + "¸öÖíÍ·£¿");
+            command("say å™«ï¼Œä½ æ€ä¹ˆé•¿ç€" + 
+                CHINESE_D->chinese_number(pighead) + "ä¸ªçŒªå¤´ï¼Ÿ");
                 command("laugh " + me->query("id"));
                 break;
         case 6:
@@ -189,33 +189,33 @@ void greeting(object me)
         default:
         level = (pigmade-pighead)*(pigmade+1)/(pighead+1);
 
-        if (level < 1 ) newtitle = "ĞÂÊÖ";
-        else if (level < 4) newtitle = "Ñ§Í¯";
-        else if (level < 9) newtitle = "Í¯Éú";
-        else if (level < 16) newtitle = "ÊéÉú";
-        else if (level < 25) newtitle = "Ğã²Å";
-        else if (level < 36) newtitle = "¾ÙÈË";
-        else if (level < 49) newtitle = "½âÔª";
-        else if (level < 64) newtitle = "¹±Ê¿";
-        else if (level < 81) newtitle = "»áÔª";
-        else if (level < 100) newtitle = "½øÊ¿";
-        else if (level < 121) newtitle = "Êü¼ªÊ¿";
-        else if (level < 144) newtitle = "´«ëÍ";
-        else if (level < 169) newtitle = "Ì½»¨";
-        else if (level < 196) newtitle = "°ñÑÛ";
-        else if (level < 225) newtitle = "×´Ôª";
-        else if (level < 256) newtitle = "º²ÁÖ";
-        else if (level < 289) newtitle = "Ñ§Ê¿";
-        else if (level < 324) newtitle = "´óÑ§Ê¿";
-        else if (level < 361) newtitle = "Ê×¸¨";
-        else if (level < 400) newtitle = "ÁìĞä";
-        else if (level < 500) newtitle = "´ó×ÚÊ¦";
-        else newtitle = "°ïÖ÷";
+        if (level < 1 ) newtitle = "æ–°æ‰‹";
+        else if (level < 4) newtitle = "å­¦ç«¥";
+        else if (level < 9) newtitle = "ç«¥ç”Ÿ";
+        else if (level < 16) newtitle = "ä¹¦ç”Ÿ";
+        else if (level < 25) newtitle = "ç§€æ‰";
+        else if (level < 36) newtitle = "ä¸¾äºº";
+        else if (level < 49) newtitle = "è§£å…ƒ";
+        else if (level < 64) newtitle = "è´¡å£«";
+        else if (level < 81) newtitle = "ä¼šå…ƒ";
+        else if (level < 100) newtitle = "è¿›å£«";
+        else if (level < 121) newtitle = "åº¶å‰å£«";
+        else if (level < 144) newtitle = "ä¼ èƒª";
+        else if (level < 169) newtitle = "æ¢èŠ±";
+        else if (level < 196) newtitle = "æ¦œçœ¼";
+        else if (level < 225) newtitle = "çŠ¶å…ƒ";
+        else if (level < 256) newtitle = "ç¿°æ—";
+        else if (level < 289) newtitle = "å­¦å£«";
+        else if (level < 324) newtitle = "å¤§å­¦å£«";
+        else if (level < 361) newtitle = "é¦–è¾…";
+        else if (level < 400) newtitle = "é¢†è¢–";
+        else if (level < 500) newtitle = "å¤§å®—å¸ˆ";
+        else newtitle = "å¸®ä¸»";
 
                 if (level < 1 )
-                        command("say Äã»¹ÊÇ¸ö¹°ÖíĞÂÊÖ°¡£¡");
+                        command("say ä½ è¿˜æ˜¯ä¸ªæ‹±çŒªæ–°æ‰‹å•Šï¼");
                 else 
-                        command("say ¹°Öí"+ newtitle + "ĞÁ¿àÀ²£¡");
+                        command("say æ‹±çŒª"+ newtitle + "è¾›è‹¦å•¦ï¼");
                 break;
         }
     return;
@@ -224,7 +224,7 @@ void greeting(object me)
 string ask_food()
 {
 
-    return "Äã¸Ï¿ìÈ¥¹°Öí¡£¹°³öÁËÖíÍ·£¬´ó¼Ò·Ö×Å³Ô¡£";
+    return "ä½ èµ¶å¿«å»æ‹±çŒªã€‚æ‹±å‡ºäº†çŒªå¤´ï¼Œå¤§å®¶åˆ†ç€åƒã€‚";
 }
 
 
@@ -237,7 +237,7 @@ int do_clearpig()
     int score = (int)me->query("pig_new/score");
 
     if (pigplayed < 50) 
-        write("ÄãµÄ¾­Ñé»¹²»×ã£¬¶à¹°¼¸´Î£¬¿ÉÄÜ»áÓĞ½ø²½¡£\n");
+        write("ä½ çš„ç»éªŒè¿˜ä¸è¶³ï¼Œå¤šæ‹±å‡ æ¬¡ï¼Œå¯èƒ½ä¼šæœ‰è¿›æ­¥ã€‚\n");
 
     else {
         me->add("pig_old/played", pigplayed);
@@ -250,9 +250,9 @@ int do_clearpig()
         me->delete("pig_new/pig_made");
         me->delete("pig_new/score");
 
-        message_vision("$Nºì×ÅÁ³£¬ÇÄÇÄµØÔÚÇ®ÀÏ±¾¶ú±ßËµÁË¼¸¾ä»°¡£\n", me);
-        message_vision("Ç®ÀÏ±¾½ô½ôµØÎÕ×¡$NµÄË«ÊÖ£ºÅ¬Á¦°É£¬ÄãÒ»¶¨»á³É¹¦µÄ£¡\n", me);
-        write("ÄãµÄ¹°Öí³É¼¨È«²¿Çå³ıÁË¡£\n");
+        message_vision("$Nçº¢ç€è„¸ï¼Œæ‚„æ‚„åœ°åœ¨é’±è€æœ¬è€³è¾¹è¯´äº†å‡ å¥è¯ã€‚\n", me);
+        message_vision("é’±è€æœ¬ç´§ç´§åœ°æ¡ä½$Nçš„åŒæ‰‹ï¼šåŠªåŠ›å§ï¼Œä½ ä¸€å®šä¼šæˆåŠŸçš„ï¼\n", me);
+        write("ä½ çš„æ‹±çŒªæˆç»©å…¨éƒ¨æ¸…é™¤äº†ã€‚\n");
     }
     return 1;
 }
@@ -276,13 +276,13 @@ string ask_pighead()
         }
 
         if ( !obj ) {
-                msg ="ß×£¬ºÃÏóÃ»ÈË³Ô¹ıÖíÍ·¡£\n";
+                msg ="å’¦ï¼Œå¥½è±¡æ²¡äººåƒè¿‡çŒªå¤´ã€‚\n";
                 return msg;
         }
 
         obj->set_temp("mostpigs",1);
         name = obj->query("name")+"("+obj->query("id")+")";
-        msg ="¹ş¹ş£¬ÏÖÔÚÊé½£ÀïÊı"+name+"³ÔµÄÖíÍ·×î¶à¡£\n";
+        msg ="å“ˆå“ˆï¼Œç°åœ¨ä¹¦å‰‘é‡Œæ•°"+name+"åƒçš„çŒªå¤´æœ€å¤šã€‚\n";
 
         return msg;
 }
@@ -310,13 +310,13 @@ string ask_highhand()
         }
 
         if ( !obj ) {
-                msg ="ß×£¬ÕâÀïÈ«ÊÇ¹°ÖíĞÂÊÖ°¡¡£\n";
+                msg ="å’¦ï¼Œè¿™é‡Œå…¨æ˜¯æ‹±çŒªæ–°æ‰‹å•Šã€‚\n";
                 return msg;
         }
 
         obj->set_temp("pighighhand",1);
         name = obj->query("name")+"("+obj->query("id")+")";
-        msg ="¹ş¹ş¹ş£¬ÏÖÔÚÊé½£ÀïµÄ¹°Öí¸ßÊÖÊÇ"+name+"¡£\n";
+        msg ="å“ˆå“ˆå“ˆï¼Œç°åœ¨ä¹¦å‰‘é‡Œçš„æ‹±çŒªé«˜æ‰‹æ˜¯"+name+"ã€‚\n";
 
         return msg;
 }
@@ -345,13 +345,13 @@ string ask_pigexp()
         }
 
         if ( !obj ) {
-                msg ="ß×£¬ÕâÀïÈ«ÊÇ¹°ÖíĞÂÊÖ°¡¡£\n";
+                msg ="å’¦ï¼Œè¿™é‡Œå…¨æ˜¯æ‹±çŒªæ–°æ‰‹å•Šã€‚\n";
                 return msg;
         }
 
         obj->set_temp("pighighexp",1);
         name = obj->query("name")+"("+obj->query("id")+")";
-        msg ="¹ş¹ş¹ş£¬ÏÖÔÚÊé½£ÀïµÄ¹°Öí¾­Ñé×î¶àµÄÊÇ"+name+"¡£\n";
+        msg ="å“ˆå“ˆå“ˆï¼Œç°åœ¨ä¹¦å‰‘é‡Œçš„æ‹±çŒªç»éªŒæœ€å¤šçš„æ˜¯"+name+"ã€‚\n";
 
         return msg;
 }

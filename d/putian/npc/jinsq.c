@@ -1,17 +1,17 @@
-// jinsq.c ½ğË¿È¸
+// jinsq.c é‡‘ä¸é›€
 
 inherit NPC;
 void create()
 {
-        set_name("½ğË¿È¸", ({ "jinsi que", "bird" }) );
-        set("race", "Ò°ÊŞ");
+        set_name("é‡‘ä¸é›€", ({ "jinsi que", "bird" }) );
+        set("race", "é‡å…½");
         set("age", 1);
-        set("long", "Ò»Ö»ÃÀÀöµÄ½ğË¿È¸£¬ß´ß´ÔûÔûµÄ½Ğ×Å£¬¸èÉùÔÃ¶ú¶¯Ìı¡£\n");
+        set("long", "ä¸€åªç¾ä¸½çš„é‡‘ä¸é›€ï¼Œå½å½å–³å–³çš„å«ç€ï¼Œæ­Œå£°æ‚¦è€³åŠ¨å¬ã€‚\n");
         set("attitude", "friendly");
         set("max_qi", 100);
         set("max_jing", 100);
         set("eff_jingli", 100);
-        set("limbs", ({ "×ì", "³á°ò", "×¦×Ó" }) );
+        set("limbs", ({ "å˜´", "ç¿…è†€", "çˆªå­" }) );
         set("verbs", ({ "bite", "claw" }) );
 
         set("combat_exp", 100);

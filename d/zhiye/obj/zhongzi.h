@@ -3,13 +3,13 @@
 
 void create()
 {
-        set_name("ÖÖ×Ó", ({ "zhongzi" }));
+        set_name("ç§å­", ({ "zhongzi" }));
         set_weight(100+random(500));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿ÅÖÖ×Ó¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—ç§å­ã€‚\n");
                 set("value", 300);
                 set("zhongzi",1);
                 set("canzi",0);
@@ -22,71 +22,71 @@ int set_level(int i)
 {
         switch (i) {
                 case 1: 
-                        set_name(HIW"ÃŞ»¨ÖÖ×Ó"NOR, ({"mianhua zhongzi","zhongzi","zi"}));
-                        set("long",HIW"ÃŞ»¨µÄÖÖ×Ó¡£\n"NOR);
+                        set_name(HIW"æ£‰èŠ±ç§å­"NOR, ({"mianhua zhongzi","zhongzi","zi"}));
+                        set("long",HIW"æ£‰èŠ±çš„ç§å­ã€‚\n"NOR);
                         set("material","mianhua");
                         set("value",100);
                         break;
                 case 2: 
-                        set_name(YEL"ÑÇÂéÖÖ×Ó"NOR, ({"yama zhongzi","zhongzi","zi"}));
-                        set("long",YEL"ÑÇÂéµÄÖÖ×Ó¡£\n"NOR);
+                        set_name(YEL"äºšéº»ç§å­"NOR, ({"yama zhongzi","zhongzi","zi"}));
+                        set("long",YEL"äºšéº»çš„ç§å­ã€‚\n"NOR);
                         set("material","yama");
                         set("value",160);
                         break;
                 case 3: 
-                        set_name(YEL"´óÂéÖÖ×Ó"NOR, ({"dama zhongzi","zhongzi","zi"}));
-                        set("long",YEL"´óÂéµÄÖÖ×Ó¡£\n"NOR);
+                        set_name(YEL"å¤§éº»ç§å­"NOR, ({"dama zhongzi","zhongzi","zi"}));
+                        set("long",YEL"å¤§éº»çš„ç§å­ã€‚\n"NOR);
                         set("material","dama");
                         set("value",240);
                         break;
                 case 4: 
-                        set_name(HIY"ÜÑÂéÖÖ×Ó"NOR, ({"zhuma zhongzi","zhongzi","zi"}));
-                        set("long",HIY"ÜÑÂéµÄÖÖ×Ó¡£\n"NOR);
+                        set_name(HIY"è‹éº»ç§å­"NOR, ({"zhuma zhongzi","zhongzi","zi"}));
+                        set("long",HIY"è‹éº»çš„ç§å­ã€‚\n"NOR);
                         set("material","zhuma");
                         set("value",360);
                         break;
                 case 5: 
-                        set_name(HIW"²Ï×Ó"NOR, ({"can zi","zi" }));
-                        set("long",HIW"²ÏµÄÂÑ¡£\n"NOR);
+                        set_name(HIW"èš•å­"NOR, ({"can zi","zi" }));
+                        set("long",HIW"èš•çš„åµã€‚\n"NOR);
                         set("material","cansi");
                         set("value",500);
                         set("zhongzi",0);
                         set("canzi",1);
                         break;
                 case 6: 
-                        set_name(HIY"Ä¾ÃŞÖÖ×Ó"NOR, ({"mumian zhongzi","zhongzi","zi"}));
-                        set("long",HIY"Ä¾ÃŞ»¨µÄÖÖ×Ó¡£\n"NOR);
+                        set_name(HIY"æœ¨æ£‰ç§å­"NOR, ({"mumian zhongzi","zhongzi","zi"}));
+                        set("long",HIY"æœ¨æ£‰èŠ±çš„ç§å­ã€‚\n"NOR);
                         set("material","mumianhua");
                         set("value",800);
                         break;
                         
                 case 7: 
-                        set_name(GRN"Óñ²Ï×Ó"NOR, ({"yucan zi","zi"}));
-                        set("long",GRN"Óñ²ÏµÄÂÑ¡£\n"NOR);
+                        set_name(GRN"ç‰èš•å­"NOR, ({"yucan zi","zi"}));
+                        set("long",GRN"ç‰èš•çš„åµã€‚\n"NOR);
                         set("material","yucansi");
                         set("value",1400);
                         set("zhongzi",0);
                         set("canzi",1);
                         break;
                 case 8: 
-                        set_name(HIW"±ù²Ï×Ó"NOR, ({"bingcan zi","zi"}));
-                        set("long",HIW"±ù²ÏµÄÂÑ¡£\n"NOR);
+                        set_name(HIW"å†°èš•å­"NOR, ({"bingcan zi","zi"}));
+                        set("long",HIW"å†°èš•çš„åµã€‚\n"NOR);
                         set("material","bingcansi");
                         set("value",2000);
                         set("zhongzi",0);
                         set("canzi",1);
                         break;
                 case 9: 
-                        set_name(WHT"Ìì²Ï×Ó"NOR, ({"tiancan zi","zi"}));
-                        set("long",WHT"Ìì²ÏµÄÂÑ¡£\n"NOR);
+                        set_name(WHT"å¤©èš•å­"NOR, ({"tiancan zi","zi"}));
+                        set("long",WHT"å¤©èš•çš„åµã€‚\n"NOR);
                         set("material","tiancansi");
                         set("value",4000);
                         set("zhongzi",0);
                         set("canzi",1);
                         break;
                 case 10:
-                	set_name(HIY"Áú¼ë²Ï"NOR,({"longcan zi","si"}));
-                	set("long",HIY"Ò»ÖÖĞÎÈçÅÌÁúµÄ¶¾²ÏµÄÂÑ¡£\n"NOR);
+                	set_name(HIY"é¾™èŒ§èš•"NOR,({"longcan zi","si"}));
+                	set("long",HIY"ä¸€ç§å½¢å¦‚ç›˜é¾™çš„æ¯’èš•çš„åµã€‚\n"NOR);
                 	set("material","longcansi");
                 	set("value",8000);
                 	set("zhongzi",0);

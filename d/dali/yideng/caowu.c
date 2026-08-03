@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIG"Ã©Îİ"NOR);
+	set("short", HIG"èŒ…å±‹"NOR);
 	set("long", @LONG
-ÕâÀïÊÇÒ»¼äÓÉÖñ×Ó´î³ÉµÄÃ©Îİ£¬ÎİÄÚ°ÚÉè¼òÆÓ£¬¿´À´ÊÇÓæÈËĞİÏ¢µÄĞ¡Ã©Îİ£¬
-ÔÚÇ½½Ç·Å×ÅÒ»ËÒĞ¡ÌúÖÛºÍÒ»¶ÔÌú½°¡£
+è¿™é‡Œæ˜¯ä¸€é—´ç”±ç«¹å­æ­æˆçš„èŒ…å±‹ï¼Œå±‹å†…æ‘†è®¾ç®€æœ´ï¼Œçœ‹æ¥æ˜¯æ¸”äººä¼‘æ¯çš„å°èŒ…å±‹ï¼Œ
+åœ¨å¢™è§’æ”¾ç€ä¸€è‰˜å°é“èˆŸå’Œä¸€å¯¹é“æ¡¨ã€‚
 LONG
 	);
 
@@ -31,15 +31,15 @@ int do_enter(string arg)
 
 	if ( ! arg || arg != "tongdao" ) return 0;
 
-	if ( me->query("family/master_name") != "Ò»µÆ´óÊ¦") return 0;
+	if ( me->query("family/master_name") != "ä¸€ç¯å¤§å¸ˆ") return 0;
 
 	if ( is_wanted(me)) return 0;
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	message_vision("$NÒ»Ã«Ñü×ê½øÁËÒ»ÌõÖ±µÖÉ½ÉÏµÄ¿ì½İÍ¨µÀ¡£\n", me);
+	message_vision("$Nä¸€æ¯›è…°é’»è¿›äº†ä¸€æ¡ç›´æŠµå±±ä¸Šçš„å¿«æ·é€šé“ã€‚\n", me);
 	me->move(__DIR__"hetang");
-	tell_room(environment(me), me->name() + "´ÓÍ¨µÀÖĞ×êÁË¹ıÀ´¡£\n", ({ me }));
+	tell_room(environment(me), me->name() + "ä»é€šé“ä¸­é’»äº†è¿‡æ¥ã€‚\n", ({ me }));
 	return 1;
 }

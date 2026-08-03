@@ -1,5 +1,5 @@
 //Death.h By Jpei 2011
-//¼ò»¯ËÀÍö´¦Àí
+//ç®€åŒ–æ­»äº¡å¤„ç†
 
 void init()
 {
@@ -8,7 +8,7 @@ void init()
         ::init();
      me->delete_temp("no_fight");
      me->clear_condition("was_check");
-//ÕâÀïÔö¼ÓÍò°²ËÂËÀÍöÅÐ¶Ï
+//è¿™é‡Œå¢žåŠ ä¸‡å®‰å¯ºæ­»äº¡åˆ¤æ–­
 	if (!userp(me)
 	|| me->query("combat_exp") < 10000 && me->query("death_count") > me->query("death_times") * 5) return;
 	  if (me->query_temp("special_poison",1))
@@ -23,13 +23,13 @@ void death_stage(object ob, int stage)
         if( !ob || !present(ob) ) return;
 
         if( !ob->is_ghost() ) {
-                command("say ÂÖ»ØÎÞ³££¬Ñô¼äÖ®ÈË£¬Ó¦µ±»Øµ½Ñô¼äÈ¥²ÅÊÇ¡£");
-                message_vision("Á½ÃûÁ¦Ê¿ÉÁÁË³öÀ´£¬¼ÜÆð$N£¬Ò»»Î¾Í²»¼ûÁË£¡\n", ob);
+                command("say è½®å›žæ— å¸¸ï¼Œé˜³é—´ä¹‹äººï¼Œåº”å½“å›žåˆ°é˜³é—´åŽ»æ‰æ˜¯ã€‚");
+                message_vision("ä¸¤ååŠ›å£«é—ªäº†å‡ºæ¥ï¼Œæž¶èµ·$Nï¼Œä¸€æ™ƒå°±ä¸è§äº†ï¼\n", ob);
                 ob->reincarnate();
                 if (ob->query("enter_wuguan")) ob->move(START_ROOM);
                 else ob->move(REVIVE_ROOM);
-                tell_object(ob, HIW"ÄãÒ»ÕóÔÎÐý£¬ÐÑÀ´ºóÈ´·¢ÏÖ×Ô¼ºÒÑ¾­»Øµ½ÁËÑô¼ä£¡\n"NOR);
-                message("vision","ÄãºöÈ»·¢ÏÖÈËÓ°²»Öª´ÓÊ²Ã´µØ·½Ã°ÁË³öÀ´¡£\n", environment(ob), ob);
+                tell_object(ob, HIW"ä½ ä¸€é˜µæ™•æ—‹ï¼Œé†’æ¥åŽå´å‘çŽ°è‡ªå·±å·²ç»å›žåˆ°äº†é˜³é—´ï¼\n"NOR);
+                message("vision","ä½ å¿½ç„¶å‘çŽ°äººå½±ä¸çŸ¥ä»Žä»€ä¹ˆåœ°æ–¹å†’äº†å‡ºæ¥ã€‚\n", environment(ob), ob);
                 return;
         }
 
@@ -45,7 +45,7 @@ void death_stage(object ob, int stage)
               ob->set_temp("death_relife",1);
               ob->move(REVIVE_ROOM);
 
-//¼ÓÒ»¸ö¸´»îµÄ±ê¼Ç£¬²¹ÂúÑª£¬¸ø¼þÒÂ·þ¡£È»ºó°ÑÈË¶ª³öÈ¥¾ÍÍêÊÂ¡£ÔÚ¸´»îµãÀ´¸üÐÂÉíÌåºÃÁË¡£
+//åŠ ä¸€ä¸ªå¤æ´»çš„æ ‡è®°ï¼Œè¡¥æ»¡è¡€ï¼Œç»™ä»¶è¡£æœã€‚ç„¶åŽæŠŠäººä¸¢å‡ºåŽ»å°±å®Œäº‹ã€‚åœ¨å¤æ´»ç‚¹æ¥æ›´æ–°èº«ä½“å¥½äº†ã€‚
         
-message("vision","ÄãºöÈ»·¢ÏÖÉíÅÔ¶àÁËÒ»¸öÈËÓ°£¬²»¹ýÄÇÈËÓ°ÓÖºÃÏñÒÑ¾­ÔÚÄÇÀïºÜ¾ÃÁË£¬Ö»ÊÇÄãÒ»Ö±Ã»·¢¾õ¡£\n", REVIVE_ROOM, ob );
+message("vision","ä½ å¿½ç„¶å‘çŽ°èº«æ—å¤šäº†ä¸€ä¸ªäººå½±ï¼Œä¸è¿‡é‚£äººå½±åˆå¥½åƒå·²ç»åœ¨é‚£é‡Œå¾ˆä¹…äº†ï¼Œåªæ˜¯ä½ ä¸€ç›´æ²¡å‘è§‰ã€‚\n", REVIVE_ROOM, ob );
 }

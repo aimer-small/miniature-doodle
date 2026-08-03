@@ -2,16 +2,16 @@ inherit NPC;
 //string ask_me();
 void create()
 {
-        set_name("±ÌìøÊ¯ÈË", ({
+        set_name("ç¢§ç¦…çŸ³äºº", ({
                 "bichan shiren",
                 "bichan",
                 "shiren",
 	}));
 	set("long",
-                "Äê´ú¾ÃÔ¶ÒÑÎŞ·¨¿´ÇåËûµ±ÄêÖ®ÏàÃ²£¬\n"
-                "ËûÉí²Ä¸ß´óÍ¨ÉíÂÌÍ¸£¬±ãÈçÒ»Öê·±Ã¯¹Å»±¡£\n"
+                "å¹´ä»£ä¹…è¿œå·²æ— æ³•çœ‹æ¸…ä»–å½“å¹´ä¹‹ç›¸è²Œï¼Œ\n"
+                "ä»–èº«æé«˜å¤§é€šèº«ç»¿é€ï¼Œä¾¿å¦‚ä¸€æ ªç¹èŒ‚å¤æ§ã€‚\n"
 	);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
         set("no_quest",1);

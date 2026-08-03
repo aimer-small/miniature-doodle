@@ -6,7 +6,7 @@ inherit F_CLEAN_UP;
 #include <mudlib.h>
 #include <database.h>
 
-#define SYNTAX  "Ö¸Áî¸ñÊ½£ºaward <Ä³ÈË> because <Ô­Òò> <»ı·Ö>\n"
+#define SYNTAX  "æŒ‡ä»¤æ ¼å¼ï¼šaward <æŸäºº> because <åŸå› > <ç§¯åˆ†>\n"
 
 int main(object me, string str)
 {
@@ -19,55 +19,55 @@ int main(object me, string str)
 		  return notify_fail(SYNTAX);
 
 	if (!objectp(ob = LOGIN_D->find_body(name)))
-		  return notify_fail("Õâ¸ö...Õâ¸ö... ÓĞÕâ¸öÈËÂğ?\n");;
+		  return notify_fail("è¿™ä¸ª...è¿™ä¸ª... æœ‰è¿™ä¸ªäººå—?\n");;
 
 	if (!objectp(where = environment(ob)))
-		  return notify_fail("Õâ¸öÈË²»ÖªµÀÔÚÄÄÀïÒ®... :-( \n");
+		  return notify_fail("è¿™ä¸ªäººä¸çŸ¥é“åœ¨å“ªé‡Œè€¶... :-( \n");
 		  
 	if ( (point < 10) || (point > 50))
-		  return notify_fail("½±Àø»ı·Ö×îÉÙ10µã£¬×î¶à50µã¡£\n");
+		  return notify_fail("å¥–åŠ±ç§¯åˆ†æœ€å°‘10ç‚¹ï¼Œæœ€å¤š50ç‚¹ã€‚\n");
 
 	if (base_name(ob) == "/cmds/leitai/leitaiuser")
-		return notify_fail(ob->name() + "ÕâÈËÊÇ±ÈÎäÀŞÌ¨Clone³öÀ´µÄ£¬µÈÏÂÔÚ½±Àø°É¡£\n");
+		return notify_fail(ob->name() + "è¿™äººæ˜¯æ¯”æ­¦æ“‚å°Cloneå‡ºæ¥çš„ï¼Œç­‰ä¸‹åœ¨å¥–åŠ±å§ã€‚\n");
 
-	tell_room(where, MAG"Ìì¿ÕÖĞÆ®ÂäÒ»¸öÃÀÃ²ÏÉÅ®£¬ÅÄÁËÅÄ"+ob->query("name")+MAG"µÄÍ·¡£\n"NOR, ob);
+	tell_room(where, MAG"å¤©ç©ºä¸­é£˜è½ä¸€ä¸ªç¾è²Œä»™å¥³ï¼Œæ‹äº†æ‹"+ob->query("name")+MAG"çš„å¤´ã€‚\n"NOR, ob);
 
-	tell_object(ob, "ÄúÒòÎª£Û" + reason + "£İ£¬¹ÜÀíÈËÔ±¸øÓè½±ÀøÊé½£»ı·Ö" + CHINESE_D->chinese_number(point) + "µã¡£\n"
+	tell_object(ob, "æ‚¨å› ä¸ºï¼»" + reason + "ï¼½ï¼Œç®¡ç†äººå‘˜ç»™äºˆå¥–åŠ±ä¹¦å‰‘ç§¯åˆ†" + CHINESE_D->chinese_number(point) + "ç‚¹ã€‚\n"
 	);
  	
  	if (!dbquery("update Users set U_Credit = U_Credit + " + point + " where U_Username = \"" + name+ "\""))
-		write("Íæ¼Ò"+ob->query("name")+"("+capitalize(ob->query("id"))+")»ı·Ö½±ÀøÉèÖÃÊ§°Ü¡£\n");
+		write("ç©å®¶"+ob->query("name")+"("+capitalize(ob->query("id"))+")ç§¯åˆ†å¥–åŠ±è®¾ç½®å¤±è´¥ã€‚\n");
 	else
-		write("Íæ¼Ò"+ob->query("name")+"("+capitalize(ob->query("id"))+")»ı·Ö½±ÀøÉèÖÃ³É¹¦¡£\n");
+		write("ç©å®¶"+ob->query("name")+"("+capitalize(ob->query("id"))+")ç§¯åˆ†å¥–åŠ±è®¾ç½®æˆåŠŸã€‚\n");
 	
-	message("channel", HIG "\n¡¾½±Àø¡¿"+ob->query("name")
+	message("channel", HIG "\nã€å¥–åŠ±ã€‘"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")ÒòÎª£Û" + reason + "£İ£¬¾ö¶¨¸øÓè½±ÀøÊé½£»ı·Ö" 
-		+ CHINESE_D->chinese_number(point) + "µã¡£\n\n" NOR, users()
+		+")å› ä¸ºï¼»" + reason + "ï¼½ï¼Œå†³å®šç»™äºˆå¥–åŠ±ä¹¦å‰‘ç§¯åˆ†" 
+		+ CHINESE_D->chinese_number(point) + "ç‚¹ã€‚\n\n" NOR, users()
 	);
-	//´¦·£¹«¿ª£¬POST×¨ÃÅÁôÑÔ°å	
-	note = (["title":"½±ÀøÍæ¼Ò"+ob->query("name")+"("+capitalize(ob->query("id"))+")¹«¸æ",
+	//å¤„ç½šå…¬å¼€ï¼ŒPOSTä¸“é—¨ç•™è¨€æ¿	
+	note = (["title":"å¥–åŠ±ç©å®¶"+ob->query("name")+"("+capitalize(ob->query("id"))+")å…¬å‘Š",
 		"author":me->query("name") + "(" + getuid(me) + ")",
 		"time":0,
 		"msg":0,]);
-	"/clone/board/wizto_b"->done_post(this_object(),note,"¡¾½±Àø¡¿"+ob->query("name")
+	"/clone/board/wizto_b"->done_post(this_object(),note,"ã€å¥–åŠ±ã€‘"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")ÒòÎª£Û" + reason + "£İ£¬¾ö¶¨¸øÓè½±ÀøÊé½£»ı·Ö" 
-		+ CHINESE_D->chinese_number(point) + "µã¡£\n");
+		+")å› ä¸ºï¼»" + reason + "ï¼½ï¼Œå†³å®šç»™äºˆå¥–åŠ±ä¹¦å‰‘ç§¯åˆ†" 
+		+ CHINESE_D->chinese_number(point) + "ç‚¹ã€‚\n");
 		
 	BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,"UPDATE members SET credit_total = credit_total+'"+point+"' WHERE username = '"+getuid(ob)+"@"+lower_case(INTERMUD_MUD_NAME)+"' limit 1",0,0);
 	///credit_total 	
 	/*		
-	"/clone/board/wizto_b"->auto_post("½±ÀøÍæ¼Ò"+ob->query("name")
+	"/clone/board/wizto_b"->auto_post("å¥–åŠ±ç©å®¶"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")¹«¸æ","¡¾½±Àø¡¿"+ob->query("name")
+		+")å…¬å‘Š","ã€å¥–åŠ±ã€‘"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")ÒòÎª£Û" + reason + "£İ£¬¾ö¶¨¸øÓè½±ÀøÊé½£»ı·Ö" 
-		+ CHINESE_D->chinese_number(point) + "µã¡£\n");
+		+")å› ä¸ºï¼»" + reason + "ï¼½ï¼Œå†³å®šç»™äºˆå¥–åŠ±ä¹¦å‰‘ç§¯åˆ†" 
+		+ CHINESE_D->chinese_number(point) + "ç‚¹ã€‚\n");
 	*/	
 
 	log_file("static/AWARD",
-		sprintf("%s ÒòÎª [%s] ±» %s(%s) ½±ÀøÊé½£»ı·Ö %d µã¡£\n",
+		sprintf("%s å› ä¸º [%s] è¢« %s(%s) å¥–åŠ±ä¹¦å‰‘ç§¯åˆ† %d ç‚¹ã€‚\n",
 			name, reason, (string)me->query("name"),me->query("id"), point
 		), ob, ({ me })
 	);
@@ -84,8 +84,8 @@ string query(string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºaward <Ä³ÈË> because <Ô­Òò> <»ı·Ö>
-Äã¿ÉÒÔÓÃÕâ¸öÖ¸Áî½±ÀøÒ»Ğ©¸øÓÎÏ·×ö³ö¹±Ï×µÄÍæ¼Ò¡£
+æŒ‡ä»¤æ ¼å¼ï¼šaward <æŸäºº> because <åŸå› > <ç§¯åˆ†>
+ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤å¥–åŠ±ä¸€äº›ç»™æ¸¸æˆåšå‡ºè´¡çŒ®çš„ç©å®¶ã€‚
 HELP
 	);
 	return 1;

@@ -1,4 +1,4 @@
-// yang.c Ñìµ¶
+// yang.c é¸¯åˆ€
 // zly 99.6.22
 
 #include <weapon.h>
@@ -9,14 +9,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIC"Ñìµ¶"NOR, ({"yang dao","yang","dao", "blade"}));
+        set_name(HIC"é¸¯åˆ€"NOR, ({"yang dao","yang","dao", "blade"}));
         set_weight(10000);
         if( clonep() )
                set_default_object(__FILE__);
         else{
                set("treasure", 1);
-               set("unit", "°Ñ");
-               set("long", HIC"ÕâÊÇÔ§Ñìµ¶ÖĞµÄÑìµ¶£¬µ«¼û¾«¹âÒ«ÑÛ£¬µ¶ÈĞÉÏ¿ÌÖø¡¸ÎŞµĞ¡¹¶ş×Ö¡£\n" NOR);
+               set("unit", "æŠŠ");
+               set("long", HIC"è¿™æ˜¯é¸³é¸¯åˆ€ä¸­çš„é¸¯åˆ€ï¼Œä½†è§ç²¾å…‰è€€çœ¼ï¼Œåˆ€åˆƒä¸Šåˆ»è‘—ã€Œæ— æ•Œã€äºŒå­—ã€‚\n" NOR);
                set("value",4000);
                set("material","steel");
                set("weapon_prop/parry",2);
@@ -26,8 +26,8 @@ void create()
                set("wield_neili", 500);
                set("wield_maxneili", 900);
                set("wield_str", 22);
-               set("wield_msg", HIC"$N³é³öÒ»°ÑÇà¹âÉÁÒ«£¬º®Æø±ÆÈËµÄ³¤µ¶ÎÕÔÚÊÖÖĞ¡£ĞÄÖĞºÀÆø¶ÙÉú£¬¿ÚÖĞ²»¾õÇáĞ¥Ò»Éù¡£\n" NOR);
-               set("unwield_msg", HIC"$NÇáÇá½«ÊÖÖĞµÄÑìµ¶²åÈëÑü¼äµÄµ¶ÇÊ¡£\n" NOR);
+               set("wield_msg", HIC"$NæŠ½å‡ºä¸€æŠŠé’å…‰é—ªè€€ï¼Œå¯’æ°”é€¼äººçš„é•¿åˆ€æ¡åœ¨æ‰‹ä¸­ã€‚å¿ƒä¸­è±ªæ°”é¡¿ç”Ÿï¼Œå£ä¸­ä¸è§‰è½»å•¸ä¸€å£°ã€‚\n" NOR);
+               set("unwield_msg", HIC"$Nè½»è½»å°†æ‰‹ä¸­çš„é¸¯åˆ€æ’å…¥è…°é—´çš„åˆ€é˜ã€‚\n" NOR);
         }
         init_blade(40);
         setup();

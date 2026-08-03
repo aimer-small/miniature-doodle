@@ -3,13 +3,13 @@
 inherit NPC;
 void create()
 {
-	set_name("ÕÂ´ï·ò", ({ "zhang dafu", "dafu"}));
+	set_name("ç« è¾¾å¤«", ({ "zhang dafu", "dafu"}));
 	set("long",@LONG
-Ëû¾ÍÊÇÃû¶¯½­ºşµÄ±±º£ĞşÚ¤µºµºÖ÷-ÕÂ´ï·òÏÈÉú¡£
+ä»–å°±æ˜¯ååŠ¨æ±Ÿæ¹–çš„åŒ—æµ·ç„å†¥å²›å²›ä¸»-ç« è¾¾å¤«å…ˆç”Ÿã€‚
 LONG	    
 	);
-	set("title","±±º£ĞşÚ¤µºµºÖ÷");
-	set("gender", "ÄĞĞÔ");
+	set("title","åŒ—æµ·ç„å†¥å²›å²›ä¸»");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("shen_type",-1);
 	set("attitude", "peaceful");

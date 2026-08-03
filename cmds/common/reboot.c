@@ -1,6 +1,6 @@
 // shutdown.c with time loop.
 // by snowman@SJ  22/02/1999
-// Modify BY LInux for πÌπ≈ ı
+// Modify BY LInux for È¨ºÂè§ÊúØ
 
 #include <ansi.h>
 #include <mudlib.h>
@@ -12,13 +12,13 @@ int min;
 int help (object me)
 {
 	write(@HELP
-÷∏¡Ó∏Ò Ω: reboot < min|now >
+Êåá‰ª§Ê†ºÂºè: reboot < min|now >
 
-¿˝£∫
-	reboot       :  œ‘ æƒø«∞µƒ–≈œ¢£¨»Áπ˚√ª‘⁄rebootµ±÷–£¨œ‘ æ±æ–≈œ¢°£
-	reboot now   :  ¬Ì…œ÷ÿ–¬∆∂Ø”Œœ∑°£
-	reboot 3     :  µ»»˝∑÷÷”£¨»ª∫Û÷ÿ–¬∆∂Ø”Œœ∑°£
-	reboot cancel:  »°œ˚÷ÿ∆∂Ø°£
+‰æãÔºö
+	reboot       :  ÊòæÁ§∫ÁõÆÂâçÁöÑ‰ø°ÊÅØÔºåÂ¶ÇÊûúÊ≤°Âú®rebootÂΩì‰∏≠ÔºåÊòæÁ§∫Êú¨‰ø°ÊÅØ„ÄÇ
+	reboot now   :  È©¨‰∏äÈáçÊñ∞Ëµ∑Âä®Ê∏∏Êàè„ÄÇ
+	reboot 3     :  Á≠â‰∏âÂàÜÈíüÔºåÁÑ∂ÂêéÈáçÊñ∞Ëµ∑Âä®Ê∏∏Êàè„ÄÇ
+	reboot cancel:  ÂèñÊ∂àÈáçËµ∑Âä®„ÄÇ
 
 HELP
 	);
@@ -33,8 +33,8 @@ void create()
 private int start_shutdown()
 {
 	message("channel",
-		HIW"\n\t"+CHINESE_MUD_NAME+HIW"Ω´‘⁄ "HIR+chinese_number(min)+HIW" ∑÷÷”∫Û÷ÿ–¬∆Ù∂Ø\n"
-		"\tŒ™¡À±‹√‚≤ª±ÿ“™µƒµµ∞∏≥ˆ¥Ì£¨«Î‘⁄œﬂÕÊº“æ°øÏ◊‘––ÕÀ≥ˆ°£\n\n" NOR, users()
+		HIW"\n\t"+CHINESE_MUD_NAME+HIW"Â∞ÜÂú® "HIR+chinese_number(min)+HIW" ÂàÜÈíüÂêéÈáçÊñ∞ÂêØÂä®\n"
+		"\t‰∏∫‰∫ÜÈÅøÂÖç‰∏çÂøÖË¶ÅÁöÑÊ°£Ê°àÂá∫ÈîôÔºåËØ∑Âú®Á∫øÁé©ÂÆ∂Â∞ΩÂø´Ëá™Ë°åÈÄÄÂá∫„ÄÇ\n\n" NOR, users()
 	);
 	call_out("countdown", 60);
 	counting = 1;
@@ -50,12 +50,12 @@ int main(object me, string arg)
 		return 0;
 
 	if (SECURITY_D->wiz_level("(arch)") > SECURITY_D->wiz_level(me))
-		return notify_fail("÷ª”– (arch) “‘…œµƒŒ◊ ¶≤≈ƒ‹÷ÿ–¬∆Ù∂Ø"+CHINESE_MUD_NAME+"°£\n");
+		return notify_fail("Âè™Êúâ (arch) ‰ª•‰∏äÁöÑÂ∑´Â∏àÊâçËÉΩÈáçÊñ∞ÂêØÂä®"+CHINESE_MUD_NAME+"„ÄÇ\n");
 
 	if (!arg || arg == "?") {
 		if (!counting)
 			return help(me);
-		return notify_fail(CHINESE_MUD_NAME+HIW"’˝‘⁄µπº∆ ±÷–£¨¿Î÷ÿ–¬∆Ù∂Øªπ”–"HIR+ chinese_number(min) + HIW"∑÷÷”°£\n"NOR);
+		return notify_fail(CHINESE_MUD_NAME+HIW"Ê≠£Âú®ÂÄíËÆ°Êó∂‰∏≠ÔºåÁ¶ªÈáçÊñ∞ÂêØÂä®ËøòÊúâ"HIR+ chinese_number(min) + HIW"ÂàÜÈíü„ÄÇ\n"NOR);
 	}
 
 	if (arg == "cancel") {
@@ -63,16 +63,16 @@ int main(object me, string arg)
 		remove_call_out("do_shutdown");
 		counting = 0;
 		LOGIN_D->set_wizlock(0);
-		message("system","\n\t"+CHINESE_MUD_NAME+HIW"÷ÿ–¬∆Ù∂Ø"HIR"»°œ˚"HIW"°£\n"NOR, users());
-		return notify_fail(CHINESE_MUD_NAME+HIW"÷ÿ–¬∆Ù∂Ø»°œ˚°£\n"NOR);
+		message("system","\n\t"+CHINESE_MUD_NAME+HIW"ÈáçÊñ∞ÂêØÂä®"HIR"ÂèñÊ∂à"HIW"„ÄÇ\n"NOR, users());
+		return notify_fail(CHINESE_MUD_NAME+HIW"ÈáçÊñ∞ÂêØÂä®ÂèñÊ∂à„ÄÇ\n"NOR);
 	}
 	}
-	log_file("static/CRASHES", geteuid(me) + " ÷ÿ∆Ù∂Ø "+CHINESE_MUD_NAME+" ‘⁄ "
+	log_file("static/CRASHES", geteuid(me) + " ÈáçÂêØÂä® "+CHINESE_MUD_NAME+" Âú® "
 		+ ctime(time()) + "\n", me);
 
 	if (arg == "now") {
 		LOGIN_D->set_wizlock(1);
-		message("system","\n\t"+CHINESE_MUD_NAME+HIW"÷ÿ–¬∆Ù∂Ø°£«Î…‘∫Ú‘Ÿ≥¢ ‘¡¨œﬂ°£\n"NOR, users());
+		message("system","\n\t"+CHINESE_MUD_NAME+HIW"ÈáçÊñ∞ÂêØÂä®„ÄÇËØ∑Á®çÂÄôÂÜçÂ∞ùËØïËøûÁ∫ø„ÄÇ\n"NOR, users());
 		call_out("do_shutdown", 1);
 		return 1;
 	}
@@ -82,14 +82,14 @@ int main(object me, string arg)
 		return help(me);
 
 	if (counting)
-		return notify_fail(CHINESE_MUD_NAME+HIW"’˝‘⁄µπº∆ ±÷–£¨¿Î÷ÿ–¬∆Ù∂Øªπ”–"HIR+ chinese_number(min) + HIW"∑÷÷”°£\n"NOR);
+		return notify_fail(CHINESE_MUD_NAME+HIW"Ê≠£Âú®ÂÄíËÆ°Êó∂‰∏≠ÔºåÁ¶ªÈáçÊñ∞ÂêØÂä®ËøòÊúâ"HIR+ chinese_number(min) + HIW"ÂàÜÈíü„ÄÇ\n"NOR);
 
 	min = time;
 	if (start_shutdown()) {
 		LOGIN_D->set_wizlock(1);
 		write("Starting shutdown...\n");
 	} else
-		write("∂® ±Reboot”–Œ Ã‚£¨«ÎºÏ≤È /cmds/arch/reboot.c\n");
+		write("ÂÆöÊó∂RebootÊúâÈóÆÈ¢òÔºåËØ∑Ê£ÄÊü• /cmds/arch/reboot.c\n");
 	return 1;
 }
 
@@ -97,12 +97,12 @@ private void countdown()
 {
 	if (--min) {
 		message("channel",
-			HIW"\n\t"+CHINESE_MUD_NAME+HIW"Ω´‘⁄ "HIR+chinese_number(min)+HIW" ∑÷÷”∫Û÷ÿ–¬∆Ù∂Ø\n"
-			"\tŒ™¡À±‹√‚≤ª±ÿ“™µƒµµ∞∏≥ˆ¥Ì£¨«Î‘⁄œﬂÕÊº“æ°øÏ◊‘––ÕÀ≥ˆ°£\n\n" NOR, users()
+			HIW"\n\t"+CHINESE_MUD_NAME+HIW"Â∞ÜÂú® "HIR+chinese_number(min)+HIW" ÂàÜÈíüÂêéÈáçÊñ∞ÂêØÂä®\n"
+			"\t‰∏∫‰∫ÜÈÅøÂÖç‰∏çÂøÖË¶ÅÁöÑÊ°£Ê°àÂá∫ÈîôÔºåËØ∑Âú®Á∫øÁé©ÂÆ∂Â∞ΩÂø´Ëá™Ë°åÈÄÄÂá∫„ÄÇ\n\n" NOR, users()
 		);
 		call_out("countdown", 60);
 	} else {
-		message("system",HIW"\n\t"+CHINESE_MUD_NAME+HIW"÷ÿ–¬∆Ù∂Ø°£«Î…‘∫Ú‘Ÿ≥¢ ‘¡¨œﬂ°£\n\n"NOR,users());
+		message("system",HIW"\n\t"+CHINESE_MUD_NAME+HIW"ÈáçÊñ∞ÂêØÂä®„ÄÇËØ∑Á®çÂÄôÂÜçÂ∞ùËØïËøûÁ∫ø„ÄÇ\n\n"NOR,users());
 		call_out("do_shutdown", 1);
 	}
 }
@@ -125,7 +125,7 @@ private void do_shutdown()
 		i = uptime() - user->query_temp("time");
 		link_ob = user->query_temp("link_ob");
 		if (objectp(link_ob)){
-			//£≠£≠£≠‘ˆº”±£¥Ê			
+			//ÔºçÔºçÔºçÂ¢ûÂä†‰øùÂ≠ò			
 			link_ob->set("last_on", time() + (i > 300 ? -30 : 0));
 			link_ob->set("last_from", link_ob->query_temp("last_from"));
 			link_ob->set_temp("db_quit", 1);
@@ -135,8 +135,8 @@ private void do_shutdown()
 		}
 	}
 
-	write_file("/log/static/LASTCRASH", CHINESE_MUD_NAME+"‘⁄ "
-		+ ctime(time()) + " ÷ÿ–¬∆Ù∂Ø\n", 1);
+	write_file("/log/static/LASTCRASH", CHINESE_MUD_NAME+"Âú® "
+		+ ctime(time()) + " ÈáçÊñ∞ÂêØÂä®\n", 1);
 
 	shutdown(0);
 }

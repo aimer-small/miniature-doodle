@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 {
-        set("short",HIW"ÄïçÙÓñ¶´-Éñ±ø²¿"NOR);
+        set("short",HIW"å¨˜ç¼³çŽ‰æ´ž-ç¥žå…µéƒ¨"NOR);
 	
         set ("long",@long
-ÕâÊÇÂüÙ¢ÂÞÉ½×¯´æ·ÅÎä¹¦ÃØ¼®µÄµØ·½£¬Ò»ÅÅÅÅÊé¼ÜÉÏÕûÆëµÄ°Ú·Å×Å¸÷ÖÖÊé
-¼®£¬ËÆºõ¶¼ÓëÈçºÎ´ãÑøÉñ±øÀûÆ÷(cuilian weapon)ÓÐ¹Ø¡£
+è¿™æ˜¯æ›¼ä½—ç½—å±±åº„å­˜æ”¾æ­¦åŠŸç§˜ç±çš„åœ°æ–¹ï¼Œä¸€æŽ’æŽ’ä¹¦æž¶ä¸Šæ•´é½çš„æ‘†æ”¾ç€å„ç§ä¹¦
+ç±ï¼Œä¼¼ä¹Žéƒ½ä¸Žå¦‚ä½•æ·¬å…»ç¥žå…µåˆ©å™¨(cuilian weapon)æœ‰å…³ã€‚
 long);
 	set("exits",([
 		"out" : __DIR__"huandong",
@@ -35,37 +35,37 @@ int do_canwu(string arg)
      object wpn;
 
      if(arg != "weapon")
-           return notify_fail("ÕâÀïÖ»ÄÜ´ãÁ¶(cuilian)Éñ±ø(weapon)!\n");
+           return notify_fail("è¿™é‡Œåªèƒ½æ·¬ç‚¼(cuilian)ç¥žå…µ(weapon)!\n");
 
  if(  !objectp(wpn = me->query_temp("weapon") ))
-        return notify_fail("ÄãÃ»ÓÐËæÉíÐ¯´øÎäÆ÷£¬µ¥¿¿¶ÁÊéÊÇÎÞ·¨Àí½âµÄ¡£\n");    
+        return notify_fail("ä½ æ²¡æœ‰éšèº«æºå¸¦æ­¦å™¨ï¼Œå•é è¯»ä¹¦æ˜¯æ— æ³•ç†è§£çš„ã€‚\n");    
 
      wpn = me->query_temp("weapon");
 
-if(wpn->query("maker")=="Î¤À¼Ìú½³(Weilan tiejiang)") 
-          return notify_fail(HIR"\nÄãÊÔ×Å½«ÕæÆø¹à×¢µ½"+wpn->query("weapon_mp/name")+""HIR"ÖÐ¡£¡£¡£¡£\n"HIG"Äã¾ÚÉ¥µÄ·¢ÏÖ£¬"+wpn->query("weapon_mp/name")+""HIG"Î´Ôø¾­Àú¹ýÁúÌ¶Ñª¼À£¬ÎÞ·¨¾­ÊÜÄãµÄÕæÆø´ãÖÆ¡£\n\n"NOR);
+if(wpn->query("maker")=="éŸ¦å…°é“åŒ (Weilan tiejiang)") 
+          return notify_fail(HIR"\nä½ è¯•ç€å°†çœŸæ°”çŒæ³¨åˆ°"+wpn->query("weapon_mp/name")+""HIR"ä¸­ã€‚ã€‚ã€‚ã€‚\n"HIG"ä½ æ²®ä¸§çš„å‘çŽ°ï¼Œ"+wpn->query("weapon_mp/name")+""HIG"æœªæ›¾ç»åŽ†è¿‡é¾™æ½­è¡€ç¥­ï¼Œæ— æ³•ç»å—ä½ çš„çœŸæ°”æ·¬åˆ¶ã€‚\n\n"NOR);
 
      if (me->is_busy() || me->is_fighting()|| me->query_temp("con_weapon") )
-       return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+       return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
  if (me->query_temp("canwu_now") )
-       return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+       return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
        
        if (query_temp("canwu") )
-       return notify_fail("ÓÐÈËÕýÔÚ²ÎÎòÄØ£¬ÄãµÈÒ»»á°Ñ¡£\n");
+       return notify_fail("æœ‰äººæ­£åœ¨å‚æ‚Ÿå‘¢ï¼Œä½ ç­‰ä¸€ä¼šæŠŠã€‚\n");
 
      if( me->query("combat_exp",1)<10000000)
          
-        return notify_fail("ÄãºúÂÒµÄ·­ÁË·­Êé¼ÜÉÏµÄ²ØÊé£¬·¢ÏÖÀïÃæµÄÄÚÈÝ¸ßÉîÄª²â£¬ÎÞ·¨Àí½â£¬²»ÓÉµÃÒ¡ÁËÒ¡Í·¡£\n");
+        return notify_fail("ä½ èƒ¡ä¹±çš„ç¿»äº†ç¿»ä¹¦æž¶ä¸Šçš„è—ä¹¦ï¼Œå‘çŽ°é‡Œé¢çš„å†…å®¹é«˜æ·±èŽ«æµ‹ï¼Œæ— æ³•ç†è§£ï¼Œä¸ç”±å¾—æ‘‡äº†æ‘‡å¤´ã€‚\n");
 
        
 
      if(wpn->query("id")=="songwen jian")
    
-              return notify_fail("Äã·¢ÏÖÕâËÉÎÆ¹Å½£ÁéÆø°»È»£¬ÌìÉúè±ÖÊ£¬¸ù±¾ÓÃ²»×Å´ãÁ¶¡£\n");
+              return notify_fail("ä½ å‘çŽ°è¿™æ¾çº¹å¤å‰‘çµæ°”ç›Žç„¶ï¼Œå¤©ç”Ÿç’žè´¨ï¼Œæ ¹æœ¬ç”¨ä¸ç€æ·¬ç‚¼ã€‚\n");
 
      if( wpn->query("weapon_mp/owner",1)!= me->query("id") )   
-          return notify_fail("Õâ²¢²»ÊÇÄã×Ô¼ºµÄË½ÈËÎäÆ÷£¬ÄãºÎ¿à»¨´óÁ¦ÆøÈ¥´ãÖÆÑø»¤ÄØ¡£\n");
+          return notify_fail("è¿™å¹¶ä¸æ˜¯ä½ è‡ªå·±çš„ç§äººæ­¦å™¨ï¼Œä½ ä½•è‹¦èŠ±å¤§åŠ›æ°”åŽ»æ·¬åˆ¶å…»æŠ¤å‘¢ã€‚\n");
 
 // if ( wpn->query("weapon_mp/weapon_prop/damage",1)      >=300
 if(  wpn->query("weapon_mp/weapon_prop/attack",1)      >=150
@@ -74,10 +74,10 @@ if(  wpn->query("weapon_mp/weapon_prop/attack",1)      >=150
 || wpn->query("weapon_mp/weapon_prop/intelligence",1) >=20
 || wpn->query("weapon_mp/weapon_prop/strength",1)     >=20 )
 
-                 return notify_fail("ÄãÊÖÖÐÄËÊÇµ±ÊÀÊýÒ»Êý¶þµÄÉñ±ø£¬×ÔÓÐÁéÐÔ£¬¸ù±¾²»ÐèÒªÔÙ¼Ó´ãÖÆÁË¡£¡£\n");
+                 return notify_fail("ä½ æ‰‹ä¸­ä¹ƒæ˜¯å½“ä¸–æ•°ä¸€æ•°äºŒçš„ç¥žå…µï¼Œè‡ªæœ‰çµæ€§ï¼Œæ ¹æœ¬ä¸éœ€è¦å†åŠ æ·¬åˆ¶äº†ã€‚ã€‚\n");
 
-       message_vision( HIW"$N×ÐÏ¸µÄ·­¿´×ÅÊé¼ÜÉÏµÄ²ØÊé£¬¶ÔÀïÃæÈçºÎ´ãÑøÉñ±øµÄÄÚÈÝºÜ¸ÐÐËÈ¤¡£\n"NOR,me);
-       message_vision( HIW"$NÒ»Í·Ôú½øÊé¶ÑÀï.²»Í£µÄ·­¿´×Å¡£¡£ \n"NOR, me);
+       message_vision( HIW"$Nä»”ç»†çš„ç¿»çœ‹ç€ä¹¦æž¶ä¸Šçš„è—ä¹¦ï¼Œå¯¹é‡Œé¢å¦‚ä½•æ·¬å…»ç¥žå…µçš„å†…å®¹å¾ˆæ„Ÿå…´è¶£ã€‚\n"NOR,me);
+       message_vision( HIW"$Nä¸€å¤´æ‰Žè¿›ä¹¦å †é‡Œ.ä¸åœçš„ç¿»çœ‹ç€ã€‚ã€‚ \n"NOR, me);
   
        me->start_busy(100);  
        me->set_temp("canwu_now",1); 
@@ -96,10 +96,10 @@ int thinking(object me)
 	
   if(me->query_temp("con_weapon")<(3+random(3)))
        {  me->add_temp("con_weapon",1);
-          if(random(2)) tell_object(me,HIG"\nÄã×ÐÏ¸µÄÑÐ¶Á×ÅÊéÀïÃæµÄÄÚÈÝ£¬Ö»¾õµÃ¶úÄ¿Ò»ÐÂ...\n"NOR);
-                   else tell_object(me,HIY"\nÄã²ÎÕÕ×ÅÊéÖÐËù¼ÇÔØµÄÄÚÈÝ£¬ÂýÂýµÄ½«ÕæÆøÊäÈëµ½ÎäÆ÷Ö®ÖÐ...\n"NOR);  
+          if(random(2)) tell_object(me,HIG"\nä½ ä»”ç»†çš„ç ”è¯»ç€ä¹¦é‡Œé¢çš„å†…å®¹ï¼Œåªè§‰å¾—è€³ç›®ä¸€æ–°...\n"NOR);
+                   else tell_object(me,HIY"\nä½ å‚ç…§ç€ä¹¦ä¸­æ‰€è®°è½½çš„å†…å®¹ï¼Œæ…¢æ…¢çš„å°†çœŸæ°”è¾“å…¥åˆ°æ­¦å™¨ä¹‹ä¸­...\n"NOR);  
 
-	  tell_room(environment(me),HIC""+me->query("name")+"Ä¬ÔËÐþ¹¦£¬ÊÖÖÐ"+wpn->query("weapon_mp/name")+""HIC"ÂýÂýµÄ·º³öÒ»µÀÆæÒìµÄ¹â»Ô...\n"NOR, ({}));
+	  tell_room(environment(me),HIC""+me->query("name")+"é»˜è¿çŽ„åŠŸï¼Œæ‰‹ä¸­"+wpn->query("weapon_mp/name")+""HIC"æ…¢æ…¢çš„æ³›å‡ºä¸€é“å¥‡å¼‚çš„å…‰è¾‰...\n"NOR, ({}));
 
 	  remove_call_out("thinking");
 	  call_out("thinking",3+random(3), me);
@@ -109,9 +109,9 @@ int thinking(object me)
  else { 
          me->delete_temp("con_weapon");
          me->start_busy(1);     
-  message_vision(HIC"\n$NÊÖÖÐ"+wpn->query("weapon_mp/name")+""HIR"ºö×öÁúÒ÷£¬ËÆºõÔö¼ÓÁË²»ÉÙÁéÐÔ£¡¡±\n"NOR,me); 
+  message_vision(HIC"\n$Næ‰‹ä¸­"+wpn->query("weapon_mp/name")+""HIR"å¿½åšé¾™åŸï¼Œä¼¼ä¹Žå¢žåŠ äº†ä¸å°‘çµæ€§ï¼â€\n"NOR,me); 
   
-     tell_object(me,HIR"\nÄã¶Ô"+wpn->query("weapon_mp/name")+""HIR"³É¹¦µÄ½øÐÐÁËÒ»´Î´ãÁ¶£¡\n"NOR);
+     tell_object(me,HIR"\nä½ å¯¹"+wpn->query("weapon_mp/name")+""HIR"æˆåŠŸçš„è¿›è¡Œäº†ä¸€æ¬¡æ·¬ç‚¼ï¼\n"NOR);
        me->add("combat_exp",-500000);
 temp=5+random(5);
    wpn->add("weapon_mp/weapon_prop/damage",temp) ;
@@ -166,14 +166,14 @@ fld=wpn->query("weapon_mp/sharpness",1);
     me->delete_temp("canwu_now");   
     delete_temp("canwu");   
 
-    tell_object(me,HBBLU"\nÄã±¾´Î´ãÁ¶¹²ºÄ·ÑÁËÎå°ÙÍòÊµÕ½¾­Ñé£¬ÄãµÄ"+wpn->query("weapon_mp/name")+""HBYEL"ÊôÐÔÌáÉýÎª£º\n"NOR);
-    tell_object(me,HIM"\n³Ö¾ÃÌáÉýÒ»Íòµã£¬Ä¿Ç°Îª¡¾"+HIW+chinese_number(cj)+NOR+"¡¿¡¾"+HIC+chinese_number(max_cj)+NOR+"¡¿¡£\n"NOR);
-    tell_object(me,HBRED"Ó²¶È£º"+HIR+chinese_number(yd)+HIG+"£¬·æÀû¶È"+HIW+chinese_number(fld)+NOR+"£¬\n"NOR);
-    tell_object(me,HBMAG"ÍþÁ¦£º"+HIR+chinese_number(d)+HIR+"£¬ÃüÖÐ"+HIW+chinese_number(a)+HIW+"£¬\n"NOR);
-   tell_object(me,"Ôö¼ÓëöÁ¦"+HIG+chinese_number(stre)+NOR+"µã£¬Éí·¨"+HIM+chinese_number(dexe)+NOR+"µã£¬¸ù¹Ç"+HIC+chinese_number(cons)+NOR+"µã£¬ÎòÐÔ"+HIY+chinese_number(inte)+NOR+"µã¡£\n"NOR);
+    tell_object(me,HBBLU"\nä½ æœ¬æ¬¡æ·¬ç‚¼å…±è€—è´¹äº†äº”ç™¾ä¸‡å®žæˆ˜ç»éªŒï¼Œä½ çš„"+wpn->query("weapon_mp/name")+""HBYEL"å±žæ€§æå‡ä¸ºï¼š\n"NOR);
+    tell_object(me,HIM"\næŒä¹…æå‡ä¸€ä¸‡ç‚¹ï¼Œç›®å‰ä¸ºã€"+HIW+chinese_number(cj)+NOR+"ã€‘ã€"+HIC+chinese_number(max_cj)+NOR+"ã€‘ã€‚\n"NOR);
+    tell_object(me,HBRED"ç¡¬åº¦ï¼š"+HIR+chinese_number(yd)+HIG+"ï¼Œé”‹åˆ©åº¦"+HIW+chinese_number(fld)+NOR+"ï¼Œ\n"NOR);
+    tell_object(me,HBMAG"å¨åŠ›ï¼š"+HIR+chinese_number(d)+HIR+"ï¼Œå‘½ä¸­"+HIW+chinese_number(a)+HIW+"ï¼Œ\n"NOR);
+   tell_object(me,"å¢žåŠ è†‚åŠ›"+HIG+chinese_number(stre)+NOR+"ç‚¹ï¼Œèº«æ³•"+HIM+chinese_number(dexe)+NOR+"ç‚¹ï¼Œæ ¹éª¨"+HIC+chinese_number(cons)+NOR+"ç‚¹ï¼Œæ‚Ÿæ€§"+HIY+chinese_number(inte)+NOR+"ç‚¹ã€‚\n"NOR);
 
 
-      log_file("canwu/getexp", sprintf("%s(%s) µÚ%d´Î²ÎÎò´ãÁ¶ÎäÆ÷²¿·Ö£¬ÎäÆ÷ÍþÁ¦%d£¬ÃüÖÐ%d£¬Á¦%dÉí%d¸ù%dÎò%d£¬ µ±Ç°¾­Ñé£º%d¡£\n", 
+      log_file("canwu/getexp", sprintf("%s(%s) ç¬¬%dæ¬¡å‚æ‚Ÿæ·¬ç‚¼æ­¦å™¨éƒ¨åˆ†ï¼Œæ­¦å™¨å¨åŠ›%dï¼Œå‘½ä¸­%dï¼ŒåŠ›%dèº«%dæ ¹%dæ‚Ÿ%dï¼Œ å½“å‰ç»éªŒï¼š%dã€‚\n", 
        me->name(1),
        me->query("id"),
        t,

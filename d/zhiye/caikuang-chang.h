@@ -6,7 +6,7 @@
 string* have_items =
 	({"qingtong","shengtie","ruantie","lushi","liuhuashi","ruanyin","jintie","shentie","xuantie","hantie",});
 string* have_items_c =
-	({GRN"ÇàÍ­",YEL"ÉúÌú",YEL"ÈíÌú",HIG"ÂÌÊ¯",RED"Á÷»¨Ê¯",HIW"ÈíÒø",HIY"½ğÌú",RED"ÍòÄêÉñÌú",WHT"ĞşÌú",HIC"ÍòÄêº®±ùÌú",});
+	({GRN"é’é“œ",YEL"ç”Ÿé“",YEL"è½¯é“",HIG"ç»¿çŸ³",RED"æµèŠ±çŸ³",HIW"è½¯é“¶",HIY"é‡‘é“",RED"ä¸‡å¹´ç¥é“",WHT"ç„é“",HIC"ä¸‡å¹´å¯’å†°é“",});
 
 void init()
 {
@@ -14,18 +14,18 @@ void init()
 	int fib=0;
 	int i;
 	string biaoji;	
-	if(query("outdoors")=="ÑïÖİ½¼Íâ"){		
-		biaoji = "ÑïÖİµÀÌ¨¿±¿ó¸æÊ¾";
+	if(query("outdoors")=="æ‰¬å·éƒŠå¤–"){		
+		biaoji = "æ‰¬å·é“å°å‹˜çŸ¿å‘Šç¤º";
 		fib = 9;
 	}	
 	if(query("show_msg")!=1 && fib>0)
         {
-        	biaoji = CHINESE_D->get_title(biaoji)+"    ´ËµØ³ö²ú¿óÎï£º\n";
+        	biaoji = CHINESE_D->get_title(biaoji)+"    æ­¤åœ°å‡ºäº§çŸ¿ç‰©ï¼š\n";
 		for(i=0;i<fib;i++)
         		biaoji += "\t"+have_items_c[i]+NOR+"("+capitalize(have_items[i])+")"+"\n";
-        	biaoji += "\n\tÇë¿ó¹¤Ê¹ÓÃcaikuang xxxx ½øĞĞÍÚ¾ò¡£\n";
+        	biaoji += "\n\tè¯·çŸ¿å·¥ä½¿ç”¨caikuang xxxx è¿›è¡ŒæŒ–æ˜ã€‚\n";
         	set("show_msg",1);
-        	set("long",query("long")+"    Ê¯±ÚÉÏ»¹ÓĞÒ»·½±ê¼Ç(biaoji)¡£\n");
+        	set("long",query("long")+"    çŸ³å£ä¸Šè¿˜æœ‰ä¸€æ–¹æ ‡è®°(biaoji)ã€‚\n");
         	set("item_desc/biaoji",biaoji);
         	set("no_fight",1);
         } 
@@ -39,40 +39,40 @@ int do_caikuang(string arg)
 	object me = this_player() , weapon;
 	int level,kuang,delay;
 
-	if(!arg) return notify_fail("ÄãÒªÍÚÊ²Ã´£¿\n");
+	if(!arg) return notify_fail("ä½ è¦æŒ–ä»€ä¹ˆï¼Ÿ\n");
 	if ( !objectp(weapon=me->query_temp("weapon")) || weapon->query("id")!="tieqiao" )
-		return notify_fail("Äã±ØĞë×°±¸ÌúÇÂ²ÅÄÜ²É¿ó¡£\n");
+		return notify_fail("ä½ å¿…é¡»è£…å¤‡é“é”¹æ‰èƒ½é‡‡çŸ¿ã€‚\n");
 	if ( !weapon->query("worker_tool"))
-		return notify_fail("Äã±ØĞë×°±¸ÌúÇÂ²ÅÄÜ²É¿ó¡£\n");
+		return notify_fail("ä½ å¿…é¡»è£…å¤‡é“é”¹æ‰èƒ½é‡‡çŸ¿ã€‚\n");
 	if ( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if ( !wizardp(me) && (time()<(int)me->query("worker/caikuang")) )
-		return notify_fail("Äã¸Õ¸Õ²É¿ó½áÊø£¬¸Ğ¾õ¹ıÓÚÀÍÀÛ£¡\n");
+		return notify_fail("ä½ åˆšåˆšé‡‡çŸ¿ç»“æŸï¼Œæ„Ÿè§‰è¿‡äºåŠ³ç´¯ï¼\n");
 	level = (int)me->query_skill("caikuang",1);
 	if ( level<1 )
-		return notify_fail("Äã¸ù±¾¾Í²»»á²É¿ó£¡ÊÇ²»ÊÇÏÈÑ§Ï°Ò»Ğ©²É¿ó¼¼ÄÜ(caikuang)ÔÙÀ´ÍÚ¾ò°¡£¿£¡\n");
+		return notify_fail("ä½ æ ¹æœ¬å°±ä¸ä¼šé‡‡çŸ¿ï¼æ˜¯ä¸æ˜¯å…ˆå­¦ä¹ ä¸€äº›é‡‡çŸ¿æŠ€èƒ½(caikuang)å†æ¥æŒ–æ˜å•Šï¼Ÿï¼\n");
 
 	switch( arg ) {
 		case "qingtong": kuang=1; break;
-		case "shengtie": kuang=2; if(level<40)  return notify_fail("ÄãµÄ²É¿ó¼¼ÄÜ²»¹»£¡\n"); break;
-		case "ruantie":  kuang=3; if(level<80)  return notify_fail("ÄãµÄ²É¿ó¼¼ÄÜ²»¹»£¡\n"); break;
-		case "lushi":    kuang=4; if(level<120) return notify_fail("ÄãµÄ²É¿ó¼¼ÄÜ²»¹»£¡\n"); break;
-		case "liuhuashi":kuang=5; if(level<170) return notify_fail("ÄãµÄ²É¿ó¼¼ÄÜ²»¹»£¡\n"); break;
-		case "ruanyin": kuang=6; if(level<220) return notify_fail("ÄãµÄ²É¿ó¼¼ÄÜ²»¹»£¡\n"); break;
-		case "jintie":   kuang=7; if(level<270) return notify_fail("ÄãµÄ²É¿ó¼¼ÄÜ²»¹»£¡\n"); break;
-		case "shentie":  kuang=8; if(level<330) return notify_fail("ÄãµÄ²É¿ó¼¼ÄÜ²»¹»£¡\n"); break;
-		case "xuantie":  kuang=9; if(level<390) return notify_fail("ÄãµÄ²É¿ó¼¼ÄÜ²»¹»£¡\n"); break;
-		//case "hantie":  kuang=10; if(level<400) return notify_fail("ÄãµÄ²É¿ó¼¼ÄÜ²»¹»£¡\n"); break;
-		default: return notify_fail("ÄãÒªÍÚÊ²Ã´£¿\n"); break;
+		case "shengtie": kuang=2; if(level<40)  return notify_fail("ä½ çš„é‡‡çŸ¿æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case "ruantie":  kuang=3; if(level<80)  return notify_fail("ä½ çš„é‡‡çŸ¿æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case "lushi":    kuang=4; if(level<120) return notify_fail("ä½ çš„é‡‡çŸ¿æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case "liuhuashi":kuang=5; if(level<170) return notify_fail("ä½ çš„é‡‡çŸ¿æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case "ruanyin": kuang=6; if(level<220) return notify_fail("ä½ çš„é‡‡çŸ¿æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case "jintie":   kuang=7; if(level<270) return notify_fail("ä½ çš„é‡‡çŸ¿æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case "shentie":  kuang=8; if(level<330) return notify_fail("ä½ çš„é‡‡çŸ¿æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case "xuantie":  kuang=9; if(level<390) return notify_fail("ä½ çš„é‡‡çŸ¿æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		//case "hantie":  kuang=10; if(level<400) return notify_fail("ä½ çš„é‡‡çŸ¿æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		default: return notify_fail("ä½ è¦æŒ–ä»€ä¹ˆï¼Ÿ\n"); break;
 	}
 
 	if( (int)query("usertime/"+me->query("id")) < 10000 )
 		set("usertime/"+me->query("id"),time());
 	if( (int)query("user/"+me->query("id")) >= (int)query("kuangshi")
 	 || (level>=300 && (time()-(int)query("usertime/"+me->query("id")))>390) )
-		return notify_fail("ÄãÒÑ¾­°ÑÔÚÕâÀïÄã¿ÉÒÔ·¢ÏÖµÄ¿óÊ¯¶¼ÍÚ×ßÁË£¡\n");
+		return notify_fail("ä½ å·²ç»æŠŠåœ¨è¿™é‡Œä½ å¯ä»¥å‘ç°çš„çŸ¿çŸ³éƒ½æŒ–èµ°äº†ï¼\n");
 
-	message_vision(HIY"$N²»Í£µÄ»Ó¶¯ÌúÇÂ£¬°áÊ¯ÍÚÍÁ£¬Ñ°ÕÒ¿óÊ¯......\n"NOR, me);
+	message_vision(HIY"$Nä¸åœçš„æŒ¥åŠ¨é“é”¹ï¼Œæ¬çŸ³æŒ–åœŸï¼Œå¯»æ‰¾çŸ¿çŸ³......\n"NOR, me);
 //	delay = 8 + random(14);
 	delay = 2 + random(2);
 	if(wizardp(me) && (int)me->query("env/test")) delay = 2;
@@ -146,7 +146,7 @@ void caikuang_finish(object me,int kuangshi)
 	if( random(level+i) > to_int(i/updown) ) {		
 		//write(sprintf("improve : %d\n",WORKER_D->check_impove(me,"caikuang",improve*6,2)));
 		WORKER_D->check_impove(me,"caikuang",improve*6,2);
-		exp = me->add_exp_combat( random(improve*2/3) ,0,"²É¿ó",1);
+		exp = me->add_exp_combat( random(improve*2/3) ,0,"é‡‡çŸ¿",1);
 		//me->add("combat_exp", random(improve*2/3) *ZY_CAIKUANG_MUL/100 );
 		//< Modified by mxzhao 2005/01/09
 		//me->add("potential", random(improve/7*3) *ZY_CAIKUANG_MUL/100 );
@@ -156,7 +156,7 @@ void caikuang_finish(object me,int kuangshi)
 		obj = WORKER_D->mater_random(me,1,kuangshi);
 		if(!obj) return;
 		
-		message_vision(YEL"$NÍÚÁËºÃ³¤Ò»¶ÎÊ±¼ä£¬×ÜËãÕÒµ½Ò»¿é"+obj->query("name")+"¡£\n"NOR, me);
+		message_vision(YEL"$NæŒ–äº†å¥½é•¿ä¸€æ®µæ—¶é—´ï¼Œæ€»ç®—æ‰¾åˆ°ä¸€å—"+obj->query("name")+"ã€‚\n"NOR, me);
 		if( !obj->move(me) ) destruct(obj);
 
 		if( (int)query("user/"+me->query("id")) <= 0 )
@@ -167,13 +167,13 @@ void caikuang_finish(object me,int kuangshi)
 	else {
 		//write(sprintf("improve : %d\n",WORKER_D->check_impove(me,"caikuang",improve*2,2)));
 		WORKER_D->check_impove(me,"caikuang",improve*2,2);
-		exp = me->add_exp_combat( random(improve/3) ,0,"²É¿ó",1);
+		exp = me->add_exp_combat( random(improve/3) ,0,"é‡‡çŸ¿",1);
 		//me->add("combat_exp", random(improve/3) *ZY_CAIKUANG_MUL/100 );
 		//< Modified by mxzhao 2005/01/09
 		//me->add("potential", random(improve/7) *ZY_CAIKUANG_MUL/100 );
 		me->add("potential", exp*1/2);
 		//> Modified by mxzhao 2005/01/09
-		message_vision(HIY"$NÍÚÁËºÃ³¤Ò»¶ÎÊ±¼ä£¬µ«ÊÇÊ²Ã´¶¼Ã»ÓĞµÃµ½¡£\n"NOR, me);
+		message_vision(HIY"$NæŒ–äº†å¥½é•¿ä¸€æ®µæ—¶é—´ï¼Œä½†æ˜¯ä»€ä¹ˆéƒ½æ²¡æœ‰å¾—åˆ°ã€‚\n"NOR, me);
 	}
 	if ( (int)me->query("potential", 1) > (int)me->query("max_pot", 1) )
 		me->set("potential" , me->query("max_pot", 1) );

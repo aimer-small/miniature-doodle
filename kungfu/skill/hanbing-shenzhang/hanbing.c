@@ -5,7 +5,7 @@
 #include "/kungfu/skill/eff_msg.h";
 inherit F_SSERVER;
 
-string perform_name() {return BLU"º®±ùÉñÕÆ"NOR;}
+string perform_name() {return BLU"å¯’å†°ç¥žæŽŒ"NOR;}
 
 int perform(object me, object target)
 {
@@ -18,53 +18,53 @@ int perform(object me, object target)
         ||  !target->is_character()
         ||  !me->is_fighting(target) 
         ||  !living(target))
-                return notify_fail("Äã²»ÔÚÕ½¶·ÖÐ¡£\n");
+                return notify_fail("ä½ ä¸åœ¨æˆ˜æ–—ä¸­ã€‚\n");
                
         if(me->query_temp("weapon"))
-                return notify_fail("Äã±ØÐë¿ÕÊÖ²ÅÄÜÊ¹ÓÃµÄº®±ùÉñÕÆ¡£\n");
+                return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹æ‰èƒ½ä½¿ç”¨çš„å¯’å†°ç¥žæŽŒã€‚\n");
         if( (int)me->query_skill("hanbing-shenzhang", 1) < 150 )
-                return notify_fail("ÄãµÄº®±ùÉñÕÆÐÞÎª²»¹»¡£\n");
+                return notify_fail("ä½ çš„å¯’å†°ç¥žæŽŒä¿®ä¸ºä¸å¤Ÿã€‚\n");
 
         if( (int)me->query_skill("force", 1) < 150 )
-                return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦ÐÞÎª²»¹»¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸä¿®ä¸ºä¸å¤Ÿã€‚\n");
  
         if ( me->query_skill_mapped("force") != "hanbing-zhenqi")
-                return notify_fail("ÄãµÄÄÚ¹¦²»¶Ô£¡\n");
+                return notify_fail("ä½ çš„å†…åŠŸä¸å¯¹ï¼\n");
  
         if (me->query_skill_prepared("strike") != "hanbing-shenzhang"
         || me->query_skill_mapped("strike") != "hanbing-shenzhang")
-                return notify_fail("ÄãÃ»ÓÐÔËÓÃº®±ùÉñÕÆ£¡\n");
+                return notify_fail("ä½ æ²¡æœ‰è¿ç”¨å¯’å†°ç¥žæŽŒï¼\n");
                 
         if( me->query("max_neili") <= 3500 )
-                return notify_fail("ÄãµÄÄÚÁ¦ÐÞÎª²»¹»£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼\n");
                 
         if( me->query("neili") <= 1000 )
-                return notify_fail("ÄãµÄÕæÆø²»¹»£¡\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼\n");
 /*
         if( me->query("shen") > -10000 )
-                return notify_fail("ÄãÑ§º®±ùÉñÕÆÒ²°ÕÁË£¬Ôõ¿ÉÓÐÊ¹ÓÃÈç´ËÒõ¶¾Ö®¼¼£¿£¡\n");
+                return notify_fail("ä½ å­¦å¯’å†°ç¥žæŽŒä¹Ÿç½¢äº†ï¼Œæ€Žå¯æœ‰ä½¿ç”¨å¦‚æ­¤é˜´æ¯’ä¹‹æŠ€ï¼Ÿï¼\n");
 
         if( target->query_condition("cold_poison") || me->query("hanbing_target") == target->query("id"))
-                return notify_fail("´ËÈËÒÑÉíÖÐÒÑÓÐº®¶¾£¬Äã²»ÓÃÔÙ¶à´ËÒ»¾ÙÁË¡£\n");
+                return notify_fail("æ­¤äººå·²èº«ä¸­å·²æœ‰å¯’æ¯’ï¼Œä½ ä¸ç”¨å†å¤šæ­¤ä¸€ä¸¾äº†ã€‚\n");
 */
 
-        me->start_perform(5,"º®±ùÕæÆø");
-        message_vision(BLU "\n$N½«ÒÑÐÞÁ·ÁËÊ®ÓàÄêµÄ¡°º®±ùÕæÆø¡±×¢ÓÚÊ³Ö¸Ö®ÉÏ£¬ÞÕ×Å´óºÄÄÚÁ¦£¬ÊÖÖ¸Ò»Éì£¬·Éµã$nµÄÐØ¿Ú£¡\n\n" NOR, me,target);
+        me->start_perform(5,"å¯’å†°çœŸæ°”");
+        message_vision(BLU "\n$Nå°†å·²ä¿®ç»ƒäº†åä½™å¹´çš„â€œå¯’å†°çœŸæ°”â€æ³¨äºŽé£ŸæŒ‡ä¹‹ä¸Šï¼Œæ‹šç€å¤§è€—å†…åŠ›ï¼Œæ‰‹æŒ‡ä¸€ä¼¸ï¼Œé£žç‚¹$nçš„èƒ¸å£ï¼\n\n" NOR, me,target);
         me->add("neili", -350);
         if ( random(me->query("combat_exp")) > (int)target->query("combat_exp")/2)
         { 
 //            me->add("max_neili", - (1+random(3)));
-             	message_vision("½á¹û$n´Ù²»¼°·À£¬±»$PÒ»Ö¸µãÔÚÐØÇ°´óÑ¨ÉÏ£¡\n", me, target);
+             	message_vision("ç»“æžœ$nä¿ƒä¸åŠé˜²ï¼Œè¢«$Pä¸€æŒ‡ç‚¹åœ¨èƒ¸å‰å¤§ç©´ä¸Šï¼\n", me, target);
              	if( me->query_skill("hanbing-shenzhang", 1) < target->query_skill("hanbing-shenzhang", 1) * 2)
              	{
-                	tell_object(me, HIR "ÄãÒ»Ö¸µãÔÚ" +target->query("name") +"ÐØ¿Ú£¬²»ÁÏ´ËÈË¾¹È»Ò²Á·ÓÐº®±ùÉñÕÆ£¬¿´À´ÄãÕâÖ¸ÊÇÎÞÐ§ÁË¡£\n"NOR);
-                 	tell_object(target, HIY "ÄãÖ»¾õÒ»¹Éº®ÆøÏ®ÐØ£¬Á¢¼´È«Á¦ÔË¹¦£¬¾¹È»¿¹×¡ÁËº®ÆøµÄÇÖÏ®£¡\n" NOR);
+                	tell_object(me, HIR "ä½ ä¸€æŒ‡ç‚¹åœ¨" +target->query("name") +"èƒ¸å£ï¼Œä¸æ–™æ­¤äººç«Ÿç„¶ä¹Ÿç»ƒæœ‰å¯’å†°ç¥žæŽŒï¼Œçœ‹æ¥ä½ è¿™æŒ‡æ˜¯æ— æ•ˆäº†ã€‚\n"NOR);
+                 	tell_object(target, HIY "ä½ åªè§‰ä¸€è‚¡å¯’æ°”è¢­èƒ¸ï¼Œç«‹å³å…¨åŠ›è¿åŠŸï¼Œç«Ÿç„¶æŠ—ä½äº†å¯’æ°”çš„ä¾µè¢­ï¼\n" NOR);
                  	return 1;
                 }
              	else
              	{
-                	tell_object(me, BLU "ÄãÒ»Ö¸µãÔÚ" +target->query("name") +"ÐØ¿Ú£¬´ýÆäÔËÄÚÁ¦µÖ¿¹£¬½«º®¶¾Ë³Ëû¡°Ìì³ØÑ¨¡±Ö±±Æ¹ýÈ¥£¡" +target->query("name") +"ÌåÄÚ¡£\n"NOR);
-                 	tell_object(target, HIW "ÄãÖ»¾õÒ»¹Éº®ÆøÏ®ÐØ£¬Á¢¼´È«Á¦ÔË¹¦£¬²»ÁÏÒ»Ë²Ö®¼ä£¬º®ÆøÒÑ½«ÄãÈ«Éí¶³½©£¡\n"NOR);
+                	tell_object(me, BLU "ä½ ä¸€æŒ‡ç‚¹åœ¨" +target->query("name") +"èƒ¸å£ï¼Œå¾…å…¶è¿å†…åŠ›æŠµæŠ—ï¼Œå°†å¯’æ¯’é¡ºä»–â€œå¤©æ± ç©´â€ç›´é€¼è¿‡åŽ»ï¼" +target->query("name") +"ä½“å†…ã€‚\n"NOR);
+                 	tell_object(target, HIW "ä½ åªè§‰ä¸€è‚¡å¯’æ°”è¢­èƒ¸ï¼Œç«‹å³å…¨åŠ›è¿åŠŸï¼Œä¸æ–™ä¸€çž¬ä¹‹é—´ï¼Œå¯’æ°”å·²å°†ä½ å…¨èº«å†»åƒµï¼\n"NOR);
                     target->receive_damage("qi", (me->query_skill("strike")+me->query_skill("force")));
                     target->receive_wound("qi", (me->query_skill("strike")+me->query_skill("force"))/3);
                  	target->receive_wound("jing", me->query_skill("hanbing-shenzhang",1));
@@ -73,11 +73,11 @@ int perform(object me, object target)
                     if(!target->query_condition("no_force"))
                  	target->apply_condition("no_force", me->query_skill("hanbing-shenzhang", 1)/10);
                  	p = (int)target->query("qi")*100/(int)target->query("max_qi");
-                 	msg = damage_msg(me->query_skill("strike"), "ÄÚÉË");
+                 	msg = damage_msg(me->query_skill("strike"), "å†…ä¼¤");
                  	msg += "( $n"+eff_status_msg(p)+" )\n";          
                  	message_vision(msg, me, target);
-if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"Äã¶Ô"+ target->query("name") +"Ôì³ÉÁË"RED+me->query_skill("strike")+me->query_skill("force")+ WHT"µã¹¥»÷ÉËº¦¡£\n"NOR); 
-if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"µÄ¹¥»÷¶ÔÄãÔì³ÉÁË"RED+me->query_skill("strike")+me->query_skill("force")+ WHT"µãÉËº¦¡£\n"NOR); ;
+if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"ä½ å¯¹"+ target->query("name") +"é€ æˆäº†"RED+me->query_skill("strike")+me->query_skill("force")+ WHT"ç‚¹æ”»å‡»ä¼¤å®³ã€‚\n"NOR); 
+if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"çš„æ”»å‡»å¯¹ä½ é€ æˆäº†"RED+me->query_skill("strike")+me->query_skill("force")+ WHT"ç‚¹ä¼¤å®³ã€‚\n"NOR); ;
                  	return 1;
                }
         }

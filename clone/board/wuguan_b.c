@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-      set_name("Îä¹Ý»¨Ãû²á", ({ "board" }) );
+      set_name("æ­¦é¦†èŠ±åå†Œ", ({ "board" }) );
       set("location", "/d/wuguan/dayuan");
       set("board_id", "wuguan_b");
-      set("long", "ÕâÊÇÒ»¸öÏåÑôÎä¹ÝÄÚ¹©ÈËÃÇÁôÑÔÓÃµÄ»¨Ãû²á¡£\n" );
+      set("long", "è¿™æ˜¯ä¸€ä¸ªè¥„é˜³æ­¦é¦†å†…ä¾›äººä»¬ç•™è¨€ç”¨çš„èŠ±åå†Œã€‚\n" );
 	setup();
 	set("capacity", 60);
 }
@@ -16,7 +16,7 @@ int do_post(string arg)
        object me;
        me = this_player();
        if (me->query("combat_exp",1) < 200)
-               return notify_fail("ÄãÏÖÔÚµÄ½­ºþÔÄÀú²»¹»ÔÚÕâÀïÁôÑÔ¡£\n");
+               return notify_fail("ä½ çŽ°åœ¨çš„æ±Ÿæ¹–é˜…åŽ†ä¸å¤Ÿåœ¨è¿™é‡Œç•™è¨€ã€‚\n");
 
        return ::do_post(arg);
 }

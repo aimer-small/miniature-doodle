@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("¶Ä¿Í", ({"du ke", "ke" }) );
-        set("gender", "ÄÐÐÔ" );
+        set_name("èµŒå®¢", ({"du ke", "ke" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 35);
-        set("long", "ÕâÊÇ¸öÊÖÆø²»ºÃµÄ¶Ä¿Í¡£\n");
+        set("long", "è¿™æ˜¯ä¸ªæ‰‹æ°”ä¸å¥½çš„èµŒå®¢ã€‚\n");
 
         set_temp("apply/attack", 25);
         set_temp("apply/defense", 25);
@@ -24,7 +24,7 @@ void create()
         setup();
         set("chat_chance", 5);
         set("chat_msg", ({
-		"¶Ä¿ÍÌÍÁËÌÍ¿Ú´ü£¬Ãþ³ö¼¸¸öÍ­°åÀ´¡£\n",
+		"èµŒå®¢æŽäº†æŽå£è¢‹ï¼Œæ‘¸å‡ºå‡ ä¸ªé“œæ¿æ¥ã€‚\n",
         }) );
         carry_object("/clone/misc/cloth")->wear();
         add_money("coin", 100);

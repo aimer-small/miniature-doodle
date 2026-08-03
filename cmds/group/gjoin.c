@@ -7,9 +7,9 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
-gjoin [°ïÅÉid]
-ÇëÇó¼ÓÈëÄ³¸ö°ïÅÉ¡£
+æŒ‡ä»¤æ ¼å¼ :
+gjoin [å¸®æ´¾id]
+è¯·æ±‚åŠ å…¥æŸä¸ªå¸®æ´¾ã€‚
 HELP
 	);
 	return 1;
@@ -19,13 +19,13 @@ int main(object me, string arg)
 {
 	if( !arg ) return help(me);
 	if( me->query("group/id") )
-		return notify_fail("ÄãÒÑ¾­¼ÓÈëÒ»¸ö°ïÅÉÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åŠ å…¥ä¸€ä¸ªå¸®æ´¾äº†ã€‚\n");
 	if( me->query("combat_exp") < 100000 )
-		return notify_fail("ÄãµÄ×ÊÀú²»¹»£¬»¹ÊÇµÈÒ»ÕóÔÙÈ¥»ì°ïÅÉ°É¡£\n");
+		return notify_fail("ä½ çš„èµ„åŽ†ä¸å¤Ÿï¼Œè¿˜æ˜¯ç­‰ä¸€é˜µå†åŽ»æ··å¸®æ´¾å§ã€‚\n");
 	if( !GROUP_D->site_now(arg) )
 		return notify_fail( GROUP_D->get_last_error() );
 
 	me->set_temp("group/join",arg);
-	message_vision("$NÒªÇó¼ÓÈë"+GROUP_D->get_group_name(arg)+"¡£\n",me);
+	message_vision("$Nè¦æ±‚åŠ å…¥"+GROUP_D->get_group_name(arg)+"ã€‚\n",me);
 	return 1;
 }

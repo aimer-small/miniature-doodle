@@ -10,7 +10,7 @@ int update_condition(object me, int duration)
 
 	if (duration < 2) {
 		if (me->query_temp("dali_songxin")) {
-			tell_object(me, HIY "ÄãÊ±¼äÒÑ¹ý£¬ÈÎÎñÊ§Ð§£¡\n" NOR);
+			tell_object(me, HIY "ä½ æ—¶é—´å·²è¿‡ï¼Œä»»åŠ¡å¤±æ•ˆï¼\n" NOR);
 		}
 		me->delete_temp("dali_songxin");
 		me->delete_temp("songxin/name");
@@ -30,7 +30,7 @@ int update_condition(object me, int duration)
 	&& duration <= time * 9/10 && !me->query_temp("songxin_zuji") && random(10) > 2
 	&& interactive(me) && !environment(me)->query("no_fight")
 	&& !me->query_temp("letter_steal")) {
-		tell_object(me, HIY "Äã¾õµÃÓÐÐ©²»Ãî£¬ËÆºõ±»ÈË¸ú×ÙÉÏÁË£¡\n" NOR);
+		tell_object(me, HIY "ä½ è§‰å¾—æœ‰äº›ä¸å¦™ï¼Œä¼¼ä¹Žè¢«äººè·Ÿè¸ªä¸Šäº†ï¼\n" NOR);
 		me->add_busy(1);
 		call_out("zuji", 1, me);
 	}
@@ -49,23 +49,23 @@ void zuji(object me)
 	
         
 	if (obj2) {
-		tell_object(me,"ÄãÒþÔ¼¸Ð¾õµ½ÓÐÈËÎ§ÁË¹ýÀ´¡£¡£!!! \n");
+		tell_object(me,"ä½ éšçº¦æ„Ÿè§‰åˆ°æœ‰äººå›´äº†è¿‡æ¥ã€‚ã€‚!!! \n");
 		me->set_temp("songxin_zuji", 1);
 		if (me->query_temp("songxin/twice")){		
 			obj = new("/d/dali/job/robber");
-			obj->set("can_guard_ob",1);//added by Ciwei@SJ Â·¼û²»Æ½ °Îµ¶ÏàÖú
+			obj->set("can_guard_ob",1);//added by Ciwei@SJ è·¯è§ä¸å¹³ æ‹”åˆ€ç›¸åŠ©
 			obj->set("target", me);
 			obj->set_temp("target", me->query("id") );
-	        	obj->setparty(me->query("bonus/ËÍÐÅ"),me->query("max_pot")-100,me->query("combat_exp"));
-	        	tell_object(me, RED "Äã½ôÕÅÆðÀ´£¬²»ÓÉÒ»ÃþÒÂ´ü£¬²»ºÃ£¡ÐÅ±»ÍµÁË!\n" NOR);
-	        	tell_object(me, "Äã¶¨¾¦Ò»¿´£¬Ô­À´ÊÇ"+obj->query("name")+"£¬¶øÇÒ´ËÈËÎä¹¦¼«¸ß£¬ËÆºõÓÃµÄÊÇ"+obj->query("family/family_name")+"µÄ"+to_chinese(obj->query("f_w_skill"))+"£¡\n"NOR);
+	        	obj->setparty(me->query("bonus/é€ä¿¡"),me->query("max_pot")-100,me->query("combat_exp"));
+	        	tell_object(me, RED "ä½ ç´§å¼ èµ·æ¥ï¼Œä¸ç”±ä¸€æ‘¸è¡£è¢‹ï¼Œä¸å¥½ï¼ä¿¡è¢«å·äº†!\n" NOR);
+	        	tell_object(me, "ä½ å®šç›ä¸€çœ‹ï¼ŒåŽŸæ¥æ˜¯"+obj->query("name")+"ï¼Œè€Œä¸”æ­¤äººæ­¦åŠŸæžé«˜ï¼Œä¼¼ä¹Žç”¨çš„æ˜¯"+obj->query("family/family_name")+"çš„"+to_chinese(obj->query("f_w_skill"))+"ï¼\n"NOR);
 			obj->move(environment(me));
 			obj2->move(obj);
 			return;
         	}
                 if (random(10)> 8) {
 			//this is killer kill npc
-			tell_object(me, RED "Ôã¸â£¡ÓÐÈËÒªÇÀÐÅ!\n" NOR);
+			tell_object(me, RED "ç³Ÿç³•ï¼æœ‰äººè¦æŠ¢ä¿¡!\n" NOR);
 			obj = new("/d/dali/job/npc1");
 			obj->set("target", me);
 			obj->move(environment(me));
@@ -73,14 +73,14 @@ void zuji(object me)
 		} else {
 			//this is stealer steal letter
 			//destruct(obj);
-			tell_object(me, RED "Äã½ôÕÅÆðÀ´£¬²»ÓÉÒ»ÃþÒÂ´ü£¬²»ºÃ£¡ÐÅ±»ÍµÁË!\n" NOR);
+			tell_object(me, RED "ä½ ç´§å¼ èµ·æ¥ï¼Œä¸ç”±ä¸€æ‘¸è¡£è¢‹ï¼Œä¸å¥½ï¼ä¿¡è¢«å·äº†!\n" NOR);
 			obj = new("/d/dali/job/snpc1");
 			obj->set("target", me);
 			obj->move(environment(me));
 			obj2->move(obj);
 			if (me->query("combat_exp") >= 300000) call_out("stealer_clone", 1, me);
 		}
-	} else tell_object(me, "ÐÅÒÑËÍ³ö£¬ÄãÇìÐÒµÄ¶ã¹ýÁËÒ»´Î×·É±!\n");   
+	} else tell_object(me, "ä¿¡å·²é€å‡ºï¼Œä½ åº†å¹¸çš„èº²è¿‡äº†ä¸€æ¬¡è¿½æ€!\n");   
 }
 
 void killer_clone(object me)
@@ -88,7 +88,7 @@ void killer_clone(object me)
 	object obj;
 
 	if (!me) return;
-	tell_object(me, YEL"Ôã¸â£¬ÓÖ³åÉÏÀ´ÁË¸öÈË£¡\n");
+	tell_object(me, YEL"ç³Ÿç³•ï¼Œåˆå†²ä¸Šæ¥äº†ä¸ªäººï¼\n");
 	
 		obj = new("/d/dali/job/npc2");
 		obj->set("target", me);
@@ -100,7 +100,7 @@ void stealer_clone(object me)
 	object obj;
 
 	if (!me) return;
-	tell_object(me, YEL"Ôã¸â£¬ÓÖ³åÉÏÀ´ÁË¸öÈË£¡\n");
+	tell_object(me, YEL"ç³Ÿç³•ï¼Œåˆå†²ä¸Šæ¥äº†ä¸ªäººï¼\n");
 		obj = new("/d/dali/job/snpc2");
 		obj->set("target", me);
 		obj->move(environment(me));

@@ -1,13 +1,13 @@
-// /d/city/npc/yanxiao2.c ÑÎèÉ
+// /d/city/npc/yanxiao2.c ç›æ­
 
 inherit NPC;
 
 void create()
 {
-        set_name("ÑÎèÉÀÏÕß", ({ "yan xiao", "yanxiao"}));
-	set("gender", "ÄĞĞÔ");
+        set_name("ç›æ­è€è€…", ({ "yan xiao", "yanxiao"}));
+	set("gender", "ç”·æ€§");
         set("age", 50);
-        set("long", "¶Ì×°½áÊø£¬°×²¼°üÍ·£¬Çà´ø²øÑüÊÖÖĞÄÃ×ÅÌú¹÷¡£\n");
+        set("long", "çŸ­è£…ç»“æŸï¼Œç™½å¸ƒåŒ…å¤´ï¼Œé’å¸¦ç¼ è…°æ‰‹ä¸­æ‹¿ç€é“æ£ã€‚\n");
 
         set("combat_exp", 24000);
 	set("shen_type", -1);

@@ -10,7 +10,7 @@ int do_sign(string arg)
 
  
 if(!arg )       
-       return notify_fail("Äã¶Ô×Å¿ÕÆø±È»®ÁËÒ»Õó£¬ÅÔ±ßµÄÈË¶¼ÄªÃûÆäÃîµÄ¿´×ÅÄã¡£\n");
+       return notify_fail("ä½ å¯¹ç€ç©ºæ°”æ¯”åˆ’äº†ä¸€é˜µï¼Œæ—è¾¹çš„äººéƒ½è«åå…¶å¦™çš„çœ‹ç€ä½ ã€‚\n");
 
 if(arg =="fail"&& me->query_temp("party_job")) {
      ling = present("shimen mixin", me);
@@ -20,14 +20,14 @@ if(arg =="fail"&& me->query_temp("party_job")) {
       me->delete_temp("party_job");
       me->delete_temp("party_job_target");
       me->delete_temp("party_job_start");
-      me->delete_temp("party_job_over"); //¸ø½±ÀøĞèÒª¼ä¸ôµÄ£¬Èç¹ûÊÇ³ÖĞø²»´¥·¢£¬ÄÇ·ÅÆúµÄÊ±ºòÕâ¸öÒ²ÒªÏú»Ù
+      me->delete_temp("party_job_over"); //ç»™å¥–åŠ±éœ€è¦é—´éš”çš„ï¼Œå¦‚æœæ˜¯æŒç»­ä¸è§¦å‘ï¼Œé‚£æ”¾å¼ƒçš„æ—¶å€™è¿™ä¸ªä¹Ÿè¦é”€æ¯
       me->apply_condition("job_busy", 3+random(4));
       me->add("combat_exp", -(240+random(130)));
-message_vision(HIC"$NÎ¢Î¢±ÈÁË¸öÊÖÊÆ£¬³å×ÅÅÔ±ßµÄĞ¡¶ş¸çÇáÇáµÄÒ¡ÁËÒ¡Í·¡£\n"NOR,me);
+message_vision(HIC"$Nå¾®å¾®æ¯”äº†ä¸ªæ‰‹åŠ¿ï¼Œå†²ç€æ—è¾¹çš„å°äºŒå“¥è½»è½»çš„æ‘‡äº†æ‘‡å¤´ã€‚\n"NOR,me);
       return 1;  
 
                  }
-//ÕâÀïµÄÉ¾³ıÓÃ×Ü¿ª¹Ø¿ØÖÆ°É¡£
+//è¿™é‡Œçš„åˆ é™¤ç”¨æ€»å¼€å…³æ§åˆ¶å§ã€‚
 
 
 
@@ -35,70 +35,70 @@ if(arg =="start"){
 	
         fam= me->query("family");
     if ( !fam )    
-      	   return notify_fail("Äã¶Ô×Å¿ÕÆø±È»®ÁËÒ»Õó£¬ÅÔ±ßµÄÈË¶¼ÄªÃûÆäÃîµÄ¿´×ÅÄã¡£\n");
+      	   return notify_fail("ä½ å¯¹ç€ç©ºæ°”æ¯”åˆ’äº†ä¸€é˜µï¼Œæ—è¾¹çš„äººéƒ½è«åå…¶å¦™çš„çœ‹ç€ä½ ã€‚\n");
     if ( me->query_condition("killer"))
-          return notify_fail("ÄãÏÖÔÚÊÇ¹Ù¸®×½ÄÃµÄÒª·¸£¬»¹ÊÇĞ¡ĞÄÎªÃî¡£\n");
-    if (me->query("job_name") == "Ê¦ÃÅ¹±Ï×"|| me->query_temp("party_job"))            
-    	   return notify_fail("Äã³åĞ¡¶ş¸ç±ÈÁË¸öÊÖÊÆ£¬È´¾ÚÉ¥µÄ·¢ÏÖËûÕıÃ¦×ÅÕĞºô±ğÈËÄØ£¬Ã»¿ÕÀíÄã¡£\n");
+          return notify_fail("ä½ ç°åœ¨æ˜¯å®˜åºœæ‰æ‹¿çš„è¦çŠ¯ï¼Œè¿˜æ˜¯å°å¿ƒä¸ºå¦™ã€‚\n");
+    if (me->query("job_name") == "å¸ˆé—¨è´¡çŒ®"|| me->query_temp("party_job"))            
+    	   return notify_fail("ä½ å†²å°äºŒå“¥æ¯”äº†ä¸ªæ‰‹åŠ¿ï¼Œå´æ²®ä¸§çš„å‘ç°ä»–æ­£å¿™ç€æ‹›å‘¼åˆ«äººå‘¢ï¼Œæ²¡ç©ºç†ä½ ã€‚\n");
     if ( me->query_condition("job_busy"))
-    	   return notify_fail("Äã³åĞ¡¶ş¸ç±ÈÁË¸öÊÖÊÆ£¬È´¾ÚÉ¥µÄ·¢ÏÖËûÕıÃ¦×ÅÕĞºô±ğÈËÄØ£¬Ã»¿ÕÀíÄã¡£\n");
+    	   return notify_fail("ä½ å†²å°äºŒå“¥æ¯”äº†ä¸ªæ‰‹åŠ¿ï¼Œå´æ²®ä¸§çš„å‘ç°ä»–æ­£å¿™ç€æ‹›å‘¼åˆ«äººå‘¢ï¼Œæ²¡ç©ºç†ä½ ã€‚\n");
 
 
-if( fam["family_name"] =="ÉÙÁÖÅÉ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ÉÙÁÖÅÉ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="å°‘æ—æ´¾" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="å°‘æ—æ´¾" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="»ªÉ½ÅÉ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="»ªÉ½ÅÉ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="åå±±æ´¾" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="åå±±æ´¾" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="ÉñÁú½Ì" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ÉñÁú½Ì" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="ç¥é¾™æ•™" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ç¥é¾™æ•™" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="Îäµ±ÅÉ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="Îäµ±ÅÉ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="æ­¦å½“æ´¾" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="æ­¦å½“æ´¾" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="´óÂÖËÂ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="´óÂÖËÂ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="å¤§è½®å¯º" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="å¤§è½®å¯º" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="¶ëáÒÅÉ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="¶ëáÒÅÉ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="å³¨åµ‹æ´¾" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="å³¨åµ‹æ´¾" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="¹ÃËÕÄ½Èİ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="¹ÃËÕÄ½Èİ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="å§‘è‹æ…•å®¹" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="å§‘è‹æ…•å®¹" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="À¥ÂØÅÉ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="À¥ÂØÅÉ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="æ˜†ä»‘æ´¾" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="æ˜†ä»‘æ´¾" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="È«Õæ½Ì" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="È«Õæ½Ì" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="å…¨çœŸæ•™" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="å…¨çœŸæ•™" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="ÈÕÔÂÉñ½Ì" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ÈÕÔÂÉñ½Ì" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="æ—¥æœˆç¥æ•™" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="æ—¥æœˆç¥æ•™" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="ÌÒ»¨µº" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ÌÒ»¨µº" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="æ¡ƒèŠ±å²›" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="æ¡ƒèŠ±å²›" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="ÌìÁúËÂ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ÌìÁúËÂ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="å¤©é¾™å¯º" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="å¤©é¾™å¯º" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="ÌúÕÆ°ï" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ÌúÕÆ°ï" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="é“æŒå¸®" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="é“æŒå¸®" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="ĞÇËŞÅÉ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ĞÇËŞÅÉ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="æ˜Ÿå®¿æ´¾" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="æ˜Ÿå®¿æ´¾" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="Ø¤°ï" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="Ø¤°ï" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="ä¸å¸®" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ä¸å¸®" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="áÔÉ½ÅÉ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="áÔÉ½ÅÉ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="åµ©å±±æ´¾" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="åµ©å±±æ´¾" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="åĞÒ£ÅÉ" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="åĞÒ£ÅÉ" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="é€é¥æ´¾" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="é€é¥æ´¾" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-if( fam["family_name"] =="ÁéğÕ¹¬" )
-        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="ÁéğÕ¹¬" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
+if( fam["family_name"] =="çµé¹«å®«" )
+        list = filter_array(livings(),(:!userp($1) && ( $1->query("family/family_name") =="çµé¹«å®«" ) && (!$1->query("no_party_job")) && (!$1->query_temp("party_job_target")) :));
 
-  if (!j= sizeof(list) )   return notify_fail(HIG"Äã³åĞ¡¶ş¸ç±ÈÁË¸öÊÖÊÆ£¬Ğ¡¶ş¸ç¿´ÁËÄãÒ»ÑÛ£¬ÇáÇáµÄÒ¡ÁËÒ¡Í·¡£\n"NOR);
+  if (!j= sizeof(list) )   return notify_fail(HIG"ä½ å†²å°äºŒå“¥æ¯”äº†ä¸ªæ‰‹åŠ¿ï¼Œå°äºŒå“¥çœ‹äº†ä½ ä¸€çœ¼ï¼Œè½»è½»çš„æ‘‡äº†æ‘‡å¤´ã€‚\n"NOR);
 
         target = list[random(sizeof(list))];
      
@@ -114,10 +114,10 @@ if( fam["family_name"] =="ÁéğÕ¹¬" )
 
 
 
-//ÈÎÎñ¸É´àÓÃlingÀ´¿ØÖÆËãÁË£¬±ãÓÚÔö¼ÓÄÚÈİ¡£
-//²»Í¬µÄÇé¿ö£¬clone²»Í¬µÄlingÀ´¸øÍæ¼Ò
-//ÈÎÎñ±ê¼ÇºÍ×´Ì¬Ò²Ò»ÆğĞŞ¸ÄÁË¡£±ãÓÚ¼ÇÒä
-//npc·´Õı¶¼ÊÇÒªÉ¸Ñ¡£¬ÏÖÔÚ¾ÍÊÇÈçºÎ´¦Àí$1->query²»ÄÜ¸³ÖµµÄÎÊÌâÁË¡£
+//ä»»åŠ¡å¹²è„†ç”¨lingæ¥æ§åˆ¶ç®—äº†ï¼Œä¾¿äºå¢åŠ å†…å®¹ã€‚
+//ä¸åŒçš„æƒ…å†µï¼Œcloneä¸åŒçš„lingæ¥ç»™ç©å®¶
+//ä»»åŠ¡æ ‡è®°å’ŒçŠ¶æ€ä¹Ÿä¸€èµ·ä¿®æ”¹äº†ã€‚ä¾¿äºè®°å¿†
+//npcåæ­£éƒ½æ˜¯è¦ç­›é€‰ï¼Œç°åœ¨å°±æ˜¯å¦‚ä½•å¤„ç†$1->queryä¸èƒ½èµ‹å€¼çš„é—®é¢˜äº†ã€‚
 
 
 
@@ -125,19 +125,19 @@ switch( random(3) ) {
  case 0: {
         ling  = new("quest/party/mixin");
 
-        tell_object(me, "Äã³åĞ¡¶ş±ÈÁË¸öÊÖÊÆ,Ğ¡¶şÉñÉ«Ò»¶¯£¬Ò²ÇÄÇÄµÄ¸øÄã±ÈÁË¸öÊÖÊÆ¡£\n");
-        tell_object(me, "Ğ¡¶ş³Ã±ğÈË²»×¢Òâ£¬ÍµÍµÈû¸øÄãÒ»·âÃÜĞÅ¡£\n");
-        tell_object(me, HIG"ÎÒÅÉ"+HIR+target->query("name")+HIW+"("+target->query("id")+")"+HIG"ÓÚ"+HIC+where->query("short")+HIG+"´¦ÓöÏÕ£¬»ğËÙ³ÛÔ®£¬²»µÃÓĞÎó£¡\n");
+        tell_object(me, "ä½ å†²å°äºŒæ¯”äº†ä¸ªæ‰‹åŠ¿,å°äºŒç¥è‰²ä¸€åŠ¨ï¼Œä¹Ÿæ‚„æ‚„çš„ç»™ä½ æ¯”äº†ä¸ªæ‰‹åŠ¿ã€‚\n");
+        tell_object(me, "å°äºŒè¶åˆ«äººä¸æ³¨æ„ï¼Œå·å·å¡ç»™ä½ ä¸€å°å¯†ä¿¡ã€‚\n");
+        tell_object(me, HIG"æˆ‘æ´¾"+HIR+target->query("name")+HIW+"("+target->query("id")+")"+HIG"äº"+HIC+where->query("short")+HIG+"å¤„é‡é™©ï¼Œç«é€Ÿé©°æ´ï¼Œä¸å¾—æœ‰è¯¯ï¼\n");
           }
                 break;
 
  case 1: {
        ling  = new("quest/party/mixin");
 
-       tell_object(me, "Äã³åĞ¡¶ş±ÈÁË¸öÊÖÊÆ,Ğ¡¶şÉñÉ«Ò»¶¯£¬Ò²ÇÄÇÄµÄ¸øÄã±ÈÁË¸öÊÖÊÆ¡£\n");
-       tell_object(me, "Ğ¡¶ş³Ã±ğÈË²»×¢Òâ£¬ÍµÍµÈû¸øÄãÒ»·âÃÜĞÅ¡£\n");
-       tell_object(me, HIG"ÒÉÎÒÅÉ"+HIR+target->query("name")+HIW+"("+target->query("id")+")"+HIG"ÓëÍâµĞ¹´½á£¬Óû¶ÔÊ¦ÃÅ²»Àû£¬ËÙÈ¥"+HIC+where->query("short")+HIG+"´¦µ÷²éÖ®£¬\n"NOR);
-       tell_object(me, HIR"ÈçÓĞÒì¶¯£¬¸ñÉ±ÎğÂÛ£¡\n"NOR);
+       tell_object(me, "ä½ å†²å°äºŒæ¯”äº†ä¸ªæ‰‹åŠ¿,å°äºŒç¥è‰²ä¸€åŠ¨ï¼Œä¹Ÿæ‚„æ‚„çš„ç»™ä½ æ¯”äº†ä¸ªæ‰‹åŠ¿ã€‚\n");
+       tell_object(me, "å°äºŒè¶åˆ«äººä¸æ³¨æ„ï¼Œå·å·å¡ç»™ä½ ä¸€å°å¯†ä¿¡ã€‚\n");
+       tell_object(me, HIG"ç–‘æˆ‘æ´¾"+HIR+target->query("name")+HIW+"("+target->query("id")+")"+HIG"ä¸å¤–æ•Œå‹¾ç»“ï¼Œæ¬²å¯¹å¸ˆé—¨ä¸åˆ©ï¼Œé€Ÿå»"+HIC+where->query("short")+HIG+"å¤„è°ƒæŸ¥ä¹‹ï¼Œ\n"NOR);
+       tell_object(me, HIR"å¦‚æœ‰å¼‚åŠ¨ï¼Œæ ¼æ€å‹¿è®ºï¼\n"NOR);
          }
                 break;
 
@@ -146,19 +146,19 @@ switch( random(3) ) {
  case 2: {
         ling  = new("quest/party/mixin");
 
-        tell_object(me, "Äã³åĞ¡¶ş±ÈÁË¸öÊÖÊÆ,Ğ¡¶şÉñÉ«Ò»¶¯£¬Ò²ÇÄÇÄµÄ¸øÄã±ÈÁË¸öÊÖÊÆ¡£\n");
-        tell_object(me, "Ğ¡¶ş³Ã±ğÈË²»×¢Òâ£¬ÍµÍµÈû¸øÄãÒ»·âÃÜĞÅ¡£\n");
-        tell_object(me, HIG"ÎÒÅÉ¡¸"+HIR+target->query("name")+HIW+"("+target->query("id")+")"+HIG"¡¹ÓĞ½ô¼±ÏûÏ¢»Ø±¨Ê¦ÃÅ£¬ËÙÈ¥"+HIC+where->query("short")+HIG+"´¦½ÓÓ¦¡£\n"NOR);
+        tell_object(me, "ä½ å†²å°äºŒæ¯”äº†ä¸ªæ‰‹åŠ¿,å°äºŒç¥è‰²ä¸€åŠ¨ï¼Œä¹Ÿæ‚„æ‚„çš„ç»™ä½ æ¯”äº†ä¸ªæ‰‹åŠ¿ã€‚\n");
+        tell_object(me, "å°äºŒè¶åˆ«äººä¸æ³¨æ„ï¼Œå·å·å¡ç»™ä½ ä¸€å°å¯†ä¿¡ã€‚\n");
+        tell_object(me, HIG"æˆ‘æ´¾ã€Œ"+HIR+target->query("name")+HIW+"("+target->query("id")+")"+HIG"ã€æœ‰ç´§æ€¥æ¶ˆæ¯å›æŠ¥å¸ˆé—¨ï¼Œé€Ÿå»"+HIC+where->query("short")+HIG+"å¤„æ¥åº”ã€‚\n"NOR);
          }
                 break;
                              }
 
         ling  ->set("party_job_target",target->query("id"));
-        ling ->set("party_job",me->query("id"));   //Õâ¸öÒ²ÊÇÎªÁËÊ§°ÜµÄÊ±ºòÀ´ÏûÃğÁî£¬¼ñµ½±ğÈËµÄÁîÀ´ÏûÃğ£¿Ò²ÓĞ¿ÉÄÜµÄ¡£
+        ling ->set("party_job",me->query("id"));   //è¿™ä¸ªä¹Ÿæ˜¯ä¸ºäº†å¤±è´¥çš„æ—¶å€™æ¥æ¶ˆç­ä»¤ï¼Œæ¡åˆ°åˆ«äººçš„ä»¤æ¥æ¶ˆç­ï¼Ÿä¹Ÿæœ‰å¯èƒ½çš„ã€‚
         ling ->move(me);
 
 return 1;
 }
 else 
-       return notify_fail("Äã¶Ô×Å¿ÕÆø±È»®ÁËÒ»Õó£¬ÅÔ±ßµÄÈË¶¼ÄªÃûÆäÃîµÄ¿´×ÅÄã¡£\n");
+       return notify_fail("ä½ å¯¹ç€ç©ºæ°”æ¯”åˆ’äº†ä¸€é˜µï¼Œæ—è¾¹çš„äººéƒ½è«åå…¶å¦™çš„çœ‹ç€ä½ ã€‚\n");
 }

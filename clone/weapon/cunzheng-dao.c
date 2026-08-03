@@ -6,13 +6,13 @@ inherit BLADE;
 
 void create()
 {
-    	set_name(WHT"´åÕıÑıµ¶"NOR, ({ "cunzheng yaodao", "yaodao", "blade", "cunzheng", "dao" }));
+    	set_name(WHT"æ‘æ­£å¦–åˆ€"NOR, ({ "cunzheng yaodao", "yaodao", "blade", "cunzheng", "dao" }));
 	set_weight(7000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÈÕ±¾µ¶ÖĞµÄÖÁ±¦£¬³ö×Ô·öÉ£ÃûÊ¦´åÕıÖ®ÊÖ¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯æ—¥æœ¬åˆ€ä¸­çš„è‡³å®ï¼Œå‡ºè‡ªæ‰¶æ¡‘åå¸ˆæ‘æ­£ä¹‹æ‰‹ã€‚\n");
 		set("value", 1000);
 		set("rigidity", 5);
                 set("sharpness", 5);
@@ -20,8 +20,8 @@ void create()
                 set("weapon_prop/parry", 3);
                 set("treasure",1);       
 		set("material", "steel");
-		set("wield_msg", "$N»º»ºµØ³ö$nÀ´£¬ÉÁ³öÒ»µÀÁÁÀöµÄ¹â»ª£¡\n");
-		set("unwield_msg", "$NÍì¸öµ¶»¨£¬½«$n²å»Øµ¶ÇÊ¡£\n");
+		set("wield_msg", "$Nç¼“ç¼“åœ°å‡º$næ¥ï¼Œé—ªå‡ºä¸€é“äº®ä¸½çš„å…‰åï¼\n");
+		set("unwield_msg", "$NæŒ½ä¸ªåˆ€èŠ±ï¼Œå°†$næ’å›åˆ€é˜ã€‚\n");
 	}
 	init_blade(60);
 	setup();

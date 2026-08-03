@@ -25,28 +25,28 @@ mixed main(object me)
 		else cnt++;
 	}
 
-	write("\n"+MUD_NAME+"Ä¿Ç°¹²ÓĞ "+wcnt+" Î»Î×Ê¦£¬ "+ppl_cnt+" Î»Íæ¼ÒÁ¬ÏßÖĞ£¬"+cnt+" Î»Íæ¼Ò¶ÏÏßÖĞ¡£
-ÆäÖĞ£º
-        ÔÚÕ½¶·µÄÓĞ£º "+f_cnt+" Î»¡£
-    »èÃÔ»òË¯¾õµÄÓĞ£º "+u_cnt+" Î»¡£
-          ·¢´ôµÄÓĞ£º "+i_cnt+" Î»¡£
+	write("\n"+MUD_NAME+"ç›®å‰å…±æœ‰ "+wcnt+" ä½å·«å¸ˆï¼Œ "+ppl_cnt+" ä½ç©å®¶è¿çº¿ä¸­ï¼Œ"+cnt+" ä½ç©å®¶æ–­çº¿ä¸­ã€‚
+å…¶ä¸­ï¼š
+        åœ¨æˆ˜æ–—çš„æœ‰ï¼š "+f_cnt+" ä½ã€‚
+    æ˜è¿·æˆ–ç¡è§‰çš„æœ‰ï¼š "+u_cnt+" ä½ã€‚
+          å‘å‘†çš„æœ‰ï¼š "+i_cnt+" ä½ã€‚
           
-ÏµÍ³¸ºµ££º"+query_load_average()+"¡£
-ÏÖÔÚµÄ time() ÊÇ£º" + time() + "¡£
-ÏÖÔÚµÄ Natured time() ÊÇ£º" + TIME_TICK + " " + localtime(TIME_TICK)[2] + ":" + localtime(TIME_TICK)[1]+"¡£
-ÏÖÔÚµÄ uptime() ÊÇ£º" + uptime() + "¡£
-Natured µÄÊ±¿ÌÊÇ£º" + NATURE_D->query_daytime() + "¡£\n\n");
+ç³»ç»Ÿè´Ÿæ‹…ï¼š"+query_load_average()+"ã€‚
+ç°åœ¨çš„ time() æ˜¯ï¼š" + time() + "ã€‚
+ç°åœ¨çš„ Natured time() æ˜¯ï¼š" + TIME_TICK + " " + localtime(TIME_TICK)[2] + ":" + localtime(TIME_TICK)[1]+"ã€‚
+ç°åœ¨çš„ uptime() æ˜¯ï¼š" + uptime() + "ã€‚
+Natured çš„æ—¶åˆ»æ˜¯ï¼š" + NATURE_D->query_daytime() + "ã€‚\n\n");
 	return 1;
 }
 
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : users
+æŒ‡ä»¤æ ¼å¼ : users
 
-Õâ¸öÖ¸Áî¿ÉÒÔÁĞ³öÄ¿Ç°µÄÍæ¼ÒÊıÁ¿¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥åˆ—å‡ºç›®å‰çš„ç©å®¶æ•°é‡ã€‚
 
-Ïà¹ØÖ¸Áî£º who
+ç›¸å…³æŒ‡ä»¤ï¼š who
 HELP
 	);
 	return 1;

@@ -1,4 +1,4 @@
-// Ê®ÈıÁúÏóôÂôÄ
+// åä¸‰é¾™è±¡è¢ˆè£Ÿ
 // by emnil	2/15/2k
 
 #include <armor.h>
@@ -10,21 +10,21 @@ string setcolor();
 
 void create()
 {
-	set_name(HIW"Ê®ÈıÁúÏóôÂôÄ"NOR, ({ "shisan longxiang" ,"longxiang jiasha", "jiasha", "shisan jiasha" }));
+	set_name(HIW"åä¸‰é¾™è±¡è¢ˆè£Ÿ"NOR, ({ "shisan longxiang" ,"longxiang jiasha", "jiasha", "shisan jiasha" }));
 	set_weight(3000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("text" , "ÕâÊÇÒ»¼şÀ®Âï´©µÄôÂôÄ£¬ÉÏÃæĞå×ÅĞ©èóÎÄ£¬¿´ËÆÆÕÍ¨µ«È´ÊÇ´óÂÖËÂ¿ªËÂÊ¼×æÖÕÉíËù´©µÄôÂôÄ¡£\n"
-				+"¿ÉÄÜÊÇÒòÎªËü³¤Ê±¼ä±»ÁúÏóÄÚÁ¦ÁıÕÖ£¬ËùÒÔÒ²ËÆºõÓĞÁË´¢´æÄÚÁ¦µÄ¹¦Ğ§¡£Äã¿ÉÒÔÊÔÊÔ×¢ÈëÄÚÁ¦(longxiang)¡£\n"NOR);
+		set("text" , "è¿™æ˜¯ä¸€ä»¶å–‡å˜›ç©¿çš„è¢ˆè£Ÿï¼Œä¸Šé¢ç»£ç€äº›æ¢µæ–‡ï¼Œçœ‹ä¼¼æ™®é€šä½†å´æ˜¯å¤§è½®å¯ºå¼€å¯ºå§‹ç¥–ç»ˆèº«æ‰€ç©¿çš„è¢ˆè£Ÿã€‚\n"
+				+"å¯èƒ½æ˜¯å› ä¸ºå®ƒé•¿æ—¶é—´è¢«é¾™è±¡å†…åŠ›ç¬¼ç½©ï¼Œæ‰€ä»¥ä¹Ÿä¼¼ä¹æœ‰äº†å‚¨å­˜å†…åŠ›çš„åŠŸæ•ˆã€‚ä½ å¯ä»¥è¯•è¯•æ³¨å…¥å†…åŠ›(longxiang)ã€‚\n"NOR);
 		set("long",HIW+query("text") );
 
 		set("material", "silk");
-		set("unit", "¼ş");
+		set("unit", "ä»¶");
 		set("unique", 1);
 		set("value", 10000000);
 		set("treasure", 1);
-		set("wear_msg", HIW"Ö»¼û$N"HIW"Ë«ÊÖÒ»¶¶£¬±ã°ÑÒ»¼şÒşÒşÍ¸×Å×ÏÉ«¹â²ÊµÄôÂôÄ´©ÔÚÁËÉíÉÏ¡£\n" NOR);
+		set("wear_msg", HIW"åªè§$N"HIW"åŒæ‰‹ä¸€æŠ–ï¼Œä¾¿æŠŠä¸€ä»¶éšéšé€ç€ç´«è‰²å…‰å½©çš„è¢ˆè£Ÿç©¿åœ¨äº†èº«ä¸Šã€‚\n" NOR);
 		set("armor_prop/armor", 80);
 
 		set("owner","no owner");
@@ -44,10 +44,10 @@ int do_longxiang(string arg)
 	object me = this_player();
 
 	if( query("neili") >= 13990 )
-		return notify_fail("ôÂôÄÖĞÒÑ¾­³äÂúÁËÄÚÁ¦£¬ÄãÔÙÒ²ÎŞ·¨×¢ÈëÁË£¡\n");
+		return notify_fail("è¢ˆè£Ÿä¸­å·²ç»å……æ»¡äº†å†…åŠ›ï¼Œä½ å†ä¹Ÿæ— æ³•æ³¨å…¥äº†ï¼\n");
 
 	if( me->query_skill("force") < 160 )
-		return notify_fail("ÄãµÄÄÚ¹¦µÈ¼¶²»¹»£¬ÎŞ·¨×¢ÈëÄÚÁ¦£¡\n");
+		return notify_fail("ä½ çš„å†…åŠŸç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•æ³¨å…¥å†…åŠ›ï¼\n");
 
 	if( me->query_skill("longxiang-boruo",1)>100 && me->query_skill_mapped("force")=="longxiang-boruo" )
 		cost = 1000;
@@ -55,11 +55,11 @@ int do_longxiang(string arg)
 		cost = 1200;
 
 	if( cost > me->query("neili") )
-		return notify_fail("ÄãµÄÄÚÁ¦²»×ã£¬ÎŞ·¨×¢Èë×ã¹»µÄÄÚÁ¦£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸è¶³ï¼Œæ— æ³•æ³¨å…¥è¶³å¤Ÿçš„å†…åŠ›ï¼\n");
 
 	if( query("owner")!=me->query("id") && query("owner")!="no owner" ) {
 		set("neili" , query("neili")/2);
-		message_vision(MAG"$N"MAG"·¢ÏÖÄãµÄÄÚÁ¦ÓëôÂôÄÖĞÔ­ÓĞµÄÄÚÁ¦Ïà³åÍ»£¬ËäÈ»×îÖÕ»¹ÊÇ×¢ÈëÁËÄãµÄÄÚÁ¦£¬µ«ÒÑ¾­ËğÊ§ÁË²»ÉÙ¡£\n",me);
+		message_vision(MAG"$N"MAG"å‘ç°ä½ çš„å†…åŠ›ä¸è¢ˆè£Ÿä¸­åŸæœ‰çš„å†…åŠ›ç›¸å†²çªï¼Œè™½ç„¶æœ€ç»ˆè¿˜æ˜¯æ³¨å…¥äº†ä½ çš„å†…åŠ›ï¼Œä½†å·²ç»æŸå¤±äº†ä¸å°‘ã€‚\n",me);
 	}
 	set("owner" , me->query("id"));
 
@@ -68,9 +68,9 @@ int do_longxiang(string arg)
 	me->add("neili" , -cost);
 
 	if( cost<=1000 )
-		message_vision(MAG"$N"MAG"Á³ÉÏ·ºÆğÒ»²ãÒşÒşµÄ×ÏÆø£¬Ë«ÊÖĞé°´Ê®ÈıÁúÏóôÂôÄ£¬°ÑÁúÏóÄÚÁ¦×¢ÈëôÂôÄÖ®ÖĞ¡£\n"NOR,me);
+		message_vision(MAG"$N"MAG"è„¸ä¸Šæ³›èµ·ä¸€å±‚éšéšçš„ç´«æ°”ï¼ŒåŒæ‰‹è™šæŒ‰åä¸‰é¾™è±¡è¢ˆè£Ÿï¼ŒæŠŠé¾™è±¡å†…åŠ›æ³¨å…¥è¢ˆè£Ÿä¹‹ä¸­ã€‚\n"NOR,me);
 	else
-		message_vision(HIC"$N"HIC"Ç±ÔËÄÚ¹¦£¬Å¬Á¦°ÑÄÚÁ¦×¢ÈëÊ®ÈıÁúÏóôÂôÄ£¬×îºóËäÈ»³É¹¦µ«ÒòÎª²»ÊÇÁúÏóÄÚÁ¦¶ø¶à»¨ÁËµãÁ¦Æø¡£\n"NOR,me);
+		message_vision(HIC"$N"HIC"æ½œè¿å†…åŠŸï¼ŒåŠªåŠ›æŠŠå†…åŠ›æ³¨å…¥åä¸‰é¾™è±¡è¢ˆè£Ÿï¼Œæœ€åè™½ç„¶æˆåŠŸä½†å› ä¸ºä¸æ˜¯é¾™è±¡å†…åŠ›è€Œå¤šèŠ±äº†ç‚¹åŠ›æ°”ã€‚\n"NOR,me);
 	
 	setcolor();
 
@@ -107,10 +107,10 @@ mixed ob_hit()
 
 	color = setcolor();	
 	if( times<=10 )
-		message_vision(query("name")+color+"Í»È»·¢³öÒ«ÑÛµÄ¹âÃ¢£¬µÖµ²ÁË$N"+color+"µÄ²¿·Ö¹¥ÊÆ£¡\n"NOR,target);
+		message_vision(query("name")+color+"çªç„¶å‘å‡ºè€€çœ¼çš„å…‰èŠ’ï¼ŒæŠµæŒ¡äº†$N"+color+"çš„éƒ¨åˆ†æ”»åŠ¿ï¼\n"NOR,target);
 	else
-		message_vision(query("name")+color+"Í»È»·¢³öÒ«ÑÛµÄ¹âÃ¢£¬µÖµ²ÁË$N"+color+
-					"µÄ²¿·Ö¹¥ÊÆ£¡µ«ÒòÎªÄÚ¹¦³åÍ»¶øÀË·ÑÁË²»ÉÙ´¢´æµÄÕæÆø¡£\n"NOR,target);
+		message_vision(query("name")+color+"çªç„¶å‘å‡ºè€€çœ¼çš„å…‰èŠ’ï¼ŒæŠµæŒ¡äº†$N"+color+
+					"çš„éƒ¨åˆ†æ”»åŠ¿ï¼ä½†å› ä¸ºå†…åŠŸå†²çªè€Œæµªè´¹äº†ä¸å°‘å‚¨å­˜çš„çœŸæ°”ã€‚\n"NOR,target);
 
 	return -qi;
 }
@@ -141,10 +141,10 @@ string setcolor()
 		case 13: color = MAG;break;
 		default: color = HIW;
 	}
-	set("name" , color+"Ê®ÈıÁúÏóôÂôÄ"NOR );
+	set("name" , color+"åä¸‰é¾™è±¡è¢ˆè£Ÿ"NOR );
 	
 	if( lvl > 0 )
-		s = color+"ôÂôÄÖ®ÉÏÒÑ¾­×¢ÓĞ"+CHINESE_D->chinese_number(lvl)+"µÀÄÚÁ¦£¡\n"NOR;
+		s = color+"è¢ˆè£Ÿä¹‹ä¸Šå·²ç»æ³¨æœ‰"+CHINESE_D->chinese_number(lvl)+"é“å†…åŠ›ï¼\n"NOR;
 	else
 		s = "";
 	set("long" , color+query("text")+s);

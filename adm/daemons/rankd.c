@@ -17,445 +17,445 @@ string query_rank(object ob)
 	string fname;
 
 	if (ob->is_ghost())
-		return HIB "¡¾¹Â»êÒ°¹í¡¿" NOR;
+		return HIB "ã€å­¤é­‚é‡é¬¼ã€‘" NOR;
 	if (stringp(fname = ob->query("rank_info/rank"))) {
 		fname = (fname + "	")[0..7];
 		switch(ob->query("rank_info/color")){
-			case "BLK":return BLK "¡¾" + fname + "¡¿" NOR;
-			case "RED":return RED "¡¾" + fname + "¡¿" NOR;
-			case "GRN":return GRN "¡¾" + fname + "¡¿" NOR;
-			case "YEL":return YEL "¡¾" + fname + "¡¿" NOR;
-			case "BLU":return BLU "¡¾" + fname + "¡¿" NOR;
-			case "MAG":return BLK "¡¾" + fname + "¡¿" NOR;
-			case "CYN":return CYN "¡¾" + fname + "¡¿" NOR;
-			case "WHT":return WHT "¡¾" + fname + "¡¿" NOR;
-			case "HIR":return HIR "¡¾" + fname + "¡¿" NOR;
-			case "HIB":return HIB "¡¾" + fname + "¡¿" NOR;
-			case "HIM":return HIM "¡¾" + fname + "¡¿" NOR;
-			case "HIC":return HIC "¡¾" + fname + "¡¿" NOR;
-			case "HIW":return HIW "¡¾" + fname + "¡¿" NOR;
-			case "HIY":return HIY "¡¾" + fname + "¡¿" NOR;
+			case "BLK":return BLK "ã€" + fname + "ã€‘" NOR;
+			case "RED":return RED "ã€" + fname + "ã€‘" NOR;
+			case "GRN":return GRN "ã€" + fname + "ã€‘" NOR;
+			case "YEL":return YEL "ã€" + fname + "ã€‘" NOR;
+			case "BLU":return BLU "ã€" + fname + "ã€‘" NOR;
+			case "MAG":return BLK "ã€" + fname + "ã€‘" NOR;
+			case "CYN":return CYN "ã€" + fname + "ã€‘" NOR;
+			case "WHT":return WHT "ã€" + fname + "ã€‘" NOR;
+			case "HIR":return HIR "ã€" + fname + "ã€‘" NOR;
+			case "HIB":return HIB "ã€" + fname + "ã€‘" NOR;
+			case "HIM":return HIM "ã€" + fname + "ã€‘" NOR;
+			case "HIC":return HIC "ã€" + fname + "ã€‘" NOR;
+			case "HIW":return HIW "ã€" + fname + "ã€‘" NOR;
+			case "HIY":return HIY "ã€" + fname + "ã€‘" NOR;
 			default: ob->delete("rank_info/color");
-				return HIG "¡¾" + fname + "¡¿" NOR;
+				return HIG "ã€" + fname + "ã€‘" NOR;
 		}
 	}
 
 	fname = ob->query("family/family_name");
 	switch (fname) {
-		case "¶ëáÒÅÉ": budd = ob->query_skill("dacheng-fofa", 1); break;
-		case "ÉÙÁÖÅÉ":
-		case "ÌìÁúËÂ": budd = ob->query_skill("buddhism", 1); break;
-		case "Îäµ±ÅÉ":
-		case "È«Õæ½Ì": budd = ob->query_skill("taoism", 1); break;
-		case "»ªÉ½ÅÉ":
-		case "À¥ÂØÅÉ":
-    case "Ì©É½ÅÉ":
-    case "ºâÉ½ÅÉ":
-    case "ºãÉ½ÅÉ":
-		case "áÔÉ½ÅÉ": budd = ob->query_skill("sword", 1); break;
-		case "¹ÅÄ¹ÅÉ": ob->query("gender") != "Å®ĞÔ"?budd = ob->query_skill("anran-zhang", 1):budd=ob->query_skill("yinsuo-jinling", 1); break;
-		case "¹ÃËÕÄ½Èİ": budd = ob->query_skill("shenyuan-gong", 1); break;
-		case "Ã÷½Ì" :
+		case "å³¨åµ‹æ´¾": budd = ob->query_skill("dacheng-fofa", 1); break;
+		case "å°‘æ—æ´¾":
+		case "å¤©é¾™å¯º": budd = ob->query_skill("buddhism", 1); break;
+		case "æ­¦å½“æ´¾":
+		case "å…¨çœŸæ•™": budd = ob->query_skill("taoism", 1); break;
+		case "åå±±æ´¾":
+		case "æ˜†ä»‘æ´¾":
+    case "æ³°å±±æ´¾":
+    case "è¡¡å±±æ´¾":
+    case "æ’å±±æ´¾":
+		case "åµ©å±±æ´¾": budd = ob->query_skill("sword", 1); break;
+		case "å¤å¢“æ´¾": ob->query("gender") != "å¥³æ€§"?budd = ob->query_skill("anran-zhang", 1):budd=ob->query_skill("yinsuo-jinling", 1); break;
+		case "å§‘è‹æ…•å®¹": budd = ob->query_skill("shenyuan-gong", 1); break;
+		case "æ˜æ•™" :
 			budd = ob->query_skill("jiuyang-shengong", 1);
 			if (!budd)
 				budd = ob->query_skill("shenghuo-shengong", 1);
 			break;
-		case "Ø¤°ï" : budd = ob->query("gb/bags"); break;
-		case "ÉñÁúµº": budd = ob->query_skill("dulong-dafa", 1); break;
-		case "ÌúÕÆ°ï": budd = ob->query_skill("guiyuan-tunafa", 1); break;
-		case "´óÀí": budd = ob->query_skill("qiantian-yiyang", 1); break;
-		case "´óÂÖËÂ": budd = ob->query_skill("huanxi-chan", 1); break;
-		case "ÌÒ»¨µº": budd = ob->query_skill("qimen-bagua", 1); break;
-		case "åĞÒ£ÅÉ": budd = ob->query_skill("art", 1); break;
-		case "ÁéğÕ¹¬": budd = ob->query_skill("yangyanshu", 1); break;
-		case "ĞÇËŞÅÉ": budd = ob->query_skill("poison", 1);	break;
-		case "ÈÕÔÂÉñ½Ì": budd = ob->query_skill("tianmo-jue", 1);	break;
-		case "Å·ÑôÊÀ¼Ò": budd = ob->query_skill("poison", 1);	break;
+		case "ä¸å¸®" : budd = ob->query("gb/bags"); break;
+		case "ç¥é¾™å²›": budd = ob->query_skill("dulong-dafa", 1); break;
+		case "é“æŒå¸®": budd = ob->query_skill("guiyuan-tunafa", 1); break;
+		case "å¤§ç†": budd = ob->query_skill("qiantian-yiyang", 1); break;
+		case "å¤§è½®å¯º": budd = ob->query_skill("huanxi-chan", 1); break;
+		case "æ¡ƒèŠ±å²›": budd = ob->query_skill("qimen-bagua", 1); break;
+		case "é€é¥æ´¾": budd = ob->query_skill("art", 1); break;
+		case "çµé¹«å®«": budd = ob->query_skill("yangyanshu", 1); break;
+		case "æ˜Ÿå®¿æ´¾": budd = ob->query_skill("poison", 1);	break;
+		case "æ—¥æœˆç¥æ•™": budd = ob->query_skill("tianmo-jue", 1);	break;
+		case "æ¬§é˜³ä¸–å®¶": budd = ob->query_skill("poison", 1);	break;
 	} // switch (fname)
 
 	switch(ob->query("gender")) {
-		case "ÎŞĞÔ":
+		case "æ— æ€§":
 			switch(wizhood(ob)) {
-				case "(admin)": return HIW "¡¾ Ìì  Ñı ¡¿" NOR;
-				case "(assist)": return HIR "¡¾ Ñı  ¹Ù ¡¿" NOR;
-				case "(arch)": return HIY "¡¾ Ñı  Éñ ¡¿" NOR;
-				case "(wizard)": return HIG "¡¾ Ñı  ÏÉ ¡¿" NOR;
-				case "(apprentice)": return HIC "¡¾ Ñı  Å® ¡¿" NOR;
-				case "(immortal)": return HIC "¡¾ Ñı  Î× ¡¿" NOR;
+				case "(admin)": return HIW "ã€ å¤©  å¦– ã€‘" NOR;
+				case "(assist)": return HIR "ã€ å¦–  å®˜ ã€‘" NOR;
+				case "(arch)": return HIY "ã€ å¦–  ç¥ ã€‘" NOR;
+				case "(wizard)": return HIG "ã€ å¦–  ä»™ ã€‘" NOR;
+				case "(apprentice)": return HIC "ã€ å¦–  å¥³ ã€‘" NOR;
+				case "(immortal)": return HIC "ã€ å¦–  å·« ã€‘" NOR;
 				default:
 					budd = (int)ob->query_skill("pixie-jian", 1);
-					if( budd >= 200) return HIR "¡¾ ¾ÅÇ§Ëê ¡¿"NOR;
-					if( budd >= 180) return HIR "¡¾ ³§  ¹« ¡¿"NOR;
-					if( budd >= 150) return HIR "¡¾ ´óµµÍ· ¡¿"NOR;
-					if( budd >= 120) return HIM "¡¾¶«³§Ç§»§¡¿"NOR;
-					if( budd >= 90)  return MAG "¡¾¶«³§°Ù»§¡¿"NOR;
-					if( budd >= 60 ) return MAG "¡¾Ì«¼à×Ü¹Ü¡¿"NOR;
-					if( budd >= 30 ) return MAG "¡¾ Ì«  ¼à ¡¿"NOR;
-					return MAG "¡¾ Ğ¡Ì«¼à ¡¿" NOR;
+					if( budd >= 200) return HIR "ã€ ä¹åƒå² ã€‘"NOR;
+					if( budd >= 180) return HIR "ã€ å‚  å…¬ ã€‘"NOR;
+					if( budd >= 150) return HIR "ã€ å¤§æ¡£å¤´ ã€‘"NOR;
+					if( budd >= 120) return HIM "ã€ä¸œå‚åƒæˆ·ã€‘"NOR;
+					if( budd >= 90)  return MAG "ã€ä¸œå‚ç™¾æˆ·ã€‘"NOR;
+					if( budd >= 60 ) return MAG "ã€å¤ªç›‘æ€»ç®¡ã€‘"NOR;
+					if( budd >= 30 ) return MAG "ã€ å¤ª  ç›‘ ã€‘"NOR;
+					return MAG "ã€ å°å¤ªç›‘ ã€‘" NOR;
 			}
-		case "Å®ĞÔ":
-		case "´ÆĞÔ":
+		case "å¥³æ€§":
+		case "é›Œæ€§":
 			switch(wizhood(ob)) {
-				case "(admin)": return HIW "¡¾ Ìì  ÏÉ ¡¿" NOR;
-				case "(assist)": return HIR "¡¾ Å®Éñ¹Ù ¡¿" NOR;
-				case "(arch)": return HIY "¡¾ Áú  Å® ¡¿" NOR;
-				case "(wizard)": return HIG "¡¾ ÏÉ  ×Ó ¡¿" NOR;
-				case "(apprentice)": return HIC "¡¾ ·É  Ìì ¡¿" NOR;
-				case "(immortal)": return HIC "¡¾ Å®¹ËÎÊ ¡¿" NOR;
+				case "(admin)": return HIW "ã€ å¤©  ä»™ ã€‘" NOR;
+				case "(assist)": return HIR "ã€ å¥³ç¥å®˜ ã€‘" NOR;
+				case "(arch)": return HIY "ã€ é¾™  å¥³ ã€‘" NOR;
+				case "(wizard)": return HIG "ã€ ä»™  å­ ã€‘" NOR;
+				case "(apprentice)": return HIC "ã€ é£  å¤© ã€‘" NOR;
+				case "(immortal)": return HIC "ã€ å¥³é¡¾é—® ã€‘" NOR;
 				default:
 					if( ob->query("PKS") > 20 && ob->query("PKS") > ob->query("MKS") / 4 )
-						return HIR "¡¾É±ÈËÅ®Ä§¡¿" NOR;
+						return HIR "ã€æ€äººå¥³é­”ã€‘" NOR;
 					if( (int)ob->query("thief") > 10 )
-						return GRN "¡¾ Å®¹ßÇÔ ¡¿" NOR;
+						return GRN "ã€ å¥³æƒ¯çªƒ ã€‘" NOR;
 					switch(fname) {
-						case "Ã÷½Ì":
-							if(budd >= 200) return HIR "¡¾ Ê¥  Å® ¡¿" NOR;
-							if(budd >= 170) return HIR "¡¾±¦Ê÷Éñ¼§¡¿" NOR;
-							if(budd >= 140) return RED "¡¾ »¤·¨Íõ ¡¿" NOR;
-							if(budd >= 100) return RED "¡¾ÌìÃÅÏãÖ÷¡¿" NOR;
-							if(budd >= 60) return HIM "¡¾ Å®ÏãÖ÷ ¡¿" NOR;
-							if(budd >= 20) return CYN "¡¾ Å®½ÌÖÚ ¡¿" NOR;
-							return CYN "¡¾ ÊÌ  Å® ¡¿" NOR;
-						case "Ø¤°ï":
-							if(budd >= 10) return HIW "¡¾ °ï  Ö÷ ¡¿" NOR;
-							if(budd >= 9) return HIW "¡¾ ¸±°ïÖ÷ ¡¿" NOR;
-							if(budd >= 8) return HIC "¡¾ ³¤  ÀÏ ¡¿" NOR;
-							if(budd >= 7) return HIG "¡¾ Áú  Í· ¡¿" NOR;
-							if(budd >= 6) return HIM "¡¾ Å®¶æÖ÷ ¡¿" NOR;
-							if(budd >= 5) return HIM "¡¾ Å®ÏãÖ÷ ¡¿" NOR;
-							if(budd >= 2) return HIM "¡¾ Å®°ïÖÚ ¡¿" NOR;
-							return CYN "¡¾ ½Ğ»¯ÆÅ ¡¿" NOR;
-						case "¶ëáÒÅÉ":
+						case "æ˜æ•™":
+							if(budd >= 200) return HIR "ã€ åœ£  å¥³ ã€‘" NOR;
+							if(budd >= 170) return HIR "ã€å®æ ‘ç¥å§¬ã€‘" NOR;
+							if(budd >= 140) return RED "ã€ æŠ¤æ³•ç‹ ã€‘" NOR;
+							if(budd >= 100) return RED "ã€å¤©é—¨é¦™ä¸»ã€‘" NOR;
+							if(budd >= 60) return HIM "ã€ å¥³é¦™ä¸» ã€‘" NOR;
+							if(budd >= 20) return CYN "ã€ å¥³æ•™ä¼— ã€‘" NOR;
+							return CYN "ã€ ä¾  å¥³ ã€‘" NOR;
+						case "ä¸å¸®":
+							if(budd >= 10) return HIW "ã€ å¸®  ä¸» ã€‘" NOR;
+							if(budd >= 9) return HIW "ã€ å‰¯å¸®ä¸» ã€‘" NOR;
+							if(budd >= 8) return HIC "ã€ é•¿  è€ ã€‘" NOR;
+							if(budd >= 7) return HIG "ã€ é¾™  å¤´ ã€‘" NOR;
+							if(budd >= 6) return HIM "ã€ å¥³èˆµä¸» ã€‘" NOR;
+							if(budd >= 5) return HIM "ã€ å¥³é¦™ä¸» ã€‘" NOR;
+							if(budd >= 2) return HIM "ã€ å¥³å¸®ä¼— ã€‘" NOR;
+							return CYN "ã€ å«åŒ–å©† ã€‘" NOR;
+						case "å³¨åµ‹æ´¾":
 							if (ob->query("class") != "bonze") break;
-							if (budd >= 180) return HIW "¡¾ Éñ  Äá ¡¿" NOR;
-							if (budd >= 140) return HIW "¡¾ ³¤  ÀÏ ¡¿" NOR;
-							if (budd >= 90)  return HIW "¡¾ Ê¦  Ì« ¡¿" NOR;
-							if (budd >= 60) return HIW "¡¾ ±ÈÇğÄá ¡¿" NOR;
-							if (budd >= 30 || age >= 20) return HIW "¡¾ É³ÃÖÄá ¡¿" NOR;
-							return HIW "¡¾ Ñ§½äÅ® ¡¿" NOR;
-						case "´óÂÖËÂ":
-							if (budd >= 180 && shen >= 0) return HIY "¡¾ »¶Ï²·ğ ¡¿" NOR;
-							if (budd >= 180 && shen < 0) return HIY "¡¾ »¶Ï²Ä§ ¡¿" NOR;
-							if (budd >= 140) return HIW "¡¾ Éñ  Å® ¡¿" NOR;
-							if (budd >= 90)  return HIW "¡¾ ·É  Ìì ¡¿" NOR;
-							if (budd >= 60) return HIW "¡¾ Ç¬´ïÆÅ ¡¿" NOR;
-							if (budd >= 30 || age >= 20) return HIW "¡¾ ÉñÃîÅ® ¡¿" NOR;
-							return HIW "¡¾ ÊÚ  ÊÂ ¡¿" NOR;
-						case "åĞÒ£ÅÉ":
-						case "ÌÒ»¨µº":
-							if (budd >= 180) return HIW "¡¾ Òİ  ÏÉ ¡¿" NOR;
-							if (budd >= 140) return HIC "¡¾ Òİ  ÏÍ ¡¿" NOR;
-							if (budd >= 100) return WHT "¡¾ Òİ  Ê¿ ¡¿" NOR;
-							if (budd >= 50 || age >= 18)  return CYN "¡¾ Çà  ÒÂ ¡¿" NOR;
-							return GRN "¡¾ Ãñ  Å® ¡¿" NOR;
-						case "»ªÉ½ÅÉ":
-						case "Ì©É½ÅÉ":
-            case "ºâÉ½ÅÉ":
-            case "ºãÉ½ÅÉ":
-						case "áÔÉ½ÅÉ":
-						case "À¥ÂØÅÉ":
-							if (budd >= 180) return HIW "¡¾ ½£  Ê¥ ¡¿" NOR;
-							if (budd >= 140) return HIY "¡¾ ½£  ÏÉ ¡¿" NOR;
-							if (budd >= 100) return HIC "¡¾ Å®½£ÏÀ ¡¿" NOR;
-							if (budd >= 50 || age >= 18)  return YEL "¡¾ Å®½£¿Í ¡¿" NOR;
-							return GRN "¡¾ Å®½£ÊÖ ¡¿" NOR;
-						case "ÁéğÕ¹¬":
-							if (budd >= 180) return HIW "¡¾ Éñ  ¼§ ¡¿" NOR;
-							if (budd >= 140) return HIY "¡¾ ‚b  Å® ¡¿" NOR;
-							if (budd >= 100) return HIC "¡¾ ÊÌ  ½£ ¡¿" NOR;
-							if (budd >= 50 || age >= 18)  return YEL "¡¾ ¹¬  Å® ¡¿" NOR;
-							return GRN "¡¾ »¨  Í¯ ¡¿" NOR;
-						case "¹ÅÄ¹ÅÉ":
-							if (budd >= 180) return HIW "¡¾ Óñ  Å® ¡¿" NOR;
-							if (budd >= 140) return HIY "¡¾ Ù»  Å® ¡¿" NOR;
-							if (budd >= 100) return HIC "¡¾ ËØ  Å® ¡¿" NOR;
-							if (budd >= 50 || age >= 18)  return YEL "¡¾ ÇÙ  Å® ¡¿" NOR;
-							return GRN "¡¾ ÇÙ  Í¯ ¡¿" NOR;
-						case "Îäµ±ÅÉ":
-						case "È«Õæ½Ì":
-							if (budd >= 180) return HIY "¡¾ Ğş  Å® ¡¿" NOR;
-							if (budd >= 140) return HIY "¡¾ ÏÉ  ¹Ã ¡¿" NOR;
-							if (budd >= 100) return HIY "¡¾ É¢  ÈË ¡¿" NOR;
-							if (budd >= 50 || age >= 20) return HIY "¡¾ µÀ  ¹Ã ¡¿" NOR;
-							return GRN "¡¾ Ğ¡µÀ¹Ã ¡¿" NOR;
-						case "ÌúÕÆ°ï":
-							if (budd >= 180) return WHT "¡¾ ´óµ±¼Ò ¡¿" NOR;
-							if (budd >= 140) return HIC "¡¾ Õ¯  Ö÷ ¡¿" NOR;
-							if (budd >= 100) return CYN "¡¾ ´óÍ·Ä¿ ¡¿" NOR;
-							if (budd >= 50 || age >= 18)  return CYN "¡¾ Í·  Ä¿ ¡¿" NOR;
-							return GRN "¡¾ Ğ¡à¶ÂŞ ¡¿" NOR;
-						case "ĞÇËŞÅÉ":
-							if (budd >= 180) return HIB "¡¾ ¶¾  ºó ¡¿" NOR;
-							if (budd >= 160) return YEL "¡¾ ¶¾  ¼§ ¡¿" NOR;
-							if (budd >= 140) return MAG "¡¾ ¶¾  Ñı ¡¿" NOR;
-							if (budd >= 100) return BLU "¡¾ ¶¾ÂŞÉ² ¡¿" NOR;
-							if (budd >= 50 || age >= 18)  return CYN "¡¾ ¶¾  ¹Ö ¡¿" NOR;
-							return GRN "¡¾ ÂíÆ¨³æ ¡¿" NOR;
-						case "¹ÃËÕÄ½Èİ":
-							if(budd >= 190) return HIC "¡¾ Ğ¡  ½ã ¡¿" NOR;
-							if(budd >= 150) return HIC "¡¾ ×¯  Ö÷ ¡¿" NOR;
-							if(budd >= 110) return HIC "¡¾ ¹Ü  ¼Ò ¡¿" NOR;
-							if(budd >= 70) return HIC "¡¾ ÊÌ  Êé ¡¿" NOR;
-							if(budd >= 30) return HIC "¡¾ ´óÑ¾÷ß ¡¿" NOR;
-							return HIC "¡¾ Ñ¾  ÷ß ¡¿" NOR;
-							case "Å·ÑôÊÀ¼Ò":
-							if(budd >= 190) return HIR "¡¾ Å®Î÷¶¾ ¡¿" NOR;
-							if(budd >= 150) return HIB "¡¾ Å®ÉßÄ§ ¡¿" NOR;
-							if(budd >= 110) return HIC "¡¾ Å®×Ü¹Ü ¡¿" NOR;
-							if(budd >= 70) return HIM "¡¾ Å®»¤Ôº ¡¿" NOR;
-							if(budd >= 30) return MAG "¡¾ Å®Ëæ´Ó ¡¿" NOR;
-							return GRN "¡¾ Å®¼Ò¶¡ ¡¿" NOR;
-			        case "ÈÕÔÂÉñ½Ì":
-							if(budd >= 190) return HIR "¡¾ Ê¥  Å® ¡¿" NOR;
-							if(budd >= 150) return HIM "¡¾ ³¤  ÀÏ ¡¿" NOR;
-							if(budd >= 110) return HIC "¡¾ »¤  ·¨ ¡¿" NOR;
-							if(budd >= 70) return HIG "¡¾ »¤  ½Ì ¡¿" NOR;
-							if(budd >= 30) return GRN "¡¾ ÌÃ  Ö÷ ¡¿" NOR;
-							return GRN "¡¾ ½Ì  Í½ ¡¿" NOR;
+							if (budd >= 180) return HIW "ã€ ç¥  å°¼ ã€‘" NOR;
+							if (budd >= 140) return HIW "ã€ é•¿  è€ ã€‘" NOR;
+							if (budd >= 90)  return HIW "ã€ å¸ˆ  å¤ª ã€‘" NOR;
+							if (budd >= 60) return HIW "ã€ æ¯”ä¸˜å°¼ ã€‘" NOR;
+							if (budd >= 30 || age >= 20) return HIW "ã€ æ²™å¼¥å°¼ ã€‘" NOR;
+							return HIW "ã€ å­¦æˆ’å¥³ ã€‘" NOR;
+						case "å¤§è½®å¯º":
+							if (budd >= 180 && shen >= 0) return HIY "ã€ æ¬¢å–œä½› ã€‘" NOR;
+							if (budd >= 180 && shen < 0) return HIY "ã€ æ¬¢å–œé­” ã€‘" NOR;
+							if (budd >= 140) return HIW "ã€ ç¥  å¥³ ã€‘" NOR;
+							if (budd >= 90)  return HIW "ã€ é£  å¤© ã€‘" NOR;
+							if (budd >= 60) return HIW "ã€ ä¹¾è¾¾å©† ã€‘" NOR;
+							if (budd >= 30 || age >= 20) return HIW "ã€ ç¥å¦™å¥³ ã€‘" NOR;
+							return HIW "ã€ æˆ  äº‹ ã€‘" NOR;
+						case "é€é¥æ´¾":
+						case "æ¡ƒèŠ±å²›":
+							if (budd >= 180) return HIW "ã€ é€¸  ä»™ ã€‘" NOR;
+							if (budd >= 140) return HIC "ã€ é€¸  è´¤ ã€‘" NOR;
+							if (budd >= 100) return WHT "ã€ é€¸  å£« ã€‘" NOR;
+							if (budd >= 50 || age >= 18)  return CYN "ã€ é’  è¡£ ã€‘" NOR;
+							return GRN "ã€ æ°‘  å¥³ ã€‘" NOR;
+						case "åå±±æ´¾":
+						case "æ³°å±±æ´¾":
+            case "è¡¡å±±æ´¾":
+            case "æ’å±±æ´¾":
+						case "åµ©å±±æ´¾":
+						case "æ˜†ä»‘æ´¾":
+							if (budd >= 180) return HIW "ã€ å‰‘  åœ£ ã€‘" NOR;
+							if (budd >= 140) return HIY "ã€ å‰‘  ä»™ ã€‘" NOR;
+							if (budd >= 100) return HIC "ã€ å¥³å‰‘ä¾  ã€‘" NOR;
+							if (budd >= 50 || age >= 18)  return YEL "ã€ å¥³å‰‘å®¢ ã€‘" NOR;
+							return GRN "ã€ å¥³å‰‘æ‰‹ ã€‘" NOR;
+						case "çµé¹«å®«":
+							if (budd >= 180) return HIW "ã€ ç¥  å§¬ ã€‘" NOR;
+							if (budd >= 140) return HIY "ã€ ä¿   å¥³ ã€‘" NOR;
+							if (budd >= 100) return HIC "ã€ ä¾  å‰‘ ã€‘" NOR;
+							if (budd >= 50 || age >= 18)  return YEL "ã€ å®«  å¥³ ã€‘" NOR;
+							return GRN "ã€ èŠ±  ç«¥ ã€‘" NOR;
+						case "å¤å¢“æ´¾":
+							if (budd >= 180) return HIW "ã€ ç‰  å¥³ ã€‘" NOR;
+							if (budd >= 140) return HIY "ã€ å€©  å¥³ ã€‘" NOR;
+							if (budd >= 100) return HIC "ã€ ç´   å¥³ ã€‘" NOR;
+							if (budd >= 50 || age >= 18)  return YEL "ã€ ç´  å¥³ ã€‘" NOR;
+							return GRN "ã€ ç´  ç«¥ ã€‘" NOR;
+						case "æ­¦å½“æ´¾":
+						case "å…¨çœŸæ•™":
+							if (budd >= 180) return HIY "ã€ ç„  å¥³ ã€‘" NOR;
+							if (budd >= 140) return HIY "ã€ ä»™  å§‘ ã€‘" NOR;
+							if (budd >= 100) return HIY "ã€ æ•£  äºº ã€‘" NOR;
+							if (budd >= 50 || age >= 20) return HIY "ã€ é“  å§‘ ã€‘" NOR;
+							return GRN "ã€ å°é“å§‘ ã€‘" NOR;
+						case "é“æŒå¸®":
+							if (budd >= 180) return WHT "ã€ å¤§å½“å®¶ ã€‘" NOR;
+							if (budd >= 140) return HIC "ã€ å¯¨  ä¸» ã€‘" NOR;
+							if (budd >= 100) return CYN "ã€ å¤§å¤´ç›® ã€‘" NOR;
+							if (budd >= 50 || age >= 18)  return CYN "ã€ å¤´  ç›® ã€‘" NOR;
+							return GRN "ã€ å°å–½ç½— ã€‘" NOR;
+						case "æ˜Ÿå®¿æ´¾":
+							if (budd >= 180) return HIB "ã€ æ¯’  å ã€‘" NOR;
+							if (budd >= 160) return YEL "ã€ æ¯’  å§¬ ã€‘" NOR;
+							if (budd >= 140) return MAG "ã€ æ¯’  å¦– ã€‘" NOR;
+							if (budd >= 100) return BLU "ã€ æ¯’ç½—åˆ¹ ã€‘" NOR;
+							if (budd >= 50 || age >= 18)  return CYN "ã€ æ¯’  æ€ª ã€‘" NOR;
+							return GRN "ã€ é©¬å±è™« ã€‘" NOR;
+						case "å§‘è‹æ…•å®¹":
+							if(budd >= 190) return HIC "ã€ å°  å§ ã€‘" NOR;
+							if(budd >= 150) return HIC "ã€ åº„  ä¸» ã€‘" NOR;
+							if(budd >= 110) return HIC "ã€ ç®¡  å®¶ ã€‘" NOR;
+							if(budd >= 70) return HIC "ã€ ä¾  ä¹¦ ã€‘" NOR;
+							if(budd >= 30) return HIC "ã€ å¤§ä¸«é¬Ÿ ã€‘" NOR;
+							return HIC "ã€ ä¸«  é¬Ÿ ã€‘" NOR;
+							case "æ¬§é˜³ä¸–å®¶":
+							if(budd >= 190) return HIR "ã€ å¥³è¥¿æ¯’ ã€‘" NOR;
+							if(budd >= 150) return HIB "ã€ å¥³è›‡é­” ã€‘" NOR;
+							if(budd >= 110) return HIC "ã€ å¥³æ€»ç®¡ ã€‘" NOR;
+							if(budd >= 70) return HIM "ã€ å¥³æŠ¤é™¢ ã€‘" NOR;
+							if(budd >= 30) return MAG "ã€ å¥³éšä» ã€‘" NOR;
+							return GRN "ã€ å¥³å®¶ä¸ ã€‘" NOR;
+			        case "æ—¥æœˆç¥æ•™":
+							if(budd >= 190) return HIR "ã€ åœ£  å¥³ ã€‘" NOR;
+							if(budd >= 150) return HIM "ã€ é•¿  è€ ã€‘" NOR;
+							if(budd >= 110) return HIC "ã€ æŠ¤  æ³• ã€‘" NOR;
+							if(budd >= 70) return HIG "ã€ æŠ¤  æ•™ ã€‘" NOR;
+							if(budd >= 30) return GRN "ã€ å ‚  ä¸» ã€‘" NOR;
+							return GRN "ã€ æ•™  å¾’ ã€‘" NOR;
 					} // switch(fname)
 
 					if (!ob->query("class")) {
-						if (shen >= 1500000) return HIC "¡¾½íàşÉñÅ®¡¿" NOR;
-						if (shen >= 1000000) return HIC "¡¾¾øÊÀÌì½¿¡¿" NOR;
-						if (shen >= 500000) return HIC "¡¾¿õÊÀÅ®ÏÀ¡¿" NOR;
-						if (shen >= 50000) return HIC "¡¾ Å®·ÉÏÀ ¡¿" NOR;
-						if (shen >= 5000) return HIC "¡¾ Å®  ÏÀ ¡¿" NOR;
-						if (shen >= 500) return HIC "¡¾ Ğ¡ÏÀÅ® ¡¿" NOR;
-						if (shen <= -1500000) return HIB "¡¾ Ñı  ¼§ ¡¿" NOR;
-						if (shen <= -1000000) return HIB "¡¾ÃğÊÀÂŞÉ²¡¿" NOR;
-						if (shen <= -500000) return HIB "¡¾¿õÊÀÅ®Ä§¡¿" NOR;
-						if (shen <= -50000) return HIB "¡¾ Å®Ä§Íõ ¡¿" NOR;
-						if (shen <= -5000) return HIB "¡¾ Å®Ä§Í· ¡¿" NOR;
-						if (shen <= -500) return HIB "¡¾ Ğ¡Ä§Å® ¡¿" NOR;
+						if (shen >= 1500000) return HIC "ã€å·¾å¸¼ç¥å¥³ã€‘" NOR;
+						if (shen >= 1000000) return HIC "ã€ç»ä¸–å¤©å¨‡ã€‘" NOR;
+						if (shen >= 500000) return HIC "ã€æ—·ä¸–å¥³ä¾ ã€‘" NOR;
+						if (shen >= 50000) return HIC "ã€ å¥³é£ä¾  ã€‘" NOR;
+						if (shen >= 5000) return HIC "ã€ å¥³  ä¾  ã€‘" NOR;
+						if (shen >= 500) return HIC "ã€ å°ä¾ å¥³ ã€‘" NOR;
+						if (shen <= -1500000) return HIB "ã€ å¦–  å§¬ ã€‘" NOR;
+						if (shen <= -1000000) return HIB "ã€ç­ä¸–ç½—åˆ¹ã€‘" NOR;
+						if (shen <= -500000) return HIB "ã€æ—·ä¸–å¥³é­”ã€‘" NOR;
+						if (shen <= -50000) return HIB "ã€ å¥³é­”ç‹ ã€‘" NOR;
+						if (shen <= -5000) return HIB "ã€ å¥³é­”å¤´ ã€‘" NOR;
+						if (shen <= -500) return HIB "ã€ å°é­”å¥³ ã€‘" NOR;
 					}
 
-					// Ã»ÓĞÃÅÅÉµÄ²Å°áÓÃÕâÀïµÄ
+					// æ²¡æœ‰é—¨æ´¾çš„æ‰æ¬ç”¨è¿™é‡Œçš„
 					switch(ob->query("class")) {
-						case "bonze": return GRN "¡¾ Äá ¹Ã ¡¿" NOR;
+						case "bonze": return GRN "ã€ å°¼ å§‘ ã€‘" NOR;
 						case "taoist":
-							if (age >= 20) return GRN "¡¾ µÀ  ¹Ã ¡¿" NOR;
-							return GRN "¡¾ Ğ¡µÀ¹Ã ¡¿" NOR;
-						case "bandit": return GRN "¡¾ Å®·ÉÔô ¡¿" NOR;
-	//					case "dancer": return HIM"¡¾¾øÉ«¼ÑÈË¡¿"NOR;
-						case "scholar": return GRN "¡¾ ²Å  Å® ¡¿" NOR;
-						case "officer": return GRN "¡¾ Å®  ¹Ù ¡¿" NOR;
-						case "fighter": return GRN "¡¾ Å®ÎäÕß ¡¿" NOR;
-						case "swordsman": return GRN "¡¾ Å®½£Ê¿ ¡¿" NOR;
-						case "alchemist": return GRN "¡¾ Å®·½Ê¿ ¡¿" NOR;
-						case "shaman": return GRN "¡¾ Å®Î×Ò½ ¡¿" NOR;
-						case "beggar": return GRN "¡¾ ½Ğ»¯ÆÅ ¡¿" NOR;
+							if (age >= 20) return GRN "ã€ é“  å§‘ ã€‘" NOR;
+							return GRN "ã€ å°é“å§‘ ã€‘" NOR;
+						case "bandit": return GRN "ã€ å¥³é£è´¼ ã€‘" NOR;
+	//					case "dancer": return HIM"ã€ç»è‰²ä½³äººã€‘"NOR;
+						case "scholar": return GRN "ã€ æ‰  å¥³ ã€‘" NOR;
+						case "officer": return GRN "ã€ å¥³  å®˜ ã€‘" NOR;
+						case "fighter": return GRN "ã€ å¥³æ­¦è€… ã€‘" NOR;
+						case "swordsman": return GRN "ã€ å¥³å‰‘å£« ã€‘" NOR;
+						case "alchemist": return GRN "ã€ å¥³æ–¹å£« ã€‘" NOR;
+						case "shaman": return GRN "ã€ å¥³å·«åŒ» ã€‘" NOR;
+						case "beggar": return GRN "ã€ å«åŒ–å©† ã€‘" NOR;
 						default:
 							if (ob->query("marry")) {
-								if (age < 30) return GRN "¡¾ ÉÙ  ¸¾ ¡¿" NOR;
-								if (age < 50) return GRN "¡¾ÖĞÄê¸¾ÈË¡¿" NOR;
-								return GRN "¡¾ ÀÏ¸¾ÈË ¡¿" NOR;
+								if (age < 30) return GRN "ã€ å°‘  å¦‡ ã€‘" NOR;
+								if (age < 50) return GRN "ã€ä¸­å¹´å¦‡äººã€‘" NOR;
+								return GRN "ã€ è€å¦‡äºº ã€‘" NOR;
 							}
 							if (divorce > 2) {
-								if (age < 50) return GRN "¡¾ µ´  ¸¾ ¡¿" NOR;
-								return GRN "¡¾ ÀÏµ´¸¾ ¡¿" NOR;
+								if (age < 50) return GRN "ã€ è¡  å¦‡ ã€‘" NOR;
+								return GRN "ã€ è€è¡å¦‡ ã€‘" NOR;
 							}
 							if (divorce) {
-								if (age < 50) return GRN "¡¾ ¹Ñ  ¸¾ ¡¿" NOR;
-								return GRN "¡¾ ÀÏ¹Ñ¸¾ ¡¿" NOR;
+								if (age < 50) return GRN "ã€ å¯¡  å¦‡ ã€‘" NOR;
+								return GRN "ã€ è€å¯¡å¦‡ ã€‘" NOR;
 							}
-							if (age < 18) return GRN "¡¾ ÉÙ  Å® ¡¿" NOR;
-							if (age < 30) return GRN "¡¾ÇàÄêÅ®×Ó¡¿" NOR;
-							if (age < 50) return GRN "¡¾ÖĞÄêÅ®×Ó¡¿" NOR;
-							return GRN "¡¾ ÀÏ´¦Å® ¡¿" NOR;
+							if (age < 18) return GRN "ã€ å°‘  å¥³ ã€‘" NOR;
+							if (age < 30) return GRN "ã€é’å¹´å¥³å­ã€‘" NOR;
+							if (age < 50) return GRN "ã€ä¸­å¹´å¥³å­ã€‘" NOR;
+							return GRN "ã€ è€å¤„å¥³ ã€‘" NOR;
 					} // switch(ob->query("class"))
 
 			} // switch(wizhood(ob))
 		default:
 			switch(wizhood(ob)) {
-				case "(admin)": return HIW "¡¾ Ìì  Éñ ¡¿" NOR;
-				case "(assist)": return HIR "¡¾ Éñ  ¹Ù ¡¿" NOR;
-				case "(arch)": return HIY "¡¾ Áú  Éñ ¡¿" NOR;
-				case "(wizard)": return HIG "¡¾ ÏÉ  ÈË ¡¿" NOR;
-				case "(apprentice)": return HIC "¡¾ Î×  Ê¦ ¡¿" NOR;
-				case "(immortal)": return HIC "¡¾ ¹Ë  ÎÊ ¡¿" NOR;
+				case "(admin)": return HIW "ã€ å¤©  ç¥ ã€‘" NOR;
+				case "(assist)": return HIR "ã€ ç¥  å®˜ ã€‘" NOR;
+				case "(arch)": return HIY "ã€ é¾™  ç¥ ã€‘" NOR;
+				case "(wizard)": return HIG "ã€ ä»™  äºº ã€‘" NOR;
+				case "(apprentice)": return HIC "ã€ å·«  å¸ˆ ã€‘" NOR;
+				case "(immortal)": return HIC "ã€ é¡¾  é—® ã€‘" NOR;
 				default:
 					if (ob->query("PKS") > 20 && ob->query("PKS") > ob->query("MKS") / 4)
-						return HIR "¡¾É±ÈËÄ§Íõ¡¿" NOR;
+						return HIR "ã€æ€äººé­”ç‹ã€‘" NOR;
 					if (ob->query("thief") > 10)
-						return GRN "¡¾ ¹ß  ÇÔ ¡¿" NOR;
+						return GRN "ã€ æƒ¯  çªƒ ã€‘" NOR;
 					switch(fname) {
-						case "Ã÷½Ì":
-							if(budd >= 200) return HIW "¡¾ ¸±½ÌÖ÷ ¡¿" NOR;
-							if(budd >= 170) return WHT "¡¾¹âÃ÷Ê¹Õß¡¿" NOR;
-							if(budd >= 140) return HIC "¡¾»¤½Ì·¨Íõ¡¿" NOR;
-							if(budd >= 100) return HIC "¡¾ÎåÆì»¤·¨¡¿" NOR;
-							if(budd >= 60) return HIC "¡¾ Ïã  Ö÷ ¡¿" NOR;
-							if(budd >= 20) return CYN "¡¾ ½Ì  ÖÚ ¡¿" NOR;
-							return CYN "¡¾ ÔÓ  ÒÛ ¡¿" NOR;
-						case "ÌÒ»¨µº":
-							if (budd >= 180) return HIW "¡¾ Òş  Ê¥ ¡¿" NOR;
-							if (budd >= 140) return HIC "¡¾ Òş  ÏÍ ¡¿" NOR;
-							if (budd >= 100) return WHT "¡¾ Òş  Ê¿ ¡¿" NOR;
-							if (budd >= 50 || age >= 18)  return CYN "¡¾ ÃÅ  Éú ¡¿" NOR;
-							return "¡¾ Æ½  Ãñ ¡¿";
-						case "ÌúÕÆ°ï":
-							if (budd >= 180) return WHT "¡¾ É½´óÍõ ¡¿" NOR;
-							if (budd >= 140) return HIC "¡¾ Õ¯  Ö÷ ¡¿" NOR;
-							if (budd >= 100) return CYN "¡¾ µ±  ¼Ò ¡¿" NOR;
-							if (budd >= 50 || age >= 18)  return CYN "¡¾ Í·  Ä¿ ¡¿" NOR;
-							return "¡¾ Ğ¡à¶ÂŞ ¡¿";
-						case "Ø¤°ï":
-							if(budd >= 10) return HIW "¡¾ °ï  Ö÷ ¡¿" NOR;
-							if(budd >= 9) return HIW "¡¾ ¸±°ïÖ÷ ¡¿" NOR;
-							if(budd >= 8) return HIC "¡¾ ³¤  ÀÏ ¡¿" NOR;
-							if(budd >= 7) return HIG "¡¾ Áú  Í· ¡¿" NOR;
-							if(budd >= 6) return HIM "¡¾ ¶æ  Ö÷ ¡¿" NOR;
-							if(budd >= 5) return HIM "¡¾ Ïã  Ö÷ ¡¿" NOR;
-							if(budd >= 2) return CYN "¡¾ °ï  ÖÚ ¡¿" NOR;
-							return CYN "¡¾ ½Ğ»¯×Ó ¡¿" NOR;
-						case "ÉÙÁÖÅÉ":
+						case "æ˜æ•™":
+							if(budd >= 200) return HIW "ã€ å‰¯æ•™ä¸» ã€‘" NOR;
+							if(budd >= 170) return WHT "ã€å…‰æ˜ä½¿è€…ã€‘" NOR;
+							if(budd >= 140) return HIC "ã€æŠ¤æ•™æ³•ç‹ã€‘" NOR;
+							if(budd >= 100) return HIC "ã€äº”æ——æŠ¤æ³•ã€‘" NOR;
+							if(budd >= 60) return HIC "ã€ é¦™  ä¸» ã€‘" NOR;
+							if(budd >= 20) return CYN "ã€ æ•™  ä¼— ã€‘" NOR;
+							return CYN "ã€ æ‚  å½¹ ã€‘" NOR;
+						case "æ¡ƒèŠ±å²›":
+							if (budd >= 180) return HIW "ã€ éš  åœ£ ã€‘" NOR;
+							if (budd >= 140) return HIC "ã€ éš  è´¤ ã€‘" NOR;
+							if (budd >= 100) return WHT "ã€ éš  å£« ã€‘" NOR;
+							if (budd >= 50 || age >= 18)  return CYN "ã€ é—¨  ç”Ÿ ã€‘" NOR;
+							return "ã€ å¹³  æ°‘ ã€‘";
+						case "é“æŒå¸®":
+							if (budd >= 180) return WHT "ã€ å±±å¤§ç‹ ã€‘" NOR;
+							if (budd >= 140) return HIC "ã€ å¯¨  ä¸» ã€‘" NOR;
+							if (budd >= 100) return CYN "ã€ å½“  å®¶ ã€‘" NOR;
+							if (budd >= 50 || age >= 18)  return CYN "ã€ å¤´  ç›® ã€‘" NOR;
+							return "ã€ å°å–½ç½— ã€‘";
+						case "ä¸å¸®":
+							if(budd >= 10) return HIW "ã€ å¸®  ä¸» ã€‘" NOR;
+							if(budd >= 9) return HIW "ã€ å‰¯å¸®ä¸» ã€‘" NOR;
+							if(budd >= 8) return HIC "ã€ é•¿  è€ ã€‘" NOR;
+							if(budd >= 7) return HIG "ã€ é¾™  å¤´ ã€‘" NOR;
+							if(budd >= 6) return HIM "ã€ èˆµ  ä¸» ã€‘" NOR;
+							if(budd >= 5) return HIM "ã€ é¦™  ä¸» ã€‘" NOR;
+							if(budd >= 2) return CYN "ã€ å¸®  ä¼— ã€‘" NOR;
+							return CYN "ã€ å«åŒ–å­ ã€‘" NOR;
+						case "å°‘æ—æ´¾":
 							if (ob->query("class") != "bonze")
-								return HIY "¡¾ ĞĞ  Õß ¡¿" NOR;
-							if (budd >= 200) return HIY "¡¾ Éñ  É® ¡¿" NOR;
-							if (budd >= 170) return HIY "¡¾ Ê¥  É® ¡¿" NOR;
-							if (budd >= 120) return HIY "¡¾ ³¤  ÀÏ ¡¿" NOR;
-							if (budd >= 80) return HIY "¡¾ ÂŞ  ºº ¡¿" NOR;
-							if (budd >= 60) return HIY "¡¾ ×ğ  Õß ¡¿" NOR;
-							if (budd >= 40) return HIY "¡¾ ìø  Ê¦ ¡¿" NOR;
-							if (budd >= 30) return HIY "¡¾ ±È  Çğ ¡¿" NOR;
-							return HIY "¡¾ É®  ÂÂ ¡¿" NOR;
-						case "ÌìÁúËÂ":
+								return HIY "ã€ è¡Œ  è€… ã€‘" NOR;
+							if (budd >= 200) return HIY "ã€ ç¥  åƒ§ ã€‘" NOR;
+							if (budd >= 170) return HIY "ã€ åœ£  åƒ§ ã€‘" NOR;
+							if (budd >= 120) return HIY "ã€ é•¿  è€ ã€‘" NOR;
+							if (budd >= 80) return HIY "ã€ ç½—  æ±‰ ã€‘" NOR;
+							if (budd >= 60) return HIY "ã€ å°Š  è€… ã€‘" NOR;
+							if (budd >= 40) return HIY "ã€ ç¦…  å¸ˆ ã€‘" NOR;
+							if (budd >= 30) return HIY "ã€ æ¯”  ä¸˜ ã€‘" NOR;
+							return HIY "ã€ åƒ§  ä¾£ ã€‘" NOR;
+						case "å¤©é¾™å¯º":
 							if (ob->query("tls")) {
 								if (ob->query("class") != "bonze")
-									return HIY "¡¾ ĞĞ  Õß ¡¿" NOR;
-								if (budd >= 200) return HIY "¡¾ Éñ  É® ¡¿" NOR;
-								if (budd >= 170) return HIY "¡¾ Ê¥  É® ¡¿" NOR;
-								if (budd >= 120) return HIY "¡¾ ³¤  ÀÏ ¡¿" NOR;
-								if (budd >= 80) return HIY "¡¾ ÂŞ  ºº ¡¿" NOR;
-								if (budd >= 60) return HIY "¡¾ ×ğ  Õß ¡¿" NOR;
-								if (budd >= 40) return HIY "¡¾ ìø  Ê¦ ¡¿" NOR;
-								if (budd >= 30) return HIY "¡¾ ±È  Çğ ¡¿" NOR;
-								return HIY "¡¾ É®  ÂÂ ¡¿" NOR;
+									return HIY "ã€ è¡Œ  è€… ã€‘" NOR;
+								if (budd >= 200) return HIY "ã€ ç¥  åƒ§ ã€‘" NOR;
+								if (budd >= 170) return HIY "ã€ åœ£  åƒ§ ã€‘" NOR;
+								if (budd >= 120) return HIY "ã€ é•¿  è€ ã€‘" NOR;
+								if (budd >= 80) return HIY "ã€ ç½—  æ±‰ ã€‘" NOR;
+								if (budd >= 60) return HIY "ã€ å°Š  è€… ã€‘" NOR;
+								if (budd >= 40) return HIY "ã€ ç¦…  å¸ˆ ã€‘" NOR;
+								if (budd >= 30) return HIY "ã€ æ¯”  ä¸˜ ã€‘" NOR;
+								return HIY "ã€ åƒ§  ä¾£ ã€‘" NOR;
 							} else {
 								if (ob->query("qinwang"))
-									return HIY "¡¾ Íõ  Ò¯ ¡¿" NOR;
-								if (ob->query("family/master_name")=="¶ÎÕı´¾")
-									return HIC "¡¾ Îä  ½« ¡¿" NOR;
-								if (ob->query("family/master_name")=="¶ÎÕıÃ÷")
-									return HIC "¡¾ Îä  ½« ¡¿" NOR;
+									return HIY "ã€ ç‹  çˆ· ã€‘" NOR;
+								if (ob->query("family/master_name")=="æ®µæ­£æ·³")
+									return HIC "ã€ æ­¦  å°† ã€‘" NOR;
+								if (ob->query("family/master_name")=="æ®µæ­£æ˜")
+									return HIC "ã€ æ­¦  å°† ã€‘" NOR;
 							}
-							return HIW "¡¾ ¹Ü  ²î ¡¿" NOR;
-						case "´óÂÖËÂ":
+							return HIW "ã€ ç®¡  å·® ã€‘" NOR;
+						case "å¤§è½®å¯º":
 							if (budd >= 180)
-								if (shen >= 0) return HIY "¡¾»¶Ï²·¨Íõ¡¿" NOR;
-								else return HIY "¡¾»¶Ï²Ä§Íõ¡¿" NOR;
-							if (budd >= 140) return HIY "¡¾ Ìì  Íõ ¡¿" NOR;
-							if (budd >= 90)  return HIY "¡¾ ´ó»¤·¨ ¡¿" NOR;
-							if (budd >= 60) return HIY "¡¾ ½ğ  ¸Õ ¡¿" NOR;
-							if (budd >= 30 || age >= 20) return HIY "¡¾ Á¦  Ê¿ ¡¿" NOR;
-							return HIY "¡¾ ÔÓ  ÒÛ ¡¿" NOR;
-						case "»ªÉ½ÅÉ":
-						case "Ì©É½ÅÉ":
-            case "ºâÉ½ÅÉ":
-            case "ºãÉ½ÅÉ":
-						case "áÔÉ½ÅÉ":
-						case "À¥ÂØÅÉ":
-							if (budd >= 180) return HIW "¡¾ ½£  ×Ú ¡¿" NOR;
-							if (budd >= 140) return HIY "¡¾ ½£  ¿ñ ¡¿" NOR;
-							if (budd >= 100) return HIC "¡¾ ½£  ÏÀ ¡¿" NOR;
-							if (budd >= 50 || age >= 18) return YEL "¡¾ ½£  ¿Í ¡¿" NOR;
-							return GRN"¡¾ ½£  ÊÖ ¡¿"NOR;
-						case "ÁéğÕ¹¬":	
-						case "¹ÅÄ¹ÅÉ":
-							if (budd >= 180) return HIW "¡¾ Çé  ¿ñ ¡¿" NOR;
-							if (budd >= 140) return HIY "¡¾ Çé  ³Õ ¡¿" NOR;
-							if (budd >= 100) return HIC "¡¾ Çé  ÏÀ ¡¿" NOR;
-							if (budd >= 50 || age >= 18) return YEL "¡¾ ½£  ÀÉ ¡¿" NOR;
-							return GRN"¡¾ ½£  Í¯ ¡¿"NOR;
-						case "åĞÒ£ÅÉ":
-							if (budd >= 180) return HIW "¡¾ Êé  Ê¥ ¡¿" NOR;
-							if (budd >= 140) return HIG "¡¾ ÎÄ  ºÀ ¡¿" NOR;
-							if (budd >= 100) return HIC "¡¾ ²Å  ×Ó ¡¿" NOR;
-							if (budd >= 50 || age >= 18) return HIC "¡¾ ÊÌ  ¶Á ¡¿" NOR;
-								return GRN "¡¾ Êé  Í¯ ¡¿" NOR;
-						case "Îäµ±ÅÉ":
-						case "È«Õæ½Ì":
-							if (budd >= 180) return HIW "¡¾ Ìì  ×ğ ¡¿" NOR;
-							if (budd >= 140) return HIW "¡¾ Ìì  Ê¦ ¡¿" NOR;
-							if (budd >= 100) return HIW "¡¾ Õæ  ÈË ¡¿" NOR;
-							if (budd >= 50 || age >= 20) return HIW "¡¾ µÀ  Ê¿ ¡¿" NOR;
-							return GRN"¡¾ µÀ  Í¯ ¡¿"NOR;
-						case "ĞÇËŞÅÉ":
-							if (budd >= 180) return HIB "¡¾ ¶¾  ×ğ ¡¿" NOR;
-							if (budd >= 160) return YEL "¡¾ ¶¾  °Ô ¡¿" NOR;
-							if (budd >= 140) return MAG "¡¾ ¶¾  ¾ı ¡¿" NOR;
-							if (budd >= 100) return BLU "¡¾ ¶¾  Íõ ¡¿" NOR;
-							if (budd >= 50 || age >= 18)  return CYN "¡¾ ¶¾  Ä§ ¡¿" NOR;
-							return GRN"¡¾ ·¨ÂİÍõ ¡¿"NOR;
-						case "¹ÃËÕÄ½Èİ":
-							if(budd >= 190) return HIC "¡¾ ÉÙ  Ò¯ ¡¿" NOR;
-							if(budd >= 150) return HIC "¡¾ ×¯  Ö÷ ¡¿" NOR;
-							if(budd >= 110) return HIC "¡¾ ¹Ü  ¼Ò ¡¿" NOR;
-							if(budd >= 70) return HIC "¡¾ »¤  Ôº ¡¿" NOR;
-							if(budd >= 30) return HIC "¡¾ ×¯  ¶¡ ¡¿" NOR;
-							return HIC "¡¾ ×¯  ¶¡ ¡¿" NOR;
-							case "Å·ÑôÊÀ¼Ò":
-							if(budd >= 190) return HIB "¡¾ Î÷  ¶¾ ¡¿" NOR;
-							if(budd >= 150) return HIB "¡¾ Éß  Ä§ ¡¿" NOR;
-							if(budd >= 110) return HIC "¡¾ ×Ü  ¹Ü ¡¿" NOR;
-							if(budd >= 70) return HIM "¡¾  »¤  Ôº ¡¿" NOR;
-							if(budd >= 30) return MAG "¡¾ Ëæ  ´Ó ¡¿" NOR;
-							return GRN "¡¾ ¼Ò ¶¡ ¡¿" NOR;
-							case "ÈÕÔÂÉñ½Ì":
-							if(budd >= 190) return HIR "¡¾ Ê¥  ×ğ ¡¿" NOR;
-							if(budd >= 150) return HIM "¡¾ ³¤  ÀÏ ¡¿" NOR;
-							if(budd >= 110) return HIC "¡¾ »¤  ·¨¡¿" NOR;
-							if(budd >= 70) return HIG "¡¾ »¤  ½Ì ¡¿" NOR;
-							if(budd >= 30) return GRN "¡¾ ÌÃ  Ö÷ ¡¿" NOR;
-							return GRN "¡¾ ½Ì  Í½ ¡¿" NOR;
+								if (shen >= 0) return HIY "ã€æ¬¢å–œæ³•ç‹ã€‘" NOR;
+								else return HIY "ã€æ¬¢å–œé­”ç‹ã€‘" NOR;
+							if (budd >= 140) return HIY "ã€ å¤©  ç‹ ã€‘" NOR;
+							if (budd >= 90)  return HIY "ã€ å¤§æŠ¤æ³• ã€‘" NOR;
+							if (budd >= 60) return HIY "ã€ é‡‘  åˆš ã€‘" NOR;
+							if (budd >= 30 || age >= 20) return HIY "ã€ åŠ›  å£« ã€‘" NOR;
+							return HIY "ã€ æ‚  å½¹ ã€‘" NOR;
+						case "åå±±æ´¾":
+						case "æ³°å±±æ´¾":
+            case "è¡¡å±±æ´¾":
+            case "æ’å±±æ´¾":
+						case "åµ©å±±æ´¾":
+						case "æ˜†ä»‘æ´¾":
+							if (budd >= 180) return HIW "ã€ å‰‘  å®— ã€‘" NOR;
+							if (budd >= 140) return HIY "ã€ å‰‘  ç‹‚ ã€‘" NOR;
+							if (budd >= 100) return HIC "ã€ å‰‘  ä¾  ã€‘" NOR;
+							if (budd >= 50 || age >= 18) return YEL "ã€ å‰‘  å®¢ ã€‘" NOR;
+							return GRN"ã€ å‰‘  æ‰‹ ã€‘"NOR;
+						case "çµé¹«å®«":	
+						case "å¤å¢“æ´¾":
+							if (budd >= 180) return HIW "ã€ æƒ…  ç‹‚ ã€‘" NOR;
+							if (budd >= 140) return HIY "ã€ æƒ…  ç—´ ã€‘" NOR;
+							if (budd >= 100) return HIC "ã€ æƒ…  ä¾  ã€‘" NOR;
+							if (budd >= 50 || age >= 18) return YEL "ã€ å‰‘  éƒ ã€‘" NOR;
+							return GRN"ã€ å‰‘  ç«¥ ã€‘"NOR;
+						case "é€é¥æ´¾":
+							if (budd >= 180) return HIW "ã€ ä¹¦  åœ£ ã€‘" NOR;
+							if (budd >= 140) return HIG "ã€ æ–‡  è±ª ã€‘" NOR;
+							if (budd >= 100) return HIC "ã€ æ‰  å­ ã€‘" NOR;
+							if (budd >= 50 || age >= 18) return HIC "ã€ ä¾  è¯» ã€‘" NOR;
+								return GRN "ã€ ä¹¦  ç«¥ ã€‘" NOR;
+						case "æ­¦å½“æ´¾":
+						case "å…¨çœŸæ•™":
+							if (budd >= 180) return HIW "ã€ å¤©  å°Š ã€‘" NOR;
+							if (budd >= 140) return HIW "ã€ å¤©  å¸ˆ ã€‘" NOR;
+							if (budd >= 100) return HIW "ã€ çœŸ  äºº ã€‘" NOR;
+							if (budd >= 50 || age >= 20) return HIW "ã€ é“  å£« ã€‘" NOR;
+							return GRN"ã€ é“  ç«¥ ã€‘"NOR;
+						case "æ˜Ÿå®¿æ´¾":
+							if (budd >= 180) return HIB "ã€ æ¯’  å°Š ã€‘" NOR;
+							if (budd >= 160) return YEL "ã€ æ¯’  éœ¸ ã€‘" NOR;
+							if (budd >= 140) return MAG "ã€ æ¯’  å› ã€‘" NOR;
+							if (budd >= 100) return BLU "ã€ æ¯’  ç‹ ã€‘" NOR;
+							if (budd >= 50 || age >= 18)  return CYN "ã€ æ¯’  é­” ã€‘" NOR;
+							return GRN"ã€ æ³•èºç‹ ã€‘"NOR;
+						case "å§‘è‹æ…•å®¹":
+							if(budd >= 190) return HIC "ã€ å°‘  çˆ· ã€‘" NOR;
+							if(budd >= 150) return HIC "ã€ åº„  ä¸» ã€‘" NOR;
+							if(budd >= 110) return HIC "ã€ ç®¡  å®¶ ã€‘" NOR;
+							if(budd >= 70) return HIC "ã€ æŠ¤  é™¢ ã€‘" NOR;
+							if(budd >= 30) return HIC "ã€ åº„  ä¸ ã€‘" NOR;
+							return HIC "ã€ åº„  ä¸ ã€‘" NOR;
+							case "æ¬§é˜³ä¸–å®¶":
+							if(budd >= 190) return HIB "ã€ è¥¿  æ¯’ ã€‘" NOR;
+							if(budd >= 150) return HIB "ã€ è›‡  é­” ã€‘" NOR;
+							if(budd >= 110) return HIC "ã€ æ€»  ç®¡ ã€‘" NOR;
+							if(budd >= 70) return HIM "ã€  æŠ¤  é™¢ ã€‘" NOR;
+							if(budd >= 30) return MAG "ã€ éš  ä» ã€‘" NOR;
+							return GRN "ã€ å®¶ ä¸ ã€‘" NOR;
+							case "æ—¥æœˆç¥æ•™":
+							if(budd >= 190) return HIR "ã€ åœ£  å°Š ã€‘" NOR;
+							if(budd >= 150) return HIM "ã€ é•¿  è€ ã€‘" NOR;
+							if(budd >= 110) return HIC "ã€ æŠ¤  æ³•ã€‘" NOR;
+							if(budd >= 70) return HIG "ã€ æŠ¤  æ•™ ã€‘" NOR;
+							if(budd >= 30) return GRN "ã€ å ‚  ä¸» ã€‘" NOR;
+							return GRN "ã€ æ•™  å¾’ ã€‘" NOR;
 					} // switch(fname)
 					if (!ob->query("class")) {
-						if (shen >= 1500000) return HIC "¡¾ÎäÁÖÉñ»°¡¿" NOR;
-						if (shen >= 1000000) return HIC "¡¾¾øÊÀÉñÏÀ¡¿" NOR;
-						if (shen >= 500000) return HIC "¡¾¿õÊÀ´óÏÀ¡¿" NOR;
-						if (shen >= 50000) return HIC "¡¾ ´ó  ÏÀ ¡¿" NOR;
-						if (shen >= 5000) return HIC "¡¾ ÏÀ  ¿Í ¡¿" NOR;
-						if (shen >= 500) return HIC "¡¾ ÉÙ  ÏÀ ¡¿" NOR;
-						if (shen <= -15000000) return HIB "¡¾ÃğÊÀÄ§×ğ¡¿" NOR;
-						if (shen <= -1000000) return HIB "¡¾¸ÇÊÀ¿ñÄ§¡¿" NOR;
-						if (shen <= -500000) return HIB "¡¾ Ä§  ×ğ ¡¿" NOR;
-						if (shen <= -50000) return HIB "¡¾ Ä§  Íõ ¡¿" NOR;
-						if (shen <= -5000) return HIB "¡¾ Ä§  Í· ¡¿" NOR;
-						if (shen <= -500) return HIB "¡¾ ÉÙ  Ä§ ¡¿" NOR;
+						if (shen >= 1500000) return HIC "ã€æ­¦æ—ç¥è¯ã€‘" NOR;
+						if (shen >= 1000000) return HIC "ã€ç»ä¸–ç¥ä¾ ã€‘" NOR;
+						if (shen >= 500000) return HIC "ã€æ—·ä¸–å¤§ä¾ ã€‘" NOR;
+						if (shen >= 50000) return HIC "ã€ å¤§  ä¾  ã€‘" NOR;
+						if (shen >= 5000) return HIC "ã€ ä¾   å®¢ ã€‘" NOR;
+						if (shen >= 500) return HIC "ã€ å°‘  ä¾  ã€‘" NOR;
+						if (shen <= -15000000) return HIB "ã€ç­ä¸–é­”å°Šã€‘" NOR;
+						if (shen <= -1000000) return HIB "ã€ç›–ä¸–ç‹‚é­”ã€‘" NOR;
+						if (shen <= -500000) return HIB "ã€ é­”  å°Š ã€‘" NOR;
+						if (shen <= -50000) return HIB "ã€ é­”  ç‹ ã€‘" NOR;
+						if (shen <= -5000) return HIB "ã€ é­”  å¤´ ã€‘" NOR;
+						if (shen <= -500) return HIB "ã€ å°‘  é­” ã€‘" NOR;
 					}
 					switch(ob->query("class")) {
-						case "bonze": return GRN "¡¾ É®  ÈË ¡¿";
+						case "bonze": return GRN "ã€ åƒ§  äºº ã€‘";
 						case "taoist":
-							if (budd >= 50 || age >= 20) return GRN "¡¾ µÀ  Ê¿ ¡¿" NOR;
-							return GRN "¡¾ µÀ  Í¯ ¡¿" NOR;
-						case "lama": return GRN "¡¾ À®  Âï ¡¿" NOR;
-						case "bandit": return GRN  "¡¾ µÁ  Ôô ¡¿" NOR;
-						case "scholar": return GRN "¡¾ Êé  Éú ¡¿" NOR;
-						case "officer": return GRN "¡¾ ¹Ù  ²î ¡¿" NOR;
-						case "fighter": return GRN "¡¾ Îä  Õß ¡¿" NOR;
-						case "swordsman": return "¡¾ ½£  Ê¿ ¡¿" NOR;
-						case "alchemist": return GRN "¡¾ ·½  Ê¿ ¡¿" NOR;
-						case "shaman": return GRN "¡¾ Î×  Ò½ ¡¿" NOR;
-						case "beggar": return GRN "¡¾ ½Ğ»¯×Ó ¡¿" NOR;
-						case "eunuch": return GRN "¡¾ Ì«  ¼à ¡¿" NOR;
+							if (budd >= 50 || age >= 20) return GRN "ã€ é“  å£« ã€‘" NOR;
+							return GRN "ã€ é“  ç«¥ ã€‘" NOR;
+						case "lama": return GRN "ã€ å–‡  å˜› ã€‘" NOR;
+						case "bandit": return GRN  "ã€ ç›—  è´¼ ã€‘" NOR;
+						case "scholar": return GRN "ã€ ä¹¦  ç”Ÿ ã€‘" NOR;
+						case "officer": return GRN "ã€ å®˜  å·® ã€‘" NOR;
+						case "fighter": return GRN "ã€ æ­¦  è€… ã€‘" NOR;
+						case "swordsman": return "ã€ å‰‘  å£« ã€‘" NOR;
+						case "alchemist": return GRN "ã€ æ–¹  å£« ã€‘" NOR;
+						case "shaman": return GRN "ã€ å·«  åŒ» ã€‘" NOR;
+						case "beggar": return GRN "ã€ å«åŒ–å­ ã€‘" NOR;
+						case "eunuch": return GRN "ã€ å¤ª  ç›‘ ã€‘" NOR;
 						default:
 							if (ob->query("marry")) {
-								if (age < 30) return GRN "¡¾ÇàÄêÄĞ×Ó¡¿" NOR;
-								if (age < 50) return GRN "¡¾ÖĞÄêÄĞ×Ó¡¿" NOR;
-								return GRN "¡¾ ÀÏÍ·¶ù ¡¿" NOR;
+								if (age < 30) return GRN "ã€é’å¹´ç”·å­ã€‘" NOR;
+								if (age < 50) return GRN "ã€ä¸­å¹´ç”·å­ã€‘" NOR;
+								return GRN "ã€ è€å¤´å„¿ ã€‘" NOR;
 							}
 							if (divorce > 2) {
-								if (age < 50) return GRN "¡¾»¨»¨¹«×Ó¡¿" NOR;
-								return GRN "¡¾ ÀÏÉ«¹í ¡¿" NOR;
+								if (age < 50) return GRN "ã€èŠ±èŠ±å…¬å­ã€‘" NOR;
+								return GRN "ã€ è€è‰²é¬¼ ã€‘" NOR;
 							}
 							if (divorce) {
-								if (age < 50) return GRN "¡¾ ÷¤  ·ò ¡¿" NOR;
-								return GRN "¡¾ ÀÏ÷¤·ò ¡¿" NOR;
+								if (age < 50) return GRN "ã€ é³  å¤« ã€‘" NOR;
+								return GRN "ã€ è€é³å¤« ã€‘" NOR;
 							}
-							if (age < 18) return GRN "¡¾ ÉÙ  Äê ¡¿" NOR;
-							if (age < 30) return GRN "¡¾ÇàÄêÄĞ×Ó¡¿" NOR;
-							if (age < 50) return GRN "¡¾ÖĞÄêÄĞ×Ó¡¿" NOR;
-							return GRN "¡¾ ÀÏ´¦ÄĞ ¡¿";
+							if (age < 18) return GRN "ã€ å°‘  å¹´ ã€‘" NOR;
+							if (age < 30) return GRN "ã€é’å¹´ç”·å­ã€‘" NOR;
+							if (age < 50) return GRN "ã€ä¸­å¹´ç”·å­ã€‘" NOR;
+							return GRN "ã€ è€å¤„ç”· ã€‘";
 					} // switch(ob->query("class"))
 			} // switch(wizhood(ob))
 	} // switch(ob->query("gender"))
@@ -467,61 +467,61 @@ string query_respect(object ob)
 	string str;
 
 	if (uptime() < ob->query_temp("rumor_show"))
-		return "Â©É×";
+		return "æ¼å‹º";
 	if (stringp(str = ob->query("rank_info/respect")))
 		return str;
-	if (ob->query("race") != "ÈËÀà") return ob->name();
+	if (ob->query("race") != "äººç±»") return ob->name();
 
 	age = ob->query("age");
-	if (ob->query("gender") != "ÄĞĞÔ" && ob->query_skill("beauty") > 34)
+	if (ob->query("gender") != "ç”·æ€§" && ob->query_skill("beauty") > 34)
 		age -= (ob->query_skill("beauty")-30)/5;
 	switch(ob->query("gender")) {
-		case "Å®ĞÔ":
-		case "´ÆĞÔ":
+		case "å¥³æ€§":
+		case "é›Œæ€§":
 			switch(ob->query("class")) {
 				case "bonze":
-					if( age < 20 ) return "Ğ¡Ê¦Ì«";
-					return "Ê¦Ì«";
+					if( age < 20 ) return "å°å¸ˆå¤ª";
+					return "å¸ˆå¤ª";
 				case "huanxi":
-					if( age < 20 ) return "Ğ¡ÁéÅ®";
-					return "Å®ÆĞÈø";
+					if( age < 20 ) return "å°çµå¥³";
+					return "å¥³è©è¨";
 				case "taoist":
-					if( age < 20 ) return "Ğ¡ÏÉ¹Ã";
-					return "ÏÉ¹Ã";
+					if( age < 20 ) return "å°ä»™å§‘";
+					return "ä»™å§‘";
 				case "officer":
-					if( age < 30 ) return "Ğ¡¹ÙÈË";
-					if( age < 60 ) return "Ì«ÉÏ";
-					return "Ì«¾ı";
+					if( age < 30 ) return "å°å®˜äºº";
+					if( age < 60 ) return "å¤ªä¸Š";
+					return "å¤ªå›";
 				default:
-					if( age < 20 ) return "Ğ¡¹ÃÄï";
-					if( age < 50 ) return "¹ÃÄï";
-					return "ÆÅÆÅ";
+					if( age < 20 ) return "å°å§‘å¨˜";
+					if( age < 50 ) return "å§‘å¨˜";
+					return "å©†å©†";
 			}
 		default:
 			switch(ob->query("class")) {
 				case "bonze":
-					if( age < 20 ) return "Ğ¡Ê¦¸¸";
-					if( age < 60 ) return "´óÊ¦";
-					return "ÀÏÊ¦¸¸";
+					if( age < 20 ) return "å°å¸ˆçˆ¶";
+					if( age < 60 ) return "å¤§å¸ˆ";
+					return "è€å¸ˆçˆ¶";
 				case "huanxi":
-					if( age < 20 ) return "Ğ¡Ê¦¸¸";
-					return "ÉÏÈË";
+					if( age < 20 ) return "å°å¸ˆçˆ¶";
+					return "ä¸Šäºº";
 				case "officer":
-					if( age < 30 ) return "´ó¹ÙÈË";
-					return "´óÈË";
+					if( age < 30 ) return "å¤§å®˜äºº";
+					return "å¤§äºº";
 				case "taoist":
-					if( age < 20 ) return "µÀĞÖ";
-					return "µÀ³¤";
+					if( age < 20 ) return "é“å…„";
+					return "é“é•¿";
 				case "fighter":
 				case "swordsman":
-					if( age < 20 ) return "Ğ¡ÀÏµÜ";
-					if( age < 50 ) return "ĞÖÌ¨";
-					return "ÀÏÇ°±²";
-				case "eunuch": return "¹«¹«";
+					if( age < 20 ) return "å°è€å¼Ÿ";
+					if( age < 50 ) return "å…„å°";
+					return "è€å‰è¾ˆ";
+				case "eunuch": return "å…¬å…¬";
 				default:
-					if( age < 20 ) return "Ğ¡ĞÖµÜ";
-					if( age < 50 ) return "×³Ê¿";
-					return "ÀÏÒ¯×Ó";
+					if( age < 20 ) return "å°å…„å¼Ÿ";
+					if( age < 50 ) return "å£®å£«";
+					return "è€çˆ·å­";
 			}
 	}
 }
@@ -532,44 +532,44 @@ string query_rude(object ob)
 	string str;
 
 	if (uptime() < ob->query_temp("rumor_show"))
-		return "Â©É×";
+		return "æ¼å‹º";
 	if (stringp(str = ob->query("rank_info/rude")))
 		return str;
-	if (ob->query("race") != "ÈËÀà")
-		return "ÇİÊŞ";
+	if (ob->query("race") != "äººç±»")
+		return "ç¦½å…½";
 
 	age = ob->query("age");
-	if (ob->query("gender") != "ÄĞĞÔ" && ob->query_skill("beauty") > 34)
+	if (ob->query("gender") != "ç”·æ€§" && ob->query_skill("beauty") > 34)
 		age -= (ob->query_skill("beauty")-30)/5;
 	switch(ob->query("gender")) {
-		case "Å®ĞÔ":
-		case "´ÆĞÔ":
+		case "å¥³æ€§":
+		case "é›Œæ€§":
 			switch(ob->query("class")) {
-				case "bonze": return "ÔôÄá";
-				case "taoist": return "ÑıµÀ";
-				case "huanxi": return "³ô²ØÄá";
+				case "bonze": return "è´¼å°¼";
+				case "taoist": return "å¦–é“";
+				case "huanxi": return "è‡­è—å°¼";
 				default:
-					if( age < 20 ) return "Ğ¡¼úÈË";
-					if (age < 50) return "¼úÈË";
-					return "ËÀÀÏÌ«ÆÅ";
+					if( age < 20 ) return "å°è´±äºº";
+					if (age < 50) return "è´±äºº";
+					return "æ­»è€å¤ªå©†";
 			}
 		default:
 			switch(ob->query("class")) {
 				case "beggar":
-					if( age < 50 ) return "³ôÒª·¹µÄ";
-					return "ÀÏÒª·¹µÄ";
+					if( age < 50 ) return "è‡­è¦é¥­çš„";
+					return "è€è¦é¥­çš„";
 				case "bonze":
-					if( age < 50 ) return "ËÀÍºÂ¿";
-					return "ÀÏÍºÂ¿";
+					if( age < 50 ) return "æ­»ç§ƒé©´";
+					return "è€ç§ƒé©´";
 				case "huanxi":
-					if( age < 30 ) return "ËÀÀ®Âï";
-					return "ÀÏÍºÂ¿";
-				case "taoist": return "ËÀÅ£±Ç×Ó";
-				case "eunuch": return "ÑËÔô";
+					if( age < 30 ) return "æ­»å–‡å˜›";
+					return "è€ç§ƒé©´";
+				case "taoist": return "æ­»ç‰›é¼»å­";
+				case "eunuch": return "é˜‰è´¼";
 				default:
-					if( age < 20 ) return "Ğ¡Íõ°Ëµ°";
-					if( age < 50 ) return "³ôÔô";
-					return "ÀÏÆ¥·ò";
+					if( age < 20 ) return "å°ç‹å…«è›‹";
+					if( age < 50 ) return "è‡­è´¼";
+					return "è€åŒ¹å¤«";
 			}
 	}
 }
@@ -580,52 +580,52 @@ string query_self(object ob)
 	string str;
 
 	if (uptime() < ob->query_temp("rumor_show"))
-		return "±¾Â©É×";
+		return "æœ¬æ¼å‹º";
 	if (stringp(str = ob->query("rank_info/self")))
 		return str;
-	if (ob->query("race") != "ÈËÀà")
+	if (ob->query("race") != "äººç±»")
 		return ob->name();
 
 	age = ob->query("age");
-	if (ob->query("gender") != "ÄĞĞÔ" && ob->query_skill("beauty") > 34)
+	if (ob->query("gender") != "ç”·æ€§" && ob->query_skill("beauty") > 34)
 		age -= (ob->query_skill("beauty")-30)/5;
 	switch(ob->query("gender")) {
-		case "Å®ĞÔ":
-		case "´ÆĞÔ":
+		case "å¥³æ€§":
+		case "é›Œæ€§":
 		switch(ob->query("class")) {
 			case "bonze":
-				if( age < 50 ) return "Æ¶Äá";
-				return "ÀÏÄá";
+				if( age < 50 ) return "è´«å°¼";
+				return "è€å°¼";
 			case "huanxi":
-				if( age < 50 ) return "Æ¶Äá";
-				return "ÀÏÄá";
+				if( age < 50 ) return "è´«å°¼";
+				return "è€å°¼";
 			case "officer":
-				if( age < 50 ) return "ÏÂ¹Ù";
-				return "±¾×ù";
+				if( age < 50 ) return "ä¸‹å®˜";
+				return "æœ¬åº§";
 			default:
-				if( age < 30 ) return "Ğ¡Å®×Ó";
-				return "æªÉí";
+				if( age < 30 ) return "å°å¥³å­";
+				return "å¦¾èº«";
 		}
 		default:
 			switch(ob->query("class")) {
 				case "huanxi":
-					if( age < 30 ) return "´óÀ®Âï";
-					return "±¾·ğÒ¯";
+					if( age < 30 ) return "å¤§å–‡å˜›";
+					return "æœ¬ä½›çˆ·";
 				case "beggar":
-					if( age < 30 ) return "±¾½Ğ»¯";
-					return "ÀÏ½Ğ»¯";
+					if( age < 30 ) return "æœ¬å«åŒ–";
+					return "è€å«åŒ–";
 				case "bonze":
-					if( age < 50 ) return "Æ¶É®";
-					return "ÀÏñÄ";
+					if( age < 50 ) return "è´«åƒ§";
+					return "è€è¡²";
 				case "taoist":
-					return "Æ¶µÀ";
-				case "eunuch": return "±¾¹Ù";
+					return "è´«é“";
+				case "eunuch": return "æœ¬å®˜";
 				case "officer":
-					if( age < 50 ) return "ÏÂ¹Ù";
-					return "±¾×ù";
+					if( age < 50 ) return "ä¸‹å®˜";
+					return "æœ¬åº§";
 				default:
-					if( age < 50 ) return "ÔÚÏÂ";
-					return "ÀÏÍ·×Ó";
+					if( age < 50 ) return "åœ¨ä¸‹";
+					return "è€å¤´å­";
 			}
 	}
 }
@@ -636,50 +636,50 @@ string query_self_rude(object ob)
 	string str;
 
 	if (uptime() < ob->query_temp("rumor_show"))
-		return "Â©É×ÎÒ";
+		return "æ¼å‹ºæˆ‘";
 	if( stringp(str = ob->query("rank_info/self_rude")) )
 		return str;
-	if(ob->query("race") != "ÈËÀà")
-		return ob->name() + "ÎÒ";
+	if(ob->query("race") != "äººç±»")
+		return ob->name() + "æˆ‘";
 
 	age = ob->query("age");
-	if (ob->query("gender") != "ÄĞĞÔ" && ob->query_skill("beauty") > 34)
+	if (ob->query("gender") != "ç”·æ€§" && ob->query_skill("beauty") > 34)
 		age -= (ob->query_skill("beauty")-30)/5;
 	switch(ob->query("gender")) {
-		case "Å®ĞÔ":
-		case "´ÆĞÔ":
+		case "å¥³æ€§":
+		case "é›Œæ€§":
 		switch(ob->query("class")) {
 			case "bonze":
-				if (age < 50) return "Æ¶ÄáÎÒ";
-				return "ÀÏÄáÎÒ";
+				if (age < 50) return "è´«å°¼æˆ‘";
+				return "è€å°¼æˆ‘";
 			case "huanxi":
-				if (age < 50) return "Æ¶Äá";
-				return "ÀÏÄá";
+				if (age < 50) return "è´«å°¼";
+				return "è€å°¼";
 			case "officer":
-				if( age < 30 ) return "±¾×ù";
-				return "Ì«×ù";
+				if( age < 30 ) return "æœ¬åº§";
+				return "å¤ªåº§";
 			default:
-				if (age < 20) return "±¾Ğ¡½ã";
-				if (age < 50) return "±¾¹ÃÄï";
-				return "ÀÏÄïÎÒ";
+				if (age < 20) return "æœ¬å°å§";
+				if (age < 50) return "æœ¬å§‘å¨˜";
+				return "è€å¨˜æˆ‘";
 		}
 		default:
 			switch(ob->query("class")) {
 				case "bonze":
-					if( age < 50 ) return "´óºÍÉĞÎÒ";
-					return "ÀÏºÍÉĞÎÒ";
+					if( age < 50 ) return "å¤§å’Œå°šæˆ‘";
+					return "è€å’Œå°šæˆ‘";
 				case "hunxi":
-					if( age < 30 ) return "´óÀ®ÂïÎÒ";
-					return "±¾·ğÒ¯ÎÒ";
+					if( age < 30 ) return "å¤§å–‡å˜›æˆ‘";
+					return "æœ¬ä½›çˆ·æˆ‘";
 				case "officer":
-					if( age < 30 ) return "±¾¹ÙÒ¯ÎÒ";
-					return "Ì«Ò¯ÎÒ";
+					if( age < 30 ) return "æœ¬å®˜çˆ·æˆ‘";
+					return "å¤ªçˆ·æˆ‘";
 				case "taoist":
-					return "±¾É½ÈËÎÒ";
-				case "eunuch": return "¹«¹«ÎÒ";
+					return "æœ¬å±±äººæˆ‘";
+				case "eunuch": return "å…¬å…¬æˆ‘";
 				default:
-					if( age < 50 ) return "´óÒ¯ÎÒ";
-					return "ÀÏ×Ó";
+					if( age < 50 ) return "å¤§çˆ·æˆ‘";
+					return "è€å­";
 			}
 	}
 }
@@ -689,53 +689,53 @@ string query_family_close(object me, object ob)
 	mapping fam, my_fam;
 
 	if (ob == me)
-		return "±¾Éí";
+		return "æœ¬èº«";
 
 	if (!mapp(fam = ob->query("family"))
 	|| !mapp(my_fam = me->query("family"))
 	|| fam["family_name"] != my_fam["family_name"]){
 		if( me->query("age") > ob->query("age") +10)
-			return "Íí±²";
+			return "æ™šè¾ˆ";
 		if( me->query("age") +10 < ob->query("age") )
-			return "Ç°±²";
-		return "Í¬±²";
+			return "å‰è¾ˆ";
+		return "åŒè¾ˆ";
 	}
 
 	if (fam["generation"] == my_fam["generation"]) {
-		if( (string)ob->query("gender") == "Å®ĞÔ")
-			return my_fam["enter_time"] > fam["enter_time"]?"Ê¦½ã":"Ê¦ÃÃ";
-		return my_fam["enter_time"] > fam["enter_time"]?"Ê¦ĞÖ":"Ê¦µÜ";
+		if( (string)ob->query("gender") == "å¥³æ€§")
+			return my_fam["enter_time"] > fam["enter_time"]?"å¸ˆå§":"å¸ˆå¦¹";
+		return my_fam["enter_time"] > fam["enter_time"]?"å¸ˆå…„":"å¸ˆå¼Ÿ";
 	 }
 
 	 if (fam["generation"] < my_fam["generation"]) {
 		if (my_fam["generation"] - fam["generation"] == 1) {
 			if (my_fam["master_id"] == ob->query("id"))
-				return "Ê¦¸¸";
-			return fam["enter_time"] < my_fam["enter_time"]?"Ê¦²®":"Ê¦Êå";
+				return "å¸ˆçˆ¶";
+			return fam["enter_time"] < my_fam["enter_time"]?"å¸ˆä¼¯":"å¸ˆå”";
 		}
 
 		if (my_fam["generation"] - fam["generation"] == 2)
-			return fam["enter_time"] < my_fam["enter_time"]?"Ê¦²®×æ":"Ê¦Êå×æ";
+			return fam["enter_time"] < my_fam["enter_time"]?"å¸ˆä¼¯ç¥–":"å¸ˆå”ç¥–";
 
 		if (my_fam["generation"] - fam["generation"] == 3)
-			return fam["enter_time"] < my_fam["enter_time"]?"ÔøÊ¦²®":"ÔøÊ¦Êå";
+			return fam["enter_time"] < my_fam["enter_time"]?"æ›¾å¸ˆä¼¯":"æ›¾å¸ˆå”";
 
-		return fam["enter_time"] < my_fam["enter_time"]?"Ì«Ê¦²®":"Ì«Ê¦Êå";
+		return fam["enter_time"] < my_fam["enter_time"]?"å¤ªå¸ˆä¼¯":"å¤ªå¸ˆå”";
 	}
 
 	if (fam["generation"] - my_fam["generation"] == 1) {
 		if (fam["master_id"] == me->query("id"))
-			return "µÜ×Ó";
-		return "Ê¦Ö¶";
+			return "å¼Ÿå­";
+		return "å¸ˆä¾„";
 	}
 
 	if (fam["generation"] - my_fam["generation"] == 2)
-		return "Í½Ëï";
+		return "å¾’å­™";
 
 	if (fam["generation"] - my_fam["generation"] == 3)
-		return "ÔøÍ½Ëï";
+		return "æ›¾å¾’å­™";
 
-	return "Ì«Í½Ëï";
+	return "å¤ªå¾’å­™";
 }
 
 string query_close(mixed ob, object me)
@@ -760,10 +760,10 @@ string query_close(mixed ob, object me)
 	}
 
 	if (objectp(ob)) 
-		if (ob->query("gender") != "ÄĞĞÔ" && ob->query_skill("beauty") > 30)
+		if (ob->query("gender") != "ç”·æ€§" && ob->query_skill("beauty") > 30)
 			a2 -= (ob->query_skill("beauty")-30)/5*12;
 
-	if (me->query("gender") != "ÄĞĞÔ" && me->query_skill("beauty") > 30)
+	if (me->query("gender") != "ç”·æ€§" && me->query_skill("beauty") > 30)
 		a1 -= (me->query_skill("beauty")-30)/5*12;
 	
 	if(objectp(ob)) ob_gender = ob->query("gender");
@@ -772,28 +772,28 @@ string query_close(mixed ob, object me)
 	if(!objectp(ob)) a2 = ob["age"];
 	
 	switch (ob_gender) {
-		case "Å®ĞÔ" :
-		case "´ÆĞÔ" :
+		case "å¥³æ€§" :
+		case "é›Œæ€§" :
 			if (objectp(ob) && userp(ob) && ob->query("id") == me->query("marry/id"))
-				return "Äï×Ó";
+				return "å¨˜å­";
 			if (a2 - a1 >= 240)
-				return "¹Ã¹Ã";
+				return "å§‘å§‘";
 			if (a1 - a2 >= 240)
-				return "Ö¶Å®";
+				return "ä¾„å¥³";
 			if (a1 > a2)
-				return "ÏÍÃÃ";
-			return "½ã½ã";
+				return "è´¤å¦¹";
+			return "å§å§";
 			break;
 		default :
 			if (objectp(ob) && userp(ob) && ob->query("id") == me->query("marry/id"))
-				return "Ïà¹«";
+				return "ç›¸å…¬";
 			if (a2 - a1 >= 240)
-				return "ÊåÊå";
+				return "å”å”";
 			if (a1 - a2 >= 240)
-				return "Ö¶×Ó";
+				return "ä¾„å­";
 			if (a1 > a2)
-				return "ÏÍµÜ";
-			return "¸ç¸ç";
+				return "è´¤å¼Ÿ";
+			return "å“¥å“¥";
 	}
 }
 
@@ -806,7 +806,7 @@ string query_self_close(mixed ob, object me)
 	if (objectp(ob)) {
 		if ((a1 = me->query("family/family_name"))
 		&& a1 == ob->query("family/family_name"))
-			return query_family_close(ob, me)+"ÎÒ";
+			return query_family_close(ob, me)+"æˆ‘";
 		if (a2 = ob->query("age") * 12 + ob->query("month"))
 			a1 = me->query("age") * 12 + me->query("month");
 		else {
@@ -819,29 +819,29 @@ string query_self_close(mixed ob, object me)
 	}
 	
 	if (objectp(ob))
-	if (ob->query("gender") != "ÄĞĞÔ" && ob->query_skill("beauty") > 30)
+	if (ob->query("gender") != "ç”·æ€§" && ob->query_skill("beauty") > 30)
 		a2 -= (ob->query_skill("beauty")-30)/5*12;
-	if (me->query("gender") != "ÄĞĞÔ" && me->query_skill("beauty") > 30)
+	if (me->query("gender") != "ç”·æ€§" && me->query_skill("beauty") > 30)
 		a1 -= (me->query_skill("beauty")-30)/5*12;
 		
 	if(!objectp(ob)) a2 = ob["age"];
 
 	switch (me->query("gender")) {
-		case "Å®ĞÔ" :
-		case "´ÆĞÔ" :
+		case "å¥³æ€§" :
+		case "é›Œæ€§" :
 			if (objectp(ob) && userp(ob) && ob->query("id") == me->query("marry/id"))
-				return "æªÉíÎÒ";
-			if (a1 - a2 >= 240) return "¹Ã¹ÃÎÒ";
-			if (a2 - a1 >= 240) return "Ö¶Å®ÎÒ";
-			if (a1 > a2) return "½ã½ãÎÒ";
-			return "Ğ¡ÃÃÎÒ";
+				return "å¦¾èº«æˆ‘";
+			if (a1 - a2 >= 240) return "å§‘å§‘æˆ‘";
+			if (a2 - a1 >= 240) return "ä¾„å¥³æˆ‘";
+			if (a1 > a2) return "å§å§æˆ‘";
+			return "å°å¦¹æˆ‘";
 			break;
 		default :
 			if (objectp(ob) &&userp(ob) && ob->query("id") == me->query("marry/id"))
-				return "ÓŞ·òÎÒ";
-			if (a1 - a2 >= 240) return "ÊåÊåÎÒ";
-			if (a2 - a1 >= 240) return "Ğ¡Ö¶ÎÒ";
-			if (a1 > a2) return "ÓŞĞÖÎÒ";
-			return "Ğ¡µÜÎÒ";
+				return "æ„šå¤«æˆ‘";
+			if (a1 - a2 >= 240) return "å”å”æˆ‘";
+			if (a2 - a1 >= 240) return "å°ä¾„æˆ‘";
+			if (a1 > a2) return "æ„šå…„æˆ‘";
+			return "å°å¼Ÿæˆ‘";
 	}
 }

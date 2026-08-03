@@ -1,4 +1,4 @@
-// caiyao.c ²ÉÒ©µÀ³¤
+// caiyao.c é‡‡è¯é“é•¿
 #include <ansi.h>;
 inherit NPC;
 
@@ -8,10 +8,10 @@ void destroying(object me, object obj);
 
 void create()
 {
-        set_name("²ÉÒ©µÀ³¤", ({ "caiyao daozhang", "caiyao" }));
+        set_name("é‡‡è¯é“é•¿", ({ "caiyao daozhang", "caiyao" }));
         set("long", 
-                "ËûÊÇÎäµ±É½µÄ²ÉÒ©µÀ³¤¡£\n");
-        set("gender", "ÄĞĞÔ");
+                "ä»–æ˜¯æ­¦å½“å±±çš„é‡‡è¯é“é•¿ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 30);
         set("attitude", "peaceful");
         set("shen_type", 1);
@@ -40,15 +40,15 @@ void create()
         map_skill("parry", "taiji-jian");
         map_skill("sword", "taiji-jian");
 
-        create_family("Îäµ±ÅÉ", 4, "µÜ×Ó");
+        create_family("æ­¦å½“æ´¾", 4, "å¼Ÿå­");
         set("inquiry", ([
-                "¹ÅµÀ" : (: ask_me :),
+                "å¤é“" : (: ask_me :),
         ]));
 
         set("chat_chance", 7);
         set("chat_msg", ({
-"²ÉÒ©µÀ³¤¸Ğ¿®µÀ:Ïë²»µ½ÕâÉîÉ½Àï»¹ÓĞÒ»ÌõÈç´ËÒş±ÎµÄ¹ÅµÀ¡£\n",
-"²ÉÒ©µÀ³¤×ÔÎÒÂñÔ¹µÀ:ÕæÊÇ´óÍ·Ïº£¬¾ÓÈ»°ÑÒ©³ú¸øÅª¶ªÁË£¬°¥!»¹µÃ»ØÈ¥ÔÙÕÒÒ»°Ñ¡£\n",
+"é‡‡è¯é“é•¿æ„Ÿæ…¨é“:æƒ³ä¸åˆ°è¿™æ·±å±±é‡Œè¿˜æœ‰ä¸€æ¡å¦‚æ­¤éšè”½çš„å¤é“ã€‚\n",
+"é‡‡è¯é“é•¿è‡ªæˆ‘åŸ‹æ€¨é“:çœŸæ˜¯å¤§å¤´è™¾ï¼Œå±…ç„¶æŠŠè¯é”„ç»™å¼„ä¸¢äº†ï¼Œå“!è¿˜å¾—å›å»å†æ‰¾ä¸€æŠŠã€‚\n",
         }) );
 
 
@@ -63,18 +63,18 @@ int accept_object(object who, object ob)
          me=this_player();
         if( !who || environment(who) != environment() ) {return 0;}
         if ( !objectp(ob) ) {return 0; }
-        if ( !present(ob, who) ) return notify_fail("ÄãÃ»ÓĞÕâ¼ş¶«Î÷¡£");
+        if ( !present(ob, who) ) return notify_fail("ä½ æ²¡æœ‰è¿™ä»¶ä¸œè¥¿ã€‚");
 
 
         if ((string)ob->query("id") == "yao chu")
         {
-                command("say ÕâÕıÊÇÎÒĞèÒªµÄ£¬ÎªÁË±¨´ğÄãÎÒ¾Í´øÄãµ½Ò»ÆæÒìµÄµØ·½È¥°É!\n");
+                command("say è¿™æ­£æ˜¯æˆ‘éœ€è¦çš„ï¼Œä¸ºäº†æŠ¥ç­”ä½ æˆ‘å°±å¸¦ä½ åˆ°ä¸€å¥‡å¼‚çš„åœ°æ–¹å»å§!\n");
 
                 remove_call_out("destroying");
                 call_out("destroying", 1, this_object(), ob);
                 if(base_name(environment(this_object())) == query("startroom"))
                 	me->move(__DIR__"gudao1");
-                else command("say °¥Ñ½Ôã¸â£¬ÕâÀïÊÇÄÄ°¡£¿ÎÒ×Ô¼º¶¼×ß¶ªÁË!\n");
+                else command("say å“å‘€ç³Ÿç³•ï¼Œè¿™é‡Œæ˜¯å“ªå•Šï¼Ÿæˆ‘è‡ªå·±éƒ½èµ°ä¸¢äº†!\n");
                 return 1;
         }
 return 0;
@@ -82,7 +82,7 @@ return 0;
 
 string ask_me()
 {
-        return "ÎªÁË·¢ÏÖÕâ¹ÅµÀ£¬ÎÒÁ¬³úÍ·¶¼¶ªÁË£¬¿É²»ÄÜÇáÒ×¸æËßÄã!\n";
+        return "ä¸ºäº†å‘ç°è¿™å¤é“ï¼Œæˆ‘è¿é”„å¤´éƒ½ä¸¢äº†ï¼Œå¯ä¸èƒ½è½»æ˜“å‘Šè¯‰ä½ !\n";
 }
 
 void destroying(object me, object obj)

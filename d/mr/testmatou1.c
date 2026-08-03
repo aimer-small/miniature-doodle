@@ -3,13 +3,13 @@ inherit ROOM;
 #include <ansi.h>  
 mapping *sign=({
 ([ 
-	"name":"ÇÙÔÏĞ¡Öş",
+	"name":"ç´éŸµå°ç­‘",
 	"id":"mr",
 	"file":__DIR__"duchuan",
 	"value":500
 ]),
 ([
-	"name":"Ñà×ÓÎë",
+	"name":"ç‡•å­å",
 	"id":"yanziwu",
 	"file" :__DIR__"zhou",
 	"value":1000
@@ -20,14 +20,14 @@ int do_go(string);
 
 void create()
 {
-	set("short", "ÂëÍ·");
+	set("short", "ç å¤´");
 	set("long",@LONG
-ÕâÀïÊÇÄ½Èİ¼ÒµÄ¼ÒÆÍºÍÑ¾÷ß³öÈëÌ«ºşµÄË®ÉÏÂëÍ·£¬Ö»¼ûÈËÃÇÀ´À´ÍùÍù£¬Ò»
-¸ö¸ö·ç³¾ÆÍÆÍ£¬ÂëÍ·±ßµÄÀÏ´¬·ò¼ûµ½Äã×ß¹ıÀ´£¬ÂíÉÏĞ¦ºÇºÇµÄÓ­ÁËÉÏÈ¥¡£ÂëÍ·
-±ßÕÅÌù×ÅÒ»ÕÅ¼Û¸ñ±í(sign)¡£
+è¿™é‡Œæ˜¯æ…•å®¹å®¶çš„å®¶ä»†å’Œä¸«é¬Ÿå‡ºå…¥å¤ªæ¹–çš„æ°´ä¸Šç å¤´ï¼Œåªè§äººä»¬æ¥æ¥å¾€å¾€ï¼Œä¸€
+ä¸ªä¸ªé£å°˜ä»†ä»†ï¼Œç å¤´è¾¹çš„è€èˆ¹å¤«è§åˆ°ä½ èµ°è¿‡æ¥ï¼Œé©¬ä¸Šç¬‘å‘µå‘µçš„è¿äº†ä¸Šå»ã€‚ç å¤´
+è¾¹å¼ è´´ç€ä¸€å¼ ä»·æ ¼è¡¨(sign)ã€‚
 LONG 
 );
-	set("outdoors","Ä½Èİ");
+	set("outdoors","æ…•å®¹");
 	set("exits",([
 		"north" : __DIR__"shiqiao",
 	]));
@@ -54,17 +54,17 @@ string look_sign()
 		str += "(" + sign[i]["id"] + ") ";
 		str += MONEY_D->price_str(sign[i]["value"]) + "\n";
 	}
-	str += "Ä½ÈİµÜ×ÓÃâ·Ñ¡£\n";
+	str += "æ…•å®¹å¼Ÿå­å…è´¹ã€‚\n";
 	return str;
 }
 
 void do_move(object ob, int i)
 {
-	if (ob->query("family/family_name") == "¹ÃËÕÄ½Èİ") {
-		message_vision(YEL"\n$N°ÑºÍ´¬¼Ò´òÁËÉùÕĞºô£¬´¬¼ÒÁì$NÉÏÁËÒ»ÌõĞ¡ÖÛ¡£\n\n"NOR,ob);
+	if (ob->query("family/family_name") == "å§‘è‹æ…•å®¹") {
+		message_vision(YEL"\n$NæŠŠå’Œèˆ¹å®¶æ‰“äº†å£°æ‹›å‘¼ï¼Œèˆ¹å®¶é¢†$Nä¸Šäº†ä¸€æ¡å°èˆŸã€‚\n\n"NOR,ob);
 	}
 	else {
-		message_vision(YEL"\n$N°ÑÇ®½»¸ø´¬¼Ò£¬´¬¼ÒÁì$NÉÏÁËÒ»ÌõĞ¡ÖÛ¡£\n\n"NOR,ob); 
+		message_vision(YEL"\n$NæŠŠé’±äº¤ç»™èˆ¹å®¶ï¼Œèˆ¹å®¶é¢†$Nä¸Šäº†ä¸€æ¡å°èˆŸã€‚\n\n"NOR,ob); 
 	}
 	ob->move(sign[i]["file"]);
 }
@@ -76,29 +76,29 @@ int do_go(string arg)
 
 	if (!arg) return 0;
 	if(ob->query_temp("ride_horse"))
-		return notify_fail("¶Ô²»Æğ£¬ÕâÀïÖ»¸ºÔğ¶ÉÈË£¡\n");
+		return notify_fail("å¯¹ä¸èµ·ï¼Œè¿™é‡Œåªè´Ÿè´£æ¸¡äººï¼\n");
 	if (ob->is_busy() || ob->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	while(i--) {
 		if (arg == sign[i]["id"]) {
-			if (ob->query("family/family_name") != "¹ÃËÕÄ½Èİ") {
+			if (ob->query("family/family_name") != "å§‘è‹æ…•å®¹") {
 				switch (MONEY_D->player_pay(ob, sign[i]["value"])) {
 					case 0: 
-						return notify_fail("Çî¹âµ°£¬Ò»±ß´ô×ÅÈ¥£¡\n");
+						return notify_fail("ç©·å…‰è›‹ï¼Œä¸€è¾¹å‘†ç€å»ï¼\n");
 					case 2:
-						return notify_fail("ÓĞÁãÇ®Âğ£¿\n");
+						return notify_fail("æœ‰é›¶é’±å—ï¼Ÿ\n");
 				}
-				message_vision("$NÔÚ¿Ú´üÀï·­À´¸²È¥µØÕÒ´¬Ç®¡£\n", ob);
+				message_vision("$Nåœ¨å£è¢‹é‡Œç¿»æ¥è¦†å»åœ°æ‰¾èˆ¹é’±ã€‚\n", ob);
 			}
 			else {
-				message_vision("´¬¼ÒÉÏÏÂ´òÁ¿×Å$N¡£\n", ob);
+				message_vision("èˆ¹å®¶ä¸Šä¸‹æ‰“é‡ç€$Nã€‚\n", ob);
 			}
 			ob->start_busy(3);
 			call_out("do_move", 3, ob, i);
 			return 1;
 		}
 	}
-	return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+	return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 }
 
 int do_yue(string arg)
@@ -106,25 +106,25 @@ int do_yue(string arg)
 	object me;
 	me = this_player(); 
 
-	if(!arg) return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
-	if(arg != "hu") return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+	if(!arg) return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
+	if(arg != "hu") return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (me->query_skill("dodge") < 400) 
-		return notify_fail("ÄãµÄĞŞÎª²»¹»£¡\n");
+		return notify_fail("ä½ çš„ä¿®ä¸ºä¸å¤Ÿï¼\n");
 	if (me->query("max_neili") < 4000)
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»£¬ÔõÄÜÖ§³Ö£¡£¿\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œæ€èƒ½æ”¯æŒï¼ï¼Ÿ\n");
 	if (me->query("neili") < 2000)
-		return notify_fail("ÄãµÄÕæÆø²»¹»ÁË£¡\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿäº†ï¼\n");
 	if (me->query("jingli") < 1500)
-		return notify_fail("ÄãµÄ¾«Á¦²»¹»ÁË£¡\n");
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿäº†ï¼\n");
 	me->receive_damage("neili", 300);
 	me->receive_damage("jingli", 150);
-	tell_room(environment(me), HIY+me->name()+"ÏòÊÖĞÄÍÂÁËÁ½¿ÚÍÂÄ­£¬½ôÁË½ôÑü´ø£¬Ê©Õ¹¡¸Ò»Î­¶É½­¡¹¾ø¼¼×İÉíÔ¾¹ıºşÃæ£¡\n" NOR, ({me}));
-	write("ÄãÏòÊÖĞÄÍÂÁËÁ½¿ÚÍÂÄ­£¬½ôÁË½ôÑü´ø£¬Ê©Õ¹¡¸Ò»Î­¶É½­¡¹¾ø¼¼×İÉíÔ¾¹ıºşÃæ£¡\n");
+	tell_room(environment(me), HIY+me->name()+"å‘æ‰‹å¿ƒåäº†ä¸¤å£åæ²«ï¼Œç´§äº†ç´§è…°å¸¦ï¼Œæ–½å±•ã€Œä¸€è‹‡æ¸¡æ±Ÿã€ç»æŠ€çºµèº«è·ƒè¿‡æ¹–é¢ï¼\n" NOR, ({me}));
+	write("ä½ å‘æ‰‹å¿ƒåäº†ä¸¤å£åæ²«ï¼Œç´§äº†ç´§è…°å¸¦ï¼Œæ–½å±•ã€Œä¸€è‹‡æ¸¡æ±Ÿã€ç»æŠ€çºµèº«è·ƒè¿‡æ¹–é¢ï¼\n");
 	me->move(__DIR__"anbian4");
 	me->start_busy(3);
-	tell_room(environment(me), HIY+me->name()+"·ÉÉí´Óºş¶ÔÃæÔ¾Æğ£¬ÔÚºşĞÄµ±ÖĞÂ«Î­ÉÏÒ»µã£¬´Óºş¶ÔÃæ´®ÁË¹ıÀ´£¡\n" NOR, ({me}));
+	tell_room(environment(me), HIY+me->name()+"é£èº«ä»æ¹–å¯¹é¢è·ƒèµ·ï¼Œåœ¨æ¹–å¿ƒå½“ä¸­èŠ¦è‹‡ä¸Šä¸€ç‚¹ï¼Œä»æ¹–å¯¹é¢ä¸²äº†è¿‡æ¥ï¼\n" NOR, ({me}));
 	return 1;
 }

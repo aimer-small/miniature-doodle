@@ -4,5 +4,5 @@ void attempt_apprentice(object ob)
 command("recruit " + ob->query("id"));
    return;
   }
-command("say ¶Ô²»Æğ£¬ÀÏñÄÏÖÔÚ²»ÊÕÍ½¡£");
+command("say å¯¹ä¸èµ·ï¼Œè€è¡²ç°åœ¨ä¸æ”¶å¾’ã€‚");
 }

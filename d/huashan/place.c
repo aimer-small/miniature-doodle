@@ -5,9 +5,9 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "山路");
+	set("short", "灞辫矾");
 	set("long", 
-HIW"你紧跟着哑巴在一条几乎不是路的陡峭崖壁上走着。\n"NOR
+HIW"浣犵揣璺熺潃鍝戝反鍦ㄤ竴鏉″嚑涔庝笉鏄矾鐨勯櫋宄礀澹佷笂璧扮潃銆俓n"NOR
 );
 	setup();
 }
@@ -31,7 +31,7 @@ int do_action(string arg)
 	        case "dazuo" :
 	        case "save" : 
                case "practice":
-               write(HIW"你紧跟着哑巴在一条几乎不是路的陡峭崖壁上走着。\n\n"NOR);
+               write(HIW"浣犵揣璺熺潃鍝戝反鍦ㄤ竴鏉″嚑涔庝笉鏄矾鐨勯櫋宄礀澹佷笂璧扮潃銆俓n\n"NOR);
                        return 1;
        }
        return 0;
@@ -40,15 +40,15 @@ int do_action(string arg)
 void do_go()
 {
 	object me = this_player();
-	write("你气喘嘘嘘的跟在哑巴后面，实在是跟不上了，只好把木桶扔掉。\n", me);
+	write("浣犳皵鍠樺槝鍢樼殑璺熷湪鍝戝反鍚庨潰锛屽疄鍦ㄦ槸璺熶笉涓婁簡锛屽彧濂芥妸鏈ㄦ《鎵旀帀銆俓n", me);
 	call_out("do_go1", 5, me);
 }
 void do_go1()
 {
 	object me = this_player();
-	write("不一会儿，哑巴带你来到了一处空地前。\n", me);
+	write("涓嶄竴浼氬効锛屽搼宸村甫浣犳潵鍒颁簡涓�澶勭┖鍦板墠銆俓n", me);
 	me->move(__DIR__"kongdi");
-	message_vision("哑巴朝北面的松林走去。\n", me);
+	message_vision("鍝戝反鏈濆寳闈㈢殑鏉炬灄璧板幓銆俓n", me);
 	call_out("do_back", 0, me);
 }
 

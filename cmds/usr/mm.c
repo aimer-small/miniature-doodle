@@ -26,24 +26,24 @@ int main(object me, string arg)
 
 	if (!obj)
 	{
-		return notify_fail("ÄãµÄ°éÂÂÏÖÔÚ²»ÔÚ¡£\n");
+		return notify_fail("ä½ çš„ä¼´ä¾£ç°åœ¨ä¸åœ¨ã€‚\n");
 	}
 	if (!interactive(obj))
 	{
-		return notify_fail("ÄãµÄ°éÂÂÏÖÔÚ¶ÏÏßÁË¡£\n");
+		return notify_fail("ä½ çš„ä¼´ä¾£ç°åœ¨æ–­çº¿äº†ã€‚\n");
 	}
 	
 	if (!arg)
 	{
-		if((string)me->query("gender") == "Å®ĞÔ")
+		if((string)me->query("gender") == "å¥³æ€§")
 		{
-			write(MAG"Äã¶àÃ´Ë¼Äî·ò¾ı" + me->query("marry/name") + "°¡......\n"NOR);
-	 		tell_object(obj, sprintf(MAG"ÄãµÄ°®ÆŞ" + obj->query("marry/name") + "ÔÚË¼ÄîÄã......\n" NOR));
+			write(MAG"ä½ å¤šä¹ˆæ€å¿µå¤«å›" + me->query("marry/name") + "å•Š......\n"NOR);
+	 		tell_object(obj, sprintf(MAG"ä½ çš„çˆ±å¦»" + obj->query("marry/name") + "åœ¨æ€å¿µä½ ......\n" NOR));
 		}
         else
 		{
-			write(MAG"Äã¶àÃ´Ë¼Äî°®ÆŞ" + me->query("marry/name") + "°¡£¬¿ÉÊÇÒÁÈË½ñÔÚºÎ·½ÄØ......\n"NOR);
-	 		tell_object(obj, sprintf(MAG"ÄãµÄ·ò¾ı" + obj->query("marry/name") + "ÔÚË¼ÄîÄã......\n" NOR));
+			write(MAG"ä½ å¤šä¹ˆæ€å¿µçˆ±å¦»" + me->query("marry/name") + "å•Šï¼Œå¯æ˜¯ä¼Šäººä»Šåœ¨ä½•æ–¹å‘¢......\n"NOR);
+	 		tell_object(obj, sprintf(MAG"ä½ çš„å¤«å›" + obj->query("marry/name") + "åœ¨æ€å¿µä½ ......\n" NOR));
 		}
 	}
 	else
@@ -53,42 +53,42 @@ int main(object me, string arg)
 		case "kiss":
 			if (objectp(present(me->query("marry/id"), environment(me))))
 			{
-				message_vision(MAG "$NÓµ±§×Å$nÉîÉîµØÒ»ÎÇ......\n"NOR, me, obj);
+				message_vision(MAG "$Næ‹¥æŠ±ç€$næ·±æ·±åœ°ä¸€å»......\n"NOR, me, obj);
 			}
 			else
 			{
-				write(MAG "Äã¶àÏëÓµ±§ÄãµÄ" + me->query("marry/name") + "ÉîÉîµØÒ»ÎÇ......\n" NOR);
-				tell_object(obj, sprintf( MAG "ÄãµÄ%s¶àÏëÓµ±§Äã£¬¸øÄãÉîÉîµÄÒ»ÎÇ......\n" NOR,
+				write(MAG "ä½ å¤šæƒ³æ‹¥æŠ±ä½ çš„" + me->query("marry/name") + "æ·±æ·±åœ°ä¸€å»......\n" NOR);
+				tell_object(obj, sprintf( MAG "ä½ çš„%så¤šæƒ³æ‹¥æŠ±ä½ ï¼Œç»™ä½ æ·±æ·±çš„ä¸€å»......\n" NOR,
 					obj->query("marry/name")));
 			}
 			break;	
 		case "bye":
 			if (objectp(present(me->query("marry/id"), environment(me))))
 			{
-				message_vision(MAG "$Nº¬ÀáÄıÍû×Å$n£¬ßìÑÊµÀ: ÓÖÒªÀë¿ªÁË£¬"
-					"ºÎÊ±²ÅÄÜ³¤Ïà¾Û²»·ÖÀëÑ½......\n"NOR, me, obj);
+				message_vision(MAG "$Nå«æ³ªå‡æœ›ç€$nï¼Œå“½å’½é“: åˆè¦ç¦»å¼€äº†ï¼Œ"
+					"ä½•æ—¶æ‰èƒ½é•¿ç›¸èšä¸åˆ†ç¦»å‘€......\n"NOR, me, obj);
 			}
 			else
 			{
-				if (me->query("gender")=="Å®ĞÔ")
+				if (me->query("gender")=="å¥³æ€§")
 				{
-					write(MAG "Äã¶àÏëÔÙ¿´ÄãµÄ·ò¾ı" + me->query("marry/name") + "Ò»ÑÛ£¬"
-						"ÈÃËûÖªµÀÄãÊÇÕâÑùµÄÒ»Ö±Äî¹Ò×ÅËû...\n"NOR);
-					tell_object(obj, MAG "ÄãµÄ°®ÆŞ" + obj->query("marry/name") 
-						+ "¶àÏëÔÙ¶à¿´ÄãÒ»ÑÛ£¬É½Ò£Ë®¸ô£¬Ëı»áÒ»Ö±¼Ç¹ÒÄãµÄ£¬ÄãÒª×Ô¼º±£ÖØ°¡......\n" NOR);
+					write(MAG "ä½ å¤šæƒ³å†çœ‹ä½ çš„å¤«å›" + me->query("marry/name") + "ä¸€çœ¼ï¼Œ"
+						"è®©ä»–çŸ¥é“ä½ æ˜¯è¿™æ ·çš„ä¸€ç›´å¿µæŒ‚ç€ä»–...\n"NOR);
+					tell_object(obj, MAG "ä½ çš„çˆ±å¦»" + obj->query("marry/name") 
+						+ "å¤šæƒ³å†å¤šçœ‹ä½ ä¸€çœ¼ï¼Œå±±é¥æ°´éš”ï¼Œå¥¹ä¼šä¸€ç›´è®°æŒ‚ä½ çš„ï¼Œä½ è¦è‡ªå·±ä¿é‡å•Š......\n" NOR);
 				}
 				else
 				{
-					write(MAG "Äã¶àÏëÔÙ¿´ÄãµÄ°®ÆŞ" + me->query("marry/name") + "Ò»ÑÛ£¬"
-						"ÈÃËıÖªµÀÄãÊÇÕâÑùµÄÒ»Ö±Äî¹Ò×ÅËı...\n");
-					tell_object(obj, MAG"ÄãµÄ·ò¾ı" + obj->query("marry/name") 
-						+ "¶àÏëÔÙ¶à¿´ÄãÒ»ÑÛ£¬É½Ò£Ë®¸ô£¬Ëû»áÒ»Ö±¼Ç¹ÒÄãµÄ£¬ÄãÒª×Ô¼º±£ÖØ°¡......\n"NOR);
+					write(MAG "ä½ å¤šæƒ³å†çœ‹ä½ çš„çˆ±å¦»" + me->query("marry/name") + "ä¸€çœ¼ï¼Œ"
+						"è®©å¥¹çŸ¥é“ä½ æ˜¯è¿™æ ·çš„ä¸€ç›´å¿µæŒ‚ç€å¥¹...\n");
+					tell_object(obj, MAG"ä½ çš„å¤«å›" + obj->query("marry/name") 
+						+ "å¤šæƒ³å†å¤šçœ‹ä½ ä¸€çœ¼ï¼Œå±±é¥æ°´éš”ï¼Œä»–ä¼šä¸€ç›´è®°æŒ‚ä½ çš„ï¼Œä½ è¦è‡ªå·±ä¿é‡å•Š......\n"NOR);
 				}
 			}
 			break;
 		default:
-			write(MAG "ÄãÇÄÇÄ¸æËßÄãµÄ" + me->query("marry/name") + "£º" HIM + arg + "\n" NOR);
-			message("channel", sprintf(MAG "ÄãµÄ%sÇÄÇÄ¸æËßÄã£º" HIM "%s\n" NOR,obj->query("marry/name"), arg), obj);
+			write(MAG "ä½ æ‚„æ‚„å‘Šè¯‰ä½ çš„" + me->query("marry/name") + "ï¼š" HIM + arg + "\n" NOR);
+			message("channel", sprintf(MAG "ä½ çš„%sæ‚„æ‚„å‘Šè¯‰ä½ ï¼š" HIM "%s\n" NOR,obj->query("marry/name"), arg), obj);
 			break;
 		}
 	}
@@ -99,9 +99,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºmm [Ñ¶Ï¢]
+æŒ‡ä»¤æ ¼å¼ï¼šmm [è®¯æ¯]
 
-	Äã¿ÉÒÔÓÃÕâ¸öÖ¸Áî¶ÔÄãµÄ°éÂÂËµÇÄÇÄ»°¡£
+	ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤å¯¹ä½ çš„ä¼´ä¾£è¯´æ‚„æ‚„è¯ã€‚
 HELP);
 	return 1;
 }

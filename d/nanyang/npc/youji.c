@@ -1,4 +1,4 @@
-// youji.c ÓÎæ÷
+// youji.c æ¸¸éª¥
 // Lklv Modify 2001.10.10
 
 #include <ansi.h>
@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÓÎæ÷", ({ "you ji", "you", "ji" }) );
-	set("gender", "ÄÐÐÔ");
-	set("nickname",HIW"ÓÎÊÏË«ÐÛ"NOR);
-	set("title","¾ÛÏÍ×¯´ó×¯Ö÷");
+	set_name("æ¸¸éª¥", ({ "you ji", "you", "ji" }) );
+	set("gender", "ç”·æ€§");
+	set("nickname",HIW"æ¸¸æ°åŒé›„"NOR);
+	set("title","èšè´¤åº„å¤§åº„ä¸»");
 	set("age", 40);
-	set("long","Ëû¾ÍÊÇ¾ÛÏÍ×¯µÄ´ó×¯Ö÷ÓÎæ÷¡£\n");
+	set("long","ä»–å°±æ˜¯èšè´¤åº„çš„å¤§åº„ä¸»æ¸¸éª¥ã€‚\n");
 	set("combat_exp", 300000);
 	set("shen_type", 1);
         set("attitude", "peaceful");
@@ -47,8 +47,8 @@ void create()
 	prepare_skill("strike", "weituo-zhang");
 	prepare_skill("cuff", "luohan-quan");
 	set("inquiry", ([
-		"Ø¤°ï" : "Ø¤°ïÊÇÌìÏÂµÚÒ»´ó°ï£¡\n",
-		"Ïô·å" : "½­ºþ°ÜÀà¡£\n",
+		"ä¸å¸®" : "ä¸å¸®æ˜¯å¤©ä¸‹ç¬¬ä¸€å¤§å¸®ï¼\n",
+		"è§å³°" : "æ±Ÿæ¹–è´¥ç±»ã€‚\n",
 	]));
 	setup();
 	carry_object(MISC_D("jinduan"))->wear();

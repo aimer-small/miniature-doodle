@@ -15,16 +15,16 @@ int main(object me, string arg)
         if (wizardp(me)) {
                 if (!ob) ob = find_player(arg);
                 if (!ob) ob = find_living(arg);
-                if (!ob || !me->visible(ob)) return notify_fail("ÄãÒª²ì¿´Ë­µÄEXP×´Ì¬£¿\n");
+                if (!ob || !me->visible(ob)) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„EXPçŠ¶æ€ï¼Ÿ\n");
         } else if (ob != me)
-                return notify_fail("Ö»ÓĞÎ×Ê¦ÄÜ²ì¿´±ğÈËµÄEXP×´Ì¬¡£\n");
+                return notify_fail("åªæœ‰å·«å¸ˆèƒ½å¯Ÿçœ‹åˆ«äººçš„EXPçŠ¶æ€ã€‚\n");
         
         i = (ob->query("combat_exp") - ob->query_temp("combat_exp")) * 60
                 / (ob->query("mud_age") - ob->query_temp("mud_age"));
 
         j = (ob->query("mud_age") - ob->query_temp("mud_age"))/60;
 
-        write(sprintf("%s ÉÏ´Î¾­Ñé£º%d£¬±¾´Î¾­Ñé£º%d£¬Æ½¾ù£º%d/min, ÉÏÏßÊ±¼äÎª %d min¡£\n",
+        write(sprintf("%s ä¸Šæ¬¡ç»éªŒï¼š%dï¼Œæœ¬æ¬¡ç»éªŒï¼š%dï¼Œå¹³å‡ï¼š%d/min, ä¸Šçº¿æ—¶é—´ä¸º %d minã€‚\n",
                                 geteuid(ob), ob->query_temp("combat_exp"),
                                 ob->query("combat_exp"), i ,j));
         return 1;
@@ -34,9 +34,9 @@ int main(object me, string arg)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : speed <id>
+æŒ‡ä»¤æ ¼å¼ : speed <id>
 
-ÓÃ´ËÖ¸Áî¼ì²éplayerµÄ¾­ÑéËÙ¶È¡£
+ç”¨æ­¤æŒ‡ä»¤æ£€æŸ¥playerçš„ç»éªŒé€Ÿåº¦ã€‚
 HELP
     );
     return 1;

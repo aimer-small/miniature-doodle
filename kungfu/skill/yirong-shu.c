@@ -13,5 +13,5 @@ int valid_learn(object me)
 
 int practice_skill(object me)
 {       
-        return notify_fail("易容术只能通过读书来提高。\n");
+        return notify_fail("鏄撳鏈彧鑳介�氳繃璇讳功鏉ユ彁楂樸�俓n");
 }

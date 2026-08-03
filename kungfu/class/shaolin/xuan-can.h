@@ -15,44 +15,44 @@ string ask_me()
         skl = fighter->query_skills();
         sname = keys(skl);
         if( fighter->query("combat_exp") > 2000000)
-                return RANK_D->query_respect(fighter)+"µÄ¾­ÑéÒÑ¾­²»Ç³£¬»¹ÊÇ×öµãÆäËü¸üÓÐÌôÕ½ÐÔµÄ¹¤×÷°É¡£\n";
+                return RANK_D->query_respect(fighter)+"çš„ç»éªŒå·²ç»ä¸æµ…ï¼Œè¿˜æ˜¯åšç‚¹å…¶å®ƒæ›´æœ‰æŒ‘æˆ˜æ€§çš„å·¥ä½œå§ã€‚\n";
 
         if(fighter->query_condition("lh_job"))
-                return "Äã¸Õ²Å²»ÊÇÒÑ¾­ÎÊ¹ýÁËÂð£¿";
+                return "ä½ åˆšæ‰ä¸æ˜¯å·²ç»é—®è¿‡äº†å—ï¼Ÿ";
 
         if(fighter->query_condition("job_busy"))
-                return "ÄãÕýÔÚÃ¦×Å×öÆäËüÈÎÎñÄØ¡£";
+                return "ä½ æ­£åœ¨å¿™ç€åšå…¶å®ƒä»»åŠ¡å‘¢ã€‚";
 
-        if(fighter->query("job_name") == "ÑµÁ·ÎäÉ®")
-                return "Äã¸ÕÑµÁ·ÎäÉ®½áÊø£¬»¹ÊÇÏÈÐÝÏ¢Ò»»á°É¡£";
+        if(fighter->query("job_name") == "è®­ç»ƒæ­¦åƒ§")
+                return "ä½ åˆšè®­ç»ƒæ­¦åƒ§ç»“æŸï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¼šå§ã€‚";
                 
         if( !fighter->query("luohan_winner") )
-                return RANK_D->query_respect(fighter)+"Á¬ÂÞºº´óÕó¶¼Ã»¹ý£¬Ò²Ïë½øÌÃÖµÇÚ£¿";
+                return RANK_D->query_respect(fighter)+"è¿žç½—æ±‰å¤§é˜µéƒ½æ²¡è¿‡ï¼Œä¹Ÿæƒ³è¿›å ‚å€¼å‹¤ï¼Ÿ";
 
         if(sizeof(skl)<15)
-                return RANK_D->query_respect(fighter)+"ÉÙÁÖ¹¦·òÃ»Ñ§¼¸Ñù£¬Ò²ÏëÀ´ÖµÇÚ?";      
+                return RANK_D->query_respect(fighter)+"å°‘æž—åŠŸå¤«æ²¡å­¦å‡ æ ·ï¼Œä¹Ÿæƒ³æ¥å€¼å‹¤?";      
 
         if(fighter->query("family/generation") > 36)
-                return RANK_D->query_respect(fighter)+"±²·ÖÌ«µÍ£¬Ö»ÅÂÂÞººÌÃµÜ×Ó²»ÌýÄãµÄ¹Ü½Ì¡£\n";
+                return RANK_D->query_respect(fighter)+"è¾ˆåˆ†å¤ªä½Žï¼Œåªæ€•ç½—æ±‰å ‚å¼Ÿå­ä¸å¬ä½ çš„ç®¡æ•™ã€‚\n";
 
-        if ( mapp(fam = fighter->query("family")) && fam["family_name"] != "ÉÙÁÖÅÉ")
-                return RANK_D->query_respect(fighter)+"¿ªÍæÐ¦°É£¿ÉÙÁÖÆñÈÝµÄÏÂÍâÅÉ¸ßÊÖ£¿";
+        if ( mapp(fam = fighter->query("family")) && fam["family_name"] != "å°‘æž—æ´¾")
+                return RANK_D->query_respect(fighter)+"å¼€çŽ©ç¬‘å§ï¼Ÿå°‘æž—å²‚å®¹çš„ä¸‹å¤–æ´¾é«˜æ‰‹ï¼Ÿ";
 
         if ( (int)fighter->query("guilty") > 0 )
-                return RANK_D->query_respect(fighter)+"ÄãÀÛ·¸Êý½ä£¬Éí´øÖØ×ï£¬ÎÒÈçºÎÄÜ×¼ÐíÄãÔÚÂÞººÌÃÐ§Á¦?£¡";
+                return RANK_D->query_respect(fighter)+"ä½ ç´¯çŠ¯æ•°æˆ’ï¼Œèº«å¸¦é‡ç½ªï¼Œæˆ‘å¦‚ä½•èƒ½å‡†è®¸ä½ åœ¨ç½—æ±‰å ‚æ•ˆåŠ›?ï¼";
 
         if( fighter->query_condition("job_busy"))
-                return "ÄãÏÖÔÚÕýÃ¦×Å×öÆäËûÈÎÎñÄØ£¡";
+                return "ä½ çŽ°åœ¨æ­£å¿™ç€åšå…¶ä»–ä»»åŠ¡å‘¢ï¼";
 
-        say("\nÐþ²ÑËµµÀ£ººÃ°É£¬Äã¾ÍÔÚÂÞººÌÃÀïÑµÁ·ÎäÉ®°É£¬ÈôÓÐÍâµÐÈëÇÖ£¬ÄãÃÇ¸ºµ£×Å»¤ËÂÖØÈÎ¡£\n");
+        say("\nçŽ„æƒ­è¯´é“ï¼šå¥½å§ï¼Œä½ å°±åœ¨ç½—æ±‰å ‚é‡Œè®­ç»ƒæ­¦åƒ§å§ï¼Œè‹¥æœ‰å¤–æ•Œå…¥ä¾µï¼Œä½ ä»¬è´Ÿæ‹…ç€æŠ¤å¯ºé‡ä»»ã€‚\n");
 
-//      fighter->set("short","ÂÞººÌÃÖµÇÚ½ÌÏ°");
+//      fighter->set("short","ç½—æ±‰å ‚å€¼å‹¤æ•™ä¹ ");
         fighter->set_temp("lh_teacher",1);
-        fighter->add("job_time/ÉÙÁÖ",1);
-        fighter->add("job_time/ÂÞººÌÃ",1);
+        fighter->add("job_time/å°‘æž—",1);
+        fighter->add("job_time/ç½—æ±‰å ‚",1);
         fighter->delete_temp("meetmotou");
-        fighter->set("job_name","ÑµÁ·ÎäÉ®");
+        fighter->set("job_name","è®­ç»ƒæ­¦åƒ§");
         fighter->apply_condition("lh_job", 15);
         fighter->apply_condition("job_busy",9);
-                return "µ½ÁËÎäÉ®ÌÃ£¬ask monk about Îä¼¼¡£";
+                return "åˆ°äº†æ­¦åƒ§å ‚ï¼Œask monk about æ­¦æŠ€ã€‚";
 }

@@ -8,14 +8,14 @@ int do_zuan(string arg);
 
 void create()
 {
-	set("short","²ÝµØ");
+	set("short","è‰åœ°");
 	set("long",@LONG
-ÕâÀïÊÇÒ»Æ¬Ë®²Ý½»¼¯µÄÊªµØ¡£µØÉÏÄàÅ¢ÄÑÐÐ¡£º£·ç´µÀ´£¬ÂþÌì³¤²ÝÖ®ÖÐÏÖ³öµ¹±Õ×ÅµÄ
-ÀÛÀÛ°×¹Ç£¬ËÆºõÌáÐÑ×ÅÄã£¬´Ë´¦ËäÈ»ËÆºõ¼Å¾²ÎÞÈË£¬È´ÊÇ°µ²ØÉ±»ú¡£¶«ÃæºÍ¶«±±Ãæ±»Ò»Ìõ
-ÏªÁ÷»·ÈÆ×Å¡£
+è¿™é‡Œæ˜¯ä¸€ç‰‡æ°´è‰äº¤é›†çš„æ¹¿åœ°ã€‚åœ°ä¸Šæ³¥æ³žéš¾è¡Œã€‚æµ·é£Žå¹æ¥ï¼Œæ¼«å¤©é•¿è‰ä¹‹ä¸­çŽ°å‡ºå€’é—­ç€çš„
+ç´¯ç´¯ç™½éª¨ï¼Œä¼¼ä¹Žæé†’ç€ä½ ï¼Œæ­¤å¤„è™½ç„¶ä¼¼ä¹Žå¯‚é™æ— äººï¼Œå´æ˜¯æš—è—æ€æœºã€‚ä¸œé¢å’Œä¸œåŒ—é¢è¢«ä¸€æ¡
+æºªæµçŽ¯ç»•ç€ã€‚
 LONG
 	);
-	set("outdoors","´óÖÇµº");
+	set("outdoors","å¤§æ™ºå²›");
 	set("exits",([
 		"north" : __DIR__"caodi3",
 		"east" : __DIR__"xiliu2",
@@ -35,19 +35,19 @@ void init()
 	if(!room = find_object(__DIR__"caocong"))
 		room = load_object(__DIR__"caocong");
 	if(!wizardp(this_player()))
-		tell_room(room,"Í¸¹ý²Ý´ÔµÄ·ìÏ¶£¬Äã¿´¼û" + this_player()->name() +"(" + this_player()->query("id")+ ")À´µ½ÁËÕâÀï¡£\n");
+		tell_room(room,"é€è¿‡è‰ä¸›çš„ç¼éš™ï¼Œä½ çœ‹è§" + this_player()->name() +"(" + this_player()->query("id")+ ")æ¥åˆ°äº†è¿™é‡Œã€‚\n");
 }
 
 int do_zuan(string arg)
 {
 	object me = this_player();
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(!arg || arg != "caocong")
-		return notify_fail("ÄãÒª×êµ½ÄÄ¶ù£¿\n");
-	message_vision(HIY"$NÒ»·üÉí£¬×êµ½ÅÔ±ßµÄ²Ý´Ô£¬Ë²¼ä±ãÒÑ²»¼û¡£\n"NOR,me);
+		return notify_fail("ä½ è¦é’»åˆ°å“ªå„¿ï¼Ÿ\n");
+	message_vision(HIY"$Nä¸€ä¼èº«ï¼Œé’»åˆ°æ—è¾¹çš„è‰ä¸›ï¼Œçž¬é—´ä¾¿å·²ä¸è§ã€‚\n"NOR,me);
 	me->move(__DIR__"caocong",1);
-	message_vision(HIY"$NÕÒÁË´¦»Ä²ÝÃ¯ÃÜÖ®´¦£¬ÇáÇá·üÏÂÉíÀ´¡£\n"NOR,me);
+	message_vision(HIY"$Næ‰¾äº†å¤„è’è‰èŒ‚å¯†ä¹‹å¤„ï¼Œè½»è½»ä¼ä¸‹èº«æ¥ã€‚\n"NOR,me);
 	return 1;
 }
 
@@ -58,6 +58,6 @@ int valid_leave(object me,string dir)
 	
 	valid = ::valid_leave(me,dir);
 	if(valid && !wizardp(me) && room = find_object(__DIR__"caocong"))
-		tell_room(room,"Í¸¹ý²Ý´ÔµÄ·ìÏ¶£¬Äã¿´µ½" + me->name() + "(" + me->query("id") + ")Àë¿ªÁËÕâÀï¡£\n");
+		tell_room(room,"é€è¿‡è‰ä¸›çš„ç¼éš™ï¼Œä½ çœ‹åˆ°" + me->name() + "(" + me->query("id") + ")ç¦»å¼€äº†è¿™é‡Œã€‚\n");
 	return valid;
 }

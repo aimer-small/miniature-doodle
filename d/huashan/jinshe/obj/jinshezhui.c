@@ -8,14 +8,14 @@ inherit THROWING;
 
 void create()
 {
-       set_name(HIY "½ğÉß×¶" NOR, ({"jinshe zhui", "jinshe", "zhui" }));
+       set_name(HIY "é‡‘è›‡é”¥" NOR, ({"jinshe zhui", "jinshe", "zhui" }));
        if( clonep() )
                set_default_object(__FILE__);
        else {
-		set("long", "Á½´çÀ´³¤£¬³ÉÉßĞÎµÄ°µÆ÷¡£\n");               
-               set("unit", "´ü");
+		set("long", "ä¸¤å¯¸æ¥é•¿ï¼Œæˆè›‡å½¢çš„æš—å™¨ã€‚\n");               
+               set("unit", "è¢‹");
        set("base_value", 0);
-               set("base_unit", "Ã¶");
+               set("base_unit", "æš");
                set("base_weight", 10);
        }
       set_amount(1);

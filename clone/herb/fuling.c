@@ -2,13 +2,13 @@
 
 void create()
 {
-        set_name(HIG "ÜòÜß" NOR, ({"fu ling"}));
+        set_name(HIG "èŒ¯è‹“" NOR, ({"fu ling"}));
         if (clonep())
                 set_default_object(__FILE__);
         else 
         {
-                set("long","ÜòÜß£º²İ±¾Ö²Îï£¬²¹ÆøÑª£¬ÈóÎåÔà£¬ÊÇ²»¿É¶àµÃµÄÉÏ¼ÑÒ©²Ä¡£\n");
-                set("base_unit", "¿é");
+                set("long","èŒ¯è‹“ï¼šè‰æœ¬æ¤ç‰©ï¼Œè¡¥æ°”è¡€ï¼Œæ¶¦äº”è„ï¼Œæ˜¯ä¸å¯å¤šå¾—çš„ä¸Šä½³è¯æã€‚\n");
+                set("base_unit", "å—");
                 set("base_value", 4000);
                 set("base_weight", 60);
                 set("cure_s",40);

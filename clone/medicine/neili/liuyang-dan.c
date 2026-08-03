@@ -9,13 +9,13 @@ void init()
 
 void create()
 {
-	set_name(HIR"ÁùÑôÕýÆøµ¤"NOR, ({"zhengqi dan", "dan"}));
+	set_name(HIR"å…­é˜³æ­£æ°”ä¸¹"NOR, ({"zhengqi dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", HIR"ÕâÊÇÒ»¿ÅÒóºìÈçÑªµÄÁùÑôÕýÆøµ¤£¬¾­Ò©ÍõÔº¸ßÉ®¾«ÐÄÁ·ÖÆ£¬\n"+
-			       "½âº®¶¾£¬ÁÆ¾øÖ¢ÓÐÆðËÀ»ØÉúÖ®¹¦¡£\n"NOR);
+		set("unit", "é¢—");
+		set("long", HIR"è¿™æ˜¯ä¸€é¢—æ®·çº¢å¦‚è¡€çš„å…­é˜³æ­£æ°”ä¸¹ï¼Œç»è¯çŽ‹é™¢é«˜åƒ§ç²¾å¿ƒç»ƒåˆ¶ï¼Œ\n"+
+			       "è§£å¯’æ¯’ï¼Œç–—ç»ç—‡æœ‰èµ·æ­»å›žç”Ÿä¹‹åŠŸã€‚\n"NOR);
 		set("no_get",1);
 		set("no_give",1);
 	}
@@ -30,28 +30,28 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if (query("owner") != me->query("id"))       
-		return notify_fail("Õâ¿ÅÁùÑôÕýÆøµ¤ºÃÏó²»ÊÇÄãµÃµ½µÄ°É£¿\n");
+		return notify_fail("è¿™é¢—å…­é˜³æ­£æ°”ä¸¹å¥½è±¡ä¸æ˜¯ä½ å¾—åˆ°çš„å§ï¼Ÿ\n");
 
 	if (me->query_condition("medicine") > 0 ){
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÁùÑôÕýÆøµ¤£¬Ö»¾õµÃÈÈÆøÖ±³åÍ·¶¥£¬Ô­À´Óë$PÒÔÇ°Ëù·þµ¤Ò©Ò©ÐÔÏà×ó£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å…­é˜³æ­£æ°”ä¸¹ï¼Œåªè§‰å¾—çƒ­æ°”ç›´å†²å¤´é¡¶ï¼ŒåŽŸæ¥ä¸Ž$Pä»¥å‰æ‰€æœä¸¹è¯è¯æ€§ç›¸å·¦ï¼\n" NOR, me);
 		me->set("jing",me->query("max_jing")/10);
 		me->set("eff_jing",me->query("max_jing")/10);
 		me->set("qi",me->query("max_qi")/10);
 		me->set("eff_qi",me->query("max_qi")/10);
 		me->add("max_neili",-10);
-		log_file("quest/neili",sprintf("%-18sÎóÊ³%s¼õÈ¥ÄÚÁ¦Ê®µã¡£\n",
+		log_file("quest/neili",sprintf("%-18sè¯¯é£Ÿ%så‡åŽ»å†…åŠ›åç‚¹ã€‚\n",
 			me->name(1)+"("+capitalize(me->query("id"))+")", this_object()->name()), me);
 	}
 	else {  
 		if( neili_limit < force_limit) {
-			message_vision(HIR"$N³ÔÏÂÒ»¿ÅÁùÑôÕýÆøµ¤£¬¶ÙÊ±Ò»¹ÉÈÈÆøÖ±Í¸ÐÄµ×£¡\n"NOR,me);
+			message_vision(HIR"$Nåƒä¸‹ä¸€é¢—å…­é˜³æ­£æ°”ä¸¹ï¼Œé¡¿æ—¶ä¸€è‚¡çƒ­æ°”ç›´é€å¿ƒåº•ï¼\n"NOR,me);
 			improve = random(2);
 			me->apply_condition("medicine", 30 * improve);
 			me->add("max_neili", improve);
-			log_file("quest/neili",sprintf("%-18s³ÔÁË%sÌáÉýÄÚÁ¦%sµã¡£\n",
+			log_file("quest/neili",sprintf("%-18såƒäº†%sæå‡å†…åŠ›%sç‚¹ã€‚\n",
 				me->name(1)+"("+capitalize(me->query("id"))+")",name(),chinese_number(improve)), me);
 		}
 		else {

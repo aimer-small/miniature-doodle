@@ -1,17 +1,17 @@
 
 	this_interactive(3)	MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		this_interactive - ´«»Øºô½Ğ´Ëº¯Ê½µÄÍæ¼ÒÎï¼ş.
-	Óï·¨:
+	åç§°:
+		this_interactive - ä¼ å›å‘¼å«æ­¤å‡½å¼çš„ç©å®¶ç‰©ä»¶.
+	è¯­æ³•:
 		object this_interactive();
 
-		Îï¼ş this_interactive();
-	ÓÃ·¨:
-		´«»Øºô½Ğ´Ëº¯Ê½µÄÍæ¼ÒÎï¼ş. »ù±¾ÉÏ this_interactive()
-		»á´«»Ø this_player(), ¶ø²»Ïñ this_player() »áÊÜµ½
-		enable_commands() »ò command()  µÄÓ°Ïì.
-	²Î¿¼:
+		ç‰©ä»¶ this_interactive();
+	ç”¨æ³•:
+		ä¼ å›å‘¼å«æ­¤å‡½å¼çš„ç©å®¶ç‰©ä»¶. åŸºæœ¬ä¸Š this_interactive()
+		ä¼šä¼ å› this_player(), è€Œä¸åƒ this_player() ä¼šå—åˆ°
+		enable_commands() æˆ– command()  çš„å½±å“.
+	å‚è€ƒ:
 		this_object(3), this_player()
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Jul.24.		(printed 3/16/95)

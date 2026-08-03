@@ -1,15 +1,15 @@
-// qu.c ÇúÑó
+// qu.c æ›²æ´‹
 // Finish by action@SJ 2009.1.6
 #include <ansi.h>
 inherit NPC;
 inherit F_MASTER;
 void create()
 {
-	set_name("ÇúÑó", ({ "qu yang", "qu", "yang"}));
-        set("long", "´ËÈËÄËÈÕÔÂÉñ½ÌÊ®´ó³¤ÀÏÖ®Ò»£¬Îä¹¦Éî²»¿É²â¡£\n"+
-		    "¶øËû¸ü³ÕÃÔÓÚÇÙÇúÖ®µÀ£¬ÇÙÒÕ¿ÉÒÔ³ÆµÃÉÏÊÇµ±ÊÀµÚÒ»ÈË.\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "HIG"³¤ÀÏ"NOR);
-        set("gender", "ÄÐÐÔ");
+	set_name("æ›²æ´‹", ({ "qu yang", "qu", "yang"}));
+        set("long", "æ­¤äººä¹ƒæ—¥æœˆç¥žæ•™åå¤§é•¿è€ä¹‹ä¸€ï¼Œæ­¦åŠŸæ·±ä¸å¯æµ‹ã€‚\n"+
+		    "è€Œä»–æ›´ç—´è¿·äºŽç´æ›²ä¹‹é“ï¼Œç´è‰ºå¯ä»¥ç§°å¾—ä¸Šæ˜¯å½“ä¸–ç¬¬ä¸€äºº.\n");
+        set("title",HIY"æ—¥æœˆç¥žæ•™  "HIG"é•¿è€"NOR);
+        set("gender", "ç”·æ€§");
         set("age", 60);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -48,7 +48,7 @@ void create()
         map_skill("dodge", "ding-dodge");
         map_skill("strike", "tianmo-zhang");
         prepare_skill("strike", "tianmo-zhang");
-        create_family("ÈÕÔÂÉñ½Ì", 8, "³¤ÀÏ");
+        create_family("æ—¥æœˆç¥žæ•™", 8, "é•¿è€");
         set("chat_chance_combat", 20);
         set("chat_msg_combat", ({
                 (: perform_action, "blade.jingshen" :),
@@ -66,9 +66,9 @@ void attempt_apprentice(object ob)
      if(ob->query_skill("tianmo-gong",1) < 160 ||
       ob->query_skill("tianmo-zhang",1) < 160 ||
         ob->query_skill("tianmo-shou",1) < 160){
-        command("say ÄãµÄÎä¹¦»¹²»¹»æµÊì£¬ÔÙ»ØÈ¥Á·Á·°É¡£");
+        command("say ä½ çš„æ­¦åŠŸè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œå†å›žåŽ»ç»ƒç»ƒå§ã€‚");
         return;
         }
-     command("say ºÃ£¬ÎÒÕýÏëÕÐ±øÂòÂí¾È½ÌÖ÷³öÀ´£¬¿´À´Äã»¹²»´íÂï£¬¾ÍÊÕÏÂÄãÁË¡£");
+     command("say å¥½ï¼Œæˆ‘æ­£æƒ³æ‹›å…µä¹°é©¬æ•‘æ•™ä¸»å‡ºæ¥ï¼Œçœ‹æ¥ä½ è¿˜ä¸é”™å˜›ï¼Œå°±æ”¶ä¸‹ä½ äº†ã€‚");
      command("recruit " + ob->query("id"));
 }

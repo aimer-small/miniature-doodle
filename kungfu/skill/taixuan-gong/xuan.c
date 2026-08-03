@@ -1,4 +1,4 @@
-//  huima.c °×Ê×Ì«Ğş 
+//  huima.c ç™½é¦–å¤ªç„ 
 //Created by Redhat@Sjmud 2009/4/7
 
 #include <ansi.h>
@@ -6,7 +6,7 @@
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h";
 
-string perform_name() {return WHT"°×Ê×Ì«Ğş"NOR;}
+string perform_name() {return WHT"ç™½é¦–å¤ªç„"NOR;}
 
 int perform(object me,object target)
 {
@@ -17,31 +17,31 @@ int perform(object me,object target)
      
     if(!objectp(target) || !me->is_fighting(target) || !living(target)
         || environment(target)!=environment(me))
-                return notify_fail("¡¸°×Ê×Ì«Ğş¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œç™½é¦–å¤ªç„ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
     if((int)me->query_skill("force", 1) < 250 )
-                return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦²»¹»æµÊì£¬ÎŞ·¨Ö§³Ö¡¸°×Ê×Ì«Ğş¡¹¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸä¸å¤Ÿå¨´ç†Ÿï¼Œæ— æ³•æ”¯æŒã€Œç™½é¦–å¤ªç„ã€ã€‚\n");
 
     if( (int)me->query_skill("taixuan-gong", 1) < 250 ) 
- return notify_fail("ÄãµÄ¹¦·ò»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃ¡¸°×Ê×Ì«Ğş¡¹£¡\n");
+ return notify_fail("ä½ çš„åŠŸå¤«è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨ã€Œç™½é¦–å¤ªç„ã€ï¼\n");
 
    
     if((int)me->query_skill("dodge", 1) < 250 )
-                return notify_fail("ÄãµÄ»ù±¾Çá¹¦²»¹»æµÊì£¬²»ÄÜÊ¹ÓÃ¡¸°×Ê×Ì«Ğş¡¹¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬è½»åŠŸä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œç™½é¦–å¤ªç„ã€ã€‚\n");
 
                     
     if((int)me->query("max_neili") < 8000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸°×Ê×Ì«Ğş¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œç™½é¦–å¤ªç„ã€ï¼\n");
 
     if((int)me->query("neili") < 3000 )
-                return notify_fail("ÄãÏÖÔÚÕæÆø²»×ã£¬²»ÄÜÊ¹ÓÃ¡¸°×Ê×Ì«Ğş¡¹£¡\n");
+                return notify_fail("ä½ ç°åœ¨çœŸæ°”ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨ã€Œç™½é¦–å¤ªç„ã€ï¼\n");
 
     if((int)me->query("jingli") < 1000 )
-                return notify_fail("ÄãÏÖÔÚÌ«ÀÛÁË£¬²»ÄÜÊ¹ÓÃ¡¸°×Ê×Ì«Ğş¡¹£¡\n");
+                return notify_fail("ä½ ç°åœ¨å¤ªç´¯äº†ï¼Œä¸èƒ½ä½¿ç”¨ã€Œç™½é¦–å¤ªç„ã€ï¼\n");
       
-message_vision(HIW"\nö®Ê±¼ä$NË¼Ğ÷¿ñÓ¿£¬²»ÔÙÀí»á$nÈçºÎÕĞ¼Ü£¬Ö»¹ÜÊ¹³öÏÀ¿ÍµºÊ¯±ÚÉÏµÄÇ§°ÙÖÖÕĞÊ½¾¡ÊıÏò$nÏ®È¥£¡\n"NOR, me,target);
+message_vision(HIW"\néœæ—¶é—´$Næ€ç»ªç‹‚æ¶Œï¼Œä¸å†ç†ä¼š$nå¦‚ä½•æ‹›æ¶ï¼Œåªç®¡ä½¿å‡ºä¾ å®¢å²›çŸ³å£ä¸Šçš„åƒç™¾ç§æ‹›å¼å°½æ•°å‘$nè¢­å»ï¼\n"NOR, me,target);
 
-    me->start_perform(3,"¡¸°×Ê×Ì«Ğş¡¹");
+    me->start_perform(3,"ã€Œç™½é¦–å¤ªç„ã€");
     me->add("neili", -800);
     me->add("jingli",-500);
 me->set_temp("txg_tx",5);
@@ -67,16 +67,16 @@ me->delete_temp("txg_tx");
 
 int help(object me)
 {
-   write(HIR"\nÌ«Ğş¹¦¡¸"HIW"°×Ê×Ì«Ğş"HIR"¡¹£º"NOR"\n");
+   write(HIR"\nå¤ªç„åŠŸã€Œ"HIW"ç™½é¦–å¤ªç„"HIR"ã€ï¼š"NOR"\n");
    write(@HELP
-   Ö¸Áî£ºperform xuan
+   æŒ‡ä»¤ï¼šperform xuan
 
-   ÒªÇó£ºÌ«Ğş¹¦250¼¶£¬
-         ×î´óÄÚÁ¦ 8000 ÒÔÉÏ£¬
-         µ±Ç°ÄÚÁ¦ 3000 ÒÔÉÏ£¬
-         µ±Ç°¾«Á¦ 1000 ÒÔÉÏ£¬
-         Ë­ÄÜÊé¸óÏÂ£¬
-         °×Ê×Ì«Ğş¾­¡£
+   è¦æ±‚ï¼šå¤ªç„åŠŸ250çº§ï¼Œ
+         æœ€å¤§å†…åŠ› 8000 ä»¥ä¸Šï¼Œ
+         å½“å‰å†…åŠ› 3000 ä»¥ä¸Šï¼Œ
+         å½“å‰ç²¾åŠ› 1000 ä»¥ä¸Šï¼Œ
+         è°èƒ½ä¹¦é˜ä¸‹ï¼Œ
+         ç™½é¦–å¤ªç„ç»ã€‚
 HELP
    );
    return 1;

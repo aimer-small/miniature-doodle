@@ -3,14 +3,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ĞÅÎï", ({"xinwu"}));
+	set_name("ä¿¡ç‰©", ({"xinwu"}));
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°ü");
+		set("unit", "åŒ…");
 		set("long",
-"ÕâÊÇÒ»°üÉñÃØµÄÎïÆ·£¬´ú±íÁËÒ»¸öÃÅÅÉµÄÉúÉ±´óÈ¨¡£\n");
+"è¿™æ˜¯ä¸€åŒ…ç¥ç§˜çš„ç‰©å“ï¼Œä»£è¡¨äº†ä¸€ä¸ªé—¨æ´¾çš„ç”Ÿæ€å¤§æƒã€‚\n");
 		set("value", 0);
 		set("material", "wood");
 }

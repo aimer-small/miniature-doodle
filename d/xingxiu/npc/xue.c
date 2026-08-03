@@ -28,10 +28,10 @@ string ansi_convert(string str)
 
 void create()
 {
-        set_name("Ñ¦Öò", ({ "xue zhu", "xue", "zhu" }));
-        set("gender", "ÄĞĞÔ");
+        set_name("è–›çƒ›", ({ "xue zhu", "xue", "zhu" }));
+        set("gender", "ç”·æ€§");
         set("age",42);
-	set("long","ÕâÊÇÒ»Î»±¥¾­·çËªµÄÖĞÄê´óºº£¬Ö»¼ûËûË«ÊÖµÄÄ´Ö¸Ê³Ö¸¾ßÒÑ²»¼û£¬Ö»Ê£ÏÂÁù¸ùÊÖÖ¸¡£\n");
+	set("long","è¿™æ˜¯ä¸€ä½é¥±ç»é£éœœçš„ä¸­å¹´å¤§æ±‰ï¼Œåªè§ä»–åŒæ‰‹çš„æ‹‡æŒ‡é£ŸæŒ‡å…·å·²ä¸è§ï¼Œåªå‰©ä¸‹å…­æ ¹æ‰‹æŒ‡ã€‚\n");
 	set_skill("unarmed", 50);
         set_skill("dodge", 50);
         set_temp("apply/damage", 15);
@@ -50,7 +50,7 @@ void init()
         add_action("do_no","no");
         ::init();
          if(interactive(ob = this_player()) && visible(ob))
-                say("Ñ¦Öò×öÁË¸ö¾ÏËµµÀ£ºÕâÎ»"+RANK_D->query_respect(ob)+"Çë½ø¡£\n");
+                say("è–›çƒ›åšäº†ä¸ªé è¯´é“ï¼šè¿™ä½"+RANK_D->query_respect(ob)+"è¯·è¿›ã€‚\n");
 }
 
 int do_ding(string str)
@@ -59,14 +59,14 @@ int do_ding(string str)
         object me = this_player();
 
 	if(me->query_skill("staff", 1) < 50 || !me->query_skill_mapped("staff")){
-		command("say ¶Ô²»Æğ£¬ÎÒÏÖÔÚÊÖÖ¸ÒÑ¶Ï£¬Ö»ÄÜ´òĞ©¸ÖÕÈ³öÀ´¡£\n");
+		command("say å¯¹ä¸èµ·ï¼Œæˆ‘ç°åœ¨æ‰‹æŒ‡å·²æ–­ï¼Œåªèƒ½æ‰“äº›é’¢æ–å‡ºæ¥ã€‚\n");
 		return 1;
 	}
 	me->delete_temp("xue/order");
 	if(!(str) || sscanf(str, "%s %s",color,cname) != 2)
-		return notify_fail("ÓÃ <make ÎäÆ÷ÑÕÉ« ÎäÆ÷Ãû³Æ> À´´òÔìÌØÊâ¸ÖÕÈ¡£\n");
+		return notify_fail("ç”¨ <make æ­¦å™¨é¢œè‰² æ­¦å™¨åç§°> æ¥æ‰“é€ ç‰¹æ®Šé’¢æ–ã€‚\n");
 	if(ob->query_temp("serving")){
-		command("say ¶Ô²»ÆğÑ½£¬ÎÒÕıÃ¦×ÅÄØ£¡\n");
+		command("say å¯¹ä¸èµ·å‘€ï¼Œæˆ‘æ­£å¿™ç€å‘¢ï¼\n");
 		return 1;
 	}
 	ob->set_temp("serving",1);
@@ -74,10 +74,10 @@ int do_ding(string str)
 
 	cname = sprintf("%s%s",color,cname);
 	cname = ansi_convert(cname);
-	info = sprintf("\n¸ÖÕÈµÄĞÂÃû³ÆÊÇ£º%s\n",cname);
-	message_vision(HIY"$N¶Ô×Å$n±È»­ÁË°ëÌì£¬¿´À´$NÊÇÏë´òÔìÒ»¸ù½Ğ×÷"+cname+HIY"µÄĞÂ¸ÖÕÈ¡£\n"NOR, me, ob);
+	info = sprintf("\né’¢æ–çš„æ–°åç§°æ˜¯ï¼š%s\n",cname);
+	message_vision(HIY"$Nå¯¹ç€$næ¯”ç”»äº†åŠå¤©ï¼Œçœ‹æ¥$Næ˜¯æƒ³æ‰“é€ ä¸€æ ¹å«ä½œ"+cname+HIY"çš„æ–°é’¢æ–ã€‚\n"NOR, me, ob);
 	command("nod");
-	command("say ÄãÈ·¶¨ÁËÊÇÒª´òÔìÕâ¸ù£¿"+info+GRN"  (È·¶¨Çë´ò<yes|no>)"NOR);
+	command("say ä½ ç¡®å®šäº†æ˜¯è¦æ‰“é€ è¿™æ ¹ï¼Ÿ"+info+GRN"  (ç¡®å®šè¯·æ‰“<yes|no>)"NOR);
 	me->set_temp("xue/order",1);
 	return 1;
 }
@@ -92,7 +92,7 @@ int do_yes()
 			remove_call_out("remove_serving");
 			this_object()->delete_temp("serving");
 			me->delete_temp("xue/order");
-			return  notify_fail("ÄãÉíÉÏ´øµÄÇ®²»¹»ÁË£¡\n");
+			return  notify_fail("ä½ èº«ä¸Šå¸¦çš„é’±ä¸å¤Ÿäº†ï¼\n");
 		}
 		return 1;
 	}
@@ -103,7 +103,7 @@ int do_no()
 	object me = this_player();
 	if(me->query_temp("xue/order")){
 		this_object()->delete_temp("sreving");
-		tell_object(me,"ÊÇÂğ£¿ÄÇÄãÒªÖØĞÂ´òÔìÊ²Ã´ÑùµÄ±øÆ÷£¿\n");
+		tell_object(me,"æ˜¯å—ï¼Ÿé‚£ä½ è¦é‡æ–°æ‰“é€ ä»€ä¹ˆæ ·çš„å…µå™¨ï¼Ÿ\n");
 		remove_call_out("remove_serving");
 		me->delete_temp("xue/order");
 		return 1;
@@ -122,7 +122,7 @@ void create_weapon(object me)
 	if(damage >= 60) damage = 60;
         weapon = new("/clone/weapon/gangzhang");
         weapon->set("name",cname + NOR);
-        weapon->set("long", "ÕâÊÇÒ»¸ùÓÉÑ¦Öò´òÔìµÄ"+me->name()+"µÄ"+weapon->query("name")+"¡£\n");
+        weapon->set("long", "è¿™æ˜¯ä¸€æ ¹ç”±è–›çƒ›æ‰“é€ çš„"+me->name()+"çš„"+weapon->query("name")+"ã€‚\n");
         weapon->set("value",0);
         weapon->set("no_drop",1);
         weapon->set("no_get",1);
@@ -130,8 +130,8 @@ void create_weapon(object me)
         weapon->set("weapon_prop/damage",damage);
         weapon->set_weight(weight);
         weapon->move(me);
-        command("say ÄãµÄ±øÆ÷´òÔìºÃÁË¡£\n");
-        message_vision("$N½»¸ø$nÒ»±úĞÂ´òÔìµÄ"+weapon->query("name")+"¡£\n", ob,me);
+        command("say ä½ çš„å…µå™¨æ‰“é€ å¥½äº†ã€‚\n");
+        message_vision("$Näº¤ç»™$nä¸€æŸ„æ–°æ‰“é€ çš„"+weapon->query("name")+"ã€‚\n", ob,me);
         ob->delete_temp("serving");
         me->delete_temp("xue/order");
 }

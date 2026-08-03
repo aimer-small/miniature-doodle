@@ -1,26 +1,26 @@
 
 // By fengyue
-// ÀñÎï3
+// ç¤¼ç‰©3
 
 #include <ansi.h>
 
 inherit SPEC;
 void create()
 {
-        set_name(HIY"ÉñÃØĞ¡Ìğ±ı"NOR, ({ "cookie" }) );
+        set_name(HIY"ç¥ç§˜å°ç”œé¥¼"NOR, ({ "cookie" }) );
         set_weight(10);
-                set("unit", "¸ö");
-                set("long", "ÕâÊÇÒ»ºĞ°ü×°¾«ÃÀµÄÉñÃØĞ¡Ìğ±ı£¬×ĞÏ¸Æ·³¢(pinchang)Ëü°É¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "è¿™æ˜¯ä¸€ç›’åŒ…è£…ç²¾ç¾çš„ç¥ç§˜å°ç”œé¥¼ï¼Œä»”ç»†å“å°(pinchang)å®ƒå§ã€‚\n");
                 set("value", 0);
                 set("material", "wood");
-                set("no_drop", "ÕâÑù¹óÖØµÄ¶«Î÷ÔõÃ´ÄÜËæ±ãÂÒ¶ªÄØ¡£\n");
-                set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
+                set("no_drop", "è¿™æ ·è´µé‡çš„ä¸œè¥¿æ€ä¹ˆèƒ½éšä¾¿ä¹±ä¸¢å‘¢ã€‚\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
                 set_weight(100);
                 set("value",3000000);
                 set("treasure",1);
                 set("degree",1);
                 set("flag","spec/gqcookie");
-                set("desc","ÉñÃØĞ¡Ìğ±ı");
+                set("desc","ç¥ç§˜å°ç”œé¥¼");
                 set("credit",150);    
        setup();
 }
@@ -40,13 +40,13 @@ int do_chai(string arg)
         
 
         if(arg!="cookie"&&arg!="bing")
-           return notify_fail("ÄãÒªÆ·³¢Ê²Ã´?\n");  
+           return notify_fail("ä½ è¦å“å°ä»€ä¹ˆ?\n");  
 /*  
       if(me->query("wizpot1")) 
-         return notify_fail("Äã³ÔÄÇÃ´¶à²»ÅÂ³ÅËÀ£¿\n"); 
+         return notify_fail("ä½ åƒé‚£ä¹ˆå¤šä¸æ€•æ’‘æ­»ï¼Ÿ\n"); 
  */              
 
-      message_vision(HIW"$N½ò½òÓĞÎ¶µÄÆ·³¢×ÅÒ»¸ö"+HIY+"ÉñÃØĞ¡Ìğ±ı"+HIW+" ¡£\n"NOR,me); 
+      message_vision(HIW"$Næ´¥æ´¥æœ‰å‘³çš„å“å°ç€ä¸€ä¸ª"+HIY+"ç¥ç§˜å°ç”œé¥¼"+HIW+" ã€‚\n"NOR,me); 
     
 
         obj = new("/cmds/leitai/bwdh/obj/danwan");
@@ -54,7 +54,7 @@ int do_chai(string arg)
         obj->set("secret_obj",1);
         obj->set("bonus","combat_exp");
         obj->move(me);          
-     message_vision(HIC"$N´Ó"+HIY+"ÉñÃØĞ¡Ìğ±ı"+HIC+"ÖĞ·¢ÏÖÒ»¿Å"+obj->name()+"¡£\n"NOR, me);  
+     message_vision(HIC"$Nä»"+HIY+"ç¥ç§˜å°ç”œé¥¼"+HIC+"ä¸­å‘ç°ä¸€é¢—"+obj->name()+"ã€‚\n"NOR, me);  
 
         obn = new("/cmds/leitai/bwdh/obj/danwan");
         obn->set("owner",me->query("id"));
@@ -62,7 +62,7 @@ int do_chai(string arg)
         obn->set("bonus","combat_exp");
         obn->move(me);          
 
-     message_vision(HIC"$N´Ó"+HIY+"ÉñÃØĞ¡Ìğ±ı"+HIC+"ÖĞ·¢ÏÖÒ»¿Å"+obn->name()+"¡£\n"NOR, me);  
+     message_vision(HIC"$Nä»"+HIY+"ç¥ç§˜å°ç”œé¥¼"+HIC+"ä¸­å‘ç°ä¸€é¢—"+obn->name()+"ã€‚\n"NOR, me);  
 
         obm = new("/cmds/leitai/bwdh/obj/danwan");
         obm->set("owner",me->query("id"));
@@ -70,7 +70,7 @@ int do_chai(string arg)
         obm->set("bonus","combat_exp");
         obm->move(me);          
 
-     message_vision(HIC"$N´Ó"+HIY+"ÉñÃØĞ¡Ìğ±ı"+HIC+"ÖĞ·¢ÏÖÒ»¿Å"+obm->name()+"¡£\n"NOR, me);  
+     message_vision(HIC"$Nä»"+HIY+"ç¥ç§˜å°ç”œé¥¼"+HIC+"ä¸­å‘ç°ä¸€é¢—"+obm->name()+"ã€‚\n"NOR, me);  
 
 
 if(me->query("relife/gift/total"))
@@ -108,12 +108,12 @@ if((int)me->query("relife/combat_exp",1)>= 50000000)
                  else{ me->set("relife/exp_ext",5); }
 
 */ 
-      tell_object(me, HIG"ÄãµÃµ½ÁËÅ®Éñ°Â÷ìÀ×ºÕµÄ×£¸££¬ÄãµÄÌì¸³µãÊıºÃÏñ·¢ÉúÁËÒ»Ğ©±ä»¯£¡\n"NOR);
+      tell_object(me, HIG"ä½ å¾—åˆ°äº†å¥³ç¥å¥¥é»›é›·èµ«çš„ç¥ç¦ï¼Œä½ çš„å¤©èµ‹ç‚¹æ•°å¥½åƒå‘ç”Ÿäº†ä¸€äº›å˜åŒ–ï¼\n"NOR);
    
-      tell_object(me, HIM"ÄãµÃµ½ÁËÅ®Éñ°Â÷ìÀ×ºÕµÄ×£¸££¬Ìì¸³ÖØĞÂ·ÖÅä!ÄãÏÖÔÚÓĞ"+ HIR + chinese_number(total) + CYN +"µã¡¸"+HIM+"Ìì¸³¼¼ÄÜ"+CYN+"¡¹£¡\n"NOR);
+      tell_object(me, HIM"ä½ å¾—åˆ°äº†å¥³ç¥å¥¥é»›é›·èµ«çš„ç¥ç¦ï¼Œå¤©èµ‹é‡æ–°åˆ†é…!ä½ ç°åœ¨æœ‰"+ HIR + chinese_number(total) + CYN +"ç‚¹ã€Œ"+HIM+"å¤©èµ‹æŠ€èƒ½"+CYN+"ã€ï¼\n"NOR);
 }
       me->set("kar,30");
-      message_vision(HIW"$NµÄÔËÆøÌá¸ßÁË£¡ \n"NOR,me); 
+      message_vision(HIW"$Nçš„è¿æ°”æé«˜äº†ï¼ \n"NOR,me); 
       destruct(this_object());
         return 1;
                 

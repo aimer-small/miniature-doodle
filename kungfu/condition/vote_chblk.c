@@ -7,7 +7,7 @@
 int update_condition(object me, int duration)
 {
 	if (duration < 2) {
-		tell_object(me, HIM "惩罚时间已到，你的频道被打开了！\n" NOR);
+		tell_object(me, HIM "鎯╃綒鏃堕棿宸插埌锛屼綘鐨勯閬撹鎵撳紑浜嗭紒\n" NOR);
 		me->clear_condition("vote_clear");
 		me->delete("chblk_on");
         	me->delete("chblk_rumor");

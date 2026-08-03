@@ -1,4 +1,4 @@
-// daotong1.c µÀÍ¯(ÓĞ°×»¢¶áÃüµ¤)
+// daotong1.c é“ç«¥(æœ‰ç™½è™å¤ºå‘½ä¸¹)
 //by ydh
 
 #include <ansi.h>
@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Á¶µ¤µÀÍ¯", ({ "daotong", "dao", "tong" }));
+        set_name("ç‚¼ä¸¹é“ç«¥", ({ "daotong", "dao", "tong" }));
         set("long", 
-                "ËûÊÇÎäµ±É½µÄĞ¡µÀÍ¯¡£×¨Ö°¿´¹ÜÁ¶µ¤»ğºò¡£\n");
-        set("gender", "ÄĞĞÔ");
+                "ä»–æ˜¯æ­¦å½“å±±çš„å°é“ç«¥ã€‚ä¸“èŒçœ‹ç®¡ç‚¼ä¸¹ç«å€™ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 16);
         set("attitude", "friendly");
         set("shen_type", 1);
@@ -36,7 +36,7 @@ void create()
         set_temp("apply/defense", 15);
         set_temp("apply/damage", 5);
 
-        create_family("Îäµ±ÅÉ", 5, "µÜ×Ó");
+        create_family("æ­¦å½“æ´¾", 5, "å¼Ÿå­");
 
 
         setup();

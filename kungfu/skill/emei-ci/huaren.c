@@ -10,22 +10,22 @@ int perform(object me, object target)
         if( !target ) target = offensive_target(me);
 
         if( !target || !target->is_character() || !me->is_fighting(target) )
-                return notify_fail("ÌìÏÉ»¯ÈËÖ»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("å¤©ä»™åŒ–äººåªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if (!objectp(weapon = me->query_temp("weapon"))
         || (string)weapon->query("skill_type") != "dagger")
-                return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+                return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
                 
         if( (int)me->query_skill("emei-ci", 1) < 150 )
-                return notify_fail("ÄãµÄ¶ëáÒ´Ì²»¹»æµÊì£¬²»»áÊ¹ÓÃ¡¸ÌìÏÉ»¯ÈË¡¹¡£\n");
+                return notify_fail("ä½ çš„å³¨åµ‹åˆºä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ã€Œå¤©ä»™åŒ–äººã€ã€‚\n");
                                 
         if( (int)me->query_skill("linji-zhuang", 1) < 150 )
-                return notify_fail("ÄãµÄÁÙ¼Ã×¯²»¹»¸ß£¬²»ÄÜÓÃÀ´·´ÕðÉËµÐ¡£\n");
+                return notify_fail("ä½ çš„ä¸´æµŽåº„ä¸å¤Ÿé«˜ï¼Œä¸èƒ½ç”¨æ¥åéœ‡ä¼¤æ•Œã€‚\n");
                         
         if( (int)me->query("neili", 1) < 300 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ¡¸ÌìÏÉ»¯ÈË¡¹¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ã€Œå¤©ä»™åŒ–äººã€ã€‚\n");
                         
-        msg = CYN "$NÎ¢Î¢Ò»Ð¦£¬ÃÍÎüÒ»¿ÚÆø,ÓûÊ¹³öÒÔÆøÔ¦´Ì¾ø¼¼¹¥»÷$n¡£\n"NOR;
+        msg = CYN "$Nå¾®å¾®ä¸€ç¬‘ï¼ŒçŒ›å¸ä¸€å£æ°”,æ¬²ä½¿å‡ºä»¥æ°”é©­åˆºç»æŠ€æ”»å‡»$nã€‚\n"NOR;
 
         if( !target->is_killing(me) ) target->kill_ob(me);
 
@@ -40,13 +40,13 @@ int perform(object me, object target)
                 target->receive_damage("qi", damage);
                 target->receive_wound("qi", damage/2);
                 me->add("neili", -damage);
-                msg += HIR"Ö»¼û$NÊÖÆþ·¨¾ö,¶ëáÒ´Ì»Ã×÷Ò»µÀ½ð¹â,ÌÚ¿Õ¶øÆð,Ù¿µÄÕÖÏò$n,\n$nÖ»¾õÒ»¹É´óÁ¦ÆÌÌì¸ÇµØ°ãÑ¹À´,µÇÊ±ÑÛÇ°Ò»»¨£¬Á½¶úºäÃù,ÍÛµÄÅç³öÒ»¿ÚÏÊÑª£¡£¡\n"NOR;
-if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"Äã¶Ô"+ target->query("name") +"Ôì³ÉÁË"RED+damage+ WHT"µã¹¥»÷ÉËº¦¡£\n"NOR); 
-if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"µÄ¹¥»÷¶ÔÄãÔì³ÉÁË"RED+damage+ WHT"µãÉËº¦¡£\n"NOR); ;
+                msg += HIR"åªè§$Næ‰‹æŽæ³•å†³,å³¨åµ‹åˆºå¹»ä½œä¸€é“é‡‘å…‰,è…¾ç©ºè€Œèµ·,å€çš„ç½©å‘$n,\n$nåªè§‰ä¸€è‚¡å¤§åŠ›é“ºå¤©ç›–åœ°èˆ¬åŽ‹æ¥,ç™»æ—¶çœ¼å‰ä¸€èŠ±ï¼Œä¸¤è€³è½°é¸£,å“‡çš„å–·å‡ºä¸€å£é²œè¡€ï¼ï¼\n"NOR;
+if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"ä½ å¯¹"+ target->query("name") +"é€ æˆäº†"RED+damage+ WHT"ç‚¹æ”»å‡»ä¼¤å®³ã€‚\n"NOR); 
+if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"çš„æ”»å‡»å¯¹ä½ é€ æˆäº†"RED+damage+ WHT"ç‚¹ä¼¤å®³ã€‚\n"NOR); ;
                 me->start_busy(2);
         } else 
         {
-                msg += CYN"¿ÉÊÇ$pÃÍµØÏòÇ°Ò»Ô¾,Ìø³öÁË$PµÄ¹¥»÷·¶Î§¡£\n"NOR;
+                msg += CYN"å¯æ˜¯$pçŒ›åœ°å‘å‰ä¸€è·ƒ,è·³å‡ºäº†$Pçš„æ”»å‡»èŒƒå›´ã€‚\n"NOR;
                 me->add("neili", -100);
                 me->start_busy(4);
         }

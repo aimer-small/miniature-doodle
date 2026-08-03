@@ -5,21 +5,21 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIG"¹ûÁÖ"NOR);
+	set("short",HIG"æœæ—"NOR);
 	set("long",@LONG
-×ª¹ıÉ½Ñü£¬³öÏÖÒ»´óÆ¬¹ûÁÖ¡£¹ûÊ÷¸ß´óÃ¯Ê¢£¬Ö¦Ò¶·±ÃÜ£¬ÀÛÀÛÏÊ¹û£¬ÏÊÄÛ
-ÓÕÈË¡£Çå·ç·÷Ò¶£¬É³É³×÷Ïì£¬¸üÁîÕâÈº¹ûËæ·çÕĞÒ¡ÆğÎè£¬ËÍÀ´ÕóÕó¹ûÏã¡£µ«Ìı
-ÃÜÁÖÉî´¦£¬¶Å¾é¶ù¼ä»òÇáÌä¡£ÕıÇ°·½µÄÒ»¿Ã¹ûÊ÷ÉÏ¹Ò×Å¸ö·ä³²(fengchao)¡£
+è½¬è¿‡å±±è…°ï¼Œå‡ºç°ä¸€å¤§ç‰‡æœæ—ã€‚æœæ ‘é«˜å¤§èŒ‚ç››ï¼Œæå¶ç¹å¯†ï¼Œç´¯ç´¯é²œæœï¼Œé²œå«©
+è¯±äººã€‚æ¸…é£æ‹‚å¶ï¼Œæ²™æ²™ä½œå“ï¼Œæ›´ä»¤è¿™ç¾¤æœéšé£æ‹›æ‘‡èµ·èˆï¼Œé€æ¥é˜µé˜µæœé¦™ã€‚ä½†å¬
+å¯†æ—æ·±å¤„ï¼Œæœé¹ƒå„¿é—´æˆ–è½»å•¼ã€‚æ­£å‰æ–¹çš„ä¸€æ£µæœæ ‘ä¸ŠæŒ‚ç€ä¸ªèœ‚å·¢(fengchao)ã€‚
 LONG );
 
-	set("outdoors","¹ÅÄ¹");
+	set("outdoors","å¤å¢“");
 
        	set("exits" ,([
 		"east" : __DIR__"guoyuan",
        	]));
 
 	set("item_desc", ([
-		"fengchao" : "Äã×ß½ü³²±ß¹Û²ì£¬Ö»¼û·ä³²ÖÜÎ§Óñ·äÕıÔÚÃ¦ÂµµÄ²ÉÃÛ¡£\n"
+		"fengchao" : "ä½ èµ°è¿‘å·¢è¾¹è§‚å¯Ÿï¼Œåªè§èœ‚å·¢å‘¨å›´ç‰èœ‚æ­£åœ¨å¿™ç¢Œçš„é‡‡èœœã€‚\n"
 	]));
 
 	setup();
@@ -39,30 +39,30 @@ int do_tong(string arg)
 	mapping fam;        
         
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹ÅÉ´«ÈË£¬²»ÒªÔÙÔÚ¹ÅÄ¹¾ÃÁôÁË¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“æ´¾ä¼ äººï¼Œä¸è¦å†åœ¨å¤å¢“ä¹…ç•™äº†ã€‚\n");
 	if ( arg =="fengchao"){
 		if ( me->query_temp("gm_job1"))
-			return notify_fail("ÄãÒÑ¾­²ÉºÃÃÛÁË£¬¿ÉÒÔÈ¥Ò©·¿ÖÆ³ÉÓñ·ä½¬ÁË¡£\n");
+			return notify_fail("ä½ å·²ç»é‡‡å¥½èœœäº†ï¼Œå¯ä»¥å»è¯æˆ¿åˆ¶æˆç‰èœ‚æµ†äº†ã€‚\n");
 		if ( me->query_condition("gumu_job" ) > 0 )
-			return notify_fail("ÄãÍ±ÁË°ëÌì·¢ÏÖ·ä³²ÀïÊ²Ã´¶¼Ã»ÓĞÁË¡£\n");
+			return notify_fail("ä½ æ…äº†åŠå¤©å‘ç°èœ‚å·¢é‡Œä»€ä¹ˆéƒ½æ²¡æœ‰äº†ã€‚\n");
 		if ( me->query("jing") < 15 || me->query("qi") < 20 )
-			return notify_fail("ÄãÖ»¾õµÃË«ÊÖÎŞÁ¦£¬ºÃÏëÈ¥ĞİÏ¢Ò»»á¡£\n");         
+			return notify_fail("ä½ åªè§‰å¾—åŒæ‰‹æ— åŠ›ï¼Œå¥½æƒ³å»ä¼‘æ¯ä¸€ä¼šã€‚\n");         
 		if ( !wizardp(me) && me->query("combat_exp") > 35000 )
-			return notify_fail("ÄãÎä¹¦ÒÑ¾­¹»¸ß£¬²É·äÃÛµÄÊÂ¾ÍÈÃĞ¡µÜ×ÓÃÇÈ¥×ö°É¡£\n");
+			return notify_fail("ä½ æ­¦åŠŸå·²ç»å¤Ÿé«˜ï¼Œé‡‡èœ‚èœœçš„äº‹å°±è®©å°å¼Ÿå­ä»¬å»åšå§ã€‚\n");
 		if ( me->query_temp("gm_fengmi") < 10 + random(5)){
 			i = me->query("combat_exp")/100000*18;
 			j = me->query_temp("gm_bee");
 			if ( j > 2 || random(10) > i || me->query("combat_exp") < 10000 ){
-				write("ÄãÓÃÁ¦Í±×Å·ä³²£¬´ÓÖĞÍÚ³öÁËÒ»µã·äÃÛ¡£\n");
+				write("ä½ ç”¨åŠ›æ…ç€èœ‚å·¢ï¼Œä»ä¸­æŒ–å‡ºäº†ä¸€ç‚¹èœ‚èœœã€‚\n");
 				me->add_busy(1);
 				me->receive_damage("jing",5+random(5));
 				me->receive_damage("qi",5+random(10));
 				me->add_temp("gm_fengmi", 1);
 			}
 			else {
-				message_vision(HIY"\nÍ»È»ÖÜÎ§´«À´Ò»ÕóÎË..ÎË...µÄÏìÉù£¬$N¶¨¾¦Ò»¿´£¬Ô­À´ÊÇ$NÕĞÈÇÁËÓñ·ä¡£\n\n"NOR,me);
+				message_vision(HIY"\nçªç„¶å‘¨å›´ä¼ æ¥ä¸€é˜µå—¡..å—¡...çš„å“å£°ï¼Œ$Nå®šç›ä¸€çœ‹ï¼ŒåŸæ¥æ˜¯$Næ‹›æƒ¹äº†ç‰èœ‚ã€‚\n\n"NOR,me);
 				target=new(__DIR__"npc/bee2");
 				target->set_temp("gm/caimi",name1);
 				target->move(environment(me));
@@ -72,7 +72,7 @@ int do_tong(string arg)
 			return 1;
 		}
 		me->apply_condition("gumu_job", random(6)+ 4);
-		tell_object(me,HIR"ÄãÒÑ¾­²É³ö×ã¹»µÄ·äÃÛ£¬¿ÉÒÔÈ¥ÖÆ³ÉÓñ·ä½¬ÁË¡£\n"NOR);
+		tell_object(me,HIR"ä½ å·²ç»é‡‡å‡ºè¶³å¤Ÿçš„èœ‚èœœï¼Œå¯ä»¥å»åˆ¶æˆç‰èœ‚æµ†äº†ã€‚\n"NOR);
 		me->delete_temp("gm_fengmi");
 		me->delete_temp("gm_bee");
 		me->set_temp("gm_job1", 1);
@@ -81,5 +81,5 @@ int do_tong(string arg)
 		ob->move(me); 
 		return 1;
 	}
-	return notify_fail("ÄãºúÂÒÍ±ÁË¼¸ÏÂ£¬½á¹ûÊ²Ã´Ò²Ã»ÓĞ·¢Éú¡£\n");
+	return notify_fail("ä½ èƒ¡ä¹±æ…äº†å‡ ä¸‹ï¼Œç»“æœä»€ä¹ˆä¹Ÿæ²¡æœ‰å‘ç”Ÿã€‚\n");
 }

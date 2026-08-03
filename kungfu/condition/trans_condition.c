@@ -9,8 +9,8 @@ int update_condition(object me, int duration)
  	 return 0;
         }
         if (duration < 1) {
-        message_vision(WHT"$N��ɫͨ�죬��ͷ����һ�㺹�顣\n", me);
-        tell_object(me, BLU"��е�ȫ���ƺ���˿˿����ð���������Ĺ����������ˡ�\n"NOR);
+        message_vision(WHT"$N脸色通红，额头渗出一层汗珠。\n", me);
+        tell_object(me, BLU"你感到全身似乎有丝丝热气冒出，传功的功力消耗完了。\n"NOR);
         me->delete_temp("trans");
         me->add_temp("apply/strength", -me->query_temp("trans_1"));
         me->add_temp("apply/attack", -me->query_temp("trans_2")); 

@@ -11,7 +11,7 @@ int main(object me, string arg)
  
 	seteuid(geteuid(me));
 	if (!arg || sscanf(arg, "%s %s", src, dst)!=2 ) return
-		notify_fail("Ö¸Áî¸ñÊ½: cp <Ô­µµÃû> <Ä¿±êµµÃû> \n");
+		notify_fail("æŒ‡ä»¤æ ¼å¼: cp <åŸæ¡£å> <ç›®æ ‡æ¡£å> \n");
 
 	src = resolve_path(me->query("cwd"), src);
 	if (file_size(src) == -2 && src[<1] != '/') src += "/";
@@ -20,7 +20,7 @@ int main(object me, string arg)
 	if (file_size(dst) == -2 && dst[<1] != '/') dst += "/";
 	file = get_dir(src, -1);
 	i = sizeof(file);
-	if (!i) return notify_fail("Ã»ÓĞ "+src+"¡£\n");
+	if (!i) return notify_fail("æ²¡æœ‰ "+src+"ã€‚\n");
 	write(src + " -> " + dst);
 	src = "/" + implode(explode(src, "/")[0..<2], "/") + "/";
 	while (i--) {
@@ -30,40 +30,40 @@ int main(object me, string arg)
 			if (tmpd[<1] == '/') tmpd += file[i][0];
 			write("\n"+tmps+" -> "+tmpd+" ");
 			if (tmps == tmpd) {
-				write("ºöÂÔ¡£");
+				write("å¿½ç•¥ã€‚");
 				continue;
 			}
 			switch ( err = cp(tmps, tmpd) ) {
 				case 1:
-					write("³É¹¦¡£");
+					write("æˆåŠŸã€‚");
 					log_file("static/CP",
                 				sprintf("%s(%s)%s\n",
-                       		 		me->name(1), geteuid(me),"cp "+tmps+" -> "+tmpd+" ³É¹¦¡£"
+                       		 		me->name(1), geteuid(me),"cp "+tmps+" -> "+tmpd+" æˆåŠŸã€‚"
                 				), me
         				);
 					j++;
 					break;
 				case -1:
-					write(tmps + " ²»¿É¶Á¡£");
+					write(tmps + " ä¸å¯è¯»ã€‚");
 					break;
 				case -2:
-					write(tmpd + " ²»¿ÉĞ´¡£");
+					write(tmpd + " ä¸å¯å†™ã€‚");
 					break;
 				default:
-					write("´íÎóÂë£º" + err);
+					write("é”™è¯¯ç ï¼š" + err);
 			}
 		}
 	}
-	write("\n"+j+" ¸öÎÄ¼ş¿½±´³É¹¦¡£\n");
+	write("\n"+j+" ä¸ªæ–‡ä»¶æ‹·è´æˆåŠŸã€‚\n");
 	return 1;
 }
  
 int help(object me)
 {
   write(@HELP
-Ö¸Áî¸ñÊ½ : cp <Ô­µµÃû> <Ä¿±êµµÃû>
+æŒ‡ä»¤æ ¼å¼ : cp <åŸæ¡£å> <ç›®æ ‡æ¡£å>
  
-´ËÖ¸Áî¿ÉÈÃÄã(Äã)¿½±´µµ°¸¡£
+æ­¤æŒ‡ä»¤å¯è®©ä½ (ä½ )æ‹·è´æ¡£æ¡ˆã€‚
 HELP
     );
     return 1;

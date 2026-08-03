@@ -15,24 +15,24 @@ int update_viptime(object me)
 
 	if (sizeof(ret) == 1 && ret[0][0] > 0)
 	{
-		if (me->query("vip/vip_time") < time()) //±íÊ¾µ½ÆÚ»òÕßĞÂ¼¤»îµÄÓÃ»§
+		if (me->query("vip/vip_time") < time()) //è¡¨ç¤ºåˆ°æœŸæˆ–è€…æ–°æ¿€æ´»çš„ç”¨æˆ·
 		{
 			me->set("vip/vip_time",time() + ret[0][0]*24*3600);
-			write("ÄúµÄ¹ó±öÊ±¼äÒÑ¾­×Ô¶¯¸üĞÂÁË£¬µ±Ç°¹ó±öÓĞĞ§ÆÚÎª"+ret[0][0]+"Ìì¡£\n");
+			write("æ‚¨çš„è´µå®¾æ—¶é—´å·²ç»è‡ªåŠ¨æ›´æ–°äº†ï¼Œå½“å‰è´µå®¾æœ‰æ•ˆæœŸä¸º"+ret[0][0]+"å¤©ã€‚\n");
 			
 		}
 		else
 		{
 			me->add("vip/vip_time",ret[0][0]*24*3600);
-			write("Ğø·Ñ³É¹¦£¬Ôö¼Ó¹ó±öÓĞĞ§ÆÚÎª"+ret[0][0]+"Ìì¡£\n");	
+			write("ç»­è´¹æˆåŠŸï¼Œå¢åŠ è´µå®¾æœ‰æ•ˆæœŸä¸º"+ret[0][0]+"å¤©ã€‚\n");	
 		}
 //		me->set("vip/vip_time", ret[0][1]);
 		me->set("vip/vip_start_time", time());
 		me->set("registered", 3);
 		dbquery("UPDATE Users SET Alivedays = 0 WHERE U_Username=" + save_variable(uname));
-//		write("ÄúµÄ¹ó±öÊ±¼äÒÑ¾­×Ô¶¯¸üĞÂÁË¡£\n");
+//		write("æ‚¨çš„è´µå®¾æ—¶é—´å·²ç»è‡ªåŠ¨æ›´æ–°äº†ã€‚\n");
 
-		log_file("nosave/VIP", sprintf(" %s(%s) ×¢²á¹ó±ö %d Ìì£¬µ½ÆÚÊ±¼äÎª %s¡£", 
+		log_file("nosave/VIP", sprintf(" %s(%s) æ³¨å†Œè´µå®¾ %d å¤©ï¼Œåˆ°æœŸæ—¶é—´ä¸º %sã€‚", 
 			me->name(1), uname, ret[0][0], ctime(me->query("vip/vip_time"))));
 
 		return 1;
@@ -86,7 +86,7 @@ int save()
 		if(backup())
 		{
 			me->set("last_backup", (int)me->query("mud_time")/36000);
-			write(HIY"ÄúµÄ×ÊÁÏÒÑ¾­×Ô¶¯±¸·İÁË¡£\n"NOR);
+			write(HIY"æ‚¨çš„èµ„æ–™å·²ç»è‡ªåŠ¨å¤‡ä»½äº†ã€‚\n"NOR);
 		}
 		/*
 		else

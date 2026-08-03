@@ -6,15 +6,15 @@ string ask_food();
 
 void create()
 {
-       set_name("ЁЬвс", ({ "chu zi", "chuzi", }) );
-       set("gender", "дппт" );
+       set_name("Е▌╗Е╜░", ({ "chu zi", "chuzi", }) );
+       set("gender", "Г■╥Ф─╖" );
        set("age", 46);
-       set("long", "кШйглЗуф╟О╦ъп╫ф╦ю╢╣дЁЬвсё╛Ё╓╣ц╥йм╥╢С╤Зё╛╟в╟вежеж║ё\n");
+       set("long", "Д╩√Ф≤╞И⌠│Ф▌▄Е╦╝И╚≤Х√╙Х│≤Ф²╔Г └Е▌╗Е╜░О╪▄И∙©Е╬≈Х┌╔Е╓╢Е╓╖Х─ЁО╪▄Г≥╫Г≥╫Х┐√Х┐√Ц─┌\n");
        set("combat_exp", 2500);
        set("attitude", "friendly");
 
        set("inquiry", ([
-             "йЁнО" : (: ask_food :),
+             "Иё÷Г┴╘" : (: ask_food :),
              "food" : (: ask_food :),
        ]) );
 
@@ -28,30 +28,30 @@ string ask_food()
         mapping fam;
         me=this_player();
 
-        if (mapp(fam = me->query("family")) && fam["family_name"] != "лЗуф╟О" ) return "уБн╩" + RANK_D->query_respect(me) + "╤гвс╤ЖакбПё©©ио╖лЗуф╟О╣д╩ОйЁтщй╠╡╩сцю╢уп╢ЩмБ©мё║";
+        if (mapp(fam = me->query("family")) && fam["family_name"] != "И⌠│Ф▌▄Е╦╝" ) return "Х©≥Д╫█" + RANK_D->query_respect(me) + "Х┌ Е╜░И╔©Д╨├Е░≈О╪÷Е▐╞Ф┐°И⌠│Ф▌▄Е╦╝Г └Д╪≥Иё÷Ф ┌Ф≈╤Д╦█Г■╗Ф²╔Ф▀⌡Е╬┘Е╓√Е╝╒О╪│";
 
         if ((me->query("food")*10/me->max_water_capacity())>8)
-                return "уБн╩" + RANK_D->query_respect(me) + "╤╪╢Рве╠╔Юцакё║тУц╢╩╧р╙ё©";
+                return "Х©≥Д╫█" + RANK_D->query_respect(me) + "И┐╫Ф┴⌠Г²─И╔╠Е≈²Д╨├О╪│Ф─▌Д╧┬Х©≤Х╕│О╪÷";
         if ( present("mi fan", this_player()))
-                return "уБн╩" + RANK_D->query_respect(me) + "иМио╡╩йг╩╧спбОё╛охЁтактык╣╟иё║";
+                return "Х©≥Д╫█" + RANK_D->query_respect(me) + "Х╨╚Д╦┼Д╦█Ф≤╞Х©≤Ф°┴Е≤⌡О╪▄Е┘┬Е░┐Д╨├Е├█Х╞╢Е░╖О╪│";
         if ( present("ruzhu", this_player()))
-                return "уБн╩" + RANK_D->query_respect(me) + "иМио╡╩йг╩╧спбОё╛охЁтактык╣╟иё║";
+                return "Х©≥Д╫█" + RANK_D->query_respect(me) + "Х╨╚Д╦┼Д╦█Ф≤╞Х©≤Ф°┴Е≤⌡О╪▄Е┘┬Е░┐Д╨├Е├█Х╞╢Е░╖О╪│";
         if ( present("hongshao niurou", this_player()))
-                return "уБн╩" + RANK_D->query_respect(me) + "иМио╡╩йг╩╧спбОё╛охЁтактык╣╟иё║";
+                return "Х©≥Д╫█" + RANK_D->query_respect(me) + "Х╨╚Д╦┼Д╦█Ф≤╞Х©≤Ф°┴Е≤⌡О╪▄Е┘┬Е░┐Д╨├Е├█Х╞╢Е░╖О╪│";
         if ( present("mi fan",  environment(me)) )
-                return "дг╡╩йгспбПё©охЁтактык╣ё╛╠Пюк╥яакё║";              
+                return "И┌ёД╦█Ф≤╞Ф°┴Е░≈О╪÷Е┘┬Е░┐Д╨├Е├█Х╞╢О╪▄Е┬╚Ф╣╙Х╢╧Д╨├О╪│";              
         if ( present("ruzhu",  environment(me)) )
-                return "дг╡╩йгспбПё©охЁтактык╣ё╛╠Пюк╥яакё║";              
+                return "И┌ёД╦█Ф≤╞Ф°┴Е░≈О╪÷Е┘┬Е░┐Д╨├Е├█Х╞╢О╪▄Е┬╚Ф╣╙Х╢╧Д╨├О╪│";              
         if ( present("hongshao niurou",  environment(me)) )
-                return "дг╡╩йгспбПё©охЁтактык╣ё╛╠Пюк╥яакё║";              
+                return "И┌ёД╦█Ф≤╞Ф°┴Е░≈О╪÷Е┘┬Е░┐Д╨├Е├█Х╞╢О╪▄Е┬╚Ф╣╙Х╢╧Д╨├О╪│";              
         food = new ("/d/tiezhang/obj/fan");
         food->move(environment()); 
         food = new ("/d/tiezhang/obj/ruzhu");
         food->move(environment());
         food = new ("/d/tiezhang/obj/hsnr");
         food->move(environment());
-        say("ЁЬвс╫╚╥╧╡к╤кЁЖю╢╥етзаквювсио║ё\n");
-        return "©╢яЫвсйг╤Ж╩╣ак╟иё║ю╢ё╛ю╢ё╛╤ЮЁт╣Цё║";
+        say("Е▌╗Е╜░Е╟├И╔╜Х▐°Г╚╞Е┤╨Ф²╔Ф■╬Е°╗Д╨├Ф║▄Е╜░Д╦┼Ц─┌\n");
+        return "Г°▀Ф═╥Е╜░Ф≤╞И╔©Е²▐Д╨├Е░╖О╪│Ф²╔О╪▄Ф²╔О╪▄Е╓ Е░┐Г┌╧О╪│";
 }
 
 

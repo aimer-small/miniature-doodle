@@ -1,4 +1,4 @@
-// /clone/weapon/lvbo-dao ÂÌ²¨ÏãÂ¶µ¶
+// /clone/weapon/lvbo-dao ç»¿æ³¢é¦™éœ²åˆ€
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,24 +7,24 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(GRN"ÂÌ²¨ÏãÂ¶µ¶"NOR, ({ "lvboxianglu dao","lvboxianglu","dao", "blade" }));
+        set_name(GRN"ç»¿æ³¢é¦™éœ²åˆ€"NOR, ({ "lvboxianglu dao","lvboxianglu","dao", "blade" }));
         set_weight(20000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
+                set("unit", "æŸ„");
                 set("rigidity", 9);
                 set("sharpness", 5);
                 set("material", "steel"); 
                 set("weapon_prop/parry", 8);
-                set("long", "ÕâÊÇÒ»°Ñ»ëÉíÍ¸×Å°µÂÌÉ«±¦µ¶£¬µ¶ÉíÒşÒş·¢³öĞÈ³ôµÄÆøÎ¶£¬È´Æ«Æ«ÒÔÏãÂ¶ÃüÃû£¬ÕæÊÇÆæ¹Ö¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æŠŠæµ‘èº«é€ç€æš—ç»¿è‰²å®åˆ€ï¼Œåˆ€èº«éšéšå‘å‡ºè…¥è‡­çš„æ°”å‘³ï¼Œå´ååä»¥é¦™éœ²å‘½åï¼ŒçœŸæ˜¯å¥‡æ€ªã€‚\n");
                 set("value", 1);
                 set("unique", 1);
                 set("wield_neili", 500);
                 set("wield_maxneili", 1000);
                 set("wield_str", 22);
-                set("wield_msg", HIG"$N´Ó±³ºó³é³öÒ»°Ñ±¦µ¶ÄÃÔÚÊÖÀï£¬ÎèÁË¸öµ¶»¨£¬µ«¼ûµ¶¹âÉÁÉÁ£¬»Ã³öµãµãº®¹â¡£\n"NOR);            
-                set("unwield_msg", HIG"$NË«ÊÖÒ»»Ó£¬ÉÁµç°ã½«µ¶²å»Øµ¶ÇÊÄÚ¡£\n"NOR);
+                set("wield_msg", HIG"$Nä»èƒŒåæŠ½å‡ºä¸€æŠŠå®åˆ€æ‹¿åœ¨æ‰‹é‡Œï¼Œèˆäº†ä¸ªåˆ€èŠ±ï¼Œä½†è§åˆ€å…‰é—ªé—ªï¼Œå¹»å‡ºç‚¹ç‚¹å¯’å…‰ã€‚\n"NOR);            
+                set("unwield_msg", HIG"$NåŒæ‰‹ä¸€æŒ¥ï¼Œé—ªç”µèˆ¬å°†åˆ€æ’å›åˆ€é˜å†…ã€‚\n"NOR);
                 set("treasure",1);
                 set("poisoned", "lvbo_poison");
                set("poison_number", 200);

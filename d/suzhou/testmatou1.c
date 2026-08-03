@@ -1,15 +1,15 @@
-// dealer.c ÉÌÈË
+// dealer.c å•†äºº
 // This is a inheritable object.
 // Each dealer should support buy, sell, list, value 4 commands
 inherit ROOM;
   
 mapping *sign=({
-    ([  "name":"ËÕÖİ",
+    ([  "name":"è‹å·",
         "id":"sz",
         "file":"/u/beyond/suzhou/yunhe",
         "value":10000
     ]),
-    ([  "name":"ÑïÖİ",
+    ([  "name":"æ‰¬å·",
         "id":"yz",
         "file":"/u/beyond/yangzhou/matou",
         "value":5000
@@ -20,11 +20,11 @@ string look_sign();
 int do_go(string);
     void create()
     {
-        set("short", "ÂëÍ·");
+        set("short", "ç å¤´");
 set("long",@LONG
-ÕâÀïÊÇÄ½Èİ¼ÒµÄ¼ÒÆÍºÍÑ¾÷ß³öÈëÌ«ºşµÄË®ÉÏÂëÍ·£¬Ö»¼ûÈËÃÇÀ´À´ÍùÍù£¬
-Ò»¸ö¸ö·ç³¾ÆÍÆÍ£¬ÂëÍ·±ßµÄÀÏ´¬·ò¼ûµ½Äã×ß¹ıÀ´£¬ÂíÉÏĞ¦ºÇºÇµÄÓ­ÁËÉÏÈ¥¡£
-¼Û¸ñ±í(sign)¡£
+è¿™é‡Œæ˜¯æ…•å®¹å®¶çš„å®¶ä»†å’Œä¸«é¬Ÿå‡ºå…¥å¤ªæ¹–çš„æ°´ä¸Šç å¤´ï¼Œåªè§äººä»¬æ¥æ¥å¾€å¾€ï¼Œ
+ä¸€ä¸ªä¸ªé£å°˜ä»†ä»†ï¼Œç å¤´è¾¹çš„è€èˆ¹å¤«è§åˆ°ä½ èµ°è¿‡æ¥ï¼Œé©¬ä¸Šç¬‘å‘µå‘µçš„è¿äº†ä¸Šå»ã€‚
+ä»·æ ¼è¡¨(sign)ã€‚
 LONG 
 );
 set("item_desc", ([
@@ -66,19 +66,19 @@ int do_go(string arg)
 
     if (!arg) return 0;
     if (ob->is_busy() || ob->is_fighting())
-        return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+        return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
     while(i--) {
         if (arg == sign[i]["id"]) {
             switch (MONEY_D->player_pay(ob, sign[i]["value"])) {
                 case 0:
-                    return notify_fail("Çî¹âµ°£¬Ò»±ß´ô×ÅÈ¥£¡\n");
+                    return notify_fail("ç©·å…‰è›‹ï¼Œä¸€è¾¹å‘†ç€å»ï¼\n");
                 case 2:
-                    return notify_fail("ÓĞÁãÇ®Âğ£¿\n");
+                    return notify_fail("æœ‰é›¶é’±å—ï¼Ÿ\n");
             }
             ob->start_busy(3);
             call_out("do_move", 3, ob, i);
             return 1;
         }
     }
-    return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+    return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 }

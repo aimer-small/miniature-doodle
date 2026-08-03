@@ -76,7 +76,7 @@ void heart_beat()
 		save = 285 + random(30);
 		ob->save();
 		this_object()->save();
-		write(HIG "ÄúµÄ×ÊÁÏÒÑ¾­×Ô¶¯±£´æºÃÁË¡£\n" NOR);
+		write(HIG "æ‚¨çš„èµ„æ–™å·²ç»è‡ªåŠ¨ä¿å­˜å¥½äº†ã€‚\n" NOR);
 	}
 
 	ob = this_object();
@@ -131,7 +131,7 @@ void heart_beat()
 			interrupt_me();
 
 		// We don't want heart beat be halt eventually, so return here.
-		//	      return; // ÕâÀïÈç¹û·µ»Ø»áÔì³É condition ÎŞ·¨¸üĞÂ£¬ËùÒÔÆÁ±Îµô¡£
+		//	      return; // è¿™é‡Œå¦‚æœè¿”å›ä¼šé€ æˆ condition æ— æ³•æ›´æ–°ï¼Œæ‰€ä»¥å±è”½æ‰ã€‚
 	} 
 	else 
 	{
@@ -259,12 +259,12 @@ int add_exp_combat(int iexp,mixed giver,string reason,int no_job,int gift_flag)
 {
 	int gift_mul,oexp;
 	int k,l,m;
-	int extra_exp;//¶îÍâ½±Àø
+	int extra_exp;//é¢å¤–å¥–åŠ±
 	int extra_t;
 	int end_time = 1112803200; //7 April 2005
 	string site;
 
-	int job_flag = 0;//ÅĞ¶ÏÊÖ¶¯ÈÎÎñµÄ±ê¼Ç
+	int job_flag = 0;//åˆ¤æ–­æ‰‹åŠ¨ä»»åŠ¡çš„æ ‡è®°
 
 	if(!clonep()) return 0;
 
@@ -274,7 +274,7 @@ int add_exp_combat(int iexp,mixed giver,string reason,int no_job,int gift_flag)
 	{
 		gift_mul = 100;
 		log_file("job/DEBUG",
-		sprintf("%sÈÎÎñÍ³Ò»½±ÀøÉèÖÃÓĞÎó\n",
+		sprintf("%sä»»åŠ¡ç»Ÿä¸€å¥–åŠ±è®¾ç½®æœ‰è¯¯\n",
 		reason)
 		);
 
@@ -295,22 +295,22 @@ int add_exp_combat(int iexp,mixed giver,string reason,int no_job,int gift_flag)
 	{
 	extra_exp = iexp * (15+random(5))/100;
 	add("combat_exp",extra_exp);	
-	write(sprintf(HIY"Äã¶îÍâ»ñµÃÁË%sµã¾­ÑéÖµ£¬´ËÊ±ÀëĞÂÕ¾ÌØÊâ½±Àø½áÊø»¹ÓĞ%s¡£\n",chinese_number(extra_exp),CHINESE_D->chinese_time(extra_t)));
+	write(sprintf(HIY"ä½ é¢å¤–è·å¾—äº†%sç‚¹ç»éªŒå€¼ï¼Œæ­¤æ—¶ç¦»æ–°ç«™ç‰¹æ®Šå¥–åŠ±ç»“æŸè¿˜æœ‰%sã€‚\n",chinese_number(extra_exp),CHINESE_D->chinese_time(extra_t)));
 			log_file("nosave/REDEEM",
-				sprintf("%s »ñµÃ¶îÍâ¾­Ñé£º%d reason:%s¡£\n",query("id"),extra_exp,reason?reason:""));
+				sprintf("%s è·å¾—é¢å¤–ç»éªŒï¼š%d reason:%sã€‚\n",query("id"),extra_exp,reason?reason:""));
 	}
 
-	/*½±Àø¿ØÖÆº¯Êı*/
+	/*å¥–åŠ±æ§åˆ¶å‡½æ•°*/
 	k = uptime()-query_temp("time");
-	if(reason=="³¤ÀÖ°ï" || reason=="Îäµ±" || reason=="¹Ù¸®" || reason=="´«¼Ç" || reason=="¶ªÊ§µÄĞÅ"||
-		 reason=="ËÌÄ¦ÑÂ" || reason=="ÆßÇÏÁáçç")
+	if(reason=="é•¿ä¹å¸®" || reason=="æ­¦å½“" || reason=="å®˜åºœ" || reason=="ä¼ è®°" || reason=="ä¸¢å¤±çš„ä¿¡"||
+		 reason=="é¢‚æ‘©å´–" || reason=="ä¸ƒçªç²ç‘")
 		job_flag = 1;
 		
 	if (!job_flag && k>0 && (query("combat_exp") > 8000000))
 	{
 	l = query("combat_exp") - query_temp("combat_exp");
 	m = l*3600/k;
-	//Èç¹ûËÙ¶È,²¢ÇÒÊÇ·ñÎª»úÆ÷ÈË
+	//å¦‚æœé€Ÿåº¦,å¹¶ä¸”æ˜¯å¦ä¸ºæœºå™¨äºº
 /*		
 	  	if (is_robot(0))
 		{
@@ -335,9 +335,9 @@ int add_exp_combat(int iexp,mixed giver,string reason,int no_job,int gift_flag)
 
 	if(query("combat_exp")>38000000){
 		oexp = oexp * 5/100;
-		write("Äã¾õµÃ×Ô¼º×î½üĞÄÉñ²»Äş£¬¶ÔÎäÑ§µÄÑĞ¾¿ÒÑ¾­½øÈëÁË¾Ù²½Î©¼èµÄ³Ì¶È£¬ËÆºõ¾ÍÊÇ½­ºş´«ËµµÄ¡º"+HIG+"ÎäÑ§ÕÏ"+NOR+"¡»¡£\n");
+		write("ä½ è§‰å¾—è‡ªå·±æœ€è¿‘å¿ƒç¥ä¸å®ï¼Œå¯¹æ­¦å­¦çš„ç ”ç©¶å·²ç»è¿›å…¥äº†ä¸¾æ­¥æƒŸè‰°çš„ç¨‹åº¦ï¼Œä¼¼ä¹å°±æ˜¯æ±Ÿæ¹–ä¼ è¯´çš„ã€"+HIG+"æ­¦å­¦éšœ"+NOR+"ã€ã€‚\n");
 	}
-	/*½±Àø¿ØÖÆº¯Êı½áÊø*/
+	/*å¥–åŠ±æ§åˆ¶å‡½æ•°ç»“æŸ*/
 	//runner reward
 	if(is_robot(0))
 	{
@@ -353,7 +353,7 @@ int add_exp_combat(int iexp,mixed giver,string reason,int no_job,int gift_flag)
 	if (query_condition("db_exp")>0)
 	{
 		add("combat_exp", oexp);	
-		write(HBGRN+HIG+"Äã¸Ğ¾õµ½¾«Ó¢Ö®¼¼·¢»ÓÌØÊâ×÷ÓÃ£¬¶îÍâµÄµÃµ½ÁË"+chinese_number(oexp)+"µã¾­ÑéÖµ¡£\n"+NOR);
+		write(HBGRN+HIG+"ä½ æ„Ÿè§‰åˆ°ç²¾è‹±ä¹‹æŠ€å‘æŒ¥ç‰¹æ®Šä½œç”¨ï¼Œé¢å¤–çš„å¾—åˆ°äº†"+chinese_number(oexp)+"ç‚¹ç»éªŒå€¼ã€‚\n"+NOR);
 	}
 
 	add("combat_exp", oexp);	
@@ -367,10 +367,10 @@ string party_status()
 {
 	string family;
 	family = query("family/family_name");
-	if (family=="Îäµ±ÅÉ"||family=="¹ÅÄ¹ÅÉ"||family=="ÉÙÁÖÅÉ"||family=="»ªÉ½ÅÉ"||family=="ÌìÁúËÂ"||family=="¶ëáÒÅÉ")
-		return "ÕıÅÉ";
-	else if (family=="ÌúÕÆ°ï"||family=="ĞÇËŞÅÉ"||family=="´óÂÖËÂ"||family=="ÉñÁúµº"||family=="áÔÉ½ÅÉ")	
-		return "Ğ°ÅÉ";
+	if (family=="æ­¦å½“æ´¾"||family=="å¤å¢“æ´¾"||family=="å°‘æ—æ´¾"||family=="åå±±æ´¾"||family=="å¤©é¾™å¯º"||family=="å³¨åµ‹æ´¾")
+		return "æ­£æ´¾";
+	else if (family=="é“æŒå¸®"||family=="æ˜Ÿå®¿æ´¾"||family=="å¤§è½®å¯º"||family=="ç¥é¾™å²›"||family=="åµ©å±±æ´¾")	
+		return "é‚ªæ´¾";
 	else
-		return "ÖĞÁ¢ÅÉ";	
+		return "ä¸­ç«‹æ´¾";	
 }

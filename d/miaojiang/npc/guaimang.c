@@ -1,19 +1,19 @@
 // /u/dubei/miaojiang/npc/guaimang
-//  ¹Öòş
+//  æ€ªèŸ’
 
 inherit NPC;
 
 void create()
 {
-	set_name("¹Öòş", ({ "guai mang", "mang" }));
-	set("race", "Ò°ÊŞ");
+	set_name("æ€ªèŸ’", ({ "guai mang", "mang" }));
+	set("race", "é‡å…½");
 	set("age", 200);
-	set("long", "Ò»Ìõ»ëÉíÆáºÚ£¬ÉíÌåÅÌÇúµÄ¹Öòş¡£ »ëÉí·¢³öÕóÕóÇ¿ÁÒµÄĞÈ³ôÎ¶¡£\n");
+	set("long", "ä¸€æ¡æµ‘èº«æ¼†é»‘ï¼Œèº«ä½“ç›˜æ›²çš„æ€ªèŸ’ã€‚ æµ‘èº«å‘å‡ºé˜µé˜µå¼ºçƒˆçš„è…¥è‡­å‘³ã€‚\n");
 	set("attitude", "firendly");
 	set("str", 70);
 	set("con", 50);
 	set("max_qi", 4000);
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å°¾å·´" }) );
 	set("verbs", ({ "bite" }) );
 	set("combat_exp", 350000);
 
@@ -37,7 +37,7 @@ void init()
 
 void die()
 {
-	message_vision("\n$N³é´¤ÁË¼¸ÏÂ£¬ÉíÌåËõÔÚÒ»Æğ£¬ËÀÁË¡£\n", this_object());
+	message_vision("\n$NæŠ½æäº†å‡ ä¸‹ï¼Œèº«ä½“ç¼©åœ¨ä¸€èµ·ï¼Œæ­»äº†ã€‚\n", this_object());
 	destruct(this_object());
 }
 

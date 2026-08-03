@@ -1,7 +1,7 @@
-// zixia.c yun zixia ¿ÉÒÔÔÚÕ½¶·ÖÐ¼ÓÁÙÊ±µÄÆø
-// Update By lsxk@hsbbs Ôö¼Óset²ÅÄÜÓÐdouble neiliÐ§¹û,Ôö¼Ó¹¦Ð§¡£
-/* update by lsxk@hsbbs µ÷ÕûÎªÃâ·ÑÔö¼ÓÄÚÁ¦£¬²»ÐèÒªset, Õ½¶·ºó£¬Èç¹ûµ±Ç°ÄÚÁ¦´óÓÚ
-   Õ½¶·Ç°ÄÚÁ¦£¬ÔòÖ±½Óµ÷Õûµ½Õ½¶·Ç°µÄÄÚÁ¦£¬ÒÑ·ÀÖ¹ÀûÓÃzixiaÀ´add max_neili
+// zixia.c yun zixia å¯ä»¥åœ¨æˆ˜æ–—ä¸­åŠ ä¸´æ—¶çš„æ°”
+// Update By lsxk@hsbbs å¢žåŠ setæ‰èƒ½æœ‰double neiliæ•ˆæžœ,å¢žåŠ åŠŸæ•ˆã€‚
+/* update by lsxk@hsbbs è°ƒæ•´ä¸ºå…è´¹å¢žåŠ å†…åŠ›ï¼Œä¸éœ€è¦set, æˆ˜æ–—åŽï¼Œå¦‚æžœå½“å‰å†…åŠ›å¤§äºŽ
+   æˆ˜æ–—å‰å†…åŠ›ï¼Œåˆ™ç›´æŽ¥è°ƒæ•´åˆ°æˆ˜æ–—å‰çš„å†…åŠ›ï¼Œå·²é˜²æ­¢åˆ©ç”¨zixiaæ¥add max_neili
 */
 
 #include <ansi.h>
@@ -9,7 +9,7 @@
 //inherit F_CLEAN_UP;
 inherit F_SSERVER;
 
-string exert_name() {return MAG"×ÏÏ¼Éñ¹¦"NOR;}
+string exert_name() {return MAG"ç´«éœžç¥žåŠŸ"NOR;}
 
 void remove_effect(object me);
 
@@ -18,11 +18,11 @@ int exert(object me, object target)
     if( !target ) target = offensive_target(me);
 
         if (!me->is_fighting())
-                return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖÐÊ¹ÓÃÓÃ×ÏÏ¼¹¦¡£\n");
+                return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ç”¨ç´«éœžåŠŸã€‚\n");
         if( (int)me->query("neili") < 800  )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
         if( (int)me->query_temp("zxg/zixia") ) 
-                return notify_fail("ÄãÒÑ¾­ÔÚÔËÓÃ×ÏÏ¼Éñ¹¦ÁË¡£\n");
+                return notify_fail("ä½ å·²ç»åœ¨è¿ç”¨ç´«éœžç¥žåŠŸäº†ã€‚\n");
 
         me->set_temp("zxg/zixia", me->query("neili"));
 
@@ -32,11 +32,11 @@ int exert(object me, object target)
 
         }
 
-        message_vision(MAG "$N°µÔËÆø×Ú¾ø¼¼×ÏÏ¼Éñ¹¦£¬Á³ÉÏ×ÏÆøÊ±ÒþÊ±ÏÖ¡£\n" NOR, me);
+        message_vision(MAG "$Næš—è¿æ°”å®—ç»æŠ€ç´«éœžç¥žåŠŸï¼Œè„¸ä¸Šç´«æ°”æ—¶éšæ—¶çŽ°ã€‚\n" NOR, me);
 
         call_out("remove_effect", 1, me);
         call_out("zixia_temp",1,me,target);
-        if(me->query_skill("zixia-gong",1)<=451 )        me->start_exert(1+random(2), "×ÏÏ¼¹¦");
+        if(me->query_skill("zixia-gong",1)<=451 )        me->start_exert(1+random(2), "ç´«éœžåŠŸ");
 
         return 1;
 }
@@ -52,7 +52,7 @@ void remove_effect(object me)
                     me->set("neili",(int)me->query_temp("zxg/zixia"));
                 me->delete_temp("zxg/zixia");
                 
-                tell_object(me, MAG"ÄãµÄ×ÏÏ¼Éñ¹¦ÔËÐÐÍê±Ï£¬ÖÜÉí×ÏÆø½¥½¥ÏûÍË¡£\n"NOR);
+                tell_object(me, MAG"ä½ çš„ç´«éœžç¥žåŠŸè¿è¡Œå®Œæ¯•ï¼Œå‘¨èº«ç´«æ°”æ¸æ¸æ¶ˆé€€ã€‚\n"NOR);
         }
 }
 
@@ -66,12 +66,12 @@ void zixia_temp(object me,object target)
     if (me->query_temp("zxg/zixia") && me->is_fighting(target) )
      {
           if (random(lvl) > ( (int)target->query_skill("parry") )*3/4 ){
-              message_vision(HIM "$NÇ±ÔË×ÏÏ¼Éñ¹¦£¬³Ã$n·À±¸²»ÖÜÊ±Á¬¹¥Á½ÕÐ£¡\n" NOR, me,target);
+              message_vision(HIM "$Næ½œè¿ç´«éœžç¥žåŠŸï¼Œè¶$né˜²å¤‡ä¸å‘¨æ—¶è¿žæ”»ä¸¤æ‹›ï¼\n" NOR, me,target);
               COMBAT_D->do_attack(me,target, me->query_temp("weapon"), 1);
               COMBAT_D->do_attack(me,target, me->query_temp("weapon"), 1);
           }
           else if (random(lvl) > ( (int)target->query_skill("parry") )/2 ){
-              message_vision(MAG "$NÇ±ÔË×ÏÏ¼Éñ¹¦£¬³Ã$n·À±¸²»ÖÜÊ±ºÝ¹¥Ò»ÕÐ£¡\n" NOR, me,target);
+              message_vision(MAG "$Næ½œè¿ç´«éœžç¥žåŠŸï¼Œè¶$né˜²å¤‡ä¸å‘¨æ—¶ç‹ æ”»ä¸€æ‹›ï¼\n" NOR, me,target);
               COMBAT_D->do_attack(me,target, me->query_temp("weapon"), 1);
           }
           call_out("zixia_temp",1,me,target);
@@ -80,21 +80,21 @@ void zixia_temp(object me,object target)
 
 int help(object me)
 {
-   write(YEL"\n×ÏÏ¼Éñ¹¦¡¸"MAG"×ÏÏ¼Éñ¹¦"YEL"¡¹£º"NOR"\n");
+   write(YEL"\nç´«éœžç¥žåŠŸã€Œ"MAG"ç´«éœžç¥žåŠŸ"YEL"ã€ï¼š"NOR"\n");
 	write(@HELP
-   ¡°»ªÉ½¾Å¹¦£¬Ê×¹¦×ÏÏ¼¡±£¬Õâ×ÏÏ¼Éñ¹¦²»À¢Îªµ±ÊÀÆæ¹¦¡£¶ÔÕóÖÐÍùÍù
-    ÓÉÓÚ×Ô¼ºÄÚÁ¦ºÄ¾¡¶ø²»µÃ²»°ÜÏÂÕóÀ´£¬¶ø´Ë¾ø¼£È´ÄÜÁî×Ô¼ºÔÚ¶ÔÕóÊ±
-    ¾Û¼¯ÒÔÍùÁ½±¶µÄÄÚÁ¦£¬²¢ÇÒÊ±¿ÌÑ°ÕÒ»ú»á½øÐÐ·´¹¥¡£Ê¹µÃ¶ÔÕóÉ±µÐÒ×
-    Èç·´ÕÆ¡£Áí£¬×ÏÏ¼Éñ¹¦´ó³ÉÕß£¬ÒàÓÐ»¤ÌåÆæÐ§£¡
-    Ö¸Áî£ºexert zixia
+   â€œåŽå±±ä¹åŠŸï¼Œé¦–åŠŸç´«éœžâ€ï¼Œè¿™ç´«éœžç¥žåŠŸä¸æ„§ä¸ºå½“ä¸–å¥‡åŠŸã€‚å¯¹é˜µä¸­å¾€å¾€
+    ç”±äºŽè‡ªå·±å†…åŠ›è€—å°½è€Œä¸å¾—ä¸è´¥ä¸‹é˜µæ¥ï¼Œè€Œæ­¤ç»è¿¹å´èƒ½ä»¤è‡ªå·±åœ¨å¯¹é˜µæ—¶
+    èšé›†ä»¥å¾€ä¸¤å€çš„å†…åŠ›ï¼Œå¹¶ä¸”æ—¶åˆ»å¯»æ‰¾æœºä¼šè¿›è¡Œåæ”»ã€‚ä½¿å¾—å¯¹é˜µæ€æ•Œæ˜“
+    å¦‚åæŽŒã€‚å¦ï¼Œç´«éœžç¥žåŠŸå¤§æˆè€…ï¼Œäº¦æœ‰æŠ¤ä½“å¥‡æ•ˆï¼
+    æŒ‡ä»¤ï¼šexert zixia
 
-    ÒªÇó£ºµ±Ç°ÄÚÁ¦ 800 ÒÔÉÏ¡£
+    è¦æ±‚ï¼šå½“å‰å†…åŠ› 800 ä»¥ä¸Šã€‚
 
-    ËµÃ÷£ºµ±×ÏÏ¼Éñ¹¦´óÓÚ300¼¶Ê±£¬¿ÉÒÔÍ¨¹ý
-          set ×ÏÏ¼Éñ¹¦ »¤Ìå À´Ê¹ÓÃ×ÏÏ¼Éñ¹¦µÄÌØÊâ·ÀÓùÐ§¹û¡£
-          Ã¿³öÏÖÒ»´Î»¤ÌåÐ§¹û£¬¶¼»áÏûºÄ²¿·Öµ±Ç°ÄÚÁ¦¡£
-          Çë½÷É÷Ê¹ÓÃ£¡
-          ×ÏÏ¼Éñ¹¦´ó450¼¶ÒÔºó½«ÓÐÌØÐ§¡£
+    è¯´æ˜Žï¼šå½“ç´«éœžç¥žåŠŸå¤§äºŽ300çº§æ—¶ï¼Œå¯ä»¥é€šè¿‡
+          set ç´«éœžç¥žåŠŸ æŠ¤ä½“ æ¥ä½¿ç”¨ç´«éœžç¥žåŠŸçš„ç‰¹æ®Šé˜²å¾¡æ•ˆæžœã€‚
+          æ¯å‡ºçŽ°ä¸€æ¬¡æŠ¤ä½“æ•ˆæžœï¼Œéƒ½ä¼šæ¶ˆè€—éƒ¨åˆ†å½“å‰å†…åŠ›ã€‚
+          è¯·è°¨æ…Žä½¿ç”¨ï¼
+          ç´«éœžç¥žåŠŸå¤§450çº§ä»¥åŽå°†æœ‰ç‰¹æ•ˆã€‚
 HELP
 	);
 	return 1;

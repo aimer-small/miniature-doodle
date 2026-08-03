@@ -1,14 +1,14 @@
-// danfang.c µ¤·¿
+// danfang.c ä¸¹æˆ¿
 // Modify By River 99.5.25
 inherit ROOM;
 
 #include <ansi.h>
 void create()
 {
-           set("short",HIG"µ¤·¿"NOR);
+           set("short",HIG"ä¸¹æˆ¿"NOR);
            set("long",@LONG
-Äã´òÁ¿ÊÒÖÐ£¬Ö»¼û×ÀÉÏ£¬¹ñÖÐÂúÁÐÒ©Æ¿£¬±ÚÉÏÒ»´Ô´ÔµÄ¹ÒÖøÎÞÊýÇ¬²ÝÒ©£¬
-Î÷Ê×²¢ÁÐÈý×ùµ¤Â¯(lu)£¬Õâ¼äÊ¯ÊÒ×Ô±ãÊÇËùÎ½µ¤·¿ÁË¡£
+ä½ æ‰“é‡å®¤ä¸­ï¼Œåªè§æ¡Œä¸Šï¼ŒæŸœä¸­æ»¡åˆ—è¯ç“¶ï¼Œå£ä¸Šä¸€ä¸›ä¸›çš„æŒ‚è‘—æ— æ•°ä¹¾è‰è¯ï¼Œ
+è¥¿é¦–å¹¶åˆ—ä¸‰åº§ä¸¹ç‚‰(lu)ï¼Œè¿™é—´çŸ³å®¤è‡ªä¾¿æ˜¯æ‰€è°“ä¸¹æˆ¿äº†ã€‚
 LONG
            );
 			
@@ -16,7 +16,7 @@ LONG
                "south": __DIR__"lang2",
            ]));
 	   set("item_desc",([
-              "lu": "ÕâÊÇ¹«Ëï¹ÈÖ÷Á¶µ¤µÄµ¤Â¯£¬¿´ÆðÀ´¼«ÎªÆÕÍ¨£¬µ«ÊÇËÆºõÓÖÓÐÐ©¿´ÉÏÈ¥²»¶Ô¾¢¡£\n",
+              "lu": "è¿™æ˜¯å…¬å­™è°·ä¸»ç‚¼ä¸¹çš„ä¸¹ç‚‰ï¼Œçœ‹èµ·æ¥æžä¸ºæ™®é€šï¼Œä½†æ˜¯ä¼¼ä¹Žåˆæœ‰äº›çœ‹ä¸ŠåŽ»ä¸å¯¹åŠ²ã€‚\n",
            ]));
             
 	   setup();
@@ -30,31 +30,31 @@ void init()
 int do_tui(string arg)
 {   
           object me = this_player();
-          if( !arg || arg==" " ) return notify_fail ("ÄãÒªÍÆÊ²Ã´°¡£¿\n");
+          if( !arg || arg==" " ) return notify_fail ("ä½ è¦æŽ¨ä»€ä¹ˆå•Šï¼Ÿ\n");
           if (arg =="lu")
-               return notify_fail("ÄãÒªÍÆÄÄ±ßµÄµ¤Â¯°¡£¿\n");
+               return notify_fail("ä½ è¦æŽ¨å“ªè¾¹çš„ä¸¹ç‚‰å•Šï¼Ÿ\n");
           if (me->query_skill("force", 1) < 120 ) 
-               return notify_fail("ÄãÉîÉîµÄÎüÁË¿ÚÆø£¬ÓÃÁ¦µØÍÆµ¤Â¯£¬ÎÞÄÎÄÚÁ¦²»¹»£¬µ¤Â¯Ë¿ºÁ²»¶¯£¡\n");
+               return notify_fail("ä½ æ·±æ·±çš„å¸äº†å£æ°”ï¼Œç”¨åŠ›åœ°æŽ¨ä¸¹ç‚‰ï¼Œæ— å¥ˆå†…åŠ›ä¸å¤Ÿï¼Œä¸¹ç‚‰ä¸æ¯«ä¸åŠ¨ï¼\n");
           if (me->query_str() < 30 ) 
-               return notify_fail("ÄãÉîÉîµÄÎüÁË¿ÚÆø£¬ÓÃÁ¦µØÍÆµ¤Â¯£¬ÎÞÄÎëöÁ¦²»¹»£¬µ¤Â¯Ë¿ºÁ²»¶¯£¡\n");
+               return notify_fail("ä½ æ·±æ·±çš„å¸äº†å£æ°”ï¼Œç”¨åŠ›åœ°æŽ¨ä¸¹ç‚‰ï¼Œæ— å¥ˆè†‚åŠ›ä¸å¤Ÿï¼Œä¸¹ç‚‰ä¸æ¯«ä¸åŠ¨ï¼\n");
           if( arg=="zhonglu" || arg=="middlelu"){
            if (me->query_temp("jqg/tui"))
-                 return notify_fail("ÄãÒÑ¾­°Ñµ¤Â¯ÍÆºÃÁË¡£»¹ÏëÔÙÍÆÊ²Ã´£¿\n");  
+                 return notify_fail("ä½ å·²ç»æŠŠä¸¹ç‚‰æŽ¨å¥½äº†ã€‚è¿˜æƒ³å†æŽ¨ä»€ä¹ˆï¼Ÿ\n");  
                me->set_temp("jqg/tui", 1);
-               tell_object(me,"ÄãÏÈ½«ÖÐ¼äµÄµ¤Â¯ÍÆ¿ª¡£\n");
-               message("vision",me->name() +"ÖÐ¼äµÄµ¤Â¯ÍÆ¿ª¡£\n"NOR,environment(me), me);
+               tell_object(me,"ä½ å…ˆå°†ä¸­é—´çš„ä¸¹ç‚‰æŽ¨å¼€ã€‚\n");
+               message("vision",me->name() +"ä¸­é—´çš„ä¸¹ç‚‰æŽ¨å¼€ã€‚\n"NOR,environment(me), me);
                return 1;
                }
           if (!me->query_temp("jqg/tui")) return 0;
           if( arg == "donglu" || arg == "eastlu" 
            || arg == "westlu" || arg == "xilu" )
-               return notify_fail("ÄãÒª°Ñµ¤Â¯ÍÆÏòÄÄÀï°¡£¿\n");
+               return notify_fail("ä½ è¦æŠŠä¸¹ç‚‰æŽ¨å‘å“ªé‡Œå•Šï¼Ÿ\n");
           if( arg =="donglu middle" || arg =="eastlu middle" 
            || arg =="donglu zhong" || arg =="eastlu zhong"){
            if (me->query_temp("jqg/tuidong"))
-                 return notify_fail("ÄãÒÑ¾­°Ñµ¤Â¯ÍÆºÃÁË¡£»¹ÏëÔÙÍÆÊ²Ã´£¿\n");  
-               tell_object(me,"ÄãÔÙ½«¶«Ê×µÄÒ»×ùµ¤Â¯ÍÆµ½ÖÐ¼ä¡£\n");
-               message("vision",me->name() +"¶«Ê×µÄÒ»×ùµ¤Â¯ÍÆµ½ÖÐ¼ä¡£\n"NOR,environment(me), me);
+                 return notify_fail("ä½ å·²ç»æŠŠä¸¹ç‚‰æŽ¨å¥½äº†ã€‚è¿˜æƒ³å†æŽ¨ä»€ä¹ˆï¼Ÿ\n");  
+               tell_object(me,"ä½ å†å°†ä¸œé¦–çš„ä¸€åº§ä¸¹ç‚‰æŽ¨åˆ°ä¸­é—´ã€‚\n");
+               message("vision",me->name() +"ä¸œé¦–çš„ä¸€åº§ä¸¹ç‚‰æŽ¨åˆ°ä¸­é—´ã€‚\n"NOR,environment(me), me);
                me->start_busy(1);
                me->set_temp("jqg/tuidong", 1);
                return 1;
@@ -63,9 +63,9 @@ int do_tui(string arg)
            || arg =="xilu dong" || arg =="westlu dong"){
            if (! me->query_temp("jqg/tuidong")) return 0;
            if ( me->query_temp("jqg/tuixi"))
-                 return notify_fail("ÄãÒÑ¾­°Ñµ¤Â¯ÍÆºÃÁË¡£»¹ÏëÔÙÍÆÊ²Ã´£¿\n");
-               tell_object(me,"½Ó×ÅÄã½«Î÷Ê×µÄÒ»×ùµ¤Â¯ÍÆµ½¶«Ê×¡£\n");
-               message("vision",me->name() +"½«Î÷Ê×µÄÒ»×ùµ¤Â¯ÍÆµ½¶«Ê×¡£\n"NOR,environment(me), me);
+                 return notify_fail("ä½ å·²ç»æŠŠä¸¹ç‚‰æŽ¨å¥½äº†ã€‚è¿˜æƒ³å†æŽ¨ä»€ä¹ˆï¼Ÿ\n");
+               tell_object(me,"æŽ¥ç€ä½ å°†è¥¿é¦–çš„ä¸€åº§ä¸¹ç‚‰æŽ¨åˆ°ä¸œé¦–ã€‚\n");
+               message("vision",me->name() +"å°†è¥¿é¦–çš„ä¸€åº§ä¸¹ç‚‰æŽ¨åˆ°ä¸œé¦–ã€‚\n"NOR,environment(me), me);
                me->start_busy(1);
                me->set_temp("jqg/tuixi", 1);
                return 1;
@@ -73,15 +73,15 @@ int do_tui(string arg)
           if(arg =="zhonglu west" || arg =="middlelu west" 
             || arg =="zhonglu xi" || arg ==" middlelu xi"){
            if (! me->query_temp("jqg/tuixi")) return 0;
-               tell_object(me,"È»ºóÄã½«ÖÐ¼äµÄÒ»×ùµ¤Â¯ÍÆµ½Î÷Ê×¡£\n");
-               message("vision",me->name() +"½«ÖÐ¼äµÄÒ»×ùµ¤Â¯ÍÆµ½Î÷Ê×¡£\n"NOR,environment(me), me);
+               tell_object(me,"ç„¶åŽä½ å°†ä¸­é—´çš„ä¸€åº§ä¸¹ç‚‰æŽ¨åˆ°è¥¿é¦–ã€‚\n");
+               message("vision",me->name() +"å°†ä¸­é—´çš„ä¸€åº§ä¸¹ç‚‰æŽ¨åˆ°è¥¿é¦–ã€‚\n"NOR,environment(me), me);
                me->start_busy(1);
-               tell_object(me,HIR"\nÄãµÄ×ãÏÂÒ»Èí£¬È´ËÆÌ¤ÁË¸ö¿Õ¡£µÇÊ±±ÊÖ±¶éÏÂ£¬µ«¾õ×ãµ×¿ÕÐé£¬¾¹ËÆÖ±¶éÁËÊýÊ®ÕÉÉÐÎ´ÖøµØ¡£\n\n"NOR);
-               message("vision",me->name() +"µÄ×ãÏÂÒ»Èí£¬µÇÊ±±ÊÖ±¶éÏÂ¡£\n"NOR,environment(me), me);
+               tell_object(me,HIR"\nä½ çš„è¶³ä¸‹ä¸€è½¯ï¼Œå´ä¼¼è¸äº†ä¸ªç©ºã€‚ç™»æ—¶ç¬”ç›´å •ä¸‹ï¼Œä½†è§‰è¶³åº•ç©ºè™šï¼Œç«Ÿä¼¼ç›´å •äº†æ•°åä¸ˆå°šæœªè‘—åœ°ã€‚\n\n"NOR);
+               message("vision",me->name() +"çš„è¶³ä¸‹ä¸€è½¯ï¼Œç™»æ—¶ç¬”ç›´å •ä¸‹ã€‚\n"NOR,environment(me), me);
                me->delete_temp("jqg");
                me->move(__DIR__"eytan");
-               tell_object(me,HIR"\nÄãÑÛÇ°Ò»Æ¬ºÚ°µ£¬ÆËÍ¨Ò»Éù£¬ÒÑË¤ÈëË®ÖÐ£¬ÍùÏÂ¼±³Á£¬Ô­À´µ¤·¿Ö®ÏÂ¾¹ÊÇ¸öÉîÔ¨¡£\n\n"NOR);
-               message("vision", me->name() +"ÑÛÇ°Ò»Æ¬ºÚ°µ£¬ÆËÍ¨Ò»Éù£¬ÒÑË¤ÈëË®ÖÐ¡£\n",environment(me), me);
+               tell_object(me,HIR"\nä½ çœ¼å‰ä¸€ç‰‡é»‘æš—ï¼Œæ‰‘é€šä¸€å£°ï¼Œå·²æ‘”å…¥æ°´ä¸­ï¼Œå¾€ä¸‹æ€¥æ²‰ï¼ŒåŽŸæ¥ä¸¹æˆ¿ä¹‹ä¸‹ç«Ÿæ˜¯ä¸ªæ·±æ¸Šã€‚\n\n"NOR);
+               message("vision", me->name() +"çœ¼å‰ä¸€ç‰‡é»‘æš—ï¼Œæ‰‘é€šä¸€å£°ï¼Œå·²æ‘”å…¥æ°´ä¸­ã€‚\n",environment(me), me);
              if( me->query_skill("dodge", 1) < 120){
                  me->receive_damage("qi", 200);
                  me->receive_wound("qi", 200);

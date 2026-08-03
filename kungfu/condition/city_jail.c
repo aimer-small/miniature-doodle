@@ -15,23 +15,23 @@ int update_condition(object me, int duration)
       		if ( room != "/d/city/dalao" )
       			return 0;
       		me->move("/d/city/chmiao");
-                message("vision",HIW "\nÖ»Ìı¼û¶ş¡¢Èı¸öÈËµÄ½Å²½ÉùÏò×ÅÕâ±ß×ßÀ´¡£ÈÓÏÂÒ»¸öÎå»¨´ó°óµÄ¼Ò»ïºó£¬×ªÉíÀë¿ªÁË£¡\n\n" NOR, environment(me), me);
-                tell_object(me, HIW "Ö»¾õÍÈ½ÅÎŞÁ¦£¬±»ÈËÍÏ×ÅÈÓ½øÁË¼àÓü¡£\n" NOR);
+                message("vision",HIW "\nåªå¬è§äºŒã€ä¸‰ä¸ªäººçš„è„šæ­¥å£°å‘ç€è¿™è¾¹èµ°æ¥ã€‚æ‰”ä¸‹ä¸€ä¸ªäº”èŠ±å¤§ç»‘çš„å®¶ä¼™åï¼Œè½¬èº«ç¦»å¼€äº†ï¼\n\n" NOR, environment(me), me);
+                tell_object(me, HIW "åªè§‰è…¿è„šæ— åŠ›ï¼Œè¢«äººæ‹–ç€æ‰”è¿›äº†ç›‘ç‹±ã€‚\n" NOR);
                 me->set("startroom", "/d/city/chmiao");
                 return 0;
         }
      
         if ( room !="/d/city/dalao" ) {           
-                message_vision(HIR "\nÍ»È»³å³öÀ´Ò»´óÈºÓü×ä£¬Ö¸×Å$Nº°µÀ£º¡°¿´ÄãÕâÌÓ·¸»¹ÄÜÌÓµ½ÄÄ¶ùÈ¥£¡¡±\n"
-				"½Ó×Å±ãÊÇÂÒ°ôÆëÏÂ£¬¶ÙÊ±½«$N´òµÃ»èËÀ¹ıÈ¥......\n" NOR, me);
+                message_vision(HIR "\nçªç„¶å†²å‡ºæ¥ä¸€å¤§ç¾¤ç‹±å’ï¼ŒæŒ‡ç€$Nå–Šé“ï¼šâ€œçœ‹ä½ è¿™é€ƒçŠ¯è¿˜èƒ½é€ƒåˆ°å“ªå„¿å»ï¼â€\n"
+				"æ¥ç€ä¾¿æ˜¯ä¹±æ£’é½ä¸‹ï¼Œé¡¿æ—¶å°†$Næ‰“å¾—æ˜æ­»è¿‡å»......\n" NOR, me);
                 me->unconcious();
-                message_vision("Óü×äÃÇ¿¸×ÅÔÎËÀ¹ıÈ¥µÄ$N£¬¼±´Ò´ÒµÄ×ßÁË¡£\n", me);
+                message_vision("ç‹±å’ä»¬æ‰›ç€æ™•æ­»è¿‡å»çš„$Nï¼Œæ€¥åŒ†åŒ†çš„èµ°äº†ã€‚\n", me);
                 me->set("eff_qi", 1);
                 me->set("qi", 1);
                 me->apply_condition("city_jail", me->query_condition("city_dail") + 10 +(random(20)) );
                 me->move("/d/city/dalao");
-                message("vision", HIW "Ö»Ìı¼û¼àÓüµÄğ®µÀÖĞ¶ş¡¢Èı¸öÈËµÄ½Å²½ÉùÒô£¬Ïò×ÅÕâ±ß×ßÀ´¡£\n"
-                        "Äã¶¨¾¦Ò»¿´£¬Ô­À´ÊÇÒ»¸öÎå»¨´ó°óµÄ¼Ò»ï´ÓÌúÃÅÍâ±»ÈÓÁË½øÀ´£¡\n" NOR, environment(me), me);
+                message("vision", HIW "åªå¬è§ç›‘ç‹±çš„ç”¬é“ä¸­äºŒã€ä¸‰ä¸ªäººçš„è„šæ­¥å£°éŸ³ï¼Œå‘ç€è¿™è¾¹èµ°æ¥ã€‚\n"
+                        "ä½ å®šç›ä¸€çœ‹ï¼ŒåŸæ¥æ˜¯ä¸€ä¸ªäº”èŠ±å¤§ç»‘çš„å®¶ä¼™ä»é“é—¨å¤–è¢«æ‰”äº†è¿›æ¥ï¼\n" NOR, environment(me), me);
         }
         me->apply_condition("city_jail", duration - 1);
         return 1;

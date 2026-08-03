@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("×³ÄêÆòØ¤", ({ "qi gai", "di zi", "qigai" }));
-        set("long","ÕâÊÇÒ»¸öÖĞÄêÆòØ¤£¬Á³ÉÏÒÑÓĞ²»ÉÙÖåÎÆ¡£\n");
+        set_name("å£®å¹´ä¹ä¸", ({ "qi gai", "di zi", "qigai" }));
+        set("long","è¿™æ˜¯ä¸€ä¸ªä¸­å¹´ä¹ä¸ï¼Œè„¸ä¸Šå·²æœ‰ä¸å°‘çš±çº¹ã€‚\n");
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 33);
         set("attitude", "peaceful");
         set("shen_type", 0);
@@ -29,7 +29,7 @@ void create()
         set_skill("unarmed", 30);
         set_skill("parry", 30);
 
-	create_family("Ø¤°ï", 20, "µÜ×Ó");
+	create_family("ä¸å¸®", 20, "å¼Ÿå­");
         setup();
         carry_object(CLASS_D("gaibang/obj/gb_budai2"))->wear();
         carry_object(ARMOR_D("bainayi"))->wear();

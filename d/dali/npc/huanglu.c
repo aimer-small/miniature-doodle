@@ -3,16 +3,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("»ÆÂ¹", ({ "huang lu", "lu" }) );
-        set("race", "Ò°ÊŞ");
+        set_name("é»„é¹¿", ({ "huang lu", "lu" }) );
+        set("race", "é‡å…½");
         set("age", 2);
-        set("long", "Ò»Ö»»ÆÉ«µÄ´óÒ°Â¹¡£\n");
+        set("long", "ä¸€åªé»„è‰²çš„å¤§é‡é¹¿ã€‚\n");
         set("attitude", "peaceful");
  
         set("str", 15);
         set("cor", 16);
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "×¦×Ó", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "çˆªå­", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
  
         set("combat_exp", 1000+random(1000));
@@ -34,13 +34,13 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$NÆà²ÒµÄº¿ÁË¼¸Éù£¬ËÀÁË¡£\n", this_object());
+	message_vision("$Nå‡„æƒ¨çš„åšäº†å‡ å£°ï¼Œæ­»äº†ã€‚\n", this_object());
         if( random(30) >29 )      {
         	ob = new(__DIR__"obj/lurong");
                 ob->move(environment(this_object()));
         }
         else    
-                message_vision("Ìì¿ÕÖĞÍ»È»³öÏÖÒ»Ö»ÍºğÕ£¬°Ñ$Nµğ×ßÁË¡£\n", this_object());
+                message_vision("å¤©ç©ºä¸­çªç„¶å‡ºç°ä¸€åªç§ƒé¹«ï¼ŒæŠŠ$Nå¼èµ°äº†ã€‚\n", this_object());
 	destruct(this_object());
 }
 

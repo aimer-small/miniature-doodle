@@ -5,7 +5,7 @@ int main(object me, string arg)
 	int t;
 
 	seteuid(geteuid(me));
-	if (!arg || sscanf(arg,"%d",t)<1) return notify_fail("Ö¸Áî¸ñÊ½ : ctime <Ê±¼ä>\n");
+	if (!arg || sscanf(arg,"%d",t)<1) return notify_fail("æŒ‡ä»¤æ ¼å¼ : ctime <æ—¶é—´>\n");
 	tell_object( me , sprintf("%s = %s\n",arg,ctime(t)) );
         return 1;
 }
@@ -13,9 +13,9 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : ctime <Ê±¼ä>
+æŒ‡ä»¤æ ¼å¼ : ctime <æ—¶é—´>
  
-×ª»»Ê±¼ä¸ñÊ½¡£
+è½¬æ¢æ—¶é—´æ ¼å¼ã€‚
 HELP
     );
     return 1;

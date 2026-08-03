@@ -1,14 +1,14 @@
-// shuiqi.c  ºéË®Æì
+// shuiqi.c  æ´ªæ°´æ——
 // Modify By River@SJ 99.06
 #include <room.h>
 #include <ansi.h>
 inherit ROOM;
 void create()
 { 
-       set("short",HIW"ºéË®Æì"NOR);
+       set("short",HIW"æ´ªæ°´æ——"NOR);
        set("long", @LONG
-ÕâÀïÊÇºéË®Æì¡£´ËÆìÓĞÊ®·ÖÀ÷º¦µÄË®Õó£¬ÆìÖĞµÜ×Ó¸ö¸öÉîÍ¨Ë®ĞÔ¡£Ïò¶«¾Í
-ÊÇÍ¨Íù±ÌË®º®Ì¶µÄÉ½¼äĞ¡Â·ÁË¡£
+è¿™é‡Œæ˜¯æ´ªæ°´æ——ã€‚æ­¤æ——æœ‰ååˆ†å‰å®³çš„æ°´é˜µï¼Œæ——ä¸­å¼Ÿå­ä¸ªä¸ªæ·±é€šæ°´æ€§ã€‚å‘ä¸œå°±
+æ˜¯é€šå¾€ç¢§æ°´å¯’æ½­çš„å±±é—´å°è·¯äº†ã€‚
 LONG);    
 	set("exits", ([
 		"west" : __DIR__"cl2",
@@ -20,7 +20,7 @@ LONG);
 		__DIR__"npc/dizi4"  : 3,
                 CLASS_D("mingjiao") + "/tang" : 1,	
 	]));
-        set("outdoors", "Ã÷½Ì¹âÃ÷¶¥");
+        set("outdoors", "æ˜æ•™å…‰æ˜é¡¶");
         set("coor/x",-270);
   set("coor/y",190);
    set("coor/z",120);

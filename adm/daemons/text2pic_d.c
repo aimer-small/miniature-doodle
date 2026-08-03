@@ -1,7 +1,7 @@
 #include <ansi.h>
 #define HZK "/adm/etc/Hzk"
 #define ASC "/adm/etc/Asc"
-#define DEFAULT_FILL "°Ò"
+#define DEFAULT_FILL "‚óè"
 #define DEFAULT_BG "  "
 #define DEFAULT_FCOLOR ""
 #define DEFAULT_BGCOLOR ""

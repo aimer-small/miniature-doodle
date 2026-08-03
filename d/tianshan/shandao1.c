@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", YEL"É½µÀ"NOR);
+	set("short", YEL"å±±é“"NOR);
 	set("long", @LONG
-ÕâÊÇÉ½µÀÖ®ÖĞ£¬Ô½×ßµÀÅÔµÄÂÒ²İÔ½³¤£¬·ÅÑÛµÀÂ·Æéá«£¬ÂÒÊ¯á×á¾¡£ÄãÏò×Å
-µÆ»ğ¿ì²½×ßÈ¥¡£µÆ»ğÏà¸ôÉõÒ££¬×ßÁËºÃÒ»»á£¬ÈÔÊÇÉÁÉÁË¸Ë¸£¬ÇÆ²»Çå³şÎİÓî¡£
+è¿™æ˜¯å±±é“ä¹‹ä¸­ï¼Œè¶Šèµ°é“æ—çš„ä¹±è‰è¶Šé•¿ï¼Œæ”¾çœ¼é“è·¯å´å²–ï¼Œä¹±çŸ³å¶™å³‹ã€‚ä½ å‘ç€
+ç¯ç«å¿«æ­¥èµ°å»ã€‚ç¯ç«ç›¸éš”ç”šé¥ï¼Œèµ°äº†å¥½ä¸€ä¼šï¼Œä»æ˜¯é—ªé—ªçƒçƒï¼Œç§ä¸æ¸…æ¥šå±‹å®‡ã€‚
 LONG);
 	set("exits", ([
 		"east" : __FILE__,
@@ -18,7 +18,7 @@ LONG);
 		"north" : __FILE__,
 	]));       
 
-	set("outdoors", "ÌìÉ½");
+	set("outdoors", "å¤©å±±");
 	setup();
 }
 
@@ -33,10 +33,10 @@ int valid_leave(object me, string dir)
 		me->move(__DIR__"shanjin2");
 		me->delete_temp("tonglao");
 		me->delete_temp("mark");
-		log_file("quest/tonglao", sprintf("%8s%-10sÎ´Í¨¹ıÍ¯ÀÑ½âÃÔµÚ¶ş²½£¬¸££º%d£¬´¾£º%d£¬Èİ£º%d£¬´ÎÊı£º%d¡£\n",
+		log_file("quest/tonglao", sprintf("%8s%-10sæœªé€šè¿‡ç«¥å§¥è§£è¿·ç¬¬äºŒæ­¥ï¼Œç¦ï¼š%dï¼Œæ·³ï¼š%dï¼Œå®¹ï¼š%dï¼Œæ¬¡æ•°ï¼š%dã€‚\n",
 			me->name(),"("+me->query("id")+")", me->query("kar"), me->query("pur"), 
 			me->query_per(), me->query("quest/tonglao/quest")), me);
-		return notify_fail(CYN"\nÄãà«à«ÂîµÀ£º¡¸ÕâµÆ¿ÉÓĞµã¶ùĞ°ÃÅ¡£¡¹\n"NOR"²»Öª²»¾õÄã×ß»Øµ½Ô­À´µÄÉ½Â·ÉÏ¡£\n"NOR);
+		return notify_fail(CYN"\nä½ å–ƒå–ƒéª‚é“ï¼šã€Œè¿™ç¯å¯æœ‰ç‚¹å„¿é‚ªé—¨ã€‚ã€\n"NOR"ä¸çŸ¥ä¸è§‰ä½ èµ°å›åˆ°åŸæ¥çš„å±±è·¯ä¸Šã€‚\n"NOR);
 	}
 	if (me->query_temp("mark/steps") == me->query_temp("tonglao/steps") 
 	 && me->query_temp("mark/step") == me->query_temp("tonglao/step")) {
@@ -48,22 +48,22 @@ int valid_leave(object me, string dir)
 			me->set_temp("tonglao/pass2",1);
 			me->delete_temp("mark");
 			me->set("quest/tonglao/second", 1);
-			log_file("quest/tonglao", sprintf("%8s%-10sÍ¨¹ıÍ¯ÀÑ½âÃÔµÚ¶ş²½£¬¸££º%d£¬´¾£º%d£¬Èİ£º%d/%d£¬´ÎÊı£º%d¡£\n",
+			log_file("quest/tonglao", sprintf("%8s%-10sé€šè¿‡ç«¥å§¥è§£è¿·ç¬¬äºŒæ­¥ï¼Œç¦ï¼š%dï¼Œæ·³ï¼š%dï¼Œå®¹ï¼š%d/%dï¼Œæ¬¡æ•°ï¼š%dã€‚\n",
 				me->name(),"("+me->query("id")+")", me->query("kar"), me->query("pur"), me->query("per"), 
 				me->query_per(), me->query("quest/tonglao/quest")), me);
-			tell_object(me, YEL"\nÄãÄıÄ¿ÏòÉ½¹ÈÍûÈ¥£¬Ö»¼ûÄÇµÆ»ğ·¢³öÂÌÓÍÓÍµÄ¹âÃ¢£¬åÄ²»Í¬Ñ°³£µÆ»ğµÄÉ«×÷\n"
-					     "°µºì»ò»è»Æ¡£Äã¼Ó¿ì½Å²½£¬ÏòÂÌµÆÓÖÇıÇ°ÀïĞí£¬±ã¿´µÃ¸ü¼ÓÇå³şÁË¡£\n\n"NOR);
+			tell_object(me, YEL"\nä½ å‡ç›®å‘å±±è°·æœ›å»ï¼Œåªè§é‚£ç¯ç«å‘å‡ºç»¿æ²¹æ²¹çš„å…‰èŠ’ï¼Œè¿¥ä¸åŒå¯»å¸¸ç¯ç«çš„è‰²ä½œ\n"
+					     "æš—çº¢æˆ–æ˜é»„ã€‚ä½ åŠ å¿«è„šæ­¥ï¼Œå‘ç»¿ç¯åˆé©±å‰é‡Œè®¸ï¼Œä¾¿çœ‹å¾—æ›´åŠ æ¸…æ¥šäº†ã€‚\n\n"NOR);
 			me->move(__DIR__"shangu");
-			return notify_fail(YEL"Äã·¢ÏÖÓĞĞ°Ä§ÍâµÀÔÚ´Ë¾Û»á£¬¸Ï½ô¶ãµ½ÅÔ±ßµÄÑÒÊ¯ÖĞ¶ãÁËÆğÀ´¡£\n"NOR);
+			return notify_fail(YEL"ä½ å‘ç°æœ‰é‚ªé­”å¤–é“åœ¨æ­¤èšä¼šï¼Œèµ¶ç´§èº²åˆ°æ—è¾¹çš„å²©çŸ³ä¸­èº²äº†èµ·æ¥ã€‚\n"NOR);
 	        }
 		else {
 			me->move(__DIR__"shanjin2");
 			me->delete_temp("tonglao");
 			me->delete_temp("mark");
-			log_file("quest/tonglao", sprintf("%8s%-10sÎ´Í¨¹ıÍ¯ÀÑ½âÃÔµÚ¶ş²½£¬¸££º%d£¬´¾£º%d£¬Èİ£º%d£¬´ÎÊı£º%d¡£\n",
+			log_file("quest/tonglao", sprintf("%8s%-10sæœªé€šè¿‡ç«¥å§¥è§£è¿·ç¬¬äºŒæ­¥ï¼Œç¦ï¼š%dï¼Œæ·³ï¼š%dï¼Œå®¹ï¼š%dï¼Œæ¬¡æ•°ï¼š%dã€‚\n",
 				me->name(),"("+me->query("id")+")", me->query("kar"), me->query("pur"), 
 				me->query_per(), me->query("quest/tonglao/quest")), me);
-			return notify_fail(CYN"Äãà«à«ÂîµÀ£º¡¸ÕâµÆ¿ÉÓĞµã¶ùĞ°ÃÅ¡£¡¹\n²»Öª²»¾õÄã×ß»Øµ½Ô­À´µÄÉ½Â·ÉÏ¡£\n"NOR);
+			return notify_fail(CYN"ä½ å–ƒå–ƒéª‚é“ï¼šã€Œè¿™ç¯å¯æœ‰ç‚¹å„¿é‚ªé—¨ã€‚ã€\nä¸çŸ¥ä¸è§‰ä½ èµ°å›åˆ°åŸæ¥çš„å±±è·¯ä¸Šã€‚\n"NOR);
 		}
 	}
         return ::valid_leave(me, dir);

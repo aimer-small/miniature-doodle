@@ -10,10 +10,10 @@ void create()
 {
 
                                         
-        set("short", HIW"»ªÉ½Ö®áÛ"NOR);
+        set("short", HIW"åå±±ä¹‹å·…"NOR);
         set("long", @LONG
-ÖÕÓÚÅÀÉÏÁËÒ»¸öÉÔÎ¢Æ½Ì¹Ö®´¦£¬µ«ËÄÖÜ°×Ñ©Ã£Ã££¬³ıÁËÏòÏÂ£¬ËÆºõÔÙ
-Ò²ÎŞÂ·¿É×ß,Äãºö¾õÌìµØËä´ó£¬È´ÎŞ¿ÉÈ¥Ö®´¦£¬²»½ûÓĞÖÖÏë¿ŞµÄ³å¶¯¡£
+ç»ˆäºçˆ¬ä¸Šäº†ä¸€ä¸ªç¨å¾®å¹³å¦ä¹‹å¤„ï¼Œä½†å››å‘¨ç™½é›ªèŒ«èŒ«ï¼Œé™¤äº†å‘ä¸‹ï¼Œä¼¼ä¹å†
+ä¹Ÿæ— è·¯å¯èµ°,ä½ å¿½è§‰å¤©åœ°è™½å¤§ï¼Œå´æ— å¯å»ä¹‹å¤„ï¼Œä¸ç¦æœ‰ç§æƒ³å“­çš„å†²åŠ¨ã€‚
 LONG
         );
 
@@ -41,34 +41,34 @@ int do_next(string arg)
         cost = random(cost) + 100;
         
         if(me->is_busy())
-                return notify_fail("Äã»¹ÔÚÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ è¿˜åœ¨å¿™ç€å‘¢ã€‚\n");
 
         me->start_busy(2+random(2));
         
         if (!arg)
         {
-                tell_object(me,"ÄãÏëÏòÄÄ¸ö·½ÏòÅÀ?\n"NOR);
+                tell_object(me,"ä½ æƒ³å‘å“ªä¸ªæ–¹å‘çˆ¬?\n"NOR);
 
                 return 1;
 
         }
         if (me->query("jingli")<500)
         {
-                tell_object(me,HIY"ÄãµÄÌåÁ¦Í¸Ö§£¬»èÁË¹ıÈ¥¡£\n"NOR);
+                tell_object(me,HIY"ä½ çš„ä½“åŠ›é€æ”¯ï¼Œæ˜äº†è¿‡å»ã€‚\n"NOR);
                 me->add("jingli",-500);
                 return 1;
         }
         
         if (arg == "down")
         {
-                message_vision("$NĞ¡ĞÄÒíÒíµÄÅÀÁËÏÂÈ¥¡£\n"NOR,me);
+                message_vision("$Nå°å¿ƒç¿¼ç¿¼çš„çˆ¬äº†ä¸‹å»ã€‚\n"NOR,me);
                 me->move("/d/huashan/sheshen");
                 me->add("jingli",-cost);
                  destruct(hong);
         }
         else
         {
-                tell_object(me,"Õâ¸ö·½Ïò²»ÄÜÅÀ¡£\n");
+                tell_object(me,"è¿™ä¸ªæ–¹å‘ä¸èƒ½çˆ¬ã€‚\n");
                 
         }
         
@@ -80,13 +80,13 @@ int do_cry()
 {
         object me=this_player();
 
-        message_vision(HIR"$N¾õµÃÌìµØÖ®´ó£¬È´ÎŞ¿ÉÈ¥Ö®´¦£¬ÈÌ²»×¡·ÅÉù´ó¿Ş¡£\n"NOR,me);
+        message_vision(HIR"$Nè§‰å¾—å¤©åœ°ä¹‹å¤§ï¼Œå´æ— å¯å»ä¹‹å¤„ï¼Œå¿ä¸ä½æ”¾å£°å¤§å“­ã€‚\n"NOR,me);
 
         return 1;
 
 }
 int do_quit()
 {
-        write("ÕâÀï²»×¼ÍË³ö£¡\n");
+        write("è¿™é‡Œä¸å‡†é€€å‡ºï¼\n");
         return 1;
 }

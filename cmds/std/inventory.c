@@ -25,7 +25,7 @@ int main(object me, string arg)
 			  || !me->query("group/id")
 			  || me->query("group/id") != ob->query("group/id")
 		  	  || me->query("group/class") >= ob->query("group/class") )
-				return notify_fail("ÄãÖ»ÄÜ²é¿´Í¬°ïÅÉ£¬ÇÒµÈ¼¶±ÈÄãµÍµÄNPCËùĞ¯´øµÄÎïÆ·¡£\n");
+				return notify_fail("ä½ åªèƒ½æŸ¥çœ‹åŒå¸®æ´¾ï¼Œä¸”ç­‰çº§æ¯”ä½ ä½çš„NPCæ‰€æºå¸¦çš„ç‰©å“ã€‚\n");
 		}
 	}
 
@@ -33,13 +33,13 @@ int main(object me, string arg)
 
 	inv = filter_array(all_inventory(ob), "visible", me);
 	if (!sizeof(inv)) {
-		write((ob==me)? "Ä¿Ç°ÄãÉíÉÏÃ»ÓĞÈÎºÎ¶«Î÷¡£\n"
-			: ob->name() + "ÉíÉÏÃ»ÓĞĞ¯´øÈÎºÎ¶«Î÷¡£\n");
+		write((ob==me)? "ç›®å‰ä½ èº«ä¸Šæ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n"
+			: ob->name() + "èº«ä¸Šæ²¡æœ‰æºå¸¦ä»»ä½•ä¸œè¥¿ã€‚\n");
 		return 1;
 	}
 
-	str = sprintf("%sÉíÉÏ´ø×Å%s¼ş¶«Î÷(¸ºÖØ %:2f%%)£º\n",
-		(ob==me)? "Äã": ob->name(),
+	str = sprintf("%sèº«ä¸Šå¸¦ç€%sä»¶ä¸œè¥¿(è´Ÿé‡ %:2f%%)ï¼š\n",
+		(ob==me)? "ä½ ": ob->name(),
 		chinese_number(sizeof(inv)),
 		ob->query_encumbrance() * 100.0 / ob->query_max_encumbrance()
 	);
@@ -56,12 +56,12 @@ int main(object me, string arg)
 
 	foreach(object item in first) {
 		unit = sprintf("%s",
-			(item->query("equipped")? HIC"¡õ"NOR :item->query("embedded")? HIR"¡î"NOR: "  ")+
+			(item->query("equipped")? HIC"â–¡"NOR :item->query("embedded")? HIR"â˜†"NOR: "  ")+
 			item->short()
 		);
 		if (wiz) {
 			w = item->weight();
-			unit += sprintf("%*s", 79-strlen(strip(unit)), w/500+"½ï"+(w%500)/50+"Á½"+(w%50)/5+"Ç®");
+			unit += sprintf("%*s", 79-strlen(strip(unit)), w/500+"æ–¤"+(w%500)/50+"ä¸¤"+(w%50)/5+"é’±");
 		}
 
 		str += unit + "\n";
@@ -71,7 +71,7 @@ int main(object me, string arg)
 	i = sizeof(inv);
 	if (i < 1) {
 		write(str);
-		if (wiz) write("×ÜÖØÁ¿£º" + ob->query_encumbrance() + "\n");
+		if (wiz) write("æ€»é‡é‡ï¼š" + ob->query_encumbrance() + "\n");
 		return 1;
 	}
 
@@ -98,23 +98,23 @@ int main(object me, string arg)
 		unit = sprintf("  %s", chinese_number(first[item]["total"]) + first[item]["unit"] + first[item]["short"]);
 		if( wiz ){
 			w = first[item]["weight"] * first[item]["total"];
-			unit += sprintf("%*s", 79-strlen(strip(unit)), w/500+"½ï"+(w%500)/50+"Á½"+(w%50)/5+"Ç®");
+			unit += sprintf("%*s", 79-strlen(strip(unit)), w/500+"æ–¤"+(w%500)/50+"ä¸¤"+(w%50)/5+"é’±");
 		}
 		str += unit + "\n";
 	}
 	write(str);
-	if ( wiz ) write("×ÜÖØÁ¿£º" + ob->query_encumbrance() + "\n");
+	if ( wiz ) write("æ€»é‡é‡ï¼š" + ob->query_encumbrance() + "\n");
 	return 1;
 }
 
 int help ()
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: inventory [Íæ¼ÒID]
+æŒ‡ä»¤æ ¼å¼: inventory [ç©å®¶ID]
 
-¿ÉÁĞ³öÄã(Äã)Ä¿Ç°ÉíÉÏËùĞ¯´øµÄËùÓĞÎïÆ·¡£
-Íæ¼ÒIDÕâ¸ö²ÎÊıÖ»ÓĞÎ×Ê¦¿ÉÒÔÊ¹ÓÃ£¡
-×¢ : ´ËÖ¸Áî¿ÉÒÔ " i " ´úÌæ¡£
+å¯åˆ—å‡ºä½ (ä½ )ç›®å‰èº«ä¸Šæ‰€æºå¸¦çš„æ‰€æœ‰ç‰©å“ã€‚
+ç©å®¶IDè¿™ä¸ªå‚æ•°åªæœ‰å·«å¸ˆå¯ä»¥ä½¿ç”¨ï¼
+æ³¨ : æ­¤æŒ‡ä»¤å¯ä»¥ " i " ä»£æ›¿ã€‚
 
 HELP
 );

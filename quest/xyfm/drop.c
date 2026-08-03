@@ -3,10 +3,10 @@ int do_drop(object me, object obj);
 string money_str(int count);
 void create()
 {
-        set("short", "ÍßÀù³¡");
+        set("short", "ç“¦ç ¾åœº");
         set("long", @LONG
 
-ÄãÑÛÇ°³öÏÖÒ»×ùË¶´óµÄÀ¬»ø¶Ñ¡£¶Ñ»ıÈçÉ½µÄÊÇÎŞÊıµÄÊ¬Ìå¡£
+ä½ çœ¼å‰å‡ºç°ä¸€åº§ç¡•å¤§çš„åƒåœ¾å †ã€‚å †ç§¯å¦‚å±±çš„æ˜¯æ— æ•°çš„å°¸ä½“ã€‚
 
 LONG
         );
@@ -16,5 +16,5 @@ LONG
 
         setup();
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

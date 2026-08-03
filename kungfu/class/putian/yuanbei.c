@@ -5,16 +5,16 @@ inherit NPC;
 inherit F_MASTER;
 void create()
 {
-        set_name("Ôª±¯×ğÕß", ({
+        set_name("å…ƒæ‚²å°Šè€…", ({
                 "yuanbei zunzhe",
                 "yuanbei",
                 "zunzhe",
         }));
         set("long",
-                "Ò»Î»ÖĞµÈµÄ×³ÄêÉ®ÈË£¬×ßÆğÂ·À´»¢»¢Éú·ç¡£\n"
+                "ä¸€ä½ä¸­ç­‰çš„å£®å¹´åƒ§äººï¼Œèµ°èµ·è·¯æ¥è™è™ç”Ÿé£ã€‚\n"
         );
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
 
@@ -64,7 +64,7 @@ void create()
 		(: perform_action, "claw.canyun" :),
 	}));
 
-        create_family("ÄÏÉÙÁÖ", 23, "µÜ×Ó");
+        create_family("å—å°‘æ—", 23, "å¼Ÿå­");
 
         setup();
 

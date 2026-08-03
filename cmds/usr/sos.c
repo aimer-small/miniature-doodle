@@ -10,8 +10,8 @@
 #ifndef BBS_ADDR
 #define BBS_ADDR "http://bbs.mymud.com"
 #endif
-#define BBS_OK(x) sprintf(WHT"%s·¢±íµ½ÂÛÌ³Íê³É¡£\n"NOR,x)
-#define BBS_URL(x) sprintf(CYN"ÏêÇéÇëä¯ÀÀ£º%s/viewthread.php?tid=%d¡£\n"NOR,BBS_ADDR,x)
+#define BBS_OK(x) sprintf(WHT"%så‘è¡¨åˆ°è®ºå›å®Œæˆã€‚\n"NOR,x)
+#define BBS_URL(x) sprintf(CYN"è¯¦æƒ…è¯·æµè§ˆï¼š%s/viewthread.php?tid=%dã€‚\n"NOR,BBS_ADDR,x)
 
 inherit F_SAVE;
 
@@ -37,7 +37,7 @@ string query_save_file()
 mixed query(string arg)
 {
 	if (arg && arg=="channel_id")
-		return  "Çó¾È¾«Áé";
+		return  "æ±‚æ•‘ç²¾çµ";
 	return 0;
 }
 
@@ -46,7 +46,7 @@ nosave int op;
 void post_ok(mixed ret)
 {
 	//mapping *notes;	
-	//if(environment()) tell_room(environment(),BBS_OK("ÁôÑÔ"));
+	//if(environment()) tell_room(environment(),BBS_OK("ç•™è¨€"));
 	//notes = query("notes");
 	if(!notes || !sizeof(notes)) return;	
 	if(op != sizeof(notes)-1) return;//have somebody change it
@@ -58,9 +58,9 @@ void post_ok(mixed ret)
 /*
 void re_ok(mixed ret)
 {
-	//if(environment()) tell_room(environment(),BBS_OK("»Ø¸´"));
+	//if(environment()) tell_room(environment(),BBS_OK("å›žå¤"));
 	//if(ret && sizeof(ret)) if(environment()) tell_room(environment(),BBS_URL(ret[0][0]));
-	message("wizard",sprintf("»Ø¸´OK\n"),users());
+	message("wizard",sprintf("å›žå¤OK\n"),users());
 }
 */
 
@@ -92,7 +92,7 @@ void done_post(object me, mapping note, string text)
 	
 	op = sizeof(notes)-1;
 	
-	message("wizard", HIY "¡¾Çó¾È¡¿£ºÍæ¼Ò "+note["author"]+" Ê¹ÓÃ"BLINK" SOS "NOR HIY"½ô¼±Çó¾È£¬ÇëÔÚÏßÎ×Ê¦Ê¹ÓÃ sos ÃüÁî²é¿´¡£\n" NOR,users());
+	message("wizard", HIY "ã€æ±‚æ•‘ã€‘ï¼šçŽ©å®¶ "+note["author"]+" ä½¿ç”¨"BLINK" SOS "NOR HIY"ç´§æ€¥æ±‚æ•‘ï¼Œè¯·åœ¨çº¿å·«å¸ˆä½¿ç”¨ sos å‘½ä»¤æŸ¥çœ‹ã€‚\n" NOR,users());
 	
 	ob = new(LOGIN_OB);
         ob->set("id", me->query("id"));
@@ -102,22 +102,22 @@ void done_post(object me, mapping note, string text)
 
       	msg = ""+note["title"]+"\n"+
       	note["msg"]+"\n"+
-      	"Íæ¼ÒÐÅÏä:"+mail+"\n"+
+      	"çŽ©å®¶ä¿¡ç®±:"+mail+"\n"+
       	ctime(time()) +"\n";
       	
-	tell_object(me, WHT "\nÇó¾ÈÍê±Ï£¬ÄãµÄÐÅÏ¢ÒÑ¾­±»¼Óµ½Î×Ê¦Í¨ÖªÏûÏ¢Àï£¬²¢·¢ÓÊ¼þµ½Ö÷¹ÜÎ×Ê¦ÄÇÀï¡£\n");
-	tell_object(me, WHT "Äã¿ÉÒÔÔÚÂÛÌ³¿´µ½ÄãµÄÇóÖúÐÅÏ¢£¬Î×Ê¦ÓÐ¿ÉÄÜ»áÔÚÂÛÌ³°ïÄã½â¾öÎÊÌâ£¬ÇëÁôÒâ£º"+BBS_ADDR+"/forumdisplay.php?fid="+BBS_TNUM+"¡£\n");
-	tell_object(me, WHT "Î×Ê¦ÕýÔÚ´¦ÀíÆäËûÍæ¼Ò£¬ÇëµÈ´ý......\n");
-	tell_object(me, WHT "Äã¿ÉÒÔËæÊ±ÓÃsos read£¬»òÕß²é¿´ÄúµÄ×¢²áÐÅÏäÐÂÓÊ¼þÅÐ¶ÏÊÇ·ñ±»½â¾ö¡£\n" NOR);
-	SMTP_D->send_mail(me, WIZ_MAIL,CHINESE_MUD_NAME+"Íæ¼Ò" + note["author"] + "Çó¾ÈÐÅºÅ", msg);
+	tell_object(me, WHT "\næ±‚æ•‘å®Œæ¯•ï¼Œä½ çš„ä¿¡æ¯å·²ç»è¢«åŠ åˆ°å·«å¸ˆé€šçŸ¥æ¶ˆæ¯é‡Œï¼Œå¹¶å‘é‚®ä»¶åˆ°ä¸»ç®¡å·«å¸ˆé‚£é‡Œã€‚\n");
+	tell_object(me, WHT "ä½ å¯ä»¥åœ¨è®ºå›çœ‹åˆ°ä½ çš„æ±‚åŠ©ä¿¡æ¯ï¼Œå·«å¸ˆæœ‰å¯èƒ½ä¼šåœ¨è®ºå›å¸®ä½ è§£å†³é—®é¢˜ï¼Œè¯·ç•™æ„ï¼š"+BBS_ADDR+"/forumdisplay.php?fid="+BBS_TNUM+"ã€‚\n");
+	tell_object(me, WHT "å·«å¸ˆæ­£åœ¨å¤„ç†å…¶ä»–çŽ©å®¶ï¼Œè¯·ç­‰å¾…......\n");
+	tell_object(me, WHT "ä½ å¯ä»¥éšæ—¶ç”¨sos readï¼Œæˆ–è€…æŸ¥çœ‹æ‚¨çš„æ³¨å†Œä¿¡ç®±æ–°é‚®ä»¶åˆ¤æ–­æ˜¯å¦è¢«è§£å†³ã€‚\n" NOR);
+	SMTP_D->send_mail(me, WIZ_MAIL,CHINESE_MUD_NAME+"çŽ©å®¶" + note["author"] + "æ±‚æ•‘ä¿¡å·", msg);
 	/*BBS_D->bbs_post(
 		BBS_TNUM,
 		wizardp(me)?me->query("id"):me->query("id")+"@"+lower_case(INTERMUD_MUD_NAME),
-		strip("¡¾Íæ¼ÒÎÊÌâÇó½â¡¿£º"+note["title"]),
+		strip("ã€çŽ©å®¶é—®é¢˜æ±‚è§£ã€‘ï¼š"+note["title"]),
 		"\n\n" + text,0,0,0,0,0 );*/
 	BBS_D->bbs_post(
 	BBS_TNUM,wizardp(me)?"master":me->query("id")+"@"+lower_case(INTERMUD_MUD_NAME),
-	strip("¡¾Íæ¼ÒÎÊÌâÇó½â¡¿£º"+note["title"]),
+	strip("ã€çŽ©å®¶é—®é¢˜æ±‚è§£ã€‘ï¼š"+note["title"]),
 	"\n\n" + text,0,0,0,this_object(),"post_ok");
 			
 	save();
@@ -130,23 +130,23 @@ void list_bug(object me, string arg)
 	string str,s;
 
 	if (sizeof(notes)<1) {
-		write("Ã»ÈË·¢³ö sos Çó¾ÈÐÅºÅ¡£\n");
+		write("æ²¡äººå‘å‡º sos æ±‚æ•‘ä¿¡å·ã€‚\n");
 		return;
 	}
-	arg == "all"?s="È«²¿":s="Î´½â¾ö";
-	s = sprintf("µ±Ç°¹²ÓÐ("+sizeof(notes)+")ÌõSOS£¬"+s+"ÐÅÏ¢ÁÐ±íÈçÏÂ:\n"
-	"©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n");
+	arg == "all"?s="å…¨éƒ¨":s="æœªè§£å†³";
+	s = sprintf("å½“å‰å…±æœ‰("+sizeof(notes)+")æ¡SOSï¼Œ"+s+"ä¿¡æ¯åˆ—è¡¨å¦‚ä¸‹:\n"
+	"â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n");
 	for( i = 0; i<sizeof(notes); i++){
 		if( arg=="all" ){
 			str = sprintf("[%2d] %-40s%10s [%s] \n",
-			i+1, notes[i]["title"], notes[i]["solve_id"]==""?"ÉÐÎ´»Ø¸´":"By "+notes[i]["solve_id"],
+			i+1, notes[i]["title"], notes[i]["solve_id"]==""?"å°šæœªå›žå¤":"By "+notes[i]["solve_id"],
 			ctime(notes[i]["time"])[0..15] );
 			s = s + str;
 		}
 		else{
 			if(notes[i]["solve_id"]=="") {
 				str = sprintf("[%2d] %-40s%10s [%s] \n",
-				i+1, notes[i]["title"], "ÉÐÎ´»Ø¸´",
+				i+1, notes[i]["title"], "å°šæœªå›žå¤",
 				ctime(notes[i]["time"])[0..15] );
 				s = s + str;
 			}
@@ -159,20 +159,20 @@ void do_read(object me, int i)
 {
 	string s;
 	if( i > sizeof(notes) || i < 1) {
-		wizardp(me)?write("ÎÞ´Ë±àºÅ£¡\n"):write("Ä¿Ç°Ã»ÓÐÄã·¢³öµÄSOSÐÅÏ¢¡£\n");
+		wizardp(me)?write("æ— æ­¤ç¼–å·ï¼\n"):write("ç›®å‰æ²¡æœ‰ä½ å‘å‡ºçš„SOSä¿¡æ¯ã€‚\n");
 		return;
 	}
 
-	s = sprintf("(%d) %-46s "HIW"Ê±¼ä£º"NOR"%s\n"
-	"©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n"
+	s = sprintf("(%d) %-46s "HIW"æ—¶é—´ï¼š"NOR"%s\n"
+	"â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"
 	"%s\n"
-	"Î×Ê¦´¦Àí»Ø¸´:£¨%s£©\n"NOR
+	"å·«å¸ˆå¤„ç†å›žå¤:ï¼ˆ%sï¼‰\n"NOR
 	HIG"%s\n"NOR,
 	i, notes[i-1]["title"], ctime(notes[i-1]["time"])[0..15],
-	notes[i-1]["msg"], notes[i-1]["solve_id"]==""?"ÉÐÎ´»Ø¸´":"By "+notes[i-1]["solve_id"],
+	notes[i-1]["msg"], notes[i-1]["solve_id"]==""?"å°šæœªå›žå¤":"By "+notes[i-1]["solve_id"],
 	notes[i-1]["solve"] );
 	
-	if(notes[i-1]["tid"]) s+= sprintf("ÂÛÌ³¿ÉÄÜ»áÓÐ¸ü¶àµÄ½â´ð£¬%s",BBS_URL(notes[i-1]["tid"]) );
+	if(notes[i-1]["tid"]) s+= sprintf("è®ºå›å¯èƒ½ä¼šæœ‰æ›´å¤šçš„è§£ç­”ï¼Œ%s",BBS_URL(notes[i-1]["tid"]) );
 		
 	me->start_more(s);
 }
@@ -195,7 +195,7 @@ void done_re(object me, int i, string text)
 	notes[i-1]["solve_id"] = me->query("id");
 	save();
 	if ( obj = LOGIN_D->find_body(notes[i-1]["author"])){
-		tell_object(obj, HIG "ÔÚÏßÎ×Ê¦ÒÑ¾­»Ø¸´ÄãµÄsos£¬ÇëÊ¹ÓÃsos read²é¿´£¡\n");
+		tell_object(obj, HIG "åœ¨çº¿å·«å¸ˆå·²ç»å›žå¤ä½ çš„sosï¼Œè¯·ä½¿ç”¨sos readæŸ¥çœ‹ï¼\n");
 	}
 	ob = new(LOGIN_OB);
         ob->set("id", notes[i-1]["author"]);
@@ -205,16 +205,16 @@ void done_re(object me, int i, string text)
 	
 	msg = ""+notes[i-1]["title"]+"\n"+
       	notes[i-1]["msg"]+"\n"+
-      	"Î×Ê¦»Ø¸´£º\n"+
+      	"å·«å¸ˆå›žå¤ï¼š\n"+
       	text+
       	ctime(time()) +"\n";
       	
-        SMTP_D->send_mail(me, mail,CHINESE_MUD_NAME+"¹ÜÀíÔ±¶ÔÄúSOSµÄ»Ø¸´", msg);
-	write("¸Ã sos ÐÅÏ¢ÒÑ±êÖ¾Îª½â¾ö¡£\n");
+        SMTP_D->send_mail(me, mail,CHINESE_MUD_NAME+"ç®¡ç†å‘˜å¯¹æ‚¨SOSçš„å›žå¤", msg);
+	write("è¯¥ sos ä¿¡æ¯å·²æ ‡å¿—ä¸ºè§£å†³ã€‚\n");
 	
 	if(notes[i-1]["tid"])
 	{
-		BBS_D->bbs_post(BBS_TNUM,"master","¹ÜÀíÔ±ÔÚÓÎÏ·ÖÐµÄµÄ»Ø¸´",text,notes[i-1]["tid"],0,0,0,0);
+		BBS_D->bbs_post(BBS_TNUM,"master","ç®¡ç†å‘˜åœ¨æ¸¸æˆä¸­çš„çš„å›žå¤",text,notes[i-1]["tid"],0,0,0,0);
 		BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,sprintf("UPDATE %s SET solve='1' WHERE tid='%d' AND fid='%d'",BBS_THREADS,notes[i-1]["tid"],BBS_TNUM),0,0);		
 	}		
 	return;
@@ -223,15 +223,15 @@ void done_re(object me, int i, string text)
 int do_re(object me, int i)
 {
 	if( i > sizeof(notes) || i < 1) {
-		write("ÎÞ´Ë±àºÅ¡£\n");
+		write("æ— æ­¤ç¼–å·ã€‚\n");
 		return 0;
 	}
 
 	if ( notes[i-1]["solve_id"]!="" ) {
-		write(notes[i-1]["solve_id"]+"ÒÑ¾­±êÖ¾½â¾öÁË¡£\n");
+		write(notes[i-1]["solve_id"]+"å·²ç»æ ‡å¿—è§£å†³äº†ã€‚\n");
 		return 1;
 	}
-	write("ÇëÊäÈëÄãµÄ´¦Àí»Ø¸´£º\n");
+	write("è¯·è¾“å…¥ä½ çš„å¤„ç†å›žå¤ï¼š\n");
 	me->edit( (: done_re, me, i :) );
 	return 1;
 }
@@ -246,10 +246,10 @@ int main(object me, string arg)
 		if(wizardp(me) && !me->query("env/test")) {
 			list_bug(me,"test");
 		} else {
-			write(HIG"\nÔÄ¶Á×Ô¼ºµÄsosÇëÊ¹ÓÃsos read£¬Ã¿¸öÈËÖ»ÄÜÌîÐ´Ò»·ÝSOSÐÅÏ¢\n"NOR);
-			write(HIG"\nÈç¹ûÒÑ¾­ÌîÐ´¹ýÐÅÏ¢£¬Ñ¡Ôñ "HIR"Y"HIG" ½«¸²¸ÇÄãÒÔÇ°Ð´¹ýµÄSOSÐÅÏ¢\n"NOR);
-			write(HIR "Õâ·ÝÇóÖúÐÅÏ¢½«±»ÈÏÎªÊÇ¹«¿ªµÄ£¬ÔÚÂÛÌ³ÉÏ¿É¼ûµÄ£¬Çë´ó¼Ò±£»¤×Ô¼ºµÄÒþË½¡£\n¶ÔÓÚÒ»Ð©¸üÒþË½µÄÎÊÌâ£¬¿ÉÒÔ·¢ËÍµ½Î×Ê¦ÐÅÏä¡£\n"NOR);
-			write(HIG"\nÄãÈ·¶¨ÒªÐ´Ò»·ÝSOSÐÅÏ¢Âð£¿£¨Y/N£©\n"NOR);
+			write(HIG"\né˜…è¯»è‡ªå·±çš„sosè¯·ä½¿ç”¨sos readï¼Œæ¯ä¸ªäººåªèƒ½å¡«å†™ä¸€ä»½SOSä¿¡æ¯\n"NOR);
+			write(HIG"\nå¦‚æžœå·²ç»å¡«å†™è¿‡ä¿¡æ¯ï¼Œé€‰æ‹© "HIR"Y"HIG" å°†è¦†ç›–ä½ ä»¥å‰å†™è¿‡çš„SOSä¿¡æ¯\n"NOR);
+			write(HIR "è¿™ä»½æ±‚åŠ©ä¿¡æ¯å°†è¢«è®¤ä¸ºæ˜¯å…¬å¼€çš„ï¼Œåœ¨è®ºå›ä¸Šå¯è§çš„ï¼Œè¯·å¤§å®¶ä¿æŠ¤è‡ªå·±çš„éšç§ã€‚\nå¯¹äºŽä¸€äº›æ›´éšç§çš„é—®é¢˜ï¼Œå¯ä»¥å‘é€åˆ°å·«å¸ˆä¿¡ç®±ã€‚\n"NOR);
+			write(HIG"\nä½ ç¡®å®šè¦å†™ä¸€ä»½SOSä¿¡æ¯å—ï¼Ÿï¼ˆY/Nï¼‰\n"NOR);
 			input_to((: confirm :), me);
 		}
 		return 1;
@@ -268,8 +268,8 @@ int main(object me, string arg)
 		}
 		if( sscanf(arg, "del %s", arg1) == 1 ) {
 			i = search_id(arg1);
-			if( !(i = sizeof(notes)) ) return notify_fail("Ã»ÈË·¢³ö sos Çó¾ÈÐÅºÅ¡£\n");
-			printf("%sµÄ sos ÇóÖúÒÑ±»É¾³ý£¡£¡£¡\n", notes[i-1]["author"]);
+			if( !(i = sizeof(notes)) ) return notify_fail("æ²¡äººå‘å‡º sos æ±‚æ•‘ä¿¡å·ã€‚\n");
+			printf("%sçš„ sos æ±‚åŠ©å·²è¢«åˆ é™¤ï¼ï¼ï¼\n", notes[i-1]["author"]);
 			if( sizeof(notes) == 1 ) notes = ({});
 			else if(i==1) notes = notes[1..sizeof(notes)-1];
 			else if( i == sizeof(notes) ) notes = notes[0..sizeof(notes)-2];
@@ -285,7 +285,7 @@ int main(object me, string arg)
 	switch(arg){
 	case "read":
 		if( !(i = sizeof(notes)) )
-			return notify_fail("»¹Ã»ÓÐÈË×ö¹ý sos ºô½Ð£¡\n");
+			return notify_fail("è¿˜æ²¡æœ‰äººåšè¿‡ sos å‘¼å«ï¼\n");
 		else {
 			i = search_id( me->query("id") );
 			do_read(me,i);
@@ -300,10 +300,10 @@ int main(object me, string arg)
 		list_bug(me,"test");
 		break;
 	case "clear":
-		if( !(i = sizeof(notes)) ) return notify_fail("Ã»ÈË·¢³ö sos Çó¾ÈÐÅºÅ¡£\n");
+		if( !(i = sizeof(notes)) ) return notify_fail("æ²¡äººå‘å‡º sos æ±‚æ•‘ä¿¡å·ã€‚\n");
 		for( ; i > 0; i-- )
 		if( "" != notes[i-1]["solve_id"] ) {
-			printf("%sµÄ sos ÇóÖúÒÑ±»É¾³ý£¡£¡£¡\n", notes[i-1]["author"]);
+			printf("%sçš„ sos æ±‚åŠ©å·²è¢«åˆ é™¤ï¼ï¼ï¼\n", notes[i-1]["author"]);
 			if( sizeof(notes) == 1 ) notes = ({});
 			else if(i==1) notes = notes[1..sizeof(notes)-1];
 			else if( i == sizeof(notes) ) notes = notes[0..sizeof(notes)-2];
@@ -312,7 +312,7 @@ int main(object me, string arg)
 		save();
 		break;
 	case "re":
-		return notify_fail("¸ñÊ½: sos re <±àºÅ»òÍæ¼Òid>\n");
+		return notify_fail("æ ¼å¼: sos re <ç¼–å·æˆ–çŽ©å®¶id>\n");
 		break;
 
 	default:
@@ -320,12 +320,12 @@ int main(object me, string arg)
 			do_read( me, i );
 		else if( sscanf( arg, "%s", str ) == 1 ) {
 			i = search_id(str);
-			if( i == 0 ) return notify_fail("ÎÞ´ËÍæ¼Ò·¢³öµÄ sos ÇóÖúÐÅÏ¢£¡\n");
+			if( i == 0 ) return notify_fail("æ— æ­¤çŽ©å®¶å‘å‡ºçš„ sos æ±‚åŠ©ä¿¡æ¯ï¼\n");
 			do_read( me, i );
 		}
 	}
 	}
-	else return notify_fail("¸ñÊ½²»¶Ô£¬¾ßÌåÊ¹ÓÃ·½·¨Çë²ÎÔÄ help sos \n");
+	else return notify_fail("æ ¼å¼ä¸å¯¹ï¼Œå…·ä½“ä½¿ç”¨æ–¹æ³•è¯·å‚é˜… help sos \n");
 	return 1;
 }
 
@@ -338,16 +338,16 @@ int confirm(string yn, object me)
 	mid = me->query("id");
 	wizardp(me)? mid= sprintf("%s%d",mid,random(10)):mid=mid;
 	if( upper_case(yn) == "Y" ) {
-		tell_object(me, HIM "ÄãÕýÔÚ" HIW MUD_NAME NOR HIM "ÀïÐÁ¿àµØÍÚ×ÅÄà°Í£¬Í»È»·¢ÏÖÒ»Ö»´ó¸öµÄ³ô³æÏòÄãÅÀÀ´¡£\n" NOR);
-		tell_object(me, HIM "Äã¸Ï½ôÏòÎ×Ê¦ÃÇ·¢³ö½ô¼±ÇóÖúÐÅºÅ£º£Ó£Ï£Ó£¡£¡£¡\n" NOR);
-		tell_object(me, HIM "Çë½«³öÏÖµÄÇé¿öºÍÏµÍ³µÄÌáÊ¾¾¡Á¿ÏêÏ¸µØ½øÐÐËµÃ÷£¬ÒÔ±ãÎ×Ê¦ÐÞ¸Ä¡£\n"NOR);
-		tell_object(me, HIR "Õâ·ÝÇóÖúÐÅÏ¢½«±»ÈÏÎªÊÇ¹«¿ªµÄ£¬ÔÚÂÛÌ³ÉÏ¿É¼ûµÄ£¬Çë´ó¼Ò±£»¤×Ô¼ºµÄÒþË½¡£\n¶ÔÓÚÒ»Ð©¸üÒþË½µÄÎÊÌâ£¬¿ÉÒÔ·¢ËÍµ½Î×Ê¦ÐÅÏä¡£\n"NOR);
-		tell_object(me, HIW "ÇëÊäÈë´Ë·ÝSOSµÄ±êÌâ£¬Çë¾¡¿ÉÄÜ¼ò¶óµÄËµÃ÷(³¤¶ÈÇë±£³ÖÔÚÎå¸öºº×Ö»òÕßÊ®¸ö×ÖÄ¸ÒÔÉÏ)£º"NOR);
+		tell_object(me, HIM "ä½ æ­£åœ¨" HIW MUD_NAME NOR HIM "é‡Œè¾›è‹¦åœ°æŒ–ç€æ³¥å·´ï¼Œçªç„¶å‘çŽ°ä¸€åªå¤§ä¸ªçš„è‡­è™«å‘ä½ çˆ¬æ¥ã€‚\n" NOR);
+		tell_object(me, HIM "ä½ èµ¶ç´§å‘å·«å¸ˆä»¬å‘å‡ºç´§æ€¥æ±‚åŠ©ä¿¡å·ï¼šï¼³ï¼¯ï¼³ï¼ï¼ï¼\n" NOR);
+		tell_object(me, HIM "è¯·å°†å‡ºçŽ°çš„æƒ…å†µå’Œç³»ç»Ÿçš„æç¤ºå°½é‡è¯¦ç»†åœ°è¿›è¡Œè¯´æ˜Žï¼Œä»¥ä¾¿å·«å¸ˆä¿®æ”¹ã€‚\n"NOR);
+		tell_object(me, HIR "è¿™ä»½æ±‚åŠ©ä¿¡æ¯å°†è¢«è®¤ä¸ºæ˜¯å…¬å¼€çš„ï¼Œåœ¨è®ºå›ä¸Šå¯è§çš„ï¼Œè¯·å¤§å®¶ä¿æŠ¤è‡ªå·±çš„éšç§ã€‚\nå¯¹äºŽä¸€äº›æ›´éšç§çš„é—®é¢˜ï¼Œå¯ä»¥å‘é€åˆ°å·«å¸ˆä¿¡ç®±ã€‚\n"NOR);
+		tell_object(me, HIW "è¯·è¾“å…¥æ­¤ä»½SOSçš„æ ‡é¢˜ï¼Œè¯·å°½å¯èƒ½ç®€æ‰¼çš„è¯´æ˜Ž(é•¿åº¦è¯·ä¿æŒåœ¨äº”ä¸ªæ±‰å­—æˆ–è€…åä¸ªå­—æ¯ä»¥ä¸Š)ï¼š"NOR);
 		where = environment(me);
 		if (!where )
-			s=sprintf("%s(%s)ÇóÖú",me->query("name"), mid);
+			s=sprintf("%s(%s)æ±‚åŠ©",me->query("name"), mid);
 		else
-			s=sprintf("%s(%s)ÔÚ %s ÇóÖú", me->query("name"), mid, (string)where->query("short"));
+			s=sprintf("%s(%s)åœ¨ %s æ±‚åŠ©", me->query("name"), mid, (string)where->query("short"));
 
 		note = allocate_mapping(6);
 		note["title"] = s;
@@ -358,7 +358,7 @@ int confirm(string yn, object me)
 		input_to("this_title", me,note);
 		//me->edit( (: done_post, me, note :) );
 	} else {
-		write(HIW"Äú·ÅÆúÁËÌîÐ´SOSÐÅÏ¢¡£¡£¡£¡£\n"NOR);
+		write(HIW"æ‚¨æ”¾å¼ƒäº†å¡«å†™SOSä¿¡æ¯ã€‚ã€‚ã€‚ã€‚\n"NOR);
 		return 1;
 	}
 }
@@ -367,17 +367,17 @@ void this_title(string title,object me,mapping note)
 {
 	if(!title || !strlen(title) )
 	{
-		write(HIW"Äú·ÅÆúÁËÌîÐ´SOSÐÅÏ¢¡£¡£¡£¡£\n"NOR);
+		write(HIW"æ‚¨æ”¾å¼ƒäº†å¡«å†™SOSä¿¡æ¯ã€‚ã€‚ã€‚ã€‚\n"NOR);
 		return;
 	}
 	if(strlen(title)<10)
 	{
-		write(HIW"³¤¶È²»·ûºÏ¹æ·¶£¬ÇëÖØÐÂÊäÈë±êÌâ£º"NOR);
+		write(HIW"é•¿åº¦ä¸ç¬¦åˆè§„èŒƒï¼Œè¯·é‡æ–°è¾“å…¥æ ‡é¢˜ï¼š"NOR);
 		input_to("this_title", me,note);		
 		return;
 	}
 	note["title"]=title;
-	tell_object(me, HIW "ÏÖÔÚÇëÄúÊäÈë´ËSOSÇóÖúµÄÏêÏ¸ÄÚÈÝ£º\n"NOR);
+	tell_object(me, HIW "çŽ°åœ¨è¯·æ‚¨è¾“å…¥æ­¤SOSæ±‚åŠ©çš„è¯¦ç»†å†…å®¹ï¼š\n"NOR);
 	me->edit( (: done_post, me, note :) );
 }
 
@@ -386,28 +386,28 @@ int help(object me)
 	if (!wiz_level(me) )
 	write(@HELP
 
-Ö¸Áî¸ñÊ½ :
+æŒ‡ä»¤æ ¼å¼ :
            sos
            sos read
-Õâ¸öÖ¸Áî¿ÉÒÔÔÚÏµÍ³³öÏÖbugÊ±À´ÏòÎ×Ê¦ÇóÖú¡£
-ÊäÈë¸ÃÃüÁîºó£¬ÏµÍ³½«ÌáÊ¾ÄãÊäÈë¶Ô bug µÄÃèÊö¡£Íæ¼ÒÔÚÕâÀïÓ¦¸Ã½« bug
-³öÏÖµÄÇé¿öºÍÏµÍ³µÄÌáÊ¾¾¡Á¿ÏêÏ¸µØ½øÐÐËµÃ÷£¬ÒÔ±ãÎ×Ê¦ÐÞ¸Ä¸Ã bug¡£
-Ã¿¸öÍæ¼ÒÖ»ÄÜÌùÒ»Ìõ sos£¬ÐÂµÄ sos ½«¸²¸ÇÒÔÇ°µÄÊäÈë¡£
-¿ÉÒÔÓÃ sos read ÔÄ¶Á×Ô¼ºÌù³öµÄ sos¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥åœ¨ç³»ç»Ÿå‡ºçŽ°bugæ—¶æ¥å‘å·«å¸ˆæ±‚åŠ©ã€‚
+è¾“å…¥è¯¥å‘½ä»¤åŽï¼Œç³»ç»Ÿå°†æç¤ºä½ è¾“å…¥å¯¹ bug çš„æè¿°ã€‚çŽ©å®¶åœ¨è¿™é‡Œåº”è¯¥å°† bug
+å‡ºçŽ°çš„æƒ…å†µå’Œç³»ç»Ÿçš„æç¤ºå°½é‡è¯¦ç»†åœ°è¿›è¡Œè¯´æ˜Žï¼Œä»¥ä¾¿å·«å¸ˆä¿®æ”¹è¯¥ bugã€‚
+æ¯ä¸ªçŽ©å®¶åªèƒ½è´´ä¸€æ¡ sosï¼Œæ–°çš„ sos å°†è¦†ç›–ä»¥å‰çš„è¾“å…¥ã€‚
+å¯ä»¥ç”¨ sos read é˜…è¯»è‡ªå·±è´´å‡ºçš„ sosã€‚
 HELP
  );
 	else
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
+æŒ‡ä»¤æ ¼å¼ :
            sos
-           sos bug             ÏÔÊ¾ËùÓÐÎ´½â¾öµÄsos¡£
-	   sos all/list        ½«ËùÓÐµÄ sos ÐÅÏ¢½øÐÐÁÐ±í¡£
-           sos <Êý×Ö»òID>      ½«ÏÔÊ¾¶ÔÓ¦ºÅÂë»ò¶ÔÓ¦Íæ¼ÒµÄ sos µÄÏêÏ¸ÐÅÏ¢¡
-           sos clear           É¾³ýËùÓÐ±êÖ¾ÎªÒÑ½â¾öµÄ sos ÐÅÏ¢¡£
-           sos del <Êý×Ö»òID>  É¾³ýÖ¸¶¨µÄ sos ÐÅÏ¢¡£
-           sos re <Êý×Ö»òID>   ¶Ô sos ÐÅÏ¢½øÐÐ»Ø¸´¡£
+           sos bug             æ˜¾ç¤ºæ‰€æœ‰æœªè§£å†³çš„sosã€‚
+	   sos all/list        å°†æ‰€æœ‰çš„ sos ä¿¡æ¯è¿›è¡Œåˆ—è¡¨ã€‚
+           sos <æ•°å­—æˆ–ID>      å°†æ˜¾ç¤ºå¯¹åº”å·ç æˆ–å¯¹åº”çŽ©å®¶çš„ sos çš„è¯¦ç»†ä¿¡æ¯ï¿½
+           sos clear           åˆ é™¤æ‰€æœ‰æ ‡å¿—ä¸ºå·²è§£å†³çš„ sos ä¿¡æ¯ã€‚
+           sos del <æ•°å­—æˆ–ID>  åˆ é™¤æŒ‡å®šçš„ sos ä¿¡æ¯ã€‚
+           sos re <æ•°å­—æˆ–ID>   å¯¹ sos ä¿¡æ¯è¿›è¡Œå›žå¤ã€‚
 
-Õâ¸öÖ¸Áî¿ÉÒÔ¸¨ÖúÎ×Ê¦´¦ÀíÍæ¼ÒÌá³öµÄ sos ÁÐ±í¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è¾…åŠ©å·«å¸ˆå¤„ç†çŽ©å®¶æå‡ºçš„ sos åˆ—è¡¨ã€‚
 HELP
  );
     return 1;

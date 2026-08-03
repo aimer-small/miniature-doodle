@@ -5,15 +5,15 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIC"ÎÔÊÒ"NOR);
+	set("short",HIC"å§å®¤"NOR);
 	set("long", @LONG
-ÕâÀïÊÇĞ¡ÁúÅ®ÒÔÇ°¾Ó×¡µÄÎÔÊÒ£¬·¿ÖĞ¿Õ¿Õ¶´¶´£¬»¹±£³Ö×ÅÒÔÇ°ÀÏÄ£Ñù¡£Ò»
-¿é³¤ÌõÇàÊ¯×÷´²£¨bed)£¬´²ÉÏÆÌÁËÕÅ²İÏ¯£¬Ò»·ù°×²¼µ±×÷±¡±»£¬´ËÍâ³ıÁËÒ»¸ù
-ÈË¸ßµÄÉşË÷ºá¹ıÊÒÖĞ£¬±ğÎŞËûÎï¡£
+è¿™é‡Œæ˜¯å°é¾™å¥³ä»¥å‰å±…ä½çš„å§å®¤ï¼Œæˆ¿ä¸­ç©ºç©ºæ´æ´ï¼Œè¿˜ä¿æŒç€ä»¥å‰è€æ¨¡æ ·ã€‚ä¸€
+å—é•¿æ¡é’çŸ³ä½œåºŠï¼ˆbed)ï¼ŒåºŠä¸Šé“ºäº†å¼ è‰å¸­ï¼Œä¸€å¹…ç™½å¸ƒå½“ä½œè–„è¢«ï¼Œæ­¤å¤–é™¤äº†ä¸€æ ¹
+äººé«˜çš„ç»³ç´¢æ¨ªè¿‡å®¤ä¸­ï¼Œåˆ«æ— ä»–ç‰©ã€‚
 LONG        );
           
 	set("item_desc", ([
-		"bed" : HIC"Ò»ÕÅÓÉÆÕÍ¨ÇàÊ¯ÆÌ³ÉµÄ´²£¬´²½ÇÂä´¦£¬ÓĞÒ»¿éÍ»ÆğµÄÊ¯°å¡£\n"NOR, 
+		"bed" : HIC"ä¸€å¼ ç”±æ™®é€šé’çŸ³é“ºæˆçš„åºŠï¼ŒåºŠè§’è½å¤„ï¼Œæœ‰ä¸€å—çªèµ·çš„çŸ³æ¿ã€‚\n"NOR, 
 	]));
 
 	set("exits", ([
@@ -34,13 +34,13 @@ int do_tang(string arg)
 {
 	object me=this_player();
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if ( arg == "bed"){
-		message_vision(HIC"$N¸½ÉíÌÉÔÚÇàÊ¯ÖÆ³ÉµÄÊ¯´²ÉÏÃæ¡£\n"NOR,me);
-		me->set_temp("marks/´²", 1);
+		message_vision(HIC"$Né™„èº«èººåœ¨é’çŸ³åˆ¶æˆçš„çŸ³åºŠä¸Šé¢ã€‚\n"NOR,me);
+		me->set_temp("marks/åºŠ", 1);
 		return 1;
 	}
-	return notify_fail("ÄãÒªÌÉÔÚµØÉÏ£¬Ğ¡ĞÄ×ÅÁ¹Å¶£¡\n");
+	return notify_fail("ä½ è¦èººåœ¨åœ°ä¸Šï¼Œå°å¿ƒç€å‡‰å“¦ï¼\n");
 }  
 
 int do_ban(string arg)
@@ -48,27 +48,27 @@ int do_ban(string arg)
 	object me, *inv;
 	me = this_player();
 
-	if (!me->query_temp("marks/´²")) return 0;
+	if (!me->query_temp("marks/åºŠ")) return 0;
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");          
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");          
 	if ( arg == "shiban" ){
 		if (me->query("neili") < 500)
-			return notify_fail("ÄãÊ¹³ö³ÔÄÌµÄ¾¢Á¦£¬µ«Ê¯°åÈ´ÎÆË¿²»¶¯¡£\n");
+			return notify_fail("ä½ ä½¿å‡ºåƒå¥¶çš„åŠ²åŠ›ï¼Œä½†çŸ³æ¿å´çº¹ä¸ä¸åŠ¨ã€‚\n");
 		if( me->query("combat_exp", 1) < 100000 && ! me->query("gmpass"))
-			return notify_fail("Äã·¢ÏÖÊ²Ã´µØ·½ºÃÏó¿¨×¡ÁË£¬ÔõÃ´Ò²°â²»¶¯Ê¯°å¡£\n");
+			return notify_fail("ä½ å‘ç°ä»€ä¹ˆåœ°æ–¹å¥½è±¡å¡ä½äº†ï¼Œæ€ä¹ˆä¹Ÿæ‰³ä¸åŠ¨çŸ³æ¿ã€‚\n");
 
 		inv = filter_array(deep_inventory(me), (: userp :));
 		if (sizeof(inv)) 
-			return notify_fail(HIR"ÄãÉíÉÏ±³¸ºÒ»ÈË£¬Ö»¾õµÃÔÚ´²ÉÏÌÚÅ²¶¼Ê®·ÖÀ§ÄÑ¡£\n"NOR);
+			return notify_fail(HIR"ä½ èº«ä¸ŠèƒŒè´Ÿä¸€äººï¼Œåªè§‰å¾—åœ¨åºŠä¸Šè…¾æŒªéƒ½ååˆ†å›°éš¾ã€‚\n"NOR);
 
-		message_vision(HIY"$NÓÃÁ¦°â¶¯Í»ÆğµÄÊ¯°å£¬Ö»ÌıµÃÔşÔş¼¸Ïì£¬Ê¯´²ÒÑÂäÈëÏÂ²ãÊ¯ÊÒ¡£\n"NOR,me);
+		message_vision(HIY"$Nç”¨åŠ›æ‰³åŠ¨çªèµ·çš„çŸ³æ¿ï¼Œåªå¬å¾—è½§è½§å‡ å“ï¼ŒçŸ³åºŠå·²è½å…¥ä¸‹å±‚çŸ³å®¤ã€‚\n"NOR,me);
 		me->receive_damage("neili",200);
-		me->delete_temp("marks/´²");
+		me->delete_temp("marks/åºŠ");
 		me->move(__DIR__"ss0");
 		if( ! me->query("gmpass")) me->set("gmpass", 1);
-		tell_object(me,HIY"ÊÒ¶¥Ê¯±ÚÓÖÂıÂı×ÔĞĞÍÆÉÏÁË¡£\n"NOR);
-		tell_room(environment(me), me->name() + "´ÓÉÏÃæ·­Éíµ¹ÏÂÀ´µ½ÕâÀï¡£\n", ({ me }));
+		tell_object(me,HIY"å®¤é¡¶çŸ³å£åˆæ…¢æ…¢è‡ªè¡Œæ¨ä¸Šäº†ã€‚\n"NOR);
+		tell_room(environment(me), me->name() + "ä»ä¸Šé¢ç¿»èº«å€’ä¸‹æ¥åˆ°è¿™é‡Œã€‚\n", ({ me }));
 		return 1;
 	}
-	return notify_fail("ÄãÒª°âÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦æ‰³ä»€ä¹ˆï¼Ÿ\n");
 }

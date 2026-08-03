@@ -5,7 +5,7 @@
 int update_condition(object me, int duration)
 {
 	if (duration < 1) {
-		tell_object(me, HIY "山坡地带好象有外人闯入，你可以去巡逻看看。\n" NOR);
+		tell_object(me, HIY "灞卞潯鍦板甫濂借薄鏈夊浜洪棷鍏ワ紝浣犲彲浠ュ幓宸￠�荤湅鐪嬨�俓n" NOR);
 		me->delete_temp("gm/job");
 		me->delete_temp("meet_nuzi");
 		return 0;

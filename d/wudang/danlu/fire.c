@@ -1,4 +1,4 @@
-// fire.h Cht@SJ 2000-3-12 ĞŞ¸Ä
+// fire.h Cht@SJ 2000-3-12 ä¿®æ”¹
 #include <ansi.h>
 int do_fire(string arg)
 {
@@ -9,31 +9,31 @@ int do_fire(string arg)
         inv = deep_inventory(me);
 
         if( ob->is_busy() ) 
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if( ob->is_fighting() )
-                return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ¡£\n");
+                return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ã€‚\n");
 
         if( me->query("marks/open", 1) )
-                return notify_fail("µ¤Â¯µÄ¸Ç×ÓÃ»ÓĞ¸ÇÉÏ¡£\n");
+                return notify_fail("ä¸¹ç‚‰çš„ç›–å­æ²¡æœ‰ç›–ä¸Šã€‚\n");
         
-      if( !objectp( obj = present("fire", ob)))   // ÅĞ¶ÏÍæ¼ÒÉíÉÏÊÇ·ñÓĞ»ğÕÛ¡£
-                return notify_fail("ÄãĞèÒªÒ»¸ö»ğÕÛ¡£\n");
+      if( !objectp( obj = present("fire", ob)))   // åˆ¤æ–­ç©å®¶èº«ä¸Šæ˜¯å¦æœ‰ç«æŠ˜ã€‚
+                return notify_fail("ä½ éœ€è¦ä¸€ä¸ªç«æŠ˜ã€‚\n");
                 
         if( (int)ob->query("neili", 1)  <= 1000 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬µã×ÅÁË»ğÒ²À­²»¶¯·çÏä¡£\n");           
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œç‚¹ç€äº†ç«ä¹Ÿæ‹‰ä¸åŠ¨é£ç®±ã€‚\n");           
                 
         if( (int)ob->query("max_neili", 1)  <= 1500 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬µã×ÅÁË»ğÒ²À­²»¶¯·çÏä¡£\n");                           
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œç‚¹ç€äº†ç«ä¹Ÿæ‹‰ä¸åŠ¨é£ç®±ã€‚\n");                           
 
         if( me->query("marks/fired"))
-                return notify_fail("²ñ»ğÒÑ¾­µãÆğÀ´ÁË¡£\n");   
+                return notify_fail("æŸ´ç«å·²ç»ç‚¹èµ·æ¥äº†ã€‚\n");   
                 
         if( !me->query("liquid/name") )
-                return notify_fail("µ¤Â¯ÀïÃ»ÓĞË®¡£\n");  
+                return notify_fail("ä¸¹ç‚‰é‡Œæ²¡æœ‰æ°´ã€‚\n");  
         if( !sizeof(inv)) 
-                return notify_fail("µ¤Â¯ÀïÃæÊ²Ã´¶¼Ã»ÓĞ¡£\n");
-        message_vision(HIR"\n$NµãÈ¼Ò»¶Ñ²ñ»ğ£¬»ğÃç½¥½¥µØ´óÁËÆğÀ´¡£\n"NOR, ob);
+                return notify_fail("ä¸¹ç‚‰é‡Œé¢ä»€ä¹ˆéƒ½æ²¡æœ‰ã€‚\n");
+        message_vision(HIR"\n$Nç‚¹ç‡ƒä¸€å †æŸ´ç«ï¼Œç«è‹—æ¸æ¸åœ°å¤§äº†èµ·æ¥ã€‚\n"NOR, ob);
 //        destruct(obj);
         me->set("marks/fired", 1);
         me->set("marks/doing", 1);  
@@ -53,12 +53,12 @@ void do_check(object ob)
 
         if ( (int)me->query("marks/doing", 1) > 0) 
         {
-        message_vision("»ğÃç½¥½¥µØÏ¨ÃğÁË£¬µ¤Â¯ÀïÃæÒ»Æ¬½¹ºÚ£¬$NÊ²Ã´µ¤Ò©Ò²Ã»Á·³öÀ´¡£\n", ob);      
+        message_vision("ç«è‹—æ¸æ¸åœ°ç†„ç­äº†ï¼Œä¸¹ç‚‰é‡Œé¢ä¸€ç‰‡ç„¦é»‘ï¼Œ$Nä»€ä¹ˆä¸¹è¯ä¹Ÿæ²¡ç»ƒå‡ºæ¥ã€‚\n", ob);      
         for(i=0; i<sizeof(obj); i++) {
         destruct(obj[i]);
         }
         if( userp(ob) ) log_file("LIAN_DAN",
-        sprintf("%s %s(%s) ÒòÎª¼åºıµ¤Â¯Á¶µ¤Ê§°Ü ÓÚ %s\n", ob->query("title"), ob->name(1), geteuid(ob), ctime(time())[4..19] ) ); 
+        sprintf("%s %s(%s) å› ä¸ºç…ç³Šä¸¹ç‚‰ç‚¼ä¸¹å¤±è´¥ äº %s\n", ob->query("title"), ob->name(1), geteuid(ob), ctime(time())[4..19] ) ); 
                 remove_call_out("do_ready");
                 remove_call_out("do_confirm");
                 me->delete("marks/doing");

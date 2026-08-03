@@ -1,4 +1,4 @@
-// zhuang.c ×¯ï£ 
+// zhuang.c åº„é“® 
 // Modify By River@sj 99.06
 inherit NPC;
 string ask_me();
@@ -6,13 +6,13 @@ string ask_xunluo();
 string ask_jihe();
 void create()
 {
-        set_name("×¯ï£", ({ "zhuang zheng", "zhuang", "zheng" }));
-        set("gender", "ÄĞĞÔ");
+        set_name("åº„é“®", ({ "zhuang zheng", "zhuang", "zheng" }));
+        set("gender", "ç”·æ€§");
         set("age", 48);
-        create_family("Ã÷½Ì",37,"µÜ×Ó");
-        set("long", "ËûÊÇÒ»¸öºÚºº×Ó£¬ÌìÉú±ÛÁ¦Ææ´ó£¬Ò»ÉíÆ¤·ô±»»ğÑ¬ÓÖºìÓÖÁÁ¡£\n");        
-        set("rank_info/respect","ÆìÖ÷");
-        set("title","Ã÷½ÌÈñ½ğÆìÕÆÆìÊ¹");
+        create_family("æ˜æ•™",37,"å¼Ÿå­");
+        set("long", "ä»–æ˜¯ä¸€ä¸ªé»‘æ±‰å­ï¼Œå¤©ç”Ÿè‡‚åŠ›å¥‡å¤§ï¼Œä¸€èº«çš®è‚¤è¢«ç«ç†åˆçº¢åˆäº®ã€‚\n");        
+        set("rank_info/respect","æ——ä¸»");
+        set("title","æ˜æ•™é”é‡‘æ——æŒæ——ä½¿");
         set("str", 40);
         set("int", 20);
         set("con", 26);
@@ -43,8 +43,8 @@ void create()
         map_skill("cuff","taizu-quan");
         prepare_skill("cuff","taizu-quan"); 
         set("inquiry", ([
-               "»­Ó¡"  : (: ask_xunluo :),
-               "¼¯ºÏ"  : (: ask_jihe :),
+               "ç”»å°"  : (: ask_xunluo :),
+               "é›†åˆ"  : (: ask_jihe :),
         ]));       
         set("xl", 6); 
         set("xl2", "zhuang");     
@@ -56,16 +56,16 @@ void create()
 string ask_jihe()
 {
         if (!this_player()->query_temp("mj/ling"))
-           return "¼¯ºÏÊ²Ã´Ñ½£¿³Ô·¹Ê±¼äµ½ÁË£¿";
+           return "é›†åˆä»€ä¹ˆå‘€ï¼Ÿåƒé¥­æ—¶é—´åˆ°äº†ï¼Ÿ";
         command("nod");
-        command("say ÎÒÁ¢¿Ìµ½¹âÃ÷¶¥¹ã³¡¼¯ºÏ¡£");
+        command("say æˆ‘ç«‹åˆ»åˆ°å…‰æ˜é¡¶å¹¿åœºé›†åˆã€‚");
         this_object()->move("/d/mingjiao/gmd");
-        return "ÄãÈ¥ÇëÆäËûµÄÆìÊ¹°É";
+        return "ä½ å»è¯·å…¶ä»–çš„æ——ä½¿å§";
 }
 void attempt_apprentice(object ob)
 {     
-        command("say ÓÉÓÚ½ÌÊÂ·±Ã¦£¬ÎÒÒÑĞí¾Ã²»ÊÕµÜ×ÓÁË¡£");
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"»¹ÊÇÇë»Ø°É¡£");
+        command("say ç”±äºæ•™äº‹ç¹å¿™ï¼Œæˆ‘å·²è®¸ä¹…ä¸æ”¶å¼Ÿå­äº†ã€‚");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"è¿˜æ˜¯è¯·å›å§ã€‚");
         return;
 }
 

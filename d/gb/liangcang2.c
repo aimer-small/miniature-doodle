@@ -2,12 +2,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÖĞ²Ö");
+	set("short", "ä¸­ä»“");
 	set("long", @LONG
-ÕâÊÇÃÉ¹Å´ó¾üµÄ¶ÚÁ¸Ö®Ëù£¬ËùÎ½±øÂíÎ´¶¯£¬Á¸²İÏÈĞĞ£¬ÕâÀïµÄÁ¸Ê³ºÍ²İÁÏ
-¶Ñ»ıÈçÉ½¡£Ò»¶Ó¶ÓÑ²Âß±øÀ´»ØÊØÎÀ£¬½ä±¸É­ÑÏ¡£
+è¿™æ˜¯è’™å¤å¤§å†›çš„å›¤ç²®ä¹‹æ‰€ï¼Œæ‰€è°“å…µé©¬æœªåŠ¨ï¼Œç²®è‰å…ˆè¡Œï¼Œè¿™é‡Œçš„ç²®é£Ÿå’Œè‰æ–™
+å †ç§¯å¦‚å±±ã€‚ä¸€é˜Ÿé˜Ÿå·¡é€»å…µæ¥å›å®ˆå«ï¼Œæˆ’å¤‡æ£®ä¸¥ã€‚
 LONG);
-	set("outdoors","»ÆºÓ");
+	set("outdoors","é»„æ²³");
 
 	set("exits", ([
 		"north" : __DIR__"liangcang1",
@@ -28,6 +28,6 @@ int valid_leave(object me, string dir)
 
 	ob = present("yuan bing",environment(this_player()) );
 	if(ob)
-		return notify_fail("Ôª±øÒ»°Ñ½«ÄãÀ¹×¡£ºÄÄÀïÅÜ£¡\n" );
+		return notify_fail("å…ƒå…µä¸€æŠŠå°†ä½ æ‹¦ä½ï¼šå“ªé‡Œè·‘ï¼\n" );
 	return ::valid_leave(me, dir);
 }

@@ -1,4 +1,4 @@
-// beike.c ±´¿Çº£ÂİÀà
+// beike.c è´å£³æµ·èºç±»
 // by Lklv for girls :)
 // 2001.9.27
 
@@ -8,24 +8,24 @@ inherit ITEM;
 void create()
 {
         switch(random(10)) {
-               case 0 : set_name(HIY"º£Âİ"NOR, ({ "hai luo", "hailuo", "luo" }) ); break;
-               case 1 : set_name(HIM"Ô§Ñì±´"NOR, ({ "yuanyang bei", "beike", "bei" }) ); break;
-               case 2 : set_name(HIR"ÕäÖé±´"NOR, ({ "zhenzhu bei", "beike", "bei" }) ); break;
-               case 3 : set_name(HIW"ÉÈ±´"NOR, ({ "bei ke", "beike", "bei" }) ); break;
-               case 4 : set_name(HIG"ğĞğÄÂİ"NOR, ({ "yingwu luo", "hailuo", "luo" }) ); break;
-               case 5 : set_name(HIW"ºÉ»¨±´"NOR, ({ "hehua bei", "beike", "bei" }) ); break;
-               case 6 : set_name(YEL"»¨Æ¿Âİ"NOR, ({ "huoping luo", "hailuo", "luo" }) ); break;
-               case 7 : set_name(HIW"Áù½ÇÂİ"NOR, ({ "liujiao luo", "hailuo", "luo" }) ); break;
-               case 8 : set_name(HIC"Ò¹¹âÂİ"NOR, ({ "yeguang luo", "hailuo", "luo" }) ); break;
-               case 9 : set_name(HIR"²Ê"HIY"ºç"HIB"±´"NOR, ({ "caihong bei", "beike", "bei" }) ); break;
+               case 0 : set_name(HIY"æµ·èº"NOR, ({ "hai luo", "hailuo", "luo" }) ); break;
+               case 1 : set_name(HIM"é¸³é¸¯è´"NOR, ({ "yuanyang bei", "beike", "bei" }) ); break;
+               case 2 : set_name(HIR"çç è´"NOR, ({ "zhenzhu bei", "beike", "bei" }) ); break;
+               case 3 : set_name(HIW"æ‰‡è´"NOR, ({ "bei ke", "beike", "bei" }) ); break;
+               case 4 : set_name(HIG"é¹¦é¹‰èº"NOR, ({ "yingwu luo", "hailuo", "luo" }) ); break;
+               case 5 : set_name(HIW"è·èŠ±è´"NOR, ({ "hehua bei", "beike", "bei" }) ); break;
+               case 6 : set_name(YEL"èŠ±ç“¶èº"NOR, ({ "huoping luo", "hailuo", "luo" }) ); break;
+               case 7 : set_name(HIW"å…­è§’èº"NOR, ({ "liujiao luo", "hailuo", "luo" }) ); break;
+               case 8 : set_name(HIC"å¤œå…‰èº"NOR, ({ "yeguang luo", "hailuo", "luo" }) ); break;
+               case 9 : set_name(HIR"å½©"HIY"è™¹"HIB"è´"NOR, ({ "caihong bei", "beike", "bei" }) ); break;
         }
-	set("long", "Ò»¸öÉ«²ÊÏÊÑŞµÄ"+name()+"¡£\n");
+	set("long", "ä¸€ä¸ªè‰²å½©é²œè‰³çš„"+name()+"ã€‚\n");
 	set_weight(200+random(100));
         set("value", 250+random(500));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
+                set("unit", "ä¸ª");
         }
         setup();
 }

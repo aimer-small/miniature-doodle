@@ -7,134 +7,134 @@ int questions(object me)
 	}
 	if (me->query_temp("jiuyin/question")>9) {
 		command("admire");
-		command("say Ô­À´ÎÒÃÇÊÇÍ¬µÀÖÐÈË°¡¡£");
+		command("say åŽŸæ¥æˆ‘ä»¬æ˜¯åŒé“ä¸­äººå•Šã€‚");
 		command("xixi");
-//ù£ÐèÒª 4 Ìâ¾ÍÄÜ¹ý¹Ø£¬²»¹ýÈç¹ûµ½ 10 ÌâÒÔÉÏ£¬¾Í¸øÒ»µã karma bonus
+//ï¿½ï¼°æž°ï¿½ 4 é¢˜å°±èƒ½è¿‡å…³ï¼Œä¸è¿‡å¦‚æžœåˆ° 10 é¢˜ä»¥ä¸Šï¼Œå°±ç»™ä¸€ç‚¹ karma bonus
 //		me->add_temp("apply/karma",5);
 		return 1; 
 	}
 	command("hehe");
-	command("say ×¢ÒâÌýºÃÁË£¡");
-	message_vision(HIR"ÓÃ answer À´»Ø´ð£¬»Ø´ðÇëÊ¹ÓÃÆ´ÒôÊäÈë£¬²»ÒªÓÃºº×Ö¡£\n"NOR,me);
+	command("say æ³¨æ„å¬å¥½äº†ï¼");
+	message_vision(HIR"ç”¨ answer æ¥å›žç­”ï¼Œå›žç­”è¯·ä½¿ç”¨æ‹¼éŸ³è¾“å…¥ï¼Œä¸è¦ç”¨æ±‰å­—ã€‚\n"NOR,me);
 	switch (random(30)) {
 		case 0:
-			command("say ÎÒÈ«Õæ½ÌµÄÄÚ¹¦ÐÄ·¨ÊÇÊ²Ã´£¿");
+			command("say æˆ‘å…¨çœŸæ•™çš„å†…åŠŸå¿ƒæ³•æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "xiantian-gong";
 			break;
 		case 1:
-			command("say »ÆÀÏÐ°µÄÄÇÀ÷º¦Ö¸·¨ÊÇÊ²Ã´£¿");
+			command("say é»„è€é‚ªçš„é‚£åŽ‰å®³æŒ‡æ³•æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "tanzhi-shentong";
 			break;
 		case 2:
-			command("say ¶Î¼ÒÓÐÃÅÒÔÖ¸Îª½£µÄ½£·¨£¬½ÐÊ²Ã´Ãû×Ö£¿");
+			command("say æ®µå®¶æœ‰é—¨ä»¥æŒ‡ä¸ºå‰‘çš„å‰‘æ³•ï¼Œå«ä»€ä¹ˆåå­—ï¼Ÿ");
 			answer = "liumai-shenjian";
 			break;
 		case 3:
-			command("say ÌúÕÆ°ïµÄÖøÃûÇá¹¦ÊÇ£¿");
+			command("say é“æŽŒå¸®çš„è‘—åè½»åŠŸæ˜¯ï¼Ÿ");
 			answer = "shuishangpiao";
 			break;
 		case 4:
-			command("say ÉñÁúºéÀÏÍ·µÄ°µÆ÷ÊÇ½Ð×öÊ²Ã´£¿");
+			command("say ç¥žé¾™æ´ªè€å¤´çš„æš—å™¨æ˜¯å«åšä»€ä¹ˆï¼Ÿ");
 			answer = "hansha-sheying";
 			break;
 		case 5:
-			command("say ÀÏ¶¾ÎïµÄÆæ¹ÖÄÚ¹¦ÊÇÊ²Ã´£¿");
+			command("say è€æ¯’ç‰©çš„å¥‡æ€ªå†…åŠŸæ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "hamagong";
 			break;
 		case 6:
-			command("say ÀÏ½Ð»¯ºÍ¹ùÐÖµÜ¶¼»áµÄÕÆ·¨ÊÇÊ²Ã´£¿");
+			command("say è€å«åŒ–å’Œéƒ­å…„å¼Ÿéƒ½ä¼šçš„æŽŒæ³•æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "xianglong-zhang";
 			break;
 		case 7:
-			command("say ÉÙÁÖºÍÉÐÃÇµÄÄÚ¹¦ÊÇÊ²Ã´£¿");
+			command("say å°‘æž—å’Œå°šä»¬çš„å†…åŠŸæ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "yijin-jing";
 			break;
 		case 8:
-			command("say ¶ëáÒµÄ½£·¨ÊÇÊ²Ã´£¿");
+			command("say å³¨åµ‹çš„å‰‘æ³•æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "huifeng-jian";
 			break;
 		case 9:
-			command("say Îäµ±ÕÅÀÏÍ·´´³öµÄÈíÃàÃàÈ­·¨½ÐÊ²Ã´Ãû×Ö£¿");
+			command("say æ­¦å½“å¼ è€å¤´åˆ›å‡ºçš„è½¯ç»µç»µæ‹³æ³•å«ä»€ä¹ˆåå­—ï¼Ÿ");
 			answer = "taiji-quan";
 			break;
 		case 10:
-			command("say Ã÷½ÌÕÅÎÞ¼ÉÄÇÐ¡×ÓµÄÄÚ¹¦ÊÇÊ²Ã´£¿");
+			command("say æ˜Žæ•™å¼ æ— å¿Œé‚£å°å­çš„å†…åŠŸæ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "jiuyang-shengong";
 			break;
 		case 11:
-			command("say ÐÇËÞÅÉ¶ñÃûÕÑÕÃµÄ¹¦·òÊÇÊ²Ã´£¿");
+			command("say æ˜Ÿå®¿æ´¾æ¶åæ˜­å½°çš„åŠŸå¤«æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "huagong-dafa";
 			break;
 		case 12:
-			command("say Ä½ÈÝ¼ÒµÄ¼Ò´«ÌØÊâÕÐ¼Ü¼¼ÄÜÊÇ£¿");
+			command("say æ…•å®¹å®¶çš„å®¶ä¼ ç‰¹æ®Šæ‹›æž¶æŠ€èƒ½æ˜¯ï¼Ÿ");
 			answer = "douzhuan-xingyi";
 			break;
 		case 13:
-			command("say Ã÷½ÌÇ°½ÌÖ÷Ñô¶¥ÌìÁ·Ê²Ã´¹¦·òÁ·µ½×ß»ð¶øËÀµÄ£¿");
+			command("say æ˜Žæ•™å‰æ•™ä¸»é˜³é¡¶å¤©ç»ƒä»€ä¹ˆåŠŸå¤«ç»ƒåˆ°èµ°ç«è€Œæ­»çš„ï¼Ÿ");
 			answer = "qiankun-danuoyi";
 			break;
 		case 14:
-			command("say »ÆÀÏÐ°µÄóïÀÖÊÇÓÉËûµÄÄÚ¹¦¶øÀ´¡£Õâ¸öÄÚ¹¦µÄÃû×ÖÊÇ£¿");
+			command("say é»„è€é‚ªçš„ç®«ä¹æ˜¯ç”±ä»–çš„å†…åŠŸè€Œæ¥ã€‚è¿™ä¸ªå†…åŠŸçš„åå­—æ˜¯ï¼Ÿ");
 			answer = "bihai-chaosheng";
 			break;
 		case 15:
-			command("say ½ðÉßÀÉ¾ýÏÄÑ©ÒËµÄ½£·¨½ÐÊ²Ã´Ãû³Æ£¿");
+			command("say é‡‘è›‡éƒŽå›å¤é›ªå®œçš„å‰‘æ³•å«ä»€ä¹ˆåç§°ï¼Ÿ");
 			answer = "jinshe-jianfa";
 			break;
 		case 16:
-			command("say ÓÐÖÖ½£·¨£¬Á·ÁËÊ¹ÈË¾ø×Ó¾øËï¡£Õâ¸ö½£·¨µÄÃû×ÖÊÇÊ²Ã´£¿");
+			command("say æœ‰ç§å‰‘æ³•ï¼Œç»ƒäº†ä½¿äººç»å­ç»å­™ã€‚è¿™ä¸ªå‰‘æ³•çš„åå­—æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "pixie-jian";
 			break;
 		case 17:
-			command("say »ªÉ½Æø×ÚµÄÕòÉ½Ö®±¦ÊÇÊ²Ã´£¿");
+			command("say åŽå±±æ°”å®—çš„é•‡å±±ä¹‹å®æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "zixia-gong";
 			break;
 		case 18:
-			command("say ÎÒÀÏÍçÍ¯µÄ×Ô´´È­ÕÐÊÇÊ²Ã´°¡£¿");
+			command("say æˆ‘è€é¡½ç«¥çš„è‡ªåˆ›æ‹³æ‹›æ˜¯ä»€ä¹ˆå•Šï¼Ÿ");
 			answer = "kongming-quan";
 			break;
 		case 19:
-			command("say »ªÉ½½£×ÚµÄ¸ß¼¶½£·¨ÊÇ£¿");
+			command("say åŽå±±å‰‘å®—çš„é«˜çº§å‰‘æ³•æ˜¯ï¼Ÿ");
 			answer = "dugu-jiujian";
 			break;
 		case 20:
-			command("say ¹ÅÄ¹ÅÉµÄÄÚ¹¦ÐÄ·¨ÊÇÊ²Ã´£¿");
+			command("say å¤å¢“æ´¾çš„å†…åŠŸå¿ƒæ³•æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "yunu-xinjing";
 			break;
 		case 21:
-			command("say ÎÒÇóÑî¹ýÕâÐ¡×Ó½ÌÎÒµÄÕÆ·¨½Ð×öÊ²Ã´Ãû³Æ£¿");
+			command("say æˆ‘æ±‚æ¨è¿‡è¿™å°å­æ•™æˆ‘çš„æŽŒæ³•å«åšä»€ä¹ˆåç§°ï¼Ÿ");
 			answer = "anran-zhang";
 			break;
 		case 22:
-			command("say Ò»µÆ´óÊ¦µÄÄÃÊÖ¾øÑ§ÊÇÊ²Ã´£¿");
+			command("say ä¸€ç¯å¤§å¸ˆçš„æ‹¿æ‰‹ç»å­¦æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "yiyang-zhi";
 			break;
 		case 23:
-			command("say ÀÏ½Ð»¯½Ì»ÆÈØÄÇÐ¡Ñ¾Í·µÄÊÇÊ²Ã´È­·¨£¿");
+			command("say è€å«åŒ–æ•™é»„è“‰é‚£å°ä¸«å¤´çš„æ˜¯ä»€ä¹ˆæ‹³æ³•ï¼Ÿ");
 			answer = "xiaoyaoyou";
 			break;
 		case 24:
-			command("say ¹ÅÄ¹Ò»ÅÉµÄÌØÊâÈ­·¨£¬½ÐÊ²Ã´Ãû³Æ£¿");
+			command("say å¤å¢“ä¸€æ´¾çš„ç‰¹æ®Šæ‹³æ³•ï¼Œå«ä»€ä¹ˆåç§°ï¼Ÿ");
 			answer = "mainu-quan";
 			break;
 		case 25:
-			command("say »ÆÀÏÐ°³ýÁË½ÌÑî¹ýµ¯Ö¸ÉñÍ¨£¬»¹½ÌÁËÊ²Ã´Îä¹¦£¿");
+			command("say é»„è€é‚ªé™¤äº†æ•™æ¨è¿‡å¼¹æŒ‡ç¥žé€šï¼Œè¿˜æ•™äº†ä»€ä¹ˆæ­¦åŠŸï¼Ÿ");
 			answer = "yuxiao-jian";
 			break;
 		case 26:
-			command("say çø¹ÃµÄ¸ßÃ÷Éí·¨ÊÇÊ²Ã´£¿");
+			command("say ç‘›å§‘çš„é«˜æ˜Žèº«æ³•æ˜¯ä»€ä¹ˆï¼Ÿ");
 			answer = "niqiugong";
 			break;
 		case 27:
-			command("say »ÆÈØµÄ¼Ò´«ÊÖ·¨½ÐÊ²Ã´Ãû×Ö£¿");
+			command("say é»„è“‰çš„å®¶ä¼ æ‰‹æ³•å«ä»€ä¹ˆåå­—ï¼Ÿ");
 			answer = "lanhua-shou";
 			break;
 		case 28:
-			command("say ÌÒ»¨µÄ¿ñ·ç¾ø¼¼ÒªÒÔÊ²Ã´ºÍÐý·çÉ¨Ò¶ÍÈÅäºÏÊ©Õ¹£¿");
+			command("say æ¡ƒèŠ±çš„ç‹‚é£Žç»æŠ€è¦ä»¥ä»€ä¹ˆå’Œæ—‹é£Žæ‰«å¶è…¿é…åˆæ–½å±•ï¼Ÿ");
 			answer = "luoying-zhang";
 			break;
 		case 29:
-			command("say ¶ëáÒµÄÃð¾øÊ¦Ì«Ôø¾­ÒÔÄÇÖÖ¹¦·ò½«ÕÅÎÞ¼É´òµÄµ¹µØ²»Æð£¿");
+			command("say å³¨åµ‹çš„ç­ç»å¸ˆå¤ªæ›¾ç»ä»¥é‚£ç§åŠŸå¤«å°†å¼ æ— å¿Œæ‰“çš„å€’åœ°ä¸èµ·ï¼Ÿ");
 			answer = "jieshou-jiushi";
 			break;
 	}
@@ -146,17 +146,17 @@ int do_answer(string arg)
 {
 	object me = this_player();
 	if (me->query_temp("jyquest")!=4)
-		return notify_fail("Ê²Ã´£¿\n");
+		return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
 	if (!arg)
-		return notify_fail("ÄãÒª»Ø´ðÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å›žç­”ä»€ä¹ˆï¼Ÿ\n");
 	if (arg != this_object()->query("answer")) {
-		command("say ´í£¡");
+		command("say é”™ï¼");
 		command("papaya " + me->query("id")); 
 	}
 	else {
-		command("say ²»´í²»´í£¬ÓÐµãÍ·ÄÔÂï¡£");
+		command("say ä¸é”™ä¸é”™ï¼Œæœ‰ç‚¹å¤´è„‘å˜›ã€‚");
 		command("praise " + me->query("id"));
-		command("say ÔÙÀ´Ò»Ìâ°É¡£");
+		command("say å†æ¥ä¸€é¢˜å§ã€‚");
 //		if (me->query_temp("jiuyin/question")>4)
 //			me->add_temp("apply/karma",1);
 		me->add_temp("jiuyin/question",1); 

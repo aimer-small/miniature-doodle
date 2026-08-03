@@ -1,13 +1,13 @@
-// �����л�
+// 亢龙有悔
 // by snowman@SJ 16/10/99
 // modify by looklove 2001.10.04
 // Modify by lsxk@hsbbs 2007/7/2
-// By Spiderii@ty �жϾ���������,�Ҹ���!
+// By Spiderii@ty 判断绝对有问题,我改了!
 #include <ansi.h>
 #include <combat.h>
 inherit F_SSERVER;
 
-string perform_name(){ return HIY"�����л�"NOR; }
+string perform_name(){ return HIY"亢龙有悔"NOR; }
 int kanglong_attack(object me, int flag);
 
 int perform(object me, object target)
@@ -21,55 +21,55 @@ int perform(object me, object target)
          || !me->is_fighting(target) 
          || !living(target)
          || environment(target)!=environment(me))
-               return notify_fail("�������лڡ�ֻ�ܶ�ս���еĶ���ʹ�á�\n");
+               return notify_fail("「亢龙有悔」只能对战斗中的对手使用。\n");
 
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("�������ֲ���ʹ�á������лڡ���\n");
+		return notify_fail("你必须空手才能使用「亢龙有悔」！\n");
 
 	if( (int)me->query_skill("xianglong-zhang", 1) < 200 )
-		return notify_fail("��Ľ���ʮ���ƻ�������죬ʹ�����������лڡ�������\n");
+		return notify_fail("你的降龙十八掌还不够娴熟，使不出「亢龙有悔」绝技。\n");
 
 	if( (int)me->query_skill("huntian-qigong", 1) < 180 )
-		return notify_fail("��Ļ��������ȼ���������ʹ�����������лڡ�������\n");
+		return notify_fail("你的混天气功等级还不够，使不出「亢龙有悔」绝技。\n");
 
 	if( me->query_skill_mapped("force") != "huntian-qigong" )
-		return notify_fail("�����õ��ڹ����ԣ�ʹ�����������лڡ�������\n");
+		return notify_fail("你所用的内功不对，使不出「亢龙有悔」绝技。\n");
 
 	if( (int)me->query_skill("force") < 270 )
-		return notify_fail("����ڹ��ȼ�����������ʹ�á������лڡ���\n");
+		return notify_fail("你的内功等级不够，不能使用「亢龙有悔」。\n");
 
 	if( (int)me->query_str(1) < 40 )
-		return notify_fail("�������������ǿ����ʹ�����������лڡ�������\n");
+		return notify_fail("你的膂力还不够强劲，使不出「亢龙有悔」绝技。\n");
 
 	if( me->query_skill_prepared("strike") != "xianglong-zhang"
 	 || me->query_skill_mapped("strike") != "xianglong-zhang"
 	 || me->query_skill_mapped("parry") != "xianglong-zhang")
-		return notify_fail("�������޷�ʹ�á������лڡ���\n");
+		return notify_fail("你现在无法使用「亢龙有悔」！\n");
 
 	if( (int)me->query("max_neili") < 4000 )
-		return notify_fail("����������̫����ʹ�����������лڡ���\n");
+		return notify_fail("你现在内力太弱，使不出「亢龙有悔」。\n");
 
 	if( (int)me->query("neili") < 1500 )
-		return notify_fail("����������̫����ʹ�����������лڡ���\n");
+		return notify_fail("你现在真气太弱，使不出「亢龙有悔」。\n");
 
 	if( (int)me->query("jingli") < 1000 )
-		return notify_fail("��ľ����������޷�ʹ�á������лڡ�������\n");
+		return notify_fail("你的精力不够，无法使用「亢龙有悔」绝技。\n");
 /*
 	if( (int)me->query_temp("xlz/xiao") )
-		return notify_fail("���Ѿ���ʼ�ˡ�����Х����\n");
+		return notify_fail("你已经开始了「降龙啸」。\n");
 */
 	if( !me->query("xlz/hang") )
-		return notify_fail("�㻹û���򵽡������лڡ��ľ��裬�޷�ʹ�ô�����������\n");
+		return notify_fail("你还没领悟到「亢龙有悔」的精髓，无法使用此招数攻击。\n");
 
    lvl = (int)me->query_skill("xianglong-zhang",1);
    tmp = 1 + (lvl-200)/10;
    if(tmp>18) tmp = 18;
 
-   message_vision(HIY"\n$N�е��������У�������΢�������ƻ��˸�ԲȦ��ƽ�Ƴ�ȥ�����ǽ���ʮ�����еġ������лڡ���\n"+
-   "���Ƴ�ȥ�������赭д����һ��������ɲʱ֮������"+ chinese_number(tmp)+ "���ᾢ��һ��ǿ��һ�������ص�����\n"+
-   "ֱ���޼᲻�ݣ���ǿ���ƣ�\n"NOR,me);
+   message_vision(HIY"\n$N叫道：「看招！」左腿微屈，右掌划了个圆圈，平推出去，正是降龙十八掌中的「亢龙有悔」。\n"+
+   "初推出去看似轻描淡写，但一遇阻力，刹时之间连加"+ chinese_number(tmp)+ "道後劲，一道强似一道，重重叠叠。\n"+
+   "直至无坚不摧，无强不破！\n"NOR,me);
 
-   me->start_perform(3+random(3), "�������лڡ�");
+   me->start_perform(3+random(3), "「亢龙有悔」");
  me->receive_damage("neili", 1000+random(500));
  me->receive_damage("jingli", 100+random(200));
    if(((int)me->query("pur")>28 && random(3))
@@ -78,28 +78,28 @@ int perform(object me, object target)
      ||random((int)me->query_skill("xianglong-zhang",1)) > (int)target->query_skill("parry",1)/2
      ||target->is_busy() ) {
        damage = lvl*(tmp + (int)me->query("str")/10)/2;
-       if(me->query("gender")!="����" || !userp(me)) damage = damage/2;
+       if(me->query("gender")!="男性" || !userp(me)) damage = damage/2;
        if(wizardp(me)) write("damage is "+ damage + "!\n");
        target->receive_damage("qi", damage, me );
        target->receive_wound("qi", damage/2 , me);
        target->set_temp("xlz/kanglong1",1);
-       msg = HIR"$nֱ����һ�ƱƵ����޿��ˣ����޿��ã����صر������ؿڣ�������Ѫ���磡\n"NOR;
-       msg += COMBAT_D->damage_msg(damage,"����");
+       msg = HIR"$n直被这一掌逼得退无可退，让无可让，重重地被击中胸口，口中鲜血狂喷！\n"NOR;
+       msg += COMBAT_D->damage_msg(damage,"内伤");
        message_vision(msg,me,target);
        COMBAT_D->report_status(target, 0);
    }
    else{
-       message_vision(HIC"$n���������˸��͵��Ʒ�����æ�͵�һ����ԶԶ�Ķ��˿�ȥ��ֻ�ŵ���ð�亹��\n"NOR,me,target);
+       message_vision(HIC"$n哪里见过如此刚猛的掌法？连忙就地一滚，远远的躲了开去，只吓地连冒冷汗！\n"NOR,me,target);
        target->add_busy(1+random(2));
        target->delete_temp("xlz/kanglong1");
-       me->start_perform(3, "�������лڡ�");
+       me->start_perform(3, "「亢龙有悔」");
    }
    if(userp(me) && lvl>=250 && target->query_temp("xlz/kanglong1") && me->query("combat_exp") > target->query("combat_exp")/2)
        if(random((int)me->query_con()) > target->query_con()/2 || target->is_busy()){
-         msg = HIW"�⡸�����лڡ�֮��Ҫ���ڡ������ֶ��ڡ��ڡ��֣�$N��"+ chinese_number(tmp)+ "���ᾢ�շ��������������˻�����\n"+
-               "$nȴ����֪����ֻ����$N����һ����������ʶ�߶�ȫ���ھ���֮���⣬����"+ chinese_number(tmp)+ "���ᾢȴͻȻƾ\n"+
-               "����ʧ��$n������ɿ����ھ�ȴ�޷��ջأ���ʱ�㱻�Լ�������ھ������ǰһ�ڣ�������������ը��\n"+
-               "һ�����ܣ���Ҳ֧�ֲ�ס�ˣ�\n"NOR;
+         msg = HIW"这「亢龙有悔」之精要不在‘亢’字而在‘悔’字！$N这"+ chinese_number(tmp)+ "道後劲刚发出，便立即收了回来！\n"+
+               "$n却哪里知道？只道是$N奋力一击，便下意识催动全身内劲与之抗衡，可这"+ chinese_number(tmp)+ "道後劲却突然凭\n"+
+               "空消失，$n体内这股抗衡内劲却无法收回，顿时便被自己的这股内劲冲得眼前一黑，五脏六腑犹如炸开\n"+
+               "一般难受，再也支持不住了！\n"NOR;
          message_vision(msg,me,target);
 
 j = target->query("str");
@@ -117,11 +117,11 @@ if (j < 50) j =  target->query("int");
                return 1;
          }
        damage = lvl*(tmp + 4 - (int)target->query("con")/10 + (int)me->query("str")/10)/2;
-       if(me->query("gender")!="����") damage = damage/2;
+       if(me->query("gender")!="男性") damage = damage/2;
        if(wizardp(me)) write("damage is "+ damage +"!\n");
        target->receive_damage("qi", damage, me );
        target->receive_wound("qi", damage , me);
-       message_vision(COMBAT_D->damage_msg(damage,"����"),me,target);
+       message_vision(COMBAT_D->damage_msg(damage,"内伤"),me,target);
        COMBAT_D->report_status(target, 0);
        target->delete_temp("xlz/kanglong1");
        return 1;
@@ -131,10 +131,10 @@ if (j < 50) j =  target->query("int");
 }
 
 /*
-	tell_object(me, HIC"\n�㻺����˫���ᵽ��ǰ����Ϣ������������ת��Խ��Խ�죬������ȴ�������κζ���...\n\n"NOR);
+	tell_object(me, HIC"\n你缓缓将双掌提到胸前，内息在体内重重运转，越来越快，表面上却看不出任何动静...\n\n"NOR);
 	me->set_temp("no_fight", 1);
 	me->start_busy(random(2));
-	me->start_perform(10, "�������лڡ�");
+	me->start_perform(10, "「亢龙有悔」");
 	me->start_call_out( (: call_other, __FILE__, "kanglong_attack", me , 1 :), i);
 	return 1;
 }
@@ -157,7 +157,7 @@ int kanglong_attack(object me, int flag)
 	 || !living(target)
 	 || !me->is_fighting(target)
 	 || environment(target) != environment(me) ) {
-		tell_object(me,"�������лڡ�ֻ����ս���жԶ���ʹ�á�\n"); 
+		tell_object(me,"「亢龙有悔」只能在战斗中对对手使用。\n"); 
 		return 1;
 	}
 
@@ -165,39 +165,39 @@ int kanglong_attack(object me, int flag)
 	 || me->query_skill_mapped("strike") != "xianglong-zhang"
 	 || me->query_skill_mapped("parry") != "xianglong-zhang"
 	 || me->query_temp("weapon")){
- 		tell_object(me,"�������޷�ʹ�á������лڡ���\n"); 
+ 		tell_object(me,"你现在无法使用「亢龙有悔」！\n"); 
 		return 1;
 	}
 
 	if( me->query_skill_mapped("force") != "huntian-qigong" ) {
- 		tell_object(me,"�����õ��ڹ����ԣ��޷�ʹ���������лڡ���\n"); 
+ 		tell_object(me,"你所用的内功不对，无法使出「亢龙有悔」！\n"); 
 		return 1;
 	}
 
 	if( objectp(me->query_temp("weapon")) ) {
- 		tell_object(me,"�������޷�ʹ�á������лڡ���\n"); 
+ 		tell_object(me,"你现在无法使用「亢龙有悔」！\n"); 
 		return 1;
 	}
 
 	if( (int)me->query("neili") < 1500 ) {
-		tell_object(me,"�������������㣬ʹ�����������лڡ���\n");
+		tell_object(me,"你现在真气不足，使不出「亢龙有悔」。\n");
 		return 1;
 	}
 
 	if( (int)me->query("jingli") < 1000 ) {
-		tell_object(me,"�����ھ���������ʹ�����������лڡ���\n");
+		tell_object(me,"你现在精力不够，使不出「亢龙有悔」。\n");
 		return 1;
 	}
 
 	if( (int)me->query_temp("xlz/xiao") ) {
-		tell_object(me,"���Ѿ���ʼ�ˡ�����Х����\n");
+		tell_object(me,"你已经开始了「降龙啸」。\n");
 		return 1;
 	}
 
 	if( me->is_busy() ) {
 		call_out("kanglong_attack", 1, me, 1);
 		me->set_temp("no_fight", 1);
-		if( wizardp(me) ) tell_object(me,"����æ�����Թ˲�Ͼ���ȴ���...\n");
+		if( wizardp(me) ) tell_object(me,"你手忙脚乱自顾不暇，等待中...\n");
 		return 1;
 	}
 
@@ -205,7 +205,7 @@ int kanglong_attack(object me, int flag)
 
 	if( userp(target) ) i = i*2/3;
 
-//	�жϿ����������ȼ�
+//	判断抗龙的威力等级
 	if( !flag ) flag = 1;
 	i /= flag;
 
@@ -229,26 +229,26 @@ int kanglong_attack(object me, int flag)
 	me->delete_temp("xlz/hanglong");
 	me->receive_damage("neili", 1000+random(500));
 	me->receive_damage("jingli", 200);
-	me->start_perform(3+random(2),"�������лڡ�");
+	me->start_perform(3+random(2),"「亢龙有悔」");
 	return 1;
 }
 
 int help(object me)
 {
-	write(YEL"\n����ʮ����֮�������лڡ���"NOR"\n");
+	write(YEL"\n降龙十八掌之「亢龙有悔」："NOR"\n");
 	write(@HELP
-	�������ֽ���ʮ������ƥ�������������ҡ�
-	�������������Ʊ��߶�������Ǵ˾��С�
+	最能体现降龙十八掌无匹威力，所向披靡。
+	当年萧峰用三掌逼走丁春秋，正是此绝招。
 
-	Ҫ��	��ǰ���� 1500 ���ϣ�
-		������� 4000 ���ϣ�
-		��ǰ���� 1000���ϣ�
-		�����Ƶȼ� 200 ���ϣ�
-		���������ȼ� 180 ���ϣ�
-		�ڹ���Ч�ȼ� 270 ���ϣ�
-		���� 40 ���ϣ�
-		�����м�Ϊ�����ƣ�
-		�����߹�ָ��󷽿�ʹ�á�
+	要求：	当前内力 1500 以上；
+		最大内力 4000 以上：
+		当前精力 1000以上；
+		降龙掌等级 200 以上；
+		混天气功等级 180 以上；
+		内功有效等级 270 以上：
+		膂力 40 以上：
+		激发招架为降龙掌：
+		经洪七公指点后方可使用。
 HELP
 	);
 	return 1;

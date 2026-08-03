@@ -2,12 +2,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "½­ÄÏ¹ÙµÀ");
+	set("short", "æ±Ÿå—å®˜é“");
 	set("long",@long
-Äã×ßÔÚÒ»ÌõÇàÊ¯´óµÀÉÏ£¬ÈËÀ´ÈËÍù·Ç³£·±Ã¦£¬²»Ê±ÓÐÈËÆï×ÅÂí´Ò´Ò¶ø¹ý¡£
-±±ÃæÊÇ³¤½­ÏÂÓÎ½üÈëº£¿ÚµÄµØ·½£¬¶«ÄÏÃæÍ¨Íù¹ÃËÕ³Ç¡£
+ä½ èµ°åœ¨ä¸€æ¡é’çŸ³å¤§é“ä¸Šï¼Œäººæ¥äººå¾€éžå¸¸ç¹å¿™ï¼Œä¸æ—¶æœ‰äººéª‘ç€é©¬åŒ†åŒ†è€Œè¿‡ã€‚
+åŒ—é¢æ˜¯é•¿æ±Ÿä¸‹æ¸¸è¿‘å…¥æµ·å£çš„åœ°æ–¹ï¼Œä¸œå—é¢é€šå¾€å§‘è‹åŸŽã€‚
 long);
-	set("outdoors", "ËÕÖÝ");
+	set("outdoors", "è‹å·ž");
 	set("exits",([
 		"southeast" : "/d/suzhou/qsgdao6",
 		"north" : __DIR__"jiangnan",
@@ -20,11 +20,11 @@ void init()
 	object me = this_player();
 
 	if ( me->query("gb_job")){
-		me->add("job_time/Ø¤°ï", me->query("gb_job"));
+		me->add("job_time/ä¸å¸®", me->query("gb_job"));
 		me->delete("gb_job");
 	}
 	if ( me->query("gb_job2")){
-		me->add("job_time/±¨Ð§¹ú¼Ò", me->query("gb_job2"));
+		me->add("job_time/æŠ¥æ•ˆå›½å®¶", me->query("gb_job2"));
 		me->delete("gb_job2");
 	}
 }

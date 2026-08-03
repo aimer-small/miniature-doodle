@@ -1,40 +1,40 @@
-// pi.c ´ò¹·Ç¹·¨--ÉÁ»÷
+// pi.c æ‰“ç‹—æªæ³•--é—ªå‡»
 //Created by Redhat@Sjmud 2009/4/7
 
 #include <ansi.h>
 #include <combat.h>
 inherit F_SSERVER;
 
-string perform_name(){ return RED"ÉÁ»÷"NOR; }
+string perform_name(){ return RED"é—ªå‡»"NOR; }
 int perform(object me, object target)
 {
 	string msg;
 	int extra;
 	object weapon;
 	if(me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÃ»¿Õ£¡£¡\n");
+		return notify_fail("ä½ ç°åœ¨æ²¡ç©ºï¼ï¼\n");
         if( (int)me->query_skill("yangjia-qiang",1) < 50)
-        return notify_fail("ÄãÄ¿Ç°¹¦Á¦»¹Ê¹²»³ö¡¸ÉÁ»÷¡¹¡£\n");
+        return notify_fail("ä½ ç›®å‰åŠŸåŠ›è¿˜ä½¿ä¸å‡ºã€Œé—ªå‡»ã€ã€‚\n");
     	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "spear")
-			return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+			return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	if( (int)me->query("neili") < 500 )
-    return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+    return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 	if( !target ) target = offensive_target(me);
 
 	if( !target
 	||	!target->is_character()
 	||	!me->is_fighting(target) )
-		return notify_fail("£ÛÉÁ»÷£İÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ï¼»é—ªå‡»ï¼½åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 	weapon = me->query_temp("weapon");
 	extra = me->query_skill("yangjia-qiang",1) *2 ;
 	me->add_temp("apply/attack", extra);	
 	me->add_temp("apply/damage", extra);
-	msg = RED  "$NÊÖÖĞµÄ"+ weapon->name() +"»Ã³öÒ»»·Ç¹Ó°£¬"+weapon->name() +"»®ÆÆ³¤¿Õ£¬Ïò$n·è¿ñ»®È¥£¡" NOR;
+	msg = RED  "$Næ‰‹ä¸­çš„"+ weapon->name() +"å¹»å‡ºä¸€ç¯æªå½±ï¼Œ"+weapon->name() +"åˆ’ç ´é•¿ç©ºï¼Œå‘$nç–¯ç‹‚åˆ’å»ï¼" NOR;
 	COMBAT_D->do_attack(me,target, weapon, TYPE_REGULAR,msg);
 	me->add_temp("apply/attack", -extra);
 	me->add_temp("apply/damage", -extra);
- me->start_perform(3+random(2), "¡¸ÉÁ»÷¡¹");
+ me->start_perform(3+random(2), "ã€Œé—ªå‡»ã€");
 
 	me->start_busy(2);
 	return 1;
@@ -42,14 +42,14 @@ int perform(object me, object target)
 
 int help(object me)
 {
-   write(YEL"\nÑî¼ÒÇ¹¡¸"HIG"ÉÁ»÷"YEL"¡¹£º"NOR"\n");
+   write(YEL"\næ¨å®¶æªã€Œ"HIG"é—ªå‡»"YEL"ã€ï¼š"NOR"\n");
    write(@HELP
-   Ö¸Áî£ºperform shanji
+   æŒ‡ä»¤ï¼šperform shanji
 
-   ÒªÇó£ºÑî¼ÒÇ¹50¼¶£¬
-         »ù±¾Ç¹·¨50¼¶£¬
-         µ±Ç°ÄÚÁ¦ 500 ÒÔÉÏ£¬
-         µ±Ç°¾«Á¦ 100 ÒÔÉÏ£¬
+   è¦æ±‚ï¼šæ¨å®¶æª50çº§ï¼Œ
+         åŸºæœ¬æªæ³•50çº§ï¼Œ
+         å½“å‰å†…åŠ› 500 ä»¥ä¸Šï¼Œ
+         å½“å‰ç²¾åŠ› 100 ä»¥ä¸Šï¼Œ
 HELP
    );
    return 1;

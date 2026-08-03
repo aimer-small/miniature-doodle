@@ -43,13 +43,13 @@ string *base = ({
 */
 void create()
 {
-	set_name("Î÷ÏÄÎäÊ¿", ({"xixia wushi", "wu shi", "wushi", "shi"}));
-	set("title", "Ò»Æ·ÌÃ");
+	set_name("è¥¿å¤æ­¦å£«", ({"xixia wushi", "wu shi", "wushi", "shi"}));
+	set("title", "ä¸€å“å ‚");
 	set("init",0);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 20 + random(60));
-	set("long", "ÕâÊÇÎ÷ÏÄÒ»Æ·ÌÃ´Ó½­ºşÉÏÖØ½ğÕĞÆ¸µÄÒ»ÃûÎäÁÖ¸ßÊÖ¡£\n" );
+	set("long", "è¿™æ˜¯è¥¿å¤ä¸€å“å ‚ä»æ±Ÿæ¹–ä¸Šé‡é‡‘æ‹›è˜çš„ä¸€åæ­¦æ—é«˜æ‰‹ã€‚\n" );
 	if( random(20) < 1 )
 		set("double_attack",1);
 
@@ -120,8 +120,8 @@ void init()
 
 		set("ciwei_level",me->query_temp("smy_job/finish"));
 				
-		set_name("Î÷ÏÄÎäÊ¿", ({"xixia wushi","wu shi", "wushi", "shi"}));
-		set("title", "Ò»Æ·ÌÃ");		
+		set_name("è¥¿å¤æ­¦å£«", ({"xixia wushi","wu shi", "wushi", "shi"}));
+		set("title", "ä¸€å“å ‚");		
 		/*				
 		index = random( sizeof( skill ) );
 
@@ -130,7 +130,7 @@ void init()
 		s_perform = perform[ index ];
 		s_base = base[ index ];
 
-		set("gender", "ÄĞĞÔ");
+		set("gender", "ç”·æ€§");
 		set("age", 20 + random(60));
 
 		set("combat_exp", lvl*lvl*lvl/10*6/5);
@@ -181,7 +181,7 @@ void init()
 		reincarnate();
 								
 		cloth = new(ARMOR_D("cloth"));
-		cloth->set("name",HIC"Î÷ÏÄ³¤ÅÛ"NOR);
+		cloth->set("name",HIC"è¥¿å¤é•¿è¢"NOR);
 		cloth->move(ob);
 		cloth->wear();
 		add_money("silver", 20+random(30));
@@ -226,7 +226,7 @@ void check(object ob, object me)
 	 || !me->query_temp("smy_job")
 	 || me->query("qi")<1000
 	 || environment(me)!=environment(ob)){
-		tell_room(environment(ob), "Î÷ÏÄÎäÊ¿µÀ£ºÂù×ÓÒÑÓĞ×¼±¸£¬¿ì³·¡£ËµÍê×ªÉíÌÓÈ¥ÁË\n");
+		tell_room(environment(ob), "è¥¿å¤æ­¦å£«é“ï¼šè›®å­å·²æœ‰å‡†å¤‡ï¼Œå¿«æ’¤ã€‚è¯´å®Œè½¬èº«é€ƒå»äº†\n");
 		me->delete_temp("smy_job");
 		me->apply_condition("job_busy",20+random(20));
 		me->apply_condition("smy_job",0);

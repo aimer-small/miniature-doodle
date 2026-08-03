@@ -5,7 +5,7 @@ nosave int wa = 0;
 
 void create()
 {
-	set_name("ÎÞ",({"god"}));
+	set_name("æ— ",({"god"}));
 	wa = 0;
 	setup();
 }

@@ -11,38 +11,38 @@ int main(object me, string arg)
 	my = me->query_entire_dbase();
 
 	if (me->query("title")) title = me->query("title");
-	else title = "ÆÕÍ¨°ÙĞÕ";
+	else title = "æ™®é€šç™¾å§“";
 
         if(me->query("age") < 16)
-                return notify_fail("Ğ¡º¢×ÓÒ»±ßÍæ¶ùÈ¥¡£\n");
+                return notify_fail("å°å­©å­ä¸€è¾¹ç©å„¿å»ã€‚\n");
 
         if(!arg ) { help(me); return 1;}
 	
 	if( sscanf(arg, "%s %s", arg, x)==2 ) {
 		if(x != "/f")
-			return notify_fail("Èç¹ûÄãÏë·ÅÆúÕâ¸öÅóÓÑ£¬ÇëÊäÈë"+HIR+"jiebai <ID> /f¡£"+NOR+"\n");
+			return notify_fail("å¦‚æœä½ æƒ³æ”¾å¼ƒè¿™ä¸ªæœ‹å‹ï¼Œè¯·è¾“å…¥"+HIR+"jiebai <ID> /fã€‚"+NOR+"\n");
 
 		if(!objectp(obj = present(arg, environment(me))))
-	        	return notify_fail("ÄãÏëºÍË­·´Ä¿£¿\n");
+	        	return notify_fail("ä½ æƒ³å’Œè°åç›®ï¼Ÿ\n");
 	
 	        if( !userp(obj) )
-	                return notify_fail("ÄãÖ»ÄÜºÍÒÑ¾­°İ°Ñ×ÓµÄÍæ¼Ò·´Ä¿³É³ğ¡£\n");
+	                return notify_fail("ä½ åªèƒ½å’Œå·²ç»æ‹œæŠŠå­çš„ç©å®¶åç›®æˆä»‡ã€‚\n");
 	
 	        if( !living(obj) )
-	                return notify_fail("àÅ...Äã»¹ÊÇÏÈ°Ñ"+obj->name()+"ÅªĞÑ°É¡£\n");
+	                return notify_fail("å—¯...ä½ è¿˜æ˜¯å…ˆæŠŠ"+obj->name()+"å¼„é†’å§ã€‚\n");
 	
 	        if(obj==me)
-	                return notify_fail("ºÍ×Ô¼º·´Ä¿£¿\n");
+	                return notify_fail("å’Œè‡ªå·±åç›®ï¼Ÿ\n");
 		
-                if ( !me->is_jiebaied()) return notify_fail("Äã»¹Ã»ÓĞ½á°İ£¬ÒªºÍË­·´Ä¿£¿\n");
+                if ( !me->is_jiebaied()) return notify_fail("ä½ è¿˜æ²¡æœ‰ç»“æ‹œï¼Œè¦å’Œè°åç›®ï¼Ÿ\n");
 	
-		if ( !me->is_jiebai_of(obj)) return notify_fail("Äã»¹Ã»ÓĞºÍÈË¼Ò½á°İ£¬¾ÍÒªºÍËû·´Ä¿£¿\n");
+		if ( !me->is_jiebai_of(obj)) return notify_fail("ä½ è¿˜æ²¡æœ‰å’Œäººå®¶ç»“æ‹œï¼Œå°±è¦å’Œä»–åç›®ï¼Ÿ\n");
 		else{
 			if (obj->query("title")) title1 = obj->query("title");
-			else title1 = "ÆÕÍ¨°ÙĞÕ";
+			else title1 = "æ™®é€šç™¾å§“";
 
-		        message("channel:chat",HIR"¡¾·´Ä¿³É³ğ¡¿"HIC + title + HIC + me->query("name") +"´Ó´ËÓë"+HIC+  title1 +HIC+ obj->query("name")
-		                 + "¶÷¶ÏÒâ¾ø£¡\n\n"NOR,users());
+		        message("channel:chat",HIR"ã€åç›®æˆä»‡ã€‘"HIC + title + HIC + me->query("name") +"ä»æ­¤ä¸"+HIC+  title1 +HIC+ obj->query("name")
+		                 + "æ©æ–­æ„ç»ï¼\n\n"NOR,users());
 			me->delete("jiebai/"+obj->query("id"));
 			obj->delete("jiebai/"+me->query("id"));
 			me->add("fanmu",1);
@@ -51,54 +51,54 @@ int main(object me, string arg)
 	}
 
         if( me->jiebai_cnt() >= 3 ) 
-                return notify_fail("Äã½á°İÈËÊıÒÑ¾­ÓĞÌ«¶àÁË¡£\n"); 
+                return notify_fail("ä½ ç»“æ‹œäººæ•°å·²ç»æœ‰å¤ªå¤šäº†ã€‚\n"); 
 
 	if(!objectp(obj = present(arg, environment(me))))
-                return notify_fail("ÄãÏëºÍË­½á°İ£¿\n");
+                return notify_fail("ä½ æƒ³å’Œè°ç»“æ‹œï¼Ÿ\n");
 
         if( !obj->is_character() )
-                return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇÉúÎï¡£\n");
+                return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯ç”Ÿç‰©ã€‚\n");
 
         if( !userp(obj) )
-                return notify_fail("ÄãÖ»ÄÜºÍÍæ¼Ò°İ°Ñ×Ó¡£\n");
+                return notify_fail("ä½ åªèƒ½å’Œç©å®¶æ‹œæŠŠå­ã€‚\n");
 
         if( !living(obj) )
-                return notify_fail("àÅ...Äã»¹ÊÇÏÈ°Ñ"+obj->name()+"ÅªĞÑ°É¡£\n");
+                return notify_fail("å—¯...ä½ è¿˜æ˜¯å…ˆæŠŠ"+obj->name()+"å¼„é†’å§ã€‚\n");
 
         if( me->is_spouse_of(obj))
-                return notify_fail("·òÆŞÖ®¼ä»¹Òª½á°İÂğ£¿\n");
+                return notify_fail("å¤«å¦»ä¹‹é—´è¿˜è¦ç»“æ‹œå—ï¼Ÿ\n");
 
         if( me->is_marry_of(obj))
-                return notify_fail("ÄãÃÇÁ©ÒÑ¾­¶©»éÁË£¬²»ÓÃ½á°İÁË°É£¡\n");
+                return notify_fail("ä½ ä»¬ä¿©å·²ç»è®¢å©šäº†ï¼Œä¸ç”¨ç»“æ‹œäº†å§ï¼\n");
                 
 	if( me->is_jiebai_of(obj) )
-                return notify_fail("ÄãÒÑ¾­ºÍÈË¼Ò½á°İ¹ıÁË¡£\n");
+                return notify_fail("ä½ å·²ç»å’Œäººå®¶ç»“æ‹œè¿‡äº†ã€‚\n");
 
         if(obj==me)
-                return notify_fail("Äã²»ÄÜºÍ×Ô¼º½á°İ¡£\n");
+                return notify_fail("ä½ ä¸èƒ½å’Œè‡ªå·±ç»“æ‹œã€‚\n");
 
         if(me->query_temp("pending/jiebai") == obj)
-                return notify_fail("ÄãÒÑ¾­ÏòËû·¢³öÇëÇó£¬µÈËûÍ¬Òâ°É£¡\n");
+                return notify_fail("ä½ å·²ç»å‘ä»–å‘å‡ºè¯·æ±‚ï¼Œç­‰ä»–åŒæ„å§ï¼\n");
 
         if( userp(obj) && (object)obj->query_temp("pending/jiebai")!=me ) {
-                message_vision(HIC "\n$N¶ÔÖø$nËµµÀ£º" 
+                message_vision(HIC "\n$Nå¯¹è‘—$nè¯´é“ï¼š" 
                         + RANK_D->query_self(me) 
-                        + me->name() + "£¬¶Ô"
-                        + RANK_D->query_respect(obj) + "ĞÄÒÇÒÑ¾Ã£¬Ô¸±Ë´ËÉúËÀÓë¹²£¬¸Îµ¨ÏàÕÕ£¡\n\n"NOR, me, obj);
+                        + me->name() + "ï¼Œå¯¹"
+                        + RANK_D->query_respect(obj) + "å¿ƒä»ªå·²ä¹…ï¼Œæ„¿å½¼æ­¤ç”Ÿæ­»ä¸å…±ï¼Œè‚èƒ†ç›¸ç…§ï¼\n\n"NOR, me, obj);
                 if( objectp(old_target = me->query_temp("pending/jiebai")) )
-                        tell_object(old_target, RED + me->name() + "È¡ÏûÁËºÍÄã½á°İµÄÄîÍ·¡£\n" NOR);
+                        tell_object(old_target, RED + me->name() + "å–æ¶ˆäº†å’Œä½ ç»“æ‹œçš„å¿µå¤´ã€‚\n" NOR);
                 me->set_temp("pending/jiebai", obj);
-                tell_object(obj, YEL "Èç¹ûÄãÔ¸ÒâºÍ¶Ô·½½áÎªÒìĞÔ¹ÇÈâ£¬ÇëÄãÒ²¶Ô" + me->name() + "("+(string)me->query("id")+")"+ "ÏÂÒ»´Î jiebai Ö¸Áî¡£\n" NOR);
-                write(RED "¶Ô·½±ØĞëÍ¬Òâ²ÅÄÜ½á°İ¡£ÄãµÈ×Å°É¡£\n" NOR);
+                tell_object(obj, YEL "å¦‚æœä½ æ„¿æ„å’Œå¯¹æ–¹ç»“ä¸ºå¼‚æ€§éª¨è‚‰ï¼Œè¯·ä½ ä¹Ÿå¯¹" + me->name() + "("+(string)me->query("id")+")"+ "ä¸‹ä¸€æ¬¡ jiebai æŒ‡ä»¤ã€‚\n" NOR);
+                write(RED "å¯¹æ–¹å¿…é¡»åŒæ„æ‰èƒ½ç»“æ‹œã€‚ä½ ç­‰ç€å§ã€‚\n" NOR);
                 return 1;
         }
 
 	if (obj->query("title")) title1 = obj->query("title");
-	else title1 = "ÆÕÍ¨°ÙĞÕ";
+	else title1 = "æ™®é€šç™¾å§“";
 
-        message_vision(HIC"\n$N¶Ô×Å$n¸ßÉùËµµÀ£º²»ÇóÍ¬ÄêÍ¬ÔÂÍ¬ÈÕÉú£¬µ«Ô¸Í¬ÄêÍ¬ÔÂÍ¬ÈÕËÀ£¡\n\n"NOR, me, obj);
-        message("channel:chat",HIR"¡¾½áÒå½ğÀ¼¡¿"HIC + title + HIC + me->query("name") +"Ô¸Óë"+HIC+  title1 +HIC+ obj->query("name")
-                 + "½áÒå½ğÀ¼£¡\n\n            ²»ÇóÍ¬ÄêÍ¬ÔÂÍ¬ÈÕÉú£¬µ«Ô¸Í¬ÄêÍ¬ÔÂÍ¬ÈÕËÀ£¡\n"NOR,users());
+        message_vision(HIC"\n$Nå¯¹ç€$né«˜å£°è¯´é“ï¼šä¸æ±‚åŒå¹´åŒæœˆåŒæ—¥ç”Ÿï¼Œä½†æ„¿åŒå¹´åŒæœˆåŒæ—¥æ­»ï¼\n\n"NOR, me, obj);
+        message("channel:chat",HIR"ã€ç»“ä¹‰é‡‘å…°ã€‘"HIC + title + HIC + me->query("name") +"æ„¿ä¸"+HIC+  title1 +HIC+ obj->query("name")
+                 + "ç»“ä¹‰é‡‘å…°ï¼\n\n            ä¸æ±‚åŒå¹´åŒæœˆåŒæ—¥ç”Ÿï¼Œä½†æ„¿åŒå¹´åŒæœˆåŒæ—¥æ­»ï¼\n"NOR,users());
 
         me->delete_temp("pending/jiebai");
         obj->delete_temp("pending/jiebai");
@@ -110,10 +110,10 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : jiebai <Íæ¼ÒID> [/f]
+æŒ‡ä»¤æ ¼å¼ : jiebai <ç©å®¶ID> [/f]
  
-Õâ¸öÖ¸ÁîÓÃÀ´ºÍ±ğÈËµÄ½á°İ£¬µ±È»¶Ô·½±ØĞëÒ²Í¬Òâ¡£
-Èç¹û¼ÓÈë /f  ²ÎÊı¾ÍÊÇÒªºÍÍæ¼Ò¾öÁÑ£¬ÇëÉ÷ÓÃ£¡
+è¿™ä¸ªæŒ‡ä»¤ç”¨æ¥å’Œåˆ«äººçš„ç»“æ‹œï¼Œå½“ç„¶å¯¹æ–¹å¿…é¡»ä¹ŸåŒæ„ã€‚
+å¦‚æœåŠ å…¥ /f  å‚æ•°å°±æ˜¯è¦å’Œç©å®¶å†³è£‚ï¼Œè¯·æ…ç”¨ï¼
 HELP
     );
     return 1;

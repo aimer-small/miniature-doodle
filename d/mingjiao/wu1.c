@@ -1,15 +1,15 @@
-// wu1.c Á·Îä³¡
+// wu1.c ç»ƒæ­¦åœº
 // Modify By River@SJ 99.06
 #include <room.h>
 #include <ansi.h>
 inherit ROOM;
 void create()
 { 
-       set("short",CYN"Á·Îä³¡"NOR);
+       set("short",CYN"ç»ƒæ­¦åœº"NOR);
        set("long", @LONG
-ÕâÀïÊÇÃ÷½ÌµÄÁ·Îä³¡¡£µØÃæÊÇ¼áÓ²½áÊµµÄ»ÆÍÁ£¬ÒÑÓĞ°Ù¶àÄêµÄ¼ùÌßÊ¹µÃµØ
-Ãæ¹â»¬Æ½Õû¡£Á·Îä³¡ÖĞ¼äÊúÁ¢×Å²»ÉÙÓÃÀ´Á·°µÆ÷µÄÄ¾°Ğ¡£ºÜ¶àÃ÷½Ì½ÌÖÚÕıÔÚÁ·
-Ï°ÎäÒÕ¡£¶«ÃæÊÇÃ÷½ÌµÄÒ©·¿£¬¶øÎ÷±ß¾ÍÊÇÊéÔºÁË¡£
+è¿™é‡Œæ˜¯æ˜æ•™çš„ç»ƒæ­¦åœºã€‚åœ°é¢æ˜¯åšç¡¬ç»“å®çš„é»„åœŸï¼Œå·²æœ‰ç™¾å¤šå¹´çš„è·µè¸¢ä½¿å¾—åœ°
+é¢å…‰æ»‘å¹³æ•´ã€‚ç»ƒæ­¦åœºä¸­é—´ç«–ç«‹ç€ä¸å°‘ç”¨æ¥ç»ƒæš—å™¨çš„æœ¨é¶ã€‚å¾ˆå¤šæ˜æ•™æ•™ä¼—æ­£åœ¨ç»ƒ
+ä¹ æ­¦è‰ºã€‚ä¸œé¢æ˜¯æ˜æ•™çš„è¯æˆ¿ï¼Œè€Œè¥¿è¾¹å°±æ˜¯ä¹¦é™¢äº†ã€‚
 LONG);    
 	set("exits", ([
 		"east" : __DIR__"yaofang",
@@ -22,7 +22,7 @@ LONG);
 		__DIR__"npc/m-dizi" : 1,
                 CLASS_D("mingjiao") + "/zhang" : 1,
 	]));
-        set("outdoors", "Ã÷½Ì¹âÃ÷¶¥");
+        set("outdoors", "æ˜æ•™å…‰æ˜é¡¶");
         set("coor/x",-290);
   set("coor/y",200);
    set("coor/z",120);
@@ -39,15 +39,15 @@ int valid_leave(object me, string dir)
         /*
         mapping myfam;
         myfam = (mapping)me->query("family");        
-       	if ((!myfam || myfam["family_name"] != "Ã÷½Ì") && dir == "west" 
+       	if ((!myfam || myfam["family_name"] != "æ˜æ•™") && dir == "west" 
          && objectp(ob=present("zhang zhong", environment(me))) && living(ob))
-          return notify_fail(YEL"\nÕÅÖĞ°ÑÊÖÒ»ÉìÀ¹×¡ÄãµÄÈ¥Â·£¬Äã²»ÊÇÃ÷½ÌµÄ²»ÄÜ½øÈ¥£¡£¡\n\n"NOR);
-	if ((!myfam || myfam["family_name"] != "Ã÷½Ì") && dir == "east"
+          return notify_fail(YEL"\nå¼ ä¸­æŠŠæ‰‹ä¸€ä¼¸æ‹¦ä½ä½ çš„å»è·¯ï¼Œä½ ä¸æ˜¯æ˜æ•™çš„ä¸èƒ½è¿›å»ï¼ï¼\n\n"NOR);
+	if ((!myfam || myfam["family_name"] != "æ˜æ•™") && dir == "east"
          && objectp(ob=present("zhang zhong", environment(me))) && living(ob))
-          return notify_fail(YEL"\nÕÅÖĞ°ÑÊÖÒ»ÉìÀ¹×¡ÄãµÄÈ¥Â·£¬Äã²»ÊÇÃ÷½ÌµÄ²»ÄÜ½øÈ¥£¡£¡\n\n"NOR);
+          return notify_fail(YEL"\nå¼ ä¸­æŠŠæ‰‹ä¸€ä¼¸æ‹¦ä½ä½ çš„å»è·¯ï¼Œä½ ä¸æ˜¯æ˜æ•™çš„ä¸èƒ½è¿›å»ï¼ï¼\n\n"NOR);
           */
-	if ( me->query_temp("marks/Ôº1") && dir=="west"
+	if ( me->query_temp("marks/é™¢1") && dir=="west"
          && objectp(ob=present("zhang zhong", environment(me))) && living(ob))
-          return notify_fail(YEL"\nÕÅÖĞ°ÑÊÖÒ»ÉìÀ¹×¡ÄãµÄÈ¥Â·£¬ÄãÒÑÄÃ¹ıÊéÁË»¹ÒªÄÃÑ½£¡£¡\n\n"NOR);
+          return notify_fail(YEL"\nå¼ ä¸­æŠŠæ‰‹ä¸€ä¼¸æ‹¦ä½ä½ çš„å»è·¯ï¼Œä½ å·²æ‹¿è¿‡ä¹¦äº†è¿˜è¦æ‹¿å‘€ï¼ï¼\n\n"NOR);
         return ::valid_leave(me, dir);
 }

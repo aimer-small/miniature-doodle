@@ -6,22 +6,22 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIM"ĞüÑÂ"NOR);
+	set("short", HIM"æ‚¬å´–"NOR);
 	set("long", @LONG
-´Ë´¦ÒÑÊÇ¾øÂ·£¬¹âÍºÍºµÄÊ¯±Ú£¬ÏÂÃæÔòÊÇÔÆÎíÃÖÂşµÄÍòÕÉÉîÑÂ(xuanya)£¬
-´«ÎÅÖĞÓĞ¸ö¹ÅÄ¹µÜ×ÓÒòÊÜ²»ÁË¹ÅÄ¹Ö®Çå¿à¹ÑÓû£¬´Ó´Ë´¦Ò»Ô¾¶øÏÂ£¬ÁËÈ´Ò»Éú£¬
-½üĞüÑÂ±ßÓĞ¿ÃÄ¦Ìì´óÊ÷(tree)£¬Ö¦Ò¶¼«Ê¢£¬Èç´óÉ¡Ò»ÕÅÕÚÑÚ×¡·½Ô²Ö®µØ¡£
+æ­¤å¤„å·²æ˜¯ç»è·¯ï¼Œå…‰ç§ƒç§ƒçš„çŸ³å£ï¼Œä¸‹é¢åˆ™æ˜¯äº‘é›¾å¼¥æ¼«çš„ä¸‡ä¸ˆæ·±å´–(xuanya)ï¼Œ
+ä¼ é—»ä¸­æœ‰ä¸ªå¤å¢“å¼Ÿå­å› å—ä¸äº†å¤å¢“ä¹‹æ¸…è‹¦å¯¡æ¬²ï¼Œä»æ­¤å¤„ä¸€è·ƒè€Œä¸‹ï¼Œäº†å´ä¸€ç”Ÿï¼Œ
+è¿‘æ‚¬å´–è¾¹æœ‰æ£µæ‘©å¤©å¤§æ ‘(tree)ï¼Œæå¶æç››ï¼Œå¦‚å¤§ä¼ä¸€å¼ é®æ©ä½æ–¹åœ†ä¹‹åœ°ã€‚
 LONG        );
 
-	set("outdoors","¹ÅÄ¹");
+	set("outdoors","å¤å¢“");
  
 	set("exits", ([
 		"north" : __DIR__"rukou",
 	]));    
 
 	set("item_desc", ([
-		"xuanya" :HIM"ĞüÑÂÏÂÖ»ÊÇÒ»Æ¬ÔÆÎíçÔÈÆ¡£Ìø(tiao)ÏÂÈ¥¿ÖÊÇÓĞÈ¥ÎŞ»Ø¡£\n"NOR,
-		"tree" : "Ò»¿Ã¸ß´óµÄ¾ŞÊ÷,ÉÏÃæÁôÏÂÔø¾­±»ÈËÒ¡»ÎµÄºÛ¼£¡£\n", 
+		"xuanya" :HIM"æ‚¬å´–ä¸‹åªæ˜¯ä¸€ç‰‡äº‘é›¾ç¼­ç»•ã€‚è·³(tiao)ä¸‹å»ææ˜¯æœ‰å»æ— å›ã€‚\n"NOR,
+		"tree" : "ä¸€æ£µé«˜å¤§çš„å·¨æ ‘,ä¸Šé¢ç•™ä¸‹æ›¾ç»è¢«äººæ‘‡æ™ƒçš„ç—•è¿¹ã€‚\n", 
 	]));
 
 	setup();
@@ -40,24 +40,24 @@ int do_tiao(string arg)
 	me = this_player();
 	if ( arg == "xuanya") {
 		if (me->query_temp("mark/jump") < 2) {
-			write("ÈËÉú¿à¶Ì,ÇÒ¹ÅÄ¹Éñ¹¦¾øÊÀ,ÄãÔÙ¿¼ÂÇÒ»ÏÂ°É. \n");
+			write("äººç”Ÿè‹¦çŸ­,ä¸”å¤å¢“ç¥åŠŸç»ä¸–,ä½ å†è€ƒè™‘ä¸€ä¸‹å§. \n");
 			me->add_temp("mark/jump", 1);
 			return 1;
 		}
-		message_vision(HIR"$N×İÉíÌøÏÂĞüÑÂ,±¯ºôÒ»Éù,ĞÖµÜ½ãÃÃÃÇ,À´ÉúÔÙ¼û,»ØÉù²»¾øÓÚ¶ú¡£\n"NOR, me);       
+		message_vision(HIR"$Nçºµèº«è·³ä¸‹æ‚¬å´–,æ‚²å‘¼ä¸€å£°,å…„å¼Ÿå§å¦¹ä»¬,æ¥ç”Ÿå†è§,å›å£°ä¸ç»äºè€³ã€‚\n"NOR, me);       
 		me->delete_temp("mark/jump");
-		me->set_temp("last_damage_from", "ÌøÑÂ×ÔÉ±¶ø");      
+		me->set_temp("last_damage_from", "è·³å´–è‡ªæ€è€Œ");      
 		me->die();
 		if (tmp = present("corpse", this_object())){
 			ob = deep_inventory(tmp);
 			i = sizeof(ob);
 			while (i--) if (userp(ob[i])) ob[i]->move(this_object());
 			destruct(tmp);
-			if(me) tell_room(this_object(), me->name()+"µÄÊ¬¹Ç¶¼ÕÒ²»µ½ÁË¡£\n");
+			if(me) tell_room(this_object(), me->name()+"çš„å°¸éª¨éƒ½æ‰¾ä¸åˆ°äº†ã€‚\n");
 		}
 		return 1;        
 	}
-	return notify_fail("ÄãÒªÌøµ½ÄÄÀï£¿\n");    
+	return notify_fail("ä½ è¦è·³åˆ°å“ªé‡Œï¼Ÿ\n");    
 }
 
 int do_yao(string arg)
@@ -65,24 +65,24 @@ int do_yao(string arg)
 	mapping fam;
 	object me = this_player();
 
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÈçºÎÄÜÁìÎò¹ÅÄ¹Îä¹¦£¿\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œå¦‚ä½•èƒ½é¢†æ‚Ÿå¤å¢“æ­¦åŠŸï¼Ÿ\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");          
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");          
 
 	if (me->query("jing") < 40)
-		return notify_fail("Äã¾«Á¦²»ÄÜ¼¯ÖĞ,È¥ÉÔ×÷ĞªÏ¢°É. \n");
+		return notify_fail("ä½ ç²¾åŠ›ä¸èƒ½é›†ä¸­,å»ç¨ä½œæ­‡æ¯å§. \n");
 
 	if (arg == "tree") {           
 		if (me->query_skill("parry", 1) < 51)
-			return notify_fail("ÄãÊ¹³ö»ëÉíµÄ¾¢Á¦£¬µ«ÊÇ´óÊ÷È´ÎÆË¿²»¶¯¡£\n");
+			return notify_fail("ä½ ä½¿å‡ºæµ‘èº«çš„åŠ²åŠ›ï¼Œä½†æ˜¯å¤§æ ‘å´çº¹ä¸ä¸åŠ¨ã€‚\n");
 		if (me->query_skill("parry", 1) > 100)
-			return notify_fail("ÄãÊ¹¾¢µØÒ¡»Î´óÊ÷£¬·¢ÏÖ´óÊ÷¿ì±»ÄãÒ¡¶ÏÁË¡£\n");          
-		write("ÄãÊ¹¾¢µØÒ¡»Î×Å´óÊ÷£¬ÕğµÄ´óÊ÷Î¢Î¢»Î¶¯¡£\n");
+			return notify_fail("ä½ ä½¿åŠ²åœ°æ‘‡æ™ƒå¤§æ ‘ï¼Œå‘ç°å¤§æ ‘å¿«è¢«ä½ æ‘‡æ–­äº†ã€‚\n");          
+		write("ä½ ä½¿åŠ²åœ°æ‘‡æ™ƒç€å¤§æ ‘ï¼Œéœ‡çš„å¤§æ ‘å¾®å¾®æ™ƒåŠ¨ã€‚\n");
 		me->receive_damage("jing", 15 + random(20));
 		me->improve_skill("parry", (int)(me->query_int()/3)+(int)(me->query_skill("parry")/4));
 		return 1;
 	}
-	return notify_fail("ÄãÒªÒ¡Ê²Ã´£¿\n");
+	return notify_fail("ä½ è¦æ‘‡ä»€ä¹ˆï¼Ÿ\n");
 }

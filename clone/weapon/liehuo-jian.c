@@ -6,7 +6,7 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(RED"ÁÒ»ğ½£"NOR, ({ "liehuo jian", "jian", "liehuo", "sword" }) );        
+        set_name(RED"çƒˆç«å‰‘"NOR, ({ "liehuo jian", "jian", "liehuo", "sword" }) );        
         set_weight(6500);
         if( clonep() )
                 set_default_object(__FILE__);
@@ -19,8 +19,8 @@ void create()
            set("wield_neili", 100);
            set("wield_maxneili", 1000);
            set("wield_str", 20);
-           set("unit", "°Ñ");
-           set("long", RED"´Ë½£½£ÈĞÈçĞÜĞÜÁÒ»ğ£¬½£ÇÊÉÏÏâÖø¡°ÁÒ»ğ¡±Á½¸ö¹Å×­£¬ÄËÊÇÃ÷½ÌµÄÕò½Ì±¦Îï£¬Æ½Ê±¶¼¹©·îÔÚ¹âÃ÷±¦ËşÖ®ÄÚ¡£\n"NOR);
+           set("unit", "æŠŠ");
+           set("long", RED"æ­¤å‰‘å‰‘åˆƒå¦‚ç†Šç†Šçƒˆç«ï¼Œå‰‘é˜ä¸Šé•¶è‘—â€œçƒˆç«â€ä¸¤ä¸ªå¤ç¯†ï¼Œä¹ƒæ˜¯æ˜æ•™çš„é•‡æ•™å®ç‰©ï¼Œå¹³æ—¶éƒ½ä¾›å¥‰åœ¨å…‰æ˜å®å¡”ä¹‹å†…ã€‚\n"NOR);
            }
         init_sword(50);
         setup();

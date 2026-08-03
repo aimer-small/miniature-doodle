@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIG "Ê®ÏãÈí½îÉ¢½âÒ©" NOR, ({"shixiang ruanjinsan cure", "cure"}));
+        set_name(HIG "åé¦™è½¯ç­‹æ•£è§£è¯" NOR, ({"shixiang ruanjinsan cure", "cure"}));
         set_weight(1000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("value", 1);
-                set("unit", "Ð¡°ü");
+                set("unit", "å°åŒ…");
         }
        setup();
 }
@@ -26,9 +26,9 @@ int do_fu(string arg)
 
         if( !arg || !objectp(ob = present(arg, environment(me))) 
         || !ob->is_character() || ob == me)
-                return notify_fail("°ïË­½â¶¾ÄØ£¿\n");
+                return notify_fail("å¸®è°è§£æ¯’å‘¢ï¼Ÿ\n");
         
-        message_vision(HIG"$N°ÑÒ»Ð¡°üÊ®ÏãÈí½îÉ¢µÄ½âÒ©ÈÃ$n·þÏÂÁË¡£\n"NOR, me, ob);
+        message_vision(HIG"$NæŠŠä¸€å°åŒ…åé¦™è½¯ç­‹æ•£çš„è§£è¯è®©$næœä¸‹äº†ã€‚\n"NOR, me, ob);
         ob->clear_condition("ruanjin_poison");
         destruct(this_object());
         return 1;

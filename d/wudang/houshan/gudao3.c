@@ -1,15 +1,15 @@
-// /d/wudang/gudao3.c  ¹ÅµÀ
+// /d/wudang/gudao3.c  å¤é“
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short",HIG"¹ÅµÀ"NOR);
+        set("short",HIG"å¤é“"NOR);
         set("long", @LONG
-Äã×ß×ßÍ£Í££¬·¢ÏÖÒÑµ½ÁËÂ·µÄ¾¡Í·¡£ÕâÀïÁè¿ÕÍ»³ö£¬³¤ÂúÇà²İ£¬¼¸Ö»Ò°ÍÃ
-ÔÚÄãÉí±ßÌøÀ´ÌøÈ¥ºÁ²»ÅÂÉú£¬ÏÂÃæÊ®¶àÕÉÉîÓĞÒ»Ë®Ì¶£¬Ì¶Ë®Çå³º¡£ÄãÕıÂúÉí³ô
-º¹¼¢¿ÊÄÑµ±£¬ºŞ²»µÃÂíÉÏÌøÏÂÈ¥Á¹¿ìÒ»·¬¡£
+ä½ èµ°èµ°åœåœï¼Œå‘ç°å·²åˆ°äº†è·¯çš„å°½å¤´ã€‚è¿™é‡Œå‡Œç©ºçªå‡ºï¼Œé•¿æ»¡é’è‰ï¼Œå‡ åªé‡å…”
+åœ¨ä½ èº«è¾¹è·³æ¥è·³å»æ¯«ä¸æ€•ç”Ÿï¼Œä¸‹é¢åå¤šä¸ˆæ·±æœ‰ä¸€æ°´æ½­ï¼Œæ½­æ°´æ¸…æ¾ˆã€‚ä½ æ­£æ»¡èº«è‡­
+æ±—é¥¥æ¸´éš¾å½“ï¼Œæ¨ä¸å¾—é©¬ä¸Šè·³ä¸‹å»å‡‰å¿«ä¸€ç•ªã€‚
 LONG                           
         );
         set("exits", ([
@@ -20,7 +20,7 @@ LONG
                 "/d/wudang/npc/yetu" : 2,
                 "/d/wudang/obj/lxshi" :1,
         ]));
-        set("outdoors","Îäµ±");
+        set("outdoors","æ­¦å½“");
         setup();
 
 }
@@ -34,15 +34,15 @@ int do_jump(string arg)
 	object me;
         me=this_player();
         if ( !arg || arg != "down" )
-            return notify_fail("ÄãÒªÍùÄÄÌø?\n");
-        message_vision(HIY"$NÒ»ÕĞ¹·¼±ÌøÇ½£¬ËÄÖ«Æ½Õ¹ÃÍµÃ³¯Ë®Ì¶ÌøÏÂ¡£\n"NOR, me);
+            return notify_fail("ä½ è¦å¾€å“ªè·³?\n");
+        message_vision(HIY"$Nä¸€æ‹›ç‹—æ€¥è·³å¢™ï¼Œå››è‚¢å¹³å±•çŒ›å¾—æœæ°´æ½­è·³ä¸‹ã€‚\n"NOR, me);
         me->move(__DIR__"shuitan");
-        message_vision(RED"ÆËÍ¨Ò»Éù£¬$N¶Ç×ÓÊ×ÏÈÈëË®£¬ÎåÔàÁù¸­Ò»Õó·­¹ö¡£ÕÅ×ìÏëÒª¾ªºô£¬\n"+
-                          "¹¾àà¹¾àà£¬·´¶ø±»¹àÁËÒ»¶Ç×ÓË®¡£\n"NOR, me);
+        message_vision(RED"æ‰‘é€šä¸€å£°ï¼Œ$Nè‚šå­é¦–å…ˆå…¥æ°´ï¼Œäº”è„å…­è…‘ä¸€é˜µç¿»æ»šã€‚å¼ å˜´æƒ³è¦æƒŠå‘¼ï¼Œ\n"+
+                          "å’•å™œå’•å™œï¼Œåè€Œè¢«çŒäº†ä¸€è‚šå­æ°´ã€‚\n"NOR, me);
         me->receive_damage("jingli", 20);
         me->set("water", me->max_water_capacity() + 50);
         if ((int)random(me->query_kar()) < 20){
-            message_vision(HIW"$N²»¿°ÖØ¸º£¬ÉíÌåÏó³ÓíÈ°ãÏÂ³Á¡£\n"NOR, me);
+            message_vision(HIW"$Nä¸å ªé‡è´Ÿï¼Œèº«ä½“è±¡ç§¤ç £èˆ¬ä¸‹æ²‰ã€‚\n"NOR, me);
             me->move(__DIR__"tandi1");
             me->apply_condition("diving",1);
             me->start_busy(2);

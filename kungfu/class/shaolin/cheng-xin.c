@@ -7,19 +7,19 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("³ÎĞÄ", ({
+	set_name("æ¾„å¿ƒ", ({
 		"chengxin luohan",
 		"chengxin",
 		"fuhu",
 		"luohan",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Ğë·¢»¨°×µÄÀÏÉ®£¬Éí´©Ò»Ï®½ğ±ßºÚ²¼ôÂôÄ¡£ËûÉí²ÄÊİ¸ß£¬\n"
-		"Ì«ÑôÑ¨¸ß¸ß¹ÄÆğ£¬ËÆºõÉí»³¾øÊÀÎä¹¦¡£\n"
+		"ä»–æ˜¯ä¸€ä½é¡»å‘èŠ±ç™½çš„è€åƒ§ï¼Œèº«ç©¿ä¸€è¢­é‡‘è¾¹é»‘å¸ƒè¢ˆè£Ÿã€‚ä»–èº«æç˜¦é«˜ï¼Œ\n"
+		"å¤ªé˜³ç©´é«˜é«˜é¼“èµ·ï¼Œä¼¼ä¹èº«æ€€ç»ä¸–æ­¦åŠŸã€‚\n"
 	);
 
-	set("nickname", "·ü»¢ÂŞºº");
-	set("gender", "ÄĞĞÔ");
+	set("nickname", "ä¼è™ç½—æ±‰");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -54,7 +54,7 @@ void create()
 
 	prepare_skill("hand", "qianye-shou");
 
-	create_family("ÉÙÁÖÅÉ", 37, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 37, "å¼Ÿå­");
 
 	setup();
 

@@ -9,18 +9,18 @@ int perform(object me, object target)
 	extra = me->query_skill("zhong-qiang",1);
     	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "club")
-			return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+			return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	if( !target ) target = offensive_target(me);
 	if( !target
 	||	!target->is_character()
 	||	!me->is_fighting(target) )
-		return notify_fail("£Û·´×ªÁ÷ĞÇ£İÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ï¼»åè½¬æµæ˜Ÿï¼½åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 	weapon = me->query_temp("weapon");
-	msg = HIY  "$NÊ¹³öÖĞÆ½Ç¹·¨ÖĞµÄ£Û·´×ªÁ÷ĞÇ£İ£¬¼ÙÒâ³éÉí¼±ÍË£¬İëµØ·´Éí¶¶ÊÖÒ»Ç¹£¡" NOR;
+	msg = HIY  "$Nä½¿å‡ºä¸­å¹³æªæ³•ä¸­çš„ï¼»åè½¬æµæ˜Ÿï¼½ï¼Œå‡æ„æŠ½èº«æ€¥é€€ï¼Œè“¦åœ°åèº«æŠ–æ‰‹ä¸€æªï¼" NOR;
 	COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
-        msg = HIY  "$N½ô¸úÒ»ÕĞ£¬ÁíÒ»Ç¹·´ÉíÓÖÊÇÒ»Ç¹£¡£¡" NOR;
+        msg = HIY  "$Nç´§è·Ÿä¸€æ‹›ï¼Œå¦ä¸€æªåèº«åˆæ˜¯ä¸€æªï¼ï¼" NOR;
         COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
-        msg = HIY  "$N¾¹È»»¹²»»ØÍ·£¬Á½±ÛÒ»Õñ£¬ÔÙÀ´Ò»Ç¹£¡" NOR;
+        msg = HIY  "$Nç«Ÿç„¶è¿˜ä¸å›å¤´ï¼Œä¸¤è‡‚ä¸€æŒ¯ï¼Œå†æ¥ä¸€æªï¼" NOR;
         COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
 
 	me->start_busy(3);

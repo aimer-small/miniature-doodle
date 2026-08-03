@@ -1,21 +1,21 @@
-// /u/dubei/Ãç½®
+// /u/dubei/è‹—ç–†
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short", "É½ÆÂ");
+        set("short", "å±±å¡");
         set("long", @LONG
-ÕâÀïÊÇÎå¶¾½ÌÅÔ±ßµÄÒ»¿éĞ¡¿ÕµØ£¬Ò»ÃæÊÇÎ§Ç½£¬Ò»ÃæÊÇ¶¸ÇÍµÄÊ¯±Ú¡£Ê¯±Ú
-·Ç³£¹â»ª£¬¿´Ñù×ÓºÜÄÑÅÀÉÏÈ¥¡£
+è¿™é‡Œæ˜¯äº”æ¯’æ•™æ—è¾¹çš„ä¸€å—å°ç©ºåœ°ï¼Œä¸€é¢æ˜¯å›´å¢™ï¼Œä¸€é¢æ˜¯é™¡å³­çš„çŸ³å£ã€‚çŸ³å£
+éå¸¸å…‰åï¼Œçœ‹æ ·å­å¾ˆéš¾çˆ¬ä¸Šå»ã€‚
 LONG
         );
         set("exits", ([
 		"west" : __DIR__"wddamen",
 	]));
 
-        set("outdoors", "Ãç½®");
+        set("outdoors", "è‹—ç–†");
 
         setup();
 }
@@ -38,17 +38,17 @@ int do_pa(string arg)
 
 	inv = filter_array(deep_inventory(me), (: userp :));
 	if (sizeof(inv)) {
-		message_vision("$NÉíÉÏ±³¸öÈË£¬ºÜÄÑÅÀÉÏÈ¥£¡\n", me);
+		message_vision("$Nèº«ä¸ŠèƒŒä¸ªäººï¼Œå¾ˆéš¾çˆ¬ä¸Šå»ï¼\n", me);
 		me->unconcious();
 		return 1;
 	} 
 	if( (int)me->query_skill("dodge",1) < 100 ) { 
-		message_vision(HIR"$NÏëÒªÅÀÉÏÉ½¶¥£¬ÎŞÄÎÇá¹¦²»¹»£¬Ë¤ÁËÏÂÀ´£¡\n"NOR, me);
+		message_vision(HIR"$Næƒ³è¦çˆ¬ä¸Šå±±é¡¶ï¼Œæ— å¥ˆè½»åŠŸä¸å¤Ÿï¼Œæ‘”äº†ä¸‹æ¥ï¼\n"NOR, me);
 		me->unconcious();
 		return 1;     
 	}
-	message_vision("$NÎ¢Î¢ÌáÆø£¬×İÉíÔ½ÁËÉÏÈ¥¡£\n", me);
+	message_vision("$Nå¾®å¾®ææ°”ï¼Œçºµèº«è¶Šäº†ä¸Šå»ã€‚\n", me);
 	me->move(__DIR__"gmcong1");
-	tell_room(environment(me), me->name() + "´ÓÏÂÃæÅÀÁËÉÏÀ´¡£\n", ({ me }));
+	tell_room(environment(me), me->name() + "ä»ä¸‹é¢çˆ¬äº†ä¸Šæ¥ã€‚\n", ({ me }));
 	return 1;
 }

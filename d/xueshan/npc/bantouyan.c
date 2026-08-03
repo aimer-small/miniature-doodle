@@ -1,12 +1,12 @@
-// bantouyan.c °ßÍ·Ñã
+// bantouyan.c æ–‘å¤´é›
 // by iceland
 inherit NPC;
 
 void create()
 {
-	set_name("°ßÍ·Ñã", ({ "bantou yan","bantouyan","yan"}) );
-	set("long","Ò»Ö»ÕýËÄ´¦Ñ°ÕÒÊ³ÎïµÄ´óÑã£¬Í·²¿ºÍ±³²¿ÉÏµÄÓðÃ«¶¼ÓÐºÃ¿´µÄ°ßµã¡£\n");
-	set("race", "Ò°ÊÞ");
+	set_name("æ–‘å¤´é›", ({ "bantou yan","bantouyan","yan"}) );
+	set("long","ä¸€åªæ­£å››å¤„å¯»æ‰¾é£Ÿç‰©çš„å¤§é›ï¼Œå¤´éƒ¨å’ŒèƒŒéƒ¨ä¸Šçš„ç¾½æ¯›éƒ½æœ‰å¥½çœ‹çš„æ–‘ç‚¹ã€‚\n");
+	set("race", "é‡Žå…½");
 	set("age", 3);
 
 	set("eff_jing", 200);
@@ -18,7 +18,7 @@ void create()
 	set("con", 15);
 	set("int", 20);
 
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "²±×Ó","³á°ò"}) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "è„–å­","ç¿…è†€"}) );
 	set("verbs", ({ "poke"}) );
 	set_temp("apply/attack", 20);
 	set_temp("apply/dodge", 25);
@@ -27,17 +27,17 @@ void create()
         set("chat_chance", 3);
 	set("chat_msg", ({
 (: this_object(), "random_move" :),
-"°ßÍ·Ñã°ºÆð²±×Ó£¬ÆËÉÈÁË¼¸ÏÂ³á°ò£¬¾¯ÌèµÄÍûÁËÍûËÄÖÜ¡£\n",
-"°ßÍ·ÑãºüÒÉµÄ¿´×ÅÄã£¬ÍùÔ¶´¦×ß¿ªÁË¼¸²½¡£\n",
+"æ–‘å¤´é›æ˜‚èµ·è„–å­ï¼Œæ‰‘æ‰‡äº†å‡ ä¸‹ç¿…è†€ï¼Œè­¦æƒ•çš„æœ›äº†æœ›å››å‘¨ã€‚\n",
+"æ–‘å¤´é›ç‹ç–‘çš„çœ‹ç€ä½ ï¼Œå¾€è¿œå¤„èµ°å¼€äº†å‡ æ­¥ã€‚\n",
 }) );
         setup();
-	set("race", "·ÉÇÝ");
+	set("race", "é£žç¦½");
 }
 
 void die()
 {
 	object ob;
-	message_vision("$NÎÞÁ¦µÄÅÄ´òÁË¼¸ÏÂ³á°ò£¬Ò»Í·µ¹ÔÚµØÉÏËÀÁË¡£\n", this_object());
+	message_vision("$Næ— åŠ›çš„æ‹æ‰“äº†å‡ ä¸‹ç¿…è†€ï¼Œä¸€å¤´å€’åœ¨åœ°ä¸Šæ­»äº†ã€‚\n", this_object());
     ob = new(ARMOR_D("yanling"));
 	ob->move(environment(this_object()));
 	destruct(this_object());

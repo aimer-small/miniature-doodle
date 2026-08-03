@@ -8,17 +8,17 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIY "½ğ±ßºÚ²¼ôÂôÄ" NOR, ({ "jia sha", "cloth" }) );
+        set_name(HIY "é‡‘è¾¹é»‘å¸ƒè¢ˆè£Ÿ" NOR, ({ "jia sha", "cloth" }) );
         set_weight(5000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÊÇÒ»¼şºÚ²¼×ö³ÉµÄôÂôÄ£¬±ßÉÏÏâÓĞ½ğË¿¡£\n");
-                set("unit", "¼ş");
+                set("long", "è¿™æ˜¯ä¸€ä»¶é»‘å¸ƒåšæˆçš„è¢ˆè£Ÿï¼Œè¾¹ä¸Šé•¶æœ‰é‡‘ä¸ã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 30);
-                set("wear_msg","$NÄÃ³öÒ»¼ş$nÅûÔÚÉíÉÏ¡£\n");
-                set("remove_msg","$N°Ñ$n´ÓÉíÉÏÍÑÁËÏÂÀ´¡£\n");
+                set("wear_msg","$Næ‹¿å‡ºä¸€ä»¶$næŠ«åœ¨èº«ä¸Šã€‚\n");
+                set("remove_msg","$NæŠŠ$nä»èº«ä¸Šè„±äº†ä¸‹æ¥ã€‚\n");
         }
         setup();
 }

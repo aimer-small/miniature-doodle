@@ -2,12 +2,12 @@
 //
 //      roomleased.c
 //      Created by mychat 31/04/2004
-//      ±£ÁôÎÒµÄÇ©ÃûÇé¿öÏÂ free of use.
-//      µ±È»¸ü»¶Ó­ĞŞ¸Ä¡¢ÓÅ»¯µÈ¡£
+//      ä¿ç•™æˆ‘çš„ç­¾åæƒ…å†µä¸‹ free of use.
+//      å½“ç„¶æ›´æ¬¢è¿ä¿®æ”¹ã€ä¼˜åŒ–ç­‰ã€‚
 //
 //      Email & MSN: codemake@163.com
-//      ÎÄ¼şÎ»ÓÚ/adm/deamonsÏÂ
-// 		´¦Àí³ö×â·¿¼äµÄ½ø³Ì
+//      æ–‡ä»¶ä½äº/adm/deamonsä¸‹
+// 		å¤„ç†å‡ºç§Ÿæˆ¿é—´çš„è¿›ç¨‹
 //      change it to db by Ciwei@SJ
 ***********************************************************************************/
 
@@ -19,11 +19,11 @@ inherit F_SAVE;
 
 #define MSG_CMDS "/cmds/std/msg"
 #define DB_NAME "lease"
-//ÏÂÒ»´ÎÍ¶±ê¿ªÊ¼µÄÊ±¼ä¼ä¸ô
+//ä¸‹ä¸€æ¬¡æŠ•æ ‡å¼€å§‹çš„æ—¶é—´é—´éš”
 #define NEXT_BID		300
-//Ë¢ĞÂÊ±¼ä
+//åˆ·æ–°æ—¶é—´
 #define MYLOG_TIME		60
-/*ÒòÎªµ±»ú¶øÁíÍâ²¹³¥Íæ¼Ò ºÙºÙ ±£ÁôÒâ¼ûÎª100000 ¹«²âÆÚÎª0 */
+/*å› ä¸ºå½“æœºè€Œå¦å¤–è¡¥å¿ç©å®¶ å˜¿å˜¿ ä¿ç•™æ„è§ä¸º100000 å…¬æµ‹æœŸä¸º0 */
 #define PAY_FOR_CRASH           100000
 
 int strtoint(string arg);
@@ -54,7 +54,7 @@ int iifpublicrepay=0;
 string query(string arg)
 {
 	if (arg == "channel_id")
-		return "Î¤ÊÏÉÌ»á";
+		return "éŸ¦æ°å•†ä¼š";
 }
 
 int start_lease()
@@ -97,37 +97,37 @@ void pay_for_crash()
 	if(iifstop==1) return;
 		
 	t = time() - livetime;
-	//ÏµÍ³ÓĞÁ½·ÖÖÓÒÔÉÏÃ»ÏìÓ¦
+	//ç³»ç»Ÿæœ‰ä¸¤åˆ†é’Ÿä»¥ä¸Šæ²¡å“åº”
 	if(t>MYLOG_TIME*2)
 	{
 		mixed ret;
 		dbquery("update "+DB_NAME+" set endtime=endtime+'"+t+"',bidendtime=bidendtime+'"+t+"' where leaser!='*' AND U_Site='"+INTERMUD_MUD_NAME+"'");
-		log_file("leaselog",sprintf("ÏµÍ³¿ÉÄÜµ±¹ı»ú£¬×Ô¶¯²¹³¥Ã¿¸öÔÚ×âÉÌµêÓĞĞ§ÆÚ%d¡£",t));
+		log_file("leaselog",sprintf("ç³»ç»Ÿå¯èƒ½å½“è¿‡æœºï¼Œè‡ªåŠ¨è¡¥å¿æ¯ä¸ªåœ¨ç§Ÿå•†åº—æœ‰æ•ˆæœŸ%dã€‚",t));
 		ret = dbquery("select leaser,originshortname,roomwhere,endtime from "+DB_NAME+" where leaser!='*' AND U_Site='"+INTERMUD_MUD_NAME+"'");
 		if(!ret || sizeof(ret)<1) return;
 		for(int i=0;i<sizeof(ret);i++)
-			givemoney(ret[i][0],PAY_FOR_CRASH,HIY"¶ÔÓÚÄú¶Ô¡¾"+get_myregions(ret[i][2])+ret[i][1]+"¡¿µÄ×âÆÚÓĞ¿ÉÄÜÊÜµ½ÏµÍ³µ±»úµÄÓ°Ïì£¬\n"
-				+"ÓĞĞ§ÆÚÒÑ¾­×Ô¶¯ÑÓ³¤µ½"
+			givemoney(ret[i][0],PAY_FOR_CRASH,HIY"å¯¹äºæ‚¨å¯¹ã€"+get_myregions(ret[i][2])+ret[i][1]+"ã€‘çš„ç§ŸæœŸæœ‰å¯èƒ½å—åˆ°ç³»ç»Ÿå½“æœºçš„å½±å“ï¼Œ\n"
+				+"æœ‰æ•ˆæœŸå·²ç»è‡ªåŠ¨å»¶é•¿åˆ°"
 				+longtime(ret[i][3])
-				+"£»\n²¢ÇÒÎªÁË±íÊ¾Ç¸Òâ£¬ÏµÍ³ÒÑ¾­×Ô¶¯ÔÚÄúµÄÇ®×¯´æ¿îÉÏÔö¼ÓÁË"
+				+"ï¼›\nå¹¶ä¸”ä¸ºäº†è¡¨ç¤ºæ­‰æ„ï¼Œç³»ç»Ÿå·²ç»è‡ªåŠ¨åœ¨æ‚¨çš„é’±åº„å­˜æ¬¾ä¸Šå¢åŠ äº†"
 				+money_str(PAY_FOR_CRASH)
-				+"£¬Çë²éÊÕ\n"NOR);
+				+"ï¼Œè¯·æŸ¥æ”¶\n"NOR);
 	}
 }
 
 void init_statistic()
 {
 	ilaststatistic=time();
-	pay_for_crash();//¼ì²éÊÇ·ñµ±¹ı»ú
+	pay_for_crash();//æ£€æŸ¥æ˜¯å¦å½“è¿‡æœº
 	call_out("do_statistic", MYLOG_TIME);
 }
 
 void do_statistic()
 {
 	write_log();
-	//¼ì²é×âÆÚÊÇ·ñµ½ÁË
+	//æ£€æŸ¥ç§ŸæœŸæ˜¯å¦åˆ°äº†
 	check_lease();
-	//¼ì²éÍ¶±êÊÇ·ñ½áÊø£¬¸Ã×ªÎª×âÆÚÁË
+	//æ£€æŸ¥æŠ•æ ‡æ˜¯å¦ç»“æŸï¼Œè¯¥è½¬ä¸ºç§ŸæœŸäº†
 	check_bid();
 	//dbquery("REPLACE mud_var SET name='leasetime',value='"+time()+"'");
 	livetime = time();
@@ -188,9 +188,9 @@ mapping query_amap(string valindex)
 		return 0;
 	}
 	amap = ([]);
-	amap["files"] = explode(ret[0][2],",");//ÊÕ·ÑµØµã
+	amap["files"] = explode(ret[0][2],",");//æ”¶è´¹åœ°ç‚¹
 	//amap["roomwhere"] = explode(ret[0][2],",");
-	//ÕâÀïÒªÉ÷ÖØµã¡£¡£
+	//è¿™é‡Œè¦æ…é‡ç‚¹ã€‚ã€‚
 	//amap["room_bidname"] = room_bidname[valindex];
 	amap["bidtype"] = ret[0][3];
 	amap["minirent"] = ret[0][4];
@@ -216,10 +216,10 @@ mapping query_amap(string valindex)
 	amap["bidtime"] = ret[0][22];
 	amap["bidendtime"] = ret[0][23];
 	amap["bidertype"] = ret[0][24];
-	amap["roomwhere"] = ret[0][25];//Ö÷·¿¼ä
-	amap["varmoney"] = ret[0][26];//Ğ§Òæ
-	amap["settime"] = ret[0][27];//¿ªÊ¼ÉèÖÃµÄÊ±¼ä
-	amap["paytime"] = ret[0][28];//×îºóÒ»´Î½øÕÊÊ±¼ä
+	amap["roomwhere"] = ret[0][25];//ä¸»æˆ¿é—´
+	amap["varmoney"] = ret[0][26];//æ•ˆç›Š
+	amap["settime"] = ret[0][27];//å¼€å§‹è®¾ç½®çš„æ—¶é—´
+	amap["paytime"] = ret[0][28];//æœ€åä¸€æ¬¡è¿›å¸æ—¶é—´
 	return amap;
 }
 
@@ -237,9 +237,9 @@ int set_room(string* filename, string valbidname, int valbidtype, int valminiren
 	if(sizeof(ret)==1)
 	{
 		if(ret[0][0]!="*")
-		return notify_fail("Õâ¸ö·¿¼ä»¹ÓĞÈËÔÚ×âÄØ\n");
+		return notify_fail("è¿™ä¸ªæˆ¿é—´è¿˜æœ‰äººåœ¨ç§Ÿå‘¢\n");
 		if(ret[0][1]!="*")
-		return notify_fail("Õâ¸ö·¿¼ä»¹ÓĞÈËÔÚÍ¶±êÄØ\n");
+		return notify_fail("è¿™ä¸ªæˆ¿é—´è¿˜æœ‰äººåœ¨æŠ•æ ‡å‘¢\n");
 	}
 	*/
 	if(sizeof(ret)>0)
@@ -285,13 +285,13 @@ int delete_room(string valbidname)
 		error("db error!");
 		return 0;
 	}
-	//////ÕâÀï¿´ÏÂÊÇ·ñÕıÔÚÕĞ±êÖĞ »òÕßÕıÔÚÔËÓªÖĞ
+	//////è¿™é‡Œçœ‹ä¸‹æ˜¯å¦æ­£åœ¨æ‹›æ ‡ä¸­ æˆ–è€…æ­£åœ¨è¿è¥ä¸­
 	if(sizeof(ret)==1)
 	{
 		if(ret[0][1]!="*")
-		return notify_fail("Õâ¸ö·¿¼ä»¹ÓĞÈËÔÚ×âÄØ\n");
+		return notify_fail("è¿™ä¸ªæˆ¿é—´è¿˜æœ‰äººåœ¨ç§Ÿå‘¢\n");
 		if(ret[0][2]!="*")
-		return notify_fail("Õâ¸ö·¿¼ä»¹ÓĞÈËÔÚÍ¶±êÄØ\n");
+		return notify_fail("è¿™ä¸ªæˆ¿é—´è¿˜æœ‰äººåœ¨æŠ•æ ‡å‘¢\n");
 		room = explode(ret[0][0],",");		
 	}
 	if(!leasedb("DELETE FROM "+DB_NAME+" WHERE U_id='"+valbidname+"' AND U_Site='"+INTERMUD_MUD_NAME+"'"))
@@ -302,7 +302,7 @@ int delete_room(string valbidname)
 		if(!r) continue;
 		r->back_rsname();
 	}
-	write("É¾³ı³É¹¦£¡\n");
+	write("åˆ é™¤æˆåŠŸï¼\n");
 	return 1;
 }
 
@@ -341,11 +341,11 @@ int new_bid(object me, string valbidname,int valbidamount, int valbidertype)
 	valbidtype=(ret[0][2]==1)?valbidertype:2;
 	if( ret[0][3]!="*" )
 		givemoney(ret[0][3],ret[0][4],
-			HIY"¶ÔÓÚ¡¾"+valroomname+"¡¿£¬"
-			+((valbidtype==2)?"Ò»Î»ÄäÃûÈËÊ¿":me->query("name"))
-			+"³ö¼Û"
+			HIY"å¯¹äºã€"+valroomname+"ã€‘ï¼Œ"
+			+((valbidtype==2)?"ä¸€ä½åŒ¿åäººå£«":me->query("name"))
+			+"å‡ºä»·"
 			+money_str(valbidamount)
-			+"±ÈÄã¸ß£¬ÄãÔ¤¸¶µÄ¶¨½ğÒÑÍË»ØÄãµÄ´æ¿î£¬Çë²éÊÕ\n"NOR);
+			+"æ¯”ä½ é«˜ï¼Œä½ é¢„ä»˜çš„å®šé‡‘å·²é€€å›ä½ çš„å­˜æ¬¾ï¼Œè¯·æŸ¥æ”¶\n"NOR);
 		
 	if(!leasedb("UPDATE "+DB_NAME+" SET "
 	+"bider='"+me->query("id")+ "',"
@@ -355,35 +355,35 @@ int new_bid(object me, string valbidname,int valbidamount, int valbidertype)
 	+"bidertype='"+valbidtype+ "'"
 	+" WHERE U_id='" + valbidname + "' AND U_Site='" + INTERMUD_MUD_NAME + "'")) return 0;
 
-	write(HIY"Äã"+((valbidtype==2)?"ÄäÃû":"ÊµÃû")
-		+"Í¶±ê³É¹¦£¬Í¶±êÑº½ğÒÑ¾­´ÓÄãµÄÒøĞĞ´æ¿îÖĞ¿Û³ı\n"
-		+"ÏÖÔÚµÄ´æ¿îÓà¶îÎª"
+	write(HIY"ä½ "+((valbidtype==2)?"åŒ¿å":"å®å")
+		+"æŠ•æ ‡æˆåŠŸï¼ŒæŠ•æ ‡æŠ¼é‡‘å·²ç»ä»ä½ çš„é“¶è¡Œå­˜æ¬¾ä¸­æ‰£é™¤\n"
+		+"ç°åœ¨çš„å­˜æ¬¾ä½™é¢ä¸º"
 		+money_str(me->query("balance"))
 		+"\n"NOR);
 	
-	CHANNEL_D->do_channel(this_object(),"trade",((valbidtype==2)?"Ò»Î»ÄäÃûÈËÊ¿":me->query("name"))
-		+"³ö¼Û"
+	CHANNEL_D->do_channel(this_object(),"trade",((valbidtype==2)?"ä¸€ä½åŒ¿åäººå£«":me->query("name"))
+		+"å‡ºä»·"
 		+money_str(valbidamount)
-		+HIY"Í¶±ê¡¾"
+		+HIY"æŠ•æ ‡ã€"
 		+valroomname
-		+"¡¿"
+		+"ã€‘"
 		+chinese_time(ret[0][5])
-		+"µÄ×âÓÃÈ¨£¬Ä¿Ç°ÊÇ×î¸ß¼Û£¬Í¶±ê½«ÓÚ"
+		+"çš„ç§Ÿç”¨æƒï¼Œç›®å‰æ˜¯æœ€é«˜ä»·ï¼ŒæŠ•æ ‡å°†äº"
 		+chinese_time(ret[0][6]-time())
-		+"ºó½áÊø"NOR);
+		+"åç»“æŸ"NOR);
 	/*
 	message("channel:chat", 
-		HIW"\n¡¾ÉÌÆÌĞÅÏ¢¡¿"HIY
-		+((valbidtype==2)?"Ò»Î»ÄäÃûÈËÊ¿":me->query("name"))
-		+"³ö¼Û"
+		HIW"\nã€å•†é“ºä¿¡æ¯ã€‘"HIY
+		+((valbidtype==2)?"ä¸€ä½åŒ¿åäººå£«":me->query("name"))
+		+"å‡ºä»·"
 		+money_str(valbidamount)
-		+HIY"Í¶±ê¡¾"
+		+HIY"æŠ•æ ‡ã€"
 		+valroomname
-		+"¡¿"
+		+"ã€‘"
 		+chinese_time(ret[0][5])
-		+"µÄ×âÓÃÈ¨£¬Ä¿Ç°ÊÇ×î¸ß¼Û£¬Í¶±ê½«ÓÚ"
+		+"çš„ç§Ÿç”¨æƒï¼Œç›®å‰æ˜¯æœ€é«˜ä»·ï¼ŒæŠ•æ ‡å°†äº"
 		+chinese_time(ret[0][6]-time())
-		+"ºó½áÊø\n"NOR,
+		+"åç»“æŸ\n"NOR,
 		users());
 	*/
 	return 1;
@@ -410,56 +410,56 @@ void check_lease()
 			:irepayamount-op[3];		
 		valroomname=get_myregions(op[4])+op[5];
 		
-		valreason=HIY"Äã´Ó"
+		valreason=HIY"ä½ ä»"
 			+longtime(op[6])
-			+"Æğ×âµÄ¡¾"
+			+"èµ·ç§Ÿçš„ã€"
 			+valroomname
-			+"¡¿ÒÑ¾­ÓÚ"
+			+"ã€‘å·²ç»äº"
 			+longtime(op[7])
-			+"µ½ÆÚ½áÊø\n×Ü¼ÆÊÕÈëÎª"
+			+"åˆ°æœŸç»“æŸ\næ€»è®¡æ”¶å…¥ä¸º"
 			+money_str(irepayamount)
-			+"£¬Äãµ±³õÍ¶±ê»¨·ÑÎª"
+			+"ï¼Œä½ å½“åˆæŠ•æ ‡èŠ±è´¹ä¸º"
 			+money_str(op[3])
-			+"£¬"
-			+( (op[3]>irepayamount)?"¿÷Ëğ":"Ó¯Àû" )
+			+"ï¼Œ"
+			+( (op[3]>irepayamount)?"äºæŸ":"ç›ˆåˆ©" )
 			+money_str(ipayoff)+"\n";
 		if(op[8]) valreason +=
-			"ÕâÆÚ¼äÄãÒÑ¾­Ìá¿î"
-			+money_str(op[8])+"£¬";
+			"è¿™æœŸé—´ä½ å·²ç»ææ¬¾"
+			+money_str(op[8])+"ï¼Œ";
 		if(irepayamount-op[8]) valreason +=
-			"Óà¶î"
+			"ä½™é¢"
 			+money_str(irepayamount-op[8])
-			+"ÒÑ¾­»®µ½ÄãµÄÒøĞĞ´æ¿î£¬";
-		valreason +="Çë²éÊÕ\n"NOR;
+			+"å·²ç»åˆ’åˆ°ä½ çš„é“¶è¡Œå­˜æ¬¾ï¼Œ";
+		valreason +="è¯·æŸ¥æ”¶\n"NOR;
 				
 		givemoney(op[9],irepayamount-op[8],valreason);
-		valmsg = ((op[10]==2)?"Ò»Î»ÄäÃûÈËÊ¿":op[11])
-			+"×âµÄ¡¾"
+		valmsg = ((op[10]==2)?"ä¸€ä½åŒ¿åäººå£«":op[11])
+			+"ç§Ÿçš„ã€"
 			+valroomname;
 					
 		if( iifpublicrepay==1 )
-			valmsg += "¡¿ÒÑ¾­µ½ÆÚ½áÊø£¬×ÜÊÕÈëÎª"
+			valmsg += "ã€‘å·²ç»åˆ°æœŸç»“æŸï¼Œæ€»æ”¶å…¥ä¸º"
 				+money_str(irepayamount)
-				+"£¬"
-				+( (op[3]>irepayamount)?"¿÷Ëğ":"Ó¯Àû" )
+				+"ï¼Œ"
+				+( (op[3]>irepayamount)?"äºæŸ":"ç›ˆåˆ©" )
 				+money_str(ipayoff)+NOR;
 				//+"\n"NOR;
 		else
-			valmsg += "¡¿ÒÑ¾­µ½ÆÚ½áÊø¡£\n"NOR;
+			valmsg += "ã€‘å·²ç»åˆ°æœŸç»“æŸã€‚\n"NOR;
 		
 		CHANNEL_D->do_channel(this_object(),"trade",valmsg );
 
 		//message("channel:chat", valmsg, users());
 		
-		log_file("leaselog","¡¾"+valroomname+"¡¿"
+		log_file("leaselog","ã€"+valroomname+"ã€‘"
 			+op[11]
-			+((op[10]==2)?"ÄäÃû":"ÊµÃû")
-			+"×âµÄ¡¾"
+			+((op[10]==2)?"åŒ¿å":"å®å")
+			+"ç§Ÿçš„ã€"
 			+valroomname
-			+"¡¿ÒÑ¾­µ½ÆÚ½áÊø£¬×ÜÊÕÈëÎª"
+			+"ã€‘å·²ç»åˆ°æœŸç»“æŸï¼Œæ€»æ”¶å…¥ä¸º"
 			+money_str(irepayamount)
-			+"£¬"
-			+( (op[3]>irepayamount)?"¿÷Ëğ":"Ó¯Àû" )
+			+"ï¼Œ"
+			+( (op[3]>irepayamount)?"äºæŸ":"ç›ˆåˆ©" )
 			+money_str(ipayoff)
 			+"\n");
 		
@@ -473,7 +473,7 @@ void check_lease()
 		+"endtime='"+0+ "',"
 		+"leasertype='"+1+ "'"
 		+" WHERE U_id='" + op[0] + "' AND U_Site='" + INTERMUD_MUD_NAME + "'"))
-			log_file("leaselog","ÉÏ²½Êı¾İ¿â²Ù×÷Ê§°Ü¡£");
+			log_file("leaselog","ä¸Šæ­¥æ•°æ®åº“æ“ä½œå¤±è´¥ã€‚");
 		change_dp(op[0]);
 	}
 }
@@ -493,58 +493,58 @@ void check_bid()
 		//bider,bidendtime,leasetime,roomwhere,originshortname,leaser,bidamount,bidertype,minirent,bidername
 		//[valindex[i]]
 		if( op[1]=="*" ){
-			//Èç¹ûµ½ÆÚÁË»¹Ã»ÓĞÍ¶±êÕß£¬¾Í½«Ê±¼äÑÓ³¤			
+			//å¦‚æœåˆ°æœŸäº†è¿˜æ²¡æœ‰æŠ•æ ‡è€…ï¼Œå°±å°†æ—¶é—´å»¶é•¿			
 			//op[2] = time()+op[3]+60;			
 			valroomname=get_myregions(op[4])+op[5];
 			
-			CHANNEL_D->do_channel(this_object(),"trade","ÓÉÓÚ¡¾"
+			CHANNEL_D->do_channel(this_object(),"trade","ç”±äºã€"
 				+valroomname
-				+"¡¿ÉĞÎŞÈËÍ¶±ê£¬½«½Ø±êÊ±¼äÑÓ³¤µ½"
+				+"ã€‘å°šæ— äººæŠ•æ ‡ï¼Œå°†æˆªæ ‡æ—¶é—´å»¶é•¿åˆ°"
 				+shorttime(op[2])
-				+"£¬Çë´ó¼Ò¿ìÀ´ÀÌ±ãÒË»õÑ½"NOR );
+				+"ï¼Œè¯·å¤§å®¶å¿«æ¥æä¾¿å®œè´§å‘€"NOR );
 			/*
 			message("channel:chat",   
-				HIW"\n¡¾ÉÌÆÌĞÅÏ¢¡¿"HIY
-				+"ÓÉÓÚ¡¾"
+				HIW"\nã€å•†é“ºä¿¡æ¯ã€‘"HIY
+				+"ç”±äºã€"
 				+valroomname
-				+"¡¿ÉĞÎŞÈËÍ¶±ê£¬½«½Ø±êÊ±¼äÑÓ³¤µ½"
+				+"ã€‘å°šæ— äººæŠ•æ ‡ï¼Œå°†æˆªæ ‡æ—¶é—´å»¶é•¿åˆ°"
 				+shorttime(op[2])
-				+"£¬Çë´ó¼Ò¿ìÀ´ÀÌ±ãÒË»õÑ½\n"NOR,
+				+"ï¼Œè¯·å¤§å®¶å¿«æ¥æä¾¿å®œè´§å‘€\n"NOR,
 				users()); */
-		   	log_file("leaselog","ÓÉÓÚ¡¾"+valroomname+"¡¿ÉĞÎŞÈËÍ¶±ê£¬½«½Ø±êÊ±¼äÑÓ³¤µ½"+longtime(op[2])+"\n");
+		   	log_file("leaselog","ç”±äºã€"+valroomname+"ã€‘å°šæ— äººæŠ•æ ‡ï¼Œå°†æˆªæ ‡æ—¶é—´å»¶é•¿åˆ°"+longtime(op[2])+"\n");
 		   	if(!leasedb("UPDATE "+DB_NAME+" SET "
 			+"bidendtime='"+(time()+op[3]+60)+ "'"
 			+" WHERE U_id='" + op[0] + "' AND U_Site='" + INTERMUD_MUD_NAME + "'"))			
-			log_file("leaselog","ÉÏ²½Êı¾İ¿â²Ù×÷Ê§°Ü¡£");
+			log_file("leaselog","ä¸Šæ­¥æ•°æ®åº“æ“ä½œå¤±è´¥ã€‚");
 			continue;
 		};
-		//Èç¹ûµ±Ç°·¿¼ä»¹ÓĞ±ğÈË×âÓÃ£¬Ò²²»ÄÜÈ¥×â
+		//å¦‚æœå½“å‰æˆ¿é—´è¿˜æœ‰åˆ«äººç§Ÿç”¨ï¼Œä¹Ÿä¸èƒ½å»ç§Ÿ
 		if( op[6]!="*" )
 			continue;
 			
 		valroomname=get_myregions(op[4])+op[5];
-		valreason=HIY"¡¾"
+		valreason=HIY"ã€"
 			+valroomname
-			+"¡¿µÄÍ¶±êÖĞ£¬ÄãÒÑ¾­ÖĞ±ê£¬ÖĞ±ê¼ÛÎª£º"
+			+"ã€‘çš„æŠ•æ ‡ä¸­ï¼Œä½ å·²ç»ä¸­æ ‡ï¼Œä¸­æ ‡ä»·ä¸ºï¼š"
 			+money_str( op[7])
-			+"£¬´Ó"
+			+"ï¼Œä»"
 			+longtime(time() )
-			+"Æğ×â£¬µ½"
+			+"èµ·ç§Ÿï¼Œåˆ°"
 			+longtime(time()+op[3] )
-			+"½áÊø\n"NOR;
+			+"ç»“æŸ\n"NOR;
 			
-	   	log_file("leaselog","¡¾"+valroomname+"¡¿"
+	   	log_file("leaselog","ã€"+valroomname+"ã€‘"
    			+op[10]
-			+((op[8]==2)?"ÄäÃû":"ÊµÃû")
-   			+"ÖĞ±ê£¬ÖĞ±ê¼ÛÎª£º"
+			+((op[8]==2)?"åŒ¿å":"å®å")
+   			+"ä¸­æ ‡ï¼Œä¸­æ ‡ä»·ä¸ºï¼š"
 			+money_str(op[7])
-			+"£¬´Ó"
+			+"ï¼Œä»"
 			+longtime(time())
-			+"Æğ×â£¬µ½"
+			+"èµ·ç§Ÿï¼Œåˆ°"
 			+longtime(time()+op[3] )
-			+"½áÊø\n");
+			+"ç»“æŸ\n");
 		
-		//ºÃÁË£¬½«Í¶±ê±äÎª×â
+		//å¥½äº†ï¼Œå°†æŠ•æ ‡å˜ä¸ºç§Ÿ
 		
 		if(!leasedb("UPDATE "+DB_NAME+" SET "
 		+"leaser='"+op[1]+ "',"
@@ -562,55 +562,55 @@ void check_bid()
 		+"bidendtime='"+(time()+op[3]+MYLOG_TIME )+ "',"
 		+"bidertype='"+1+ "'"
 		+" WHERE U_id='" + op[0] + "' AND U_Site='" + INTERMUD_MUD_NAME + "'"))
-			log_file("leaselog","ÉÏ²½Êı¾İ¿â²Ù×÷Ê§°Ü¡£");
-		//ÏÂ´Î¿ªÊ¼Í¶±êÊ±¼äÓ¦¸ÃÔÚÕâ´ÎÖÜÆÚ½áÊøºó
-		//Í¶±ê½áÊøÊ±¼ä±È·¿¼ä×âÆÚµ½µÄÊ±¼ä¶àÒ»µãÊ±¼ä		
+			log_file("leaselog","ä¸Šæ­¥æ•°æ®åº“æ“ä½œå¤±è´¥ã€‚");
+		//ä¸‹æ¬¡å¼€å§‹æŠ•æ ‡æ—¶é—´åº”è¯¥åœ¨è¿™æ¬¡å‘¨æœŸç»“æŸå
+		//æŠ•æ ‡ç»“æŸæ—¶é—´æ¯”æˆ¿é—´ç§ŸæœŸåˆ°çš„æ—¶é—´å¤šä¸€ç‚¹æ—¶é—´		
 		givemoney(op[6],0,valreason);
 		
-		CHANNEL_D->do_channel(this_object(),"trade","ÔÚ¡¾"
+		CHANNEL_D->do_channel(this_object(),"trade","åœ¨ã€"
 			+valroomname
-			+"¡¿µÄÍ¶±êÖĞ£¬"
-			+((op[8]==2)?"Ò»Î»ÄäÃûÈËÊ¿":op[10])
-			+"ÖĞ±ê£¬ÖĞ±ê¼ÛÎª£º"
+			+"ã€‘çš„æŠ•æ ‡ä¸­ï¼Œ"
+			+((op[8]==2)?"ä¸€ä½åŒ¿åäººå£«":op[10])
+			+"ä¸­æ ‡ï¼Œä¸­æ ‡ä»·ä¸ºï¼š"
 			+money_str(op[7])
-			+HIY"£¬´Ó"
+			+HIY"ï¼Œä»"
 			+shorttime(time())
-			+"Æğ×â£¬µ½"
+			+"èµ·ç§Ÿï¼Œåˆ°"
 			+shorttime(time()+op[3])
-			+"½áÊø");
+			+"ç»“æŸ");
 	/*
 		message("channel:chat",   
-			HIW"\n¡¾ÉÌÆÌĞÅÏ¢¡¿"HIY
-			+"ÔÚ¡¾"
+			HIW"\nã€å•†é“ºä¿¡æ¯ã€‘"HIY
+			+"åœ¨ã€"
 			+valroomname
-			+"¡¿µÄÍ¶±êÖĞ£¬"
-			+((op[8]==2)?"Ò»Î»ÄäÃûÈËÊ¿":op[10])
-			+"ÖĞ±ê£¬ÖĞ±ê¼ÛÎª£º"
+			+"ã€‘çš„æŠ•æ ‡ä¸­ï¼Œ"
+			+((op[8]==2)?"ä¸€ä½åŒ¿åäººå£«":op[10])
+			+"ä¸­æ ‡ï¼Œä¸­æ ‡ä»·ä¸ºï¼š"
 			+money_str(op[7])
-			+HIY"£¬´Ó"
+			+HIY"ï¼Œä»"
 			+shorttime(time())
-			+"Æğ×â£¬µ½"
+			+"èµ·ç§Ÿï¼Œåˆ°"
 			+shorttime(time()+op[3])
-			+"½áÊø\n"NOR,
+			+"ç»“æŸ\n"NOR,
 			users());
 		*/
-		CHANNEL_D->do_channel(this_object(),"trade","¡¾"
+		CHANNEL_D->do_channel(this_object(),"trade","ã€"
 			+valroomname
-			+"¡¿µÄÏÂÒ»´ÎÍ¶±ê½«ÓÚ"
+			+"ã€‘çš„ä¸‹ä¸€æ¬¡æŠ•æ ‡å°†äº"
 			+shorttime(time()+NEXT_BID)
-			+"¿ªÊ¼£¬µ×¼ÛÎª£º"
+			+"å¼€å§‹ï¼Œåº•ä»·ä¸ºï¼š"
 			+money_str(op[9])
-			+"£¬Çë´ó¼ÒÓ»Ô¾Í¶±ê\n"NOR );
+			+"ï¼Œè¯·å¤§å®¶è¸Šè·ƒæŠ•æ ‡\n"NOR );
 		/*
 		message("channel:chat",   
-			HIW"\n¡¾ÉÌÆÌĞÅÏ¢¡¿"HIY
-			+"¡¾"
+			HIW"\nã€å•†é“ºä¿¡æ¯ã€‘"HIY
+			+"ã€"
 			+valroomname
-			+"¡¿µÄÏÂÒ»´ÎÍ¶±ê½«ÓÚ"
+			+"ã€‘çš„ä¸‹ä¸€æ¬¡æŠ•æ ‡å°†äº"
 			+shorttime(time()+NEXT_BID)
-			+"¿ªÊ¼£¬µ×¼ÛÎª£º"
+			+"å¼€å§‹ï¼Œåº•ä»·ä¸ºï¼š"
 			+money_str(op[9])
-			+"£¬Çë´ó¼ÒÓ»Ô¾Í¶±ê\n"NOR,
+			+"ï¼Œè¯·å¤§å®¶è¸Šè·ƒæŠ•æ ‡\n"NOR,
 			users());
 		*/
 		change_dp(op[0]);
@@ -645,24 +645,24 @@ void write_log()
 		valroomname=get_myregions(op[4])+op[5];
 
 		valreason=op[6]
-			+"´Ó"
+			+"ä»"
 			+shorttime(op[7])
-			+"Æğ×âµÄ¡¾"
+			+"èµ·ç§Ÿçš„ã€"
 			+valroomname
-			+"¡¿½áÊøÆÚ"
+			+"ã€‘ç»“æŸæœŸ"
 			+shorttime(op[8])
-			+"\n    ×Ü¼ÆÊÕÈëÎª"
+			+"\n    æ€»è®¡æ”¶å…¥ä¸º"
 			+money_str(irepayamount)
-			+"£¬µ±³õÍ¶±ê»¨·ÑÎª"
+			+"ï¼Œå½“åˆæŠ•æ ‡èŠ±è´¹ä¸º"
 			+money_str(op[3])
-			+"£¬"
-			+( (op[3]>irepayamount)?"¿÷Ëğ":"Ó¯Àû" )
+			+"ï¼Œ"
+			+( (op[3]>irepayamount)?"äºæŸ":"ç›ˆåˆ©" )
 			+money_str(ipayoff)
-			+"\nÆÚ¼äÒÑ¾­Ìá¿î"
+			+"\næœŸé—´å·²ç»ææ¬¾"
 			+money_str(op[9])
-			+"£¬Óà¶î"
+			+"ï¼Œä½™é¢"
 			+money_str(irepayamount-op[9])
-			+"£¬µ±Ç°Ê±¼äÎª:"
+			+"ï¼Œå½“å‰æ—¶é—´ä¸º:"
 			+shorttime(time())
 			+"\n";
 	   	log_file(valfilename,valreason);
@@ -676,7 +676,7 @@ int tikuan(object me, string valbidname,int amount)
 	mixed ret;	
 		
 	if(iifstop==1){
-		write("ÊĞ³¡ÒÑ¾­Í£Ö¹×÷Òµ£¡\n");
+		write("å¸‚åœºå·²ç»åœæ­¢ä½œä¸šï¼\n");
 		return 1;
 	}
 	commision=amount/10;	
@@ -684,7 +684,7 @@ int tikuan(object me, string valbidname,int amount)
 		+"payamount=payamount+'"+(amount+commision)+ "'"		
 		+" WHERE U_id='" + valbidname + "' AND U_Site='" + INTERMUD_MUD_NAME + "'"))
 	{
-		write("»®ÕÊÊ§°Ü£¬¿ÉÄÜÉÌµêÒÑ¾­µ¹±Õ£¬¿ìÁªÏµwiz¡£\n");
+		write("åˆ’å¸å¤±è´¥ï¼Œå¯èƒ½å•†åº—å·²ç»å€’é—­ï¼Œå¿«è”ç³»wizã€‚\n");
 		return 1;
 	}
 	
@@ -693,13 +693,13 @@ int tikuan(object me, string valbidname,int amount)
 	if(!ret || sizeof(ret)!=1) return 0;	
 	//payamount[valbidname]+=amount+commision;		
 	valroomname=get_myregions(ret[0][0])+ret[0][1];
-	write(HIY"\nÄã´Ó¡¾"
+	write(HIY"\nä½ ä»ã€"
 			+valroomname
-			+"¡¿µÄÊÕÒæÖĞÔ¤Ö§"
+			+"ã€‘çš„æ”¶ç›Šä¸­é¢„æ”¯"
 			+money_str(amount)
-			+"µ½ÄãµÄÒøĞĞ´æ¿î,¼ÓÊÕÊÖĞø·Ñ"
+			+"åˆ°ä½ çš„é“¶è¡Œå­˜æ¬¾,åŠ æ”¶æ‰‹ç»­è´¹"
 			+money_str(commision)
-			+"ÕâÆÚ¼äÄãÀÛ¼ÆÔ¤Ö§½ğ¶îºÍÊÖĞø·ÑÎª"
+			+"è¿™æœŸé—´ä½ ç´¯è®¡é¢„æ”¯é‡‘é¢å’Œæ‰‹ç»­è´¹ä¸º"
 			+money_str(ret[0][2])
 			+"\n"NOR);
 	return 1;
@@ -717,10 +717,10 @@ string getroomshort(string valroomfilename)
 		return "*";
 	perstr = "";
 	if( ret[0][0] == "*" )
-		return "´ı×âµÄ"+ret[0][1];
+		return "å¾…ç§Ÿçš„"+ret[0][1];
 	if( ret[0][2] == 2 )
-		return "ÒÑ×âµÄ"+ret[0][1];
-	return ret[0][3]+"µÄ"+ret[0][1];
+		return "å·²ç§Ÿçš„"+ret[0][1];
+	return ret[0][3]+"çš„"+ret[0][1];
 }
 
 void add_money(string valroomfilename,int valmoneyamount)
@@ -733,7 +733,7 @@ void add_money(string valroomfilename,int valmoneyamount)
 		+"paytime='"+time()+ "',"
 		+"repayamount=repayamount+'"+(valmoneyamount)+ "'"
 		+" WHERE U_id='" + ret[0][0] + "' AND U_Site='" + INTERMUD_MUD_NAME + "'"))
-		log_file("leaselog","¸¶ÕÊÊ§°Ü¡£");
+		log_file("leaselog","ä»˜å¸å¤±è´¥ã€‚");
 	//repayamount[room_bidname[valroomfilename]] += valmoneyamount;
 }
 
@@ -760,7 +760,7 @@ string get_myregions(string str)
 		
 	regions = TASK_D->get_regions(str);
     if( regions == "" )
-    	regions = "ÖĞÔ­";
+    	regions = "ä¸­åŸ";
     return regions;
 }
 
@@ -770,20 +770,20 @@ string money_str(int amount)
 	string output;
 		
 	if(amount==0)
-		return "ÁãÁ½°×Òø";
+		return "é›¶ä¸¤ç™½é“¶";
 
 	if (amount / 10000) {
-		output = chinese_number(amount / 10000) + "¶§»Æ½ğ";
+		output = chinese_number(amount / 10000) + "é”­é»„é‡‘";
 		amount %= 10000;
 	}
 	else
 		output = "";
 	if (amount / 100) {
-		output = output + chinese_number(amount / 100) + "Á½°×Òø";
+		output = output + chinese_number(amount / 100) + "ä¸¤ç™½é“¶";
 		amount %= 100;
 	}
 	if (amount)
-		return output + chinese_number(amount) + "ÎÄÍ­Ç®";
+		return output + chinese_number(amount) + "æ–‡é“œé’±";
 	return output;
 }
 
@@ -793,16 +793,16 @@ string chinese_time(int total)
 	string tmp = "";
 
 	if (!total)
-		return "ÁãÃë";
+		return "é›¶ç§’";
 	d = total / 86400;
-	if (d) tmp += CHINESE_D->chinese_number(d) + "Ìì";
+	if (d) tmp += CHINESE_D->chinese_number(d) + "å¤©";
 	h = (total % 86400) / 3600;
-	if (h) tmp += CHINESE_D->chinese_number(h) + "Ğ¡Ê±";
+	if (h) tmp += CHINESE_D->chinese_number(h) + "å°æ—¶";
 	m = (total % 3600) / 60;
-	if (m) tmp += CHINESE_D->chinese_number(m) + "·Ö";
+	if (m) tmp += CHINESE_D->chinese_number(m) + "åˆ†";
 	s = total % 60;
-	if (s) tmp += CHINESE_D->chinese_number(s) + "Ãë";
-		else if (m) tmp += "ÖÓ";
+	if (s) tmp += CHINESE_D->chinese_number(s) + "ç§’";
+		else if (m) tmp += "é’Ÿ";
 	return tmp;
 }
 
@@ -812,13 +812,13 @@ string Cday(string ts)
 	sscanf(ts," %d",d);
 	sscanf(ts,"%d",d);
 	if(!d) return 0;
-	return chinese_number(d)+"ÈÕ";
+	return chinese_number(d)+"æ—¥";
 }
 
 string longtime(int t)
 {
 	string ts = ctime(t);
-	ts = " "+ts[19..23]+"Äê"+ts[4..6]+Cday(ts[8..9])+ts[10..15];
+	ts = " "+ts[19..23]+"å¹´"+ts[4..6]+Cday(ts[8..9])+ts[10..15];
 	return Ctime(ts);
 }
 
@@ -832,18 +832,18 @@ string shorttime(int t)
 string Ctime(string ts)
 {
 
-	ts = replace_string(ts, "Jan", "Ò»ÔÂ");
-	ts = replace_string(ts, "Feb", "¶şÔÂ");
-	ts = replace_string(ts, "Mar", "ÈıÔÂ");
-	ts = replace_string(ts, "Apr", "ËÄÔÂ");
-	ts = replace_string(ts, "May", "ÎåÔÂ");
-	ts = replace_string(ts, "Jun", "ÁùÔÂ");
-	ts = replace_string(ts, "Jul", "ÆßÔÂ");
-	ts = replace_string(ts, "Aug", "°ËÔÂ");
-	ts = replace_string(ts, "Sep", "¾ÅÔÂ");
-	ts = replace_string(ts, "Oct", "Ê®ÔÂ");
-	ts = replace_string(ts, "Nov", "Ê®Ò»ÔÂ");
-	ts = replace_string(ts, "Dec", "Ê®¶şÔÂ");
+	ts = replace_string(ts, "Jan", "ä¸€æœˆ");
+	ts = replace_string(ts, "Feb", "äºŒæœˆ");
+	ts = replace_string(ts, "Mar", "ä¸‰æœˆ");
+	ts = replace_string(ts, "Apr", "å››æœˆ");
+	ts = replace_string(ts, "May", "äº”æœˆ");
+	ts = replace_string(ts, "Jun", "å…­æœˆ");
+	ts = replace_string(ts, "Jul", "ä¸ƒæœˆ");
+	ts = replace_string(ts, "Aug", "å…«æœˆ");
+	ts = replace_string(ts, "Sep", "ä¹æœˆ");
+	ts = replace_string(ts, "Oct", "åæœˆ");
+	ts = replace_string(ts, "Nov", "åä¸€æœˆ");
+	ts = replace_string(ts, "Dec", "åäºŒæœˆ");
 	return ts;
 }
 
@@ -863,7 +863,7 @@ int givemoney(string valuserid,int money,string valreason)
 	if(objectp(body = LOGIN_D->find_body(valuserid))) {
 		body->add("balance",money);
 		if( money!=0 )
-			valreason += sprintf(HIY"ÏÖÔÚµÄ´æ¿îÓà¶îÎª%s\n"NOR,
+			valreason += sprintf(HIY"ç°åœ¨çš„å­˜æ¬¾ä½™é¢ä¸º%s\n"NOR,
 				money_str(body->query("balance")));
 		tell_object(body, valreason);
 //		destruct(body);
@@ -876,15 +876,15 @@ int givemoney(string valuserid,int money,string valreason)
 		if( body->restore() ) {
 			body->add("balance",money);
 			if( money!=0 )
-				valreason += sprintf(HIY"ÏÖÔÚµÄ´æ¿îÓà¶îÎª%s\n"NOR,
+				valreason += sprintf(HIY"ç°åœ¨çš„å­˜æ¬¾ä½™é¢ä¸º%s\n"NOR,
 					money_str(body->query("balance")));
 			//if( !body->query("leasemsg") )
 			//	body->set("leasemsg","");
-			valreason = sprintf(HIW"¡¾ÀëÏßÆÚ¼äĞÅÏ¢¡¿"HIY"ÄãÔÚÀëÏßºó£¬ÓÚ%sÏµÍ³Í¨ÖªÄã\n",
+			valreason = sprintf(HIW"ã€ç¦»çº¿æœŸé—´ä¿¡æ¯ã€‘"HIY"ä½ åœ¨ç¦»çº¿åï¼Œäº%sç³»ç»Ÿé€šçŸ¥ä½ \n",
 				 longtime(time()))+valreason;
 			//body->set( "leasemsg",
 			//	((!body->query("leasemsg"))?valreason:body->query("leasemsg")+valreason) );
-			MSG_CMDS->system_send(this_object(),({valuserid}),"ÉÌÆÌ¾­Óª±¨¸æ",valreason);
+			MSG_CMDS->system_send(this_object(),({valuserid}),"å•†é“ºç»è¥æŠ¥å‘Š",valreason);
 			//add
 			body->set_temp("db_quit",1);
 			body->save();
@@ -899,25 +899,25 @@ string get_money_str(int coin)
 {
 	string output;
 	
-	if(!coin) return HIW"ÎŞ"NOR;	
+	if(!coin) return HIW"æ— "NOR;	
 	output = MONEY_D->money_str(coin);
 	while(strlen(strip(output))>10)
 	{
-		if(strsrch(output,"Í­Ç®")!=-1 && strsrch(output,"°×Òø")!=-1)
+		if(strsrch(output,"é“œé’±")!=-1 && strsrch(output,"ç™½é“¶")!=-1)
 		{
-			output = output[0..strsrch(output,"°×Òø")+3];
+			output = output[0..strsrch(output,"ç™½é“¶")+3];
 			continue;
 		}
 		
-		if(strsrch(output,"Í­Ç®")!=-1 && strsrch(output,"»Æ½ğ")!=-1)
+		if(strsrch(output,"é“œé’±")!=-1 && strsrch(output,"é»„é‡‘")!=-1)
 		{
-			output = output[0..strsrch(output,"»Æ½ğ")+3];
+			output = output[0..strsrch(output,"é»„é‡‘")+3];
 			continue;
 		}
 		
-		if(strsrch(output,"°×Òø")!=-1 && strsrch(output,"»Æ½ğ")!=-1)
+		if(strsrch(output,"ç™½é“¶")!=-1 && strsrch(output,"é»„é‡‘")!=-1)
 		{
-			output = output[0..strsrch(output,"»Æ½ğ")+3];
+			output = output[0..strsrch(output,"é»„é‡‘")+3];
 			continue;
 		}
 		
@@ -944,74 +944,74 @@ string query_list(string id)
 		leasemap=query_amap(indexval[i]);
 		valroomname=get_myregions(leasemap["roomwhere"])+leasemap["originshortname"];
 		//message("wizard:ciwei",sprintf("id:%s,map:%O\n",indexval[i],leasemap),users());
-		roomset+=sprintf("©¦%-30s%|10s%|20s%|20s%|16s%|16s©¦\n",
+		roomset+=sprintf("â”‚%-30s%|10s%|20s%|20s%|16s%|16sâ”‚\n",
 			valroomname+NOR"("+indexval[i]+")",
-			( (leasemap["bidtype"]==0)?RED"Í£Ö¹Í¶±ê"NOR:((leasemap["bidtype"]==1)?BLU"ÊµÃûÍ¶±ê"NOR:CYN"ÄäÃûÍ¶±ê"NOR) ),
+			( (leasemap["bidtype"]==0)?RED"åœæ­¢æŠ•æ ‡"NOR:((leasemap["bidtype"]==1)?BLU"å®åæŠ•æ ‡"NOR:CYN"åŒ¿åæŠ•æ ‡"NOR) ),
 			get_money_str(leasemap["minirent"]),
-			//sprintf("%d¶§"HIY+"»Æ½ğ"NOR,leasemap["minirent"]/10000),
+			//sprintf("%dé”­"HIY+"é»„é‡‘"NOR,leasemap["minirent"]/10000),
 			get_money_str(leasemap["minirentadd"]),			
-			//sprintf("%d¶§"HIY+"»Æ½ğ"NOR,leasemap["minirentadd"]/10000),
+			//sprintf("%dé”­"HIY+"é»„é‡‘"NOR,leasemap["minirentadd"]/10000),
 			chinese_time(leasemap["leasetime"]),
-			"Íò·ÖÖ®"+CHINESE_D->chinese_number(leasemap["discount"])
+			"ä¸‡åˆ†ä¹‹"+CHINESE_D->chinese_number(leasemap["discount"])
 			);
-		if((leasemap["bidtype"]!=0 || leasemap["leasername"]!="*")&&(!id||leasemap["leaser"]==id))//ÆÁ±ÎÒÑ¾­Í£Ö¹Í¶±ê ¶øÇÒµ±Ç°ÎŞ³ö×âÈË
+		if((leasemap["bidtype"]!=0 || leasemap["leasername"]!="*")&&(!id||leasemap["leaser"]==id))//å±è”½å·²ç»åœæ­¢æŠ•æ ‡ è€Œä¸”å½“å‰æ— å‡ºç§Ÿäºº
 		{		
 		if(leasemap["leaser"]==id)
-		leasestr+=sprintf("©¦%-30s%|4s%|20s%|18s%|20s%|20s©¦\n",
+		leasestr+=sprintf("â”‚%-30s%|4s%|20s%|18s%|20s%|20sâ”‚\n",
 			valroomname+"("+indexval[i]+")",
-			((leasemap["leasertype"]==2)?RED"ÄäÃû"NOR:HIG"ÊµÃû"NOR),
+			((leasemap["leasertype"]==2)?RED"åŒ¿å"NOR:HIG"å®å"NOR),
 			get_money_str(leasemap["leaser_bidmoney"]),
-			//sprintf("%d¶§"HIY+"»Æ½ğ"NOR,leasemap["leaser_bidmoney"]/10000),
-			(leasemap["endtime"]==0)?"ÎŞ":shorttime(leasemap["endtime"]),
+			//sprintf("%dé”­"HIY+"é»„é‡‘"NOR,leasemap["leaser_bidmoney"]/10000),
+			(leasemap["endtime"]==0)?"æ— ":shorttime(leasemap["endtime"]),
 			get_money_str(sum_by_discount(leasemap["repayamount"],leasemap["discount"])),
-			//sprintf("%d¶§"HIY+"»Æ½ğ"NOR,sum_by_discount(leasemap["repayamount"],leasemap["discount"])/10000),
+			//sprintf("%dé”­"HIY+"é»„é‡‘"NOR,sum_by_discount(leasemap["repayamount"],leasemap["discount"])/10000),
 			get_money_str(leasemap["payamount"]),
-			//sprintf("%d¶§"HIY+"»Æ½ğ"NOR,leasemap["payamount"]/10000),
+			//sprintf("%dé”­"HIY+"é»„é‡‘"NOR,leasemap["payamount"]/10000),
 		);
 		else 
-		leasestr+=sprintf("©¦%-30s%|10s%|20s%|52s©¦\n",
+		leasestr+=sprintf("â”‚%-30s%|10s%|20s%|52sâ”‚\n",
 			valroomname+NOR"("+indexval[i]+")",
-			( (leasemap["leasername"]=="*")?"ÎŞÈË":((leasemap["leasertype"]==2)?"ÄäÃûÈËÊ¿":leasemap["leasername"]) ),
+			( (leasemap["leasername"]=="*")?"æ— äºº":((leasemap["leasertype"]==2)?"åŒ¿åäººå£«":leasemap["leasername"]) ),
 			get_money_str(leasemap["leaser_bidmoney"]),
-			//sprintf("%d¶§"HIY+"»Æ½ğ"NOR,leasemap["leaser_bidmoney"]/10000),
-			sprintf("%+25s%2s%-25s",(leasemap["begintime"]==0)?"ÎŞ":shorttime(leasemap["begintime"]),
-						HIC"¡ú"NOR,
-						(leasemap["endtime"]==0)?"ÎŞ":shorttime(leasemap["endtime"])
+			//sprintf("%dé”­"HIY+"é»„é‡‘"NOR,leasemap["leaser_bidmoney"]/10000),
+			sprintf("%+25s%2s%-25s",(leasemap["begintime"]==0)?"æ— ":shorttime(leasemap["begintime"]),
+						HIC"â†’"NOR,
+						(leasemap["endtime"]==0)?"æ— ":shorttime(leasemap["endtime"])
 			),
 			);
 		}		
-		//Í¶±êÇé¿ö
-		if((leasemap["bidtype"]!=0||leasemap["bidername"]!="*")&&(!id||leasemap["bider"]==id))//ÆÁ±ÎÒÑ¾­Í£Ö¹Í¶±ê ¶øÇÒµ±Ç°ÎŞÍ¶±êÈË
-		bidstr+=sprintf("©¦%-30s%|10s%|20s%|20s%|20s%|12s©¦\n",
+		//æŠ•æ ‡æƒ…å†µ
+		if((leasemap["bidtype"]!=0||leasemap["bidername"]!="*")&&(!id||leasemap["bider"]==id))//å±è”½å·²ç»åœæ­¢æŠ•æ ‡ è€Œä¸”å½“å‰æ— æŠ•æ ‡äºº
+		bidstr+=sprintf("â”‚%-30s%|10s%|20s%|20s%|20s%|12sâ”‚\n",
 			valroomname+NOR"("+indexval[i]+")",
-			(leasemap["bidername"]=="*")?"ÎŞÈË":((leasemap["bidertype"]==2)?"ÄäÃûÈËÊ¿":leasemap["bidername"]),
-			//sprintf("%dÁ½"HIW+"°×Òø"NOR,leasemap["bidamount"]/100),
+			(leasemap["bidername"]=="*")?"æ— äºº":((leasemap["bidertype"]==2)?"åŒ¿åäººå£«":leasemap["bidername"]),
+			//sprintf("%dä¸¤"HIW+"ç™½é“¶"NOR,leasemap["bidamount"]/100),
 			get_money_str(leasemap["bidamount"]),
-			//sprintf("%d¶§"HIY+"»Æ½ğ"NOR,leasemap["bidamount"]/10000),
-			(leasemap["bidtime"]==0)?"ÎŞ":shorttime(leasemap["bidtime"]),
-			(leasemap["bidendtime"]==0)?"ÎŞ":shorttime(leasemap["bidendtime"]),
-			leasemap["bidtype"]==0?RED"Í£Ö¹Í¶±ê"NOR:( time()<leasemap["bidtime"]?HIY"×¼±¸Í¶±ê"NOR:((leasemap["bidendtime"]>time())?HIG"ÕıÔÚÍ¶±ê"NOR:HIY"Í¶±ê½ØÖ¹"NOR))
+			//sprintf("%dé”­"HIY+"é»„é‡‘"NOR,leasemap["bidamount"]/10000),
+			(leasemap["bidtime"]==0)?"æ— ":shorttime(leasemap["bidtime"]),
+			(leasemap["bidendtime"]==0)?"æ— ":shorttime(leasemap["bidendtime"]),
+			leasemap["bidtype"]==0?RED"åœæ­¢æŠ•æ ‡"NOR:( time()<leasemap["bidtime"]?HIY"å‡†å¤‡æŠ•æ ‡"NOR:((leasemap["bidendtime"]>time())?HIG"æ­£åœ¨æŠ•æ ‡"NOR:HIY"æŠ•æ ‡æˆªæ­¢"NOR))
 			);
 	};
 	outstr="";
-	outstr+=sprintf("©°©¤©¤©¤¡ºµ±Ç°³ö×âµÄµêÆÌÓĞ%4d¸ö¡»©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n",sizeof(indexval));
-	outstr+="©¦   µêÆÌ                        Í¶±êÀàĞÍ      ×îµÍÍ¶±ê¼Û           ×îµÍ¼Ó¼Û            ×âÆÚ          Ìá³É±ÈÀı    ©¦\n";
+	outstr+=sprintf("â”Œâ”€â”€â”€ã€å½“å‰å‡ºç§Ÿçš„åº—é“ºæœ‰%4dä¸ªã€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n",sizeof(indexval));
+	outstr+="â”‚   åº—é“º                        æŠ•æ ‡ç±»å‹      æœ€ä½æŠ•æ ‡ä»·           æœ€ä½åŠ ä»·            ç§ŸæœŸ          ææˆæ¯”ä¾‹    â”‚\n";
 	outstr+=roomset;
 	if(leasestr!="")
 	{
-	outstr += "©À©¤©¤©¤¡º³Ğ×âÇé¿ö¡»©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©È\n";
+	outstr += "â”œâ”€â”€â”€ã€æ‰¿ç§Ÿæƒ…å†µã€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤\n";
 	if(id)
-		outstr+="©¦   µêÆÌ                       ÀàĞÍ       ÖĞ±ê¼Û            ×âÆÚ½ØÖ¹             ÊÕÒæ                Ô¤Ö§        ©¦\n";
-	else    outstr+="©¦   µêÆÌ                         ³Ğ×âÈË         ÖĞ±ê¼Û                           ×â        ÆÚ                    ©¦\n";
+		outstr+="â”‚   åº—é“º                       ç±»å‹       ä¸­æ ‡ä»·            ç§ŸæœŸæˆªæ­¢             æ”¶ç›Š                é¢„æ”¯        â”‚\n";
+	else    outstr+="â”‚   åº—é“º                         æ‰¿ç§Ÿäºº         ä¸­æ ‡ä»·                           ç§Ÿ        æœŸ                    â”‚\n";
 	outstr+=leasestr;
 	}
 	if(bidstr!="")
 	{
-	outstr += "©À©¤©¤©¤¡ºÍ¶±êÇé¿ö¡»©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©È\n";	
-	outstr+="©¦   µêÆÌ                       ×î¸ß³ö¼ÛÈË       Í¶±ê¼Û             Í¶±êÊ±¼ä            ½áÊøÊ±¼ä        Í¶±ê×´Ì¬  ©¦\n";
+	outstr += "â”œâ”€â”€â”€ã€æŠ•æ ‡æƒ…å†µã€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤\n";	
+	outstr+="â”‚   åº—é“º                       æœ€é«˜å‡ºä»·äºº       æŠ•æ ‡ä»·             æŠ•æ ‡æ—¶é—´            ç»“æŸæ—¶é—´        æŠ•æ ‡çŠ¶æ€  â”‚\n";
 	outstr+=bidstr;
 	}
-	outstr += "©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n";
+	outstr += "â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n";
 	
 	return outstr;	
 }

@@ -5,15 +5,15 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "×óÓª");
+	set("short", "å·¦è¥");
 	set("long", @long
-ÕâÀïÊÇÄÏÔº×óÓª£¬ÖÚ¶à»áÒéºÍ¾üÊÂ²¿Êğ¶¼ÊÇÕâÀï½øĞĞµÄ£¬ÊÇÆõµ¤µÄºË
-ĞÄµØ´ø£¬ÓĞÖØ±ø°ÑÊØ¡£
+è¿™é‡Œæ˜¯å—é™¢å·¦è¥ï¼Œä¼—å¤šä¼šè®®å’Œå†›äº‹éƒ¨ç½²éƒ½æ˜¯è¿™é‡Œè¿›è¡Œçš„ï¼Œæ˜¯å¥‘ä¸¹çš„æ ¸
+å¿ƒåœ°å¸¦ï¼Œæœ‰é‡å…µæŠŠå®ˆã€‚
 long);
 	set("exits", ([
                 "east" : __DIR__"zhongying",
 	]));
-   set("outdoors", "Î÷Óò");
+   set("outdoors", "è¥¿åŸŸ");
    set("quest",1);
    setup();
 }
@@ -23,17 +23,17 @@ void init()
   me = this_player();
  if(me->query_condition("killer"))
   {
-   message_vision(HIC"\nÍ»È»$NËÆºõÆøÑªÓĞĞ©²»Ë³£¬¸ú×ÅÒ»¸öôóôòµ¹ÁËÏÂÈ¥¡£\n"NOR,me); 
-   tell_object(me,HIR"ÄãÍ»È»¸Ğµ½Ò»¹ÉÁ¦Á¿ÎüÒı×ÅÄã£¬Ë²¼äÄãÊ§È¥Öª¾õ¡£\n"NOR);
-   tell_room(environment(me),HIR"\nÖ»¼û£¬µØÉÏÍ»È»³öÏÖÒ»¸öÁÑ¶´£¬"+ me->name()+ "Ò»Í·ÔúÁËÏÂÈ¥£¬Ë²¼äÏûÊ§¡£\n"NOR, ({  }));
+   message_vision(HIC"\nçªç„¶$Nä¼¼ä¹æ°”è¡€æœ‰äº›ä¸é¡ºï¼Œè·Ÿç€ä¸€ä¸ªè¶”è¶„å€’äº†ä¸‹å»ã€‚\n"NOR,me); 
+   tell_object(me,HIR"ä½ çªç„¶æ„Ÿåˆ°ä¸€è‚¡åŠ›é‡å¸å¼•ç€ä½ ï¼Œç¬é—´ä½ å¤±å»çŸ¥è§‰ã€‚\n"NOR);
+   tell_room(environment(me),HIR"\nåªè§ï¼Œåœ°ä¸Šçªç„¶å‡ºç°ä¸€ä¸ªè£‚æ´ï¼Œ"+ me->name()+ "ä¸€å¤´æ‰äº†ä¸‹å»ï¼Œç¬é—´æ¶ˆå¤±ã€‚\n"NOR, ({  }));
    me->move(__DIR__"shanlu1"); 
-   tell_room(environment(me), HIR"\n°ë¿ÕÖĞ£¬ËÆºõÒ»¸öÈËµôÁËÏÂÀ´£¬Äã¶¨ÑÛÒ»¿´¾¹È»ÊÇ"+ me->name()+ "¡£\n"NOR, ({  }));
+   tell_room(environment(me), HIR"\nåŠç©ºä¸­ï¼Œä¼¼ä¹ä¸€ä¸ªäººæ‰äº†ä¸‹æ¥ï¼Œä½ å®šçœ¼ä¸€çœ‹ç«Ÿç„¶æ˜¯"+ me->name()+ "ã€‚\n"NOR, ({  }));
    me->unconcious();
    return;
   }
-  if(!me->query("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/start")) return;
-   if(me->query("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/over")) return; 
-  if(!me->query_temp("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/godaliao")) return; 
+  if(!me->query("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/start")) return;
+   if(me->query("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/over")) return; 
+  if(!me->query_temp("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/godaliao")) return; 
  
   obj1=new(__DIR__"npc/liaobing");
   obj1->set("teamleader",1);
@@ -65,26 +65,26 @@ int do_push(string arg)
   if (me->is_fighting())return 0;
   if (skill<100)
   {
-	  message_vision("$NÃÍÎüÒ»¿ÚÆø£¬ÓÃÁ¦ÍÆÁËÍÆ°µÊÒ£¬¿ÉÊÇÒÀÈ»ÎÆË¿²»¶¯£¬¿´À´»¹ĞèÒªÔÙÁ·Á·²ÅĞĞ¡£\n", me);
+	  message_vision("$NçŒ›å¸ä¸€å£æ°”ï¼Œç”¨åŠ›æ¨äº†æ¨æš—å®¤ï¼Œå¯æ˜¯ä¾ç„¶çº¹ä¸ä¸åŠ¨ï¼Œçœ‹æ¥è¿˜éœ€è¦å†ç»ƒç»ƒæ‰è¡Œã€‚\n", me);
 	  return 1;
   }
-  if(!me->query_temp("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/dianhuo"))
+  if(!me->query_temp("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/dianhuo"))
   {
 	  obj=new(__DIR__"npc/liaobing");
 	  obj->set("teamleader",1);
 	  obj->set("fight_id",me->query("id"));
 	  obj->move(environment(me)); 
-	  tell_object(me,HIR"\n°µÊÒÖ®Íâ£¬ÓùÓªÇ×±ø£¬²ã²ã°üÎ§¡£Äã¸ÕÒªÍÆ¿ª°µÊÒ£¬±ßÉÏÓÖÌø¹ıÒ»¸öÁÉ±ø¡£\n"NOR);
+	  tell_object(me,HIR"\næš—å®¤ä¹‹å¤–ï¼Œå¾¡è¥äº²å…µï¼Œå±‚å±‚åŒ…å›´ã€‚ä½ åˆšè¦æ¨å¼€æš—å®¤ï¼Œè¾¹ä¸Šåˆè·³è¿‡ä¸€ä¸ªè¾½å…µã€‚\n"NOR);
 	  return 1;
   }
   if(present("liao bing",this_object()))
   {
-	  tell_object(me,HIR"\n»¹ÊÇÏÈ½â¾öÁÉ±ø£¬ÔÙÀ´¿ªÕâ°µÊÒ¡£\n"NOR);
+	  tell_object(me,HIR"\nè¿˜æ˜¯å…ˆè§£å†³è¾½å…µï¼Œå†æ¥å¼€è¿™æš—å®¤ã€‚\n"NOR);
 	  return 1;
   }
   if( !query("exits/west") ) {
- 	   message_vision("$NÃÍÎüÒ»¿ÚÆø£¬ÓÃÁ¦ÍÆÁËÍÆ°µÊÒ£¬¾¹È»´ò¿ªÒ»ÌõÍ¨Ïò°µÊÒµÄÍ¨µÀ¡£\n", me);
-	   log_file("quest/TLBB", sprintf("%s(%s)ÕÒµ½°µÊÒ£¬ÌØ´Ë¼ÍÂ¼¡£¾­Ñé£º%d¡£\n", me->name(1),me->query("id"), me->query("combat_exp")) ); 
+ 	   message_vision("$NçŒ›å¸ä¸€å£æ°”ï¼Œç”¨åŠ›æ¨äº†æ¨æš—å®¤ï¼Œç«Ÿç„¶æ‰“å¼€ä¸€æ¡é€šå‘æš—å®¤çš„é€šé“ã€‚\n", me);
+	   log_file("quest/TLBB", sprintf("%s(%s)æ‰¾åˆ°æš—å®¤ï¼Œç‰¹æ­¤çºªå½•ã€‚ç»éªŒï¼š%dã€‚\n", me->name(1),me->query("id"), me->query("combat_exp")) ); 
      set("exits/west", __DIR__"anshi");
      remove_call_out("close_path");
      call_out("close_path", 15);
@@ -94,12 +94,12 @@ int do_push(string arg)
 void close_path()
 {
         if(!query("exits/west")) return;
-        message("vision","Ò»»á»á£¬àÌµÄÒ»Éù£¬Ç½ÓÖ»Ö¸´Ô­Ñù¡£\n", this_object() );
+        message("vision","ä¸€ä¼šä¼šï¼Œå—µçš„ä¸€å£°ï¼Œå¢™åˆæ¢å¤åŸæ ·ã€‚\n", this_object() );
         delete("exits/west");      
 }
 
 int valid_leave(object me, string dir)
 {
-  if(present("liao bing",environment(me)))  return notify_fail("ÁÉ±øÒ»°Ñ½«ÄãÀ¹×¡£ºÄÄÀïÅÜ£¡\n" );
+  if(present("liao bing",environment(me)))  return notify_fail("è¾½å…µä¸€æŠŠå°†ä½ æ‹¦ä½ï¼šå“ªé‡Œè·‘ï¼\n" );
   return ::valid_leave(me, dir);
 }

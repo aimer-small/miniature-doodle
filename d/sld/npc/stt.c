@@ -1,4 +1,4 @@
-// ÅÖÍ·ÍÓ
+// èƒ–å¤´é™€
 
 inherit F_MASTER;
 inherit NPC;
@@ -9,10 +9,10 @@ int time=0;
 
 void create()
 {
-	set_name("ÊÝÍ·ÍÓ", ({ "shou toutuo","toutuo","shou" }));
-	set("long","ËûÓÖ°«ÓÖÅÖ£¬Èâ¶Õ¶ÕµØÏñ¸öÔ°Çò£¬Íº¶¥ÎÞ·¢£¬ÉíÉÏ´©¼þ²¼ÅÛ£¬ËûÊÇÉñÁú½ÌµÄ»¤·¨¡£\n");
-	set("gender", "ÄÐÐÔ");
-	set("title", "ÉñÁú½Ì»¤·¨");	
+	set_name("ç˜¦å¤´é™€", ({ "shou toutuo","toutuo","shou" }));
+	set("long","ä»–åˆçŸ®åˆèƒ–ï¼Œè‚‰å¢©å¢©åœ°åƒä¸ªå›­çƒï¼Œç§ƒé¡¶æ— å‘ï¼Œèº«ä¸Šç©¿ä»¶å¸ƒè¢ï¼Œä»–æ˜¯ç¥žé¾™æ•™çš„æŠ¤æ³•ã€‚\n");
+	set("gender", "ç”·æ€§");
+	set("title", "ç¥žé¾™æ•™æŠ¤æ³•");	
 	set("age", 40);       
 	set("str", 40);
 	set("int", 12);
@@ -53,11 +53,11 @@ void create()
 	prepare_skill("leg","shenlong-tuifa");
 
 	set("inquiry", ([
-		"»¤Ï¥" : (: ask_huxi :),
+		"æŠ¤è†" : (: ask_huxi :),
 		"huxi" : (: ask_huxi :),
 	]) );
       
-      create_family("ÉñÁú½Ì",2, "»¤·¨");
+      create_family("ç¥žé¾™æ•™",2, "æŠ¤æ³•");
       setup();
       carry_object(__DIR__"obj/bupao")->wear(); 
       carry_object(__DIR__"obj/huxi")->wear(); 
@@ -70,7 +70,7 @@ int ask_huxi()
 	object me=this_player();
 
 	myfam = (mapping)me->query("family");
-	if(!myfam || myfam["family_name"] != "ÉñÁú½Ì")
+	if(!myfam || myfam["family_name"] != "ç¥žé¾™æ•™")
 		return 0;
 
 	if(time=0)
@@ -82,14 +82,14 @@ int ask_huxi()
 	}
 
 	if (leg<=0) {
-		command("say »¤Ï¥¶¼¸ø±ðÈËÄÃ×ßÁË£¡");
+		command("say æŠ¤è†éƒ½ç»™åˆ«äººæ‹¿èµ°äº†ï¼");
 		return 1;
 	}
 
 	huxi= new(__DIR__"obj/huxi");
-	if (!huxi)  return notify_fail("Òì³£´íÎó£¡\n");
+	if (!huxi)  return notify_fail("å¼‚å¸¸é”™è¯¯ï¼\n");
 
-	command("say ºÃ°É£¬Õâ¸±»¤Ï¥"+me->query("name")+"Äã¾ÍÄÃÈ¥°É¡£");
+	command("say å¥½å§ï¼Œè¿™å‰¯æŠ¤è†"+me->query("name")+"ä½ å°±æ‹¿åŽ»å§ã€‚");
 	huxi->move(me);      
 
 	leg--;
@@ -107,15 +107,15 @@ int recognize_apprentice(object ob)
 	object hw;
 
 	myfam = (mapping)ob->query("family");
-	if(myfam && (myfam["family_name"] == "ÉñÁú½Ì")&&(ob->query("shen",1) >0))  {
-		command("say ºß£¡Äã¾¹È»¸ÒºÍ°×µÀÖÐÈË¸ãÔÚÒ»Æð£¬ÊÇ²»ÊÇ²»Ïë»îÁË£¿£¡È¥ºÚÎÝºÃºÃ·´Ê¡·´Ê¡°É£¡");
+	if(myfam && (myfam["family_name"] == "ç¥žé¾™æ•™")&&(ob->query("shen",1) >0))  {
+		command("say å“¼ï¼ä½ ç«Ÿç„¶æ•¢å’Œç™½é“ä¸­äººæžåœ¨ä¸€èµ·ï¼Œæ˜¯ä¸æ˜¯ä¸æƒ³æ´»äº†ï¼Ÿï¼åŽ»é»‘å±‹å¥½å¥½åçœåçœå§ï¼");
 		if(!objectp(hw=find_object("/d/sld/npc/obj/heiwu")))
 			hw=load_object("/d/sld/npc/obj/heiwu");
 		ob->set("in_heiwu",time());
 		ob->move(hw);        
 		return 0;
 	}
-       if(myfam && (myfam["family_name"] == "ÉñÁú½Ì")&&(ob->query("shen",1) < -30000)
+       if(myfam && (myfam["family_name"] == "ç¥žé¾™æ•™")&&(ob->query("shen",1) < -30000)
           && (ob->query_skill("dulong-dafa",1)>=100) && 
           (ob->query_skill("huagu-mianzhang",1)>=100))
         {

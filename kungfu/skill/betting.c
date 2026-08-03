@@ -8,7 +8,7 @@ int valid_learn(object me)
 // no this ob
 
         if( (int)me->query_skill("betting") >=  100)
-                return notify_fail("赌之术到了这个程度只能从实赌中提高。\n");
+                return notify_fail("璧屼箣鏈埌浜嗚繖涓▼搴﹀彧鑳戒粠瀹炶祵涓彁楂樸�俓n");
 
         return 1;
 }
@@ -21,7 +21,7 @@ int valid_enable(string usage)
 int practice_skill(object me)
 {
         if( (int)me->query_skill("betting") >=  100)
-                return notify_fail("赌之术到了这个程度只能从实赌中提高。\n");
+                return notify_fail("璧屼箣鏈埌浜嗚繖涓▼搴﹀彧鑳戒粠瀹炶祵涓彁楂樸�俓n");
         return 1;
 }
 

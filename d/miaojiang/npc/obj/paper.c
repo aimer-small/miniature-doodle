@@ -1,13 +1,13 @@
 inherit ITEM;
 void create()
 {
-        set_name("Á½Ò³µ¶·¨", ({ "liangye daofa", "paper","book"}));
+        set_name("ä¸¤é¡µåˆ€æ³•", ({ "liangye daofa", "paper","book"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
-                set("long", "ÕâËÆºõÊÇÒ»±¾ÊéÉÏ²ÐÈ±µÄ¼¸Ò³¹ØÓÚµ¶·¨µÄÊé¡£\n");
+                set("unit", "æœ¬");
+                set("long", "è¿™ä¼¼ä¹Žæ˜¯ä¸€æœ¬ä¹¦ä¸Šæ®‹ç¼ºçš„å‡ é¡µå…³äºŽåˆ€æ³•çš„ä¹¦ã€‚\n");
                 set("unique", 1);
                 set("treasure",1);                              
                 set("value", 1000);

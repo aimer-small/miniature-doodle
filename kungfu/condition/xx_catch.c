@@ -1,6 +1,6 @@
 //by cool 98.6 for dalijob
 // dali_songxin.c
-//¸Ä±àÕßcaiji@SJ 8/24/2000
+//æ”¹ç¼–è€…caiji@SJ 8/24/2000
 #include <ansi.h>
 #include <login.h>
 
@@ -9,10 +9,10 @@ int update_condition(object me, int duration)
       int time;
       time = me->query_temp("xx/catch_time");
 
-        if (duration < 5) tell_object(me, HIY "Äã×¥³æµÄÊ±¼ä¿ìµ½ÁË£¬¸Ï½ô»ØÈ¥°Ñ³æ×Ó¸øÊØÎÀ°É£¡\n" NOR);
+        if (duration < 5) tell_object(me, HIY "ä½ æŠ“è™«çš„æ—¶é—´å¿«åˆ°äº†ï¼Œèµ¶ç´§å›žåŽ»æŠŠè™«å­ç»™å®ˆå«å§ï¼\n" NOR);
         if (duration < 1) {
 
-             tell_object(me, HIY "ÄãÊ±¼äÒÑµ½£¬±¾´Î×¥³æ×Ó½áÊø£¡\n" NOR);
+             tell_object(me, HIY "ä½ æ—¶é—´å·²åˆ°ï¼Œæœ¬æ¬¡æŠ“è™«å­ç»“æŸï¼\n" NOR);
          
               me->delete_temp("xx_zuji",1);
               me->delete_temp("xx_zuji1",1);
@@ -23,10 +23,10 @@ int update_condition(object me, int duration)
 
 
 
-  if(duration > time/7 && environment(me)->query("short")=="¶¾³æ¹È" && living(me)
+  if(duration > time/7 && environment(me)->query("short")=="æ¯’è™«è°·" && living(me)
     && duration < time && !me->query_temp("xx_zuji",1) && random(10)>3 &&(interactive(me)))
        {
-       tell_object(me, HIY "Äã¾õµÄÓÐÐ©²»Ãî£¬ËÆºõÖÜÎ§»¹ÓÐÊ²Ã´ÈËÔÚ£¬±»ÈË¶¢ÉÏÁË£¡\n" NOR);
+       tell_object(me, HIY "ä½ è§‰çš„æœ‰äº›ä¸å¦™ï¼Œä¼¼ä¹Žå‘¨å›´è¿˜æœ‰ä»€ä¹ˆäººåœ¨ï¼Œè¢«äººç›¯ä¸Šäº†ï¼\n" NOR);
         me->add_busy(1);
 
        call_out("zuji", 0, me);    
@@ -44,14 +44,14 @@ void zuji(object me)
           obj = new("/d/xingxiu/npc/shashou");
           obj->set("target", me);
           obj->move(environment(me));
-          tell_object(me,"ÄãÒþÔ¼¸Ð¾õµ½ÓÐÈËÎ§ÁË¹ýÀ´....!!! \n");
+          tell_object(me,"ä½ éšçº¦æ„Ÿè§‰åˆ°æœ‰äººå›´äº†è¿‡æ¥....!!! \n");
           me->set_temp("xx_zuji",1);
 
         if (me->query("combat_exp")>1000000)
          call_out("killer_clone", 2, me);
            } else {
 
- tell_object(me, RED "ÄãÒ»½ôÕÅ£¬ÉúÅÂÓÐÈËÍµÏ®£¬Ô¶´¦´«À´¡°Äã×½µÄ³æ×ÓÐ¡¶øÇÒ¶¾ÐÔÈõ£¡ÎÒ»¹ÊÇÕÒ±ðÈËÈ¥°É£¡¡±\n" NOR);
+ tell_object(me, RED "ä½ ä¸€ç´§å¼ ï¼Œç”Ÿæ€•æœ‰äººå·è¢­ï¼Œè¿œå¤„ä¼ æ¥â€œä½ æ‰çš„è™«å­å°è€Œä¸”æ¯’æ€§å¼±ï¼æˆ‘è¿˜æ˜¯æ‰¾åˆ«äººåŽ»å§ï¼â€\n" NOR);
 
    }
     return;
@@ -60,7 +60,7 @@ void killer_clone(object me)
 {
         object obj;
 
-tell_object(me,"Ôã¸â£¬ÓÖ³åÉÏÀ´ÁË¸öÈË....!!! \n");
+tell_object(me,"ç³Ÿç³•ï¼Œåˆå†²ä¸Šæ¥äº†ä¸ªäºº....!!! \n");
       obj = new("/d/xingxiu/npc/shashou");
 obj->set("target", me);
 obj->move(environment(me));

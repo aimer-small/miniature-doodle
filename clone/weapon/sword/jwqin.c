@@ -1,4 +1,4 @@
-//jiaowei qin ½¹Î²ÇÙ
+//jiaowei qin ç„¦å°¾ç´
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,20 +7,20 @@ inherit SWORD;
 
 void create()
 {
-	set_name(MAG"½¹Î²ÇÙ"NOR,({"jiaowei qin","qin", "jiaowei"}));
+	set_name(MAG"ç„¦å°¾ç´"NOR,({"jiaowei qin","qin", "jiaowei"}));
 	set_weight(10000);
 	if(clonep())
 		set_default_object(__FILE__);
 	else{
-		set("unit","ÕÅ");
+		set("unit","å¼ ");
 		set("value",3000);
 		set("material","steel");
 		set("unique", 1);
 		set("rigidity", 5);
 		set("treasure",1);
-		set("long","Ïà´«Õâ±ãÊÇµ±Äê²ÌÎÄ¼§´Ó»ğÖĞËù¾È³öµÄ½¹Ä¾×ö³ÉµÄÃÀÇÙ£¬ÇÙµÄÎ²¶ËÈÔ¿É¼û½¹ºÚÉ«¡£\n");
-		set("wield_msg",HIY"$NÉìÊÖÇáÇáÒ»»Ó£¬Ò»ÕÅ$n"HIY"±ãÒÑ³öÏÖÔÚ$NÊÖÖĞ¡£\n"NOR);
-		set("unwield_msg",HIY"$NÊ®Ö¸Ò»·÷£¬ÇÙÉùÒ·È»¶øÖ¹¡£$NÊÕÆğ$n"HIY"£¬·Å½ø±³×ÅµÄ°ü¸¤Àï¡£\n"NOR);
+		set("long","ç›¸ä¼ è¿™ä¾¿æ˜¯å½“å¹´è”¡æ–‡å§¬ä»ç«ä¸­æ‰€æ•‘å‡ºçš„ç„¦æœ¨åšæˆçš„ç¾ç´ï¼Œç´çš„å°¾ç«¯ä»å¯è§ç„¦é»‘è‰²ã€‚\n");
+		set("wield_msg",HIY"$Nä¼¸æ‰‹è½»è½»ä¸€æŒ¥ï¼Œä¸€å¼ $n"HIY"ä¾¿å·²å‡ºç°åœ¨$Næ‰‹ä¸­ã€‚\n"NOR);
+		set("unwield_msg",HIY"$NåæŒ‡ä¸€æ‹‚ï¼Œç´å£°æ›³ç„¶è€Œæ­¢ã€‚$Næ”¶èµ·$n"HIY"ï¼Œæ”¾è¿›èƒŒç€çš„åŒ…è¢±é‡Œã€‚\n"NOR);
 	}
 	init_sword(60);
 	setup();
@@ -42,13 +42,13 @@ int do_ba(string arg)
 	if (arg != "sword" && arg != "jian")
 		return 0;
 	if (query("equipped"))
-		return notify_fail("Äã±ØĞëÏÈ°ÑÇÙ·ÅÏÂÀ´¡£\n");
+		return notify_fail("ä½ å¿…é¡»å…ˆæŠŠç´æ”¾ä¸‹æ¥ã€‚\n");
 	if (flag || !(ob  = unew(BINGQI_D("sword/qz-jian")))) {
 		flag = 1;
-		return notify_fail("ÇÙÖĞÒÑ¿ÕÎŞÒ»Îï¡£\n");
+		return notify_fail("ç´ä¸­å·²ç©ºæ— ä¸€ç‰©ã€‚\n");
 	}
 	ob->move(me);
-	message_vision("$N·ÅÏÂ±³ÉÏµÄ"+name()+"£¬´ÓÇÙµ×³é³öÒ»°Ñ±¦½££¬µ«¼ûÇà¹âÉÁÉÁ£¬º®Æø±ÆÈË¡£\n",me);
+	message_vision("$Næ”¾ä¸‹èƒŒä¸Šçš„"+name()+"ï¼Œä»ç´åº•æŠ½å‡ºä¸€æŠŠå®å‰‘ï¼Œä½†è§é’å…‰é—ªé—ªï¼Œå¯’æ°”é€¼äººã€‚\n",me);
 	destruct(this_object());
 	return 1;
 }

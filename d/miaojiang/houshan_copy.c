@@ -3,15 +3,15 @@
 
 #include <ansi.h>
 inherit ROOM;
-#define QUESTDIR2 "quest/Ñ©É½·Éºü/¸´³ðÆª/"
+#define QUESTDIR2 "quest/é›ªå±±é£žç‹/å¤ä»‡ç¯‡/"
 
 void create()
 {
-        set("short","ºóÉ½");
+        set("short","åŽå±±");
         set("long", @LONG
-¹ÅÊ÷²ÎÌì£¬¾£¼¬ÃÜ²¼£¬Ò»²»Ð¡ÐÄ¾Í»á±»¹Òµ½ÁËÊÖ½Å¡£Å¨ÃÜ¿íºñµÄÊ÷Ò¶ÕÚ±Î
-ÁËÈÕÔÂÐÇ³½£¬µØÉÏÁãÐÇÉ¢Âä×Å²¶ÉßÈË²È¹ýµÄ½ÅÓ¡£¬ËÄÖÜËÀÒ»°ãµÄ¼Å¾²£¬Ö»ÓÐ·ç
-´µ¹ýÊ÷ÉÒµÄÉ³É³Ö®Éù¡£±éµØÅÀÂúÁË¸÷ÖÖ¶¾³æ£¬Äã²»½û²úÉúÁËÍËËõÖ®ÐÄ¡£
+å¤æ ‘å‚å¤©ï¼Œè†æ£˜å¯†å¸ƒï¼Œä¸€ä¸å°å¿ƒå°±ä¼šè¢«æŒ‚åˆ°äº†æ‰‹è„šã€‚æµ“å¯†å®½åŽšçš„æ ‘å¶é®è”½
+äº†æ—¥æœˆæ˜Ÿè¾°ï¼Œåœ°ä¸Šé›¶æ˜Ÿæ•£è½ç€æ•è›‡äººè¸©è¿‡çš„è„šå°ï¼Œå››å‘¨æ­»ä¸€èˆ¬çš„å¯‚é™ï¼Œåªæœ‰é£Ž
+å¹è¿‡æ ‘æ¢¢çš„æ²™æ²™ä¹‹å£°ã€‚éåœ°çˆ¬æ»¡äº†å„ç§æ¯’è™«ï¼Œä½ ä¸ç¦äº§ç”Ÿäº†é€€ç¼©ä¹‹å¿ƒã€‚
 LONG                           
         );
 
@@ -19,7 +19,7 @@ LONG
         set("exits", ([
                 "southeast" : __DIR__"shanlu",
         ]));
-        set("outdoors", "Ãç½®");
+        set("outdoors", "è‹—ç–†");
         setup();
 }
 void init()
@@ -36,12 +36,12 @@ void greeting(object me)
 	object obj;
 	if(!me) return;
 	if(!present(me,this_object())) return;
-	tell_object(me,HIG"Äã¿´ÁË¿´ËÄÖÜ£¬·¢ÏÖÕâÀï¸ù±¾Ã»ÓÐÈËÐÐµÄºÛ¼££¬»òÐíÊÇÂ·×ß´íÁË¡£\n"NOR);
+	tell_object(me,HIG"ä½ çœ‹äº†çœ‹å››å‘¨ï¼Œå‘çŽ°è¿™é‡Œæ ¹æœ¬æ²¡æœ‰äººè¡Œçš„ç—•è¿¹ï¼Œæˆ–è®¸æ˜¯è·¯èµ°é”™äº†ã€‚\n"NOR);
 	if(random(2))
 	{
 		      j=me->query_skill("force");
           obj=new("/d/sld/npc/dushe");
-          message_vision(HIC"Í»È»£¬²Ý´ÔÖÐ×ê³öÒ»Ö»"+obj->name()+"¡£\n"NOR,me);
+          message_vision(HIC"çªç„¶ï¼Œè‰ä¸›ä¸­é’»å‡ºä¸€åª"+obj->name()+"ã€‚\n"NOR,me);
 		      obj->set("combat_exp", me->query("combat_exp"));
 		      obj->set("max_qi", me->query("max_qi")*3);
 		      obj->set("eff_qi", me->query("max_qi")*3);
@@ -65,7 +65,7 @@ void greeting(object me)
 		      obj->set_skill("parry",j + random(50));
 		      obj->move(environment(me));
 		      obj->set_leader(me);
-		      message_vision(RED"$N¾ö¶¨ºÍ$nÒ»ÆðÐÐ¶¯¡£\n"NOR,obj,me);
+		      message_vision(RED"$Nå†³å®šå’Œ$nä¸€èµ·è¡ŒåŠ¨ã€‚\n"NOR,obj,me);
 		      obj->kill_ob(me);
 	}
 }

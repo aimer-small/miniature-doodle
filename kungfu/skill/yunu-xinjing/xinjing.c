@@ -5,41 +5,41 @@
 #include <ansi.h>
 inherit F_CLEAN_UP;
 string *pictures=({
-  HIY"ÉÙË¼¡¢"YEL"ÉÙÄî¡¢"HIC"ÉÙÓû¡¢"HIR"ÉÙÊÂ¡¢"HIB"ÉÙÓï¡¢"MAG"ÉÙĞ¦"HIW,
-  YEL"ÉÙ³î¡¢"CYN"ÉÙÀÖ¡¢"HIG"ÉÙÏ²¡¢"HIR"ÉÙÅ­¡¢"HIY"ÉÙºÃ¡¢"RED"ÉÙ¶ñ"HIW,
-  HIC"¶àË¼"HIG"Ôò"HIW"Éñµ¡£¬"HIB"¶àÄî"MAG"Ôò"HIY"¾«É¢"HIW,
-  HIR"¶àÓû"YEL"Ôò"BLU"ÖÇËğ£¬"MAG"¶àÊÂ"RED"Ôò"HIG"ĞÎÆ£"HIW,
-  HIB"¶àÓï"CYN"Ôò"RED"Æø´Ù£¬"HIR"¶àĞ¦"HIC"Ôò"BLU"¸ÎÉË"HIW,
-  MAG"¶à³î"YEL"Ôò"HIR"ĞÄÉå£¬"RED"¶àÀÖ"BLU"Ôò"HIY"ÒâÒç"HIW,
-  HIW"¶àÏ²"HIG"Ôò"HIY"Íü´í"MAG"»èÂÒ£¬"HIC"¶àÅ­"HIR"Ôò"HIB"°ÙÂö"HIG"²»¶¨"HIW,
-  HIG"¶àºÃ"RED"Ôò"BLU"×¨ÃÔ"HIG"²»ÖÎ£¬"HIW"¶à¶ñ"HIB"Ôò"MAG"½¹¼å"CYN"ÎŞÄş"HIW
+  HIY"å°‘æ€ã€"YEL"å°‘å¿µã€"HIC"å°‘æ¬²ã€"HIR"å°‘äº‹ã€"HIB"å°‘è¯­ã€"MAG"å°‘ç¬‘"HIW,
+  YEL"å°‘æ„ã€"CYN"å°‘ä¹ã€"HIG"å°‘å–œã€"HIR"å°‘æ€’ã€"HIY"å°‘å¥½ã€"RED"å°‘æ¶"HIW,
+  HIC"å¤šæ€"HIG"åˆ™"HIW"ç¥æ€ ï¼Œ"HIB"å¤šå¿µ"MAG"åˆ™"HIY"ç²¾æ•£"HIW,
+  HIR"å¤šæ¬²"YEL"åˆ™"BLU"æ™ºæŸï¼Œ"MAG"å¤šäº‹"RED"åˆ™"HIG"å½¢ç–²"HIW,
+  HIB"å¤šè¯­"CYN"åˆ™"RED"æ°”ä¿ƒï¼Œ"HIR"å¤šç¬‘"HIC"åˆ™"BLU"è‚ä¼¤"HIW,
+  MAG"å¤šæ„"YEL"åˆ™"HIR"å¿ƒæ…‘ï¼Œ"RED"å¤šä¹"BLU"åˆ™"HIY"æ„æº¢"HIW,
+  HIW"å¤šå–œ"HIG"åˆ™"HIY"å¿˜é”™"MAG"æ˜ä¹±ï¼Œ"HIC"å¤šæ€’"HIR"åˆ™"HIB"ç™¾è„‰"HIG"ä¸å®š"HIW,
+  HIG"å¤šå¥½"RED"åˆ™"BLU"ä¸“è¿·"HIG"ä¸æ²»ï¼Œ"HIW"å¤šæ¶"HIB"åˆ™"MAG"ç„¦ç…"CYN"æ— å®"HIW
 });
-string exert_name(){ return HIW"ÓñÅ®ĞÄ¾­"NOR; }
+string exert_name(){ return HIW"ç‰å¥³å¿ƒç»"NOR; }
 int exert(object me)
 {
         int skill;
         string picture;
 
         if((int)me->query("neili") < 500 ) 
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
         if((int)me->query_temp("gm/xinjing")) 
-                return notify_fail("ÄãÒÑ¾­ÔÚÔË¹¦ÖĞÁË¡£\n");
+                return notify_fail("ä½ å·²ç»åœ¨è¿åŠŸä¸­äº†ã€‚\n");
 
         if((int)me->query_skill("yunu-xinjing",1 ) < 100)
-                return notify_fail("ÄãµÄÓñÅ®ĞÄ¾­µÈ¼¶²»¹»£¬»¹²»ÄÜÌå»áÊ®¶şÉÙºÍÊ®¶ş¶àÖ®Ãî´¦¡£\n");
+                return notify_fail("ä½ çš„ç‰å¥³å¿ƒç»ç­‰çº§ä¸å¤Ÿï¼Œè¿˜ä¸èƒ½ä½“ä¼šåäºŒå°‘å’ŒåäºŒå¤šä¹‹å¦™å¤„ã€‚\n");
 
         if( me->query_skill_mapped("force") != "yunu-xinjing")
-                return notify_fail("ÄãÏÖÔÚ²»ÄÜÊ¹ÓÃ¡¸ĞÄ¾­¡¹×Ö¾÷¡£\n");
+                return notify_fail("ä½ ç°åœ¨ä¸èƒ½ä½¿ç”¨ã€Œå¿ƒç»ã€å­—è¯€ã€‚\n");
 
-        if( me->query("gender") == "ÎŞĞÔ" )
-                return notify_fail("ÄãÎŞ¸ùÎŞĞÔ£¬ÈçºÎÄÜÁìÎòÓñÅ®ĞÄ¾­µÄ¡¸ĞÄ¾­¡¹×Ö¾÷¡£\n");
+        if( me->query("gender") == "æ— æ€§" )
+                return notify_fail("ä½ æ— æ ¹æ— æ€§ï¼Œå¦‚ä½•èƒ½é¢†æ‚Ÿç‰å¥³å¿ƒç»çš„ã€Œå¿ƒç»ã€å­—è¯€ã€‚\n");
                 
         skill = (int)me->query_skill("yunu-xinjing", 1);
         if (skill > 250) skill = 250+ (skill-250)/5;
         me->add("neili", -(200+ random(200)));
         picture = pictures[random(sizeof(pictures))];
-        message_vision(HIY"$NÆÁÆøÄıÉñ£¬¿ÚÖĞÄ¬Äî"HIW"¡¸"+picture+"¡¹"HIY"µÄÓñÅ®ĞÄ¾­Õı·´Òª¾÷¡£\n" NOR, me);
+        message_vision(HIY"$Nå±æ°”å‡ç¥ï¼Œå£ä¸­é»˜å¿µ"HIW"ã€Œ"+picture+"ã€"HIY"çš„ç‰å¥³å¿ƒç»æ­£åè¦è¯€ã€‚\n" NOR, me);
  
         if( me->query_temp("tryhb")
         	&& me->query("kar") >25 
@@ -49,9 +49,9 @@ int exert(object me)
          	&& random(me->query("int")) >20 ) { 
                  		me->set("gmhb","pass");
        	            me->delete_temp("tryhb");
-       	 message_vision("¹§Ï²£¡$N³É¹¦ÔËÓÃ¹ÅÄ¹ĞÄ·¨ÎòÍ¨È«Õæ½£·¨ÓëÓñÅ®½£·¨µÄµ¥ÈËË«½£ºÏèµ£¡\n", me);
+       	 message_vision("æ­å–œï¼$NæˆåŠŸè¿ç”¨å¤å¢“å¿ƒæ³•æ‚Ÿé€šå…¨çœŸå‰‘æ³•ä¸ç‰å¥³å‰‘æ³•çš„å•äººåŒå‰‘åˆç’§ï¼\n", me);
 
-           log_file("quest/gmhb",sprintf("%-18s³É¹¦½âÃÜ¹ÅÄ¹µ¥ÈËË«½£ºÏèµ£¬¸££º%d£¬Îò£º%d£¬´¿£º%d¡£\n",
+           log_file("quest/gmhb",sprintf("%-18sæˆåŠŸè§£å¯†å¤å¢“å•äººåŒå‰‘åˆç’§ï¼Œç¦ï¼š%dï¼Œæ‚Ÿï¼š%dï¼Œçº¯ï¼š%dã€‚\n",
                     me->name(1)+"("+capitalize(getuid(me))+")",
                     me->query("kar"), 
                     me->query("int"),
@@ -66,13 +66,13 @@ int exert(object me)
           me->add_temp("apply/attack", skill/5);
           me->add_temp("apply/damage", skill/8);
         }
-        if( me->query("gender") == "Å®ĞÔ" && skill >200)
+        if( me->query("gender") == "å¥³æ€§" && skill >200)
         {
              me->add_temp("apply/dodge", skill/10);
              me->add_temp("apply/parry", skill/10);
              me->add_temp("apply/armor", skill/10);
         }
-        else if( me->query("gender") == "ÄĞĞÔ" && skill >200)
+        else if( me->query("gender") == "ç”·æ€§" && skill >200)
         {
              me->add_temp("apply/strike", skill/10);
              me->add_temp("apply/parry", skill/10);
@@ -83,7 +83,7 @@ int exert(object me)
         me->start_call_out((:call_other,__FILE__,"remove_effect",me, me->query_skill("yunu-xinjing", 1)/3:),1);
 
        if( me->is_fighting() && userp(me)) me->start_busy(1+random(2));
-        me->start_exert(2,"¡¸ĞÄ¾­¡¹×Ö¾÷");
+        me->start_exert(2,"ã€Œå¿ƒç»ã€å­—è¯€");
         return 1;
 }
 
@@ -106,18 +106,18 @@ void remove_effect(object me, int count)
             me->add_temp("apply/attack", -skill/5);
           me->add_temp("apply/damage", -skill/8);
         }
-        if( me->query("gender") == "Å®ĞÔ" && skill > 200)
+        if( me->query("gender") == "å¥³æ€§" && skill > 200)
         {
            me->add_temp("apply/dodge", -skill/10);
            me->add_temp("apply/parry", -skill/10);
            me->add_temp("apply/armor", -skill/10);
         }
-        else if( me->query("gender") == "ÄĞĞÔ" && skill >200)
+        else if( me->query("gender") == "ç”·æ€§" && skill >200)
         {
              me->add_temp("apply/strike", -skill/10);
              me->add_temp("apply/parry", -skill/10);
              me->add_temp("apply/armor", -skill/10);
         }
         me->delete_temp("gm/xinjing");
-        tell_object(me, HIW"ÄãµÄÓñÅ®ĞÄ¾­¡¸ĞÄ¾­¡¹×Ö¾÷ÔË¹¦Íê±Ï£¬½«ÄÚÁ¦ÊÕ»Øµ¤Ìï¡£\n"NOR);
+        tell_object(me, HIW"ä½ çš„ç‰å¥³å¿ƒç»ã€Œå¿ƒç»ã€å­—è¯€è¿åŠŸå®Œæ¯•ï¼Œå°†å†…åŠ›æ”¶å›ä¸¹ç”°ã€‚\n"NOR);
 }

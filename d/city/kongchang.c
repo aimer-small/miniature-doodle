@@ -7,15 +7,15 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¹ã³¡");
+	set("short", "å¹¿åœº");
 	set("long", @LONG
-ÕâÊÇÖª¸®ÅÔ±ßµÄÒ»Æ¬Ð¡¿Õ³¡£¬ÔÚ¶«±ßµÄÇ½ÉÏÌùÁË¼¸ÕÅ¹Ù¸®ÐüÉÍ×½ÄÃ³¯Í¢Òª
-·¸µÄ¸æÊ¾ (wanted list)£¬ÏÂÃæÎ§¹ÛÁËÐí¶à¿´ÈÈÄÖµÄÈË£¬µ±ÖÐ²»·¦Ò»Ð©ÎäÁÖ¸ß
-ÊÖ£¬µ«ÊÇÒª×½ÄÃµÄÒª·¸¶¼ºÜÔúÊÖ£¬ºÜÉÙÓÐÈËËæ±ã½Ò°ñ(jie)¡£ µ«Ò²ÓÐ²»ÉÙÎäÁÖ
-ºóÆðÖ®ÐãÔÚÒ»ÅÔÔ¾Ô¾ÓûÊÔ¡£
+è¿™æ˜¯çŸ¥åºœæ—è¾¹çš„ä¸€ç‰‡å°ç©ºåœºï¼Œåœ¨ä¸œè¾¹çš„å¢™ä¸Šè´´äº†å‡ å¼ å®˜åºœæ‚¬èµæ‰æ‹¿æœå»·è¦
+çŠ¯çš„å‘Šç¤º (wanted list)ï¼Œä¸‹é¢å›´è§‚äº†è®¸å¤šçœ‹çƒ­é—¹çš„äººï¼Œå½“ä¸­ä¸ä¹ä¸€äº›æ­¦æž—é«˜
+æ‰‹ï¼Œä½†æ˜¯è¦æ‰æ‹¿çš„è¦çŠ¯éƒ½å¾ˆæ‰Žæ‰‹ï¼Œå¾ˆå°‘æœ‰äººéšä¾¿æ­æ¦œ(jie)ã€‚ ä½†ä¹Ÿæœ‰ä¸å°‘æ­¦æž—
+åŽèµ·ä¹‹ç§€åœ¨ä¸€æ—è·ƒè·ƒæ¬²è¯•ã€‚
 LONG
 	);
-	set("outdoors", "ÑïÖÝ");
+	set("outdoors", "æ‰¬å·ž");
 	set("item_desc", ([
 		"wanted list" : (: GF_WANTED->look_wanted() :),
 	]));
@@ -35,7 +35,7 @@ void init()
 	add_action("do_jie", ({"xian","jie"}));
 
 	if ( this_player()->query("gf_job")){
-		this_player()->add("job_time/¹Ù¸®", this_player()->query("gf_job"));
+		this_player()->add("job_time/å®˜åºœ", this_player()->query("gf_job"));
 		this_player()->delete("gf_job");
 	}
 }
@@ -44,9 +44,9 @@ int do_jie(string arg)
 {
 	object ob;
 	if ( this_player()->query_temp("no_guanfu"))
-		return notify_fail("ÄãÏÖÔÚ²»ÄÜ½ÒÎÄÊé¡£\n");
-	if ( this_player()->query_temp("ÌìµØ»ájob")) {
-		message_vision(HIY"$NÉìÊÖ¸ÕÒª½Ò°ñ£¬¶ú±ßÖ»ÌýµÃÒ»Éù¡°ÌìµØ»á·´Ôô£¬ÄÄÀï×ß£¡¡±Í»È»´Ú³öÒ»¸öÉíÓ°Ö±ÆËÏò$N¡£\n", this_player());
+		return notify_fail("ä½ çŽ°åœ¨ä¸èƒ½æ­æ–‡ä¹¦ã€‚\n");
+	if ( this_player()->query_temp("å¤©åœ°ä¼šjob")) {
+		message_vision(HIY"$Nä¼¸æ‰‹åˆšè¦æ­æ¦œï¼Œè€³è¾¹åªå¬å¾—ä¸€å£°â€œå¤©åœ°ä¼šåè´¼ï¼Œå“ªé‡Œèµ°ï¼â€çªç„¶è¹¿å‡ºä¸€ä¸ªèº«å½±ç›´æ‰‘å‘$Nã€‚\n", this_player());
 		ob = new("/clone/npc/tdh/bing");
 		copy_npc(this_player(), ob, 150);
 		ob->move(environment(this_player()));

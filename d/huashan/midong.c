@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-       set("short","ÃØ¶´");
+       set("short","ç§˜æ´");
        set("long", @LONG
-¶´ÀïÆáºÚÒ»ÍÅ£¬Í¸¹ı´Ó¶´¿ÚÔ¶Ô¶Í¸¹ıÀ´µÄÒ»Ë¿ÁÁ¹âÄã·¢ÏÖËÄÖÜµÄ¶´±ÚÉÏËÆ
-ºõ¿Ì×ÅÒ»Ğ©Ğ¡ÈË£¬µ«ÔõÃ´Ò²¿´²»Çå³ş¡£
+æ´é‡Œæ¼†é»‘ä¸€å›¢ï¼Œé€è¿‡ä»æ´å£è¿œè¿œé€è¿‡æ¥çš„ä¸€ä¸äº®å…‰ä½ å‘ç°å››å‘¨çš„æ´å£ä¸Šä¼¼
+ä¹åˆ»ç€ä¸€äº›å°äººï¼Œä½†æ€ä¹ˆä¹Ÿçœ‹ä¸æ¸…æ¥šã€‚
 LONG
      );
 
@@ -50,13 +50,13 @@ int valid_leave(object me, string dir)
 	if (me->query_temp("mark/steps") == 10) {
 		me->move(__DIR__"houshan");
 		me->delete_temp("mark/steps");
-		return notify_fail("ÄãÏ¹´òÏ¹×²£¬ºöÈ»·¢ÏÖÑÛÇ°Ò»ÁÁ£¬ÒÑ¾­À´µ½ÁËÈË¼£º±ÖÁµÄºóÉ½¡£\n");
+		return notify_fail("ä½ çæ‰“çæ’ï¼Œå¿½ç„¶å‘ç°çœ¼å‰ä¸€äº®ï¼Œå·²ç»æ¥åˆ°äº†äººè¿¹ç½•è‡³çš„åå±±ã€‚\n");
 	}  
 
 	if (me->query_temp("mark/steps") == -10) {
 		me->move(__DIR__"siguoya");
 		me->delete_temp("mark/steps");
-		return notify_fail("ÄãÀÛµÃ°ëËÀ£¬ÖÕì¶×ß³öÁËÉ½¶´¡£\n");
+		return notify_fail("ä½ ç´¯å¾—åŠæ­»ï¼Œç»ˆæ–¼èµ°å‡ºäº†å±±æ´ã€‚\n");
 	}
 	return ::valid_leave(me, dir);
 }

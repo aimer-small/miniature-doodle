@@ -1,4 +1,4 @@
-// Õë
+// é’ˆ
 
 #include <weapon.h>
 #include <ansi.h>
@@ -8,18 +8,18 @@ inherit HAMMER;
 
 void create()
 {
-	set_name(WHT"÷¼÷Ã´¸"NOR, ({ "kulou chui", "chui", "hammer" }));
+	set_name(WHT"éª·é«…é”¤"NOR, ({ "kulou chui", "chui", "hammer" }));
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-		set("long", "´Ë´¸À¥ÂØº®ÌúÖı¾Í£¬ÔìĞÍ¹ÖÒì£¬ÆäĞÎÈç÷¼÷ÃÍ·£¬¼äÓĞóÁÏ¶£¬»ÓÎèÖ®Ê±£¬¿É·¢³öÕøÄüÖ® Éù£¬ÈÅÈËĞÄÉñ¡£ÆäËùÕÅ¾Ş¿Ú£¬¿ÉËø¶¨¶Ô·½±øÈĞ£¬Ê®·ÖÄÑ²ø¡£\n");
+		set("unit", "æŸ„");
+		set("long", "æ­¤é”¤æ˜†ä»‘å¯’é“é“¸å°±ï¼Œé€ å‹æ€ªå¼‚ï¼Œå…¶å½¢å¦‚éª·é«…å¤´ï¼Œé—´æœ‰ç½…éš™ï¼ŒæŒ¥èˆä¹‹æ—¶ï¼Œå¯å‘å‡ºç‹°ç‹ä¹‹ å£°ï¼Œæ‰°äººå¿ƒç¥ã€‚å…¶æ‰€å¼ å·¨å£ï¼Œå¯é”å®šå¯¹æ–¹å…µåˆƒï¼Œååˆ†éš¾ç¼ ã€‚\n");
                 set("value", 75000);
 		set("no_sell", 1);
               set("weapon_prop/parry", 50);
 		set("material", "steel");		
-		set("wield_msg", "$NÄÃÆğÒ»±ú$n¡¸ºÙºÙºÙ...¡¹¼éĞ¦¼¸Éù¡£\n");
+		set("wield_msg", "$Næ‹¿èµ·ä¸€æŸ„$nã€Œå˜¿å˜¿å˜¿...ã€å¥¸ç¬‘å‡ å£°ã€‚\n");
 	}
         init_hammer(50);
 	setup();

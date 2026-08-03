@@ -5,18 +5,18 @@ inherit F_VENDOR;
 #include <ansi.h>
 void create()
 {
-	set_name("°¢Ïã", ({ "a xiang", "xiang","women" }));
-	set("title", "´óÀíÒ»Ö¦»¨");
+	set_name("é˜¿é¦™", ({ "a xiang", "xiang","women" }));
+	set("title", "å¤§ç†ä¸€æžèŠ±");
 	set("shen_type", 1);
 
 	set("str", 30);
-	set("gender", "Å®ÐÔ");
+	set("gender", "å¥³æ€§");
         set("per",27);
         set("unique", 1);
 	set("age", 25);
 	set("long",
-		"ËýÊÇ³ÇÀïÓÐÃûµÄ´óÃÀÈË£¬\n"
-		"Ëý¾­³£µ½ÕâÀïÀ´×ö×Ô¼ºÏ²»¶µÄÒÂ·þ¡£\n");
+		"å¥¹æ˜¯åŸŽé‡Œæœ‰åçš„å¤§ç¾Žäººï¼Œ\n"
+		"å¥¹ç»å¸¸åˆ°è¿™é‡Œæ¥åšè‡ªå·±å–œæ¬¢çš„è¡£æœã€‚\n");
 	set("combat_exp", 50000);
 	set("attitude", "friendly");
 
@@ -40,7 +40,7 @@ void kill_ob(object ob)
 {
 	object me = this_object();
 	command("!!!");
-	command("say ÎÒºÍÄãÎÞÔ¹ÎÞ³ð£¬ÎªºÎÒªº¦ÎÒ£¡");
+	command("say æˆ‘å’Œä½ æ— æ€¨æ— ä»‡ï¼Œä¸ºä½•è¦å®³æˆ‘ï¼");
 	me->remove_enemy(ob);
 	ob->remove_killer(me);
 	return;
@@ -48,7 +48,7 @@ void kill_ob(object ob)
 
 int accept_fight(object ob)
 {
-	command("say ÎÒºÍÄãÎÞÔ¹ÎÞ³ð£¬ÎªºÎÒªº¦ÎÒ£¡");
+	command("say æˆ‘å’Œä½ æ— æ€¨æ— ä»‡ï¼Œä¸ºä½•è¦å®³æˆ‘ï¼");
 	return 0;
 }
 
@@ -98,22 +98,22 @@ int do_sell(string arg)
 	int value, improve;
 
 	if (!living(this_object()))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ÐÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (!arg || !(ob = present(arg, me)))
-		return notify_fail("ÄãÒªÂôÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å–ä»€ä¹ˆï¼Ÿ\n");
 
 	if (query_temp("busy"))
-		return notify_fail("Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕýÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
 	if ( !(int)ob->query("buliao") && !(int)ob->query("bu") )
-		return notify_fail("ÎÒÖ»ÊÕ¹º²¼ÁÏºÍ²¼Æ¥¡£\n");
+		return notify_fail("æˆ‘åªæ”¶è´­å¸ƒæ–™å’Œå¸ƒåŒ¹ã€‚\n");
 
 	value = query_goods_value2(ob);
-	message_vision("$NÒÔ"+MONEY_D->price_str(value)+"µÄ¼Û¸ñÂôµôÁËÒ»"+ob->query("unit")+ob->name() + "¸ø$n¡£\n", me, this_object());
+	message_vision("$Nä»¥"+MONEY_D->price_str(value)+"çš„ä»·æ ¼å–æŽ‰äº†ä¸€"+ob->query("unit")+ob->name() + "ç»™$nã€‚\n", me, this_object());
 	destruct(ob);
 	MONEY_D->pay_player(me, value);
 	improve = 40 - me->query("pur");

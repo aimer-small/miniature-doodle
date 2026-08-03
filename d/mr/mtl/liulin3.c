@@ -6,18 +6,18 @@
 inherit ROOM;
 void create()
 {
-         set("short",GRN"ÁøÊ÷ÁÖ"NOR);
+         set("short",GRN"æŸ³æ ‘æ—"NOR);
          set("long",@long
-ÕâÊÇÒ»Æ¬±ÌÂÌµÄÁøÊ÷ÁÖ£¬²İµØÖĞ¼äÓĞÁ½¿Ã´óÊ÷(tree)£¬¿´ÉÏÈ¥Ö¦Ò¶Ã¯Ê¢£¬
-Ê÷ÉÏ¼¸Ö»Ğ¡ÄñßóßóÔûÔûµÄ½Ğ¸ö²»Í£¡£
+è¿™æ˜¯ä¸€ç‰‡ç¢§ç»¿çš„æŸ³æ ‘æ—ï¼Œè‰åœ°ä¸­é—´æœ‰ä¸¤æ£µå¤§æ ‘(tree)ï¼Œçœ‹ä¸Šå»æå¶èŒ‚ç››ï¼Œ
+æ ‘ä¸Šå‡ åªå°é¸Ÿå”§å”§å–³å–³çš„å«ä¸ªä¸åœã€‚
 long);
-	set("outdoors","ÂüÙ¢ÂŞÉ½×¯");
+	set("outdoors","æ›¼ä½—ç½—å±±åº„");
 
 	set("exits",([
 		"south" : __DIR__"liulin1",
 	]));
 	set("item_desc", ([
-		"tree" : "Ê÷Ö¦ÀëµØÃæ²»¸ß£¬²»ÖªÄÜ²»ÄÜÔ¾(jump)ÉÏÈ¥¡£\n",
+		"tree" : "æ ‘æç¦»åœ°é¢ä¸é«˜ï¼Œä¸çŸ¥èƒ½ä¸èƒ½è·ƒ(jump)ä¸Šå»ã€‚\n",
 	]));
 	set("objects",([
 		BINGQI_D("xiao-shuzhi") : 2,
@@ -36,11 +36,11 @@ int do_yue(string arg)
 	me = this_player();
 
 	if (arg !="tree") 
-		return notify_fail("ÄãÒªµ½ÄÇÈ¥£¿\n");
+		return notify_fail("ä½ è¦åˆ°é‚£å»ï¼Ÿ\n");
 
-	write("Äã×İÉíÌøÉÏÁËÊ÷Ö¦¡£\n");
-	message("vision", me->name() + "Ò»×İÉíÌøÉÏÁËÊ÷Ö¦¡£\n", environment(me), ({me}) );
+	write("ä½ çºµèº«è·³ä¸Šäº†æ ‘æã€‚\n");
+	message("vision", me->name() + "ä¸€çºµèº«è·³ä¸Šäº†æ ‘æã€‚\n", environment(me), ({me}) );
 	me->move(__DIR__"shuzhi");
-	message("vision", me->name() + "´ÓÏÂÃæÌøÁËÉÏÀ´¡£\n", environment(me), ({me}) );
+	message("vision", me->name() + "ä»ä¸‹é¢è·³äº†ä¸Šæ¥ã€‚\n", environment(me), ({me}) );
 	return 1;
 }

@@ -1,18 +1,18 @@
-// mrkey1.c ºÚÔ¿³×
+// mrkey1.c é»‘é’¥åŒ™
 // by leontt 2000/10/18
 
 inherit ITEM;
 #include <ansi.h>
 void create()
 {
-        set_name(HIW"°×Ô¿³×"NOR, ({"bai yaoshi","mrkey1"}));
+        set_name(HIW"ç™½é’¥åŒ™"NOR, ({"bai yaoshi","mrkey1"}));
         set("long",
-                "ÕâÊÇÒ»°Ñ°×Ô¿³×¡£\n");
-        set("unit", "°Ñ");
+                "è¿™æ˜¯ä¸€æŠŠç™½é’¥åŒ™ã€‚\n");
+        set("unit", "æŠŠ");
         set("weight", 10);
         set("value", 10000);
-        set("no_give", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-//        set("no_get", "ÕâÑù¶«Î÷ÄÃ²»ÆğÀ´¡£\n");
-        set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+        set("no_give", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+//        set("no_get", "è¿™æ ·ä¸œè¥¿æ‹¿ä¸èµ·æ¥ã€‚\n");
+        set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
 }
 

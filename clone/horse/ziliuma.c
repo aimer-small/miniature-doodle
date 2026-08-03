@@ -5,11 +5,11 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(MAG "×ÏæòÂí" NOR, ({ "ziliuma"}));
-        set("race", "Ò°ÊŞ");
-        set("gender", "ĞÛĞÔ");
+        set_name(MAG "ç´«éªé©¬" NOR, ({ "ziliuma"}));
+        set("race", "é‡å…½");
+        set("gender", "é›„æ€§");
         set("age", 2+random(3));
-        set("long", "ÕâÊÇÒ»Æ¥×Ïæò±¦Âí£¬ÈÕĞĞÇ§Àï£¬Ò¹ĞĞ°Ë°Ù¡£\n");
+        set("long", "è¿™æ˜¯ä¸€åŒ¹ç´«éªå®é©¬ï¼Œæ—¥è¡Œåƒé‡Œï¼Œå¤œè¡Œå…«ç™¾ã€‚\n");
         set("ridable", 1);
         set("int", 30);
         set("qi", 300);
@@ -20,7 +20,7 @@ void create()
         set("combat_exp", 50000);
         set("attitude", "peaceful");
 
-        set("limbs", ({ "Í·²¿", "¸¹²¿", "Î²°Í","ºóÍÈ","Ç°ÍÈ" }) );
+        set("limbs", ({ "å¤´éƒ¨", "è…¹éƒ¨", "å°¾å·´","åè…¿","å‰è…¿" }) );
         set("verbs", ({ "bite", "hoof" }) );
         set_temp("apply/attack", 50);
         set_temp("apply/armor", 15);

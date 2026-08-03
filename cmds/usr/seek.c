@@ -1,5 +1,5 @@
-// seek.c Looklove@sj 2002.7.19 ´«»½Íæ¼Ò£¬ÌáÊ¾ÔÚÏßÎ×Ê¦£¬Ä¿±êÍæ¼ÒµÇÂ¼¡£
-// Ó¦·ÅÔÚ/cmds/wiz/ÏÂÃæ£¬È»ºóÔÚlogind.c ÀïÃæ¼ÓÉÏÒ»¾äÌáÊ¾¸ÃÍæ¼ÒµÇÂ¼µÄĞÅÏ¢¡£
+// seek.c Looklove@sj 2002.7.19 ä¼ å”¤ç©å®¶ï¼Œæç¤ºåœ¨çº¿å·«å¸ˆï¼Œç›®æ ‡ç©å®¶ç™»å½•ã€‚
+// åº”æ”¾åœ¨/cmds/wiz/ä¸‹é¢ï¼Œç„¶ååœ¨logind.c é‡Œé¢åŠ ä¸Šä¸€å¥æç¤ºè¯¥ç©å®¶ç™»å½•çš„ä¿¡æ¯ã€‚
 
 #include <ansi.h>
 #include <login.h>
@@ -56,19 +56,19 @@ int main(object me, string arg)
 
 	if (sscanf(arg, "%s because %s", arg1, arg2) == 2) {
 		if (strlen(arg2)< 8 || strlen(arg2)>44)
-			return notify_fail("Çë¼òÃ÷¶óÒªµØËµÃ÷Ô­Òò£¬×ÖÊı±ØĞëÔÚ4-20Ö®¼ä¡£ \n");
+			return notify_fail("è¯·ç®€æ˜æ‰¼è¦åœ°è¯´æ˜åŸå› ï¼Œå­—æ•°å¿…é¡»åœ¨4-20ä¹‹é—´ã€‚ \n");
 		ob = LOGIN_D->find_body(arg1);
 		if(ob)
-			return notify_fail("´ËÈËÒÑ¾­ÔÚÏß£¬²»±ØµÈ´ı£¬ÇëÁ¢¼´´¦Àí¡£\n");
+			return notify_fail("æ­¤äººå·²ç»åœ¨çº¿ï¼Œä¸å¿…ç­‰å¾…ï¼Œè¯·ç«‹å³å¤„ç†ã€‚\n");
 
                 ob = new(LOADUSER_OB, arg1);
                 if (!ob->restore()) {
                         destruct(ob);
-                        return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+                        return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
                 }
 		else {
 			log_file("static/seeklist",
-				sprintf("%s(%s)´«»½%s(%s)¡£\n",
+				sprintf("%s(%s)ä¼ å”¤%s(%s)ã€‚\n",
 					me->query("name"), me->query("id"),
 					ob->query("name"), ob->query("id")
 				), me, ({ ob->query("id") })
@@ -87,13 +87,13 @@ int main(object me, string arg)
 		else
 			notes += ({ note });
 		save();
-		write("Äã³É¹¦°Ñ"+arg1+"¼ÓÈë´«»½Ãûµ¥£¬´ËÈËÉÏÏßÏµÍ³»áÌáĞÑÄã¡£\n");
+		write("ä½ æˆåŠŸæŠŠ"+arg1+"åŠ å…¥ä¼ å”¤åå•ï¼Œæ­¤äººä¸Šçº¿ç³»ç»Ÿä¼šæé†’ä½ ã€‚\n");
 		return 1;
 	}
 
 	if (sscanf(arg, "-d %d", num)== 1) {
 		if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-			return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄÄÚÈİ¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„å†…å®¹ã€‚\n");
 		num--;
 		arg1=notes[num]["player"];
 		ob = LOGIN_D->find_body(arg1);
@@ -105,26 +105,26 @@ int main(object me, string arg)
 			}
 			else {
 				log_file( "static/seeklist",
-					sprintf("%s(%s)°Ñ%s(%s)´Ó´«»½Ãûµ¥ÉÏÉ¾³ı¡£\n",
+					sprintf("%s(%s)æŠŠ%s(%s)ä»ä¼ å”¤åå•ä¸Šåˆ é™¤ã€‚\n",
 						me->query("name"), me->query("id"),
 						ob->query("name"), ob->query("id")
 					), me, ({ ob->query("id") })
 				);
 				destruct(ob);
-				write("ÓÃ»§"+arg1+"±»Çå³ı´«»½Ãûµ¥¡£\n");
+				write("ç”¨æˆ·"+arg1+"è¢«æ¸…é™¤ä¼ å”¤åå•ã€‚\n");
 			}
         	}
 		notes = notes[0..num-1] + notes[num+1..<1];
 		save();
-		write("µÚ"+ (num+1) + "ºÅÄÚÈİÒÑ¾­É¾³ı¡£\n");
+		write("ç¬¬"+ (num+1) + "å·å†…å®¹å·²ç»åˆ é™¤ã€‚\n");
 		return 1;
 	}
 
 	if (sscanf(arg, "-r %d %s", num, arg2)== 2) {
 		if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-			return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄÄÚÈİ¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„å†…å®¹ã€‚\n");
 		if( notes[num-1]["result"] && notes[num-1]["unblock"] )
-			return notify_fail("Õâ¸öÍæ¼ÒÒÑ¾­ÓĞÁË´¦Àí½á¹ûÁË¡£\n");
+			return notify_fail("è¿™ä¸ªç©å®¶å·²ç»æœ‰äº†å¤„ç†ç»“æœäº†ã€‚\n");
 		arg1=notes[num-1]["player"];
         ob = LOGIN_D->find_body(arg1);
         if(!ob){
@@ -135,7 +135,7 @@ int main(object me, string arg)
 			}
 			else {
 				log_file("static/seeklist",
-					sprintf("%s(%s)¼ÓÈë´«»½Ãûµ¥ÉÏ¹ØÓÚ%s(%s)µÄ´¦Àí½á¹û¡£\n",
+					sprintf("%s(%s)åŠ å…¥ä¼ å”¤åå•ä¸Šå…³äº%s(%s)çš„å¤„ç†ç»“æœã€‚\n",
 						me->query("name"), me->query("id"),
 						ob->query("name"), ob->query("id")
 					), me, ({ ob->query("id") })
@@ -147,13 +147,13 @@ int main(object me, string arg)
 		notes[num-1]["unblock"]=me->query("id");
 		notes[num-1]["result"]=arg2;
 		save();
-		write("µÚ"+ (num) + "ºÅÄÚÈİĞŞ¸ÄÍê±Ï¡£\n");
+		write("ç¬¬"+ (num) + "å·å†…å®¹ä¿®æ”¹å®Œæ¯•ã€‚\n");
 		return 1;
 	}
 
 	if (sscanf(arg, "-dr %d", num)== 1) {
 		if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-			return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄÄÚÈİ¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„å†…å®¹ã€‚\n");
 		arg1=notes[num-1]["player"];
         ob = LOGIN_D->find_body(arg1);
         if(!ob){
@@ -164,7 +164,7 @@ int main(object me, string arg)
 			}
 			else {
 				log_file("static/seeklist",
-					sprintf("%s(%s)É¾³ı´«»½Ãûµ¥ÉÏ¹ØÓÚ%s(%s)µÄ´¦Àí½á¹û¡£\n",
+					sprintf("%s(%s)åˆ é™¤ä¼ å”¤åå•ä¸Šå…³äº%s(%s)çš„å¤„ç†ç»“æœã€‚\n",
 						me->query("name"), me->query("id"),
 						ob->query("name"), ob->query("id")
 					), me, ({ ob->query("id") })
@@ -176,11 +176,11 @@ int main(object me, string arg)
 		notes[num-1]["unblock"]=NULL;
 		notes[num-1]["result"]=NULL;
 		save();
-		write("µÚ"+ (num) + "ºÅÄÚÈİĞŞ¸ÄÍê±Ï¡£\n");
+		write("ç¬¬"+ (num) + "å·å†…å®¹ä¿®æ”¹å®Œæ¯•ã€‚\n");
 		return 1;
 	}
 
-	write("Óï·¨´íÎó£¬Çëhelp seek¡£\n");
+	write("è¯­æ³•é”™è¯¯ï¼Œè¯·help seekã€‚\n");
 	return 1;
 }
 
@@ -195,9 +195,9 @@ void list_seeklist(object me, int num)
 	string str;
 
 	i = sizeof(notes);
-	if( i < 1 ) write("´«»½Ãûµ¥Ä¿Ç°Ã»ÓĞÈÎºÎÄÚÈİ¡£\n");
+	if( i < 1 ) write("ä¼ å”¤åå•ç›®å‰æ²¡æœ‰ä»»ä½•å†…å®¹ã€‚\n");
 	else {
-		str="´«»½Ãûµ¥£º\n";
+		str="ä¼ å”¤åå•ï¼š\n";
 		str += repeat_string("-", 80) + "\n";
 		while (i-- && (i>=sizeof(notes)-num || num==0)) {
 			str += sprintf("%3d %s %-9s %-=22s %s %s \n",
@@ -206,12 +206,12 @@ void list_seeklist(object me, int num)
 				notes[i]["player"],
 				notes[i]["reason"],
 				notes[i]["result"] && notes[i]["unblock"]?
-					("½á¹û£º"+notes[i]["result"]+
+					("ç»“æœï¼š"+notes[i]["result"]+
 						(wizardp(me)?
-							("£¬"+notes[i]["unblock"]+"´¦Àí")
+							("ï¼Œ"+notes[i]["unblock"]+"å¤„ç†")
 							:"")
 						)
-					:"Ãûµ¥",
+					:"åå•",
 				wizardp(me)?notes[i]["block"]:"",
 			);
 			str += repeat_string("-", 80) + "\n";
@@ -223,15 +223,15 @@ void list_seeklist(object me, int num)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ :
-seek [all]                 ²é¿´´«»½Ãûµ¥µÄÄÚÈİºÍ´¦Àí½á¹û
-seek <id> because <Ô­Òò>   ½«Íæ¼ÒÁĞÈë´«»½Ãûµ¥£¬µÈºòÍ¨Öª
-seek -d <Êı×Ö>             É¾³ıÖ¸¶¨±àºÅµÄ´«»½Ãûµ¥
-seek -r <Êı×Ö> <½áÂÛ>      µÇ¼Ç´«»½Ãûµ¥ÉÏÖ¸¶¨±êºÅµÄÊÂ¼şµÄ´¦Àí½á¹û
-seek -dr <Êı×Ö>            É¾³ıÖ¸¶¨±àºÅµÄ´«»½Ãûµ¥µÄ´¦Àí½á¹û
+æŒ‡ä»¤æ ¼å¼ :
+seek [all]                 æŸ¥çœ‹ä¼ å”¤åå•çš„å†…å®¹å’Œå¤„ç†ç»“æœ
+seek <id> because <åŸå› >   å°†ç©å®¶åˆ—å…¥ä¼ å”¤åå•ï¼Œç­‰å€™é€šçŸ¥
+seek -d <æ•°å­—>             åˆ é™¤æŒ‡å®šç¼–å·çš„ä¼ å”¤åå•
+seek -r <æ•°å­—> <ç»“è®º>      ç™»è®°ä¼ å”¤åå•ä¸ŠæŒ‡å®šæ ‡å·çš„äº‹ä»¶çš„å¤„ç†ç»“æœ
+seek -dr <æ•°å­—>            åˆ é™¤æŒ‡å®šç¼–å·çš„ä¼ å”¤åå•çš„å¤„ç†ç»“æœ
 
-Î×Ê¦½«ĞèÒª´¦ÀíµÄÊÂÎñÖĞÉæ¼°µÄÍæ¼ÒµÇ¼ÇÈë´«»½Ãûµ¥£¬
-µ±¸ÃÍæ¼ÒµÇÂ¼µÄÊ±ºò£¬ÏµÍ³¾Í»áÌáĞÑÎ×Ê¦½øĞĞ´¦Àí¡£
+å·«å¸ˆå°†éœ€è¦å¤„ç†çš„äº‹åŠ¡ä¸­æ¶‰åŠçš„ç©å®¶ç™»è®°å…¥ä¼ å”¤åå•ï¼Œ
+å½“è¯¥ç©å®¶ç™»å½•çš„æ—¶å€™ï¼Œç³»ç»Ÿå°±ä¼šæé†’å·«å¸ˆè¿›è¡Œå¤„ç†ã€‚
 
 HELP);
         return 1;

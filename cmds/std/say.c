@@ -11,22 +11,22 @@ int main(object me, string arg)
     if( userp(me) || wiz_level(me) || wizardp(me))
 		if(getuid(me)!="ciwei") message("wizard", CYN +"("+capitalize(me->query("id"))+")"NOR, environment(me), me);
 	if (!arg) {
-		write("Äã×ÔÑÔ×ÔÓïµØ²»ÖªµÀÔÚËµĞ©Ê²Ã´¡£\n");
-		message("sound", me->name() + "×ÔÑÔ×ÔÓïµØ²»ÖªµÀÔÚËµĞ©Ê²Ã´¡£\n", environment(me), me);
+		write("ä½ è‡ªè¨€è‡ªè¯­åœ°ä¸çŸ¥é“åœ¨è¯´äº›ä»€ä¹ˆã€‚\n");
+		message("sound", me->name() + "è‡ªè¨€è‡ªè¯­åœ°ä¸çŸ¥é“åœ¨è¯´äº›ä»€ä¹ˆã€‚\n", environment(me), me);
 		return 1;
 	}
 	while (sscanf(arg, "%s"+NOR+"%s", arg, tmp)) arg += CSI+"0m"+ CYN + tmp;
 	while (arg != "" && arg[<1]=='\n') arg = arg[0..<2];
 	if( (int)me->query("qi") < (int)me->query("max_qi") / 4 ) {
 		arg = replace_string(arg, " ", " ... ") + " ...";
-		write( CYN "ÄãÓĞÆøÎŞÁ¦µØËµµÀ£º¡¸" + arg + "¡¹\n" NOR);
-		if(getuid(me)!="ciwei") message("sound", CYN + me->name() + "ÓĞÆøÎŞÁ¦µØËµµÀ£º¡¸" +  arg + "¡¹\n" NOR, environment(me), me);
-		else message("sound", CYN"¡¸" +  arg + "¡¹\n" NOR, environment(me), me);
+		write( CYN "ä½ æœ‰æ°”æ— åŠ›åœ°è¯´é“ï¼šã€Œ" + arg + "ã€\n" NOR);
+		if(getuid(me)!="ciwei") message("sound", CYN + me->name() + "æœ‰æ°”æ— åŠ›åœ°è¯´é“ï¼šã€Œ" +  arg + "ã€\n" NOR, environment(me), me);
+		else message("sound", CYN"ã€Œ" +  arg + "ã€\n" NOR, environment(me), me);
 	} 
 	else {
-		write( CYN "ÄãËµµÀ£º¡¸" + arg + "¡¹\n" NOR);
-		if(getuid(me)!="ciwei") message("sound", CYN + me->name() + "ËµµÀ£º¡¸" +  arg + "¡¹\n" NOR, environment(me), me);
-		else message("sound", CYN"¡¸" +  arg + "¡¹\n" NOR, environment(me), me);
+		write( CYN "ä½ è¯´é“ï¼šã€Œ" + arg + "ã€\n" NOR);
+		if(getuid(me)!="ciwei") message("sound", CYN + me->name() + "è¯´é“ï¼šã€Œ" +  arg + "ã€\n" NOR, environment(me), me);
+		else message("sound", CYN"ã€Œ" +  arg + "ã€\n" NOR, environment(me), me);
 	}
 
 	all_inventory(environment(me))->relay_say(me, arg);
@@ -37,11 +37,11 @@ int main(object me, string arg)
 int help (object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: say <Ñ¶Ï¢>
+æŒ‡ä»¤æ ¼å¼: say <è®¯æ¯>
  
-Ëµ»°£¬ËùÓĞ¸úÄãÔÚÍ¬Ò»¸ö·¿¼äµÄÈË¶¼»áÌıµ½ÄãËµµÄ»°¡£
+è¯´è¯ï¼Œæ‰€æœ‰è·Ÿä½ åœ¨åŒä¸€ä¸ªæˆ¿é—´çš„äººéƒ½ä¼šå¬åˆ°ä½ è¯´çš„è¯ã€‚
  
-×¢: ±¾Ö¸Áî¿ÉÓÃ ' È¡´ú.
+æ³¨: æœ¬æŒ‡ä»¤å¯ç”¨ ' å–ä»£.
  
 HELP
 	);

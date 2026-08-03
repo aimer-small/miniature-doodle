@@ -1,4 +1,4 @@
-// box.c ¹¦µÂÏä
+// box.c åŠŸå¾·ç®±
 
 #include <ansi.h>
 #define PAY_TIME 259200
@@ -8,13 +8,13 @@ inherit F_SAVE;
 
 void create()
 {
-	set_name(HIW "»ØÊÕÕ¾" NOR, ({ "huishou zhan", "zhan", "box" }) );
+	set_name(HIW "å›æ”¶ç«™" NOR, ({ "huishou zhan", "zhan", "box" }) );
 	set_weight(999999);
 	set_max_encumbrance(9999999);
 	//if( clonep() )
 	//	set_default_object(__FILE__);
 	//else {
-		set("unit", "¸ö");                
+		set("unit", "ä¸ª");                
 		set("value", 1000);
 		set("material", "wood");
 		set("no_get",1);
@@ -23,7 +23,7 @@ void create()
 	//}
 	set("no_start",0);
 	restore();
-	set("long", "ÓÉÓÚÓĞÍæ¼ÒÀûÓÃBUG·Ç·¨¸´ÖÆ½ğÇ®£¬ÕâÊÇÏµÍ³ÎªÍæ¼ÒÌá¹©Åâ³¥»ú»á¶øÉèÖÃµÄÒ»¸ö»ØÊÕÕ¾¡£\nÍæ¼Ò¿ÉÒÔÍ¨¹ı¼ì²é(jiancha)À´²é¿´ÄÄĞ©ÈËÓÃÁËbug£¬²¢¼à¶½´Ë´ÎÊÕ»Ø·Ç·¨½ğÇ®µÄ¹ı³Ì¡£\nÀûÓÃ¹ıBUGµÄÍæ¼ÒÇëÔÚÕâÀïput²¹³¥ËùÇ·µÄ½ğÇ®¡£\n");
+	set("long", "ç”±äºæœ‰ç©å®¶åˆ©ç”¨BUGéæ³•å¤åˆ¶é‡‘é’±ï¼Œè¿™æ˜¯ç³»ç»Ÿä¸ºç©å®¶æä¾›èµ”å¿æœºä¼šè€Œè®¾ç½®çš„ä¸€ä¸ªå›æ”¶ç«™ã€‚\nç©å®¶å¯ä»¥é€šè¿‡æ£€æŸ¥(jiancha)æ¥æŸ¥çœ‹å“ªäº›äººç”¨äº†bugï¼Œå¹¶ç›‘ç£æ­¤æ¬¡æ”¶å›éæ³•é‡‘é’±çš„è¿‡ç¨‹ã€‚\nåˆ©ç”¨è¿‡BUGçš„ç©å®¶è¯·åœ¨è¿™é‡Œputè¡¥å¿æ‰€æ¬ çš„é‡‘é’±ã€‚\n");
 	setup();
 }
 
@@ -39,7 +39,7 @@ void init()
 		ob=new("/clone/money/silver");
 		ob->set_amount(10);
 		ob->move(this_object());
-		tell_object(me, HIW "\nÄãºöÈ»¿´µ½¹¦µÂÏäÀïÓĞÊ²Ã´¶«Î÷ÔÚÉÁÉÁ·¢¹â£¡\n\n" NOR);
+		tell_object(me, HIW "\nä½ å¿½ç„¶çœ‹åˆ°åŠŸå¾·ç®±é‡Œæœ‰ä»€ä¹ˆä¸œè¥¿åœ¨é—ªé—ªå‘å…‰ï¼\n\n" NOR);
 		me->add("combat_exp", 1);
 	}
 */
@@ -55,23 +55,23 @@ int to_num(string str)
 	int ret=0;
 	
 	if(!str || strlen(str)<2 ) return 0;
-	if(str[0..1]=="Ê®") str = replace_string(str,"Ê®","10|");
-	else str = replace_string(str,"Ê®","0|");
+	if(str[0..1]=="å") str = replace_string(str,"å","10|");
+	else str = replace_string(str,"å","0|");
 		
-	str = replace_string(str,"Áã","");
-	str = replace_string(str,"Íò","0000|");
-	str = replace_string(str,"Ç§","000|");
-	str = replace_string(str,"°Ù","00|");
+	str = replace_string(str,"é›¶","");
+	str = replace_string(str,"ä¸‡","0000|");
+	str = replace_string(str,"åƒ","000|");
+	str = replace_string(str,"ç™¾","00|");
 	//	
-	str = replace_string(str,"¾Å","9");
-	str = replace_string(str,"°Ë","8");
-	str = replace_string(str,"Æß","7");
-	str = replace_string(str,"Áù","6");
-	str = replace_string(str,"Îå","5");
-	str = replace_string(str,"ËÄ","4");
-	str = replace_string(str,"Èı","3");
-	str = replace_string(str,"¶ş","2");
-	str = replace_string(str,"Ò»","1");
+	str = replace_string(str,"ä¹","9");
+	str = replace_string(str,"å…«","8");
+	str = replace_string(str,"ä¸ƒ","7");
+	str = replace_string(str,"å…­","6");
+	str = replace_string(str,"äº”","5");
+	str = replace_string(str,"å››","4");
+	str = replace_string(str,"ä¸‰","3");
+	str = replace_string(str,"äºŒ","2");
+	str = replace_string(str,"ä¸€","1");
 	
 	get = explode(str,"|");
 	for(int i=0;i<sizeof(get);i++)
@@ -90,13 +90,13 @@ string query_save_file()
 
 string get_msg(int t)
 {
-	if(!t) return "ÎŞ";
-	return sprintf("%s¶§"HIY"»Æ½ğ"NOR,chinese_number(t) );
+	if(!t) return "æ— ";
+	return sprintf("%sé”­"HIY"é»„é‡‘"NOR,chinese_number(t) );
 }
 
 int do_check(string arg)
 {
-	//if(!arg) ·µ»ØÏÖÔÚ²¹³¥½á¹û
+	//if(!arg) è¿”å›ç°åœ¨è¡¥å¿ç»“æœ
 	int line,coin;
 	string msg,name,id;
 	string* ids;
@@ -104,7 +104,7 @@ int do_check(string arg)
 	object me = this_player();
 	if(arg=="start" && wizardp(me) )
 	{
-		if(query("no_start")==1) return notify_fail("ÒÑ¾­ÌáÈ¡¹ıÊı¾İÁË¡£\n");
+		if(query("no_start")==1) return notify_fail("å·²ç»æå–è¿‡æ•°æ®äº†ã€‚\n");
 		line=0;
 		while( msg = read_file("/log/static/HOWG",line,1) )
 		{
@@ -112,37 +112,37 @@ int do_check(string arg)
 			line++;
 			coin=0;
 			msg = strip(msg);
-			if(sscanf(msg,"%*s2004 %s(%s)ÔìÁË%s",name,id,msg)!=4) continue;
+			if(sscanf(msg,"%*s2004 %s(%s)é€ äº†%s",name,id,msg)!=4) continue;
 			
 			if(SECURITY_D->get_status(id) !="(player)") continue;
 			
 			if(undefinedp(gold[id])) gold[id]=0;
 			
 			/// all change to gold
-			if(strsrch(msg,"ÕÅÒ¼ÇªÁ½ÒøÆ±")!=-1)
+			if(strsrch(msg,"å¼ å£¹ä»Ÿä¸¤é“¶ç¥¨")!=-1)
 			{
-				msg = replace_string(msg,"ÕÅÒ¼ÇªÁ½ÒøÆ±","");
+				msg = replace_string(msg,"å¼ å£¹ä»Ÿä¸¤é“¶ç¥¨","");
 				gold[id] += to_num(msg)*10;
 				continue;
 			}
 			
-			if(strsrch(msg,"¶§»Æ½ğ")!=-1)
+			if(strsrch(msg,"é”­é»„é‡‘")!=-1)
 			{
-				msg = replace_string(msg,"¶§»Æ½ğ","");
+				msg = replace_string(msg,"é”­é»„é‡‘","");
 				gold[id] += to_num(msg);
 				continue;
 			}
 			/*			
-			if(strsrch(msg,"Á½°×Òø")!=-1)
+			if(strsrch(msg,"ä¸¤ç™½é“¶")!=-1)
 			{
-				msg = replace_string(msg,"Á½°×Òø","");
+				msg = replace_string(msg,"ä¸¤ç™½é“¶","");
 				gold[id] += to_num(msg)*100;
 				continue;
 			}
 			
-			if(strsrch(msg,"ÎÄÍ­Ç®")!=-1)
+			if(strsrch(msg,"æ–‡é“œé’±")!=-1)
 			{
-				msg = replace_string(msg,"ÎÄÍ­Ç®","");
+				msg = replace_string(msg,"æ–‡é“œé’±","");
 				gold[id] += to_num(msg);
 				continue;
 			}
@@ -152,15 +152,15 @@ int do_check(string arg)
 		set("start_time",time() );
 		set("gold",copy(gold));
 		save();
-		write("ÒÑ¾­ÌáÈ¡Êı¾İÍê±Ï£¡\n");
+		write("å·²ç»æå–æ•°æ®å®Œæ¯•ï¼\n");
 		return 1;
 	}
 	gold = query("gold");
 	if(!gold || !mapp(gold))
-		return notify_fail("Á÷Ê§µÄ×Ê½ğÒÑ¾­È«²¿È¡»Ø£¬¶àĞ»Ö§³Ö£¡\n");
+		return notify_fail("æµå¤±çš„èµ„é‡‘å·²ç»å…¨éƒ¨å–å›ï¼Œå¤šè°¢æ”¯æŒï¼\n");
 	ids = keys(gold);
-	if(!ids || !sizeof(ids)) return notify_fail("Á÷Ê§µÄ×Ê½ğÒÑ¾­È«²¿È¡»Ø£¬¶àĞ»Ö§³Ö£¡\n");
-	msg = "Ä¿Ç°»¹Ç·Õ®Íæ¼ÒÒÔ¼°ÆäÇ·Õ®½ğÇ®£º\n";
+	if(!ids || !sizeof(ids)) return notify_fail("æµå¤±çš„èµ„é‡‘å·²ç»å…¨éƒ¨å–å›ï¼Œå¤šè°¢æ”¯æŒï¼\n");
+	msg = "ç›®å‰è¿˜æ¬ å€ºç©å®¶ä»¥åŠå…¶æ¬ å€ºé‡‘é’±ï¼š\n";
 	for(int i=0;i<sizeof(ids);i++)	
 	{
 		if(gold[ids[i]]==0)
@@ -169,15 +169,15 @@ int do_check(string arg)
 			continue;
 		}
 		if(me && getuid(me)==ids[i]) msg += HIR"";		
-		msg += sprintf("Íæ¼Ò:%-8s£¬»¹Ç·%s\n",ids[i],get_msg(gold[ids[i]])   );
+		msg += sprintf("ç©å®¶:%-8sï¼Œè¿˜æ¬ %s\n",ids[i],get_msg(gold[ids[i]])   );
 		//MONEY_D->money_str(gold[ids[i]])
 		msg += NOR"";
 	}
-	msg += "Çë¼°Ê±»¹ÇåËùÓĞÕ®Îñ£¬ÓâÆÚ½«¸ù¾İÁ¬Ïß¼ÇÂ¼¶ÔÖ÷ID½øĞĞÑÏÀ÷´¦·£¡£\n";
+	msg += "è¯·åŠæ—¶è¿˜æ¸…æ‰€æœ‰å€ºåŠ¡ï¼Œé€¾æœŸå°†æ ¹æ®è¿çº¿è®°å½•å¯¹ä¸»IDè¿›è¡Œä¸¥å‰å¤„ç½šã€‚\n";
 	
 	if(PAY_TIME-(time()-query("start_time")) >0)
-		msg += "Àë×îºóÆÚÏŞ»¹ÓĞ"+CHINESE_D->chinese_time(PAY_TIME-(time()-query("start_time")))+"¡£\n";
-	else msg += "¹ÜÀíÔ±Õı²éÑ¯Á¬Ïß¼ÇÂ¼×¼±¸¶ÔÀûÓÃ¹ıBUGµÄÖ÷ID½øĞĞÑÏÀ÷³Í·£¡£\n";
+		msg += "ç¦»æœ€åæœŸé™è¿˜æœ‰"+CHINESE_D->chinese_time(PAY_TIME-(time()-query("start_time")))+"ã€‚\n";
+	else msg += "ç®¡ç†å‘˜æ­£æŸ¥è¯¢è¿çº¿è®°å½•å‡†å¤‡å¯¹åˆ©ç”¨è¿‡BUGçš„ä¸»IDè¿›è¡Œä¸¥å‰æƒ©ç½šã€‚\n";
 	
 	me->start_more(msg);
 	return 1;
@@ -197,81 +197,81 @@ int do_put(string arg)
 	||  sscanf(item, "%d %s", amount, item)!=2
 	||  !objectp(obj = present(item, me)) )
 	{
-		write("¸ñÊ½£ºput [ÊıÁ¿] [Ç®] in huishou zhan¡£\n");
+		write("æ ¼å¼ï¼šput [æ•°é‡] [é’±] in huishou zhanã€‚\n");
 		return 1;
 	}
 	
 	if(member_array(target,parse_command_id_list())==-1)
 	{
-		write("ÄãÒª°ÑÇ®·Åµ½ÄÄÀï£¿\n");
+		write("ä½ è¦æŠŠé’±æ”¾åˆ°å“ªé‡Œï¼Ÿ\n");
 		return 1;
 	}
 			
 	if(amount<1 ||amount>99999999)
 	{
-		write("?±ğÔÚÕâÀïÕÒbug\n");
+		write("?åˆ«åœ¨è¿™é‡Œæ‰¾bug\n");
 		return 1;
 	}
 	
 	if(!obj->query("money_id"))
 	{
-		write("Õâ²»ÊÇÇ®£¡\n");
+		write("è¿™ä¸æ˜¯é’±ï¼\n");
 		return 1;
 	}
 	if(obj->query_amount() < amount)
 	{
-		write("ÄãÉíÉÏÃ»ÓĞÄÇÃ´¶à"+obj->name()+"¡£\n");
+		write("ä½ èº«ä¸Šæ²¡æœ‰é‚£ä¹ˆå¤š"+obj->name()+"ã€‚\n");
 		return 1;
 	}
 	
 	if(obj->query("money_id")!="gold" && obj->query("money_id")!="thousand-cash" )
 	{
-		write("Åâ³¥µÄµ¥Î»±ØĞëÊÇ »Æ½ğ »òÕß ÒøÆ±¡£\n");
+		write("èµ”å¿çš„å•ä½å¿…é¡»æ˜¯ é»„é‡‘ æˆ–è€… é“¶ç¥¨ã€‚\n");
 		return 1;
 	}
 		
 	id = getuid(me);
 	
 	if(!gold){
-		write("¶¬¹ÏÎ÷¹Ï£¡£¡£¡£¡\n");
+		write("å†¬ç“œè¥¿ç“œï¼ï¼ï¼ï¼\n");
 		return 1;
 	}
 		
 	if(undefinedp(gold[id]))
 	{
-		write("Äã²¢Ã»ÓĞÇ·Ç®¡£\n");
+		write("ä½ å¹¶æ²¡æœ‰æ¬ é’±ã€‚\n");
 		return 1;
 	}
-	tell_room(environment(me),me->name()+"ÄÃ³öÒ»Ğ©Ç®·ÅÔÚ"+this_object()->name()+"Àï¡£\n",({me}));
-	tell_object(me,"ÄãÄÃ³ö"+chinese_number(amount)+obj->query("base_unit")+obj->name()+"·ÅÔÚ"+this_object()->name()+"Àï¡£\n");
-	log_file("static/HOWG_BACK",sprintf("%-8s(-8%s) ²¹³¥ÏµÍ³ %d value",me->name(1), geteuid(me),amount*(int)obj->query("base_value") ),this_object() );
+	tell_room(environment(me),me->name()+"æ‹¿å‡ºä¸€äº›é’±æ”¾åœ¨"+this_object()->name()+"é‡Œã€‚\n",({me}));
+	tell_object(me,"ä½ æ‹¿å‡º"+chinese_number(amount)+obj->query("base_unit")+obj->name()+"æ”¾åœ¨"+this_object()->name()+"é‡Œã€‚\n");
+	log_file("static/HOWG_BACK",sprintf("%-8s(-8%s) è¡¥å¿ç³»ç»Ÿ %d value",me->name(1), geteuid(me),amount*(int)obj->query("base_value") ),this_object() );
 		
 	gold[id] -= amount*(int)obj->query("base_value")/10000;//c
 	obj->add_amount(-amount);
 	
 	if(gold[id]==0)
 	{
-		write("ÄãµÄÕÊÒÑ¾­ÇåÁË£¬¶àĞ»Ö§³Ö¡£\n");
+		write("ä½ çš„å¸å·²ç»æ¸…äº†ï¼Œå¤šè°¢æ”¯æŒã€‚\n");
 		map_delete(gold,id);
 		save();
 		return 1;
 	}
 	if(gold[id]<0)
 	{
-		write("Ì«¶àÁË£¬»¹Äã¡£\n");
+		write("å¤ªå¤šäº†ï¼Œè¿˜ä½ ã€‚\n");
 		MONEY_D->pay_player(me,-gold[id]*10000 );//c
-		message_vision("´Ó$NÀïÍ»È»±Ä³öĞ©Ç®£¬µôÔÚ$n»³Àï¡£\n",this_object(),me);
+		message_vision("ä»$Né‡Œçªç„¶è¹¦å‡ºäº›é’±ï¼Œæ‰åœ¨$næ€€é‡Œã€‚\n",this_object(),me);
 		map_delete(gold,id);
 		save();
 		return 1;
 	}
 	if(gold[id]>0)
 	{
-		write("nod,Äã»¹Ç·"+get_msg(gold[id])+"£¬Çë¾¡¿ì»¹Çå¡£\n");
+		write("nod,ä½ è¿˜æ¬ "+get_msg(gold[id])+"ï¼Œè¯·å°½å¿«è¿˜æ¸…ã€‚\n");
 		save();
 		return 1;		
 	}
-	write("»¹ÓĞºÎÊÂ£¿ÇÃciweiÈ¥¡£\n");
+	write("è¿˜æœ‰ä½•äº‹ï¼Ÿæ•²ciweiå»ã€‚\n");
 	return 1;
 }
 
@@ -319,7 +319,7 @@ int do_put(string arg)
 	&&  obj->query_amount() >= 5 && amount >= 5 ) 
 	{
 		if( me->query("begger") > 0) {
-			message_vision( sprintf(HIY "$N½«Ò»%s%s·Å½ø%s¡£\n" NOR,
+			message_vision( sprintf(HIY "$Nå°†ä¸€%s%sæ”¾è¿›%sã€‚\n" NOR,
 				obj->query("unit"), obj->name(), 
 				this_object()->name()),me );
 			obj->set_amount(obj->query_amount() - amount);;

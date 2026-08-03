@@ -9,11 +9,11 @@ string look_guo();
 
 void create ()
 {
-	set ("short", "Ò©Â®");
+	set ("short", "è¯åº");
 	set ("long", @LONG
-ÕâÀïÊÇĞÇËŞÅÉµÄÒ©Â®¡£ĞÇËŞµÜ×ÓĞÔ¸ñĞ×²ĞÕß¼«¶à£¬¾­³£´ò¼Ò½ÙÉá£¬ËùÒÔ
-Ò²¾­³£ÊÜÉË£¬ÕâÀï×¼±¸ÁËÒ»Ğ©½ğ´¯Ò©£¬·ÅÔÚ¹ñ×ÓÉÏ¡£Îİ×Ó½ÇÂä´¦°Ú×ÅÒ»¿Ú´ó
-Ìú¹ø£¨guo£©£¬ÊÇĞÇËŞµÜ×Ó×Ô¼º°¾¶¾Ò©ÓÃµÄ¡£
+è¿™é‡Œæ˜¯æ˜Ÿå®¿æ´¾çš„è¯åºã€‚æ˜Ÿå®¿å¼Ÿå­æ€§æ ¼å‡¶æ®‹è€…æå¤šï¼Œç»å¸¸æ‰“å®¶åŠ«èˆï¼Œæ‰€ä»¥
+ä¹Ÿç»å¸¸å—ä¼¤ï¼Œè¿™é‡Œå‡†å¤‡äº†ä¸€äº›é‡‘ç–®è¯ï¼Œæ”¾åœ¨æŸœå­ä¸Šã€‚å±‹å­è§’è½å¤„æ‘†ç€ä¸€å£å¤§
+é“é”…ï¼ˆguoï¼‰ï¼Œæ˜¯æ˜Ÿå®¿å¼Ÿå­è‡ªå·±ç†¬æ¯’è¯ç”¨çš„ã€‚
 LONG);
 
 	set("item_desc", (["guo" : (: look_guo :) ]));
@@ -46,19 +46,19 @@ int do_add(string arg)
 	mapping fam=who->query("family");
 
 	if (who->is_busy()) 
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
 
-	if (!fam || fam["family_name"] !="ĞÇËŞÅÉ")
-		return notify_fail("Äã²»ÊÇĞÇËŞµÜ×Ó£¬²»ÄÜÔÚÕâÀï°¾Ò©¡£\n");
+	if (!fam || fam["family_name"] !="æ˜Ÿå®¿æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯æ˜Ÿå®¿å¼Ÿå­ï¼Œä¸èƒ½åœ¨è¿™é‡Œç†¬è¯ã€‚\n");
 
 	if(!arg) 
-		return notify_fail("ÄãÒª½«Ê²Ã´¶«Î÷¼Ó½ø¹øÀï£¿\n");
+		return notify_fail("ä½ è¦å°†ä»€ä¹ˆä¸œè¥¿åŠ è¿›é”…é‡Œï¼Ÿ\n");
 
 	if( sscanf(arg, "%s in guo", item_name)!=1 )
-		return notify_fail("ÓÃ·¨£ºfang <¶«Î÷> in guo¡£\n");
+		return notify_fail("ç”¨æ³•ï¼šfang <ä¸œè¥¿> in guoã€‚\n");
 
 	if (item_name=="water") {
-		message_vision( "$NÍù¹øÀïÒ¨ÁËÒ»É×Ë®¡£\n",who);
+		message_vision( "$Nå¾€é”…é‡Œèˆ€äº†ä¸€å‹ºæ°´ã€‚\n",who);
 		who->set_temp("cook/allow", 1);
 		return 1;
 	}
@@ -66,15 +66,15 @@ int do_add(string arg)
 	item = present(item_name, who);
 
 	if (! present(item_name, who)) 
-		return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâ¶«Î÷¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™ä¸œè¥¿ã€‚\n");
 
 	if ( item->query("cook/allow") !=1 ) 
-		return notify_fail("Õâ¹øÊÇÓÃÀ´°¾Ò©µÄ£¬±ğÊ²Ã´¶«Î÷¶¼ÍùÀïÈÓ¡£\n");
+		return notify_fail("è¿™é”…æ˜¯ç”¨æ¥ç†¬è¯çš„ï¼Œåˆ«ä»€ä¹ˆä¸œè¥¿éƒ½å¾€é‡Œæ‰”ã€‚\n");
 
 	if ( !item->query("cook/owner") || item->query("cook/owner") != who) 
-		return notify_fail("ÄãÕâÊÇÍµÁËË­µÄ¶«Î÷£¬ÏëÍù¹øÀï²Ø°¡¡£\n");
+		return notify_fail("ä½ è¿™æ˜¯å·äº†è°çš„ä¸œè¥¿ï¼Œæƒ³å¾€é”…é‡Œè—å•Šã€‚\n");
 
-	message_vision(HIC"$N½«Ò»"+item->query("unit")+item->query("name")+HIC"ÈÓ½ø¹øÀï¡£\n"NOR,who);
+	message_vision(HIC"$Nå°†ä¸€"+item->query("unit")+item->query("name")+HIC"æ‰”è¿›é”…é‡Œã€‚\n"NOR,who);
 
 	if ( who->query_temp("cook/"+item->query("cook/type")) < item->query("cook/value"))
 		who->set_temp("cook/"+item->query("cook/type"), item->query("cook/value"));
@@ -90,17 +90,17 @@ int do_jian(string arg)
 	object gao;
 	mapping fam=who->query("family");
 	int prices;
-	if (who->is_busy()) return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¡\n");
-	if (!fam || fam["family_name"] !="ĞÇËŞÅÉ")
-		return notify_fail("Äã²»ÊÇĞÇËŞµÜ×Ó£¬²»ÄÜÔÚÕâÀï°¾Ò©¡£\n");
+	if (who->is_busy()) return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
+	if (!fam || fam["family_name"] !="æ˜Ÿå®¿æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯æ˜Ÿå®¿å¼Ÿå­ï¼Œä¸èƒ½åœ¨è¿™é‡Œç†¬è¯ã€‚\n");
 
-	if(!arg || arg != "yao") return notify_fail("°¾É¶£¿\n");
+	if(!arg || arg != "yao") return notify_fail("ç†¬å•¥ï¼Ÿ\n");
 
 	if ( !who->query_temp("cook/allow"))
-		return notify_fail("¹øÀïÁ¬Ë®¶¼Ã»ÓĞ£¬ÔõÃ´°¾Ò©£¿\n");
+		return notify_fail("é”…é‡Œè¿æ°´éƒ½æ²¡æœ‰ï¼Œæ€ä¹ˆç†¬è¯ï¼Ÿ\n");
 
 	if (!who->query_temp("last_put"))
-		return notify_fail("ÄãÔÚÌú¹øÀï·Å¶«Î÷ÁËÃ»ÓĞ°¡£¿\n");
+		return notify_fail("ä½ åœ¨é“é”…é‡Œæ”¾ä¸œè¥¿äº†æ²¡æœ‰å•Šï¼Ÿ\n");
 
 	prices = who->query_temp("cook/xiezi") * who->query_temp("cook/shachong") * who->query_temp("cook/zhizhu") * who->query_temp("cook/wugong");
 
@@ -114,9 +114,9 @@ int do_jian(string arg)
 			prices=200+random(100);
 		gao->set("xx/owner",who);
 		gao->set("prices",prices);
-		gao->set("long",gao->query("long")+"ºÃÏóÊÇĞÇËŞÅÉµÄ"+who->name()+"´ÓÒ©Â®°¾³öÀ´µÄ£¡\n");
+		gao->set("long",gao->query("long")+"å¥½è±¡æ˜¯æ˜Ÿå®¿æ´¾çš„"+who->name()+"ä»è¯åºç†¬å‡ºæ¥çš„ï¼\n");
 	}
-	message_vision(HIY"$NÔÚ¹øÀïºúÂÒ½ÁÁË½Á£¬È»ºó°¾°¡£¬°¾°¡£¬°¾°¡£¬ÖÕÓÚ°¾³ÉÁË"+gao->query("name")+HIY"¡£\n"NOR,who);
+	message_vision(HIY"$Nåœ¨é”…é‡Œèƒ¡ä¹±æ…äº†æ…ï¼Œç„¶åç†¬å•Šï¼Œç†¬å•Šï¼Œç†¬å•Šï¼Œç»ˆäºç†¬æˆäº†"+gao->query("name")+HIY"ã€‚\n"NOR,who);
 	who->start_busy(2+random(3));
 	gao->move(who);
 
@@ -134,7 +134,7 @@ string look_guo()
 {
 	object me = this_player();
 	if ( me->query_temp("last_put"))
-		return "Ò»¿Ú´óÌú¹ø£¬°¾Ò©ÓÃ(ao yao)£¬ÀïÃæÂÒÆß°ËÔãµÄ²»Öª·Å(fang)ÁËĞ©Ê²Ã´¡£\n";
+		return "ä¸€å£å¤§é“é”…ï¼Œç†¬è¯ç”¨(ao yao)ï¼Œé‡Œé¢ä¹±ä¸ƒå…«ç³Ÿçš„ä¸çŸ¥æ”¾(fang)äº†äº›ä»€ä¹ˆã€‚\n";
 	else
-		return "Ò»¿Ú´óÌú¹ø£¬ÍùÀïÃæ¼Ó¶«Î÷ÓÃ(add)£¬°¾Ò©ÓÃ(ao yao)¡£\n";
+		return "ä¸€å£å¤§é“é”…ï¼Œå¾€é‡Œé¢åŠ ä¸œè¥¿ç”¨(add)ï¼Œç†¬è¯ç”¨(ao yao)ã€‚\n";
 }

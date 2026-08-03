@@ -15,27 +15,27 @@ int perform(object me, object target)
 	if( ! objectp(target)
 	|| !target->is_character()
 	|| !me->is_fighting(target) )
-		return notify_fail("£ÛÒõÑôË«ÕÆ£İÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ï¼»é˜´é˜³åŒæŒï¼½åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if( (me->query_skill("jiuyin-shenzhang",1) < 160 )
 	|| (me->query_skill("jiuyin-zhengong",1) < 160 )) 
-		return  notify_fail("ÄãµÄ¹¦·ò»¹²»¹»æµÊì£¬²»»áÊ¹ÓÃÒõÑôË«ÕÆ¡£\n");
+		return  notify_fail("ä½ çš„åŠŸå¤«è¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨é˜´é˜³åŒæŒã€‚\n");
 
 	if( me->query_temp("weapon"))
-		return notify_fail("ÄãÄÃ×ÅÎäÆ÷£¡\n");   
+		return notify_fail("ä½ æ‹¿ç€æ­¦å™¨ï¼\n");   
 
 	if (me->query_skill_prepared("strike") != "jiuyin-shenzhang"
 	|| me->query_skill_mapped("parry") != "jiuyin-shenzhang")
-		return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃÒõÑôË«ÕÆ£¡\n");
+		return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨é˜´é˜³åŒæŒï¼\n");
 
 	if( me->query("neili") < 5000 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
 	if( me->query("jingli") < 1500 )
-		return notify_fail("ÄãµÄ¾«Á¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿã€‚\n");
 
-	me->start_perform(20,"ÒõÑôË«ÕÆ");
-	msg = HIG "$NÊ¹³öÒõÑôË«ÕÆ£¬Á½ÕÆµÇÊ±½«$nÁ½ÕÆğ¤×¡£¡\n"NOR;
+	me->start_perform(20,"é˜´é˜³åŒæŒ");
+	msg = HIG "$Nä½¿å‡ºé˜´é˜³åŒæŒï¼Œä¸¤æŒç™»æ—¶å°†$nä¸¤æŒé»ä½ï¼\n"NOR;
 
 	me->start_busy(10);
 	target->start_busy(10);
@@ -49,17 +49,17 @@ void attack_1()
 	object me = this_player();
 	object target = offensive_target(me);
 	if (!me || !target) return;
-	message_vision(HIY"$NºÍ$nÉí²»ÓÉ¼º£¬ù£ÄÜÒÔÄÚÁ¦±ÈÆ´£¡\n"NOR, me, target);
+	message_vision(HIY"$Nå’Œ$nèº«ä¸ç”±å·±ï¼Œï¿½ï¼¤èŠ¤é˜…è¯¹Î¡ç»•çŸ—ï¿½\n"NOR, me, target);
 	me->add("neili",-(target->query_skill("force")));
 	target->add("neili",-(me->query_skill("force")));
 	if (me->query("neili")<=0||target->query("neili")<=0) {
 		if (me->query("neili")<=0) {
-			message_vision(HIR"$NÄÚÁ¦ºÄ½ß£¬ÃÆºßÒ»Éù£¡\n"NOR,me);
+			message_vision(HIR"$Nå†…åŠ›è€—ç«­ï¼Œé—·å“¼ä¸€å£°ï¼\n"NOR,me);
 			me->set("neili",0);
 			me->receive_wound("qi",target->query_skill("force"), target); 
 		}
 		if (target->query("neili")<=0) {
-			message_vision(HIR"$NÄÚÁ¦ºÄ½ß£¬ÃÆºßÒ»Éù£¡\n"NOR,target);
+			message_vision(HIR"$Nå†…åŠ›è€—ç«­ï¼Œé—·å“¼ä¸€å£°ï¼\n"NOR,target);
 			target->set("neili",0);
 			target->receive_wound("qi",me->query_skill("force"), me); 
 		}
@@ -74,17 +74,17 @@ void attack_2()
 	object me = this_player();
 	object target = offensive_target(me);
 	if (!me || !target) return;
-	message_vision(HIY"$NºÍ$n¶¼¼±Ä±ÍÑÉí£¬¸÷×Ô¼ÓÇ¿ÁËÄÚÁ¦µÄÊ©Îª£¡\n"NOR, me, target);
+	message_vision(HIY"$Nå’Œ$néƒ½æ€¥è°‹è„±èº«ï¼Œå„è‡ªåŠ å¼ºäº†å†…åŠ›çš„æ–½ä¸ºï¼\n"NOR, me, target);
 	me->add("neili",-(target->query_skill("force")*3));
 	target->add("neili",-(me->query_skill("force")*3));
 	if (me->query("neili")<=0||target->query("neili")<=0) {
 		if (me->query("neili")<=0) {
-			message_vision(HIR"$NÄÚÁ¦ºÄ½ß£¬ÃÆºßÒ»Éù£¡\n"NOR,me);
+			message_vision(HIR"$Nå†…åŠ›è€—ç«­ï¼Œé—·å“¼ä¸€å£°ï¼\n"NOR,me);
 			me->set("neili",0);
 			me->receive_wound("qi",target->query_skill("force"), target);
 		}
 		if (target->query("neili")<=0) {
-			message_vision(HIR"$NÄÚÁ¦ºÄ½ß£¬ÃÆºßÒ»Éù£¡\n"NOR,target);
+			message_vision(HIR"$Nå†…åŠ›è€—ç«­ï¼Œé—·å“¼ä¸€å£°ï¼\n"NOR,target);
 			target->set("neili",0);
 			target->receive_wound("qi",me->query_skill("force"), me);
 		}
@@ -100,17 +100,17 @@ void attack_3()
 	object target = offensive_target(me);
 	if (!me || !target) return;
 	if (!target) return;
-	message_vision(HIY"$N¡¢$nÁ½ÈËÍ·¶¥ÉÏÃ°³öÁËË®Æû£¬ÏëÊÇÁ½ÈËÕıÈ«Á¦¶Ô¹¥£¡\n"NOR, me, target);
+	message_vision(HIY"$Nã€$nä¸¤äººå¤´é¡¶ä¸Šå†’å‡ºäº†æ°´æ±½ï¼Œæƒ³æ˜¯ä¸¤äººæ­£å…¨åŠ›å¯¹æ”»ï¼\n"NOR, me, target);
 	me->add("neili",-(target->query_skill("force")*5));
 	target->add("neili",-(me->query_skill("force")*5));
 	if (me->query("neili")<=0||target->query("neili")<=0) {
 		if (me->query("neili")<=0) {
-			message_vision(HIR"$NÄÚÁ¦ºÄ½ß£¬ÃÆºßÒ»Éù£¡\n"NOR,me);
+			message_vision(HIR"$Nå†…åŠ›è€—ç«­ï¼Œé—·å“¼ä¸€å£°ï¼\n"NOR,me);
 			me->set("neili",0);
 			me->receive_wound("qi",target->query_skill("force"), target);
 		}
 		if (target->query("neili")<=0) {
-			message_vision(HIR"$NÄÚÁ¦ºÄ½ß£¬ÃÆºßÒ»Éù£¡\n"NOR,target);
+			message_vision(HIR"$Nå†…åŠ›è€—ç«­ï¼Œé—·å“¼ä¸€å£°ï¼\n"NOR,target);
 			target->set("neili",0);
 			target->receive_wound("qi",me->query_skill("force"));
 		}
@@ -125,31 +125,31 @@ void finish()
 	object me = this_player();
 	object target = offensive_target(me);
 	if (!me || !target) return;
-		message_vision(HIY"$NºÍ$nÄÚÁ¦²»¼Ã£¬Í£Ö¹ÁË¶ÔÕÆ£¬´­Æø²»Ö¹¡£\n"NOR, me,target);
+		message_vision(HIY"$Nå’Œ$nå†…åŠ›ä¸æµï¼Œåœæ­¢äº†å¯¹æŒï¼Œå–˜æ°”ä¸æ­¢ã€‚\n"NOR, me,target);
 }
 
 void finish_2()
 {
 	object me = this_player();
 	object target = offensive_target(me);
-	message_vision(HIY"$NºÍ$n¸÷×Ô´óºÈÒ»Éù£¬Í£Ö¹ÁË¶ÔÕÆ£¬ÍË¿ªÊı³ß¡£\n"NOR, me,target);
+	message_vision(HIY"$Nå’Œ$nå„è‡ªå¤§å–ä¸€å£°ï¼Œåœæ­¢äº†å¯¹æŒï¼Œé€€å¼€æ•°å°ºã€‚\n"NOR, me,target);
 }
 
-string perform_name(){ return HIG"ÒõÑôË«ÕÆ"NOR; }
+string perform_name(){ return HIG"é˜´é˜³åŒæŒ"NOR; }
 
 int help(object me)
 {
-        write(HIG"\n¾ÅÒõÉñÕÆÖ®¡¸ÒõÑôË«ÕÆ¡¹£º"NOR"\n\n");
+        write(HIG"\nä¹é˜´ç¥æŒä¹‹ã€Œé˜´é˜³åŒæŒã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 5000 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 5000 ÒÔÉÏ£»
-                µ±Ç°¾«Á¦ 1500 ÒÔÉÏ£»
-                ¾ÅÒõÉñÕÆµÈ¼¶ 160 ÒÔÉÏ£»
-                ¾ÅÒõÕæ¹¦µÈ¼¶ 160 ÒÔÉÏ£»
-                ¼¤·¢ÕÆ·¨Îª¾ÅÒõÉñÕÆ£»
-                ¼¤·¢ÕĞ¼ÜÎª¾ÅÒõÉñÕÆ£»
-                ±¸ÕÆ·¨Îª¾ÅÒõÉñÕÆ£»
-                ÇÒÊÖÎŞ±øÆ÷¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 5000 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 5000 ä»¥ä¸Šï¼›
+                å½“å‰ç²¾åŠ› 1500 ä»¥ä¸Šï¼›
+                ä¹é˜´ç¥æŒç­‰çº§ 160 ä»¥ä¸Šï¼›
+                ä¹é˜´çœŸåŠŸç­‰çº§ 160 ä»¥ä¸Šï¼›
+                æ¿€å‘æŒæ³•ä¸ºä¹é˜´ç¥æŒï¼›
+                æ¿€å‘æ‹›æ¶ä¸ºä¹é˜´ç¥æŒï¼›
+                å¤‡æŒæ³•ä¸ºä¹é˜´ç¥æŒï¼›
+                ä¸”æ‰‹æ— å…µå™¨ã€‚
 
 HELP
         );

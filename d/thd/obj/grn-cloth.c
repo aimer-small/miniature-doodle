@@ -1,4 +1,4 @@
-// grn-cloth.c thd ¶ş´úµÜ×Ó´©
+// grn-cloth.c thd äºŒä»£å¼Ÿå­ç©¿
 
 #include <armor.h>
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIC"ÇàÉ«³¤ÅÛ"NOR, ({ "cloth" }) );
+        set_name(HIC"é’è‰²é•¿è¢"NOR, ({ "cloth" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long","ÕâÊÇÒ»¼şÇàÉ«µÄ³¤ÅÛ¡£\n");
-                set("unit", "¼ş");
+                set("long","è¿™æ˜¯ä¸€ä»¶é’è‰²çš„é•¿è¢ã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 30);
         }

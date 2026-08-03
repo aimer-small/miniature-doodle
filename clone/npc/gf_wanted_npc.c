@@ -17,7 +17,7 @@ void create()
 	name = RNAME_D->get_random_name(i);
 	
 	set_name(name["name"], name["id"]);
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 18+random(40));
 	set("attitude", "killer");
 	set("no_quest",1);
@@ -134,7 +134,7 @@ void copy_random_player(object *all)
         set("combat_exp", hp_status["combat_exp"]/9*10);
         if( ob->query("family/family_name") ){
         	set("family/family_name", ob->query("family/family_name"));
-        	set("title", ob->query("family/family_name")+(random(2)?"ÆúÍ½":"ÅÑÍ½"));
+        	set("title", ob->query("family/family_name")+(random(2)?"å¼ƒå¾’":"å›å¾’"));
         }
         
         me->reincarnate();
@@ -182,7 +182,7 @@ void init()
 
 int accept_fight(object me)
 {
-        command("say ×ß¿ª£¡±ğÔÚÕâ°­ÊÖ°­½ÅµÄ");
+        command("say èµ°å¼€ï¼åˆ«åœ¨è¿™ç¢æ‰‹ç¢è„šçš„");
         return 0;
 }
 
@@ -204,8 +204,8 @@ void kill_ob(object me)
 		switch(random(10)){
 			case 1: command("consider "+me->query("id")); break;
 			case 4: command("grin "+me->query("id")); break;
-			case 9: message_vision(HIC"$nÒõĞ¦Ò»ÉùËµµÀ£¬ÕâÃ´¶à²»ÅÂËÀµÄ£¿ÔÙÀ´Ê®¸ö´óÒ¯ÎÒÒ²²»ÅÂ£¡\n"
-                                "Ëæ¼´ÑÛ¾¦Ò»µÉ£¬Ïò×Å$N¾Í³åÁË¹ıÈ¥£¡\n"NOR, me,obj); break;
+			case 9: message_vision(HIC"$né˜´ç¬‘ä¸€å£°è¯´é“ï¼Œè¿™ä¹ˆå¤šä¸æ€•æ­»çš„ï¼Ÿå†æ¥åä¸ªå¤§çˆ·æˆ‘ä¹Ÿä¸æ€•ï¼\n"
+                                "éšå³çœ¼ç›ä¸€çªï¼Œå‘ç€$Nå°±å†²äº†è¿‡å»ï¼\n"NOR, me,obj); break;
 			case 2:
 			case 3:
 			case 5:
@@ -227,7 +227,7 @@ void kill_ob(object me)
 	}
 	
 	if( obj->is_killing(me->query("id")) ){
-		message_vision(HIR"$n¶îÍ·Çà½îÌø¶¯£¬ÀäºßÁËÒ»Éù£¬µÉ×ÅÍ¨ºìµÄÑÛ¾¦Ïò×Å$N¾Í³åÁË¹ıÈ¥¡£\n"NOR, me,obj);
+		message_vision(HIR"$né¢å¤´é’ç­‹è·³åŠ¨ï¼Œå†·å“¼äº†ä¸€å£°ï¼Œçªç€é€šçº¢çš„çœ¼ç›å‘ç€$Nå°±å†²äº†è¿‡å»ã€‚\n"NOR, me,obj);
                 obj->set_leader(me);
                 ::kill_ob(me);
                 return;
@@ -236,9 +236,9 @@ void kill_ob(object me)
 	if( ob->query("target_id") == query("id") ) {
                 if( me->query_temp("gf_huilu") == obj ){
                 	if( exp > query("combat_exp") )
-                		message_vision(HIR"$nÆø¼±°Ü»µµØ¶Ô$NÈÂµÀ£¬É±ÈË²»¹ıÍ·µãµØ£¬ÄãÒ»ÔÙ¿à¿àÏò±Æ£¬´óÒ¯½ñÌì¾ÍºÍÄãÆ´¸öÓãËÀÍøÆÆ¡£\n"NOR, me,obj);
-                	else	message_vision(HIR"$n¿´µ½$N×ßµ½½üÇ°£¬ºİºİµÄÂîµÀ£¬²»Ê¶Ì§¾ÙµÄ¶«Î÷£¬ÎÒºÃÑÔÏàÈ°Ã»ÓÃ£¬\n"
-                        "½ñÌì¾ÍÈÃÄã³¢³¢´óÒ¯µÄÀ÷º¦¡£\n"NOR,me,obj);
+                		message_vision(HIR"$næ°”æ€¥è´¥ååœ°å¯¹$Nåš·é“ï¼Œæ€äººä¸è¿‡å¤´ç‚¹åœ°ï¼Œä½ ä¸€å†è‹¦è‹¦å‘é€¼ï¼Œå¤§çˆ·ä»Šå¤©å°±å’Œä½ æ‹¼ä¸ªé±¼æ­»ç½‘ç ´ã€‚\n"NOR, me,obj);
+                	else	message_vision(HIR"$nçœ‹åˆ°$Nèµ°åˆ°è¿‘å‰ï¼Œç‹ ç‹ çš„éª‚é“ï¼Œä¸è¯†æŠ¬ä¸¾çš„ä¸œè¥¿ï¼Œæˆ‘å¥½è¨€ç›¸åŠæ²¡ç”¨ï¼Œ\n"
+                        "ä»Šå¤©å°±è®©ä½ å°å°å¤§çˆ·çš„å‰å®³ã€‚\n"NOR,me,obj);
                 	obj->set_leader(me);
                 	me->delete_temp("gf_huilu");
                 	obj->add("combat_exp", query("combat_exp")/4);
@@ -247,9 +247,9 @@ void kill_ob(object me)
         	}
         
         	if( exp/2 > query("combat_exp") && me->query_temp("gf_release") != obj ){
-                        message_vision("$nºöÈ»ÀáÁ÷ÂúÃæ£¬Ò»¸±¿ÉÁ¯µÄÉñÇé¶Ô$NËµµÀ£¬Ğ¡ÈËÉÏÓĞÀÏÏÂÓĞĞ¡£¬¶øÇÒÍêÈ«ÊÇ¹Ù¸®±»\n"
-                        "Ïİº¦²ÅÂä´ËµØ²½£¬ÍûÄãÀÏÃ÷²ìÇïºÁ£¬Íø¿ªÒ»Ãæ£¬ÎÒ½ñÉúÒ»¶¨¸Ğ¼¤²»¾¢¡£\n",me,obj); 
-                        tell_object(me, HIY"Äã¿ÉÒÔÑ¡Ôñ°ÑÌú²¶ÎÄÊé¸øËû(give wenshu to "+obj->query("id")+")£¬»òÕß²»¸ø¡£\n"NOR);
+                        message_vision("$nå¿½ç„¶æ³ªæµæ»¡é¢ï¼Œä¸€å‰¯å¯æ€œçš„ç¥æƒ…å¯¹$Nè¯´é“ï¼Œå°äººä¸Šæœ‰è€ä¸‹æœ‰å°ï¼Œè€Œä¸”å®Œå…¨æ˜¯å®˜åºœè¢«\n"
+                        "é™·å®³æ‰è½æ­¤åœ°æ­¥ï¼Œæœ›ä½ è€æ˜å¯Ÿç§‹æ¯«ï¼Œç½‘å¼€ä¸€é¢ï¼Œæˆ‘ä»Šç”Ÿä¸€å®šæ„Ÿæ¿€ä¸åŠ²ã€‚\n",me,obj); 
+                        tell_object(me, HIY"ä½ å¯ä»¥é€‰æ‹©æŠŠé“æ•æ–‡ä¹¦ç»™ä»–(give wenshu to "+obj->query("id")+")ï¼Œæˆ–è€…ä¸ç»™ã€‚\n"NOR);
                         me->set_temp("gf_huilu", obj);
                         me->remove_killer(obj);
 			remove_killer(me);
@@ -258,10 +258,10 @@ void kill_ob(object me)
 
                 else {
                 	if( exp > query("combat_exp") )
-                        	message_vision("$NºÙºÙ¼éĞ¦¼¸Éù£¬Á¬Ã¦ÅâĞ¦µÀ£¬ÕâÎ»"+RANK_D->query_respect(me)+"ÊÇ"
-				"¹Ù¸®µÄ²¶Í·°É£¿£¡´ó¼Ò¶¼ÊÇÎäÁÖÖĞÈË£¬½ñÌìÄÜ·ñ¸ßÌ§¹óÊÖ£¿ÎÒ±ØÓĞÖØĞ»£¡ÄãºÃºÃÕå×ÃÒ»ÏÂ£¬ÊÇ·ñÔ¸Òâ£¿\n",obj);
-                        else 	message_vision("$NºÙºÙ¼éĞ¦¼¸Éù£¬µÀ£¬ÕâÎ»"+RANK_D->query_respect(me)+"£¬Ë×»°Ëµ¡°ÍËÒ»²½º£À«Ìì¿Õ¡±£¬ÄãÈç·Å¹ıÎÒ£¬±ØÓĞÖØĞ»£¡ÄãºÃºÃÕå×ÃÒ»ÏÂ£¬ÊÇ·ñÔ¸Òâ£¿\n",obj);
-                        tell_object(me, HIY"Äã¿ÉÒÔÑ¡Ôñ°ÑÌú²¶ÎÄÊé¸øËû(give wenshu to "+obj->query("id")+")£¬»òÕß²»¸ø¡£\n"NOR);
+                        	message_vision("$Nå˜¿å˜¿å¥¸ç¬‘å‡ å£°ï¼Œè¿å¿™èµ”ç¬‘é“ï¼Œè¿™ä½"+RANK_D->query_respect(me)+"æ˜¯"
+				"å®˜åºœçš„æ•å¤´å§ï¼Ÿï¼å¤§å®¶éƒ½æ˜¯æ­¦æ—ä¸­äººï¼Œä»Šå¤©èƒ½å¦é«˜æŠ¬è´µæ‰‹ï¼Ÿæˆ‘å¿…æœ‰é‡è°¢ï¼ä½ å¥½å¥½æ–Ÿé…Œä¸€ä¸‹ï¼Œæ˜¯å¦æ„¿æ„ï¼Ÿ\n",obj);
+                        else 	message_vision("$Nå˜¿å˜¿å¥¸ç¬‘å‡ å£°ï¼Œé“ï¼Œè¿™ä½"+RANK_D->query_respect(me)+"ï¼Œä¿—è¯è¯´â€œé€€ä¸€æ­¥æµ·é˜”å¤©ç©ºâ€ï¼Œä½ å¦‚æ”¾è¿‡æˆ‘ï¼Œå¿…æœ‰é‡è°¢ï¼ä½ å¥½å¥½æ–Ÿé…Œä¸€ä¸‹ï¼Œæ˜¯å¦æ„¿æ„ï¼Ÿ\n",obj);
+                        tell_object(me, HIY"ä½ å¯ä»¥é€‰æ‹©æŠŠé“æ•æ–‡ä¹¦ç»™ä»–(give wenshu to "+obj->query("id")+")ï¼Œæˆ–è€…ä¸ç»™ã€‚\n"NOR);
                         me->set_temp("gf_huilu", obj);
                         me->remove_killer(obj);
 			remove_killer(me);
@@ -279,12 +279,12 @@ int accept_object(object me, object obj)
       		
         if( obj->query("target_id") != query("id") ) {
               	command("oh");
-              	command("say "+obj->query("target_name")+"¾¹È»ÉÏÍ¨¼©°ñÁË£¬¿´À´ÊÇ±»¹Ù¸®Ïİº¦À²£¡");
+              	command("say "+obj->query("target_name")+"ç«Ÿç„¶ä¸Šé€šç¼‰æ¦œäº†ï¼Œçœ‹æ¥æ˜¯è¢«å®˜åºœé™·å®³å•¦ï¼");
                 call_out("dest", 1, obj);
               	return 1;
         }
         else {
-        	command("say ÕâÎ»"+RANK_D->query_respect(ob)+"Ò»¶¨Ç°Í¾Ô¶´ó£¬ºÙºÙ£¬ÎÒÊÇ²»»á¿÷´ıÄãµÄ¡£\n");
+        	command("say è¿™ä½"+RANK_D->query_respect(ob)+"ä¸€å®šå‰é€”è¿œå¤§ï¼Œå˜¿å˜¿ï¼Œæˆ‘æ˜¯ä¸ä¼šäºå¾…ä½ çš„ã€‚\n");
         	ob->add_money("gold",20+random(20));
         	command("give "+me->query("id")+" gold");
         	call_out("dest", 1, ob);
@@ -317,7 +317,7 @@ void unconcious()
         d_time--;
         switch(d_time){
         	case 1: 
-        		message_vision(HIR"$NÇ¿ÈÌÉËÍ´£¬ÌÍ³öÒ»Á£Ò©ÍèÈû½ø×ìÀï£¬½ĞµÀ£º¡°´ó²»ÁËÒ»ËÀ£¡"+RANK_D->query_self_rude(ob)+"½ñÌìÍÌÏÂ¶¾Ò©À´ºÍÄãÆ´ÁË£¡¡±\n"NOR,ob);
+        		message_vision(HIR"$Nå¼ºå¿ä¼¤ç—›ï¼Œæå‡ºä¸€ç²’è¯ä¸¸å¡è¿›å˜´é‡Œï¼Œå«é“ï¼šâ€œå¤§ä¸äº†ä¸€æ­»ï¼"+RANK_D->query_self_rude(ob)+"ä»Šå¤©åä¸‹æ¯’è¯æ¥å’Œä½ æ‹¼äº†ï¼â€\n"NOR,ob);
 			if( me->query("combat_exp") > query("combat_exp") *2 )
 				add("combat_exp", query("combat_exp") / 2);
         		else if( me->query("combat_exp") > query("combat_exp") /2 *3 )
@@ -331,7 +331,7 @@ void unconcious()
 			reincarnate();
 			kill_ob(me);
 			break;
-		case 2: message_vision(WHT"$NÒõÒõÒ»Ğ¦£¬µÀ£º¡°ÓĞÖÖ£¡¿´À´½ñÌì"+RANK_D->query_self_rude(ob)+"²»ÄÃ³ö¿´¼Ò±¾ÁìÀ´ÊÇ²»ĞĞÁË£¡¡±\n"NOR,ob);
+		case 2: message_vision(WHT"$Né˜´é˜´ä¸€ç¬‘ï¼Œé“ï¼šâ€œæœ‰ç§ï¼çœ‹æ¥ä»Šå¤©"+RANK_D->query_self_rude(ob)+"ä¸æ‹¿å‡ºçœ‹å®¶æœ¬é¢†æ¥æ˜¯ä¸è¡Œäº†ï¼â€\n"NOR,ob);
 			if( me->query("combat_exp") > query("combat_exp") *2 )
 				add("combat_exp", query("combat_exp") / 2);
 			else if( me->query("combat_exp") > query("combat_exp") /2 *3 )
@@ -365,7 +365,7 @@ void dest(object ob)
 	if ( !ob ) return;
     	if (ob->is_character() ){
     		if( environment(ob))
-       			message_vision("Ö»¼û$NºöÈ»¼±×ªÉíĞĞ£¬×ªÑÛ¾Í×Ù¼£½ÔÎŞ¡£\n", ob);  
+       			message_vision("åªè§$Nå¿½ç„¶æ€¥è½¬èº«è¡Œï¼Œè½¬çœ¼å°±è¸ªè¿¹çš†æ— ã€‚\n", ob);  
        	}
 
        	destruct(ob);

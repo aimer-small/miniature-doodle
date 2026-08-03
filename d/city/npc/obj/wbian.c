@@ -5,17 +5,17 @@ inherit WHIP;
 
 void create()
 {
-        set_name("ºÚÁú±Ş", ({ "bian", "wulongbian","whip" }));
+        set_name("é»‘é¾™é­", ({ "bian", "wulongbian","whip" }));
         set_weight(300);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»¸ùºÚÓÍÓÍµÄÈí±Ş¡£\n");
+                set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æ ¹é»‘æ²¹æ²¹çš„è½¯é­ã€‚\n");
                 set("value", 50);
                 set("material", "leather");
-                set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù´ÓÑüºó³é³öÒ»¸ù$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n±ğ»ØÑüºó¡£\n");
+                set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°ä»è…°åæŠ½å‡ºä¸€æ ¹$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nåˆ«å›è…°åã€‚\n");
         }
         init_whip(5);
         setup();

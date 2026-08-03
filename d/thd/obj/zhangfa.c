@@ -1,17 +1,17 @@
-// zhangfa.c ÂäÓ¢Éñ½£ÕÆ·¨
+// zhangfa.c è½è‹±ç¥å‰‘æŒæ³•
 
 inherit ITEM;
 
 void create()
 {
-	set_name("ÂäÓ¢Éñ½£ÕÆÍ¼½â", ({ "zhangfa tujie", "tujie", "shu", "book" }));
+	set_name("è½è‹±ç¥å‰‘æŒå›¾è§£", ({ "zhangfa tujie", "tujie", "shu", "book" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("treasure", 1);
-		set("unit", "±¾");
-		set("long", "Õâ±¾ÕÆ·¨ÖĞÏêÏ¸µØ»­×Å»ÆÒ©Ê¦Ëù´´µÄÂäÓ¢Éñ½£ÕÆµÄÍ¼½â£¬ËäÈ»¶ÔÄãÀ´ËµÂÔÏÔ¼èÉî£¬µ«ÓÃËüÀ´ÁìÎò»ù±¾ÕÆ·¨µÄ¾÷ÇÏÈ´ÊÇ¿ÉÒÔµÄ¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æœ¬æŒæ³•ä¸­è¯¦ç»†åœ°ç”»ç€é»„è¯å¸ˆæ‰€åˆ›çš„è½è‹±ç¥å‰‘æŒçš„å›¾è§£ï¼Œè™½ç„¶å¯¹ä½ æ¥è¯´ç•¥æ˜¾è‰°æ·±ï¼Œä½†ç”¨å®ƒæ¥é¢†æ‚ŸåŸºæœ¬æŒæ³•çš„è¯€çªå´æ˜¯å¯ä»¥çš„ã€‚\n");
 		set("value", 30);
 		set("material", "paper");
 		set("skill", ([

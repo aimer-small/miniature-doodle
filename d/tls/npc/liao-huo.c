@@ -5,13 +5,13 @@ inherit F_MASTER;
 inherit NPC;
 #include <ansi.h>
 
-#define QUESTDIR "quest/�����˲�/"
-#define QUESTDIR1 "quest/�����˲�/�貨΢��ƪ/"
-#define QUESTDIR2 "quest/�����˲�/����Ӫ��ƪ/"
-#define QUESTDIR3 "quest/�����˲�/��������ƪ/"
-#define QUESTDIR4 "quest/�����˲�/���ɾ�Ԯƪ/"
-#define QUESTDIR5 "quest/�����˲�/��������ƪ/"
-#define QUESTDIR6 "quest/�����˲�/�书/"
+#define QUESTDIR "quest/天龙八部/"
+#define QUESTDIR1 "quest/天龙八部/凌波微步篇/"
+#define QUESTDIR2 "quest/天龙八部/天龙营救篇/"
+#define QUESTDIR3 "quest/天龙八部/萧峰身世篇/"
+#define QUESTDIR4 "quest/天龙八部/大辽救援篇/"
+#define QUESTDIR5 "quest/天龙八部/复兴天下篇/"
+#define QUESTDIR6 "quest/天龙八部/武功/"
 
 string askduanyu();
 string tianlonghelp();
@@ -22,12 +22,12 @@ string ask_for_join();
 
 void create()
 {
-        set_name("�˻���ʦ", ({ "liaohuo chanshi","liaohuo","chanshi"}) );
-        set("nickname", "©������");
-        set("long", "�˻���ʦ�Ǳ����ɵĵ���λ���ӣ�����Լ��ʮ��
-������档���������д���ӭ��ְ֮������Ц�ݿ�
-�ϣ�����ȴ�������ء����š�\n");
-        set("gender", "����" );
+        set_name("了惑禅师", ({ "liaohuo chanshi","liaohuo","chanshi"}) );
+        set("nickname", "漏尽尊者");
+        set("long", "了惑禅师是本因方丈的第五位弟子，他年约四十，
+红光满面。现掌理寺中待客迎宾之职，别看他笑容可
+鞠，行事却最是稳重、沉着。\n");
+        set("gender", "男性" );
         set("class", "bonze");
         set("attitude", "friendly");
         set("age", 41);
@@ -36,7 +36,7 @@ void create()
         set("int", 22);
         set("con", 23);
         set("dex", 22);
-        create_family("������", 14, "����");
+        create_family("天龙寺", 14, "弟子");
         set("unique", 1);
         set("qi", 1000);
         set("max_qi", 1000);
@@ -66,21 +66,21 @@ void create()
         map_skill("strike", "qingyan-zhang");
         prepare_skill("strike","qingyan-zhang");                
         set("inquiry",([
-                "���"  : (: ask_for_join :),
-                "����"  : (: ask_for_join :),
-            		"����" : (: askduanyu :),
-		            "����" : "������Ǵ�����",
-		            "������" : "�������������£������μ���ѧ�����֮�ء�",
-		            "��������" : (: tianlonghelp :),
-		            "Ӫ��" : (: asksave :),
-		            "���" : (: asksave :),
-		            "����" : "�����˳���Ľ�ݡ������壬�˵�һ���ú���",
-		            "Ӫ�ȶ���" : (: asksave :),
-		            "Ӫ������" : (: askxiaofeng :),
-		            "Ľ�ݸ�" : "�����˳���Ľ�ݡ������壬��˵Ľ�ݹ����꼶���ᣬȴ����������",
-		            "Ľ�ݲ�" : "����˵�ǣ�����Ľ�ݲ����Ľܲţ���ϧӢ�����š�",
-		            "�Ħ��" : (: askjiumozhi :),
-		            "������" : "��˵������������߾�ѧ���ҹ����Ⱳ��Ҳδ�ܼ�����",
+                "剃度"  : (: ask_for_join :),
+                "出家"  : (: ask_for_join :),
+            		"段誉" : (: askduanyu :),
+		            "大理" : "这里便是大理。",
+		            "天龙寺" : "这里正是天龙寺，大理段家武学的最高之地。",
+		            "天龙有难" : (: tianlonghelp :),
+		            "营救" : (: asksave :),
+		            "搭救" : (: asksave :),
+		            "萧峰" : "江湖人称南慕容、北萧峰，端得一条好汉。",
+		            "营救段誉" : (: asksave :),
+		            "营救萧峰" : (: askxiaofeng :),
+		            "慕容复" : "江湖人称南慕容、北萧峰，听说慕容公子年级轻轻，却无所不精。",
+		            "慕容博" : "我听说是，姑苏慕容不出的杰才，可惜英年早逝。",
+		            "鸠摩智" : (: askjiumozhi :),
+		            "六脉神剑" : "传说的我天龙寺最高绝学，我估计这辈子也未能见到。",
 	]));
         setup();
         carry_object(BINGQI_D("changjian"))->wield(); 
@@ -98,7 +98,7 @@ void init()
     {
     	command("look "+me->query("id"));
     	command("touch "+me->query("id"));
-    	command("say ����λ������æ�����µ��ɸ��������ˡ�"); 
+    	command("say 有这位大侠帮忙，本寺当可高枕无忧了。"); 
     }
 	} 
 }
@@ -109,25 +109,25 @@ string askjiumozhi()
 	if (me->query(QUESTDIR1+"over") && !me->query(QUESTDIR2+"start"))
 	{
   	  command("nod "+me->query("id"));
-		  return "��˵�������µ�һ��ɮ�Ħ�ǽ����������·𷨽����������Ҵ���֮�Ұ���";
+		  return "听说，大轮寺第一高僧鸠摩智将来我天龙寺佛法交流，真是我大理之幸啊。";
   }
 	if (me->query(QUESTDIR2+"start") && !me->query(QUESTDIR2+"over"))
 	{
   	  command("sigh");
   	  command("? "+me->query("id"));
-		  return "��ħɮ��Ȼ����۸��Ҵ������ˣ�ʲô��ެ����һ�𷨸�ɮ����P��P��";
+		  return "这魔僧竟然如此欺负我大理无人，什么吐蕃国第一佛法高僧，狗P狗P。";
   }
 	if (me->query(QUESTDIR2+"start")&& me->query(QUESTDIR2+"over"))
 	{
   	  command("nod "+me->query("id"));
-		  return "�Ħ����Ϊ�����һ�𷨸�ɮ����ν����������ȫ��һ�ɺ��ԡ�";
+		  return "鸠摩智妄为西域第一佛法高僧，所谓口生莲花，全是一派胡言。";
   }
   /*
-  ���������Ħ������ެ���Ļ�����������ֻ��˵���ߴ��ǻۣ���ͨ�𷨣�ÿ�����꣬��̳����˵�����������ø��صĸ�ɮ��£�
-  �Ƽ���ѩɽ�����£�ִ�����ѣ������ڵ䣬�ŷ��ȱϣ��޲���ϲ��̾��ȥ��
+  大轮明王鸠摩智是吐蕃国的护国法王，但只听说他具大智慧，精通佛法，每隔五年，开坛讲经说法，西域天竺各地的高僧大德，
+  云集大雪山大轮寺，执经问难，研讨内典，闻法既毕，无不欢喜赞叹而去。
   */
   command("nod");
-	return "���������Ħ������ެ���Ļ�������������˵���ߴ��ǻۣ���ͨ�𷨣������书Ҳ�Ǿ��ˡ�";
+	return "大轮明王鸠摩智是吐蕃国的护国法王，但听说他具大智慧，精通佛法，想来武功也是惊人。";
 }
 string askxiaofeng()
 {
@@ -136,39 +136,39 @@ string askxiaofeng()
   if(!me->query(QUESTDIR3+"start"))
   {
   	  command("hoho");
-  		return "�����˳���Ľ�ݡ������壬�˵�һ���ú�������Ԯ��֮˵��";
+  		return "江湖人称南慕容、北萧峰，端得一条好汉，何来援救之说。";
   }
 	if (me->query(QUESTDIR3+"start") && !me->query(QUESTDIR3+"over"))
 	{
   	  command("sigh");
   	  command("shrug "+me->query("id"));
-		  return "��˵������飬ֻ���������������漰����֮����";
+		  return "听说这件事情，只是天龙寺向来不涉及武林之争。";
   }
 
 	if (me->query(QUESTDIR3+"bad"))
 	{
   	  command("heng");
   	  command("? "+me->query("id"));
-		  return "�Ƿ壬�Ѳ��������ȳ���ԭ��������ν��Ȳ�֪ʲô��˼�������ʣ�";
+		  return "乔峰，难不是你所迫出中原，今日所谓搭救不知什么意思。假惺惺！";
   }
 	if (me->query(QUESTDIR3+"start") && me->query(QUESTDIR3+"over")&& !me->query(QUESTDIR4+"start"))
 	{
   	  command("sigh");
   	  command("shrug "+me->query("id"));
-		  return "��˵������飬ֻ���������������漰����֮����";
+		  return "听说这件事情，只是天龙寺向来不涉及武林之争。";
   }
 	if (me->query(QUESTDIR4+"start")&& !me->query(QUESTDIR4+"over"))
 	{
   	  command("nod "+me->query("id"));
-		  return "��˵������飬ֻ���������������漰����֮����";
+		  return "听说这件事情，只是天龙寺向来不涉及武林之争。";
   }
 	if (me->query(QUESTDIR4+"start") && me->query(QUESTDIR4+"over"))
 	{
   	  command("haha "+me->query("id"));
-		  return "��˵��һս��"+me->query("name")+"�����������֣��˵���������";
+		  return "听说那一战，"+me->query("name")+"更是威震武林，端得厉害啊。";
   }
   command("hoho");
-	return "�����˳���Ľ�ݡ������壬�˵�һ���ú�������Ԯ��֮˵��";
+	return "江湖人称南慕容、北萧峰，端得一条好汉，何来援救之说。";
 }
 string asksave()
 {
@@ -177,37 +177,37 @@ string asksave()
   if(!me->query(QUESTDIR1+"start") &&!me->query(QUESTDIR2+"start"))
   {
   	  command("hoho");
-  		return "С����������ϲ��ѧ��ֻ�����׾���ƽ�׽��ˣ�����Ԯ��֮˵��";
+  		return "小王子素来不喜武学，只爱佛法易经，平易近人，何来援救之说？";
   }
 	if (me->query(QUESTDIR1+"start") && !me->query(QUESTDIR1+"wuliangover")&& !me->query(QUESTDIR1+"over"))
 	{
   	  command("sigh");
   	  command("shrug "+me->query("id"));
-		  return "��˵��ǰ��ʱ��С���Ӻ����������ǳ���һ��������δ�лؼң���֪�����ɷ��������һ�¡�";
+		  return "听说，前段时间小王子和镇南王又是吵架一番，至今未有回家，不知大侠可否帮助打听一下。";
   }
 	if (me->query(QUESTDIR1+"start") && me->query_temp(QUESTDIR1+"yingjiu")&& !me->query(QUESTDIR1+"over"))
 	{
   	  command("sigh");
   	  command("shrug "+me->query("id"));
-		  return "��˵������飬ֻ���������������漰����֮����";
+		  return "听说这件事情，只是天龙寺向来不涉及武林之争。";
   }
 	if (me->query(QUESTDIR1+"start") && me->query(QUESTDIR1+"over")&& !me->query(QUESTDIR2+"start"))
 	{
   	  command("thank "+me->query("id"));
-		  return "ֻ���Դ���ٹȻ�����С���Ӿ����㱣���֪���кζ������ܺ������ˡ�";
+		  return "只是自从万劫谷回来，小王子精神恍惚，不知所中何毒还是受何种内伤。";
   }
 	if (me->query(QUESTDIR2+"start") && !me->query(QUESTDIR2+"over")&& !me->query_temp(QUESTDIR2+"caught"))
 	{
   	  command("sigh "+me->query("id"));
-		  return "С��������ٹȻ�����������Ѫ�������������죬�ű�������������������ˡ�";
+		  return "小王子自万劫谷回来，总是气血不定，内力怪异，才被送往我天龙寺求救来了。";
   }
 	if (me->query(QUESTDIR2+"start") && !me->query(QUESTDIR2+"over"))
 	{
   	  command("sigh "+me->query("id"));
-		  return "��Ȼ�ǳ��Ħ����ȸ��֣���Ը���Ӽ������డ��";
+		  return "竟然惹出鸠摩智这等高手，但愿王子吉人天相啊。";
   }
   command("hoho");
-	return "С����������ϲ��ѧ��ֻ�����׾���ƽ�׽��ˣ�����Ԯ��֮˵��";
+	return "小王子素来不喜武学，只爱佛法易经，平易近人，何来援救之说？";
 }
 string askduanyu()
 {
@@ -216,37 +216,37 @@ string askduanyu()
   if(!me->query(QUESTDIR1+"start" )&&!me->query(QUESTDIR2+"start"))
   {
   	  command("hoho");
-  		return "С����������ϲ��ѧ��ֻ�����׾���";
+  		return "小王子素来不喜武学，只爱佛法易经。";
   }
 	if (me->query(QUESTDIR1+"start") && !me->query(QUESTDIR1+"wuliangover")&& !me->query(QUESTDIR1+"over"))
 	{
   	  command("sigh");
   	  command("shrug "+me->query("id"));
-		  return "��˵��ǰ��ʱ��С���Ӻ����������ǳ���һ��������δ�лؼҡ�";
+		  return "听说，前段时间小王子和镇南王又是吵架一番，至今未有回家。";
   }
 	if (me->query(QUESTDIR1+"start") && me->query_temp(QUESTDIR1+"yingjiu")&& !me->query(QUESTDIR1+"over"))
 	{
   	  command("sigh");
   	  command("shrug "+me->query("id"));
-		  return "��˵������飬ֻ���������������漰����֮����";
+		  return "听说这件事情，只是天龙寺向来不涉及武林之争。";
   }
 	if (me->query(QUESTDIR1+"start") && me->query(QUESTDIR1+"over")&& !me->query(QUESTDIR2+"start"))
 	{
   	  command("thank "+me->query("id"));
-		  return "��л�������С���ӡ�";
+		  return "多谢大侠搭救小王子。";
   }
 	if (me->query(QUESTDIR2+"start") && !me->query(QUESTDIR2+"over")&& !me->query_temp(QUESTDIR2+"caught"))
 	{
   	  command("sigh "+me->query("id"));
-		  return "С��������ٹȻ�����������Ѫ�������������죬�ű���������������ˡ�";
+		  return "小王子自万劫谷回来，总是气血不定，内力怪异，才被送往天龙求救来了。";
   }
 	if (me->query(QUESTDIR2+"start") && !me->query(QUESTDIR2+"over"))
 	{
   	  command("sigh "+me->query("id"));
-		  return "��Ȼ�ǳ��Ħ����ȸ��֣���Ը���Ӽ������డ��";
+		  return "竟然惹出鸠摩智这等高手，但愿王子吉人天相啊。";
   }
   command("hoho");
-	return "��������������֮�ӡ�";
+	return "段誉正是镇南王之子。";
 }
 string tianlonghelp()
 {
@@ -255,23 +255,23 @@ string tianlonghelp()
   if(!me->query(QUESTDIR1+"over"))
   {
   	  command("haha");
-  		return "���������Ҷμ���ѧ�����֮�أ��������ƣ��벻ҪΣ��������";
+  		return "天龙寺是我段家武学的最高之地，高手众云，请不要危言耸听。";
   }
 	if (me->query(QUESTDIR1+"over") && !me->query(QUESTDIR2+"start"))
 	{
   	  command("nod "+me->query("id"));
-		  return "��˵�������¸�ɮ�Ħ�ǲ��ս����������£���֪��ϲ�ǻ���";
+		  return "听说，大轮寺高僧鸠摩智不日将来我天龙寺，不知是喜是祸。";
   }
 	if (me->query(QUESTDIR2+"start") && !me->query(QUESTDIR2+"over"))
 	{
   	  command("sigh");
-		  return "��ħɮ��Ȼ����۸��Ҵ������ˣ�ʲô��ެ����һ�𷨸�ɮ����P��";
+		  return "这魔僧竟然如此欺负我大理无人，什么吐蕃国第一佛法高僧，狗P。";
   }
 	if (me->query(QUESTDIR2+"over"))
 	{
   	  command("thank "+me->query("id"));
-		  return "��л���������ⳡ����Σ���������Ҵ���С���ӵ��Խ�ȡ�";
+		  return "多谢大侠化解这场天龙危机，还将我大理小王子得以解救。";
   }
   command("hoho");
-	return "���������Ҷμ���ѧ�����֮�أ��������ƣ��벻ҪΣ��������";
+	return "天龙寺是我段家武学的最高之地，高手众云，请不要危言耸听。";
 }

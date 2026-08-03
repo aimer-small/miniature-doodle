@@ -2,10 +2,10 @@
 // Created by mxzhao 2004/05/15
 // 
 
-// ÎÄ¼ş¸ñÊ½£º
-// 4.11.0.0|4.11.255.255|ÃÀ¹ú|ÏÄÍşÒÄ
+// æ–‡ä»¶æ ¼å¼ï¼š
+// 4.11.0.0|4.11.255.255|ç¾å›½|å¤å¨å¤·
 // 
-// ËµÃ÷: Ò»ĞĞÎªÒ»¸öIPµ¥Ôª£¬ÖÁÉÙµÃÖ¸¶¨Ç°Á½Ïî£¬¼´¿ªÊ¼IPºÍ½áÊøIP
+// è¯´æ˜: ä¸€è¡Œä¸ºä¸€ä¸ªIPå•å…ƒï¼Œè‡³å°‘å¾—æŒ‡å®šå‰ä¸¤é¡¹ï¼Œå³å¼€å§‹IPå’Œç»“æŸIP
 //       
 
 #include <ansi.h>
@@ -47,7 +47,7 @@ private varargs int update_ip_list(string arg, int start, int count)
 
 	if (file_size(arg) < 0)
 	{
-		write("ÎÄ¼ş" + arg + "²»´æÔÚ¡£\n");
+		write("æ–‡ä»¶" + arg + "ä¸å­˜åœ¨ã€‚\n");
 		return 0;
 	}
 
@@ -79,14 +79,14 @@ private varargs int update_ip_list(string arg, int start, int count)
 
 		if (nline < 2)
 		{
-			write(sprintf("%sµÚ%dĞĞ´íÎóµÄÊı¾İ: %s\n", arg, i, str));
+			write(sprintf("%sç¬¬%dè¡Œé”™è¯¯çš„æ•°æ®: %s\n", arg, i, str));
 			continue;
 		}
 
 		if (!stringp(sline[0] = fullip(sline[0]))
 			|| !stringp(sline[1] = fullip(sline[1])))
 		{
-			write(sprintf("%sµÚ%dĞĞ´íÎóµÄÊı¾İ: %s\n", arg, i, str));
+			write(sprintf("%sç¬¬%dè¡Œé”™è¯¯çš„æ•°æ®: %s\n", arg, i, str));
 		}
 
 		for (int j=2; j<nline; j++)
@@ -99,7 +99,7 @@ private varargs int update_ip_list(string arg, int start, int count)
 			+ ", ipname =" + save_variable(sname));
 	}
 
-	write(arg + "ÎÄ¼ş¸üĞÂÍê±Ï¡£\n");
+	write(arg + "æ–‡ä»¶æ›´æ–°å®Œæ¯•ã€‚\n");
 
 	return 1;
 }
@@ -142,7 +142,7 @@ varargs int update_ip(object me, string arg, int start, int count)
 	}
 	else if (file_size(arg) == -1)
 	{
-		write("Õâ¸öÎÄ¼ş²»´æÔÚ¡£\n");
+		write("è¿™ä¸ªæ–‡ä»¶ä¸å­˜åœ¨ã€‚\n");
 		return 0;
 	}
 	else
@@ -150,7 +150,7 @@ varargs int update_ip(object me, string arg, int start, int count)
 		update_ip_list(arg, start, count);
 	}
 
-	write("IPĞÅÏ¢¸üĞÂÍê±Ï¡£\n");
+	write("IPä¿¡æ¯æ›´æ–°å®Œæ¯•ã€‚\n");
 
 	return 1;
 }
@@ -171,7 +171,7 @@ string ip2name(string addr)
 	}
 	else 
 	{
-		return "¶ÏÏß";
+		return "æ–­çº¿";
 	}
 
 	return addr;

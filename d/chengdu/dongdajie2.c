@@ -5,13 +5,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�����");
+	set("short", "东大街");
 	set("long", @LONG
-���ǳɶ��Ķ���֡�����ͨ�򶫳��ţ������Եúܷ�æ���ϱ���һ����լ
-ۡ����֪���ĸ����ҹ������ӡ�
+这是成都的东大街。东边通向东城门，西边显得很繁忙。南边有一座大宅
+邸，不知是哪个世家贵族所居。
 LONG
 	);
-        set("outdoors", "�ɶ�");
+        set("outdoors", "成都");
 
 	set("exits", ([
 		"east" : __DIR__"dongdajie3",

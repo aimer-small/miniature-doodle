@@ -4,25 +4,25 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ò°¹·", ({ "dog" }) );
-	set("race", "Ò°ÊÞ");
+	set_name("é‡Žç‹—", ({ "dog" }) );
+	set("race", "é‡Žå…½");
 	set("age", 3);
-	set("long", "Ò»Ö»»ëÉíÔàÙâÙâµÄÒ°¹·¡£\n");
+	set("long", "ä¸€åªæµ‘èº«è„å…®å…®çš„é‡Žç‹—ã€‚\n");
         set("attitude", "peaceful");
 	set("str", 32);
 	set("dex", 36);
 	set("max_qi",150);
 	set("qi", 150);
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°½Å", "áá½Å", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰è„š", "å¾Œè„š", "å°¾å·´" }) );
 	set("verbs", ({ "bite", "claw" }) );
 	set("combat_exp",150);
 	set("chat_chance", 6);
 	set("chat_msg", ({
 		(: this_object(), "random_move" :),
-		"Ò°¹·ÓÃ±Ç×ÓÎÅÁËÎÅÄãµÄ½Å¡£\n",
-		"Ò°¹·ÔÚÄãµÄ½Å±ß°¤°¤²Á²ÁµÄ£¬ÏëÌÖ¶«Î÷³Ô¡£\n",
-		"Ò°¹·¶ÔÖøÄãÒ¡ÁËÒ¡Î²°Í¡£\n",
-		"Ò°¹·ÓÃºóÍÈ×¥ÁË×¥×Ô¼ºµÄ¶ú¶ä¡£\n" }) );
+		"é‡Žç‹—ç”¨é¼»å­é—»äº†é—»ä½ çš„è„šã€‚\n",
+		"é‡Žç‹—åœ¨ä½ çš„è„šè¾¹æŒ¨æŒ¨æ“¦æ“¦çš„ï¼Œæƒ³è®¨ä¸œè¥¿åƒã€‚\n",
+		"é‡Žç‹—å¯¹è‘—ä½ æ‘‡äº†æ‘‡å°¾å·´ã€‚\n",
+		"é‡Žç‹—ç”¨åŽè…¿æŠ“äº†æŠ“è‡ªå·±çš„è€³æœµã€‚\n" }) );
 		
 	set_temp("apply/attack", 10);
 	set_temp("apply/armor", 3);
@@ -34,7 +34,7 @@ int accept_object(object who, object ob)
 {
 	if( ob->id("bone") ) {
 		set_leader(who);
-		message("vision", name() + "¸ßÐËµØÍôÍô½ÐÁËÆðÀ´¡£\n", environment());
+		message("vision", name() + "é«˜å…´åœ°æ±ªæ±ªå«äº†èµ·æ¥ã€‚\n", environment());
 		return 1;
 	}
 }
@@ -42,7 +42,7 @@ int accept_object(object who, object ob)
 void die()
 {
 	object ob;
-	message_vision("$N²Ò½ÐÁËÒ»Éù£¬µ¹ÔÚµØÉÏËÀÁË£¬´ÓÉíÏÂÂ¶³öÒ»¸ù¼¦¹ÇÍ·À´¡£\n", this_object());
+	message_vision("$Næƒ¨å«äº†ä¸€å£°ï¼Œå€’åœ¨åœ°ä¸Šæ­»äº†ï¼Œä»Žèº«ä¸‹éœ²å‡ºä¸€æ ¹é¸¡éª¨å¤´æ¥ã€‚\n", this_object());
 	ob = new("/clone/food/jitui");
 	ob->set("decay", 1);
 	ob->finish_eat();

@@ -1,18 +1,18 @@
-// xian. ÙşÀÏ°å
+// xian. å†¼è€æ¿
 
 inherit NPC;
 inherit F_DEALER;
 
 void create()
 {
-	set_name("ÙşÀÏ°å", ({ "xian laoban", "xian" }));
-    set("title", "ÊİÎ÷ºş¾Æ¹İÀÏ°å");
+	set_name("å†¼è€æ¿", ({ "xian laoban", "xian" }));
+    set("title", "ç˜¦è¥¿æ¹–é…’é¦†è€æ¿");
 	set("shen_type", 1);
 
 	set("str", 20);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
-    set("long", "Ï´ÀÏ°å¾­Óª×æ´«ÏÂÀ´µÄÊİÎ÷ºş¾Æ¹İÒÑÓĞ¶àÄê¡£\n");
+    set("long", "æ´—è€æ¿ç»è¥ç¥–ä¼ ä¸‹æ¥çš„ç˜¦è¥¿æ¹–é…’é¦†å·²æœ‰å¤šå¹´ã€‚\n");
     set("combat_exp", 2000);
         set("qi", 300);
         set("max_qi", 300);

@@ -8,17 +8,17 @@ inherit NPC;
 
 void create()
 {
-	set_name("¾²ÐþÊ¦Ì«", ({
+	set_name("é™çŽ„å¸ˆå¤ª", ({
 		"jingxuan shitai",
 		"jingxuan",
 		"shitai",
 	}));
 	set("long",
-		"Ëý¾ÍÊÇ¶ëáÒÅÉ´óµÜ×Ó¾²ÐþÊ¦Ì«£¬ÔÚ°Ë´ó¾²×Ö±²µÜ×ÓÖÐÅÅÐÐµÚÒ»£¬×îÉÃµ¶·¨¡£\n"
-		"ËýÉí²Ä¸ß´ó£¬ÉñÌ¬ÍþÃÍ£¬ËäÊÇÅ®×Ó£¬È´±ÈÑ°³£ÄÐ×Ó»¹¸ßÁË°ë¸öÍ·¡£\n"
+		"å¥¹å°±æ˜¯å³¨åµ‹æ´¾å¤§å¼Ÿå­é™çŽ„å¸ˆå¤ªï¼Œåœ¨å…«å¤§é™å­—è¾ˆå¼Ÿå­ä¸­æŽ’è¡Œç¬¬ä¸€ï¼Œæœ€æ“…åˆ€æ³•ã€‚\n"
+		"å¥¹èº«æé«˜å¤§ï¼Œç¥žæ€å¨çŒ›ï¼Œè™½æ˜¯å¥³å­ï¼Œå´æ¯”å¯»å¸¸ç”·å­è¿˜é«˜äº†åŠä¸ªå¤´ã€‚\n"
 	);
 
-	set("gender", "Å®ÐÔ");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 	set("class", "bonze");
@@ -37,8 +37,8 @@ void create()
 	set("combat_exp", 1000000);
 	set("score", 100);
 	set("inquiry",([
-                "Ìê¶È"  : (: ask_for_join :),
-                "³ö¼Ò"  : (: ask_for_join :),
+                "å‰ƒåº¦"  : (: ask_for_join :),
+                "å‡ºå®¶"  : (: ask_for_join :),
         ]));
 	set_skill("dacheng-fofa", 130);
 	set_skill("linji-zhuang", 130);
@@ -55,7 +55,7 @@ void create()
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
 
-	create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+	create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
 	setup();
 	carry_object("/d/emei/obj/blade")->wield();

@@ -6,15 +6,15 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIR "¹ØµÛÃí" NOR);
+	set("short", HIR "å…³å¸åº™" NOR);
 	set("long", @LONG
-ÕâÊÇÑïÖİ³Ç¶«ÃæµÄÒ»Ëù¹ØµÛÃí£¬¾İËµÒ¹Àï¾­³£ÓĞÈËÔÚ´Ë¾ÛÖÚÒû¾Æ£¬ÆÕÍ¨°Ù
-ĞÕÊÇ²»»áÀ´ÕâÊÇ·ÇÖ®µØµÄ¡£µ«¼ûÃíÕıÖĞ¹©·îµÄ¹ØµÛËÜÏñèòèòÈçÉú£¬ÊÖ³ÖÇàÁúÙÈ
-ÔÂµ¶£¬×óÓÒ¸÷ÊÇ¹Ø¹«µÄ½áÒåĞÖµÜÁõ±¸ºÍÕÅ·É£¬Ò»¸ö¸öÒåÆø¶áÈË£¬·Â·ğÒªÉ±¾¡Ìì
-ÏÂ²»ÒåÖ®ÈË¡£
+è¿™æ˜¯æ‰¬å·åŸä¸œé¢çš„ä¸€æ‰€å…³å¸åº™ï¼Œæ®è¯´å¤œé‡Œç»å¸¸æœ‰äººåœ¨æ­¤èšä¼—é¥®é…’ï¼Œæ™®é€šç™¾
+å§“æ˜¯ä¸ä¼šæ¥è¿™æ˜¯éä¹‹åœ°çš„ã€‚ä½†è§åº™æ­£ä¸­ä¾›å¥‰çš„å…³å¸å¡‘åƒæ ©æ ©å¦‚ç”Ÿï¼Œæ‰‹æŒé’é¾™åƒ
+æœˆåˆ€ï¼Œå·¦å³å„æ˜¯å…³å…¬çš„ç»“ä¹‰å…„å¼Ÿåˆ˜å¤‡å’Œå¼ é£ï¼Œä¸€ä¸ªä¸ªä¹‰æ°”å¤ºäººï¼Œä»¿ä½›è¦æ€å°½å¤©
+ä¸‹ä¸ä¹‰ä¹‹äººã€‚
 LONG
 	);
-        set("indoors", "ÑïÖİ");
+        set("indoors", "æ‰¬å·");
 
 	set("exits", ([
 		"southwest" : __DIR__"dongmen",
@@ -30,7 +30,7 @@ void init()
 	object me = this_player();
   	object weapon = me->query_temp("weapon");
 	if (weapon){
-		tell_object(me, YEL"Äã¿´¼û¹ØµÛµÉ×ÅÄãµÄÑÛÉñ£¬´òÁË¸öÀäÕ½£¬²»×Ô½ûµÄ·ÅÏÂÁËÊÖÖĞµÄ±øÆ÷¡£\n"NOR);
+		tell_object(me, YEL"ä½ çœ‹è§å…³å¸çªç€ä½ çš„çœ¼ç¥ï¼Œæ‰“äº†ä¸ªå†·æˆ˜ï¼Œä¸è‡ªç¦çš„æ”¾ä¸‹äº†æ‰‹ä¸­çš„å…µå™¨ã€‚\n"NOR);
 		weapon->unequip();
 	}
 //	add_action("do_jiebai","jiebai");
@@ -45,45 +45,45 @@ int do_jiebai(string arg)
 
        	me = this_player();
 
-       	if (!arg) return notify_fail("¸ñÊ½£ºjiebai with <id> <id> <id>\n");
+       	if (!arg) return notify_fail("æ ¼å¼ï¼šjiebai with <id> <id> <id>\n");
 	i = sscanf(arg, "%s %s %s", arg1,arg2,arg3);
         if( i >= 0 && i <= 2 ){
-        	if (!arg1) return notify_fail("ÄãÒªºÍË­½á°İ£¿\n");
+        	if (!arg1) return notify_fail("ä½ è¦å’Œè°ç»“æ‹œï¼Ÿ\n");
         	if (arg1){
 			if (!(ob1 = present(arg1, environment(me))))
-				return notify_fail("ÄãÒª½á°İµÄÈË²»ÔÚÕâÀï¡£\n");
+				return notify_fail("ä½ è¦ç»“æ‹œçš„äººä¸åœ¨è¿™é‡Œã€‚\n");
 			if (ob1==me )
-				return notify_fail("Äã²»ÄÜºÍ×Ô¼º½á°İ¡£\n");
+				return notify_fail("ä½ ä¸èƒ½å’Œè‡ªå·±ç»“æ‹œã€‚\n");
 			if (!living(ob1)
                          || !ob1->is_character())
-				return notify_fail("ÄãÒªºÍË­½á°İ£¿\n");
+				return notify_fail("ä½ è¦å’Œè°ç»“æ‹œï¼Ÿ\n");
 		}
                 if (arg2){
 			if (!(ob2 = present(arg1, environment(me))))
-				return notify_fail("ÄãÒª½á°İµÄÈË²»ÔÚÕâÀï¡£\n");
+				return notify_fail("ä½ è¦ç»“æ‹œçš„äººä¸åœ¨è¿™é‡Œã€‚\n");
 			if (ob2==me )
-				return notify_fail("Äã²»ÄÜºÍ×Ô¼º½á°İ¡£\n");
+				return notify_fail("ä½ ä¸èƒ½å’Œè‡ªå·±ç»“æ‹œã€‚\n");
 			if (ob2==ob1)
-				return notify_fail("ÄãÒÑ¾­ÊäÈëÁË"+arg2+"µÄÃû×Ö£¬²»ĞèÒªÊäÈëÁ½´Î¡£\n");
+				return notify_fail("ä½ å·²ç»è¾“å…¥äº†"+arg2+"çš„åå­—ï¼Œä¸éœ€è¦è¾“å…¥ä¸¤æ¬¡ã€‚\n");
                 	if (!living(ob2)
 			 || !ob2->is_character())
-				return notify_fail("ÄãÒªºÍË­½á°İ£¿\n");
+				return notify_fail("ä½ è¦å’Œè°ç»“æ‹œï¼Ÿ\n");
 		}
                 if (arg3){
 			if (!(ob3 = present(arg1, environment(me))))
-				return notify_fail("ÄãÒª½á°İµÄÈË²»ÔÚÕâÀï¡£\n");
+				return notify_fail("ä½ è¦ç»“æ‹œçš„äººä¸åœ¨è¿™é‡Œã€‚\n");
 			if (ob3==me)
-				return notify_fail("Äã²»ÄÜºÍ×Ô¼º½á°İ¡£\n");
+				return notify_fail("ä½ ä¸èƒ½å’Œè‡ªå·±ç»“æ‹œã€‚\n");
 			if (ob3==ob1 || ob3==ob2)
-				return notify_fail("ÄãÒÑ¾­ÊäÈëÁË"+arg3+"µÄÃû×Ö£¬²»ĞèÒªÊäÈëÁ½´Î¡£\n");
+				return notify_fail("ä½ å·²ç»è¾“å…¥äº†"+arg3+"çš„åå­—ï¼Œä¸éœ€è¦è¾“å…¥ä¸¤æ¬¡ã€‚\n");
                 	if (!living(ob3)
 			 || !ob3->is_character())
-				return notify_fail("ÄãÒªºÍË­½á°İ£¿\n");
+				return notify_fail("ä½ è¦å’Œè°ç»“æ‹œï¼Ÿ\n");
 		}
         }
         else {
-                return notify_fail("½á°İµÄÈËÊı±ØĞëÊÇ¶şµ½ËÄ¸ö¡£\n");
+                return notify_fail("ç»“æ‹œçš„äººæ•°å¿…é¡»æ˜¯äºŒåˆ°å››ä¸ªã€‚\n");
 	}
-	return notify_fail("Ä¿Ç°ÓĞ"+(string)i+"¸ö½á°İ¶ÔÏó¡£"+arg1+arg2+arg3+"\n");
+	return notify_fail("ç›®å‰æœ‰"+(string)i+"ä¸ªç»“æ‹œå¯¹è±¡ã€‚"+arg1+arg2+arg3+"\n");
 }
 */

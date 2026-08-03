@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 {
-        set("short", "³ÇÚòÃí");
+        set("short", "åŸéšåº™");
         set("long", @LONG
-ÕâÊÇÑïÖİ³Ç±±µÄ³ÇÚòÃí¡£ÃíÀïÆ½ÈÕÏã¿ÍÏ¡ÉÙ£¬¸ÏÉÏÖĞÇï½Ú¡¢¶ËÎç½Ú»òÕßÃí
-»áµÄÊ±ºò£¬²Å»áÓĞĞ©Ïã»ğ¡£ÌÃÖĞ·Å×ÅÒ»¸ö³ÇÚòµÄËÜÏñ£¬ÉÏÃæÂäÂúÁË»Ò³¾£¬Ç½½Ç
-ÀïÓĞ¸öÆÆÖ©ÖëÍø£¬Á½Ö»Ö©ÖëÎŞÁÄµØ¶×ÔÚÉÏÃæ¡£
+è¿™æ˜¯æ‰¬å·åŸåŒ—çš„åŸéšåº™ã€‚åº™é‡Œå¹³æ—¥é¦™å®¢ç¨€å°‘ï¼Œèµ¶ä¸Šä¸­ç§‹èŠ‚ã€ç«¯åˆèŠ‚æˆ–è€…åº™
+ä¼šçš„æ—¶å€™ï¼Œæ‰ä¼šæœ‰äº›é¦™ç«ã€‚å ‚ä¸­æ”¾ç€ä¸€ä¸ªåŸéšçš„å¡‘åƒï¼Œä¸Šé¢è½æ»¡äº†ç°å°˜ï¼Œå¢™è§’
+é‡Œæœ‰ä¸ªç ´èœ˜è››ç½‘ï¼Œä¸¤åªèœ˜è››æ— èŠåœ°è¹²åœ¨ä¸Šé¢ã€‚
 LONG    );
         set("exits", ([
                 "east" : __DIR__"beidajie1",
@@ -45,9 +45,9 @@ if(!me) return;
 
         me->delete_temp("die_record");
 
-        //ÊÔ½£É½×¯Ï´ÊÖ×´Ì¬»Ö¸´
+        //è¯•å‰‘å±±åº„æ´—æ‰‹çŠ¶æ€æ¢å¤
         if(me->query("no_pk_recover")){
-            tell_object(me,BLINK + HIC"ÄúÀë¿ªÁËÊÔ½£É½×¯£¬ÏµÍ³×Ô¶¯»Ö¸´ÁËÄúµÄÏ´ÊÖ×´Ì¬£¡\n"NOR);
+            tell_object(me,BLINK + HIC"æ‚¨ç¦»å¼€äº†è¯•å‰‘å±±åº„ï¼Œç³»ç»Ÿè‡ªåŠ¨æ¢å¤äº†æ‚¨çš„æ´—æ‰‹çŠ¶æ€ï¼\n"NOR);
             me->set("no_pk",me->query("no_pk_recover"));
             me->delete("no_pk_recover");
         }
@@ -78,7 +78,7 @@ if(me->query_temp("death_relife"))
 
 int action()
 {
-        write("ÄãÎŞ·¨¾²ÏÂĞÄÀ´ĞŞÁ¶¡£\n");
+        write("ä½ æ— æ³•é™ä¸‹å¿ƒæ¥ä¿®ç‚¼ã€‚\n");
         return 1;
 }
 int valid_leave(object me, string dir)
@@ -86,6 +86,6 @@ int valid_leave(object me, string dir)
      mapping exits = query("exits");
      if (!load_object(exits[dir])->query("xyjob") 
      && me->query_temp("xyjob"))
-             return notify_fail("ÏåÑôÕ½ÊÂ½ô¼±£¬Äã»¹ÊÇ±ğÈ¥ËÍËÀÁË£¡£¡\n");
+             return notify_fail("è¥„é˜³æˆ˜äº‹ç´§æ€¥ï¼Œä½ è¿˜æ˜¯åˆ«å»é€æ­»äº†ï¼ï¼\n");
      return ::valid_leave(me, dir);
  }

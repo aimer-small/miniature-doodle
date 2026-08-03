@@ -1,4 +1,4 @@
-// niurou.c Ô­Áı·ÛÕôÅ£Èâ
+// niurou.c åŸç¬¼ç²‰è’¸ç‰›è‚‰
 
 #include <ansi.h>
 
@@ -7,13 +7,13 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name(HIY "Ô­Áı·ÛÕôÅ£Èâ" NOR, ({"niurou"}));
+	set_name(HIY "åŸç¬¼ç²‰è’¸ç‰›è‚‰" NOR, ({"niurou"}));
 	set_weight(700);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»ÁıÈÈÆøÌÚÌÚ£¬´ĞÈâÏãÆøÆË±Ç£¬ÈâÖÊÏ¸ÄÛËÖÀÃµÄ·ÛÕôÅ£Èâ\n");
-		set("unit", "Áı");
+		set("long", "ä¸€ç¬¼çƒ­æ°”è…¾è…¾ï¼Œè‘±è‚‰é¦™æ°”æ‰‘é¼»ï¼Œè‚‰è´¨ç»†å«©é…¥çƒ‚çš„ç²‰è’¸ç‰›è‚‰\n");
+		set("unit", "ç¬¼");
 		set("value", 190);
 		set("food_remaining", 2);
 		set("food_supply", 50);

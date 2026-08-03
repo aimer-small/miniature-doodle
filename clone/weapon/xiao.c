@@ -1,4 +1,4 @@
-// xiao.c óï
+// xiao.c ç®«
 
 #include <weapon.h>
 
@@ -6,17 +6,17 @@ inherit SWORD;
 
 void create()
 {
-	set_name("óï",({"xiao"}));
+	set_name("ç®«",({"xiao"}));
 	set_weight(150);
 	if (clonep())
 		set_default_object(__FILE__);
 	else{
-		set("unit", "Ö§");
+		set("unit", "æ”¯");
 		set("value", 600);
 		set("material", "wood");
-		set("long","ÕâÊÇÒ»Ö§ÓÃËÉÄ¾×öµÄóï£¬×ö¹¤Ê®·Ö¾«Ï¸¡£\n");
-		set("wield_msg","$NÉìÊÖÇáÇáÒ»ÕĞ£¬Ò»Ö§$nÒÑ³öÏÖÔÚ$NÊÖÖĞ¡£\n");
-		set("unwield_msg","$NÎ¢Î¢Ò»Ğ¦,½«$n²å»ØÁì¿Ú¡£\n");
+		set("long","è¿™æ˜¯ä¸€æ”¯ç”¨æ¾æœ¨åšçš„ç®«ï¼Œåšå·¥ååˆ†ç²¾ç»†ã€‚\n");
+		set("wield_msg","$Nä¼¸æ‰‹è½»è½»ä¸€æ‹›ï¼Œä¸€æ”¯$nå·²å‡ºç°åœ¨$Næ‰‹ä¸­ã€‚\n");
+		set("unwield_msg","$Nå¾®å¾®ä¸€ç¬‘,å°†$næ’å›é¢†å£ã€‚\n");
 	}
 	init_sword(15);
 	setup();
@@ -26,7 +26,7 @@ int wield()
 {
         object me = environment();
         if (living(me) && !me->query_skill("yuxiao-jian", 1)){
-            message_vision("$NÄÃÆğ"+name()+"£¬µ«ÊÇ²»»áÊ¹ÓÃ¡£\n", me);
+            message_vision("$Næ‹¿èµ·"+name()+"ï¼Œä½†æ˜¯ä¸ä¼šä½¿ç”¨ã€‚\n", me);
             return 0;
         }           
         if(!query("weapon_prop/damage")) return 0;

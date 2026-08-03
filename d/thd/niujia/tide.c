@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "º£ÖĞ");
+	set("short", "æµ·ä¸­");
 	set("long", @LONG
-ÕâÀïÊÇË®µ×£¬³ıÁËÓ­ÃæÆËÀ´µÄ³±Ë®(tide)ÍâÄãÊ²Ã´Ò²¿´²»¼û¡£
+è¿™é‡Œæ˜¯æ°´åº•ï¼Œé™¤äº†è¿é¢æ‰‘æ¥çš„æ½®æ°´(tide)å¤–ä½ ä»€ä¹ˆä¹Ÿçœ‹ä¸è§ã€‚
 LONG
 	);
 	set("no_clean_up", 0);
@@ -26,12 +26,12 @@ int do_jump(string arg)
 {
 	object me = this_player();
 
-	if (me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (arg != "bank" && arg != "anbian" && arg != "an" && arg != "shore" && arg != "shatan")
-		return notify_fail("ÄãÒªÍùÄÄÀïÌø£¿\n");
+		return notify_fail("ä½ è¦å¾€å“ªé‡Œè·³ï¼Ÿ\n");
 
 	me->move(__DIR__"haibin");
-	message_vision("$NºöÈ»´Óº£Ë®Àï´ÚÁË³öÀ´£¬ÔÚ¿ÕÖĞÇáÇáÒ»×ª£¬ÂäÔÚÁË°¶±ß¡£\n", me);
+	message_vision("$Nå¿½ç„¶ä»æµ·æ°´é‡Œè¹¿äº†å‡ºæ¥ï¼Œåœ¨ç©ºä¸­è½»è½»ä¸€è½¬ï¼Œè½åœ¨äº†å²¸è¾¹ã€‚\n", me);
 	return 1;
 }
 
@@ -41,25 +41,25 @@ int do_hit(string arg)
 	object weapon;
 	int hit_tide, temp;
 
-	if (me->is_busy() || me->is_fighting())	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy() || me->is_fighting())	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (arg != "tide" && arg != "chao") {
-		write("ÄãÒª»÷´òÊ²Ã´£¿\n");
+		write("ä½ è¦å‡»æ‰“ä»€ä¹ˆï¼Ÿ\n");
 		return 1;
 	}
 	if (!(weapon = me->query_temp("weapon"))) {
-		write("Äã¶Ô×Åº£³±È­´ò½ÅÌßÁËÒ»Õó£¬ÖÕÓÚ·¢Ğ¹ÁËĞÄÖĞ¶Ô±¾£Ñ£Õ£Å£Ó£ÔµÄ²»Âú¡£\n");
+		write("ä½ å¯¹ç€æµ·æ½®æ‹³æ‰“è„šè¸¢äº†ä¸€é˜µï¼Œç»ˆäºå‘æ³„äº†å¿ƒä¸­å¯¹æœ¬ï¼±ï¼µï¼¥ï¼³ï¼´çš„ä¸æ»¡ã€‚\n");
 		return 1;
 	}
 	if (weapon->query("skill_type") != "sword") {
-		write("ÄãÄÃÆğ" + weapon->query("name") + "¶Ô×Åº£³±ºúÂÒ»Ó»÷ÁËÒ»Õó£¬¾õµÃ×Ô¼ºÌØÎŞÁÄ¡£\n");
+		write("ä½ æ‹¿èµ·" + weapon->query("name") + "å¯¹ç€æµ·æ½®èƒ¡ä¹±æŒ¥å‡»äº†ä¸€é˜µï¼Œè§‰å¾—è‡ªå·±ç‰¹æ— èŠã€‚\n");
 		return 1;
 	}
 	if (me->query("neili") < 60) {
-		write("ÄãµÄÄÚÁ¦²»×ã£¬ÎŞ·¨¼ÌĞøÁ·ÏÂÈ¥¡£\n");
+		write("ä½ çš„å†…åŠ›ä¸è¶³ï¼Œæ— æ³•ç»§ç»­ç»ƒä¸‹å»ã€‚\n");
 		return 1;
 	}
 	if (me->query("qi") < 0) {
-		write("ÄãÒÑ¾­²»ĞĞÁË£¬ÎŞ·¨¼ÌĞøÁ·ÏÂÈ¥¡£\n");
+		write("ä½ å·²ç»ä¸è¡Œäº†ï¼Œæ— æ³•ç»§ç»­ç»ƒä¸‹å»ã€‚\n");
 		return 1;
 	}
 	if (weapon->query("material") != "wood" || me->query("benefit/str")) {
@@ -72,10 +72,10 @@ int do_hit(string arg)
 			else
 				weapon->set_temp("max_hit_tide", 8);	
 		}
-		write("ÄãÓÃ" + weapon->query("name") + "·ÜÁ¦»÷´ò×Åº£³±£¬ÓÚ½£µÄÔËÓÃ·½ÃæÓĞÁËÒ»Ğ©ÁìÎò¡£\n");
+		write("ä½ ç”¨" + weapon->query("name") + "å¥‹åŠ›å‡»æ‰“ç€æµ·æ½®ï¼Œäºå‰‘çš„è¿ç”¨æ–¹é¢æœ‰äº†ä¸€äº›é¢†æ‚Ÿã€‚\n");
 		hit_tide++;
 		if (hit_tide > weapon->query_temp("max_hit_tide")) {
-			write("ÒòÎªÄãÓÃÁ¦¹ıÃÍ£¬"+ weapon->query("name") + "¡°Å¾¡±µØÒ»ÉùÕÛ¶ÏÁË£¡\n");
+			write("å› ä¸ºä½ ç”¨åŠ›è¿‡çŒ›ï¼Œ"+ weapon->query("name") + "â€œå•ªâ€åœ°ä¸€å£°æŠ˜æ–­äº†ï¼\n");
 			destruct(weapon);
 		}
 		else
@@ -88,44 +88,44 @@ int do_hit(string arg)
 	}
 	else {
 		hit_tide = me->query("sea/hit_tide");
-		write("ÄãÓÃ" + weapon->query("name") + "·ÜÁ¦»÷´ò×Åº£³±£¬");
+		write("ä½ ç”¨" + weapon->query("name") + "å¥‹åŠ›å‡»æ‰“ç€æµ·æ½®ï¼Œ");
 		hit_tide++;
 		temp = hit_tide % 200;
 		if (temp < 10)
-			write(weapon->query("name") + "¼ÅÈ»ÎŞÉù¡£");
+			write(weapon->query("name") + "å¯‚ç„¶æ— å£°ã€‚");
 		else if (temp < 20)
-			write(weapon->query("name") + "·¢³öÁËÇáÎ¢µÄÉùÏì¡£");
+			write(weapon->query("name") + "å‘å‡ºäº†è½»å¾®çš„å£°å“ã€‚");
 		else if (temp < 40)
-			write(weapon->query("name") + "·¢³öÁËàÍàÍµÄÇáÏì¡£");
+			write(weapon->query("name") + "å‘å‡ºäº†å—¤å—¤çš„è½»å“ã€‚");
 		else if (temp < 60)
-			write(weapon->query("name") + "·¢³öÁËË¢Ë¢µÄÉùÒô¡£");
+			write(weapon->query("name") + "å‘å‡ºäº†åˆ·åˆ·çš„å£°éŸ³ã€‚");
 		else if (temp < 80)
-			write(weapon->query("name") + "·¢³öÁËºôºôµÄÉùÒô¡£");
+			write(weapon->query("name") + "å‘å‡ºäº†å‘¼å‘¼çš„å£°éŸ³ã€‚");
 		else if (temp < 90)
-			write(weapon->query("name") + "ÒşÒş·¢³öÁËºäºäµÄÉùÒô¡£");
+			write(weapon->query("name") + "éšéšå‘å‡ºäº†è½°è½°çš„å£°éŸ³ã€‚");
 		else if (temp < 110)
-			write(weapon->query("name") + "¾¹È»·¢³öÁËºäÂ¡Â¡µÄ¾ŞÉù¡£");
+			write(weapon->query("name") + "ç«Ÿç„¶å‘å‡ºäº†è½°éš†éš†çš„å·¨å£°ã€‚");
 		else if (temp < 120)
-			write(weapon->query("name") + "ÒşÒş·¢³öÁËºäºäµÄÉùÒô¡£");
+			write(weapon->query("name") + "éšéšå‘å‡ºäº†è½°è½°çš„å£°éŸ³ã€‚");
 		else if (temp < 130)
-			write(weapon->query("name") + "·¢³öÁËºôºôµÄÉùÒô¡£");
+			write(weapon->query("name") + "å‘å‡ºäº†å‘¼å‘¼çš„å£°éŸ³ã€‚");
 		else if (temp < 150)
-			write(weapon->query("name") + "·¢³öÁËË¢Ë¢µÄÉùÒô¡£");
+			write(weapon->query("name") + "å‘å‡ºäº†åˆ·åˆ·çš„å£°éŸ³ã€‚");
 		else if (temp < 170)
-			write(weapon->query("name") + "·¢³öÁËàÍàÍµÄÇáÏì¡£");
+			write(weapon->query("name") + "å‘å‡ºäº†å—¤å—¤çš„è½»å“ã€‚");
 		else if (temp < 190)
-			write(weapon->query("name") + "·¢³öÁËÇáÎ¢µÄÉùÏì¡£");
+			write(weapon->query("name") + "å‘å‡ºäº†è½»å¾®çš„å£°å“ã€‚");
 		else
-			write(weapon->query("name") + "¼ÅÈ»ÎŞÉù¡£");
-		write("Äã¶ÔÓÚÄÚ¹¦ÒÔ¼°½£·¨¶¼ÓĞÁËÒ»Ğ©ÁìÎò¡£\n");
+			write(weapon->query("name") + "å¯‚ç„¶æ— å£°ã€‚");
+		write("ä½ å¯¹äºå†…åŠŸä»¥åŠå‰‘æ³•éƒ½æœ‰äº†ä¸€äº›é¢†æ‚Ÿã€‚\n");
 		if (!(hit_tide % 20)) {
-			write("ÒòÎªÄãÓÃÁ¦¹ıÃÍ£¬"+ weapon->query("name") + "¡°Å¾¡±µØÒ»ÉùÕÛ¶ÏÁË£¡\n");
+			write("å› ä¸ºä½ ç”¨åŠ›è¿‡çŒ›ï¼Œ"+ weapon->query("name") + "â€œå•ªâ€åœ°ä¸€å£°æŠ˜æ–­äº†ï¼\n");
 			destruct(weapon);
 		}
 		me->set("sea/hit_tide", hit_tide);
 		if (hit_tide >= 1400) {
-			write("µ½ÁËÕâ¸öÊ±ºò£¬ÄãÖÕÓÚÁ·µ½ÊÖÖĞµÄÄ¾½£ÓûÇáÔòÇáÓûÏìÔòÏìµÄ¾³½ç£¡ÄãµÄëöÁ¦Ôö¼ÓÁË£¡\n");
-			write("ÒÔºóÄã¿ÖÅÂÎŞ·¨ÔÙÍ¨¹ıÓëº£³±²«»÷¶ø»ñµÃ¸üÉîµÄÄÚ¹¦ĞŞÎªÁË£¡\n");
+			write("åˆ°äº†è¿™ä¸ªæ—¶å€™ï¼Œä½ ç»ˆäºç»ƒåˆ°æ‰‹ä¸­çš„æœ¨å‰‘æ¬²è½»åˆ™è½»æ¬²å“åˆ™å“çš„å¢ƒç•Œï¼ä½ çš„è†‚åŠ›å¢åŠ äº†ï¼\n");
+			write("ä»¥åä½ ææ€•æ— æ³•å†é€šè¿‡ä¸æµ·æ½®æå‡»è€Œè·å¾—æ›´æ·±çš„å†…åŠŸä¿®ä¸ºäº†ï¼\n");
 //             me->add("str",1);
 			me->set("benefit/str", 1);
 			me->delete("sea/hit_tide");

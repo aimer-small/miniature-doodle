@@ -23,11 +23,11 @@ int greeting(object me)
 
         str = step[random(sizeof(step))];
         switch (str){
-            case "south": steps ="ÄÏ"; break;
-            case "north": steps ="±±"; break;
-            case "east":  steps ="¶«"; break;
-            case "west":  steps ="Î÷"; break;
-            default : return notify_fail("·¢ÉúÎÊÌâ£¬ÇëÏòÎ×Ê¦»ã±¨¡£\n");
+            case "south": steps ="å—"; break;
+            case "north": steps ="åŒ—"; break;
+            case "east":  steps ="ä¸œ"; break;
+            case "west":  steps ="è¥¿"; break;
+            default : return notify_fail("å‘ç”Ÿé—®é¢˜ï¼Œè¯·å‘å·«å¸ˆæ±‡æŠ¥ã€‚\n");
         }
         if( me->query_temp("wdpass/done") < 8 ){
             me->set_temp("wdpass/step", str);
@@ -35,10 +35,10 @@ int greeting(object me)
         }
         else { 
             me->set_temp("wdpass/step", "south");
-            me->set_temp("wdpass/steps", "ÄÏ");
+            me->set_temp("wdpass/steps", "å—");
         }
         me->delete_temp("wdpass/dontgo");
-        tell_object(me,HIY"ÄãÕ¾ÔÚĞ¡¾¶ÉÏ£¬ËÄÖÜ´òÁ¿£¬·Â·ğ¿´¼û"+ me->query_temp("wdpass/steps") +"ÃæÓĞĞ©ÁÁ¹â¡£\n"NOR);
+        tell_object(me,HIY"ä½ ç«™åœ¨å°å¾„ä¸Šï¼Œå››å‘¨æ‰“é‡ï¼Œä»¿ä½›çœ‹è§"+ me->query_temp("wdpass/steps") +"é¢æœ‰äº›äº®å…‰ã€‚\n"NOR);
         return 1;
 }
 
@@ -53,9 +53,9 @@ int valid_leave(object me, string dir)
 		if ( me->query_temp("wdpass/fail") >= 4 +random(3)
 		  && dir == "north"){
 		  	me->delete_temp("wdpass");
-                        tell_room(environment(me), me->name()+"Íù±±ÃæµÄ"YEL"Ğ¡¾¶"NOR"¿ì²½Àë¿ª¡£\n"NOR, ({ me }));
+                        tell_room(environment(me), me->name()+"å¾€åŒ—é¢çš„"YEL"å°å¾„"NOR"å¿«æ­¥ç¦»å¼€ã€‚\n"NOR, ({ me }));
 			me->move(__DIR__"xiaolu2");
-                        tell_room(environment(me), me->name()+"´Ó"YEL"Ğ¡¾¶"NOR"¿ì²½×ßÁË¹ıÀ´¡£\n"NOR, ({ me }));
+                        tell_room(environment(me), me->name()+"ä»"YEL"å°å¾„"NOR"å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n"NOR, ({ me }));
 			return notify_fail("");
 		}
 	}
@@ -63,9 +63,9 @@ int valid_leave(object me, string dir)
 		me->add_temp("wdpass/done", 1);
 		if (me->query_temp("wdpass/done") >= 9){
                         me->delete_temp("wdpass");
-                        tell_room(environment(me), me->name()+"ÍùÄÏÃæµÄ"WHT"ÔºÃÅ"NOR"¿ì²½Àë¿ª¡£\n"NOR, ({ me }));
+                        tell_room(environment(me), me->name()+"å¾€å—é¢çš„"WHT"é™¢é—¨"NOR"å¿«æ­¥ç¦»å¼€ã€‚\n"NOR, ({ me }));
 	       	        me->move(__DIR__"yuanmen");
-                        tell_room(environment(me), me->name()+"´Ó"YEL"Ğ¡¾¶"NOR"¿ì²½×ßÁË¹ıÀ´¡£\n"NOR, ({ me }));
+                        tell_room(environment(me), me->name()+"ä»"YEL"å°å¾„"NOR"å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n"NOR, ({ me }));
 		        return notify_fail("");
 		}
 	}

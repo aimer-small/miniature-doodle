@@ -7,12 +7,12 @@ int do_flatter(string arg);
 
 void create()
 {
-	set_name("¶¡¼á", ({ "ding jian", "ding" }));
-	set("nickname", "Ò»×Öµç½£");
+	set_name("ä¸åš", ({ "ding jian", "ding" }));
+	set("nickname", "ä¸€å­—ç”µå‰‘");
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 48);
-	set("long", "ËûÄ¿¹â¾¼¾¼£¬²½ÂÄÎÈÖØ£¬ÏÔÊÇÎä¹¦²»µÍ¡£\n");
+	set("long", "ä»–ç›®å…‰ç‚¯ç‚¯ï¼Œæ­¥å±¥ç¨³é‡ï¼Œæ˜¾æ˜¯æ­¦åŠŸä¸ä½ã€‚\n");
 	set_skill("dodge", 120);
 	set_temp("apply/damage", 40);
 	set("per", 20);

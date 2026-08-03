@@ -14,15 +14,15 @@ void init()
 
 void create()
 {
-	set_name(HIG "ÈË²Î¹û" NOR, ({"renshen guo","guo"}));
+	set_name(HIG "äººå‚æœ" NOR, ({"renshen guo","guo"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("long",
-		"Öí°Ë½äÔø¾­³Ô¹ıµÄ¶«Î÷£¬¿´ÆğÀ´ÏóÒ»¸ö°×°×ÅÖÅÖµÄĞ¡ÄĞº¢¡£\n"
-		"ÓĞ»Ö¸´ÌåÁ¦£¬Ôö¼Ó¹¦Á¦µÄÉñÆæĞ§¹û¡£\n");
+		"çŒªå…«æˆ’æ›¾ç»åƒè¿‡çš„ä¸œè¥¿ï¼Œçœ‹èµ·æ¥è±¡ä¸€ä¸ªç™½ç™½èƒ–èƒ–çš„å°ç”·å­©ã€‚\n"
+		"æœ‰æ¢å¤ä½“åŠ›ï¼Œå¢åŠ åŠŸåŠ›çš„ç¥å¥‡æ•ˆæœã€‚\n");
 		set("value", 5000000);
-		set("unit", "Ã¶");
+		set("unit", "æš");
 		set("no_drop", 1);
                 set("unique", 2);
         	set("treasure", 1);
@@ -33,9 +33,9 @@ int do_eat(string arg)
 {
 	object me = this_player();
 	if (!id(arg)) return 0;
-	message_vision(HIG "$N³ÔÏÂÒ»Ã¶"
+	message_vision(HIG "$Nåƒä¸‹ä¸€æš"
 	+name()+
-	HIG "£¬¶ÙÊ±¾õµÃ¾«Á¦ÍúÊ¢£¬ÉõÖÁ²»ÔÙ¸Ğµ½¸É¿Ê¼¢¶ö¡£\n"
+	HIG "ï¼Œé¡¿æ—¶è§‰å¾—ç²¾åŠ›æ—ºç››ï¼Œç”šè‡³ä¸å†æ„Ÿåˆ°å¹²æ¸´é¥¥é¥¿ã€‚\n"
 	NOR,me);
 	"/adm/daemons/emoted"->do_emote(me,"taste");
 	me->reincarnate();

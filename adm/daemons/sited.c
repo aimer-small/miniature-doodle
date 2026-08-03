@@ -3,7 +3,7 @@ inherit F_DBASE;
 #include <mudlib.h>
 
 nosave mapping valid_login = ([
-	// ×ÜÕ¾Î×Ê¦
+	// æ€»ç«™å·«å¸ˆ
            "master":    ({ "222", "124.", "58.","116" }),                 
            "hongba":    ({ "222", "124.", "218.","116" }),                 
  
@@ -35,7 +35,7 @@ int is_valid(string id, string ip)
 
 	if (sscanf(ip, "%d.%d.%*d.%*d", ip1, ip2) != 4) return 0;
 
-	// ÄÚ²¿ÍøµØÖ· YUJ@SJ 2002-01-30
+	// å†…éƒ¨ç½‘åœ°å€ YUJ@SJ 2002-01-30
 	if (ip1 == 10) return 1;
 	if (ip1 == 172 && ip2 & 240 == 16) return 1;
 	if (ip1 == 192 && ip2 == 168) return 1;
@@ -43,14 +43,14 @@ int is_valid(string id, string ip)
 	if (undefinedp(valid_login[id+"@"+INTERMUD_MUD_NAME])) {
 		if (undefinedp(valid_login[id])) {
 			if (!wiz_level(id)) return 1;
-			write("Î×Ê¦±ØĞëÓĞµØÖ·ÏŞÖÆ£¬ÇëÓÃ guest µÇÂ¼Í¨ÖªÌìÉñ¡£\n");
+			write("å·«å¸ˆå¿…é¡»æœ‰åœ°å€é™åˆ¶ï¼Œè¯·ç”¨ guest ç™»å½•é€šçŸ¥å¤©ç¥ã€‚\n");
 			destruct(this_object());
 			return 0;
 		}
 	} else id += "@"+INTERMUD_MUD_NAME;
 	i = sizeof(valid_login[id]);
 	while (i--) if (sscanf(ip, valid_login[id][i] + "%*s")) return 1;
-	destruct(this_object());	// ×Ô¶¯´İ»Ù×Ô¼º£¬·½±ãYUJIP¸Ä±äË¢ĞÂ
+	destruct(this_object());	// è‡ªåŠ¨æ‘§æ¯è‡ªå·±ï¼Œæ–¹ä¾¿YUJIPæ”¹å˜åˆ·æ–°
 	return 0;
 }
 
@@ -66,7 +66,7 @@ int is_multi(string id, string ip, string port)
 	string ipname = IP_D->ip2name(ip);
 
 	if (query(ip) && query(ip) != port) {
-		write("ÄúµÄµØÖ·¸ÕÓĞÈËµÇÂ¼£¬ÇëµÈ»áÔÙÊÔ¡£\n");
+		write("æ‚¨çš„åœ°å€åˆšæœ‰äººç™»å½•ï¼Œè¯·ç­‰ä¼šå†è¯•ã€‚\n");
 		return 1;
 	}
 	set(ip, port);
@@ -78,39 +78,39 @@ int is_multi(string id, string ip, string port)
 		if (usr[i]->query("id") != id) {
 /*
 			if (wiz_level(id)) {
-				write("¶Ô²»Æğ£¬ÄúµÄµØÖ·ÒÑ¾­ÓĞÍæ¼ÒÁ¬Ïß£¬½ûÖ¹µÇÂ¼¡£\n");
+				write("å¯¹ä¸èµ·ï¼Œæ‚¨çš„åœ°å€å·²ç»æœ‰ç©å®¶è¿çº¿ï¼Œç¦æ­¢ç™»å½•ã€‚\n");
 				return 1;
 			}
 			if (wiz_level(usr[i])) {
-				write("¶Ô²»Æğ£¬ÄúµÄµØÖ·ÒÑ¾­ÓĞÎ×Ê¦Á¬Ïß£¬½ûÖ¹µÇÂ¼¡£\n");
+				write("å¯¹ä¸èµ·ï¼Œæ‚¨çš„åœ°å€å·²ç»æœ‰å·«å¸ˆè¿çº¿ï¼Œç¦æ­¢ç™»å½•ã€‚\n");
 				return 1;
 			}
 */
 			login_cnt++;
 		}
 	}
-	write(CSI "20DÄúµÄ IP ÊÇ£º" HIW + ip + ":" + port + "(" + ipname + ")" NOR
-		"£¬´ËµØÖ·ÁíÓĞ" + chinese_number(login_cnt)+"Î»Íæ¼ÒÔÚÏß¡£\n");
-	if (ipname == "Î´Öª"){
+	write(CSI "20Dæ‚¨çš„ IP æ˜¯ï¼š" HIW + ip + ":" + port + "(" + ipname + ")" NOR
+		"ï¼Œæ­¤åœ°å€å¦æœ‰" + chinese_number(login_cnt)+"ä½ç©å®¶åœ¨çº¿ã€‚\n");
+	if (ipname == "æœªçŸ¥"){
 		message("wizard:spiderii", id + " " + ip + "\n", usr);
 		message("wizard:server", id + " " + ip + "\n", usr);
 	}
 //	if (!login_cnt) return 0;
-// By Spiderii ¼ÓÈëIPÏŞÖÆ
+// By Spiderii åŠ å…¥IPé™åˆ¶
        if (login_cnt > 8)
 	{
-		write("¶Ô²»Æğ£¬ÄúÄ¿Ç°µÄµØÖ·ÒÑµ½´ïÈËÊıÏŞÖÆ£¬ÇëÍË³öÆäËûIDÒÔ±ãµÇÂ½¡£\n");
+		write("å¯¹ä¸èµ·ï¼Œæ‚¨ç›®å‰çš„åœ°å€å·²åˆ°è¾¾äººæ•°é™åˆ¶ï¼Œè¯·é€€å‡ºå…¶ä»–IDä»¥ä¾¿ç™»é™†ã€‚\n");
            return 1;
       }
 
 	i = sizeof(valid_multi);
 	while (i--) if (sscanf(ip, site[i] + "%*s")) break;
 	if (i < 0) {
-		write("¶Ô²»Æğ£¬ÄúÄ¿Ç°µÄµØÖ·½ûÖ¹¶àÖØµÇÂ¼£¬ÇëÓëÎ×Ê¦ÁªÏµ¡£\n");
+		write("å¯¹ä¸èµ·ï¼Œæ‚¨ç›®å‰çš„åœ°å€ç¦æ­¢å¤šé‡ç™»å½•ï¼Œè¯·ä¸å·«å¸ˆè”ç³»ã€‚\n");
 		return 1;
 	}
 	if (!(i = valid_multi[site[i]])) return 0;
 	if (login_cnt < i) return 0;
-	write("¶Ô²»Æğ£¬ÄúÄ¿Ç°µÄµØÖ·ÒÑµ½´ïÈËÊıÏŞÖÆ£¬ÇëÓëÎ×Ê¦ÁªÏµ¡£\n");
+	write("å¯¹ä¸èµ·ï¼Œæ‚¨ç›®å‰çš„åœ°å€å·²åˆ°è¾¾äººæ•°é™åˆ¶ï¼Œè¯·ä¸å·«å¸ˆè”ç³»ã€‚\n");
 	return 1;
 }

@@ -13,37 +13,37 @@ int perform(object me, object target)
 	
 	if( !objectp(target)
 	 || !me->is_fighting(target) )
-		return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃÑãĞĞ´©Áøµ¶¡£\n");
+		return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨é›è¡Œç©¿æŸ³åˆ€ã€‚\n");
 
 	if (!objectp(weapon) || (string)weapon->query("skill_type") != "blade")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 
 	if((int)me->query_skill("linji-zhuang", 1) < 180 )
-		return notify_fail("ÄãµÄÁÙ¼ÃÊ®¶ş×¯µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃÑãĞĞ´©Áøµ¶¡£\n");
+		return notify_fail("ä½ çš„ä¸´æµåäºŒåº„ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨é›è¡Œç©¿æŸ³åˆ€ã€‚\n");
 
 	if (me->query_skill_mapped("force") != "linji-zhuang")
-		return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦²»¶Ô¡£\n");
+		return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸å¯¹ã€‚\n");
 
 	if ((int)me->query_skill("yanxing-daofa", 1) < 180 )
-		return notify_fail("ÄãµÄÑãĞĞµ¶·¨µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃÑãĞĞ´©Áøµ¶£¡\n");
+		return notify_fail("ä½ çš„é›è¡Œåˆ€æ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨é›è¡Œç©¿æŸ³åˆ€ï¼\n");
 
 	if ((int)me->query_skill("blade", 1) < 180 )
-		return notify_fail("ÄãµÄ»ù±¾µ¶·¨¼«²»¹»æµÊì£¬²»ÄÜÊ¹ÓÃÑãĞĞ´©Áøµ¶£¡\n");
+		return notify_fail("ä½ çš„åŸºæœ¬åˆ€æ³•æä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½ä½¿ç”¨é›è¡Œç©¿æŸ³åˆ€ï¼\n");
 
 	if ( me->query_skill_mapped("blade") != "yanxing-daofa"
 	 || me->query_skill_mapped("parry") != "yanxing-daofa" )
-		return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃÑãĞĞ´©Áøµ¶£¡\n");
+		return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨é›è¡Œç©¿æŸ³åˆ€ï¼\n");
 
 	if ((int)me->query("neili") < 1000 )
-		return notify_fail("ÄãÏÖÔÚÕæÆøÌ«Èõ£¬²»ÄÜÊ¹ÓÃÑãĞĞ´©Áøµ¶£¡\n");
+		return notify_fail("ä½ ç°åœ¨çœŸæ°”å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨é›è¡Œç©¿æŸ³åˆ€ï¼\n");
 
 	if ((int)me->query("max_neili") < 2000 )
-		return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃÑãĞĞ´©Áøµ¶£¡\n");
+		return notify_fail("ä½ ç°åœ¨å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨é›è¡Œç©¿æŸ³åˆ€ï¼\n");
 
 	if (me->query_temp("yanxing/pfm") ) 
-		return notify_fail("ÄãÒÑ¾­ÔÚÊ¹ÓÃÑãĞĞ´©Áøµ¶ÁË£¡\n");
+		return notify_fail("ä½ å·²ç»åœ¨ä½¿ç”¨é›è¡Œç©¿æŸ³åˆ€äº†ï¼\n");
 
-	message_vision(HIY"\n$NÔËÆğÁÙ¼ÃÊ®¶ş×¯£¬ÊÖÖĞ" + weapon->name() +HIY"¶¸È»Ò»ÁÁ¡£\n"NOR, me);
+	message_vision(HIY"\n$Nè¿èµ·ä¸´æµåäºŒåº„ï¼Œæ‰‹ä¸­" + weapon->name() +HIY"é™¡ç„¶ä¸€äº®ã€‚\n"NOR, me);
 	skill = me->query_skill("yanxing-daofa",1)/6;
 	skill += random(skill);
 	if ( skill > 100) skill = 100 + random(skill-100)/10;
@@ -54,7 +54,7 @@ int perform(object me, object target)
 	if ( me->query_skill("yanxing-daofa", 1) > 200)
 		COMBAT_D->do_attack(me, target, me->query_temp("weapon"), random(2)?1:3);
 
-	me->start_perform(2, "ÑãĞĞ´©Áøµ¶");
+	me->start_perform(2, "é›è¡Œç©¿æŸ³åˆ€");
 	me->add("neili", -300);
 	me->start_busy(random(2));
 	call_out("remove_effect", 1, me, target, weapon, skill);
@@ -70,7 +70,7 @@ void remove_effect(object me, object target,object weapon, int skill)
 	|| me->query_skill_mapped("blade") != "yanxing-daofa"
 	|| me->query_skill_mapped("parry") != "yanxing-daofa"){
 		if( weapon)
-			message_vision(HIW"$NÊÖÉÏµÄµ¶¹â½¥½¥µÄÏûÊ§ÁË£¡\n"NOR, me);
+			message_vision(HIW"$Næ‰‹ä¸Šçš„åˆ€å…‰æ¸æ¸çš„æ¶ˆå¤±äº†ï¼\n"NOR, me);
 		me->add_temp("apply/damage", -skill);
 		me->delete_temp("yanxing/pfm");
 		return;
@@ -78,21 +78,21 @@ void remove_effect(object me, object target,object weapon, int skill)
 	call_out("remove_effect", 1, me, target, weapon, skill);
 }
 
-string perform_name(){ return HIY"ÑãĞĞ´©Áøµ¶"NOR; }
+string perform_name(){ return HIY"é›è¡Œç©¿æŸ³åˆ€"NOR; }
 
 int help(object me)
 {
-        write(HIY"\nÑãĞĞµ¶·¨Ö®¡¸ÑãĞĞ´©Áøµ¶¡¹£º"NOR"\n\n");
+        write(HIY"\né›è¡Œåˆ€æ³•ä¹‹ã€Œé›è¡Œç©¿æŸ³åˆ€ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1000 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 2000 ÒÔÉÏ£»
-                ÑãĞĞµ¶·¨µÈ¼¶ 180 ÒÔÉÏ£»
-                ÁÙ¼ÃÊ®¶ş×¯µÈ¼¶ 180 ÒÔÉÏ£»
-                »ù±¾µ¶·¨µÈ¼¶ 180 ÒÔÉÏ£»
-                ¼¤·¢µ¶·¨ÎªÑãĞĞµ¶·¨£»
-                ¼¤·¢ÕĞ¼ÜÎªÑãĞĞµ¶·¨£»
-                ¼¤·¢ÄÚ¹¦ÎªÁÙ¼ÃÊ®¶ş×¯£»
-                ÇÒÊÖ³Ö±øÆ÷¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1000 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 2000 ä»¥ä¸Šï¼›
+                é›è¡Œåˆ€æ³•ç­‰çº§ 180 ä»¥ä¸Šï¼›
+                ä¸´æµåäºŒåº„ç­‰çº§ 180 ä»¥ä¸Šï¼›
+                åŸºæœ¬åˆ€æ³•ç­‰çº§ 180 ä»¥ä¸Šï¼›
+                æ¿€å‘åˆ€æ³•ä¸ºé›è¡Œåˆ€æ³•ï¼›
+                æ¿€å‘æ‹›æ¶ä¸ºé›è¡Œåˆ€æ³•ï¼›
+                æ¿€å‘å†…åŠŸä¸ºä¸´æµåäºŒåº„ï¼›
+                ä¸”æ‰‹æŒå…µå™¨ã€‚
 
 HELP
         );

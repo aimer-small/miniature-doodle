@@ -1,12 +1,12 @@
 inherit NPC;
 void create()
 {
-    set_name("怪蛇", ({ "guai she", "snake", "she" }) );
-	set("race", "野兽");
+    set_name("鎬泧", ({ "guai she", "snake", "she" }) );
+	set("race", "閲庡吔");
 	set("age", 30);
-    set("long", "一条三尺来长的眼镜王蛇。\n");
+    set("long", "涓�鏉′笁灏烘潵闀跨殑鐪奸暅鐜嬭泧銆俓n");
     set("attitude", "aggressive");
-	set("limbs", ({ "头部", "身体", "七寸", "尾巴" }) );
+	set("limbs", ({ "澶撮儴", "韬綋", "涓冨", "灏惧反" }) );
 	set("verbs", ({ "twist", "bite" }) );
 	set("combat_exp", 5500);
 	set_temp("apply/attack", 55);

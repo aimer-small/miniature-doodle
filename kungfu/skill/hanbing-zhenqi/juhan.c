@@ -3,7 +3,7 @@
 
 #include <ansi.h>
 inherit F_SSERVER;
-string exert_name(){ return HIW"¾Ûº®¾÷"NOR; }
+string exert_name(){ return HIW"èšå¯’è¯€"NOR; }
 
 int exert(object me)
 {
@@ -11,23 +11,23 @@ int exert(object me)
 	int lv = me->query_skill("hanbing-zhenqi",1);
 
 	if (!me->is_fighting())
-		return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖÐÊ¹ÓÃ¡¸¾Ûº®¾÷¡¹¡£\n");
+		return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€Œèšå¯’è¯€ã€ã€‚\n");
 
 	if (lv < 60)
-		return notify_fail("ÒÔÄãÄ¿Ç°µÄÄÚ¹¦ÐÞÎªÉÐÎÞ·¨Ê¹ÓÃ¡¸¾Ûº®¾÷¡¹¡£\n");
+		return notify_fail("ä»¥ä½ ç›®å‰çš„å†…åŠŸä¿®ä¸ºå°šæ— æ³•ä½¿ç”¨ã€Œèšå¯’è¯€ã€ã€‚\n");
 
 	if (me->query("qi") < me->query("max_qi")/3)
-		return notify_fail("ÄãµÄÆøÑª²»×ã¡£\n");
+		return notify_fail("ä½ çš„æ°”è¡€ä¸è¶³ã€‚\n");
 		
 	if ( me->query_temp("ss/focus") >= 15 )	
-		return notify_fail("ÄãÒÑ¾­½«¡¸¾Ûº®¾÷¡¹·¢»ÓµÃÁÜÀì¾¡ÖÂ¡£\n");
+		return notify_fail("ä½ å·²ç»å°†ã€Œèšå¯’è¯€ã€å‘æŒ¥å¾—æ·‹æ¼“å°½è‡´ã€‚\n");
 
-	msg = HIW"$NÄÚÏ¢Á÷¶¯£¬ÖÜÉíÎÂ¶È¶¸È»½µµÍ£¬¾ÓÈ»½áÁË±¡±¡Ò»²ãº®Ëª£¡\n"NOR;
+	msg = HIW"$Nå†…æ¯æµåŠ¨ï¼Œå‘¨èº«æ¸©åº¦é™¡ç„¶é™ä½Žï¼Œå±…ç„¶ç»“äº†è–„è–„ä¸€å±‚å¯’éœœï¼\n"NOR;
 
 	if (!me->query_temp("ss/focus")) {
 		call_out("remove_effect", lv/5 + random(10), me);
 	}
-    //Õâ¸öÃ»ÓÐ±ØÒª°É£¿Ò»µ©ËÀÁËÔõÃ´°ì£¿
+    //è¿™ä¸ªæ²¡æœ‰å¿…è¦å§ï¼Ÿä¸€æ—¦æ­»äº†æ€Žä¹ˆåŠžï¼Ÿ
 	//me->receive_damage("qi", 200+random(50));
 	me->add_temp("ss/focus", random(lv/200)+1);
 
@@ -35,24 +35,24 @@ int exert(object me)
 		me->set_temp("ss/focus", 15);
 
 	message_vision(msg, me);
-	me->start_exert(1, "¡¸¾Ûº®¾÷¡¹");
+	me->start_exert(1, "ã€Œèšå¯’è¯€ã€");
 	return 1;
 }
 
 void remove_effect(object me)
 {
 	if (!me || !me->query_temp("ss/focus") ) return;
-	message_vision(HIW"$NÖÜÉíµÄº®Æø½¥½¥µÄÉ¢È¥ÁË¡£\n"NOR,me);
+	message_vision(HIW"$Nå‘¨èº«çš„å¯’æ°”æ¸æ¸çš„æ•£åŽ»äº†ã€‚\n"NOR,me);
 	me->delete_temp("ss/focus");
 }
 
 int help(object me)
 {
-	write(HIW"\nº®±ùÕæÆøÖ®¡¸¾Ûº®¾÷¡¹£º"NOR"\n\n");
+	write(HIW"\nå¯’å†°çœŸæ°”ä¹‹ã€Œèšå¯’è¯€ã€ï¼š"NOR"\n\n");
         write(@HELP
-	Õ½¶·ÖÐÊ¹ÓÃ£¬ÌáÉý±¾Éí¹¦Á¦¡£
-	ÒªÇó£º  º®±ùÕæÆø  60  ¼¶ÒÔÉÏ£»
-                µ±Ç°Æø³¬¹ý×î´óÆøµÄ 1/3 ÒÔÉÏ¡£
+	æˆ˜æ–—ä¸­ä½¿ç”¨ï¼Œæå‡æœ¬èº«åŠŸåŠ›ã€‚
+	è¦æ±‚ï¼š  å¯’å†°çœŸæ°”  60  çº§ä»¥ä¸Šï¼›
+                å½“å‰æ°”è¶…è¿‡æœ€å¤§æ°”çš„ 1/3 ä»¥ä¸Šã€‚
 
 HELP
         );

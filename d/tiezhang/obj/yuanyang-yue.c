@@ -5,13 +5,13 @@ inherit AXE;
 
 void create()
 {
-          set_name(HIC"×ÓÄ¸Ô§Ñìîá"NOR,({ "yuanyang yue", "yue", "axe" }) );
+          set_name(HIC"å­æ¯é¸³é¸¯é’º"NOR,({ "yuanyang yue", "yue", "axe" }) );
         set_weight(6000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
 
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
                 set("value", 1000000);
                 set("unique", 1);
                 set("rigidity", 3);
@@ -19,9 +19,9 @@ void create()
                 set("material", "steal");
                 set("wield_neili", 50);
                 set("wield_maxneili", 500);
-                set("wield_msg",HIC"$NÉìÊÖÒ»³­£¬×ÔÑü¼ä³é³ö±ú×ÓÄ¸Ô§Ñìîá£¬È´ÏñÊÇÓÐµç¹âÒ»ÉÁ£¬É­ÀäµÄº®Æø£¬í¾¹ÇÉúº®¡£\n"NOR);
-                set("long", HIC"\nÕâ°ÑÔ§ÑìîáÐÎ×´¹ÅÆÓ£¬÷îºÚÖÐ´ø×ÅÄ«ÂÌ²¢ÎÞÒ«ÑÛ\nµÄ¹âÃ¢£¬µ«Ö¸¼âÒ»´¥¸«Éí£¬±ã¾õº®ÆøÖ±Í¸ÐÄ¸­¡£\n"NOR);
-                set("unwield_msg", HIC "$N°ÑÊÖÖÐµÄ×ÓÄ¸Ô§ÑìîáÊÕÈëÑü¼ä¡£\n"NOR);     
+                set("wield_msg",HIC"$Nä¼¸æ‰‹ä¸€æŠ„ï¼Œè‡ªè…°é—´æŠ½å‡ºæŸ„å­æ¯é¸³é¸¯é’ºï¼Œå´åƒæ˜¯æœ‰ç”µå…‰ä¸€é—ªï¼Œæ£®å†·çš„å¯’æ°”ï¼Œç ­éª¨ç”Ÿå¯’ã€‚\n"NOR);
+                set("long", HIC"\nè¿™æŠŠé¸³é¸¯é’ºå½¢çŠ¶å¤æœ´ï¼Œé»é»‘ä¸­å¸¦ç€å¢¨ç»¿å¹¶æ— è€€çœ¼\nçš„å…‰èŠ’ï¼Œä½†æŒ‡å°–ä¸€è§¦æ–§èº«ï¼Œä¾¿è§‰å¯’æ°”ç›´é€å¿ƒè…‘ã€‚\n"NOR);
+                set("unwield_msg", HIC "$NæŠŠæ‰‹ä¸­çš„å­æ¯é¸³é¸¯é’ºæ”¶å…¥è…°é—´ã€‚\n"NOR);     
         }
 init_axe(120);
         setup();
@@ -29,7 +29,7 @@ init_axe(120);
 
 void init()
 {
-    add_action("do_sub",({"fenjie", "·Ö½â"}));
+    add_action("do_sub",({"fenjie", "åˆ†è§£"}));
 }
 
 int do_sub()
@@ -38,11 +38,11 @@ int do_sub()
      me = this_player();
      obj = this_object();
      if((int)me->query("neili") < 100)
-               return notify_fail("Äã¸Ð¾õÈ«ÉíÆøÑª·­ÌÚ£¬Ô­À´ÄãÕæÆø²»¹»£¬·Ö½â²»ÁË×ÓÄ¸Ô§Ñìîá£¡\n");
+               return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”è¡€ç¿»è…¾ï¼ŒåŽŸæ¥ä½ çœŸæ°”ä¸å¤Ÿï¼Œåˆ†è§£ä¸äº†å­æ¯é¸³é¸¯é’ºï¼\n");
      if((int)me->query_str() < 20)
-               return notify_fail("Äã¸Ð¾õÈ«ÉíÆøÑª·­ÌÚ£¬Ô­À´ÄãÁ¦Á¿²»¹»£¬·Ö½â²»ÁË×ÓÄ¸Ô§Ñìîá£¡\n");
+               return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”è¡€ç¿»è…¾ï¼ŒåŽŸæ¥ä½ åŠ›é‡ä¸å¤Ÿï¼Œåˆ†è§£ä¸äº†å­æ¯é¸³é¸¯é’ºï¼\n");
 
-     message_vision(HIW"\n$N½«×ÓÄ¸Ô§Ñìîá·Ö½âÎªÀë»ê×ÓÄ¸»·ºÍÍò×ÖÃ·»¨¶á£¡\n"NOR, me);
+     message_vision(HIW"\n$Nå°†å­æ¯é¸³é¸¯é’ºåˆ†è§£ä¸ºç¦»é­‚å­æ¯çŽ¯å’Œä¸‡å­—æ¢…èŠ±å¤ºï¼\n"NOR, me);
      me->add("neili", -30);
      unew(__DIR__"zimu-huan")->move(me, 1);
      unew(__DIR__"wanzi-duo")->move(me, 1);

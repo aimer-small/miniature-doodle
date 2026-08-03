@@ -5,17 +5,17 @@ inherit ITEM;
 
 void create()
 {
-        set_name(WHT"²¼´ü"NOR, ({ "bu dai", "bag", "dai" }) );
+        set_name(WHT"å¸ƒè¢‹"NOR, ({ "bu dai", "bag", "dai" }) );
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Ú");
-                set("long", "ÕâÊÇÒ»¿ÚÑ°³£µÄ²¼´ü£¬µ«ÀïÃæËÆºõ×°×ÅÊ²Ã´¶«Î÷¡£\n");
+                set("unit", "å£");
+                set("long", "è¿™æ˜¯ä¸€å£å¯»å¸¸çš„å¸ƒè¢‹ï¼Œä½†é‡Œé¢ä¼¼ä¹è£…ç€ä»€ä¹ˆä¸œè¥¿ã€‚\n");
                 set("value", 100);
-		set("no_get","²¼´ü¶ÔÄã¶øÑÔÌ«ÖØÁË¡£\n");
-                set("no_drop","Äã²»ÄÜ¶ªÏÂÕâÑù¶«Î÷¡£\n");
-		set("no_sell","ÄãÊÇÈË··×Ó°¡¡£\n");
+		set("no_get","å¸ƒè¢‹å¯¹ä½ è€Œè¨€å¤ªé‡äº†ã€‚\n");
+                set("no_drop","ä½ ä¸èƒ½ä¸¢ä¸‹è¿™æ ·ä¸œè¥¿ã€‚\n");
+		set("no_sell","ä½ æ˜¯äººè´©å­å•Šã€‚\n");
                 set("treasure",1);
                 set("location", 1);
         }
@@ -30,24 +30,24 @@ int do_open(string arg)
 {
         object me = this_player(),ob,ob2 = this_object();
 
-        if( (!arg) || !((arg == "bu dai") || (arg == "²¼´ü") || (arg == "dai") || (arg == "´ü")))
-		return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+        if( (!arg) || !((arg == "bu dai") || (arg == "å¸ƒè¢‹") || (arg == "dai") || (arg == "è¢‹")))
+		return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 
         if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 
 	if (ob2->query("opened"))
-		return notify_fail("´ü×ÓÒÑ¾­½â¿ªÁË¡£\n");
+		return notify_fail("è¢‹å­å·²ç»è§£å¼€äº†ã€‚\n");
 
 	if (ob2->query_temp("owner") != me->query("id"))
-		return notify_fail("Õâ¸ö´ü×Ó²»ÊÇÄãµÄ¡£\n");
+		return notify_fail("è¿™ä¸ªè¢‹å­ä¸æ˜¯ä½ çš„ã€‚\n");
 
 	if (!me->query_temp("tonglao/pass3"))
-		return notify_fail("ÄãÖ»¾õµÃ×Ô¼ºÊÖ½Å±¿×¾£¬ÔõÃ´½âÒ²½â²»¿ªÕâ¸ö´ü×Ó¡£\n");
+		return notify_fail("ä½ åªè§‰å¾—è‡ªå·±æ‰‹è„šç¬¨æ‹™ï¼Œæ€ä¹ˆè§£ä¹Ÿè§£ä¸å¼€è¿™ä¸ªè¢‹å­ã€‚\n");
 
-        message_vision(YEL"$Nµ±¼´´ò¿ª²¼´ü¿Ú£¬·öÁËÒ»ÈË³öÀ´¡£\n\n"NOR, me);
-	message_vision(CYN"Å®Í¯ËµµÀ£º¡°¼ûÁË³¤±²Ò²²»ĞĞÀñ£¬Õâ°ãÃ»¹æ¾Ø¡£Èô²»ÊÇÄîÔÚÄãÏà¾ÈÓĞ¹¦£¬ÀÑ\n"+
-			"ÀÑÒ»ÕÆÔç±ãËÍÁËÄãµÄ¹·Ãü£¡¡±\n"NOR, me);
+        message_vision(YEL"$Nå½“å³æ‰“å¼€å¸ƒè¢‹å£ï¼Œæ‰¶äº†ä¸€äººå‡ºæ¥ã€‚\n\n"NOR, me);
+	message_vision(CYN"å¥³ç«¥è¯´é“ï¼šâ€œè§äº†é•¿è¾ˆä¹Ÿä¸è¡Œç¤¼ï¼Œè¿™èˆ¬æ²¡è§„çŸ©ã€‚è‹¥ä¸æ˜¯å¿µåœ¨ä½ ç›¸æ•‘æœ‰åŠŸï¼Œå§¥\n"+
+			"å§¥ä¸€æŒæ—©ä¾¿é€äº†ä½ çš„ç‹—å‘½ï¼â€\n"NOR, me);
 	ob2->set("opened",1);
         ob = new("/d/tianshan/npc/nvtong");
 	ob->move(environment(me));
@@ -58,6 +58,6 @@ int do_open(string arg)
 void do_destruct(object ob2)
 {
 	if (!ob2) return;
-	message_vision("Ò»Õó·ç´µÀ´£¬°Ñ²¼´ü´µ×ßÁË¡£\n", ob2);
+	message_vision("ä¸€é˜µé£å¹æ¥ï¼ŒæŠŠå¸ƒè¢‹å¹èµ°äº†ã€‚\n", ob2);
 	destruct(ob2);
 }

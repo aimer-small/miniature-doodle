@@ -5,10 +5,10 @@ inherit ITEM;
 
 void create()
 {
-        set_name("ÃàÑòÆ¤", ({"yangpi", "pi"}));
+        set_name("ç»µç¾Šçš®", ({"yangpi", "pi"}));
         set_weight(6000);
-        set("unit", "ÕÅ");
-        set("long", "ÕâÊÇÒ»ÕÅÉÏµÈµÄÃàÑòÆ¤, ÊÇ·ìÖÆÑòÆ¤°ÀµÄºÃÔ­ÁÏ¡£\n");
+        set("unit", "å¼ ");
+        set("long", "è¿™æ˜¯ä¸€å¼ ä¸Šç­‰çš„ç»µç¾Šçš®, æ˜¯ç¼åˆ¶ç¾Šçš®è¢„çš„å¥½åŸæ–™ã€‚\n");
         set("value", 300);
 //        setup();
 }

@@ -3,12 +3,12 @@
 inherit NPC;
 void create()
 {
-	set_name("ÎÚÀÏ´ó", ({ "wu laoda", "wu"}));
+	set_name("ä¹Œè€å¤§", ({ "wu laoda", "wu"}));
 	set("long",@LONG
-Ëû¾ÍÊÇÃû¶¯½­ºşµÄÎÚÀÏ´ó£¬Ò»ÊÖ±ÌÑÌµ¶·¨Ê¹µÃ³öÉñÈë»¯¡£
+ä»–å°±æ˜¯ååŠ¨æ±Ÿæ¹–çš„ä¹Œè€å¤§ï¼Œä¸€æ‰‹ç¢§çƒŸåˆ€æ³•ä½¿å¾—å‡ºç¥å…¥åŒ–ã€‚
 LONG	    
 	   );
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("shen_type",-1);
 	set("attitude", "peaceful");

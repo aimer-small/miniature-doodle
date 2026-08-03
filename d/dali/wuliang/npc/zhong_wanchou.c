@@ -1,12 +1,12 @@
-// NPC :zhong_wanchou.c ÖÓÍò³ğ 
+// NPC :zhong_wanchou.c é’Ÿä¸‡ä»‡ 
 // By River 98/12
 inherit NPC;
 void create()
 {
-        set_name("ÖÓÍò³ğ", ({ "zhong wanchou", "zhong", "wanchou"}));
-        set("title","Íò½Ù¹È¹ÈÖ÷");
-        set("nickname","ÂíÍõÉñ");
-        set("gender", "ÄĞĞÔ" );
+        set_name("é’Ÿä¸‡ä»‡", ({ "zhong wanchou", "zhong", "wanchou"}));
+        set("title","ä¸‡åŠ«è°·è°·ä¸»");
+        set("nickname","é©¬ç‹ç¥");
+        set("gender", "ç”·æ€§" );
         set("age", 42);
         set("str", 26);
         set("con", 23);
@@ -24,7 +24,7 @@ void create()
         set("jiali", 40);
         set("unique", 1);
         
-        set("long","Ö»¼ûËûºÃ³¤Ò»ÕÅÂíÁ³£¬ÑÛ¾¦ÉúµÃÉõ¸ß£¬Ò»¸öÔ°Ô°µÄ´ó±Ç×ÓÈ´ºÍ×ì°Í¼·ÔÚÒ»¿é¡£\n");
+        set("long","åªè§ä»–å¥½é•¿ä¸€å¼ é©¬è„¸ï¼Œçœ¼ç›ç”Ÿå¾—ç”šé«˜ï¼Œä¸€ä¸ªå›­å›­çš„å¤§é¼»å­å´å’Œå˜´å·´æŒ¤åœ¨ä¸€å—ã€‚\n");
         set("combat_exp", 400000);
         set("shen", -1000); 
 
@@ -42,7 +42,7 @@ void create()
         prepare_skill("strike","zhongjia-zhang");
 
         set("inquiry", ([            
-//            "¶ÎÕı´¾" : (: ask_duan :),
+//            "æ®µæ­£æ·³" : (: ask_duan :),
         ]));
 
         setup();

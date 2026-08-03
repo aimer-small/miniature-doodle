@@ -5,18 +5,18 @@ inherit ITEM;
 
 void create()
 {
-        set_name("Ğ¡ÌúÏ»", ({ "tie xia", "xia" }) );
+        set_name("å°é“åŒ£", ({ "tie xia", "xia" }) );
         set_weight(3000);
         set_max_encumbrance(5000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
-                set("long", "ÕâÊÇÒ»¸ö²»´óµÄÌúÏ»×Ó£¬ÉÏÃæÕ´ÂúÁËÄàÍÁ£¬¿´ÆğÀ´Äê´úÒÑÊ®·Ö¾ÃÔ¶¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªä¸å¤§çš„é“åŒ£å­ï¼Œä¸Šé¢æ²¾æ»¡äº†æ³¥åœŸï¼Œçœ‹èµ·æ¥å¹´ä»£å·²ååˆ†ä¹…è¿œã€‚\n");
                 set("value", 1000);
                 set("material", "steel");
-                set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-                set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
+                set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
                 set("no_get",1);             
                 set("no_drop",1);
                 set("amount",30);
@@ -40,26 +40,26 @@ int do_open(string arg)
 
     if (!arg || (arg != "xia" && arg != "tie xia"))
        {
-        return notify_fail("ÄãÏë´ò¿ªÊ²Ã´£¿\n");
+        return notify_fail("ä½ æƒ³æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
         return 1;
        }
     if ((int)query("jinshe") < 1)
-        return notify_fail("Äã´ò¿ªÁËºĞ×Ó£¬¿ÉÏ§ÀïÃæÊÇ¿ÕµÄ¡£\n");       
+        return notify_fail("ä½ æ‰“å¼€äº†ç›’å­ï¼Œå¯æƒœé‡Œé¢æ˜¯ç©ºçš„ã€‚\n");       
     else
     {
     if (!present("jinshe miji",me))
        { 
         ob=unew(__DIR__"jinshemiji");
         if(!clonep(ob))
-        return notify_fail("ÄãÇáÇá´ò¿ªÌúÏ»£¬½á¹û·¢ÏÖÀïÃæ¿ÕÎŞÒ»Îï¡£\n");
+        return notify_fail("ä½ è½»è½»æ‰“å¼€é“åŒ£ï¼Œç»“æœå‘ç°é‡Œé¢ç©ºæ— ä¸€ç‰©ã€‚\n");
         ob1=new(__DIR__"xinjian");
-        write("ÄãÇá¿ªÌúÏ»£¬·¢ÏÖÀïÃæÓĞÒ»±¾ÂäÂú³¾ÍÁµÄÊé¼®ºÍÒ»ÕÅ·¢»ÆµÄĞÅ¼ã¡£Äã¼±Ã¦°ÑËü¼ñÆğ´§ÔÚ»³ÖĞ¡£\n");
+        write("ä½ è½»å¼€é“åŒ£ï¼Œå‘ç°é‡Œé¢æœ‰ä¸€æœ¬è½æ»¡å°˜åœŸçš„ä¹¦ç±å’Œä¸€å¼ å‘é»„çš„ä¿¡ç¬ºã€‚ä½ æ€¥å¿™æŠŠå®ƒæ¡èµ·æ£åœ¨æ€€ä¸­ã€‚\n");
         ob->move(me);
         ob1->move(me);
         add("jinshe", -1);
         return 1;
        }
-        write("Äã´ò¿ªÁËÌúÏ»£¬·¢ÏÖÀïÃæ¿Õ¿ÕµÄÊ²Ã´Ò²Ã»ÓĞ¡£\n");
+        write("ä½ æ‰“å¼€äº†é“åŒ£ï¼Œå‘ç°é‡Œé¢ç©ºç©ºçš„ä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
         add("jinshe", -1);
         return 1;
     }

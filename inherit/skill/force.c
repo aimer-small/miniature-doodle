@@ -1,6 +1,6 @@
 // force.c
 // force skill can have: mixed hit_ob(object me, object victim, int damage_bonus)
-// force type are from ÖÁÒõ(-4) to ÖÁÑô(4), 
+// force type are from è‡³é˜´(-4) to è‡³é˜³(4), 
 #include <ansi.h>
 inherit SKILL;
 

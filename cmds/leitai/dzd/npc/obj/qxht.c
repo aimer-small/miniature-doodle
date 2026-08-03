@@ -6,16 +6,16 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ÆßĞÄº£ÌÄ·Û",({"haitang fen","fen"}));
+	set_name("ä¸ƒå¿ƒæµ·æ£ ç²‰",({"haitang fen","fen"}));
 	set_weight(50);
 	if(clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long",HIB"ÕâÊÇÒ»°üÓÉÆßĞÄº£ÌÄÁ¶ÖÆ¶ø³ÉµÄ·ÛÄ©£¬¾ç¶¾ÎŞ±È£¡
-ÏÂ¶¾µÄÊ±ºò¿ÉÒÔµ¯(tan)Å¶¡£\n"NOR);
+		set("long",HIB"è¿™æ˜¯ä¸€åŒ…ç”±ä¸ƒå¿ƒæµ·æ£ ç‚¼åˆ¶è€Œæˆçš„ç²‰æœ«ï¼Œå‰§æ¯’æ— æ¯”ï¼
+ä¸‹æ¯’çš„æ—¶å€™å¯ä»¥å¼¹(tan)å“¦ã€‚\n"NOR);
 		set("value",200000);
-		set("unit","°ü");
+		set("unit","åŒ…");
 	}
              set("dzd",1);
 
@@ -47,33 +47,33 @@ int do_tan(string arg)
 	object target;
 	
 	if( environment(me)->query("no_fight"))
-	 	return notify_fail("ÕâÀï²»×¼Õ½¶·¡£\n");
+	 	return notify_fail("è¿™é‡Œä¸å‡†æˆ˜æ–—ã€‚\n");
 	if( !arg ) 
 		target = offensive_target(me);
 	else {
 		target = present(arg, environment(me));
 	}
 	if(!target)
-		return notify_fail("ÄãÏë¶ÔË­Ê¹ÓÃÆßĞÄº£ÌÄ¶¾£¿\n");
-	if(!target->is_character()) return notify_fail("ÄúÀÏ¸ãĞ¦°¡£¿\n");
+		return notify_fail("ä½ æƒ³å¯¹è°ä½¿ç”¨ä¸ƒå¿ƒæµ·æ£ æ¯’ï¼Ÿ\n");
+	if(!target->is_character()) return notify_fail("æ‚¨è€æç¬‘å•Šï¼Ÿ\n");
 	
 	if(me->is_busy())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	//if(!target || !target->is_character() || !me->is_fighting(target))
-		//return notify_fail("¶¾·ÛÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ£¡\n");
+		//return notify_fail("æ¯’ç²‰åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ï¼\n");
 	if(me->query_temp("dzd_quest/fen_used"))
-		return notify_fail("ÄãÒÑ¾­¶Ô¶ÔÊÖÊ¹ÓÃÆßĞÄº£ÌÄ¶¾ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»å¯¹å¯¹æ‰‹ä½¿ç”¨ä¸ƒå¿ƒæµ·æ£ æ¯’äº†ã€‚\n");
 	if(!living(target))
-		return notify_fail("²»ÓÃÏÂ¶¾ÁË°É£¿\n");
+		return notify_fail("ä¸ç”¨ä¸‹æ¯’äº†å§ï¼Ÿ\n");
 	me->set_temp("dzd_quest/fen_used",1);
 	call_out("out_fen",10,me);
-	tell_object(me,BLU"ÄãÊÖÕÆÒ»Éì£¬Ö¸¼×ÖĞÒÑÌôÁËÆßĞÄº£ÌÄµÄÒ©·Û,ÓÒÊÖÊ³Ö¸µÄÖ¸¼×Ò»µ¯£¬Ò»ÕóÎŞÉ«ÎŞÎ¶µÄ±¡ÎíÏò¶Ô·½Æ®È¥¡£\n"NOR);
+	tell_object(me,BLU"ä½ æ‰‹æŒä¸€ä¼¸ï¼ŒæŒ‡ç”²ä¸­å·²æŒ‘äº†ä¸ƒå¿ƒæµ·æ£ çš„è¯ç²‰,å³æ‰‹é£ŸæŒ‡çš„æŒ‡ç”²ä¸€å¼¹ï¼Œä¸€é˜µæ— è‰²æ— å‘³çš„è–„é›¾å‘å¯¹æ–¹é£˜å»ã€‚\n"NOR);
 	if(random(3)) {
 		target->apply_condition("haitang_poison",4 + target->query_condition("haitang_poison"));
-		message_vision(HIY"$NÒ»Ê±´óÒâ£¬ÒÑ¾­ÖĞÁË$nµÄ°µËã£¡\n"NOR,target,me);
+		message_vision(HIY"$Nä¸€æ—¶å¤§æ„ï¼Œå·²ç»ä¸­äº†$nçš„æš—ç®—ï¼\n"NOR,target,me);
 	}
 	else 
-		message_vision(HIY"$N¿´Äã¶¯×÷ÓĞÒì£¬ĞÄÏÂÔçÓĞ×¼±¸£¬±ÕÆøÄıÉñ£¬Á¬»÷ÊıÕÆ£¬°Ñ¶¾ÎíÇıÉ¢£¡\n"NOR,target);
+		message_vision(HIY"$Nçœ‹ä½ åŠ¨ä½œæœ‰å¼‚ï¼Œå¿ƒä¸‹æ—©æœ‰å‡†å¤‡ï¼Œé—­æ°”å‡ç¥ï¼Œè¿å‡»æ•°æŒï¼ŒæŠŠæ¯’é›¾é©±æ•£ï¼\n"NOR,target);
 	me->start_busy(1);
 	return 1;
 }

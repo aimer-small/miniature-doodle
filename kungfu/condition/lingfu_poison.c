@@ -10,10 +10,10 @@ int update_condition(object me,int duration)
 	me->receive_wound("jing",50);
 	me->set("neili",0);
 	me->add_busy(2);
-	me->set_temp("last_damage_from","×íÏÉÁéÜ½¶¾·¢×÷");
-	if( !living(me) ) message("vision",HIY+ me->name() + HIY"Í´¿àµØºßÁËÒ»Éù¡£\n"NOR, environment(me), me);
+	me->set_temp("last_damage_from","é†‰ä»™çµèŠ™æ¯’å‘ä½œ");
+	if( !living(me) ) message("vision",HIY+ me->name() + HIY"ç—›è‹¦åœ°å“¼äº†ä¸€å£°ã€‚\n"NOR, environment(me), me);
 	else 
-		message_vision(HIY"$N¸Ðµ½Î¢Î¢ÓÐµãÍ·ÔÎ¡£\n"NOR,me);
+		message_vision(HIY"$Næ„Ÿåˆ°å¾®å¾®æœ‰ç‚¹å¤´æ™•ã€‚\n"NOR,me);
 	if(duration < 1) return 0;
 	me->apply_condition("lingfu_poison",duration - 1);
 	return CND_CONTINUE;

@@ -8,13 +8,13 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIY"¹Å¶§µ¶"NOR, ({"guding dao", "dao", "blade", }) );	
+        set_name(HIY"å¤é”­åˆ€"NOR, ({"guding dao", "dao", "blade", }) );	
         set_weight(10000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", HIY"Ò»°ÑĞâ¼£°ß²µµÄ³¤µ¶£¬´«ËµÕâ¾ÍÊÇËï¼áµ±ÄêËùÓÃµÄÕ½µ¶£¬·İÁ¿Ïàµ±µÄ³ÁÖØ¡£\n"NOR);
+                set("unit", "æŸ„");
+                set("long", HIY"ä¸€æŠŠé”ˆè¿¹æ–‘é©³çš„é•¿åˆ€ï¼Œä¼ è¯´è¿™å°±æ˜¯å­™åšå½“å¹´æ‰€ç”¨çš„æˆ˜åˆ€ï¼Œä»½é‡ç›¸å½“çš„æ²‰é‡ã€‚\n"NOR);
                 set("value", 1);
                 set("unique", 1);
                 set("rigidity", 5);
@@ -24,8 +24,8 @@ void create()
                 set("treasure",1);
                 set("wield_str", 35);
                 set("material", "steel");
-                set("wield_msg", HIY"$N»º»º½«µ½³é³öµ¶ÇÊ£¬ö®Ê±¼ä¿ñ·ç±©ÓêµçÉÁÀ×Ãù£¬×ªÑÛÊÖÖĞÒÑ¶àÁËÒ»±úÓ¢Æø±ÆÈËµÄ¼âµ¶¡£\n"NOR);
-                set("unwield_msg",HIY"$N½«¹Å¶§µ¶Ğ¡ĞÄ²å»Øµ¶ÇÊ£¬¶ÙÊ±Ó¢Æø½¥½¥ÏûÊÅ¡£\n"NOR);
+                set("wield_msg", HIY"$Nç¼“ç¼“å°†åˆ°æŠ½å‡ºåˆ€é˜ï¼Œéœæ—¶é—´ç‹‚é£æš´é›¨ç”µé—ªé›·é¸£ï¼Œè½¬çœ¼æ‰‹ä¸­å·²å¤šäº†ä¸€æŸ„è‹±æ°”é€¼äººçš„å°–åˆ€ã€‚\n"NOR);
+                set("unwield_msg",HIY"$Nå°†å¤é”­åˆ€å°å¿ƒæ’å›åˆ€é˜ï¼Œé¡¿æ—¶è‹±æ°”æ¸æ¸æ¶ˆé€ã€‚\n"NOR);
         }
         init_blade(180);
         setup();

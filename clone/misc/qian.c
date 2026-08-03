@@ -6,12 +6,12 @@ string get_long();
 
 void create()
 {
-        set_name( "ÖñÇ©", ({ "zhu qian", "qian"}) );
+        set_name( "ç«¹ç­¾", ({ "zhu qian", "qian"}) );
         set_weight(100);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
+                set("unit", "æ ¹");
                 set("long", (:get_long:));
                 set("value", 0);
                 set("material", "wood");
@@ -27,10 +27,10 @@ string get_long()
         qianwen = query("qianwen");
 
         if (!mapp(qianwen) || query("owner") != this_player()->query("id"))
-                return "Ò»¸ùÏÁ³¤µÄÖñÇ©£¬ÉÏÃæÓÃÖìÉ°ÌâÁËÁ½ÐÐÐ¡×Ö£¬¿´²»Ì«ÕæÇÐ¡£\n";
+                return "ä¸€æ ¹ç‹­é•¿çš„ç«¹ç­¾ï¼Œä¸Šé¢ç”¨æœ±ç ‚é¢˜äº†ä¸¤è¡Œå°å­—ï¼Œçœ‹ä¸å¤ªçœŸåˆ‡ã€‚\n";
 
-        long = "Ò»¸ùÏÁ³¤µÄÖñÇ©£¬ÉÏÃæÌâÁË¼¸ÐÐÐ¡×Ö£º\n";
-        long += "                "+HIW +"¡¼"+ qianwen["title"] + "¡½\n" + NOR;
+        long = "ä¸€æ ¹ç‹­é•¿çš„ç«¹ç­¾ï¼Œä¸Šé¢é¢˜äº†å‡ è¡Œå°å­—ï¼š\n";
+        long += "                "+HIW +"ã€–"+ qianwen["title"] + "ã€—\n" + NOR;
         long += HIM + qianwen["doc"] + "\n" + NOR;
         return long;
 }

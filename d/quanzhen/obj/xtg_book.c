@@ -5,13 +5,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HBBLU"ÎåÆªÁéÎÄÁí"NOR, ({ "lingwen", "wupian lingwen", "book" }));
+	set_name(HBBLU"äº”ç¯‡çµæ–‡å¦"NOR, ({ "lingwen", "wupian lingwen", "book" }));
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ò³");
-		set("long", HIG"ÕâÊÇÒ»Ò³ÍõÖØÑôÊÖÊéµÄ³àÁ«ÕæÈËÎåÆªÁéÎÄµÄ×¢½â£¬ÃÜÃÜÂéÂéµÄĞ´ÂúÁËÖØÑôÕæÈË¶ÔÏÈÌì¹¦ºÍĞşÃÅĞÄ·¨µÄ×¢½â¡£\n"NOR);
+		set("unit", "é¡µ");
+		set("long", HIG"è¿™æ˜¯ä¸€é¡µç‹é‡é˜³æ‰‹ä¹¦çš„èµ¤è²çœŸäººäº”ç¯‡çµæ–‡çš„æ³¨è§£ï¼Œå¯†å¯†éº»éº»çš„å†™æ»¡äº†é‡é˜³çœŸäººå¯¹å…ˆå¤©åŠŸå’Œç„é—¨å¿ƒæ³•çš„æ³¨è§£ã€‚\n"NOR);
 		set("unique", 1);
 //		set("newbie", 1);
 		set("treasure", 1);

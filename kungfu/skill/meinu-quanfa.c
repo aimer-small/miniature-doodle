@@ -1,4 +1,4 @@
-// meinu-quan ÃÀÅ®È­·¨
+// meinu-quan ç¾å¥³æ‹³æ³•
 // Modify By River
 // Modified by darken@SJ
 
@@ -7,58 +7,58 @@ inherit SKILL;
 
 mapping *action = ({
 ([
-	"action" : "$NÊ¹Ò»ÕĞ¡¸õõìø°İÔÂ¡¹£¬ÓÒÊÖÒ»»Ó£¬Ïò$nµÄ$lÈÆÈ¥£¬ÕÆÔµÔÚ$nµÄ$lÒ»Õ¶",
-	"skill_name" : "õõìø°İÔÂ",
+	"action" : "$Nä½¿ä¸€æ‹›ã€Œè²‚ç¦…æ‹œæœˆã€ï¼Œå³æ‰‹ä¸€æŒ¥ï¼Œå‘$nçš„$lç»•å»ï¼ŒæŒç¼˜åœ¨$nçš„$lä¸€æ–©",
+	"skill_name" : "è²‚ç¦…æ‹œæœˆ",
 	"lvl" : 0,
-	"damage_type" : "ÄÚÉË"
+	"damage_type" : "å†…ä¼¤"
 ]),
 ([
-	"action" : "$NË«È­±§ĞØ£¬ºöµØÓÒÊÖÊ¹Ò»ÕĞ¡¸Î÷Ê©ÅõĞÄ¡¹£¬Ïò$nµÄ$l²åÈ¥",
-	"skill_name" : "Î÷Ê©ÅõĞÄ",
+	"action" : "$NåŒæ‹³æŠ±èƒ¸ï¼Œå¿½åœ°å³æ‰‹ä½¿ä¸€æ‹›ã€Œè¥¿æ–½æ§å¿ƒã€ï¼Œå‘$nçš„$læ’å»",
+	"skill_name" : "è¥¿æ–½æ§å¿ƒ",
 	"lvl" : 10,
-	"damage_type" : "ÕğÉË"
+	"damage_type" : "éœ‡ä¼¤"
 ]),
 ([
-	"action" : "$NÓÒÊÖÎåÖ¸µ¯Æğ£¬·ÂËÆµ¯Ï°ÅıÅÃÒ»°ã£¬Ò»ÕĞ¡¸ÕÑ¾ı³öÈû¡¹ÎåÖ¸ÂÖ·¬Ïò$nµ¯È¥", 
-	"skill_name" : "ÕÑ¾ı³öÈû",
+	"action" : "$Nå³æ‰‹äº”æŒ‡å¼¹èµ·ï¼Œä»¿ä¼¼å¼¹ä¹ çµç¶ä¸€èˆ¬ï¼Œä¸€æ‹›ã€Œæ˜­å›å‡ºå¡ã€äº”æŒ‡è½®ç•ªå‘$nå¼¹å»", 
+	"skill_name" : "æ˜­å›å‡ºå¡",
 	"lvl" : 20,
-	"damage_type" : "ÕğÉË"
+	"damage_type" : "éœ‡ä¼¤"
 ]),
 ([
-	"action" : "$N²àÉíÒ»ÉÁ£¬Ë«ÊÖºÏÈ­ÏòÉÏÌ§È¥£¬Ò»ÕĞ¡¸Âé¹ÃÏ×ÊÙ¡¹»÷Ïò$nµÄ$l",
-	"skill_name" : "Âé¹ÃÏ×ÊÙ",
+	"action" : "$Nä¾§èº«ä¸€é—ªï¼ŒåŒæ‰‹åˆæ‹³å‘ä¸ŠæŠ¬å»ï¼Œä¸€æ‹›ã€Œéº»å§‘çŒ®å¯¿ã€å‡»å‘$nçš„$l",
+	"skill_name" : "éº»å§‘çŒ®å¯¿",
 	"lvl" : 30,
-	"damage_type" : "ÄÚÉË"
+	"damage_type" : "å†…ä¼¤"
 ]),
 ([
-	"action" : "$NÊ©³ö¡¸ÌìÅ®Ö¯Ëó¡¹£¬ÓÒÊÖ»Ó×ó£¬×öÍ¶ËóÖ¯²¼Ö®×´£¬Ò»»ÓÒ»ËÍ£¬»÷Ïò$nµÄ$l",
-	"skill_name" : "ÌìÅ®Ö¯Ëó",
+	"action" : "$Næ–½å‡ºã€Œå¤©å¥³ç»‡æ¢­ã€ï¼Œå³æ‰‹æŒ¥å·¦ï¼ŒåšæŠ•æ¢­ç»‡å¸ƒä¹‹çŠ¶ï¼Œä¸€æŒ¥ä¸€é€ï¼Œå‡»å‘$nçš„$l",
+	"skill_name" : "å¤©å¥³ç»‡æ¢­",
 	"lvl" : 50,
-	"damage_type" : "ğöÉË"
+	"damage_type" : "ç˜€ä¼¤"
 ]),
 ([
-	"action" : "$NÊ©³ö¡¸ÔòÌì´¹Á±¡¹£¬Éí×ÓÇ°ÆË£¬Ë«ÕÆÒÔ´¹Á±Ö®ÊÆÏ÷½«ÏÂÀ´£¬Õ¶Ïò$nµÄ$l",
-	"skill_name" : "ÔòÌì´¹Á±",
+	"action" : "$Næ–½å‡ºã€Œåˆ™å¤©å‚å¸˜ã€ï¼Œèº«å­å‰æ‰‘ï¼ŒåŒæŒä»¥å‚å¸˜ä¹‹åŠ¿å‰Šå°†ä¸‹æ¥ï¼Œæ–©å‘$nçš„$l",
+	"skill_name" : "åˆ™å¤©å‚å¸˜",
 	"lvl" : 70,
-	"damage_type" : "ğöÉË"
+	"damage_type" : "ç˜€ä¼¤"
 ]),
 ([
-	"action" : "$NÁ³Â¶Î¢Ğ¦£¬ÉìÊÖÍùÍ·ÉÏÒ»Êá£¬ÊÖÖ¸Èç¡¸Àö»ªÊá×±¡¹£¬ÈíÈí»Ó½«³öÈ¥£¬ÅÄÏò$nµÄ$l",
-	"skill_name" : "Àö»ªÊá×±",
+	"action" : "$Nè„¸éœ²å¾®ç¬‘ï¼Œä¼¸æ‰‹å¾€å¤´ä¸Šä¸€æ¢³ï¼Œæ‰‹æŒ‡å¦‚ã€Œä¸½åæ¢³å¦†ã€ï¼Œè½¯è½¯æŒ¥å°†å‡ºå»ï¼Œæ‹å‘$nçš„$l",
+	"skill_name" : "ä¸½åæ¢³å¦†",
 	"lvl" : 90,
-	"damage_type" : "ğöÉË"
+	"damage_type" : "ç˜€ä¼¤"
 ]),
 ([
-	"action" : "$NË«ÊÖ»¥ÅÄ£¬ÉÁµç°ã»÷³ö£¬Ù²È»Ò»ÕĞ¡¸ºìÓñ»÷¹Ä¡¹£¬ÂÖ·¬»÷Ïò$n$l",
-	"skill_name" : "ºìÓñ»÷¹Ä",
+	"action" : "$NåŒæ‰‹äº’æ‹ï¼Œé—ªç”µèˆ¬å‡»å‡ºï¼Œä¿¨ç„¶ä¸€æ‹›ã€Œçº¢ç‰å‡»é¼“ã€ï¼Œè½®ç•ªå‡»å‘$n$l",
+	"skill_name" : "çº¢ç‰å‡»é¼“",
 	"lvl" : 110,
-	"damage_type" : "ğöÉË"
+	"damage_type" : "ç˜€ä¼¤"
 ]),
 ([
-	"action" : "$NÒ»ÕĞ¡¸ÅªÓñ´µóï¡¹£¬Ò»Ö¸ÇæÌì£¬Ò»Ö¸¶ÔµØ£¬±ÕÄ¿´¹Ê×£¬ºöÊÖÍÈÆë³ö£¬¹¥Ïò$nµÄ$l",
-	"skill_name" : "ÅªÓñ´µóï",
+	"action" : "$Nä¸€æ‹›ã€Œå¼„ç‰å¹ç®«ã€ï¼Œä¸€æŒ‡æ“å¤©ï¼Œä¸€æŒ‡å¯¹åœ°ï¼Œé—­ç›®å‚é¦–ï¼Œå¿½æ‰‹è…¿é½å‡ºï¼Œæ”»å‘$nçš„$l",
+	"skill_name" : "å¼„ç‰å¹ç®«",
 	"lvl" : 120,
-	"damage_type" : "ğöÉË"
+	"damage_type" : "ç˜€ä¼¤"
 ]),
 });
 
@@ -67,11 +67,11 @@ int valid_enable(string usage) { return usage=="cuff" || usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("¿ÕÊÖ·½ÄÜÁ·Ï°ÃÀÅ®È­·¨¡£\n");
+		return notify_fail("ç©ºæ‰‹æ–¹èƒ½ç»ƒä¹ ç¾å¥³æ‹³æ³•ã€‚\n");
 	if ( me->query_skill("yunu-xinjing", 1) < 10)
-		return notify_fail("ÓñÅ®ĞÄ¾­ÁìÎò²»¹»£¬ÎŞ·¨ĞŞÏ°ÃÀÅ®È­·¨¡£\n");
+		return notify_fail("ç‰å¥³å¿ƒç»é¢†æ‚Ÿä¸å¤Ÿï¼Œæ— æ³•ä¿®ä¹ ç¾å¥³æ‹³æ³•ã€‚\n");
 	if ( me->query_skill("dodge", 1) < 20)
-		return notify_fail("ÄãµÄÇá¹¦Ì«²î£¬ÎŞ·¨Á·ÃÀÅ®È­·¨¡£\n");
+		return notify_fail("ä½ çš„è½»åŠŸå¤ªå·®ï¼Œæ— æ³•ç»ƒç¾å¥³æ‹³æ³•ã€‚\n");
 	return 1;
 }
 
@@ -85,7 +85,7 @@ string query_skill_name(int level)
 
 mapping query_action(object me, object weapon)
 {
-	int i, j, level, flag = (me->query("gender") == "Å®ĞÔ");
+	int i, j, level, flag = (me->query("gender") == "å¥³æ€§");
 	string msg;
 
 	level = (int) me->query_skill("meinu-quanfa",1);         
@@ -94,7 +94,7 @@ mapping query_action(object me, object weapon)
 		if(level > action[i-1]["lvl"]) {
 			j = NewRandom(i, 20, level/5);
 			if ( me->query_temp("mnqf")){
-				msg = MAG"$NÇÄÍËÊı²½£¬ÓÒÊÖÖ§ÒÃ£¬×óÊÖÇáÇá»Ó³ö£¬³¤Ì¾Ò»Éù£¬Á³ÏÖ¼ÅÁÈÖ®Òâ£¬$n²»ÓÉµÃ´ôÁË£¬ÓÃ³äÂú°®Ä½µÄµÄÑÛ¹â¿´×Å$N"NOR;
+				msg = MAG"$Næ‚„é€€æ•°æ­¥ï¼Œå³æ‰‹æ”¯é¢ï¼Œå·¦æ‰‹è½»è½»æŒ¥å‡ºï¼Œé•¿å¹ä¸€å£°ï¼Œè„¸ç°å¯‚å¯¥ä¹‹æ„ï¼Œ$nä¸ç”±å¾—å‘†äº†ï¼Œç”¨å……æ»¡çˆ±æ…•çš„çš„çœ¼å…‰çœ‹ç€$N"NOR;
 				me->delete_temp("mnqf");
 				return ([
 					"action" : msg,
@@ -135,9 +135,9 @@ string perform_action_file(string action)
 int practice_skill(object me)
 {
 	if (me->query("jingli") < 40)
-		return notify_fail("ÄãµÄÌåÁ¦Ì«µÍÁË¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›å¤ªä½äº†ã€‚\n");
 	if (me->query("neili") < 20)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·ÃÀÅ®È­·¨ÁË¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒç¾å¥³æ‹³æ³•äº†ã€‚\n");
 	me->receive_damage("jingli", 30);
 	me->add("neili", -10);
 	return 1;
@@ -148,7 +148,7 @@ mixed hit_ob(object me, object victim, int damage_bonus)
 	int extra, level, i, per, g = 2;
 	if ( damage_bonus < 100 ) return 0;
 
-	extra = (me->query("gender") == "Å®ĞÔ"? 2:1);
+	extra = (me->query("gender") == "å¥³æ€§"? 2:1);
 	level = me->query_skill("meinu-quanfa",1);
 	per = me->query("per");
 
@@ -195,7 +195,7 @@ void reset_temp(object me,object victim, int count)
 		victim->add_temp("apply/dodge", skill);
 		victim->delete_temp("mnq");
 		if (me && living(victim) && ! victim->is_ghost())
-			message_vision(HIW"\n$n¼¤á×á×´òÁË¸öº®Õ½£¬ĞÄÖÇÎªÖ®Ò»Çå¡£\n"NOR, me, victim);
+			message_vision(HIW"\n$næ¿€å¶™å¶™æ‰“äº†ä¸ªå¯’æˆ˜ï¼Œå¿ƒæ™ºä¸ºä¹‹ä¸€æ¸…ã€‚\n"NOR, me, victim);
 		return;
 	}
 	call_out("reset_temp", 1, me, victim, count);
@@ -203,13 +203,13 @@ void reset_temp(object me,object victim, int count)
 
 int help(object me)
 {
-        write(WHT"\nÃÀÅ®È­·¨£º"NOR"\n\n");
+        write(WHT"\nç¾å¥³æ‹³æ³•ï¼š"NOR"\n\n");
         write(@HELP
-	Îä¹¦Ãû³Æ£º
-	        ÃÀÅ®È­·¨(meinu-quanfa)
+	æ­¦åŠŸåç§°ï¼š
+	        ç¾å¥³æ‹³æ³•(meinu-quanfa)
              
-	ÌØÊâ¹¥»÷£º   
-	        ÉãĞÄ¾ø¼¼(perform shexin)¡£
+	ç‰¹æ®Šæ”»å‡»ï¼š   
+	        æ‘„å¿ƒç»æŠ€(perform shexin)ã€‚
         
 HELP
         );

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ٳ�Ͽ");
+	set("short", "百尺峡");
 	set("long", @LONG
-�߹�ǧ�ߴ���ǰ���ּ���һҪ���İٳ�Ͽ���ٳ�Ͽ����ǧ�ߴ����վ�����
-��ʮ�ֶ��ͣ��ұ�����������������������
+走过千尺幢，前面又见另一要命的百尺峡，百尺峡不似千尺幢般险峻，但
+亦十分陡峭，岩壁两侧设有铁索以作扶拦。
 LONG
 	);
 	set("exits", ([
@@ -19,6 +19,6 @@ LONG
 		__DIR__"npc/monkey" : 1,
 		NPC_D("tiao-fu") : 1,
 	]));
-	set("outdoors", "��ɽ" );
+	set("outdoors", "华山" );
 	setup();
 }

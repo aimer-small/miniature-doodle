@@ -14,12 +14,12 @@ int check_legal_id(string id)
 
 	i = strlen(id);
 	if( i < 3 || i > 8 ) {
-		write("¶Ô²»Æğ£¬ĞÂID±ØĞëÊÇ 3 µ½ 8 ¸öÓ¢ÎÄ×ÖÄ¸¡£\n");
+		write("å¯¹ä¸èµ·ï¼Œæ–°IDå¿…é¡»æ˜¯ 3 åˆ° 8 ä¸ªè‹±æ–‡å­—æ¯ã€‚\n");
 		return 0;
 	}
 	while(i--)
 	if( id[i] < 'a' || id[i] > 'z' ) {
-		write("¶Ô²»Æğ£¬ĞÂIDÖ»ÄÜÓÃĞ¡Ğ´Ó¢ÎÄ×ÖÄ¸¡£\n");
+		write("å¯¹ä¸èµ·ï¼Œæ–°IDåªèƒ½ç”¨å°å†™è‹±æ–‡å­—æ¯ã€‚\n");
 		return 0;
 	}
 	return 1;
@@ -28,7 +28,7 @@ int check_legal_id(string id)
 int check_legal_email(string email)
 {
 	if (sscanf(email, "%*s@%*s.%*s") == 3) return 1;
-	write("email ¸ñÊ½²»¶Ô¡£\n");
+	write("email æ ¼å¼ä¸å¯¹ã€‚\n");
 	return 0;
 }
 
@@ -47,41 +47,41 @@ int main(object me, string arg)
 
 	seteuid(ROOT_UID);
 
-	if (!arg) return notify_fail("Ö¸Áî¸ñÊ½£ºmovety <ID> [new ID] <email>  <days>\n");
+	if (!arg) return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šmovety <ID> [new ID] <email>  <days>\n");
 
 	if (sscanf(arg, "%*s %*s %*s %*s %*s") == 5)
-		return notify_fail("Ö¸Áî¸ñÊ½£ºmovety <ID> [new ID] <email> <days>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šmovety <ID> [new ID] <email> <days>\n");
 	if (sscanf(arg, "%s %s %s %d", id, nid, email, days) == 4)
 		q = 0;
 	else if (sscanf(arg, "%s %s %d", id, email, days) == 3) {
 		nid = id;
 		q = 1;
-	} else return notify_fail("Ö¸Áî¸ñÊ½£ºmovety <ID> [new ID] <email> <days>\n");
+	} else return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šmovety <ID> [new ID] <email> <days>\n");
 
 	if (!check_legal_id(nid))
-		return notify_fail("Ö¸Áî¸ñÊ½£ºmovety <ID> [new ID] <email> <days>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šmovety <ID> [new ID] <email> <days>\n");
 
 	if (!check_legal_email(email))
-		return notify_fail("Ö¸Áî¸ñÊ½£ºmovety <ID> [new ID] <email> <days>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šmovety <ID> [new ID] <email> <days>\n");
 
 	if (days < 30) {
-		write("ÓĞĞ§ÌìÊı²»ÕıÈ·¡£\n");
-		return notify_fail("Ö¸Áî¸ñÊ½£ºmovety <ID> [new ID] <email> <days>\n");
+		write("æœ‰æ•ˆå¤©æ•°ä¸æ­£ç¡®ã€‚\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šmovety <ID> [new ID] <email> <days>\n");
 	}
 
 	if (!ODB->restore(NID_PATH +"login/"+ id[0..0] +"/"+ id + SAVE_EXTENSION))
-		return notify_fail(capitalize(id) +" µÇÂ¼µµ°¸²»´æÔÚ¡£\n");
+		return notify_fail(capitalize(id) +" ç™»å½•æ¡£æ¡ˆä¸å­˜åœ¨ã€‚\n");
 
 	if (!ODB->restore(NID_PATH +"user/"+ id[0..0] +"/"+ id + SAVE_EXTENSION))
-		return notify_fail(capitalize(id) +" Êı¾İµµ°¸²»´æÔÚ¡£\n");
+		return notify_fail(capitalize(id) +" æ•°æ®æ¡£æ¡ˆä¸å­˜åœ¨ã€‚\n");
 
 	if (file_size(ID_PATH +"login/"+ nid[0..0] +"/"+nid + SAVE_EXTENSION) != -1)
-		return notify_fail(capitalize(nid) + " Õâ¸öÓÃ»§ÒÑ¾­´æÔÚÁË¡£\n");
+		return notify_fail(capitalize(nid) + " è¿™ä¸ªç”¨æˆ·å·²ç»å­˜åœ¨äº†ã€‚\n");
 
 	olddb = ODB->query_dbase();
 	newdb = ([ ]);
 
-	// hp ²¿·Ö, max_jing max_qi eff_jingli ÓÉÏµÍ³×Ô¶¯¼ÆËã
+	// hp éƒ¨åˆ†, max_jing max_qi eff_jingli ç”±ç³»ç»Ÿè‡ªåŠ¨è®¡ç®—
 	dup("jing");
 	dup("eff_jing");
 
@@ -104,7 +104,7 @@ int main(object me, string arg)
 	dup("water");
 	dup("combat_exp");
 
-	// score ²¿·Ö
+	// score éƒ¨åˆ†
 	if ( olddb["class"] && olddb["class"] != "eunuch")
 		dup("class");
 	dup("title");
@@ -121,8 +121,8 @@ int main(object me, string arg)
 	dup("birthday");
 
 	dup("gender");
-	if (newdb["gender"] != "Å®ĞÔ")
-		newdb["gender"] = "ÄĞĞÔ";
+	if (newdb["gender"] != "å¥³æ€§")
+		newdb["gender"] = "ç”·æ€§";
 
 	newdb["mud_time"] = olddb["mud_age"];
 	newdb["startroom"] = "/d/city/kedian/bonus_room";
@@ -145,7 +145,7 @@ int main(object me, string arg)
 	dup("pur");
 
 	newdb["oldsj"] = 1;
-	newdb["name"] = "Ãû×Ö´ı¶¨";
+	newdb["name"] = "åå­—å¾…å®š";
 
 	if ( olddb["luohan_winner"] )
 		newdb["luohan_winner"] = 1;
@@ -166,41 +166,41 @@ int main(object me, string arg)
 	newdb["job_time"] = ([ ]);
 
 	if (olddb["dali_job"])
-		newdb["job_time"]["´óÀí"] = olddb["dali_job"];
+		newdb["job_time"]["å¤§ç†"] = olddb["dali_job"];
 	if (olddb["gb_job"])
-		newdb["job_time"]["Ø¤°ï"] = olddb["gb_job"];
+		newdb["job_time"]["ä¸å¸®"] = olddb["gb_job"];
 	if (olddb["gb_job2"])
-		newdb["job_time"]["±¨Ğ§¹ú¼Ò"] = olddb["gb_job2"];
+		newdb["job_time"]["æŠ¥æ•ˆå›½å®¶"] = olddb["gb_job2"];
 	if (olddb["gf_job"])
-		newdb["job_time"]["¹Ù¸®"] = olddb["gf_job"];
+		newdb["job_time"]["å®˜åºœ"] = olddb["gf_job"];
 	if (olddb["hs_job"])
-		newdb["job_time"]["»ªÉ½"] = olddb["hs_job"];
+		newdb["job_time"]["åå±±"] = olddb["hs_job"];
 	if (olddb["mingjiao_job"])
-		newdb["job_time"]["Ã÷½Ì"] = olddb["mingjiao_job"];
+		newdb["job_time"]["æ˜æ•™"] = olddb["mingjiao_job"];
 	if (olddb["mr_job"])
-		newdb["job_time"]["Ä½Èİ"] = olddb["mr_job"];
+		newdb["job_time"]["æ…•å®¹"] = olddb["mr_job"];
 	if (olddb["sl_job"])
-		newdb["job_time"]["ÉÙÁÖ"] = olddb["sl_job"];
+		newdb["job_time"]["å°‘æ—"] = olddb["sl_job"];
 	if (olddb["snake_job"])
-		newdb["job_time"]["×¥Éß"] = olddb["snake_job"];
+		newdb["job_time"]["æŠ“è›‡"] = olddb["snake_job"];
 	if (olddb["songshan_points"])
-		newdb["job_time"]["áÔÉ½"] = olddb["songshan_points"];
+		newdb["job_time"]["åµ©å±±"] = olddb["songshan_points"];
 	if (olddb["thd_job"])
-		newdb["job_time"]["ÌÒ»¨µº"] = olddb["thd_job"];
+		newdb["job_time"]["æ¡ƒèŠ±å²›"] = olddb["thd_job"];
 	if (olddb["wd_job"])
-		newdb["job_time"]["Îäµ±"] = olddb["wd_job"];
+		newdb["job_time"]["æ­¦å½“"] = olddb["wd_job"];
 	if (olddb["xs_job"])
-		newdb["job_time"]["Ñ©É½"] = olddb["xs_job"];
+		newdb["job_time"]["é›ªå±±"] = olddb["xs_job"];
 	if (olddb["xx_job4"])
-		newdb["job_time"]["ĞÇËŞ°¾¸à"] = olddb["xx_job4"];
+		newdb["job_time"]["æ˜Ÿå®¿ç†¬è†"] = olddb["xx_job4"];
 	if (olddb["xx_job5"])
-		newdb["job_time"]["ĞÇËŞÅÑÍ½"] = olddb["xx_job5"];
+		newdb["job_time"]["æ˜Ÿå®¿å›å¾’"] = olddb["xx_job5"];
 	if (olddb["xx_points"])
-		newdb["job_time"]["ĞÇËŞ"] = olddb["xx_points"];
+		newdb["job_time"]["æ˜Ÿå®¿"] = olddb["xx_points"];
 	if (olddb["zhao_job"])
-		newdb["job_time"]["ÕÔÃô"] = olddb["zhao_job"];
+		newdb["job_time"]["èµµæ•"] = olddb["zhao_job"];
 
-// ¾­ÑéºÍÈÎÎñ´ÎÊı£¬ÄêÁäµÈ×ª»»
+// ç»éªŒå’Œä»»åŠ¡æ¬¡æ•°ï¼Œå¹´é¾„ç­‰è½¬æ¢
 /*
 	if ((exp = newdb["combat_exp"]) > 3000000) {
 		float scale = 3000000.0 / exp;
@@ -233,22 +233,22 @@ int main(object me, string arg)
 
 	sscanf(status, "%*s\"password\":\"%s\",", passwd);
 	if (q)
-		msg = "Íæ¼Ò "+ capitalize(id) +" ÒÑ¾­¸üĞÂÍê±Ï¡£\n";
+		msg = "ç©å®¶ "+ capitalize(id) +" å·²ç»æ›´æ–°å®Œæ¯•ã€‚\n";
 	else {
 		status = replace_string(status, "\"id\":\""+id+"\",", "\"id\":\""+nid+"\",");
-		msg = "Íæ¼Ò "+ capitalize(id) +" ¸üĞÂÍê±Ï£¬¸ü»» ID Îª "+ capitalize(nid) +" ¡£\n";
+		msg = "ç©å®¶ "+ capitalize(id) +" æ›´æ–°å®Œæ¯•ï¼Œæ›´æ¢ ID ä¸º "+ capitalize(nid) +" ã€‚\n";
 	}
 
 	if ( ! write_file(NID_PATH +"login/"+ id[0..0] +"/"+ id + SAVE_EXTENSION, status, 1))
-		return notify_fail("ÎÄ¼ş "+ NID_PATH +"login/"+ id[0..0] +"/"+ id + SAVE_EXTENSION +" ´æ´¢Ê§°Ü¡£\n");
+		return notify_fail("æ–‡ä»¶ "+ NID_PATH +"login/"+ id[0..0] +"/"+ id + SAVE_EXTENSION +" å­˜å‚¨å¤±è´¥ã€‚\n");
 
 	if (!cp(NID_PATH +"login/" + id[0..0] +"/"+ id + SAVE_EXTENSION, ID_PATH +"login/"+ nid[0..0] +"/"+nid + SAVE_EXTENSION)
 	|| !ODB->save(ID_PATH +"user/" + nid[0..0] +"/"+nid + SAVE_EXTENSION))
-		return notify_fail("´æ´¢ÎÄ¼şÊ§°Ü¡£\n");		// Ğ´Êı¾İÊ§°Ü
+		return notify_fail("å­˜å‚¨æ–‡ä»¶å¤±è´¥ã€‚\n");		// å†™æ•°æ®å¤±è´¥
 
 	write(msg);
 	i = db_connect("localhost","mud","root");
-	if (!intp(i)) return notify_fail("Á¬½ÓÊı¾İ¿âÊ§°Ü£º"+i+"¡£\n");
+	if (!intp(i)) return notify_fail("è¿æ¥æ•°æ®åº“å¤±è´¥ï¼š"+i+"ã€‚\n");
 	j = db_exec(i,"replace into Users set "
 		"U_Username='"+nid+"',"
 		"U_Name='"+newdb["name"]+"',"
@@ -260,11 +260,11 @@ int main(object me, string arg)
 		"Alivedays="+save_variable(days)
 	);
 	db_close(i);
-	if (!intp(j)) return notify_fail("Êı¾İ¿â²Ù×÷Ê§°Ü£º"+j+"\n");
+	if (!intp(j)) return notify_fail("æ•°æ®åº“æ“ä½œå¤±è´¥ï¼š"+j+"\n");
 	write(sprintf("%s -> %s, %s, %d\n", id, nid, email, days));
 // log file
 	log_file("static/MOVEDATA",
-		sprintf("%8s%-10s ½« %-8s ¸ü¸ÄÎª %-8s, %s, %d TY\n",
+		sprintf("%8s%-10s å°† %-8s æ›´æ”¹ä¸º %-8s, %s, %d TY\n",
 			me->query("name"), "("+ geteuid(me)+")", id, nid, email, days), me);
 	return 1;
 }
@@ -273,9 +273,9 @@ int help()
 {
 	write(@HELP
 
-Ö¸Áî¸ñÊ½£ºmovety <ID> [New ID] <email> <days>
+æŒ‡ä»¤æ ¼å¼ï¼šmovety <ID> [New ID] <email> <days>
 
-´ËÖ¸ÁîÓÃÀ´¸ü¸ÄÍæ¼ÒÊı¾İ£¬Èç¹û New ID ¿ÕÈ±£¬¾Í²»»» ID¡£
+æ­¤æŒ‡ä»¤ç”¨æ¥æ›´æ”¹ç©å®¶æ•°æ®ï¼Œå¦‚æœ New ID ç©ºç¼ºï¼Œå°±ä¸æ¢ IDã€‚
 
 HELP
 	);

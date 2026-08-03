@@ -8,9 +8,9 @@ int update_condition(object me, int duration)
 {
 	if (duration < 1) {
 		if (duration > -5) {
-			tell_object(me, HIM "ÒòÎªÏìÓ¦µÄÈË²»¶à£¬¶ÔÄãµÄÍ¶Æ±È¡ÏûÁË¡£\n" NOR);
-			shout(HIW "¡¾±í¾ö¡¿ÒòÎªÏìÓ¦µÄÈË²»¶à£¬¶Ô" + me->name(1) + "("
-				+ capitalize(me->query("id")) + ")µÄÍ¶Æ±È¡ÏûÁË¡£\n" NOR);
+			tell_object(me, HIM "å› ä¸ºå“åº”çš„äººä¸å¤šï¼Œå¯¹ä½ çš„æŠ•ç¥¨å–æ¶ˆäº†ã€‚\n" NOR);
+			shout(HIW "ã€è¡¨å†³ã€‘å› ä¸ºå“åº”çš„äººä¸å¤šï¼Œå¯¹" + me->name(1) + "("
+				+ capitalize(me->query("id")) + ")çš„æŠ•ç¥¨å–æ¶ˆäº†ã€‚\n" NOR);
 		}
 		me->delete("vote/reason");
 	        me->delete("vote/juror");

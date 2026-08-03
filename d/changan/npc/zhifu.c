@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Öª¸®´óÈË", ({"zhifu daren", "zhifu","daren"}) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("çŸ¥åºœå¤§äºº", ({"zhifu daren", "zhifu","daren"}) );
+        set("gender", "ç”·æ€§" );
         set("age", 55);
-        set("long", "ËûÊÇ³¤°²³ÇµÄÖª¸®£¬ÕıµÍ×ÅÍ·ÅúÔÄ×ÅÎÄÊé¡£\n");
+        set("long", "ä»–æ˜¯é•¿å®‰åŸçš„çŸ¥åºœï¼Œæ­£ä½ç€å¤´æ‰¹é˜…ç€æ–‡ä¹¦ã€‚\n");
 
         set_temp("apply/attack", 25);
         set_temp("apply/defense", 25);

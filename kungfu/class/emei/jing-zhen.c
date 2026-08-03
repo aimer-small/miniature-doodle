@@ -7,13 +7,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("¾²ÕæÊ¦Ì«", ({"jingzhen shitai", "jingzhen", "shitai"}));
+	set_name("é™çœŸå¸ˆå¤ª", ({"jingzhen shitai", "jingzhen", "shitai"}));
 	set("long",
-		"ËıÊÇÒ»Î»´ÈÏéµÄÄêÇáÊ¦Ì«£¬ÔÚ¸£ÊÙâÖĞŞĞĞ¡£\n"
-		"ËıÊÇÃğ¾øÊ¦Ì«µÄ°Ë´ó¾²×Ö±²µÜ×ÓÖ®°Ë¡£\n"
+		"å¥¹æ˜¯ä¸€ä½æ…ˆç¥¥çš„å¹´è½»å¸ˆå¤ªï¼Œåœ¨ç¦å¯¿åºµä¿®è¡Œã€‚\n"
+		"å¥¹æ˜¯ç­ç»å¸ˆå¤ªçš„å…«å¤§é™å­—è¾ˆå¼Ÿå­ä¹‹å…«ã€‚\n"
 	);
 
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 	set("class", "bonze");
@@ -51,7 +51,7 @@ void create()
 	map_skill("dodge", "anying-fuxiang");
 
 	prepare_skill("strike", "sixiang-zhang");
-	create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+	create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 	setup();
 	carry_object("/d/emei/obj/changjian")->wield();
 	carry_object("/d/emei/obj/shoes")->wear();

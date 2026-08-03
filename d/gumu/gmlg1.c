@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIC"Ê¯ÊÒ"NOR);
+	set("short", HIC"çŸ³å®¤"NOR);
 	set("long", @LONG
-ÕâÊÇÒ»¼äÃÜ±ÕµÄÊ¯ÊÒ£¬ÊÒÖÐµã×ÅµÆ»ð£¬Ê¯ÊÒÆæÐ¡£¬½öÈÝÒ»ÈËÖÜ×ª£¬´Ë´¦¹©
-¹ÅÄ¹µÜ×ÓÐÞÁ¶ÈëÃÅÎä¹¦£¬ÌìÂÞµØÍøÊÆ¡£ÊÒÄÚÓÐÈýÖ»ÂéÈ¸¡£
+è¿™æ˜¯ä¸€é—´å¯†é—­çš„çŸ³å®¤ï¼Œå®¤ä¸­ç‚¹ç€ç¯ç«ï¼ŒçŸ³å®¤å¥‡å°ï¼Œä»…å®¹ä¸€äººå‘¨è½¬ï¼Œæ­¤å¤„ä¾›
+å¤å¢“å¼Ÿå­ä¿®ç‚¼å…¥é—¨æ­¦åŠŸï¼Œå¤©ç½—åœ°ç½‘åŠ¿ã€‚å®¤å†…æœ‰ä¸‰åªéº»é›€ã€‚
 LONG        );
 
 	set("exits", ([
@@ -18,7 +18,7 @@ LONG        );
 		"enter" : __DIR__"gmlg4",
 	]));
 
-	create_door("north", "Ê¯ÃÅ", "south", DOOR_CLOSED);
+	create_door("north", "çŸ³é—¨", "south", DOOR_CLOSED);
        
 	setup();
 }
@@ -35,24 +35,24 @@ int do_zhuo(string arg)
 	int i;
 	
 	if (!living(me)) return 0;
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÈçºÎÄÜÁìÎò¹ÅÄ¹Îä¹¦£¿\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œå¦‚ä½•èƒ½é¢†æ‚Ÿå¤å¢“æ­¦åŠŸï¼Ÿ\n");
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if ( arg == "maque") {
 		if((int)me->query_skill("dodge", 1) > 50 
 		 && (int)me->query_skill("hand", 1) > 50)
-			return notify_fail("Äã²»ÓÃÔÚÕâÀïÀË·ÑÊ±¼ä¾«Á¦ÁË¡£\n");
+			return notify_fail("ä½ ä¸ç”¨åœ¨è¿™é‡Œæµªè´¹æ—¶é—´ç²¾åŠ›äº†ã€‚\n");
 		if((int)me->query("jingli") < 15 || me->query("jing") < 15)
-			return notify_fail("ÄãÌ«ÀÛÁË, ÏÈÐÝÏ¢Ò»ÏÂ¡£\n");
+			return notify_fail("ä½ å¤ªç´¯äº†, å…ˆä¼‘æ¯ä¸€ä¸‹ã€‚\n");
 		i = me->query_skill("dodge", 1) / 3;
 		me->receive_damage("jing", 5 + random(10));
 		me->receive_damage("jingli", 5 + random(10));
 		if ( i * 3 > 20 && random(i) < 2 ) {
-			write("ÄãÆø´­ÓõÓõ£¬ÀÛµÃÂúÍ·´óº¹£¬±ðËµ×½µ½£¬Á¬ÓðÃ«Ò²Åö²»µ½Ò»¸ù¡£\n");
+			write("ä½ æ°”å–˜ååï¼Œç´¯å¾—æ»¡å¤´å¤§æ±—ï¼Œåˆ«è¯´æ‰åˆ°ï¼Œè¿žç¾½æ¯›ä¹Ÿç¢°ä¸åˆ°ä¸€æ ¹ã€‚\n");
 		}
 		else {
-			tell_object(me,"ÄãÀÛµÃÂúÍ·´óº¹£¬ÖÕì¶×¥µ½ÁËÂéÈ¸¡£\n");
+			tell_object(me,"ä½ ç´¯å¾—æ»¡å¤´å¤§æ±—ï¼Œç»ˆæ–¼æŠ“åˆ°äº†éº»é›€ã€‚\n");
 			if( me->query_skill("hand", 1) <= 51 )
 				me->improve_skill("hand", me->query_int()* 3/2 );
 			if( me->query_skill("dodge", 1) <= 51 )
@@ -60,5 +60,5 @@ int do_zhuo(string arg)
 		}
 		return 1;
 	}
-	return notify_fail("ÄãÒª×½Ê²Ã´£¿\n");
+	return notify_fail("ä½ è¦æ‰ä»€ä¹ˆï¼Ÿ\n");
 }

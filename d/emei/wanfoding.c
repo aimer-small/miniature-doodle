@@ -1,16 +1,16 @@
 // wanfoding.c
-// Íò·ğ¶¥
+// ä¸‡ä½›é¡¶
 inherit ROOM;
 #include <ansi.h>
 void create()
 {
-        set("short",HIY "Íò·ğ¶¥" NOR);
+        set("short",HIY "ä¸‡ä½›é¡¶" NOR);
         set("long",@long
-ÕâÀïÊÇ¶ëáÒÉ½ÉÏµÄÍò·ğ¶¥£¬ÓÉÓÚÒÑ¾­ÊÇÔÚÍòÕÉ¸ßÉ½Ö®áÛ£¬ÆøºòÊÇ±È½Ïº®Àä
-µÄ¡£±±ÃæÓĞ¼¸¼äÄ¾Åï£¬´ó¸ÅÊÇ¶ëáÒÅÉµÄÄĞµÜ×ÓÃÇ×Ô¼º¶¯ÊÖ´î½¨µÄ°²ÉíÖ®Ëù¡£Àï
-ÃæÊÇÍò·ğ¶¥ÉÏµÄÍò·ğËş£¬Î÷ÃæÊÇ¾ÅÀÏ¶´¡£
+è¿™é‡Œæ˜¯å³¨åµ‹å±±ä¸Šçš„ä¸‡ä½›é¡¶ï¼Œç”±äºå·²ç»æ˜¯åœ¨ä¸‡ä¸ˆé«˜å±±ä¹‹å·…ï¼Œæ°”å€™æ˜¯æ¯”è¾ƒå¯’å†·
+çš„ã€‚åŒ—é¢æœ‰å‡ é—´æœ¨æ£šï¼Œå¤§æ¦‚æ˜¯å³¨åµ‹æ´¾çš„ç”·å¼Ÿå­ä»¬è‡ªå·±åŠ¨æ‰‹æ­å»ºçš„å®‰èº«ä¹‹æ‰€ã€‚é‡Œ
+é¢æ˜¯ä¸‡ä½›é¡¶ä¸Šçš„ä¸‡ä½›å¡”ï¼Œè¥¿é¢æ˜¯ä¹è€æ´ã€‚
 long);
-        set("outdoors", "¶ëÃ¼É½");
+        set("outdoors", "å³¨çœ‰å±±");
         set("exits",([
              "north":__DIR__"mupeng",
              "west" : __DIR__"jiulaodong",
@@ -25,7 +25,7 @@ void init()
    me = this_player();
    room = this_object();
    if(interactive(me) && (objectp(present("zhi huan", me)))){
-        message_vision(HIR"Ö»ÌıµÃÇ°ÃæÒ»¸öÀä±ù±ùµØÉùÒôËµµÀ£ºÄÃÁËÌúÖ¸»·¾ÍÏë×ß£¿\n"NOR, me);   
+        message_vision(HIR"åªå¬å¾—å‰é¢ä¸€ä¸ªå†·å†°å†°åœ°å£°éŸ³è¯´é“ï¼šæ‹¿äº†é“æŒ‡ç¯å°±æƒ³èµ°ï¼Ÿ\n"NOR, me);   
         new(__DIR__"npc/shouta")->move(environment(me));        
         room->delete("exits");
         }       
@@ -33,9 +33,9 @@ void init()
 
 int valid_leave(object me, string dir)
 {
- if (dir == "north" && me->query("gender") == "Å®ĞÔ" )
-    return notify_fail("ÕâÀïÊÇÄĞµÜ×ÓµÄĞİÏ¢ÊÒ£¬Äã×îºÃ²»Òª½øÈ¥£¡\n");
- if (dir == "enter" && (me->query("class") != "bonze" && me->query("family/family_name") != "¶ëáÒÅÉ" ) )
-    return notify_fail("ÕâÀïÊÇ¶ëáÒÅÉµÄ·ğ¼ÒÊ¥µØ£¬Äã×îºÃ²»Òª½øÈ¥£¡\n");
+ if (dir == "north" && me->query("gender") == "å¥³æ€§" )
+    return notify_fail("è¿™é‡Œæ˜¯ç”·å¼Ÿå­çš„ä¼‘æ¯å®¤ï¼Œä½ æœ€å¥½ä¸è¦è¿›å»ï¼\n");
+ if (dir == "enter" && (me->query("class") != "bonze" && me->query("family/family_name") != "å³¨åµ‹æ´¾" ) )
+    return notify_fail("è¿™é‡Œæ˜¯å³¨åµ‹æ´¾çš„ä½›å®¶åœ£åœ°ï¼Œä½ æœ€å¥½ä¸è¦è¿›å»ï¼\n");
     return ::valid_leave(me, dir);
 } 

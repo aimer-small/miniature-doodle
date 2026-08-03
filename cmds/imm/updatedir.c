@@ -1,6 +1,6 @@
 // upddir.c 
-//Õâ¸öÃüÁî¿ÉÒÔÓÃÀ´¸üĞÂÄ³¸öÄ¿Â¼ÏÂÒÔ¼°ËùÓĞ×ÓÄ¿Â¼ÏÂµÄÎÄ¼ş 
-//ÃüÁî´´½¨Õßwin@SXTX ,email:wen_yue@163.net 
+//è¿™ä¸ªå‘½ä»¤å¯ä»¥ç”¨æ¥æ›´æ–°æŸä¸ªç›®å½•ä¸‹ä»¥åŠæ‰€æœ‰å­ç›®å½•ä¸‹çš„æ–‡ä»¶ 
+//å‘½ä»¤åˆ›å»ºè€…win@SXTX ,email:wen_yue@163.net 
 #include "/doc/help.h" 
 
 inherit F_CLEAN_UP; 
@@ -18,9 +18,9 @@ dir = resolve_path(me->query("cwd"), arg);
 if( file_size(dir)==-2 && dir[strlen(dir)-1] != '/' ) dir += "/"; 
 file = get_dir(dir, -1); 
 if( !sizeof(file) ) 
-{if (file_size(dir) == -2) return notify_fail("Ä¿Â¼ÊÇ¿ÕµÄ¡£\n"); 
+{if (file_size(dir) == -2) return notify_fail("ç›®å½•æ˜¯ç©ºçš„ã€‚\n"); 
 else 
-return notify_fail("Ã»ÓĞÕâ¸öÄ¿Â¼¡£\n"); 
+return notify_fail("æ²¡æœ‰è¿™ä¸ªç›®å½•ã€‚\n"); 
 } 
 
 i = sizeof(file); 
@@ -29,7 +29,7 @@ while(i--) {
 if (file[i][1]==-2) file[i][0] += "/"; 
 
 } 
-write("Ä¿Â¼£º" + dir + "\n"); 
+write("ç›®å½•ï¼š" + dir + "\n"); 
 
 if (sizeof(file)) 
 for(i=0, j = sizeof(file); i<j; i++) 
@@ -41,7 +41,7 @@ for(i=0, j = sizeof(file); i<j; i++)
                   else if (file[i][1]==-2) call_other(__FILE__,"main", 
 me,dir+file[i][0]); 
                 } 
-else write("    Ã»ÓĞÈÎºÎµµ°¸¡£\n"); 
+else write("    æ²¡æœ‰ä»»ä½•æ¡£æ¡ˆã€‚\n"); 
 write("\n"); 
 
 return 1; 
@@ -59,7 +59,7 @@ me->set("cwf", file);
 if (obj = find_object(file)) { 
 if( obj==environment(me) ) { 
 if( file_name(obj)==VOID_OB ) 
-return notify_fail("Äã²»ÄÜÔÚ VOID_OB ÀïÖØĞÂ±àÒë VOID_OB¡£\n"); 
+return notify_fail("ä½ ä¸èƒ½åœ¨ VOID_OB é‡Œé‡æ–°ç¼–è¯‘ VOID_OBã€‚\n"); 
 inv = all_inventory(obj); 
 i = sizeof(inv); 
 while(i--) 
@@ -69,14 +69,14 @@ else inv[i] = 0;
 destruct(obj); 
 } 
 
-if (obj) return notify_fail("ÎŞ·¨Çå³ı¾É³ÌÊ½Âë¡£\n"); 
+if (obj) return notify_fail("æ— æ³•æ¸…é™¤æ—§ç¨‹å¼ç ã€‚\n"); 
 
-    write("ÖØĞÂ±àÒë " + file + "£º"); 
+    write("é‡æ–°ç¼–è¯‘ " + file + "ï¼š"); 
 err = catch( call_other(file, "???") ); 
 if (err) 
-printf( "·¢Éú´íÎó£º\n%s\n", err ); 
+printf( "å‘ç”Ÿé”™è¯¯ï¼š\n%s\n", err ); 
 else { 
-write("³É¹¦£¡\n"); 
+write("æˆåŠŸï¼\n"); 
 if( (i=sizeof(inv)) && (obj = find_object(file))) { 
 while(i--) 
 if( inv[i] && userp(inv[i]) ) inv[i]->move(obj, 1); 
@@ -87,13 +87,13 @@ if( inv[i] && userp(inv[i]) ) inv[i]->move(obj, 1);
 int help(object me) 
 { 
 write(@HELP 
-Ö¸Áî¸ñÊ½: upddir [<Â·¾¶Ãû>] 
+æŒ‡ä»¤æ ¼å¼: upddir [<è·¯å¾„å>] 
   
-½«Ä¿Â¼ÏÂËùÓĞµÄ×ÓÄ¿Â¼¼°µµ°¸, Èç¹ûÃ»ÓĞÖ¸¶¨Ä¿Â¼, ÔòÊ¹ÓÃµ±Ç°Ä¿Â¼ 
+å°†ç›®å½•ä¸‹æ‰€æœ‰çš„å­ç›®å½•åŠæ¡£æ¡ˆ, å¦‚æœæ²¡æœ‰æŒ‡å®šç›®å½•, åˆ™ä½¿ç”¨å½“å‰ç›®å½• 
 
   
-·¶Àı: 
-'upddir /adm' »á½«ËùÓĞÎ»ì¶¸ù/admÄ¿Â¼ÏÂµÄµµ°¸±àÒë¸üĞÂ. 
+èŒƒä¾‹: 
+'upddir /adm' ä¼šå°†æ‰€æœ‰ä½æ–¼æ ¹/admç›®å½•ä¸‹çš„æ¡£æ¡ˆç¼–è¯‘æ›´æ–°. 
   
 HELP 
 ); 

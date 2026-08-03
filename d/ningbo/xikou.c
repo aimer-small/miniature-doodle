@@ -1,4 +1,4 @@
-// xikou.c Ïª¿Ú
+// xikou.c æºªå£
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <wanted.h>
@@ -6,13 +6,13 @@
 inherit ROOM;
 void create()
 {
-        set("short", "Ïª¿Ú");
+        set("short", "æºªå£");
         set("long", @LONG
-ÄãÓ­×ÅÕóÕóº£·çÀ´µ½ÁËÏª¿Ú£¬ÕâÀïÊÇ×Ô¹Å´úÒÔÀ´±ø¼Ò±ØÕùÖ®µØ£¬ÕâÀïÁ¬½Ó
-×ÅÓëº£ÍâµÄÃ³Ò×£¬°¶±ßÍ£²´×ÅµÄ¼¸ËÒ´ó·«´¬ÔÚÏ¦ÑôµÄÕÕÉäÏÂ£¬´¬·«ÏÔµÃ·ÖÍâÃÀ
-Àö¡£°¶±ßÓĞ¼¸¸öÀÏô¹¹«ÕıµÈ×ÅÀ­¿ÍÈË£¬Ò²ĞíÄãÉÏÇ°Ñ¯ÎÊÒ»ÏÂ¾ÍÄÜ¹Í´¬³öº£¡£
+ä½ è¿ç€é˜µé˜µæµ·é£æ¥åˆ°äº†æºªå£ï¼Œè¿™é‡Œæ˜¯è‡ªå¤ä»£ä»¥æ¥å…µå®¶å¿…äº‰ä¹‹åœ°ï¼Œè¿™é‡Œè¿æ¥
+ç€ä¸æµ·å¤–çš„è´¸æ˜“ï¼Œå²¸è¾¹åœæ³Šç€çš„å‡ è‰˜å¤§å¸†èˆ¹åœ¨å¤•é˜³çš„ç…§å°„ä¸‹ï¼Œèˆ¹å¸†æ˜¾å¾—åˆ†å¤–ç¾
+ä¸½ã€‚å²¸è¾¹æœ‰å‡ ä¸ªè€è‰„å…¬æ­£ç­‰ç€æ‹‰å®¢äººï¼Œä¹Ÿè®¸ä½ ä¸Šå‰è¯¢é—®ä¸€ä¸‹å°±èƒ½é›‡èˆ¹å‡ºæµ·ã€‚
 LONG);
-	set("outdoors", "Äş²¨");
+	set("outdoors", "å®æ³¢");
 	set("exits",([
 		"west" : __DIR__"aywsi",
 		"south" : __DIR__"dongqianhu",
@@ -37,15 +37,15 @@ int do_yell(string arg)
 
         if (!arg) return 0;
         if (arg == "chuan"){
-             message_vision("$N¶Ô×Åº£´¬½ĞÁËÒ»Éù£º¡°´¬¼Ò£¬³öº££¡¡±\n", me);
+             message_vision("$Nå¯¹ç€æµ·èˆ¹å«äº†ä¸€å£°ï¼šâ€œèˆ¹å®¶ï¼Œå‡ºæµ·ï¼â€\n", me);
              if(!me->query_temp("haichuan_paid")){
-                 message_vision("º£´¬ÉÏµÄô¹¹«¶Ô$NÀí¶¼²»Àí¡£\n", me);
+                 message_vision("æµ·èˆ¹ä¸Šçš„è‰„å…¬å¯¹$Nç†éƒ½ä¸ç†ã€‚\n", me);
                  return 1;
              }
-             if(query("boat_on_sea")) return notify_fail("º£´¬ÉÏµÄô¹¹«ËµµÀ£ºÕıµÈ×ÅÄãÄØ£¬ÉÏÀ´°É¡£\n");
+             if(query("boat_on_sea")) return notify_fail("æµ·èˆ¹ä¸Šçš„è‰„å…¬è¯´é“ï¼šæ­£ç­‰ç€ä½ å‘¢ï¼Œä¸Šæ¥å§ã€‚\n");
              if(!objectp(obj = present("shao gong", environment(me))) || !living(obj))
-                       return notify_fail("ÄãÔÚÕâÀï¿Õ×Å¼±£¬È´Ã»ÈË¸øÄãÕÙ»½Ò»Ö»º£´¬¹ıÀ´¡£\n");
-             message_vision("ô¹¹«µãµãÍ·£¬ÕĞÀ´Ò»Ö»º£´¬£¬Ëµ¶Ô$NµÀ£º´¬ÒÑ¾­À´ÁË£¬ÉÏÈ¥(enter)°É¡£\n\n", me);
+                       return notify_fail("ä½ åœ¨è¿™é‡Œç©ºç€æ€¥ï¼Œå´æ²¡äººç»™ä½ å¬å”¤ä¸€åªæµ·èˆ¹è¿‡æ¥ã€‚\n");
+             message_vision("è‰„å…¬ç‚¹ç‚¹å¤´ï¼Œæ‹›æ¥ä¸€åªæµ·èˆ¹ï¼Œè¯´å¯¹$Né“ï¼šèˆ¹å·²ç»æ¥äº†ï¼Œä¸Šå»(enter)å§ã€‚\n\n", me);
              ob=new("/clone/misc/boat1");
              ob->set("boat_of", "/d/ningbo/xikou");
              ob->set_temp("stepw", 14);
@@ -54,7 +54,7 @@ int do_yell(string arg)
              set("boat_on_sea", 1);
              return 1;
         }
-        else message_vision("$N¶Ô×Å´óº£´ó½ĞÒ»Éù£º¡°" + arg + "¡«¡«¡«¡±\n", me);      
+        else message_vision("$Nå¯¹ç€å¤§æµ·å¤§å«ä¸€å£°ï¼šâ€œ" + arg + "ï½ï½ï½â€\n", me);      
         return 1;
 }
 
@@ -71,9 +71,9 @@ int do_enter()
              inv = all_inventory(sea);
              for(i= 0;i< sizeof(inv);i++){
                    if(inv[i]->query("boat_of") == base_name(this_object())){
-                          message_vision("$NÏóºï×ÓÒ»Ñù±ÄµÃÀÏ¸ß£¬Á½ÏÂ¾Í´ÜÉÏÁË·«´¬¡£\n\n", me);
+                          message_vision("$Nè±¡çŒ´å­ä¸€æ ·è¹¦å¾—è€é«˜ï¼Œä¸¤ä¸‹å°±çªœä¸Šäº†å¸†èˆ¹ã€‚\n\n", me);
                           me->move(inv[i]);
-                          message("vision",me->name()+"Ïóºï×ÓÒ»Ñù±ÄÁËÉÏÀ´¡£\n",environment(me), ({me}) );
+                          message("vision",me->name()+"è±¡çŒ´å­ä¸€æ ·è¹¦äº†ä¸Šæ¥ã€‚\n",environment(me), ({me}) );
                           return 1;
                    }
              }

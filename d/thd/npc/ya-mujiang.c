@@ -8,11 +8,11 @@ object me;
 
 void create()
 {
-	set_name("ÑÆÄ¾½³", ({"ya mujiang", "ya", "mujiang", "jiang"}));
-	set("long", "ËûÊÇÒ»Î»Éí²ÄÊÊÖÐµÄÄ¾½³£¬²»ÖªÎªÊ²Ã´ÉàÍ·±»¸îÈ¥ÁË¡£\n");
+	set_name("å“‘æœ¨åŒ ", ({"ya mujiang", "ya", "mujiang", "jiang"}));
+	set("long", "ä»–æ˜¯ä¸€ä½èº«æé€‚ä¸­çš„æœ¨åŒ ï¼Œä¸çŸ¥ä¸ºä»€ä¹ˆèˆŒå¤´è¢«å‰²åŽ»äº†ã€‚\n");
 	set("mute", 1);
 
-	set("gender", "ÄÐÐÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 
 	set("age", 40);
@@ -27,7 +27,7 @@ void create()
 	set("max_neili", 450);
 	set("jiali", 40);
 	set("combat_exp", 100000);
-	set("family/family_name", "ÌÒ»¨µº");
+	set("family/family_name", "æ¡ƒèŠ±å²›");
 
 	set_skill("force", 50);
 	set_skill("dodge", 100);
@@ -60,7 +60,7 @@ int repairing_1(object ob, object env)
 	command("follow none");
 	remove_call_out("no_find");
 	if (present(me, environment()) ) command("nod " + me->query("id"));
-	tell_room(env, "ÑÆÄ¾½³ÓÃÊÖÊÆ±È»®×ÅËµËûÒª¿ªÊ¼ÐÞÀíÁË¡£\n", ({}));
+	tell_room(env, "å“‘æœ¨åŒ ç”¨æ‰‹åŠ¿æ¯”åˆ’ç€è¯´ä»–è¦å¼€å§‹ä¿®ç†äº†ã€‚\n", ({}));
 	
 	remove_call_out("repairing_2");
 	call_out("repairing_2", 2 + random(3), ob, env);
@@ -75,15 +75,15 @@ int repairing_2(object ob, object env)
 		return 1; 
 	}
 	if (!present(ob, env)) {
-		tell_room(env, GRN "\nÑÆÄ¾½³ºöÈ»·¢ÏÖ»úÐµºÍÉÐ²»¼ûÁË£¬Ææ¹ÖµØÄÓÁËÄÓÍ·¡£\n" NOR, ({}));
-		tell_room(env, GRN "\nÑÆÄ¾½³×ßÁË³öÈ¥¡£\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ å¿½ç„¶å‘çŽ°æœºæ¢°å’Œå°šä¸è§äº†ï¼Œå¥‡æ€ªåœ°æŒ äº†æŒ å¤´ã€‚\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ èµ°äº†å‡ºåŽ»ã€‚\n" NOR, ({}));
 		destruct(this_object());
 		return 1; 
 	}
 
 	if( ob->query("damaged") )
 	{
-		tell_room(env, GRN "\nÑÆÄ¾½³¶Ô×Å»úÐµºÍÉÐÇÆÁËÒ»»á£¬ÓÖÊÔ×Å°â¶¯»úÐµºÍÉÐµÄËÄÖ«ºÍÄÔ´ü£¬È»ºóÍá×ÅÄÔ´üºÃÏóÔÚÏëÊ²Ã´¡£\n\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ å¯¹ç€æœºæ¢°å’Œå°šçž§äº†ä¸€ä¼šï¼Œåˆè¯•ç€æ‰³åŠ¨æœºæ¢°å’Œå°šçš„å››è‚¢å’Œè„‘è¢‹ï¼Œç„¶åŽæ­ªç€è„‘è¢‹å¥½è±¡åœ¨æƒ³ä»€ä¹ˆã€‚\n\n" NOR, ({}));
 		remove_call_out("repairing_3");
 		call_out("repairing_3", 2 + random(2), ob, env);
 	}
@@ -94,7 +94,7 @@ int repairing_2(object ob, object env)
 			command("angry " + me->query("id"));
 		}
 
-		tell_room(env, GRN "\nÑÆÄ¾½³Æø¹Ä¹ÄµØ×ßÁË¡£\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ æ°”é¼“é¼“åœ°èµ°äº†ã€‚\n" NOR, ({}));
 		destruct(this_object());
 	}
 
@@ -108,14 +108,14 @@ int repairing_3(object ob, object env)
 		return 1; 
 	}
 	if (!present(ob, env)) {
-		tell_room(env, GRN "\nÑÆÄ¾½³ºöÈ»·¢ÏÖ»úÐµºÍÉÐ²»¼ûÁË£¬Ææ¹ÖµØÄÓÁËÄÓÍ·¡£\n" NOR, ({}));
-		tell_room(env, GRN "\nÑÆÄ¾½³×ßÁË³öÈ¥¡£\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ å¿½ç„¶å‘çŽ°æœºæ¢°å’Œå°šä¸è§äº†ï¼Œå¥‡æ€ªåœ°æŒ äº†æŒ å¤´ã€‚\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ èµ°äº†å‡ºåŽ»ã€‚\n" NOR, ({}));
 		destruct(this_object());
 		return 1; 
 	}
 
 	command("nod");
-	tell_room(env, GRN "\n½Ó×Å´Ó»³ÀïÌÍ³öÒ»´ó¶Ñ¹¤¾ßÀ´£¬´ò¿ª»úÐµºÍÉÐµÄÉíÌå£¬°ÚÅªÁË¼¸ÏÂ¡£\n\n" NOR, ({}));
+	tell_room(env, GRN "\næŽ¥ç€ä»Žæ€€é‡ŒæŽå‡ºä¸€å¤§å †å·¥å…·æ¥ï¼Œæ‰“å¼€æœºæ¢°å’Œå°šçš„èº«ä½“ï¼Œæ‘†å¼„äº†å‡ ä¸‹ã€‚\n\n" NOR, ({}));
 
 	remove_call_out("repairing_4");
 	call_out("repairing_4", 3 + random(3), ob, env);
@@ -130,8 +130,8 @@ int repairing_4(object ob, object env)
 		return 1; 
 	}
 	if (!present(ob, env)) {
-		tell_room(env, GRN "\nÑÆÄ¾½³ºöÈ»·¢ÏÖ»úÐµºÍÉÐ²»¼ûÁË£¬Ææ¹ÖµØÄÓÁËÄÓÍ·¡£\n" NOR, ({}));
-		tell_room(env, GRN "\nÑÆÄ¾½³×ßÁË³öÈ¥¡£\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ å¿½ç„¶å‘çŽ°æœºæ¢°å’Œå°šä¸è§äº†ï¼Œå¥‡æ€ªåœ°æŒ äº†æŒ å¤´ã€‚\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ èµ°äº†å‡ºåŽ»ã€‚\n" NOR, ({}));
 		destruct(this_object());
 		return 1; 
 	}
@@ -141,18 +141,18 @@ int repairing_4(object ob, object env)
 		ob->delete("damaged");
 		ob->set("fight_times", 0);	
 		ob->enable_player();
-		tell_room(env, GRN "\n»úÐµºÍÉÐµÄÉíÌåÖ¨Ö¨µØÅ¤¶¯ÁË¼¸ÏÂ£¬¿´À´ÒÑ¾­»Ö¸´Õý³£ÁË¡£\n\n" NOR, ({}));
+		tell_room(env, GRN "\næœºæ¢°å’Œå°šçš„èº«ä½“å±å±åœ°æ‰­åŠ¨äº†å‡ ä¸‹ï¼Œçœ‹æ¥å·²ç»æ¢å¤æ­£å¸¸äº†ã€‚\n\n" NOR, ({}));
 		command(":)");
 		command("wave");
-		tell_room(env, GRN "\nÑÆÄ¾½³×ßÁË³öÈ¥¡£\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ èµ°äº†å‡ºåŽ»ã€‚\n" NOR, ({}));
 		destruct(this_object());
 	}
 	else {
 		command("angry");
-		tell_room(env, GRN "\nÑÆÄ¾½³´óÅ­Ö®ÏÂ£¬ÓÃ¸«×Ó½«»úÐµºÍÉÐÅüÁË¸öÏ¡ÀÃ¡£\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ å¤§æ€’ä¹‹ä¸‹ï¼Œç”¨æ–§å­å°†æœºæ¢°å’Œå°šåŠˆäº†ä¸ªç¨€çƒ‚ã€‚\n" NOR, ({}));
 		destruct(ob);
-		tell_room(env, GRN "\nÑÆÄ¾½³Æ½¾²ÏÂÀ´£¬ºÃÏó¾õµÃºÜ¹ýÒâ²»È¥£¬´òÊÖÊÆ±íÊ¾ËµËûÈ¥¶¤¸öÐÂµÄÀ´¡£\n" NOR, ({}));
-		tell_room(env, GRN "\nÑÆÄ¾½³×ßÁË³öÈ¥¡£\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ å¹³é™ä¸‹æ¥ï¼Œå¥½è±¡è§‰å¾—å¾ˆè¿‡æ„ä¸åŽ»ï¼Œæ‰“æ‰‹åŠ¿è¡¨ç¤ºè¯´ä»–åŽ»é’‰ä¸ªæ–°çš„æ¥ã€‚\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ èµ°äº†å‡ºåŽ»ã€‚\n" NOR, ({}));
 		this_object()->move_to_ob("../mujiangfang");
 
 		remove_call_out("do_back");
@@ -165,24 +165,24 @@ int do_back(object env)
 {
 	this_object()->move(env);
 	if (!present("machine bonze 4", env)) {
-		tell_room(env, GRN "\nÑÆÄ¾½³¿¸×ÅÒ»¸öÐÂµÄ»úÐµºÍÉÐ×ßÁË¹ýÀ´¡£\n" NOR, ({}));
-		tell_room(env, GRN "\nÑÆÄ¾½³°Ñ»úÐµºÍÉÐ·Åµ½µØÏÂ¡£\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ æ‰›ç€ä¸€ä¸ªæ–°çš„æœºæ¢°å’Œå°šèµ°äº†è¿‡æ¥ã€‚\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ æŠŠæœºæ¢°å’Œå°šæ”¾åˆ°åœ°ä¸‹ã€‚\n" NOR, ({}));
 		new(__DIR__"machine-bonze.c")->move(environment());
 	}
 	else {
-		tell_room(env, GRN "\nÑÆÄ¾½³¿Õ×ÅË«ÊÖ»ØÀ´ÁË¡£\n" NOR, ({}));
-		tell_room(env, GRN "\nÑÆÄ¾½³´òÊÖÊÆ±íÊ¾Ã»ÓÐÖÆ×÷³É¹¦¡£\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ ç©ºç€åŒæ‰‹å›žæ¥äº†ã€‚\n" NOR, ({}));
+		tell_room(env, GRN "\nå“‘æœ¨åŒ æ‰“æ‰‹åŠ¿è¡¨ç¤ºæ²¡æœ‰åˆ¶ä½œæˆåŠŸã€‚\n" NOR, ({}));
 		command("shrug");
 	}
 	command("wave");
-	tell_room(env, GRN "\nÑÆÄ¾½³×ßÁË³öÈ¥¡£\n" NOR, ({}));
+	tell_room(env, GRN "\nå“‘æœ¨åŒ èµ°äº†å‡ºåŽ»ã€‚\n" NOR, ({}));
 	destruct(this_object());
 	return 1;
 }
 
 int no_find()
 {
-	message_vision(GRN "ÑÆÄ¾½³¸Ðµ½ºÜ²»ÄÍ·³ÁË£¬ÓÃÊÖÊÆ³¯$N±È»®ÁË¼¸ÏÂ¾Í×ßÁË¡£\n" NOR, me);
+	message_vision(GRN "å“‘æœ¨åŒ æ„Ÿåˆ°å¾ˆä¸è€çƒ¦äº†ï¼Œç”¨æ‰‹åŠ¿æœ$Næ¯”åˆ’äº†å‡ ä¸‹å°±èµ°äº†ã€‚\n" NOR, me);
 	destruct(this_object());
 }
 
@@ -197,7 +197,7 @@ void do_follow(object ob)
 		call_out("no_find", 180);
 	}
 	else {
-		tell_room(environment(this_object()), GRN "ÑÆÄ¾½³ËÄ´¦ÍûÁËÍû£¬Ã»ÓÐ¿´µ½" + ob->name() +"£¬ÒÉ»óµØ×ßÁË¡£\n" NOR, ({}));
+		tell_room(environment(this_object()), GRN "å“‘æœ¨åŒ å››å¤„æœ›äº†æœ›ï¼Œæ²¡æœ‰çœ‹åˆ°" + ob->name() +"ï¼Œç–‘æƒ‘åœ°èµ°äº†ã€‚\n" NOR, ({}));
 		destruct(this_object());
 	}
 }

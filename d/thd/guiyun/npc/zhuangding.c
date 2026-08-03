@@ -1,13 +1,13 @@
-// zhuangding2.c ×¯¶¡
+// zhuangding2.c åº„ä¸
 
 inherit NPC;
 
 void create()
 {
-	set_name("×¯¶¡", ({ "zhuang ding", "zhuang", "ding" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("åº„ä¸", ({ "zhuang ding", "zhuang", "ding" }));
+	set("gender", "ç”·æ€§");
 	set("age", 33);
-	set("long", "ËûÊÇ¹éÔÆ×¯µÄ×¯¶¡¡£\n");
+	set("long", "ä»–æ˜¯å½’äº‘åº„çš„åº„ä¸ã€‚\n");
 	
 	set("combat_exp", 4500 + random(400));
 	set("shen_type", 0);
@@ -25,12 +25,12 @@ void create()
 	set_temp("apply/defense", 17);
 
 	set("inquiry",([
-		"name" : "ÎÒÖ»ÊÇÒ»¸öĞ¡½ÇÉ«£¬ÄÄÓĞĞÕÃû¿ÉÑÔ£¿",
+		"name" : "æˆ‘åªæ˜¯ä¸€ä¸ªå°è§’è‰²ï¼Œå“ªæœ‰å§“åå¯è¨€ï¼Ÿ",
 	]));
 	setup();
         set("chat_chance",3);
 	set("chat_msg",({
-		"×¯¶¡¶Ô×ÅÄãĞ¦ÁËĞ¦µÀ£ºÇëËæ±ã¹ä£¬µ½ÎÒÃÇÕâÀïÀ´¾Í²»±Ø¾ĞÊø¡£\n",
+		"åº„ä¸å¯¹ç€ä½ ç¬‘äº†ç¬‘é“ï¼šè¯·éšä¾¿é€›ï¼Œåˆ°æˆ‘ä»¬è¿™é‡Œæ¥å°±ä¸å¿…æ‹˜æŸã€‚\n",
 	}));
 	carry_object("/clone/misc/cloth")->wear();
 }

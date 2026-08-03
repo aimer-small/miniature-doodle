@@ -26,7 +26,7 @@ int is_sub(string s_str, string m_str)
 void create()
 {
 	seteuid(ROOT_UID);
-	set("channel_id", "ÍøÂ·ÆµµÀ");
+	set("channel_id", "ç½‘è·¯é¢‘é“");
 }
 
 // This is the interface to the intermud channels
@@ -47,7 +47,7 @@ void send_remote_q(string mud,string channel,string me,string who,string msg)
 	msg = replace_string(msg, "@@@", "");
 	
 #ifdef DEBUG
-	message("wizard",sprintf("Ïò%s %s ·¢ËÍemoteÇëÇó¡£\n",rhost["HOSTADDRESS"],rhost["PORTUDP"]),users() ); 
+	message("wizard",sprintf("å‘%s %s å‘é€emoteè¯·æ±‚ã€‚\n",rhost["HOSTADDRESS"],rhost["PORTUDP"]),users() ); 
 #endif
 
 	DNS_MASTER->send_udp(rhost["HOSTADDRESS"], rhost["PORTUDP"],
@@ -105,7 +105,7 @@ void incoming_request(mapping info)
         		(AUX_PATH + "affirmation_a")->send_affirmation_a(info["HOSTADDRESS"],
         			info["PORTUDP"], "remote_q@" + Mud_name(),
         			info["SOURCE_ID"],
-                                sprintf("%sÃ»ÓÐÕâ¸öÈË(%s)¡£",
+                                sprintf("%sæ²¡æœ‰è¿™ä¸ªäºº(%s)ã€‚",
                                         CHINESE_MUD_NAME, info["TARGET_ID"]),
                                 "remote_q");
                         return;
@@ -123,7 +123,7 @@ void incoming_request(mapping info)
                 		(AUX_PATH + "affirmation_a")->send_affirmation_a(info["HOSTADDRESS"],
                 			info["PORTUDP"], "remote_q@" + Mud_name(),
                 			info["SOURCE_ID"],
-                                        sprintf("%s(%s@%s)²»½ÓÊÜÄãµÄ±íÇé¶¯×÷¡£",
+                                        sprintf("%s(%s@%s)ä¸æŽ¥å—ä½ çš„è¡¨æƒ…åŠ¨ä½œã€‚",
                                                 ob->name(1), capitalize(ob->query("id")), Mud_name()),
                                         "remote_q");
                                 return;
@@ -131,7 +131,7 @@ void incoming_request(mapping info)
                 }
                 
 #ifdef DEBUG
-	message("wizard",sprintf("Ïò%s %s ·¢ËÍemote»Ø¸´¡£\n",rhost["HOSTADDRESS"],rhost["PORTUDP"]),users() ); 
+	message("wizard",sprintf("å‘%s %s å‘é€emoteå›žå¤ã€‚\n",rhost["HOSTADDRESS"],rhost["PORTUDP"]),users() ); 
 #endif
 		DNS_MASTER->send_udp(rhost["HOSTADDRESS"], rhost["PORTUDP"],
 			"@@@" + "remote_a" +

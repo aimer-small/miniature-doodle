@@ -8,37 +8,37 @@ int update_condition(object me, int duration)
 	    {
 
 	    case 0 :
-			tell_object(me, HIY "Í»È»ÄãÉí×ÓÒ»½©,Ò»¹ÉÈÈÁ÷´ÓÌåÄÚÏ®Ïò¸÷´óÒªÑ¨£¡\n" NOR );
-			message("vision", me->name() + "Á³É«ÄýÖØ,ÔË¹¦µÖ¿¹ÄÚÉËµÄ·¢×÷¡£\n",environment(me), me);
+			tell_object(me, HIY "çªç„¶ä½ èº«å­ä¸€åƒµ,ä¸€è‚¡çƒ­æµä»Žä½“å†…è¢­å‘å„å¤§è¦ç©´ï¼\n" NOR );
+			message("vision", me->name() + "è„¸è‰²å‡é‡,è¿åŠŸæŠµæŠ—å†…ä¼¤çš„å‘ä½œã€‚\n",environment(me), me);
 			me->add_busy(2);
 			if(me->query_temp("sandie/jingshen"))
 				me->add_condition("no_exert", 3);
 			break;
 	    case 1 :
-			tell_object(me, HIY "ºöÈ»ÄãÈ«Éí¾çÍ´ÎÞ±È,¸÷´ó¾­ÂöÏóÓÐÇ§ÍòÖ§»ðÈÈµÄÕëÔÚÔúÒ»Ñù£¡\n" NOR );
-			message("vision", me->name() + "·¢Æð¶¶À´£¬ÌÛµÃÈ«ÉíËõ³ÉÒ»ÍÅ£¬ÔËÆøµÖµ²ÉËÍ´¡£\n",environment(me), me);
+			tell_object(me, HIY "å¿½ç„¶ä½ å…¨èº«å‰§ç—›æ— æ¯”,å„å¤§ç»è„‰è±¡æœ‰åƒä¸‡æ”¯ç«çƒ­çš„é’ˆåœ¨æ‰Žä¸€æ ·ï¼\n" NOR );
+			message("vision", me->name() + "å‘èµ·æŠ–æ¥ï¼Œç–¼å¾—å…¨èº«ç¼©æˆä¸€å›¢ï¼Œè¿æ°”æŠµæŒ¡ä¼¤ç—›ã€‚\n",environment(me), me);
 			me->receive_damage("qi", 100);
 			me->receive_wound("qi", 50);
 			if(me->query_temp("sandie/jingshen"))
 				me->add_condition("no_perform", 3);
 			break;
 	    case 2 :
-                    tell_object(me, HIY "Äã¸Ð¾õµ½ÓÐÒ»¹ÉÍêÈ«²»Í¬ÓÚ×Ô¼ºÌåÄÚµÄÄÚ¾¢ÔÚ¸÷´ó¾­ÂöÓÎ×ß,ÈÅÂÒÄãµÄÄÚÏ¢£¡\n" NOR );
-			message("vision", me->name() + "ÉñÉ«Ò»ÖÍ,ËÆºõÌåÄÚÓÐÊ²Ã´ÎÊÌâ¡£\n",environment(me), me);
+                    tell_object(me, HIY "ä½ æ„Ÿè§‰åˆ°æœ‰ä¸€è‚¡å®Œå…¨ä¸åŒäºŽè‡ªå·±ä½“å†…çš„å†…åŠ²åœ¨å„å¤§ç»è„‰æ¸¸èµ°,æ‰°ä¹±ä½ çš„å†…æ¯ï¼\n" NOR );
+			message("vision", me->name() + "ç¥žè‰²ä¸€æ»ž,ä¼¼ä¹Žä½“å†…æœ‰ä»€ä¹ˆé—®é¢˜ã€‚\n",environment(me), me);
 			if(me->query_temp("sandie/busy"))
 				i+=i;
 			me->receive_damage("neili", i);
 			break;
 	    case 3 :
-			tell_object(me, HIY "Ò»¹É³ãÈÈÎÞ±ÈµÄÄÚ¾¢Í»È»´ÓÌåÄÚÖ±´ÜÉÏÍ·²¿¸÷´óÒªÑ¨,ÄãÑÛÇ°Ò»ÕóÔÎÑ£.\n" NOR );
-			message("vision", me->name() + "ÉíÌåÒ»»Î,ÏóºÈ×íÁË¾ÆËÆµÄ,Á³ÕÇµÃÍ¨ºì¡£\n",environment(me), me);
+			tell_object(me, HIY "ä¸€è‚¡ç‚½çƒ­æ— æ¯”çš„å†…åŠ²çªç„¶ä»Žä½“å†…ç›´çªœä¸Šå¤´éƒ¨å„å¤§è¦ç©´,ä½ çœ¼å‰ä¸€é˜µæ™•çœ©.\n" NOR );
+			message("vision", me->name() + "èº«ä½“ä¸€æ™ƒ,è±¡å–é†‰äº†é…’ä¼¼çš„,è„¸æ¶¨å¾—é€šçº¢ã€‚\n",environment(me), me);
 			me->receive_damage("jing", 70);
 			me->receive_wound("jing", 40+random(30));
 			if(me->query_temp("sandie/busy"))
 				me->add_condition("no_perform", 3);
 			break;
 	    }
-	me->set_temp("last_damage_from", "ÄÚÉË·¢×÷");
+	me->set_temp("last_damage_from", "å†…ä¼¤å‘ä½œ");
 	me->apply_condition("yyz_hurt", duration - 1);
 	if( duration < 2 ) return 0;
 	return CND_CONTINUE;

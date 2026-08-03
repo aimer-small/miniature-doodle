@@ -1,64 +1,64 @@
-// ÓÃÓÚÂôÇ®µÄÎäÆ÷£¬¸Ä±äSJ½ðÈÚ×´¿ö£¬´ó²¿·ÖÔ­ÂëÀ´×ÔSnowman dazao ÏµÍ³ 
+// ç”¨äºŽå–é’±çš„æ­¦å™¨ï¼Œæ”¹å˜SJé‡‘èžçŠ¶å†µï¼Œå¤§éƒ¨åˆ†åŽŸç æ¥è‡ªSnowman dazao ç³»ç»Ÿ 
 #include <ansi.h>
 string s_good(int i)
 {
 	switch(i){
-		case 10..90:	return "ÎÞ±È";	
-		case 9:		return "ÎÞ±È";	
-		case 8:		return "¼«Æä";	
-		case 7:		return "¾ø¶Ô";	
-		case 6:		return "¼«Îª";	
-		case 5:		return "Ïàµ±";	
-		case 4:		return "Ê®·Ö";	
-		case 3:		return "·Ç³£";	
-		case 2:		return "±È½Ï";	
-		case 1:		return "»¹Ëã";	
-		case -1:	return "²»ÔõÃ´";	
-		case -2:	return "ºÜ²»";	
-		case -3:	return "¼«²»";	
-		default:	return "Ò»°ã";	
+		case 10..90:	return "æ— æ¯”";	
+		case 9:		return "æ— æ¯”";	
+		case 8:		return "æžå…¶";	
+		case 7:		return "ç»å¯¹";	
+		case 6:		return "æžä¸º";	
+		case 5:		return "ç›¸å½“";	
+		case 4:		return "ååˆ†";	
+		case 3:		return "éžå¸¸";	
+		case 2:		return "æ¯”è¾ƒ";	
+		case 1:		return "è¿˜ç®—";	
+		case -1:	return "ä¸æ€Žä¹ˆ";	
+		case -2:	return "å¾ˆä¸";	
+		case -3:	return "æžä¸";	
+		default:	return "ä¸€èˆ¬";	
 	}
 }
 
 string s_power(int i)
 {
-	if( i >= 300 )	return HIR"»ÙÌìÃðµØ"NOR;
-	if( i >= 280 )	return HIR"¿ªÔª´´ÊÀ"NOR;	
-	if( i >= 250 )	return HIR"ÌìÏÂÎÞË«"NOR;	
-	if( i >= 220 )	return HIM"¾øÊÀº±¼û"NOR;	
-	if( i >= 200 )	return HIY"¾ÙÊÀÎÞÆ¥"NOR;
-	if( i >= 180 )	return HIG"¿ªÌìÅüµØ"NOR;
-	if( i >= 160 )	return HIB"ÒÐÌìÍÀÁú"NOR;
-	if( i >= 140 )	return HIC"Õ¶Ñý·üÄ§"NOR;
-	if( i >= 120 )	return RED"ÎÞÓëÂ×±È"NOR;
-	if( i >= 100 )	return MAG"¼«Æä¿ÉÅÂ"NOR;
-	if( i >= 80 )	return YEL"ºÜ¸ß"NOR;
-	if( i >= 60 )	return GRN"Ë®×¼ÒÔÉÏ"NOR;
-	if( i >= 40 )	return BLU"²»´í"NOR;
-	if( i >	20 )	return CYN"²»Ð¡"NOR;
-	if( i <= 0 )	return "¼«²î";
-	if( i <= -20 )	return "µÍÁÓ";
-	return "Ò»°ã";
+	if( i >= 300 )	return HIR"æ¯å¤©ç­åœ°"NOR;
+	if( i >= 280 )	return HIR"å¼€å…ƒåˆ›ä¸–"NOR;	
+	if( i >= 250 )	return HIR"å¤©ä¸‹æ— åŒ"NOR;	
+	if( i >= 220 )	return HIM"ç»ä¸–ç½•è§"NOR;	
+	if( i >= 200 )	return HIY"ä¸¾ä¸–æ— åŒ¹"NOR;
+	if( i >= 180 )	return HIG"å¼€å¤©åŠˆåœ°"NOR;
+	if( i >= 160 )	return HIB"å€šå¤©å± é¾™"NOR;
+	if( i >= 140 )	return HIC"æ–©å¦–ä¼é­”"NOR;
+	if( i >= 120 )	return RED"æ— ä¸Žä¼¦æ¯”"NOR;
+	if( i >= 100 )	return MAG"æžå…¶å¯æ€•"NOR;
+	if( i >= 80 )	return YEL"å¾ˆé«˜"NOR;
+	if( i >= 60 )	return GRN"æ°´å‡†ä»¥ä¸Š"NOR;
+	if( i >= 40 )	return BLU"ä¸é”™"NOR;
+	if( i >	20 )	return CYN"ä¸å°"NOR;
+	if( i <= 0 )	return "æžå·®";
+	if( i <= -20 )	return "ä½ŽåŠ£";
+	return "ä¸€èˆ¬";
 }
 
 inherit EQUIP;
 #include <mudlib.h>
-#define PRICE 50 //¶¨ÒåÎäÆ÷³öÊÛµÄ¼Û¸ñ±¶Êý
+#define PRICE 50 //å®šä¹‰æ­¦å™¨å‡ºå”®çš„ä»·æ ¼å€æ•°
 
 int weapon_setup(mapping mp);
 
 void create()
 {
-	//set_name("³¤½£", ({ "chang jian","sword","jian" }));
+	//set_name("é•¿å‰‘", ({ "chang jian","sword","jian" }));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
+		set("unit", "æŸ„");
 		//set("value", 200);
 		set("material", "steel");
-		set("wield_msg", "$NÄÃ³ö$nÎÕÔÚÊÖÖÐ¡£\n");
-		set("unwield_msg", "$N·ÅÏÂÊÖÖÐµÄ$n¡£\n");
+		set("wield_msg", "$Næ‹¿å‡º$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
 		set("wield_maxneili", 100);
 		set("wield_neili", 10);
 		set("wield_str", 20);		
@@ -71,7 +71,7 @@ void create()
 ([ /* sizeof() == 25 */
   "weight" : 3073,
   "wield_msg" : "
-$N½«Ò»±ú$n³é³öÎÕÔÚÁËÊÖÖÐ¡£
+$Nå°†ä¸€æŸ„$næŠ½å‡ºæ¡åœ¨äº†æ‰‹ä¸­ã€‚
 ",
   "poison_number" : 500,
   "b_id" : "dao",
@@ -86,15 +86,15 @@ $N½«Ò»±ú$n³é³öÎÕÔÚÁËÊÖÖÐ¡£
   "weapon_prop/damage" : 61,
   "rigidity" : 2,
   "name_st" : ({ /* sizeof() == 1 */
-      "º®±ù¹¥»÷"
+      "å¯’å†°æ”»å‡»"
     }),
   "skill_type" : "blade",
   "unwield_msg" : "
-$N½«ÊÖÖÐµÄ$n·Å»ØÁËÎäÆ÷ÄÒ¡£
+$Nå°†æ‰‹ä¸­çš„$næ”¾å›žäº†æ­¦å™¨å›Šã€‚
 ",
   "flag" : 4,
   "no_sell" : 1,
-  "name" : "[0;36mº®±ù[0;37mÀ¶Óñµ¶[0;0m",
+  "name" : "[0;36må¯’å†°[0;37mè“çŽ‰åˆ€[0;0m",
   "id" : ({ /* sizeof() == 4 */
       "lanyu blade",
       "lanyu",
@@ -104,9 +104,9 @@ $N½«ÊÖÖÐµÄ$n·Å»ØÁËÎäÆ÷ÄÒ¡£
   "imbued" : 3,
   "material" : "greatsteel",
   "wield_maxneili" : 3610,
-  "unit" : "°Ñ",
+  "unit" : "æŠŠ",
   "wield_neili" : 826,
-  "basic_name" : "[0;37mÀ¶Óñ",
+  "basic_name" : "[0;37mè“çŽ‰",
   "wield_str" : 24,
   "poisoned" : "hb_poison",
 ])
@@ -117,11 +117,11 @@ $N½«ÊÖÖÐµÄ$n·Å»ØÁËÎäÆ÷ÄÒ¡£
 	else
 	set("value",(query("weapon_mp")["value"]* 2 ) > 15000000 ? 15000000 : query("weapon_mp")["value"] * 2 );
 	*/
-	//ÎªÊ²Ã´Òª°ÑÒç³öµÄ×¢ÊÍ£¿
+	//ä¸ºä»€ä¹ˆè¦æŠŠæº¢å‡ºçš„æ³¨é‡Šï¼Ÿ
 	set("value",(query("weapon_mp")["value"]* PRICE ) > 15000000 ? 15000000 : query("weapon_mp")["value"] * PRICE );
 
 	//set("value",query("weapon_mp")["value"]* PRICE );
-	//Éè¶¨valueµÄ×î´óÖµ£¬ÔÙ¶àÒªÒç³öÁË
+	//è®¾å®švalueçš„æœ€å¤§å€¼ï¼Œå†å¤šè¦æº¢å‡ºäº†
 	weapon_setup(query("weapon_mp"));
 	setup();
 }
@@ -155,19 +155,19 @@ int weapon_setup(mapping mp)
 	
 	if( stringp(w_mp["long2"]) )
 		str = w_mp["long2"];
-	str += "ÕâÊÇÒ»"+w_mp["unit"]+"ÓÉ" + s_good(w_mp["rigidity"]) + "¼áÓ²µÄ";
+	str += "è¿™æ˜¯ä¸€"+w_mp["unit"]+"ç”±" + s_good(w_mp["rigidity"]) + "åšç¡¬çš„";
 
 	switch(w_mp["material"]){
-		case "xuantie":	str += BLU"ÐþÌú"NOR; break;
-		case "supersteel": str += "ÍòÄêÉñÌú"; break;
-		case "greatsteel": str += "Á÷»¨¸Ö"; break;
-		case "softsteel": str += "ÈíÌú"; break;
-		case "bamboo": str += "°ßÖñ"; break;
-		case "wood": str += "Ì´Ä¾"; break;
-		default: str +=	"¾«¸Ö";	break;
+		case "xuantie":	str += BLU"çŽ„é“"NOR; break;
+		case "supersteel": str += "ä¸‡å¹´ç¥žé“"; break;
+		case "greatsteel": str += "æµèŠ±é’¢"; break;
+		case "softsteel": str += "è½¯é“"; break;
+		case "bamboo": str += "æ–‘ç«¹"; break;
+		case "wood": str += "æª€æœ¨"; break;
+		default: str +=	"ç²¾é’¢";	break;
 	}
 	w = w_mp["weight"];
-	str +=	"ÖÆ³É£¬ÖØ"+sprintf("%s", chinese_number(w/500)+"½ï"+chinese_number((w%500)/50)+"Á½"+chinese_number((w%50)/5)+"Ç®")+"µÄ"+w_mp["name"]+"¡£\n";
+	str +=	"åˆ¶æˆï¼Œé‡"+sprintf("%s", chinese_number(w/500)+"æ–¤"+chinese_number((w%500)/50)+"ä¸¤"+chinese_number((w%50)/5)+"é’±")+"çš„"+w_mp["name"]+"ã€‚\n";
 
 	//mm = w_mp;
 	if( intp( w_mp["weapon_prop/damage"] ) )
@@ -176,23 +176,23 @@ int weapon_setup(mapping mp)
 		p = w_mp["weapon_prop"]["damage"];
 	else p = 0;
 	
-	str += "¿´ÆðÀ´"	+ ( w_mp["flag"]==4?s_good(w_mp["sharpness"])+"·æÀû£¬":"" ) + "¾ßÓÐ"+ s_power(p) + "µÄÍþÁ¦£¡\n";
-	str += "ÉÏÃæ¿ÌÁËÈý¸öÊý×Ö£º¡¾"
-		+ chinese_number(w_mp["wield_str"]) + "£¬"
-		+ chinese_number(w_mp["wield_maxneili"]) + "£¬"
-		+ chinese_number(w_mp["wield_neili"]) +	"¡¿\n";
+	str += "çœ‹èµ·æ¥"	+ ( w_mp["flag"]==4?s_good(w_mp["sharpness"])+"é”‹åˆ©ï¼Œ":"" ) + "å…·æœ‰"+ s_power(p) + "çš„å¨åŠ›ï¼\n";
+	str += "ä¸Šé¢åˆ»äº†ä¸‰ä¸ªæ•°å­—ï¼šã€"
+		+ chinese_number(w_mp["wield_str"]) + "ï¼Œ"
+		+ chinese_number(w_mp["wield_maxneili"]) + "ï¼Œ"
+		+ chinese_number(w_mp["wield_neili"]) +	"ã€‘\n";
 
 	if( w_mp["name_st"] ){
 		if( stringp(w_mp["name_st"]) )
-			str += "ÒÔ¼°Ò»ÅÅ¹Å×­×Ö¡¾ "HIG +	w_mp["name_st"]	+ NOR" ¡¿\n\n";
+			str += "ä»¥åŠä¸€æŽ’å¤ç¯†å­—ã€ "HIG +	w_mp["name_st"]	+ NOR" ã€‘\n\n";
 		else if( sizeof(w_mp["name_st"]) > 0	){
-			st = implode(w_mp["name_st"][0..<1], "¡¢");
-			str += "ÒÔ¼°Ò»ÅÅ¹Å×­×Ö¡¾ "HIG +	st + NOR" ¡¿\n\n";
+			st = implode(w_mp["name_st"][0..<1], "ã€");
+			str += "ä»¥åŠä¸€æŽ’å¤ç¯†å­—ã€ "HIG +	st + NOR" ã€‘\n\n";
 		}
 	}
 	set("long",str);
 	delete("imbued");
-	//¼Û¸ñ¿ÉÒÔµ÷Õû¡­¡­
+	//ä»·æ ¼å¯ä»¥è°ƒæ•´â€¦â€¦
 	
 	return 1;
 }

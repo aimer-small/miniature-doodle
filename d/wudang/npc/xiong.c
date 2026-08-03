@@ -1,16 +1,16 @@
-// NPC : /d/wudang/npc/xiong.c ÐÜ
+// NPC : /d/wudang/npc/xiong.c ç†Š
 
 inherit NPC;
 void create()
 {
-        set_name("´ó°×ÐÜ", ({ "bai xiong", "xiong", "baixiong" }) );
-        set("race", "Ò°ÊÞ");
+        set_name("å¤§ç™½ç†Š", ({ "bai xiong", "xiong", "baixiong" }) );
+        set("race", "é‡Žå…½");
         set("age", 6);
         set("con", 100);
         set("str", 100);
-        set("long", "Ò»Ö»Ã«³¤Éí¾Þ£¬×´Èç´óêôÅ£µÄ´ó°×ÐÜ¡£\n");
+        set("long", "ä¸€åªæ¯›é•¿èº«å·¨ï¼ŒçŠ¶å¦‚å¤§ç‰¯ç‰›çš„å¤§ç™½ç†Šã€‚\n");
         set("attitude", "aggressive");
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°×¦", "ºó×¦", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰çˆª", "åŽçˆª", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
         set("combat_exp", 250000);
 	set_temp("apply/attack", 60);
@@ -21,7 +21,7 @@ void create()
 }
 void die()
 {
-       message_vision("\n$N²Òº¿Ò»Éù£¬ÂýÂýµ¹ÏÂËÀÁË£¡\n", this_object());
+       message_vision("\n$Næƒ¨åšŽä¸€å£°ï¼Œæ…¢æ…¢å€’ä¸‹æ­»äº†ï¼\n", this_object());
        new(FOOD_D("xzhang"))->move(environment(this_object()));
        new(ARMOR_D("xiongpi"))->move(environment(this_object()));
        destruct(this_object());

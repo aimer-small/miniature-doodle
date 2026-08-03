@@ -38,12 +38,12 @@ void bei_none(object me,string str_type) {
         int i;
         mapping valid_types = 
         ([
-                "finger":       "Ö¸·¨",
-                "hand":         "ÊÖ·¨",
-                "cuff":         "È­·¨",
-                "claw":         "×¦·¨",
-                "strike":       "ÕÆ·¨",
-                "leg":          "ÍÈ·¨"
+                "finger":       "æŒ‡æ³•",
+                "hand":         "æ‰‹æ³•",
+                "cuff":         "æ‹³æ³•",
+                "claw":         "çˆªæ³•",
+                "strike":       "æŒæ³•",
+                "leg":          "è…¿æ³•"
         ]);
         pmap = me->query_skill_prepare();
         skill = keys(valid_types);
@@ -225,7 +225,7 @@ int busy_if(object me,object target)
 int ap,dp;
 mapping fam=me->query("family");
 ap=(int)me->query("combat_exp")/100*((int)me->query_int()+(int)me->query_dex()+me->query("int")+random(me->query("dex")));
-if(fam["family_name"]=="Îäµ±ÅÉ") ap=ap+random(ap/2);
+if(fam["family_name"]=="æ­¦å½“æ´¾") ap=ap+random(ap/2);
 dp=(int)target->query("combat_exp")/100*((int)target->query_int()+(int)target->query_dex());
 if(random(ap+dp)>dp) return 1;
 return 0;

@@ -1,17 +1,17 @@
 //Cracked by Kafei
 //wzfeng@xkx 2000 6
 // job produce system.
-//ÈÎÎñ²úÉúÆ÷
+//ä»»åŠ¡äº§ç”Ÿå™¨
 #include <ansi.h>
 inherit F_SAVE;
 inherit ITEM;
 /************************************************************************************/
-//job_proudceÖĞµÄ±äÁ¿£¬Êı¾İ¡£
+//job_proudceä¸­çš„å˜é‡ï¼Œæ•°æ®ã€‚
 
-nosave string menpai_name;//²úÉúÈÎÎñµÄÃÅÅÉ 
-nosave string strategy_produce;//Ñ¡ÔñÃÅÅÉ²úÉúµÄ²ßÂÔÃû³Æ¡£
-nosave string menpai_area_power;//Ñ¡ÔñÃÅÅÉ²úÉúÈÎÎñµÄÇøÓò¡£
-//Ö´ĞĞÈÎÎñµÄÈËÎïĞÕÃû
+nosave string menpai_name;//äº§ç”Ÿä»»åŠ¡çš„é—¨æ´¾ 
+nosave string strategy_produce;//é€‰æ‹©é—¨æ´¾äº§ç”Ÿçš„ç­–ç•¥åç§°ã€‚
+nosave string menpai_area_power;//é€‰æ‹©é—¨æ´¾äº§ç”Ÿä»»åŠ¡çš„åŒºåŸŸã€‚
+//æ‰§è¡Œä»»åŠ¡çš„äººç‰©å§“å
 //object job_player;
 nosave object job_data;
 nosave mapping job_map;
@@ -30,7 +30,7 @@ nosave mapping job_map;
 #include "job_produce.h"
 #include "job_assess.h"
 
-//´ÓÔÚÏßµÄÓÃ»§ÖĞÑ¡ÔñÈÎÎñµÄÖ´ĞĞÕß
+//ä»åœ¨çº¿çš„ç”¨æˆ·ä¸­é€‰æ‹©ä»»åŠ¡çš„æ‰§è¡Œè€…
 object choose_user(string menpai_name)
 {
 	object *choose_user;
@@ -41,10 +41,10 @@ object choose_user(string menpai_name)
 		//printf("user list=0\n");
 		return 0;
 	}
-	//write(choose_user[random(i)]->query("name")+"±»Ñ¡ÖĞ\n");
+	//write(choose_user[random(i)]->query("name")+"è¢«é€‰ä¸­\n");
 	return choose_user[random(sizeof(choose_user))];
 }
-//ÅĞ¶ÏÓÃ»§ÊÇ·ñÂú×ãÌõ¼şµÄ×Óº¯Êı
+//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦æ»¡è¶³æ¡ä»¶çš„å­å‡½æ•°
 int do_check_user(object ob,string menpai_name)
 {
 	string* havejob_player,room_name;
@@ -66,7 +66,7 @@ int do_check_user(object ob,string menpai_name)
 		 )
 	 {
 		 
-		 //printf("ÃÅÅÉÑ¡ÔñÁË%s\tplayer\t%sµÄÃÅÅÉÊÇ%s\n",menpai_name,ob->query("name"),ob->query("family/family_name"));
+		 //printf("é—¨æ´¾é€‰æ‹©äº†%s\tplayer\t%sçš„é—¨æ´¾æ˜¯%s\n",menpai_name,ob->query("name"),ob->query("family/family_name"));
 		 return 0;
 	 }
 	 	/////////////////////////////////////////////////////
@@ -96,14 +96,14 @@ int do_check_user(object ob,string menpai_name)
 			strsrch(room_name, "/d/bwdh")==0
 			) 
 		{
-			write("playerÔÚ·Ç·¨µØµã\n");
+			write("playeråœ¨éæ³•åœ°ç‚¹\n");
 		return 0;
 		}
 	/////////////////////////////////////////////////////
 
 	 return 1;
 }
-//ÅĞ¶Ïµ±Ç°ÓÃ»§ÊÇ·ñÊôÓÚÈÎÎñµÄÖ´ĞĞÕßµÄ×Óº¯Êı
+//åˆ¤æ–­å½“å‰ç”¨æˆ·æ˜¯å¦å±äºä»»åŠ¡çš„æ‰§è¡Œè€…çš„å­å‡½æ•°
 int do_check_job_player(object ob,string *list)
 {
 	int i;
@@ -111,7 +111,7 @@ int do_check_job_player(object ob,string *list)
 	{
 //		printf("%s\n",ob->query("name"));
 			if( userp(ob)
-				&&ob->query("race") == "ÈËÀà"
+				&&ob->query("race") == "äººç±»"
 				&&interactive(ob))
 				if(ob->query("id")==list[i])
 					return 1;
@@ -196,7 +196,7 @@ void check_start_assess()
 		if(family_assess[i]["time"]+ASSESS_DELAY>time())
 
 		{
-			printf("Ê±¼äÃ»µ½£¬»¹²î%dÃë",family_assess[i]["time"]+ASSESS_DELAY-time());
+			printf("æ—¶é—´æ²¡åˆ°ï¼Œè¿˜å·®%dç§’",family_assess[i]["time"]+ASSESS_DELAY-time());
 			prompt_assess_player(family_assess[i]["family"],family_assess[i]["time"],family_assess[i]["place"]);
 			continue;
 		}
@@ -300,7 +300,7 @@ void check_finishjob_place()
 	//	write("no player_list");
 		return;
 	}
-//	write("ÏÖÔÚÒÑ¾­Íê³ÉÈÎÎñµÄÈË:\n");
+//	write("ç°åœ¨å·²ç»å®Œæˆä»»åŠ¡çš„äºº:\n");
 /*	for(i=0;i<sizeof(player_list);i++)
 		{
 		write(player_list[i]+"\n");
@@ -338,7 +338,7 @@ void check_finishjob_place()
 			if(ob_player[i]->query_temp("job_system/prompt_time")>6)
 			{
 				//job_finish_prompt(ob_player[i]);
-				tell_object(ob_player[i],"ÈÎÎñÒÑ¾­Íê³É£¬¸Ï¿ì»ØÈ¥¸´Ãü°É¡£\n");
+				tell_object(ob_player[i],"ä»»åŠ¡å·²ç»å®Œæˆï¼Œèµ¶å¿«å›å»å¤å‘½å§ã€‚\n");
 				ob_player[i]->delete_temp("job_system/prompt_time");
 			}
 			else ob_player[i]->add_temp("job_system/prompt_time",1);
@@ -356,7 +356,7 @@ void check_finishjob_place()
 	return;
 }
 
-//¼ì²éÖ´ĞĞÕßµÄËùÔÚµØ£¬ÊÇ·ñÎªmaster place
+//æ£€æŸ¥æ‰§è¡Œè€…çš„æ‰€åœ¨åœ°ï¼Œæ˜¯å¦ä¸ºmaster place
 void check_askjob_place()
 {
 	string state,*player_list;
@@ -373,7 +373,7 @@ void check_askjob_place()
 	player_list=job_data->query_list("ask_job");
 	if(!sizeof(player_list))
 		return;
-	//write("ÏÖÔÚÒÑ¾­Áìµ½ÈÎÎñµÄÈË:\n");
+	//write("ç°åœ¨å·²ç»é¢†åˆ°ä»»åŠ¡çš„äºº:\n");
 	/*for(i=0;i<sizeof(player_list);i++)
 	{
 		write(player_list[i]+"\n");
@@ -416,7 +416,7 @@ void check_askjob_place()
 	}
 	return;
 }
-//¼ì²éÖ´ĞĞÕßµÄËùÔÚµØ£¬ÊÇ·ñÎªoppose_pker place
+//æ£€æŸ¥æ‰§è¡Œè€…çš„æ‰€åœ¨åœ°ï¼Œæ˜¯å¦ä¸ºoppose_pker place
 
 void check_oppose_pker_place()
 {
@@ -434,7 +434,7 @@ void check_oppose_pker_place()
 	player_list=job_data->query_list("oppose_pker");
 	if(!sizeof(player_list))
 		return;
-	/*write("ÏÖÔÚÕıÔÚÖ´ĞĞÈÎÎñµÄÈË:\n");
+	/*write("ç°åœ¨æ­£åœ¨æ‰§è¡Œä»»åŠ¡çš„äºº:\n");
 	for(i=0;i<sizeof(player_list);i++)
 	{
 		write(player_list[i]+"\n");
@@ -479,7 +479,7 @@ void check_oppose_pker_place()
 			if(!ob_player[i]->query_temp("job_system/kill_killer"))
 			{
 				if( wizardp(ob_player[i]) && (string)ob_player[i]->query("env/job_system")=="open" )
-				tell_object(ob_player[i], "Î»ÖÃµ½´ï.\n");
+				tell_object(ob_player[i], "ä½ç½®åˆ°è¾¾.\n");
 				//no,do job_oppsse_pker_start.
 				job_oppsse_pker_start(ob_player[i]);
 			}
@@ -488,7 +488,7 @@ void check_oppose_pker_place()
 	return;
 }
 ///////////////////////////////////////////////////////////////////////////////////////
-//¼ì²éÖ´ĞĞÕßµÄËùÔÚµØ£¬ÊÇ·ñÎªoppose_pker place
+//æ£€æŸ¥æ‰§è¡Œè€…çš„æ‰€åœ¨åœ°ï¼Œæ˜¯å¦ä¸ºoppose_pker place
 
 /*int check_protect_place()
 {
@@ -506,7 +506,7 @@ void check_oppose_pker_place()
 	player_list=job_data->query_list("protect");
 	if(!sizeof(player_list))
 		return 1;
-	write("ÏÖÔÚÕıÔÚ±£»¤Ö´ĞĞÈÎÎñµÄÈË:\n");
+	write("ç°åœ¨æ­£åœ¨ä¿æŠ¤æ‰§è¡Œä»»åŠ¡çš„äºº:\n");
 	for(i=0;i<sizeof(player_list);i++)
 	{
 		write(player_list[i]+"\n");
@@ -550,7 +550,7 @@ void check_oppose_pker_place()
 			if(!ob_player[i]->query("job_system/protect"))
 			{
 				if( wizardp(ob_player[i]) && (string)ob_player[i]->query("env/job_system")=="open" )
-				tell_object(ob_player[i], "Î»ÖÃµ½´ï.\n");
+				tell_object(ob_player[i], "ä½ç½®åˆ°è¾¾.\n");
 				//no,do job_oppsse_pker_start.
 				job_protect_start(ob_player[i]);
 			}
@@ -561,10 +561,10 @@ void check_oppose_pker_place()
 */
 ///////////////////////////////////////////////////////////////////////////////
 
-//Ò»¸ö¿ØÖÆÈ«ÃæjobÖ´ĞĞÕâµÄº¯Êı
-//¶¨Ê±¼ì²éËùÓĞµÄxkx online player£¬×ö³öÏàÓ¦µÄ´¦Àí¡£
-//¹¦ÄÜ£º¼ì²éÖ´ĞĞÕßµÄËùÔÚµØ£¬Ö±µ½µ½´ïmaster placeÎªÖ¹¡£
-//¹¦ÄÜ£º¼ì²éÖ´ĞĞÕßµÄËùÔÚµØ£¬Ö±µ½µ½´ïoppose_pker_placeÎªÖ¹¡£
+//ä¸€ä¸ªæ§åˆ¶å…¨é¢jobæ‰§è¡Œè¿™çš„å‡½æ•°
+//å®šæ—¶æ£€æŸ¥æ‰€æœ‰çš„xkx online playerï¼Œåšå‡ºç›¸åº”çš„å¤„ç†ã€‚
+//åŠŸèƒ½ï¼šæ£€æŸ¥æ‰§è¡Œè€…çš„æ‰€åœ¨åœ°ï¼Œç›´åˆ°åˆ°è¾¾master placeä¸ºæ­¢ã€‚
+//åŠŸèƒ½ï¼šæ£€æŸ¥æ‰§è¡Œè€…çš„æ‰€åœ¨åœ°ï¼Œç›´åˆ°åˆ°è¾¾oppose_pker_placeä¸ºæ­¢ã€‚
 void check_player_place()
 {
 	//clear some job system temp data.
@@ -584,22 +584,22 @@ void check_player_place()
 	return ;
 }
 
-//ÈÎÎñ²úÉúºó£¬¸æËßÖ´ĞĞÈÎÎñµÄÍæ¼ÒÏà¹ØĞÅÏ¢
+//ä»»åŠ¡äº§ç”Ÿåï¼Œå‘Šè¯‰æ‰§è¡Œä»»åŠ¡çš„ç©å®¶ç›¸å…³ä¿¡æ¯
 
 
 
 void create()
 {
-	 set_name("ÈÎÎñ²úÉúÆ÷",  ({"job_produce"}));
+	 set_name("ä»»åŠ¡äº§ç”Ÿå™¨",  ({"job_produce"}));
 	seteuid(getuid());
 }
 
-//²úÉúÈÎÎñ
+//äº§ç”Ÿä»»åŠ¡
 string query_save_file()
 {
         return DATA_DIR + "job_system/produce"; 
 }
-//²úÉúÈÎÎñµÄÖ÷º¯Êı
+//äº§ç”Ÿä»»åŠ¡çš„ä¸»å‡½æ•°
 void produce_job(string p_name)
 {
 	
@@ -617,30 +617,30 @@ void produce_job(string p_name)
 	job_data->restore();
 
 
-	produce_report=HIW"ÈÎÎñÏµÍ³²úÉú:\n"NOR;
-	produce_report += HIC"ÃÅÅÉÑ¡Ôñ:\t"NOR;
+	produce_report=HIW"ä»»åŠ¡ç³»ç»Ÿäº§ç”Ÿ:\n"NOR;
+	produce_report += HIC"é—¨æ´¾é€‰æ‹©:\t"NOR;
 	while ( ret < 10 && !objectp(job_player)) {
    	ret++;
     
 	if(!choose_menpai())
-		produce_report += HIR"´íÎó\n"NOR;
+		produce_report += HIR"é”™è¯¯\n"NOR;
 	else
 		produce_report += HIW+menpai_name+"\n"NOR;
 	
-	produce_report += HIC"ÃÅÅÉ²ßÂÔÑ¡Ôñ:\t"NOR;
+	produce_report += HIC"é—¨æ´¾ç­–ç•¥é€‰æ‹©:\t"NOR;
 
 	if(!choose_strategy(menpai_name))
-		produce_report += HIR"´íÎó\n"NOR;
+		produce_report += HIR"é”™è¯¯\n"NOR;
 	else
 		produce_report += HIW+strategy_produce+"\n"NOR;
 
-	produce_report += HIC"ÇøÓòÑ¡Ôñ:\t"NOR;
+	produce_report += HIC"åŒºåŸŸé€‰æ‹©:\t"NOR;
 
 	if(!choose_area_power(menpai_name))
-		produce_report += HIR"´íÎó\n"NOR;
+		produce_report += HIR"é”™è¯¯\n"NOR;
 	else
 		produce_report += HIW+menpai_area_power+"\n"NOR;
-	produce_report += HIC+"Ö´ĞĞÕßÎª"+"\t"+NOR;
+	produce_report += HIC+"æ‰§è¡Œè€…ä¸º"+"\t"+NOR;
 	
 	job_player=choose_user(menpai_name);
 
@@ -659,14 +659,14 @@ void produce_job(string p_name)
     }
 	if(!objectp(job_player))
 	{
-		produce_report += HIR"´íÎó»òÕßÃ»ÓĞÕÒµ½\n"NOR;
+		produce_report += HIR"é”™è¯¯æˆ–è€…æ²¡æœ‰æ‰¾åˆ°\n"NOR;
 		job_player_name="";
 		job_succeed=0;
 	}
 
 /*	if(job_player==this_object())
 	{
-		produce_report += HIR"´íÎó»òÕßÃ»ÓĞÕÒµ½\n"NOR;
+		produce_report += HIR"é”™è¯¯æˆ–è€…æ²¡æœ‰æ‰¾åˆ°\n"NOR;
 		job_player_name="";
 		job_succeed=0;
 	}
@@ -690,13 +690,13 @@ void produce_job(string p_name)
 	if(obj_temp)
 	destruct(obj_temp);
 
-	write ("ÈÎÎñ²úÉú\n");
+	write ("ä»»åŠ¡äº§ç”Ÿ\n");
 
 	return;
 
 }
 
-//Ñ¡ÔñÃÅÅÉ
+//é€‰æ‹©é—¨æ´¾
 int choose_menpai()
 {
 	object obj_temp;
@@ -713,14 +713,14 @@ int choose_menpai()
 	if(!(obj_temp->have_menpai(obj_temp->con_name(menpai,1))))
 		return 0;
 
-	//ÉèÖÃÑ¡ÖĞµÄÃÅÅÉ
+	//è®¾ç½®é€‰ä¸­çš„é—¨æ´¾
 	menpai_name=menpai;
 	save();
 	if(obj_temp)
 	destruct(obj_temp);
 	return 1;
 }
-//Ñ¡ÔñÃÅÅÉÏÂ´ïÈÎÎñµÄ²ßÂÔ
+//é€‰æ‹©é—¨æ´¾ä¸‹è¾¾ä»»åŠ¡çš„ç­–ç•¥
 int choose_strategy(string menpai)
 {
 	object obj_temp;
@@ -732,7 +732,7 @@ int choose_strategy(string menpai)
 	strategy_produce=obj_temp->random_get_menpai_strategy(menpai);
 
 	
-	//write("²ßÂÔÑ¡ÔñÁË:\t"+strategy_produce+"\n");
+	//write("ç­–ç•¥é€‰æ‹©äº†:\t"+strategy_produce+"\n");
 	
 	if(!obj_temp->have_strategy(obj_temp->con_name(menpai,1),strategy_produce,0))
 		return 0;
@@ -741,7 +741,7 @@ int choose_strategy(string menpai)
 	destruct(obj_temp);
 	return 1;
 }
-//Ñ¡ÔñÖ´ĞĞÈÎÎñµÄÇøÓò
+//é€‰æ‹©æ‰§è¡Œä»»åŠ¡çš„åŒºåŸŸ
 int choose_area_power(string menpai)
 {
 	object obj_temp;
@@ -750,10 +750,10 @@ int choose_area_power(string menpai)
 	return 0;
 	obj_temp->restore();
 	menpai_area_power=obj_temp->random_get_menpai_areapower(menpai);
-	//write("ÇøÓòÑ¡ÔñÁË"+menpai_area_power+"\t");
+	//write("åŒºåŸŸé€‰æ‹©äº†"+menpai_area_power+"\t");
 	if(!obj_temp->have_power(obj_temp->con_name(menpai,1),menpai_area_power,0))
 		return 0;
-	//printf("µ±Ç°ÇøÓòµÄÊÆÁ¦Öµ=%d\n",obj_temp->have_power(obj_temp->con_name(menpai,1),menpai_area_power,0));
+	//printf("å½“å‰åŒºåŸŸçš„åŠ¿åŠ›å€¼=%d\n",obj_temp->have_power(obj_temp->con_name(menpai,1),menpai_area_power,0));
 	save();
 	if(obj_temp)
 	destruct(obj_temp);

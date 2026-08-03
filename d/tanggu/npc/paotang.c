@@ -4,13 +4,13 @@ inherit F_VENDOR;
 
 void create()
 {
-        set_name("ÅÜÌÃ", ({ "paotang", "waiter" }) );
-        set("gender", "ÄÐÐÔ" );
+        set_name("è·‘å ‚", ({ "paotang", "waiter" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 22);
-        set("long",  "ÕâÎ»ÅÜÌÃÕýÐ¦ßäßäµØÃ¦×Å£¬»¹²»Ê±ÄÃÆð¹ÒÔÚ²±×ÓÉÏµÄÄ¨²¼²ÁÁ³¡£\n");
+        set("long",  "è¿™ä½è·‘å ‚æ­£ç¬‘å’ªå’ªåœ°å¿™ç€ï¼Œè¿˜ä¸æ—¶æ‹¿èµ·æŒ‚åœ¨è„–å­ä¸Šçš„æŠ¹å¸ƒæ“¦è„¸ã€‚\n");
         set("combat_exp", 100);
         set("attitude", "friendly");
-        set("rank_info/respect", "»ï¼Æ");
+        set("rank_info/respect", "ä¼™è®¡");
         set("vendor_goods", ({
 		(["name": FOOD_D("jitui"), "number":20]),
 		(["name": FOOD_D("jiudai"),"number":20]),
@@ -43,12 +43,12 @@ void greeting(object ob)
         if( !ob || environment(ob) != environment() || is_fighting(ob)) return;
         switch( random(2) ) {
                 case 0:
-                        say( "ÅÜÌÃÐ¦ßäßäµØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬½øÀ´ºÈ±­²è£¬ÐªÐªÍÈ°É¡£\n");
+                        say( "è·‘å ‚ç¬‘å’ªå’ªåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œè¿›æ¥å–æ¯èŒ¶ï¼Œæ­‡æ­‡è…¿å§ã€‚\n");
                         break;
                 case 1:
-                        say( "ÅÜÌÃÓÃ²±×ÓÉÏµÄÃ«½íÄ¨ÁËÄ¨ÊÖ£¬ËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬Çë½øÇë½ø¡£\n");
+                        say( "è·‘å ‚ç”¨è„–å­ä¸Šçš„æ¯›å·¾æŠ¹äº†æŠ¹æ‰‹ï¼Œè¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œè¯·è¿›è¯·è¿›ã€‚\n");
                         break;
         }
 }

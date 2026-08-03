@@ -1,5 +1,5 @@
 //cool@SJ,990605
-// add ansi.h½â¾ö±¨´í by fengyue
+// add ansi.hè§£å†³æŠ¥é”™ by fengyue
 #include <ansi.h>
 inherit F_MASTER;
 inherit NPC;
@@ -7,11 +7,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("±¾¹Û´óÊ¦", ({ "benguan dashi","benguan","dashi"}) );
-        set("nickname", "Ä²ÄáÌÃÀÏÉ®");
-        set("long", "ÕâÎ»°×Ğë°×Ã¼£¬¿İ»Æ¾«Êİ£¬Éí´©Ò»Ï®½ğË¿Ä¾
-ÃŞôÂôÄµÄÀÏÉ®±ãÊÇ±¾Òò·½ÕÉµÄÊ¦ĞÖ±¾¹Û´óÊ¦¡£\n");
-	set("gender", "ÄĞĞÔ" );
+	set_name("æœ¬è§‚å¤§å¸ˆ", ({ "benguan dashi","benguan","dashi"}) );
+        set("nickname", "ç‰Ÿå°¼å ‚è€åƒ§");
+        set("long", "è¿™ä½ç™½é¡»ç™½çœ‰ï¼Œæ¯é»„ç²¾ç˜¦ï¼Œèº«ç©¿ä¸€è¢­é‡‘ä¸æœ¨
+æ£‰è¢ˆè£Ÿçš„è€åƒ§ä¾¿æ˜¯æœ¬å› æ–¹ä¸ˆçš„å¸ˆå…„æœ¬è§‚å¤§å¸ˆã€‚\n");
+	set("gender", "ç”·æ€§" );
         set("attitude", "friendly");
 	set("class", "bonze");
 	set("age", 75);
@@ -20,7 +20,7 @@ void create()
 	set("int", 25);
 	set("con", 25);
 	set("dex", 28);
-        create_family("ÌìÁúËÂ", 13, "µÜ×Ó");
+        create_family("å¤©é¾™å¯º", 13, "å¼Ÿå­");
         set("unique", 1);
 	
 	set("qi", 3500);

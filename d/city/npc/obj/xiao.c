@@ -1,4 +1,4 @@
-// xiao.c óï
+// xiao.c ç®«
 
 #include <weapon.h>
 
@@ -6,17 +6,17 @@ inherit SWORD;
 
 void create()
 {
-	set_name("óï",({"xiao"}));
+	set_name("ç®«",({"xiao"}));
 	set_weight(150);
 	if (clonep())
 		set_default_object(__FILE__);
 	else{
-		set("unit", "Ö§");
+		set("unit", "æ”¯");
 		set("value", 600);
 		set("material", "wood");
-		set("long","ÕâÊÇÒ»Ö§ÓÃËÉÄ¾×öµÄóï£¬×ö¹¤Ê®·Ö¾«Ï¸¡£\n");
-		set("wield_msg","$NÉìÊÖÇáÇáÒ»ÕĞ£¬Ò»Ö§$nÒÑ³öÏÖÔÚ$NÊÖÖĞ¡£\n");
-		set("unwield_msg","$NÒ»ÉùÇåĞ¥£¬½«$n²å»ØÑü¼ä¡£\n");
+		set("long","è¿™æ˜¯ä¸€æ”¯ç”¨æ¾æœ¨åšçš„ç®«ï¼Œåšå·¥ååˆ†ç²¾ç»†ã€‚\n");
+		set("wield_msg","$Nä¼¸æ‰‹è½»è½»ä¸€æ‹›ï¼Œä¸€æ”¯$nå·²å‡ºç°åœ¨$Næ‰‹ä¸­ã€‚\n");
+		set("unwield_msg","$Nä¸€å£°æ¸…å•¸ï¼Œå°†$næ’å›è…°é—´ã€‚\n");
 	}
 	init_sword(15);
 	setup();

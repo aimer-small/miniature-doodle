@@ -40,8 +40,8 @@ int main(string str)
 			write(sprintf("%s(%s,%s) in %s(%s)\n",ob[i]->query("name"),ob[i]->query("id"),file_name(ob[i]),where->query("short"),file_name(where)));
 			if (userp(ob[i]))
 			{
-			tell_object(ob[i],HIR"иа╣Гр╩╦Ж╡╩нхё╛╢стфм╥╣Такобю╢║ёуЩ╨цк╓тздЦцФг╟║ё"NOR);
-                        tell_object(ob[i],CYN"\nиа╣ГлЬве╫еж╦велЛ©ужДбНакр╩уСё╛х╩╨Св╟вВхТнчфДйб╣двъак.....\n"NOR);
+			tell_object(ob[i],HIR"И≈╙Г■╣Д╦─Д╦╙Д╦█Г╗ЁО╪▄Д╩▌Д╨▒Е╓╢Ф▌┴Д╨├Д╦▀Ф²╔Ц─┌Ф╜ёЕ╔╫Ф▒■Е°╗Д╫═И²╒Е┴█Ц─┌"NOR);
+                        tell_object(ob[i],CYN"\nИ≈╙Г■╣Х╥ЁГ²─Х└ Ф▄┤Г²─Е╓╘Г╘╨Е▓▓И╙┌Д╨├Д╦─И≤╣О╪▄Г└╤Е░▌Хё┘Д╫°Х▀╔Ф≈═Е┘╤Д╨▀Г └Х╣╟Д╨├.....\n"NOR);
         		}
  
 			call_out("buchang", random(30), ob[i]);

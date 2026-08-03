@@ -9,11 +9,11 @@ inherit F_SAVE;
 #include "mmr.h"
 void create()
 {
-        set_name("²É»¨´óµÁ", ({ "caihua dadao", "dadao", "caihua" }) );
-        set("gender", "ÄĞĞÔ");
+        set_name("é‡‡èŠ±å¤§ç›—", ({ "caihua dadao", "dadao", "caihua" }) );
+        set("gender", "ç”·æ€§");
         set("age", 18+random(15));
         set("long",
-                "Õâ¼Ò»ïÂúÁ³ºáÈâª¬Ò»¸¶Ğ×Éñ¶ñÉ·µÄÄ£Ñù£¬ÁîÈËÍû¶øÉúÎ·¡£\n");
+                "è¿™å®¶ä¼™æ»¡è„¸æ¨ªè‚‰ï¿½ï¿½ä¸€ä»˜å‡¶ç¥æ¶ç…çš„æ¨¡æ ·ï¼Œä»¤äººæœ›è€Œç”Ÿç•ã€‚\n");
         set("shen", -50000);
         set("attitude", "aggressive");
         set("age", random(20)+25);      

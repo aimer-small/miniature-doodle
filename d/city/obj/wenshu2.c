@@ -7,12 +7,12 @@ int do_arrest(string);
 
 void create()
 {
-        set_name(HIY"¹Ù¸®ÎÄÊé"NOR, ({ "guanfu wenshu", "wenshu", }) );
+        set_name(HIY"å®˜åºœæ–‡ä¹¦"NOR, ({ "guanfu wenshu", "wenshu", }) );
         set_weight(2000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "ÕÅ");
+                set("unit", "å¼ ");
                 set("value", 0);
                 set("no_drop", 1);
                 set("material", "paper");
@@ -53,50 +53,50 @@ string wanted()
         ob  = sort_array(ob, (: sort_pks :));
         
         for (i = 0; i < sizeof(ob); i++){
-        	msg += "\n¡¸"+chinese_number(i+1)+"¡¹"+ob[i]->short(1)+"\n";
-                msg += HIR"\t¸ÃÌÓ·¸";
+        	msg += "\nã€Œ"+chinese_number(i+1)+"ã€"+ob[i]->short(1)+"\n";
+                msg += HIR"\tè¯¥é€ƒçŠ¯";
                 age = ob[i]->query("age");
                 if (ob[i]->query_skill("beauty") > 30) age -= (ob[i]->query_skill("beauty")-30)/5;
                 if (age < 10)
-                	msg += "¿´ÆðÀ´²»µ½Ê®Ëê£¬";
-                else	msg += "¿´ÆðÀ´Ô¼"+chinese_number(age / 10 * 10)+"¶àËê£¬";
-                msg += "¹²·¸ÏÂ"+chinese_number(ob[i]->query("PKS"))+"×®Ãü°¸¡£\n"NOR;
-		msg += "\t¸ÃÌÓ·¸ÎäÒÕ¿´ÉÏÈ¥ËÆºõ"+"/cmds/std/look"->gettof(ob[i], age)+"£¬ÒªÐ¡ÐÄÔÚÒâ£¡\n";
-                msg += "©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+                	msg += "çœ‹èµ·æ¥ä¸åˆ°åå²ï¼Œ";
+                else	msg += "çœ‹èµ·æ¥çº¦"+chinese_number(age / 10 * 10)+"å¤šå²ï¼Œ";
+                msg += "å…±çŠ¯ä¸‹"+chinese_number(ob[i]->query("PKS"))+"æ¡©å‘½æ¡ˆã€‚\n"NOR;
+		msg += "\tè¯¥é€ƒçŠ¯æ­¦è‰ºçœ‹ä¸ŠåŽ»ä¼¼ä¹Ž"+"/cmds/std/look"->gettof(ob[i], age)+"ï¼Œè¦å°å¿ƒåœ¨æ„ï¼\n";
+                msg += "â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
         }
         if (msg == "")
-                return "½üÈÕ±¾¸®ÖÎ°²Á¼ºÃ£¬ÎÞ¿ÉÒÉÈËÎï³öÈë¡£\n";
+                return "è¿‘æ—¥æœ¬åºœæ²»å®‰è‰¯å¥½ï¼Œæ— å¯ç–‘äººç‰©å‡ºå…¥ã€‚\n";
         else
-                return HIY"ÏÖÔÚ±¾¸®ÕýÔÚÐüÉÍ¼©ÄÃ(arrest)ÒÔÏÂÒª·¸£º\n"NOR + msg;
+                return HIY"çŽ°åœ¨æœ¬åºœæ­£åœ¨æ‚¬èµç¼‰æ‹¿(arrest)ä»¥ä¸‹è¦çŠ¯ï¼š\n"NOR + msg;
 }
 
 int do_arrest(string arg)
 {
         object me=this_player(), victim;
 
-        if (!me->query_temp("mark/Ñ²²¶"))
-        	return notify_fail("Ð¡Ð¡²ÝÃñÒ²Ïë¾Ð²¶±ðÈË£¿\n");
+        if (!me->query_temp("mark/å·¡æ•"))
+        	return notify_fail("å°å°è‰æ°‘ä¹Ÿæƒ³æ‹˜æ•åˆ«äººï¼Ÿ\n");
 
         if (!arg)
-        	return notify_fail("ÄãÒª¾Ð²¶Ë­£¿\n");
+        	return notify_fail("ä½ è¦æ‹˜æ•è°ï¼Ÿ\n");
 
         victim = present(arg,environment(me));
 
         if (!victim)
-        	return notify_fail("ÕâÀï²¢ÎÞ´ËÈË£¡\n");
+        	return notify_fail("è¿™é‡Œå¹¶æ— æ­¤äººï¼\n");
 
         if (victim == me) 
-                return notify_fail("Ïë×¥×Ô¼º£¿ºÎ±Ø¶à´ËÒ»¾Ù£¿\n");
+                return notify_fail("æƒ³æŠ“è‡ªå·±ï¼Ÿä½•å¿…å¤šæ­¤ä¸€ä¸¾ï¼Ÿ\n");
 
         if (!living(victim))
-                return notify_fail("ÄãÑÛ¾¦Ï¹ÁË£¿ÄÇ¿É²»ÊÇ»îÎï£¡\n");
+                return notify_fail("ä½ çœ¼ç›çžŽäº†ï¼Ÿé‚£å¯ä¸æ˜¯æ´»ç‰©ï¼\n");
 
         if (!(userp(victim)
                 && victim->query("PKS")>50
                 && victim->query("combat_exp")/victim->query("PKS") < 350000))
-                return notify_fail("´ËÈË²»ÊÇÐ×·¸£¡\n");
+                return notify_fail("æ­¤äººä¸æ˜¯å‡¶çŠ¯ï¼\n");
 
-        message_vision(HIC"$N¶Ô$n¸ßº°Ò»Éù£º"+RANK_D->query_rude(victim)+"×÷¶ñ¶à¶Ë£¬ÎÒ·î³¯Í¢Ö®Ãü¼©ÄÃÄã£¡»¹²»ÊøÊÖ¾ÍÇÜ£¿£¡\n"NOR, me, victim);
+        message_vision(HIC"$Nå¯¹$né«˜å–Šä¸€å£°ï¼š"+RANK_D->query_rude(victim)+"ä½œæ¶å¤šç«¯ï¼Œæˆ‘å¥‰æœå»·ä¹‹å‘½ç¼‰æ‹¿ä½ ï¼è¿˜ä¸æŸæ‰‹å°±æ“’ï¼Ÿï¼\n"NOR, me, victim);
 
         if (victim->is_fighting()) 
                 victim->remove_all_killer();

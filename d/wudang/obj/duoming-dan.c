@@ -14,17 +14,17 @@ void init()
 
 void create()
 {
-        set_name(HIW"°×»¢¶áÃüµ¤"NOR, ({"duoming dan","dan"}));
+        set_name(HIW"ç™½è™Žå¤ºå‘½ä¸¹"NOR, ({"duoming dan","dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿Å¾§Ó¨ÈçÖéµÄ¾ÈÃüÒ©Íè¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—æ™¶èŽ¹å¦‚ç çš„æ•‘å‘½è¯ä¸¸ã€‚\n");
                 set("value", 1000);
-                set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-                set("no_get", "ÕâÑù¶«Î÷ÄãÄÃ²»ÁË¡£\n");
-                set("no_give", "ÕâÑù¶«Î÷²»¿ÉËæ±ã¸øÈË¡£\n");
-                set("no_put", "ÕâÑù¶«Î÷²»ÄÜ·ÅÔÚÕâÖÖ¶«Î÷ÀïÃæ¡£\n");
+                set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä½ æ‹¿ä¸äº†ã€‚\n");
+                set("no_give", "è¿™æ ·ä¸œè¥¿ä¸å¯éšä¾¿ç»™äººã€‚\n");
+                set("no_put", "è¿™æ ·ä¸œè¥¿ä¸èƒ½æ”¾åœ¨è¿™ç§ä¸œè¥¿é‡Œé¢ã€‚\n");
 
         }
 
@@ -36,9 +36,9 @@ int do_eat(string arg)
         object me = this_player();
 
         if (!id(arg))
-        return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+        return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
-        message_vision(HIW "$N³ÔÏÂÒ»¿Å°×»¢¶áÃüµ¤£¬µ«¾õÒ»¹ÉÅ¯Á÷×Ôµ¤ÌïÉýÆð,Ëæ¼´±é²¼ËÄÖ«,»ëÉíËµ²»³öÓÐ¶àÊæ·þ£¡\n" NOR, me);
+        message_vision(HIW "$Nåƒä¸‹ä¸€é¢—ç™½è™Žå¤ºå‘½ä¸¹ï¼Œä½†è§‰ä¸€è‚¡æš–æµè‡ªä¸¹ç”°å‡èµ·,éšå³éå¸ƒå››è‚¢,æµ‘èº«è¯´ä¸å‡ºæœ‰å¤šèˆ’æœï¼\n" NOR, me);
         me->reincarnate();
         me->set("qi", me->query("max_qi"));
         me->set("jing", me->query("max_jing"));

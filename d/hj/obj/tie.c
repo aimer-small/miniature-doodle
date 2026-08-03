@@ -7,9 +7,9 @@ string no_get()
 	object me = this_player();
 	if(!me) return 0;
 	if(me->query("combat_exp")<750000)
-		return "Äã½­ºþÓÎÀú²»×ã£¬ÅÂµÃ´Ë±¦ÎïÒ²ÎÞÓÃ´¦¡£\n";
+		return "ä½ æ±Ÿæ¹–æ¸¸åŽ†ä¸è¶³ï¼Œæ€•å¾—æ­¤å®ç‰©ä¹Ÿæ— ç”¨å¤„ã€‚\n";
 	if(me->query("drop_hj_uniqe") && ( me->query("mud_time")-me->query("drop_hj_uniqe"))<172800)
-		return "Äã±©éåÌìÎï£¬¸ß²ý²»»¶Ó­Äã¡£\n";
+		return "ä½ æš´æ®„å¤©ç‰©ï¼Œé«˜æ˜Œä¸æ¬¢è¿Žä½ ã€‚\n";
 	return 0;
 }
 
@@ -30,15 +30,15 @@ void remove(string id)
 
 void create()
 {
-        set_name(HIC"¿ìÑ©Ê±ÇçÌû"NOR, ({ "kuaixueshiqing tie", "tie"})); 
+        set_name(HIC"å¿«é›ªæ—¶æ™´å¸–"NOR, ({ "kuaixueshiqing tie", "tie"})); 
        
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-                set("unit", "ÕÅ");
+                set("unit", "å¼ ");
                 set("unique", 1);
                 set("weight", 300);
-		set("long", "ÕâÊÇ½úÍõôËÖ®ËùÐ´Ö®Ìû£¬Ö½²á±¾£¬×Ý¶þÈý´ç£¬ºáÒ»ËÄ´ç¡£\n");
+		set("long", "è¿™æ˜¯æ™‹çŽ‹ç¾²ä¹‹æ‰€å†™ä¹‹å¸–ï¼Œçº¸å†Œæœ¬ï¼ŒçºµäºŒä¸‰å¯¸ï¼Œæ¨ªä¸€å››å¯¸ã€‚\n");
 		set("material", "paper");
 //                set("no_get",(:no_get:));
 		set("no_drop",(:no_drop:));

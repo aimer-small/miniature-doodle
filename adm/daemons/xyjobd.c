@@ -9,7 +9,7 @@ inherit F_DBASE;
 void create()
 {
         seteuid(ROOT_UID);
-     set("channel_id", "ÏåÑô´óÕ½¾«Áé");
+     set("channel_id", "è¥„é˜³å¤§æˆ˜ç²¾çµ");
         
         set("name","");
 	remove_call_out("xyjob_1");
@@ -97,17 +97,17 @@ string* xyjob_room = ({
         "d/hudong/xiangyang/zrdian",
 });
 
-void xyjob_1() //ÈÎÎñ×¼±¸
+void xyjob_1() //ä»»åŠ¡å‡†å¤‡
 {
        object obj,obj1,obj2, obj3, env;
 
 
-message("channel:chat", HIY"¡¾"HIW"½­ºş´«ÎÅ"HIY"¡¿"HIC"ÂÀÎÄµÂ(Lv wende)£º¹ù´óÏÀ£¬ÃÉ¹Å´ó¾üÒÑ±Æ½üÏåÑô£¬³¯Í¢»¹Î´ÅÉÀ´Ô®±ø£¬Õâ¿ÉÈçºÎÊÇºÃ£¿\n"NOR,users());
-    message("channel:chat", HIY"¡¾"HIW"½­ºş´«ÎÅ"HIY"¡¿"HIC"¹ù¾¸(Guo jing)£ºÎÒÓû¹ã·¢Ó¢ĞÛÌûÄ¼¼¯ÌìÏÂÓ¢ĞÛÊÄËÀ¼áÊØÏåÑô³Ç£¡\n"NOR,users());
-    message("channel:chat", HIY"¡¾"HIW"½­ºş´«ÎÅ"HIY"¡¿"HIC"ÃÉ¸ç(Meng ge)£º´óËÎ¹Ù±ø¸ö¸ö¾ÆÄÒ·¹´ü£¬¿´ÎÒÃÉ¹ÅÓÂÊ¿¸ö¸öÉñÓÂÎŞ±È£¬ºÎ¿öÏåÑô³ÇÄÚÓÖÓĞÄÚÓ¦£¬´óÊÂ¶¨³É£¡\n"NOR,users());
-    message("channel:chat", HIY"¡¾"HIW"½­ºş´«ÎÅ"HIY"¡¿"HIC"½ğÂÖ·¨Íõ(Jinlun fawang)£º¹ş¹ş¹ş£¡¹ù¾¸°¢¹ù¾¸£¬ÄãÃü²»¾ÃÒÓ£¡£¡\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIW"½­ºş´«ÎÅ"HIY"¡¿"HIC"¹ù¾¸(Guo jing)£ººß£¬Òì×å·¬°îĞİµÃ²ş¿ñ£¬Ğë½Ì¶ûµÈ¼ûÊ¶ÖĞÔ­ÎäÁÖºÀ½ÜµÄÊÖ¶Î£¡\n"NOR,users());
-CHANNEL_D->do_channel( this_object(), "sys", "ÏåÑô´óÕ½ÏµÍ³ÒÑ¾­Æô¶¯¡£\n"); 
+message("channel:chat", HIY"ã€"HIW"æ±Ÿæ¹–ä¼ é—»"HIY"ã€‘"HIC"å•æ–‡å¾·(Lv wende)ï¼šéƒ­å¤§ä¾ ï¼Œè’™å¤å¤§å†›å·²é€¼è¿‘è¥„é˜³ï¼Œæœå»·è¿˜æœªæ´¾æ¥æ´å…µï¼Œè¿™å¯å¦‚ä½•æ˜¯å¥½ï¼Ÿ\n"NOR,users());
+    message("channel:chat", HIY"ã€"HIW"æ±Ÿæ¹–ä¼ é—»"HIY"ã€‘"HIC"éƒ­é–(Guo jing)ï¼šæˆ‘æ¬²å¹¿å‘è‹±é›„å¸–å‹Ÿé›†å¤©ä¸‹è‹±é›„èª“æ­»åšå®ˆè¥„é˜³åŸï¼\n"NOR,users());
+    message("channel:chat", HIY"ã€"HIW"æ±Ÿæ¹–ä¼ é—»"HIY"ã€‘"HIC"è’™å“¥(Meng ge)ï¼šå¤§å®‹å®˜å…µä¸ªä¸ªé…’å›Šé¥­è¢‹ï¼Œçœ‹æˆ‘è’™å¤å‹‡å£«ä¸ªä¸ªç¥å‹‡æ— æ¯”ï¼Œä½•å†µè¥„é˜³åŸå†…åˆæœ‰å†…åº”ï¼Œå¤§äº‹å®šæˆï¼\n"NOR,users());
+    message("channel:chat", HIY"ã€"HIW"æ±Ÿæ¹–ä¼ é—»"HIY"ã€‘"HIC"é‡‘è½®æ³•ç‹(Jinlun fawang)ï¼šå“ˆå“ˆå“ˆï¼éƒ­é–é˜¿éƒ­é–ï¼Œä½ å‘½ä¸ä¹…çŸ£ï¼ï¼\n"NOR,users());
+message("channel:chat", HIY"ã€"HIW"æ±Ÿæ¹–ä¼ é—»"HIY"ã€‘"HIC"éƒ­é–(Guo jing)ï¼šå“¼ï¼Œå¼‚æ—ç•ªé‚¦ä¼‘å¾—çŒ–ç‹‚ï¼Œé¡»æ•™å°”ç­‰è§è¯†ä¸­åŸæ­¦æ—è±ªæ°çš„æ‰‹æ®µï¼\n"NOR,users());
+CHANNEL_D->do_channel( this_object(), "sys", "è¥„é˜³å¤§æˆ˜ç³»ç»Ÿå·²ç»å¯åŠ¨ã€‚\n"); 
 if(!objectp(find_object("/d/xiangyang/damen")))
     load_object("/d/xiangyang/damen");
     obj = find_living("shuoshu laozhe");
@@ -115,8 +115,8 @@ if(!objectp(find_object("/d/xiangyang/damen")))
     env = environment(obj);
     if(!env || file_name(env)!="/d/xiangyang/damen")
     obj->move("/d/xiangyang/damen");
-    obj->set("hd_start",1); //   ÏåÑô±¨Ãû    
-CHANNEL_D->do_channel( obj, "chat", "ÏåÑô´óÕ½ÏµÍ³ÒÑ¾­Æô¶¯£¬¸÷Î»Íæ¼Ò¿Éµ½Îä¹İ´óÃÅ´¦±¨Ãû²Î¼Ó(ask laozhe about ±¨Ãû)¡£\n");    
+    obj->set("hd_start",1); //   è¥„é˜³æŠ¥å    
+CHANNEL_D->do_channel( obj, "chat", "è¥„é˜³å¤§æˆ˜ç³»ç»Ÿå·²ç»å¯åŠ¨ï¼Œå„ä½ç©å®¶å¯åˆ°æ­¦é¦†å¤§é—¨å¤„æŠ¥åå‚åŠ (ask laozhe about æŠ¥å)ã€‚\n");    
 
 
 
@@ -127,7 +127,7 @@ if(!objectp(find_object("/d/hudong/xiangyang/defend")))
     env = environment(obj1);
     if(!env || file_name(env)!="/d/hudong/xiangyang/defend")
     obj1->move("/d/hudong/xiangyang/defend");
-    obj1->set("hd_start",1);                 //¿ªÊ¼±¨Ãû
+    obj1->set("hd_start",1);                 //å¼€å§‹æŠ¥å
 
     if(!objectp(find_object("/d/hudong/xiangyang/attack")))
     load_object("/d/hudong/xiangyang/attack");
@@ -142,15 +142,15 @@ if(!objectp(find_object("/d/hudong/xiangyang/defend")))
 
 
  remove_call_out("xyjob_1");
-call_out("xyjob_2", 60,obj,obj1,obj2);  // Ê±¼ä³¤Ò»µã
+call_out("xyjob_2", 60,obj,obj1,obj2);  // æ—¶é—´é•¿ä¸€ç‚¹
 }
 void xyjob_2(object obj,object obj1,object obj2)
 {
-  if(obj) obj ->delete("hd_start");       //Í£Ö¹±¨Ãû
-if(obj1) obj1 ->delete("hd_start");       //Í£Ö¹±¨Ãû
-if(obj2) obj2 ->delete("hd_start");       //Í£Ö¹±¨Ãû
- message("channel:chat", HIY"¡¾"HIR"ÏµÍ³ÌáÊ¾"HIY"¡¿"HIC"ÏåÑô´óÕ½½«ÔÚÁùÊ®Ãëºó¿ªÊ¼£¡\n"NOR,users());
-call_out("xyjob_3", 60);   // Ê±¼ä³¤Ò»µã
+  if(obj) obj ->delete("hd_start");       //åœæ­¢æŠ¥å
+if(obj1) obj1 ->delete("hd_start");       //åœæ­¢æŠ¥å
+if(obj2) obj2 ->delete("hd_start");       //åœæ­¢æŠ¥å
+ message("channel:chat", HIY"ã€"HIR"ç³»ç»Ÿæç¤º"HIY"ã€‘"HIC"è¥„é˜³å¤§æˆ˜å°†åœ¨å…­åç§’åå¼€å§‹ï¼\n"NOR,users());
+call_out("xyjob_3", 60);   // æ—¶é—´é•¿ä¸€ç‚¹
 }
 
 void xyjob_3()
@@ -159,21 +159,21 @@ string room;
 int i;
 int at,df;
 object *ob;
-object *attacker = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/attack") :));
-object *defender = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/defend"):));
+object *attacker = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/attack") :));
+object *defender = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/defend"):));
 object target,target1,target2,target3;
 df = sizeof(defender);
 at = sizeof(attacker);
 
 if (df < 1)
         {
-               message("channel:chat", HIY"¡¾"HIR"ÏµÍ³ÌáÊ¾"HIY"¡¿"HIC"ÏåÑôÊØ¾ü¸ß¹ÒÃâÕ½ÅÆ¼áÊØ²»³ö£¬ÃÉ¹Å´ó¾üÖ»ÄÜÍû³ÇĞËÌ¾£¡\n"NOR,users());
+               message("channel:chat", HIY"ã€"HIR"ç³»ç»Ÿæç¤º"HIY"ã€‘"HIC"è¥„é˜³å®ˆå†›é«˜æŒ‚å…æˆ˜ç‰Œåšå®ˆä¸å‡ºï¼Œè’™å¤å¤§å†›åªèƒ½æœ›åŸå…´å¹ï¼\n"NOR,users());
                 remove_call_out("xyjob_3");
                 call_out("xyjob_1", 3600);
         }
         else if (at < 1)
         {
-                message("channel:chat", HIY"¡¾"HIR"ÏµÍ³ÌáÊ¾"HIY"¡¿"HIC"ÃÉ¹ÅÏÈ·æ¿àµÈºóÔ®Î´µ½£¬Ö»ÄÜÔİ»º¹¥³Ç£¡\n"NOR,users());
+                message("channel:chat", HIY"ã€"HIR"ç³»ç»Ÿæç¤º"HIY"ã€‘"HIC"è’™å¤å…ˆé”‹è‹¦ç­‰åæ´æœªåˆ°ï¼Œåªèƒ½æš‚ç¼“æ”»åŸï¼\n"NOR,users());
                 remove_call_out("xyjob_3");
                 call_out("xyjob_1", 3600);
         }
@@ -181,8 +181,8 @@ if (df < 1)
         {       
 
 
-                message("channel:chat", HIY"¡¾"HIR"ÏµÍ³ÌáÊ¾"HIY"¡¿"HIC"ÏåÑô´óÕ½¿ªÊ¼£¬Ë«·½ÉúËÀ¸÷°²ÌìÃü£¡\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIW"½­ºş´«ÎÅ"HIY"¡¿"HIC"ÂÀÎÄµÂ(Lv wende)£º°³µÄÄï°¡£¡ÃÉ¹Å¾ü¶ÓÀ´ÁË£¬¿ì¹Ø³ÇÃÅ£¡\n"NOR,users());
+                message("channel:chat", HIY"ã€"HIR"ç³»ç»Ÿæç¤º"HIY"ã€‘"HIC"è¥„é˜³å¤§æˆ˜å¼€å§‹ï¼ŒåŒæ–¹ç”Ÿæ­»å„å®‰å¤©å‘½ï¼\n"NOR,users());
+message("channel:chat", HIY"ã€"HIW"æ±Ÿæ¹–ä¼ é—»"HIY"ã€‘"HIC"å•æ–‡å¾·(Lv wende)ï¼šä¿ºçš„å¨˜å•Šï¼è’™å¤å†›é˜Ÿæ¥äº†ï¼Œå¿«å…³åŸé—¨ï¼\n"NOR,users());
 
  // reset_eval_cost();
 
@@ -190,20 +190,20 @@ for(i=0;i<df;i++){
 room = xyjob_room[random(sizeof(xyjob_room))];
 
     	if(!defender[i]->is_character() || defender[i]->is_corpse() || defender[i]->is_ghost()|| defender[i]->apply_condition("killer")){
-    		defender[i]->delete_temp("»¥¶¯ÈÎÎñ");  //²»ÊÇ»îÈË,É±ÈË·¸²»´«ËÍ
+    		defender[i]->delete_temp("äº’åŠ¨ä»»åŠ¡");  //ä¸æ˜¯æ´»äºº,æ€äººçŠ¯ä¸ä¼ é€
     		continue;      	
  }
 
-               	defender[i]->set_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª",1);
+               	defender[i]->set_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥",1);
 defender[i]->move(room);
     }
    for(i=0;i<at;i++){
     	if(!attacker[i]->is_character() || attacker[i]->is_corpse() || attacker[i]->is_ghost()|| attacker[i]->apply_condition("killer")){
-    		attacker[i]->delete_temp("»¥¶¯ÈÎÎñ");  //²»ÊÇ»îÈË,É±ÈË·¸²»´«ËÍ
+    		attacker[i]->delete_temp("äº’åŠ¨ä»»åŠ¡");  //ä¸æ˜¯æ´»äºº,æ€äººçŠ¯ä¸ä¼ é€
     		continue;      	
  }
 
-               	attacker[i]->set_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª",2);
+               	attacker[i]->set_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥",2);
 attacker[i]->move("d/hudong/xiangyang/zhangwai");
     
 
@@ -220,20 +220,20 @@ string room;
 int i;
 int at,df;
 object *ob;
-object *attacker = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/attack") :));
-object *defender = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/defend"):));
+object *attacker = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/attack") :));
+object *defender = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/defend"):));
 object target,target1,target2,target3;
 df = sizeof(defender);
 at = sizeof(attacker);
 if (sizeof(attacker) > sizeof(defender))
         {
-                CHANNEL_D->do_channel(this_object(), "rumor", HBMAG+HIW"ÌıËµÃÉ¹Å±ø¹¥ÏÂÁËÏåÑô³Ç£¡");
+                CHANNEL_D->do_channel(this_object(), "rumor", HBMAG+HIW"å¬è¯´è’™å¤å…µæ”»ä¸‹äº†è¥„é˜³åŸï¼");
                 for(i = 0; i < at; i++)
                         attacker[i]->add_temp("xyjob/attack", 1);
         }
         else
         {
-                CHANNEL_D->do_channel(this_object(), "rumor", HBMAG+HIW"ÌıËµÏåÑôÊØ¾üÉ±ÍËÁËÃÉ¹Å¾ü£¡");
+                CHANNEL_D->do_channel(this_object(), "rumor", HBMAG+HIW"å¬è¯´è¥„é˜³å®ˆå†›æ€é€€äº†è’™å¤å†›ï¼");
                 for(i = 0; i < df; i++)
                         defender[i]->add_temp("xyjob/defend", 1);
         }
@@ -244,7 +244,7 @@ remove_call_out("xyjob_4");
 }
 
 
-void xyjob_5() // ·¢·Å½±Àø
+void xyjob_5() // å‘æ”¾å¥–åŠ±
 {
 
 int i;
@@ -252,8 +252,8 @@ int at,df;
 int exp, nexp, pot, SJ_Credit;
 
 object *ob;
-object *attacker = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/attack") :));
-object *defender = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/defend"):));
+object *attacker = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/attack") :));
+object *defender = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/defend"):));
 object target,target1,target2,target3;
 df = sizeof(defender);
 at = sizeof(attacker);
@@ -277,12 +277,12 @@ at = sizeof(attacker);
                         attacker[i]->set("potential", attacker[i]->query("max_pot"));
                 else
                         attacker[i]->add("potential", pot);
-                message_vision(HIW"\n$N»ñµÃÁË"+CHINESE_D->chinese_number(exp)+
-                "µã¾­Ñé£¬"+ CHINESE_D->chinese_number(pot)+
-                "µãÇ±ÄÜµÄ½±Àø¡£\n"+HIR+"\n$N¶îÍâ»¹»ñµÃÁË"+ CHINESE_D->chinese_number(SJ_Credit)+"¸öÌìÑÄÍ¨±¦\n"NOR, attacker[i]);
+                message_vision(HIW"\n$Nè·å¾—äº†"+CHINESE_D->chinese_number(exp)+
+                "ç‚¹ç»éªŒï¼Œ"+ CHINESE_D->chinese_number(pot)+
+                "ç‚¹æ½œèƒ½çš„å¥–åŠ±ã€‚\n"+HIR+"\n$Né¢å¤–è¿˜è·å¾—äº†"+ CHINESE_D->chinese_number(SJ_Credit)+"ä¸ªå¤©æ¶¯é€šå®\n"NOR, attacker[i]);
                 attacker[i]->add("shen",-nexp);
-                message_vision(HIW"\n$N¾õµÃÒ»¹ÉĞ°Äî×ÔĞÄÖĞÉúÆğ¡£\n"NOR,attacker[i]);
-                attacker[i]->add("job_time/ÏåÑô¹¥·À",1);
+                message_vision(HIW"\n$Nè§‰å¾—ä¸€è‚¡é‚ªå¿µè‡ªå¿ƒä¸­ç”Ÿèµ·ã€‚\n"NOR,attacker[i]);
+                attacker[i]->add("job_time/è¥„é˜³æ”»é˜²",1);
                 attacker[i]->clear_conditions_by_type("poison");
                 attacker[i]->clear_conditions_by_type("hurt");
                 attacker[i]->clear_conditions_by_type("busy");
@@ -290,8 +290,8 @@ at = sizeof(attacker);
                 attacker[i]->remove_all_killer();
                 attacker[i]->dismiss_team();
                 attacker[i]->clear_condition("job_busy");
-                log_file("job/xyjob", sprintf("%s %s(%s)%d´Î¹¥³ÇµÃµ½¾­Ñé%d£¬Ç±ÄÜ%d£¬Í¨±¦%d¡£\n",
-                ctime(time())[4..19],attacker[i]->name(1),attacker[i]->query("id"),(int)attacker[i]->query("job_time/ÏåÑô¹¥·À"),exp,pot,SJ_Credit));
+                log_file("job/xyjob", sprintf("%s %s(%s)%dæ¬¡æ”»åŸå¾—åˆ°ç»éªŒ%dï¼Œæ½œèƒ½%dï¼Œé€šå®%dã€‚\n",
+                ctime(time())[4..19],attacker[i]->name(1),attacker[i]->query("id"),(int)attacker[i]->query("job_time/è¥„é˜³æ”»é˜²"),exp,pot,SJ_Credit));
         }
         for(i = 0; i < df; i++)
         {
@@ -312,12 +312,12 @@ at = sizeof(attacker);
                         defender[i]->set("potential", defender[i]->query("max_pot"));
                 else
                         defender[i]->add("potential", pot);
-                message_vision(HIW"\n$N»ñµÃÁË"+CHINESE_D->chinese_number(exp)+
-                "µã¾­Ñé£¬"+ CHINESE_D->chinese_number(pot)+
-                "µãÇ±ÄÜµÄ½±Àø¡£\n"+HIR+"\n$N¶îÍâ»¹»ñµÃÁË"+ CHINESE_D->chinese_number(SJ_Credit)+"¸öÌìÑÄÍ¨±¦\n"NOR, defender[i]);
+                message_vision(HIW"\n$Nè·å¾—äº†"+CHINESE_D->chinese_number(exp)+
+                "ç‚¹ç»éªŒï¼Œ"+ CHINESE_D->chinese_number(pot)+
+                "ç‚¹æ½œèƒ½çš„å¥–åŠ±ã€‚\n"+HIR+"\n$Né¢å¤–è¿˜è·å¾—äº†"+ CHINESE_D->chinese_number(SJ_Credit)+"ä¸ªå¤©æ¶¯é€šå®\n"NOR, defender[i]);
                 defender[i]->add("shen",nexp);
-                message_vision(HIW"\n$NµÄÏÀÒåÕıÆøÉÏÉıÁË£¡\n"NOR,defender[i]);
-                defender[i]->add("job_time/ÏåÑô¹¥·À",1);
+                message_vision(HIW"\n$Nçš„ä¾ ä¹‰æ­£æ°”ä¸Šå‡äº†ï¼\n"NOR,defender[i]);
+                defender[i]->add("job_time/è¥„é˜³æ”»é˜²",1);
                 defender[i]->clear_conditions_by_type("poison");
                 defender[i]->clear_conditions_by_type("hurt");
                 defender[i]->clear_conditions_by_type("busy");
@@ -325,8 +325,8 @@ at = sizeof(attacker);
                 defender[i]->remove_all_killer();
                 defender[i]->dismiss_team();
                 defender[i]->clear_condition("job_busy");
-                log_file("job/xyjob", sprintf("%s %s(%s)%d´ÎÊØ³ÇµÃµ½¾­Ñé%d£¬Ç±ÄÜ%d£¬ÌìÑÄÍ¨±¦%d¡£\n",
-                ctime(time())[4..19],defender[i]->name(1),defender[i]->query("id"),(int)defender[i]->query("job_time/ÏåÑô¹¥·À"),exp,pot,SJ_Credit));
+                log_file("job/xyjob", sprintf("%s %s(%s)%dæ¬¡å®ˆåŸå¾—åˆ°ç»éªŒ%dï¼Œæ½œèƒ½%dï¼Œå¤©æ¶¯é€šå®%dã€‚\n",
+                ctime(time())[4..19],defender[i]->name(1),defender[i]->query("id"),(int)defender[i]->query("job_time/è¥„é˜³æ”»é˜²"),exp,pot,SJ_Credit));
         }
         remove_call_out("xyjob_5");
 remove_call_out("xyjob_1");
@@ -348,8 +348,8 @@ object me;
 int i;
 int at,df;
 int exp,pot;
-object *attacker = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/attack") :));
-object *defender = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/defend"):));
+object *attacker = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/attack") :));
+object *defender = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/defend"):));
 object target,target1,target2,target3;
 df = sizeof(defender);
 at = sizeof(attacker);
@@ -357,14 +357,14 @@ exp =200;
 pot =exp;
 
 
-message("channel:chat", HIY"¡¾"HIR"ÏµÍ³ÌáÊ¾"HIY"¡¿"HIC"°×»¢ÃÅÒÑ±»ÃÉ¹Å´ó¾ü¹¥ÆÆ£¬ÃÉ¹ÅÏÈ·æ´Ó°×»¢ÃÅ½øÈëÏåÑô£¡\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"ç³»ç»Ÿæç¤º"HIY"ã€‘"HIC"ç™½è™é—¨å·²è¢«è’™å¤å¤§å†›æ”»ç ´ï¼Œè’™å¤å…ˆé”‹ä»ç™½è™é—¨è¿›å…¥è¥„é˜³ï¼\n"NOR,users());
 for(i=0;i<at;i++){
 	attacker[i]->add("combat_exp",exp);
 attacker[i]->add("potential",pot);
-tell_object(attacker[i],HIW"Äã±»½±ÀøÁË£º" +
-		chinese_number(exp) + "µãÊµÕ½¾­Ñé£¬" +
-		chinese_number(pot) + "µãÇ±ÄÜ¡£"+
-		"¼ÓÓÍ°¡£¬ÒÑ¾­Ê¤ÀûÁËÒ»²½ÁË¡£\n"NOR);
+tell_object(attacker[i],HIW"ä½ è¢«å¥–åŠ±äº†ï¼š" +
+		chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒï¼Œ" +
+		chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚"+
+		"åŠ æ²¹å•Šï¼Œå·²ç»èƒœåˆ©äº†ä¸€æ­¥äº†ã€‚\n"NOR);
 
 
 }
@@ -378,8 +378,8 @@ object me;
 int i;
 int at,df;
 int exp,pot;
-object *attacker = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/attack") :));
-object *defender = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/defend"):));
+object *attacker = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/attack") :));
+object *defender = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/defend"):));
 object target,target1,target2,target3;
 df = sizeof(defender);
 at = sizeof(attacker);
@@ -387,14 +387,14 @@ exp =200;
 pot =exp;
 
 
-message("channel:chat", HIY"¡¾"HIR"ÏµÍ³ÌáÊ¾"HIY"¡¿"HIC"ÇàÁúÃÅÒÑ±»ÃÉ¹Å´ó¾ü¹¥ÆÆ£¬ÃÉ¹ÅÏÈ·æ´ÓÇàÁúÃÅ½øÈëÏåÑô£¡\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"ç³»ç»Ÿæç¤º"HIY"ã€‘"HIC"é’é¾™é—¨å·²è¢«è’™å¤å¤§å†›æ”»ç ´ï¼Œè’™å¤å…ˆé”‹ä»é’é¾™é—¨è¿›å…¥è¥„é˜³ï¼\n"NOR,users());
 for(i=0;i<at;i++){
 	attacker[i]->add("combat_exp",exp);
 attacker[i]->add("potential",pot);
-tell_object(attacker[i],HIW"Äã±»½±ÀøÁË£º" +
-		chinese_number(exp) + "µãÊµÕ½¾­Ñé£¬" +
-		chinese_number(pot) + "µãÇ±ÄÜ¡£"+
-		"¼ÓÓÍ°¡£¬ÒÑ¾­Ê¤ÀûÁËÒ»²½ÁË¡£\n"NOR);
+tell_object(attacker[i],HIW"ä½ è¢«å¥–åŠ±äº†ï¼š" +
+		chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒï¼Œ" +
+		chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚"+
+		"åŠ æ²¹å•Šï¼Œå·²ç»èƒœåˆ©äº†ä¸€æ­¥äº†ã€‚\n"NOR);
 
 
 }
@@ -407,8 +407,8 @@ object me;
 int i;
 int at,df;
 int exp,pot;
-object *attacker = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/attack") :));
-object *defender = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/defend"):));
+object *attacker = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/attack") :));
+object *defender = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/defend"):));
 object target,target1,target2,target3;
 df = sizeof(defender);
 at = sizeof(attacker);
@@ -416,14 +416,14 @@ exp =200;
 pot =exp;
 
 
-message("channel:chat", HIY"¡¾"HIR"ÏµÍ³ÌáÊ¾"HIY"¡¿"HIC"ÖìÈ¸ÃÅÒÑ±»ÃÉ¹Å´ó¾ü¹¥ÆÆ£¬ÃÉ¹ÅÏÈ·æ´ÓÖìÈ¸ÃÅ½øÈëÏåÑô£¡\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"ç³»ç»Ÿæç¤º"HIY"ã€‘"HIC"æœ±é›€é—¨å·²è¢«è’™å¤å¤§å†›æ”»ç ´ï¼Œè’™å¤å…ˆé”‹ä»æœ±é›€é—¨è¿›å…¥è¥„é˜³ï¼\n"NOR,users());
 for(i=0;i<at;i++){
 	attacker[i]->add("combat_exp",exp);
 attacker[i]->add("potential",pot);
-tell_object(attacker[i],HIW"Äã±»½±ÀøÁË£º" +
-		chinese_number(exp) + "µãÊµÕ½¾­Ñé£¬" +
-		chinese_number(pot) + "µãÇ±ÄÜ¡£"+
-		"¼ÓÓÍ°¡£¬ÒÑ¾­Ê¤ÀûÁËÒ»²½ÁË¡£\n"NOR);
+tell_object(attacker[i],HIW"ä½ è¢«å¥–åŠ±äº†ï¼š" +
+		chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒï¼Œ" +
+		chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚"+
+		"åŠ æ²¹å•Šï¼Œå·²ç»èƒœåˆ©äº†ä¸€æ­¥äº†ã€‚\n"NOR);
 
 
 }
@@ -438,8 +438,8 @@ object me;
 int i;
 int at,df;
 int exp,pot;
-object *attacker = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/attack") :));
-object *defender = filter_array(users(), (:$1->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/defend"):));
+object *attacker = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/attack") :));
+object *defender = filter_array(users(), (:$1->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/defend"):));
 object target,target1,target2,target3;
 df = sizeof(defender);
 at = sizeof(attacker);
@@ -447,14 +447,14 @@ exp =200;
 pot =exp;
 
 
-message("channel:chat", HIY"¡¾"HIR"ÏµÍ³ÌáÊ¾"HIY"¡¿"HIC"ĞşÎäÃÅÒÑ±»ÃÉ¹Å´ó¾ü¹¥ÆÆ£¬ÃÉ¹ÅÏÈ·æ´ÓĞşÎäÃÅ½øÈëÏåÑô£¡\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"ç³»ç»Ÿæç¤º"HIY"ã€‘"HIC"ç„æ­¦é—¨å·²è¢«è’™å¤å¤§å†›æ”»ç ´ï¼Œè’™å¤å…ˆé”‹ä»ç„æ­¦é—¨è¿›å…¥è¥„é˜³ï¼\n"NOR,users());
 for(i=0;i<at;i++){
 	attacker[i]->add("combat_exp",exp);
 attacker[i]->add("potential",pot);
-tell_object(attacker[i],HIW"Äã±»½±ÀøÁË£º" +
-		chinese_number(exp) + "µãÊµÕ½¾­Ñé£¬" +
-		chinese_number(pot) + "µãÇ±ÄÜ¡£"+
-		"¼ÓÓÍ°¡£¬ÒÑ¾­Ê¤ÀûÁËÒ»²½ÁË¡£\n"NOR);
+tell_object(attacker[i],HIW"ä½ è¢«å¥–åŠ±äº†ï¼š" +
+		chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒï¼Œ" +
+		chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚"+
+		"åŠ æ²¹å•Šï¼Œå·²ç»èƒœåˆ©äº†ä¸€æ­¥äº†ã€‚\n"NOR);
 
 
 }
@@ -465,9 +465,9 @@ void boss_guo()
 {
 // object boss = new("d/hudong/xiangyang/npc/guo");
 object obj;
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"±ãÔÚ´ËÊ±£¬´Ó°×»¢ÃÅ³ÇÂ¥ÉÏÔ¾ÏÂÒ»ÖĞÄêÄĞ×Ó£¬Èç½ÃÁú¾ªÉß°ãÆ®Âäµ±ÏÂ¡£\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"ÖÚÈËÌ§ÑÛ¹Û¿´£¬ÕıÊÇÊØÎÀÏåÑôµÄ¹ù¾¸´óÏÀ£¬Ò»Ê±¼äÃÉ¹Å´ó¾üÈËÈËµ¨º®¡£\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"¹ù¾¸(Guo jing)£ºÃÉ¹Å÷²×ÓĞİÒª²ş¿ñ£¬´ı¹ùÄ³ÈËÓë¶ûµÈ¼û¸ö¸ßµÍ£¡\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"ä¾¿åœ¨æ­¤æ—¶ï¼Œä»ç™½è™é—¨åŸæ¥¼ä¸Šè·ƒä¸‹ä¸€ä¸­å¹´ç”·å­ï¼Œå¦‚çŸ«é¾™æƒŠè›‡èˆ¬é£˜è½å½“ä¸‹ã€‚\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"ä¼—äººæŠ¬çœ¼è§‚çœ‹ï¼Œæ­£æ˜¯å®ˆå«è¥„é˜³çš„éƒ­é–å¤§ä¾ ï¼Œä¸€æ—¶é—´è’™å¤å¤§å†›äººäººèƒ†å¯’ã€‚\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"éƒ­é–(Guo jing)ï¼šè’™å¤é‘å­ä¼‘è¦çŒ–ç‹‚ï¼Œå¾…éƒ­æŸäººä¸å°”ç­‰è§ä¸ªé«˜ä½ï¼\n"NOR,users());
  obj = find_living("guo jing");
     if(!obj || !objectp(obj)) obj= new("d/hudong/xiangyang/npc/guo");
 obj ->move("d/hudong/xiangyang/baihumen");
@@ -477,9 +477,9 @@ void boss_yang()
 {
 
 object obj;
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"±ãÔÚ´ËÊ±£¬´ÓÇàÁúÃÅ³ÇÂ¥ÉÏÔ¾ÏÂÒ»ÇàÄêÄĞ×Ó£¬´óĞäÆ®Æ®ÇáÇáÂäÔÚµ±ÏÂ¡£\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"ÖÚÈË¶¨¾¦¹ÛÇÆ£¬´ËÈËÒ»Ö»Ğä¹Ü¿Õ¿Õµ´µ´£¬Á³ÉÏÓ¢ÎäÆø¸ÅÈ´Ë¿ºÁ²»²î¡£\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"Ñî¹ı(Yang guo)£º¹ù²®²®£¬Ğ¡Ö¶Ñî¹ıÀ´³Ù£¬¾ÍÈÃÎÒÁì½ÌÒ»ÏÂÃÉ¹Å¸ßÊÖµÄ¾ø¼¼£¡\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"ä¾¿åœ¨æ­¤æ—¶ï¼Œä»é’é¾™é—¨åŸæ¥¼ä¸Šè·ƒä¸‹ä¸€é’å¹´ç”·å­ï¼Œå¤§è¢–é£˜é£˜è½»è½»è½åœ¨å½“ä¸‹ã€‚\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"ä¼—äººå®šç›è§‚ç§ï¼Œæ­¤äººä¸€åªè¢–ç®¡ç©ºç©ºè¡è¡ï¼Œè„¸ä¸Šè‹±æ­¦æ°”æ¦‚å´ä¸æ¯«ä¸å·®ã€‚\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"æ¨è¿‡(Yang guo)ï¼šéƒ­ä¼¯ä¼¯ï¼Œå°ä¾„æ¨è¿‡æ¥è¿Ÿï¼Œå°±è®©æˆ‘é¢†æ•™ä¸€ä¸‹è’™å¤é«˜æ‰‹çš„ç»æŠ€ï¼\n"NOR,users());
  obj = find_living("yang guo");
     if(!obj || !objectp(obj)) obj= new("d/hudong/xiangyang/npc/yang");
 obj ->move("d/hudong/xiangyang/qinglongmen");
@@ -489,9 +489,9 @@ void boss_huang()
 {
 
 object obj;
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"³ÇÃÅÆÆÊ±£¬´ÓĞşÎäÃÅ³ÇÂ¥ÉÏ·½Ô¾ÏÂÒ»ÇàÅÛÀÏÈË£¬Ò»Á³Àä¾şÆ®ÂäÂäÔÚµ±ÏÂ¡£\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"ÖÚÈË×ĞÏ¸Ò»¿´£¬´ËÈËÒ»Í·°×·¢Ëæ·çÆ®µ´£¬¸üÍ»ÏÔ³öÀÏ¶øÃÖ¼áµÄÛÇîåÖ®Òâ¡£\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"»ÆÒ©Ê¦(Huang Yaoshi)£º¹ş¹ş¹ş£¬ËØÎÅÃÉ¹ÅÄËÊÇÂùÒÄ´Ö±ÉÖ®ÈË£¬¿´À´ÑÔ²»ÎÒÆÛ£¡\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"åŸé—¨ç ´æ—¶ï¼Œä»ç„æ­¦é—¨åŸæ¥¼ä¸Šæ–¹è·ƒä¸‹ä¸€é’è¢è€äººï¼Œä¸€è„¸å†·å³»é£˜è½è½åœ¨å½“ä¸‹ã€‚\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"ä¼—äººä»”ç»†ä¸€çœ‹ï¼Œæ­¤äººä¸€å¤´ç™½å‘éšé£é£˜è¡ï¼Œæ›´çªæ˜¾å‡ºè€è€Œå¼¥åšçš„çŸé“„ä¹‹æ„ã€‚\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"é»„è¯å¸ˆ(Huang Yaoshi)ï¼šå“ˆå“ˆå“ˆï¼Œç´ é—»è’™å¤ä¹ƒæ˜¯è›®å¤·ç²—é„™ä¹‹äººï¼Œçœ‹æ¥è¨€ä¸æˆ‘æ¬ºï¼\n"NOR,users());
  obj = find_living("yang guo");
     if(!obj || !objectp(obj)) obj= new("d/hudong/xiangyang/npc/huang");
 obj ->move("d/hudong/xiangyang/xuanwumen");
@@ -501,9 +501,9 @@ void boss_huangrong()
 {
 
 object obj;
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"³ÇÃÅ½«ÆÆ£¬´ÓÖìÈ¸ÃÅ³ÇÂ¥ÉÏ·½Ô¾ÏÂÒ»ÇàÄêÅ®×Ó£¬Ò»Éí°×ÒÂ£¬ÊÖ³ÖÖñ°ôÆ®ÂäÔÚµ±ÏÂ¡£\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"ÖÚÈË×ĞÏ¸Ò»¿´£¬ÕıÊÇØ¤°ïÇ°ÈÎ°ïÖ÷ÏåÑô´óÏÀ¹ù¾¸Ö®ÆŞ£¬»ÆÈØ»ÆÅ®ÏÀ£¬½íàş²»ÈÃĞëÃ¼¡£\n"NOR,users());
-message("channel:chat", HIY"¡¾"HIR"ÏåÑôÕ½ÊÂ"HIY"¡¿"HIC"»ÆÈØ(Huang Rong)£º÷²×Ó¸Ò¶û£¡½ñÌì¾ÍÈÃ¶ûµÈ¼ûÊ¶ÖĞÔ­ÎäÁÖºÀ½ÜµÄÓ¢ĞÛÊÖ¶Î£¡\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"åŸé—¨å°†ç ´ï¼Œä»æœ±é›€é—¨åŸæ¥¼ä¸Šæ–¹è·ƒä¸‹ä¸€é’å¹´å¥³å­ï¼Œä¸€èº«ç™½è¡£ï¼Œæ‰‹æŒç«¹æ£’é£˜è½åœ¨å½“ä¸‹ã€‚\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"ä¼—äººä»”ç»†ä¸€çœ‹ï¼Œæ­£æ˜¯ä¸å¸®å‰ä»»å¸®ä¸»è¥„é˜³å¤§ä¾ éƒ­é–ä¹‹å¦»ï¼Œé»„è“‰é»„å¥³ä¾ ï¼Œå·¾å¸¼ä¸è®©é¡»çœ‰ã€‚\n"NOR,users());
+message("channel:chat", HIY"ã€"HIR"è¥„é˜³æˆ˜äº‹"HIY"ã€‘"HIC"é»„è“‰(Huang Rong)ï¼šé‘å­æ•¢å°”ï¼ä»Šå¤©å°±è®©å°”ç­‰è§è¯†ä¸­åŸæ­¦æ—è±ªæ°çš„è‹±é›„æ‰‹æ®µï¼\n"NOR,users());
  obj = find_living("yang guo");
     if(!obj || !objectp(obj)) obj= new("d/hudong/xiangyang/npc/huangrong");
 obj ->move("d/hudong/xiangyang/zhuquemen");

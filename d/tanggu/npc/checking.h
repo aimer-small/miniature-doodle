@@ -1,4 +1,4 @@
-void checking()//¼ì²éÃÀÅ®ºÍÀŞÖ÷ÊÇ·ñÔÚ³¡
+void checking()//æ£€æŸ¥ç¾å¥³å’Œæ“‚ä¸»æ˜¯å¦åœ¨åœº
 { 
 	object me,ob,winner_player,challenge_player,room;
 	object *ob_list;
@@ -8,66 +8,66 @@ void checking()//¼ì²éÃÀÅ®ºÍÀŞÖ÷ÊÇ·ñÔÚ³¡
 	remove_call_out("checking");
 	if(query("station")<2)
 	{
-		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s ³ÌĞòÔËĞĞ´íÎóchecking"NOR,ob->query("name"),ob->query("id")),ob);
+		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s ç¨‹åºè¿è¡Œé”™è¯¯checking"NOR,ob->query("name"),ob->query("id")),ob);
 		return;
 	}
 	if(!ob->query("bwzh/host_player"))
 	{
-		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s ¶ªÊ§ÃÀÅ®Êı¾İchecking"NOR,ob->query("name"),ob->query("id")),ob);
+		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s ä¸¢å¤±ç¾å¥³æ•°æ®checking"NOR,ob->query("name"),ob->query("id")),ob);
 		return;
 	}
 	if(!ob->query("bwzh/winner_player"))
 	{
-		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s ¶ªÊ§ÀŞÖ÷Êı¾İchecking"NOR,ob->query("name"),ob->query("id")),ob);
+		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s ä¸¢å¤±æ“‚ä¸»æ•°æ®checking"NOR,ob->query("name"),ob->query("id")),ob);
 		return;
 	}
 	if (!(room = find_object(query("leitai"))))
 		room = load_object(query("leitai"));
 	if(!room)
 	{
-		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s È±ÉÙ¸üĞÂÎÄ¼şchecking"NOR,ob->query("name"),ob->query("id")),ob);
+		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s ç¼ºå°‘æ›´æ–°æ–‡ä»¶checking"NOR,ob->query("name"),ob->query("id")),ob);
 		return;
 	}
 	if(query("station")>=6)
 	{
-		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s ³ÌĞòÔËĞĞĞŞÕıchecking"NOR,ob->query("name"),ob->query("id")),ob);
+		log_file("quest/zhaoqin",sprintf(HIR"%-8s%-10s ç¨‹åºè¿è¡Œä¿®æ­£checking"NOR,ob->query("name"),ob->query("id")),ob);
 		return;
 	}
 
-	me=ob->query("bwzh/host_player/object");//ÃÀÅ®
+	me=ob->query("bwzh/host_player/object");//ç¾å¥³
 
-	if(!me ||!me->query_temp("quest/bwzh/hoster"))//È±ÉÙÃÀÅ®
+	if(!me ||!me->query_temp("quest/bwzh/hoster"))//ç¼ºå°‘ç¾å¥³
 	{
 		command("bite");
-		command("say "+ob->query("bwzh/host_player/name")+"¿ÉÄÜÀë¿ªÁË¡£¿´À´±ÈÈüÖ»ÄÜÖĞÖ¹ÁË¡£");
-		CHANNEL_D->do_channel(this_object(),"chat",HIY+"ÒòÎª"+ob->query("bwzh/host_player/name")+"("+capitalize(ob->query("bwzh/host_player/id"))+")Àë¿ªÏÖ³¡£¬±ÈÎäÕĞÇ×±»ÆÈÈ¡Ïû£¡"NOR);
+		command("say "+ob->query("bwzh/host_player/name")+"å¯èƒ½ç¦»å¼€äº†ã€‚çœ‹æ¥æ¯”èµ›åªèƒ½ä¸­æ­¢äº†ã€‚");
+		CHANNEL_D->do_channel(this_object(),"chat",HIY+"å› ä¸º"+ob->query("bwzh/host_player/name")+"("+capitalize(ob->query("bwzh/host_player/id"))+")ç¦»å¼€ç°åœºï¼Œæ¯”æ­¦æ‹›äº²è¢«è¿«å–æ¶ˆï¼"NOR);
 		command("chat* shrug");
-		if(!me) log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s ÃÀÅ®²»ÔÚÁ¬Ïßchecking"NOR,ob->query("bwzh/host_player/name"),ob->query("bwzh/host_player/id")),ob);
-		else log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s ÃÀÅ®Àë¿ªÏÖ³¡checking"NOR,ob->query("bwzh/host_player/name"),ob->query("bwzh/host_player/id")),ob);
+		if(!me) log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s ç¾å¥³ä¸åœ¨è¿çº¿checking"NOR,ob->query("bwzh/host_player/name"),ob->query("bwzh/host_player/id")),ob);
+		else log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s ç¾å¥³ç¦»å¼€ç°åœºchecking"NOR,ob->query("bwzh/host_player/name"),ob->query("bwzh/host_player/id")),ob);
         
 		ob_list = filter_array(children(BIWU_USER), (: clonep :));
 		for(i=0; i<sizeof(ob_list); i++) 
 		{
-			log_file("quest/zhaoqin",sprintf(HIC"%-8s%-10s ±ÈÎäÕĞÇ×ÖĞÖ¹checking"NOR,ob_list[i]->query("name"),ob_list[i]->query("id")),ob_list[i]);
+			log_file("quest/zhaoqin",sprintf(HIC"%-8s%-10s æ¯”æ­¦æ‹›äº²ä¸­æ­¢checking"NOR,ob_list[i]->query("name"),ob_list[i]->query("id")),ob_list[i]);
 			ob_list[i]->quit(ob_list[i]);
 		}
 
 		if(winner_player=ob->query("bwzh/winner_player/object"))
 		{
-			tell_object(winner_player,HIR""+ob->query("bwzh/host_player/name")+"¾¹È»Àë¿ªÏÖ³¡£¡ÕĞÇ×ÖĞÖ¹£¡\n"NOR);
-			log_file("quest/zhaoqin",sprintf("%-8s%-10s ÍË³ö±ÈÎäÕĞÇ×checking",winner_player->query("name"),winner_player->query("id")),winner_player);
+			tell_object(winner_player,HIR""+ob->query("bwzh/host_player/name")+"ç«Ÿç„¶ç¦»å¼€ç°åœºï¼æ‹›äº²ä¸­æ­¢ï¼\n"NOR);
+			log_file("quest/zhaoqin",sprintf("%-8s%-10s é€€å‡ºæ¯”æ­¦æ‹›äº²checking",winner_player->query("name"),winner_player->query("id")),winner_player);
 		}
 
 		if(challenge_player=ob->query("bwzh/challenge_player/object"))
 		{
-			tell_object(challenge_player,HIR""+ob->query("bwzh/host_player/name")+"¾¹È»Àë¿ªÏÖ³¡£¡ÕĞÇ×ÖĞÖ¹£¡\n"NOR);
-			log_file("quest/zhaoqin",sprintf("%-8s%-10s ÍË³ö±ÈÎäÕĞÇ×checking",challenge_player->query("name"),challenge_player->query("id")),challenge_player);
+			tell_object(challenge_player,HIR""+ob->query("bwzh/host_player/name")+"ç«Ÿç„¶ç¦»å¼€ç°åœºï¼æ‹›äº²ä¸­æ­¢ï¼\n"NOR);
+			log_file("quest/zhaoqin",sprintf("%-8s%-10s é€€å‡ºæ¯”æ­¦æ‹›äº²checking",challenge_player->query("name"),challenge_player->query("id")),challenge_player);
 		}
 
 		if(me)
 		{
-			tell_object(me,HIR"ÄãÒòÎªÔÚ¡¸±ÈÎäÕĞÇ×¡¹ÖĞÎŞ¹ÊÀë¿ªÏÖ³¡£¬¶ø±»¿Û³ıÁËÊ®Íòµã¾­Ñé£¡\n"NOR);
-			log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s ËğÊ§Ê®Íò¾­Ñéchecking"NOR,me->query("name"),me->query("id")),me);
+			tell_object(me,HIR"ä½ å› ä¸ºåœ¨ã€Œæ¯”æ­¦æ‹›äº²ã€ä¸­æ— æ•…ç¦»å¼€ç°åœºï¼Œè€Œè¢«æ‰£é™¤äº†åä¸‡ç‚¹ç»éªŒï¼\n"NOR);
+			log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s æŸå¤±åä¸‡ç»éªŒchecking"NOR,me->query("name"),me->query("id")),me);
 			me->add("combat_exp",-100000);
 		}
 		init_over();
@@ -79,17 +79,17 @@ void checking()//¼ì²éÃÀÅ®ºÍÀŞÖ÷ÊÇ·ñÔÚ³¡
 	if(!winner_player || !winner_player->query_temp("quest/bwzh/biwu_host"))
 	{
 		command("smash");
-		command("say "+ob->query("bwzh/winner_player/name")+"ÔõÃ´Àë¿ªÕâÀïÁË£¿¿´À´ÀŞÖ÷ĞèÒª¸ü»»ÁË¡£");
-		CHANNEL_D->do_channel(this_object(),"chat",HIY+"ÒòÎª"+ob->query("bwzh/winner_player/name")+"("+capitalize(ob->query("bwzh/winner_player/id"))+")µÄÈ±Ï¯£¬ÀŞÖ÷×Ê¸ñÈ¡Ïû£¡"+me->query("name")+"ÖØĞÂµ£ÈÎÀŞÖ÷£¡"NOR);
+		command("say "+ob->query("bwzh/winner_player/name")+"æ€ä¹ˆç¦»å¼€è¿™é‡Œäº†ï¼Ÿçœ‹æ¥æ“‚ä¸»éœ€è¦æ›´æ¢äº†ã€‚");
+		CHANNEL_D->do_channel(this_object(),"chat",HIY+"å› ä¸º"+ob->query("bwzh/winner_player/name")+"("+capitalize(ob->query("bwzh/winner_player/id"))+")çš„ç¼ºå¸­ï¼Œæ“‚ä¸»èµ„æ ¼å–æ¶ˆï¼"+me->query("name")+"é‡æ–°æ‹…ä»»æ“‚ä¸»ï¼"NOR);
 		command("chat* addoil "+me->query("id"));
-		if(!winner_player) log_file("quest/zhaoqin",sprintf(HIC"%-8s%-10s ÀëÏßÀŞÖ÷»»ÈËchecking"NOR,ob->query("bwzh/winner_player/name"),ob->query("bwzh/winner_player/id")),ob);
-		else log_file("quest/zhaoqin",sprintf(HIC"%-8s%-10s ²»ÔÚÀŞÖ÷»»ÈËchecking"NOR,ob->query("bwzh/winner_player/name"),ob->query("bwzh/winner_player/id")),ob);
+		if(!winner_player) log_file("quest/zhaoqin",sprintf(HIC"%-8s%-10s ç¦»çº¿æ“‚ä¸»æ¢äººchecking"NOR,ob->query("bwzh/winner_player/name"),ob->query("bwzh/winner_player/id")),ob);
+		else log_file("quest/zhaoqin",sprintf(HIC"%-8s%-10s ä¸åœ¨æ“‚ä¸»æ¢äººchecking"NOR,ob->query("bwzh/winner_player/name"),ob->query("bwzh/winner_player/id")),ob);
 		
 		ob_list = filter_array(children(BIWU_USER), (: clonep :));
 		for(i=0; i<sizeof(ob_list); i++) 
 		{
-			tell_object(ob_list[i],HIR"ÀŞÖ÷ÕıÔÚ±ä»¯ÖĞ¡£¡£¡£¡£¡£¡££¡±ÈÈüÔİÊ±ÖĞÖ¹£¡\n"NOR);
-			log_file("quest/zhaoqin",sprintf(HIC"%-8s%-10s ±ÈÎäÕĞÇ×ÖĞÖ¹checking"NOR,ob_list[i]->query("name"),ob_list[i]->query("id")),ob_list[i]);
+			tell_object(ob_list[i],HIR"æ“‚ä¸»æ­£åœ¨å˜åŒ–ä¸­ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ï¼æ¯”èµ›æš‚æ—¶ä¸­æ­¢ï¼\n"NOR);
+			log_file("quest/zhaoqin",sprintf(HIC"%-8s%-10s æ¯”æ­¦æ‹›äº²ä¸­æ­¢checking"NOR,ob_list[i]->query("name"),ob_list[i]->query("id")),ob_list[i]);
 			ob_list[i]->quit(ob_list[i]);
 		}
         
@@ -98,30 +98,30 @@ void checking()//¼ì²éÃÀÅ®ºÍÀŞÖ÷ÊÇ·ñÔÚ³¡
 			challenge_player->delete_temp("quest/bwzh");
 			challenge_player->delete_temp("quest/busy");
 			challenge_player->delete_temp("apply/short");  
-			tell_object(challenge_player,HIR"Í¨Öª£º"+ob->query("bwzh/winner_player/name")+"²»ÔÙµ£ÈÎÀŞÖ÷£¬"+me->query("name")+"ÖØĞÂµ£ÈÎÀŞÖ÷£¡±ÈÈü¼ÌĞø£¡\n"NOR);
-			log_file("quest/zhaoqin",sprintf("%-8s%-10s Í¨Öª¸ü»»ÀŞÖ÷checking",challenge_player->query("name"),challenge_player->query("id")),challenge_player);
+			tell_object(challenge_player,HIR"é€šçŸ¥ï¼š"+ob->query("bwzh/winner_player/name")+"ä¸å†æ‹…ä»»æ“‚ä¸»ï¼Œ"+me->query("name")+"é‡æ–°æ‹…ä»»æ“‚ä¸»ï¼æ¯”èµ›ç»§ç»­ï¼\n"NOR);
+			log_file("quest/zhaoqin",sprintf("%-8s%-10s é€šçŸ¥æ›´æ¢æ“‚ä¸»checking",challenge_player->query("name"),challenge_player->query("id")),challenge_player);
 		}
 		
-		tell_object(me,HIR"Í¨Öª£º"+ob->query("bwzh/winner_player/name")+"²»ÔÙµ£ÈÎÀŞÖ÷£¬ÄãÖØĞÂµ£ÈÎÀŞÖ÷£¡±ÈÈü¼ÌĞø£¡\n"NOR);
+		tell_object(me,HIR"é€šçŸ¥ï¼š"+ob->query("bwzh/winner_player/name")+"ä¸å†æ‹…ä»»æ“‚ä¸»ï¼Œä½ é‡æ–°æ‹…ä»»æ“‚ä¸»ï¼æ¯”èµ›ç»§ç»­ï¼\n"NOR);
 
 		if(winner_player)
 		{
 			winner_player->delete_temp("quest/bwzh");
 			winner_player->delete_temp("quest/busy");
 			winner_player->delete_temp("apply/short");  
-			tell_object(winner_player,HIR"ÄãÒòÎªÔÚ¡¸±ÈÎäÕĞÇ×¡¹ÖĞÎŞ¹ÊÀë¿ª£¬¶ø±»¿Û³ıÁËÊ®Íòµã¾­Ñé£¡\n"NOR);
-			log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s ËğÊ§Ê®Íò¾­Ñéchecking"NOR,winner_player->query("name"),winner_player->query("id")),winner_player);
+			tell_object(winner_player,HIR"ä½ å› ä¸ºåœ¨ã€Œæ¯”æ­¦æ‹›äº²ã€ä¸­æ— æ•…ç¦»å¼€ï¼Œè€Œè¢«æ‰£é™¤äº†åä¸‡ç‚¹ç»éªŒï¼\n"NOR);
+			log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s æŸå¤±åä¸‡ç»éªŒchecking"NOR,winner_player->query("name"),winner_player->query("id")),winner_player);
 			winner_player->add("combat_exp",-100000);
 		}
 
-		ob->set("bwzh/winner_player/name",me->query("name"));//¸ü»»ÀŞÖ÷
+		ob->set("bwzh/winner_player/name",me->query("name"));//æ›´æ¢æ“‚ä¸»
 		ob->set("bwzh/winner_player/id",me->query("id"));
 		ob->set("bwzh/winner_player/object",me);
 
-		me->set_temp("quest/bwzh/biwu_host",1);//ÀŞÖ÷±êÖ¾
-		me->set_temp("apply/short", ({me->name()+"("+me->query("id")+")"YEL" <±ÈÎäÕĞÇ×ÖĞ£¨ÀŞÖ÷£©> "NOR}));
+		me->set_temp("quest/bwzh/biwu_host",1);//æ“‚ä¸»æ ‡å¿—
+		me->set_temp("apply/short", ({me->name()+"("+me->query("id")+")"YEL" <æ¯”æ­¦æ‹›äº²ä¸­ï¼ˆæ“‚ä¸»ï¼‰> "NOR}));
 		ob->set("station",3);
-		log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s ÖØĞÂ±ä³ÉÀŞÖ÷checking"NOR,me->query("name"),me->query("id")),me);
+		log_file("quest/zhaoqin",sprintf(HIY"%-8s%-10s é‡æ–°å˜æˆæ“‚ä¸»checking"NOR,me->query("name"),me->query("id")),me);
 	}
     call_out("checking",1);
 }

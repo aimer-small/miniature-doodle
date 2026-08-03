@@ -12,7 +12,7 @@ void do_quit(object, int);
 void create()
 {
 	seteuid(getuid());
-	set("channel_id", "ÀëÏßÖ¸Áî");
+	set("channel_id", "ç¦»çº¿æŒ‡ä»¤");
 }
 
 int main(object me, string arg)
@@ -22,7 +22,7 @@ int main(object me, string arg)
 
 	if (me->query_temp("quit") > uptime())
 	{
-		return notify_fail("ÕıÔÚÍË³ö¹ı³ÌÖĞ£¬ÇëÉÔºò¡£\n");
+		return notify_fail("æ­£åœ¨é€€å‡ºè¿‡ç¨‹ä¸­ï¼Œè¯·ç¨å€™ã€‚\n");
 	}
 
 	link_ob = me->query_temp("link_ob");
@@ -33,49 +33,49 @@ int main(object me, string arg)
 		// Are we possessing in others body ?
 		if (link_ob->is_character()) 
 		{
-			write("ÄãµÄ»êÆÇ»Øµ½" + link_ob->name(1) + "µÄÉíÉÏ¡£\n");
+			write("ä½ çš„é­‚é­„å›åˆ°" + link_ob->name(1) + "çš„èº«ä¸Šã€‚\n");
 			exec(link_ob, me);
 			link_ob->setup();
 			return 1;
 		}
 	}
-	//±íÊ¾Ö»ÓĞÔÚ¶ÏÏß20·ÖÖÓÄÚ²Å»áÈ¥Ö´ĞĞÕâ¸ö
+	//è¡¨ç¤ºåªæœ‰åœ¨æ–­çº¿20åˆ†é’Ÿå†…æ‰ä¼šå»æ‰§è¡Œè¿™ä¸ª
 	if ((time()-me->query_temp("netdead")) < 1200)
 	{
-	//·ÀÖ¹ÀûÓÃwmpcmd À´quit
+	//é˜²æ­¢åˆ©ç”¨wmpcmd æ¥quit
 
 		if (me->query_condition("killer")&&!wiz_level(me))
 		{
-			return notify_fail("Äà°ÍÊÀ½çµÄÍ¨¼©·¸²»¿ÉÒÔ¶ã±Üµ½ÏÖÊµÉú»îÖĞÈ¥¡£\n");
+			return notify_fail("æ³¥å·´ä¸–ç•Œçš„é€šç¼‰çŠ¯ä¸å¯ä»¥èº²é¿åˆ°ç°å®ç”Ÿæ´»ä¸­å»ã€‚\n");
 		}
             if (me->query_condition("no_quit"))
-                   return notify_fail("Äà°ÍÊÀ½çµÄÕ½ÕùÉĞÎ´½áÊø£¬²»¿ÉÒÔ¶ã±Üµ½ÏÖÊµÉú»îÖĞÈ¥¡£\n");
+                   return notify_fail("æ³¥å·´ä¸–ç•Œçš„æˆ˜äº‰å°šæœªç»“æŸï¼Œä¸å¯ä»¥èº²é¿åˆ°ç°å®ç”Ÿæ´»ä¸­å»ã€‚\n");
 		if (me->is_busy())
 		{
-			return notify_fail("ÄãÏÖÔÚÕıÃ¦×Å×öÆäËûÊÂ£¬²»ÄÜÍË³öÓÎÏ·£¡\n");
+			return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€åšå…¶ä»–äº‹ï¼Œä¸èƒ½é€€å‡ºæ¸¸æˆï¼\n");
 		}
 		if (me->is_fighting())
 		{
-			return notify_fail("ÄãÏÖÔÚÕıÔÚÕ½¶·£¬²»ÄÜÍË³öÓÎÏ·£¡\n");
+			return notify_fail("ä½ ç°åœ¨æ­£åœ¨æˆ˜æ–—ï¼Œä¸èƒ½é€€å‡ºæ¸¸æˆï¼\n");
 		}
-	//end ,¶Ô	¶ÏÏßÓ¦¸ÃÃ»ÓĞ½øĞĞ interactive ÅĞ¶ÏÁË,ÍµÀÁÒ»ÏÂ
+	//end ,å¯¹	æ–­çº¿åº”è¯¥æ²¡æœ‰è¿›è¡Œ interactive åˆ¤æ–­äº†,å·æ‡’ä¸€ä¸‹
 	}
 	//this_player(1) == me &&  kick it 	
 	if (this_player() && interactive(me)) 
 	{
 		if (me->query_condition("killer")&&!wiz_level(me))
 		{
-			return notify_fail("Äà°ÍÊÀ½çµÄÍ¨¼©·¸²»¿ÉÒÔ¶ã±Üµ½ÏÖÊµÉú»îÖĞÈ¥¡£\n");
+			return notify_fail("æ³¥å·´ä¸–ç•Œçš„é€šç¼‰çŠ¯ä¸å¯ä»¥èº²é¿åˆ°ç°å®ç”Ÿæ´»ä¸­å»ã€‚\n");
 		}
              if (me->query_condition("no_quit"))
-                    return notify_fail("Äà°ÍÊÀ½çµÄÕ½ÕùÉĞÎ´½áÊø£¬²»¿ÉÒÔ¶ã±Üµ½ÏÖÊµÉú»îÖĞÈ¥¡£\n");
+                    return notify_fail("æ³¥å·´ä¸–ç•Œçš„æˆ˜äº‰å°šæœªç»“æŸï¼Œä¸å¯ä»¥èº²é¿åˆ°ç°å®ç”Ÿæ´»ä¸­å»ã€‚\n");
 		if (me->is_busy())
 		{
-			return notify_fail("ÄãÏÖÔÚÕıÃ¦×Å×öÆäËûÊÂ£¬²»ÄÜÍË³öÓÎÏ·£¡\n");
+			return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€åšå…¶ä»–äº‹ï¼Œä¸èƒ½é€€å‡ºæ¸¸æˆï¼\n");
 		}
 		if (me->is_fighting())
 		{
-			return notify_fail("ÄãÏÖÔÚÕıÔÚÕ½¶·£¬²»ÄÜÍË³öÓÎÏ·£¡\n");
+			return notify_fail("ä½ ç°åœ¨æ­£åœ¨æˆ˜æ–—ï¼Œä¸èƒ½é€€å‡ºæ¸¸æˆï¼\n");
 		}
 	} 
 	else 
@@ -95,7 +95,7 @@ int main(object me, string arg)
 	}
 	if (me->query("combat_exp") < 100000 && me->query("combat_exp") > 3000 )
 	{
-		write("ÒòÎªÄãµ±Ç°µÄ¾­ÑéÖµĞ¡ÓÚ 100000£¬ËùÒÔÏÂ´ÎÁ¬Ïß»áÔÚÑïÖİ±¦²ı¿ÍÕ»¡£\n");
+		write("å› ä¸ºä½ å½“å‰çš„ç»éªŒå€¼å°äº 100000ï¼Œæ‰€ä»¥ä¸‹æ¬¡è¿çº¿ä¼šåœ¨æ‰¬å·å®æ˜Œå®¢æ ˆã€‚\n");
 		me->set("startroom", "/d/city/kedian");	
 	}
 	if ( getuid(me) == "mastera")
@@ -107,12 +107,12 @@ int main(object me, string arg)
 
 	CHANNEL_D->do_channel(this_object(), 
 		wiz_level(me)?"wiz":"sys", 
-		me->short() + NOR " ×¼±¸Àë¿ªÓÎÏ·ÁË¡£");
+		me->short() + NOR " å‡†å¤‡ç¦»å¼€æ¸¸æˆäº†ã€‚");
 
 	if (!flag && !wizardp(me) && env 
 		&& !env->query("valid_startroom")) 
 	{
-		write("ÕıÔÚÍË³öÓÎÏ·¡­¡­\n");
+		write("æ­£åœ¨é€€å‡ºæ¸¸æˆâ€¦â€¦\n");
 		me->delete_temp("combat_yield");
 		call_out("do_quit", 3, me, 100);
 	} 
@@ -153,7 +153,7 @@ void do_quit(object me, int t)
 	|| me->query("jingli") < 0
 	|| me->query_condition("killer"))) 
 	{
-		message("channel", "ÒòÎªÄúµ±Ç°µÄ×´Ì¬²»ÎÈ¶¨£¬ÍË³ö¹ı³Ì×Ô¶¯ÖÕÖ¹¡£\n", me);
+		message("channel", "å› ä¸ºæ‚¨å½“å‰çš„çŠ¶æ€ä¸ç¨³å®šï¼Œé€€å‡ºè¿‡ç¨‹è‡ªåŠ¨ç»ˆæ­¢ã€‚\n", me);
 		me->delete_temp("quit");
 		return;
 	}
@@ -197,23 +197,23 @@ void do_quit(object me, int t)
 	IRC_CMD->main(me, "/leaveall");
 
 	i = uptime()-me->query_temp("time");
-	tell_object(me, HIW"\n¡¼Êé½£¡½£º"NOR"Äú±¾´Î×Ü¹²ÔÚÏß" 
-		+ CHINESE_D->chinese_time(i) + "¡£\n");
+	tell_object(me, HIW"\nã€–ä¹¦å‰‘ã€—ï¼š"NOR"æ‚¨æœ¬æ¬¡æ€»å…±åœ¨çº¿" 
+		+ CHINESE_D->chinese_time(i) + "ã€‚\n");
 	j = me->query("combat_exp") - me->query_temp("combat_exp");
-	tell_object(me, "\t  ¾­ÑéÖµ"
-		+(j<0?"¼õÉÙÁË" + (-j) + "µã": j > 0?"Ôö¼ÓÁË" + j +"µã":"Ã»ÓĞ±ä¶¯")+"¡£\n");
+	tell_object(me, "\t  ç»éªŒå€¼"
+		+(j<0?"å‡å°‘äº†" + (-j) + "ç‚¹": j > 0?"å¢åŠ äº†" + j +"ç‚¹":"æ²¡æœ‰å˜åŠ¨")+"ã€‚\n");
 
 	me->update_age();
 /*
 	if (me->query("online_total") > 70200)
-		tell_object(me, "\t  Äú×îºÃĞİÏ¢"
+		tell_object(me, "\t  æ‚¨æœ€å¥½ä¼‘æ¯"
 			+CHINESE_D->chinese_time(me->query("online_total")/3+3600)
-			+"ÔÙÀ´£¡\n");
+			+"å†æ¥ï¼\n");
 	else
-*/	tell_object(me, "\t  »¶Ó­ÄúÏÂ´ÎÔÙÀ´£¡\n");
+*/	tell_object(me, "\t  æ¬¢è¿æ‚¨ä¸‹æ¬¡å†æ¥ï¼\n");
 
 	if (i > 600 && !wizardp(me) && me->query_temp("robottest") <= me->query_temp("time")) 
-	{	// Èç¹ûÃ»ÓĞÊÜµ½¹ı»úÆ÷ÈË¼ì²é
+	{	// å¦‚æœæ²¡æœ‰å—åˆ°è¿‡æœºå™¨äººæ£€æŸ¥
 		if (me->add("no_robot_check", 1) > 1) 
 		{
 //			me->add("online_total", 3600);
@@ -227,16 +227,16 @@ void do_quit(object me, int t)
 
 	if (!wizardp(me) || !me->query("env/invisibility"))
 	{
-		message("system", me->name() + "Àë¿ªÓÎÏ·¡£\n", environment(me), me);
+		message("system", me->name() + "ç¦»å¼€æ¸¸æˆã€‚\n", environment(me), me);
 	}
 
 	CHANNEL_D->do_channel(this_object(), 
-		wiz_level(me)?"wiz":"sys", me->short(1) + NOR " Àë¿ªÓÎÏ·ÁË¡£");
+		wiz_level(me)?"wiz":"sys", me->short(1) + NOR " ç¦»å¼€æ¸¸æˆäº†ã€‚");
 
 	log_file("USAGE",
-		sprintf("%-19s%sÍË³ö\n",
+		sprintf("%-19s%sé€€å‡º\n",
 		me->query("name")+"("+capitalize(""+me->query("id"))+")",
-		interactive(me)?"":"¶ÏÏß"), me);
+		interactive(me)?"":"æ–­çº¿"), me);
 	
 	if (link_ob = me->query_temp("link_ob")) 
 	{
@@ -253,7 +253,7 @@ void do_quit(object me, int t)
 		&& (j = (me->query("combat_exp") - me->query_temp("combat_exp"))*60 / i) > 6000)
 	{
 		log_file("static/EXP",
-			sprintf("%s ÉÏ´Î¾­Ñé£º%d£¬±¾´Î¾­Ñé£º%d£¬Æ½¾ù£º%d/Ğ¡Ê±£¬ÉÏÏßÊ±¼äÎª %d ·Ö¡£\n",
+			sprintf("%s ä¸Šæ¬¡ç»éªŒï¼š%dï¼Œæœ¬æ¬¡ç»éªŒï¼š%dï¼Œå¹³å‡ï¼š%d/å°æ—¶ï¼Œä¸Šçº¿æ—¶é—´ä¸º %d åˆ†ã€‚\n",
 			geteuid(me), me->query_temp("combat_exp"),
 			me->query("combat_exp"), j, i));
 	}
@@ -262,7 +262,7 @@ void do_quit(object me, int t)
 		&& (j = (me->query("combat_exp") - me->query_temp("combat_exp"))*60 / i) > 6000)
 	{
 		log_file("static/new_EXP",
-			sprintf("%s ÉÏ´Î¾­Ñé£º%d£¬±¾´Î¾­Ñé£º%d£¬Æ½¾ù£º%d/Ğ¡Ê±£¬ÉÏÏßÊ±¼äÎª %d ·Ö¡£\n",
+			sprintf("%s ä¸Šæ¬¡ç»éªŒï¼š%dï¼Œæœ¬æ¬¡ç»éªŒï¼š%dï¼Œå¹³å‡ï¼š%d/å°æ—¶ï¼Œä¸Šçº¿æ—¶é—´ä¸º %d åˆ†ã€‚\n",
 			geteuid(me), me->query_temp("combat_exp"),
 			me->query("combat_exp"), j, i));
 	}
@@ -276,9 +276,9 @@ void do_quit(object me, int t)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : quit
+æŒ‡ä»¤æ ¼å¼ : quit
 
-µ±ÄãÏëÔİÊ±Àë¿ªÓÎÏ·Ê±, ¿ÉÀûÓÃ´ËÖ¸Áî¡£
+å½“ä½ æƒ³æš‚æ—¶ç¦»å¼€æ¸¸æˆæ—¶, å¯åˆ©ç”¨æ­¤æŒ‡ä»¤ã€‚
 HELP
     );
     return 1;

@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("Öì³¤Áä", ({"zhu changling", "zhu"}));
-	set("title", HIR"ºìÃ·É½×¯×¯Ö÷"NOR);
-	set("gender", "ÄÐÐÔ");
+	set_name("æœ±é•¿é¾„", ({"zhu changling", "zhu"}));
+	set("title", HIR"çº¢æ¢…å±±åº„åº„ä¸»"NOR);
+	set("gender", "ç”·æ€§");
 	set("age", 45);
         set("unique", 1);
 

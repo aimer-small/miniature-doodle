@@ -1,18 +1,18 @@
-// /d/xiangyang/feizhai.c ��լ
+// /d/xiangyang/feizhai.c 废宅
 // Lklv 2001.9.26
 
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short", "��լ");
+        set("short", "废宅");
         set("long", @LONG
-����һ���ķϵ�լԺ��Ժ���ﳤ������ݺͲ�֪���ĸ��ֵͰ���ľ�ԡ���
-���Ļ���ǽ�ưܲ����������深�����ֵĽֵ��γ������ĶԱȡ�����ƽ��û��
-ʲô���������˽л�������Ϣ�ĵط���
+这是一个荒废的宅院，院子里长满了青草和不知名的各种低矮灌木丛。崩
+塌的黄土墙破败不堪，和外面繁华热闹的街道形成鲜明的对比。这里平常没有
+什么人来，成了叫化子们休息的地方。
 LONG
         );
-        set("outdoors", "����");
+        set("outdoors", "襄阳");
         set("xyjob", 1);
         set("exits", ([
                 "west" : __DIR__"dcx1",

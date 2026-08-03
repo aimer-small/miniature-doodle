@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIC"ĞİÏ¢ÊÒ"NOR);
+	set("short",HIC"ä¼‘æ¯å®¤"NOR);
 	set("long", @LONG
-ÕâÀïÊÇ¹ÅÄ¹µÜ×ÓµÄĞİÏ¢ÊÒ£¬·¿ÖĞ¿Õ¿Õ¶´¶´£¬Ò»Èç¹ÅÄ¹ÎŞÒì¡£Ò»¿é³¤ÌõÇàÊ¯
-×÷´²£¬´²ÉÏÆÌÁËÕÅ²İÏ¯£¬Ò»·ù°×²¼µ±×÷±¡±»£¬´ËÍâ³ıÁËÒ»¸ùÈË¸ßµÄÉşË÷ºá¹ıÊÒ
-ÖĞ£¬±ğÎŞËûÎï¡£
+è¿™é‡Œæ˜¯å¤å¢“å¼Ÿå­çš„ä¼‘æ¯å®¤ï¼Œæˆ¿ä¸­ç©ºç©ºæ´æ´ï¼Œä¸€å¦‚å¤å¢“æ— å¼‚ã€‚ä¸€å—é•¿æ¡é’çŸ³
+ä½œåºŠï¼ŒåºŠä¸Šé“ºäº†å¼ è‰å¸­ï¼Œä¸€å¹…ç™½å¸ƒå½“ä½œè–„è¢«ï¼Œæ­¤å¤–é™¤äº†ä¸€æ ¹äººé«˜çš„ç»³ç´¢æ¨ªè¿‡å®¤
+ä¸­ï¼Œåˆ«æ— ä»–ç‰©ã€‚
 LONG        );
 
 	set("exits", ([
@@ -24,7 +24,7 @@ LONG        );
 	set("sleep_room", 1);
 	set("no_fight", 1);
 
-	create_door("north", "Ê¯ÃÅ", "south", DOOR_CLOSED);
+	create_door("north", "çŸ³é—¨", "south", DOOR_CLOSED);
 	setup();
 }
 
@@ -40,28 +40,28 @@ int do_zuo(string arg)
 	mapping fam;
 	object me = this_player();
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÈçºÎÄÜÁìÎò¹ÅÄ¹Îä¹¦£¿\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œå¦‚ä½•èƒ½é¢†æ‚Ÿå¤å¢“æ­¦åŠŸï¼Ÿ\n");
 	if (arg == "bed"){
 		if (me->query("jing") < 20 )
-			return notify_fail("ÄãµÄ¾«Ì«ÉÙ£¬ÎŞ·¨µÖÓùÑÏº®¡£\n");
+			return notify_fail("ä½ çš„ç²¾å¤ªå°‘ï¼Œæ— æ³•æŠµå¾¡ä¸¥å¯’ã€‚\n");
 		if (me->query("potential", 1) < 1)
-			return notify_fail("ÄãµÄÇ±ÄÜÃ»ÁË£¬²»ÄÜÔÙ¼ÌĞøĞŞÏ°ÁË\n");
-		write(HIC"Äã³¤ÎüÒ»¿ÚÆø£¬Íùº®Óñ´²ÉÏÅÌÍÈ¶ø×ø¡£\n"NOR);
+			return notify_fail("ä½ çš„æ½œèƒ½æ²¡äº†ï¼Œä¸èƒ½å†ç»§ç»­ä¿®ä¹ äº†\n");
+		write(HIC"ä½ é•¿å¸ä¸€å£æ°”ï¼Œå¾€å¯’ç‰åºŠä¸Šç›˜è…¿è€Œåã€‚\n"NOR);
 		if (me->query_skill("force", 1) < 10) {
-			message_vision(HIR"$N»¹Î´×øÎÈ,¾Í¹Ö½ĞÒ»Éù, ´Ó´²ÉÏÌøÁËÏÂÀ´£¬Ïë±ØÊÇÊÜ²»ÁËÇ§Äê¹ÅÓñÖ®º®Æø¡£\n"NOR, me);
+			message_vision(HIR"$Nè¿˜æœªåç¨³,å°±æ€ªå«ä¸€å£°, ä»åºŠä¸Šè·³äº†ä¸‹æ¥ï¼Œæƒ³å¿…æ˜¯å—ä¸äº†åƒå¹´å¤ç‰ä¹‹å¯’æ°”ã€‚\n"NOR, me);
 			return 1;
 		}
 		if (me->query_skill("yunu-xinjing", 1) > 50)
-			return notify_fail("ÄãµÄÓñÅ®ĞÄ¾­ÒÑÓĞÏàµ±»ğºñ,º®Óñ´²²»ÄÜÔÙÖúÄãĞŞÏ°ÄÚ¹¦ÁË¡£\n");
+			return notify_fail("ä½ çš„ç‰å¥³å¿ƒç»å·²æœ‰ç›¸å½“ç«åš,å¯’ç‰åºŠä¸èƒ½å†åŠ©ä½ ä¿®ä¹ å†…åŠŸäº†ã€‚\n");
                 me->receive_damage("jing", 120 / (int)me->query("int"));
 		me->add("potential", -1);
-		write("½è×Åº®Óñ´²Ö®ÌìÈ»ÉñĞ§£¬ÕæÆø×ÔÈ»Á÷¶¯£¬Äã¿ªÊ¼ĞŞÏ°ÄÚ¹¦ĞÄ·¨£¬µ±ÕæÁéÑéÎŞ±È¡£ \n"NOR);
+		write("å€Ÿç€å¯’ç‰åºŠä¹‹å¤©ç„¶ç¥æ•ˆï¼ŒçœŸæ°”è‡ªç„¶æµåŠ¨ï¼Œä½ å¼€å§‹ä¿®ä¹ å†…åŠŸå¿ƒæ³•ï¼Œå½“çœŸçµéªŒæ— æ¯”ã€‚ \n"NOR);
                 me->improve_skill("yunu-xinjing", me->query_int()* 3/2 + random(me->query_int() * 2));
 		return 1;
 	}
-	return notify_fail("ÄãÒª×øÔÚÄÄÀï? \n");
+	return notify_fail("ä½ è¦ååœ¨å“ªé‡Œ? \n");
 }
 
 int do_liao(string arg)
@@ -70,32 +70,32 @@ int do_liao(string arg)
 	object me = this_player();
 
 	if (me->is_fighting() || me->is_busy())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÈçºÎÄÜÊ¹ÓÃ¹ÅÄ¹µÄº®Óñ´²£¿\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œå¦‚ä½•èƒ½ä½¿ç”¨å¤å¢“çš„å¯’ç‰åºŠï¼Ÿ\n");
 
 	if ((int)me->query("eff_qi") == (int)me->query("max_qi"))
-		return notify_fail("ÄãÏÖÔÚÉíÉÏÃ»ÓĞÊÜµ½ÈÎºÎÉËº¦£¡\n");
+		return notify_fail("ä½ ç°åœ¨èº«ä¸Šæ²¡æœ‰å—åˆ°ä»»ä½•ä¼¤å®³ï¼\n");
 
 	if (arg == "bed"){
-		message_vision(HIC"$NÅÀÉÏº®Óñ´², Òª½èÇ§Äêº®ÓñÁÆÉË. \n"NOR, me);
+		message_vision(HIC"$Nçˆ¬ä¸Šå¯’ç‰åºŠ, è¦å€Ÿåƒå¹´å¯’ç‰ç–—ä¼¤. \n"NOR, me);
 		if ((int)me->query_condition("marks_bed") > 0 ){
-			me->set_temp("last_damage_from", "ÎŞ·¨µÖ¿¹º®Óñ´²Ö®Ææº®¶ø");
+			me->set_temp("last_damage_from", "æ— æ³•æŠµæŠ—å¯’ç‰åºŠä¹‹å¥‡å¯’è€Œ");
 			me->receive_wound("qi", 50);
-			message_vision(HIR"$NÍ»È»Ö»¾õÒ»ÕóÆæº®ÇÖÈëÉíÌå£¬ÏëÊÇÁ½´ÎÁÆÉËÊ±¸ôÌ«¶Ì£¬Éí×ÓÉĞÎ´¸´Ô­Ö®¹Ê¡£\n"NOR, me);
+			message_vision(HIR"$Nçªç„¶åªè§‰ä¸€é˜µå¥‡å¯’ä¾µå…¥èº«ä½“ï¼Œæƒ³æ˜¯ä¸¤æ¬¡ç–—ä¼¤æ—¶éš”å¤ªçŸ­ï¼Œèº«å­å°šæœªå¤åŸä¹‹æ•…ã€‚\n"NOR, me);
 			me->unconcious();
 			return 1;
 		}
 		if (me->query_skill("yunu-xinjing", 1) < 40)
-			return notify_fail("º®Óñ´²ÁÆÉËĞèÒÔ´¿ÊìµÄÓñÅ®ĞÄ¾­ÄÚ¹¦Ïà¸¨, ·ñÔòÎŞ·¨ÍâÁÆ. \n");
+			return notify_fail("å¯’ç‰åºŠç–—ä¼¤éœ€ä»¥çº¯ç†Ÿçš„ç‰å¥³å¿ƒç»å†…åŠŸç›¸è¾…, å¦åˆ™æ— æ³•å¤–ç–—. \n");
 
 		me->set("eff_qi", me->query("max_qi"));
-		tell_object(me,HIW"\n²»Ò»»á¶ù£¬ÄãÖ»¾õµÃÉñ²ÉŞÈŞÈ£¬ÉË¿ÚÒÑÈ»È¬Óú¡£\n"NOR);
+		tell_object(me,HIW"\nä¸ä¸€ä¼šå„¿ï¼Œä½ åªè§‰å¾—ç¥é‡‡å¥•å¥•ï¼Œä¼¤å£å·²ç„¶ç—Šæ„ˆã€‚\n"NOR);
 		me->add_condition("marks_bed", 20);
 		return 1;
 	}
-	return notify_fail("ÄãÒªÔÚÄÄÁÆÉË? \n");
+	return notify_fail("ä½ è¦åœ¨å“ªç–—ä¼¤? \n");
 }
 
 int do_liaodu(string arg)
@@ -104,31 +104,31 @@ int do_liaodu(string arg)
 	object me = this_player();
 	
 	if (me->is_fighting() || me->is_busy())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÈçºÎÄÜÊ¹ÓÃ¹ÅÄ¹µÄº®Óñ´²£¿\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œå¦‚ä½•èƒ½ä½¿ç”¨å¤å¢“çš„å¯’ç‰åºŠï¼Ÿ\n");
 	
 	if (!me->query_conditions_by_type("poison"))
-		return notify_fail("ÄãºÃÏóÃ»ÓĞÖĞ¶¾°É£¿\n");
+		return notify_fail("ä½ å¥½è±¡æ²¡æœ‰ä¸­æ¯’å§ï¼Ÿ\n");
 
 	if( arg == "bed"){
-		message_vision(HIC"$NÅÀÉÏº®Óñ´², Òª½èÇ§Äêº®ÓñÁÆ¶¾¡£\n"NOR, me);
+		message_vision(HIC"$Nçˆ¬ä¸Šå¯’ç‰åºŠ, è¦å€Ÿåƒå¹´å¯’ç‰ç–—æ¯’ã€‚\n"NOR, me);
 		if ((int)me->query_condition("marks_bed") > 0 ){
-			me->set_temp("last_damage_from", "ÎŞ·¨µÖ¿¹º®Óñ´²Ö®Ææº®¶ø");
+			me->set_temp("last_damage_from", "æ— æ³•æŠµæŠ—å¯’ç‰åºŠä¹‹å¥‡å¯’è€Œ");
 			me->receive_wound("qi", 50);
-			message_vision(HIR"$NÍ»È»Ö»¾õÒ»ÕóÆæº®ÇÖÈëÉíÌå£¬ÏëÊÇÁ½´ÎÁÆÉËÊ±¸ôÌ«¶Ì£¬Éí×ÓÉĞÎ´¸´Ô­Ö®¹Ê¡£\n"NOR, me);
+			message_vision(HIR"$Nçªç„¶åªè§‰ä¸€é˜µå¥‡å¯’ä¾µå…¥èº«ä½“ï¼Œæƒ³æ˜¯ä¸¤æ¬¡ç–—ä¼¤æ—¶éš”å¤ªçŸ­ï¼Œèº«å­å°šæœªå¤åŸä¹‹æ•…ã€‚\n"NOR, me);
 			me->unconcious();
 			return 1;
 		}
 		if (me->query_skill("yunu-xinjing", 1) < 40)
-			return notify_fail("º®Óñ´²ÁÆ¶¾ĞèÒÔ´¿ÊìµÄÓñÅ®ĞÄ¾­ÄÚ¹¦Ïà¸¨, ·ñÔòÎŞ·¨ÍâÁÆ. \n");
+			return notify_fail("å¯’ç‰åºŠç–—æ¯’éœ€ä»¥çº¯ç†Ÿçš„ç‰å¥³å¿ƒç»å†…åŠŸç›¸è¾…, å¦åˆ™æ— æ³•å¤–ç–—. \n");
 
 		me->set("eff_jing", me->query("max_jing"));
-		tell_object(me,HIW"\n²»Ò»»á¶ù£¬ÄãÖ»¾õµÃ³öÁËÒ»Éí´óº¹£¬¶¾ÉËÒÑÈ»¼õÇá²»ÉÙ¡£\n"NOR);
+		tell_object(me,HIW"\nä¸ä¸€ä¼šå„¿ï¼Œä½ åªè§‰å¾—å‡ºäº†ä¸€èº«å¤§æ±—ï¼Œæ¯’ä¼¤å·²ç„¶å‡è½»ä¸å°‘ã€‚\n"NOR);
                 me->clear_conditions_by_type("poison");
 		me->add_condition("marks_bed", 20);
 		return 1;
 	}
-	return notify_fail("ÄãÒªÔÚÄÄÁÆ¶¾? \n");
+	return notify_fail("ä½ è¦åœ¨å“ªç–—æ¯’? \n");
 }

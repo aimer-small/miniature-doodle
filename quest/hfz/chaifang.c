@@ -1,13 +1,13 @@
-//²ñ·¿
+//æŸ´æˆ¿
 
 #include <ansi.h>
 
 inherit ROOM;
 void create()
 {
-      set("short", "²ñ·¿"NOR);
+      set("short", "æŸ´æˆ¿"NOR);
       set("long", @LONG
-ÕâÀïÊÇºÚ·çÕ¯µÄ²ñ·¿£¬Æ½Ê±Ò²ÓÃÀ´¹ØÑºÒ»Ğ©°óÀ´µÄ¡°ÈâÆ±¡±¡£
+è¿™é‡Œæ˜¯é»‘é£å¯¨çš„æŸ´æˆ¿ï¼Œå¹³æ—¶ä¹Ÿç”¨æ¥å…³æŠ¼ä¸€äº›ç»‘æ¥çš„â€œè‚‰ç¥¨â€ã€‚
 LONG);
       set("outdoors","");
       set("exits", ([
@@ -17,5 +17,5 @@ LONG);
       setup();
 //  replace_program(ROOM);
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

@@ -7,17 +7,17 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIG"ÃÜÊÒ"NOR);
+	set("short",HIG"å¯†å®¤"NOR);
 	set("long",
-"ÕâÀïÊÇÄ½Èİ²©Ä¹ÄÚµÄÒ»¸öÃÜÊÒ¡£µØÉÏ·ÅÁË¼¸¸ö½ğ¹âÉÁÉÁµÄ"HIC"´óÏä×Ó"NOR"(box)¡£\n"
-"Ç½ÉÏ¹ÒÂúÁË´óÑà¹úÀú´ú»ÊµÛµÄ»­Ïñ¡£Õıµ±ÖĞ°Ú×ÅÒ»°Ñ"HIY"ÁúÒÎ"NOR"(chair)¡£\n"
+"è¿™é‡Œæ˜¯æ…•å®¹åšå¢“å†…çš„ä¸€ä¸ªå¯†å®¤ã€‚åœ°ä¸Šæ”¾äº†å‡ ä¸ªé‡‘å…‰é—ªé—ªçš„"HIC"å¤§ç®±å­"NOR"(box)ã€‚\n"
+"å¢™ä¸ŠæŒ‚æ»¡äº†å¤§ç‡•å›½å†ä»£çš‡å¸çš„ç”»åƒã€‚æ­£å½“ä¸­æ‘†ç€ä¸€æŠŠ"HIY"é¾™æ¤…"NOR"(chair)ã€‚\n"
 );
 	set("exits",([
 		"south" : __DIR__"fenmu",
 	]));
 	set("item_desc", ([
-		"chair" : "ÕâÕÅÁúÒÎ×óÓÒ·öÊÖÉÏ¸÷ÓĞÒ»¸öµñ¹¤¾«Ï¸µÄÁúÍ·(tou)¡£\n",
-		"box": "ÕâÊÇÒ»¸öµñ¿Ì¾«ÃÀ£¬¹ÅÉ«¹ÅÏãµÄ´óÏä×Ó£¬ÀïÃæ¿Ï¶¨ÓĞ²»ÉÙ±¦Îï¡£\n",
+		"chair" : "è¿™å¼ é¾™æ¤…å·¦å³æ‰¶æ‰‹ä¸Šå„æœ‰ä¸€ä¸ªé›•å·¥ç²¾ç»†çš„é¾™å¤´(tou)ã€‚\n",
+		"box": "è¿™æ˜¯ä¸€ä¸ªé›•åˆ»ç²¾ç¾ï¼Œå¤è‰²å¤é¦™çš„å¤§ç®±å­ï¼Œé‡Œé¢è‚¯å®šæœ‰ä¸å°‘å®ç‰©ã€‚\n",
 	]));
 	setup();
 }
@@ -33,39 +33,39 @@ int do_sit(string arg)
 {
 	object me = this_player();
 	if ( !arg || (arg != "chair") )
-		return notify_fail("ÄãÒª×øÊ²Ã´ÉÏÃæ£¿\n");
-	if (me->query("family/family_name") != "¹ÃËÕÄ½Èİ")
-		return notify_fail("Äã²»ÊÇ¹ÃËÕÄ½Èİ¼ÒµÄÈË£¬×øÔÚÕâÄã²»¾õµÃĞß³ÜÃ´£¿£¡\n");
+		return notify_fail("ä½ è¦åä»€ä¹ˆä¸Šé¢ï¼Ÿ\n");
+	if (me->query("family/family_name") != "å§‘è‹æ…•å®¹")
+		return notify_fail("ä½ ä¸æ˜¯å§‘è‹æ…•å®¹å®¶çš„äººï¼Œååœ¨è¿™ä½ ä¸è§‰å¾—ç¾è€»ä¹ˆï¼Ÿï¼\n");
 	if (me->query_temp("mark/sit"))
-		return notify_fail("ÄãÒÑ¾­×øÏÂÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åä¸‹äº†ã€‚\n");
         me->set_temp("mark/sit", 1);
-        return notify_fail("Äã¿ÈËÔÒ»Éù£¬´óÒ¡´ó°ÚµÄ×øÔÚÁËÁúÒÎÉÏ¡£\n");
+        return notify_fail("ä½ å’³å—½ä¸€å£°ï¼Œå¤§æ‘‡å¤§æ‘†çš„ååœ¨äº†é¾™æ¤…ä¸Šã€‚\n");
 }
 
 int do_zhuan(string arg)
 {
 	object me = this_player();
 	if ( !arg || ((arg != "left tou") && (arg != "right tou")) )
-		return notify_fail("ÄãÒª×ªÊ²Ã´£¿\n");
-	if (me->query("family/family_name") != "¹ÃËÕÄ½Èİ")
-		return notify_fail("ÄãÒª×öÊ²Ã´ £¿£¡\n");
+		return notify_fail("ä½ è¦è½¬ä»€ä¹ˆï¼Ÿ\n");
+	if (me->query("family/family_name") != "å§‘è‹æ…•å®¹")
+		return notify_fail("ä½ è¦åšä»€ä¹ˆ ï¼Ÿï¼\n");
         if (!me->query_temp("mark/sit"))
-                return notify_fail("ÄãÒª×öÊ²Ã´ £¿£¡\n");
+                return notify_fail("ä½ è¦åšä»€ä¹ˆ ï¼Ÿï¼\n");
 	if ((int)me->query("neili") < 6000 )
-                return notify_fail("Äã°×·ÑÁË°ëÌì¾¢£¬½á¹ûÊ²Ã´Ò²Ã»×ª¶¯¡£\n");
+                return notify_fail("ä½ ç™½è´¹äº†åŠå¤©åŠ²ï¼Œç»“æœä»€ä¹ˆä¹Ÿæ²¡è½¬åŠ¨ã€‚\n");
 	if (arg == "left tou"){
 		me->add_temp("left/tou",1);
-		tell_object(me,"Äã°Ñ×ó±ßµÄÁúÍ·×ªÁËÒ»È¦¡£\n");
+		tell_object(me,"ä½ æŠŠå·¦è¾¹çš„é¾™å¤´è½¬äº†ä¸€åœˆã€‚\n");
 	}
 	if(arg == "right tou"){
 		me->add_temp("right/tou",1);
-		tell_object(me,"Äã°ÑÓÒ±ßµÄÁúÍ·×ªÁËÒ»È¦¡£\n");
+		tell_object(me,"ä½ æŠŠå³è¾¹çš„é¾™å¤´è½¬äº†ä¸€åœˆã€‚\n");
 	}
 	if((int)me->query_temp("left/tou") == 5
 	 &&(int)me->query_temp("right/tou") == 6){
-		message_vision("Ö»¼ûÁúÒÎÍ»È»×ªµ½ÁËÇ½ºó£¬ÔÙ×ª³öÀ´µÄÊ±ºò$NÒÑ¾­²»¼ûÁË¡£\n",me);
+		message_vision("åªè§é¾™æ¤…çªç„¶è½¬åˆ°äº†å¢™åï¼Œå†è½¬å‡ºæ¥çš„æ—¶å€™$Nå·²ç»ä¸è§äº†ã€‚\n",me);
 		me->move(__DIR__"mishi1");
-		message_vision("Ö»¼ûÇ½±Ú·­×ª£¬$N´ÓÇ½ºó×ªÁË³öÀ´¡£\n",me);
+		message_vision("åªè§å¢™å£ç¿»è½¬ï¼Œ$Nä»å¢™åè½¬äº†å‡ºæ¥ã€‚\n",me);
 	}
 	if((int)me->query_temp("left/tou") > 5
 	 ||(int)me->query_temp("right/tou")> 6){
@@ -79,9 +79,9 @@ int do_open(string arg)
 {
 	object me = this_player();
 	if (!arg || (arg != "box"))
-		return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
-	message_vision("Ö»¼ûÒ»ÕóÂÒ¼ıÉä³ö£¬$Nºß¶¼Ã»ºß£¬µ¹µØ¶øÍö¡£\n",me);
-	me->set_temp("last_damage_from", "Îó×²»ú¹Ø±»ÂÒ¼ıÉä");
+		return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
+	message_vision("åªè§ä¸€é˜µä¹±ç®­å°„å‡ºï¼Œ$Nå“¼éƒ½æ²¡å“¼ï¼Œå€’åœ°è€Œäº¡ã€‚\n",me);
+	me->set_temp("last_damage_from", "è¯¯æ’æœºå…³è¢«ä¹±ç®­å°„");
 	me->die();
 	return 1;
 }

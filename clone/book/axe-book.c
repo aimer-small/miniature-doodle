@@ -1,15 +1,15 @@
-// axe-book.c »ù±¾¸«·¨
+// axe-book.c åŸºæœ¬æ–§æ³•
 inherit ITEM;
 
 void create()
 {
-        set_name("¸«·¨ÃØÒª", ({ "fufa miyao", "book","shu"}));
+        set_name("æ–§æ³•ç§˜è¦", ({ "fufa miyao", "book","shu"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
-                set("long", "ÕâÊÇÒ»±¾Ñ§Ï°»ù±¾¸«·¨µÄÊé¡£\n");
+                set("unit", "æœ¬");
+                set("long", "è¿™æ˜¯ä¸€æœ¬å­¦ä¹ åŸºæœ¬æ–§æ³•çš„ä¹¦ã€‚\n");
                 set("unique", 1);
                 set("treasure",1);                              
                 set("value", 1000);

@@ -15,8 +15,8 @@
 
 // Ported to ES2 mudlib by Annihilator@ES2
 
-// ÓÉYu Jue@SJ³¹µ×¸ÄÔì£¬°ÑUDP¸ÄÎªTCP
-// ×Ô¶¯·Ö¸î´óÊı¾İ°ü
+// ç”±Yu Jue@SJå½»åº•æ”¹é€ ï¼ŒæŠŠUDPæ”¹ä¸ºTCP
+// è‡ªåŠ¨åˆ†å‰²å¤§æ•°æ®åŒ…
 
 #include <ansi.h>
 #include <mudlib.h>
@@ -153,14 +153,14 @@ int startup_udp()
 void listen_back(int fd)
 {
 	socket_accept(fd, "read_callback", "write_back");
-//	message("wizard:yuj", sprintf("ÓĞÁ¬½ÓÀ´×Ô %s\n", socket_address(new_fd)), users());
+//	message("wizard:yuj", sprintf("æœ‰è¿æ¥æ¥è‡ª %s\n", socket_address(new_fd)), users());
 //	if (new_fd < 0) return;
 }
 
 /*
 void write_back(int fd)
 {
-	message("wizard:yuj", sprintf("ÏìÓ¦ %s\n", socket_address(fd)), users());
+	message("wizard:yuj", sprintf("å“åº” %s\n", socket_address(fd)), users());
 }
 */
 
@@ -252,13 +252,13 @@ void send_udp(string host, int port, string msg)
 		log("Failed connect to " + host + " " + port + "\n");
 		return;
 	}
-//	message("wizard:yuj", sprintf("Á¬½Óµ½ %d %s\n", sock, socket_address(sock)), users());
+//	message("wizard:yuj", sprintf("è¿æ¥åˆ° %d %s\n", sock, socket_address(sock)), users());
 	set("write"+sock, msg);
 }
 
 void in_read_callback(int fd, string msg)
 {
-	message("wizard:yuj", sprintf("ÓĞÏìÓ¦À´×Ô %s\n", socket_address(fd)), users());
+	message("wizard:yuj", sprintf("æœ‰å“åº”æ¥è‡ª %s\n", socket_address(fd)), users());
 }
 
 void in_write_callback(int fd)
@@ -266,7 +266,7 @@ void in_write_callback(int fd)
 	string str = query("write"+fd);
 	int pos = 0, len = strlen(str);
 
-//	message("wizard:yuj", sprintf("Ğ´Íê±Ï %d %s\n", fd, socket_address(fd)), users());
+//	message("wizard:yuj", sprintf("å†™å®Œæ¯• %d %s\n", fd, socket_address(fd)), users());
 	while (1) {
 		socket_write(fd, str[pos..pos+1023]);
 		pos += 1024;
@@ -300,7 +300,7 @@ void send_shutdown()
                 SHUTDOWN->send_shutdown(muds[mud_names[i]]["HOSTADDRESS"],
                         muds[mud_names[i]]["PORTUDP"]);
         socket_close(socket_id);
-        CHANNEL_D->do_channel(this_object(), "sys", "ËÍ³ö shutdown Ñ¶Ï¢¡£\n");
+        CHANNEL_D->do_channel(this_object(), "sys", "é€å‡º shutdown è®¯æ¯ã€‚\n");
 }
 
 string start_message()
@@ -335,7 +335,7 @@ void init_database()
         call_out("sequence_clean_up", 4 * SERVICE_TIMEOUT);
         do_pings();
 
-        CHANNEL_D->do_channel(this_object(), "sys", "sending¡£¡£¡£\n");
+        CHANNEL_D->do_channel(this_object(), "sys", "sendingã€‚ã€‚ã€‚\n");
 
         return;
     }
@@ -851,7 +851,7 @@ void create()
 {
         restore_euid();
 
-        set("channel_id", "ÍøÂ·¾«Áé");
+        set("channel_id", "ç½‘è·¯ç²¾çµ");
 
         // find out which port we are on
         my_port = SRVC_PORT_UDP(mud_port());

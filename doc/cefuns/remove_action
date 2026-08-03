@@ -1,26 +1,26 @@
 
 	remove_action(3)	MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		remove_action - ´ÓÇøÓòº¯Ê½ (local function) ÖĞ½â³ıÒ»¸ö
-				ÃüÁî¶¯´Ê (command verb)
-	Óï·¨:
+	åç§°:
+		remove_action - ä»åŒºåŸŸå‡½å¼ (local function) ä¸­è§£é™¤ä¸€ä¸ª
+				å‘½ä»¤åŠ¨è¯ (command verb)
+	è¯­æ³•:
 		int remove_action( string fun, string cmd );
 
-		ÕûÊı remove_action( ×Ö´® fun, ×Ö´® cmd );
-	ÓÃ·¨:
-		remove_action(3) ´ÓÒ»¸öÎï¼şµÄÇøÓòº¯Ê½ÖĞ½â³ıÒ»¸öÃüÁî¶¯´Ê.
-		»ù±¾ÉÏ, remove_action() ÊÇÏà¶Ôì¶ add_action(3) ºÍ
-		add_verb(3) µÄº¯Ê½. µ±Äú²»ĞèÒªÒ»¸ö¶¯´ÊÊ±, ¾Í¿ÉÒÔÓÃ
-		remove_action() ½â³ı.
-	´«»ØÖµ:
-		remove_action() µÄ´«»ØÖµ:
+		æ•´æ•° remove_action( å­—ä¸² fun, å­—ä¸² cmd );
+	ç”¨æ³•:
+		remove_action(3) ä»ä¸€ä¸ªç‰©ä»¶çš„åŒºåŸŸå‡½å¼ä¸­è§£é™¤ä¸€ä¸ªå‘½ä»¤åŠ¨è¯.
+		åŸºæœ¬ä¸Š, remove_action() æ˜¯ç›¸å¯¹æ–¼ add_action(3) å’Œ
+		add_verb(3) çš„å‡½å¼. å½“æ‚¨ä¸éœ€è¦ä¸€ä¸ªåŠ¨è¯æ—¶, å°±å¯ä»¥ç”¨
+		remove_action() è§£é™¤.
+	ä¼ å›å€¼:
+		remove_action() çš„ä¼ å›å€¼:
 
-		1	½â³ı¶¯´Ê³É¹¦.
+		1	è§£é™¤åŠ¨è¯æˆåŠŸ.
 
-		0	½â³ıÊ§°Ü.
-	²Î¿¼:
+		0	è§£é™¤å¤±è´¥.
+	å‚è€ƒ:
 		add_action(3), query_verb(3), init(4)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.May.27.		(printed 3/16/95)
 

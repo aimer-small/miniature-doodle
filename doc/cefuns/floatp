@@ -1,18 +1,18 @@
 
 	floatp(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		floatp() - ÅĞ¶ÏÖ¸¶¨µÄ±äÊıÊÇ·ñÎª¸¡µãÊı
-	Óï·¨:
+	åç§°:
+		floatp() - åˆ¤æ–­æŒ‡å®šçš„å˜æ•°æ˜¯å¦ä¸ºæµ®ç‚¹æ•°
+	è¯­æ³•:
 		int floatp( mixed arg );
 
-		ÕûÊı floatp( »ìºÏ arg );
-	ÓÃ·¨:
-		Èç¹û arg ÊÇÒ»¸ö¸¡µãÊıÔò´«»Ø 1, Èç¹û²»ÊÇ´«»Ø 0.
-	²Î¿¼:
+		æ•´æ•° floatp( æ··åˆ arg );
+	ç”¨æ³•:
+		å¦‚æœ arg æ˜¯ä¸€ä¸ªæµ®ç‚¹æ•°åˆ™ä¼ å› 1, å¦‚æœä¸æ˜¯ä¼ å› 0.
+	å‚è€ƒ:
 		mapp(3), stringp(3), pointerp(3), objectp(3), intp(3),
 		bufferp(3), functionp(3), nullp(3), undefinedp(3), 
 		errorp(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Feb.12.		(printed 3/16/95)
 

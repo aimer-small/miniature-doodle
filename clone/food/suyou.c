@@ -1,16 +1,16 @@
-// suyou  ËÖÓÍ
+// suyou  é…¥æ²¹
 
 inherit ITEM;
 
 void create()
 {
-	set_name("ËÖÓÍ", ({"su you","you"}));
+	set_name("é…¥æ²¹", ({"su you","you"}));
 	set_weight(700);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÕâÊÇÔÚÎ÷²Ø¼°ÖÜ±ßµØÇø³£¼ûµÄËÖÓÍ£¬¾­¹ı¼Ó¹¤¿ÉÒÔÊ³ÓÃ¡£\n");
-		set("unit", "ºø");
+		set("long", "è¿™æ˜¯åœ¨è¥¿è—åŠå‘¨è¾¹åœ°åŒºå¸¸è§çš„é…¥æ²¹ï¼Œç»è¿‡åŠ å·¥å¯ä»¥é£Ÿç”¨ã€‚\n");
+		set("unit", "å£¶");
 		set("value", 1000);
 	}
 }

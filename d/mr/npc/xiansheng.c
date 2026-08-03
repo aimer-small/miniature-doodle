@@ -1,11 +1,11 @@
-// xiansheng.c ½ÌÊéÏÈÉú
+// xiansheng.c æ•™ä¹¦å…ˆç”Ÿ
 inherit NPC;
 
 void create()
 {
-	set_name("½ÌÊéÏÈÉú", ({ "xian sheng", "teacher" , "xiansheng" }));
-	set("long", "Ëû¾ÍÊÇÄ½Èİ¼ÒÇëÀ´µÄ½ÌÊéÏÈÉú¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("æ•™ä¹¦å…ˆç”Ÿ", ({ "xian sheng", "teacher" , "xiansheng" }));
+	set("long", "ä»–å°±æ˜¯æ…•å®¹å®¶è¯·æ¥çš„æ•™ä¹¦å…ˆç”Ÿã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 65);
 
 	set_temp("apply/attack", 100);

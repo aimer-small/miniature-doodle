@@ -7,10 +7,10 @@ int exert(object me, object target)
 	int n, q;
 
 	if (me->query("neili") < 20 || !me->query_skill("force"))
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("浣犵殑鍐呭姏涓嶅銆俓n");
 	q = me->query("eff_qi") + me->query_temp("apply/qi") - me->query("qi");
 	if (q < 10)
-		return notify_fail("你现在气力充沛。\n");
+		return notify_fail("浣犵幇鍦ㄦ皵鍔涘厖娌涖�俓n");
 	n = 100 * q / me->query_skill("force");
 	if (n < 20)
 		n = 20;
@@ -22,7 +22,7 @@ int exert(object me, object target)
 	me->add("neili", -n);
 	me->receive_heal("qi", q);
 	
-	message_vision("$N深深吸了几口气，脸色看起来好多了。\n", me);
+	message_vision("$N娣辨繁鍚镐簡鍑犲彛姘旓紝鑴歌壊鐪嬭捣鏉ュソ澶氫簡銆俓n", me);
 
 	q *= sqrt(q);
 	q /= 2000;

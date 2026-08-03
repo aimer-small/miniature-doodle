@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÊØÄ¹µÜ×Ó", ({ "shoumu dizi", "dizi"  }));
-        set("long","ÕâÊÇ¸ö×¨ÃÅÊØÄ¹µÄ¶ëáÒÅÉÅ®µÜ×Ó£¬ËýÒ»¼ûÄãÀ´ÍÚÄ¹£¬Á¢¿ÌÉÏÇ°×èÖ¹Äã¡£\n");
+        set_name("å®ˆå¢“å¼Ÿå­", ({ "shoumu dizi", "dizi"  }));
+        set("long","è¿™æ˜¯ä¸ªä¸“é—¨å®ˆå¢“çš„å³¨åµ‹æ´¾å¥³å¼Ÿå­ï¼Œå¥¹ä¸€è§ä½ æ¥æŒ–å¢“ï¼Œç«‹åˆ»ä¸Šå‰é˜»æ­¢ä½ ã€‚\n");
 	
-        set("gender", "Å®ÐÔ");
+        set("gender", "å¥³æ€§");
         set("attitude", "aggressive");
         set("class", "bonze");
 
@@ -43,7 +43,7 @@ void create()
 	map_skill("sword", "huifeng-jian");
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
         setup();
 	carry_object("/d/emei/obj/changjian")->wield();

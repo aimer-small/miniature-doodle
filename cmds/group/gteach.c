@@ -11,8 +11,8 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£º gteach [¼¼ÄÜ] to [ÈËÎïid]
-Õâ¸öÃüÁîÓÃÀ´´«ÊÚ°ïÅÉ±£ïÚ¼¼ÄÜ£¬±£ïÚµÄ¼¼ÄÜ×î¶à±È´«ÊÚÕßµÄ´ËÏî¼¼ÄÜ¸ß100¼¶¡£
+æŒ‡ä»¤æ ¼å¼ï¼š gteach [æŠ€èƒ½] to [äººç‰©id]
+è¿™ä¸ªå‘½ä»¤ç”¨æ¥ä¼ æŽˆå¸®æ´¾ä¿é•–æŠ€èƒ½ï¼Œä¿é•–çš„æŠ€èƒ½æœ€å¤šæ¯”ä¼ æŽˆè€…çš„æ­¤é¡¹æŠ€èƒ½é«˜100çº§ã€‚
 HELP );
 	return 1;
 }
@@ -25,35 +25,35 @@ int main(object me, string arg)
 
 	if( !arg || !sscanf(arg, "%s to %s",skill,arg) ) return help(me);
 	if( !(ob = present(arg, environment(me))) )
-		return notify_fail("Ã»ÓÐÕâ¸öÈË¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 	if( userp(ob) )
-		return notify_fail("Äã²»ÄÜ½ÌÍæ¼ÒÎä¹¦¡£\n");
+		return notify_fail("ä½ ä¸èƒ½æ•™çŽ©å®¶æ­¦åŠŸã€‚\n");
 	if( !me->query("group/id")
 	  || me->query("group/id") != ob->query("group/id")
 	  || me->query("group/class") >= ob->query("group/class") )
-		return notify_fail("ÄãÖ»ÄÜ½ÌÊÚÍ¬°ïÅÉ£¬ÇÒµÈ¼¶±ÈÄãµÍµÄÈËÎä¹¦¡£\n");
+		return notify_fail("ä½ åªèƒ½æ•™æŽˆåŒå¸®æ´¾ï¼Œä¸”ç­‰çº§æ¯”ä½ ä½Žçš„äººæ­¦åŠŸã€‚\n");
 	if( environment(me)->query("group1") != me->query("group/id") )
-		return notify_fail("ÄãÖ»ÔÚ×Ô¼ºµÄ°ï»áÖÐ½ÌÈËÎä¹¦¡£\n");
+		return notify_fail("ä½ åªåœ¨è‡ªå·±çš„å¸®ä¼šä¸­æ•™äººæ­¦åŠŸã€‚\n");
 	if( !me->query_skill(skill,1) )
-		return notify_fail("Äã¸ù±¾²»»áÕâÏî¼¼ÄÜ°¡¡£\n");
+		return notify_fail("ä½ æ ¹æœ¬ä¸ä¼šè¿™é¡¹æŠ€èƒ½å•Šã€‚\n");
 	if( me->is_busy() || me->is_fighting() )
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if( ob->is_busy() || ob->is_fighting() )
-		return notify_fail(ob->name()+"ÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail(ob->name()+"æ­£å¿™ç€å‘¢ã€‚\n");
 	if( (me->query_skill(skill,1)+100) < ob->query_skill(skill,1) )
-		return notify_fail(ob->name()+"´ËÏî¼¼ÄÜÒÑ¾­´ó´ó¸ßÓëÄã£¬ÄãÎÞ·¨ÔÙ½ÌÊÚ"+ob->name()+"Ê²Ã´ÁË¡£\n");
+		return notify_fail(ob->name()+"æ­¤é¡¹æŠ€èƒ½å·²ç»å¤§å¤§é«˜ä¸Žä½ ï¼Œä½ æ— æ³•å†æ•™æŽˆ"+ob->name()+"ä»€ä¹ˆäº†ã€‚\n");
 	if( ob->query_temp("gteach")>time() && !(wizardp(me) && me->query("env/test")) )
-		return notify_fail(ob->name()+"¸Õ¸ÕÑ§Ï°¹ý£¬ÏÖÔÚ¸Ð¾õ¹ýÓÚÀÍÀÛ¡£\n");
+		return notify_fail(ob->name()+"åˆšåˆšå­¦ä¹ è¿‡ï¼ŒçŽ°åœ¨æ„Ÿè§‰è¿‡äºŽåŠ³ç´¯ã€‚\n");
 	if( (me->query("group/gteach")+WORK_TIME*60+REST_TIME*60) < time() )
 		me->set("group/gteach",time());
 	if( (me->query("group/gteach")+WORK_TIME*60) < time() )
-		return notify_fail("Äã½ÌÊÚ±ðÈËÎä¹¦µÄÊ±¼ä¹ý³¤£¬Ö»¸Ðµ½Í·»èÄÔÕÍ£¬¾«Á¦²»¼Ã¡£\n");
+		return notify_fail("ä½ æ•™æŽˆåˆ«äººæ­¦åŠŸçš„æ—¶é—´è¿‡é•¿ï¼Œåªæ„Ÿåˆ°å¤´æ˜è„‘èƒ€ï¼Œç²¾åŠ›ä¸æµŽã€‚\n");
 	if( sizeof(ob->query_skills()) > MAX_SKILLS )
-		return notify_fail(ob->name()+"ËùÑ§¼¼ÄÜ¹ý¶à£¬ÁéÐÔ²»×ã£¬ÔÙÒ²ÎÞ·¨Ñ§Ï°ÐÂµÄÖªÊ¶£¡\n");
+		return notify_fail(ob->name()+"æ‰€å­¦æŠ€èƒ½è¿‡å¤šï¼Œçµæ€§ä¸è¶³ï¼Œå†ä¹Ÿæ— æ³•å­¦ä¹ æ–°çš„çŸ¥è¯†ï¼\n");
 	if( !GROUP_D->site_now(me->query("group/id")) )
 		return notify_fail( GROUP_D->get_last_error() );
 
-	message_vision("$N¿ªÊ¼·´¸´½ÌÊÚ$n¡¸"+to_chinese(skill)+"¡¹......\n", me,ob);
+	message_vision("$Nå¼€å§‹åå¤æ•™æŽˆ$nã€Œ"+to_chinese(skill)+"ã€......\n", me,ob);
 	delay = 10 + random(10);
 	if( wizardp(me) && me->query("env/test") ) delay = 2;
 	me->start_busy(delay);
@@ -72,11 +72,11 @@ void teach_finish(object me,object ob,string skill)
 	improve = random(ob->query_int(1) + me->query_int(1)) * 150;
 
 	if( i <= 0 ) {
-		message_vision("$n·´¸´Á·Ï°$NËù½ÌÊÚµÄ¼¼ÄÜ£¬¼¼ÄÜ¾«½øÁË²»ÉÙ¡£\n", me,ob);
+		message_vision("$nåå¤ç»ƒä¹ $Næ‰€æ•™æŽˆçš„æŠ€èƒ½ï¼ŒæŠ€èƒ½ç²¾è¿›äº†ä¸å°‘ã€‚\n", me,ob);
 		ob->improve_skill(skill,improve);
 	}
 	else {
-		message_vision("$nÓë$N·´¸´ÇÐ´èÎä¹¦£¬ËÆºõÓÐËùÊÕ»ñ¡£\n", me,ob);
+		message_vision("$nä¸Ž$Nåå¤åˆ‡ç£‹æ­¦åŠŸï¼Œä¼¼ä¹Žæœ‰æ‰€æ”¶èŽ·ã€‚\n", me,ob);
 		ob->improve_skill(skill,improve * (80-i*7/10) / 100 );
 	}
 

@@ -1,5 +1,5 @@
 // Room: /u/jpei/thd/shore.c
-// ¼ÓÈë×ª»»Ê¦¸µµÄ´úÂë Modified by Numa
+// åŠ å…¥è½¬æ¢å¸ˆå‚…çš„ä»£ç  Modified by Numa
 // YUJ 2001-10-29
 
 #include <ansi.h>
@@ -7,16 +7,16 @@ inherit ROOM;
 int prevent_get();
 void create()
 {
-	set("short", "°¶±ß");
+	set("short", "å²¸è¾¹");
 	set("long", @LONG
-ÄãÒÉ»óµØ¿´×ÅËÄÖÜ£¬ÕâÀï¾ÍÊÇÌÒ»¨µºÃ´£¿ËÄÖÜ³ıÁËÁèÂÒµÄ½¸Ê¯Íâ£¬Ê²Ã´¶¼
-Ã»ÓĞ¡£Íù±±Ãæ¿´£¬Ò»×ùĞ¡É½ËÊÁ¢ÔÚÄÇÀï,¿ÉÒÔÍ¨¹ıÅÊÅÀÑÒ±Úµ½´ïÉ½¶¥¡£
+ä½ ç–‘æƒ‘åœ°çœ‹ç€å››å‘¨ï¼Œè¿™é‡Œå°±æ˜¯æ¡ƒèŠ±å²›ä¹ˆï¼Ÿå››å‘¨é™¤äº†å‡Œä¹±çš„ç¤çŸ³å¤–ï¼Œä»€ä¹ˆéƒ½
+æ²¡æœ‰ã€‚å¾€åŒ—é¢çœ‹ï¼Œä¸€åº§å°å±±è€¸ç«‹åœ¨é‚£é‡Œ,å¯ä»¥é€šè¿‡æ”€çˆ¬å²©å£åˆ°è¾¾å±±é¡¶ã€‚
 LONG
 	);
 	set("exits", ([ /* sizeof() == 1 */
 		"northup" : __DIR__"hill",
 	]) );
-	set("outdoors","ÌÒ»¨µº");
+	set("outdoors","æ¡ƒèŠ±å²›");
 
 	setup();
 }
@@ -25,26 +25,26 @@ void init()
 {
 	object me = this_player();
 
-	if (me->query("family/family_name")=="ÌÒ»¨µº")
+	if (me->query("family/family_name")=="æ¡ƒèŠ±å²›")
 	{
 		if ((int)me->query("family/generation")==2)
 		{
 			if ((int)me->query_skill("bihai-chaosheng",1) < 130 && me->query_skill("bihai-chaosheng",1) >= 80)
 			{
 				me->set("family/master_id","lu chengfeng");
-				me->set("family/master_name","Â½³Ë·ç");
+				me->set("family/master_name","é™†ä¹˜é£");
 				me->set("family/generation",3);
-				me->set("title","ÌÒ»¨µºµÚÈı´úµÜ×Ó");
-				write( HIY "ÓÉÓÚÄúµÄ±Ìº£³±ÉúµÈ¼¶Ğ¡ÓÚÒ»°ÙÈıÊ®¼¶£¬ÏµÍ³ÒÑ½«Äú×ª»»ÎªÌÒ»¨µºµÚÈı´úµÜ×Ó¡£\n" NOR);
+				me->set("title","æ¡ƒèŠ±å²›ç¬¬ä¸‰ä»£å¼Ÿå­");
+				write( HIY "ç”±äºæ‚¨çš„ç¢§æµ·æ½®ç”Ÿç­‰çº§å°äºä¸€ç™¾ä¸‰åçº§ï¼Œç³»ç»Ÿå·²å°†æ‚¨è½¬æ¢ä¸ºæ¡ƒèŠ±å²›ç¬¬ä¸‰ä»£å¼Ÿå­ã€‚\n" NOR);
 				return;
 			}
 			else if ((int)me->query_skill("bihai-chaosheng",1) < 80)
 			{
 				me->set("family/master_id","lu guanying");
-				me->set("family/master_name","Â½¹ÚÓ¢");
+				me->set("family/master_name","é™†å† è‹±");
 				me->set("family/generation",4);
-				me->set("title","ÌÒ»¨µºµÚËÄ´úµÜ×Ó");
-				write( HIY "ÓÉÓÚÄúµÄ±Ìº£³±ÉúµÈ¼¶Ğ¡ÓÚ°ËÊ®¼¶£¬ÏµÍ³ÒÑ½«Äú×ª»»ÎªÌÒ»¨µºµÚËÄ´úµÜ×Ó¡£\n" NOR);
+				me->set("title","æ¡ƒèŠ±å²›ç¬¬å››ä»£å¼Ÿå­");
+				write( HIY "ç”±äºæ‚¨çš„ç¢§æµ·æ½®ç”Ÿç­‰çº§å°äºå…«åçº§ï¼Œç³»ç»Ÿå·²å°†æ‚¨è½¬æ¢ä¸ºæ¡ƒèŠ±å²›ç¬¬å››ä»£å¼Ÿå­ã€‚\n" NOR);
 				return;
 			}
 		}
@@ -53,10 +53,10 @@ void init()
 			if ((int)me->query_skill("bihai-chaosheng",1) < 80)
 			{
 				me->set("family/master_id","lu guanying");
-				me->set("family/master_name","Â½¹ÚÓ¢");
+				me->set("family/master_name","é™†å† è‹±");
 				me->set("family/generation",4);
-				me->set("title","ÌÒ»¨µºµÚËÄ´úµÜ×Ó");
-				write( HIY "ÓÉÓÚÄúµÄ±Ìº£³±ÉúµÈ¼¶Ğ¡ÓÚ°ËÊ®¼¶£¬ÏµÍ³ÒÑ½«Äú×ª»»ÎªÌÒ»¨µºµÚËÄ´úµÜ×Ó¡£\n" NOR);
+				me->set("title","æ¡ƒèŠ±å²›ç¬¬å››ä»£å¼Ÿå­");
+				write( HIY "ç”±äºæ‚¨çš„ç¢§æµ·æ½®ç”Ÿç­‰çº§å°äºå…«åçº§ï¼Œç³»ç»Ÿå·²å°†æ‚¨è½¬æ¢ä¸ºæ¡ƒèŠ±å²›ç¬¬å››ä»£å¼Ÿå­ã€‚\n" NOR);
 				return;
 			}
 		}

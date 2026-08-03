@@ -1,5 +1,5 @@
 // houshanty.c
-// ºóÉ½Ì¿Ò¤
+// åå±±ç‚­çª‘
 inherit ROOM;
 #include <ansi.h>
 
@@ -8,13 +8,13 @@ int do_puhuo(string arg);
 
 void create()
 {
-	set("short", HIR "Ì¿Ò¤" NOR);
+	set("short", HIR "ç‚­çª‘" NOR);
 	set("long", @long
-ÕâÀïÊÇÒ»×ùÓÃÀ´ÉÕÌ¿µÄÌ¿Ò¤¡£µ«ÓÉÓÚ¶ëáÒµÜ×Ó³Ô¿àÄÍÀÍ£¬ÕâÀïÃ»ÓĞÏñ±ğµÄ
-Ì¿Ò¤ÄÇÑùÒ»Æ¬ÁãÂÒ¡¢ºÚµÃÒ»ËúºıÍ¿£¬¶øÊÇÒ»ÇĞ¶¼¾®¾®ÓĞÌõ¡£¼¸¸ö¶ëáÒË×¼ÒµÜ×Ó
-ÔÚÕâÀïÃ¦Ã¦ÂµÂµ¡£
+è¿™é‡Œæ˜¯ä¸€åº§ç”¨æ¥çƒ§ç‚­çš„ç‚­çª‘ã€‚ä½†ç”±äºå³¨åµ‹å¼Ÿå­åƒè‹¦è€åŠ³ï¼Œè¿™é‡Œæ²¡æœ‰åƒåˆ«çš„
+ç‚­çª‘é‚£æ ·ä¸€ç‰‡é›¶ä¹±ã€é»‘å¾—ä¸€å¡Œç³Šæ¶‚ï¼Œè€Œæ˜¯ä¸€åˆ‡éƒ½äº•äº•æœ‰æ¡ã€‚å‡ ä¸ªå³¨åµ‹ä¿—å®¶å¼Ÿå­
+åœ¨è¿™é‡Œå¿™å¿™ç¢Œç¢Œã€‚
 long);
-	set("outdoors", "¶ëÃ¼É½");
+	set("outdoors", "å³¨çœ‰å±±");
 	set("exits",([
 		"southwest":__DIR__"houshan",
 	]));
@@ -34,27 +34,27 @@ int do_shaotan()
 {
 	int count;
 	object me=this_player();
-	if( !me->query_temp("emjob2/ÉÕÌ¿") || me->is_busy() || me->is_fighting() ) 
+	if( !me->query_temp("emjob2/çƒ§ç‚­") || me->is_busy() || me->is_fighting() ) 
 		return 0;
-	if( (int)me->query_temp("emjob2/·¥Ä¾") != 1) 
+	if( (int)me->query_temp("emjob2/ä¼æœ¨") != 1) 
 		return 0;
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	count = (int)me->query_temp("emjob2/ÉÕÌ¿");
-	if ( count == random(40) && !me->query_temp("emjob2/»ğĞÇ")){
-		message_vision("$NÕı×¨ĞÄµØÉÕÌ¿£¬Í»È»Ò»¸ö"HIR"»ğĞÇ"NOR"±Åµ½$NµÄÉíÉÏ¡£\n", me);
-		me->set_temp("emjob2/»ğĞÇ", 1);
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	count = (int)me->query_temp("emjob2/çƒ§ç‚­");
+	if ( count == random(40) && !me->query_temp("emjob2/ç«æ˜Ÿ")){
+		message_vision("$Næ­£ä¸“å¿ƒåœ°çƒ§ç‚­ï¼Œçªç„¶ä¸€ä¸ª"HIR"ç«æ˜Ÿ"NOR"è¿¸åˆ°$Nçš„èº«ä¸Šã€‚\n", me);
+		me->set_temp("emjob2/ç«æ˜Ÿ", 1);
 		remove_call_out("get_fire");
 		call_out("get_fire", 10, me);
 	}
-	message_vision("$N°ÑÑ¡ºÃµÄÄ¾ÁÏ·ÅÈëÒ¤ÖĞ,×ĞÏ¸µØ¹Û²ì»ğºò¡£\n", me);
+	message_vision("$NæŠŠé€‰å¥½çš„æœ¨æ–™æ”¾å…¥çª‘ä¸­,ä»”ç»†åœ°è§‚å¯Ÿç«å€™ã€‚\n", me);
 	me->receive_damage("jing", 10 + random(20) );
-	me->set_temp("last_damage_from", "ÉÕÌ¿ÀÛ");
+	me->set_temp("last_damage_from", "çƒ§ç‚­ç´¯");
 	if ( count == 1 ) {
-		me->delete_temp("emjob2/·¥Ä¾");
-		me->delete_temp("emjob2/ÉÕÌ¿");
-		message_vision("$N°ÑÉÕºÃµÄÄ¾Ì¿´ÓÒ¤ÖĞÈ¡³ö£¬½»¸ø¿´Ò¤µÜ×Ó¡£\n", me);
-		tell_object(me,"ÀÍÀÛÁËÒ»·¬£¬ÄãÉìÁË¸öÀÁÑü£¬ËäÈ»ÓĞĞ©Æ£¾ë£¬µ«ĞÄÀïÈ´ÓĞÒ»¹ÉÅ¯Òâ¡£\n");
+		me->delete_temp("emjob2/ä¼æœ¨");
+		me->delete_temp("emjob2/çƒ§ç‚­");
+		message_vision("$NæŠŠçƒ§å¥½çš„æœ¨ç‚­ä»çª‘ä¸­å–å‡ºï¼Œäº¤ç»™çœ‹çª‘å¼Ÿå­ã€‚\n", me);
+		tell_object(me,"åŠ³ç´¯äº†ä¸€ç•ªï¼Œä½ ä¼¸äº†ä¸ªæ‡’è…°ï¼Œè™½ç„¶æœ‰äº›ç–²å€¦ï¼Œä½†å¿ƒé‡Œå´æœ‰ä¸€è‚¡æš–æ„ã€‚\n");
 		if(me->query_skill("linji-zhuang",1)) {
 			count = 10 + random( uptime() - me->delete_temp("emjob2/uptime") ) / 2;
 			if (count > 40) count = random((int)me->query_skill("force") ) + (int)me->query_int();
@@ -68,16 +68,16 @@ int do_shaotan()
 		}
 		return 1;
 	}
-	me->set_temp("emjob2/ÉÕÌ¿", count - 1);
+	me->set_temp("emjob2/çƒ§ç‚­", count - 1);
 	return 1;
 }
 
 void get_fire(object me)
 {
-	if( me->query_temp("emjob2/»ğĞÇ") ) {
-		message_vision("$NÒ»¸öÃ»ÁôÉñ£¬±Åµ½ÉíÉÏ»ğĞÇ×ÅÁËÆğÀ´¡£\n", me);        
-		tell_object(me,"Äã¸Ï½ôÔÚÉíÉÏÆË»ğ£¬»ğËäÈ»ÃğÁË£¬µ«ÄãÒ²±»ÉÕµÃ¹»Çº¡£\n");
-		me->delete_temp("emjob2/»ğĞÇ");
+	if( me->query_temp("emjob2/ç«æ˜Ÿ") ) {
+		message_vision("$Nä¸€ä¸ªæ²¡ç•™ç¥ï¼Œè¿¸åˆ°èº«ä¸Šç«æ˜Ÿç€äº†èµ·æ¥ã€‚\n", me);        
+		tell_object(me,"ä½ èµ¶ç´§åœ¨èº«ä¸Šæ‰‘ç«ï¼Œç«è™½ç„¶ç­äº†ï¼Œä½†ä½ ä¹Ÿè¢«çƒ§å¾—å¤Ÿå‘›ã€‚\n");
+		me->delete_temp("emjob2/ç«æ˜Ÿ");
 		me->unconcious();
 	}
 }
@@ -85,12 +85,12 @@ void get_fire(object me)
 int do_puhuo(string arg)
 {
 	object me = this_player();
-	if(!me->query_temp("emjob2/»ğĞÇ")) return 0;
+	if(!me->query_temp("emjob2/ç«æ˜Ÿ")) return 0;
 	if(!arg) return 0;
-	if(arg == "huo" || arg == "huoxing" || arg == "fire" || arg == "fire" || arg == "»ğĞÇ" || arg == "»ğ" ) {
-		me->delete_temp("emjob2/»ğĞÇ");
+	if(arg == "huo" || arg == "huoxing" || arg == "fire" || arg == "fire" || arg == "ç«æ˜Ÿ" || arg == "ç«" ) {
+		me->delete_temp("emjob2/ç«æ˜Ÿ");
 		remove_call_out("get_fire");
-		message_vision("$N¸Ï½ô°ÑÉíÉÏµÄ»ğÆËÃğÁË¡£\n", me);        
+		message_vision("$Nèµ¶ç´§æŠŠèº«ä¸Šçš„ç«æ‰‘ç­äº†ã€‚\n", me);        
 	}
 	return 1;
 }

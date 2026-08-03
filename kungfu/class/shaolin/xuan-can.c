@@ -5,18 +5,18 @@ string ask_me();
 
 void create()
 {
-        set_name("Ğş²Ñ´óÊ¦", ({
+        set_name("ç„æƒ­å¤§å¸ˆ", ({
                 "xuancan dashi",
                 "xuancan",
                 "dashi",
         }));
         set("long",
-                "ËûÊÇÒ»Î»°×Ğë°×Ã¼µÄÀÏÉ®£¬Éí´©Ò»Ï®ÒøË¿×Ø»ÆôÂôÄ¡£ËûÉí²ÄÊİ¸ß£¬\n"
-                "Á³ÉÏÂú²¼ÖåÎÆ£¬ÊÖ±Û´¦Çà½îÕÀÂ¶£¬ËÆºõ¾Ã¾­·çËª¡£\n"
+                "ä»–æ˜¯ä¸€ä½ç™½é¡»ç™½çœ‰çš„è€åƒ§ï¼Œèº«ç©¿ä¸€è¢­é“¶ä¸æ£•é»„è¢ˆè£Ÿã€‚ä»–èº«æç˜¦é«˜ï¼Œ\n"
+                "è„¸ä¸Šæ»¡å¸ƒçš±çº¹ï¼Œæ‰‹è‡‚å¤„é’ç­‹ç»½éœ²ï¼Œä¼¼ä¹ä¹…ç»é£éœœã€‚\n"
         );
         set("no_get", 1);
-        set("nickname", "ÂŞººÌÃÖ´ÊÂÊ××ù");
-        set("gender", "ÄĞĞÔ");
+        set("nickname", "ç½—æ±‰å ‚æ‰§äº‹é¦–åº§");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
 
@@ -62,13 +62,13 @@ void create()
         set("startroom","/d/shaolin/yanwutang");
       set("chat_chance", 30 );
         set("chat_msg", ({
-              "Ğş²Ñ´óÊ¦ËµµÀ£¬ÎÒ¾ÍÊÇ¸ºÔğÔÚËÂÄÚÑ²ÊÓ£¬ºÍÂŞººÌÃÖµÇÚµÄ²îÊÂ¡£\n",
+              "ç„æƒ­å¤§å¸ˆè¯´é“ï¼Œæˆ‘å°±æ˜¯è´Ÿè´£åœ¨å¯ºå†…å·¡è§†ï¼Œå’Œç½—æ±‰å ‚å€¼å‹¤çš„å·®äº‹ã€‚\n",
               (: random_move :),
         }));
         prepare_skill("leg", "ruying-suixingtui");
-        create_family("ÉÙÁÖÅÉ", 36, "µÜ×Ó");
+        create_family("å°‘æ—æ´¾", 36, "å¼Ÿå­");
         set("inquiry", ([
-                "ÂŞººÌÃÖµÇÚ"       : (: ask_me :)
+                "ç½—æ±‰å ‚å€¼å‹¤"       : (: ask_me :)
         ]));
         setup();
         carry_object("/d/shaolin/obj/xuan-cloth")->wear();

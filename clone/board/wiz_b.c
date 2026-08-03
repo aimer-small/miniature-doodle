@@ -7,8 +7,8 @@ void create()
 	set("board_id", "wiz_b");
 	set("location", "/d/wizard/wizard_room");
 	setup();
-	set_name("Î×Ê¦ÁôÑÔ²¾", ({ "board" }) );
-	set("long", "ÕâÊÇÒ»¸ö×¨¹©Î×Ê¦Ê¹ÓÃµÄÁôÑÔ°å¡£\n" );
+	set_name("å·«å¸ˆç•™è¨€ç°¿", ({ "board" }) );
+	set("long", "è¿™æ˜¯ä¸€ä¸ªä¸“ä¾›å·«å¸ˆä½¿ç”¨çš„ç•™è¨€æ¿ã€‚\n" );
 	set("capacity", 999);
 }
 
@@ -21,21 +21,21 @@ void init()
 int do_post(string arg)
 {
 	if (!wizardp(this_player()))
-		return notify_fail("È¥ËÀ¡£\n");
+		return notify_fail("åŽ»æ­»ã€‚\n");
 	return ::do_post(arg);
 }
 
 int do_read(string arg)
 {
 	if (!wizardp(this_player()))
-		return notify_fail("È¥ËÀ¡£\n");
+		return notify_fail("åŽ»æ­»ã€‚\n");
 	return ::do_read(arg);
 }
 
 int do_list(string arg)
 {
 	if (!wizardp(this_player()))
-		return notify_fail("È¥ËÀ¡£\n");
+		return notify_fail("åŽ»æ­»ã€‚\n");
 	return ::do_list(arg);
 }
 
@@ -44,12 +44,12 @@ int do_meet()
 	object *ob = objects();
 	int i = sizeof(ob);
 
-	message_vision("$N°´¶¯»ú¹ØÕÙ¼¯Î×Ê¦¡£\n", this_player());
+	message_vision("$NæŒ‰åŠ¨æœºå…³å¬é›†å·«å¸ˆã€‚\n", this_player());
 	while (i--)
 		if (userp(ob[i]) && wiz_level(ob[i])
 		&& !present(ob[i], environment())) {
 			ob[i]->move(environment());
-			message_vision("$NÏ¡ÀïºýÍ¿µØ±»ÈÓÁË¹ýÀ´¡£\n", ob[i]);
+			message_vision("$Nç¨€é‡Œç³Šæ¶‚åœ°è¢«æ‰”äº†è¿‡æ¥ã€‚\n", ob[i]);
 		}
 
 	EMOTE_D->do_emote(this_player(), "meeting");

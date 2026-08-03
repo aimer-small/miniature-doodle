@@ -7,9 +7,9 @@ inherit F_BANKER;
 
 void create()
 {
-        set_name("´ŞËãÅÌ", ({"cui suanpan", "cui", "zhanggui"}));
-        set("title", "Ç®×¯ÕÆ¹ñ");
-        set("gender", "ÄĞĞÔ");
+        set_name("å´”ç®—ç›˜", ({"cui suanpan", "cui", "zhanggui"}));
+        set("title", "é’±åº„æŒæŸœ");
+        set("gender", "ç”·æ€§");
         set("age", 34);
 
         set("str", 22);
@@ -42,8 +42,8 @@ void create()
 void init()
 {
 	::init();
-	add_action("do_check", ({"check", "chazhang", "²éÕÊ"}));
-	add_action("do_convert", ({"convert", "duihuan", "¶Ò»»"}));
-	add_action("do_deposit", ({"deposit", "cun", "´æ"}));
-	add_action("do_withdraw", ({"withdraw", "qu", "È¡"}));
+	add_action("do_check", ({"check", "chazhang", "æŸ¥å¸"}));
+	add_action("do_convert", ({"convert", "duihuan", "å…‘æ¢"}));
+	add_action("do_deposit", ({"deposit", "cun", "å­˜"}));
+	add_action("do_withdraw", ({"withdraw", "qu", "å–"}));
 }

@@ -1,4 +1,4 @@
-// body guard ±£ïÚ
+// body guard ä¿é•–
 // by emnil@sj          2/9/2k
 // Modify By River@SJ
 
@@ -10,7 +10,7 @@ inherit F_UNIQUE;
 void checkfight();
 int do_copy(object target,int mode);
 
-string *title1 = ({ "ïÚÍ·", "»¤Ôº", "±£ïÚ"});
+string *title1 = ({ "é•–å¤´", "æŠ¤é™¢", "ä¿é•–"});
 
 void create()
 {
@@ -19,14 +19,14 @@ void create()
 	int i;
 
 	i = random(3) + 1;
-	title = "ÁúÃÅïÚ¾Ö  " + title1[random(sizeof(title1))];
+	title = "é¾™é—¨é•–å±€  " + title1[random(sizeof(title1))];
 	name = RNAME_D->get_random_name(i);
 
 	set_name(name["name"], name["id"]);
 	set("title", HIW+title+NOR);
-	set("gender", (i==0?"Å®ÐÔ":"ÄÐÐÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 20 + random(40));
-	set("long", "ÕâÊÇÎ»Íþ·çÁÝÁÝµÄ±£ïÚ£¬ÉíÌå×³Êµ£¬Ò»¿´¾ÍÊÇÎä¹¦¸ßÊÖ£¡\n");
+	set("long", "è¿™æ˜¯ä½å¨é£Žå‡›å‡›çš„ä¿é•–ï¼Œèº«ä½“å£®å®žï¼Œä¸€çœ‹å°±æ˜¯æ­¦åŠŸé«˜æ‰‹ï¼\n");
 
 	set("combat_exp", 5000000);
 	set("meitude","peaceful");
@@ -82,7 +82,7 @@ void create()
                                 (: perform_action, "cuff.zhan" :),
                                 (: perform_action, "cuff.ji" :),
                         }));
-                        menpai = "Îäµ±";
+                        menpai = "æ­¦å½“";
                         break;
                 case 1:  // wd2
                         set_skill("yinyun-ziqi", 500);
@@ -104,7 +104,7 @@ void create()
                                 (: perform_action, "sword.lian" :),
                         }));
                         weapon = "sword";
-                        menpai = "Îäµ±";
+                        menpai = "æ­¦å½“";
                         break;
                 case 2:  // sl1
                         set_skill("yijin-jing", 500);
@@ -124,7 +124,7 @@ void create()
                                 (: perform_action, "whip.fumoquan" :),
                         }));
                         weapon = "whip";
-                        menpai = "ÉÙÁÖ";
+                        menpai = "å°‘æž—";
                         break;
                 case 3:  // sl2
                         set_skill("yijin-jing", 500);
@@ -143,7 +143,7 @@ void create()
                                 (: perform_action, "sword.sanjue" :),
                         }));
                         weapon = "sword";
-                        menpai = "ÉÙÁÖ";
+                        menpai = "å°‘æž—";
                         break;
                 case 4:  // sl3
                         set_skill("yijin-jing", 500);
@@ -160,7 +160,7 @@ void create()
                                 (: perform_action, "finger.wofo" :),
                                 (: perform_action, "finger.qiankun" :),
                         }));
-                        menpai = "ÉÙÁÖ";
+                        menpai = "å°‘æž—";
                         break;
                 case 5:  // hs1
                         set_skill("zixia-gong", 500);
@@ -179,7 +179,7 @@ void create()
                                 (: perform_action, "sword.jianzhang" :),
                         }));
                         weapon = "sword";
-                        menpai = "»ªÉ½";
+                        menpai = "åŽå±±";
                         break;
                 case 6:  // hs2
                         set_skill("zixia-gong", 500);
@@ -198,7 +198,7 @@ void create()
                                 (: perform_action, "blade.sanshenfeng" :),
                         }));
                         weapon = "blade";
-                        menpai = "»ªÉ½";
+                        menpai = "åŽå±±";
                         break;
                 case 7:  // gb1
                         set_skill("huntian-qigong", 500);
@@ -219,7 +219,7 @@ void create()
                                 (: perform_action, "stick.chan" :),
                         }));
                         weapon = "stick";
-                        menpai = "Ø¤°ï";
+                        menpai = "ä¸å¸®";
                         break;
                 case 8:  // gb2
                         set_skill("huntian-qigong", 500);
@@ -237,7 +237,7 @@ void create()
                         set("chat_msg_combat", ({
                                 (: perform_action, "strike.xiao" :),
                         }));
-                        menpai = "Ø¤°ï";
+                        menpai = "ä¸å¸®";
                         break;
                 case 9:  // thd1
                         set_skill("bihai-chaosheng", 500);
@@ -263,7 +263,7 @@ void create()
                         }));
                         set("thd/perform",999);
                         weapon = "xiao";
-                        menpai = "ÌÒ»¨µº";
+                        menpai = "æ¡ƒèŠ±å²›";
                         break;
                 case 10: // thd2
                         set_skill("bihai-chaosheng", 500);
@@ -285,7 +285,7 @@ void create()
                                 (: perform_action, "finger.shentong" :),
                         }));
                         set("thd/perform",999);
-                        menpai = "ÌÒ»¨µº";
+                        menpai = "æ¡ƒèŠ±å²›";
                         break;
                 case 11: // mr1
                         set_skill("shenyuan-gong", 500);
@@ -306,7 +306,7 @@ void create()
                                 (: perform_action, "parry.xingyi" :),
                         }));
                         weapon = "sword";
-                        menpai = "¹ÃËÕÄ½ÈÝ";
+                        menpai = "å§‘è‹æ…•å®¹";
                         break;
                 case 12: // gumu1
                         set_skill("yunu-xinjing", 500);
@@ -324,8 +324,8 @@ void create()
                                 (: perform_action, "sword.haichao" :),
                         }));
                         weapon = "sword";
-                        menpai = "¹ÅÄ¹";
-			if (random(2)) set("env/ÐþÌú½£·¨","º£³±"); else set("env/ÐþÌú½£·¨","ÐÚÓ¿");
+                        menpai = "å¤å¢“";
+			if (random(2)) set("env/çŽ„é“å‰‘æ³•","æµ·æ½®"); else set("env/çŽ„é“å‰‘æ³•","æ±¹æ¶Œ");
                         break;
                 case 13: // emei1
                         set_skill("linji-zhuang", 500);
@@ -345,7 +345,7 @@ void create()
                                 (: perform_action, "sword.jue" :),
                         }));
                         weapon = "sword";
-                        menpai = "¶ðÃ¼";
+                        menpai = "å¨¥çœ‰";
                         break;
                 case 14: // emei2
                         set_skill("linji-zhuang", 500);
@@ -364,7 +364,7 @@ void create()
                                 (: perform_action, "blade.huanying" :),
                         }));
                         weapon = "blade";
-                        menpai = "¶ðÃ¼";
+                        menpai = "å¨¥çœ‰";
                         break;
                 case 15: // mj1
                         set_skill("shenghuo-shengong", 500);
@@ -386,7 +386,7 @@ void create()
 				(: perform_action, "blade.tisha" :),
                         }));
                         weapon = "tieling";
-                        menpai = "Ã÷½Ì";
+                        menpai = "æ˜Žæ•™";
                         break;
                 case 16: // mj2
                         set_skill("shenghuo-shengong", 500);
@@ -405,7 +405,7 @@ void create()
                                 (: exert_function, "yinfeng" :),
                                 (: perform_action, "strike.xixue" :),
                         }));
-                        menpai = "Ã÷½Ì";
+                        menpai = "æ˜Žæ•™";
                 case 17: // dali1
                         set_skill("qiantian-yiyang", 500);
                         set_skill("tianlong-xiang", 500);
@@ -423,7 +423,7 @@ void create()
                                 (: perform_action, "sword.fenglei" :),
                         }));
                         weapon = "sword";
-                        menpai = "ÌìÄÏ´óÀí";
+                        menpai = "å¤©å—å¤§ç†";
                         break;
                 case 18: // tls
                         set_skill("kurong-changong", 500);
@@ -438,7 +438,7 @@ void create()
                         set("chat_msg_combat", ({
                                (: perform_action, "strike.rong" :),
                         }));
-                        menpai = "´óÀíÌìÁúËÂ";
+                        menpai = "å¤§ç†å¤©é¾™å¯º";
                         break;
                 case 19: // gumu2
                         set_skill("yinsuo-jinling", 500);
@@ -459,7 +459,7 @@ void create()
                                 (: perform_action, "whip.yufeng" :),
                         }));
                         weapon = "whip";
-                        menpai = "¹ÅÄ¹ÅÉ";
+                        menpai = "å¤å¢“æ´¾";
                         break;
                 case 20: //gumu3
                         set_skill("anran-zhang", 500);
@@ -475,7 +475,7 @@ void create()
                                 (: perform_action, "strike.xiaohun" :),
                                 (: perform_action, "strike.anran" :),
                         }));
-                        menpai = "¹ÅÄ¹ÅÉ";
+                        menpai = "å¤å¢“æ´¾";
                         break;
 
                  case 21: // tls3
@@ -491,14 +491,14 @@ void create()
                         set("chat_msg_combat", ({
                                 (: perform_action, "strike.jiuchong" :),
                         }));
-                        menpai = "´óÀíÌìÁúËÂ";
+                        menpai = "å¤§ç†å¤©é¾™å¯º";
                         break;
 
                 default: // others      BUG!!!
-                        set("long","Îä¹¦ÉèÖÃ´íÎó£¬BUG£¡£¡£¡");
+                        set("long","æ­¦åŠŸè®¾ç½®é”™è¯¯ï¼ŒBUGï¼ï¼ï¼");
         }
 
-	set("long" , query("long") + sprintf("ÕâÎ»¸ßÊÖËÆºõÀ´×Ô%s¡£\n",menpai) );
+	set("long" , query("long") + sprintf("è¿™ä½é«˜æ‰‹ä¼¼ä¹Žæ¥è‡ª%sã€‚\n",menpai) );
 	set("weapon" , weapon);
 
 	set_temp("no_return",1);
@@ -529,7 +529,7 @@ int do_yell(string arg)
 		return 0;
 
 	if (strsrch(file_name(environment(me)),"/cmds/leitai/bwdh") >= 0) {
-		write("ÔÚÊÔ½£É½×¯ÄÚ£¬¿ÉÃ»ÈËÄÜ±£»¤ÄãÁË¡£\n");
+		write("åœ¨è¯•å‰‘å±±åº„å†…ï¼Œå¯æ²¡äººèƒ½ä¿æŠ¤ä½ äº†ã€‚\n");
 		return 1;
 	}
 	command("guard " + me->query("id"));
@@ -540,7 +540,7 @@ void dest()
 {
 	remove_call_out("dest");
 	if( living(this_object()) )
-		message_vision("$N±£ïÚµÄÊ±¼ä½áÊøÁË£¬ÂýÂýÀë¿ª´ËµØ¡£\n",this_object());
+		message_vision("$Nä¿é•–çš„æ—¶é—´ç»“æŸäº†ï¼Œæ…¢æ…¢ç¦»å¼€æ­¤åœ°ã€‚\n",this_object());
 	destruct(this_object());
 }
 
@@ -584,7 +584,7 @@ void kill_ob(object ob)
 
 int accept_fight(object ob)
 {
-	command("say ÔÚÏÂÕýÔÚ¹¤×÷ÖÐ£¬Ë¡²»·îÅã¡£");
+	command("say åœ¨ä¸‹æ­£åœ¨å·¥ä½œä¸­ï¼Œæ•ä¸å¥‰é™ªã€‚");
 	return 0;
 }
 
@@ -599,7 +599,7 @@ void checkfight()
 
 	weapon = me->query("weapon");
 	if( stringp(weapon) && weapon!="" && weapon!="null" && !me->query_temp("weapon") ) {
-		command("emote ÓÖÄÃ³ö°Ñ±øÆ÷¡£");
+		command("emote åˆæ‹¿å‡ºæŠŠå…µå™¨ã€‚");
 		w = new(BINGQI_D(weapon));
 		w->move(me);
 		w->wield(me);

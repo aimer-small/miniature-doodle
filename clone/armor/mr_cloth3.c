@@ -5,18 +5,18 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIG "ÂÌÉ«³¤É¼" NOR, ({ "chang shan", "cloth","changshan","shan"}));
+        set_name(HIG "ç»¿è‰²é•¿æ‰" NOR, ({ "chang shan", "cloth","changshan","shan"}));
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÊÇÒ»¼şÂÌÉ«Âé²¼³¤ÉÀ£¬¹ÃËÕÄ½ÈİµÄµÜ×ÓÏ²»¶µÄ´©×Å¡£\n");
-                set("unit", "¼ş");
+                set("long", "è¿™æ˜¯ä¸€ä»¶ç»¿è‰²éº»å¸ƒé•¿è¡«ï¼Œå§‘è‹æ…•å®¹çš„å¼Ÿå­å–œæ¬¢çš„ç©¿ç€ã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 15);
                 set("value", 100);
-                set("wear_msg","$N»º»ºµÄ°Ñ$n´©ÔÚÉíÉÏ¡£\n");
-                set("remove_msg","$NµÄ°Ñ$n´ÓÉíÉÏÍÑÁËÏÂÀ´¡£\n");
+                set("wear_msg","$Nç¼“ç¼“çš„æŠŠ$nç©¿åœ¨èº«ä¸Šã€‚\n");
+                set("remove_msg","$Nçš„æŠŠ$nä»èº«ä¸Šè„±äº†ä¸‹æ¥ã€‚\n");
         }
         setup();
 }

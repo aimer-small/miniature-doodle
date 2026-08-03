@@ -1,4 +1,4 @@
-// shouwu.c ºÎÊ×ÎÚ
+// shouwu.c ä½•é¦–ä¹Œ
 
 #include <ansi.h>
 
@@ -14,12 +14,12 @@ void init()
 
 void create()
 {
-	set_name("ºÎÊ×ÎÚ", ({"heshou wu", "wu"}));
+	set_name("ä½•é¦–ä¹Œ", ({"heshou wu", "wu"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Ã");
-		set("long", "ÕâÊÇÒ»¿Ã³õ¾ßÈËĞÎµÄºÎÊ×ÎÚ¡£\n");
+		set("unit", "æ£µ");
+		set("long", "è¿™æ˜¯ä¸€æ£µåˆå…·äººå½¢çš„ä½•é¦–ä¹Œã€‚\n");
 		set("value", 10000);
 	}
 	setup();
@@ -28,10 +28,10 @@ void create()
 int do_eat(string arg)
 {
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	this_player()->add("max_neili", 1);
-	message_vision(HIG "$N³ÔÏÂÒ»¿ÃºÎÊ×ÎÚ£¬¶ÙÊ±¼ä¾õµÃÈ«Éí³äÂúÁË»îÁ¦£¡\n" NOR, this_player());
+	message_vision(HIG "$Nåƒä¸‹ä¸€æ£µä½•é¦–ä¹Œï¼Œé¡¿æ—¶é—´è§‰å¾—å…¨èº«å……æ»¡äº†æ´»åŠ›ï¼\n" NOR, this_player());
 	destruct(this_object());
 	return 1;
 }

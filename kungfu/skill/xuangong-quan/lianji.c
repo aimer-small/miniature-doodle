@@ -13,27 +13,27 @@ int perform(object me, object target)
         ||  !target->is_character()
         ||  !me->is_fighting(target) 
         || !living(target))
-                return notify_fail("���޵���������ֻ�ܶ�ս���еĶ���ʹ�á�\n");
+                return notify_fail("「无敌三连击」只能对战斗中的对手使用。\n");
 
         if( (int)me->query_skill("xuangong-quan", 1) < 250 )
-                return notify_fail("����޼�����ȭ����̫ǳ��������˵�ɣ�\n");
+                return notify_fail("你的无极玄功拳功力太浅，练练再说吧！\n");
 
         if( (int)me->query_skill("cuff", 1) < 250 )
-                return notify_fail("��Ļ���ȭ������̫ǳ���Ͻ�ȥ����ɣ�\n");
+                return notify_fail("你的基本拳法功力太浅，赶紧去领悟吧！\n");
         if( (int)me->query_skill("yinyun-ziqi", 1) < 250 )
-                return notify_fail("����ڹ�����̫ǳ�����������С�\n");
+                return notify_fail("你的内功功力太浅，还需多多修行。\n");
                 
         if( (int)me->query("max_neili") < 1500 )
-                return notify_fail("�������̫�٣�����ȥ��\n");
+                return notify_fail("你的内力太少，打坐去。\n");
         if( (int)me->query("neili") < 500 )
-                return notify_fail("��������������޷�ʹ���޵���������\n");
+                return notify_fail("你的真气不够，无法使出无敌三连击。\n");
         if (me->query_skill_mapped("force") != "yinyun-ziqi")
-                return notify_fail("�������ڹ��ǡ����������𣡣�\n");
+                return notify_fail("您现在内功是「氤氲紫气」吗！？\n");
         if(weapon)
-                return notify_fail("���������Ž������ʹ�á��޵�����������\n");
+                return notify_fail("你手中拿着剑，如何使得「无敌三连击」？\n");
                  
         message_vision(YEL"
-ֻ��$N��ɫ΢΢һ����ȭ�Ʒ��ɣ�������ʽ��Ȼ��죡\n"NOR,me);
+只见$N脸色微微一沉，拳掌翻飞，手中招式骤然变快！\n"NOR,me);
 
         me->add("neili", -200);
         me->add("jingli", -30);

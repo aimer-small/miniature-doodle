@@ -5,21 +5,21 @@ inherit AXE;
 
 void create()
 {
-        set_name(HIY"Àë»ê×ÓÄ¸»·"NOR,({ "zimu huan", "huan","axe" }) );
+        set_name(HIY"ç¦»é­‚å­æ¯çŽ¯"NOR,({ "zimu huan", "huan","axe" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
 
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
                set("value", 1000000);
                set("unique", 1);
                 set("rigidity", 1);
                 set("sharpness", 1);    
                 set("material", "steal");
-                set("wield_msg",HIW"Ö»Ìý¡°Çºà¥à¥¡±Ò»ÕóÂÒÏì£¬$N½«Àë»ê×ÓÄ¸»·ÎÕÔÚÊÖÖÐ¡£\n"NOR);
-                set("long", WHT"\nÕâÊÇ¼þ¼«Ð×ºÝµÄÍâÃÅ±øÈÐ£¬ÉÏÓÐ°µ¿Û£¬ËÆºõ¿ÉÒÔºÍÁíÒ»±øÈÐ×éºÏ£¨zuhe£©³ÉÒ»¼þ¡£\n"NOR);               
-                set("unwield_msg", HIW "$NÐ¡ÐÄµØ°ÑÀë»ê×ÓÄ¸»·ÊÕÈë»³ÖÐ¡£\n"NOR);               
+                set("wield_msg",HIW"åªå¬â€œå‘›å•·å•·â€ä¸€é˜µä¹±å“ï¼Œ$Nå°†ç¦»é­‚å­æ¯çŽ¯æ¡åœ¨æ‰‹ä¸­ã€‚\n"NOR);
+                set("long", WHT"\nè¿™æ˜¯ä»¶æžå‡¶ç‹ çš„å¤–é—¨å…µåˆƒï¼Œä¸Šæœ‰æš—æ‰£ï¼Œä¼¼ä¹Žå¯ä»¥å’Œå¦ä¸€å…µåˆƒç»„åˆï¼ˆzuheï¼‰æˆä¸€ä»¶ã€‚\n"NOR);               
+                set("unwield_msg", HIW "$Nå°å¿ƒåœ°æŠŠç¦»é­‚å­æ¯çŽ¯æ”¶å…¥æ€€ä¸­ã€‚\n"NOR);               
         }
         init_axe(40);
         setup();
@@ -27,7 +27,7 @@ void create()
 
 void init()
 {
-    add_action("do_add",({"zuhe", "×éºÏ"}));
+    add_action("do_add",({"zuhe", "ç»„åˆ"}));
 }
 
 int do_add()
@@ -37,9 +37,9 @@ int do_add()
      ob = this_object();
      obj = present("wanzi duo", me);
      if(!objectp(obj))
-           return notify_fail("ÄãÒª°ÑÀë»ê×ÓÄ¸»·ºÍÊ²Ã´¶«Î÷×éºÏ£¿\n");
+           return notify_fail("ä½ è¦æŠŠç¦»é­‚å­æ¯çŽ¯å’Œä»€ä¹ˆä¸œè¥¿ç»„åˆï¼Ÿ\n");
      me->add("neili", -10);
-     message_vision(BLU"\nÖ»Ìý¡°¿¦¡±µØÒ»ÉùÇáÏì£¬Íò×ÖÃ·»¨¶áºÍÀë»ê×ÓÄ¸»·×éºÏ³ÉÁËÒ»°Ñ×ÓÄ¸Ô§Ñìîá¡£\n"NOR, me);
+     message_vision(BLU"\nåªå¬â€œå–€â€åœ°ä¸€å£°è½»å“ï¼Œä¸‡å­—æ¢…èŠ±å¤ºå’Œç¦»é­‚å­æ¯çŽ¯ç»„åˆæˆäº†ä¸€æŠŠå­æ¯é¸³é¸¯é’ºã€‚\n"NOR, me);
      destruct(obj);   
      new(__DIR__"yuanyang-yue")->move(me, 1);     
      destruct(ob);

@@ -6,13 +6,13 @@ inherit STICK;
 
 void create()
 {
-       set_name(RED"ÀÇÑÀ°ô"NOR, ({ "langya bang","bang" }));
+       set_name(RED"ç‹¼ç‰™æ£’"NOR, ({ "langya bang","bang" }));
        set_weight(15000);
        if (clonep())
                set_default_object(__FILE__);
        else {
-               set("unit", "¸ù");
-               set("long", "ÕâÊÇÒ»¸ù´¿¸Ö´òÔìµÄÀÇÑÀ°ô¡£\n");
+               set("unit", "æ ¹");
+               set("long", "è¿™æ˜¯ä¸€æ ¹çº¯é’¢æ‰“é€ çš„ç‹¼ç‰™æ£’ã€‚\n");
                set("value", 2000);
                set("material", "steel");
                set("unique", 4);
@@ -22,8 +22,8 @@ void create()
                set("wield_str", 22);
                set("weapon_prop/parry", 2);
                set("treasure",1);
-               set("wield_msg", "$N½«Ò»¸ù$nÎÕÔÚÊÖÖĞ¡£\n");
-               set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·ÅÏÂ¡£\n");
+               set("wield_msg", "$Nå°†ä¸€æ ¹$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+               set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¾ä¸‹ã€‚\n");
        }
        init_stick(45);
        setup();

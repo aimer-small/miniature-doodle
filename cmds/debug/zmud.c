@@ -1,4 +1,4 @@
-// zmud.c  ;·ÅÔÚ/cmdsÏÂÒÔ±ã¿ÉÒÔÊ¹ÓÃforce_meº¯Êı
+// zmud.c  ;æ”¾åœ¨/cmdsä¸‹ä»¥ä¾¿å¯ä»¥ä½¿ç”¨force_meå‡½æ•°
 // By Jpei
 
 #include <mudlib.h>
@@ -18,13 +18,13 @@ void create()
 	seteuid(getuid());
 
 	set("long",@LONG
-ÕâÊÇÒ»¸ö½Ğ×öZMUDµÄ³ÌÊ½¡£
+è¿™æ˜¯ä¸€ä¸ªå«åšZMUDçš„ç¨‹å¼ã€‚
 
-¼üÈë<help zmud>ÒÔ»ñµÃ¸ü¶àµÄ×ÊÑ¶¡£
+é”®å…¥<help zmud>ä»¥è·å¾—æ›´å¤šçš„èµ„è®¯ã€‚
 LONG
 );
 
-	set("unit","¸ö");
+	set("unit","ä¸ª");
 	set("no_get", 1);
 	set("no_drop", 1);
 
@@ -41,9 +41,9 @@ void init()
 	seteuid(geteuid());
 	if (!wizardp(me)) return;
 	if (me && present(this_object(), me))
-		set_name (me->name(1) + "µÄZMUD³ÌÊ½", ({ "zmud program" }));
+		set_name (me->name(1) + "çš„ZMUDç¨‹å¼", ({ "zmud program" }));
 	else
-		set_name ("ZMUD³ÌÊ½", ({ "zmud program" }));
+		set_name ("ZMUDç¨‹å¼", ({ "zmud program" }));
 
 	if (me && present(this_object(), me)) {
 		add_action("help", "help");
@@ -59,10 +59,10 @@ int help(string str)
 
 	write(@Help
 
-	Äã¿ÉÒÔÊ¹ÓÃÒÔÏÂµÄ¼¸¸öÃüÁî:
+	ä½ å¯ä»¥ä½¿ç”¨ä»¥ä¸‹çš„å‡ ä¸ªå‘½ä»¤:
 
-	loop»ò# <´ÎÊın> <ÃüÁî>		<ÖØ¸´×öÃüÁîn´Î>
-	run»ò~ <ÓÉ;¸ô¿ªµÄÃüÁî×éºÏ>	<Ò»´ÎÖ´ĞĞÓÉ;¸ô¿ªµÄ¶àÌõÃüÁî>
+	loopæˆ–# <æ¬¡æ•°n> <å‘½ä»¤>		<é‡å¤åšå‘½ä»¤næ¬¡>
+	runæˆ–~ <ç”±;éš”å¼€çš„å‘½ä»¤ç»„åˆ>	<ä¸€æ¬¡æ‰§è¡Œç”±;éš”å¼€çš„å¤šæ¡å‘½ä»¤>
 
 Help
 );
@@ -82,9 +82,9 @@ int do_loop(string arg)
         string cmd;
 
 	if (!geteuid()) seteuid(getuid());
-        if (!arg || arg == "") return notify_fail ("[ZMUD]: ÄãÏë×öÊ²Ã´Ñ½£¿\n");
+        if (!arg || arg == "") return notify_fail ("[ZMUD]: ä½ æƒ³åšä»€ä¹ˆå‘€ï¼Ÿ\n");
         if (sscanf(arg,"%d %s", count, cmd) != 2)
-		return notify_fail ("loop»ò# <count> <cmd>\n");
+		return notify_fail ("loopæˆ–# <count> <cmd>\n");
 	for (i = 0; i < count; i++)
 		if (objectp(me)) me->force_me(cmd);
 	return 1;
@@ -97,7 +97,7 @@ int do_run(string arg)
         string *cmds;
 
 	if (!geteuid()) seteuid(getuid());
-        if (!arg || arg == "") return notify_fail ("[ZMUD]: ÄãÏë×öÊ²Ã´Ñ½£¿\n");
+        if (!arg || arg == "") return notify_fail ("[ZMUD]: ä½ æƒ³åšä»€ä¹ˆå‘€ï¼Ÿ\n");
 	cmds = explode(arg, ";") - ({ "" });
 	for (i = 0; i < sizeof(cmds); i++)
 		if (objectp(me)) me->force_me(cmds[i]);

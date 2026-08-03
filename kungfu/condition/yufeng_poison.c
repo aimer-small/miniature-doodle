@@ -10,10 +10,10 @@ int update_condition(object me,int duration)
 	me->receive_wound("jing",100);
 	me->receive_damage("jingli",me->query_skill("force")*2);
 	me->add_busy(2);
-	me->set_temp("last_damage_from","·ä¶¾·¢×÷");
-	if( !living(me) ) message("vision", me->name() + "Í´¿àµØºßÁËÒ»Éù¡£\n", environment(me), me);
+	me->set_temp("last_damage_from","èœ‚æ¯’å‘ä½œ");
+	if( !living(me) ) message("vision", me->name() + "ç—›è‹¦åœ°å“¼äº†ä¸€å£°ã€‚\n", environment(me), me);
 	else 
-		message_vision(HIR"$NÖ»¸ÐÂéÑ÷ÄÑµ±£¬ËÆºõÎåÔàÁù¸­Ò²ÔÚ·¢Ñ÷£¬Á¢×ã²»¶¨£¬µ¹ÔÚµØÉÏ¹öÀ´¹öÈ¥£¬´óÉùºô½Ð¡£\n"NOR,me);
+		message_vision(HIR"$Nåªæ„Ÿéº»ç—’éš¾å½“ï¼Œä¼¼ä¹Žäº”è„å…­è…‘ä¹Ÿåœ¨å‘ç—’ï¼Œç«‹è¶³ä¸å®šï¼Œå€’åœ¨åœ°ä¸Šæ»šæ¥æ»šåŽ»ï¼Œå¤§å£°å‘¼å«ã€‚\n"NOR,me);
 	if(duration < 1) return 0;
 	me->apply_condition("yufeng_poison",duration - 1);
 	return CND_CONTINUE;

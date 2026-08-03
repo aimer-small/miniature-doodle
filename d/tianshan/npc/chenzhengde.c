@@ -7,14 +7,14 @@ inherit NPC;
 
 void create()
 {
-        set_name("³ÂÕıµÂ", ({ "chen zhengde", "chen", "zhengde"}));
+        set_name("é™ˆæ­£å¾·", ({ "chen zhengde", "chen", "zhengde"}));
 		set("long",
-                "Ëû¾ÍÊÇ»Ø½®Ò»´øÎäÁÖÇ°±²ÍºğÕ³ÂÕıµÂ¡£\n"
-                "ºÍÆŞ×ÓÑ©µñ¹ØÃ÷Ã·ºÍ³ÆÌìÉ½Ë«Ó¥¡£\n"
-                "³¤µÃÉí²Ä¸ß´ó£¬ÍºÍ·£¬ÂúÁ³ºì¹â£¬ĞëÃ¼½Ô°×¡£\n");
-        set("title",HIY"ÌìÉ½Ë«Ó¥"NOR);
-        set("nickname", WHT"ÍºğÕ"NOR);
-        set("gender", "ÄĞĞÔ");
+                "ä»–å°±æ˜¯å›ç–†ä¸€å¸¦æ­¦æ—å‰è¾ˆç§ƒé¹«é™ˆæ­£å¾·ã€‚\n"
+                "å’Œå¦»å­é›ªé›•å…³æ˜æ¢…å’Œç§°å¤©å±±åŒé¹°ã€‚\n"
+                "é•¿å¾—èº«æé«˜å¤§ï¼Œç§ƒå¤´ï¼Œæ»¡è„¸çº¢å…‰ï¼Œé¡»çœ‰çš†ç™½ã€‚\n");
+        set("title",HIY"å¤©å±±åŒé¹°"NOR);
+        set("nickname", WHT"ç§ƒé¹«"NOR);
+        set("gender", "ç”·æ€§");
 
         set("age", 66);
         set("attitude", "peaceful");
@@ -40,11 +40,11 @@ void create()
         set_skill("strike", 250);
         set_skill("sword",250);
 
-        set_skill("zhemei-shou",250);          //åĞÒ£ÕÛÃ·ÊÖ(hand)
-        set_skill("liuyang-zhang",250);        //ÌìÉ½ÁùÑôÕÆ(strike)(unarmed)
-        set_skill("yueying-wubu",250);       //Æ¾ĞéÁÙ·ç(dodge)
-        set_skill("bahuang-gong", 250);        //°Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦(force)
-	set_skill("tianyu-qijian", 260);     //ÌìÉ½½£·¨(sword)
+        set_skill("zhemei-shou",250);          //é€é¥æŠ˜æ¢…æ‰‹(hand)
+        set_skill("liuyang-zhang",250);        //å¤©å±±å…­é˜³æŒ(strike)(unarmed)
+        set_skill("yueying-wubu",250);       //å‡­è™šä¸´é£(dodge)
+        set_skill("bahuang-gong", 250);        //å…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸ(force)
+	set_skill("tianyu-qijian", 260);     //å¤©å±±å‰‘æ³•(sword)
 
 
         map_skill("force", "bahuang-gong");

@@ -1,20 +1,20 @@
-// hengshan-jian.c ºãÉ½½£·¨
+// hengshan-jian.c æ’å±±å‰‘æ³•
 
 #include <ansi.h>
 inherit SKILL;
 
 mapping *action = ({
-([  "action" : "$NÌáÆğ$w£¬»®ÁË¸ö°ëÈ¦£¬Ğ±Ğ±Ïò$n$l´ÌÈ¥",
+([  "action" : "$Næèµ·$wï¼Œåˆ’äº†ä¸ªåŠåœˆï¼Œæ–œæ–œå‘$n$låˆºå»",
     "force" : 120,
     "dodge" : 40,
     "damage" : 30,
-    "damage_type" : "´ÌÉË",
+    "damage_type" : "åˆºä¼¤",
 ]),
-([  "action" : "$NÍ»È»¼ä½«$w½»×óÊÖ£¬·´ÊÖ´Ì³ö",
+([  "action" : "$Nçªç„¶é—´å°†$wäº¤å·¦æ‰‹ï¼Œåæ‰‹åˆºå‡º",
     "force" : 140,
     "dodge" : 35,
     "damage" : 35,
-    "damage_type" : "´ÌÉË",
+    "damage_type" : "åˆºä¼¤",
 ]),
 });
 
@@ -25,11 +25,11 @@ int valid_enable(string usage) { return (usage == "sword") || (usage == "parry")
 int valid_learn(object me)
 {
     if ((int)me->query("max_neili") < 100)
-   return notify_fail(HIC"ÄãµÄÄÚÁ¦²»¹»¡£\n"NOR);
-    if ((string)me->query("gender") != "Å®ĞÔ" )
-   return notify_fail(HIY"ºãÉ½½£·¨Ö»ÓĞÅ®×Ó²ÅÊÊºÏÑ§¡£\n"NOR);
+   return notify_fail(HIC"ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n"NOR);
+    if ((string)me->query("gender") != "å¥³æ€§" )
+   return notify_fail(HIY"æ’å±±å‰‘æ³•åªæœ‰å¥³å­æ‰é€‚åˆå­¦ã€‚\n"NOR);
    		if (me->query_skill("hengshan-qigong", 1) < 10)
-		return notify_fail("ÄãµÄºãÉ½Æø¹¦»ğºòÌ«Ç³£¬Ã»ÓĞ°ì·¨Á·ºãÉ½½£·¨¡£\n");
+		return notify_fail("ä½ çš„æ’å±±æ°”åŠŸç«å€™å¤ªæµ…ï¼Œæ²¡æœ‰åŠæ³•ç»ƒæ’å±±å‰‘æ³•ã€‚\n");
     return 1;
 }
 
@@ -48,9 +48,9 @@ int practice_skill(object me)
 
     if (!objectp(weapon = me->query_temp("weapon"))
     || (string)weapon->query("skill_type") != "sword")
-   return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+   return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
     if ((int)me->query("qi") < 50)
-   return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·ºãÉ½½£·¨¡£\n");
+   return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒæ’å±±å‰‘æ³•ã€‚\n");
     me->receive_damage("qi", 30);
     return 1;
 }

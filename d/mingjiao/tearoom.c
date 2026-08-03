@@ -1,13 +1,13 @@
-// tearoom.c ²èÊÒ
+// tearoom.c èŒ¶å®¤
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 { 
-       set("short",HIC"²èÊÒ"NOR);
+       set("short",HIC"èŒ¶å®¤"NOR);
        set("long", @LONG
-ÕâÀïÊÇÒ»¼ä²èÊÒ£¬ÊÇ×¨ÃÅÕĞ´ı±ö¿ÍÊ±Æã²èµÄµØ·½¡£
+è¿™é‡Œæ˜¯ä¸€é—´èŒ¶å®¤ï¼Œæ˜¯ä¸“é—¨æ‹›å¾…å®¾å®¢æ—¶æ²èŒ¶çš„åœ°æ–¹ã€‚
 LONG);    
 	set("exits", ([		
 		"east" : __DIR__"tingtang",
@@ -34,7 +34,7 @@ int valid_leave(object me, string dir)
 	if((dir == "east")) {
 	    while (i--)
                 if(ob[i]->id("suanmei tang"))
-                   return notify_fail(CYN"ÊÌ²èĞ¡Ù×ºßÁËÒ»Éù£ººÈ×ãÁË»¹Òª´ø×ßÑ½£¡\n"NOR);
+                   return notify_fail(CYN"ä¾èŒ¶å°åƒ®å“¼äº†ä¸€å£°ï¼šå–è¶³äº†è¿˜è¦å¸¦èµ°å‘€ï¼\n"NOR);
 	}
         return ::valid_leave(me, dir);
 }

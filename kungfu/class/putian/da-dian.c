@@ -6,19 +6,19 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("´óñ²´óÊ¦", ({
+        set_name("å¤§ç™«å¤§å¸ˆ", ({
                 "dadian dashi",
                 "dadian",
                 "dashi",
         }));
         set("long",
-                "Ëû¿´ÆğÀ´ÌìÉúÉñÎä£¬»¢±³ĞÜÑü£¬Éí²Ä¸ß³ö³£ÈËÒ»Í·¡£\n"
+                "ä»–çœ‹èµ·æ¥å¤©ç”Ÿç¥æ­¦ï¼Œè™èƒŒç†Šè…°ï¼Œèº«æé«˜å‡ºå¸¸äººä¸€å¤´ã€‚\n"
         );
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
-	set("title", "½ä³ÖÔºÊ××ù");
+	set("title", "æˆ’æŒé™¢é¦–åº§");
 
         set("age", 52);
         set("shen_type", 1);
@@ -65,7 +65,7 @@ void create()
 		(: perform_action, "claw.canyun" :),
 	}));
 
-        create_family("ÄÏÉÙÁÖ", 22, "µÜ×Ó");
+        create_family("å—å°‘æ—", 22, "å¼Ÿå­");
 
         setup();
 

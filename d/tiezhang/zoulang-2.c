@@ -6,10 +6,10 @@ inherit ROOM;
 int get_object(object ob);
 void create()
 {
-	set("short", "×ßÀÈ");
+	set("short", "èµ°å»Š");
 	set("long", @LONG
-ÕâÀïÊÇÒ»Ìõ×ßÀÈ£¬×ßÀÈÉÏºÜ¾²£¬±±ÃæËÆºõ´«À´Ò»ÕóÕó·­ÊéµÄ»©»©Éù£¬ÄÇÀï
-ÊÇÒ»¸öÊé·¿¡£ÌúÕÆ°ïµÄµÜ×ÓÆ½ÈÕÔÚÄÇÀï¶ÁÊéÓÃ¹¦¡£
+è¿™é‡Œæ˜¯ä¸€æ¡èµ°å»Šï¼Œèµ°å»Šä¸Šå¾ˆé™ï¼ŒåŒ—é¢ä¼¼ä¹Žä¼ æ¥ä¸€é˜µé˜µç¿»ä¹¦çš„å“—å“—å£°ï¼Œé‚£é‡Œ
+æ˜¯ä¸€ä¸ªä¹¦æˆ¿ã€‚é“æŽŒå¸®çš„å¼Ÿå­å¹³æ—¥åœ¨é‚£é‡Œè¯»ä¹¦ç”¨åŠŸã€‚
 LONG
 	);
 
@@ -34,13 +34,13 @@ int valid_leave(object me, string dir)
         mapping fam = me->query("family");
         object *inv = deep_inventory(me);
         if(dir == "north"){
-		if(!fam || fam["family_name"]!= "ÌúÕÆ°ï")
-			return notify_fail("Í»È»ÓÐ¸öÉùÒôÔÚÄã¶ú±ßÏìÆð£º" + RANK_D->query_respect(me) +"²»ÊÇÌúÕÆ°ïµÄÈË£¬²»µÃ½øÈë½ûµØ¡£\n");
+		if(!fam || fam["family_name"]!= "é“æŽŒå¸®")
+			return notify_fail("çªç„¶æœ‰ä¸ªå£°éŸ³åœ¨ä½ è€³è¾¹å“èµ·ï¼š" + RANK_D->query_respect(me) +"ä¸æ˜¯é“æŽŒå¸®çš„äººï¼Œä¸å¾—è¿›å…¥ç¦åœ°ã€‚\n");
 		if (me->query_condition("killer"))
-			return notify_fail("Í¨¼©·¸²»×¼ÈëÄÚ¡£\n");
+			return notify_fail("é€šç¼‰çŠ¯ä¸å‡†å…¥å†…ã€‚\n");
 		obj = filter_array(inv,(:get_object:));
         	if(sizeof(obj)){
-			write (HIR"Äã¸ÕÏëÍµÍµ±³¸öÈË½øÈ¥£¬½á¹û¸ºÖØÌ«¶à£¬½ÅÏÂÒ»¸ö°íË©£¬Ë¤µ¹ÔÚµØ¡£\n"NOR);
+			write (HIR"ä½ åˆšæƒ³å·å·èƒŒä¸ªäººè¿›åŽ»ï¼Œç»“æžœè´Ÿé‡å¤ªå¤šï¼Œè„šä¸‹ä¸€ä¸ªç»Šæ‹´ï¼Œæ‘”å€’åœ¨åœ°ã€‚\n"NOR);
 			me->move(__DIR__"zoulang-2");
 			me->unconcious();
 			return 1;

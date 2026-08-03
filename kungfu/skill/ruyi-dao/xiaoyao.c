@@ -1,9 +1,9 @@
-// xiaoyao.c åĞÒ£
+// xiaoyao.c é€é¥
 // modified by action@SJ 28/12/2008
 // modified by zhuifeng@SJFY 2010/7/20
 
 #include <ansi.h>
-  string perform_name() {return HIC"åĞÒ£"NOR;}
+  string perform_name() {return HIC"é€é¥"NOR;}
 
 inherit F_SSERVER;
 
@@ -19,50 +19,50 @@ int perform(object me, object target)
      
   if(!objectp(target) || !me->is_fighting(target) || !living(target)
         || environment(target)!=environment(me))
-                return notify_fail("åĞÒ£µ¶Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("é€é¥åˆ€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
       if (!weapon || weapon->query("skill_type") != "blade"
        || me->query_skill_mapped("blade") != "ruyi-dao"
        || me->query_skill_mapped("parry") != "ruyi-dao")
-      return notify_fail("ÄãÊÖÀïÃ»ÓĞµ¶£¬ÎŞ·¨Ê¹ÓÃåĞÒ££¡\n");  
+      return notify_fail("ä½ æ‰‹é‡Œæ²¡æœ‰åˆ€ï¼Œæ— æ³•ä½¿ç”¨é€é¥ï¼\n");  
                  
       if( (int)me->query_skill("blade",1) < 200 )
-      return notify_fail("ÄãµÄ»ù±¾µ¶·¨µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸åĞÒ£¡¹£¡\n");  
+      return notify_fail("ä½ çš„åŸºæœ¬åˆ€æ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œé€é¥ã€ï¼\n");  
 
       if( (int)me->query_skill("liuyang-zhang", 1) < 200 )
-      return notify_fail("ÄãµÄÌìÉ½ÁùÑôÕÆµÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸åĞÒ£¡¹£¡\n");
+      return notify_fail("ä½ çš„å¤©å±±å…­é˜³æŒç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œé€é¥ã€ï¼\n");
    
    if(!wizardp(me) && (int)me->query_skill("bahuang-gong", 1) < 250 )
 	if(!wizardp(me) && (int)me->query_skill("beiming-shengong", 1) < 200 )
-      return notify_fail("ÄãµÄ±±Ú¤Éñ¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸åĞÒ£¡¹£¡\n");
+      return notify_fail("ä½ çš„åŒ—å†¥ç¥åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œé€é¥ã€ï¼\n");
   
   
 
          if (me->query_skill_mapped("force") != "bahuang-gong" )       
       if (me->query_skill_mapped("force") != "beiming-shengong")
-                return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦²»¶Ô¡£\n");
+                return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸å¯¹ã€‚\n");
                 
       if( (int)me->query("max_neili") < 4000 )
-      return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ¡¸åĞÒ£¡¹£¡\n");
+      return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ã€Œé€é¥ã€ï¼\n");
       
       if( (int)me->query("neili") < 2000 )
-      return notify_fail("ÄãµÄÄÚÁ¦Ì«ÉÙÁË£¬ÎŞ·¨Ê¹ÓÃ³ö¡¸åĞÒ£¡¹£¡\n");   
+      return notify_fail("ä½ çš„å†…åŠ›å¤ªå°‘äº†ï¼Œæ— æ³•ä½¿ç”¨å‡ºã€Œé€é¥ã€ï¼\n");   
                                                                                  
       if (me->query_skill_prepared("strike") != "liuyang-zhang"
           || me->query_skill_mapped("strike") != "liuyang-zhang")
-      return notify_fail("²»Ê¹ÓÃÁùÑôÕÆ£¬ÄãÈçºÎÊ¹ÓÃ¡¸åĞÒ£¡¹½øĞĞ¹¥»÷¡£\n");             
+      return notify_fail("ä¸ä½¿ç”¨å…­é˜³æŒï¼Œä½ å¦‚ä½•ä½¿ç”¨ã€Œé€é¥ã€è¿›è¡Œæ”»å‡»ã€‚\n");             
 
-      message_vision(HIC"\n$NÈÚ»á¹áÍ¨åĞÒ£ÅÉÎäÑ§£¬Ê¹³öåĞÒ£ÅÉÎä¹¦Ö®¾«Ëè¡¸åĞÒ£¡¹¾øÑ§£¬Ïò$nÇáÃèµ­Ğ´µÄ»Ó³öÁ½µ¶Á½ÕÆ£¡\n"NOR, me,target);
+      message_vision(HIC"\n$Nèä¼šè´¯é€šé€é¥æ´¾æ­¦å­¦ï¼Œä½¿å‡ºé€é¥æ´¾æ­¦åŠŸä¹‹ç²¾é«“ã€Œé€é¥ã€ç»å­¦ï¼Œå‘$nè½»ææ·¡å†™çš„æŒ¥å‡ºä¸¤åˆ€ä¸¤æŒï¼\n"NOR, me,target);
 if(!userp(target)) target->add_busy(2);
 me->set_temp("xiaoyao",1);
       me->add("neili", -300); 
       me->add("jingli", -200);      
       me->add_temp("apply/strength", lvl /10 );
-              if (me->query("family/family_name") == "åĞÒ£ÅÉ") {
+              if (me->query("family/family_name") == "é€é¥æ´¾") {
       me->add_temp("apply/blade", lvl/2);
       me->add_temp("apply/damage", lvl/2);
     };
-                  if (me->query("family/family_name") == "ÁéğÕ¹¬") {
+                  if (me->query("family/family_name") == "çµé¹«å®«") {
       me->add_temp("apply/blade", lvl);
       me->add_temp("apply/damage", lvl);
       me->add_temp("apply/attack", lvl /2);
@@ -84,11 +84,11 @@ if (me->is_fighting(target)){
       COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);  
   
      me->add_temp("apply/strength", -lvl /10 );
-      if (me->query("family/family_name") == "åĞÒ£ÅÉ") {
+      if (me->query("family/family_name") == "é€é¥æ´¾") {
       me->add_temp("apply/blade", -lvl/2);
       me->add_temp("apply/damage", -lvl/2);
     };
-                   if (me->query("family/family_name") == "ÁéğÕ¹¬") {
+                   if (me->query("family/family_name") == "çµé¹«å®«") {
       me->add_temp("apply/blade", -lvl);
       me->add_temp("apply/damage",- lvl);
       me->add_temp("apply/attack", -lvl /2);
@@ -97,24 +97,24 @@ if (me->is_fighting(target)){
       me->add_temp("apply/attack", -lvl /2);
       weapon->wield();
 me->delete_temp("xiaoyao");
-      me->start_perform(3 + random(2), "¡¸åĞÒ£¡¹");
+      me->start_perform(3 + random(2), "ã€Œé€é¥ã€");
       return 1;
 }
 
 int help(object me)
 {
-        write(HIC"\nÈçÒâµ¶·¨Ö®¡¸åĞÒ£¡¹£º"NOR"\n\n");
+        write(HIC"\nå¦‚æ„åˆ€æ³•ä¹‹ã€Œé€é¥ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1000 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 4000 ÒÔÉÏ£»
-                ÈçÒâµ¶·¨µÈ¼¶ 200 ÒÔÉÏ£»
-                ±±Ú¤Éñ¹¦µÈ¼¶ 200 ÒÔÉÏ£»
-                ÌìÉ½ÁùÑôÕÆµÈ¼¶ 200 ÒÔÉÏ£»
-                ¼¤·¢µ¶·¨ÎªÈçÒâµ¶·¨£»
-                ¼¤·¢ÕĞ¼ÜÎªÈçÒâµ¶·¨£»
-                ¼¤·¢ÕÆ·¨ÎªÌìÉ½ÁùÑôÕÆ£»
-                ±¸ÊÖ·¨ÎªÌìÉ½ÁùÑôÕÆ£»
-                ÇÒÊÖ³Ö±øÆ÷¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1000 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 4000 ä»¥ä¸Šï¼›
+                å¦‚æ„åˆ€æ³•ç­‰çº§ 200 ä»¥ä¸Šï¼›
+                åŒ—å†¥ç¥åŠŸç­‰çº§ 200 ä»¥ä¸Šï¼›
+                å¤©å±±å…­é˜³æŒç­‰çº§ 200 ä»¥ä¸Šï¼›
+                æ¿€å‘åˆ€æ³•ä¸ºå¦‚æ„åˆ€æ³•ï¼›
+                æ¿€å‘æ‹›æ¶ä¸ºå¦‚æ„åˆ€æ³•ï¼›
+                æ¿€å‘æŒæ³•ä¸ºå¤©å±±å…­é˜³æŒï¼›
+                å¤‡æ‰‹æ³•ä¸ºå¤©å±±å…­é˜³æŒï¼›
+                ä¸”æ‰‹æŒå…µå™¨ã€‚
 
 HELP
         );

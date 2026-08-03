@@ -1,14 +1,14 @@
-// jiaotou.c Îä¹İ½ÌÍ·
+// jiaotou.c æ­¦é¦†æ•™å¤´
 inherit NPC;
 #include <ansi.h>
 
 void create()
 {
-        set_name("Îä¹İ½ÌÍ·", ({ "wuguan jiaotou", "jiaotou"}));
-        set("long", "ÕâÊÇÎä¹İÆ¸ÇëµÄ½ÌÍ·£¬ËûËùÓĞµÄ»ù±¾Îä¼¼£¬Äã¶¼¿ÉÒÔÏòËûÑ§Ï°¡£\n"+
-                "²éÑ¯½ÌÍ·¼¼ÄÜÖ¸ÁîÎª£ºcha jiaotou¡£\n"+
-                "´Ó½ÌÍ·´¦Ñ§Ï°¼¼ÄÜµÄÖ¸ÁîÎª£ºxue jiaotou <¼¼ÄÜÃû>¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("æ­¦é¦†æ•™å¤´", ({ "wuguan jiaotou", "jiaotou"}));
+        set("long", "è¿™æ˜¯æ­¦é¦†è˜è¯·çš„æ•™å¤´ï¼Œä»–æ‰€æœ‰çš„åŸºæœ¬æ­¦æŠ€ï¼Œä½ éƒ½å¯ä»¥å‘ä»–å­¦ä¹ ã€‚\n"+
+                "æŸ¥è¯¢æ•™å¤´æŠ€èƒ½æŒ‡ä»¤ä¸ºï¼šcha jiaotouã€‚\n"+
+                "ä»æ•™å¤´å¤„å­¦ä¹ æŠ€èƒ½çš„æŒ‡ä»¤ä¸ºï¼šxue jiaotou <æŠ€èƒ½å>ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 41);
         set("unique", 1);
          
@@ -38,8 +38,8 @@ void create()
           
         set("chat_chance", 3);
         set("chat_msg", ({
-                CYN"Îä¹İ½ÌÍ·º°µÀ£º¡¸´ó¼ÒºÃºÃÁ·°¡£¬ÓĞÊ²Ã´²»¶®¿ÉÒÔÎÊÎÒ¡£¡¹\n"NOR,
-                CYN"Îä¹İ½ÌÍ·¶«¿´Î÷ÇÆ£º¡¸ÄãÃÇ¿É²»ÒªÍµÀÁÅ¶£¬´ó¼Ò¼ÓÓÍ°¡¡£¡¹\n"NOR,
+                CYN"æ­¦é¦†æ•™å¤´å–Šé“ï¼šã€Œå¤§å®¶å¥½å¥½ç»ƒå•Šï¼Œæœ‰ä»€ä¹ˆä¸æ‡‚å¯ä»¥é—®æˆ‘ã€‚ã€\n"NOR,
+                CYN"æ­¦é¦†æ•™å¤´ä¸œçœ‹è¥¿ç§ï¼šã€Œä½ ä»¬å¯ä¸è¦å·æ‡’å“¦ï¼Œå¤§å®¶åŠ æ²¹å•Šã€‚ã€\n"NOR,
                 (: random_move :)
         }));
 
@@ -53,7 +53,7 @@ void init()
         me = this_object();
         ::init();
         if (interactive(ob = this_player()) && ob->query_condition("killer")){ 
-                command("say Äã¾¹¸ÒÔÚÎä¹İÉ±ÈË! \n");
+                command("say ä½ ç«Ÿæ•¢åœ¨æ­¦é¦†æ€äºº! \n");
                 me->set_leader(ob);
                 remove_call_out("kill_ob");
                 call_out("kill_ob", 1, ob);

@@ -9,14 +9,14 @@ void init()
 
 void create()
 {
-        set_name("²ÎÍè", ({"shen wan", "shen", "wan"}));
+        set_name("å‚ä¸¸", ({"shen wan", "shen", "wan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else 
         {
                 set("value", 3000);
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿ÅÌØĞ§²ÎÍè£¬¿ÉÒÔ²¹Âú¾«Ñª¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—ç‰¹æ•ˆå‚ä¸¸ï¼Œå¯ä»¥è¡¥æ»¡ç²¾è¡€ã€‚\n");
         }
 }
 
@@ -24,14 +24,14 @@ int do_eat(string arg)
 {
         object me = this_player();
         if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         if (me->is_busy())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if (me->query("eff_jing") >= me->query("max_jing"))
-                return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃ²ÎÍè¡£\n");
+                return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨å‚ä¸¸ã€‚\n");
         me->receive_curing("jing", me->query("max_jing"));
         me->receive_heal("jing", me->query("max_jing"));
-        message_vision(HIY"$N³ÔÏÂÒ»¿Å²ÎÍè£¬ÉíÉÏÄÚÉËÒÑÈ»ÎŞ°­¡£\n"NOR, me);
+        message_vision(HIY"$Nåƒä¸‹ä¸€é¢—å‚ä¸¸ï¼Œèº«ä¸Šå†…ä¼¤å·²ç„¶æ— ç¢ã€‚\n"NOR, me);
         me->start_busy(1);
         destruct(this_object());
         return 1;

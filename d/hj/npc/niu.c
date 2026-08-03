@@ -3,13 +3,13 @@ inherit NPC;
 
 void create()
 {
-        set_name("黄牛", ({ "huang niu", "niu" }) );
-	set("race", "野兽");
+        set_name("榛勭墰", ({ "huang niu", "niu" }) );
+	set("race", "閲庡吔");
 	set("age", 5);
-        set("long", "一头健壮的牛。\n");
+        set("long", "涓�澶村仴澹殑鐗涖�俓n");
 	set("attitude", "peaceful");
 
-	set("limbs", ({ "头部", "身体", "前脚", "后脚", "尾巴" }) );
+	set("limbs", ({ "澶撮儴", "韬綋", "鍓嶈剼", "鍚庤剼", "灏惧反" }) );
         set("verbs", ({ "kick", "bite" }) );
 
         set("max_qi", 300);

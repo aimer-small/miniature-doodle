@@ -11,15 +11,15 @@ if( !target ) target = offensive_target(me);
          || !me->is_fighting(target)
          || !objectp(target)
          || environment(target)!= environment(me))
-return notify_fail("������������ֻ�ܶ�ս���еĶ���ʹ�á�\n");
+return notify_fail("「金蛇游身」只能对战斗中的对手使用。\n");
 
 if( (int)me->query_skill("wudu-yanluobu", 1) < 250 )
-return notify_fail("����嶾���ܲ���򲻹�������ʹ����������������\n");
+return notify_fail("你的五毒烟萝步火候不够，不能使出「金蛇游身」。\n");
 if( (int)me->query("neili", 1) < 500 )
-return notify_fail("����������̫��������ʹ�á�������������\n");
+return notify_fail("你现在内力太弱，不能使用「金蛇游身」。\n");
 if( target->is_busy() )
-return notify_fail(target->name() + "Ŀǰ����æ���ң��㻹��תʲô���Ͽ�����ɣ�\n");
-msg = HIC "$N���к���һ�䣬ʹ���������������ľ���������Խ��Խ�졣ֻ��$N�ɿ���Ƴ����ߣ�հ֮��ǰ����֮�ں�һʱ�䵽������$N����Ӱ��\n"NOR;
+return notify_fail(target->name() + "目前正手忙脚乱，你还乱转什么，赶快进攻吧！\n");
+msg = HIC "$N身行忽的一变，使出「金蛇游身」的绝技，身法越来越快。只见$N飞快的绕场游走，瞻之在前，望之在后，一时间到处都是$N的身影。\n"NOR;
 message_vision(msg, me, target);
 time = (int)me->query_skill("wudu-yanluobu",1)/100;
 skill = (int)me->query_skill("wudu-yanluobu",1);
@@ -28,30 +28,30 @@ me->add("neili", -100);
  if (random(skill) > random(tg_skill) || !userp(target))
 {
 target->start_busy(random(time)+1);
-msg = HIR"$n���ɵ�һ�������޴룬��$N�������У�\n"NOR;
+msg = HIR"$n不由得一阵手足无措，被$N连攻数招！\n"NOR;
 message_vision(msg, me, target);
 return 1;
 }
 else
 {
 me->start_busy(3);
-msg = HIR"����$n�Ծ��ƶ��������Ż���˿������$N��Ӱ��,$N�Լ����۵���ͷ�󺹣�\n"NOR;
+msg = HIR"可是$n以静制动，紧守门户，丝毫不受$N的影响,$N自己倒累的满头大汗！\n"NOR;
 message_vision(msg, me, target);
-     me->start_perform(5,"������������");
+     me->start_perform(5,"「金蛇游身」");
 
 }
 
 
 return 1;
 }
-string perform_name(){ return HIC"��������"NOR; }
+string perform_name(){ return HIC"金蛇游身"NOR; }
 int help(object me)
 {
-        write(HIY"\n�嶾����֮������������:"NOR"\n\n");
+        write(HIY"\n五毒步法之「金蛇游身」:"NOR"\n\n");
         write(@HELP
-        �嶾�̳��ϼ�����ſ���ϰ���ؼ�����������ɾ���ѩ��
-        �Ժκ�ҩ��ϰ�ã����Ϊ��������ֵľ���֮һ����˵��
-        ����Ҫ��ܸߡ�
+        五毒教长老级人物才可修习的秘技，当年金蛇郎君夏雪宜
+        自何红药处习得，后成为其独步武林的绝技之一，传说对
+        身法要求很高。
 
 HELP
 );

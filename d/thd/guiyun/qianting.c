@@ -1,15 +1,15 @@
 // /u/jpei/guiyun/qianting.c
-// ¼ÓÈë×ª»»Ê¦¸µµÄ´úÂë Modified by Numa
+// åŠ å…¥è½¬æ¢å¸ˆå‚…çš„ä»£ç  Modified by Numa
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short","Ç°Ìü");
+        set("short","å‰å…");
         set("long",@LONG
-ÕâÊÇ¹éÔÆ×¯µÄÇ°Ìü¡£Æ½³£ÕĞ´ı¿ÍÈË¶¼ÔÚÕâÀï½øĞĞ¡£ÌüÖĞ³ÂÉè»ªÃÀ£¬µñÁº»­
-¶°£¬¼«ÇîÇÉË¼¡£
+è¿™æ˜¯å½’äº‘åº„çš„å‰å…ã€‚å¹³å¸¸æ‹›å¾…å®¢äººéƒ½åœ¨è¿™é‡Œè¿›è¡Œã€‚å…ä¸­é™ˆè®¾åç¾ï¼Œé›•æ¢ç”»
+æ ‹ï¼Œæç©·å·§æ€ã€‚
 LONG
 );
         set("objects",([
@@ -29,26 +29,26 @@ void init()
 {
         object me = this_player();
 
-        if (me->query("family/family_name")=="ÌÒ»¨µº")
+        if (me->query("family/family_name")=="æ¡ƒèŠ±å²›")
         {
                 if ((int)me->query("family/generation")==2)
                 {
                         if ((int)me->query_skill("bihai-chaosheng",1) < 130 && me->query_skill("bihai-chaosheng",1) >= 80)
                         {
                                 me->set("family/master_id","lu chengfeng");
-                                me->set("family/master_name","Â½³Ë·ç");
+                                me->set("family/master_name","é™†ä¹˜é£");
                                 me->set("family/generation",3);
-                		me->set("title","ÌÒ»¨µºµÚÈı´úµÜ×Ó");
-                                write( HIY "ÓÉÓÚÄúµÄ±Ìº£³±ÉúµÈ¼¶Ğ¡ÓÚÒ»°ÙÈıÊ®¼¶£¬ÏµÍ³ÒÑ½«Äú×ª»»ÎªÌÒ»¨µºµÚÈı´úµÜ×Ó¡£\n" NOR);
+                		me->set("title","æ¡ƒèŠ±å²›ç¬¬ä¸‰ä»£å¼Ÿå­");
+                                write( HIY "ç”±äºæ‚¨çš„ç¢§æµ·æ½®ç”Ÿç­‰çº§å°äºä¸€ç™¾ä¸‰åçº§ï¼Œç³»ç»Ÿå·²å°†æ‚¨è½¬æ¢ä¸ºæ¡ƒèŠ±å²›ç¬¬ä¸‰ä»£å¼Ÿå­ã€‚\n" NOR);
                                 return;
                         }
                         else if ((int)me->query_skill("bihai-chaosheng",1) < 80)
                         {
                                 me->set("family/master_id","lu guanying");
-                                me->set("family/master_name","Â½¹ÚÓ¢");
+                                me->set("family/master_name","é™†å† è‹±");
                                 me->set("family/generation",4);
-                		me->set("title","ÌÒ»¨µºµÚËÄ´úµÜ×Ó");
-                                write( HIY "ÓÉÓÚÄúµÄ±Ìº£³±ÉúµÈ¼¶Ğ¡ÓÚ°ËÊ®¼¶£¬ÏµÍ³ÒÑ½«Äú×ª»»ÎªÌÒ»¨µºµÚËÄ´úµÜ×Ó¡£\n" NOR);
+                		me->set("title","æ¡ƒèŠ±å²›ç¬¬å››ä»£å¼Ÿå­");
+                                write( HIY "ç”±äºæ‚¨çš„ç¢§æµ·æ½®ç”Ÿç­‰çº§å°äºå…«åçº§ï¼Œç³»ç»Ÿå·²å°†æ‚¨è½¬æ¢ä¸ºæ¡ƒèŠ±å²›ç¬¬å››ä»£å¼Ÿå­ã€‚\n" NOR);
                                 return;
                         }
                 }
@@ -57,10 +57,10 @@ void init()
                         if ((int)me->query_skill("bihai-chaosheng",1) < 80)
                         {
                                 me->set("family/master_id","lu guanying");
-                                me->set("family/master_name","Â½¹ÚÓ¢");
+                                me->set("family/master_name","é™†å† è‹±");
                                 me->set("family/generation",4);
-                		me->set("title","ÌÒ»¨µºµÚËÄ´úµÜ×Ó");
-                                write( HIY "ÓÉÓÚÄúµÄ±Ìº£³±ÉúµÈ¼¶Ğ¡ÓÚ°ËÊ®¼¶£¬ÏµÍ³ÒÑ½«Äú×ª»»ÎªÌÒ»¨µºµÚËÄ´úµÜ×Ó¡£\n" NOR);
+                		me->set("title","æ¡ƒèŠ±å²›ç¬¬å››ä»£å¼Ÿå­");
+                                write( HIY "ç”±äºæ‚¨çš„ç¢§æµ·æ½®ç”Ÿç­‰çº§å°äºå…«åçº§ï¼Œç³»ç»Ÿå·²å°†æ‚¨è½¬æ¢ä¸ºæ¡ƒèŠ±å²›ç¬¬å››ä»£å¼Ÿå­ã€‚\n" NOR);
                                 return;
                         }
                 }

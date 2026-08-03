@@ -1,4 +1,4 @@
-// cui.c ´ß»ê
+// cui.c å‚¬é­‚
 
 #include <ansi.h>
 #include <combat.h>
@@ -20,21 +20,21 @@ int perform(object me,object target)
 
 
         if (! target || ! me->is_fighting(target))
-                return notify_fail("¡¸´ß»ê¡¹Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œå‚¬é­‚ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if (me->query_temp("weapon"))
-                return notify_fail("ÄãÖ»ÄÜ¿ÕÊÖÊ¹ÓÃ¡¸´ß»ê¡¹¾ø¼¼¡£\n");
+                return notify_fail("ä½ åªèƒ½ç©ºæ‰‹ä½¿ç”¨ã€Œå‚¬é­‚ã€ç»æŠ€ã€‚\n");
 
         ap = me->query_skill("tianmo-shou", 1);
 
         if (ap < 150)
-                return notify_fail("ÄãµÄÌìÄ§ÊÖµÈ¼¶²»¹», ÎÞ·¨Ê¹ÓÃ¡¸´ß»ê¡¹£¡\n");
+                return notify_fail("ä½ çš„å¤©é­”æ‰‹ç­‰çº§ä¸å¤Ÿ, æ— æ³•ä½¿ç”¨ã€Œå‚¬é­‚ã€ï¼\n");
 
         if (me->query("neili") < 150)
-                return notify_fail("ÄãµÄÕæÆø²»¹»£¬ÎÞ·¨ÔËÓÃ¡¸´ß»ê¡¹£¡\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•è¿ç”¨ã€Œå‚¬é­‚ã€ï¼\n");
 
-        msg = HIR "$N" HIR "²½·¨ºö±ä£¬×óÓÒºá¿çÊý²½£¬¿ÚÖÐ·¢³ö³¤¶Ì²»Ò»µÄÐ¥Éù£¬ÅäºÏ×ÅÒ»ÖÖÆæÒìµÄÐýÂÉ£¬Ë«ÊÖÏò$n" HIR
-              "»º»ºÅÄµ½¡£\n" NOR;
+        msg = HIR "$N" HIR "æ­¥æ³•å¿½å˜ï¼Œå·¦å³æ¨ªè·¨æ•°æ­¥ï¼Œå£ä¸­å‘å‡ºé•¿çŸ­ä¸ä¸€çš„å•¸å£°ï¼Œé…åˆç€ä¸€ç§å¥‡å¼‚çš„æ—‹å¾‹ï¼ŒåŒæ‰‹å‘$n" HIR
+              "ç¼“ç¼“æ‹åˆ°ã€‚\n" NOR;
 
         dp = target->query_skill("parry", 1);
         if (dp < 1)  dp = 1;
@@ -46,21 +46,21 @@ int perform(object me,object target)
 if(userp(target)) damage = damage /3;
                 target->receive_damage("jing", damage, me);
                 target->receive_wound("jing", damage/3, me);
-                msg +=                     HIR "$n" HIR "Õý×Ô¾ªÒÉ£¬²»¼°ÉÁ±Ü£¬µÇÊ±±»"
-                                           "ÅÄ¸öÕý×Å¡£¶Ù¾õÐ¥ÉùÖ±´ÌÈëÄÔ£¬¾«Éñ²»¼Ã£¬Ò¡Ò¡Óûµ¹£¡\n" NOR;
+                msg +=                     HIR "$n" HIR "æ­£è‡ªæƒŠç–‘ï¼Œä¸åŠé—ªé¿ï¼Œç™»æ—¶è¢«"
+                                           "æ‹ä¸ªæ­£ç€ã€‚é¡¿è§‰å•¸å£°ç›´åˆºå…¥è„‘ï¼Œç²¾ç¥žä¸æµŽï¼Œæ‘‡æ‘‡æ¬²å€’ï¼\n" NOR;
                 target->start_busy(2 + random(2));
                 me->start_busy(1);
         } else
         {
                 me->add("neili", -50);
-                msg += CYN "$n" CYN "ÌýµÃÐ¦ÉùÓÐÒì£¬ºö¸ÐÑ£ÔÎ£¬Á¬Ã¦Ò»Ò§Éà¼â£¬¾«ÉñÒ»Õñ£¬·ÜÁ¦»¯½âÁË$N"
-                       CYN "ÕâÒ»ÕÐ¡£\n"NOR;
+                msg += CYN "$n" CYN "å¬å¾—ç¬‘å£°æœ‰å¼‚ï¼Œå¿½æ„Ÿçœ©æ™•ï¼Œè¿žå¿™ä¸€å’¬èˆŒå°–ï¼Œç²¾ç¥žä¸€æŒ¯ï¼Œå¥‹åŠ›åŒ–è§£äº†$N"
+                       CYN "è¿™ä¸€æ‹›ã€‚\n"NOR;
                  me->start_busy(3+random(2));
        
         }
 
    message_vision(msg, me, target);
- me->start_perform(3,"´ß»êÄ§Òô");
+ me->start_perform(3,"å‚¬é­‚é­”éŸ³");
 
         return 1;
 }

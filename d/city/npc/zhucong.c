@@ -9,16 +9,16 @@ inherit NPC;
 void greeting(object ob);
 void create()
 {
-	set_name("Öì´Ï", ({ "zhu cong", "zhu", "cong"}));
-	set("nickname", YEL"ÃîÊÖÊéÉú"NOR);
-	set("title","½­ÄÏÆßÏÀ");
-	set("long", "ËûÊÇ½­ÄÏÆßÏÀÖÐµÄÃîÊÖÊéÉú£¬Ò»Éú¼µ¶ñÈç³ð£¬×¨°®´ò±§²»Æ½¡£\n");
-	set("gender", "ÄÐÐÔ");
+	set_name("æœ±èª", ({ "zhu cong", "zhu", "cong"}));
+	set("nickname", YEL"å¦™æ‰‹ä¹¦ç”Ÿ"NOR);
+	set("title","æ±Ÿå—ä¸ƒä¾ ");
+	set("long", "ä»–æ˜¯æ±Ÿå—ä¸ƒä¾ ä¸­çš„å¦™æ‰‹ä¹¦ç”Ÿï¼Œä¸€ç”Ÿå«‰æ¶å¦‚ä»‡ï¼Œä¸“çˆ±æ‰“æŠ±ä¸å¹³ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 	set("location", 1);
 	set("stealer_no_hold", 1);
-	set_temp("wdj/½â¶¾Ò»", 1);
+	set_temp("wdj/è§£æ¯’ä¸€", 1);
 
 	set("age", 28);
 	set("per",20);
@@ -114,12 +114,12 @@ void greeting(object ob)
 
 void do_tell(string id)
 {
-	command("tell "+id+" Ð»Ð»À²£¡¿ÉÕæÊÇ²»ºÃÒâË¼¡£");
+	command("tell "+id+" è°¢è°¢å•¦ï¼å¯çœŸæ˜¯ä¸å¥½æ„æ€ã€‚");
 }
 
 int accept_fight(object me)
 {
-	command("say ÔÚÏÂÎäÒÕµÍÎ¢£¬ÄÇ¸ÒÔÚ"+RANK_D->query_respect(me)+"ÃæÇ°Ï×³ó¡£");
+	command("say åœ¨ä¸‹æ­¦è‰ºä½Žå¾®ï¼Œé‚£æ•¢åœ¨"+RANK_D->query_respect(me)+"é¢å‰çŒ®ä¸‘ã€‚");
 	return 0;
 }
 
@@ -127,13 +127,13 @@ void do_back(string id)
 {
 	string str;
 	switch(query_temp("steal")){
-		case 1: message_vision("$NÈ»ºó×ª¹ýÍ·È¥£¬¶Ô×ÅÄãÐ¦ÁËÐ¦¡£\n"NOR, this_object());
+		case 1: message_vision("$Nç„¶åŽè½¬è¿‡å¤´åŽ»ï¼Œå¯¹ç€ä½ ç¬‘äº†ç¬‘ã€‚\n"NOR, this_object());
 			if( id && id != this_object()->query("id")) call_out("do_tell",2 ,id);
 			break;
-		case -1: command("say ¸÷Î»±ðÀ´¡­¡­ÎÞí¦£¬ÕæÊÇ¡­¡­ÈËÉúºÎ´¦²»¡­¡­Ïà·êÑ½£¡¹þ¡­¡­¹þ£¡¡£"); break;
+		case -1: command("say å„ä½åˆ«æ¥â€¦â€¦æ— æ™ï¼ŒçœŸæ˜¯â€¦â€¦äººç”Ÿä½•å¤„ä¸â€¦â€¦ç›¸é€¢å‘€ï¼å“ˆâ€¦â€¦å“ˆï¼ã€‚"); break;
 		default: break;
 	}
-	message_vision("Ò»»ÎÑÛ$N²»ÖªµÀÁïµ½ÄÇÀïÈ¥ÁË¡£\n", this_object());
+	message_vision("ä¸€æ™ƒçœ¼$Nä¸çŸ¥é“æºœåˆ°é‚£é‡ŒåŽ»äº†ã€‚\n", this_object());
 	set("chat_chance", 20);
 	switch(random(66)){
 		case 0:		str = "/d/cangzhou/kezhan";		break;
@@ -209,16 +209,16 @@ void do_back(string id)
 	this_object()->reincarnate();
 	this_object()->clear_condition();
 
-	message_vision(HIW"\n$N¼±´Ò´ÒµØ×ßÁË¹ýÀ´¡£\n"NOR, this_object());
+	message_vision(HIW"\n$Næ€¥åŒ†åŒ†åœ°èµ°äº†è¿‡æ¥ã€‚\n"NOR, this_object());
 	if(this_object()->query_temp("steal") > 0)
-		command("say ºÙºÙ£¡½ñÌìµÄÊÕ»ñ²»´íÂï£¡");
+		command("say å˜¿å˜¿ï¼ä»Šå¤©çš„æ”¶èŽ·ä¸é”™å˜›ï¼");
 	this_object()->delete_temp("steal");
 
 }
 
 void kill_ob(object me)
 {
-	command("say Ã»Ïëµ½»¹»áÓÐÈË´òÎÒµÄÖ÷Òâ£¡");
+	command("say æ²¡æƒ³åˆ°è¿˜ä¼šæœ‰äººæ‰“æˆ‘çš„ä¸»æ„ï¼");
 	remove_call_out("do_flee");
 	call_out("do_flee", 1);
 	::kill_ob(me);
@@ -230,7 +230,7 @@ int do_hit(string arg)
 	me=this_player();
 	ob=this_object();
 	if((arg==("zhu"))||(arg==("zhu cong"))){
-		command("say °¥Ó´£¡ÍµÏ®ÎÒ¡£");
+		command("say å“Žå“Ÿï¼å·è¢­æˆ‘ã€‚");
 		remove_call_out("do_flee");
 		call_out("do_flee", 1);
 		COMBAT_D->do_attack(me, ob, me->query_temp("weapon") );
@@ -246,7 +246,7 @@ int do_flee()
 {
 	object ob = this_object();
 	if(ob->query("qi")<(ob->query("max_qi")/2)){
-		command("say ÎÒ¿ÉÃ»¹¦·òÔÙºÄÏÂÈ¥ÁË£¬ÒªÏëÈ¡ÎÒµÄÐÔÃüµÈÏÂ´Î°É¡£");
+		command("say æˆ‘å¯æ²¡åŠŸå¤«å†è€—ä¸‹åŽ»äº†ï¼Œè¦æƒ³å–æˆ‘çš„æ€§å‘½ç­‰ä¸‹æ¬¡å§ã€‚");
 		ob->remove_all_killer();
 		do_back(query("id"));
 		return 1;

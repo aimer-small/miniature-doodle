@@ -4,14 +4,14 @@ inherit __DIR__"animal";
 
 void create()
 {
-	set_name("ĞÜ",({"bear","xiong"}));
-	set("race","Ò°ÊŞ");
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°×¦", "ºó×¦", "Î²°Í" }) );
+	set_name("ç†Š",({"bear","xiong"}));
+	set("race","é‡å…½");
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰çˆª", "åçˆª", "å°¾å·´" }) );
 	set("verbs",({"claw"}));
 	set("attitude","peaceful");
 	set("age",5);
 	set("combat_exp",3000000);
-	set("long","ÕâÊÇÒ»Ö»Ğ×ÃÍµÄĞÜ¡£\n");
+	set("long","è¿™æ˜¯ä¸€åªå‡¶çŒ›çš„ç†Šã€‚\n");
 	set("max_qi",8000);
 	set("max_jing",3500);
 	set("max_neili",7000);

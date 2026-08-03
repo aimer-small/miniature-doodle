@@ -1,4 +1,4 @@
-// jiangong.c ¼à¹¤
+// jiangong.c ç›‘å·¥
 
 inherit NPC;
 #include "name.h";
@@ -25,10 +25,10 @@ switch (random(3)){
 	break;
 	} 
         set_name(name, ({"jian gong", "jiangong" }) );
-        set("gender", "ÄĞĞÔ" );
+        set("gender", "ç”·æ€§" );
         set("age", 35);
-        set("long", "ËûÊÇÍÂŞ¬Ö¯Ôì×÷·»µÄ¼à¹¤£¬³¤µÃ°×°×ÅÖÅÖ£¬ÏÔµÃÒ»¹ßÑø×ğ´¦ÓÅ¡£\n");
-	set("title" , "ÍÂŞ¬Ö¯Ôì×÷·»¼à¹¤");
+        set("long", "ä»–æ˜¯åè•ƒç»‡é€ ä½œåŠçš„ç›‘å·¥ï¼Œé•¿å¾—ç™½ç™½èƒ–èƒ–ï¼Œæ˜¾å¾—ä¸€æƒ¯å…»å°Šå¤„ä¼˜ã€‚\n");
+	set("title" , "åè•ƒç»‡é€ ä½œåŠç›‘å·¥");
         set_skill("unarmed", 50);
         set_skill("dodge", 50);
         set_skill("parry", 50);
@@ -44,7 +44,7 @@ switch (random(3)){
         setup();
         set("chat_chance", 1);
         set("chat_msg", ({
-		name+"ÑÛ¾¦¶¢×ÅÒ»¸öÅ®¹¤£¬²»»³ºÃÒâµÄÀäĞ¦ÁË¼¸Éù¡£\n",
+		name+"çœ¼ç›ç›¯ç€ä¸€ä¸ªå¥³å·¥ï¼Œä¸æ€€å¥½æ„çš„å†·ç¬‘äº†å‡ å£°ã€‚\n",
         }) );
         carry_object(ARMOR_D("pipao"))->wear();
         add_money("silver", 80);

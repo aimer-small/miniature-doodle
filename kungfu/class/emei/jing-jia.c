@@ -7,13 +7,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("¾²åÈÊ¦Ì«", ({"jingjia shitai", "jingjia", "shitai"}));
+	set_name("é™è¿¦å¸ˆå¤ª", ({"jingjia shitai", "jingjia", "shitai"}));
 	set("long",
-		"ËýÊÇÒ»Î»´ÈÏéµÄÖÐÄêÊ¦Ì«£¬î£ÖÇµÄÃæÉÏ´ø×ÅºÍ°ªµÄÎ¢Ð¦¡£\n"
-		"ËýÊÇÃð¾øÊ¦Ì«µÄ°Ë´ó¾²×Ö±²µÜ×ÓÖ®Áù£¬×îÉÃµ¶·¨ÓëÕÆ·¨¡£\n"
+		"å¥¹æ˜¯ä¸€ä½æ…ˆç¥¥çš„ä¸­å¹´å¸ˆå¤ªï¼Œç¿æ™ºçš„é¢ä¸Šå¸¦ç€å’Œè”¼çš„å¾®ç¬‘ã€‚\n"
+		"å¥¹æ˜¯ç­ç»å¸ˆå¤ªçš„å…«å¤§é™å­—è¾ˆå¼Ÿå­ä¹‹å…­ï¼Œæœ€æ“…åˆ€æ³•ä¸ŽæŽŒæ³•ã€‚\n"
 	);
 
-	set("gender", "Å®ÐÔ");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 	set("class", "bonze");
@@ -44,8 +44,8 @@ void create()
 	set_skill("force", 130);
 	set_skill("anying-fuxiang", 130);
 	set("inquiry",([
-                "Ìê¶È"  : (: ask_for_join :),
-                "³ö¼Ò"  : (: ask_for_join :),
+                "å‰ƒåº¦"  : (: ask_for_join :),
+                "å‡ºå®¶"  : (: ask_for_join :),
         ]));
 	map_skill("strike", "sixiang-zhang");
 	map_skill("force", "linji-zhuang");
@@ -54,7 +54,7 @@ void create()
 	map_skill("dodge", "anying-fuxiang");
 	prepare_skill("strike", "sixiang-zhang");
 
-	create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+	create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
 	setup();
 	carry_object("/d/emei/obj/blade")->wield();

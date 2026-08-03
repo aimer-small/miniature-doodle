@@ -10,38 +10,38 @@ int main(object me, string arg)
 {
 	object target, ob, weapon, murderer;
 
-	if (!arg) return notify_fail("ÄãÒªÕ¶Ê²Ã´£¿\n"); 
+	if (!arg) return notify_fail("ä½ è¦æ–©ä»€ä¹ˆï¼Ÿ\n"); 
  
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n"); 
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n"); 
 
 	if( !target = present(arg, environment(me)) ) {
 		if( !target = present(arg, me) ) 
-			return notify_fail("ÕÒ²»µ½Õâ¸ö¶«Î÷¡£\n");
+			return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªä¸œè¥¿ã€‚\n");
 	}
 
 	if( !target->is_corpse() ) 
-		return notify_fail("¿´Çå³şµã£¬ÄÇ²»ÊÇÊ¬Ìå¡£\n");
-	if (target->query("race") != "ÈËÀà")
-		return notify_fail("²»»á°É£¬Äã¶Ô¶¯ÎïµÄÊ¬ÌåÒ²¸ĞĞËÈ¤£¿\n");
+		return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£ä¸æ˜¯å°¸ä½“ã€‚\n");
+	if (target->query("race") != "äººç±»")
+		return notify_fail("ä¸ä¼šå§ï¼Œä½ å¯¹åŠ¨ç‰©çš„å°¸ä½“ä¹Ÿæ„Ÿå…´è¶£ï¼Ÿ\n");
 	if (target->query("no_head"))
-		return notify_fail("ÄÇ¾ßÊ¬ÌåÒÑ¾­Ã»ÓĞÊ×¼¶ÁË¡£\n");
+		return notify_fail("é‚£å…·å°¸ä½“å·²ç»æ²¡æœ‰é¦–çº§äº†ã€‚\n");
 	if (!target->is_character())
-		return notify_fail("ÄÇ¾ßÊ¬ÌåÒÑ¾­¸¯ÀÃÁË¡£\n");
+		return notify_fail("é‚£å…·å°¸ä½“å·²ç»è…çƒ‚äº†ã€‚\n");
 	murderer = target->query("kill_by");
 	if (objectp(murderer) && murderer != me)
-		return notify_fail("ÂÒÇĞ±ğÈËÉ±µÄÈË¸ÉÂï°¡£¿\n"); 
+		return notify_fail("ä¹±åˆ‡åˆ«äººæ€çš„äººå¹²å˜›å•Šï¼Ÿ\n"); 
 	if (!objectp(weapon = me->query_temp("weapon")))
-		return notify_fail("ÄãµÃÓÃ¼ş·æÀûµÄÆ÷¾ß²ÅÄÜÇĞÏÂÕâÊ¬ÌåµÄÍ·À´¡£\n");
+		return notify_fail("ä½ å¾—ç”¨ä»¶é”‹åˆ©çš„å™¨å…·æ‰èƒ½åˆ‡ä¸‹è¿™å°¸ä½“çš„å¤´æ¥ã€‚\n");
 
 	if (weapon->query("flag") != 4)
-		return notify_fail("ÄãÊÖÉÏÕâ¼ş±øÆ÷ÎŞ·æÎŞÈĞ£¬ÈçºÎÄÜÇĞÏÂÕâÊ¬ÌåµÄÍ·À´£¿\n");
+		return notify_fail("ä½ æ‰‹ä¸Šè¿™ä»¶å…µå™¨æ— é”‹æ— åˆƒï¼Œå¦‚ä½•èƒ½åˆ‡ä¸‹è¿™å°¸ä½“çš„å¤´æ¥ï¼Ÿ\n");
 
-	message_vision("\n$NÑïÆğ"+weapon->name()+"£¬¶Ô×¼$nµÄ²±×Ó±ÈÁË±È£¬ÃÍÕ¶ÁËÏÂÈ¥£¡\n", me, target);
+	message_vision("\n$Næ‰¬èµ·"+weapon->name()+"ï¼Œå¯¹å‡†$nçš„è„–å­æ¯”äº†æ¯”ï¼ŒçŒ›æ–©äº†ä¸‹å»ï¼\n", me, target);
 
 	ob = new(HEAD);
-	ob->set_name( target->query("victim_name")+"µÄÊ×¼¶" , ({ "shouji", "head" }) );
-	ob->set("long", "ÕâÊÇÒ»¿Å"+target->query("victim_name")+"µÄÊ×¼¶¡£\n");
+	ob->set_name( target->query("victim_name")+"çš„é¦–çº§" , ({ "shouji", "head" }) );
+	ob->set("long", "è¿™æ˜¯ä¸€é¢—"+target->query("victim_name")+"çš„é¦–çº§ã€‚\n");
 
 	if (objectp(murderer)) {
 //		target->set("kill_by", target->query("kill_by"));
@@ -55,8 +55,8 @@ int main(object me, string arg)
 	ob->set("victim_name", target->query("victim_name"));
 	ob->set("victim_user", target->query("victim_user"));
 	ob->move(me);
-	message_vision("Ö»Ìı¡°ßÇ¡±µÄÒ»Éù£¬$N½«$nÕ¶ÁËÏÂÀ´£¬ÌáÔÚÊÖÖĞ¡£\n", me, ob);
-	message_vision(HIG"$N·ÉÆğÒ»½Å£¬°Ñ$nÔ¶Ô¶Ìß¿ª,²»ÖªµÀ·Éµ½ÄÄ¸ö½ÇÂäÀïÈ¥ÁË¡£\n"NOR, me, target);
+	message_vision("åªå¬â€œå’”â€çš„ä¸€å£°ï¼Œ$Nå°†$næ–©äº†ä¸‹æ¥ï¼Œæåœ¨æ‰‹ä¸­ã€‚\n", me, ob);
+	message_vision(HIG"$Né£èµ·ä¸€è„šï¼ŒæŠŠ$nè¿œè¿œè¸¢å¼€,ä¸çŸ¥é“é£åˆ°å“ªä¸ªè§’è½é‡Œå»äº†ã€‚\n"NOR, me, target);
        destruct(target);
 
 	me->add_busy(1);
@@ -66,9 +66,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : qie <Ê¬Ìå>
+æŒ‡ä»¤æ ¼å¼ : qie <å°¸ä½“>
  
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã°ÑÊ¬ÌåµÄÍ·²¿ÇĞÏÂÀ´¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ æŠŠå°¸ä½“çš„å¤´éƒ¨åˆ‡ä¸‹æ¥ã€‚
  
 HELP
 	);

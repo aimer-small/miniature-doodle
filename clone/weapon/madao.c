@@ -1,4 +1,4 @@
-// madao.c Âíµ¶
+// madao.c é©¬åˆ€
 
 #include <ansi.h>
 #include <weapon.h>
@@ -6,13 +6,13 @@ inherit BLADE;
 
 void create()
 {
-        set_name( "Âíµ¶" , ({ "ma dao", "dao", "blade","madao" }));
+        set_name( "é©¬åˆ€" , ({ "ma dao", "dao", "blade","madao" }));
         set_weight(12000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "ÕâÊÇÆï±ø·Ç³£°®ÓÃµÄ±øÆ÷£¬µ¶±³±¡Éí¶Ì£¬µ¶¿Ú·æÀû£¬ÈëÊÖÇá±ã¡£\n");
+                set("unit", "æŸ„");
+                set("long", "è¿™æ˜¯éª‘å…µéå¸¸çˆ±ç”¨çš„å…µå™¨ï¼Œåˆ€èƒŒè–„èº«çŸ­ï¼Œåˆ€å£é”‹åˆ©ï¼Œå…¥æ‰‹è½»ä¾¿ã€‚\n");
                 set("value", 1500);
                 set("material", "iron");
         }

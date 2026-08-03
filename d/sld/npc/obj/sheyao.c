@@ -14,13 +14,13 @@ void init()
 
 void create()
 {
-        set_name(HIG "ÉßÒ©" NOR, ({"sheyao","yao"}));
+        set_name(HIG "è›‡è¯" NOR, ({"sheyao","yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("long",
-                "ÕâÊÇÒ»¿ÅÓÃÀ´½âÉß¶¾µÄÉßÒ©¡£\n");
-		set("unit", "¿Å");
+                "è¿™æ˜¯ä¸€é¢—ç”¨æ¥è§£è›‡æ¯’çš„è›‡è¯ã€‚\n");
+		set("unit", "é¢—");
 		set("medicine", "drug");
 		//set("no_get", 1);
 //                set("no_drop", 1);
@@ -32,11 +32,11 @@ int do_eat(string arg)
 	object me = this_player();
        int cs;
 
-	if (!living(me)) return notify_fail("Ïëµ±»úÂð£¿\n");
+	if (!living(me)) return notify_fail("æƒ³å½“æœºå—ï¼Ÿ\n");
 	if (!id(arg)) return 0;
-	message_vision(HIG "$N³ÔÏÂÒ»¿Å"
+	message_vision(HIG "$Nåƒä¸‹ä¸€é¢—"
 	+this_object()->query("name")+
-	HIG "£¬¶ÙÊ±¾õµÃÈ«Éí·¢ÈÈ¡£\n"
+	HIG "ï¼Œé¡¿æ—¶è§‰å¾—å…¨èº«å‘çƒ­ã€‚\n"
 	NOR,me);
        cs=me->query_condition("snake_poison",1);
        if(cs<10)

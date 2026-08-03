@@ -14,10 +14,10 @@ string type()
 
 int valid_learn(object me) 
 {
-	return notify_fail("政治只能通过阅读历史典籍才可以提升。\n");
+	return notify_fail("鏀挎不鍙兘閫氳繃闃呰鍘嗗彶鍏哥睄鎵嶅彲浠ユ彁鍗囥�俓n");
 }
 
 int practice_skill(object me)
 {	
-	return notify_fail("政治只能通过阅读历史典籍才可以提升。\n");
+	return notify_fail("鏀挎不鍙兘閫氳繃闃呰鍘嗗彶鍏哥睄鎵嶅彲浠ユ彁鍗囥�俓n");
 }

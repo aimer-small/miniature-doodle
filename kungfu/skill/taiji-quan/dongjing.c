@@ -1,4 +1,4 @@
-// dongjing.c ̫��ȭ������������
+// dongjing.c 太极拳「动静诀」诀
 // by snowman@SJ 02/03/2000
 // Modified by snowman@SJ 24/05/2001
 
@@ -9,30 +9,30 @@ inherit F_SSERVER;
 #define TAIJI                "/kungfu/skill/yinyun-ziqi/taiji"
 
 int is_pfm() { return 1;}
-string perform_name(){ return HIR"������"NOR; }
+string perform_name(){ return HIR"动静诀"NOR; }
 
 int perform(object me, object target)
 { 
         if( !target ) target = offensive_target(me);
 
         if( !objectp(target) || !target->is_character() || !me->is_fighting(target) || !living(target))
-                return notify_fail("����������ֻ�ܶ�ս���еĶ���ʹ�á�\n");
+                return notify_fail("「动静诀」只能对战斗中的对手使用。\n");
 
 	if( userp(me) 
         &&( me->query_skill_mapped("parry") != "taiji-quan"
         && me->query_skill_mapped("parry") != "taiji-jian") )
-                return notify_fail("������������������̫��ȭ��̫���������мܵ�����²���ʹ�á�\n");
+                return notify_fail("「动静诀」必须在用太极拳或太极剑激发招架的情况下才能使用。\n");
         if( userp(me) && (me->query_skill_mapped("force") != "yinyun-ziqi"
         || me->query_skill_prepared("cuff") != "taiji-quan") )
-                return notify_fail("����ڹ���ȭ�����ԣ��������ܷ��ӳ����������������ơ�\n");  
-        if( !me->query_temp("tj/̫��") && me->query_skill("taiji-quan", 1) < 300 )
-                return notify_fail("̫��ȭ��Ҫ���ڶ�����Ӧ���������棬��û�����á�̫�������������ʹ�á�����������\n");
+                return notify_fail("你的内功或拳法不对，根本不能发挥出「动静诀」的优势。\n");  
+        if( !me->query_temp("tj/太极") && me->query_skill("taiji-quan", 1) < 300 )
+                return notify_fail("太极拳精要在于动急则急应，动缓则缓随，你没有运用「太极」，又如何能使用「动静诀」？\n");
         if( (int)me->query("neili", 1) < 1000 )
-                return notify_fail("����������������ǿ��ʹ�á����������Ƿ��Ӳ������������ģ�\n");                   
+                return notify_fail("你现在真气不够，强行使用「动静诀」是发挥不了它的威力的！\n");                   
         if( me->query_temp("weapon"))
-                return notify_fail("���ȷ������е�������˵�ɣ���\n");     
+                return notify_fail("你先放下手中的武器再说吧？！\n");     
         if( target->query_condition("no_exert") )
-                return notify_fail("( �Է���Ϣ���ȣ��������Ѿ�����ʩ���ڹ��ˡ�)\n");
+                return notify_fail("( 对方气息不匀，看来是已经不能施用内功了。)\n");
                         
         return (int)call_other( this_object(), "main", me, target);
 }
@@ -52,30 +52,30 @@ int main(object me, object target)
                 me->add_temp("tjq/"+target->query("id"), -3);
         else me->delete_temp("tjq/"+target->query("id"));
         
-        str = (string)me->query("env/���Ͼ�"); 
-        if(str != "�귭" && str != "����" && str != "����" && str != "����" && str != "����" && str != "����")
-                str = "��";
+        str = (string)me->query("env/六合劲"); 
+        if(str != "钻翻" && str != "螺旋" && str != "软手" && str != "开合" && str != "静恒" && str != "虚灵")
+                str = "无";
                 
-        msg = MAG"\n$Nʹ��̫��ȭ��"RED"����������"MAG"�Ĺ���";
+        msg = MAG"\n$N使出太极拳中"RED"「动静诀」"MAG"的功夫，";
         
         if(me->query_skill_mapped("force") != "yinyun-ziqi"
         || me->query_skill("yinyun-ziqi", 1) < 100){
-                msg += "ͻȻһ�³嵽$n��ǰ��Ҫץס$n��\n"NOR;
-                str = "��";
+                msg += "突然一下冲到$n面前，要抓住$n！\n"NOR;
+                str = "无";
         }        
         
-        else msg += "��֮��ϣ��޹��������������죬��$n��ס�Լ���˫�֣�\n"NOR;
+        else msg += "静之则合，无过不及，随曲就伸，让$n搭住自己的双手！\n"NOR;
         
         if(TAIJI->check_force(target) == str || me->query_skill("taiji-quan", 1) > 350)
                 damage = 3;
        
-        me->start_perform(4, "����������");
+        me->start_perform(4, "「动静诀」");
 
         if(!stringp(force = to_chinese(target->query_skill_mapped("force"))))
-                force = "�ڹ�";
+                force = "内功";
         
         if(wizardp(me) && (string)me->query("env/combat")=="verbose")
-                tell_object(me, "Str = "+str+"��Force = "+force+"��Damage = "+damage+"\n");
+                tell_object(me, "Str = "+str+"，Force = "+force+"，Damage = "+damage+"\n");
 
 	ap = me->query("combat_exp", 1) * (me->query_str(1) + me->query_int(1));
 	dp = target->query("combat_exp", 1) * (target->query_str(1)+ target->query_dex(1));
@@ -84,14 +84,14 @@ int main(object me, object target)
 		dp -= dp/2;
 
 	if ( random(ap + dp ) > dp ) {
-		msg += HIY"$p����һЦ����Ҫ������$P���䣡\n"NOR;
+		msg += HIY"$p哈哈一笑，就要起手向$P击落！\n"NOR;
 		me->start_busy(2);
 		target->add_busy(2);
 		call_out("hurt", 2+random(2),  me, target, damage, str, force);  
 	}
 	else{
-		msg += HIY"��$p�Ͼ��о����ԣ������˺�ſ���$P������\n"NOR;
-	        me->start_perform(2, "����������");
+		msg += HIY"可$p毕竟感觉不对，马上退后放开了$P的手腕！\n"NOR;
+	        me->start_perform(2, "「动静诀」");
 		me->start_busy(random(2));
 	}
 	message_vision(msg, me, target);
@@ -110,23 +110,23 @@ int hurt(object me, object target, int damage, string str, string force)
         || environment(target)!=environment(me) || !target)
                 return 0;
         
-        msg = MAG"\n̫���ߣ��޼���������֮��֣���֮��ϣ�";
+        msg = MAG"\n太极者，无极而生；动之则分，静之则合！";
         switch(str){
-                case "�귭": msg += "$N˫��һ��������ס$n��̫��ȭ��"HIW"��"+str+"����"MAG"��Ȼ�忪"+force+"ʹ������$nһ�ͣ�˦�˳�ȥ��\n"NOR;break;
-                case "����": msg += "$N����һ����ץס$n��"HIW"��"+str+"����"MAG"͸��$n������"+force+"һŦ��ץ��$p�Ӽ米��˦�˳�ȥ��\n"NOR;break;
-                case "����": msg += "$N��"HIW"��"+str+"����"MAG"һ�ͣ���ɢ��$p��"+force+"���պ�����$nҪ��������ʱһ��һ�ţ���$p�Լ�ˤ��һ�󽻣�\n"NOR;break;
-                case "����": msg += "$N˫��һ�֣�����"HIW"��"+str+"����"MAG"����ײ$n����$p��"+force+"��������Ӧ��\n"NOR;break;
-                case "����": msg += "$N˫�Ʋ�����ȫ��"HIW"��"+str+"����"MAG"�߶���һ���Ӿ��Ƶ���$n��"+force+"������$p���վ�����ȣ�\n"NOR;break;
-                case "����": msg += "$N�����׼�����糵�֣�����"HIW"��"+str+"����"MAG"����$n��"+force+"һ�ͣ���$p�������ȣ�ȫ��������մ���\n"NOR;break;
-                default: msg = MAG"\n$NͻȻ������ס$n˫��һ��һ������$p���ڹ�������\n"NOR;break;
+                case "钻翻": msg += "$N双手一翻，反搭住$n，太极拳的"HIW"「"+str+"劲」"MAG"猛然冲开"+force+"使出，将$n一送，甩了出去！\n"NOR;break;
+                case "螺旋": msg += "$N反手一旋，抓住$n，"HIW"「"+str+"劲」"MAG"透入$n护身的"+force+"一纽，抓起$p从肩背上甩了出去！\n"NOR;break;
+                case "软手": msg += "$N将"HIW"「"+str+"劲」"MAG"一送，震散了$p的"+force+"，刚好又在$n要急力挣脱时一抖一放，让$p自己摔了一大交！\n"NOR;break;
+                case "开合": msg += "$N双掌一分，带着"HIW"「"+str+"劲」"MAG"当胸撞$n，让$p的"+force+"来不及反应！\n"NOR;break;
+                case "静恒": msg += "$N双掌不动，全身"HIW"「"+str+"劲」"MAG"催动，一下子就破掉了$n的"+force+"，还将$p震得站立不稳！\n"NOR;break;
+                case "虚灵": msg += "$N立如秤准，活如车轮，运起"HIW"「"+str+"劲」"MAG"带动$n的"+force+"一送，让$p马步不稳，全力都打向空处！\n"NOR;break;
+                default: msg = MAG"\n$N突然反手拉住$n双掌一送一震，破了$p的内功气劲！\n"NOR;break;
         }    
         
         if (target->query("neili") <= 200){
                 message_vision(msg, me, target);
-                tell_object(target, "�㷢���Լ�������Ȼ�ݽߺľ��������޷��࿹�ˣ�\n");
+                tell_object(target, "你发觉自己真气已然枯竭耗尽，根本无法相抗了！\n");
                 target->receive_damage("qi", (int)target->query("qi")+1, me);
-                msg = RED"���$N���ֲ��������Լ��ľ������ͷ��Ŀѣ��ҡҡ��׹��\n"NOR;
-                msg += damage_msg(target->query("max_qi"), "ˤ��") + "( $N"+status_msg(5)+" )\n"; 
+                msg = RED"结果$N措手不及，被自己的劲力震得头昏目眩，摇摇欲坠！\n"NOR;
+                msg += damage_msg(target->query("max_qi"), "摔伤") + "( $N"+status_msg(5)+" )\n"; 
                 message_vision(msg, target, target);
                 me->start_busy(random(2));
 		return 1;
@@ -134,7 +134,7 @@ int hurt(object me, object target, int damage, string str, string force)
         
 	else if(me->query("neili")*3 < target->query("neili")) {
 		me->start_busy(1+random(2));
-		msg += HIR"����$p�����ۺ񣬾����ϵ���˳��һ�壬��$P���߲�������\n"NOR;   
+		msg += HIR"不料$p内力雄厚，经验老到，顺势一冲，从$P身边擦过！！\n"NOR;   
 		message_vision(msg, me, target);
 		return 1;
 	}
@@ -143,12 +143,12 @@ int hurt(object me, object target, int damage, string str, string force)
 	target->receive_damage("qi", p, me);
 	target->receive_wound("qi", p/2, me);
 	target->receive_wound("jing", me->query_int(1)*2 + me->query_con(1)*2, me);
-	msg += damage_msg(p, "ˤ��")+
+	msg += damage_msg(p, "摔伤")+
 	"( $n"+eff_status_msg((int)target->query("qi")*100/(int)target->query("max_qi"))+" )\n"; 
         
 	message_vision(msg, me, target);
-if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"���"+ target->query("name") +"�����"RED+ p+ WHT"�㹥���˺���\n"NOR); 
-if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"�Ĺ������������"RED+ p+ WHT"���˺���\n"NOR); ;
+if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"你对"+ target->query("name") +"造成了"RED+ p+ WHT"点攻击伤害。\n"NOR); 
+if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"的攻击对你造成了"RED+ p+ WHT"点伤害。\n"NOR); ;
 
 	if(wizardp(me) && (string)me->query("env/combat")=="verbose") 
 		tell_object(me, "Damage ="+p+"\n");
@@ -173,7 +173,7 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->add_temp("apply/armor", - p*2);
 				target->add_temp("apply/dodge", - p);
 				target->delete_temp("htqg/powerup");
-				tell_object(target, HIR"��Ļ���������һ����ɢ��ֻ�ý������ջص��\n"NOR);
+				tell_object(target, HIR"你的混天气功被一下震散，只得将内力收回丹田！\n"NOR);
 				break;
 			}
 		case "yijin-jing":
@@ -182,7 +182,7 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->delete_temp("fanzhen");
 				target->delete_temp("no_skill_hit_ob");
 				target->delete_temp("jingang_armor");
-				tell_object(target, HIR"��ġ���ղ������񹦡���һ����ɢ��ЧӦҲ��Ӧ����ʧ�ˣ�\n"NOR);
+				tell_object(target, HIR"你的「金刚不坏体神功」被一下震散，效应也相应地消失了！\n"NOR);
 				break;
 			}
 		case "jiuyang-shengong":
@@ -191,37 +191,37 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->add_temp("apply/dexerity", -p/2);
 				target->delete_temp("jiuyang");
 				target->delete_temp("no_skill_hit_ob");
-				tell_object(target, HIR"��ġ������񹦡���һ����ɢ��ЧӦҲ��Ӧ����ʧ�ˣ�\n"NOR);
+				tell_object(target, HIR"你的「九阳神功」被一下震散，效应也相应地消失了！\n"NOR);
 				break;
 			}
 		case "linji-zhuang":
 			if( target->query_temp("ljz/riyue") ){
 				target->delete_temp("ljz/riyue");
-				tell_object(target, HIR"��ġ����¡�ׯ��һ����ɢ���������֮������ɢ������֮�䣡\n"NOR);
+				tell_object(target, HIR"你的「日月」庄被一下震散，所聚天地之精气已散回日月之间！\n"NOR);
 				break;
 			}
 			if( intp(p = target->query_temp("ljz/yinyang")) ){
 				target->add("max_qi", - p);
-				target->receive_wound("qi", p, "��������ׯ���ƣ�������");
+				target->receive_wound("qi", p, "「阴阳」庄被破，脱力而");
 				target->delete_temp("ljz/yinyang");
-				tell_object(target, HIR"��ġ�������ׯ��һ����ɢ��������ЧӦҲ��ʧ�ˣ�\n"NOR);
+				tell_object(target, HIR"你的「阴阳」庄被一下震散，提升的效应也消失了！\n"NOR);
 				break;
 			}
 			if( intp(p = target->query_temp("ljz/fengyun")) ){
 				target->add_temp("apply/dexerity", - p);        
 				target->delete_temp("ljz/fengyun");
-				tell_object(target, HIR"��ġ����ơ�ׯ��һ����ɢ���Ծ����ĳ�����һЩ��\n"NOR);
+				tell_object(target, HIR"你的「风云」庄被一下震散，略觉步履沉重了一些。\n"NOR);
 				break;
 			}
 			if( target->query_temp("ljz/wuwo")){
 				target->delete_temp("ljz/wuwo");
-				tell_object(target, HIR"��ġ����ҡ��ķ���һ����ɢ���ָֻ���ԭ�����㣡\n"NOR);
+				tell_object(target, HIR"你的「无我」心法被一下震散，又恢复了原来的你！\n"NOR);
 				break;
 			}
 		case "yinyun-ziqi":
-			if( target->query_temp("tj/̫��") ){
-				target->delete_temp("tj/̫��");
-				tell_object(target, HIR"���ڻ�æ֮�У�̫������������У�ЧӦҲ��ʧ�ˣ�\n"NOR);
+			if( target->query_temp("tj/太极") ){
+				target->delete_temp("tj/太极");
+				tell_object(target, HIR"你在慌忙之中，太极不能连贯而行，效应也消失了！\n"NOR);
 				break;
 			}
 		case "dulong-dafa":
@@ -232,7 +232,7 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->delete_temp("sld");
 				if(target->query("eff_qi") > target->query("max_qi")) 
 					target->set("eff_qi", target->query("max_qi"));
-				tell_object(target, HIR"����⡸��������һ������һ�ɣ���Ҳ֧�ֲ�ס�ˣ���\n"NOR);
+				tell_object(target, HIR"你给这「动静诀」一震，心神一松，再也支持不住了！！\n"NOR);
 				if(random( target->query("qi")) < 100) 
 					target->unconcious();
 				break;
@@ -244,7 +244,7 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->delete_temp("sld/wudi");
 				if(target->query("eff_qi") > target->query("max_qi")) 
 					target->set("eff_qi",target->query("max_qi"));
-				tell_object(target, HIR"����⡸��������һ������һ�ɣ�����������һ����ͻȻ������������\n"NOR);
+				tell_object(target, HIR"你给这「动静诀」一震，心神一松，好象虚脱了一样，突然垮了下来！！\n"NOR);
 				break;
 			}
 		case "hanbing-zhenqi":
@@ -252,31 +252,31 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->add_temp("apply/parry", -p);
 				target->add_temp("apply/dodge", -p);
 				target->delete_temp("hbzq/huti");
-				tell_object(target, HIR"����⡸��������һ�������ĺ���ɢ�����������𵽱����������ˡ�\n"NOR);
+				tell_object(target, HIR"你给这「动静诀」一震，周身的寒气散尽，不再能起到保护的作用了。\n"NOR);
 				break;
 			}
 			if( target->query_temp("ss/focus")){
 				target->delete_temp("ss/focus");
-				tell_object(target, HIR"����⡸��������һ�������ĺ���������ɢȥ�ˡ�\n"NOR);
+				tell_object(target, HIR"你给这「动静诀」一震，周身的寒气渐渐的散去了。\n"NOR);
 				break;
 			}
 			if( target->query_temp("ss/hb")){
 				target->delete_temp("ss/hb");
-				tell_object(target, HIR"����⡸��������һ�����ϵĺ���������ɢȥ�ˡ�\n"NOR);
+				tell_object(target, HIR"你给这「动静诀」一震，手上的寒气渐渐的散去了。\n"NOR);
 				break;
 			}
 		case "huagong-dafa":
 			if( intp(p = target->query_temp("hgdf/judu")) ){
 				target->add_temp("apply/armor", -p);
 				target->delete_temp("hgdf/judu");
-				tell_object(target, HIR"����⡸��������һ������һ�ɣ����۶���ȫ�����ˣ���\n"NOR);
+				tell_object(target, HIR"你给这「动静诀」一震，心神一松，所聚毒素全都垮了！！\n"NOR);
 				break;
 			}
 			else if( intp(p = target->query_temp("hgdf/huadu")) ){
 				target->add_temp("apply/dodge", -p); 
 				target->add_temp("apply/armor_vs_force", -p/2);           
 				target->delete_temp("hgdf/huadu");
-				tell_object(target, HIR"����⡸��������һ������һ�ɣ��������۶���ȫ�����ˣ���\n"NOR);
+				tell_object(target, HIR"你给这「动静诀」一震，心神一松，化毒所聚毒素全都垮了！！\n"NOR);
 				break;
 			}
 		case "yunu-xinjing":
@@ -286,14 +286,14 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->add_temp("apply/dexerity", -p/10);
 				if ( target->query_skill("yunu-xinjing", 1) > 200 ){
 					target->add_temp("apply/armor_vs_force", -p/5);
-					if ( target->query("gender") == "Ů��") {
+					if ( target->query("gender") == "女性") {
 						target->add_temp("apply/dodge", -p/5);
 						target->add_temp("apply/parry", -p/5);
 						target->add_temp("apply/armor", -p/5);
 					}
 				}
 				target->delete_temp("gm/xinjing");
-				tell_object(target, HIR"��ġ��ľ����־�������ɢ��ЧӦҲ��ʧ�ˣ�\n"NOR);
+				tell_object(target, HIR"你的「心经」字决被神功震散，效应也消失了！\n"NOR);
 				break;
 			}
 		case "shenyuan-gong":
@@ -301,19 +301,19 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->add_temp("apply/parry", -p/3);
 				target->add_temp("apply/dexerity", -p/5);
 				target->delete_temp("shenyuan");
-				tell_object(target, HIR"����⡸��������һ�𣬷�����ʽ�Ѿ������ˡ�\n"NOR);
+				tell_object(target, HIR"你给这「动静诀」一震，防守招式已经减弱了。\n"NOR);
 				break;
 			}
 		case "xuantian-wuji":
 			if ( target->query_temp("kl/riyue")){
 				target->delete_temp("kl/riyue");
-				tell_object(target, HIR"����⡸��������һ����ǰ����ǽ����С��������ʧ�����Ρ�\n"NOR);
+				tell_object(target, HIR"你给这「动静诀」一震，身前的气墙逐渐缩小，终于消失于无形。\n"NOR);
 				break;
 			}
 			if ( intp( p = target->query_temp("kl/taxue")) ) {
 				target->add_temp("apply/dodge", -p);
 				target->delete_temp("kl/taxue");
-				tell_object(target, HIR"�����˽Ų��������ظ���������\n"NOR);
+				tell_object(target, HIR"立定了脚步，身法回复了正常！\n"NOR);
 				break;
 			}
 		case "longxiang-boruo":
@@ -321,20 +321,20 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->add_temp("apply/dodge", -p);
 				target->add_temp("apply/armor", -p*2);
 				target->delete_temp("xs/shield");
-				tell_object(target, HIR"�㱻����������һ�����Ϻ��һ�����ǽ�žž���켸����ɢȥ�˻���������\n" NOR);
+				tell_object(target, HIR"你被「动静诀」一震，脸上红光一闪，骨节啪啪轻响几声，散去了护体真气。\n" NOR);
 				break;
 			}
 			if ( intp(p = target->query_temp("xs/longxiang")) ) {
 				target->add_temp("apply/attack", -p);
 				target->delete_temp("xs/longxiang");
-				tell_object(target, HIR"�㱻����������һ����������һ�����ָֻ��糣��\n" NOR);
+				tell_object(target, HIR"你被「动静诀」一震，脸上紫气一闪，又恢复如常。\n" NOR);
 				break;
 			}
 		case "qiantian-yiyang":
 			if( intp(p = target->query_temp("dali_jing")) ){
 				target->add_temp("apply/intelligence", -p);
 				target->delete_temp("dali_jing");
-				tell_object(target, HIR"�㱻����������һ���޷�����Ǳ���ˡ�\n" NOR);
+				tell_object(target, HIR"你被「动静诀」一震，无法继续潜修了。\n" NOR);
 				break;
 			}
 		case "guiyuan-tunafa":
@@ -342,7 +342,7 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->add_temp("apply/attack", p);
 				target->add_temp("apply/damage", p/2);
 				target->delete_temp("tz/focus");
-				tell_object(target, HIR"�㱻����������һ�𣬾�����Щί�٣������漴�ָ���̬��\n"NOR);
+				tell_object(target, HIR"你被「动静诀」一震，精神有些委顿，力道随即恢复常态。\n"NOR);
 				break;
 			}
 		case "kurong-changong":
@@ -350,7 +350,7 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->delete_temp("pf_ku");
 				target->add_temp("apply/armor", -p/2);
 				target->add_temp("apply/parry", -p/4);
-				tell_object(target, HIR"�㱻����������һ�𣬡��ݡ��ִ�������ɢ�ˣ�\n" NOR);
+				tell_object(target, HIR"你被「动静诀」一震，「枯」字大法立刻消散了！\n" NOR);
 				break;
 			}
 			else if( intp(p = target->query_temp("pf_rong")) ){
@@ -358,7 +358,7 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 				target->delete_temp("pf_rong");
 				target->add_temp("apply/strike", -p/4);
 				target->add_temp("apply/damage",-p/5);
-				tell_object(target, HIR"�㱻����������һ�𣬡��١��ִ�������ɢ�ˣ�\n" NOR);
+				tell_object(target, HIR"你被「动静诀」一震，「荣」字大法立刻消散了！\n" NOR);
 				break;
 			}
 		case "bihai-chaosheng":
@@ -370,9 +370,9 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 					weapon->add_temp("apply/dexerity", p/10);
 					weapon->add_temp("apply/dodge", p/10);
 					weapon->add_temp("apply/damage", p/10);
-					tell_object(weapon, target->name() + "���㲼�������Ѿ���"+me->name()+"�ġ�����������ɢ�ˡ�\n");
+					tell_object(weapon, target->name() + "对你布的迷阵已经被"+me->name()+"的「动静诀」震散了。\n");
 				}
-				tell_object(target, HIR"�㱻����������һ�𣬲�������˲����ɢ�ˣ�\n" NOR);
+				tell_object(target, HIR"你被「动静诀」一震，布的迷阵瞬间消散了！\n" NOR);
 				break;
 			}
 	}
@@ -390,15 +390,15 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
 
 int help(object me)
 {
-	write(WHT"\n̫��������������"NOR"\n");
+	write(WHT"\n太极「动静诀」："NOR"\n");
 	write(@HELP
-	̫��ȭ��������֮��֣���֮��ϡ��޹��������������졣�����׼������
-	���֣�ƫ�����棬˫�����͡�����������һ�Ծ��ƶ����Զ��ƾ�֮���У���
-	�����ֽ�ǰ���Ż����ƣ������ܴ��˶��֣�������Ч���Ƴ��Է��ĸ����ڹ���
+	太极拳经讲：动之则分，静之则合。无过不及，随曲就伸。立如秤准，活如
+	车轮，偏沉则随，双重则滞。动静诀便是一以静制动，以动制静之绝招，吸
+	引对手进前，伺机反制，不但能创伤对手，还能有效地破除对方的各类内功。
 	
-	Ҫ��	���� 1000 ���ϣ�      
-		���� 200 ���ϣ�      
-		����̫��ȭ�������ޱ�����
+	要求：	内力 1000 以上；      
+		精力 200 以上；      
+		运用太极拳意且手无兵器。
 HELP
 	);
 	return 1;

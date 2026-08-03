@@ -1,39 +1,39 @@
-// liaodu.c, ÁÆ¶¾
+// liaodu.c, ç–—æ¯’
 // Lklv add help at 2001.10.06
 
 #include <ansi.h>
 inherit F_SSERVER;
 
-string exert_name(){ return HIB"ÁÆ¶¾¾÷"NOR; }
+string exert_name(){ return HIB"ç–—æ¯’è¯€"NOR; }
 
 int exert(object me,object target)
 {
 	string msg;
 	if( me->is_fighting())
-		return notify_fail("Õ½¶·ÖĞÔË¹¦£¿ÕÒËÀÂğ£¿\n");
+		return notify_fail("æˆ˜æ–—ä¸­è¿åŠŸï¼Ÿæ‰¾æ­»å—ï¼Ÿ\n");
 
 	if ( me->query_skill("hanbing-zhenqi", 1) < 120)
-		return notify_fail("ÄãµÄº®±ùÕæÆøĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„å¯’å†°çœŸæ°”ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if ( me->query("neili") < 1000 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if ( !target) target = me;
 
 	if ( target != me ) {
 		if ( ! target->query_condition("cold_poison"))
-			return notify_fail("ÄãÖ»ÄÜÎª"+target->name(1)+"ÖÎÁÆº®±ù¶¾¡£\n");
+			return notify_fail("ä½ åªèƒ½ä¸º"+target->name(1)+"æ²»ç–—å¯’å†°æ¯’ã€‚\n");
 		if ( target->is_busy() || target->is_fighting())
-			return notify_fail(target->name(1)+"ÕıÃ¦×ÅÄØ¡£\n");
-		msg = HIB"$N×øÔÚµØÉÏ£¬ÉîÉîµÄÎüÁËÒ»¿ÚÆø£¬¿ªÊ¼Îª$nÔË¹¦ÁÆ¶¾¡£\n" NOR;
+			return notify_fail(target->name(1)+"æ­£å¿™ç€å‘¢ã€‚\n");
+		msg = HIB"$Nååœ¨åœ°ä¸Šï¼Œæ·±æ·±çš„å¸äº†ä¸€å£æ°”ï¼Œå¼€å§‹ä¸º$nè¿åŠŸç–—æ¯’ã€‚\n" NOR;
 		message_vision(msg, me, target);
 		target->clear_condition("cold_poison");
 		target->add_busy(2+random(3));
 	}
 	else {
 		if(!me->query_condition("cold_poison"))
-			return notify_fail("ÄãÖ»ÄÜÖÎÁÆº®±ù¶¾¡£\n");
-		msg = HIB"$N×øÔÚµØÉÏ£¬ÉîÉîµÄÎüÁËÒ»¿ÚÆø£¬¿ªÊ¼ÔË¹¦ÁÆ¶¾¡£\n"NOR;
+			return notify_fail("ä½ åªèƒ½æ²»ç–—å¯’å†°æ¯’ã€‚\n");
+		msg = HIB"$Nååœ¨åœ°ä¸Šï¼Œæ·±æ·±çš„å¸äº†ä¸€å£æ°”ï¼Œå¼€å§‹è¿åŠŸç–—æ¯’ã€‚\n"NOR;
 		message_vision(msg, me);
 		me->clear_condition("cold_poison");
 	}
@@ -44,12 +44,12 @@ int exert(object me,object target)
 
 int help(object me)
 {
-	write(HIB"\nº®±ùÕæÆøÖ®¡¸ÁÆ¶¾¾÷¡¹£º"NOR"\n\n");
+	write(HIB"\nå¯’å†°çœŸæ°”ä¹‹ã€Œç–—æ¯’è¯€ã€ï¼š"NOR"\n\n");
         write(@HELP
-	ÖÎÁÆº®±ù¶¾¡£
-	ÒªÇó£º  º®±ùÕæÆø  120  ¼¶ÒÔÉÏ£»
-		µ±Ç°ÄÚÁ¦  1000 ÒÔÉÏ¡£
-                µ±Ç°Æø³¬¹ı×î´óÆøµÄ 1/3 ÒÔÉÏ¡£
+	æ²»ç–—å¯’å†°æ¯’ã€‚
+	è¦æ±‚ï¼š  å¯’å†°çœŸæ°”  120  çº§ä»¥ä¸Šï¼›
+		å½“å‰å†…åŠ›  1000 ä»¥ä¸Šã€‚
+                å½“å‰æ°”è¶…è¿‡æœ€å¤§æ°”çš„ 1/3 ä»¥ä¸Šã€‚
 
 HELP
         );

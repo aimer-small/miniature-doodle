@@ -1,4 +1,4 @@
-// ningxue.c ÄıÑªÉñ×¦Æ×
+// ningxue.c å‡è¡€ç¥çˆªè°±
 // By River@SJ 2003.1.11
 
 inherit ITEM;
@@ -6,18 +6,18 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIR"ÄıÑªÉñ×¦Æ×"NOR, ({ "ningxue shenzhuapu", "pu", "book"}));
+	set_name(HIR"å‡è¡€ç¥çˆªè°±"NOR, ({ "ningxue shenzhuapu", "pu", "book"}));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
-		set("long", "Õâ¾ÍÊÇÌìµØ»á×Ü¶æÖ÷³Â½üÄÏµÄ¾ø¼¼ÄıÑªÉñ×¦µÄÍ¼Æ×¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™å°±æ˜¯å¤©åœ°ä¼šæ€»èˆµä¸»é™ˆè¿‘å—çš„ç»æŠ€å‡è¡€ç¥çˆªçš„å›¾è°±ã€‚\n");
 		set("value", 5000);
 		set("no_give", 1);
 		set("treasure",1);
 		set("material", "paper");
-		set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
+		set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
 	}
 	setup();
 }
@@ -33,53 +33,53 @@ int do_du(string arg)
 	object me = this_player();
        int lv;
 	if (!id(arg)) 
-		return notify_fail("ÄãÒª¶ÁÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦è¯»ä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if ( !me->query("quest/ningxue/pass") )
-		return notify_fail("ÄãÊÇÔõÃ´µÃµ½¡¸ÄıÑªÉñ×¦Æ×¡¹µÄ°¡£¿\n");
+		return notify_fail("ä½ æ˜¯æ€ä¹ˆå¾—åˆ°ã€Œå‡è¡€ç¥çˆªè°±ã€çš„å•Šï¼Ÿ\n");
 
 	if ( query("owner") != me )
-		return notify_fail("ÄãÊÇÔõÃ´µÃµ½¡¸ÄıÑªÉñ×¦Æ×¡¹µÄ°¡£¿\n");
+		return notify_fail("ä½ æ˜¯æ€ä¹ˆå¾—åˆ°ã€Œå‡è¡€ç¥çˆªè°±ã€çš„å•Šï¼Ÿ\n");
 
 	if ( me->query("neili") < 1500 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if (environment(me)->query("pigging"))
-		return notify_fail("Äã»¹ÊÇ×¨ĞÄ¹°Öí°É£¡\n");
+		return notify_fail("ä½ è¿˜æ˜¯ä¸“å¿ƒæ‹±çŒªå§ï¼\n");
 
 	if (environment(me)->query("pending"))
-		return notify_fail("´ËµØ²»ÒËÑĞÏ°¡¸ÄıÑªÉñ×¦Æ×¡¹£¡\n");
+		return notify_fail("æ­¤åœ°ä¸å®œç ”ä¹ ã€Œå‡è¡€ç¥çˆªè°±ã€ï¼\n");
 
 	if (environment(me)->query("sleep_room"))
-		return notify_fail("ÎÔÊÒ²»ÒËĞŞÁ·£¬»áÓ°Ïì±ğÈËĞİÏ¢¡£\n");
+		return notify_fail("å§å®¤ä¸å®œä¿®ç»ƒï¼Œä¼šå½±å“åˆ«äººä¼‘æ¯ã€‚\n");
  
 	if (environment(me)->query("no_fight"))
-		return notify_fail("´ËµØ²»ÒËÑĞÏ°¡¸ÄıÑªÉñ×¦Æ×¡¹£¡\n");
+		return notify_fail("æ­¤åœ°ä¸å®œç ”ä¹ ã€Œå‡è¡€ç¥çˆªè°±ã€ï¼\n");
 
 	if ( me->query("jing") < 40 )
-		return notify_fail("ÄãµÄ¾«Ì«ÉÙÁË£¬²»¹»ÑĞ¶Á¡¸¿û»¨±¦µä¡¹¡£\n");
+		return notify_fail("ä½ çš„ç²¾å¤ªå°‘äº†ï¼Œä¸å¤Ÿç ”è¯»ã€Œè‘µèŠ±å®å…¸ã€ã€‚\n");
 
 	if ( me->query_skill("ningxue-shenzhua", 1) > 150 )
-		return notify_fail("ÄãÑĞ¶ÁÁËÒ»»á¶ù£¬µ«ÊÇ·¢ÏÖÉÏÃæËùËµµÄ¶ÔÄã¶øÑÔ¶¼Ì«Ç³ÁË£¬Ã»ÓĞÑ§µ½ÈÎºÎ¶«Î÷¡£\n");
+		return notify_fail("ä½ ç ”è¯»äº†ä¸€ä¼šå„¿ï¼Œä½†æ˜¯å‘ç°ä¸Šé¢æ‰€è¯´çš„å¯¹ä½ è€Œè¨€éƒ½å¤ªæµ…äº†ï¼Œæ²¡æœ‰å­¦åˆ°ä»»ä½•ä¸œè¥¿ã€‚\n");
 	if ( me->query_skill("ningxue-shenzhua", 1) > 149 ){
-	tell_object(me, "Äã×ĞÏ¸ÑĞ¶Á×Å¡¸ÄıÑªÉñ×¦Æ×¡¹µÄ¾«ÃîÖ®´¦¡£\n");
-        //Ìì¸³¡°ÁìÎò´óÊ¦¡±Ó°ÏìĞ§¹û£º  by spiderii@ty ..lsxkÏë·¨Ì«¹ı±äÌ¬ÁË
+	tell_object(me, "ä½ ä»”ç»†ç ”è¯»ç€ã€Œå‡è¡€ç¥çˆªè°±ã€çš„ç²¾å¦™ä¹‹å¤„ã€‚\n");
+        //å¤©èµ‹â€œé¢†æ‚Ÿå¤§å¸ˆâ€å½±å“æ•ˆæœï¼š  by spiderii@ty ..lsxkæƒ³æ³•å¤ªè¿‡å˜æ€äº†
         lv = me->query("max_pot")-100;
         if(me->query("relife/quest/lwds")){
          if(random(100) > me->query("relife/quest/lwds")*10)
-            write(HIC"Äã¾­¹ı×ªÊÀÖØĞŞºó£¬ÁìÎòµ½ÁËÎä¼¼Íò±ä²»ÀëÆä×ÚµÄµÀÀí£¬Ë²¼äÁìÎòµ½ÁËÄıÑªÉñ×¦µÄ¾«»ªËùÔÚ¡£\n"NOR);
+            write(HIC"ä½ ç»è¿‡è½¬ä¸–é‡ä¿®åï¼Œé¢†æ‚Ÿåˆ°äº†æ­¦æŠ€ä¸‡å˜ä¸ç¦»å…¶å®—çš„é“ç†ï¼Œç¬é—´é¢†æ‚Ÿåˆ°äº†å‡è¡€ç¥çˆªçš„ç²¾åæ‰€åœ¨ã€‚\n"NOR);
             me->set_skill("ningxue-shenzhua",lv);
             }
 
       }
-	tell_object(me, "Äã×ĞÏ¸ÑĞ¶Á×Å¡¸ÄıÑªÉñ×¦Æ×¡¹µÄ¾«ÃîÖ®´¦¡£\n");
+	tell_object(me, "ä½ ä»”ç»†ç ”è¯»ç€ã€Œå‡è¡€ç¥çˆªè°±ã€çš„ç²¾å¦™ä¹‹å¤„ã€‚\n");
 	me->receive_damage("jing", 30 );
 	me->add("neili", - 50);
 	me->improve_skill("ningxue-shenzhua", me->query_int());
 	if (!random(8))
-		message("vision", me->name() + "×ĞÏ¸ÑĞ¶Á×Å¡¸ÄıÑªÉñ×¦Æ×¡¹µÄ¾«ÃîÖ®´¦¡£\n", environment(me), me); 
+		message("vision", me->name() + "ä»”ç»†ç ”è¯»ç€ã€Œå‡è¡€ç¥çˆªè°±ã€çš„ç²¾å¦™ä¹‹å¤„ã€‚\n", environment(me), me); 
 	return 1;
 }

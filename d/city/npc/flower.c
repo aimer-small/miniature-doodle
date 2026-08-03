@@ -9,21 +9,21 @@ inherit NECK;
 void create()
 {       
 	switch (random(9)){
-		case 0: set_name(HIC "Ò°¾Õ»¨" NOR, ({ "ye juhua", "flower"})); set("unique", 1);break; 
-		case 1: set_name(HIY "»Æº×ôá" NOR, ({ "huang heling", "flower"})); break; 
-		case 2: set_name(HIW "°×¾Õ»¨" NOR, ({ "bai juhua", "flower"})); break; 
-		case 3: set_name(HIR "ÃÀÈËºì" NOR, ({ "meiren hong", "flower"})); break;
-		case 4: set_name(HIC "Ò°¾Õ»¨" NOR, ({ "ye juhua", "flower"})); set("unique", 1);break; 
-		case 5: set_name(YEL "½ğ¿×È¸" NOR, ({ "jin kongque", "flower"})); break; 
-		case 6: set_name(HIY "İºÓğ»Æ" NOR, ({ "yin yuhuang", "flower"})); break; 
-		case 7: set_name(WHT "ÓñÂ¥´º" NOR, ({ "yu louchun", "flower"})); break; 
-		case 8: set_name(HIC "Ò°¾Õ»¨" NOR, ({ "ye juhua", "flower"})); set("unique", 1);break; 
-		case 9: set_name(HIM "ÌÒ»¨¾Õ" NOR, ({ "tao hongju", "flower"})); break; 
+		case 0: set_name(HIC "é‡èŠèŠ±" NOR, ({ "ye juhua", "flower"})); set("unique", 1);break; 
+		case 1: set_name(HIY "é»„é¹¤ç¿" NOR, ({ "huang heling", "flower"})); break; 
+		case 2: set_name(HIW "ç™½èŠèŠ±" NOR, ({ "bai juhua", "flower"})); break; 
+		case 3: set_name(HIR "ç¾äººçº¢" NOR, ({ "meiren hong", "flower"})); break;
+		case 4: set_name(HIC "é‡èŠèŠ±" NOR, ({ "ye juhua", "flower"})); set("unique", 1);break; 
+		case 5: set_name(YEL "é‡‘å­”é›€" NOR, ({ "jin kongque", "flower"})); break; 
+		case 6: set_name(HIY "èºç¾½é»„" NOR, ({ "yin yuhuang", "flower"})); break; 
+		case 7: set_name(WHT "ç‰æ¥¼æ˜¥" NOR, ({ "yu louchun", "flower"})); break; 
+		case 8: set_name(HIC "é‡èŠèŠ±" NOR, ({ "ye juhua", "flower"})); set("unique", 1);break; 
+		case 9: set_name(HIM "æ¡ƒèŠ±èŠ" NOR, ({ "tao hongju", "flower"})); break; 
 	}
 	set_weight(100);
-	set("long","Ò»¶äÇåĞÂµ­ÀöµÄĞ¡"+query("name")+"£¬É¢·¢×ÅÒ»Ë¿Ë¿ÇåÏã¡£\n");
+	set("long","ä¸€æœµæ¸…æ–°æ·¡ä¸½çš„å°"+query("name")+"ï¼Œæ•£å‘ç€ä¸€ä¸ä¸æ¸…é¦™ã€‚\n");
 	set("material", "flower");
-	set("unit", "¶ä");
+	set("unit", "æœµ");
 	set("armor_prop/armor", 1);
 	set("armor_prop/personality", 1);
 	setup();
@@ -48,7 +48,7 @@ int do_wear (string arg)
 
 	if (arg != "flower" && arg != "ju hua")
 		return 0;
-	msg = "$N´÷ÉÏÒ»¶ä"+name+"£¬Ğ¡Á³µ°¶ÙÊ±ÕÇµÄÍ¨ºì¡£\n"; 
+	msg = "$Næˆ´ä¸Šä¸€æœµ"+name+"ï¼Œå°è„¸è›‹é¡¿æ—¶æ¶¨çš„é€šçº¢ã€‚\n"; 
 	flower->set("wear_msg",msg);
 	return 0;
 }
@@ -62,7 +62,7 @@ int do_remove (string arg)
 	if (arg != "flower" && arg != "ju hua")
 		return 0;
 
-	msg = "$N½«"+name+"ÇáÇáµØÕªÏÂÀ´¡­¡­\n"; 
+	msg = "$Nå°†"+name+"è½»è½»åœ°æ‘˜ä¸‹æ¥â€¦â€¦\n"; 
 	flower->set("unequip_msg",msg);
 	return 0;
 }
@@ -77,7 +77,7 @@ int do_smell (string arg)
 	if (arg != "flower" &&  arg != "ju hua")
 		return 0;
 
-	msg = "$N½«"+name+"ÅõÆğÎÅÁËÎÅ£¬ÓÖµë¼ÇÆğ×òÌìµÄ¹ÊÈË¡£\n"; 
+	msg = "$Nå°†"+name+"æ§èµ·é—»äº†é—»ï¼Œåˆæƒ¦è®°èµ·æ˜¨å¤©çš„æ•…äººã€‚\n"; 
 	message_vision (msg,me);
 	return 1;
 }

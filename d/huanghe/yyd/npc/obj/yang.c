@@ -1,4 +1,4 @@
-// yang.c Ñìµ¶
+// yang.c é¸¯åˆ€
 // zly 99.6.22
 
 #include <weapon.h>
@@ -9,14 +9,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIC"Ñìµ¶"NOR, ({"yang dao","yang","dao", "blade"}));
+        set_name(HIC"é¸¯åˆ€"NOR, ({"yang dao","yang","dao", "blade"}));
         set_weight(4000);
         if( clonep() )
                set_default_object(__FILE__);
         else{
                set("treasure", 1);
-               set("unit", "°Ñ");
-               set("long", HIC"ÕâÊÇÔ§Ñìµ¶ÖÐµÄÑìµ¶£¬µ«¼û¾«¹âÒ«ÑÛ£¬µ¶ÈÐÉÏ¿ÌÖø¡¸ÎÞµÐ¡¹¶þ×Ö¡£\n" NOR);
+               set("unit", "æŠŠ");
+               set("long", HIC"è¿™æ˜¯é¸³é¸¯åˆ€ä¸­çš„é¸¯åˆ€ï¼Œä½†è§ç²¾å…‰è€€çœ¼ï¼Œåˆ€åˆƒä¸Šåˆ»è‘—ã€Œæ— æ•Œã€äºŒå­—ã€‚\n" NOR);
                set("value",400000);
                set("material","steel");
                set("weapon_prop/parry",5);
@@ -26,9 +26,9 @@ void create()
                set("wield_neili", 100);
                set("wield_maxneili", 700);
                set("wield_str", 20);
-               set("wield_msg", HIC"$N³é³öÒ»°ÑÇà¹âÉÁÒ«£¬º®Æø±ÆÈËµÄ³¤µ¶ÎÕÔÚÊÖÖÐ¡£ÐÄÖÐºÀÆø¶ÙÉú£¬¿ÚÖÐ²»
-¾õÇáÐ¥Ò»Éù¡£\n" NOR);
-	       set("unwield_msg", HIC"$NÇáÇá½«ÊÖÖÐµÄÑìµ¶²åÈëÑü¼äµÄµ¶ÇÊ¡£\n" NOR);
+               set("wield_msg", HIC"$NæŠ½å‡ºä¸€æŠŠé’å…‰é—ªè€€ï¼Œå¯’æ°”é€¼äººçš„é•¿åˆ€æ¡åœ¨æ‰‹ä¸­ã€‚å¿ƒä¸­è±ªæ°”é¡¿ç”Ÿï¼Œå£ä¸­ä¸
+è§‰è½»å•¸ä¸€å£°ã€‚\n" NOR);
+	       set("unwield_msg", HIC"$Nè½»è½»å°†æ‰‹ä¸­çš„é¸¯åˆ€æ’å…¥è…°é—´çš„åˆ€éž˜ã€‚\n" NOR);
         }
         init_blade(60);
         setup();
@@ -36,7 +36,7 @@ void create()
 
 void init()
 {
-//    add_action("do_add",({"he", "ºÏ"}));
+//    add_action("do_add",({"he", "åˆ"}));
 }
 
 /*int do_add()
@@ -47,13 +47,13 @@ void init()
      ob = this_object();
      obj = present("yuan dao", me);
      if(!objectp(obj))
-           return notify_fail("ÄãÊÖÖÐÖ»ÓÐÒ»°ÑÑìµ¶£¬ÏÈÕÒµ½ÁíÒ»°ÑÔÙËµ°É¡£\n");
+           return notify_fail("ä½ æ‰‹ä¸­åªæœ‰ä¸€æŠŠé¸¯åˆ€ï¼Œå…ˆæ‰¾åˆ°å¦ä¸€æŠŠå†è¯´å§ã€‚\n");
      if((int)me->query("neili") < 1000)
-           return notify_fail("Äã¸Ð¾õÈ«ÉíÆøÑª·­ÌÚ£¬Í·ÔÎÄ¿Ñ££¬Ô­À´ÄãÕæÆø²»¹»£¬ÎÞ·¨½«Ë«µ¶ºÏ²¢£¡\n");
+           return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”è¡€ç¿»è…¾ï¼Œå¤´æ™•ç›®çœ©ï¼ŒåŽŸæ¥ä½ çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•å°†åŒåˆ€åˆå¹¶ï¼\n");
      if((int)me->query_str() < 28)
-           return notify_fail("Äã¸Ð¾õÊ¹³öÁËÈ«ÉíµÄÁ¦Æø£¬ÈÔÎÞ·¨½«Ë«µ¶ºÏ²¢£¡\n");
+           return notify_fail("ä½ æ„Ÿè§‰ä½¿å‡ºäº†å…¨èº«çš„åŠ›æ°”ï¼Œä»æ— æ³•å°†åŒåˆ€åˆå¹¶ï¼\n");
      me->add("neili", -300);
-     message_vision(HIC"\nÖ»ÌýÒ»ÉùÇáÏì£¬ÄãË«ÊÖ°Ñµ¶Ò»²¢£¬¿¨àªÒ»ÉùºÏ¶þÎªÒ»£¬ÄÃÔÚ$NµÄÊÖÀï¡£\n"NOR, me);
+     message_vision(HIC"\nåªå¬ä¸€å£°è½»å“ï¼Œä½ åŒæ‰‹æŠŠåˆ€ä¸€å¹¶ï¼Œå¡å—’ä¸€å£°åˆäºŒä¸ºä¸€ï¼Œæ‹¿åœ¨$Nçš„æ‰‹é‡Œã€‚\n"NOR, me);
      destruct(obj);   
      new(__DIR__"yyd")->move(me, 1);     
      destruct(ob);

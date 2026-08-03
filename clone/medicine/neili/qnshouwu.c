@@ -1,4 +1,4 @@
-// qiannianshouwu.c Ç§ÄêºÎÊ×ÎÚ
+// qiannianshouwu.c åƒå¹´ä½•é¦–ä¹Œ
 
 #include <ansi.h>
 inherit ITEM;
@@ -8,13 +8,13 @@ void setup()
 
 void create()
 {
-        set_name(YEL"Ç§ÄêÊ×ÎÚ"NOR, ({"qiannian shouwu", "shouwu"}));
+        set_name(YEL"åƒå¹´é¦–ä¹Œ"NOR, ({"qiannian shouwu", "shouwu"}));
 	set_weight(500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Ã");
-                set("long", "ÕâÊÇÒ»¿ÃÇ§ÄêÊ×ÎÚ£¬ĞÎ×´ÍğÈçÈËÌå£¬´«ËµÇ§Äê·½³öÒ»¿Ã¡£\n");
+                set("unit", "æ£µ");
+                set("long", "è¿™æ˜¯ä¸€æ£µåƒå¹´é¦–ä¹Œï¼Œå½¢çŠ¶å®›å¦‚äººä½“ï¼Œä¼ è¯´åƒå¹´æ–¹å‡ºä¸€æ£µã€‚\n");
                 set("unique", 1);
                 set("drug", 1);
                 set("treasure", 1);
@@ -34,21 +34,21 @@ int do_eat(string arg)
         int force_limit, neili_limit, improve;
 
         if (!id(arg))
-      	    return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+      	    return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
        	force_limit = me->query_skill("force")* 10 + me->query("con")* me->query("age") + me->query("combat_exp", 1) /1000;
        	neili_limit = me->query("max_neili");
 
        	if(this_object()->query("owner") != me->query("id"))
-            return notify_fail("Õâ¿ÃÇ§ÄêÊ×ÎÚºÃÏó²»ÊÇÄãµÃµ½µÄ°É£¿\n");
+            return notify_fail("è¿™æ£µåƒå¹´é¦–ä¹Œå¥½è±¡ä¸æ˜¯ä½ å¾—åˆ°çš„å§ï¼Ÿ\n");
 
         if (me->query_condition("medicine")) {
         	me->add("max_neili", -20);
                 message_vision(
-                        HIR "$N³ÔÏÂÒ»ÖêÇ§ÄêÊ×ÎÚ£¬Ö»¾õ¿Ú¸ÉÉàÔï£¬ÑÛÇ°·¢ºÚ¡£\n"
-                        "Ô­À´·şÊ³Ì«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, this_player());
+                        HIR "$Nåƒä¸‹ä¸€æ ªåƒå¹´é¦–ä¹Œï¼Œåªè§‰å£å¹²èˆŒç‡¥ï¼Œçœ¼å‰å‘é»‘ã€‚\n"
+                        "åŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, this_player());
                 me->apply_condition("medicine", me->query_condition("medicine")+ 60);
-                log_file("quest/neili",sprintf("%-18sÎóÊ³%s¼õÈ¥ÄÚÁ¦¶şÊ®µã¡£\n",
+                log_file("quest/neili",sprintf("%-18sè¯¯é£Ÿ%så‡å»å†…åŠ›äºŒåç‚¹ã€‚\n",
 			me->name(1)+"("+capitalize(me->query("id"))+")", this_object()->name()), me);
         }
         else if ( neili_limit <= force_limit ){
@@ -56,13 +56,13 @@ int do_eat(string arg)
               		improve = 10 + random(10);
               		me->add("max_neili", improve);
               		me->add("neili", improve);
-             		message_vision(HIG "$N³ÔÏÂÒ»¿ÃÇ§ÄêÊ×ÎÚ£¬Ò»¹ÉÈÈÁ÷×Ôµ¤ÌïÓ¿ÈëÆß¾­°ËÂç£¬¹¦Á¦´óÔö!\n" NOR, me);
+             		message_vision(HIG "$Nåƒä¸‹ä¸€æ£µåƒå¹´é¦–ä¹Œï¼Œä¸€è‚¡çƒ­æµè‡ªä¸¹ç”°æ¶Œå…¥ä¸ƒç»å…«ç»œï¼ŒåŠŸåŠ›å¤§å¢!\n" NOR, me);
               		me->apply_condition("medicine", 180);
-                        log_file("quest/neili",sprintf("%-18s³ÔÁË%sÌáÉıÄÚÁ¦%sµã¡£\n",
+                        log_file("quest/neili",sprintf("%-18såƒäº†%sæå‡å†…åŠ›%sç‚¹ã€‚\n",
 				me->name(1)+"("+capitalize(me->query("id"))+")", this_object()->name(),chinese_number(improve)), me);
 		}
 		else {
-			message_vision(HIG "$N³ÔÏÂÒ»¿ÃÇ§ÄêÊ×ÎÚ£¬Ò»¹ÉÈÈÁ÷×Ôµ¤ÌïÓ¿ÈëÆß¾­°ËÂç£¬¹¦Á¦´óÔö!\n" NOR, me);
+			message_vision(HIG "$Nåƒä¸‹ä¸€æ£µåƒå¹´é¦–ä¹Œï¼Œä¸€è‚¡çƒ­æµè‡ªä¸¹ç”°æ¶Œå…¥ä¸ƒç»å…«ç»œï¼ŒåŠŸåŠ›å¤§å¢!\n" NOR, me);
         		me->reincarnate();
         		me->set("qi", me->query("max_qi"));
         		me->set("jing", me->query("max_jing"));
@@ -73,12 +73,12 @@ int do_eat(string arg)
 			improve = 1 + random(2);
 			me->add("max_neili", improve);
 			me->apply_condition("medicine", 60); 
-			log_file("quest/neili",sprintf("%-18s³ÔÁË%sÌáÉıÄÚÁ¦%sµã¡£\n",
+			log_file("quest/neili",sprintf("%-18såƒäº†%sæå‡å†…åŠ›%sç‚¹ã€‚\n",
 				me->name(1)+"("+capitalize(me->query("id"))+")" ,this_object()->name(),chinese_number(improve)), me);
         	}
         }
         else {
-                message_vision(HIR"$N²»¹ËÄÚÁ¦ĞŞÎªÒÑ´ï¼«ÏŞ£¬Ç¿ĞĞ³ÔÏÂÒ»ÖêÇ§ÄêÊ×ÎÚ£¬¶ÙÊ±Ö»¾õ¿Ú¸ÉÉàÔï£¬ÑÛÇ°·¢ºÚ¡£\n"NOR, this_player());
+                message_vision(HIR"$Nä¸é¡¾å†…åŠ›ä¿®ä¸ºå·²è¾¾æé™ï¼Œå¼ºè¡Œåƒä¸‹ä¸€æ ªåƒå¹´é¦–ä¹Œï¼Œé¡¿æ—¶åªè§‰å£å¹²èˆŒç‡¥ï¼Œçœ¼å‰å‘é»‘ã€‚\n"NOR, this_player());
        		me->unconcious();
        	}
         destruct(this_object());

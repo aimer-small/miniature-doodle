@@ -12,12 +12,12 @@ void init()
 
 void create()
 {
-        set_name(HIR"ÎŞ³£µ¤"NOR, ({"wuchang dan", "dan"}));
+        set_name(HIR"æ— å¸¸ä¸¹"NOR, ({"wuchang dan", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", HIR"ÕâÊÇÒ»¿ÅÑªºìµÄµ¤Ò©£¬ÊÇÌÒ»¨µºµÄÁÆÉËÊ¥Ò©ÎŞ³£µ¤¡£\n"NOR);
+                set("unit", "é¢—");
+                set("long", HIR"è¿™æ˜¯ä¸€é¢—è¡€çº¢çš„ä¸¹è¯ï¼Œæ˜¯æ¡ƒèŠ±å²›çš„ç–—ä¼¤åœ£è¯æ— å¸¸ä¸¹ã€‚\n"NOR);
                 set("value", 100);
                 set("no_drop", 1);
         }
@@ -28,9 +28,9 @@ int do_eat(string arg)
 {
         object me = this_player();
          if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
          me->receive_curing("qi", 10000);
-         message_vision(HIR"$N³ÔÏÂÒ»¿ÅÎŞ³£µ¤£¬Á³É«¿´À´ºÃ¶àÁË¡£\n"NOR, this_player());
+         message_vision(HIR"$Nåƒä¸‹ä¸€é¢—æ— å¸¸ä¸¹ï¼Œè„¸è‰²çœ‹æ¥å¥½å¤šäº†ã€‚\n"NOR, this_player());
         destruct(this_object());
                 return 1;
 }

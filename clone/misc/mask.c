@@ -5,16 +5,16 @@ inherit HEAD;
 
 void create()
 {
-	set_name("цФуж", ({ "mian zhao", "zhao", "mask" }) );
+	set_name("И²╒Г╫╘", ({ "mian zhao", "zhao", "mask" }) );
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-		set("unit", "╦╤");
+		set("unit", "Д╩≤");
                 set("material", "cloth");
                 set("armor_prop/armor", 1);
-		set("wear_msg", "$Nх║ЁЖр╩╦ЖцФужлвтзм╥ио║ё\n");
-		set("remove_msg", "$N╟яцФужмяакобю╢║ё\n");
+		set("wear_msg", "$NЕ▐√Е┤╨Д╦─Д╦╙И²╒Г╫╘Е╔≈Е°╗Е╓╢Д╦┼Ц─┌\n");
+		set("remove_msg", "$NФ┼┼И²╒Г╫╘Х└╠Д╨├Д╦▀Ф²╔Ц─┌\n");
 		set("no_drop", 1);
 		set("unique", 3);
         }
@@ -28,7 +28,7 @@ int wear()
 	int ret;
 
 	if (!living(ob)) {
-		message_vision("цФуж╢с$Nм╥ио╣Такобю╢║ё\n", ob);
+		message_vision("И²╒Г╫╘Д╩▌$NЕ╓╢Д╦┼Ф▌┴Д╨├Д╦▀Ф²╔Ц─┌\n", ob);
 		return 0;
 	}
 
@@ -39,18 +39,18 @@ int wear()
 		id = capitalize(id);
 /*
 		if (wizardp(ob)) {
-			ob->set_temp("apply/name", ({ "цицФнвй╕" }));
-			ob->set_temp("apply/short", ({ "цицФнвй╕(Mengmian wushi)" }));
+			ob->set_temp("apply/name", ({ "Х▓≥И²╒Е╥╚Е╦┬" }));
+			ob->set_temp("apply/short", ({ "Х▓≥И²╒Е╥╚Е╦┬(Mengmian wushi)" }));
 		} else
 */
-		if (ob->query("gender") == "е╝пт") {
-			ob->set_temp("apply/name", ({ "цицФе╝вс" }));
-			ob->set_temp("apply/short", ({ "цицФе╝вс("+id+")" }));
+		if (ob->query("gender") == "Е╔ЁФ─╖") {
+			ob->set_temp("apply/name", ({ "Х▓≥И²╒Е╔ЁЕ╜░" }));
+			ob->set_temp("apply/short", ({ "Х▓≥И²╒Е╔ЁЕ╜░("+id+")" }));
 		} else {
-			ob->set_temp("apply/name", ({ "цицФдпвс" }));
-			ob->set_temp("apply/short", ({ "цицФдпвс("+id+")" }));
+			ob->set_temp("apply/name", ({ "Х▓≥И²╒Г■╥Е╜░" }));
+			ob->set_temp("apply/short", ({ "Х▓≥И²╒Г■╥Е╜░("+id+")" }));
 		}
-		ob->set_temp("apply/long", ({ "р╩╦Жд╙цШфДцН╣д╪р╩Оё╛сисз╢ЬвецФужё╛дЦ©╢╡╩гЕЁЧуБ╪р╩О╣дцФд©║ё\n" }));
+		ob->set_temp("apply/long", ({ "Д╦─Д╦╙Х▌╚Е░█Е┘╤Е╕≥Г └Е╝╤Д╪≥О╪▄Г■╠Д╨▌Е╦╕Г²─И²╒Г╫╘О╪▄Д╫═Г°▀Д╦█Ф╦┘Ф╔ Х©≥Е╝╤Д╪≥Г └И²╒Г⌡╝Ц─┌\n" }));
 	}
 	return ret;
 }

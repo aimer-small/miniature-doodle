@@ -16,43 +16,43 @@ int perform(object me, object target)
 	int improve, ap, dp, skill, i;
 
         if( !objectp(target) || !me->is_fighting(target) )
-                return notify_fail("¡¸ÕÛÃ·Õ¹¡¹Ö»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€ŒæŠ˜æ¢…å±•ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
                 
         if( me->query_temp("weapon"))
-                return notify_fail("ÄãÄÃ×ÅÎäÆ÷ÔõÃ´ÄÜÊ¹ÓÃ¡¸ÕÛÃ·Õ¹¡¹£¡\n");   
+                return notify_fail("ä½ æ‹¿ç€æ­¦å™¨æ€ä¹ˆèƒ½ä½¿ç”¨ã€ŒæŠ˜æ¢…å±•ã€ï¼\n");   
                 
         if( (int)me->query_skill("zhemei-shou", 1) < 80 )
-                return notify_fail("ÄãµÄÌìÉ½ÕÛÃ·ÊÖ»¹²»¹»æµÊì£¬Ê¹²»³ö¡¸ÕÛÃ·Õ¹¡¹¾ø¼¼¡£\n");     
+                return notify_fail("ä½ çš„å¤©å±±æŠ˜æ¢…æ‰‹è¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡ºã€ŒæŠ˜æ¢…å±•ã€ç»æŠ€ã€‚\n");     
                 
         if( (int)me->query_skill("hand", 1) < 80 )
-                return notify_fail("ÄãµÄ»ù±¾ÊÖ·¨»¹²»¹»æµÊì£¬Ê¹²»³ö¡¸ÕÛÃ·Õ¹¡¹¾ø¼¼¡£\n");                                                      
+                return notify_fail("ä½ çš„åŸºæœ¬æ‰‹æ³•è¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡ºã€ŒæŠ˜æ¢…å±•ã€ç»æŠ€ã€‚\n");                                                      
 
         if (me->query_skill_mapped("force") != "bahuang-gong" )
         if (me->query_skill_mapped("force") != "beiming-shengong")
-                return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦²»¶Ô£¬Ê¹²»³ö¡¸ÕÛÃ·Õ¹¡¹¾ø¼¼¡£\n");  
+                return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸å¯¹ï¼Œä½¿ä¸å‡ºã€ŒæŠ˜æ¢…å±•ã€ç»æŠ€ã€‚\n");  
                 
         if ( me->query_skill_mapped("parry") != "zhemei-shou"
 	            && me->query_skill_mapped("hand") != "zhemei-shou")
-		            return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸ÕÛÃ·Õ¹¡¹¡£\n");
+		            return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€ŒæŠ˜æ¢…å±•ã€ã€‚\n");
 		            
 		    if (me->query_skill_prepared("hand") != "zhemei-shou"
 	             || me->query_skill_mapped("hand") != "zhemei-shou")
-	              return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸ÕÛÃ·Õ¹¡¹¡£\n");
+	              return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€ŒæŠ˜æ¢…å±•ã€ã€‚\n");
 
         if( (int)me->query_temp("zhemei") > 0 )
-                return notify_fail(HIG"Äã¸Õ¸ÕÓÃ¹ı¡¸ÕÛÃ·Õ¹¡¹£¬µÈÒ»»áÔÙÊ¹ÓÃ°É¡£NOR\n"NOR);
+                return notify_fail(HIG"ä½ åˆšåˆšç”¨è¿‡ã€ŒæŠ˜æ¢…å±•ã€ï¼Œç­‰ä¸€ä¼šå†ä½¿ç”¨å§ã€‚NOR\n"NOR);
 
         if( (int)me->query("neili", 1) < 200 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ¡¸ÕÛÃ·Õ¹¡¹¾ø¼¼¡£\n");
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ã€ŒæŠ˜æ¢…å±•ã€ç»æŠ€ã€‚\n");
                 
         if( me->query("jingli") < 200 )
-		            return notify_fail("ÄãÏÖÔÚ¾«Á¦²»¹», ²»ÄÜÊ¹ÓÃ¡¸ÕÛÃ·Õ¹¡¹¾ø¼¼! \n");
+		            return notify_fail("ä½ ç°åœ¨ç²¾åŠ›ä¸å¤Ÿ, ä¸èƒ½ä½¿ç”¨ã€ŒæŠ˜æ¢…å±•ã€ç»æŠ€! \n");
  /*
        if( target->is_busy() )
-		            return notify_fail(target->name() + "Ä¿Ç°Õı×Ô¹Ë²»Ï¾£¬·Åµ¨¹¥»÷°É¡£\n");
+		            return notify_fail(target->name() + "ç›®å‰æ­£è‡ªé¡¾ä¸æš‡ï¼Œæ”¾èƒ†æ”»å‡»å§ã€‚\n");
 */
                 
-        message_vision(HIM"$NÊÖ·¨Í»È»¼Ó¿ì£¬Ê¹³öÌìÉ½¡¸ÕÛÃ·Õ¹¡¹¾ø¼¼£¬Ñ¸ËÙÆËÏò²¢×¥×¡$nÒ»Ö»ÊÖ±Û£¬ÓÃÁ¦ÍäÕÛ¡£\n" NOR,me, target);        
+        message_vision(HIM"$Næ‰‹æ³•çªç„¶åŠ å¿«ï¼Œä½¿å‡ºå¤©å±±ã€ŒæŠ˜æ¢…å±•ã€ç»æŠ€ï¼Œè¿…é€Ÿæ‰‘å‘å¹¶æŠ“ä½$nä¸€åªæ‰‹è‡‚ï¼Œç”¨åŠ›å¼¯æŠ˜ã€‚\n" NOR,me, target);        
 
 	       me->set_temp("zhemei", 1);
 
@@ -76,7 +76,7 @@ int perform(object me, object target)
               me->add_temp("apply/damage", i);
            me->add_temp("apply/strength", i/5);
 	if(random(ap + dp) > dp /3  && !target->query_temp("zhemei")) {
-		msg = HIR"½á¹û$nµÄÊÖ±Û±»$NÍäÕÛµÃÎŞ·¨¶¯µ¯£¬Ö»¾õÒ»ÕóÕóÌÛÍ´ÄÑÈÌ£¬¼¸ºõÕÛ¶Ï£¬µ±ÏÂÎŞ·¨¶¯µ¯£¡\n"NOR;
+		msg = HIR"ç»“æœ$nçš„æ‰‹è‡‚è¢«$Nå¼¯æŠ˜å¾—æ— æ³•åŠ¨å¼¹ï¼Œåªè§‰ä¸€é˜µé˜µç–¼ç—›éš¾å¿ï¼Œå‡ ä¹æŠ˜æ–­ï¼Œå½“ä¸‹æ— æ³•åŠ¨å¼¹ï¼\n"NOR;
 		message_vision(msg, me, target);
 		improve = me->query("str");
                             target->add_busy(random(2)+3);
@@ -108,7 +108,7 @@ int perform(object me, object target)
 		call_out("check_fight", 1, me, target ,improve, me->query_skill("zhemei-shou")/50);
 	}
 	else {
-		msg = WHT"²»ÁÏ$n±ÛÁ¦ÒìÓÚ³£ÈË£¬ÓÂÃÍÒì³££¬ÓÃÁ¦·´Õğ£¬·´½«$NÕğÍËÊı²½£¡\n"NOR;
+		msg = WHT"ä¸æ–™$nè‡‚åŠ›å¼‚äºå¸¸äººï¼Œå‹‡çŒ›å¼‚å¸¸ï¼Œç”¨åŠ›åéœ‡ï¼Œåå°†$Néœ‡é€€æ•°æ­¥ï¼\n"NOR;
 		message_vision(msg, me, target);
 		if (present(target,environment(me)) && me->is_fighting(target))
 		COMBAT_D->do_attack(me, target, me->query_temp("weapon"), random(3)?1:3);
@@ -126,7 +126,7 @@ int perform(object me, object target)
 
 	me->delete_temp("zhemei");
 
-        me->start_perform(3, "¡¸ÕÛÃ·Õ¹¡¹");
+        me->start_perform(3, "ã€ŒæŠ˜æ¢…å±•ã€");
 	return 1;
 }
 
@@ -136,7 +136,7 @@ void remove_effect(object target, int improve)
 	target->add_temp("apply/strength", improve);
         target->delete_temp("zhemei");
         target->delete_temp("must_be_hit");
-	tell_object(target, HIR"\nÄãÔËÁ¦²»¶ÏÊæÕ¹ÊÖ±Û£¬²»Ò»»á¶ù¾Í¸Ğ¾õÊÖ±ÛÒÑ¾­»Ö¸´Ô­×´¡£\n"NOR);
+	tell_object(target, HIR"\nä½ è¿åŠ›ä¸æ–­èˆ’å±•æ‰‹è‡‚ï¼Œä¸ä¸€ä¼šå„¿å°±æ„Ÿè§‰æ‰‹è‡‚å·²ç»æ¢å¤åŸçŠ¶ã€‚\n"NOR);
 }
 
 void check_fight(object me, object target, int improve, int count)
@@ -154,21 +154,21 @@ void check_fight(object me, object target, int improve, int count)
 	call_out("check_fight", 1, me, target, improve, count -1);
 }
 
-string perform_name(){ return HIM"ÕÛÃ·Õ¹"NOR; }
+string perform_name(){ return HIM"æŠ˜æ¢…å±•"NOR; }
 
 int help(object me)
 {
-	write(YEL"\nÌìÉ½ÕÛÃ·ÊÖÖ®"HIM"¡¸ÕÛÃ·Õ¹¡¹£º"NOR"\n");
+	write(YEL"\nå¤©å±±æŠ˜æ¢…æ‰‹ä¹‹"HIM"ã€ŒæŠ˜æ¢…å±•ã€ï¼š"NOR"\n");
 	write(@HELP
-	ÁéğÕ¹¬ÌìÉ½Í¯ÀÑÖ®¾ø¼¼¡£
+	çµé¹«å®«å¤©å±±ç«¥å§¥ä¹‹ç»æŠ€ã€‚
 
-	ÒªÇó£º
-	µ±Ç°ÄÚÁ¦ 200 ÒÔÉÏ£»
-	µ±Ç°¾«Á¦ 200 ÒÔÉÏ£»
-        ×î´óÄÚÁ¦ 200 ÒÔÉÏ£º
-        ÌìÉ½ÕÛÃ·ÊÖµÈ¼¶ 80 ÒÔÉÏ£»
-        °Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦µÈ¼¶ 80 ÒÔÉÏ£»
-        ±±Ú¤Éñ¹¦µÈ¼¶ 80 ÒÔÉÏ£»
+	è¦æ±‚ï¼š
+	å½“å‰å†…åŠ› 200 ä»¥ä¸Šï¼›
+	å½“å‰ç²¾åŠ› 200 ä»¥ä¸Šï¼›
+        æœ€å¤§å†…åŠ› 200 ä»¥ä¸Šï¼š
+        å¤©å±±æŠ˜æ¢…æ‰‹ç­‰çº§ 80 ä»¥ä¸Šï¼›
+        å…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸç­‰çº§ 80 ä»¥ä¸Šï¼›
+        åŒ—å†¥ç¥åŠŸç­‰çº§ 80 ä»¥ä¸Šï¼›
 HELP
 	);
 	return 1;

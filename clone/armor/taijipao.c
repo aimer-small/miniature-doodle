@@ -1,4 +1,4 @@
-// /clone/armor/taijipao.c Ì«¼«µÀÅÛ
+// /clone/armor/taijipao.c å¤ªæé“è¢
 
 #include <armor.h>
 #include <ansi.h>
@@ -8,18 +8,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIW"Ì«¼«µÀÅÛ"NOR, ({ "taiji daopao", "dao pao", "daopao" }));
+        set_name(HIW"å¤ªæé“è¢"NOR, ({ "taiji daopao", "dao pao", "daopao" }));
         set_weight(2500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", HIW"ÕâÊÇÒ»ÁìÎäµ±É½ÕÅÕæÈËÇ×ÖÆµÄ·çÑ©É«°×ÈŞµÀÅÛ£¬Õ§Ò»¿´ÊÇÃŞ²¼´ÖÂéËùÖÆ¡£\nÏ¸Ï¸¹Û²ìÈ´¼ûÅÛÉíÊÇÓÃº±¼ûµÄÈí¼×²øË¿±àÖ¯¶ø³É¡£\n°µÉ«³É"HIC"Òõ"HIW"£¬ÁÁÉ«Îª"HIR"Ñô"HIW"£¬¹´ÂÖÔ²×ª³ÉÒ»¸ö¡¾Ì«¼«¡¿Í¼ĞÎ¡£\n"NOR);
+                set("long", HIW"è¿™æ˜¯ä¸€é¢†æ­¦å½“å±±å¼ çœŸäººäº²åˆ¶çš„é£é›ªè‰²ç™½ç»’é“è¢ï¼Œä¹ä¸€çœ‹æ˜¯æ£‰å¸ƒç²—éº»æ‰€åˆ¶ã€‚\nç»†ç»†è§‚å¯Ÿå´è§è¢èº«æ˜¯ç”¨ç½•è§çš„è½¯ç”²ç¼ ä¸ç¼–ç»‡è€Œæˆã€‚\næš—è‰²æˆ"HIC"é˜´"HIW"ï¼Œäº®è‰²ä¸º"HIR"é˜³"HIW"ï¼Œå‹¾è½®åœ†è½¬æˆä¸€ä¸ªã€å¤ªæã€‘å›¾å½¢ã€‚\n"NOR);
                 set("material", "silk");
-                set("unit", "Áì");
+                set("unit", "é¢†");
                 set("unique", 1);
                 set("value", 1000000);
-                set("wear_msg", HIW "Ö»¼û$N·­ÉíÅûÉÏÒ»ÁìÑ©ÈŞµÀÅÛ£¬·Â·ğÒ»ÂÖ"HIC"Ì«¼«"HIW"ËæÉíºÍĞÎ¶øÆğ¡£\n" NOR);
-                set("remove_msg", HIW "$NºÍÉí½âÏÂÒ»ÁìÑ©ÈŞÉ«Ì«¼«µÀÅÛ¡£"HIC"Ì«¼«Ô²×ª"HIW"Ö®ĞÎ¶ÙÊ±ÏûÓÚÎŞĞÎ¡£\n" NOR);
+                set("wear_msg", HIW "åªè§$Nç¿»èº«æŠ«ä¸Šä¸€é¢†é›ªç»’é“è¢ï¼Œä»¿ä½›ä¸€è½®"HIC"å¤ªæ"HIW"éšèº«å’Œå½¢è€Œèµ·ã€‚\n" NOR);
+                set("remove_msg", HIW "$Nå’Œèº«è§£ä¸‹ä¸€é¢†é›ªç»’è‰²å¤ªæé“è¢ã€‚"HIC"å¤ªæåœ†è½¬"HIW"ä¹‹å½¢é¡¿æ—¶æ¶ˆäºæ— å½¢ã€‚\n" NOR);
                 set("treasure",1);
                 set("armor_prop/armor", 75);
                 set("armor_prop/parry", 10);

@@ -1,14 +1,14 @@
-// che3.c ³µÏáÄÚ
+// che3.c è½¦å¢å†…
 // By River@SJ
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short",HIY"³µÏáÄÚ"NOR);
+        set("short",HIY"è½¦å¢å†…"NOR);
         set("long", @LONG
-¸É¾»Êæ·şµÄ³µÏáÀï£¬Õû½àµÄ×ùÎ»ÉÏÆÌ×ÅºìÉ«µÄ½õ¶Ğ¡£³µÇ°ÀÏ³µ·òÕıÔÚÓÃÁ¦
-µØ¸Ï×ÅÂí³µ£¬ÂíĞĞµßô¤£¬µ«×øÔÚ³µÄÚ£¬È´²¢²»¸Ğ¾õÕğµ´¡£Í¸¹ıµÄ³µ´°ÄãÄÜ¹»ĞÀ
-ÉÍ´°ÍâÓÅÃÀµÄ¾°É«¡£
+å¹²å‡€èˆ’æœçš„è½¦å¢é‡Œï¼Œæ•´æ´çš„åº§ä½ä¸Šé“ºç€çº¢è‰²çš„é”¦ç¼ã€‚è½¦å‰è€è½¦å¤«æ­£åœ¨ç”¨åŠ›
+åœ°èµ¶ç€é©¬è½¦ï¼Œé©¬è¡Œé¢ ç°¸ï¼Œä½†ååœ¨è½¦å†…ï¼Œå´å¹¶ä¸æ„Ÿè§‰éœ‡è¡ã€‚é€è¿‡çš„è½¦çª—ä½ èƒ½å¤Ÿæ¬£
+èµçª—å¤–ä¼˜ç¾çš„æ™¯è‰²ã€‚
 LONG
         );
         set("exits/out","/d/city/guangchang");
@@ -24,28 +24,28 @@ void init()
         string arg,arg1;
         object place = me->query_temp("place");
         if (!place){
-           tell_object(me,YEL"\n³µ·òÅÄÁËÅÄÄÔ´üËµµÀ£ºÄãÒªÈ¥ÄÇÀï°¡£¬ÎÒ¿ÉÍüÁË£¬ËãÁËËÍÄãµ½ÑïÖİ³Ç°É¡£\n\n");
+           tell_object(me,YEL"\nè½¦å¤«æ‹äº†æ‹è„‘è¢‹è¯´é“ï¼šä½ è¦å»é‚£é‡Œå•Šï¼Œæˆ‘å¯å¿˜äº†ï¼Œç®—äº†é€ä½ åˆ°æ‰¬å·åŸå§ã€‚\n\n");
            return;
         }
         switch(place){
-            case "Dali":      arg="/d/dali/dalics";        arg1 ="Î÷ÄÏ´óÀí¹ú"; break;
-            case "Gumu":      arg="/d/gumu/shengou";       arg1 ="ÖÕÄÏÉ½¹ÅÄ¹"; break;
-            case "Wudang":    arg="/d/wudang/xuanyue";	arg1 ="ºÓ±±Îäµ±É½½Å"; break;
-            case "Mingjiao":  arg="/d/mingjiao/shanjiao";  arg1 ="Î÷ÓòÃ÷½ÌÉ½½Å"; break;
-            case "Taohuadao": arg="/d/thd/guiyun/road4";   arg1 ="¶«º£ÌÒ»¨µºÃÅÏÂ¹éÔÆ×¯Ç°"; break;
-            case "Shenlong":  arg="/d/sld/haitan";         arg1 ="ÉñÁúµºº£Ì²"; break;
-            case "Yangzhou":  arg="/d/city/guangchang";    arg1 ="½­ÄÏÑïÖİ³Ç"; break;
-            case "Murong":    arg="/d/mr/testmatou1";      arg1 ="½­ÄÏ¹ÃËÕÄ½Èİ"; break;
-            case "Kunlun":    arg="/d/mingjiao/shanjiao";  arg1 ="À¥ÂØÉ½½Å"; break;
-            case "Tiezhang":  arg="/d/tiezhang/shanjiao";  arg1 ="ºşÄÏÌúÕÆÉ½"; break;
-            case "Shaolin":   arg="/d/shaolin/shijie1";    arg1 ="áÔÉ½ÉÙÁÖÉÙÊÒÉ½"; break;
-            case "Huashan":   arg="/d/huashan/path1";      arg1 ="Î÷ÔÀ»ªÉ½É½½Å"; break;
-            case "Xingxiu":   arg="/d/xingxiu/xxh";        arg1 ="Î÷ÓòĞÇËŞº£"; break;
-            case "Emei":      arg="/d/emei/qingshijie";    arg1 ="ËÄ´¨¶ëáÒÉ½½Å"; break;
-            case "Dalunsi":   arg="/d/xueshan/mingxiamen"; arg1 ="Î÷·¬Ñ©É½´óÂÖËÂ"; break;
-            case "Quanzhen":  arg="/d/gumu/lyy";           arg1 ="ÖÕÄÏÉ½È«Õæ½Ì"; break;
+            case "Dali":      arg="/d/dali/dalics";        arg1 ="è¥¿å—å¤§ç†å›½"; break;
+            case "Gumu":      arg="/d/gumu/shengou";       arg1 ="ç»ˆå—å±±å¤å¢“"; break;
+            case "Wudang":    arg="/d/wudang/xuanyue";	arg1 ="æ²³åŒ—æ­¦å½“å±±è„š"; break;
+            case "Mingjiao":  arg="/d/mingjiao/shanjiao";  arg1 ="è¥¿åŸŸæ˜æ•™å±±è„š"; break;
+            case "Taohuadao": arg="/d/thd/guiyun/road4";   arg1 ="ä¸œæµ·æ¡ƒèŠ±å²›é—¨ä¸‹å½’äº‘åº„å‰"; break;
+            case "Shenlong":  arg="/d/sld/haitan";         arg1 ="ç¥é¾™å²›æµ·æ»©"; break;
+            case "Yangzhou":  arg="/d/city/guangchang";    arg1 ="æ±Ÿå—æ‰¬å·åŸ"; break;
+            case "Murong":    arg="/d/mr/testmatou1";      arg1 ="æ±Ÿå—å§‘è‹æ…•å®¹"; break;
+            case "Kunlun":    arg="/d/mingjiao/shanjiao";  arg1 ="æ˜†ä»‘å±±è„š"; break;
+            case "Tiezhang":  arg="/d/tiezhang/shanjiao";  arg1 ="æ¹–å—é“æŒå±±"; break;
+            case "Shaolin":   arg="/d/shaolin/shijie1";    arg1 ="åµ©å±±å°‘æ—å°‘å®¤å±±"; break;
+            case "Huashan":   arg="/d/huashan/path1";      arg1 ="è¥¿å²³åå±±å±±è„š"; break;
+            case "Xingxiu":   arg="/d/xingxiu/xxh";        arg1 ="è¥¿åŸŸæ˜Ÿå®¿æµ·"; break;
+            case "Emei":      arg="/d/emei/qingshijie";    arg1 ="å››å·å³¨åµ‹å±±è„š"; break;
+            case "Dalunsi":   arg="/d/xueshan/mingxiamen"; arg1 ="è¥¿ç•ªé›ªå±±å¤§è½®å¯º"; break;
+            case "Quanzhen":  arg="/d/gumu/lyy";           arg1 ="ç»ˆå—å±±å…¨çœŸæ•™"; break;
             default: break;
         }
         set("exits/out",arg);
-        message_vision(YEL "\n³µ·ò°Ñ´ó³µ¿¿ÔÚÂ·ÅÔ£¬¶ÔÄãËµµÀ£º"+arg1+"ÒÑ¾­µ½ÁË£¬¿ìÏÂ³µ£¨out£©°É¡£\n\n"NOR,me);
+        message_vision(YEL "\nè½¦å¤«æŠŠå¤§è½¦é åœ¨è·¯æ—ï¼Œå¯¹ä½ è¯´é“ï¼š"+arg1+"å·²ç»åˆ°äº†ï¼Œå¿«ä¸‹è½¦ï¼ˆoutï¼‰å§ã€‚\n\n"NOR,me);
 }

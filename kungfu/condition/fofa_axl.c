@@ -10,12 +10,12 @@ int update_condition(object me, int duration)
         
         if(random(10)==1)
 	{
-		tell_room(environment(me), me->name() + "ÃæÄ¿ÕøÄüÓÐÈôÐÞÂÞÅ­Ä¿Ïó¡£\n", ({ me }));		
+		tell_room(environment(me), me->name() + "é¢ç›®ç‹°ç‹žæœ‰è‹¥ä¿®ç½—æ€’ç›®è±¡ã€‚\n", ({ me }));		
 	}
 
         if( ! me->query_temp("fofa_xiuluo") ) 
         {
-		tell_object(me, HIW"Äã¿ÚÐûÒ»Éù·ðºÅ£¬ÃæÄ¿ÓÖ»Ö¸´Ô­À´µÄ´ÈÏéÖ®Ì¬¡£\n"NOR);		
+		tell_object(me, HIW"ä½ å£å®£ä¸€å£°ä½›å·ï¼Œé¢ç›®åˆæ¢å¤åŽŸæ¥çš„æ…ˆç¥¥ä¹‹æ€ã€‚\n"NOR);		
 		me->clear_condition("fofa_axl");
 		return 0;
         }

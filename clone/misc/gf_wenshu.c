@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(WHT "Ìú²¶ÎÄÊé" NOR, ({ "tiebu wenshu", "wenshu" }));
+	set_name(WHT "é“æ•æ–‡ä¹¦" NOR, ({ "tiebu wenshu", "wenshu" }));
 	set("weight", 100);
 	if(clonep()) set_default_object(__FILE__);
 	else{
-		set("unit", "ÕÅ");
+		set("unit", "å¼ ");
 		set("no_give", 1);
 		set("no_get", 1);
-		set("long", WHT"ÕâÊÇÒ»ÕÅÑ²²¶·¿³öµÄÌú²¶ÎÄÊé£¬ÉÏÃæÓÐÍ¨¼©·¸µÄ»­ÏñºÍÃû×Ö¡£\n" NOR);
+		set("long", WHT"è¿™æ˜¯ä¸€å¼ å·¡æ•æˆ¿å‡ºçš„é“æ•æ–‡ä¹¦ï¼Œä¸Šé¢æœ‰é€šç¼‰çŠ¯çš„ç”»åƒå’Œåå­—ã€‚\n" NOR);
 	}
 	setup();
 }
@@ -28,23 +28,23 @@ int do_arrest(string arg)
 	object ob, me;
 	
 	if (!arg)
-		return notify_fail("ÄãÏë¾Ð²¶Ë­£¿\n");
+		return notify_fail("ä½ æƒ³æ‹˜æ•è°ï¼Ÿ\n");
 	
 	me = this_player();
 		
 	if( !environment(me)->query("no_fight"))
-		return notify_fail("Ö»ÓÐÔÚ×ï·¸¶ã²ØÆðÀ´Ê±£¬¾Ð²¶²ÅÓÐÐ§¡£\n");
+		return notify_fail("åªæœ‰åœ¨ç½ªçŠ¯èº²è—èµ·æ¥æ—¶ï¼Œæ‹˜æ•æ‰æœ‰æ•ˆã€‚\n");
 
 	if(!objectp(ob = present(arg, environment(me))) )
-		return notify_fail("ÄãÒª¾Ð²¶Ë­£¿\n");
+		return notify_fail("ä½ è¦æ‹˜æ•è°ï¼Ÿ\n");
 		
 	if(!ob->is_character() )
-		return notify_fail("ÄãÒª¾Ð²¶Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‹˜æ•ä»€ä¹ˆï¼Ÿ\n");
 		
 	if( ob->query("id") != query("target/id") )
-		return notify_fail("Ìú²¶ÎÄÊéÉÏ¼ÇµÄ²»ÊÇÕâÈË°É£¿\n");
+		return notify_fail("é“æ•æ–‡ä¹¦ä¸Šè®°çš„ä¸æ˜¯è¿™äººå§ï¼Ÿ\n");
 		
-	message_vision("\n$N¶Ô×Å$n´óºðÒ»Éù£º¡°±»ÎÒ´þµ½ÁË£¡¿ì¿ìÊøÊÖ¾ÍÇÜ°É£¡¡±\n", me, ob);
+	message_vision("\n$Nå¯¹ç€$nå¤§å¼ä¸€å£°ï¼šâ€œè¢«æˆ‘é€®åˆ°äº†ï¼å¿«å¿«æŸæ‰‹å°±æ“’å§ï¼â€\n", me, ob);
 	me->kill_ob(ob);
 	ob->fight_ob(me);
 	

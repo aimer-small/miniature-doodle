@@ -2,17 +2,17 @@ inherit NPC;
 
 void create()
 {
-	set_name("¶¾Éß", ({ "du she", "dushe", "snake", "she" }));
-	set("race", "Ò°ÊÞ");
+	set_name("æ¯’è›‡", ({ "du she", "dushe", "snake", "she" }));
+	set("race", "é‡Žå…½");
 	set("age", 20);
-	set("long", "Ò»Ìõ»ÆÖÐ¼äºÚµÄ¶¾Éß£¬È«ÉíÑªºì¡¢³¤ÉàÍÌÍÂ¡¢àÍàÍ×÷Éù¡¢Í·×÷Èý½Ç\n");
+	set("long", "ä¸€æ¡é»„ä¸­é—´é»‘çš„æ¯’è›‡ï¼Œå…¨èº«è¡€çº¢ã€é•¿èˆŒåžåã€å—¤å—¤ä½œå£°ã€å¤´ä½œä¸‰è§’\n");
 	set("attitude", "peaceful");
 
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Æß´ç", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ä¸ƒå¯¸", "å°¾å·´" }) );
 	set("verbs", ({ "twist", "bite" }) );
 
 	set("combat_exp", 20000);
-        set("no_get",1); // By Spiderii@yt ·ÀÖ¹µ·ÂÒ·Ö×Ó¶ñÒâpk
+        set("no_get",1); // By Spiderii@yt é˜²æ­¢æ£ä¹±åˆ†å­æ¶æ„pk
 
 	set_temp("apply/attack", 100);
 	set_temp("apply/defense", 100);
@@ -32,7 +32,7 @@ void init()
 	::init();
 	me=this_player();
 	myfam = (mapping)me->query("family");
-	if(interactive(me) && (!myfam || myfam["family_name"] != "ÉñÁú½Ì" || me->query("xionghuangjiu")!=1 )) {
+	if(interactive(me) && (!myfam || myfam["family_name"] != "ç¥žé¾™æ•™" || me->query("xionghuangjiu")!=1 )) {
 	//ob=this_object();
 	inv = all_inventory(me);
 	for(i=0; i<sizeof(inv); i++)

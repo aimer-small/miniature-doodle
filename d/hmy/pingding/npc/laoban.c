@@ -5,9 +5,9 @@ inherit F_DEALER;
 int ask_book();
 void create()
 {
-        set_name("Ò©ÆÌÀÏ°å", ({ "yaopu laoban", "laoban", "boss" }));
-        set("gender", "ÄĞĞÔ");
-        set("long", "Ò»Î»¾«Ã÷µÄÒ©·¿ÀÏ°å, ¾­Óª×Å×æ´«µÄÀÏÆÌ¡£\n");
+        set_name("è¯é“ºè€æ¿", ({ "yaopu laoban", "laoban", "boss" }));
+        set("gender", "ç”·æ€§");
+        set("long", "ä¸€ä½ç²¾æ˜çš„è¯æˆ¿è€æ¿, ç»è¥ç€ç¥–ä¼ çš„è€é“ºã€‚\n");
         set("age", 65);
 
         set("int", 20);

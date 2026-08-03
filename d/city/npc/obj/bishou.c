@@ -1,20 +1,20 @@
-// bishou.c Ø°Ê×
+// bishou.c åŒ•é¦–
 #include <weapon.h>
 inherit DAGGER;
 
 void create()
 {
-	set_name("Ø°Ê×", ({ "bi shou", "shou" }));
+	set_name("åŒ•é¦–", ({ "bi shou", "shou" }));
 	set_weight(4000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±ú·æÀûµÄĞ¡Ø°Ê×¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„é”‹åˆ©çš„å°åŒ•é¦–ã€‚\n");
 		set("value", 1000);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù´ÓÑü¼ä³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n±ğÔÚÑüÖĞ¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°ä»è…°é—´æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nåˆ«åœ¨è…°ä¸­ã€‚\n");
 	}
 	init_dagger(10);
 	setup();

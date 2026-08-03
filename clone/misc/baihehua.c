@@ -1,5 +1,5 @@
 // baihehua.c
-// creat by Lklv@SJ for ¸÷Î»ÃÀÅ® @@
+// creat by Lklv@SJ for å„ä½ç¾å¥³ @@
 
 #include <ansi.h>;
 #include <armor.h>;
@@ -7,19 +7,19 @@ inherit HEAD;
 
 void create()
 {
-	set_name(HIW"°ÙºÏ»¨"NOR, ({"baihe hua", "hua", "flower" }));
+	set_name(HIW"ç™¾åˆèŠ±"NOR, ({"baihe hua", "hua", "flower" }));
 	set_weight(10);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
-                set("long", "ÕâÊÇÒ»¶äÃÀÀöµÄ°ÙºÏ»¨£¬ÏãÆøÇåĞÂ¡£\n");
+                set("unit", "æœµ");
+                set("long", "è¿™æ˜¯ä¸€æœµç¾ä¸½çš„ç™¾åˆèŠ±ï¼Œé¦™æ°”æ¸…æ–°ã€‚\n");
                 set("value", 110);
                 set("material", "plant");
                 set("armor_prop/armor", 1);
                 set("armor_prop/personality", 1);
-                set("wear_msg", "$NÇáÇáµØ°ÑÒ»¶ä$n´÷ÔÚÍ·ÉÏ¡£\n");
-                set("unequip_msg", "$NÇáÇáµØ°Ñ$n´ÓÍ·ÉÏÕªÁËÏÂÀ´¡£\n");
+                set("wear_msg", "$Nè½»è½»åœ°æŠŠä¸€æœµ$næˆ´åœ¨å¤´ä¸Šã€‚\n");
+                set("unequip_msg", "$Nè½»è½»åœ°æŠŠ$nä»å¤´ä¸Šæ‘˜äº†ä¸‹æ¥ã€‚\n");
         }
         setup();
 }

@@ -10,22 +10,22 @@ int value() { return query_amount() * (int)query("base_value"); }
 
 void create()
 {
-	set_name(BLU "À¶É«Ñı¼§" NOR, ({"lanse yaoji", "lanse", "yaoji"}));
+	set_name(BLU "è“è‰²å¦–å§¬" NOR, ({"lanse yaoji", "lanse", "yaoji"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÕâÊÇÒ»¶äÃµ¹åÖĞµÄ¼«Æ·£¬´«ËµÖĞµÄÀ¶É«Ñı¼§£¬ÏóÕ÷×Å×ğ¹ó£¬ÀËÂş°®Çé¡£\n");
-		set("unit", "¶ä");
+		set("long", "è¿™æ˜¯ä¸€æœµç«ç‘°ä¸­çš„æå“ï¼Œä¼ è¯´ä¸­çš„è“è‰²å¦–å§¬ï¼Œè±¡å¾ç€å°Šè´µï¼Œæµªæ¼«çˆ±æƒ…ã€‚\n");
+		set("unit", "æœµ");
 
 		set("value", 300000);
-		set("base_unit", "¶ä");
+		set("base_unit", "æœµ");
         set("base_weight", 100);
 	set("flower_w",1);
 	
 	        set("armor_prop/armor", 0);
                 set("armor_prop/personality", 3);
-                set("wear_msg", "$NÇáÇáµØ°ÑÒ»¶ä$n´÷ÔÚÍ·ÉÏ¡£\n");
-                set("unequip_msg", "$NÇáÇáµØ°Ñ$n´ÓÍ·ÉÏÕªÁËÏÂÀ´¡£\n");
+                set("wear_msg", "$Nè½»è½»åœ°æŠŠä¸€æœµ$næˆ´åœ¨å¤´ä¸Šã€‚\n");
+                set("unequip_msg", "$Nè½»è½»åœ°æŠŠ$nä»å¤´ä¸Šæ‘˜äº†ä¸‹æ¥ã€‚\n");
 
 			}
 	set_amount(1);

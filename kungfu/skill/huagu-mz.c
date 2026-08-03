@@ -1,7 +1,7 @@
-// huagu-mianzhang.c »¯¹ÇÃàÕÆ
+// huagu-mianzhang.c åŒ–éª¨ç»µæŒ
 // rewrite by olives@SJ
 // 4/19/2000
-// Update By lsxk@Hsbbs Ôö¼ÓÑÕÉ«Ğ§¹û  2007/6/6
+// Update By lsxk@Hsbbs å¢åŠ é¢œè‰²æ•ˆæœ  2007/6/6
 
 inherit SKILL;
 #include <ansi.h>
@@ -10,46 +10,46 @@ inherit SKILL;
 
 mapping *action = ({
 ([
-	"action" : "Ö»¼û$NÉíĞÎÕ¹¶¯£¬ÈÆ×Å$n²»Í£×ªÈ¦£¬Éí·¨Ææ¿ì£¬Ò»Ê½¡¸´º·ç·÷Áø¡¹£¬Ò»ÕÆÓÖÒ»ÕÆµØÏò$nÉíÉÏ»÷È¥",
-	"damage_type" : "ÄÚÉË",
+	"action" : "åªè§$Nèº«å½¢å±•åŠ¨ï¼Œç»•ç€$nä¸åœè½¬åœˆï¼Œèº«æ³•å¥‡å¿«ï¼Œä¸€å¼ã€Œæ˜¥é£æ‹‚æŸ³ã€ï¼Œä¸€æŒåˆä¸€æŒåœ°å‘$nèº«ä¸Šå‡»å»",
+	"damage_type" : "å†…ä¼¤",
 	"lvl" : 0,
-	"post_action" : (: call_other, __FILE__, "do_attack" :),  //¼¶±ğÉèÖÃµÍÒ»µã£¬Ğ¡playerÒ²¿ÉÒÔÓÃ³öÀ´
-	"skill_name" : "´º·ç·÷Áø"
+	"post_action" : (: call_other, __FILE__, "do_attack" :),  //çº§åˆ«è®¾ç½®ä½ä¸€ç‚¹ï¼Œå°playerä¹Ÿå¯ä»¥ç”¨å‡ºæ¥
+	"skill_name" : "æ˜¥é£æ‹‚æŸ³"
 ]),
 ([
-	"action" : "$NË«ÕÆÒ»Á¢£¬Ò»Ê½¡¸ÁéÉß³ö¶´¡¹£¬ÓÒÊÖ»¯ÕÆÎª×¥£¬àÛµÄÒ»Éù£¬Ğ®×ÅÒ»¹É¾¢·çÏò$nµÄÃÍ×¥¹ıÈ¥",
-	"damage_type" : "´ÌÉË",
+	"action" : "$NåŒæŒä¸€ç«‹ï¼Œä¸€å¼ã€Œçµè›‡å‡ºæ´ã€ï¼Œå³æ‰‹åŒ–æŒä¸ºæŠ“ï¼Œå™—çš„ä¸€å£°ï¼ŒæŒŸç€ä¸€è‚¡åŠ²é£å‘$nçš„çŒ›æŠ“è¿‡å»",
+	"damage_type" : "åˆºä¼¤",
 	"lvl" : 15,
-	"post_action" : (: call_other, __FILE__, "qin_na" :),  //¼¶±ğÉèÖÃµÍÒ»µã£¬Ğ¡playerÒ²¿ÉÒÔÓÃ³öÀ´
-	"skill_name" : "ÁéÉß³ö¶´"
+	"post_action" : (: call_other, __FILE__, "qin_na" :),  //çº§åˆ«è®¾ç½®ä½ä¸€ç‚¹ï¼Œå°playerä¹Ÿå¯ä»¥ç”¨å‡ºæ¥
+	"skill_name" : "çµè›‡å‡ºæ´"
 ]),
 ([
-	"action" : "$N»º»ºµØ¾ÙÆğË«ÕÆ£¬Ò»Ê½¡¸Çá·çÏ¸Óê¡¹£¬²»´øÒ»µãÕÆÁ¦µØÇáÇáµØÅÄÏò$nµÄÇ°ĞØ",
-	"damage_type" : "ÄÚÉË",
+	"action" : "$Nç¼“ç¼“åœ°ä¸¾èµ·åŒæŒï¼Œä¸€å¼ã€Œè½»é£ç»†é›¨ã€ï¼Œä¸å¸¦ä¸€ç‚¹æŒåŠ›åœ°è½»è½»åœ°æ‹å‘$nçš„å‰èƒ¸",
+	"damage_type" : "å†…ä¼¤",
 	"lvl" : 30,
-	"post_action" : (: call_other, __FILE__, "no_pfm" :),  //¼¶±ğÉèÖÃµÍÒ»µã£¬Ğ¡playerÒ²¿ÉÒÔÓÃ³öÀ´
-	"skill_name" : "Çá·çÏ¸Óê"
+	"post_action" : (: call_other, __FILE__, "no_pfm" :),  //çº§åˆ«è®¾ç½®ä½ä¸€ç‚¹ï¼Œå°playerä¹Ÿå¯ä»¥ç”¨å‡ºæ¥
+	"skill_name" : "è½»é£ç»†é›¨"
 ]),
 ([
-	"action" : "Ö»¼û$NÒ»¼ç×ªÉí£¬×óÊÖ»¤Ãæ£¬ÓÒÊÖ·ü»÷£¬³Ë$n²»±¸£¬Ò»Ê½¡¸·çĞĞ²İÙÈ¡¹£¬ÃÍµØÒ»ÕÆ»÷³ö",
-	"damage_type" : "ğöÉË",
+	"action" : "åªè§$Nä¸€è‚©è½¬èº«ï¼Œå·¦æ‰‹æŠ¤é¢ï¼Œå³æ‰‹ä¼å‡»ï¼Œä¹˜$nä¸å¤‡ï¼Œä¸€å¼ã€Œé£è¡Œè‰åƒã€ï¼ŒçŒ›åœ°ä¸€æŒå‡»å‡º",
+	"damage_type" : "ç˜€ä¼¤",
 	"lvl" : 45,
 	"post_action" : (: call_other, __FILE__, "do_damage" :),
-	"skill_name" : "·çĞĞ²İÙÈ"
+	"skill_name" : "é£è¡Œè‰åƒ"
 ]),
 ([
-	"action" : "$NÓÒÕÆÂÔÆ«£¬ÔÚ$n×ó¼çÇáÇáÒ»°´£¬È»ºó×óÕÆÏò´©³ö£¬Ò»Ê½¡¸°ëÓê°ëÇç¡¹£¬Ïò$nµÄ$lÇáÇáÅÄÁËÏÂÈ¥",
-	"damage_type" : "ğöÉË",
+	"action" : "$Nå³æŒç•¥åï¼Œåœ¨$nå·¦è‚©è½»è½»ä¸€æŒ‰ï¼Œç„¶åå·¦æŒå‘ç©¿å‡ºï¼Œä¸€å¼ã€ŒåŠé›¨åŠæ™´ã€ï¼Œå‘$nçš„$lè½»è½»æ‹äº†ä¸‹å»",
+	"damage_type" : "ç˜€ä¼¤",
 	"lvl" : 60,
 	"post_action" : (: call_other, __FILE__, "dian_xue" :),
-	"skill_name" : "°ëÓê°ëÇç"
+	"skill_name" : "åŠé›¨åŠæ™´"
 ]),
 ([
-	"action" : "$NÉíĞÎÃÍµØÏòÉÏÔ¾Æğ£¬Ò»Ê½¡¸ÈçÓ°ËæĞÎ¡¹£¬Ë«±ÛÈáÈôÎŞ¹Ç°ãµØ²øÉÏ$nµÄË«±Û£¬È»ºóË«ÕÆÒ»ºÏ£¬ÇáÆ®Æ®µØÏò$nÇ°ĞØÅÄÈ¥",
-	"damage_type" : "ğöÉË",
+	"action" : "$Nèº«å½¢çŒ›åœ°å‘ä¸Šè·ƒèµ·ï¼Œä¸€å¼ã€Œå¦‚å½±éšå½¢ã€ï¼ŒåŒè‡‚æŸ”è‹¥æ— éª¨èˆ¬åœ°ç¼ ä¸Š$nçš„åŒè‡‚ï¼Œç„¶ååŒæŒä¸€åˆï¼Œè½»é£˜é£˜åœ°å‘$nå‰èƒ¸æ‹å»",
+	"damage_type" : "ç˜€ä¼¤",
 	"lvl" : 80,
 	"post_action" : (: call_other, __FILE__, "san_du" :),
-	"skill_name" : "ÈçÓ°ËæĞÎ"
+	"skill_name" : "å¦‚å½±éšå½¢"
 ]),
 });
 
@@ -58,11 +58,11 @@ int valid_enable(string usage) { return usage=="strike" ||  usage=="parry"; }
 int valid_learn(object me)
 {
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("Á·»¯¹ÇÃàÕÆ±ØĞë¿ÕÊÖ¡£\n");
+		return notify_fail("ç»ƒåŒ–éª¨ç»µæŒå¿…é¡»ç©ºæ‰‹ã€‚\n");
 	if ((int)me->query_skill("dulong-dafa", 1) < 30)
-		return notify_fail("ÄãµÄ¶¾Áú´ó·¨»ğºò²»¹»£¬ÎŞ·¨Ñ§»¯¹ÇÃàÕÆ¡£\n");
+		return notify_fail("ä½ çš„æ¯’é¾™å¤§æ³•ç«å€™ä¸å¤Ÿï¼Œæ— æ³•å­¦åŒ–éª¨ç»µæŒã€‚\n");
 	if ((int)me->query("max_neili") < 250)
-		return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬ÎŞ·¨Á·»¯¹ÇÃàÕÆ¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œæ— æ³•ç»ƒåŒ–éª¨ç»µæŒã€‚\n");
 	return 1;
 }
 
@@ -121,9 +121,9 @@ int practice_skill(object me)
 	while (i--) if (lvl == action[i]["lvl"]) return 0;
 
 	if ( me->query("jingli") < 50)
-		return notify_fail("ÄãµÄ¾«Á¦Ì«µÍÁË¡£\n");
+		return notify_fail("ä½ çš„ç²¾åŠ›å¤ªä½äº†ã€‚\n");
 	if ( me->query("neili") < 20)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·»¯¹ÇÃàÕÆ¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒåŒ–éª¨ç»µæŒã€‚\n");
 	me->receive_damage("jingli", 40 );
 	me->add("neili", -15);
 	return 1;
@@ -140,7 +140,7 @@ void skill_improved(object me)
 	skill = me->query_skill("huagu-mianzhang", 1);
 	yl = me->query_skill("shenlong-yaoli", 1);
 	if( skill >= 200 && !me->query("sld/hgmz") ){
-		tell_object(me, HIW"\nºöÈ»£¬Äã¾õµÃĞÄÖĞÒ»Õó³©È»£¬»ëÉíÖ»¾õ¾«Á¦ÃÖÂş£¬ÓĞÊ¹²»ÍêµÄ¾¢£¬²»½û³¤Ğ¥ÆğÀ´¡££¡\n"NOR);
+		tell_object(me, HIW"\nå¿½ç„¶ï¼Œä½ è§‰å¾—å¿ƒä¸­ä¸€é˜µç•…ç„¶ï¼Œæµ‘èº«åªè§‰ç²¾åŠ›å¼¥æ¼«ï¼Œæœ‰ä½¿ä¸å®Œçš„åŠ²ï¼Œä¸ç¦é•¿å•¸èµ·æ¥ã€‚ï¼\n"NOR);
 		me->add("max_neili", random(yl+random(yl)));
 		me->set("sld/hgmz", 1);
 	}
@@ -169,15 +169,15 @@ void dianxue(object me,object victim,object weapon,int damage)
 					switch(random(3))
 					{
 						case 0:
-							message_vision(HIW"Ö»¼û$nÃÆºßÒ»Éù£¬Ô­À´$pµÄ¡¾Éñ²ØÑ¨¡¿ÒÑ¾­±»$N»÷ÖĞ£¡\n"NOR,me,victim);
+							message_vision(HIW"åªè§$né—·å“¼ä¸€å£°ï¼ŒåŸæ¥$pçš„ã€ç¥è—ç©´ã€‘å·²ç»è¢«$Nå‡»ä¸­ï¼\n"NOR,me,victim);
 							victim->add_condition("no_exert",1+random(lvl/20));
 							break;
 						case 1:
-							message_vision(HIR"Ö»¼û$nÃÆºßÒ»Éù£¬Ô­À´$pµÄ¡¾Éñ·âÑ¨¡¿ÒÑ¾­±»$N»÷ÖĞ£¡\n"NOR,me,victim);
+							message_vision(HIR"åªè§$né—·å“¼ä¸€å£°ï¼ŒåŸæ¥$pçš„ã€ç¥å°ç©´ã€‘å·²ç»è¢«$Nå‡»ä¸­ï¼\n"NOR,me,victim);
 							victim->add_condition("no_perform",1+random(lvl/20));
 							break;
 						case 2:
-							message_vision(HIC"Ö»¼û$nÃÆºßÒ»Éù£¬Ô­À´$pµÄ¡¾²½ÀÈÑ¨¡¿ÒÑ¾­±»$N»÷ÖĞ£¡\n"NOR,me,victim);
+							message_vision(HIC"åªè§$né—·å“¼ä¸€å£°ï¼ŒåŸæ¥$pçš„ã€æ­¥å»Šç©´ã€‘å·²ç»è¢«$Nå‡»ä¸­ï¼\n"NOR,me,victim);
 							victim->start_lost(1+random(lvl/10));
 							break;
 					}
@@ -194,7 +194,7 @@ void do_attack(object me,object victim,object weapon,int damage)
 	|| victim == me
 	|| victim->is_ghost()
 	|| !living(victim)
-	|| me->query_temp("sld/post_action/neishang")	// Õâ¸öÊÇ·ÀÖ¹Èç¹ûÔÚpost_actionÀïÃæÔÚdo_attackÒıÆğµÄÎÊÌâ
+	|| me->query_temp("sld/post_action/neishang")	// è¿™ä¸ªæ˜¯é˜²æ­¢å¦‚æœåœ¨post_actioné‡Œé¢åœ¨do_attackå¼•èµ·çš„é—®é¢˜
 	|| me->is_perform()
 	|| me->query_temp("sld/pfm")
 	)
@@ -215,19 +215,19 @@ void do_attack(object me,object victim,object weapon,int damage)
 			lvl = me->query_skill("huagu-mianzhang",1);
 			if(random(ap+dp)>dp/2 && random(ap+pp)>pp/2)
 			{
-					message_vision("$N³Ã$n¾ÉÁ¦ÒÑ¾¡£¬ĞÂÁ¦Î´ÉúÖ®¼Ê³Ë»úÓÖ²¹ÉÏÒ»ÕÆ¡£\n"NOR ,me,victim);
+					message_vision("$Nè¶$næ—§åŠ›å·²å°½ï¼Œæ–°åŠ›æœªç”Ÿä¹‹é™…ä¹˜æœºåˆè¡¥ä¸Šä¸€æŒã€‚\n"NOR ,me,victim);
 					me->add_temp("apply/attack",lvl/10);
 					COMBAT_D->do_attack(me,victim,me->query_temp("weapon"),TYPE_REGULAR);
 					me->add_temp("apply/attack",-lvl/10);
 
 					if(!random(5)
-					&& me->query("env/»¯¹ÇÃàÕÆ")=="ÄÚÉË")
+					&& me->query("env/åŒ–éª¨ç»µæŒ")=="å†…ä¼¤")
 					{
 						me->add_temp("apply/attack",lvl/8);
-						message_vision("Ö»¼û$NÊÖ±ÛÈçÍ¬ÁéÉßÒ»°ãÈáÈõÎŞ¹Ç£¬ÔÚ¼¸ºõ²»¿ÉÄÜ·¢ÕĞµÄÇé¿öÏÂ£¬²øÉÏ$nµÄÊÖ±Û£¬ÔÙ·¢Ò»ÕĞ¡£\n"NOR,me,victim);
+						message_vision("åªè§$Næ‰‹è‡‚å¦‚åŒçµè›‡ä¸€èˆ¬æŸ”å¼±æ— éª¨ï¼Œåœ¨å‡ ä¹ä¸å¯èƒ½å‘æ‹›çš„æƒ…å†µä¸‹ï¼Œç¼ ä¸Š$nçš„æ‰‹è‡‚ï¼Œå†å‘ä¸€æ‹›ã€‚\n"NOR,me,victim);
 						COMBAT_D->do_attack(me,victim,me->query_temp("weapon"),TYPE_REGULAR);
 						me->add_temp("apply/attack",-lvl/8);
-						me->start_perform(1+random(2),"¡¸ÃàÕÆÄÚÉË¡¹");
+						me->start_perform(1+random(2),"ã€Œç»µæŒå†…ä¼¤ã€");
 					}
 
 			}
@@ -245,11 +245,11 @@ void qin_na(object me,object victim,object weapon,int damage)
 	|| victim == me
 	|| victim->is_ghost()
 	|| !living(victim)
-	|| me->query_temp("sld/post_action/qinna")   // Õâ¸öÊÇ·ÀÖ¹Èç¹ûÔÚpost_actionÀïÃæÔÚdo_attackÒıÆğµÄÎÊÌâ
+	|| me->query_temp("sld/post_action/qinna")   // è¿™ä¸ªæ˜¯é˜²æ­¢å¦‚æœåœ¨post_actioné‡Œé¢åœ¨do_attackå¼•èµ·çš„é—®é¢˜
 	|| me->is_perform()
-	|| me->query_temp("sld/pfm")           // pfmµÄÊ±ºòÈç¹ûÔÙ³öÀ´Õâ¸ö£¬¿ÉÄÜ»áÌ«Ç¿
-	//|| me->query("env/»¯¹ÇÃàÕÆ")!= "ÇÜÄÃ"    // Èç¹û²»ÏëÓÃ£¬Ò²²»ÃãÇ¿¡£
-	|| victim->query_temp("lost_attack")       // ¶Ô·½ÒÑ¾­±»ÇÜÄÃ×¡ÁË£¬Ã»±ØÒªÔÙÇÜÄÃÁË¡£
+	|| me->query_temp("sld/pfm")           // pfmçš„æ—¶å€™å¦‚æœå†å‡ºæ¥è¿™ä¸ªï¼Œå¯èƒ½ä¼šå¤ªå¼º
+	//|| me->query("env/åŒ–éª¨ç»µæŒ")!= "æ“’æ‹¿"    // å¦‚æœä¸æƒ³ç”¨ï¼Œä¹Ÿä¸å‹‰å¼ºã€‚
+	|| victim->query_temp("lost_attack")       // å¯¹æ–¹å·²ç»è¢«æ“’æ‹¿ä½äº†ï¼Œæ²¡å¿…è¦å†æ“’æ‹¿äº†ã€‚
 	)
 		return;
 
@@ -265,14 +265,14 @@ void qin_na(object me,object victim,object weapon,int damage)
 			ap = COMBAT_D->skill_power(me,"dagger",SKILL_USAGE_ATTACK);
 			dp = COMBAT_D->skill_power(victim,"dodge",SKILL_USAGE_DEFENSE);
 			pp = COMBAT_D->skill_power(victim,"parry",SKILL_USAGE_DEFENSE);
-			if(random(ap+dp+pp)>dp+pp) //Ö®ËùÒÔÕâÃ´ÅĞ¶ÏÒªÇó¸ß£¬ÅÂÒ»¿ªÊ¼Ì«Ç¿
+			if(random(ap+dp+pp)>dp+pp) //ä¹‹æ‰€ä»¥è¿™ä¹ˆåˆ¤æ–­è¦æ±‚é«˜ï¼Œæ€•ä¸€å¼€å§‹å¤ªå¼º
 			{
-				message_vision(HIW"$n´Ü¸ß·üµÍ£¬Éí·¨ÇáÓ¯£¬µ«ÊÇ$NÊÖ±ÛÈçÍ¬ÁéÉßÒ»°ã£¬²øÉÏ$nµÄÊÖ±Û£¬¡£\n"NOR,me,victim);
-				message_vision(HIW"Ö»¼û$NÓÒÊÖ¿Û×¡$nµÄÂöÃÅ£¬×óÊÖ·´ÍóÒ»ÇúÒ»µã£¬¾¶È¡$nÊÖÍóµÄÑôÏªÑ¨¡£\n"NOR,me,victim);
+				message_vision(HIW"$nçªœé«˜ä¼ä½ï¼Œèº«æ³•è½»ç›ˆï¼Œä½†æ˜¯$Næ‰‹è‡‚å¦‚åŒçµè›‡ä¸€èˆ¬ï¼Œç¼ ä¸Š$nçš„æ‰‹è‡‚ï¼Œã€‚\n"NOR,me,victim);
+				message_vision(HIW"åªè§$Nå³æ‰‹æ‰£ä½$nçš„è„‰é—¨ï¼Œå·¦æ‰‹åè…•ä¸€æ›²ä¸€ç‚¹ï¼Œå¾„å–$næ‰‹è…•çš„é˜³æºªç©´ã€‚\n"NOR,me,victim);
 				vwp = victim->query_temp("weapon");
 				if(objectp(vwp))
 				{
-					message_vision(HIW"$nÖ»¾õÊÖÍóÒ»ÕóËáÂé£¬ÊÖÖĞµÄ"+vwp->name()+HIW+"ÔÙÒ²°Ñ³Ö²»×¡£¬µ±à¥Ò»ÉùµôÂäÔÚÁËµØÉÏ¡£\n"NOR,me,victim);
+					message_vision(HIW"$nåªè§‰æ‰‹è…•ä¸€é˜µé…¸éº»ï¼Œæ‰‹ä¸­çš„"+vwp->name()+HIW+"å†ä¹ŸæŠŠæŒä¸ä½ï¼Œå½“å•·ä¸€å£°æ‰è½åœ¨äº†åœ°ä¸Šã€‚\n"NOR,me,victim);
 					vwp->unequip();
 					vwp->move(environment(me));
 					if(vwp->query("no_get")
@@ -283,10 +283,10 @@ void qin_na(object me,object victim,object weapon,int damage)
 				}
 				else
 				{
-					message_vision(HIW"½á¹ûÒ»»÷ÃüÖĞ£¬$nÖ»¾õµÃÊÖÍóÒ»ÕóËáÂé£¬¾¹È»ÔÙÒ²Ì§²»ÆğÊÖÀ´¡£\n"NOR,me,victim);
+					message_vision(HIW"ç»“æœä¸€å‡»å‘½ä¸­ï¼Œ$nåªè§‰å¾—æ‰‹è…•ä¸€é˜µé…¸éº»ï¼Œç«Ÿç„¶å†ä¹ŸæŠ¬ä¸èµ·æ‰‹æ¥ã€‚\n"NOR,me,victim);
 					victim->set_temp("lost_attack",3+random(3));
 				}
-				me->start_perform(3,"¡¸µãÑ¨ÇÜÄÃ¡¹");
+				me->start_perform(3,"ã€Œç‚¹ç©´æ“’æ‹¿ã€");
 			}
 		}
 	}
@@ -301,7 +301,7 @@ void no_pfm(object me,object victim,object weapon,int damage)
 	||  victim == me
 	||  victim->is_ghost()
 	|| !living(victim)
-	||  victim->query_condition("no_perform")   // Èç¹û¶Ô·½ÒÑ¾­²»ÄÜperformÁË£¬¾Í²»±ØÔÙ¸½¼ÓĞ§¹ûÁË¡£
+	||  victim->query_condition("no_perform")   // å¦‚æœå¯¹æ–¹å·²ç»ä¸èƒ½performäº†ï¼Œå°±ä¸å¿…å†é™„åŠ æ•ˆæœäº†ã€‚
 	|| me->is_perform()
 	||  me->query_temp("sld/pfm")
 	)
@@ -314,7 +314,7 @@ void no_pfm(object me,object victim,object weapon,int damage)
 	{
 		if( objectp(me) && objectp(victim) )
 		{
-			message_vision(HIY"$NµÄÊÖÕÆ½ôÌù×Å$nµÄÉíÌå£¬ÕÆĞÄ¾¢Á¦¼±ÍÂ£¬ÄÚ¾¢ÉîÈë$nµÄÆæ¾­°ËÂö¡£\n"NOR,me,victim);
+			message_vision(HIY"$Nçš„æ‰‹æŒç´§è´´ç€$nçš„èº«ä½“ï¼ŒæŒå¿ƒåŠ²åŠ›æ€¥åï¼Œå†…åŠ²æ·±å…¥$nçš„å¥‡ç»å…«è„‰ã€‚\n"NOR,me,victim);
 			m_neili = me->query("neili");
 			v_neili = victim->query("neili");
 			m_force = me->query_skill("force");
@@ -323,15 +323,15 @@ void no_pfm(object me,object victim,object weapon,int damage)
 			if(random(m_neili+m_force*8)>(v_neili+v_force*8)/3
 			&& random(effect) > 0)
 			{
-				message_vision("$n¾ª¾åÈç¿ñ£¬¼±Ã¦ÔËÆğÄÚÁ¦£¬ÏëÇı³öÌåÄÚÒìÖÖÕæÆø£¬È´·¢ÏÖÕæÆøÒÑ¾­ÉîÈëµ½×Ô¼ºµÄÎåÔàÁù¸­£¬ÎŞ·¨Çı³ö£¡\n"NOR,me,victim);
+				message_vision("$næƒŠæƒ§å¦‚ç‹‚ï¼Œæ€¥å¿™è¿èµ·å†…åŠ›ï¼Œæƒ³é©±å‡ºä½“å†…å¼‚ç§çœŸæ°”ï¼Œå´å‘ç°çœŸæ°”å·²ç»æ·±å…¥åˆ°è‡ªå·±çš„äº”è„å…­è…‘ï¼Œæ— æ³•é©±å‡ºï¼\n"NOR,me,victim);
 				if(effect<3)
 					victim->apply_condition("no_perform",1+random(5-effect));
-				me->start_perform(2+random(3),"¡¸ÄÚ¾¢Ëø»ê¡¹");
+				me->start_perform(2+random(3),"ã€Œå†…åŠ²é”é­‚ã€");
 			}
 			else
 			{
-				message_vision("$n²»»Å²»Ã¦£¬ÔËÆğÌåÄÚ"+(effect>0?"´¿Ñô":"ĞÛ»ë")+"ÕæÆø£¬Õ£ÑÛ¹¤·ò±ãÇı³öÌåÄÚÕæÆø£¡\n"NOR,me,victim);
-				me->start_perform(1+random(2),"¡¸ÄÚ¾¢Ëø»ê¡¹");
+				message_vision("$nä¸æ…Œä¸å¿™ï¼Œè¿èµ·ä½“å†…"+(effect>0?"çº¯é˜³":"é›„æµ‘")+"çœŸæ°”ï¼Œçœ¨çœ¼å·¥å¤«ä¾¿é©±å‡ºä½“å†…çœŸæ°”ï¼\n"NOR,me,victim);
+				me->start_perform(1+random(2),"ã€Œå†…åŠ²é”é­‚ã€");
 			}
 		}
 	}
@@ -357,7 +357,7 @@ void do_damage(object me,object victim,object weapon,int damage)
 	{
 		if( objectp(me) && objectp(victim) )
 		{
-			message_vision(HIY"$NµÄÊÖÕÆ½ôÌù×Å$nµÄÉíÌå£¬ÕÆÁ¦ÍÌÍÂ²»¶¨£¬ËÍ³öÒ»µÀÒşº®ÎŞ±ÈµÄÄÚ¾¢¡£\n"NOR,me,victim);
+			message_vision(HIY"$Nçš„æ‰‹æŒç´§è´´ç€$nçš„èº«ä½“ï¼ŒæŒåŠ›ååä¸å®šï¼Œé€å‡ºä¸€é“éšå¯’æ— æ¯”çš„å†…åŠ²ã€‚\n"NOR,me,victim);
 			m_neili = me->query("neili");
 			v_neili = victim->query("neili")+1;
 			m_force = me->query_skill("force");
@@ -377,16 +377,16 @@ void do_damage(object me,object victim,object weapon,int damage)
 				if(random(m_neili+m_force*8)>(v_neili+v_force*8)/3
 				&& !random(effect))
 				{
-					message_vision("$n¼±Ã¦ÔËÆğÌåÄÚÕæÆø£¬ÏëÒªÇı³öÌåÄÚº®Æø£¬º®ÆøÒÑ¾­¶Ô×Ô¼ºµÄÎåÔàÁù¸­Ôì³ÉÁËºÜ´óµÄÉËº¦£¡\n"NOR,me,victim);
+					message_vision("$næ€¥å¿™è¿èµ·ä½“å†…çœŸæ°”ï¼Œæƒ³è¦é©±å‡ºä½“å†…å¯’æ°”ï¼Œå¯’æ°”å·²ç»å¯¹è‡ªå·±çš„äº”è„å…­è…‘é€ æˆäº†å¾ˆå¤§çš„ä¼¤å®³ï¼\n"NOR,me,victim);
 					victim->recieve_damage("qi",damage);
 					victim->recieve_wound("qi",damage/2);
 					COMBAT_D->report_status(victim);
-					me->start_perform(1+random(3),"¡¸ÄÚ¹¦ÉËµĞ¡¹");
+					me->start_perform(1+random(3),"ã€Œå†…åŠŸä¼¤æ•Œã€");
 				}
 				else
 				{
-					message_vision("$n²»»Å²»Ã¦£¬ÔËÆğÌåÄÚ"+(effect>0?"´¿Ñô":"ĞÛ»ë")+"ÕæÆø£¬$N¹à×¢µÄÄÚÁ¦¾¹È»Ë¿ºÁ²»Æğ×÷ÓÃ£¡\n"NOR,me,victim);
-					me->start_perform(1+random(2),"¡¸ÄÚ¹¦ÉËµĞ¡¹");
+					message_vision("$nä¸æ…Œä¸å¿™ï¼Œè¿èµ·ä½“å†…"+(effect>0?"çº¯é˜³":"é›„æµ‘")+"çœŸæ°”ï¼Œ$NçŒæ³¨çš„å†…åŠ›ç«Ÿç„¶ä¸æ¯«ä¸èµ·ä½œç”¨ï¼\n"NOR,me,victim);
+					me->start_perform(1+random(2),"ã€Œå†…åŠŸä¼¤æ•Œã€");
 				}
 			}
 		}
@@ -401,7 +401,7 @@ void dian_xue(object me,object victim,object weapon,int damage)
 	||  victim == me
 	||  victim->is_ghost()
 	|| !living(victim) 
-	//||  me->query("env/»¯¹ÇÃàÕÆ")!= "µãÑ¨"    // Èç¹û²»ÏëÓÃ£¬Ò²²»ÃãÇ¿¡£
+	//||  me->query("env/åŒ–éª¨ç»µæŒ")!= "ç‚¹ç©´"    // å¦‚æœä¸æƒ³ç”¨ï¼Œä¹Ÿä¸å‹‰å¼ºã€‚
 	|| me->is_perform()
 	||  me->query_temp("sld/pfm")
 	||  victim->is_busy()
@@ -415,19 +415,19 @@ void dian_xue(object me,object victim,object weapon,int damage)
 	{
 		if( objectp(me) && objectp(victim) )
 		{
-			message_vision(HIY"$N½ô¸ú×Å±äÕÆÎªÖ¸£¬ÊÖÖ¸Á¬¶¯£¬Çá·÷$nÉíÉÏÊıµÀ´óÑ¨¡£\n"NOR,me,victim);
+			message_vision(HIY"$Nç´§è·Ÿç€å˜æŒä¸ºæŒ‡ï¼Œæ‰‹æŒ‡è¿åŠ¨ï¼Œè½»æ‹‚$nèº«ä¸Šæ•°é“å¤§ç©´ã€‚\n"NOR,me,victim);
 			effect = SKILL_D("dulong-dafa")->force_effect(victim->query_skill_mapped("force"));
 			if(random(me->query("combat_exp")+victim->query("combat_exp"))>victim->query("combat_exp")
 			&& !random(effect))
 			{
-				message_vision(HIY"Ò»¹ÉÒõÈáµÄÖ¸Á¦ËæÖ®ÇÖÈë$nµÄÖÜÉí´óÑ¨¡£\n"NOR,me,victim);
+				message_vision(HIY"ä¸€è‚¡é˜´æŸ”çš„æŒ‡åŠ›éšä¹‹ä¾µå…¥$nçš„å‘¨èº«å¤§ç©´ã€‚\n"NOR,me,victim);
 				victim->apply_condition("fx_busy",1+random(5-effect));
-				me->start_perform(1+random(3),"¡¸Ö¸Á¦µãÑ¨¡¹");
+				me->start_perform(1+random(3),"ã€ŒæŒ‡åŠ›ç‚¹ç©´ã€");
 			}
 			else
 			{
-				message_vision("$n²»»Å²»Ã¦£¬ÔËÆğÌåÄÚ"+(effect>0?"´¿Ñô":"ĞÛ»ë")+"ÕæÆø£¬$N¹à×¢µÄÄÚÁ¦¾¹È»Ë¿ºÁ²»Æğ×÷ÓÃ£¡\n"NOR,me,victim);
-				me->start_perform(1+random(2),"¡¸Ö¸Á¦µãÑ¨¡¹");
+				message_vision("$nä¸æ…Œä¸å¿™ï¼Œè¿èµ·ä½“å†…"+(effect>0?"çº¯é˜³":"é›„æµ‘")+"çœŸæ°”ï¼Œ$NçŒæ³¨çš„å†…åŠ›ç«Ÿç„¶ä¸æ¯«ä¸èµ·ä½œç”¨ï¼\n"NOR,me,victim);
+				me->start_perform(1+random(2),"ã€ŒæŒ‡åŠ›ç‚¹ç©´ã€");
 			}
 		}
 	}
@@ -441,7 +441,7 @@ void san_du(object me,object victim,object weapon,int damage)
 	||  victim == me
 	||  victim->is_ghost()
 	|| !living(victim) 
-	//||  me->query("env/»¯¹ÇÃàÕÆ")!= "É¢¶¾"    // Èç¹û²»ÏëÓÃ£¬Ò²²»ÃãÇ¿¡£
+	//||  me->query("env/åŒ–éª¨ç»µæŒ")!= "æ•£æ¯’"    // å¦‚æœä¸æƒ³ç”¨ï¼Œä¹Ÿä¸å‹‰å¼ºã€‚
 	|| me->is_perform()
 	||  me->query_temp("sld/pfm")
 	||  victim->is_busy()
@@ -455,15 +455,15 @@ void san_du(object me,object victim,object weapon,int damage)
 	{
 		if( objectp(me) && objectp(victim) )
 		{
-			message_vision(HIG"$N½ô¸ú×ÅÕÆĞÄ°´×¡$nµÄĞÄ¿Ú£¬ÕÆÁ¦¼±ÍÂ£¬ÕÆĞÄ¾¹È»ÏÖ³ö±ÌÂÌµÄÑÕÉ«¡£\n"NOR,me,victim);
+			message_vision(HIG"$Nç´§è·Ÿç€æŒå¿ƒæŒ‰ä½$nçš„å¿ƒå£ï¼ŒæŒåŠ›æ€¥åï¼ŒæŒå¿ƒç«Ÿç„¶ç°å‡ºç¢§ç»¿çš„é¢œè‰²ã€‚\n"NOR,me,victim);
 			effect = SKILL_D("dulong-dafa")->force_effect(victim->query_skill_mapped("force"));
 			if(random(me->query("combat_exp")+victim->query("combat_exp"))>victim->query("combat_exp")
 			&& !random(effect))
 			{
-				message_vision(HIG"$nÒ»¸ö²»ÁôÉñ±»´òÁË¸öÕı×Å¡£\n"NOR,me,victim);
+				message_vision(HIG"$nä¸€ä¸ªä¸ç•™ç¥è¢«æ‰“äº†ä¸ªæ­£ç€ã€‚\n"NOR,me,victim);
 				if(5-effect>0)
 					{
-						switch (me->query("env/É¢¶¾"))
+						switch (me->query("env/æ•£æ¯’"))
 						{
 							case "qianli"  : victim->apply_condition("qianli_poison",2+random(5-effect));
 									 break;
@@ -476,12 +476,12 @@ void san_du(object me,object victim,object weapon,int damage)
 						}
 
 					}
-				me->start_perform(1+random(3),"¡¸ÕÆÁ¦É¢¶¾¡¹");
+				me->start_perform(1+random(3),"ã€ŒæŒåŠ›æ•£æ¯’ã€");
 			}
 			else
 			{
-				message_vision("$n²»»Å²»Ã¦£¬ÔËÆğÌåÄÚ"+(effect>0?"´¿Ñô":"ĞÛ»ë")+"î¸Æø£¬$NÕÆĞÄËù´øµÄ¶¾Æø¾¹È»ÎŞ·¨ÇÖÈë$nÉíÖÜÈı³ß£¡\n"NOR,me,victim);
-				me->start_perform(1+random(2),"¡¸ÕÆÁ¦É¢¶¾¡¹");
+				message_vision("$nä¸æ…Œä¸å¿™ï¼Œè¿èµ·ä½“å†…"+(effect>0?"çº¯é˜³":"é›„æµ‘")+"ç½¡æ°”ï¼Œ$NæŒå¿ƒæ‰€å¸¦çš„æ¯’æ°”ç«Ÿç„¶æ— æ³•ä¾µå…¥$nèº«å‘¨ä¸‰å°ºï¼\n"NOR,me,victim);
+				me->start_perform(1+random(2),"ã€ŒæŒåŠ›æ•£æ¯’ã€");
 			}
 		}
 	}

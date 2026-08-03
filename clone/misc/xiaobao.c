@@ -1,16 +1,16 @@
-// ±ù²Ï¶¾ÕÆ½âÃÕ by hongba
+// å†°èš•æ¯’æŽŒè§£è°œ by hongba
 #include <ansi.h>
 inherit ITEM;
 void setup()
 {}
 void create()
 {
-           set_name( YEL"ÓÍ²¼Ð¡°ü"NOR, ({"youbu xiaobao","youbu","xiaobao"}));
+           set_name( YEL"æ²¹å¸ƒå°åŒ…"NOR, ({"youbu xiaobao","youbu","xiaobao"}));
         set_weight(200);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
+                set("unit", "ä¸ª");
                 
                 set("value", 10000000);
                
@@ -34,14 +34,14 @@ int do_open(string arg)
        me = this_player();
        obj= this_object();
        
-       if( !arg || arg != "xiaobao" ) return notify_fail("ÄãÒª´ò¿ªÊ²Ã´?\n");
+       if( !arg || arg != "xiaobao" ) return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆ?\n");
        if ( me->is_busy() || me->is_fighting())
- return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+ return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
        
        if( obj->query_temp("owner") != me->query("id"))
-              return notify_fail("Äã´ÓÄÄÅªÀ´µÄ¶«¶«£¿\n");
+              return notify_fail("ä½ ä»Žå“ªå¼„æ¥çš„ä¸œä¸œï¼Ÿ\n");
        
-       message_vision(HIY"$N´ò¿ªÓÍ²¼£¬¼ûÀïÃæÊÇÒ»±¾Êé£¬ËæÊÖ·­ÔÄ£¬Ã¿Ò»Ò³ÉÏ¶¼Ð´ÂúÁËÍäÍäÇúÇúµÄÎÄ×Ö£¬Ã»Ò»×ÖÊ¶µÃ¡£\n"NOR,me);
+       message_vision(HIY"$Næ‰“å¼€æ²¹å¸ƒï¼Œè§é‡Œé¢æ˜¯ä¸€æœ¬ä¹¦ï¼Œéšæ‰‹ç¿»é˜…ï¼Œæ¯ä¸€é¡µä¸Šéƒ½å†™æ»¡äº†å¼¯å¼¯æ›²æ›²çš„æ–‡å­—ï¼Œæ²¡ä¸€å­—è¯†å¾—ã€‚\n"NOR,me);
        ob = new("clone/misc/shenzujing");
 ob->move(me);
        destruct(obj);

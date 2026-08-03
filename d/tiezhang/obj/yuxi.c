@@ -8,13 +8,13 @@ void setup()
 {}
 void create()
 {
-           set_name( HIY"´óÑà¹úÊÀÏµ±í"NOR, ({"shixi biao","shixi","biao"}));
+           set_name( HIY"å¤§ç‡•å›½ä¸–ç³»è¡¨"NOR, ({"shixi biao","shixi","biao"}));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¾í");
-		set("long", YEL"\nÕâÊÇÒ»¾í´óÑà¹úÊÀÏµ±í£¬µ«Ê±¹ı¾³Ç¨ÎïÊÇÈË·Ç£¬´óÑà¹ú¸´¹úÊÇ¿Õ£¬²»¸´¹ú»¹ÊÇ¿Õ¡£\n"NOR);  
+		set("unit", "å·");
+		set("long", YEL"\nè¿™æ˜¯ä¸€å·å¤§ç‡•å›½ä¸–ç³»è¡¨ï¼Œä½†æ—¶è¿‡å¢ƒè¿ç‰©æ˜¯äººéï¼Œå¤§ç‡•å›½å¤å›½æ˜¯ç©ºï¼Œä¸å¤å›½è¿˜æ˜¯ç©ºã€‚\n"NOR);  
 		set("value", 10000000);
 		set("material", "stone");
 

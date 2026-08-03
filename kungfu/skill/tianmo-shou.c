@@ -1,38 +1,38 @@
-//tianmo-shou.c ÌìÄ§ÊÖ·¨
+//tianmo-shou.c å¤©é­”æ‰‹æ³•
 //By xjqx@SJ 2009/1/1
 
 inherit SKILL; 
 
 mapping *action = ({
-([      "action":"$NÒ»ÕÐ¡¸¸²Óê·­ÔÆ¡¹£¬×óÊÖ×¥Ïò$nµÄµ¤Ìï£¬¾ÍÔÚ$n»ØÉí×Ô·ÀµÄÒ»Ë²¼ä£¬ÓÒÊÖÈ´ÒÑÆþÉÏÁË$nµÄ$l¡£",
+([      "action":"$Nä¸€æ‹›ã€Œè¦†é›¨ç¿»äº‘ã€ï¼Œå·¦æ‰‹æŠ“å‘$nçš„ä¸¹ç”°ï¼Œå°±åœ¨$nå›žèº«è‡ªé˜²çš„ä¸€çž¬é—´ï¼Œå³æ‰‹å´å·²æŽä¸Šäº†$nçš„$lã€‚",
         "lvl"   :0,
-        "skill_name" :"¸²Óê·­ÔÆ",
-        "damage_type":"ðöÉË"
+        "skill_name" :"è¦†é›¨ç¿»äº‘",
+        "damage_type":"ç˜€ä¼¤"
 ]),
-([      "action":"$NË«ÊÖÒ»´í£¬ÓÒÊÖÏòÍâºáÍÆ¶ø³ö£¬Ò»ÕÐ¡¸·çÆðÔÆÓ¿¡¹´ø×ÅÒ»¹É¾¢·çÅÄÏò$nµÄ$l¡£",
+([      "action":"$NåŒæ‰‹ä¸€é”™ï¼Œå³æ‰‹å‘å¤–æ¨ªæŽ¨è€Œå‡ºï¼Œä¸€æ‹›ã€Œé£Žèµ·äº‘æ¶Œã€å¸¦ç€ä¸€è‚¡åŠ²é£Žæ‹å‘$nçš„$lã€‚",
         "lvl"   :50,
-        "skill_name" :"·çÆðÔÆÓ¿",
-        "damage_type":"ðöÉË"
+        "skill_name" :"é£Žèµ·äº‘æ¶Œ",
+        "damage_type":"ç˜€ä¼¤"
 ]),
-([      "action":"ºöÌý$NÒ»ÉùÅ­ºð£¬ÓÒÊÖ¸ß¸ß¾ÙÆð£¬Ò»Ê½¡¸¸ßÉ½Á÷Ë®¡¹£¬¿³Ïò$nµÄ$l¡£",
+([      "action":"å¿½å¬$Nä¸€å£°æ€’å¼ï¼Œå³æ‰‹é«˜é«˜ä¸¾èµ·ï¼Œä¸€å¼ã€Œé«˜å±±æµæ°´ã€ï¼Œç å‘$nçš„$lã€‚",
         "lvl"   :80,
-        "skill_name" :"¸ßÉ½Á÷Ë®",
-        "damage_type":"¿³ÉË"
+        "skill_name" :"é«˜å±±æµæ°´",
+        "damage_type":"ç ä¼¤"
 ]),
-([      "action":"$NÉí×ÓÎ¢Ð±£¬Ëæ¼´¿ç³öÒ»²½£¬×óÊÖºöÕÆºö×¦Ê¹³ö¡¸Á½´¦Ã£Ã£¡¹£¬ÅÄÏò$nµÄ$l¡£",
+([      "action":"$Nèº«å­å¾®æ–œï¼Œéšå³è·¨å‡ºä¸€æ­¥ï¼Œå·¦æ‰‹å¿½æŽŒå¿½çˆªä½¿å‡ºã€Œä¸¤å¤„èŒ«èŒ«ã€ï¼Œæ‹å‘$nçš„$lã€‚",
         "lvl"   :130,
-        "skill_name" :"Á½´¦Ã£Ã£",
-        "damage_type":"ðöÉË"
+        "skill_name" :"ä¸¤å¤„èŒ«èŒ«",
+        "damage_type":"ç˜€ä¼¤"
 ]),
-([      "action":"$NÊ¹³ö¡¸³öÃ»·ç²¨Àï¡¹£¬Ë«ÊÖ»¬ÁïÒì³£¶Ô×¼$nµÄ$l×¥È¥¡£",
+([      "action":"$Nä½¿å‡ºã€Œå‡ºæ²¡é£Žæ³¢é‡Œã€ï¼ŒåŒæ‰‹æ»‘æºœå¼‚å¸¸å¯¹å‡†$nçš„$læŠ“åŽ»ã€‚",
         "lvl"   :160,
-        "skill_name" :"³öÃ»·ç²¨Àï",
-        "damage_type":"×¥ÉË"
+        "skill_name" :"å‡ºæ²¡é£Žæ³¢é‡Œ",
+        "damage_type":"æŠ“ä¼¤"
 ]),
-([      "action":"$NÓÒÊÖÔÚ$n$l»®¹ý£¬ËæºóÒ»ÕÐ¡¸²¶·ç×½Ó°¡¹×óÊÖÓÖÏòÍ¬Ò»·½Î»×¥È¥¡£",
+([      "action":"$Nå³æ‰‹åœ¨$n$låˆ’è¿‡ï¼ŒéšåŽä¸€æ‹›ã€Œæ•é£Žæ‰å½±ã€å·¦æ‰‹åˆå‘åŒä¸€æ–¹ä½æŠ“åŽ»ã€‚",
         "lvl"   :200,
-        "skill_name" :"²¶·ç×½Ó°",
-        "damage_type":"×¥ÉË"
+        "skill_name" :"æ•é£Žæ‰å½±",
+        "damage_type":"æŠ“ä¼¤"
 ]),
 });
 
@@ -48,20 +48,20 @@ int valid_combine(string combo) {
 int valid_learn(object me)
 {
      if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-         return notify_fail("Á·ÌìÄ§ÊÖ·¨±ØÐë¿ÕÊÖ¡£\n");
+         return notify_fail("ç»ƒå¤©é­”æ‰‹æ³•å¿…é¡»ç©ºæ‰‹ã€‚\n");
 
    if(!me->query_skill("xixing-dafa", 1)||(int)me->query_skill("tianmo-gong",1)<100)
    if(me->query_skill("tianmo-gong", 1) < 100 )
-           return notify_fail("ÄãµÄÌØÊâÄÚ¹¦¹¦Á¦Ì«Ç³£¬²»ÄÜÑ§ÌìÄ§ÊÖ·¨¡£\n");
+           return notify_fail("ä½ çš„ç‰¹æ®Šå†…åŠŸåŠŸåŠ›å¤ªæµ…ï¼Œä¸èƒ½å­¦å¤©é­”æ‰‹æ³•ã€‚\n");
 
      if ((int)me->query_skill("hand", 1) < 100)
-         return notify_fail("ÄãµÄ»ù±¾ÊÖ·¨»ðºò²»¹»¡£\n");
+         return notify_fail("ä½ çš„åŸºæœ¬æ‰‹æ³•ç«å€™ä¸å¤Ÿã€‚\n");
 
      if ((int)me->query("max_neili") < 350)
-         return notify_fail("ÄãµÄÄÚÁ¦Ì«µÍ£¬ÎÞ·¨Ñ§ÌìÄ§ÊÖ·¨¡£\n");
+         return notify_fail("ä½ çš„å†…åŠ›å¤ªä½Žï¼Œæ— æ³•å­¦å¤©é­”æ‰‹æ³•ã€‚\n");
 
      if ((int)me->query_skill("hand", 1) < (int)me->query_skill("tianmo-shou", 1))
-         return notify_fail("ÄãµÄ»ù±¾ÊÖ·¨Ë®Æ½ÓÐÏÞ£¬ÎÞ·¨Áì»á¸ü¸ßÉîµÄÌìÄ§ÊÖ·¨¡£\n");
+         return notify_fail("ä½ çš„åŸºæœ¬æ‰‹æ³•æ°´å¹³æœ‰é™ï¼Œæ— æ³•é¢†ä¼šæ›´é«˜æ·±çš„å¤©é­”æ‰‹æ³•ã€‚\n");
 
      return 1;
 }
@@ -97,13 +97,13 @@ mapping query_action(object me, object weapon)
 int practice_skill(object me)
 {
      if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-         return notify_fail("Á·ÌìÄ§ÊÖ·¨±ØÐë¿ÕÊÖ¡£\n");
+         return notify_fail("ç»ƒå¤©é­”æ‰‹æ³•å¿…é¡»ç©ºæ‰‹ã€‚\n");
 
      if ((int)me->query("jingli") < 100)
-            return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·ÌìÄ§ÊÖ·¨¡£\n");
+            return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒå¤©é­”æ‰‹æ³•ã€‚\n");
 
      if ((int)me->query("neili") < 90)
-            return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·ÌìÄ§ÊÖ·¨¡£\n");
+            return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒå¤©é­”æ‰‹æ³•ã€‚\n");
 
      me->receive_damage("jingli", 85);
      return 1;

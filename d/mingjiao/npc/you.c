@@ -2,13 +2,13 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name("ÓÎ¿Í", ({ "you ke",  "ke" }) );
-        if(random(10)<6) set("gender","ÄĞĞÔ");
-        else set("gender","Å®ĞÔ");
+        set_name("æ¸¸å®¢", ({ "you ke",  "ke" }) );
+        if(random(10)<6) set("gender","ç”·æ€§");
+        else set("gender","å¥³æ€§");
         set("age", 20+random(40));
         set("str", 16);
         set("attitude", "peaceful");
-        set("long", "Õâ¸öÈË¿´ÆğÀ´ËÆºõ²»´ó¸ßĞË¡£\n");
+        set("long", "è¿™ä¸ªäººçœ‹èµ·æ¥ä¼¼ä¹ä¸å¤§é«˜å…´ã€‚\n");
         set("combat_exp", 1000+random(500));
         set_skill("unarmed", 60);
         set_skill("parry", 60);
@@ -17,8 +17,8 @@ void create()
         set_skill("literate", 60);
         set("chat_chance",3);
         set("chat_msg",({
-                CYN"ÓÎ¿Í´ó½ĞµÀ£ºµ¹Ã¹£¡Õæµ¹Ã¹£¡\n"NOR,
-                CYN"ÓÎ¿Í¿´×ÅÄã¶ñºİºİµÄËµµÀ£ºÄã£¡Ğ¡ĞÄµã£¡ÕâÊÂÃ»ÕâÃ´ÈİÒ×ÁË½á£¡\n"NOR,
+                CYN"æ¸¸å®¢å¤§å«é“ï¼šå€’éœ‰ï¼çœŸå€’éœ‰ï¼\n"NOR,
+                CYN"æ¸¸å®¢çœ‹ç€ä½ æ¶ç‹ ç‹ çš„è¯´é“ï¼šä½ ï¼å°å¿ƒç‚¹ï¼è¿™äº‹æ²¡è¿™ä¹ˆå®¹æ˜“äº†ç»“ï¼\n"NOR,
         }) );
         setup();
         carry_object(ARMOR_D("cloth"))->wear();

@@ -1,6 +1,6 @@
 // learn.c
 // LinuX@SJ 2004/02/28
-// update by lsxk@hsbbs  Ìí¼ÓÌì¸³Ó°ÏìĞ§¹û  2008/3/14
+// update by lsxk@hsbbs  æ·»åŠ å¤©èµ‹å½±å“æ•ˆæœ  2008/3/14
 
 #include <ansi.h>
 #include <job_mul.h>
@@ -9,10 +9,10 @@
 inherit F_CLEAN_UP;
 
 string *reject_msg = ({
-	"ËµµÀ£ºÄúÌ«¿ÍÆøÁË£¬ÕâÔõÃ´¸Òµ±£¿\n",
-	"´òÁ¿ÁËÄã¼¸ÏÂ£¬Ò¡ÁËÒ¡Í·¡£\n",
-	"ÏóÊÇÊÜ³èÈô¾ªÒ»Ñù£¬ËµµÀ£ºÇë½Ì£¿ÕâÔõÃ´¸Òµ±£¿\n",
-	"Ğ¦×ÅËµµÀ£ºÄú¼ûĞ¦ÁË£¬ÎÒÕâµãµñ³æĞ¡¼¼Ôõ¹»×Ê¸ñ¡¸Ö¸µã¡¹ÄúÊ²Ã´£¿\n",
+	"è¯´é“ï¼šæ‚¨å¤ªå®¢æ°”äº†ï¼Œè¿™æ€ä¹ˆæ•¢å½“ï¼Ÿ\n",
+	"æ‰“é‡äº†ä½ å‡ ä¸‹ï¼Œæ‘‡äº†æ‘‡å¤´ã€‚\n",
+	"è±¡æ˜¯å—å® è‹¥æƒŠä¸€æ ·ï¼Œè¯´é“ï¼šè¯·æ•™ï¼Ÿè¿™æ€ä¹ˆæ•¢å½“ï¼Ÿ\n",
+	"ç¬‘ç€è¯´é“ï¼šæ‚¨è§ç¬‘äº†ï¼Œæˆ‘è¿™ç‚¹é›•è™«å°æŠ€æ€å¤Ÿèµ„æ ¼ã€ŒæŒ‡ç‚¹ã€æ‚¨ä»€ä¹ˆï¼Ÿ\n",
 });
 
 void create() { seteuid(getuid()); }
@@ -26,7 +26,7 @@ int main(object me, string arg)
 	int master_skill, my_skill, gin_cost;
 
 	if (me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (!arg ||
 		(
@@ -35,30 +35,30 @@ int main(object me, string arg)
 			&& sscanf(arg, "%s %s", teacher, skill) != 2
 		)
 	)
-		return notify_fail("Ö¸Áî¸ñÊ½£ºlearn|xue <Ä³ÈË> <¼¼ÄÜ> [´ÎÊı]\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šlearn|xue <æŸäºº> <æŠ€èƒ½> [æ¬¡æ•°]\n");
 
 
 	if (me->is_fighting())
-		return notify_fail("ÁÙÕóÄ¥Ç¹£¿À´²»¼°À²¡£\n");
+		return notify_fail("ä¸´é˜µç£¨æªï¼Ÿæ¥ä¸åŠå•¦ã€‚\n");
 
-	if (!(ob = present(teacher, environment(me))) || !ob->is_character() || ob->query("race") != "ÈËÀà")
-		return notify_fail("ÄãÒªÏòË­Çó½Ì£¿\n");
+	if (!(ob = present(teacher, environment(me))) || !ob->is_character() || ob->query("race") != "äººç±»")
+		return notify_fail("ä½ è¦å‘è°æ±‚æ•™ï¼Ÿ\n");
 
 	if (ob->query("env/no_teach"))
-		return notify_fail("µ«ÊÇ" + ob->name() + "ÏÖÔÚ²¢²»×¼±¸»Ø´ğÄãµÄÎÊÌâ¡£\n");	
+		return notify_fail("ä½†æ˜¯" + ob->name() + "ç°åœ¨å¹¶ä¸å‡†å¤‡å›ç­”ä½ çš„é—®é¢˜ã€‚\n");	
 		
 
 	if (!living(ob))
-		return notify_fail("àÅ....ÄãµÃÏÈ°Ñ" + ob->name() + "ÅªĞÑÔÙËµ¡£\n");
+		return notify_fail("å—¯....ä½ å¾—å…ˆæŠŠ" + ob->name() + "å¼„é†’å†è¯´ã€‚\n");
 
 	if (!master_skill = ob->query_skill(skill, 1))
-		return notify_fail("ÕâÏî¼¼ÄÜÄã¿ÖÅÂ±ØĞëÕÒ±ğÈËÑ§ÁË¡£\n");
+		return notify_fail("è¿™é¡¹æŠ€èƒ½ä½ ææ€•å¿…é¡»æ‰¾åˆ«äººå­¦äº†ã€‚\n");
 
 	if (me->query("potential") < i || i < 1)
-		return notify_fail("ÄãÃ»ÓĞÕâÃ´¶àÇ±ÄÜÀ´Ñ§Ï°£¬Ã»ÓĞ°ì·¨ÔÙ³É³¤ÁË¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰è¿™ä¹ˆå¤šæ½œèƒ½æ¥å­¦ä¹ ï¼Œæ²¡æœ‰åŠæ³•å†æˆé•¿äº†ã€‚\n");
 
 	if( i > 50 )
-		return notify_fail("Ò»´ÎÑ§Ï°ÕâÃ´¶à£¬ÊÇÃ»·¨½øÒ»²½Àí½âµÄ£¬ÉÙµã°É¡£\n");
+		return notify_fail("ä¸€æ¬¡å­¦ä¹ è¿™ä¹ˆå¤šï¼Œæ˜¯æ²¡æ³•è¿›ä¸€æ­¥ç†è§£çš„ï¼Œå°‘ç‚¹å§ã€‚\n");
 
 	notify_fail(ob ->name() + reject_msg[random(sizeof(reject_msg))]);
 	if (!me->is_apprentice_of(ob)
@@ -67,10 +67,10 @@ int main(object me, string arg)
 		return 0;
 
 	if ( me->query_skill(skill, 1) >= 220 && SKILL_D(skill)->type() == "martial")
-		return notify_fail("ÕâÏî¼¼ÄÜÄãÒÑ¾­ÎŞ·¨Í¨¹ıÑ§Ï°À´Ìá¸ßÁË¡£\n");
+		return notify_fail("è¿™é¡¹æŠ€èƒ½ä½ å·²ç»æ— æ³•é€šè¿‡å­¦ä¹ æ¥æé«˜äº†ã€‚\n");
 
 	if (me->query("id") == ob->query("marry/id")) {
-		notify_fail(ob->name()+"µÄÁ³É«ÓĞµãÄÑ¿°£¬ËÆºõÊÇ²»Ïë´«ÊÚÄãÕâÑù¹¦·ò¡£\n");
+		notify_fail(ob->name()+"çš„è„¸è‰²æœ‰ç‚¹éš¾å ªï¼Œä¼¼ä¹æ˜¯ä¸æƒ³ä¼ æˆä½ è¿™æ ·åŠŸå¤«ã€‚\n");
 		if (me->query_skill(skill, 1) > ob->query_skill(skill, 1) - me->query("divorce") * 20)
 			return 0;
 		if (SKILL_D(skill)->type2() == "worker")
@@ -80,16 +80,16 @@ int main(object me, string arg)
 			return 0;
 	}
 
-	notify_fail(ob->name() + "²»Ô¸Òâ½ÌÄãÕâÏî¼¼ÄÜ¡£\n");
+	notify_fail(ob->name() + "ä¸æ„¿æ„æ•™ä½ è¿™é¡¹æŠ€èƒ½ã€‚\n");
 
 	if (ob->prevent_learn(me, skill))
 		return 0;
 
 	my_skill = me->query_skill(skill, 1);
 	if (my_skill >= master_skill)
-		return notify_fail("ÕâÏî¼¼ÄÜÄãµÄ³Ì¶ÈÒÑ¾­²»ÊäÄãÊ¦¸¸ÁË¡£\n");
+		return notify_fail("è¿™é¡¹æŠ€èƒ½ä½ çš„ç¨‹åº¦å·²ç»ä¸è¾“ä½ å¸ˆçˆ¶äº†ã€‚\n");
 
-	notify_fail("ÒÀÄãÄ¿Ç°µÄÄÜÁ¦£¬Ã»ÓĞ°ì·¨Ñ§Ï°ÕâÖÖ¼¼ÄÜ¡£\n");
+	notify_fail("ä¾ä½ ç›®å‰çš„èƒ½åŠ›ï¼Œæ²¡æœ‰åŠæ³•å­¦ä¹ è¿™ç§æŠ€èƒ½ã€‚\n");
 	if (!SKILL_D(skill)->valid_learn(me))
 		return 0;
 
@@ -106,9 +106,9 @@ int main(object me, string arg)
 
 	teacher = ob->name();
 	if (i > 1)
-		teacher += "·´¸´";
+		teacher += "åå¤";
 
-	write("ÄãÏò" + teacher + "Çë½ÌÓĞ¹Ø¡¸" + to_chinese(skill) + "¡¹µÄÒÉÎÊ¡£\n");
+	write("ä½ å‘" + teacher + "è¯·æ•™æœ‰å…³ã€Œ" + to_chinese(skill) + "ã€çš„ç–‘é—®ã€‚\n");
 
 
  if(userp(ob))
@@ -132,41 +132,41 @@ int main(object me, string arg)
               || skill == "wuhu-duanmendao"  || skill == "pixie-jian"        || skill == "kuihua-shengong"    || skill == "dugu-jiujian"     || skill == "kuihua-mogong" )
 
 
-        return notify_fail(ob->name()+"µÄÁ³É«ÓĞµãÄÑ¿°£¬ËÆºõÊÇ²»Ïë´«ÊÚÄãÕâÑù¹¦·ò¡£\n");
+        return notify_fail(ob->name()+"çš„è„¸è‰²æœ‰ç‚¹éš¾å ªï¼Œä¼¼ä¹æ˜¯ä¸æƒ³ä¼ æˆä½ è¿™æ ·åŠŸå¤«ã€‚\n");
 
 
 	if (ob->query("env/no_teach"))
-		return notify_fail("µ«ÊÇ" + ob->name() + "ÏÖÔÚ²¢²»×¼±¸»Ø´ğÄãµÄÎÊÌâ¡£\n");
+		return notify_fail("ä½†æ˜¯" + ob->name() + "ç°åœ¨å¹¶ä¸å‡†å¤‡å›ç­”ä½ çš„é—®é¢˜ã€‚\n");
 
 	gin_cost *= i;
 	if (userp(ob)) {
-		tell_object(ob, me->name() + "ÏòÄãÇë½ÌÓĞ¹Ø¡¸" + to_chinese(skill) + "¡¹µÄÒÉÎÊ¡£\n");
+		tell_object(ob, me->name() + "å‘ä½ è¯·æ•™æœ‰å…³ã€Œ" + to_chinese(skill) + "ã€çš„ç–‘é—®ã€‚\n");
 		if (ob->query("jing") < gin_cost / 5 + 10) {
-			write("µ«ÊÇ" + ob->name() + "ÏÔÈ»Ì«ÀÛÁË£¬Ã»ÓĞ°ì·¨½ÌÄãÊ²Ã´¡£\n");
-			tell_object(ob, "µ«ÊÇÄãÌ«ÀÛÁË£¬Ã»ÓĞ°ì·¨½Ì" + me->name() + "¡£\n");
+			write("ä½†æ˜¯" + ob->name() + "æ˜¾ç„¶å¤ªç´¯äº†ï¼Œæ²¡æœ‰åŠæ³•æ•™ä½ ä»€ä¹ˆã€‚\n");
+			tell_object(ob, "ä½†æ˜¯ä½ å¤ªç´¯äº†ï¼Œæ²¡æœ‰åŠæ³•æ•™" + me->name() + "ã€‚\n");
 			return 1;
 		}
 		ob->receive_damage("jing", gin_cost/5 + 1);
 	}
 
 	if (!random(10))
-		tell_room(environment(me), me->name() + "ÕıÔÚÏò" + ob->name() + "Çë½ÌÎÊÌâ¡£\n", ({ me, ob }));
+		tell_room(environment(me), me->name() + "æ­£åœ¨å‘" + ob->name() + "è¯·æ•™é—®é¢˜ã€‚\n", ({ me, ob }));
 
 	if (me->query("jing") > gin_cost + 10) {
 		if ((SKILL_D(skill)->type()=="martial"
 		||   SKILL_D(skill)->type2() == "worker")
 		&& my_skill * my_skill * my_skill / 10 > me->query("combat_exp"))
-			return notify_fail("Ò²ĞíÊÇÈ±·¦ÊµÕ½¾­Ñé£¬Äã¶Ô"+ob->name()+"µÄ»Ø´ğ×ÜÊÇÎŞ·¨Áì»á¡£\n");
+			return notify_fail("ä¹Ÿè®¸æ˜¯ç¼ºä¹å®æˆ˜ç»éªŒï¼Œä½ å¯¹"+ob->name()+"çš„å›ç­”æ€»æ˜¯æ— æ³•é¢†ä¼šã€‚\n");
 
 		if(skill_name = SKILL_D(skill)->query_skill_name(my_skill))
-			write("Äã¿ªÊ¼ÌıÈ¡"+teacher+"µÄÖ¸µ¼£¬¶Ô¡¸"+skill_name+"¡¹ÕâÒ»ÕĞ½øĞĞ¿àË¼¡£\n");
-		else write("ÄãÌıÁË"+teacher+"µÄÖ¸µ¼£¬ËÆºõÓĞĞ©ĞÄµÃ¡£\n");
+			write("ä½ å¼€å§‹å¬å–"+teacher+"çš„æŒ‡å¯¼ï¼Œå¯¹ã€Œ"+skill_name+"ã€è¿™ä¸€æ‹›è¿›è¡Œè‹¦æ€ã€‚\n");
+		else write("ä½ å¬äº†"+teacher+"çš„æŒ‡å¯¼ï¼Œä¼¼ä¹æœ‰äº›å¿ƒå¾—ã€‚\n");
 		
 		if (me->query("registered") ==3 && me->query_temp("ggs/started") && me->query("ggs/started") ){
 			if (!random(5))
-			write("Äã²ÎÕÕ×Ô¼ºÔÚ"HIG"¹í¹ÈËãÊõ"NOR"ÉÏµÄĞŞÎª£¬ÔËÉñÍ¨Êı£¬¾õµÃ×Ô¼ºÑ§Ï°ÆğÀ´ÊÂ°ë¹¦±¶¡£\n");
+			write("ä½ å‚ç…§è‡ªå·±åœ¨"HIG"é¬¼è°·ç®—æœ¯"NOR"ä¸Šçš„ä¿®ä¸ºï¼Œè¿ç¥é€šæ•°ï¼Œè§‰å¾—è‡ªå·±å­¦ä¹ èµ·æ¥äº‹åŠåŠŸå€ã€‚\n");
 			if (!random(10))
-			tell_room(environment(me), me->name() + "ÕıÔÚ²ÎÕÕ"HIG"¹í¹ÈËãÊõ"NOR"ÉÏµÄĞŞÎª£¬ÔËÉñÍ¨Êı£¬Ïò" + ob->name() + "Çë½ÌÎÊÌâ¡£\n", ({ me }));
+			tell_room(environment(me), me->name() + "æ­£åœ¨å‚ç…§"HIG"é¬¼è°·ç®—æœ¯"NOR"ä¸Šçš„ä¿®ä¸ºï¼Œè¿ç¥é€šæ•°ï¼Œå‘" + ob->name() + "è¯·æ•™é—®é¢˜ã€‚\n", ({ me }));
 		}
 		if (me->query("age") < 30) {
 			l = (35 - me->query("age")) / 3;
@@ -179,7 +179,7 @@ int main(object me, string arg)
 			me->add("potential", -1);
 			improve = j+l+random(++k);
 			
-			/*½±Àø¿ØÖÆ¿ªÊ¼*/
+			/*å¥–åŠ±æ§åˆ¶å¼€å§‹*/
 		        if (me->query("registered")==3)
 		        {
 				improve = improve * LEARN_MUL * VIP_LEARN_MUL /10000;
@@ -188,23 +188,23 @@ int main(object me, string arg)
 		        {
 				improve = improve * LEARN_MUL /100;
 		        }
-		        /*½±Àø¿ØÖÆ½áÊø*/ 
+		        /*å¥–åŠ±æ§åˆ¶ç»“æŸ*/ 
 		        if(me->worker_skill("highest")>350) improve = improve*7/10;
 			else if(me->worker_skill("highest")>220) improve = improve*8/10;
 			if(me->worker_skill("limit")>600) improve = improve*8/10;
 
-                   //Ìì¸³¡°¾øÊÀÆæ²Å¡±Ó°ÏìĞ§¹û£º  by lsxk@hsbbs 2008/3/14
+                   //å¤©èµ‹â€œç»ä¸–å¥‡æ‰â€å½±å“æ•ˆæœï¼š  by lsxk@hsbbs 2008/3/14
                    if((int)me->query("relife/study/jsqc",1) > 0){
-                       tell_object(me,HIG"ÄãÖ»¾õµÃ×Ô¼ºÌì¸³¾ªÈË£¬Ñ§Ï°ÕÆÎÕÄÜÁ¦Ô¶±ÈÈË¼Ò¸ß³öĞí¶à£¡\n"NOR);
+                       tell_object(me,HIG"ä½ åªè§‰å¾—è‡ªå·±å¤©èµ‹æƒŠäººï¼Œå­¦ä¹ æŒæ¡èƒ½åŠ›è¿œæ¯”äººå®¶é«˜å‡ºè®¸å¤šï¼\n"NOR);
                        improve += improve * (int)me->query("relife/study/jsqc",1) * 2 / 100;
                    }
 		        
 			if (me->query("registered") ==3 && me->query_temp("ggs/started") && me->query("ggs/started") )
-				me->improve_skill(skill, improve*2); // 2 ±¶
+				me->improve_skill(skill, improve*2); // 2 å€
 			else
 				me->improve_skill(skill, improve);
 			if (wizardp(me) && me->query("env/test"))
-			write (sprintf("²âÊÔĞÅÏ¢£º¹í¹ÈÊõÔö¼Ó %d µã£¬ÆäËûÔö¼Ó %d µã\n",improve*2,improve));
+			write (sprintf("æµ‹è¯•ä¿¡æ¯ï¼šé¬¼è°·æœ¯å¢åŠ  %d ç‚¹ï¼Œå…¶ä»–å¢åŠ  %d ç‚¹\n",improve*2,improve));
 			
 			if (k >= i)
 				break;
@@ -220,7 +220,7 @@ int main(object me, string arg)
 		}
 	} else {
 		gin_cost = me->query("jing");
-		write("Äã½ñÌìÌ«ÀÛÁË£¬½á¹ûÊ²Ã´Ò²Ã»ÓĞÑ§µ½¡£\n");
+		write("ä½ ä»Šå¤©å¤ªç´¯äº†ï¼Œç»“æœä»€ä¹ˆä¹Ÿæ²¡æœ‰å­¦åˆ°ã€‚\n");
 	}
 
 	me->receive_damage("jing", gin_cost);
@@ -232,20 +232,20 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : learn|xue <Ä³ÈË> <¼¼ÄÜ> [´ÎÊı]
+æŒ‡ä»¤æ ¼å¼ : learn|xue <æŸäºº> <æŠ€èƒ½> [æ¬¡æ•°]
 
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãÏò±ğÈËÇë½ÌÓĞ¹ØÄ³Ò»ÖÖ¼¼ÄÜµÄÒÉÄÑÎÊÌâ£¬µ±È»£¬ÄãÇë½ÌµÄ¶ÔÏóÔÚÕâ
-Ïî¼¼ÄÜÉÏµÄÔìÒè±ØĞë±ÈÄã¸ß£¬¶øÄã¾­ÓÉÕâÖÖ·½Ê½Ñ§Ï°µÃÀ´µÄ¼¼ÄÜÒ²²»¿ÉÄÜ¸ßì¶ÄãËùÇë
-½ÌµÄÈË£¬È»¶øÒòÎªÕâÖÖÑ§Ï°·½Ê½Ïàµ±ì¶Ò»ÖÖ¡¸¾­ÑéµÄ´«³Ğ¡¹£¬Òò´ËÑ§Ï°¿ÉÒÔËµÊÇÊìÏ¤
-Ò»ÖÖĞÂ¼¼ÄÜ×î¿ìµÄ·½·¨¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ å‘åˆ«äººè¯·æ•™æœ‰å…³æŸä¸€ç§æŠ€èƒ½çš„ç–‘éš¾é—®é¢˜ï¼Œå½“ç„¶ï¼Œä½ è¯·æ•™çš„å¯¹è±¡åœ¨è¿™
+é¡¹æŠ€èƒ½ä¸Šçš„é€ è¯£å¿…é¡»æ¯”ä½ é«˜ï¼Œè€Œä½ ç»ç”±è¿™ç§æ–¹å¼å­¦ä¹ å¾—æ¥çš„æŠ€èƒ½ä¹Ÿä¸å¯èƒ½é«˜æ–¼ä½ æ‰€è¯·
+æ•™çš„äººï¼Œç„¶è€Œå› ä¸ºè¿™ç§å­¦ä¹ æ–¹å¼ç›¸å½“æ–¼ä¸€ç§ã€Œç»éªŒçš„ä¼ æ‰¿ã€ï¼Œå› æ­¤å­¦ä¹ å¯ä»¥è¯´æ˜¯ç†Ÿæ‚‰
+ä¸€ç§æ–°æŠ€èƒ½æœ€å¿«çš„æ–¹æ³•ã€‚
 
-Àı£ºxue master force 10  -> ´Ó master ÄÇÀïÑ§ 10 ´Î force
+ä¾‹ï¼šxue master force 10  -> ä» master é‚£é‡Œå­¦ 10 æ¬¡ force
 
-ÆäÖĞ£¬´ÎÊı×î¶àÎª 50£»¶ÔÃ¿»ØÑ§Ï°¶øÑÔ£¬´ÎÊı¶àµÄ±È´ÎÊıÉÙµÄ½ø²½ËÙ¶ÈÓĞ¶îÍâµÄÔö¼Ó¡£
+å…¶ä¸­ï¼Œæ¬¡æ•°æœ€å¤šä¸º 50ï¼›å¯¹æ¯å›å­¦ä¹ è€Œè¨€ï¼Œæ¬¡æ•°å¤šçš„æ¯”æ¬¡æ•°å°‘çš„è¿›æ­¥é€Ÿåº¦æœ‰é¢å¤–çš„å¢åŠ ã€‚
 
-´ËÍâÑ§Ï°Ò²ĞèÒªÏûºÄÒ»Ğ©¾«Á¦£¬¶øÏûºÄµÄ¾«Á¦¸úÄã×Ô¼º¡¢ÓëÄãÑ§Ï°¶ÔÏóµÄÎòĞÔÓĞ¹Ø¡£
+æ­¤å¤–å­¦ä¹ ä¹Ÿéœ€è¦æ¶ˆè€—ä¸€äº›ç²¾åŠ›ï¼Œè€Œæ¶ˆè€—çš„ç²¾åŠ›è·Ÿä½ è‡ªå·±ã€ä¸ä½ å­¦ä¹ å¯¹è±¡çš„æ‚Ÿæ€§æœ‰å…³ã€‚
 
-ÆäËûÏà¹ØÖ¸Áî : apprentice, practice, skills, study
+å…¶ä»–ç›¸å…³æŒ‡ä»¤ : apprentice, practice, skills, study
 HELP
 	);
 	return 1;

@@ -1,11 +1,11 @@
-// bing.c ¹Ù±ø
+// bing.c å®˜å…µ
 inherit NPC;
 void create()
 {
-        set_name("»Ø×å±ø", ({ "huizu bing", "bing" }));
+        set_name("å›žæ—å…µ", ({ "huizu bing", "bing" }));
         set("age", 32);
-        set("gender", "ÄÐÐÔ");
-        set("long", "ËûÊÇ¸ö»Ø×åÀÏ±ø¡£³¤Äê×¤ÊØÕâÀï¡£\n");
+        set("gender", "ç”·æ€§");
+        set("long", "ä»–æ˜¯ä¸ªå›žæ—è€å…µã€‚é•¿å¹´é©»å®ˆè¿™é‡Œã€‚\n");
         set("attitude", "peaceful");
         set("str", 32);
         set("int", 16);
@@ -38,7 +38,7 @@ void init()
 }
 int accept_fight(object me)
 {
-        command("say ´óÒ¯ÎÒÊØ±ß¹ØÀÛµÃÒªËÀ£¬Ã»¿ÕºÍ" + RANK_D->query_respect(me)
-                + "¹ýÕÐÍæ¡£\n");
+        command("say å¤§çˆ·æˆ‘å®ˆè¾¹å…³ç´¯å¾—è¦æ­»ï¼Œæ²¡ç©ºå’Œ" + RANK_D->query_respect(me)
+                + "è¿‡æ‹›çŽ©ã€‚\n");
         return 0;
 }

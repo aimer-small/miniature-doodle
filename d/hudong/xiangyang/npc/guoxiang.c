@@ -4,10 +4,10 @@ int ask_lineup();
 int ask_heal();
 void create()
 {
-	set_name("¹ùÏå", ({"guo xiang", "guo", "xiang",}));
-	set("long","Ëý¾ÍÊÇ¶ëáÒÅÉ¿ªÉ½×æÊ¦¡¢¹ù¾¸¡¢»ÆÈØµÄÅ®¶ù¹ùÏå¡£\n");
+	set_name("éƒ­è¥„", ({"guo xiang", "guo", "xiang",}));
+	set("long","å¥¹å°±æ˜¯å³¨åµ‹æ´¾å¼€å±±ç¥–å¸ˆã€éƒ­é–ã€é»„è“‰çš„å¥³å„¿éƒ­è¥„ã€‚\n");
 
-	set("gender", "Å®ÐÔ");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 
@@ -54,14 +54,14 @@ set("combat_exp",2400000);
 	map_skill("hand", "lanhua-shou");
 
 	set("inquiry", ([
-		"ÊØ³Ç": (: ask_job :),
-		"²¼Õó": (: ask_lineup :),
-		"ÁÆÉË": (: ask_heal:),
+		"å®ˆåŸŽ": (: ask_job :),
+		"å¸ƒé˜µ": (: ask_lineup :),
+		"ç–—ä¼¤": (: ask_heal:),
 	]) );
 
 	prepare_skill("hand", "lanhua-shou");
 
-	create_family("¶ëáÒÅÉ", 1, "ÕÆÃÅ");
+	create_family("å³¨åµ‹æ´¾", 1, "æŽŒé—¨");
 
 	setup();
 	carry_object("/d/emei/obj/changjian")->wield();
@@ -74,15 +74,15 @@ int ask_job()
        object me = this_player();
        if (!me->query_temp("xy/job"))
        {
-	       command("say ÇëÏÈÏòÎÒµùµùÇëÊ¾¡£");
+	       command("say è¯·å…ˆå‘æˆ‘çˆ¹çˆ¹è¯·ç¤ºã€‚");
 	       return 1;
        }
-      if (me->query("family/family_name") != "¶ëáÒÅÉ")
+      if (me->query("family/family_name") != "å³¨åµ‹æ´¾")
       {
-	       command("say Äã¿ìÈ¥Ö¸¶¨µÄµØµã°É£¬¿´À´ÃÉ¹Å±ø¾ÍÒª¹¥³ÇÁË£¡");
+	       command("say ä½ å¿«åŽ»æŒ‡å®šçš„åœ°ç‚¹å§ï¼Œçœ‹æ¥è’™å¤å…µå°±è¦æ”»åŸŽäº†ï¼");
 	       return 1;
       }
-      command("say Èç¹ûÒª²¼Õó·¨£¬¾Í²¼ºÃÕóáá¾Í¸æËßÎÒÃÇ¡£");
+      command("say å¦‚æžœè¦å¸ƒé˜µæ³•ï¼Œå°±å¸ƒå¥½é˜µå¾Œå°±å‘Šè¯‰æˆ‘ä»¬ã€‚");
       command("smile");
       me->set_temp("xy/job",2);
       return 1;
@@ -120,7 +120,7 @@ void init()
 	::init();
 	if (userp(me) && me->query("str")+me->query("int")+me->query("con")+me->query("dex")>80)
 	{
-		message_vision("Ò»ÕóÉñÃØµÄÁ¦Á¿£¬°Ñ$NËÍµ½ÁËÎ´ÖªµÄ¿Õ¼ä¡£\n",me);
+		message_vision("ä¸€é˜µç¥žç§˜çš„åŠ›é‡ï¼ŒæŠŠ$Né€åˆ°äº†æœªçŸ¥çš„ç©ºé—´ã€‚\n",me);
 		me->move("/d/xiangyang/lipindian");
 	}
 }

@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "ÈÕÄ¾Â×µî");
+        set("short", "æ—¥æœ¨ä¼¦æ®¿");
         set("long", @LONG
-´óµî¸ßËÄ²ã£¬ÉÏ¸²½ð¶¥£¬»Ô»Í×³¹Û¡£²»µ«ÓÐÖÐÔ­µÄ½¨Öþ·ç¸ñ£¬Ò²ÎüÊÕÁËÌìóÃ
-ºÍ»ØæüµÈ½¨ÖþÒÕÊõÌØÉ«¡£Õýµî´óÖùÉÏ¶·¹°¼ÜÁº¸¡µñ¾«ÃÀ£¬ÓÐÈËÎï¡¢Ìì¶ì¡¢ÏóµÈÄñ
-ÊÞ¡£µîÇ°Î§Ç½ÕýÖÐÓÐÉÈºÚÆáÐ¡ÃÅÍ¨ÏòËÂÇ°¸÷´¦¡£
+å¤§æ®¿é«˜å››å±‚ï¼Œä¸Šè¦†é‡‘é¡¶ï¼Œè¾‰ç…Œå£®è§‚ã€‚ä¸ä½†æœ‰ä¸­åŽŸçš„å»ºç­‘é£Žæ ¼ï¼Œä¹Ÿå¸æ”¶äº†å¤©ç«º
+å’Œå›žçº¥ç­‰å»ºç­‘è‰ºæœ¯ç‰¹è‰²ã€‚æ­£æ®¿å¤§æŸ±ä¸Šæ–—æ‹±æž¶æ¢æµ®é›•ç²¾ç¾Žï¼Œæœ‰äººç‰©ã€å¤©é¹…ã€è±¡ç­‰é¸Ÿ
+å…½ã€‚æ®¿å‰å›´å¢™æ­£ä¸­æœ‰æ‰‡é»‘æ¼†å°é—¨é€šå‘å¯ºå‰å„å¤„ã€‚
 LONG
         );
 
@@ -25,7 +25,7 @@ LONG
           set("objects", ([__DIR__"npc/fanseng" : 2]));
         
         setup();
-        create_door("out", "ºÚÆáÄ¾ÃÅ", "enter", DOOR_CLOSED);                   
+        create_door("out", "é»‘æ¼†æœ¨é—¨", "enter", DOOR_CLOSED);                   
 }
 int get_object(object ob)
 {
@@ -40,19 +40,19 @@ int valid_leave(object me, string dir)
          object *obj;
         
           
-        if ((string)me->query("gender") == "ÄÐÐÔ" && dir == "west"
+        if ((string)me->query("gender") == "ç”·æ€§" && dir == "west"
            && present("hufa lama", environment(me)))
-                return notify_fail("»¤·¨À®ÂïÀ¹×¡ÄãµÀ£ºÄÇÀïÊÇ±¾ËÂÅ®µÜ×ÓÐÝÏ¢µÄ¾ÓËù£¬ÄãÈ¥²»´ó·½±ã°É£¿\n");
+                return notify_fail("æŠ¤æ³•å–‡å˜›æ‹¦ä½ä½ é“ï¼šé‚£é‡Œæ˜¯æœ¬å¯ºå¥³å¼Ÿå­ä¼‘æ¯çš„å±…æ‰€ï¼Œä½ åŽ»ä¸å¤§æ–¹ä¾¿å§ï¼Ÿ\n");
 
-        if ((string)me->query("gender") == "Å®ÐÔ" && dir == "east"
+        if ((string)me->query("gender") == "å¥³æ€§" && dir == "east"
            && present("hufa lama", environment(me)))
-                return notify_fail("»¤·¨À®ÂïÀ¹×¡ÄãµÀ£ºÄÇÀïÊÇ±¾ËÂÄÐµÜ×ÓÐÝÏ¢µÄ¾ÓËù£¬ÄãÈ¥²»´ó·½±ã°É£¿\n");
-        if(dir == "southeast"&& me->query("family/family_name")!= "´óÂÖËÂ"
+                return notify_fail("æŠ¤æ³•å–‡å˜›æ‹¦ä½ä½ é“ï¼šé‚£é‡Œæ˜¯æœ¬å¯ºç”·å¼Ÿå­ä¼‘æ¯çš„å±…æ‰€ï¼Œä½ åŽ»ä¸å¤§æ–¹ä¾¿å§ï¼Ÿ\n");
+        if(dir == "southeast"&& me->query("family/family_name")!= "å¤§è½®å¯º"
            && present("hufa lama", environment(me)))
-             return notify_fail(CYN"»¤·¨À®ÂïÀ¹×¡ÄãËµµÀ:×î½üËÂÄÚ»ïÊ³½ôÕÅ£¬ÍâÅÉµÜ×ÓÇëµ½ËÂÍâ×ÔÐÐ½â¾ö¡£\n"NOR);
+             return notify_fail(CYN"æŠ¤æ³•å–‡å˜›æ‹¦ä½ä½ è¯´é“:æœ€è¿‘å¯ºå†…ä¼™é£Ÿç´§å¼ ï¼Œå¤–æ´¾å¼Ÿå­è¯·åˆ°å¯ºå¤–è‡ªè¡Œè§£å†³ã€‚\n"NOR);
         obj = filter_array(deep_inventory(me),(:get_object:));
         if( sizeof(obj) && dir=="southeast" ) {
-                write (HIR"Äã¸ÕÏëÍµÍµ±³¸öÈË½øÈ¥£¬½á¹û¸ºÖØÌ«¶à£¬½ÅÏÂÒ»¸ö°íË©£¬Ë¤µ¹ÔÚµØ¡£\n"NOR);
+                write (HIR"ä½ åˆšæƒ³å·å·èƒŒä¸ªäººè¿›åŽ»ï¼Œç»“æžœè´Ÿé‡å¤ªå¤šï¼Œè„šä¸‹ä¸€ä¸ªç»Šæ‹´ï¼Œæ‘”å€’åœ¨åœ°ã€‚\n"NOR);
                 obj[0]->move(environment(me));
                 me->unconcious();
         return 1;

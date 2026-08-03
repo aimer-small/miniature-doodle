@@ -1,8 +1,8 @@
-//Ïã½¶Æ¤
-//×÷ÓÃ£ºÆÆ»µÒ»Ğ©robot
-//Ïã½¶Æ¤Ö»¶ÔÕıÔÚ×öjobµÄÈËÓĞ×÷ÓÃ
-//count±íÊ¾ÒÆ¶¯µÄ·¿¼äÊıÄ¿
-//playerÓĞ¿ÉÄÜÃ»ÓĞ·¢ÉúÒÆ¶¯£¬Ô­ÒòÊÇrandom³ö¿ÚÊ±ÓÖ»Øµ½ÁËÆğµã
+//é¦™è•‰çš®
+//ä½œç”¨ï¼šç ´åä¸€äº›robot
+//é¦™è•‰çš®åªå¯¹æ­£åœ¨åšjobçš„äººæœ‰ä½œç”¨
+//countè¡¨ç¤ºç§»åŠ¨çš„æˆ¿é—´æ•°ç›®
+//playeræœ‰å¯èƒ½æ²¡æœ‰å‘ç”Ÿç§»åŠ¨ï¼ŒåŸå› æ˜¯randomå‡ºå£æ—¶åˆå›åˆ°äº†èµ·ç‚¹
 //Yanqi 10/26/2k
 
 #include <ansi.h>
@@ -13,9 +13,9 @@ int flag = 0;
 void create()
 {
 	seteuid(getuid());
-	set_name(HIY"Ïã½¶Æ¤"NOR, ({ "xiangjiao pi","pi"}) );
-	set("long", "Ò»¿éÏã½¶Æ¤¡£\n");
-	set("unit", "¿é");
+	set_name(HIY"é¦™è•‰çš®"NOR, ({ "xiangjiao pi","pi"}) );
+	set("long", "ä¸€å—é¦™è•‰çš®ã€‚\n");
+	set("unit", "å—");
 	set("value",10);
 	set("no_get",1);
 	set_weight(5);
@@ -38,7 +38,7 @@ void init()
 	if( environment(me) != env ) return;
 
 	if( me->is_busy() || me->is_fighting() || !me->query_conditions_by_type("job") || !me->query("lastroom") ) return;
-/*	ÔõÃ´ÄÜ°ÑÈËÂÒ move ÄØ£¿ÈİÒ×Ôì³É bug
+/*	æ€ä¹ˆèƒ½æŠŠäººä¹± move å‘¢ï¼Ÿå®¹æ˜“é€ æˆ bug
 	for (i=0;i<random(count);i++) {
 		if (!mapp(exits = env->query("exits"))) return 0;
 		dirs = keys(exits);
@@ -51,7 +51,7 @@ void init()
 	if( random(3) == random(4) ) {
 		num = 1+random(me->query("str") * 6 / me->query_dex());
 		me->start_busy(num/2);
-		message_vision(HIW"\n$NÒ»¸öÃ»ÁôÒâ£¬Ò»½Å²ÈÔÚÒ»¿éÏã½¶Æ¤ÉÏÃæ£¬½á¹û»¬ÁËÒ»¸ö´ó¸úÍ·¡£\n"NOR,me);
+		message_vision(HIW"\n$Nä¸€ä¸ªæ²¡ç•™æ„ï¼Œä¸€è„šè¸©åœ¨ä¸€å—é¦™è•‰çš®ä¸Šé¢ï¼Œç»“æœæ»‘äº†ä¸€ä¸ªå¤§è·Ÿå¤´ã€‚\n"NOR,me);
 		flag = 1;
 		call_out("pa", num - 1, me);
 	}
@@ -70,27 +70,27 @@ void pa(object me)
 {
 	flag = 0;
 	if( !me ) return;
-	message_vision(HIW"°ëÉÎ$N²ÅÅÀÁËÆğÀ´¡£$NÆøµÃ²»ÓÉÆÆ¿Ú´óÂî£º¡°ÊÇË­°ÑÏã½¶Æ¤µ½´¦ÂÒÈÓ£¡¡±\n"NOR, me);
+	message_vision(HIW"åŠæ™Œ$Næ‰çˆ¬äº†èµ·æ¥ã€‚$Næ°”å¾—ä¸ç”±ç ´å£å¤§éª‚ï¼šâ€œæ˜¯è°æŠŠé¦™è•‰çš®åˆ°å¤„ä¹±æ‰”ï¼â€\n"NOR, me);
 
 	switch( random(4) ) {
 		case 0: {
-			message_vision(HIY"$N°ÑÏã½¶Æ¤Ò»½Å¸øÌß·ÉÁË¡£\n"NOR,me);
+			message_vision(HIY"$NæŠŠé¦™è•‰çš®ä¸€è„šç»™è¸¢é£äº†ã€‚\n"NOR,me);
 			move(me->query("lastroom"), 1);
-			message_vision("$N·ÉÁË¹ıÀ´¡£\n",this_object());
+			message_vision("$Né£äº†è¿‡æ¥ã€‚\n",this_object());
 		} break;
 		case 1: {
-			message_vision(HIY"$NÔ½ÏëÔ½Æø£¬·¢ÁËºİµÄ¶Ô×ÅÏã½¶Æ¤¿ñ²È¡£\n"NOR,me);
-			message_vision(HIW"ºÃË¬£¡$N·ÉÆğÒ»½Å£¬½«µØÉÏ´ó±ãËÆµÄÒ»ÍÔ¶«Î÷ÌßÁË³öÈ¥£¡\n"NOR,me);
+			message_vision(HIY"$Nè¶Šæƒ³è¶Šæ°”ï¼Œå‘äº†ç‹ çš„å¯¹ç€é¦™è•‰çš®ç‹‚è¸©ã€‚\n"NOR,me);
+			message_vision(HIW"å¥½çˆ½ï¼$Né£èµ·ä¸€è„šï¼Œå°†åœ°ä¸Šå¤§ä¾¿ä¼¼çš„ä¸€é©®ä¸œè¥¿è¸¢äº†å‡ºå»ï¼\n"NOR,me);
 			destruct(this_object());
 		} break;
 		case 2: {
-			message_vision(HIY"$N°ÑÏã½¶Æ¤Ò»½Å¸øÌß·ÉÁË¡£\n"NOR,me);
+			message_vision(HIY"$NæŠŠé¦™è•‰çš®ä¸€è„šç»™è¸¢é£äº†ã€‚\n"NOR,me);
 			move(me->query("lastroom"), 1);
-			message_vision("$N·ÉÁË¹ıÀ´¡£\n",this_object());
+			message_vision("$Né£äº†è¿‡æ¥ã€‚\n",this_object());
 		} break;
 		case 3: {
-			message_vision(HIY"$N»ØÍ·Ò»¿´£¬·¢ÏÖÄÇÏã½¶Æ¤ÒÑ¾­±»²ÈµÄÃ»ÁËÄ£Ñù¡£\n"NOR,me);
-			message_vision(HIW"$N±äÌ¬µÄ¶Ô×Å²ÈÀÃµÄÏã½¶Æ¤ÍÂÁË¼¸¿Ú¿ÚË®£¬½Ó×ÅÌßµ½Ò»±ß£¡\n"NOR,me);
+			message_vision(HIY"$Nå›å¤´ä¸€çœ‹ï¼Œå‘ç°é‚£é¦™è•‰çš®å·²ç»è¢«è¸©çš„æ²¡äº†æ¨¡æ ·ã€‚\n"NOR,me);
+			message_vision(HIW"$Nå˜æ€çš„å¯¹ç€è¸©çƒ‚çš„é¦™è•‰çš®åäº†å‡ å£å£æ°´ï¼Œæ¥ç€è¸¢åˆ°ä¸€è¾¹ï¼\n"NOR,me);
 			destruct(this_object());
 		} break;
         }

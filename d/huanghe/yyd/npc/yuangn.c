@@ -1,4 +1,4 @@
-// yuangn.c Ô¬¹ÚÄÐ
+// yuangn.c è¢å† ç”·
 // zly 99.6.22
 
 #include <ansi.h>
@@ -8,11 +8,11 @@ string ask_yyd();
 void create()
 {
         object ob;
-        set_name("Ô¬¹ÚÄÐ", ({ "yuan guannan", "yuan", "guannan"}));
-        set("gender", "ÄÐÐÔ");
+        set_name("è¢å† ç”·", ({ "yuan guannan", "yuan", "guannan"}));
+        set("gender", "ç”·æ€§");
         set("unique", 1);
         set("age", 22);
-        set("long", "ËûÊÇÒ»¸öÓ¢¿¡µÄÉÙÄêÊéÉú£¬ÊÖÖÐÇáÇáÒ¡×ÅÕÛÉÈ¡£\n");
+        set("long", "ä»–æ˜¯ä¸€ä¸ªè‹±ä¿Šçš„å°‘å¹´ä¹¦ç”Ÿï¼Œæ‰‹ä¸­è½»è½»æ‘‡ç€æŠ˜æ‰‡ã€‚\n");
         set("attitude", "friendly");
         set("shen", 150000);
         set("env/wimpy", 30);
@@ -33,14 +33,14 @@ void create()
 
         set("combat_exp", 1500000);
         
-        set_skill("force", 180);             // »ù±¾ÄÚ¹¦
-        set_skill("huntian-qigong", 180);    // »ìÌìÆø¹¦
-        set_skill("blade", 180);             // »ù±¾µ¶·¨
+        set_skill("force", 180);             // åŸºæœ¬å†…åŠŸ
+        set_skill("huntian-qigong", 180);    // æ··å¤©æ°”åŠŸ
+        set_skill("blade", 180);             // åŸºæœ¬åˆ€æ³•
         set_skill("wuhu-duanmendao", 190);
-//      set_skill("fuqi-daofa", 180);        // ·òÆÞµ¶·¨
-        set_skill("dodge", 180);             // »ù±¾Çá¹¦
-        set_skill("xiaoyaoyou", 180);        // åÐÒ£ÓÎ
-        set_skill("parry", 180);             // »ù±¾ÕÐ¼Ü
+//      set_skill("fuqi-daofa", 180);        // å¤«å¦»åˆ€æ³•
+        set_skill("dodge", 180);             // åŸºæœ¬è½»åŠŸ
+        set_skill("xiaoyaoyou", 180);        // é€é¥æ¸¸
+        set_skill("parry", 180);             // åŸºæœ¬æ‹›æž¶
         
         map_skill("force", "huntian-qigong");
         map_skill("blade", "wuhu-duanmendao");
@@ -49,12 +49,12 @@ void create()
 
         set("chat_chance", 3);
         set("chat_msg", ({
-            "Ô¬¹ÚÄÐ³¤ÉùÒ÷µ½£º¡°»Æ½ðÖðÊÖ¿ìÒâ¾¡£¬×òÈÕÆÆ²ú½ñ³¯Æ¶£¬ÕÉ·òºÎÊÂ¿ÕÐ¥°Á£¿²»ÖªÉÕÈ´Í·ÉÏ½í......¡±\n",
-            "Ô¬¹ÚÄÐ×ÝÉù³¤Ò÷£º¡°Ìì×ÓÖØÓ¢ºÀ£¬ÎÄÕÂ½Ì¶û²Ü£¬Íò°ã½ÔÏÂÆ·£¬Î¨ÓÐ¶ÁÊé¸ß......¡±\n", 
+            "è¢å† ç”·é•¿å£°åŸåˆ°ï¼šâ€œé»„é‡‘é€æ‰‹å¿«æ„å°½ï¼Œæ˜¨æ—¥ç ´äº§ä»Šæœè´«ï¼Œä¸ˆå¤«ä½•äº‹ç©ºå•¸å‚²ï¼Ÿä¸çŸ¥çƒ§å´å¤´ä¸Šå·¾......â€\n",
+            "è¢å† ç”·çºµå£°é•¿åŸï¼šâ€œå¤©å­é‡è‹±è±ªï¼Œæ–‡ç« æ•™å°”æ›¹ï¼Œä¸‡èˆ¬çš†ä¸‹å“ï¼Œå”¯æœ‰è¯»ä¹¦é«˜......â€\n", 
         }) );
 
         set("inquiry", ([
-//           "·òÆÞµ¶·¨"  : (: ask_yyd :),
+//           "å¤«å¦»åˆ€æ³•"  : (: ask_yyd :),
         ]));
 
         setup();
@@ -72,14 +72,14 @@ void create()
 {
         object me=this_player();
         if(me->query_skill("blade", 1) <120)
-                return "ÄãÏÈ°Ñµ¶·¨µÄ»ù´¡´òºÃÔÙËµ°É¡£\n";
+                return "ä½ å…ˆæŠŠåˆ€æ³•çš„åŸºç¡€æ‰“å¥½å†è¯´å§ã€‚\n";
         if(me->query("fuqi"))
-                return "ß×£¬Äã²»ÊÇÒÑ¾­Ñ§µ½ÁË·òÆÞµ¶·¨ÁËÂð£¿\n";
+                return "å’¦ï¼Œä½ ä¸æ˜¯å·²ç»å­¦åˆ°äº†å¤«å¦»åˆ€æ³•äº†å—ï¼Ÿ\n";
         if(me->query_temp("mb"))
-                return "ß×£¬ÎÒ²»ÊÇ¸Õ²Å¸æËßÄãÁËÂð£¿\n";
+                return "å’¦ï¼Œæˆ‘ä¸æ˜¯åˆšæ‰å‘Šè¯‰ä½ äº†å—ï¼Ÿ\n";
         me->set_temp("mb",1);
         command("hmm");
-        command("whisper "+me->query("id")+" ÌýÊ¦¸¸Ê¦Ä¸Ëµ£¬½ÌËûÃÇµ¶·¨µÄ¸ßÉ®Ô²¼ÅÔÚ¼«ÄÏµÄÐ¡µºÉÏ¡£");
-        return "Õâ·òÆÞµ¶·¨£¬ÊÇµ±ÄêÒ»Î»¸ßÉ®´«¸øÎÒµÄÊ¦¸¸µÄ£¬ÄãÈç¹ûÕæÓÐÐÅÐÄºÍÒãÁ¦£¬¾ÍÈ¥ÕÒÄÇÎ»¸ßÉ®°É£¡\n";
+        command("whisper "+me->query("id")+" å¬å¸ˆçˆ¶å¸ˆæ¯è¯´ï¼Œæ•™ä»–ä»¬åˆ€æ³•çš„é«˜åƒ§åœ†å¯‚åœ¨æžå—çš„å°å²›ä¸Šã€‚");
+        return "è¿™å¤«å¦»åˆ€æ³•ï¼Œæ˜¯å½“å¹´ä¸€ä½é«˜åƒ§ä¼ ç»™æˆ‘çš„å¸ˆçˆ¶çš„ï¼Œä½ å¦‚æžœçœŸæœ‰ä¿¡å¿ƒå’Œæ¯…åŠ›ï¼Œå°±åŽ»æ‰¾é‚£ä½é«˜åƒ§å§ï¼\n";
 }
 */

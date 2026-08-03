@@ -1,4 +1,4 @@
-// Npc: keshang.c ¿ÍÉÌ
+// Npc: keshang.c å®¢å•†
 // Date: bobo@SJ 2000/03
 
 inherit NPC;
@@ -6,17 +6,17 @@ inherit NPC;
 
 void create()
 {
-        set_name("¿ÍÉÌ", ({
+        set_name("å®¢å•†", ({
                 "ke shang",
                 "ke",
                 "shang",
         }));
         set("long",
-                "ËûÊÇÒ»Î»¹ıÂ·µÄ¿ÍÉÌ£¬×¼±¸È¥ËÄ´¨½ø»õ¡£\n"
+                "ä»–æ˜¯ä¸€ä½è¿‡è·¯çš„å®¢å•†ï¼Œå‡†å¤‡å»å››å·è¿›è´§ã€‚\n"
         );
 
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "peaceful");
         
 

@@ -1,4 +1,4 @@
-// /kungfu/class/nshaolin/da-chi.c ´ó³Õ
+// /kungfu/class/nshaolin/da-chi.c å¤§ç—´
 // looklove 2001.7.21
 
 inherit NPC;
@@ -6,19 +6,19 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("´ó³Õ´óÊ¦", ({
+        set_name("å¤§ç—´å¤§å¸ˆ", ({
                 "dachi dashi",
                 "dachi",
                 "dashi",
         }));
         set("long",
-                "Ëûº×·¢Í¯ÑÕ£¬Ğ¦Èİ¿ÉŞä£¬¾ÙÊÖÍ¶×ã¼äÏÔÈ»Éí»³¸ßÉîÎä¹¦¡£\n"
+                "ä»–é¹¤å‘ç«¥é¢œï¼Œç¬‘å®¹å¯æ¬ï¼Œä¸¾æ‰‹æŠ•è¶³é—´æ˜¾ç„¶èº«æ€€é«˜æ·±æ­¦åŠŸã€‚\n"
         );
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
-	set("title", "²Ø¾­¸óÖ÷×ù");
+	set("title", "è—ç»é˜ä¸»åº§");
 
         set("age", 62);
         set("shen_type", 100);
@@ -60,7 +60,7 @@ void create()
 		(: perform_action, "leg.ruying" :),
 	}));
 
-        create_family("ÄÏÉÙÁÖ", 22, "µÜ×Ó");
+        create_family("å—å°‘æ—", 22, "å¼Ÿå­");
 
         setup();
 

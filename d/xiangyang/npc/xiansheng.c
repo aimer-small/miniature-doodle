@@ -1,12 +1,12 @@
-// xiansheng.c Ë½ÛÓÏÈÉú
+// xiansheng.c ç§å¡¾å…ˆç”Ÿ
 
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-	set_name("Ë½ÛÓÏÈÉú", ({ "sishu xiansheng", "xiansheng"}));
-	set("long", "ÕâÎ»ÏÈÉúÊÖÀïÅõ×ÅÒ»±¾Êé£¬ÕıÔÚÒ¡Í·»ÎÄÔ¶Á¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("ç§å¡¾å…ˆç”Ÿ", ({ "sishu xiansheng", "xiansheng"}));
+	set("long", "è¿™ä½å…ˆç”Ÿæ‰‹é‡Œæ§ç€ä¸€æœ¬ä¹¦ï¼Œæ­£åœ¨æ‘‡å¤´æ™ƒè„‘è¯»ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 22);
 	set("shen_type", 1);
 
@@ -26,7 +26,7 @@ int recognize_apprentice(object ob)
         int money = 50, level = ob->query_skill("literate", 1);
 
         if (level > ob->query("int")*10){
-                message_vision(CYN"\n$N¶Ô×Å$n¶ËÏêÁËÒ»·¬µÀ£º¡°ÄãÒòÏÈÌìËùÖÆ£¬ÒÑÎŞ·¨ÔÙ½øĞŞ¸ü¸ßÉîµÄÑ§ÎÊÁË¡£¡±\n"NOR, this_object(), ob);
+                message_vision(CYN"\n$Nå¯¹ç€$nç«¯è¯¦äº†ä¸€ç•ªé“ï¼šâ€œä½ å› å…ˆå¤©æ‰€åˆ¶ï¼Œå·²æ— æ³•å†è¿›ä¿®æ›´é«˜æ·±çš„å­¦é—®äº†ã€‚â€\n"NOR, this_object(), ob);
                 return 0;
         }
 

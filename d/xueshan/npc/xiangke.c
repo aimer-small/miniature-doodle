@@ -1,4 +1,4 @@
-// xiangke.c ½øÏã¿Í
+// xiangke.c è¿›é¦™å®¢
 // by iceland
 
 inherit NPC;
@@ -28,13 +28,13 @@ switch (random(3)){
 
       set_name(name, ({"jinxiang ke","jinxiangke","ke"}));
 	set("long",@LONG
-ËûÊÇÒ»Ãû½øÏã¿Í£¬ÂúÁ³ò¯³ÏµÄÑù×Ó£¬ÊÖÖĞÄÃÁËĞ©²ØÏã¡¢À¯ÖòµÈÎï£¬²±×ÓÉÏ»¹¹Ò×Å¸öÏã´ü¡£
+ä»–æ˜¯ä¸€åè¿›é¦™å®¢ï¼Œæ»¡è„¸è™”è¯šçš„æ ·å­ï¼Œæ‰‹ä¸­æ‹¿äº†äº›è—é¦™ã€èœ¡çƒ›ç­‰ç‰©ï¼Œè„–å­ä¸Šè¿˜æŒ‚ç€ä¸ªé¦™è¢‹ã€‚
 LONG
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "heroism");
-	set("title" , "½øÏã¿Í");
+	set("title" , "è¿›é¦™å®¢");
 	set("age", random(20)+20);
 	set("shen_type", 0);
 	set("str", random(10)+10);

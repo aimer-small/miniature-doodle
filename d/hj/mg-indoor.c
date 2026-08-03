@@ -1,19 +1,19 @@
-// mg-indoor.c ÃÔ¹¬´óÃÅ
+// mg-indoor.c è¿·å®«å¤§é—¨
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 {
-        set("short", CYN "¸ß²ıÃÔ¹¬" NOR);
-        set("long", "Í»È»Ö®¼ä£¬ÑÛÇ°»íÈ»¿ªÀÊ£¬³öÏÖÒ»´óÆ¬¿ÕµØ£¬¾¡Í·´¦ÓÖÓĞÁ½ÉÈ"HIM"ÌúÃÅ"NOR"(tiemen)£¬
-Ç¶ÔÚ´óÉ½ÑÒÖĞ¡£¼¸µ½ÁÁ¹â´ÓÃÅ·ìÖĞÉä³öÀ´¡£\n");
+        set("short", CYN "é«˜æ˜Œè¿·å®«" NOR);
+        set("long", "çªç„¶ä¹‹é—´ï¼Œçœ¼å‰è±ç„¶å¼€æœ—ï¼Œå‡ºç°ä¸€å¤§ç‰‡ç©ºåœ°ï¼Œå°½å¤´å¤„åˆæœ‰ä¸¤æ‰‡"HIM"é“é—¨"NOR"(tiemen)ï¼Œ
+åµŒåœ¨å¤§å±±å²©ä¸­ã€‚å‡ åˆ°äº®å…‰ä»é—¨ç¼ä¸­å°„å‡ºæ¥ã€‚\n");
         set("exits", ([
               "east" : __DIR__"mg3",
               "west" : __DIR__"mg4",           
         ]));        
         set("no_sleep_room", 1);
         set("item_desc",([           
-         "tiemen" : "ÌúÃÅÒÀÏ¡ÁÑ¿ªÁËÒ»Ìõ·ì£¬´ÓÀïÃæÍ¸³öÁËÒ»Ë¿¹âÁÁ¡£ÄãÓ¦¸Ã¿ÉÒÔ´ò¿ª(open)Ëü¡£\n", 
+         "tiemen" : "é“é—¨ä¾ç¨€è£‚å¼€äº†ä¸€æ¡ç¼ï¼Œä»é‡Œé¢é€å‡ºäº†ä¸€ä¸å…‰äº®ã€‚ä½ åº”è¯¥å¯ä»¥æ‰“å¼€(open)å®ƒã€‚\n", 
 	]));
         setup(); 
 }
@@ -30,13 +30,13 @@ int do_move(string arg)
         if(!(room = find_object(__DIR__"tianjin")))
         room = load_object(__DIR__"tianjin");
         if(!room->query("exits")){
-          message("vision","Í»È»´ÓÌúÃÅÀï´«³öÒ»Õó´òÉù£¬¿´À´»¹ÊÇ²»Òª´ò¿ªÌúÃÅÎªºÃ¡£\n", this_object() );
+          message("vision","çªç„¶ä»é“é—¨é‡Œä¼ å‡ºä¸€é˜µæ‰“å£°ï¼Œçœ‹æ¥è¿˜æ˜¯ä¸è¦æ‰“å¼€é“é—¨ä¸ºå¥½ã€‚\n", this_object() );
           return 1;
         }       
-        message("vision","ÌúÃÅºöÈ»·¢³öÔşÔşµÄÉùÒô£¬ÏòÒ»²à»º»ºÒÆ¿ª£¬Â¶³öÒ»¸ö¹âÁÁµÄ³ö¿Ú¡£\n", this_object() );
+        message("vision","é“é—¨å¿½ç„¶å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œå‘ä¸€ä¾§ç¼“ç¼“ç§»å¼€ï¼Œéœ²å‡ºä¸€ä¸ªå…‰äº®çš„å‡ºå£ã€‚\n", this_object() );
         set("exits/northup", __DIR__"tianjin");
         room->set("exits/southdown", __FILE__);
-        message("vision", "ÌúÃÅºöÈ»·¢³öÔşÔşµÄÉùÒô£¬Â¶³öÒ»¸ö³ö¿Ú¡£\n",room );  
+        message("vision", "é“é—¨å¿½ç„¶å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œéœ²å‡ºä¸€ä¸ªå‡ºå£ã€‚\n",room );  
         remove_call_out("close_door");
         call_out("close_door", 5);
         return 1;
@@ -46,10 +46,10 @@ void close_door()
 {
         object room;
         if( !query("exits/northup") ) return;
-          message("vision","ºöÈ»Ò»ÕóÔşÔşµÄÉùÒô£¬ÌúÃÅÓÖ»º»ºµØºÏÉÏÁË¡£\n", this_object() );
+          message("vision","å¿½ç„¶ä¸€é˜µè½§è½§çš„å£°éŸ³ï¼Œé“é—¨åˆç¼“ç¼“åœ°åˆä¸Šäº†ã€‚\n", this_object() );
         if( room = load_object(__DIR__"tianjin") ) {
                 room->delete("exits/southdown");
-                message("vision", "ÌúÃÅºöÈ»·¢³öÔşÔşµÄÉùÒô£¬»º»ºµØÒÆ»ØÔ­´¦£¬½«³ö¿ÚÕÚ×¡ÁË¡£\n", room );
+                message("vision", "é“é—¨å¿½ç„¶å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œç¼“ç¼“åœ°ç§»å›åŸå¤„ï¼Œå°†å‡ºå£é®ä½äº†ã€‚\n", room );
         }
         delete("exits/northup");
 }

@@ -1,13 +1,13 @@
-//chuzi.c ³ø×Ó
+//chuzi.c å¨å­
 inherit NPC;
 #include <ansi.h>
 string ask_water();
 string ask_food();
 void create()
 {
-        set_name("³ø×Ó",({"chu zi", "chuzi"}));
-        set("long","ËûÒÔÇ°ÊÇ»Ê¼ÒµÄÓù³ø£¬»ÊÉÏ½«ËûËÍµ½áÔÉ½ÕÆ¹ÜáÔÉ½ÅÉµÜ×ÓµÄÒûÊ³¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("å¨å­",({"chu zi", "chuzi"}));
+        set("long","ä»–ä»¥å‰æ˜¯çš‡å®¶çš„å¾¡å¨ï¼Œçš‡ä¸Šå°†ä»–é€åˆ°åµ©å±±æŒç®¡åµ©å±±æ´¾å¼Ÿå­çš„é¥®é£Ÿã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 36);
         set("attitude", "friendly");
         set("max_qi", 300);
@@ -22,8 +22,8 @@ void create()
         set_skill("force", 20);
         set_skill("sword", 20);
         set("inquiry", ([
-              "Ë®" : (: ask_water :),
-              "Ê³Îï" : (:ask_food:),
+              "æ°´" : (: ask_water :),
+              "é£Ÿç‰©" : (:ask_food:),
         ]));
         setup();
         carry_object(ARMOR_D("cloth"))->wear();
@@ -42,8 +42,8 @@ void init()
 void greeting(object ob)
 {
         if( !ob || environment(ob) != environment() ) return;
-        say(CYN"³ø×ÓĞ¦×ÅËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-             + "£¬ÄúÀ´³¢³¢ÎÒµÄÊÖÒÕ¡£\n"NOR);
+        say(CYN"å¨å­ç¬‘ç€è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+             + "ï¼Œæ‚¨æ¥å°å°æˆ‘çš„æ‰‹è‰ºã€‚\n"NOR);
 }
 
 string ask_water()
@@ -53,14 +53,14 @@ string ask_water()
         ob=this_object();
         me=this_player();
         if ((me->query("water")*10/me->max_water_capacity())>8)
-                return "ÄãÔõÃ´ºÈ±¥ÁË»¹ÏëÒª£¿";
+                return "ä½ æ€ä¹ˆå–é¥±äº†è¿˜æƒ³è¦ï¼Ÿ";
         if ( present("suanmei tang", this_player()))
-                return "ÏÈºÈÍêÁËÎÒ¸øÄãµÄÔÙËµ°É¡£";
+                return "å…ˆå–å®Œäº†æˆ‘ç»™ä½ çš„å†è¯´å§ã€‚";
         if ( present("suanmei tang",  environment(me)) )
-                return "ÄÇ²»ÊÇÓĞÂğ£¿ÏÈºÈÍêÁËÔÙËµ¡£";
+                return "é‚£ä¸æ˜¯æœ‰å—ï¼Ÿå…ˆå–å®Œäº†å†è¯´ã€‚";
         ob=new(FOOD_D("tang"));
         ob->move(environment(this_object()));
-        return "Õâ±­ÓÖÌğÓÖÈÈµÄËáÃ·ÌÀ¸øÄã°É£¬ÇëÂıµãºÈÓ´¡£";
+        return "è¿™æ¯åˆç”œåˆçƒ­çš„é…¸æ¢…æ±¤ç»™ä½ å§ï¼Œè¯·æ…¢ç‚¹å–å“Ÿã€‚";
 }
 
 string ask_food()
@@ -70,12 +70,12 @@ string ask_food()
         ob=this_object();
         me=this_player();
         if ((me->query("food")*10/me->max_water_capacity())>8)
-                return "ÄãÔõÃ´³Ô±¥ÁË»¹ÏëÒª£¿";
+                return "ä½ æ€ä¹ˆåƒé¥±äº†è¿˜æƒ³è¦ï¼Ÿ";
         if ( present("zongzi", this_player()))
-                return "ÏÈ³ÔÍêÁËÎÒ¸øÄãµÄÔÙËµ°É¡£";
+                return "å…ˆåƒå®Œäº†æˆ‘ç»™ä½ çš„å†è¯´å§ã€‚";
         if ( present("zongzi",  environment(me)) )
-                return "ÄÇ²»ÊÇÓĞÂğ£¿ÏÈ³ÔÍêÁËÔÙËµ¡£";
+                return "é‚£ä¸æ˜¯æœ‰å—ï¼Ÿå…ˆåƒå®Œäº†å†è¯´ã€‚";
         ob=new(random(2)==1?FOOD_D("liji"):FOOD_D("mantou"));
         ob->move(environment(this_object()));
-        return "À´£¬³¢³¢°É£¬¿´ÎÒµÄÊÖÒÕÈçºÎ£¡";
+        return "æ¥ï¼Œå°å°å§ï¼Œçœ‹æˆ‘çš„æ‰‹è‰ºå¦‚ä½•ï¼";
 }

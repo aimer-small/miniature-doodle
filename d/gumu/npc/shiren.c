@@ -1,13 +1,13 @@
-// shiren.c Ê¯ÈË
+// shiren.c çŸ³äºº
 
 inherit NPC;
 
 void create()
 {
-        set_name("Ê¯ÈË", ({ "shi ren", "ren", "stone man", "stone" }) );
-        set("gender", "ÄÐÐÔ" );
+        set_name("çŸ³äºº", ({ "shi ren", "ren", "stone man", "stone" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 30);
-        set("long", "Ò»¸ö¹ÅÄ¹µÜ×ÓÁ·¹¦ÓÃµÄÊ¯ÈË£¬ÖÆ×÷¾«ÇÉ£¬ÈçÍ¬ÕæÈËÒ»°ã¡£\n");
+        set("long", "ä¸€ä¸ªå¤å¢“å¼Ÿå­ç»ƒåŠŸç”¨çš„çŸ³äººï¼Œåˆ¶ä½œç²¾å·§ï¼Œå¦‚åŒçœŸäººä¸€èˆ¬ã€‚\n");
         set("mute", 1);
         set("attitude", "heroism");
         set_weight(30000000);
@@ -56,7 +56,7 @@ int accept_fight(object ob)
                 me->set("damaged", 1);
 
         if (me->query("damaged"))
-                return notify_fail("Õâ¸öÊ¯ÈËÒÑ¾­±»´ò»µÁË£¡\n"); 
+                return notify_fail("è¿™ä¸ªçŸ³äººå·²ç»è¢«æ‰“åäº†ï¼\n"); 
 
         if (me->query("last_fighter") == ob->query("id"))
                 return 1;
@@ -129,14 +129,14 @@ void renewing(object me)
 
 void unconcious()
 {
-        message_vision("\n$N¿©Ö¨Ò»Éù£¬É¢ÁË¼Ü£¬±ä³ÉÁËÒ»¶ÑÊ¯Í·¡£\n", this_object());
+        message_vision("\n$Nå’¯å±ä¸€å£°ï¼Œæ•£äº†æž¶ï¼Œå˜æˆäº†ä¸€å †çŸ³å¤´ã€‚\n", this_object());
         new("/d/gumu/obj/stone")->move(environment(this_object()));
         destruct(this_object());
 }
 
 void die()
 {
-        message_vision("\n$N¿©Ö¨Ò»Éù£¬É¢ÁË¼Ü£¬±ä³ÉÁËÒ»¶ÑÊ¯Í·¡£\n", this_object());
+        message_vision("\n$Nå’¯å±ä¸€å£°ï¼Œæ•£äº†æž¶ï¼Œå˜æˆäº†ä¸€å †çŸ³å¤´ã€‚\n", this_object());
         new("/d/gumu/obj/stone")->move(environment(this_object()));
         destruct(this_object());
 }

@@ -1,4 +1,4 @@
-// youcha.c  ËÖÓÍ²è
+// youcha.c  é…¥æ²¹èŒ¶
 
 inherit ITEM;
 
@@ -6,13 +6,13 @@ void init();
 
 void create()
 {
-	set_name("ËÖÓÍ²è", ({"suyou cha","tea","cha"}));
+	set_name("é…¥æ²¹èŒ¶", ({"suyou cha","tea","cha"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»Íë»ìºÏ×ÅËÖÓÍ£¬ÂíÄÌºÍ²è×©µÄËÖÓÍ²è£¬ÊÇÎ÷²ØµØÇøµÄÌØ²úÊ³Æ·¡£\n");
-		set("unit", "Íë");
+		set("long", "ä¸€ç¢—æ··åˆç€é…¥æ²¹ï¼Œé©¬å¥¶å’ŒèŒ¶ç –çš„é…¥æ²¹èŒ¶ï¼Œæ˜¯è¥¿è—åœ°åŒºçš„ç‰¹äº§é£Ÿå“ã€‚\n");
+		set("unit", "ç¢—");
 		set("value", 80);
 	        set("drink_supply", 10);
 		set("food_supply", 10);
@@ -31,18 +31,18 @@ int do_drink(string arg)
 	object me = this_player();
 
 	if (!id(arg)) return 0;
-	if (me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if (me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if (me->query("water") >= me->max_water_capacity())
-		return notify_fail("ÄãÒÑ¾­ºÈµÃÌ«¶àÁË£¬ÔÙÒ²¹à²»ÏÂÒ»µÎË®ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»å–å¾—å¤ªå¤šäº†ï¼Œå†ä¹ŸçŒä¸ä¸‹ä¸€æ»´æ°´äº†ã€‚\n");
 
 	set("value", 0);
 	me->add("water", query("drink_supply"));
 	if (me->query("food") < me->max_food_capacity())
 		me->add("food", query("food_supply"));
 	if (add("remaining", -1))
-		message_vision("$N¶ËÆğÒ»ÍëËÖÓÍ²èºÈÁËÒ»´ó¿Ú£¬³¤³öÁË¿ÚÆø£¬ÂúÒâµÄµãÁËµãÍ·¡£\n", me);
+		message_vision("$Nç«¯èµ·ä¸€ç¢—é…¥æ²¹èŒ¶å–äº†ä¸€å¤§å£ï¼Œé•¿å‡ºäº†å£æ°”ï¼Œæ»¡æ„çš„ç‚¹äº†ç‚¹å¤´ã€‚\n", me);
 	else { 
-		message_vision("$NÑö²±°ÑÊ£ÏÂµÄËÖÓÍ²èÒ»Òû¶ø¾¡£¬Ë³ÊÖÓÃÒÂĞäÔÚ×ì±ßÄ¨ÁËÄ¨¡£\n", me);
+		message_vision("$Nä»°è„–æŠŠå‰©ä¸‹çš„é…¥æ²¹èŒ¶ä¸€é¥®è€Œå°½ï¼Œé¡ºæ‰‹ç”¨è¡£è¢–åœ¨å˜´è¾¹æŠ¹äº†æŠ¹ã€‚\n", me);
 		destruct(this_object());
 	}
 	return 1;

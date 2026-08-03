@@ -7,18 +7,18 @@
 inherit ROOM;
 void create()
 { 
-       set("short","ÃØµÀ");
+       set("short","ç§˜é“");
        set("long", @LONG
-ÕâÀïÊÇÃØµÀµÄ¾¡Í·¡£ËÄÖÜ½ÔÊÇÊ¯±Ú¡£Ê¯±ÚÉÏÓÐ¼¸´¦ËéÊ¯ÍÑÂä£¬Â¶³öµÄµØ·½
-ºÃÏóÊÇ¼¸¿éÊ¯×©(zhuan)¡£ÄÏ±ßÊÇÒ»¼ä²Ø±øÆ÷µÄµØ·½¡£
+è¿™é‡Œæ˜¯ç§˜é“çš„å°½å¤´ã€‚å››å‘¨çš†æ˜¯çŸ³å£ã€‚çŸ³å£ä¸Šæœ‰å‡ å¤„ç¢ŽçŸ³è„±è½ï¼Œéœ²å‡ºçš„åœ°æ–¹
+å¥½è±¡æ˜¯å‡ å—çŸ³ç –(zhuan)ã€‚å—è¾¹æ˜¯ä¸€é—´è—å…µå™¨çš„åœ°æ–¹ã€‚
 LONG);    
        set("exits", ([
                 "westup" : __DIR__"bidao11",
                 "south" : __DIR__"bidao13",
        ]));             
        set("item_desc", ([
-               "wall" : "Ê¯±Ú£¬»¹ÊÇÊ¯±Ú£¬ËÄÖÜ½ÔÎªÊ¯±Ú¡£\n",
-               "zhuan" : "Ê¯±ÚÉÏÂ¶³öµÄ¼¸¿éÊ¯×©¡£\n"
+               "wall" : "çŸ³å£ï¼Œè¿˜æ˜¯çŸ³å£ï¼Œå››å‘¨çš†ä¸ºçŸ³å£ã€‚\n",
+               "zhuan" : "çŸ³å£ä¸Šéœ²å‡ºçš„å‡ å—çŸ³ç –ã€‚\n"
        ]));            
        setup();
 }
@@ -26,7 +26,7 @@ LONG);
 void check_trigger()
 {
         if((int)query("pull_trigger")==4){
-           message("vision", "\nÄãÂýÂýµÄ´ÓÊ¯±ÚÉÏÈ¡ÏÂËÄ¿éÊ¯×©£¬Â¶³öÁËÒ»¸ö¶´¿Ú£¬Ç¡ºÃÄÜÈÚÈëÒ»ÈË½øÈë¡£\n", this_object());
+           message("vision", "\nä½ æ…¢æ…¢çš„ä»ŽçŸ³å£ä¸Šå–ä¸‹å››å—çŸ³ç –ï¼Œéœ²å‡ºäº†ä¸€ä¸ªæ´žå£ï¼Œæ°å¥½èƒ½èžå…¥ä¸€äººè¿›å…¥ã€‚\n", this_object());
            set("exits/enter", __DIR__"bidao14");
            delete("pull_trigger");
            remove_call_out("close_passage");
@@ -37,7 +37,7 @@ void check_trigger()
 void close_passage()
 {
         if(!query("exits/enter")) return;
-         message("vision", "Ê¯×©ËúÁËÏÂÀ´£¬½«Èë¿Ú´¦¶Â×¡ÁË¡£\n", this_object());
+         message("vision", "çŸ³ç –å¡Œäº†ä¸‹æ¥ï¼Œå°†å…¥å£å¤„å µä½äº†ã€‚\n", this_object());
          delete("exits/enter");
 }
 
@@ -50,26 +50,26 @@ int do_pull(string arg)
 {
         if( !arg || arg=="" ) return 0;
         if( this_player()->is_busy() || this_player()->is_fighting())
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ£¡\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
         if (this_player()->query_skill("force", 1 ) < 140) 
-                return notify_fail("ÄãÉîÉîµÄÎüÁË¿ÚÆø£¬ÓÃÁ¦µÄÍÆ£¬ÎÞÄÎÄÚÁ¦²»¹»£¬È·ÊµÍÆ²»¶¯£¡\n");
+                return notify_fail("ä½ æ·±æ·±çš„å¸äº†å£æ°”ï¼Œç”¨åŠ›çš„æŽ¨ï¼Œæ— å¥ˆå†…åŠ›ä¸å¤Ÿï¼Œç¡®å®žæŽ¨ä¸åŠ¨ï¼\n");
         if (arg=="zhuan")
-               return notify_fail("ÄãÎüÁËÒ»¿ÚÆø£¬¶Ô×ÅÊ¯×©Ò»À­£¬¸Ð¾õÕâ¿é×©¿ÉÒÔÉÏÏÂ×óÓÒ»î¶¯¡£\n");
-        if (arg=="Ê¯×©")
-                return notify_fail("ÄãÎüÁËÒ»¿ÚÆø£¬ÓÃÁ¦¶Ô×ÅÊ¯×©Ò»À­£¬½á¹ûºÁÌì¶¯¾²¡£\n");
+               return notify_fail("ä½ å¸äº†ä¸€å£æ°”ï¼Œå¯¹ç€çŸ³ç –ä¸€æ‹‰ï¼Œæ„Ÿè§‰è¿™å—ç –å¯ä»¥ä¸Šä¸‹å·¦å³æ´»åŠ¨ã€‚\n");
+        if (arg=="çŸ³ç –")
+                return notify_fail("ä½ å¸äº†ä¸€å£æ°”ï¼Œç”¨åŠ›å¯¹ç€çŸ³ç –ä¸€æ‹‰ï¼Œç»“æžœæ¯«å¤©åŠ¨é™ã€‚\n");
         if (arg=="zhuan left")
-                return notify_fail("ÄãÎüÁËÒ»¿ÚÆø£¬ÓÃÁ¦¶Ô×ÅÊ¯×©Ïò×óÒ»À­£¬½á¹ûºÁÌì¶¯¾²¡£\n");
+                return notify_fail("ä½ å¸äº†ä¸€å£æ°”ï¼Œç”¨åŠ›å¯¹ç€çŸ³ç –å‘å·¦ä¸€æ‹‰ï¼Œç»“æžœæ¯«å¤©åŠ¨é™ã€‚\n");
         if (arg=="zhuan right")
-                return notify_fail("ÄãÎüÁËÒ»¿ÚÆø£¬ÓÃÁ¦¶Ô×ÅÊ¯×©ÏòÓÒÒ»À­£¬½á¹ûºÁÌì¶¯¾²¡£\n");
+                return notify_fail("ä½ å¸äº†ä¸€å£æ°”ï¼Œç”¨åŠ›å¯¹ç€çŸ³ç –å‘å³ä¸€æ‹‰ï¼Œç»“æžœæ¯«å¤©åŠ¨é™ã€‚\n");
         if (arg=="zhuan down"){
-                message_vision("$NÎüÁË¿ÚÆø£¬È¡ÏÂÁËÒ»¿éÊ¯×©¡£\n",this_player());
+                message_vision("$Nå¸äº†å£æ°”ï¼Œå–ä¸‹äº†ä¸€å—çŸ³ç –ã€‚\n",this_player());
                 add("pull_trigger", 1);
                 this_player()->start_busy(1);
                 check_trigger();
                 return 1;
         }
         else{
-             write("ÄãÒª¸ÉÊ²Ã´£¿\n");
+             write("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
              return 1;
         }
 }
@@ -86,9 +86,9 @@ int valid_leave(object me,string dir)
        object *inv = deep_inventory(me);
        object *obj;   
        if( me->query("combat_exp") < 350000 && dir == "enter")
-            return notify_fail("Äã²»ÖªµÀÀïÃæÓÐÊ²Ã´£¬ÐÄÉúµ¨ÇÓ²»ÓÉÊÕ»ØÁËÂõ³öµÄ²½×Ó¡£\n");  
+            return notify_fail("ä½ ä¸çŸ¥é“é‡Œé¢æœ‰ä»€ä¹ˆï¼Œå¿ƒç”Ÿèƒ†æ€¯ä¸ç”±æ”¶å›žäº†è¿ˆå‡ºçš„æ­¥å­ã€‚\n");  
        obj = filter_array(inv,(:get_object:));
        if( sizeof(obj) && dir =="enter")
-         return notify_fail ("Ã÷½ÌÖØµØ£¬²»Ðí´øÈË½øÈëÁË£¡\n");
+         return notify_fail ("æ˜Žæ•™é‡åœ°ï¼Œä¸è®¸å¸¦äººè¿›å…¥äº†ï¼\n");
        return ::valid_leave(me, dir);
 }

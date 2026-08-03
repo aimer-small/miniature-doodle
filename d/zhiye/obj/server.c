@@ -1,4 +1,4 @@
-// mine.c ¿óÊ¯
+// mine.c çŸ¿çŸ³
 //Modified By ChinaNet
 //By 2004/1/11
 
@@ -8,17 +8,17 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIR"ÉñÃØÔÉÌú"NOR, ({"yuntie"}));
+        set_name(HIR"ç¥ç§˜é™¨é“"NOR, ({"yuntie"}));
        
         if (clonep())
                 set_default_object(__FILE__);
         else 
         {
-                set("unit", "¿é");
+                set("unit", "å—");
                 set("weight", 800);
-                set("long",HIR"Ò»¿é¼«ÆäÉñÃØµÄÔÉÌú£¬¾İËµ´ÓÌì¶ø½µ¡£\n"NOR);
-                set("no_get","Õâ¿é¿óÊ¯ÕâÃ´ÖØ£¬Äã°á²»ÆğÀ´¡£\n");
-                set("no_drop","±ğÂÒÈÓÊ¯Í·£¬ÔÒµ½ÈËÔõÃ´°ì£¿\n");
+                set("long",HIR"ä¸€å—æå…¶ç¥ç§˜çš„é™¨é“ï¼Œæ®è¯´ä»å¤©è€Œé™ã€‚\n"NOR);
+                set("no_get","è¿™å—çŸ¿çŸ³è¿™ä¹ˆé‡ï¼Œä½ æ¬ä¸èµ·æ¥ã€‚\n");
+                set("no_drop","åˆ«ä¹±æ‰”çŸ³å¤´ï¼Œç ¸åˆ°äººæ€ä¹ˆåŠï¼Ÿ\n");
                 set("material", "stone");
                 set("value",10000+random(5000));
         }

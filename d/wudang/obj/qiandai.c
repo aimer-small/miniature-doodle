@@ -1,4 +1,4 @@
-// OBJ : /d/wudang/obj/qiandai.c Ç¦´ü
+// OBJ : /d/wudang/obj/qiandai.c é“…è¢‹
 // By lius 99/8
 
 #include <armor.h>
@@ -8,19 +8,19 @@ inherit BOOTS;
 
 void create()
 {
-        set_name( WHT"Ç¦´ü"NOR, ({ "qian dai", "dai" }) );
+        set_name( WHT"é“…è¢‹"NOR, ({ "qian dai", "dai" }) );
         set_weight(6000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸±");
-                set("long", "Ò»¸±ÀïÃæÌî³äÁËÇ¦¿éµÄÌõ´ü£¬ÊÇÎäµ±µÜ×ÓÁ·Ï°Çá¹¦µÄ¸¨¾ß¡£\n");
+                set("unit", "å‰¯");
+                set("long", "ä¸€å‰¯é‡Œé¢å¡«å……äº†é“…å—çš„æ¡è¢‹ï¼Œæ˜¯æ­¦å½“å¼Ÿå­ç»ƒä¹ è½»åŠŸçš„è¾…å…·ã€‚\n");
                 set("value", 6000);
                 set("material", "boots");
                 set("armor_prop/armor", 8);
                 set("wudang",1);
-set("wear_msg","$NÄÃ³öÒ»¸±Ç¦´ü½ô½ôµØ°óÔÚÍÈÉÏ¡£\n"NOR);
-set("remove_msg","$N°ÑÇ¦´ü´ÓÍÈ½âÈ¡ÁËÏÂÀ´£¬¶ÙÊ±¾õµÃÉíÇáÈçÑà¡£\n"NOR);
+set("wear_msg","$Næ‹¿å‡ºä¸€å‰¯é“…è¢‹ç´§ç´§åœ°ç»‘åœ¨è…¿ä¸Šã€‚\n"NOR);
+set("remove_msg","$NæŠŠé“…è¢‹ä»è…¿è§£å–äº†ä¸‹æ¥ï¼Œé¡¿æ—¶è§‰å¾—èº«è½»å¦‚ç‡•ã€‚\n"NOR);
         }
         setup();
 }

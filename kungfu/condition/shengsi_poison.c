@@ -7,10 +7,10 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
 	if( !living(me))
-		message("vision", me->name() + "ÀäµÃÈ«Éí³é´¤£¬ÒÑÀä³ÉÒ»ÍÅ¡£\n", environment(me), me);
+		message("vision", me->name() + "å†·å¾—å…¨èº«æŠ½æï¼Œå·²å†·æˆä¸€å›¢ã€‚\n", environment(me), me);
 	else {
-		tell_object(me, WHT "ÄãÂéÑ÷ÄÑµ±£¬Ö±ÈçÇ§Ç§ÍòÍòÖ»ÂìÒÏÍ¬Ê±ÔÚÒ§ÄöÒ»°ã£¡\n" NOR );
-		message("vision", me->name() + "Á³ÉÏÒ»Õóºì£¬Ò»Õó°×£¬Ë«ÊÖÂÒÎè£¬Çé×´¿É²ÀÒÑ¼«¡£\n", environment(me), me);
+		tell_object(me, WHT "ä½ éº»ç—’éš¾å½“ï¼Œç›´å¦‚åƒåƒä¸‡ä¸‡åªèš‚èšåŒæ—¶åœ¨å’¬å•®ä¸€èˆ¬ï¼\n" NOR );
+		message("vision", me->name() + "è„¸ä¸Šä¸€é˜µçº¢ï¼Œä¸€é˜µç™½ï¼ŒåŒæ‰‹ä¹±èˆžï¼Œæƒ…çŠ¶å¯æ€–å·²æžã€‚\n", environment(me), me);
 	}
 	me->receive_damage("qi", 300+random(300));
 
@@ -20,7 +20,7 @@ int update_condition(object me, int duration)
 		me->receive_wound("qi", 500+random(400));
 
 	me->add_busy(10+random(10));
-	me->set_temp("last_damage_from", "ÉúËÀ·û·¢×÷");
+	me->set_temp("last_damage_from", "ç”Ÿæ­»ç¬¦å‘ä½œ");
 	me->apply_condition("shengsi_poison", duration - 1);
 	if( duration < 2 ) return 0;
 	return CND_CONTINUE & CND_NO_HEAL_UP;

@@ -1,4 +1,4 @@
-// boluoxing.c ²¨ÂŞĞÇ
+// boluoxing.c æ³¢ç½—æ˜Ÿ
 // by iceland
 
 #include <ansi.h>
@@ -8,14 +8,14 @@ string ask_xueputi();
 
 void create()
 {
-	set_name("²¨ÂŞĞÇ", ({ "boluo xing", "boluoxing" ,"boluo","xing"}));
+	set_name("æ³¢ç½—æ˜Ÿ", ({ "boluo xing", "boluoxing" ,"boluo","xing"}));
 	set("long",@LONG
-Ëû³¤µÃÉí²Ä°«Ğ¡£¬ÂúÁ³·çËªÖ®É«£¬ò¥ÏÂÁô×ÅºìÉ«µÄ¶ÌĞë£¬´ò×Å¾í¾í¡£ËûÊÇ¸öÎ÷ÓòºúÈË£¬
-ÒòÎªÑöÄ½´óÂÖËÂµÄ·ğ·¨ºÍÎä¹¦£¬ËùÒÔºÍÊ¦ĞÖÀ´´ËĞŞĞĞ¡£
+ä»–é•¿å¾—èº«æçŸ®å°ï¼Œæ»¡è„¸é£éœœä¹‹è‰²ï¼Œé¢”ä¸‹ç•™ç€çº¢è‰²çš„çŸ­é¡»ï¼Œæ‰“ç€å·å·ã€‚ä»–æ˜¯ä¸ªè¥¿åŸŸèƒ¡äººï¼Œ
+å› ä¸ºä»°æ…•å¤§è½®å¯ºçš„ä½›æ³•å’Œæ­¦åŠŸï¼Œæ‰€ä»¥å’Œå¸ˆå…„æ¥æ­¤ä¿®è¡Œã€‚
 LONG
 	);
-	set("title", HIY "´óÂÖËÂµÚÊ®¶ş´úµÜ×Ó" NOR);
-	set("gender", "ÄĞĞÔ");
+	set("title", HIY "å¤§è½®å¯ºç¬¬åäºŒä»£å¼Ÿå­" NOR);
+	set("gender", "ç”·æ€§");
 	set("age", 29);
 	set("attitude", "heroism");
 	set("shen_type", -1);
@@ -56,11 +56,11 @@ LONG
 	prepare_skill("hand","dashou-yin");
 	prepare_skill("claw","tianwang-zhua");
 
-	create_family("´óÂÖËÂ", 13, "µÜ×Ó");
+	create_family("å¤§è½®å¯º", 13, "å¼Ÿå­");
 	set("class", "huanxi");
 
 	set("inquiry", ([
-//		"ÑªÆĞÌá" : (: ask_xueputi :),
+//		"è¡€è©æ" : (: ask_xueputi :),
 	]));
 	set("puti_count", 1 + random(4));
 
@@ -74,26 +74,26 @@ string ask_xueputi()
 	mapping fam; 
 	object ob;
         
-	if (!(fam = this_player()->query("family")) || fam["family_name"] !="´óÂÖËÂ")
-		return RANK_D->query_respect(this_player())+ "²»ÊÇ±¾ÅÉµÜ×Ó£¬ÔõÃ´¶Ô±¾ÅÉÁéÒ©Ò²´¹ÏÑÈı³ßÑ½£¿";
+	if (!(fam = this_player()->query("family")) || fam["family_name"] !="å¤§è½®å¯º")
+		return RANK_D->query_respect(this_player())+ "ä¸æ˜¯æœ¬æ´¾å¼Ÿå­ï¼Œæ€ä¹ˆå¯¹æœ¬æ´¾çµè¯ä¹Ÿå‚æ¶ä¸‰å°ºå‘€ï¼Ÿ";
 
 	if ( (int)this_player()->query_condition("neili_drug" ) > 0 )
-		return RANK_D->query_respect(this_player()) + "Ãæºì¶ú³à£¬ÆøÑª³äÒç£¬ÊÇ²»ÊÇ¸Õ¸Õ³Ô¹ı£¿ÁéÒ©Á¶ÖÆ²»Ò×£¬¶à³ÔÒ²ÊÇÀË·Ñ£¬Ò»»áÔÙÀ´°É¡£";
+		return RANK_D->query_respect(this_player()) + "é¢çº¢è€³èµ¤ï¼Œæ°”è¡€å……æº¢ï¼Œæ˜¯ä¸æ˜¯åˆšåˆšåƒè¿‡ï¼Ÿçµè¯ç‚¼åˆ¶ä¸æ˜“ï¼Œå¤šåƒä¹Ÿæ˜¯æµªè´¹ï¼Œä¸€ä¼šå†æ¥å§ã€‚";
 
 	if (  present("xue puti", this_player()) )
-		return RANK_D->query_respect(this_player())+ "ÏÖÔÚÉíÉÏ²»ÊÇÓĞ¿ÅÒ©ÍèÂğ£¬Ôõ÷áÓÖÀ´ÒªÁË£¿ÕæÊÇÌ°µÃÎŞÑá£¡";
+		return RANK_D->query_respect(this_player())+ "ç°åœ¨èº«ä¸Šä¸æ˜¯æœ‰é¢—è¯ä¸¸å—ï¼Œæ€éº½åˆæ¥è¦äº†ï¼ŸçœŸæ˜¯è´ªå¾—æ— åŒï¼";
 
 	if ( (int)this_player()->query("max_neili") < 200 )
-		return RANK_D->query_respect(this_player())+ "¹¦Á¦²»¹»£¬ÑªÆĞÌá¶ÔÄãÓĞº¦ÎŞÒæ¡£";
+		return RANK_D->query_respect(this_player())+ "åŠŸåŠ›ä¸å¤Ÿï¼Œè¡€è©æå¯¹ä½ æœ‰å®³æ— ç›Šã€‚";
 
 	if (query("puti_count") < 1) 
-		return RANK_D->query_respect(this_player()) + "À´µÃ²»ÇÉ£¬ÏÖÔÚÎÒÕâÀïÒ²Ã»ÓĞÁË¡£";
+		return RANK_D->query_respect(this_player()) + "æ¥å¾—ä¸å·§ï¼Œç°åœ¨æˆ‘è¿™é‡Œä¹Ÿæ²¡æœ‰äº†ã€‚";
 
 	ob = new( MEDICINE_D("xueputi") );
 	ob->move(this_player());
 	add("puti_count", -1);
 
-	message_vision("$N»ñµÃÒ»¿ÅÑªÆĞÌá¡£\n",this_player());
-	return "ºÃ°É£¬¼Ç×¡£¬´ËÒ©Á¶ÖÆÊµÔÚ²»Ò×£¬ÍòÍò²»ÒªÀË·ÑÁË¡£";
+	message_vision("$Nè·å¾—ä¸€é¢—è¡€è©æã€‚\n",this_player());
+	return "å¥½å§ï¼Œè®°ä½ï¼Œæ­¤è¯ç‚¼åˆ¶å®åœ¨ä¸æ˜“ï¼Œä¸‡ä¸‡ä¸è¦æµªè´¹äº†ã€‚";
 }
 */

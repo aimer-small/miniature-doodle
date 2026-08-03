@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ğ»¿ÍÍ¤");
+	set("short", "è°¢å®¢äº­");
 	set("long", @LONG
-Ç°ÃæÒ»ÁïÏ¸ÇàÊ¯¸²éÜ×©Ç½£¬ÖĞ¼äÒ»ÉÈºÚÆáÄ¾ÃÅ£¬ÃÅ¶îÉÏÓĞÁ÷ÔÆ¡¢ÏÉº×¡¢ĞĞ
-Áú¡¢Ë«·ïµÈÉî¸¡µñÍ¼°¸£¬µñ¹¤Ï¸ÖÂ£¬¹¹Ë¼ÇÉÃî¡£ÕıÖĞØÒ¶îÊé¡°Ğ»¿ÍÍ¤¡±Èı×Ö¡£
-ÃÅÅÔÁ¢×Å¸öĞ¡ÅÆ×Ó(sign)¡£
+å‰é¢ä¸€æºœç»†é’çŸ³è¦†æªç –å¢™ï¼Œä¸­é—´ä¸€æ‰‡é»‘æ¼†æœ¨é—¨ï¼Œé—¨é¢ä¸Šæœ‰æµäº‘ã€ä»™é¹¤ã€è¡Œ
+é¾™ã€åŒå‡¤ç­‰æ·±æµ®é›•å›¾æ¡ˆï¼Œé›•å·¥ç»†è‡´ï¼Œæ„æ€å·§å¦™ã€‚æ­£ä¸­åŒ¾é¢ä¹¦â€œè°¢å®¢äº­â€ä¸‰å­—ã€‚
+é—¨æ—ç«‹ç€ä¸ªå°ç‰Œå­(sign)ã€‚
 LONG
 	);
 
@@ -17,28 +17,28 @@ LONG
 		"southup" : __DIR__"zhudubadian",
 		"enter" : __DIR__"rimulundian",
 	]));
-	set("item_desc",([ "sign" : "		½øÏã¿Í²½Ö¹ÓÚ´Ë¡£\n",
+	set("item_desc",([ "sign" : "		è¿›é¦™å®¢æ­¥æ­¢äºæ­¤ã€‚\n",
 	]));
 	set("objects", ([CLASS_D("xueshan") + "/sangjie" : 1,
 		__DIR__"npc/fanseng" : 2,]));
 	setup();
-        create_door("enter", "ºÚÆáÄ¾ÃÅ", "out", DOOR_CLOSED);
+        create_door("enter", "é»‘æ¼†æœ¨é—¨", "out", DOOR_CLOSED);
 }
 
 int valid_leave(object me, string dir)
 {        
         /*
-        if ((string)me->query("family/family_name") != "´óÂÖËÂ" 
+        if ((string)me->query("family/family_name") != "å¤§è½®å¯º" 
            && dir == "enter"  
            && present("sang jie", environment(me)))
 	return notify_fail(
-"É£½áÉìÊÖÀ¹×¡ÁËÄã£¬Ò»Ö¸ÃÅÅÔµÄÅÆ×ÓµÀ£º¡°Ã»¿´µ½ÅÆ×ÓÃ´£¿Ê©Ö÷»¹ÊÇÇë»Ø°É¡£¡±\n");
+"æ¡‘ç»“ä¼¸æ‰‹æ‹¦ä½äº†ä½ ï¼Œä¸€æŒ‡é—¨æ—çš„ç‰Œå­é“ï¼šâ€œæ²¡çœ‹åˆ°ç‰Œå­ä¹ˆï¼Ÿæ–½ä¸»è¿˜æ˜¯è¯·å›å§ã€‚â€\n");
 	*/
-        if ((string)me->query("family/family_name") != "´óÂÖËÂ" 
+        if ((string)me->query("family/family_name") != "å¤§è½®å¯º" 
            && dir == "enter"  
            && present("hufa lama", environment(me)))
 	return notify_fail(
-"»¤·¨À®ÂïÀ¹×¡ÄãµÀ£º¡°ÀïÃæÊÇ±¾ËÂ·½ÕÉ¼°µÜ×Ó¾ÓËù£¬Ê©Ö÷ÈçÓûÀñ·ğ»¹ÇëÈ¥Ç°Ãæ´óµî¡£¡±\n");
+"æŠ¤æ³•å–‡å˜›æ‹¦ä½ä½ é“ï¼šâ€œé‡Œé¢æ˜¯æœ¬å¯ºæ–¹ä¸ˆåŠå¼Ÿå­å±…æ‰€ï¼Œæ–½ä¸»å¦‚æ¬²ç¤¼ä½›è¿˜è¯·å»å‰é¢å¤§æ®¿ã€‚â€\n");
 
 	return ::valid_leave(me, dir);
 }

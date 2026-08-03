@@ -38,7 +38,7 @@ void init()
 		me->set_temp("songxin_zuji1",  1);
 		if (!me->query_temp("zuji_target")) me->set_temp("zuji_target",t_name);
 		if (!me->query_temp("skill_set")) {
-			command("say 小子，乖乖把密函交出来吧！！！\n");
+			command("say 灏忓瓙锛屼箹涔栨妸瀵嗗嚱浜ゅ嚭鏉ュ惂锛侊紒锛乗n");
 			/*
 			if (!ob->query_temp("letter_steal")) {
 				if (ob->query("combat_exp",1) < 300000){
@@ -60,7 +60,7 @@ void init()
 			call_out("do_clone", 0, me, ob);
 		}
 		else {
-			command("say 想跑，还不给我交出来！！！\n");
+			command("say 鎯宠窇锛岃繕涓嶇粰鎴戜氦鍑烘潵锛侊紒锛乗n");
 			me->set_leader(ob);
 			remove_call_out("dest");
 			call_out("dest",300,ob);
@@ -195,8 +195,8 @@ void dest(object ob)
 	me = this_object();
 
 	if (ob) {
-		tell_object(ob,me->query("name")+"道：这次算你命大！\n");
-		tell_object(ob,me->query("name")+"匆匆离开。\n");
+		tell_object(ob,me->query("name")+"閬擄細杩欐绠椾綘鍛藉ぇ锛乗n");
+		tell_object(ob,me->query("name")+"鍖嗗寙绂诲紑銆俓n");
 	}
 	destruct(this_object());
 }
@@ -217,8 +217,8 @@ void kill_ob(object ob)
 void dest2(object ob)
 {
 	if (ob) {
-		tell_object(ob,query("name")+"道：你躲得过初一躲不过十五，我们还会来的！\n");
-		tell_object(ob,query("name")+"匆匆离开。\n");
+		tell_object(ob,query("name")+"閬擄細浣犺翰寰楄繃鍒濅竴韬蹭笉杩囧崄浜旓紝鎴戜滑杩樹細鏉ョ殑锛乗n");
+		tell_object(ob,query("name")+"鍖嗗寙绂诲紑銆俓n");
 		ob->delete_temp("songxin_zuji");
 	}
 	destruct(this_object());
@@ -227,8 +227,8 @@ void dest2(object ob)
 void dest3(object ob)
 {
 	if (ob) {
-		tell_object(ob,query("name")+"大笑道：完成任务了！\n");
-		tell_object(ob,query("name")+"匆匆离开。\n");
+		tell_object(ob,query("name")+"澶х瑧閬擄細瀹屾垚浠诲姟浜嗭紒\n");
+		tell_object(ob,query("name")+"鍖嗗寙绂诲紑銆俓n");
 	}
 	destruct(this_object());
 }

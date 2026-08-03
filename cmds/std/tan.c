@@ -1,5 +1,5 @@
 // Lane@SJ 2005/3/27
-// 2005/3/31 Ìí¼ÓÌØÊâÎïÆ· play Ğ§¹û£¬ÎïÆ·±ê¼ÇÎª (music_treasure)
+// 2005/3/31 æ·»åŠ ç‰¹æ®Šç‰©å“ play æ•ˆæœï¼Œç‰©å“æ ‡è®°ä¸º (music_treasure)
 
 #include <ansi.h>;
 
@@ -16,56 +16,56 @@ int main(object me, string arg)
 
 	MUSIC_CHECK->check_music(me);
 
-	if( !arg ) return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( me->is_fighting() )
-		return notify_fail("Äã»¹ÊÇ×¨ĞÄ×÷Õ½°É£¡\n");
+		return notify_fail("ä½ è¿˜æ˜¯ä¸“å¿ƒä½œæˆ˜å§ï¼\n");
 
 	if( me->query("jingli") < 100 )
-		return notify_fail("»¹ÊÇµÈµ½ÄãÓĞ×ã¹»Á¦ÆøµÄÊ±ºòÔÙµ¯°É£¡\n");
+		return notify_fail("è¿˜æ˜¯ç­‰åˆ°ä½ æœ‰è¶³å¤ŸåŠ›æ°”çš„æ—¶å€™å†å¼¹å§ï¼\n");
 
 	if( sscanf(arg, "%s %s", qin, name)!=2 )
-		return notify_fail("ÄãÒªµ¯Ê²Ã´¶«Î÷£¿\n");
+		return notify_fail("ä½ è¦å¼¹ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 
 	obj = present(qin, me);
 
-	if( !obj ) return notify_fail("ÄãÏëÓÃÊ²Ã´À´µ¯£¿\n");
+	if( !obj ) return notify_fail("ä½ æƒ³ç”¨ä»€ä¹ˆæ¥å¼¹ï¼Ÿ\n");
 
 	if( obj->query("id") != "yao qin" && obj->query("id") != "pi pa" && obj->query("id") != "gu zheng" )
-		return notify_fail( obj->name()+"£¿Õâ¶«Î÷ÄÜÓÃÀ´µ¯ÇÙ£¿ÄãÄÔ×Ó³öÎÊÌâÁË°É£¡\n");
+		return notify_fail( obj->name()+"ï¼Ÿè¿™ä¸œè¥¿èƒ½ç”¨æ¥å¼¹ç´ï¼Ÿä½ è„‘å­å‡ºé—®é¢˜äº†å§ï¼\n");
 
 	if( file_size("/d/music/book/"+name+".c") < 0 )
-		return notify_fail( name+"£¿ºÃÏóÃ»ÕâÖÖÀÖÇú°É£¿\n");
+		return notify_fail( name+"ï¼Ÿå¥½è±¡æ²¡è¿™ç§ä¹æ›²å§ï¼Ÿ\n");
 
 	if( me->query("music/"+name) == 0 ) {
 		me->delete("music/"+name);
-		return notify_fail("ÒòÎª³¤ÆÚÈ±·¦Á·Ï°£¬ÄãÒÑ¾­ÉúÊèÁË¡º"+call_other("/d/music/book/"+name+".c", "book_name")+"¡»µÄµ¯×à·½·¨¡£\n");
+		return notify_fail("å› ä¸ºé•¿æœŸç¼ºä¹ç»ƒä¹ ï¼Œä½ å·²ç»ç”Ÿç–äº†ã€"+call_other("/d/music/book/"+name+".c", "book_name")+"ã€çš„å¼¹å¥æ–¹æ³•ã€‚\n");
 	}
 
 	if( !me->query("music/"+name) )
-		return notify_fail("ÄãÏÖÔÚ»¹²»»áµ¯×àÕâÊ×Çú×Ó£¡\n");
+		return notify_fail("ä½ ç°åœ¨è¿˜ä¸ä¼šå¼¹å¥è¿™é¦–æ›²å­ï¼\n");
 
 	if( me->query("jingli") < ( j = call_other("/d/music/book/"+name+".c", "query_jingli") ) )
-		return notify_fail("ÄãÏÖÔÚµÄ¾«Á¦²»¹»£¬¿ÖÅÂÎŞ·¨µ¯×à´ËÇú¡£\n");
+		return notify_fail("ä½ ç°åœ¨çš„ç²¾åŠ›ä¸å¤Ÿï¼Œææ€•æ— æ³•å¼¹å¥æ­¤æ›²ã€‚\n");
 
 	if( me->query("neili") < ( n = call_other("/d/music/book/"+name+".c", "query_neili") ) )
-		return notify_fail("ÄãÏÖÔÚµÄÄÚÁ¦²»¹»£¬¿ÖÅÂÎŞ·¨µ¯×à´ËÇú¡£\n");
+		return notify_fail("ä½ ç°åœ¨çš„å†…åŠ›ä¸å¤Ÿï¼Œææ€•æ— æ³•å¼¹å¥æ­¤æ›²ã€‚\n");
 
 	if( me->query_skill("string", 1) < ( call_other("/d/music/book/"+name+".c", "query_level") ) )
-		return notify_fail("ÄãµÄÀÖÀíÇÙ¼¼²»¹»£¬¿ÖÅÂÎŞ·¨µ¯×à´ËÇú¡£\n");
+		return notify_fail("ä½ çš„ä¹ç†ç´æŠ€ä¸å¤Ÿï¼Œææ€•æ— æ³•å¼¹å¥æ­¤æ›²ã€‚\n");
 
 	if( me->query_condition("music_busy") > 1 )
-                return notify_fail("Äã¸ÕÑİ×à¹ıÀÖÇú£¬»¹ÊÇĞª»áÔÚµ¯×à°É£¡\n");
+                return notify_fail("ä½ åˆšæ¼”å¥è¿‡ä¹æ›²ï¼Œè¿˜æ˜¯æ­‡ä¼šåœ¨å¼¹å¥å§ï¼\n");
 
-	message_vision(HIW"$NÅÌÏ¥¶ø×ö£¬ÄÃ³öÉíÉÏµÄ$n"HIW"£¬¿ªÊ¼×¼±¸µ¯×à"+call_other("/d/music/book/"+name+".c", "book_name")+HIW"¡£\n\n", me, obj);
+	message_vision(HIW"$Nç›˜è†è€Œåšï¼Œæ‹¿å‡ºèº«ä¸Šçš„$n"HIW"ï¼Œå¼€å§‹å‡†å¤‡å¼¹å¥"+call_other("/d/music/book/"+name+".c", "book_name")+HIW"ã€‚\n\n", me, obj);
 
 	msg = call_other("/d/music/book/"+name+".c", "play_msg");
 
 	if( !msg || undefinedp(msg["start_msg"]))
-		message_vision(YEL"$N¾«Áé°ãµÄÓ½Ì¾µ÷£¬Èı·Ö¹í÷È£¬ÌıÈçË¿°ãµÄ¸èÉùÔÚÎİÀï·öÒ¡Ö±ÉÏ£¬Ò»ÇĞµÄÇéĞ÷¶¼ËæÖ®¶øÈ¥...........\n\n"NOR, me);
+		message_vision(YEL"$Nç²¾çµèˆ¬çš„å’å¹è°ƒï¼Œä¸‰åˆ†é¬¼é­…ï¼Œå¬å¦‚ä¸èˆ¬çš„æ­Œå£°åœ¨å±‹é‡Œæ‰¶æ‘‡ç›´ä¸Šï¼Œä¸€åˆ‡çš„æƒ…ç»ªéƒ½éšä¹‹è€Œå»...........\n\n"NOR, me);
 
 	else message_vision(msg["start_msg"], me, obj);
 
@@ -95,7 +95,7 @@ int end(object me, string name)
 	msg = call_other("/d/music/book/"+name+".c", "play_msg");
 
 	if( !msg || undefinedp(msg["end_msg"]) )
-		message_vision(HIW"$NÒ»ÇĞµÄÇéĞ÷¶¼ËæÒôÀÖµÄ½áÊø¶øÖ¹...........\n\n"NOR, me);
+		message_vision(HIW"$Nä¸€åˆ‡çš„æƒ…ç»ªéƒ½éšéŸ³ä¹çš„ç»“æŸè€Œæ­¢...........\n\n"NOR, me);
 	else message_vision(msg["end_msg"], me);
 	me->start_busy(1);
 
@@ -107,15 +107,15 @@ int end(object me, string name)
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 1 ) {
 		me->set("eff_qi", me->query("max_qi"));
-		if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÍêÈ«»Ö¸´ÆøÑª¡£\n");
+		if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šå®Œå…¨æ¢å¤æ°”è¡€ã€‚\n");
 	}
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 2 ) {
 		me->set("eff_jing", me->query("max_jing"));
-		if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÍêÈ«»Ö¸´¾«Ñª¡£\n");
+		if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šå®Œå…¨æ¢å¤ç²¾è¡€ã€‚\n");
 	}
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 3 ) {
 		me->clear_conditions_by_type("poison");
-		if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÇå³ıÌåÄÚ¶¾ËØ¡£\n");
+		if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šæ¸…é™¤ä½“å†…æ¯’ç´ ã€‚\n");
 	}
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 4 ) {
 		me->add("neili", me->query("max_neili")/2 );
@@ -124,7 +124,7 @@ int end(object me, string name)
 			me->set("neili", me->query("max_neili")*2 );
 		if( me->query("jingli") > me->query("eff_jingli")*2 )
 			me->set("jingli", me->query("eff_jingli")*2 );
-		if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔö¼ÓÄÚÁ¦("+me->query("max_neili")/2+")¾«Á¦("+me->query("eff_jingli")/2+")¡£\n");
+		if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šå¢åŠ å†…åŠ›("+me->query("max_neili")/2+")ç²¾åŠ›("+me->query("eff_jingli")/2+")ã€‚\n");
 	}
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 5 ) {
 		if( !me->query_temp("music_parry") ) {
@@ -132,9 +132,9 @@ int end(object me, string name)
 			me->set_temp("music_parry", i/3);
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼ÓÕĞ¼Ü("+i/3+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ æ‹›æ¶("+i/3+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 6 ) {
@@ -143,9 +143,9 @@ int end(object me, string name)
 			me->set_temp("music_dodge", i/3);
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼ÓÇá¹¦("+i/3+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ è½»åŠŸ("+i/3+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 7 ) {
@@ -154,9 +154,9 @@ int end(object me, string name)
 			me->set_temp("music_damage", i/5);
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼ÓÍşÁ¦("+i/5+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ å¨åŠ›("+i/5+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 8 ) {
@@ -165,9 +165,9 @@ int end(object me, string name)
 			me->set_temp("music_armor", i/4);
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼Ó·ÀÓù("+i/4+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ é˜²å¾¡("+i/4+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 9 ) {
@@ -176,9 +176,9 @@ int end(object me, string name)
 			me->set_temp("music_attack", i/4);
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼ÓÃüÖĞ("+i/4+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ å‘½ä¸­("+i/4+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 10 ) {
@@ -187,9 +187,9 @@ int end(object me, string name)
 			me->set_temp("music_strength", i/50+1 );
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼Ó±ÛÁ¦("+(i/50+1)+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ è‡‚åŠ›("+(i/50+1)+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 11 ) {
@@ -198,9 +198,9 @@ int end(object me, string name)
 			me->set_temp("music_dexerity", i/50+1 );
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼ÓÉí·¨("+(i/50+1)+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ èº«æ³•("+(i/50+1)+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 12 ) {
@@ -209,9 +209,9 @@ int end(object me, string name)
 			me->set_temp("music_intelligence", i/50+1 );
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼ÓÎòĞÔ("+(i/50+1)+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ æ‚Ÿæ€§("+(i/50+1)+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 13 ) {
@@ -220,9 +220,9 @@ int end(object me, string name)
 			me->set_temp("music_constitution", i/50+1 );
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼Ó¸ù¹Ç("+(i/50+1)+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ æ ¹éª¨("+(i/50+1)+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	if( call_other("/d/music/book/"+name+".c", "query_purpose") == 14 ) {
@@ -231,9 +231,9 @@ int end(object me, string name)
 			me->set_temp("music_force", i/2);
 			remove_call_out("remove_effect");
 			call_out("remove_effect", 10, me, 30+i/10);
-			if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÔÚ("+(i+300)+")ÃëÄÚÔö¼ÓÄÚ¹¦("+i/2+")¡£\n");
+			if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šåœ¨("+(i+300)+")ç§’å†…å¢åŠ å†…åŠŸ("+i/2+")ã€‚\n");
 		}
-		else if( wizardp(me) ) tell_object(me, "Ğ§¹û£ºÖØ¸´Ê¹ÓÃ£¬ÎŞĞ§¹û¡£\n");
+		else if( wizardp(me) ) tell_object(me, "æ•ˆæœï¼šé‡å¤ä½¿ç”¨ï¼Œæ— æ•ˆæœã€‚\n");
 	}
 
 	return 1;
@@ -289,7 +289,7 @@ void remove_effect(object me, int count)
 	me->delete_temp("music_intelligence");
 	me->delete_temp("music_constitution");
 
-	if( wizardp(me) ) tell_object(me, "¡¾ÏµÍ³¡¿ÒôÀÖĞ§¹û½áÊø¡£\n");
+	if( wizardp(me) ) tell_object(me, "ã€ç³»ç»Ÿã€‘éŸ³ä¹æ•ˆæœç»“æŸã€‚\n");
 
 	return;
 }

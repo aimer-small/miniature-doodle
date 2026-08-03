@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "������");
+	set("short", "善禅渡");
 	set("long", @LONG
-ǰ��һ��ʯ�����Ѷ��ϣ��ڷ�����ʱ��ʱ�֣�ֱû��ɽ���ƶ�֮�С����ǣ�
-    ��������һ���أ�·��ǧ������С�
-    һ������ѩ��������ĺ����
+前望一道石阶蜿蜒而上，在峰峦中时隐时现，直没入山腰云端之中。真是：
+    身游万死一生地，路入千峰百障中。
+    一径入松雪，数峰生暮寒。
 LONG
 	);
 
@@ -16,7 +16,7 @@ LONG
 		"northwest" : __DIR__"shanlu2",
 		"east" : __DIR__"tianhu",
 	]));
-        set("outdoors", "ѩɽ");
+        set("outdoors", "雪山");
 	set("coor/x",-260);
   set("coor/y",140);
    set("coor/z",0);

@@ -1,6 +1,6 @@
 
 
-///Õâ¸öÖ¸Áî»¹ÊÇÓ¦¸Ã³£ÓÃµÄ
+///è¿™ä¸ªæŒ‡ä»¤è¿˜æ˜¯åº”è¯¥å¸¸ç”¨çš„
 
 inherit F_DBASE;
 inherit F_SAVE;
@@ -41,7 +41,7 @@ int main(object me, string arg)
 		sscanf(arg, "%d", num);
 		num--;
 		if (num < 0 || num >= i)
-			return notify_fail("Ã»ÓÐÕâ¸öÁôÑÔ°å¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç•™è¨€æ¿ã€‚\n");
 		return me->force_me("gg "
 			+ ("/clone/board/"
 			+ file[num][0..<3])->query("location"));
@@ -49,18 +49,18 @@ int main(object me, string arg)
         for (j = 0;j < i;j++) {
         	filename = "/data/board/"+file[j];        	
                 //filename = resolve_path("/data/board/", file[j]);
-                if (!restore()) return notify_fail("Ã»ÓÐÕâ¸öÎÄ¼þ¡£\n");
+                if (!restore()) return notify_fail("æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶ã€‚\n");
                 notes = query("notes");
 		k = me->query("board_last_read/" + query("board_id"));
 		for (l = 0, m = sizeof(notes) - 1; m>=0; m--, l++)
 			if (notes[m]["time"] <= k) break;
                 write(j+1 + ". " + query("name"));
 		if (sizeof(notes))
-			write("¹²ÓÐ" + chinese_number(sizeof(notes)) + "ÌõÁôÑÔ");
-		else write("Ã»ÓÐÁôÑÔ");
-		if (l) write("£¬" + chinese_number(l) + "ÕÅÎ´¶Á");
-		write("¡£\n");
+			write("å…±æœ‰" + chinese_number(sizeof(notes)) + "æ¡ç•™è¨€");
+		else write("æ²¡æœ‰ç•™è¨€");
+		if (l) write("ï¼Œ" + chinese_number(l) + "å¼ æœªè¯»");
+		write("ã€‚\n");
         }
-	write("ÓÃ board xx È¥¿´ÄãÏë¿´µÄÁôÑÔ°å¡£\n");
+	write("ç”¨ board xx åŽ»çœ‹ä½ æƒ³çœ‹çš„ç•™è¨€æ¿ã€‚\n");
         return 1;
 }

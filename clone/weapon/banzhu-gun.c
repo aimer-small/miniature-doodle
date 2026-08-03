@@ -5,21 +5,21 @@ inherit F_UNIQUE;
 
 void create()
 {
- set_name("°ßÖñ¹÷", ({ "banzhu gun", "gun", "banzhu","club" }));
+ set_name("æ–‘ç«¹æ£", ({ "banzhu gun", "gun", "banzhu","club" }));
         set_weight(4000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", GRN "\nÕâÊÇ¸ùÓÃÄÏº£°ßÖñÖÆ³ÉµÄ³¤¹÷£¬ÈëÊÖ¼«ÎªÇáÓ¯¡£¹÷Á½¶ËÖñ¸É·ÖÖ¦£¬Öñ¼âÈñÀûÈçÕë¡£\n"NOR);
+                set("unit", "æ ¹");
+                set("long", GRN "\nè¿™æ˜¯æ ¹ç”¨å—æµ·æ–‘ç«¹åˆ¶æˆçš„é•¿æ£ï¼Œå…¥æ‰‹æä¸ºè½»ç›ˆã€‚æ£ä¸¤ç«¯ç«¹å¹²åˆ†æï¼Œç«¹å°–é”åˆ©å¦‚é’ˆã€‚\n"NOR);
                 set("value", 1);
                 set("unique", 3);
                 set("material", "bamboo");
 		set("sharpness", 2);
                 set("weapon_prop/parry", 2);
                 set("weapon_prop/dodge", 5);
-                set("wield_msg", "$NË«ÊÖÒ»»Î£¬½«$n³é³ö¶¶µÃ±ÊÖ±¡£\n"NOR);
-                set("unwield_msg", "$NÓÒÊÖÒ»¸§£¬½«$n±ğ»Ø±³ºó¡£\n"NOR);
+                set("wield_msg", "$NåŒæ‰‹ä¸€æ™ƒï¼Œå°†$næŠ½å‡ºæŠ–å¾—ç¬”ç›´ã€‚\n"NOR);
+                set("unwield_msg", "$Nå³æ‰‹ä¸€æŠšï¼Œå°†$nåˆ«å›èƒŒåã€‚\n"NOR);
         }
         init_club(45);
         setup();

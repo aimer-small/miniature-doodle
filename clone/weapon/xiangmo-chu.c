@@ -4,13 +4,13 @@ inherit STAFF;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(HIY "½ğ¸Õ½µÄ§èÆ" NOR, ({ "xiangmo chu", "xiangmo", "chu","staff" }));
+        set_name(HIY "é‡‘åˆšé™é­”æµ" NOR, ({ "xiangmo chu", "xiangmo", "chu","staff" }));
         set_weight(32000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", HIY + "ÕâÊÇÒ»±úÓÖ´ÖÓÖ³¤µÄ½ğèÆ£¬³¤´ïËÄ³ß£¬èÆÍ·Íë¿Ú´ÖÏ¸£¬èÆÉí½ğ¹âÉÁÉÁ£¬ËÆÊÇÓÃ´¿½ğËùÖı¡£\n"NOR);
+                set("unit", "æ ¹");
+                set("long", HIY + "è¿™æ˜¯ä¸€æŸ„åˆç²—åˆé•¿çš„é‡‘æµï¼Œé•¿è¾¾å››å°ºï¼Œæµå¤´ç¢—å£ç²—ç»†ï¼Œæµèº«é‡‘å…‰é—ªé—ªï¼Œä¼¼æ˜¯ç”¨çº¯é‡‘æ‰€é“¸ã€‚\n"NOR);
                 set("value", 100000);
                 set("unique", 1);
                 set("rigidity", 8);
@@ -21,8 +21,8 @@ void create()
                 set("wield_neili", 1000);
                 set("wield_maxneili", 2000);
                 set("wield_str", 30);
-                set("wield_msg", HIY"$N½«½ğèÆÍùÉÏÒ»Å×£¬´ıèÆÂäµØÖ®¼°£¬Ë³ÊÖÒ»Ç£èÆ±ú£¬ÀÎÀÎ½«èÆÁ¢ÔÚÃæÇ°£¬Íş·çÁİÁİ£¡\n"NOR);
-                set("unwield_msg", HIY"$N½«½ğèÆÎè³öÒ»µÀ½ğ¹â£¬Ë³ÊÆ²åÔÚÉíºó¡£\n"NOR);
+                set("wield_msg", HIY"$Nå°†é‡‘æµå¾€ä¸Šä¸€æŠ›ï¼Œå¾…æµè½åœ°ä¹‹åŠï¼Œé¡ºæ‰‹ä¸€ç‰µæµæŸ„ï¼Œç‰¢ç‰¢å°†æµç«‹åœ¨é¢å‰ï¼Œå¨é£å‡›å‡›ï¼\n"NOR);
+                set("unwield_msg", HIY"$Nå°†é‡‘æµèˆå‡ºä¸€é“é‡‘å…‰ï¼Œé¡ºåŠ¿æ’åœ¨èº«åã€‚\n"NOR);
         }
         init_staff(120);
         setup();

@@ -4,9 +4,9 @@ inherit ITEM;
 
 void create()
 {
-   	set_name("Éß",({"du she", "dushe", "she"}));
+   	set_name("è›‡",({"du she", "dushe", "she"}));
    	set_weight(50);
-   	set("unit","Ìõ");
+   	set("unit","æ¡");
    	set("value",0);
    	setup();
 
@@ -20,12 +20,12 @@ void dest()
 	if(owner=environment(me)){
 		if(!living(owner)){
 			if(owner=environment(owner))
-			msg="´ÓÄãĞä×ÓÀï";
+			msg="ä»ä½ è¢–å­é‡Œ";
 		}
-		else msg="´ÓÄãÊÖÀï";
+		else msg="ä»ä½ æ‰‹é‡Œ";
 		if(!random(4)){
 			if(owner){
-				message("vision", me->name()+msg+"ßİµØ´Úµ½µØÉÏ£¬ÄãÏë×¥µÄÊ±ºòÒÑ¾­²»¼ûÁË¡£\n", owner );
+				message("vision", me->name()+msg+"å’»åœ°è¹¿åˆ°åœ°ä¸Šï¼Œä½ æƒ³æŠ“çš„æ—¶å€™å·²ç»ä¸è§äº†ã€‚\n", owner );
 				destruct(this_object());
         		}
 			else call_out("dest", 200);

@@ -6,26 +6,26 @@
 inherit F_SSERVER;
 
 mapping default_dirs = ([
-        "north":        "±±",
-        "south":        "ÄÏ",
-        "east":         "¶«",
-        "west":         "Î÷",
-        "northup":      "±±±ß",
-        "southup":      "ÄÏ±ß",
-        "eastup":       "¶«±ß",
-        "westup":       "Î÷±ß",
-        "northdown":    "±±±ß",
-        "southdown":    "ÄÏ±ß",
-        "eastdown":     "¶«±ß",
-        "westdown":     "Î÷±ß",
-        "northeast":    "¶«±±·½",
-        "northwest":    "Î÷±±·½",
-        "southeast":    "¶«ÄÏ·½",
-        "southwest":    "Î÷ÄÏ·½",
-        "up":           "ÉÏÃæ",
-        "down":         "ÏÂÃæ",
-        "out":          "ÍâÃæ",
-        "enter":        "ÀïÃæ",
+        "north":        "åŒ—",
+        "south":        "å—",
+        "east":         "ä¸œ",
+        "west":         "è¥¿",
+        "northup":      "åŒ—è¾¹",
+        "southup":      "å—è¾¹",
+        "eastup":       "ä¸œè¾¹",
+        "westup":       "è¥¿è¾¹",
+        "northdown":    "åŒ—è¾¹",
+        "southdown":    "å—è¾¹",
+        "eastdown":     "ä¸œè¾¹",
+        "westdown":     "è¥¿è¾¹",
+        "northeast":    "ä¸œåŒ—æ–¹",
+        "northwest":    "è¥¿åŒ—æ–¹",
+        "southeast":    "ä¸œå—æ–¹",
+        "southwest":    "è¥¿å—æ–¹",
+        "up":           "ä¸Šé¢",
+        "down":         "ä¸‹é¢",
+        "out":          "å¤–é¢",
+        "enter":        "é‡Œé¢",
 ]);
 
 int exert(object me, object target)
@@ -47,37 +47,37 @@ int exert(object me, object target)
         ||      !target->is_character()
         ||      target->is_corpse()
         ||      target==me)
-                return notify_fail("ÄãÒªÈçºÎÊ©Õ¹¡¸¶¾Îí¡¹£¿\n");
+                return notify_fail("ä½ è¦å¦‚ä½•æ–½å±•ã€Œæ¯’é›¾ã€ï¼Ÿ\n");
                 
         bool2=(userp(target))?me->query_skill("poison",1):0;
         
         if( !objectp(target) || target->query("id") == "mu ren" )
-                return notify_fail("¶ÔÕâÖÖ¶«Î÷ÄãÒªÒªÓÃ¡¸¶¾Îí¡¹£¿\n");
+                return notify_fail("å¯¹è¿™ç§ä¸œè¥¿ä½ è¦è¦ç”¨ã€Œæ¯’é›¾ã€ï¼Ÿ\n");
         
         if( !living(target) || ! target->query("can_speak"))
-                return notify_fail("¶ÔÕâÖÖ¶«Î÷ÄãÒªÒªÓÃ¡¸¶¾Îí¡¹£¿\n");
+                return notify_fail("å¯¹è¿™ç§ä¸œè¥¿ä½ è¦è¦ç”¨ã€Œæ¯’é›¾ã€ï¼Ÿ\n");
 
 	if( !me->is_fighting(target))
-		return notify_fail("ÄãÃ»ÓÐºÍ"+target->query("name")+"½øÐÐÕ½¶·£¬²»ÄÜÊ©Õ¹¡¸¶¾Îí¡¹£¡\n");
+		return notify_fail("ä½ æ²¡æœ‰å’Œ"+target->query("name")+"è¿›è¡Œæˆ˜æ–—ï¼Œä¸èƒ½æ–½å±•ã€Œæ¯’é›¾ã€ï¼\n");
 
 	if(me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕý×Ô¹Ë²»Ï¾£¬ÄÄÓÐÊ±¼äÊ©Õ¹¡¸¶¾Îí¡¹£¡\n");
+		return notify_fail("ä½ çŽ°åœ¨æ­£è‡ªé¡¾ä¸æš‡ï¼Œå“ªæœ‰æ—¶é—´æ–½å±•ã€Œæ¯’é›¾ã€ï¼\n");
 
 	if((int)me->query_skill("huagong-dafa") < 60 || (int)me->query_skill("force", 1) < 60)
-		return notify_fail("ÄãµÄÄÚ¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ©Õ¹¡¸¶¾Îí¡¹¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½æ–½å±•ã€Œæ¯’é›¾ã€ã€‚\n");
 
         if( me->query("neili") < cost )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
 	if((int)me->query("qi") < 50 )
-                return notify_fail("ÄãµÄÆøÑªÌ«ÉÙ£¬ÌåÄÚÃ»ÓÐ×ã¹»¶¾ËØÉ¢³ö¡¸¶¾Îí¡¹£¡\n");
+                return notify_fail("ä½ çš„æ°”è¡€å¤ªå°‘ï¼Œä½“å†…æ²¡æœ‰è¶³å¤Ÿæ¯’ç´ æ•£å‡ºã€Œæ¯’é›¾ã€ï¼\n");
 
 	env = environment(me);
 	exit = env->query("exits");
 
 	if( !mapp(exit)){
-	if(bool) return notify_fail("ÕâÀïÃ»ÓÐ³ö¿Ú£¬ÄãÏë½«"+target->query("name")+"Òýµ½ÄÇ¶ùÈ¥£¿\n");
-	else return notify_fail("ÕâÀïÃ»ÓÐ³ö¿Ú£¬ÄãÏëÌÓµ½ÄÇ¶ùÈ¥£¿\n");
+	if(bool) return notify_fail("è¿™é‡Œæ²¡æœ‰å‡ºå£ï¼Œä½ æƒ³å°†"+target->query("name")+"å¼•åˆ°é‚£å„¿åŽ»ï¼Ÿ\n");
+	else return notify_fail("è¿™é‡Œæ²¡æœ‰å‡ºå£ï¼Œä½ æƒ³é€ƒåˆ°é‚£å„¿åŽ»ï¼Ÿ\n");
 	}
 
 	dirs = keys(exit);
@@ -91,12 +91,12 @@ int exert(object me, object target)
                 target_dir = dirs[i];
 
 	if(!(obj = load_object(dest)) )
-		return notify_fail("ÎÞ·¨×ß£¡\n");
+		return notify_fail("æ— æ³•èµ°ï¼\n");
 
 	me->add("neili", -cost);
 	me->receive_damage("qi", 10);
 
-	msg = HIB "$N»ÓÁË»ÓÒÂÐä£¬Ò»Õó·ç´µ¹ý£¬ÕâÀïË²¼ä²¼ÂúÁË¶¾Îí¡£\n" NOR;
+	msg = HIB "$NæŒ¥äº†æŒ¥è¡£è¢–ï¼Œä¸€é˜µé£Žå¹è¿‡ï¼Œè¿™é‡Œçž¬é—´å¸ƒæ»¡äº†æ¯’é›¾ã€‚\n" NOR;
 
 	success = 1;
         ap = me->query_skill("force") + me->query_skill("huagong-dafa") + me->query_kar()+bool2;
@@ -117,32 +117,32 @@ int exert(object me, object target)
 
 	if(success == 1)
 		if(bool){
-			msg = HIC "ÑÌÎíÖÐÖ»¼ûÒ»ÌõÈËÓ°Ïò" + target_dir + "ÌÓÈ¥¡£\n" NOR;
-                        msg += HIY +target->name()+"Ïò" + target_dir + "×·È¥¡£\n" NOR;
+			msg = HIC "çƒŸé›¾ä¸­åªè§ä¸€æ¡äººå½±å‘" + target_dir + "é€ƒåŽ»ã€‚\n" NOR;
+                        msg += HIY +target->name()+"å‘" + target_dir + "è¿½åŽ»ã€‚\n" NOR;
                 }
                 else
-                msg = HIR "$NÉ¢³öµÄ¡¸¶¾Îí¡¹ºÃÏó¶Ô$n²»ÆðÊ²Ã´×÷ÓÃ¡£\n" NOR;
+                msg = HIR "$Næ•£å‡ºçš„ã€Œæ¯’é›¾ã€å¥½è±¡å¯¹$nä¸èµ·ä»€ä¹ˆä½œç”¨ã€‚\n" NOR;
         
 	//add by caiji for add other function next time
 	else {
 //		if(bool)
-		msg = HIR "$NÉ¢³öµÄ¡¸¶¾Îí¡¹ºÃÏó¶Ô$n²»ÆðÊ²Ã´×÷ÓÃ¡£\n" NOR;
-//		else msg = HIC "ÑÌÎíÖÐÖ»¼ûÒ»ÌõÈËÓ°Ïò" + target_dir + "ÌÓÈ¥¡£\n" NOR;
+		msg = HIR "$Næ•£å‡ºçš„ã€Œæ¯’é›¾ã€å¥½è±¡å¯¹$nä¸èµ·ä»€ä¹ˆä½œç”¨ã€‚\n" NOR;
+//		else msg = HIC "çƒŸé›¾ä¸­åªè§ä¸€æ¡äººå½±å‘" + target_dir + "é€ƒåŽ»ã€‚\n" NOR;
 	}
 	message_vision(msg, me, target);
 
 	if(success == 1){
 		if(bool){
-		msg = HIR "Ö»¼û"+target->name()+"ÅÜÁË½øÀ´£¬ËÄ´¦ÕÅÍû£¬È´Ê²Ã´¶¼Ã»·¢ÏÖ¡£\n" NOR;
+		msg = HIR "åªè§"+target->name()+"è·‘äº†è¿›æ¥ï¼Œå››å¤„å¼ æœ›ï¼Œå´ä»€ä¹ˆéƒ½æ²¡å‘çŽ°ã€‚\n" NOR;
                	message( "vision", msg, environment(target), ({target}));
-		tell_object(target,"Äã¼±¼±Ã¦Ã¦ÅÜÁË¹ýÀ´£¬ËÄ´¦ÕÅÍû£¬È´Ê²Ã´¶¼Ã»·¢ÏÖ¡£\n");
+		tell_object(target,"ä½ æ€¥æ€¥å¿™å¿™è·‘äº†è¿‡æ¥ï¼Œå››å¤„å¼ æœ›ï¼Œå´ä»€ä¹ˆéƒ½æ²¡å‘çŽ°ã€‚\n");
 		target->start_busy(1+random(2));
 //		me->start_busy(1);
 		return 1;
         	}else{
-	        msg = HIR "Ö»¼û"+me->name()+"Æø´­ÓõÓõµÄÅÜÁË½øÀ´¡£\n" NOR;
+	        msg = HIR "åªè§"+me->name()+"æ°”å–˜ååçš„è·‘äº†è¿›æ¥ã€‚\n" NOR;
                	message( "vision", msg, environment(me), ({me}));
-		tell_object(me,"Äã½è×Å¡¸¶¾Îí¡¹µÄÒþ±Î£¬¼±¼±Ã¦Ã¦ÅÜÁË¹ýÀ´£¬¡£\n");
+		tell_object(me,"ä½ å€Ÿç€ã€Œæ¯’é›¾ã€çš„éšè”½ï¼Œæ€¥æ€¥å¿™å¿™è·‘äº†è¿‡æ¥ï¼Œã€‚\n");
 		target->start_busy(1+random(2));
                	return 1;}
         }
@@ -151,4 +151,4 @@ int exert(object me, object target)
 		return 1;
 	}
 }
-string exert_name(){ return HIB"¶¾Îí"NOR; }
+string exert_name(){ return HIB"æ¯’é›¾"NOR; }

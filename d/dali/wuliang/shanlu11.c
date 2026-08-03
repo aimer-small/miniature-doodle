@@ -1,19 +1,19 @@
 #include <ansi.h>
 #include <room.h>
 #include <wanted.h>
-#define QUESTDIR1 "quest/ÌìÁú°Ë²¿/Áè²¨Î¢²½Æª/"
+#define QUESTDIR1 "quest/å¤©é¾™å…«éƒ¨/å‡Œæ³¢å¾®æ­¥ç¯‡/"
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "É½Â·");
+	set("short", "å±±è·¯");
 	set("long", @LONG
-ÄãĞÅ²½¶øĞĞ£¬¾Ù²½Ì¤µ½µÄ¾¡ÊÇ°«Ê÷³¤²İ£¬ÕâÀïÃ»ÓĞÂ·,Ã¿×ßÒ»²½£¬¾£¼¬¶¼
-¹³´Ìµ½Ğ¡ÍÈ,»®ÆÆÄãµÄÉíÌå¡£
+ä½ ä¿¡æ­¥è€Œè¡Œï¼Œä¸¾æ­¥è¸åˆ°çš„å°½æ˜¯çŸ®æ ‘é•¿è‰ï¼Œè¿™é‡Œæ²¡æœ‰è·¯,æ¯èµ°ä¸€æ­¥ï¼Œè†æ£˜éƒ½
+é’©åˆºåˆ°å°è…¿,åˆ’ç ´ä½ çš„èº«ä½“ã€‚
 LONG
         );
-	set("outdoors", "´óÀí");
+	set("outdoors", "å¤§ç†");
 
 	set("exits", ([
 		"south" : __DIR__"shanlu11",
@@ -33,10 +33,10 @@ void init()
 	 && me->query_skill("lingbo-weibu", 1) < 140
 	 && ! is_wanted(me)){
 		me->move("/d/dali/wuliang/gaoshan", 1);
-		message_vision(HIR"$NÊìÏ¤µØÈÆ¹ıÉ­ÁÖ£¬À´µ½Ò»¸ö¸ßÉ½ÉÏ¡£\n"NOR, me);
+		message_vision(HIR"$Nç†Ÿæ‚‰åœ°ç»•è¿‡æ£®æ—ï¼Œæ¥åˆ°ä¸€ä¸ªé«˜å±±ä¸Šã€‚\n"NOR, me);
 	}
 	if (random(me->query("kar")) <10 && me->query_con() < 30){
-		me->set_temp("last_damage_from", "ÔÚÉ­ÁÖÀï½îÆ£Á¦¾¡ÀÛ");
+		me->set_temp("last_damage_from", "åœ¨æ£®æ—é‡Œç­‹ç–²åŠ›å°½ç´¯");
 		me->add("qi", -30);
 		me->add("jingli", -10);
 		me->receive_wound("jing", 20);
@@ -53,8 +53,8 @@ int do_look()
 	mixed *local;
 	local = localtime(TIME_TICK);
 	if(local[2] < 6 &&random(6)<2) {
-	message("vision",BLU"ÌìºÚÁË,ÕâÀïºÚ÷î÷îÒ»Æ¬£¬ÉìÊÖ²»¼ûÎåÖ¸,ÄãËÄ´¦ÂÒ×ß×Å,ĞÄÀï³äÂú¿Ö¾å.\n"
-				"Í»È»´«À´¼¸ÉùÒ°ÊŞµÄº¿½Ğ,ÄãÏÅµÄ¿ŞÁËÆğÀ´.\n"NOR, me);
+	message("vision",BLU"å¤©é»‘äº†,è¿™é‡Œé»‘é»é»ä¸€ç‰‡ï¼Œä¼¸æ‰‹ä¸è§äº”æŒ‡,ä½ å››å¤„ä¹±èµ°ç€,å¿ƒé‡Œå……æ»¡ææƒ§.\n"
+				"çªç„¶ä¼ æ¥å‡ å£°é‡å…½çš„åšå«,ä½ å“çš„å“­äº†èµ·æ¥.\n"NOR, me);
 	}
 }
 int valid_leave(object me, string dir)
@@ -73,10 +73,10 @@ int valid_leave(object me, string dir)
 	if (dir == "north")
 		me->add_temp("mark/step",1);
 
-/**for Óª¾È¶ÎÓş ***/
-// Modify By River ¹ØÓÚ²»ÄÜÌ«¼òµ¥»ñµÃ lbwb £¬Ö»¸øÈı´Î»ú»á 
+/**for è¥æ•‘æ®µèª‰ ***/
+// Modify By River å…³äºä¸èƒ½å¤ªç®€å•è·å¾— lbwb ï¼Œåªç»™ä¸‰æ¬¡æœºä¼š 
 
-// Modify By tangfeng Quest±¾ÉíË­¿ÉÒÔ½âµÄ£¬ÎÊÌâÊÇÄÃµ½²¯¾íÊÇ·ñÁìÎòµ½Áè²¨Î¢²½
+// Modify By tangfeng Questæœ¬èº«è°å¯ä»¥è§£çš„ï¼Œé—®é¢˜æ˜¯æ‹¿åˆ°å¸›å·æ˜¯å¦é¢†æ‚Ÿåˆ°å‡Œæ³¢å¾®æ­¥
 
 	if (me->query_temp("mark/steps") == me->query_temp(QUESTDIR1+"steps") 
 	 && me->query_temp("mark/step") == me->query_temp(QUESTDIR1+"step"))
@@ -91,23 +91,23 @@ int valid_leave(object me, string dir)
 		me->set(QUESTDIR1+"pass_shanlu", 1);
 		me->delete_temp("mark/steps");
 		me->delete_temp("mark/step");
-		return notify_fail(HIR"\nÄã×ßµ½ÁËÒ»¸ö¸ßÉ½ÉÏ¡£\n"NOR);
+		return notify_fail(HIR"\nä½ èµ°åˆ°äº†ä¸€ä¸ªé«˜å±±ä¸Šã€‚\n"NOR);
 	}
 	if((me->query_temp("mark/steps") < -10 
 	 || me->query_temp("mark/step") < -10 
  	 || me->query_temp("mark/steps") > 12 
 	 || me->query_temp("mark/step") > 12 ) && !random(20))
 	{
-		if(me->query_temp(QUESTDIR1+"yingjiu"))  me->set("quest/ÌìÁú°Ë²¿/time", time());
+		if(me->query_temp(QUESTDIR1+"yingjiu"))  me->set("quest/å¤©é¾™å…«éƒ¨/time", time());
 		me->move("/d/dali/wuliang/xiaoxi");
 		me->delete_temp("mark/steps");
 		me->delete_temp("mark/step");
 		if( me->query_temp(QUESTDIR1+"yingjiu")){
-			me->delete_temp("quest/ÌìÁú°Ë²¿");
-			me->delete_temp("quest/busy");//ÈÎÎñ³åÍ»±êÖ¾È¡Ïû
-			return notify_fail(HIW"\nÄã½îÆ£Á¦¾¡µØ×ß³öÕâ¶ÎÉ½Â·£¬¾ÚÉ¥µØ·¢ÏÖ×Ô¼ºÔõÃ´Ò²ÕÒ²»µ½ËÄ´ó¶ñÈËµÄĞĞ×Ù¡£\n"NOR);
+			me->delete_temp("quest/å¤©é¾™å…«éƒ¨");
+			me->delete_temp("quest/busy");//ä»»åŠ¡å†²çªæ ‡å¿—å–æ¶ˆ
+			return notify_fail(HIW"\nä½ ç­‹ç–²åŠ›å°½åœ°èµ°å‡ºè¿™æ®µå±±è·¯ï¼Œæ²®ä¸§åœ°å‘ç°è‡ªå·±æ€ä¹ˆä¹Ÿæ‰¾ä¸åˆ°å››å¤§æ¶äººçš„è¡Œè¸ªã€‚\n"NOR);
 		}
-		else return notify_fail(HIY"Äã½îÆ£Á¦¾¡£¬ÖÕÓÚ×ß³öÁËÕâ¶ÎÉ½Â·¡£\n"NOR);
+		else return notify_fail(HIY"ä½ ç­‹ç–²åŠ›å°½ï¼Œç»ˆäºèµ°å‡ºäº†è¿™æ®µå±±è·¯ã€‚\n"NOR);
 	}
 	return ::valid_leave(me, dir);
 }
@@ -139,7 +139,7 @@ int valid_leave(object me, string dir)
 	 && me->query_temp("duanyu/find2")){
 		me->move(__DIR__"gaoshan");
 		log_file("quest/lbwb",
-			sprintf("%-18sË³ÀûÍ¨¹ıÉ½Â·£¬×ßÉÏÑ°ÕÒÁè²¨Î¢²½Ö®Â·£¬¸££º%d£¬Îò£º%d£¬¸ù£º%d£¬Îò£º%d¡£\n",
+			sprintf("%-18sé¡ºåˆ©é€šè¿‡å±±è·¯ï¼Œèµ°ä¸Šå¯»æ‰¾å‡Œæ³¢å¾®æ­¥ä¹‹è·¯ï¼Œç¦ï¼š%dï¼Œæ‚Ÿï¼š%dï¼Œæ ¹ï¼š%dï¼Œæ‚Ÿï¼š%dã€‚\n",
 				me->name(1)+"("+capitalize(getuid(me))+")", 
 				me->query("kar"),
 				me->query("int"),
@@ -150,7 +150,7 @@ int valid_leave(object me, string dir)
 		me->set("quest/dali/shanlu", 1);
 		me->delete_temp("mark/steps");
 		me->delete_temp("mark/step");
-		return notify_fail("Äã×ßµ½ÁËÒ»¸ö¸ßÉ½ÉÏ¡£\n");
+		return notify_fail("ä½ èµ°åˆ°äº†ä¸€ä¸ªé«˜å±±ä¸Šã€‚\n");
 	}
 	if (me->query_temp("mark/steps") < -8 
 	 || me->query_temp("mark/step") < -8 
@@ -161,7 +161,7 @@ int valid_leave(object me, string dir)
 			me->add("quest/dali/fail", 1);
 			me->set("quest/dali/time", time());
 			log_file("quest/lbwb",
-				sprintf("%-18sµÚ%d´Î»ú»áÃ»ÓĞÕÆÎÕ£¬Î´ÄÜË³ÀûÍ¨¹ıÉ½Â·¡£\n",
+				sprintf("%-18sç¬¬%dæ¬¡æœºä¼šæ²¡æœ‰æŒæ¡ï¼Œæœªèƒ½é¡ºåˆ©é€šè¿‡å±±è·¯ã€‚\n",
 					me->name(1)+"("+capitalize(getuid(me))+")", 
 					me->query("quest/dali/fail")
 				), 
@@ -172,11 +172,11 @@ int valid_leave(object me, string dir)
 		me->delete_temp("mark/step");
 		if( me->query_temp("duanyu/find2")){
 			me->delete_temp("duanyu");
-			return notify_fail(HIW"\nÄã½îÆ£Á¦¾¡µØ×ß³öÕâ¶ÎÉ½Â·£¬¾ÚÉ¥µØ·¢ÏÖ×Ô¼ºÔõÃ´Ò²ÕÒ²»µ½ËÄ´ó¶ñÈËµÄĞĞ×Ù¡£\n"NOR);
+			return notify_fail(HIW"\nä½ ç­‹ç–²åŠ›å°½åœ°èµ°å‡ºè¿™æ®µå±±è·¯ï¼Œæ²®ä¸§åœ°å‘ç°è‡ªå·±æ€ä¹ˆä¹Ÿæ‰¾ä¸åˆ°å››å¤§æ¶äººçš„è¡Œè¸ªã€‚\n"NOR);
 		}
 		else {
 			me->delete_temp("duanyu");
-			return notify_fail("Äã½îÆ£Á¦¾¡£¬ÖÕÓÚ×ß³öÁËÕâ¶ÎÉ½Â·¡£\n");
+			return notify_fail("ä½ ç­‹ç–²åŠ›å°½ï¼Œç»ˆäºèµ°å‡ºäº†è¿™æ®µå±±è·¯ã€‚\n");
 		}
 	}
 	return ::valid_leave(me, dir);

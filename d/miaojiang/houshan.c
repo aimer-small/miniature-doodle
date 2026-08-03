@@ -3,11 +3,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short","ºóÉ½");
+        set("short","åŽå±±");
         set("long", @LONG
-¹ÅÊ÷²ÎÌì£¬¾£¼¬ÃÜ²¼£¬Ò»²»Ð¡ÐÄ¾Í»á±»¹Òµ½ÁËÊÖ½Å¡£Å¨ÃÜ¿íºñµÄÊ÷Ò¶ÕÚ±Î
-ÁËÈÕÔÂÐÇ³½£¬µØÉÏÁãÐÇÉ¢Âä×Å²¶ÉßÈË²È¹ýµÄ½ÅÓ¡£¬ËÄÖÜËÀÒ»°ãµÄ¼Å¾²£¬Ö»ÓÐ·ç
-´µ¹ýÊ÷ÉÒµÄÉ³É³Ö®Éù¡£±éµØÅÀÂúÁË¸÷ÖÖ¶¾³æ£¬Äã²»½û²úÉúÁËÍËËõÖ®ÐÄ¡£
+å¤æ ‘å‚å¤©ï¼Œè†æ£˜å¯†å¸ƒï¼Œä¸€ä¸å°å¿ƒå°±ä¼šè¢«æŒ‚åˆ°äº†æ‰‹è„šã€‚æµ“å¯†å®½åŽšçš„æ ‘å¶é®è”½
+äº†æ—¥æœˆæ˜Ÿè¾°ï¼Œåœ°ä¸Šé›¶æ˜Ÿæ•£è½ç€æ•è›‡äººè¸©è¿‡çš„è„šå°ï¼Œå››å‘¨æ­»ä¸€èˆ¬çš„å¯‚é™ï¼Œåªæœ‰é£Ž
+å¹è¿‡æ ‘æ¢¢çš„æ²™æ²™ä¹‹å£°ã€‚éåœ°çˆ¬æ»¡äº†å„ç§æ¯’è™«ï¼Œä½ ä¸ç¦äº§ç”Ÿäº†é€€ç¼©ä¹‹å¿ƒã€‚
 LONG                           
         );
 
@@ -17,7 +17,7 @@ LONG
         set("objects", ([
               __DIR__"npc/yan-ji" :1,
         ]) );
-        set("outdoors", "Ãç½®");
+        set("outdoors", "è‹—ç–†");
         setup();
 }
 void init()
@@ -29,13 +29,13 @@ int do_find(string arg)
         object me = this_player();
 
         if(!arg ||arg != "snake") 
-        	return notify_fail("ÄãÔÚ¸ÉÂð£¿\n");
+        	return notify_fail("ä½ åœ¨å¹²å—ï¼Ÿ\n");
         if (!me->query("gb/snaked")|| me->query("gb/found"))
-        	return notify_fail("Ïë¸ÉÂð£¿\n");
+        	return notify_fail("æƒ³å¹²å—ï¼Ÿ\n");
         if (me->is_busy())
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	message_vision("$N²¦¿ªÒ»´Ô´ÔÔÓ²Ý£¬×ÐÏ¸ËÑÑ°×Å¡£\n", me);
+	message_vision("$Næ‹¨å¼€ä¸€ä¸›ä¸›æ‚è‰ï¼Œä»”ç»†æœå¯»ç€ã€‚\n", me);
         me->start_busy(2);
         if (random(me->query_int())>20){
         	remove_call_out("happen1");
@@ -51,9 +51,9 @@ int do_find(string arg)
 }
 int happen1(object me)
 {
-        message_vision("$NÑÛÇ°Ò»ÁÁ£¬·¢ÏÖ²Ý´ÔÀï·Â·ðÓÐÊ²Ã´¶«Î÷ÔÚ¶¯£¬¼±Ã¦¶¨¾¦×ÐÏ¸¹ÛÇÆ¡£¡±\n",me);
+        message_vision("$Nçœ¼å‰ä¸€äº®ï¼Œå‘çŽ°è‰ä¸›é‡Œä»¿ä½›æœ‰ä»€ä¹ˆä¸œè¥¿åœ¨åŠ¨ï¼Œæ€¥å¿™å®šç›ä»”ç»†è§‚çž§ã€‚â€\n",me);
 	if(random(me->query("kar"))>15){
-		message_vision("$NÂúÁ³¾ªÏ²µØÉìÊÖ¼ñÆðÒ»¿éÓñÊ¯¡£\n",me);
+		message_vision("$Næ»¡è„¸æƒŠå–œåœ°ä¼¸æ‰‹æ¡èµ·ä¸€å—çŽ‰çŸ³ã€‚\n",me);
 		new(MISC_D("yushi"))->move(me);
 		return 1;
 	}
@@ -63,14 +63,14 @@ int happen1(object me)
 		return 1;
 	}
 
-	message_vision("$NÊ¹¾¢ÈàÁËÈàÑÛ¾¦£¬Ô­À´ÊÇÑÛ»¨ÁË¡£\n",me);
+	message_vision("$Nä½¿åŠ²æ‰äº†æ‰çœ¼ç›ï¼ŒåŽŸæ¥æ˜¯çœ¼èŠ±äº†ã€‚\n",me);
 	return 1;
 }
 int happen2(object me)
 {
 
         if (NATURE_D->query_daytime() == "event_noon"){
-    		message_vision("$NÂúÁ³¾ªÏ²µØÉìÊÖ¼ñÆðÒ»¿é½ð¶§¡£\n",me);
+    		message_vision("$Næ»¡è„¸æƒŠå–œåœ°ä¼¸æ‰‹æ¡èµ·ä¸€å—é‡‘é”­ã€‚\n",me);
 		new("/clone/money/gold")->move(me);
 		return 1;
 	}
@@ -79,17 +79,17 @@ int happen2(object me)
 		call_out("happen3", 1, me);
 		return 1;
 	}
-	message_vision("$NÕÒÁË°ëÌì£¬Ê²Ã´Ò²Ã»·¢ÏÖ£¬²»ÓÉµØ¾ÚÉ¥µÃÌ¾ÁË¿ÚÆø¡£\n",me);
+	message_vision("$Næ‰¾äº†åŠå¤©ï¼Œä»€ä¹ˆä¹Ÿæ²¡å‘çŽ°ï¼Œä¸ç”±åœ°æ²®ä¸§å¾—å¹äº†å£æ°”ã€‚\n",me);
 	return 1;
 }
 
 int happen3(object me, object snake)
 {
         
-        message_vision("$NºöÈ»¸ßÐËµØÌøÁËÆðÀ´£¬´óºÈÒ»Éù£º¡°ÄÄÀïÅÜ£¡¿ÉÈÃÎÒ´þ×ÅÁË£¡¡±\n",me);
-	message_vision("$NÓÃÁ¦°´×¡Ò»ÌõÐ¡ÉßµÄÎ²°Í£¬°ÑËü×¥ÁËÆðÀ´¡£\n",me);
+        message_vision("$Nå¿½ç„¶é«˜å…´åœ°è·³äº†èµ·æ¥ï¼Œå¤§å–ä¸€å£°ï¼šâ€œå“ªé‡Œè·‘ï¼å¯è®©æˆ‘é€®ç€äº†ï¼â€\n",me);
+	message_vision("$Nç”¨åŠ›æŒ‰ä½ä¸€æ¡å°è›‡çš„å°¾å·´ï¼ŒæŠŠå®ƒæŠ“äº†èµ·æ¥ã€‚\n",me);
 	snake = new("/clone/animal/gbsnake");
-        snake->set("name",me->query("name")+"µÄÉß");
+        snake->set("name",me->query("name")+"çš„è›‡");
 	snake->set_temp("owner",me->query("id"));
 	snake->move(me);
 	if (!wizardp(me))

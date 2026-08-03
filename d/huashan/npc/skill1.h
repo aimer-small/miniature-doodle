@@ -87,10 +87,10 @@ int do_clone(object me, object ob)
 
 
 //add log here
-        log_file("job/heimuya",sprintf("%8s%-10s FIGHT LING£¬LINGµÈ¼¶ÊÇ%3d£¬±¾ÈËµÈ¼¶ÊÇ%3d¡£\n",
+        log_file("job/heimuya",sprintf("%8s%-10s FIGHT LINGï¼ŒLINGç­‰çº§æ˜¯%3dï¼Œæœ¬äººç­‰çº§æ˜¯%3dã€‚\n",
 		ob->name(1),"("+ob->query("id")+")",number_t,(int)ob->query("max_pot")-100),ob);
 
         me->set_temp("skillset",1);
-        command("say À´°É£¬ÎÒÃÇÀ´ÇĞ´èÇĞ´è£¡");
+        command("say æ¥å§ï¼Œæˆ‘ä»¬æ¥åˆ‡ç£‹åˆ‡ç£‹ï¼");
 	return 1;
 }

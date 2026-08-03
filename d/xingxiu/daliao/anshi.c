@@ -4,15 +4,15 @@
 #include <room.h>
 
 inherit ROOM;
-#define QUESTDIR3 "quest/ÌìÁú°Ë²¿/Ïô·åÉíÊÀÆª/"
-#define QUESTDIR4 "quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/"
-#define QUESTDIR5 "quest/ÌìÁú°Ë²¿/¸´ĞËÌìÏÂÆª/"
+#define QUESTDIR3 "quest/å¤©é¾™å…«éƒ¨/è§å³°èº«ä¸–ç¯‡/"
+#define QUESTDIR4 "quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/"
+#define QUESTDIR5 "quest/å¤©é¾™å…«éƒ¨/å¤å…´å¤©ä¸‹ç¯‡/"
 
 void create()
 {
-	set("short", "°µÊÒ");
+	set("short", "æš—å®¤");
 	set("long", @LONG
-Ë­ÄÜÁÏµ½´óÁÉÓªµØ¾ÓËù±³ºóÓĞÕâµÈÒ»¸ö°µÊÒ£¬²»ÖªµÀÆ½Ê±×öºÎÓÃ´¦¡£
+è°èƒ½æ–™åˆ°å¤§è¾½è¥åœ°å±…æ‰€èƒŒåæœ‰è¿™ç­‰ä¸€ä¸ªæš—å®¤ï¼Œä¸çŸ¥é“å¹³æ—¶åšä½•ç”¨å¤„ã€‚
 LONG
 	);
            set("quest",1);
@@ -38,9 +38,9 @@ void init()
 
 int do_push(string arg)
 {
-        if( arg == "wall" || arg == "Ç½" || arg == "Ç½±ß")
+        if( arg == "wall" || arg == "å¢™" || arg == "å¢™è¾¹")
         {
-        message_vision("$NÍÆ¿ªÕâ¶ÂÇ½£¬´ò¿ª³ö¿Ú¡£\n", this_player());
+        message_vision("$Næ¨å¼€è¿™å µå¢™ï¼Œæ‰“å¼€å‡ºå£ã€‚\n", this_player());
         if( !query("exits/east") ) {
        set("exits/south", __DIR__"zuotang");
         remove_call_out("close_path");
@@ -52,6 +52,6 @@ int do_push(string arg)
 void close_path()
 {
         if( !query("exits/east") ) return;
-        message("vision","Ò»»á»á£¬àÌµÄÒ»Éù£¬Ç½ÓÖ»Ö¸´Ô­Ñù¡£\n", this_object() );
+        message("vision","ä¸€ä¼šä¼šï¼Œå—µçš„ä¸€å£°ï¼Œå¢™åˆæ¢å¤åŸæ ·ã€‚\n", this_object() );
         delete("exits/east");
 }

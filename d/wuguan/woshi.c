@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short",HIC"¶¬Å¯¸ó"NOR);
+        set("short",HIC"å†¬æš–é˜"NOR);
         set("long", @LONG
-ÕâÀïÊÇÎä¹İ¹İÖ÷ÍòÕğÉ½µÄÎÔÊÒ£¬·¿×Ó²¢²»´ó£¬ºÜÕû½à¼òÆÓ£¬±»×ÓµşµÄÕûÕû
-ÆëÆë£¬ÕÊ×Ó¹ÒÁËÆğÀ´£¬¿¿´°±ß°ÚÁËÒ»ÅÌÅè¾°£¬Ò»ÕÅĞ¡×À£¬·Å×Å¼¸±¾Êé¡£¼¸ÂÆÑô
-¹âÍ¸¹ı´°ÍâµÄÂÌÒñÖĞÖ±Éä½øÀ´¡£
+è¿™é‡Œæ˜¯æ­¦é¦†é¦†ä¸»ä¸‡éœ‡å±±çš„å§å®¤ï¼Œæˆ¿å­å¹¶ä¸å¤§ï¼Œå¾ˆæ•´æ´ç®€æœ´ï¼Œè¢«å­å çš„æ•´æ•´
+é½é½ï¼Œå¸å­æŒ‚äº†èµ·æ¥ï¼Œé çª—è¾¹æ‘†äº†ä¸€ç›˜ç›†æ™¯ï¼Œä¸€å¼ å°æ¡Œï¼Œæ”¾ç€å‡ æœ¬ä¹¦ã€‚å‡ ç¼•é˜³
+å…‰é€è¿‡çª—å¤–çš„ç»¿è«ä¸­ç›´å°„è¿›æ¥ã€‚
 LONG
         );       
 		 
@@ -32,25 +32,25 @@ int do_jump(string arg)
     {
 		if(me->query_skill("dodge")<100) 
 		{
-			message_vision(HIY"\n$NÎüÁËÒ»¿ÚÆø£¬Ïë´Ó´°¿ÚÌø³öÈ¥¡£\n"NOR,me);
-			return notify_fail("ÍòÕğÉ½ÉÏÇ°°ÑÊÖÒ»Éì£º"+RANK_D->query_respect(me) +"ÄãÒª¸ÉÊ²Ã´£¿£¡\n");
+			message_vision(HIY"\n$Nå¸äº†ä¸€å£æ°”ï¼Œæƒ³ä»çª—å£è·³å‡ºå»ã€‚\n"NOR,me);
+			return notify_fail("ä¸‡éœ‡å±±ä¸Šå‰æŠŠæ‰‹ä¸€ä¼¸ï¼š"+RANK_D->query_respect(me) +"ä½ è¦å¹²ä»€ä¹ˆï¼Ÿï¼\n");
 		}
 		if (!(room = find_object(__DIR__"houyuan2")))
 			room = load_object(__DIR__"houyuan2");
 		if(!room)
 		{ 
-			tell_object(me,HIR"\nÄãÎŞÂÛÔõÃ´Ìø£¬·¢ÏÖ¶¼»¹ÔÚÔ­µØ!\n");
-			log_file("quest/LCHJ", sprintf("%s(%s)È±ÉÙhouyuan2.cÎÄ¼ş¡£\n", me->name(1),me->query("id")) );	
+			tell_object(me,HIR"\nä½ æ— è®ºæ€ä¹ˆè·³ï¼Œå‘ç°éƒ½è¿˜åœ¨åŸåœ°!\n");
+			log_file("quest/LCHJ", sprintf("%s(%s)ç¼ºå°‘houyuan2.cæ–‡ä»¶ã€‚\n", me->name(1),me->query("id")) );	
 		}
 		else
 		{
-			message_vision(HIY"\n$NÎüÁËÒ»¿ÚÆø£¬³ËÍòÕğÉ½²»×¢Òâ£¬Í»È»Ö±½Ó´Ó´°¿ÚÌøÁË³öÈ¥¡£\n"NOR, me);
+			message_vision(HIY"\n$Nå¸äº†ä¸€å£æ°”ï¼Œä¹˜ä¸‡éœ‡å±±ä¸æ³¨æ„ï¼Œçªç„¶ç›´æ¥ä»çª—å£è·³äº†å‡ºå»ã€‚\n"NOR, me);
 			me->move(room);
 			me->start_busy(1);
-			tell_room(environment(me),"\nÖ»¼ûÒ»¸öÉíÓ°·ÉÉí¶ø¹ı£¬Ô­À´ÊÇ"+me->name()+"´Ó´°»§ÉÏÌøÏÂÀ´¡£\n"NOR, ({me}));                       	
+			tell_room(environment(me),"\nåªè§ä¸€ä¸ªèº«å½±é£èº«è€Œè¿‡ï¼ŒåŸæ¥æ˜¯"+me->name()+"ä»çª—æˆ·ä¸Šè·³ä¸‹æ¥ã€‚\n"NOR, ({me}));                       	
 		}
 		return 1;
 	}
-	return notify_fail("ÍòÕğÉ½ÉÏÇ°°ÑÊÖÒ»Éì£º"+RANK_D->query_respect(me) +"ÄãÒª¸ÉÊ²Ã´£¿£¡\n");
+	return notify_fail("ä¸‡éœ‡å±±ä¸Šå‰æŠŠæ‰‹ä¸€ä¼¸ï¼š"+RANK_D->query_respect(me) +"ä½ è¦å¹²ä»€ä¹ˆï¼Ÿï¼\n");
 }
 

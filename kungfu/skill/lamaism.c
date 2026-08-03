@@ -1,6 +1,6 @@
 // /kungfu/skill/lamaism
 // by dubei
-// mizong-xinfa.c ÃÜ×ÚĞÄ·¨
+// mizong-xinfa.c å¯†å®—å¿ƒæ³•
 
  
 inherit SKILL;
@@ -15,12 +15,12 @@ int valid_learn(object me)
         
         lvl = (int)me->query_skill("dacheng-fofa", 1);
         
-        if(me->query("gender") == "ÎŞĞÔ" && lvl > 10)
-                return notify_fail("Äã¸ÕÌıÒ»»á¶ù£¬¾õµÃÎŞ·¨ÁìÎòÃÜ×ÚĞÄ·¨¡£\n");
+        if(me->query("gender") == "æ— æ€§" && lvl > 10)
+                return notify_fail("ä½ åˆšå¬ä¸€ä¼šå„¿ï¼Œè§‰å¾—æ— æ³•é¢†æ‚Ÿå¯†å®—å¿ƒæ³•ã€‚\n");
         return 1;
 }
 
 int practice_skill(object me)
 {       
-        return notify_fail("ÃÜ×ÚĞÄ·¨Ö»ÄÜ¿¿Ñ§Ï°À´Ìá¸ß¡£\n");
+        return notify_fail("å¯†å®—å¿ƒæ³•åªèƒ½é å­¦ä¹ æ¥æé«˜ã€‚\n");
 }

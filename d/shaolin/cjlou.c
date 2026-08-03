@@ -4,12 +4,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "²Ø¾­¸óÒ»Â¥");
+	set("short", "è—ç»é˜ä¸€æ¥¼");
 	set("long", @LONG
-ÕâÀï¾ÍÊÇÃûÂú½­ºþµÄ--ÉÙÁÖ²Ø¾­¸ó¡£²»À¢ÎªÖÐÔ­·ð·¨µÄ×ÜÔ´£¬ÉÙÁÖËÂ´Ë
-´¦²Ø¾­Ö®¸»£¬ÌìÏÂº±ÓÐÆäÆ¥¡£ÕâÀï¶¼ÊÇÃÜÃÜÂéÂé£¬¸ß¼°¶¥ÅïµÄÊé¼Ü£¬Êé¼Ü¼ä
-½öÓÐÈÝÉíÒ»ÈËÍ¨ÐÐµÄ¿ÕÏ¶¡£¼¸ÅÅ´óÊé¼ÜÖÐ¼ä£¬¼ä¸ôµØ·Å×ÅÊýÕÉ³¤µÄÊé×À¡£Ä¿
-¹â¼°´¦£¬Äã¿´µ½×ÀÉÏ·ÅÁË¼¸±¾·ð¾­¡£
+è¿™é‡Œå°±æ˜¯åæ»¡æ±Ÿæ¹–çš„--å°‘æž—è—ç»é˜ã€‚ä¸æ„§ä¸ºä¸­åŽŸä½›æ³•çš„æ€»æºï¼Œå°‘æž—å¯ºæ­¤
+å¤„è—ç»ä¹‹å¯Œï¼Œå¤©ä¸‹ç½•æœ‰å…¶åŒ¹ã€‚è¿™é‡Œéƒ½æ˜¯å¯†å¯†éº»éº»ï¼Œé«˜åŠé¡¶æ£šçš„ä¹¦æž¶ï¼Œä¹¦æž¶é—´
+ä»…æœ‰å®¹èº«ä¸€äººé€šè¡Œçš„ç©ºéš™ã€‚å‡ æŽ’å¤§ä¹¦æž¶ä¸­é—´ï¼Œé—´éš”åœ°æ”¾ç€æ•°ä¸ˆé•¿çš„ä¹¦æ¡Œã€‚ç›®
+å…‰åŠå¤„ï¼Œä½ çœ‹åˆ°æ¡Œä¸Šæ”¾äº†å‡ æœ¬ä½›ç»ã€‚
 LONG
 	);
 
@@ -29,9 +29,9 @@ LONG
 
 int valid_leave(object me, string dir)
 {
-	if (me->query("family/family_name") == "¹ÃËÕÄ½ÈÝ" && me->query("family/generation") <3);
-	else if (me->query("family/family_name") == "ÉÙÁÖÅÉ" && me->query("family/generation") <36);
+	if (me->query("family/family_name") == "å§‘è‹æ…•å®¹" && me->query("family/generation") <3);
+	else if (me->query("family/family_name") == "å°‘æž—æ´¾" && me->query("family/generation") <36);
         else if( !present("shou yu", me) && (objectp(present("daoyi chanshi", environment(me)))) )
-		if (dir == "up" ) return notify_fail("µÀÒ»ËµµÀ: ÄãÎ´¾­Ðí¿É£¬²»ÄÜÉÏ¶þÂ¥¡£\n");
+		if (dir == "up" ) return notify_fail("é“ä¸€è¯´é“: ä½ æœªç»è®¸å¯ï¼Œä¸èƒ½ä¸ŠäºŒæ¥¼ã€‚\n");
 	return ::valid_leave(me, dir);
 }

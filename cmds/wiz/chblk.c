@@ -24,68 +24,68 @@ int main(object me, string arg)
 	if (who == "rumor")
 	{
 		CHANNEL_D->set_block("rumor", 1);
-		CHANNEL_D->do_channel(me, "sys", "р╔ятф╣╣ю╧ь╠уак║ё");
+		CHANNEL_D->do_channel(me, "sys", "Х╟ёХ╗─И╒▒И│⌠Е┘ЁИ≈╜Д╨├Ц─┌");
 		return 1;
 	}
 
 	if (who == "chat")
 	{
 		CHANNEL_D->set_block("chat", 1);
-		CHANNEL_D->do_channel(me, "sys", "адлЛф╣╣ю╧ь╠уак║ё");
+		CHANNEL_D->do_channel(me, "sys", "Х│┼Е╓╘И╒▒И│⌠Е┘ЁИ≈╜Д╨├Ц─┌");
 		return 1;
 	}
 
 	if (who == "party")
 	{
 		CHANNEL_D->set_block("party", 1);
-		CHANNEL_D->do_channel(me, "sys", "цееиф╣╣ю╧ь╠уак║ё");
+		CHANNEL_D->do_channel(me, "sys", "И≈╗Ф╢╬И╒▒И│⌠Е┘ЁИ≈╜Д╨├Ц─┌");
 		return 1;
 	}
 
 	if (who == "sr")
 	{
 		CHANNEL_D->set_block("sr", 1);
-		CHANNEL_D->do_channel(me, "sys", "╦ъ╪╤опадф╣╣ю╧ь╠уак║ё");
+		CHANNEL_D->do_channel(me, "sys", "И╚≤Г╨╖И≈╡Х│┼И╒▒И│⌠Е┘ЁИ≈╜Д╨├Ц─┌");
 		return 1;
 	}
 
 	if (who == "sj")
 	{
 		CHANNEL_D->set_block("sj", 1);
-		CHANNEL_D->do_channel(me, "sys", "йИ╫ёф╣╣ю╧ь╠уак║ё");
+		CHANNEL_D->do_channel(me, "sys", "Д╧╕Е┴▒И╒▒И│⌠Е┘ЁИ≈╜Д╨├Ц─┌");
 		return 1;
 	}
 	ob = LOGIN_D->find_body(who);
-	if (!ob) return notify_fail("уБ╦Жхк╡╩тзё║\n");
-	if (wizardp(ob)) return notify_fail("╡╩дэ╧ь╠унвй╕╣дф╣╣ю║ё\n");
+	if (!ob) return notify_fail("Х©≥Д╦╙Д╨╨Д╦█Е°╗О╪│\n");
+	if (wizardp(ob)) return notify_fail("Д╦█Х┐╫Е┘ЁИ≈╜Е╥╚Е╦┬Г └И╒▒И│⌠Ц─┌\n");
 
 	if (ch_name == "" || ch_name == " ")
 	{
 		if ( ob->query("chblk_on") || ob->query("chblk_rumor") )
 		{
-			tell_object(me, (string)ob->query("name")+"╣др╔ятф╣╣юйг╧ь╠у╣д║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └Х╟ёХ╗─И╒▒И│⌠Ф≤╞Е┘ЁИ≈╜Г └Ц─┌\n");
 		}
 		if ( ob->query("chblk_on") || ob->query("chblk_chat") )
 		{
-			tell_object(me, (string)ob->query("name")+"╣дадлЛф╣╣юйг╧ь╠у╣д║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └Х│┼Е╓╘И╒▒И│⌠Ф≤╞Е┘ЁИ≈╜Г └Ц─┌\n");
 		}
 		if ( ob->query("chblk_on") || ob->query("chblk_party") )
 		{
-			tell_object(me, (string)ob->query("name")+"╣дцееиф╣╣юйг╧ь╠у╣д║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └И≈╗Ф╢╬И╒▒И│⌠Ф≤╞Е┘ЁИ≈╜Г └Ц─┌\n");
 		}
 		if ( ob->query("chblk_on") || ob->query("chblk_sj") )
 		{
-			tell_object(me, (string)ob->query("name")+"╣дйИ╫ёф╣╣юйг╧ь╠у╣д║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └Д╧╕Е┴▒И╒▒И│⌠Ф≤╞Е┘ЁИ≈╜Г └Ц─┌\n");
 		}
 		if (!(ob->query("chblk_on")||ob->query("chblk_rumor")||ob->query("chblk_chat")||ob->query("chblk_party")||ob->query("chblk_sj")))
 		{
-			tell_object(me, (string)ob->query("name")+"ц╩сп╠╩╧ь╠у╣дф╣╣ю║ё\n");
+			tell_object(me, (string)ob->query("name")+"Ф╡║Ф°┴Х╒╚Е┘ЁИ≈╜Г └И╒▒И│⌠Ц─┌\n");
 		}
 	}
 	else if (ch_name == "all") {
 		if ( ob->query("chblk_on") )
 		{
-			tell_object(me, (string)ob->query("name")+"╣дф╣╣юря╬╜йг╧ь╠у╣дак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └И╒▒И│⌠Е╥╡Г╩▐Ф≤╞Е┘ЁИ≈╜Г └Д╨├Ц─┌\n");
 		} else
 		{
 			ob->set("chblk_on", 1);
@@ -94,13 +94,13 @@ int main(object me, string arg)
 			ob->delete("chblk_party");
 			ob->delete("chblk_sj");
 			ob->apply_condition("vote_chblk", 50);
-			tell_object(me, (string)ob->query("name")+"╣дф╣╣ю╠╩╧ь╠уак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └И╒▒И│⌠Х╒╚Е┘ЁИ≈╜Д╨├Ц─┌\n");
 		}
 	}
 	else if (ch_name == "rumor") {
 		if ( ob->query("chblk_on") || ob->query("chblk_rumor") )
 		{
-			tell_object(me, (string)ob->query("name")+"╣др╔ятф╣╣юря╬╜йг╧ь╠у╣дак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └Х╟ёХ╗─И╒▒И│⌠Е╥╡Г╩▐Ф≤╞Е┘ЁИ≈╜Г └Д╨├Ц─┌\n");
 		} else
 		{
 			if ( ob->query("chblk_chat") && ob->query("chblk_party"))
@@ -113,13 +113,13 @@ int main(object me, string arg)
 				ob->set("chblk_rumor", 1);
 			}
 			ob->apply_condition("vote_chblk", 50);
-			tell_object(me, (string)ob->query("name")+"╣др╔ятф╣╣ю╠╩╧ь╠уак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └Х╟ёХ╗─И╒▒И│⌠Х╒╚Е┘ЁИ≈╜Д╨├Ц─┌\n");
 	    }
 	}
 	else if (ch_name == "chat") {
 		if ( ob->query("chblk_on") || ob->query("chblk_chat") )
 		{
-			tell_object(me, (string)ob->query("name")+"╣дадлЛф╣╣юря╬╜йг╧ь╠у╣дак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └Х│┼Е╓╘И╒▒И│⌠Е╥╡Г╩▐Ф≤╞Е┘ЁИ≈╜Г └Д╨├Ц─┌\n");
 		} else
 		{
 			if ( ob->query("chblk_rumor") && ob->query("chblk_party"))
@@ -132,13 +132,13 @@ int main(object me, string arg)
 				ob->set("chblk_chat", 1);
 			}
 			ob->apply_condition("vote_chblk", 50);
-			tell_object(me, (string)ob->query("name")+"╣дадлЛф╣╣ю╠╩╧ь╠уак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └Х│┼Е╓╘И╒▒И│⌠Х╒╚Е┘ЁИ≈╜Д╨├Ц─┌\n");
 		}
 	}
 	else if (ch_name == "party") {
 		if ( ob->query("chblk_on") || ob->query("chblk_party") )
 		{
-			tell_object(me, (string)ob->query("name")+"╣дцееиф╣╣юря╬╜йг╧ь╠у╣дак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └И≈╗Ф╢╬И╒▒И│⌠Е╥╡Г╩▐Ф≤╞Е┘ЁИ≈╜Г └Д╨├Ц─┌\n");
 		} else
 		{
 			if ( ob->query("chblk_chat") && ob->query("chblk_rumor"))
@@ -151,13 +151,13 @@ int main(object me, string arg)
 				ob->set("chblk_party", 1);
 			}
 			ob->apply_condition("vote_chblk", 50);
-			tell_object(me, (string)ob->query("name")+"╣дцееиф╣╣ю╠╩╧ь╠уак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └И≈╗Ф╢╬И╒▒И│⌠Х╒╚Е┘ЁИ≈╜Д╨├Ц─┌\n");
 		}
 	}
 	else if (ch_name == "sj") {
 		if ( ob->query("chblk_on") || ob->query("chblk_sj") )
 		{
-			tell_object(me, (string)ob->query("name")+"╣дйИ╫ёф╣╣юря╬╜йг╧ь╠у╣дак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └Д╧╕Е┴▒И╒▒И│⌠Е╥╡Г╩▐Ф≤╞Е┘ЁИ≈╜Г └Д╨├Ц─┌\n");
 		} else
 		{
 			if ( ob->query("chblk_chat") && ob->query("chblk_rumor"))
@@ -170,7 +170,7 @@ int main(object me, string arg)
 				ob->set("chblk_sj", 1);
 			}
 			ob->apply_condition("vote_chblk", 50);
-			tell_object(me, (string)ob->query("name")+"╣дйИ╫ёф╣╣ю╠╩╧ь╠уак║ё\n");
+			tell_object(me, (string)ob->query("name")+"Г └Д╧╕Е┴▒И╒▒И│⌠Х╒╚Е┘ЁИ≈╜Д╨├Ц─┌\n");
 		}
 	}
 	else {
@@ -183,16 +183,16 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-ж╦аН╦Яй╫ : chblk <дЁхк> <ф╣╣юцШ>
+Ф▄┤Д╩╓Ф═╪Е╪▐ : chblk <Ф÷░Д╨╨> <И╒▒И│⌠Е░█>
 
-╢кцЭаН╫╚╧ь╠удЁхк╣ддЁ╦Жф╣╣ю║ё
-<ф╣╣юцШ>ё╨©иртйгrumor║╒chat║╒party╩Рall║ё
-          хГ╧Ш╡╩лА╧╘ф╣╣юцШё╛тРотй╬дЁхк╣╠г╟╣дф╣╣юв╢л╛║ё
+Ф╜╓Е▒╫Д╩╓Е╟├Е┘ЁИ≈╜Ф÷░Д╨╨Г └Ф÷░Д╦╙И╒▒И│⌠Ц─┌
+<И╒▒И│⌠Е░█>О╪ Е▐╞Д╩╔Ф≤╞rumorЦ─│chatЦ─│partyФ┬√allЦ─┌
+          Е╕┌Ф·°Д╦█Ф▐░Д╬⌡И╒▒И│⌠Е░█О╪▄Е┬≥Ф≤╬Г╓╨Ф÷░Д╨╨Е╫⌠Е┴█Г └И╒▒И│⌠Г┼╤Ф─│Ц─┌
 
-╡╒грё╨
-chblk rumor ╫╚╧ь╠ур╔ятф╣╣ю║ё
-chblk chat ╫╚╧ь╠уадлЛф╣╣ю║ё
-chblk party ╫╚╧ь╠уцееиф╣╣ю║ё
+Е╧╤Д╦■О╪ 
+chblk rumor Е╟├Е┘ЁИ≈╜Х╟ёХ╗─И╒▒И│⌠Ц─┌
+chblk chat Е╟├Е┘ЁИ≈╜Х│┼Е╓╘И╒▒И│⌠Ц─┌
+chblk party Е╟├Е┘ЁИ≈╜И≈╗Ф╢╬И╒▒И│⌠Ц─┌
 
 HELP
     );

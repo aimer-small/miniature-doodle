@@ -1,4 +1,4 @@
-// zijin-dao.c ×Ï½ğµ¶
+// zijin-dao.c ç´«é‡‘åˆ€
 
 #include <ansi.h>
 #include <weapon.h>
@@ -6,13 +6,13 @@ inherit BLADE;
 
 void create()
 {
-        set_name( HIM"×Ï½ğµ¶"NOR , ({ "zijin dao", "dao","blade" }));
+        set_name( HIM"ç´«é‡‘åˆ€"NOR , ({ "zijin dao", "dao","blade" }));
         set_weight(17500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long", HIM"ÕâÊÇ°Ñ×ÏÉ«µÄ±¦µ¶£¬Ö»ÓĞÄÚ¹¦¸ßÉîµÄÈË²ÅÄÜ·¢»ÓËüÈ«²¿µÄÍşÁ¦¡£\n"NOR);
+                set("unit", "æŠŠ");
+                set("long", HIM"è¿™æ˜¯æŠŠç´«è‰²çš„å®åˆ€ï¼Œåªæœ‰å†…åŠŸé«˜æ·±çš„äººæ‰èƒ½å‘æŒ¥å®ƒå…¨éƒ¨çš„å¨åŠ›ã€‚\n"NOR);
                 set("value", 10000);
                 set("unique", 1);
                 set("rigidity", 3);

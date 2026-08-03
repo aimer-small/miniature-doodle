@@ -1,13 +1,13 @@
-// su.c ËÕÂ³¿Ë
+// su.c è‹é²å…‹
 // Lklv 2001.9.28 modify
 
 inherit NPC;
 void create()
 {
-        set_name("ËÕÂ³¿Ë", ({ "su luke", "suluke", "su"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("è‹é²å…‹", ({ "su luke", "suluke", "su"}));
+        set("gender", "ç”·æ€§");
         set("age", 45);
-        set("long", "Ëû¾ÍÊÇ¹şÈø¿ËµÚÒ»ÓÂÊ¿ËÕÂ³¿Ë¡£\n");
+        set("long", "ä»–å°±æ˜¯å“ˆè¨å…‹ç¬¬ä¸€å‹‡å£«è‹é²å…‹ã€‚\n");
 
         set("attitude", "heroism");
         set("unique", 1);

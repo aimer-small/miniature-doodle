@@ -2,10 +2,10 @@ inherit NPC;
 inherit F_VENDOR;
 void create()
 {
-        set_name("²¨Ë¹ÉúÒâÈË", ({ "shengyi ren", "dealer", "ren" }));
-        set("gender", "ÄĞĞÔ");
+        set_name("æ³¢æ–¯ç”Ÿæ„äºº", ({ "shengyi ren", "dealer", "ren" }));
+        set("gender", "ç”·æ€§");
         set("age", 40 + random(10));
-        set("long", "Ò»¸ö¾«Ã÷µÄ²¨Ë¹ÉúÒâÈË¡£¸ß±ÇÀ¶ÑÛµÄ, ¿´×ÅÄãÁ³ÉÏÂ¶³ö½ÆÕ©µÄĞ¦Èİ¡£\n");
+        set("long", "ä¸€ä¸ªç²¾æ˜çš„æ³¢æ–¯ç”Ÿæ„äººã€‚é«˜é¼»è“çœ¼çš„, çœ‹ç€ä½ è„¸ä¸Šéœ²å‡ºç‹¡è¯ˆçš„ç¬‘å®¹ã€‚\n");
         set("attitude", "friendly");
         set("combat_exp", 3000);
         set_skill("unarmed", 30);
@@ -32,7 +32,7 @@ void create()
         setup();
         set("chat_chance", 5);
         set("chat_msg", ({
-"²¨Ë¹ÉúÒâÈË¶ÔÄã½ÆÕ©µØ¼·ÁËÒ»ÏÂÑÛ¾¦¡£\n",
+"æ³¢æ–¯ç”Ÿæ„äººå¯¹ä½ ç‹¡è¯ˆåœ°æŒ¤äº†ä¸€ä¸‹çœ¼ç›ã€‚\n",
         }));
         carry_object(BINGQI_D("wandao"))->wield();
         carry_object(ARMOR_D("changpao"))->wear();

@@ -5,14 +5,14 @@ inherit THROWING;
 
 void create()
 {
-	set_name("Ë¦¼ı", ({ "shuaijian", "jian" }));
+	set_name("ç”©ç®­", ({ "shuaijian", "jian" }));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "´ü");
-		set("long", "ÕâÊÇÒ»´ü¾«ÌúÖÆ³ÉµÄË¦¼ı¡£\n");
+		set("unit", "è¢‹");
+		set("long", "è¿™æ˜¯ä¸€è¢‹ç²¾é“åˆ¶æˆçš„ç”©ç®­ã€‚\n");
 		set("base_value", 2000);
-		set("base_unit", "Ö§");
+		set("base_unit", "æ”¯");
                 set("base_weight", 50);		
 	}
 	set_amount(20);

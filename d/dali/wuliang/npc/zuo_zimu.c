@@ -1,11 +1,11 @@
-// NPC :zuo_zimu.c ×ó×ÓÄÂ
+// NPC :zuo_zimu.c å·¦å­ç©†
 // By River 98/12
 inherit NPC;
 void create()
 {
-        set_name("×ó×ÓÄÂ", ({ "zuo zimu", "zuo", "zimu"}));
-        set("title","ÎŞÁ¿½£¶«×ÚÕÆÃÅ");              
-        set("gender", "ÄĞĞÔ" );
+        set_name("å·¦å­ç©†", ({ "zuo zimu", "zuo", "zimu"}));
+        set("title","æ— é‡å‰‘ä¸œå®—æŒé—¨");              
+        set("gender", "ç”·æ€§" );
         set("age", 56);
         set("str", 27);
         set("con", 23);
@@ -23,7 +23,7 @@ void create()
         set("jiali", 40);
         set("unique", 1);
         
-        set("long","ËûÊÇÎŞÁ¿½£¶«×ÚµÄÕÆÃÅ£¬ÓÒÊÖÄí×Å³¤Ğë£¬ÉñÇéÉõÊÇµÃÒâ¡£\n");
+        set("long","ä»–æ˜¯æ— é‡å‰‘ä¸œå®—çš„æŒé—¨ï¼Œå³æ‰‹æ»ç€é•¿é¡»ï¼Œç¥æƒ…ç”šæ˜¯å¾—æ„ã€‚\n");
         set("combat_exp", 400000);
         set("shen", 1000); 
 

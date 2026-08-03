@@ -3,10 +3,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-       set_name("Ø¤°ïµÜ×Ó¼°ÈÎÎñÁôÑÔ°å", ({ "board" }) );
+       set_name("ä¸å¸®å¼Ÿå­åŠä»»åŠ¡ç•™è¨€æ¿", ({ "board" }) );
        set("location", "/d/fuzhou/fenduo1");
        set("board_id", "gb_board");
-       set("long", "ÄÏÃæĞÖµÜÀ´ÌÖ·¹Ó´£¬°¥¿È°¥¿ÈÓ´¡£\n" );
+       set("long", "å—é¢å…„å¼Ÿæ¥è®¨é¥­å“Ÿï¼Œå“å’³å“å’³å“Ÿã€‚\n" );
        setup();
        set("capacity", 60);
 }

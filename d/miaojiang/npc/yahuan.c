@@ -4,8 +4,8 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ѿ��", ({ "ya huan", "ya", "huan" }));
-        set("gender", "Ů��");
+        set_name("丫鬟", ({ "ya huan", "ya", "huan" }));
+        set("gender", "女性");
         set("age", 16);      
          set("str", 25);
         set("int", 26);
@@ -40,8 +40,8 @@ void create()
         carry_object("/clone/armor/cloth")->wear();
        
         set("inquiry", ([
-          "here" : "������ҩ���ӡ��Ҽ�С�㾫ͨ����ҩ�䣬����֮ҩ����������֮Ч��\n",
-          "rumors" : "�嶾������ɲ������ȥ������Ķ���������\n",
+          "here" : "这里是药王居。我家小姐精通各种药典，所配之药有起死回生之效。\n",
+          "rumors" : "五毒教那里可不能随便去，那里的毒很厉害。\n",
          
  ]));           
 }

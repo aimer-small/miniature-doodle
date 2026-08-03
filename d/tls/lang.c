@@ -2,10 +2,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short","����");
+        set("short","长廊");
         set("long",@LONG
-����һ���ǳ��ľ��ĳ��ȡ�����С·ͨ�����޾������߹�ȥ����
-Ժ������֡�
+这是一条非常幽静的长廊。西边小路通往无无境，东边过去是寺
+院深处的松林。
 LONG);
      set("exits",([
         "west" : __DIR__"road3",

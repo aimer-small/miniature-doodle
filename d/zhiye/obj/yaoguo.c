@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(YEL"°¾Ò©¹ø"NOR, ({ "aoyao guo" , "yao guo" , "guo" }));
+	set_name(YEL"ç†¬è¯é”…"NOR, ({ "aoyao guo" , "yao guo" , "guo" }));
 	set_weight(1000000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Ú");
-		set("long",YEL"ÕâÊÇÒ»¿ÚÈÕÒ¹²»Í£µÄ°¾Ò©µÄ¹ø×Ó¡£\n"NOR+
-"Äã¿ÉÒÔÓÃËüÀ´ÌáÁ¶(tilian)Ò©²Ä£ºtilian Ò©²Ä\n");
+		set("unit", "å£");
+		set("long",YEL"è¿™æ˜¯ä¸€å£æ—¥å¤œä¸åœçš„ç†¬è¯çš„é”…å­ã€‚\n"NOR+
+"ä½ å¯ä»¥ç”¨å®ƒæ¥æç‚¼(tilian)è¯æï¼štilian è¯æ\n");
 		set("value", 3000);
 		set("no_get", 1);
 	}
@@ -30,36 +30,36 @@ int do_tilian(string arg)
 	object me = this_player() ,obj,obj2,weapon;
 	int delay,level,time;
 	
-	if (me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (me->is_fight()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (!arg) return notify_fail("ÄãÒªÌáÁ¶Ê²Ã´£¿\n");
+	if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (me->is_fight()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (!arg) return notify_fail("ä½ è¦æç‚¼ä»€ä¹ˆï¼Ÿ\n");
 	if (!objectp(obj = present(arg, me)))
-		return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 	obj = present(obj->query("id"), me);
 	if (!objectp(obj2 = present(arg+" 2", me)))
-		return notify_fail("Äã±ØĞëÓÃÁ½·İ"+obj->query("name")+"À´ÌáÁ¶Ò©²Ä¡£\n");
+		return notify_fail("ä½ å¿…é¡»ç”¨ä¸¤ä»½"+obj->query("name")+"æ¥æç‚¼è¯æã€‚\n");
 	if( !(int)obj->query("shengcai") || !(int)obj->query("level") 
 	 || !(int)obj2->query("shengcai") || !(int)obj2->query("level")
 	 || obj->query("id") != obj2->query("id") )
-		return notify_fail("ÔÚÕâÀïÖ»ÄÜÓÃÁ½·İÍ¬ÀàµÄÒ©²ÄÔ­ÁÏÀ´ÌáÁ¶Ò©²Ä¡£\n");
+		return notify_fail("åœ¨è¿™é‡Œåªèƒ½ç”¨ä¸¤ä»½åŒç±»çš„è¯æåŸæ–™æ¥æç‚¼è¯æã€‚\n");
 	if ( !objectp(weapon=me->query_temp("weapon")) || weapon->query("id")!="yao chui" )
-		return notify_fail("Äã±ØĞë×°±¸Ò©´¸²ÅÄÜÀ´ÌáÁ¶Ò©²Ä¡£\n");
+		return notify_fail("ä½ å¿…é¡»è£…å¤‡è¯é”¤æ‰èƒ½æ¥æç‚¼è¯æã€‚\n");
 	if ( !weapon->query("worker_tool"))
-		return notify_fail("Äã±ØĞë×°±¸Ò©´¸²ÅÄÜÀ´ÌáÁ¶Ò©²Ä¡£\n");	
+		return notify_fail("ä½ å¿…é¡»è£…å¤‡è¯é”¤æ‰èƒ½æ¥æç‚¼è¯æã€‚\n");	
 	if ( !wizardp(me) && (time()<(int)me->query("worker/tilian")) )
-		return notify_fail("Äã¸Õ¸ÕÌáÁ¶½áÊø£¬¸Ğ¾õ¹ıÓÚÀÍÀÛ£¡\n");		
+		return notify_fail("ä½ åˆšåˆšæç‚¼ç»“æŸï¼Œæ„Ÿè§‰è¿‡äºåŠ³ç´¯ï¼\n");		
 
 	time = time()- me->query("pk_time");
 	if ( time < 432000)
-		return notify_fail("ÄãÄ¿Ç°µÄ×´Ì¬ÎŞ·¨ÌáÁ¶¡£\n");
+		return notify_fail("ä½ ç›®å‰çš„çŠ¶æ€æ— æ³•æç‚¼ã€‚\n");
 
 	level = (int)me->query_skill("tilian",1);
 	if ( level<1 )
-		return notify_fail("Äã¸ù±¾¾Í²»»áÌáÁ¶Ò©²Ä£¡\n");
+		return notify_fail("ä½ æ ¹æœ¬å°±ä¸ä¼šæç‚¼è¯æï¼\n");
 	if( level < obj->query("need_lvl") )
-		return notify_fail("ÄãµÄÌáÁ¶¼¼ÄÜµÈ¼¶²»¹»£¡\n");
+		return notify_fail("ä½ çš„æç‚¼æŠ€èƒ½ç­‰çº§ä¸å¤Ÿï¼\n");
 
-	message_vision(HIR"$N¿ªÊ¼ÓÃÒ©´¸µ·ÀÃ"+obj->query("name")+HIR"£¬È»ºó·Åµ½°¾Ò©¹øÀï¿ªÊ¼ÌáÁ¶Ò©²Ä......\n"NOR, me);
+	message_vision(HIR"$Nå¼€å§‹ç”¨è¯é”¤æ£çƒ‚"+obj->query("name")+HIR"ï¼Œç„¶åæ”¾åˆ°ç†¬è¯é”…é‡Œå¼€å§‹æç‚¼è¯æ......\n"NOR, me);
 	delay = 3 + random(5);
 	if (wizardp(me) && (int)me->query("env/test")) delay = 2;
 	me->start_busy(delay+1);
@@ -81,7 +81,7 @@ void tilian_finish(object me,object obj)
 	level = (int)me->query_skill("tilian",1);
 	if(level>390) level = 390 + (level-390)*11;
 	
-	message_vision(HIY"$NÀÛµÄ´óº¹ÁÜÀì£¬°ÑÌáÁ¶ºÃµÄÒ©²Ä´Ó¹öÌÌµÄ°¾Ò©¹øÀïÄÃ³öÀ´¡£\n"NOR, me);
+	message_vision(HIY"$Nç´¯çš„å¤§æ±—æ·‹æ¼“ï¼ŒæŠŠæç‚¼å¥½çš„è¯æä»æ»šçƒ«çš„ç†¬è¯é”…é‡Œæ‹¿å‡ºæ¥ã€‚\n"NOR, me);
 	if ( objectp(tools) && tools->query("id")=="yao chui" )
 		tools->use();
 		
@@ -116,7 +116,7 @@ void tilian_finish(object me,object obj)
 		}
 		obj->change_state();
 		obj->set_level( (obj->query_level()+me->query_skill("tilian",1))/2 );
-		message_vision(HIC"$NÄÃµ½Ò»·İ"+obj->query("name")+"¡£\n"NOR, me);
+		message_vision(HIC"$Næ‹¿åˆ°ä¸€ä»½"+obj->query("name")+"ã€‚\n"NOR, me);
 	}
 	else {
 		me->improve_skill("tilian", improve*2/3);
@@ -125,7 +125,7 @@ void tilian_finish(object me,object obj)
 			me->add("combat_exp", random(improve)/9);
 			me->add("potential", random(improve)/15);
 		}
-		message_vision(HIC"µ«ÊÇ$NÈ´·¢ÏÖ´Ó°¾Ò©¹øÀïÄÃ³öÀ´µÄÒ©²ÄÒÑ¾­ÍêÈ«¿¾½¹ÁË¡£\n"NOR, me);
+		message_vision(HIC"ä½†æ˜¯$Nå´å‘ç°ä»ç†¬è¯é”…é‡Œæ‹¿å‡ºæ¥çš„è¯æå·²ç»å®Œå…¨çƒ¤ç„¦äº†ã€‚\n"NOR, me);
 		destruct(obj);
 	}
 	if ( (int)me->query("potential", 1) > (int)me->query("max_pot", 1) )

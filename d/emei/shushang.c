@@ -1,13 +1,13 @@
-// Room: /d/emei/jiudaoguai3.c ¶ëáÒÅÉ ¾ÅÊ®¾ÅµÀ¹Õ3
+// Room: /d/emei/jiudaoguai3.c å³¨åµ‹æ´¾ ä¹åä¹é“æ‹3
 
 inherit ROOM;
 #include <ansi.h>
 void create()
 {
-        set("short",HIW "Ê÷ÉÏ" NOR);
+        set("short",HIW "æ ‘ä¸Š" NOR);
         set("long", @LONG
-Ò»¹ÉĞÈ³ôÖ®ÆøÆËÃæ¶øÀ´¡£ÄãÌ§Í·Ò»¿´£¬¶ÙÊ±Ã«¹Çã¤È»£¬Ò»ÌõÍë¿Ú´ÖÏ¸µÄ¾Ş
-òşµ¹ĞüÔÚÊ÷¸ÉÉÏ£¬ÕÅ¿ª´ó¿Ú£¬ÕıÒªÏòÄãÆËÀ´£¡
+ä¸€è‚¡è…¥è‡­ä¹‹æ°”æ‰‘é¢è€Œæ¥ã€‚ä½ æŠ¬å¤´ä¸€çœ‹ï¼Œé¡¿æ—¶æ¯›éª¨æ‚šç„¶ï¼Œä¸€æ¡ç¢—å£ç²—ç»†çš„å·¨
+èŸ’å€’æ‚¬åœ¨æ ‘å¹²ä¸Šï¼Œå¼ å¼€å¤§å£ï¼Œæ­£è¦å‘ä½ æ‰‘æ¥ï¼
 LONG
         );
         set("exits",([
@@ -16,7 +16,7 @@ LONG
         set("objects",([
         __DIR__"npc/jumang" : 1,
 ]));
-        set("outdoors", "¶ëáÒÉ½");
+        set("outdoors", "å³¨åµ‹å±±");
         setup();
 }
 
@@ -33,9 +33,9 @@ void reset()
         {
                 if (userp(ob[i]) && !wizardp(ob[i]))
                 {
-                        tell_object(ob[i],"Í»È»£¬Ò»Õó·ç´µ¹ı£¬Ê÷Ö¦Ò¡Ò¡»Î»Î£¬Äã±»´µÂäµ½ÁËÊ÷ÏÂ¡£\n");
+                        tell_object(ob[i],"çªç„¶ï¼Œä¸€é˜µé£å¹è¿‡ï¼Œæ ‘ææ‘‡æ‘‡æ™ƒæ™ƒï¼Œä½ è¢«å¹è½åˆ°äº†æ ‘ä¸‹ã€‚\n");
                         ob[i]->move(__DIR__"jiudaoguai3");
-                        tell_room(environment(ob[i]),"Í»È»£¬Ò»Õó·ç´µ¹ı£¬"+ob[i]->name(1)+"´ÓÊ÷ÉÏµôÁËÏÂÀ´¡£\n",({ob[i]}));
+                        tell_room(environment(ob[i]),"çªç„¶ï¼Œä¸€é˜µé£å¹è¿‡ï¼Œ"+ob[i]->name(1)+"ä»æ ‘ä¸Šæ‰äº†ä¸‹æ¥ã€‚\n",({ob[i]}));
                         continue;
                 }
         }
@@ -63,9 +63,9 @@ int do_action(string arg)
                 case "du":
                 case "study":
                 case "respirate":
-                        message_vision("$NÀ­¿ª¼ÜÊÆ£¬ÕıÓûÁ·¹¦£¬Í»È»Ò»¸ö²»Ğ¡ĞÄ£¬´ÓÊ÷ÉÏµôÁËÏÂÈ¥¡£\n",me);
+                        message_vision("$Næ‹‰å¼€æ¶åŠ¿ï¼Œæ­£æ¬²ç»ƒåŠŸï¼Œçªç„¶ä¸€ä¸ªä¸å°å¿ƒï¼Œä»æ ‘ä¸Šæ‰äº†ä¸‹å»ã€‚\n",me);
                         me->move(__DIR__"jiudaoguai3");
-                        tell_room(environment(me),"Í»È»£¬Ò»Õó·ç´µ¹ı£¬"+me->name(1)+"´ÓÊ÷ÉÏµôÁËÏÂÀ´¡£\n",({me}));
+                        tell_room(environment(me),"çªç„¶ï¼Œä¸€é˜µé£å¹è¿‡ï¼Œ"+me->name(1)+"ä»æ ‘ä¸Šæ‰äº†ä¸‹æ¥ã€‚\n",({me}));
                         return 1;
         }
         return 0;

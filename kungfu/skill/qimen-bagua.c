@@ -9,11 +9,11 @@ string type() { return "knowledge"; }
 int valid_learn(object me) 
 {
         if( me->query_skill("qimen-bagua", 1 ) >= 200 ) 
-              return notify_fail("你不能再提高奇门八卦的等级了。\n");
+              return notify_fail("浣犱笉鑳藉啀鎻愰珮濂囬棬鍏崷鐨勭瓑绾т簡銆俓n");
 	return 1;
 }
 
 int practice_skill(object me)
 {	
-	return notify_fail("奇门八卦只能靠学(learn)来提高。\n");
+	return notify_fail("濂囬棬鍏崷鍙兘闈犲(learn)鏉ユ彁楂樸�俓n");
 }

@@ -2,16 +2,16 @@
 #include <ansi.h>
 //inherit NPC;
 inherit FIGHTER;
-#define QUESTJINSHE "quest/½ğÉß½£·¨/"
+#define QUESTJINSHE "quest/é‡‘è›‡å‰‘æ³•/"
 
 void create()
 {
-	set_name("ÎÂ·½É½", ({ "wen fangshan", "wen", "fangshan" }));
-        set("gender", "ÄĞĞÔ");
-        set("title", "ÎÂ¼ÒÎåÀÏ");
+	set_name("æ¸©æ–¹å±±", ({ "wen fangshan", "wen", "fangshan" }));
+        set("gender", "ç”·æ€§");
+        set("title", "æ¸©å®¶äº”è€");
         set("long", 
-	"Ëû¾ÍÊÇÎÂ¼ÒÎåÀÏµÄÀÏÈıÎÂ·½É½¡£\n"
-	"Ò»¸öÎåÊ®À´ËêµÄÀÏÕß£¬Ô²Ô²µÄÁ³ÉÏ£¬Á÷Â¶×ÅÒõÏÕµÄÉñÇé¡£\n");
+	"ä»–å°±æ˜¯æ¸©å®¶äº”è€çš„è€ä¸‰æ¸©æ–¹å±±ã€‚\n"
+	"ä¸€ä¸ªäº”åæ¥å²çš„è€è€…ï¼Œåœ†åœ†çš„è„¸ä¸Šï¼Œæµéœ²ç€é˜´é™©çš„ç¥æƒ…ã€‚\n");
         set("str", 25);
         set("dex", 25);
         set("con", 25);
@@ -70,7 +70,7 @@ void init()
     if(ob->query("setok")) return;
         ob->set("setok",1);                             
           ob->copy_state();     
-        //¸ù¾İÃÅÅÉ¸üĞÂnpc µÄÒ»Ğ©×´Ì¬
+        //æ ¹æ®é—¨æ´¾æ›´æ–°npc çš„ä¸€äº›çŠ¶æ€
           i=me->query("max_pot");
           if(i<350) i=350;
           i=i-100;      
@@ -122,7 +122,7 @@ int do_kill(object me)
         ::do_kill(me);
 }
 
-//¼ì²é£¬quest¹ı³Ì²»ÔÊĞíËÀÍö
+//æ£€æŸ¥ï¼Œquestè¿‡ç¨‹ä¸å…è®¸æ­»äº¡
 int checking(object me, object ob)
 {
         int ret =  ::checking(me,ob);
@@ -131,9 +131,9 @@ int checking(object me, object ob)
         call_out("checking", 1, me, ob);
   if(!living(me) && living(ob) && ob->query("jing")>0 && ob->query("jingli")>0 && ob->query("qi")>0  ){
                 remove_call_out("checking");
-                tell_room(environment(me), HIB"\n"+me->name()+"ÑÛ¿´¾ÍÊÇ²»µĞ£¬Í»È»Ò»¹É¾¢·çÏ®À´£¬ÎåĞĞÕóÒ»¶Ù³öÏÖÒ»µÀ¼äÏ¶£¬"+me->name()+"Ë³ÊÆ´³³öÎÂ¼Ò±¤×¯¡£\n"NOR);
+                tell_room(environment(me), HIB"\n"+me->name()+"çœ¼çœ‹å°±æ˜¯ä¸æ•Œï¼Œçªç„¶ä¸€è‚¡åŠ²é£è¢­æ¥ï¼Œäº”è¡Œé˜µä¸€é¡¿å‡ºç°ä¸€é“é—´éš™ï¼Œ"+me->name()+"é¡ºåŠ¿é—¯å‡ºæ¸©å®¶å ¡åº„ã€‚\n"NOR);
                 me->move("/d/xiangyang/ncx3");
-                tell_room(environment(me), HIB"\nÒ»¸öÉíÓ°Í»È»·ÉÀ´£¬´ıÄã×ĞÏ¸¿´À´£¬Ô­À´ÊÇ"+me->name()+"£¬Ö»¼û"+me->name()+"Í»È»Ò»¶Ù£¬¾¹È»»èµ¹ÔÚµØ¡£\n"NOR);
+                tell_room(environment(me), HIB"\nä¸€ä¸ªèº«å½±çªç„¶é£æ¥ï¼Œå¾…ä½ ä»”ç»†çœ‹æ¥ï¼ŒåŸæ¥æ˜¯"+me->name()+"ï¼Œåªè§"+me->name()+"çªç„¶ä¸€é¡¿ï¼Œç«Ÿç„¶æ˜å€’åœ¨åœ°ã€‚\n"NOR);
                 me->delete_tem(QUESTJINSHE+"start_kill");
                 me->delete_temp(QUESTJINSHE+"kill");
                 me->delete_temp(QUESTJINSHE+"kill_5wen");
@@ -141,8 +141,8 @@ int checking(object me, object ob)
                 me->set("qi",100);                                                              
                 me->set("jing",100);
                 me->set("jingli",100);
-        log_file("quest/FEIHU", sprintf("%s¼ÍÂ¼£º%s(%s)½ğÉß½£·¨Ê§°Ü¡£¾­Ñé%d¡£\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
-    tell_room(environment(ob), ob->name()+"ºßÁËÒ»Éù£º¡°¿ì×·£¡¡±\n");
+        log_file("quest/FEIHU", sprintf("%sçºªå½•ï¼š%s(%s)é‡‘è›‡å‰‘æ³•å¤±è´¥ã€‚ç»éªŒ%dã€‚\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
+    tell_room(environment(ob), ob->name()+"å“¼äº†ä¸€å£°ï¼šâ€œå¿«è¿½ï¼â€\n");
                 destruct(ob);
                 return 1;
         }
@@ -169,16 +169,16 @@ void do_lost()
                 me->delete_temp(QUESTJINSHE+"have_kill");
                 me->delete_temp(QUESTJINSHE+"kill_5wen");
 
-        log_file("quest/FEIHU", sprintf("%s¼ÍÂ¼£º%s(%s)½ğÉß½£·¨Ê§°Ü¡£¾­Ñé%d¡£\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
+        log_file("quest/FEIHU", sprintf("%sçºªå½•ï¼š%s(%s)é‡‘è›‡å‰‘æ³•å¤±è´¥ã€‚ç»éªŒ%dã€‚\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
         }
-  tell_room(environment(ob), ob->name()+"ºßÁËÒ»Éù£º¡°¾ÍÕâµã±¾ÊÂ°¡£¡¡±\n");
+  tell_room(environment(ob), ob->name()+"å“¼äº†ä¸€å£°ï¼šâ€œå°±è¿™ç‚¹æœ¬äº‹å•Šï¼â€\n");
         destruct(ob);
 }
 
 void dest(object ob)
 {
   if(!ob) return;
-  tell_room(environment(ob), HIR+"\n"+ob->name()+"ºßÁËÒ»Éù£¬µã×ÓÀ÷º¦£¬ÎÒÃÇ³·~~~~~~~\n"NOR);
+  tell_room(environment(ob), HIR+"\n"+ob->name()+"å“¼äº†ä¸€å£°ï¼Œç‚¹å­å‰å®³ï¼Œæˆ‘ä»¬æ’¤~~~~~~~\n"NOR);
         destruct(ob);
 }
 void die()

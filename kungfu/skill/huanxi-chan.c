@@ -1,4 +1,4 @@
-// huanxi-chan.c »¶Ï²ìø
+// huanxi-chan.c æ¬¢å–œç¦…
 
 inherit SKILL;
 
@@ -9,13 +9,13 @@ string type() { return "knowledge"; }
 int valid_learn(object me)
 {
     if( me->query("class") != "huanxi")
-        return notify_fail("Äã·Ç´óÂÖËÂµÜ×Ó£¬Ñ§Ï°»¶Ï²ìøÓĞºÎÓÃ£¿\n");
+        return notify_fail("ä½ éå¤§è½®å¯ºå¼Ÿå­ï¼Œå­¦ä¹ æ¬¢å–œç¦…æœ‰ä½•ç”¨ï¼Ÿ\n");
     if( (int)me->query_skill("huanxi-chan", 1) >= 200 )
-        return notify_fail("Äã²»ÄÜÔÙÑ§Ï°»¶Ï²ìøÁË¡£\n");
+        return notify_fail("ä½ ä¸èƒ½å†å­¦ä¹ æ¬¢å–œç¦…äº†ã€‚\n");
     return 1;
 }
 
 int practice_skill(object me)
 {       
-        return notify_fail("»¶Ï²ìøÖ»ÄÜ¿¿Ñ§Ï°À´Ìá¸ß¡£\n");
+        return notify_fail("æ¬¢å–œç¦…åªèƒ½é å­¦ä¹ æ¥æé«˜ã€‚\n");
 }

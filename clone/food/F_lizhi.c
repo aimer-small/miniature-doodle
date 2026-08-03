@@ -7,13 +7,13 @@ inherit F_FOOD;
  
 void create()
 {
-        set_name(MAG"ÀóÖ¦"NOR, ({"li zhi", "lizhi" }));
+        set_name(MAG"è”æ"NOR, ({"li zhi", "lizhi" }));
         set_weight(40);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»¿ÅÏãÌğµÄÀóÖ¦¡£\n");
-                set("unit", "¿Å");
+                set("long", "ä¸€é¢—é¦™ç”œçš„è”æã€‚\n");
+                set("unit", "é¢—");
                 set("value", 40);
                 set("food_remaining", 2);
                 set("food_supply", 25);

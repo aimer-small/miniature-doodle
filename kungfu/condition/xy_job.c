@@ -19,8 +19,8 @@ int update_condition(object me, int duration)
                 if (job=="job"&&target->query("job")<5)
                    target->add("job",1);               
                 me->delete_temp("xy");
-                tell_object(me, HIR"ÄãÕýÔÚÖ´ÐÐµÄÃÉ¹ÅÈÎÎñÒÑ¾­±»È¡ÏûÁË£¡\n"NOR);
-// condition ÊÇ xyjob£¬²»ÊÇ xy_job£¬ÎÒÃ»Ð´´í :)
+                tell_object(me, HIR"ä½ æ­£åœ¨æ‰§è¡Œçš„è’™å¤ä»»åŠ¡å·²ç»è¢«å–æ¶ˆäº†ï¼\n"NOR);
+// condition æ˜¯ xyjobï¼Œä¸æ˜¯ xy_jobï¼Œæˆ‘æ²¡å†™é”™ :)
                 me->apply_condition("xyjob",random(5)+10);
                 }
         return 0;        

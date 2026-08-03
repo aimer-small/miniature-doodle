@@ -1,4 +1,4 @@
-// cangjingge.c ²Ø¾­¸ó
+// cangjingge.c è—ç»é˜
 // by ahunter and shang  97/6
 inherit ROOM;
 
@@ -16,10 +16,10 @@ string* books = ({
 
 void create()
 {
-        set("short", "²Ø¾­¸ó");
+        set("short", "è—ç»é˜");
         set("long", @LONG
-ÕâÀïÊÇ²Ø¾­¸ó£¬¿¿Ç½ÊÇÒ»ÅÅÊé¼Ü£¬°ÚÂúÁËµÀ½ÌµÄµä¼®¡£ÖĞÑëÓĞÒ»¸ö³¤·½ĞÎ
-µÄ´ó×À×Ó£¬ÉÏÃæÒ²¶ÑÂúÁËÊé¡£Ò»¸öµÀÍ¯ÕıÔÚÕûÀíÊé¼®¡£
+è¿™é‡Œæ˜¯è—ç»é˜ï¼Œé å¢™æ˜¯ä¸€æ’ä¹¦æ¶ï¼Œæ‘†æ»¡äº†é“æ•™çš„å…¸ç±ã€‚ä¸­å¤®æœ‰ä¸€ä¸ªé•¿æ–¹å½¢
+çš„å¤§æ¡Œå­ï¼Œä¸Šé¢ä¹Ÿå †æ»¡äº†ä¹¦ã€‚ä¸€ä¸ªé“ç«¥æ­£åœ¨æ•´ç†ä¹¦ç±ã€‚
 LONG
         );
 
@@ -43,7 +43,7 @@ int valid_leave(object me, string dir)
         if((dir == "east")){
         while (i--)
         if(ob[i]->id("daode jing"))
-           return notify_fail("µÀµÂ¾­²»µÃĞ¯´øÍâ³ö !\n");               
+           return notify_fail("é“å¾·ç»ä¸å¾—æºå¸¦å¤–å‡º !\n");               
         }
         return ::valid_leave(me, dir);
 }

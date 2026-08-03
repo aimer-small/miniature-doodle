@@ -1,14 +1,14 @@
-// xiongdong.c �ܶ�
+// xiongdong.c 熊洞
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-	set("short", HIB"�ܶ�"NOR);
+	set("short", HIB"熊洞"NOR);
 	set("long", @LONG
-�˴�Ϊһ�ܶ������ڼ��ǿ������а˾�����м�͸��һ����⣬������
-��һ�㡣�˶���ǰ�м��������ڴ˾Ӵ����������Ŵ�ɽ��ɱ�ܶ�ס�ڴ˴���
-�ʴ����롢���ʯ�����־ߵ�һӦ��ȫ��
+此处为一熊洞，洞内极是宽敞，有八九丈深，中间透入一线天光，宛似天
+窗一般。此洞以前有几条白熊在此居处，但后来张翠山夫妇杀熊而住在此处，
+故此陶碗、土灶、石床、粗具等一应俱全。
 LONG);
 	set("exits",([
 		"out" : __DIR__"shishan",

@@ -8,25 +8,25 @@ string ask_qiqiang();
 string ask_gaotou();
 void create()
 {
-	set_name("ÖĞÄêÆò¸¾", ({ "zhongnian qifu","qifu","zhongnian" }) ); 
-	set("gender", "Å®ĞÔ" );
+	set_name("ä¸­å¹´ä¹å¦‡", ({ "zhongnian qifu","qifu","zhongnian" }) ); 
+	set("gender", "å¥³æ€§" );
 	set("age", 33);
-	set("long", "Ò»¸öÖĞÄêÆò¸¾£¬µÍÍ·¹­±³£¬ÅûÍ·É¢·¢£¬ÒÂ·şÎÛ»àÆÆÀÃ¡£\n"); 
+	set("long", "ä¸€ä¸ªä¸­å¹´ä¹å¦‡ï¼Œä½å¤´å¼“èƒŒï¼ŒæŠ«å¤´æ•£å‘ï¼Œè¡£æœæ±¡ç§½ç ´çƒ‚ã€‚\n"); 
 	set("combat_exp", 1000);
  
 	setup();
 
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		"ÖĞÄêÆò¸¾à«à«µØµÀ£ºÀÏÒ¯ÍíÉÏ¼û¹í£¬ÒªÆöÇ½£¬ÔõÃ´¹ÖµÃÎÒ£¿ÓÖ....ÓÖ²»ÊÇÎÒÏ¹Ëµ¡£\n",
-		"ÖĞÄêÆò¸¾¾ª¿ÖÍò·Ö£º³ıÁËÕâÀï£¬ÎÒÊ²Ã´µØ·½¶¼²»ÈÏµÃ£¬½ĞÎÒµ½ÄÄÀïÈ¥£¿\n",
-		"ÖĞÄêÆò¸¾µÀ£ºÀÏÒ¯ÓÖ²»ÊÇ²»ĞÅ£¬¿ÉÊÇ...¿ÉÊÇ....ÎÒÓÖÃ»Ëµ£¬ÀÏÒ¯È´¸ÏÁËÎÒ³öÀ´¡£\n",	 
+		"ä¸­å¹´ä¹å¦‡å–ƒå–ƒåœ°é“ï¼šè€çˆ·æ™šä¸Šè§é¬¼ï¼Œè¦ç Œå¢™ï¼Œæ€ä¹ˆæ€ªå¾—æˆ‘ï¼Ÿåˆ....åˆä¸æ˜¯æˆ‘çè¯´ã€‚\n",
+		"ä¸­å¹´ä¹å¦‡æƒŠæä¸‡åˆ†ï¼šé™¤äº†è¿™é‡Œï¼Œæˆ‘ä»€ä¹ˆåœ°æ–¹éƒ½ä¸è®¤å¾—ï¼Œå«æˆ‘åˆ°å“ªé‡Œå»ï¼Ÿ\n",
+		"ä¸­å¹´ä¹å¦‡é“ï¼šè€çˆ·åˆä¸æ˜¯ä¸ä¿¡ï¼Œå¯æ˜¯...å¯æ˜¯....æˆ‘åˆæ²¡è¯´ï¼Œè€çˆ·å´èµ¶äº†æˆ‘å‡ºæ¥ã€‚\n",	 
 	}));
 	set("inquiry", ([
-		"µÒÔÆ" : "ÎÒ²»ÈÏÊ¶Ëû£¬ÎÒÕæµÄ²»ÈÏÊ¶£¡£¡",	
-		"Æİ³¤·¢" :  "ÎÒ²»ÈÏÊ¶Ëû£¬ÎÒÕæµÄ²»ÈÏÊ¶£¡£¡",	
-		"ÆöÇ½" : (:ask_qiqiang:),  
-		"¸äÍ·" : (:ask_gaotou:),  
+		"ç‹„äº‘" : "æˆ‘ä¸è®¤è¯†ä»–ï¼Œæˆ‘çœŸçš„ä¸è®¤è¯†ï¼ï¼",	
+		"æˆšé•¿å‘" :  "æˆ‘ä¸è®¤è¯†ä»–ï¼Œæˆ‘çœŸçš„ä¸è®¤è¯†ï¼ï¼",	
+		"ç Œå¢™" : (:ask_qiqiang:),  
+		"é•å¤´" : (:ask_gaotou:),  
 	]));
 	carry_object(ARMOR_D("cloth"))->wear();
 }
@@ -38,17 +38,17 @@ string ask_qiqiang()
 	if(!me->query(QUESTDIR1+"over") || !me->query_temp(QUESTDIR2+"start" ))
 	{
 	   call_out("outwuguan",1,me);
-	   return "ÄãÔõÃ´½øÀ´ÕâÀïµÄ£¿";
+	   return "ä½ æ€ä¹ˆè¿›æ¥è¿™é‡Œçš„ï¼Ÿ";
 	}
 	if(me->query_temp(QUESTDIR2+"askqiqiang" ))
 	{
 	   command("say");
-	   return "ÎÒÕæµÄ....ÕæµÄ²»ÊÇÏ¹Ëµ£¡";
+	   return "æˆ‘çœŸçš„....çœŸçš„ä¸æ˜¯çè¯´ï¼";
 	}
 	command("look "+me->query("id"));
-	message_vision(HIY"$NÁ³ÉÏÂ¶³ö¿Ö¾åµÄÉñÉ«¡£\n", ob);
-	command("say ÀÏÒ¯ÍíÉÏ¼û¹í£¬Áà×Å¸äÍ·£¬ÒªÆöÇ½£¬ÔõÃ´¹ÖµÃÎÒ£¿");
-	command("say µ±Äê¿Ï¶¨ÊÇÀÏÒ¯¿÷ĞÄÊÂ×ö¶àÁË£¬ÓÖÊÇÉ±º¦ÆİÀÏÍ·£¬ÓÖÊÇÏİº¦µÒÊ²Ã´ÔÆ¡£");
+	message_vision(HIY"$Nè„¸ä¸Šéœ²å‡ºææƒ§çš„ç¥è‰²ã€‚\n", ob);
+	command("say è€çˆ·æ™šä¸Šè§é¬¼ï¼Œæ‹ç€é•å¤´ï¼Œè¦ç Œå¢™ï¼Œæ€ä¹ˆæ€ªå¾—æˆ‘ï¼Ÿ");
+	command("say å½“å¹´è‚¯å®šæ˜¯è€çˆ·äºå¿ƒäº‹åšå¤šäº†ï¼Œåˆæ˜¯æ€å®³æˆšè€å¤´ï¼Œåˆæ˜¯é™·å®³ç‹„ä»€ä¹ˆäº‘ã€‚");
 	command("fear");
 	me->set_temp(QUESTDIR2+"askqiqiang",1);
 	return "";
@@ -56,7 +56,7 @@ string ask_qiqiang()
 string ask_gaotou()
 {
 	command("look "+this_player()->query("id"));
-	command("say Îâ¿²ÄÇÀïÓ¦¸ÃÓĞ°É¡£");
+	command("say å´åé‚£é‡Œåº”è¯¥æœ‰å§ã€‚");
 	return "";
 }
 void outwuguan(object me)
@@ -65,9 +65,9 @@ void outwuguan(object me)
 	object *inv;
 	if(!me) return;
 	command("?");
-	message_vision(HIY"$NÁ³ÉÏÂ¶³öÒÉ»óµÄÉñÉ«¡£\n", ob);
-	command("say ÄãÔõÃ´½øÀ´ÕâÀïµÄ£¿");
-	message_vision(HIR"Ö»Ìı¼ûÒ»ÉùÀ´ÈË°¡£¬$N±»Ò»Õó¹÷°ô¸ø´òÔÎÁË¡£\n"NOR, me);
+	message_vision(HIY"$Nè„¸ä¸Šéœ²å‡ºç–‘æƒ‘çš„ç¥è‰²ã€‚\n", ob);
+	command("say ä½ æ€ä¹ˆè¿›æ¥è¿™é‡Œçš„ï¼Ÿ");
+	message_vision(HIR"åªå¬è§ä¸€å£°æ¥äººå•Šï¼Œ$Nè¢«ä¸€é˜µæ£æ£’ç»™æ‰“æ™•äº†ã€‚\n"NOR, me);
 	me->delete("enter_wuguan");
 	inv = filter_array(deep_inventory(me), (: userp :));
 	if( sizeof(inv))
@@ -75,5 +75,5 @@ void outwuguan(object me)
 	me->unconcious();
 	me->move("/d/xiangyang/damen");
 	me->delete_temp("quest/busy");//
-	me->delete_temp("quest/Á¬³Ç¾÷");
+	me->delete_temp("quest/è¿åŸè¯€");
 }

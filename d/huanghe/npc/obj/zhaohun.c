@@ -1,4 +1,4 @@
-// zhaohun.c ÕĞ»êá¦Ş
+// zhaohun.c æ‹›é­‚å¹¡ï¿½
 
 #include <weapon.h>
 #include <ansi.h>
@@ -6,18 +6,18 @@ inherit WHIP;
 
 void create()
 {
-        set_name(BLU"ÕĞ»êá¦"NOR, ({ "zhaohun fan", "fan","whip" }));
+        set_name(BLU"æ‹›é­‚å¹¡"NOR, ({ "zhaohun fan", "fan","whip" }));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸Ë");
-                set("long", "ÕâÊÇÒ»¸Ë²åÔÚÁé×ùÉÏµÄÕĞ»êá¦¡£\n");
+                set("unit", "æ†");
+                set("long", "è¿™æ˜¯ä¸€æ†æ’åœ¨çµåº§ä¸Šçš„æ‹›é­‚å¹¡ã€‚\n");
                 set("value", 3000);
                 set("rigidity", 5);
                 set("material", "steel");
-                set("wield_msg", BLU"$N³é³öÒ»±úÕĞ»êá¦ÎÕÔÚÊÖÖĞ£¬Ä£Ñù¹îÆæÎŞ±È£¬ÁîÈËÆøÎªÖ®¶á¡£\n"NOR);
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n±ğ»ØÑüºó¡£\n");
+                set("wield_msg", BLU"$NæŠ½å‡ºä¸€æŸ„æ‹›é­‚å¹¡æ¡åœ¨æ‰‹ä¸­ï¼Œæ¨¡æ ·è¯¡å¥‡æ— æ¯”ï¼Œä»¤äººæ°”ä¸ºä¹‹å¤ºã€‚\n"NOR);
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nåˆ«å›è…°åã€‚\n");
         }
         init_whip(38);
         setup();

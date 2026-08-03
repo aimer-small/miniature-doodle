@@ -3,12 +3,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("ºÚÒÂÉ±ÊÖ", ({ "heiyi shashou", "shashou"}));
+        set_name("é»‘è¡£æ€æ‰‹", ({ "heiyi shashou", "shashou"}));
         set("long", 
-"Ö»¼ûËûÈİÃ²ÇåÊİ£¬ò¤ÏÂÊèÊèÀÊÀÊÒ»´Ô»¨°×³¤Ğë£¬´¹ÔÚĞØ
-Ç°£¬Ñü¼äĞü×ÅÒ»±úÍäµ¶¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "HIC"·çÀ×ÌÃµÚ×Ó"NOR);
-        set("gender", "ÄĞĞÔ");
+"åªè§ä»–å®¹è²Œæ¸…ç˜¦ï¼Œé¢ä¸‹ç–ç–æœ—æœ—ä¸€ä¸›èŠ±ç™½é•¿é¡»ï¼Œå‚åœ¨èƒ¸
+å‰ï¼Œè…°é—´æ‚¬ç€ä¸€æŸ„å¼¯åˆ€ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™  "HIC"é£é›·å ‚ç¬¬å­"NOR);
+        set("gender", "ç”·æ€§");
         set("age", 30);
         set("attitude", "heroism");
         set("vendetta_mark", "authority");
@@ -35,7 +35,7 @@ void create()
         set_skill("tianmo-zhang",50);
         
         map_skill("strike", "tianmo-zhang");
-	      create_family("ÈÕÔÂÉñ½Ì",10,"µÚ×Ó");      
+	      create_family("æ—¥æœˆç¥æ•™",10,"ç¬¬å­");      
 
         if (random(2) == 1) {
             set("chat_chance",10);

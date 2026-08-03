@@ -18,119 +18,119 @@ inherit F_CLEAN_UP;
 
 #define Data_Base_Online
 
-// Ê¡È±µÄÎÄÑ¡Ä¿Â¼¡£
+// çœç¼ºçš„æ–‡é€‰ç›®å½•ã€‚
 #define WENXUAN_DIR     "/data/wenxuan/"
-#define TEXT_LINE       "©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n"
+#define TEXT_LINE       "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"
 
 int help(object me);
 int list(object me, int y, int m);
 int read_note(object me, int number, int m, int y);
 
-/* Ö÷³ÌĞò¡£*/
+/* ä¸»ç¨‹åºã€‚*/
 int main(object me, string arg)
 {
         mapping *notes;
         object board;
-        string *file, str, msg, text; //textÊÇµ½webÈ¥µÄÄÚÈİ²¿·Ö
+        string *file, str, msg, text; //textæ˜¯åˆ°webå»çš„å†…å®¹éƒ¨åˆ†
         int i, j, num, number,m,y;
         
         mixed userid;
 
 
-        // ±êÌâ¡£
-        tell_object(me,HIW"\n¡¶"NOR + MUD_NAME + HIW"ÎÄÑ¡´óÈ«"NOR + HIW"¡·"NOR"£¬");
+        // æ ‡é¢˜ã€‚
+        tell_object(me,HIW"\nã€Š"NOR + MUD_NAME + HIW"æ–‡é€‰å¤§å…¨"NOR + HIW"ã€‹"NOR"ï¼Œ");
 
-        // »ñÈ¡Ä¿Ç°µÄÄê·İ(y)ºÍÔÂ·İ(m)¡£
+        // è·å–ç›®å‰çš„å¹´ä»½(y)å’Œæœˆä»½(m)ã€‚
         m = localtime(time())[LT_MON] + 1;
         y = localtime(time())[LT_YEAR];
 
         file = get_dir(WENXUAN_DIR);
         i = sizeof(file);
 
-        // ²»¼ÓÈÎºÎ²ÎÊı£¬¾ÍÊä³öÁĞ±í¡£
+        // ä¸åŠ ä»»ä½•å‚æ•°ï¼Œå°±è¾“å‡ºåˆ—è¡¨ã€‚
         if (!arg) {
-                if (!i) return notify_fail("ÏÖÔÚÔİÊ±»¹Ã»ÓĞÎÄÑ¡¡£\n");
+                if (!i) return notify_fail("ç°åœ¨æš‚æ—¶è¿˜æ²¡æœ‰æ–‡é€‰ã€‚\n");
                 else list(me, y, m);
         }
 
-        // Êä³ö°ïÖú¡£
+        // è¾“å‡ºå¸®åŠ©ã€‚
         else if (arg == "?") return help(me);
 
-        // ÁĞ³öËùÓĞÊÕÂ¼ÓĞÎÄÑ¡µÄÄê·İ¡£
+        // åˆ—å‡ºæ‰€æœ‰æ”¶å½•æœ‰æ–‡é€‰çš„å¹´ä»½ã€‚
         else if(arg == "all"){
-                str = "Ä¿Ç°ÓĞ ";
-                while(i--) str += "[" + file[i] + "Äê] ";
-                tell_object(me, str + "µÄÎÄÑ¡¡£\n");
+                str = "ç›®å‰æœ‰ ";
+                while(i--) str += "[" + file[i] + "å¹´] ";
+                tell_object(me, str + "çš„æ–‡é€‰ã€‚\n");
         }
 
-        // ²ÎÊıÖĞÓĞÄê·İºÍÔÂ·İ¡£
+        // å‚æ•°ä¸­æœ‰å¹´ä»½å’Œæœˆä»½ã€‚
         else if(sscanf(arg, "%d %d %d", number, m, j)==3){
                 if(m < 1 || m > 12)
-                        return notify_fail("ÓĞ¡°" + chinese_number(m) + "ÔÂ¡±Õâ¸öÔÂ·İÂğ£¿\n");
+                        return notify_fail("æœ‰â€œ" + chinese_number(m) + "æœˆâ€è¿™ä¸ªæœˆä»½å—ï¼Ÿ\n");
                 if(j < 1970 || j > y )
-                        return notify_fail("»¹Ã»ÓĞ [" + j + "] ÕâÄêµÄÎÄÑ¡ÄØ¡£\n");
-                // ÁĞ±í¡£
+                        return notify_fail("è¿˜æ²¡æœ‰ [" + j + "] è¿™å¹´çš„æ–‡é€‰å‘¢ã€‚\n");
+                // åˆ—è¡¨ã€‚
                 if(number == 0)
                         list(me, j, m);
-                // ÔÄ¶Á¡£
+                // é˜…è¯»ã€‚
                 else read_note(me, number, m, j);
         }
 
-        // ²ÎÊıÖĞÓĞÔÂ·İ¡£
+        // å‚æ•°ä¸­æœ‰æœˆä»½ã€‚
         else if(sscanf(arg, "%d %d", number, m)==2){
                 if(m < 1 || m > 12)
-                        return notify_fail("ÓĞ¡°" + chinese_number(m) + "ÔÂ¡±Õâ¸öÔÂ·İÂğ£¿\n");
-                // ÁĞ±í¡£
+                        return notify_fail("æœ‰â€œ" + chinese_number(m) + "æœˆâ€è¿™ä¸ªæœˆä»½å—ï¼Ÿ\n");
+                // åˆ—è¡¨ã€‚
                 if(number == 0)
                         list(me, y, m);
-                // ÔÄ¶Á¡£
+                // é˜…è¯»ã€‚
                 else read_note(me, number, m, y);
         }
 
-        // ²ÎÊıÖĞÎª±àºÅ£¬ÔÄ¶ÁÎÄÑ¡¡£
+        // å‚æ•°ä¸­ä¸ºç¼–å·ï¼Œé˜…è¯»æ–‡é€‰ã€‚
         else if(sscanf(arg, "%d", number) == 1)
                 read_note(me, number, m, y);
 
-        // Ìí¼ÓÎÄÑ¡¡£
+        // æ·»åŠ æ–‡é€‰ã€‚
         else if(sscanf(arg, "add %d", num) == 1){
-                // Player²»¿É¶ÔÎÄÑ¡½øĞĞ²Ù×÷¡£
+                // Playerä¸å¯å¯¹æ–‡é€‰è¿›è¡Œæ“ä½œã€‚
                 if(!wizardp(me))
                         return help(me);
 
                 if(num < 1)
-                        return notify_fail("ÁôÑÔ±àºÅ²»ÕıÈ·¡£\n");
+                        return notify_fail("ç•™è¨€ç¼–å·ä¸æ­£ç¡®ã€‚\n");
 
                 if(!objectp(board = present("board", environment(me))))
-                        return notify_fail("ÕâÀïÃ»ÓĞÁôÑÔ°å¡£\n");
+                        return notify_fail("è¿™é‡Œæ²¡æœ‰ç•™è¨€æ¿ã€‚\n");
 
                 if( !notes = board->query("notes") || !arrayp(notes) )
-                        return notify_fail("ÁôÑÔ°å³ö´í£¬Çë¼ì²é¡£\n");
+                        return notify_fail("ç•™è¨€æ¿å‡ºé”™ï¼Œè¯·æ£€æŸ¥ã€‚\n");
 
                 i = sizeof(notes);
-                if( num > i) return notify_fail("´Ë°åÉÏ¹²ÓĞ "+sizeof(notes)+" ÕÅÁôÑÔ£¬ÇëÊäÈëÕıÈ·µÄ±àºÅ¡£\n");
+                if( num > i) return notify_fail("æ­¤æ¿ä¸Šå…±æœ‰ "+sizeof(notes)+" å¼ ç•™è¨€ï¼Œè¯·è¾“å…¥æ­£ç¡®çš„ç¼–å·ã€‚\n");
 
                 num--;
                 number = 1;
 
                 str = WENXUAN_DIR + y + "/" + m + "/";
 
-                // ĞÂÔÂ·İ»òĞÂÄê·İ¡£
+                // æ–°æœˆä»½æˆ–æ–°å¹´ä»½ã€‚
                 if(!get_dir(str)) assure_file(str + number + ".w");
 
                 else  number = sizeof(get_dir(str + "*.w")) + 1;
 
-                // ´´½¨±êÌâ¡£
+                // åˆ›å»ºæ ‡é¢˜ã€‚
                 msg = sprintf("%-=36s %18s (%s)\n",notes[num]["title"], notes[num]["author"],ctime(notes[num]["time"])[0..15]);
 
-                // Ğ´³É .w ÎÄÑ¡ÎÄ¼ş¡£
+                // å†™æˆ .w æ–‡é€‰æ–‡ä»¶ã€‚
                 write_file(str + number + ".w", msg + TEXT_LINE + notes[num]["msg"] , 1);
                 
-                // ¼ÓÈëµ½Êı¾İ¿â
+                // åŠ å…¥åˆ°æ•°æ®åº“
                 // send to web site.
                         userid = explode(notes[num]["author"],"(");
                         userid = replace_string(userid[1],")","");
                         
-   			text  = (sprintf("[color=red]%s ÓÚ %s ·¢±í ¸ÃÎÄÕÂÔÚ %s µÄ %s[/color]\n",notes[num]["author"],
+   			text  = (sprintf("[color=red]%s äº %s å‘è¡¨ è¯¥æ–‡ç« åœ¨ %s çš„ %s[/color]\n",notes[num]["author"],
 				"/cmds/usr/time.c"->Ctime(notes[num]["time"]),CHINESE_MUD_NAME,
 				board->query("name")) + notes[num]["msg"]);				  
 				                  
@@ -140,62 +140,62 @@ int main(object me, string arg)
 				soft_category_id, soft_class_id, soft_img, soft_byuser, soft_user_id, 
 				soft_size, soft_date, soft_hits_day, soft_display ) 
 				VALUES
-				 ( '"+notes[num]["title"]+"', 'ÎÄÑ¡', '"+userid+"@"+INTERMUD_MUD_NAME+"', '0', '3', 'Ô­´´', 
-				 '"+text+"', 'Êé½£¹Ù·½Õ¾', 'http://www.mymud.com', '7', 
+				 ( '"+notes[num]["title"]+"', 'æ–‡é€‰', '"+userid+"@"+INTERMUD_MUD_NAME+"', '0', '3', 'åŸåˆ›', 
+				 '"+text+"', 'ä¹¦å‰‘å®˜æ–¹ç«™', 'http://www.mymud.com', '7', 
 				 '15', 'N/A', 'Linux', '17', 'N/A', '"+"/cmds/usr/news.c"->Ctime(notes[num]["time"])+"', '"+"/cmds/usr/news.c"->Ctime(notes[num]["time"])+"', '1' )"))
 
 			{	
-				write ("ÎÄÑ¡·¢²¼µ½Ö÷Ò³.......³É¹¦!\n");
+				write ("æ–‡é€‰å‘å¸ƒåˆ°ä¸»é¡µ.......æˆåŠŸ!\n");
 				if (!dbquery("update Users set U_Credit = U_Credit +50 where U_Username = \"" + userid + "\""))
-					write("Ìí¼Óµ½Ö÷Ò³ÄàÌ¶ÃÀÎÄÇø ......... ·¢ËÍÍê±Ï£¬50 ·Ö½±ÀøÎ´ÄÜ³É¹¦Ôö¼Ó¡£\n");
+					write("æ·»åŠ åˆ°ä¸»é¡µæ³¥æ½­ç¾æ–‡åŒº ......... å‘é€å®Œæ¯•ï¼Œ50 åˆ†å¥–åŠ±æœªèƒ½æˆåŠŸå¢åŠ ã€‚\n");
 				else
-					write("Ìí¼Óµ½Ö÷Ò³ÄàÌ¶ÃÀÎÄÇø ......... ·¢ËÍÍê±Ï£¬×÷ÕßÒÑ¾­½±ÀøÊé½£»ı·Ö 50 µã¡£\n");
+					write("æ·»åŠ åˆ°ä¸»é¡µæ³¥æ½­ç¾æ–‡åŒº ......... å‘é€å®Œæ¯•ï¼Œä½œè€…å·²ç»å¥–åŠ±ä¹¦å‰‘ç§¯åˆ† 50 ç‚¹ã€‚\n");
 	                }
                         else {
-                                write("Ìí¼Óµ½Ö÷Ò³¾«»ªÇø ......... ·¢ËÍÊ§°Ü£¬ÇëÍ¨Öª LinuX ½â¾ö´ËÎÊÌâ¡£\n");
+                                write("æ·»åŠ åˆ°ä¸»é¡µç²¾ååŒº ......... å‘é€å¤±è´¥ï¼Œè¯·é€šçŸ¥ LinuX è§£å†³æ­¤é—®é¢˜ã€‚\n");
                         }
           
-                return notify_fail("Äã½«µÚ " + (num + 1) + " ºÅÁôÑÔ·ÅÈëÎÄÑ¡ " + y + " Äê " + m + " ÔÂµÚ " + number + " ºÅ....Ok¡£\n");
+                return notify_fail("ä½ å°†ç¬¬ " + (num + 1) + " å·ç•™è¨€æ”¾å…¥æ–‡é€‰ " + y + " å¹´ " + m + " æœˆç¬¬ " + number + " å·....Okã€‚\n");
         }
 
-        // É¾³ıÎÄÑ¡¡£
+        // åˆ é™¤æ–‡é€‰ã€‚
         else if(sscanf(arg, "del %s", arg) == 1){
-                // Player²»¿É¶ÔÎÄÑ¡½øĞĞ²Ù×÷¡£
+                // Playerä¸å¯å¯¹æ–‡é€‰è¿›è¡Œæ“ä½œã€‚
                 if(!wizardp(me)) return help(me);
 
                 if( sscanf(arg, "%d %d %d", num, m, y) != 3 )
                         if( sscanf(arg, "%d %d", num, m) != 2 )
                                 if( sscanf(arg, "%d", num) != 1 )
                                         if( sscanf(arg, "%s", msg) != 1 )
-                                                return notify_fail("Ö¸Áî¸ñÊ½£ºdlwx <±àºÅ|all> [ÔÂ·İ] [Äê·İ]\n");
+                                                return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šdlwx <ç¼–å·|all> [æœˆä»½] [å¹´ä»½]\n");
 
                 str = WENXUAN_DIR + y + "/" + m + "/";
 
-                // ´ËÔÂÃ»ÓĞÎÄÑ¡¡£
+                // æ­¤æœˆæ²¡æœ‰æ–‡é€‰ã€‚
                 if(!get_dir(str))
-                        return notify_fail(" " + y + " Äê " + m + " ÔÂÃ»ÓĞÎÄÑ¡¡£\n");
+                        return notify_fail(" " + y + " å¹´ " + m + " æœˆæ²¡æœ‰æ–‡é€‰ã€‚\n");
 
-                // É¾³ı´ËÔÂËùÓĞÎÄÑ¡¡£
+                // åˆ é™¤æ­¤æœˆæ‰€æœ‰æ–‡é€‰ã€‚
                 else if(msg && msg == "all"){
-                        // É¾³ı´ËÄ¿Â¼ÖĞËùÓĞÎÄ¼ş¡£
+                        // åˆ é™¤æ­¤ç›®å½•ä¸­æ‰€æœ‰æ–‡ä»¶ã€‚
                         rm(str);
-                        // É¾³ı´ËÄ¿Â¼¡£
+                        // åˆ é™¤æ­¤ç›®å½•ã€‚
                         rmdir(str);
-                        return notify_fail("Äã½« " + y + " Äê " + m + " ÔÂËùÓĞÎÄÑ¡¶¼É¾³ıÁË....Ok¡£\n");
+                        return notify_fail("ä½ å°† " + y + " å¹´ " + m + " æœˆæ‰€æœ‰æ–‡é€‰éƒ½åˆ é™¤äº†....Okã€‚\n");
                 }
 
                 if(num < 1)
-                        return notify_fail("ÎÄÑ¡±àºÅ²»ÕıÈ·¡£\n");
+                        return notify_fail("æ–‡é€‰ç¼–å·ä¸æ­£ç¡®ã€‚\n");
 
                 if(file_size(str + num + ".w") <= 0)
-                        return notify_fail(" " + y + " Äê " + m + " ÔÂÃ»ÓĞÄãËùÖ¸µÄÕâÆªÎÄÑ¡¡£\n");
+                        return notify_fail(" " + y + " å¹´ " + m + " æœˆæ²¡æœ‰ä½ æ‰€æŒ‡çš„è¿™ç¯‡æ–‡é€‰ã€‚\n");
 
                 i = sizeof(get_dir(str));
 
-                // É¾³ı´ËÎÄÑ¡ÎÄ¼ş¡£
+                // åˆ é™¤æ­¤æ–‡é€‰æ–‡ä»¶ã€‚
                 rm(str+num+".w");
 
-                // ÖØĞÂÅÅÁĞÎÄÑ¡ÎÄ¼ş¡£
+                // é‡æ–°æ’åˆ—æ–‡é€‰æ–‡ä»¶ã€‚
                 if(num < i)
                         for(j = num + 1; j <= i; j++)
                                 if(file_size(str + j + ".w") > 0){
@@ -203,7 +203,7 @@ int main(object me, string arg)
                                         rm(str + j + ".w");
                                 }
 
-                return notify_fail("Äã½« "+y+" Äê "+m+" ÔÂµÚ " + num + " ºÅÎÄÑ¡É¾³ıÁË....Ok¡£\n");
+                return notify_fail("ä½ å°† "+y+" å¹´ "+m+" æœˆç¬¬ " + num + " å·æ–‡é€‰åˆ é™¤äº†....Okã€‚\n");
         }
 
         else help(me);
@@ -211,65 +211,65 @@ int main(object me, string arg)
         return 1;
 }
 
-/* ÁĞ³öÎÄÑ¡¡£*/
-// m = ÔÂ·İ£¬ y = Äê·İ
+/* åˆ—å‡ºæ–‡é€‰ã€‚*/
+// m = æœˆä»½ï¼Œ y = å¹´ä»½
 int list(object me, int y, int m)
 {
         string *note;
         string str;
         int i, j;
 
-        tell_object(me, y + " Äê " + m + " ÔÂ");
+        tell_object(me, y + " å¹´ " + m + " æœˆ");
 
-        // »ñÈ¡ÎÄ¼şÊıÄ¿¡£
+        // è·å–æ–‡ä»¶æ•°ç›®ã€‚
         note = get_dir(WENXUAN_DIR + y + "/" + m + "/*.w");
         i = sizeof(note);
 
         if (!i){
-                write("»¹Ã»ÓĞÈÎºÎÎÄÑ¡¡£\n");
+                write("è¿˜æ²¡æœ‰ä»»ä½•æ–‡é€‰ã€‚\n");
                 return 0;
         }
 
-        write("¹²ÓĞ"+chinese_number(i)+"ÕÅÎÄÑ¡¡£\n");
+        write("å…±æœ‰"+chinese_number(i)+"å¼ æ–‡é€‰ã€‚\n");
         str = TEXT_LINE;
 
-        // ¿ªÊ¼ÁĞ±í¡£
+        // å¼€å§‹åˆ—è¡¨ã€‚
         for(j = 0; j < i; j++)
                 str += " [" + (j + 1) + "] "+read_file(WENXUAN_DIR + y + "/" + m + "/" + (j + 1) + ".w", 1, 1);
 
         str += TEXT_LINE;
-        str += HIW"ÇëÓÃ help wenxuan »ò wenxuan ? ²é¿´Ê¹ÓÃ·½·¨¡£\n"NOR;
-        // Êä³ö¡£
+        str += HIW"è¯·ç”¨ help wenxuan æˆ– wenxuan ? æŸ¥çœ‹ä½¿ç”¨æ–¹æ³•ã€‚\n"NOR;
+        // è¾“å‡ºã€‚
         me->start_more(str);
         return 1;
 
 }
 
-/* ÔÄ¶ÁÎÄÑ¡¡£*/
+/* é˜…è¯»æ–‡é€‰ã€‚*/
 
-// number = ÆªÊı£¬m = ÔÂ·İ£¬ y = Äê·İ
+// number = ç¯‡æ•°ï¼Œm = æœˆä»½ï¼Œ y = å¹´ä»½
 int read_note(object me, int number, int m, int y)
 {
         string *note;
         int i;
 
-        tell_object(me, y + " Äê " + m + " ÔÂ");
+        tell_object(me, y + " å¹´ " + m + " æœˆ");
         note = get_dir(WENXUAN_DIR + y + "/" + m + "/*.w");
         i = sizeof(note);
 
         if (!i){
-                write("»¹Ã»ÓĞÈÎºÎÎÄÑ¡¡£\n");
+                write("è¿˜æ²¡æœ‰ä»»ä½•æ–‡é€‰ã€‚\n");
                 return 0;
         }
 
         if( number < 1 || number > i ){
-                write("Ä¿Ç°»¹Ã»ÓĞÄãËùÒª¶ÁµÄÕâÆªÎÄÑ¡¡£\n");
+                write("ç›®å‰è¿˜æ²¡æœ‰ä½ æ‰€è¦è¯»çš„è¿™ç¯‡æ–‡é€‰ã€‚\n");
                 return 0;
         }
 
-        write("µÄµÚ" + chinese_number(number) + "ÕÅÎÄÑ¡¡£\n\n");
+        write("çš„ç¬¬" + chinese_number(number) + "å¼ æ–‡é€‰ã€‚\n\n");
 
-        // Êä³ö¡£
+        // è¾“å‡ºã€‚
         me->start_more( " [" + number + "] " + read_file(WENXUAN_DIR + y + "/" + m + "/" + number + ".w"));
         return 1;
 
@@ -279,26 +279,26 @@ int read_note(object me, int number, int m, int y)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½£º
+æŒ‡ä»¤æ ¼å¼ï¼š
 
-wenxuan all                  : ÁĞ³öÓĞÎÄÑ¡µÄÄê·İ¡£
-wenxuan                      : ÁĞ³ö±¾ÔÂÎÄÑ¡¡£
-wenxuan <±àºÅ>               : ÔÄ¶Á±¾ÔÂ´Ë±àºÅµÄÎÄÕÂ¡£
-wenxuan 0 <ÔÂ·İ>             : ÁĞ³ö±¾Äê´ËÔÂ·İÎÄÑ¡¡£
-wenxuan <±àºÅ> <ÔÂ·İ>        : ÔÄ¶Á´ËÔÂ·İ´Ë±àºÅµÄÎÄÕÂ¡£
-wenxuan 0 <ÔÂ·İ><Äê·İ>       : ÁĞ³ö´ËÄê·İ´ËÔÂ·İÎÄÑ¡¡£
-wenxuan <±àºÅ> <ÔÂ·İ> <Äê·İ> : ÔÄ¶Á´ËÄê·İ´ËÔÂ·İ´Ë±àºÅµÄÎÄÕÂ¡£
+wenxuan all                  : åˆ—å‡ºæœ‰æ–‡é€‰çš„å¹´ä»½ã€‚
+wenxuan                      : åˆ—å‡ºæœ¬æœˆæ–‡é€‰ã€‚
+wenxuan <ç¼–å·>               : é˜…è¯»æœ¬æœˆæ­¤ç¼–å·çš„æ–‡ç« ã€‚
+wenxuan 0 <æœˆä»½>             : åˆ—å‡ºæœ¬å¹´æ­¤æœˆä»½æ–‡é€‰ã€‚
+wenxuan <ç¼–å·> <æœˆä»½>        : é˜…è¯»æ­¤æœˆä»½æ­¤ç¼–å·çš„æ–‡ç« ã€‚
+wenxuan 0 <æœˆä»½><å¹´ä»½>       : åˆ—å‡ºæ­¤å¹´ä»½æ­¤æœˆä»½æ–‡é€‰ã€‚
+wenxuan <ç¼–å·> <æœˆä»½> <å¹´ä»½> : é˜…è¯»æ­¤å¹´ä»½æ­¤æœˆä»½æ­¤ç¼–å·çš„æ–‡ç« ã€‚
 
-Î×Ê¦×¨ÓÃ£º
+å·«å¸ˆä¸“ç”¨ï¼š
 
-wenxuan add <ÁôÑÔ±àºÅ> ÎÄÑ¡Ò»µ© add, ×Ô¶¯½øÖ÷Ò³¾«»ªÇø
-wenxuan del <±àºÅ|all> [ÔÂ·İ] [Äê·İ]
+wenxuan add <ç•™è¨€ç¼–å·> æ–‡é€‰ä¸€æ—¦ add, è‡ªåŠ¨è¿›ä¸»é¡µç²¾ååŒº
+wenxuan del <ç¼–å·|all> [æœˆä»½] [å¹´ä»½]
 
-wenxuan del all                    : É¾³ö±¾ÔÂËùÓĞÎÄÑ¡¡£
-wenxuan del <±àºÅ>                 : É¾³ö±¾ÔÂ´Ë±àºÅµÄÎÄÑ¡¡£
-wenxuan del <±àºÅ> [ÔÂ·İ]          : É¾³ö´ËÔÂ·İ´Ë±àºÅµÄÎÄÑ¡¡£
-wenxuan del <±àºÅ> [ÔÂ·İ] [Äê·İ]   : É¾³ö´ËÄê·İ´ËÔÂ·İ´Ë±àºÅµÄÎÄÑ¡¡£
-ÎÄÑ¡É¾³ı£¬²¢²»×Ô¶¯É¾³ıÖ÷Ò³¾«»ªÇø£¬ÈçÓĞ±ØÒª£¬È¥Ö÷Ò³É¾³ı¡£
+wenxuan del all                    : åˆ å‡ºæœ¬æœˆæ‰€æœ‰æ–‡é€‰ã€‚
+wenxuan del <ç¼–å·>                 : åˆ å‡ºæœ¬æœˆæ­¤ç¼–å·çš„æ–‡é€‰ã€‚
+wenxuan del <ç¼–å·> [æœˆä»½]          : åˆ å‡ºæ­¤æœˆä»½æ­¤ç¼–å·çš„æ–‡é€‰ã€‚
+wenxuan del <ç¼–å·> [æœˆä»½] [å¹´ä»½]   : åˆ å‡ºæ­¤å¹´ä»½æ­¤æœˆä»½æ­¤ç¼–å·çš„æ–‡é€‰ã€‚
+æ–‡é€‰åˆ é™¤ï¼Œå¹¶ä¸è‡ªåŠ¨åˆ é™¤ä¸»é¡µç²¾ååŒºï¼Œå¦‚æœ‰å¿…è¦ï¼Œå»ä¸»é¡µåˆ é™¤ã€‚
 
 
         Snowman@SJ 06/04/1999

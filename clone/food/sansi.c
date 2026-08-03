@@ -1,4 +1,4 @@
-// sansi.c ¿ÛÈıË¿
+// sansi.c æ‰£ä¸‰ä¸
 
 #include <ansi.h>
 
@@ -7,13 +7,13 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name("¿ÛÈıË¿", ({"kousansi"}));
+	set_name("æ‰£ä¸‰ä¸", ({"kousansi"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "»ğÍÈÓ÷¡°½ğ¡±£¬¼¦¸¬ÈâÓ÷¡°Òø¡±£¬ÈıË¿½ô¿ÛÅèÖĞ£¬×´ÈçĞ¡É½£¬Ô¢ÒâºÏ¼ÒÍÅÔ²£¬¼ªÏéÈçÒâ¡£\n");
-		set("unit", "Åè");
+		set("long", "ç«è…¿å–»â€œé‡‘â€ï¼Œé¸¡è„¯è‚‰å–»â€œé“¶â€ï¼Œä¸‰ä¸ç´§æ‰£ç›†ä¸­ï¼ŒçŠ¶å¦‚å°å±±ï¼Œå¯“æ„åˆå®¶å›¢åœ†ï¼Œå‰ç¥¥å¦‚æ„ã€‚\n");
+		set("unit", "ç›†");
 		set("value", 80);
 		set("food_remaining", 1);
 		set("food_supply", 45);

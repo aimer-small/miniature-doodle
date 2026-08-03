@@ -1,4 +1,4 @@
-// huang-son-in-law ÌÒ»¨µºÅ®Ğö
+// huang-son-in-law æ¡ƒèŠ±å²›å¥³å©¿
 
 #ifndef NPCDATA
 #define NPCDATA "/data/npc/"
@@ -21,11 +21,11 @@ void create()
 	seteuid(getuid());
 
 	if (!restore()) {
-		set_name("¹ù¾¸", ({ "nvxu" }) );
-		set("title", "»ÆÒ©Ê¦Ö®Å®Ğö" );
-		set("gender", "ÄĞĞÔ" );
+		set_name("éƒ­é–", ({ "nvxu" }) );
+		set("title", "é»„è¯å¸ˆä¹‹å¥³å©¿" );
+		set("gender", "ç”·æ€§" );
 		set("age", 19);
-		set("long","Ëû¾ÍÊÇ»ÆÒ©Ê¦µÄ³ËÁú¿ìĞö£¬»ÆÈØµÄĞÄÉÏÈË£¡\n");
+		set("long","ä»–å°±æ˜¯é»„è¯å¸ˆçš„ä¹˜é¾™å¿«å©¿ï¼Œé»„è“‰çš„å¿ƒä¸Šäººï¼\n");
 		set("attitude", "peaceful");
 
 		set("str", 25);
@@ -75,7 +75,7 @@ int do_copy(object me, object ob)
 //	me->add("generation", 1);	
 
 	me->set("name",  ob->query("name") );
-	me->set("title", "ÌÒ»¨µº³ËÁú¿ìĞö");
+	me->set("title", "æ¡ƒèŠ±å²›ä¹˜é¾™å¿«å©¿");
 	me->set("short", me->query("title") + " " + me->query("name") + "(" + capitalize(ob->query("id")) + ")");
 
 	ob->set_temp("apply/short", ({me->query("short")}));
@@ -210,7 +210,7 @@ int do_clone(object me, object ob)
 */
 	save();
 
-//	tell_object(ob, "×´Ì¬´¢´æÍê±Ï¡£\n");
+//	tell_object(ob, "çŠ¶æ€å‚¨å­˜å®Œæ¯•ã€‚\n");
 
 	return 1;
 }

@@ -1,12 +1,12 @@
-//Îå²ÊÀ®°È
+//äº”å½©å–‡å­
 #include <ansi.h>
 inherit ITEM;
 /*
-type: 1 : Ëæ¼´µ×É«
-      2 : Ëæ¼´µ×É«¼ÓÇ°¾°É«
-      3 : Ëæ¼´°µÉ«
-      4 £ºËæ¼´ÁÁÉ«
-blink: 1 : ÉÁË¸
+type: 1 : éšå³åº•è‰²
+      2 : éšå³åº•è‰²åŠ å‰æ™¯è‰²
+      3 : éšå³æš—è‰²
+      4 ï¼šéšå³äº®è‰²
+blink: 1 : é—ªçƒ
 */
 string random_color(int type,int blink)
 {
@@ -74,27 +74,27 @@ string random_color(int type,int blink)
 
 void create()
 {
-    set_name(random_color(4,0)+"Îå"+random_color(4,0)+"²Ê"+random_color(4,0)+"À®"+random_color(4,0)+"°È" NOR, ({ "wucai laba","laba","wucai"}));
+    set_name(random_color(4,0)+"äº”"+random_color(4,0)+"å½©"+random_color(4,0)+"å–‡"+random_color(4,0)+"å­" NOR, ({ "wucai laba","laba","wucai"}));
         set_weight(100);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
+                set("unit", "ä¸ª");
                 set("max_use",10+random(5));
                 set("long", 
-                        "Ò»¸öÕ¸ĞÂµÄÎå²ÊÀ®°È£¬ÓÃËüËµ»°¿ÉÒÔ´øÑÕÉ«Å¶¡£\n»¹¿ÉÒÔÓÃ"+chinese_number(query("max_use"))+"´Î¡£\n"
-                        "ÓÃ·¨£º\n"
-                        "cui ¶¯×÷ ÄãµÄ´ÊÓï ¶¯×÷¿ÉÒÔÊÇsay reply shout chat µÈ \n"
-                        "±ÈÈç cui chat $HIG$ hi\n"
-                        "ÑÕÉ«ÁĞ±í£º\n"
-                        "                     $NOR$ - »Ö¸´Õı³£ÑÕÉ«\n"
-			"$RED$ - "RED"ºìÉ«"NOR"         $HIR$ - "HIR"ÁÁºìÉ«\n"NOR
-			"$GRN$ - "GRN"ÂÌÉ«"NOR"         $HIG$ - "HIG"ÁÁÂÌÉ«\n"NOR
-			"$YEL$ - "YEL"ÍÁ»ÆÉ«"NOR"       $HIY$ - "HIY"»ÆÉ«\n"NOR
-			"$BLU$ - "BLU"ÉîÀ¶É«"NOR"       $HIB$ - "HIB"À¶É«\n"NOR
-			"$MAG$ - "MAG"Ç³×ÏÉ«"NOR"       $HIM$ - "HIM"·ÛºìÉ«\n"NOR
-			"$CYN$ - "CYN"À¶ÂÌÉ«"NOR"       $HIC$ - "HIC"ÌìÇàÉ«\n"NOR
-			"$WHT$ - Ç³»ÒÉ«       $HIW$ - "HIW"°×É«\n"NOR
+                        "ä¸€ä¸ªå´­æ–°çš„äº”å½©å–‡å­ï¼Œç”¨å®ƒè¯´è¯å¯ä»¥å¸¦é¢œè‰²å“¦ã€‚\nè¿˜å¯ä»¥ç”¨"+chinese_number(query("max_use"))+"æ¬¡ã€‚\n"
+                        "ç”¨æ³•ï¼š\n"
+                        "cui åŠ¨ä½œ ä½ çš„è¯è¯­ åŠ¨ä½œå¯ä»¥æ˜¯say reply shout chat ç­‰ \n"
+                        "æ¯”å¦‚ cui chat $HIG$ hi\n"
+                        "é¢œè‰²åˆ—è¡¨ï¼š\n"
+                        "                     $NOR$ - æ¢å¤æ­£å¸¸é¢œè‰²\n"
+			"$RED$ - "RED"çº¢è‰²"NOR"         $HIR$ - "HIR"äº®çº¢è‰²\n"NOR
+			"$GRN$ - "GRN"ç»¿è‰²"NOR"         $HIG$ - "HIG"äº®ç»¿è‰²\n"NOR
+			"$YEL$ - "YEL"åœŸé»„è‰²"NOR"       $HIY$ - "HIY"é»„è‰²\n"NOR
+			"$BLU$ - "BLU"æ·±è“è‰²"NOR"       $HIB$ - "HIB"è“è‰²\n"NOR
+			"$MAG$ - "MAG"æµ…ç´«è‰²"NOR"       $HIM$ - "HIM"ç²‰çº¢è‰²\n"NOR
+			"$CYN$ - "CYN"è“ç»¿è‰²"NOR"       $HIC$ - "HIC"å¤©é’è‰²\n"NOR
+			"$WHT$ - æµ…ç°è‰²       $HIW$ - "HIW"ç™½è‰²\n"NOR
                         );
 		set("value", 1000);
 		set("no_sell",1);	
@@ -113,12 +113,12 @@ int do_cui(string arg)
 {
         string arg1,arg2;
         object me = this_player(); 
-        if (!arg) return notify_fail("ÄãÒª´µÊ²Ã´£¿\n");
+        if (!arg) return notify_fail("ä½ è¦å¹ä»€ä¹ˆï¼Ÿ\n");
         sscanf(arg,"%s %s",arg1,arg2);
         if (arg1 != "chat" && arg1 != "rumor" && arg1 !="party" && arg1 != "group" 
         && arg1 !="say" && arg1 !="tell" && arg1 !="reply" && arg1 !="whisper" && arg1 !="shout" &&arg1 !="sj")
-        return notify_fail("ÄãÏëÓÃÎå²ÊÀ®°È´µÊ²Ã´£¿\n");
-        if (query("used") >= query("max_use")) return notify_fail("Õâ¸öÀ®°ÈÒÑ¾­´µ»µÁË¡£\n");
+        return notify_fail("ä½ æƒ³ç”¨äº”å½©å–‡å­å¹ä»€ä¹ˆï¼Ÿ\n");
+        if (query("used") >= query("max_use")) return notify_fail("è¿™ä¸ªå–‡å­å·²ç»å¹åäº†ã€‚\n");
         arg2 = replace_string(arg2, "$RED$", RED);
         arg2 = replace_string(arg2, "$GRN$", GRN);
         arg2 = replace_string(arg2, "$YEL$", YEL);
@@ -152,38 +152,38 @@ int do_cui(string arg)
         arg2 += NOR;
         add("used",1);
         if (query("used")>=query("max_use"))
-		set("long", "Ò»¸öÒÑ¾­´µ»µµÄÎå²ÊÀ®°È£¬ÔÙÒ²·¢²»³öÉùÒôÁË¡£\n"
-		        "ÓÃ·¨£º\n"
-                        "cui ¶¯×÷ ÄãµÄ´ÊÓï ¶¯×÷¿ÉÒÔÊÇsay reply shout chat µÈ \n"
-                        "±ÈÈç cui chat $HIG$ hi\n"
-                        "ÑÕÉ«ÁĞ±í£º\n"
-                        "                     $NOR$ - »Ö¸´Õı³£ÑÕÉ«\n"
-			"$RED$ - "RED"ºìÉ«"NOR"         $HIR$ - "HIR"ÁÁºìÉ«\n"NOR
-			"$GRN$ - "GRN"ÂÌÉ«"NOR"         $HIG$ - "HIG"ÁÁÂÌÉ«\n"NOR
-			"$YEL$ - "YEL"ÍÁ»ÆÉ«"NOR"       $HIY$ - "HIY"»ÆÉ«\n"NOR
-			"$BLU$ - "BLU"ÉîÀ¶É«"NOR"       $HIB$ - "HIB"À¶É«\n"NOR
-			"$MAG$ - "MAG"Ç³×ÏÉ«"NOR"       $HIM$ - "HIM"·ÛºìÉ«\n"NOR
-			"$CYN$ - "CYN"À¶ÂÌÉ«"NOR"       $HIC$ - "HIC"ÌìÇàÉ«\n"NOR
-			"$WHT$ - Ç³»ÒÉ«       $HIW$ - "HIW"°×É«\n"NOR
+		set("long", "ä¸€ä¸ªå·²ç»å¹åçš„äº”å½©å–‡å­ï¼Œå†ä¹Ÿå‘ä¸å‡ºå£°éŸ³äº†ã€‚\n"
+		        "ç”¨æ³•ï¼š\n"
+                        "cui åŠ¨ä½œ ä½ çš„è¯è¯­ åŠ¨ä½œå¯ä»¥æ˜¯say reply shout chat ç­‰ \n"
+                        "æ¯”å¦‚ cui chat $HIG$ hi\n"
+                        "é¢œè‰²åˆ—è¡¨ï¼š\n"
+                        "                     $NOR$ - æ¢å¤æ­£å¸¸é¢œè‰²\n"
+			"$RED$ - "RED"çº¢è‰²"NOR"         $HIR$ - "HIR"äº®çº¢è‰²\n"NOR
+			"$GRN$ - "GRN"ç»¿è‰²"NOR"         $HIG$ - "HIG"äº®ç»¿è‰²\n"NOR
+			"$YEL$ - "YEL"åœŸé»„è‰²"NOR"       $HIY$ - "HIY"é»„è‰²\n"NOR
+			"$BLU$ - "BLU"æ·±è“è‰²"NOR"       $HIB$ - "HIB"è“è‰²\n"NOR
+			"$MAG$ - "MAG"æµ…ç´«è‰²"NOR"       $HIM$ - "HIM"ç²‰çº¢è‰²\n"NOR
+			"$CYN$ - "CYN"è“ç»¿è‰²"NOR"       $HIC$ - "HIC"å¤©é’è‰²\n"NOR
+			"$WHT$ - æµ…ç°è‰²       $HIW$ - "HIW"ç™½è‰²\n"NOR
 		);		
 	else
-	        set("long", "Ò»¸öÒÑ¾­ÓÃ¹ıµÄÎå²ÊÀ®°È£¬ÓÃËüËµ»°¿ÉÒÔ´øÑÕÉ«Å¶¡£\n»¹¿ÉÒÔÓÃ"+chinese_number(query("max_use")-query("used"))+"´Î¡£\n"
-	                                "ÓÃ·¨£º\n"
-                        "cui ¶¯×÷ ÄãµÄ´ÊÓï ¶¯×÷¿ÉÒÔÊÇsay reply shout chat µÈ \n"
-                        "±ÈÈç cui chat $HIG$ hi\n"
-                        "ÑÕÉ«ÁĞ±í£º\n"
-                        "                     $NOR$ - »Ö¸´Õı³£ÑÕÉ«\n"
-			"$RED$ - "RED"ºìÉ«"NOR"         $HIR$ - "HIR"ÁÁºìÉ«\n"NOR
-			"$GRN$ - "GRN"ÂÌÉ«"NOR"         $HIG$ - "HIG"ÁÁÂÌÉ«\n"NOR
-			"$YEL$ - "YEL"ÍÁ»ÆÉ«"NOR"       $HIY$ - "HIY"»ÆÉ«\n"NOR
-			"$BLU$ - "BLU"ÉîÀ¶É«"NOR"       $HIB$ - "HIB"À¶É«\n"NOR
-			"$MAG$ - "MAG"Ç³×ÏÉ«"NOR"       $HIM$ - "HIM"·ÛºìÉ«\n"NOR
-			"$CYN$ - "CYN"À¶ÂÌÉ«"NOR"       $HIC$ - "HIC"ÌìÇàÉ«\n"NOR
-			"$WHT$ - Ç³»ÒÉ«       $HIW$ - "HIW"°×É«\n"NOR
+	        set("long", "ä¸€ä¸ªå·²ç»ç”¨è¿‡çš„äº”å½©å–‡å­ï¼Œç”¨å®ƒè¯´è¯å¯ä»¥å¸¦é¢œè‰²å“¦ã€‚\nè¿˜å¯ä»¥ç”¨"+chinese_number(query("max_use")-query("used"))+"æ¬¡ã€‚\n"
+	                                "ç”¨æ³•ï¼š\n"
+                        "cui åŠ¨ä½œ ä½ çš„è¯è¯­ åŠ¨ä½œå¯ä»¥æ˜¯say reply shout chat ç­‰ \n"
+                        "æ¯”å¦‚ cui chat $HIG$ hi\n"
+                        "é¢œè‰²åˆ—è¡¨ï¼š\n"
+                        "                     $NOR$ - æ¢å¤æ­£å¸¸é¢œè‰²\n"
+			"$RED$ - "RED"çº¢è‰²"NOR"         $HIR$ - "HIR"äº®çº¢è‰²\n"NOR
+			"$GRN$ - "GRN"ç»¿è‰²"NOR"         $HIG$ - "HIG"äº®ç»¿è‰²\n"NOR
+			"$YEL$ - "YEL"åœŸé»„è‰²"NOR"       $HIY$ - "HIY"é»„è‰²\n"NOR
+			"$BLU$ - "BLU"æ·±è“è‰²"NOR"       $HIB$ - "HIB"è“è‰²\n"NOR
+			"$MAG$ - "MAG"æµ…ç´«è‰²"NOR"       $HIM$ - "HIM"ç²‰çº¢è‰²\n"NOR
+			"$CYN$ - "CYN"è“ç»¿è‰²"NOR"       $HIC$ - "HIC"å¤©é’è‰²\n"NOR
+			"$WHT$ - æµ…ç°è‰²       $HIW$ - "HIW"ç™½è‰²\n"NOR
 	        );
         if (arg1 == "chat" || arg1 == "rumor" || arg1 =="party" || arg1 == "group"|| arg1 =="sj")
 
-        	return me->force_me(arg1+"* ´µ×ÅÎå²ÊÀ®°ÈËµµÀ:"+arg2);
+        	return me->force_me(arg1+"* å¹ç€äº”å½©å–‡å­è¯´é“:"+arg2);
         else
         	return me->force_me(arg1+" "+arg2);
 }

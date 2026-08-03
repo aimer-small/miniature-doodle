@@ -1,16 +1,16 @@
-// /d/wudang/shanya1.c  É½ÑÂ
+// /d/wudang/shanya1.c  å±±å´–
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short","É½ÑÂ");
+        set("short","å±±å´–");
         set("long", @LONG
-ÕâÊÇÒ»Ãæ¶¸ÇÍµÄÉ½ÑÂ£¬Ê¯±ÚÆ½»¬Èç¾µ£¬¹â¿ÉÕÕÈË£¬É½·ç¹ÎµÃÁ³Èçµ¶¸î£¬ÑÂ
-ÏÂÉî²»¼ûµ×£¬ÁîÈËµ¨º®¡£
+è¿™æ˜¯ä¸€é¢é™¡å³­çš„å±±å´–ï¼ŒçŸ³å£å¹³æ»‘å¦‚é•œï¼Œå…‰å¯ç…§äººï¼Œå±±é£åˆ®å¾—è„¸å¦‚åˆ€å‰²ï¼Œå´–
+ä¸‹æ·±ä¸è§åº•ï¼Œä»¤äººèƒ†å¯’ã€‚
 LONG);
-	set("outdoors", "Îäµ±");
+	set("outdoors", "æ­¦å½“");
         setup();
 
 }
@@ -27,16 +27,16 @@ int do_pa(string arg)
         int i;
         me=this_player();
         if ( !arg || (arg != "down" && arg != "up" ))
-            return notify_fail("ÄãÒªÍùÄÄÅÀ£¿\n");
+            return notify_fail("ä½ è¦å¾€å“ªçˆ¬ï¼Ÿ\n");
 
         if (! present("sheng zi", me))
-            return notify_fail("Ã»ÓĞÖ§³Åµã£¬ÄãÔõÃ´ÅÀ£¿\n");
+            return notify_fail("æ²¡æœ‰æ”¯æ’‘ç‚¹ï¼Œä½ æ€ä¹ˆçˆ¬ï¼Ÿ\n");
 
         if (arg =="down") {
-           message_vision("$N²ü²üàäàäµØÅÀÁËÏÂÈ¥¡£\n", me);
+           message_vision("$Né¢¤é¢¤å™¤å™¤åœ°çˆ¬äº†ä¸‹å»ã€‚\n", me);
            if ((int)me->query_skill("force", 1) < 20){
-             message_vision(RED"É½·çÍ»È»×ªÇ¿£¬$N¹¦Á¦²»¹»£¬ÎŞ·¨ÎÈ×¡ÉíÌå£¬Ò»ÕóÒ¡»Î£¬ÓÖ±»´µÁË»ØÈ¥¡£\n"NOR, me);
-             message_vision(HIR"$NĞÄÀïÒ»¼±£¬Ò»¿ÚÆø×ª²»¹ıÀ´¶ÙÊ±»èÁË¹ıÈ¥¡£\n"NOR, me);
+             message_vision(RED"å±±é£çªç„¶è½¬å¼ºï¼Œ$NåŠŸåŠ›ä¸å¤Ÿï¼Œæ— æ³•ç¨³ä½èº«ä½“ï¼Œä¸€é˜µæ‘‡æ™ƒï¼Œåˆè¢«å¹äº†å›å»ã€‚\n"NOR, me);
+             message_vision(HIR"$Nå¿ƒé‡Œä¸€æ€¥ï¼Œä¸€å£æ°”è½¬ä¸è¿‡æ¥é¡¿æ—¶æ˜äº†è¿‡å»ã€‚\n"NOR, me);
              me->unconcious();
              return 1;
            }
@@ -45,21 +45,21 @@ int do_pa(string arg)
            if ((int)me->query_skill("force",1) < 100)
              me->improve_skill("force", me->query("con")+random((int)me->query_skill("force",1)/10));
              me->move(__DIR__"shanya2");
-	     tell_room(environment(me), me->name() + "´ÓÉÏÃæÅÀÁËÏÂÀ´¡£\n", ({ me }));
+	     tell_room(environment(me), me->name() + "ä»ä¸Šé¢çˆ¬äº†ä¸‹æ¥ã€‚\n", ({ me }));
         }
         else {
-           message_vision("$N²ü²üàäàäµØÅÀÁËÉÏÈ¥¡£\n", me);
+           message_vision("$Né¢¤é¢¤å™¤å™¤åœ°çˆ¬äº†ä¸Šå»ã€‚\n", me);
            me->receive_damage("neili", random(20));
            me->receive_damage("jingli", 60-(int)me->query_skill("dodge", 1)/20);
            if ((int)me->query_skill("dodge",1) < 100)
               me->improve_skill("dodge", me->query("dex")+random((int)me->query_skill("dodge",1)/10));
            me->move(__DIR__"husunchou");
-   	   tell_room(environment(me), me->name() + "´ÓÏÂÃæÅÀÁËÉÏÀ´¡£\n", ({ me }));
+   	   tell_room(environment(me), me->name() + "ä»ä¸‹é¢çˆ¬äº†ä¸Šæ¥ã€‚\n", ({ me }));
         }
         if ((int)me->query("jingli", 1)<0 
          || (int)me->query("neili", 1)<0){
-            message_vision(RED"$NÍ»È»ÑÛÃ°½ğĞÇ£¬Ò¡Ò¡Óû×¹¡£½ÅÏÂÒ»´ò»¬£¬[°¡...]£¬Ò»¸úÍ·ÔÔÏÂÁËÍòÕÉÉî¹È¡£\n"NOR, me);
-            me->set_temp("last_damage_from","Ë¤ÏÂÉ½ÑÂµø");
+            message_vision(RED"$Nçªç„¶çœ¼å†’é‡‘æ˜Ÿï¼Œæ‘‡æ‘‡æ¬²å ã€‚è„šä¸‹ä¸€æ‰“æ»‘ï¼Œ[å•Š...]ï¼Œä¸€è·Ÿå¤´æ ½ä¸‹äº†ä¸‡ä¸ˆæ·±è°·ã€‚\n"NOR, me);
+            me->set_temp("last_damage_from","æ‘”ä¸‹å±±å´–è·Œ");
             me->unconcious();
             me->die();
 	    if (tmp = present("corpse", this_object())){
@@ -68,7 +68,7 @@ int do_pa(string arg)
 		while (i--) if (userp(ob[i])) ob[i]->move(this_object());
 		destruct(tmp);
                 destruct("corpse");
-		if (me) tell_room(this_object(), me->name()+"µÄÊ¬¹Ç¶¼ÕÒ²»µ½ÁË¡£\n");
+		if (me) tell_room(this_object(), me->name()+"çš„å°¸éª¨éƒ½æ‰¾ä¸åˆ°äº†ã€‚\n");
 	    }
         }
         return 1;

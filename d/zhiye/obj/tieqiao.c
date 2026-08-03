@@ -9,18 +9,18 @@ int query_status();
 
 void create()
 {
-	set_name("ÌúÇÂ", ({ "tieqiao", "tie qiao", "qiao" }));
+	set_name("é“é”¹", ({ "tieqiao", "tie qiao", "qiao" }));
 	set_weight(15000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±úÌúÇÂ¡£\n");
-		set("olong", "ÕâÊÇÒ»±úÌúÇÂ¡£¿ÉÒÔÓÃÀ´²É¿ó(caikuang)¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„é“é”¹ã€‚\n");
+		set("olong", "è¿™æ˜¯ä¸€æŸ„é“é”¹ã€‚å¯ä»¥ç”¨æ¥é‡‡çŸ¿(caikuang)ã€‚\n");
 		set("value", 5000);
 		set("material", "steel");
-		set("wield_msg", "$NÄÃÆğÒ»±ú$n¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·ÅÏÂ¡£\n");
+		set("wield_msg", "$Næ‹¿èµ·ä¸€æŸ„$nã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¾ä¸‹ã€‚\n");
 		set("worker_tool",1);
 	}
 	set("used",75);
@@ -42,11 +42,11 @@ void set_status(int i)
 {
 	int j;
 	j = (int)(i*100/query("oused"));
-	if(j>90) set("long",query("olong")+"¿´ÆğÀ´»¹ÊÇÍêºÃµÄ¡£\n");
-	else if(j>50) set("long",query("olong")+"¿´ÆğÀ´ÒÑ¾­ÓÃ¹ıÒ»¶ÎÊ±¼äÁË¡£\n");
-	else if(j>20) set("long",query("olong")+"¿´ÆğÀ´ÒÑ¾­ÓĞĞ©ÆÆËğÁË¡£\n");
-	else if(j>0) set("long",query("olong")+"¿´ÆğÀ´¾ÍÒª»µÁË¡£\n");
-	else set("long",query("olong")+"¿´ÆğÀ´ÒÑ¾­»µµôÁË¡£\n");
+	if(j>90) set("long",query("olong")+"çœ‹èµ·æ¥è¿˜æ˜¯å®Œå¥½çš„ã€‚\n");
+	else if(j>50) set("long",query("olong")+"çœ‹èµ·æ¥å·²ç»ç”¨è¿‡ä¸€æ®µæ—¶é—´äº†ã€‚\n");
+	else if(j>20) set("long",query("olong")+"çœ‹èµ·æ¥å·²ç»æœ‰äº›ç ´æŸäº†ã€‚\n");
+	else if(j>0) set("long",query("olong")+"çœ‹èµ·æ¥å°±è¦åäº†ã€‚\n");
+	else set("long",query("olong")+"çœ‹èµ·æ¥å·²ç»åæ‰äº†ã€‚\n");
 	set("used",i);
 }
 
@@ -60,14 +60,14 @@ void use()
 	object me = environment(this_object());
 	if( query_status()<=0 ) return;
 	if( query_status()>2 && (time()-query("stime"))>7200 ) {
-		tell_object(me,"ÄãµÄ"+query("name")+"ËÆºõÓĞĞ©ÉúĞâÁË£¡\n");
+		tell_object(me,"ä½ çš„"+query("name")+"ä¼¼ä¹æœ‰äº›ç”Ÿé”ˆäº†ï¼\n");
 		set_status(2);
 	}
 	set_status(query_status()-1);
 	if( query_status()<=0 ) {
 		if( objectp(me) && userp(me) )
-			tell_object(me,"ÄãµÄ"+query("name")+"»µµôÁË£¡\n");
-		broken("»µµôµÄ");
+			tell_object(me,"ä½ çš„"+query("name")+"åæ‰äº†ï¼\n");
+		broken("åæ‰çš„");
 	}
 }
 
@@ -79,17 +79,17 @@ int do_find(string arg)
 	if(arg!="kuangshi") return 0;
 	if( !(int)me->query("worker/job1") ) return 0;
 	if( !objectp(weapon=me->query_temp("weapon")) || weapon!=this_object() ) return 0;
-	if( me->is_busy() ) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if( me->is_busy() ) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 
-	message_vision(HIY"$N×ĞÏ¸µØËÑË÷¿óÊ¯µÄ×Ù¼£......\n\n"NOR, me);
+	message_vision(HIY"$Nä»”ç»†åœ°æœç´¢çŸ¿çŸ³çš„è¸ªè¿¹......\n\n"NOR, me);
 
 	room = environment(me);
 	if( me->query("worker/job1_room") != base_name(room) ) {
-		message_vision(HIY"¿ÉÏ§Ê²Ã´¶¼Ã»ÓĞÕÒµ½¡£\n"NOR, me);
+		message_vision(HIY"å¯æƒœä»€ä¹ˆéƒ½æ²¡æœ‰æ‰¾åˆ°ã€‚\n"NOR, me);
 		me->start_busy(1+random(3));
 	}
 	else {
-		message_vision(HIY"ËÆºõÓĞËù·¢ÏÖ.....\n"NOR, me);
+		message_vision(HIY"ä¼¼ä¹æœ‰æ‰€å‘ç°.....\n"NOR, me);
 		delay = 10+random(20);
 		if(wizardp(me) && me->query("env/test")) delay=3;
 		me->start_busy(delay);
@@ -105,7 +105,7 @@ void find_finish(object me)
 
 	if( !objectp(me) || !userp(me) ) return;
 
-	message_vision(MAG"$N´ÓÍÁÀïÍÚ³öÒ»¿é´ÓÀ´Ã»ÓĞ¼û¹ıµÄ¿óÊ¯£¡\n"NOR, me);
+	message_vision(MAG"$Nä»åœŸé‡ŒæŒ–å‡ºä¸€å—ä»æ¥æ²¡æœ‰è§è¿‡çš„çŸ¿çŸ³ï¼\n"NOR, me);
 
 	me->set("worker/job1_room","");
 	obj = new(__DIR__"kuangshi");

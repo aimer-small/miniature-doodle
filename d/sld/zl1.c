@@ -1,19 +1,19 @@
 // zl1.c
-// ÖñÁÖ1
+// ç«¹æ—1
 inherit ROOM;
 void create()
 {
-	set("short","ÖñÁÖ");
+	set("short","ç«¹æ—");
 	set("long",@long
-ÕâÀïµ½´¦¶¼ÊÇ¸ß¿É¼°ÌìµÄÖñ×Ó£¬°ÑÌ«Ñô¶¼ÕÚ×¡ÁË£¬ÓÖÎ»¾Ó·å¶¥£¬ËæÊ±
-¿ÉÒÔ´µµ½º£·ç£¬ËùÒÔÔÚÑ×ÏÄ¼¾½ÚÊÇÒ»´¦ÄÉÁ¹µÄºÃµØ·½¡£Å¼¶ø£¬º£·ç²»Öª´Ó
-ÄÄÀï´øÀ´Ò»¹ÉÒ©Ïã¡£
+è¿™é‡Œåˆ°å¤„éƒ½æ˜¯é«˜å¯åŠå¤©çš„ç«¹å­ï¼ŒæŠŠå¤ªé˜³éƒ½é®ä½äº†ï¼Œåˆä½å±…å³°é¡¶ï¼Œéšæ—¶
+å¯ä»¥å¹åˆ°æµ·é£ï¼Œæ‰€ä»¥åœ¨ç‚å¤å­£èŠ‚æ˜¯ä¸€å¤„çº³å‡‰çš„å¥½åœ°æ–¹ã€‚å¶è€Œï¼Œæµ·é£ä¸çŸ¥ä»
+å“ªé‡Œå¸¦æ¥ä¸€è‚¡è¯é¦™ã€‚
 long);
 	set("exits",([
 	    "enter" : __DIR__"tz",
            "west"  : __DIR__"zl2",
 ]));
-	set("outdoors", "ÉñÁúµº");
+	set("outdoors", "ç¥é¾™å²›");
         set("coor/x",490);
   set("coor/y",430);
    set("coor/z",80);
@@ -29,15 +29,15 @@ void init()
 }
 
 int do_to(string arg)
-{//Ã¿225Ò»»» 
-	int times,ypstep;//times=0 Î÷±± 1 ±± 2 ¶«±± 3 ¶« 4 ¶«ÄÏ 5 ÄÏ 6 Î÷ÄÏ 7 Î÷
+{//æ¯225ä¸€æ¢ 
+	int times,ypstep;//times=0 è¥¿åŒ— 1 åŒ— 2 ä¸œåŒ— 3 ä¸œ 4 ä¸œå— 5 å— 6 è¥¿å— 7 è¥¿
 	object me=this_player();
 	string* pos=({"northwest","north","northeast","east","southeast","south","southwest","west"}); 
 	int * zeropos=({0,6,3,4,1,5,2,7});
 
 	if(!arg || arg!="east" && arg!="west" && arg!="north" && arg!="south" && arg!="northeast"
 	   && arg!="northwest" && arg!="southeast" && arg!="southwest" )
-		return notify_fail("ÄãÒªÍùÄÄÀïÈ¥£¿\n");
+		return notify_fail("ä½ è¦å¾€å“ªé‡Œå»ï¼Ÿ\n");
 	if(!me->query_temp("yaopu/time",1))
 	{
 		times=uptime() % 1800;
@@ -58,6 +58,6 @@ int do_to(string arg)
 		me->delete_temp("yaopu");
 	}
 	else
-		tell_object(me,"ÄãÍùÖñÁÖÖĞ×ßÈ¥¡£\n");
+		tell_object(me,"ä½ å¾€ç«¹æ—ä¸­èµ°å»ã€‚\n");
 	return 1;
 }

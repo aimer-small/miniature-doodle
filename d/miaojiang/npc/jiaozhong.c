@@ -2,10 +2,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Îå¶¾½ÌµÜ×Ó", ({ "wudujiao dizi", "dizi"}));
+        set_name("äº”æ¯’æ•™å¼Ÿå­", ({ "wudujiao dizi", "dizi"}));
         set("long", 
-                "Ò»¸öÆÕÍ¨µÄÎå¶¾½ÌÅ®µÜ×Ó¡£\n");
-        set("gender", "Å®ĞÔ");
+                "ä¸€ä¸ªæ™®é€šçš„äº”æ¯’æ•™å¥³å¼Ÿå­ã€‚\n");
+        set("gender", "å¥³æ€§");
 	set("age", 15 + random(10));
         set("attitude", "peaceful");
         set("shen", -1000);
@@ -37,7 +37,7 @@ void create()
         map_skill("parry", "chousui-zhang");
 
 
-        create_family("Îå¶¾½Ì", 3, "µÜ×Ó");
+        create_family("äº”æ¯’æ•™", 3, "å¼Ÿå­");
 
         setup();
 

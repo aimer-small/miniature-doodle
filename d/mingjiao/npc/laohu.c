@@ -1,13 +1,13 @@
-// /d/mingjiao/npc/laohu.c ÀÏ»¢
+// /d/mingjiao/npc/laohu.c è€è™Ž
 inherit NPC;
 void create()
 {
-        set_name("ÀÏ»¢", ({ "lao hu", "hu" }) );
-        set("race", "Ò°ÊÞ");
+        set_name("è€è™Ž", ({ "lao hu", "hu" }) );
+        set("race", "é‡Žå…½");
         set("age", 5);
-        set("long", "Ò»Ö»Ð×ÃÍµÄ´óÀÏ»¢¡£\n");
+        set("long", "ä¸€åªå‡¶çŒ›çš„å¤§è€è™Žã€‚\n");
         set("attitude", "aggressive");
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°×¦", "ºó×¦", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰çˆª", "åŽçˆª", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
         set("combat_exp", 200000);
         set("str", 80);
@@ -25,7 +25,7 @@ void create()
 void die()
 {
        object ob;
-       message_vision("\n$N²Òº¿Ò»Éù£¬ËÀÁË£¡\n", this_object());
+       message_vision("\n$Næƒ¨åšŽä¸€å£°ï¼Œæ­»äº†ï¼\n", this_object());
        ob = new(ARMOR_D("hupi"));
        ob->move(environment(this_object()));
        destruct(this_object());

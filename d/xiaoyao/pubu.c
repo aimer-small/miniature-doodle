@@ -6,11 +6,11 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "ÆÙ²¼");
+	set("short", "ç€‘å¸ƒ");
 	set("long", @LONG
-ÄãÃÍÌýµÃË®ÉùÏìÁÁ£¬ºäºäÂ¡Â¡£¬±ãÈç³±Ë®´óÖÁÒ»°ã£¬Ì§Í·Ò»¿´£¬Ö»¼ûÒ»
-Ìõ´óÆÙ²¼£¬ÓÌÈçÒøºÓµ¹Ðü£¬´Ó¸ßÑÂÉÏÖ±ÐºÏÂÀ´¡£ÏÂÃæÊÇÍòÕÉÉîÔ¨£¬ÔÆÎíÃÖÂþ£¬
-Íû²»µ½¾¡Í·¡£¡£¡£¡£
+ä½ çŒ›å¬å¾—æ°´å£°å“äº®ï¼Œè½°è½°éš†éš†ï¼Œä¾¿å¦‚æ½®æ°´å¤§è‡³ä¸€èˆ¬ï¼ŒæŠ¬å¤´ä¸€çœ‹ï¼Œåªè§ä¸€
+æ¡å¤§ç€‘å¸ƒï¼ŒçŠ¹å¦‚é“¶æ²³å€’æ‚¬ï¼Œä»Žé«˜å´–ä¸Šç›´æ³»ä¸‹æ¥ã€‚ä¸‹é¢æ˜¯ä¸‡ä¸ˆæ·±æ¸Šï¼Œäº‘é›¾å¼¥æ¼«ï¼Œ
+æœ›ä¸åˆ°å°½å¤´ã€‚ã€‚ã€‚ã€‚
 LONG );
 	set("exits", ([ /* sizeof() == 2 */
 		"east" : "/d/huashan/sheshen",
@@ -34,9 +34,9 @@ int do_jump(string arg)
 	if ( new_gin > ob->query("gin") ) new_gin = ob->query("gin") + 1;
         if( !arg || arg=="" ) return 0;
         if( arg != "down" )
-		return notify_fail("ÄãÏëÒªÌøÑÂ×ÔÉ±£¿ÕâÃ´Ïë²»¿ª°¡£¿\n");
-	tell_object(ob, HIR"Äã²»¼ÓË¼Ë÷£¬×ÝÉíÒ»Ô¾£¬ÌøÏÂÁËÐüÑÂ¡£¡£¡£¡£\n"NOR);
-	message("vision", NOR"Ö»¼û" + ob->query("name") + "ÍòÄî¾ã»Ò£¬×ÝÉíÌøÈëÁËÐüÑÂÖ®ÖÐ¡£¡£¡£¡£\n"NOR, environment(ob), ob);
+		return notify_fail("ä½ æƒ³è¦è·³å´–è‡ªæ€ï¼Ÿè¿™ä¹ˆæƒ³ä¸å¼€å•Šï¼Ÿ\n");
+	tell_object(ob, HIR"ä½ ä¸åŠ æ€ç´¢ï¼Œçºµèº«ä¸€è·ƒï¼Œè·³ä¸‹äº†æ‚¬å´–ã€‚ã€‚ã€‚ã€‚\n"NOR);
+	message("vision", NOR"åªè§" + ob->query("name") + "ä¸‡å¿µä¿±ç°ï¼Œçºµèº«è·³å…¥äº†æ‚¬å´–ä¹‹ä¸­ã€‚ã€‚ã€‚ã€‚\n"NOR, environment(ob), ob);
 	if((random((int)ob->query("kar")) < 5 ) && ((int)ob->query_skill("dodge")<30) )
 	{
 		ob->die();

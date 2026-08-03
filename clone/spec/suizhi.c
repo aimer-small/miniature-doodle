@@ -4,10 +4,10 @@ inherit SPEC;
 
 void create()
 {
-    set_name (HIR"ËéÖ½Æ¬"NOR, ({ "suizhi pian"}));
-    set("long",HIR"ÕâÊÇÒ»Æ¬Öå°Í°ÍµÄËéÖ½Æ¬£¬Ö½Æ¬ÒÑ¾­·º»Æ£¬ÀïÃæµÄ×ÖÒÑÈ»Ä£ºı²»Çå¡£\n"NOR);
+    set_name (HIR"ç¢çº¸ç‰‡"NOR, ({ "suizhi pian"}));
+    set("long",HIR"è¿™æ˜¯ä¸€ç‰‡çš±å·´å·´çš„ç¢çº¸ç‰‡ï¼Œçº¸ç‰‡å·²ç»æ³›é»„ï¼Œé‡Œé¢çš„å­—å·²ç„¶æ¨¡ç³Šä¸æ¸…ã€‚\n"NOR);
 
-    set("unit","Æ¬");
+    set("unit","ç‰‡");
 	set_weight(100);
 	set("value",3000000);
 	
@@ -18,7 +18,7 @@ void create()
     set("degree",1);
     set("flag","spec/suizhi");
     set("rest",5);
-    set("desc","´«ËµÊÇÃ÷½ÌÕÅ½ÌÖ÷Ö®Îï!");
+    set("desc","ä¼ è¯´æ˜¯æ˜æ•™å¼ æ•™ä¸»ä¹‹ç‰©!");
     set("credit",1200);
 	setup();
 }
@@ -36,28 +36,28 @@ int do_chakan(string arg)
         fam = me->query("family");
 
         if (arg!="suizhi pian" )
-              return notify_fail("ÄãÒª²é¿´Ê²Ã´?\n");
+              return notify_fail("ä½ è¦æŸ¥çœ‹ä»€ä¹ˆ?\n");
          if ( me->query("combat_exp") < 800000)
-              return notify_fail("Äã»¹ÊÇ×¥½ôÊ±¼äÈ¥Ôö¼Óµã½­ºşÔÄÀú°É£¡800KÇ°ÊÇÃ»»ú»áµÄ°¡£¡\n");
+              return notify_fail("ä½ è¿˜æ˜¯æŠ“ç´§æ—¶é—´å»å¢åŠ ç‚¹æ±Ÿæ¹–é˜…å†å§ï¼800Kå‰æ˜¯æ²¡æœºä¼šçš„å•Šï¼\n");
 
-        if ( fam["family_name"] != "Ã÷½Ì" || fam["master_name"] != "ÕÅÎŞ¼É" )
+        if ( fam["family_name"] != "æ˜æ•™" || fam["master_name"] != "å¼ æ— å¿Œ" )
 
-              return notify_fail(HIR"Õâ¸ö¾İËµÊÇÄ§½Ì½ÌÖ÷µÄÃØÃÜ£¬Äã»¹ÊÇÉÙ´òÌıÎªºÃ¡£ \n "NOR,);
+              return notify_fail(HIR"è¿™ä¸ªæ®è¯´æ˜¯é­”æ•™æ•™ä¸»çš„ç§˜å¯†ï¼Œä½ è¿˜æ˜¯å°‘æ‰“å¬ä¸ºå¥½ã€‚ \n "NOR,);
       	
         if (!restrict()) 
-            { return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÔÙÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}   ;
+            { return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½å†ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}   ;
  
         if ( !me->query("jiuyang/wei")  && me->query("kar") <31 && random(me->query("kar")) >= 26 )  
             {             
                 me->set("jiuyang/wei", 1);
- write(HIR"Ö½Æ¬ÉÏÁÊ²İµÄĞ´µÀ£º¾­ÔÚÓÍÖĞ£¬¾­ÔÚÓÍÖĞ¡£¡£¡£¾­ÔÚÔ³ÖĞ£¡¾ÓÈ»ÊÇÄÇÖ»´ó°×Ô³£¡ \n"NOR,);
- write(HIR"Ö½Æ¬ÉÏÁÊ²İµÄĞ´µÀ£ºÔ­À´Èç´Ë£¡Ô­À´Èç´Ë£¡ \n"NOR,);
- write(HIM"ÄãĞÄÏÂË¼ââ£º¡°¾­¡±Äª·Ç¾ÍÊÇ½ÌÖ÷Ëù»³¡°¾ÅÑôÕæ¾­¡±£¿»¹ÊÇ¸Ï½ôÈ¥ÕÒ½ÌÖ÷ÎÊ¸öÃ÷°×²ÅÊÇ¡£\n"NOR,);
- CHANNEL_D->do_channel(this_object(), "rumor", HIC"ÌıËµ" + me->name(1) +
-                                 "ÔÚËéÖ½Æ¬ÖĞ·¢ÏÖÁË¾ÅÑôÕæ¾­µÄ´«ÎÅÃØÃÜ£¡\n"NOR);
+ write(HIR"çº¸ç‰‡ä¸Šæ½¦è‰çš„å†™é“ï¼šç»åœ¨æ²¹ä¸­ï¼Œç»åœ¨æ²¹ä¸­ã€‚ã€‚ã€‚ç»åœ¨çŒ¿ä¸­ï¼å±…ç„¶æ˜¯é‚£åªå¤§ç™½çŒ¿ï¼ \n"NOR,);
+ write(HIR"çº¸ç‰‡ä¸Šæ½¦è‰çš„å†™é“ï¼šåŸæ¥å¦‚æ­¤ï¼åŸæ¥å¦‚æ­¤ï¼ \n"NOR,);
+ write(HIM"ä½ å¿ƒä¸‹æ€å¿–ï¼šâ€œç»â€è«éå°±æ˜¯æ•™ä¸»æ‰€æ€€â€œä¹é˜³çœŸç»â€ï¼Ÿè¿˜æ˜¯èµ¶ç´§å»æ‰¾æ•™ä¸»é—®ä¸ªæ˜ç™½æ‰æ˜¯ã€‚\n"NOR,);
+ CHANNEL_D->do_channel(this_object(), "rumor", HIC"å¬è¯´" + me->name(1) +
+                                 "åœ¨ç¢çº¸ç‰‡ä¸­å‘ç°äº†ä¹é˜³çœŸç»çš„ä¼ é—»ç§˜å¯†ï¼\n"NOR);
 
                 log_file("quest/jiuyang",
-                          sprintf("%-18sÍ¨¹ıÍ¨±¦ÎïÆ·µÃµ½´«ÎÅ»ú»á£¬¸»%d¡£\n",
+                          sprintf("%-18sé€šè¿‡é€šå®ç‰©å“å¾—åˆ°ä¼ é—»æœºä¼šï¼Œå¯Œ%dã€‚\n",
                            me->name(1)+"("+capitalize(getuid(me))+")", 
                            me->query("kar")
                          ), me);
@@ -66,7 +66,7 @@ int do_chakan(string arg)
 
         me->set_temp("sj_credit/quest/mj/jiuyang",1);
          
-       write(HIW"Äã·´¸´²é¿´ÕâÕÅ"HIR"ËéÖ½Æ¬"HIW"£¬Ï£ÍûÄÜ´ÓÉÏÃæ²éµ½µãÊ²Ã´¡£Í»È»£¬Á½¸öÄ£ºıµÄ×ÖµÄÓ³ÈëÄãµÄÑÛÁ±¡ª¡ª¡°"HIR"¾­ÔÚ..."HIW"¡±!\n"NOR);
+       write(HIW"ä½ åå¤æŸ¥çœ‹è¿™å¼ "HIR"ç¢çº¸ç‰‡"HIW"ï¼Œå¸Œæœ›èƒ½ä»ä¸Šé¢æŸ¥åˆ°ç‚¹ä»€ä¹ˆã€‚çªç„¶ï¼Œä¸¤ä¸ªæ¨¡ç³Šçš„å­—çš„æ˜ å…¥ä½ çš„çœ¼å¸˜â€”â€”â€œ"HIR"ç»åœ¨..."HIW"â€!\n"NOR);
         
 	degree();
 	return 1;

@@ -1,4 +1,4 @@
-// éÔ×Ó by leontt
+// æ¨µå­ by leontt
 
 inherit NPC;
 #include <ansi.h>
@@ -8,9 +8,9 @@ string ask_yideng(string name);
 
 void create()
 {
-	set_name("ÓæÈË", ({ "yu ren", "yu", "ren" }) );
-	set("long", "¼ûËûÔ¼ÄªËÄÊ®À´ËêÄê¼Í£¬Ò»ÕÅºÚÆáÆáµÄ¹øµ×Á³£¬ò°÷×ÂúÈù£¬¸ù¸ùÈçÌú¡£\n");
-	set("gender", "ÄĞĞÔ" );
+	set_name("æ¸”äºº", ({ "yu ren", "yu", "ren" }) );
+	set("long", "è§ä»–çº¦è«å››åæ¥å²å¹´çºªï¼Œä¸€å¼ é»‘æ¼†æ¼†çš„é”…åº•è„¸ï¼Œè™¬é«¯æ»¡è…®ï¼Œæ ¹æ ¹å¦‚é“ã€‚\n");
+	set("gender", "ç”·æ€§" );
 	set("age", 45);
 	set("str", 30);
 	set("con", 30);
@@ -47,9 +47,9 @@ void create()
 	prepare_skill("finger","yiyang-zhi");
 
 	set("inquiry", ([
-		"½ğÍŞÍŞ" : "½ğÍŞÍŞ¾ÍÊÇ½ğÉ«µÄÍŞÍŞÓã¡£",
-		"Ò»µÆ´óÊ¦" :(: ask_yideng, "Ò»µÆ´óÊ¦" :),
-		"¶Î»ÊÒ¯" : (: ask_yideng, "¶Î»ÊÒ¯" :),
+		"é‡‘å¨ƒå¨ƒ" : "é‡‘å¨ƒå¨ƒå°±æ˜¯é‡‘è‰²çš„å¨ƒå¨ƒé±¼ã€‚",
+		"ä¸€ç¯å¤§å¸ˆ" :(: ask_yideng, "ä¸€ç¯å¤§å¸ˆ" :),
+		"æ®µçš‡çˆ·" : (: ask_yideng, "æ®µçš‡çˆ·" :),
 	]));
 	setup();
 
@@ -61,34 +61,34 @@ string ask_yideng(string name)
 {
 	object me= this_player();
 
-	if ( name == "¶Î»ÊÒ¯" )
-		return "¶Î»ÊÒ¯ÔçÒÑ²»ÔÚ³¾ÊÀÁË£¡";
+	if ( name == "æ®µçš‡çˆ·" )
+		return "æ®µçš‡çˆ·æ—©å·²ä¸åœ¨å°˜ä¸–äº†ï¼";
 
 	if ( me->query_temp("yideng/boat"))
-		return "ÎÒ²»ÊÇÒÑ¾­¸æËßÄãÉÏÉ½µÄ·½·¨ÁËÃ´£¿";
+		return "æˆ‘ä¸æ˜¯å·²ç»å‘Šè¯‰ä½ ä¸Šå±±çš„æ–¹æ³•äº†ä¹ˆï¼Ÿ";
 
 	if ( me->query_temp("yideng/yuren"))
-		return "ÎÒÈÃÄãÈ¥ÕÒµÄ½ğÍŞÍŞÄØ£¿";
+		return "æˆ‘è®©ä½ å»æ‰¾çš„é‡‘å¨ƒå¨ƒå‘¢ï¼Ÿ";
 
-	if ( name == "Ò»µÆ´óÊ¦" ){
+	if ( name == "ä¸€ç¯å¤§å¸ˆ" ){
 		me->set_temp("yideng/yuren", 1);
-		return "Òª¼ûÎÒÊ¦¸µµ½Ò²²»ÄÑ£¬¿ÉÊÇÎÒ¸Õ¶ªÊ§ÁËÁ½Ìõ½ğÍŞÍŞ£¬²»ÖªÕâÎ»"+RANK_D->query_respect(me)+"ÄÜ·ñ°ïÎÒ×¥»Ø¡£";
+		return "è¦è§æˆ‘å¸ˆå‚…åˆ°ä¹Ÿä¸éš¾ï¼Œå¯æ˜¯æˆ‘åˆšä¸¢å¤±äº†ä¸¤æ¡é‡‘å¨ƒå¨ƒï¼Œä¸çŸ¥è¿™ä½"+RANK_D->query_respect(me)+"èƒ½å¦å¸®æˆ‘æŠ“å›ã€‚";
 	}
 }
 
 int accept_object(object me, object ob)
 {
 	if ( ob->query("id") != "jin wawa" ){
-		command("say Äã°ÑÕâ¸ö¸øÎÒ¸ÉÂğ£¿");
+		command("say ä½ æŠŠè¿™ä¸ªç»™æˆ‘å¹²å—ï¼Ÿ");
 		return 0;
 	}
 	if ( ob->query_temp("owner") != me->query("id")){
-		command("say Äã´ÓÄÇÀïµÃµ½Õâ¶Ô½ğÍŞÍŞ°¡£¿");
+		command("say ä½ ä»é‚£é‡Œå¾—åˆ°è¿™å¯¹é‡‘å¨ƒå¨ƒå•Šï¼Ÿ");
 		return 1;
 	}
-	message_vision(CYN"$N¿´×ÅÁ½Î²½ğÍŞÍŞÔÚÕÆÖĞ·­ÌÚÕõÔú£¬ÍÛÍÛ¶ø½Ğ£¬ÍğÈç¶ùÌä£¬²»ÓÉĞ¦µÀ£º¡¸¹Ö²»\n"+
-			"µÃ½Ğ×÷ÍŞÍŞÓã£¬¹ûÈ»ÏñĞ¡º¢¶ù¿Ş½ĞÒ»°ã¡£¡¹\n"+
-			HIW"\n$NÉìÊÖ½»¸ø$n£¬ÄÇ$nÏ²ÉÏÃ¼ÉÒ£¬·ÅÏÂÌú½°£¬ÉìÊÖ½ÓÁË¹ıÈ¥¡£\n\n"NOR, me, this_object());
+	message_vision(CYN"$Nçœ‹ç€ä¸¤å°¾é‡‘å¨ƒå¨ƒåœ¨æŒä¸­ç¿»è…¾æŒ£æ‰ï¼Œå“‡å“‡è€Œå«ï¼Œå®›å¦‚å„¿å•¼ï¼Œä¸ç”±ç¬‘é“ï¼šã€Œæ€ªä¸\n"+
+			"å¾—å«ä½œå¨ƒå¨ƒé±¼ï¼Œæœç„¶åƒå°å­©å„¿å“­å«ä¸€èˆ¬ã€‚ã€\n"+
+			HIW"\n$Nä¼¸æ‰‹äº¤ç»™$nï¼Œé‚£$nå–œä¸Šçœ‰æ¢¢ï¼Œæ”¾ä¸‹é“æ¡¨ï¼Œä¼¸æ‰‹æ¥äº†è¿‡å»ã€‚\n\n"NOR, me, this_object());
 	me->delete_temp("yideng");
 	me->set_temp("yideng/boat", 1);
 	me->add_busy(1);
@@ -108,13 +108,13 @@ int give_bonus(object me, object ob)
 	object boat, jiang;
 
 	message_vision("\n", me);
-	command("say ÕâÉÏÉ½ËµÄÑÊÇÄÑ£¬ËµÒ×È´Ò²ÈİÒ×µÃ½ô¡£´ÓÓÒÊ××ª¹ıÉ½½Ç£¬ÒÑ·ÇÆÙ\n"+
-		"²¼ÄËÊÇÒ»µÀ¼±Á÷£¬×øÔÚÕâÌúÖÛÖ®ÖĞ£¬°â¶¯Ìú½°£¬ÔÚ¼±ÍÄÖĞÄæÁ÷¶øÉÏ¾Í¿ÉÒÔÁË¡£");
+	command("say è¿™ä¸Šå±±è¯´éš¾æ˜¯éš¾ï¼Œè¯´æ˜“å´ä¹Ÿå®¹æ˜“å¾—ç´§ã€‚ä»å³é¦–è½¬è¿‡å±±è§’ï¼Œå·²éç€‘\n"+
+		"å¸ƒä¹ƒæ˜¯ä¸€é“æ€¥æµï¼Œååœ¨è¿™é“èˆŸä¹‹ä¸­ï¼Œæ‰³åŠ¨é“æ¡¨ï¼Œåœ¨æ€¥æ¹ä¸­é€†æµè€Œä¸Šå°±å¯ä»¥äº†ã€‚");
 	boat = unew(__DIR__"../obj/boat");
 	jiang= unew(__DIR__"../obj/jiang");
 	boat->move(me);
 	jiang->move(me);
-	message_vision("$N¸øÁË$nÒ»ËÒ"HIB"ÌúÖÛ"NOR"¡£\n",this_object(), me);
-	message_vision("$N¸øÁË$nÒ»±ú"BLU"Ìú½°"NOR"¡£\n",this_object(), me);
+	message_vision("$Nç»™äº†$nä¸€è‰˜"HIB"é“èˆŸ"NOR"ã€‚\n",this_object(), me);
+	message_vision("$Nç»™äº†$nä¸€æŸ„"BLU"é“æ¡¨"NOR"ã€‚\n",this_object(), me);
 	return 1;
 }

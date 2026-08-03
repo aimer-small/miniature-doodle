@@ -2,19 +2,19 @@
 
 int main(object me)
 {
-// ×îµÍËðÊ§
+// æœ€ä½ŽæŸå¤±
         int cost = 5;
 
         if (functionp(me->is_busy()) 
          || (me->is_busy() < 5 && me->is_perform() < 3 && me->is_exert() < 3) 
          || me->query_temp("chongxue"))
-                return notify_fail("±ðÂÒÓÃ£¬Ð¡ÐÄ×ß»ðÈëÄ§¡£\n");
+                return notify_fail("åˆ«ä¹±ç”¨ï¼Œå°å¿ƒèµ°ç«å…¥é­”ã€‚\n");
         if (me->query_skill("force") < 400)
-                return notify_fail("ÄãµÄÄÚ¹¦µÈ¼¶²»¹»¡£\n");
-        if (me->query("family/family_name") == "ÌÒ»¨µº" && me->query_skill("tanzhi-shentong", 1) < 300)
-                return notify_fail("ÄãµÄµ¯Ö¸ÉñÍ¨»¹²»¹»´¿Êì¡£\n");
+                return notify_fail("ä½ çš„å†…åŠŸç­‰çº§ä¸å¤Ÿã€‚\n");
+        if (me->query("family/family_name") == "æ¡ƒèŠ±å²›" && me->query_skill("tanzhi-shentong", 1) < 300)
+                return notify_fail("ä½ çš„å¼¹æŒ‡ç¥žé€šè¿˜ä¸å¤Ÿçº¯ç†Ÿã€‚\n");
         if (me->query("max_neili", 1) < 5000 || me->query("neili", 1) < 3000)
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
  
         if (me->is_busy())   
                 cost += me->is_busy();
@@ -26,21 +26,21 @@ int main(object me)
                 cost += me->is_exert();
         else
                 cost += 2;
-        me->set_temp("last_damage_from","×ß»ðÈëÄ§");
-        if (me->query("family/family_name") == "ÌÒ»¨µº") 
+        me->set_temp("last_damage_from","èµ°ç«å…¥é­”");
+        if (me->query("family/family_name") == "æ¡ƒèŠ±å²›") 
         {
-                message_vision(HBMAG HIC"\n$NÓÃµ¯Ö¸ÉñÍ¨ÏòÉíÉÏÕæÆøÊÜ×è´¦Ò»µ¯£¬ÃãÇ¿½â¿ªÁË×Ô¼ºÕæÆø²»´¿´¦¡£\n"NOR, me);
+                message_vision(HBMAG HIC"\n$Nç”¨å¼¹æŒ‡ç¥žé€šå‘èº«ä¸ŠçœŸæ°”å—é˜»å¤„ä¸€å¼¹ï¼Œå‹‰å¼ºè§£å¼€äº†è‡ªå·±çœŸæ°”ä¸çº¯å¤„ã€‚\n"NOR, me);
                 me->receive_wound("jing", cost * 30 + random(cost * 30));
                 me->add("neili", - cost * 50 - random(cost * 50));
                 if (!random(3)) me->start_perform(0);
         }
         else
         {
-                message_vision(HBMAG HIG"\n$NÇ¿ÔËÕæÆøÔÚÌåÄÚÓÎ×ß£¬ÖÕÓÚ³åÆÆÁËÊÜ×èµÄÑ¨µÀÒÔ¼°ÕæÆø²»Áé»î´¦¡£\n"NOR, me);
+                message_vision(HBMAG HIG"\n$Nå¼ºè¿çœŸæ°”åœ¨ä½“å†…æ¸¸èµ°ï¼Œç»ˆäºŽå†²ç ´äº†å—é˜»çš„ç©´é“ä»¥åŠçœŸæ°”ä¸çµæ´»å¤„ã€‚\n"NOR, me);
                 me->receive_wound("jing", cost * 60);
                 me->add("neili", - cost * 100);
         } 
-        message_vision(HIR"$NÍÂ³öÒ»¿ÚÏÊÑª¡£\n"NOR, me);
+        message_vision(HIR"$Nåå‡ºä¸€å£é²œè¡€ã€‚\n"NOR, me);
         if (random(2)) me->set("neili", 0);
         me->add("max_neili", - cost * 2);
         me->set_temp("chongxue",1);
@@ -48,7 +48,7 @@ int main(object me)
         me->start_busy(1, 2);
         me->interrupt_me();
         me->start_exert(0);
-        log_file("skills/chongxue",sprintf("[%s] %s(%s)Ç¿ÐÐ³åÑ¨£¬Ôì³É %d µãÄÚÁ¦ËðÉË¡£\n",
+        log_file("skills/chongxue",sprintf("[%s] %s(%s)å¼ºè¡Œå†²ç©´ï¼Œé€ æˆ %d ç‚¹å†…åŠ›æŸä¼¤ã€‚\n",
                 ctime(time())[4..19], me->name(), getuid(me), cost * 2 ));
         call_out("finish", 300, me);
         return 1;
@@ -58,7 +58,7 @@ void finish(object me)
 {
         if (!me || !me->query_temp("chongxue"))
                 return;
-        write(HIY"$N³¤³¤µÄÊæÁË¿ÚÆø£¬ÄÚÏ¢½¥½¥µ÷Õû¾ùÔÈÁË¡£\n");
+        write(HIY"$Né•¿é•¿çš„èˆ’äº†å£æ°”ï¼Œå†…æ¯æ¸æ¸è°ƒæ•´å‡åŒ€äº†ã€‚\n");
         me->delete_temp("chongxue");
 }
 

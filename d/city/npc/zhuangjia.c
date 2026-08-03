@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("×¯¼Ò", ({ "zhuang jia", "zhuang", "jia" }));
+	set_name("åº„å®¶", ({ "zhuang jia", "zhuang", "jia" }));
 	set("long",
-		"Ò»Î»¶Ä³¡ÀÏÊÖ£¬ÕýÐ¦ÃÐÃÐµØ¿´×ÅÄã¡£\n"
-		"ÇëÊäÈë ya À´»ñÈ¡°ïÖú¡£\n");
+		"ä¸€ä½èµŒåœºè€æ‰‹ï¼Œæ­£ç¬‘çœ¯çœ¯åœ°çœ‹ç€ä½ ã€‚\n"
+		"è¯·è¾“å…¥ ya æ¥èŽ·å–å¸®åŠ©ã€‚\n");
 	set("no_get", 1);
 	set("no_quest", 1);
 	set("age", 40);
@@ -30,34 +30,34 @@ void init()
 }
 
 string *point=({
-	"©¦¡¡¡¡¡¡©¦\n"
-	"©¦¡¡¡ñ¡¡©¦\n"
-	"©¦¡¡¡¡¡¡©¦\n",
-	"©¦¡¡¡ñ¡¡©¦\n"
-	"©¦¡¡¡¡¡¡©¦\n"
-	"©¦¡¡¡ñ¡¡©¦\n",
-	"©¦¡ñ¡¡¡¡©¦\n"
-	"©¦¡¡¡ñ¡¡©¦\n"
-	"©¦¡¡¡¡¡ñ©¦\n",
-	"©¦¡ñ¡¡¡ñ©¦\n"
-	"©¦¡¡¡¡¡¡©¦\n"
-	"©¦¡ñ¡¡¡ñ©¦\n",
-	"©¦¡ñ¡¡¡ñ©¦\n"
-	"©¦¡¡¡ñ¡¡©¦\n"
-	"©¦¡ñ¡¡¡ñ©¦\n",
-	"©¦¡ñ¡¡¡ñ©¦\n"
-	"©¦¡ñ¡¡¡ñ©¦\n"
-	"©¦¡ñ¡¡¡ñ©¦\n"
+	"â”‚ã€€ã€€ã€€â”‚\n"
+	"â”‚ã€€â—ã€€â”‚\n"
+	"â”‚ã€€ã€€ã€€â”‚\n",
+	"â”‚ã€€â—ã€€â”‚\n"
+	"â”‚ã€€ã€€ã€€â”‚\n"
+	"â”‚ã€€â—ã€€â”‚\n",
+	"â”‚â—ã€€ã€€â”‚\n"
+	"â”‚ã€€â—ã€€â”‚\n"
+	"â”‚ã€€ã€€â—â”‚\n",
+	"â”‚â—ã€€â—â”‚\n"
+	"â”‚ã€€ã€€ã€€â”‚\n"
+	"â”‚â—ã€€â—â”‚\n",
+	"â”‚â—ã€€â—â”‚\n"
+	"â”‚ã€€â—ã€€â”‚\n"
+	"â”‚â—ã€€â—â”‚\n",
+	"â”‚â—ã€€â—â”‚\n"
+	"â”‚â—ã€€â—â”‚\n"
+	"â”‚â—ã€€â—â”‚\n"
 });
 
 void gen_tc(int i, int j)
 {
 	int k;
 
-	say("©°©¤©¤©¤©´©°©¤©¤©¤©´\n");
+	say("â”Œâ”€â”€â”€â”â”Œâ”€â”€â”€â”\n");
 	for (k=0; k<3; k++)
 		say(point[i][k*11..k*11+9]+point[j][k*11..k*11+10]);
-	say("©¸©¤©¤©¤©¼©¸©¤©¤©¤©¼\n");
+	say("â””â”€â”€â”€â”˜â””â”€â”€â”€â”˜\n");
 }
 
 varargs int gen_point(int j)
@@ -65,20 +65,20 @@ varargs int gen_point(int j)
 	int i = random(6);
 
 	if (j > 0 && j < 7) i = j - 1;
-	say("©°©¤©¤©¤©´\n"+point[i]+"©¸©¤©¤©¤©¼\n");
+	say("â”Œâ”€â”€â”€â”\n"+point[i]+"â””â”€â”€â”€â”˜\n");
 	return i+1;
 }
 
 int in_bet = 0;
 int tc1, tc2;
 mapping t=([
-	"tc":	HIR"Í·²Ê"NOR,
-	"dc":	HIW"´ó²Ê"NOR,
-	"sd":	HIG"Ë«¶Ô"NOR"£¬×¯¼ÒÍ¨³Ô",
-	"qx":	HIY"ÆßÐÇ"NOR,
-	"dd":	HIB"µ¥¶Ô"NOR,
-	"sx":	HIC"É¢ÐÇ"NOR,
-	"kp":	HIM"¿ÕÅÌ"NOR
+	"tc":	HIR"å¤´å½©"NOR,
+	"dc":	HIW"å¤§å½©"NOR,
+	"sd":	HIG"åŒå¯¹"NOR"ï¼Œåº„å®¶é€šåƒ",
+	"qx":	HIY"ä¸ƒæ˜Ÿ"NOR,
+	"dd":	HIB"å•å¯¹"NOR,
+	"sx":	HIC"æ•£æ˜Ÿ"NOR,
+	"kp":	HIM"ç©ºç›˜"NOR
 ]);
 mapping b=([
 	"tc":	35,
@@ -98,36 +98,36 @@ int do_ya(string arg)
 
 	if (!arg || sscanf(arg, "%s %d %s", type, mount, money) != 3)
 		return notify_fail(
-			"ya tc <ÊýÁ¿> <coin|silver|gold> ÑºÍ·²Ê(Á½ÊýË³Ðò¼°µãÊý¾ùÕýÈ·)       Ò»ÅâÈýÊ®Îå\n"
-			"ya dc <ÊýÁ¿> <coin|silver|gold> Ñº´ó²Ê(Á½ÊýµãÊýÕýÈ·)               Ò»ÅâÊ®Æß\n"
-//			"ya sd <ÊýÁ¿> <coin|silver|gold> ÑºË«¶Ô(Á½ÊýÏàÍ¬ÇÒ¾ùÎªÅ¼Êý)         Ò»ÅâÊ®Ò»\n"
-			"ya kp <ÊýÁ¿> <coin|silver|gold> Ñº¿ÕÅÌ(Á½Êý²»Í¬ÇÒ¾ùÎªÅ¼Êý)         Ò»ÅâÎå\n"
-			"ya qx <ÊýÁ¿> <coin|silver|gold> ÑºÆßÐÇ(Á½ÊýÖ®ºÍÎªÆß)               Ò»ÅâÎå\n"
-			"ya dd <ÊýÁ¿> <coin|silver|gold> Ñºµ¥¶Ô(Á½Êý¾ùÎªÆæÊý)               Ò»ÅâÈý\n"
-			"ya sx <ÊýÁ¿> <coin|silver|gold> ÑºÉ¢ÐÇ(Á½ÊýÖ®ºÍÎªÈý¡¢Îå¡¢¾Å¡¢Ê®Ò») Ò»Åâ¶þ\n"
-			"Ã¿ÅÌ°´´ÓÉÏµ½ÏÂµÄË³ÐòÖ»³öÏÖÒ»ÖÖµãÐÍ(Í·²ÊºÍ´ó²Ê¿ÉÍ¬Ê±³öÏÖ)£¬ÆäËûÇé¿ö¶¼Ëã×¯¼ÒÓ®¡£\n");
+			"ya tc <æ•°é‡> <coin|silver|gold> æŠ¼å¤´å½©(ä¸¤æ•°é¡ºåºåŠç‚¹æ•°å‡æ­£ç¡®)       ä¸€èµ”ä¸‰åäº”\n"
+			"ya dc <æ•°é‡> <coin|silver|gold> æŠ¼å¤§å½©(ä¸¤æ•°ç‚¹æ•°æ­£ç¡®)               ä¸€èµ”åä¸ƒ\n"
+//			"ya sd <æ•°é‡> <coin|silver|gold> æŠ¼åŒå¯¹(ä¸¤æ•°ç›¸åŒä¸”å‡ä¸ºå¶æ•°)         ä¸€èµ”åä¸€\n"
+			"ya kp <æ•°é‡> <coin|silver|gold> æŠ¼ç©ºç›˜(ä¸¤æ•°ä¸åŒä¸”å‡ä¸ºå¶æ•°)         ä¸€èµ”äº”\n"
+			"ya qx <æ•°é‡> <coin|silver|gold> æŠ¼ä¸ƒæ˜Ÿ(ä¸¤æ•°ä¹‹å’Œä¸ºä¸ƒ)               ä¸€èµ”äº”\n"
+			"ya dd <æ•°é‡> <coin|silver|gold> æŠ¼å•å¯¹(ä¸¤æ•°å‡ä¸ºå¥‡æ•°)               ä¸€èµ”ä¸‰\n"
+			"ya sx <æ•°é‡> <coin|silver|gold> æŠ¼æ•£æ˜Ÿ(ä¸¤æ•°ä¹‹å’Œä¸ºä¸‰ã€äº”ã€ä¹ã€åä¸€) ä¸€èµ”äºŒ\n"
+			"æ¯ç›˜æŒ‰ä»Žä¸Šåˆ°ä¸‹çš„é¡ºåºåªå‡ºçŽ°ä¸€ç§ç‚¹åž‹(å¤´å½©å’Œå¤§å½©å¯åŒæ—¶å‡ºçŽ°)ï¼Œå…¶ä»–æƒ…å†µéƒ½ç®—åº„å®¶èµ¢ã€‚\n");
 	if (type == "sd" || undefinedp(t[type]))
-		return notify_fail("ÄúÒªÑºÊ²Ã´£¿\n");
-	if (mount < 1) return notify_fail("ÄãÒªÑº¶àÉÙÇ®£¿\n");
-	if (mount > 200000) return notify_fail("ÄúÑºµÄÊýÄ¿Ì«´óÁË¡£\n");
+		return notify_fail("æ‚¨è¦æŠ¼ä»€ä¹ˆï¼Ÿ\n");
+	if (mount < 1) return notify_fail("ä½ è¦æŠ¼å¤šå°‘é’±ï¼Ÿ\n");
+	if (mount > 200000) return notify_fail("æ‚¨æŠ¼çš„æ•°ç›®å¤ªå¤§äº†ã€‚\n");
 	switch(money) {
 		case "gold":	mount *= 100;
 		case "silver":	mount *= 100;
 		case "coin":
 			break;
 		default:
-			return notify_fail("Ö»ÄÜÑº»Æ½ð(gold)¡¢°×Òø(silver)ºÍÍ­Ç®(coin)¡£\n");
+			return notify_fail("åªèƒ½æŠ¼é»„é‡‘(gold)ã€ç™½é“¶(silver)å’Œé“œé’±(coin)ã€‚\n");
 	}
-   if (mount > 2000000)  return notify_fail("ÄúÑºµÄÊýÄ¿Ì«´óÁË¡£\n");
-	if (mount > me->query("balance")) return notify_fail("ÄúÃ»ÓÐÕâÃ´¶à´æ¿î¡£\n");
-	if (mount % 10) return notify_fail("±ØÐëÒÔÊ®¸öÍ­Ç®Îª»ùÊýÏÂ×¢¡£\n");
-	if (!in_bet) return notify_fail("¶Ä¾Ö»¹Ã»¿ªÊ¼ÄØ¡£\n");
-	if (in_bet > 1) return notify_fail("¶Ä¾ÖÒÑ¾­¿ªÊ¼ÁË£¬µÈÏÂÒ»ÂÖ°É¡£\n");
+   if (mount > 2000000)  return notify_fail("æ‚¨æŠ¼çš„æ•°ç›®å¤ªå¤§äº†ã€‚\n");
+	if (mount > me->query("balance")) return notify_fail("æ‚¨æ²¡æœ‰è¿™ä¹ˆå¤šå­˜æ¬¾ã€‚\n");
+	if (mount % 10) return notify_fail("å¿…é¡»ä»¥åä¸ªé“œé’±ä¸ºåŸºæ•°ä¸‹æ³¨ã€‚\n");
+	if (!in_bet) return notify_fail("èµŒå±€è¿˜æ²¡å¼€å§‹å‘¢ã€‚\n");
+	if (in_bet > 1) return notify_fail("èµŒå±€å·²ç»å¼€å§‹äº†ï¼Œç­‰ä¸‹ä¸€è½®å§ã€‚\n");
 	uid = me->query("id");
-	if (query("bet/"+uid+"/"+type)) return notify_fail("ÄúÒÑ¾­Ñº¹ý"+t[type]+"ÁË¡£\n");
+	if (query("bet/"+uid+"/"+type)) return notify_fail("æ‚¨å·²ç»æŠ¼è¿‡"+t[type]+"äº†ã€‚\n");
 	me->add("balance", -mount);
 	set("bet/"+uid+"/"+type, mount);
-	message_vision("$NÄÃ³ö"+MONEY_D->money_str(mount)+"µÄ´æ¿îÑºÔÚ"+t[type]+"ÉÏ¡£\n", me);
+	message_vision("$Næ‹¿å‡º"+MONEY_D->money_str(mount)+"çš„å­˜æ¬¾æŠ¼åœ¨"+t[type]+"ä¸Šã€‚\n", me);
 	add("total/tt", mount);
 	add("total/"+type, mount+mount*b[type]);
 	if (type == "dc") add("total/tc", mount+mount*b[type]);
@@ -150,13 +150,13 @@ int zuobi(string arg)
 
 void casino()
 {
-	say(name()+"³ªµÀ£ºÐÂ¿ªÅÌ£¡Ô¤½ÐÍ·²Ê£¡\n");
-	say(name()+"½«Á½Ã¶Óñ÷»ÍùÒøÅÌÖÐÒ»Èö¡£\n");
+	say(name()+"å”±é“ï¼šæ–°å¼€ç›˜ï¼é¢„å«å¤´å½©ï¼\n");
+	say(name()+"å°†ä¸¤æžšçŽ‰éª°å¾€é“¶ç›˜ä¸­ä¸€æ’’ã€‚\n");
 	tc1 = random(6)+1;
 	tc2 = random(6)+1;
 	gen_tc(tc1-1, tc2-1);
-	say(name()+"³ªµÀ£ºÍ·²Ê÷»ºÅÊÇ" HIW +chinese_number(tc1)+ NOR "¡¢" HIW +chinese_number(tc2)+ NOR "£¡\n");
-	say("½Ó×Å"+name()+"ÂéÀûµØ½«Óñ÷»´ÓÒøÅÌÖÐÊÕ»Ø£ºÏÖÔÚ¿ªÅÌÑºÇ®£¡\n");
+	say(name()+"å”±é“ï¼šå¤´å½©éª°å·æ˜¯" HIW +chinese_number(tc1)+ NOR "ã€" HIW +chinese_number(tc2)+ NOR "ï¼\n");
+	say("æŽ¥ç€"+name()+"éº»åˆ©åœ°å°†çŽ‰éª°ä»Žé“¶ç›˜ä¸­æ”¶å›žï¼šçŽ°åœ¨å¼€ç›˜æŠ¼é’±ï¼\n");
 	delete("bet");
 	delete("total");
 	set("total/tc", 0);
@@ -174,7 +174,7 @@ void wait_start(int i)
 {
        object me;
        me=this_player();
-	say(name()+"º°µÀ£º±¾ÅÌÍ·²Ê÷»ºÅÊÇ" HIW +chinese_number(tc1)+ NOR "¡¢" HIW +chinese_number(tc2)+ NOR "£¬¸÷Î»¿ÍÙÄ¿ìÑº(ya)°¡£¡\n");
+	say(name()+"å–Šé“ï¼šæœ¬ç›˜å¤´å½©éª°å·æ˜¯" HIW +chinese_number(tc1)+ NOR "ã€" HIW +chinese_number(tc2)+ NOR "ï¼Œå„ä½å®¢å€Œå¿«æŠ¼(ya)å•Šï¼\n");
 	if(wizardp(me) && me->query("env/test"))
        CHANNEL_D->do_channel( this_object(), "sys",sprintf("%O\n", query("total")), environment());
 	if (i--) call_out("wait_start", 8, i);
@@ -194,8 +194,8 @@ void readystart(int i)
 void start()
 {
 	in_bet = 2;
-	say(name()+"º°µÀ£º·âÅÌÍ£Ñº£¡±¾ÅÌÍ·²Ê÷»ºÅÊÇ" HIW +chinese_number(tc1)+ NOR "¡¢" HIW +chinese_number(tc2)+ NOR "£¡\n");
-	say(name()+"½«Á½Ã¶Óñ÷»ÈÓ½øÁ½¸ö½ðÖÑ£¬Ò»ÊÖ³ÖÒ»ÖÑÒ¡½«ÆðÀ´¡£\n");
+	say(name()+"å–Šé“ï¼šå°ç›˜åœæŠ¼ï¼æœ¬ç›˜å¤´å½©éª°å·æ˜¯" HIW +chinese_number(tc1)+ NOR "ã€" HIW +chinese_number(tc2)+ NOR "ï¼\n");
+	say(name()+"å°†ä¸¤æžšçŽ‰éª°æ‰”è¿›ä¸¤ä¸ªé‡‘ç›…ï¼Œä¸€æ‰‹æŒä¸€ç›…æ‘‡å°†èµ·æ¥ã€‚\n");
 	call_out("kai1", 3);
 }
 
@@ -262,7 +262,7 @@ void kai1()
 		}
 	}
 */
-	say(name()+"½«×óÊÖµÄ½ðÖÑµ¹¿ÛÔÚÒøÅÌÉÏ£¬Óñ÷»¹öÁË³öÀ´¡£\n");
+	say(name()+"å°†å·¦æ‰‹çš„é‡‘ç›…å€’æ‰£åœ¨é“¶ç›˜ä¸Šï¼ŒçŽ‰éª°æ»šäº†å‡ºæ¥ã€‚\n");
 	p1 = gen_point(zb1);
 	zb1 = 0;
 	call_out("kai2", 5);
@@ -270,7 +270,7 @@ void kai1()
 
 void kai2()
 {
-	say(name()+"½«ÓÒÊÖµÄ½ðÖÑµ¹¿ÛÔÚÒøÅÌÉÏ£¬Óñ÷»¹öÁË³öÀ´¡£\n");
+	say(name()+"å°†å³æ‰‹çš„é‡‘ç›…å€’æ‰£åœ¨é“¶ç›˜ä¸Šï¼ŒçŽ‰éª°æ»šäº†å‡ºæ¥ã€‚\n");
 	p2 = gen_point(zb2);
 	zb2 = 0;
 	call_out("kai", 2);
@@ -286,9 +286,9 @@ void kai()
 	int i = sizeof(bet), tc=0, dc=0, sd=0, qx=0, dd=0, sx=0, kp=0;
 	int utc, udc, usd, uqx, udd, usx, ukp, total;
 
-	say(name()+"½ÐµÀ£º" HIW +chinese_number(p1)+ NOR "¡¢" HIW +chinese_number(p2)+ NOR "¡­¡­");
+	say(name()+"å«é“ï¼š" HIW +chinese_number(p1)+ NOR "ã€" HIW +chinese_number(p2)+ NOR "â€¦â€¦");
 	if ((p1 == tc1 && p2 == tc2)) {
-		say(t["tc"]+"¡¢"+t["dc"]);
+		say(t["tc"]+"ã€"+t["dc"]);
 		tc = 1;
 		dc = 1;
 	} else if (p1 == tc2 && p2 == tc1) {
@@ -311,12 +311,12 @@ void kai()
 		default:
 			say(t["kp"]); kp = 1;
 	}
-	say("¡£\n");
+	say("ã€‚\n");
 	if (i) {
 		uid = keys(bet);
 		while (i--) {
 			me = LOGIN_D->find_body(uid[i]);
-			if (!me || !present(me)) continue;	// ²»ÔÚ·¿¼äµÄ²»¸øÇ®
+			if (!me || !present(me)) continue;	// ä¸åœ¨æˆ¿é—´çš„ä¸ç»™é’±
 			utc = query("bet/"+uid[i]+"/tc");
 			udc = query("bet/"+uid[i]+"/dc");
 			usd = query("bet/"+uid[i]+"/sd");
@@ -327,59 +327,59 @@ void kai()
 			total = -(utc+udc+usd+uqx+udd+usx+ukp);
 			if (utc)
 				if (tc) {
-					tell_object(me, name()+"Åâ¸øÁËÄãÑºÖÐ"+t["tc"]+"µÄ"+MONEY_D->money_str(utc*b["tc"])+"¡£\n");
+					tell_object(me, name()+"èµ”ç»™äº†ä½ æŠ¼ä¸­"+t["tc"]+"çš„"+MONEY_D->money_str(utc*b["tc"])+"ã€‚\n");
 					me->add("balance", utc + utc*b["tc"]);
 					total += utc + utc*b["tc"];
-				} else tell_object(me, name()+"ÊÕ×ßÁËÄãÑºÔÚ"+t["tc"]+"ÉÏµÄ"+MONEY_D->money_str(utc)+"¡£\n");
+				} else tell_object(me, name()+"æ”¶èµ°äº†ä½ æŠ¼åœ¨"+t["tc"]+"ä¸Šçš„"+MONEY_D->money_str(utc)+"ã€‚\n");
 			if (udc)
 				if (dc) {
-					tell_object(me, name()+"Åâ¸øÁËÄãÑºÖÐ"+t["dc"]+"µÄ"+MONEY_D->money_str(udc*b["dc"])+"¡£\n");
+					tell_object(me, name()+"èµ”ç»™äº†ä½ æŠ¼ä¸­"+t["dc"]+"çš„"+MONEY_D->money_str(udc*b["dc"])+"ã€‚\n");
 					me->add("balance", udc + udc*b["dc"]);
 					total += udc + udc*b["dc"];
-				} else tell_object(me, name()+"ÊÕ×ßÁËÄãÑºÔÚ"+t["dc"]+"ÉÏµÄ"+MONEY_D->money_str(udc)+"¡£\n");
+				} else tell_object(me, name()+"æ”¶èµ°äº†ä½ æŠ¼åœ¨"+t["dc"]+"ä¸Šçš„"+MONEY_D->money_str(udc)+"ã€‚\n");
 			if (usd)
 				if (sd) {
-					tell_object(me, name()+"Åâ¸øÁËÄãÑºÖÐ"+t["sd"]+"µÄ"+MONEY_D->money_str(usd*b["sd"])+"¡£\n");
+					tell_object(me, name()+"èµ”ç»™äº†ä½ æŠ¼ä¸­"+t["sd"]+"çš„"+MONEY_D->money_str(usd*b["sd"])+"ã€‚\n");
 					me->add("balance", usd + usd*b["sd"]);
 					total += usd + usd*b["sd"];
-				} else tell_object(me, name()+"ÊÕ×ßÁËÄãÑºÔÚ"+t["sd"]+"ÉÏµÄ"+MONEY_D->money_str(usd)+"¡£\n");
+				} else tell_object(me, name()+"æ”¶èµ°äº†ä½ æŠ¼åœ¨"+t["sd"]+"ä¸Šçš„"+MONEY_D->money_str(usd)+"ã€‚\n");
 			if (uqx)
 				if (qx) {
-					tell_object(me, name()+"Åâ¸øÁËÄãÑºÖÐ"+t["qx"]+"µÄ"+MONEY_D->money_str(uqx*b["qx"])+"¡£\n");
+					tell_object(me, name()+"èµ”ç»™äº†ä½ æŠ¼ä¸­"+t["qx"]+"çš„"+MONEY_D->money_str(uqx*b["qx"])+"ã€‚\n");
 					me->add("balance", uqx + uqx*b["qx"]);
 					total += uqx + uqx*b["qx"];
-				} else tell_object(me, name()+"ÊÕ×ßÁËÄãÑºÔÚ"+t["qx"]+"ÉÏµÄ"+MONEY_D->money_str(uqx)+"¡£\n");
+				} else tell_object(me, name()+"æ”¶èµ°äº†ä½ æŠ¼åœ¨"+t["qx"]+"ä¸Šçš„"+MONEY_D->money_str(uqx)+"ã€‚\n");
 			if (udd)
 				if (dd) {
-					tell_object(me, name()+"Åâ¸øÁËÄãÑºÖÐ"+t["dd"]+"µÄ"+MONEY_D->money_str(udd*b["dd"])+"¡£\n");
+					tell_object(me, name()+"èµ”ç»™äº†ä½ æŠ¼ä¸­"+t["dd"]+"çš„"+MONEY_D->money_str(udd*b["dd"])+"ã€‚\n");
 					me->add("balance", udd + udd*b["dd"]);
 					total += udd + udd*b["dd"];
-				} else tell_object(me, name()+"ÊÕ×ßÁËÄãÑºÔÚ"+t["dd"]+"ÉÏµÄ"+MONEY_D->money_str(udd)+"¡£\n");
+				} else tell_object(me, name()+"æ”¶èµ°äº†ä½ æŠ¼åœ¨"+t["dd"]+"ä¸Šçš„"+MONEY_D->money_str(udd)+"ã€‚\n");
 			if (usx)
 				if (sx) {
-					tell_object(me, name()+"Åâ¸øÁËÄãÑºÖÐ"+t["sx"]+"µÄ"+MONEY_D->money_str(usx*b["sx"])+"¡£\n");
+					tell_object(me, name()+"èµ”ç»™äº†ä½ æŠ¼ä¸­"+t["sx"]+"çš„"+MONEY_D->money_str(usx*b["sx"])+"ã€‚\n");
 					me->add("balance", usx + usx*b["sx"]);
 					total += usx + usx*b["sx"];
-				} else tell_object(me, name()+"ÊÕ×ßÁËÄãÑºÔÚ"+t["sx"]+"ÉÏµÄ"+MONEY_D->money_str(usx)+"¡£\n");
+				} else tell_object(me, name()+"æ”¶èµ°äº†ä½ æŠ¼åœ¨"+t["sx"]+"ä¸Šçš„"+MONEY_D->money_str(usx)+"ã€‚\n");
 			if (ukp)
 				if (kp) {
-					tell_object(me, name()+"Åâ¸øÁËÄãÑºÖÐ"+t["kp"]+"µÄ"+MONEY_D->money_str(ukp*b["kp"])+"¡£\n");
+					tell_object(me, name()+"èµ”ç»™äº†ä½ æŠ¼ä¸­"+t["kp"]+"çš„"+MONEY_D->money_str(ukp*b["kp"])+"ã€‚\n");
 					me->add("balance", ukp + ukp*b["kp"]);
 					total += ukp + ukp*b["kp"];
-				} else tell_object(me, name()+"ÊÕ×ßÁËÄãÑºÔÚ"+t["kp"]+"ÉÏµÄ"+MONEY_D->money_str(ukp)+"¡£\n");
-			if (!total) message_vision(name()+"³ªµÀ£º$N±¾ÅÌ²»Åâ²»×¬¡£\n", me);
-			else if (total > 0) message_vision(name()+"³ªµÀ£º$N±¾ÅÌ¾»×¬"+MONEY_D->money_str(total)+"¡£\n", me);
-			else message_vision(name()+"³ªµÀ£º$N±¾ÅÌ¾»Åâ"+MONEY_D->money_str(-total)+"¡£\n", me);
+				} else tell_object(me, name()+"æ”¶èµ°äº†ä½ æŠ¼åœ¨"+t["kp"]+"ä¸Šçš„"+MONEY_D->money_str(ukp)+"ã€‚\n");
+			if (!total) message_vision(name()+"å”±é“ï¼š$Næœ¬ç›˜ä¸èµ”ä¸èµšã€‚\n", me);
+			else if (total > 0) message_vision(name()+"å”±é“ï¼š$Næœ¬ç›˜å‡€èµš"+MONEY_D->money_str(total)+"ã€‚\n", me);
+			else message_vision(name()+"å”±é“ï¼š$Næœ¬ç›˜å‡€èµ”"+MONEY_D->money_str(-total)+"ã€‚\n", me);
 			if (!wiz_level(me))
 				ttt += total;
 		}
 		if (ttt-TARGET) {
-			say(name()+"³ªµÀ£º±¾¶Ä³¡Ä¿Ç°"+(ttt-TARGET > 0?
-				"¿÷Ëð"+MONEY_D->money_str(ttt-TARGET):
-				"Ó¯Àû"+MONEY_D->money_str(TARGET-ttt))+
-				"¡£\n");
+			say(name()+"å”±é“ï¼šæœ¬èµŒåœºç›®å‰"+(ttt-TARGET > 0?
+				"äºæŸ"+MONEY_D->money_str(ttt-TARGET):
+				"ç›ˆåˆ©"+MONEY_D->money_str(TARGET-ttt))+
+				"ã€‚\n");
 			if (ttt <= -3*TARGET) {
-				say(name()+"½ÐÀ´Ò»¸ö»ï¼Æ°ÑÓ®À´µÄÇ®ÄÃµ½¿â·¿ÀïÈ¥ÁË¡£\n");
+				say(name()+"å«æ¥ä¸€ä¸ªä¼™è®¡æŠŠèµ¢æ¥çš„é’±æ‹¿åˆ°åº“æˆ¿é‡ŒåŽ»äº†ã€‚\n");
 				ttt = TARGET;
 			}
 		}

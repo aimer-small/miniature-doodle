@@ -5,15 +5,15 @@
 inherit NPC;
 void create()
 {
-	set_name("½£¿Í", ({ "jian ke", "jian", "ke"}));
-	set("long", "ÕâÊÇÎ»ÖĞÄêÎäÈË£¬¼ç±³³¤½££¬³¤³¤µÄ½£ËëËæ·çÆ®Ñï£¬¿´À´ËÆºõÉí»³¾øÒÕ¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("å‰‘å®¢", ({ "jian ke", "jian", "ke"}));
+	set("long", "è¿™æ˜¯ä½ä¸­å¹´æ­¦äººï¼Œè‚©èƒŒé•¿å‰‘ï¼Œé•¿é•¿çš„å‰‘ç©—éšé£é£˜æ‰¬ï¼Œçœ‹æ¥ä¼¼ä¹èº«æ€€ç»è‰ºã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 	set("location", 1);
 	set("no_quest", 1);
 	set("stealer_no_hold", 1);
-	set_temp("wdj/½â¶¾Ò»", 1);
+	set_temp("wdj/è§£æ¯’ä¸€", 1);
 	set("env/invisibility", 10);
 
 	set("age", 38);

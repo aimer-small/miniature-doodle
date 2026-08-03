@@ -1,14 +1,14 @@
-// /d/wudang/songlin2.c ����
+// /d/wudang/songlin2.c 松林
 // by ydh
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short",HIG"����"NOR);
+        set("short",HIG"松林"NOR);
         set("long", @LONG
-���������ֵı�Ե�ش�����ľ����̫ï�ܣ�����͸����룬����
-��ء������Ƿ��ش����·��
+这里是松林的边缘地带，树木还不太茂密，阳光透射而入，松针
+遍地。往东是返回大道的路。
 LONG
         );
         set("exits", ([

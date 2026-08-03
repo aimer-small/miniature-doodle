@@ -1,11 +1,11 @@
-// tiao.c Ìô»÷
+// tiao.c æŒ‘å‡»
 //Created by Redhat@Sjmud 2009/4/7
 
 #include <ansi.h>
 #include <combat.h>
 inherit F_SSERVER;
 
-string perform_name(){ return HIY"Ìô»÷"NOR; }
+string perform_name(){ return HIY"æŒ‘å‡»"NOR; }
 int perform(object me, object target)
 {
 	string msg;
@@ -20,7 +20,7 @@ int perform(object me, object target)
 	if( !objectp(target)
 	 || !target->is_character()
 	 || !me->is_fighting(target) )
-		return notify_fail("¡¸Ìô»÷¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€ŒæŒ‘å‡»ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	weapon = me->query_temp("weapon");
 	tweapon = target->query_temp("weapon");
@@ -28,28 +28,28 @@ int perform(object me, object target)
 	if( !weapon
 	 || weapon->query("skill_type") != "spear"
 	 || me->query_skill_mapped("spear") != "yangjia-qiang" )
-		return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸Ìô»÷¡¹¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€ŒæŒ‘å‡»ã€ã€‚\n");
 
 	if( !tweapon )
-		return notify_fail("¶Ô·½Ã»ÓĞÊ¹ÓÃÈÎºÎ±øÆ÷£¬ÄãÎŞ·¨Ê¹ÓÃ¡¸Ìô»÷¡¹¡£\n");
+		return notify_fail("å¯¹æ–¹æ²¡æœ‰ä½¿ç”¨ä»»ä½•å…µå™¨ï¼Œä½ æ— æ³•ä½¿ç”¨ã€ŒæŒ‘å‡»ã€ã€‚\n");
 
 	if((int)me->query_skill("yangjia-qiang", 1) < 120 )
-		return notify_fail("ÄãµÄÑî¼ÒÇ¹»¹²»¹»æµÊì£¬²»»áÊ¹ÓÃ¡¸Ìô»÷¡¹¡£\n");
+		return notify_fail("ä½ çš„æ¨å®¶æªè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ã€ŒæŒ‘å‡»ã€ã€‚\n");
 
 	if((int)me->query("neili") < 2000 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼\n");
 
 	if( (int)me->query_str() < 25 )
-		return notify_fail("ÄãµÄÏÈÌì±ÛÁ¦²»×ã£¬ÎŞ·¨Ê¹ÓÃ¡¸Ìô»÷¡¹¡£\n");
+		return notify_fail("ä½ çš„å…ˆå¤©è‡‚åŠ›ä¸è¶³ï¼Œæ— æ³•ä½¿ç”¨ã€ŒæŒ‘å‡»ã€ã€‚\n");
 
 	if( me->query_skill_mapped("parry") != "yangjia-qiang"
 	&& me->query_skill_mapped("parry") != "yangjia-qiang" )
-                return notify_fail("ÄãĞèÒª¼¤·¢ÕĞ¼ÜÎªÑî¼ÒÇ¹£¬·½ÄÜÊ¹ÓÃ¡¸Ìô»÷¡¹¡£\n");
+                return notify_fail("ä½ éœ€è¦æ¿€å‘æ‹›æ¶ä¸ºæ¨å®¶æªï¼Œæ–¹èƒ½ä½¿ç”¨ã€ŒæŒ‘å‡»ã€ã€‚\n");
 
 	if ( weapon )
-		msg = HIR"$NÓÒÊÖ´îÇ¹£¬½«ÊÖÖĞ"+weapon->name()+NOR+HIR"ÏòÉÏÌô×¡$n±øÆ÷£¬ÊÔÍ¼ÒÔ¼ºÖ®Ç¿´ó±ÛÁ¦´òµô$n±øÆ÷¡£\n"NOR;
+		msg = HIR"$Nå³æ‰‹æ­æªï¼Œå°†æ‰‹ä¸­"+weapon->name()+NOR+HIR"å‘ä¸ŠæŒ‘ä½$nå…µå™¨ï¼Œè¯•å›¾ä»¥å·±ä¹‹å¼ºå¤§è‡‚åŠ›æ‰“æ‰$nå…µå™¨ã€‚\n"NOR;
 
-	me->start_perform(3, "Ìô»÷");
+	me->start_perform(3, "æŒ‘å‡»");
 
 	ap = me->query("combat_exp")/1000 * me->query_str(1);
 	dp = target->query("combat_exp")/1000 * target->query_str(1);
@@ -57,22 +57,22 @@ int perform(object me, object target)
 	if( random(ap + dp) > dp ) {
 		int move_flag = 0;
 		if(tweapon->is_owner(target)) move_flag=1;
-		msg += HIY"$nÖ»¸Ğ"+tweapon->name()+HIY"Ñ¹Á¦È´Ô½À´Ô½ÖØ£¬ÔÙÒ²ÎŞ·¨¿ØÖÆ£¬Ò»¸ö°ÑÎÕ²»×¡£¬ÊÖÖĞ±øÆ÷±»·ÉÁË³öÈ¥¡£\n"NOR;
+		msg += HIY"$nåªæ„Ÿ"+tweapon->name()+HIY"å‹åŠ›å´è¶Šæ¥è¶Šé‡ï¼Œå†ä¹Ÿæ— æ³•æ§åˆ¶ï¼Œä¸€ä¸ªæŠŠæ¡ä¸ä½ï¼Œæ‰‹ä¸­å…µå™¨è¢«é£äº†å‡ºå»ã€‚\n"NOR;
 		target->add_busy(1+random(2));
 		me->add("neili",-300);
 
 		if (move_flag==0 && random(2)!=1 && tweapon->query("imbued") < 3 && tweapon->move(environment(me))){
-			msg += HIY"$nµÄ±øÆ÷±»$NµÄÇ¹¼¼Ìô»÷£¬É²ÄÇ¼ä"+tweapon->name()+HIY"ÒÑ±»$NÒÑ±»Ìô³ö$n¿ØÖÆ¡£\n"NOR;
+			msg += HIY"$nçš„å…µå™¨è¢«$Nçš„æªæŠ€æŒ‘å‡»ï¼Œåˆ¹é‚£é—´"+tweapon->name()+HIY"å·²è¢«$Nå·²è¢«æŒ‘å‡º$næ§åˆ¶ã€‚\n"NOR;
 		}
 		else {
-			msg += HIY"$n±»$NÊÖÖĞ"+weapon->name()+HIY"±»$NÇ¹¼¼Ñ¹ÖÆ£¬ÎŞ·¨¿ØÖÆ£¬Ö»ÄÜ½«"+tweapon->name()+HIY"·ÅÏÂ¡£\n"NOR;
+			msg += HIY"$nè¢«$Næ‰‹ä¸­"+weapon->name()+HIY"è¢«$NæªæŠ€å‹åˆ¶ï¼Œæ— æ³•æ§åˆ¶ï¼Œåªèƒ½å°†"+tweapon->name()+HIY"æ”¾ä¸‹ã€‚\n"NOR;
 			tweapon->unequip();
 			tweapon->move(environment(me));
 		}
 	}
 	else {
 		me->add("neili",-200);
-              msg += MAG"$n½èÁ¦ÔË¹¦£¬"+tweapon->name()+CYN"Ëæ"+weapon->name()+CYN"»®³öÒ»µÀ¹â»·£¬½«$NÌô»÷»¯ÓÚÎŞĞÎ£¡\n"NOR;
+              msg += MAG"$nå€ŸåŠ›è¿åŠŸï¼Œ"+tweapon->name()+CYN"éš"+weapon->name()+CYN"åˆ’å‡ºä¸€é“å…‰ç¯ï¼Œå°†$NæŒ‘å‡»åŒ–äºæ— å½¢ï¼\n"NOR;
 
 	}
 	me->start_busy(random(2));
@@ -82,16 +82,16 @@ int perform(object me, object target)
 
 int help(object me)
 {
-	write(HBMAG"\nÑî¼ÒÇ¹Ö®¡¸Ìô»÷¡¹£º"NOR"\n");
+	write(HBMAG"\næ¨å®¶æªä¹‹ã€ŒæŒ‘å‡»ã€ï¼š"NOR"\n");
 	write(@HELP
-	Ñî¼ÒÇ¹¾øÕĞÊı¶ÀÌØ£¬ÔËÓÃÓÚÆä³¤Ç¹Ô¶¾àÀë¹¥»÷Ö®ÓÅÊÆ£¬
-	¿ÉÌôµô¶Ô·½ÎäÆ÷£¬Ê¹ÆäÎŞ·¨Ê¹ÓÃÆäÎäÆ÷¡£
+	æ¨å®¶æªç»æ‹›æ•°ç‹¬ç‰¹ï¼Œè¿ç”¨äºå…¶é•¿æªè¿œè·ç¦»æ”»å‡»ä¹‹ä¼˜åŠ¿ï¼Œ
+	å¯æŒ‘æ‰å¯¹æ–¹æ­¦å™¨ï¼Œä½¿å…¶æ— æ³•ä½¿ç”¨å…¶æ­¦å™¨ã€‚
 	perform tiaoji
 
-	ÒªÇó£º	µ±Ç°ÄÚÁ¦ 2000 ÒÔÉÏ£»
-		Ñî¼ÒÇ¹µÈ¼¶ 100 ÒÔÉÏ£»
-		¼¤·¢ÕĞ¼ÜÎªÑî¼ÒÇ¹£»
-		¶ÔÊÖÈôÊÖÎŞ±øÆ÷£¬ÔòÎŞĞ§¹û¡£
+	è¦æ±‚ï¼š	å½“å‰å†…åŠ› 2000 ä»¥ä¸Šï¼›
+		æ¨å®¶æªç­‰çº§ 100 ä»¥ä¸Šï¼›
+		æ¿€å‘æ‹›æ¶ä¸ºæ¨å®¶æªï¼›
+		å¯¹æ‰‹è‹¥æ‰‹æ— å…µå™¨ï¼Œåˆ™æ— æ•ˆæœã€‚
 HELP
 	);
 	return 1;

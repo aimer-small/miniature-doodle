@@ -1,16 +1,16 @@
-// cheng.c ³ÌÒ©·¢
+// cheng.c ç¨‹è¯å‘
 
 inherit NPC;
 
 void create()
 {
-    set_name("ÕÔÖªÈÊ", ({ "zhao zhiren", "zhao" }));
-	set("title", "ËÕÖİÖª¸®");
-	set("gender", "ÄĞĞÔ");
+    set_name("èµµçŸ¥ä»", ({ "zhao zhiren", "zhao" }));
+	set("title", "è‹å·çŸ¥åºœ");
+	set("gender", "ç”·æ€§");
 	set("age", 43);
 	set("str", 20);
 	set("dex", 20);
-	set("long", "Ëû¾ÍÊÇÕÔÖªÈÊ£¬ËÕÖİÏÖÈÎÖª¸®¡£\n");
+	set("long", "ä»–å°±æ˜¯èµµçŸ¥ä»ï¼Œè‹å·ç°ä»»çŸ¥åºœã€‚\n");
 	set("combat_exp", 30000);
 	set("shen_type", 0);
 	set("attitude", "heroism");

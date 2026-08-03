@@ -16,7 +16,7 @@ int help(object me)
 	string str;
 	int i,j,p;
 
-	write("µÈ¼¶ºÍ¾­Ñé¼òÃ÷¶ÔÕÕ±í\n");
+	write("ç­‰çº§å’Œç»éªŒç®€æ˜å¯¹ç…§è¡¨\n");
 	start = mylvl - X * Y / 2;
 	if (start < 0)
 		start = 0;
@@ -36,25 +36,25 @@ int help(object me)
 		write(str + "\n");
 	}
 	i = uptime()-me->query_temp("time");
-	tell_object(me,"Äú±¾´ÎÔÚÏß"
-		+ CHINESE_D->chinese_time(i) + "¡£\n");
+	tell_object(me,"æ‚¨æœ¬æ¬¡åœ¨çº¿"
+		+ CHINESE_D->chinese_time(i) + "ã€‚\n");
 	j = me->query("combat_exp") - me->query_temp("combat_exp") + me->query_temp("onhook_exp");
 	p = me->query("combat_exp") - me->query_temp("combat_exp");
-	tell_object(me, "¾­ÑéÖµ"
-		+(j<0?"¼õÉÙÁË" + (-j) + "µã": j > 0?"Ôö¼ÓÁË" + j +"µã":"Ã»ÓĞ±ä¶¯")+"¡£\n");
+	tell_object(me, "ç»éªŒå€¼"
+		+(j<0?"å‡å°‘äº†" + (-j) + "ç‚¹": j > 0?"å¢åŠ äº†" + j +"ç‚¹":"æ²¡æœ‰å˜åŠ¨")+"ã€‚\n");
 	
-	tell_object(me, "ÊµÕ½»ñÈ¡µÄ¾­ÑéÖµ"
-		+(p<0?"¼õÉÙÁË" + (-p) + "µã": p > 0?"Ôö¼ÓÁË" + p +"µã":"Ã»ÓĞ±ä¶¯")+"¡£\n");		
+	tell_object(me, "å®æˆ˜è·å–çš„ç»éªŒå€¼"
+		+(p<0?"å‡å°‘äº†" + (-p) + "ç‚¹": p > 0?"å¢åŠ äº†" + p +"ç‚¹":"æ²¡æœ‰å˜åŠ¨")+"ã€‚\n");		
 			
 	if(i!=0)
 	{
 		j = j*60/i;
 		j = j*60;
-		if(j!=0) tell_object(me,"Ã¿Ğ¡Ê±"+(j>0?"½øÕÊ£º":"¿÷Ëğ£º")+(j>0?chinese_number(j):chinese_number(-j))+"µã¾­Ñé¡£\n");
+		if(j!=0) tell_object(me,"æ¯å°æ—¶"+(j>0?"è¿›å¸ï¼š":"äºæŸï¼š")+(j>0?chinese_number(j):chinese_number(-j))+"ç‚¹ç»éªŒã€‚\n");
 	}
 	
 	if(me->query("registered") > 2) ;
-	else write("ËÀ´óÃ×ÁÙ½ç¾­ÑéÖµ£º"+me->query("mud_age")/6+"\n");
+	else write("æ­»å¤§ç±³ä¸´ç•Œç»éªŒå€¼ï¼š"+me->query("mud_age")/6+"\n");
 
 				
 

@@ -1,4 +1,4 @@
-// tuolei.c ÍÏÀ×
+// tuolei.c æ‹–é›·
 // Created by Zhuifeng@sjfy 08/8/2010
 
 inherit NPC;
@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-   set_name("ÍÏÀ×",({"tuo lei"}));
-   set("gender","ÄĞĞÔ");
-   set("long","ÍÏÀ×ÊÇ³É¼ªË¼º¹Ó××Ó£¬¼áÈÌ¹û¾ö¡£\n");
+   set_name("æ‹–é›·",({"tuo lei"}));
+   set("gender","ç”·æ€§");
+   set("long","æ‹–é›·æ˜¯æˆå‰æ€æ±—å¹¼å­ï¼Œåšå¿æœå†³ã€‚\n");
    set("shen",10000);
    set("combat_exp",80000);
-   set("title",HIG"ÃÉ¹ÅÍõ×Ó"NOR);
+   set("title",HIG"è’™å¤ç‹å­"NOR);
    
    set("age",12);
    set("pur",25);

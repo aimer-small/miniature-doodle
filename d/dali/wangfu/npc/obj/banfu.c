@@ -5,17 +5,17 @@ inherit AXE;
 
 void create()
 {
-        set_name("éÄÌú°å¸«", ({ "bingtie banfu","fu","axe" }));
+        set_name("æ§Ÿé“æ¿æ–§", ({ "bingtie banfu","fu","axe" }));
         set_weight(12000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶Ô");
-                set("long", "ÕâÊÇÒ»¶ÔÓÉéÄÌú´òÖÆ¶ø³É³ÁµéµéµÄ¸«Í·¡£\n");
+                set("unit", "å¯¹");
+                set("long", "è¿™æ˜¯ä¸€å¯¹ç”±æ§Ÿé“æ‰“åˆ¶è€Œæˆæ²‰ç”¸ç”¸çš„æ–§å¤´ã€‚\n");
                 set("value", 1500);
                 set("material", "steel");
-                set("wield_msg", "$N¡¸ßÑ¡¹µÄÒ»Éù³é³öÒ»¶Ô$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»ØÑü¼ä¡£\n");
+                set("wield_msg", "$Nã€Œå“ã€çš„ä¸€å£°æŠ½å‡ºä¸€å¯¹$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›è…°é—´ã€‚\n");
         }
         init_axe(25);
         setup();

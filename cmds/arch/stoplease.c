@@ -2,11 +2,11 @@
 //
 //      stoplease.c
 //      Created by mychat 31/04/2004
-//      ±£ÁôÎÒµÄÇ©ÃûÇé¿öÏÂ free of use.
-//      µ±È»¸ü»¶Ó­ĞŞ¸Ä¡¢ÓÅ»¯µÈ¡£
+//      ä¿ç•™æˆ‘çš„ç­¾åæƒ…å†µä¸‹ free of use.
+//      å½“ç„¶æ›´æ¬¢è¿ä¿®æ”¹ã€ä¼˜åŒ–ç­‰ã€‚
 //
 //      Email & MSN: codemake@163.com
-//      ÎÄ¼şÎ»ÓÚ/cmds/admÏÂ
+//      æ–‡ä»¶ä½äº/cmds/admä¸‹
 // 		
 ***********************************************************************************/
 #include <ansi.h>
@@ -21,12 +21,12 @@ int main(object me, string arg)
 {
 	if(arg=="-s")
 	{
-		if(ROOMLEASE_D->start_lease()) write("ÉÌÒµÔËÓª»úÖÆÕı³£»Ö¸´£¡\n");
-		else write("»Ö¸´Ê§°Ü »òÕß Î´Ôø¹Ø±Õ£¡\n");
+		if(ROOMLEASE_D->start_lease()) write("å•†ä¸šè¿è¥æœºåˆ¶æ­£å¸¸æ¢å¤ï¼\n");
+		else write("æ¢å¤å¤±è´¥ æˆ–è€… æœªæ›¾å…³é—­ï¼\n");
 		return 1;
 	}
 	ROOMLEASE_D->stop_lease();
-	write("ÉÌÒµÔËÓª»úÖÆÍ£Ö¹ÔËĞĞ£¡\n");
+	write("å•†ä¸šè¿è¥æœºåˆ¶åœæ­¢è¿è¡Œï¼\n");
 	return 1;
 }
 
@@ -34,10 +34,10 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºstoplease [-s]
-	-s ±íÊ¾ÖØĞÂ¿ªÊ¼
+æŒ‡ä»¤æ ¼å¼ï¼šstoplease [-s]
+	-s è¡¨ç¤ºé‡æ–°å¼€å§‹
 --------------------------------------------------
- stoplease Í£Ö¹roomleasedµÄcallouts,ÒÔ±ãupdate
+ stoplease åœæ­¢roomleasedçš„callouts,ä»¥ä¾¿update
 
 write by mychat@ln(codemake@163.com)
 --------------------------------------------------

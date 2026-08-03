@@ -1,4 +1,4 @@
-// anran-zhang.c ��Ȼ������
+// anran-zhang.c 黯然销魂掌
 // By River 98.10.28
 // Modified by snowman@SJ 20/06/2000
 
@@ -10,82 +10,82 @@ inherit SKILL;
 #include <combat_msg.h>
 mapping *action = ({
 ([
-	"action" :"$N��Ӱ��ת������Ȱ��ǰ����˲��˲�ң�һʽ���ǻ��չȡ��Ʒ�����$n��$l",
+	"action" :"$N身影陡转，如鬼魅般忽前忽后，瞬左瞬右，一式「徘徊空谷」掌风已至$n的$l",
 	"lvl" : 0,
-	"skill_name" : "�ǻ��չ�",
-	"damage_type" : "����"
+	"skill_name" : "徘徊空谷",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" :"$N��̾һ�����������أ�һ�С��������ġ����յ�$nȫ������֮�ʣ�����ֱ��$n��$l",
+	"action" :"$N长叹一声，身形凝重，一招「力不从心」，诱得$n全力进击之际，反手直拍$n的$l",
 	"lvl" : 15,
-	"skill_name" : "��������",
-	"damage_type" : "����"
+	"skill_name" : "力不从心",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" :"$N��Ŀ��Ȼ����ֱ֫ͦ���������ۣ��ơ���ʬ���⡹�㣬���۽��ȣ���նֱ��$n��$l",
+	"action" :"$N面目僵然，四肢挺直，无弯无折，似「行尸走肉」般，刀臂剑腿，横斩直刺$n的$l",
 	"lvl" : 30,
-	"skill_name" : "��ʬ����",
-	"damage_type" : "����"
+	"skill_name" : "行尸走肉",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" :"$Nһʽ��ӹ�����š������ִ��أ�һ�߻��ײ�ֹ��ٿ�����Ƶ��������Ʊ���$n��$l",
+	"action" :"$N一式「庸人自扰」，左手锤胸，一边晃首不止，倏忽间绕敌身后，右掌暴击$n的$l",
 	"lvl" : 45,
-	"skill_name" : "ӹ������",
-	"damage_type" : "����"
+	"skill_name" : "庸人自扰",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" :"$NͻȻͷ�½��ϣ��������ӣ��ִ����У�ֻ��һ�С�������ʩ�����������$n��$l",
+	"action" :"$N突然头下脚上，倒过身子，手代足行，只手一招「倒行逆施」闪电般拍向$n的$l",
 	"lvl" : 60,
-	"skill_name" : "������ʩ",
-	"damage_type" : "����"
+	"skill_name" : "倒行逆施",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" :"$N���ֳ��ƣ������Ƴ�һ�С�������ʳ����$nֻ��һ��ǿ�����׵��ƹܷ��ѹ����",
+	"action" :"$N左手成掌，缓缓推出一招「废寝忘食」，$n只觉一股强劲无伦的掌管风横压而至",
 	"lvl" : 75,
-	"skill_name" : "������ʳ",
-	"damage_type" : "����"
+	"skill_name" : "废寝忘食",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" : "$N���۸�����ĿԶ����һʽ������ֻӰ����$n��һ���ɣ�������Ϊ$N��������",
+	"action" : "$N单臂负后，凝目远眺，一式「孤形只影」，$n略一迟疑，浑身已为$N掌力所绕",
 	"lvl" : 90,
-	"skill_name" : "����ֻӰ",
-	"damage_type" : "����"
+	"skill_name" : "孤形只影",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" : "$N����һ�С�������������$n�����Ʒ�֮�С�$n�������ݺ��ξ��ˣ�����$N���Ʒ�ת��",
+	"action" : "$N左掌一招「饮恨吞声」将$n裹在掌风之中。$n犹如身陷洪涛巨浪，随着$N的掌风转动",
 	"lvl" : 105,
-	"skill_name" : "��������",
-	"damage_type" : "����"
+	"skill_name" : "饮恨吞声",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" : "ȴ��$N��������������������У�ƾ��һʽ�����񲻰�������$n���������ˣ��޷�Ӳ��",
+	"action" : "却见$N翻身坐倒，旋及旋向空中，凭空一式「六神不安」砸向$n，威力骇人，无法硬接",
 	"lvl" : 120,
-	"skill_name" : "���񲻰�",
-	"damage_type" : "����"
+	"skill_name" : "六神不安",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" : "$N������$n��ǰһ����һ�С���;ĩ·������$n��ǰ���֮����ͻȻת�䣬����$n��$l",
+	"action" : "$N右手在$n脸前一拂，一招「穷途末路」击到$n胸前半尺之处，突然转弯，击在$n的$l",
 	"lvl" : 135,
-	"skill_name" : "��;ĩ·",
-	"damage_type" : "����"
+	"skill_name" : "穷途末路",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" : "$N����ϲŭ���֣���״�ٳ�����$n������������֮�ʣ�һ�С�������ɫ������$n��$l",
+	"action" : "$N脸上喜怒哀乐，怪状百出，乘$n心神难以自制之际，一招「面无人色」攻向$n的$l",
 	"lvl" : 150,
-	"skill_name" : "������ɫ",
-	"damage_type" : "����"
+	"skill_name" : "面无人色",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" : "$N��Ȼ��Ц��ֹ�����ֵ߿�����$n���Գ�����У�$N��һʽ������Ƿǡ�����$n��$l",
+	"action" : "$N忽然狂笑不止，忽又颠哭阵阵，$n正迷沉恍惚中，$N已一式「想入非非」攻向$n的$l",
 	"lvl" : 165,
-	"skill_name" : "����Ƿ�",
-	"damage_type" : "����"
+	"skill_name" : "想入非非",
+	"damage_type" : "瘀伤"
 ]),
 ([
-	"action" : "ͻ��$N���λζ����ѹ���$n���ϣ�һʽ������ľ��������$n���֮ʱ������$n��$l��",
+	"action" : "突见$N身形晃动，已攻至$n身畔，一式「呆若木鸡」，乘$n惊愕之时，疾打$n的$l。",
 	"lvl" : 180,
-	"skill_name" : "����ľ��",
-	"damage_type" : "����"
+	"skill_name" : "呆若木鸡",
+	"damage_type" : "瘀伤"
 ]),
 });
 
@@ -99,17 +99,17 @@ int valid_learn(object me)
 	int skill = me->query_skill("anran-zhang", 1);
 
 	if ( me->query("max_neili") < 1500)
-		return notify_fail("�������������\n");
+		return notify_fail("你的内力不够。\n");
 
 	if ( me->query_str(1) < 30 )
-		return notify_fail("��û��ǿ���������޷�ѧ��Ȼ�����ơ�\n");
+		return notify_fail("你没有强劲的膂力无法学黯然消魂掌。\n");
 
 	if ( me->query_con(1) < 26 )
-		return notify_fail("��û���ۺ�������޷�ѧ��Ȼ�����ơ�\n");
+		return notify_fail("你没有雄厚的体质无法学黯然消魂掌。\n");
 
 	if ((int)me->query_skill("yunu-xinjing", 1) < (skill-30)
 	&& (int)me->query_skill("anran-zhang", 1) < 230)
-		return notify_fail("�����Ů�ľ����̫ǳ��\n");
+		return notify_fail("你的玉女心经火候太浅。\n");
 	return 1;
 }
 
@@ -122,9 +122,9 @@ string query_skill_name(int level)
 }
 
 string *xue_name = ({
-HIW"�ǻ��չ�"NOR,BLU"��������"NOR,HIC"��ʬ����"NOR,HIG"ӹ������"NOR,HIY"������ʩ"NOR,
-HIR"������ʳ"NOR,YEL"����ֻӰ"NOR,CYN"��������"NOR,MAG"���񲻰�"NOR,GRN"��;ĩ·"NOR,
-HIM"������ɫ"NOR,RED"����Ƿ�"NOR,WHT"����ľ��"NOR,
+HIW"徘徊空谷"NOR,BLU"力不从心"NOR,HIC"行尸走肉"NOR,HIG"庸人自扰"NOR,HIY"倒行逆施"NOR,
+HIR"废寝忘食"NOR,YEL"孤形只影"NOR,CYN"饮恨吞声"NOR,MAG"六神不安"NOR,GRN"穷途末路"NOR,
+HIM"面无人色"NOR,RED"想入非非"NOR,WHT"呆若木鸡"NOR,
 });
 
 mapping query_action(object me, object weapon)
@@ -141,7 +141,7 @@ mapping query_action(object me, object weapon)
 
 	name = xue_name[random(sizeof(xue_name))];
 
-	if( me->query("gender") != "����") tmp = tmp /3*2;
+	if( me->query("gender") != "男性") tmp = tmp /3*2;
 
 	for(i = sizeof(action); i > 0; i--) {
 		if(level > action[i-1]["lvl"]) {
@@ -149,9 +149,9 @@ mapping query_action(object me, object weapon)
 			target = offensive_target(me);
 			if(me->query_temp("anran")){
 				switch(me->query_temp("anran")){
-					case 2: msg = HIY"$N���������ң�û����ɵĻ���������ĳ�һ�ƣ�ֻ�����۵�һ������һ�����û���$n��ͷ"NOR; break;
-					case 1: msg = HIR"������$N�߳�һ�š���һ�ŷ���ʱ�л��㱣�����ԼԼ���������ޡ����һ�죬��$n�ؿ�Ϯȥ"NOR; break;
-					default: msg = HIC"$N���������ң�û����ɵĻ���������ĳ�һ�ƣ�ֻ�����۵�һ������һ�����û���$n��ͷ"NOR; break;
+					case 2: msg = HIY"$N心下万念俱灰，没精打采的挥袖卷出，拍出一掌，只听得噗的一声，这一掌正好击向$n肩头"NOR; break;
+					case 1: msg = HIR"紧跟着$N踢出一脚。这一脚发出时恍恍惚惚，隐隐约约，若有若无。砰的一响，向$n胸口袭去"NOR; break;
+					default: msg = HIC"$N心下万念俱灰，没精打采的挥袖卷出，拍出一掌，只听得噗的一声，这一掌正好击向$n肩头"NOR; break;
 				}
 				me->add_temp("anran", -1);
 				return ([
@@ -160,14 +160,14 @@ mapping query_action(object me, object weapon)
 					"dodge": random(30),
 					"parry": random(20)+10,
 					"damage" : 50 + random(50),
-					"damage_type" : "����",
+					"damage_type" : "瘀伤",
 				]);
 			}
 			if ( me->query_temp("jishi")){
 				switch(me->query_temp("jishi")){
-					case 2: msg = HIB"$N����������Х����һʽ��"+xue_name[random(sizeof(xue_name))]+HIB"��ʹ���ǳ����뻯���뽫$n������Ӱ֮��"NOR; break;
-					case 1: msg = HIB"$N����$n�������У�ʹ�������ѧ��"+xue_name[random(sizeof(xue_name))]+HIB"����$n��������Ӱ֮�У�����ͷ��Ŀѣ"NOR; break;
-					default : msg = HIB"$N����������Х����һʽ��"+xue_name[random(sizeof(xue_name))]+HIB"��ʹ���ǳ����뻯���뽫$n������Ӱ֮��"NOR; break;
+					case 2: msg = HIB"$N趁势纵身长啸，将一式「"+xue_name[random(sizeof(xue_name))]+HIB"」使得是出神入化，想将$n罩入掌影之中"NOR; break;
+					case 1: msg = HIB"$N不待$n看的真切，使出得意绝学「"+xue_name[random(sizeof(xue_name))]+HIB"」，$n被罩入掌影之中，早已头晕目眩"NOR; break;
+					default : msg = HIB"$N趁势纵身长啸，将一式「"+xue_name[random(sizeof(xue_name))]+HIB"」使得是出神入化，想将$n罩入掌影之中"NOR; break;
 				}
 				me->add_temp("jishi", -1);
 				return ([
@@ -176,22 +176,22 @@ mapping query_action(object me, object weapon)
 					"dodge": random(30),
 					"parry": random(20)+10,
 					"damage" : 50 + random(50),
-					"damage_type" : "����",
+					"damage_type" : "瘀伤",
 				]);
 			}
 			if( me->query_temp("sanzhao")){
 				switch(random(3)) {
 					case 0 :
-						msg =  HIW"$Ņͷ���죬��������������һ����ͷ���տ��ĳ�������б�£��������ɻ��Σ���ɢ���£�\n"NOR;
-						msg += HIR"���$n����һ�С�������졹���ñ�˵����������վ���Ų�Ҳ�ǲ���"NOR;
+						msg =  HIW"$N抬头向天，浑若不见，呼的一掌向头顶空空拍出，手掌斜下，掌力化成弧形，四散落下！\n"NOR;
+						msg += HIR"结果$n被这一招「杞人忧天」带得别说挣扎，竟连站定脚步也是不能"NOR;
 						break;
 					case 1 :
-						msg =  YEL"$N��������Ʈ����������ˮ������ȴ����֮�������ƴ��ż�ǧ����ɳһ�㣡\n"NOR;
-						msg += HIR"���$n����һ�С������ˮ�������������ݺ��ξ��ˣ�����ײײ"NOR;
+						msg =  YEL"$N右手云袖飘动，宛若流水，左掌却重滞之极，便似带着几千斤泥沙一般！\n"NOR;
+						msg += HIR"结果$n被这一招「拖泥带水」带得犹如身陷洪涛巨浪，跌跌撞撞"NOR;
 						break;
 					case 2 :
-						msg =  HIB"ͻȻ��$N�����붯���������䡢˫��ͷ���������ر�������������ʽ������\n"NOR;
-						msg += HIR"���$n����һ�С��������С���������ȫȻ���������ľ���"NOR;
+						msg =  HIB"突然间$N手足齐动，左掌右袖、双足头锤、连得胸背腰腹尽皆有招式发出！\n"NOR;
+						msg += HIR"结果$n被这一招「无中生有」带得自身全然身不由主的境地"NOR;
 						break;
 				}
 				me->delete_temp("sanzhao");
@@ -200,7 +200,7 @@ mapping query_action(object me, object weapon)
 					"force" : 250+random(350),
 					"dodge": random(30),
 					"parry": random(20)+10,
-					"damage_type" : "����",
+					"damage_type" : "瘀伤",
 				]);
 			}
 			if( me->query_temp("xiaohun") && me->query("jiali") && random(2) ) {
@@ -210,7 +210,7 @@ mapping query_action(object me, object weapon)
 					"dodge": random(30)+10,
 					"parry": 30,
 					"damage" : 50 + random(50),
-					"damage_type" : "����",
+					"damage_type" : "割伤",
 				]);
 			}
 			return ([
@@ -232,13 +232,13 @@ int practice_skill(object me)
 	while (i--) if (lvl == action[i]["lvl"]) return 0;
 
 	if ( me->query_temp("weapon") || (int)me->query_temp("secondary_weapon"))
-		return notify_fail("����Ȼ�����Ʊ�����֡�\n");
+		return notify_fail("练黯然销魂掌必须空手。\n");
 
 	if ( me->query("jingli") < 50)
-		return notify_fail("���������������Ȼ�����ơ�\n");
+		return notify_fail("你的体力不够练黯然销魂掌。\n");
 
 	if ( me->query("neili") < 20)
-		return notify_fail("���������������Ȼ�����ơ�\n");
+		return notify_fail("你的内力不够练黯然销魂掌。\n");
 
 	me->receive_damage("jingli", 40);
 	me->add("neili", -15 );
@@ -337,20 +337,20 @@ int ob_hit(object ob, object me, int damage)
 	if ( random(dp + ap) > ap && ! random(5)) {
 		me->set_temp("fanzhen", 1);
 		if( me->query("neili") > random(ob->query("neili"))){
-			if( weapon ) msg = HIY"$n����"+weapon->name()+HIY"��Ҫ����$N���ϣ�ͻ��$PС�����������ͬʱ�ؿ�����һ����ٿ�ص�����\n"NOR;
-			else msg = HIY"$n��Ҫ����$N���ϣ�ͻ��$PС�����������ͬʱ�ؿ�����һ����ٿ�ص�����\n"NOR;
+			if( weapon ) msg = HIY"$n手中"+weapon->name()+HIY"刚要触到$N身上，突觉$P小腹肌肉颤动，同时胸口向内一吸，倏地弹出！\n"NOR;
+			else msg = HIY"$n刚要触到$N身上，突觉$P小腹肌肉颤动，同时胸口向内一吸，倏地弹出！\n"NOR;
 			ob->receive_damage("qi", damage/3 + ob->query("jiali")*2, me);
 			ob->receive_wound("qi", ob->query("jiali")+1, me);
 			j = (int)ob->query("qi") * 100 / (int)ob->query("max_qi");
-			msg += damage_msg(damage, "����") + "( $n"+eff_status_msg(j)+" )\n";
+			msg += damage_msg(damage, "瘀伤") + "( $n"+eff_status_msg(j)+" )\n";
 			if( weapon ) {
-				msg += "ͬʱ��$n����"+weapon->name()+"Ҳ��һ����Щ���ղ�ס��\n";
+				msg += "同时，$n手中"+weapon->name()+"也被一震，险些拿握不住。\n";
 				ob->add_busy(1+random(2));
 			}
 			j = -6000;
 		}
 		else {
-			msg = "$N��ĿԶ���������鸡��һʽ���ľ������������ذ������ܿ�$n��������\n";
+			msg = "$N凝目远眺，脚下虚浮，一式「心惊肉跳」，吸胸凹腹，避开$n的招数！\n";
 			j = -6000;
 		}
 	}
@@ -362,27 +362,27 @@ int ob_hit(object ob, object me, int damage)
 
 int help(object me)
 {
-        write(HIB"\n��Ȼ�����ƣ�"NOR"\n\n");
+        write(HIB"\n黯然销魂掌："NOR"\n\n");
         write(@HELP
-        ����Ժ�С��Ů�ھ���ȶϳ���ǰ���֣����ñ����������ں���֮��������
-        ����֮�󣬳����ڹ�ѭ�򽥽�֮�⣬����޿��������������ռ�˼��С��Ů��
-        ����������������������Ȥ��һ���ں�����Ȼ���ã���������֮������ȭ���
-        �ߣ���ʱ���ڹ�����ѵ���һ���־��߼�������������һ�ƣ�����̲��һֻ��
-        ����ı��Ǵ�÷��顣���ɴ���˼��������һ���������Ʒ���������Ѱ���书
-        ���죬����֮����ȫ��������һ����һʮ���С�����ƽ�ܹ�������ѧ���ҵ�ָ
-        �㣬��ȫ���ѧ�����������ڹ��Ŀھ�����С��Ůѧ�á���Ů�ľ������ڹ�Ĺ
-        �м����������澭����ŷ�����Ը�󡹦����ת���������߹���������Դ򹷰�
-        ������ҩʦ���Ե�ָ��ͨ�����｣��������һ��ָ֮�⣬��а����������ؤ��
-        ����ͨ����ѧ��������������Ĺ�ɵ���ѧ����������֮����辶����ʱ��
-        ���ͨ������׿Ȼ�ɼҡ�ֻ������ʣһ�ۣ����Բ��������仯ȡʤ����������
-        ����ѧͨ���෴�����������Ƴ�����Ϊ����Ȼ�����ơ���ȡ���ǽ��͡��𸳡�
-        ����һ�䡰��Ȼ�����ߣ�Ψ������ӡ�֮�⡣
+        杨过自和小龙女在绝情谷断肠崖前分手，不久便由神雕带着在海潮之中练功，
+        数年之后，除了内功循序渐进之外，别的无可再练，心中整日价思念小龙女，
+        渐渐的形销骨立，了无生趣。一日在海滨悄然良久，百无聊赖之中随意拳打脚
+        踢，其时他内功火候已到，一出手竟具极大威力，轻轻一掌，将海滩上一只大
+        海龟的背壳打得粉碎。他由此深思，创出了一套完整的掌法，出手与寻常武功
+        大异，厉害之处，全在内力，一共是一十七招。他生平受过不少武学名家的指
+        点，自全真教学得玄门正宗内功的口诀，自小龙女学得「玉女心经」，在古墓
+        中见到「九阴真经」，欧阳锋以蛤蟆功和逆转经脉，洪七公与黄蓉授以打狗棒
+        法，黄药师授以弹指神通和玉箫剑法，除了一阳指之外，东邪、西毒、北丐、
+        中神通的武学无所不窥，而古墓派的武学又于五大高人之外别创蹊径，此时融
+        会贯通，已是卓然成家。只因他单剩一臂，是以不在招数变化取胜，反而故意
+        与武学通理相反。他将这套掌尘定名为“黯然销魂掌”，取的是江淹「别赋」
+        中那一句“黯然销魂者，唯别而已矣”之意。
 
-        Ҫ��
-               ������� 1500;
-               ������� 26;
-               �������� 30;
-               ��Ȼ������ 230 ��ǰ������Ů�ľ� 30 ����
+        要求：
+               最大内力 1500;
+               后天根骨 26;
+               后天膂力 30;
+               黯然销魂掌 230 级前大于玉女心经 30 级。
 
 HELP
         );

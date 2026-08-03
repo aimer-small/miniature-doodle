@@ -6,7 +6,7 @@ inherit F_SAVE;
 string query(string arg)
 {
 	if (arg == "channel_id")
-		return "Î¤Ğ¡±¦(Wei Xiaobao)";
+		return "éŸ¦å°å®(Wei Xiaobao)";
 }
 
 string query_save_file()
@@ -54,25 +54,25 @@ void purchase(mixed me, int num, int qty)
 	if (!objectp(me))
 		return;
 	if (flag) {
-		tell_object(me, "ÕıÔÚ¿ª½±£¬µÈµÈ°É¡£\n");
+		tell_object(me, "æ­£åœ¨å¼€å¥–ï¼Œç­‰ç­‰å§ã€‚\n");
 		return;
 	}
 	if (qty < 1) {
-		tell_object(me, "ÄãÏëÂò¼¸ÕÅ£¿\n");
+		tell_object(me, "ä½ æƒ³ä¹°å‡ å¼ ï¼Ÿ\n");
 		return;
 	}
 	if (qty > 10000 || !me->query("lottery/"+generation+"/"+num) && sizeof(me->query("lottery/"+generation)) > 9) {
-		tell_object(me, "Áôµã»ú»á¸ø±ğÈË°É¡£\n");
+		tell_object(me, "ç•™ç‚¹æœºä¼šç»™åˆ«äººå§ã€‚\n");
 		return;
 	}
 	if (num < 0 || num > 9999) {
-		tell_object(me, "ÇëÑ¡ÔñËÄÎ»Êı×Ö(0000-9999)¡£\n");
+		tell_object(me, "è¯·é€‰æ‹©å››ä½æ•°å­—(0000-9999)ã€‚\n");
 		return;
 	}
 	switch (MONEY_D->player_pay(me, PRICE*qty)) {
 		case 0:
 		case 2:
-			tell_object(me, "ÄãµÄÁãÇ®²»¹»¡£\n");
+			tell_object(me, "ä½ çš„é›¶é’±ä¸å¤Ÿã€‚\n");
 			return;
 	}
 	me->add("lottery/"+generation+"/"+num, qty);
@@ -81,7 +81,7 @@ void purchase(mixed me, int num, int qty)
 	award += qty*PRICE;
 	save();
 	message_vision(
-		sprintf("$NÔÚ%sÕÅ²ÊÆ±ÉÏĞ´ÏÂ¡¸"+HIW+"%s"+NOR+"¡¹ËÄ¸öÊı×Ö£¬È»ºó½»¸ø»ï¼ÆĞ¡ĞÄµØÊÕºÃ¡£\n",
+		sprintf("$Nåœ¨%så¼ å½©ç¥¨ä¸Šå†™ä¸‹ã€Œ"+HIW+"%s"+NOR+"ã€å››ä¸ªæ•°å­—ï¼Œç„¶åäº¤ç»™ä¼™è®¡å°å¿ƒåœ°æ”¶å¥½ã€‚\n",
 			chinese_number(qty), number(num)
 		), me
 	);
@@ -105,28 +105,28 @@ void show_now(mixed me)
 	if (!objectp(me))
 		return;
 	if (flag) {
-		tell_object(me, "ÕıÔÚ¿ª½±£¬µÈµÈ°É¡£\n");
+		tell_object(me, "æ­£åœ¨å¼€å¥–ï¼Œç­‰ç­‰å§ã€‚\n");
 		return;
 	}
 	tmp = me->query("lottery");
 	if (!sizeof(tmp)) {
-		tell_object(me, "ÄãÄ¿Ç°Ã»ÓĞÈÎºÎ²ÊÆ±¡£\n");
+		tell_object(me, "ä½ ç›®å‰æ²¡æœ‰ä»»ä½•å½©ç¥¨ã€‚\n");
 		return;
 	}
-	tell_object(me, "»ï¼Æ·­ÁË·­²ÊÆ±µÇ¼Ç±¾£¬ËµµÀ£ºÄãÓĞ\n");
+	tell_object(me, "ä¼™è®¡ç¿»äº†ç¿»å½©ç¥¨ç™»è®°æœ¬ï¼Œè¯´é“ï¼šä½ æœ‰\n");
 	foreach (string gen in sort_array(keys(tmp),0)) {
 		tmp2 = tmp[gen];
 		if (!sizeof(tmp2))
 			continue;
 		if (atoi(gen) < generation-1 || atoi(gen) > generation) {
-			tell_object(me, "Ò»Ğ©¹ıÆÚµÄµÚ"+chinese_number(atoi(gen))+"ÆÚ²ÊÆ±£¬¸øÄúÇåÀíµôÁË¡£\n");
+			tell_object(me, "ä¸€äº›è¿‡æœŸçš„ç¬¬"+chinese_number(atoi(gen))+"æœŸå½©ç¥¨ï¼Œç»™æ‚¨æ¸…ç†æ‰äº†ã€‚\n");
 			map_delete(tmp, gen);
 		} else
 			foreach (string num in sort_array(keys(tmp2),0)) {
 				i = atoi(gen);
 				n = atoi(num);
 				tell_object(me,
-					sprintf("%sÕÅµÚ%sÆÚ²ÊÆ±£¬ÉÏÃæĞ´×Å¡¸"+HIW+"%s"+NOR+"¡¹",
+					sprintf("%så¼ ç¬¬%sæœŸå½©ç¥¨ï¼Œä¸Šé¢å†™ç€ã€Œ"+HIW+"%s"+NOR+"ã€",
 						chinese_number(tmp2[num]), chinese_number(i), number(n)
 					)
 				);
@@ -136,35 +136,35 @@ void show_now(mixed me)
 							n = tmp2[num] * award1 / 10 * 9;
 							c1 += tmp2[num];
 							last_award -= n / 9;
-							tell_object(me, "£¬¹§Ï²ÖĞÁËÍ·½±£¬¸øÄúË°ºó½±½ğ"+MONEY_D->money_str(n));
+							tell_object(me, "ï¼Œæ­å–œä¸­äº†å¤´å¥–ï¼Œç»™æ‚¨ç¨åå¥–é‡‘"+MONEY_D->money_str(n));
 							break;
 						case 3:
 							n = tmp2[num] * award2;
 							c2 += tmp2[num];
-							tell_object(me, "£¬¹§Ï²ÖĞÁË¶ş½±£¬¸øÄú½±½ğ"+MONEY_D->money_str(n));
+							tell_object(me, "ï¼Œæ­å–œä¸­äº†äºŒå¥–ï¼Œç»™æ‚¨å¥–é‡‘"+MONEY_D->money_str(n));
 							break;
 						case 2:
 							n = tmp2[num] * award3;
 							c3 += tmp2[num];
-							tell_object(me, "£¬¹§Ï²ÖĞÁËÈı½±£¬¸øÄú½±½ğ"+MONEY_D->money_str(n));
+							tell_object(me, "ï¼Œæ­å–œä¸­äº†ä¸‰å¥–ï¼Œç»™æ‚¨å¥–é‡‘"+MONEY_D->money_str(n));
 							break;
 						default:
 							n = 0;
-							tell_object(me, "£¬¿ÉÏ§Ã»ÓĞÖĞ½±");
+							tell_object(me, "ï¼Œå¯æƒœæ²¡æœ‰ä¸­å¥–");
 					}
 					if (n) {
 						MONEY_D->pay_player(me, n, 1);
-						log_file("LOTTERY", me->query("name")+"»ñµÃ½±½ğ"+MONEY_D->money_str(n), me);
+						log_file("LOTTERY", me->query("name")+"è·å¾—å¥–é‡‘"+MONEY_D->money_str(n), me);
 						CHANNEL_D->do_channel(
-							this_object(), "chat", "¹§Ï²"+me->query("name")+RANK_D->query_respect(me)+"»ñµÃ½±½ğ"+MONEY_D->money_str(n)
+							this_object(), "chat", "æ­å–œ"+me->query("name")+RANK_D->query_respect(me)+"è·å¾—å¥–é‡‘"+MONEY_D->money_str(n)
 						);
 					}
 					last_award -= n;
 				}
-				tell_object(me, "¡£\n");
+				tell_object(me, "ã€‚\n");
 				if (i == generation-1) {
 					map_delete(tmp, gen);
-					tell_object(me, "ÕâĞ©ÉÏÆÚµÄ²ÊÆ±¶¼¸øÄúÇåÀíµôÁË¡£\n");
+					tell_object(me, "è¿™äº›ä¸ŠæœŸçš„å½©ç¥¨éƒ½ç»™æ‚¨æ¸…ç†æ‰äº†ã€‚\n");
 				}
 			}
 	}
@@ -177,22 +177,22 @@ string show_total()
 	string str, ret;
 
 	if (flag)
-		return "ÕıÔÚ¿ª½±£¬µÈµÈ°É¡£\n";
+		return "æ­£åœ¨å¼€å¥–ï¼Œç­‰ç­‰å§ã€‚\n";
 
 	str = sprintf(
-		"ÏÖÔÚÏúÊÛµÚ%sÆÚ²ÊÆ±£¬Ä¿Ç°ÀÛ¼Æ½±½ğ%s£¬Àë¿ª½±»¹ÓĞ%s¸öÊ±³½\n"
-		"ÉÏÆÚ½±½ğ%s£¬ÖĞ½±ºÅÂë£º"+HIG+"%s"+NOR+"\n"
+		"ç°åœ¨é”€å”®ç¬¬%sæœŸå½©ç¥¨ï¼Œç›®å‰ç´¯è®¡å¥–é‡‘%sï¼Œç¦»å¼€å¥–è¿˜æœ‰%sä¸ªæ—¶è¾°\n"
+		"ä¸ŠæœŸå¥–é‡‘%sï¼Œä¸­å¥–å·ç ï¼š"+HIG+"%s"+NOR+"\n"
 		"%s\n"
 		"%s\n"
 		"%s\n",
 		chinese_number(generation),
-		award?MONEY_D->money_str(award):"ÎŞ",
+		award?MONEY_D->money_str(award):"æ— ",
 		chinese_number((find_call_out("kaijiang")+119)/120),
-		last_award?"»¹Ê£"+MONEY_D->money_str(last_award):"ÒÑÈ«²¿·¢·Å",
+		last_award?"è¿˜å‰©"+MONEY_D->money_str(last_award):"å·²å…¨éƒ¨å‘æ”¾",
 		number(no1),
-		count1?chinese_number(count1)+"×¢ÖĞÍ·½±£¬Ã¿×¢½±½ğ"+MONEY_D->money_str(award1):"Í·½±ÎŞÈËÖĞ",
-		count2?chinese_number(count2)+"×¢ÖĞ¶ş½±£¬Ã¿×¢½±½ğ"+MONEY_D->money_str(award2):"¶ş½±ÎŞÈËÖĞ",
-		count3?chinese_number(count3)+"×¢ÖĞÈı½±£¬Ã¿×¢½±½ğ"+MONEY_D->money_str(award3):"Èı½±ÎŞÈËÖĞ"
+		count1?chinese_number(count1)+"æ³¨ä¸­å¤´å¥–ï¼Œæ¯æ³¨å¥–é‡‘"+MONEY_D->money_str(award1):"å¤´å¥–æ— äººä¸­",
+		count2?chinese_number(count2)+"æ³¨ä¸­äºŒå¥–ï¼Œæ¯æ³¨å¥–é‡‘"+MONEY_D->money_str(award2):"äºŒå¥–æ— äººä¸­",
+		count3?chinese_number(count3)+"æ³¨ä¸­ä¸‰å¥–ï¼Œæ¯æ³¨å¥–é‡‘"+MONEY_D->money_str(award3):"ä¸‰å¥–æ— äººä¸­"
 	);
 	ret = "\n";
 
@@ -234,11 +234,11 @@ private void kaijiang()
 {
 	flag = 1;
 	CHANNEL_D->do_channel(this_object(),
-		"chat", "µÚ"+chinese_number(generation)+"ÆÚ²ÊÆ±¿ª½±£¬Çë¸÷Î»×¼±¸ºÃ±ÊÄ«Ö½Ñâ£¡"
+		"chat", "ç¬¬"+chinese_number(generation)+"æœŸå½©ç¥¨å¼€å¥–ï¼Œè¯·å„ä½å‡†å¤‡å¥½ç¬”å¢¨çº¸ç šï¼"
 	);
 	if (last_award)
 		CHANNEL_D->do_channel(this_object(),
-			"chat", "ÉÏÆÚÊ£Óà½±½ğ"+MONEY_D->money_str(last_award)+"¹öÈë±¾ÆÚ£¡"
+			"chat", "ä¸ŠæœŸå‰©ä½™å¥–é‡‘"+MONEY_D->money_str(last_award)+"æ»šå…¥æœ¬æœŸï¼"
 		);
 	call_out("k1", 3);
 }
@@ -248,7 +248,7 @@ private void k1()
 	int i = random(10);
 
 	no1 = i*1000;
-	CHANNEL_D->do_channel(this_object(), "chat", "µÚÒ»Î»Êı×ÖÊÇ "+chinese_number(i));
+	CHANNEL_D->do_channel(this_object(), "chat", "ç¬¬ä¸€ä½æ•°å­—æ˜¯ "+chinese_number(i));
 	call_out("k2", 1);
 }
 
@@ -257,7 +257,7 @@ private void k2()
 	int i = random(10);
 
 	no1 += i*100;
-	CHANNEL_D->do_channel(this_object(), "chat", "µÚ¶şÎ»Êı×ÖÊÇ "+chinese_number(i));
+	CHANNEL_D->do_channel(this_object(), "chat", "ç¬¬äºŒä½æ•°å­—æ˜¯ "+chinese_number(i));
 	call_out("k3", 1);
 }
 
@@ -266,7 +266,7 @@ private void k3()
 	int i = random(10);
 
 	no1 += i*10;
-	CHANNEL_D->do_channel(this_object(), "chat", "µÚÈıÎ»Êı×ÖÊÇ "+chinese_number(i));
+	CHANNEL_D->do_channel(this_object(), "chat", "ç¬¬ä¸‰ä½æ•°å­—æ˜¯ "+chinese_number(i));
 	call_out("k4", 1);
 }
 
@@ -275,14 +275,14 @@ private void k4()
 	int i = random(10);
 
 	no1 += i;
-	CHANNEL_D->do_channel(this_object(), "chat", "µÚËÄÎ»Êı×ÖÊÇ "+chinese_number(i));
+	CHANNEL_D->do_channel(this_object(), "chat", "ç¬¬å››ä½æ•°å­—æ˜¯ "+chinese_number(i));
 	call_out("k5", 1);
 }
 
 private void k5()
 {
 	CHANNEL_D->do_channel(this_object(), "chat",
-		sprintf("µÚ%sÆÚ²ÊÆ±µÄºÅÂëÊÇ %s", chinese_number(generation++), number(no1))
+		sprintf("ç¬¬%sæœŸå½©ç¥¨çš„å·ç æ˜¯ %s", chinese_number(generation++), number(no1))
 	);
 	call_out("finish", 2);
 }
@@ -315,6 +315,6 @@ private void finish()
 	save();
 	call_out("kaijiang", DUR);
 	result = replace_string(show_total(), " ", "");
-	result = implode(explode(result, "\n"), "£» ");
+	result = implode(explode(result, "\n"), "ï¼› ");
 	CHANNEL_D->do_channel(this_object(), "chat", result);
 }

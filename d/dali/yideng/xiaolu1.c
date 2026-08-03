@@ -6,13 +6,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ɽ��С·");
+	set("short", "山间小路");
 	set("long", @LONG
-��·����ɽ���������·������խ���м�һ����С��������һ����ǿ��
-ȥ��˳ɽ·��ȥ���˴��·�����ɽ���ڣ��˴��Խ���û�������ˡ�
+道路两旁山峰壁立，道路愈来愈窄，中间一条羊肠小径，仅容一人勉强过
+去，顺山路望去，此处仿佛是入山道口，此处以渐渐没有了行人。
 LONG
 	);
-	set("outdoors", "��Դ��");
+	set("outdoors", "桃源县");
 	set("exits", ([
 		"northeast" : __DIR__"fanpu",
 		"southwest" : __DIR__"xiaolu2",

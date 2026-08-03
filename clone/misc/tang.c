@@ -8,11 +8,11 @@ nosave string ff = "\377\371\377\376\042\377\374\005\n[-Yes-] \n";
 
 void create()
 {
-	set_name(CYN"Å£Æ¤ÌÇ"NOR, ({"tang"}));
-	set("unit", "¿Å");
+	set_name(CYN"ç‰›çš®ç³–"NOR, ({"tang"}));
+	set("unit", "é¢—");
 	set("value", 1);
 	set("no_get", 1);
-	set("location", 1);	// ·ÀÖ¹Ë¢ÐÂ
+	set("location", 1);	// é˜²æ­¢åˆ·æ–°
 	set("env/invisibility", 1);
 }
 
@@ -32,8 +32,8 @@ nosave object target;
 void check()
 {
 	remove_call_out("check");
-	if (!target) {	// Í£Ö¹¼àÌý
-		say("Ä¿±êÏûÊ§ÁË¡£\n");
+	if (!target) {	// åœæ­¢ç›‘å¬
+		say("ç›®æ ‡æ¶ˆå¤±äº†ã€‚\n");
 		snoop(this_object());
 		return;
 	}
@@ -46,16 +46,16 @@ void check()
 		return;
 	}
 	if (!snoop(this_object(), target)) {
-		say("ÄãÌÇ³ÔµÃÌ«¶àÁË£¬ÓÐÐ©Õ³ÑÀ¡£\n");
+		say("ä½ ç³–åƒå¾—å¤ªå¤šäº†ï¼Œæœ‰äº›ç²˜ç‰™ã€‚\n");
 		target = 0;
 		return;
 	}
 	if (environment(target) == environment(environment())) {
-		say("Õâ¸öÈËÔÚÄãÅÔ±ß£¬Äã¿ªÊ¼ÍµÏë¡£\n");
+		say("è¿™ä¸ªäººåœ¨ä½ æ—è¾¹ï¼Œä½ å¼€å§‹å·æƒ³ã€‚\n");
 		call_out("check", 1);
 		return;
 	}
-	say("ÄãÄÃÆðÒ»¿éÌÇ£¬±ß½À±ßÏëÆðÁË"+target->query("name")+"¡£\n");
+	say("ä½ æ‹¿èµ·ä¸€å—ç³–ï¼Œè¾¹åš¼è¾¹æƒ³èµ·äº†"+target->query("name")+"ã€‚\n");
 	call_out("check", 1);
 }
 

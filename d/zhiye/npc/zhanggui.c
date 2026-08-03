@@ -20,10 +20,10 @@ void create()
 	seteuid(getuid());
 	restore();
 		
-	set_name("ÕÆ¹ñ",({ "zhang gui","zhanggui" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æŒæŸœ",({ "zhang gui","zhanggui" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 45);
-	set("long","ÕâÊÇÎ»¾«Ã÷µÄÉúÒâÈË¡£");
+	set("long","è¿™æ˜¯ä½ç²¾æ˜çš„ç”Ÿæ„äººã€‚");
 
 	set("str", 55);
 	set("dex", 55);
@@ -56,12 +56,12 @@ void create()
 
 	set("chat_chance", 5);
  	set("chat_msg", ({
- 		"ÕÆ¹ñ½¾°ÁµÄËµµÀ£º¡°±¾µêÂôµÄ±øÆ÷¿É¶¼ÊÇ×îºÃµÄ±øÆ÷£¡¡±\n",
- 		"ÕÆ¹ñËµµÀ£º¡°ÄÇĞ©¹¤½³ÃÇ¿É¶¼ÊÇ¿¿ÎÒ²Å·¢ÁË´ó²Æ¡£¡±\n",
+ 		"æŒæŸœéª„å‚²çš„è¯´é“ï¼šâ€œæœ¬åº—å–çš„å…µå™¨å¯éƒ½æ˜¯æœ€å¥½çš„å…µå™¨ï¼â€\n",
+ 		"æŒæŸœè¯´é“ï¼šâ€œé‚£äº›å·¥åŒ ä»¬å¯éƒ½æ˜¯é æˆ‘æ‰å‘äº†å¤§è´¢ã€‚â€\n",
  	}) );
  	
 	set("inquiry", ([
-		"»õ¿î"		: (: ask_money :),
+		"è´§æ¬¾"		: (: ask_money :),
 		"money"		: (: ask_money :),
 	]));
 		
@@ -81,7 +81,7 @@ void kill_ob(object ob)
 {
 	object me = this_object();
 	command("!!!");
-	command("say ÎÒÖ»ÊÇÒ»¸öÉÌÈË£¬ÎªÊ²Ã´ÒªÉ±ÎÒÄØ£¿");
+	command("say æˆ‘åªæ˜¯ä¸€ä¸ªå•†äººï¼Œä¸ºä»€ä¹ˆè¦æ€æˆ‘å‘¢ï¼Ÿ");
 	me->remove_enemy(ob);
 	ob->remove_killer(me);
 	return;
@@ -89,7 +89,7 @@ void kill_ob(object ob)
 
 int accept_fight(object ob)
 {
-	command("say ÎÒÖ»ÊÇÒ»¸öÉÌÈË£¬ÎªÊ²Ã´ÒªÉ±ÎÒÄØ£¿");
+	command("say æˆ‘åªæ˜¯ä¸€ä¸ªå•†äººï¼Œä¸ºä»€ä¹ˆè¦æ€æˆ‘å‘¢ï¼Ÿ");
 	return 0;
 }
 
@@ -112,23 +112,23 @@ int do_sell(string arg)
 	string target , saveid;
 
 	if (!living(obj))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ĞÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÕÆ¹ñËµµÀ£ºÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("æŒæŸœè¯´é“ï¼šä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (!arg || sscanf(arg,"%d %s",value,target)<2 || !(ob = present(target, me)))
-		return notify_fail("ÕÆ¹ñËµµÀ£ºÄãÒª¼ÄÂôÊ²Ã´£¿\n");
+		return notify_fail("æŒæŸœè¯´é“ï¼šä½ è¦å¯„å–ä»€ä¹ˆï¼Ÿ\n");
 
 	if (query_temp("busy"))
-		return notify_fail("ÕÆ¹ñËµµÀ£ºÓ´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("æŒæŸœè¯´é“ï¼šå“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 	
 	if ( !(int)ob->query("imbued") )
-		return notify_fail("ÕÆ¹ñËµµÀ£º±¾µêÖ»¼ÄÂôÍæ¼ÒÖÆÔìµÄÎïÆ·¡£\n");
+		return notify_fail("æŒæŸœè¯´é“ï¼šæœ¬åº—åªå¯„å–ç©å®¶åˆ¶é€ çš„ç‰©å“ã€‚\n");
 		
 	rank = WORKER_D->weapon_rank(ob);
 	if ( (int)ob->query("imbued")<3 || rank<=125 )
-		return notify_fail("ÕÆ¹ñËµµÀ£ºÕâ¼şÎïÆ·µÄÖÊÁ¿Ì«²î£¬·ÅÔÚ±¾µê··Âô»á½µµÍÎÒÃÇµÄÉùÓşµÄ¡£\n");
+		return notify_fail("æŒæŸœè¯´é“ï¼šè¿™ä»¶ç‰©å“çš„è´¨é‡å¤ªå·®ï¼Œæ”¾åœ¨æœ¬åº—è´©å–ä¼šé™ä½æˆ‘ä»¬çš„å£°èª‰çš„ã€‚\n");
 
 	ob->save_weapon(obj);
 	ob->set_temp("quit_dest",1);
@@ -142,7 +142,7 @@ int do_sell(string arg)
 	obj->set(saveid+"seller2",me->query("name"));
 	WORKER_D->save_zhanggui(obj);
 	
-	message_vision("$NÒÔ"+CHINESE_D->chinese_number(value)+"¶§"+HIY"»Æ½ğ"NOR+"µÄ¼Û¸ñ¼ÄÂôÁËÒ»"+ob->query("unit")+ob->name() + "¸ø$n¡£\n", me, obj);
+	message_vision("$Nä»¥"+CHINESE_D->chinese_number(value)+"é”­"+HIY"é»„é‡‘"NOR+"çš„ä»·æ ¼å¯„å–äº†ä¸€"+ob->query("unit")+ob->name() + "ç»™$nã€‚\n", me, obj);
 	ob->delete_weapon(me);
 	destruct(ob);
 	
@@ -161,27 +161,27 @@ int do_list(string arg)
 	int i,j;
 	
 	if (!living(obj))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ĞÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÕÆ¹ñËµµÀ£ºÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("æŒæŸœè¯´é“ï¼šä½ æ­£å¿™ç€å‘¢ã€‚\n");
 		
 	if (!arg)
-		return notify_fail("ÕÆ¹ñËµµÀ£ºÄãÒª¿´ÄÇÒ»ÀàÉÌÆ·£¿£¨weapon,armor,drug£©\n");
+		return notify_fail("æŒæŸœè¯´é“ï¼šä½ è¦çœ‹é‚£ä¸€ç±»å•†å“ï¼Ÿï¼ˆweapon,armor,drugï¼‰\n");
 		
 	switch (arg) {
 		case "weapon": break;
 		case "armor":
-		case "drug": return notify_fail("ÕÆ¹ñËµµÀ£º´ËÀà±ğÉÌÆ·»¹Ã»ÓĞ¿ª·Å£¡\n");
-		default: return notify_fail("ÕÆ¹ñËµµÀ£ºÄãÒª¿´ÄÇÒ»ÀàÉÌÆ·£¿£¨weapon,armor,drug£©\n");
+		case "drug": return notify_fail("æŒæŸœè¯´é“ï¼šæ­¤ç±»åˆ«å•†å“è¿˜æ²¡æœ‰å¼€æ”¾ï¼\n");
+		default: return notify_fail("æŒæŸœè¯´é“ï¼šä½ è¦çœ‹é‚£ä¸€ç±»å•†å“ï¼Ÿï¼ˆweapon,armor,drugï¼‰\n");
 	}
 	
-	if(!mapp(obj->query("goods"))) return notify_fail("ÕÆ¹ñËµµÀ£ºÄ¿Ç°Ã»ÓĞ´ËÀà±ğµÄÉÌÆ·Âô¡£\n");
+	if(!mapp(obj->query("goods"))) return notify_fail("æŒæŸœè¯´é“ï¼šç›®å‰æ²¡æœ‰æ­¤ç±»åˆ«çš„å•†å“å–ã€‚\n");
 	
-	write(query("name") + "Ä¿Ç°¼ÄÊÛµÄ»õÎïÓĞ£º\n");
-	write("©³©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·\n");
-	write("©§  »õ  Îï                    ¼Û  ¸ñ         µÈ¼¶  ÆÀ¼Û    ÂôÖ÷          ÈÕÆÚ       ©§\n");
-	write("©Ç©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n");
+	write(query("name") + "ç›®å‰å¯„å”®çš„è´§ç‰©æœ‰ï¼š\n");
+	write("â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“\n");
+	write("â”ƒ  è´§  ç‰©                    ä»·  æ ¼         ç­‰çº§  è¯„ä»·    å–ä¸»          æ—¥æœŸ       â”ƒ\n");
+	write("â”£â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n");
 		
 	j = sizeof(obj->query("goods"));
 	gkeys = keys(obj->query("goods"));
@@ -192,9 +192,9 @@ int do_list(string arg)
 		if (mp["type"]!=arg) continue;
 		mp2 = obj->query("worker/"+gkeys[i]);
 
-		write(sprintf("©§%-26s%-16s%-6s%-6s%-12s%-14s©§\n",
+		write(sprintf("â”ƒ%-26s%-16s%-6s%-6s%-12s%-14sâ”ƒ\n",
 			mp2["name"]+"("+mp2["id"][0]+")",
-			CHINESE_D->chinese_number(mp["value"])+"¶§"+HIY"»Æ½ğ"NOR,
+			CHINESE_D->chinese_number(mp["value"])+"é”­"+HIY"é»„é‡‘"NOR,
 			CHINESE_D->chinese_number(mp2["imbued"]),
 			CHINESE_D->chinese_number(mp["rank"]),
 			mp["seller2"]+"("+mp["seller"]+")",
@@ -202,7 +202,7 @@ int do_list(string arg)
 		));
 	}
 	
-	write("©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n");
+	write("â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n");
 		
 	me->start_busy(1);		
 	return 1;

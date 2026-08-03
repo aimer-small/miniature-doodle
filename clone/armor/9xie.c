@@ -1,4 +1,4 @@
-// 9xie.c ¾Å¶úÂéĞ¬
+// 9xie.c ä¹è€³éº»é‹
 
 #include <ansi.h>
 #include <armor.h>
@@ -7,13 +7,13 @@ inherit BOOTS;
 
 void create()
 {
-	set_name( HIY "¾Å¶úÂéĞ¬" NOR, ({ "jiuer maxie", "maxie","xie","shoe" }) );
+	set_name( HIY "ä¹è€³éº»é‹" NOR, ({ "jiuer maxie", "maxie","xie","shoe" }) );
 	set_weight(600);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ë«");
-		set("long", "ÓÉ²İÌÙ±àÖ¯¶ø³É£¬¼ÈÇá±ãÓÖ½áÊµ£¬Ç°ºóÖ¯ÓĞ¾Å»·£¬ĞÎ×´Ïó¶ú¶ä¡£");
+		set("unit", "åŒ");
+		set("long", "ç”±è‰è—¤ç¼–ç»‡è€Œæˆï¼Œæ—¢è½»ä¾¿åˆç»“å®ï¼Œå‰åç»‡æœ‰ä¹ç¯ï¼Œå½¢çŠ¶è±¡è€³æœµã€‚");
 		set("value", 300);
 		set("material", "boots");
 		set("armor_prop/dodge", 2);

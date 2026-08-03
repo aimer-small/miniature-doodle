@@ -1,4 +1,4 @@
-//dadi.c ÈÎÎñÊ¹
+//dadi.c ä»»åŠ¡ä½¿
 // [lsg 1999/11/24]
 
 inherit NPC;
@@ -7,9 +7,9 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÈÎÎñÊ¹", ({ "renwu shi", "shi", "renwu"}));
-        set("title", HIC"åĞÒ£ÅÉ"NOR);
-        set("gender", "ÄĞĞÔ" );
+        set_name("ä»»åŠ¡ä½¿", ({ "renwu shi", "shi", "renwu"}));
+        set("title", HIC"é€é¥æ´¾"NOR);
+        set("gender", "ç”·æ€§" );
         set("age", 102);
         set("str", 50);
         set("int", 25);
@@ -17,7 +17,7 @@ void create()
         set("dex", 30);
         set("per", 30);
         set("long", 
-"Ò»Î»µÄÈÎÎñÊ¹¡£×¨ÃÅ¸ºÔğ¸ø±¾ÅÉµÜ×Ó¸÷ÖÖÈÎÎñ.\n");
+"ä¸€ä½çš„ä»»åŠ¡ä½¿ã€‚ä¸“é—¨è´Ÿè´£ç»™æœ¬æ´¾å¼Ÿå­å„ç§ä»»åŠ¡.\n");
         set("combat_exp", 50000000);
         set("shen_type", 1);
 

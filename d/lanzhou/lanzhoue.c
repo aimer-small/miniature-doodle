@@ -6,14 +6,14 @@ string look_gaoshi();
 
 void create()
 {
-	set("short", "¶«³ÇÃÅ");
+	set("short", "ä¸œåŸŽé—¨");
 	set("long", @LONG
-ÕâÊÇ¾ÍÊÇÀ¼ÖÝµÄ¶«³ÇÃÅ¡£ÔÙÍùÎ÷¾Í½ø³ÇÁË£¬Õâ¶ùÓÐ¾ü¶Ó×¤Ôú£¬²»Ê±ÅÌÎÊÀ´
-ÍùÐÐÈË¡£ÄãÐ¡ÐÄÒíÒí£¬¼±²½Àë¿ªÕâÊÇ·ÇÖ®µØ¡£³ö¹ØÏò¶«£¬ÊÇÍ¨ÍùÁùÅÌÉ½µÄæäµÀ¡£
-³ÇÃÅµÄÇ½ÉÏÕÅÌù×ÅÒ»Ö½¸æÊ¾(gaoshi)¡£
+è¿™æ˜¯å°±æ˜¯å…°å·žçš„ä¸œåŸŽé—¨ã€‚å†å¾€è¥¿å°±è¿›åŸŽäº†ï¼Œè¿™å„¿æœ‰å†›é˜Ÿé©»æ‰Žï¼Œä¸æ—¶ç›˜é—®æ¥
+å¾€è¡Œäººã€‚ä½ å°å¿ƒç¿¼ç¿¼ï¼Œæ€¥æ­¥ç¦»å¼€è¿™æ˜¯éžä¹‹åœ°ã€‚å‡ºå…³å‘ä¸œï¼Œæ˜¯é€šå¾€å…­ç›˜å±±çš„é©¿é“ã€‚
+åŸŽé—¨çš„å¢™ä¸Šå¼ è´´ç€ä¸€çº¸å‘Šç¤º(gaoshi)ã€‚
 LONG);
 
-	set("outdoors", "À¼ÖÝ");
+	set("outdoors", "å…°å·ž");
 
 	set("exits", ([
 		"east" : __DIR__"road5",
@@ -33,7 +33,7 @@ LONG);
 
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\nÈ«¹úÍ¨¼©¡£\n";
+	return FINGER_D->get_killer() + "\nå…¨å›½é€šç¼‰ã€‚\n";
 }
 /*
 void init()
@@ -56,11 +56,11 @@ int valid_leave(object me, string dir)
 		i = sizeof(ob);
 		while (i--)
 		if (ob[i]->id("gold_money") && ob[i]->move(bing)) flag = 1;
-		tell_object(me, bing->name()+"ºÈµÀ£º"+RANK_D->query_rude(me)+"¸øÎÒÕ¾×¡£¬ÅÜÄÇÃ´¿ì¸ÉÊ²Ã´£¿\n");
+		tell_object(me, bing->name()+"å–é“ï¼š"+RANK_D->query_rude(me)+"ç»™æˆ‘ç«™ä½ï¼Œè·‘é‚£ä¹ˆå¿«å¹²ä»€ä¹ˆï¼Ÿ\n");
 		if (flag)
 		if( flag && me->query("combat_exp")>100000)
-		message_vision(HIY "$N½«$nÉíÉÏµÄ»Æ½ðËÑÁË¸ö¾«¹â¡£\n" NOR, bing, me);
-		return notify_fail(bing->name()+"À¹×¡ÁËÄã¡£\n");
+		message_vision(HIY "$Nå°†$nèº«ä¸Šçš„é»„é‡‘æœäº†ä¸ªç²¾å…‰ã€‚\n" NOR, bing, me);
+		return notify_fail(bing->name()+"æ‹¦ä½äº†ä½ ã€‚\n");
 	}
 	me->delete_temp("check");
 	return ::valid_leave(me, dir);

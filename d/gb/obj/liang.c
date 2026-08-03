@@ -4,10 +4,10 @@ inherit ITEM;
 
 void create()
 {
-	set_name("╡щао╤я", ({ "caoliao dui" }) );
+	set_name("Х█┴Ф√≥Е═├", ({ "caoliao dui" }) );
 	set_weight(300000);
-	set("unit", "╦Ж");
-	set("long", "уБйгр╩╦Ж╬ч╢С╣д╡щао╤я║ё\n");
+	set("unit", "Д╦╙");
+	set("long", "Х©≥Ф≤╞Д╦─Д╦╙Е╥╗Е╓╖Г └Х█┴Ф√≥Е═├Ц─┌\n");
 	set("value", 1000);
 	set("material", "wood");
 	set("no_get",1);
@@ -28,13 +28,13 @@ int do_dian(string arg)
 
 	obj = present("yuan bing",environment(me));
 	if(obj)
-		return notify_fail("дЦ╩╧йгохи╠акцФг╟╣дйьнюты╣Ц╩П╟и║ё\n");
+		return notify_fail("Д╫═Х©≤Ф≤╞Е┘┬Ф²─Д╨├И²╒Е┴█Г └Е╝┬Е█╚Е├█Г┌╧Г│╚Е░╖Ц─┌\n");
 
-	message_vision(HIR "$N╣ЦвеакцФг╟╣д╡щао╤яё╛и╥й╠╪Д╩П╧Бпэпэё╛т╫иут╫мЗ║ё\n" NOR, me );
+	message_vision(HIR "$NГ┌╧Г²─Д╨├И²╒Е┴█Г └Х█┴Ф√≥Е═├О╪▄Г┘·Ф≈╤И≈╢Г│╚Е┘┴Г├┼Г├┼О╪▄Х╤┼Г┐╖Х╤┼Ф≈╨Ц─┌\n" NOR, me );
 	me->set_temp("gb_job2_finish",me->query_temp("gb_job2_finish")+1);
 
 	if( me->query_temp("gb_job2_finish")==5)
-		write("╨цё╛хннЯря╬╜мЙЁиё╛©ирт╩ьх╔╦╢цЭак║ё\n" );
+		write("Е╔╫О╪▄Д╩╩Е┼║Е╥╡Г╩▐Е╝▄Ф┬░О╪▄Е▐╞Д╩╔Е⌡·Е▌╩Е╓█Е▒╫Д╨├Ц─┌\n" );
 
 	destruct( this_object());
 

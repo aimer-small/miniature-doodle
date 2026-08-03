@@ -5,15 +5,15 @@ inherit NPC;
 
 void create()
 {
-        set_name("疯狗", ({ "feng gou", "dog", "gou" }) );
-        set("race", "野兽");
+        set_name("鐤嫍", ({ "feng gou", "dog", "gou" }) );
+        set("race", "閲庡吔");
         set("age", 4);
         set("unique", 2);
-        set("long", "它浑身没有一处干净的地方，眼睛血红血红的。\n");
+        set("long", "瀹冩祽韬病鏈変竴澶勫共鍑�鐨勫湴鏂癸紝鐪肩潧琛�绾㈣绾㈢殑銆俓n");
         set("attitude", "peace");
         set("shen_type", -1);
 
-        set("limbs", ({ "狗头", "狗身", "前爪", "后爪", "尾巴" }) );
+        set("limbs", ({ "鐙楀ご", "鐙楄韩", "鍓嶇埅", "鍚庣埅", "灏惧反" }) );
         set("verbs", ({ "bite", "claw" }) );
         set("combat_exp", 5000);
 

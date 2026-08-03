@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIG "½â¶¾Ò©Ë®" NOR, ({"potion"}));
+        set_name(HIG "è§£æ¯’è¯æ°´" NOR, ({"potion"}));
         set_weight(1000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("value", 10000000);
-                set("unit", "Ğ¡Æ¿");
+                set("unit", "å°ç“¶");
                 set("no_get", 1);
                 set("no_drop", 1);
         }
@@ -29,11 +29,11 @@ int do_heal(string arg)
 
         if( !arg || !objectp(ob = present(arg, environment(me))) 
         || !ob->is_character() || ob == me)
-                return notify_fail("ÄãÒªÖÎÁÆË­£¿\n");
+                return notify_fail("ä½ è¦æ²»ç–—è°ï¼Ÿ\n");
         if (ob->query("id") != query("target"))
-                return notify_fail("Ëû²»ÊÇÄãµÄ¶ÔÏó¡£\n");
+                return notify_fail("ä»–ä¸æ˜¯ä½ çš„å¯¹è±¡ã€‚\n");
         
-        message_vision(HIG"$NÊÖÖ¸Î¢µ¯£¬½«Ò©Ë®ÈöÏòÁË$n£¡\n"NOR, me, ob);
+        message_vision(HIG"$Næ‰‹æŒ‡å¾®å¼¹ï¼Œå°†è¯æ°´æ’’å‘äº†$nï¼\n"NOR, me, ob);
         me->set_temp("xue_finish",1);
         destruct(this_object());
         return 1;
@@ -41,5 +41,5 @@ int do_heal(string arg)
 
 int do_prevent()
 {
-       return notify_fail("ÄãĞ¡ĞÄÖ´ĞĞÈÎÎñ°É¡£\n");
+       return notify_fail("ä½ å°å¿ƒæ‰§è¡Œä»»åŠ¡å§ã€‚\n");
 }

@@ -6,16 +6,16 @@ inherit NPC;
 
 void create()
 {
-	set_name("Íº±ÊÎÌ", ({ "tubi weng", "weng" }));
-	set("nickname", HIY"Ã·×¯Èý×¯Ö÷"NOR);
-	set("gender", "ÄÐÐÔ");
+	set_name("ç§ƒç¬”ç¿", ({ "tubi weng", "weng" }));
+	set("nickname", HIY"æ¢…åº„ä¸‰åº„ä¸»"NOR);
+	set("gender", "ç”·æ€§");
 	set("age", 47);
 	set("no_quest", 1);
 	set("no_bark", 1);
   set("long",
-       "Ëû¾ÍÊÇÃ·×¯ËÄÎ»×¯Ö÷ÅÅÐÐµÚÈýµÄÍº±ÊÎÌ¡£\n"
-       "Éí´©Ò»¼þ¸É¸É¾»¾»µÄ°×É«³¤ÅÛ¡£\n"
-       "ËûÒÑÄêÓúÎåÑ®£¬Éí²Ä°«Ð¡£¬¶¥ÉÏ¹â¹â, Ò»¿´¾ÍÖªµÀÊÇ¸ö¼«Ò×¶¯Å­µÄÈË¡£\n");
+       "ä»–å°±æ˜¯æ¢…åº„å››ä½åº„ä¸»æŽ’è¡Œç¬¬ä¸‰çš„ç§ƒç¬”ç¿ã€‚\n"
+       "èº«ç©¿ä¸€ä»¶å¹²å¹²å‡€å‡€çš„ç™½è‰²é•¿è¢ã€‚\n"
+       "ä»–å·²å¹´æ„ˆäº”æ—¬ï¼Œèº«æçŸ®å°ï¼Œé¡¶ä¸Šå…‰å…‰, ä¸€çœ‹å°±çŸ¥é“æ˜¯ä¸ªæžæ˜“åŠ¨æ€’çš„äººã€‚\n");
 	set("qi", 4000);
 	set("max_qi", 4000);
 	set("jing", 4000);
@@ -44,7 +44,7 @@ void create()
 	set_temp("apply/damage", 20);
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"Íº±ÊÎÌÌ¾ÁË¿ÚÆøµÀ£º¼ÓÈëÎÒÄÜ¹»µÃµ½ÕÅÐñµÄ¡°ÂÊÒâÌû¡±£¬ÎÒ¾Í¡­¡­¡±\n",
+		"ç§ƒç¬”ç¿å¹äº†å£æ°”é“ï¼šåŠ å…¥æˆ‘èƒ½å¤Ÿå¾—åˆ°å¼ æ—­çš„â€œçŽ‡æ„å¸–â€ï¼Œæˆ‘å°±â€¦â€¦â€\n",
 	}));
 
 	setup();
@@ -58,14 +58,14 @@ int accept_object(object who, object ob)
        // mapping fam;
         me = this_object();
 /*
-        if (!(fam = this_player()->query("family")) || fam["family_name"] !="ÈÕÔÂÉñ½Ì"){
+        if (!(fam = this_player()->query("family")) || fam["family_name"] !="æ—¥æœˆç¥žæ•™"){
              command("thank "+ (string)who->query("id"));
-             command("say ÄãÓë±¾ÅÉËØÎÞÀ´Íù£¬²»ÖªÎªºÎËÍÈç´ËºñÀñ£¿");
+             command("say ä½ ä¸Žæœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥ä¸ºä½•é€å¦‚æ­¤åŽšç¤¼ï¼Ÿ");
              return 0;
         }
  */       
         if (!this_player()->query_temp("meizhuangouxuepu")){
-             command("say Äã»¹ÊÇÏÈÈ¥ÕÒÎÒ¶þ¸çºÚ°××ÓÈ¥ÎÊÎÊ°É£¡");
+             command("say ä½ è¿˜æ˜¯å…ˆåŽ»æ‰¾æˆ‘äºŒå“¥é»‘ç™½å­åŽ»é—®é—®å§ï¼");
              return 0;
         }
         
@@ -73,7 +73,7 @@ int accept_object(object who, object ob)
         if ((string)ob->query("id") == "shuaiyi tie"){
             command("haha "+(string)who->query("id"));
             call_out("destroying", 1, ob);
-            command("say Äã°ïÎÒ°ì³ÉÁËÕâ¼þÊÂ£¬ÎÒºÜ¸ßÐË£¬ÄãÈ¥ÕÒÎÒµÄËÄµÜµ¤ÇàÉúÊÔÊÔ°É£¬»òÐíËûÄÜ¸øÄãÒ»Ð©ÌáÊ¾£¡");
+            command("say ä½ å¸®æˆ‘åŠžæˆäº†è¿™ä»¶äº‹ï¼Œæˆ‘å¾ˆé«˜å…´ï¼Œä½ åŽ»æ‰¾æˆ‘çš„å››å¼Ÿä¸¹é’ç”Ÿè¯•è¯•å§ï¼Œæˆ–è®¸ä»–èƒ½ç»™ä½ ä¸€äº›æç¤ºï¼");
             who->set_temp("meizhuangshuaiyitie",1);
             who->delete_temp("meizhuangouxuepu");
               return 1;

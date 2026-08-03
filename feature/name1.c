@@ -71,8 +71,8 @@ varargs string name(int raw)
 	if (!raw && wizardp(me))
 		if (intp(query("env/invisibility"))
 		&& query("env/invisibility") > 0)
-			if ((ob && !ob->visible(me)) || ob==me) return "Ä³ÈË";
-			else return "ÒşÉíµÄ"+query("name");
+			if ((ob && !ob->visible(me)) || ob==me) return "æŸäºº";
+			else return "éšèº«çš„"+query("name");
 	if( stringp(str = query("name")) )
 		return str;
 	return file_name(me);
@@ -96,7 +96,7 @@ varargs string short(int raw)
 	else {
 		string title, nick;
 
-		if (stringp(nick = query("nickname"))) nick = "¡¸" + nick + "¡¹";
+		if (stringp(nick = query("nickname"))) nick = "ã€Œ" + nick + "ã€";
 		
 		// Modified by mxzhao 2004/04/15
 		if (stringp(query("group/id")))
@@ -124,30 +124,30 @@ varargs string short(int raw)
 		if (query_temp("pending/exercise")) {
 			force = me->query_skill_mapped("force");
 			if (force) msg = SKILL_D(force)->exercise_msg(me);
-			if (!msg || undefinedp(msg["status_msg"])) str = name() + "ÕıÔÚĞŞÁ¶ÄÚÁ¦";
+			if (!msg || undefinedp(msg["status_msg"])) str = name() + "æ­£åœ¨ä¿®ç‚¼å†…åŠ›";
 			else str = msg["status_msg"];
 		}
-		else if (query_temp("pending/respirate")) str = name() + "ÕıÔÚÍÂÄÉÁ¶¾«";
-		else if (query_temp("pending/heal")) str = name() + "ÕıÔÚÔË¹¦ÁÆÉË";
-		else if (query_temp("pending/lingwu")) str = name() + "ÕıÔÚÁìÎòÎäÑ§";
-		else if (query_temp("pending/duanzao")) str = name() + "ÕıÔÚ¶ÍÔìÎäÆ÷";
-		else if (query_temp("pending/zhizao")) str = name() + "ÕıÔÚÖ¯Ôì»¤¾ß";
+		else if (query_temp("pending/respirate")) str = name() + "æ­£åœ¨åçº³ç‚¼ç²¾";
+		else if (query_temp("pending/heal")) str = name() + "æ­£åœ¨è¿åŠŸç–—ä¼¤";
+		else if (query_temp("pending/lingwu")) str = name() + "æ­£åœ¨é¢†æ‚Ÿæ­¦å­¦";
+		else if (query_temp("pending/duanzao")) str = name() + "æ­£åœ¨é”»é€ æ­¦å™¨";
+		else if (query_temp("pending/zhizao")) str = name() + "æ­£åœ¨ç»‡é€ æŠ¤å…·";
 	}
 
 	if (!raw || wiz_level(me)) {
-		if (me->is_ghost()) str = HIB "(¹íÆø) " NOR + str;
-		if (me->query("no_pk")) str = HIY "(½ğÅÌÏ´ÊÖ) " NOR + str;
+		if (me->is_ghost()) str = HIB "(é¬¼æ°”) " NOR + str;
+		if (me->query("no_pk")) str = HIY "(é‡‘ç›˜æ´—æ‰‹) " NOR + str;
 		if (userp(me) && me->query_condition("killer")){
-			if( me->query_condition("pk") ) str = HIR "(É±ÈË·¸) " NOR + str;
-			else str = RED "(Í¨¼©·¸) " NOR + str;
+			if( me->query_condition("pk") ) str = HIR "(æ€äººçŠ¯) " NOR + str;
+			else str = RED "(é€šç¼‰çŠ¯) " NOR + str;
 		}
-		if (raw = query_temp("netdead")) str += HIG " <¶ÏÏß" + CHINESE_D->chinese_time(uptime() - raw) + ">" NOR;
-		if (in_input()) str += HIC " <ÊäÈëÎÄ×ÖÖĞ>" NOR;
-		if (in_edit()) str += HIY " <±à¼­µµ°¸ÖĞ>" NOR;
-		if (interactive(me) &&  query_idle( me ) > 120) str += HIM " <·¢´ô" + CHINESE_D->chinese_time(query_idle(me)) + ">" NOR;
-		if (me->is_fighting()) str += HIR " <Õ½¶·ÖĞ>" NOR;
+		if (raw = query_temp("netdead")) str += HIG " <æ–­çº¿" + CHINESE_D->chinese_time(uptime() - raw) + ">" NOR;
+		if (in_input()) str += HIC " <è¾“å…¥æ–‡å­—ä¸­>" NOR;
+		if (in_edit()) str += HIY " <ç¼–è¾‘æ¡£æ¡ˆä¸­>" NOR;
+		if (interactive(me) &&  query_idle( me ) > 120) str += HIM " <å‘å‘†" + CHINESE_D->chinese_time(query_idle(me)) + ">" NOR;
+		if (me->is_fighting()) str += HIR " <æˆ˜æ–—ä¸­>" NOR;
 		if (stringp(force = query("disable_type"))) str += HIR + force + NOR;
-		if (query_temp("pending/swimming")) str += GRN" <ÓÎË®ÖĞ>"NOR;
+		if (query_temp("pending/swimming")) str += GRN" <æ¸¸æ°´ä¸­>"NOR;
 	}
 
 	return str;

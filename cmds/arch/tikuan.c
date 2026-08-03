@@ -2,11 +2,11 @@
 //
 //      tikuan.c
 //      Created by mychat 31/04/2004
-//      ±£ÁôÎÒµÄÇ©ÃûÇé¿öÏÂ free of use.
-//      µ±È»¸ü»¶Ó­ĞŞ¸Ä¡¢ÓÅ»¯µÈ¡£
+//      ä¿ç•™æˆ‘çš„ç­¾åæƒ…å†µä¸‹ free of use.
+//      å½“ç„¶æ›´æ¬¢è¿ä¿®æ”¹ã€ä¼˜åŒ–ç­‰ã€‚
 //
 //      Email & MSN: codemake@163.com
-//      ÎÄ¼şÎ»ÓÚ/cmds/usrÏÂ
+//      æ–‡ä»¶ä½äº/cmds/usrä¸‹
 // 		
 ***********************************************************************************/
 #include <ansi.h>
@@ -23,25 +23,25 @@ int main(object me, string arg)
 	int irepayamount;
 		
 	if (!arg || sscanf(arg, "%s %d", roomid, amount) != 2)
-		return notify_fail("ÃüÁî¸ñÊ½£ºtikuan <µêÆÌ´úÂë> <ÊıÁ¿(»õ±Òµ¥Î»ÎªÒø×Ó)>\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼ï¼štikuan <åº—é“ºä»£ç > <æ•°é‡(è´§å¸å•ä½ä¸ºé“¶å­)>\n");
 
 	if (!wizardp(me) && me->query_temp("command_busy"))
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         me->set_temp("command_busy",1);
         call_out("remove_busy", 3, me);
 	
 	if( !ROOMLEASE_D->query_ifhavebidname(roomid) )	
-		return notify_fail(HIY"Ã»ÓĞÕâ¸ö³ö×âµÄµêÆÌ¡£\n"NOR );
+		return notify_fail(HIY"æ²¡æœ‰è¿™ä¸ªå‡ºç§Ÿçš„åº—é“ºã€‚\n"NOR );
 
 	leasemap=ROOMLEASE_D->query_amap(roomid);
 	
 	if( leasemap["leaser"]!=me->query("id") )
-		return notify_fail(HIY"Õâ¸öµêÆÌ²»ÊôÓÚÄã£¬Ïë»ìË®ÃşÓã£¿\n"NOR );
+		return notify_fail(HIY"è¿™ä¸ªåº—é“ºä¸å±äºä½ ï¼Œæƒ³æ··æ°´æ‘¸é±¼ï¼Ÿ\n"NOR );
 	
 	amount=amount*100;
 	irepayamount=ROOMLEASE_D->sum_by_discount(leasemap["repayamount"],leasemap["discount"]);
 	if( amount>(irepayamount-leasemap["payamount"]) )
-		return notify_fail(HIY"µêÆÌµÄÊÕÒæ»¹Ã»ÕâÃ´¶àÄØ£¿\n"NOR );
+		return notify_fail(HIY"åº—é“ºçš„æ”¶ç›Šè¿˜æ²¡è¿™ä¹ˆå¤šå‘¢ï¼Ÿ\n"NOR );
 
 	return ROOMLEASE_D->tikuan(me, roomid, amount);
 	//return 1;
@@ -57,10 +57,10 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºtikuan
+æŒ‡ä»¤æ ¼å¼ï¼štikuan
 --------------------------------------------------
-  ´ÓÄã³Ğ×âµÄµêÆÌÊÜÒæÖĞÔ¤Ö§Ç®µ½´æ¿îÖĞ£¬µ«ĞèÒª¼ÓÊÕ
-  Ò»¶¨µÄÊÖĞø·Ñ
+  ä»ä½ æ‰¿ç§Ÿçš„åº—é“ºå—ç›Šä¸­é¢„æ”¯é’±åˆ°å­˜æ¬¾ä¸­ï¼Œä½†éœ€è¦åŠ æ”¶
+  ä¸€å®šçš„æ‰‹ç»­è´¹
   
 --------------------------------------------------
 

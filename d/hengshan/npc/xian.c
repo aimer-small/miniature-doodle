@@ -4,9 +4,9 @@ inherit NPC;
 #include <ansi.h>;
 void create()
 {
-        set_name("¶¨ÏĞÊ¦Ì«", ({ "dingxian shitai", "shitai", "dingxian" }) );
-        set("gender", "Å®ĞÔ");
-        set("title", HIY"ºãÉ½ÅÉµÚÊ®Èı´úÕÆÃÅ"NOR);
+        set_name("å®šé—²å¸ˆå¤ª", ({ "dingxian shitai", "shitai", "dingxian" }) );
+        set("gender", "å¥³æ€§");
+        set("title", HIY"æ’å±±æ´¾ç¬¬åä¸‰ä»£æŒé—¨"NOR);
         set("class", "bonze");
         set("age", 45);
         set("attitude", "peaceful");
@@ -41,7 +41,7 @@ void create()
         map_skill("dodge", "qingmang-jianfa");
         prepare_skill("strike", "sixiang-zhang");
 
-        create_family("ºãÉ½ÅÉ", 13, "ÕÆÃÅ");
+        create_family("æ’å±±æ´¾", 13, "æŒé—¨");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();
@@ -53,7 +53,7 @@ void create()
 void attempt_apprentice(object ob)
 {
     command("sign");
-    command("say Æ¶Äá½üÈÕ²»ÏëÊÕÍ½, Äã»¹ÊÇÈ¥±ğÅÉ¿´¿´°É¡£¡±\n");
+    command("say è´«å°¼è¿‘æ—¥ä¸æƒ³æ”¶å¾’, ä½ è¿˜æ˜¯å»åˆ«æ´¾çœ‹çœ‹å§ã€‚â€\n");
     return;
 }
 

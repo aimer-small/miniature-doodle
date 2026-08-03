@@ -1,4 +1,4 @@
-// beauty	ÃÀÅ®
+// beauty	ç¾å¥³
 // by emnil@sj		2/9/2k
 
 inherit NPC;
@@ -9,16 +9,16 @@ inherit F_SAVE;
 
 string ask_laozu();
 
-string * name1 = ({ "Íõ","ÕÅ","Àî","Ñ¦","Æë","ÈÎ","»Æ","¹ù","Å·Ñô","ÄÏ¹¬"}); 
-string * name2 = ({ "¸ñ¸ñ", "¹«Ö÷","Ğ¡½ã","¹ÃÄï","Ğ¡½ã","¹ÃÄï","·òÈË","¿¤Ö÷" }); 
+string * name1 = ({ "ç‹","å¼ ","æ","è–›","é½","ä»»","é»„","éƒ­","æ¬§é˜³","å—å®«"}); 
+string * name2 = ({ "æ ¼æ ¼", "å…¬ä¸»","å°å§","å§‘å¨˜","å°å§","å§‘å¨˜","å¤«äºº","éƒ¡ä¸»" }); 
 
 void create()
 {
 	string name = name1[random(sizeof(name1))] + name2[random(sizeof(name2))];
 	set_name(name, ({ "beauty" }));
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("age", 15 + random(15));
-	set("long", "ÕâÊÇÎ»ÓĞ±ÕÔÂĞß»¨Ö®Ã²µÄ¾øÉ«ÃÀÅ®£¬ÔÚ±£ïÚµÄ±£»¤ÏÂÓÆÏĞµÄÓÎÉ½ÍæË®¡£\n");
+	set("long", "è¿™æ˜¯ä½æœ‰é—­æœˆç¾èŠ±ä¹‹è²Œçš„ç»è‰²ç¾å¥³ï¼Œåœ¨ä¿é•–çš„ä¿æŠ¤ä¸‹æ‚ é—²çš„æ¸¸å±±ç©æ°´ã€‚\n");
 	set("combat_exp", 10000);
 	set("meitude", "peaceful");
         set("no_bark", 1);
@@ -39,8 +39,8 @@ void create()
 	set("neili", 5000);
 	set("inquiry", ([
 		"laozu": 	(: ask_laozu :),
-		"Ñªµ¶ÀÏ×æ":	(: ask_laozu :),
-		"ÀÏ×æ"	:	(: ask_laozu :),
+		"è¡€åˆ€è€ç¥–":	(: ask_laozu :),
+		"è€ç¥–"	:	(: ask_laozu :),
         ]));
 
         set("location",1);
@@ -70,12 +70,12 @@ void init()
 
 void greeting(object ob)
 {
-	command("emote ÃæÂ¶½¿ĞßÖ®É«£¬ÇÄÇÄµÄµÍÏÂÍ·È¥¡£");
+	command("emote é¢éœ²å¨‡ç¾ä¹‹è‰²ï¼Œæ‚„æ‚„çš„ä½ä¸‹å¤´å»ã€‚");
 }
 
 void dest()
 {
-        command("emote ÂıÂıÀë¿ªÁË¡£");
+        command("emote æ…¢æ…¢ç¦»å¼€äº†ã€‚");
 	destruct(this_object());
 }
 /*
@@ -85,7 +85,7 @@ void display()
 
 	if(!objectp(me->query("place"))) return;  // means BUG!!!
 	me->move(me->query("place"));
-        command("emote ´ø×Å±£ïÚÂıÂıµÄ×ßÁË¹ıÀ´¡£");
+        command("emote å¸¦ç€ä¿é•–æ…¢æ…¢çš„èµ°äº†è¿‡æ¥ã€‚");
 }
 */
 void kill_ob(object ob)
@@ -106,7 +106,7 @@ void accept_fight(object me)
 string ask_laozu()
 {
 	if( this_player()->query("xs/girl_ob") == this_object() )
-		return "°¡£¡£¡£¡É±ÈËÀ²£¡£¡£¡";
+		return "å•Šï¼ï¼ï¼æ€äººå•¦ï¼ï¼ï¼";
 	else
-		return "àÅ£¿ËûÊÇË­Ñ½£¿";
+		return "å—¯ï¼Ÿä»–æ˜¯è°å‘€ï¼Ÿ";
 }

@@ -1,20 +1,20 @@
-// huoshan1.c »ğÉ½
+// huoshan1.c ç«å±±
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-	set("short", HIR"»ğÉ½"NOR);
+	set("short", HIR"ç«å±±"NOR);
 	set("long", @LONG
-µ½ÕâÀïÒ»Ê²Ã´Ò²¿´²»¼ûÁË¡£¡£¡£¡£Ö»ÊÇÓĞ»ğÉÕÉíµÄ¸Ğ¾õ¡£
+åˆ°è¿™é‡Œä¸€ä»€ä¹ˆä¹Ÿçœ‹ä¸è§äº†ã€‚ã€‚ã€‚ã€‚åªæ˜¯æœ‰ç«çƒ§èº«çš„æ„Ÿè§‰ã€‚
 LONG
 );
 	set("exits",([
 		"northup" : __DIR__"huoshan2",
 		"eastdown" : __DIR__"hsjiao",
 	]));
-	set("outdoors","±ù»ğµº");
+	set("outdoors","å†°ç«å²›");
 	setup();
 }
 

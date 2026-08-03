@@ -1,17 +1,17 @@
 
 	environment(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		environment() - ´«»ØÒ»¸öÎï¼şËùÉí´¦µÄ»·¾³.
-	Óï·¨:
+	åç§°:
+		environment() - ä¼ å›ä¸€ä¸ªç‰©ä»¶æ‰€èº«å¤„çš„ç¯å¢ƒ.
+	è¯­æ³•:
 		object environment( object ob );
 
-		Îï¼ş environment( Îï¼ş ob );
-	ÓÃ·¨:
-		´«»Øº¬ÓĞÎï¼ş ob µÄ»·¾³Îï¼ş. Èç¹ûÃ»ÓĞÖ¸¶¨²ÎÊı (argument)
-		, ob Ô¤ÉèÎª this_object().
-	²Î¿¼:
+		ç‰©ä»¶ environment( ç‰©ä»¶ ob );
+	ç”¨æ³•:
+		ä¼ å›å«æœ‰ç‰©ä»¶ ob çš„ç¯å¢ƒç‰©ä»¶. å¦‚æœæ²¡æœ‰æŒ‡å®šå‚æ•° (argument)
+		, ob é¢„è®¾ä¸º this_object().
+	å‚è€ƒ:
 		this_object(3)
-	·­Òë:
+	ç¿»è¯‘:
 		pock @ FF	97.Feb.12.		(printed 3/16/95)
 

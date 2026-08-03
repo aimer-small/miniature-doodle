@@ -1,15 +1,15 @@
 // cool980310
-// ¶ÎÑÓÇì
+// æ®µå»¶åº†
 // cool980724
 // Modify By River 98/12
 inherit NPC;
 
 void create()
 {
-        set_name("¶ÎÑÓÇì", ({ "duan yanqing", "duan","yanqing"}) );
-        set("nickname", "¶ñ¹áÂúÓ¯");
-	set("title", "ËÄ´ó¶ñÈË");
-        set("gender", "ÄĞĞÔ" );
+        set_name("æ®µå»¶åº†", ({ "duan yanqing", "duan","yanqing"}) );
+        set("nickname", "æ¶è´¯æ»¡ç›ˆ");
+	set("title", "å››å¤§æ¶äºº");
+        set("gender", "ç”·æ€§" );
         set("age", 52);
         set("str", 26);
         set("con", 23);
@@ -26,9 +26,9 @@ void create()
         set("max_neili", 10000);
         set("jiali", 100);         
         
-        set("long","ÕâÈËÊÇ¸öÀÏÕß£¬³¤Ğë´¹ĞØ£¬ÃæÄ¿ÆáºÚ¡£\n");
+        set("long","è¿™äººæ˜¯ä¸ªè€è€…ï¼Œé•¿é¡»å‚èƒ¸ï¼Œé¢ç›®æ¼†é»‘ã€‚\n");
         set("combat_exp", 2100000);
-       set("env/Ò»ÑôÖ¸","Èıµş");
+       set("env/ä¸€é˜³æŒ‡","ä¸‰å ");
         set("shen", -20000);
 
         set("chat_chance_combat", 30);
@@ -54,9 +54,9 @@ void create()
         prepare_skill("finger","yiyang-zhi");
 
         set("inquiry", ([
-           "¶ÎÓş" : "ºÙºÙ£¬Ëû±»ÎÒ¹ØÔÚÊ¯ÎİÀïÀ²",
-           "name" : "ÀÏ·ò±ãÊÇ¶ÎÑÓÇì",
-           "¶ÎÑÓÇì" : "ÀÏ·ò±ãÊÇ¶ÎÑÓÇì",
+           "æ®µèª‰" : "å˜¿å˜¿ï¼Œä»–è¢«æˆ‘å…³åœ¨çŸ³å±‹é‡Œå•¦",
+           "name" : "è€å¤«ä¾¿æ˜¯æ®µå»¶åº†",
+           "æ®µå»¶åº†" : "è€å¤«ä¾¿æ˜¯æ®µå»¶åº†",
         ]) );
 
         setup();

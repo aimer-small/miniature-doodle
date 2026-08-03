@@ -1,14 +1,14 @@
-// maguangzuo.c Âí¹â×ô
+// maguangzuo.c é©¬å…‰ä½
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("Âí¹â×ô", ({ "ma guangzuo", "ma", "guangzuo" }) );
-        set("gender", "ÄĞĞÔ");   
+        set_name("é©¬å…‰ä½", ({ "ma guangzuo", "ma", "guangzuo" }) );
+        set("gender", "ç”·æ€§");   
         set("age", 37);
-        set("long","Éí¸ß°Ë³ß£¬´ÖÊÖ´ó½Å£¬Á³´øÉµĞ¦£¬Ë«ÑÛÄ¾È»¡£\n");
+        set("long","èº«é«˜å…«å°ºï¼Œç²—æ‰‹å¤§è„šï¼Œè„¸å¸¦å‚»ç¬‘ï¼ŒåŒçœ¼æœ¨ç„¶ã€‚\n");
         set("combat_exp", 300000);
         set("shen_type", 1);
         set("attitude", "heroism");

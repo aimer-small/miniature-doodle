@@ -3,15 +3,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÒÍ×åĞ¡»ï", ({ "yizu xiaohuo", "yizu", "xiaohuo" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("å½æ—å°ä¼™", ({ "yizu xiaohuo", "yizu", "xiaohuo" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 22);
-	set("long","ÕâÎ»ÒÍ×åĞ¡»ïÕıĞ¦ßäßäµØ¿´×ÅÄã¡£\n");
+	set("long","è¿™ä½å½æ—å°ä¼™æ­£ç¬‘å’ªå’ªåœ°çœ‹ç€ä½ ã€‚\n");
 	set("combat_exp", 2000);
 	set("attitude", "friendly");
         set("inquiry",([
-            "¼ÛÇ®" : "Ïë¿´²è»¨Ô°£¬Äú¾Í¸¶ÎåÁ½°×Òø°É¡£",
-            "price" : "Ïë¿´²è»¨Ô°£¬Äú¾Í¸¶ÎåÁ½°×Òø°É¡£",
+            "ä»·é’±" : "æƒ³çœ‹èŒ¶èŠ±å›­ï¼Œæ‚¨å°±ä»˜äº”ä¸¤ç™½é“¶å§ã€‚",
+            "price" : "æƒ³çœ‹èŒ¶èŠ±å›­ï¼Œæ‚¨å°±ä»˜äº”ä¸¤ç™½é“¶å§ã€‚",
         ]));
 	setup();
         carry_object("/clone/armor/cloth")->wear();
@@ -31,7 +31,7 @@ void init()
 void greeting(object ob)
 {        
 	if (!ob || !present(ob)) return;
-       say ("ÒÍ×åĞ¡»ïĞ¦ÎûÎûÓ­ÁËÉÏÀ´£¬ËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)+ "£¬Çë½øÇë½ø¡£\n");
+       say ("å½æ—å°ä¼™ç¬‘å˜»å˜»è¿äº†ä¸Šæ¥ï¼Œè¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)+ "ï¼Œè¯·è¿›è¯·è¿›ã€‚\n");
 }
 
 int accept_object(object who, object ob)
@@ -39,7 +39,7 @@ int accept_object(object who, object ob)
 	
 	if (ob->query("money_id") && ob->value() >= 500) 
 	{
-		tell_object(who, "ÒÍ×åĞ¡»ïÒ»¹şÑü£¬ËµµÀ£º¶àĞ»ÄúÀÏ£¬Äú¿ÉÒÔ²Î¹ÛÒ»ÏÂ²è»¨Ô°ÁË¡£\n");
+		tell_object(who, "å½æ—å°ä¼™ä¸€å“ˆè…°ï¼Œè¯´é“ï¼šå¤šè°¢æ‚¨è€ï¼Œæ‚¨å¯ä»¥å‚è§‚ä¸€ä¸‹èŒ¶èŠ±å›­äº†ã€‚\n");
 		who->set_temp("flower_paid",1);
 		return 1;
 	}

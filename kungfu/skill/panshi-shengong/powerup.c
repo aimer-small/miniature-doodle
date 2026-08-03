@@ -1,22 +1,22 @@
 // powerup.c
 
 #include <ansi.h>
-string exert_name(){ return HIY"¾ÛÁ¦"NOR; }
+string exert_name(){ return HIY"èšåŠ›"NOR; }
 int exert(object me)
 {       
 
         int skill=me->query_skill("panshi-shengong");
 
         if ((int)me->query_skill("panshi-shengong", 1) < 160)
-                return notify_fail("ÄãµÄÅÍÊ¯Éñ¹¦ĞŞÎª»¹²»¹»¡£\n");
+                return notify_fail("ä½ çš„ç£çŸ³ç¥åŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
         if( (int)me->query("neili") < 500 )
-                return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
         
       if( me->query_temp("pssg/powerup")   )
-                return notify_fail("ÄãÕıÔÚÔËÓÃ¾ÛÁ¦£¡\n");
+                return notify_fail("ä½ æ­£åœ¨è¿ç”¨èšåŠ›ï¼\n");
 
-        write(HIY"ÃÍµØÒ»Éù³¤Ğ¥£¬µ¤ÌïÒ»ÍÅÈÈÆøÖ±³å¶¥ÃÅ£¬Ã«·¢Ö±Êú£¬¶ÙÊ±ÉñÍşºÆµ´£¬´óÒì´ËÇ°¡£\n"NOR);
+        write(HIY"çŒ›åœ°ä¸€å£°é•¿å•¸ï¼Œä¸¹ç”°ä¸€å›¢çƒ­æ°”ç›´å†²é¡¶é—¨ï¼Œæ¯›å‘ç›´ç«–ï¼Œé¡¿æ—¶ç¥å¨æµ©è¡ï¼Œå¤§å¼‚æ­¤å‰ã€‚\n"NOR);
 
         me->add_temp("apply/attack", skill/2);
         me->set_temp("pssg/powerup", 1);  
@@ -29,19 +29,19 @@ void remove_effect(object me, int skill)
 {
        me->add_temp("apply/attack", -skill/2);
       me->delete_temp("pssg/powerup");
-      tell_object(me, HIY"ÄãµÄÅÍÊ¯Éñ¹¦ÔËĞĞÍê±Ï£¬½«ÄÚÁ¦ÊÕ»Øµ¤Ìï¡£\n"NOR);
+      tell_object(me, HIY"ä½ çš„ç£çŸ³ç¥åŠŸè¿è¡Œå®Œæ¯•ï¼Œå°†å†…åŠ›æ”¶å›ä¸¹ç”°ã€‚\n"NOR);
 }
 
 int help(object me)
 {
-	write(WHT"\nÅÍÊ¯Éñ¹¦Ö®¼ÓÁ¦£º¾ÛÁ¦"NOR"\n");
+	write(WHT"\nç£çŸ³ç¥åŠŸä¹‹åŠ åŠ›ï¼šèšåŠ›"NOR"\n");
 	write(@HELP
 
-	Ê¹ÓÃ¹¦Ğ§£º
-		ÌáÉı×Ô¼ºµÄ¹¥»÷ÄÜÁ¦
+	ä½¿ç”¨åŠŸæ•ˆï¼š
+		æå‡è‡ªå·±çš„æ”»å‡»èƒ½åŠ›
 
-	³öÊÖÒªÇó£º
-	        ÄÚÁ¦500
+	å‡ºæ‰‹è¦æ±‚ï¼š
+	        å†…åŠ›500
 HELP
 	);
 	return 1;

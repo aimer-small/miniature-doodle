@@ -1,4 +1,4 @@
-// xiaolu1.c ÁÖ¼äĞ¡¾¶
+// xiaolu1.c æ—é—´å°å¾„
 #include <ansi.h>
 
 inherit ROOM;
@@ -6,21 +6,21 @@ int do_jiao(string arg);
 
 void create()
 {
-	set("short", YEL"¹àÄ¾´Ô"NOR);
+	set("short", YEL"çŒæœ¨ä¸›"NOR);
 	set("long", @LONG
-Äã×ßÔÚÒ»ÌõÆ«Æ§µÄÉ½Â·ÉÏ£¬ËÄÖÜ¹àÄ¾´Ô´Ô£¬±éµØÆæ»¨Òì²İ£¬ÆäÖĞÒ»Öê³¤Éú
-¹ûÊ÷(guoshu)¾ÍÎªÕä¹ó¡£ÕâÀïÈË¼£º±ÖÁ£¬Â·¾¶¼¸²»¿ÉÑ°£¬Ö»ÓĞ²ÉÒ©µÄÈË²Å¸Ò½ø
-ÈëÉîÉ½¡£
+ä½ èµ°åœ¨ä¸€æ¡ååƒ»çš„å±±è·¯ä¸Šï¼Œå››å‘¨çŒæœ¨ä¸›ä¸›ï¼Œéåœ°å¥‡èŠ±å¼‚è‰ï¼Œå…¶ä¸­ä¸€æ ªé•¿ç”Ÿ
+æœæ ‘(guoshu)å°±ä¸ºçè´µã€‚è¿™é‡Œäººè¿¹ç½•è‡³ï¼Œè·¯å¾„å‡ ä¸å¯å¯»ï¼Œåªæœ‰é‡‡è¯çš„äººæ‰æ•¢è¿›
+å…¥æ·±å±±ã€‚
 LONG
         );
-	set("outdoors", "Îäµ±");
+	set("outdoors", "æ­¦å½“");
 
 	set("exits", ([
 		"west" : __DIR__"shanlu2",
 	]));
 
 	set("item_desc", ([
-		"guoshu" : "ÕâÊÇÖêÏÉ¹ûÊ÷Ãç£¬ÒòÎª³¤ÓÚ·²¼ä¶øÊ§È¥ÁéÆø¡£Ö¦Ò¶Î®ÃÒ£¬²»ÄÜ¿ª»¨½á¹û£¡\n"
+		"guoshu" : "è¿™æ˜¯æ ªä»™æœæ ‘è‹—ï¼Œå› ä¸ºé•¿äºå‡¡é—´è€Œå¤±å»çµæ°”ã€‚æå¶èé¡ï¼Œä¸èƒ½å¼€èŠ±ç»“æœï¼\n"
 	]));
 
 	set("jiao_count", 3);
@@ -41,19 +41,19 @@ int do_jiao(string arg)
 	me = this_player();
 
 	if ( !arg || arg != "guoshu" )
-		return notify_fail("ÄãÒª½½Ê²Ã´?\n");
+		return notify_fail("ä½ è¦æµ‡ä»€ä¹ˆ?\n");
 
 	if (! present("xiang cha", me))
-		return notify_fail("ÄãÄÃÊ²Ã´À´½½?!\n");
+		return notify_fail("ä½ æ‹¿ä»€ä¹ˆæ¥æµ‡?!\n");
      
-	message_vision(HIG"$NÏ¸ĞÄµØ°Ñ²è±­ÀïµÄÅ®¶ùÏã½½ÔÚ³¤Éú¹ûÊ÷ÉÏ¡£\n"NOR, me);
+	message_vision(HIG"$Nç»†å¿ƒåœ°æŠŠèŒ¶æ¯é‡Œçš„å¥³å„¿é¦™æµ‡åœ¨é•¿ç”Ÿæœæ ‘ä¸Šã€‚\n"NOR, me);
 
 	if (present("xiang cha", me))
 		destruct(present("xiang cha",me));
 
 	add("jiao_count", -1);
 	if (query("jiao_count") > 0) {
-		message_vision(HIG"Ïã²è±»¹ûÊ÷ÎüÊÕ£¬Ö¦Ò¶³¤µÃ¸ü´äÂÌÁË¡£\n"NOR, me);
+		message_vision(HIG"é¦™èŒ¶è¢«æœæ ‘å¸æ”¶ï¼Œæå¶é•¿å¾—æ›´ç¿ ç»¿äº†ã€‚\n"NOR, me);
 		return 1;
 	}
 
@@ -62,24 +62,24 @@ int do_jiao(string arg)
 	if(query("guo_count") >= 1 ){
 		if( !clonep(obguo)){
 			set("jiao_count", 3);
-			message_vision(HIG"ÓÉÓÚÓªÑø²»Á¼£¬³¤Éú¹ûÊ÷Ö»ÄÜ¿ª³öÒ»¶äÃÀÀöµÄĞ¡»¨¡£\n"NOR, me);
+			message_vision(HIG"ç”±äºè¥å…»ä¸è‰¯ï¼Œé•¿ç”Ÿæœæ ‘åªèƒ½å¼€å‡ºä¸€æœµç¾ä¸½çš„å°èŠ±ã€‚\n"NOR, me);
 			return 1;
 		}
 		if( clonep(obguo) && obguo->violate_unique()){
 			set("jiao_count", 3);
-			message_vision(HIG"ÓÉÓÚÓªÑø²»Á¼£¬³¤Éú¹ûÊ÷Ö»ÄÜ¿ª³öÒ»¶äÃÀÀöµÄĞ¡»¨¡£\n"NOR, me);
+			message_vision(HIG"ç”±äºè¥å…»ä¸è‰¯ï¼Œé•¿ç”Ÿæœæ ‘åªèƒ½å¼€å‡ºä¸€æœµç¾ä¸½çš„å°èŠ±ã€‚\n"NOR, me);
 			destruct(obguo);
 			return 1;
 		}
-		write(HIM"Í»È»¹ûÊ÷ÖĞ¼ä³¤³öÒ»¸ö»¨ÀÙ£¬Ëæ¼´¿ª»¨£¬ÂíÉÏ¾Í½á³ÉÒ»¸öÁîÈËÍÙÑÊÓûµÎµÄ³¤Éú¹û!\n"NOR);
-		message_vision("$NĞ¡ĞÄÒíÒíµØÕªÏÂ³¤Éú¹û£¬ÂúÁ³¸ßĞËµØ´§Èë»³ÖĞ¡£\n",me);
+		write(HIM"çªç„¶æœæ ‘ä¸­é—´é•¿å‡ºä¸€ä¸ªèŠ±è•¾ï¼Œéšå³å¼€èŠ±ï¼Œé©¬ä¸Šå°±ç»“æˆä¸€ä¸ªä»¤äººå”¾å’½æ¬²æ»´çš„é•¿ç”Ÿæœ!\n"NOR);
+		message_vision("$Nå°å¿ƒç¿¼ç¿¼åœ°æ‘˜ä¸‹é•¿ç”Ÿæœï¼Œæ»¡è„¸é«˜å…´åœ°æ£å…¥æ€€ä¸­ã€‚\n",me);
 		obguo->move(me);
 		set("jiao_count", 3);
 		return 1;
 	}
 	else {
 		set("jiao_count", 3);
-		message_vision(HIG"ÓÉÓÚÓªÑø²»Á¼£¬³¤Éú¹ûÊ÷Ö»ÄÜ¿ª³öÒ»¶äÃÀÀöµÄĞ¡»¨¡£\n"NOR, me);
+		message_vision(HIG"ç”±äºè¥å…»ä¸è‰¯ï¼Œé•¿ç”Ÿæœæ ‘åªèƒ½å¼€å‡ºä¸€æœµç¾ä¸½çš„å°èŠ±ã€‚\n"NOR, me);
 	}
 	return 1;
 }

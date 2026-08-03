@@ -5,13 +5,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�Ǹ�·");
+	set("short", "城跟路");
 	set("long", @LONG
-���ǳɶ�������ǽ����һ��С·��С·�������߲�Զ���۶��������ڶ���
-�߲�Զ���۶����ϡ�
+这是成都东北城墙跟的一条小路。小路在西北边不远处折而向西，在东南
+边不远处折而向南。
 LONG
 	);
-        set("outdoors", "�ɶ�");
+        set("outdoors", "成都");
 
 	set("exits", ([
 		"northwest" : __DIR__"cgenlu2",

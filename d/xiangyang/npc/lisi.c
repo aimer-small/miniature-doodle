@@ -9,13 +9,13 @@ void greeting(object me);
 
 void create()
 {
-        set_name("ÀîËÄ", ({ "li si", "li", "si" }) );
-        set("gender", "ÄĞĞÔ" );
-        set("nickname",HIB"·£¶ñÊ¹Õß"NOR);
+        set_name("æå››", ({ "li si", "li", "si" }) );
+        set("gender", "ç”·æ€§" );
+        set("nickname",HIB"ç½šæ¶ä½¿è€…"NOR);
         set("age", 30);
         set("long",
-"Ò»¸ö´÷×ÅÃæ¾ßµÄÉñÃØÄĞ×Ó¡£\n"
-"Á³ÉÏÃæ¾ßÊÇÒ»¸±Ğ×¶ñµÄÁ³¡£\n");
+"ä¸€ä¸ªæˆ´ç€é¢å…·çš„ç¥ç§˜ç”·å­ã€‚\n"
+"è„¸ä¸Šé¢å…·æ˜¯ä¸€å‰¯å‡¶æ¶çš„è„¸ã€‚\n");
         set("str", 25);
         set("dex", 25);
         set("con", 25);

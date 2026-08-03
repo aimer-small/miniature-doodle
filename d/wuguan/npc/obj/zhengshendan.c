@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIY"ÕıÉñµ¤"NOR,({"zhengshen dan", "dan" }));
+        set_name(HIY"æ­£ç¥ä¸¹"NOR,({"zhengshen dan", "dan" }));
         set_weight(50);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "¾İËµÊÇ°´ÕÕÌ«ÉÏÀÏ¾ıÒÅÊ§ÔÚÈË¼äµÄ¡´Á¶µ¤²ĞÆª¡µÁ¶ÖÆ¶ø³É¡£\n");
-                set("unit", "¿Å");
+                set("long", "æ®è¯´æ˜¯æŒ‰ç…§å¤ªä¸Šè€å›é—å¤±åœ¨äººé—´çš„ã€ˆç‚¼ä¸¹æ®‹ç¯‡ã€‰ç‚¼åˆ¶è€Œæˆã€‚\n");
+                set("unit", "é¢—");
                 set("no_get",1);
                 set("no_give",1);
                 set("no_drop",1);
@@ -30,8 +30,8 @@ int do_eat(string arg)
 {
 	object me = this_player();
 	if(!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
-	message_vision("$N³ÔÏÂÒ»¿Å" + name() + "£¬¶Ù¸ĞÁéÌ¨¿ÕÃ÷£¬¾«ÉñÎªÖ®Ò»Õñ£¡\n", me);
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
+	message_vision("$Nåƒä¸‹ä¸€é¢—" + name() + "ï¼Œé¡¿æ„Ÿçµå°ç©ºæ˜ï¼Œç²¾ç¥ä¸ºä¹‹ä¸€æŒ¯ï¼\n", me);
 	me->set("shen", 100000);
         destruct(this_object());
 	return 1;

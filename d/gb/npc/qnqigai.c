@@ -1,4 +1,4 @@
-// /d/gb/npc/qnqigai.c ÇàÄêÆòØ¤
+// /d/gb/npc/qnqigai.c é’å¹´ä¹ä¸
 // Lklv 2001.9.27
 
 inherit NPC;
@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÇàÄêÆòØ¤", ({ "qingnian qigai", "qigai" }));
-        set("long","ÕâÊÇÒ»¸öÇàÄêÆòØ¤£¬Ä¿¹â¾¼¾¼ÓĞÉñ¡£\n");
+        set_name("é’å¹´ä¹ä¸", ({ "qingnian qigai", "qigai" }));
+        set("long","è¿™æ˜¯ä¸€ä¸ªé’å¹´ä¹ä¸ï¼Œç›®å…‰ç‚¯ç‚¯æœ‰ç¥ã€‚\n");
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 23);
         set("attitude", "peaceful");
         set("shen_type", 0);

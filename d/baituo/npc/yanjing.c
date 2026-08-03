@@ -1,12 +1,12 @@
 inherit NPC;
 void create()
 {
-    set_name("ÑÛ¾µÉß", ({ "yanjing she", "yanjing", "snake", "she" }) );
-	set("race", "Ò°ÊŞ");
+    set_name("çœ¼é•œè›‡", ({ "yanjing she", "yanjing", "snake", "she" }) );
+	set("race", "é‡å…½");
 	set("age", 10);
-    set("long", "Ò»ÌõÑÛ¾µÉß£¬¶Ô×ÅÄãÁ¢ÁËÆğÀ´¡£\n");
+    set("long", "ä¸€æ¡çœ¼é•œè›‡ï¼Œå¯¹ç€ä½ ç«‹äº†èµ·æ¥ã€‚\n");
     set("attitude", "peaceful");
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Æß´ç", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ä¸ƒå¯¸", "å°¾å·´" }) );
 	set("verbs", ({ "twist", "bite" }) );
 	set("combat_exp", 4500);
 	set_temp("apply/attack", 25);

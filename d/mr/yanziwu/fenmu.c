@@ -3,19 +3,19 @@
 inherit ROOM;
 void create()
 {
-	set("short",BLU"Ä¹µØ"NOR);
+	set("short",BLU"å¢“åœ°"NOR);
 	set("long", @LONG
-ÕâÀïÊÇÄ½ÈİµÄ·Ø³¡, Ä½ÈİÊÏµÄ×ÓËïËÀºó¶¼±»°²ÔáÕâÀï£¬ÊÀÊÀ´ú´ú, ÎŞÒ»ÀıÍâ¡£
-Ã¿µ½ÇåÃ÷Ê±·Ö, Ä½ÈİºóÒá¶¼ÒªÔÚÕâÀï¼À×æ¡£³¡ÖĞÒ»×ùĞÂ·Ø¸ñÍâÒıÈË×¡Ä¿, ·ØÇ°
-ÓĞÒ»¿éÄ¹±®(bei)¡£
+è¿™é‡Œæ˜¯æ…•å®¹çš„åŸåœº, æ…•å®¹æ°çš„å­å­™æ­»åéƒ½è¢«å®‰è‘¬è¿™é‡Œï¼Œä¸–ä¸–ä»£ä»£, æ— ä¸€ä¾‹å¤–ã€‚
+æ¯åˆ°æ¸…æ˜æ—¶åˆ†, æ…•å®¹åè£”éƒ½è¦åœ¨è¿™é‡Œç¥­ç¥–ã€‚åœºä¸­ä¸€åº§æ–°åŸæ ¼å¤–å¼•äººä½ç›®, åŸå‰
+æœ‰ä¸€å—å¢“ç¢‘(bei)ã€‚
 LONG);
 	set("exits", ([
 		"west" : __DIR__"xiaojing4",
 	]));
-	set("outdoors", "Ñà×ÓÎë");
+	set("outdoors", "ç‡•å­å");
 	set("item_desc", ([
-		"bei" : "Ä½Èİ²©Ö®Ä¹\n",
-		"mubei" : "Ä½Èİ²©Ö®Ä¹\n",
+		"bei" : "æ…•å®¹åšä¹‹å¢“\n",
+		"mubei" : "æ…•å®¹åšä¹‹å¢“\n",
 	]));
 	setup();
 }
@@ -30,14 +30,14 @@ void init()
 int do_push(string arg)
 {
 	if ( !arg || (arg != "bei") )
-		return notify_fail("ÄãÒªÍÆÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ¨ä»€ä¹ˆï¼Ÿ\n");
 
 	if((int)this_player()->query("neili")< 1000)
-		return notify_fail("Äã¸Ğ¾õÆø´­ÓõÓõ£¬Á¦²»´ÓĞÄ£¬Ô­À´ÊÇÄÚÁ¦²»¹»ÁË¡£\n");
+		return notify_fail("ä½ æ„Ÿè§‰æ°”å–˜ååï¼ŒåŠ›ä¸ä»å¿ƒï¼ŒåŸæ¥æ˜¯å†…åŠ›ä¸å¤Ÿäº†ã€‚\n");
 
-	message_vision("$N´óºÈÒ»Éù£¬Ë«ÕÆÍÆÏòÄ¹±®£¬Ö»¼ûÄ¹±®ºóÉÁ³öÒ»¸ö³ö¿Ú£¬$N×İÉíÒ»Ô¾²»¼ûÈËÓ°¡£\n",this_player());
+	message_vision("$Nå¤§å–ä¸€å£°ï¼ŒåŒæŒæ¨å‘å¢“ç¢‘ï¼Œåªè§å¢“ç¢‘åé—ªå‡ºä¸€ä¸ªå‡ºå£ï¼Œ$Nçºµèº«ä¸€è·ƒä¸è§äººå½±ã€‚\n",this_player());
 	this_player()->move(__DIR__"mishi");
-	message_vision("$N´Ó·ØÄ¹ÌøÁË½øÀ´¡£ \n",this_player());
+	message_vision("$Nä»åŸå¢“è·³äº†è¿›æ¥ã€‚ \n",this_player());
 
 	return 1;
 }
@@ -49,10 +49,10 @@ int do_ketou()
 	me = this_player();
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if ( me->query_temp("ketou_times") == 0 ) {
-		message_vision("$N¿ÄÍ·¿ÄµÃÔÎÁË¹ıÈ¥¡£\n", me);
+		message_vision("$Nç£•å¤´ç£•å¾—æ™•äº†è¿‡å»ã€‚\n", me);
 		me->set_temp("ketou_times", random(30));
 		me->unconcious();
 		return 1;
@@ -60,7 +60,7 @@ int do_ketou()
 
 	me->add_temp("ketou_times", -1);
 
-	message_vision("$Nò¯³ÏµØ¹òÏÂÀ´£¬ÔÚÄ¹±®ÃæÇ°¿ÄÍ·¡£\n", me);
+	message_vision("$Nè™”è¯šåœ°è·ªä¸‹æ¥ï¼Œåœ¨å¢“ç¢‘é¢å‰ç£•å¤´ã€‚\n", me);
 
 	if ((int)me->query_skill("force", 1) >= 30
 	&& (int)me->query_skill("force", 1) <= 100
@@ -68,13 +68,13 @@ int do_ketou()
 		me->receive_damage("jing", 20);
 		me->improve_skill("force", me->query("int"));
 		if ( random(5) == 0 )
-		tell_object(me, "Ú¤Ú¤Ö®ÖĞ£¬ÄãËÆºõ¾õµÃ½â¾öÁËÄãÔÚÄÚ¹¦·½ÃæµÄÒÉÄÑ¡£\n");
+		tell_object(me, "å†¥å†¥ä¹‹ä¸­ï¼Œä½ ä¼¼ä¹è§‰å¾—è§£å†³äº†ä½ åœ¨å†…åŠŸæ–¹é¢çš„ç–‘éš¾ã€‚\n");
 	}
 	if ( random(100) == 37 ) {
 		ob= unew(BOOK_D("neigong-book"));
 		if(!ob) return 1;
 		ob->move(__DIR__"fenmu");
-		tell_object(me, "Í»È»ÄãÃæÇ°£¬Å¾µØÒ»ÉùµôÏÂÒ»±¾ÄÚ¹¦ĞÄ·¨£¡\n");
+		tell_object(me, "çªç„¶ä½ é¢å‰ï¼Œå•ªåœ°ä¸€å£°æ‰ä¸‹ä¸€æœ¬å†…åŠŸå¿ƒæ³•ï¼\n");
 	}
 	return 1;
 }

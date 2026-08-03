@@ -12,24 +12,24 @@ int main(object me, string arg)
 	int gfight;
 
 	if (!arg)
-		return notify_fail("����ɱ˭��\n");
+		return notify_fail("你想杀谁？\n");
 
 	if(!objectp(obj = present(arg, environment(me))))
-		return notify_fail("����û������ˡ�\n");
+		return notify_fail("这里没有这个人。\n");
 
 	if( environment(me)->query("no_fight") && !obj->query_condition("killer"))
-		return notify_fail("���ﲻ׼ս����\n");
+		return notify_fail("这里不准战斗。\n");
 
         if (userp(obj) && me->query("no_pk"))
-		return notify_fail("���Ѿ�����ϴ�֣����ǲ�Ҫ���뽭�������ɣ�\n");
+		return notify_fail("你已经金盆洗手，还是不要介入江湖争斗吧！\n");
 if(obj->query("id")=="hou junji" && me->query("no_pk") )
-                return notify_fail("���Ѿ�����ϴ�֣����ǲ�Ҫ���뽭�������ɣ�\n");
+                return notify_fail("你已经金盆洗手，还是不要介入江湖争斗吧！\n");
 	if (userp(obj) && objectp(ob = present("hu wan", me)))
-                return notify_fail("�㻹�ǰ����ֻ���������˵�ɣ�\n");
+                return notify_fail("你还是把新手护腕丢下来再说吧！\n");
 
 
 	if (userp(me) && obj->query("no_pk") && !obj->query_condition("killer"))
-		return notify_fail(obj->name()+"�Ѿ�����ϴ�֣����ǲ�Ҫ���뽭�������ɣ�\n");
+		return notify_fail(obj->name()+"已经金盆洗手，还是不要介入江湖争斗吧！\n");
 
 // Add By River@SJ 2003.6.24
 	if (!wizardp(me))
@@ -37,78 +37,78 @@ if(obj->query("id")=="hou junji" && me->query("no_pk") )
 		return 0;
 
 	if (strsrch(file_name(environment(me)),"/d/wuguan/") >= 0 && !obj->query_condition("killer"))
-		return notify_fail("����ڽ�ֹɱ�ˡ�\n");
+		return notify_fail("武馆内禁止杀人。\n");
 
 	if (!obj->is_character() || obj->is_corpse())
-		return notify_fail("�����һ�㣬�ǲ����ǻ��\n");
+		return notify_fail("看清楚一点，那并不是活物。\n");
 		
 	if (wiz_level(me) < wiz_level(obj) && strsrch(file_name(environment(me)), "/cmds/leitai")!=0 )
-		return notify_fail("�㲻�ܹ�����ʦ�ȼ�����ߵĶ��֡�\n");
+		return notify_fail("你不能攻击巫师等级比你高的对手。\n");
 
-	if (obj == me) return notify_fail("�� suicide -f ָ���ȽϿ�Щ��\n");
+	if (obj == me) return notify_fail("用 suicide -f 指令会比较快些。\n");
 
 	if (userp(obj) && me->query_condition("killer") > 180)
-		return notify_fail("һ�ղ���������ɱ����ˡ�\n");
+		return notify_fail("一日不过三，别杀上瘾了。\n");
 
 	if ( obj->query("job_npc") && me->query("registered") < 3 )
-		return notify_fail("�㲻�ܶ�"+obj->name(1)+"���֡�\n");
+		return notify_fail("你不能对"+obj->name(1)+"下手。\n");
 
 	if (userp(obj) && userp(me)
 	&& (!living(obj) && me->query("mud_age") < (time() - me->query("birthday"))/24
 	|| me->query("mud_age") < (time() - me->query("birthday"))/48))
-		return notify_fail("�����ף�һ������ȥ��\n");
+		return notify_fail("死大米，一边凉快去。\n");
 
-if (userp(obj)&& userp(me)  && me->query("combat_exp")<100000) //��������100k����PK����ֹ���׸����˼�JOB��
-                return notify_fail("��Ľ�������̫���ˣ�����С�����˰ɡ�\n");
+if (userp(obj)&& userp(me)  && me->query("combat_exp")<100000) //经验少于100k不许PK，防止大米干扰人家JOB！
+                return notify_fail("你的江湖阅历太低了，还是小心做人吧。\n");
 
 if (userp(obj)&& userp(me)  && obj->query("combat_exp")<100000 && !obj->query_condition("killer") ) 
-                return notify_fail("�Բ����밮��С���ѡ�\n");
+                return notify_fail("对不起，请爱护小朋友。\n");
 
 if (userp(obj) && userp(me) && me->query("combat_exp")<  obj->query("combat_exp") * 2 /3 &&  !obj->query_condition("killer") && !obj->is_killing(me->query("id")) ) 
-                return notify_fail("�˼ұ���ǿ��ô�࣬��Ͳ����˼ұ�����\n");
+                return notify_fail("人家比你强这么多，你就不怕人家报复？\n");
 		
 if (userp(obj) && userp(me) && me->query("combat_exp") > obj->query("combat_exp") * 3 / 2 &&  !obj->query_condition("killer") && !obj->is_killing(me->query("id"))) 
-                return notify_fail("����˼�ǿ��ô�࣬����СϺ��Ҳֵ���㶯�֣�\n");
+                return notify_fail("你比人家强这么多，这种小虾米也值得你动手？\n");
 	
 		
 	if (me->is_killing(obj->query("id")) && me->is_fighting(obj))
-		return notify_fail("���ͣ����ͣ�\n");
+		return notify_fail("加油！加油！\n");
 
 	if (me->query_temp("combat_yield"))
-		return notify_fail("�����򲻻����أ���ôɱ��\n");
+		return notify_fail("你正打不还手呢，怎么杀？\n");
 
 	if ( obj->query("job_npc") && (me->query("kill_job_npc/time") + 86400) > time())
-		return notify_fail("���ɱ��"+me->query("kill_job_npc/target")+"�����ǵ����˴������˰ɡ�\n");
+		return notify_fail("你刚杀过"+me->query("kill_job_npc/target")+"，还是得饶人处且饶人吧。\n");
 
 	callname = RANK_D->query_rude(obj);
 
-	if(me->query("race")=="����"){
+	if(me->query("race")=="人类"){
 		if(me->query("mute"))
-			msg = "\n$NͻȻ����$n��˫��ͨ�죬������Ҫ��$p�����أ���\n\n";
+			msg = "\n$N突然冲向$n，双眼通红，看来是要至$p于死地！！\n\n";
 
 		else if(stringp(me->query("env/kill_msg")) && strlen( strip(me->query("env/kill_msg")) ) < 50 )
-			msg = "\n$N����$n���һ������"+callname+"��"+me->query("env/kill_msg")+"����\n\n";
+			msg = "\n$N对着$n大喝一声：「"+callname+"！"+me->query("env/kill_msg")+"！」\n\n";
 
 		else if(me->query("combat_exp") > obj->query("combat_exp")*2){
 			if(me->query("shen") < -10000)
-				msg = "\n$N����$n����һ�ڣ���"+callname+"������������ʱ��"+RANK_D->query_self_rude(me)+"���쿴�㼫��˳�ۣ������ɣ�����\n\n";
-			else msg = "\n$N����$n�������"+callname+"����Ǻ�"+RANK_D->query_self_rude(me)+"�����֣�������˾ȥ����һ״�ɣ�����\n\n";
+				msg = "\n$N对着$n啐了一口：「"+callname+"！怪你生不逢时，"+RANK_D->query_self_rude(me)+"今天看你极不顺眼，认命吧！！」\n\n";
+			else msg = "\n$N对着$n吼道：「"+callname+"！你记好"+RANK_D->query_self_rude(me)+"的名字，死后到阴司去告我一状吧！！」\n\n";
 		}
 
 		else if(obj->query("combat_exp") > me->query("combat_exp")*2){
 			if(me->query("shen") < -10000)
-				msg = "\n$N����$nһ����Ц����"+callname+"������ƽʱҫ������������"+RANK_D->query_self_rude(me)+"��Ҫȡ������������\n\n";
-			else msg = "\n$N����$n�ٺ�һЦ��"+callname+"�����似�����㣬���������ƴ����ҲҪ������ʬ��ϣ���\n\n";
+				msg = "\n$N对着$n一声奸笑：「"+callname+"！别看你平时耀武扬威，今天"+RANK_D->query_self_rude(me)+"就要取你性命！！」\n\n";
+			else msg = "\n$N对着$n嘿嘿一笑："+callname+"，我虽技不如你，但今天就是拼了命也要将你碎尸万断！！\n\n";
 		}
 
 		else {
 			if(me->query("shen") < -10000)
-				msg = "\n$N����$n�ͺ�һ������"+callname+"������Ľ��������ļ��գ���"+RANK_D->query_self_rude(me)+"������·�ɣ�����\n\n";
-			else    msg = "\n$N����$n�ȵ�����" + callname + "���������ѵ����������"+RANK_D->query_self_rude(me)+"����������ɣ���\n\n";
+				msg = "\n$N对着$n猛吼一声：「"+callname+"！明年的今天就是你的祭日，让"+RANK_D->query_self_rude(me)+"送你上路吧！！」\n\n";
+			else    msg = "\n$N对着$n喝道：「" + callname + "！你死期已到，今天就让"+RANK_D->query_self_rude(me)+"送你上西天吧！」\n\n";
 		}
 
 	}
-	else msg = "\n$N���һ������Ȼ����$n��������Ҫ��$pɱ������\n\n";
+	else msg = "\n$N大吼一声，猛然扑向$n，看来是要将$p杀死！！\n\n";
 
 	message_vision(msg, me, obj);
 
@@ -119,7 +119,7 @@ if (userp(obj) && userp(me) && me->query("combat_exp") > obj->query("combat_exp"
 
 	if (userp(me) && userp(obj))
 		log_file("ATTEMP_KILL",
-			sprintf("%s(%s)(%s) ��ͼɱ�� %s(%s)\n",
+			sprintf("%s(%s)(%s) 试图杀死 %s(%s)\n",
 				me->name(1),me->query("id"),query_ip_number(me),obj->name(1),obj->query("id")
 			), me, ({ obj }),"1"
 		);
@@ -130,14 +130,14 @@ if (userp(obj) && userp(me) && me->query("combat_exp") > obj->query("combat_exp"
 		if (userp(me))
 			tell_object(obj,
 				HIR  + me->name()+ "("
-				+capitalize(me->parse_command_id_list()[0])+")����������ಫ��������������������嶯��\n"NOR
+				+capitalize(me->parse_command_id_list()[0])+")想和你性命相搏，可他还是忍下了这个冲动。\n"NOR
 			);
 	} else {
 		obj->fight_ob(me);
 		if (userp(me)) {
 			tell_object(obj,
-				HIR "�����Ҫ��" + me->name()+ "("
-				+capitalize(me->parse_command_id_list()[0])+")�����ಫ������Ҳ���������һ�� kill ָ�\n"NOR
+				HIR "如果你要和" + me->name()+ "("
+				+capitalize(me->parse_command_id_list()[0])+")性命相搏，请你也对这个人下一次 kill 指令。\n"NOR
 			);
 			if ( (!obj->query_condition("killer") || !obj->query_condition("pk"))
 			&& (me->query_temp("kill_other/"+obj->query("id"))
@@ -150,8 +150,8 @@ if (userp(obj) && userp(me) && me->query("combat_exp") > obj->query("combat_exp"
 				gfight = GROUP_D->is_group_fight(me,obj);
 				if( gfight != 1 ) {
 					if( gfight < 0 ) me->add_busy(15); else me->add_busy(2);
-					message_vision("$N�޷�������$n����������\n", me, obj);
-					// ������ʽ�û� ��ɥʧ��mud�е����PK�Ĺ�ƽ
+					message_vision("$N无法马上向$n发动攻击。\n", me, obj);
+					// 保护正式用户 别丧失了mud中的灵魂PK的公平
 					//if (userp(me) && me->query("registered") < 3 && userp(obj) && obj->query("registered") > 2)
 					//	me->add_busy(2);
 //						me->unconcious();
@@ -162,7 +162,7 @@ if (userp(obj) && userp(me) && me->query("combat_exp") > obj->query("combat_exp"
 		
         if(meisdummy(me,obj) && !strsrch(file_name(environment(me)), "/cmds/leitai/dzd") >= 0 )
 	{
-		message_vision("$N��Ȼ�����Լ��������ף���ʱ�����ҡ�\n", me);
+		message_vision("$N忽然想起自己是死大米，顿时万念俱灰。\n", me);
 		me->set("qi", -1);		
 	}
 	return 1;
@@ -171,31 +171,31 @@ if (userp(obj) && userp(me) && me->query("combat_exp") > obj->query("combat_exp"
 int help(object me)
 {
   write(@HELP
-ָ���ʽ : kill <����>
+指令格式 : kill <人物>
 
-���ָ������������ʼ����һ�����������ͼɱ���Է���kill �� fight ����
-��ͬ����˫�������浶ʵǹ�ش򶷣�Ҳ����˵����������ˡ����� kill ֻ�赥��
-��һ����Ը�Ϳ��Գ������������κ���ʹ�� kill ָ��Ὺʼս����ͨ�����
-�Է��� NPC �Ļ�������Ҳ��ͬ������ʹ�� kill��
+这个指令让你主动开始攻击一个人物，并且试图杀死对方，kill 和 fight 最大的
+不同在于双方将会真刀实枪地打斗，也就是说，会真的受伤。由于 kill 只需单方
+面一厢情愿就可以成立，因此你对任何人使用 kill 指令都会开始战斗，通常如果
+对方是 NPC 的话，他们也会同样对你使用 kill。
 
-�����˶���ʹ�� kill ָ��ʱ����ֺ�ɫ�����������㣬����һ����Ҷ��ԣ����
-��û�ж�һ������ʹ�ù� kill ָ��Ͳ��Ὣ�Է���Ĵ��˻�ɱ��( ʹ�÷�����
-��)��
+当有人对你使用 kill 指令时会出现红色的字样警告你，对于一个玩家而言，如果
+你没有对一名敌人使用过 kill 指令，就不会将对方真的打伤或杀死( 使用法术除
+外)。
 
-Ŀǰ���PVP��killָ���ʹ������˵�����£�
+目前针对PVP对kill指令的使用限制说明如下：
 
-1 ����ʹ�ã�
-            ������Է�ʵս����<100K
-            �Է�����*2/3 > ��������
-            ��������>�Է�����*3/2
-�޷�ʹ��KILLָ�����������ص�PKָ�
+1 限制使用：
+            自身或对方实战经验<100K
+            对方经验*2/3 > 自身经验
+            自身经验>对方经验*3/2
+无法使用KILL指令及部分其他相关的PK指令。
 
-2 �����������ͨ������ɱ�˷���ʹ��Killָ����������ơ�
-            ͨ������ɱ�˷����ڱ�������ʱ������������
-�������ָ��: fight
+2 例外情况：对通缉犯（杀人犯）使用Kill指令不受上述限制。
+            通缉犯（杀人犯）在被动防卫时不受上述限制
+其他相关指令: fight
 
 
-�й� fight �� kill �������뿴 'help battle'.
+有关 fight 跟 kill 的区分请看 'help battle'.
 HELP
     );
     return 1;

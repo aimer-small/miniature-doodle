@@ -1,4 +1,4 @@
-//brush.c »ù±¾±Ê·¨
+//brush.c åŸºæœ¬ç¬”æ³•
 
 inherit SKILL;
 

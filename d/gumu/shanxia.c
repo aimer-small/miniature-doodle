@@ -5,19 +5,19 @@ inherit ROOM;
 int get_object(object ob);
 void create()
 {
-        set("short", HIG"����ɽ��"NOR);
+        set("short", HIG"终南山下"NOR);
         set("long", @LONG
-����������ɽ�£�����һƬ��ţ�ֻ��Ȫ����������˼���������ɽʯ
-��ᾣ���ľï�ܣ�����֮�����ࡣ�ڲ�Զ���Ĺ�ľ���У�����ԼԼ�ĺ����и�
-Сɽ��(dong)��
+这里是终南山下，四周一片清寂，只闻泉声鸟语，杳无人迹。四下里山石
+嶙峋，树木茂密，隐蔽之处甚多。在不远处的灌木丛中，隐隐约约的好象有个
+小山洞(dong)。
 LONG
         );
 
         set("item_desc", ([
-           "dong" : HIB"һ���ں�����С������֪��ͨ�����\n"NOR,
+           "dong" : HIB"一个黑乎乎的小洞，不知道通向哪里？\n"NOR,
         ]));
 
-        set("outdoors","��Ĺ");
+        set("outdoors","古墓");
 
         set("exits", ([
                 "northwest" : __DIR__"xiaolu3",

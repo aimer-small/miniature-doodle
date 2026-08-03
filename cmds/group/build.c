@@ -7,16 +7,16 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
-build [·½Ïò]
-·½ÏòÎªÒÔÏÂ·½ÏòÖ®Ò»£º
+æŒ‡ä»¤æ ¼å¼ :
+build [æ–¹å‘]
+æ–¹å‘ä¸ºä»¥ä¸‹æ–¹å‘ä¹‹ä¸€ï¼š
 east,west,north,south,southeast,southwest,northeast,northwest,up,down
-´ËÃüÁîÓÃÀ´½¨ÔìĞÂµÄµÀÂ·£¬Ö»ÓĞÔÚÉèÖÃÓĞ°ïÅÉ½¨Ôì±ê¼ÇµÄµØ·½²ÅÄÜĞÂ½¨×Ô¼ºµÄµÀÂ·¡£
-½¨ÔìµÀÂ·ĞèÒªÊ¯ÁÏ(shi liao)¡£
+æ­¤å‘½ä»¤ç”¨æ¥å»ºé€ æ–°çš„é“è·¯ï¼Œåªæœ‰åœ¨è®¾ç½®æœ‰å¸®æ´¾å»ºé€ æ ‡è®°çš„åœ°æ–¹æ‰èƒ½æ–°å»ºè‡ªå·±çš„é“è·¯ã€‚
+å»ºé€ é“è·¯éœ€è¦çŸ³æ–™(shi liao)ã€‚
 
 build room
-´ËÃüÁîÓÃÀ´ÔÚ½¨ÔìºÃµÄµÀÂ·ÉÏ£¬ĞŞ½¨·¿Îİ¡£
-½¨Ôì·¿ÎİĞèÒªÄ¾ÁÏ(mu liao)¡£
+æ­¤å‘½ä»¤ç”¨æ¥åœ¨å»ºé€ å¥½çš„é“è·¯ä¸Šï¼Œä¿®å»ºæˆ¿å±‹ã€‚
+å»ºé€ æˆ¿å±‹éœ€è¦æœ¨æ–™(mu liao)ã€‚
 
 HELP
 	);
@@ -32,56 +32,56 @@ int main(object me, string arg)
 
 	if( !arg ) return help(me);
 	if( !env || !(env_path=(base_name(env)+".c")) || env_path[0..2]!="/d/" )
-		return notify_fail("ÔÚÄãËù´¦µÄ»·¾³ÀïÎŞ·¨´´½¨·¿Îİ»òµÀÂ·¡£\n");
+		return notify_fail("åœ¨ä½ æ‰€å¤„çš„ç¯å¢ƒé‡Œæ— æ³•åˆ›å»ºæˆ¿å±‹æˆ–é“è·¯ã€‚\n");
 	if( !me->query("group/class") )
-		return notify_fail("Äã»¹Ã»ÓĞ´´½¨×Ô¼ºµÄ°ï»á£¬½¨ÔìµÀÂ·ÓÖÓĞºÎÓÃ£¿\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰åˆ›å»ºè‡ªå·±çš„å¸®ä¼šï¼Œå»ºé€ é“è·¯åˆæœ‰ä½•ç”¨ï¼Ÿ\n");
 	if( me->query("group/class") > 2 )
-		return notify_fail("ÄãµÄµÈ¼¶²»¹»£¬²»ÄÜĞŞ½¨µÀÂ·ºÍ·¿Îİ¡£\n");
+		return notify_fail("ä½ çš„ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä¿®å»ºé“è·¯å’Œæˆ¿å±‹ã€‚\n");
 	if( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if( !GROUP_D->site_now(me->query("group/id")) )
 		return notify_fail( GROUP_D->get_last_error() );
 
 	if(arg!="room") {
 		switch (arg) {
-			case "east":		sdir = "¶«";	dir = "west"; 	break;
-			case "north":		sdir = "±±";	dir = "south";	break;
-			case "west":		sdir = "Î÷";	dir = "east";	break;
-			case "south":		sdir = "ÄÏ";	dir = "north";	break;
-			case "southeast":	sdir = "¶«ÄÏ";	dir = "northwest";break;
-			case "southwest":	sdir = "Î÷ÄÏ";	dir = "northeast";break;
-			case "northwest":	sdir = "Î÷±±";	dir = "southeast";break;
-			case "northeast":	sdir = "¶«±±";	dir = "southwest";break;
-			case "up":		sdir = "ÉÏ";	dir = "down";	break;
-			case "down":		sdir = "ÏÂ";	dir = "up";	break;
-			default: return notify_fail("ÄãÒªÍùÄÄ¸ö·½ÏòĞŞ½¨µÀÂ·£¿\n");
+			case "east":		sdir = "ä¸œ";	dir = "west"; 	break;
+			case "north":		sdir = "åŒ—";	dir = "south";	break;
+			case "west":		sdir = "è¥¿";	dir = "east";	break;
+			case "south":		sdir = "å—";	dir = "north";	break;
+			case "southeast":	sdir = "ä¸œå—";	dir = "northwest";break;
+			case "southwest":	sdir = "è¥¿å—";	dir = "northeast";break;
+			case "northwest":	sdir = "è¥¿åŒ—";	dir = "southeast";break;
+			case "northeast":	sdir = "ä¸œåŒ—";	dir = "southwest";break;
+			case "up":		sdir = "ä¸Š";	dir = "down";	break;
+			case "down":		sdir = "ä¸‹";	dir = "up";	break;
+			default: return notify_fail("ä½ è¦å¾€å“ªä¸ªæ–¹å‘ä¿®å»ºé“è·¯ï¼Ÿ\n");
 		}
 
 		if( !(material=present("shi liao",me)) || !material->query("group") )
-			return notify_fail("ÄãÃ»ÓĞÊ¯ÁÏ£¬ÈçºÎĞŞ½¨µÀÂ·£¿\n");
+			return notify_fail("ä½ æ²¡æœ‰çŸ³æ–™ï¼Œå¦‚ä½•ä¿®å»ºé“è·¯ï¼Ÿ\n");
 		if( stringp(env->query("exits/"+arg)) )
-			return notify_fail("ÄÇ¸ö·½ÏòÒÑ¾­ÓĞ³ö¿ÚÁË¡£\n");
+			return notify_fail("é‚£ä¸ªæ–¹å‘å·²ç»æœ‰å‡ºå£äº†ã€‚\n");
 
 		if( strlen(env_path)<9
 		 || env_path[0..8]!="/d/group/"
 		 || (strlen(env_path)>15 && env_path[0..14]=="/d/group/entry/") ) {
 			if( file_size("/d/group/"+me->query("group/id")) == -2 )
-				return notify_fail("ÄãÒÑ¾­ÔÚ±ğµÄµØ·½½¨Á¢ÁË°ïÅÉµÄ×Ü¶æ¡£\n");
+				return notify_fail("ä½ å·²ç»åœ¨åˆ«çš„åœ°æ–¹å»ºç«‹äº†å¸®æ´¾çš„æ€»èˆµã€‚\n");
 			if( !env->query("group") )
-				return notify_fail("Äã²»ÄÜÔÚÕâÀï´´½¨°ïÅÉ¡£\n");
+				return notify_fail("ä½ ä¸èƒ½åœ¨è¿™é‡Œåˆ›å»ºå¸®æ´¾ã€‚\n");
 			if( mapp( env->query("exits") ) ) {
 				sv = values( env->query("exits") );
 				for(i=0;i<sizeof(sv);i++)
 					if( strlen(sv[i])>9 && sv[i][0..8]=="/d/group/" )
-						return notify_fail("ÒÑ¾­ÓĞÈËÔÚÕâÀï´´½¨°ïÅÉÁË¡£\n");
+						return notify_fail("å·²ç»æœ‰äººåœ¨è¿™é‡Œåˆ›å»ºå¸®æ´¾äº†ã€‚\n");
 			}
 			if( !GROUP_D->get_entry(env_path[0..<3]) )
 				return notify_fail( GROUP_D->get_last_error() );
 
 			if( !mkdir("/d/group/"+me->query("group/id")) )
-				return notify_fail("´´½¨Ä¿Â¼Ê§°Ü£¡Çë±¨¸æÎ×Ê¦¡£\n");
+				return notify_fail("åˆ›å»ºç›®å½•å¤±è´¥ï¼è¯·æŠ¥å‘Šå·«å¸ˆã€‚\n");
 			if( !mkdir("/d/group/"+me->query("group/id")+"/npc") )
-				return notify_fail("´´½¨Ä¿Â¼Ê§°Ü£¡Çë±¨¸æÎ×Ê¦¡£\n");
+				return notify_fail("åˆ›å»ºç›®å½•å¤±è´¥ï¼è¯·æŠ¥å‘Šå·«å¸ˆã€‚\n");
 
 			GROUP_D->set_entry(me->query("group/id"),env_path[0..<3]);
 			//cp(env_path,env_path[0..<3]+".origin");
@@ -94,12 +94,12 @@ int main(object me, string arg)
 
 		if( !GROUP_D->create_room(
 			str = sprintf("/d/group/%s/%d.c",me->query("group/id"),time()),
-			"Ê¯Â·","ÕâÊÇÒ»Ìõ¸Õ¸Õ½¨ÔìºÃ£¬»¹Ã»ÓĞ·ÛË¢µÄÊ¯Â·¡£\n",
+			"çŸ³è·¯","è¿™æ˜¯ä¸€æ¡åˆšåˆšå»ºé€ å¥½ï¼Œè¿˜æ²¡æœ‰ç²‰åˆ·çš„çŸ³è·¯ã€‚\n",
 			sprintf("`%s`:%s`,",dir,env_path),"",
 			me->query("group/id"),GROUP_D->get_group_name(me->query("group/id")),
 			0, env->query("have_board") )
 		)
-			return notify_fail("Ğ´ÎÄ¼şÊ§°Ü£¬Çë±¨¸æÎ×Ê¦£¡\n");
+			return notify_fail("å†™æ–‡ä»¶å¤±è´¥ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 
 		if( env_path[0] == '`' )
 			str2 = "`" + str;
@@ -112,9 +112,9 @@ int main(object me, string arg)
 			(string)env->query("group1"),env->query("outdoors")?env->query("outdoors"):env->query("indoors"),
 			env->query("outdoors")?0:1, env->query("have_board") )
 		)
-			return notify_fail("Ğ´ÎÄ¼şÊ§°Ü£¬Çë±¨¸æÎ×Ê¦£¡\n");
+			return notify_fail("å†™æ–‡ä»¶å¤±è´¥ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 
-		message_vision("$N¿ªÊ¼ÓÃ"+material->name()+"£¬Íù"+sdir+"·½ĞŞ½¨µÀÂ·¡­¡­\n",me);
+		message_vision("$Nå¼€å§‹ç”¨"+material->name()+"ï¼Œå¾€"+sdir+"æ–¹ä¿®å»ºé“è·¯â€¦â€¦\n",me);
 		destruct(material);
 		delay = 10;
 		if( wizardp(me) && me->query("env/test") ) delay = 2;
@@ -126,22 +126,22 @@ int main(object me, string arg)
 	}
 	else {
 		if( !(material=present("mu liao",me)) || !material->query("group") )
-			return notify_fail("ÄãÃ»ÓĞÄ¾ÁÏ£¬ÈçºÎ½¨Ôì·¿Îİ°¡¡£\n");
+			return notify_fail("ä½ æ²¡æœ‰æœ¨æ–™ï¼Œå¦‚ä½•å»ºé€ æˆ¿å±‹å•Šã€‚\n");
 		if( env->query("group1") != me->query("group/id") )
-			return notify_fail("ÄãÖ»ÄÜÔÚ×Ô¼ºµÄ°ïÅÉÀï½¨Ôì·¿Îİ¡£\n");
+			return notify_fail("ä½ åªèƒ½åœ¨è‡ªå·±çš„å¸®æ´¾é‡Œå»ºé€ æˆ¿å±‹ã€‚\n");
 		if( env->query("indoors") )
-			return notify_fail("ÕâÀïÒÑ¾­½¨ÓĞ·¿ÎİÁË¡£\n");
+			return notify_fail("è¿™é‡Œå·²ç»å»ºæœ‰æˆ¿å±‹äº†ã€‚\n");
 
 		if( !GROUP_D->create_room(
 			env_path,
-			"·¿¼ä","ÕâÊÇÒ»×ù¸Õ¸Õ½¨ÔìºÃ£¬»¹Ã»ÓĞ·ÛË¢µÄ·¿Îİ¡£\n",
+			"æˆ¿é—´","è¿™æ˜¯ä¸€åº§åˆšåˆšå»ºé€ å¥½ï¼Œè¿˜æ²¡æœ‰ç²‰åˆ·çš„æˆ¿å±‹ã€‚\n",
 			GROUP_D->get_room_exits(env),GROUP_D->get_room_objects(env),
 			me->query("group/id"),GROUP_D->get_group_name(me->query("group/id")),
 			1, env->query("have_board") )
 		)
-			return notify_fail("Ğ´ÎÄ¼şÊ§°Ü£¬Çë±¨¸æÎ×Ê¦£¡\n");
+			return notify_fail("å†™æ–‡ä»¶å¤±è´¥ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 
-		message_vision("$N¿ªÊ¼ÓÃ"+material->name()+"½¨Ôì·¿Îİ¡­¡­\n",me);
+		message_vision("$Nå¼€å§‹ç”¨"+material->name()+"å»ºé€ æˆ¿å±‹â€¦â€¦\n",me);
 		destruct(material);
 		delay = 10;
 		if( wizardp(me) && me->query("env/test") ) delay = 2;
@@ -158,9 +158,9 @@ void make_finish(object me,int room,string file1,string file2)
 {
 	if( !me ) return;
 	if( !room )
-		tell_object(me,"ÄãÃ¦ÂµÁË°ëÌì£¬×ÜËã°ÑµÀÂ·ĞŞ½¨ºÃÁË¡£\n");
+		tell_object(me,"ä½ å¿™ç¢Œäº†åŠå¤©ï¼Œæ€»ç®—æŠŠé“è·¯ä¿®å»ºå¥½äº†ã€‚\n");
 	else
-		tell_object(me,"ÄãÃ¦ÂµÁË°ëÌì£¬×ÜËã½¨ÔìÆğÒ»×ù·¿Îİ¡£\n");
+		tell_object(me,"ä½ å¿™ç¢Œäº†åŠå¤©ï¼Œæ€»ç®—å»ºé€ èµ·ä¸€åº§æˆ¿å±‹ã€‚\n");
 
 	if( file1 && strlen(file1)>3 ) GROUP_D->update_room(file1);
 	if( file2 && strlen(file2)>3 ) GROUP_D->update_room(file2);

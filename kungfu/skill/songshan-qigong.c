@@ -1,4 +1,4 @@
-// songshan-qigong.c 嵩山气功
+// songshan-qigong.c 宓╁北姘斿姛
 
 inherit FORCE;
 
@@ -7,7 +7,7 @@ int valid_enable(string usage) { return usage == "force"; }
 int valid_learn(object me)
 {
        if ((int)me->query_skill("force", 1) < 10)
-               return notify_fail("你的基本内功火候还不够。\n");
+               return notify_fail("浣犵殑鍩烘湰鍐呭姛鐏�欒繕涓嶅銆俓n");
 
        return 1;
 }
@@ -23,8 +23,8 @@ int practice_skill(object me)
                    me->add("potential", -1*(1+random(3)));
                    return 1;
            }
-           else return notify_fail("你现在的修为不足以提高嵩山气功了。\n");       }
-        else return notify_fail("你现在的嵩山气功修为只能用学(learn)的来增加熟练度。\n");
+           else return notify_fail("浣犵幇鍦ㄧ殑淇负涓嶈冻浠ユ彁楂樺旦灞辨皵鍔熶簡銆俓n");       }
+        else return notify_fail("浣犵幇鍦ㄧ殑宓╁北姘斿姛淇负鍙兘鐢ㄥ(learn)鐨勬潵澧炲姞鐔熺粌搴︺�俓n");
 
 }
 

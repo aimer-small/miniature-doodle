@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIW"ÀïÎÝ"NOR);
+	set("short", HIW"é‡Œå±‹"NOR);
 	set("long",@LONG
-ÀïÎÝµÄ³ÂÉè¾Í¸ü¼Ó¼òµ¥£¬Ò»°Ñ·÷³¾£¬Ò»ÕÅ×øµæ£¬±ðÎÞËüÎï¡£Ò»ÃûÀÏÉ®ÕýÔÚ
-±ÕÄ¿Èë¶¨¡£
+é‡Œå±‹çš„é™ˆè®¾å°±æ›´åŠ ç®€å•ï¼Œä¸€æŠŠæ‹‚å°˜ï¼Œä¸€å¼ ååž«ï¼Œåˆ«æ— å®ƒç‰©ã€‚ä¸€åè€åƒ§æ­£åœ¨
+é—­ç›®å…¥å®šã€‚
 LONG
     );
 	set("exits",([
@@ -40,12 +40,12 @@ int do_sangong()
 	if (!me->query_temp("sangong")) return 0;
 	
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	
 	if ( ! present("wuming laoseng", environment(me)))
-		return notify_fail("ÄãÊ¦¸µ²»ÔÚÄãÉí±ß£¬¶À×ÔÉ¢¹¦£¬¿ÉÄÜÓÐÎ£ÏÕ¡£\n");
+		return notify_fail("ä½ å¸ˆå‚…ä¸åœ¨ä½ èº«è¾¹ï¼Œç‹¬è‡ªæ•£åŠŸï¼Œå¯èƒ½æœ‰å±é™©ã€‚\n");
 
-	message_vision(HIW"\nÎÞÃûÀÏÉ®ÔÚ$NÍ·¶¥ÇáÇáµÄÅÄÁË¼¸ÏÂ£¬µ«¼û$NÍ·¶¥Ã°³öÒ»¹É°×Æø£¬»º»ºÉÏÉý¡£\n"NOR, me);
+	message_vision(HIW"\næ— åè€åƒ§åœ¨$Nå¤´é¡¶è½»è½»çš„æ‹äº†å‡ ä¸‹ï¼Œä½†è§$Nå¤´é¡¶å†’å‡ºä¸€è‚¡ç™½æ°”ï¼Œç¼“ç¼“ä¸Šå‡ã€‚\n"NOR, me);
 	
 	switch (me->query_temp("sangong")){
 		case "pass_xin":
@@ -58,14 +58,14 @@ int do_sangong()
 			me->set_skill("weituo-chu", ryb);
 			me->delete_skill("riyue-bian");
 			break;
-		default : return notify_fail("àæ£¿ÓÐÎÊÌâ£¬Çë±¨¸æwiz£¡\n");
+		default : return notify_fail("å™«ï¼Ÿæœ‰é—®é¢˜ï¼Œè¯·æŠ¥å‘Šwizï¼\n");
 	}
 	me->add("max_neili", -i/2);
 	me->set_skill("buddhism", 180);
 	me->set("sl_wtc", 1);
 	me->set("no_recover", 1);
 	me->delele_temp("sangong");
-	message_vision(HIR"\n$N´óº¹ÁÜÀì£¬Á³É«¼«ÆäÍ´¿à£¬·Â·ðÔÚ¾­ÀúºÜ´óµÄÄ¥ÄÑ¡­¡­\n\n"NOR, me);
+	message_vision(HIR"\n$Nå¤§æ±—æ·‹æ¼“ï¼Œè„¸è‰²æžå…¶ç—›è‹¦ï¼Œä»¿ä½›åœ¨ç»åŽ†å¾ˆå¤§çš„ç£¨éš¾â€¦â€¦\n\n"NOR, me);
 	me->unconcious();
 	return 1;
 }

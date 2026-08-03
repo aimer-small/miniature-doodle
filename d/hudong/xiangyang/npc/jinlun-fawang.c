@@ -16,14 +16,14 @@ string* luns = ({
 void create()
 {
         object weapon;
-        set_name("½ğÂÖ·¨Íõ", ({ "jinlun fawang", "jinlunfawang","fawang" ,"jinlun"}));
+        set_name("é‡‘è½®æ³•ç‹", ({ "jinlun fawang", "jinlunfawang","fawang" ,"jinlun"}));
         set("long",@LONG
-ËûÉí²Ä¸ßÊİ£¬Á³¼ÕÉîÏİ£¬Ë«Ä¿¿´ËÆÎŞÉñ£¬Á½±ßÌ«ÑôÑ¨È´¸ß¸ßÍ¹Æğ£¬ÃæÈİÑÏËà¡£
-ËûÊÜ·â¡°ÃÉ¹Å¹úµÚÒ»¹úÊ¦¡±£¬Á·µÃÒ»ÉíÍ¨Ìì³¹µØµÄÉñ¹¦¡£
+ä»–èº«æé«˜ç˜¦ï¼Œè„¸é¢Šæ·±é™·ï¼ŒåŒç›®çœ‹ä¼¼æ— ç¥ï¼Œä¸¤è¾¹å¤ªé˜³ç©´å´é«˜é«˜å‡¸èµ·ï¼Œé¢å®¹ä¸¥è‚ƒã€‚
+ä»–å—å°â€œè’™å¤å›½ç¬¬ä¸€å›½å¸ˆâ€ï¼Œç»ƒå¾—ä¸€èº«é€šå¤©å½»åœ°çš„ç¥åŠŸã€‚
 LONG
         );
-        set("title", HIY "ÃÉ¹Å¹úµÚÒ»¹úÊ¦" NOR);
-        set("gender", "ÄĞĞÔ");
+        set("title", HIY "è’™å¤å›½ç¬¬ä¸€å›½å¸ˆ" NOR);
+        set("gender", "ç”·æ€§");
         set("class", "huanxi");
         set("age", 65);
         set("attitude", "friendly");
@@ -68,16 +68,16 @@ LONG
         prepare_skill("hand","dashou-yin");
         prepare_skill("claw","tianwang-zhua");
 
-        create_family("´óÂÖËÂ", 10, "µÜ×Ó");
+        create_family("å¤§è½®å¯º", 10, "å¼Ÿå­");
        
         set("lun_count",5);
         set("lun_count2",1);
         set("class", "huanxi");
         set("chat_chance", 2);     
         set("chat_msg", ({
-		CYN"½ğÂÖ·¨Íõ°ÁÈ»µÀ£ºµÚÊ®²ãÁúÏó°ãÈô¹¦ÎÒÒÑÈÚ»á¹áÍ¨£¬¹ÅÍù½ñÀ´£¬ÎÒÊÇµÚ¶şÈË£¡\n"NOR,
-		CYN"½ğÂÖ·¨Íõ·ß·ßµÄµÀ£ºÖĞÔ­ÎäÈË²»½²¹æ¾Ø£¬ÕÌ×ÅÈË¶à£¬´ó»ï¶ùÀ´¸öÒ»Óµ¶øÉÏ¡£\n"NOR,
-		CYN"½ğÂÖ·¨Íõ·ß·ßµÄµÀ: ºß£¬·ñÔòÆ¾ÎÒÒ»ÈËÖ®Á¦µ±¿ÉÈ¡µÃÎäÁÖÃËÖ÷Ö®Î»¡£\n"NOR,
+		CYN"é‡‘è½®æ³•ç‹å‚²ç„¶é“ï¼šç¬¬åå±‚é¾™è±¡èˆ¬è‹¥åŠŸæˆ‘å·²èä¼šè´¯é€šï¼Œå¤å¾€ä»Šæ¥ï¼Œæˆ‘æ˜¯ç¬¬äºŒäººï¼\n"NOR,
+		CYN"é‡‘è½®æ³•ç‹æ„¤æ„¤çš„é“ï¼šä¸­åŸæ­¦äººä¸è®²è§„çŸ©ï¼Œä»—ç€äººå¤šï¼Œå¤§ä¼™å„¿æ¥ä¸ªä¸€æ‹¥è€Œä¸Šã€‚\n"NOR,
+		CYN"é‡‘è½®æ³•ç‹æ„¤æ„¤çš„é“: å“¼ï¼Œå¦åˆ™å‡­æˆ‘ä¸€äººä¹‹åŠ›å½“å¯å–å¾—æ­¦æ—ç›Ÿä¸»ä¹‹ä½ã€‚\n"NOR,
 	}) );
         set("chat_chance_combat", 60);
         set("chat_msg_combat", ({
@@ -110,7 +110,7 @@ LONG
 	object me = this_player();
        	::init();
 	if ( me->query_temp("/quest/tzauto/yideng") == 1) {
-                command("chat ºÎÈË¾¹¸ÒÒ¹´³ÖĞ¾ü´óÕÊ£¬Ö»ÅÂÄãÓĞÃüÀ´ÎŞÃü»ØÁË£¡ ");
+                command("chat ä½•äººç«Ÿæ•¢å¤œé—¯ä¸­å†›å¤§å¸ï¼Œåªæ€•ä½ æœ‰å‘½æ¥æ— å‘½å›äº†ï¼ ");
                 command("chat* sneer "+me->query("id"));
                  		kill_ob(me);
 		me->fight_ob(this_object());
@@ -122,8 +122,8 @@ LONG
  void die()
 
  {
-       message_vision("$NºŞºŞµÄ¶ÔÄãËµ£º¡°Õâ´ÎËãÄãÃü´ó£¡¡±¡£\n", this_object());
-       message_vision("$N¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n", this_object());
+       message_vision("$Næ¨æ¨çš„å¯¹ä½ è¯´ï¼šâ€œè¿™æ¬¡ç®—ä½ å‘½å¤§ï¼â€ã€‚\n", this_object());
+       message_vision("$Nå‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n", this_object());
        destruct(this_object());
     
 }

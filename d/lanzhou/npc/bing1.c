@@ -1,12 +1,12 @@
-// bing.c ¹Ù±ø
+// bing.c å®˜å…µ
 #include <ansi.h>
 inherit NPC;
 void create()
 {
-        set_name("±ß·À¹Ù±ø", ({ "guan bing", "bing" }));
+        set_name("è¾¹é˜²å®˜å…µ", ({ "guan bing", "bing" }));
         set("age", 32);
-        set("gender", "ÄÐÐÔ");
-        set("long", "ËûÊÇ¸ö³¤Äê×¤ÊØÕâÀïµÄ±ß·À±ø¡£\n");
+        set("gender", "ç”·æ€§");
+        set("long", "ä»–æ˜¯ä¸ªé•¿å¹´é©»å®ˆè¿™é‡Œçš„è¾¹é˜²å…µã€‚\n");
         set("attitude", "peaceful");
         set("str", 33);
         set("int", 16);
@@ -29,7 +29,7 @@ void create()
 
 int accept_fight(object me)
 {
-        command("say ´óÒ¯ÎÒÊØ±ß¹ØÀÛµÃÒªËÀ£¬Ã»¿ÕºÍ"+RANK_D->query_respect(me)+"¹ýÕÐÍæ¡£\n");
+        command("say å¤§çˆ·æˆ‘å®ˆè¾¹å…³ç´¯å¾—è¦æ­»ï¼Œæ²¡ç©ºå’Œ"+RANK_D->query_respect(me)+"è¿‡æ‹›çŽ©ã€‚\n");
         return 0;
 }
 /*
@@ -44,25 +44,25 @@ void init()
 	}
 	else if(random(50)<=1){
 		me=this_object();         
-		command("say Õâ¸ö"+RANK_D->query_rude(ob)+"¸øÎÒÕ¾×¡£¬ÀýÐÐ¼ì²é£¡");
+		command("say è¿™ä¸ª"+RANK_D->query_rude(ob)+"ç»™æˆ‘ç«™ä½ï¼Œä¾‹è¡Œæ£€æŸ¥ï¼");
 		if(ob->query("guanbing")){
 			ob->add("guanbing", -1);
-			message_vision(HIY"$n¶Ô×Å$N¿´ÁË°ëÌì£¬×îºóÕÐÁËÕÐÊÖÈÃ$N¿ì×ß¡£\n"NOR, ob, me);
+			message_vision(HIY"$nå¯¹ç€$Nçœ‹äº†åŠå¤©ï¼Œæœ€åŽæ‹›äº†æ‹›æ‰‹è®©$Nå¿«èµ°ã€‚\n"NOR, ob, me);
 			return;
 		}
-		message_vision(HIY"$n½«$NÀ¹×¡£¬ÔÚ$NÉíÉÏÃþË÷ÁË°ëÌì¡£\n"NOR, ob, me);
+		message_vision(HIY"$nå°†$Næ‹¦ä½ï¼Œåœ¨$Nèº«ä¸Šæ‘¸ç´¢äº†åŠå¤©ã€‚\n"NOR, ob, me);
 		ob->start_busy(5);
 		if(money = present("gold_money", ob)){
 			money->move(me);
 			ob->add("guanbing", 2);
-			tell_object(ob, HIR "½á¹ûÄã·¢ÏÖ±ß·À¹Ù±ø½«ÄãÉíÉÏµÄ»Æ½ðÄÃ×ßÁË£¡\n"NOR);
+			tell_object(ob, HIR "ç»“æžœä½ å‘çŽ°è¾¹é˜²å®˜å…µå°†ä½ èº«ä¸Šçš„é»„é‡‘æ‹¿èµ°äº†ï¼\n"NOR);
 		}
 		else if(money = present("silver_money", ob)){
 			money->move(me);
 			ob->add("guanbing", 1);
-			tell_object(ob, HIR "½á¹ûÄã·¢ÏÖ±ß·À¹Ù±ø½«ÄãÉíÉÏµÄ°×ÒøÄÃ×ßÁË£¡\n"NOR);
+			tell_object(ob, HIR "ç»“æžœä½ å‘çŽ°è¾¹é˜²å®˜å…µå°†ä½ èº«ä¸Šçš„ç™½é“¶æ‹¿èµ°äº†ï¼\n"NOR);
 		}
-		else command("say ÄãÕâ¸öÇî¹âµ°£¬Á¬µãÓÍË®¶¼Ã»ÓÐ£¬¸øÎÒ¹ö£¡");
+		else command("say ä½ è¿™ä¸ªç©·å…‰è›‹ï¼Œè¿žç‚¹æ²¹æ°´éƒ½æ²¡æœ‰ï¼Œç»™æˆ‘æ»šï¼");
 		command("kick "+ ob->query("id"));                
 	}
 }

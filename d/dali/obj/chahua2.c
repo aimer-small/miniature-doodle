@@ -8,17 +8,17 @@ inherit HEAD;
 
 void create()
 {
-             set_name(HIM"°ËÏÉ¹ıº£"NOR,({ "baxian guohai", "flower", "hua" }) );
+             set_name(HIM"å…«ä»™è¿‡æµ·"NOR,({ "baxian guohai", "flower", "hua" }) );
          set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
+                set("unit", "æœµ");
                 set("value", 0);
                 set("material", "plant");
-                set("long", "ÕâÊÇÒ»¶ä°ËÏÉ¹ıº£¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æœµå…«ä»™è¿‡æµ·ã€‚\n");
                 set("wear_msg", "");
-                set("unequip_msg", "$NÕªÏÂĞØÇ°µÄ$n¡£\n");
+                set("unequip_msg", "$Næ‘˜ä¸‹èƒ¸å‰çš„$nã€‚\n");
                 set("armor_prop/armor", 0);
         }
            
@@ -30,14 +30,14 @@ int wear()
 	object me = environment();
 	int ret;
 
-        message_vision("$NÄÃ³öÒ»¶ä" + this_object()->query("name") + "£¬´÷ÔÚĞØÇ°¡£\n", me);
+        message_vision("$Næ‹¿å‡ºä¸€æœµ" + this_object()->query("name") + "ï¼Œæˆ´åœ¨èƒ¸å‰ã€‚\n", me);
 	if (ret=::wear()) {
-		if (me->query("gender") == "ÄĞĞÔ")
-			message_vision("ºÃÒ»¸ö·çÁ÷ÉÙÄêÀÉ£¡\n", me);
-		else if (me->query("gender") == "Å®ĞÔ")
-			message_vision("ºÃÒ»¸öÃÀÀöÇÎ¼ÑÍŞ£¡\n", me);
+		if (me->query("gender") == "ç”·æ€§")
+			message_vision("å¥½ä¸€ä¸ªé£æµå°‘å¹´éƒï¼\n", me);
+		else if (me->query("gender") == "å¥³æ€§")
+			message_vision("å¥½ä¸€ä¸ªç¾ä¸½ä¿ä½³å¨ƒï¼\n", me);
 		else
-			message_vision("ºÃÒ»¸ö²»Èı²»ËÄµÄ¼Ò»ï£¡\n", me);
+			message_vision("å¥½ä¸€ä¸ªä¸ä¸‰ä¸å››çš„å®¶ä¼™ï¼\n", me);
 	}
 	return ret;
 }

@@ -5,15 +5,15 @@ inherit ITEM;
 void create()
 {
 
-       set_name(HIR"»ğÑæ"NOR, ({ "huo yan"}) );
+       set_name(HIR"ç«ç„°"NOR, ({ "huo yan"}) );
        if( clonep() )
                set_default_object(__FILE__);
        else {
-               set("long", HIR"»ğÑæ¸ßÔ¼³ß£¬É«×÷´¿±Ì£¬¹íÆøÉ­É­£¬ºÍÑ°³£»ğÑæ´óÒì¡£\n"NOR );
+               set("long", HIR"ç«ç„°é«˜çº¦å°ºï¼Œè‰²ä½œçº¯ç¢§ï¼Œé¬¼æ°”æ£®æ£®ï¼Œå’Œå¯»å¸¸ç«ç„°å¤§å¼‚ã€‚\n"NOR );
                set("no_get", 1);
                set("value", 1);
-               set("unit", "¶Ñ");
-               set("fire_name", "»ğÑæ");
+               set("unit", "å †");
+               set("fire_name", "ç«ç„°");
                set("weight", 30000);
                set("location", 1);
        }
@@ -29,14 +29,14 @@ void init()
 }
 
 string *fire_msg = ({
-	BLU"»ğÑæ"NOR, RED"»ğÑæ"NOR, WHT"»ğÑæ"NOR, GRN"»ğÑæ"NOR, MAG"»ğÑæ"NOR,
-	HIB"»ğÑæ"NOR, HIR"»ğÑæ"NOR, HIW"»ğÑæ"NOR, HIG"»ğÑæ"NOR, HIM"»ğÑæ"NOR,
-	YEL"»ğÑæ"NOR, HIY"»ğÑæ"NOR,
+	BLU"ç«ç„°"NOR, RED"ç«ç„°"NOR, WHT"ç«ç„°"NOR, GRN"ç«ç„°"NOR, MAG"ç«ç„°"NOR,
+	HIB"ç«ç„°"NOR, HIR"ç«ç„°"NOR, HIW"ç«ç„°"NOR, HIG"ç«ç„°"NOR, HIM"ç«ç„°"NOR,
+	YEL"ç«ç„°"NOR, HIY"ç«ç„°"NOR,
 });
 
 void change()
 {
-    	tell_room(environment(this_object()),this_object()->name()+HIR"»íÈ»Ò»°µ£¬½Ó×Å»ğ¹â±¬³¤£¬¾¹È»±äÁËÑÕÉ«£¬¿´ÆğÀ´¹ÖÒìÎŞ±È£¡\n"NOR);    
+    	tell_room(environment(this_object()),this_object()->name()+HIR"è±ç„¶ä¸€æš—ï¼Œæ¥ç€ç«å…‰çˆ†é•¿ï¼Œç«Ÿç„¶å˜äº†é¢œè‰²ï¼Œçœ‹èµ·æ¥æ€ªå¼‚æ— æ¯”ï¼\n"NOR);    
     	this_object()->set("name", fire_msg[random(sizeof(fire_msg))]);    
     	remove_call_out("change");
     	call_out("change", 50);  
@@ -44,6 +44,6 @@ void change()
  
 void dest()
 {
-        tell_room(environment(this_object()),HIR"»ğÑæ½¥½¥µØÏ¨ÃğÁË¡£\n"NOR);
+        tell_room(environment(this_object()),HIR"ç«ç„°æ¸æ¸åœ°ç†„ç­äº†ã€‚\n"NOR);
         destruct(this_object());
 }

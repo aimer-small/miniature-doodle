@@ -6,16 +6,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("鳄鱼", ({ "e yu", "eyu" }));
-        set("race", "野兽");
+        set_name("槌勯奔", ({ "e yu", "eyu" }));
+        set("race", "閲庡吔");
         set("age", 10);
-        set("long", "一条庞大无比的大鳄鱼，张开大嘴象你游来。\n");
+        set("long", "涓�鏉″簽澶ф棤姣旂殑澶ч硠楸硷紝寮犲紑澶у槾璞′綘娓告潵銆俓n");
         set("attitude", "aggressive");
         set("str", 70);
         set("con", 50);
         set("max_qi", 8000);
-        set("no_get", "鳄鱼对你而言太重了。\n");
-        set("limbs", ({ "头部", "身体", "尾巴" }) );
+        set("no_get", "槌勯奔瀵逛綘鑰岃█澶噸浜嗐�俓n");
+        set("limbs", ({ "澶撮儴", "韬綋", "灏惧反" }) );
         set("verbs", ({ "bite" }) );
         set("combat_exp", 500000);
         set_temp("apply/attack", 200);

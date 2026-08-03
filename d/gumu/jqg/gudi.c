@@ -14,24 +14,24 @@ void init()
 
 void create()
 {
-       set("short", HIG"¹Èµ×"NOR);
+       set("short", HIG"è°·åº•"NOR);
        set("long", @long
-ÄãÀ´µ½¹Èµ×£¬È´·¢ÏÖÕâÀïÔ­À´ÊÇÒ»´¦±ÌË®ÇåÌ¶(tan£©¡£ÖÜÎ§°¶±ßÓÐ¼¸¿Ã´ó
-Ê÷¡£Ê÷ÉÏÅÅÁÐ×ÅÊýÊ®¸ö·ä³²(fengchao)¡£¶øÔÚ³²ÅÏ·ÉÀ´·ÉÈ¥µÄ¶¼ÊÇÒ»Ð©ÌåÐÎË¶
-´ó£¬ÑÕÉ«»Ò°×µÄÒìÖÖÓñ·ä£¬µØÉÏÆÌÂúÁË¶ìÂÑÊ¯(shi)¡£
+ä½ æ¥åˆ°è°·åº•ï¼Œå´å‘çŽ°è¿™é‡ŒåŽŸæ¥æ˜¯ä¸€å¤„ç¢§æ°´æ¸…æ½­(tanï¼‰ã€‚å‘¨å›´å²¸è¾¹æœ‰å‡ æ£µå¤§
+æ ‘ã€‚æ ‘ä¸ŠæŽ’åˆ—ç€æ•°åä¸ªèœ‚å·¢(fengchao)ã€‚è€Œåœ¨å·¢ç•”é£žæ¥é£žåŽ»çš„éƒ½æ˜¯ä¸€äº›ä½“å½¢ç¡•
+å¤§ï¼Œé¢œè‰²ç°ç™½çš„å¼‚ç§çŽ‰èœ‚ï¼Œåœ°ä¸Šé“ºæ»¡äº†é¹…åµçŸ³(shi)ã€‚
 long);
        set("item_desc", ([
-          "fengchao": HIY"Äã×ß½ü³²±ß¹Û²ì£¬Ö»¼û·ä³²Ö®ÅÔºýÓÐÄàÍÁ£¬ÊµÊÇÈË¹¤ËùÎª¡£\n"NOR,
-          "tan": HIC"Äã¾ÙÄ¿ÏòÌ¶ÖÐÍûÈ¥£¬µ«¼ûË®Ì¶ÀïÃæÀ¶É­É­£¬ÇàÓôÓô£¬º®Æø±ÆÈË£¬ËÆºõ½áÂúÐþ±ù£¬\n"+
-                    "Ò»ÑÛÍû²»µ½µ×¡£\n"NOR,
-          "shi":"Ò»¿é¿é´ó´óÐ¡Ð¡µÄ¶ìÂÑÊ¯£¬ÄãÈÌ²»×¡Ïë¼ñ(jian)ÆðÀ´¿´¿´¡£\n",
+          "fengchao": HIY"ä½ èµ°è¿‘å·¢è¾¹è§‚å¯Ÿï¼Œåªè§èœ‚å·¢ä¹‹æ—ç³Šæœ‰æ³¥åœŸï¼Œå®žæ˜¯äººå·¥æ‰€ä¸ºã€‚\n"NOR,
+          "tan": HIC"ä½ ä¸¾ç›®å‘æ½­ä¸­æœ›åŽ»ï¼Œä½†è§æ°´æ½­é‡Œé¢è“æ£®æ£®ï¼Œé’éƒéƒï¼Œå¯’æ°”é€¼äººï¼Œä¼¼ä¹Žç»“æ»¡çŽ„å†°ï¼Œ\n"+
+                    "ä¸€çœ¼æœ›ä¸åˆ°åº•ã€‚\n"NOR,
+          "shi":"ä¸€å—å—å¤§å¤§å°å°çš„é¹…åµçŸ³ï¼Œä½ å¿ä¸ä½æƒ³æ¡(jian)èµ·æ¥çœ‹çœ‹ã€‚\n",
        ]));
 
        set("objects", ([
                   "/d/gumu/npc/bee" : 1,
        ]));
 
-       set("outdoors", "¾øÇé¹È");
+       set("outdoors", "ç»æƒ…è°·");
        setup();
 }
 
@@ -41,14 +41,14 @@ int do_pa(string arg)
 
 	me=this_player();
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if ( !arg || arg != "yabi")
-       		return notify_fail("ÄãÒªÍùÄÄÅÀ£¿\n");
-	message_vision(YEL"$N²ü²üàäàäµØÅÀÁËÉÏÈ¥¡£\n"NOR, me);
+       		return notify_fail("ä½ è¦å¾€å“ªçˆ¬ï¼Ÿ\n");
+	message_vision(YEL"$Né¢¤é¢¤å™¤å™¤åœ°çˆ¬äº†ä¸ŠåŽ»ã€‚\n"NOR, me);
 	me->move(__DIR__"yabi7");
 	me->add_temp("tengacc",1);
         me->start_busy(1);
-	tell_room(environment(me), me->name() + "´ÓÏÂÃæ²ü²üàäàäÅÀÁËÉÏÀ´¡£\n", ({ me }));
+	tell_room(environment(me), me->name() + "ä»Žä¸‹é¢é¢¤é¢¤å™¤å™¤çˆ¬äº†ä¸Šæ¥ã€‚\n", ({ me }));
 	return 1;
 }
 
@@ -57,13 +57,13 @@ int do_tiao(string arg)
 	object me;
 	me=this_player();
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if ( !arg || arg != "tan")
-       		return notify_fail("ÄãÒªÍùÄÄÌø£¿\n");
-	message_vision(HIY"$NÆËÍ¨Ò»Éù£¬Ó¿ÉíÌøÈëÁËË®Ì¶¡£\n"NOR, me);
+       		return notify_fail("ä½ è¦å¾€å“ªè·³ï¼Ÿ\n");
+	message_vision(HIY"$Næ‰‘é€šä¸€å£°ï¼Œæ¶Œèº«è·³å…¥äº†æ°´æ½­ã€‚\n"NOR, me);
 	me->move(__DIR__"guditan1");
-	tell_room(environment(me), me->name() + "´Ó°¶±ßÌøÁËÏÂÀ´¡£\n", ({ me }));
-        message_vision (HIB"$NÖ»¾õµÃÍ·ÔÎÔÎµÄ£¬ÉíÌå½þÔÚ±ùÀäµÄË®ÖÐ£¬²»×¡µÄ²ü¶¶¡£\n"NOR,me);
+	tell_room(environment(me), me->name() + "ä»Žå²¸è¾¹è·³äº†ä¸‹æ¥ã€‚\n", ({ me }));
+        message_vision (HIB"$Nåªè§‰å¾—å¤´æ™•æ™•çš„ï¼Œèº«ä½“æµ¸åœ¨å†°å†·çš„æ°´ä¸­ï¼Œä¸ä½çš„é¢¤æŠ–ã€‚\n"NOR,me);
 	return 1;
 }
 
@@ -72,17 +72,17 @@ int do_jian(string arg)
         object me,ob;
         me=this_player();
         if (me->is_busy() || me->is_fighting())
-                return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+                return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
         if ( !arg || arg != "shi")
-                return notify_fail("ÄãÒª¼ñÆðÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦æ¡èµ·ä»€ä¹ˆï¼Ÿ\n");
         if ((int)me->query_encumbrance() * 100 / (int)me->query_max_encumbrance() >= 100) 
-                return notify_fail("ÄãµÄ¸ººÉ¹ýÖØÁË£¡\n");
+                return notify_fail("ä½ çš„è´Ÿè·è¿‡é‡äº†ï¼\n");
         switch  (random(3)){
         case 0: ob = new(__DIR__"obj/shi1"); break;
         case 1: ob = new(__DIR__"obj/shi2"); break;
         case 2: ob = new(__DIR__"obj/shi3"); break;
         }
         ob->move(me);
-        message_vision("$NÍäÏÂÑü£¬´ÓµØÉÏ¼ñÆðÁËÒ»¿é"+ob->name()+"¡£\n",me);
+        message_vision("$Nå¼¯ä¸‹è…°ï¼Œä»Žåœ°ä¸Šæ¡èµ·äº†ä¸€å—"+ob->name()+"ã€‚\n",me);
         return 1;
 }

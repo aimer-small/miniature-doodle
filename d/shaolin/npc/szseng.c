@@ -4,14 +4,14 @@ string ask_job();
 
 void create()
 {
-	set_name("ÊÌÖàÉ®", ({ "shizhou seng", "shizhou","seng" }) );
-	set("gender", "ÄÐÐÔ" );
+	set_name("ä¾ç²¥åƒ§", ({ "shizhou seng", "shizhou","seng" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 30);
-	set("long", "Ëû°ò´óÑüÔ²£¬¿´À´³¤Äê´ÓÊÂÌåÁ¦ÀÍ¶¯£¡\n");
+	set("long", "ä»–è†€å¤§è…°åœ†ï¼Œçœ‹æ¥é•¿å¹´ä»Žäº‹ä½“åŠ›åŠ³åŠ¨ï¼\n");
 	set("combat_exp", 10000);
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"°¾Öà" : (: ask_job :),
+		"ç†¬ç²¥" : (: ask_job :),
 	]));
 	setup();
 }
@@ -31,29 +31,29 @@ string ask_job()
 {
 	object ob = this_player();
 
-	if (ob->query("family/family_name") != "ÉÙÁÖÅÉ")
-		return RANK_D->query_respect(ob)+"·ÇÎÒËÂµÜ×Ó£¬»¹ÊÇ²»ÐèÒªÄãÀ´°ïÃ¦ÁË¡£";
+	if (ob->query("family/family_name") != "å°‘æž—æ´¾")
+		return RANK_D->query_respect(ob)+"éžæˆ‘å¯ºå¼Ÿå­ï¼Œè¿˜æ˜¯ä¸éœ€è¦ä½ æ¥å¸®å¿™äº†ã€‚";
 
 	if (ob->query("combat_exp") >= 30000)
-		return ("ÄãÒÑ¾­ÓÐÁË»ù´¡ÁË£¬Ã»±ØÒªÔÙÕÒÎÒÀ´Áì»îÁË¡£\n");
+		return ("ä½ å·²ç»æœ‰äº†åŸºç¡€äº†ï¼Œæ²¡å¿…è¦å†æ‰¾æˆ‘æ¥é¢†æ´»äº†ã€‚\n");
 
 	if ((string)ob->query("class")!="bonze")
-		return ("Ë×¼ÒµÜ×Ó²»ÄÜÁì¹¤×÷¡£");
+		return ("ä¿—å®¶å¼Ÿå­ä¸èƒ½é¢†å·¥ä½œã€‚");
 
 	if (ob->query_temp("job_name"))
-		return ("Äã²»ÊÇÒÑ¾­ÁìÁË¹¤×÷Âð£¿»¹²»¿ìÈ¥×ö¡£\n");
+		return ("ä½ ä¸æ˜¯å·²ç»é¢†äº†å·¥ä½œå—ï¼Ÿè¿˜ä¸å¿«åŽ»åšã€‚\n");
 
-	ob->set_temp("job_name","°¾Öà");
-	return "×öÉ®ÂÂ¾ÍÒªÄÜ³Ô¿àÄÍÀÍ£¬Äã¾Í°ïÎÒ°¾Öà"HIR"(ao Öà)"CYN"°É¡£";
+	ob->set_temp("job_name","ç†¬ç²¥");
+	return "åšåƒ§ä¾£å°±è¦èƒ½åƒè‹¦è€åŠ³ï¼Œä½ å°±å¸®æˆ‘ç†¬ç²¥"HIR"(ao ç²¥)"CYN"å§ã€‚";
 }
 
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
          
-	if(ob->query_temp("job_name")!="°¾Öà") return; 
+	if(ob->query_temp("job_name")!="ç†¬ç²¥") return; 
 	
 	command("stare "+ob->query("id"));
 	command("say " + RANK_D->query_respect(ob)
-		+ "£¬À´ÌæÎÒ°ïÃ¦"HIR"(ao Öà)"CYN"ÕæÊÇ¶àÐ»ÄãÁË!!!\n");
+		+ "ï¼Œæ¥æ›¿æˆ‘å¸®å¿™"HIR"(ao ç²¥)"CYN"çœŸæ˜¯å¤šè°¢ä½ äº†!!!\n");
 }

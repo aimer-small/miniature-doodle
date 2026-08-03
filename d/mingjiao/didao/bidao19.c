@@ -5,9 +5,9 @@
 inherit ROOM;
 void create()
 { 
-       set("short","ÃØµÀ");
+       set("short","ç§˜é“");
        set("long", @LONG
-ÕâÀïÊÇÃØµÀµÄ³ö¿Ú£¬Ö±Í¨°ëÉ½Ñü¡£
+è¿™é‡Œæ˜¯ç§˜é“çš„å‡ºå£ï¼Œç›´é€šåŠå±±è…°ã€‚
 LONG);    
 	set("exits", ([
 		"out" : "/d/mingjiao/shanyao",
@@ -19,6 +19,6 @@ LONG);
 int valid_leave(object me, string dir)
 {
         if (dir == "out")
-          write(HIW"\nÄã³öµÃ¶´À´£¬Ç¿¹âÉÁÒ«£¬Ò»Ê±Ö®¼ä¾¹È»Õö²»¿ªÑÛ¡£\n"NOR);
+          write(HIW"\nä½ å‡ºå¾—æ´æ¥ï¼Œå¼ºå…‰é—ªè€€ï¼Œä¸€æ—¶ä¹‹é—´ç«Ÿç„¶çä¸å¼€çœ¼ã€‚\n"NOR);
           return 1;
 }

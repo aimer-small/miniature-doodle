@@ -1,5 +1,5 @@
-// juhua.c ¾Õ»¨
-// creat by Lklv@SJ for ¸÷Î»ÃÀÅ® @@
+// juhua.c èŠèŠ±
+// creat by Lklv@SJ for å„ä½ç¾å¥³ @@
 
 #include <ansi.h>
 #include <armor.h>
@@ -7,18 +7,18 @@ inherit HEAD;
 
 void create()
 {
-	set_name(HIY"¾Õ»¨"NOR, ({"ju hua", "juhua", "hua"}));
+	set_name(HIY"èŠèŠ±"NOR, ({"ju hua", "juhua", "hua"}));
 	set_weight(300);
 	if( clonep() )
 		set_default_object(__FILE__);
         else {
-        	set("unit","¶ä");
+        	set("unit","æœµ");
 		set("value",150);
 		set("female_only", 1);
         	set("armor_prop/armor", 1);
-		set("long", "ÕâÊÇÒ»¶äÃÀÀöµÄ¾Õ»¨£¬Ïó´¿½àµÄÉÙÅ®¡£\n");
-		set("wear_msg", "$NÄÃÆğÒ»¶ä$n²åÔÚ·¢±ß¡£\n");
-		set("remove_msg", "$NÕªÏÂ·¢±ßµÄ$n£¬Ğ¡ĞÄÒíÒíµÄ°ÑËüÊÕºÃ¡£\n"NOR);
+		set("long", "è¿™æ˜¯ä¸€æœµç¾ä¸½çš„èŠèŠ±ï¼Œè±¡çº¯æ´çš„å°‘å¥³ã€‚\n");
+		set("wear_msg", "$Næ‹¿èµ·ä¸€æœµ$næ’åœ¨å‘è¾¹ã€‚\n");
+		set("remove_msg", "$Næ‘˜ä¸‹å‘è¾¹çš„$nï¼Œå°å¿ƒç¿¼ç¿¼çš„æŠŠå®ƒæ”¶å¥½ã€‚\n"NOR);
 	}
         setup();
 }

@@ -1,14 +1,14 @@
-// xuxiaowu.c ĞìĞ¡Îå
+// xuxiaowu.c å¾å°äº”
 
 inherit NPC;
 
 void create()
 {
-        set_name("ĞìĞ¡Îå", ({ "xu xiaowu", "xu", "xiaoxu" }));
-        set("title","Ø¤°ïËÄ´üµÜ×Ó");
-        set("long","ÕâÊÇÒ»¸öØ¤°ïµÜ×Ó¡£\n");
+        set_name("å¾å°äº”", ({ "xu xiaowu", "xu", "xiaoxu" }));
+        set("title","ä¸å¸®å››è¢‹å¼Ÿå­");
+        set("long","è¿™æ˜¯ä¸€ä¸ªä¸å¸®å¼Ÿå­ã€‚\n");
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", random(20)+30);
         set("attitude", "peaceful");
         set("shen_type", 0);
@@ -46,11 +46,11 @@ void create()
                 (: perform_action, "strike.paiyun" :),
                 (: perform_action, "strike.kanglong" :),
         }));
-        create_family("Ø¤°ï", 19, "ËÄ´üµÜ×Ó");
+        create_family("ä¸å¸®", 19, "å››è¢‹å¼Ÿå­");
         set("inquiry", ([
-                "Ø¤°ï" : "ÎÒÃÇØ¤°ïÊÇÌìÏÂµÚÒ»´ó°ï£¡\n",
-                "ÇÇ·å" : "ÇÇ°ïÖ÷ÊÇ¸öºÃºº×Ó¡£\n",
-                "Ïô·å" : "ËûÊÇÎÒÃÇµÄÇ°ÈÎ°ïÖ÷¡£\n",
+                "ä¸å¸®" : "æˆ‘ä»¬ä¸å¸®æ˜¯å¤©ä¸‹ç¬¬ä¸€å¤§å¸®ï¼\n",
+                "ä¹”å³°" : "ä¹”å¸®ä¸»æ˜¯ä¸ªå¥½æ±‰å­ã€‚\n",
+                "è§å³°" : "ä»–æ˜¯æˆ‘ä»¬çš„å‰ä»»å¸®ä¸»ã€‚\n",
         ]));
         setup();
         carry_object(CLASS_D("gaibang/obj/gb_budai4"))->wear();

@@ -1,4 +1,4 @@
-// qingtuoluohua.c ÇàÍÓÂŞ»¨¶¾
+// qingtuoluohua.c é’é™€ç½—èŠ±æ¯’
 // cck 17/6/97
 
 #include <ansi.h>
@@ -10,19 +10,19 @@ int update_condition(object me, int duration)
 {
 	if( !living(me) )
 	{
-		message("vision", me->name() + "Í´¿àµØÉëÒ÷ÁËÒ»Éù¡£\n", environment(me), me);
+		message("vision", me->name() + "ç—›è‹¦åœ°å‘»åŸäº†ä¸€å£°ã€‚\n", environment(me), me);
 	}
 
 	else
 	{
-		tell_object(me, HIB "Í»È»ÄãÑÛÇ°±äµÃÄ£ºıÆğÀ´£¬ÄãÖĞµÄÇàÍÓÂŞ»¨¶¾·¢×÷ÁË£¡\n" NOR );
-		message("vision", me->name() + "Í»È»ÑÛÆ¤ÏÂ´¹£¬Í«¿×·Å´ó£¬¿Ú´½Çà×Ï£¬×ßÂ·²»ÎÈ£¬ÑÔÓïÒ²±äµÃº¬ºı²»ÇåÆğÀ´¡£\n",
+		tell_object(me, HIB "çªç„¶ä½ çœ¼å‰å˜å¾—æ¨¡ç³Šèµ·æ¥ï¼Œä½ ä¸­çš„é’é™€ç½—èŠ±æ¯’å‘ä½œäº†ï¼\n" NOR );
+		message("vision", me->name() + "çªç„¶çœ¼çš®ä¸‹å‚ï¼Œç³å­”æ”¾å¤§ï¼Œå£å”‡é’ç´«ï¼Œèµ°è·¯ä¸ç¨³ï¼Œè¨€è¯­ä¹Ÿå˜å¾—å«ç³Šä¸æ¸…èµ·æ¥ã€‚\n",
 				environment(me), me);
 	}
 
 		me->receive_damage("qi", 35);
 		me->receive_wound("jing", 20);
-		me->set_temp("last_damage_from", "Ò©¶¾·¢×÷");
+		me->set_temp("last_damage_from", "è¯æ¯’å‘ä½œ");
 		me->apply_condition("qtlh_poi", duration - 1);
 
 	if( duration < 1 ) return 0;

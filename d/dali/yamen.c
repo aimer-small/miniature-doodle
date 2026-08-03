@@ -3,11 +3,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¸®ÑÃÇ°Ìü");
+	set("short", "åºœè¡™å‰å…");
 	set("long", @LONG
-ÕâÀïÊÇ´óÀí¹ú»úÒª¸®ÑÃµÄÇ°Ìü£¬ÄË´óÀí¹ÙÔ±ÉÌÒé¹úÕş¾üÎñÖ®Ëù£¬ÌüÌÃ²¢²»
-ºÜ´ó£¬×°ÊÎÆÓËØ£¬ÌüÃÅÓĞÓùÁÖ¾ü½«Ê¿°ÑÊÖ¡£³ıÁËÄÏÃæ³ö¿Ú£¬ÌÃÄÚÁíÈıÃæ¸÷ÓĞÒ»
-ÃÅ£¬Í¨ÍùÈı¹«¸÷×ÔµÄË¾ÌÃ¡£
+è¿™é‡Œæ˜¯å¤§ç†å›½æœºè¦åºœè¡™çš„å‰å…ï¼Œä¹ƒå¤§ç†å®˜å‘˜å•†è®®å›½æ”¿å†›åŠ¡ä¹‹æ‰€ï¼Œå…å ‚å¹¶ä¸
+å¾ˆå¤§ï¼Œè£…é¥°æœ´ç´ ï¼Œå…é—¨æœ‰å¾¡æ—å†›å°†å£«æŠŠæ‰‹ã€‚é™¤äº†å—é¢å‡ºå£ï¼Œå ‚å†…å¦ä¸‰é¢å„æœ‰ä¸€
+é—¨ï¼Œé€šå¾€ä¸‰å…¬å„è‡ªçš„å¸å ‚ã€‚
 LONG
 	);        
 	set("exits", ([
@@ -32,13 +32,13 @@ int valid_leave(object me, string dir)
 {
         mapping fam;
         fam = (mapping)me->query("family");
-        if ( (!fam || fam["family_name"] != "´óÀí" )
+        if ( (!fam || fam["family_name"] != "å¤§ç†" )
          && dir != "south" 
          && objectp(present("dali guanbing", environment(me))))
-          return notify_fail("´óÀí¹Ù±øÀ¹×¡Äã£¬ËµµÀ£º¸®ÑÃÄÚ²»µÃËæÒâ½ø³ö¡£\n");
-        if ( (!fam || fam["family_name"] != "´óÀí" )
+          return notify_fail("å¤§ç†å®˜å…µæ‹¦ä½ä½ ï¼Œè¯´é“ï¼šåºœè¡™å†…ä¸å¾—éšæ„è¿›å‡ºã€‚\n");
+        if ( (!fam || fam["family_name"] != "å¤§ç†" )
          && dir != "south" 
          && objectp(present("dali wujiang", environment(me))))
-          return notify_fail("´óÀíÎä½«À¹×¡Äã£¬ËµµÀ£º¸®ÑÃÄÚ²»µÃËæÒâ½ø³ö¡£\n");
+          return notify_fail("å¤§ç†æ­¦å°†æ‹¦ä½ä½ ï¼Œè¯´é“ï¼šåºœè¡™å†…ä¸å¾—éšæ„è¿›å‡ºã€‚\n");
         return ::valid_leave(me, dir);
 }

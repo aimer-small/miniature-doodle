@@ -1,4 +1,4 @@
-//Õâ¸öÖ¸Áî¼¸°ÙÄêÃ»ÈË¶¯ÁË LinuX@SJ
+//è¿™ä¸ªæŒ‡ä»¤å‡ ç™¾å¹´æ²¡äººåŠ¨äº† LinuX@SJ
 
 inherit F_CLEAN_UP;
 
@@ -9,25 +9,25 @@ int main(object me, string arg)
 	object ob;
 
 	if (!arg || !(ob = present(arg, environment(me))) || me == ob || !ob->is_character())
-		return notify_fail("ÄãÒª¼Ş¸øË­£¿\n");
+		return notify_fail("ä½ è¦å«ç»™è°ï¼Ÿ\n");
 
-	if (me->query("gender") != "Å®ĞÔ") {
-		message_vision("$N²»»³ºÃÒâµØ¶¢×Å$nËµ£ºĞ¡Ïà¹«£¬ÊÇ²»ÊÇºÜ¼ÅÄ¯°¡£¿\n", me, ob);
+	if (me->query("gender") != "å¥³æ€§") {
+		message_vision("$Nä¸æ€€å¥½æ„åœ°ç›¯ç€$nè¯´ï¼šå°ç›¸å…¬ï¼Œæ˜¯ä¸æ˜¯å¾ˆå¯‚å¯å•Šï¼Ÿ\n", me, ob);
 		return 1;
 	}
 
 	if (me->query("marry"))
-		return notify_fail("ÄãÒÑ¾­½á»éÁË¡£\n");
+		return notify_fail("ä½ å·²ç»ç»“å©šäº†ã€‚\n");
 
 	if (me->query_temp("marry"))
-		return notify_fail("ÄãÒÑ¾­¶©»éÁË¡£\n");
+		return notify_fail("ä½ å·²ç»è®¢å©šäº†ã€‚\n");
 
 	switch (me->query("class")) {
 		case "bonze":
                 case "huanxi":if(me->query_skill("huanxi-chan",1)>180) break;
 		case "lama":
 		case "taoist":
-			return notify_fail("ÄãÏÈ»¹Ë×ÔÙËµ°É¡£\n");
+			return notify_fail("ä½ å…ˆè¿˜ä¿—å†è¯´å§ã€‚\n");
 	}
 
 	switch (ob->query("class")) {
@@ -35,25 +35,25 @@ int main(object me, string arg)
                 case "huanxi":if(ob->query_skill("huanxi-chan",1)>180) break;
 		case "lama":
 		case "taoist":
-			return notify_fail("µÈËûÏÈ»¹Ë×ÔÙËµ°É¡£\n");
+			return notify_fail("ç­‰ä»–å…ˆè¿˜ä¿—å†è¯´å§ã€‚\n");
 	}
 
 	if (me->query("age") < 18) {
-		message_vision("$NÏë¼Ş¸ø$n£¬²»¹ı$N»¹Ğ¡£¬ÔÙµÈ¼¸Äê°É¡£\n", me, ob);
+		message_vision("$Næƒ³å«ç»™$nï¼Œä¸è¿‡$Nè¿˜å°ï¼Œå†ç­‰å‡ å¹´å§ã€‚\n", me, ob);
 		return 1;
 	}
 
-	if (ob->query("gender") != "ÄĞĞÔ")
-		return notify_fail("ÄãÏë¼ŞµÄÈË²»ÊÇÄĞĞÔ¡£\n");
+	if (ob->query("gender") != "ç”·æ€§")
+		return notify_fail("ä½ æƒ³å«çš„äººä¸æ˜¯ç”·æ€§ã€‚\n");
 //
 //	if (ob->query("registered") < 3)
-//		return notify_fail("ÄãÖ»ÄÜ¼Ş¸øÕıÊ½Íæ¼Ò¡£\n");
+//		return notify_fail("ä½ åªèƒ½å«ç»™æ­£å¼ç©å®¶ã€‚\n");
 
 	if (ob->query_temp("pending/marry") != me)
-		return notify_fail("ÄãÏë¼Ş¸ø"+ob->name()+"£¬²»¹ı"+ob->name()+"²¢Ã»ÓĞÏòÄãÇó»é¡£\n");
+		return notify_fail("ä½ æƒ³å«ç»™"+ob->name()+"ï¼Œä¸è¿‡"+ob->name()+"å¹¶æ²¡æœ‰å‘ä½ æ±‚å©šã€‚\n");
 
-	message_vision("$NĞß´ğ´ğµØ´ğÓ¦¼Ş¸ø$n¡£\n", me, ob);
-	tell_object( ob, YEL+"ÍÛ£¬" + me->name() + "´ğÓ¦ÁËÄãµÄÇó»éÁË¡£\n"+NOR );
+	message_vision("$Nç¾ç­”ç­”åœ°ç­”åº”å«ç»™$nã€‚\n", me, ob);
+	tell_object( ob, YEL+"å“‡ï¼Œ" + me->name() + "ç­”åº”äº†ä½ çš„æ±‚å©šäº†ã€‚\n"+NOR );
 	ob->delete_temp("pending/marry");
 	me->set_temp("marry", ob);
 	ob->set_temp("marry", me);
@@ -63,13 +63,13 @@ int main(object me, string arg)
 int help(object me)
 {
     write(@HELP
-Ö¸Áî¸ñÊ½: marry <Ä³¸öÇó»éÕßID>
+æŒ‡ä»¤æ ¼å¼: marry <æŸä¸ªæ±‚å©šè€…ID>
 
-´ğÓ¦ÄãµÄÄ³¸öÇó»éÕßµÄÇó»é¡£
-Õâ¸öÖ¸ÁîÅ®ĞÔ×¨ÓÃ¡£
+ç­”åº”ä½ çš„æŸä¸ªæ±‚å©šè€…çš„æ±‚å©šã€‚
+è¿™ä¸ªæŒ‡ä»¤å¥³æ€§ä¸“ç”¨ã€‚
 
-Ïà¹ØµÄÖ¸Áî£ºpropose
-Ïà¹ØµÄ°ïÖú£ºhelp marriage
+ç›¸å…³çš„æŒ‡ä»¤ï¼špropose
+ç›¸å…³çš„å¸®åŠ©ï¼šhelp marriage
 
 HELP
     );

@@ -29,13 +29,13 @@ void send_msg(string title, string author, string poster, string text)
 	if( !this_player()		// Prevent from being called by ourself.
 	||	!ACCESS_CHECK(previous_object())) return;
 #ifdef DEBUG
-	set("channel_id", "Í¬²½ĞÂÎÅ¾«Áé");
+	set("channel_id", "åŒæ­¥æ–°é—»ç²¾çµ");
 	CHANNEL_D->do_channel(this_object(), "sys", "prepare to send newsmsg");
 #endif
 	muds = (mapping)DNS_MASTER->query_muds();
 	svcs = (mapping)DNS_MASTER->query_svc();
 	text = replace_string(text, "|", "");
-	text = replace_string(text, "@@@", "");//±ğµÄ²»»á´øÕâĞ©×Ö·ûµÄ°É£¿
+	text = replace_string(text, "@@@", "");//åˆ«çš„ä¸ä¼šå¸¦è¿™äº›å­—ç¬¦çš„å§ï¼Ÿ
 	// use keys(svcs) because none of the muds not in svcs can possibley
 	// receive the message
 	names = keys(svcs);
@@ -63,7 +63,7 @@ void incoming_request(mapping info)
 	mapping note;
 	string text;	
 #ifdef DEBUG
-	set("channel_id", "Í¬²½ĞÂÎÅ¾«Áé");
+	set("channel_id", "åŒæ­¥æ–°é—»ç²¾çµ");
 	CHANNEL_D->do_channel(this_object(), "sys", "newsmsg received from " + info["NAME"]);
 #endif	
 	if(!ACCESS_CHECK(previous_object())) return;
@@ -87,7 +87,7 @@ void incoming_request(mapping info)
 		||undefinedp(info["POSTER"])
 		||undefinedp(info["TEXT"]) )
 		{
-			message("wizard:ciwei","·Ç·¨×Ö·û´® dorped\n",users());
+			message("wizard:ciwei","éæ³•å­—ç¬¦ä¸² dorped\n",users());
 			return;
 		}
 		

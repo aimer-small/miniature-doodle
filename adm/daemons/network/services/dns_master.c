@@ -15,7 +15,7 @@
 
 // Ported to ES2 mudlib by Annihilator@ES2
 
-// ÓÉYu Jue@SJ³¹µ×¸ÄÔì£¬°ÑUDP¸ÄÎªTCP£¬½á¹ûËÙ¶È¾ŞÂı£¬Ö»ºÃ»»»Ø UDP
+// ç”±Yu Jue@SJå½»åº•æ”¹é€ ï¼ŒæŠŠUDPæ”¹ä¸ºTCPï¼Œç»“æœé€Ÿåº¦å·¨æ…¢ï¼Œåªå¥½æ¢å› UDP
 
 #include <ansi.h>
 #include <mudlib.h>
@@ -239,7 +239,7 @@ void send_shutdown()
 		SHUTDOWN->send_shutdown(muds[mud_names[i]]["HOSTADDRESS"],
 			muds[mud_names[i]]["PORTUDP"]);
 	socket_close(socket_id);
-	CHANNEL_D->do_channel(this_object(), "sys", "ËÍ³ö shutdown Ñ¶Ï¢¡£\n");
+	CHANNEL_D->do_channel(this_object(), "sys", "é€å‡º shutdown è®¯æ¯ã€‚\n");
 }
 
 string start_message()
@@ -274,7 +274,7 @@ void init_database()
 	call_out("sequence_clean_up", 4 * SERVICE_TIMEOUT);
 	do_pings();
 
-	CHANNEL_D->do_channel(this_object(), "sys", "sending¡£¡£¡£\n");
+	CHANNEL_D->do_channel(this_object(), "sys", "sendingã€‚ã€‚ã€‚\n");
 
 	return;
 	}

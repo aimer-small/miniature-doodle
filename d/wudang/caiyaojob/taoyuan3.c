@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short","É½¶¥");
+        set("short","å±±é¡¶");
         set("long", @LONG
-ÕâÀïÊÇÉ½·å¶¥²¿¶«²àµÄÒ»¸öÐ¡ÆÂ£¬ÆÂÉÏÒ²ÊÇÔÓ²ÝÃÜ²¼£¬ÔÚÔÓ²ÝÖ®ÖÐÒþÔ¼ÓÐ
-Ò»Ð©¾¼ÒìµÄÖ²Îï¡£ÄÏ±ßÓÐÒ»ÅÅÖ¦·±Ò¶Ã¯µÄÊ÷ÁÖ¡£Ê÷ÁÖºóÃæºÃÏóÓÐÒ»¼äÃ©ÎÝ¡£
+è¿™é‡Œæ˜¯å±±å³°é¡¶éƒ¨ä¸œä¾§çš„ä¸€ä¸ªå°å¡ï¼Œå¡ä¸Šä¹Ÿæ˜¯æ‚è‰å¯†å¸ƒï¼Œåœ¨æ‚è‰ä¹‹ä¸­éšçº¦æœ‰
+ä¸€äº›ç‚¯å¼‚çš„æ¤ç‰©ã€‚å—è¾¹æœ‰ä¸€æŽ’æžç¹å¶èŒ‚çš„æ ‘æž—ã€‚æ ‘æž—åŽé¢å¥½è±¡æœ‰ä¸€é—´èŒ…å±‹ã€‚
 LONG                           
         );
         set("xionghuang_count",500);
@@ -32,24 +32,24 @@ int do_wa(string arg)
         object me;
         me = this_player();
         if (!( present("yao chu", this_player())))
-        return notify_fail("ÄãÉì³öÁ½ÊÖ£¬ºúÂÒÔÚµØÉÏÂÒÅÙ£¡\n");
+        return notify_fail("ä½ ä¼¸å‡ºä¸¤æ‰‹ï¼Œèƒ¡ä¹±åœ¨åœ°ä¸Šä¹±åˆ¨ï¼\n");
         if ( !arg || arg != "caoyao" )
-            return notify_fail("ÄãÍÚÊ²÷á£¿\n");
+            return notify_fail("ä½ æŒ–ä»€éº½ï¼Ÿ\n");
         if (!(int)me->query_temp("mark/wd_mission"))
-         return notify_fail("ÄãÒª×öÊ²÷á£¿\n");
+         return notify_fail("ä½ è¦åšä»€éº½ï¼Ÿ\n");
          if ( (int)me->query("jingli")<80) 
-          { write("ÄãÌ«ÀÛÁË£¡\n");
+          { write("ä½ å¤ªç´¯äº†ï¼\n");
          return 1;
             }
         if(random(5)!=3) {
         me->add("jingli",-30);
-        return notify_fail("ÄãÂÖÆðÒ©³ú£¬ÏòµØÉÏÅÙÈ¥,Ö»ÍÚ³öÁËÒ»Ð©Ò°²Ý¡£\n"); 
+        return notify_fail("ä½ è½®èµ·è¯é”„ï¼Œå‘åœ°ä¸Šåˆ¨åŽ»,åªæŒ–å‡ºäº†ä¸€äº›é‡Žè‰ã€‚\n"); 
          }
 //        if (!(int)me->query("jingli") <65)
-//        return notify_fail("ÄãÐèÒªÊÊµ±ÐÝÏ¢Ò»»áÁË£¡\n");
+//        return notify_fail("ä½ éœ€è¦é€‚å½“ä¼‘æ¯ä¸€ä¼šäº†ï¼\n");
         if (query("xionghuang_count") > 0) 
        {
-        message_vision("$NÂÖÆðÒ©³ú£¬ºöÈ»¼äÍÚµ½ÁËÒ»ÖêÐÛ»Æ¡£\n",me);
+        message_vision("$Nè½®èµ·è¯é”„ï¼Œå¿½ç„¶é—´æŒ–åˆ°äº†ä¸€æ ªé›„é»„ã€‚\n",me);
         add("xionghuang_count", -1);
         xionghuang=new("/clone/medicine/xionghuang");
         xionghuang->move(me);
@@ -57,7 +57,7 @@ int do_wa(string arg)
         
         }
         else
-       message_vision("$N·ÑÁË°ëÌì¾¢£¬Ö»ÍÚµ½Ò»Ð©Ò°²Ý¡£\n", me);
+       message_vision("$Nè´¹äº†åŠå¤©åŠ²ï¼ŒåªæŒ–åˆ°ä¸€äº›é‡Žè‰ã€‚\n", me);
         return 1;
 }
 
@@ -69,12 +69,12 @@ int do_zuan(string arg)
          if ( !arg ) return 0;
 
         if (!me->query_temp("marks/taohua"))
-        return notify_fail("Äã´òÌýÇå³þÔÙ×ê°É£¡\n");
+        return notify_fail("ä½ æ‰“å¬æ¸…æ¥šå†é’»å§ï¼\n");
         
    
-       message_vision("$N²¦¿ªÊ÷Ö¦£¬Ò»ÍäÑü£¬×êÁË½øÈ¥¡£\n", me);
+       message_vision("$Næ‹¨å¼€æ ‘æžï¼Œä¸€å¼¯è…°ï¼Œé’»äº†è¿›åŽ»ã€‚\n", me);
        me->move(__DIR__"maowu");
-       tell_room(environment(me), me->name() + "´ÓÊ÷ÁÖÖÐ×êÁË½øÀ´¡£\n", ({ me }));
+       tell_room(environment(me), me->name() + "ä»Žæ ‘æž—ä¸­é’»äº†è¿›æ¥ã€‚\n", ({ me }));
        me->delete_temp("marks/taohua");
        return 1;
 }

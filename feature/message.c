@@ -218,11 +218,11 @@ int is_waiting_command()
 void write_prompt()
 {
 	if (sizeof(msg_buffer)) {
-		write(BOLD "[�ݴ�ѶϢ]\n" NOR);
+		write(BOLD "[暂存讯息]\n" NOR);
 		foreach (string item in msg_buffer)
 			receive(item);
 		msg_buffer = ({});
-		write(BOLD "[�ݴ�ѶϢ��ʾ���]\n" NOR);
+		write(BOLD "[暂存讯息显示完毕]\n" NOR);
 	}
 	write(HIY "> " NOR);
 }

@@ -1,4 +1,4 @@
-// customer	¹Ë¿Í
+// customer	é¡¾å®¢
 // by augx@sj	9/11/2001
 
 inherit NPC;
@@ -16,10 +16,10 @@ void create()
 
 	name = RNAME_D->get_random_name(i);
 	set_name(name["name"], name["id"]);
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 
 	set("age", 15 + random(15));
-	set("long", "ÕâÊÇÎ»¶¨×öÒÂ·şµÄ¹Ë¿Í¡£\n");
+	set("long", "è¿™æ˜¯ä½å®šåšè¡£æœçš„é¡¾å®¢ã€‚\n");
 	set("combat_exp", 3000000);
 	set("meitude", "peaceful");
         set("no_bark", 1);
@@ -48,9 +48,9 @@ void create()
 	set_temp("apply/armor",888);
 	
 	set("inquiry", ([
-		"²¼ÁÏ"		: (: ask_buliao :),
-		"²¼"		: (: ask_buliao :),
-		"¹¤×÷"		: (: ask_buliao :),
+		"å¸ƒæ–™"		: (: ask_buliao :),
+		"å¸ƒ"		: (: ask_buliao :),
+		"å·¥ä½œ"		: (: ask_buliao :),
 		"buliao"	: (: ask_buliao :),
 		"bu"		: (: ask_buliao :),
 		"job"		: (: ask_buliao :),
@@ -86,7 +86,7 @@ void greeting(object ob)
 
 void dest()
 {
-        command("emote ÂıÂıÀë¿ªÁË¡£");
+        command("emote æ…¢æ…¢ç¦»å¼€äº†ã€‚");
 	destruct(this_object());
 }
 
@@ -118,21 +118,21 @@ string ask_buliao()
 	int i,count=16;
 	
 	if( query("player") != me->query("id") )
-		return "ÎÒ²¢Ã»ÓĞÏòÄãÃÇµÄ²Ã·ìµê¶¨×öÒÂ·ş°¡¡£";
+		return "æˆ‘å¹¶æ²¡æœ‰å‘ä½ ä»¬çš„è£ç¼åº—å®šåšè¡£æœå•Šã€‚";
 	if( query("give_bu") )
-		return "ÎÒÒÑ¾­¸øÁËÄã²¼ÁÏ°¡£¡";
+		return "æˆ‘å·²ç»ç»™äº†ä½ å¸ƒæ–™å•Šï¼";
 		
 	for(i=0;i<count;i++) {
 		obj = new("/d/zhiye/obj/buliao");
-		if(!obj) return "BUG£¡Çë±¨¸æÎ×Ê¦£¡\n";
+		if(!obj) return "BUGï¼è¯·æŠ¥å‘Šå·«å¸ˆï¼\n";
 		obj->set_level(11);
 		obj->set("target",this_object());
 		obj->move(me);
 	}
 	set("give_bu",1);
 	
-	message_vision(CYN"$N¸ø$n"+CHINESE_D->chinese_number(count)+"Æ¥²¨Ë¹²ÊË¿¡£\n"NOR,this_object(),me);
-	return "Äã¾ÍÊÇ²Ã·ìÆÌÅÉÀ´µÄÈË°¡£¬Õâ"+CHINESE_D->chinese_number(count)+"Æ¥²¨Ë¹²ÊË¿ÄãÄÃÈ¥°É£¬¿ÉÒªÕäÏ§µãÓÃ°¡¡£";
+	message_vision(CYN"$Nç»™$n"+CHINESE_D->chinese_number(count)+"åŒ¹æ³¢æ–¯å½©ä¸ã€‚\n"NOR,this_object(),me);
+	return "ä½ å°±æ˜¯è£ç¼é“ºæ´¾æ¥çš„äººå•Šï¼Œè¿™"+CHINESE_D->chinese_number(count)+"åŒ¹æ³¢æ–¯å½©ä¸ä½ æ‹¿å»å§ï¼Œå¯è¦çæƒœç‚¹ç”¨å•Šã€‚";
 }
 
 int accept_object(object me, object ob, object who)
@@ -141,13 +141,13 @@ int accept_object(object me, object ob, object who)
 	
 	if( !ob->query("job_cloth") || ob->query("target")!=this_object() ){
 		command("? "+me->query("id"));
-		command("say Äã¸øÎÒÕâ¸ö¸ÉÊ²Ã´£¿");
+		command("say ä½ ç»™æˆ‘è¿™ä¸ªå¹²ä»€ä¹ˆï¼Ÿ");
 		return 0;
 	}
 	
 	if( ob->query("makeby") != me->query("id") ) {
 		command("hmm "+me->query("id"));
-		command("say Õâ"+ob->query("unit")+ob->name()+"ÊÇÄãÖ¯ÔìµÄÂğ£¿ºÍÎÒµÄÒªÇó²»·ûºÏ°¡£¡");
+		command("say è¿™"+ob->query("unit")+ob->name()+"æ˜¯ä½ ç»‡é€ çš„å—ï¼Ÿå’Œæˆ‘çš„è¦æ±‚ä¸ç¬¦åˆå•Šï¼");
 		me->add("combat_exp",-500-random(1000));
 		if(me->query("combat_exp")<0) me->set("combat_exp",0);
 		call_out("destroying", 1, ob);
@@ -156,9 +156,9 @@ int accept_object(object me, object ob, object who)
 	
 	while ( objectp(bu = present("bosi caisi", me)) ) destruct(bu);
 	while ( objectp(bu = present("bosi caichou", me)) ) destruct(bu);
-	command("emote È¡»Ø±ß½ÇÁÏ¡£");	
+	command("emote å–å›è¾¹è§’æ–™ã€‚");	
 	
-	command("say àÅ£¬²»´í£¬ºÜºÏÎÒµÄĞÄÒâ¡£");
+	command("say å—¯ï¼Œä¸é”™ï¼Œå¾ˆåˆæˆ‘çš„å¿ƒæ„ã€‚");
 	call_out("destroying", 1, ob);
 	me->add("worker/job3_finish",1);
 	finish();

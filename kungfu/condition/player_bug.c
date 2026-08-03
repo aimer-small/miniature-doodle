@@ -6,7 +6,7 @@
 int update_condition(object me, int duration)
 {
         if (duration < 1) {
-		tell_object(me, HIY "忽然你觉得轻飘飘,你似乎被人提到了一个神秘的地方。\n" NOR); 
+		tell_object(me, HIY "蹇界劧浣犺寰楄交椋橀,浣犱技涔庤浜烘彁鍒颁簡涓�涓绉樼殑鍦版柟銆俓n" NOR); 
                 me->move("/u/dubei/sg");
                 return 0;
 	}

@@ -6,17 +6,17 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIG "Ò©ÖÖ" NOR, ({"yao zhong","zhong zi","zhong" })); 
+        set_name(HIG "è¯ç§" NOR, ({"yao zhong","zhong zi","zhong" })); 
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("long",
-                "ÕâÊÇÒ»Ã¶¿ÉÒÔÖÖ(zhong)ÔÚÒ©ÆÔÀïµÄÒ©ÖÖ£¬");
-		set("unit", "Ã¶");
+                "è¿™æ˜¯ä¸€æšå¯ä»¥ç§(zhong)åœ¨è¯åœƒé‡Œçš„è¯ç§ï¼Œ");
+		set("unit", "æš");
 		set("no_sell",1);
-		set("5type","ÍÁ");
+		set("5type","åœŸ");
 		set("location",1);
-		//set("8type","Ç¬");
+		//set("8type","ä¹¾");
 	}
 }
 
@@ -32,19 +32,19 @@ int do_zhong(string arg)
 	object room;
 
 	if(!arg || !objectp(ob=present(arg, me)) || (ob!=this_object()))
-		return notify_fail("ÄãÒªÖÖÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦ç§ä»€ä¹ˆï¼Ÿ\n");
 	if(!objectp(room=environment(me)) || (room->query("can_zhong")!=1))
-		return notify_fail("Äã²»ÄÜÔÚÕâÀïÖÖÒ©¡£\n");
+		return notify_fail("ä½ ä¸èƒ½åœ¨è¿™é‡Œç§è¯ã€‚\n");
 	if(!objectp(obj=new(__DIR__"yaomiao")))
-		return notify_fail("ÄãÏÖÔÚ²»ÄÜÖÖÒ©£¬µÈÒ»»áÔÙÖÖ°É¡£\n");
+		return notify_fail("ä½ ç°åœ¨ä¸èƒ½ç§è¯ï¼Œç­‰ä¸€ä¼šå†ç§å§ã€‚\n");
 	obj->set("5type",ob->query("5type"));
 	obj->set("8type",room->query("8type"));
-	obj->set("long",obj->query("long")+obj->query("8type")+obj->query("5type")+"ĞÔ¡£\n");
+	obj->set("long",obj->query("long")+obj->query("8type")+obj->query("5type")+"æ€§ã€‚\n");
 	obj->set("stime",uptime());
 	obj->set("jtime",uptime());
-	obj->set("name","Ó×Ğ¡µÄÒ©Ãç");
+	obj->set("name","å¹¼å°çš„è¯è‹—");
 	obj->move(room);
-	message_vision("$N°ÑÒ»Ã¶Ò©ÖÖÂñµ½ÍÁÀï£¬½½ÁËÒ»Æ°Ë®£¬ÂıÂıµØ£¬´ÓÍÁÀï³¤³öÁËÒ»ÖêÓ×Ãç¡£\n",me);
+	message_vision("$NæŠŠä¸€æšè¯ç§åŸ‹åˆ°åœŸé‡Œï¼Œæµ‡äº†ä¸€ç“¢æ°´ï¼Œæ…¢æ…¢åœ°ï¼Œä»åœŸé‡Œé•¿å‡ºäº†ä¸€æ ªå¹¼è‹—ã€‚\n",me);
 	call_out("destructing", 1, ob); 
 	return 1;
 }

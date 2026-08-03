@@ -7,13 +7,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIW"Îå"HIG"²Ê"HIC"Éñ"HIB"Áú"HIR"Æ¤"NOR, ({"shenlong pi", "pi"}));
+        set_name(HIW"äº”"HIG"å½©"HIC"ç¥ž"HIB"é¾™"HIR"çš®"NOR, ({"shenlong pi", "pi"}));
         set_weight(1000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "ÕÅ");
-                set("long", "ÕâÊÇÒ»ÕÅÎå²ÊÉñÁúµÄÆ¤¡£\n");
+                set("unit", "å¼ ");
+                set("long", "è¿™æ˜¯ä¸€å¼ äº”å½©ç¥žé¾™çš„çš®ã€‚\n");
                 set("value", 8000);
                 set("material", "fur");
                 set("unique", 1);

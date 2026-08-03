@@ -6,16 +6,16 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("ÌìºçìøÊ¦", ({
+        set_name("å¤©è™¹ç¦…å¸ˆ", ({
                 "tianhong chanshi",
                 "tianhong",
                 "chanshi",
         }));
         set("long",
-                "ËûÃæÉ«ºÍ°ª£¬Á½Ìõ°×É«µÄÃ¼Ã«Ëæ·çÆ®Òİ£¬¿´ÆğÀ´ÉñÉ«²»´í¡£\n"
+                "ä»–é¢è‰²å’Œè”¼ï¼Œä¸¤æ¡ç™½è‰²çš„çœ‰æ¯›éšé£é£˜é€¸ï¼Œçœ‹èµ·æ¥ç¥è‰²ä¸é”™ã€‚\n"
         );
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
 
@@ -69,8 +69,8 @@ void create()
 		(: perform_action, "leg.ruying" :),
 	}));
 
-        create_family("ÄÏÉÙÁÖ", 23, "µÜ×Ó");
-        set("title", "ÄÏÉÙÁÖ·½ÕÉ");
+        create_family("å—å°‘æ—", 23, "å¼Ÿå­");
+        set("title", "å—å°‘æ—æ–¹ä¸ˆ");
 
         setup();
 

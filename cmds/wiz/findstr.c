@@ -17,7 +17,7 @@ mixed main(object me, string arg, int remote)
    
 
    if( !arg || sscanf(arg, "%s from %s", str, where)!=2 )
-     return notify_fail ("Ö¸Áî¸ñÊ½: findtstr <string> from <path>(Èç:/d) \n");
+     return notify_fail ("æŒ‡ä»¤æ ¼å¼: findtstr <string> from <path>(å¦‚:/d) \n");
    
    pp=0;
    f=0;
@@ -48,7 +48,7 @@ mixed main(object me, string arg, int remote)
 			{
                 if(strsrch(line[i],str,0)!=-1)
 				{
-					write(sprintf("·¢ÏÖ%sÔÚ%sµÄµÚ%dĞĞ¡£\n",str,fn,i+1));
+					write(sprintf("å‘ç°%såœ¨%sçš„ç¬¬%dè¡Œã€‚\n",str,fn,i+1));
 				}
 			}
 		}
@@ -65,16 +65,16 @@ mixed main(object me, string arg, int remote)
 			break;
    	}
    }	
-        write("²éÕÒÍê±Ï¡£\n");
+        write("æŸ¥æ‰¾å®Œæ¯•ã€‚\n");
    return 1;
 }
 
 int help (object me)
 {
         write(@HELP
-        Ö¸Áî¸ñÊ½ : findstr str from path(Èç:/d/city)
+        æŒ‡ä»¤æ ¼å¼ : findstr str from path(å¦‚:/d/city)
  
-¿ÉÁĞ³ö°üº¬ÓĞstrµÄËùÓĞÎÄ¼şµÄÃû×Ö¼°strËùÔÚµÄĞĞÊı¡£
+å¯åˆ—å‡ºåŒ…å«æœ‰strçš„æ‰€æœ‰æ–‡ä»¶çš„åå­—åŠstræ‰€åœ¨çš„è¡Œæ•°ã€‚
  
 HELP
 );

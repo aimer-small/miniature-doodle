@@ -7,9 +7,9 @@ string no_get()
 	object me = this_player();
 	if(!me) return 0;
 	if(me->query("combat_exp")<750000)
-		return "Äã½­ºþÓÎÀú²»×ã£¬ÅÂµÃ´Ë±¦ÎïÒ²ÎÞÓÃ´¦¡£\n";
+		return "ä½ æ±Ÿæ¹–æ¸¸åŽ†ä¸è¶³ï¼Œæ€•å¾—æ­¤å®ç‰©ä¹Ÿæ— ç”¨å¤„ã€‚\n";
 	if(me->query("drop_hj_uniqe") && ( me->query("mud_time")-me->query("drop_hj_uniqe"))<172800)
-		return "Äã±©éåÌìÎï£¬¸ß²ý²»»¶Ó­Äã¡£\n";
+		return "ä½ æš´æ®„å¤©ç‰©ï¼Œé«˜æ˜Œä¸æ¬¢è¿Žä½ ã€‚\n";
 	return 0;
 }
 
@@ -31,26 +31,26 @@ void remove(string id)
 void create()
 {
         switch(random(13)) {
-        case 0 : set_name(GRN"ÓñÈËÍ·ÊÎ"NOR, ({ "yu pei", "yu", "pei"})); break;
-        case 1 : set_name(HIY"ÊÞÃæÎÆÓñçý"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 2 : set_name(HIW"Èý²æÐÎÓñÆ÷"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 3 : set_name(MAG"ÓñÁú"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 4 : set_name(YEL"ÖíÁúÐÎÓñÅåÊÎ"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 5 : set_name(WHT"Óñ¹ê"NOR, ({ "yu pei", "yu", "pei"})); break;
-        case 6 : set_name(WHT"ÍÃÐÎÓñÅå"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 7 : set_name(YEL"»¢ÐÎÓñÅå"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 8 : set_name(GRN"ÍÜÐÎÂÌËÉÊ¯Åå"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 9 : set_name(HIY"¹òÊ½ÓñÈË"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 10 : set_name(CYN"¹°ÊÖÓñÈË"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 11 : set_name(CYN"Óñ»¢"NOR, ({"yu pei", "yu", "pei"})); break;
-        case 12 : set_name(MAG"Óñ·ï"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 0 : set_name(GRN"çŽ‰äººå¤´é¥°"NOR, ({ "yu pei", "yu", "pei"})); break;
+        case 1 : set_name(HIY"å…½é¢çº¹çŽ‰ç®"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 2 : set_name(HIW"ä¸‰å‰å½¢çŽ‰å™¨"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 3 : set_name(MAG"çŽ‰é¾™"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 4 : set_name(YEL"çŒªé¾™å½¢çŽ‰ä½©é¥°"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 5 : set_name(WHT"çŽ‰é¾Ÿ"NOR, ({ "yu pei", "yu", "pei"})); break;
+        case 6 : set_name(WHT"å…”å½¢çŽ‰ä½©"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 7 : set_name(YEL"è™Žå½¢çŽ‰ä½©"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 8 : set_name(GRN"è›™å½¢ç»¿æ¾çŸ³ä½©"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 9 : set_name(HIY"è·ªå¼çŽ‰äºº"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 10 : set_name(CYN"æ‹±æ‰‹çŽ‰äºº"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 11 : set_name(CYN"çŽ‰è™Ž"NOR, ({"yu pei", "yu", "pei"})); break;
+        case 12 : set_name(MAG"çŽ‰å‡¤"NOR, ({"yu pei", "yu", "pei"})); break;
         }
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-                set("unit", "¿é");
+                set("unit", "å—");
                 set("weight", 1000);
-		set("long", "ÕâÊÇ¶«ººÓñÊ¯ÊÎÆ·ÖÐµÄÒ»¸ö£¬³ö×ÔÉÂÎ÷£¬É½¶«£¬ºÓÄÏÒ»´ø¡£\n");
+		set("long", "è¿™æ˜¯ä¸œæ±‰çŽ‰çŸ³é¥°å“ä¸­çš„ä¸€ä¸ªï¼Œå‡ºè‡ªé™•è¥¿ï¼Œå±±ä¸œï¼Œæ²³å—ä¸€å¸¦ã€‚\n");
 		set("material", "stone");
                 set("unique", 4);
 //                set("no_get",(:no_get:));

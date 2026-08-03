@@ -5,13 +5,13 @@ inherit ITEM;
 #include <ansi.h>
 void create()
 {
-       set_name(HIW"ÊÀÏ®±í"NOR, ({ "biao" }) );
+       set_name(HIW"ä¸–è¢­è¡¨"NOR, ({ "biao" }) );
        set_weight(100);
        if( clonep() )
                set_default_object(__FILE__);
       else {
-               set("unit", "ÕÅ");
-               set("long", "ÕâÊÇÒ»ÕÅÄ½ÈİÊÀ¼ÒµÄÊÀÏ®±í£¬ÉÏÃæĞ´×ÅÀú´úÄ½ÈİÊÀ¼ÒµÄ¼ÒÆ×¡£\n");
+               set("unit", "å¼ ");
+               set("long", "è¿™æ˜¯ä¸€å¼ æ…•å®¹ä¸–å®¶çš„ä¸–è¢­è¡¨ï¼Œä¸Šé¢å†™ç€å†ä»£æ…•å®¹ä¸–å®¶çš„å®¶è°±ã€‚\n");
                set("value", 0);
                set("no_get",1);
                set("no_drop",1);

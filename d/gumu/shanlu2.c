@@ -4,13 +4,13 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-     set("short",YEL"�ڶ�"NOR);
+     set("short",YEL"岗顶"NOR);
      set("long", @LONG
-�����˰��գ����������ڶ����˴���һ��������ź��д�š��չ��¡�
-�������֡������Ǽ���ߴ��������˨�ż�ƥ������
+你走了半日，终于来到岗顶，此处有一座庙宇，庙门横额写着“普光寺”
+三个大字。环庙是几株高大的松树，栓着几匹骡马。
 LONG        );
 
-     set("outdoors","��Ĺ");     
+     set("outdoors","古墓");     
 
      set("exits", ([
          "southup" : __DIR__"shanlu3",

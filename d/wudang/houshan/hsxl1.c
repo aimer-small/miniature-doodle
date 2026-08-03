@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "Ğ¡Â·");
+        set("short", "å°è·¯");
 	set("long", @LONG
-ÕâÀïÊÇÉ½Â·µÄ¾¡Í·£¬Ç°ÃæÊÇÒ»×ùÏÕ¾şµÄÉ½·å¡£ÇÍ±ÚÉÏ³¤×ÅĞí¶àËÉÊ÷£¬ÔÚÉ½
-±ÚÉÏ´òÁËÒ»Ğ©Ò»³ßÀ´³¤µÄÄ¾×®£¬ËÆºõ¿ÉÒÔ²È×ÅÄ¾×®ÅÀ(pa)ÉÏÈ¥¡£
+è¿™é‡Œæ˜¯å±±è·¯çš„å°½å¤´ï¼Œå‰é¢æ˜¯ä¸€åº§é™©å³»çš„å±±å³°ã€‚å³­å£ä¸Šé•¿ç€è®¸å¤šæ¾æ ‘ï¼Œåœ¨å±±
+å£ä¸Šæ‰“äº†ä¸€äº›ä¸€å°ºæ¥é•¿çš„æœ¨æ¡©ï¼Œä¼¼ä¹å¯ä»¥è¸©ç€æœ¨æ¡©çˆ¬(pa)ä¸Šå»ã€‚
 LONG	);
 	set("exits", ([ 
                  "northdown" : __DIR__"hsxl2",
@@ -16,7 +16,7 @@ LONG	);
                 CLASS_D("wudang") + "/chenggao" : 1,
         ]));
         
-        set("outdoors", "Îäµ±");
+        set("outdoors", "æ­¦å½“");
         setup();
 }
 
@@ -31,13 +31,13 @@ int do_pa(string arg)
         me=this_player();
         
         if ((int)me->query_skill("dodge", 1) < 20)
-            return notify_fail("ÄãµÄÇá¹¦²»¹»£¬ÎŞ·¨ÅÀÉÏÈ¥¡£\n");
+            return notify_fail("ä½ çš„è½»åŠŸä¸å¤Ÿï¼Œæ— æ³•çˆ¬ä¸Šå»ã€‚\n");
         if (arg =="up"){
-           write("Äã²È×ÅÄ¾×®£¬Ğ¡ĞÄÒíÒíµÄÏòÉÏÅÀÈ¥¡£\n");
-           message("vision",me->name() + "ÏòÉÏÒ»×İÍ»È»²»¼ûÁË¡£\n",environment(me), ({me}) );
-           message("vision", me->name() + "ÅÀÁËÉÏÀ´¡£\n",environment(me), ({me}) );
+           write("ä½ è¸©ç€æœ¨æ¡©ï¼Œå°å¿ƒç¿¼ç¿¼çš„å‘ä¸Šçˆ¬å»ã€‚\n");
+           message("vision",me->name() + "å‘ä¸Šä¸€çºµçªç„¶ä¸è§äº†ã€‚\n",environment(me), ({me}) );
+           message("vision", me->name() + "çˆ¬äº†ä¸Šæ¥ã€‚\n",environment(me), ({me}) );
            me->move(__DIR__"taoyuan1");
            return 1;
         }
-       return notify_fail("ÄãÒªÍùÄÄ¶ùÅÀ£¿\n");
+       return notify_fail("ä½ è¦å¾€å“ªå„¿çˆ¬ï¼Ÿ\n");
 }

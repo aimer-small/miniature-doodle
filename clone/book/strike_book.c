@@ -1,16 +1,16 @@
-// strike_book.c ÕÆ·¨Í¼Æ×
+// strike_book.c æŒæ³•å›¾è°±
 
 inherit ITEM;
 
 void create()
 {
-	set_name("ÕÆ·¨Í¼Æ×", ({ "tu pu", "tupu", "book", "shu" }));
+	set_name("æŒæ³•å›¾è°±", ({ "tu pu", "tupu", "book", "shu" }));
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾Ïß×°Êé£¬ÉÏÃæ»­ÂúÁËÕıÔÚÁ·ÕÆ·¨µÄĞ¡ÈË¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬çº¿è£…ä¹¦ï¼Œä¸Šé¢ç”»æ»¡äº†æ­£åœ¨ç»ƒæŒæ³•çš„å°äººã€‚\n");
 		set("unique", 1);
 		set("newbie", 1);
 		set("treasure", 1);

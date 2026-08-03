@@ -1,18 +1,18 @@
-// peng.c ÅíÓ¨Óñ
+// peng.c å½­è¹ç‰
 // Modify By River@sj 99.06
 #include <ansi.h>
 inherit NPC;
 inherit F_MASTER;
 void create()
 {
-        set_name("ÅíÓ¨Óñ", ({ "peng yingyu","peng","yingyu" }) );
-        set("title", "Ã÷½ÌÎåÉ¢ÈË");
-        set("gender", "ÄĞĞÔ");
-        create_family("Ã÷½Ì",36,"É¢ÈË");
+        set_name("å½­è¹ç‰", ({ "peng yingyu","peng","yingyu" }) );
+        set("title", "æ˜æ•™äº”æ•£äºº");
+        set("gender", "ç”·æ€§");
+        create_family("æ˜æ•™",36,"æ•£äºº");
         set("age",51);
         set("class", "bonze");
-        set("long","Ëû¾ÍÊÇÃ÷½ÌÎåÉ¢ÈËÖ®Ò»£¬ÈË³ÆÅíºÍÉĞ¡£\n");
-        set("rank_info/respect","´óÊ¦");
+        set("long","ä»–å°±æ˜¯æ˜æ•™äº”æ•£äººä¹‹ä¸€ï¼Œäººç§°å½­å’Œå°šã€‚\n");
+        set("rank_info/respect","å¤§å¸ˆ");
         set("str", 25);
         set("int", 25);
         set("con", 25);
@@ -50,7 +50,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {     
-        command("say °¢ÃÖÍÓ·ğ£¬ÉÆÔÕ£¬ÉÆÔÕ£¬Æ¶É®ÒÑĞí¾Ã²»ÊÕµÜ×ÓÁË¡£");
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"»¹ÊÇÇë»Ø°É¡£");
+        command("say é˜¿å¼¥é™€ä½›ï¼Œå–„å“‰ï¼Œå–„å“‰ï¼Œè´«åƒ§å·²è®¸ä¹…ä¸æ”¶å¼Ÿå­äº†ã€‚");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"è¿˜æ˜¯è¯·å›å§ã€‚");
         return;
 }

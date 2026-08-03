@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-	set_name("»ªÉ½ÂÛ½£¹«¸æ°å", ({ "board" }) );
+	set_name("åå±±è®ºå‰‘å…¬å‘Šæ¿", ({ "board" }) );
        set("location","/d/taishan/fengchan");
      set("board_id", "hslj_b");
-	set("long", "ÕâÊÇÒ»¸ö¹ØÓÚ»ªÉ½ÂÛ½£µÄÁôÑÔ°å¡£\n" );
+	set("long", "è¿™æ˜¯ä¸€ä¸ªå…³äºåå±±è®ºå‰‘çš„ç•™è¨€æ¿ã€‚\n" );
 	setup();
 	set("capacity", 60);
 }
@@ -15,7 +15,7 @@ void create()
 /* int do_read(string arg)
 {
 	if (!wizardp(this_player()))
-        return notify_fail("ÕâÀïËùÊö¾ùÎªÎäÁÖ»úÃÜ£¬Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔ¿´ÕâÀïµÄÁôÑÔ¡£\n");
+        return notify_fail("è¿™é‡Œæ‰€è¿°å‡ä¸ºæ­¦æ—æœºå¯†ï¼Œåªæœ‰å·«å¸ˆæ‰å¯ä»¥çœ‹è¿™é‡Œçš„ç•™è¨€ã€‚\n");
 
      return ::do_read(arg);
 } */

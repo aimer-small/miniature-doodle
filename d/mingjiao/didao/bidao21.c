@@ -7,9 +7,9 @@ inherit ROOM;
 
 void create()
 { 
-       set("short","ÃØµÀ");
+       set("short","ç§˜é“");
        set("long", @LONG
-ÕâÀïÊÇÃØµÀµÄ³ö¿Ú£¬Ö±Í¨Ã÷½ÌºñÍÁÆì¡£
+è¿™é‡Œæ˜¯ç§˜é“çš„å‡ºå£ï¼Œç›´é€šæ˜æ•™åšåœŸæ——ã€‚
 LONG
      );
     
@@ -23,7 +23,7 @@ LONG
 int valid_leave(object me, string dir)
 {
         if (dir == "out") {
-                write(HIW"\nÄã³öµÃ¶´À´£¬Ç¿¹âÉÁÒ«£¬Ò»Ê±Ö®¼ä¾¹È»Õö²»¿ªÑÛ¡£\n\n"NOR);
+                write(HIW"\nä½ å‡ºå¾—æ´æ¥ï¼Œå¼ºå…‰é—ªè€€ï¼Œä¸€æ—¶ä¹‹é—´ç«Ÿç„¶çä¸å¼€çœ¼ã€‚\n\n"NOR);
         }
         return 1;
 }

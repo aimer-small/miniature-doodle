@@ -1,6 +1,6 @@
 // /kungfu/class/emei/jing-xin.c
 // Update by Lklv 2001.10.18
-// lane 2004.12.24 add ¸£Àû
+// lane 2004.12.24 add ç¦åˆ©
 
 #include "nigu.h"
 inherit F_MASTER;
@@ -9,10 +9,10 @@ int ask_gold();
 
 void create()
 {
-        set_name("¾²ĞÄÊ¦Ì«", ({"jingxin shitai", "jingxin", "shitai"}));
-        set("long", "ËıÊÇÔÚ»ª²ØâÖĞŞĞĞµÄÊ¦Ì«£¬³£¼ûÔÚ²àµîÀïÓëÄêÇá¶ëáÒµÜ×ÓÌÖÂÛÎÊÌâ¡£\n");
+        set_name("é™å¿ƒå¸ˆå¤ª", ({"jingxin shitai", "jingxin", "shitai"}));
+        set("long", "å¥¹æ˜¯åœ¨åè—åºµä¿®è¡Œçš„å¸ˆå¤ªï¼Œå¸¸è§åœ¨ä¾§æ®¿é‡Œä¸å¹´è½»å³¨åµ‹å¼Ÿå­è®¨è®ºé—®é¢˜ã€‚\n");
 
-        set("gender", "Å®ĞÔ");
+        set("gender", "å¥³æ€§");
         set("attitude", "friendly");
 	set("unique", 1);
         set("class", "bonze");
@@ -31,9 +31,9 @@ void create()
         set("combat_exp", 500000);
         set("score", 100);
 	set("inquiry",([
-                "Ìê¶È"  : (: ask_for_join :),
-                "³ö¼Ò"  : (: ask_for_join :),
-		"²ù³ıÄ§½Ì" : (: ask_gold :),
+                "å‰ƒåº¦"  : (: ask_for_join :),
+                "å‡ºå®¶"  : (: ask_for_join :),
+		"é“²é™¤é­”æ•™" : (: ask_gold :),
 
         ]));
 	set_skill("dacheng-fofa", 130);
@@ -51,7 +51,7 @@ void create()
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
 
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
         setup();
 	carry_object("/d/emei/obj/changjian")->wield();
@@ -69,21 +69,21 @@ int ask_gold()
 	skill = me->query_skill("linji-zhuang", 1);
 	myfam = (mapping)me->query("family");
 
-	if( !myfam || myfam["family_name"] != "¶ëáÒÅÉ" ) {
+	if( !myfam || myfam["family_name"] != "å³¨åµ‹æ´¾" ) {
 		command("wa2 "+(string)me->query("id"));
-		command("say "+ RANK_D->query_respect(me) +"ÓĞÕâÖÖÏë·¨ÕæÊÇÌ«ºÃÁË!");
+		command("say "+ RANK_D->query_respect(me) +"æœ‰è¿™ç§æƒ³æ³•çœŸæ˜¯å¤ªå¥½äº†!");
 		return 1;
 	}
 
 	if( (int)me->query("emei_given") >= (int)me->query("age") ) {
 		command("innocent");
-		command("say ²»ÊÇÄãËµÒªÈ¥²ù³ıÄ§½ÌµÄÂğ£¿");
+		command("say ä¸æ˜¯ä½ è¯´è¦å»é“²é™¤é­”æ•™çš„å—ï¼Ÿ");
 		return 1;
 	}
 
 	if( skill < 120 ) {
 		command("joke "+(string)me->query("id"));
-		command("say "+ RANK_D->query_respect(me) +"Äê¼Í»¹Çá£¬»¹ÊÇ°²ĞÄÑ§ºÃÎä¹¦°É¡£\n");
+		command("say "+ RANK_D->query_respect(me) +"å¹´çºªè¿˜è½»ï¼Œè¿˜æ˜¯å®‰å¿ƒå­¦å¥½æ­¦åŠŸå§ã€‚\n");
 		return 1;
 	}
 
@@ -91,7 +91,7 @@ int ask_gold()
 	if( 100 >= skill ) gold += gold/2;
 	me->add("balance", gold);
 	me->set("emei_given", (int)me->query("age"));
-	command("say ÄãÓĞÕâÖÖÏë·¨ÕæÊÇÌ«ºÃÁË£¬¿ÉÏ§ÏÖÔÚÄ§½ÌÈÕÒæ×³´ó£¬²ù³ıÄ§½Ì¿ÖÅÂ²»ÊÇÕâÃ´ÈİÒ×°É£¡");
-	command("say ÎÒ½«Õâ" + MONEY_D->money_str(gold) + "´æÈëÄãµÄÇ®×¯£¬Äã¾ÍÏÂ¶ëáÒÉ½Ñ²ÊÓÏÂ°É£¬ÈçÓöÄ§½Ì¶ñÍ½ÇĞ²»¿ÉÊÖÈí°¡£¡");
+	command("say ä½ æœ‰è¿™ç§æƒ³æ³•çœŸæ˜¯å¤ªå¥½äº†ï¼Œå¯æƒœç°åœ¨é­”æ•™æ—¥ç›Šå£®å¤§ï¼Œé“²é™¤é­”æ•™ææ€•ä¸æ˜¯è¿™ä¹ˆå®¹æ˜“å§ï¼");
+	command("say æˆ‘å°†è¿™" + MONEY_D->money_str(gold) + "å­˜å…¥ä½ çš„é’±åº„ï¼Œä½ å°±ä¸‹å³¨åµ‹å±±å·¡è§†ä¸‹å§ï¼Œå¦‚é‡é­”æ•™æ¶å¾’åˆ‡ä¸å¯æ‰‹è½¯å•Šï¼");
 	return 1;
 }

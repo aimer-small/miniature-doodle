@@ -1,17 +1,17 @@
-// mala-doufu.c ÂéÀ±¶¹¸¯
+// mala-doufu.c éº»è¾£è±†è…
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-        set_name("ÔªÏü", ({"yuanxiao", "yuan", "xiao"}));
+        set_name("å…ƒå®µ", ({"yuanxiao", "yuan", "xiao"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-                set("long", "Ò»Íë°×ÄÛÈá»¬£¬ÇåÏã¿É¿ÚµÄÔªÏü¡£ÊÇÎªÁË¼Ñ½ÚÌØµØÃüÈË¸ÏÖÆµÄ¡£\n");
-                set("unit", "Íë");
+                set("long", "ä¸€ç¢—ç™½å«©æŸ”æ»‘ï¼Œæ¸…é¦™å¯å£çš„å…ƒå®µã€‚æ˜¯ä¸ºäº†ä½³èŠ‚ç‰¹åœ°å‘½äººèµ¶åˆ¶çš„ã€‚\n");
+                set("unit", "ç¢—");
 		set("food_remaining", 4);
 		set("food_supply", 40);
 	}

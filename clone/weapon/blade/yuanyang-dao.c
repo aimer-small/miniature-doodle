@@ -1,4 +1,4 @@
-// yyd.c Ô§Ñì±¦µ¶
+// yyd.c é¸³é¸¯å®åˆ€
 // zly 99.6.22
 
 #include <weapon.h>
@@ -8,14 +8,14 @@ inherit BLADE;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(HIC"Ô§Ñì±¦µ¶"NOR,({ "yuanyang dao", "dao","yuanyang","blade" }) );
-        set("long", HIC"\nÕâ¾ÍÊÇÌìÏÂÎÅÃûµÄÔ§Ñì±¦µ¶£¬¾İËµÀïÃæ²Ø×ÅÎŞµĞÓÚÌìÏÂµÄ´óÃØÃÜ¡£\n"NOR);
+        set_name(HIC"é¸³é¸¯å®åˆ€"NOR,({ "yuanyang dao", "dao","yuanyang","blade" }) );
+        set("long", HIC"\nè¿™å°±æ˜¯å¤©ä¸‹é—»åçš„é¸³é¸¯å®åˆ€ï¼Œæ®è¯´é‡Œé¢è—ç€æ— æ•Œäºå¤©ä¸‹çš„å¤§ç§˜å¯†ã€‚\n"NOR);
         set_weight(15000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("treasure", 1);
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
                 set("value", 1000);
                 set("unique", 1);
                 set("rigidity", 4);
@@ -24,8 +24,8 @@ void create()
                 set("wield_neili", 900);
                 set("wield_maxneili", 1400);
                 set("wield_str", 24);
-                set("wield_msg", HIC"Ö»Ìı¼ûÒ»ÉùÇáÏì£¬$N³é³öÔ§Ñì±¦µ¶ÎÕÔÚÊÖÀï£¡\n"NOR);
-                set("unwield_msg", HIC"$N½«ÊÖÖĞµÄÔ§Ñì±¦µ¶ÇáÇáµØ²åÈëµ¶ÇÊ¡£\n" NOR);               
+                set("wield_msg", HIC"åªå¬è§ä¸€å£°è½»å“ï¼Œ$NæŠ½å‡ºé¸³é¸¯å®åˆ€æ¡åœ¨æ‰‹é‡Œï¼\n"NOR);
+                set("unwield_msg", HIC"$Nå°†æ‰‹ä¸­çš„é¸³é¸¯å®åˆ€è½»è½»åœ°æ’å…¥åˆ€é˜ã€‚\n" NOR);               
         }
         init_blade(70);
         setup();
@@ -33,7 +33,7 @@ void create()
 
 void init()
 {
-    add_action("do_sub",({"fen", "·Ö"}));
+    add_action("do_sub",({"fen", "åˆ†"}));
 }
 
 int do_sub()
@@ -42,10 +42,10 @@ int do_sub()
      me = this_player();
      obj = present("yuanyang dao", me);
      if((int)me->query("neili") < 500)
-                return notify_fail("Äã¸Ğ¾õÈ«ÉíÆøÑª·­ÌÚ£¬Í·ÔÎÄ¿Ñ££¬Ô­À´ÄãÕæÆø²»¹»£¬·Ö²»¿ªÔ§Ñì±¦µ¶£¡\n");
+                return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”è¡€ç¿»è…¾ï¼Œå¤´æ™•ç›®çœ©ï¼ŒåŸæ¥ä½ çœŸæ°”ä¸å¤Ÿï¼Œåˆ†ä¸å¼€é¸³é¸¯å®åˆ€ï¼\n");
      if((int)me->query_str() < 28)
-                return notify_fail("Äã¸Ğ¾õÊ¹¾¡ÁËÈ«ÉíµÄÁ¦Æø£¬Ò²·Ö²»¿ªÔ§Ñì±¦µ¶£¡\n");
-     message_vision(HIY"\nÖ»ÌıÒ»ÉùÇáÏì£¬$N½«Ô§Ñì±¦µ¶µ¶±úÒ»°´Ò»·Ö£¬Ô§Ñì±¦µ¶µÇÊ±Ò»·ÖÎª¶ş£¬·Ö²åÔÚ$NµÄÁ½¸öµ¶ÇÊÖĞ£¡\n"NOR, me);
+                return notify_fail("ä½ æ„Ÿè§‰ä½¿å°½äº†å…¨èº«çš„åŠ›æ°”ï¼Œä¹Ÿåˆ†ä¸å¼€é¸³é¸¯å®åˆ€ï¼\n");
+     message_vision(HIY"\nåªå¬ä¸€å£°è½»å“ï¼Œ$Nå°†é¸³é¸¯å®åˆ€åˆ€æŸ„ä¸€æŒ‰ä¸€åˆ†ï¼Œé¸³é¸¯å®åˆ€ç™»æ—¶ä¸€åˆ†ä¸ºäºŒï¼Œåˆ†æ’åœ¨$Nçš„ä¸¤ä¸ªåˆ€é˜ä¸­ï¼\n"NOR, me);
      me->add("neili", -300);
      new(BINGQI_D("blade/yuandao"))->move(me, 1);
      new(BINGQI_D("blade/yangdao"))->move(me, 1);

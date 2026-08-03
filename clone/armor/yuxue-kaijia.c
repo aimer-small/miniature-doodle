@@ -1,4 +1,4 @@
-//Ô¡Ñªîø¼×
+//æµ´è¡€é“ ç”²
 #include <armor.h>
 #include <ansi.h>
 
@@ -7,18 +7,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIR"Ô¡Ñªîø¼×"NOR, ({ "yuxue kaijia", "kaijia" }));
+        set_name(HIR"æµ´è¡€é“ ç”²"NOR, ({ "yuxue kaijia", "kaijia" }));
         set_weight(10000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", HIR"ÕâÊÇÒ»¼şµ±ÄêÔÀ·ÉÔø´©¹ıµÄîø¼×£¬ÒòÎªµ±ÄêÔÀ·ÉÔªË§Ô¡ÑªÉ³³¡£¬îø¼×±»È¾³ÉÁËÑªºìÉ«¡£\n"NOR);
+                set("long", HIR"è¿™æ˜¯ä¸€ä»¶å½“å¹´å²³é£æ›¾ç©¿è¿‡çš„é“ ç”²ï¼Œå› ä¸ºå½“å¹´å²³é£å…ƒå¸…æµ´è¡€æ²™åœºï¼Œé“ ç”²è¢«æŸ“æˆäº†è¡€çº¢è‰²ã€‚\n"NOR);
                 set("material", "steel");
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
                 set("unique", 1);
                 set("value", 1000000);
-                set("wear_msg", HIR "$N»ôµÄÒ»Éù´©ÉÏÁËÔ¡Ñªîø¼×£¬Ò»¹ÉÁèÔÆ×³Æøµ´Ñú£¬»ëÉíËÆºõ³äÂúÁË¶·Ö¾£¡\n" NOR);
-                set("remove_msg", HIR "$NÍÑÏÂÔ¡Ñªîø¼×£¬½¥½¥É¢È¥ÁËÔ¡Ñª½«Ê¿µÄ·ç²É¡£\n" NOR);
+                set("wear_msg", HIR "$Néœçš„ä¸€å£°ç©¿ä¸Šäº†æµ´è¡€é“ ç”²ï¼Œä¸€è‚¡å‡Œäº‘å£®æ°”è¡æ¼¾ï¼Œæµ‘èº«ä¼¼ä¹å……æ»¡äº†æ–—å¿—ï¼\n" NOR);
+                set("remove_msg", HIR "$Nè„±ä¸‹æµ´è¡€é“ ç”²ï¼Œæ¸æ¸æ•£å»äº†æµ´è¡€å°†å£«çš„é£é‡‡ã€‚\n" NOR);
                 set("treasure",1);
                 set("armor_prop/armor", 50);
                 set("armor_prop/parry", 10);

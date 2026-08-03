@@ -2,10 +2,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-        set_name("´óÀíÁôÑÔ°å", ({ "board" }) );
+        set_name("å¤§ç†ç•™è¨€æ¿", ({ "board" }) );
         set("location", "/d/dali/wangfu/damen");
         set("board_id", "dali_b");
-        set("long", "ÕâÊÇÒ»¸ö¹©·´Ó³´óÀíÊÂÎñµÄÁôÑÔ°å¡£\n" );
+        set("long", "è¿™æ˜¯ä¸€ä¸ªä¾›åæ˜ å¤§ç†äº‹åŠ¡çš„ç•™è¨€æ¿ã€‚\n" );
         setup();
         set("capacity", 60);
 }

@@ -1,9 +1,9 @@
-// tianyin.c ÃÜ×Ú´óÊÖÓ¡Ö®ÌìÓ¡
+// tianyin.c å¯†å®—å¤§æ‰‹å°ä¹‹å¤©å°
 #include <ansi.h>
 
 inherit F_SSERVER;
 
-string perform_name(){ return HIY"°¢ĞŞÂŞÌìÓ¡¾÷"NOR; }
+string perform_name(){ return HIY"é˜¿ä¿®ç½—å¤©å°è¯€"NOR; }
 
 int perform(object me, object target)
 {
@@ -17,30 +17,30 @@ int perform(object me, object target)
           || !me->is_fighting(target)
           || !objectp(target)
           || environment(target)!= environment(me))
-           return notify_fail("°¢ĞŞÂŞÌìÓ¡Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+           return notify_fail("é˜¿ä¿®ç½—å¤©å°åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if( objectp(me->query_temp("weapon")) )
-		return notify_fail("Äã±ØĞë¿ÕÊÖ²ÅÄÜÊ¹ÓÃ¡¸°¢ĞŞÂŞÌìÓ¡¡¹¾÷£¡\n");		
+		return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹æ‰èƒ½ä½¿ç”¨ã€Œé˜¿ä¿®ç½—å¤©å°ã€è¯€ï¼\n");		
 	if((int)me->query_skill("longxiang-boruo",1)<80)
-                return notify_fail("ÄãµÄÁúÏó°ãÈô¹¦ĞŞÎª²»¹»¡£\n");	
+                return notify_fail("ä½ çš„é¾™è±¡èˆ¬è‹¥åŠŸä¿®ä¸ºä¸å¤Ÿã€‚\n");	
         if( (int)me->query_skill("dashou-yin", 1) < 80 )
-		return notify_fail("ÄãµÄÃÜ×Ú´óÊÖÓ¡ĞŞÎª²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸°¢ĞŞÂŞÌìÓ¡¡¹¾÷¡£\n");
+		return notify_fail("ä½ çš„å¯†å®—å¤§æ‰‹å°ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œé˜¿ä¿®ç½—å¤©å°ã€è¯€ã€‚\n");
         if((int)me->query("max_neili",1)<1000)
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎªÌ«²îÎŞ·¨Ê¹ÓÃ±¾ÊÆ¡£\n");                        
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºå¤ªå·®æ— æ³•ä½¿ç”¨æœ¬åŠ¿ã€‚\n");                        
         if( (int)me->query("neili", 1) < 500 )
-		return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ¡¸°¢ĞŞÂŞÌìÓ¡¡¹¾÷¡£\n");
+		return notify_fail("ä½ ç°åœ¨å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ã€Œé˜¿ä¿®ç½—å¤©å°ã€è¯€ã€‚\n");
         if((int)me->query_skill("poison",1)<80)
-            return notify_fail("ÄãµÄ¶¾¼¼²»¹»£¬ÎŞ·¨ÅäºÏËÍ³öÕÆ¶¾¡£\n");			
-	me->start_perform(5,"°¢ĞŞÂŞÌìÓ¡");
-	msg = HIY "$NÄ¬Äî·ßÅ­Öä£¬ÔËÆğÁúÏó°ãÈôÉñ¹¦£¬Ê®Ö¸·­·É£¬Ë«ÊÖ¶¸È»´óÁËÊı±¶£¬´ø×ÅÒ»¹É×ÏºÚÖ®Æø»÷Ïò$n¡£\n"NOR;
-	msg +=  "ÕıÊÇÒ»ÕĞ¡¸"HIG"°¢ĞŞÂŞÎŞÉÏèóÌì½µÄ§±¦Ó¡"NOR"¡¹¡£\n\n"NOR;
+            return notify_fail("ä½ çš„æ¯’æŠ€ä¸å¤Ÿï¼Œæ— æ³•é…åˆé€å‡ºæŒæ¯’ã€‚\n");			
+	me->start_perform(5,"é˜¿ä¿®ç½—å¤©å°");
+	msg = HIY "$Né»˜å¿µæ„¤æ€’å’’ï¼Œè¿èµ·é¾™è±¡èˆ¬è‹¥ç¥åŠŸï¼ŒåæŒ‡ç¿»é£ï¼ŒåŒæ‰‹é™¡ç„¶å¤§äº†æ•°å€ï¼Œå¸¦ç€ä¸€è‚¡ç´«é»‘ä¹‹æ°”å‡»å‘$nã€‚\n"NOR;
+	msg +=  "æ­£æ˜¯ä¸€æ‹›ã€Œ"HIG"é˜¿ä¿®ç½—æ— ä¸Šæ¢µå¤©é™é­”å®å°"NOR"ã€ã€‚\n\n"NOR;
            	message_vision(msg, me, target);
 
         if( !target->is_killing(me) ) target->kill_ob(me);
 
         if( target->query_temp("fanzhen")){
-             msg+=HIY"$n ²»ÉÁ²»¶ãÈÎÓÉ$NÒ»ÕÆ»÷ÔÚĞØ¿ÚÖ®ÉÏ£¬Ö»¼û½ğ¹âÒ»ÉÁ£¬$NµÄÕÆ¶¾¾¡±»·´Õğ»÷¶ø»Ø£¡\n"
-                   +"$NÊ§Éù¾ª½Ğ£º¡°½ğ¸Õ²»»µÌåÉñ¹¦£¡¡±Á¬Ã¦ÊÕÕÆÉÁ±Ü¡£\n"NOR;     	
+             msg+=HIY"$n ä¸é—ªä¸èº²ä»»ç”±$Nä¸€æŒå‡»åœ¨èƒ¸å£ä¹‹ä¸Šï¼Œåªè§é‡‘å…‰ä¸€é—ªï¼Œ$Nçš„æŒæ¯’å°½è¢«åéœ‡å‡»è€Œå›ï¼\n"
+                   +"$Nå¤±å£°æƒŠå«ï¼šâ€œé‡‘åˆšä¸åä½“ç¥åŠŸï¼â€è¿å¿™æ”¶æŒé—ªé¿ã€‚\n"NOR;     	
                 me->add("neili", -300);
                 me->apply_condition("dsy_poison", random(me->query_skill("poison")/10) + 1 );
            	message_vision(msg, me, target);
@@ -67,7 +67,7 @@ int perform(object me, object target)
 	me->add_temp("apply/strength",- lvl /3);
 	me->add_temp("apply/damage", -lvl );
 
-	me->start_perform(3, "°¢ĞŞÂŞÎŞÉÏèóÌì½µÄ§±¦Ó¡");
+	me->start_perform(3, "é˜¿ä¿®ç½—æ— ä¸Šæ¢µå¤©é™é­”å®å°");
 	me->start_busy(random(2));
 
 	return 1;
@@ -79,13 +79,13 @@ int perform(object me, object target)
 
 int help(object me)
 {
-        write(HIG"\n´óÊÖÓ¡¡¸°¢ĞŞÂŞÎŞÉÏèóÌì½µÄ§±¦Ó¡¡¹£º"NOR"\n");
+        write(HIG"\nå¤§æ‰‹å°ã€Œé˜¿ä¿®ç½—æ— ä¸Šæ¢µå¤©é™é­”å®å°ã€ï¼š"NOR"\n");
         write(@HELP
-        °¢ĞŞÂŞÌìÓ¡¡£ÒÔÎŞÉÏ½µÄ§ÊÖÓ¡¼°ÉîºñÁúÏóÄÚÁ¦´ß¶¯°¢ĞŞÂŞÑªÉ·¾ç¶¾¹¥»÷µĞÈË¡£
-        ÒªÇó£º  ×î´óÄÚÁ¦  1000 ÒÔÉÏ£»
-                  µ±Ç°ÄÚÁ¦  700 ÒÔÉÏ£»
-                  µ±Ç°¾«Á¦  500 ÒÔÉÏ£»
-                 ´óÊÖÓ¡£¬ÁúÏó²¨ÈôÉñ¹¦£¬¶¾¼¼ ¾ù80lvlÒÔÉÏ
+        é˜¿ä¿®ç½—å¤©å°ã€‚ä»¥æ— ä¸Šé™é­”æ‰‹å°åŠæ·±åšé¾™è±¡å†…åŠ›å‚¬åŠ¨é˜¿ä¿®ç½—è¡€ç…å‰§æ¯’æ”»å‡»æ•Œäººã€‚
+        è¦æ±‚ï¼š  æœ€å¤§å†…åŠ›  1000 ä»¥ä¸Šï¼›
+                  å½“å‰å†…åŠ›  700 ä»¥ä¸Šï¼›
+                  å½“å‰ç²¾åŠ›  500 ä»¥ä¸Šï¼›
+                 å¤§æ‰‹å°ï¼Œé¾™è±¡æ³¢è‹¥ç¥åŠŸï¼Œæ¯’æŠ€ å‡80lvlä»¥ä¸Š
 HELP
         );
         return 1;

@@ -1,4 +1,4 @@
-//�Ͻ�ʹ�á�����ɱͷ�� By jpei@wl 2011
+//严禁使用。否则杀头！ By jpei@wl 2011
 
 #include <ansi.h>
 
@@ -36,13 +36,13 @@ int main(object me,string arg)
 
 
     if (!arg)
-            return notify_fail("�����ʲô��\n");
+            return notify_fail("你想干什么？\n");
 
     if(!objectp(ob = present(arg, environment(me))))
-            return notify_fail("����û������ˡ�\n");
+            return notify_fail("这里没有这个人。\n");
     
     if(userp(me))
-    	       return notify_fail("ʲô��\n");
+    	       return notify_fail("什么？\n");
 
  skl = ob->query_skills();
 
@@ -56,7 +56,7 @@ int main(object me,string arg)
 	sname=filter_array( allskills, (: sort_skill :) );
 	allskills-=sname;
 
-//�����ǻ���
+//这里是基本
 
 	sname=filter_array( allskills, (: sort_basic :) );
 	allskills-=sname;
@@ -69,7 +69,7 @@ int main(object me,string arg)
                   }
 
 
-//����������
+//这里是特殊
 	sname=allskills;
 
 	j = sizeof(sname);
@@ -97,7 +97,7 @@ int main(object me,string arg)
 
                                                                           ob->set_skill(sname[i], ob->query("max_pot",1)-100);
                   }
-// CHANNEL_D->do_channel(this_object(), "rumor", HIC"��˵" + ob->name(1) + "�ӻ���ҵ���ʦ��ѧ�������еļ��ܣ�\n"NOR);
+// CHANNEL_D->do_channel(this_object(), "rumor", HIC"听说" + ob->name(1) + "从会客室的巫师处学满了所有的技能！\n"NOR);
 
 	return 1;
 

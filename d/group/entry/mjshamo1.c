@@ -1,20 +1,20 @@
-// shamo1.c ´óÉ³Ä®
+// shamo1.c å¤§æ²™æ¼ 
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 { 
-       set("short",YEL"´óÉ³Ä®"NOR);
+       set("short",YEL"å¤§æ²™æ¼ "NOR);
        set("long", @LONG
-ÕâÊÇÒ»Æ¬Ò»ÍûÎŞ¼ÊµÄ´óÉ³Ä®µÄÈë¿Ú¡£ÄãÒ»½øÀ´¾ÍÃÔÊ§ÁË·½Ïò¡£ÔÚ¶¬ÌìÊ±ÄÜ
-¿´¼ûÒ»Æ¬Æ¬µÄ»ıÑ©£¬Î÷±ßÊÇÒ»¸ö¸öĞ¡É³Çğ¡£
+è¿™æ˜¯ä¸€ç‰‡ä¸€æœ›æ— é™…çš„å¤§æ²™æ¼ çš„å…¥å£ã€‚ä½ ä¸€è¿›æ¥å°±è¿·å¤±äº†æ–¹å‘ã€‚åœ¨å†¬å¤©æ—¶èƒ½
+çœ‹è§ä¸€ç‰‡ç‰‡çš„ç§¯é›ªï¼Œè¥¿è¾¹æ˜¯ä¸€ä¸ªä¸ªå°æ²™ä¸˜ã€‚
 LONG);    
 	set("exits", ([
 		"west" : "/d/mingjiao/shaqiu1",
 		"northeast" : "/d/xingxiu/silk6"
 	]));             
 	set("group", 1);
-        set("outdoors", "Ë¿³ñÖ®Â·");
+        set("outdoors", "ä¸ç»¸ä¹‹è·¯");
 	setup();
 }

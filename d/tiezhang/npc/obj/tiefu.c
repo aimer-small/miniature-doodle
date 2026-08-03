@@ -1,4 +1,4 @@
-//gangfu.c ¸Ö¸«
+//gangfu.c é’¢æ–§
 #include <weapon.h>
 #include <ansi.h>
 
@@ -6,18 +6,18 @@ inherit AXE;
 
 void create()
 {
-        set_name("Ìú¸«",({ "tie fu", "fu", "axe"}) );
+        set_name("é“æ–§",({ "tie fu", "fu", "axe"}) );
         set_weight(10000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
                 set("value", 2000);
                 set("material", "steel");
                 set("weapon_prop/dodge", -5);
-                set("wield_msg", "$Nà§µØÒ»Éù´ÓÑüÖĞ³é³öÒ»°ÑÌú¸«¡£\n");
-                set("long", "ÕâÊÇÒ»ÆÕÆÕÍ¨Í¨µÄÌú¸«¡£\n");                
-                set("unwield_msg", "$N°ÑÌú¸«±ğÔÚÁËÑüÖĞ¡£\n");                
+                set("wield_msg", "$Nå”°åœ°ä¸€å£°ä»è…°ä¸­æŠ½å‡ºä¸€æŠŠé“æ–§ã€‚\n");
+                set("long", "è¿™æ˜¯ä¸€æ™®æ™®é€šé€šçš„é“æ–§ã€‚\n");                
+                set("unwield_msg", "$NæŠŠé“æ–§åˆ«åœ¨äº†è…°ä¸­ã€‚\n");                
         }
         init_axe(20);
         setup();

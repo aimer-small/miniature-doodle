@@ -1,4 +1,4 @@
-// ½ğîÎ jinchai.c
+// é‡‘é’— jinchai.c
 // zly 99.6.21
 
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit ITEM;
 
 void create()
 {
-          set_name(HIY"½ğîÎ"NOR, ({"jin chai","jin","chai"}));
+          set_name(HIY"é‡‘é’—"NOR, ({"jin chai","jin","chai"}));
         set("long",
-                "\nÕâÊÇÒ»Ö§¾«ÖÂÆ¯ÁÁµÄ½ğîÎ£¬îÎÉÏÒ»¿ÅÃ÷ÖéÓÖ´óÓÖÔ²£¬±¦¹âÓ¨È»¡£\n");
+                "\nè¿™æ˜¯ä¸€æ”¯ç²¾è‡´æ¼‚äº®çš„é‡‘é’—ï¼Œé’—ä¸Šä¸€é¢—æ˜ç åˆå¤§åˆåœ†ï¼Œå®å…‰è¹ç„¶ã€‚\n");
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-        set("unit", "Ö§");
+        set("unit", "æ”¯");
         set("weight", 10);
         set("value", 50);
 }

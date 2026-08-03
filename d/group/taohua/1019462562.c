@@ -4,15 +4,15 @@ inherit ROOM;
 #include "/d/group/gate.h"
 void create()
 {
-set("short","·¿¼ä");
-set("long","ÕâÊÇÒ»×ù¸Õ¸Õ½¨ÔìºÃ£¬»¹Ã»ÓĞ·ÛË¢µÄ·¿Îİ¡£
+set("short","æˆ¿é—´");
+set("long","è¿™æ˜¯ä¸€åº§åˆšåˆšå»ºé€ å¥½ï¼Œè¿˜æ²¡æœ‰ç²‰åˆ·çš„æˆ¿å±‹ã€‚
 ");
 set("exits",([
 "north":__DIR__"1019461907.c",
 ]));
-set("indoors","[1;35mÌÒ»¨Ô´[0;0m");
+set("indoors","[1;35mæ¡ƒèŠ±æº[0;0m");
 set("group1","taohua");
-set("group2","[1;35mÌÒ»¨Ô´[0;0m");
+set("group2","[1;35mæ¡ƒèŠ±æº[0;0m");
 setup();
 setup_var();
 }

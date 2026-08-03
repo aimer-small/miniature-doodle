@@ -18,14 +18,14 @@ void init()
 
 void create()
 {
-        set_name(HIG "µ¤Ò©" NOR, ({"danyao","yao","dan"}));
+        set_name(HIG "ä¸¹è¯" NOR, ({"danyao","yao","dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("long",
-                "ÕâÊÇÒ»¿ÅÉñÁú½Ì¶À¼ÒÌØÖÆµÄµ¤Ò©¡£\n");
-                set("unit", "¿Å");
-                set("t_unit","¿Å");
+                "è¿™æ˜¯ä¸€é¢—ç¥é¾™æ•™ç‹¬å®¶ç‰¹åˆ¶çš„ä¸¹è¯ã€‚\n");
+                set("unit", "é¢—");
+                set("t_unit","é¢—");
                 set("no_sell",1);
         }
 }
@@ -34,16 +34,16 @@ int do_kan(string arg)
 {
         object me=this_player();
         object yao=this_object();
-        string* type=({"»ğ","ÍÁ","½ğ","Ë®","Ä¾"});
-        string* use=({"²¹ÄÚÁ¦","²¹Ê³Ë®","²¹¾«","²¹Æø","²¹¾«Á¦"});//Ò©µÄ×÷ÓÃ
+        string* type=({"ç«","åœŸ","é‡‘","æ°´","æœ¨"});
+        string* use=({"è¡¥å†…åŠ›","è¡¥é£Ÿæ°´","è¡¥ç²¾","è¡¥æ°”","è¡¥ç²¾åŠ›"});//è¯çš„ä½œç”¨
         int i,j,max,types;
         string msg;
 
         if((me->query_skill("poison",1)<120) || (me->query_skill("shenlong-yaoli",1)<120))
                 return 0; 
-        if(yao->query("poison")=="È«")
+        if(yao->query("poison")=="å…¨")
         {
-                msg=sprintf("ÕâÊÇÒ»%s½â¶¾ÁéÒ©£¬¿É½â%d´Î¶¾¡£\n",yao->query("t_unit"),yao->query("zycs"));
+                msg=sprintf("è¿™æ˜¯ä¸€%sè§£æ¯’çµè¯ï¼Œå¯è§£%dæ¬¡æ¯’ã€‚\n",yao->query("t_unit"),yao->query("zycs"));
                 tell_object(me,msg);
         }
         else
@@ -55,11 +55,11 @@ int do_kan(string arg)
                         {
                                 if(types==1)
                                 {
-	msg=sprintf("ÕâÊÇÒ»%s¶¾Ò©£¬ÓĞÎåĞĞ%s¶¾£¬¿É¶¾·¢%d´Î¡£\n",yao->query("t_unit"),type[i],yao->query("zycs"));
+	msg=sprintf("è¿™æ˜¯ä¸€%sæ¯’è¯ï¼Œæœ‰äº”è¡Œ%sæ¯’ï¼Œå¯æ¯’å‘%dæ¬¡ã€‚\n",yao->query("t_unit"),type[i],yao->query("zycs"));
                                 }
                                 else
                                 {
-	                                msg=sprintf("ÕâÊÇÒ»%s¶¾Ò©£¬ÓĞÎåĞĞ%s¶¾£¬¿É¶¾·¢%d´Î£¬´ËÍâ»¹²ôÔÓÓĞÒ»Ğ©\n",yao->query("t_unit"),type[i],yao->query("zycs"));
+	                                msg=sprintf("è¿™æ˜¯ä¸€%sæ¯’è¯ï¼Œæœ‰äº”è¡Œ%sæ¯’ï¼Œå¯æ¯’å‘%dæ¬¡ï¼Œæ­¤å¤–è¿˜æºæ‚æœ‰ä¸€äº›\n",yao->query("t_unit"),type[i],yao->query("zycs"));
                                         for(j=0;j<sizeof(type);j++)
                                         {
                                                 if(j==i)
@@ -71,7 +71,7 @@ int do_kan(string arg)
                                                         msg=sprintf("%s%s(+%d)",msg,use[j],yao->query(type[j]));
                                                 }
                                         }
-                                        msg+="µÄÒ©Îï¡£\n";
+                                        msg+="çš„è¯ç‰©ã€‚\n";
                                 }
                                 tell_object(me,msg);
                                 break;
@@ -82,7 +82,7 @@ int do_kan(string arg)
                         if(types>0)
 {
                                 max=0;j=0;
-                                msg="ÕâÊÇÒ»"+yao->query("t_unit")+"²¹Ò©£¬º¬ÓĞ";
+                                msg="è¿™æ˜¯ä¸€"+yao->query("t_unit")+"è¡¥è¯ï¼Œå«æœ‰";
                                 for(i=0;i<sizeof(type);i++) 
                                 {
                                         if(yao->query(type[i])==0)
@@ -94,16 +94,16 @@ int do_kan(string arg)
                                                 j=i;
                                         }
                                 }
-                                msg=msg+"µÈÒ©Îï£¬ÆäÖĞÒÔ"+use[j]+"µÄÒ©ÎïÎªÖ÷¡£\n";
+                                msg=msg+"ç­‰è¯ç‰©ï¼Œå…¶ä¸­ä»¥"+use[j]+"çš„è¯ç‰©ä¸ºä¸»ã€‚\n";
                                 tell_object(me,msg);
                         }
                         else
                         {
-                                tell_object(me,"ÕâÊÇÒ»"+yao->query("t_unit")+"Æ­ÈËÓÃµÄ¼ÙÒ©¡£\n");
+                                tell_object(me,"è¿™æ˜¯ä¸€"+yao->query("t_unit")+"éª—äººç”¨çš„å‡è¯ã€‚\n");
                         }       
                 }
         }
-        tell_object(me,"Äã¿ÉÒÔ¶ÔÆä¿´(kan)¡¢Ä¥(mo)¡¢Å×È÷(throw XXX)¡£\n");
+        tell_object(me,"ä½ å¯ä»¥å¯¹å…¶çœ‹(kan)ã€ç£¨(mo)ã€æŠ›æ´’(throw XXX)ã€‚\n");
         return 1;
 }
 
@@ -112,14 +112,14 @@ int do_mo(string arg)
         object yao=this_object();
         object me=this_player();
 
-        if(yao->query("t_unit")=="¿Å")
+        if(yao->query("t_unit")=="é¢—")
         {
-                yao->set("t_unit","°ü");
+                yao->set("t_unit","åŒ…");
                 yao->set("nums",100);
-                tell_object(me,"Äã°Ñ"+yao->name(1)+"Ä¥³ÉÁË·ÛÄ©¡£\n");
+                tell_object(me,"ä½ æŠŠ"+yao->name(1)+"ç£¨æˆäº†ç²‰æœ«ã€‚\n");
         }
         else
-                tell_object(me,yao->name(1)+"ÒÑ¾­²»ÄÜÄ¥ÁË¡£\n");
+                tell_object(me,yao->name(1)+"å·²ç»ä¸èƒ½ç£¨äº†ã€‚\n");
         return 1;
 }
 
@@ -128,30 +128,30 @@ int do_drink(string arg)
         int jl;
         if( !this_object()->id(arg) || !living(this_player())) return 0;
         if( this_player()->is_busy() )
-                return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É¡£\n");
+                return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆã€‚\n");
 /*
-        if( this_object()->query("t_unit")!="±­")
+        if( this_object()->query("t_unit")!="æ¯")
                 return 0;
 */
         if( !query("liquid/remaining") )
-                return notify_fail( name() + (query("liquid/name") ? "ÒÑ¾­±»ºÈµÃÒ»µÎÒ²²»Ê£ÁË¡£\n":"ÊÇ¿ÕµÄ¡£\n"));
+                return notify_fail( name() + (query("liquid/name") ? "å·²ç»è¢«å–å¾—ä¸€æ»´ä¹Ÿä¸å‰©äº†ã€‚\n":"æ˜¯ç©ºçš„ã€‚\n"));
         if( (int)this_player()->query("water") >= (int)this_player()->max_water_capacity() )
-                return notify_fail("ÄãÒÑ¾­ºÈÌ«¶àÁË£¬ÔÙÒ²¹à²»ÏÂÒ»µÎË®ÁË¡£\n");
+                return notify_fail("ä½ å·²ç»å–å¤ªå¤šäº†ï¼Œå†ä¹ŸçŒä¸ä¸‹ä¸€æ»´æ°´äº†ã€‚\n");
         jl=((this_player()->query("pur",)*random(20))+(random(this_player()->query("per",)*10)));
         //add("liquid/remaining", -1);
-        message_vision("$NÄÃÆğ" + name() + "¹¾ààààµØºÈÁË¼¸¿Ú" + query("liquid/name")
-+ "¡£\n", this_player());
+        message_vision("$Næ‹¿èµ·" + name() + "å’•å™œå™œåœ°å–äº†å‡ å£" + query("liquid/name")
++ "ã€‚\n", this_player());
 //        this_player()->add("combat_exp",jl);
         this_player()->add("water", 5*query("liquid/remaining"));
         if( this_player()->is_fighting() ) this_player()->start_busy(2);
         if( !query("liquid/remaining") )
-                write("ÄãÒÑ¾­½«" + name() + "ÀïµÄ" + query("liquid/name")
-                        + "ºÈµÃÒ»µÎÒ²²»Ê£ÁË¡£\n");
+                write("ä½ å·²ç»å°†" + name() + "é‡Œçš„" + query("liquid/name")
+                        + "å–å¾—ä¸€æ»´ä¹Ÿä¸å‰©äº†ã€‚\n");
         eat_yao(this_player());
         if(this_object()->query("nums")<=0)
         {
                 set("liquid/type", "water");
-                set("liquid/name", "ÇåË®");
+                set("liquid/name", "æ¸…æ°´");
                 set("liquid/remaining", 0);
                 // This allows customization of drinking effect.
                 if( query("liquid/drink_func") )
@@ -176,20 +176,20 @@ int do_fill(string arg)
 {
         if( !this_object()->id(arg) ) return 0;
         if( this_player()->is_busy() )
-                return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É¡£\n");
-        if( this_object()->query("t_unit")!="±­")
+                return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆã€‚\n");
+        if( this_object()->query("t_unit")!="æ¯")
                 return 0;
         if( !environment(this_player())->query("resource/water") )
-                return notify_fail("ÕâÀïÃ»ÓĞµØ·½¿ÉÒÔ×°Ë®¡£\n");
+                return notify_fail("è¿™é‡Œæ²¡æœ‰åœ°æ–¹å¯ä»¥è£…æ°´ã€‚\n");
 
         if( query("liquid/remaining") )
-                message_vision("$N½«" + name() + "ÀïÊ£ÏÂµÄ" + query("liquid/name") + "µ¹µô¡£\n", this_player());
-        message_vision("$N½«" + name() + "×°ÂúÇåË®¡£\n", this_player());
+                message_vision("$Nå°†" + name() + "é‡Œå‰©ä¸‹çš„" + query("liquid/name") + "å€’æ‰ã€‚\n", this_player());
+        message_vision("$Nå°†" + name() + "è£…æ»¡æ¸…æ°´ã€‚\n", this_player());
 
         if( this_player()->is_fighting() ) this_player()->start_busy(2);
         
         set("liquid/type", "water");
-        set("liquid/name", "ÇåË®");
+        set("liquid/name", "æ¸…æ°´");
         set("liquid/remaining", query("max_liquid"));
         set("liquid/drink_func", 0);
         call_out("back_rq", 1, this_player());
@@ -200,7 +200,7 @@ void back_rq(object ob)
 {
         object rq;
 
-	if(!objectp(rq=new(query("old")))) tell_object(this_player(),name()+"±»»Ù»µÁË¡£\n");
+	if(!objectp(rq=new(query("old")))) tell_object(this_player(),name()+"è¢«æ¯åäº†ã€‚\n");
         else {
                 rq->set("liquid", query("liquid"));
                 rq->move(ob);        
@@ -215,20 +215,20 @@ int do_rong(string arg)
         object ob=this_object();
 
         if(!objectp(rq=present(arg, me))&&!objectp(rq=present(arg, environment(me))))
-                return notify_fail("ÄãÒª°Ñ"+ob->query("name")+"ÈÜÓÚºÎ´¦£¿\n");
+                return notify_fail("ä½ è¦æŠŠ"+ob->query("name")+"æº¶äºä½•å¤„ï¼Ÿ\n");
         if(rq->query("liquid")==0)
-                return notify_fail(arg+"ºÃÏó²»ÄÜÈÜ»¯¶«Î÷µÄ¡£\n");
+                return notify_fail(arg+"å¥½è±¡ä¸èƒ½æº¶åŒ–ä¸œè¥¿çš„ã€‚\n");
         if( !rq->query("liquid/remaining") )
-                return notify_fail( rq->name()+"ÏÖÔÚÊÇ¿ÕµÄ£¬²»ÄÜÈÜ»¯ÈÎºÎ¶«Î÷¡£\n");
+                return notify_fail( rq->name()+"ç°åœ¨æ˜¯ç©ºçš„ï¼Œä¸èƒ½æº¶åŒ–ä»»ä½•ä¸œè¥¿ã€‚\n");
         if(rq->query("t_unit")!=0)
-                return notify_fail( rq->name()+"ÀïÒÑ¾­ÈÜÓĞÒ©ÎïÁË¡£\n");
-        if(ob->query("t_unit")!="±­")
+                return notify_fail( rq->name()+"é‡Œå·²ç»æº¶æœ‰è¯ç‰©äº†ã€‚\n");
+        if(ob->query("t_unit")!="æ¯")
         {
-                ob->set("t_unit","±­");
-tell_object(me,"Äã°Ñ"+ob->name()+"·ÅÈë"+rq->name()+"ÖĞ£¬½ÁÁË½Á£¬²»Ò»»á£¬¾ÍÈÜ»¯ÓÚÆäÖĞÁË¡£\n");
+                ob->set("t_unit","æ¯");
+tell_object(me,"ä½ æŠŠ"+ob->name()+"æ”¾å…¥"+rq->name()+"ä¸­ï¼Œæ…äº†æ…ï¼Œä¸ä¸€ä¼šï¼Œå°±æº¶åŒ–äºå…¶ä¸­äº†ã€‚\n");
         }
         else
-                return notify_fail( ob->name()+"ÀïÒÑ¾­ÈÜÓĞÒ©ÎïÁË¡£\n");
+                return notify_fail( ob->name()+"é‡Œå·²ç»æº¶æœ‰è¯ç‰©äº†ã€‚\n");
         ob->set_name(rq->query("name"),rq->parse_command_id_list());
         ob->set_weight(rq->query_weight());
         ob->set("long", rq->query("long"));
@@ -246,10 +246,10 @@ int do_eat(string arg)
 {
         if( !this_object()->id(arg) ) return 0;
         if( this_player()->is_busy() )
-                return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É¡£\n");
-        if( this_object()->query("t_unit")=="±­")
+                return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆã€‚\n");
+        if( this_object()->query("t_unit")=="æ¯")
                 return 0;
-        message_vision("$N°Ñ"+name()+"Ò»¿ÚÍÌÁËÏÂÈ¥¡£\n",this_player()); 
+        message_vision("$NæŠŠ"+name()+"ä¸€å£åäº†ä¸‹å»ã€‚\n",this_player()); 
         eat_yao(this_player());
         if(this_object()->query("nums")<=0)
         {
@@ -266,32 +266,32 @@ int do_throw(string arg)
 
         if( !this_object()->id(arg) ) return 0;
         if( me->is_busy() )
-                return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É¡£\n");
-        if(( this_object()->query("t_unit")!="°ü") || ( !this_object()->query("poison")) 
-          || (this_object()->query("poison")=="È«"))
-                return notify_fail("ÄãÖ»ÄÜÅ×È÷¶¾·Û¡£\n");
+                return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆã€‚\n");
+        if(( this_object()->query("t_unit")!="åŒ…") || ( !this_object()->query("poison")) 
+          || (this_object()->query("poison")=="å…¨"))
+                return notify_fail("ä½ åªèƒ½æŠ›æ´’æ¯’ç²‰ã€‚\n");
         if(!objectp(target=present(arg, environment(me))) || !living(target) || target->is_ghost())
-                return notify_fail("ÄãÒªÏòË­Å×È÷¶¾·Û£¿\n");
+                return notify_fail("ä½ è¦å‘è°æŠ›æ´’æ¯’ç²‰ï¼Ÿ\n");
         if(objectp(room=environment(me)))
         {
                 if(room->query("no_fight")==1)
-                        return notify_fail("Äã²»ÄÜÔÚÕâÀïÅ×È÷¶¾·Û¡£\n");
+                        return notify_fail("ä½ ä¸èƒ½åœ¨è¿™é‡ŒæŠ›æ´’æ¯’ç²‰ã€‚\n");
         }
-        message_vision("$N°Ñ"+name()+"Ïò$nÅ×È÷¹ıÈ¥¡£\n",me,target);
+        message_vision("$NæŠŠ"+name()+"å‘$næŠ›æ´’è¿‡å»ã€‚\n",me,target);
         if((yq=random(me->query("combat_exp")*100/target->query("combat_exp"))+random(me->query_dex()*100/target->query_dex())
           +random(me->query_kar()*100/target->query_kar()))>=300)
         {
-message_vision("$n¶ãÉÁ²»¼°£¬±»Å×È÷¹ıÀ´µÄ"+name()+"»÷µÃÂúÉí¶¼ÊÇ£¡\n",me,target);
+message_vision("$nèº²é—ªä¸åŠï¼Œè¢«æŠ›æ´’è¿‡æ¥çš„"+name()+"å‡»å¾—æ»¡èº«éƒ½æ˜¯ï¼\n",me,target);
                 eat_yao(target);        
         }
         else if((yq<=100) && (target->query_skill("force")>=300) && (target->query("neili")>=350))
         {
-                message_vision("$n²»»Å²»Ã¦£¬ÔËÄÚÁ¦ÏòÅ×À´µÄ¶¾·ÛÃÍµØÒ»»÷£¬½á¹û$N¶ãÉÁ²»¼°£¬±»·´»÷»ØÀ´µÄ"+name()+"»÷µÃÂúÉí¶¼ÊÇ£¡\n",me,target);
+                message_vision("$nä¸æ…Œä¸å¿™ï¼Œè¿å†…åŠ›å‘æŠ›æ¥çš„æ¯’ç²‰çŒ›åœ°ä¸€å‡»ï¼Œç»“æœ$Nèº²é—ªä¸åŠï¼Œè¢«åå‡»å›æ¥çš„"+name()+"å‡»å¾—æ»¡èº«éƒ½æ˜¯ï¼\n",me,target);
                 eat_yao(me);
                 target->add("neili",-300);      
         }
         else
-                message_vision("$nÒ»ÉÁÉí£¬Å×È÷¹ıÀ´µÄ"+name()+"²ÁÉí¶ø¹ı£¡\n",me,target); 
+                message_vision("$nä¸€é—ªèº«ï¼ŒæŠ›æ´’è¿‡æ¥çš„"+name()+"æ“¦èº«è€Œè¿‡ï¼\n",me,target); 
         me->start_busy(random(2)+1);
         if(!target->if_fighting(me))
         {
@@ -314,12 +314,12 @@ int i,cs,zycs,num,num2,faint;
                        "hb_poison","hot_poison","huagu_poison","juehu_hurt","man_poison","qianzhu_poison","qinghua_poison",
                        "qishang_poison","qtlh_poi","sanxiao","scorpion_poison","sl_poison","slumber_drug","snake_poison",
                        "wh_poison","xx_poison","yysan_poison"});
-        string * dun=({"Óñ·ä¶¾","±ùÆÇÒøÕë¶¾","°×ÍÕ¹ÖÉß¶¾","ó¸òÜ¾ç¶¾","º®¶¾","´óÊÖÓ¡¶¾","¸¯Ê¬¶¾","º®±ùÃàÕÆ¶¾","ÈÈ¶¾",
-                       "»¯¹ÇÃàÕÆ¶¾","¾ø»§¾ç¶¾","ÂûÍÓÂÜ»¨¶¾","Ç§ÖëÍò¶¾ÊÖ¶¾","Çé»¨¶¾","ÆßÉËÈ­¶¾","ÇàÍÓÂŞ»¨¶¾","ÈıĞ¦Ïú»ê¶¾",
-                       "Ğ«¶¾","Îå²ÊÉñÁú¶¾","ÃÉº¹Ò©Á¦","Éß¶¾","ÉñÁúÎåĞĞ¶¾","ĞÇËŞÕÆ¶¾","´ßÇéÒ©Á¦"});
-        string * dutype=({"½ğ","Ä¾","ÍÁ","Ë®","»ğ","½ğ","Ä¾","ÍÁ","Ë®","»ğ"});
+        string * dun=({"ç‰èœ‚æ¯’","å†°é­„é“¶é’ˆæ¯’","ç™½é©¼æ€ªè›‡æ¯’","èŸ¾èœå‰§æ¯’","å¯’æ¯’","å¤§æ‰‹å°æ¯’","è…å°¸æ¯’","å¯’å†°ç»µæŒæ¯’","çƒ­æ¯’",
+                       "åŒ–éª¨ç»µæŒæ¯’","ç»æˆ·å‰§æ¯’","è”“é™€èèŠ±æ¯’","åƒè››ä¸‡æ¯’æ‰‹æ¯’","æƒ…èŠ±æ¯’","ä¸ƒä¼¤æ‹³æ¯’","é’é™€ç½—èŠ±æ¯’","ä¸‰ç¬‘é”€é­‚æ¯’",
+                       "èæ¯’","äº”å½©ç¥é¾™æ¯’","è’™æ±—è¯åŠ›","è›‡æ¯’","ç¥é¾™äº”è¡Œæ¯’","æ˜Ÿå®¿æŒæ¯’","å‚¬æƒ…è¯åŠ›"});
+        string * dutype=({"é‡‘","æœ¨","åœŸ","æ°´","ç«","é‡‘","æœ¨","åœŸ","æ°´","ç«"});
 
-        if(query("poison")=="È«")
+        if(query("poison")=="å…¨")
         {
                 if(this_object()->query("nums")>0)
                 {
@@ -336,13 +336,13 @@ zycs=query("zycs");
                                 {
                                         ob->apply_condition(dus[i],0);
                                         zycs=zycs-cs;
-                                        tell_object(ob,"ÄãµÄ"+dun[i]+"±»»¯½âÁË¡£\n");
+                                        tell_object(ob,"ä½ çš„"+dun[i]+"è¢«åŒ–è§£äº†ã€‚\n");
                                 }
                                 else
                                 {
                                         cs=cs-zycs;
                                         ob->apply_condition(dus[i],cs);
-                                        tell_object(ob,"ÄãµÄ"+dun[i]+"±»»¯½âÁËÒ»²¿·Ö¡£\n");
+                                        tell_object(ob,"ä½ çš„"+dun[i]+"è¢«åŒ–è§£äº†ä¸€éƒ¨åˆ†ã€‚\n");
                                         break;
                                 }
                         }
@@ -351,11 +351,11 @@ zycs=query("zycs");
                 {
                         i=random(sizeof(dus));
                         ob->apply_condition(dus[i],ob->query_condition(dus[i],1)+zycs);
-                        tell_object(ob,"ÓÉÓÚ"+name()+"µÄ¶¾ĞÔ×÷ÓÃ¹ıÇ¿£¬ÄãÖĞÁË"+dun[i]+"£¡\n");
+                        tell_object(ob,"ç”±äº"+name()+"çš„æ¯’æ€§ä½œç”¨è¿‡å¼ºï¼Œä½ ä¸­äº†"+dun[i]+"ï¼\n");
                 }
                 else if((zycs>=50) && (ob->query_skill("shenlong-yaoli",1)<200) && (ob->query_skill("poison",1)<200))
                 {
-                        tell_object(ob,"ÓÉÓÚ"+name()+"µÄ¶¾ĞÔ×÷ÓÃ¹ıÇ¿£¬ÄãÉíÊÜÖØ´´£¡\n");
+                        tell_object(ob,"ç”±äº"+name()+"çš„æ¯’æ€§ä½œç”¨è¿‡å¼ºï¼Œä½ èº«å—é‡åˆ›ï¼\n");
 ob->receive_damage("qi", zycs*2);
                         ob->receive_wound("qi", zycs);
                 }
@@ -376,7 +376,7 @@ ob->receive_damage("qi", zycs*2);
                 {
                         ob->apply_condition("wh_poison",cs+zycs);
                         ob->set("poisontype",query("poison"));
-                        tell_object(ob,"ÄãÉíÖĞÉñÁúÎåĞĞ"+query("poison")+"¶¾£¡\n");
+                        tell_object(ob,"ä½ èº«ä¸­ç¥é¾™äº”è¡Œ"+query("poison")+"æ¯’ï¼\n");
                 }
                 else
                 {
@@ -392,56 +392,56 @@ ob->receive_damage("qi", zycs*2);
                                         zycs=zycs-cs;
                                         ob->apply_condition("wh_poison",zycs);
                                         ob->set("poisontype",query("poison"));
-                                        tell_object(ob,"ÄãÉíÖĞÉñÁúÎåĞĞ"+query("poison")+"¶¾£¡\n");
+                                        tell_object(ob,"ä½ èº«ä¸­ç¥é¾™äº”è¡Œ"+query("poison")+"æ¯’ï¼\n");
                                 }
                                 else if(cs>zycs)
                                 {
                                         cs=cs-zycs;
                                         ob->apply_condition("wh_poison",cs);
-                                        tell_object(ob,"ÓÉÓÚ¶¾¶¾Ïà¿Ë£¬ÄãÉíÖĞµÄÉñÁúÎåĞĞ"+dutype1+"¶¾±»»¯½âÁË²¿·Ö£¡\n");
+                                        tell_object(ob,"ç”±äºæ¯’æ¯’ç›¸å…‹ï¼Œä½ èº«ä¸­çš„ç¥é¾™äº”è¡Œ"+dutype1+"æ¯’è¢«åŒ–è§£äº†éƒ¨åˆ†ï¼\n");
                                 }
                                 else 
                                 {
                                         ob->apply_condition("wh_poison",0);
                                         ob->delete("poisontype");
-                                        tell_object(ob,"ÓÉÓÚ¶¾¶¾Ïà¿Ë£¬ÄãÉíÖĞµÄÉñÁúÎåĞĞ"+dutype1+"¶¾±»»¯½âÁË£¡\n");
+                                        tell_object(ob,"ç”±äºæ¯’æ¯’ç›¸å…‹ï¼Œä½ èº«ä¸­çš„ç¥é¾™äº”è¡Œ"+dutype1+"æ¯’è¢«åŒ–è§£äº†ï¼\n");
                                 }
                         }
                         else if(dutype1==dutype[i+2])
                         {
                                 ob->apply_condition("wh_poison",zycs+cs*2);
                                 ob->set("poisontype",query("poison"));
-                                tell_object(ob,"ÄãÉíÖĞÉñÁúÎåĞĞ"+query("poison")+"¶¾£¡\n");
+                                tell_object(ob,"ä½ èº«ä¸­ç¥é¾™äº”è¡Œ"+query("poison")+"æ¯’ï¼\n");
                         }
 else if(dutype1==dutype[i+3])
                         {
                                 ob->apply_condition("wh_poison",cs+zycs*2);
-                                tell_object(ob,"ÓÉÓÚ¶¾¶¾ÏàÉú£¬ÄãÉíÖĞµÄÉñÁúÎåĞĞ"+dutype1+"¶¾¼ÓÖØÁË£¡\n");
+                                tell_object(ob,"ç”±äºæ¯’æ¯’ç›¸ç”Ÿï¼Œä½ èº«ä¸­çš„ç¥é¾™äº”è¡Œ"+dutype1+"æ¯’åŠ é‡äº†ï¼\n");
                         }
                 }
         }
         faint=0;
-        if(query("½ğ")!=0)
+        if(query("é‡‘")!=0)
         {
                 if(ob->query_temp("maxjing",1)==0)
                         ob->set_temp("maxjing",ob->query("max_jing"));
                 if(this_object()->query("nums")>0)
                 {
-                        num=ob->query("eff_jing")+query("½ğ")/5;
+                        num=ob->query("eff_jing")+query("é‡‘")/5;
                         this_object()->add("nums",-20);
                 }
                 else
-                        num=ob->query("eff_jing")+query("½ğ");
+                        num=ob->query("eff_jing")+query("é‡‘");
                 if(num>(ob->query_temp("maxjing",1)*2))
                 {
-                        tell_object(ob,"ÄãÍ»È»¸Ğµ½Ò»¹É¼«Ç¿µÄÈÈÁ÷´ÓÏÂ¸¹²¿Ö±³åÍ·¶¥£¬ºÃÏó±»»ğ¿¾ËÆµØ£¡\n");
+                        tell_object(ob,"ä½ çªç„¶æ„Ÿåˆ°ä¸€è‚¡æå¼ºçš„çƒ­æµä»ä¸‹è…¹éƒ¨ç›´å†²å¤´é¡¶ï¼Œå¥½è±¡è¢«ç«çƒ¤ä¼¼åœ°ï¼\n");
                         ob->receive_damage("jing",ob->query("jing"));
                         ob->receive_wound("jing", ob->query("eff_jing")/2);
                         faint=1;
                 }
                 else
                 {
-tell_object(ob,"Äã¸Ğµ½Ò»¹ÉÅ¯Á÷´ÓÏÂ¸¹²¿ÍùÍ·¶¥Á÷È¥£¬Êæ·ş¼«ÁË¡£\n"); 
+tell_object(ob,"ä½ æ„Ÿåˆ°ä¸€è‚¡æš–æµä»ä¸‹è…¹éƒ¨å¾€å¤´é¡¶æµå»ï¼Œèˆ’æœæäº†ã€‚\n"); 
                         if(num>ob->query("max_jing"))
                         {
                                 if(num>(ob->query_temp("maxjing",1)+ob->query_temp("maxjing",1)/4))
@@ -451,23 +451,23 @@ tell_object(ob,"Äã¸Ğµ½Ò»¹ÉÅ¯Á÷´ÓÏÂ¸¹²¿ÍùÍ·¶¥Á÷È¥£¬Êæ·ş¼«ÁË¡£\n");
                         ob->set("eff_jing",num);
                 }
         }
-        if(query("ÍÁ")!=0)
+        if(query("åœŸ")!=0)
         {
                 if(this_object()->query("nums")>0)
                 {
-                        num=ob->query("food")+query("ÍÁ")/10;
-                        num2=ob->query("water")+query("ÍÁ")/10;
+                        num=ob->query("food")+query("åœŸ")/10;
+                        num2=ob->query("water")+query("åœŸ")/10;
                         this_object()->add("nums",-20);
                 }
                 else
                 {
-                        num=ob->query("food")+query("ÍÁ")/2;
-                        num2=ob->query("water")+query("ÍÁ")/2;
+                        num=ob->query("food")+query("åœŸ")/2;
+                        num2=ob->query("water")+query("åœŸ")/2;
                 }
                 if((num>(ob->max_food_capacity()*3)) || 
                    (num2>(ob->max_water_capacity()*3)))
                 {
-                        tell_object(ob,"Äã´ó¸ÅÊÇÓÉÓÚ³ÔºÈ¹ı¶àÁË£¬¶Ç×ÓÕÇµÃºÜÄÑÊÜ£¡\n");
+                        tell_object(ob,"ä½ å¤§æ¦‚æ˜¯ç”±äºåƒå–è¿‡å¤šäº†ï¼Œè‚šå­æ¶¨å¾—å¾ˆéš¾å—ï¼\n");
 ob->receive_damage("qi",ob->query("qi")/2);
                         ob->receive_damage("jing", ob->query("jing")/2);
                         ob->set("food",ob->max_food_capacity());
@@ -476,34 +476,34 @@ ob->receive_damage("qi",ob->query("qi")/2);
                 }
                 else
                 {
-                        tell_object(ob,"Äã¸Ğµ½¶Ç×Ó±¥ÁË²»ÉÙ£¬×ìÀïÒ²×ÌÈó¶àÁË¡£\n"); 
+                        tell_object(ob,"ä½ æ„Ÿåˆ°è‚šå­é¥±äº†ä¸å°‘ï¼Œå˜´é‡Œä¹Ÿæ»‹æ¶¦å¤šäº†ã€‚\n"); 
                         ob->set("food",num);
                         ob->set("water",num2);
                 }
         }
-        if(query("Ë®")!=0)
+        if(query("æ°´")!=0)
         {
                 if(ob->query_temp("maxqi",1)==0)
                         ob->set_temp("maxqi",ob->query("max_qi"));
                 if(this_object()->query("nums")>0)
                 {
-                        num=ob->query("eff_qi")+query("Ë®")/5;
+                        num=ob->query("eff_qi")+query("æ°´")/5;
                         this_object()->add("nums",-20);
                 }
                 else
                 {
-                        num=ob->query("eff_qi")+query("Ë®");
+                        num=ob->query("eff_qi")+query("æ°´");
                 }
                 if(num>(ob->query_temp("maxqi",1)*2))
                 {
-                        tell_object(ob,"ÄãÍ»È»¸Ğµ½È«ÉíÆøÑªÆğ·ü²»¶¨£¬ÄÑÊÜÖ®¼«£¡\n");
+                        tell_object(ob,"ä½ çªç„¶æ„Ÿåˆ°å…¨èº«æ°”è¡€èµ·ä¼ä¸å®šï¼Œéš¾å—ä¹‹æï¼\n");
                         ob->receive_damage("qi",ob->query("qi"));
 ob->receive_wound("qi", ob->query("eff_qi")/2);
                         faint=1;
                 }
                 else
                 {
-                        tell_object(ob,"Äã¸Ğµ½ÉíÉÏµÄÉËÊÆºÃÁËºÜ¶à¡£\n"); 
+                        tell_object(ob,"ä½ æ„Ÿåˆ°èº«ä¸Šçš„ä¼¤åŠ¿å¥½äº†å¾ˆå¤šã€‚\n"); 
                         if(num>ob->query("max_qi"))
                         {
                                 if(num>(ob->query_temp("maxqi",1)+ob->query_temp("maxqi",1)/4))
@@ -513,20 +513,20 @@ ob->receive_wound("qi", ob->query("eff_qi")/2);
                         ob->set("eff_qi",num);
                 }
         }
-        if(query("»ğ")!=0)
+        if(query("ç«")!=0)
         {
                 if(this_object()->query("nums")>0)
                 {
-                        num=ob->query("neili")+query("»ğ")/5;
+                        num=ob->query("neili")+query("ç«")/5;
                         this_object()->add("nums",-20);
                 }
                 else
                 {
-                        num=ob->query("neili")+query("»ğ");
+                        num=ob->query("neili")+query("ç«");
                 }
                 if(num>=(ob->query("max_neili")*7/2))
                 {
-                        tell_object(ob,"ÄãÍ»È»¸Ğµ½ÄÚÁ¦ÓÌÈçÍÑçÖÖ®ÁÒÂí£¬ÔÚÉíÌåÄÚ×ó³åÓÒÍ»£¡\n");
+                        tell_object(ob,"ä½ çªç„¶æ„Ÿåˆ°å†…åŠ›çŠ¹å¦‚è„±ç¼°ä¹‹çƒˆé©¬ï¼Œåœ¨èº«ä½“å†…å·¦å†²å³çªï¼\n");
 ob->receive_damage("qi",ob->query("qi")*3/4);
                         ob->receive_damage("jing", ob->query("jing")*3/4);
                         ob->set("neili",0);
@@ -534,29 +534,29 @@ ob->receive_damage("qi",ob->query("qi")*3/4);
                 }
                 else if(num>ob->query("max_neili"))
                 {
-                        tell_object(ob,"Äã¸Ğµ½ÄÚÁ¦È«²¿»Ö¸´ÁË¡£\n");
+                        tell_object(ob,"ä½ æ„Ÿåˆ°å†…åŠ›å…¨éƒ¨æ¢å¤äº†ã€‚\n");
                         ob->set("neili",ob->query("max_neili"));
                 }
                 else
                 {
-                        tell_object(ob,"Äã¸Ğµ½ÄÚÁ¦»Ö¸´²»ÉÙ¡£\n");
+                        tell_object(ob,"ä½ æ„Ÿåˆ°å†…åŠ›æ¢å¤ä¸å°‘ã€‚\n");
                         ob->set("neili",num);
                 }
         }
-        if(query("Ä¾")!=0)
+        if(query("æœ¨")!=0)
         {
                 if(this_object()->query("nums")>0)
                 {
-                        num=ob->query("jingli")+query("Ä¾")/5;
+                        num=ob->query("jingli")+query("æœ¨")/5;
                         this_object()->add("nums",-20);
                 }
                 else
                 {
-                        num=ob->query("jingli")+query("Ä¾");
+                        num=ob->query("jingli")+query("æœ¨");
                 }
                 if(num>=(ob->query("eff_jingli")*7/2))
                 {
-                        tell_object(ob,"Äã¸Ğµ½¾«Á¦ÍúÊ¢Ö®¼«£¬²»ÓÉµÃÆ´Ãü·¢Ğ¹£¬Á¦¾¡·½Ö¹£¡\n");
+                        tell_object(ob,"ä½ æ„Ÿåˆ°ç²¾åŠ›æ—ºç››ä¹‹æï¼Œä¸ç”±å¾—æ‹¼å‘½å‘æ³„ï¼ŒåŠ›å°½æ–¹æ­¢ï¼\n");
 ob->receive_damage("qi",ob->query("qi")*3/4);
                         ob->receive_damage("jing", ob->query("jing")*3/4);
                         ob->set("jingli",0);
@@ -564,7 +564,7 @@ ob->receive_damage("qi",ob->query("qi")*3/4);
                 }
                 else if(num>ob->query("eff_jingli"))
                 {
-                        tell_object(ob,"Äã¸Ğµ½¾«Á¦È«²¿»Ö¸´ÁË¡£\n");
+                        tell_object(ob,"ä½ æ„Ÿåˆ°ç²¾åŠ›å…¨éƒ¨æ¢å¤äº†ã€‚\n");
                         ob->set("jingli",ob->query("eff_jingli"));
                         if((time()-ob->query("jl_add"))>3600)
                         {
@@ -587,7 +587,7 @@ ob->receive_damage("qi",ob->query("qi")*3/4);
                 }
                 else
 {
-                        tell_object(ob,"Äã¸Ğµ½¾«Á¦»Ö¸´²»ÉÙ¡£\n");
+                        tell_object(ob,"ä½ æ„Ÿåˆ°ç²¾åŠ›æ¢å¤ä¸å°‘ã€‚\n");
                         ob->set("jingli",num);
                 }
         }

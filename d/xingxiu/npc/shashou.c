@@ -1,5 +1,5 @@
 // by cool 98.6.1
-// ¸Ä±àÕßcaiji@SJ 8/24/2000
+// æ”¹ç¼–è€…caiji@SJ 8/24/2000
 // River@SJ
 
 #include <ansi.h>
@@ -9,7 +9,7 @@ inherit F_SAVE;
 
 #include "skill.h";
 
-string *color_title = ({YEL+"ÐþÎäÉ±ÊÖ"+NOR, HIR+"ÖìÈ¸É±ÊÖ"+NOR,HIW+"°×»¢É±ÊÖ"+NOR, HIC+"ÇàÁúÉ±ÊÖ"+NOR});
+string *color_title = ({YEL+"çŽ„æ­¦æ€æ‰‹"+NOR, HIR+"æœ±é›€æ€æ‰‹"+NOR,HIW+"ç™½è™Žæ€æ‰‹"+NOR, HIC+"é’é¾™æ€æ‰‹"+NOR});
 string *k_weapon = ({"sword","blade","staff","whip","gun",});
 
 void create()
@@ -24,8 +24,8 @@ void create()
 
 	set_name(name["name"], name["id"]);
 	set("title", color_title[random(sizeof(color_title))]);
-	set("gender", (i==0?"Å®ÐÔ":"ÄÐÐÔ"));
-	set("long", "ÕâÈËÉí´©ºÚÉ«½ô×°£¬ÃæÉÏÃÉ×ÅÒ»¿éºÚ²¼£¬Ö»Â¶³öÒ»Ë«ÑÛ¾¦£¬¾«¹âËÄÉä¡£\n");
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
+	set("long", "è¿™äººèº«ç©¿é»‘è‰²ç´§è£…ï¼Œé¢ä¸Šè’™ç€ä¸€å—é»‘å¸ƒï¼Œåªéœ²å‡ºä¸€åŒçœ¼ç›ï¼Œç²¾å…‰å››å°„ã€‚\n");
 	set("age", random(10)+24);
 	set("str", 15+random(10));
 	set("int",15+random(10));
@@ -49,7 +49,7 @@ void create()
 	add_money("silver", random(50)+50);
 
 	cloth = new(ARMOR_D("cloth"));
-	cloth->set("name","ºÚÉ«½ô×°");
+	cloth->set("name","é»‘è‰²ç´§è£…");
 	cloth->set("apply/armor", 40);
 	cloth->move(this_object());
 	cloth->wear();

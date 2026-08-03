@@ -11,23 +11,23 @@ int main(object me,string str)
                 ob = me;
         else	ob = present(lower_case(str), environment(this_player()));
         
-        if (!ob) return notify_fail ("ÕâÀïÃ»ÓĞÄãËùÒª½ĞĞÑµÄÈË¡£\n");
+        if (!ob) return notify_fail ("è¿™é‡Œæ²¡æœ‰ä½ æ‰€è¦å«é†’çš„äººã€‚\n");
         
   	ob->revive();
   	if (wizardp(ob)) ob->reincarnate();
 
         if (me != ob)
-            	message_vision("$NÖ¸×Å$n½ĞÁËÁ½Éù£ºÆğÀ´£¬ÆğÀ´......ÓÚÊÇ$p¾Í±»»½ĞÑÁË£¡\n", me, ob);
-        else write("Äã»½ĞÑÁË×Ô¼º£¡\n");
+            	message_vision("$NæŒ‡ç€$nå«äº†ä¸¤å£°ï¼šèµ·æ¥ï¼Œèµ·æ¥......äºæ˜¯$på°±è¢«å”¤é†’äº†ï¼\n", me, ob);
+        else write("ä½ å”¤é†’äº†è‡ªå·±ï¼\n");
         return 1;
 }
 
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½: wakeup [Íæ¼ÒID]
+æŒ‡ä»¤æ ¼å¼: wakeup [ç©å®¶ID]
  
- »½ĞÑ»èÃÔ»òË¯¾õµÄÍæ¼Ò¡£
+ å”¤é†’æ˜è¿·æˆ–ç¡è§‰çš„ç©å®¶ã€‚
 
 HELP );
         return 1;

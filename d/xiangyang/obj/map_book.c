@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( HIC "¡ºÏåÑôµØÍ¼²á¡»" NOR, ({ "xiangyang dituce", "dituce", "tuce", "map" }) );
+	set_name( HIC "ã€è¥„é˜³åœ°å›¾å†Œã€" NOR, ({ "xiangyang dituce", "dituce", "tuce", "map" }) );
 	set_weight(5);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
-                set("long", "Ò»±¾Ïß×°µÄµØÍ¼²á£¬¿ÉÒÔ²é¿´(show)ÏåÑôµÄ´óÖÂÇé¿ö¡£\n");
+		set("unit", "æœ¬");
+                set("long", "ä¸€æœ¬çº¿è£…çš„åœ°å›¾å†Œï¼Œå¯ä»¥æŸ¥çœ‹(show)è¥„é˜³çš„å¤§è‡´æƒ…å†µã€‚\n");
 		set("value", 50);
 		set("material", "paper");
 	}

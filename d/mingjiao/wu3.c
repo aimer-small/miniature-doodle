@@ -1,15 +1,15 @@
-// wu3.c Á·Îä³¡
+// wu3.c ç»ƒæ­¦åœº
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 { 
-       set("short",CYN"Á·Îä³¡"NOR);
+       set("short",CYN"ç»ƒæ­¦åœº"NOR);
        set("long", @LONG
-ÕâÀïÊÇÃ÷½ÌµÄÁ·Îä³¡¡£µØÃæÊÇ¼áÓ²½áÊµµÄ»ÆÍÁ£¬ÒÑÓĞ°Ù¶àÄêµÄ¼ùÌßÊ¹µÃµØ
-Ãæ¹â»¬Æ½Õû¡£Á·Îä³¡ÖĞ¼äÊúÁ¢×Å²»ÉÙÓÃÀ´Á·°µÆ÷µÄÄ¾°Ğ¡£ºÜ¶àÃ÷½Ì½ÌÖÚÕıÔÚÁ·
-Ï°ÎäÒÕ¡£¶«Î÷ÃæÊÇÒ»Ìõ³¤³¤µÄ³¤ÀÈ£¬±±±ßÊÇ¹ã³¡£¬ÄÏ±ßÊÇ¹âÃ÷¶¥¡£
+è¿™é‡Œæ˜¯æ˜æ•™çš„ç»ƒæ­¦åœºã€‚åœ°é¢æ˜¯åšç¡¬ç»“å®çš„é»„åœŸï¼Œå·²æœ‰ç™¾å¤šå¹´çš„è·µè¸¢ä½¿å¾—åœ°
+é¢å…‰æ»‘å¹³æ•´ã€‚ç»ƒæ­¦åœºä¸­é—´ç«–ç«‹ç€ä¸å°‘ç”¨æ¥ç»ƒæš—å™¨çš„æœ¨é¶ã€‚å¾ˆå¤šæ˜æ•™æ•™ä¼—æ­£åœ¨ç»ƒ
+ä¹ æ­¦è‰ºã€‚ä¸œè¥¿é¢æ˜¯ä¸€æ¡é•¿é•¿çš„é•¿å»Šï¼ŒåŒ—è¾¹æ˜¯å¹¿åœºï¼Œå—è¾¹æ˜¯å…‰æ˜é¡¶ã€‚
 LONG);    
 	set("exits", ([
            "west"  :  __DIR__"cl1",
@@ -22,7 +22,7 @@ LONG);
 		__DIR__"npc/f-dizi" : 1,
                 CLASS_D("mingjiao") + "/wushou" : 1,
 	]));             
-        set("outdoors", "Ã÷½Ì¹âÃ÷¶¥");
+        set("outdoors", "æ˜æ•™å…‰æ˜é¡¶");
         set("coor/x",-290);
   set("coor/y",180);
    set("coor/z",120);
@@ -37,8 +37,8 @@ int valid_leave(object me, string dir)
        mapping myfam;
        object ob;
        myfam = (mapping)me->query("family");
-       if ((!myfam || myfam["family_name"] != "Ã÷½Ì") && dir != "southdown" 
+       if ((!myfam || myfam["family_name"] != "æ˜æ•™") && dir != "southdown" 
         && objectp(ob=present("yin wushou", environment(me))) && living(ob))
-          return notify_fail(YEL"ÒóÎŞÊÙ°ÑÊÖÒ»ÉìÀ¹×¡ÄãµÄÈ¥Â·£¬Äã²»ÊÇÃ÷½ÌµÜ×Ó£¬²»ÄÜ½øÈ¥£¡\n"NOR);	
+          return notify_fail(YEL"æ®·æ— å¯¿æŠŠæ‰‹ä¸€ä¼¸æ‹¦ä½ä½ çš„å»è·¯ï¼Œä½ ä¸æ˜¯æ˜æ•™å¼Ÿå­ï¼Œä¸èƒ½è¿›å»ï¼\n"NOR);	
        return ::valid_leave(me, dir);
 }

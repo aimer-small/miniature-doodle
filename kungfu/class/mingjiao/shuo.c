@@ -1,20 +1,20 @@
-// shuo.c Ëµ²»µÃ
+// shuo.c è¯´ä¸å¾—
 // Modify By River@sj 99.06
 #include <ansi.h>
 inherit NPC;
 inherit F_MASTER;
 void create()
 {
-        set_name("Ëµ²»µÃ", ({ "shuo bude","shuo","bude" }) );
-        set("nickname","²¼´üºÍÉĞ");
-        set("title", "Ã÷½ÌÎåÉ¢ÈË");
-        create_family("Ã÷½Ì",36,"É¢ÈË");
-        set("gender", "ÄĞĞÔ");
+        set_name("è¯´ä¸å¾—", ({ "shuo bude","shuo","bude" }) );
+        set("nickname","å¸ƒè¢‹å’Œå°š");
+        set("title", "æ˜æ•™äº”æ•£äºº");
+        create_family("æ˜æ•™",36,"æ•£äºº");
+        set("gender", "ç”·æ€§");
         set("class", "bonze");
         set("age",49);
-        set("long","Ëû¾ÍÊÇÃ÷½ÌÎåÉ¢ÈËÖ®Ò»£¬ÈË³Æ²¼´üºÍÉĞ¡£\n"+
-                   "ÑüÖĞ°ó×ÅÒ»Ìõ²¼´ü¡£\n");
-        set("rank_info/respect","´óÊ¦");
+        set("long","ä»–å°±æ˜¯æ˜æ•™äº”æ•£äººä¹‹ä¸€ï¼Œäººç§°å¸ƒè¢‹å’Œå°šã€‚\n"+
+                   "è…°ä¸­ç»‘ç€ä¸€æ¡å¸ƒè¢‹ã€‚\n");
+        set("rank_info/respect","å¤§å¸ˆ");
         set("str", 25);
         set("int", 25);
         set("con", 25);
@@ -43,9 +43,9 @@ void create()
         set("jiali",50);
         set("eff_jingli",1100);
         set("inquiry", ([
-                "rumors" : "ÎÒ½ÌÕÅ½ÌÖ÷ÔÚ¹âÃ÷¶¥Á·Îä³¡ÉÏ´ó°ÜÁù´óÅÉ£¬ÕæÁîÎÒÃ÷½ÌÑïÃ¼ÍÂÆø¡£",
-                "name": "Ëµ²»µÃ¡£",
-                "here": "ÕâÀï¾ÍÊÇÃ÷½Ì¹âÃ÷¶¥¡£¡£",
+                "rumors" : "æˆ‘æ•™å¼ æ•™ä¸»åœ¨å…‰æ˜é¡¶ç»ƒæ­¦åœºä¸Šå¤§è´¥å…­å¤§æ´¾ï¼ŒçœŸä»¤æˆ‘æ˜æ•™æ‰¬çœ‰åæ°”ã€‚",
+                "name": "è¯´ä¸å¾—ã€‚",
+                "here": "è¿™é‡Œå°±æ˜¯æ˜æ•™å…‰æ˜é¡¶ã€‚ã€‚",
         ]));
         setup();
         carry_object("/d/mingjiao/obj/yel-cloth")->wear();
@@ -76,5 +76,5 @@ void greeting(object ob)
 
 void relay_emote(object me,string arg)
 {
-        command("say Ëµ²»µÃ£¬Ëµ²»µÃ£¡ ");
+        command("say è¯´ä¸å¾—ï¼Œè¯´ä¸å¾—ï¼ ");
 }

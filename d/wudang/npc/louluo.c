@@ -1,13 +1,13 @@
-// NPC : /d/wudang/npc/louluo.c à¶ÂŞ
+// NPC : /d/wudang/npc/louluo.c å–½ç½—
 
 inherit NPC;
 
 void create()
 {
-        set_name("Ğ¡à¶ÂŞ", ({"xiao louluo", "louluo"}) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("å°å–½ç½—", ({"xiao louluo", "louluo"}) );
+        set("gender", "ç”·æ€§" );
         set("age", 18);
-        set("long", "ÕâÊÇÒ»¸öÄê¼Í²»´óµÄĞ¡à¶ÂŞ£¬ÉñÇéÈÃÈËÌÖÑá¡£\n");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªå¹´çºªä¸å¤§çš„å°å–½ç½—ï¼Œç¥æƒ…è®©äººè®¨åŒã€‚\n");
 
         set_temp("apply/attack", 10);
         set_temp("apply/defense", 10);

@@ -6,9 +6,9 @@ int get_setup(object me);
 void checking(object me);
 void create()
 {
-        set("short", "ÌìÉñµÄÒé»áÌü");
-        set("long", "ÕâÀïÊÇ"+MUD_NAME+"µÄÌìÉñ»áÒéÊÒ¡£
-Òª¸øÓèÆäËûÈË½øÈëµÄÈ¨ÏŞ£¬ÇëÊ¹ÓÃ setup ÃüÁî£¬É¾³ıÇëÓÃ move ÃüÁî¡£\n");
+        set("short", "å¤©ç¥çš„è®®ä¼šå…");
+        set("long", "è¿™é‡Œæ˜¯"+MUD_NAME+"çš„å¤©ç¥ä¼šè®®å®¤ã€‚
+è¦ç»™äºˆå…¶ä»–äººè¿›å…¥çš„æƒé™ï¼Œè¯·ä½¿ç”¨ setup å‘½ä»¤ï¼Œåˆ é™¤è¯·ç”¨ move å‘½ä»¤ã€‚\n");
         set("exits", ([
                "out" : "/d/wizard/wizard_room"
         ]));
@@ -27,7 +27,7 @@ void init()
        wiz_status = SECURITY_D->get_status(me);
        
        if( wiz_status != "(admin)" && !get_setup(me)){
-       	              message_vision("\n$NÍµÍµÁïÁË¹ıÀ´£¬ºöÈ»Ò»¹ÉÉñÁ¦½«$P´«ËÍµ½ÁËÊ±¿ÕµÄÁíÒ»´¦¡£\n\n",me);
+       	              message_vision("\n$Nå·å·æºœäº†è¿‡æ¥ï¼Œå¿½ç„¶ä¸€è‚¡ç¥åŠ›å°†$Pä¼ é€åˆ°äº†æ—¶ç©ºçš„å¦ä¸€å¤„ã€‚\n\n",me);
                       me->move("/d/city/chmiao");
                       }
        else checking(me);
@@ -44,11 +44,11 @@ void checking(object me)
 	
 	if (!me || environment(me) != this_object()) return;
 	else if (wiz_status != "(admin)" && !get_setup(me)){
-       	              message_vision("\nºöÈ»Ò»¹ÉÉñÁ¦½«$N´«ËÍµ½ÁËÊ±¿ÕµÄÁíÒ»´¦¡£\n\n",me);
+       	              message_vision("\nå¿½ç„¶ä¸€è‚¡ç¥åŠ›å°†$Nä¼ é€åˆ°äº†æ—¶ç©ºçš„å¦ä¸€å¤„ã€‚\n\n",me);
                       me->move("/d/city/chmiao");
                       }
         else if (objectp(snooper = query_snoop(me))){
-                  message_vision(HIW"\n$NÍ»È»´ó½ĞÁËÒ»Éù£ºÎÒ±»"+snooper->short(1)+"¼àÌıÁË£¬È»ºó¾Í½â³ıÁË¼àÌı¡££¡\n\n"NOR, me);
+                  message_vision(HIW"\n$Nçªç„¶å¤§å«äº†ä¸€å£°ï¼šæˆ‘è¢«"+snooper->short(1)+"ç›‘å¬äº†ï¼Œç„¶åå°±è§£é™¤äº†ç›‘å¬ã€‚ï¼\n\n"NOR, me);
                 snoop(snooper);
                       }
     call_out("checking", 1, me);
@@ -60,16 +60,16 @@ int move_setup(string arg)
 	int i;
 	me = this_player();
 	if (previous_object() && getuid(previous_object()) != ROOT_UID) return 0;
-	if (!arg) return notify_fail ("ºÙºÙ£¬Äã×¼±¸É¾³ıË­½øÈëÕâÀïµÄÈ¨ÏŞ£¿\n");
+	if (!arg) return notify_fail ("å˜¿å˜¿ï¼Œä½ å‡†å¤‡åˆ é™¤è°è¿›å…¥è¿™é‡Œçš„æƒé™ï¼Ÿ\n");
         if (!objectp(ob = LOGIN_D->find_body(arg)))
-                  return notify_fail("Äã×¼±¸É¾³ıË­½øÈëÕâÀïµÄÈ¨ÏŞ£¿\n");
+                  return notify_fail("ä½ å‡†å¤‡åˆ é™¤è°è¿›å…¥è¿™é‡Œçš„æƒé™ï¼Ÿ\n");
         if (ob == me)
-                  return notify_fail("ÄãÊÇÔÚ¿ªÍæĞ¦°É£¿\n");
+                  return notify_fail("ä½ æ˜¯åœ¨å¼€ç©ç¬‘å§ï¼Ÿ\n");
         for(i=0;i<sizeof(ids);i++)
                  if(ids[i]==ob->query("id"))
                  	 ids = ids - ({ ob->query("id") });      	 
 
-        write("ÄãÉ¾³ıÁË"+ob->name()+"½øÈëÕâÀïµÄÈ¨ÏŞ¡£\n");
+        write("ä½ åˆ é™¤äº†"+ob->name()+"è¿›å…¥è¿™é‡Œçš„æƒé™ã€‚\n");
        
 	return 1;
 }
@@ -80,17 +80,17 @@ int do_setup(string arg)
 	int i;
 	me = this_player();
 	if (previous_object() && getuid(previous_object()) != ROOT_UID) return 0;
-	if (!arg) return notify_fail ("ºÙºÙ£¬Äã×¼±¸¸øË­½øÈëÕâÀïµÄÈ¨ÏŞ£¿\n");
+	if (!arg) return notify_fail ("å˜¿å˜¿ï¼Œä½ å‡†å¤‡ç»™è°è¿›å…¥è¿™é‡Œçš„æƒé™ï¼Ÿ\n");
         if (!objectp(ob = LOGIN_D->find_body(arg)))
-                  return notify_fail("Äã×¼±¸¸øË­½øÈëÕâÀïµÄÈ¨ÏŞ£¿\n");
+                  return notify_fail("ä½ å‡†å¤‡ç»™è°è¿›å…¥è¿™é‡Œçš„æƒé™ï¼Ÿ\n");
         if (ob == me)
-                  return notify_fail("ÄãÊÇÔÚ¿ªÍæĞ¦°É£¿\n");
+                  return notify_fail("ä½ æ˜¯åœ¨å¼€ç©ç¬‘å§ï¼Ÿ\n");
         for(i=0;i<sizeof(ids);i++)
                  if(ids[i]==ob->query("id"))
-                 	 return notify_fail("´ËÈËÒÑ¾­ÓĞÁË½øÈëÕâÀïµÄÈ¨ÏŞ¡£\n");       	 
+                 	 return notify_fail("æ­¤äººå·²ç»æœ‰äº†è¿›å…¥è¿™é‡Œçš„æƒé™ã€‚\n");       	 
         
         ids = ids + ({ ob->query("id") });
-        write("Äã¸øÓèÁË"+ob->name()+"½øÈëÕâÀïµÄÈ¨ÏŞ¡£\n");
+        write("ä½ ç»™äºˆäº†"+ob->name()+"è¿›å…¥è¿™é‡Œçš„æƒé™ã€‚\n");
        
 	return 1;
 }

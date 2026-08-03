@@ -1,16 +1,16 @@
 // msg.c
 // Created by mxzhao 2003/11/21
 
-// ¶ÌÏûÏ¢Ïà¹ØÊı¾İ½á¹¹
+// çŸ­æ¶ˆæ¯ç›¸å…³æ•°æ®ç»“æ„
 /******************************************************
 sets
 ([
-	"send_max":5,   // ¿ÉÒÔÍ¬Ê±·¢ËÍµÄ×î¶àÓÃ»§Êı
-	"cmd_level":0,  // ¿ÉÒÔÊ¹ÓÃÕâ¸öÖ¸ÁîµÄÓÃ»§µÈ¼¶
-	"set_level": 4, // ¿ÉÒÔ¸ü¸ÄÉèÖÃµÄÓÃ»§µÈ¼¶
-	"wiz_count":20, // wizµÄĞÅÏäÈİÁ¿
-	"vip_count":15, // vipÓÃ»§µÄĞÅÏäÈİÁ¿
-	"std_count":10, // ÆÕÍ¨ÓÃ»§µÄĞÅÏäÈİÁ¿
+	"send_max":5,   // å¯ä»¥åŒæ—¶å‘é€çš„æœ€å¤šç”¨æˆ·æ•°
+	"cmd_level":0,  // å¯ä»¥ä½¿ç”¨è¿™ä¸ªæŒ‡ä»¤çš„ç”¨æˆ·ç­‰çº§
+	"set_level": 4, // å¯ä»¥æ›´æ”¹è®¾ç½®çš„ç”¨æˆ·ç­‰çº§
+	"wiz_count":20, // wizçš„ä¿¡ç®±å®¹é‡
+	"vip_count":15, // vipç”¨æˆ·çš„ä¿¡ç®±å®¹é‡
+	"std_count":10, // æ™®é€šç”¨æˆ·çš„ä¿¡ç®±å®¹é‡
 ])
 
 users 
@@ -38,7 +38,7 @@ messages
 		"title":"TEST",
 		"text":"TEST TEXT",
 		"time":978594457,
-		"sender":(["id":"mxzhao","name":"²âÊÔ"]),
+		"sender":(["id":"mxzhao","name":"æµ‹è¯•"]),
 		"addressee": 
 		([
 			"mxzhao", ...
@@ -47,14 +47,14 @@ messages
 	...
 ])
 *********************************************************/
-// ÆäÖĞ mxzhao ÎªÓÃ»§ID£¬978594457mxzhaoÏûÏ¢ID
+// å…¶ä¸­ mxzhao ä¸ºç”¨æˆ·IDï¼Œ978594457mxzhaoæ¶ˆæ¯ID
 
 
 
 
 #define MESSAGE_FILE	DATA_DIR + "msg"
-#define MESSAGE_HEAD	HIC +"¡¾"+ CHINESE_MUD_NAME + "¶ÌÏûÏ¢ÏµÍ³¡¿£º"NOR
-#define MESSAGE_LINE	HIY+"¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n"+NOR 
+#define MESSAGE_HEAD	HIC +"ã€"+ CHINESE_MUD_NAME + "çŸ­æ¶ˆæ¯ç³»ç»Ÿã€‘ï¼š"NOR
+#define MESSAGE_LINE	HIY+"â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n"+NOR 
 #define MAX_VALUE		20
 #define MIN_VALUE		0
 
@@ -79,47 +79,47 @@ private int do_clear_user(string name);
 private varargs int delete_user_all(object me, string name, int flag); 
 private string make_statistic(object me);
 
-int do_statistic(object me);			// ¿ÉÒÔÔÚLOGIN_DÖĞµ÷ÓÃ
+int do_statistic(object me);			// å¯ä»¥åœ¨LOGIN_Dä¸­è°ƒç”¨
 int do_send(object me, string arg);
 varargs int do_read(object me, string arg, int flag);
 int do_discard(object me, string arg);
 int do_lock(object me, string arg, int lock);
 int do_show(object me, string arg);
-int do_clear(object me, string arg);	// Çå³ıÓÃ»§µÄËùÓĞ¶ÌÏûÏ¢£¬¿ÉÒÔÔÚpurge¡¢suicideµÈº¯ÊıÖĞµ÷ÓÃ
+int do_clear(object me, string arg);	// æ¸…é™¤ç”¨æˆ·çš„æ‰€æœ‰çŸ­æ¶ˆæ¯ï¼Œå¯ä»¥åœ¨purgeã€suicideç­‰å‡½æ•°ä¸­è°ƒç”¨
 int do_set(object me, string arg);
 int help(object me);
 
-mapping sets;		// Ò»Ğ©¶ÌÏûÏ¢µÄÉèÖÃ
-mapping users;		// ¶ÌÏûÏ¢ÓÃ»§ĞÅÏ¢
-mapping messages;	// ¶ÌÏûÏ¢
+mapping sets;		// ä¸€äº›çŸ­æ¶ˆæ¯çš„è®¾ç½®
+mapping users;		// çŸ­æ¶ˆæ¯ç”¨æˆ·ä¿¡æ¯
+mapping messages;	// çŸ­æ¶ˆæ¯
 
 // override query_save_file() 
-// ÔÚ F_SAVE ÖĞÊ¹ÓÃ
+// åœ¨ F_SAVE ä¸­ä½¿ç”¨
 string query_save_file()
 {
 	return MESSAGE_FILE;
 }
 
-// ¸ø×Ö·û´®¼ÓÉÏ MESSAGE_HEAD
+// ç»™å­—ç¬¦ä¸²åŠ ä¸Š MESSAGE_HEAD
 private string make_result(string str)
 {
 	return MESSAGE_HEAD + HIC + str + NOR;
 }
 
-// ÏÔÊ¾ĞÅÏ¢
+// æ˜¾ç¤ºä¿¡æ¯
 private void write_result(string str)
 {
 	write(make_result(str) + "\n");
 }
 
-// ÔØÈë¶ÌÏûÏ¢ĞÅÏ¢£¬Èç¹ûÃ»ÓĞÏà¹ØĞÅÏ¢ÔòÉè¶¨³õÊ¼Öµ
+// è½½å…¥çŸ­æ¶ˆæ¯ä¿¡æ¯ï¼Œå¦‚æœæ²¡æœ‰ç›¸å…³ä¿¡æ¯åˆ™è®¾å®šåˆå§‹å€¼
 private int load_message()
 {
 	if ( !mapp(messages) || !mapp(users) || !mapp(sets) )
 	{
 		restore();
 
-		write_result("ÔØÈë³É¹¦¡£");
+		write_result("è½½å…¥æˆåŠŸã€‚");
 	}
 	
 	if( !mapp(sets) || sizeof(sets) == 0 )
@@ -145,7 +145,7 @@ private int load_message()
 	return 0;
 }
 
-// ·µ»ØËùÓĞsetsµÄÄÚÈİ
+// è¿”å›æ‰€æœ‰setsçš„å†…å®¹
 private string show_sets(object me)
 {
 	string str = "";
@@ -159,7 +159,7 @@ private string show_sets(object me)
 	return str;
 }
 
-// ·¢ËÍ¶ÌÏûÏ¢
+// å‘é€çŸ­æ¶ˆæ¯
 int do_send(object me, string arg)
 {
 	string file;
@@ -172,7 +172,7 @@ int do_send(object me, string arg)
 	
 	if (!wizardp(me) && sizeof(names) >  sets["send_max"] )
 	{
-		write_result("Äú×î¶àÄÜÍ¬Ê±Ïò" + chinese_number(sets["send_max"]) + "Î»ÓÃ»§·¢ËÍ¶ÌÏûÏ¢¡£");
+		write_result("æ‚¨æœ€å¤šèƒ½åŒæ—¶å‘" + chinese_number(sets["send_max"]) + "ä½ç”¨æˆ·å‘é€çŸ­æ¶ˆæ¯ã€‚");
 		return 1;
 	}
 
@@ -180,7 +180,7 @@ int do_send(object me, string arg)
 	{
 		if ( me->query("id") == name )
 		{
-			write_result("Äã²»ÄÜ¸ø×Ô¼º·¢ËÍ¶ÌÏûÏ¢¡£");
+			write_result("ä½ ä¸èƒ½ç»™è‡ªå·±å‘é€çŸ­æ¶ˆæ¯ã€‚");
 			return 1;
 		}
 		
@@ -190,17 +190,17 @@ int do_send(object me, string arg)
 		
 		if( ob && me->visible(ob) ) 
 		{
-			write_result(ob->name() + "(" + capitalize(name) + ")ÕıÔÚÁ¬ÏßÖĞ£¬Äã»¹ÊÇÊ¹ÓÃ Tell Ö¸Áî¸ü·½±ãĞ©¡£");
+			write_result(ob->name() + "(" + capitalize(name) + ")æ­£åœ¨è¿çº¿ä¸­ï¼Œä½ è¿˜æ˜¯ä½¿ç”¨ Tell æŒ‡ä»¤æ›´æ–¹ä¾¿äº›ã€‚");
 			return 1;
 		} 
 		else if( file_size(file + ".ppp") > 0 )
 		{
-			write_result(capitalize(name) + "ÒÑ¾­±»É¾³ıÁË¡£");
+			write_result(capitalize(name) + "å·²ç»è¢«åˆ é™¤äº†ã€‚");
 			return 1;
 		}
 		else if( file_size(file +__SAVE_EXTENSION__) < 0 )
 		{
-			write_result("Ã»ÓĞ" + capitalize(name) + "ÕâÎ»ÓÃ»§¡£");
+			write_result("æ²¡æœ‰" + capitalize(name) + "è¿™ä½ç”¨æˆ·ã€‚");
 			return 1;
 		}
 
@@ -224,7 +224,7 @@ int do_send(object me, string arg)
 			
 			if ( mapp(users[name]) && sizeof(users[name]["msg_id"]) >= msg_count )
 			{
-				write_result( capitalize(name) + "µÄĞÅÏäÒÑÂú¡£" );
+				write_result( capitalize(name) + "çš„ä¿¡ç®±å·²æ»¡ã€‚" );
 				return 1;
 			}
 		}
@@ -234,50 +234,50 @@ int do_send(object me, string arg)
 	
 	msg["sender"] = ([ "id":me->query("id"), "name":me->query("name") ]);
 		
-	write(HIG +"ÇëÊäÈëÄúÒª·¢ËÍ¶ÌÏûÏ¢µÄ±êÌâ(40¸ö×Ö·ûÒÔÏÂ)£º"+NOR);
+	write(HIG +"è¯·è¾“å…¥æ‚¨è¦å‘é€çŸ­æ¶ˆæ¯çš„æ ‡é¢˜(40ä¸ªå­—ç¬¦ä»¥ä¸‹)ï¼š"+NOR);
 	input_to("start_send", me, msg);
 	
 	return 0;
 }
 
-//ÏµÍ³Ïòplayer ·¢ËÍmsg
+//ç³»ç»Ÿå‘player å‘é€msg
 public void system_send(object me,string* geters,string title,string text)
 {
 	mapping msg =([]);
 	if(!me || getuid(me)!=ROOT_UID) return;
 	if(!arrayp(geters) || !stringp(title) || !stringp(text)) return;
 	msg["addressee"] = geters;
-	msg["sender"] = ([ "id":"System", "name":"ÏµÍ³" ]);
+	msg["sender"] = ([ "id":"System", "name":"ç³»ç»Ÿ" ]);
 	msg["title"] = title;
 	msg["text"] = text;
 	save_message(me, msg);		
 }
 
-// ´¦ÀíÊäÈëµÄ±êÌâ(40×Ö·ûÒÔÄÚ)£¬¿ªÊ¼ÊäÈë±¾ÎÄ¡£
+// å¤„ç†è¾“å…¥çš„æ ‡é¢˜(40å­—ç¬¦ä»¥å†…)ï¼Œå¼€å§‹è¾“å…¥æœ¬æ–‡ã€‚
 private void start_send(string title, object me, mapping msg)
 {
 	if ( strlen(title) > 40 )
 	{
 		title = title[0..39];
 	}
-	write(HIG+"ÇëÊäÈëÄúÒª·¢ËÍµÄ¶ÌÏûÏ¢µÄÄÚÈİ£¨²»ÄÜ´óÓÚ 500 ×Ö£©£º\n" + NOR);
+	write(HIG+"è¯·è¾“å…¥æ‚¨è¦å‘é€çš„çŸ­æ¶ˆæ¯çš„å†…å®¹ï¼ˆä¸èƒ½å¤§äº 500 å­—ï¼‰ï¼š\n" + NOR);
 	msg["title"] = title;
 
 	me->edit( (: end_send, me, msg :) );
 }
 
-// ½áÊøÊäÈë£¬´æÅÌ
+// ç»“æŸè¾“å…¥ï¼Œå­˜ç›˜
 private void end_send(object me, mapping msg, string text)
 {
 	msg["text"] = text;
 	
 	if ( sizeof(text) > 500 ){
-		write_result("¶Ô²»Æğ£¬Äú·¢ËÍµÄ¶ÌÏûÏ¢ÄÚÈİ´óÓÚÁË 500 ×Ö£¡\n") ;
+		write_result("å¯¹ä¸èµ·ï¼Œæ‚¨å‘é€çš„çŸ­æ¶ˆæ¯å†…å®¹å¤§äºäº† 500 å­—ï¼\n") ;
 		return;
 	}
 	if (!save_message(me, msg))
 	{
-		write_result("¶ÌÏûÏ¢·¢ËÍ³É¹¦¡£");
+		write_result("çŸ­æ¶ˆæ¯å‘é€æˆåŠŸã€‚");
 	}
 }
 
@@ -287,7 +287,7 @@ private int get_seeds()
 	seed++;
 	return seed;
 }
-// ´æ´¢ĞÂ¶ÌÏûÏ¢
+// å­˜å‚¨æ–°çŸ­æ¶ˆæ¯
 private int save_message(object me, mapping msg)
 {
 	string msg_id;
@@ -300,8 +300,8 @@ private int save_message(object me, mapping msg)
 	msg["time"] = time();
 
 	msg_id = sprintf("%s%d%s%d",msg["addressee"][0], msg["time"], msg["sender"]["id"],get_seeds() );
-	//Ôö¼ÓÏµÍ³·¢ËÍmsg ¹¦ÄÜ ¶øÏµÍ³ÓĞ¿ÉÄÜÍ¬Ê±Ïò¶àid·¢msgËùÒÔÕâ¸ö¸ÄÒ»ÏÂmsg_id
-	//ÔöÇ¿Î¨Ò»ĞÔ
+	//å¢åŠ ç³»ç»Ÿå‘é€msg åŠŸèƒ½ è€Œç³»ç»Ÿæœ‰å¯èƒ½åŒæ—¶å‘å¤šidå‘msgæ‰€ä»¥è¿™ä¸ªæ”¹ä¸€ä¸‹msg_id
+	//å¢å¼ºå”¯ä¸€æ€§
 	messages[msg_id] = msg;
 
 	foreach ( string name in msg["addressee"] )
@@ -326,16 +326,16 @@ private int save_message(object me, mapping msg)
 	return 0;
 }
 
-// ·µ»ØµÚ row ĞĞ¶ÌÏûÏ¢±êÌâµÈ×Ö·û´®
+// è¿”å›ç¬¬ row è¡ŒçŸ­æ¶ˆæ¯æ ‡é¢˜ç­‰å­—ç¬¦ä¸²
 private string make_title(mapping msg_id, mapping msg, int row)
 {
 	//		no.) lock title name(id) (time)
-	return sprintf("%-2s%s%3d) %-40s %18s (%s)" NOR "\n", msg_id["islock"]?HIR"¡â"NOR:"", 
+	return sprintf("%-2s%s%3d) %-40s %18s (%s)" NOR "\n", msg_id["islock"]?HIR"â™€"NOR:"", 
 		msg_id["isread"]?"":(HIG BRED), row, msg["title"], msg["sender"]["name"] + "(" + 
 		capitalize(msg["sender"]["id"]) + ")", ctime(msg["time"])[4..] );
 }
 
-// Èç¹û¶ÌÏûÏ¢µÄÊÕ¼şÈË("addressee")Îª¿Õ£¬ÔòÉ¾³ıÕâ¸ö¶ÌÏûÏ¢
+// å¦‚æœçŸ­æ¶ˆæ¯çš„æ”¶ä»¶äºº("addressee")ä¸ºç©ºï¼Œåˆ™åˆ é™¤è¿™ä¸ªçŸ­æ¶ˆæ¯
 private int do_clear_msg(string msg_id)
 {
 	if ( !mapp(messages[msg_id]) )
@@ -355,7 +355,7 @@ private int do_clear_msg(string msg_id)
 	return 0;
 }
 
-// Èç¹ûÓÃ»§×ÊÁÏÖĞÃ»ÓĞ¶ÌÏûÏ¢£¬ÔòÉ¾³ıÓÃ»§×ÊÁÏ
+// å¦‚æœç”¨æˆ·èµ„æ–™ä¸­æ²¡æœ‰çŸ­æ¶ˆæ¯ï¼Œåˆ™åˆ é™¤ç”¨æˆ·èµ„æ–™
 private int do_clear_user(string name)
 {
 	if ( !mapp(users[name]) )
@@ -377,9 +377,9 @@ private int do_clear_user(string name)
 	return 0;
 }
 
-// Çå³ıÓÃ»§µÄ¶ÌÏûÏ¢
-// flag		0£º	Ôò²»É¾³ı±»Ëø¶¨µÄ¶ÌÏûÏ¢£¬
-//			1£º	ÔòÉ¾³ıËùÓĞ¶ÌÏûÏ¢
+// æ¸…é™¤ç”¨æˆ·çš„çŸ­æ¶ˆæ¯
+// flag		0ï¼š	åˆ™ä¸åˆ é™¤è¢«é”å®šçš„çŸ­æ¶ˆæ¯ï¼Œ
+//			1ï¼š	åˆ™åˆ é™¤æ‰€æœ‰çŸ­æ¶ˆæ¯
 private varargs int delete_user_all(object me, string name, int flag)
 {
 	int count = 0;
@@ -403,7 +403,7 @@ private varargs int delete_user_all(object me, string name, int flag)
 	return count;
 }
 
-// ·µ»ØÓÃ»§¶ÌÏûÏ¢µÄÍ³¼ÆĞÅÏ¢¡£
+// è¿”å›ç”¨æˆ·çŸ­æ¶ˆæ¯çš„ç»Ÿè®¡ä¿¡æ¯ã€‚
 private string make_statistic(object me)
 {
 	int total = 0;
@@ -415,7 +415,7 @@ private string make_statistic(object me)
 	if (!mapp(users[name]) || sizeof(users[name]) == 0 
 		|| !mapp(users[name]["msg_id"]) || sizeof(users[name]["msg_id"]) == 0 )
 	{
-		return "ÄúÄ¿Ç°Ã»ÓĞÈÎºÎ¶ÌÏûÏ¢¡£";
+		return "æ‚¨ç›®å‰æ²¡æœ‰ä»»ä½•çŸ­æ¶ˆæ¯ã€‚";
 	}
 
 	total = sizeof(users[name]["msg_id"]);
@@ -433,11 +433,11 @@ private string make_statistic(object me)
 		}
 	}
 
-	return "ÄúÄ¿Ç°¹²ÓĞ" + chinese_number(total) + "Ìõ¶ÌÏûÏ¢£¬ÆäÖĞ" + 
-		chinese_number(total-read) + "ÌõÎ´¶Á£¬" + chinese_number(lock) + "ÌõËø¶¨¡£";
+	return "æ‚¨ç›®å‰å…±æœ‰" + chinese_number(total) + "æ¡çŸ­æ¶ˆæ¯ï¼Œå…¶ä¸­" + 
+		chinese_number(total-read) + "æ¡æœªè¯»ï¼Œ" + chinese_number(lock) + "æ¡é”å®šã€‚";
 }
 
-// ÏÔÊ¾ÓÃ»§¶ÌÏûÏ¢µÄÍ³¼ÆĞÅÏ¢¡£
+// æ˜¾ç¤ºç”¨æˆ·çŸ­æ¶ˆæ¯çš„ç»Ÿè®¡ä¿¡æ¯ã€‚
 int do_statistic(object me)
 {
 	if (load_message())
@@ -451,12 +451,12 @@ int do_statistic(object me)
 		return 1;
 	}
 
-	write_result(HIY + make_statistic(me) + "ÇëÓÃ help msg ÃüÁî²é¿´¾ßÌåÊ¹ÓÃ·½·¨£¡"+NOR);
+	write_result(HIY + make_statistic(me) + "è¯·ç”¨ help msg å‘½ä»¤æŸ¥çœ‹å…·ä½“ä½¿ç”¨æ–¹æ³•ï¼"+NOR);
 
 	return 0;
 }
 
-// ¶ÁÈ¡¶ÌÏûÏ¢
+// è¯»å–çŸ­æ¶ˆæ¯
 varargs int do_read(object me, string arg, int flag)
 {
 	mapping user;
@@ -474,7 +474,7 @@ varargs int do_read(object me, string arg, int flag)
 
 	if (!mapp(user) || sizeof(user) == 0 )
 	{
-		write_result("ÄúÄ¿Ç°Ã»ÓĞÈÎºÎ¶ÌÏûÏ¢¡£");
+		write_result("æ‚¨ç›®å‰æ²¡æœ‰ä»»ä½•çŸ­æ¶ˆæ¯ã€‚");
 		return 1;
 	}
 	
@@ -508,7 +508,7 @@ varargs int do_read(object me, string arg, int flag)
 		if ( flag && new_count == 0 )
 		{
 			return help(me);
-			//write_result("ÄúÄ¿Ç°Ã»ÓĞĞÂµÄ¶ÌÏûÏ¢¡£");
+			//write_result("æ‚¨ç›®å‰æ²¡æœ‰æ–°çš„çŸ­æ¶ˆæ¯ã€‚");
 			//return 1;
 		}
 	}
@@ -522,7 +522,7 @@ varargs int do_read(object me, string arg, int flag)
 			}
 		}
 
-		write_result("ÄúÄ¿Ç°Ã»ÓĞĞÂµÄ¶ÌÏûÏ¢¡£");
+		write_result("æ‚¨ç›®å‰æ²¡æœ‰æ–°çš„çŸ­æ¶ˆæ¯ã€‚");
 		return 1;
 	}
 	else if ( arg == "next" )
@@ -540,7 +540,7 @@ varargs int do_read(object me, string arg, int flag)
 
 			if ( i >= sizeof(msg_ids) )
 			{
-				write_result("Ã»ÓĞÏÂÒ»¸ö¶ÌÏûÏ¢¡£");
+				write_result("æ²¡æœ‰ä¸‹ä¸€ä¸ªçŸ­æ¶ˆæ¯ã€‚");
 				return 1;
 			}
 		}
@@ -554,7 +554,7 @@ varargs int do_read(object me, string arg, int flag)
 		int num = atoi(arg);
 		if ( num <= 0 || num > sizeof(msg_id))
 		{
-			write_result("Ã»ÓĞÕâ¸ö±àºÅµÄ¶ÌÏûÏ¢¡£");
+			write_result("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„çŸ­æ¶ˆæ¯ã€‚");
 			return 1;
 		}
 		
@@ -577,7 +577,7 @@ varargs int do_read(object me, string arg, int flag)
 	return 0;
 }
 
-// É¾³ı¶ÌÏûÏ¢
+// åˆ é™¤çŸ­æ¶ˆæ¯
 int do_discard(object me, string arg)
 {
 	string name = me->query("id");
@@ -591,7 +591,7 @@ int do_discard(object me, string arg)
 	if (!mapp(users[name]) || sizeof(users[name]) == 0 
 		|| !mapp(users[name]["msg_id"]) || sizeof(users[name]["msg_id"]) == 0 )
 	{
-		write_result("ÄúÄ¿Ç°Ã»ÓĞÈÎºÎ¶ÌÏûÏ¢¡£");
+		write_result("æ‚¨ç›®å‰æ²¡æœ‰ä»»ä½•çŸ­æ¶ˆæ¯ã€‚");
 		return 1;
 	}
 	
@@ -606,14 +606,14 @@ int do_discard(object me, string arg)
 		int num = atoi(arg);
 		if ( num <= 0 || num > sizeof(msg_ids))
 		{
-			write_result("ÄúÃ»ÓĞÕâ¸ö±àºÅµÄ¶ÌÏûÏ¢¡£");
+			write_result("æ‚¨æ²¡æœ‰è¿™ä¸ªç¼–å·çš„çŸ­æ¶ˆæ¯ã€‚");
 			return 1;
 		}
 		
 		
 		if (users[name]["msg_id"][msg_ids[num-1]]["islock"])
 		{
-			write_result("´Ë¶ÌÏûÏ¢ÒÑ±»Ëø¶¨£¬ÇëÏÈ½â³ıËø¶¨¡£");
+			write_result("æ­¤çŸ­æ¶ˆæ¯å·²è¢«é”å®šï¼Œè¯·å…ˆè§£é™¤é”å®šã€‚");
 			return 1;
 		}
 
@@ -628,12 +628,12 @@ int do_discard(object me, string arg)
 
 	save();
 
-	write_result("ÄúÉ¾³ıÁË" + chinese_number(del_count) + "Ìõ¶ÌÏûÏ¢¡£");
+	write_result("æ‚¨åˆ é™¤äº†" + chinese_number(del_count) + "æ¡çŸ­æ¶ˆæ¯ã€‚");
 
 	return 0;
 }
 
-// ¶ÌÏûÏ¢Ëø¶¨/½â³ıËø¶¨
+// çŸ­æ¶ˆæ¯é”å®š/è§£é™¤é”å®š
 int do_lock(object me, string arg, int lock)
 {
 	string name = me->query("id");
@@ -646,7 +646,7 @@ int do_lock(object me, string arg, int lock)
 	if (!mapp(users[name]) || sizeof(users[name]) == 0 
 		|| !mapp(users[name]["msg_id"]) || sizeof(users[name]["msg_id"]) == 0 )
 	{
-		write_result("ÄúÄ¿Ç°Ã»ÓĞÈÎºÎ¶ÌÏûÏ¢¡£");
+		write_result("æ‚¨ç›®å‰æ²¡æœ‰ä»»ä½•çŸ­æ¶ˆæ¯ã€‚");
 		return 1;
 	}
 
@@ -655,7 +655,7 @@ int do_lock(object me, string arg, int lock)
 		int num = atoi(arg);
 		if ( num <= 0 || num > sizeof(msg_ids))
 		{
-			write_result("ÄúÃ»ÓĞÕâ¸ö±àºÅµÄ¶ÌÏûÏ¢¡£");
+			write_result("æ‚¨æ²¡æœ‰è¿™ä¸ªç¼–å·çš„çŸ­æ¶ˆæ¯ã€‚");
 			return 1;
 		}
 	
@@ -663,23 +663,23 @@ int do_lock(object me, string arg, int lock)
 		{
 			if ( !users[name]["msg_id"][msg_ids[num-1]]["islock"] )
 			{
-				write_result("´Ë¶ÌÏûÏ¢Î´Ëø¶¨¡£");
+				write_result("æ­¤çŸ­æ¶ˆæ¯æœªé”å®šã€‚");
 				return 1;
 			}
 
 			users[name]["msg_id"][msg_ids[num-1]]["islock"] = 0;
-			write_result("µÚ"+chinese_number(num)+"Ìõ¶ÌÏûÏ¢½â³ıËø¶¨¡£");
+			write_result("ç¬¬"+chinese_number(num)+"æ¡çŸ­æ¶ˆæ¯è§£é™¤é”å®šã€‚");
 		}
 		else
 		{
 			if ( users[name]["msg_id"][msg_ids[num-1]]["islock"] )
 			{
-				write_result("´Ë¶ÌÏûÏ¢ÒÑËø¶¨¡£");
+				write_result("æ­¤çŸ­æ¶ˆæ¯å·²é”å®šã€‚");
 				return 1;
 			}
 
 			users[name]["msg_id"][msg_ids[num-1]]["islock"] = 1;
-			write_result("Ëø¶¨µÚ"+chinese_number(num)+"Ìõ¶ÌÏûÏ¢¡£");
+			write_result("é”å®šç¬¬"+chinese_number(num)+"æ¡çŸ­æ¶ˆæ¯ã€‚");
 		}
 	}
 	
@@ -688,7 +688,7 @@ int do_lock(object me, string arg, int lock)
 	return 0;
 }
 
-// ÏÔÊ¾¶ÌÏûÏ¢ÏµÍ³µÄÍ³¼ÆĞÅÏ¢
+// æ˜¾ç¤ºçŸ­æ¶ˆæ¯ç³»ç»Ÿçš„ç»Ÿè®¡ä¿¡æ¯
 int do_show(object me, string arg)
 {
 	if ( !wizardp(me) )
@@ -700,9 +700,9 @@ int do_show(object me, string arg)
 	{
 		string str = "";
 
-		str += make_result("¹²ÓĞ" + sizeof(users) + "Î»ÓÃ»§£¬" + sizeof(messages) + "Ìõ¶ÌÏûÏ¢¡£\n");
+		str += make_result("å…±æœ‰" + sizeof(users) + "ä½ç”¨æˆ·ï¼Œ" + sizeof(messages) + "æ¡çŸ­æ¶ˆæ¯ã€‚\n");
 
-		str += sprintf("        %-10s %10s\n", "ÓÃ»§", "ÏûÏ¢Êı");
+		str += sprintf("        %-10s %10s\n", "ç”¨æˆ·", "æ¶ˆæ¯æ•°");
 		str += MESSAGE_LINE;
 
 		{
@@ -725,7 +725,7 @@ int do_show(object me, string arg)
 	return 0;
 }
 
-// Çå³ıÓÃ»§µÄËùÓĞ¶ÌÏûÏ¢
+// æ¸…é™¤ç”¨æˆ·çš„æ‰€æœ‰çŸ­æ¶ˆæ¯
 int do_clear(object me, string arg)
 {
 	if (!wizardp(me) )
@@ -735,7 +735,7 @@ int do_clear(object me, string arg)
 
 	if (wiz_level(me) < wiz_level(arg))
 	{
-		write_result("ÄúÃ»ÓĞÉ¾³ıÕâ¸öÓÃ»§¶ÌÏûÏ¢µÄÈ¨ÏŞ¡£");
+		write_result("æ‚¨æ²¡æœ‰åˆ é™¤è¿™ä¸ªç”¨æˆ·çŸ­æ¶ˆæ¯çš„æƒé™ã€‚");
 		return 1;
 	}
 
@@ -743,12 +743,12 @@ int do_clear(object me, string arg)
 
 	save();
 
-	write_result("Çå³ıÁËÓÃ»§" + capitalize(arg) + "µÄËùÓĞ¶ÌÏûÏ¢¡£");
+	write_result("æ¸…é™¤äº†ç”¨æˆ·" + capitalize(arg) + "çš„æ‰€æœ‰çŸ­æ¶ˆæ¯ã€‚");
 
 	return 0;
 }
 
-// ÉèÖÃ¶ÌÏûÏ¢ÏµÍ³²ÎÊı
+// è®¾ç½®çŸ­æ¶ˆæ¯ç³»ç»Ÿå‚æ•°
 int do_set(object me, string arg)
 {
 	int value;
@@ -760,7 +760,7 @@ int do_set(object me, string arg)
 
 	if ( arg == "all" )
 	{
-		write_result("ÉèÖÃÖµ\n\n" + show_sets(me));
+		write_result("è®¾ç½®å€¼\n\n" + show_sets(me));
 
 		return 1;
 	}
@@ -773,26 +773,26 @@ int do_set(object me, string arg)
 	if ( (string)SECURITY_D->get_status(me) < "(arch)" 
 		&& wiz_level(me) < sets["cmd_leve"] )
 	{
-		write_result("ÄúÃ»ÓĞ¶ÌÏûÏ¢Éè¶¨È¨ÏŞ¡£");
+		write_result("æ‚¨æ²¡æœ‰çŸ­æ¶ˆæ¯è®¾å®šæƒé™ã€‚");
 		return 1;
 	}
 
 	if ( member_array(arg, keys(sets)) < 0 )
 	{
-		write_result("Ã»ÓĞ´ËÉèÖÃÏî¡£");
+		write_result("æ²¡æœ‰æ­¤è®¾ç½®é¡¹ã€‚");
 		return 1;
 	}
 
 	if (value < MIN_VALUE || value > MAX_VALUE)
 	{
-		write_result("ÄúÖ»ÄÜÉèÖÃÎª" + MIN_VALUE + "µ½" + MAX_VALUE + "ÄÚµÄÕûÊı¡£");
+		write_result("æ‚¨åªèƒ½è®¾ç½®ä¸º" + MIN_VALUE + "åˆ°" + MAX_VALUE + "å†…çš„æ•´æ•°ã€‚");
 	}
 
 	sets[arg] = value;
 
 	save();
 
-	write_result("Äú°Ñ" + arg + "ÉèÖÃÎª" + value + "¡£");
+	write_result("æ‚¨æŠŠ" + arg + "è®¾ç½®ä¸º" + value + "ã€‚");
 
 	return 0;
 }
@@ -818,7 +818,7 @@ int main(object me, string arg)
 	if ( (string)SECURITY_D->get_status(me) != "(admin)" 
 		&& wiz_level(me) < sets["cmd_level"] )
 	{
-		write_result("ÒÑ¾­¹Ø±Õ¡£");
+		write_result("å·²ç»å…³é—­ã€‚");
 		return 1;
 	}
 
@@ -854,7 +854,7 @@ int main(object me, string arg)
 		do_show(me, arg);
 		break;
 	case "clear":
-		do_clear(me, arg);		// ²»½¨ÒéÊ¹ÓÃ¡£
+		do_clear(me, arg);		// ä¸å»ºè®®ä½¿ç”¨ã€‚
 		break;
 	case "set":
 		do_set(me, arg);
@@ -871,31 +871,31 @@ int help(object me)
 {
 	string help = @HELP
 
-Ö¸ÁîËµÃ÷ : 
-	Õâ¸öÖ¸Áî¿ÉÒÔ·¢ËÍ»ò¹ÜÀíÄãµÄ¶ÌÏûÏ¢¡£
-	·¢ËÍµÄ¶ÌÏûÏ¢¼´Ê¹¶ÔÏóÍæ¼ÒÀëÏßÒ²¿ÉÒÔÊÕµ½¡£
+æŒ‡ä»¤è¯´æ˜ : 
+	è¿™ä¸ªæŒ‡ä»¤å¯ä»¥å‘é€æˆ–ç®¡ç†ä½ çš„çŸ­æ¶ˆæ¯ã€‚
+	å‘é€çš„çŸ­æ¶ˆæ¯å³ä½¿å¯¹è±¡ç©å®¶ç¦»çº¿ä¹Ÿå¯ä»¥æ”¶åˆ°ã€‚
 
-Ö¸Áî¸ñÊ½ : 
-	msg <send [id1[:id2[...]]]>            ·¢ËÍ¶ÌÏûÏ¢µ½Ò»¸ö»ò¶à¸öÍæ¼Ò¡£
-	msg <read [all | new | next |±àºÅ]>    ¶ÁÈ¡¶ÌÏûÏ¢¡£
-	msg <discard [all | ±àºÅ]>             É¾³ıÒ»¸ö»ò¶à¸ö¶ÌÏûÏ¢¡£
-	msg <lock/unlock> <±àºÅ>               Ëø¶¨»ò½â³ıËø¶¨Ö¸¶¨¶ÌÏûÏ¢£¬ÈçÒªÉ¾³ı
-	                                       Ëø¶¨¶ÌÏûÏ¢ĞëÏÈ½â³ıËø¶¨¡£
+æŒ‡ä»¤æ ¼å¼ : 
+	msg <send [id1[:id2[...]]]>            å‘é€çŸ­æ¶ˆæ¯åˆ°ä¸€ä¸ªæˆ–å¤šä¸ªç©å®¶ã€‚
+	msg <read [all | new | next |ç¼–å·]>    è¯»å–çŸ­æ¶ˆæ¯ã€‚
+	msg <discard [all | ç¼–å·]>             åˆ é™¤ä¸€ä¸ªæˆ–å¤šä¸ªçŸ­æ¶ˆæ¯ã€‚
+	msg <lock/unlock> <ç¼–å·>               é”å®šæˆ–è§£é™¤é”å®šæŒ‡å®šçŸ­æ¶ˆæ¯ï¼Œå¦‚è¦åˆ é™¤
+	                                       é”å®šçŸ­æ¶ˆæ¯é¡»å…ˆè§£é™¤é”å®šã€‚
 		
-	ÆäÖĞ msg read all ÖĞ¸ßÁÁÏÔÊ¾µÄÎªĞÂÏûÏ¢£¬±àºÅÇ°´øºìÉ«¡â·ûºÅµÄÎª±»Ëø¶¨¶ÌÏûÏ¢¡£
+	å…¶ä¸­ msg read all ä¸­é«˜äº®æ˜¾ç¤ºçš„ä¸ºæ–°æ¶ˆæ¯ï¼Œç¼–å·å‰å¸¦çº¢è‰²â™€ç¬¦å·çš„ä¸ºè¢«é”å®šçŸ­æ¶ˆæ¯ã€‚
 HELP;
 
 	if ( wizardp(me) )
 	{
 		help +=@HELP
 
-	msg set <all | Settings <Value> >      ²é¿´»ò¸ü¸Ä¶ÌÏûÏ¢ÉèÖÃ¡£
+	msg set <all | Settings <Value> >      æŸ¥çœ‹æˆ–æ›´æ”¹çŸ­æ¶ˆæ¯è®¾ç½®ã€‚
 
-	Settings ¿ÉÒÔÊ¹ÓÃ msg set all ²é¿´¡£
+	Settings å¯ä»¥ä½¿ç”¨ msg set all æŸ¥çœ‹ã€‚
 HELP;
 
 		help += "\n" + show_sets(me);
-		help += "\n	Value ¿ÉÒÔÈ¡Öµ" + MIN_VALUE + "¡«" + MAX_VALUE + "¡£";
+		help += "\n	Value å¯ä»¥å–å€¼" + MIN_VALUE + "ï½" + MAX_VALUE + "ã€‚";
 	}
 
 	help += "\n

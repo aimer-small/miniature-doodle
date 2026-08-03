@@ -1,37 +1,37 @@
-//chutou.c ³úÍ·£¬²É¿ó×¨ÓÃ
+//chutou.c é”„å¤´ï¼Œé‡‡çŸ¿ä¸“ç”¨
 //Modified By ChinaNet
 //By 2004/1/11
 
-//Ôö¼Ómining¼¼ÄÜÓë´ÎÊıµÄ¹ØÏµ¡£
-//Ôö¼Ó·ÅÆú´ÎÊıÓë²É¿ó³É¹¦µÄ¹ØÏµ¡£
-//Ôö¼Ó²É¿ó³É¹¦ÂÊÓë¼¼ÄÜµÄ¹ØÏµ
+//å¢åŠ miningæŠ€èƒ½ä¸æ¬¡æ•°çš„å…³ç³»ã€‚
+//å¢åŠ æ”¾å¼ƒæ¬¡æ•°ä¸é‡‡çŸ¿æˆåŠŸçš„å…³ç³»ã€‚
+//å¢åŠ é‡‡çŸ¿æˆåŠŸç‡ä¸æŠ€èƒ½çš„å…³ç³»
 //Modified By ChinaNet
 //by 2004/3/10
 // add exp By ChinaNet
 //by 2004/4/28
-// By Spiderii ĞŞ¸ÄminingÎªcaikuang
+// By Spiderii ä¿®æ”¹miningä¸ºcaikuang
 // by 2007/9/17
-// By Server ĞŞ¸Äcaikuang > 230 ÎŞ·¨µÃµ½caikuang Î²Êı ÒòÎªÒªÓÃqqlly À´Ôö¼Ó
+// By Server ä¿®æ”¹caikuang > 230 æ— æ³•å¾—åˆ°caikuang å°¾æ•° å› ä¸ºè¦ç”¨qqlly æ¥å¢åŠ 
 #include <weapon.h>
 inherit STAFF;
 #include "../place.h"
 
 void create()
 {
-        set_name("³úÍ·", ({ "chu tou", "tou", "chu" }));
+        set_name("é”„å¤´", ({ "chu tou", "tou", "chu" }));
         set_weight(500);
         if (clonep())
                 set_default_object(__FILE__);
         else 
         {
-                set("unit", "°Ñ");
-                set("long", "ÕâÊÇÒ»°Ñ³úÍ·£¬ÓÃÀ´¿ªÉ½ÔäµØ(mine)ÊÇ×îºÃ²»¹ıµÄÁË¡£\n");
+                set("unit", "æŠŠ");
+                set("long", "è¿™æ˜¯ä¸€æŠŠé”„å¤´ï¼Œç”¨æ¥å¼€å±±å‡¿åœ°(mine)æ˜¯æœ€å¥½ä¸è¿‡çš„äº†ã€‚\n");
                 set("value", 1);
                 set("material", "steel");
-                set("wield_msg", "$NÄÃ³öÒ»°Ñ$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n¿¹ÔÚ¼çÉÏ¡£\n");
-                set("no_drop","ÏÖÔÚÊÇÈÓµÄÊ±ºòÂï£¿");
-                set("no_get","Ò»¸öÆÆ³úÍ·ÄãÒ²¼ğ£¿");
+                set("wield_msg", "$Næ‹¿å‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næŠ—åœ¨è‚©ä¸Šã€‚\n");
+                set("no_drop","ç°åœ¨æ˜¯æ‰”çš„æ—¶å€™å˜›ï¼Ÿ");
+                set("no_get","ä¸€ä¸ªç ´é”„å¤´ä½ ä¹Ÿæ‹£ï¼Ÿ");
         }
         init_staff(4);
         setup();
@@ -58,7 +58,7 @@ int do_wield(string arg)
 	{
 		if(ob->query("user")!= me->query("id") )
 		{
-			tell_object(me,"ÕâÎ»" + RANK_D->query_respect(me) +"²»ÒªÂÒ¶¯±ğÈËµÄ¶«Î÷£¬Õâ¸öÏ°¹ß²»ºÃ¡£\n");
+			tell_object(me,"è¿™ä½" + RANK_D->query_respect(me) +"ä¸è¦ä¹±åŠ¨åˆ«äººçš„ä¸œè¥¿ï¼Œè¿™ä¸ªä¹ æƒ¯ä¸å¥½ã€‚\n");
 			return 1;
 		}
 	}
@@ -79,42 +79,42 @@ int do_mine(string arg)
 	level = me->query_temp("minejob/level");
 	
 	if (arg) 
-		return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 	if (ob->query("user") != me->query("id")) 
-		return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 	
 	if (!item || item->query("id") != "chu tou")
-		return notify_fail("ÄãÒªÓÃÊÖÍÚÂğ£¿\n");
+		return notify_fail("ä½ è¦ç”¨æ‰‹æŒ–å—ï¼Ÿ\n");
 		
 	if (!me->query_temp("minejob/ask"))
-		return notify_fail("Ã»ÊÂÍÚµØ×öÊ²Ã´£¿\n");
+		return notify_fail("æ²¡äº‹æŒ–åœ°åšä»€ä¹ˆï¼Ÿ\n");
 
 	if (file_name(where) != me->query_temp("minejob/area"))
-		return notify_fail("´ËµØ²¢ÎŞÊ²Ã´ÌØ±ğÖ®´¦£¬ÄãÒª×öÊ²Ã´£¿\n");
+		return notify_fail("æ­¤åœ°å¹¶æ— ä»€ä¹ˆç‰¹åˆ«ä¹‹å¤„ï¼Œä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 		
 	if (me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 		
-	if (me->query_temp("minejob/type") != "¿ª²É")
-		return notify_fail("Äã¡«Äã¡«¡«Äã¡«¡«¡«»¹ÊÇËãÁË°É¡£\n");
+	if (me->query_temp("minejob/type") != "å¼€é‡‡")
+		return notify_fail("ä½ ï½ä½ ï½ï½ä½ ï½ï½ï½è¿˜æ˜¯ç®—äº†å§ã€‚\n");
 	
 	if (me->query_temp("minejob/find"))
-		return notify_fail("ÄãÒÑ¾­¿ª²ÉÍêÁË¿óÊ¯£¬ËÙ»Ø·ëÌú½³´¦¡£\n");
+		return notify_fail("ä½ å·²ç»å¼€é‡‡å®Œäº†çŸ¿çŸ³ï¼Œé€Ÿå›å†¯é“åŒ å¤„ã€‚\n");
 	
 	if (me->is_fighting())
-		return notify_fail("Äã¡«Äã¡«¡«Äã¡«¡«¡«»¹ÊÇÃ¦ÍêÁËÔÙËµ°É¡£\n");
+		return notify_fail("ä½ ï½ä½ ï½ï½ä½ ï½ï½ï½è¿˜æ˜¯å¿™å®Œäº†å†è¯´å§ã€‚\n");
 		
 	if (me->query("jingli") < 500)
-		return notify_fail("ÄãµÄ¾«Á¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿã€‚\n");
 		
 	if (me->query("neili") < 500)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
-	str="\n$N³¯ÊÖĞÄßıÁËÁ½¿ÚÍÙÄ­£¬¾ÙÆğ³úÍ·£¬ÓÃÆğÈ«ÉíµÄÁ¦Æø£¬ÂÕÔ²ÁË¸ì²²Ò»³úÍ·ÔÒÁËÏÂÈ¥¡£\n";
+	str="\n$Næœæ‰‹å¿ƒå•äº†ä¸¤å£å”¾æ²«ï¼Œä¸¾èµ·é”„å¤´ï¼Œç”¨èµ·å…¨èº«çš„åŠ›æ°”ï¼ŒæŠ¡åœ†äº†èƒ³è†Šä¸€é”„å¤´ç ¸äº†ä¸‹å»ã€‚\n";
 	
 	me->add_temp("minejob/times",1);
 	
-//³É¹¦ÓëÊ§°Ü¶Ô±È¡£
+//æˆåŠŸä¸å¤±è´¥å¯¹æ¯”ã€‚
 	i = me->query("minejob")/10;
 	j = me->query("minejob_failed");
 //add exp by chinanet
@@ -125,7 +125,7 @@ int do_mine(string arg)
 	if( exp > 10 ) exp = 10 ;
 	if( exp < 0 ) exp = 1;
 
-//²É¿ó³É¹¦ÂÊÓë¼¼ÄÜµÄ¹ØÏµ
+//é‡‡çŸ¿æˆåŠŸç‡ä¸æŠ€èƒ½çš„å…³ç³»
    k = me->query_skill("caikuang",1);
    if (k > 230)
    { 
@@ -167,55 +167,55 @@ int do_mine(string arg)
 	switch (level)
 	{		
 		case "veryhard":
-			str += "ËÆºõÃ»Ê²Ã´±ä»¯£¬µ«$NĞÅĞÄÊ®×ã£¬ºÁ²»ÆøÄÙ¡£\n";
+			str += "ä¼¼ä¹æ²¡ä»€ä¹ˆå˜åŒ–ï¼Œä½†$Nä¿¡å¿ƒåè¶³ï¼Œæ¯«ä¸æ°”é¦ã€‚\n";
 			if (success > 20 && success > fail && i > j && random(20) > 10)
 			{
-				str += "$N¾õµÃÑÛÇ°Ò»ÁÁ£¬Ò»¿éÉÁÁÁµÄ¿óÊ¯Â¶ÁË³öÀ´¡£$NĞË·ÜµØ½«³úÍ·ÈÓµôÁË¡£\n";
+				str += "$Nè§‰å¾—çœ¼å‰ä¸€äº®ï¼Œä¸€å—é—ªäº®çš„çŸ¿çŸ³éœ²äº†å‡ºæ¥ã€‚$Nå…´å¥‹åœ°å°†é”„å¤´æ‰”æ‰äº†ã€‚\n";
 				mine = new(__DIR__"mine.c");
 				mine = settings_mine(level, mine);
 				mine->move(me);
 				me->set_temp("minejob/find",1);
-				log_file("job/minejob",sprintf("%s %s(%s)ÍÚµ½ÁË%s¼¶±ğµÄ¿óÊ¯¡£³É¹¦%i´Î£¬Ê§°Ü%i´Î¡£\n",
+				log_file("job/minejob",sprintf("%s %s(%s)æŒ–åˆ°äº†%sçº§åˆ«çš„çŸ¿çŸ³ã€‚æˆåŠŸ%iæ¬¡ï¼Œå¤±è´¥%iæ¬¡ã€‚\n",
 					ctime(time())[4..19],me->name(1),capitalize(me->query("id")),mine->query("level"),success,fail));
 			}
 			else if (fail > 20 || success > 30 && success>fail)
 			{
-				str += "ÔÚ·É½¦µÄÉ³³¾µ±ÖĞ$NºÃÏñ¿´µ½ÁËÒ»¿éÎÚºÚµÄ¶«Î÷£¬¾ÍËæÊÖ¼ñÁËÆğÀ´¡£$NÏë¶¼Ã»Ïë¾Í½«³úÍ·ÈÓµôÁË¡£\n";
+				str += "åœ¨é£æº…çš„æ²™å°˜å½“ä¸­$Nå¥½åƒçœ‹åˆ°äº†ä¸€å—ä¹Œé»‘çš„ä¸œè¥¿ï¼Œå°±éšæ‰‹æ¡äº†èµ·æ¥ã€‚$Næƒ³éƒ½æ²¡æƒ³å°±å°†é”„å¤´æ‰”æ‰äº†ã€‚\n";
 				mine = new(__DIR__"mine.c");
 				mine->move(me);
 				me->set_temp("minejob/find",1);
-				log_file("job/minejob",sprintf("%s %s(%s)ÍÚ%s¼¶±ğµÄ¿óÊ¯Ê§°Ü¡£³É¹¦%i´Î£¬Ê§°Ü%i´Î¡£\n",
+				log_file("job/minejob",sprintf("%s %s(%s)æŒ–%sçº§åˆ«çš„çŸ¿çŸ³å¤±è´¥ã€‚æˆåŠŸ%iæ¬¡ï¼Œå¤±è´¥%iæ¬¡ã€‚\n",
 					ctime(time())[4..19],me->name(1),capitalize(me->query("id")),mine->query("level"),success,fail));
 			}
 			break;
 		case "hard":
-			str += "¶ÙÊ±³¾ÍÁ·ÉÑï£¬Â·±ßÖÚÈË²»ÓÉµÃÖåÆğÁËÃ¼Í·£¬¿É$NÈÔÈ»ÊÓ¶ø²»¼û¡£\n";
+			str += "é¡¿æ—¶å°˜åœŸé£æ‰¬ï¼Œè·¯è¾¹ä¼—äººä¸ç”±å¾—çš±èµ·äº†çœ‰å¤´ï¼Œå¯$Nä»ç„¶è§†è€Œä¸è§ã€‚\n";
 			if (success > 16 && random(20) > 8 && i > j && success > fail)
 			{
-				str += "³¾ÍÁ½¥½¥É¢È¥£¬µØÉÏÒşÔ¼ÓĞÒ»¿é¹â²ÊµÄÊ¯Í·¡£$N¸ßĞËµØ½«³úÍ·ÈÓµôÁË\n";
+				str += "å°˜åœŸæ¸æ¸æ•£å»ï¼Œåœ°ä¸Šéšçº¦æœ‰ä¸€å—å…‰å½©çš„çŸ³å¤´ã€‚$Né«˜å…´åœ°å°†é”„å¤´æ‰”æ‰äº†\n";
 				me->set_temp("minejob/find",1);
 				mine = new(__DIR__"mine.c");
 				mine = settings_mine(level,mine);
 				mine->move(me);
-				log_file("job/minejob",sprintf("%s %s(%s)ÍÚµ½ÁË%s¼¶±ğµÄ¿óÊ¯¡£³É¹¦%i´Î£¬Ê§°Ü%i´Î¡£\n",
+				log_file("job/minejob",sprintf("%s %s(%s)æŒ–åˆ°äº†%sçº§åˆ«çš„çŸ¿çŸ³ã€‚æˆåŠŸ%iæ¬¡ï¼Œå¤±è´¥%iæ¬¡ã€‚\n",
 					ctime(time())[4..19],me->name(1),capitalize(me->query("id")),mine->query("level"),success,fail));
 
 			}
 			else if (fail > 30 || success > 30)
 			{
-				str += "ÔÚ·É½¦µÄÉ³³¾µ±ÖĞ$NºÃÏñ¿´µ½ÁËÒ»¿éÎÚºÚµÄ¶«Î÷£¬¾ÍËæÊÖ¼ñÁËÆğÀ´¡£$NÏë¶¼Ã»Ïë¾Í½«³úÍ·ÈÓµôÁË¡£\n";
+				str += "åœ¨é£æº…çš„æ²™å°˜å½“ä¸­$Nå¥½åƒçœ‹åˆ°äº†ä¸€å—ä¹Œé»‘çš„ä¸œè¥¿ï¼Œå°±éšæ‰‹æ¡äº†èµ·æ¥ã€‚$Næƒ³éƒ½æ²¡æƒ³å°±å°†é”„å¤´æ‰”æ‰äº†ã€‚\n";
 				mine = new(__DIR__"mine.c");
 				mine->move(me);
 				me->set_temp("minejob/find",1);
-				log_file("job/minejob",sprintf("%s %s(%s)ÍÚ%s¼¶±ğµÄ¿óÊ¯Ê§°Ü¡£³É¹¦%i´Î£¬Ê§°Ü%i´Î¡£\n",
+				log_file("job/minejob",sprintf("%s %s(%s)æŒ–%sçº§åˆ«çš„çŸ¿çŸ³å¤±è´¥ã€‚æˆåŠŸ%iæ¬¡ï¼Œå¤±è´¥%iæ¬¡ã€‚\n",
 					ctime(time())[4..19],me->name(1),capitalize(me->query("id")),mine->query("level"),success,fail));
 			}
 			break;
 		case "normal":
-			str += "¿´À´$NÁ¦Æø²»Ğ¡£¬µØÉÏ¾ÓÈ»±»$NÔÒÁËÒ»¸öÎŞµ×¶´¡£\n";
+			str += "çœ‹æ¥$NåŠ›æ°”ä¸å°ï¼Œåœ°ä¸Šå±…ç„¶è¢«$Nç ¸äº†ä¸€ä¸ªæ— åº•æ´ã€‚\n";
 			if (success > 8 && i > j && random(20) > 6)
 			{
-				str += "¶´ÖĞÒÀÏ¡¿ÉÒÔ¿´µ½Ò»¿é½ğÊô¹âÔóµÄÊ¯Í·¡£$NËæÊÖµØ½«³úÍ·ÈÓµôÁË¡£\n";
+				str += "æ´ä¸­ä¾ç¨€å¯ä»¥çœ‹åˆ°ä¸€å—é‡‘å±å…‰æ³½çš„çŸ³å¤´ã€‚$Néšæ‰‹åœ°å°†é”„å¤´æ‰”æ‰äº†ã€‚\n";
 				me->set_temp("minejob/find",1);
 				mine = new(__DIR__"mine.c");
 				mine = settings_mine(level,mine);							
@@ -223,17 +223,17 @@ int do_mine(string arg)
 			}
 			else if (fail > 20 || success > 20)
 			{
-				str += "ÔÚ·É½¦µÄÉ³³¾µ±ÖĞ$NºÃÏñ¿´µ½ÁËÒ»¿éÎÚºÚµÄ¶«Î÷£¬¾ÍËæÊÖ¼ñÁËÆğÀ´¡£$NÏë¶¼Ã»Ïë¾Í½«³úÍ·ÈÓµôÁË¡£\n";
+				str += "åœ¨é£æº…çš„æ²™å°˜å½“ä¸­$Nå¥½åƒçœ‹åˆ°äº†ä¸€å—ä¹Œé»‘çš„ä¸œè¥¿ï¼Œå°±éšæ‰‹æ¡äº†èµ·æ¥ã€‚$Næƒ³éƒ½æ²¡æƒ³å°±å°†é”„å¤´æ‰”æ‰äº†ã€‚\n";
 				mine = new(__DIR__"mine.c");
 				mine->move(me);
 				me->set_temp("minejob/find",1);
 			}
 			break;
 		case "easy" :
-			str += "½á¹û¡°ßÛ‡¡±Ò»Éù³úµ½ÁËµØÉÏ£¬ÕğµÃ$NÊÖ±Û·¢Âé¡£\n";
+			str += "ç»“æœâ€œå’£å™¹â€ä¸€å£°é”„åˆ°äº†åœ°ä¸Šï¼Œéœ‡å¾—$Næ‰‹è‡‚å‘éº»ã€‚\n";
 			if (fail > 10 || success > 10)
 			{
-				str += "ÔÚ·É½¦µÄÉ³³¾µ±ÖĞ$NºÃÏñ¿´µ½ÁËÒ»¿éÎÚºÚµÄ¶«Î÷£¬¾ÍËæÊÖ¼ñÁËÆğÀ´¡£$NÏë¶¼Ã»Ïë¾Í½«³úÍ·ÈÓµôÁË¡£\n";
+				str += "åœ¨é£æº…çš„æ²™å°˜å½“ä¸­$Nå¥½åƒçœ‹åˆ°äº†ä¸€å—ä¹Œé»‘çš„ä¸œè¥¿ï¼Œå°±éšæ‰‹æ¡äº†èµ·æ¥ã€‚$Næƒ³éƒ½æ²¡æƒ³å°±å°†é”„å¤´æ‰”æ‰äº†ã€‚\n";
 				mine = new(__DIR__"mine.c");
 				mine->move(me);
 				me->set_temp("minejob/find",1);
@@ -246,15 +246,15 @@ int do_mine(string arg)
 	if (!wizardp(me)) 
 		me->start_busy(1+random(3));
 	if (wizardp(me)) 
-		tell_object(me,"Äã±¾´Î" + me->query_temp("minejob/level") + "¼¶ÈÎÎñÒÑ¾­²ÉÁË" + times + "´Î¿óÊ¯¡£³É¹¦´ÎÊı£º"
-			+ me->query_temp("minejob/success") + "¡£Ê§°Ü´ÎÊı£º" + me->query_temp("minejob/fail") + "¡£\n");
+		tell_object(me,"ä½ æœ¬æ¬¡" + me->query_temp("minejob/level") + "çº§ä»»åŠ¡å·²ç»é‡‡äº†" + times + "æ¬¡çŸ¿çŸ³ã€‚æˆåŠŸæ¬¡æ•°ï¼š"
+			+ me->query_temp("minejob/success") + "ã€‚å¤±è´¥æ¬¡æ•°ï¼š" + me->query_temp("minejob/fail") + "ã€‚\n");
 
 
 	if (me->query_temp("minejob/find")) 
 	{
-//Ìí¼Ó²ÄÖÊÃèÊö 2004/2/1 by ChinaNet
-		mine->set("long",mine->query("long")+"¿´ÆğÀ´ÊÇÓÉ"+mine->query("material")+"¹¹³É¡£\n");
-//Ìí¼ÓÇÀ¿óÈË
+//æ·»åŠ æè´¨æè¿° 2004/2/1 by ChinaNet
+		mine->set("long",mine->query("long")+"çœ‹èµ·æ¥æ˜¯ç”±"+mine->query("material")+"æ„æˆã€‚\n");
+//æ·»åŠ æŠ¢çŸ¿äºº
 //by ChinaNet 2004/1/29
 
 		if (me->query_temp("minejob/killer") == 1)
@@ -263,10 +263,10 @@ int do_mine(string arg)
 			killer->set_temp("target",me->query("id"));
 			killer->set_temp("level",mine->query("level"));
 			killer->move(where);		
-			killer->set("long",killer->query("long")+"Ëû¸ß¸ßĞËĞËµÄÑù×Ó£¬¿´ÆğÀ´ÊÇ¸Õ¸ÕÇÀ½ÙÁË"+me->query("name")+"("+me->query("id")+")µÄ¿óÊ¯¡£\n");
+			killer->set("long",killer->query("long")+"ä»–é«˜é«˜å…´å…´çš„æ ·å­ï¼Œçœ‹èµ·æ¥æ˜¯åˆšåˆšæŠ¢åŠ«äº†"+me->query("name")+"("+me->query("id")+")çš„çŸ¿çŸ³ã€‚\n");
 			mine->add("value",random(50000)+50000);
 			mine->move(killer);
-			str = HIR"\n$NÕıÔÚĞÀÏ²£¬Í»È»Ö®¼ä£¬Ò»¸öÉíÓ°ÔÚÑÛÇ°ÂÓ¹ı£¬$NÃÍÈ»ĞÑ¾õ£¬ÉíÉÏµÄ"+mine->query("name")+HIR"ÒÑ¾­²»¼ûÁË¡£\n"NOR;
+			str = HIR"\n$Næ­£åœ¨æ¬£å–œï¼Œçªç„¶ä¹‹é—´ï¼Œä¸€ä¸ªèº«å½±åœ¨çœ¼å‰æ è¿‡ï¼Œ$NçŒ›ç„¶é†’è§‰ï¼Œèº«ä¸Šçš„"+mine->query("name")+HIR"å·²ç»ä¸è§äº†ã€‚\n"NOR;
 			message_vision(str,me);
 		}
 	destruct(ob);

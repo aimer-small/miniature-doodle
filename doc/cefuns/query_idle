@@ -1,16 +1,16 @@
 
 	query_idle(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		query_idle()  - Ñ¯ÎÊÒ»¸ö»¥¶¯µÄ (interactive) Íæ¼ÒÒÑ¾­
-				·¢´ô (idle) ¼¸Ãë.
-	Óï·¨:
+	åç§°:
+		query_idle()  - è¯¢é—®ä¸€ä¸ªäº’åŠ¨çš„ (interactive) ç©å®¶å·²ç»
+				å‘å‘† (idle) å‡ ç§’.
+	è¯­æ³•:
 		int query_idle( object ob );
 
-		ÕûÊı query_idle( Îï¼ş ob );
-	ÓÃ·¨:
-		Ñ¯ÎÊÒ»¸ö»¥¶¯µÄ (interactive) Íæ¼ÒÎï¼şÒÑ¾­·¢´ô (idle) ¼¸Ãë.
-	²Î¿¼:
+		æ•´æ•° query_idle( ç‰©ä»¶ ob );
+	ç”¨æ³•:
+		è¯¢é—®ä¸€ä¸ªäº’åŠ¨çš„ (interactive) ç©å®¶ç‰©ä»¶å·²ç»å‘å‘† (idle) å‡ ç§’.
+	å‚è€ƒ:
 		in_edit(3), in_input(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.May.1.		(printed 3/16/95)

@@ -3,12 +3,12 @@ int ask_ji()
 	object me = this_player();
 
 	if (!me->query_temp("marks/jiaohua-ji")){
-		command("say "+RANK_D->query_respect(me)+"£¬ÎÒ¸æËßÄã°É£¬ÕâÌìÏÂ×îºÃ³ÔµÄ½Ð»¯¼¦¾ÍÊÇÈØ¶ùÄÇ¸öÐ¡Ñ¾Í·×öµÄ£¡");
-		command("say ÐÞÎÄÕâ±¿Ð¡×Ó²»ÖªÅÜÄÄÍæÈ¥ÁË£¬½ÐËûÈ¥ÏåÑô°ïÎÒ´øÖ»¼¦£¬ºÃ¾ÃÒ²²»»ØÀ´¡£");
+		command("say "+RANK_D->query_respect(me)+"ï¼Œæˆ‘å‘Šè¯‰ä½ å§ï¼Œè¿™å¤©ä¸‹æœ€å¥½åƒçš„å«åŒ–é¸¡å°±æ˜¯è“‰å„¿é‚£ä¸ªå°ä¸«å¤´åšçš„ï¼");
+		command("say ä¿®æ–‡è¿™ç¬¨å°å­ä¸çŸ¥è·‘å“ªçŽ©åŽ»äº†ï¼Œå«ä»–åŽ»è¥„é˜³å¸®æˆ‘å¸¦åªé¸¡ï¼Œå¥½ä¹…ä¹Ÿä¸å›žæ¥ã€‚");
 		me->set_temp("marks/jiaohua-ji",1);
 		return 1;
 	}
-	command("say ÄãÒ²Ïë³ÔÂð£¿");
+	command("say ä½ ä¹Ÿæƒ³åƒå—ï¼Ÿ");
 	return 1;
 }
 
@@ -20,14 +20,14 @@ int kanglong(object me, object ob)
 		return 0;
 
 	command("consider");
-	command("say ÄãÕâÍÞÍÞÕæÊÇ²»Àµ£¬ÄÜ×ö³öºÍ»ÆÑ¾Í·Í¬ÑùºÃµÄÃÀÎ¶À´¡£");
+	command("say ä½ è¿™å¨ƒå¨ƒçœŸæ˜¯ä¸èµ–ï¼Œèƒ½åšå‡ºå’Œé»„ä¸«å¤´åŒæ ·å¥½çš„ç¾Žå‘³æ¥ã€‚");
 	if ( random((int)me->query_con()) > 15 ){
-		command("say ÎÒÒ²²»ÄÜ°×³ÔÁËÄãµÄ²Ë£¬ÕâÑù°É¡£");
-		command("whisper "+me->query("id")+" ÄãÈ¥Î÷Óò"YEL"ÃùÉ³É½"NOR"×¡ÉÏÒ»Õó×Ó£¬ÓÐÃ»ÓÐÔì»¯¾Í¿´Äã×Ô¼ºÁË¡£");
+		command("say æˆ‘ä¹Ÿä¸èƒ½ç™½åƒäº†ä½ çš„èœï¼Œè¿™æ ·å§ã€‚");
+		command("whisper "+me->query("id")+" ä½ åŽ»è¥¿åŸŸ"YEL"é¸£æ²™å±±"NOR"ä½ä¸Šä¸€é˜µå­ï¼Œæœ‰æ²¡æœ‰é€ åŒ–å°±çœ‹ä½ è‡ªå·±äº†ã€‚");
 		me->set_temp("xlz/hang", 1);
 		return 1;
 	}
-	command("say ½ñÌìµÄ¼¦²»´í£¬ÄãÕæÊÇÓÐÐÄ£¬ÏÂ´Î¼ÇµÃÔÙ¸øÎÒÅª¼¸Ö»À´¡£");
+	command("say ä»Šå¤©çš„é¸¡ä¸é”™ï¼Œä½ çœŸæ˜¯æœ‰å¿ƒï¼Œä¸‹æ¬¡è®°å¾—å†ç»™æˆ‘å¼„å‡ åªæ¥ã€‚");
 	return 1;
 }
 
@@ -46,18 +46,18 @@ int ask_wugou()
 	}
 	if ( me->query_temp("noget_wugou") && !wizardp(me)) {
 		if (me->query_temp("noget_wugou") > 10) {
-			command("say È¥È¥£¬Ð¡º¢×ÓÒ»±ßÍæÈ¥£¡");
+			command("say åŽ»åŽ»ï¼Œå°å­©å­ä¸€è¾¹çŽ©åŽ»ï¼");
 			command("kick3 "+me->query("id")+"");
 			me->delete_temp("get_wugou");
 			me->delete_temp("get_wugou2");
-			tell_room(environment(), "\nºéÆß¹«´óÁ¦·ÉÆðÒ»½Å£¬½«"+ me->name()+ "Ìß·É³öÃÅÍâ£¡\n"NOR, ({ me }));
+			tell_room(environment(), "\næ´ªä¸ƒå…¬å¤§åŠ›é£žèµ·ä¸€è„šï¼Œå°†"+ me->name()+ "è¸¢é£žå‡ºé—¨å¤–ï¼\n"NOR, ({ me }));
 			me->move("/d/gb/pomiao");
 			me->add_busy(2);
-			tell_room(environment(me), "\nÖ»¼û"+ me->name()+ "Æ¨¹ÉÉÏ´ø×Å¸öÄà½ÅÓ¡£¬´ó½ÐÒ»Éù·ÉÁË¹ýÀ´£¬Ë¤ÁË¸ö¹·³ÔÊº£¡\n"NOR, ({ me }));
+			tell_room(environment(me), "\nåªè§"+ me->name()+ "å±è‚¡ä¸Šå¸¦ç€ä¸ªæ³¥è„šå°ï¼Œå¤§å«ä¸€å£°é£žäº†è¿‡æ¥ï¼Œæ‘”äº†ä¸ªç‹—åƒå±Žï¼\n"NOR, ({ me }));
 			return 1;
 		}
 		if (me->query_temp("noget_wugou") > 8) {
-			command("say Õâ¾ÍÊÇ´ò¹·°ô·¨ÀïÎÒ×îÉÃ³¤µÄÒ»ÕÐ£º¡¾ÌìÏÂÎÞ¹·¡¿£¡ ");
+			command("say è¿™å°±æ˜¯æ‰“ç‹—æ£’æ³•é‡Œæˆ‘æœ€æ“…é•¿çš„ä¸€æ‹›ï¼šã€å¤©ä¸‹æ— ç‹—ã€‘ï¼ ");
 			command("club "+me->query("id")+"");
 		}
 		else switch( random(8) ){
@@ -89,7 +89,7 @@ int ask_wugou()
 		me->add_temp("noget_wugou", 1);
 		return 1;
 	}
-	if ( (!i || me->query("family/family_name") !="Ø¤°ï") && !wizardp(me) ) {
+	if ( (!i || me->query("family/family_name") !="ä¸å¸®") && !wizardp(me) ) {
 		command("en "+me->query("id"));
 		me->add_temp("noget_wugou", 1);
 		return 1;
@@ -98,10 +98,10 @@ int ask_wugou()
 		command("kick2 "+me->query("id")+"");
 		switch(random(2)){
 			case 1:
-			command("say ×î½üÎÒÃ»¿Õ£¬¹ý¼¸ÌìÔÙÀ´¡£");
+			command("say æœ€è¿‘æˆ‘æ²¡ç©ºï¼Œè¿‡å‡ å¤©å†æ¥ã€‚");
 			break;
 			case 0:
-			command("say ¹ý¼¸ÌìÔÙÀ´£¬×î½üÃ»¿Õ¡£");
+			command("say è¿‡å‡ å¤©å†æ¥ï¼Œæœ€è¿‘æ²¡ç©ºã€‚");
 		}
 		me->set_temp("get_wugou2", 1);
 		if(random(2)) me->add_temp("noget_wugou", 1);
@@ -111,8 +111,8 @@ int ask_wugou()
 	if ((x >= 12 && x <= 21
 	 && random(i) > 200000 && random(j+i) > 1000000) || wizardp(me)) {
 		command("nod "+me->query("id"));
-		command("whisper "+me->query("id")+" ÎÒÏë³öÀ´¼¸ÕÐ´ò¹·°ôµÄÐÂÕÐÊ½£¬Ã÷ÍíÈý¸üÊ±·ÖÄãµ½¼ÎÐËÌúÇ¹ÃíµÈÎÒ£¬µ½ÁË¼ÇµÃº°ÎÒÒ»Éù¡£");
-		me->set_temp("get_wugou", time() + 27 * 60);	// ÅÐ¶ÏÊ±¼äÎªÃ÷Ìì°ëÒ¹
+		command("whisper "+me->query("id")+" æˆ‘æƒ³å‡ºæ¥å‡ æ‹›æ‰“ç‹—æ£’çš„æ–°æ‹›å¼ï¼Œæ˜Žæ™šä¸‰æ›´æ—¶åˆ†ä½ åˆ°å˜‰å…´é“æžªåº™ç­‰æˆ‘ï¼Œåˆ°äº†è®°å¾—å–Šæˆ‘ä¸€å£°ã€‚");
+		me->set_temp("get_wugou", time() + 27 * 60);	// åˆ¤æ–­æ—¶é—´ä¸ºæ˜Žå¤©åŠå¤œ
 		return 1;
 	}
 	command("look "+me->query("id"));

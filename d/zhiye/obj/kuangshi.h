@@ -5,17 +5,17 @@
 void change_state();
 void create()
 {
-        set_name("¿óÊ¯", ({ "kuangshi" , "shi" }));
+        set_name("çŸ¿çŸ³", ({ "kuangshi" , "shi" }));
         set_weight(3000+random(5000));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿é");
-                set("long", "ÕâÊÇÒ»¿éÆÕÍ¨µÄ¿óÊ¯¡£\n");
+                set("unit", "å—");
+                set("long", "è¿™æ˜¯ä¸€å—æ™®é€šçš„çŸ¿çŸ³ã€‚\n");
                 set("value", 3000);
                 //set("kuangshi",1);
                 //set("kuangcai",0);
-                set("no_sell","Ï¡Ææ¹Å¹ÖµÄÒ»¿éÊ¯Í·£¬ÒªÀ´ºÎÓÃ£¿");// add by LinuX@SJ
+                set("no_sell","ç¨€å¥‡å¤æ€ªçš„ä¸€å—çŸ³å¤´ï¼Œè¦æ¥ä½•ç”¨ï¼Ÿ");// add by LinuX@SJ
                 set("level",0);
         }
         setup();
@@ -26,68 +26,68 @@ int set_level(int i)
 {
         switch (i) {
                 case 1:
-                        set_name(GRN"ÇàÍ­¿óÊ¯"NOR, ({"qingtong kuangshi","kuangshi","shi"}));
-                        set("long",GRN"ÆÕÍ¨µÄÇàÍ­¿óÊ¯¡£\n"NOR);
+                        set_name(GRN"é’é“œçŸ¿çŸ³"NOR, ({"qingtong kuangshi","kuangshi","shi"}));
+                        set("long",GRN"æ™®é€šçš„é’é“œçŸ¿çŸ³ã€‚\n"NOR);
                         set("material","qingtong");
                         set("value",500);
                         break;
                 case 2:
-                        set_name(YEL"ÉúÌú¿óÊ¯"NOR, ({"shengtie kuangshi","kuangshi","shi"}));
-                        set("long",YEL"ÆÕÍ¨µÄÉúÌú¿óÊ¯¡£\n"NOR);
+                        set_name(YEL"ç”Ÿé“çŸ¿çŸ³"NOR, ({"shengtie kuangshi","kuangshi","shi"}));
+                        set("long",YEL"æ™®é€šçš„ç”Ÿé“çŸ¿çŸ³ã€‚\n"NOR);
                         set("material","shengtie");
                         set("value",800);
                         break;
                 case 3:
-                        set_name(YEL"ÈíÌú¿óÊ¯"NOR, ({"ruantie kuangshi","kuangshi","shi"}));
-                        set("long",YEL"ÆÕÍ¨µÄÈíÌú¿óÊ¯¡£\n"NOR);
+                        set_name(YEL"è½¯é“çŸ¿çŸ³"NOR, ({"ruantie kuangshi","kuangshi","shi"}));
+                        set("long",YEL"æ™®é€šçš„è½¯é“çŸ¿çŸ³ã€‚\n"NOR);
                         set("material","ruantie");
                         set("value",1200);
                         break;
                 case 4:
-                        set_name(HIG"ÂÌÊ¯¿ó"NOR, ({"lukuang shi","kuangshi","shi"}));
-                        set("long",HIG"ÉÙÓÐµÄÂÌÊ¯¿óÊ¯¡£\n"NOR);
+                        set_name(HIG"ç»¿çŸ³çŸ¿"NOR, ({"lukuang shi","kuangshi","shi"}));
+                        set("long",HIG"å°‘æœ‰çš„ç»¿çŸ³çŸ¿çŸ³ã€‚\n"NOR);
                         set("material","lushi");
                         set("value",1800);
                         break;
                 case 5:
-                        set_name(RED"Á÷»¨Ê¯¿ó"NOR, ({"liuhuashi kuang","kuangshi","shi"}));
-                        set("long",RED"ÉÙÓÐµÄÁ÷»¨Ê¯¿óÊ¯¡£\n"NOR);
+                        set_name(RED"æµèŠ±çŸ³çŸ¿"NOR, ({"liuhuashi kuang","kuangshi","shi"}));
+                        set("long",RED"å°‘æœ‰çš„æµèŠ±çŸ³çŸ¿çŸ³ã€‚\n"NOR);
                         set("material","liuhuashi");
                         set("value",2500);
                         break;
                 case 6:
-                        set_name(HIW"ÈíÒø¿óÊ¯"NOR, ({"ruanyin kuangshi","ruanying","kuangshi","shi"}));
-                        set("long",HIW"Ï¡ÓÐµÄÈíÒø¿óÊ¯¡£\n"NOR);
+                        set_name(HIW"è½¯é“¶çŸ¿çŸ³"NOR, ({"ruanyin kuangshi","ruanying","kuangshi","shi"}));
+                        set("long",HIW"ç¨€æœ‰çš„è½¯é“¶çŸ¿çŸ³ã€‚\n"NOR);
                         set("material","ruanying");
                         set("value",3900);
                         break;
                 case 7:
-                        set_name(HIY"½ðÌú¿óÊ¯"NOR, ({"jintie kuangshi","kuangshi","shi"}));
-                        set("long",HIY"Ï¡ÓÐµÄ½ðÌú¿óÊ¯¡£\n"NOR);
+                        set_name(HIY"é‡‘é“çŸ¿çŸ³"NOR, ({"jintie kuangshi","kuangshi","shi"}));
+                        set("long",HIY"ç¨€æœ‰çš„é‡‘é“çŸ¿çŸ³ã€‚\n"NOR);
                         set("material","jintie");
                         set("value",7000);
                         break;
                 case 8:
-                        set_name(RED"ÍòÄêÉñÌú¿óÊ¯"NOR, ({"shentie kuangshi","kuangshi","shi"}));
-                        set("long",RED"¼«Æäº±¼ûµÄÍòÄêÉñÌú¿óÊ¯¡£\n"NOR);
+                        set_name(RED"ä¸‡å¹´ç¥žé“çŸ¿çŸ³"NOR, ({"shentie kuangshi","kuangshi","shi"}));
+                        set("long",RED"æžå…¶ç½•è§çš„ä¸‡å¹´ç¥žé“çŸ¿çŸ³ã€‚\n"NOR);
                         set("material","shentie");
                         set("value",10000);
                         break;
                 case 9:
-                        set_name(WHT"ÐþÌú¿óÊ¯"NOR, ({"xuantie kuangshi","kuangshi","shi"}));
-                        set("long",WHT"¾øÎÞ½öÓÐµÄÐþÌú¿óÊ¯¡£\n"NOR);
+                        set_name(WHT"çŽ„é“çŸ¿çŸ³"NOR, ({"xuantie kuangshi","kuangshi","shi"}));
+                        set("long",WHT"ç»æ— ä»…æœ‰çš„çŽ„é“çŸ¿çŸ³ã€‚\n"NOR);
                         set("material","xuantie");
                         set("value",20000);
                         break;
                 case 10:
-                	set_name(HIC"ÍòÄêº®±ù¿óÊ¯"NOR, ({"hanbing kuangshi","kuangshi","shi"}));
-                        set("long",HIC"³ö²úÔÚÑ©É½Ö®áÛµÄ±ùÑ©´ãÁ¶ÍòÄêÌú¡£\n"NOR);
+                	set_name(HIC"ä¸‡å¹´å¯’å†°çŸ¿çŸ³"NOR, ({"hanbing kuangshi","kuangshi","shi"}));
+                        set("long",HIC"å‡ºäº§åœ¨é›ªå±±ä¹‹å·…çš„å†°é›ªæ·¬ç‚¼ä¸‡å¹´é“ã€‚\n"NOR);
                         set("material","hantie");
                         set("value",40000);
                         break;
                 case 11:
-                        set_name(MAG"Î´Öª¿óÊ¯"NOR, ({"weizhi kuangshi","kuangshi","shi"}));
-                        set("long",MAG"ÕâÊÇÒ»¿é»¹Ã»ÓÐÈËÄÜ¹»Ê¶±ðµÄÐÂÆæ¿óÊ¯¡£\n"NOR);
+                        set_name(MAG"æœªçŸ¥çŸ¿çŸ³"NOR, ({"weizhi kuangshi","kuangshi","shi"}));
+                        set("long",MAG"è¿™æ˜¯ä¸€å—è¿˜æ²¡æœ‰äººèƒ½å¤Ÿè¯†åˆ«çš„æ–°å¥‡çŸ¿çŸ³ã€‚\n"NOR);
                         set("material","xuantie");
                         set("no_sell",1);
                         set("value",1);
@@ -99,7 +99,7 @@ int set_level(int i)
                  	call_out("destroying", 1, this_object());
                  	return 0;                 
         }
-        //Ìø¹ýdatie
+        //è·³è¿‡datie
         set("level",i);
         if(i!=11) change_state();
         return 1;
@@ -118,44 +118,44 @@ void change_state()
 
         switch (query_level()) {
                 case 1:
-                        set_name(GRN"ÇàÍ­"NOR, ({"qingtong"}));
-                        set("long",GRN"°ß°ßÍ­ÐâÂÌÖÐÍ¸×Å¹ÅÒâ£¬ÕâÊÇÒ»¿éÇàÍ­¡£\n"NOR);
+                        set_name(GRN"é’é“œ"NOR, ({"qingtong"}));
+                        set("long",GRN"æ–‘æ–‘é“œé”ˆç»¿ä¸­é€ç€å¤æ„ï¼Œè¿™æ˜¯ä¸€å—é’é“œã€‚\n"NOR);
                         break;
                 case 2:
-                        set_name(YEL"ÉúÌú"NOR, ({"shengtie"}));
-                        set("long",YEL"ÎÚÁÁÁ½É«¼¯ÓëÒ»Éí£¬ÕâÊÇ¿ó¹¤³£ÓÃµÄÉúÌú¡£\n"NOR);
+                        set_name(YEL"ç”Ÿé“"NOR, ({"shengtie"}));
+                        set("long",YEL"ä¹Œäº®ä¸¤è‰²é›†ä¸Žä¸€èº«ï¼Œè¿™æ˜¯çŸ¿å·¥å¸¸ç”¨çš„ç”Ÿé“ã€‚\n"NOR);
                         break;
                 case 3:
-                        set_name(YEL"ÈíÌú"NOR, ({"ruantie"}));
-                        set("long",YEL"ÕâÖÖ²ú×ÔÄÏ·½µÄÈíÌú£¬ÖÊµØ²»ÈçÉúÌú¼áÓ²£¬µ«È´ÈÍÐÔ¸ü×ã¡£\n"NOR);
+                        set_name(YEL"è½¯é“"NOR, ({"ruantie"}));
+                        set("long",YEL"è¿™ç§äº§è‡ªå—æ–¹çš„è½¯é“ï¼Œè´¨åœ°ä¸å¦‚ç”Ÿé“åšç¡¬ï¼Œä½†å´éŸ§æ€§æ›´è¶³ã€‚\n"NOR);
                         break;
                 case 4:
-                        set_name(HIG"ÂÌÊ¯"NOR, ({"lushi"}));
-                        set("long",HIG"ÂÌÊ¯Ô­²úÔÆÄÏ£¬Ê¯ÖÐ´ø¹Ç£¬ÉùÈçºéÖÖ£¬ÊÇ´òÔìÉÏ³ËÎäÆ÷µÄÔ­ÁÏ¡£\n"NOR);
+                        set_name(HIG"ç»¿çŸ³"NOR, ({"lushi"}));
+                        set("long",HIG"ç»¿çŸ³åŽŸäº§äº‘å—ï¼ŒçŸ³ä¸­å¸¦éª¨ï¼Œå£°å¦‚æ´ªç§ï¼Œæ˜¯æ‰“é€ ä¸Šä¹˜æ­¦å™¨çš„åŽŸæ–™ã€‚\n"NOR);
                         break;
                 case 5:
-                        set_name(RED"Á÷»¨Ê¯"NOR, ({"liuhuashi"}));
-                        set("long",RED"ÆäÉ«°ßìµ£¬ÆäÖÊ¸Õ¾¢£¬ÆäÐÍÈðºÏ£¬ÊÇÎªÁ÷»¨Ê¯Ò²¡£\n"NOR);
+                        set_name(RED"æµèŠ±çŸ³"NOR, ({"liuhuashi"}));
+                        set("long",RED"å…¶è‰²æ–‘æ–“ï¼Œå…¶è´¨åˆšåŠ²ï¼Œå…¶åž‹ç‘žåˆï¼Œæ˜¯ä¸ºæµèŠ±çŸ³ä¹Ÿã€‚\n"NOR);
                         break;
                 case 6:
-                        set_name(HIW"ÈíÒø"NOR, ({"ruanyin","ruanying"}));
-                        set("long",HIW"ÕâÖÖ½ðÊôÍâÈá¶øÄÚ¸Õ£¬Ð¶¾¢ÓÚÎÞÐÎ£¬ÒòÎªÉ«°×£¬½­ºþÈË³ÆÈíÒø¡£\n"NOR);
+                        set_name(HIW"è½¯é“¶"NOR, ({"ruanyin","ruanying"}));
+                        set("long",HIW"è¿™ç§é‡‘å±žå¤–æŸ”è€Œå†…åˆšï¼Œå¸åŠ²äºŽæ— å½¢ï¼Œå› ä¸ºè‰²ç™½ï¼Œæ±Ÿæ¹–äººç§°è½¯é“¶ã€‚\n"NOR);
                         break;
                 case 7:
-                        set_name(HIY"½ðÌú"NOR, ({"jintie"}));
-                        set("long",HIY"ÓÐÈý·Ö½ð£¬Îå·ÖÌú£¬Á½·ÖºÚÊ¯£¬´«ËµÖÐµÄ½ðÌú¼«Æäº±¼û¡£\n"NOR);
+                        set_name(HIY"é‡‘é“"NOR, ({"jintie"}));
+                        set("long",HIY"æœ‰ä¸‰åˆ†é‡‘ï¼Œäº”åˆ†é“ï¼Œä¸¤åˆ†é»‘çŸ³ï¼Œä¼ è¯´ä¸­çš„é‡‘é“æžå…¶ç½•è§ã€‚\n"NOR);
                         break;
                 case 8:
-                        set_name(RED"ÍòÄêÉñÌú"NOR, ({"shentie"}));
-                        set("long",RED"ÌúÈëµØÄ¸£¬³ÁË¯°ÙÄêÒÔÉÏ¶øÓÐ»ê£¬ÈËÃÇ³ÆÔÞÖ®Îª¡°ÍòÄêÉñÌú¡±¡£\n"NOR);
+                        set_name(RED"ä¸‡å¹´ç¥žé“"NOR, ({"shentie"}));
+                        set("long",RED"é“å…¥åœ°æ¯ï¼Œæ²‰ç¡ç™¾å¹´ä»¥ä¸Šè€Œæœ‰é­‚ï¼Œäººä»¬ç§°èµžä¹‹ä¸ºâ€œä¸‡å¹´ç¥žé“â€ã€‚\n"NOR);
                         break;
                 case 9:
-                        set_name(WHT"ÐþÌú"NOR, ({"xuantie"}));
-                        set("long",WHT"´ËÌúÔ­²úÑþ³ØÏÉ¾³£¬Ëæ¶ñÉ·ÆøÈ÷ÂäÈË¼ä£¬ÄÚº¬Ðþ»úÎÞÊý£¬·²ÈËÄªÄÜÖªÆä¾¿¾¹¡£\n"NOR);
+                        set_name(WHT"çŽ„é“"NOR, ({"xuantie"}));
+                        set("long",WHT"æ­¤é“åŽŸäº§ç‘¶æ± ä»™å¢ƒï¼Œéšæ¶ç…žæ°”æ´’è½äººé—´ï¼Œå†…å«çŽ„æœºæ— æ•°ï¼Œå‡¡äººèŽ«èƒ½çŸ¥å…¶ç©¶ç«Ÿã€‚\n"NOR);
                         break;
                 case 10:
-                	set_name(HIC"ÍòÄêº®±ùÌú"NOR, ({"hantie"}));
-                        set("long",HIC"²»Öª³ö´¦£¬ÌúÖÊ±ùº®£¬Ïû»êÊÉ¹Ç£¬ÓÐÍòÄêÔì»¯Ö®Á¦µÄÒ»¿éº®±ùÌú¡£\n"NOR);
+                	set_name(HIC"ä¸‡å¹´å¯’å†°é“"NOR, ({"hantie"}));
+                        set("long",HIC"ä¸çŸ¥å‡ºå¤„ï¼Œé“è´¨å†°å¯’ï¼Œæ¶ˆé­‚å™¬éª¨ï¼Œæœ‰ä¸‡å¹´é€ åŒ–ä¹‹åŠ›çš„ä¸€å—å¯’å†°é“ã€‚\n"NOR);
                         break;
         }
         WORKER_D->get_status(this_object(),1,query_level(),random(5)?1:0);

@@ -5,21 +5,21 @@ inherit HAMMER;
 
 void create()
 {
-        set_name(HIY"Î¤À¼Ö®´¸"NOR, ({ "weilan's hammer", "chui"}));
+        set_name(HIY"éŸ¦å…°ä¹‹é”¤"NOR, ({ "weilan's hammer", "chui"}));
         set_weight(6000);
         if( clonep())
                set_default_object(__FILE__);
         else {
-               set("unit", "±ú");
+               set("unit", "æŸ„");
                set("long",@LONG
-ÕâÊÇÎ¤À¼Ìú½³´òÔì³ö´«ÆæÊ½µÄ½£¡°ÇÇÒÀÎÚË¹¡±ËùÓÃµÄÌú´¸£¬¿É²»ÐÒ±»Ð¡ÍµÇÔÈ¥£¬
+è¿™æ˜¯éŸ¦å…°é“åŒ æ‰“é€ å‡ºä¼ å¥‡å¼çš„å‰‘â€œä¹”ä¾ä¹Œæ–¯â€æ‰€ç”¨çš„é“é”¤ï¼Œå¯ä¸å¹¸è¢«å°å·çªƒåŽ»ï¼Œ
 LONG
                );
                set("value", 0);
                set("material", "steel");
                set("dazao_award",1);
-               set("wield_msg", "$NÄÃÆðÒ»±ú$n¡£\n");
-               set("unwield_msg", "$N½«ÊÖÖÐµÄ$n·ÅÏÂ¡£\n");
+               set("wield_msg", "$Næ‹¿èµ·ä¸€æŸ„$nã€‚\n");
+               set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¾ä¸‹ã€‚\n");
         }
         init_hammer(20);
 }
@@ -37,21 +37,21 @@ int do_fix(string arg)
 	
 	if(environment(this_object())!=me) return 0;
 		
-	if (me->is_busy()) return notify_fail("ÄãÕýÃ¦×ÅÄØ£¡\n");
-        if (me->is_fight()) return notify_fail("ÄãÕýÃ¦×ÅÄØ£¡\n");
-        if (!arg) return notify_fail("ÄãÒªÐÞÊ²Ã´£¿\n");
+	if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+        if (me->is_fight()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+        if (!arg) return notify_fail("ä½ è¦ä¿®ä»€ä¹ˆï¼Ÿ\n");
         if ( !objectp(obj = present(arg, me)))
-        	return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù¶«Î÷¡£\n");
+        	return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
         
         if ( !objectp(weapon=me->query_temp("weapon")) || weapon!=this_object() )
-                return notify_fail("Äã±ØÐë×°±¸"+name()+"²ÅÄÜÀ´Î¬ÐÞ±øÆ÷¡£\n");
+                return notify_fail("ä½ å¿…é¡»è£…å¤‡"+name()+"æ‰èƒ½æ¥ç»´ä¿®å…µå™¨ã€‚\n");
                 
         if(!mapp(obj->query_temp("apply/weapon_mp_old")) && (!mapp(obj->query("weapon_prop")) || !(int)obj->query("imbued") ) )
-		return notify_fail(name()+"Ö»ÄÜÎ¬ÐÞÓÉÍæ¼ÒÖÆÔìµÄ±øÆ÷¡£\n");
+		return notify_fail(name()+"åªèƒ½ç»´ä¿®ç”±çŽ©å®¶åˆ¶é€ çš„å…µå™¨ã€‚\n");
         if (!obj->query("broken") &&  obj->query("weapon_mp/dur") >= obj->query("weapon_mp/max_dur") )
-                return notify_fail("Õâ¼þ±øÆ÷ÍêºÃÎÞËð£¬ÎÞÐèÐÞÀí¡£\n");
+                return notify_fail("è¿™ä»¶å…µå™¨å®Œå¥½æ— æŸï¼Œæ— éœ€ä¿®ç†ã€‚\n");
 
-	message_vision(HIY"$N¿ªÊ¼×ÐÏ¸µÄÎ¬ÐÞ"+obj->query("name")+HIY"£¬²»Ê±ÓÃ"+name()+"ÇÃÇÃ´ò´ò......\n\n"NOR, me);        
+	message_vision(HIY"$Nå¼€å§‹ä»”ç»†çš„ç»´ä¿®"+obj->query("name")+HIY"ï¼Œä¸æ—¶ç”¨"+name()+"æ•²æ•²æ‰“æ‰“......\n\n"NOR, me);        
 	me->start_busy(delay);
 	call_out("xiu_finish",delay*2-1,me,obj);
         return 1;
@@ -72,7 +72,7 @@ void xiu_finish(object me,object obj)
 	if(obj->query_temp("apply/long_old")) obj->set("long",obj->query_temp("apply/long_old"));
 	
 	obj->delete_temp("apply");		
-        message_vision(HIY"$N×ÐÏ¸µÄÎ¬ÐÞ"+obj->query("name")+HIY+"£¬×ÜËã´óÖÂ»Ö¸´ÁËËüµÄÔ­Ã²¡£\n"NOR, me);
+        message_vision(HIY"$Nä»”ç»†çš„ç»´ä¿®"+obj->query("name")+HIY+"ï¼Œæ€»ç®—å¤§è‡´æ¢å¤äº†å®ƒçš„åŽŸè²Œã€‚\n"NOR, me);
         WORKER_D->check_impove(me,"duanzao",me->query_int()/2,2);
         
         i = obj->query("weapon_mp/max_dur");

@@ -9,15 +9,15 @@ inherit NPC;
 //void display();
 int do_copy(object target);
 
-string *first_name = ({ RED+"ÉîºìÉ«","ºÚÉ«",GRN+"ÉîÂÌÉ«",YEL+"ÍÁ»ÆÉ«",BLU+"ÉîÀ¶É«",MAG+"Ç³×ÏÉ«",CYN+"À¶ÂÌÉ«",WHT+"Ç³»ÒÉ«",
-HIR+"ºìÉ«",HIG+"ÂÌÉ«",HIY+"»ÆÉ«",HIB+"À¶É«",HIM+"·ÛºìÉ«",HIC+"ÌìÇàÉ«",HIW+"°×É«",}); 
+string *first_name = ({ RED+"æ·±çº¢è‰²","é»‘è‰²",GRN+"æ·±ç»¿è‰²",YEL+"åœŸé»„è‰²",BLU+"æ·±è“è‰²",MAG+"æµ…ç´«è‰²",CYN+"è“ç»¿è‰²",WHT+"æµ…ç°è‰²",
+HIR+"çº¢è‰²",HIG+"ç»¿è‰²",HIY+"é»„è‰²",HIB+"è“è‰²",HIM+"ç²‰çº¢è‰²",HIC+"å¤©é’è‰²",HIW+"ç™½è‰²",}); 
 string *first_name_id = ({ "shenhong","hei","shenlv","tuhuang","shenlan","qianzi","lanlv","qianhui",
 "hong","lv","huang","lan","fenhong","tianqing","bai",});
 
-string *med_words = ({ "Ğ¡","¶Ì","´ó","³¤", });
+string *med_words = ({ "å°","çŸ­","å¤§","é•¿", });
 string *med_words_id = ({ "xiao","duan","da","chang",});
 
-string *name_words = ({ "òÚò¼"+NOR,"Ğ«×Ó"+NOR,"Ö©Öë"+NOR,"É³³æ"+NOR, });
+string *name_words = ({ "èœˆèš£"+NOR,"èå­"+NOR,"èœ˜è››"+NOR,"æ²™è™«"+NOR, });
 string *name_words_id = ({ "wugong","xiezi","zhizhu","shachong",});
 
 void create()
@@ -39,13 +39,13 @@ void create()
        name_word = name_words_id[j];
 
         set_name(name, ({ first_name_id[i]+med_name_word+" "+name_word, name_word,"du chong"}) );
-        set("race", "Ò°ÊŞ");
+        set("race", "é‡å…½");
         set("age", 10);
-        set("long", "Ò»Ö»"+name+"£¬ÊÇĞÇËŞº£¸½½ü³£¼ûµÄ¶¾³æ¡£\n");
+        set("long", "ä¸€åª"+name+"ï¼Œæ˜¯æ˜Ÿå®¿æµ·é™„è¿‘å¸¸è§çš„æ¯’è™«ã€‚\n");
         set("poison_damage",1+j+k+i/2);
         set("attitude", "peaceful");
         
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°×¦", "ºó×¦","Ç°ÍÈ","ááÍÈ", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰çˆª", "åçˆª","å‰è…¿","å¾Œè…¿", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
 
         set("max_qi", 300);
@@ -58,9 +58,9 @@ void create()
         set("chat_chance", 10);
         set("chat_msg", ({
                 (: this_object(), "random_move" :),
-                name+"ÔÚÔ­µØÓÎÀ´ÓÎÈ¥¡£\n",
-                name+"ÓÎ¹ıÀ´£¬ÔÚÄãµÄÍÈ±ßÅÀÀ´ÅÀÈ¥¡£\n",
-                name+"Ïò×ÅÄã£¬ÂıÂıÅÀÁË¹ıÀ´¡£\n",
+                name+"åœ¨åŸåœ°æ¸¸æ¥æ¸¸å»ã€‚\n",
+                name+"æ¸¸è¿‡æ¥ï¼Œåœ¨ä½ çš„è…¿è¾¹çˆ¬æ¥çˆ¬å»ã€‚\n",
+                name+"å‘ç€ä½ ï¼Œæ…¢æ…¢çˆ¬äº†è¿‡æ¥ã€‚\n",
                 }) );
         
     set_temp("apply/attack", 5);
@@ -77,7 +77,7 @@ void dest()
 {
 	object me = this_object();
 
-	message_vision ("\n$NÏòºóÒ»Ëõ£¬×ê½øÊ÷´Ô²»¼ûÁË¡£\n",me);
+	message_vision ("\n$Nå‘åä¸€ç¼©ï¼Œé’»è¿›æ ‘ä¸›ä¸è§äº†ã€‚\n",me);
 	destruct (me);
 }
 
@@ -85,7 +85,7 @@ void kill_ob(object victim)
 {
 	object me=this_object();
 	if(me->query("killing") && me->query("killing")!=victim){		
-		message_vision ("\n$NÏòºóÒ»Ëõ£¬×ê½øÊ÷´Ô²»¼ûÁË¡£\n",me);
+		message_vision ("\n$Nå‘åä¸€ç¼©ï¼Œé’»è¿›æ ‘ä¸›ä¸è§äº†ã€‚\n",me);
 		destruct (me);
 		return 0;
 	}
@@ -145,7 +145,7 @@ void unconcious()
 		ob->set("cook/owner",me->query("target"));
 		ob->set("cook/value",me->query("poison_damage"));
 	}
-	message_vision ("\n$NËõ³ÉÒ»ÍÅ£¬²»ÔÙ¶¯ÁË¡£\n",me,ob);
+	message_vision ("\n$Nç¼©æˆä¸€å›¢ï¼Œä¸å†åŠ¨äº†ã€‚\n",me,ob);
 	destruct (me);
 }
 

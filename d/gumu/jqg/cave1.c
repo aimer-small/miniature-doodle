@@ -1,15 +1,15 @@
-//cave1.c ¶´¿Ú
+//cave1.c æ´å£
 inherit ROOM;
 void create()
 {
-          set("short","¶´¿Ú");
+          set("short","æ´å£");
           set("long",@LONG
-Ô½¹ıöùÓãÌ¶£¬¼ûµ½Ò»¸ö¶´¿Ú£¨dong£©£¬ÀïÃæÆáºÚÒ»Æ¬£¬±ÇÖĞÖ»ÒşÔ¼ÎÅµ½Ò»
-¹É´Ì±ÇµÄÆøÎ¶¡£¶´¿Ú¼«Õ­£¬¿´Ñù×ÓÖ»µÃÇüÏ¥ÅÀĞĞÁË¡£
+è¶Šè¿‡é³„é±¼æ½­ï¼Œè§åˆ°ä¸€ä¸ªæ´å£ï¼ˆdongï¼‰ï¼Œé‡Œé¢æ¼†é»‘ä¸€ç‰‡ï¼Œé¼»ä¸­åªéšçº¦é—»åˆ°ä¸€
+è‚¡åˆºé¼»çš„æ°”å‘³ã€‚æ´å£æçª„ï¼Œçœ‹æ ·å­åªå¾—å±ˆè†çˆ¬è¡Œäº†ã€‚
 LONG
 );
            set("item_desc",([
-             "dong":"Õâ¶´ÀïºÚÆáÆáµÄÒ»Æ¬£¬Ê²Ã´¶¼¿´²»µ½¡£\n",
+             "dong":"è¿™æ´é‡Œé»‘æ¼†æ¼†çš„ä¸€ç‰‡ï¼Œä»€ä¹ˆéƒ½çœ‹ä¸åˆ°ã€‚\n",
            ]));        
           
            setup();
@@ -26,13 +26,13 @@ int do_enter(string arg)
        object me = this_player();
        if(! arg || arg !="dong") return 0;
        if (me->is_busy() || me->is_fighting())
-            return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+            return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
        if (arg == "dong") {
-               message("vision", me->name() + "Ò»¸öÁïÉí£¬×ê½øÁËÉ½¶´¡£\n", environment(me), ({me}));
-               write("Äã¼±¼±Ã¦Ã¦µÄ×ê½øÁË¶´Àï£¬Í·×²ÉÏÁËÉ½Ê¯£¬Ö±Í´ÄãµÃÍÛÍÛ´ó½Ğ¡£\n");
+               message("vision", me->name() + "ä¸€ä¸ªæºœèº«ï¼Œé’»è¿›äº†å±±æ´ã€‚\n", environment(me), ({me}));
+               write("ä½ æ€¥æ€¥å¿™å¿™çš„é’»è¿›äº†æ´é‡Œï¼Œå¤´æ’ä¸Šäº†å±±çŸ³ï¼Œç›´ç—›ä½ å¾—å“‡å“‡å¤§å«ã€‚\n");
                me->move(__DIR__"cave2");
-               message("vision", me->name() + "×êÁË½øÀ´£¬Í·²¿×²µ½ÁËÉ½Ê¯ÉÏ¡£\n", environment(me), ({me}));
+               message("vision", me->name() + "é’»äº†è¿›æ¥ï¼Œå¤´éƒ¨æ’åˆ°äº†å±±çŸ³ä¸Šã€‚\n", environment(me), ({me}));
                return 1;
        }
-       return notify_fail("ÄãÍùÄÄÀï×ê°¡£¿\n");       
+       return notify_fail("ä½ å¾€å“ªé‡Œé’»å•Šï¼Ÿ\n");       
 }

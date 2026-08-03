@@ -1,4 +1,4 @@
-// OBJ : /d/xiangyang/npc/obj/changqun2.c Ðå»¨³¤È¹
+// OBJ : /d/xiangyang/npc/obj/changqun2.c ç»£èŠ±é•¿è£™
 // By Lklv 2001.9.26
 
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIR"ºìÉ«³¤È¹"NOR, ({"chang qun", "changqun", "qunzi"}) );
+        set_name(HIR"çº¢è‰²é•¿è£™"NOR, ({"chang qun", "changqun", "qunzi"}) );
         set_weight(400);
         if(clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼þ");
-                set("long", HIR"Ò»¼þ´óºìÉ«µÄÐå»¨³¤È¹¡£\n"NOR);
+                set("unit", "ä»¶");
+                set("long", HIR"ä¸€ä»¶å¤§çº¢è‰²çš„ç»£èŠ±é•¿è£™ã€‚\n"NOR);
                 set("material", "cloth");
                 set("value", 4500);
                 set("armor_prop/armor", 2);

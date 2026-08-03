@@ -4,14 +4,14 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÖñÒ¶Çà", ({ "zhuye qing", "zhuye", "snake", "she" }) );
-        set("race", "Ò°ÊŞ");
+        set_name("ç«¹å¶é’", ({ "zhuye qing", "zhuye", "snake", "she" }) );
+        set("race", "é‡å…½");
         set("age", 4);
-        set("long", "Ò»Ìõ±ÌÂÌµÄÉß£¬²»×ĞÏ¸£¬»á½«ËüºÍÖÜ±ß±ÌÂÌµÄÊ÷Ò¶»ìÎªÒ»Ìå¡£\n");
+        set("long", "ä¸€æ¡ç¢§ç»¿çš„è›‡ï¼Œä¸ä»”ç»†ï¼Œä¼šå°†å®ƒå’Œå‘¨è¾¹ç¢§ç»¿çš„æ ‘å¶æ··ä¸ºä¸€ä½“ã€‚\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("con", 30);
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Æß´ç", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ä¸ƒå¯¸", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
         set("combat_exp", 6000);
         set_temp("apply/attack", 20);

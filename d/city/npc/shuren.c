@@ -1,14 +1,14 @@
-// shuren.c ËµÊéÈË
+// shuren.c è¯´ä¹¦äºº
 //Creat by Looklove 2000/9/2
 
 inherit NPC;
 
 void create()
 {
-        set_name("ËµÊéÈË", ({ "shuoshu ren", "man", "ren" }));
-	set("gender", "ÄĞĞÔ");
+        set_name("è¯´ä¹¦äºº", ({ "shuoshu ren", "man", "ren" }));
+	set("gender", "ç”·æ€§");
         set("age", 42);
-        set("long", "ËûÊÇÒ»¸ö½²ÊöÈı¹úÖ¾£¬Ë®ä°´«£¬´óÃ÷Ó¢ÁÒ´«µÈµÈÓ¢ĞÛ¹ÊÊÂµÄËµÊéÈË¡£\n");
+        set("long", "ä»–æ˜¯ä¸€ä¸ªè®²è¿°ä¸‰å›½å¿—ï¼Œæ°´æµ’ä¼ ï¼Œå¤§æ˜è‹±çƒˆä¼ ç­‰ç­‰è‹±é›„æ•…äº‹çš„è¯´ä¹¦äººã€‚\n");
 	
         set("combat_exp", 1300);
         set("shen_type", 0);

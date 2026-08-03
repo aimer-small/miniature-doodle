@@ -1,17 +1,17 @@
-// lichunlai.c Àî´ºÀ´
-// Lklv 2001.9.28 update for open ´óÖÇ·Ö¶æ
+// lichunlai.c ææ˜¥æ¥
+// Lklv 2001.9.28 update for open å¤§æ™ºåˆ†èˆµ
 
 inherit NPC;
 #include "begger.h";
 
 void create()
 {
-        set_name("Àî´ºÀ´", ({"li chunlai", "li", "chunlai" }));
-        set("title", "Ø¤°ï´óÖÇ·Ö¶æËÄ´üµÜ×Ó");
+        set_name("ææ˜¥æ¥", ({"li chunlai", "li", "chunlai" }));
+        set("title", "ä¸å¸®å¤§æ™ºåˆ†èˆµå››è¢‹å¼Ÿå­");
         set("gb/bags", 4);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 32);
-        set("long", "ËûÊÇØ¤°ïËÄ´üµÜ×Ó£¬´óÖÇ·Ö¶æÊôÏÂ°ïÖÚ¡£\n");
+        set("long", "ä»–æ˜¯ä¸å¸®å››è¢‹å¼Ÿå­ï¼Œå¤§æ™ºåˆ†èˆµå±ä¸‹å¸®ä¼—ã€‚\n");
         set("attitude", "peaceful");
         set("shen_type", 1);
         set("str", 28);
@@ -30,12 +30,12 @@ void create()
 
         set("combat_exp", 800000);
 
-        set_skill("force", 120); // »ù±¾ÄÚ¹¦
-        set_skill("huntian-qigong", 120); // »ìÌìÆø¹¦
-        set_skill("strike", 120); // »ù±¾È­½Å
-        set_skill("dodge", 120); // »ù±¾¶ãÉÁ
-        set_skill("xiaoyaoyou", 120); // Ç§ÀïĞĞÆò
-        set_skill("parry", 120); // »ù±¾ÕĞ¼Ü
+        set_skill("force", 120); // åŸºæœ¬å†…åŠŸ
+        set_skill("huntian-qigong", 120); // æ··å¤©æ°”åŠŸ
+        set_skill("strike", 120); // åŸºæœ¬æ‹³è„š
+        set_skill("dodge", 120); // åŸºæœ¬èº²é—ª
+        set_skill("xiaoyaoyou", 120); // åƒé‡Œè¡Œä¹
+        set_skill("parry", 120); // åŸºæœ¬æ‹›æ¶
         set_skill("begging", 120);
         set_skill("lianhua-zhang", 120);
 
@@ -45,12 +45,12 @@ void create()
 	map_skill("parry", "lianhua-zhang");
 	prepare_skill("strike", "lianhua-zhang");
 
-        create_family("Ø¤°ï", 20, "ËÄ´üµÜ×Ó");
+        create_family("ä¸å¸®", 20, "å››è¢‹å¼Ÿå­");
 
         set("inquiry", ([
-                "Ø¤°ï" : "ÎÒÃÇØ¤°ïÊÇÌìÏÂµÚÒ»´ó°ï£¡\n",
-                "ÇÇ·å" : "ÇÇ¡­¡­Ëû¡­¡­£¬²»¹ØÎÒµÄÊÂ£¡\n",
-                "È«¹ÚÇå" : "ÎÒÃÇ¶æÖ÷£¬ÄÑµÀÄã²»ÖªµÀÂï£¿\n",
+                "ä¸å¸®" : "æˆ‘ä»¬ä¸å¸®æ˜¯å¤©ä¸‹ç¬¬ä¸€å¤§å¸®ï¼\n",
+                "ä¹”å³°" : "ä¹”â€¦â€¦ä»–â€¦â€¦ï¼Œä¸å…³æˆ‘çš„äº‹ï¼\n",
+                "å…¨å† æ¸…" : "æˆ‘ä»¬èˆµä¸»ï¼Œéš¾é“ä½ ä¸çŸ¥é“å˜›ï¼Ÿ\n",
         ]));
         setup();
 

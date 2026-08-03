@@ -1,4 +1,4 @@
-// bangjue.c ´ò¹·°ôĞÄ·¨
+// bangjue.c æ‰“ç‹—æ£’å¿ƒæ³•
 // by shang 97/6
 
 inherit SKILL;
@@ -10,13 +10,13 @@ string type() { return "knowledge"; }
 int valid_learn(object me) 
 {
 	if( (int)me->query_skill("stick", 1) < 30 )
-		return notify_fail("ÄãµÄ»ù±¾°ô·¨Ì«²î, »¹Áì»á²»ÁË°ô¾÷¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬æ£’æ³•å¤ªå·®, è¿˜é¢†ä¼šä¸äº†æ£’è¯€ã€‚\n");
 	if (me->query_skill("bangjue", 1) > 200)
-		return notify_fail("ÄãÒÑ¾­ÎŞ·¨Ìá¸ßÄãµÄ°ô¾÷ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»æ— æ³•æé«˜ä½ çš„æ£’è¯€äº†ã€‚\n");
 	return 1;
 }
 
 int practice_skill(object me)
 {	
-	return notify_fail("´ò¹·°ôĞÄ·¨Ö»ÄÜ¿¿Ñ§(learn)À´Ìá¸ß¡£\n");
+	return notify_fail("æ‰“ç‹—æ£’å¿ƒæ³•åªèƒ½é å­¦(learn)æ¥æé«˜ã€‚\n");
 }

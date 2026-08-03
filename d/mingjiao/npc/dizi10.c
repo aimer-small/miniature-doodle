@@ -1,12 +1,12 @@
-// dizi10.c ÃÅÖ÷
+// dizi10.c é—¨ä¸»
 #include <ansi.h>
 inherit NPC;
 void create()
 {
         string weapon;
-        set_name("ÃÅÖ÷", ({"men zhu","men", "zhu"}));
-        set("long","ÕâÊÇÒ»Î»ÑîåĞÊôÏÂÌìµØ·çÀ×ËÄÃÅÖ®Ò»µÄÃÅÖ÷¡£\n");
-        set("gender", random(2)?"Å®ĞÔ":"ÄĞĞÔ");
+        set_name("é—¨ä¸»", ({"men zhu","men", "zhu"}));
+        set("long","è¿™æ˜¯ä¸€ä½æ¨é€å±ä¸‹å¤©åœ°é£é›·å››é—¨ä¹‹ä¸€çš„é—¨ä¸»ã€‚\n");
+        set("gender", random(2)?"å¥³æ€§":"ç”·æ€§");
         set("attitude", "peaceful");
         set("age", 25+random(20));
         set("str", 23);
@@ -37,7 +37,7 @@ void create()
         map_skill("sword", "liehuo-jian");
         prepare_skill("cuff","taizu-quan");
         setup();
-        create_family("Ã÷½Ì",38,"µÜ×Ó");
+        create_family("æ˜æ•™",38,"å¼Ÿå­");
         weapon = random(2)?BINGQI_D("changjian"):BINGQI_D("blade");
         if(random(2)==1) carry_object(weapon)->wield();
         carry_object("/d/mingjiao/obj/red-cloth")->wear();
@@ -45,6 +45,6 @@ void create()
 
 void attempt_apprentice(object ob)
 {     
-        command("say ºÇºÇ£¬ÎÒÎä¹¦µÍÎ¢£¬¿É²»¸ÒÊÕÍ½°¡¡£");
+        command("say å‘µå‘µï¼Œæˆ‘æ­¦åŠŸä½å¾®ï¼Œå¯ä¸æ•¢æ”¶å¾’å•Šã€‚");
         return;
 }

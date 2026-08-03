@@ -1,4 +1,4 @@
-// flower.c Çé»¨
+// flower.c æƒ…èŠ±
 // By River 99/05/20
 #include <ansi.h>
 #include <armor.h>
@@ -7,21 +7,21 @@ inherit HEAD;
 
 void create()
 {
-	set_name(HIM"Çé»¨" NOR, ({"qing hua", "flower", "hua"}));
+	set_name(HIM"æƒ…èŠ±" NOR, ({"qing hua", "flower", "hua"}));
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÕâÊÇÒ»¶ä¼«ÎªÏÊÑÞµÄÇé»¨¡£\n"+
-			"»¨°êµÄÑÕÉ«½¿ÑÞÎÞ±È£¬ËÆÜ½ÈØ¶ø¸üÏã£¬ÈçÉ½²è¶øÔöÑÞ¡£\n");
-		set("unit", "¶ä");
+		set("long", "è¿™æ˜¯ä¸€æœµæžä¸ºé²œè‰³çš„æƒ…èŠ±ã€‚\n"+
+			"èŠ±ç“£çš„é¢œè‰²å¨‡è‰³æ— æ¯”ï¼Œä¼¼èŠ™è“‰è€Œæ›´é¦™ï¼Œå¦‚å±±èŒ¶è€Œå¢žè‰³ã€‚\n");
+		set("unit", "æœµ");
 		set("no_drop", 1);
 		set("no_get", 1);
 		set("no_give",1);    
 		set("drug", 1);
 		set("material", "plant");
-		set("wear_msg", "$N½«$n²åÔÚ·¢÷ÙÉÏ¡£\n");
-		set("remove_msg", "$N´Ó·¢÷ÙÉÏÕªÏÂÁË$n¡£\n");
+		set("wear_msg", "$Nå°†$næ’åœ¨å‘é«»ä¸Šã€‚\n");
+		set("remove_msg", "$Nä»Žå‘é«»ä¸Šæ‘˜ä¸‹äº†$nã€‚\n");
 		set("armor_prop/armor", 1);
 	}
 	setup();
@@ -40,36 +40,36 @@ int do_eat(string arg)
         force_limit = me->query_skill("force")* 10 + me->query("con")* me->query("age") + me->query("combat_exp", 1) /1000;
         neili_limit = me->query("max_neili");
 
-        if(!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+        if(!id(arg)) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
-        message_vision(HIY"$N½«"HIM"Çé»¨"HIY"Ò»°ê°êµÄÕªÏÂËÍÈë¿ÚÖÐ£¬Èë¿ÚÏãÌð£¬·¼¸ÊËÆÃÛ£¬¸üÎ¢ÓÐõ¸õ¸È»µÄ¾ÆÆø¡£\n"NOR,me);
+        message_vision(HIY"$Nå°†"HIM"æƒ…èŠ±"HIY"ä¸€ç“£ç“£çš„æ‘˜ä¸‹é€å…¥å£ä¸­ï¼Œå…¥å£é¦™ç”œï¼ŒèŠ³ç”˜ä¼¼èœœï¼Œæ›´å¾®æœ‰é†ºé†ºç„¶çš„é…’æ°”ã€‚\n"NOR,me);
 
         if(me->query_condition("medicine")){
 		me->add("max_neili", -10);
-		tell_object(me,HIY"ÄãÕý¸ÐÐÄÉñ¾ã³©£¬µ«½ÀÁË¼¸ÏÂ£¬È´ÓÐÒ»¹É¿àÉ¬µÄÎ¶µÀÖ±³åÐÄÍ·¡£\n"NOR);
-		log_file("quest/neili",sprintf("%-18sÎóÊ³%s¼õÈ¥ÄÚÁ¦Ê®µã¡£\n",
+		tell_object(me,HIY"ä½ æ­£æ„Ÿå¿ƒç¥žä¿±ç•…ï¼Œä½†åš¼äº†å‡ ä¸‹ï¼Œå´æœ‰ä¸€è‚¡è‹¦æ¶©çš„å‘³é“ç›´å†²å¿ƒå¤´ã€‚\n"NOR);
+		log_file("quest/neili",sprintf("%-18sè¯¯é£Ÿ%så‡åŽ»å†…åŠ›åç‚¹ã€‚\n",
 			me->name(1)+"("+capitalize(me->query("id"))+")", this_object()->name()), me);
 		me->unconcious();
 		destruct(this_object());
 		return 1;
 	}
 	if( random(3)!= 0 ) {
-		tell_object(me,HIY"ÄãÕý¸ÐÐÄÉñ¾ã³©£¬È´ºöÈ»¾õµÃÐÄÖÐÄÑ¹ýÎÞ±È£¬ÏëÒªÅ»ÍÂ£¬È´ÓÖÍÂ²»³öÀ´¡£\n"NOR);
+		tell_object(me,HIY"ä½ æ­£æ„Ÿå¿ƒç¥žä¿±ç•…ï¼Œå´å¿½ç„¶è§‰å¾—å¿ƒä¸­éš¾è¿‡æ— æ¯”ï¼Œæƒ³è¦å‘•åï¼Œå´åˆåä¸å‡ºæ¥ã€‚\n"NOR);
 		me->apply_condition("qinghua_poison",60);
 		me->apply_condition("medicine",60);
-		log_file("quest/neili",sprintf("%-18s³ÔÇé»¨ÖÐ¶¾¡£\n",
+		log_file("quest/neili",sprintf("%-18såƒæƒ…èŠ±ä¸­æ¯’ã€‚\n",
 			me->name(1)+"("+capitalize(me->query("id"))+")" ), me);
 		destruct(this_object());
 		return 1;
 	}
-	message_vision(HIY"ËäÂÔ¸Ð¿àÎ¶£¬Òª´ýÍÂ³ö£¬ËÆ¾õ²»Éá£¬ÒªÍÌÈë¶ÇÄÚ£¬ÓÖÓÐµãÄÑÒÔÏÂÑÊ¡£\n"NOR,me);
+	message_vision(HIY"è™½ç•¥æ„Ÿè‹¦å‘³ï¼Œè¦å¾…åå‡ºï¼Œä¼¼è§‰ä¸èˆï¼Œè¦åžå…¥è‚šå†…ï¼Œåˆæœ‰ç‚¹éš¾ä»¥ä¸‹å’½ã€‚\n"NOR,me);
 	improve = 1 + random(2);
 	if(!me->query("marry") || neili_limit > force_limit)
 		me->set("food",me->max_food_capacity());
 	else {
 		me->add("max_neili",improve);
 		me->set("food",me->max_food_capacity());
-		log_file("quest/neili",sprintf("%-18s³ÔÁË%sÌáÉýÄÚÁ¦%sµã¡£\n",
+		log_file("quest/neili",sprintf("%-18såƒäº†%sæå‡å†…åŠ›%sç‚¹ã€‚\n",
 			me->name(1)+"("+capitalize(me->query("id"))+")",this_object()->name(),chinese_number(improve)), me);
 		me->apply_condition("medicine", 60);
 	}

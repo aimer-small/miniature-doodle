@@ -1,1 +1,10 @@
 binaries
+node_modules/
+*.o
+log/
+log/nosave/
+log/static/
+log/wiz/
+*.utf8
+driver
+*.log

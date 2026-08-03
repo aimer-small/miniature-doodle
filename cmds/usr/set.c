@@ -1,5 +1,5 @@
 // set.c
-//Ôö¼ÓÁËkill_msg¿ÉÒÔ¼ÓÉÏÑÕÉ« LINUX@SJ 2003.0908
+//å¢åŠ äº†kill_msgå¯ä»¥åŠ ä¸Šé¢œè‰² LINUX@SJ 2003.0908
 
 #include <ansi.h>
 #include <database.h>
@@ -22,9 +22,9 @@ int main(object me, string arg)
 
 	if (!arg) {
 		if (!sizeof(env))
-			write("ÄãÃ»ÓĞÉè¶¨ÈÎºÎ»·¾³±äÁ¿¡£\n");
+			write("ä½ æ²¡æœ‰è®¾å®šä»»ä½•ç¯å¢ƒå˜é‡ã€‚\n");
 		else {
-			write("ÄãÄ¿Ç°Éè¶¨µÄ»·¾³±äÁ¿ÓĞ£º\n");
+			write("ä½ ç›®å‰è®¾å®šçš„ç¯å¢ƒå˜é‡æœ‰ï¼š\n");
 			terms = sort_array(keys(env), 1);
 			foreach (string item in terms)
 				write(sprintf("%-20s %O\n", item, env[item]));
@@ -40,11 +40,11 @@ int main(object me, string arg)
 	term = replace_string(term, "/", "");
 	if (term != "") {
 		if( mapp(env) && undefinedp(env[term]) && sizeof(env) >= MAX_ENV_VARS )
-			return notify_fail("ÄãÉèµÄ»·¾³±äÁ¿Ì«¶àÁË£¬ÇëÏÈÓÃ unset É¾µô¼¸¸ö°É¡£\n");
+			return notify_fail("ä½ è®¾çš„ç¯å¢ƒå˜é‡å¤ªå¤šäº†ï¼Œè¯·å…ˆç”¨ unset åˆ æ‰å‡ ä¸ªå§ã€‚\n");
 		if (strlen(term) > 20)
-			return notify_fail("ÄãÉèµÄ»·¾³±äÁ¿Ì«³¤ÁË¡£\n");
+			return notify_fail("ä½ è®¾çš„ç¯å¢ƒå˜é‡å¤ªé•¿äº†ã€‚\n");
 		if (!wiz_level(me) && member_array(term, wiz_only) != -1)
-			return notify_fail("Ö»ÓĞÎ×Ê¦ÄÜÓÃÕâ¸öÉè¶¨¡£\n");
+			return notify_fail("åªæœ‰å·«å¸ˆèƒ½ç”¨è¿™ä¸ªè®¾å®šã€‚\n");
 		if(member_array(term, wiz_only) != -1  && data || member_array(term, color_setting) != -1) {
 			data = replace_string(data, "$RED$", RED);
 			data = replace_string(data, "$GRN$", GRN);
@@ -65,7 +65,7 @@ int main(object me, string arg)
 		}
 		sscanf(data, "%d", data);
 		if(strlen(data) > 80)
-			return notify_fail("¶Ô²»Æğ£¬ÄãÉè¶¨µÄ±äÁ¿ÖµÌ«³¤ÁË£¬Çë¶ÌÒ»µã¡£\n");
+			return notify_fail("å¯¹ä¸èµ·ï¼Œä½ è®¾å®šçš„å˜é‡å€¼å¤ªé•¿äº†ï¼Œè¯·çŸ­ä¸€ç‚¹ã€‚\n");
 		/*if (term == "kill_msg")
 			BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "
 			INSERT INTO mud_nick (utime, content, name, userid, type, site) 
@@ -80,7 +80,7 @@ int main(object me, string arg)
 			me->set("env/" + term, data);
 		else
 			me->delete("env/" + term);
-		write(sprintf("Éè¶¨»·¾³±äÁ¿£º%s = %O\n", term, data));
+		write(sprintf("è®¾å®šç¯å¢ƒå˜é‡ï¼š%s = %O\n", term, data));
 		return 1;
 	}
 	return help();
@@ -89,14 +89,14 @@ int main(object me, string arg)
 int help()
 {
 	write(@TEXT
-Ö¸Áî¸ñÊ½£ºset <±äÁ¿Ãû> [<±äÁ¿Öµ>]
+æŒ‡ä»¤æ ¼å¼ï¼šset <å˜é‡å> [<å˜é‡å€¼>]
 
-Õâ¸öÖ¸ÁîÈÃÄãÉè¶¨Ò»Ğ©»·¾³±äÁ¿£¬²»¼Ó²ÎÊıÊ±»áÏÔÊ¾ÄãÄ¿Ç°Éè¶¨µÄ»·¾³±äÁ¿£¬²»Ö¸¶¨
-±äÁ¿Öµ£¬ÔòÄÚ¶¨ÖµÎª "YES"¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ è®¾å®šä¸€äº›ç¯å¢ƒå˜é‡ï¼Œä¸åŠ å‚æ•°æ—¶ä¼šæ˜¾ç¤ºä½ ç›®å‰è®¾å®šçš„ç¯å¢ƒå˜é‡ï¼Œä¸æŒ‡å®š
+å˜é‡å€¼ï¼Œåˆ™å†…å®šå€¼ä¸º "YES"ã€‚
 
-È¡Ïû±äÁ¿Éè¶¨ÇëÓÃ unset Ö¸Áî¡£
+å–æ¶ˆå˜é‡è®¾å®šè¯·ç”¨ unset æŒ‡ä»¤ã€‚
 
-ÖÁì¶ÓĞÄÄĞ©»·¾³±äÁ¿¿ÉÒÔÉè¶¨£¬Çë¼û help settings¡£
+è‡³æ–¼æœ‰å“ªäº›ç¯å¢ƒå˜é‡å¯ä»¥è®¾å®šï¼Œè¯·è§ help settingsã€‚
 TEXT
 );
 	return 1;

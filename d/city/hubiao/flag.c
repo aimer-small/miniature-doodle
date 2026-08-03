@@ -28,13 +28,13 @@ void init()
 
 void create()
 {
-        set_name("ïÚÆì", ({"biao qi", "qi", "flag"}));
+        set_name("é•–æ——", ({"biao qi", "qi", "flag"}));
         set_weight(150);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-              set("unit", "Ãæ");
-              set("long", HIY "ÕâÊÇÒ»ÃæÁúÃÅïÚ¾ÖµÄïÚÆì£¬Ò»°ãµÄÇ¿µÁ¼ûÁË£¬ÓÉÓÚº¦ÅÂïÚ¾ÖµÄÍşÃû£¬ÔçÔ¶Ô¶¶ã¿ªÁË¡£\n");
+              set("unit", "é¢");
+              set("long", HIY "è¿™æ˜¯ä¸€é¢é¾™é—¨é•–å±€çš„é•–æ——ï¼Œä¸€èˆ¬çš„å¼ºç›—è§äº†ï¼Œç”±äºå®³æ€•é•–å±€çš„å¨åï¼Œæ—©è¿œè¿œèº²å¼€äº†ã€‚\n");
               set("value", 1000);
               set("no_drop", 1);
               set("no_give", 1);
@@ -47,20 +47,20 @@ int do_here(string str)
 {
         object ob,ob_mubiao,my_object,me = this_player();
         if (!str)
-                return notify_fail("ÄãÒª°ÑÈË¼ÒÅ®¾ìÍùÕâÀïÒ»ÈÓ¾Í²»¹ÜÃ´£¿£¡\n");
+                return notify_fail("ä½ è¦æŠŠäººå®¶å¥³çœ·å¾€è¿™é‡Œä¸€æ‰”å°±ä¸ç®¡ä¹ˆï¼Ÿï¼\n");
         if (!(my_object = present(str, environment(me))))
-                return notify_fail("ÄãÒªÕÒµÄÈË²»ÔÚÕâÀï¡£È¥±ğ´¦ÕÒÕÒ¿´°É¡£\n");
+                return notify_fail("ä½ è¦æ‰¾çš„äººä¸åœ¨è¿™é‡Œã€‚å»åˆ«å¤„æ‰¾æ‰¾çœ‹å§ã€‚\n");
 
         if (!(ob_mubiao = present("nv juan", environment(me))))
-                return notify_fail("ÈË¶¼ÈÃÄãÅª¶ªÁË£¬ÅÜÕâÀïÁìÊ²Ã´¹¦ÀÍ!\n");
+                return notify_fail("äººéƒ½è®©ä½ å¼„ä¸¢äº†ï¼Œè·‘è¿™é‡Œé¢†ä»€ä¹ˆåŠŸåŠ³!\n");
 
         if (my_object->query("name") != me->query_temp("mubiao"))
-                return notify_fail(my_object->query("name")+"ËµµÀ£º"+RANK_D->query_respect(me)+"Äã¿ªÊ²Ã´ÍæĞ¦£¿Õâ²»ÊÇÎÒµÄ¼Ò¾ì£¡\n");
+                return notify_fail(my_object->query("name")+"è¯´é“ï¼š"+RANK_D->query_respect(me)+"ä½ å¼€ä»€ä¹ˆç©ç¬‘ï¼Ÿè¿™ä¸æ˜¯æˆ‘çš„å®¶çœ·ï¼\n");
         if (!living(my_object))
-                return notify_fail("Å¶£¬ÄãµÃÏÈ°ÑËûÅªĞÑÔÚËµ¡£\n");
-        tell_object(me, HIW + my_object->query("name")+"¾ªÑÈµØ¡¸°¡£¡¡¹ÁËÒ»Éù¡£\n");
-        tell_object(me, HIW + RANK_D->query_respect(me)+"Ê¹ÎÒÃÇ·òÆŞÍÅ¾Û£¬¶÷Í¬ÔÙÔì£¡ÇëÊÜÔÚÏÂÒ»°İ£¡\n" NOR);
-        tell_object(me, HIW "ÕâÊÇÔÚÏÂÒ»µãĞ¡Ğ¡µÄÒâË¼£¬´óÊ¦Ò»¶¨ÒªÊÕÏÂ¡£\n" NOR);
+                return notify_fail("å“¦ï¼Œä½ å¾—å…ˆæŠŠä»–å¼„é†’åœ¨è¯´ã€‚\n");
+        tell_object(me, HIW + my_object->query("name")+"æƒŠè®¶åœ°ã€Œå•Šï¼ã€äº†ä¸€å£°ã€‚\n");
+        tell_object(me, HIW + RANK_D->query_respect(me)+"ä½¿æˆ‘ä»¬å¤«å¦»å›¢èšï¼Œæ©åŒå†é€ ï¼è¯·å—åœ¨ä¸‹ä¸€æ‹œï¼\n" NOR);
+        tell_object(me, HIW "è¿™æ˜¯åœ¨ä¸‹ä¸€ç‚¹å°å°çš„æ„æ€ï¼Œå¤§å¸ˆä¸€å®šè¦æ”¶ä¸‹ã€‚\n" NOR);
 
         me->delete_temp("mubiao");
         me->delete_temp("killed");
@@ -97,16 +97,16 @@ int do_lead(string str)
         object ob_mubiao,me = this_player();
         int i, flag = 0;
         if (!str)
-                return notify_fail("ÄãÒª°ÑÈË¼ÒÅ®¾ìÍùÊ²Ã´µØ·½Áì£¿£¡\n");
+                return notify_fail("ä½ è¦æŠŠäººå®¶å¥³çœ·å¾€ä»€ä¹ˆåœ°æ–¹é¢†ï¼Ÿï¼\n");
 
 	for ( i = 0; i<sizeof(dir_alias); i++)
 		if (str == dir_alias[i]) { flag = 1; break;}
-	if (!flag) return notify_fail("ÄãÒª°ÑÈË¼ÒÅ®¾ìÍùÊ²Ã´µØ·½Áì£¿£¡\n");
+	if (!flag) return notify_fail("ä½ è¦æŠŠäººå®¶å¥³çœ·å¾€ä»€ä¹ˆåœ°æ–¹é¢†ï¼Ÿï¼\n");
 
         if (!(ob_mubiao = present("nv juan", environment(me))))
-                return notify_fail("Äã´øµÄÅ®¾ì²»ÔÚÕâÀï°¡!\n");
+                return notify_fail("ä½ å¸¦çš„å¥³çœ·ä¸åœ¨è¿™é‡Œå•Š!\n");
         if (me->query_temp("mubiao") != ob_mubiao->query_temp("mubiao"))
-        	return notify_fail("²»ÒªÂÒÁìÅ¶£¬Ğ¡ĞÄ³öÊÂ¡£\n");
+        	return notify_fail("ä¸è¦ä¹±é¢†å“¦ï¼Œå°å¿ƒå‡ºäº‹ã€‚\n");
 
 	ob_mubiao->force_me(str);
 

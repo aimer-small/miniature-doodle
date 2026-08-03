@@ -1,21 +1,21 @@
-// Õë
+// é’ˆ
 #include <weapon.h>
 #include <ansi.h>
 inherit SWORD;
 void create()
 {
-	set_name("Ğå»¨Õë", ({ "xiuhua zhen", "zhen", "needle" }));
+	set_name("ç»£èŠ±é’ˆ", ({ "xiuhua zhen", "zhen", "needle" }));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ã¶");
-		set("long", "Ò»Ã¶Ğå»¨ÓÃµÄÏ¸Õë¡£\n");
+		set("unit", "æš");
+		set("long", "ä¸€æšç»£èŠ±ç”¨çš„ç»†é’ˆã€‚\n");
 		set("value", 200);
                 set("needle", 1);
 		set("material", "steel");
-		set("wield_msg", "$NÓÃÓÒÊÖ´óÄ´Ö¸ºÍÊ³Ö¸ÄíÆğÒ»Ã¶Ğå»¨Õë¡£\n");
-		set("unwield_msg", "$N½«Ğå»¨Õë²å»ØĞå»¨±Á¼Ü¡£\n");
+		set("wield_msg", "$Nç”¨å³æ‰‹å¤§æ‹‡æŒ‡å’Œé£ŸæŒ‡æ»èµ·ä¸€æšç»£èŠ±é’ˆã€‚\n");
+		set("unwield_msg", "$Nå°†ç»£èŠ±é’ˆæ’å›ç»£èŠ±ç»·æ¶ã€‚\n");
 	}
 	init_sword(10);
 	setup();

@@ -1,14 +1,14 @@
 #include <ansi.h>
 inherit NPC;
 string *first_name = ({
-"Èç", "Èô", "»Û", "ËØ", "ÏÍ", "¼Ñ", "ÎÄ", "Êç","Èð","Ãî","Èá","´ä","óã",
+"å¦‚", "è‹¥", "æ…§", "ç´ ", "è´¤", "ä½³", "æ–‡", "æ·‘","ç‘ž","å¦™","æŸ”","ç¿ ","ç­±",
 });
 string *first_name_id = ({
 "ru", "ruo", "hui", "su", "xian", "jia", "wen", "shu", "rui", "miao", "rou", "cui", "xiao",
 });
 
 string *name_words = ({
-"Ã·", "À¼", "Öñ" ,"¾Õ", "ÔÆ", "Óê", "Îí", "ö©","Ñ©","Ãµ","Óñ","Ãô","Æ¼",
+"æ¢…", "å…°", "ç«¹" ,"èŠ", "äº‘", "é›¨", "é›¾", "é›¯","é›ª","çŽ«","çŽ‰","æ•","è",
 });
 
 string *name_words_id = ({
@@ -34,9 +34,9 @@ void create()
 	}
 
 	set_name(name, ({ first_name_id[i]+" "+name_word, first_name_id[i], name_word}) );
-	set("title", HIY"ÁéðÕ¹¬ÊÌÅ®"NOR);
-	set("long", "ÕâÊÇÒ»Ãû"+this_object()->query("title")+"£¬Ãû½Ð"+this_object()->query("name")+"¡£\n");
-	set("gender", "Å®ÐÔ" );
+	set("title", HIY"çµé¹«å®«ä¾å¥³"NOR);
+	set("long", "è¿™æ˜¯ä¸€å"+this_object()->query("title")+"ï¼Œåå«"+this_object()->query("name")+"ã€‚\n");
+	set("gender", "å¥³æ€§" );
 	set("age", 15+random(10));
 	set("per",25+random(5));
 	set("attitude", "peaceful");
@@ -51,7 +51,7 @@ void create()
 	set("max_neili", 250+random(200));
 	set("combat_exp", random(6000)+20000);
 
-	create_family("ÁéðÕ¹¬",4,"µÜ×Ó");
+	create_family("çµé¹«å®«",4,"å¼Ÿå­");
         set_skill("force", 25+random(15));
         set_skill("bahuang-gong", 30);
         set_skill("dodge", 25+random(15));
@@ -69,10 +69,10 @@ void create()
 
 	set("shen_type", 0);
 	set("inquiry", ([
-		"name": "Å«¼Ò½Ð×ö"+this_object()->name()+"£¬´ÓÊ®ÎåËêÆð±ãÍ¶ÔÚÕâÀïÑ§ÒÕ¡£",
-		"rumors": "×î½üºÜÉÙ¼ûµ½¹¬Ö÷¡£",
-		"here": "ÕâÀïÊÇÁéðÕ¹¬£¬ÄãÃ»ÊÂ»¹ÊÇ²»ÒªËæ±ãÂÒ×ªµÄºÃ¡£",
-		"ÁéðÕ¹¬": "ÕâÀï¾ÍÊÇÁéðÕ¹¬°¡£¿£¡",
+		"name": "å¥´å®¶å«åš"+this_object()->name()+"ï¼Œä»Žåäº”å²èµ·ä¾¿æŠ•åœ¨è¿™é‡Œå­¦è‰ºã€‚",
+		"rumors": "æœ€è¿‘å¾ˆå°‘è§åˆ°å®«ä¸»ã€‚",
+		"here": "è¿™é‡Œæ˜¯çµé¹«å®«ï¼Œä½ æ²¡äº‹è¿˜æ˜¯ä¸è¦éšä¾¿ä¹±è½¬çš„å¥½ã€‚",
+		"çµé¹«å®«": "è¿™é‡Œå°±æ˜¯çµé¹«å®«å•Šï¼Ÿï¼",
 	]));
 	setup();
 	carry_object(__DIR__"obj/f-cloth")->wear();

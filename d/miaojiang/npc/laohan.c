@@ -1,4 +1,4 @@
-// ÀÏºº
+// è€æ±‰
 
 inherit NPC;
 int ask_me(); 
@@ -6,18 +6,18 @@ int ask_me();
  
 void create()
 {
-	set_name("Ãç×åÀÏºº", ({ "miaozu laohan","laohan" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("è‹—æ—è€æ±‰", ({ "miaozu laohan","laohan" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 64);
 	set("long",
-		"ÕâÊÇÒ»Î»ÂúÁ³ÖåÎÆµÄÃç¼ÒÀÏÕß¡£\n");
+		"è¿™æ˜¯ä¸€ä½æ»¡è„¸çš±çº¹çš„è‹—å®¶è€è€…ã€‚\n");
 	set("combat_exp", 30000);
 	set("attitude", "peaceful");
 	 
         set("inquiry", ([
-		"name" : "ÎÒĞÕºÎ£¬ÄêÇáµÄÊ±ºòÔÚÖĞÔ­ÄÇÀï´òÌúÎªÉú£¬°¥£¬ÏÖÔÚÀÏÁË¡£\n",
-                "here" : "ÕâÀï¾ÍÊÇÃç½®£¬²»Ô¶¾ÍÊÇÎå¶¾½ÌµÄ½ûµØ£¬ÒªÈ¥ÄÇÀïĞ¡ĞÄĞ©°É¡£\n",
-		"Ìú²ù": (: ask_me :),
+		"name" : "æˆ‘å§“ä½•ï¼Œå¹´è½»çš„æ—¶å€™åœ¨ä¸­åŸé‚£é‡Œæ‰“é“ä¸ºç”Ÿï¼Œå“ï¼Œç°åœ¨è€äº†ã€‚\n",
+                "here" : "è¿™é‡Œå°±æ˜¯è‹—ç–†ï¼Œä¸è¿œå°±æ˜¯äº”æ¯’æ•™çš„ç¦åœ°ï¼Œè¦å»é‚£é‡Œå°å¿ƒäº›å§ã€‚\n",
+		"é“é“²": (: ask_me :),
 	]) );
 	setup();
         carry_object(ARMOR_D("cloth"))->wear();
@@ -32,14 +32,14 @@ int ask_me()
         
         if ( present("xiao tiechan", ob) )
 	{
-		command("say Äã²»ÊÇÓĞÁËÂğ£¬»¹ÏëÒªÊ²÷á£¿\n");
+		command("say ä½ ä¸æ˜¯æœ‰äº†å—ï¼Œè¿˜æƒ³è¦ä»€éº½ï¼Ÿ\n");
 		return 1;
 	}
 	chan = new(__DIR__"obj/tiechan");
         command("look " + ob->query("id")); 
-        command("say ÕâÀïÕıºÃÓĞÒ»°ÑÌú²ùÃ»Ê²÷áÓÃ£¬ÄãÒª¾ÍÄÃÈ¥°É¡£\n");
+        command("say è¿™é‡Œæ­£å¥½æœ‰ä¸€æŠŠé“é“²æ²¡ä»€éº½ç”¨ï¼Œä½ è¦å°±æ‹¿å»å§ã€‚\n");
 	chan->move(ob);
-	message_vision("$N¸øÁË$nÒ»°ÑÌú²ù¡£\n", me, ob);
+	message_vision("$Nç»™äº†$nä¸€æŠŠé“é“²ã€‚\n", me, ob);
 	return 1;
 }
 

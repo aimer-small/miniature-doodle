@@ -39,7 +39,7 @@ int valid_leave(object me, string dir)
                                 {
                                         if (dir == way[i] && objectp(present("mojiao shashou", environment(me))))
                                         {
-                                                return notify_fail("ħ��ɱ��һ�Ѱ�����ס�������ȵ��������ҳ��ϣ��ȵù�������ء�\n");
+                                                return notify_fail("魔教杀手一把把你拦住，大声喝道：你想找长老，先得过了我这关。\n");
                                                 break;
                                         }
                                 }
@@ -51,7 +51,7 @@ int valid_leave(object me, string dir)
                         {
                                 if (dir == way[i] && objectp(present("mojiao shashou", environment(me))))
                                 {
-                                        return notify_fail("ħ��ɱ��һ�Ѱ�����ס�������ȵ��������ҳ��ϣ��ȵù�������ء�\n");
+                                        return notify_fail("魔教杀手一把把你拦住，大声喝道：你想找长老，先得过了我这关。\n");
                                         break;
                                 }
                         }
@@ -61,14 +61,14 @@ int valid_leave(object me, string dir)
         {
                 if (me->query_temp("hostage/passed_x") && me->query_temp("hostage"))
                 {
-                        tell_object(me,"�����ͯ�������˰��죬�ɾ���ת�����ص���\n");
-                        tell_object(me,"��ʱ��ֻ��ͯ������ǽ�ڵĽ���������һ�ƣ���Ȼ������һ���Ż���\n");
-                        tell_object(me,"���Ǽ�æ�첽���˳�ȥ�����澹Ȼ����������\n");
+                        tell_object(me,"你带着童百雄走了半天，可就是转不出地道。\n");
+                        tell_object(me,"这时，只见童百雄在墙壁的角落里轻轻一掀，豁然出现了一个门户。\n");
+                        tell_object(me,"你们急忙快步走了出去，外面竟然就是索道。\n");
                         return 1;
                 }
                 else
                 {
-                        tell_object(me,"��Ϲ��Ϲײ����Ȼ������������\n");
+                        tell_object(me,"你瞎打瞎撞，居然来到了索道。\n");
                         return 1;
                 }
         }

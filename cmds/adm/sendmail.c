@@ -4,7 +4,7 @@ int main(object me, string arg)
 
 	if (!arg) return 0;
 	if (sscanf(arg, "%s %s", mail, str) != 2) return 0;
-	"/adm/daemons/smtpd"->send_mail(me, mail, "²âÊÔÓÊ¼þ", str);
+	"/adm/daemons/smtpd"->send_mail(me, mail, "æµ‹è¯•é‚®ä»¶", str);
 	return 1;
 }
 private int test()

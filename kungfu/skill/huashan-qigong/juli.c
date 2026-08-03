@@ -1,11 +1,11 @@
-// juli.c ÕæÆø¾ÛÁ¦  By lsxk@hsbbs 2007/7/22
-// ×÷ÓÃÎª£ºÔö¼ÓºóÌìÉí·¨ºÍ¶ãÉÁ¡£  By lsxk@hsbbs
+// juli.c çœŸæ°”èšåŠ›  By lsxk@hsbbs 2007/7/22
+// ä½œç”¨ä¸ºï¼šå¢žåŠ åŽå¤©èº«æ³•å’Œèº²é—ªã€‚  By lsxk@hsbbs
 
 #include <ansi.h>
 
 inherit F_SSERVER;
 
-string exert_name() {return HIW"ÕæÆø¾ÛÁ¦"NOR;}
+string exert_name() {return HIW"çœŸæ°”èšåŠ›"NOR;}
 
 private int remove_effect(object me, int amount);
 int exert(object me)
@@ -14,38 +14,38 @@ int exert(object me)
         int skill;
     
         if(!me->is_fighting() )
-                return notify_fail("¡¸ÕæÆø¾ÛÁ¦¡¹Ö»ÄÜÔÚÕ½¶·ÖÐÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€ŒçœŸæ°”èšåŠ›ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
 
         if((int)me->query_skill("huashan-qigong", 1) < 100 )
-                return notify_fail("ÄãµÄ»ªÉ½Æø¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸ÕæÆø¾ÛÁ¦¡¹¡£\n");
+                return notify_fail("ä½ çš„åŽå±±æ°”åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€ŒçœŸæ°”èšåŠ›ã€ã€‚\n");
     
         if ((int)me->query_skill("huashan-jianfa", 1) < 100 )
-                return notify_fail("ÄãµÄ»ªÉ½½£·¨²»¹»æµÊì£¬²»ÄÜÕæÕý·¢»Ó¡¸ÕæÆø¾ÛÁ¦¡¹µÄÍþÁ¦¡£\n");
+                return notify_fail("ä½ çš„åŽå±±å‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½çœŸæ­£å‘æŒ¥ã€ŒçœŸæ°”èšåŠ›ã€çš„å¨åŠ›ã€‚\n");
     
         if (!weapon 
          || weapon->query("skill_type") != "sword"
          ||( me->query_skill_mapped("parry") != "huashan-jianfa" &&  me->query_skill_mapped("parry") != "dugu-jiujian")
          ||( me->query_skill_mapped("sword") != "huashan-jianfa" &&  me->query_skill_mapped("sword") != "dugu-jiujian") )
-                return notify_fail("ÄãÏÖÔÚÎÞ·¨Ê¹ÓÃ¡¸ÕæÆø¾ÛÁ¦¡¹£¡\n");
+                return notify_fail("ä½ çŽ°åœ¨æ— æ³•ä½¿ç”¨ã€ŒçœŸæ°”èšåŠ›ã€ï¼\n");
     
         if ((int)me->query("neili") < 500 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ¡¸ÕæÆø¾ÛÁ¦¡¹¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ã€ŒçœŸæ°”èšåŠ›ã€ã€‚\n");
 
         if ((int)me->query("jingli") < 500 )
-                return notify_fail("ÄãÏÖÔÚ¾«Á¦Ì«ÉÙ£¬²»ÄÜÊ¹ÓÃ¡¸ÕæÆø¾ÛÁ¦¡¹¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨ç²¾åŠ›å¤ªå°‘ï¼Œä¸èƒ½ä½¿ç”¨ã€ŒçœŸæ°”èšåŠ›ã€ã€‚\n");
 
         if(me->query_temp("hsqg/juli"))
-                return notify_fail("ÄãÏÖÕýÔÚÊ¹ÓÃ¡¸ÕæÆø¾ÛÁ¦¡¹¡£\n");
+                return notify_fail("ä½ çŽ°æ­£åœ¨ä½¿ç”¨ã€ŒçœŸæ°”èšåŠ›ã€ã€‚\n");
 
         if(me->query_temp("hsqg/yjs"))
-                return notify_fail("ÄãÏÖÕýÔÚÊ¹ÓÃ¡¸Ô¦½£Ê½¡¹¡£\n");                
+                return notify_fail("ä½ çŽ°æ­£åœ¨ä½¿ç”¨ã€Œé©­å‰‘å¼ã€ã€‚\n");                
 
 
         if (me->query_skill_mapped("force") != "huashan-qigong")
-                return notify_fail("ÄãµÄÄÚ¹¦ÓÐÎó£¬ÎÞ·¨Ê¹ÓÃ¡¸ÕæÆø¾ÛÁ¦¡¹¡£\n");
+                return notify_fail("ä½ çš„å†…åŠŸæœ‰è¯¯ï¼Œæ— æ³•ä½¿ç”¨ã€ŒçœŸæ°”èšåŠ›ã€ã€‚\n");
 
-    message_vision(HIY"$N°µÔËÒ»¿ÚÕæÆø£¬ÄÚÁ¦¾¹È«²¿Á÷×ªÓÚÎÕ½£Ö®ÊÖ£¬¶ÙÊ±$NµÄ½£ÕÐ±äµÃÎÞ·¨×ÁÄ¥!\n"NOR, me);
-        me->start_exert(1+random(2),"¡¸ÕæÆø¾ÛÁ¦¡¹");
+    message_vision(HIY"$Næš—è¿ä¸€å£çœŸæ°”ï¼Œå†…åŠ›ç«Ÿå…¨éƒ¨æµè½¬äºŽæ¡å‰‘ä¹‹æ‰‹ï¼Œé¡¿æ—¶$Nçš„å‰‘æ‹›å˜å¾—æ— æ³•ç¢ç£¨!\n"NOR, me);
+        me->start_exert(1+random(2),"ã€ŒçœŸæ°”èšåŠ›ã€");
 
         me->add("neili", -200);          
         me->add("jingli", -100);
@@ -79,7 +79,7 @@ void check_fight(object me, object weapon)
                me->add_temp("apply/damage",-i);
            me->delete_temp("hsqg/juli");
            if(living(me) && !me->is_ghost())
-              message_vision(HIY"$N½¥¸ÐÄÚÁ¦²»Ö§£¬³¤³¤µØºôÁË¿ÚÆø£¬ÕÐÊýÓÖ»Ö¸´ÁËÆ½³£¡£\n"NOR, me);
+              message_vision(HIY"$Næ¸æ„Ÿå†…åŠ›ä¸æ”¯ï¼Œé•¿é•¿åœ°å‘¼äº†å£æ°”ï¼Œæ‹›æ•°åˆæ¢å¤äº†å¹³å¸¸ã€‚\n"NOR, me);
            return;
         } 
         call_out("check_fight", 1, me, weapon);
@@ -87,19 +87,19 @@ void check_fight(object me, object weapon)
 
 int help(object me)
 {
-    write(YEL"\n»ªÉ½Æø¹¦¡¸"HIY"ÕæÆø¾ÛÁ¦"YEL"¡¹£º"NOR"\n");
+    write(YEL"\nåŽå±±æ°”åŠŸã€Œ"HIY"çœŸæ°”èšåŠ›"YEL"ã€ï¼š"NOR"\n");
    write(@HELP
-   »ªÉ½Æø¹¦ÄË»ªÉ½Ò»ÅÉ»ù´¡ÄÚ¹¦£¬Ëä²»¼°±¾ÃÅ×ÏÏ¼Éñ¹¦¾«Ãî£¬µ«ÈôÁ·µ½
-   Éî´¦£¬Ò²¾ø·ÇÍ¬Ð¡¿É£¡´Ë¡¸ÕæÆø¾ÛÁ¦¡¹¾ø¼¼ÄËÔËÄÚ¾¢ÓÚËÄÖ«£¬´ó·ù¶È
-   Ìá¸ß×ÔÉíÊµÕ½Éí·¨ºÍ¶ãÉÁ£¬ÅäºÏ»ªÉ½½£·¨ÒÔÏÔÇáÓ¯ÁéÇÉ¡£Èô»ªÉ½ÅÉ½£
-   ×ÚÊ¹ÓÃ£¬Ôò½£ÕÐÍþÁ¦¸üÉõ£¡
-   Ö¸Áî£ºexert juli
+   åŽå±±æ°”åŠŸä¹ƒåŽå±±ä¸€æ´¾åŸºç¡€å†…åŠŸï¼Œè™½ä¸åŠæœ¬é—¨ç´«éœžç¥žåŠŸç²¾å¦™ï¼Œä½†è‹¥ç»ƒåˆ°
+   æ·±å¤„ï¼Œä¹Ÿç»éžåŒå°å¯ï¼æ­¤ã€ŒçœŸæ°”èšåŠ›ã€ç»æŠ€ä¹ƒè¿å†…åŠ²äºŽå››è‚¢ï¼Œå¤§å¹…åº¦
+   æé«˜è‡ªèº«å®žæˆ˜èº«æ³•å’Œèº²é—ªï¼Œé…åˆåŽå±±å‰‘æ³•ä»¥æ˜¾è½»ç›ˆçµå·§ã€‚è‹¥åŽå±±æ´¾å‰‘
+   å®—ä½¿ç”¨ï¼Œåˆ™å‰‘æ‹›å¨åŠ›æ›´ç”šï¼
+   æŒ‡ä»¤ï¼šexert juli
 
-   ÒªÇó£º»ªÉ½Æø¹¦100¼¶£¬
-         »ªÉ½½£·¨100¼¶£¬
-         µ±Ç°ÄÚÁ¦ 500 ÒÔÉÏ£¬
-         µ±Ç°¾«Á¦ 500 ÒÔÉÏ£¬
-         ¼¤·¢»ªÉ½½£·¨ÎªÕÐ¼Ü¡£
+   è¦æ±‚ï¼šåŽå±±æ°”åŠŸ100çº§ï¼Œ
+         åŽå±±å‰‘æ³•100çº§ï¼Œ
+         å½“å‰å†…åŠ› 500 ä»¥ä¸Šï¼Œ
+         å½“å‰ç²¾åŠ› 500 ä»¥ä¸Šï¼Œ
+         æ¿€å‘åŽå±±å‰‘æ³•ä¸ºæ‹›æž¶ã€‚
 HELP
    );
    return 1;

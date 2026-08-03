@@ -1,9 +1,9 @@
-//cheng.c 成昆
+//cheng.c 鎴愭槅
 inherit NPC;
 void create()
 {
-        set_name("成昆",({"cheng kun","cheng","kun"}));
-        set("long", "他就是成昆。\n");
+        set_name("鎴愭槅",({"cheng kun","cheng","kun"}));
+        set("long", "浠栧氨鏄垚鏄嗐�俓n");
         set("age", 60);
         set("attitude", "aggressive");
         set("class", "bonze");

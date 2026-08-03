@@ -7,17 +7,17 @@ inherit SWORD;
 
 void create()
 {
-	set_name(HIG"Ö¦Ìõ"NOR, ({ "zhi tiao", "twig", "zhi" }));
+	set_name(HIG"ææ¡"NOR, ({ "zhi tiao", "twig", "zhi" }));
 	set_weight(100);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ö¦");
-		set("long", "ÕâÊÇÊ÷ÉÏµÄÖ¦Ìõ¡£\n");
+		set("unit", "æ");
+		set("long", "è¿™æ˜¯æ ‘ä¸Šçš„ææ¡ã€‚\n");
 		set("value", 1);
 		set("material", "wood");
-                set("wield_msg", "$NÄÃ³öÒ»Ö¦$n£¬ÎÕÔÚÊÖÖĞ¡£\n");
-                set("unequip_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+                set("wield_msg", "$Næ‹¿å‡ºä¸€æ$nï¼Œæ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unequip_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
 	}
 	init_sword(1);
 }

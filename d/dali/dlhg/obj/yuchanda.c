@@ -6,12 +6,12 @@ void init()
 
 void create()
 {
-	set_name("Ñ©²ÎÓñó¸µ¤", ({"yuchan dan", "dan"}));
+	set_name("é›ªå‚ç‰èŸ¾ä¸¹", ({"yuchan dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Íè");
-		set("long", "\nÕâÊÇ¸ßÀö½ø¹±µÄÁéÒ©£¬·şºó½â¶¾ÁÆÉË£¬ÁéÑé·Ç·²¡£\n");
+		set("unit", "ä¸¸");
+		set("long", "\nè¿™æ˜¯é«˜ä¸½è¿›è´¡çš„çµè¯ï¼Œæœåè§£æ¯’ç–—ä¼¤ï¼ŒçµéªŒéå‡¡ã€‚\n");
 		set("value", 10000);
 	}
 	setup();
@@ -21,7 +21,7 @@ int do_eat(string arg)
 {
 	object me = this_player();
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 /*	if(me->query("max_jing")<150)
 	   {me->add("max_jing", 2);
 	    me->add("eff_jing", 2);
@@ -38,8 +38,8 @@ int do_eat(string arg)
 	    me->add("eff_qi", 3);
 	    me->add("qi",5);
 	    }
-*/	message_vision( "$N³ÔÏÂÒ»Á£Ñ©²ÎÓñó¸µ¤£¬Ö»¾õÒ»¹ÉºÆµ´ÕæÆøÖ±Ó¿ÉÏÀ´£¬
-	¼±Ã¦ÅÌÏ¥¶ø×ø£¬±ÕÄ¿ÔË¹¦...\n" , me);
+*/	message_vision( "$Nåƒä¸‹ä¸€ç²’é›ªå‚ç‰èŸ¾ä¸¹ï¼Œåªè§‰ä¸€è‚¡æµ©è¡çœŸæ°”ç›´æ¶Œä¸Šæ¥ï¼Œ
+	æ€¥å¿™ç›˜è†è€Œåï¼Œé—­ç›®è¿åŠŸ...\n" , me);
 	destruct(this_object());
 	return 1;
 }

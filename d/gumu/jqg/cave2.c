@@ -1,13 +1,13 @@
-// cave2.c É½¶´
+// cave2.c å±±æ´
 inherit ROOM;
 #include <ansi.h>
 void create()
 {
-          set("short","É½¶´");
+          set("short","å±±æ´");
           set("long",@LONG
-É½¶´ÀïòêÑÑÆéá«£¬ÃàÑÓÏòÏÂ£¬ÓÉÓÚöùÌ¶Ë®ÆøÕô½ş£¬¶´ÖĞ³±Êª»¬Áï£¬ĞÈ³ôÄÑ
-ÎÅ¡£ÁîÈË²»º®¶øÁ¢¡£åØÂÛÊÇÔÚºÁÎŞÁÁ¹âµÄÇé¿öÏÂ£¬Æ½Ìí¼¸·İÒõÉ­µÄ¸Ğ¾õ¡£¶´ÖĞ
-¼«Õ­£¬¸ù±¾Õ¾²»ÆğÉíÀ´¡£
+å±±æ´é‡Œèœ¿èœ’å´å²–ï¼Œç»µå»¶å‘ä¸‹ï¼Œç”±äºé³„æ½­æ°´æ°”è’¸æµ¸ï¼Œæ´ä¸­æ½®æ¹¿æ»‘æºœï¼Œè…¥è‡­éš¾
+é—»ã€‚ä»¤äººä¸å¯’è€Œç«‹ã€‚é‘è®ºæ˜¯åœ¨æ¯«æ— äº®å…‰çš„æƒ…å†µä¸‹ï¼Œå¹³æ·»å‡ ä»½é˜´æ£®çš„æ„Ÿè§‰ã€‚æ´ä¸­
+æçª„ï¼Œæ ¹æœ¬ç«™ä¸èµ·èº«æ¥ã€‚
 LONG
 );
           setup();
@@ -23,34 +23,34 @@ int do_climb(string arg)
 {
        object me = this_player();
        if(!arg || arg !="down") 
-               return notify_fail("Äã³¯ÄÄÀïÅÀ£¿\n");
+               return notify_fail("ä½ æœå“ªé‡Œçˆ¬ï¼Ÿ\n");
        if (me->is_busy() || me->is_fighting())
-               return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+               return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
        if ( arg=="down"){
        if (random(me->query_str()) >= 20){
-               message("vision", me->name() + "ÔË¾¢Ë«¼ç£¬ÊÖ½Å¼æÓÃ£¬ÏòÇ°×êÈ¥£¬µ«¶´µÀÈ·ÊµÌ«Ğ¡£¬ºÜÄÑÇ°ĞĞ¡£\n", environment(me), ({me}));
-               tell_object(me,"ÄãÔË¾¢Ë«¼ç£¬ÊÖ½Å¼æÓÃ£¬ÏòÇ°×êÈ¥£¬µ«¶´µÀÈ·ÊµÌ«Ğ¡£¬ºÜÄÑÇ°ĞĞ¡£\n"NOR);
+               message("vision", me->name() + "è¿åŠ²åŒè‚©ï¼Œæ‰‹è„šå…¼ç”¨ï¼Œå‘å‰é’»å»ï¼Œä½†æ´é“ç¡®å®å¤ªå°ï¼Œå¾ˆéš¾å‰è¡Œã€‚\n", environment(me), ({me}));
+               tell_object(me,"ä½ è¿åŠ²åŒè‚©ï¼Œæ‰‹è„šå…¼ç”¨ï¼Œå‘å‰é’»å»ï¼Œä½†æ´é“ç¡®å®å¤ªå°ï¼Œå¾ˆéš¾å‰è¡Œã€‚\n"NOR);
                me->start_busy(10);
                remove_call_out("out1");
                call_out("out1", 10, me);
                return 1;
        }
        else {
-               message("vision", me->name() + "¹­ÆğÉí£¬ÂıÂıµØÇüÏ¥ÅÀĞĞÇ°½ø¡£\n", environment(me), ({me}));
-               tell_object(me,"Äã¹­ÆğÉí£¬ÂıÂıµØÇüÏ¥ÅÀĞĞÇ°½ø¡£\n");
+               message("vision", me->name() + "å¼“èµ·èº«ï¼Œæ…¢æ…¢åœ°å±ˆè†çˆ¬è¡Œå‰è¿›ã€‚\n", environment(me), ({me}));
+               tell_object(me,"ä½ å¼“èµ·èº«ï¼Œæ…¢æ…¢åœ°å±ˆè†çˆ¬è¡Œå‰è¿›ã€‚\n");
        }
-       tell_object(me,HIW"\nÄãÑÛÇ°»ôÈ»Ò»ÁÁ£¬É½¶´Ô½À´Ô½´ó£¬µØÏÂÔ½À´Ô½Æ½Õû¡£\n"NOR);
+       tell_object(me,HIW"\nä½ çœ¼å‰éœç„¶ä¸€äº®ï¼Œå±±æ´è¶Šæ¥è¶Šå¤§ï¼Œåœ°ä¸‹è¶Šæ¥è¶Šå¹³æ•´ã€‚\n"NOR);
        me->move(__DIR__"cave3");
        me->start_busy(1);
-       message("vision", me->name() + "´Ó¶´¿Ú×êÁË³öÀ´¡£\n", environment(me), ({me}));
+       message("vision", me->name() + "ä»æ´å£é’»äº†å‡ºæ¥ã€‚\n", environment(me), ({me}));
        return 1;
        }
-       return notify_fail("Äã³¯ÄÄÀïÅÀ£¿\n");
+       return notify_fail("ä½ æœå“ªé‡Œçˆ¬ï¼Ÿ\n");
 }
 
 void out1(object me)
 {
-       tell_object(me,"\nÄãÖ»¾õµÃÕû¸öÉíÌå¼¸ºõ±»Ç¶ÔÚ¶´ÖĞ£¬Ö»ÄÜ¹­ÆğÉí£¬ÂıÂıµØÇüÏ¥ÅÀĞĞÇ°½ø¡£\n"NOR);
+       tell_object(me,"\nä½ åªè§‰å¾—æ•´ä¸ªèº«ä½“å‡ ä¹è¢«åµŒåœ¨æ´ä¸­ï¼Œåªèƒ½å¼“èµ·èº«ï¼Œæ…¢æ…¢åœ°å±ˆè†çˆ¬è¡Œå‰è¿›ã€‚\n"NOR);
        me->start_busy(10);
        remove_call_out("out");
        call_out("out", 10, me);
@@ -58,7 +58,7 @@ void out1(object me)
 
 void out(object me)
 {
-       tell_object(me,HIW"\nÄãÑÛÇ°»ôÈ»Ò»ÁÁ£¬É½¶´Ô½À´Ô½´ó£¬µØÏÂÔ½À´Ô½Æ½Õû¡£\n"NOR);
+       tell_object(me,HIW"\nä½ çœ¼å‰éœç„¶ä¸€äº®ï¼Œå±±æ´è¶Šæ¥è¶Šå¤§ï¼Œåœ°ä¸‹è¶Šæ¥è¶Šå¹³æ•´ã€‚\n"NOR);
        me->move(__DIR__"cave3");       
-       message("vision", me->name() + "´Ó¶´¿Ú×êÁË³öÀ´¡£\n", environment(me), ({me}));
+       message("vision", me->name() + "ä»æ´å£é’»äº†å‡ºæ¥ã€‚\n", environment(me), ({me}));
 }

@@ -8,13 +8,13 @@ inherit BOOTS;
 
 void create()
 {
-        set_name("»¤Ï¥", ({"hu xi", "huxi"}));
+        set_name("æŠ¤è†", ({"hu xi", "huxi"}));
         set_weight(100);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸±");
-                set("long","ÕâÊÇÒ»¸±ÉñÁúµÜ×ÓËùÌØÓĞµÄĞşÌú»¤Ï¥¡£\n");
+                set("unit", "å‰¯");
+                set("long","è¿™æ˜¯ä¸€å‰¯ç¥é¾™å¼Ÿå­æ‰€ç‰¹æœ‰çš„ç„é“æŠ¤è†ã€‚\n");
                 set("material", "steel");
                 set("armor_prop/armor", 30);        
         }
@@ -38,7 +38,7 @@ int do_zhuiming()
 
         times = time()-(int)me->query_temp("zhuiming/time");
 
-        if( times < 10) return notify_fail("Äã»¹ÔÚ¾Û¼¯ÕæÆøÄØ¡£\n");
+        if( times < 10) return notify_fail("ä½ è¿˜åœ¨èšé›†çœŸæ°”å‘¢ã€‚\n");
 
         if( times >= 10 && me->is_fighting(target) && times < 60){
                 if( times > 60) times = 60;
@@ -53,17 +53,17 @@ int do_zhuiming()
                 if (wizardp(me) ) tell_object(me,sprintf("str:%d\n",str));
         
                 target->start_busy(2);
-                message_vision(HIY+"\n\n$NÃÍÈ»´óºÈÒ»Éù£¬ÒÔ¾Û¼¯µÄÕæÆø¼¤µ´×Ô¼ºµÄ½îÂö£¬¶¸È»Ìá¸ßÁËÊı±¶µÄÍşÁ¦£¬\n"+
-                                   "ÉíĞÎÍÈÓ°Èç×·Ãü°ãÉ¨Ïò$n£¬¶ÙÊ±°Ñ$nÑÍÃ»ÔÚÁ¬Ãà²»¾¡µÄÉñÁú×·ÃüÍÈÖĞ£¡\n",me,target);
+                message_vision(HIY+"\n\n$NçŒ›ç„¶å¤§å–ä¸€å£°ï¼Œä»¥èšé›†çš„çœŸæ°”æ¿€è¡è‡ªå·±çš„ç­‹è„‰ï¼Œé™¡ç„¶æé«˜äº†æ•°å€çš„å¨åŠ›ï¼Œ\n"+
+                                   "èº«å½¢è…¿å½±å¦‚è¿½å‘½èˆ¬æ‰«å‘$nï¼Œé¡¿æ—¶æŠŠ$næ·¹æ²¡åœ¨è¿ç»µä¸å°½çš„ç¥é¾™è¿½å‘½è…¿ä¸­ï¼\n",me,target);
                 for( i=1; i<=hits; i++){
-                   message_vision(HIY+"\nÉñÁú×·ÃüµÚ"+CHINESE_D->chinese_number(i)+"ÍÈ£¡"NOR,me);
+                   message_vision(HIY+"\nç¥é¾™è¿½å‘½ç¬¬"+CHINESE_D->chinese_number(i)+"è…¿ï¼"NOR,me);
                    COMBAT_D->do_attack(me, target, 0, TYPE_QUICK);
                 }
                 me->add_temp("apply/strength", -str);
                 me->add_temp("apply/attack", -(me->query_skill("leg")/6) );
         }
         else {
-                return notify_fail("Ê¹ÓÃ¡¸ÉñÁú×·ÃüÍÈ¡¹ĞèÒªÊ×ÏÈ¾ÛÆø£¡\n");
+                return notify_fail("ä½¿ç”¨ã€Œç¥é¾™è¿½å‘½è…¿ã€éœ€è¦é¦–å…ˆèšæ°”ï¼\n");
         }
         return 1;       
 }

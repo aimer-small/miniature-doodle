@@ -4,13 +4,13 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("ÁúÈıÒ¯", ({ "long sanye", "long", "sanye" }));
+	set_name("é¾™ä¸‰çˆ·", ({ "long sanye", "long", "sanye" }));
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 60);
 	set("long",
-		"ËûÉí´©³ñÅÛ£¬Í·´ø½õÃ±£¬Ò»¿´¾ÍÊÇ¸ö¸»¹óÖ®ÈË¡£\n");
+		"ä»–èº«ç©¿ç»¸è¢ï¼Œå¤´å¸¦é”¦å¸½ï¼Œä¸€çœ‹å°±æ˜¯ä¸ªå¯Œè´µä¹‹äººã€‚\n");
 	set_skill("cuff", 40);
 	set_skill("dodge", 40);
 	set_temp("apply/damage", 80);

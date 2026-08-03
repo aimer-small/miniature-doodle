@@ -5,16 +5,16 @@ inherit HOOK;
 
 void create()
 {
-    set_name("µ¥¹³", ({ "hook", "gou" }));
+    set_name("å•é’©", ({ "hook", "gou" }));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±ú¿ª±ßÈĞµÄµ¥¹³£¬ÊÇ¿ÉÅÂµÄÍâÃÅÎäÆ÷¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„å¼€è¾¹åˆƒçš„å•é’©ï¼Œæ˜¯å¯æ€•çš„å¤–é—¨æ­¦å™¨ã€‚\n");
 		set("value", 4000);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù½«$n³é³öÎÕÔÚÊÖÖĞ¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°å°†$næŠ½å‡ºæ¡åœ¨æ‰‹ä¸­ã€‚\n");
 	}
 	init_hook(30);
 	setup();

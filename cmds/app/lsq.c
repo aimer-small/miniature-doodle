@@ -21,17 +21,17 @@ int main(object me, string arg)
 
         dir = dir[0..strsrch(dir,"/",-1)];
         if( !sizeof(files) ){
-                if (file_size(dir) == -2) return notify_fail("Ä¿Â¼ÊÇ¿ÕµÄ¡£\n");
-                else return notify_fail("Ã»ÓĞÕâ¸öÄ¿Â¼»òÕßÎÄ¼ş¡£\n");
+                if (file_size(dir) == -2) return notify_fail("ç›®å½•æ˜¯ç©ºçš„ã€‚\n");
+                else return notify_fail("æ²¡æœ‰è¿™ä¸ªç›®å½•æˆ–è€…æ–‡ä»¶ã€‚\n");
         }
-        write("\n"+HIY+"¡¼"+MUD_NAME+"¡½"NOR+"ÎÄ¼şÄ¿Â¼£º"  + "\n");
+        write("\n"+HIY+"ã€–"+MUD_NAME+"ã€—"NOR+"æ–‡ä»¶ç›®å½•ï¼š"  + "\n");
         write("\n"+HIR+"----------------------------------------------------------------------------"NOR+" "  + "\n");
         result ="\n"NOR;
         for(i=0;i<sizeof(files);i++){
                 files[i][0] = resolve_path(dir,files[i][0]);
                 if(!(int)SECURITY_D->valid_read(files[i][0], me)) continue;
                 times = localtime(files[i][2]);
-                if(files[i][1] == -2) result += sprintf(HIW"<  Ä¿Â¼ >"NOR"     %-=40s%4d/%2d/%2d/%2d:%2d\n",
+                if(files[i][1] == -2) result += sprintf(HIW"<  ç›®å½• >"NOR"     %-=40s%4d/%2d/%2d/%2d:%2d\n",
                         files[i][0],times[LT_YEAR],times[LT_MON],times[LT_MDAY],times[LT_HOUR],times[LT_MIN]);
                 else result += sprintf(HIW"%-9d"NOR"     %-=40s%4d/%2d/%2d/%2d:%2d\n",
                                 files[i][1],files[i][0],times[LT_YEAR],times[LT_MON],times[LT_MDAY],times[LT_HOUR],times[LT_MIN]);
@@ -46,7 +46,7 @@ int main(object me, string arg)
             //    dir1=(arg[strlen(arg)-1]=='/')?(arg+dir1):(arg+"/"+dir1);
                dir1=(dir1[0]=='/')?dir1:"/"+dir1;
                 if(files[i][0]=="."||files[i][0]=="..")
-                        continue;//Ö±½ÓÌø¹ıËãÁË£¬²»È»".."×ÜÊÇ²»ÄÜÕı³£ÏÔÊ¾
+                        continue;//ç›´æ¥è·³è¿‡ç®—äº†ï¼Œä¸ç„¶".."æ€»æ˜¯ä¸èƒ½æ­£å¸¸æ˜¾ç¤º
                 if(file_size(dir1)==-1)
                         dis[d++]=i+1;
                 if(files[i][1]==-2) {
@@ -67,10 +67,10 @@ j = sizeof(files);
                                     }
 }
 
- printf("\n                          "+WHT"%4d"NOR+"¸öÎÄ¼ş       "+WHT"%d"NOR+"¸ö×Ö½Ú", fc, bytes);
-         printf("\n                          "+WHT"%4d"NOR+"¸öÄ¿Â¼", dc);
+ printf("\n                          "+WHT"%4d"NOR+"ä¸ªæ–‡ä»¶       "+WHT"%d"NOR+"ä¸ªå­—èŠ‚", fc, bytes);
+         printf("\n                          "+WHT"%4d"NOR+"ä¸ªç›®å½•", dc);
         write("\n"+HIR+"----------------------------------------------------------------------------"NOR+" "  + "\n");
-write("\n"+HIR+"Ä¿Â¼¼°×Ö½Ú             Ä¿Â¼¼°ÎÄ¼şÃû³Æ                     ×îºóĞŞ¸ÄÈÕÆÚ      "NOR+" "  + "\n");
+write("\n"+HIR+"ç›®å½•åŠå­—èŠ‚             ç›®å½•åŠæ–‡ä»¶åç§°                     æœ€åä¿®æ”¹æ—¥æœŸ      "NOR+" "  + "\n");
 
  me->start_more(result);
 write("\n"+HIR+"----------------------------------------------------------------------------"NOR+" "  + "\n");
@@ -80,10 +80,10 @@ write("\n"+HIR+"----------------------------------------------------------------
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½: ls [<Â·¾¶Ãû>]
-ÁĞ³öÄ¿Â¼ÏÂËùÓĞµÄ×ÓÄ¿Â¼¼°µµ°¸, Èç¹ûÃ»ÓĞÖ¸¶¨Ä¿Â¼, ÔòÁĞ³öËùÔÚÄ¿Â¼
-µÄÄÚÈİ£¬ËùÁĞ³öµÄµµ°¸ÖĞÇ°Ãæ±êÊ¾ * ºÅµÄÊÇÒÑ¾­ÔØÈëµÄÎï¼ş¡£
-»ÆÉ«Ä¿Â¼ÎªÎŞÈ¨ÏŞ¶ÁÈ¡µÄÄ¿Â¼¡£
+æŒ‡ä»¤æ ¼å¼: ls [<è·¯å¾„å>]
+åˆ—å‡ºç›®å½•ä¸‹æ‰€æœ‰çš„å­ç›®å½•åŠæ¡£æ¡ˆ, å¦‚æœæ²¡æœ‰æŒ‡å®šç›®å½•, åˆ™åˆ—å‡ºæ‰€åœ¨ç›®å½•
+çš„å†…å®¹ï¼Œæ‰€åˆ—å‡ºçš„æ¡£æ¡ˆä¸­å‰é¢æ ‡ç¤º * å·çš„æ˜¯å·²ç»è½½å…¥çš„ç‰©ä»¶ã€‚
+é»„è‰²ç›®å½•ä¸ºæ— æƒé™è¯»å–çš„ç›®å½•ã€‚
 HELP
         );
         return 1;

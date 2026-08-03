@@ -46,7 +46,7 @@ int do_look(string arg)
 	
 	if( arg!="sign" ) return 0;
 	if( me->query_temp("sign_busy")) {
-		tell_object(me, "Äã¸Õ²ÅÄÑµÀÃ»ÓĞ¿´Çå³şÂğ£¿\n");
+		tell_object(me, "ä½ åˆšæ‰éš¾é“æ²¡æœ‰çœ‹æ¸…æ¥šå—ï¼Ÿ\n");
 		return 1;
 	}
 	str = "";
@@ -65,26 +65,26 @@ int do_look(string arg)
 	
 	i = random((int)query("signs"));	
 	s = read_file(sprintf(__DIR__"signs/sign%d-%d.txt",arrows[0],i));
-	if( !stringp(s) ) { tell_object(me,"ÏµÍ³¹ıÃ¦£¬ÇëÉÔºóÔÙÊÔ£¡\n"); return 1; }
+	if( !stringp(s) ) { tell_object(me,"ç³»ç»Ÿè¿‡å¿™ï¼Œè¯·ç¨åå†è¯•ï¼\n"); return 1; }
 	v0 = explode(s,"\n");
 	
 	i = random((int)query("signs"));
 	s = read_file(sprintf(__DIR__"signs/sign%d-%d.txt",arrows[1],i));
-	if( !stringp(s) ) { tell_object(me,"ÏµÍ³¹ıÃ¦£¬ÇëÉÔºóÔÙÊÔ£¡\n"); return 1; }
+	if( !stringp(s) ) { tell_object(me,"ç³»ç»Ÿè¿‡å¿™ï¼Œè¯·ç¨åå†è¯•ï¼\n"); return 1; }
 	v1 = explode(s,"\n");
 	
 	i = random((int)query("signs"));
 	s = read_file(sprintf(__DIR__"signs/sign%d-%d.txt",arrows[2],i));
-	if( !stringp(s) ) { tell_object(me,"ÏµÍ³¹ıÃ¦£¬ÇëÉÔºóÔÙÊÔ£¡\n"); return 1; }
+	if( !stringp(s) ) { tell_object(me,"ç³»ç»Ÿè¿‡å¿™ï¼Œè¯·ç¨åå†è¯•ï¼\n"); return 1; }
 	v2 = explode(s,"\n");
 	
 	i = random((int)query("signs"));
 	s = read_file(sprintf(__DIR__"signs/sign%d-%d.txt",arrows[3],i));
-	if( !stringp(s) ) { tell_object(me,"ÏµÍ³¹ıÃ¦£¬ÇëÉÔºóÔÙÊÔ£¡\n"); return 1; }
+	if( !stringp(s) ) { tell_object(me,"ç³»ç»Ÿè¿‡å¿™ï¼Œè¯·ç¨åå†è¯•ï¼\n"); return 1; }
 	v3 = explode(s,"\n");
 	
 	if( sizeof(v0)<10 || sizeof(v1)<10 || sizeof(v2)<10 || sizeof(v3)<10 ) { 
-		tell_object(me,"ÏµÍ³¹ıÃ¦£¬ÇëÉÔºóÔÙÊÔ£¡\n");
+		tell_object(me,"ç³»ç»Ÿè¿‡å¿™ï¼Œè¯·ç¨åå†è¯•ï¼\n");
 		return 1;
 	}
 	
@@ -97,9 +97,9 @@ int do_look(string arg)
 	k = j;
 	a = random(100); b = 50;
 	if(a < b)
-		tell_object(me,"Çë×¢ÒâµÚ"+CHINESE_D->chinese_number(j+1)+"¸ö¼ıÍ·£º\n");
+		tell_object(me,"è¯·æ³¨æ„ç¬¬"+CHINESE_D->chinese_number(j+1)+"ä¸ªç®­å¤´ï¼š\n");
 	else
-		tell_object(me,"Çë×¢ÒâÏÂÁĞ¼ıÍ·£º\n");
+		tell_object(me,"è¯·æ³¨æ„ä¸‹åˆ—ç®­å¤´ï¼š\n");
 	for(i=0;i<10;i++) {
 		y2 = lines[random(10-i)];
 		lines -= ({ y2 });
@@ -145,20 +145,20 @@ int do_look(string arg)
 int go_die(object me)
 {
 	object room;
-	message_vision("\n$NÔ½×ßÔ½ÀÛ£¬×îÖÕ×ÜËã×ß³öÁËÉ£ÁÖ......\n\n",me);
+	message_vision("\n$Nè¶Šèµ°è¶Šç´¯ï¼Œæœ€ç»ˆæ€»ç®—èµ°å‡ºäº†æ¡‘æ—......\n\n",me);
 	room = find_object(__DIR__"sanglin0");
 	if(room) me->move(room);
 
 	if( random(9)==3 ) {
-//		message_vision(RED"\n$NÌåÁ¦²»Ö§£¬µ¹ÔÚµØÉÏ£¬ÔÙÒ²Æğ²»À´ÁË£¡\n"NOR,me);
-//		me->set_temp("last_damage_from","ÔÚÉ£ÁÖÖĞÃÔÂ·ÍÑÁ¦");
+//		message_vision(RED"\n$Nä½“åŠ›ä¸æ”¯ï¼Œå€’åœ¨åœ°ä¸Šï¼Œå†ä¹Ÿèµ·ä¸æ¥äº†ï¼\n"NOR,me);
+//		me->set_temp("last_damage_from","åœ¨æ¡‘æ—ä¸­è¿·è·¯è„±åŠ›");
 //		me->die();
-		message_vision(HIR"\n$N×ßµÄÔÎÍ·×ªÏò£¬×îºó¾¹È»ÔÎÁË¹ıÈ¥£¡\n"NOR,me);
+		message_vision(HIR"\n$Nèµ°çš„æ™•å¤´è½¬å‘ï¼Œæœ€åç«Ÿç„¶æ™•äº†è¿‡å»ï¼\n"NOR,me);
 		me->unconcious();
 
 	}
 	else {
-		message_vision(HIR"\n$N×ßµÄÔÎÍ·×ªÏò£¬×îºó¾¹È»ÔÎÁË¹ıÈ¥£¡\n"NOR,me);
+		message_vision(HIR"\n$Nèµ°çš„æ™•å¤´è½¬å‘ï¼Œæœ€åç«Ÿç„¶æ™•äº†è¿‡å»ï¼\n"NOR,me);
 		me->unconcious();
 	}
 	
@@ -169,7 +169,7 @@ int valid_leave(object me, string dir)
 {
 	int i;
 	if (userp(me) && (dir=="east" || dir=="south" || dir=="west" || dir=="north")) {
-		if (!me->query_temp("look_sign")) return notify_fail("Äã×ßÁË°ëÌì£¬·¢ÏÖ×Ô¼ºÓÖ»Øµ½ÁËÔ­´¦¡£\n");
+		if (!me->query_temp("look_sign")) return notify_fail("ä½ èµ°äº†åŠå¤©ï¼Œå‘ç°è‡ªå·±åˆå›åˆ°äº†åŸå¤„ã€‚\n");
 		i = (int)me->query_temp("sanglin1");
 		if (i<0) i=0;
 		else if (i>3) i=3;		

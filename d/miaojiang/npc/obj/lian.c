@@ -6,15 +6,15 @@ inherit HEAD;
 
 void create()
 {
-        set_name(HIY"ÁéÖ¬À¼"NOR,({ "lingzhi lan", "lan" }) );
+        set_name(HIY"çµè„‚å…°"NOR,({ "lingzhi lan", "lan" }) );
          set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
+                set("unit", "æœµ");
                 set("value", 0);
                 set("material", "plant");
-                set("long", "ÕâÊÇÒ»Öê¿ª·Å×Å½¿ÑŞ»¨¶äµÄÖ²Îï£¬Æğ¾¥ÈçÇò£¬ÑÕÉ«»ğºì¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æ ªå¼€æ”¾ç€å¨‡è‰³èŠ±æœµçš„æ¤ç‰©ï¼Œèµ·èŒå¦‚çƒï¼Œé¢œè‰²ç«çº¢ã€‚\n");
                 set("wear_msg", "");
                
                 set("armor_prop/armor", 0);

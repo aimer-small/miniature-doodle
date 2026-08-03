@@ -4,12 +4,12 @@ inherit NPC;
 void create()
 {
       
-	set_name("»Æ²®Á÷", ({ "huang boliu", "huang", "boliu"}));
-	set("nickname", "Òø÷×òÔ");        
+	set_name("é»„ä¼¯æµ", ({ "huang boliu", "huang", "boliu"}));
+	set("nickname", "é“¶é«¯è›Ÿ");        
         set("long", 
-"ËûÒ»²¿°×Ğë£¬Ö±´¹ÖÁĞØ£¬¾«ÉñÈ´ÉõÛÇîå¡£¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "HIC"·çÀ×ÌÃÏãÖ÷"NOR);
-        set("gender", "ÄĞĞÔ");
+"ä»–ä¸€éƒ¨ç™½é¡»ï¼Œç›´å‚è‡³èƒ¸ï¼Œç²¾ç¥å´ç”šçŸé“„ã€‚ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™  "HIC"é£é›·å ‚é¦™ä¸»"NOR);
+        set("gender", "ç”·æ€§");
         
 	set("age", 70);
 	set("attitude", "peaceful");
@@ -40,6 +40,6 @@ void create()
         map_skill("strike", "tiangang-zhang");
         prepare_skill("strike", "tiangang-zhang");
         
-	      create_family("ÈÕÔÂÉñ½Ì",9,"µÜ×Ó");
+	      create_family("æ—¥æœˆç¥æ•™",9,"å¼Ÿå­");
         setup();
 }

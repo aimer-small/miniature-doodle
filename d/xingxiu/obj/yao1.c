@@ -7,15 +7,15 @@ inherit COMBINED_ITEM;
 void create()
 {
 
-       set_name(WHT"ÒøÁ×·Û"NOR, ({ "yinlin fen", "fen", "yinlin" }) );
+       set_name(WHT"é“¶ç£·ç²‰"NOR, ({ "yinlin fen", "fen", "yinlin" }) );
        if( clonep() )
                set_default_object(__FILE__);
        else {
-               set("long","Ò»°üÒÔ¹Ç»Ò¡¢Éßµ¨µÈÎªÔ­ÁÏÖÆ³ÉµÄÒø¹âÉÁÉÁµÄ¶¾·Û¡£
-¿ÉÒÔµ¹(pour)½ø¾ÆË®Àï£¬»òÍ¿(tu)ÔÚ±øÆ÷ÉÏ¡£(Í¿Ö®Ç°±ØĞëÏÈµãÈ¼(dian)Ëü)\n" );
-               set("unit", "Ğ©");
+               set("long","ä¸€åŒ…ä»¥éª¨ç°ã€è›‡èƒ†ç­‰ä¸ºåŸæ–™åˆ¶æˆçš„é“¶å…‰é—ªé—ªçš„æ¯’ç²‰ã€‚
+å¯ä»¥å€’(pour)è¿›é…’æ°´é‡Œï¼Œæˆ–æ¶‚(tu)åœ¨å…µå™¨ä¸Šã€‚(æ¶‚ä¹‹å‰å¿…é¡»å…ˆç‚¹ç‡ƒ(dian)å®ƒ)\n" );
+               set("unit", "äº›");
                set("base_value", 5000);
-               set("base_unit", "°ü");
+               set("base_unit", "åŒ…");
                set("base_weight", 30);
                set("drug2", "/d/xingxiu/obj/yao1a");
                set("poison", "cold_poison");

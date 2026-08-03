@@ -17,12 +17,12 @@ private int change_name(string arg)
 	object me = this_player();
 
 	if (!me->query_temp("name_modify_paid") && !wizardp(me)) {
-		command("say ³¯Í¢Ã÷ÎÄ¹æ¶¨£¬Æ½Ãñ²»µÃËæÒâ¸ÄÃû»»ĞÕ£¬ÄãÏë×øÀÎÊÇ²»ÊÇ£¿");
+		command("say æœå»·æ˜æ–‡è§„å®šï¼Œå¹³æ°‘ä¸å¾—éšæ„æ”¹åæ¢å§“ï¼Œä½ æƒ³åç‰¢æ˜¯ä¸æ˜¯ï¼Ÿ");
 		return 1;
 	}
 
 	if ( !arg ) {
-		command("say Äãµ½µ×Òª¸ÄÊ²Ã´Ãû×Ö°¡£¿");
+		command("say ä½ åˆ°åº•è¦æ”¹ä»€ä¹ˆåå­—å•Šï¼Ÿ");
 		return 1;
 	}
 
@@ -33,103 +33,103 @@ private int change_name(string arg)
 	f_mname = me->query("family/master_name");
 
 	switch(me->query("family/family_name")){
-		case "ÌÒ»¨µº":
+		case "æ¡ƒèŠ±å²›":
 			if (f_gen == 2) {
-				if (strlen(arg) != 6 || arg[4..5] != "·ç")
-					return notify_fail("ÄãµÄÃû×Ö±ØĞëÊÇÈı¸ö×Ö£¬¶øÇÒÒÔ·ç½áÎ²¡£\n");
+				if (strlen(arg) != 6 || arg[4..5] != "é£")
+					return notify_fail("ä½ çš„åå­—å¿…é¡»æ˜¯ä¸‰ä¸ªå­—ï¼Œè€Œä¸”ä»¥é£ç»“å°¾ã€‚\n");
 			}
 			break;
-		case "¶ëáÒÅÉ":
-		case "ÌìÁúËÂ":
-		case "ÉÙÁÖÅÉ":
-			if (f_class == "bonze" || f_class == "huanxi") {	// ¸øµĞÈËÒ»¸ö»¨Ç®È¥µô huanxi µÄ»ú»á
+		case "å³¨åµ‹æ´¾":
+		case "å¤©é¾™å¯º":
+		case "å°‘æ—æ´¾":
+			if (f_class == "bonze" || f_class == "huanxi") {	// ç»™æ•Œäººä¸€ä¸ªèŠ±é’±å»æ‰ huanxi çš„æœºä¼š
 				if (strlen(arg) != 4)
-					return notify_fail("ÄãµÄÃû×Ö±ØĞëÊÇÁ½¸ö×Ö¡£\n");
+					return notify_fail("ä½ çš„åå­—å¿…é¡»æ˜¯ä¸¤ä¸ªå­—ã€‚\n");
 				switch (f_gen) {
 					case 40:
-						if (arg[0..1] == "Çå")
+						if (arg[0..1] == "æ¸…")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 39:
-						if (arg[0..1] == "µÀ")
+						if (arg[0..1] == "é“")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 38:
-						if (arg[0..1] == "»Û")
+						if (arg[0..1] == "æ…§")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 37:
-						if (arg[0..1] == "³Î")
+						if (arg[0..1] == "æ¾„")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 36:
-						if (arg[0..1] == "Ğş")
+						if (arg[0..1] == "ç„")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 35:
-						if (arg[0..1] == "¶É")
+						if (arg[0..1] == "æ¸¡")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 14:
-						if (arg[0..1] == "ÁË")
+						if (arg[0..1] == "äº†")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 13:
-						if (arg[0..1] == "±¾")
+						if (arg[0..1] == "æœ¬")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 5:
-						if (arg[0..1] == "ÎÄ")
+						if (arg[0..1] == "æ–‡")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 4:
-						if (arg[0..1] == "¾²")
+						if (arg[0..1] == "é™")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					case 3:
-						if (arg[0..1] == "Ãğ")
+						if (arg[0..1] == "ç­")
 							break;
-						return notify_fail("±²·Ö²»¶Ô£¬ÖØÀ´£¡\n");
+						return notify_fail("è¾ˆåˆ†ä¸å¯¹ï¼Œé‡æ¥ï¼\n");
 					default:
 						if (name[0..1] != arg[0..1])
-							return notify_fail("ÄãµÄ·¨ºÅ±ØĞëÊÇÁ½¸ö×Ö£¬¶øÇÒµÚÒ»¸ö×Ö²»ÄÜ±ä¡£\n");
+							return notify_fail("ä½ çš„æ³•å·å¿…é¡»æ˜¯ä¸¤ä¸ªå­—ï¼Œè€Œä¸”ç¬¬ä¸€ä¸ªå­—ä¸èƒ½å˜ã€‚\n");
 				}
 				if (f_class == "huanxi")
 					me->set("class", "bonze");
-			} else if (f_mname == "¶ÎÕıÃ÷")
-				if (strlen(arg) > 6 || arg[0..1] != "¶Î")
-					return notify_fail("ÄãµÄĞÕÃû±ØĞëÊÇÁ½»òÈı¸ö×Ö£¬¶øÇÒµÚÒ»¸ö×Ö±ØĞëÎª¶Î¡£\n");
+			} else if (f_mname == "æ®µæ­£æ˜")
+				if (strlen(arg) > 6 || arg[0..1] != "æ®µ")
+					return notify_fail("ä½ çš„å§“åå¿…é¡»æ˜¯ä¸¤æˆ–ä¸‰ä¸ªå­—ï¼Œè€Œä¸”ç¬¬ä¸€ä¸ªå­—å¿…é¡»ä¸ºæ®µã€‚\n");
 			break;
-		case "ĞÇËŞÅÉ":
+		case "æ˜Ÿå®¿æ´¾":
 			if (f_gen == 2) {
-				if (strlen(arg) != 6 || arg[4..5] != "×Ó")
-					return notify_fail("ÄãµÄÃû×Ö±ØĞëÊÇÈı¸ö×Ö£¬¶øÇÒÒÔ×Ó½áÎ²¡£\n");
+				if (strlen(arg) != 6 || arg[4..5] != "å­")
+					return notify_fail("ä½ çš„åå­—å¿…é¡»æ˜¯ä¸‰ä¸ªå­—ï¼Œè€Œä¸”ä»¥å­ç»“å°¾ã€‚\n");
 			}
 			break;
-		case "¹ÃËÕÄ½Èİ":
+		case "å§‘è‹æ…•å®¹":
 			if (f_gen == 2) {
-				if (strlen(arg) < 6 || arg[0..3] != "Ä½Èİ")
-					return notify_fail("ÄãµÄÃû×Ö±ØĞëÖÁÉÙÈı¸ö×Ö£¬¶øÇÒÒÔÄ½Èİ¿ªÍ·¡£\n");
+				if (strlen(arg) < 6 || arg[0..3] != "æ…•å®¹")
+					return notify_fail("ä½ çš„åå­—å¿…é¡»è‡³å°‘ä¸‰ä¸ªå­—ï¼Œè€Œä¸”ä»¥æ…•å®¹å¼€å¤´ã€‚\n");
 			}
 	}
 
 	i = strlen(new_name);
 
 	if (i < 4 || i > 8 || i%2) {
-		command("say ¡°"+new_name+"¡±£¿");
-		command("say ÄãµÄÖĞÎÄÃû×Ö±ØĞëÊÇ 2 µ½ 4 ¸öÖĞÎÄ×Ö²ÅĞĞ¡£");
+		command("say â€œ"+new_name+"â€ï¼Ÿ");
+		command("say ä½ çš„ä¸­æ–‡åå­—å¿…é¡»æ˜¯ 2 åˆ° 4 ä¸ªä¸­æ–‡å­—æ‰è¡Œã€‚");
 		return 1;
 	}
 
 	while(i--)
 		if( i%2==0 && !is_chinese(new_name[i..<1]) ) {
-			command("say ÄãµÃÓÃ¡¸ÖĞÎÄ¡¹È¡Ãû×Ö£¬±¾¹ÙÎÒ¿É²»ÈÏÊ¶Î÷Ñó×Ö¡£");
+			command("say ä½ å¾—ç”¨ã€Œä¸­æ–‡ã€å–åå­—ï¼Œæœ¬å®˜æˆ‘å¯ä¸è®¤è¯†è¥¿æ´‹å­—ã€‚");
 			return 1;
 		}
 
 	if (!wiz_level(me->query("id"))
 	&& (!"/adm/daemons/named"->valid_name(new_name) ) ){
-		command("say ÄãÕâÖÖÃû×Ö»áÔì³ÉÆäËûÈËµÄÀ§ÈÅ£¬Ïë¸öÆäËüµÄ¡£");
+		command("say ä½ è¿™ç§åå­—ä¼šé€ æˆå…¶ä»–äººçš„å›°æ‰°ï¼Œæƒ³ä¸ªå…¶å®ƒçš„ã€‚");
 		return 1;
 	}
 /*
@@ -138,25 +138,25 @@ private int change_name(string arg)
 		mixed ret = dbquery("select U_Name from Users where U_Name='"+new_name+"'");
 		if (!ret)
 		{
-			return notify_fail("ÔİÊ±²»ÄÜĞŞ¸ÄĞÕÃû¡£\n");
+			return notify_fail("æš‚æ—¶ä¸èƒ½ä¿®æ”¹å§“åã€‚\n");
 		}
 
 		if (sizeof(ret) > 0)
 		{
-			return notify_fail("ÒÑ¾­ÓĞÆäËûÍæ¼ÒÊ¹ÓÃÁËÕâ¸öĞÕÃû¡£\n");
+			return notify_fail("å·²ç»æœ‰å…¶ä»–ç©å®¶ä½¿ç”¨äº†è¿™ä¸ªå§“åã€‚\n");
 		}
 
 		if (!dbquery("update Users set "
 			"U_Name='"+new_name+"' "
 			"where U_Username='"+me->query("id")+"' limit 1"))
 		{
-			return notify_fail("Êı¾İ¿â¸üĞÂÊ§°Ü¡£\n");
+			return notify_fail("æ•°æ®åº“æ›´æ–°å¤±è´¥ã€‚\n");
 		}
 		if (!BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "UPDATE members SET cname = 
 		'"+new_name+"' WHERE username = '"+
 		me->query("id")+"@"+lower_case(INTERMUD_MUD_NAME)+"' limit 1"))
 		{
-			return notify_fail("WEBÊı¾İ¿â¸üĞÂÊ§°Ü¡£\n");
+			return notify_fail("WEBæ•°æ®åº“æ›´æ–°å¤±è´¥ã€‚\n");
 		}
 	}
 	
@@ -164,10 +164,10 @@ private int change_name(string arg)
 		mixed mysql = db_connect("localhost","mud","root");
 
 		if (!intp(mysql))
-			return notify_fail("ÔİÊ±²»ÄÜĞŞ¸ÄĞÕÃû¡£\n");
+			return notify_fail("æš‚æ—¶ä¸èƒ½ä¿®æ”¹å§“åã€‚\n");
 		if (db_exec(mysql, "select U_Name from " + INTERMUD_MUD_NAME + "_Users where U_Name='"+new_name+"'")) {
 			db_close(mysql);
-			return notify_fail("ÒÑ¾­ÓĞÆäËûÍæ¼ÒÊ¹ÓÃÁËÕâ¸öĞÕÃû¡£\n");
+			return notify_fail("å·²ç»æœ‰å…¶ä»–ç©å®¶ä½¿ç”¨äº†è¿™ä¸ªå§“åã€‚\n");
 		}
 		db_exec(mysql, "update " + INTERMUD_MUD_NAME + "_Users set "
 			"U_Name='"+new_name+"' "
@@ -180,17 +180,17 @@ private int change_name(string arg)
 
 	me->set("name", new_name);
 	me->add("name_modify", 1);
-	command("chat ´Ó½ñÒÔºó£¬"+name+"("+getuid(me)+") ¸ÄĞÕÃûÎª£º" + new_name + "¡£");
+	command("chat ä»ä»Šä»¥åï¼Œ"+name+"("+getuid(me)+") æ”¹å§“åä¸ºï¼š" + new_name + "ã€‚");
 	log_file("name_modify",
-		sprintf("%-18s µÚ %d ´Î¸ÄÃûÎª£º%s\n",
+		sprintf("%-18s ç¬¬ %d æ¬¡æ”¹åä¸ºï¼š%s\n",
 			name+"("+getuid(me)+")", me->query("name_modify"), new_name
 		), me
 	);
 	me->delete_temp("name_modify_paid");
 	start_busy(2);
 	if (new_name == name)
-		command("say Äã¿ÉÕæÊÇÓĞÇ®ÕÒÎÒ¿ªĞÄÀ´×Å£¬¸ÄÁË¸öÒ»Ä£Ò»ÑùµÄÃû×Ö¡£");
-	command("say ÄãµÄ»§¼®ÊÖĞøÒÑ¾­°ìÀíÍê±Ï£¬Äã¿ÉÒÔ×ßÁË¡£");
+		command("say ä½ å¯çœŸæ˜¯æœ‰é’±æ‰¾æˆ‘å¼€å¿ƒæ¥ç€ï¼Œæ”¹äº†ä¸ªä¸€æ¨¡ä¸€æ ·çš„åå­—ã€‚");
+	command("say ä½ çš„æˆ·ç±æ‰‹ç»­å·²ç»åŠç†å®Œæ¯•ï¼Œä½ å¯ä»¥èµ°äº†ã€‚");
 	return 1;
 }
 
@@ -201,36 +201,36 @@ string ask_me()
 
 	if(me->query_temp("name_modify_paid")){
 		command("nod");
-		return "ºÃ°É£¬ÄãÖ»Òª×¢²á( zhuce <ĞÕÃû> )ÄãµÄĞÂÃû×Ö¾ÍĞĞÁË¡£\n";
+		return "å¥½å§ï¼Œä½ åªè¦æ³¨å†Œ( zhuce <å§“å> )ä½ çš„æ–°åå­—å°±è¡Œäº†ã€‚\n";
 	}
 
-	if(mname == "Ãû×Ö´ı¶¨"){
+	if(mname == "åå­—å¾…å®š"){
 		me->set_temp("name_modify_paid", 1);
-		return "´ËÃñÎŞÃûÎŞĞÕ£¬±¾¹ÙÍ¬Òâ¸ÄÃû£¬ÄãÒª×¢²á( zhuce <ĞÕÃû> )Ê²Ã´Ãû×Ö£¿";
+		return "æ­¤æ°‘æ— åæ— å§“ï¼Œæœ¬å®˜åŒæ„æ”¹åï¼Œä½ è¦æ³¨å†Œ( zhuce <å§“å> )ä»€ä¹ˆåå­—ï¼Ÿ";
 	}
 
 	if( this_object()->is_busy())
-		return "ÎÒÕıÃ¦×Å¸ÄĞ´»§²áÄØ£¬ÄãµÈµÈ¡£";
+		return "æˆ‘æ­£å¿™ç€æ”¹å†™æˆ·å†Œå‘¢ï¼Œä½ ç­‰ç­‰ã€‚";
 
 	if(me->query_temp("name_wait_modify")){
 	       command("hmm");
-	       return "²»ÊÇ¸æËßÁËÄã£¬ÕâÊÂ²»ÄÇÃ´ºÃ°ìÂğ£¿\n";
+	       return "ä¸æ˜¯å‘Šè¯‰äº†ä½ ï¼Œè¿™äº‹ä¸é‚£ä¹ˆå¥½åŠå—ï¼Ÿ\n";
 	}
 
 	if (!wiz_level(me->query("id"))
 	&& (!"/adm/daemons/named"->valid_name(mname) )) {
 		command("pat");
 		me->set_temp("name_modify_paid", 1);
-		return "ÎÒÒÑ¾­µÃµ½Í¨Öª£¬²»ÊÕÄãµÄ¸ÄÃû·ÑÓÃ£¬ÄãÒª»»¸ö( zhuce <ĞÕÃû> )Ê²Ã´Ãû×Ö£¿";
+		return "æˆ‘å·²ç»å¾—åˆ°é€šçŸ¥ï¼Œä¸æ”¶ä½ çš„æ”¹åè´¹ç”¨ï¼Œä½ è¦æ¢ä¸ª( zhuce <å§“å> )ä»€ä¹ˆåå­—ï¼Ÿ";
 	}
 	command("consider");
-	command("say "+me->query("name", 1)+"ÄãÓĞÃûÓĞĞÕ¶øÒªĞŞ¸Ä»§¼®ºÍĞÕÃû£¬±¾¹Ù¾õµÃÕâÊÂºÜÄÑ°¡......\n");
+	command("say "+me->query("name", 1)+"ä½ æœ‰åæœ‰å§“è€Œè¦ä¿®æ”¹æˆ·ç±å’Œå§“åï¼Œæœ¬å®˜è§‰å¾—è¿™äº‹å¾ˆéš¾å•Š......\n");
 	me->set_temp("name_wait_modify", 1);
 	if(me->query("class") == "bonze")
-		command("say ¶ÔÁË£¬ºÍÉĞ£¬Äá¹Ã¿É¸Ä²»ÁË±²·Ö³ÆºÅ¡£\n\t±ÈÈçÄã½Ğ ±¾Ò»£¬¾Í±ØĞë zhuce ÒÔ±¾×Ö¿ªÍ·µÄÃû×Ö¡£");
+		command("say å¯¹äº†ï¼Œå’Œå°šï¼Œå°¼å§‘å¯æ”¹ä¸äº†è¾ˆåˆ†ç§°å·ã€‚\n\tæ¯”å¦‚ä½ å« æœ¬ä¸€ï¼Œå°±å¿…é¡» zhuce ä»¥æœ¬å­—å¼€å¤´çš„åå­—ã€‚");
 	if( me->query("registered") == 3 )
-		return "Èç¹ûÄã¼á³ÖÒª¸Ä£¬¼øÓÚÄãÊÇ¹ó±öÍæ¼Ò£¬ÉÏ±¨ºÍÈë²á·ÑÓÃÊÇ"+chinese_number(100*(me->query("name_modify")+1))+"Á½»Æ½ğ£¬½»µ½ÕÅÕÊ·¿ÄÇÀï¡£\n";
+		return "å¦‚æœä½ åšæŒè¦æ”¹ï¼Œé‰´äºä½ æ˜¯è´µå®¾ç©å®¶ï¼Œä¸ŠæŠ¥å’Œå…¥å†Œè´¹ç”¨æ˜¯"+chinese_number(100*(me->query("name_modify")+1))+"ä¸¤é»„é‡‘ï¼Œäº¤åˆ°å¼ å¸æˆ¿é‚£é‡Œã€‚\n";
 	else
-		return "Èç¹ûÄã¼á³ÖÒª¸Ä£¬ÉÏ±¨ºÍÈë²á·ÑÓÃÊÇ"+chinese_number(200*(me->query("name_modify")+1))+"Á½»Æ½ğ£¬½»µ½ÕÅÕÊ·¿ÄÇÀï¡£\n";
+		return "å¦‚æœä½ åšæŒè¦æ”¹ï¼Œä¸ŠæŠ¥å’Œå…¥å†Œè´¹ç”¨æ˜¯"+chinese_number(200*(me->query("name_modify")+1))+"ä¸¤é»„é‡‘ï¼Œäº¤åˆ°å¼ å¸æˆ¿é‚£é‡Œã€‚\n";
 
 }	

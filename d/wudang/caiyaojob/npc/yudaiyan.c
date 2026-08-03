@@ -8,13 +8,13 @@ string ask_me_3();
 
 void create()
 {
-        set_name("�����", ({ "yu daiyan", "yu" }));
-        set("nickname", "�䵱����");
+        set_name("俞岱岩", ({ "yu daiyan", "yu" }));
+        set("nickname", "武当三侠");
         set("long", 
-"������������������ӡ��䵱��������ҡ��򱻼�������������
-�°뱲��ֻ���������϶ɹ��ˣ�������һ��ϴ�÷��׵���ɫ������
-�κ��㲣���ɫ�Ұף�������������ǻ�����ʲô��\n");
-        set("gender", "����");
+"他就是张三丰的三弟子、武当三侠俞岱岩。因被奸人所害，可能
+下半辈子只能在躺椅上渡过了！他身穿一件洗得发白的蓝色长衫。
+形骸憔悴，脸色惨白，眼神深沉，象是回忆着什么！\n");
+        set("gender", "男性");
         set("age", 33);
         set("attitude", "peaceful");
         set("shen_type", 1);
@@ -48,12 +48,12 @@ void create()
         map_skill("sword", "taiji-jian");
         prepare_skill("cuff", "taiji-quan");
 
-        create_family("�䵱��", 2, "����");
+        create_family("武当派", 2, "弟子");
 
         set("inquiry", ([
-                "����۾���" : (: ask_me_1 :),
-                "��ת������" : (: ask_me_2 :),
-                 "��ҩ" : (: ask_me_3 :),
+                "延年聚精丹" : (: ask_me_1 :),
+                "九转结气丸" : (: ask_me_2 :),
+                 "采药" : (: ask_me_3 :),
         ]));
 
         set("dan_count", 1 + random(2));
@@ -69,27 +69,27 @@ string ask_me_1()
         mapping fam; 
         object ob;
         
-        if (!(fam = this_player()->query("family")) || fam["family_name"] !="�䵱��")
+        if (!(fam = this_player()->query("family")) || fam["family_name"] !="武当派")
                 return RANK_D->query_respect(this_player()) + 
-                "�뱾��������������֪�˻��Ӻ�̸��";
+                "与本派素无来往，不知此话从何谈起？";
 
         if ( (int)this_player()->query_condition("bonze_drug" ) > 0 )
                 return RANK_D->query_respect(this_player()) + 
-                "���ǲ��ǸճԹ�ҩ����������Ҫ�ˣ������򲻴�´������ɡ�";
+                "你是不是刚吃过药，怎麽又来要了？欲速则不达，下次再来吧。";
 
         if (  present("jujing dan", this_player()) )
                 return RANK_D->query_respect(this_player()) + 
-                "���������ϲ����п�ҩ������������Ҫ�ˣ��޵�֮�������������̰��?!";
+                "你现在身上不是有颗药丸吗，怎麽又来要了？修道之人岂能象你这般贪婪?!";
 
-        if (query("dan_count") < 1) return "�Բ�������۾����Ѿ������ˡ�";
+        if (query("dan_count") < 1) return "对不起，延年聚精丹已经发完了。";
 
           ob = new("/d/wudang/npc/obj/jujing-dan");
 
         ob->move(this_player());
         add("dan_count", -1);
 
-        message_vision("$N���һ������۾�����\n",this_player());
-        return "�ðɣ���ס�������䵱ʥҩ���������׸��ˡ�";
+        message_vision("$N获得一颗延年聚精丹。\n",this_player());
+        return "好吧，记住，此乃武当圣药，不可轻易给人。";
 
 }
 
@@ -99,26 +99,26 @@ string ask_me_2()
         mapping fam; 
         object ob;
         
-        if (!(fam = this_player()->query("family")) || fam["family_name"] !="�䵱��")
+        if (!(fam = this_player()->query("family")) || fam["family_name"] !="武当派")
                 return RANK_D->query_respect(this_player()) + 
-                "�뱾��������������֪�˻��Ӻ�̸��";
+                "与本派素无来往，不知此话从何谈起？";
 
         if ( (int)this_player()->query_condition("bonze_drug" ) > 0 )
                 return RANK_D->query_respect(this_player()) + 
-                "���ǲ��ǸճԹ�ҩ����������Ҫ�ˣ������򲻴�´������ɡ�";
+                "你是不是刚吃过药，怎麽又来要了？欲速则不达，下次再来吧。";
 
         if (  present("jieqi wan", this_player()) )
                 return RANK_D->query_respect(this_player()) + 
-                "���������ϲ����п�ҩ������������Ҫ�ˣ��޵�֮�������������̰��?!";
+                "你现在身上不是有颗药丸吗，怎麽又来要了？修道之人岂能象你这般贪婪?!";
 
-        if (query("wan_count") < 1) return "�Բ�������۾����Ѿ������ˡ�";
+        if (query("wan_count") < 1) return "对不起，延年聚精丹已经发完了。";
 
         ob = new("/d/wudang/npc/obj/jieqi-wan");
         ob->move(this_player());
 
 
-        message_vision("$N���һ�ž�ת�����衣\n",this_player());
-        return "�ðɣ���ס�������䵱ʥҩ���������׸��ˡ�";
+        message_vision("$N获得一颗九转结气丸。\n",this_player());
+        return "好吧，记住，此乃武当圣药，不可轻易给人。";
 
 }
 string ask_me_3()
@@ -129,29 +129,29 @@ string ask_me_3()
         int exp;
 
         applicant=this_player();
-        if (!(fam = applicant->query("family")) || fam["family_name"] != "�䵱��")
-        return RANK_D->query_respect(this_player())+"�뱾��������������̸Ϊ���ɲ�ҩ����";
+        if (!(fam = applicant->query("family")) || fam["family_name"] != "武当派")
+        return RANK_D->query_respect(this_player())+"与本派素无来往，何谈为我派采药啊？";
         exp=(int)applicant->query("combat_exp",1); 
         if(exp>60000)
-         return "�㻹�Ƕ���ѧ���գ���ҩ���������ʦ����ȥ���ɡ�\n"; 
+         return "你还是多勤学武艺，采药还是让你的师弟们去做吧。\n"; 
         if(exp<10000)
-         return "�㻹̫С����ҩ��һ��Σ�գ������ڲ��ʺ�ȥ��\n";
+         return "你还太小，采药有一定危险，你现在不适合去！\n";
 
         if((int)applicant->query_skill("medicine", 1) < 20){
          command("shake "+(string)applicant->query("id"));
-         return "�㲻ѧ��ݱ�ҩ���������ֱܷ����ҩ��!\n";
+         return "你不学点草本药理，怎麽能分辨出草药呢!\n";
          } 
        if(interactive(applicant) && applicant->query_temp("mark/wd_mission"))  
-         return "��Ϊʲ�ỹ��ȥ��ҩ��\n";
+         return "你为什麽还不去采药？\n";
        if(interactive(applicant) && applicant->query_condition("wd_busy"))  
-         return "�����Ѿ����㹻������ȥ��ҩ����\n";
+         return "现在已经有足够的人手去采药拉。\n";
    
         ob = new("/u/dubei/wudang/obj/yaolou");
         ob->move(applicant);
         applicant->set_temp("mark/wd_mission",1);
         applicant->apply_condition("wd_busy",10);
-        return "�䵱������ҩ���Ʊ�������Ҫ����ƣ��ۻƺ��ٻ���ζ��ҩ�Ƴɣ�����
-�䵱��ɽ���д˲�ҩ��"+RANK_D->query_respect(applicant)+"����������࣬���Ե��������ҿ���";
+        return "武当治伤良药三黄宝蜡丸主要由麻黄，雄黄和藤黄三味草药制成，传闻
+武当后山长有此草药，"+RANK_D->query_respect(applicant)+"如果不怕辛苦，可以到那里找找看！";
 }
 
 int accept_object(object who, object ob,object me)
@@ -161,23 +161,23 @@ int accept_object(object who, object ob,object me)
              return 0;
              }
        if(!present("ma huang", ob)){
-             command("say �����û�вɵ���ư�����");
+             command("say 你好象没有采到麻黄啊？！");
              return 0;
              }
        if(!present("teng huang", ob)){
-             command("say �����û�вɵ��ٻư�����");
+             command("say 你好象没有采到藤黄啊？！");
              return 0;
              }
        if(!present("xiong huang", ob)){
-             command("say �����û�вɵ��ۻư�����");
+             command("say 你好象没有采到雄黄啊？！");
              return 0;
              }
        if(!who->query_temp("mark/wd_mission")){
-             command("say �㲢û����ȥ��ҩ������");
+             command("say 你并没让你去采药啊？！");
              return 0;
              }
         command("pat " + who->query("id"));
-        command("say ��������ͣ����ձ������ɡ�\n");
+        command("say 你如此勤劳，他日必有所成。\n");
         call_out("destroying", 1, ob);        
         who->add("combat_exp",(3+random(10))*10);
         who->add("potential",(3+random(10))*3);

@@ -1,19 +1,19 @@
-//  yatou.cÑ¾Í·
+//  yatou.cä¸«å¤´
 
 inherit NPC;
 
 void create()
 {
-	set_name("Ñ¾Í·", ({ "ya tou","ya" }) );
-	set("gender", "Å®ĞÔ");
+	set_name("ä¸«å¤´", ({ "ya tou","ya" }) );
+	set("gender", "å¥³æ€§");
 	set("age", 14);
 	set("long",
-		"´óÀí³ÇÄÚ´ó¸»ÈË¼ÒµÄÒ»¸öĞ¡Ñ¾Í·,ÉÏ½ÖÂò¶«Î÷¡£\n");
+		"å¤§ç†åŸå†…å¤§å¯Œäººå®¶çš„ä¸€ä¸ªå°ä¸«å¤´,ä¸Šè¡—ä¹°ä¸œè¥¿ã€‚\n");
 	set("combat_exp", 700);
 	set("shen_type", 1);
 	set("attitude", "friendly");
 	set("inquiry", ([
-	"name" :"ºß£¬ÄãÊÇ²»ÊÇ¶ÔÎÒ²»»³ºÃÒâ°¡£¿",
+	"name" :"å“¼ï¼Œä½ æ˜¯ä¸æ˜¯å¯¹æˆ‘ä¸æ€€å¥½æ„å•Šï¼Ÿ",
 	]) );
 	setup();
 

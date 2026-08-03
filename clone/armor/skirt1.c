@@ -6,13 +6,13 @@
 inherit CLOTH;
 void create()
 {
-        set_name(GRN"ÂÌÉ¼³¤È¹"NOR, ({ "chang qun", "qun", "skirt" }) );
+        set_name(GRN"ç»¿æ‰é•¿è£™"NOR, ({ "chang qun", "qun", "skirt" }) );
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-		set("long","ÕâÊÇÒ»ÌõÂÌÉ«µÄ³¤È¹¡£\n");
-                set("unit", "Ìõ");
+		set("long","è¿™æ˜¯ä¸€æ¡ç»¿è‰²çš„é•¿è£™ã€‚\n");
+                set("unit", "æ¡");
                 set("value", 0);
 		set("no_transfer",1);
                 set("material", "cloth");

@@ -11,12 +11,12 @@ int update_condition(object me, int duration)
         
         if(random(10)==1)
 	{
-		tell_room(environment(me), me->name() + "对周围事物是不感不知，心中却清明如许。\n", ({ me }));
+		tell_room(environment(me), me->name() + "瀵瑰懆鍥翠簨鐗╂槸涓嶆劅涓嶇煡锛屽績涓嵈娓呮槑濡傝銆俓n", ({ me }));
 	}
 
         if( duration < 1 ) 
         {
-        	tell_object(me, HIW"你双眼一睁露出两道精光。\n"NOR);
+        	tell_object(me, HIW"浣犲弻鐪间竴鐫侀湶鍑轰袱閬撶簿鍏夈�俓n"NOR);
         	return 0;
         }
         return CND_CONTINUE;

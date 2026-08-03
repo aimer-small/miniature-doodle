@@ -82,9 +82,9 @@ string long()
         if (! ziyuan) return desc;
         
         if (! bunch || ! stringp(bunch))
-                desc += "    ÕâÀï" + ziyuan + "×ÊÔ´·á¸»¿ÉÀûÓÃÖ®×ö³öÒ»·¬ÊÂÒµ£¡\n";
+                desc += "    è¿™é‡Œ" + ziyuan + "èµ„æºä¸°å¯Œå¯åˆ©ç”¨ä¹‹åšå‡ºä¸€ç•ªäº‹ä¸šï¼\n";
         else
-                desc += "    ÕâÀïÊÇÊôÓÚ" + bunch + "µÄµØÅÌ£¬" + ziyuan + "×ÊÔ´ÕıÔÚ¿ª·¢ÖĞ£¡\n";
+                desc += "    è¿™é‡Œæ˜¯å±äº" + bunch + "çš„åœ°ç›˜ï¼Œ" + ziyuan + "èµ„æºæ­£åœ¨å¼€å‘ä¸­ï¼\n";
 
         return desc;
 }

@@ -1,4 +1,4 @@
-// modified by campsun 2003/09/23 Ôö¼ÓÊÕÈ¡1 gold£¬½øÈëµØÏÂ¶Ä³¡¡£
+// modified by campsun 2003/09/23 å¢åŠ æ”¶å–1 goldï¼Œè¿›å…¥åœ°ä¸‹èµŒåœºã€‚
 #include <ansi.h>
 inherit NPC;
 int *stat =({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
@@ -7,12 +7,12 @@ void clear_stat();
 void pre_cal();
 void create()
 {
-	set_name( "Æ½Íş", ({ "ping wei","wei" }) );
-	set("long", "ËûÊÇ¶Ä³¡ÖĞÒ»Á÷µÄºÃÊÖ£¬÷»×ÓÉÏµÄ¹¦·ò³öÉñÈë»¯¡£\n");
+	set_name( "å¹³å¨", ({ "ping wei","wei" }) );
+	set("long", "ä»–æ˜¯èµŒåœºä¸­ä¸€æµçš„å¥½æ‰‹ï¼Œéª°å­ä¸Šçš„åŠŸå¤«å‡ºç¥å…¥åŒ–ã€‚\n");
 	set("attitude", "friendly");
-	set("title", HIY "´óÑòêô" NOR);        
+	set("title", HIY "å¤§ç¾Šç‰¯" NOR);        
 	set("age", 36);
-        set("gender", "ÄĞĞÔ" );
+        set("gender", "ç”·æ€§" );
 
 
 	set("str", 35);
@@ -51,16 +51,16 @@ void greeting(object ob)
         if( !ob || environment(ob) != environment() ) return;
         switch( random(10) ) {
                 case 0:
-                        say( "Æ½ÍşĞ¦ßäßäµØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬¹ıÀ´¶ÄÁ½ÊÖ£¬¿ª¿ªĞÄ°É¡£\n");
+                        say( "å¹³å¨ç¬‘å’ªå’ªåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œè¿‡æ¥èµŒä¸¤æ‰‹ï¼Œå¼€å¼€å¿ƒå§ã€‚\n");
                         break;
                 case 1:
-                        say( "Æ½Íş»Ó»ÎÁË»ÎÊÖÖĞµÄ÷»×Ó£¬½ĞµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬Ğ¡¶Ä¿ÉÒÔÑø¼Òºı¿Ú£¬´ó¶Ä¿ÉÒÔ¶¨¹ú°²°î¡£À´°É£¡\n");
+                        say( "å¹³å¨æŒ¥æ™ƒäº†æ™ƒæ‰‹ä¸­çš„éª°å­ï¼Œå«é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œå°èµŒå¯ä»¥å…»å®¶ç³Šå£ï¼Œå¤§èµŒå¯ä»¥å®šå›½å®‰é‚¦ã€‚æ¥å§ï¼\n");
                         break;
                 case 2:
-                        say( "Æ½ÍşËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬½øÀ´£¡½øÀ´£¡ ÊäÁËËãÎÒµÄ£¡\n");
+                        say( "å¹³å¨è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œè¿›æ¥ï¼è¿›æ¥ï¼ è¾“äº†ç®—æˆ‘çš„ï¼\n");
                         break;
         }
 
@@ -72,28 +72,28 @@ void greeting(object ob)
  
 string *dice = ({
 "[31m
-	¡Ñ 
+	âŠ™ 
 
 [37m",
-"	¡Ñ
+"	âŠ™
 
-	    ¡Ñ
+	    âŠ™
 ",
-"	¡Ñ
-	  ¡Ñ 
-	    ¡Ñ
+"	âŠ™
+	  âŠ™ 
+	    âŠ™
 ",
-"	[31m¡Ñ  ¡Ñ
+"	[31mâŠ™  âŠ™
 
-	¡Ñ  ¡Ñ
+	âŠ™  âŠ™
 [37m",
-"	¡Ñ  ¡Ñ
-	  ¡Ñ
-	¡Ñ  ¡Ñ
+"	âŠ™  âŠ™
+	  âŠ™
+	âŠ™  âŠ™
 ",
-"	¡Ñ ¡Ñ
-	¡Ñ ¡Ñ
-	¡Ñ ¡Ñ
+"	âŠ™ âŠ™
+	âŠ™ âŠ™
+	âŠ™ âŠ™
 "
 		});
 int do_bet(string arg)
@@ -103,36 +103,36 @@ int do_bet(string arg)
         object me, silver;
         string message;
 	if(!arg || !sscanf(arg, "%d %d",bet_type,bet_amt))
-                return notify_fail("bet <ÖÖÀà> <½ğÁ¿>\n");
+                return notify_fail("bet <ç§ç±»> <é‡‘é‡>\n");
 	if(bet_type>18 || bet_type < 0)
-		return notify_fail("ÖÖÀàÖ»¿É´ÓÁãµ½Ê®°Ë\n");
+		return notify_fail("ç§ç±»åªå¯ä»é›¶åˆ°åå…«\n");
 	me = this_player();
-    if (me->query("age") < 18) return notify_fail("Äã»¹²»ÄÜ²Î¼ÓÕâÖÖ¶ùÍ¯²»ÒËµÄ»î¶¯¡£\n");
+    if (me->query("age") < 18) return notify_fail("ä½ è¿˜ä¸èƒ½å‚åŠ è¿™ç§å„¿ç«¥ä¸å®œçš„æ´»åŠ¨ã€‚\n");
 	if(me->is_busy())
-		return notify_fail("ÄãÉÏ¸ö¶¯×÷»¹Ã»Íê³É¡£\n");
+		return notify_fail("ä½ ä¸Šä¸ªåŠ¨ä½œè¿˜æ²¡å®Œæˆã€‚\n");
 	silver = present("silver_money", me);
-	if(!silver) return notify_fail("ÄãÉíÉÏÃ»ÓĞÒø×Ó¡£\n");
+	if(!silver) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰é“¶å­ã€‚\n");
 	if((int) silver->query_amount() < bet_amt)
-	return notify_fail("ÄãÉíÉÏÃ»ÓĞÄÇ÷á¶àÒø×Ó¡£\n");	
+	return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰é‚£éº½å¤šé“¶å­ã€‚\n");	
 	if((int) this_object()->query("lower_limit") > bet_amt)
-	return notify_fail("ÕâÕÅÌ¨µÄ×îĞ¡¶Ä×¢ÊÇ"+chinese_number((int) this_object()->query("lower_limit"))+"Á½Òø×Ó¡£\n");
+	return notify_fail("è¿™å¼ å°çš„æœ€å°èµŒæ³¨æ˜¯"+chinese_number((int) this_object()->query("lower_limit"))+"ä¸¤é“¶å­ã€‚\n");
         if((int) this_object()->query("too_late") )
-        return notify_fail("ÕâÆÌÀ´²»¼°ÁË£¬µÈÏÂÊÖ°É£®\n");
+        return notify_fail("è¿™é“ºæ¥ä¸åŠäº†ï¼Œç­‰ä¸‹æ‰‹å§ï¼\n");
 	if((int) me->query("gamble/amount"))
 	{ 
 	if(bet_type != (int) me->query("gamble/type"))
-	return notify_fail("Äã²»¿ÉÔÚÒ»ÆÌÖĞÏÂ²»Í¬µÄ×¢£®\n");
+	return notify_fail("ä½ ä¸å¯åœ¨ä¸€é“ºä¸­ä¸‹ä¸åŒçš„æ³¨ï¼\n");
         silver->add_amount(-bet_amt);
         me->start_busy(1);
         if(bet_type == 0)
-                message = sprintf(RED"Ğ¡"NOR);
+                message = sprintf(RED"å°"NOR);
         if(bet_type == 1)
-                message = sprintf(RED"´ó"NOR);
+                message = sprintf(RED"å¤§"NOR);
         if(bet_type == 2)
-                message = sprintf(RED"Î§÷»"NOR);
+                message = sprintf(RED"å›´éª°"NOR);
         if(bet_type >=3)
                 message = sprintf(RED"%s"NOR,chinese_number(bet_type));
-       message_vision(sprintf("$NÓÖ´ÓÉíÉÏÄÃ³ö%sÁ½°×Òø£¬¼ÓÑ¹ÔÚ%sÉÏ£®\n",
+       message_vision(sprintf("$Nåˆä»èº«ä¸Šæ‹¿å‡º%sä¸¤ç™½é“¶ï¼ŒåŠ å‹åœ¨%sä¸Šï¼\n",
                                 chinese_number(bet_amt), message), me);
         bet_amt += (int) me->query("gamble/amount");
                 me->set("gamble/amount",bet_amt);
@@ -143,14 +143,14 @@ int do_bet(string arg)
 	silver->add_amount(-bet_amt);
 	me->start_busy(1);
 	if(bet_type == 0)	
-		message = sprintf(RED"Ğ¡"NOR);
+		message = sprintf(RED"å°"NOR);
 	if(bet_type == 1)
-		message = sprintf(RED"´ó"NOR);
+		message = sprintf(RED"å¤§"NOR);
         if(bet_type == 2)
-                message = sprintf(RED"Î§÷»"NOR);
+                message = sprintf(RED"å›´éª°"NOR);
 	if(bet_type >=3)
                 message = sprintf(RED"%s"NOR,chinese_number(bet_type));
-	message_vision(sprintf("$N´ÓÉíÉÏÄÃ³ö%sÁ½°×Òø£¬Ñ¹ÔÚ%sÉÏ£®\n",
+	message_vision(sprintf("$Nä»èº«ä¸Šæ‹¿å‡º%sä¸¤ç™½é“¶ï¼Œå‹åœ¨%sä¸Šï¼\n",
 				chinese_number(bet_amt), message), me);
 	me->set("gamble/type",bet_type);
 	me->set("gamble/amount",bet_amt);
@@ -166,13 +166,13 @@ void advertise()
 {
         switch( random(3) ) {
                 case 0:
-message_vision("$NÏòÄãĞ¦µÀ£º¿ìÏÂ×¢£¡Õâ×¢ÄãÒ»¶¨»áÓ®£¡\n",this_object());
+message_vision("$Nå‘ä½ ç¬‘é“ï¼šå¿«ä¸‹æ³¨ï¼è¿™æ³¨ä½ ä¸€å®šä¼šèµ¢ï¼\n",this_object());
                         break;
                 case 1:
-message_vision("$NËµµÀ£ºÔÙ²»ÏÂ×¢¾ÍÀ´²»¼°ÁË£¡\n",this_object());
+message_vision("$Nè¯´é“ï¼šå†ä¸ä¸‹æ³¨å°±æ¥ä¸åŠäº†ï¼\n",this_object());
                         break;
                 case 2:
-message_vision("$NÂúÃæºì¹â£¬ËÊÓÁ×Å´ó¼Ò£º¼Ó£¡ÔÙ¼Ó´óÄãµÄ¶Ä×¢£¡Ò»¶¨Ó®£¡\n",this_object());
+message_vision("$Næ»¡é¢çº¢å…‰ï¼Œè€¸æ¿ç€å¤§å®¶ï¼šåŠ ï¼å†åŠ å¤§ä½ çš„èµŒæ³¨ï¼ä¸€å®šèµ¢ï¼\n",this_object());
 
                         break;
         }
@@ -185,8 +185,8 @@ return;
 void rolldice()
 {
 	this_object()->set("too_late",1);
-	message_vision("$N´óÉù½ĞµÀ£ºÏÂ¶¨×¢£¡Ëµ°Õ£¬½«ÊÖÖĞµÄÈıÁ£÷»×ÓÈöÏòÍëÀï£®\n",this_object());
-	message_vision("\n£®£®£®ÈıÁ£÷»×ÓÔÚÍëÀï±ÄÌø×Å£¬·¢³öÔÃ¶úµÄÉùÒô£®£®£®\n",this_object());
+	message_vision("$Nå¤§å£°å«é“ï¼šä¸‹å®šæ³¨ï¼è¯´ç½¢ï¼Œå°†æ‰‹ä¸­çš„ä¸‰ç²’éª°å­æ’’å‘ç¢—é‡Œï¼\n",this_object());
+	message_vision("\nï¼ï¼ï¼ä¸‰ç²’éª°å­åœ¨ç¢—é‡Œè¹¦è·³ç€ï¼Œå‘å‡ºæ‚¦è€³çš„å£°éŸ³ï¼ï¼ï¼\n",this_object());
 	pre_cal();
 	call_out("first_dice",3);
 return;
@@ -197,13 +197,13 @@ void first_dice()
 	int first;
         switch( random(3) ) {
                 case 0:
-        message_vision("\nÒ»Á£÷»×Óµ¯ÁË¼¸ÏÂ£¬Í£ÔÚ£º\n\n",this_object());
+        message_vision("\nä¸€ç²’éª°å­å¼¹äº†å‡ ä¸‹ï¼Œåœåœ¨ï¼š\n\n",this_object());
                         break;
                 case 1:
-        message_vision("\nÒ»Á£÷»×Ó£¢¶£¶£¶££¢µÄÌø¶¯ÁË¼¸ÏÂ£¬»º»ºµÄÍ£ÁËÏÂÀ´£º\n\n",this_object());
+        message_vision("\nä¸€ç²’éª°å­ï¼‚å®å®å®ï¼‚çš„è·³åŠ¨äº†å‡ ä¸‹ï¼Œç¼“ç¼“çš„åœäº†ä¸‹æ¥ï¼š\n\n",this_object());
                         break;
                 case 2:
-        message_vision("\nÈıÁ£÷»×ÓÏà»¥Ò»×²£¬Ò»¿ÅÖ±ÂäÍëµ×£º\n\n",this_object());
+        message_vision("\nä¸‰ç²’éª°å­ç›¸äº’ä¸€æ’ï¼Œä¸€é¢—ç›´è½ç¢—åº•ï¼š\n\n",this_object());
 
                         break;
         }
@@ -220,13 +220,13 @@ void second_dice()
 	int second;
         switch( random(3) ) {
                 case 0:
-       message_vision("\nÓÖÒ»Á£÷»×Ó»º»ºµÄÍ£ÁËÏÂÀ´£º\n\n",this_object());
+       message_vision("\nåˆä¸€ç²’éª°å­ç¼“ç¼“çš„åœäº†ä¸‹æ¥ï¼š\n\n",this_object());
                         break;
                 case 1:
-        message_vision("\nµÚ¶şÁ£÷»×ÓÔÚÍë±ßĞı×ª²»Í££®£®ºöµØ·­ÁË¸öÉí£º\n\n",this_object());
+        message_vision("\nç¬¬äºŒç²’éª°å­åœ¨ç¢—è¾¹æ—‹è½¬ä¸åœï¼ï¼å¿½åœ°ç¿»äº†ä¸ªèº«ï¼š\n\n",this_object());
                         break;
                 case 2:
-        message_vision("\n¶şÁ£÷»×ÓÏà»¥Ò»×²£¬ÆäÖĞÒ»¿ÅÌøÁËÒ»Ìø£º\n\n",this_object());
+        message_vision("\näºŒç²’éª°å­ç›¸äº’ä¸€æ’ï¼Œå…¶ä¸­ä¸€é¢—è·³äº†ä¸€è·³ï¼š\n\n",this_object());
 
                         break;
         }
@@ -243,13 +243,13 @@ void third_dice()
         int third;
         switch( random(3) ) {
                 case 0:
-       message_vision("\n×îºóÒ»Á£÷»×ÓÔÚÍëÀï»¬ÁËÁ½ÏÂ£¬ÖÕÓÚÍ£ÔÚ£º\n\n",this_object());
+       message_vision("\næœ€åä¸€ç²’éª°å­åœ¨ç¢—é‡Œæ»‘äº†ä¸¤ä¸‹ï¼Œç»ˆäºåœåœ¨ï¼š\n\n",this_object());
                         break;
                 case 1:
-        message_vision("\n»¹ÓĞ×îºóÒ»Á£÷»×ÓàÖåŞåŞµÄ×ª¸ö²»Í££®£®ÖÕÓÚ£º\n\n",this_object());
+        message_vision("\nè¿˜æœ‰æœ€åä¸€ç²’éª°å­å˜€é›é›çš„è½¬ä¸ªä¸åœï¼ï¼ç»ˆäºï¼š\n\n",this_object());
                         break;
                 case 2:
-        message_vision("\n×îºóÒ»Á£÷»×ÓÒ²ÖÕÓÚÍ£ÎÈÁË£º\n\n",this_object());
+        message_vision("\næœ€åä¸€ç²’éª°å­ä¹Ÿç»ˆäºåœç¨³äº†ï¼š\n\n",this_object());
 
                         break;
         }
@@ -271,20 +271,20 @@ void end_the_round()
         third = (int) this_object()->query("third_dice");
 
 // announce results:
-message_vision(sprintf("\n$N¸ßÉù½ĞµÀ£º%s£¬%s£¬%s£¬",
+message_vision(sprintf("\n$Né«˜å£°å«é“ï¼š%sï¼Œ%sï¼Œ%sï¼Œ",
 		chinese_number(first),chinese_number(second),chinese_number(third)),
 		this_object());
 // see who is the winner!
 if( second == first && third == first)
 {
-message_vision("´óĞ¡Í¨³Ô£¡£¡\n",this_object());
+message_vision("å¤§å°é€šåƒï¼ï¼\n",this_object());
 inv = all_inventory(environment(this_object()));
         for(i=0; i<sizeof(inv); i++) {
 	if( userp(inv[i]) && (int) inv[i]->query("gamble/amount") )
 	{
 		if((int) inv[i]->query("gamble/type") == 2)
 		{
-		message_vision("Ó®¼Ò£­$N£¬Ò»ÅâÈıÊ®Áù£¡£¡\n",inv[i]);
+		message_vision("èµ¢å®¶ï¼$Nï¼Œä¸€èµ”ä¸‰åå…­ï¼ï¼\n",inv[i]);
 		reward = (int) inv[i]->query("gamble/amount") * 37 * 100;
 // also increae his betting skill
 		inv[i]->improve_skill("betting", reward/100/37 * 36);
@@ -299,11 +299,11 @@ inv = all_inventory(environment(this_object()));
 else
 {
 tot = first+second+third;
-message_vision(sprintf("%sµã£¬",chinese_number(tot)),this_object());
+message_vision(sprintf("%sç‚¹ï¼Œ",chinese_number(tot)),this_object());
 if( tot>10 )
-message_vision("Åâ´ó³ÔĞ¡£¡\n",this_object());
+message_vision("èµ”å¤§åƒå°ï¼\n",this_object());
 else
-message_vision("ÅâĞ¡³Ô´ó£¡\n",this_object());
+message_vision("èµ”å°åƒå¤§ï¼\n",this_object());
 
 
 inv = all_inventory(environment(this_object()));
@@ -312,7 +312,7 @@ inv = all_inventory(environment(this_object()));
         {
 		if((int) inv[i]->query("gamble/type") == tot)
 		{
-                message_vision("Ó®¼Ò£­$N£¬Ò»Åâ°Ë£¡\n",inv[i]);
+                message_vision("èµ¢å®¶ï¼$Nï¼Œä¸€èµ”å…«ï¼\n",inv[i]);
                 reward = (int) inv[i]->query("gamble/amount") * 9 * 100;
 // also increae his betting skill
                 inv[i]->improve_skill("betting", reward/100 /9 * 8);
@@ -323,7 +323,7 @@ inv = all_inventory(environment(this_object()));
                 if(((int) inv[i]->query("gamble/type") == 0 && tot <=10 ) ||
 			((int) inv[i]->query("gamble/type") == 1 && tot > 10 ))
                 {
-                message_vision("Ó®¼Ò£­$N£¬Ò»ÅâÒ»£¡\n",inv[i]);
+                message_vision("èµ¢å®¶ï¼$Nï¼Œä¸€èµ”ä¸€ï¼\n",inv[i]);
                 reward = (int) inv[i]->query("gamble/amount") * 2 * 100;
 // also increae his betting skill
                 inv[i]->improve_skill("betting", reward/100 / 2 * 1);
@@ -358,7 +358,7 @@ void pay_him(object who, int amount)
         if( amount/10000 ) {
                 ob = new(GOLD_OB);
                 ob->set_amount(amount/10000);
-		ob->set("name","½ğÒ¶×Ó");
+		ob->set("name","é‡‘å¶å­");
                 ob->move(who);
                 amount %= 10000;
         }
@@ -380,31 +380,31 @@ int accept_object(object who, object ob)
 	string message;
 	
     if( ob->value() >= 100) {
-    say("Æ½ÍşºÇºÇµÄĞ¦µÀ£ºĞ»ÉÍ...\n");
-	message_vision("$NÔÚ$n¶ú±ßàÖ¹¾ÁË¼¸¾ä£®£®\n",this_object(),who);
+    say("å¹³å¨å‘µå‘µçš„ç¬‘é“ï¼šè°¢èµ...\n");
+	message_vision("$Nåœ¨$nè€³è¾¹å˜€å’•äº†å‡ å¥ï¼ï¼\n",this_object(),who);
 	bet_type = random(19);
     if(bet_type == 0)
-    	message = sprintf(RED"Ğ¡"NOR);
+    	message = sprintf(RED"å°"NOR);
     if(bet_type == 1)
-        message = sprintf(RED"´ó"NOR);
+        message = sprintf(RED"å¤§"NOR);
     if(bet_type == 2)
-        message = sprintf(RED"Î§÷»"NOR);
+        message = sprintf(RED"å›´éª°"NOR);
     if(bet_type >=3)
         message = sprintf(RED"%s"NOR,chinese_number(bet_type));
 
 	if(ob->value()<10000)
-		tell_object(who,"Æ½ÍşÇÄÇÄ¸æËßÄã£ºÏÂÊÖ¶ùÑ¹"+message+"£¬Ò»¶¨Ó®£¡\n");
+		tell_object(who,"å¹³å¨æ‚„æ‚„å‘Šè¯‰ä½ ï¼šä¸‹æ‰‹å„¿å‹"+message+"ï¼Œä¸€å®šèµ¢ï¼\n");
 	else
 	{
-		tell_object(who,HBBLU"Æ½ÍşÇÄÇÄ¸æËßÄã£ºÎÒÕâÀïµØÏÂÊÒĞÂ¿ªÁËÉúËÀÀŞÌ¨£¬ÄúÒ»¶¨ÒªÈ¥ÍæÒ»°ÑÅ¶£¡\n"NOR);
+		tell_object(who,HBBLU"å¹³å¨æ‚„æ‚„å‘Šè¯‰ä½ ï¼šæˆ‘è¿™é‡Œåœ°ä¸‹å®¤æ–°å¼€äº†ç”Ÿæ­»æ“‚å°ï¼Œæ‚¨ä¸€å®šè¦å»ç©ä¸€æŠŠå“¦ï¼\n"NOR);
 		who->set_temp("dxdc/enter",1);	
 	}	
-		message_vision("$N»áĞÄµÄÎ¢Ğ¦ÆğÀ´£®£®\n",who);
+		message_vision("$Nä¼šå¿ƒçš„å¾®ç¬‘èµ·æ¥ï¼ï¼\n",who);
 
 	return 1;
                 } 
     else {
-		say("Æ½ÍşËµµÀ£ºÕâµãÇ®Äã»¹ÊÇ×Ô¼ºÓÃ°É£¡\n");
+		say("å¹³å¨è¯´é“ï¼šè¿™ç‚¹é’±ä½ è¿˜æ˜¯è‡ªå·±ç”¨å§ï¼\n");
         return 0;
          }
          

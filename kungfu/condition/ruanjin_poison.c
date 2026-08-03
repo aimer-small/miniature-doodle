@@ -5,9 +5,9 @@ inherit F_CLEAN_UP;
 
 int update_condition(object me, int duration)
 {
-	message("vision", me->name() + "½ÅÏÂÐé¸¡£¬ËÆºõÄÚÁ¦È«Ê§ÁË¡£\n", environment(me), me);
+	message("vision", me->name() + "è„šä¸‹è™šæµ®ï¼Œä¼¼ä¹Žå†…åŠ›å…¨å¤±äº†ã€‚\n", environment(me), me);
 	if (living(me)) {
-		tell_object(me, HIR "Äã½ÅÏÂÐé¸¡£¬ÎÞ·¨Æ½ºâ¡£\n" NOR );
+		tell_object(me, HIR "ä½ è„šä¸‹è™šæµ®ï¼Œæ— æ³•å¹³è¡¡ã€‚\n" NOR );
 	}
 	me->set("neili",0);
 	me->add_busy(2);

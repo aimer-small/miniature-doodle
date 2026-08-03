@@ -1,4 +1,4 @@
-// shendao.c  Ñªµ¶¾­ [Éñµ¶]
+// shendao.c  è¡€åˆ€ç» [ç¥åˆ€]
 // changed by emnil@sj  2/5/2000
 
 #include <ansi.h>
@@ -14,43 +14,43 @@ int perform(object me, object target)
         int lvl,damage;
     
         if( !me->is_fighting() )
-                return notify_fail("¡¸Éñµ¶´©ĞÄ¡¹Ö»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œç¥åˆ€ç©¿å¿ƒã€åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
 
         if (!objectp(weapon = me->query_temp("weapon")) || (string)weapon->query("skill_type") != "blade")
-                return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+                return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 
         if((int)me->query_dex() < 28)
-                return notify_fail("ÄãµÄÉí·¨²»¹», Ä¿Ç°»¹²»ÄÜÊ¹ÓÃÕâÏî¾ø¼¼! \n");
+                return notify_fail("ä½ çš„èº«æ³•ä¸å¤Ÿ, ç›®å‰è¿˜ä¸èƒ½ä½¿ç”¨è¿™é¡¹ç»æŠ€! \n");
 
         if((int)me->query_skill("dodge") < 110)
-                return notify_fail("ÄãµÄÇá¹¦ĞŞÎª²»¹», ²»ÄÜÊ¹ÓÃ¡¸Éñµ¶´©ĞÄ¡¹£¡\n");
+                return notify_fail("ä½ çš„è½»åŠŸä¿®ä¸ºä¸å¤Ÿ, ä¸èƒ½ä½¿ç”¨ã€Œç¥åˆ€ç©¿å¿ƒã€ï¼\n");
  
         if((int)me->query_skill("xuedao-jing",1) < 100)
-                return notify_fail("ÄãµÄµ¶·¨ĞŞÎª²»¹»£¬ Ä¿Ç°²»ÄÜÊ¹ÓÃ¡¸Éñµ¶´©ĞÄ¡¹! \n");
+                return notify_fail("ä½ çš„åˆ€æ³•ä¿®ä¸ºä¸å¤Ÿï¼Œ ç›®å‰ä¸èƒ½ä½¿ç”¨ã€Œç¥åˆ€ç©¿å¿ƒã€! \n");
 
         if((int)me->query_skill("longxiang-boruo",1) < 100)
-                return notify_fail("ÄãµÄÁúÏó°ãÈô¹¦ĞŞÎª²»¹»£¬ Ä¿Ç°²»ÄÜÊ¹ÓÃ¡¸Éñµ¶´©ĞÄ¡¹! \n");
+                return notify_fail("ä½ çš„é¾™è±¡èˆ¬è‹¥åŠŸä¿®ä¸ºä¸å¤Ÿï¼Œ ç›®å‰ä¸èƒ½ä½¿ç”¨ã€Œç¥åˆ€ç©¿å¿ƒã€! \n");
 
         if( me->query_skill_mapped("blade") != "xuedao-jing")
-                return notify_fail("Äã±ØĞëÊ¹ÓÃÑªµ¶¾­£¬²ÅÄÜÊ¹ÓÃ¡¸Éñµ¶´©ĞÄ¡¹µÄ¾ø¼¼£¡\n");
+                return notify_fail("ä½ å¿…é¡»ä½¿ç”¨è¡€åˆ€ç»ï¼Œæ‰èƒ½ä½¿ç”¨ã€Œç¥åˆ€ç©¿å¿ƒã€çš„ç»æŠ€ï¼\n");
 
 if (me->query_skill("huoyan-dao", 1) > 1) 
-return notify_fail("ÄãĞŞÁ¶»ğÑæµ¶ÓëÑªµ¶¾­ÒåÀíÏàã££¬²»ÄÜÊ©Õ¹¡£\n");
+return notify_fail("ä½ ä¿®ç‚¼ç«ç„°åˆ€ä¸è¡€åˆ€ç»ä¹‰ç†ç›¸æ‚–ï¼Œä¸èƒ½æ–½å±•ã€‚\n");
         if( me->query_skill_mapped("force") != "longxiang-boruo" && me->query_skill_mapped("force") != "shenzhao-jing"  )
-                return notify_fail("ÄãÏÖÔÚËùÊ¹ÓÃµÄÄÚ¹¦¼È·ÇÁúÏó¹¦ÓÖ·ÇÉñÕÕ¹¦£¬²»ÄÜÊ¹³ö¡¸Éñµ¶´©ĞÄ¡¹µÄ¾ø¼¼£¡\n");
+                return notify_fail("ä½ ç°åœ¨æ‰€ä½¿ç”¨çš„å†…åŠŸæ—¢éé¾™è±¡åŠŸåˆéç¥ç…§åŠŸï¼Œä¸èƒ½ä½¿å‡ºã€Œç¥åˆ€ç©¿å¿ƒã€çš„ç»æŠ€ï¼\n");
 
         if( (int)me->query("max_neili") < 1300 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼\n");
         if((int)me->query("neili")<600)
-                return notify_fail("ÄãµÄÕæÆø²»¹»£¡\n"); 
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼\n"); 
         if((int)me->query("jingli")<200)
-                return notify_fail("ÄãµÄ¾«Á¦²»¹»£¡\n"); 
+                return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿï¼\n"); 
 
         ob = me->select_opponent();
         lvl = me->query_skill("xuedao-jing",1);
         weapon = me->query_temp("weapon");
         weaname = weapon->query("name");
-        msg = HIR "\n$N¿ñĞ¥ÉùÖĞ£¬ÔËÆğ¡¸Éñµ¶´©ĞÄ¡¹ÃØ¾÷£¬É²Ê±Éí·¨Èçµç£¬"NOR+weaname+HIR"Ò»·ÖÎªËÄ£¬Åü½«³öÈ¥£¡\n"NOR;
+        msg = HIR "\n$Nç‹‚å•¸å£°ä¸­ï¼Œè¿èµ·ã€Œç¥åˆ€ç©¿å¿ƒã€ç§˜è¯€ï¼Œåˆ¹æ—¶èº«æ³•å¦‚ç”µï¼Œ"NOR+weaname+HIR"ä¸€åˆ†ä¸ºå››ï¼ŒåŠˆå°†å‡ºå»ï¼\n"NOR;
         
         
         message_vision(msg, me);
@@ -62,33 +62,33 @@ return notify_fail("ÄãĞŞÁ¶»ğÑæµ¶ÓëÑªµ¶¾­ÒåÀíÏàã££¬²»ÄÜÊ©Õ¹¡£\n");
                 damage = me->query_skill("longxiang-boruo",1)/2;
                 if(damage > lvl/3) damage = lvl/3;
                 me->add_temp("apply/damage", damage);
-                message_vision(MAG"$N¸ü°ÑÁúÏóÄÚ¾¢¸½ÓÚ±øÈĞÖ®ÉÏ£¬"+weaname+MAG"Í¨ÌåÁ÷ÌÊ×ÅÒìÑùµÄ×ÏÉ«¹âÃ¢£¡\n"NOR, me,target);
+                message_vision(MAG"$Næ›´æŠŠé¾™è±¡å†…åŠ²é™„äºå…µåˆƒä¹‹ä¸Šï¼Œ"+weaname+MAG"é€šä½“æµæ·Œç€å¼‚æ ·çš„ç´«è‰²å…‰èŠ’ï¼\n"NOR, me,target);
         }
 
         if(me->query_temp("sjz_power")) {
                 damage = me->query_skill("shenzhao-jing",1)/2;
                 if(damage > lvl/3) damage = lvl/3;
                 me->add_temp("apply/damage", damage);
-                message_vision(WHT"$NÌåÄÚÉñÕÕÕæÆøË³ÊÆ¼¤µ´£¬µ¶·æÒşÒşÑú×ÅÒ»ÂÆ²Ò°×£¬Í¸³öÒ»¹ÉËàÉ±Ï¬ÀûµÄÆøÏ¢£¡\n"NOR, me,target);
+                message_vision(WHT"$Nä½“å†…ç¥ç…§çœŸæ°”é¡ºåŠ¿æ¿€è¡ï¼Œåˆ€é”‹éšéšæ¼¾ç€ä¸€ç¼•æƒ¨ç™½ï¼Œé€å‡ºä¸€è‚¡è‚ƒæ€çŠ€åˆ©çš„æ°”æ¯ï¼\n"NOR, me,target);
                 me->set_temp("xdpfm",1);
         }
 
 
 
 
-if (me->query("quest/Ñ©É½/shendao/jidao")) {
+if (me->query("quest/é›ªå±±/shendao/jidao")) {
 if (!userp(target)) target->set_temp("must_be_hit",1);
 me->add_temp("apply/attack", lvl);
 me->add_temp("apply/party", lvl);
 me->add_temp("apply/dodge", lvl);
-msg = RED"$N½«¼Àµ¶Ê±ÁìÎòµÄ¾«Ëè·¢»Ó³öÀ´£¬Ë«Ä¿³àºì£¬ÈËµ¶ºÏÒ»£¬Ö±È¡$nĞÄÔà£¬ÕıºÏ¡¸Éñµ¶´©ĞÄ¡¹Ö®Òâ¡£\n"NOR;
+msg = RED"$Nå°†ç¥­åˆ€æ—¶é¢†æ‚Ÿçš„ç²¾é«“å‘æŒ¥å‡ºæ¥ï¼ŒåŒç›®èµ¤çº¢ï¼Œäººåˆ€åˆä¸€ï¼Œç›´å–$nå¿ƒè„ï¼Œæ­£åˆã€Œç¥åˆ€ç©¿å¿ƒã€ä¹‹æ„ã€‚\n"NOR;
  if (present(ob,environment(me)) && me->is_fighting(ob))
 COMBAT_D->do_attack(me, ob, me->query_temp("weapon"), 3);
 
 target->receive_damage("qi", damage*2, me);
 target->receive_wound("qi", damage, me);
 
-msg += COMBAT_D->damage_msg(damage,"¸îÉË",me,target);
+msg += COMBAT_D->damage_msg(damage,"å‰²ä¼¤",me,target);
  message_vision(msg,me,target);
 }
 
@@ -118,7 +118,7 @@ COMBAT_D->do_attack(me, ob, me->query_temp("weapon"), 3);
         
   if(me->query_skill("xuedao-jing",1)<=450 )      me->start_busy(random(2)+ 1);
   	
-        me->start_perform(3,"Éñµ¶´©ĞÄ");
+        me->start_perform(3,"ç¥åˆ€ç©¿å¿ƒ");
         me->add_temp("apply/blade", -lvl/4);
         me->add_temp("apply/damage", -lvl/2);
         me->add_temp("apply/attack", -lvl/2);
@@ -131,7 +131,7 @@ COMBAT_D->do_attack(me, ob, me->query_temp("weapon"), 3);
             me->delete_temp("xdpfm");
         }
 
-if (me->query("quest/Ñ©É½/shendao/jidao")) {
+if (me->query("quest/é›ªå±±/shendao/jidao")) {
 
  me->add_temp("apply/attack", -lvl);
 me->add_temp("apply/party", -lvl);

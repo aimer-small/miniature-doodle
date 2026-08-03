@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("¸ß¸ùÃ÷", ({ "gao genming", "gao", "genming" }));
-	set("nickname", "ÊÐ¾®ºÀ½Ü");
+	set_name("é«˜æ ¹æ˜Ž", ({ "gao genming", "gao", "genming" }));
+	set("nickname", "å¸‚äº•è±ªæ°");
 	set("long",
-"¸ß¸ùÃ÷Éí²Ä½ÏÅÖ£¬ÊÇÒ»¸öÐ¡··£¬ÊÖÀï×ÜÊÇÄÃ×ÅÒ»¸Ë³Ó£¬ËûÔÚ\n"
-"Í¬ÃÅÖÐÅÅÐÐµÚÎå£¬ÊÇ»ªÉ½ÅÉÄêÇáÒ»´úÖÐµÄºÃÊÖ¡£\n");
-	set("gender", "ÄÐÐÔ");
+"é«˜æ ¹æ˜Žèº«æè¾ƒèƒ–ï¼Œæ˜¯ä¸€ä¸ªå°è´©ï¼Œæ‰‹é‡Œæ€»æ˜¯æ‹¿ç€ä¸€æ†ç§¤ï¼Œä»–åœ¨\n"
+"åŒé—¨ä¸­æŽ’è¡Œç¬¬äº”ï¼Œæ˜¯åŽå±±æ´¾å¹´è½»ä¸€ä»£ä¸­çš„å¥½æ‰‹ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 28);
 	set("attitude", "friendly");
 	set("shen_type", 1);
@@ -51,7 +51,7 @@ void create()
 
 	prepare_skill("cuff", "poyu-quan");
 
-	create_family("»ªÉ½ÅÉ", 14, "µÜ×Ó");
+	create_family("åŽå±±æ´¾", 14, "å¼Ÿå­");
 
 	setup();
 	carry_object(BINGQI_D("sword"))->wield();

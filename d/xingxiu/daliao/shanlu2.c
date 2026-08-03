@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-		  set("short", "ɽ·");
+		  set("short", "山路");
 		  set("long",@long
-���н���������һ������һ�죬ֻ�ǻ�ɳ���棬����͸�ǣ�ȴҲ��ʵ�Ѱ���
+渐行渐北，天气一天冷似一天，只是黄沙扑面，寒风透骨，却也着实难熬。
 long);
            set("quest",1);
 		 set("exits",([

@@ -1,13 +1,13 @@
-// /d/gb/npc/zfdizi.c Ö´·¨µÜ×Ó
+// /d/gb/npc/zfdizi.c æ‰§æ³•å¼Ÿå­
 
 inherit NPC;
 
 void create()
 {
-        set_name("Ö´·¨µÜ×Ó", ({ "zhifa dizi", "dizi", "di zi" }));
-        set("long","ÕâÊÇÒ»¸öÌıÃüÖ´·¨³¤ÀÏµÄØ¤°ïµÜ×Ó, ¸ºÔğÓÃĞÌ¡£\n");
+        set_name("æ‰§æ³•å¼Ÿå­", ({ "zhifa dizi", "dizi", "di zi" }));
+        set("long","è¿™æ˜¯ä¸€ä¸ªå¬å‘½æ‰§æ³•é•¿è€çš„ä¸å¸®å¼Ÿå­, è´Ÿè´£ç”¨åˆ‘ã€‚\n");
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 33);
         set("attitude", "peaceful");
         set("shen_type", 0);
@@ -40,9 +40,9 @@ void create()
 
         set("chat_chance", 5);
         set("chat_msg", ({
-		"Ö´·¨µÜ×Ó½ĞµÀ£º¡°Õâ°ãÃ»ÓÃ£¬¿÷ÄãÔÚØ¤°ïÖĞµ¢ÁËÕâÃ´¾Ã¡£¡±\n",
+		"æ‰§æ³•å¼Ÿå­å«é“ï¼šâ€œè¿™èˆ¬æ²¡ç”¨ï¼Œäºä½ åœ¨ä¸å¸®ä¸­è€½äº†è¿™ä¹ˆä¹…ã€‚â€\n",
         }) );
-	create_family("Ø¤°ï", 20, "µÜ×Ó");
+	create_family("ä¸å¸®", 20, "å¼Ÿå­");
         setup();
 
         carry_object(CLASS_D("gaibang/obj/gb_budai2"))->wear();

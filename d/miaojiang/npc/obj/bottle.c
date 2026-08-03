@@ -5,13 +5,13 @@ inherit F_LIQUID;
 
 void create()
 {
-	set_name(GRN"ÇåË®ºùÂ«"NOR, ({"qingshui hulu", "hulu"}));
+	set_name(GRN"æ¸…æ°´è‘«èŠ¦"NOR, ({"qingshui hulu", "hulu"}));
 	set_weight(700);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»¸öÓÃÀ´Ê¢Ë®µÄºùÂ«¡£\n");
-		set("unit", "¸ö");
+		set("long", "ä¸€ä¸ªç”¨æ¥ç››æ°´çš„è‘«èŠ¦ã€‚\n");
+		set("unit", "ä¸ª");
 		set("value", 100);
 		set("max_water", 15);
 	}
@@ -20,7 +20,7 @@ void create()
 	// we set it to contain wine at the beginning
 	set("liquid", ([
 		"type": "water",
-		"name": "ÇåË®",
+		"name": "æ¸…æ°´",
 		"remaining": 15,
 		"drunk_apply": 3,
 	]));

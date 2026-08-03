@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-       set_name("ÂÌÒÂµÜ×Ó", ({ "luyi dizi","dizi"}));
-       set("long", "ËûÊÇ¾øÇé¹È¹«Ëï¹ÈÖ÷µÄµÜ×Ó£¬¡£\n");
+       set_name("ç»¿è¡£å¼Ÿå­", ({ "luyi dizi","dizi"}));
+       set("long", "ä»–æ˜¯ç»æƒ…è°·å…¬å­™è°·ä¸»çš„å¼Ÿå­ï¼Œã€‚\n");
 
-       set("gender", "ÄĞĞÔ");
+       set("gender", "ç”·æ€§");
        set("age", 25);
        set("shen_type",1);
        set("attitude", "peaceful");

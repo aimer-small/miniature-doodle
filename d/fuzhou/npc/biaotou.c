@@ -1,11 +1,11 @@
-// biaotou.c ïÚÍ·
+// biaotou.c é•–å¤´
 
 inherit NPC;
 
 void create()
 {
-	set_name("ïÚÍ·", ({ "biao tou", "biao" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("é•–å¤´", ({ "biao tou", "biao" }));
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 
 	set("combat_exp", 5000);

@@ -7,12 +7,12 @@ inherit F_VENDOR;
 
 void create()
 {
-        set_name("ÁõÀÏÊµ", ({ "liu laoshi", "laoshi", "liu" }));
-        set("title","ÔÓ»õÆÌÀÏ°å");
+        set_name("åˆ˜è€å®", ({ "liu laoshi", "laoshi", "liu" }));
+        set("title","æ‚è´§é“ºè€æ¿");
         set("shen_type", 1);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 43);
-        set("long", "ÁõÀÏÊµÕı¶¢×ÅÄã¿´£¬²»ÖªµÀ´òĞ©Ê²Ã´Ö÷Òâ¡£\n");
+        set("long", "åˆ˜è€å®æ­£ç›¯ç€ä½ çœ‹ï¼Œä¸çŸ¥é“æ‰“äº›ä»€ä¹ˆä¸»æ„ã€‚\n");
         set_skill("unarmed", 100);
         set_skill("dodge", 100);
         set_temp("apply/damage", 100);

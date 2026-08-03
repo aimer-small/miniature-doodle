@@ -1,13 +1,13 @@
-// ÖÓÖ¾Áé
+// é’Ÿå¿—çµ
 
 inherit F_MASTER;
 inherit NPC;
 void create()
 {
-        set_name("ÖÓÖ¾Áé", ({ "zhong zhiling","zhong" }));
-	set("long", "ËûËÄÊ®À´ËêÄê¼Í£¬ÊÇÉñÁú½Ì°×ÁúÃÅÕÆÃÅÊ¹¡£\n");
-      set("gender", "ÄÐÐÔ");
-	set("title", "ÉñÁú½Ì°×ÁúÃÅÕÆÃÅÊ¹");	
+        set_name("é’Ÿå¿—çµ", ({ "zhong zhiling","zhong" }));
+	set("long", "ä»–å››åæ¥å²å¹´çºªï¼Œæ˜¯ç¥žé¾™æ•™ç™½é¾™é—¨æŽŒé—¨ä½¿ã€‚\n");
+      set("gender", "ç”·æ€§");
+	set("title", "ç¥žé¾™æ•™ç™½é¾™é—¨æŽŒé—¨ä½¿");	
       set("age", 42);       
 	set("str", 20);
       set("int", 22);
@@ -43,7 +43,7 @@ void create()
 	map_skill("parry","huagu-mianzhang");
 	prepare_skill("strike", "huagu-mianzhang");
 
-	create_family("ÉñÁú½Ì",2, "ÕÆÃÅÊ¹");
+	create_family("ç¥žé¾™æ•™",2, "æŽŒé—¨ä½¿");
 	setup();
 	carry_object("/d/sld/npc/obj/wcp")->wear();        
 }
@@ -53,15 +53,15 @@ void attempt_apprentice(object ob)
        mapping myfam;
 
        myfam = (mapping)ob->query("family");
- 	if(!myfam || myfam["family_name"] != "ÉñÁú½Ì")
-           command("say Äã·Ç±¾½ÌµÜ×Ó£¬»¹ÊÇÏÈÈ¥ÏòºÚÁúÊ¹Çó½Ì°É.");
+ 	if(!myfam || myfam["family_name"] != "ç¥žé¾™æ•™")
+           command("say ä½ éžæœ¬æ•™å¼Ÿå­ï¼Œè¿˜æ˜¯å…ˆåŽ»å‘é»‘é¾™ä½¿æ±‚æ•™å§.");
        else if(ob->query("shen",1) > -5000)
-           command("say Äã»¹²»¹»ÐÄºÚÊÖÀ±£¬ÔÙÈ¥¶àÉ±¼¸¸ö°×µÀÖÐÈË°É");
+           command("say ä½ è¿˜ä¸å¤Ÿå¿ƒé»‘æ‰‹è¾£ï¼Œå†åŽ»å¤šæ€å‡ ä¸ªç™½é“ä¸­äººå§");
        else if(ob->query_skill("dulong-dafa",1)<40 || ob->query_skill("huagu-mianzhang",1)<40)
                    command("shake "+ob->query("id"));
        else
             {
-           command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄã×öÎÒµÄµÜ×Ó¡£");
+           command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ åšæˆ‘çš„å¼Ÿå­ã€‚");
 	    command("recruit " + ob->query("id"));
        }
 	return;	
@@ -73,11 +73,11 @@ int recognize_apprentice(object ob)
     object hw;
 
     myfam = (mapping)ob->query("family");
-if(!myfam || (myfam["family_name"] != "ÉñÁú½Ì")) return 0;
+if(!myfam || (myfam["family_name"] != "ç¥žé¾™æ•™")) return 0;
      if(!ob->is_apprentice_of(this_object())) return 0;
-    if(myfam && (myfam["family_name"] == "ÉñÁú½Ì")&&(ob->query("shen",1) >0))
+    if(myfam && (myfam["family_name"] == "ç¥žé¾™æ•™")&&(ob->query("shen",1) >0))
     {
-    	command("say ºß£¡Äã¾¹È»¸ÒºÍ°×µÀÖÐÈË¸ãÔÚÒ»Æð£¬ÊÇ²»ÊÇ²»Ïë»îÁË£¿£¡È¥ºÚÎÝºÃºÃ·´Ê¡·´Ê¡°É£¡");
+    	command("say å“¼ï¼ä½ ç«Ÿç„¶æ•¢å’Œç™½é“ä¸­äººæžåœ¨ä¸€èµ·ï¼Œæ˜¯ä¸æ˜¯ä¸æƒ³æ´»äº†ï¼Ÿï¼åŽ»é»‘å±‹å¥½å¥½åçœåçœå§ï¼");
 	if(!objectp(hw=find_object("/d/sld/npc/obj/heiwu")))
 		hw=load_object("/d/sld/npc/obj/heiwu");
 	ob->set("in_heiwu",time());

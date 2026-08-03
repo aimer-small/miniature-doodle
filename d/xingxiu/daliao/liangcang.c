@@ -4,11 +4,11 @@ int do_jump(string arg);
 int do_dianhuo(string arg);
 void create()
 {
-    set("short", "ºó²Ö");
+    set("short", "åä»“");
     set("long", @LONG
-¡¡¡¡ÕâÊÇÃÉ¹Å´ó¾üµÄ¶ÚÁ¸Ö®Ëù£¬ËùÎ½±øÂíÎ´¶¯£¬Á¸²İÏÈĞĞ£¬
-ÕâÀïµÄÁ¸Ê³ºÍ²İÁÏ¶Ñ»ıÈçÉ½¡£Ò»¶Ó¶ÓÑ²Âß±øÀ´»ØÊØÎÀ£¬½ä±¸
-É­ÑÏ¡£
+ã€€ã€€è¿™æ˜¯è’™å¤å¤§å†›çš„å›¤ç²®ä¹‹æ‰€ï¼Œæ‰€è°“å…µé©¬æœªåŠ¨ï¼Œç²®è‰å…ˆè¡Œï¼Œ
+è¿™é‡Œçš„ç²®é£Ÿå’Œè‰æ–™å †ç§¯å¦‚å±±ã€‚ä¸€é˜Ÿé˜Ÿå·¡é€»å…µæ¥å›å®ˆå«ï¼Œæˆ’å¤‡
+æ£®ä¸¥ã€‚
 LONG);
 	set("quest",1);
 	set("exits", ([
@@ -22,7 +22,7 @@ LONG);
 
 int valid_leave(object me, string dir)
 {
-  if(present("liao bing",environment(me)))  return notify_fail("ÁÉ±øÒ»°Ñ½«ÄãÀ¹×¡£ºÄÄÀïÅÜ£¡\n" );
+  if(present("liao bing",environment(me)))  return notify_fail("è¾½å…µä¸€æŠŠå°†ä½ æ‹¦ä½ï¼šå“ªé‡Œè·‘ï¼\n" );
   return ::valid_leave(me, dir);
 }
 void init()
@@ -31,18 +31,18 @@ void init()
   me = this_player();
   if(me->query_condition("killer"))
   {
-   message_vision(HIC"\nÍ»È»$NËÆºõÆøÑªÓĞĞ©²»Ë³£¬¸ú×ÅÒ»¸öôóôòµ¹ÁËÏÂÈ¥¡£\n"NOR,me); 
-   tell_object(me,HIR"ÄãÍ»È»¸Ğµ½Ò»¹ÉÁ¦Á¿ÎüÒı×ÅÄã£¬Ë²¼äÄãÊ§È¥Öª¾õ¡£\n"NOR);
-   tell_room(environment(me),HIR"\nÖ»¼û£¬µØÉÏÍ»È»³öÏÖÒ»¸öÁÑ¶´£¬"+ me->name()+ "Ò»Í·ÔúÁËÏÂÈ¥£¬Ë²¼äÏûÊ§¡£\n"NOR, ({}));
+   message_vision(HIC"\nçªç„¶$Nä¼¼ä¹æ°”è¡€æœ‰äº›ä¸é¡ºï¼Œè·Ÿç€ä¸€ä¸ªè¶”è¶„å€’äº†ä¸‹å»ã€‚\n"NOR,me); 
+   tell_object(me,HIR"ä½ çªç„¶æ„Ÿåˆ°ä¸€è‚¡åŠ›é‡å¸å¼•ç€ä½ ï¼Œç¬é—´ä½ å¤±å»çŸ¥è§‰ã€‚\n"NOR);
+   tell_room(environment(me),HIR"\nåªè§ï¼Œåœ°ä¸Šçªç„¶å‡ºç°ä¸€ä¸ªè£‚æ´ï¼Œ"+ me->name()+ "ä¸€å¤´æ‰äº†ä¸‹å»ï¼Œç¬é—´æ¶ˆå¤±ã€‚\n"NOR, ({}));
    me->move(__DIR__"shanlu1"); 
-   tell_room(environment(me), HIR"\n°ë¿ÕÖĞ£¬ËÆºõÒ»¸öÈËµôÁËÏÂÀ´£¬Äã¶¨ÑÛÒ»¿´¾¹È»ÊÇ"+ me->name()+ "¡£\n"NOR, ({}));
+   tell_room(environment(me), HIR"\nåŠç©ºä¸­ï¼Œä¼¼ä¹ä¸€ä¸ªäººæ‰äº†ä¸‹æ¥ï¼Œä½ å®šçœ¼ä¸€çœ‹ç«Ÿç„¶æ˜¯"+ me->name()+ "ã€‚\n"NOR, ({}));
    me->unconcious();
    return;
   }
   add_action("do_jump", ({"jump","tiao"}));
-  if(!me->query("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/start")) return;
-  if(me->query("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/over")) return; 
-  if(!me->query_temp("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/godaliao")) return; 
+  if(!me->query("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/start")) return;
+  if(me->query("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/over")) return; 
+  if(!me->query_temp("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/godaliao")) return; 
   
 
   obj=new(__DIR__"npc/liaobing");
@@ -55,9 +55,9 @@ int do_jump(string arg)
 {
 	object me;
 	me = this_player();
-	message_vision(HIC"$N¿´×¼ÁËÇ½±ßÒ»¶ÑÁ¸²İ£¬Ò»Ô¾¶øÉÏ£¬Ë³ÊÆÔÚÁ¸²İÇáÇáÒ»µã£¬Éí×ÓÓÖÆ®³öĞí³ß¡£\n"NOR, me);
+	message_vision(HIC"$Nçœ‹å‡†äº†å¢™è¾¹ä¸€å †ç²®è‰ï¼Œä¸€è·ƒè€Œä¸Šï¼Œé¡ºåŠ¿åœ¨ç²®è‰è½»è½»ä¸€ç‚¹ï¼Œèº«å­åˆé£˜å‡ºè®¸å°ºã€‚\n"NOR, me);
 	me->move("/d/xingxiu/daliao/shulin");
-	message_vision(HIC"$NÒ»Ô¾¶øÆğ£¬»·¹ËËÄÖÜ£¬ÕâÀï¾¹È»¾ÍÊÇÁÉÓªµÄÃÅÇ°ÄÇÆ¬Ê÷ÁÖ¡£\n"NOR, me);
+	message_vision(HIC"$Nä¸€è·ƒè€Œèµ·ï¼Œç¯é¡¾å››å‘¨ï¼Œè¿™é‡Œç«Ÿç„¶å°±æ˜¯è¾½è¥çš„é—¨å‰é‚£ç‰‡æ ‘æ—ã€‚\n"NOR, me);
 	me->start_busy(1);
 	return 1;
 } 
@@ -68,37 +68,37 @@ int do_dianhuo(string arg)
 	me = this_player();
 	ob = this_object();
 	if (!me) return 0;
-	if(!me->query_temp("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/godaliao")) return 0; 
+	if(!me->query_temp("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/godaliao")) return 0; 
 	if (present("liao bing", ob))
-		return notify_fail("ÁÉ±ø¾ÍÔÚÕâÀï£¬ÏÈ½â¾öµôÁÉ±øÔÙËµ¡£\n");
+		return notify_fail("è¾½å…µå°±åœ¨è¿™é‡Œï¼Œå…ˆè§£å†³æ‰è¾½å…µå†è¯´ã€‚\n");
 	if (me->is_busy() || !arg )
-		return notify_fail("ÄãµÈµÈÏëºÃÁËÉÕÊ²Ã´ÔÙËµ¡£\n");    
+		return notify_fail("ä½ ç­‰ç­‰æƒ³å¥½äº†çƒ§ä»€ä¹ˆå†è¯´ã€‚\n");    
 	if (arg!="liang cao" && arg!="liangcao" && arg!="cao" )
-		return notify_fail("ÄãµÈµÈÏëºÃÁËÉÕÊ²Ã´ÔÙËµ¡£\n"); 
-	if(me->query_temp("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/dianhuo"))
-		return notify_fail(HIR"»ğÊÆÒÑ¾­ÉÏÀ´£¬¸Ï¿ìÀë¿ªÕâÀïÈ¥´î¾ÈÏô·å¡£\n"NOR);    
+		return notify_fail("ä½ ç­‰ç­‰æƒ³å¥½äº†çƒ§ä»€ä¹ˆå†è¯´ã€‚\n"); 
+	if(me->query_temp("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/dianhuo"))
+		return notify_fail(HIR"ç«åŠ¿å·²ç»ä¸Šæ¥ï¼Œèµ¶å¿«ç¦»å¼€è¿™é‡Œå»æ­æ•‘è§å³°ã€‚\n"NOR);    
 
-	//Ö»ÄÜÒ»¸öÈË×ö
+	//åªèƒ½ä¸€ä¸ªäººåš
 	obj = users();
 	i = sizeof(obj);
 	while(i--) {
-		if ( obj[i]->query_temp("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/dianhuo") && obj[i]!=me) 
+		if ( obj[i]->query_temp("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/dianhuo") && obj[i]!=me) 
 		{
-			me->delete_temp("quest/ÌìÁú°Ë²¿");
-			me->delete_temp("quest/busy");//ÈÎÎñ³åÍ»±êÖ¾È¡Ïû
-			me->delete("quest/ÌìÁú°Ë²¿/time");
-			me->delete("quest/ÌìÁú°Ë²¿/combat_exp");
+			me->delete_temp("quest/å¤©é¾™å…«éƒ¨");
+			me->delete_temp("quest/busy");//ä»»åŠ¡å†²çªæ ‡å¿—å–æ¶ˆ
+			me->delete("quest/å¤©é¾™å…«éƒ¨/time");
+			me->delete("quest/å¤©é¾™å…«éƒ¨/combat_exp");
 			me->move(__DIR__"shanlu1"); 
-			tell_object(me,HIR"ÒÑ¾­ÓĞ"+obj[i]->query("name")+RANK_D->query_respect(obj[i]) +"µã»ğÓª¾ÈÈ¥ÁË£¬²»ĞèÒªÄãÁË¡£\n"NOR);
-			log_file("quest/TLBB", sprintf("%s(%s)½â¾ÈÏô·åµã»ğ£¬µ«ºÍ%s(%s)³åÍ»Ê§°Ü¡£¾­Ñé£º%d¡£\n", me->name(1),me->query("id"), obj[i]->name(1),obj[i]->query("id"), me->query("combat_exp")) ); 
+			tell_object(me,HIR"å·²ç»æœ‰"+obj[i]->query("name")+RANK_D->query_respect(obj[i]) +"ç‚¹ç«è¥æ•‘å»äº†ï¼Œä¸éœ€è¦ä½ äº†ã€‚\n"NOR);
+			log_file("quest/TLBB", sprintf("%s(%s)è§£æ•‘è§å³°ç‚¹ç«ï¼Œä½†å’Œ%s(%s)å†²çªå¤±è´¥ã€‚ç»éªŒï¼š%dã€‚\n", me->name(1),me->query("id"), obj[i]->name(1),obj[i]->query("id"), me->query("combat_exp")) ); 
 			return 1;  
 		}
 	}
-	message_vision(HIC"\n$NÇÄÇÄ×ªµ½Á¸²İÒõ´¦£¬µãÆğÒ»°Ñ»ğ£¬Ñ¸ËÙ´Üµ½ÁíÍâÒ»¸ö½ÇÂä£¬ÓÃÆõµ¤»°´ó½Ğ£º¡°×ßË®À²£¡×ßË®À²£¡¡±¡£¹ûÈ»£¬ÓªÖĞÁ¢¼´Ò»ÍÅ»ìÂÒ£¬\n"
-		             +"$NÖ»Òª¼ûµ½Ã»ÓĞÁÉ±øµÄµØ·½£¬¾ÍÊÇÒ»°Ñ»ğ£¬ö®Ê±¼äÉÕÆğÁËÆß°Ë¸ö»ğÍ·¡£\n"NOR, me);
-	message_vision(HIY"\n$Nºö¼û¶«±ßÀÇÑÌ³åÌì¶øÆğ£¬ÄÇÕıÊÇÁÉ±ø×·À´µÄÑ¶ºÅ¡£$NĞÄÍ·Ò»Áİ£¬»¹ÊÇ¸Ï¿ìÀë¿ª£¬È¥Óª¾ÈÏô·åµÃºÃ¡£ \n\n"NOR, me);
-	log_file("quest/TLBB", sprintf("%s(%s)´óÁÉµã»ğ³É¹¦¡£¾­Ñé£º%d¡£\n", me->name(1),me->query("id"), me->query("combat_exp")) ); 
-	me->set_temp("quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/dianhuo",1);
+	message_vision(HIC"\n$Næ‚„æ‚„è½¬åˆ°ç²®è‰é˜´å¤„ï¼Œç‚¹èµ·ä¸€æŠŠç«ï¼Œè¿…é€Ÿçªœåˆ°å¦å¤–ä¸€ä¸ªè§’è½ï¼Œç”¨å¥‘ä¸¹è¯å¤§å«ï¼šâ€œèµ°æ°´å•¦ï¼èµ°æ°´å•¦ï¼â€ã€‚æœç„¶ï¼Œè¥ä¸­ç«‹å³ä¸€å›¢æ··ä¹±ï¼Œ\n"
+		             +"$Nåªè¦è§åˆ°æ²¡æœ‰è¾½å…µçš„åœ°æ–¹ï¼Œå°±æ˜¯ä¸€æŠŠç«ï¼Œéœæ—¶é—´çƒ§èµ·äº†ä¸ƒå…«ä¸ªç«å¤´ã€‚\n"NOR, me);
+	message_vision(HIY"\n$Nå¿½è§ä¸œè¾¹ç‹¼çƒŸå†²å¤©è€Œèµ·ï¼Œé‚£æ­£æ˜¯è¾½å…µè¿½æ¥çš„è®¯å·ã€‚$Nå¿ƒå¤´ä¸€å‡›ï¼Œè¿˜æ˜¯èµ¶å¿«ç¦»å¼€ï¼Œå»è¥æ•‘è§å³°å¾—å¥½ã€‚ \n\n"NOR, me);
+	log_file("quest/TLBB", sprintf("%s(%s)å¤§è¾½ç‚¹ç«æˆåŠŸã€‚ç»éªŒï¼š%dã€‚\n", me->name(1),me->query("id"), me->query("combat_exp")) ); 
+	me->set_temp("quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/dianhuo",1);
 	me->start_busy(1);
 	return 1;
 } 

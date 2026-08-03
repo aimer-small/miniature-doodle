@@ -1,4 +1,4 @@
-// art.c ÇÙÆåÊé»­
+// art.c ç´æ£‹ä¹¦ç”»
 // cck 3/7/97
 //cool 10/10/98
 
@@ -12,19 +12,19 @@ string type() { return "knowledge"; }
 int valid_learn(object me)
 {
 	if(me->query_int() < 32)
-		return notify_fail("ÇÙÆåÊé»­ÄËÊÇ¼«Æä·çÑÅÖ®ÊÂ£¬ÄãËÆºõÌ«¹ıÓÚË×ÆøÁËĞ©¡£\n");
+		return notify_fail("ç´æ£‹ä¹¦ç”»ä¹ƒæ˜¯æå…¶é£é›…ä¹‹äº‹ï¼Œä½ ä¼¼ä¹å¤ªè¿‡äºä¿—æ°”äº†äº›ã€‚\n");
         if((int)me->query("shen") < -200000 )
-		return notify_fail("ÄãÉ±ÈËÈçÂé£¬ÌÈÈô²»ÄÜÏÈÆ½Ï¢ÁËĞÄÍ·Ä§Äî£¬ÄÄÀïÓÖ»áÓĞĞÄË¼µ¯ÇÙÏÂÆå£¿\n");
+		return notify_fail("ä½ æ€äººå¦‚éº»ï¼Œå€˜è‹¥ä¸èƒ½å…ˆå¹³æ¯äº†å¿ƒå¤´é­”å¿µï¼Œå“ªé‡Œåˆä¼šæœ‰å¿ƒæ€å¼¹ç´ä¸‹æ£‹ï¼Ÿ\n");
 	if((int)me->query_skill("art", 1) >= 200 )
-		return notify_fail("Äã²»ÄÜÔÙÑ§Ï°ÇÙÆåÊé»­ÁË¡£\n");
+		return notify_fail("ä½ ä¸èƒ½å†å­¦ä¹ ç´æ£‹ä¹¦ç”»äº†ã€‚\n");
 /*
-	if(me->query("family/master_name") != "ºÎ×ãµÀ" )
-		return notify_fail("ÄãÒ»¸öÁ·ÎäµÄ´ÖÈË£¬Ñ§ÕâĞ©Ëá¸¯ÎÄÈËµÄ¶«Î÷¸ÉÊ²Ã´£¿\n");
+	if(me->query("family/master_name") != "ä½•è¶³é“" )
+		return notify_fail("ä½ ä¸€ä¸ªç»ƒæ­¦çš„ç²—äººï¼Œå­¦è¿™äº›é…¸è…æ–‡äººçš„ä¸œè¥¿å¹²ä»€ä¹ˆï¼Ÿ\n");
 */
 	return 1;
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("ÇÙÆåÊé»­Ö»ÄÜ¿¿Ñ§(learn)À´Ìá¸ß¡£\n");
+	return notify_fail("ç´æ£‹ä¹¦ç”»åªèƒ½é å­¦(learn)æ¥æé«˜ã€‚\n");
 }

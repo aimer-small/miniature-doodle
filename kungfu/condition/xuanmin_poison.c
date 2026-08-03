@@ -5,14 +5,14 @@ void extra(object me);
 int update_condition(object me, int duration)
 {
 	if (!me|| me->is_ghost()) return 0;
-	message("vision", HIW +me->name() + "ÃÆºßÒ»Éù£¬È«Éí²ü¶¶£¬Á³É«²Ô°×¡£\n"NOR,
+	message("vision", HIW +me->name() + "é—·å“¼ä¸€å£°ï¼Œå…¨èº«é¢¤æŠ–ï¼Œè„¸è‰²è‹ç™½ã€‚\n"NOR,
 		environment(me), me);
-	tell_object(me, HIW "ÄãÃÆºßÒ»Éù£¬Ææº®ÎŞ±È¡£\n" NOR );
+	tell_object(me, HIW "ä½ é—·å“¼ä¸€å£°ï¼Œå¥‡å¯’æ— æ¯”ã€‚\n" NOR );
 	me->receive_wound("qi", random(20)+50);
 	me->receive_wound("jing", random(20)+50);
 	me->receive_damage("jingli", random(20)+50);
 	me->add("neili", -random(20)-60);
-	me->set_temp("last_damage_from", "ĞşÚ¤ÉñÕÆº®¶¾·¢×÷");
+	me->set_temp("last_damage_from", "ç„å†¥ç¥æŒå¯’æ¯’å‘ä½œ");
 	call_out("extra",5,me);
 	call_out("extra",10,me);
 	call_out("extra",15,me);
@@ -29,12 +29,12 @@ string query_type(object me)
 void extra(object me)
 {
 	if (!me || me->is_ghost()) return 0;
-	message("vision", HIW +me->name() + "ÃÆºßÒ»Éù£¬È«Éí²ü¶¶£¬Á³É«²Ô°×¡£\n"NOR,
+	message("vision", HIW +me->name() + "é—·å“¼ä¸€å£°ï¼Œå…¨èº«é¢¤æŠ–ï¼Œè„¸è‰²è‹ç™½ã€‚\n"NOR,
 		environment(me), me);
-	tell_object(me, HIW "ÄãÃÆºßÒ»Éù£¬Ææº®ÎŞ±È¡£\n" NOR );
+	tell_object(me, HIW "ä½ é—·å“¼ä¸€å£°ï¼Œå¥‡å¯’æ— æ¯”ã€‚\n" NOR );
 	me->receive_wound("qi", random(20)+50);
 	me->receive_wound("jing", random(20)+50);
 	me->receive_damage("jingli", random(20)+50);
-	me->set_temp("last_damage_from", "ĞşÚ¤ÉñÕÆº®¶¾·¢×÷");
+	me->set_temp("last_damage_from", "ç„å†¥ç¥æŒå¯’æ¯’å‘ä½œ");
 	me->add("neili", -random(20)-60);
 }

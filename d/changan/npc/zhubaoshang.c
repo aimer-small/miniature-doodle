@@ -5,12 +5,12 @@ inherit F_VENDOR;
 
 void create()
 {
-        set_name("Öé±¦ÉÌ", ({ "zhubao shang", "shang", "laoban" }));
+        set_name("ç å®å•†", ({ "zhubao shang", "shang", "laoban" }));
         set("shen_type", 1);
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 44);
-        set("long", "ÕâÎ»ÀÏ°åÏÔÈ»ºÜÓĞÇ®£¬ÊÖÉÏ´÷ÂúÁË½ğ½äÖ¸¡£\n");
+        set("long", "è¿™ä½è€æ¿æ˜¾ç„¶å¾ˆæœ‰é’±ï¼Œæ‰‹ä¸Šæˆ´æ»¡äº†é‡‘æˆ’æŒ‡ã€‚\n");
         set_skill("unarmed", 24);
         set_skill("dodge", 21);
         set_temp("apply/damage", 18);

@@ -5,7 +5,7 @@
 
 #include <ansi.h>
 #include <login.h>
-#define SYNTAX  "Ö¸Áî¸ñÊ½£ºcatch <Ä³ÈË> because <Ô­Òò> <·ÖÖÓ>\n"
+#define SYNTAX  "æŒ‡ä»¤æ ¼å¼ï¼šcatch <æŸäºº> because <åŸå› > <åˆ†é’Ÿ>\n"
 
 inherit F_CLEAN_UP;
 
@@ -21,62 +21,62 @@ int main(object me, string str)
 		  return notify_fail(SYNTAX);
 
 	if (!objectp(ob = LOGIN_D->find_body(name)))
-		  return notify_fail("Õâ¸ö...Õâ¸ö... ÓĞÕâ¸öÈËÂğ?\n");
+		  return notify_fail("è¿™ä¸ª...è¿™ä¸ª... æœ‰è¿™ä¸ªäººå—?\n");
 
 	if (wiz_level(ob))
-		  return notify_fail("¶Ô·½ÊÇ¹²Í¬·Ü¶·µÄÕ½ÓÑàŞ£¬ÄãÕâÑù×ö²»Ì«ºÃ°É£¿\n");
+		  return notify_fail("å¯¹æ–¹æ˜¯å…±åŒå¥‹æ–—çš„æˆ˜å‹å™¢ï¼Œä½ è¿™æ ·åšä¸å¤ªå¥½å§ï¼Ÿ\n");
 
 	if (!objectp(where = environment(ob)))
-		  return notify_fail("Õâ¸öÈË²»ÖªµÀ¶ãÔÚÄÄÀïÒ®... :-( \n");
+		  return notify_fail("è¿™ä¸ªäººä¸çŸ¥é“èº²åœ¨å“ªé‡Œè€¶... :-( \n");
 
 	if (file_name(where) == RELAX_ROOM)
-		  return notify_fail("ËûÒÑ¾­ÔÚÌÒ»¨Ô´Ë¼¹ıÁË£¬²»ÓÃÔÙ×¥ÁË¡£\n");
+		  return notify_fail("ä»–å·²ç»åœ¨æ¡ƒèŠ±æºæ€è¿‡äº†ï¼Œä¸ç”¨å†æŠ“äº†ã€‚\n");
 
 	if (base_name(ob) == "/cmds/leitai/leitaiuser")
-		return notify_fail(ob->name() + "ÕâÈËÊÇ±ÈÎäÀŞÌ¨Clone³öÀ´µÄ£¬ÔÚÀŞÌ¨ÄÚÈÃËûÀë¿ª¾ÍÊÇÁË¡£\n");
+		return notify_fail(ob->name() + "è¿™äººæ˜¯æ¯”æ­¦æ“‚å°Cloneå‡ºæ¥çš„ï¼Œåœ¨æ“‚å°å†…è®©ä»–ç¦»å¼€å°±æ˜¯äº†ã€‚\n");
 
-	tell_room(where, MAG"Ìì¿ÕÖĞÆ®ÂäÁ½Î»ÃÀÃ²ÏÉÅ®£¬·öÆğ"+ob->query("name")+MAG"ÌÚ¿Õ¶øÈ¥ÁË¡£\n"NOR, ob);
-	tell_object(ob, MAG"Á½Î»ÃÀÃ²ÏÉÅ®³öÏÖÔÚÄãÑÛÇ°£¬·ö×ÅÄã»º»ºÆ®ÁËÆğÀ´....\n"NOR);
+	tell_room(where, MAG"å¤©ç©ºä¸­é£˜è½ä¸¤ä½ç¾è²Œä»™å¥³ï¼Œæ‰¶èµ·"+ob->query("name")+MAG"è…¾ç©ºè€Œå»äº†ã€‚\n"NOR, ob);
+	tell_object(ob, MAG"ä¸¤ä½ç¾è²Œä»™å¥³å‡ºç°åœ¨ä½ çœ¼å‰ï¼Œæ‰¶ç€ä½ ç¼“ç¼“é£˜äº†èµ·æ¥....\n"NOR);
 
-	tell_object(ob, "ÄúÒòÎª£Û" + reason + "£İ£¬Î¥·´Êé½£ÓÎÏ·¹æÔò£¬¾ö¶¨¸øÓè¹Ø½û±ÕÓÚÌÒ»¨Ô´" + CHINESE_D->chinese_number(times) + "·ÖÖÓµÄ´¦·£¡£\n"
+	tell_object(ob, "æ‚¨å› ä¸ºï¼»" + reason + "ï¼½ï¼Œè¿åä¹¦å‰‘æ¸¸æˆè§„åˆ™ï¼Œå†³å®šç»™äºˆå…³ç¦é—­äºæ¡ƒèŠ±æº" + CHINESE_D->chinese_number(times) + "åˆ†é’Ÿçš„å¤„ç½šã€‚\n"
 	);
 
-	message("channel", HIC "\n¡¾¼ÍÂÉ¡¿"+ob->query("name")
+	message("channel", HIC "\nã€çºªå¾‹ã€‘"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")ÒòÎª£Û" + reason + "£İ£¬Î¥·´Êé½£ÓÎÏ·¹æÔò£¬¾ö¶¨¸øÓè¹Ø½û±Õ"
-		"ÓÚÌÒ»¨Ô´" + CHINESE_D->chinese_time(times*60) + "µÄ´¦·£¡£\n\n" NOR, users()
+		+")å› ä¸ºï¼»" + reason + "ï¼½ï¼Œè¿åä¹¦å‰‘æ¸¸æˆè§„åˆ™ï¼Œå†³å®šç»™äºˆå…³ç¦é—­"
+		"äºæ¡ƒèŠ±æº" + CHINESE_D->chinese_time(times*60) + "çš„å¤„ç½šã€‚\n\n" NOR, users()
 	);
 	
-	note = (["title":"½û±ÕÍæ¼Ò"+ob->query("name")
+	note = (["title":"ç¦é—­ç©å®¶"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")´¦Àí¹«¸æ",
+		+")å¤„ç†å…¬å‘Š",
 		"author":me->query("name") + "(" + getuid(me) + ")",
 		"time":0,
 		"msg":0,]);
-	"/clone/board/wizto_b"->done_post(this_object(),note,"¡¾¼ÍÂÉ¡¿"+ob->query("name")
+	"/clone/board/wizto_b"->done_post(this_object(),note,"ã€çºªå¾‹ã€‘"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")ÒòÎª£Û" + reason + "£İ£¬Î¥·´Êé½£ÓÎÏ·¹æÔò£¬¾ö¶¨¸øÓè¹Ø½û±Õ"
-		"ÓÚÌÒ»¨Ô´" + CHINESE_D->chinese_time(times*60) + "µÄ´¦·£¡£\n");
+		+")å› ä¸ºï¼»" + reason + "ï¼½ï¼Œè¿åä¹¦å‰‘æ¸¸æˆè§„åˆ™ï¼Œå†³å®šç»™äºˆå…³ç¦é—­"
+		"äºæ¡ƒèŠ±æº" + CHINESE_D->chinese_time(times*60) + "çš„å¤„ç½šã€‚\n");
 		
-	//´¦·£¹«¿ª£¬POST×¨ÃÅÁôÑÔ°å
+	//å¤„ç½šå…¬å¼€ï¼ŒPOSTä¸“é—¨ç•™è¨€æ¿
 	/*
-	"/clone/board/wizto_b"->auto_post("½û±ÕÍæ¼Ò"+ob->query("name")
+	"/clone/board/wizto_b"->auto_post("ç¦é—­ç©å®¶"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")´¦Àí¹«¸æ","¡¾¼ÍÂÉ¡¿"+ob->query("name")
+		+")å¤„ç†å…¬å‘Š","ã€çºªå¾‹ã€‘"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")ÒòÎª£Û" + reason + "£İ£¬Î¥·´Êé½£ÓÎÏ·¹æÔò£¬¾ö¶¨¸øÓè¹Ø½û±Õ"
-		"ÓÚÌÒ»¨Ô´" + CHINESE_D->chinese_time(times*60) + "µÄ´¦·£¡£\n");
+		+")å› ä¸ºï¼»" + reason + "ï¼½ï¼Œè¿åä¹¦å‰‘æ¸¸æˆè§„åˆ™ï¼Œå†³å®šç»™äºˆå…³ç¦é—­"
+		"äºæ¡ƒèŠ±æº" + CHINESE_D->chinese_time(times*60) + "çš„å¤„ç½šã€‚\n");
 	*/
 			
         ob->add_condition("relax", times*6);
 	ob->set("relax_timeout_room", file_name(where));
 	ob->move(RELAX_ROOM);
 
-	tell_object(me, "Äã°Ñ"+ob->query("name")+"×¥µ½ÁËÌÒ»¨Ô´¡£\n");
-	tell_room(environment(ob), MAG"Á½Î»ÏÉÅ®·ö×Å"+ob->name()+MAG"Æ®À´£¬½«"+ob->name()+MAG"ÇáÇá·ÅÔÚÕâÀï¡£\n"NOR, ob);
+	tell_object(me, "ä½ æŠŠ"+ob->query("name")+"æŠ“åˆ°äº†æ¡ƒèŠ±æºã€‚\n");
+	tell_room(environment(ob), MAG"ä¸¤ä½ä»™å¥³æ‰¶ç€"+ob->name()+MAG"é£˜æ¥ï¼Œå°†"+ob->name()+MAG"è½»è½»æ”¾åœ¨è¿™é‡Œã€‚\n"NOR, ob);
 
 	log_file("static/CATCH",
-		sprintf("%s ÒòÎª [%s] ±» %s(%s) ×¥µ½ÌÒ»¨Ô´¡£½û±ÕÊ±¼ä %d ·ÖÖÓ¡£\n",
+		sprintf("%s å› ä¸º [%s] è¢« %s(%s) æŠ“åˆ°æ¡ƒèŠ±æºã€‚ç¦é—­æ—¶é—´ %d åˆ†é’Ÿã€‚\n",
 			name, reason, (string)me->query("name"),me->query("id"), times
 		), ob, ({ me })
 	);
@@ -94,11 +94,11 @@ string query(string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : catch <Ä³ÈË> because <Ô­Òò> <·ÖÖÓ>
+æŒ‡ä»¤æ ¼å¼ : catch <æŸäºº> because <åŸå› > <åˆ†é’Ÿ>
 
-´ËÖ¸Áî¿ÉÈÃÄã½«Ä³¸öÎ¥·´¹æÔòµÄÍæ¼ÒÒÆËÍµ½ÌÒ»¨Ô´¡£
-½û±ÕÊ±¼äµ½ºó×Ô¶¯ÊÍ·Å¡£
-·¸¹æ´ÎÊı×Ô¶¯ÀÛ¼Ó¡£
+æ­¤æŒ‡ä»¤å¯è®©ä½ å°†æŸä¸ªè¿åè§„åˆ™çš„ç©å®¶ç§»é€åˆ°æ¡ƒèŠ±æºã€‚
+ç¦é—­æ—¶é—´åˆ°åè‡ªåŠ¨é‡Šæ”¾ã€‚
+çŠ¯è§„æ¬¡æ•°è‡ªåŠ¨ç´¯åŠ ã€‚
 HELP
     );
     return 1;

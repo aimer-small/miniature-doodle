@@ -1,17 +1,17 @@
-// Room: kongdi2.c ¿ÕµØ
+// Room: kongdi2.c ç©ºåœ°
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "¿ÕµØ");
+	set("short", "ç©ºåœ°");
 	set("long", @LONG
-Õâ¶ùÊÇĞÓ×ÓÁÖÖĞ¼äµÄÒ»Æ¬¿ÕµØ¡£ËÄÖÜµÄÊ÷ÉÏ¹Ò×ÅÒ»¸ö¸öÖñÂ¨£¬ÀïÃæÓĞºÜ¶à¶¾Éß
-ÔÚÈä¶¯£¬Ò»¸öÀÏÆòØ¤×øÔÚµØÉÏÊÖÀïÄÃ×ÅÌõÉß¡£Ø¤°ïµÜ×Ó¿ÉÒÔÔÚÕâÀïÎÊ³Â³¤ÀÏÓĞ
-¹Ø×¥ÉßµÄÊÂ¡£
+è¿™å„¿æ˜¯æå­æ—ä¸­é—´çš„ä¸€ç‰‡ç©ºåœ°ã€‚å››å‘¨çš„æ ‘ä¸ŠæŒ‚ç€ä¸€ä¸ªä¸ªç«¹ç¯“ï¼Œé‡Œé¢æœ‰å¾ˆå¤šæ¯’è›‡
+åœ¨è •åŠ¨ï¼Œä¸€ä¸ªè€ä¹ä¸ååœ¨åœ°ä¸Šæ‰‹é‡Œæ‹¿ç€æ¡è›‡ã€‚ä¸å¸®å¼Ÿå­å¯ä»¥åœ¨è¿™é‡Œé—®é™ˆé•¿è€æœ‰
+å…³æŠ“è›‡çš„äº‹ã€‚
 LONG
 	);
-	set("outdoors", "ËÕÖİ");
+	set("outdoors", "è‹å·");
 
 	set("exits", ([
 		"east" : __DIR__"xinglin9",
@@ -28,12 +28,12 @@ void init()
 {
 	object me = this_player();
 	if ( me->query("snake_job")){
-		me->add("job_time/×¥Éß", me->query("snake_job"));
+		me->add("job_time/æŠ“è›‡", me->query("snake_job"));
 		me->delete("snake_job");
 	}
-	if( me->query("job_time/Ø¤°ï×½Éß") )
+	if( me->query("job_time/ä¸å¸®æ‰è›‡") )
 	{
-		me->add("job_time/×¥Éß", me->query("job_time/Ø¤°ï×½Éß") );
-		me->delete("job_time/Ø¤°ï×½Éß");
+		me->add("job_time/æŠ“è›‡", me->query("job_time/ä¸å¸®æ‰è›‡") );
+		me->delete("job_time/ä¸å¸®æ‰è›‡");
 	}
 }

@@ -1,4 +1,4 @@
-// chan.c ÌìÄ§²øÉí
+// chan.c å¤©é­”ç¼ èº«
 
 #include <ansi.h>
 
@@ -16,44 +16,44 @@ int perform(object me, object target)
          || !me->is_fighting(target)
          || !objectp(target)
          || environment(target)!= environment(me))
-                return notify_fail("¡¸ÌìÄ§²øÉí¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œå¤©é­”ç¼ èº«ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if (! objectp(weapon = me->query_temp("weapon")) ||
             (string)weapon->query("skill_type") != "sword")
-                return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+                return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 
         if (target->is_busy())
-                return notify_fail(target->name() + "Ä¿Ç°Õı×Ô¹Ë²»Ï¾£¬·Åµ¨¹¥»÷°É£¡\n");
+                return notify_fail(target->name() + "ç›®å‰æ­£è‡ªé¡¾ä¸æš‡ï¼Œæ”¾èƒ†æ”»å‡»å§ï¼\n");
 
         if (!living(target))
-                return notify_fail("¶Ô·½ÒÑ¾­²»ÄÜÕ½¶·ÁË£¡\n");
+                return notify_fail("å¯¹æ–¹å·²ç»ä¸èƒ½æˆ˜æ–—äº†ï¼\n");
 
         if ((level = me->query_skill("tianmo-jian", 1)) < 160)
-                return notify_fail("ÄãµÄÌìÄ§½£·¨²»¹»æµÊì£¬²»»áÊ¹ÓÃ¡¸ÌìÄ§²øÉí¡¹¡£\n");
+                return notify_fail("ä½ çš„å¤©é­”å‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ã€Œå¤©é­”ç¼ èº«ã€ã€‚\n");
 
         if (me->query("neili") < 80)
-                return notify_fail("ÄãÏÖÔÚÕæÆø²»¹»£¬ÎŞ·¨Ê¹ÓÃ¡¸ÌìÄ§²øÉí¡¹¡£\n");
+                return notify_fail("ä½ ç°åœ¨çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨ã€Œå¤©é­”ç¼ èº«ã€ã€‚\n");
 
-        msg = HIM "$N" HIM "Ê¹³öÌìÄ§½£·¨¡¸ÌìÄ§²øÉí¡¹£¬Ä¬ÔË¿Ú¾÷£¬½«ÊÖÖĞ"
-              + weapon->name() + HIM "Ò»¶¶£¬Á¢Ê±·¢³öÒ»ÕóÉãÈËĞÄ»êµÄÉùÒô¡£\n" NOR;
+        msg = HIM "$N" HIM "ä½¿å‡ºå¤©é­”å‰‘æ³•ã€Œå¤©é­”ç¼ èº«ã€ï¼Œé»˜è¿å£è¯€ï¼Œå°†æ‰‹ä¸­"
+              + weapon->name() + HIM "ä¸€æŠ–ï¼Œç«‹æ—¶å‘å‡ºä¸€é˜µæ‘„äººå¿ƒé­‚çš„å£°éŸ³ã€‚\n" NOR;
 
         me->add("neili", -60);
         if (random(level) > (int)target->query_skill("parry", 1) /3)
         {
-                msg += HIR "½á¹û$p" HIR "¶Ù¾õÉñÖÇ²»¶¨£¬ĞÄÔïÒâÂÒ£¬"
-                       "È«È»²»ÖªÉíÔÚºÎ´¦£¬´ôÁ¢µ±³¡£¡\n" NOR;
+                msg += HIR "ç»“æœ$p" HIR "é¡¿è§‰ç¥æ™ºä¸å®šï¼Œå¿ƒç‡¥æ„ä¹±ï¼Œ"
+                       "å…¨ç„¶ä¸çŸ¥èº«åœ¨ä½•å¤„ï¼Œå‘†ç«‹å½“åœºï¼\n" NOR;
                 b = level / 20;
                 if (b > 6)   b = 6;
                 target->start_busy(b);
                 me->start_busy(1);
         } else
         {
-                msg += CYN "¿ÉÊÇ$p" CYN "¿´ÆÆÁË$P" CYN "µÄÆóÍ¼£¬Á¬Ã¦"
-                       "ÔË¹¦½«"+ weapon->name() + CYN "µ²ÁË¿ªÈ¥£¬³ÃÊÆÁ¬¹¥ÊıÕĞ¡£\n" NOR;
+                msg += CYN "å¯æ˜¯$p" CYN "çœ‹ç ´äº†$P" CYN "çš„ä¼å›¾ï¼Œè¿å¿™"
+                       "è¿åŠŸå°†"+ weapon->name() + CYN "æŒ¡äº†å¼€å»ï¼Œè¶åŠ¿è¿æ”»æ•°æ‹›ã€‚\n" NOR;
                 me->start_busy(3);
         }
         message_combatd(msg, me, target);
- me->start_perform(3, "¡¸ÌìÄ§²øÉí¡¹");
+ me->start_perform(3, "ã€Œå¤©é­”ç¼ èº«ã€");
 
         return 1;
 }

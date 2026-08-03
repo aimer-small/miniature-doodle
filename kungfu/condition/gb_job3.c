@@ -4,10 +4,10 @@ int update_condition(object me, int duration)
 {
 	if( file_name(environment(me)) == "/d/xiangyang/xuanwumen" 
 	&& me->query_temp("gb_job3") ) {
-		message_vision(CYN"Ò×´ó±ë×ßÁË¹ıÀ´¶Ô$NËµµÀ£ºÇëËæÎÒÀ´¡£\n"NOR,me);
-		write( "\nÒ×´ó±ë´ø×ÅÄã»ì¹ıÁËÃÉ¹Å´ó¾üµÄ¼¸µÀ¸ÚÉÚ£¬À´µ½ÖĞ¾üÓªÇ°¡£\n"+
-			CYN"Ò×´ó±ë¶ÔÄãÇÄÉùËµµ½£ºÎÒ·ÇÖĞ¾üÊ¿±ø£¬ÎŞ·¨ÈëÄÚ£¬ÒÔºó¾Í¿´ÄãµÄÁË¡£ËµÍê×ªÉí×ß¿ªÁË¡£\n"NOR);
-		log_file("job/zhongjun", sprintf("%8s%-10s¿ªÊ¼×ö´ÌÉ±µĞÔªË§ÈÎÎñ£¬ÏÖÔÚµÄ¾­ÑéÊÇ£º%d¡£", 
+		message_vision(CYN"æ˜“å¤§å½ªèµ°äº†è¿‡æ¥å¯¹$Nè¯´é“ï¼šè¯·éšæˆ‘æ¥ã€‚\n"NOR,me);
+		write( "\næ˜“å¤§å½ªå¸¦ç€ä½ æ··è¿‡äº†è’™å¤å¤§å†›çš„å‡ é“å²—å“¨ï¼Œæ¥åˆ°ä¸­å†›è¥å‰ã€‚\n"+
+			CYN"æ˜“å¤§å½ªå¯¹ä½ æ‚„å£°è¯´åˆ°ï¼šæˆ‘éä¸­å†›å£«å…µï¼Œæ— æ³•å…¥å†…ï¼Œä»¥åå°±çœ‹ä½ çš„äº†ã€‚è¯´å®Œè½¬èº«èµ°å¼€äº†ã€‚\n"NOR);
+		log_file("job/zhongjun", sprintf("%8s%-10så¼€å§‹åšåˆºæ€æ•Œå…ƒå¸…ä»»åŠ¡ï¼Œç°åœ¨çš„ç»éªŒæ˜¯ï¼š%dã€‚", 
 			me->name(), "("+me->query("id")+")", me->query("combat_exp")), me);
 		me->move("/d/gb/zhongjun1");
 		me->set_temp("gb_job3_enter",1);
@@ -25,7 +25,7 @@ int update_condition(object me, int duration)
 
 	if( duration < 2 ){
 		if( me->query_temp("gb_job3_enter") ){
-			message_vision(HIC"\n$N¼ûµĞÈËÔ½À´Ô½¶à£¬ÇéÖª½ñÈÕÄÑÒÔ³É¹¦£¬ÇĞÕ½ÇÒ×ß£¬×ÜËã³å³öÁË°üÎ§¡£\n" NOR, me );
+			message_vision(HIC"\n$Nè§æ•Œäººè¶Šæ¥è¶Šå¤šï¼Œæƒ…çŸ¥ä»Šæ—¥éš¾ä»¥æˆåŠŸï¼Œåˆ‡æˆ˜ä¸”èµ°ï¼Œæ€»ç®—å†²å‡ºäº†åŒ…å›´ã€‚\n" NOR, me );
 			me->move("/d/xiangyang/xuanwumen.c");
 			me->delete_temp("gb_job3");
 			me->delete_temp("gb_job3_enter");
@@ -35,7 +35,7 @@ int update_condition(object me, int duration)
 			me->apply_condition("job_busy",10);
 		}
 		else if(me->query_temp("gb_job3"))
-			write(HIY "ÄãÊ±¼äÒÑ¹ı£¬ÈÎÎñÊ§°Ü¡£\n" );
+			write(HIY "ä½ æ—¶é—´å·²è¿‡ï¼Œä»»åŠ¡å¤±è´¥ã€‚\n" );
 		return 0;
 	}
 	return 1;

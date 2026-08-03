@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "»ØÀÈ");
+	set("short", "å›å»Š");
 	set("long", @LONG
-Ò»ÌõÁ¬½Ó´óÌüºÍÄÚÊÒµÄ»ØÀÈ¡£
+ä¸€æ¡è¿æ¥å¤§å…å’Œå†…å®¤çš„å›å»Šã€‚
 LONG
 	);
 	set("no_clean_up", 0);
-	set("outdoors","ÌÒ»¨µº");
+	set("outdoors","æ¡ƒèŠ±å²›");
 
 	set("exits", ([
 		"north": __DIR__"neishi1.c",

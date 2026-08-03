@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIR"³å³µ"NOR, ({ "chong che", "che", "cart"}) );
+	set_name(HIR"å†²è½¦"NOR, ({ "chong che", "che", "cart"}) );
 	set_weight(300000);
 	set("no_get", 1);
 	set("no_get_from", 1);
 	set_max_encumbrance(80000);
-	set("unit", "Á¾");
-	set("long", "Ò»Á¾ºÚÆáÆáµÄºñÖØ³å³µ£¬×¨ÃÅ³å»÷³ÇÃÅ¶øÓÃ¡£\n");
+	set("unit", "è¾†");
+	set("long", "ä¸€è¾†é»‘æ¼†æ¼†çš„åŽšé‡å†²è½¦ï¼Œä¸“é—¨å†²å‡»åŸŽé—¨è€Œç”¨ã€‚\n");
 	set("closed", 1);
 	set("value", 2000);
 	set("location",1);
@@ -32,49 +32,49 @@ string dirname;
 string dir, roomfile, newroomfile;
 
 if( me->is_busy() || me->is_fighting())
-return notify_fail("ÄãÏÖÔÚÃ¦µÃºÜ£¬²»ÄÜÖ¸»Ó³å³µÇ°½ø¡£\n");
+return notify_fail("ä½ çŽ°åœ¨å¿™å¾—å¾ˆï¼Œä¸èƒ½æŒ‡æŒ¥å†²è½¦å‰è¿›ã€‚\n");
 if (query_temp("busy/"+me->query("id")))
-		return notify_fail("³å³µÐÐ½øËÙ¶ÈºÜÂý£¬µÈµÈ°É¡£\n");
+		return notify_fail("å†²è½¦è¡Œè¿›é€Ÿåº¦å¾ˆæ…¢ï¼Œç­‰ç­‰å§ã€‚\n");
 if(query("make") != me->query("id"))
-return notify_fail("ÕâÁ½³å³µ²»ÊÇÓÉÄã²Ù×ÝµÄ¡£\n");
+return notify_fail("è¿™ä¸¤å†²è½¦ä¸æ˜¯ç”±ä½ æ“çºµçš„ã€‚\n");
 
 room = environment(cart);
 
 	roomfile = file_name(room);
 
 switch(arg) {
-		case "e":	dir="east";		dirname="¶«Ãæ";		break;
-		case "w":	dir="west";		dirname="Î÷Ãæ";		break;
-		case "n":	dir="north";		dirname="±±Ãæ";		break;
-		case "s":	dir="south";		dirname="ÄÏÃæ";		break;
-		case "ne":	dir="northeast";	dirname="¶«±±";		break;
-		case "nw":	dir="northwest";	dirname="Î÷±±";		break;
-		case "se":	dir="southeast";	dirname="¶«ÄÏ";		break;
-		case "sw":	dir="southwest";	dirname="Î÷ÄÏ";		break;
-		case "u":	dir="up";		dirname="ÉÏÃæ";		break;
-		case "up":	dir="up";		dirname="ÉÏÃæ";		break;
-		case "d":	dir="down";		dirname="ÏÂÃæ";		break;
-		case "down":	dir="down";		dirname="ÏÂÃæ";		break;
-		case "nu":	dir="northup";		dirname="±±±ß";		break;
-		case "eu":	dir="eastup";		dirname="¶«±ß";		break;
-		case "su":	dir="southup";		dirname="ÄÏ±ß";		break;
-		case "wu":	dir="westup";		dirname="Î÷±ß";		break;
-		case "nd":	dir="northdown";	dirname="±±±ß";		break;
-		case "ed":	dir="eastdown";		dirname="¶«±ß";		break;
-		case "sd":	dir="southdown";	dirname="ÄÏ±ß";		break;
-		case "wd":	dir="westdown";		dirname="Î÷±ß";		break;
-		case "enter":	dir="enter";		dirname="ÀïÃæ";		break;
-		case "out":	dir="out";		dirname="ÍâÃæ";		break;
-		default:	dir=arg;		dirname="Ò»±ß";		break;
+		case "e":	dir="east";		dirname="ä¸œé¢";		break;
+		case "w":	dir="west";		dirname="è¥¿é¢";		break;
+		case "n":	dir="north";		dirname="åŒ—é¢";		break;
+		case "s":	dir="south";		dirname="å—é¢";		break;
+		case "ne":	dir="northeast";	dirname="ä¸œåŒ—";		break;
+		case "nw":	dir="northwest";	dirname="è¥¿åŒ—";		break;
+		case "se":	dir="southeast";	dirname="ä¸œå—";		break;
+		case "sw":	dir="southwest";	dirname="è¥¿å—";		break;
+		case "u":	dir="up";		dirname="ä¸Šé¢";		break;
+		case "up":	dir="up";		dirname="ä¸Šé¢";		break;
+		case "d":	dir="down";		dirname="ä¸‹é¢";		break;
+		case "down":	dir="down";		dirname="ä¸‹é¢";		break;
+		case "nu":	dir="northup";		dirname="åŒ—è¾¹";		break;
+		case "eu":	dir="eastup";		dirname="ä¸œè¾¹";		break;
+		case "su":	dir="southup";		dirname="å—è¾¹";		break;
+		case "wu":	dir="westup";		dirname="è¥¿è¾¹";		break;
+		case "nd":	dir="northdown";	dirname="åŒ—è¾¹";		break;
+		case "ed":	dir="eastdown";		dirname="ä¸œè¾¹";		break;
+		case "sd":	dir="southdown";	dirname="å—è¾¹";		break;
+		case "wd":	dir="westdown";		dirname="è¥¿è¾¹";		break;
+		case "enter":	dir="enter";		dirname="é‡Œé¢";		break;
+		case "out":	dir="out";		dirname="å¤–é¢";		break;
+		default:	dir=arg;		dirname="ä¸€è¾¹";		break;
 	}
 	if(!room || !room->query("exits/"+dir))
-		return notify_fail("ÄãÒªÍùÄÄÀïÈ¥£¿\n");
+		return notify_fail("ä½ è¦å¾€å“ªé‡ŒåŽ»ï¼Ÿ\n");
 
 newroomfile=room->query("exits/"+dir);
 
 if(!objectp(newroom=find_object(newroomfile))) newroom=load_object(newroomfile);
 
-	message_vision(HIW"³å³µÔÚ$NµÄÇýÊ¹ÏÂ»º»ºµØÍù"+dirname+"µÄ"+newroom->query("short")+HIW"ÀëÈ¥ÁË¡£\n"NOR, me);
+	message_vision(HIW"å†²è½¦åœ¨$Nçš„é©±ä½¿ä¸‹ç¼“ç¼“åœ°å¾€"+dirname+"çš„"+newroom->query("short")+HIW"ç¦»åŽ»äº†ã€‚\n"NOR, me);
 
 	move(newroom);
 me->start_busy(random(3));
@@ -88,18 +88,18 @@ object cart = this_object();
 object obj;
 if(!arg || !objectp(obj = present(arg, environment(me))))
 		
-return notify_fail("ÄãÒªÈÃ³å³µÈ¥³å×²Ê²Ã´£¿\n");
+return notify_fail("ä½ è¦è®©å†²è½¦åŽ»å†²æ’žä»€ä¹ˆï¼Ÿ\n");
 if(!obj->query("defend"))
-return notify_fail("Õâ¶«Î÷ÓÃµÃ×Å³å³µÃ´£¿\n");
+return notify_fail("è¿™ä¸œè¥¿ç”¨å¾—ç€å†²è½¦ä¹ˆï¼Ÿ\n");
 
 if( me->is_busy() || me->is_fighting())
-return notify_fail("ÄãÏÖÔÚÃ¦µÃºÜ£¬²»ÄÜÖ¸»Ó³å³µ³å×²¡£\n");
+return notify_fail("ä½ çŽ°åœ¨å¿™å¾—å¾ˆï¼Œä¸èƒ½æŒ‡æŒ¥å†²è½¦å†²æ’žã€‚\n");
 if(query("make") != me->query("id"))
-return notify_fail("ÕâÁ½³å³µ²»ÊÇÓÉÄã²Ù×ÝµÄ¡£\n");
-message_vision(YEL"$NÖ¸»Ó×Å³å³µÃÍÁÒµØÍù"+obj->query("name")+YEL"×²È¥£¬·¢³öºäºäµÄ¾ÞÏì£¬Ò»Ê±¼ä³¾ÍÁ·ÉÑï¡£\n"NOR, me);
+return notify_fail("è¿™ä¸¤å†²è½¦ä¸æ˜¯ç”±ä½ æ“çºµçš„ã€‚\n");
+message_vision(YEL"$NæŒ‡æŒ¥ç€å†²è½¦çŒ›çƒˆåœ°å¾€"+obj->query("name")+YEL"æ’žåŽ»ï¼Œå‘å‡ºè½°è½°çš„å·¨å“ï¼Œä¸€æ—¶é—´å°˜åœŸé£žæ‰¬ã€‚\n"NOR, me);
 
 obj->add("defend",-random(10));
-message_vision(YEL""+obj->query("name")+YEL"µÄ¼á¹Ì»¹ÓÐ"+obj->query("defend")+"¡£\n"NOR, me);
+message_vision(YEL""+obj->query("name")+YEL"çš„åšå›ºè¿˜æœ‰"+obj->query("defend")+"ã€‚\n"NOR, me);
 me->start_busy(random(3));
 
 if(obj->query("defend") <= 0 )
@@ -107,7 +107,7 @@ if(obj->query("defend") <= 0 )
 if(obj->query("id") == "baihu chengmen")
 {
 obj->delete("defend");
-message_vision(YEL""+obj->query("name")+YEL"ÔÙÒ²½ûÊÜ²»×¡³å³µµÄ×²»÷£¬»©À²Ò»ÉùËúÁË¡£\n"NOR, me);
+message_vision(YEL""+obj->query("name")+YEL"å†ä¹Ÿç¦å—ä¸ä½å†²è½¦çš„æ’žå‡»ï¼Œå“—å•¦ä¸€å£°å¡Œäº†ã€‚\n"NOR, me);
 destruct(obj);
 "adm/daemons/xyjobd"->xy_attackbh();
 
@@ -115,7 +115,7 @@ destruct(obj);
 else if(obj->query("id") == "qinglong chengmen")
 {
 obj->delete("defend");
-message_vision(YEL""+obj->query("name")+YEL"ÔÙÒ²½ûÊÜ²»×¡³å³µµÄ×²»÷£¬»©À²Ò»ÉùËúÁË¡£\n"NOR, me);
+message_vision(YEL""+obj->query("name")+YEL"å†ä¹Ÿç¦å—ä¸ä½å†²è½¦çš„æ’žå‡»ï¼Œå“—å•¦ä¸€å£°å¡Œäº†ã€‚\n"NOR, me);
 destruct(obj);
 "adm/daemons/xyjobd"->xy_attackql();
 
@@ -123,7 +123,7 @@ destruct(obj);
 else if(obj->query("id") == "zhuque chengmen")
 {
 obj->delete("defend");
-message_vision(YEL""+obj->query("name")+YEL"ÔÙÒ²½ûÊÜ²»×¡³å³µµÄ×²»÷£¬»©À²Ò»ÉùËúÁË¡£\n"NOR, me);
+message_vision(YEL""+obj->query("name")+YEL"å†ä¹Ÿç¦å—ä¸ä½å†²è½¦çš„æ’žå‡»ï¼Œå“—å•¦ä¸€å£°å¡Œäº†ã€‚\n"NOR, me);
 destruct(obj);
 "adm/daemons/xyjobd"->xy_attackzq();
 
@@ -131,7 +131,7 @@ destruct(obj);
 else if(obj->query("id") == "xuanwu chengmen")
 {
 obj->delete("defend");
-message_vision(YEL""+obj->query("name")+YEL"ÔÙÒ²½ûÊÜ²»×¡³å³µµÄ×²»÷£¬»©À²Ò»ÉùËúÁË¡£\n"NOR, me);
+message_vision(YEL""+obj->query("name")+YEL"å†ä¹Ÿç¦å—ä¸ä½å†²è½¦çš„æ’žå‡»ï¼Œå“—å•¦ä¸€å£°å¡Œäº†ã€‚\n"NOR, me);
 destruct(obj);
 "adm/daemons/xyjobd"->xy_attackxw();
 

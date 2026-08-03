@@ -1,19 +1,19 @@
 // hulmws.c
-// »ÆÁúÃÅÎÔÊÒ
+// é»„é¾™é—¨å§å®¤
 inherit ROOM;
 void create()
 {
-	set("short","ÎÔÊÒ");
+	set("short","å§å®¤");
 	set("long",@long
-´Ë´¦ÊÇ»ÆÁúÃÅµÄÎÔÊÒ£¬ÎİÖĞµÄ²¼ÖÃºÜ¼òµ¥£¬Ö»ÓĞ¼¸Ö»´ó´²¿¿Ç½·Å×Å£¬
-¹©±¾ÃÅ½ÌÖÚĞİÏ¢Ö®ÓÃ¡£
+æ­¤å¤„æ˜¯é»„é¾™é—¨çš„å§å®¤ï¼Œå±‹ä¸­çš„å¸ƒç½®å¾ˆç®€å•ï¼Œåªæœ‰å‡ åªå¤§åºŠé å¢™æ”¾ç€ï¼Œ
+ä¾›æœ¬é—¨æ•™ä¼—ä¼‘æ¯ä¹‹ç”¨ã€‚
 long);
 	set("exits",([
 	    "west" : __DIR__"hulm",
 ]));
       set("sleep_room", 1);
       set("no_fight",1);
-//create_door("west", "Ğ¡ÃÅ", "east", DOOR_CLOSED);
+//create_door("west", "å°é—¨", "east", DOOR_CLOSED);
       set("coor/x",510);
   set("coor/y",440);
    set("coor/z",70);

@@ -1,5 +1,5 @@
-// wofo.c yizhi-chan perform ğ§ÒÀÎÒ·ğ
-// By Spiderii Ğ§¹ûĞŞ¸Ä
+// wofo.c yizhi-chan perform çšˆä¾æˆ‘ä½›
+// By Spiderii æ•ˆæœä¿®æ”¹
 #include <ansi.h>
 #include <combat.h>
 
@@ -14,35 +14,35 @@ int perform(object me, object target)
       if( !target ) target = offensive_target(me);
      
       if( !objectp(target) || !me->is_fighting(target) )
-	  return notify_fail("¡¸ğ§ÒÀÎÒ·ğ¡¹Ö»ÄÜÔÚÕ½¶·ÖĞ¶Ô¶ÔÊÖÊ¹ÓÃ¡£\n");
+	  return notify_fail("ã€Œçšˆä¾æˆ‘ä½›ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­å¯¹å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 	     
       if( objectp(me->query_temp("weapon")) )
-	  return notify_fail("Äã±ØĞë¿ÕÊÖÊ¹ÓÃ¡¸ğ§ÒÀÎÒ·ğ¡¹£¡\n");
+	  return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹ä½¿ç”¨ã€Œçšˆä¾æˆ‘ä½›ã€ï¼\n");
       
       if( (int)me->query_skill("yizhi-chan",1) < 100 )
-	  return notify_fail("ÄãµÄÒ»Ö¸ìø²»¹»æµÊì£¬²»»áÊ¹ÓÃ¡¸ğ§ÒÀÎÒ·ğ¡¹£¡\n");
+	  return notify_fail("ä½ çš„ä¸€æŒ‡ç¦…ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ã€Œçšˆä¾æˆ‘ä½›ã€ï¼\n");
 
       if( (int)me->query_skill("yijin-jing",1) < 100 )
-	  return notify_fail("ÄãµÄÒ×½î¾­ÄÚ¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸ğ§ÒÀÎÒ·ğ¡¹£¡\n");  
+	  return notify_fail("ä½ çš„æ˜“ç­‹ç»å†…åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œçšˆä¾æˆ‘ä½›ã€ï¼\n");  
       
       if( (int)me->query_str() < 25 )
-	  return notify_fail("ÄãµÄ±ÛÁ¦²»¹»Ç¿£¬²»ÄÜÊ¹ÓÃ¡¸ğ§ÒÀÎÒ·ğ¡¹£¡\n");
+	  return notify_fail("ä½ çš„è‡‚åŠ›ä¸å¤Ÿå¼ºï¼Œä¸èƒ½ä½¿ç”¨ã€Œçšˆä¾æˆ‘ä½›ã€ï¼\n");
       
       if( (int)me->query("max_neili") < 1000 )
-	  return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ¡¸ğ§ÒÀÎÒ·ğ¡¹£¡\n");
+	  return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ã€Œçšˆä¾æˆ‘ä½›ã€ï¼\n");
       
       if( (int)me->query("neili") < 350 )
-	  return notify_fail("ÄãµÄÄÚÁ¦Ì«ÉÙÁË£¬ÎŞ·¨Ê¹ÓÃ³ö¡¸ğ§ÒÀÎÒ·ğ¡¹£¡\n");   
+	  return notify_fail("ä½ çš„å†…åŠ›å¤ªå°‘äº†ï¼Œæ— æ³•ä½¿ç”¨å‡ºã€Œçšˆä¾æˆ‘ä½›ã€ï¼\n");   
 										 
       if (me->query_skill_prepared("finger") != "yizhi-chan"
        || me->query_skill_mapped("finger") != "yizhi-chan")
-	  return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸ğ§ÒÀÎÒ·ğ¡¹½øĞĞ¹¥»÷¡£\n");										 
+	  return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€Œçšˆä¾æˆ‘ä½›ã€è¿›è¡Œæ”»å‡»ã€‚\n");										 
       if( me->query_temp("wofo"))
-	  return notify_fail("ÄãÕıÔÚÊ¹ÓÃÒ»Ö¸ìøµÄÌØÊâ¹¥»÷¡¸ğ§ÒÀÎÒ·ğ¡¹£¡\n");
+	  return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ä¸€æŒ‡ç¦…çš„ç‰¹æ®Šæ”»å‡»ã€Œçšˆä¾æˆ‘ä½›ã€ï¼\n");
 
-	if (target->is_busy()) return notify_fail("¶Ô·½Õı×Ô¹Ë²»Ï¾£¬·Åµ¨¹¥»÷°É£¡\n");
+	if (target->is_busy()) return notify_fail("å¯¹æ–¹æ­£è‡ªé¡¾ä¸æš‡ï¼Œæ”¾èƒ†æ”»å‡»å§ï¼\n");
        
-      msg = HIY"$NÍ»È»ÉíĞĞ×İÏò°ë¿Õ£¬ÓÒÊÖÇüÖ¸µ¯³ö£¬àÍµÄÒ»Éù£¬Ò»¹É¾¢Æø¼¤Éä¶ø³ö£¬ÕÖÏò$nÖÜÉí´óÑ¨¡£\n" NOR;
+      msg = HIY"$Nçªç„¶èº«è¡Œçºµå‘åŠç©ºï¼Œå³æ‰‹å±ˆæŒ‡å¼¹å‡ºï¼Œå—¤çš„ä¸€å£°ï¼Œä¸€è‚¡åŠ²æ°”æ¿€å°„è€Œå‡ºï¼Œç½©å‘$nå‘¨èº«å¤§ç©´ã€‚\n" NOR;
       message_vision(msg, me, target);   
       busy=3+random(me->query_skill("yizhi-chan",1))/100;
       if(busy>8)
@@ -50,7 +50,7 @@ int perform(object me, object target)
       if( wizardp(me)) tell_object(me,sprintf("busy=%d\n",busy));
       if((random(me->query("combat_exp")) > target->query("combat_exp")/5*3)) {
   	
-             msg = HIW"$nÖ»¸Ğµ½Ñ¨µÀÒ»Âé£¬»ëÉí¾¢ÆøÁ¢É¢£¬¶¯µ¯²»µÃ¡£\n"NOR;
+             msg = HIW"$nåªæ„Ÿåˆ°ç©´é“ä¸€éº»ï¼Œæµ‘èº«åŠ²æ°”ç«‹æ•£ï¼ŒåŠ¨å¼¹ä¸å¾—ã€‚\n"NOR;
 		message_vision(msg, me, target); 
 		me->set_temp("wofo",1);  
 		me->add("neili", -350);    
@@ -59,7 +59,7 @@ int perform(object me, object target)
 		call_out("remove_effect", me->query_skill("yizhi-chan") / 20 + 2, me);
       }
       else {
-		msg = HIY"$n¿´³ö$NµÄÆóÍ¼£¬Ò»ÉÁÉí£¬Ãô½İµØ¶ã¹ıÁË$NµÄÕâÒ»ÕĞ£¡\n"NOR;	  
+		msg = HIY"$nçœ‹å‡º$Nçš„ä¼å›¾ï¼Œä¸€é—ªèº«ï¼Œæ•æ·åœ°èº²è¿‡äº†$Nçš„è¿™ä¸€æ‹›ï¼\n"NOR;	  
 		message_vision(msg, me, target);					
 		me->start_busy(1+random(3));
 		me->add("neili", - 100);
@@ -73,6 +73,6 @@ void remove_effect(object me)
 	if (!me) return;
 	me->delete_temp("wofo");
        
-	message_vision(HIR"$NµÄ¡¸ğ§ÒÀÎÒ·ğ¡¹ÔË¹¦Íê±Ï£¬Á³É«ºÃ¿´¶àÁË¡£\n"NOR, me);
+	message_vision(HIR"$Nçš„ã€Œçšˆä¾æˆ‘ä½›ã€è¿åŠŸå®Œæ¯•ï¼Œè„¸è‰²å¥½çœ‹å¤šäº†ã€‚\n"NOR, me);
 }
-string perform_name(){ return HIY"ğ§ÒÀÎÒ·ğ"NOR; }
+string perform_name(){ return HIY"çšˆä¾æˆ‘ä½›"NOR; }

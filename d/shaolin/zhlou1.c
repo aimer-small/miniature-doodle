@@ -13,11 +13,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "��¥һ��");
+	set("short", "钟楼一层");
 	set("long", @LONG
-��������¥�ĵײ㣬һ���������ǽ�ϵĻ�ש��϶��͸�����������ש
-����Ͷ�±��µĹ�Ӱ����ͬһ����������ơ����Ͽ���������ľ¥�����ƶ�
-�ϣ��ƺ����޾�ͷ��ǽ�ǣ��ݼ����൱�ྻ������������ɮ�˴�ɨ��
+这里是塔楼的底层，一缕缕阳光从墙上的花砖缝隙里透射进来，在青砖
+地上投下别致的光影，如同一格格棋盘相似。往上看，长长的木楼梯盘绕而
+上，似乎永无尽头。墙角，梯级都相当洁净，看来经常有僧人打扫。
 LONG
 	);
 
@@ -53,20 +53,20 @@ int do_open(string arg)
 		return 0;
 
 	if( arg=="brick" && !present("blade", this_player()))
-		return notify_fail("�����ڣ� ���²��аɣ�\n");
+		return notify_fail("空手挖？ 恐怕不行吧！\n");
 
 	if( arg=="brick" && !query("exits/down") )
 	{
 		message_vision( 
-		"$N�ߵ�¥���£�ſ�ڵ��ϣ������ý䵶�����ש������������š���\n"
-		"�ȵ���שһ�������˳���������¶��һ���󶴣�����ʯ��������ȥ��\n"
-		"���������ͨ��һ��������\n", this_player());
+		"$N走到楼梯下，趴在地上，试着用戒刀伸进青砖缝里，慢慢的撬着……\n"
+		"等到青砖一块块地起了出来，地上露出一个大洞，几排石阶往下伸去，\n"
+		"从这里分明通向一个暗道。\n", this_player());
 
 		set("exits/down", __DIR__"andao3");
 		if( room = find_object(__DIR__"andao3") ) 
 		{
 			room->set("exits/up", __FILE__);
-			message("vision", "�컨���Ȼ����������������¶��һ�����ϵĽ��ݡ�\n",
+			message("vision", "天花板忽然发出轧轧的声音，露出一个向上的阶梯。\n",
 				room );
 		}
 		remove_call_out("close_passage");
@@ -85,9 +85,9 @@ void close_passage()
 		return;
 
 	message("vision", 
-	"ֻ��ƹ��һ���죬��¥С�ű����˿�����һȺɮ��һӿ���롣\n"
-	"�����е���ש���еİ转�����ְ˽ŵ���ש��Ѷ��ڷ���������\n"
-	"����ש��佽���պ����֭��\n", this_object() );
+	"只听乒地一声响，钟楼小门被推了开来，一群僧兵一涌而入。\n"
+	"他们有的砌砖，有的拌浆，七手八脚地用砖块把洞口封了起来，\n"
+	"再在砖缝间浇入烧红的铁汁。\n", this_object() );
 
 	man=new(__DIR__"npc/seng-bing3");
 	man->move(this_object());
@@ -111,8 +111,8 @@ void close_passage()
 	if( room = find_object(__DIR__"andao3") ) {
 //		room->delete("exits/up");
 		message("vision", 
-	"ֻ��ƹ���Ҽ������죬���ż��ι��̵���ˮ����������\n"
-	"���ϵĶ��ڱ�����ש������ʵʵ�ط���������\n", room );
+	"只听乒，乓几声巨响，接着几滴滚烫的铁水滴了下来。\n"
+	"向上的洞口被人用砖块严严实实地封了起来。\n", room );
 	}
 	delete("exits/down");
 }
@@ -120,6 +120,6 @@ void close_passage()
 string look_floor()
 {
 	return
-	"һƬ��ʵƽ������ש���棬ֻ��¥���µ�һ�Ǵ����԰�͹��ƽ��\n";
+	"一片结实平整的青砖地面，只在楼梯下的一角处略显凹凸不平。\n";
 }
 */

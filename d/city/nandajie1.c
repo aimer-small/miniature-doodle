@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ϴ��");
+	set("short", "南大街");
 	set("long", @LONG
-������һ�������Ľֵ��ϣ����ϱ���ͷ���졣�ϱ����ϳ��ţ�����ͨ����
-���ģ��������߸���һ��С԰�ӡ�
+你走在一条繁华的街道上，向南北两头延伸。南边是南城门，北边通往市
+中心，东西两边各是一座小园子。
 LONG
 	);
-        set("outdoors", "����");
+        set("outdoors", "扬州");
 
 	set("exits", ([
 		"south" : __DIR__"nanmen",

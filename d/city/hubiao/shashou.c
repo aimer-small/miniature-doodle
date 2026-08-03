@@ -7,11 +7,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÃÉÃæÉ±ÊÖ", ({ "sha shou", "shashou" }));
-        set("nickname", "»µÊÂ×ö¾ø");
+        set_name("è’™é¢æ€æ‰‹", ({ "sha shou", "shashou" }));
+        set("nickname", "åäº‹åšç»");
         set("long", 
-"ËûÊÇÒ»¸öÒþÐÔÂñÃûµÄÈË£¬²»ÖªÎªºÎÓëÈË½áÏÂÔ©³ð¡£ÕûÌì×·É±³ð¼Ò¡£\n");
-        set("gender", "ÄÐÐÔ");
+"ä»–æ˜¯ä¸€ä¸ªéšæ€§åŸ‹åçš„äººï¼Œä¸çŸ¥ä¸ºä½•ä¸Žäººç»“ä¸‹å†¤ä»‡ã€‚æ•´å¤©è¿½æ€ä»‡å®¶ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 40 + random(20));
 //      set("attitude", "aggressive");
         set("shen_type", 0);
@@ -60,7 +60,7 @@ void init()
 /*
         if (userp(ob) && (number > ((int)ob->query("max_pot")-100)))
         if (number > ((int)ob->query("max_pot")-100))
-        write_file("/log/HS_JOB",sprintf("%s %s(%s) µÚ%d´ÎÈÎÎñÄ¿±êµÈ¼¶%d£¬±¾ÈËµÈ¼¶%d¡£\n",
+        write_file("/log/HS_JOB",sprintf("%s %s(%s) ç¬¬%dæ¬¡ä»»åŠ¡ç›®æ ‡ç­‰çº§%dï¼Œæœ¬äººç­‰çº§%dã€‚\n",
         ctime(time())[4..19],ob->name(1),ob->query("id"),(int)ob->query("hs_job"),number,(int)ob->query("max_pot")-100));
 */
 
@@ -102,8 +102,8 @@ void init()
                    me->set_temp("apply/attack",  random(30));
                    me->set_temp("apply/dodge",  random(50));
                    command("sneer " + obj->query("id"));
-                   command("say "+RANK_D->query_respect(obj)+"£¬Õâ"+obj->query_temp("mubiao")+"ÓëÎÒÓÐÑªº£Éî³ð£¬ÄãÊµÔÚ²»¸ÃÀ´ÌËÕâÌË»ìË®¡£\n");
-                   command("say ÎÒÏÈÁÏÀíÁËÄãÕâ¸ö¹ÜÏÐÊÂµÄ¡£ÔÙÈ¥É±ÄÇ¼úÈË²»³Ù¡£\n");
+                   command("say "+RANK_D->query_respect(obj)+"ï¼Œè¿™"+obj->query_temp("mubiao")+"ä¸Žæˆ‘æœ‰è¡€æµ·æ·±ä»‡ï¼Œä½ å®žåœ¨ä¸è¯¥æ¥è¶Ÿè¿™è¶Ÿæ··æ°´ã€‚\n");
+                   command("say æˆ‘å…ˆæ–™ç†äº†ä½ è¿™ä¸ªç®¡é—²äº‹çš„ã€‚å†åŽ»æ€é‚£è´±äººä¸è¿Ÿã€‚\n");
 //                 obj[i]->kill_ob(me);
                    me->kill_ob(obj);
                    remove_call_out("dest");
@@ -116,7 +116,7 @@ void dest()
        object me;
        me = this_object();
 
-       tell_room(all_inventory(environment(me)),me->query("name")+"µÀ£ºËûÄÌÄÌµÄ£¬µã×ÓÓ²µÄºÜ°¡£¬ÏÂ»ØÀÏ×ÓÔÙÕÒÄãËãÕÊ£¡\n");
-       tell_room(all_inventory(environment(me)),me->query("name")+"Ò»¸öÉÁÉí£¬´Ò´ÒÀë¿ª¡£\n");
+       tell_room(all_inventory(environment(me)),me->query("name")+"é“ï¼šä»–å¥¶å¥¶çš„ï¼Œç‚¹å­ç¡¬çš„å¾ˆå•Šï¼Œä¸‹å›žè€å­å†æ‰¾ä½ ç®—å¸ï¼\n");
+       tell_room(all_inventory(environment(me)),me->query("name")+"ä¸€ä¸ªé—ªèº«ï¼ŒåŒ†åŒ†ç¦»å¼€ã€‚\n");
        destruct(me);
 }

@@ -1,4 +1,4 @@
-// user_weapon.c ×ÔÖÆÎäÆ÷
+// user_weapon.c è‡ªåˆ¶æ­¦å™¨
 // create by snowman@sj
 // modify by augx@sj   9/25/2001
 // Modified by Ciwei@SJ
@@ -11,16 +11,16 @@ void delete_weapon(object me);
 void create()
 {
 	seteuid(ROOT_UID);
-	set_name("ÆÕÍ¨½£", ({ "user weapon" }));
+	set_name("æ™®é€šå‰‘", ({ "user weapon" }));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
+		set("unit", "æŸ„");
 		set("value", 0);
 		set("material", "steel");
-		set("wield_msg", "$NÄÃ³ö$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+		set("wield_msg", "$Næ‹¿å‡º$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
 		set("wield_maxneili", 100000);
 		set("wield_neili", 10);
 		set("wield_str", 20);
@@ -86,9 +86,9 @@ void cant_keep(object me)
 {
 	if( !me || !userp(me) || environment()!=me || !environment(me) ) return;
 
-	message_vision("µ«ÊÇ$N¸ù±¾ÄÃ²»×¡£¬" + name() + "µôÁËÏÂÀ´£¡\n", me);
+	message_vision("ä½†æ˜¯$Næ ¹æœ¬æ‹¿ä¸ä½ï¼Œ" + name() + "æ‰äº†ä¸‹æ¥ï¼\n", me);
         if(!(this_object()->move(environment(me)))) {
-		message_vision("Ò»ÏÂ×Ó¾ÍÊ§È¥ÁË×ÙÓ°£¡\n",me);
+		message_vision("ä¸€ä¸‹å­å°±å¤±å»äº†è¸ªå½±ï¼\n",me);
 		destruct(this_object());
 	}
 }
@@ -120,7 +120,7 @@ void delete_weapon2(object me)
 {
 	me->delete( "worker/" + query("weapon_mp/save_id") );
 	if(stringp(query("owner")) && query("owner")!="" && query("owner")!="0" && query("owner")!=getuid(me))
-		WORKER_D->deleteweapon(query("owner"),"ÄãµÄ"+name()+"ÒòÎª±»"+me->name()+"Ëğ»µ¶ø±»×Ô¶¯É¾³ı£¬ÒÑ¾­²»ÔÙÊÇÄãµÄË½ÓĞÎäÆ÷¡£\n",query("weapon_mp/save_id") );
+		WORKER_D->deleteweapon(query("owner"),"ä½ çš„"+name()+"å› ä¸ºè¢«"+me->name()+"æŸåè€Œè¢«è‡ªåŠ¨åˆ é™¤ï¼Œå·²ç»ä¸å†æ˜¯ä½ çš„ç§æœ‰æ­¦å™¨ã€‚\n",query("weapon_mp/save_id") );
 }
 
 void remove(string euid)
@@ -157,7 +157,7 @@ void remove(string euid)
 
 	::remove(euid);
 }
-/*ÔÚÒ»¶ÎÊ±¼äÄÚ£¬±ğÈË²»ÄÜget Kill NPCºóµôÔÚµØÉÏµÄ±øÆ÷¡£*/
+/*åœ¨ä¸€æ®µæ—¶é—´å†…ï¼Œåˆ«äººä¸èƒ½get Kill NPCåæ‰åœ¨åœ°ä¸Šçš„å…µå™¨ã€‚*/
 void delete_owner()
 {
    if (query("tmp_owner"))

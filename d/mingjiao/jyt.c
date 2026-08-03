@@ -1,15 +1,15 @@
-// jyt.c ¾ÛÒéÌü
+// jyt.c èšè®®å…
 // Modify By River@SJ 99.06
 #include <room.h>
 #include <ansi.h>
 inherit ROOM;
 void create()
 { 
-	set("short",HIW"¾ÛÒéÌü"NOR);
+	set("short",HIW"èšè®®å…"NOR);
 	set("long", @LONG
-ÕâÀïÊÇ½ÌÖ÷ÕÙ¼¯×óÓÒÊ¹Õß£¬ËÄ´ó»¤·¨£¬ÎåÉ¢ÈË£¬ÎåĞĞÆìÖ÷ºÍÖÚÃ÷½ÌµÜ×ÓÉÌ
-Òé·´Ôª¿¹ºú£¬ĞĞÉÆÈ¥¶ñ£¬³ı±©°²Á¼µÄ¶Ô²ßµÄµØ·½¡£Î÷ÃæÊÇÁúÍõµî£¬¶«ÃæÊÇÊ¨Íõ
-µî¡£ºóÃæ¾ÍÊÇÊ¥»ğÌÃ¡£
+è¿™é‡Œæ˜¯æ•™ä¸»å¬é›†å·¦å³ä½¿è€…ï¼Œå››å¤§æŠ¤æ³•ï¼Œäº”æ•£äººï¼Œäº”è¡Œæ——ä¸»å’Œä¼—æ˜æ•™å¼Ÿå­å•†
+è®®åå…ƒæŠ—èƒ¡ï¼Œè¡Œå–„å»æ¶ï¼Œé™¤æš´å®‰è‰¯çš„å¯¹ç­–çš„åœ°æ–¹ã€‚è¥¿é¢æ˜¯é¾™ç‹æ®¿ï¼Œä¸œé¢æ˜¯ç‹®ç‹
+æ®¿ã€‚åé¢å°±æ˜¯åœ£ç«å ‚ã€‚
 LONG);    
 	set("exits", ([
 		"south" : __DIR__"xting",
@@ -33,15 +33,15 @@ int valid_leave(object me, string dir)
 	i = me->query_skill("shenghuo-shengong", 1);
 	i += me->query_skill("jiuyang-shengong", 1);
 
-	if((!myfam || myfam["family_name"] != "Ã÷½Ì")
+	if((!myfam || myfam["family_name"] != "æ˜æ•™")
 	 && dir == "northup" 
 	 && objectp(ob=present("fan yao", environment(me))) 
 	 && living(ob))
-		return notify_fail("·¶Ò£°ÑÊÖÒ»ÉìÀ¹×¡ÄãµÄÈ¥Â·¡£\n"NOR);  
+		return notify_fail("èŒƒé¥æŠŠæ‰‹ä¸€ä¼¸æ‹¦ä½ä½ çš„å»è·¯ã€‚\n"NOR);  
 	if( i < 70 
 	 && dir == "northup"
 	 && objectp(ob=present("fan yao", environment(me))) 
 	 && living(ob))
-		return notify_fail("·¶Ò£¶Ô×ÅÄãÒ¡ÁËÒ¡Í·£º½ÌÖ÷ÏÖÔÚºÜÃ¦£¬ÄãÒÔºóÔÙÀ´°É¡£\n"NOR);          
+		return notify_fail("èŒƒé¥å¯¹ç€ä½ æ‘‡äº†æ‘‡å¤´ï¼šæ•™ä¸»ç°åœ¨å¾ˆå¿™ï¼Œä½ ä»¥åå†æ¥å§ã€‚\n"NOR);          
 	return ::valid_leave(me, dir);
 }

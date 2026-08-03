@@ -11,24 +11,24 @@ int do_make(string arg)
        	object fire, me, ob;
        	me = this_player();
      
-       	if(!arg || arg != "huoyan") return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+       	if(!arg || arg != "huoyan") return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 
-	if( me->is_busy() )	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if( me->is_busy() )	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
        	if(!objectp(fire = present("fire", me)) && me->query("neili") < 500)
-               	return notify_fail("ÄãÉíÉÏÃ»ÓĞ»ğÖÖ£¬ÔõÃ´Éı»ğ£¿\n");
+               	return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰ç«ç§ï¼Œæ€ä¹ˆå‡ç«ï¼Ÿ\n");
        	if(me->query_skill("poison", 1) < 60){
-             	message_vision("$N´ò×Å»ğÕÛ½«$nµãÈ¼£¬Ã°³öÒ»ÂÆÆæÒìµÄ¶¾ÑÌ£¡\n",me,this_object());
-             	message_vision("$NÏÅÁËÒ»´óÌø£¬Á¬Ã¦½«$nºúÂÒÒ»ÈÓ£¬Ô¶Ô¶¶ãÁË¿ªÈ¥£¡\n",me,this_object());
+             	message_vision("$Næ‰“ç€ç«æŠ˜å°†$nç‚¹ç‡ƒï¼Œå†’å‡ºä¸€ç¼•å¥‡å¼‚çš„æ¯’çƒŸï¼\n",me,this_object());
+             	message_vision("$Nå“äº†ä¸€å¤§è·³ï¼Œè¿å¿™å°†$nèƒ¡ä¹±ä¸€æ‰”ï¼Œè¿œè¿œèº²äº†å¼€å»ï¼\n",me,this_object());
              	this_object()->add_amount(-1);
              	return 1;
        	}
        	if(present("huo yan", environment(me)))
-             	return notify_fail("ÕâÀïÒÑ¾­ÓĞ»ğÑæÁË£¬»¹ÒªÉıÊ²Ã´»ğ£¿\n");
+             	return notify_fail("è¿™é‡Œå·²ç»æœ‰ç«ç„°äº†ï¼Œè¿˜è¦å‡ä»€ä¹ˆç«ï¼Ÿ\n");
        	if(!fire){
              	me->add("neili", -100);
-             	message_vision(HIR"\n$N¿ÚÖĞÍÂ³öÒ»¿ÚÇàÑÌ£¬½«ÊÖÖĞ$nÓÃÄÚÁ¦Ò»´êÒ»Å×£¬ºäµØÒ»ÉùÈ¼ÆğÒ»¶ÑĞÜĞÜ»ğÑæ£¡\n\n"NOR, me, this_object());
+             	message_vision(HIR"\n$Nå£ä¸­åå‡ºä¸€å£é’çƒŸï¼Œå°†æ‰‹ä¸­$nç”¨å†…åŠ›ä¸€æ“ä¸€æŠ›ï¼Œè½°åœ°ä¸€å£°ç‡ƒèµ·ä¸€å †ç†Šç†Šç«ç„°ï¼\n\n"NOR, me, this_object());
        	}
-       	else 	message_vision(HIR"\n$N½«ÊÖÖĞ$nÓÃ»ğÖÓµãÈ¼£¬È»ºóÏòµØÏÂÊ¹¾¢Ò»ÈÓ£¬È¼ÆğÁËÒ»¶ÑĞÜĞÜ»ğÑæ£¡\n\n"NOR, me, this_object());    
+       	else 	message_vision(HIR"\n$Nå°†æ‰‹ä¸­$nç”¨ç«é’Ÿç‚¹ç‡ƒï¼Œç„¶åå‘åœ°ä¸‹ä½¿åŠ²ä¸€æ‰”ï¼Œç‡ƒèµ·äº†ä¸€å †ç†Šç†Šç«ç„°ï¼\n\n"NOR, me, this_object());    
        	ob = unew("/d/xingxiu/obj/huoyan")->move(environment(me)); 
        	this_object()->add_amount(-1);
        	return 1;        
@@ -40,21 +40,21 @@ int do_pour(string arg)
        	object ob;
        	function f;
 
-	if( this_player()->is_busy() )	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if( this_player()->is_busy() )	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
        	if( !arg
        	||      sscanf(arg, "%s in %s", me, what)!=2
        	||      !id(me) )
-        	return notify_fail("ÃüÁî¸ñÊ½: pour <Ò©> in <ÎïÆ·>¡£\n");
+        	return notify_fail("å‘½ä»¤æ ¼å¼: pour <è¯> in <ç‰©å“>ã€‚\n");
 
        	ob = present(what, this_player());
        	if( !ob )
-               	return notify_fail("ÄãÉíÉÏÃ»ÓĞ" + what + "ÕâÑù¶«Î÷¡£\n");
+               	return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰" + what + "è¿™æ ·ä¸œè¥¿ã€‚\n");
        	if( !ob->query("liquid/remaining") )
-               	return notify_fail(ob->name() + "ÀïÊ²Ã´Ò²Ã»ÓĞ£¬ÏÈ×°Ğ©¾ÆË®²ÅÄÜÈÜ»¯Ò©·Û\n");
+               	return notify_fail(ob->name() + "é‡Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ï¼Œå…ˆè£…äº›é…’æ°´æ‰èƒ½æº¶åŒ–è¯ç²‰\n");
        	f = (: call_other, __FILE__, "drink_drug" :);
        	ob->set("liquid/drink_func", bind(f, ob));
        	ob->set("poison", query("poison"));
-       	message_vision("ÔÚÒ»Õó¼éĞ¦ÉùÖĞ£¬$N½«Ò»Ğ©" + name() + "µ¹½ø" + ob->name() + "Ò¡»ÎÁË¼¸ÏÂ¡£\n", this_player());
+       	message_vision("åœ¨ä¸€é˜µå¥¸ç¬‘å£°ä¸­ï¼Œ$Nå°†ä¸€äº›" + name() + "å€’è¿›" + ob->name() + "æ‘‡æ™ƒäº†å‡ ä¸‹ã€‚\n", this_player());
        	add_amount(-1);
        	return 1;
 }
@@ -64,20 +64,20 @@ int do_tu(string arg)
        	string me, what;
        	object ob;
           
-        if( this_player()->is_busy() )	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+        if( this_player()->is_busy() )	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
        	if( !arg
        	||      sscanf(arg, "%s on %s", me, what)!=2
        	||      !id(me) )
-               	return notify_fail("ÃüÁî¸ñÊ½: tu <Ò©> on <ÎäÆ÷>¡£\n");
+               	return notify_fail("å‘½ä»¤æ ¼å¼: tu <è¯> on <æ­¦å™¨>ã€‚\n");
 
        	ob = present(what, this_player());
 
        	if( !ob )
-               	return notify_fail("ÄãÉíÉÏÃ»ÓĞ" + what + "ÕâÑù¶«Î÷¡£\n");
+               	return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰" + what + "è¿™æ ·ä¸œè¥¿ã€‚\n");
        	if( !ob->query("weapon_prop") )
-               	return notify_fail("Ö»ÄÜÍ¿ÔÚÎäÆ÷ÉÏ¡£\n");
+               	return notify_fail("åªèƒ½æ¶‚åœ¨æ­¦å™¨ä¸Šã€‚\n");
 
-       	else return notify_fail("ÄãÒªÏÈ½«Ò©·ÛµãÈ¼²ÅĞĞ¡£\n");
+       	else return notify_fail("ä½ è¦å…ˆå°†è¯ç²‰ç‚¹ç‡ƒæ‰è¡Œã€‚\n");
 
        	return 0;       
 }
@@ -86,23 +86,23 @@ int do_dian(string arg)
 {
 	object me,ob,ob1;
 
-	if( this_player()->is_busy() )	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if( this_player()->is_busy() )	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
         ob = this_object();
 	me = this_player();
 	if(!arg||arg!=ob->query("id"))
-		return notify_fail("ÄãÒªµãÈ¼Ê²Ã´¶«Î÷£¿\n");
+		return notify_fail("ä½ è¦ç‚¹ç‡ƒä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 
         if(!objectp(ob1 = present("fire", me)))
-               	return notify_fail("ÄãÏÈÒªÕÒ¸ö»ğÖÖ¡£\n");
+               	return notify_fail("ä½ å…ˆè¦æ‰¾ä¸ªç«ç§ã€‚\n");
 
-        message_vision("$N´ò×Å»ğÕÛ½«$nµãÈ¼£¬Ã°³öÒ»ÂÆÆæÒìµÄ¶¾ÑÌ£¡\n",me,ob);
+        message_vision("$Næ‰“ç€ç«æŠ˜å°†$nç‚¹ç‡ƒï¼Œå†’å‡ºä¸€ç¼•å¥‡å¼‚çš„æ¯’çƒŸï¼\n",me,ob);
         if(me->query_skill("poison", 1) > 79){
                 new(ob->query("drug2"))->move(me);                      
                 ob->add_amount(-1);
 		return 1;
         }
         else{
-                message_vision("$NÏÅÁËÒ»´óÌø£¬Á¬Ã¦½«$nºúÂÒÒ»ÈÓ£¬Ô¶Ô¶¶ãÁË¿ªÈ¥£¡\n",me,ob);
+                message_vision("$Nå“äº†ä¸€å¤§è·³ï¼Œè¿å¿™å°†$nèƒ¡ä¹±ä¸€æ‰”ï¼Œè¿œè¿œèº²äº†å¼€å»ï¼\n",me,ob);
                 ob->add_amount(-1);
 		return 1;
         }

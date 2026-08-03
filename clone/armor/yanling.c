@@ -1,4 +1,4 @@
-// yanling.c Ñãôá
+// yanling.c é›ç¿
 // by iceland
 
 #include <ansi.h>
@@ -8,17 +8,17 @@ inherit HEAD;
 
 void create()
 {
-        set_name( WHT "Ñãôá" NOR, ({ "yan ling", "yanling","ling" }) );
+        set_name( WHT "é›ç¿" NOR, ({ "yan ling", "yanling","ling" }) );
         set_weight(50);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»¸ù³¤³¤µÄ´óÑãôáÃ«£¬¿´»¨ÎÆËÆºõÔÚÖĞÔ­²»Ì«¶à¼û£¬ËùÒÔ±È½ÏÕä¹ó¡£\n");
+                set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æ ¹é•¿é•¿çš„å¤§é›ç¿æ¯›ï¼Œçœ‹èŠ±çº¹ä¼¼ä¹åœ¨ä¸­åŸä¸å¤ªå¤šè§ï¼Œæ‰€ä»¥æ¯”è¾ƒçè´µã€‚\n");
                 set("value", 500);
                 set("material", "cloth");
                 set("armor_prop/armor", 0);
-                set("wear_msg", "$NÄÃ×ÅÑãôáÏëÁËÏë£¬Ì§ÊÖ¼ĞÔÚÁË¶ú¶äÉÏ¡£\n");
+                set("wear_msg", "$Næ‹¿ç€é›ç¿æƒ³äº†æƒ³ï¼ŒæŠ¬æ‰‹å¤¹åœ¨äº†è€³æœµä¸Šã€‚\n");
              }
         setup();
 }

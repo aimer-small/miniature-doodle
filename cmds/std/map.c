@@ -2,32 +2,32 @@
 // Created by mxzhao 2003/11/28
 
 /*********************************************
-// µØÍ¼Ê¾Àý
+// åœ°å›¾ç¤ºä¾‹
 <area>
 <id>changle</id>
-<name>³¤ÀÖ°ï</name>
-<byname>³¤ÀÖ,cl</byname>
+<name>é•¿ä¹å¸®</name>
+<byname>é•¿ä¹,cl</byname>
 <map>
-©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-                                      ÎÔÊÒ  ð®µÀ©¤Ê¯ÊÒ
+                                      å§å®¤  ç”¬é“â”€çŸ³å®¤
                                        |     |
-                               Ë¯·¿   Ð¡Ìü©¤»¨Ô°©¤°Ë½ÇÍ¤
+                               ç¡æˆ¿   å°åŽ…â”€èŠ±å›­â”€å…«è§’äº­
                                 |      |
-         ©³©¥©¥©¥©¥©¥©¥©¥©·  Î÷×ßÀÈ©¤×ßÀÈ©¤¶«×ßÀÈ©¤¶«×ßÀÈ
-         ©§¡¾ÑïÖÝ¡¿´óæäµÀ©§    |      |      |       |
-         ©»©¥©¥©¥©¥©¥©¥©¥©¿   ²ñ·¿   ´óÌü   Ð¡ÎÝ    ³ø·¿
+         â”â”â”â”â”â”â”â”â”“  è¥¿èµ°å»Šâ”€èµ°å»Šâ”€ä¸œèµ°å»Šâ”€ä¸œèµ°å»Š
+         â”ƒã€æ‰¬å·žã€‘å¤§é©¿é“â”ƒ    |      |      |       |
+         â”—â”â”â”â”â”â”â”â”›   æŸ´æˆ¿   å¤§åŽ…   å°å±‹    åŽ¨æˆ¿
                     \                  |
-                  ´óæäµÀ              ´óÃÅ
+                  å¤§é©¿é“              å¤§é—¨
                       \                |
-                     ÇàÊ¯Â·©¤©¤©¤©¤©¤ÇàÊ¯Â·
+                     é’çŸ³è·¯â”€â”€â”€â”€â”€é’çŸ³è·¯
 
-©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 </map>
-<npc place=´óÃÅ>ÇñÉ½·ç</npc>
-<npc place=×ßÀÈ>³Â³åÖ®</npc>
-<npc place=Ð¡Ìü>±´º£Ê¯,Ã×ºáÒ°</npc>
-<npc place=Ê¯ÊÒ>Õ¹·É</npc>
+<npc place=å¤§é—¨>é‚±å±±é£Ž</npc>
+<npc place=èµ°å»Š>é™ˆå†²ä¹‹</npc>
+<npc place=å°åŽ…>è´æµ·çŸ³,ç±³æ¨ªé‡Ž</npc>
+<npc place=çŸ³å®¤>å±•é£ž</npc>
 </area>
 *********************************************/
 inherit F_SAVE;
@@ -50,10 +50,10 @@ inherit F_CLEAN_UP;
 #define NEXT				"next"
 #define MAP_FILE			DATA_DIR + "map"
 
-#define MAP_TITLE(name)		HIY "¡¾" + name + "µØÍ¼¡¿" NOR  "ÆäÖÐ"HBRED+HIY"¡ö¡ö¡ö"NOR"±íÊ¾ÄãËùÔÚ·¿¼äÎ»ÖÃ£¬" + HBBLU + HIW +"¡ö¡ö¡ö"NOR"±íÊ¾Ä¿±êNpcÎ»ÖÃ"
-#define NPC_TITLE(name)		HIY "¡¾" + name + "Ö÷ÒªNPCÈçÏÂ¡¿" NOR "\n"
+#define MAP_TITLE(name)		HIY "ã€" + name + "åœ°å›¾ã€‘" NOR  "å…¶ä¸­"HBRED+HIY"â– â– â– "NOR"è¡¨ç¤ºä½ æ‰€åœ¨æˆ¿é—´ä½ç½®ï¼Œ" + HBBLU + HIW +"â– â– â– "NOR"è¡¨ç¤ºç›®æ ‡Npcä½ç½®"
+#define NPC_TITLE(name)		HIY "ã€" + name + "ä¸»è¦NPCå¦‚ä¸‹ã€‘" NOR "\n"
 
-#define MAP_LINE			repeat_string("©¥", 40) + "\n" 
+#define MAP_LINE			repeat_string("â”", 40) + "\n" 
 
 #define THIS_ROOM_COLOR		HBRED + HIY
 #define TARGET_ROOM_COLOR	HBBLU + HIW
@@ -149,7 +149,7 @@ private int load_map()
 	return 0;
 }
 
-// Çå³ý×Ö·û´®ÄÚÌØ¶¨×Ö·û
+// æ¸…é™¤å­—ç¬¦ä¸²å†…ç‰¹å®šå­—ç¬¦
 private string trim_string(string str)
 {
 	string *chs = ({" ", "\t", "\n"});
@@ -162,7 +162,7 @@ private string trim_string(string str)
 	return str;
 }
 
-// ´Ó×Ö·û´®ÖÐÈ¡µÃÖ¸¶¨ÄÚÈÝ
+// ä»Žå­—ç¬¦ä¸²ä¸­å–å¾—æŒ‡å®šå†…å®¹
 private varargs mapping get_string(string str, string tag, string key)
 {
 	mapping result = ([]);
@@ -218,7 +218,7 @@ private varargs mapping get_string(string str, string tag, string key)
 	return result;
 }
 
-// ½¨Á¢µØÍ¼ÎÄ¼þ
+// å»ºç«‹åœ°å›¾æ–‡ä»¶
 int build_maps(object me, string arg)
 {
 	mapping temp;
@@ -239,7 +239,7 @@ int build_maps(object me, string arg)
 	
 	if ( !str )
 	{
-		write("Ã»ÓÐÕâ¸öÎÄ¼þ¡£\n");
+		write("æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶ã€‚\n");
 		return 1;
 	}
 	
@@ -300,12 +300,12 @@ int build_maps(object me, string arg)
 
 	save();
 
-	write(sprintf("%d·ùµØÍ¼´´½¨³É¹¦¡£\n", count));
+	write(sprintf("%då¹…åœ°å›¾åˆ›å»ºæˆåŠŸã€‚\n", count));
 	
 	return 1;
 }
 
-// Ä¿Ç°Ìá¹©µÄµØÍ¼ÁÐ±í
+// ç›®å‰æä¾›çš„åœ°å›¾åˆ—è¡¨
 int do_map_list(object me)
 {
 	string str = "";
@@ -315,7 +315,7 @@ int do_map_list(object me)
 
 	if ( !mapp(maps) || sizeof(maps) == 0 )
 	{
-		write(CHINESE_MUD_NAME + "Ä¿Ç°Ã»ÓÐÌá¹©ÈÎºÎµØÍ¼¡£\n");
+		write(CHINESE_MUD_NAME + "ç›®å‰æ²¡æœ‰æä¾›ä»»ä½•åœ°å›¾ã€‚\n");
 		return 1;
 	}
 
@@ -326,12 +326,12 @@ int do_map_list(object me)
 		str += sprintf("%-20s%s", maps[map][TAG_NAME] + "(" + map + ")", (i%4==0)?"\n":"");
 	}
 
-	write (CHINESE_MUD_NAME + "Ä¿Ç°Ìá¹©µÄµØÍ¼ÈçÏÂ£º\n" + str + "\n");
+	write (CHINESE_MUD_NAME + "ç›®å‰æä¾›çš„åœ°å›¾å¦‚ä¸‹ï¼š\n" + str + "\n");
 
 	return 1;
 }
 
-// Ö¸¶¨ÇøÓòµÄNPCÁÐ±í
+// æŒ‡å®šåŒºåŸŸçš„NPCåˆ—è¡¨
 int do_npc_list(object me, string area)
 {
 	string str = "";
@@ -340,14 +340,14 @@ int do_npc_list(object me, string area)
 
 	if ( !mapp(maps) || sizeof(maps) == 0 )
 	{
-		write(CHINESE_MUD_NAME + "Ä¿Ç°Ã»ÓÐÌá¹©ÈÎºÎµØÍ¼¡£\n");
+		write(CHINESE_MUD_NAME + "ç›®å‰æ²¡æœ‰æä¾›ä»»ä½•åœ°å›¾ã€‚\n");
 		return 1;
 	}
 
 	foreach ( string place in sort_array(keys(maps[area][TAG_NPC]), 0) )
 	{
-		str += sprintf("  %-12s£º%-s\n", place, 
-			implode(maps[area][TAG_NPC][place], "¡¢"));
+		str += sprintf("  %-12sï¼š%-s\n", place, 
+			implode(maps[area][TAG_NPC][place], "ã€"));
 	}
 	
 	if ( sizeof(str) > 0 )
@@ -456,7 +456,7 @@ int main(object me, string arg)
 		
 		if ( undefinedp(maps[area]) )
 		{
-			return notify_fail(CHINESE_MUD_NAME + "Ä¿Ç°Ã»ÓÐÌá¹©´ËÇøÓòµÄµØÍ¼¡£\n");
+			return notify_fail(CHINESE_MUD_NAME + "ç›®å‰æ²¡æœ‰æä¾›æ­¤åŒºåŸŸçš„åœ°å›¾ã€‚\n");
 		}
 	}
 	
@@ -467,7 +467,7 @@ int main(object me, string arg)
 	
 	if ( undefinedp(maps[area][TAG_MAP]) )
 	{
-		return notify_fail(CHINESE_MUD_NAME + "´ËÇøÓòµÄµØÍ¼Òì³£¡£\n");
+		return notify_fail(CHINESE_MUD_NAME + "æ­¤åŒºåŸŸçš„åœ°å›¾å¼‚å¸¸ã€‚\n");
 	}
 	
 	str = maps[area][TAG_MAP];
@@ -509,28 +509,28 @@ int main(object me, string arg)
 int help(object me)
 {
 	string help = @HELP
-Ö¸ÁîËµÃ÷£º
-	Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã²é¿´ËùÔÚµØÓòµÄµØÍ¼ºÍNPCÇé¿ö¡£
+æŒ‡ä»¤è¯´æ˜Žï¼š
+	è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ æŸ¥çœ‹æ‰€åœ¨åœ°åŸŸçš„åœ°å›¾å’ŒNPCæƒ…å†µã€‚
 
-Ö¸Áî¸ñÊ½£ºmap [µØÇøÃû| here] [-t [Ä¿±êÃû]> | -l]
+æŒ‡ä»¤æ ¼å¼ï¼šmap [åœ°åŒºå| here] [-t [ç›®æ ‡å]> | -l]
 
-	map                     ÏÔÊ¾µ±Ç°ËùÔÚÇøÓòµÄµØÍ¼
-	map -l                  ÏÔÊ¾ËùÓÐµØÍ¼ÁÐ±í
-	map [here] -t           ÏÔÊ¾µ±Ç°ËùÔÚÇøÓòµÄNPCÁÐ±í
-	map [here] -t Ä¿±êÃû    ¸ßÁÁÏÔÊ¾µ±Ç°ÇøÓòÄÚ´ËÄ¿±ê·¿¼ä
-	map µØÇøÃû              ÏÔÊ¾Ö¸¶¨ÇøÓòµÄµØÍ¼
-	map µØÇøÃû -t           ÏÔÊ¾Ö¸¶¨ÇøÓòµÄNPCÁÐ±í
-	map µØÇøÃû -t Ä¿±êÃû    ¸ßÁÁÏÔÊ¾Ö¸¶¨ÇøÓòÄÚ´ËÄ¿±ê·¿¼ä
+	map                     æ˜¾ç¤ºå½“å‰æ‰€åœ¨åŒºåŸŸçš„åœ°å›¾
+	map -l                  æ˜¾ç¤ºæ‰€æœ‰åœ°å›¾åˆ—è¡¨
+	map [here] -t           æ˜¾ç¤ºå½“å‰æ‰€åœ¨åŒºåŸŸçš„NPCåˆ—è¡¨
+	map [here] -t ç›®æ ‡å    é«˜äº®æ˜¾ç¤ºå½“å‰åŒºåŸŸå†…æ­¤ç›®æ ‡æˆ¿é—´
+	map åœ°åŒºå              æ˜¾ç¤ºæŒ‡å®šåŒºåŸŸçš„åœ°å›¾
+	map åœ°åŒºå -t           æ˜¾ç¤ºæŒ‡å®šåŒºåŸŸçš„NPCåˆ—è¡¨
+	map åœ°åŒºå -t ç›®æ ‡å    é«˜äº®æ˜¾ç¤ºæŒ‡å®šåŒºåŸŸå†…æ­¤ç›®æ ‡æˆ¿é—´
 
-	µØÇøÃû¿ÉÓÃ map -l ²é¿´£¬Ä¿±êÃûÈÎÒâ
+	åœ°åŒºåå¯ç”¨ map -l æŸ¥çœ‹ï¼Œç›®æ ‡åä»»æ„
 
 HELP;
 
-	help += "\t" THIS_ROOM_COLOR "µ±Ç°ËùÔÚ·¿¼ä" NOR "\t" TARGET_ROOM_COLOR "Ä¿±ê·¿¼ä" NOR "\n\n";
+	help += "\t" THIS_ROOM_COLOR "å½“å‰æ‰€åœ¨æˆ¿é—´" NOR "\t" TARGET_ROOM_COLOR "ç›®æ ‡æˆ¿é—´" NOR "\n\n";
 	if ( wizardp(me) )
 	{
 		help += @HELP
-	map -update ÎÄ¼þÃû      ÓÃÎÄ¼þÀïµÄµØÍ¼ÐÅÏ¢¸üÐÂµØÍ¼
+	map -update æ–‡ä»¶å      ç”¨æ–‡ä»¶é‡Œçš„åœ°å›¾ä¿¡æ¯æ›´æ–°åœ°å›¾
 HELP;
 	}
 

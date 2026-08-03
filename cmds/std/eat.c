@@ -8,22 +8,22 @@ int main(object me, string arg)
 {
     object obj;
 
-    if (me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+    if (me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-    if(!arg) return notify_fail("ÄãÒª³ÔÊ²Ã´¶«Î÷£¿\n");
+    if(!arg) return notify_fail("ä½ è¦åƒä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 
     if(!objectp(obj = present(arg, me)) ){
     	     if(objectp(obj = present(arg, environment(me))) && !obj->is_character() )
-    	            tell_room(environment(me), me->name() + "¶¢×ÅµØÉÏµÄ"+obj->name() + "£¬ÑÊÁËÒ»¿ÚÍÙÄ­¡£\n",({ me }));
-             return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+    	            tell_room(environment(me), me->name() + "ç›¯ç€åœ°ä¸Šçš„"+obj->name() + "ï¼Œå’½äº†ä¸€å£å”¾æ²«ã€‚\n",({ me }));
+             return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
              }
     if(obj->query("drug")) return 0;
     if(!obj->query("food_supply"))
-             return notify_fail("¿´Çå³şµã£¬Õâ¶«Î÷ÄÜ³ÔÂğ£¿\n");
+             return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œè¿™ä¸œè¥¿èƒ½åƒå—ï¼Ÿ\n");
     if(!obj->query("food_remaining") )
-	     return notify_fail( obj->name() + "ÒÑ¾­Ã»Ê²Ã´ºÃ³ÔµÄÁË¡£\n");
+	     return notify_fail( obj->name() + "å·²ç»æ²¡ä»€ä¹ˆå¥½åƒçš„äº†ã€‚\n");
     if( me->query("food") >= me->max_food_capacity() )
-	     return notify_fail("ÄãÒÑ¾­³ÔÌ«±¥ÁË£¬ÔÙÒ²Èû²»ÏÂÈÎºÎ¶«Î÷ÁË¡£\n");
+	     return notify_fail("ä½ å·²ç»åƒå¤ªé¥±äº†ï¼Œå†ä¹Ÿå¡ä¸ä¸‹ä»»ä½•ä¸œè¥¿äº†ã€‚\n");
 		
     me->add("food", obj->query("food_supply"));
     if( obj->query("eat_func") ) return 1;
@@ -39,7 +39,7 @@ int main(object me, string arg)
 	     obj->delete_temp("apply/long");
 	     if((string)obj->query("finish_msg"))
 	           message_vision(obj->query("finish_msg"), me, obj);
-	     else message_vision("$N½«Ê£ÏÂµÄ$n³ÔµÃ¸É¸É¾»¾»¡£\n", me, obj);
+	     else message_vision("$Nå°†å‰©ä¸‹çš„$nåƒå¾—å¹²å¹²å‡€å‡€ã€‚\n", me, obj);
 	     if( !obj->finish_eat() )
 		if (obj->query_amount() > 1) {
 			obj->add_amount(-1);
@@ -48,7 +48,7 @@ int main(object me, string arg)
      } else{
              if((string)obj->query("eat_msg"))
                    message_vision(obj->query("eat_msg"), me, obj);
-             else message_vision("$NÄÃÆğ$nÒ§ÁË¼¸¿Ú¡£\n", me, obj);
+             else message_vision("$Næ‹¿èµ·$nå’¬äº†å‡ å£ã€‚\n", me, obj);
      }
     return 1;
 }
@@ -58,9 +58,9 @@ int main(object me, string arg)
 int help(object me)
 {
     write(@HELP
-Ö¸Áî¸ñÊ½ : eat <ÎïÆ·Ãû³Æ>
+æŒ‡ä»¤æ ¼å¼ : eat <ç‰©å“åç§°>
  
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã³ÔÊ³Îï¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ åƒé£Ÿç‰©ã€‚
  
 HELP
     );

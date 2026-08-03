@@ -1,6 +1,6 @@
 // finger.c
 // by xiaoyao@Sj
-// ¼ÓÈëºÃÓÑÃûµ¥
+// åŠ å…¥å¥½å‹åå•
 // Modify by snowman@SJ 09/01/2000
 // Added busy time, by snowman@SJ 26/08/2000
 
@@ -27,23 +27,23 @@ int main(object me, string arg)
 
 	if( !stringp(arg)) {
 		if (!sizeof(friend_user))
-			return notify_fail("ÄãÄ¿Ç°Ã»ÓĞÉè¶¨ºÃÓÑ¡£\n");
+			return notify_fail("ä½ ç›®å‰æ²¡æœ‰è®¾å®šå¥½å‹ã€‚\n");
 
 		friend_user = sort_array(friend_user, 0);
-		list = "\nÄãÄ¿Ç°µÄºÃÓÑÃûµ¥ÈçÏÂ£º\n";
+		list = "\nä½ ç›®å‰çš„å¥½å‹åå•å¦‚ä¸‹ï¼š\n";
 		for( i = 0 ; i < sizeof(friend_user); i++) {
 			if( (obj = LOGIN_D->find_body(friend_user[i]) )){
 				if( me->visible(obj) ) list += sprintf("  [%2d] %s\n", i+1, obj->short(1));
-				else list += sprintf("  [%2d] %-9sÄ¿Ç°²»ÔÚÏßÉÏ¡£\n", i+1, capitalize(friend_user[i]));
+				else list += sprintf("  [%2d] %-9sç›®å‰ä¸åœ¨çº¿ä¸Šã€‚\n", i+1, capitalize(friend_user[i]));
 			} else	// if( file_size(DATA_DIR+"login/"+ friend_user[i][0..0] +"/"+ friend_user[i] +__SAVE_EXTENSION__) > 0 )
-				list += sprintf("  [%2d] %-9sÄ¿Ç°²»ÔÚÏßÉÏ¡£\n", i+1, capitalize(friend_user[i]));
+				list += sprintf("  [%2d] %-9sç›®å‰ä¸åœ¨çº¿ä¸Šã€‚\n", i+1, capitalize(friend_user[i]));
 /*
 			else {
-				list += sprintf("  [%2d] %-9s"HIR"ÒÑ¾­", (i+1), capitalize(friend_user[i]));
+				list += sprintf("  [%2d] %-9s"HIR"å·²ç»", (i+1), capitalize(friend_user[i]));
 				if (file_size(DATA_DIR+"login/"+ friend_user[i][0..0] +"/"+ friend_user[i] + ".ppp") > 0)
-					list += "±»É¾³ı";
-				else list += "×ÔÉ±";
-				list += "ÁË¡£\n"NOR;
+					list += "è¢«åˆ é™¤";
+				else list += "è‡ªæ€";
+				list += "äº†ã€‚\n"NOR;
 			}
 */
 		}
@@ -52,7 +52,7 @@ int main(object me, string arg)
 	} else {
 		if( arg == "-all" ){
 			if( !wizardp(me) )
-				return notify_fail("-all ÎªÎ×Ê¦×¨ÓÃ¡£\n");
+				return notify_fail("-all ä¸ºå·«å¸ˆä¸“ç”¨ã€‚\n");
 			else me->start_more( FINGER_D->finger_all() );
 			return 1;
 		}
@@ -60,38 +60,38 @@ int main(object me, string arg)
 		if( sizeof(friend_user) && sscanf(arg,"-d %s", arg) ) {
 			if( friend_user -= ({ arg }) )
 				if( me->set("friend_user", friend_user) )
-					return notify_fail("Äã½« "+capitalize(arg)+" ´ÓºÃÓÑÃûµ¥ÒÆ³ıÁË¡£\n");
-			else return notify_fail("ÄãµÄºÃÓÑÃûµ¥ÖĞ²¢Ã»ÓĞ "+capitalize(arg)+" Õâ¸öÈË¡£\n");
+					return notify_fail("ä½ å°† "+capitalize(arg)+" ä»å¥½å‹åå•ç§»é™¤äº†ã€‚\n");
+			else return notify_fail("ä½ çš„å¥½å‹åå•ä¸­å¹¶æ²¡æœ‰ "+capitalize(arg)+" è¿™ä¸ªäººã€‚\n");
 		}
 
 		else if( sscanf(arg, "-a %s", arg) ) {
 			if( arg==me->query("id") )
-				return notify_fail("ÄãÄÔ´üÓĞÎÊÌâÂğ£¿xixi\n");
+				return notify_fail("ä½ è„‘è¢‹æœ‰é—®é¢˜å—ï¼Ÿxixi\n");
 
 			if (!sizeof(friend_user)) {
 				if (me->set("friend_user", ({arg})))
-					return notify_fail("Äã³É¹¦µÄ½« "+capitalize(arg)+" ¼ÓÈëºÃÓÑÃûµ¥ÀïÃæ¡£\n");
+					return notify_fail("ä½ æˆåŠŸçš„å°† "+capitalize(arg)+" åŠ å…¥å¥½å‹åå•é‡Œé¢ã€‚\n");
 			}
 
 			if (member_array(arg, friend_user) != -1)
-				return notify_fail("ºÃÓÑÃûµ¥ÖĞÒÑ¾­ÓĞ´ËÈËÁË¡£\n");
+				return notify_fail("å¥½å‹åå•ä¸­å·²ç»æœ‰æ­¤äººäº†ã€‚\n");
 
 			if (sizeof(friend_user) > 9)
-				return notify_fail("ºÃÓÑÃûµ¥×î¶àÎªÊ®Î»£¬ÇëÏÈÈ·¶¨ÈËÊı¡£\n");
+				return notify_fail("å¥½å‹åå•æœ€å¤šä¸ºåä½ï¼Œè¯·å…ˆç¡®å®šäººæ•°ã€‚\n");
 
 			if( file_size(DATA_DIR+"login/"+arg[0..0]+"/"+ arg +__SAVE_EXTENSION__) < 0 )
-				return notify_fail("Ã»ÓĞÕâÎ»Ê¹ÓÃÕß¡£\n");
+				return notify_fail("æ²¡æœ‰è¿™ä½ä½¿ç”¨è€…ã€‚\n");
 
 			friend_user = sort_array(friend_user + ({ arg }), 0);
 
 			if (me->set("friend_user", friend_user))
-				return notify_fail("Äã³É¹¦µÄ½« "+capitalize(arg)+" ¼ÓÈëºÃÓÑÃûµ¥ÀïÃæ¡£\n");
+				return notify_fail("ä½ æˆåŠŸçš„å°† "+capitalize(arg)+" åŠ å…¥å¥½å‹åå•é‡Œé¢ã€‚\n");
 
-			return notify_fail("½« "+capitalize(arg)+" ¼ÓÈëºÃÓÑÃûµ¥Ê§°Ü£¡ÇëÍ¨ÖªÎ×Ê¦¡£\n");
+			return notify_fail("å°† "+capitalize(arg)+" åŠ å…¥å¥½å‹åå•å¤±è´¥ï¼è¯·é€šçŸ¥å·«å¸ˆã€‚\n");
 		} else {
 			if( !wizardp(me) ) {
-				if( me->query_temp("command_busy")) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
-				if( (int)me->query("jing") < 50 ) return notify_fail("ÄãµÄ¾«ÉñÎŞ·¨¼¯ÖĞ¡£\n");
+				if( me->query_temp("command_busy")) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+				if( (int)me->query("jing") < 50 ) return notify_fail("ä½ çš„ç²¾ç¥æ— æ³•é›†ä¸­ã€‚\n");
 				me->receive_damage("jing", 50);
 				me->set_temp("command_busy", 1);
 				call_out("remove_busy", 3, me);
@@ -107,15 +107,15 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºfinger [-a|-d|-all]
+æŒ‡ä»¤æ ¼å¼ï¼šfinger [-a|-d|-all]
 	  finger <id>
 	  finger
 --------------------------------------------------
- finger [Ê¹ÓÃÕßĞÕÃû]   : »ñÈ¡´ËÈËµÄ×ÊÁÏ
- finger -a [¼ÓÈëºÃÓÑ]  : ½«´ËÈË¼ÓÈëºÃÓÑÃûµ¥
- finger -d [ÒÆ³ıºÃÓÑ]  : ½«´ËÈË´ÓºÃÓÑÃûµ¥ÖĞÉ¾³ı
- finger		: ÏÔÊ¾ºÃÓÑÃûµ¥
- finger -all	   : È«²¿Íæ¼ÒÏêÏ¸×ÊÁÏ(Î×Ê¦×¨ÓÃ)
+ finger [ä½¿ç”¨è€…å§“å]   : è·å–æ­¤äººçš„èµ„æ–™
+ finger -a [åŠ å…¥å¥½å‹]  : å°†æ­¤äººåŠ å…¥å¥½å‹åå•
+ finger -d [ç§»é™¤å¥½å‹]  : å°†æ­¤äººä»å¥½å‹åå•ä¸­åˆ é™¤
+ finger		: æ˜¾ç¤ºå¥½å‹åå•
+ finger -all	   : å…¨éƒ¨ç©å®¶è¯¦ç»†èµ„æ–™(å·«å¸ˆä¸“ç”¨)
 --------------------------------------------------
 
 HELP

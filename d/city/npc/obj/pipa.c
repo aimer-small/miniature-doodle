@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIM "ÅıÅÃ" NOR, ({ "pi pa"}));
+	set_name(HIM "çµç¶" NOR, ({ "pi pa"}));
 	set_weight(100);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
-		set("long", "ÕâÊÇ°ÑÇÙÍ·µñÓĞÈçÒâ£¬ÓÃ×ÏÌ´ÖÆ³ÉµÄËÄÏàÊ®ÈıÆ·ÅıÅÃ¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯æŠŠç´å¤´é›•æœ‰å¦‚æ„ï¼Œç”¨ç´«æª€åˆ¶æˆçš„å››ç›¸åä¸‰å“çµç¶ã€‚\n");
 		set("value", 2000);
 		set("material", "wood");
 		}

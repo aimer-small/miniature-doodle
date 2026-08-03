@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ò°É½Ñò", ({"shan yang", "yang"}));
-        set("race", "Ò°ÊÞ");
+        set_name("é‡Žå±±ç¾Š", ({"shan yang", "yang"}));
+        set("race", "é‡Žå…½");
         set("age", 5);
-        set("long", "Ò»Ö»ÎÂË³¿É°®µÄÒ°É½Ñò¡£\n");
+        set("long", "ä¸€åªæ¸©é¡ºå¯çˆ±çš„é‡Žå±±ç¾Šã€‚\n");
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°×¦", "ºó×¦", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰çˆª", "åŽçˆª", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
 
         set("combat_exp", 100);
@@ -24,7 +24,7 @@ void create()
 
 void die()
 {
-       message_vision("$N²Òº¿Ò»Éù£¬ÂýÂýµ¹ÏÂËÀÁË£¡\n", this_object());
+       message_vision("$Næƒ¨åšŽä¸€å£°ï¼Œæ…¢æ…¢å€’ä¸‹æ­»äº†ï¼\n", this_object());
        new_ob("../obj/yang-rou")->move(environment());
        destruct(this_object());
 }

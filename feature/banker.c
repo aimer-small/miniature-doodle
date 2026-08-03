@@ -51,11 +51,11 @@ int query_withdraw_cost(object me, int v)
 		else i = 20;
 	}
 	if (i<10)
-		withdraw_cost_str = CHINESE_D->chinese_number(i) + "Àå";
+		withdraw_cost_str = CHINESE_D->chinese_number(i) + "å˜";
 	else {
-		withdraw_cost_str = CHINESE_D->chinese_number(i/10) + "·Ö";
+		withdraw_cost_str = CHINESE_D->chinese_number(i/10) + "åˆ†";
 		if (i%10)
-			withdraw_cost_str += "°ë";
+			withdraw_cost_str += "åŠ";
 	}
 	v = v / 10 * i / 10;
 	if (v < 1)
@@ -69,27 +69,27 @@ int do_check()
 	int total = me->query("balance");
 
 	if (!living(this_object()))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ĞÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 	if (base_name(environment()) != query("startroom"))
-		return notify_fail("Õâ¡­¡­ÎÒÕâ´ÎÊÇ³öÀ´ÓÎÍæµÄ£¬ÄãÏÂ´ÎÀ´°É¡£\n");
+		return notify_fail("è¿™â€¦â€¦æˆ‘è¿™æ¬¡æ˜¯å‡ºæ¥æ¸¸ç©çš„ï¼Œä½ ä¸‹æ¬¡æ¥å§ã€‚\n");
 
 	if (query_temp("busy") || this_object()->is_busy())
-		return notify_fail(this_object()->name()+"ËµµÀ£º¡°Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£¡±\n");
+		return notify_fail(this_object()->name()+"è¯´é“ï¼šâ€œå“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚â€\n");
 
 	if (total <= 0) {
 		me->set("balance", 0);
-                tell_object(me, "ÀÏ°åÃĞ×ÅÑÛ¾¦àÖ¹¾ÁË°ëÌì£¬Äã¸Ğ¾õµ½ºÃÏñ²»´ó¶Ô¾¢°¡¡£\n");
-		write("ÄúÔÚ±ÖÉÌºÅÃ»ÓĞ´æÇ®¡£\n");
+                tell_object(me, "è€æ¿çœ¯ç€çœ¼ç›å˜€å’•äº†åŠå¤©ï¼Œä½ æ„Ÿè§‰åˆ°å¥½åƒä¸å¤§å¯¹åŠ²å•Šã€‚\n");
+		write("æ‚¨åœ¨æ•å•†å·æ²¡æœ‰å­˜é’±ã€‚\n");
 	} else
-		write(this_object()->name()+"·­ÁË·­ÕÊ²¾£¬¸æËßÄã£º¡°ÄúÔÚ±×ÉÌºÅ¹²´æÓĞ"+MONEY_D->money_str(total)+"¡±\n");
+		write(this_object()->name()+"ç¿»äº†ç¿»å¸ç°¿ï¼Œå‘Šè¯‰ä½ ï¼šâ€œæ‚¨åœ¨å¼Šå•†å·å…±å­˜æœ‰"+MONEY_D->money_str(total)+"â€\n");
 	if( me->query("registered") == 3 && !me->query("buyvip") )
-		write("ÄúÊÇ¹ó±öÍæ¼Ò£¬ËùÒÔÄúµÄ´æ¿îÉÏÏŞÒª±ÈÆÕÍ¨Íæ¼Ò¶àÒ»±¶£¡\nÄúÄ¿Ç°µÄ´æ¿îÉÏÏŞÊÇ£º"+MONEY_D->money_str(query_balance_limit(me))+"¡£\n");
+		write("æ‚¨æ˜¯è´µå®¾ç©å®¶ï¼Œæ‰€ä»¥æ‚¨çš„å­˜æ¬¾ä¸Šé™è¦æ¯”æ™®é€šç©å®¶å¤šä¸€å€ï¼\næ‚¨ç›®å‰çš„å­˜æ¬¾ä¸Šé™æ˜¯ï¼š"+MONEY_D->money_str(query_balance_limit(me))+"ã€‚\n");
 	if( me->query("buyvip") )
-		write("ÄúÊÇÖÕÉíVIPµÄÍæ¼Ò£¬ËùÒÔÄúµÄ´æ¿îÉÏÏŞÒª±È¹ó±ö¶àÒ»±¶£¡\nÄúÄ¿Ç°µÄ´æ¿îÉÏÏŞÊÇ£º"+MONEY_D->money_str(query_balance_limit(me))+"¡£\n");
+		write("æ‚¨æ˜¯ç»ˆèº«VIPçš„ç©å®¶ï¼Œæ‰€ä»¥æ‚¨çš„å­˜æ¬¾ä¸Šé™è¦æ¯”è´µå®¾å¤šä¸€å€ï¼\næ‚¨ç›®å‰çš„å­˜æ¬¾ä¸Šé™æ˜¯ï¼š"+MONEY_D->money_str(query_balance_limit(me))+"ã€‚\n");
 
 	else
-		write("ÄúÄ¿Ç°µÄ´æ¿îÉÏÏŞÊÇ£º"+MONEY_D->money_str(query_balance_limit(me))+"¡£\n");
+		write("æ‚¨ç›®å‰çš„å­˜æ¬¾ä¸Šé™æ˜¯ï¼š"+MONEY_D->money_str(query_balance_limit(me))+"ã€‚\n");
 	return 1;
 }
 
@@ -101,41 +101,41 @@ int do_convert(string arg)
 	object me;
 
 	if (!living(this_object()))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ĞÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 	if (base_name(environment()) != query("startroom"))
-		return notify_fail("Õâ¡­¡­ÎÒÕâ´ÎÊÇ³öÀ´ÓÎÍæµÄ£¬ÄãÏÂ´ÎÀ´°É¡£\n");
+		return notify_fail("è¿™â€¦â€¦æˆ‘è¿™æ¬¡æ˜¯å‡ºæ¥æ¸¸ç©çš„ï¼Œä½ ä¸‹æ¬¡æ¥å§ã€‚\n");
 
 	if (query_temp("busy") || this_object()->is_busy())
-		return notify_fail(this_object()->name()+"ËµµÀ£º¡°Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£¡±\n");
+		return notify_fail(this_object()->name()+"è¯´é“ï¼šâ€œå“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚â€\n");
 
 	me = this_player();
 	exp = me->query("combat_exp");
 	if (!arg || sscanf(arg, "%d %s to %s", amount, from, to) != 3)
-		return notify_fail("ÃüÁî¸ñÊ½£ºconvert|duihuan <ÊıÁ¿> <»õ±Òµ¥Î»> to <ĞÂ»õ±Òµ¥Î»>\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼ï¼šconvert|duihuan <æ•°é‡> <è´§å¸å•ä½> to <æ–°è´§å¸å•ä½>\n");
 
 	if (from == "cash")
 		from = "thousand-cash";
 
 	from_ob = present(from + "_money", me);
 	if (!from_ob)
-		return notify_fail("ÄãÉíÉÏÃ»ÓĞ´øÕâÖÖÇ®¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰å¸¦è¿™ç§é’±ã€‚\n");
 
 	if (exp < 15000 && from_ob->query("id") == "thousand-cash")
-		return notify_fail("Äã¹¦·ò»¹Î´ÈëÁ÷£¬ÄÇÀïÀ´µÄÕâÃ´¶àÇ®£¿\n");
+		return notify_fail("ä½ åŠŸå¤«è¿˜æœªå…¥æµï¼Œé‚£é‡Œæ¥çš„è¿™ä¹ˆå¤šé’±ï¼Ÿ\n");
 
 	if (to == "cash")
 		to = "thousand-cash";
 
 	to_ob = present(to + "_money", me);
 	if (file_size("/clone/money/" + to + ".c") < 0)
-		return notify_fail("ÄãÏë¶Ò»»³ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ æƒ³å…‘æ¢æˆä»€ä¹ˆï¼Ÿ\n");
 
 	if (amount < 1)
-		return notify_fail("ÄãÏë°××¬°¡£¿\n");
+		return notify_fail("ä½ æƒ³ç™½èµšå•Šï¼Ÿ\n");
 
 	if ((int)from_ob->query_amount() < amount)
-		return notify_fail("Äã´øµÄ" + from_ob->name() + "²»¹»¡£\n");
+		return notify_fail("ä½ å¸¦çš„" + from_ob->name() + "ä¸å¤Ÿã€‚\n");
 
 	bv1 = from_ob->query("base_value");
 	bv2 = to_ob ? to_ob->query("base_value") : call_other("/clone/money/" + to, "query", "base_value" );
@@ -143,26 +143,26 @@ int do_convert(string arg)
 	if (bv1 < bv2) amount -= amount % (bv2 / bv1);
 
 	if (amount == 0)
-		return notify_fail("ÕâĞ©" + from_ob->name() + "²»¹»»»¡£\n");
+		return notify_fail("è¿™äº›" + from_ob->name() + "ä¸å¤Ÿæ¢ã€‚\n");
 
 	exp = amount * bv1 / bv2;
 
-	if (exp < 1) return notify_fail(this_object()->name()+"Á³É«Ò»±ä£¬µÀ£º¡°ÕâÎ»"
-		+RANK_D->query_respect(me)+"£¬Ğ¡µêÄ¿Ç°Ã»ÓĞÕâÃ´¶àÏÖ½ğ£¬ÊÇ·ñÉÙ»»Ò»µã£¿¡±\n");
+	if (exp < 1) return notify_fail(this_object()->name()+"è„¸è‰²ä¸€å˜ï¼Œé“ï¼šâ€œè¿™ä½"
+		+RANK_D->query_respect(me)+"ï¼Œå°åº—ç›®å‰æ²¡æœ‰è¿™ä¹ˆå¤šç°é‡‘ï¼Œæ˜¯å¦å°‘æ¢ä¸€ç‚¹ï¼Ÿâ€\n");
 
 	// allowed to convert now
 	to_ob = new("/clone/money/" + to);
 	to_ob->set_amount(exp);
 	if (!to_ob->move(me)) {
 		destruct(to_ob);
-		return notify_fail("Äã´ø²»ÁËÄÇÃ´¶àÇ®¡£\n");
+		return notify_fail("ä½ å¸¦ä¸äº†é‚£ä¹ˆå¤šé’±ã€‚\n");
 	}
 
 	set_temp("busy", 1);
 
 	from_ob = present(from + "_money", me);
 
-	message_vision(sprintf("$N´ÓÉíÉÏÈ¡³ö%s%s%s£¬»»³ÉÁË%s%s%s¡£\n",
+	message_vision(sprintf("$Nä»èº«ä¸Šå–å‡º%s%s%sï¼Œæ¢æˆäº†%s%s%sã€‚\n",
 		chinese_number(amount), from_ob->query("base_unit"), from_ob->name(),
 		chinese_number(amount * bv1 / bv2), to_ob->query("base_unit"),
 		to_ob->name()), me);
@@ -180,47 +180,47 @@ int do_deposit(string arg)
 	object what_ob, me;
 
 	if (!living(this_object()))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ĞÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 	if (base_name(environment()) != query("startroom"))
-		return notify_fail("Õâ¡­¡­ÎÒÕâ´ÎÊÇ³öÀ´ÓÎÍæµÄ£¬ÄãÏÂ´ÎÀ´°É¡£\n");
+		return notify_fail("è¿™â€¦â€¦æˆ‘è¿™æ¬¡æ˜¯å‡ºæ¥æ¸¸ç©çš„ï¼Œä½ ä¸‹æ¬¡æ¥å§ã€‚\n");
 
 	if (query_temp("busy") || this_object()->is_busy())
-		return notify_fail(this_object()->name()+"ËµµÀ£º¡°Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£¡±\n");
+		return notify_fail(this_object()->name()+"è¯´é“ï¼šâ€œå“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚â€\n");
 
 	me = this_player();
 
 	if (!arg || sscanf(arg, "%d %s", amount, what) != 2)
-		return notify_fail("ÃüÁî¸ñÊ½£ºdeposit|cun <ÊıÁ¿> <»õ±Òµ¥Î»>\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼ï¼šdeposit|cun <æ•°é‡> <è´§å¸å•ä½>\n");
 
 	if (what == "cash")
 		what = "thousand-cash";
 
 	if (!what_ob = present(what + "_money", me))
-		return notify_fail("ÄúÉíÉÏÃ»ÓĞ´øÕâÖÖÇ®¡£\n");
+		return notify_fail("æ‚¨èº«ä¸Šæ²¡æœ‰å¸¦è¿™ç§é’±ã€‚\n");
 
 	if (amount < 1)
-		return notify_fail("ÄúÏë´æ¶àÉÙ" + what_ob->name() + "£¿\n");
+		return notify_fail("æ‚¨æƒ³å­˜å¤šå°‘" + what_ob->name() + "ï¼Ÿ\n");
 
 	if ((int)what_ob->query_amount() < amount)
-		return notify_fail("Äú´øµÄ" + what_ob->name() + "²»¹»¡£\n");
+		return notify_fail("æ‚¨å¸¦çš„" + what_ob->name() + "ä¸å¤Ÿã€‚\n");
 
 	limit = query_balance_limit(me);
 
 	limit -= me->query("balance");
 	if (limit < what_ob->query("base_value") * amount)
-		return notify_fail("ÄúÄ¿Ç°ÒÑÓĞ´æ¿î"+MONEY_D->money_str(me->query("balance"))+"£¬ÔÙ´æÄÇÃ´¶àµÄÇ®£¬Ğ¡ºÅ¿ÉÄÑ±£¹ÜÁË¡£\n");
+		return notify_fail("æ‚¨ç›®å‰å·²æœ‰å­˜æ¬¾"+MONEY_D->money_str(me->query("balance"))+"ï¼Œå†å­˜é‚£ä¹ˆå¤šçš„é’±ï¼Œå°å·å¯éš¾ä¿ç®¡äº†ã€‚\n");
 
 	set_temp("busy", 1);
 	limit = amount;
 	amount *= what_ob->query("base_value");
-	if (amount < 1) return notify_fail(this_object()->name()+"ÄÑ¿°µØĞ¦Ğ¦£º£º¡°ÕâÎ»"
-		+RANK_D->query_respect(me)+"£¬ÕâÃ´¶àÏÖ½ğÎÒËã²»¹ıÀ´ÁË£¬ÊÇ·ñÄÜÁíÍâ¸ø¸öÊıÁ¿£¿¡±\n");
+	if (amount < 1) return notify_fail(this_object()->name()+"éš¾å ªåœ°ç¬‘ç¬‘ï¼šï¼šâ€œè¿™ä½"
+		+RANK_D->query_respect(me)+"ï¼Œè¿™ä¹ˆå¤šç°é‡‘æˆ‘ç®—ä¸è¿‡æ¥äº†ï¼Œæ˜¯å¦èƒ½å¦å¤–ç»™ä¸ªæ•°é‡ï¼Ÿâ€\n");
 
-	message_vision(sprintf("$NÄÃ³ö%s%s%s£¬´æ½øÁËÒøºÅ¡£\n", chinese_number(limit), what_ob->query("base_unit"), what_ob->name()), me);
+	message_vision(sprintf("$Næ‹¿å‡º%s%s%sï¼Œå­˜è¿›äº†é“¶å·ã€‚\n", chinese_number(limit), what_ob->query("base_unit"), what_ob->name()), me);
 
 	what_ob->add_amount(-limit);
-	write(query("name")+"¼ÇÍêÕÊ£¬µãÁËµãÍ·£º¡°ÄúÔÚ±×ÉÌºÅÏÖÓĞ"+MONEY_D->money_str(me->add("balance", amount))+"¡£¡±\n");
+	write(query("name")+"è®°å®Œå¸ï¼Œç‚¹äº†ç‚¹å¤´ï¼šâ€œæ‚¨åœ¨å¼Šå•†å·ç°æœ‰"+MONEY_D->money_str(me->add("balance", amount))+"ã€‚â€\n");
 	call_out("delete_temp", 1, "busy");
 	return 1;
 }
@@ -232,33 +232,33 @@ int do_withdraw(string arg)
 	object me, money;
 
 	if (!living(this_object()))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ĞÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 	if (base_name(environment()) != query("startroom"))
-		return notify_fail("Õâ¡­¡­ÎÒÕâ´ÎÊÇ³öÀ´ÓÎÍæµÄ£¬ÄãÏÂ´ÎÀ´°É¡£\n");
+		return notify_fail("è¿™â€¦â€¦æˆ‘è¿™æ¬¡æ˜¯å‡ºæ¥æ¸¸ç©çš„ï¼Œä½ ä¸‹æ¬¡æ¥å§ã€‚\n");
 
 	if (query_temp("busy") || this_object()->is_busy())
-		return notify_fail(this_object()->name()+"ËµµÀ£º¡°Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£¡±\n");
+		return notify_fail(this_object()->name()+"è¯´é“ï¼šâ€œå“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚â€\n");
 
 	me = this_player();
 
 	if (!arg || sscanf(arg, "%d %s", amount, what) != 2)
-		return notify_fail("ÃüÁî¸ñÊ½£ºwithdraw|qu <ÊıÁ¿> <»õ±Òµ¥Î»>\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼ï¼šwithdraw|qu <æ•°é‡> <è´§å¸å•ä½>\n");
 
 	if (what == "cash")
 		what = "thousand-cash";
 
 	if (file_size("/clone/money/" + what + ".c") < 0)
-		return notify_fail("ÄãÏëÈ¡³öÊ²Ã´Ç®£¿\n");
+		return notify_fail("ä½ æƒ³å–å‡ºä»€ä¹ˆé’±ï¼Ÿ\n");
 
 	if (amount < 1)
-		return notify_fail(this_object()->name()+"Ò»Á³µÄÃ£È»£¬ÎÊµÀ£º¡°ÕâÎ»"
-		+RANK_D->query_respect(me)+"µ½µ×ÏëÒªÌáÈ¡¶àÉÙÇ®¿î£¿¡±\n");
+		return notify_fail(this_object()->name()+"ä¸€è„¸çš„èŒ«ç„¶ï¼Œé—®é“ï¼šâ€œè¿™ä½"
+		+RANK_D->query_respect(me)+"åˆ°åº•æƒ³è¦æå–å¤šå°‘é’±æ¬¾ï¼Ÿâ€\n");
 
 	what = "/clone/money/" + what;
 	if (me->query("balance") > query_balance_limit(me) ) {
 		log_file("balance",
-			sprintf("%-19s±¾À´ÓĞ %10d ´æ¿î£¬ÏÖ¼õÎª£º%10d¡£\n",
+			sprintf("%-19sæœ¬æ¥æœ‰ %10d å­˜æ¬¾ï¼Œç°å‡ä¸ºï¼š%10dã€‚\n",
 				me->name(1)+"("+me->query("id")+")", me->query("balance"), query_balance_limit(me)
 			), me
 		);
@@ -266,24 +266,24 @@ int do_withdraw(string arg)
 
  me->add("SJ_Credit",(me->query("balance")-query_balance_limit(me))/1000000  );
                 me->set("balance", query_balance_limit(me));
-                tell_object(me, "ÄúµÄ´æ¿îÊıÄ¿ÓĞÎó£¬±¾µêÒÑ¾­Çå²é£¬³¬¶îµÄ´æ¿îÒÑ¾­°´ÕÕ100»Æ½ğ:1Í¨±¦×ª»»³ÉÎªÍ¨±¦£¬²»ÓÃµ£ĞÄÁË¡£\n");
+                tell_object(me, "æ‚¨çš„å­˜æ¬¾æ•°ç›®æœ‰è¯¯ï¼Œæœ¬åº—å·²ç»æ¸…æŸ¥ï¼Œè¶…é¢çš„å­˜æ¬¾å·²ç»æŒ‰ç…§100é»„é‡‘:1é€šå®è½¬æ¢æˆä¸ºé€šå®ï¼Œä¸ç”¨æ‹…å¿ƒäº†ã€‚\n");
 
 	}
 
 	if ((v = amount * what->query("base_value")) > me->query("balance"))
-		return notify_fail("ÄãÃ»ÓĞ´æÄÇÃ´¶àµÄÇ®¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰å­˜é‚£ä¹ˆå¤šçš„é’±ã€‚\n");
 
 	if ((v += query_withdraw_cost(me,v)) > me->query("balance"))
-		return notify_fail("ÄãµÄ´æ¿î²»¹»Ö§¸¶ÊÖĞø·Ñ£¬ÉÙÈ¡µã°É¡£\n");
+		return notify_fail("ä½ çš„å­˜æ¬¾ä¸å¤Ÿæ”¯ä»˜æ‰‹ç»­è´¹ï¼Œå°‘å–ç‚¹å§ã€‚\n");
 
 	if (v < 1)
-		return notify_fail(this_object()->name()+"Á³É«Ò»±ä£¬µÀ£º¡°ÕâÎ»"
-			+RANK_D->query_respect(me)+"£¬ÊÇ·ñÄÜÁíÍâ¸ø¸öÊıÁ¿£¿¡±\n");
+		return notify_fail(this_object()->name()+"è„¸è‰²ä¸€å˜ï¼Œé“ï¼šâ€œè¿™ä½"
+			+RANK_D->query_respect(me)+"ï¼Œæ˜¯å¦èƒ½å¦å¤–ç»™ä¸ªæ•°é‡ï¼Ÿâ€\n");
 
-	message_vision(sprintf("$N´ÓÒøºÅÀïÈ¡³ö%s%s%s¡£\n", chinese_number(amount), what->query("base_unit"), what->name()), me);
+	message_vision(sprintf("$Nä»é“¶å·é‡Œå–å‡º%s%s%sã€‚\n", chinese_number(amount), what->query("base_unit"), what->name()), me);
 	(money = new(what))->set_amount(amount);
 	money->move(me);
-	write(query("name")+"¼ÇÍêÕÊ£¬¸æËßÄã£º¡°¿Û³ı"+withdraw_cost_str+"ÊÖĞø·Ñ£¬ÄúÔÚ±×ÉÌºÅÏÖ»¹ÓĞ"+MONEY_D->money_str(me->add("balance", -v))+"¡£¡±\n");
+	write(query("name")+"è®°å®Œå¸ï¼Œå‘Šè¯‰ä½ ï¼šâ€œæ‰£é™¤"+withdraw_cost_str+"æ‰‹ç»­è´¹ï¼Œæ‚¨åœ¨å¼Šå•†å·ç°è¿˜æœ‰"+MONEY_D->money_str(me->add("balance", -v))+"ã€‚â€\n");
 	set_temp("busy", 1);
 	call_out("delete_temp", 1, "busy");
 	return 1;

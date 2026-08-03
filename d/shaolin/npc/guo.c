@@ -1,13 +1,13 @@
-// guo.c ¹ıÈıÈ­
+// guo.c è¿‡ä¸‰æ‹³
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-       set_name("¹ıÈıÈ­", ({ "guo sanquan", "guo" }) );
-       set("title", "ÉñÈ­ÃÅÃÅÖ÷");
-       set("gender", "ÄĞĞÔ" );
+       set_name("è¿‡ä¸‰æ‹³", ({ "guo sanquan", "guo" }) );
+       set("title", "ç¥æ‹³é—¨é—¨ä¸»");
+       set("gender", "ç”·æ€§" );
        set("shen_type", -1);
        set("age", 50);
        set("str", 30);
@@ -15,12 +15,12 @@ void create()
        set("int", 10);
        set("dex", 30);
        set("long",
-               "ÎäÁÖÖĞÓĞÃûµÄÃûÈ­Ê¦£¬ÉÙÓĞÈËÄÜ½ÓËûÈıÈ­¡£\n" );
+               "æ­¦æ—ä¸­æœ‰åçš„åæ‹³å¸ˆï¼Œå°‘æœ‰äººèƒ½æ¥ä»–ä¸‰æ‹³ã€‚\n" );
        set("combat_exp", 600000);
        set("attitude", "peaceful");
        set("chat_chance", 2);
        set("chat_msg", ({
-           "Âó¾¨ËµµÀ: ¾Ş¾¨°ïÊÇº£ÉÏµÚÒ»´ó°ï£¬Ë­Ò²²»ÅÂ¡£\n",
+           "éº¦é²¸è¯´é“: å·¨é²¸å¸®æ˜¯æµ·ä¸Šç¬¬ä¸€å¤§å¸®ï¼Œè°ä¹Ÿä¸æ€•ã€‚\n",
          (: random_move :)
          }));
           set("chat_chance_combat", 20);

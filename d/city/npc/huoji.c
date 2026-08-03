@@ -1,4 +1,4 @@
-// huoji. Ò©ÆÌ»ï¼Æ
+// huoji. è¯é“ºä¼™è®¡
 #include <ansi.h>
 
 inherit NPC;
@@ -7,11 +7,11 @@ inherit F_VENDOR;
 int ask_yjw();
 void create()
 {
-        set_name("Ò©ÆÌ»ï¼Æ", ({ "yaopu huoji", "huoji" }));
+        set_name("è¯é“ºä¼™è®¡", ({ "yaopu huoji", "huoji" }));
         set("str", 20);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 18);
-        set("long", "Ò»¸öÂµÃ¦µÄĞ¡»ï¼Æ¡£\n");
+        set("long", "ä¸€ä¸ªç¢Œå¿™çš„å°ä¼™è®¡ã€‚\n");
         set("combat_exp", 250);
         set("attitude", "friendly");
         set("vendor_goods", ({
@@ -24,7 +24,7 @@ void create()
         }));
         
 	set("inquiry", ([
-		"Óñ¼¡Íè" : (: ask_yjw :),
+		"ç‰è‚Œä¸¸" : (: ask_yjw :),
 		"yuji wan" : (: ask_yjw :),
 		])); 
         setup();
@@ -42,7 +42,7 @@ int ask_yjw()
 	
 	if (present("yuji wan", me))
         {	
-        	command("say Äã²»ÊÇÒÑ¾­ÓĞÁËÃ´£¿");
+        	command("say ä½ ä¸æ˜¯å·²ç»æœ‰äº†ä¹ˆï¼Ÿ");
                 return 1; 
 	}
 	
@@ -51,13 +51,13 @@ int ask_yjw()
 		ob = new(MEDICINE_D("neili/yujiwan"));
 		ob->set("owner", me->query("id"));
 		ob->move(me);
-		command("say Ğ¡ĞÄµã,²»ÒªÔÙµôÁË!");
-		message_vision("$Nµİ¸ø$nÒ»¿Å"+HIW+"Óñ¼¡Íè"+NOR+"¡£\n", this_object(), me); 
+		command("say å°å¿ƒç‚¹,ä¸è¦å†æ‰äº†!");
+		message_vision("$Né€’ç»™$nä¸€é¢—"+HIW+"ç‰è‚Œä¸¸"+NOR+"ã€‚\n", this_object(), me); 
 		return 1;
 	}
 	else
 	{
-		command("say ºúÂÒ³ÔÒ©»áÉú²¡µÄ!");
+		command("say èƒ¡ä¹±åƒè¯ä¼šç”Ÿç—…çš„!");
 		return 1;
 	}
 }

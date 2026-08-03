@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIC"Ê¯ÊÒ"NOR);
+	set("short", HIC"çŸ³å®¤"NOR);
 	set("long", @LONG
-ÕâÊ¯ÊÒ±ÈÖ®ÏÈÇ°×½ÂéÈ¸µÄÊ¯ÊÒ³¤À«¾ùÔ¼´óÁËÒ»±¶£¬ÊÒÖĞÒÑÓĞ¶àÖ»ÂéÈ¸ÔÚÄÚ¡£
-µØ·½´óÁËÕâ÷á¶à£¬²¶×½ÂéÈ¸×ÔÈ»Ô¶Îª¼èÄÑ¡£Ê¯ÊÒÃÜ±Õ£¬Ç½ÉÏÁ½Ö»»ğ°ÑÕÕµÃÕû¸ö
-Ê¯ÊÒµÆ»ğÍ¨Ã÷¡£
+è¿™çŸ³å®¤æ¯”ä¹‹å…ˆå‰æ‰éº»é›€çš„çŸ³å®¤é•¿é˜”å‡çº¦å¤§äº†ä¸€å€ï¼Œå®¤ä¸­å·²æœ‰å¤šåªéº»é›€åœ¨å†…ã€‚
+åœ°æ–¹å¤§äº†è¿™éº½å¤šï¼Œæ•æ‰éº»é›€è‡ªç„¶è¿œä¸ºè‰°éš¾ã€‚çŸ³å®¤å¯†é—­ï¼Œå¢™ä¸Šä¸¤åªç«æŠŠç…§å¾—æ•´ä¸ª
+çŸ³å®¤ç¯ç«é€šæ˜ã€‚
 LONG
 	);
 
@@ -33,25 +33,25 @@ int do_zhuo(string arg)
 
 	if (!living(me)) return 0;
 
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÈçºÎÄÜÁìÎò¹ÅÄ¹Îä¹¦£¿\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œå¦‚ä½•èƒ½é¢†æ‚Ÿå¤å¢“æ­¦åŠŸï¼Ÿ\n");
 
 	if ( arg == "maque"){
-		if ( me->query("gender")!="ÄĞĞÔ")
-			return notify_fail("¹ÅÄ¹Å®µÜ×Ó¿ÉÒÔÈ¥ĞŞÁ¶ÃÀÅ®È­·¨¡£\n");
+		if ( me->query("gender")!="ç”·æ€§")
+			return notify_fail("å¤å¢“å¥³å¼Ÿå­å¯ä»¥å»ä¿®ç‚¼ç¾å¥³æ‹³æ³•ã€‚\n");
 		if ((int)me->query_skill("dodge",1 ) < 10)
-			return notify_fail("ÄãÇá¹¦Éí·¨Ì«µÍ£¬×½²»×¡ÕâÃ´¶àÂéÈ¸µÄ¡£\n");
+			return notify_fail("ä½ è½»åŠŸèº«æ³•å¤ªä½ï¼Œæ‰ä¸ä½è¿™ä¹ˆå¤šéº»é›€çš„ã€‚\n");
 		if ((int)me->query_skill("hand", 1) < 10)
-			return notify_fail("ÄãµÄ»ù±¾ÊÖ·¨»¹²»¹»æµÊì£¬¿ÉÄÜ×¥²»×¡ÂéÈ¸¡£\n");
+			return notify_fail("ä½ çš„åŸºæœ¬æ‰‹æ³•è¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œå¯èƒ½æŠ“ä¸ä½éº»é›€ã€‚\n");
 		if ((int)me->query_skill("tianluo-diwang", 1) > 1)
-			return notify_fail("ÄãÒÑ¾­Ñ§»áÌìÂŞµØÍøÊÆÁË£¬×Ô¼ººÃºÃ´§Ä¦°É¡£\n");
+			return notify_fail("ä½ å·²ç»å­¦ä¼šå¤©ç½—åœ°ç½‘åŠ¿äº†ï¼Œè‡ªå·±å¥½å¥½æ£æ‘©å§ã€‚\n");
 		if ( (int)me->query("jingli") < 30 )
-			return notify_fail("ÄãÌ«ÀÛÁË, ÏÈĞİÏ¢Ò»ÏÂ¡£\n");
-		tell_object(me,"ÄãË«ÕÆÕâ±ßµ²£¬ÄÇ±ßÅÄ£¬ÂéÈ¸¾¡Êı¾ÛÔÚÄãĞØÇ°Èı³ßÖ®ÄÚ¡£\n");         
+			return notify_fail("ä½ å¤ªç´¯äº†, å…ˆä¼‘æ¯ä¸€ä¸‹ã€‚\n");
+		tell_object(me,"ä½ åŒæŒè¿™è¾¹æŒ¡ï¼Œé‚£è¾¹æ‹ï¼Œéº»é›€å°½æ•°èšåœ¨ä½ èƒ¸å‰ä¸‰å°ºä¹‹å†…ã€‚\n");         
 		me->receive_damage("jing", 5);
 		me->receive_damage("jingli",15);
 		me->improve_skill("tianluo-diwang", 2);
 		return 1;
 	}
-	return notify_fail("ÄãÒª×½Ê²Ã´£¿\n");       
+	return notify_fail("ä½ è¦æ‰ä»€ä¹ˆï¼Ÿ\n");       
 }

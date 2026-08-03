@@ -12,12 +12,12 @@ void init()
 
 void create()
 {
-        set_name("Ø¤°ïÉËÒ©", ({"gaibang shangyao", "shangyao"}));
+        set_name("ä¸å¸®ä¼¤è¯", ({"gaibang shangyao", "shangyao"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°ü");
-                set("long", "ÕâÊÇÒ»°ü²»ÆğÑÛµÄØ¤°ïÉËÒ©£¬µ«¾İËµ¹¦Ğ§×¿Öø¡£\n");
+                set("unit", "åŒ…");
+                set("long", "è¿™æ˜¯ä¸€åŒ…ä¸èµ·çœ¼çš„ä¸å¸®ä¼¤è¯ï¼Œä½†æ®è¯´åŠŸæ•ˆå“è‘—ã€‚\n");
                 set("value", 100);
 		set("no_drop", 1);
                 set("no_give",1);
@@ -31,16 +31,16 @@ int do_fu(string arg)
         object me;
         me = this_player();
         if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         if( me->is_fighting() )
-		return notify_fail("Õ½¶·ÖĞ²»ÄÜ³ÔÒ©ÁÆÉË£¡\n");
+		return notify_fail("æˆ˜æ–—ä¸­ä¸èƒ½åƒè¯ç–—ä¼¤ï¼\n");
         if ((int)this_player()->query("eff_qi") ==
             (int)this_player()->query("max_qi"))
-                return notify_fail("ÄãÏÖÔÚÃ»ÉË£¬Ï¹³ÔÊ²÷áÒ©£¿\n");
+                return notify_fail("ä½ ç°åœ¨æ²¡ä¼¤ï¼Œçåƒä»€éº½è¯ï¼Ÿ\n");
         
         else {
                 me->receive_curing("qi", 10000);
-                message_vision("$N·şÏÂÒ»°üÉËÒ©£¬ÉËÊÆ¼õÇáÁËĞí¶à¡£\n", this_player());
+                message_vision("$Næœä¸‹ä¸€åŒ…ä¼¤è¯ï¼Œä¼¤åŠ¿å‡è½»äº†è®¸å¤šã€‚\n", this_player());
                 me->start_busy(1);
                 destruct(this_object());
                 return 1;

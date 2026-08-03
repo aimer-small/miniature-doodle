@@ -22,7 +22,7 @@ void init()
 		me->set_temp("apply/attack",  random(30));
 		me->set_temp("apply/dodge",  random(50)); 
 		if (!me->query_temp("skillset")) {
-			command("say ¼ÈÈ»±»Äã·¢ÏÖÐ¡Å®×ÓµÄ×Ù¼££¬ÄÃÃüÀ´°É£¡");        
+			command("say æ—¢ç„¶è¢«ä½ å‘çŽ°å°å¥³å­çš„è¸ªè¿¹ï¼Œæ‹¿å‘½æ¥å§ï¼");        
 			ob->add_busy(2);
 			remove_call_out("dest");
 			call_out("dest",360);
@@ -30,7 +30,7 @@ void init()
 			do_clone(me, ob);
 		}
 		else {
-			command("say ÏëÅÜ£¿¼ÈÈ»±»Äã·¢ÏÖÐ¡Å®×ÓµÄ×Ù¼££¬ÄÃÃüÀ´°É£¡");  
+			command("say æƒ³è·‘ï¼Ÿæ—¢ç„¶è¢«ä½ å‘çŽ°å°å¥³å­çš„è¸ªè¿¹ï¼Œæ‹¿å‘½æ¥å§ï¼");  
 			ob->add_busy(1);
 			me->set_leader(ob);
 			remove_call_out("dest");
@@ -80,8 +80,8 @@ int do_clone(object me, object ob)
 	me->set("max_neili",k_neili*2/3);
 	me->set("neili",k_neili*2/3);
 	me->set("combat_exp",ob->query("combat_exp")*2/3);
-	me->set("long", me->query("long")+"ºÃÏó¾ÍÊÇ¸Õ²Å±»"+ob->query("name")+"("+capitalize(ob->query("id"))+")·¢ÏÖµÄ¹ÅÄ¹ÅÑÄæ¡£\n");
-	me->set_name("ÃÉÃæÅ®×Ó", ({ob->query("id")+"'s nuzi", "mengmian nuzi", "mengmian"}));
+	me->set("long", me->query("long")+"å¥½è±¡å°±æ˜¯åˆšæ‰è¢«"+ob->query("name")+"("+capitalize(ob->query("id"))+")å‘çŽ°çš„å¤å¢“å›é€†ã€‚\n");
+	me->set_name("è’™é¢å¥³å­", ({ob->query("id")+"'s nuzi", "mengmian nuzi", "mengmian"}));
 
 	me->set_temp("skillset",1);       
 	me->set_leader(ob);
@@ -95,8 +95,8 @@ void dest()
 	ob = this_player();
 	me = this_object();
 
-	write(me->query("name")+"ÁøÃ¼Ò»õ¾µÀ£ºÏÂ´Î²»ÒªÔÙÈÃÎÒÓö¼ûÄã¡£\n",me);  
-	write(me->query("name")+"Ò»¸ö×ªÉí£¬Æ®ÉíÀëÈ¥¡£\n",me);  
+	write(me->query("name")+"æŸ³çœ‰ä¸€è¹™é“ï¼šä¸‹æ¬¡ä¸è¦å†è®©æˆ‘é‡è§ä½ ã€‚\n",me);  
+	write(me->query("name")+"ä¸€ä¸ªè½¬èº«ï¼Œé£˜èº«ç¦»åŽ»ã€‚\n",me);  
 
 	destruct(this_object());
 }

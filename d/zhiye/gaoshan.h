@@ -13,14 +13,14 @@ int do_search(string arg)
 	object me = this_player();
 	int i,j,x,y;
 
-	if ( me->is_busy() ) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if ( me->is_busy() ) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 
 	i = random(8)+1;
 	if(i>4) i++;
 	me->set_temp("worker/caiyao_go",i);
 	me->set_temp("worker/caiyao_count",query("yaocai"));
 
-	tell_object(me, CYN"ÄãËÄ´¦ËÑË÷Ò©²ÄµÄºÛ¼£......\n"NOR);
+	tell_object(me, CYN"ä½ å››å¤„æœç´¢è¯æçš„ç—•è¿¹......\n"NOR);
 	tell_object(me, HIC"================================\n");
 	for(j=0;j<15;j++)
 		tell_object(me,"|[30C|\n");
@@ -46,13 +46,13 @@ int gowrong(object me)
 {
 	object room;
 	if( random(10)!=3 )
-		return notify_fail("ÄÇ¸ö·½ÏòÃ»ÓĞÒ©²Ä°¡£¡\n");
+		return notify_fail("é‚£ä¸ªæ–¹å‘æ²¡æœ‰è¯æå•Šï¼\n");
 	else {
-		message_vision("\n$NÒ»Â·Ñ°ÕÒÒ©²Ä£¬²»Öª²»¾õ×ßµ½ĞüÑÂ±ß£¬Ò»²»ÁôÉñ¾ÍË¤ÁËÏÂÈ¥......\n\n",me);
+		message_vision("\n$Nä¸€è·¯å¯»æ‰¾è¯æï¼Œä¸çŸ¥ä¸è§‰èµ°åˆ°æ‚¬å´–è¾¹ï¼Œä¸€ä¸ç•™ç¥å°±æ‘”äº†ä¸‹å»......\n\n",me);
 		room = find_object(__DIR__"gaoshan0");
 		if(room) me->move(room);
-		message_vision(RED"\n$NÒ»¸ö²»ÁôÉñ´Ó´ÓÉ½ÉÏµôÁËÏÂÀ´£¬Ë¤µÄ·ÛÉíËé¹Ç£¡\n"NOR,me);
-		me->set_temp("last_damage_from","µøÏÂĞüÑÂ");
+		message_vision(RED"\n$Nä¸€ä¸ªä¸ç•™ç¥ä»ä»å±±ä¸Šæ‰äº†ä¸‹æ¥ï¼Œæ‘”çš„ç²‰èº«ç¢éª¨ï¼\n"NOR,me);
+		me->set_temp("last_damage_from","è·Œä¸‹æ‚¬å´–");
 		me->die();
 		return 1;
 	}
@@ -64,33 +64,33 @@ int do_caiyao(string arg)
 	string dir,yaocai;
 	int level,delay;
 	
-	if ( !arg || sscanf(arg,"%s at %s",yaocai,dir)<2 ) return notify_fail("ÄãÒªÍÚÊ²Ã´£¿\n");
+	if ( !arg || sscanf(arg,"%s at %s",yaocai,dir)<2 ) return notify_fail("ä½ è¦æŒ–ä»€ä¹ˆï¼Ÿ\n");
 	if ( !objectp(weapon=me->query_temp("weapon")) || weapon->query("id")!="yao chu" || weapon->query("worker")!=1 )
-		return notify_fail("Äã±ØĞë×°±¸Ò©³ú²ÅÄÜ²ÉÒ©¡£\n");
+		return notify_fail("ä½ å¿…é¡»è£…å¤‡è¯é”„æ‰èƒ½é‡‡è¯ã€‚\n");
 	if ( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");	
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");	
 	if ( !wizardp(me) && (time()<(int)me->query("worker/caiyao")) )
-		return notify_fail("Äã¸Õ¸Õ²ÉÒ©½áÊø£¬¸Ğ¾õ¹ıÓÚÀÍÀÛ£¡\n");	
+		return notify_fail("ä½ åˆšåˆšé‡‡è¯ç»“æŸï¼Œæ„Ÿè§‰è¿‡äºåŠ³ç´¯ï¼\n");	
 	level = (int)me->query_skill("caiyao",1);
 	if ( level<1 )
-		return notify_fail("Äã¸ù±¾¾Í²»»á²ÉÒ©£¡\n");
+		return notify_fail("ä½ æ ¹æœ¬å°±ä¸ä¼šé‡‡è¯ï¼\n");
 	
 	switch( me->query_temp("worker/caiyao_go") ) {
-		case 1: if(dir!="southwest")	return gowrong(me); dir="Î÷ÄÏ"; break;
-		case 2: if(dir!="south")	return gowrong(me); dir="ÄÏ";   break;
-		case 3: if(dir!="southeast")	return gowrong(me); dir="¶«ÄÏ"; break;
-		case 4: if(dir!="west")		return gowrong(me); dir="Î÷";   break;
-		case 6: if(dir!="east")		return gowrong(me); dir="¶«";   break;
-		case 7: if(dir!="northwest")	return gowrong(me); dir="Î÷±±"; break;
-		case 8: if(dir!="north")	return gowrong(me); dir="±±";   break;
-		case 9: if(dir!="northeast")	return gowrong(me); dir="¶«±±"; break;
-		default: return notify_fail("ÄãÒªÍùÄÄ¸ö·½ÏòÈ¥ËÑË÷Ò©²Ä£¿\n"); break;
+		case 1: if(dir!="southwest")	return gowrong(me); dir="è¥¿å—"; break;
+		case 2: if(dir!="south")	return gowrong(me); dir="å—";   break;
+		case 3: if(dir!="southeast")	return gowrong(me); dir="ä¸œå—"; break;
+		case 4: if(dir!="west")		return gowrong(me); dir="è¥¿";   break;
+		case 6: if(dir!="east")		return gowrong(me); dir="ä¸œ";   break;
+		case 7: if(dir!="northwest")	return gowrong(me); dir="è¥¿åŒ—"; break;
+		case 8: if(dir!="north")	return gowrong(me); dir="åŒ—";   break;
+		case 9: if(dir!="northeast")	return gowrong(me); dir="ä¸œåŒ—"; break;
+		default: return notify_fail("ä½ è¦å¾€å“ªä¸ªæ–¹å‘å»æœç´¢è¯æï¼Ÿ\n"); break;
 	}
 
 	if( me->query_temp("worker/caiyao_count") <= 0 )
-		return notify_fail("ÄãÒÑ¾­°ÑÕâ¸ö·½ÏòÄã¿ÉÒÔ·¢ÏÖµÄÒ©²Ä¶¼²É×ßÁË£¡\n");
+		return notify_fail("ä½ å·²ç»æŠŠè¿™ä¸ªæ–¹å‘ä½ å¯ä»¥å‘ç°çš„è¯æéƒ½é‡‡èµ°äº†ï¼\n");
 		
-	message_vision(HIY"$N²»Í£µÄÍù"+dir+"·½ËÑË÷£¬Ï£ÍûÄÜÕÒµ½Ò»Ğ©Ò©²Ä......\n\n"NOR, me);
+	message_vision(HIY"$Nä¸åœçš„å¾€"+dir+"æ–¹æœç´¢ï¼Œå¸Œæœ›èƒ½æ‰¾åˆ°ä¸€äº›è¯æ......\n\n"NOR, me);
 	delay = 8 + random(15);
 	if(wizardp(me) && (int)me->query("env/test")) delay = 2;
 	me->start_busy(delay+1);
@@ -114,13 +114,13 @@ void caiyao_finish(object me,string yaocai)
 	obj = new(__DIR__"obj/yaocai");
 	if(!obj) return;
 	if( obj->set_type(yaocai) != 1 ) {
-		message_vision(YEL"$NÑ°ÕÒÁËºÃ³¤Ò»¶ÎÊ±¼ä£¬¸ü±¾²»ÖªµÀÔÚÕÒÊ²Ã´¶«Î÷......\n"NOR, me);
+		message_vision(YEL"$Nå¯»æ‰¾äº†å¥½é•¿ä¸€æ®µæ—¶é—´ï¼Œæ›´æœ¬ä¸çŸ¥é“åœ¨æ‰¾ä»€ä¹ˆä¸œè¥¿......\n"NOR, me);
 		destruct(obj);
 		return;
 	}
 	obj->set_level(level);	
 	if( level < obj->query("need_lvl") ) {
-		message_vision(YEL"$NÑ°ÕÒÁËºÃ³¤Ò»¶ÎÊ±¼ä£¬×îºó·¢ÏÖ×Ô¼ºÄÜÁ¦²»×ã£¬¸ü±¾ÕÒ²»µ½ÕâÖÖÒ©²Ä£¡\n"NOR, me);
+		message_vision(YEL"$Nå¯»æ‰¾äº†å¥½é•¿ä¸€æ®µæ—¶é—´ï¼Œæœ€åå‘ç°è‡ªå·±èƒ½åŠ›ä¸è¶³ï¼Œæ›´æœ¬æ‰¾ä¸åˆ°è¿™ç§è¯æï¼\n"NOR, me);
 		destruct(obj);
 		return;
 	}
@@ -151,7 +151,7 @@ void caiyao_finish(object me,string yaocai)
 		me->add("combat_exp", random(improve/2));
 		me->add("potential", random(improve/7*2));		
 		
-		message_vision(YEL"$NÑ°ÕÒÁËºÃ³¤Ò»¶ÎÊ±¼ä£¬×ÜËãÕÒµ½Ò»Ğ©"+obj->query("name")+"¡£\n"NOR, me);
+		message_vision(YEL"$Nå¯»æ‰¾äº†å¥½é•¿ä¸€æ®µæ—¶é—´ï¼Œæ€»ç®—æ‰¾åˆ°ä¸€äº›"+obj->query("name")+"ã€‚\n"NOR, me);
 		me->add_temp("worker/caiyao_count",-1);
 		
 		if( !obj->move(me) ) destruct(obj);
@@ -167,7 +167,7 @@ void caiyao_finish(object me,string yaocai)
 		me->add("combat_exp", random(improve/3));
 		me->add("potential", random(improve/7));
 		destruct(obj);
-		message_vision(HIY"$NÑ°ÕÒÁËºÃ³¤Ò»¶ÎÊ±¼ä£¬µ«ÊÇÊ²Ã´¶¼Ã»ÓĞµÃµ½¡£\n"NOR, me);
+		message_vision(HIY"$Nå¯»æ‰¾äº†å¥½é•¿ä¸€æ®µæ—¶é—´ï¼Œä½†æ˜¯ä»€ä¹ˆéƒ½æ²¡æœ‰å¾—åˆ°ã€‚\n"NOR, me);
 	}
 	
 	if ( (int)me->query("potential", 1) > (int)me->query("max_pot", 1) )

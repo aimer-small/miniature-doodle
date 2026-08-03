@@ -6,27 +6,27 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "±øÆ÷ÊÒ");
+	set("short", "å…µå™¨å®¤");
 	set("long", @LONG
-ÕâÀïÊÇÁéğÕ¹¬µÜ×Ó°Ú·Å±øÆ÷µÄ·¿¼ä£¬µØÏÂÔÓÂÒµØ¶Ñ×ÅÒ»Ğ©½££¬ÓĞµÄÒÑ¾­Ğâ
-ÎÆ°ß°ßÁË£¬ÓĞµÄ»¹ÊÇ·æÀûÍ¸ÁÁ¡£·ÅÖÃ×Å¸÷ÖÖ±øÆ÷µÄ±øÆ÷¼Ü£¨jia)°Ú·ÅÔÚ·¿¼äµÄ
-ÕıÖĞ¡£ÉÏÃæ°ÚÂúÁË¸÷ÖÖ±øÆ÷ºÍ·À¾ß£¬ÁíÈËÑ£Ä¿¡£ÁéğÕ¹¬µÜ×ÓÁ·¹¦µÄÊ±ºò£¬¾Íµ½
-ÕâÀïÀ´ÌôÑ¡±øÈĞ¡£
+è¿™é‡Œæ˜¯çµé¹«å®«å¼Ÿå­æ‘†æ”¾å…µå™¨çš„æˆ¿é—´ï¼Œåœ°ä¸‹æ‚ä¹±åœ°å †ç€ä¸€äº›å‰‘ï¼Œæœ‰çš„å·²ç»é”ˆ
+çº¹æ–‘æ–‘äº†ï¼Œæœ‰çš„è¿˜æ˜¯é”‹åˆ©é€äº®ã€‚æ”¾ç½®ç€å„ç§å…µå™¨çš„å…µå™¨æ¶ï¼ˆjia)æ‘†æ”¾åœ¨æˆ¿é—´çš„
+æ­£ä¸­ã€‚ä¸Šé¢æ‘†æ»¡äº†å„ç§å…µå™¨å’Œé˜²å…·ï¼Œå¦äººçœ©ç›®ã€‚çµé¹«å®«å¼Ÿå­ç»ƒåŠŸçš„æ—¶å€™ï¼Œå°±åˆ°
+è¿™é‡Œæ¥æŒ‘é€‰å…µåˆƒã€‚
 LONG);
 	set("exits", ([
 		"north" : __DIR__"zoulang2",
         ]));
 
 	set("item_desc", ([
-                "jia" : "ÕâÊÇÒ»¸ö×¨ÃÅÓÃÀ´·Å¸÷ÖÖ±øÆ÷µÄ¼Ü×Ó¡£\n"+
-                        "ÀïÃæÓĞ£º\n\n"+
-                        "       ±Ş(bian)£¬        ´¸(chui)£¬ \n"+
-                        "       ¹÷(gun)£¬         °ô(bang)£¬ \n"+
-                        "       ÕÈ(zhang)£¬       ½£(sword)£¬\n"+
-                        "       µ¶(dao)£¬         Áî(ling)£¬  \n"+
-                        "       Ìú¼×(armor)£¬\n"+
-                        "µÈÎäÆ÷£¬Äã¿ÉÒÔÄÃ(na)À´Ê¹ÓÃ£¬Ò²¿ÉÒÔ°Ñ²»ÒªµÄ±øÆ÷·Å(fang)ÔÚÉÏÃæ£¬\n"+
-                        "´©¹ıµÄÆÆËğÌú¼×¾Í²»ÓÃ·Å»ØÀ´ÁË¡£\n\n"
+                "jia" : "è¿™æ˜¯ä¸€ä¸ªä¸“é—¨ç”¨æ¥æ”¾å„ç§å…µå™¨çš„æ¶å­ã€‚\n"+
+                        "é‡Œé¢æœ‰ï¼š\n\n"+
+                        "       é­(bian)ï¼Œ        é”¤(chui)ï¼Œ \n"+
+                        "       æ£(gun)ï¼Œ         æ£’(bang)ï¼Œ \n"+
+                        "       æ–(zhang)ï¼Œ       å‰‘(sword)ï¼Œ\n"+
+                        "       åˆ€(dao)ï¼Œ         ä»¤(ling)ï¼Œ  \n"+
+                        "       é“ç”²(armor)ï¼Œ\n"+
+                        "ç­‰æ­¦å™¨ï¼Œä½ å¯ä»¥æ‹¿(na)æ¥ä½¿ç”¨ï¼Œä¹Ÿå¯ä»¥æŠŠä¸è¦çš„å…µå™¨æ”¾(fang)åœ¨ä¸Šé¢ï¼Œ\n"+
+                        "ç©¿è¿‡çš„ç ´æŸé“ç”²å°±ä¸ç”¨æ”¾å›æ¥äº†ã€‚\n\n"
 	]));
 
 	set("jian_count", 20);            
@@ -54,7 +54,7 @@ int do_get(string arg)
         string arg1;
         me=this_player();
 
-        if(!arg) return notify_fail("ÃüÁî¸ñÊ½: na <±øÆ÷Ãû³Æ> \n");
+        if(!arg) return notify_fail("å‘½ä»¤æ ¼å¼: na <å…µå™¨åç§°> \n");
         switch (arg){
 		case "jian": arg1="/clone/weapon/changjian"; break;             
 		case "dao": arg1="/clone/weapon/blade"; break;   
@@ -65,14 +65,14 @@ int do_get(string arg)
 		case "bang": arg1="/clone/weapon/zhubang"; break; 
 		case "ling":arg1="/clone/weapon/tieling";break;
 		case "armor":arg1="/clone/armor/armor";break;
-		default : return notify_fail("Ã»ÓĞÕâÖÖ±øÆ÷¡£\n");
+		default : return notify_fail("æ²¡æœ‰è¿™ç§å…µå™¨ã€‚\n");
         }
         if (me->is_busy())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if(query(arg+"_count") < 1)
-                return notify_fail("ÕâÖÖ±øÆ÷ÒÑ¾­±»ÄÃ¹âÁË¡£\n");
+                return notify_fail("è¿™ç§å…µå™¨å·²ç»è¢«æ‹¿å…‰äº†ã€‚\n");
         if(me->query_temp("bingqi/get")>3)
-                return notify_fail("ÄãÒÑ¾­ÄÃ¹ıºÃ¼¸¼ş±øÆ÷ÁË£¬ÎªÆäËûµÜ×ÓÁôµã°É¡£\n");
+                return notify_fail("ä½ å·²ç»æ‹¿è¿‡å¥½å‡ ä»¶å…µå™¨äº†ï¼Œä¸ºå…¶ä»–å¼Ÿå­ç•™ç‚¹å§ã€‚\n");
         add(arg+"_count", -1);
         ob=new(arg1);
         if(ob) ob->move(me);
@@ -80,7 +80,7 @@ int do_get(string arg)
         if(!me->query_temp("bingqi/get")) 
         me->set_temp("bingqi/get",1);
         else me->add_temp("bingqi/get",1);
-        message_vision("$N´Ó±øÆ÷¼ÜÉÏÄÃ³öÒ»"+ob->query("unit")+"$n¡£\n",me, ob);  
+        message_vision("$Nä»å…µå™¨æ¶ä¸Šæ‹¿å‡ºä¸€"+ob->query("unit")+"$nã€‚\n",me, ob);  
         return 1;
 }
 
@@ -90,13 +90,13 @@ int do_put(string arg)
         string arg1;
         me=this_player();
         if (!arg) return 0;
-        if (me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+        if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if( !objectp(ob = present(arg, me)) )
-                return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+                return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
         if(!ob->query("weapon_prop")) 
-                return notify_fail("ÄãÖ»ÄÜ½«ÎäÆ÷·ÅÔÚ±øÆ÷¼ÜÉÏ¡£\n");
+                return notify_fail("ä½ åªèƒ½å°†æ­¦å™¨æ”¾åœ¨å…µå™¨æ¶ä¸Šã€‚\n");
         if (me->is_busy())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         arg1=ob->query("skill_type");
         switch (arg1){
                 case "sword": add("jian_count", 1); break;             
@@ -109,9 +109,9 @@ int do_put(string arg)
                 case "ling": add("ling_count", 2); break;
                 case "armor": add("armor_count", 1); break;
                 default :
-                        return notify_fail("Äã²»ÄÜ½«ÕâÖÖ±øÆ÷·ÅÔÚ±øÆ÷¼ÜÉÏ¡£\n");
+                        return notify_fail("ä½ ä¸èƒ½å°†è¿™ç§å…µå™¨æ”¾åœ¨å…µå™¨æ¶ä¸Šã€‚\n");
         }
-        message_vision("$NÄÃ³öÒ»"+ob->query("unit")+"$n·ÅÔÚ±øÆ÷¼ÜÉÏ¡£\n",me, ob);  
+        message_vision("$Næ‹¿å‡ºä¸€"+ob->query("unit")+"$næ”¾åœ¨å…µå™¨æ¶ä¸Šã€‚\n",me, ob);  
         me->add_temp("bingqi/get",-1);
         destruct(ob);
         return 1;

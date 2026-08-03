@@ -1,4 +1,4 @@
-// Room: /d/meizhuang/plum_maze.c //Ã·ÁÖµ¥Â·¾¶ÃÔ¹¬
+// Room: /d/meizhuang/plum_maze.c //æ¢…æ—å•è·¯å¾„è¿·å®«
 // By Jpei
 
 inherit ROOM;
@@ -12,13 +12,13 @@ int do_follow(string arg);
 
 void create()
 {
-	set("short", "Ã·ÁÖ");
+	set("short", "æ¢…æ—");
 	set("long", @LONG
-ÕâÊÇÃ·ÁÖÖĞµÄÒ»ÌõĞ¡Â·¡£ËÄ´¦±éµØ¶¼ÊÇÃ·Ê÷£¬Ö¦Ò¶Ã¯ÃÜµØÁ¬Ìì¿Õ¶¼±»ÕÚ×¡
-ÁË£¬ºÜÄÑ¿´ÇåÖÜÎ§µÄÇé¿ö¡£
+è¿™æ˜¯æ¢…æ—ä¸­çš„ä¸€æ¡å°è·¯ã€‚å››å¤„éåœ°éƒ½æ˜¯æ¢…æ ‘ï¼Œæå¶èŒ‚å¯†åœ°è¿å¤©ç©ºéƒ½è¢«é®ä½
+äº†ï¼Œå¾ˆéš¾çœ‹æ¸…å‘¨å›´çš„æƒ…å†µã€‚
 LONG
 	);
-	set("outdoors","º¼Öİ");
+	set("outdoors","æ­å·");
 
 	set("exits", ([
 		"north" : __FILE__,
@@ -55,7 +55,7 @@ void init()
 int do_set(string arg)
 {
 	if (arg && arg[0..4] == "brief") {
-		write("ÕâÆ¬Ã·ÁÖÓÄÉîÇúÕÛ£¬Äã»¹ÊÇ²»ÒªÊ¹ÓÃĞĞ×ßÊ±µÄ¼ò¶ÌÃèÊöÄ£Ê½°É¡£\n");
+		write("è¿™ç‰‡æ¢…æ—å¹½æ·±æ›²æŠ˜ï¼Œä½ è¿˜æ˜¯ä¸è¦ä½¿ç”¨è¡Œèµ°æ—¶çš„ç®€çŸ­æè¿°æ¨¡å¼å§ã€‚\n");
 		return 1;
 	}
 	return 0;
@@ -68,7 +68,7 @@ int do_follow(string arg)
 	if (!arg || arg == "none") return 0;
 	if (!objectp(ob = present(arg, environment(me)))) return 0;
 	if (ob == me || !ob->is_character()) return 0;
-	write("ÕâÆ¬Ã·ÁÖÓÄÉîÇúÕÛ£¬ÄãÊÇºÜÄÑ¸ú×ÅÁíÒ»¸öÈËĞĞ×ßµÄ£¬»¹ÊÇ±ğ°×·ÑÁ¦ÆøÁË¡£\n");
+	write("è¿™ç‰‡æ¢…æ—å¹½æ·±æ›²æŠ˜ï¼Œä½ æ˜¯å¾ˆéš¾è·Ÿç€å¦ä¸€ä¸ªäººè¡Œèµ°çš„ï¼Œè¿˜æ˜¯åˆ«ç™½è´¹åŠ›æ°”äº†ã€‚\n");
 	return 1;
 }
 
@@ -97,8 +97,8 @@ int do_look(string arg)
 			can_n = 1;
 			exit_num++;
 			set("long", @LONG
-ÕâÊÇÃ·ÁÖÖĞµÄÒ»ÌõĞ¡Â·£¬Ğ¡Â·Íù±±¾Í³öÁËÃ·ÁÖ£¬ÔÚÔ¶´¦ËÆºõÕÛÏòÁËÎ÷±ß¡£
-ËÄ´¦±éµØ¶¼ÊÇÃ·Ê÷£¬Ö¦Ò¶Ã¯ÃÜµØÁ¬Ìì¿Õ¶¼±»ÕÚ×¡ÁË£¬ºÜÄÑ¿´ÇåÖÜÎ§µÄÇé¿ö¡£
+è¿™æ˜¯æ¢…æ—ä¸­çš„ä¸€æ¡å°è·¯ï¼Œå°è·¯å¾€åŒ—å°±å‡ºäº†æ¢…æ—ï¼Œåœ¨è¿œå¤„ä¼¼ä¹æŠ˜å‘äº†è¥¿è¾¹ã€‚
+å››å¤„éåœ°éƒ½æ˜¯æ¢…æ ‘ï¼Œæå¶èŒ‚å¯†åœ°è¿å¤©ç©ºéƒ½è¢«é®ä½äº†ï¼Œå¾ˆéš¾çœ‹æ¸…å‘¨å›´çš„æƒ…å†µã€‚
 LONG
 			);
 		}
@@ -106,23 +106,23 @@ LONG
 			can_s = 1;
 			exit_num++;
 			set("long", @LONG
-ÕâÊÇÃ·ÁÖÖĞµÄÒ»ÌõĞ¡Â·£¬Ğ¡Â·ÍùÄÏ¾Í³öÁËÃ·ÁÖ£¬Ô¶´¦ÒşÔ¼ÏÖ³ö°×Ç½£¬ËÆºõ
-ÊÇÒ»¸ö´ó×¯Ôº¡£ËÄ´¦±éµØ¶¼ÊÇÃ·Ê÷£¬Ö¦Ò¶Ã¯ÃÜµØÁ¬Ìì¿Õ¶¼±»ÕÚ×¡ÁË£¬ºÜÄÑ¿´Çå
-ÖÜÎ§µÄÇé¿ö¡£
+è¿™æ˜¯æ¢…æ—ä¸­çš„ä¸€æ¡å°è·¯ï¼Œå°è·¯å¾€å—å°±å‡ºäº†æ¢…æ—ï¼Œè¿œå¤„éšçº¦ç°å‡ºç™½å¢™ï¼Œä¼¼ä¹
+æ˜¯ä¸€ä¸ªå¤§åº„é™¢ã€‚å››å¤„éåœ°éƒ½æ˜¯æ¢…æ ‘ï¼Œæå¶èŒ‚å¯†åœ°è¿å¤©ç©ºéƒ½è¢«é®ä½äº†ï¼Œå¾ˆéš¾çœ‹æ¸…
+å‘¨å›´çš„æƒ…å†µã€‚
 LONG
 			);
 		}
 		else if (exit_num > 1){
 			set("long", @LONG
-ÕâÊÇÃ·ÁÖÖĞµÄÒ»ÌõĞ¡Â·¡£¾ÙÄ¿ÍûÈ¥£¬ËÄ´¦±éµØ¶¼ÊÇÃ·Ê÷£¬Ö¦Ò¶Ã¯ÃÜµØÁ¬Ìì
-¿Õ¶¼±»ÕÚ×¡ÁË£¬ºÜÄÑ¿´ÇåÖÜÎ§µÄÇé¿ö¡£
+è¿™æ˜¯æ¢…æ—ä¸­çš„ä¸€æ¡å°è·¯ã€‚ä¸¾ç›®æœ›å»ï¼Œå››å¤„éåœ°éƒ½æ˜¯æ¢…æ ‘ï¼Œæå¶èŒ‚å¯†åœ°è¿å¤©
+ç©ºéƒ½è¢«é®ä½äº†ï¼Œå¾ˆéš¾çœ‹æ¸…å‘¨å›´çš„æƒ…å†µã€‚
 LONG
 			);
 		}
 		else{
 			set("long", @LONG
-ÕâÊÇÃ·ÁÖÖĞµÄÒ»ÌõĞ¡Â·£¬ÄãÒÑ¾­×ßµ½ÁËĞ¡Â·µÄ¾¡Í·£¬Ö»ÓĞ»ØÍ·ÁË¡£ËÄ´¦±é
-µØ¶¼ÊÇÃ·Ê÷£¬Ö¦Ò¶Ã¯ÃÜµØÁ¬Ìì¿Õ¶¼±»ÕÚ×¡ÁË£¬ºÜÄÑ¿´ÇåÖÜÎ§µÄÇé¿ö¡£
+è¿™æ˜¯æ¢…æ—ä¸­çš„ä¸€æ¡å°è·¯ï¼Œä½ å·²ç»èµ°åˆ°äº†å°è·¯çš„å°½å¤´ï¼Œåªæœ‰å›å¤´äº†ã€‚å››å¤„é
+åœ°éƒ½æ˜¯æ¢…æ ‘ï¼Œæå¶èŒ‚å¯†åœ°è¿å¤©ç©ºéƒ½è¢«é®ä½äº†ï¼Œå¾ˆéš¾çœ‹æ¸…å‘¨å›´çš„æƒ…å†µã€‚
 LONG
 			);
 		}
@@ -134,45 +134,45 @@ LONG
 
 		if (exit_num == 1) {
 			if (can_n)
-				str += "    ÕâÀïÎ¨Ò»µÄ³ö¿ÚÊÇ " + BOLD + "north" + NOR + "¡£\n";
+				str += "    è¿™é‡Œå”¯ä¸€çš„å‡ºå£æ˜¯ " + BOLD + "north" + NOR + "ã€‚\n";
 			else if (can_s)
-				str += "    ÕâÀïÎ¨Ò»µÄ³ö¿ÚÊÇ " + BOLD + "south" + NOR + "¡£\n";
+				str += "    è¿™é‡Œå”¯ä¸€çš„å‡ºå£æ˜¯ " + BOLD + "south" + NOR + "ã€‚\n";
 			else if (can_w)
-				str += "    ÕâÀïÎ¨Ò»µÄ³ö¿ÚÊÇ " + BOLD + "west" + NOR + "¡£\n";
+				str += "    è¿™é‡Œå”¯ä¸€çš„å‡ºå£æ˜¯ " + BOLD + "west" + NOR + "ã€‚\n";
 			else if (can_e)
-				str += "    ÕâÀïÎ¨Ò»µÄ³ö¿ÚÊÇ " + BOLD + "east" + NOR + "¡£\n";
+				str += "    è¿™é‡Œå”¯ä¸€çš„å‡ºå£æ˜¯ " + BOLD + "east" + NOR + "ã€‚\n";
 		}
 		else {
-			str += "    ÕâÀïÃ÷ÏÔµÄ³ö¿ÚÊÇ " + BOLD;
+			str += "    è¿™é‡Œæ˜æ˜¾çš„å‡ºå£æ˜¯ " + BOLD;
 			if (can_n) {
 				str += "north";
 				exit_num--;
 				if (exit_num > 1)
-					str += "¡¢";
+					str += "ã€";
 				else
-					str += NOR + " ºÍ " + BOLD;
+					str += NOR + " å’Œ " + BOLD;
 			}
 			if (can_w) {
 				str += "west";
 				exit_num--;
 				if (exit_num > 1)
-					str += "¡¢";
+					str += "ã€";
 				else if (exit_num)
-					str += NOR + " ºÍ " + BOLD;
+					str += NOR + " å’Œ " + BOLD;
 				else
-					str += NOR + "¡£\n";
+					str += NOR + "ã€‚\n";
 			}
 			if (can_e) {
 				str += "east";
 				exit_num--;
 				if (exit_num)
-					str += NOR + " ºÍ " + BOLD;
+					str += NOR + " å’Œ " + BOLD;
 				else
-					str += NOR + "¡£\n";
+					str += NOR + "ã€‚\n";
 			}
 			if (can_s) {
 				str += "south";
-				str += NOR + "¡£\n";
+				str += NOR + "ã€‚\n";
 			}
 		}
 
@@ -192,8 +192,8 @@ LONG
 			set("exits/north", __DIR__"road2");
 			return 0;
 		}
-		if (can_n) write("Ã·»¨ÑÚÓ³£¬Äã¿´²»ÇåÄÇ±ßµÄÇé¿ö£¡\n");
-		else write("ÄãÒª¿´Ê²Ã´£¿\n");
+		if (can_n) write("æ¢…èŠ±æ©æ˜ ï¼Œä½ çœ‹ä¸æ¸…é‚£è¾¹çš„æƒ…å†µï¼\n");
+		else write("ä½ è¦çœ‹ä»€ä¹ˆï¼Ÿ\n");
 		return 1;
 	}
 	if (arg == "south") {
@@ -202,18 +202,18 @@ LONG
 			set("exits/south", __DIR__"road3");
 			return 0;
 		}
-		if (can_s) write("Ã·»¨ÑÚÓ³£¬Äã¿´²»ÇåÄÇ±ßµÄÇé¿ö£¡\n");
-		else write("ÄãÒª¿´Ê²Ã´£¿\n");
+		if (can_s) write("æ¢…èŠ±æ©æ˜ ï¼Œä½ çœ‹ä¸æ¸…é‚£è¾¹çš„æƒ…å†µï¼\n");
+		else write("ä½ è¦çœ‹ä»€ä¹ˆï¼Ÿ\n");
 		return 1;
 	}
 	if (arg == "west") {
-		if (can_w) write("Ã·»¨ÑÚÓ³£¬Äã¿´²»ÇåÄÇ±ßµÄÇé¿ö£¡\n");
-		else write("ÄãÒª¿´Ê²Ã´£¿\n");
+		if (can_w) write("æ¢…èŠ±æ©æ˜ ï¼Œä½ çœ‹ä¸æ¸…é‚£è¾¹çš„æƒ…å†µï¼\n");
+		else write("ä½ è¦çœ‹ä»€ä¹ˆï¼Ÿ\n");
 		return 1;
 	}
 	if (arg == "east") {
-		if (can_e) write("Ã·»¨ÑÚÓ³£¬Äã¿´²»ÇåÄÇ±ßµÄÇé¿ö£¡\n");
-		else write("ÄãÒª¿´Ê²Ã´£¿\n");
+		if (can_e) write("æ¢…èŠ±æ©æ˜ ï¼Œä½ çœ‹ä¸æ¸…é‚£è¾¹çš„æƒ…å†µï¼\n");
+		else write("ä½ è¦çœ‹ä»€ä¹ˆï¼Ÿ\n");
 		return 1;
 	}
 	return 0;
@@ -227,12 +227,12 @@ int valid_leave(object me, string dir)
 
 	if (objectp(ob = me->query_temp("follow"))) {
 		me->set_leader(0);
-		tell_object(me, ob->name() + "ÔÚÃ·ÁÖÀï×ó×ªÓÒ×ª£¬Ò»Õ£ÑÛ¾Í²»¼ûÁË¡£\n");
+		tell_object(me, ob->name() + "åœ¨æ¢…æ—é‡Œå·¦è½¬å³è½¬ï¼Œä¸€çœ¨çœ¼å°±ä¸è§äº†ã€‚\n");
 		return 0;
 	}
 	if (me->query("env/brief")) {
 		me->delete("env/brief");
-		tell_object(me, "ÕâÆ¬Ã·ÁÖÓÄÉîÇúÕÛ£¬Äã¾ö¶¨È¡ÏûĞĞ×ßÊ±µÄ¼ò¶ÌÃèÊöÄ£Ê½¡£\n");
+		tell_object(me, "è¿™ç‰‡æ¢…æ—å¹½æ·±æ›²æŠ˜ï¼Œä½ å†³å®šå–æ¶ˆè¡Œèµ°æ—¶çš„ç®€çŸ­æè¿°æ¨¡å¼ã€‚\n");
 	}
 	x = me->query_temp("plum_maze/x") - 1;
 	y = me->query_temp("plum_maze/y") - 1;
@@ -248,10 +248,10 @@ int valid_leave(object me, string dir)
 			me->move(__DIR__"road2");
 			min = "";
 			if (me->is_fighting())
-				min += "´ÓÃ·ÁÖµøµø×²×²µØÅÜÁË¹ıÀ´£¬Ä£ÑùÓĞĞ©ÀÇ±·¡£\n";
+				min += "ä»æ¢…æ—è·Œè·Œæ’æ’åœ°è·‘äº†è¿‡æ¥ï¼Œæ¨¡æ ·æœ‰äº›ç‹¼ç‹ˆã€‚\n";
 			else {
-				min += me->query_condition("killer") ? "ÉñÉ«»ÅÕÅµØ" : "";
-				min += "´ÓÃ·ÁÖ¿ì²½×ßÁË¹ıÀ´¡£\n";
+				min += me->query_condition("killer") ? "ç¥è‰²æ…Œå¼ åœ°" : "";
+				min += "ä»æ¢…æ—å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n";
 			}
 			tell_room(environment(me), me->name() + min, ({me}));
 			return notify_fail("");
@@ -260,7 +260,7 @@ int valid_leave(object me, string dir)
 			me->add_temp("plum_maze/y", -1);
 			return 1;
 		}
-		return notify_fail("Õâ¸ö·½ÏòÃ»ÓĞ³öÂ·¡£\n");
+		return notify_fail("è¿™ä¸ªæ–¹å‘æ²¡æœ‰å‡ºè·¯ã€‚\n");
 	}
 	if (dir == "south") {
 		if (x == me->query_temp("plum_maze/south_exit") && y == MAZE_HEIGHT - 1) {
@@ -268,10 +268,10 @@ int valid_leave(object me, string dir)
 			me->move(__DIR__"road3");
 			min = "";
 			if (me->is_fighting())
-				min += "´ÓÃ·ÁÖµøµø×²×²µØÅÜÁË¹ıÀ´£¬Ä£ÑùÓĞĞ©ÀÇ±·¡£\n";
+				min += "ä»æ¢…æ—è·Œè·Œæ’æ’åœ°è·‘äº†è¿‡æ¥ï¼Œæ¨¡æ ·æœ‰äº›ç‹¼ç‹ˆã€‚\n";
 			else {
-				min += me->query_condition("killer") ? "ÉñÉ«»ÅÕÅµØ" : "";
-				min += "´ÓÃ·ÁÖ¿ì²½×ßÁË¹ıÀ´¡£\n";
+				min += me->query_condition("killer") ? "ç¥è‰²æ…Œå¼ åœ°" : "";
+				min += "ä»æ¢…æ—å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n";
 			}
 			tell_room(environment(me), me->name() + min, ({me}));
 			return notify_fail("");
@@ -280,7 +280,7 @@ int valid_leave(object me, string dir)
 			me->add_temp("plum_maze/y", 1);
 			return 1;
 		}
-		return notify_fail("Õâ¸ö·½ÏòÃ»ÓĞ³öÂ·¡£\n");
+		return notify_fail("è¿™ä¸ªæ–¹å‘æ²¡æœ‰å‡ºè·¯ã€‚\n");
 	}
 	if (dir == "west" && can_w) {
 		me->add_temp("plum_maze/x", -1);
@@ -290,5 +290,5 @@ int valid_leave(object me, string dir)
 		me->add_temp("plum_maze/x", 1);
 		return 1;
 	}
-	return notify_fail("Õâ¸ö·½ÏòÃ»ÓĞ³öÂ·¡£\n");
+	return notify_fail("è¿™ä¸ªæ–¹å‘æ²¡æœ‰å‡ºè·¯ã€‚\n");
 }

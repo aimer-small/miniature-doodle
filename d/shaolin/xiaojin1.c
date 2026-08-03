@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ğ¡¾¶");
+	set("short", "å°å¾„");
 	set("long", @LONG
-ÕâÀïÊÇÒ»Ìõ¼Å¾²µÄĞ¡¾¶£¬Â·ÃæÒ»³¾²»È¾¡£Á½ÅÔÊÇÇà²İ£¬ÓĞ¼¸Ö»ºûµûÔÚÉÏÃæ
-·ÉÎè¡£ÔÙÍùÇ°£¬ºÃÏóÓĞÒ»ËùĞ¡Ôº¡£
+è¿™é‡Œæ˜¯ä¸€æ¡å¯‚é™çš„å°å¾„ï¼Œè·¯é¢ä¸€å°˜ä¸æŸ“ã€‚ä¸¤æ—æ˜¯é’è‰ï¼Œæœ‰å‡ åªè´è¶åœ¨ä¸Šé¢
+é£èˆã€‚å†å¾€å‰ï¼Œå¥½è±¡æœ‰ä¸€æ‰€å°é™¢ã€‚
 LONG
 	);
 
@@ -34,12 +34,12 @@ int do_jump(string arg)
 	if ( !arg ) return 0;
 
 	if( (int)me->query_skill("dodge",1) < 100 ) {
-		message_vision(HIR"$NÇá¹¦²»¹»£¬ÎŞ·¨Ìø³öÈ¥£¡\n"NOR, me);
+		message_vision(HIR"$Nè½»åŠŸä¸å¤Ÿï¼Œæ— æ³•è·³å‡ºå»ï¼\n"NOR, me);
 		me->unconcious();
 		return 1;     
 	}  
-	message_vision("$N×İÉíÔ¾Æğ£¬Ò»Õ£ÑÛ¾ÍÏûÊ§ÔÚ´°¿Ú ¡£\n", me);
+	message_vision("$Nçºµèº«è·ƒèµ·ï¼Œä¸€çœ¨çœ¼å°±æ¶ˆå¤±åœ¨çª—å£ ã€‚\n", me);
 	me->move(__DIR__"cjlou1");
-	tell_room(environment(me), me->name() + "´Ó´°Íâ·ÉÉíÔ¾ÁË¹ıÀ´¡£\n", ({ me }));
+	tell_room(environment(me), me->name() + "ä»çª—å¤–é£èº«è·ƒäº†è¿‡æ¥ã€‚\n", ({ me }));
 	return 1;
 }

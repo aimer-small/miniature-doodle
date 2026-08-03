@@ -1,4 +1,4 @@
-// medicine.c ±¾²ÝÊõÀí
+// medicine.c æœ¬è‰æœ¯ç†
 
 inherit SKILL;
 
@@ -12,19 +12,19 @@ int valid_learn(object me)
 	int j = me->query_skill("literate", 1);
 
 	if(i <= 100 && i > j+10)
-		return notify_fail("ÄãµÄ¶ÁÊéÐ´×ÖµÈ¼¶²»¹»£¬ÎÞ·¨ÑÐ¾¿¸ü¸ßÉîµÄ±¾²ÝÊõÀí¡£\n"); 
+		return notify_fail("ä½ çš„è¯»ä¹¦å†™å­—ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•ç ”ç©¶æ›´é«˜æ·±çš„æœ¬è‰æœ¯ç†ã€‚\n"); 
 	if(i > 100 && i <= 150 && i > j+15)
-		return notify_fail("ÄãµÄ¶ÁÊéÐ´×ÖµÈ¼¶²»¹»£¬ÎÞ·¨ÑÐ¾¿¸ü¸ßÉîµÄ±¾²ÝÊõÀí¡£\n");
+		return notify_fail("ä½ çš„è¯»ä¹¦å†™å­—ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•ç ”ç©¶æ›´é«˜æ·±çš„æœ¬è‰æœ¯ç†ã€‚\n");
 	if(i > 150 && i > j+20)
-		return notify_fail("ÄãµÄ¶ÁÊéÐ´×ÖµÈ¼¶²»¹»£¬ÎÞ·¨ÑÐ¾¿¸ü¸ßÉîµÄ±¾²ÝÊõÀí¡£\n");
+		return notify_fail("ä½ çš„è¯»ä¹¦å†™å­—ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•ç ”ç©¶æ›´é«˜æ·±çš„æœ¬è‰æœ¯ç†ã€‚\n");
 	if (me->query_temp("mark/medicine")) {
 		me->delete_temp("mark/medicine");
 		return 1;
 	}	   
-	return notify_fail("±¾²ÝÊõÀíÖ»ÄÜÍ¨¹ýÑÐÏ°Ò½Ñ§Êé¼®À´Ìá¸ß¡£\n"); 
+	return notify_fail("æœ¬è‰æœ¯ç†åªèƒ½é€šè¿‡ç ”ä¹ åŒ»å­¦ä¹¦ç±æ¥æé«˜ã€‚\n"); 
 }
 
 int practice_skill(object me)
 {	
-	return notify_fail("±¾²ÝÊõÀí²»ÄÜÍ¨¹ý¼òµ¥Á·Ï°µÃÒÔÌá¸ß¡£\n");
+	return notify_fail("æœ¬è‰æœ¯ç†ä¸èƒ½é€šè¿‡ç®€å•ç»ƒä¹ å¾—ä»¥æé«˜ã€‚\n");
 }

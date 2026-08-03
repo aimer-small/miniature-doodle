@@ -8,18 +8,18 @@ inherit HEAD;
 
 void create()
 {
-        set_name(HIW"ÂäµÚĞã²Å"NOR,({ "flower", "hua" }) );
+        set_name(HIW"è½ç¬¬ç§€æ‰"NOR,({ "flower", "hua" }) );
          set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
+                set("unit", "æœµ");
                 set("value", 0);
                 set("material", "plant");
-                set("long", "ÕâÊÇÒ»¶äÂäµÚĞã²Å¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æœµè½ç¬¬ç§€æ‰ã€‚\n");
                 set("wear_msg", "");
                 set("no_get",1);
-                set("unequip_msg", "$NÕªÏÂĞØÇ°µÄ$n¡£\n");
+                set("unequip_msg", "$Næ‘˜ä¸‹èƒ¸å‰çš„$nã€‚\n");
                 set("armor_prop/armor", 0);
         }
            
@@ -37,14 +37,14 @@ int wear()
         object me = environment();
         int ret;
 
-        message_vision("$NÄÃ³öÒ»¶ä" + this_object()->query("name") + "£¬´÷ÔÚĞØÇ°¡£", me);
+        message_vision("$Næ‹¿å‡ºä¸€æœµ" + this_object()->query("name") + "ï¼Œæˆ´åœ¨èƒ¸å‰ã€‚", me);
         if (ret=::wear()) {
-                if (me->query("gender") == "ÄĞĞÔ")
-                        message_vision("ºÃÒ»¸ö·çÁ÷ÉÙÄêÀÉ£¡\n", me);
-                else if (me->query("gender") == "Å®ĞÔ")
-                        message_vision("ºÃÒ»¸öÃÀÀöÇÎ¼ÑÍŞ£¡\n", me);
+                if (me->query("gender") == "ç”·æ€§")
+                        message_vision("å¥½ä¸€ä¸ªé£æµå°‘å¹´éƒï¼\n", me);
+                else if (me->query("gender") == "å¥³æ€§")
+                        message_vision("å¥½ä¸€ä¸ªç¾ä¸½ä¿ä½³å¨ƒï¼\n", me);
                 else
-                        message_vision("ºÃÒ»¸ö²»Èı²»ËÄµÄ¼Ò»ï£¡\n", me);
+                        message_vision("å¥½ä¸€ä¸ªä¸ä¸‰ä¸å››çš„å®¶ä¼™ï¼\n", me);
         }
         return ret;
 }
@@ -56,26 +56,26 @@ int do_jiao()
         object haoke;
         object piao;
         
-        if (me->is_busy()) return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¡\n");
-        if (me->query_temp("mark/ok")) return notify_fail("ÄãÒÑ¾­¸ÉÍêÁË£¬»¹ÔÚÕâÀï¸ÉÂğ£¿Ïë°Ñ»¨½½ËÀÑ½£¿\n");
-        if (me->is_fighting()) return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ£¬ÎŞ·¨×¨ĞÄ¸É»î£¡\n");
-        if (me->query_temp("yanpopo")!= 2) return notify_fail("Äã»¹Ã»ÓĞÈ¥Òª¹¤¾ß£¬ÔõÃ´¸É»îÑ½£¿\n");
+        if (me->is_busy()) return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
+        if (me->query_temp("mark/ok")) return notify_fail("ä½ å·²ç»å¹²å®Œäº†ï¼Œè¿˜åœ¨è¿™é‡Œå¹²å—ï¼Ÿæƒ³æŠŠèŠ±æµ‡æ­»å‘€ï¼Ÿ\n");
+        if (me->is_fighting()) return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œæ— æ³•ä¸“å¿ƒå¹²æ´»ï¼\n");
+        if (me->query_temp("yanpopo")!= 2) return notify_fail("ä½ è¿˜æ²¡æœ‰å»è¦å·¥å…·ï¼Œæ€ä¹ˆå¹²æ´»å‘€ï¼Ÿ\n");
         
         if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("id")!= "piao")
-                return notify_fail("ÄãÏëÓÃÊ²Ã´À´½½»¨£¬ÓÃÊÖÂğ£¿\n");
+                return notify_fail("ä½ æƒ³ç”¨ä»€ä¹ˆæ¥æµ‡èŠ±ï¼Œç”¨æ‰‹å—ï¼Ÿ\n");
         if((int)me->query("combat_exp")  > 30000 )
         {
                 if(!me->query_temp("killke"))
                 {
-                        if((int)me->query_temp("mark/´Î") > (5 + random(5)) )
+                        if((int)me->query_temp("mark/æ¬¡") > (5 + random(5)) )
                         {
                             haoke = new("/d/mr/npc/haoke");
                             if(!haoke)
-                                return notify_fail("ÏµÍ³³ö´í£¬ÇëÍ¨ÖªÎ×Ê¦¡£\n");
+                                return notify_fail("ç³»ç»Ÿå‡ºé”™ï¼Œè¯·é€šçŸ¥å·«å¸ˆã€‚\n");
                             haoke->set_temp("target",me->query("id"));
                             haoke->move(environment(me));
                             
-                            tell_object(me,"ÄãÕıÔÚÓÃĞÄ½½»¨£¬ºöÈ»Ò»¸ö½­ºşºÀ¿Í´³ÁË½øÀ´£¬Ò»°ÑÇÀ¹ıÄãµÄË®Æ°£¬¶ñºİºİµÄÎÊµÀ£ºÄ½Èİ¼ÒµÄÈËÄØ£¿³öÀ´ÊÜËÀ£¡\n");
+                            tell_object(me,"ä½ æ­£åœ¨ç”¨å¿ƒæµ‡èŠ±ï¼Œå¿½ç„¶ä¸€ä¸ªæ±Ÿæ¹–è±ªå®¢é—¯äº†è¿›æ¥ï¼Œä¸€æŠŠæŠ¢è¿‡ä½ çš„æ°´ç“¢ï¼Œæ¶ç‹ ç‹ çš„é—®é“ï¼šæ…•å®¹å®¶çš„äººå‘¢ï¼Ÿå‡ºæ¥å—æ­»ï¼\n");
                             piao = present("piao", me);
                             piao->move(haoke);
                             haoke->kill_ob(me);
@@ -84,10 +84,10 @@ int do_jiao()
                         }
                 }
         }
-        if((int)me->query_temp("mark/´Î") > (10 + random(10)) )
+        if((int)me->query_temp("mark/æ¬¡") > (10 + random(10)) )
         {
-	    message_vision(RED"$N¾õµÃË®ÒÑ¾­½½µÄ²î²»¶àÁË£¬¿ÉÒÔ»ØÈ¥¸´ÃüÁË¡£\n"NOR, me);
-            me->delete_temp("mark/´Î");
+	    message_vision(RED"$Nè§‰å¾—æ°´å·²ç»æµ‡çš„å·®ä¸å¤šäº†ï¼Œå¯ä»¥å›å»å¤å‘½äº†ã€‚\n"NOR, me);
+            me->delete_temp("mark/æ¬¡");
             me->delete_temp("yanpopo");     
             me->set_temp("mark/ok",1);
             return 1;
@@ -97,8 +97,8 @@ int do_jiao()
             me->start_busy(1);
             me->receive_damage("jingli",random(5)+2);
             me->receive_damage("qi",random(5)+2);       
-            me->add_temp("mark/´Î",1);
-            message_vision("$N´ÓË®¸×ÖĞÒ¨ÁËÆ°Ë®£¬Ğ¡ĞÄÒíÒíµÄ°ÑË®½½ÔÚ¡¸ÂäµØĞã²Å¡¹ÉÏ¡£\n", me);
+            me->add_temp("mark/æ¬¡",1);
+            message_vision("$Nä»æ°´ç¼¸ä¸­èˆ€äº†ç“¢æ°´ï¼Œå°å¿ƒç¿¼ç¿¼çš„æŠŠæ°´æµ‡åœ¨ã€Œè½åœ°ç§€æ‰ã€ä¸Šã€‚\n", me);
         }
         
         return 1;

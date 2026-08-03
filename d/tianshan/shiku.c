@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ê¯¿ß");
+	set("short", "çŸ³çªŸ");
 	set("long", @LONG
-ÕâÀïÊÇÒ»¸öÊ¯¿ß£¬³£ÄêµÄ¿áº®°ÑÕâ¸öÊ¯¿ß±äµÃÈçÍ¬Ò»¸öÁ÷Àû¹¬Ò»Ñù¡£ËÄÖÜ
-¶¼ÊÇ¹â»¬µÄ±ùÃæ£¬¼¸¿ÉÕÕÈË¡£
+è¿™é‡Œæ˜¯ä¸€ä¸ªçŸ³çªŸï¼Œå¸¸å¹´çš„é…·å¯’æŠŠè¿™ä¸ªçŸ³çªŸå˜å¾—å¦‚åŒä¸€ä¸ªæµåˆ©å®«ä¸€æ ·ã€‚å››å‘¨
+éƒ½æ˜¯å…‰æ»‘çš„å†°é¢ï¼Œå‡ å¯ç…§äººã€‚
 LONG);
 	 set("exits", ([
                 "east" : __FILE__,
@@ -31,7 +31,7 @@ int valid_leave(object me, string dir)
 		me->move(__DIR__"shishi");
 		me->delete_temp("mark/steps");
 		me->delete_temp("mark/step");
-		return notify_fail(YEL"ÄãÒÀÕÕÀÑÀÑµÄÖ¸Ê¾£¬Ä¬Äî×ÅÂ·¾¶À´µ½Ò»¼äÊ¯ÊÒÇ°¡£\n"NOR);
+		return notify_fail(YEL"ä½ ä¾ç…§å§¥å§¥çš„æŒ‡ç¤ºï¼Œé»˜å¿µç€è·¯å¾„æ¥åˆ°ä¸€é—´çŸ³å®¤å‰ã€‚\n"NOR);
         }
         return ::valid_leave(me, dir);
 }

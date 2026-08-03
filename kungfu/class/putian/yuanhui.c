@@ -6,16 +6,16 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("Ôª»Ú×ğÕß", ({
+        set_name("å…ƒæ‚”å°Šè€…", ({
                 "yuanhui zunzhe",
                 "yuanhui",
                 "zunzhe",
         }));
         set("long",
-                "Ò»Î»ÃæÉ«ºÍ°ªµÄÖĞÄêÉ®ÈË£¬Á³ÉÏ´ø×ÅÒ»ÖÖÓäÔÃµÄÉñ²É¡£\n"
+                "ä¸€ä½é¢è‰²å’Œè”¼çš„ä¸­å¹´åƒ§äººï¼Œè„¸ä¸Šå¸¦ç€ä¸€ç§æ„‰æ‚¦çš„ç¥é‡‡ã€‚\n"
         );
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
 
@@ -60,7 +60,7 @@ void create()
 		(: perform_action, "strike.qiankun" :),
 	}));
 
-        create_family("ÄÏÉÙÁÖ", 23, "µÜ×Ó");
+        create_family("å—å°‘æ—", 23, "å¼Ÿå­");
 
         setup();
 

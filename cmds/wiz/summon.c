@@ -12,33 +12,33 @@ int main(object me, string str)
 	if (!str) return notify_fail("<Syntax>: summon <player id>\n");
 	if (sscanf(str, "-s %s", str)) s = 1;
 	ob = LOGIN_D->find_body(str);
-	if (!ob) return notify_fail("ß×... ÓĞÕâ¸öÈËÂğ£¿\n");
+	if (!ob) return notify_fail("å’¦... æœ‰è¿™ä¸ªäººå—ï¼Ÿ\n");
 	if( wiz_level(ob) > wiz_level(me) )
-		return notify_fail("ÄãÎŞ´ËÈ¨ÏŞ\n");
+		return notify_fail("ä½ æ— æ­¤æƒé™\n");
 	if (ob->query("env/invisibility") > 10000)
-	return notify_fail("ß×... ÓĞÕâ¸öÈËÂğ£¿\n");
+	return notify_fail("å’¦... æœ‰è¿™ä¸ªäººå—ï¼Ÿ\n");
 	if (environment(ob) == environment(me))
-		return notify_fail(ob->name() + "¾ÍÔÚÄãÉí±ß¡£\n");
+		return notify_fail(ob->name() + "å°±åœ¨ä½ èº«è¾¹ã€‚\n");
 	if (environment(ob)) {
 	if (environment(ob)->query("no_summon_out"))
-		return notify_fail(ob->name() + "µÄËùÔÚÌØÊâ£¬²»¿ÉÓÃSummon×¥³öÀ´¡£\n");
+		return notify_fail(ob->name() + "çš„æ‰€åœ¨ç‰¹æ®Šï¼Œä¸å¯ç”¨SummonæŠ“å‡ºæ¥ã€‚\n");
 	if (environment(me)->query("no_summon_in"))
-		return notify_fail("ÄãÄ¿Ç°ËùÔÚÌØÊâ£¬²»¿ÉÓÃSummonÃüÁî¡£\n");
+		return notify_fail("ä½ ç›®å‰æ‰€åœ¨ç‰¹æ®Šï¼Œä¸å¯ç”¨Summonå‘½ä»¤ã€‚\n");
 	}
 
 	if (base_name(ob) == "/cmds/leitai/leitaiuser")
-		return notify_fail(ob->name() + "ÕâÈËÊÇ±ÈÎäÀŞÌ¨Clone³öÀ´µÄ£¬²»¿É×¥³ö¡£\n");
+		return notify_fail(ob->name() + "è¿™äººæ˜¯æ¯”æ­¦æ“‚å°Cloneå‡ºæ¥çš„ï¼Œä¸å¯æŠ“å‡ºã€‚\n");
 	// moving
 	if (!s) {
-		tell_room(environment(ob),"Ìì¿ÕÖĞÉì³öÒ»Ö»´óÊÖ°Ñ"+
-		ob->name()+"×¥ÁËÆğÀ´£¬È»ºó²»¼ûÁË¡£\n", ob);
-		tell_object(ob,"Ò»Ö»ÊÖ°ÑÄã×¥ÁËÆğÀ´, ÄãÑÛÇ°Ò»ÕóºÚ¡­¡­\n");
+		tell_room(environment(ob),"å¤©ç©ºä¸­ä¼¸å‡ºä¸€åªå¤§æ‰‹æŠŠ"+
+		ob->name()+"æŠ“äº†èµ·æ¥ï¼Œç„¶åä¸è§äº†ã€‚\n", ob);
+		tell_object(ob,"ä¸€åªæ‰‹æŠŠä½ æŠ“äº†èµ·æ¥, ä½ çœ¼å‰ä¸€é˜µé»‘â€¦â€¦\n");
 	}
 	ob->move(environment(me), s);
-	tell_object(me, "Äã°Ñ"+ob->name()+"×¥µ½ÄãµÄÃæÇ°¡£\n");
+	tell_object(me, "ä½ æŠŠ"+ob->name()+"æŠ“åˆ°ä½ çš„é¢å‰ã€‚\n");
 	if (!s) {
-		tell_object(ob,"¡­¡­ĞÑÀ´Ê±·¢ÏÖÊÇ"+ me->name() + "°ÑÄãÅª¹ıÀ´µÄ¡£\n");
-		tell_room(environment(ob), me->name()+ "ÉìÊÖ°Ñ" + ob->name()+"×¥ÁË¹ıÀ´¡£\n",({me,ob}));
+		tell_object(ob,"â€¦â€¦é†’æ¥æ—¶å‘ç°æ˜¯"+ me->name() + "æŠŠä½ å¼„è¿‡æ¥çš„ã€‚\n");
+		tell_room(environment(ob), me->name()+ "ä¼¸æ‰‹æŠŠ" + ob->name()+"æŠ“äº†è¿‡æ¥ã€‚\n",({me,ob}));
 	}
 	if (!wizardp(ob) && geteuid(me) != "yuj")
 		log_file("static/SUMMON",
@@ -53,9 +53,9 @@ int main(object me, string str)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : summon <Ä³ÈË>
+æŒ‡ä»¤æ ¼å¼ : summon <æŸäºº>
 
-´ËÖ¸Áî¿ÉÈÃÄã(Äã)½«Ä³ÈË×¥µ½ÄãÃæÇ°¡£
+æ­¤æŒ‡ä»¤å¯è®©ä½ (ä½ )å°†æŸäººæŠ“åˆ°ä½ é¢å‰ã€‚
 HELP
 	);
 	return 1;

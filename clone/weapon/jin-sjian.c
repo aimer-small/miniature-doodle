@@ -6,14 +6,14 @@ inherit THROWING;
 inherit F_UNIQUE;
 void create()
 {
-	set_name(HIY "½ğË¦¼ı" NOR, ({ "jin shuaijian", "shuaijian", "jian" }));
+	set_name(HIY "é‡‘ç”©ç®­" NOR, ({ "jin shuaijian", "shuaijian", "jian" }));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ö§");
-		set("long", HIY "Óù´Í½ğ¼ı£¬ÊÇ´óÁÉ»ÊµÛµÄ´«ÁîÅÆ¡£\n" NOR);
+		set("unit", "æ”¯");
+		set("long", HIY "å¾¡èµé‡‘ç®­ï¼Œæ˜¯å¤§è¾½çš‡å¸çš„ä¼ ä»¤ç‰Œã€‚\n" NOR);
 		set("base_value", 50000);
-                set("base_unit", "Ö§");
+                set("base_unit", "æ”¯");
                 set("unique", 10);
                 set("base_weight", 50);		
 	}

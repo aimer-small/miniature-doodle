@@ -1,4 +1,4 @@
-// xunbu.c Ñ²²¶
+// xunbu.c å·¡æ•
 // by augx@sj 9/11/2001
 
 #include <ansi.h>
@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ñ²²¶", ({ "xun bu", "xunbu"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("å·¡æ•", ({ "xun bu", "xunbu"}));
+	set("gender", "ç”·æ€§");
 	set("age", random(10) + 30);
 	set("str", 25);
 	set("dex", 25);
-	set("long", "ËûÕ¾ÔÚÄÇÀï£¬µÄÈ·ÓĞËµ²»³öµÄÍş·ç¡£\n");
+	set("long", "ä»–ç«™åœ¨é‚£é‡Œï¼Œçš„ç¡®æœ‰è¯´ä¸å‡ºçš„å¨é£ã€‚\n");
 	set("combat_exp", 300000);
 	set("shen_type", 1);
 	set("no_quest", 1);

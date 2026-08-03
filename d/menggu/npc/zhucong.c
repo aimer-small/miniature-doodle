@@ -1,17 +1,17 @@
-// zhucong.c Öì´Ï
+// zhucong.c æœ±èª
 // Created by Zhuifeng@sjfy 08/8/2010
 
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-   set_name("Öì´Ï",({"zhu cong","zhu","cong"}));
-   set("gender","ÄĞĞÔ");
-   set("long","½­ÄÏÆß¹ÖÀÏ¶ş,ÊÖÉÏ¹¦·òÁËµÃ!\n");
+   set_name("æœ±èª",({"zhu cong","zhu","cong"}));
+   set("gender","ç”·æ€§");
+   set("long","æ±Ÿå—ä¸ƒæ€ªè€äºŒ,æ‰‹ä¸ŠåŠŸå¤«äº†å¾—!\n");
    set("shen",80000);
    set("combat_exp",1200000);
-   set("nickname",HIM"ÃîÊÖÊéÉú"NOR);
-   set("title",WHT"½­ÄÏÆß¹ÖÀÏ¶ş"NOR);
+   set("nickname",HIM"å¦™æ‰‹ä¹¦ç”Ÿ"NOR);
+   set("title",WHT"æ±Ÿå—ä¸ƒæ€ªè€äºŒ"NOR);
    
    set("age",30);
    set("pur",12);

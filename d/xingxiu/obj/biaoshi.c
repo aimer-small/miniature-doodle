@@ -5,14 +5,14 @@ void create()
 {
       string weapon;
 
-        set_name("»¤ïÚïÚÊ¦", ({ "hubiao biaoshi", "biaoshi"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("æŠ¤é•–é•–å¸ˆ", ({ "hubiao biaoshi", "biaoshi"}));
+        set("gender", "ç”·æ€§");
         set("age", random(10) + 25);
         set("str", 28);
         set("con", 23);
         set("int", 15);
         set("dex", 26);
-        set("long", "ïÚ¾ÖµÄïÚÊ¦¡£\n");
+        set("long", "é•–å±€çš„é•–å¸ˆã€‚\n");
         set("combat_exp", 75000 + random(30000)); 
         set("attitude", "friendly");
 
@@ -51,7 +51,7 @@ void init()
       if(me->query_temp("xx_rob")){
         a = me->query_temp("j")-1;
         if(a < 2) a=2;
-        message_vision(HIR"Í»È»´ÓÉÌ¶Óºó´Ü³öÒ»¸ö$N£¬¶ş»°²»Ëµ¾ÍÆËÏòÁË$n£¡\n"NOR, ob, me);
+        message_vision(HIR"çªç„¶ä»å•†é˜Ÿåçªœå‡ºä¸€ä¸ª$Nï¼ŒäºŒè¯ä¸è¯´å°±æ‰‘å‘äº†$nï¼\n"NOR, ob, me);
         me->add_temp("biaoshi", 1);
         ob->set("combat_exp", ob->query("combat_exp")*a);
         ob->set_skill("force", 60+(10*a));
@@ -88,7 +88,7 @@ int checking(object me)
 }
 void do_back(object me)
 {                       
-  tell_room(environment(me), me->query("name")+"×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n", ({me}));	
+  tell_room(environment(me), me->query("name")+"è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n", ({me}));	
   destruct(me); 
   return;
 }

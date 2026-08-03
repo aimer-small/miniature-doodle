@@ -12,34 +12,34 @@ int perform(object me, object target)
 	if( !objectp(target)
 	|| !target->is_character()
 	|| !me->is_fighting(target) )
-		return notify_fail("²øÈÆ¾÷Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ç¼ ç»•è¯€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if(me->query_skill("yinlong-bian",1) < 130)
-		return notify_fail("ÄãµÄ¾ÅÒõÒøÁú±Ş»¹²»¹»æµÊì£¬²»»áÊ¹ÓÃ²øÈÆ¾÷¡£\n");
+		return notify_fail("ä½ çš„ä¹é˜´é“¶é¾™é­è¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ç¼ ç»•è¯€ã€‚\n");
 
 	if( !weapon 
 	|| weapon->query("skill_type") != "whip"
 	|| me->query_skill_mapped("whip") != "yinlong-bian" 
 	|| me->query_skill_mapped("parry") != "yinlong-bian" ) 
-		return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ²øÈÆ¾÷¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ç¼ ç»•è¯€ã€‚\n");
 
 	if( me->query("neili") < 1500 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
 	if( target->is_busy() )
-		return notify_fail(target->name() + "Ä¿Ç°Õı×Ô¹Ë²»Ï¾£¬·Åµ¨¹¥»÷°É¡£\n");
+		return notify_fail(target->name() + "ç›®å‰æ­£è‡ªé¡¾ä¸æš‡ï¼Œæ”¾èƒ†æ”»å‡»å§ã€‚\n");
 
-	msg = HIG "\n$NÊ¹³ö²øÈÆ¾÷£¬±Ş×ÓÒ»»ÓÏò$nµÄË«ÍÈ¾íÈ¥£¡\n";
+	msg = HIG "\n$Nä½¿å‡ºç¼ ç»•è¯€ï¼Œé­å­ä¸€æŒ¥å‘$nçš„åŒè…¿å·å»ï¼\n";
 
 	if((random(me->query("combat_exp")) > target->query("combat_exp")/2) 
 	|| (random(me->query("dex")) > target->query("dex")*3/4)) {
-		msg += HIY "½á¹û$p±»$PÒ»¾í£¬Á½ÌõÍÈ±»½á½áÊµÊµµÄÀ¦ÆğÀ´£¬ÔÚµØÉÏÎŞ·¨ÅÀÆğ¡£\n" NOR;
+		msg += HIY "ç»“æœ$pè¢«$Pä¸€å·ï¼Œä¸¤æ¡è…¿è¢«ç»“ç»“å®å®çš„æ†èµ·æ¥ï¼Œåœ¨åœ°ä¸Šæ— æ³•çˆ¬èµ·ã€‚\n" NOR;
 		target->start_busy((int)me->query_skill("yinlong-bian",1)/20);
-		me->start_perform(5,"²øÈÆ¾÷");
+		me->start_perform(5,"ç¼ ç»•è¯€");
 	}
 	else {
-		msg += HIW "¿ÉÊÇ$p¿´ÆÆÁË$PµÄ²øÈÆ¾÷£¬Éí×ÓÒ»Ô¾±ã¶ã¿ªÁË¡£\n" NOR;
-		me->start_perform(2,"²øÈÆ¾÷");
+		msg += HIW "å¯æ˜¯$pçœ‹ç ´äº†$Pçš„ç¼ ç»•è¯€ï¼Œèº«å­ä¸€è·ƒä¾¿èº²å¼€äº†ã€‚\n" NOR;
+		me->start_perform(2,"ç¼ ç»•è¯€");
 	}
 	message_vision(msg, me, target);
 
@@ -49,19 +49,19 @@ int perform(object me, object target)
         return 1;
 }
 
-string perform_name(){ return HIG"²øÈÆ¾÷"NOR; }
+string perform_name(){ return HIG"ç¼ ç»•è¯€"NOR; }
 
 int help(object me)
 {
-        write(HIG"\n¾ÅÒõÒøÁú±ŞÖ®¡¸²øÈÆ¾÷¡¹£º"NOR"\n\n");
+        write(HIG"\nä¹é˜´é“¶é¾™é­ä¹‹ã€Œç¼ ç»•è¯€ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1500 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 1500 ÒÔÉÏ£»
-                µ±Ç°¾«Á¦ 1500 ÒÔÉÏ£»
-                ¾ÅÒõÒøÁú±ŞµÈ¼¶ 130 ÒÔÉÏ£»
-                ¼¤·¢±Ş·¨Îª¾ÅÒõÒøÁú±Ş£»
-                ¼¤·¢ÕĞ¼ÜÎª¾ÅÒõÒøÁú±Ş£»
-                ÇÒÊÖ³Ö±øÆ÷¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1500 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 1500 ä»¥ä¸Šï¼›
+                å½“å‰ç²¾åŠ› 1500 ä»¥ä¸Šï¼›
+                ä¹é˜´é“¶é¾™é­ç­‰çº§ 130 ä»¥ä¸Šï¼›
+                æ¿€å‘é­æ³•ä¸ºä¹é˜´é“¶é¾™é­ï¼›
+                æ¿€å‘æ‹›æ¶ä¸ºä¹é˜´é“¶é¾™é­ï¼›
+                ä¸”æ‰‹æŒå…µå™¨ã€‚
 
 HELP
         );

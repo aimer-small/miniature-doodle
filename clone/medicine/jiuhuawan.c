@@ -1,4 +1,4 @@
-// jiuhuawan.c ¾Å»¨ÓñÂ¶Íè
+// jiuhuawan.c ä¹èŠ±ç‰éœ²ä¸¸
 #include <ansi.h>
 
 inherit ITEM;
@@ -15,13 +15,13 @@ void init()
 
 void create()
 {
-        set_name(HIG"¾Å»¨ÓñÂ¶Íè"NOR, ({"jiuhua wan", "wan"}));
+        set_name(HIG"ä¹èŠ±ç‰éœ²ä¸¸"NOR, ({"jiuhua wan", "wan"}));
 	set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿Å·¢×Åµ­µ­¹âÔóµÄĞ¡Ô²Çò¡£²¢²»ÆğÑÛ¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—å‘ç€æ·¡æ·¡å…‰æ³½çš„å°åœ†çƒã€‚å¹¶ä¸èµ·çœ¼ã€‚\n");
                 set("value", 100);
 		set("no_drop", 1);
         }
@@ -33,27 +33,27 @@ int do_eat(string arg)
         object me = this_player();
 
         if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ((int)this_player()->query("eff_qi") ==
             (int)this_player()->query("max_qi"))
-                return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃÒ©Îï¡£\n");
+                return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨è¯ç‰©ã€‚\n");
         
 	if (this_player()->is_busy() || this_player()->is_fighting())
-	        return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	        return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if( me->query_condition("medicine")>0 )
-	        return notify_fail("ÄãÉÏÒ»´Î·şÒ©µÄÒ©ĞÔ»¹Ã»ÓĞ¹ıÄØ£¡\n");
+	        return notify_fail("ä½ ä¸Šä¸€æ¬¡æœè¯çš„è¯æ€§è¿˜æ²¡æœ‰è¿‡å‘¢ï¼\n");
 
 	 if (me->query_skill_mapped("force") != "bihai-chaosheng") {
                 me->add("max_neili", -10);
-                message_vision(HIR "$N³ÔÏÂÒ»¿Å¾Å»¨ÓñÂ¶Íè£¬Ö»¾õµÃµ¤ÌïÓĞÈçµ¶¸î£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËğÕæÔª£¡\n" NOR, me);
+                message_vision(HIR "$Nåƒä¸‹ä¸€é¢—ä¹èŠ±ç‰éœ²ä¸¸ï¼Œåªè§‰å¾—ä¸¹ç”°æœ‰å¦‚åˆ€å‰²ï¼ŒåŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸçœŸå…ƒï¼\n" NOR, me);
                 me->unconcious();
                 destruct(this_object());
                 return 1;
         }
         else {
                 me->receive_curing("qi", 500);
-                message_vision("$N³ÔÏÂÒ»¿Å¾Å»¨ÓñÂ¶Íè£¬ÉËÊÆ´óÎªºÃ×ª¡£\n", this_player());
+                message_vision("$Nåƒä¸‹ä¸€é¢—ä¹èŠ±ç‰éœ²ä¸¸ï¼Œä¼¤åŠ¿å¤§ä¸ºå¥½è½¬ã€‚\n", this_player());
         }
 
 	me->apply_condition("medicine",9);

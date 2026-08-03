@@ -1,14 +1,14 @@
-//  /clone/npc/huyz ºúÒİÖ®
+//  /clone/npc/huyz èƒ¡é€¸ä¹‹
 // by dubei
 inherit NPC;
  
 void create()
 {
-	set_name("ºúÒİÖ®", ({ "hu yizhi", "hu" }));
-	set("nickname", "°ÙÊ¤µ¶Íõ");
+	set_name("èƒ¡é€¸ä¹‹", ({ "hu yizhi", "hu" }));
+	set("nickname", "ç™¾èƒœåˆ€ç‹");
 	set("long", 
-        "Ëû¾ÍÊÇ°ÙÊ¤µ¶ÍõºúÒİÖ®¡£\n");
-	set("gender", "ÄĞĞÔ");
+        "ä»–å°±æ˜¯ç™¾èƒœåˆ€ç‹èƒ¡é€¸ä¹‹ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 46);
 	set("attitude", "peaceful");
 	set("shen", -10000);

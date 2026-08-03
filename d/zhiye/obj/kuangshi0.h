@@ -1,12 +1,12 @@
 void create()
 {
-	set_name("¿óÊ¯", ({ "kuangshi" , "shi" }));
+	set_name("çŸ¿çŸ³", ({ "kuangshi" , "shi" }));
 	set_weight(3000+random(5000));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿é");
-		set("long", "ÕâÊÇÒ»¿éÆÕÍ¨µÄ¿óÊ¯¡£\n");
+		set("unit", "å—");
+		set("long", "è¿™æ˜¯ä¸€å—æ™®é€šçš„çŸ¿çŸ³ã€‚\n");
 		set("value", 3000);
 		set("kuangshi",1);
 	}

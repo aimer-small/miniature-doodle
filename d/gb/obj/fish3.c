@@ -1,4 +1,4 @@
-// fish3.c ´ó»ÆÓã
+// fish3.c å¤§é»„é±¼
 
 #include <ansi.h>
 inherit ITEM;
@@ -6,13 +6,13 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name(HIY"´ó»ÆÓã"NOR, ({ "dahuang yu", "yu","fish" }) );
+        set_name(HIY"å¤§é»„é±¼"NOR, ({ "dahuang yu", "yu","fish" }) );
         set_weight(400+random(600));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ìõ");
-                set("long", "Ò»Ìõ·ÊË¶µÄ´ó»ÆÓã¡£\n");
+                set("unit", "æ¡");
+                set("long", "ä¸€æ¡è‚¥ç¡•çš„å¤§é»„é±¼ã€‚\n");
 		set("value", 300);
                 set("food_remaining", 3);
                 set("food_supply", 30);

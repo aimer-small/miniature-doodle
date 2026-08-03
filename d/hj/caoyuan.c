@@ -1,11 +1,11 @@
-// caoyuan.c ²ÝÔ­
+// caoyuan.c è‰åŽŸ
 inherit ROOM;
 void create()
 {
-        set("short", "²ÝÔ­±ßÔµ");
+        set("short", "è‰åŽŸè¾¹ç¼˜");
         set("long", @LONG
-ÕâÀïÊÇ´ó²ÝÔ­ºÍÉ³Ä®½ÓÈÀÖ®µØ£¬Çà²ÝÓÉÏ¡ÖÁÃÜ£¬ÏòÎ÷ÃàÃàÑÓÉì¶øÈ¥¡£µØÉÏ
-ÓÐ¼¸ÐÐÂæÍÕÌ¤¹ýµÄÌãÓ¡£¬¿´Ñù×ÓÕâÀï³£³£ÓÐÉÌ¶ÓÀ´Íù¡£Î÷ÄÏ·½ºÃÏóÓÐÐ©´¶ÑÌ¡£
+è¿™é‡Œæ˜¯å¤§è‰åŽŸå’Œæ²™æ¼ æŽ¥å£¤ä¹‹åœ°ï¼Œé’è‰ç”±ç¨€è‡³å¯†ï¼Œå‘è¥¿ç»µç»µå»¶ä¼¸è€ŒåŽ»ã€‚åœ°ä¸Š
+æœ‰å‡ è¡Œéª†é©¼è¸è¿‡çš„è¹„å°ï¼Œçœ‹æ ·å­è¿™é‡Œå¸¸å¸¸æœ‰å•†é˜Ÿæ¥å¾€ã€‚è¥¿å—æ–¹å¥½è±¡æœ‰äº›ç‚ŠçƒŸã€‚
 LONG);
         set("exits", ([
             "east" : "/d/xingxiu/shamo4",
@@ -17,7 +17,7 @@ LONG);
         set("objects", ([
                     __DIR__"npc/biaoshi" : 1,
         ])); 
-        set("outdoors", "²ÝÔ­");
+        set("outdoors", "è‰åŽŸ");
         set("coor/x",-300);
   set("coor/y",100);
    set("coor/z",0);
@@ -32,12 +32,12 @@ int valid_leave(object me, string dir)
        if (me->query_temp("mark/steps") == 4){
             me->move(__DIR__"hswz");
             me->delete_temp("mark/steps");
-            return notify_fail("°¦¡£¡£¡£\n");
+            return notify_fail("å”‰ã€‚ã€‚ã€‚\n");
        }  
        if (me->query_temp("mark/steps") == -4){  
            me->move(__DIR__"caoyuan8");
            me->delete_temp("mark/steps");
-             return notify_fail("°¦¡£¡£¡£\n");
+             return notify_fail("å”‰ã€‚ã€‚ã€‚\n");
        }  
        return ::valid_leave(me, dir);
 }

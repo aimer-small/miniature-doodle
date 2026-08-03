@@ -7,7 +7,7 @@ int update_condition(object me, int duration)
 {
         if ( duration < 1 ) 
         {
-                tell_object(me, WHT "你将身体放松下来，顿感到一阵清凉，心里也不似刚才般难受欲呕啦。\n" NOR);
+                tell_object(me, WHT "浣犲皢韬綋鏀炬澗涓嬫潵锛岄】鎰熷埌涓�闃垫竻鍑夛紝蹇冮噷涔熶笉浼煎垰鎵嶈埇闅惧彈娆插憰鍟︺�俓n" NOR);
                 return 0;
         }
 //      tell_object(me, "Condition apply spare only " + duration + " times...\n");

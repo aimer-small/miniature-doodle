@@ -10,9 +10,9 @@ int do_clone(object me, object ob);
 
 void create()
 {
-	set_name("ÇÀ·Ë", ({ "qiang fei", "fei" }) );
-	set("gender", "ÄĞĞÔ");
-	set("long", "ÕâÊÇÒ»¸öÇÀ·Ë£¬×¨ÃÅÇÀ½ÙË½ÑÎ¡£\n");
+	set_name("æŠ¢åŒª", ({ "qiang fei", "fei" }) );
+	set("gender", "ç”·æ€§");
+	set("long", "è¿™æ˜¯ä¸€ä¸ªæŠ¢åŒªï¼Œä¸“é—¨æŠ¢åŠ«ç§ç›ã€‚\n");
 	set("shen", -15000);
 	set("attitude", "killer");
 	set("age", random(20)+25);
@@ -64,7 +64,7 @@ void init()
 	&& me->query_temp("name1")==name1
 	&& ob->query_temp("newbiejob2/start")
 	&& ob->query_temp("newbiejob2/middle")) {
-		command("say ÏëÄÃÄãµÄÑÎ£¬ÏÈÄÉÃüÀ´°É£¡£¡£¡");
+		command("say æƒ³æ‹¿ä½ çš„ç›ï¼Œå…ˆçº³å‘½æ¥å§ï¼ï¼ï¼");
 		me->set_leader(ob);
 		if (!me->query_temp("skillset")) do_clone(me, ob);
 		remove_call_out("kill_ob");
@@ -143,8 +143,8 @@ void dest(object ob)
 		call_out("dest", 10, ob);
 		return;
 	}
-	say(name()+"µÀ£º²»¸úÄãÔÚÕâÄÓÑ÷Ñ÷ÁË£¬ÀÏ×ÓµÃ»ØÈ¥ÁìÉÍÈ¥ÁË¡£\n");
-	say(name()+"´Ò´ÒÀë¿ª¡£\n");  
+	say(name()+"é“ï¼šä¸è·Ÿä½ åœ¨è¿™æŒ ç—’ç—’äº†ï¼Œè€å­å¾—å›å»é¢†èµå»äº†ã€‚\n");
+	say(name()+"åŒ†åŒ†ç¦»å¼€ã€‚\n");  
 	destruct(this_object());
 }
 

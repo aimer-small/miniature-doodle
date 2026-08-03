@@ -1,4 +1,4 @@
-// buzhan.c Èı²»Õ³
+// buzhan.c ä¸‰ä¸ç²˜
 
 #include <ansi.h>
 
@@ -7,13 +7,13 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name(HIY "Èı²»Õ³" NOR, ({"sanbuzhan"}));
+	set_name(HIY "ä¸‰ä¸ç²˜" NOR, ({"sanbuzhan"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Èı²»Õ³ËÆ¸â·Ç¸â£¬ËÆÖà·ÇÖà£¬Èë¿ÚÃàÈíÈáÈó¡£×ÌÎ¶ÏãÌğ¡£\n");
-		set("unit", "ÅÌ");
+		set("long", "ä¸‰ä¸ç²˜ä¼¼ç³•éç³•ï¼Œä¼¼ç²¥éç²¥ï¼Œå…¥å£ç»µè½¯æŸ”æ¶¦ã€‚æ»‹å‘³é¦™ç”œã€‚\n");
+		set("unit", "ç›˜");
 		set("value", 100);
 		set("food_remaining", 2);
 		set("food_supply", 35);

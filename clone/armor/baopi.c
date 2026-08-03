@@ -1,4 +1,4 @@
-// baopi.c Ñ©±ªÆ¤
+// baopi.c é›ªè±¹çš®
 // by iceland
 #include <ansi.h> 
 #include <armor.h> 
@@ -7,13 +7,13 @@ inherit CLOTH;
 
 void create() 
 { 
-	set_name( WHT "Ñ©±ªÆ¤" NOR, ({ "bao pi", "baopi","pi" }) ); 
+	set_name( WHT "é›ªè±¹çš®" NOR, ({ "bao pi", "baopi","pi" }) ); 
 	set_weight(2500);
 	if( clonep() ) 
 		set_default_object(__FILE__); 
 	else { 
-		set("unit", "ÕÅ");
-		set("long", "ÕâÊÇÒ»¼şÉÏºÃµÄÃ«Æ¤£¬ÃşÉÏÈ¥ÎÂÅ¯ÈáÈí£¬Ö»ÓĞÑ©É½ÖĞµÄÑ©±ª²ÅÓĞÕâÖÖÆ¤Ã«¡£\n"); 
+		set("unit", "å¼ ");
+		set("long", "è¿™æ˜¯ä¸€ä»¶ä¸Šå¥½çš„æ¯›çš®ï¼Œæ‘¸ä¸Šå»æ¸©æš–æŸ”è½¯ï¼Œåªæœ‰é›ªå±±ä¸­çš„é›ªè±¹æ‰æœ‰è¿™ç§çš®æ¯›ã€‚\n"); 
 		set("value", 50000);
 		set("material", "fur");
 		set("armor_prop/armor", 20);

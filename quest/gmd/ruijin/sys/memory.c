@@ -1,6 +1,6 @@
 //edit by rock
 //2008.10.16
-//¾µÏñ·¿¼äÄÚ´æ
+//é•œåƒæˆ¿é—´å†…å­˜
 
 #include <ansi.h>
 inherit ITEM;
@@ -9,9 +9,9 @@ inherit ITEM;
 
 #define SYSTEAM "/adm/daemons/system"
 
-void create() { set_name("¾µÏñ·¿¼äÄÚ´æ",({ "memory"})); }
+void create() { set_name("é•œåƒæˆ¿é—´å†…å­˜",({ "memory"})); }
 
-//ĞÄÌø(Ğ¡ĞÄ×¼±¸ Îó²îÎª30Ãë)
+//å¿ƒè·³(å°å¿ƒå‡†å¤‡ è¯¯å·®ä¸º30ç§’)
 varargs void heart(int open)
 {
 	int i,size,index=0,leave_user=0;
@@ -38,7 +38,7 @@ varargs void heart(int open)
 			me->set(sprintf("user_id/%d",i),0);
 		}
 	}
-	//Íæ¼ÒÀë¿ª¸±±¾
+	//ç©å®¶ç¦»å¼€å‰¯æœ¬
 	if(leave_user >= size)
 	{
 		if(me->delete_map())
@@ -50,31 +50,31 @@ varargs void heart(int open)
 
 	userId = me->query("user_id");
 	size = sizeof(userId);
-	if(me->query("open_time")+600 <= time() && !me->query("fanghuo")) //5·ÖÖÓºó
+	if(me->query("open_time")+600 <= time() && !me->query("fanghuo")) //5åˆ†é’Ÿå
 	{
 		for(i=0;i<size;i++)
 		{
 			str = userId[sprintf("%d",i)];
 			if(!str || !stringp(str)) continue;
 			player = find_player(str);
-			tell_object(player,HIY"¡¾Î§¹¥¹âÃ÷¶¥¡¿Ä§½Ì½ÌÍ½·Å»ğÁË£¬Õû×ùÉ½¶¼ÔÚÈ¼ÉÕ¡£\n"NOR);
+			tell_object(player,HIY"ã€å›´æ”»å…‰æ˜é¡¶ã€‘é­”æ•™æ•™å¾’æ”¾ç«äº†ï¼Œæ•´åº§å±±éƒ½åœ¨ç‡ƒçƒ§ã€‚\n"NOR);
 		}
 		me->len_exits(1);
 		me->set("fanghuo",1);
 	}
-	else if(me->query("open_time")+900 <= time() && !me->query("rand"))  //10·ÖÖÓºó
+	else if(me->query("open_time")+900 <= time() && !me->query("rand"))  //10åˆ†é’Ÿå
 	{
 		for(i=0;i<size;i++)
 		{
 			str = userId[sprintf("%d",i)];
 			if(!str || !stringp(str)) continue;
 			player = find_player(str);
-			tell_object(player,HIY"¡¾Î§¹¥¹âÃ÷¶¥¡¿Õû×ùÉ½È¼ÉÕ´ù¾¡£¬ÒÑ¾­·Ö²»Çå·½ÏòÁË¡£\n"NOR);
+			tell_object(player,HIY"ã€å›´æ”»å…‰æ˜é¡¶ã€‘æ•´åº§å±±ç‡ƒçƒ§æ®†å°½ï¼Œå·²ç»åˆ†ä¸æ¸…æ–¹å‘äº†ã€‚\n"NOR);
 		}
 		me->len_exits(2);
 		me->set("rand",1);
 	}
-	else if(me->query("open_time")+1200 <= time())  //10·ÖÖÓºó
+	else if(me->query("open_time")+1200 <= time())  //10åˆ†é’Ÿå
 	{
 		if(!me->query("rand_2"))
 		{
@@ -83,7 +83,7 @@ varargs void heart(int open)
 				str = userId[sprintf("%d",i)];
 				if(!str || !stringp(str)) continue;
 				player = find_player(str);
-				tell_object(player,HIY"¡¾Î§¹¥¹âÃ÷¶¥¡¿Ä§½Ì½ÌÍ½ÉÕ»ÙÁËÕû×ùÉ½¡£\n"NOR);
+				tell_object(player,HIY"ã€å›´æ”»å…‰æ˜é¡¶ã€‘é­”æ•™æ•™å¾’çƒ§æ¯äº†æ•´åº§å±±ã€‚\n"NOR);
 			}
 			me->len_exits(3);
 			me->set("rand_2",1);
@@ -105,13 +105,13 @@ if(me->query("make_boss") >= 17 && !me->query("send_boss"))
 			if(!str || !stringp(str)) continue;
                         player = find_player(str);
 if(player->is_team_leader()) leader=player;
-			tell_object(player,HIY"¡¾Î§¹¥¹âÃ÷¶¥¡¿Ä§½ÌBOSS³öÏÖ£¬Çë¸÷Î»Ğ¡ĞÄ¡£\n"NOR);
+			tell_object(player,HIY"ã€å›´æ”»å…‰æ˜é¡¶ã€‘é­”æ•™BOSSå‡ºç°ï¼Œè¯·å„ä½å°å¿ƒã€‚\n"NOR);
 			players += ({ player });
 		}
                 SYSTEAM->make_killer(leader,1);
 		me->set("send_boss",1);
 	}
-	//ÒÑµ½¸±±¾Éú´æÆÚÏŞ
+	//å·²åˆ°å‰¯æœ¬ç”Ÿå­˜æœŸé™
 	if(me->query("mirror_time") <= time())
 	{
 		for(i=0;i<size;i++)
@@ -119,7 +119,7 @@ if(player->is_team_leader()) leader=player;
 			str = userId[sprintf("%d",i)];
 			if(!str || !stringp(str)) continue;
 			player = find_player(str);
-			tell_object(player,HIY"¡¾Î§¹¥¹âÃ÷¶¥¡¿¾µÏñÒÑ¾­Íß½â£¬»¶Ó­ÔÙ´ÎÌôÕ½¡£\n"NOR);
+			tell_object(player,HIY"ã€å›´æ”»å…‰æ˜é¡¶ã€‘é•œåƒå·²ç»ç“¦è§£ï¼Œæ¬¢è¿å†æ¬¡æŒ‘æˆ˜ã€‚\n"NOR);
 		}
 		if(me->delete_map())
 		{
@@ -127,11 +127,11 @@ if(player->is_team_leader()) leader=player;
 			return;
 		}
 	}
-	//tell_object(find_player("rock"),HIY"ĞÄÌø~~~~~~~~~~!\n"NOR);
+	//tell_object(find_player("rock"),HIY"å¿ƒè·³~~~~~~~~~~!\n"NOR);
 	call_out("heart",30);
 }
 
-//É¾³ıĞéÄâµØÍ¼
+//åˆ é™¤è™šæ‹Ÿåœ°å›¾
 int delete_map()
 {
 	int i,size,j,size2;
@@ -147,17 +147,17 @@ int delete_map()
 		if(!map = (object)maps[sprintf("%d",i)] || !clonep(map)) continue;
 		if(!objs = all_inventory(map) || !arrayp(objs)) continue;
 		
-		//ÕÒ³ö·¿¼äÄÚµÄÎïÆ·,²¢ÇÒÉ¾³ıÖ®
+		//æ‰¾å‡ºæˆ¿é—´å†…çš„ç‰©å“,å¹¶ä¸”åˆ é™¤ä¹‹
 		size2 = sizeof(objs);
 		for(j=0;j<size2;j++)
 		{
 			if(!objectp(objs[j])) continue;
 			if(userp(environment(objs[j]))) continue;
 
-			//Èç¹ûÊÇÍæ¼Ò,ÒÆ¶¯µ½°²È«µÄµØ·½
+			//å¦‚æœæ˜¯ç©å®¶,ç§»åŠ¨åˆ°å®‰å…¨çš„åœ°æ–¹
 			if(userp(objs[j]))
 			{
-				tell_object(objs[j],HIY"¡¾Î§¹¥¹âÃ÷¶¥¡¿Äã±»´«»Ø°²È«Çø¡£\n"NOR);
+				tell_object(objs[j],HIY"ã€å›´æ”»å…‰æ˜é¡¶ã€‘ä½ è¢«ä¼ å›å®‰å…¨åŒºã€‚\n"NOR);
 objs[j]->delete_temp("quest/gmd/hongshui");
                                 objs[j]->delete_temp("quest/gmd/ruijin");
                                 objs[j]->delete_temp("quest/gmd/houtu");
@@ -173,7 +173,7 @@ objs[j]->delete_temp("quest/gmd/hongshui");
 	return 1;
 }
 
-//Á¬Í¨µØÍ¼
+//è¿é€šåœ°å›¾
 varargs int len_exits(int rand)
 {
 	object me,map;
@@ -190,7 +190,7 @@ varargs int len_exits(int rand)
 		{
 			map = maps[sprintf("%d",i)];
 	
-			if(!clonep(map)) continue;   //Îï¼şÔØÈëÊ§°Ü<×¢ÒâÎ£ÏÕ,Èç¹ûlist²»¶Ô,Íæ¼ÒÓĞ¿ÉÄÜ×ßµ½Õı±¾.ÕâÀïÖ»Îª·ÀÖ¹±¨´í>
+			if(!clonep(map)) continue;   //ç‰©ä»¶è½½å…¥å¤±è´¥<æ³¨æ„å±é™©,å¦‚æœlistä¸å¯¹,ç©å®¶æœ‰å¯èƒ½èµ°åˆ°æ­£æœ¬.è¿™é‡Œåªä¸ºé˜²æ­¢æŠ¥é”™>
 	
 	//		tell_object(find_player("rock"),sprintf("DEBUG: i = %d\n",i));
 			room_exits = map->query("exits");
@@ -221,32 +221,32 @@ varargs int len_exits(int rand)
 		{
 			map = maps[sprintf("%d",i)];
 	
-			if(!clonep(map)) continue;   //Îï¼şÔØÈëÊ§°Ü<×¢ÒâÎ£ÏÕ,Èç¹ûlist²»¶Ô,Íæ¼ÒÓĞ¿ÉÄÜ×ßµ½Õı±¾.ÕâÀïÖ»Îª·ÀÖ¹±¨´í>
+			if(!clonep(map)) continue;   //ç‰©ä»¶è½½å…¥å¤±è´¥<æ³¨æ„å±é™©,å¦‚æœlistä¸å¯¹,ç©å®¶æœ‰å¯èƒ½èµ°åˆ°æ­£æœ¬.è¿™é‡Œåªä¸ºé˜²æ­¢æŠ¥é”™>
 
 			map->set("only_name",map->query("short"));
-			name = sprintf("È¼ÉÕµÄ%s",map->query("short"));
+			name = sprintf("ç‡ƒçƒ§çš„%s",map->query("short"));
 			map->set("short",name);
 		}
 	}
-	//Ëæ»ú³ö¿Ú
+	//éšæœºå‡ºå£
 	else if(rand == 2 || rand == 3 || rand == 4)
 	{
 		for(i=0;i<size;i++)
 		{
 			map = maps[sprintf("%d",i)];
 	
-			if(!clonep(map)) continue;   //Îï¼şÔØÈëÊ§°Ü<×¢ÒâÎ£ÏÕ,Èç¹ûlist²»¶Ô,Íæ¼ÒÓĞ¿ÉÄÜ×ßµ½Õı±¾.ÕâÀïÖ»Îª·ÀÖ¹±¨´í>
+			if(!clonep(map)) continue;   //ç‰©ä»¶è½½å…¥å¤±è´¥<æ³¨æ„å±é™©,å¦‚æœlistä¸å¯¹,ç©å®¶æœ‰å¯èƒ½èµ°åˆ°æ­£æœ¬.è¿™é‡Œåªä¸ºé˜²æ­¢æŠ¥é”™>
 
 			if(rand == 2)
 			{
-				name = sprintf("ÉÕ»ÙµÄ%s",map->query("only_name"));
+				name = sprintf("çƒ§æ¯çš„%s",map->query("only_name"));
 				map->set("short",name);
 			}
 			else if(rand == 3)
 			{
-				name = "·ÏĞæ";
+				name = "åºŸå¢Ÿ";
 				map->set("short",name);
-				map->set("long","Ò»Æ¬½¹ºÚ£¬ÔÓÂÒÎŞÕÂ£¬¸ù±¾ÎŞ·¨·Ö±æÊÇÊ²Ã´µØ·½¡£\n");
+				map->set("long","ä¸€ç‰‡ç„¦é»‘ï¼Œæ‚ä¹±æ— ç« ï¼Œæ ¹æœ¬æ— æ³•åˆ†è¾¨æ˜¯ä»€ä¹ˆåœ°æ–¹ã€‚\n");
 			}
 
 			room_exits = map->query("exits");

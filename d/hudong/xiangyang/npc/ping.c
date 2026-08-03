@@ -6,12 +6,12 @@ int ask_me();
 
 void create()
 {
-        set_name("Æ½Ò»Ö¸", ({"ping yizhi", "ping"}));
+        set_name("å¹³ä¸€æŒ‡", ({"ping yizhi", "ping"}));
         set("long",
-                "Ëû¾ÍÊÇ½­ºşÉÏÎÅÃûµÄÉ±ÈËÃûÒ½Æ½Ò»Ö¸¡£\n"
-                "É±Ò»ÈË£¬¾ÈÒ»ÈË£¬²»×öÅâ±¾ÉúÒâ¡£\n");
-        set("title",HIR"É±ÈËÃûÒ½"NOR);
-        set("rank_info/rude", "ËÀÓ¹Ò½");
+                "ä»–å°±æ˜¯æ±Ÿæ¹–ä¸Šé—»åçš„æ€äººååŒ»å¹³ä¸€æŒ‡ã€‚\n"
+                "æ€ä¸€äººï¼Œæ•‘ä¸€äººï¼Œä¸åšèµ”æœ¬ç”Ÿæ„ã€‚\n");
+        set("title",HIR"æ€äººååŒ»"NOR);
+        set("rank_info/rude", "æ­»åº¸åŒ»");
         set("attitude","friendly");
         set("no_bark",1);
         set("str", 20);
@@ -19,12 +19,12 @@ void create()
         set("con", 20);
         set("int", 20);
         set("per", 20);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 47);
         set("shen_type", 0);
 
         set("unique", 1);
-        set("no_get","Æ½Ò»Ö¸¶ÔÄã¶øÑÔÌ«ÖØÁË¡£\n");
+        set("no_get","å¹³ä¸€æŒ‡å¯¹ä½ è€Œè¨€å¤ªé‡äº†ã€‚\n");
         set("vendor_goods", ({
                 (["name": MEDICINE_D("huiyang"), "number":3]),
                 (["name": MEDICINE_D("jinchuang"), "number": 5]),
@@ -57,10 +57,10 @@ void create()
         prepare_skill("finger", "tanzhi-shentong");
 
         set("inquiry", ([
-                "¾­ÂöÑ§": "ÔõÃ´£¿ÊÇÀ´Çó½ÌµÄÃ´£¿",
-                "Çó½Ì": (: ask_quest :),
-                "É±ÈË": (: ask_quest :),
-                "ÁÆÉË" : (:ask_me:),
+                "ç»è„‰å­¦": "æ€ä¹ˆï¼Ÿæ˜¯æ¥æ±‚æ•™çš„ä¹ˆï¼Ÿ",
+                "æ±‚æ•™": (: ask_quest :),
+                "æ€äºº": (: ask_quest :),
+                "ç–—ä¼¤" : (:ask_me:),
         ]));
 
         set("waiting",0);
@@ -91,11 +91,11 @@ void greeting(object ob)
           && (ob->query_skill("jingmai-xue",1)<170)
           && (ob->query_skill("jingmai-xue",1)>=160)) {
                 command("ah");
-                command("say ÕâÏÂÕæÊÇÔã¸â£¬ÄãµÄÉËÊÆÊµÔÚÌ«ÑÏÖØÁË¡£");
-                command("say ÎÒÈç¹ûËæ±ãÖÎÁÆ·´¶ø»áÉËµ½ÄãµÄ¾­Âö¡£");
+                command("say è¿™ä¸‹çœŸæ˜¯ç³Ÿç³•ï¼Œä½ çš„ä¼¤åŠ¿å®åœ¨å¤ªä¸¥é‡äº†ã€‚");
+                command("say æˆ‘å¦‚æœéšä¾¿æ²»ç–—åè€Œä¼šä¼¤åˆ°ä½ çš„ç»è„‰ã€‚");
                 command("consider");
-                command("say ÄãµÄ¾­ÂöÑ§ÒÑ¾­ÓĞÏàµ±¸ùµ×ÁË£¬ÎÒÕâ±¾ÃØ²ØµÄÂö¾­ÄãÄÃÈ¥ÑĞ¾¿ÑĞ¾¿£¬Ïë°ì·¨×ÔÁÆ°É£¡");
-                message_vision(HIY"$N¸øÁË$nÒ»±¾ÍõÊåºÍÂö¾­¡£\n"NOR, this_object(), ob);
+                command("say ä½ çš„ç»è„‰å­¦å·²ç»æœ‰ç›¸å½“æ ¹åº•äº†ï¼Œæˆ‘è¿™æœ¬ç§˜è—çš„è„‰ç»ä½ æ‹¿å»ç ”ç©¶ç ”ç©¶ï¼Œæƒ³åŠæ³•è‡ªç–—å§ï¼");
+                message_vision(HIY"$Nç»™äº†$nä¸€æœ¬ç‹å”å’Œè„‰ç»ã€‚\n"NOR, this_object(), ob);
                 new("/clone/medicine/jingmai/jingmai-book7")->move(ob);
         }
 }
@@ -109,40 +109,40 @@ int ask_quest(object me)
         if (this_player()) me = this_player();
         if (!me) return 0;
         if (me->query_temp("count")>10) {
-                command("say ÏÖÔÚÎÒÏë²»³öÊ²Ã´ÈËºÃÉ±£¬ÄãµÈµÈÔÙÎÊ°É¡£");
+                command("say ç°åœ¨æˆ‘æƒ³ä¸å‡ºä»€ä¹ˆäººå¥½æ€ï¼Œä½ ç­‰ç­‰å†é—®å§ã€‚");
                 me->delete_temp("count");
         return 1;}
         if (me->query_temp("ping_quest")) {
-                command("say ²»É±ÁË£¿ÄÇ¾ÍËãÁË£¬·´ÕıÎÒÒ²»¹Ã»¸øÄãÊ²Ã´¡£");
+                command("say ä¸æ€äº†ï¼Ÿé‚£å°±ç®—äº†ï¼Œåæ­£æˆ‘ä¹Ÿè¿˜æ²¡ç»™ä½ ä»€ä¹ˆã€‚");
                 delete("waiting");
                 return 1;}
         if (query("waiting")) {
-                command("say ÄãµÈµÈ°É£¬ÎÒÔÚµÈÈËÄØ¡£");
+                command("say ä½ ç­‰ç­‰å§ï¼Œæˆ‘åœ¨ç­‰äººå‘¢ã€‚");
                 return 1;}
         if (me->query_skill("jingmai-xue",1)>=170) {
-                command("say Òª°ïÎÒÉ±ÈË£¿ÏÈÉ±ÁËÈËÔÙ¾ÈÄã£¬ÕâÉúÒâ²»´í¡£");
+                command("say è¦å¸®æˆ‘æ€äººï¼Ÿå…ˆæ€äº†äººå†æ•‘ä½ ï¼Œè¿™ç”Ÿæ„ä¸é”™ã€‚");
                 return 1;}
         if (me->query_skill("jingmai-xue",1)>=160 && me->query_skill("jingmai-xue",1)<170) {
-                command("say ÄãµÄ¾­ÂöÑ§ÒÑ¾­²»´íÁË£¬Èç¹û²»ÊÇÊ²Ã´½ô¼±Çé¿ö£¬Ò²¹»ÓÃÁË¡£");
+                command("say ä½ çš„ç»è„‰å­¦å·²ç»ä¸é”™äº†ï¼Œå¦‚æœä¸æ˜¯ä»€ä¹ˆç´§æ€¥æƒ…å†µï¼Œä¹Ÿå¤Ÿç”¨äº†ã€‚");
                 return 1;}
         if (me->query("combat_exp")< 850000 ) {
-                command("say Äã¾­ÑéÌ«µÍ£¬Ñ§ÁËÒ²Ã»ÓÃ¡£");
+                command("say ä½ ç»éªŒå¤ªä½ï¼Œå­¦äº†ä¹Ÿæ²¡ç”¨ã€‚");
                 return 1;}
         if (me->query_skill("jingmai-xue",1)<150) {
-                command("say Äã¾­ÂöÑ§¼¼ÇÉÌ«µÍ£¬¿´²»¶®µÄ¡£");
+                command("say ä½ ç»è„‰å­¦æŠ€å·§å¤ªä½ï¼Œçœ‹ä¸æ‡‚çš„ã€‚");
                 return 1;}
         if (me->query_int() < 40) {
-                command("say ÄãÎòĞÔÌ«²î£¬¿´²»¶®µÄ¡£");
+                command("say ä½ æ‚Ÿæ€§å¤ªå·®ï¼Œçœ‹ä¸æ‡‚çš„ã€‚");
                 return 1;}
         list = filter_array(users(), (: $1->query("combat_exp")>=1000000 :));
         target = load_object("/d/xueshan/npc/laozu");
         i = target->query("combat_exp")/5;
 //        where = "/d/xueshan/xuegu";
                 if (me->query_skill("jingmai-xue",1)<170) {
-                command("say ÒªÎÒÖ¸µ¼Äã£¿²»¹ı£¬ÎÒ¾ÈÒ»ÈËÇ°ÒªÉ±Ò»ÈË£¬ÄãÌıËµ¹ı°É£¿");
-                command("say ÒªÊÇÎÒ½ÌÁËÄã£¬ÄãÄÃÈ¥¾ÈÈË£¬ÎÒ¾Í¿÷±¾ÁË¡£"); }
-                command("say ÄãÈ¥°ïÎÒÉ±ÁË"+HIR+target->query("name")+HIW+"("+target->query("id")+")"+CYN"°É¡£");
-//                command("say ÄãÈ¥"+HIG+where->query("short")+CYN+"ÕÒÕÒ¿´¡£");
+                command("say è¦æˆ‘æŒ‡å¯¼ä½ ï¼Ÿä¸è¿‡ï¼Œæˆ‘æ•‘ä¸€äººå‰è¦æ€ä¸€äººï¼Œä½ å¬è¯´è¿‡å§ï¼Ÿ");
+                command("say è¦æ˜¯æˆ‘æ•™äº†ä½ ï¼Œä½ æ‹¿å»æ•‘äººï¼Œæˆ‘å°±äºæœ¬äº†ã€‚"); }
+                command("say ä½ å»å¸®æˆ‘æ€äº†"+HIR+target->query("name")+HIW+"("+target->query("id")+")"+CYN"å§ã€‚");
+//                command("say ä½ å»"+HIG+where->query("short")+CYN+"æ‰¾æ‰¾çœ‹ã€‚");
                 command("sing3");
                 target->set_temp("no_zhong",1);
                 set("target",target->query("name"));
@@ -155,22 +155,22 @@ int ask_quest(object me)
 int accept_object(object me, object ob)
 {
         if (!me->query_temp("ping_quest")) {
-                command("say ¸øÎÒÕâ¸ö×öÊ²Ã´£¿");
+                command("say ç»™æˆ‘è¿™ä¸ªåšä»€ä¹ˆï¼Ÿ");
                 return 0; }
-        if (ob->query("name")==query("target")+"µÄÊ×¼¶"
+        if (ob->query("name")==query("target")+"çš„é¦–çº§"
         && ob->query("victim_id")==query("targetid")
         && ob->query("material")=="meat") {
                 command("nod");
         if (ob->query_skill("jingmai-xue",1)>=170) {
-                command("say ºÃ£¬ÎÒ²»»á¿÷´ıÄãµÄ¡£");
+                command("say å¥½ï¼Œæˆ‘ä¸ä¼šäºå¾…ä½ çš„ã€‚");
                 ob->add("ping/kill",1);
         } else {
-                command("say ºÃ£¬ÄÇÃ´ÎÒ¾Í°ÑÕâ±¾Êé´«¸øÄãÁË£¬ºÃºÃÑĞ¾¿°É¡£");
-                message_vision(HIY"Æ½Ò»Ö¸¸øÁË$NÒ»±¾»ÆµÛÄÚ¾­¡£\n"NOR, me);
+                command("say å¥½ï¼Œé‚£ä¹ˆæˆ‘å°±æŠŠè¿™æœ¬ä¹¦ä¼ ç»™ä½ äº†ï¼Œå¥½å¥½ç ”ç©¶å§ã€‚");
+                message_vision(HIY"å¹³ä¸€æŒ‡ç»™äº†$Nä¸€æœ¬é»„å¸å†…ç»ã€‚\n"NOR, me);
                 new("/clone/medicine/jingmai/jingmai-book6")->move(me);}
                 set("waiting",0);
                 return 1; } else {
-                command("say ¸øÎÒÕâ¸ö×öÊ²Ã´£¿");
+                command("say ç»™æˆ‘è¿™ä¸ªåšä»€ä¹ˆï¼Ÿ");
                 set("waiting",0);
        return 0; }
 
@@ -183,18 +183,18 @@ int ask_me()
 
         if (ob->query("ping/kill")<1) {
             command("grin1 ping");
-            command("say ÎÒ¿É²»Ëæ±ã¾ÈÈË£¬ÒªÎÒÁÆÉËÏÈ°ïÎÒÉ±¸öÈËÔÙËµ¡£");
+            command("say æˆ‘å¯ä¸éšä¾¿æ•‘äººï¼Œè¦æˆ‘ç–—ä¼¤å…ˆå¸®æˆ‘æ€ä¸ªäººå†è¯´ã€‚");
             return 1;}
         if ((int)ob->query("eff_qi") == (int)ob->query("max_qi"))
         {
                 command("?"+ob->query("id"));
-                command("say Äã¸ù±¾Ã»ÊÜÉË£¬Ïëµ·ÂÒ£¿\n");
+                command("say ä½ æ ¹æœ¬æ²¡å—ä¼¤ï¼Œæƒ³æ£ä¹±ï¼Ÿ\n");
                 command("knock "+ob->query("id"));
                 return 1;
         }
         else
         {
-                message_vision("Æ½Ò»Ö¸ÊÖÖ¸Î¢¶¯£¬Á¬Ğøµã¹ı$NÉíÉÏÊ®°Ë´¦´óÑ¨£¡$N¸Ğ¾õÊæ·ş¶àÁË¡£\n", ob);
+                message_vision("å¹³ä¸€æŒ‡æ‰‹æŒ‡å¾®åŠ¨ï¼Œè¿ç»­ç‚¹è¿‡$Nèº«ä¸Šåå…«å¤„å¤§ç©´ï¼$Næ„Ÿè§‰èˆ’æœå¤šäº†ã€‚\n", ob);
                 remove_call_out("recover");
                 call_out("recover",2,ob);
                 ob->add("ping/kill",-1);
@@ -206,6 +206,6 @@ int recover(object ob)
 {
         ob->set("eff_qi", (int)ob->query("max_qi"));
         ob->set("eff_jing", (int)ob->query("max_jing"));
-        message_vision("Ò»ÖùÏãµÄ¹¤·ò¹ıÈ¥ÁË£¬Äã¾õµÃÉËÊÆÒÑ¾­»ù±¾È¬ÓúÁË¡£\n",ob);
+        message_vision("ä¸€æŸ±é¦™çš„å·¥å¤«è¿‡å»äº†ï¼Œä½ è§‰å¾—ä¼¤åŠ¿å·²ç»åŸºæœ¬ç—Šæ„ˆäº†ã€‚\n",ob);
         return 1;
 }

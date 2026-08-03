@@ -1,4 +1,4 @@
-// dumpling.c °ü×Ó
+// dumpling.c åŒ…å­
 // lklv 2001.9.28 update
 
 inherit ITEM;
@@ -6,13 +6,13 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name("°ü×Ó", ({"bao zi", "baozi", "dumpling"}));
+	set_name("åŒ…å­", ({"bao zi", "baozi", "dumpling"}));
 	set_weight(80);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»¸öÏãÅçÅçµÄÈâ°ü×Ó¡£\n");
-		set("unit", "¸ö");
+		set("long", "ä¸€ä¸ªé¦™å–·å–·çš„è‚‰åŒ…å­ã€‚\n");
+		set("unit", "ä¸ª");
 		set("value", 30);
 		set("food_remaining", 3);
 		set("food_supply", 20);

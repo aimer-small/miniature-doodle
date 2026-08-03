@@ -1,4 +1,4 @@
-// shijian.c ÊÌ½£
+// shijian.c ä¾å‰‘
 
 inherit NPC;
 #include <ansi.h>
@@ -6,10 +6,10 @@ inherit NPC;
 void create()
 {
 	object ob;
-	set_name("ÊÌ½£",({"shi jian", "shi", "jian"}));
-	set("long", "Õâ¸öÉÙÅ®Éí´©¶ì»Æ¶Ì°À£¬ÃæÅÓÂÔ×÷Ô²ĞÎ£¬ÑÛ¾¦ÕöµÃ´ó´óµØ£¬\n"+
-		"ÉñÉ«¼ä¶àÁËÒ»·İÎÂÈá£¬È´Ò²åüÃÄ¿ÉÏ²¡£");
-	set("gender", "Å®ĞÔ");
+	set_name("ä¾å‰‘",({"shi jian", "shi", "jian"}));
+	set("long", "è¿™ä¸ªå°‘å¥³èº«ç©¿é¹…é»„çŸ­è¢„ï¼Œé¢åºç•¥ä½œåœ†å½¢ï¼Œçœ¼ç›çå¾—å¤§å¤§åœ°ï¼Œ\n"+
+		"ç¥è‰²é—´å¤šäº†ä¸€ä»½æ¸©æŸ”ï¼Œå´ä¹Ÿå¦©åªšå¯å–œã€‚");
+	set("gender", "å¥³æ€§");
 	set("age", 16);
 	set("per", 28);
 	set("attitude", "friendly");
@@ -36,7 +36,7 @@ void create()
 
 	setup();
 	ob = new(ARMOR_D("cloth"));
-	ob->set("name", HIY"¶ì»Æ¶Ì°À"NOR);
+	ob->set("name", HIY"é¹…é»„çŸ­è¢„"NOR);
 	ob->move(this_object());
 	ob->wear();
 }

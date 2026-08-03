@@ -1,13 +1,13 @@
-//he.c  ºÎÊ¦Ò¯
+//he.c  ä½•å¸ˆçˆ·
 
 inherit NPC;
 //inherit F_DEALER;
 
 void create()
 {
-        set_name("ºÎÊ¦Ò¯", ({ "he shiye", "he" }));
-        set("long", "Ëû³¤µÃÒ»¸±ÔôÃ¼ÊóÑÛµÄÑù×Ó£¬Ò»¿´¾ÍÖªµÀÒ»¶Ç×Ó»µË®¡£\n");
-        set("gender", "ÄĞĞÔ" );
+        set_name("ä½•å¸ˆçˆ·", ({ "he shiye", "he" }));
+        set("long", "ä»–é•¿å¾—ä¸€å‰¯è´¼çœ‰é¼ çœ¼çš„æ ·å­ï¼Œä¸€çœ‹å°±çŸ¥é“ä¸€è‚šå­åæ°´ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("age", 35);
 	set("attitude", "friendly");
 	set("shen", -2000);

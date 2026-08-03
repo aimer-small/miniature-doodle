@@ -1,12 +1,12 @@
-// NPC : /d/wudang/npc/youke.c ÓÎ¿Í
+// NPC : /d/wudang/npc/youke.c æ¸¸å®¢
 // Lklv 2001.9.28 Modify
 
 inherit NPC;
 
 void create()
 {
-	set_name("ÓÎ¿Í", ({ "you ke", "youke", "ke" }));
-	set("gender", "ÄÐÐÔ");
+	set_name("æ¸¸å®¢", ({ "you ke", "youke", "ke" }));
+	set("gender", "ç”·æ€§");
 	set("age", 20 + random(30));
 
 	set_skill("unarmed", 20);

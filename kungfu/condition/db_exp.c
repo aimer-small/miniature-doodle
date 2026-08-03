@@ -10,13 +10,13 @@ int update_condition(object me, int duration)
         
         if(random(10)==1)
 	{
-       tell_room(environment(me), me->name() + "��������ɷ��ﾫ����档\n", ({ me }));
-		tell_object(me, HIG"�ھ�Ӣ״̬�ڼ䣬��о����κ��¶����°빦����\n"NOR);
+       tell_room(environment(me), me->name() + "看起来神采飞扬精神充沛。\n", ({ me }));
+		tell_object(me, HIG"在精英状态期间，你感觉做任何事都是事半功倍。\n"NOR);
 	}
 
         if( duration < 1 ) 
         {
-        	tell_object(me, HIR"��Ӣ״̬�������Ѿ���������ĳɳ��ٶ�������������\n"NOR);
+        	tell_object(me, HIR"精英状态奖励期已经结束，你的成长速度又慢了下来。\n"NOR);
         	return 0;
         }
         return CND_CONTINUE;

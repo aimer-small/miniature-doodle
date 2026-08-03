@@ -4,10 +4,10 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("Â½°Ø", ({ "lu bo", "lu", "bo" }));
-        set("nickname", "ÏÉº×ÊÖ");
-        set("long", "ÕâÊÇÒ»ÃûÊÝÏ÷µÄÀÏÕß£¬ÊÇáÔÉ½ÅÉÖÐ×øµÚÈý°Ñ½»ÒÎµÄÏÉº×ÊÖÂ½°Ø¡£\n");
-        set("gender", "ÄÐÐÔ");
+        set_name("é™†æŸ", ({ "lu bo", "lu", "bo" }));
+        set("nickname", "ä»™é¹¤æ‰‹");
+        set("long", "è¿™æ˜¯ä¸€åç˜¦å‰Šçš„è€è€…ï¼Œæ˜¯åµ©å±±æ´¾ä¸­åç¬¬ä¸‰æŠŠäº¤æ¤…çš„ä»™é¹¤æ‰‹é™†æŸã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 46);
         set("per", 18);
         set("attitude", "heroism");
@@ -40,7 +40,7 @@ void create()
     map_skill("parry", "songshan-jian");
     map_skill("sword", "songshan-jian");
     prepare_skill("strike", "songyang-zhang");
-    create_family("áÔÉ½ÅÉ", 4, "µÜ×Ó");
+    create_family("åµ©å±±æ´¾", 4, "å¼Ÿå­");
     set("chat_chance_combat", 20);
     set("chat_msg_combat", ({
                 (: perform_action, "sword.feiwu" :),
@@ -58,9 +58,9 @@ void attempt_apprentice(object ob)
      if(ob->query_skill("songshan-qigong",1) < 90 ||
         ob->query_skill("songshan-jian",1) < 100 ||
         ob->query_skill("songyang-zhang",1) < 90){
-        command("say ÄãµÄÎä¹¦»¹²»¹»æµÊì£¬ÔÙ»ØÈ¥Á·Á·°É¡£");
+        command("say ä½ çš„æ­¦åŠŸè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œå†å›žåŽ»ç»ƒç»ƒå§ã€‚");
         return;
         }
-     command("say ºÃ°É£¬¿´Ñù×ÓÄã»¹Ëã¸öÁ·ÎäµÄÁÏ¡£");
+     command("say å¥½å§ï¼Œçœ‹æ ·å­ä½ è¿˜ç®—ä¸ªç»ƒæ­¦çš„æ–™ã€‚");
      command("recruit " + ob->query("id"));
 }

@@ -1,19 +1,19 @@
-// sa.c ÈøÀÏ°å
+// sa.c è¨è€æ¿
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-        set_name("ÈøÀÏ°å", ({ "sa laoban", "sa", "laoban" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("è¨è€æ¿", ({ "sa laoban", "sa", "laoban" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 24);
         set("long",
-                "ÈøÀÏ°åÕıĞ¦ßäßäµØ¿´×ÅÄã¡£\n");
+                "è¨è€æ¿æ­£ç¬‘å’ªå’ªåœ°çœ‹ç€ä½ ã€‚\n");
         set("combat_exp", 25800+random(5800));
         set("no_get",1);
         set("attitude", "friendly");
-        set("rank_info/respect", "»ï¼Æ");
+        set("rank_info/respect", "ä¼™è®¡");
         set("vendor_goods", ({
 		(["name":FOOD_D("jiudai"),"number":10]),
 		(["name":FOOD_D("hdjiudai"),"number":10]),

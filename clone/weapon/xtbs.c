@@ -1,4 +1,4 @@
-// xtbs.c Ø°Ê×
+// xtbs.c åŒ•é¦–
 // by snowman@SJ
 
 #include <weapon.h>
@@ -6,13 +6,13 @@ inherit DAGGER;
 
 void create()
 {
-        set_name("ĞşÌúØ°Ê×", ({ "xuantie bishou","bishou"}));
+        set_name("ç„é“åŒ•é¦–", ({ "xuantie bishou","bishou"}));
         set_weight(300);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "ÕâÊÇÒ»±ú¾«ÖÆµÄĞşÌúØ°Ê×¡£\n");
+                set("unit", "æŸ„");
+                set("long", "è¿™æ˜¯ä¸€æŸ„ç²¾åˆ¶çš„ç„é“åŒ•é¦–ã€‚\n");
                 set("value", 30);
 		set("rigidity",6);
 set("sharpness",3);

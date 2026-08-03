@@ -8,10 +8,10 @@ int snake_attack_ob(object ob);
 
 void create()
 {
-	set_name(HIY"½ğÉß"NOR, ({ "jin she","snake","she" }) );       
-	set("race", "Ò°ÊŞ");
-	set("long", HIY"ÕâÊÇÌõ½ğ¹âÉÁÉÁµÄĞ¡Éß¡£\n"NOR);
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Æß´ç", "Î²°Í" }) );
+	set_name(HIY"é‡‘è›‡"NOR, ({ "jin she","snake","she" }) );       
+	set("race", "é‡å…½");
+	set("long", HIY"è¿™æ˜¯æ¡é‡‘å…‰é—ªé—ªçš„å°è›‡ã€‚\n"NOR);
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ä¸ƒå¯¸", "å°¾å·´" }) );
 	set("verbs", ({ "bite" }) );
 	set("combat_exp", 1000000);  
 	set("no_return",1);
@@ -42,7 +42,7 @@ void do_command(string arg)
         cmds[0] = replace_string(cmds[0],"*","");
         cmds[0] = replace_string(cmds[0]," ","");
         if ( member_array(cmds[0], banned_command)!=-1 ) {
-        	tell_object(owner, "Éß²»ÄÜÖ´ĞĞ´ËÖ¸Áî£¡\n");
+        	tell_object(owner, "è›‡ä¸èƒ½æ‰§è¡Œæ­¤æŒ‡ä»¤ï¼\n");
 		return;
 	}
 	
@@ -72,13 +72,13 @@ void do_command(string arg)
 	if( cmds[0]=="kill" || cmds[0]=="hit" ) {
 		if( sizeof(cmds) > 1 && strlen(cmds[1])>2 && target=present(cmds[1],environment(this_object())) ) {
 			if( userp(target) && !target->is_fighting(this_object()) ) {
-				tell_object(owner, "Éß²»ÄÜÉËº¦¶Ô×Ô¼ºÃ»ÓĞÍşĞ²µÄÈËÀà£¡\n");
+				tell_object(owner, "è›‡ä¸èƒ½ä¼¤å®³å¯¹è‡ªå·±æ²¡æœ‰å¨èƒçš„äººç±»ï¼\n");
 				return;
 			}
 		}
 	}
 	
-	set_name(HIY+owner->query("name")+"µÄ½ğÉß"NOR, ({ owner->query("id")+"'s jin she"}) );
+	set_name(HIY+owner->query("name")+"çš„é‡‘è›‡"NOR, ({ owner->query("id")+"'s jin she"}) );
 	command(dir);
 	
 	switch(dir) {
@@ -104,7 +104,7 @@ void do_command(string arg)
 		case "out": command("look"); break;
 		default: break;
 	}
-	set_name(HIY"½ğÉß"NOR, ({ "jin she","snake","she" }) );     
+	set_name(HIY"é‡‘è›‡"NOR, ({ "jin she","snake","she" }) );     
 }
 
 void relay_message(string msgclass, string msg)
@@ -119,7 +119,7 @@ void relay_message(string msgclass, string msg)
 	owner = query("owner");
 	if( objectp(owner) && !owner->is_ghost() ) {
 		for (i=1;i<sizeof(ary);i++)
-			tell_object(owner,HIY"¡¾Éß¡¿"NOR+ary[i]+NOR+"\n");
+			tell_object(owner,HIY"ã€è›‡ã€‘"NOR+ary[i]+NOR+"\n");
 	}
 }
 
@@ -148,35 +148,35 @@ string gongji()
 {
 	object owner = query("owner");	
 	if(!owner || !userp(owner)) return "";
-	if((int)query("gongji")) return "½ğÉßÒÑ¾­ÔÚ¹¥»÷µĞÈËÁË£¡\n";
+	if((int)query("gongji")) return "é‡‘è›‡å·²ç»åœ¨æ”»å‡»æ•Œäººäº†ï¼\n";
 	set("gongji",1);
 	remove_call_out("check_fight");
 	call_out("check_fight",1,owner);
-	return HIY"\nÄãÅÄÅÄ½ğÉßµÄÍ·£¬Ö¸Ö¸µĞÈË...\n"NOR;
+	return HIY"\nä½ æ‹æ‹é‡‘è›‡çš„å¤´ï¼ŒæŒ‡æŒ‡æ•Œäºº...\n"NOR;
 }
 
 string huti()
 {
 	object owner = query("owner");
 	if(!owner || !userp(owner)) return "";
-	if((int)query("huti")) return "½ğÉßÒÑ¾­ÔÚ»¤ÌåÖ®ÖĞÁË£¡\n";
+	if((int)query("huti")) return "é‡‘è›‡å·²ç»åœ¨æŠ¤ä½“ä¹‹ä¸­äº†ï¼\n";
 	set("huti",1);
 	owner->set_temp("sld/huti",1);
 	remove_call_out("check_fight");
 	call_out("check_fight",1,owner);
-	return HIY"\nÄãÅÄÅÄ½ğÉßµÄÍ·£¬Ö¸Ö¸×Ô¼º£¬½ğÉß¿ªÊ¼ÔÚÄãÖÜÉíÓÎ×ß...\n"NOR;
+	return HIY"\nä½ æ‹æ‹é‡‘è›‡çš„å¤´ï¼ŒæŒ‡æŒ‡è‡ªå·±ï¼Œé‡‘è›‡å¼€å§‹åœ¨ä½ å‘¨èº«æ¸¸èµ°...\n"NOR;
 }
 
 int snake_attack(object owner,object target)
 {
 	int lvl,damage;
 
-	message_vision(HIY"\n$NµÄ½ğÉßÍ»È»´ÜÏò$n£¬ºİºİµØÒ§ÁËÏÂÈ¥...  "NOR,owner,target);
+	message_vision(HIY"\n$Nçš„é‡‘è›‡çªç„¶çªœå‘$nï¼Œç‹ ç‹ åœ°å’¬äº†ä¸‹å»...  "NOR,owner,target);
 	if( target->is_busy() || random(owner->query_dex()*6/5+target->query_dex())>target->query_dex() ) {
-		message_vision(HIR"$N¶ãÉÁ²»¼°£¬±»½ğÉßÒ»¿ÚÒ§ÖĞ£¡\n"NOR,target);
+		message_vision(HIR"$Nèº²é—ªä¸åŠï¼Œè¢«é‡‘è›‡ä¸€å£å’¬ä¸­ï¼\n"NOR,target);
 		
 		if( !(int)target->query_temp("sld/snake_posion") ) {
-			message_vision(HIB"$N¸Ğµ½Ò»Õó¾çÍ´´«À´£¬¸ÏÃ¦ÔË¹¦µÖÓù£¬Éí·¨²»ÃâÂıÁËÏÂÀ´£¡\n"NOR,target);
+			message_vision(HIB"$Næ„Ÿåˆ°ä¸€é˜µå‰§ç—›ä¼ æ¥ï¼Œèµ¶å¿™è¿åŠŸæŠµå¾¡ï¼Œèº«æ³•ä¸å…æ…¢äº†ä¸‹æ¥ï¼\n"NOR,target);
 			lvl = owner->query_skill("dulong-dafa",1)/4;
 			target->add_temp("apply/dodge",-lvl);
 			target->add_temp("apply/parry",-lvl);
@@ -192,7 +192,7 @@ int snake_attack(object owner,object target)
 		if(wizardp(owner) && owner->query("env/test")) tell_object(owner,sprintf("damage: %d\n",damage));
 	}
 	else {
-		message_vision(HIY"$N¼±Ã¦ÍùÅÔ±ßÒ»ÉÁ£¬¶ãÁË¿ªÈ¥¡£\n"NOR,target);
+		message_vision(HIY"$Næ€¥å¿™å¾€æ—è¾¹ä¸€é—ªï¼Œèº²äº†å¼€å»ã€‚\n"NOR,target);
 	}
 	
 	return 1;

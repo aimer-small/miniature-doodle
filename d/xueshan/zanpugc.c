@@ -22,12 +22,12 @@ int sort_file(string file)
 */
 void create()
 {
-	set("short", "ÔÞÆÕ¹ã³¡");
+	set("short", "èµžæ™®å¹¿åœº");
 	set("long", @LONG
-ÕâÀïÊÇ»Ê³ÇÖÐÐÄµÄÒ»Æ¬¹ã³¡£¬¹ã³¡ÖÐÐÄÓÐ×ùÍÂÞ¬ÔÞÆÕµÄÊ¯µñÏñ£¬ÊÇÃû¡£µñÏñ
-ÏÂÃæÓÐ²»ÉÙÂòÂôÈËÆð¾¢µÄßººÈ×Å¡£¹ã³¡¶«ÃæÊÇÕýÔÚ½¨ÖþÖÐµÄÍÂÞ¬ÐÂ»Ê¹¬£¬Ò»¶Ó¶Ó
-µÄÃñ·òÍÆ×Å×°ÂúÊ¯ÁÏÄ¾ÁÏµÄÍÆ³µ×ß¹ýÈ¥£¬¼¸ÃûÍÂÞ¬ÎäÊ¿°ÑÊØ×ÅÂ·¿Ú£¬¾¯ÌèµÄ×¢ÊÓ
-×ÅÀ´À´ÍùÍùµÄÐÐÈË¡£Î÷±ßÊÇ·ðÕÕÃÅ£¬ÊÇÍ¨ÍùÍÂÞ¬»¤¹úìøËÂ´óÂÖËÂµÄ±Ï¾­Ö®Â·¡£
+è¿™é‡Œæ˜¯çš‡åŸŽä¸­å¿ƒçš„ä¸€ç‰‡å¹¿åœºï¼Œå¹¿åœºä¸­å¿ƒæœ‰åº§åè•ƒèµžæ™®çš„çŸ³é›•åƒï¼Œæ˜¯åã€‚é›•åƒ
+ä¸‹é¢æœ‰ä¸å°‘ä¹°å–äººèµ·åŠ²çš„å†å–ç€ã€‚å¹¿åœºä¸œé¢æ˜¯æ­£åœ¨å»ºç­‘ä¸­çš„åè•ƒæ–°çš‡å®«ï¼Œä¸€é˜Ÿé˜Ÿ
+çš„æ°‘å¤«æŽ¨ç€è£…æ»¡çŸ³æ–™æœ¨æ–™çš„æŽ¨è½¦èµ°è¿‡åŽ»ï¼Œå‡ ååè•ƒæ­¦å£«æŠŠå®ˆç€è·¯å£ï¼Œè­¦æƒ•çš„æ³¨è§†
+ç€æ¥æ¥å¾€å¾€çš„è¡Œäººã€‚è¥¿è¾¹æ˜¯ä½›ç…§é—¨ï¼Œæ˜¯é€šå¾€åè•ƒæŠ¤å›½ç¦…å¯ºå¤§è½®å¯ºçš„æ¯•ç»ä¹‹è·¯ã€‚
 LONG);
 
 	set("exits", ([
@@ -38,7 +38,7 @@ LONG);
 	]));
 
 	set("objects", ([__DIR__"npc/tufanwushi" : 3,]));
-	set("outdoors", "Ñ©É½");
+	set("outdoors", "é›ªå±±");
 	set("job_lane", 1);
 	setup();
 }
@@ -47,7 +47,7 @@ void init()
 {
 	object me = this_player();
 
-	if( (int)me->query("combat_exp") > 100000 && me->query("family/family_name") == "´óÂÖËÂ" 
+	if( (int)me->query("combat_exp") > 100000 && me->query("family/family_name") == "å¤§è½®å¯º" 
 	 && random(me->query("kar")) > 10 && query("job_lane") >= 1 && random(50) == 20 ) {
 		add("job_lane", -1);
 		call_out("do_job", 1 + random(5), me);
@@ -90,9 +90,9 @@ void do_job(object me)
 		obj->move(where);
 		obj->set("family/family_name", target->query("family/family_name"));
 		obj->set("kill_party", me->query("family/family_name"));
-		CHANNEL_D->do_channel(me, "party", "ÌýËµ" + target->query("family/family_name") + 
+		CHANNEL_D->do_channel(me, "party", "å¬è¯´" + target->query("family/family_name") + 
 		HIR + target->query("name") + HIW + "(" + target->query("id") + ")" + HIG
-		"µÄ"BLU"Ó°×ÓÎäÊ¿"HIG"Ç°À´Ñ©É½µ·ÂÒ£¬´«ÎÅÔÚ" + HIR + environment(obj)->query("short") + HIG + "Ò»´ø³öÏÖ¹ý¡£\n");
+		"çš„"BLU"å½±å­æ­¦å£«"HIG"å‰æ¥é›ªå±±æ£ä¹±ï¼Œä¼ é—»åœ¨" + HIR + environment(obj)->query("short") + HIG + "ä¸€å¸¦å‡ºçŽ°è¿‡ã€‚\n");
 	}
 }
 */

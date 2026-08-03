@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIY"ÂåÊé"NOR, ({ "luo shu", "luo", "shu" }));
+        set_name(HIY"æ´›ä¹¦"NOR, ({ "luo shu", "luo", "shu" }));
         set_weight(300);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
+                set("unit", "æœ¬");
                 set("value", 5000);
                 set("treasure",1);
                 set("unique",1);

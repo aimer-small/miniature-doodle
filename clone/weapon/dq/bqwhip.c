@@ -1,4 +1,4 @@
-// longsword.c ³¤±Ş
+// longsword.c é•¿é­
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,18 +7,18 @@ inherit WHIP;
 
 void create()
 {
-	set_name( MAG"ÓÎÁú³¤±Ş"NOR, ({ "youlong bian", "bian" }));
+	set_name( MAG"æ¸¸é¾™é•¿é­"NOR, ({ "youlong bian", "bian" }));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ù");
-		set("long", "ÕâÊÇÒ»¸ùÓÉÇ§Äê¾ŞòşÆ¤»ìºÏÎÚ½ğË¿½ÊÖÆ¶ø³ÉµÄ³ÁµéµéµÄ³¤±Ş£¬Í¸³öÒşÒşµÄ×ÏÉ«±¦¹â£¬¼áÈÍÎŞ±È¡£\n");
+		set("unit", "æ ¹");
+		set("long", "è¿™æ˜¯ä¸€æ ¹ç”±åƒå¹´å·¨èŸ’çš®æ··åˆä¹Œé‡‘ä¸ç»åˆ¶è€Œæˆçš„æ²‰ç”¸ç”¸çš„é•¿é­ï¼Œé€å‡ºéšéšçš„ç´«è‰²å®å…‰ï¼ŒåšéŸ§æ— æ¯”ã€‚\n");
 		set("value", 80000);
 		set("no_sell", 1);
 		set("material", "leather");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù¶¶³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n¾í»ØÑü¼ä¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ–å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nå·å›è…°é—´ã€‚\n");
 	}
 	init_whip(100);
 	setup();

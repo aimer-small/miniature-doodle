@@ -26,7 +26,7 @@ int valid_leave(object me, string dir)
 	if(me->query("hostage/dotwo")>0 && me->query("hostage/passed_l")>0){
        		for(i=0;i<sizeof(way);i++){
        			if (dir == way[i] && objectp(present("mojiao shashou", environment(me)))){
-        			tell_room(environment(me),"Ä§½ÌÉ±ÊÖ´óÉù¶Ô×Å" + me->name() + "ºÈµÀ£º" + RANK_D->query_rude(ob) + "£¬ÄãÏëÈ¥ºÚÄ¾ÑÂÏÈµÃ¹ýÁËÎÒÕâ¹Ø¡£\n");
+        			tell_room(environment(me),"é­”æ•™æ€æ‰‹å¤§å£°å¯¹ç€" + me->name() + "å–é“ï¼š" + RANK_D->query_rude(ob) + "ï¼Œä½ æƒ³åŽ»é»‘æœ¨å´–å…ˆå¾—è¿‡äº†æˆ‘è¿™å…³ã€‚\n");
         			return 1;
         			break;
                		}

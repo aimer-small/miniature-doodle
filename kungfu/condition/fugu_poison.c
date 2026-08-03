@@ -1,4 +1,4 @@
-// »¯Ñª¸¯¹Ç·Û fugu_poison.c
+// åŒ–è¡€è…éª¨ç²‰ fugu_poison.c
 // created by olives@SJ 5/1/2001
 #include <ansi.h>
 #include <condition.h>
@@ -14,8 +14,8 @@ int update_condition(object me, int duration)
 	     me->receive_damage("qi",me->query_condition("fugu_poison")*100);
 	     me->receive_wound("qi",me->query_condition("fugu_poison")*50);
 	     if(!objectp(me->query_temp("last_damage_from")))
-	     	me->set_temp("last_damage_from","»¯Ñª¸¯¹Ç·ÛÖĞ¶¾ËÀÁË");
-	     message_vision(HIR"Ö»¼û$NÉË¿ÚÉÏÃæÃ°³öÒ»Õó»ÆÑÌ£¬$N²»ÓÉµÄÃæ²¿Ò»Õó³é´¤£¬ÉíÉÏÒ»Õó¶¶¶¯¡£\n"NOR,me);
+	     	me->set_temp("last_damage_from","åŒ–è¡€è…éª¨ç²‰ä¸­æ¯’æ­»äº†");
+	     message_vision(HIR"åªè§$Nä¼¤å£ä¸Šé¢å†’å‡ºä¸€é˜µé»„çƒŸï¼Œ$Nä¸ç”±çš„é¢éƒ¨ä¸€é˜µæŠ½æï¼Œèº«ä¸Šä¸€é˜µæŠ–åŠ¨ã€‚\n"NOR,me);
              me->apply_condition("fugu_poison",duration-random(2));
        	     me->add_busy(1);
       }

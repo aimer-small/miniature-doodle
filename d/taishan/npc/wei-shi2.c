@@ -1,4 +1,4 @@
-// wu-shi2.c ÃËÖ÷ÎÀÊ¿
+// wu-shi2.c ç›Ÿä¸»å«å£«
 
 #include <ansi.h>
 
@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name(HIR "ºìÒÂÎäÊ¿" NOR, ({ "wei shi", "shi", "guard" }) );
-	set("gender", "ÄĞĞÔ");
+	set_name(HIR "çº¢è¡£æ­¦å£«" NOR, ({ "wei shi", "shi", "guard" }) );
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set("long",
-		"ÕâÊÇÎ»ºìÒÂÎäÊ¿£¬ÉíÅû¸Ö¼×£¬ÊÖÖ´³¤½££¬Ë«Ä¿¾«¹â¾¼¾¼£¬¾¯ÌèµØÑ²ÊÓ×ÅËÄÖÜµÄÇéĞÎ¡£\n");
+		"è¿™æ˜¯ä½çº¢è¡£æ­¦å£«ï¼Œèº«æŠ«é’¢ç”²ï¼Œæ‰‹æ‰§é•¿å‰‘ï¼ŒåŒç›®ç²¾å…‰ç‚¯ç‚¯ï¼Œè­¦æƒ•åœ°å·¡è§†ç€å››å‘¨çš„æƒ…å½¢ã€‚\n");
 	set("combat_exp", 80000);
         set("shen_type", 1);
 	set("attitude", "heroism");
@@ -55,7 +55,7 @@ void init()
 	mengzhu = ob1->query("winner");
 
 	if( this_player()->query("id") == mengzhu ) {
-		message_vision(HIY "ºìÒÂÎäÊ¿¾ÙÆğ³¤½££¬Ïò$NÆëÉù´óº°£ºÃËÖ÷ÍòËê£¬ÍòËê£¬ÍòÍòËê£¡\n" NOR, 
+		message_vision(HIY "çº¢è¡£æ­¦å£«ä¸¾èµ·é•¿å‰‘ï¼Œå‘$Né½å£°å¤§å–Šï¼šç›Ÿä¸»ä¸‡å²ï¼Œä¸‡å²ï¼Œä¸‡ä¸‡å²ï¼\n" NOR, 
 		this_player());
 		return;
 	}	

@@ -17,10 +17,10 @@ int update_condition(object me, int duration)
       	if( !userp(me) ) damage += random(damage);
       
       	if( living(me) ){
-      		tell_object(me, "Í»È»Äã¸Ð¾õÐØ¿ÚÌÛÍ´Òì³££¬¸Õ²Å±»ÅÄÖÐµÄÀß¹Ç´¦ºÃÏóÒªÁÑ¿ªÁËËÆµÄ£¬ÏÊÑªÒ²´Ó¿ÚÖÐÅçÁË³öÀ´£¡\n");
-      		tell_room(environment(me), "\n"+HIR + me->name()+"Í»È»Ò»ÑÔ²»·¢£¬Ë«ÊÖÎæÐØ£¬µÅµÅíãµ¹ÍËÁËÊý²½£¬½Ó×ÅÍÛµÃÒ»ÉùÍÂ³ö¿ÚÏÊÑªÀ´£¡\n" NOR,({ me }));
+      		tell_object(me, "çªç„¶ä½ æ„Ÿè§‰èƒ¸å£ç–¼ç—›å¼‚å¸¸ï¼Œåˆšæ‰è¢«æ‹ä¸­çš„è‚‹éª¨å¤„å¥½è±¡è¦è£‚å¼€äº†ä¼¼çš„ï¼Œé²œè¡€ä¹Ÿä»Žå£ä¸­å–·äº†å‡ºæ¥ï¼\n");
+      		tell_room(environment(me), "\n"+HIR + me->name()+"çªç„¶ä¸€è¨€ä¸å‘ï¼ŒåŒæ‰‹æ‚èƒ¸ï¼Œè¹¬è¹¬ç£´å€’é€€äº†æ•°æ­¥ï¼ŒæŽ¥ç€å“‡å¾—ä¸€å£°åå‡ºå£é²œè¡€æ¥ï¼\n" NOR,({ me }));
 	}
-	else tell_room(environment(me), "\n"+HIR + me->name()+"Í»È»È«ÉíÒ»Õð£¬Ò»´ó¿ÚÏÊÑªÅçÁË³öÀ´£¡\n" NOR,({ me }));
+	else tell_room(environment(me), "\n"+HIR + me->name()+"çªç„¶å…¨èº«ä¸€éœ‡ï¼Œä¸€å¤§å£é²œè¡€å–·äº†å‡ºæ¥ï¼\n" NOR,({ me }));
 	me->add_busy(2);
 	
 	me->receive_damage("qi", damage);
@@ -29,7 +29,7 @@ int update_condition(object me, int duration)
 
 	else {
 		me->receive_wound("qi", me->query("qi")-1);
-		message_vision("( $N"RED"ÊÜÉË¹ýÖØ£¬ÒÑ¾­ÓÐÈç·çÖÐ²ÐÖò£¬ËæÊ±¶¼¿ÉÄÜ¶ÏÆø¡£ )\n"NOR, me);
+		message_vision("( $N"RED"å—ä¼¤è¿‡é‡ï¼Œå·²ç»æœ‰å¦‚é£Žä¸­æ®‹çƒ›ï¼Œéšæ—¶éƒ½å¯èƒ½æ–­æ°”ã€‚ )\n"NOR, me);
 		return 0;
 	}
       	j = (int)me->query("qi")*100/(int)me->query("max_qi");

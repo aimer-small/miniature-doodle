@@ -31,9 +31,9 @@ void backhome(object ob)
 {
 	if(!userp(ob)) return;
 	ob->delete_temp("job_xkd");
-	if(query("short")=="Ð¡´¬") tell_object(ob,RED"ÄãÖ»¾õµÃÌì»èµØ°µ£¬Õû×ùÐ¡´¬¶¼ÔÚÍùÏÂ³Á¡£\n\n"NOR);
-	else tell_object(ob,RED"ÄãÖ»¾õµÃÌì»èµØ°µ£¬Õû×ùÐ¡µº¶¼ÔÚÍùÏÂ³Á¡£\n\n"NOR);
-	tell_object(ob,HIB"Ú¤Ú¤Ö®ÖÐ£¬ºÃÏóÓÐÈËÔÚ¶ÔÄãÕÐÊÖ¡­¡­¡­¡­¡­¡­¡­¡­\n\n"NOR);
+	if(query("short")=="å°èˆ¹") tell_object(ob,RED"ä½ åªè§‰å¾—å¤©æ˜åœ°æš—ï¼Œæ•´åº§å°èˆ¹éƒ½åœ¨å¾€ä¸‹æ²‰ã€‚\n\n"NOR);
+	else tell_object(ob,RED"ä½ åªè§‰å¾—å¤©æ˜åœ°æš—ï¼Œæ•´åº§å°å²›éƒ½åœ¨å¾€ä¸‹æ²‰ã€‚\n\n"NOR);
+	tell_object(ob,HIB"å†¥å†¥ä¹‹ä¸­ï¼Œå¥½è±¡æœ‰äººåœ¨å¯¹ä½ æ‹›æ‰‹â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦\n\n"NOR);
 	//about no_pk
 	if(ob->query("dzd_no_pk")){
 		ob->set("no_pk",ob->query("dzd_no_pk"));
@@ -41,5 +41,5 @@ void backhome(object ob)
 	}
 	get_item(ob);	
 	ob->move(BACK_ROOM);
-	tell_object(ob,"\nÍ»È»Ö®¼ä£¬Äã·¢ÏÖ×Ô¼ºÒÑ¾­»Øµ½ÁË"+environment(ob)->query("short")+NOR"£¬ÄÑµÀ½ñÌìË¯¹ýÍ·ÁË£¿\n");
+	tell_object(ob,"\nçªç„¶ä¹‹é—´ï¼Œä½ å‘çŽ°è‡ªå·±å·²ç»å›žåˆ°äº†"+environment(ob)->query("short")+NOR"ï¼Œéš¾é“ä»Šå¤©ç¡è¿‡å¤´äº†ï¼Ÿ\n");
 }

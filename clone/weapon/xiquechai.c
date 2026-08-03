@@ -7,13 +7,13 @@ inherit HEAD;
  
 void create() 
 { 
-        set_name( WHT"Ï²ÈµÃ·Ö¦îÎ" NOR, ({ "xique chai", "meizhi chai" , "chai"}) ); 
+        set_name( WHT"å–œé¹Šæ¢…æé’—" NOR, ({ "xique chai", "meizhi chai" , "chai"}) ); 
         set_weight(100); 
         if( clonep() ) 
                 set_default_object(__FILE__); 
         else { 
-                set("unit", "¼ş"); 
-                set("long", "ÕâÊÇÒ»¼şÓñîÎ£¬ÓñÖÊ¾§Ó¨ÌèÍ¸£¬Ò»Ö»°ºÊ×µÄÏ²ÈµÕ¾ÔÚÃ·»¨Ê÷Ö¦ÉÏ£¬Ã·Ö¦ÑÓÉì³ÉÎªîÎ±ú¡£\n"); 
+                set("unit", "ä»¶"); 
+                set("long", "è¿™æ˜¯ä¸€ä»¶ç‰é’—ï¼Œç‰è´¨æ™¶è¹æƒ•é€ï¼Œä¸€åªæ˜‚é¦–çš„å–œé¹Šç«™åœ¨æ¢…èŠ±æ ‘æä¸Šï¼Œæ¢…æå»¶ä¼¸æˆä¸ºé’—æŸ„ã€‚\n"); 
                 set("value", 8000); 
                 set("material", "stone"); 
              } 

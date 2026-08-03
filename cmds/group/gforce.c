@@ -1,4 +1,4 @@
-// gforce.c Ç¿ÆÈÖ´ĞĞ
+// gforce.c å¼ºè¿«æ‰§è¡Œ
 // by augx@sj 3/25/2002
 
 #include <ansi.h>
@@ -7,22 +7,22 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£º
-gforce [Íæ¼Òid] do [ÃüÁî]
-Ê¹ÓÃ´ËÃüÁî¿ÉÒÔÔÚ×Ô¼ºµÄ°ïÅÉÖĞÇ¿ÆÈµÈ¼¶±È×Ô¼ºµÍµÄÍæ¼ÒºÍNPCÖ´ĞĞÃüÁî¡£
+æŒ‡ä»¤æ ¼å¼ï¼š
+gforce [ç©å®¶id] do [å‘½ä»¤]
+ä½¿ç”¨æ­¤å‘½ä»¤å¯ä»¥åœ¨è‡ªå·±çš„å¸®æ´¾ä¸­å¼ºè¿«ç­‰çº§æ¯”è‡ªå·±ä½çš„ç©å®¶å’ŒNPCæ‰§è¡Œå‘½ä»¤ã€‚
 
-gforce [Íæ¼Òid] do here
-Ê¹ÓÃ´ËÃüÁî¿ÉÒÔÔÚ×Ô¼ºµÄ°ïÅÉÖĞÃüÁîµÈ¼¶±È×Ô¼ºµÍµÄÍæ¼Òµ½ÃüÁîÈËËùÔÚµÄµØ·½¡£
+gforce [ç©å®¶id] do here
+ä½¿ç”¨æ­¤å‘½ä»¤å¯ä»¥åœ¨è‡ªå·±çš„å¸®æ´¾ä¸­å‘½ä»¤ç­‰çº§æ¯”è‡ªå·±ä½çš„ç©å®¶åˆ°å‘½ä»¤äººæ‰€åœ¨çš„åœ°æ–¹ã€‚
 
-gforce [±£ïÚid] do save
-°Ñ±£ïÚµÄ×´Ì¬´æÅÌ£¬±£ïÚµ±Ê±ËùÔÚµØµãÒ²»á³ÉÎªÆäÖØÉúµØµã¡£
+gforce [ä¿é•–id] do save
+æŠŠä¿é•–çš„çŠ¶æ€å­˜ç›˜ï¼Œä¿é•–å½“æ—¶æ‰€åœ¨åœ°ç‚¹ä¹Ÿä¼šæˆä¸ºå…¶é‡ç”Ÿåœ°ç‚¹ã€‚
 
-gforce [±£ïÚid] do setname [±£ïÚÖĞÎÄÃû(¶şµ½ËÄ¸öºº×Ö)]
-  [±£ïÚĞÂÓ¢ÎÄID(±ØĞëÊÇÁ½¸ö´Ê£¬Ã¿¸ö´Ê³¤¶ÈÎª2µ½6¸ö×ÖÄ¸)]
-ÀıÈç£ºgforce guard do setname ±£ïÚ body guard
-ÉèÖÃ±£ïÚµÄĞÂÃû×Ö£¬Ã¿¸ö±£ïÚÖ»ÄÜÉèÖÃÒ»´ÎÃû×Ö£¬ÉèÖÃºóÇë´æÅÌ¡£
+gforce [ä¿é•–id] do setname [ä¿é•–ä¸­æ–‡å(äºŒåˆ°å››ä¸ªæ±‰å­—)]
+  [ä¿é•–æ–°è‹±æ–‡ID(å¿…é¡»æ˜¯ä¸¤ä¸ªè¯ï¼Œæ¯ä¸ªè¯é•¿åº¦ä¸º2åˆ°6ä¸ªå­—æ¯)]
+ä¾‹å¦‚ï¼šgforce guard do setname ä¿é•– body guard
+è®¾ç½®ä¿é•–çš„æ–°åå­—ï¼Œæ¯ä¸ªä¿é•–åªèƒ½è®¾ç½®ä¸€æ¬¡åå­—ï¼Œè®¾ç½®åè¯·å­˜ç›˜ã€‚
 
-Ç¿ÖÆ±ğÈËÖ´ĞĞÃüÁîÊ±£¬¿ÉÄÜ²»ÄÜµÃµ½ÍêÕûµÄ·µ»ØĞÅÏ¢£¬±ÈÈç³ö´íĞÅÏ¢µÈ£¬Çë×¢Òâ¡£
+å¼ºåˆ¶åˆ«äººæ‰§è¡Œå‘½ä»¤æ—¶ï¼Œå¯èƒ½ä¸èƒ½å¾—åˆ°å®Œæ•´çš„è¿”å›ä¿¡æ¯ï¼Œæ¯”å¦‚å‡ºé”™ä¿¡æ¯ç­‰ï¼Œè¯·æ³¨æ„ã€‚
 HELP );
 	return 1;
 }
@@ -39,28 +39,28 @@ int main(object me, string arg)
 	object ob,env;
 	int flag;
 
-	return notify_fail("ÔİÊ±¹Ø±Õ¡£\n");
+	return notify_fail("æš‚æ—¶å…³é—­ã€‚\n");
 
 	if (!arg || !sscanf(arg, "%s do %s", arg, cmds)) return help(me);
 	if ( !(ob = present(arg, environment(me))) ) {
 		if( cmds != "here" )
-			return notify_fail("Ã»ÓĞÕâ¸öÈË¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 		else if ( !(ob=find_player(arg)) || environment(ob)->query("group1")!=me->query("group/id") )
-			return notify_fail("Ã»ÓĞÕâ¸öÈË»òÕß´ËÈË²»ÔÚ°ïÅÉÇøÓòÖ®ÄÚ¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªäººæˆ–è€…æ­¤äººä¸åœ¨å¸®æ´¾åŒºåŸŸä¹‹å†…ã€‚\n");
 	}
 	if (ob == me)
-		return notify_fail("Ö±½Ó´òÃüÁî±È½Ï¿ìĞ©¡£\n");
+		return notify_fail("ç›´æ¥æ‰“å‘½ä»¤æ¯”è¾ƒå¿«äº›ã€‚\n");
 	if( !me->query("group/id")
 	  || me->query("group/id") != ob->query("group/id")
 	  || me->query("group/class") >= ob->query("group/class") )
-		return notify_fail("ÄãÖ»ÄÜÃüÁîÍ¬°ïÅÉ£¬ÇÒµÈ¼¶±ÈÄãµÍµÄÈË¡£\n");
+		return notify_fail("ä½ åªèƒ½å‘½ä»¤åŒå¸®æ´¾ï¼Œä¸”ç­‰çº§æ¯”ä½ ä½çš„äººã€‚\n");
 	if( environment(me)->query("group1") != me->query("group/id") )
-		return notify_fail("ÄãÖ»ÔÚ×Ô¼ºµÄ°ï»áÀïÃüÁîËûÈË¡£\n");
+		return notify_fail("ä½ åªåœ¨è‡ªå·±çš„å¸®ä¼šé‡Œå‘½ä»¤ä»–äººã€‚\n");
 	if( !GROUP_D->site_now(me->query("group/id")) )
 		return notify_fail( GROUP_D->get_last_error() );
 
 	seteuid(getuid());
-	if( cmds != "here" ) message_vision("$NÃüÁî$nÖ´ĞĞÃüÁî£º¡¸"HIR+cmds+NOR"¡¹¡£\n", me,ob);
+	if( cmds != "here" ) message_vision("$Nå‘½ä»¤$næ‰§è¡Œå‘½ä»¤ï¼šã€Œ"HIR+cmds+NOR"ã€ã€‚\n", me,ob);
 
 	if( sscanf(cmds,"%s %*s",cmd) < 1 ) cmd = cmds;
 
@@ -70,7 +70,7 @@ int main(object me, string arg)
 		case "abandon":
 			if( !userp(ob) ) {
 				if( sscanf(cmds,"%*s %s",cmd) < 1 )
-					return notify_fail("ÄãÒª"+ob->name()+"·ÅÆúÊ²Ã´¼¼ÄÜ£¿\n");
+					return notify_fail("ä½ è¦"+ob->name()+"æ”¾å¼ƒä»€ä¹ˆæŠ€èƒ½ï¼Ÿ\n");
 				ob->delete_skill(cmd);
 				return 1;
 			}
@@ -78,17 +78,17 @@ int main(object me, string arg)
 			break;
 		case "here":
 			if( ob->is_busy() || ob->is_fighting() )
-				return notify_fail(ob->name()+"ÕıÃ¦×ÅÄØ¡£\n");
+				return notify_fail(ob->name()+"æ­£å¿™ç€å‘¢ã€‚\n");
 
-			tell_room(environment(ob),"$NËÆºõÍ»È»Ìıµ½ÁËÊ²Ã´ÉùÒô£¬¼±¼±Ã¦Ã¦µÄÅÜÁË¹ıÈ¥¡£\n",({ ob }));
-			tell_object(ob,"ÄãËÆºõÍ»È»Ìıµ½"+me->name()+"ÔÚºô»½Äã£¬¸ÏÃ¦ÅÜÁË¹ıÈ¥¡£\n");
+			tell_room(environment(ob),"$Nä¼¼ä¹çªç„¶å¬åˆ°äº†ä»€ä¹ˆå£°éŸ³ï¼Œæ€¥æ€¥å¿™å¿™çš„è·‘äº†è¿‡å»ã€‚\n",({ ob }));
+			tell_object(ob,"ä½ ä¼¼ä¹çªç„¶å¬åˆ°"+me->name()+"åœ¨å‘¼å”¤ä½ ï¼Œèµ¶å¿™è·‘äº†è¿‡å»ã€‚\n");
 			ob->move(environment(me));
-			message_vision("$N´óÉùºô»½$nµÄÃû×Ö£¬$nÌıµ½ºó¸ÏÃ¦ÅÜÁË¹ıÀ´¡£\n",me,ob);
+			message_vision("$Nå¤§å£°å‘¼å”¤$nçš„åå­—ï¼Œ$nå¬åˆ°åèµ¶å¿™è·‘äº†è¿‡æ¥ã€‚\n",me,ob);
 			return 1;
 		case "save":
 			if( !userp(ob) ) {
 				if( (ob->query_temp("last_save")+15*60)>time() && !wizardp(me) )
-					return notify_fail(ob->name()+"µÄ×´Ì¬²»ÊÇ¸Õ¸Õ´¢´æ¹ıÂğ£¿\n");
+					return notify_fail(ob->name()+"çš„çŠ¶æ€ä¸æ˜¯åˆšåˆšå‚¨å­˜è¿‡å—ï¼Ÿ\n");
 
 				log_file( "group/save" , sprintf("save:%s(%s)[%d]:%s(%s)\n",ob->name(),ob->query("id"),ob->skill_count(),me->name(),me->query("id")) );
 
@@ -96,7 +96,7 @@ int main(object me, string arg)
 					ob->set_temp("last_save",time());
 					if( !ob->save() )
 						log_file("group/save",sprintf("fail:%s(%s):%s(%s)\n",ob->name(),ob->query("id"),me->name(),me->query("id")));
-					tell_object(me,ob->name()+"´æ´¢Íê±Ï¡£\n");
+					tell_object(me,ob->name()+"å­˜å‚¨å®Œæ¯•ã€‚\n");
 					return 1;
 				}
 
@@ -113,7 +113,7 @@ int main(object me, string arg)
 							env->query("group1"),env->query("group2"),
 							env->query("outdoors")?0:1, env->query("have_board") )
 						)
-							return notify_fail("Ğ´ÎÄ¼ş´íÎó£¬Çë±¨¸æÎ×Ê¦£¡\n");
+							return notify_fail("å†™æ–‡ä»¶é”™è¯¯ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 
 						GROUP_D->encrypt_file(base_name(env)+".c");
 						GROUP_D->update_room(base_name(env)+".c");
@@ -132,9 +132,9 @@ int main(object me, string arg)
 					env->query("group1"),env->query("group2"),
 					env->query("outdoors")?0:1, env->query("have_board") )
 				)
-					return notify_fail("Ğ´ÎÄ¼ş´íÎó£¬Çë±¨¸æÎ×Ê¦£¡\n");
+					return notify_fail("å†™æ–‡ä»¶é”™è¯¯ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 
-				tell_object(me,ob->name()+"´æ´¢Íê±Ï¡£\n");
+				tell_object(me,ob->name()+"å­˜å‚¨å®Œæ¯•ã€‚\n");
 
 				ob->set("startroom","");
 				ob_file = base_name(env);
@@ -152,13 +152,13 @@ int main(object me, string arg)
 		case "setname":
 			if( userp(ob) ) break;
 			if( sscanf(cmds,"%*s %s %s %s",cmd,id1,id2) < 3 )
-				return notify_fail("ÄãÒª°Ñ"+ob->name()+"µÄÃû×Ö¸Ä³ÉÊ²Ã´£¿\n");
+				return notify_fail("ä½ è¦æŠŠ"+ob->name()+"çš„åå­—æ”¹æˆä»€ä¹ˆï¼Ÿ\n");
 			if( strlen(cmd)<4 || strlen(cmd)>8 )
-				return notify_fail("ĞÂÃû×Ö±ØĞëÊÇ¶şµ½ËÄ¸öºº×Ö¡£\n");
+				return notify_fail("æ–°åå­—å¿…é¡»æ˜¯äºŒåˆ°å››ä¸ªæ±‰å­—ã€‚\n");
 			if( strlen(id1)<2 || strlen(id1)>6 || strlen(id2)<2 || strlen(id2)>6 )
-				return notify_fail("ĞÂÓ¢ÎÄID³¤¶È²»·ûºÏ¹æ¶¨¡£\n");
+				return notify_fail("æ–°è‹±æ–‡IDé•¿åº¦ä¸ç¬¦åˆè§„å®šã€‚\n");
 			if( ob->query("setname") )
-				return notify_fail(ob->name()+"ÒÑ¾­ÉèÖÃ¹ıÃû×ÖÁË¡£\n");
+				return notify_fail(ob->name()+"å·²ç»è®¾ç½®è¿‡åå­—äº†ã€‚\n");
 
 			ob->set("name",cmd);
 			ob->set("id",id1+" "+id2);
@@ -170,9 +170,9 @@ int main(object me, string arg)
 		default: flag = 1;
 	}
 	if( flag && member_array(cmd,exclude_commands)>=0 )
-		return notify_fail("µ«ÊÇÄãÊäÈëµÄÃüÁî±»½ûÖ¹Ç¿ÖÆÖ´ĞĞ£¡\n");
+		return notify_fail("ä½†æ˜¯ä½ è¾“å…¥çš„å‘½ä»¤è¢«ç¦æ­¢å¼ºåˆ¶æ‰§è¡Œï¼\n");
 
 	if( !ob->force_me(cmds) )
-		return notify_fail("ÄãÃüÁî"+ob->name()+"Ö´ĞĞÃüÁîÊ§°Ü¡£\n");
+		return notify_fail("ä½ å‘½ä»¤"+ob->name()+"æ‰§è¡Œå‘½ä»¤å¤±è´¥ã€‚\n");
 	return 1;
 }

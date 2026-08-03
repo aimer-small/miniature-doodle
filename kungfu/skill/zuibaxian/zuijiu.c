@@ -1,4 +1,4 @@
-// zuijiu.c °ËÏÉ×í¾Æ
+// zuijiu.c å…«ä»™é†‰é…’
 
 #include <ansi.h>
 
@@ -10,7 +10,7 @@ int perform(object me, object target)
          if( !target
         ||      !target->is_character()
         ||      !me->is_fighting(target) )
-                return notify_fail("°ËÏÉ×í¾ÆÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("å…«ä»™é†‰é…’åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 
         drunk = me->query_condition("drunk");
@@ -21,21 +21,21 @@ int perform(object me, object target)
         skill = (int)me->query_skill("zuibaxian") / 15;
 
         if (me->query_skill_mapped("dodge") != "zuibaxian")
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ°ËÏÉ×í¾Æ¡£\n");
+                return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨å…«ä»™é†‰é…’ã€‚\n");
         if( (int)me->query_skill("zuibaxian", 1) < 100 )
-                return notify_fail("ÄãµÄ×í°ËÏÉ²½·¨²»¹»æµÊì£¬Ê¹²»³ö°ËÏÉ×í¾Æ£¡\n");
+                return notify_fail("ä½ çš„é†‰å…«ä»™æ­¥æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡ºå…«ä»™é†‰é…’ï¼\n");
         if( (int)me->query("neili", 1) < 300 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»×ã£¡\n");     
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸è¶³ï¼\n");     
 
         if( target->is_busy() )
-                return notify_fail(target->name() + "Ä¿Ç°Õı×Ô¹Ë²»Ï¾£¬·Åµ¨¹¥»÷°É¢¦\n");
+                return notify_fail(target->name() + "ç›®å‰æ­£è‡ªé¡¾ä¸æš‡ï¼Œæ”¾èƒ†æ”»å‡»å§â…µ\n");
         if( drunk <= limit/4 ) 
-                return notify_fail("ÄãÃ»ÓĞÒ»µã×íÒâ£¬ÔõÃ´Ê¹µÃ³ö°ËÏÉ×í¾Æ£¿\n");
+                return notify_fail("ä½ æ²¡æœ‰ä¸€ç‚¹é†‰æ„ï¼Œæ€ä¹ˆä½¿å¾—å‡ºå…«ä»™é†‰é…’ï¼Ÿ\n");
         if( drunk >= limit ) 
-                return notify_fail("ÄãÏÖÔÚÊÇÕæÕıµÄÀÃ×íÈçÄà£¬¾Æ¹í¡£\n");
+                return notify_fail("ä½ ç°åœ¨æ˜¯çœŸæ­£çš„çƒ‚é†‰å¦‚æ³¥ï¼Œé…’é¬¼ã€‚\n");
 
         message_vision(
-    GRN "Ö»¼û$NÅç³öÒ»¿Ú¾ÆÆø£¬Ò»Ê½¡¸°ËÏÉ×í¾Æ¡¹£¬Î§×Å$nÒ»Ò¡Ò»°ÚµØ×ß¶¯×Å¡£\n" NOR, me, target);
+    GRN "åªè§$Nå–·å‡ºä¸€å£é…’æ°”ï¼Œä¸€å¼ã€Œå…«ä»™é†‰é…’ã€ï¼Œå›´ç€$nä¸€æ‘‡ä¸€æ‘†åœ°èµ°åŠ¨ç€ã€‚\n" NOR, me, target);
 
         me->start_busy(random(1));
         me->add("neili", -200);
@@ -43,18 +43,18 @@ int perform(object me, object target)
         if( random(me->query("combat_exp")) > (int)target->query("combat_exp")/2 &&
             drunk > limit/4) {
                  message_vision(
-    HIR " $N½ÅÏÂÈ´ÊÇ°µº¬°ËØÔ£¬²½²½½ô±Æ£¬Ê¹µÃ$n°­ÊÖ°­½ÅÄÑÒÔ³öÕĞ£¡\n" NOR, me, target);
+    HIR " $Nè„šä¸‹å´æ˜¯æš—å«å…«å¦ï¼Œæ­¥æ­¥ç´§é€¼ï¼Œä½¿å¾—$nç¢æ‰‹ç¢è„šéš¾ä»¥å‡ºæ‹›ï¼\n" NOR, me, target);
                 target->start_busy( skill/zui + 2);
         } 
         else if( random(me->query("combat_exp")) > (int)target->query("combat_exp")/2 &&
             drunk > limit/2) {
                  message_vision(
-    HIR " È´¼û$N½ÅÏÂ°µº¬°ËØÔ£¬²½²½½ô±Æ£¬Ê¹µÃ$n°­ÊÖ°­½ÅÄÑÒÔ³öÕĞ£¡\n" NOR, me, target);
+    HIR " å´è§$Nè„šä¸‹æš—å«å…«å¦ï¼Œæ­¥æ­¥ç´§é€¼ï¼Œä½¿å¾—$nç¢æ‰‹ç¢è„šéš¾ä»¥å‡ºæ‹›ï¼\n" NOR, me, target);
                 target->start_busy( skill/zui + 4);
         }
         else {
           message_vision(
-    CYN "¿ÉÊÇ$n¿´ÆÆÁË$NµÄÕĞÊı£¬Ïòºó×İÁË¿ªÈ¥¡£\n" NOR, me, target);
+    CYN "å¯æ˜¯$nçœ‹ç ´äº†$Nçš„æ‹›æ•°ï¼Œå‘åçºµäº†å¼€å»ã€‚\n" NOR, me, target);
           me->start_busy(2);
         }
         target->add_temp("zui_baxian", 1);

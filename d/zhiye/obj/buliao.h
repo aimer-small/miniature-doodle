@@ -3,16 +3,16 @@
 
 void create()
 {
-        set_name("²¼Æ¥", ({ "buliao" }));
+        set_name("å¸ƒåŒ¹", ({ "buliao" }));
         set_weight(3000+random(5000));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼ë");
-                set("long", "ÕâÊÇÒ»À¦ÆÕÍ¨µÄ²¼ÁÏ¡£\n");
+                set("unit", "èŒ§");
+                set("long", "è¿™æ˜¯ä¸€æ†æ™®é€šçš„å¸ƒæ–™ã€‚\n");
                 set("value", 3000);
                 set("buliao",1);
-                set("no_sell",query("name")+"¿ÉÒÔÓÃÀ´×ö³ö²¼£¬Äã»¹ÊÇ×Ô¼ºÁô×Å°É");// add by LinuX@SJ
+                set("no_sell",query("name")+"å¯ä»¥ç”¨æ¥åšå‡ºå¸ƒï¼Œä½ è¿˜æ˜¯è‡ªå·±ç•™ç€å§");// add by LinuX@SJ
         }
         setup();
         initlvl();
@@ -30,68 +30,68 @@ int set_level(int i)
         set("bu",1);        
         switch (i) {
                 case 1:
-                        set_name(HIW"ÃŞ»¨"NOR, ({"mian hua","mianhua","hua"}));
-                        set("long",HIW"ÕâÊÇÒ»¿éÆÕÍ¨ÃŞ£¬ÈËÃÇ×î³£ÓÃµÄÁ®¼ÛÒÂÁÏµÄÔ­ÁÏ¡£\n"NOR);
+                        set_name(HIW"æ£‰èŠ±"NOR, ({"mian hua","mianhua","hua"}));
+                        set("long",HIW"è¿™æ˜¯ä¸€å—æ™®é€šæ£‰ï¼Œäººä»¬æœ€å¸¸ç”¨çš„å»‰ä»·è¡£æ–™çš„åŸæ–™ã€‚\n"NOR);
                         set("material","mianhua");
                         set("value",500);
                         break;
                 case 2:
-                        set_name(YEL"ÑÇÂé"NOR, ({"ya ma","yama","ma"}));
-                        set("long",YEL"ÕâÊÇÒ»¿éÑÇÂé£¬ÓÉÑÇÂéµÄ¾¥Æ¤ÏËÎ¬·ÄÖ¯¶ø³ÉµÄ²¼ÁÏÖÊµØÊèËÉÊÖ¸Ğ´Ö²Ú¡£\n"NOR);
+                        set_name(YEL"äºšéº»"NOR, ({"ya ma","yama","ma"}));
+                        set("long",YEL"è¿™æ˜¯ä¸€å—äºšéº»ï¼Œç”±äºšéº»çš„èŒçš®çº¤ç»´çººç»‡è€Œæˆçš„å¸ƒæ–™è´¨åœ°ç–æ¾æ‰‹æ„Ÿç²—ç³™ã€‚\n"NOR);
                         set("material","yama");
                         set("value",800);
                         break;
                 case 3:
-                        set_name(YEL"´óÂé"NOR, ({"da ma","dama","ma"}));
-                        set("long",YEL"ÕâÊÇÒ»¿é´óÂé,Ñ¡ÓÃ´óÂéµÄÏ¸ÏËÎ¬¾«Ö¯¶ø³ÉµÄÏÄ²¼£¬¿É×öÒÂÁÏ¡£\n"NOR);
+                        set_name(YEL"å¤§éº»"NOR, ({"da ma","dama","ma"}));
+                        set("long",YEL"è¿™æ˜¯ä¸€å—å¤§éº»,é€‰ç”¨å¤§éº»çš„ç»†çº¤ç»´ç²¾ç»‡è€Œæˆçš„å¤å¸ƒï¼Œå¯åšè¡£æ–™ã€‚\n"NOR);
                         set("material","dama");
                         set("value",1200);
                         break;
                 case 4:
-                        set_name(HIY"ÜÑÂé"NOR, ({"zhu ma","zhuma","ma"}));
-                        set("long",HIY"ÕâÊÇÒ»¿éÉÏµÈµÄÜÑÂé,Ñ¡ÓÃÉÏµÈµÄÜÑÂé¾«Ö¯¶ø³ÉµÄ²¼ÁÏ£¬ÆäÏËÎ¬½à°×ÓĞ¹âÔó£¬ÄÍÈÈÇÒ¿¹À­Á¦¡£\n"NOR);
+                        set_name(HIY"è‹éº»"NOR, ({"zhu ma","zhuma","ma"}));
+                        set("long",HIY"è¿™æ˜¯ä¸€å—ä¸Šç­‰çš„è‹éº»,é€‰ç”¨ä¸Šç­‰çš„è‹éº»ç²¾ç»‡è€Œæˆçš„å¸ƒæ–™ï¼Œå…¶çº¤ç»´æ´ç™½æœ‰å…‰æ³½ï¼Œè€çƒ­ä¸”æŠ—æ‹‰åŠ›ã€‚\n"NOR);
                         set("material","zhuma");
                         set("value",1800);
                         break;
                 case 5:
-                        set_name(HIW"²ÏË¿"NOR, ({"cansi","si" }));
-                        set("long",HIW"ÕâÊÇÑ°³£¼Ò²ÏÍÂµÄË¿£¬¿´ÉÏÈ¥ÏËÏ¸Èá»¬¡£\n"NOR);
+                        set_name(HIW"èš•ä¸"NOR, ({"cansi","si" }));
+                        set("long",HIW"è¿™æ˜¯å¯»å¸¸å®¶èš•åçš„ä¸ï¼Œçœ‹ä¸Šå»çº¤ç»†æŸ”æ»‘ã€‚\n"NOR);
                         set("material","cansi");
                         set("value",2500);
                         break;
                 case 6:
-                        set_name(HIY"Ä¾ÃŞ»¨"NOR, ({"mumianhua","hua"}));
-                        set("long",HIY"ÉÙÓĞµÄÄ¾ÃŞ»¨¡£\n"NOR);
+                        set_name(HIY"æœ¨æ£‰èŠ±"NOR, ({"mumianhua","hua"}));
+                        set("long",HIY"å°‘æœ‰çš„æœ¨æ£‰èŠ±ã€‚\n"NOR);
                         set("material","mumianhua");
                         set("value",3900);
                         break;
                 case 7:
-                        set_name(GRN"Óñ²ÏË¿"NOR, ({"yucansi","si"}));
-                        set("long",GRN"ÕâÊÇ²ú×Ô°Ù¶¾¹ÈµÄÓñ²ÏË¿¡£¿´ÉÏÈ¥±ÈÒ»°ãµÄË¿ÂÔ´Ö£¬¾ßÓĞ¼«¸ßµÄµ¯ĞÔ¼°ÈáÈÍĞÔ£¬Í¨ÌåÍ¸°×£¬ÊÇ²ÏË¿ÖĞµÄ¾«Æ·¡£\n"NOR);
+                        set_name(GRN"ç‰èš•ä¸"NOR, ({"yucansi","si"}));
+                        set("long",GRN"è¿™æ˜¯äº§è‡ªç™¾æ¯’è°·çš„ç‰èš•ä¸ã€‚çœ‹ä¸Šå»æ¯”ä¸€èˆ¬çš„ä¸ç•¥ç²—ï¼Œå…·æœ‰æé«˜çš„å¼¹æ€§åŠæŸ”éŸ§æ€§ï¼Œé€šä½“é€ç™½ï¼Œæ˜¯èš•ä¸ä¸­çš„ç²¾å“ã€‚\n"NOR);
                         set("material","yucansi");
                         set("value",7000);
                         break;
                 case 8:
-                        set_name(HIW"±ù²ÏË¿"NOR, ({"bingcansi","si"}));
-                        set("long",HIW"´«ËµÖĞÀ¥ÂØÉ½áÛÄ³ÖÖ±ù²ÏÍÂµÄË¿£¬Õ³ĞÔ¼«Ç¿¡¢ÉìËõ×ÔÈç¡£Èô²»µÃ½â·¨£¬Ò»µ©Õ´ÉÏÔÙÄÑÍÑÉí£¬ÓÌÈç±»¶ñ¹í²øÉí¡£\n"NOR);
+                        set_name(HIW"å†°èš•ä¸"NOR, ({"bingcansi","si"}));
+                        set("long",HIW"ä¼ è¯´ä¸­æ˜†ä»‘å±±å·…æŸç§å†°èš•åçš„ä¸ï¼Œç²˜æ€§æå¼ºã€ä¼¸ç¼©è‡ªå¦‚ã€‚è‹¥ä¸å¾—è§£æ³•ï¼Œä¸€æ—¦æ²¾ä¸Šå†éš¾è„±èº«ï¼ŒçŠ¹å¦‚è¢«æ¶é¬¼ç¼ èº«ã€‚\n"NOR);
                         set("material","bingcansi");
                         set("value",10000);
                         break;
                 case 9:
-                        set_name(WHT"Ìì²ÏË¿"NOR, ({"tiancansi","si"}));
-                        set("long",WHT"ÕâÊÇÌìÉ½²ÏÍõËùÍÂµÄË¿£¬¼áÈÍÎŞ±È£¬Ñ°³£µ¶½£²»ÄÜ½«ÆäÕ¶¶Ï¡£\n"NOR);
+                        set_name(WHT"å¤©èš•ä¸"NOR, ({"tiancansi","si"}));
+                        set("long",WHT"è¿™æ˜¯å¤©å±±èš•ç‹æ‰€åçš„ä¸ï¼ŒåšéŸ§æ— æ¯”ï¼Œå¯»å¸¸åˆ€å‰‘ä¸èƒ½å°†å…¶æ–©æ–­ã€‚\n"NOR);
                         set("material","tiancansi");
                         set("value",20000);
                         break;
                 case 10:
-                	set_name(HIY"Áú¼ë²ÏË¿"NOR,({"longjiansi","si"}));
-                	set("long",HIY"Ò»ÖÖĞÎÈçÅÌÁúµÄ¶¾²ÏËù²úÖ®Ë¿¡£\n"NOR);
+                	set_name(HIY"é¾™èŒ§èš•ä¸"NOR,({"longjiansi","si"}));
+                	set("long",HIY"ä¸€ç§å½¢å¦‚ç›˜é¾™çš„æ¯’èš•æ‰€äº§ä¹‹ä¸ã€‚\n"NOR);
                 	set("material","longcansi");
                 	set("value",40000);
                 	break;
                 case 11:
-                        set_name(MAG"²¨Ë¹²ÊË¿"NOR, ({"bosi caisi","caisi","si"}));
-                        set("long",MAG"ÕâÊÇÒ»¿éÆ¥´ÓÎ÷Óò²¨Ë¹ÔËÀ´µÄ²¨Ë¹²ÊË¿¡£\n"NOR);
+                        set_name(MAG"æ³¢æ–¯å½©ä¸"NOR, ({"bosi caisi","caisi","si"}));
+                        set("long",MAG"è¿™æ˜¯ä¸€å—åŒ¹ä»è¥¿åŸŸæ³¢æ–¯è¿æ¥çš„æ³¢æ–¯å½©ä¸ã€‚\n"NOR);
                         set("material","bosicaisi");
                         set("no_sell",1);
                         set("no_drop",1);
@@ -123,35 +123,35 @@ void change_state2(string type)
 
         switch (type) {
                 case "coat":
-                        set_name(MAG"²¨Ë¹²ÊÒÂ"NOR, ({"bosi caiyi","caiyi","bosi cai"}));
-                        set("unit", "¼ş");
+                        set_name(MAG"æ³¢æ–¯å½©è¡£"NOR, ({"bosi caiyi","caiyi","bosi cai"}));
+                        set("unit", "ä»¶");
                         break;
                 case "armor":
-                        set_name(MAG"²¨Ë¹²Ê¼×"NOR, ({"bosi caijia","caijia","bosi cai"}));
-                        set("unit", "¼ş");
+                        set_name(MAG"æ³¢æ–¯å½©ç”²"NOR, ({"bosi caijia","caijia","bosi cai"}));
+                        set("unit", "ä»¶");
                         break;
                 case "boot":
-                        set_name(MAG"²¨Ë¹²ÊÑ¥"NOR, ({"bosi caixue","caixue","bosi cai"}));
-                        set("unit", "Ë«");
+                        set_name(MAG"æ³¢æ–¯å½©é´"NOR, ({"bosi caixue","caixue","bosi cai"}));
+                        set("unit", "åŒ");
                         break;
                 case "belt":
-                        set_name(MAG"²¨Ë¹²Ê´ø"NOR, ({"bosi caidai","caidai","bosi cai"}));
-                        set("unit", "Ìõ");
+                        set_name(MAG"æ³¢æ–¯å½©å¸¦"NOR, ({"bosi caidai","caidai","bosi cai"}));
+                        set("unit", "æ¡");
                         break;
                 case "cap":
-                        set_name(MAG"²¨Ë¹²ÊÃ±"NOR, ({"bosi caimao","caimao","bosi cai"}));
-                        set("unit", "¶¥");
+                        set_name(MAG"æ³¢æ–¯å½©å¸½"NOR, ({"bosi caimao","caimao","bosi cai"}));
+                        set("unit", "é¡¶");
                         break;
                 case "mantle":
-                        set_name(MAG"²¨Ë¹Åû·ç"NOR, ({"bosi pifeng","pifeng","bosi cai"}));
-                        set("unit", "¼ş");
+                        set_name(MAG"æ³¢æ–¯æŠ«é£"NOR, ({"bosi pifeng","pifeng","bosi cai"}));
+                        set("unit", "ä»¶");
                         break;
                 case "glove":
-                        set_name(MAG"²¨Ë¹ÊÖÌ×"NOR, ({"bosi shoutao","shoutao","bosi cai"}));
-                        set("unit", "Ë«");
+                        set_name(MAG"æ³¢æ–¯æ‰‹å¥—"NOR, ({"bosi shoutao","shoutao","bosi cai"}));
+                        set("unit", "åŒ");
                         break;
         }
-        set("long",MAG"ÕâÊÇÒ»"+query("unit")+"ÓÃ´ÓÎ÷Óò²¨Ë¹ÔËÀ´µÄ²¨Ë¹²Ê³ñÖÆ³ÉµÄ"+name()+MAG"¡£\n"NOR);
+        set("long",MAG"è¿™æ˜¯ä¸€"+query("unit")+"ç”¨ä»è¥¿åŸŸæ³¢æ–¯è¿æ¥çš„æ³¢æ–¯å½©ç»¸åˆ¶æˆçš„"+name()+MAG"ã€‚\n"NOR);
 }
 
 void destroying(object obj)
@@ -167,48 +167,48 @@ void change_name()
 {
         switch (query_level()) {
                 case 1:
-                        set_name(HIW"ÃŞ²¼"NOR, ({"mian bu","mianhua","bu"}));
-                        set("long",HIW"ÕâÊÇÒ»¿éÓÉÆÕÍ¨ÃŞÉ´Ö¯³ÉµÄ²¼£¬ÈËÃÇ×î³£ÓÃµÄÁ®¼ÛÒÂÁÏ¡£\n"NOR);
+                        set_name(HIW"æ£‰å¸ƒ"NOR, ({"mian bu","mianhua","bu"}));
+                        set("long",HIW"è¿™æ˜¯ä¸€å—ç”±æ™®é€šæ£‰çº±ç»‡æˆçš„å¸ƒï¼Œäººä»¬æœ€å¸¸ç”¨çš„å»‰ä»·è¡£æ–™ã€‚\n"NOR);
                         break;
                 case 2:
-                        set_name(YEL"ÑÇÂé²¼"NOR, ({"yama bu","yama","bu"}));
-                        set("long",YEL"ÕâÊÇÒ»¿éÓÃÑÇÂéµÄ¾¥Æ¤ÏËÎ¬·ÄÖ¯¶ø³ÉµÄ²¼ÁÏ£¬ÖÊµØÊèËÉÊÖ¸Ğ´Ö²Ú¡£\n"NOR);
+                        set_name(YEL"äºšéº»å¸ƒ"NOR, ({"yama bu","yama","bu"}));
+                        set("long",YEL"è¿™æ˜¯ä¸€å—ç”¨äºšéº»çš„èŒçš®çº¤ç»´çººç»‡è€Œæˆçš„å¸ƒæ–™ï¼Œè´¨åœ°ç–æ¾æ‰‹æ„Ÿç²—ç³™ã€‚\n"NOR);
                         break;
                 case 3:
-                        set_name(YEL"´óÂé²¼"NOR, ({"dama bu","dama","bu"}));
-                        set("long",YEL"ÕâÊÇÒ»¿éÑ¡ÓÃ´óÂéµÄÏ¸ÏËÎ¬¾«Ö¯¶ø³ÉµÄÏÄ²¼£¬¿É×öÒÂÁÏ¡£\n"NOR);
+                        set_name(YEL"å¤§éº»å¸ƒ"NOR, ({"dama bu","dama","bu"}));
+                        set("long",YEL"è¿™æ˜¯ä¸€å—é€‰ç”¨å¤§éº»çš„ç»†çº¤ç»´ç²¾ç»‡è€Œæˆçš„å¤å¸ƒï¼Œå¯åšè¡£æ–™ã€‚\n"NOR);
                         break;
                 case 4:
-                        set_name(HIY"ÜÑÂé²¼"NOR, ({"zhuma bu","zhuma","bu"}));
-                        set("long",HIY"ÕâÊÇÒ»¿éÑ¡ÓÃÉÏµÈµÄÜÑÂé¾«Ö¯¶ø³ÉµÄ²¼ÁÏ£¬ÆäÏËÎ¬½à°×ÓĞ¹âÔó£¬ÄÍÈÈÇÒ¿¹À­Á¦¡£\n"NOR);
+                        set_name(HIY"è‹éº»å¸ƒ"NOR, ({"zhuma bu","zhuma","bu"}));
+                        set("long",HIY"è¿™æ˜¯ä¸€å—é€‰ç”¨ä¸Šç­‰çš„è‹éº»ç²¾ç»‡è€Œæˆçš„å¸ƒæ–™ï¼Œå…¶çº¤ç»´æ´ç™½æœ‰å…‰æ³½ï¼Œè€çƒ­ä¸”æŠ—æ‹‰åŠ›ã€‚\n"NOR);
                         break;
                 case 5:
-                        set_name(HIW"Ë¿³ñ"NOR, ({"si chou","cansi","chou" }));
-                        set("long",HIW"¸ß¼ÛµÄË¿³ñ¡£\n"NOR);
+                        set_name(HIW"ä¸ç»¸"NOR, ({"si chou","cansi","chou" }));
+                        set("long",HIW"é«˜ä»·çš„ä¸ç»¸ã€‚\n"NOR);
                         break;
                 case 6:
-                        set_name(HIY"Ä¾ÃŞ²¼"NOR, ({"mumian bu","mumianhua","bu"}));
-                        set("long",HIY"ÉÙÓĞµÄÄ¾ÃŞ²¼¡£\n"NOR);
+                        set_name(HIY"æœ¨æ£‰å¸ƒ"NOR, ({"mumian bu","mumianhua","bu"}));
+                        set("long",HIY"å°‘æœ‰çš„æœ¨æ£‰å¸ƒã€‚\n"NOR);
                         break;
                 case 7:
-                        set_name(GRN"Óñ²ÏË¿³ñ"NOR, ({"yucan sichou","yucansi","sichou"}));
-                        set("long",GRN"ÕâÊÇ²ú×Ô°Ù¶¾¹ÈµÄÓñ²ÏË¿³ñ¡£¿´ÉÏÈ¥±ÈÒ»°ãµÄË¿ÂÔ´Ö£¬¾ßÓĞ¼«¸ßµÄµ¯ĞÔ¼°ÈáÈÍĞÔ£¬Í¨ÌåÍ¸°×£¬ÊÇ²ÏË¿ÖĞµÄ¾«Æ·¡£\n"NOR);
+                        set_name(GRN"ç‰èš•ä¸ç»¸"NOR, ({"yucan sichou","yucansi","sichou"}));
+                        set("long",GRN"è¿™æ˜¯äº§è‡ªç™¾æ¯’è°·çš„ç‰èš•ä¸ç»¸ã€‚çœ‹ä¸Šå»æ¯”ä¸€èˆ¬çš„ä¸ç•¥ç²—ï¼Œå…·æœ‰æé«˜çš„å¼¹æ€§åŠæŸ”éŸ§æ€§ï¼Œé€šä½“é€ç™½ï¼Œæ˜¯èš•ä¸ä¸­çš„ç²¾å“ã€‚\n"NOR);
                         break;
                 case 8:
-                        set_name(HIW"±ù²ÏË¿³ñ"NOR, ({"bingcan sichou","bingcansi","sichou"}));
-                        set("long",HIW"¼«Æäº±¼ûµÄ±ù²ÏË¿³ñ¡£\n"NOR);
+                        set_name(HIW"å†°èš•ä¸ç»¸"NOR, ({"bingcan sichou","bingcansi","sichou"}));
+                        set("long",HIW"æå…¶ç½•è§çš„å†°èš•ä¸ç»¸ã€‚\n"NOR);
                         break;
                 case 9:
-                        set_name(WHT"Ìì²ÏË¿³ñ"NOR, ({"tiancan sichou","tiancansi","sichou"}));
-                        set("long",WHT"ÕâÊÇÌìÉ½²ÏÍõËùÍÂµÄË¿£¬¼áÈÍÎŞ±È£¬Ñ°³£µ¶½£²»ÄÜ½«ÆäÕ¶¶Ï¡£\n"NOR);
+                        set_name(WHT"å¤©èš•ä¸ç»¸"NOR, ({"tiancan sichou","tiancansi","sichou"}));
+                        set("long",WHT"è¿™æ˜¯å¤©å±±èš•ç‹æ‰€åçš„ä¸ï¼ŒåšéŸ§æ— æ¯”ï¼Œå¯»å¸¸åˆ€å‰‘ä¸èƒ½å°†å…¶æ–©æ–­ã€‚\n"NOR);
                         break;
                 case 10:
-                	set_name(HIY"Áú¼ëË¿³ñ"NOR,({"longjian sichou","longjiancansi","sichou"}));
-                	set("long",HIY"Ò»ÖÖĞÎÈçÅÌÁúµÄ¶¾²ÏËù²úÖ®Ë¿ËùÖÆË¿³ñ¡£\n"NOR);
+                	set_name(HIY"é¾™èŒ§ä¸ç»¸"NOR,({"longjian sichou","longjiancansi","sichou"}));
+                	set("long",HIY"ä¸€ç§å½¢å¦‚ç›˜é¾™çš„æ¯’èš•æ‰€äº§ä¹‹ä¸æ‰€åˆ¶ä¸ç»¸ã€‚\n"NOR);
                 	break;                
                 case 11:
-                        set_name(MAG"²¨Ë¹²Ê³ñ"NOR, ({"bosi caichou","caichou","bosicansi","chou"}));
-                        set("long",MAG"ÕâÊÇÒ»Æ¥´ÓÎ÷Óò²¨Ë¹ÔËÀ´µÄ²¨Ë¹²Ê³ñ¡£\n"NOR);
+                        set_name(MAG"æ³¢æ–¯å½©ç»¸"NOR, ({"bosi caichou","caichou","bosicansi","chou"}));
+                        set("long",MAG"è¿™æ˜¯ä¸€åŒ¹ä»è¥¿åŸŸæ³¢æ–¯è¿æ¥çš„æ³¢æ–¯å½©ç»¸ã€‚\n"NOR);
                         break;
         }
 }

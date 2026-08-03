@@ -1,16 +1,16 @@
-// changsuo.c Ê÷Æ¤Ë÷
+// changsuo.c æ ‘çš®ç´¢
 // By River 99.5.25
 #include <ansi.h>
 inherit ITEM;
 void create()
 {
-        set_name(GRN"Ê÷Æ¤Ë÷"NOR, ({ "shupi suo", "suo" }));
+        set_name(GRN"æ ‘çš®ç´¢"NOR, ({ "shupi suo", "suo" }));
         set_weight(1000);
         if( clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", "Ò»¸ùÓÉÔæÊ÷Æ¤´ê³ÉÒ»Ìõ¼«³¤µÄÊ÷Æ¤Ë÷×Ó¡£\n");
+                set("unit", "æ ¹");
+                set("long", "ä¸€æ ¹ç”±æž£æ ‘çš®æ“æˆä¸€æ¡æžé•¿çš„æ ‘çš®ç´¢å­ã€‚\n");
                 set("material", "wood");
                 set("value", 1);
         }
@@ -27,12 +27,12 @@ int do_fu(string arg,object obj)
        object me = this_player();
        object ob = this_object();
        if(me->is_busy() || me->is_fighting())
-               return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+               return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
        if(!arg || arg != "shugan" || ! obj=(present("zao shugan", me)))
-               return notify_fail("Äã×¼±¸½«Ê÷Æ¤Ë÷¸¿ÔÚÄÄÀï£¿\n");
-       tell_object(me,"Äã½«ÉþË÷Ò»¶Ë¸¿ÔÚÊ÷¸ÉÖÐ¼ä¡£\n");       
+               return notify_fail("ä½ å‡†å¤‡å°†æ ‘çš®ç´¢ç¼šåœ¨å“ªé‡Œï¼Ÿ\n");
+       tell_object(me,"ä½ å°†ç»³ç´¢ä¸€ç«¯ç¼šåœ¨æ ‘å¹²ä¸­é—´ã€‚\n");       
        me->set_temp("jqg/fu", 1);
-       obj->set("long","ÕâÊÇÒ»¸ùÔæÊ÷µÄÖ¦¸É£¬³¤Ô¼Ò»ÕÉÎå³ß£¬ÄãÒÑ¾­½«ÉþË÷Ò»¶Ë¸¿ÔÚÊ÷¸ÉÖÐ¼äÁË¡£\n");
+       obj->set("long","è¿™æ˜¯ä¸€æ ¹æž£æ ‘çš„æžå¹²ï¼Œé•¿çº¦ä¸€ä¸ˆäº”å°ºï¼Œä½ å·²ç»å°†ç»³ç´¢ä¸€ç«¯ç¼šåœ¨æ ‘å¹²ä¸­é—´äº†ã€‚\n");
        obj->set("jqg/fu", 1);
        destruct(ob);
        return 1;

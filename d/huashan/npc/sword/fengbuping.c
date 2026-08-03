@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("·â²»Æ½",({"feng buping", "feng", "buping" }));
-	set("title","»ªÉ½ÅÉµÚÊ®¶þ´ú½£×ÚÕÆÃÅµÜ×Ó");
-	set("nickname","¿ñ·ç¿ì½£");
-	set("long", "Õâ¾ÍÊÇÔÚ½­ºþÖÐÄ¬Ä¬ÎÞÎÅ£¬µ«ÉíÊÖ×ÅÊµ²»·²µÄ»ªÉ½½£×Ú´«ÈË¡£\n");
+	set_name("å°ä¸å¹³",({"feng buping", "feng", "buping" }));
+	set("title","åŽå±±æ´¾ç¬¬åäºŒä»£å‰‘å®—æŽŒé—¨å¼Ÿå­");
+	set("nickname","ç‹‚é£Žå¿«å‰‘");
+	set("long", "è¿™å°±æ˜¯åœ¨æ±Ÿæ¹–ä¸­é»˜é»˜æ— é—»ï¼Œä½†èº«æ‰‹ç€å®žä¸å‡¡çš„åŽå±±å‰‘å®—ä¼ äººã€‚\n");
 	set("age", 40);
 	set("attitude", "peaceful");
 	set("shen_type", -1);
@@ -55,7 +55,7 @@ void create()
 		(: perform_action, "strike.wuji" :),
 		(: perform_action, "sword.jianmang" :),
         }));
-	create_family("»ªÉ½ÅÉ",13,"µÜ×Ó");
+	create_family("åŽå±±æ´¾",13,"å¼Ÿå­");
 
 	setup();
 	carry_object(BINGQI_D("sword/sword"))->wield();
@@ -65,31 +65,31 @@ void create()
 void attempt_apprentice(object ob)
 {
         mapping fam;
-        if (mapp(fam=ob->query("family")) && (string)fam["family_name"] != "»ªÉ½ÅÉ"  && (int)ob->query("is/huashan")==1 ) {
-                message_vision(CYN "$N£¡ÄãÕâ¸ö»ªÉ½ÅÉµÄÅÑÍ½»¹»ØÀ´¸ÉÊ²Ã´ £¿£¿£¿\n"NOR, ob );
+        if (mapp(fam=ob->query("family")) && (string)fam["family_name"] != "åŽå±±æ´¾"  && (int)ob->query("is/huashan")==1 ) {
+                message_vision(CYN "$Nï¼ä½ è¿™ä¸ªåŽå±±æ´¾çš„å›å¾’è¿˜å›žæ¥å¹²ä»€ä¹ˆ ï¼Ÿï¼Ÿï¼Ÿ\n"NOR, ob );
                 command("slap "+ob->query("id"));
                 return;
         }        
-        if(ob->query("quest/huashan")=="Æø×Ú"){
+        if(ob->query("quest/huashan")=="æ°”å®—"){
                 command("heng");
-                command("say Äã²»ÊÇ»ªÉ½Æø×Ú¸ßÍ½Ã´£¿ÔõÃ´£¿À´ÎÒÃÇ½£×ÚÕÒËÀ£¿");
+                command("say ä½ ä¸æ˜¯åŽå±±æ°”å®—é«˜å¾’ä¹ˆï¼Ÿæ€Žä¹ˆï¼Ÿæ¥æˆ‘ä»¬å‰‘å®—æ‰¾æ­»ï¼Ÿ");
                 return;
         }
 
  //       if (ob->query_skill("huashan-qigong",1) < 100 ) {
- //               command("say ÄãµÄ»ªÉ½Æø¹¦ÐÞÎªÌ«²î£¬×¥½ôÐÞÁ¶°É¡£");
+ //               command("say ä½ çš„åŽå±±æ°”åŠŸä¿®ä¸ºå¤ªå·®ï¼ŒæŠ“ç´§ä¿®ç‚¼å§ã€‚");
  //               return;
  //       }
 
         if ((int)ob->query("shen") <= 0) {
-                command("say ÎÒ»ªÉ½ÅÉÄËÊÇÌÃÌÃÃûÃÅÕýÅÉ£¬¶ÔµÜ×ÓÒªÇó¼«ÑÏ¡£");
-                command("say ÔÚµÂÐÐ·½Ãæ£¬" + RANK_D->query_respect(ob)+"ÊÇ·ñ»¹×öµÃ²»¹»£¿");
+                command("say æˆ‘åŽå±±æ´¾ä¹ƒæ˜¯å ‚å ‚åé—¨æ­£æ´¾ï¼Œå¯¹å¼Ÿå­è¦æ±‚æžä¸¥ã€‚");
+                command("say åœ¨å¾·è¡Œæ–¹é¢ï¼Œ" + RANK_D->query_respect(ob)+"æ˜¯å¦è¿˜åšå¾—ä¸å¤Ÿï¼Ÿ");
                 return;
         }
-        command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÁË,Äã¿ÉÒªÎªÎÒÃÇ»ªÉ½ÅÉ½£×ÚÕù¿ÚÆø¡£");
+        command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†,ä½ å¯è¦ä¸ºæˆ‘ä»¬åŽå±±æ´¾å‰‘å®—äº‰å£æ°”ã€‚");
         command("recruit " + ob->query("id"));
-        ob->set("title",HIW"»ªÉ½ÅÉ½£×ÚÇ×´«µÜ×Ó"NOR);
-        ob->set("quest/huashan","½£×Ú");
+        ob->set("title",HIW"åŽå±±æ´¾å‰‘å®—äº²ä¼ å¼Ÿå­"NOR);
+        ob->set("quest/huashan","å‰‘å®—");
 
 }
 
@@ -103,7 +103,7 @@ void init()
         me = this_object();
 
         if (interactive(ob) && !environment(ob)->query("no_fight")){
-		command("say ¸Ò½øÈëÎÒ½£×Ú½ûµØ,Ö»ÓÐËÀ£¡£¡£¡\n");
+		command("say æ•¢è¿›å…¥æˆ‘å‰‘å®—ç¦åœ°,åªæœ‰æ­»ï¼ï¼ï¼\n");
 		me->set_leader(ob);
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);

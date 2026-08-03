@@ -1,5 +1,5 @@
 // Write by Yanyang@SJ 2000.9.23
-// jinbei.c  Ğ¡½ğ±­
+// jinbei.c  å°é‡‘æ¯
 
 inherit ITEM;
 inherit F_LIQUID;
@@ -7,20 +7,20 @@ inherit F_LIQUID;
 
 void create()
 {
-        set_name(HIY"Ğ¡½ğ±­"NOR, ({"xiao jinbei", "jinbei", "bei"}));
+        set_name(HIY"å°é‡‘æ¯"NOR, ({"xiao jinbei", "jinbei", "bei"}));
         set_weight(700);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»Ö»ÓÃ½ğ×Ó´òÔìµÄ¾Æ±­£¬½ğ¹âÉÁÉÁ£¬¹óÆø±ÆÈË¡£\n");
-                set("unit", "Ö»");
+                set("long", "ä¸€åªç”¨é‡‘å­æ‰“é€ çš„é…’æ¯ï¼Œé‡‘å…‰é—ªé—ªï¼Œè´µæ°”é€¼äººã€‚\n");
+                set("unit", "åª");
                 set("value", 3000);
                 set("max_liquid", 1);
         }
 
         set("liquid", ([
                 "type": "alcohol",
-                "name": "Å®¶ùºì",
+                "name": "å¥³å„¿çº¢",
                 "remaining": 1,
                 "drunk_apply": 50,
         ]));

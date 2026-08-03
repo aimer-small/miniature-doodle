@@ -5,16 +5,16 @@ inherit STAFF;
 
 void create()
 {
-        set_name(HIW"¸ÖèÆ"NOR,({"gang chu","chu"}));
+        set_name(HIW"é’¢æµ"NOR,({"gang chu","chu"}));
         set_weight(100000);
         if (clonep())
                 set_default_object(__FILE__);
         else{
-                set("unit","¸ù");
+                set("unit","æ ¹");
                 set("value",100);
                 set("material","black_steel");
-                set("long",HIW"ÕâÊÇÒ»¸ù¾«¸ÖËùÖıµÄ½µÄ§èÆ£¬Ç§´¸°ÙÁ¶£¬·´Éä³öÉÁÉÁµÄº®¹â¡£\n"NOR);
-               set("unwield_msg","$NÒ»Éù³¤Ğ¥£¬½«¸ÖèÆ·Å»Ø±³ºó¡£\n");
+                set("long",HIW"è¿™æ˜¯ä¸€æ ¹ç²¾é’¢æ‰€é“¸çš„é™é­”æµï¼Œåƒé”¤ç™¾ç‚¼ï¼Œåå°„å‡ºé—ªé—ªçš„å¯’å…‰ã€‚\n"NOR);
+               set("unwield_msg","$Nä¸€å£°é•¿å•¸ï¼Œå°†é’¢æµæ”¾å›èƒŒåã€‚\n");
         }
         init_staff(20);
 }

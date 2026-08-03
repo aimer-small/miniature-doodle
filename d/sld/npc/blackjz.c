@@ -1,12 +1,12 @@
-// ºÚÁúÃÅµÜ×Ó
+// é»‘é¾™é—¨å¼Ÿå­
 
 inherit NPC;
 void create()
 {
-        set_name("ºÚÁúÃÅµÜ×Ó", ({ "black dizi","dizi" }));
-	set("long", "ËûÊÇÒ»¸öÉñÁú½ÌºÚÁúÃÅµÄµÜ×Ó¡£\n");
-        set("gender", "ÄÐÐÔ");
-	set("title", "ÉñÁú½ÌµÚÈý´úµÜ×Ó");	
+        set_name("é»‘é¾™é—¨å¼Ÿå­", ({ "black dizi","dizi" }));
+	set("long", "ä»–æ˜¯ä¸€ä¸ªç¥žé¾™æ•™é»‘é¾™é—¨çš„å¼Ÿå­ã€‚\n");
+        set("gender", "ç”·æ€§");
+	set("title", "ç¥žé¾™æ•™ç¬¬ä¸‰ä»£å¼Ÿå­");	
         set("age", 20);       
 	set("str", 17);
         set("int", 20);
@@ -47,7 +47,7 @@ void create()
       //map_skill("whip","lingshe-bianfa");
       map_skill("parry","huagu-mianzhang");
 
-      create_family("ÉñÁú½Ì",3, "µÜ×Ó");
+      create_family("ç¥žé¾™æ•™",3, "å¼Ÿå­");
       setup();
       carry_object(__DIR__"obj/bcloth")->wear();
       //carry_object(__DIR__"obj/bian")->wield();

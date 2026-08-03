@@ -24,25 +24,25 @@ int main(object me, string arg)
                 if (wizardp(me) ) {
                         if (!ob) ob = LOGIN_D->find_body(arg);
                         if (!ob) ob = find_living(arg);
-                        if (!ob) return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
+                        if (!ob) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
                         if (wiz_level(me) < wiz_level(ob))
-                                return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
+                                return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
                 }
         }
 
         if (!wizardp(me) && me!=ob) {
                 if( !ob || environment(ob)!=environment(me) )
-                        return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
+                        return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
                 if( userp(ob)
                   || !me->query("group/id")
                   || me->query("group/id") != ob->query("group/id")
                   || me->query("group/class") >= ob->query("group/class") )
-                        return notify_fail("ÄãÖ»ÄÜ²é¿´Í¬°ïÅÉ£¬ÇÒµÈ¼¶±ÈÄãµÍµÄNPCµÄ×´Ì¬¡£\n");
+                        return notify_fail("ä½ åªèƒ½æŸ¥çœ‹åŒå¸®æ´¾ï¼Œä¸”ç­‰çº§æ¯”ä½ ä½çš„NPCçš„çŠ¶æ€ã€‚\n");
         }
 
 
 	if (ob->is_corpse() || !ob->is_character())
-		return notify_fail("ÄÇ²»ÊÇ»îÎïÒ®£¡\n");
+		return notify_fail("é‚£ä¸æ˜¯æ´»ç‰©è€¶ï¼\n");
 
 	my = ob->query_entire_dbase();
 
@@ -55,19 +55,19 @@ int main(object me, string arg)
 
 	if (!my["max_jing"]) my["max_jing"] = 1;
 	if (!my["max_qi"]) my["max_qi"] = 1;
-	write(sprintf("\n¡¤¾«Ñª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤¾«Á¦¡¤%s%5d / %5d%s(%d)\n" NOR,
+	write(sprintf("\nÂ·ç²¾è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·ç²¾åŠ›Â·%s%5d / %5d%s(%d)\n" NOR,
 		status_color(my["jing"], my["eff_jing"]+ob->query_temp("apply/jing")), my["jing"], my["eff_jing"]+ob->query_temp("apply/jing"),
 		status_color(my["eff_jing"]+ob->query_temp("apply/jing"), my["max_jing"]), ((my["eff_jing"]+ob->query_temp("apply/jing")) * 100 / my["max_jing"]),
 		status_color(my["jingli"], my["eff_jingli"]+ob->query_temp("apply/jingli")), my["jingli"], my["eff_jingli"]+ob->query_temp("apply/jingli"),
 		status_color(my["jingli"], my["eff_jingli"]+ob->query_temp("apply/jingli")), my["eff_jingli"]-my["max_jingli"]+(ob->query_skill("force")-ob->query_temp("apply/force"))*8+ob->query_temp("apply/jingli") ));
-	write(sprintf("¡¤ÆøÑª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤ÄÚÁ¦¡¤%s%5d / %5d(+%d)\n" NOR,
+	write(sprintf("Â·æ°”è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·å†…åŠ›Â·%s%5d / %5d(+%d)\n" NOR,
 		status_color(my["qi"], my["eff_qi"]+ob->query_temp("apply/qi")), my["qi"], my["eff_qi"]+ob->query_temp("apply/qi"),
 		status_color(my["eff_qi"]+ob->query_temp("apply/qi"), my["max_qi"]), ((my["eff_qi"]+ob->query_temp("apply/qi")) * 100 / my["max_qi"]),
 		status_color(my["neili"], my["max_neili"]+ob->query_temp("apply/neili")), my["neili"], my["max_neili"]+ob->query_temp("apply/neili"),
 		my["jiali"] ));
 
-	write(sprintf("¡¤%sÆø¡¤%s %-13s   " NOR " ¡¤ÄÚÁ¦ÉÏÏŞ¡¤"HIC"%5d / %5d\n" NOR,
-		my["shen"] < 0?"ìå":"Õı",
+	write(sprintf("Â·%sæ°”Â·%s %-13s   " NOR " Â·å†…åŠ›ä¸Šé™Â·"HIC"%5d / %5d\n" NOR,
+		my["shen"] < 0?"æˆ¾":"æ­£",
 		my["shen"] < 0?HIR:HIC,
 		conv((my["shen"] < 0?-1:1) * my["shen"]),
 		(ob->query_skill("force")-ob->query_temp("apply/force"))*8 + my["combat_exp"]/1000 + ob->query_temp("apply/neili"),
@@ -75,12 +75,12 @@ int main(object me, string arg)
 
 	i = ob->max_food_capacity();
 	if (!i) i = 1;
-	write(sprintf("¡¤Ê³Îï¡¤%s%7.2f%%	 " NOR "     ¡¤Ç±ÄÜ¡¤"HIY" %4d / %4d\n" NOR,
+	write(sprintf("Â·é£Ÿç‰©Â·%s%7.2f%%	 " NOR "     Â·æ½œèƒ½Â·"HIY" %4d / %4d\n" NOR,
 		status_color(my["food"], i),
 		my["food"]*100.0/i, my["potential"], my["max_pot"] ));
 	i = ob->max_water_capacity();
 	if (!i) i = 1;
-	write(sprintf("¡¤ÒûË®¡¤%s%7.2f%%	 " NOR "     ¡¤¾­Ñé¡¤"HIM" %s (%.2f%%)\n"NOR,
+	write(sprintf("Â·é¥®æ°´Â·%s%7.2f%%	 " NOR "     Â·ç»éªŒÂ·"HIM" %s (%.2f%%)\n"NOR,
 		status_color(my["water"], i),
 		my["water"]*100.0/i,
 		conv(ob->query("id") == "zhong shentong"?my["combat_exp"]/3*2:my["combat_exp"]),
@@ -105,13 +105,13 @@ string status_color(int current, int max)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£º hp
-	   hp <¶ÔÏóÃû³Æ>		   (Î×Ê¦×¨ÓÃ)
+æŒ‡ä»¤æ ¼å¼ï¼š hp
+	   hp <å¯¹è±¡åç§°>		   (å·«å¸ˆä¸“ç”¨)
 
-Õâ¸öÖ¸Áî¿ÉÒÔÏÔÊ¾Äã»òÖ¸¶¨¶ÔÏóµÄ¾«, Æø, ÉñµÈ×´Ì¬ÊıÖµ¡£
-Î×Ê¦¿ÉÒÔ²éÑ¯ÈÎºÎÈË»ò NPC µÄ×´Ì¬ÊıÖµ¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥æ˜¾ç¤ºä½ æˆ–æŒ‡å®šå¯¹è±¡çš„ç²¾, æ°”, ç¥ç­‰çŠ¶æ€æ•°å€¼ã€‚
+å·«å¸ˆå¯ä»¥æŸ¥è¯¢ä»»ä½•äººæˆ– NPC çš„çŠ¶æ€æ•°å€¼ã€‚
 
-Ïà¹ØÖ¸Áî£ºscore
+ç›¸å…³æŒ‡ä»¤ï¼šscore
 
 	Copyright 1997-1999 ShuJian MUD Wizard Group.
 	All rights reserved.

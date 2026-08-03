@@ -10,27 +10,27 @@ object me, ob, obj;
         if( !arg
         ||  sscanf(arg, "%s in %s", hehe, what) != 2
                )
-                return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 
         if( ob->is_busy() ) 
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if( ob->is_fighting() )
-                return notify_fail("ÄãÕýÔÚÕ½¶·ÖÐ£¡\n");
+                return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼\n");
 
         if( !me->query("marks/open", 1) )
-                return notify_fail("µ¤Â¯µÄ¸Ç×ÓÃ»ÓÐ´ò¿ª¡£\n");
+                return notify_fail("ä¸¹ç‚‰çš„ç›–å­æ²¡æœ‰æ‰“å¼€ã€‚\n");
 
-        if( !objectp( obj = present(hehe, ob)))   // Èç¹ûÄãÉíÉÏµÄÎïÆ·µÄID²»¶Ô£¬²»ÄÜÍùµ¤Â¯Àï¼ÓË®¡£
-                return notify_fail("ÄãÉíÉÏÃ»ÓÐ"+hehe+"£¬ÈçºÎÍùµ¤Â¯Àï¼ÓË®£¿\n");
+        if( !objectp( obj = present(hehe, ob)))   // å¦‚æžœä½ èº«ä¸Šçš„ç‰©å“çš„IDä¸å¯¹ï¼Œä¸èƒ½å¾€ä¸¹ç‚‰é‡ŒåŠ æ°´ã€‚
+                return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰"+hehe+"ï¼Œå¦‚ä½•å¾€ä¸¹ç‚‰é‡ŒåŠ æ°´ï¼Ÿ\n");
                 
-        if( !obj->query("liquid/type"))           // Èç¹ûÄãÉíÉÏµÄÎïÆ·²»ÊÇÊ¢Ë®µÄÆ÷Ãó£¬²»ÄÜÍùµ¤Â¯Àï¼ÓË®¡£
-                return notify_fail(obj->name()+"²»ÊÇÊ¢Ë®µÄÆ÷Ãó£¡\n");
+        if( !obj->query("liquid/type"))           // å¦‚æžœä½ èº«ä¸Šçš„ç‰©å“ä¸æ˜¯ç››æ°´çš„å™¨çš¿ï¼Œä¸èƒ½å¾€ä¸¹ç‚‰é‡ŒåŠ æ°´ã€‚
+                return notify_fail(obj->name()+"ä¸æ˜¯ç››æ°´çš„å™¨çš¿ï¼\n");
 
-        if( !obj->query("liquid/remaining") )     // ÅÐ¶ÏÄãÉíÉÏÊ¢Ë®µÄÆ÷ÃóÖÐÊÇ·ñ»¹ÓÐË®¡£
-                return notify_fail(obj->name() + "ÀïÃæÒÑ¾­Ò»µÎ²»Ê£ÁË¡£\n");
+        if( !obj->query("liquid/remaining") )     // åˆ¤æ–­ä½ èº«ä¸Šç››æ°´çš„å™¨çš¿ä¸­æ˜¯å¦è¿˜æœ‰æ°´ã€‚
+                return notify_fail(obj->name() + "é‡Œé¢å·²ç»ä¸€æ»´ä¸å‰©äº†ã€‚\n");
 
-        message_vision("$N½«Ò»Ð©"+ obj->query("liquid/name") +"´Ó"+ obj->name() +"µ¹½øµ¤Â¯¡£\n", ob);
+        message_vision("$Nå°†ä¸€äº›"+ obj->query("liquid/name") +"ä»Ž"+ obj->name() +"å€’è¿›ä¸¹ç‚‰ã€‚\n", ob);
         obj->add("liquid/remaining", -1);
         me->add("liquid/remaining", 1);
         me->set("liquid/name", obj->query("liquid/name"));

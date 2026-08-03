@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-     set_name(HIY"½ğÔ¿³×"NOR, ({"jin yaoshi","gold key", "key"}));
+     set_name(HIY"é‡‘é’¥åŒ™"NOR, ({"jin yaoshi","gold key", "key"}));
      set_weight(10);
      if (clonep())
            set_default_object(__FILE__);
      else {
-           set("unit", "°Ñ");
-           set("long", "ÕâÊÇÒ»°Ñ»Æ½ğÔ¿³×£¬½ğ¹âÉÁÉÁµÄ£¬ËÆºõºÍ¹ÅÄ¹µÄÄ³Ğ©ÃØÃÜÓĞ¹Ø¡£\n");
+           set("unit", "æŠŠ");
+           set("long", "è¿™æ˜¯ä¸€æŠŠé»„é‡‘é’¥åŒ™ï¼Œé‡‘å…‰é—ªé—ªçš„ï¼Œä¼¼ä¹å’Œå¤å¢“çš„æŸäº›ç§˜å¯†æœ‰å…³ã€‚\n");
            set("value", 1000);
            set("unique", 1);
      }

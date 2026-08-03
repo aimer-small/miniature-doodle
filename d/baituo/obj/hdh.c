@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(RED"º×¶¥ºì"NOR, ({"heding hong", "hong", "heding"}));
+	set_name(RED"é¹¤é¡¶çº¢"NOR, ({"heding hong", "hong", "heding"}));
 	set_weight(2000);
 	if (clonep()) {
 		set_default_object(__FILE__);
     		call_out("dest", 600);
 	} else {
-		set("unit", "¸ö");
-		set("long", RED"ÕâÊÇÒ»¸öÐÂÏÊµÄº×¶¥ºì£¬»¹É¢·¢×ÅÕóÕóÈÈÆø¡£\n"NOR);
+		set("unit", "ä¸ª");
+		set("long", RED"è¿™æ˜¯ä¸€ä¸ªæ–°é²œçš„é¹¤é¡¶çº¢ï¼Œè¿˜æ•£å‘ç€é˜µé˜µçƒ­æ°”ã€‚\n"NOR);
 		set("value", 50000);
 	}
 	setup();
@@ -31,13 +31,13 @@ int do_eat(string arg)
 	int i;
 
    	if (!id(arg))
-       		return notify_fail("ÄãÒª·þÊ²Ã´£¿\n");
+       		return notify_fail("ä½ è¦æœä»€ä¹ˆï¼Ÿ\n");
 
-   	message_vision("$N·þÏÂÒ»¸ö" + name() + "¡£\n", me);  
-   	tell_object(me, MAG "Äã¸Ð¾õ¸¹ÖÐÒ»¹É¾ÞÌÛ´«À´£¬Ë²¼äÈ«Éí»ðÈÈ¹öÌÌ£¡\n" NOR);
+   	message_vision("$Næœä¸‹ä¸€ä¸ª" + name() + "ã€‚\n", me);  
+   	tell_object(me, MAG "ä½ æ„Ÿè§‰è…¹ä¸­ä¸€è‚¡å·¨ç–¼ä¼ æ¥ï¼Œçž¬é—´å…¨èº«ç«çƒ­æ»šçƒ«ï¼\n" NOR);
 
 	i = me->query("max_qi") + me->query_temp("apply/qi");
-   	me->receive_wound("qi", i / 4 + random(i), "·þÊ³¾ç¶¾¶ø");
+   	me->receive_wound("qi", i / 4 + random(i), "æœé£Ÿå‰§æ¯’è€Œ");
 
    	if ((int)me->query_condition("hb_poison") > 1)
 		me->apply_condition("hb_poison", 1);
@@ -49,7 +49,7 @@ int do_eat(string arg)
 		if( me->query("max_neili") < me->query_skill("force") * 10 + me->query("age")*20 + me->query("combat_exp")/1000 + me->query("query_neili") )
 			me->add("max_neili", 2);
 		else {
-			tell_object(me, "Äã¸Ð¾õÎ¸¿ÚºÃ¶àÁË£¡\n");
+			tell_object(me, "ä½ æ„Ÿè§‰èƒƒå£å¥½å¤šäº†ï¼\n");
 			if( me->query("food") < me->max_food_capacity() )
 				me->add("food", 50+random(100));
 		}
@@ -62,6 +62,6 @@ int do_eat(string arg)
 
 void dest()
 {
-	message_vision(HIR "º×¶¥ºìµÄÈÈÆøÉ¢¾¡£¬ÂýÂý¸É¿ÝÁË¡£\n"NOR, this_object());
+	message_vision(HIR "é¹¤é¡¶çº¢çš„çƒ­æ°”æ•£å°½ï¼Œæ…¢æ…¢å¹²æž¯äº†ã€‚\n"NOR, this_object());
 	destruct(this_object());
 }

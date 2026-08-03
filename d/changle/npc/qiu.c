@@ -1,13 +1,13 @@
-// qiu.c ÇñÉ½·ç
+// qiu.c é‚±å±±é£
 // By River 2003.2.26
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("ÇñÉ½·ç",({"qiu shanfeng", "qiu", "shanfeng"}));
-	set("title", "³¤ÀÖ°ï»¢ÃÍÌÃÏãÖ÷");
-	set("long", "Ëû¾ÍÊÇ³¤ÀÖ°ï»¢ÃÍÌÃÏãÖ÷ÇñÉ½·ç¡£\n");
+	set_name("é‚±å±±é£",({"qiu shanfeng", "qiu", "shanfeng"}));
+	set("title", "é•¿ä¹å¸®è™çŒ›å ‚é¦™ä¸»");
+	set("long", "ä»–å°±æ˜¯é•¿ä¹å¸®è™çŒ›å ‚é¦™ä¸»é‚±å±±é£ã€‚\n");
 	set("age", 45);
 	set("attitude", "peaceful");
 	set("shen", -1000);

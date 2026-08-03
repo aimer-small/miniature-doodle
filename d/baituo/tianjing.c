@@ -2,12 +2,12 @@
 inherit ROOM;
 void create()
 {
-        set("short", HIW"Ìì¾®"NOR);
+        set("short", HIW"å¤©äº•"NOR);
         set("long", @LONG
-×ª¹ıÒ»µÀÊ¯±Ú£¬ÄãµÄÑÛÇ°ºöÈ»Ò»ÁÁ¡£Ô­À´ÕâÀïÊÇ¸öÌìÈ»ĞÎ³ÉµÄÌì¾®£¬
-´óÔ¼¼¸Ê®À´ÕÉ¼û·½£¬Í·¶¥Ò»¸öÔ²¶´£¬¹âÁÁ¶¼ÊÇ´ÓÄÇÀïÕÕÉä½øÀ´µÄ¡£Ò»Ìõ°µ
-Á÷´ÓÉ½¸¹Á÷¹ıÕâÀï£¬ÅÔ±ß³¤ÂıÁË¸÷ÖÖ»¨²İ£¬»¹ÓĞ¼¸¿Å¹ûÊ÷¡£Ëæ×ÅÒ»Éùº×Ãù
-Äã·¢ÏÖÓĞÒ»Ö»º±¼ûµÄµ¤¶¥º×ÕıÕ¾ÔÚÏª±ß¿´×ÅÄã¡£
+è½¬è¿‡ä¸€é“çŸ³å£ï¼Œä½ çš„çœ¼å‰å¿½ç„¶ä¸€äº®ã€‚åŸæ¥è¿™é‡Œæ˜¯ä¸ªå¤©ç„¶å½¢æˆçš„å¤©äº•ï¼Œ
+å¤§çº¦å‡ åæ¥ä¸ˆè§æ–¹ï¼Œå¤´é¡¶ä¸€ä¸ªåœ†æ´ï¼Œå…‰äº®éƒ½æ˜¯ä»é‚£é‡Œç…§å°„è¿›æ¥çš„ã€‚ä¸€æ¡æš—
+æµä»å±±è…¹æµè¿‡è¿™é‡Œï¼Œæ—è¾¹é•¿æ…¢äº†å„ç§èŠ±è‰ï¼Œè¿˜æœ‰å‡ é¢—æœæ ‘ã€‚éšç€ä¸€å£°é¹¤é¸£
+ä½ å‘ç°æœ‰ä¸€åªç½•è§çš„ä¸¹é¡¶é¹¤æ­£ç«™åœ¨æºªè¾¹çœ‹ç€ä½ ã€‚
 LONG);
         set("resource/water", 1);
         set("objects", ([
@@ -17,7 +17,7 @@ LONG);
         set("exits", ([
               "out" : __DIR__"midao4",              
         ]));
-        set("outdoors", "°×ÍÓÉ½");
+        set("outdoors", "ç™½é™€å±±");
         set("grass_count",8);
         setup(); 
 }
@@ -36,15 +36,15 @@ int do_find()
         me = this_player();
         
         if( (int)me->is_busy() || me->is_fighting()) 
-        	return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+        	return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         	        
         luck = (int)me->query_int() * (int)me->query_con() / 5;
         luck = luck + (int)me->query("kar") / 3 - 30;
         
-        message_vision("$N¶×ÏÂÉí×Ó£¬ÔÚ²İ´ÔÖĞ×ĞÏ¸µØÑ°ÕÒ×ÅÊ²Ã´¡£\n", me);
+        message_vision("$Nè¹²ä¸‹èº«å­ï¼Œåœ¨è‰ä¸›ä¸­ä»”ç»†åœ°å¯»æ‰¾ç€ä»€ä¹ˆã€‚\n", me);
         
         if ( me->query_temp("find_times") == 0 ) {
-               message_vision("$NÒ»²»Ğ¡ĞÄ±»ÔÓ²İ¸îÁËÒ»¸öÉË¿Ú£¬ÏÊÑªÖ±Á÷£¡\n", me);
+               message_vision("$Nä¸€ä¸å°å¿ƒè¢«æ‚è‰å‰²äº†ä¸€ä¸ªä¼¤å£ï¼Œé²œè¡€ç›´æµï¼\n", me);
                me->set_temp("find_times", random(20));
                me->receive_wound("qi", 65);
                return 1;
@@ -56,7 +56,7 @@ int do_find()
                add("grass_count", -1); 
                ob = new(__DIR__"obj/grass");              
                ob->move(me);
-               message_vision("$N¡°ß×¡±ÁËÒ»Éù£¬Ô­À´·¢ÏÖÁËÒ»Öê¶Ï³¦²İ¡£\n", me);
+               message_vision("$Nâ€œå’¦â€äº†ä¸€å£°ï¼ŒåŸæ¥å‘ç°äº†ä¸€æ ªæ–­è‚ è‰ã€‚\n", me);
        }      
        return 1;    
 }
@@ -65,9 +65,9 @@ int do_zhai(string arg)
 {
     	object me = this_player();
     	if (arg == "guo" && me->query_dex() > 25){   
-     		message_vision("$NË³ÊÖ´Ó¹ûÊ÷ÉÏÕªÏÂÒ»¸ö¹û×Ó¡£\n", me);
+     		message_vision("$Né¡ºæ‰‹ä»æœæ ‘ä¸Šæ‘˜ä¸‹ä¸€ä¸ªæœå­ã€‚\n", me);
      		new(__DIR__"obj/guo")->move(me);
      		return 1;
      	}
-     	return notify_fail("ÄãÒªÕªÊ²Ã´? \n");
+     	return notify_fail("ä½ è¦æ‘˜ä»€ä¹ˆ? \n");
 }

@@ -1,4 +1,4 @@
-/*°ÑËùÓĞ¶«Î÷¶¼½øÈëÊı¾İ¿â¹©Íæ¼Ò²éÑ¯
+/*æŠŠæ‰€æœ‰ä¸œè¥¿éƒ½è¿›å…¥æ•°æ®åº“ä¾›ç©å®¶æŸ¥è¯¢
 ROOM
 filename short long npc cmds code
 NPC
@@ -35,7 +35,7 @@ int main(object me,string arg)
         return help(me);
     }
     if(file_size(path = resolve_path(me->query("cwd"),path)) != -2 )
-        return notify_fail("Ã»ÓĞÕâ¸öÄ¿Â¼£¡\n");
+        return notify_fail("æ²¡æœ‰è¿™ä¸ªç›®å½•ï¼\n");
     seteuid(getuid());
     if(path[sizeof(path)-1] != '/')
         path += "/";
@@ -54,7 +54,7 @@ int main(object me,string arg)
             QueryItemInfo(path);
             break;
         default:
-            write("²ÎÊı²»¶Ô£¬ÇëÖØĞÂÊäÈë£¡\n");
+            write("å‚æ•°ä¸å¯¹ï¼Œè¯·é‡æ–°è¾“å…¥ï¼\n");
             break;
     }
     return 1;
@@ -68,7 +68,7 @@ void QueryNpcInfo(string path,int flag)
     int num=0;
     int lmt, i;
     if(flag){
-    filename=path+"ÎÄµµ¹éÀàÖ®NPCÆª";
+    filename=path+"æ–‡æ¡£å½’ç±»ä¹‹NPCç¯‡";
     
     if(file_size(filename)>0)
         rm(filename);
@@ -77,27 +77,27 @@ void QueryNpcInfo(string path,int flag)
     foreach(string tmp in file){
         if (file_size(tmp) == -2)
             continue;
-        write(sprintf("  ÕûÀí£¨%-15s£©ÖĞ...",tmp));
+        write(sprintf("  æ•´ç†ï¼ˆ%-15sï¼‰ä¸­...",tmp));
         reset_eval_cost();
         obj=new(path + tmp);
         if (!objectp(obj) ){
-            write(" ...Ê§°Ü£¡\n");
+            write(" ...å¤±è´¥ï¼\n");
             continue;
         }
         if(!obj->is_character() || !obj->query("name")){
-            write("NOT NPC£¡\n");
+            write("NOT NPCï¼\n");
             continue;
         }
         num ++;
-    write_file(filename,"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n",0);
-    write_file(filename,"ÎÄ¼şĞòºÅ£º"+num+"\n",0);
-    write_file(filename,"ÎÄ¼şÎ»ÖÃ£º"+base_name(obj)+".c\n",0);
-    write_file(filename,"ÎÄ¼şÃû³Æ£º"+tmp+"\n",0);
-    write_file(filename,"ÖĞÎÄÃû×Ö£º"+obj->query("name")+"\n",0);
-    write_file(filename,"Ó¢ÎÄ£É£Ä: " + sprintf("%s",implode(obj->parse_command_id_list(), ","))+"\n",0);
+    write_file(filename,"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n",0);
+    write_file(filename,"æ–‡ä»¶åºå·ï¼š"+num+"\n",0);
+    write_file(filename,"æ–‡ä»¶ä½ç½®ï¼š"+base_name(obj)+".c\n",0);
+    write_file(filename,"æ–‡ä»¶åç§°ï¼š"+tmp+"\n",0);
+    write_file(filename,"ä¸­æ–‡åå­—ï¼š"+obj->query("name")+"\n",0);
+    write_file(filename,"è‹±æ–‡ï¼©ï¼¤: " + sprintf("%s",implode(obj->parse_command_id_list(), ","))+"\n",0);
     write_file(filename,QuerySkill(obj),0);
     write_file(filename,QueryObj(obj),0);
-    write_file(filename,"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n");
+    write_file(filename,"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n");
 	my = obj->query_entire_dbase();
 
 	//if (userp(obj)){
@@ -108,19 +108,19 @@ void QueryNpcInfo(string path,int flag)
 
 	if (!my["max_jing"]) my["max_jing"] = 1;
 	if (!my["max_qi"]) my["max_qi"] = 1;
-	write_file(filename,sprintf("¡¤¾«Ñª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤¾«Á¦¡¤%s%5d / %5d%s(%d)\n" NOR,
+	write_file(filename,sprintf("Â·ç²¾è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·ç²¾åŠ›Â·%s%5d / %5d%s(%d)\n" NOR,
 		status_color(my["jing"], my["eff_jing"]+obj->query_temp("apply/jing")), my["jing"], my["eff_jing"]+obj->query_temp("apply/jing"),
 		status_color(my["eff_jing"]+obj->query_temp("apply/jing"), my["max_jing"]), ((my["eff_jing"]+obj->query_temp("apply/jing")) * 100 / my["max_jing"]),
 		status_color(my["jingli"], my["eff_jingli"]+obj->query_temp("apply/jingli")), my["jingli"], my["eff_jingli"]+obj->query_temp("apply/jingli"),
 		status_color(my["jingli"], my["eff_jingli"]+obj->query_temp("apply/jingli")), my["eff_jingli"]-my["max_jingli"]+(obj->query_skill("force")-obj->query_temp("apply/force"))*8+obj->query_temp("apply/jingli")));
-	write_file(filename,sprintf("¡¤ÆøÑª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤ÄÚÁ¦¡¤%s%5d / %5d(+%d)\n" NOR,
+	write_file(filename,sprintf("Â·æ°”è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·å†…åŠ›Â·%s%5d / %5d(+%d)\n" NOR,
 		status_color(my["qi"], my["eff_qi"]+obj->query_temp("apply/qi")), my["qi"], my["eff_qi"]+obj->query_temp("apply/qi"),
 		status_color(my["eff_qi"]+obj->query_temp("apply/qi"), my["max_qi"]), ((my["eff_qi"]+obj->query_temp("apply/qi")) * 100 / my["max_qi"]),
 		status_color(my["neili"], my["max_neili"]+obj->query_temp("apply/neili")), my["neili"], my["max_neili"]+obj->query_temp("apply/neili"),
 		my["jiali"] ));
 
-	write_file(filename,sprintf("¡¤%sÆø¡¤%s %-13s   " NOR " ¡¤ÄÚÁ¦ÉÏÏŞ¡¤"HIC"%5d / %5d\n" NOR,
-		my["shen"] < 0?"ìå":"Õı",
+	write_file(filename,sprintf("Â·%sæ°”Â·%s %-13s   " NOR " Â·å†…åŠ›ä¸Šé™Â·"HIC"%5d / %5d\n" NOR,
+		my["shen"] < 0?"æˆ¾":"æ­£",
 		my["shen"] < 0?HIR:HIC,
 		conv((my["shen"] < 0?-1:1) * my["shen"]),
 		(obj->query_skill("force")-obj->query_temp("apply/force"))*8 + my["combat_exp"]/1000 + obj->query_temp("apply/neili"),
@@ -128,44 +128,44 @@ void QueryNpcInfo(string path,int flag)
 
 	i = obj->max_food_capacity();
 	if (!i) i = 1;
-	write_file(filename,sprintf("¡¤Ê³Îï¡¤%s%7.2f%%         " NOR "     ¡¤Ç±ÄÜ¡¤"HIY" %4d / %4d\n" NOR,
+	write_file(filename,sprintf("Â·é£Ÿç‰©Â·%s%7.2f%%         " NOR "     Â·æ½œèƒ½Â·"HIY" %4d / %4d\n" NOR,
 		status_color(my["food"], i),
 		my["food"]*100.0/i, my["potential"], my["max_pot"] ));
 	i = obj->max_water_capacity();
 	if (!i) i = 1;
-	write_file(filename,sprintf("¡¤ÒûË®¡¤%s%7.2f%%         " NOR "     ¡¤¾­Ñé¡¤"HIM" %s\n"NOR,
+	write_file(filename,sprintf("Â·é¥®æ°´Â·%s%7.2f%%         " NOR "     Â·ç»éªŒÂ·"HIM" %s\n"NOR,
 		status_color(my["water"], i),
 		my["water"]*100.0/i,
 		conv(obj->query("id") == "zhong shentong"?my["combat_exp"]/3*2:my["combat_exp"])));
         destruct(obj);
-        write(" ...³É¹¦¡£ \n");
+        write(" ...æˆåŠŸã€‚ \n");
     }
-    write_file(filename,"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n",0);
-    write_file(filename,"    ±¾Ä¿Â¼ÏÂ×Ü¹²ÓĞ"+num+"¸öNPCÎÄ¼ş£¡\n",0);
-    write("©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n");
-    write("      ¹²ÕûÀí£¨"+chinese_number(num)+"£©¸öNPCÎÄ¼ş   \n\n");
+    write_file(filename,"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n",0);
+    write_file(filename,"    æœ¬ç›®å½•ä¸‹æ€»å…±æœ‰"+num+"ä¸ªNPCæ–‡ä»¶ï¼\n",0);
+    write("â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n");
+    write("      å…±æ•´ç†ï¼ˆ"+chinese_number(num)+"ï¼‰ä¸ªNPCæ–‡ä»¶   \n\n");
        me->start_more(read_file(filename,1));
     }
     else{
     	obj=new(path);
         if (!objectp(obj) ){
-            write(" ...Ê§°Ü£¡\n");
+            write(" ...å¤±è´¥ï¼\n");
             return;
         }
         if(!obj->is_character() || !obj->query("name")){
-            write("NOT NPC£¡\n");
+            write("NOT NPCï¼\n");
             return;
         }
         num ++;
-    write_file(filename,"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n",0);
-    write_file(filename,"ÎÄ¼şĞòºÅ£º"+num+"\n",0);
-    write_file(filename,"ÎÄ¼şÎ»ÖÃ£º"+base_name(obj)+".c\n",0);
-    write_file(filename,"ÎÄ¼şÃû³Æ£º"+path+"\n",0);
-    write_file(filename,"ÖĞÎÄÃû×Ö£º"+obj->query("name")+"\n",0);
-    write_file(filename,"Ó¢ÎÄ£É£Ä: " + sprintf("%s",implode(obj->parse_command_id_list(), ","))+"\n",0);
+    write_file(filename,"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n",0);
+    write_file(filename,"æ–‡ä»¶åºå·ï¼š"+num+"\n",0);
+    write_file(filename,"æ–‡ä»¶ä½ç½®ï¼š"+base_name(obj)+".c\n",0);
+    write_file(filename,"æ–‡ä»¶åç§°ï¼š"+path+"\n",0);
+    write_file(filename,"ä¸­æ–‡åå­—ï¼š"+obj->query("name")+"\n",0);
+    write_file(filename,"è‹±æ–‡ï¼©ï¼¤: " + sprintf("%s",implode(obj->parse_command_id_list(), ","))+"\n",0);
     write_file(filename,QuerySkill(obj),0);
     write_file(filename,QueryObj(obj),0);
-    write_file(filename,"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n");
+    write_file(filename,"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n");
 	my = obj->query_entire_dbase();
 
 	//if (userp(obj)){
@@ -176,19 +176,19 @@ void QueryNpcInfo(string path,int flag)
 
 	if (!my["max_jing"]) my["max_jing"] = 1;
 	if (!my["max_qi"]) my["max_qi"] = 1;
-	write_file(filename,sprintf("¡¤¾«Ñª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤¾«Á¦¡¤%s%5d / %5d%s(%d)\n" NOR,
+	write_file(filename,sprintf("Â·ç²¾è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·ç²¾åŠ›Â·%s%5d / %5d%s(%d)\n" NOR,
 		status_color(my["jing"], my["eff_jing"]+obj->query_temp("apply/jing")), my["jing"], my["eff_jing"]+obj->query_temp("apply/jing"),
 		status_color(my["eff_jing"]+obj->query_temp("apply/jing"), my["max_jing"]), ((my["eff_jing"]+obj->query_temp("apply/jing")) * 100 / my["max_jing"]),
 		status_color(my["jingli"], my["eff_jingli"]+obj->query_temp("apply/jingli")), my["jingli"], my["eff_jingli"]+obj->query_temp("apply/jingli"),
 		status_color(my["jingli"], my["eff_jingli"]+obj->query_temp("apply/jingli")), my["eff_jingli"]-my["max_jingli"]+(obj->query_skill("force")-obj->query_temp("apply/force"))*8+obj->query_temp("apply/jingli")));
-	write_file(filename,sprintf("¡¤ÆøÑª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤ÄÚÁ¦¡¤%s%5d / %5d(+%d)\n" NOR,
+	write_file(filename,sprintf("Â·æ°”è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·å†…åŠ›Â·%s%5d / %5d(+%d)\n" NOR,
 		status_color(my["qi"], my["eff_qi"]+obj->query_temp("apply/qi")), my["qi"], my["eff_qi"]+obj->query_temp("apply/qi"),
 		status_color(my["eff_qi"]+obj->query_temp("apply/qi"), my["max_qi"]), ((my["eff_qi"]+obj->query_temp("apply/qi")) * 100 / my["max_qi"]),
 		status_color(my["neili"], my["max_neili"]+obj->query_temp("apply/neili")), my["neili"], my["max_neili"]+obj->query_temp("apply/neili"),
 		my["jiali"] ));
 
-	write_file(filename,sprintf("¡¤%sÆø¡¤%s %-13s   " NOR " ¡¤ÄÚÁ¦ÉÏÏŞ¡¤"HIC"%5d / %5d\n" NOR,
-		my["shen"] < 0?"ìå":"Õı",
+	write_file(filename,sprintf("Â·%sæ°”Â·%s %-13s   " NOR " Â·å†…åŠ›ä¸Šé™Â·"HIC"%5d / %5d\n" NOR,
+		my["shen"] < 0?"æˆ¾":"æ­£",
 		my["shen"] < 0?HIR:HIC,
 		conv((my["shen"] < 0?-1:1) * my["shen"]),
 		(obj->query_skill("force")-obj->query_temp("apply/force"))*8 + my["combat_exp"]/1000 + obj->query_temp("apply/neili"),
@@ -196,22 +196,22 @@ void QueryNpcInfo(string path,int flag)
 
 	i = obj->max_food_capacity();
 	if (!i) i = 1;
-	write_file(filename,sprintf("¡¤Ê³Îï¡¤%s%7.2f%%         " NOR "     ¡¤Ç±ÄÜ¡¤"HIY" %4d / %4d\n" NOR,
+	write_file(filename,sprintf("Â·é£Ÿç‰©Â·%s%7.2f%%         " NOR "     Â·æ½œèƒ½Â·"HIY" %4d / %4d\n" NOR,
 		status_color(my["food"], i),
 		my["food"]*100.0/i, my["potential"], my["max_pot"] ));
 	i = obj->max_water_capacity();
 	if (!i) i = 1;
-	write_file(filename,sprintf("¡¤ÒûË®¡¤%s%7.2f%%         " NOR "     ¡¤¾­Ñé¡¤"HIM" %s\n"NOR,
+	write_file(filename,sprintf("Â·é¥®æ°´Â·%s%7.2f%%         " NOR "     Â·ç»éªŒÂ·"HIM" %s\n"NOR,
 		status_color(my["water"], i),
 		my["water"]*100.0/i,
 		conv(obj->query("id") == "zhong shentong"?my["combat_exp"]/3*2:my["combat_exp"])));
         destruct(obj);
-        write(" ...³É¹¦¡£ \n");
+        write(" ...æˆåŠŸã€‚ \n");
 
-    write_file(filename,"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n",0);
-    write_file(filename,"    ±¾Ä¿Â¼ÏÂ×Ü¹²ÓĞ"+num+"¸öNPCÎÄ¼ş£¡\n",0);
-    write("©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n");
-    write("      ¹²ÕûÀí£¨"+chinese_number(num)+"£©¸öNPCÎÄ¼ş   \n\n");
+    write_file(filename,"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n",0);
+    write_file(filename,"    æœ¬ç›®å½•ä¸‹æ€»å…±æœ‰"+num+"ä¸ªNPCæ–‡ä»¶ï¼\n",0);
+    write("â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n");
+    write("      å…±æ•´ç†ï¼ˆ"+chinese_number(num)+"ï¼‰ä¸ªNPCæ–‡ä»¶   \n\n");
        me->start_more(read_file(filename,1));
     }
     
@@ -224,7 +224,7 @@ void QueryRoomInfo(string path)
     object finder=new("/clone/npc/trashcan");
        object me=this_player();
     int num=0;
-    filename=path+"ÎÄµµ¹éÀàÖ®ROOMÆª";
+    filename=path+"æ–‡æ¡£å½’ç±»ä¹‹ROOMç¯‡";
     
     if(file_size(filename)>0)
         rm(filename);
@@ -232,11 +232,11 @@ void QueryRoomInfo(string path)
     foreach(string tmp in file){
         if (file_size(path+tmp) == -2)
             continue;
-        write(sprintf("  ÕûÀí£¨%-15s£©ÖĞ...",tmp));
+        write(sprintf("  æ•´ç†ï¼ˆ%-15sï¼‰ä¸­...",tmp));
         reset_eval_cost();
         obj=load_object(path+tmp);
         if (!objectp(obj) ){
-            write(" ...Ê§°Ü£¡\n");
+            write(" ...å¤±è´¥ï¼\n");
             continue;
         }
         if( obj->is_character() || !stringp(obj->query("short")) ){
@@ -244,20 +244,20 @@ void QueryRoomInfo(string path)
             continue;
         }
         num ++;
-        write_file(filename,"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n",0);
-        write_file(filename,"·¿¼äĞòºÅ£º"+num+"\n",0);
-        write_file(filename,"·¿¼äÃû³Æ£º"+obj->query("short")+"\n",0);
-        write_file(filename,"ÎÄ¼şÎ»ÖÃ£º"+base_name(obj)+".c\n",0);
-        write_file(filename,"·¿¼äÃèÊö£º\n"+obj->query("long")+"\n",0);
+        write_file(filename,"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n",0);
+        write_file(filename,"æˆ¿é—´åºå·ï¼š"+num+"\n",0);
+        write_file(filename,"æˆ¿é—´åç§°ï¼š"+obj->query("short")+"\n",0);
+        write_file(filename,"æ–‡ä»¶ä½ç½®ï¼š"+base_name(obj)+".c\n",0);
+        write_file(filename,"æˆ¿é—´æè¿°ï¼š\n"+obj->query("long")+"\n",0);
         write_file(filename,LoadNpc(obj),0);
         write_file(filename,QueryAction(obj,finder),0);
         
-        write(" ...³É¹¦\n");
+        write(" ...æˆåŠŸ\n");
     }
-    write_file(filename,"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n",0);
-    write_file(filename,"    ±¾Ä¿Â¼ÏÂ×Ü¹²ÓĞ"+num+"¸ö·¿¼ä£¡\n",0);
-    write("©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n");
-    write("      ¹²ÕûÀí£¨"+chinese_number(num)+"£©¸ö·¿¼äÎÄ¼ş   \n\n");
+    write_file(filename,"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n",0);
+    write_file(filename,"    æœ¬ç›®å½•ä¸‹æ€»å…±æœ‰"+num+"ä¸ªæˆ¿é—´ï¼\n",0);
+    write("â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n");
+    write("      å…±æ•´ç†ï¼ˆ"+chinese_number(num)+"ï¼‰ä¸ªæˆ¿é—´æ–‡ä»¶   \n\n");
        me->start_more(read_file(filename,1));
     destruct(finder);
 }
@@ -270,7 +270,7 @@ void QueryItemInfo(string path)
        object me=this_player();    
     int num=0;
     //int flag=0;
-    filename=path+"ÎÄµµ¹éÀàÖ®ITEMÆª";
+    filename=path+"æ–‡æ¡£å½’ç±»ä¹‹ITEMç¯‡";
     
     if(file_size(filename)>0)
         rm(filename);
@@ -278,11 +278,11 @@ void QueryItemInfo(string path)
     foreach(string tmp in file){
         if (file_size(path+tmp) == -2)
             continue;
-        write(sprintf("  ÕûÀí£¨%-15s£©ÖĞ...",tmp));
+        write(sprintf("  æ•´ç†ï¼ˆ%-15sï¼‰ä¸­...",tmp));
         reset_eval_cost();
         obj=new(path + tmp);
         if (!objectp(obj) ){
-            write(" ...Ê§°Ü£¡\n");
+            write(" ...å¤±è´¥ï¼\n");
             continue;
         }
         if( obj->is_character() || !stringp(obj->query("name")) ){
@@ -290,11 +290,11 @@ void QueryItemInfo(string path)
             continue;
         }
         num ++;
-        write_file(filename,"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n",0);
-        write_file(filename,"ÎïÆ·ĞòºÅ£º"+num+"\n",0);
-        write_file(filename,"ÎïÆ·Ãû³Æ£º"+obj->query("name")+"("+
+        write_file(filename,"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n",0);
+        write_file(filename,"ç‰©å“åºå·ï¼š"+num+"\n",0);
+        write_file(filename,"ç‰©å“åç§°ï¼š"+obj->query("name")+"("+
                     implode(obj->parse_command_id_list(),",")+")\n",0);
-        write_file(filename,"ÎïÆ·¼Û¸ñ£º"+MONEY_D->price_str((int)obj->query("value"))+"\n",0);
+        write_file(filename,"ç‰©å“ä»·æ ¼ï¼š"+MONEY_D->price_str((int)obj->query("value"))+"\n",0);
 /*
         if(mapp(prop=obj->query("weapon_prop")))
             QueryEquipProp(obj,prop);
@@ -302,12 +302,12 @@ void QueryItemInfo(string path)
             QueryEquipProp(obj,prop);
 */
         destruct(obj);
-        write(" ...³É¹¦¡£ \n");
+        write(" ...æˆåŠŸã€‚ \n");
     }
     write_file(filename,"==================================================\n",0);
-    write_file(filename,"    ±¾Ä¿Â¼ÏÂ×Ü¹²ÓĞ"+num+"¸öÎïÆ·£¡\n",0);
+    write_file(filename,"    æœ¬ç›®å½•ä¸‹æ€»å…±æœ‰"+num+"ä¸ªç‰©å“ï¼\n",0);
     write("=========================================\n");
-    write("      ¹²ÕûÀí£¨"+chinese_number(num)+"£©¸öÎïÆ·ÎÄ¼ş   \n\n");
+    write("      å…±æ•´ç†ï¼ˆ"+chinese_number(num)+"ï¼‰ä¸ªç‰©å“æ–‡ä»¶   \n\n");
        me->start_more(read_file(filename,1));
 }
 string LoadNpc(object ob)
@@ -327,16 +327,16 @@ string LoadNpc(object ob)
     count = sizeof(npc);
     if ( count == 0) 
     {
-    return (name+"Ã»ÓĞÈÎºÎNPC»òÕßÎïÆ·¡£\n");
+    return (name+"æ²¡æœ‰ä»»ä½•NPCæˆ–è€…ç‰©å“ã€‚\n");
     }
         
     p = sort_array(keys(npc), 1);
 
-    msg += name +"³¡¾°ÓĞÒÔÏÂNPC»òÎïÆ·£º\n";
+    msg += name +"åœºæ™¯æœ‰ä»¥ä¸‹NPCæˆ–ç‰©å“ï¼š\n";
 
     for (i=0; i < count; i++){
     	tmpnpc = new(p[i]);   	
-    	msg += sprintf("%s%s\n",npc[p[i]]>1?(chinese_number(npc[p[i]])+"Î»"):"",tmpnpc->short(1));
+    	msg += sprintf("%s%s\n",npc[p[i]]>1?(chinese_number(npc[p[i]])+"ä½"):"",tmpnpc->short(1));
     }
     return msg;
 }
@@ -354,7 +354,7 @@ string QueryAction(object ob,object finder)
     finder->move(ob);
     cmds = finder->query_commands();
     if ( sizeof(cmds) == 1) return("");
-    msg += name +"Ìá¹©ÈçÏÂÖ¸Áî£º\n";
+    msg += name +"æä¾›å¦‚ä¸‹æŒ‡ä»¤ï¼š\n";
     foreach(mixed cmd in cmds){
         if( cmd[2]==finder ) continue;
         msg+=sprintf("%-10s   ", cmd[0]);
@@ -374,15 +374,15 @@ string QuerySkill(object ob)
 
     m_skills = ob->query_skills();
     if ( !sizeof(m_skills) )
-        return(ob->query("name")+"Ã»ÓĞÑ§¹ıÈÎºÎ¼¼ÄÜ¡£\n");
-    msg += ob->name() +"Ä¿Ç°ËùÑ§¹ıµÄ¼¼ÄÜ£º\n";
+        return(ob->query("name")+"æ²¡æœ‰å­¦è¿‡ä»»ä½•æŠ€èƒ½ã€‚\n");
+    msg += ob->name() +"ç›®å‰æ‰€å­¦è¿‡çš„æŠ€èƒ½ï¼š\n";
     m_enable = ob->query_skill_map();
     if ( !mapp(m_enable) ) m_enable = ([]);
     sname=keys(m_skills);
-    msg=msg+"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n";
+    msg=msg+"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n";
     for ( i = 0; i < sizeof( m_skills ); i++ ){
         msg=msg+sprintf( "%s%-12s%-28s%8d\n",
-            m_enable[ sname[i] ] ? "¡õ" : "  ",
+            m_enable[ sname[i] ] ? "â–¡" : "  ",
             to_chinese(sname[i]),  "(" + sname[i] + ")",
             m_skills[sname[i]]);        
         }
@@ -394,15 +394,15 @@ string QueryObj(object ob)
 	string *key, unit;
 	mixed first;
 	int i;
-	string msg = "©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n";
+	string msg = "â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n";
 	
     	inv = filter_array(all_inventory(ob), "visible", ob);
 	if (!sizeof(inv)) {
-		msg +=  ob->name() + "ÉíÉÏÃ»ÓĞĞ¯´øÈÎºÎ¶«Î÷¡£\n";
+		msg +=  ob->name() + "èº«ä¸Šæ²¡æœ‰æºå¸¦ä»»ä½•ä¸œè¥¿ã€‚\n";
 		return msg;
 	}
 
-	msg += sprintf("%sÉíÉÏ´ø×Å%s¼ş¶«Î÷(¸ºÖØ %:2f%%)£º\n",
+	msg += sprintf("%sèº«ä¸Šå¸¦ç€%sä»¶ä¸œè¥¿(è´Ÿé‡ %:2f%%)ï¼š\n",
 		ob->name(),
 		chinese_number(sizeof(inv)),
 		ob->query_encumbrance() * 100.0 / ob->query_max_encumbrance()
@@ -420,7 +420,7 @@ string QueryObj(object ob)
 
 	foreach(object item in first) {
 		unit = sprintf("%s",
-			(item->query("equipped")? HIC"¡õ"NOR :item->query("embedded")? HIR"¡î"NOR: "  ")+
+			(item->query("equipped")? HIC"â–¡"NOR :item->query("embedded")? HIR"â˜†"NOR: "  ")+
 			item->short()
 		);
 
@@ -451,7 +451,7 @@ string QueryObj(object ob)
 		msg += unit + "\n";
 	}
 	//write(str);
-	//if ( wiz ) write("×ÜÖØÁ¿£º" + ob->query_encumbrance() + "\n");
+	//if ( wiz ) write("æ€»é‡é‡ï¼š" + ob->query_encumbrance() + "\n");
     return msg;
 }
 
@@ -463,11 +463,11 @@ string QueryEquipProp(object equip,mixed props)
     string *prop;
 
     if(stringp(type=equip->query("skill_type")))
-        msg+=sprintf("±øÆ÷ÀàĞÍ£º%-10s     ¹¥ »÷ Á¦£º%d",type,(int)equip->query("weapon_porp/damage"));
+        msg+=sprintf("å…µå™¨ç±»å‹ï¼š%-10s     æ”» å‡» åŠ›ï¼š%d",type,(int)equip->query("weapon_porp/damage"));
     else if(stringp(type=equip->query("skill_type")))
-        msg+=sprintf("·À¾ßÀàĞÍ£º%-10s     ·À Óù Á¦£º%d",type,(int)equip->query("armor_porp/armor"));
+        msg+=sprintf("é˜²å…·ç±»å‹ï¼š%-10s     é˜² å¾¡ åŠ›ï¼š%d",type,(int)equip->query("armor_porp/armor"));
     if ( !sizeof(props)) return("");
-    msg += "          "+equip->name()+"µÄÆäËû¹¦Ğ§£º\n";
+    msg += "          "+equip->name()+"çš„å…¶ä»–åŠŸæ•ˆï¼š\n";
     prop=keys(props);
     for (i=0;i<sizeof(props);i++){
 // foreach(string prop in props){
@@ -495,11 +495,11 @@ string status_color(int current, int max)
 int help(object me)
 {
     write(@HELP
-Ö¸Áî¸ñÊ½£ºdoc Â·¾¶Ãû -ÖÖÀàÃû 
-Ä¿Ç°Ìá¹©µÄÖÖÀàÓĞ£ºroom¡¢npc¡¢item
-Àı£º
+æŒ‡ä»¤æ ¼å¼ï¼šdoc è·¯å¾„å -ç§ç±»å 
+ç›®å‰æä¾›çš„ç§ç±»æœ‰ï¼šroomã€npcã€item
+ä¾‹ï¼š
     doc /d/city/npc -npc
-ÓĞÍæ¼ÒÔÚÏßÊ±×îºÃ²»Ê¹ÓÃ´ËÖ¸Áî¡£
+æœ‰ç©å®¶åœ¨çº¿æ—¶æœ€å¥½ä¸ä½¿ç”¨æ­¤æŒ‡ä»¤ã€‚
 HELP);
     return 1;
 }

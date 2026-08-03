@@ -5,36 +5,36 @@ int do_lingwu(string arg)
 	int i = me->query_skill("douzhuan-xingyi", 1);
         int lv = me->query("max_pot")-100;
 	if( !living(who))
-		return notify_fail("Ä½Èİ¸´ÏÖÔÚµÄ×´¿ö£¬¿´À´ÎŞ·¨»Ø´ğÄãÈÎºÎÎÊÌâ¡£\n");
+		return notify_fail("æ…•å®¹å¤ç°åœ¨çš„çŠ¶å†µï¼Œçœ‹æ¥æ— æ³•å›ç­”ä½ ä»»ä½•é—®é¢˜ã€‚\n");
 
-	if ( me->query("family/family_name") != "¹ÃËÕÄ½Èİ")
-		return notify_fail("Äã·ÇÎÒÄ½ÈİµÜ×Ó£¬ÏòÎÒÌÖ½ÌÊ²Ã´°¡£¿\n");
+	if ( me->query("family/family_name") != "å§‘è‹æ…•å®¹")
+		return notify_fail("ä½ éæˆ‘æ…•å®¹å¼Ÿå­ï¼Œå‘æˆ‘è®¨æ•™ä»€ä¹ˆå•Šï¼Ÿ\n");
 
 	if (!arg || arg !="douzhuan-xingyi" ){
-		message_vision("$NÏò$nÌÖ½ÌÒ»Ğ©¹ØÓÚÎäÑ§ÉÏµÄÒÉÎÊ¡£\n", me, who);
+		message_vision("$Nå‘$nè®¨æ•™ä¸€äº›å…³äºæ­¦å­¦ä¸Šçš„ç–‘é—®ã€‚\n", me, who);
 		command("dunno "+me->query("id"));
 		return 1;
 	}
 	if (me->is_busy() || me->is_fighting()){
-		command("say ÄãÕıÃ¦×Å¸É±ğµÄÊÂÇéÄØ£¬Ã¦ÍêÁËÔÙËµ°É¡£");
+		command("say ä½ æ­£å¿™ç€å¹²åˆ«çš„äº‹æƒ…å‘¢ï¼Œå¿™å®Œäº†å†è¯´å§ã€‚");
 		return 1;
 	}
 	if( me->query("jing") < 10)
-		return notify_fail("ÄãÌ«ÀÛÁË£¬»¹ÊÇĞİÏ¢Ò»»á°É¡£\n");
+		return notify_fail("ä½ å¤ªç´¯äº†ï¼Œè¿˜æ˜¯ä¼‘æ¯ä¸€ä¼šå§ã€‚\n");
 	if((int)me->query("potential", 1) < 1 )
-		return notify_fail("ÄãÇ±ÄÜ²»¹»¡£\n");
+		return notify_fail("ä½ æ½œèƒ½ä¸å¤Ÿã€‚\n");
 	if ( i <= 50 ){
-		command("say ÄãµÄ¶·×ªĞÇÒÆµÈ¼¶²»¹»£¬»¹²»ÄÜ´ÓÎÒÕâÀïÑ§µ½Ê²Ã´¡£");
+		command("say ä½ çš„æ–—è½¬æ˜Ÿç§»ç­‰çº§ä¸å¤Ÿï¼Œè¿˜ä¸èƒ½ä»æˆ‘è¿™é‡Œå­¦åˆ°ä»€ä¹ˆã€‚");
 		return 1;
 	}
-	write("ÄãÏòÄ½Èİ¸´ÌÖ½Ì¹ØÓÚ¡¸" + to_chinese(arg) + "¡¹µÄÒÉÎÊ¡£\n");
-	write(HIC"ÄãÌıÁËÄ½Èİ¸´µÄÖ¸µã£¬ÁìÎòµ½¶·×ªĞÇÒÆµÄ¾«ËèËùÔÚ¡£\n");
-	write(HIR"ÄãµÄ[¶·×ªĞÇÒÆ]Ìá¸ßµ½ÁËÄãÄ¿Ç°ÊµÕ½¾­ÑéÏŞÖÆµÄ×î¸ß¼¶±ğ£¡\n");
+	write("ä½ å‘æ…•å®¹å¤è®¨æ•™å…³äºã€Œ" + to_chinese(arg) + "ã€çš„ç–‘é—®ã€‚\n");
+	write(HIC"ä½ å¬äº†æ…•å®¹å¤çš„æŒ‡ç‚¹ï¼Œé¢†æ‚Ÿåˆ°æ–—è½¬æ˜Ÿç§»çš„ç²¾é«“æ‰€åœ¨ã€‚\n");
+	write(HIR"ä½ çš„[æ–—è½¬æ˜Ÿç§»]æé«˜åˆ°äº†ä½ ç›®å‰å®æˆ˜ç»éªŒé™åˆ¶çš„æœ€é«˜çº§åˆ«ï¼\n");
       me->set_skill("douzhuan-xingyi", lv);
 
        if (i >= lv -1)
          {
-		command("say ÄãµÄÊµÕ½¾­Ñé²»¹»£¬ÎŞ·¨ÁìÎòµ½Ê²Ã´¡£");
+		command("say ä½ çš„å®æˆ˜ç»éªŒä¸å¤Ÿï¼Œæ— æ³•é¢†æ‚Ÿåˆ°ä»€ä¹ˆã€‚");
 		return 1;
 	}
         

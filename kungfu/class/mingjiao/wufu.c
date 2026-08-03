@@ -1,14 +1,14 @@
-// wufu.c ÒóÎŞ¸£
+// wufu.c æ®·æ— ç¦
 // Modify By River@sj 99.06
 inherit NPC;
 inherit F_MASTER;
 string ask_xunluo();
 void create()
 {
-        set_name("ÒóÎŞ¸£", ({ "yin wufu", "yin", "wufu" }));
-        set("title","Ã÷½ÌÌìÓ¥·Ö¶æÊôÏÂ");
+        set_name("æ®·æ— ç¦", ({ "yin wufu", "yin", "wufu" }));
+        set("title","æ˜æ•™å¤©é¹°åˆ†èˆµå±ä¸‹");
         set("age", 45);
-	set("long","ËûÊÇÒó¼ÒµÄÆÓÈË¡£\n");
+	set("long","ä»–æ˜¯æ®·å®¶çš„æœ´äººã€‚\n");
 	set("str", 23);
         set("int", 20);
         set("con", 23);
@@ -33,11 +33,11 @@ void create()
         map_skill("blade", "lieyan-dao");
         prepare_skill("hand","yingzhua-shou");
         set("inquiry", ([
-                "»­Ó¡"  : (: ask_xunluo :),
+                "ç”»å°"  : (: ask_xunluo :),
         ]));
         set("xl", 9);
         set("xl2", "yinwufu");
-        create_family("Ã÷½Ì", 38, "µÜ×Ó");
+        create_family("æ˜æ•™", 38, "å¼Ÿå­");
         setup();
         carry_object("/d/mingjiao/obj/green-cloth")->wear();
 }
@@ -47,32 +47,32 @@ void attempt_apprentice(object ob)
         object me  = this_object();
         mapping fam = ob->query("family");
         mapping my_fam = me->query("family");
-        if (fam && (fam["family_name"] == "Îäµ±ÅÉ" || fam["family_name"] == "¶ëáÒÅÉ"
-            || fam["family_name"] == "ÉÙÁÖÅÉ" || fam["family_name"] == "Ø¤°ï"
-            || fam["family_name"] == "À¥ÂØÅÉ" || fam["family_name"] == "»ªÉ½ÅÉ")){
-                command("say ÄãÃÇ×ÔÃüÃûÃÅÕıÅÉ£¬»¹À´ÕâÀï×öÊ²£¿");
+        if (fam && (fam["family_name"] == "æ­¦å½“æ´¾" || fam["family_name"] == "å³¨åµ‹æ´¾"
+            || fam["family_name"] == "å°‘æ—æ´¾" || fam["family_name"] == "ä¸å¸®"
+            || fam["family_name"] == "æ˜†ä»‘æ´¾" || fam["family_name"] == "åå±±æ´¾")){
+                command("say ä½ ä»¬è‡ªå‘½åé—¨æ­£æ´¾ï¼Œè¿˜æ¥è¿™é‡Œåšä»€ï¼Ÿ");
                 return;
         }
-        if(fam && fam["master_name"] == "ÕÅÎŞ¼É"){
+        if(fam && fam["master_name"] == "å¼ æ— å¿Œ"){
 		command("haha");
-		command("say "+RANK_D->query_respect(ob)+"ÒÑÊÇ½ÌÖ÷Ç×´«µÜ×Ó£¬"+RANK_D->query_self(me)+"Ôõ¸ÒÔÙÊÕÄãÎªÍ½£¿");
+		command("say "+RANK_D->query_respect(ob)+"å·²æ˜¯æ•™ä¸»äº²ä¼ å¼Ÿå­ï¼Œ"+RANK_D->query_self(me)+"æ€æ•¢å†æ”¶ä½ ä¸ºå¾’ï¼Ÿ");
 		return;
         }
-	if (fam && fam["family_name"] == "Ã÷½Ì" && fam["generation"] <= my_fam["generation"]){
+	if (fam && fam["family_name"] == "æ˜æ•™" && fam["generation"] <= my_fam["generation"]){
 		command("shake");
-		command("say "+RANK_D->query_respect(ob)+"ÒÑÓĞÃ÷Ê¦£¬"+RANK_D->query_respect(me)+"Ôõ¸ÒÔÙÊÕÄãÎªÍ½£¿");
+		command("say "+RANK_D->query_respect(ob)+"å·²æœ‰æ˜å¸ˆï¼Œ"+RANK_D->query_respect(me)+"æ€æ•¢å†æ”¶ä½ ä¸ºå¾’ï¼Ÿ");
 		return;
         }
         if ( ob->query("int") < 20 ){
 		command("shake");
-		command("say ÒªÄÜ´ïµ½Â¯»ğ´¿ÇàÖ®¾³£¬ÌåÖÊÊ²Ã´µÄµ¹ÊÇÎŞ¹Ø½ôÒª£¬ÎòĞÔÈ´ÊÇ°ëµãÒ²Âí»¢²»µÃ¡£");
+		command("say è¦èƒ½è¾¾åˆ°ç‚‰ç«çº¯é’ä¹‹å¢ƒï¼Œä½“è´¨ä»€ä¹ˆçš„å€’æ˜¯æ— å…³ç´§è¦ï¼Œæ‚Ÿæ€§å´æ˜¯åŠç‚¹ä¹Ÿé©¬è™ä¸å¾—ã€‚");
 		return;
         }
         command("look " + ob->query("id"));
-        command("say àÅ£¬¿´Äã»¹ÊÇ¸öÑ§ÎäµÄÁÏ£¬ÎÒ¾ÍÊÕÏÂÄã°É£¡");
-        command("say ¶àĞ»Ã÷×ğ±ÖÓÓ£¬ÈÃÎÒÃ÷½ÌÓÖµÃÒ»Á¼²Ä£¬Îª¿µ·öÕıÒå£¬°ÑÎÒÃ÷½Ì·¢Ñï¹â´ó°É¡£");
+        command("say å—¯ï¼Œçœ‹ä½ è¿˜æ˜¯ä¸ªå­¦æ­¦çš„æ–™ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ å§ï¼");
+        command("say å¤šè°¢æ˜å°Šæ•ä½‘ï¼Œè®©æˆ‘æ˜æ•™åˆå¾—ä¸€è‰¯æï¼Œä¸ºåº·æ‰¶æ­£ä¹‰ï¼ŒæŠŠæˆ‘æ˜æ•™å‘æ‰¬å…‰å¤§å§ã€‚");
         command("recruit " + ob->query("id"));
-        ob->set("title","Ã÷½ÌÌìÎ¢ÌÃ½ÌÖÚ");
+        ob->set("title","æ˜æ•™å¤©å¾®å ‚æ•™ä¼—");
 }
 
 #include "xunluo.h";

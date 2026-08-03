@@ -4,14 +4,14 @@ inherit __DIR__"animal";
 
 void create()
 {
-	set_name("����",({"snake","she","dushe"}));
-	set("race","Ұ��");
-	set("limbs", ({ "ͷ��", "����", "β��" }) );
+	set_name("毒蛇",({"snake","she","dushe"}));
+	set("race","野兽");
+	set("limbs", ({ "头部", "身体", "尾巴" }) );
 	set("verbs",({"bite"}));
 	set("attitude","peaceful");
 	set("age",3);
 	set("combat_exp",3000000);
-	set("long","����һֻ���о޶����ߡ�\n");
+	set("long","这是一只含有巨毒的蛇。\n");
 	set("max_qi",5000);
 	set("max_jing",3500);
 	set("max_neili",7000);
@@ -25,8 +25,8 @@ void create()
 	set("chat_chance", 10);
        set("chat_msg", ({
 		(: random_move :),
-		"����Զ����������Ŀ�ⶢ���㡣\n",
-		"��������İ������̳�һ�š�\n",
+		"蛇在远处用狰狞的目光盯着你。\n",
+		"蛇懒洋洋的把身子盘成一团。\n",
        }));
 	set_temp("apply/attack",200);
 	set_temp("apply/damage",200);

@@ -4,13 +4,13 @@ inherit NPC;
 
 void create()
 {
-        set_name("蜜蜂", ({ "bee", "mifeng", "feng" }) );
-        set("race", "野兽");
+        set_name("铚滆渹", ({ "bee", "mifeng", "feng" }) );
+        set("race", "閲庡吔");
         set("age", 2);
-        set("long", "一只飞来飞去的小蜜蜂。\n");
+        set("long", "涓�鍙鏉ラ鍘荤殑灏忚湝铚傘�俓n");
 	set("attitude", "aggressive");
 
-        set("limbs", ({ "头部", "身体", "翅膀", "尾部" }) );
+        set("limbs", ({ "澶撮儴", "韬綋", "缈呰唨", "灏鹃儴" }) );
         set("verbs", ({ "sting" }) );
 
         set("combat_exp", 500);

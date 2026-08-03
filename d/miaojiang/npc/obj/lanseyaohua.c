@@ -7,12 +7,12 @@ void init()
 
 void create()
 {
-	set_name(BLU"À¶É«Ò©»¨"NOR, ({"lanse yaohua", "yaohua"}));
+	set_name(BLU"è“è‰²è¯èŠ±"NOR, ({"lanse yaohua", "yaohua"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Ã");
-		set("long", "ÕâÊÇÒ»¿ÃÀ¶É«Ò©»¨¡£\n");
+		set("unit", "æ£µ");
+		set("long", "è¿™æ˜¯ä¸€æ£µè“è‰²è¯èŠ±ã€‚\n");
 		set("value", 10000);
 	}
 set("make/drug",1);
@@ -25,8 +25,8 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
-	     message_vision(HIG "$N³ÔÏÂÒ»¿ÃÀ¶É«Ò©»¨!\n" NOR, me);
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
+	     message_vision(HIG "$Nåƒä¸‹ä¸€æ£µè“è‰²è¯èŠ±!\n" NOR, me);
         me->add("qi", me->query("int")/2);
        me->start_busy(3);
        destruct(this_object());

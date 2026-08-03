@@ -10,10 +10,10 @@ string ask_me(object who);
 
 void create()
 {
-	set_name("��ʬ", ({ "jiang shi", "jiang" , "shi" }) );
-	 set("title", HIB"Թ��"NOR);
+	set_name("僵尸", ({ "jiang shi", "jiang" , "shi" }) );
+	 set("title", HIB"怨孽"NOR);
 
-	set("gender", "����" );
+	set("gender", "男性" );
 	set("shen_type", -1);
 	set("age", 25);
 	set("str", 25);
@@ -21,7 +21,7 @@ void create()
 	set("cps", 25);
 	set("int", 25);
 	set("long",
-	"���Ǹ��׶�����Ľ�ʬ����ɫ֮���������տտ���⣬��Ϊ�}�ˡ�\n" );
+	"这是个凶恶阴冷的僵尸，月色之下两颗獠牙湛湛泛光，颇为瘆人。\n" );
 
 	set("combat_exp", 20000);
 	
@@ -41,12 +41,12 @@ int do_xiangfu(string arg)
 {
  object me = this_player();
 object ob = this_object();
- if (!arg) return notify_fail("��Ҫ����˭��\n");
-if (!ob || !living(ob)) return notify_fail("��Ҫ����˭��\n");
+ if (!arg) return notify_fail("你要降伏谁？\n");
+if (!ob || !living(ob)) return notify_fail("你要降伏谁？\n");
 
- message_vision(HIB"\n$N�̵���ǰ����$n"HIB"���һ�����η����������ߣ�\n"NOR, me, ob);
-message_vision(HIB"\nͨ��֮�£�һ����ʿ������ʬ��û��������$n��$N��Ȼ���˷�����\n"
-                    "һʱ����һ����$N��״���������ǣ���ǰֱȡ$n��˫��ս��һ����\n"NOR, me, ob);
+ message_vision(HIB"\n$N仗胆上前，对$n"HIB"大喝一声：何方妖孽，休走！\n"NOR, me, ob);
+message_vision(HIB"\n通常之下，一般人士见到僵尸皆没命逃亡，$n见$N竟然不退反进，\n"
+                    "一时心中一怔，$N见状，胆气大涨，上前直取$n，双方战在一处。\n"NOR, me, ob);
 
 remove_call_out("do_yuanxing");
 call_out("do_yuanxing", 2, me);
@@ -57,9 +57,9 @@ int do_yuanxing(object me)
 {
 object ob = this_object();
 object ob1 = new("quest/xyfm/npc/killer");
-message_vision(HIR"\nս�˼��ϣ�$N��$n���Ǵ������׺��쳣����������������������Ц��\n"NOR, me, ob);
+message_vision(HIR"\n战了几合，$N见$n并非传闻中凶狠异常，不禁豪气顿生，纵声长笑。\n"NOR, me, ob);
 ob1->move(environment(me));
-message_vision(HIR"\n$n����ԽսԽ�ӣ�һ���������ϵĽ�ʬ���ֵ����ڵأ�ԭ��$n�����˼ٰ���ɵġ�\n"NOR, me, ob);
+message_vision(HIR"\n$n则是越战越怯，一不留神，身上的僵尸面罩掉落在地，原来$n竟是人假扮而成的。\n"NOR, me, ob);
 destruct(ob);
 
 

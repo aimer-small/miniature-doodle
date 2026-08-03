@@ -8,17 +8,17 @@ void create()
 {
 	object ob;
 
-	set_name("»ÆÖÓ¹«", ({ "huangzhong gong", "huang", "gong" }));
-	set("nickname", HIR"Ã·×¯´ó×¯Ö÷"NOR);
+	set_name("é»„é’Ÿå…¬", ({ "huangzhong gong", "huang", "gong" }));
+	set("nickname", HIR"æ¢…åº„å¤§åº„ä¸»"NOR);
 
-	set("gender", "ÄÐÐÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 65);
 	set("no_quest", 1);
 	set("no_bark", 1);
 	set("long",
-      "Ëû¾ÍÊÇÃ·×¯ËÄÎ»×¯Ö÷ÅÅÐÐµÚÒ»µÄ»ÆÖÓ¹«¡£\n"
-      "Éí´©Ò»¼þ¸É¸É¾»¾»µÄ»ÆÉ«³¤ÅÛ¡£\n"
-      "ËûÒÑÄêÓúÁùÑ®£¬Éí²ÄÖÐµÈ£¬ÃæÈÝºÍ°ª¿ÉÇ×¡£\n");
+      "ä»–å°±æ˜¯æ¢…åº„å››ä½åº„ä¸»æŽ’è¡Œç¬¬ä¸€çš„é»„é’Ÿå…¬ã€‚\n"
+      "èº«ç©¿ä¸€ä»¶å¹²å¹²å‡€å‡€çš„é»„è‰²é•¿è¢ã€‚\n"
+      "ä»–å·²å¹´æ„ˆå…­æ—¬ï¼Œèº«æä¸­ç­‰ï¼Œé¢å®¹å’Œè”¼å¯äº²ã€‚\n");
 	set("qi", 4000);
 	set("max_qi", 4000);
 	set("jing", 4000);
@@ -50,7 +50,7 @@ void create()
 	
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"»ÆÖÓ¹«Ì¾ÁË¿ÚÆøµÀ£ºË­ÄÜ½«¡°¹ãÁêÉ¢¡±ÅªÀ´¸øÎÒÑ½¡­¡­¡±\n",
+		"é»„é’Ÿå…¬å¹äº†å£æ°”é“ï¼šè°èƒ½å°†â€œå¹¿é™µæ•£â€å¼„æ¥ç»™æˆ‘å‘€â€¦â€¦â€\n",
 	}));
 
 	set_temp("apply/damage", 260);
@@ -71,14 +71,14 @@ int accept_object(object who, object ob)
         //mapping fam;
         me = this_object();
 /*
-        if (!(fam = this_player()->query("family")) || fam["family_name"] !="ÈÕÔÂÉñ½Ì"){
+        if (!(fam = this_player()->query("family")) || fam["family_name"] !="æ—¥æœˆç¥žæ•™"){
              command("thank "+ (string)who->query("id"));
-             command("say ÄãÓë±¾ÅÉËØÎÞÀ´Íù£¬²»ÖªÎªºÎËÍÈç´ËºñÀñ£¿");
+             command("say ä½ ä¸Žæœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥ä¸ºä½•é€å¦‚æ­¤åŽšç¤¼ï¼Ÿ");
              return 0;
         }
  */       
         if (!this_player()->query_temp("mz_entrance")){
-             command("say ÄãÊÇÔõÃ´½øÀ´µÄ£¿");
+             command("say ä½ æ˜¯æ€Žä¹ˆè¿›æ¥çš„ï¼Ÿ");
              return 0;
         }
         
@@ -86,7 +86,7 @@ int accept_object(object who, object ob)
         if ((string)ob->query("id") == "guangling san"){
             command("haha "+(string)who->query("id"));
             call_out("destroying", 1, ob);
-            command("say Äã°ïÎÒ°ì³ÉÁËÕâ¼þÊÂ£¬ÎÒºÜ¸ßÐË£¬ÄãÈ¥ÕÒÎÒµÄ¶þµÜºÚ°××ÓÊÔÊÔ°É£¬»òÐíËûÄÜ¸øÄãÒ»Ð©ÌáÊ¾£¡");
+            command("say ä½ å¸®æˆ‘åŠžæˆäº†è¿™ä»¶äº‹ï¼Œæˆ‘å¾ˆé«˜å…´ï¼Œä½ åŽ»æ‰¾æˆ‘çš„äºŒå¼Ÿé»‘ç™½å­è¯•è¯•å§ï¼Œæˆ–è®¸ä»–èƒ½ç»™ä½ ä¸€äº›æç¤ºï¼");
             who->set_temp("meizhuangguangling",1);
             who->delete_temp("mz_entrance");
               return 1;

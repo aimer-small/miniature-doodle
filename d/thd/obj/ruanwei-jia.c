@@ -4,13 +4,13 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(YEL"Èíâ¬¼×"NOR, ({ "ruanwei jia","ruanwei", "jia" }) );
+	set_name(YEL"è½¯çŒ¬ç”²"NOR, ({ "ruanwei jia","ruanwei", "jia" }) );
 	set_weight(2500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÌÒ»¨µºÖÁ±¦Èíâ¬¼×£¬ÖÊµØ¼áÈÍ£¬µ¶Ç¹²»Èë¡£\n");
-		set("unit", "¼þ");
+		set("long", "æ¡ƒèŠ±å²›è‡³å®è½¯çŒ¬ç”²ï¼Œè´¨åœ°åšéŸ§ï¼Œåˆ€æžªä¸å…¥ã€‚\n");
+		set("unit", "ä»¶");
                 set("unique", 1);
                 set("treasure",1);
 		set("value", 1000000);
@@ -30,7 +30,7 @@ mixed ob_hit()
         string msg;
 	if(!weapon && random(10) > 4
  	 && random(ob->query("combat_exp"))<me->query("combat_exp")*3/4) {
-		msg = "Ö»Ìý¡°°¡Ó´¡±Ò»Éù¾ªºô£¬$NÎåÖ¸È«²åÔÚÈíâ¬¼×µÄ´ÌÉÏ£¬¶ÙÊ±´ÌµÃÏÊÑªÁÜÀì£¡\n";
+		msg = "åªå¬â€œå•Šå“Ÿâ€ä¸€å£°æƒŠå‘¼ï¼Œ$Näº”æŒ‡å…¨æ’åœ¨è½¯çŒ¬ç”²çš„åˆºä¸Šï¼Œé¡¿æ—¶åˆºå¾—é²œè¡€æ·‹æ¼“ï¼\n";
 		ob->receive_damage("qi", damage/5>200?200:damage/5);
 		ob->receive_wound("qi", damage/5>100?100:damage/5);
 		p = (int)ob->query("eff_qi")*100/(int)ob->query("max_qi");

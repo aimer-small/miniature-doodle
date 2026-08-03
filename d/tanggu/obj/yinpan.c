@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIW"ÒøÅÌ"NOR, ({ "yin pan", "pan" }));
+        set_name(HIW"é“¶ç›˜"NOR, ({ "yin pan", "pan" }));
         set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ö»");
-                set("long", "Ò»Ö»ÒøÅÌ¡£\n");
+		set("unit", "åª");
+                set("long", "ä¸€åªé“¶ç›˜ã€‚\n");
                 set("value", 3000);
 		set("material", "silver");
 	}

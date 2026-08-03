@@ -2,9 +2,9 @@
 inherit ITEM;
 void create()
 {
-        set_name(HIR"Ê¦ÃÅÃÜÐÅ"NOR, ({ "shimen mixin","mixin","letter" }) );
-        set("long",HIY"ÕâÊÇÒ»·ÝÊ¦ÃÅÍ¨¹ýÃØÃÜÇþµÀ´«À´µÄ½ô¼±µ÷²é(diaocha)Çé±¨¡£\n"NOR);
-        set("unit", "·Ý");
+        set_name(HIR"å¸ˆé—¨å¯†ä¿¡"NOR, ({ "shimen mixin","mixin","letter" }) );
+        set("long",HIY"è¿™æ˜¯ä¸€ä»½å¸ˆé—¨é€šè¿‡ç§˜å¯†æ¸ é“ä¼ æ¥çš„ç´§æ€¥è°ƒæŸ¥(diaocha)æƒ…æŠ¥ã€‚\n"NOR);
+        set("unit", "ä»½");
         set("weight", 90);
         set("no_sell",1);
         set("value", 0);
@@ -20,28 +20,28 @@ int do_diaocha(string arg)
 {
 	object me=this_player() , ob,npc ;
 
-	if (!arg) return notify_fail("ÄãÒªµ÷²éË­£¿\n");
+	if (!arg) return notify_fail("ä½ è¦è°ƒæŸ¥è°ï¼Ÿ\n");
 
 	ob = present(arg, environment(me));
 
-	if (!ob || !living(ob)) return notify_fail("ÄãÒªµ÷²éË­£¿\n");
+	if (!ob || !living(ob)) return notify_fail("ä½ è¦è°ƒæŸ¥è°ï¼Ÿ\n");
 	
 	
 	if ( userp(ob) || ob->query_temp("party_job_target")!= me->query("id") )
-		return notify_fail("Õâ¸öÈËºÃÏó²»ÊÇÒªµ÷²éÄÇ¸ö°É£¡\n");
+		return notify_fail("è¿™ä¸ªäººå¥½è±¡ä¸æ˜¯è¦è°ƒæŸ¥é‚£ä¸ªå§ï¼\n");
         if (me->query_temp("party_job_start"))
-                return notify_fail("ÄãÒÑ¾­µ÷²é³öÕæÏàÁË£¬½øÐÐÏÂÒ»²½°É£¡\n");
+                return notify_fail("ä½ å·²ç»è°ƒæŸ¥å‡ºçœŸç›¸äº†ï¼Œè¿›è¡Œä¸‹ä¸€æ­¥å§ï¼\n");
        if (me->query_temp("party_job_over"))
-                return notify_fail("ÄãÒÑ¾­µ÷²é³öÕæÏàÁË£¬½øÐÐÏÂÒ»²½°É£¡\n");
+                return notify_fail("ä½ å·²ç»è°ƒæŸ¥å‡ºçœŸç›¸äº†ï¼Œè¿›è¡Œä¸‹ä¸€æ­¥å§ï¼\n");
 
-	message_vision(HIY"$N"HIY"Ô¶Ô¶Ïò$nÍûÈ¥£¬Ö»¼û$nÉñÉ«ÉÁË¸²»¶¨¡£\n"NOR,me, ob);
-	message_vision(HIR"\nÖ»¼û$NÃæÓÐôöÉ«£¬ÍÌÍÌÍÂÍÂËµµÀ£º¡°ÆäÊµÎÒÊÇÊÜÁË....¡±\n"NOR, ob);
-	message_vision(HIR"\n»°ÒôÎ´Âä£¬°µµØÀï´Ü³ö¸öÈËÓ°£¬²»ÓÉ·ÖËµÏò$N¹¥È¥¡£\n"NOR, me,ob);
+	message_vision(HIY"$N"HIY"è¿œè¿œå‘$næœ›åŽ»ï¼Œåªè§$nç¥žè‰²é—ªçƒä¸å®šã€‚\n"NOR,me, ob);
+	message_vision(HIR"\nåªè§$Né¢æœ‰èµ§è‰²ï¼Œåžåžååè¯´é“ï¼šâ€œå…¶å®žæˆ‘æ˜¯å—äº†....â€\n"NOR, ob);
+	message_vision(HIR"\nè¯éŸ³æœªè½ï¼Œæš—åœ°é‡Œçªœå‡ºä¸ªäººå½±ï¼Œä¸ç”±åˆ†è¯´å‘$Næ”»åŽ»ã€‚\n"NOR, me,ob);
 me->set_temp("party_job_start",1);
 npc = new("/quest/party/guard");
 npc->do_copy(me,0);
 npc->move(environment(me));
-npc->set("²ß·´",ob);
+npc->set("ç­–å",ob);
 npc->set_temp("target", me->query("id"));
 me->kill_ob(npc);
 npc->kill_ob(me);
@@ -53,44 +53,44 @@ int do_jiaoxun(string arg)
 {
 	object me=this_player() , ob,target ;
         int gx;  
-	if(!arg ) return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+	if(!arg ) return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 
 	
    
         if(me->is_busy() || me->is_fighting()) 
-                 return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n"); 
+                 return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n"); 
 
 if(me->query_temp("party_job_start"))
-         return notify_fail("ÄãÏÈ¸Ï½ô´¦Àíµô¶ñÔôÔÙËµ°É¡£\n");
+         return notify_fail("ä½ å…ˆèµ¶ç´§å¤„ç†æŽ‰æ¶è´¼å†è¯´å§ã€‚\n");
 
 if(!me->query_temp("party_job_over"))
-         return notify_fail("²»·ÖÇàºìÔí°×¾ÍÏë½ÌÑµÈË£¬Äã¹»ºÝµÄ¡£\n");
+         return notify_fail("ä¸åˆ†é’çº¢çš‚ç™½å°±æƒ³æ•™è®­äººï¼Œä½ å¤Ÿç‹ çš„ã€‚\n");
 
  
  if (present(arg, environment(me))->query_temp("party_job_target") != me->query("id") )
-return notify_fail("Õâ¸öÈËºÃÏó²»ÊÇÒªµ÷²éÄÇ¸ö°É£¡\n");
+return notify_fail("è¿™ä¸ªäººå¥½è±¡ä¸æ˜¯è¦è°ƒæŸ¥é‚£ä¸ªå§ï¼\n");
 
  if(objectp(ob) && ob==present("jianxi", environment(me)))
-       if(ob->query("²ß·´") == me->query_temp("party_job_npc") )
-        return notify_fail("¼éÏ¸»¹Ã»³ýÈ¥£¬Äã³éµÄ³ö¿ÕÃ´¡£\n");
+       if(ob->query("ç­–å") == me->query_temp("party_job_npc") )
+        return notify_fail("å¥¸ç»†è¿˜æ²¡é™¤åŽ»ï¼Œä½ æŠ½çš„å‡ºç©ºä¹ˆã€‚\n");
 		
-message_vision(HIR"\n$NÉÏÇ°ÓïÖØÐÄ³¤µØ½ÌÑµÁË$n"HIR"Ò»·¬£¬$nÐßÀ¢Íò·ÖÎÞµØ×ÔÈÝ¡£\n\n"NOR, me, present(arg, environment(me)));
+message_vision(HIR"\n$Nä¸Šå‰è¯­é‡å¿ƒé•¿åœ°æ•™è®­äº†$n"HIR"ä¸€ç•ªï¼Œ$nç¾žæ„§ä¸‡åˆ†æ— åœ°è‡ªå®¹ã€‚\n\n"NOR, me, present(arg, environment(me)));
 
   
 //	me->set_temp("diaochaover",1); 
 	me->start_busy(1);
 
 
-TASKREWARD_D->get_reward(me,"Ê¦ÃÅ¹±Ï×",1,0,0,random(2)+1,0,0,0,this_object());
+TASKREWARD_D->get_reward(me,"å¸ˆé—¨è´¡çŒ®",1,0,0,random(2)+1,0,0,0,this_object());
 gx = 1+random(2);
-message_vision(HIY"$N´ÓÕâÈÎÎñÖÐµÃµ½ÁË"+CHINESE_D->chinese_number(gx)+"µãÊ¦ÃÅ¹±Ï×¡£\n"NOR, me);
+message_vision(HIY"$Nä»Žè¿™ä»»åŠ¡ä¸­å¾—åˆ°äº†"+CHINESE_D->chinese_number(gx)+"ç‚¹å¸ˆé—¨è´¡çŒ®ã€‚\n"NOR, me);
 
 me->delete_temp("party_job");
 me->delete_temp("party_job_target");
 me->delete_temp("party_job_over");
 me->apply_condition("job_busy",2);
 me->add("party_cont",gx);
-me->set("job_name","Ê¦ÃÅ¹±Ï×");
+me->set("job_name","å¸ˆé—¨è´¡çŒ®");
 
 destruct(this_object());
 

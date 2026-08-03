@@ -1,4 +1,4 @@
-// wufu.c ÒóÎÞÊÙ
+// wufu.c æ®·æ— å¯¿
 // Modify By River@sj 99.06
 #include <ansi.h>
 inherit NPC;
@@ -6,10 +6,10 @@ inherit F_MASTER;
 string ask_yin();
 void create()
 {
-        set_name("ÒóÎÞÊÙ", ({ "yin wushou", "yin", "wushou" }));
-        set("title","Ã÷½ÌÌìÓ¥·Ö¶æÊôÏÂ");
+        set_name("æ®·æ— å¯¿", ({ "yin wushou", "yin", "wushou" }));
+        set("title","æ˜Žæ•™å¤©é¹°åˆ†èˆµå±žä¸‹");
         set("age", 46);
-	set("long","ËûÊÇÒó¼ÒµÄÆÓÈË¡£\n");
+	set("long","ä»–æ˜¯æ®·å®¶çš„æœ´äººã€‚\n");
 	set("str", 23);
         set("int", 20);
         set("con", 23);
@@ -33,10 +33,10 @@ void create()
         map_skill("parry", "yingzhua-shou");
         prepare_skill("hand","yingzhua-shou");
         set("inquiry", ([
-            "ÒóÎÞÂ»" : (: ask_yin :),
+            "æ®·æ— ç¦„" : (: ask_yin :),
             "yin wulu" : (: ask_yin :),
         ]) );
-        create_family("Ã÷½Ì",38,"µÜ×Ó");
+        create_family("æ˜Žæ•™",38,"å¼Ÿå­");
         setup();
         carry_object("/d/mingjiao/obj/green-cloth")->wear();
 }
@@ -45,14 +45,14 @@ void attempt_apprentice(object ob)
 {
         if ( ob->query("int") < 20 ){
         	command("shake");
-        	command("say ÒªÄÜ´ïµ½Â¯»ð´¿ÇàÖ®¾³£¬ÌåÖÊÊ²Ã´µÄµ¹ÊÇÎÞ¹Ø½ôÒª£¬ÎòÐÔÈ´ÊÇ°ëµãÒ²Âí»¢²»µÃ¡£");
+        	command("say è¦èƒ½è¾¾åˆ°ç‚‰ç«çº¯é’ä¹‹å¢ƒï¼Œä½“è´¨ä»€ä¹ˆçš„å€’æ˜¯æ— å…³ç´§è¦ï¼Œæ‚Ÿæ€§å´æ˜¯åŠç‚¹ä¹Ÿé©¬è™Žä¸å¾—ã€‚");
         	return;
         }
         command("look " + ob->query("id"));
-        command("say àÅ£¬¿´Äã»¹ÊÇ¸öÑ§ÎäµÄÁÏ£¬ÎÒ¾ÍÊÕÏÂÄã°É£¡");
-        command("say ¶àÐ»Ã÷×ð±ÖÓÓ£¬ÈÃÎÒÃ÷½ÌÓÖµÃÒ»Á¼²Ä£¬Îª¿µ·öÕýÒå£¬°ÑÎÒÃ÷½Ì·¢Ñï¹â´ó°É¡£");
+        command("say å—¯ï¼Œçœ‹ä½ è¿˜æ˜¯ä¸ªå­¦æ­¦çš„æ–™ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ å§ï¼");
+        command("say å¤šè°¢æ˜Žå°Šæ•ä½‘ï¼Œè®©æˆ‘æ˜Žæ•™åˆå¾—ä¸€è‰¯æï¼Œä¸ºåº·æ‰¶æ­£ä¹‰ï¼ŒæŠŠæˆ‘æ˜Žæ•™å‘æ‰¬å…‰å¤§å§ã€‚");
         command("recruit " + ob->query("id"));
-        ob->set("title","Ã÷½ÌÌìÎ¢ÌÃ½ÌÖÚ");
+        ob->set("title","æ˜Žæ•™å¤©å¾®å ‚æ•™ä¼—");
 }
 
 string ask_yin()
@@ -60,8 +60,8 @@ string ask_yin()
         object me, ob, where;
         me=this_player();
         ob = find_living("yin wulu");
-        if (!ob) return "¸ÕÓÐÃûµÜ×ÓÉÏÀ´±¨¸æ£¬ÎÒÎÞÂ»ÐÖºÃÏó±»ÈË¸øÉ±ÁË¡£\n";
+        if (!ob) return "åˆšæœ‰åå¼Ÿå­ä¸Šæ¥æŠ¥å‘Šï¼Œæˆ‘æ— ç¦„å…„å¥½è±¡è¢«äººç»™æ€äº†ã€‚\n";
         where = environment(ob);
-        if (!where) return "ÎÒÎÞÂ»ÐÖºÃÏóÑ²ÂßÈ¥ÁË£¬ÎÒÒ²²»ÖªµÀËûÏÖÔÚÔÚÄÄÀï¡£\n";
-         return "àÅ£¬ÎÞÂ»ÐÖºÃÏóÔÚ"+where->query("short")+CYN"Ò»´øÑ²Âß¡£"NOR;
+        if (!where) return "æˆ‘æ— ç¦„å…„å¥½è±¡å·¡é€»åŽ»äº†ï¼Œæˆ‘ä¹Ÿä¸çŸ¥é“ä»–çŽ°åœ¨åœ¨å“ªé‡Œã€‚\n";
+         return "å—¯ï¼Œæ— ç¦„å…„å¥½è±¡åœ¨"+where->query("short")+CYN"ä¸€å¸¦å·¡é€»ã€‚"NOR;
 }

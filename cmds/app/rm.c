@@ -11,33 +11,33 @@ int main(object me, string dir)
 	mixed file;
 
 	seteuid(geteuid(me));
-	if (!dir) return notify_fail("ÄãÒªÉ¾³ıÄÇ¸öµµ°¸?\n");
+	if (!dir) return notify_fail("ä½ è¦åˆ é™¤é‚£ä¸ªæ¡£æ¡ˆ?\n");
 	dir = resolve_path(me->query("cwd"), dir);
 	if (file_size(dir) == -2 && dir[<1] != '/') dir += "/";
 	if (dir[<1] == '/') dir += "*";
 	file = get_dir(dir, -1);
 	i = sizeof(file);
-	if (!i) return notify_fail("Ã»ÓĞÕâ¸öµµ°¸¡£\n");
+	if (!i) return notify_fail("æ²¡æœ‰è¿™ä¸ªæ¡£æ¡ˆã€‚\n");
 	write("rm " + dir + "\n");
 	dir = implode(explode(dir, "/")[0..<2], "/") + "/";
 	while (i--)
 		if (file[i][1] >=0) {
-			if (!rm(dir+file[i][0])) write("\nÄãÃ»ÓĞÉ¾³ı "+dir+file[i][0]+" µÄÈ¨Á¦¡£\n");
+			if (!rm(dir+file[i][0])) write("\nä½ æ²¡æœ‰åˆ é™¤ "+dir+file[i][0]+" çš„æƒåŠ›ã€‚\n");
 			else {
 				write(file[i][0] + " deleted.\n");
 				j++;
 			}
 		}
-	write(j+" ¸öÎÄ¼ş±»É¾³ıµôÁË¡£\n");
+	write(j+" ä¸ªæ–‡ä»¶è¢«åˆ é™¤æ‰äº†ã€‚\n");
 	return 1;
 }
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : rm <µµÃû>
+æŒ‡ä»¤æ ¼å¼ : rm <æ¡£å>
 
-´ËÖ¸Áî¿ÉÈÃÄãÉ¾³ıÓĞÈ¨ĞŞ¸ÄµÄµµ°¸¡£
+æ­¤æŒ‡ä»¤å¯è®©ä½ åˆ é™¤æœ‰æƒä¿®æ”¹çš„æ¡£æ¡ˆã€‚
 HELP
 	);
 	return 1;

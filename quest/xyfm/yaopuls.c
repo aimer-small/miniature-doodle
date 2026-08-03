@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "Ò©ÆÌÄÚÊÒ");
+        set("short", "è¯é“ºå†…å®¤");
         set("long", @LONG
-ÕâÊÇÒ©ÆÌµÄÄÚÊÒ¡£
+è¿™æ˜¯è¯é“ºçš„å†…å®¤ã€‚
 LONG
         );
         set("exits", ([
@@ -16,5 +16,5 @@ LONG
         setup();
 }
 
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

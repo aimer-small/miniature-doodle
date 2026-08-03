@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¾ÆÂ¥¶şÂ¥");
+	set("short", "é…’æ¥¼äºŒæ¥¼");
 	set("long", @LONG
-ÕâÀïÊÇ¾ÛºÀ¾ÆÂ¥µÄ¶şÂ¥£¬´óÌÃÄÚ¿í³¨Ã÷ÁÁ£¬Ç½ÉÏ¹ÒÂúÁËÎÄÈËÑ§Ê¿µÄ×Ö»­¡£
-¾ÛºÀ¾ÆÂ¥ÉúÒâºì»ğ£¬Æ½Ê±±ã¸ßÅóÂú×ù£¬Ò»µ½½ÚÈÕ¸üÒªÌáÇ°À´¶¨ÏÂ¾ÆÏ¯¡£Õ¾ÔÚÂ¥
-ÉÏÌ÷Íû£¬Ö»¾õµÃĞÄ¿õÉñâù¡£
+è¿™é‡Œæ˜¯èšè±ªé…’æ¥¼çš„äºŒæ¥¼ï¼Œå¤§å ‚å†…å®½æ•æ˜äº®ï¼Œå¢™ä¸ŠæŒ‚æ»¡äº†æ–‡äººå­¦å£«çš„å­—ç”»ã€‚
+èšè±ªé…’æ¥¼ç”Ÿæ„çº¢ç«ï¼Œå¹³æ—¶ä¾¿é«˜æœ‹æ»¡åº§ï¼Œä¸€åˆ°èŠ‚æ—¥æ›´è¦æå‰æ¥å®šä¸‹é…’å¸­ã€‚ç«™åœ¨æ¥¼
+ä¸Šçœºæœ›ï¼Œåªè§‰å¾—å¿ƒæ—·ç¥æ€¡ã€‚
 LONG
         );
 	set("no_get",1);
@@ -55,7 +55,7 @@ void init()
 		obj->move(me);
 		obj=new(FOOD_D("jinbei"));
 		obj->move(me);
-		write("Äã×ßÉÏÂ¥À´£¬Ğ¡¶ş¼±Ã¦°²ÅÅÄãÕÒÒ»¿ÕÎ»×øÏÂ¡£×ÀÉÏÁÕÀÅÂúÄ¿µÄÃÀ¾Æ¼ÑëÈÊ¹Äã´¹ÏÑÓûµÎ£¡\n");
+		write("ä½ èµ°ä¸Šæ¥¼æ¥ï¼Œå°äºŒæ€¥å¿™å®‰æ’ä½ æ‰¾ä¸€ç©ºä½åä¸‹ã€‚æ¡Œä¸Šç³ç…æ»¡ç›®çš„ç¾é…’ä½³è‚´ä½¿ä½ å‚æ¶æ¬²æ»´ï¼\n");
 		me->set_temp("see_zhubanren",1);
 	}
 	add_action("do_start", "start");
@@ -69,12 +69,12 @@ int do_start()
 	object me=this_player();
 	object ob=this_object();
         
-	if(me->query_temp("zhubanren") != 1) return notify_fail("ÄãÓÖ²»ÊÇÖ÷°ìÈË£¬Ï¹ÈÂÈÂÊ²Ã´£¿\n");
-	if(ob->query("doing")>0) return notify_fail("ÑçÏ¯²»ÊÇÒÑ¾­¿ªÊ¼ÁËÂğ£¿\n");
+	if(me->query_temp("zhubanren") != 1) return notify_fail("ä½ åˆä¸æ˜¯ä¸»åŠäººï¼Œçåš·åš·ä»€ä¹ˆï¼Ÿ\n");
+	if(ob->query("doing")>0) return notify_fail("å®´å¸­ä¸æ˜¯å·²ç»å¼€å§‹äº†å—ï¼Ÿ\n");
 	ob->set("doing",1);
-	message("shout", HIC"\n¡¾ÏĞÁÄ¡¿¾ÆÂ¥ÕÆ¹ñ(Zhanggui)£º" + me->short(1) +HIC" \n\t\tÏÖÔÚÔÚ³¤°²¾ÛºÀ¾ÆÂ¥¾ÙĞĞ¡°"HIR""+me->query_temp("ÑçÏ¯")+""HIC"¡±¾´Çë¸÷Â·Ó¢ĞÛºÀ½Ü¡£\n\n" NOR, users());
-        message_vision(""BLINK+HIR"$NµÄ"+ me->query_temp("ÑçÏ¯",1) +"¿ªÊ¼ÁË£¡"NOR"\n",me); 
-        write("Äã¿ÉÒÔÓÃ¡°"HIW"theend"NOR"¡±À´½áÊøÕâ´ÎÑçÏ¯¡£\n»¹¿ÉÒÔÓÃ¡°"HIW"kickout"NOR"¡±¸Ï×ßÄã²»Ï²»¶µÄ¿ÍÈË£¬ËûÃÇ½«²»ÄÜÔÙ²Î¼ÓÄúµÄ¾ÆÑç£¡\n");
+	message("shout", HIC"\nã€é—²èŠã€‘é…’æ¥¼æŒæŸœ(Zhanggui)ï¼š" + me->short(1) +HIC" \n\t\tç°åœ¨åœ¨é•¿å®‰èšè±ªé…’æ¥¼ä¸¾è¡Œâ€œ"HIR""+me->query_temp("å®´å¸­")+""HIC"â€æ•¬è¯·å„è·¯è‹±é›„è±ªæ°ã€‚\n\n" NOR, users());
+        message_vision(""BLINK+HIR"$Nçš„"+ me->query_temp("å®´å¸­",1) +"å¼€å§‹äº†ï¼"NOR"\n",me); 
+        write("ä½ å¯ä»¥ç”¨â€œ"HIW"theend"NOR"â€æ¥ç»“æŸè¿™æ¬¡å®´å¸­ã€‚\nè¿˜å¯ä»¥ç”¨â€œ"HIW"kickout"NOR"â€èµ¶èµ°ä½ ä¸å–œæ¬¢çš„å®¢äººï¼Œä»–ä»¬å°†ä¸èƒ½å†å‚åŠ æ‚¨çš„é…’å®´ï¼\n");
         call_out("time_theend", 3600);
         return 1;
 }
@@ -87,12 +87,12 @@ int do_theend(string arg)
         mixed *ob_list;
         int max,i;
         
-        if (me->query_temp("zhubanren",1)<1) return notify_fail("ÄãÓÖ²»ÊÇÖ÷°ìÈË£¬Ï¹ÈÂÈÂÊ²Ã´£¿\n");
-        if (ob->query("doing",1)<1) return notify_fail("ÕâÀïÃ»ÓĞ¾ÙĞĞ¾ÆÑç£¡\n");
-       	message("shout", HIC"\n¡¾ÏĞÁÄ¡¿¾ÆÂ¥ÕÆ¹ñ(Zhanggui)£º" +me->short(1) +HIC" µÄ¡°"HIR""+me->query_temp("ÑçÏ¯")+""HIC"¡±½áÊøÁË¡£\n\n" NOR, users());
-        message_vision(""BLINK+HIR"$NµÄ"+ me->query_temp("ÑçÏ¯",1) +"½áÊøÁË£¡"NOR"\n",me); 
+        if (me->query_temp("zhubanren",1)<1) return notify_fail("ä½ åˆä¸æ˜¯ä¸»åŠäººï¼Œçåš·åš·ä»€ä¹ˆï¼Ÿ\n");
+        if (ob->query("doing",1)<1) return notify_fail("è¿™é‡Œæ²¡æœ‰ä¸¾è¡Œé…’å®´ï¼\n");
+       	message("shout", HIC"\nã€é—²èŠã€‘é…’æ¥¼æŒæŸœ(Zhanggui)ï¼š" +me->short(1) +HIC" çš„â€œ"HIR""+me->query_temp("å®´å¸­")+""HIC"â€ç»“æŸäº†ã€‚\n\n" NOR, users());
+        message_vision(""BLINK+HIR"$Nçš„"+ me->query_temp("å®´å¸­",1) +"ç»“æŸäº†ï¼"NOR"\n",me); 
         me->delete_temp("zhubanren",1);
-        me->delete_temp("ÑçÏ¯",1);
+        me->delete_temp("å®´å¸­",1);
         ob->delete("doing",1);
 
 	ob_list = filter_array(children(USER_OB), (: clonep($1) && !wizardp($1) :));
@@ -109,7 +109,7 @@ int do_quit()
 {
 	object me=this_player();
 	if (me->query_temp("zhubanren")) {
-		write("ÄãµÄÑçÏ¯»¹Ã»ÓĞ½áÊø£¬Ö÷ÈËÔõÃ´ÄÜÀë¿ª£¿\n");
+		write("ä½ çš„å®´å¸­è¿˜æ²¡æœ‰ç»“æŸï¼Œä¸»äººæ€ä¹ˆèƒ½ç¦»å¼€ï¼Ÿ\n");
 		return 1;
 	}
 	else return 0;
@@ -120,17 +120,17 @@ int do_kickout(string arg)
 	object me=this_player();
 	object him;
 
-        if (me->query_temp("zhubanren",1)<1) return notify_fail("ÄãÒÔÎªÄãÊÇË­£¿\n");
-	if (!arg) return notify_fail("ÄãÒªÇëË­Àë¿ªÄãµÄÑçÏ¯£¿\n");
+        if (me->query_temp("zhubanren",1)<1) return notify_fail("ä½ ä»¥ä¸ºä½ æ˜¯è°ï¼Ÿ\n");
+	if (!arg) return notify_fail("ä½ è¦è¯·è°ç¦»å¼€ä½ çš„å®´å¸­ï¼Ÿ\n");
 
 	him=find_player(arg);
-	if(!him) return notify_fail("Õâ¸öÈËÃ»ÔÚÄãµÄÑçÏ¯ÖĞ£¡\n"); 
-	if(him!=present(him,environment(me))) return notify_fail ("Õâ¸öÈËÃ»ÔÚÄãµÄÑçÏ¯ÖĞ£¡\n"); 
+	if(!him) return notify_fail("è¿™ä¸ªäººæ²¡åœ¨ä½ çš„å®´å¸­ä¸­ï¼\n"); 
+	if(him!=present(him,environment(me))) return notify_fail ("è¿™ä¸ªäººæ²¡åœ¨ä½ çš„å®´å¸­ä¸­ï¼\n"); 
 
-        message_vision("$N½ĞÀ´¾ÆÂ¥ÕÆ¹ñ£¬½«"+ (string)him->query("name") +"("+ (string)him->query("id") +")¸Ï³öÁËÑçÏ¯£¡\n", me); 
+        message_vision("$Nå«æ¥é…’æ¥¼æŒæŸœï¼Œå°†"+ (string)him->query("name") +"("+ (string)him->query("id") +")èµ¶å‡ºäº†å®´å¸­ï¼\n", me); 
         him->set_temp("getout",1);
         him->move(__DIR__"juhao");
-        tell_object(him,"Äã±»ÕÆ¹ñ´ø»ØÁËÂ¥ÏÂ£¬¿´À´£¬ËûÃÇÊÇ²»»¶Ó­ÄãÔÙ½øÈ¥ÁË£¡\n");
+        tell_object(him,"ä½ è¢«æŒæŸœå¸¦å›äº†æ¥¼ä¸‹ï¼Œçœ‹æ¥ï¼Œä»–ä»¬æ˜¯ä¸æ¬¢è¿ä½ å†è¿›å»äº†ï¼\n");
         
         return 1;
 }
@@ -143,7 +143,7 @@ int time_theend(string arg)
         int max,i;
         
         if (ob->query("doing")<1) return 1;
-       	message("shout", HIW"\n¾ÆÂ¥ÕÆ¹ñ£º³¤°²¾ÛºÀ¾ÆÂ¥¾ÙĞĞµÄÑçÏ¯½áÊøÁË¡£\n\n" NOR, users());
+       	message("shout", HIW"\né…’æ¥¼æŒæŸœï¼šé•¿å®‰èšè±ªé…’æ¥¼ä¸¾è¡Œçš„å®´å¸­ç»“æŸäº†ã€‚\n\n" NOR, users());
         ob->delete("doing",1);
         
         ob_list = filter_array(children(USER_OB), (: clonep($1) && !wizardp($1) :));
@@ -151,7 +151,7 @@ int time_theend(string arg)
         for(i=0;i<max;i++) {
 		obj = ob_list[i];
 		obj->delete_temp("zhubanren");
-		obj->delete_temp("ÑçÏ¯");
+		obj->delete_temp("å®´å¸­");
 		obj->delete_temp("see_zhubanren");
 		obj->delete_temp("getout");
 	}
@@ -162,6 +162,6 @@ int valid_leave(object me,string dir)
 {
 	object ob=this_object();
 	if( dir=="down" && me->query_temp("zhubanren",1)>0 && ob->query("doing",1)>0 )
-		return notify_fail("ÄãµÄÑçÏ¯»¹Ã»ÓĞ½áÊø£¬Ö÷ÈËÔõÃ´ÄÜÀë¿ª£¿\n");
+		return notify_fail("ä½ çš„å®´å¸­è¿˜æ²¡æœ‰ç»“æŸï¼Œä¸»äººæ€ä¹ˆèƒ½ç¦»å¼€ï¼Ÿ\n");
 	return ::valid_leave(me,dir);
 }

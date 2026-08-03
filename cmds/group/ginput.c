@@ -14,7 +14,7 @@ int main(object me, string arg)
 void input_yesno(string arg,object me,string voter)
 {
 	if( !arg || (arg!="y" && arg!="n") ) {
-		tell_object(me,"ÇëÊäÈë¡°y¡±»ò¡°n¡±£º");
+		tell_object(me,"è¯·è¾“å…¥â€œyâ€æˆ–â€œnâ€ï¼š");
 		input_to("input_yesno",me,voter);
 		return;
 	}

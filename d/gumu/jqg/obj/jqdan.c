@@ -1,17 +1,17 @@
-// jqdan.c ¾øÇéµ¤
+// jqdan.c ç»æƒ…ä¸¹
 // By River 99.5.25
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(HIG"¾øÇéµ¤"NOR, ({"jueqing dan", "dan","jueqing"}));
+	set_name(HIG"ç»æƒ…ä¸¹"NOR, ({"jueqing dan", "dan","jueqing"}));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ã¶");
-		set("long","ÕâÊÇÒ»Ã¶ËÄËÄ·½·½÷»×Ó°ãµÄµ¤Ò©£¬É«×÷ÉîºÚ£¬ĞÈ³ô´Ì±Ç¡£\n");
+		set("unit", "æš");
+		set("long","è¿™æ˜¯ä¸€æšå››å››æ–¹æ–¹éª°å­èˆ¬çš„ä¸¹è¯ï¼Œè‰²ä½œæ·±é»‘ï¼Œè…¥è‡­åˆºé¼»ã€‚\n");
 		set("value", 1000);
 		set("unique", 1);
 		set("treasure", 1);
@@ -31,11 +31,11 @@ int do_eat(string arg)
 {
 	object me = this_player();
 	if(!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
-	message_vision("$N³ÔÏÂÒ»Ã¶" + name() + "¡£\n", me);
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
+	message_vision("$Nåƒä¸‹ä¸€æš" + name() + "ã€‚\n", me);
 	if ((int)me->query_condition("qinghua_poison") > 0) {
 		me->clear_condition("qinghua_poison");
-		tell_object(me,"ÄãÖ»¾õµÃÊÖÖ¸Í´³ş´ó¼õ£¬Çé»¨Ö®¶¾ÒÑÈ»½âÈ¥¡£\n");
+		tell_object(me,"ä½ åªè§‰å¾—æ‰‹æŒ‡ç—›æ¥šå¤§å‡ï¼Œæƒ…èŠ±ä¹‹æ¯’å·²ç„¶è§£å»ã€‚\n");
 	}
 	destruct(this_object());
 	return 1;

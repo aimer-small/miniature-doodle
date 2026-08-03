@@ -1,33 +1,33 @@
-// By Spiderii ¸üĞÂĞ§¹û
+// By Spiderii æ›´æ–°æ•ˆæœ
 
 #include <ansi.h>
 
 inherit F_SSERVER;
-string perform_name() {return HBYEL"ÖîÌì»¯Éí²½"NOR;}
+string perform_name() {return HBYEL"è¯¸å¤©åŒ–èº«æ­¥"NOR;}
 int perform(object me, object target)
 {
         string msg;
         int i;
         
         if (! me->is_fighting())
-                return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖÖÊ¹ÓÃÖîÌì»¯Éí²½¡£\n");
+                return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ç§ä½¿ç”¨è¯¸å¤©åŒ–èº«æ­¥ã€‚\n");
 
         if ((int)me->query_skill("linji-zhuang", 1) < 100)
-                return notify_fail("ÄãµÄÁÙ¼ÃÊ®¶ş×¯»¹²»¹»»ğºò£¬Ê¹²»³öÖîÌì»¯Éí²½¡£\n");  
+                return notify_fail("ä½ çš„ä¸´æµåäºŒåº„è¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºè¯¸å¤©åŒ–èº«æ­¥ã€‚\n");  
 
         if ((int)me->query_skill("anying-fuxiang", 1) < 100)
-                return notify_fail("ÄãµÄ°µÓ°¸¡Ïã»¹²»¹»»ğºò£¬Ê¹²»³öÖîÌì»¯Éí²½¡£\n");  
+                return notify_fail("ä½ çš„æš—å½±æµ®é¦™è¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºè¯¸å¤©åŒ–èº«æ­¥ã€‚\n");  
 
         if ((int)me->query("jing", 1) < 500)
-                return notify_fail("ÄãÏÖÔÚ¾«²»¹»¡£\n");
+                return notify_fail("ä½ ç°åœ¨ç²¾ä¸å¤Ÿã€‚\n");
 
         if ((int)me->query("neili", 1) < 500)
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸å¤Ÿã€‚\n");
 
         if (me->query_temp("emei/parry"))
-                return notify_fail("ÄãÕıÔÚÊ¹ÓÃÖîÌì»¯Éí²½¡£\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨è¯¸å¤©åŒ–èº«æ­¥ã€‚\n");
 
-        msg = HBYEL "ÄãÊ¹³ö°µÓ°¸¡ÏãµÄÖîÌì»¯Éí²½£¬ÉíÊÖµÇÊ±¸ü¼ÓÁéÇÉ£¡\n\n" NOR; 
+        msg = HBYEL "ä½ ä½¿å‡ºæš—å½±æµ®é¦™çš„è¯¸å¤©åŒ–èº«æ­¥ï¼Œèº«æ‰‹ç™»æ—¶æ›´åŠ çµå·§ï¼\n\n" NOR; 
 
         me->add("neili", -200 + random(100));
         me->recieve_damage("jing", 50);
@@ -58,7 +58,7 @@ void remove_effect(object me, int count)
                 me->add_temp("apply/dodge", - i);
                 me->add_temp("apply/parry", - i);
                 me->delete_temp("emei/parry");
-                tell_object(me, HIW "ÄãÍ£Ö¹ÁËÖîÌì»¯Éí²½£¬ÉîÉîµÄÎüÁË¿ÚÆø¡£\n" NOR);
+                tell_object(me, HIW "ä½ åœæ­¢äº†è¯¸å¤©åŒ–èº«æ­¥ï¼Œæ·±æ·±çš„å¸äº†å£æ°”ã€‚\n" NOR);
                 return;
        }
        call_out("remove_effect", 1 ,me ,count -1);

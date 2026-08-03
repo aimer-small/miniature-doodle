@@ -4,19 +4,19 @@ inherit NPC;
 
 void create()
 {
-       set_name("Ğş¶É´óÊ¦", ({
+       set_name("ç„æ¸¡å¤§å¸ˆ", ({
 		"xuandu dashi",
 		"xuandu",
 		"dashi",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»°×Ğë°×Ã¼µÄÀÏÉ®£¬Éí´©Ò»Ï®ÒøË¿×Ø»ÆôÂôÄ¡£ËûÉí²ÄÊİ¸ß£¬\n"
-		"Á³ÉÏÂú²¼ÖåÎÆ£¬ÊÖ±Û´¦Çà½îÕÀÂ¶£¬ËÆºõ¾Ã¾­·çËª¡£\n"
+		"ä»–æ˜¯ä¸€ä½ç™½é¡»ç™½çœ‰çš„è€åƒ§ï¼Œèº«ç©¿ä¸€è¢­é“¶ä¸æ£•é»„è¢ˆè£Ÿã€‚ä»–èº«æç˜¦é«˜ï¼Œ\n"
+		"è„¸ä¸Šæ»¡å¸ƒçš±çº¹ï¼Œæ‰‹è‡‚å¤„é’ç­‹ç»½éœ²ï¼Œä¼¼ä¹ä¹…ç»é£éœœã€‚\n"
 	);
 
 
-	set("nickname", "Äé»¨³¤ÀÏ");
-	set("gender", "ÄĞĞÔ");
+	set("nickname", "æ‹ˆèŠ±é•¿è€");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -53,7 +53,7 @@ void create()
 
 	prepare_skill("finger", "nianhua-zhi");
 
-	create_family("ÉÙÁÖÅÉ", 36, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 36, "å¼Ÿå­");
 
 	setup();
         carry_object("/d/shaolin/obj/xuan-cloth")->wear();

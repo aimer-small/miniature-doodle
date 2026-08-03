@@ -7,8 +7,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÐìÏ¼¿Í", ({ "xu xiake", "xu", "xiake" }) );
-	set("gender", "ÄÐÐÔ" );
+	set_name("å¾éœžå®¢", ({ "xu xiake", "xu", "xiake" }) );
+	set("gender", "ç”·æ€§" );
 	set("shen_type", 1);
 	set("age", 35);
 	set("str", 15);
@@ -16,7 +16,7 @@ void create()
 	set("int", 27);
 	set("dex", 20);
 	set("env/wimpy", 110);
-	set("long", "ÕâÎ»¾ÍÊÇÓÎ±éÇ§É½ÍòË®£¬Ì¤¾¡´ó½­ÄÏ±±µÄÆæÊ¿ÐìÏ¼¿Í¡£\n" );
+	set("long", "è¿™ä½å°±æ˜¯æ¸¸éåƒå±±ä¸‡æ°´ï¼Œè¸å°½å¤§æ±Ÿå—åŒ—çš„å¥‡å£«å¾éœžå®¢ã€‚\n" );
 	set("combat_exp", 2500);
 	set("attitude", "friendly");
 	set("max_qi", 200);
@@ -25,20 +25,20 @@ void create()
 	set_skill("dodge", 10);
 	set_skill("parry", 10);
 	set("inquiry", ([
-		"ÐìÏ¼¿ÍÓÎ¼Ç" : "ÕâÊÇÎÒ×ß±éÇ§É½ÍòË®¶øÐ´³ÉµÄÓÎ¼Ç¡£\n",
-		"ÂÃÓÎ" : "ÄãÒ²Ïë³öÈ¥¿´¿´£¿ºÃ°É£¬¸øÎÒÒ»Á½»Æ½ðÎÒ¾Í´øÄã×ß×ß¡£\n",
+		"å¾éœžå®¢æ¸¸è®°" : "è¿™æ˜¯æˆ‘èµ°éåƒå±±ä¸‡æ°´è€Œå†™æˆçš„æ¸¸è®°ã€‚\n",
+		"æ—…æ¸¸" : "ä½ ä¹Ÿæƒ³å‡ºåŽ»çœ‹çœ‹ï¼Ÿå¥½å§ï¼Œç»™æˆ‘ä¸€ä¸¤é»„é‡‘æˆ‘å°±å¸¦ä½ èµ°èµ°ã€‚\n",
 	]));
 
 	set("chat_chance", 3);
 	set("chat_msg", ({
 		(: random_move :),
-		CYN"ÐìÏ¼¿ÍÒ¡Í·»ÎÄÔµØ½²µÀ£ºÄã¿´Õâ´ó½­ÄÏ±±ºÃµØ·½¿ÉÕæ²»ÉÙ£¡\n"NOR,
-		CYN"ÐìÏ¼¿ÍµÀ£ºÏëµ±ÄêÎÒ×ß±éáÔÉ½¡¢Î÷Óò¡¢ÖÕÄÏÉ½¡¢À¥ÂØÉ½ºÍÎäµ±É½¡£¡£¡£\n"NOR,
+		CYN"å¾éœžå®¢æ‘‡å¤´æ™ƒè„‘åœ°è®²é“ï¼šä½ çœ‹è¿™å¤§æ±Ÿå—åŒ—å¥½åœ°æ–¹å¯çœŸä¸å°‘ï¼\n"NOR,
+		CYN"å¾éœžå®¢é“ï¼šæƒ³å½“å¹´æˆ‘èµ°éåµ©å±±ã€è¥¿åŸŸã€ç»ˆå—å±±ã€æ˜†ä»‘å±±å’Œæ­¦å½“å±±ã€‚ã€‚ã€‚\n"NOR,
 		(: random_move :),
-		CYN"ÐìÏ¼¿ÍÓÖËµµÀ£ºÄÇÄÏ½®´óÀí³ÇºÍÎ÷½®ÒÁÀç³ÇËäÐ¡£¬È´ºÍÎÒÃÇ½­ÄÏËÕÖÝ¡¢ÑïÖÝÒ»Ñù·±»ª¡£\n"NOR,
+		CYN"å¾éœžå®¢åˆè¯´é“ï¼šé‚£å—ç–†å¤§ç†åŸŽå’Œè¥¿ç–†ä¼ŠçŠåŸŽè™½å°ï¼Œå´å’Œæˆ‘ä»¬æ±Ÿå—è‹å·žã€æ‰¬å·žä¸€æ ·ç¹åŽã€‚\n"NOR,
 		(: random_move :),
-		CYN"ÐìÏ¼¿ÍÂ¶³ö¿Ö¾åµÄ±íÇé£ºÈ¥ÐÇËÞº£¡¢¹âÃ÷¶¥ºÍÌúÕÆ·å¶¼»áÓöµ½Ð×Í½×èÀ¹¡£\n"NOR,
-		CYN"ÐìÏ¼¿ÍÅÄÁËÅÄÄÔ´ü£ºÉÏ´ÎÈ¥µ½¶«º££¬ÌýÈËËµº£ÖÐÓÐ¸öÌÒ»¨µºÏÉ¾³£¬²»ÖªÊÇÕæÊÇ¼Ù¡£\n"NOR,
+		CYN"å¾éœžå®¢éœ²å‡ºææƒ§çš„è¡¨æƒ…ï¼šåŽ»æ˜Ÿå®¿æµ·ã€å…‰æ˜Žé¡¶å’Œé“æŽŒå³°éƒ½ä¼šé‡åˆ°å‡¶å¾’é˜»æ‹¦ã€‚\n"NOR,
+		CYN"å¾éœžå®¢æ‹äº†æ‹è„‘è¢‹ï¼šä¸Šæ¬¡åŽ»åˆ°ä¸œæµ·ï¼Œå¬äººè¯´æµ·ä¸­æœ‰ä¸ªæ¡ƒèŠ±å²›ä»™å¢ƒï¼Œä¸çŸ¥æ˜¯çœŸæ˜¯å‡ã€‚\n"NOR,
 		(: random_move :),
 	}) );
 	setup();
@@ -56,7 +56,7 @@ void init()
 	::init();
 	if(ob->query_temp("money_paid"))
 		ob->delete_temp("money_paid");
-//	add_action("do_go","È¥");
+//	add_action("do_go","åŽ»");
 }
 
 int do_go(string target)
@@ -66,32 +66,32 @@ int do_go(string target)
 	me=this_player();
 
 	if (me->is_busy())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	message_vision(CYN"$N¶ÔÐìÏ¼¿ÍËµµÀ£ºÇëÏÈÉú´øÍí±²È¥" + target +"¡£\n"NOR,me);
+	message_vision(CYN"$Nå¯¹å¾éœžå®¢è¯´é“ï¼šè¯·å…ˆç”Ÿå¸¦æ™šè¾ˆåŽ»" + target +"ã€‚\n"NOR,me);
 	if( !this_player()->query_temp("money_paid") )
-		return notify_fail("ÐìÏ¼¿ÍÒ¡ÁËÒ¡Í·£ºÎÒËä²»ÊÇÉúÒâÈË£¬¿ÉÃ»Ç®ÔõÃ´×ß°¡£¿\n");
+		return notify_fail("å¾éœžå®¢æ‘‡äº†æ‘‡å¤´ï¼šæˆ‘è™½ä¸æ˜¯ç”Ÿæ„äººï¼Œå¯æ²¡é’±æ€Žä¹ˆèµ°å•Šï¼Ÿ\n");
 	if( !target || target==" ")
-		return notify_fail("ÐìÏ¼¿ÍÖåÁËÖåÃ¼£ºÄÇµØ·½ÎÒ¿ÉÃ»È¥¹ý¡£\n");
+		return notify_fail("å¾éœžå®¢çš±äº†çš±çœ‰ï¼šé‚£åœ°æ–¹æˆ‘å¯æ²¡åŽ»è¿‡ã€‚\n");
 
-	if (target=="»Ø½®") me->set_temp("go_hj", 1);
-	if (target=="ÐÇËÞ" || target=="ÐÇËÞº£") me->set_temp("go_xx", 1);
-	if (target=="ÒÁÀç" || target=="ÒÁÀç³Ç") me->set_temp("go_yili", 1);
-	if (target=="ÉÙÁÖ" || target=="ÉÙÁÖËÂ" || target=="áÔÉ½ÉÙÁÖËÂ" || target == "áÔÉ½") me->set_temp("go_sl", 1);
-	if (target=="Îäµ±" || target=="Îäµ±É½") me->set_temp("go_wd", 1);
-	if (target=="ÑïÖÝ" || target=="ÑïÖÝ³Ç") me->set_temp("go_yz", 1);
+	if (target=="å›žç–†") me->set_temp("go_hj", 1);
+	if (target=="æ˜Ÿå®¿" || target=="æ˜Ÿå®¿æµ·") me->set_temp("go_xx", 1);
+	if (target=="ä¼ŠçŠ" || target=="ä¼ŠçŠåŸŽ") me->set_temp("go_yili", 1);
+	if (target=="å°‘æž—" || target=="å°‘æž—å¯º" || target=="åµ©å±±å°‘æž—å¯º" || target == "åµ©å±±") me->set_temp("go_sl", 1);
+	if (target=="æ­¦å½“" || target=="æ­¦å½“å±±") me->set_temp("go_wd", 1);
+	if (target=="æ‰¬å·ž" || target=="æ‰¬å·žåŸŽ") me->set_temp("go_yz", 1);
 
-//	if (target=="´óÀí" || target=="´óÀí³Ç") me->set_temp("go_dali", 1);
-//	if (target=="À¥ÂØ" || target=="À¥ÂØÉ½") me->set_temp("go_kl", 1);
-//	if (target=="ÌúÕÆ°ï" || target=="ÌúÕÆ·å" || target=="ºï×¦É½") me->set_temp("go_tzb", 1);
-	if (target=="ÌÒ»¨µº" || target=="¶«º£Óæ¸Û") me->set_temp("go_thd", 1);
+//	if (target=="å¤§ç†" || target=="å¤§ç†åŸŽ") me->set_temp("go_dali", 1);
+//	if (target=="æ˜†ä»‘" || target=="æ˜†ä»‘å±±") me->set_temp("go_kl", 1);
+//	if (target=="é“æŽŒå¸®" || target=="é“æŽŒå³°" || target=="çŒ´çˆªå±±") me->set_temp("go_tzb", 1);
+	if (target=="æ¡ƒèŠ±å²›" || target=="ä¸œæµ·æ¸”æ¸¯") me->set_temp("go_thd", 1);
 
-	if (target=="Ã÷½Ì" || target=="¹âÃ÷¶¥") me->set_temp("go_mj", 1);
-	if (target=="ËÕÖÝ" || target=="ËÕÖÝ³Ç") me->set_temp("go_sz", 1);
-	if (target=="ÖÕÄÏÉ½" || target=="È«Õæ½Ì") me->set_temp("go_zns", 1);
-	if (target=="º¼ÖÝ" || target=="º¼ÖÝ³Ç") me->set_temp("go_hz", 1);
+	if (target=="æ˜Žæ•™" || target=="å…‰æ˜Žé¡¶") me->set_temp("go_mj", 1);
+	if (target=="è‹å·ž" || target=="è‹å·žåŸŽ") me->set_temp("go_sz", 1);
+	if (target=="ç»ˆå—å±±" || target=="å…¨çœŸæ•™") me->set_temp("go_zns", 1);
+	if (target=="æ­å·ž" || target=="æ­å·žåŸŽ") me->set_temp("go_hz", 1);
 
-	else return notify_fail("ÐìÏ¼¿ÍÖåÁËÖåÃ¼£ºÄÇµØ·½ÎÒ¿ÉÃ»È¥¹ý¡£\n");
+	else return notify_fail("å¾éœžå®¢çš±äº†çš±çœ‰ï¼šé‚£åœ°æ–¹æˆ‘å¯æ²¡åŽ»è¿‡ã€‚\n");
 	call_out("do_goto", 0, me);
 	return 1;
 }
@@ -102,8 +102,8 @@ void do_goto()
 	me = this_player();
 	ob = this_object();
 	command("nod");
-	command("say ÄÇÄã¾Í¸ú×ÅÎÒ×ß°É¡£");
-	message_vision("\n$n¸ú×Å$N¿ªÊ¼ÁËÂþ³¤µÄÂÃ³Ì¡£\n" NOR, ob, me);
+	command("say é‚£ä½ å°±è·Ÿç€æˆ‘èµ°å§ã€‚");
+	message_vision("\n$nè·Ÿç€$Nå¼€å§‹äº†æ¼«é•¿çš„æ—…ç¨‹ã€‚\n" NOR, ob, me);
 	me->move("/d/wizard/room3");
 	me->delete_temp("money_paid");
 	destruct(this_object());
@@ -112,13 +112,13 @@ void do_goto()
 int accept_object(object who, object ob)
 {
 	if (ob->query("money_id") && ob->value() >= 2000) {
-		message_vision("ÐìÏ¼¿Í¶Ô$NÒ»Ð¦£ºÄãÒª¸úÎÒÈ¥ÄÄÀïÑ½£¿Ëµ°É¡£\n", who);
-		tell_object(who, "Çë¼üÈë£ºÈ¥ µØ·½ÖÐÎÄÃû×Ö\n");
+		message_vision("å¾éœžå®¢å¯¹$Nä¸€ç¬‘ï¼šä½ è¦è·Ÿæˆ‘åŽ»å“ªé‡Œå‘€ï¼Ÿè¯´å§ã€‚\n", who);
+		tell_object(who, "è¯·é”®å…¥ï¼šåŽ» åœ°æ–¹ä¸­æ–‡åå­—\n");
 		who->set_temp("money_paid",1);
 		return 1;
 	}
 	else if (ob->query("money_id") && ob->value() < 2000) {
-		tell_object(who, "ÐìÏ¼¿Í¶Ô×ÅÄãÒ¡ÁËÒ¡Í·¡£\n");
+		tell_object(who, "å¾éœžå®¢å¯¹ç€ä½ æ‘‡äº†æ‘‡å¤´ã€‚\n");
 		return 1;
 	}
 	return 0;

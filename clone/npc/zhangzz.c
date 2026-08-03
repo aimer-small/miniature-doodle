@@ -1,4 +1,4 @@
-// zhangzz.c ÕÅÕÙÖØ
+// zhangzz.c å¼ å¬é‡
 
 inherit NPC;
 
@@ -7,10 +7,10 @@ void consider();
 
 void create()
 {
-	set_name("ÕÅÕÙÖØ", ({ "zhang zhaozhong","zhang","zhaozhong" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("å¼ å¬é‡", ({ "zhang zhaozhong","zhang","zhaozhong" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 37);
-	set("long", "Ò»¸±Ğ×ÏÕ¼éÕ©µÄÑù×Ó£¬ÈÃÈË¿´ÁË¾ÍÌÖÑá¡£\n");
+	set("long", "ä¸€å‰¯å‡¶é™©å¥¸è¯ˆçš„æ ·å­ï¼Œè®©äººçœ‹äº†å°±è®¨åŒã€‚\n");
 	set("attitude", "peaceful");
 //      set("nickname", "");
         set("str", 28);
@@ -49,12 +49,12 @@ void create()
         map_skill("parry", "taiji-jian");
         prepare_skill("cuff", "taiji-quan");
 
-	create_family("Îäµ±", 4, "µÜ×Ó");
+	create_family("æ­¦å½“", 4, "å¼Ÿå­");
 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"ÕÅÕÙÖØºÙºÙ¼éĞ¦¼¸Éù¡£\n",
-                 "ÕÅÕÙÖØÆ²ÁËÆ²×ì£¬ÑÛ½ÇÃĞ·ìµÄ¿´×ÅÄã¡£\n",
+		"å¼ å¬é‡å˜¿å˜¿å¥¸ç¬‘å‡ å£°ã€‚\n",
+                 "å¼ å¬é‡æ’‡äº†æ’‡å˜´ï¼Œçœ¼è§’çœ¯ç¼çš„çœ‹ç€ä½ ã€‚\n",
                  (: random_move :)
 	}) );
 

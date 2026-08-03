@@ -1,4 +1,4 @@
-// zhang.c ’≈¬Ë
+// zhang.c Âº†Â¶à
 // zly 99.6.12
 
 #include <ansi.h>
@@ -7,12 +7,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("’≈¬Ë", ({"zhang ma", "zhang", "ma"}));
-	set("gender", "≈Æ–‘");
+	set_name("Âº†Â¶à", ({"zhang ma", "zhang", "ma"}));
+	set("gender", "Â•≥ÊÄß");
 	set("shen_type", 1);
 	set("age", 48);
 	set("long", 
-"’‚ «œÙ∏Æµƒ”∂∏æ’≈¬Ë£¨À˝¡≥…œ–¶Œ˚Œ˚µƒ£¨≤ª÷™µ¿”– ≤√¥œ≤ ¬°£\n"
+"ËøôÊòØËêßÂ∫úÁöÑ‰Ω£Â¶áÂº†Â¶àÔºåÂ•πËÑ∏‰∏äÁ¨ëÂòªÂòªÁöÑÔºå‰∏çÁü•ÈÅìÊúâ‰ªÄ‰πàÂñú‰∫ã„ÄÇ\n"
 	);
 	
 	set("str", 20);
@@ -62,11 +62,11 @@ void greeting(object ob)
         if( !ob || environment(ob) != environment() ) return;
         switch( random(2) ) {
                 case 0:
-                        say( "’≈¬Ë¿÷∫«∫«µÿ∂‘◊≈" + RANK_D->query_respect(ob) + "Àµ£∫°∞ΩÒÃÏ’‚»’◊”’Ê∫√£¨À´œ≤¡Ÿ√≈£°°±°£ \n");
+                        say( "Âº†Â¶à‰πêÂëµÂëµÂú∞ÂØπÁùÄ" + RANK_D->query_respect(ob) + "ËØ¥Ôºö‚Äú‰ªäÂ§©ËøôÊó•Â≠êÁúüÂ•ΩÔºåÂèåÂñú‰∏¥Èó®ÔºÅ‚Äù„ÄÇ \n");
                         break;
                 case 1:
-                        say( "’≈¬Ë–¶◊≈µ¿: °∞ΩÒÃÏ”÷ «¿œ“Øµƒ ŸµÆ£¨”÷ «–°Ω„∂©ªÈµƒ¥Ûœ≤»’◊”£°’‚Œª" + RANK_D->query_respect(ob)
-                                + "£¨«ÎΩ¯«ÎΩ¯°£\n");
+                        say( "Âº†Â¶àÁ¨ëÁùÄÈÅì: ‚Äú‰ªäÂ§©ÂèàÊòØËÄÅÁà∑ÁöÑÂØøËØûÔºåÂèàÊòØÂ∞èÂßêËÆ¢Â©öÁöÑÂ§ßÂñúÊó•Â≠êÔºÅËøô‰Ωç" + RANK_D->query_respect(ob)
+                                + "ÔºåËØ∑ËøõËØ∑Ëøõ„ÄÇ\n");
                         break;
         }
 }
@@ -77,7 +77,7 @@ int accept_object(object who, object ob)
           if((string)ob->query("id") == "jin chai")
         {
          command("ah"+ (string)who->query("id"));
-         command("say ’‚≤ª «–°Ω„µƒΩÓŒ¬£øƒ„ «......£¨≈∂£¨ª∂”≠ª∂”≠£¨øÏ«ÎΩ¯£°\n");
+         command("say Ëøô‰∏çÊòØÂ∞èÂßêÁöÑÈáëÈíóÂêóÔºü‰Ω†ÊòØ......ÔºåÂì¶ÔºåÊ¨¢ËøéÊ¨¢ËøéÔºåÂø´ËØ∑ËøõÔºÅ\n");
          who->set_temp("yyd_jinchai", 1);
          remove_call_out("destroying");
          call_out("destroying", 1, ob);

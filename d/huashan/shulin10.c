@@ -7,11 +7,11 @@ inherit ROOM;
 int check(object ob);
 string get_place(string str);
 
-string* msg1 = ({"ºöÈ»","Í»È»",	"ÃÍµØ",	"Àä²»·À",});
-string* msg2 = ({"´ÓÊ÷ÁÖÀï","´ÓÊ÷ÁÖÉî´¦",});
-string* msg3 = ({"´Ü³ö","É±³ö",});
-string* msg4 = ({"Ò»°Ñ¶áÏÂ","¶áÏÂ","Ò»°ÑÇÀÈ¥","ÇÀÈ¥",});
-string* msg5 = ({"´¦",	"·½Ïò",	"´¦¶áÂ·","·½Ïò¶áÂ·",});
+string* msg1 = ({"å¿½ç„¶","çªç„¶",	"çŒ›åœ°",	"å†·ä¸é˜²",});
+string* msg2 = ({"ä»æ ‘æ—é‡Œ","ä»æ ‘æ—æ·±å¤„",});
+string* msg3 = ({"çªœå‡º","æ€å‡º",});
+string* msg4 = ({"ä¸€æŠŠå¤ºä¸‹","å¤ºä¸‹","ä¸€æŠŠæŠ¢å»","æŠ¢å»",});
+string* msg5 = ({"å¤„",	"æ–¹å‘",	"å¤„å¤ºè·¯","æ–¹å‘å¤ºè·¯",});
 
 string* names = ({
 "/d/village/caidi",	"/d/village/shilu1",	"/d/village/shilu2",
@@ -29,10 +29,10 @@ __DIR__"celang3",	__DIR__"celang4",
 
 void create()
 {
-        set("short", "Ê÷ÁÖ");
+        set("short", "æ ‘æ—");
         set("long",@long
-ÕâÀïÊÇ»ªÉ½´åÀïµÄÒ»Æ¬ÑîÊ÷ÁÖ£¬Èç¹ûÄãÃ»ÓĞºÃÉíÊÖ£¬¿ÉÇ§Íò²»ÒªÔÚ´ËµØ¾Ã
-Áô£¬¾İËµÕâÀïÇ¿µÁ³öÃ»£¬ÇÀ½Ù¡¢É±ÈËµÄÊÂÇé¾­³£·¢Éú¡£
+è¿™é‡Œæ˜¯åå±±æ‘é‡Œçš„ä¸€ç‰‡æ¨æ ‘æ—ï¼Œå¦‚æœä½ æ²¡æœ‰å¥½èº«æ‰‹ï¼Œå¯åƒä¸‡ä¸è¦åœ¨æ­¤åœ°ä¹…
+ç•™ï¼Œæ®è¯´è¿™é‡Œå¼ºç›—å‡ºæ²¡ï¼ŒæŠ¢åŠ«ã€æ€äººçš„äº‹æƒ…ç»å¸¸å‘ç”Ÿã€‚
 long);
         set("exits",([
 		"west" : __DIR__"shulin3",
@@ -67,16 +67,16 @@ void init(object me)
 			if(check(living[j]) ){
 				target = living[j];
 				str = environment(target)->query("short");
-				if( str == "ÎäÉ®ÌÃ"
-				 || str == HIR"ĞÄìøÌÃ"NOR
-				 || str == "½ğ¸Õ·üÄ§È¦" ) continue;
+				if( str == "æ­¦åƒ§å ‚"
+				 || str == HIR"å¿ƒç¦…å ‚"NOR
+				 || str == "é‡‘åˆšä¼é­”åœˆ" ) continue;
 				if( get_place(base_name(environment(target)))!="" )
 					break;
 			}
 		}
 
 		ob=new(__DIR__"npc/mmr");
-		ob->set("long", ob->query("long")+ "¿´À´¾ÍÊÇ¸Õ²ÅÇÀ×ß"+me->query("name")+"("+capitalize(me->query("id"))+")ÁîÅÆµÄÈË¡£\n");
+		ob->set("long", ob->query("long")+ "çœ‹æ¥å°±æ˜¯åˆšæ‰æŠ¢èµ°"+me->query("name")+"("+capitalize(me->query("id"))+")ä»¤ç‰Œçš„äººã€‚\n");
 		ling->move(ob);
 		me->set_temp("hs/have", 1);
 		ling->set_temp("mmr", name1);
@@ -89,10 +89,10 @@ void init(object me)
 			me->set_temp("hs/power", 1);
 			message_vision(HIW "\n" + msg1[random(sizeof(msg1))] +
 				msg2[random(sizeof(msg2))] + 
-				msg3[random(sizeof(msg3))] + "Ò»¸öÃÉÃæÈË" +
+				msg3[random(sizeof(msg3))] + "ä¸€ä¸ªè’™é¢äºº" +
 				msg4[random(sizeof(msg4))] + 
-				"$NµÄÁîÅÆ£¬Ïò" HIY +get_place(base_name(environment(target)))+ str +
-				HIW + msg5[random(sizeof(msg5))] + "ÌÓÈ¥¡£\n\n" NOR, me);
+				"$Nçš„ä»¤ç‰Œï¼Œå‘" HIY +get_place(base_name(environment(target)))+ str +
+				HIW + msg5[random(sizeof(msg5))] + "é€ƒå»ã€‚\n\n" NOR, me);
 			return;
 		}
 		else {
@@ -100,10 +100,10 @@ void init(object me)
 			ob->move(objwhere);
 			message_vision(HIW "\n" + msg1[random(sizeof(msg1))] +
 				msg2[random(sizeof(msg2))] + 
-				msg3[random(sizeof(msg3))] + "Ò»¸öÃÉÃæÈË" +
+				msg3[random(sizeof(msg3))] + "ä¸€ä¸ªè’™é¢äºº" +
 				msg4[random(sizeof(msg4))] + 
-				"$NµÄÁîÅÆ£¬Ïò" HIY + objwhere->query("short") + 
-				HIW + msg5[random(sizeof(msg5))] + "ÌÓÈ¥¡£\n\n" NOR, me);
+				"$Nçš„ä»¤ç‰Œï¼Œå‘" HIY + objwhere->query("short") + 
+				HIW + msg5[random(sizeof(msg5))] + "é€ƒå»ã€‚\n\n" NOR, me);
 		}
 	}
 }
@@ -126,7 +126,7 @@ int check(object ob)
 	 || ob->query("attitude")=="aggressive"
 	 || ob->query("have_master")
 	 || !objectp(room=environment(ob))
-	 || room->query("outdoors") == "À¥ÂØ´ä¹È"
+	 || room->query("outdoors") == "æ˜†ä»‘ç¿ è°·"
 	 || strsrch(room_name = file_name(room),"/d/") != 0
 	 || strsrch(room_name, "/d/wizard/") == 0
 	 || strsrch(room_name, "/d/wuguan/") == 0
@@ -152,93 +152,93 @@ string get_place(string str)
         str = "";
         if(place[0] == "d")
                 switch(place[1]){
-//			case "baituo":          str = "Î÷Óò°×ÍÓÉ½";     break;
-//			case "beijing":         str = "¾©³Ç";           break;
-//			case "cangzhou":        str = "ºÓ±±²×Öİ";       break;
-//			case "changan":         str = "ÉÂÎ÷³¤°²";       break;
-			case "chengdu":         str = "ËÄ´¨³É¶¼";       break;
-			case "city":            str = "½­ÄÏÑïÖİ³Ç";     break;
+//			case "baituo":          str = "è¥¿åŸŸç™½é™€å±±";     break;
+//			case "beijing":         str = "äº¬åŸ";           break;
+//			case "cangzhou":        str = "æ²³åŒ—æ²§å·";       break;
+//			case "changan":         str = "é™•è¥¿é•¿å®‰";       break;
+			case "chengdu":         str = "å››å·æˆéƒ½";       break;
+			case "city":            str = "æ±Ÿå—æ‰¬å·åŸ";     break;
 			case "dali": 
 				switch(place[2]) {
-					case "daliwest":        str = "´óÀí³ÇÎ÷";       break;
-					case "dalisouth":       str = "´óÀí³ÇÄÏ";       break;
-					case "dalieast":        str = "´óÀí³Ç¶«";       break;
-					case "wuliang":         str = "´óÀíÎŞÁ¿É½";     break;
-					case "dlhg":            str = "´óÀí»Ê¹¬";       break;
-					case "wangfu":          str = "´óÀíÍõ¸®";       break;
-					case "yuxu":            str = "´óÀíÓñĞé¹Û";     break;
-					default :               str = "Î÷ÄÏ´óÀí¹ú";     break;
+					case "daliwest":        str = "å¤§ç†åŸè¥¿";       break;
+					case "dalisouth":       str = "å¤§ç†åŸå—";       break;
+					case "dalieast":        str = "å¤§ç†åŸä¸œ";       break;
+					case "wuliang":         str = "å¤§ç†æ— é‡å±±";     break;
+					case "dlhg":            str = "å¤§ç†çš‡å®«";       break;
+					case "wangfu":          str = "å¤§ç†ç‹åºœ";       break;
+					case "yuxu":            str = "å¤§ç†ç‰è™šè§‚";     break;
+					default :               str = "è¥¿å—å¤§ç†å›½";     break;
 				}
 				break;
-			case "death":           str = "Ê®°Ë²ãµØÓü";     break;
-			case "emei":            str = "ËÄ´¨¶ëáÒÉ½";     break;
-			case "fairyland":       str = "À¥ÂØÉ½Âö";       break;
-			case "foshan":          str = "¹ã¶«·ğÉ½Õò";     break;
-			case "fuzhou":          str = "ÄÏ½®¸£Öİ";       break;
-			case "gb":              str = "Ø¤°ï·Ö¶æ";       break;
+			case "death":           str = "åå…«å±‚åœ°ç‹±";     break;
+			case "emei":            str = "å››å·å³¨åµ‹å±±";     break;
+			case "fairyland":       str = "æ˜†ä»‘å±±è„‰";       break;
+			case "foshan":          str = "å¹¿ä¸œä½›å±±é•‡";     break;
+			case "fuzhou":          str = "å—ç–†ç¦å·";       break;
+			case "gb":              str = "ä¸å¸®åˆ†èˆµ";       break;
 			case "gumu": 
 				switch(place[2]) {
-					case "jqg":             str = "¾øÇé¹È";         break;
-					case "xuantie":         str = "ÏåÑô½¼Íâ";       break;
-					default :               str = "ÖÕÄÏ¹ÅÄ¹";       break;
+					case "jqg":             str = "ç»æƒ…è°·";         break;
+					case "xuantie":         str = "è¥„é˜³éƒŠå¤–";       break;
+					default :               str = "ç»ˆå—å¤å¢“";       break;
 				}
 				break;
-			case "hengshan":        str = "±±ÔÀºãÉ½";       break;
-			case "hj":              str = "Î÷Óò»Ø½®";       break;
+			case "hengshan":        str = "åŒ—å²³æ’å±±";       break;
+			case "hj":              str = "è¥¿åŸŸå›ç–†";       break;
 /*                      case "hmy":
                                 switch(place[2]) {
-                                        case "pingding":        str = "É½Î÷Æ½¶¨Öİ";     break;
-                                        default:                str = "ºÚÄ¾ÑÂ";         break;
+                                        case "pingding":        str = "å±±è¥¿å¹³å®šå·";     break;
+                                        default:                str = "é»‘æœ¨å´–";         break;
                                 }
                                 break;
 */			case "huanghe":
 				switch(place[2]) {
-					case "yyd":             str = "»ÆºÓÏô¸®";       break;
-					default :               str = "»ÆºÓµØ´ø";       break;
+					case "yyd":             str = "é»„æ²³è§åºœ";       break;
+					default :               str = "é»„æ²³åœ°å¸¦";       break;
 				}
 				break;
-			case "huashan":         str = "ÉÂÎ÷»ªÉ½";       break;
-			case "hz":              str = "½­ÄÏº¼Öİ";       break;
-			case "jiaxing":         str = "½­ÄÏ¼ÎĞË";       break;
-//			case "kunlun":          str = "À¥ÂØÉ½Âö";       break;
-//			case "lanzhou":         str = "¸ÊËàÀ¼Öİ";       break;
-//                      case "meizhuang":       str = "Î÷ºşÃ·×¯";       break;
-			case "miaojiang":       str = "Î÷ÄÏÃç½®";       break;
+			case "huashan":         str = "é™•è¥¿åå±±";       break;
+			case "hz":              str = "æ±Ÿå—æ­å·";       break;
+			case "jiaxing":         str = "æ±Ÿå—å˜‰å…´";       break;
+//			case "kunlun":          str = "æ˜†ä»‘å±±è„‰";       break;
+//			case "lanzhou":         str = "ç”˜è‚ƒå…°å·";       break;
+//                      case "meizhuang":       str = "è¥¿æ¹–æ¢…åº„";       break;
+			case "miaojiang":       str = "è¥¿å—è‹—ç–†";       break;
 			case "mingjiao": 
 				switch(place[2]) {
-					case "hdg":             str = "°²»Õºûµû¹È";     break;
-					case "hhd":             str = "±±¼«±ù»ğµº";     break;
-					case "lsd":             str = "¶«º£ÁéÉßµº";     break;
-					default :               str = "Î÷ÓòÃ÷½Ì";       break;
+					case "hdg":             str = "å®‰å¾½è´è¶è°·";     break;
+					case "hhd":             str = "åŒ—æå†°ç«å²›";     break;
+					case "lsd":             str = "ä¸œæµ·çµè›‡å²›";     break;
+					default :               str = "è¥¿åŸŸæ˜æ•™";       break;
 				}
 				break;
-			case "mr":		str = "¹ÃËÕÄ½Èİ";       break;
-			case "nanyang":         str = "ÄÏÑôĞí¼Ò¼¯";     break;
-			case "ningbo":          str = "½­ÄÏÄş²¨";       break;
-			case "putian":          str = "ÆÎÌïÉÙÁÖ";       break;
-			case "shaolin":         str = "áÔÉ½ÉÙÁÖ";       break;
-			case "sld":             str = "±±º£ÉñÁúµº";     break;
-			case "songshan":        str = "ºÓÄÏáÔÉ½";       break;
-			case "suzhou":          str = "ËÕÖİÏØ³Ç";       break;
-			case "taishan":         str = "É½¶«Ì©É½";       break;
-			case "tanggu" :         str = "Ìì½òÌÁ¹Á";       break;
+			case "mr":		str = "å§‘è‹æ…•å®¹";       break;
+			case "nanyang":         str = "å—é˜³è®¸å®¶é›†";     break;
+			case "ningbo":          str = "æ±Ÿå—å®æ³¢";       break;
+			case "putian":          str = "è†ç”°å°‘æ—";       break;
+			case "shaolin":         str = "åµ©å±±å°‘æ—";       break;
+			case "sld":             str = "åŒ—æµ·ç¥é¾™å²›";     break;
+			case "songshan":        str = "æ²³å—åµ©å±±";       break;
+			case "suzhou":          str = "è‹å·å¿åŸ";       break;
+			case "taishan":         str = "å±±ä¸œæ³°å±±";       break;
+			case "tanggu" :         str = "å¤©æ´¥å¡˜æ²½";       break;
 			case "thd": 
 				switch(place[2]) {
-					case "niujia":          str = "¶«º£Å£¼Ò´å";     break;
-					case "guiyun":          str = "Ì«ºş¹éÔÆ×¯";     break;
-					default:                str = "¶«º£ÌÒ»¨µº";     break;
+					case "niujia":          str = "ä¸œæµ·ç‰›å®¶æ‘";     break;
+					case "guiyun":          str = "å¤ªæ¹–å½’äº‘åº„";     break;
+					default:                str = "ä¸œæµ·æ¡ƒèŠ±å²›";     break;
 				}
 				break;
-//			case "tianshan":        str = "Î÷ÓòÌìÉ½";       break;
-			case "tiezhang":        str = "ºşÄÏÌúÕÆÉ½";     break;
-			case "tls":             str = "´óÀíÌìÁúËÂ";     break;
-			case "village":         str = "ÉÂÎ÷Ğ¡´å";       break;
-			case "wizard":          str = "¼«ÀÖÊÀ½ç";       break;
-			case "wudang":          str = "ºş±±Îäµ±É½";     break;
-			case "wuguan":          str = "ÏåÑôÎä¹İ";       break;
-			case "xiangyang":       str = "ºş±±ÏåÑô";       break;
-                        case "xingxiu": 	str = "Î÷ÓòĞÇËŞº£";     break;
-			case "xueshan":		str = "Î÷·¬´óÑ©É½";     break;
+//			case "tianshan":        str = "è¥¿åŸŸå¤©å±±";       break;
+			case "tiezhang":        str = "æ¹–å—é“æŒå±±";     break;
+			case "tls":             str = "å¤§ç†å¤©é¾™å¯º";     break;
+			case "village":         str = "é™•è¥¿å°æ‘";       break;
+			case "wizard":          str = "æä¹ä¸–ç•Œ";       break;
+			case "wudang":          str = "æ¹–åŒ—æ­¦å½“å±±";     break;
+			case "wuguan":          str = "è¥„é˜³æ­¦é¦†";       break;
+			case "xiangyang":       str = "æ¹–åŒ—è¥„é˜³";       break;
+                        case "xingxiu": 	str = "è¥¿åŸŸæ˜Ÿå®¿æµ·";     break;
+			case "xueshan":		str = "è¥¿ç•ªå¤§é›ªå±±";     break;
 	}
 	return str;
 }

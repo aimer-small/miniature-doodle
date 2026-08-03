@@ -3,13 +3,13 @@ inherit F_AUTOLOAD;
 
 void create()
 {
-        set_name("²¯¾í", ({ "bo juan", "bo", "juan" }));
+        set_name("å¸›å·", ({ "bo juan", "bo", "juan" }));
         set_weight(50);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "ÕÅ");
-                set("long","ÕâÊÇÒ»ÕÅ²¯¾í£¬ÉÏÃæÐ´ÂúÁË¾êÐãµÄÎÄ×Ö¡£\n");
+                set("unit", "å¼ ");
+                set("long","è¿™æ˜¯ä¸€å¼ å¸›å·ï¼Œä¸Šé¢å†™æ»¡äº†å¨Ÿç§€çš„æ–‡å­—ã€‚\n");
                 set("treasure", 1);
                 set("value", 200000);
                 set("material", "skin");
@@ -33,34 +33,34 @@ int do_study(string arg)
     if (!arg || !(arg=="bo juan" || arg=="bo" || arg=="juan"))
         return 0;
     if (me->is_busy())
-        return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ¡£\n");
+        return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
     if (where->query("sleep_room"))
-        return notify_fail("ÎÔÊÒ²»ÄÜ¶ÁÊé£¬»áÓ°Ïì±ðÈËÐÝÏ¢¡£\n");
+        return notify_fail("å§å®¤ä¸èƒ½è¯»ä¹¦ï¼Œä¼šå½±å“åˆ«äººä¼‘æ¯ã€‚\n");
     if( me->is_fighting() )
-        return notify_fail("ÄãÎÞ·¨ÔÚÕ½¶·ÖÐ×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª£¡\n");
+        return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ï¼\n");
     if( !me->query_skill("jiuyin-baiguzhua") )
-        return notify_fail("ÄãÎÞ·¨´ÓÕâÑù¶«Î÷Ñ§µ½ÈÎºÎ¶«Î÷¡£\n");
+        return notify_fail("ä½ æ— æ³•ä»Žè¿™æ ·ä¸œè¥¿å­¦åˆ°ä»»ä½•ä¸œè¥¿ã€‚\n");
     if( !me->query_skill("literate", 1) )
-        return notify_fail("ÄãÊÇ¸öÎÄÃ¤£¬ÏÈÑ§µãÎÄ»¯(literate)°É¡£\n");
+        return notify_fail("ä½ æ˜¯ä¸ªæ–‡ç›²ï¼Œå…ˆå­¦ç‚¹æ–‡åŒ–(literate)å§ã€‚\n");
     if (!random(5))
-        message("vision", me->name() + "Õý×¨ÐÄµØÑÐ¶Á²¯¾í¡£\n", environment(me), me);
+        message("vision", me->name() + "æ­£ä¸“å¿ƒåœ°ç ”è¯»å¸›å·ã€‚\n", environment(me), me);
     if( (int)me->query("potential") < 1 )
-        return notify_fail("ÄãµÄÇ±ÄÜÒÑ¾­ÓÃÍêÁË£¬ÔÙÔõÃ´¶ÁÒ²Ã»ÓÃ¡£\n");
+        return notify_fail("ä½ çš„æ½œèƒ½å·²ç»ç”¨å®Œäº†ï¼Œå†æ€Žä¹ˆè¯»ä¹Ÿæ²¡ç”¨ã€‚\n");
     if( (int)me->query("combat_exp") < 650000 )
-        return notify_fail("ÄãµÄÊµÕ½¾­Ñé²»×ã£¬ÔÙÔõÃ´¶ÁÒ²Ã»ÓÃ¡£\n");
+        return notify_fail("ä½ çš„å®žæˆ˜ç»éªŒä¸è¶³ï¼Œå†æ€Žä¹ˆè¯»ä¹Ÿæ²¡ç”¨ã€‚\n");
     if( me->query_int() < 38 )
-        return notify_fail("ÒÔÄãÄ¿Ç°µÄÁìÎòÄÜÁ¦£¬»¹Ã»ÓÐ°ì·¨Ñ§Õâ¸ö¼¼ÄÜ¡£\n");
+        return notify_fail("ä»¥ä½ ç›®å‰çš„é¢†æ‚Ÿèƒ½åŠ›ï¼Œè¿˜æ²¡æœ‰åŠžæ³•å­¦è¿™ä¸ªæŠ€èƒ½ã€‚\n");
     cost = 40 * ( 1 + ( 38 - (int)me->query("int"))/20 );
     if (cost < 10) cost = 10; // minimum cost
     if( me->query_skill("jiuyin-baiguzhua", 1) < 140 )
-        return notify_fail("ÄãÑÐ¶ÁÁËÒ»»á¶ù£¬µ«ÊÇ·¢ÏÖÉÏÃæËùËµµÄ¶ÔÄã¶øÑÔ¶¼Ì«ÉîÁË£¬Ã»ÓÐÑ§µ½ÈÎºÎ¶«Î÷¡£\n");
+        return notify_fail("ä½ ç ”è¯»äº†ä¸€ä¼šå„¿ï¼Œä½†æ˜¯å‘çŽ°ä¸Šé¢æ‰€è¯´çš„å¯¹ä½ è€Œè¨€éƒ½å¤ªæ·±äº†ï¼Œæ²¡æœ‰å­¦åˆ°ä»»ä½•ä¸œè¥¿ã€‚\n");
     my_skill = me->query_skill("jiuyin-baiguzhua", 1);
     if( my_skill * my_skill * my_skill / 10 > (int)me->query("combat_exp") ) 
-        write("Ò²ÐíÊÇÈ±·¦ÊµÕ½¾­Ñé£¬Äã¶Ô²¯¾íÉÏÃæËùËµµÄ¶«Î÷×ÜÊÇÎÞ·¨Áì»á¡£\n");
-    else write("ÄãÑÐ¶Á×ÅÓÐ¹Ø¾ÅÒõ°×¹Ç×¦µÄ¼¼ÇÉ£¬ËÆºõÓÐÐ©ÐÄµÃ¡£\n");
+        write("ä¹Ÿè®¸æ˜¯ç¼ºä¹å®žæˆ˜ç»éªŒï¼Œä½ å¯¹å¸›å·ä¸Šé¢æ‰€è¯´çš„ä¸œè¥¿æ€»æ˜¯æ— æ³•é¢†ä¼šã€‚\n");
+    else write("ä½ ç ”è¯»ç€æœ‰å…³ä¹é˜´ç™½éª¨çˆªçš„æŠ€å·§ï¼Œä¼¼ä¹Žæœ‰äº›å¿ƒå¾—ã€‚\n");
     me->improve_skill("jiuyin-baiguzhua", ((int)me->query_skill("literate", 1)/5+1) );
     if (cost < 1) cost = 1;
-    me->set_temp("last_damage_from", "ÑÐ¶Á¸ßÉîÎä¹¦£¬°¾¾¡ÐÄ»úÀÛ");
+    me->set_temp("last_damage_from", "ç ”è¯»é«˜æ·±æ­¦åŠŸï¼Œç†¬å°½å¿ƒæœºç´¯");
     me->receive_damage("jing", cost );
 if(me->query_skill("jiuyin-baiguzhua",1)<200)
     me->add("potential", - random(2));

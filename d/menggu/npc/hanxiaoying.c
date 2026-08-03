@@ -1,17 +1,17 @@
-// hanxiaoying.c º«Ğ¡Ó¨
+// hanxiaoying.c éŸ©å°è¹
 // Created by Zhuifeng@sjfy 08/8/2010
 
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-   set_name("º«Ğ¡Ó¨",({"han xiaoying","han","xiaoying"}));
-   set("gender","Å®ĞÔ");
-   set("long","½­ÄÏÆß¹ÖÀÏÆß,\n");
+   set_name("éŸ©å°è¹",({"han xiaoying","han","xiaoying"}));
+   set("gender","å¥³æ€§");
+   set("long","æ±Ÿå—ä¸ƒæ€ªè€ä¸ƒ,\n");
    set("shen",80000);
    set("combat_exp",1200000);
-   set("nickname",HIM"Ô½Å®½£"NOR);
-   set("title",WHT"½­ÄÏÆß¹ÖÀÏÆß"NOR);
+   set("nickname",HIM"è¶Šå¥³å‰‘"NOR);
+   set("title",WHT"æ±Ÿå—ä¸ƒæ€ªè€ä¸ƒ"NOR);
    
    set("age",18);
    set("pur",28);

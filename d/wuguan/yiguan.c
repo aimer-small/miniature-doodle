@@ -1,24 +1,24 @@
-// yiguan.c æä¹İ
+// yiguan.c é©¿é¦†
 
 #include <ansi.h>
 inherit ROOM;
 mapping *paizi=({
-	([  "name":"½­ÄÏÑïÖİ³Ç",    "id":"Yangzhou",   "value":20   ]),
-	([  "name":"Î÷ÓòĞÇËŞº£",    "id":"Xingxiu",    "value":80   ]),
-	([  "name":"ºÓ±±Îäµ±É½",    "id":"Wudang",     "value":50   ]),
-	([  "name":"ºşÄÏÌúÕÆÉ½",    "id":"Tiezhang",   "value":50   ]),
-	([  "name":"¶«º£ÌÒ»¨µº",    "id":"Taohuadao",  "value":100  ]),
-	([  "name":"ÉñÁúµºº£Ì²",    "id":"Shenlong",   "value":30   ]),
-	([  "name":"ºÓÄÏáÔÉ½ÉÙÁÖ",  "id":"Shaolin",    "value":70   ]),
-	([  "name":"½­ÄÏ¹ÃËÕÄ½Èİ",  "id":"Murong",     "value":60   ]),
-	([  "name":"Î÷ÓòÃ÷½Ì",      "id":"Mingjiao",   "value":100  ]),
-	([  "name":"À¥ÂØÉ½Âö",      "id":"Kunlun",     "value":100  ]),
-	([  "name":"Î÷ÔÀ»ªÉ½ÅÉ",    "id":"Huashan",    "value":40   ]),
-	([  "name":"ÖÕÄÏÉ½¹ÅÄ¹",    "id":"Gumu",       "value":30   ]),
-	([  "name":"ËÄ´¨¶ëáÒÉ½",    "id":"Emei",       "value":40   ]),
-	([  "name":"Ñ©É½´óÂÖËÂ",    "id":"Dalunsi",    "value":100  ]),
-	([  "name":"Î÷ÄÏ´óÀí¹ú",    "id":"Dali",       "value":50   ]),
-//	([  "name":"ÖÕÄÏÉ½È«Õæ½Ì",   "id":"Quanzhen",	  "value":30   ]),
+	([  "name":"æ±Ÿå—æ‰¬å·åŸ",    "id":"Yangzhou",   "value":20   ]),
+	([  "name":"è¥¿åŸŸæ˜Ÿå®¿æµ·",    "id":"Xingxiu",    "value":80   ]),
+	([  "name":"æ²³åŒ—æ­¦å½“å±±",    "id":"Wudang",     "value":50   ]),
+	([  "name":"æ¹–å—é“æŒå±±",    "id":"Tiezhang",   "value":50   ]),
+	([  "name":"ä¸œæµ·æ¡ƒèŠ±å²›",    "id":"Taohuadao",  "value":100  ]),
+	([  "name":"ç¥é¾™å²›æµ·æ»©",    "id":"Shenlong",   "value":30   ]),
+	([  "name":"æ²³å—åµ©å±±å°‘æ—",  "id":"Shaolin",    "value":70   ]),
+	([  "name":"æ±Ÿå—å§‘è‹æ…•å®¹",  "id":"Murong",     "value":60   ]),
+	([  "name":"è¥¿åŸŸæ˜æ•™",      "id":"Mingjiao",   "value":100  ]),
+	([  "name":"æ˜†ä»‘å±±è„‰",      "id":"Kunlun",     "value":100  ]),
+	([  "name":"è¥¿å²³åå±±æ´¾",    "id":"Huashan",    "value":40   ]),
+	([  "name":"ç»ˆå—å±±å¤å¢“",    "id":"Gumu",       "value":30   ]),
+	([  "name":"å››å·å³¨åµ‹å±±",    "id":"Emei",       "value":40   ]),
+	([  "name":"é›ªå±±å¤§è½®å¯º",    "id":"Dalunsi",    "value":100  ]),
+	([  "name":"è¥¿å—å¤§ç†å›½",    "id":"Dali",       "value":50   ]),
+//	([  "name":"ç»ˆå—å±±å…¨çœŸæ•™",   "id":"Quanzhen",	  "value":30   ]),
 });
 
 string look_paizi();
@@ -26,12 +26,12 @@ int do_go(string);
 
 void create()
 {
-	set("short",HIC"æä¹İ"NOR);
+	set("short",HIC"é©¿é¦†"NOR);
 	set("long", @LONG
-ÕâÊÇÎä¹İµÄæä¹İ£¬·¿¼äºÜ´ó£¬ÃÖÉ¢×ÅÒ»¹ÉÉüĞóºÍÈË¼ĞÔÓµÄÆøÎ¶¡£ÖÜÎ§Í£×Å
-ºÃ¼¸Á¾´ó³µ£¬Âí¶ù²»Í£µØË»Ãù×Å¡£Ò»Î»ÀÏ³µ·ò£¬×¨ÃÅ´øÎä¹İ¸Õ³öÃÅµÄµÜ×ÓÈ¥½­
-ºş¸÷´óÃÅÅÉ£¬ËûÒ»¼ûÄã×ß¹ıÀ´£¬²»¸Òµ¡Âı£¬´ø×ÅĞ¦Á³Á¬Ã¦Ó­ÉÏÇ°È¥¡£æä¹İµÄÖĞ
-¼äÓĞ¸ùÄ¾Öù£¬Öù×ÓÉÏ¹Ò×ÅÒ»¿éÅÆ×Ó£¨paizi£©¡£
+è¿™æ˜¯æ­¦é¦†çš„é©¿é¦†ï¼Œæˆ¿é—´å¾ˆå¤§ï¼Œå¼¥æ•£ç€ä¸€è‚¡ç‰²ç•œå’Œäººå¤¹æ‚çš„æ°”å‘³ã€‚å‘¨å›´åœç€
+å¥½å‡ è¾†å¤§è½¦ï¼Œé©¬å„¿ä¸åœåœ°å˜¶é¸£ç€ã€‚ä¸€ä½è€è½¦å¤«ï¼Œä¸“é—¨å¸¦æ­¦é¦†åˆšå‡ºé—¨çš„å¼Ÿå­å»æ±Ÿ
+æ¹–å„å¤§é—¨æ´¾ï¼Œä»–ä¸€è§ä½ èµ°è¿‡æ¥ï¼Œä¸æ•¢æ€ æ…¢ï¼Œå¸¦ç€ç¬‘è„¸è¿å¿™è¿ä¸Šå‰å»ã€‚é©¿é¦†çš„ä¸­
+é—´æœ‰æ ¹æœ¨æŸ±ï¼ŒæŸ±å­ä¸ŠæŒ‚ç€ä¸€å—ç‰Œå­ï¼ˆpaiziï¼‰ã€‚
 LONG
 	);
 	set("exits",([
@@ -57,21 +57,21 @@ void init()
 
 string look_paizi()
 {
-	string str=HIW"\n¼ÛÄ¿±í£º\n"NOR;
+	string str=HIW"\nä»·ç›®è¡¨ï¼š\n"NOR;
 	int i=sizeof(paizi);
 
 	while (i--) {
-		str += chinese_number(15-i)+"£¬";
-		str += "È¥"+paizi[i]["name"];
+		str += chinese_number(15-i)+"ï¼Œ";
+		str += "å»"+paizi[i]["name"];
 		str += "("HIW + paizi[i]["id"] + NOR")";
-		str += " Ğè"+MONEY_D->price_str(paizi[i]["value"]) + "\n";
+		str += " éœ€"+MONEY_D->price_str(paizi[i]["value"]) + "\n";
 	}
 	return str;
 }
 
 void do_move(object ob, int i)
 {
-	message_vision(YEL"\n$N°ÑÇ®½»¸øÁË³µ·ò£¬³µ·òÁì$NÉÏÁËÒ»Á¾´ó³µ¡£\n\n"NOR,ob);
+	message_vision(YEL"\n$NæŠŠé’±äº¤ç»™äº†è½¦å¤«ï¼Œè½¦å¤«é¢†$Nä¸Šäº†ä¸€è¾†å¤§è½¦ã€‚\n\n"NOR,ob);
 	ob->move(__DIR__"che");
 //      ob->move(paizi[i]["file"]);
 }
@@ -81,31 +81,31 @@ int do_go(string arg)
 	object ob=this_player();
 	int i=sizeof(paizi);
 
-	if (!arg) return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+	if (!arg) return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 	arg = capitalize(arg);
 	if (ob->is_busy() || ob->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	while(i--) {
 		if (arg == paizi[i]["id"]) {
 			switch (MONEY_D->player_pay(ob, paizi[i]["value"])) {
 				case 0:
-					return notify_fail("Çî¹âµ°£¬Ã»Ç®¾Í±ğ³Ë³µÁË£¬ÍùÄÏ×ß¾Íµ½ÏåÑôÁË£¡\n");
+					return notify_fail("ç©·å…‰è›‹ï¼Œæ²¡é’±å°±åˆ«ä¹˜è½¦äº†ï¼Œå¾€å—èµ°å°±åˆ°è¥„é˜³äº†ï¼\n");
 				case 2:
-					return notify_fail("ÓĞÁãÇ®Âğ£¿Ã»ÁãÇ®µÄ»°Ö»ÄÜÍùÄÏ×ß£¬ÄÇÀïÄÜµ½ÏåÑô¡£\n");
+					return notify_fail("æœ‰é›¶é’±å—ï¼Ÿæ²¡é›¶é’±çš„è¯åªèƒ½å¾€å—èµ°ï¼Œé‚£é‡Œèƒ½åˆ°è¥„é˜³ã€‚\n");
 			}
-			message_vision(HIG"$NÔÚ³µ·ò¶ú±ßÇáÉùËµ³öËùÈ¥Ö®µØ¡£\n"NOR, ob);
+			message_vision(HIG"$Nåœ¨è½¦å¤«è€³è¾¹è½»å£°è¯´å‡ºæ‰€å»ä¹‹åœ°ã€‚\n"NOR, ob);
 			ob->start_busy(2);
 			ob->set_temp("place", arg);
 			call_out("do_move", 3, ob, i);
 			return 1;
 		}
 	}
-	return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+	return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 }
 
 int valid_leave(object me,string dir)
 {
 	if( dir == "east")
-		return notify_fail("ÄãÒÑ¾­¿ÉÒÔÈ¥½­ºş´³µ´ÁË£¬²»ÒªÔÙÁôÁµÎä¹İÁË¡£\n");
+		return notify_fail("ä½ å·²ç»å¯ä»¥å»æ±Ÿæ¹–é—¯è¡äº†ï¼Œä¸è¦å†ç•™æ‹æ­¦é¦†äº†ã€‚\n");
 	return ::valid_leave(me, dir);
 }

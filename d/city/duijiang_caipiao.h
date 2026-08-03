@@ -1,4 +1,4 @@
-//¶Ô½±×¨ÓÃ¡£ by lsxk@hsbbs 2007/9/26
+//å¯¹å¥–ä¸“ç”¨ã€‚ by lsxk@hsbbs 2007/9/26
 
 int do_duijiang()
 {
@@ -9,22 +9,22 @@ int do_duijiang()
     if(!present("cai piao",me)){
         me->delete("caipiao");
         me->delete("caipiao_id");
-        return notify_fail("ÄãµÄÃþ²ÊÆ¾Ö¤ÄØ£¿\n"NOR);
+        return notify_fail("ä½ çš„æ‘¸å½©å‡­è¯å‘¢ï¼Ÿ\n"NOR);
     }
 
-    if(!query("no_buy")) return notify_fail("»¹Ã»¿ª½±ÄØ£¬´ÕÉ¶ÈÈÄÖ£¿¸Ã¸ÉÉ¶¸ÉÉ¶È¥¡£¡£\n"NOR);
+    if(!query("no_buy")) return notify_fail("è¿˜æ²¡å¼€å¥–å‘¢ï¼Œå‡‘å•¥çƒ­é—¹ï¼Ÿè¯¥å¹²å•¥å¹²å•¥åŽ»ã€‚ã€‚\n"NOR);
 
-    if(!(i=sizeof(me->query("caipiao")))) return notify_fail("Äã»¹Ã»Âò²ÊÆ±£¬À´¶ÒÊ²Ã´½±£¿Ò»±ßÁ¹¿ìÈ¥£¡\n"NOR);
+    if(!(i=sizeof(me->query("caipiao")))) return notify_fail("ä½ è¿˜æ²¡ä¹°å½©ç¥¨ï¼Œæ¥å…‘ä»€ä¹ˆå¥–ï¼Ÿä¸€è¾¹å‡‰å¿«åŽ»ï¼\n"NOR);
 
     if(me->query("caipiao_id")!=This_Source){
         me->delete("caipiao");
         me->delete("caipiao_id");
-        tell_object(me,"Ð¡Ñù£¡ÄÃ¹ýÆÚµÄ²ÊÆ±À´¶Ô½±£¿µ±Wiz¶¼ÉµµÄ°¡£¿\n"NOR);
+        tell_object(me,"å°æ ·ï¼æ‹¿è¿‡æœŸçš„å½©ç¥¨æ¥å¯¹å¥–ï¼Ÿå½“Wizéƒ½å‚»çš„å•Šï¼Ÿ\n"NOR);
         destruct(present("cai piao",me));
         return 1;
     }
 
-    strDuijiang = me->query("caipiao/µÚ"+chinese_number(i)+"ÕÅ/my_caipiao");
+    strDuijiang = me->query("caipiao/ç¬¬"+chinese_number(i)+"å¼ /my_caipiao");
 
     for(k=0;k<SIZE_OF_SOURCE/2;k++){
         if(!strTemp) strTemp = ({duijiang_char[k]+duijiang_char[k+1]});
@@ -43,7 +43,7 @@ int do_duijiang()
         }
     }
 
-    strReport = HIM"ÄúÕâ´ÎÖÐ½±µÄÐòºÅÅÅÁÐÎª:\n"HIG;
+    strReport = HIM"æ‚¨è¿™æ¬¡ä¸­å¥–çš„åºå·æŽ’åˆ—ä¸º:\n"HIG;
     strReportLog = " ";
     if(me->query("caipiao_zhongjiang_list")){
         strReportTemp = keys(me->query("caipiao_zhongjiang_list"));
@@ -53,19 +53,19 @@ int do_duijiang()
         }
         tell_object(me, strReport + "\n"NOR);
 
-        log_file("caipiao", sprintf(HIG"%s(%s)µÚ%dÕÅ²ÊÆ±£º%s ÖÐ½±£¬ÏµÍ³ÖÐ½±ºÅ£º%s ÖÐ½±ÅÅÁÐ:%s"NOR,me->name(),me->query("id"),i,me->query("caipiao/µÚ"+chinese_number(i)+"ÕÅ/my_caipiao"),strPriKaijiang, strReportLog));
-        if(me->query("caipiao/µÚ"+chinese_number(i)+"ÕÅ/huobi")=="Í¨±¦"){
-            tell_object(me,HIY"¹§Ï²!´Ë´ÎÖÐ½±,Ê¹Äã»ñµÃÁË"+HIW+chinese_number((int)me->query("caipiao_shot")*CREDIT_COST)+HIY+"¸öÌìÑÄÍ¨±¦!\n"NOR);
+        log_file("caipiao", sprintf(HIG"%s(%s)ç¬¬%då¼ å½©ç¥¨ï¼š%s ä¸­å¥–ï¼Œç³»ç»Ÿä¸­å¥–å·ï¼š%s ä¸­å¥–æŽ’åˆ—:%s"NOR,me->name(),me->query("id"),i,me->query("caipiao/ç¬¬"+chinese_number(i)+"å¼ /my_caipiao"),strPriKaijiang, strReportLog));
+        if(me->query("caipiao/ç¬¬"+chinese_number(i)+"å¼ /huobi")=="é€šå®"){
+            tell_object(me,HIY"æ­å–œ!æ­¤æ¬¡ä¸­å¥–,ä½¿ä½ èŽ·å¾—äº†"+HIW+chinese_number((int)me->query("caipiao_shot")*CREDIT_COST)+HIY+"ä¸ªå¤©æ¶¯é€šå®!\n"NOR);
             me->add("SJ_Credit",(int)me->query("caipiao_shot")*CREDIT_COST);
         }
-        if(me->query("caipiao/µÚ"+chinese_number(i)+"ÕÅ/huobi")=="»Æ½ð"){
-            tell_object(me,HIY"¹§Ï²!´Ë´ÎÖÐ½±,Ê¹Äã»ñµÃÁË"+HIW+chinese_number((int)me->query("caipiao_shot")*GOLD_COST/10000)+HIY+"¶§»Æ½ð!\n"NOR);
+        if(me->query("caipiao/ç¬¬"+chinese_number(i)+"å¼ /huobi")=="é»„é‡‘"){
+            tell_object(me,HIY"æ­å–œ!æ­¤æ¬¡ä¸­å¥–,ä½¿ä½ èŽ·å¾—äº†"+HIW+chinese_number((int)me->query("caipiao_shot")*GOLD_COST/10000)+HIY+"é”­é»„é‡‘!\n"NOR);
             me->add("balance",(int)me->query("caipiao_shot")*GOLD_COST);
         }
     }
-    else tell_object(me, HIR"ºÜÒÅº¶,ÕâÕÅ²ÊÆ±,ÄúÃ»ÓÐÖÐÈÎºÎ½±,¸ÐÐ»ÄúµÄ²ÎÓë,×£ÄúÏÂ´ÎÖÐ½±!\n"NOR);
+    else tell_object(me, HIR"å¾ˆé—æ†¾,è¿™å¼ å½©ç¥¨,æ‚¨æ²¡æœ‰ä¸­ä»»ä½•å¥–,æ„Ÿè°¢æ‚¨çš„å‚ä¸Ž,ç¥æ‚¨ä¸‹æ¬¡ä¸­å¥–!\n"NOR);
 
-    me->delete("caipiao/µÚ"+chinese_number(i)+"ÕÅ");
+    me->delete("caipiao/ç¬¬"+chinese_number(i)+"å¼ ");
     me->delete("caipiao_zhongjiang_list");
     me->delete("caipiao_shot");
 

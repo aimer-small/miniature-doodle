@@ -2,66 +2,66 @@
 //
 //      dobetd.c
 //      Created by mychat 12/05/2004
-//      ±£ÁôÎÒµÄÇ©ÃûÇé¿öÏÂ free of use.
-//      µ±È»¸ü»¶Ó­ĞŞ¸Ä¡¢ÓÅ»¯µÈ¡£
+//      ä¿ç•™æˆ‘çš„ç­¾åæƒ…å†µä¸‹ free of use.
+//      å½“ç„¶æ›´æ¬¢è¿ä¿®æ”¹ã€ä¼˜åŒ–ç­‰ã€‚
 //
 //      Email & MSN: codemake@163.com
-//      ÎÄ¼şÎ»ÓÚ/adm/deamonsÏÂ
-// 		´¦Àí¶Ä¾ÖµÄ½ø³Ì
+//      æ–‡ä»¶ä½äº/adm/deamonsä¸‹
+// 		å¤„ç†èµŒå±€çš„è¿›ç¨‹
 
--- ¶Ä¾ÖÉèÖÃ¿â
+-- èµŒå±€è®¾ç½®åº“
 if(select count(*) from sysobjects where name = 'dobet_main') > 0
   drop table dobet_main
 go
-²»¿¼ÂÇ¼Ó×îµÍÍ¶×¢¶îºÍ×î¸ßÍ¶×¢¶î£¬Ã»Ê²Ã´ÒâÒå°É£¬»¹Âé·³
+ä¸è€ƒè™‘åŠ æœ€ä½æŠ•æ³¨é¢å’Œæœ€é«˜æŠ•æ³¨é¢ï¼Œæ²¡ä»€ä¹ˆæ„ä¹‰å§ï¼Œè¿˜éº»çƒ¦
 create table dobet_main
 (
-	U_Site  char(10)		not null,	--Õ¾µã
-	code	char(10)		not null,	--¶Ä¾Ö´úÂë
-	context	char(80)		not null,	--¶Ä¾ÖÄÚÈİ£ºÈçË­¶ÔË­
-	setup_id		char(8)			not null , -- ¶Ä¾ÖÉèÖÃÈË
-	flag			int			not null , -- ×´Ì¬0ÉèÖÃ1¿ªÊ¼Í¶×¢2Í¶×¢½ØÖ¹3½á¹ûÊäÈë4ÅÉ²Ê½áÊø10ÔİÍ£Ê¹ÓÃ
-	max_bet			int			not null , -- ×î´óÏÂ×¢½ğ¶î
-	begin_time		int			not null , -- ÆğÊ¼Ê±¿Ì
-	stop_time		int			not null , -- ½ØÖ¹Ê±¿Ì
-	end_time		int		not null , -- ÅÉ²ÊÊ±¿Ì,Ò²ÊÇ±¾¶Ä¾ÖµÄ½áÊøÊ±¼ä
-	deposit 		int		not null , -- Éè¶ÄÑº½ğ£¨ÈôwizÉèµÄÔòÎª0£©
-	bet_result		int		not null , -- ¶Ä¾Ö½á¹û£¬¶ÔÓ¦dobet_oddsÖĞµÄodds_id,ÁíÍâ0±íÊ¾È¡Ïû,-1±íÊ¾ÉĞÎŞ½á¹û
-	remark			varchar(100), -- ¶Ä¾Ö±ä¶¯¼ÇÂ¼	--ÒÔºóÔÙÓÃ
+	U_Site  char(10)		not null,	--ç«™ç‚¹
+	code	char(10)		not null,	--èµŒå±€ä»£ç 
+	context	char(80)		not null,	--èµŒå±€å†…å®¹ï¼šå¦‚è°å¯¹è°
+	setup_id		char(8)			not null , -- èµŒå±€è®¾ç½®äºº
+	flag			int			not null , -- çŠ¶æ€0è®¾ç½®1å¼€å§‹æŠ•æ³¨2æŠ•æ³¨æˆªæ­¢3ç»“æœè¾“å…¥4æ´¾å½©ç»“æŸ10æš‚åœä½¿ç”¨
+	max_bet			int			not null , -- æœ€å¤§ä¸‹æ³¨é‡‘é¢
+	begin_time		int			not null , -- èµ·å§‹æ—¶åˆ»
+	stop_time		int			not null , -- æˆªæ­¢æ—¶åˆ»
+	end_time		int		not null , -- æ´¾å½©æ—¶åˆ»,ä¹Ÿæ˜¯æœ¬èµŒå±€çš„ç»“æŸæ—¶é—´
+	deposit 		int		not null , -- è®¾èµŒæŠ¼é‡‘ï¼ˆè‹¥wizè®¾çš„åˆ™ä¸º0ï¼‰
+	bet_result		int		not null , -- èµŒå±€ç»“æœï¼Œå¯¹åº”dobet_oddsä¸­çš„odds_id,å¦å¤–0è¡¨ç¤ºå–æ¶ˆ,-1è¡¨ç¤ºå°šæ— ç»“æœ
+	remark			varchar(100), -- èµŒå±€å˜åŠ¨è®°å½•	--ä»¥åå†ç”¨
 )
 go
--- ¶Ä¾ÖÅâÂÊ¿â
+-- èµŒå±€èµ”ç‡åº“
 if(select count(*) from sysobjects where name = 'dobet_odds') > 0
   drop table dobet_odds
 go
 create table dobet_odds
 (
-	U_Site  char(10)		not null,	--Õ¾µã
-	code	char(10)		not null,	--¶Ä¾Ö´úÂë
-	odds_id	int		not null,	--ÅâÂÊ´úÂë:²»ÄÜÉèÖÃÎª0£¬ÒòÎªÉèÖÃ½á¹ûÊ±0±íÊ¾±ÈÈüÃ»½øĞĞ»ò¶Ä¾ÖÈ¡Ïû,
-	odds_remark	char(20)		not null,	--ÅâÂÊËµÃ÷×î¼òµ¥µÄ¾ÍÊÇ1Ö÷Ó®2Æ½3¿ÍÓ®
-	odds		int			not null , -- ÅâÂÊ£¬²»º¬±¾½ğ£¬Èç¹ûÊÇ0.8·µ»ØµÄÊ±ºò¾ÍÊÇ1.8,´æ´¢ÎªÅâÂÊ*100
+	U_Site  char(10)		not null,	--ç«™ç‚¹
+	code	char(10)		not null,	--èµŒå±€ä»£ç 
+	odds_id	int		not null,	--èµ”ç‡ä»£ç :ä¸èƒ½è®¾ç½®ä¸º0ï¼Œå› ä¸ºè®¾ç½®ç»“æœæ—¶0è¡¨ç¤ºæ¯”èµ›æ²¡è¿›è¡Œæˆ–èµŒå±€å–æ¶ˆ,
+	odds_remark	char(20)		not null,	--èµ”ç‡è¯´æ˜æœ€ç®€å•çš„å°±æ˜¯1ä¸»èµ¢2å¹³3å®¢èµ¢
+	odds		int			not null , -- èµ”ç‡ï¼Œä¸å«æœ¬é‡‘ï¼Œå¦‚æœæ˜¯0.8è¿”å›çš„æ—¶å€™å°±æ˜¯1.8,å­˜å‚¨ä¸ºèµ”ç‡*100
 )
 go
--- ¶Ä¾ÖÏÂ×¢¿â
+-- èµŒå±€ä¸‹æ³¨åº“
 if(select count(*) from sysobjects where name = 'dobet_chip') > 0
   drop table dobet_chip
 go
 create table dobet_chip
 (
-	U_Site  char(10)		not null,	--Õ¾µã
-	code	char(10)		not null,	--¶Ä¾Ö´úÂë
-	chip_id	char(8)		not null,	--Í¶×¢ÈËid
-	odds_remark	char(20)		not null,	--ÅâÂÊËµÃ÷×î¼òµ¥µÄ¾ÍÊÇ1Ö÷Ó®2Æ½3¿ÍÓ®;ÈßÓà×Ö¶Î£¬ÒÔÃâ²éÁ½¸ö±í
-	odds_id	int			not null , -- ÅâÂÊ´úÂë
-	odds	int			not null , -- ÏÂ×¢ÅâÂÊ£¬ÒòÎª¶Ä¾ÖµÄÅâÂÊ¿ÉÄÜÔÚ±ä£¬ËùÒÔ¼ÇÂ¼ÏÂ×¢Ê±µÄÅâÂÊ,´æ´¢ÎªÅâÂÊ*100
-	chip	int			not null , -- Í¶×¢½ğ
-	chip_time	int			not null , -- ÏÂ×¢Ê±¼ä
+	U_Site  char(10)		not null,	--ç«™ç‚¹
+	code	char(10)		not null,	--èµŒå±€ä»£ç 
+	chip_id	char(8)		not null,	--æŠ•æ³¨äººid
+	odds_remark	char(20)		not null,	--èµ”ç‡è¯´æ˜æœ€ç®€å•çš„å°±æ˜¯1ä¸»èµ¢2å¹³3å®¢èµ¢;å†—ä½™å­—æ®µï¼Œä»¥å…æŸ¥ä¸¤ä¸ªè¡¨
+	odds_id	int			not null , -- èµ”ç‡ä»£ç 
+	odds	int			not null , -- ä¸‹æ³¨èµ”ç‡ï¼Œå› ä¸ºèµŒå±€çš„èµ”ç‡å¯èƒ½åœ¨å˜ï¼Œæ‰€ä»¥è®°å½•ä¸‹æ³¨æ—¶çš„èµ”ç‡,å­˜å‚¨ä¸ºèµ”ç‡*100
+	chip	int			not null , -- æŠ•æ³¨é‡‘
+	chip_time	int			not null , -- ä¸‹æ³¨æ—¶é—´
 )
 go
 http://shaer.mymud.com/bbs/showthread.php?threadid=24238
-±¸×¢£º
-Ö»Òª¶Ä¾ÖÃ»ÓĞ½áÊø£¬ÔÊĞíÔÚÈÎºÎÊ±¿Ì¶¼ÊäÈë½á¹û£¬ÕâÊ±ºòflag×Ô¶¯±äÎª3
+å¤‡æ³¨ï¼š
+åªè¦èµŒå±€æ²¡æœ‰ç»“æŸï¼Œå…è®¸åœ¨ä»»ä½•æ—¶åˆ»éƒ½è¾“å…¥ç»“æœï¼Œè¿™æ—¶å€™flagè‡ªåŠ¨å˜ä¸º3
 ***********************************************************************************/
 #include <ansi.h>
 #include <mudlib.h>
@@ -93,19 +93,19 @@ int iifpublicrepay=1;
 
 #define MSG_CMDS "/cmds/std/msg"
 //#define MYLOG_TIME 600
-//callouts Ê±¼ä¶¨Òå
+//callouts æ—¶é—´å®šä¹‰
 #define MYLOG_TIME 60
-//ÓÃÀ´¶¨ÒåÆ½¾ùÃ¿¶àÉÙ´ÎMYLOG_TIMEÌáĞÑÒ»´Î(ÏÖÔÚÎªÆ½¾ù6Ğ¡Ê±)
+//ç”¨æ¥å®šä¹‰å¹³å‡æ¯å¤šå°‘æ¬¡MYLOG_TIMEæé†’ä¸€æ¬¡(ç°åœ¨ä¸ºå¹³å‡6å°æ—¶)
 #define MYSHOUT_TIME 360
 //#define MYSHOUT_TIME 360
-//É¾³ı¹ıÆÚ¶Ä¾ÖÊ¹ÓÃ£¬±íÊ¾¹ıÆÚ¶àÉÙÌìÓÃ
+//åˆ é™¤è¿‡æœŸèµŒå±€ä½¿ç”¨ï¼Œè¡¨ç¤ºè¿‡æœŸå¤šå°‘å¤©ç”¨
 #define MYDEL_TIME 86400
 //#define MYDEL_TIME 60
 
 string longtime(int t)
 {
 	string ts = ctime(t);
-	ts = " "+ts[19..23]+"Äê"+ts[4..6]+ts[8..9]+ts[10..15];
+	ts = " "+ts[19..23]+"å¹´"+ts[4..6]+ts[8..9]+ts[10..15];
 	return Ctime(ts);
 }
 
@@ -119,18 +119,18 @@ string shorttime(int t)
 string Ctime(string ts)
 {
 
-	ts = replace_string(ts, "Jan", "Ò»ÔÂ");
-	ts = replace_string(ts, "Feb", "¶şÔÂ");
-	ts = replace_string(ts, "Mar", "ÈıÔÂ");
-	ts = replace_string(ts, "Apr", "ËÄÔÂ");
-	ts = replace_string(ts, "May", "ÎåÔÂ");
-	ts = replace_string(ts, "Jun", "ÁùÔÂ");
-	ts = replace_string(ts, "Jul", "ÆßÔÂ");
-	ts = replace_string(ts, "Aug", "°ËÔÂ");
-	ts = replace_string(ts, "Sep", "¾ÅÔÂ");
-	ts = replace_string(ts, "Oct", "Ê®ÔÂ");
-	ts = replace_string(ts, "Nov", "Ê®Ò»ÔÂ");
-	ts = replace_string(ts, "Dec", "Ê®¶şÔÂ");
+	ts = replace_string(ts, "Jan", "ä¸€æœˆ");
+	ts = replace_string(ts, "Feb", "äºŒæœˆ");
+	ts = replace_string(ts, "Mar", "ä¸‰æœˆ");
+	ts = replace_string(ts, "Apr", "å››æœˆ");
+	ts = replace_string(ts, "May", "äº”æœˆ");
+	ts = replace_string(ts, "Jun", "å…­æœˆ");
+	ts = replace_string(ts, "Jul", "ä¸ƒæœˆ");
+	ts = replace_string(ts, "Aug", "å…«æœˆ");
+	ts = replace_string(ts, "Sep", "ä¹æœˆ");
+	ts = replace_string(ts, "Oct", "åæœˆ");
+	ts = replace_string(ts, "Nov", "åä¸€æœˆ");
+	ts = replace_string(ts, "Dec", "åäºŒæœˆ");
 	return ts;
 }
 
@@ -145,7 +145,7 @@ int set_bet(string valcode,string valcontext, string valsetup_id, int valmax_bet
 		error("db error!");
 		return 0;
 	}
-	//Èç¹ûÓĞÕâ¸ö¶Ä¾Ö£¬¾ÍĞŞ¸ÄËü,·ñÔò´´½¨
+	//å¦‚æœæœ‰è¿™ä¸ªèµŒå±€ï¼Œå°±ä¿®æ”¹å®ƒ,å¦åˆ™åˆ›å»º
 	if(sizeof(ret)>0)
 	sql = "UPDATE "
 	+DB_DOBET_NAME+" SET "	
@@ -174,7 +174,7 @@ int set_bet(string valcode,string valcontext, string valsetup_id, int valmax_bet
 
 int delete_bet(string valcode)
 {
-	//Èç¹û¶Ä¾ÖÃ»ÓĞ½áÊø¾Í²»ÄÜÉ¾³ı
+	//å¦‚æœèµŒå±€æ²¡æœ‰ç»“æŸå°±ä¸èƒ½åˆ é™¤
 	mixed ret = leasedb("select code,context,setup_id,flag,begin_time,stop_time,end_time,deposit,bet_result,remark from "+DB_DOBET_NAME+" where U_Site='"+INTERMUD_MUD_NAME+"' AND code='"+valcode+"'");
 
 	if(!ret || sizeof(ret)<1) 
@@ -186,17 +186,17 @@ int delete_bet(string valcode)
 		return 0;
 	}
 	if( ret[0][3] != 4 ){
-		write("¶Ä¾ÖÃ»½áÊøÇ°²»ÄÜÉ¾³ı!\nÇëÏÈĞŞ¸Ä¶Ä¾Ö½áÊøÊ±¼ä£¬È»ºóµÈ´ı±êÖ¾±äÁËÔÙÉ¾,ÒÔ±ãÍËÍ¶×¢ÕßµÄÇ®\n");
+		write("èµŒå±€æ²¡ç»“æŸå‰ä¸èƒ½åˆ é™¤!\nè¯·å…ˆä¿®æ”¹èµŒå±€ç»“æŸæ—¶é—´ï¼Œç„¶åç­‰å¾…æ ‡å¿—å˜äº†å†åˆ ,ä»¥ä¾¿é€€æŠ•æ³¨è€…çš„é’±\n");
 		return 0;
 	};
-//ÏÈÉ¾³ıÍ¶×¢¼ÇÂ¼
+//å…ˆåˆ é™¤æŠ•æ³¨è®°å½•
 	delete_chip(valcode);
-//È»ºóÉ¾³ıÍ¶×¢Ñ¡Ïî
+//ç„¶ååˆ é™¤æŠ•æ³¨é€‰é¡¹
 	delete_odds(valcode,-1);
-//È»ºóÉ¾³ı¶Ä¾Ö
+//ç„¶ååˆ é™¤èµŒå±€
 	if(!leasedb("DELETE FROM "+DB_DOBET_NAME+" WHERE code='"+valcode+"' AND U_Site='"+INTERMUD_MUD_NAME+"'"))
 		return 0;
-//	write("É¾³ı¶Ä¾Ö³É¹¦£¡\n");
+//	write("åˆ é™¤èµŒå±€æˆåŠŸï¼\n");
 	return 1;
 }
 
@@ -211,10 +211,10 @@ int set_odds(string valcode, int valodds_id, string valodds_remark, int valodds)
 		return 0;
 	}
 	if( (valodds_id == -1)||(valodds_id == 0) ){
-		write("¶Ä¾ÖÑ¡Ïî´úÂë²»ÄÜÎª0»ò-1,ÕâÊÇÄÚ²¿×¨Òµ´úÂë\n");
+		write("èµŒå±€é€‰é¡¹ä»£ç ä¸èƒ½ä¸º0æˆ–-1,è¿™æ˜¯å†…éƒ¨ä¸“ä¸šä»£ç \n");
 		return 0;
 	};
-	//Èç¹ûÓĞÕâ¸öÍ¶×¢Ñ¡Ïî£¬¾ÍĞŞ¸ÄËü,·ñÔò´´½¨
+	//å¦‚æœæœ‰è¿™ä¸ªæŠ•æ³¨é€‰é¡¹ï¼Œå°±ä¿®æ”¹å®ƒ,å¦åˆ™åˆ›å»º
 	if(sizeof(ret)>0)
 	sql = "UPDATE "+DB_ODDS_NAME+" SET "	
 	+"odds_remark='"+valodds_remark+ "',"
@@ -230,7 +230,7 @@ int set_odds(string valcode, int valodds_id, string valodds_remark, int valodds)
 	return 0;
 }
 
-//Èç¹ûvalodds_id=-1±íÊ¾¸Ã¶Ä¾ÖµÄÈ«²¿Ñ¡Ïî¶¼É¾³ı
+//å¦‚æœvalodds_id=-1è¡¨ç¤ºè¯¥èµŒå±€çš„å…¨éƒ¨é€‰é¡¹éƒ½åˆ é™¤
 int delete_odds(string valcode, int valodds_id)
 {
 	if( valodds_id == -1 ){
@@ -240,11 +240,11 @@ int delete_odds(string valcode, int valodds_id)
 		if(!leasedb("DELETE FROM "+DB_ODDS_NAME+" WHERE code='"+valcode+"' AND odds_id='"+valodds_id+"' AND U_Site='"+INTERMUD_MUD_NAME+"'"))
 			return 0;
 	};
-//	write("É¾³ıÍ¶×¢Ñ¡Ïî³É¹¦£¡\n");
+//	write("åˆ é™¤æŠ•æ³¨é€‰é¡¹æˆåŠŸï¼\n");
 	return 1;
 }
 
-//¶Ä×¢ÏÂ¾Í²»ÄÜĞŞ¸Ä
+//èµŒæ³¨ä¸‹å°±ä¸èƒ½ä¿®æ”¹
 int set_chip(string valcode, string valchip_id, int valodds_id, string valodds_remark, int valodds, int valchip)
 {
 	string sql;
@@ -260,21 +260,21 @@ int set_chip(string valcode, string valchip_id, int valodds_id, string valodds_r
 	return 0;
 }
 
-//É¾³ıÍ¶×¢¼ÇÂ¼Ö»ÓĞÔÚÕû¸ö¶Ä¾Ö±»É¾³ıÊ±²ÅÓÃ£¬ËùÒÔ¾Í²»ÅĞ¶Ï±ğµÄÁË
+//åˆ é™¤æŠ•æ³¨è®°å½•åªæœ‰åœ¨æ•´ä¸ªèµŒå±€è¢«åˆ é™¤æ—¶æ‰ç”¨ï¼Œæ‰€ä»¥å°±ä¸åˆ¤æ–­åˆ«çš„äº†
 int delete_chip(string valcode)
 {
 	if(!leasedb("DELETE FROM "+DB_CHIP_NAME+" WHERE code='"+valcode+"' AND U_Site='"+INTERMUD_MUD_NAME+"'"))
 		return 0;
-//	write("É¾³ıÍ¶×¢¼ÇÂ¼³É¹¦£¡\n");
+//	write("åˆ é™¤æŠ•æ³¨è®°å½•æˆåŠŸï¼\n");
 	return 1;
 }
 
-//°´¾Ö²é
-//²é¶Ä¾Ö
-//°´Í¶×¢ÈË²é
+//æŒ‰å±€æŸ¥
+//æŸ¥èµŒå±€
+//æŒ‰æŠ•æ³¨äººæŸ¥
 
-//ÉèÖÃ½á¹û
-//½ÓÊÜÍ¶×¢
+//è®¾ç½®ç»“æœ
+//æ¥å—æŠ•æ³¨
 
 int start_dobet()
 {
@@ -303,7 +303,7 @@ void init_dobet()
 
 void do_dobet()
 {
-	//¼ì²é¶Ä¾ÖÉèÖÃ
+	//æ£€æŸ¥èµŒå±€è®¾ç½®
 	check_dobet();
 	clear_dobet();
 	
@@ -340,21 +340,21 @@ void check_dobet()
 			op = ret[i];
 			//flag==0 and begin_time<inowtime
 			if( (op[3] == 0) && (op[4]<inowtime) ){
-				//½«×´Ì¬¸ÄÎª¿ªÊ¼Í¶×¢
+				//å°†çŠ¶æ€æ”¹ä¸ºå¼€å§‹æŠ•æ³¨
 				inewval=1;
 				ichangflag=1;
 			};
 
 			//flag<2 and stop_time<inowtime
 			if( op[3] < 2 && op[5]<inowtime){
-				//½«×´Ì¬¸ÄÎªÍ£Ö¹Í¶×¢
+				//å°†çŠ¶æ€æ”¹ä¸ºåœæ­¢æŠ•æ³¨
 				inewval=2;
 				ichangflag=1;
 			};
 		
-			//Ö»ÓĞ½á¹ûÒÑ¾­ÊäÈëÁË£¬²ÅÄÜ½«ÅÉ²Êflag==3 and end_time<inowtime
+			//åªæœ‰ç»“æœå·²ç»è¾“å…¥äº†ï¼Œæ‰èƒ½å°†æ´¾å½©flag==3 and end_time<inowtime
 			if( op[3] == 3 && op[8] != -1 && op[6]<inowtime){
-				//½«×´Ì¬¸ÄÎªÍ£Ö¹Í¶×¢
+				//å°†çŠ¶æ€æ”¹ä¸ºåœæ­¢æŠ•æ³¨
 				inewval=4;
 				tempstr=pay_all(op[0],op[1],op[8]);
 				ichangflag=1;
@@ -364,45 +364,45 @@ void check_dobet()
 				if(!leasedb("UPDATE "+DB_DOBET_NAME+" SET "
 					+"flag='"+inewval+ "'"
 					+" WHERE code='" + op[0] + "' AND U_Site='" + INTERMUD_MUD_NAME + "'"))
-					log_file("dobetlog","check_dobetÉÏ²½Êı¾İ¿â²Ù×÷Ê§°Ü¡£");
+					log_file("dobetlog","check_dobetä¸Šæ­¥æ•°æ®åº“æ“ä½œå¤±è´¥ã€‚");
 				if(inewval==1)
-					csoutstr=HIY"¡¾"
+					csoutstr=HIY"ã€"
 						+op[1]
-						+"¡¿¿ÉÒÔ¿ªÊ¼ÏÂ×¢ÁË£¬Çë¸÷Î»Ó»Ô¾²ÎÓë\n"NOR;
+						+"ã€‘å¯ä»¥å¼€å§‹ä¸‹æ³¨äº†ï¼Œè¯·å„ä½è¸Šè·ƒå‚ä¸\n"NOR;
 				else if(inewval==2)
-					csoutstr=HIY"¡¾"
+					csoutstr=HIY"ã€"
 						+op[1]
-						+"¡¿ÏÖÔÚÍ£Ö¹ÏÂ×¢£¬Çë¸÷Î»µÈ´ı½á¹û½ÒÏş\n"NOR;
+						+"ã€‘ç°åœ¨åœæ­¢ä¸‹æ³¨ï¼Œè¯·å„ä½ç­‰å¾…ç»“æœæ­æ™“\n"NOR;
 				else if(inewval==4){
-					csoutstr=HIY"¡¾"
+					csoutstr=HIY"ã€"
 						+op[1]
-						+"¡¿ÏÖÔÚ¿ªÊ¼ÅÉ²ÊÁË£¬Çë¸÷Í¶×¢Õß×¢ÒâĞÅÏ¢\n"NOR
+						+"ã€‘ç°åœ¨å¼€å§‹æ´¾å½©äº†ï¼Œè¯·å„æŠ•æ³¨è€…æ³¨æ„ä¿¡æ¯\n"NOR
 						+tempstr;
 				}else 
-					csoutstr=HIY"¡¾"
+					csoutstr=HIY"ã€"
 						+op[1]
-						+"¡¿¼û¹íÁË£¬"
+						+"ã€‘è§é¬¼äº†ï¼Œ"
 						+inewval
-						+"Çëwiz×¢ÒâĞÅÏ¢\n"NOR;
+						+"è¯·wizæ³¨æ„ä¿¡æ¯\n"NOR;
 				message("channel:chat", 
-					HIW"\n¡¾¶Ä¾ÖĞÅÏ¢¡¿"HIY
+					HIW"\nã€èµŒå±€ä¿¡æ¯ã€‘"HIY
 					+csoutstr,
 					users());
 			}else{
-				//ÓÃÀ´¶à³¤Ê±¼äÌáĞÑÒ»´Î
+				//ç”¨æ¥å¤šé•¿æ—¶é—´æé†’ä¸€æ¬¡
 				iIfshout=0;
 				if( op[3] == 1 ){
-				//Èç¹û´óÓÚÒ»Ìì£¬¾ÍÒ»Ììº°Ò»´Î
+				//å¦‚æœå¤§äºä¸€å¤©ï¼Œå°±ä¸€å¤©å–Šä¸€æ¬¡
 					if( (op[5]-inowtime)>86400 ){
 						if( random(1440)==0 )
 							iIfshout=1;
 						}else{
-				//Èç¹û´óÓÚËÄ¸öĞ¡Ê±£¬¾ÍÁ½Ğ¡Ê±º°Ò»´Î
+				//å¦‚æœå¤§äºå››ä¸ªå°æ—¶ï¼Œå°±ä¸¤å°æ—¶å–Šä¸€æ¬¡
 							if( (op[5]-inowtime)>14400 ){
 								if( random(120)==0 )
 									iIfshout=1;
 							}else
-				//Èç¹ûĞ¡ÓÚËÄ¸öĞ¡Ê±£¬¾Í°ëĞ¡Ê±º°Ò»´Î
+				//å¦‚æœå°äºå››ä¸ªå°æ—¶ï¼Œå°±åŠå°æ—¶å–Šä¸€æ¬¡
 								if( random(30)==0 )
 									iIfshout=1;
 						}
@@ -410,10 +410,10 @@ void check_dobet()
 
 					if( iIfshout==1)
 							message("channel:chat", 
-									HIW"\n¡¾¶Ä¾ÖĞÅÏ¢¡¿"HIY
-									+"¡¾"
+									HIW"\nã€èµŒå±€ä¿¡æ¯ã€‘"HIY
+									+"ã€"
 									+op[1]
-									+"¡¿ÕıÔÚ½ÓÊÜÏÂ×¢£¬Çë¸÷Î»Ó»Ô¾²ÎÓë¡£°ïÖúÇëhelp gamblers\n"NOR,
+									+"ã€‘æ­£åœ¨æ¥å—ä¸‹æ³¨ï¼Œè¯·å„ä½è¸Šè·ƒå‚ä¸ã€‚å¸®åŠ©è¯·help gamblers\n"NOR,
 									users());
 			}; //
 		}
@@ -425,7 +425,7 @@ void check_dobet()
 	return;
 }
 
-//É¾³ı¹ıÆÚÈıÌìµÄ¶Ä¾Ö
+//åˆ é™¤è¿‡æœŸä¸‰å¤©çš„èµŒå±€
 void clear_dobet()
 {
 	int i;
@@ -442,7 +442,7 @@ void clear_dobet()
 	return;
 }
 
-//¸ø´ó¼Ò·ÖÅÉ²É½ğ,bet_result==0µÄÊ±ºò£¬ÊÇÍË»ØÔ­À´µÄ³ïÂë
+//ç»™å¤§å®¶åˆ†æ´¾é‡‡é‡‘,bet_result==0çš„æ—¶å€™ï¼Œæ˜¯é€€å›åŸæ¥çš„ç­¹ç 
 string pay_all(string valcode,string valcontext, int bet_result)
 {
 	int i;
@@ -455,7 +455,7 @@ string pay_all(string valcode,string valcontext, int bet_result)
 	mixed op;
 	mixed ret = leasedb(sql);
 	
-	//ÎŞÈËÏÂ×¢
+	//æ— äººä¸‹æ³¨
 	if(!ret || !sizeof(ret)) return "\n";
 	
 	if(iifstop==1) return "\n";
@@ -463,8 +463,8 @@ string pay_all(string valcode,string valcontext, int bet_result)
 	if( bet_result!=0 ){
 		op = leasedb("select odds_remark from "+DB_ODDS_NAME+" where U_Site='"+INTERMUD_MUD_NAME+"' AND code='"+valcode+"' AND odds_id='"+bet_result+"'");
 		if(!op || sizeof(op)<1){
-			log_file("dobetlog","¼û¹íÁË£¬"+valcode+"ÅÉ²ÊÊ±ÕÒ²»µ½"+bet_result+"¡£");
-			return "error3,±¨¸æwiz";
+			log_file("dobetlog","è§é¬¼äº†ï¼Œ"+valcode+"æ´¾å½©æ—¶æ‰¾ä¸åˆ°"+bet_result+"ã€‚");
+			return "error3,æŠ¥å‘Šwiz";
 		};
 		result_context=op[0][0];
 	};
@@ -478,29 +478,29 @@ string pay_all(string valcode,string valcontext, int bet_result)
 			if( bet_result==0 ){
 				itotallost+=ret[i][4]*10000;
 				givemoney_removeflag(ret[i][0],ret[i][4]*10000,
-					HIY"¡¾"+valcontext+"¡¿µÄ¶Ä¾ÖÒÑ¾­±»È¡ÏûÁË£¬ÄãÔ­À´ÏÂµÄÍ¶×¢"
+					HIY"ã€"+valcontext+"ã€‘çš„èµŒå±€å·²ç»è¢«å–æ¶ˆäº†ï¼Œä½ åŸæ¥ä¸‹çš„æŠ•æ³¨"
 					+money_str(ret[i][4]*10000)
-					+"ÒÑÍË»ØÄãµÄ´æ¿î£¬Çë²éÊÕ\n"NOR,
+					+"å·²é€€å›ä½ çš„å­˜æ¬¾ï¼Œè¯·æŸ¥æ”¶\n"NOR,
 					flagstr);
 			}else{
 				if( ret[i][1] == bet_result ){
 					itotallost+=ret[i][4]*10000;
 					itotalwin+=ret[i][4]*ret[i][3]*100;
 					givemoney_removeflag(ret[i][0],ret[i][4]*ret[i][3]*100,
-						HIY"¡¾"+valcontext+"¡¿¶Ä¾ÖµÄ½á¹ûÊÇ£º"
+						HIY"ã€"+valcontext+"ã€‘èµŒå±€çš„ç»“æœæ˜¯ï¼š"
 						+result_context
-						+"¡£¹§Ï²ÄãÖĞ½±ÁË£¬½±½ğº¬Ô­Í¶×¢½ğ"
+						+"ã€‚æ­å–œä½ ä¸­å¥–äº†ï¼Œå¥–é‡‘å«åŸæŠ•æ³¨é‡‘"
 						+money_str(ret[i][4]*ret[i][3]*100)
-						+"ÒÑ¹§ËÍµ½ÄãµÄÇ®×¯´æ¿î£¬Çë²éÊÕ\n"NOR,
+						+"å·²æ­é€åˆ°ä½ çš„é’±åº„å­˜æ¬¾ï¼Œè¯·æŸ¥æ”¶\n"NOR,
 						flagstr);
 				}else{
 					itotallost+=ret[i][4]*10000;
 					givemoney_removeflag(ret[i][0],0,
-						HIY"¡¾"+valcontext+"¡¿¶Ä¾ÖµÄ½á¹ûÊÇ£º"
+						HIY"ã€"+valcontext+"ã€‘èµŒå±€çš„ç»“æœæ˜¯ï¼š"
 						+result_context
-						+"¡£Äã²ÂµÄÊÇ£º"
+						+"ã€‚ä½ çŒœçš„æ˜¯ï¼š"
 						+ret[i][2]
-						+"£¬¿ÉÏ§ÄãÃ»ÓĞ²ÂÖĞ\n"NOR,
+						+"ï¼Œå¯æƒœä½ æ²¡æœ‰çŒœä¸­\n"NOR,
 						flagstr);
 				};
 			};
@@ -511,21 +511,21 @@ string pay_all(string valcode,string valcontext, int bet_result)
 	};
 	
 	if( bet_result!=0 )
-		logstr=sprintf("ÊÕµ½¶Ä×¢Îª:%s£¬·ÖÅä²Ê½ğ%s,¶Ä³¡%s£º%s",
+		logstr=sprintf("æ”¶åˆ°èµŒæ³¨ä¸º:%sï¼Œåˆ†é…å½©é‡‘%s,èµŒåœº%sï¼š%s",
 			money_str(itotallost),money_str(itotalwin),
-			((itotalwin>itotallost)?"¿÷Ëğ":"Ó¯Àû"),
+			((itotalwin>itotallost)?"äºæŸ":"ç›ˆåˆ©"),
 			((itotalwin>itotallost)?money_str(itotalwin-itotallost):money_str(itotallost-itotalwin))
 			);
 	else
-		logstr=sprintf("ÒÑÍË»Ø²Ê½ğ%s",money_str(itotallost));
+		logstr=sprintf("å·²é€€å›å½©é‡‘%s",money_str(itotallost));
 
-	log_file("betlog",sprintf("%s ¶Ä¾ÖÅÉ²Ê£º%s",
+	log_file("betlog",sprintf("%s èµŒå±€æ´¾å½©ï¼š%s",
 			valcontext,
 			logstr));
-	return HIW"¡¾¶Ä¾ÖĞÅÏ¢¡¿"HIY
-			+"¡¾"+valcontext+"¡¿¶Ä¾ÖµÄ½á¹ûÊÇ£º"
+	return HIW"ã€èµŒå±€ä¿¡æ¯ã€‘"HIY
+			+"ã€"+valcontext+"ã€‘èµŒå±€çš„ç»“æœæ˜¯ï¼š"
 					+result_context
-					+"£¬"
+					+"ï¼Œ"
 					+logstr
 					+"\n"NOR;
 }
@@ -546,24 +546,24 @@ string money_str(int amount)
 	string output;
 		
 	if(amount==0)
-		return "ÁãÁ½°×Òø";
+		return "é›¶ä¸¤ç™½é“¶";
 
 	if (amount / 10000) {
-		output = chinese_number(amount / 10000) + "¶§»Æ½ğ";
+		output = chinese_number(amount / 10000) + "é”­é»„é‡‘";
 		amount %= 10000;
 	}
 	else
 		output = "";
 	if (amount / 100) {
-		output = output + chinese_number(amount / 100) + "Á½°×Òø";
+		output = output + chinese_number(amount / 100) + "ä¸¤ç™½é“¶";
 		amount %= 100;
 	}
 	if (amount)
-		return output + chinese_number(amount) + "ÎÄÍ­Ç®";
+		return output + chinese_number(amount) + "æ–‡é“œé’±";
 	return output;
 }
 
-//Õâ¸ögivemoney
+//è¿™ä¸ªgivemoney
 int givemoney_removeflag(string valuserid,int money,string valreason,string valflag)
 {
 	object body,ob;
@@ -572,7 +572,7 @@ int givemoney_removeflag(string valuserid,int money,string valreason,string valf
 		body->add("balance",money);
 		body->delete(valflag);
 		if( money!=0 )
-			valreason += sprintf(HIY"ÏÖÔÚµÄ´æ¿îÓà¶îÎª%s\n"NOR,
+			valreason += sprintf(HIY"ç°åœ¨çš„å­˜æ¬¾ä½™é¢ä¸º%s\n"NOR,
 				money_str(body->query("balance")));
 		tell_object(body, valreason);
 //		destruct(body);
@@ -586,11 +586,11 @@ int givemoney_removeflag(string valuserid,int money,string valreason,string valf
 			body->add("balance",money);
 			body->delete(valflag);
 			if( money!=0 )
-				valreason += sprintf(HIY"ÏÖÔÚµÄ´æ¿îÓà¶îÎª%s\n"NOR,
+				valreason += sprintf(HIY"ç°åœ¨çš„å­˜æ¬¾ä½™é¢ä¸º%s\n"NOR,
 					money_str(body->query("balance")));
-			valreason = sprintf(HIW"¡¾ÀëÏßÆÚ¼äĞÅÏ¢¡¿"HIY"ÄãÔÚÀëÏßºó£¬ÓÚ%sÏµÍ³Í¨ÖªÄã\n",
+			valreason = sprintf(HIW"ã€ç¦»çº¿æœŸé—´ä¿¡æ¯ã€‘"HIY"ä½ åœ¨ç¦»çº¿åï¼Œäº%sç³»ç»Ÿé€šçŸ¥ä½ \n",
 				 longtime(time()))+valreason;
-//			MSG_CMDS->system_send(this_object(),({valuserid}),"¶Ä¾ÖĞÅÏ¢",valreason);
+//			MSG_CMDS->system_send(this_object(),({valuserid}),"èµŒå±€ä¿¡æ¯",valreason);
 			//add
 			body->set_temp("db_quit",1);
 			body->save();
@@ -608,37 +608,37 @@ string getflag(int valflag)
 //	mixed ret;
 //	int i;
 
-	//×´Ì¬0ÉèÖÃ1¿ªÊ¼Í¶×¢2Í¶×¢½ØÖ¹3½á¹ûÊäÈë4ÅÉ²Ê½áÊø10ÔİÍ£Ê¹ÓÃ
+	//çŠ¶æ€0è®¾ç½®1å¼€å§‹æŠ•æ³¨2æŠ•æ³¨æˆªæ­¢3ç»“æœè¾“å…¥4æ´¾å½©ç»“æŸ10æš‚åœä½¿ç”¨
 	if( valflag==0 )
-		return CYN"½«ÒªÍ¶×¢"NOR;
+		return CYN"å°†è¦æŠ•æ³¨"NOR;
 	if( valflag==1 )
-		return HIG"ÕıÔÚÍ¶×¢"NOR;
+		return HIG"æ­£åœ¨æŠ•æ³¨"NOR;
 	if( valflag==2 )
-		return HIB"Í¶×¢½ØÖ¹"NOR;
+		return HIB"æŠ•æ³¨æˆªæ­¢"NOR;
 	if( valflag==4 )
-		return HIR"ÅÉ²Ê½áÊø"NOR;
+		return HIR"æ´¾å½©ç»“æŸ"NOR;
 	if( valflag==10 )
-		return HIR"ÔİÍ£Í¶×¢"NOR;
+		return HIR"æš‚åœæŠ•æ³¨"NOR;
 	if( valflag!=3 )
-		return HIR"×´Ì¬²»Ã÷"NOR;
+		return HIR"çŠ¶æ€ä¸æ˜"NOR;
 	if( valflag==3 )
-		return HIY"µÈ´ıÅÉ²Ê"NOR;
+		return HIY"ç­‰å¾…æ´¾å½©"NOR;
 /*
 	if( valresult!=0){
 		ret = leasedb("select odds_id,odds_remark,odds from "+DB_ODDS_NAME+" where U_Site='"+INTERMUD_MUD_NAME+"' AND code='"+valcode+"' AND odds_id='"+valresult+"'");
 		if(!ret || sizeof(ret)!=1) 
-			return "ÅâÂÊÉèÖÃÓĞÎÊÌâ£¬Çë±¨¸æwiz\n";
+			return "èµ”ç‡è®¾ç½®æœ‰é—®é¢˜ï¼Œè¯·æŠ¥å‘Šwiz\n";
 		return ret[0][1];
 	}else
 */
-		return HIR"ÒÑ±»È¡Ïû"NOR;
+		return HIR"å·²è¢«å–æ¶ˆ"NOR;
 }
 
 string getresult(string valcode, int valflag,int valresult)
 {
 	mixed ret;
 
-	//×´Ì¬0ÉèÖÃ1¿ªÊ¼Í¶×¢2Í¶×¢½ØÖ¹3½á¹ûÊäÈë4ÅÉ²Ê½áÊø10ÔİÍ£Ê¹ÓÃ
+	//çŠ¶æ€0è®¾ç½®1å¼€å§‹æŠ•æ³¨2æŠ•æ³¨æˆªæ­¢3ç»“æœè¾“å…¥4æ´¾å½©ç»“æŸ10æš‚åœä½¿ç”¨
 	switch(valflag){
 		case 0:
 		case 1:
@@ -649,27 +649,27 @@ string getresult(string valcode, int valflag,int valresult)
 	if( valresult!=0){
 		ret = leasedb("select odds_id,odds_remark,odds from "+DB_ODDS_NAME+" where U_Site='"+INTERMUD_MUD_NAME+"' AND code='"+valcode+"' AND odds_id='"+valresult+"'");
 		if(!ret || sizeof(ret)!=1) 
-			return "ÅâÂÊÉèÖÃÓĞÎÊÌâ£¬Çë±¨¸æwiz\n";
+			return "èµ”ç‡è®¾ç½®æœ‰é—®é¢˜ï¼Œè¯·æŠ¥å‘Šwiz\n";
 		return ret[0][1];
 	}else
-		return "ÒÑ±»È¡Ïû";
+		return "å·²è¢«å–æ¶ˆ";
 }
 
 string getmytime(int valflag, int valbegin_time, int valstop_time, int valend_time)
 {
 	if( valflag==0 )
-		return sprintf("¿ª¾Ö:%s",DOBET_D->shorttime(valbegin_time));
+		return sprintf("å¼€å±€:%s",DOBET_D->shorttime(valbegin_time));
 	if( valflag==1 )
-		return sprintf("½ØÖ¹:%s",DOBET_D->shorttime(valstop_time));
+		return sprintf("æˆªæ­¢:%s",DOBET_D->shorttime(valstop_time));
 	if( valflag==2 )
-		return sprintf("ÅÉ²Ê:%s",DOBET_D->shorttime(valend_time));
+		return sprintf("æ´¾å½©:%s",DOBET_D->shorttime(valend_time));
 	if( valflag==3 )
-		return sprintf("ÅÉ²Ê:%s",DOBET_D->shorttime(valend_time));
+		return sprintf("æ´¾å½©:%s",DOBET_D->shorttime(valend_time));
 	if( valflag==4 )
-		return "ÅÉ²Ê½áÊø";
+		return "æ´¾å½©ç»“æŸ";
 	if( valflag==10 )
-		return "ÔİÍ£Í¶×¢";
-	return "²»Ã÷";
+		return "æš‚åœæŠ•æ³¨";
+	return "ä¸æ˜";
 }
 
 string getoddsstr(string valcode,string valpre,string valsuffix)
@@ -681,14 +681,14 @@ string getoddsstr(string valcode,string valpre,string valsuffix)
 	sql = "select odds_id,odds_remark,odds from "+DB_ODDS_NAME+" where U_Site='"+INTERMUD_MUD_NAME+"' AND code='"+valcode+"' order by odds_id";
 	ret = leasedb(sql);
 	if(!ret || sizeof(ret)<1) 
-		return valpre+HIR"ÉĞÎ´ÉèÖÃÈÎºÎÅâÂÊ                                       "NOR+valsuffix;
+		return valpre+HIR"å°šæœªè®¾ç½®ä»»ä½•èµ”ç‡                                       "NOR+valsuffix;
 	outstr="";
 	
 	ipos=0;
 	while(1){
 		if(!ret || !sizeof(ret)) return outstr;
 		for(i=0;i<sizeof(ret);i++)
-			outstr+= valpre+sprintf("¶Ä×¢´úÂë:"HIW"%2i"NOR" ¶Ä×¢ÄÚÈİ£º"CYN"%-20s"NOR" ÅâÂÊ£º"HIW"%3d.%-2d"NOR,
+			outstr+= valpre+sprintf("èµŒæ³¨ä»£ç :"HIW"%2i"NOR" èµŒæ³¨å†…å®¹ï¼š"CYN"%-20s"NOR" èµ”ç‡ï¼š"HIW"%3d.%-2d"NOR,
 				ret[i][0],ret[i][1],ret[i][2]/100,ret[i][2]%100)+valsuffix;
 		ipos+=sizeof(ret);
 		sql2 = sql+sprintf(" LIMIT %d,%d",ipos,ROW_LIMIT);

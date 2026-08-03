@@ -1,17 +1,17 @@
-// /d/city/npc/zhang.c ÕÅÕÊ·¿
+// /d/city/npc/zhang.c å¼ å¸æˆ¿
 // by snowman@SJ 12/02/2000
 
 inherit NPC;
 string ask_me();
 void create()
 {
-	set_name("ÕÅÕÊ·¿", ({ "zhang zhangfang", "zhang", "zhangfang" }));
-	set("title", "ÑïÖİÖª¸®ÕÊ·¿Ö÷¹Ü");
-	set("gender", "ÄĞĞÔ");
+	set_name("å¼ å¸æˆ¿", ({ "zhang zhangfang", "zhang", "zhangfang" }));
+	set("title", "æ‰¬å·çŸ¥åºœå¸æˆ¿ä¸»ç®¡");
+	set("gender", "ç”·æ€§");
 	set("age", 63);
 	set("str", 20);
 	set("dex", 20);
-	set("long", "ËûÊÇÑïÖİÏÖÈÎÖª¸®ÕÊ·¿Ö÷¹Ü¡£ÈÎºÎ¹«ÊÂÉÏµÄÕÊÎñ¶¼ÓÉËûÀ´¹Ü¡£\n");
+	set("long", "ä»–æ˜¯æ‰¬å·ç°ä»»çŸ¥åºœå¸æˆ¿ä¸»ç®¡ã€‚ä»»ä½•å…¬äº‹ä¸Šçš„å¸åŠ¡éƒ½ç”±ä»–æ¥ç®¡ã€‚\n");
 	set("combat_exp", 2000);
 	set("shen_type", 0);
 	set("attitude", "peaceful");
@@ -49,14 +49,14 @@ int accept_object(object me, object obj)
 
         if(i = obj->value() >= j * (me->query("name_modify")+1)){
               	command("nod " + me->query("id"));
-              	command("say "+ me->name()+"½»ÄÉ×ã¹»Ë°½ğ£¬¼ÇÈëÕÊ±¡¡£");
+              	command("say "+ me->name()+"äº¤çº³è¶³å¤Ÿç¨é‡‘ï¼Œè®°å…¥å¸è–„ã€‚");
               	me->delete_temp("name_wait_modify");
               	me->set_temp("name_modify_paid", 1);
                 call_out("destroy", 1, obj);
               	return 1;
         }
         else {
-        	command("say Õâµã£¿¿É²»¹»Å¶¡£");
+        	command("say è¿™ç‚¹ï¼Ÿå¯ä¸å¤Ÿå“¦ã€‚");
         	return 0;
         }
         

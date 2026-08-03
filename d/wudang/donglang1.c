@@ -1,14 +1,14 @@
-// Room: donglang2.c  ¶«Ïá×ßÀÈ
+// Room: donglang2.c  ä¸œå¢èµ°å»Š
 #include <ansi.h>
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "Î÷Ïá×ßÀÈ");
+        set("short", "è¥¿å¢èµ°å»Š");
         set("long", @LONG
-Äã×ßÔÚÒ»ÌõÄ¾ÖÆ½á¹¹µÄ×ßÀÈÉÏ£¬ÄÏÃæÊÇÒ»¼ä´óÎİ£¬ÃÅ¿Ú¹ÒÓĞÒ»±ê¼Ç£¬ÃÅÅÆ
-(pai)ÊÇ°×µÄ¡£ÔÙÍùÎ÷ÊÇÒ»×ùÂ¥¸ó¡£
+ä½ èµ°åœ¨ä¸€æ¡æœ¨åˆ¶ç»“æ„çš„èµ°å»Šä¸Šï¼Œå—é¢æ˜¯ä¸€é—´å¤§å±‹ï¼Œé—¨å£æŒ‚æœ‰ä¸€æ ‡è®°ï¼Œé—¨ç‰Œ
+(pai)æ˜¯ç™½çš„ã€‚å†å¾€è¥¿æ˜¯ä¸€åº§æ¥¼é˜ã€‚
 LONG
     );
         set("exits", ([
@@ -18,14 +18,14 @@ LONG
         ]));
                                                     
         set("item_desc",([
-           "pai" : HIW"\t\t\tÀ¤\n"NOR,
+           "pai" : HIW"\t\t\tå¤\n"NOR,
         ]));
         setup();
 }
 
 int valid_leave(object me, string dir)
 {
-        if ((me->query("gender") =="ÄĞĞÔ") && dir =="south" )
-           return notify_fail("ÏëÑ§ËÎÇàÊéÈ¥Íµ¿ú±ğÈËµÄ¹ë·¿Ã´£¿£¡\n");
+        if ((me->query("gender") =="ç”·æ€§") && dir =="south" )
+           return notify_fail("æƒ³å­¦å®‹é’ä¹¦å»å·çª¥åˆ«äººçš„é—ºæˆ¿ä¹ˆï¼Ÿï¼\n");
         return ::valid_leave(me, dir);
 }

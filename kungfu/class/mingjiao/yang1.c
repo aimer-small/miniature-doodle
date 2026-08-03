@@ -1,13 +1,13 @@
-// yang1.c Ñî²»»Ú
+// yang1.c æ¨ä¸æ‚”
 // Modify By River@sj 99.06
 inherit NPC;
 void create()
 {
-        set_name("Ñî²»»Ú", ({ "yang buhui", "yang", "buhui" }));
-        set("gender", "Å®ĞÔ");
-        set("title","Ã÷½Ì¹âÃ÷×óÊ¹Ö®Å®");
+        set_name("æ¨ä¸æ‚”", ({ "yang buhui", "yang", "buhui" }));
+        set("gender", "å¥³æ€§");
+        set("title","æ˜æ•™å…‰æ˜å·¦ä½¿ä¹‹å¥³");
         set("age", 19);
-	set("long","Ëı´ó´óÑÛ¾¦£¬ÑÛÇòÉîºÚ£¬Ò»ÕÅÔ°Á³¡£Ëı¾ÍÊÇÑî×óÊ¹µÄÅ®¶ù¡£\n");
+	set("long","å¥¹å¤§å¤§çœ¼ç›ï¼Œçœ¼çƒæ·±é»‘ï¼Œä¸€å¼ å›­è„¸ã€‚å¥¹å°±æ˜¯æ¨å·¦ä½¿çš„å¥³å„¿ã€‚\n");
 	set("str", 20);
         set("int", 20);
         set("con", 20);

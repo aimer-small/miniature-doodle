@@ -4,14 +4,14 @@ inherit NPC;
 inherit F_UNIQUE;
 void create()
 {
-        set_name("ÀîÎÄĞã", ({ "li wenxiu", "li", "wenxiu"}));
-        set("gender", "Å®ĞÔ");
-        set("title", "²İÔ­ÉÏµÄÌìÁåÄñ");
+        set_name("ææ–‡ç§€", ({ "li wenxiu", "li", "wenxiu"}));
+        set("gender", "å¥³æ€§");
+        set("title", "è‰åŸä¸Šçš„å¤©é“ƒé¸Ÿ");
         set("unique", 1);
         set("age", 18);
         set("long", "
-ËıÊÇ°×ÂíÀîÈıµÄÅ®¶ù£¬´ÓĞ¡±ãÉú³¤ÔÚÕâ´ó²İÔ­ÉÏ¡£ÒòÎª¸è¶ù³ªµÃºÃ£¬
-±»ÈËÃÇ³ÆÖ®Îª²İÔ­ÉÏµÄÌìÁåÄñ¡£ËıÈİÃ²½¿ÃÀ£¬ÉñÉ«ÖĞ»¹É¢·¢×ÅÒ»¹É²ª²ªÓ¢Æø¡£\n");
+å¥¹æ˜¯ç™½é©¬æä¸‰çš„å¥³å„¿ï¼Œä»å°ä¾¿ç”Ÿé•¿åœ¨è¿™å¤§è‰åŸä¸Šã€‚å› ä¸ºæ­Œå„¿å”±å¾—å¥½ï¼Œ
+è¢«äººä»¬ç§°ä¹‹ä¸ºè‰åŸä¸Šçš„å¤©é“ƒé¸Ÿã€‚å¥¹å®¹è²Œå¨‡ç¾ï¼Œç¥è‰²ä¸­è¿˜æ•£å‘ç€ä¸€è‚¡å‹ƒå‹ƒè‹±æ°”ã€‚\n");
         set("attitude", "friendly");
         set("combat_exp", 510000);
         set("shen", 5000);
@@ -39,22 +39,22 @@ void create()
         map_skill("cuff", "taiji-quan");        
         prepare_skill("cuff", "taiji-quan");
         set("inquiry", ([
-            "¹şÈø¿ËÈË" : "¹şÈø¿ËÈËÈÈÇéºÃ¿Í£¬×î°®ºÈÓÖÏãÓÖÁÒµÄÃÀ¾Æ¡£\n",
-            "¼ÆÀÏÈË" : "¼ÆÒ¯Ò¯°ÑÎÒ´ÓĞ¡Ñø´ó£¬ËûÊÇÎÒÎ¨Ò»µÄÇ×ÈË¡£ÎÒÃÇµÄÕÊÅñ¾ÍÔÚ²İÔ­µÄ¶«±±½ÇÉÏ¡£\n",
-            "ËÕÆÕ" : "ËÕÆÕÊÇÎÒµÄºÃÅóÓÑ£¬Ëû¡£¡£¡£ËûÏÖÔÚºÍ°¢ÂüÔÚÒ»Æğ¡£\n",
-            "°×ÂíÀîÈı" : "ÎÒµùµùÒÑ¾­ËÀÁË£¬±»ººÈËÇ¿µÁÉ±ËÀµÄ¡£\n",
-            "½ğÒøĞ¡½£ÈıÄï×Ó" : "ÎÒÂèÂèÒ²ËÀÁË£¬ºÍÎÒµùµùÒ»Æğ±»º¦ËÀµÄ¡£\n",
-            "ººÈËÇ¿µÁ" : "ÎÒ²»ÖªµÀËûÃÇÎªÊ²Ã´ÒªÉ±ËÀÎÒ°Ö°ÖÂèÂè£¬ËûÃÇ»¹ÒªÉ±ËÀÎÒ¡£\n",
+            "å“ˆè¨å…‹äºº" : "å“ˆè¨å…‹äººçƒ­æƒ…å¥½å®¢ï¼Œæœ€çˆ±å–åˆé¦™åˆçƒˆçš„ç¾é…’ã€‚\n",
+            "è®¡è€äºº" : "è®¡çˆ·çˆ·æŠŠæˆ‘ä»å°å…»å¤§ï¼Œä»–æ˜¯æˆ‘å”¯ä¸€çš„äº²äººã€‚æˆ‘ä»¬çš„å¸ç¯·å°±åœ¨è‰åŸçš„ä¸œåŒ—è§’ä¸Šã€‚\n",
+            "è‹æ™®" : "è‹æ™®æ˜¯æˆ‘çš„å¥½æœ‹å‹ï¼Œä»–ã€‚ã€‚ã€‚ä»–ç°åœ¨å’Œé˜¿æ›¼åœ¨ä¸€èµ·ã€‚\n",
+            "ç™½é©¬æä¸‰" : "æˆ‘çˆ¹çˆ¹å·²ç»æ­»äº†ï¼Œè¢«æ±‰äººå¼ºç›—æ€æ­»çš„ã€‚\n",
+            "é‡‘é“¶å°å‰‘ä¸‰å¨˜å­" : "æˆ‘å¦ˆå¦ˆä¹Ÿæ­»äº†ï¼Œå’Œæˆ‘çˆ¹çˆ¹ä¸€èµ·è¢«å®³æ­»çš„ã€‚\n",
+            "æ±‰äººå¼ºç›—" : "æˆ‘ä¸çŸ¥é“ä»–ä»¬ä¸ºä»€ä¹ˆè¦æ€æ­»æˆ‘çˆ¸çˆ¸å¦ˆå¦ˆï¼Œä»–ä»¬è¿˜è¦æ€æ­»æˆ‘ã€‚\n",
         ]) );
         set("chat_chance", 50);
         set("chat_msg", ({
-            "ÀîÎÄĞãÇáÇáµØ³ªÁËÆğÀ´£º¡¸°¡£¬Ç×°®µÄÄÁÑòÉÙÄê£¬ÇëÎÊÄã¶à´óÄê¼Í£¿¡¹\n",
+            "ææ–‡ç§€è½»è½»åœ°å”±äº†èµ·æ¥ï¼šã€Œå•Šï¼Œäº²çˆ±çš„ç‰§ç¾Šå°‘å¹´ï¼Œè¯·é—®ä½ å¤šå¤§å¹´çºªï¼Ÿã€\n",
             (: random_move :),  
-            "ÀîÎÄĞãÇáÉù³ªµÀ£º¡¸Äã°ëÒ¹ÀïÔÚÉ³Ä®¶ÀĞĞ£¬ÎÒºÍÄã×÷°éÔ¸²»Ô¸Òâ£¿¡¹\n", 
+            "ææ–‡ç§€è½»å£°å”±é“ï¼šã€Œä½ åŠå¤œé‡Œåœ¨æ²™æ¼ ç‹¬è¡Œï¼Œæˆ‘å’Œä½ ä½œä¼´æ„¿ä¸æ„¿æ„ï¼Ÿã€\n", 
             (: random_move :),
-            "ÀîÎÄĞã½Ó×Å³ªµÀ£º¡¸°¡£¬Ç×°®µÄÄã±ğÉúÆø£¬Ë­ºÃË­»µÒ»Ê±ÄÑÖª¡£¡¹\n", 
+            "ææ–‡ç§€æ¥ç€å”±é“ï¼šã€Œå•Šï¼Œäº²çˆ±çš„ä½ åˆ«ç”Ÿæ°”ï¼Œè°å¥½è°åä¸€æ—¶éš¾çŸ¥ã€‚ã€\n", 
             (: random_move :),
-            "ÀîÎÄĞãµÄ¸èÉùÓÖÏìÁËÆğÀ´£º¡¸Òª¸ê±ÚÉ³Ä®±ãÎª»¨Ô°£¬Ö»ĞëÒ»¶ÔºÃÈË¾ÛÔÚÒ»Æğ¡£¡¹\n",           
+            "ææ–‡ç§€çš„æ­Œå£°åˆå“äº†èµ·æ¥ï¼šã€Œè¦æˆˆå£æ²™æ¼ ä¾¿ä¸ºèŠ±å›­ï¼Œåªé¡»ä¸€å¯¹å¥½äººèšåœ¨ä¸€èµ·ã€‚ã€\n",           
         }) );
         setup();
         carry_object(BINGQI_D("chui"))->wield();
@@ -65,23 +65,23 @@ void init()
 {
         object ob = this_player();
         
-        if(environment(this_object())->query("short")=="ºÚÊ¯Î§×Ó"){
+        if(environment(this_object())->query("short")=="é»‘çŸ³å›´å­"){
                 set("chat_chance", 0);
                 remove_call_out("back");
                 call_out("back", 180, this_object());
         }
         
         if(interactive(ob) && !is_fighting() && ob->query_temp("li_meet") == 1
-           && environment(this_object())->query("short") == "ºÚÊ¯Î§×Ó") {
+           && environment(this_object())->query("short") == "é»‘çŸ³å›´å­") {
                 command("hi "+ (string)ob->query("id"));
-                command("say ÄãÔõÃ´ÕâÃ´¾Ã²ÅÀ´°¡£¿");
+                command("say ä½ æ€ä¹ˆè¿™ä¹ˆä¹…æ‰æ¥å•Šï¼Ÿ");
                 remove_call_out("greeting");
                 call_out("greeting", 3, ob);
         } 
           
         if(interactive(ob) && !is_fighting() && ob->query_temp("li_meet") == 3) {
                 command("xixi " + ob->query("id"));
-                command("say ÔõÃ´Ñù£¿ÎÒÃ»Æ­Äã°É£¿ ");
+                command("say æ€ä¹ˆæ ·ï¼Ÿæˆ‘æ²¡éª—ä½ å§ï¼Ÿ ");
         }
            
         add_action("do_yes","yes");
@@ -90,19 +90,19 @@ void init()
 void greeting(object ob)
 {
         if( !ob || environment(ob) != environment() ) return;                       
-        message_vision("$NÄÃÆğÊÖ¾îÓÖ¿´ÁË¿´£¬½Ó×Å¶Ô$nÉñÃØµØÒ»Ğ¦¡£\n",this_object(), ob);
+        message_vision("$Næ‹¿èµ·æ‰‹ç»¢åˆçœ‹äº†çœ‹ï¼Œæ¥ç€å¯¹$nç¥ç§˜åœ°ä¸€ç¬‘ã€‚\n",this_object(), ob);
         ob->add_temp("li_meet", 1);                
-        command("whisper "+ob->query("id")+" ÊÖ¾îÉÏÕâµØ·½ÎÒÖªµÀ£¬ÄãÏë²»Ïë(yes)È¥¿´¿´£¿");
+        command("whisper "+ob->query("id")+" æ‰‹ç»¢ä¸Šè¿™åœ°æ–¹æˆ‘çŸ¥é“ï¼Œä½ æƒ³ä¸æƒ³(yes)å»çœ‹çœ‹ï¼Ÿ");
 }
 
 int do_yes()
 {
         object me = this_player();
         if(me->query_temp("li_meet") != 2) return 0;
-        message_vision(CYN"$NÁ¬Ã¦¶Ô$nµãÁËµãÍ·£¬´ğµÀ£ºÂé·³¹ÃÄïÁË¡£\n"NOR,me, this_object());
+        message_vision(CYN"$Nè¿å¿™å¯¹$nç‚¹äº†ç‚¹å¤´ï¼Œç­”é“ï¼šéº»çƒ¦å§‘å¨˜äº†ã€‚\n"NOR,me, this_object());
         me->set_temp("gc/yes", 1);
         me->set_leader(this_object());
-        message_vision("$N¾ö¶¨¿ªÊ¼¸úËæ$nÒ»ÆğĞĞ¶¯¡£\n",me, this_object());
+        message_vision("$Nå†³å®šå¼€å§‹è·Ÿéš$nä¸€èµ·è¡ŒåŠ¨ã€‚\n",me, this_object());
         this_object()->set_temp("go", 1);       
         call_out("going", 4, this_object(), me);
         return 1;
@@ -119,7 +119,7 @@ void going(object ob, object me)
         if( !me ) ob->return_home();
         
         ob->force_me("xixi " + me->query("id"));
-        message_vision("$NºÍ$nÒ»ÆğÍù´ó¸ê±ÚÉ³Ä®×ßÈ¥¡£\n",me, ob);        
+        message_vision("$Nå’Œ$nä¸€èµ·å¾€å¤§æˆˆå£æ²™æ¼ èµ°å»ã€‚\n",me, ob);        
         ob->force_me("go north");
         ob->force_me("go north");
         destruct(ob);
@@ -129,16 +129,16 @@ int accept_object(object who, object ob)
 {
         if ( !who || environment(who) != environment() ) {return 0;}
         if ( !objectp(ob) ) {return 0; }
-        if ( !present(ob, who) ) return notify_fail("ÄãÃ»ÓĞÕâ¼ş¶«Î÷¡£");
+        if ( !present(ob, who) ) return notify_fail("ä½ æ²¡æœ‰è¿™ä»¶ä¸œè¥¿ã€‚");
         if ( userp(ob)) {
                 command("? " + who->query("id"));
-                command("say Äã¸ÉÂï°Ñ±ğÈË´òÔÎ°¡£¿");
-                return notify_fail("Ôã¸â£¬´©°îÁË£¡\n");
+                command("say ä½ å¹²å˜›æŠŠåˆ«äººæ‰“æ™•å•Šï¼Ÿ");
+                return notify_fail("ç³Ÿç³•ï¼Œç©¿é‚¦äº†ï¼\n");
         }
                
         if ((string)ob->query("id") == "shou juan"){
                 command("ah "+(string)who->query("id"));
-                command("say ÕâÊÇÎÒµÄÊÖ¾î£¬ÄãÊÇÔõÃ´µÃµ½µÄ£¿\n");
+                command("say è¿™æ˜¯æˆ‘çš„æ‰‹ç»¢ï¼Œä½ æ˜¯æ€ä¹ˆå¾—åˆ°çš„ï¼Ÿ\n");
                 call_out("desc", 1, ob );
                 if(!ob->query("blooded")) who->set_temp("no_quest", 1); 
                 set("chat_chance", 0);                              
@@ -149,7 +149,7 @@ int accept_object(object who, object ob)
         } 
                
         command("smile "+ (string)who->query("id"));
-        command("say Ğ»Ğ»ÄãÀ²£¬¿ÉÎÒ²»ÄÜÄÃÄãµÄ¶«Î÷¡£");
+        command("say è°¢è°¢ä½ å•¦ï¼Œå¯æˆ‘ä¸èƒ½æ‹¿ä½ çš„ä¸œè¥¿ã€‚");
         return 0;
 }
 
@@ -157,11 +157,11 @@ void ask_meet(object me, object who, object ob)
 {
         if(interactive(who) && !is_fighting()) {
                 if(!who->query_temp("no_quest")){    
-                        command("Ò®£¬ÕâÊÖ¾îÉÏµÄµØÍ¼¡£¡£¡£");
-                        command("say ÕâÑù°É£¬ÄãÒ»»á¶ùÈ¥ºÚÊ¯Î§×ÓµÈÎÒ£¬ÎÒÏÖÔÚÒªÏÈ»Ø¼ÒÀ²¡£");      
+                        command("è€¶ï¼Œè¿™æ‰‹ç»¢ä¸Šçš„åœ°å›¾ã€‚ã€‚ã€‚");
+                        command("say è¿™æ ·å§ï¼Œä½ ä¸€ä¼šå„¿å»é»‘çŸ³å›´å­ç­‰æˆ‘ï¼Œæˆ‘ç°åœ¨è¦å…ˆå›å®¶å•¦ã€‚");      
                         who->set_temp("li_meet", 1);
-                        message_vision("$NÎ¢Î¢Ò»Ğ¦£¬×ªÉíÀë¿ªÁË¡£\n",me);
-                        tell_room(environment(me), me->query("name")+"¼±¼±Ã¦Ã¦µØ×ßÁË¹ıÀ´¡£\n", ({me})); 
+                        message_vision("$Nå¾®å¾®ä¸€ç¬‘ï¼Œè½¬èº«ç¦»å¼€äº†ã€‚\n",me);
+                        tell_room(environment(me), me->query("name")+"æ€¥æ€¥å¿™å¿™åœ°èµ°äº†è¿‡æ¥ã€‚\n", ({me})); 
                         me->move("/d/hj/room-ji1");
                         remove_call_out("do_send");
                         call_out("do_send", 60+random(100), me);
@@ -169,9 +169,9 @@ void ask_meet(object me, object who, object ob)
                 }
                 else{
                         who->delete_temp("no_quest");
-                        command("say Ğ»Ğ»ÄãÀ²£¬ÕâÊÇÒ»µãĞ¡ÀñÎï£¬Äã¾ÍÊÕÏÂ°É¡£");
+                        command("say è°¢è°¢ä½ å•¦ï¼Œè¿™æ˜¯ä¸€ç‚¹å°ç¤¼ç‰©ï¼Œä½ å°±æ”¶ä¸‹å§ã€‚");
                         new("/d/hj/obj/hebao")->move(who);
-                        message_vision("$NÎ¢Î¢Ò»Ğ¦£¬½»¸ø$nÒ»¸öĞ¡ºÉ°ü£¬½Ó×Å×ªÉíÀë¿ªÁË¡£\n",me, who);
+                        message_vision("$Nå¾®å¾®ä¸€ç¬‘ï¼Œäº¤ç»™$nä¸€ä¸ªå°è·åŒ…ï¼Œæ¥ç€è½¬èº«ç¦»å¼€äº†ã€‚\n",me, who);
                         me->set("chat_chance", 50);
                 }
         }       
@@ -180,8 +180,8 @@ void ask_meet(object me, object who, object ob)
 
 void back(object me)
 {
-        command("say ººÈËÕæÊÇ²»ÊØĞÅÓÃ¡£");      
-        message_vision("$NºÜÉúÆøµØà½ÁËà½×ì£¬×ªÉíÀë¿ªÁË¡£\n",me);
+        command("say æ±‰äººçœŸæ˜¯ä¸å®ˆä¿¡ç”¨ã€‚");      
+        message_vision("$Nå¾ˆç”Ÿæ°”åœ°å˜Ÿäº†å˜Ÿå˜´ï¼Œè½¬èº«ç¦»å¼€äº†ã€‚\n",me);
         destruct(me);
         return; 
 }
@@ -192,11 +192,11 @@ int do_send(object me)
         
         if(!me) return 0;
         where = environment(me); 
-        if(where->query("short") == "ºÚÊ¯Î§×Ó") return 0;
+        if(where->query("short") == "é»‘çŸ³å›´å­") return 0;
         else {
-                tell_room(environment(me), me->query("name")+"¼±¼±Ã¦Ã¦µØÀë¿ªÁË¡£\n", ({me}));   
+                tell_room(environment(me), me->query("name")+"æ€¥æ€¥å¿™å¿™åœ°ç¦»å¼€äº†ã€‚\n", ({me}));   
                 me->move("/d/hj/hswz");
-                tell_room(environment(me), me->query("name")+"¼±¼±Ã¦Ã¦µØ×ßÁË¹ıÀ´¡£\n", ({me})); 
+                tell_room(environment(me), me->query("name")+"æ€¥æ€¥å¿™å¿™åœ°èµ°äº†è¿‡æ¥ã€‚\n", ({me})); 
                 return 1;
         }
 }

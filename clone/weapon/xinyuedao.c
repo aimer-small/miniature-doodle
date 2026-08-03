@@ -5,13 +5,13 @@ inherit BLADE;
 
 void create()
 {
-        set_name( HIW"Ñ©É½ĞÂÔÂµ¶"NOR , ({ "xinyue dao", "xueshan dao","dao","blade"}));
+        set_name( HIW"é›ªå±±æ–°æœˆåˆ€"NOR , ({ "xinyue dao", "xueshan dao","dao","blade"}));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long", HIW"Õâ°Ñµ¶¼ÈÇáÇÒ±¡£¬µ¶ÉíÍä³É°ëÔÂĞÎ£¬ĞÎ×´¹Å¹Ö£¬ÎäÁÖÖĞÉõÎªÉÙ¼û¡£\n"NOR);
+                set("unit", "æŠŠ");
+                set("long", HIW"è¿™æŠŠåˆ€æ—¢è½»ä¸”è–„ï¼Œåˆ€èº«å¼¯æˆåŠæœˆå½¢ï¼Œå½¢çŠ¶å¤æ€ªï¼Œæ­¦æ—ä¸­ç”šä¸ºå°‘è§ã€‚\n"NOR);
                 set("value", 1000);
                 set("material", "steel");
         }

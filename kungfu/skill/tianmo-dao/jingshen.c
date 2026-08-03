@@ -12,48 +12,48 @@ int perform(object me,object target)
          || !me->is_fighting(target)
          || !objectp(target)
          || environment(target)!= environment(me))
-                return notify_fail("¾ªÉñ¾÷Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");                
+                return notify_fail("æƒŠç¥žè¯€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");                
 
         if(!me->query_skill("xixing-dafa", 1))
           if(me->query_skill("tianmo-gong", 1) < 100)
-                return notify_fail("ÒÔÄãÏÖÔÚµÄÄÚ¹¦ÐÞÎª»¹Ê¹²»³ö¡¸¾ªÉñ¾÷¡¹¡£\n");  
+                return notify_fail("ä»¥ä½ çŽ°åœ¨çš„å†…åŠŸä¿®ä¸ºè¿˜ä½¿ä¸å‡ºã€ŒæƒŠç¥žè¯€ã€ã€‚\n");  
 
         if( (int)me->query_skill("tianmo-dao", 1) < 100 )
-                return notify_fail("ÄãµÄµ¶·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃ¾ªÉñ¾÷£¡\n");        
+                return notify_fail("ä½ çš„åˆ€æ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨æƒŠç¥žè¯€ï¼\n");        
 
         if (!weapon
          || weapon->query("skill_type") != "blade"
          || me->query_skill_mapped("blade") != "tianmo-dao")
-                return notify_fail("ÄãÊÖÀïÃ»ÓÐµ¶£¬ÎÞ·¨Ê¹ÓÃ¾ªÉñ¾÷£¡\n");
+                return notify_fail("ä½ æ‰‹é‡Œæ²¡æœ‰åˆ€ï¼Œæ— æ³•ä½¿ç”¨æƒŠç¥žè¯€ï¼\n");
 
         if((int)me->query_skill("tianmo-zhang", 1) < 100 )
-                return notify_fail("ÄãµÄÌìÄ§ÕÆ·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃ¾ªÉñ¾÷£¡\n");  
+                return notify_fail("ä½ çš„å¤©é­”æŽŒæ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨æƒŠç¥žè¯€ï¼\n");  
 
         if (me->query_skill_mapped("force") != "tianmo-gong" )
           if(me->query_skill_mapped("force") != "xixing-dafa")
-                return notify_fail("ÄãËùÊ¹ÓÃµÄÌØÊâÄÚ¹¦²»¶Ô¡£\n");   
+                return notify_fail("ä½ æ‰€ä½¿ç”¨çš„ç‰¹æ®Šå†…åŠŸä¸å¯¹ã€‚\n");   
 
         if(me->query_skill_mapped("strike") != "tianmo-zhang" 
          || me->query_skill_prepared("strike") != "tianmo-zhang")
-                return notify_fail("ÄãÃ»ÓÐÓÃÌìÄ§ÕÆ£¬ÎÞ·¨Ê¹ÓÃ¾ªÉñ¾÷£¡\n");
+                return notify_fail("ä½ æ²¡æœ‰ç”¨å¤©é­”æŽŒï¼Œæ— æ³•ä½¿ç”¨æƒŠç¥žè¯€ï¼\n");
 
         if(me->query_skill_mapped("parry") != "tianmo-zhang")
          if(me->query_skill_mapped("parry") != "tianmo-dao")
-                return notify_fail("ÄãµÄÕÐ¼Ü¹¦·ò²»¶Ô£¬ÎÞ·¨Ê¹ÓÃ¾ªÉñ¾÷£¡\n");
+                return notify_fail("ä½ çš„æ‹›æž¶åŠŸå¤«ä¸å¯¹ï¼Œæ— æ³•ä½¿ç”¨æƒŠç¥žè¯€ï¼\n");
 
         if((int)me->query("max_neili") < 2000 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦ÐÞÎª²»¹»£¬²»ÄÜÊ¹ÓÃ¾ªÉñ¾÷£¡\n");      
+                return notify_fail("ä½ çŽ°åœ¨å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨æƒŠç¥žè¯€ï¼\n");      
 
         if((int)me->query("neili") < 1000 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»×ã£¬²»ÄÜÊ¹ÓÃ¾ªÉñ¾÷£¡\n");      
+                return notify_fail("ä½ çŽ°åœ¨å†…åŠ›ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨æƒŠç¥žè¯€ï¼\n");      
 
         if((int)me->query_skill("blade", 1) < 100 )
-                return notify_fail("ÄãµÄ»ù±¾µ¶·¨²»¹»æµÊì£¬²»ÄÜÔÚµ¶ÕÐÖÐ¼ÐÔÓÊ¹ÓÃ¾ªÉñ¾÷¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬åˆ€æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨åˆ€æ‹›ä¸­å¤¹æ‚ä½¿ç”¨æƒŠç¥žè¯€ã€‚\n");
 
         if((int)me->query_skill("strike", 1) < 100 )
-                return notify_fail("ÄãµÄ»ù±¾ÕÆ·¨²»¹»æµÊì£¬²»ÄÜÔÚµ¶ÕÐÖÐ¼ÐÔÓÊ¹ÓÃ¾ªÉñ¾÷¡£\n");     
+                return notify_fail("ä½ çš„åŸºæœ¬æŽŒæ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨åˆ€æ‹›ä¸­å¤¹æ‚ä½¿ç”¨æƒŠç¥žè¯€ã€‚\n");     
 
-        message_vision(HIR"\nÒ»ÉùÅ­ºð£¬$NÊ¹³öÈÕÔÂÉñ½Ì¾ø¼¼Ö®¡¸¾ªÉñ¾÷¡¹£¬Ö»¼ûÂþÌìµ¶Ó°ÕÆÓ°ÆËÌì¸ÇµØÍ»Ï®$n¶øÈ¥£¡\n"NOR, me,target);
+        message_vision(HIR"\nä¸€å£°æ€’å¼ï¼Œ$Nä½¿å‡ºæ—¥æœˆç¥žæ•™ç»æŠ€ä¹‹ã€ŒæƒŠç¥žè¯€ã€ï¼Œåªè§æ¼«å¤©åˆ€å½±æŽŒå½±æ‰‘å¤©ç›–åœ°çªè¢­$nè€ŒåŽ»ï¼\n"NOR, me,target);
         me->set_temp("tmd/jingshen",1);
         me->add("neili", -200); 
         me->add("jingli", -50);
@@ -82,7 +82,7 @@ if(j>450 ) target->add_busy(1);
         me->add_temp("apply/attack", -j*4/3);
         me->add_temp("apply/damage", -j*5/7);
         me->delete_temp("tmd/jingshen");
-        me->start_perform(2+random(2),"¾ªÉñ¾÷");
+        me->start_perform(2+random(2),"æƒŠç¥žè¯€");
         return 1;
 }
-string perform_name(){ return HIR"¾ªÉñ¾÷"NOR; }
+string perform_name(){ return HIR"æƒŠç¥žè¯€"NOR; }

@@ -11,10 +11,10 @@ inherit F_SAVE;
 void create()
 {
         object armor;
-        set_name("µÁÄ¹Ôô", ({ "daomu zei", "daomu", "zei" }) );
-        set("gender", "ÄÐÐÔ");
+        set_name("ç›—å¢“è´¼", ({ "daomu zei", "daomu", "zei" }) );
+        set("gender", "ç”·æ€§");
         set("age", 25+random(15));
-        set("long","Õâ¼Ò»ï¸ÕµÁÄ¹³É¹¦,ÀÛµÄÂúÍ·´óºº,µ«ÑÚÊÎ²»×¡µÁÄ¹³É¹¦µÄÏ²ÔÃ¡£\n");
+        set("long","è¿™å®¶ä¼™åˆšç›—å¢“æˆåŠŸ,ç´¯çš„æ»¡å¤´å¤§æ±‰,ä½†æŽ©é¥°ä¸ä½ç›—å¢“æˆåŠŸçš„å–œæ‚¦ã€‚\n");
         set("shen", -100);
         set("str", 25+random(5));
         set("int",30+random(5));
@@ -66,19 +66,19 @@ void greeting(object ob)
         
         if (ob->query_temp("thd/dojob"))
         {
-// ÅÐ¶Ï player
+// åˆ¤æ–­ player
         if (me->query_temp("target")!=ob->query("id"))
                 {
                         command("look " + ob->query("id"));
-                        say( "µÁÄ¹ÔôºÞºÞµÄÂîµÀ: ¸Õ²ÅÄÇÐ¡×ÓÅÜÄÄÀïÈ¥ÁË£¿!\n");
-                        say( "µÁÄ¹Ôô¼±¼±Ã¦Ã¦Àë¿ªÁË¡£\n");
+                        say( "ç›—å¢“è´¼æ¨æ¨çš„éª‚é“: åˆšæ‰é‚£å°å­è·‘å“ªé‡ŒåŽ»äº†ï¼Ÿ!\n");
+                        say( "ç›—å¢“è´¼æ€¥æ€¥å¿™å¿™ç¦»å¼€äº†ã€‚\n");
                         destruct(me);
                         return;
                 }
                 if (!me->query_temp("skillset"))
                 {
-                        say( "µÁÄ¹Ôô¶Ô×ÅÄã¡¸ºÙºÙ¡¹Ð¦ÁËÁ½Éù,ËµµÀ£ºÄãÕâ¸ö" + RANK_D->query_rude(ob)
-                                        + "£¬¼ÈÈ»±»Äã·¢ÏÖÁË,ÄÇÎÒ¾Í²»¿ÍÆøÁË¡£\n");
+                        say( "ç›—å¢“è´¼å¯¹ç€ä½ ã€Œå˜¿å˜¿ã€ç¬‘äº†ä¸¤å£°,è¯´é“ï¼šä½ è¿™ä¸ª" + RANK_D->query_rude(ob)
+                                        + "ï¼Œæ—¢ç„¶è¢«ä½ å‘çŽ°äº†,é‚£æˆ‘å°±ä¸å®¢æ°”äº†ã€‚\n");
                         ob->start_busy(random(2));
                         remove_call_out("dest");
                         call_out("dest",300, ob);
@@ -87,7 +87,7 @@ void greeting(object ob)
                 }
                 else
                 {
-                        say ( "µÁÄ¹ÔôºÝºÝµÄµÉ×ÅÄã£¬´ó½Ð£ºÏëÅÜ£¿½ÓÕÐ£¡\n");
+                        say ( "ç›—å¢“è´¼ç‹ ç‹ çš„çžªç€ä½ ï¼Œå¤§å«ï¼šæƒ³è·‘ï¼ŸæŽ¥æ‹›ï¼\n");
                         remove_call_out("dest");
                         call_out("dest",300, ob);
                         remove_call_out("kill_ob");
@@ -97,7 +97,7 @@ void greeting(object ob)
         else
         {
                 command("look " + ob->query("id"));
-                say( "µÁÄ¹ÔôºÞºÞµÄÂîµÀ: ¾ÓÈ»ÓÐÈËÔÚÀïÃæ,Ö»ºÃÏÂ´ÎÔÙÀ´ÁË!\n");
+                say( "ç›—å¢“è´¼æ¨æ¨çš„éª‚é“: å±…ç„¶æœ‰äººåœ¨é‡Œé¢,åªå¥½ä¸‹æ¬¡å†æ¥äº†!\n");
                 destruct(me);
         }
 }
@@ -121,7 +121,7 @@ int do_kill(object me,object ob)
 
 //add log to /log/thdjob
         if (number > ((int)ob->query("max_pot")-100))   
-	log_file("job/taohua",sprintf("%8s%-10sÊØÄ¹ÈÎÎñ£¬µÁÄ¹ÔôµÈ¼¶ÊÇ%3d£¬±¾ÈËµÈ¼¶ÊÇ%3d¡£\n",
+	log_file("job/taohua",sprintf("%8s%-10så®ˆå¢“ä»»åŠ¡ï¼Œç›—å¢“è´¼ç­‰çº§æ˜¯%3dï¼Œæœ¬äººç­‰çº§æ˜¯%3dã€‚\n",
 		ob->name(1), "("+ob->query("id")+")",number,(int)ob->query("max_pot")-100), ob);
 
 //add by river 
@@ -177,8 +177,8 @@ void dest(object ob)
         object me;
         me = this_object();
 	if (ob) {
-		tell_object(ob, me->query("name")+"Í»È»´óÉùÈÂµÀ£º°¥Ñ½£¬²»¸úÄãÔÚÕâÀï¶·ÁË£¬¹ý»á»ÆÀÏÐ°À´ÁË¿É¾Í²»ºÃÈÇÁË£¡\n");  
-		tell_object(ob, me->query("name")+"¼±¼±Ã¦Ã¦Àë¿ªÁË¡£\n");
+		tell_object(ob, me->query("name")+"çªç„¶å¤§å£°åš·é“ï¼šå“Žå‘€ï¼Œä¸è·Ÿä½ åœ¨è¿™é‡Œæ–—äº†ï¼Œè¿‡ä¼šé»„è€é‚ªæ¥äº†å¯å°±ä¸å¥½æƒ¹äº†ï¼\n");  
+		tell_object(ob, me->query("name")+"æ€¥æ€¥å¿™å¿™ç¦»å¼€äº†ã€‚\n");
 		ob->delete_temp("thd/dojob");
 	}
         destruct(me);

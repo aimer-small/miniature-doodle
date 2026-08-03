@@ -1,7 +1,7 @@
-// jianzhang.c ½£ÕÆÎåÁ¬»·
+// jianzhang.c å‰‘æŒäº”è¿ç¯
 
 #include <ansi.h>
-  string perform_name() {return HIC"½£ÕÆÎåÁ¬»·"NOR;}
+  string perform_name() {return HIC"å‰‘æŒäº”è¿ç¯"NOR;}
 
 inherit F_SSERVER;
 
@@ -14,40 +14,40 @@ int perform(object me, object target)
       if( !target ) target = offensive_target(me);
      
       if( !target || !me->is_fighting(target) )
-      return notify_fail("½£ÕÆÎåÁ¬»·Ö»ÄÜÔÚÕ½¶·ÖĞ¶Ô¶ÔÊÖÊ¹ÓÃ¡£\n");
+      return notify_fail("å‰‘æŒäº”è¿ç¯åªèƒ½åœ¨æˆ˜æ–—ä¸­å¯¹å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
       if (!weapon || weapon->query("skill_type") != "sword"
          || me->query_skill_mapped("parry") != "huashan-jianfa")
-      return notify_fail("ÄãÊÖÀïÃ»ÓĞ½££¬ÎŞ·¨Ê¹ÓÃ½£ÕÆÎåÁ¬»·£¡\n");             
+      return notify_fail("ä½ æ‰‹é‡Œæ²¡æœ‰å‰‘ï¼Œæ— æ³•ä½¿ç”¨å‰‘æŒäº”è¿ç¯ï¼\n");             
   
      if(me->query_skill_mapped("sword") != "huashan-jianfa")
      if(me->query_skill_mapped("sword") != "dugu-jiujian")
-       return notify_fail("Äã²»Ê¹ÓÃ»ªÉ½½£·¨ÈçºÎÊ¹ÓÃ½£ÕÆÎåÁ¬»·£¿\n");             
+       return notify_fail("ä½ ä¸ä½¿ç”¨åå±±å‰‘æ³•å¦‚ä½•ä½¿ç”¨å‰‘æŒäº”è¿ç¯ï¼Ÿ\n");             
 
 
     if( (int)me->query_skill("sword",1) < 100 )
-      return notify_fail("ÄãµÄ»ù±¾½£·¨µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ½£ÕÆÎåÁ¬»·£¡\n");  
+      return notify_fail("ä½ çš„åŸºæœ¬å‰‘æ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨å‰‘æŒäº”è¿ç¯ï¼\n");  
 
       if( (int)me->query_skill("hunyuan-zhang", 1) < 100 )
-      return notify_fail("ÄãµÄ»ìÔªÕÆ·¨µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ½£ÕÆÎåÁ¬»·£¡\n");
+      return notify_fail("ä½ çš„æ··å…ƒæŒæ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨å‰‘æŒäº”è¿ç¯ï¼\n");
 
       if( (int)me->query_skill("huashan-qigong", 1) < 60 )
            if( (int)me->query_skill("zixia-gong", 1) < 60 )
-      return notify_fail("ÄãµÄÌØÊâÄÚ¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ½£ÕÆÎåÁ¬»·£¡\n");
+      return notify_fail("ä½ çš„ç‰¹æ®Šå†…åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨å‰‘æŒäº”è¿ç¯ï¼\n");
     
   if( (int)me->query("max_neili") < 200 )
-      return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ½£ÕÆÎåÁ¬»·£¡\n");
+      return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨å‰‘æŒäº”è¿ç¯ï¼\n");
       
       if( (int)me->query("neili") < 100 )
-      return notify_fail("ÄãµÄÄÚÁ¦Ì«ÉÙÁË£¬ÎŞ·¨Ê¹ÓÃ³ö½£ÕÆÎåÁ¬»·£¡\n");   
+      return notify_fail("ä½ çš„å†…åŠ›å¤ªå°‘äº†ï¼Œæ— æ³•ä½¿ç”¨å‡ºå‰‘æŒäº”è¿ç¯ï¼\n");   
                                                                                  
       if (me->query_skill_prepared("strike") != "hunyuan-zhang"
           || me->query_skill_mapped("strike") != "hunyuan-zhang")
-      return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ½£ÕÆÎåÁ¬»·½øĞĞ¹¥»÷¡£\n");             
+      return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨å‰‘æŒäº”è¿ç¯è¿›è¡Œæ”»å‡»ã€‚\n");             
 
-      message_vision(HIG"\n$NÍ»È»ÕĞÊ½Ò»±ä£¬½£ÖĞ¼ĞÕÆ£¬ÕÆÖĞ²Ø½££¬Ïò$n·ÜÁ¦»÷³öÈı½£Á½ÕÆ,ÕıÊÇ»ªÉ½Æø×Ú¾øÑ§¡¸"HIR"½£ÕÆÎåÁ¬»·"HIG"¡¹£¡\n"NOR, me,target);
+      message_vision(HIG"\n$Nçªç„¶æ‹›å¼ä¸€å˜ï¼Œå‰‘ä¸­å¤¹æŒï¼ŒæŒä¸­è—å‰‘ï¼Œå‘$nå¥‹åŠ›å‡»å‡ºä¸‰å‰‘ä¸¤æŒ,æ­£æ˜¯åå±±æ°”å®—ç»å­¦ã€Œ"HIR"å‰‘æŒäº”è¿ç¯"HIG"ã€ï¼\n"NOR, me,target);
 if(me->query("quest/zixia/pass") && me->query_temp("zxg"))
-{ message_vision(HBMAG"$NÔËÆğ×ÏÏ¼Éñ¹¦£¬½«»ªÉ½½£·¨·¢»ÓµÃÁÜÀì¾¡ÖÂ£¬Ê¹µÄËäÈ»Ö»ÊÇÆÕÍ¨ÕĞÊ½£¬ÍşÁ¦È´ÎŞ¿ÉÆ¥µĞ£¡\n"NOR, me,target);
+{ message_vision(HBMAG"$Nè¿èµ·ç´«éœç¥åŠŸï¼Œå°†åå±±å‰‘æ³•å‘æŒ¥å¾—æ·‹æ¼“å°½è‡´ï¼Œä½¿çš„è™½ç„¶åªæ˜¯æ™®é€šæ‹›å¼ï¼Œå¨åŠ›å´æ— å¯åŒ¹æ•Œï¼\n"NOR, me,target);
   me->add_temp("apply/damage", lvl/3  ); 
 target->add_busy(2);
 target->set_temp("must_be_hit",1);
@@ -77,22 +77,22 @@ if(me->query_temp("zixia_up")) {
   me->add_temp("apply/damage", -lvl/3  ); 
 if(target) target->delete_temp("must_be_hit");
 me->delete_temp("zixia_up");}
-      me->start_perform(3 + random(2), "¡¸½£ÕÆÎåÁ¬»·¡¹");
+      me->start_perform(3 + random(2), "ã€Œå‰‘æŒäº”è¿ç¯ã€");
       return 1;
 }
 
 
 int help(object me)
 {
-    write(WHT"\n»ªÉ½½£·¨¡¸"HIC"½£ÕÆÎåÁ¬»·"WHT"¡¹£º"NOR"\n");
+    write(WHT"\nåå±±å‰‘æ³•ã€Œ"HIC"å‰‘æŒäº”è¿ç¯"WHT"ã€ï¼š"NOR"\n");
     write(@HELP
-    »ªÉ½Æø×Ú¾ø¼¼¡£Äı¾ÛÄÚÁ¦Á¬»·»÷³öÈı½£Á½ÕÆ¡£
-    Ö¸Áî£º perform sword.jianzhang
+    åå±±æ°”å®—ç»æŠ€ã€‚å‡èšå†…åŠ›è¿ç¯å‡»å‡ºä¸‰å‰‘ä¸¤æŒã€‚
+    æŒ‡ä»¤ï¼š perform sword.jianzhang
 
-     ÒªÇó£º×ÏÏ¼Éñ¹¦ 60¼¶ÒÔÉÏ 
-          »ªÉ½½£·¨ »ìÔªÕÆ ¾ù100ÒÔÉÏ
-          ĞèÒªÓĞÏàµ±µÄÄÚÁ¦ĞŞÎª
-          ¼¤·¢½£·¨ »ªÉ½½£·¨£¬¼¤·¢ÕÆ·¨ »ìÔªÕÆ
+     è¦æ±‚ï¼šç´«éœç¥åŠŸ 60çº§ä»¥ä¸Š 
+          åå±±å‰‘æ³• æ··å…ƒæŒ å‡100ä»¥ä¸Š
+          éœ€è¦æœ‰ç›¸å½“çš„å†…åŠ›ä¿®ä¸º
+          æ¿€å‘å‰‘æ³• åå±±å‰‘æ³•ï¼Œæ¿€å‘æŒæ³• æ··å…ƒæŒ
 HELP
 );
  return 1;

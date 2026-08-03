@@ -4,18 +4,18 @@
 #include <room.h>
 
 inherit ROOM;
-#define QUESTDIR2 "quest/ÌìÁú°Ë²¿/ÌìÁúÓª¾ÈÆª/"
+#define QUESTDIR2 "quest/å¤©é¾™å…«éƒ¨/å¤©é¾™è¥æ•‘ç¯‡/"
 
 void create()
 {
-	set("short", HIW"°×Ê¯Â·"NOR);
+	set("short", HIW"ç™½çŸ³è·¯"NOR);
 	set("long", @LONG
-×ß½ø´óÃÅ£¬Ö»¼ûºì×©Î§Ç½£¬°×Ê¯ÆÌÂ·£¬´ÓÕâÀïÒ»Ö±Í¨ÍùÌìÍõµî£¬Ì§Í·
-ÍûÈ¥£¬ËÂÖÐÍ¤Ì¨Â¥¸ó¹æÄ£ºê´ó£¬¹¹Öþ¾«Àö£¬Õ¬µØÁ¬ÔÆ£¬ÆäÆøÊÆÖ®Ê¢¸üÊ¤ÓÚ
-ÎåÌ¨£¬ÆÕÍÓµÈÖî´¦·ðÃÅÊ¤µØµÄÃûÉ½´óËÂ¡£Â·ÅÔÁ¢ÂúÁËÎÞÁ¿¹¦µÂ±®£¬Á½±ß¸÷
-ÓÐÒ»Ð¡Ôº£¬ÔºÖÐÂúÖÖ×ÅËÉÖñ¡£
+èµ°è¿›å¤§é—¨ï¼Œåªè§çº¢ç –å›´å¢™ï¼Œç™½çŸ³é“ºè·¯ï¼Œä»Žè¿™é‡Œä¸€ç›´é€šå¾€å¤©çŽ‹æ®¿ï¼ŒæŠ¬å¤´
+æœ›åŽ»ï¼Œå¯ºä¸­äº­å°æ¥¼é˜è§„æ¨¡å®å¤§ï¼Œæž„ç­‘ç²¾ä¸½ï¼Œå®…åœ°è¿žäº‘ï¼Œå…¶æ°”åŠ¿ä¹‹ç››æ›´èƒœäºŽ
+äº”å°ï¼Œæ™®é™€ç­‰è¯¸å¤„ä½›é—¨èƒœåœ°çš„åå±±å¤§å¯ºã€‚è·¯æ—ç«‹æ»¡äº†æ— é‡åŠŸå¾·ç¢‘ï¼Œä¸¤è¾¹å„
+æœ‰ä¸€å°é™¢ï¼Œé™¢ä¸­æ»¡ç§ç€æ¾ç«¹ã€‚
 LONG);
-	set("outdoors", "ÌìÁúËÂ");
+	set("outdoors", "å¤©é¾™å¯º");
    set("quest",1);
 	set("exits", ([             
 		"northup" : __DIR__"twd",
@@ -43,34 +43,34 @@ void init()
      &&!me->query(QUESTDIR2+"over")
      &&!me->query_condition("killer"))
   {
-  	//Èç¹ûÓÐÆäËûÍæ¼ÒÔÚ×öquest£¬È¡Ïûquest£¬µ«²¹³¥»ú»á
+  	//å¦‚æžœæœ‰å…¶ä»–çŽ©å®¶åœ¨åšquestï¼Œå–æ¶ˆquestï¼Œä½†è¡¥å¿æœºä¼š
     if(ob->query("busy_id"))
     {
 	    if (!(room = find_object(__DIR__"road_copy")))
 			room = load_object(__DIR__"road_copy");
 		if(!room)
 		{
-			me->delete_temp("quest/ÌìÁú°Ë²¿");
-			me->delete_temp("quest/busy");//ÈÎÎñ³åÍ»±êÖ¾È¡Ïû 
-			//²¹³¥Íæ¼Ò»ú»á
-			me->delete("quest/ÌìÁú°Ë²¿/time");
-			me->delete("quest/ÌìÁú°Ë²¿/combat_exp");  
-			tell_object(me,HIR"\nÄã·¢ÏÖËÆºõÓÐÐ©ÎÊÌâ£¬Äã¿ÉÒÔÑ¯ÎÊÎ×Ê¦¡£\n");
-			log_file("quest/TLBB", sprintf("%s(%s)È±ÉÙroad_copy.cÎÄ¼þ¡£\n", me->name(1),me->query("id")) );	
+			me->delete_temp("quest/å¤©é¾™å…«éƒ¨");
+			me->delete_temp("quest/busy");//ä»»åŠ¡å†²çªæ ‡å¿—å–æ¶ˆ 
+			//è¡¥å¿çŽ©å®¶æœºä¼š
+			me->delete("quest/å¤©é¾™å…«éƒ¨/time");
+			me->delete("quest/å¤©é¾™å…«éƒ¨/combat_exp");  
+			tell_object(me,HIR"\nä½ å‘çŽ°ä¼¼ä¹Žæœ‰äº›é—®é¢˜ï¼Œä½ å¯ä»¥è¯¢é—®å·«å¸ˆã€‚\n");
+			log_file("quest/TLBB", sprintf("%s(%s)ç¼ºå°‘road_copy.cæ–‡ä»¶ã€‚\n", me->name(1),me->query("id")) );	
 			return;
 		}
 		if(room
 			&& ((obj=present(ob->query("busy_id"),room))|| (obj=present(ob->query("busy_id"),ob))) && obj!=me)
 		{
-			if(present(obj,ob)) message_vision(HIR"\n$N¶Ô$nµãÁËµãÍ·¡£\n",obj,me);
-			else message_vision(HIR"\nÔ¶´¦µÄÉ½Â·´«À´Ò»ÕóÇáÐ¥£¬$NÒþÔ¼ÌýµÃÓÐ´ò¶·µÄÉùÒô¡£Ô­À´ÊÇ"+obj->query("family/family_name")+HIR"µÜ×Ó"+obj->query("name")+HIR"¡£\n",me);
-			tell_object(me,HIY"ÓÐ"+obj->query("family/master_name")+HIY"×ùÏÂ¸ßÍ½"+obj->query("name")+HIY"À´±£»¤ÌìÁúËÂ£¬Ò²²»·¸Äã³öÊÖÁË¡£"NOR);
-			me->delete_temp("quest/ÌìÁú°Ë²¿");
-			me->delete_temp("quest/busy");//ÈÎÎñ³åÍ»±êÖ¾È¡Ïû 
-			log_file("quest/TLBB", sprintf("%s(%s)ÒòÎª%s(%s)³åÍ»£¬ÌìÁúËÂÊ§°Ü¡£\n", me->name(1),me->query("id"),obj->name(1),obj->query("id")) );
-			//²¹³¥Íæ¼Ò»ú»á
-			me->delete("quest/ÌìÁú°Ë²¿/time");
-			me->delete("quest/ÌìÁú°Ë²¿/combat_exp");  
+			if(present(obj,ob)) message_vision(HIR"\n$Nå¯¹$nç‚¹äº†ç‚¹å¤´ã€‚\n",obj,me);
+			else message_vision(HIR"\nè¿œå¤„çš„å±±è·¯ä¼ æ¥ä¸€é˜µè½»å•¸ï¼Œ$Néšçº¦å¬å¾—æœ‰æ‰“æ–—çš„å£°éŸ³ã€‚åŽŸæ¥æ˜¯"+obj->query("family/family_name")+HIR"å¼Ÿå­"+obj->query("name")+HIR"ã€‚\n",me);
+			tell_object(me,HIY"æœ‰"+obj->query("family/master_name")+HIY"åº§ä¸‹é«˜å¾’"+obj->query("name")+HIY"æ¥ä¿æŠ¤å¤©é¾™å¯ºï¼Œä¹Ÿä¸çŠ¯ä½ å‡ºæ‰‹äº†ã€‚"NOR);
+			me->delete_temp("quest/å¤©é¾™å…«éƒ¨");
+			me->delete_temp("quest/busy");//ä»»åŠ¡å†²çªæ ‡å¿—å–æ¶ˆ 
+			log_file("quest/TLBB", sprintf("%s(%s)å› ä¸º%s(%s)å†²çªï¼Œå¤©é¾™å¯ºå¤±è´¥ã€‚\n", me->name(1),me->query("id"),obj->name(1),obj->query("id")) );
+			//è¡¥å¿çŽ©å®¶æœºä¼š
+			me->delete("quest/å¤©é¾™å…«éƒ¨/time");
+			me->delete("quest/å¤©é¾™å…«éƒ¨/combat_exp");  
 			return;  
 		}
 	}
@@ -93,11 +93,11 @@ void go(object me)
   }
   if(!present(me,this_object())) 
   {
-	  tell_object(me,HIY"\nÈÃÄã±£»¤ÌìÁúËÂ£¬ÎªºÎËÄ´¦ÂÒ×ß£¿\n"NOR);
-	  tell_object(me,HIY"Õ¾Î»´íÎó£»ÈÎÎñÊ§°Ü£¡£¡\n"NOR);
-	  me->delete_temp("quest/ÌìÁú°Ë²¿");
-	  me->delete_temp("quest/busy");//ÈÎÎñ³åÍ»±êÖ¾È¡Ïû 
-	  log_file("quest/TLBB", sprintf("%s(%s)ÌìÁúËÂÕ¾Î»²»¶Ô£¬Ê§°Ü¡£\n", me->name(1),me->query("id")) );
+	  tell_object(me,HIY"\nè®©ä½ ä¿æŠ¤å¤©é¾™å¯ºï¼Œä¸ºä½•å››å¤„ä¹±èµ°ï¼Ÿ\n"NOR);
+	  tell_object(me,HIY"ç«™ä½é”™è¯¯ï¼›ä»»åŠ¡å¤±è´¥ï¼ï¼\n"NOR);
+	  me->delete_temp("quest/å¤©é¾™å…«éƒ¨");
+	  me->delete_temp("quest/busy");//ä»»åŠ¡å†²çªæ ‡å¿—å–æ¶ˆ 
+	  log_file("quest/TLBB", sprintf("%s(%s)å¤©é¾™å¯ºç«™ä½ä¸å¯¹ï¼Œå¤±è´¥ã€‚\n", me->name(1),me->query("id")) );
 	  me->delete(QUESTDIR2+"start");
 	  ob->delete("busy_id");
 	  return;
@@ -106,43 +106,43 @@ void go(object me)
         room = load_object(__DIR__"road_copy");
   if(!room)
   {
-	  tell_object(me,HIY"\nÔ¶´¦µÄÉ½Â·´«À´Ò»ÕóÇáÐ¥£¬ÒþÔ¼ÌýµÃÓÐ´ò¶·µÄÉùÒô¡£\n"NOR);
-	  tell_object(me,HIY"µ«ÊÇÄã×ÜÊÇÎÞ·¨ÕÒµ½ÕýÈ·µÄµØµã¡£¿ÉÒÔÑ¯ÎÊÎ×Ê¦¡£\n"NOR);
-	  me->delete_temp("quest/ÌìÁú°Ë²¿");
-	  me->delete_temp("quest/busy");//ÈÎÎñ³åÍ»±êÖ¾È¡Ïû 
+	  tell_object(me,HIY"\nè¿œå¤„çš„å±±è·¯ä¼ æ¥ä¸€é˜µè½»å•¸ï¼Œéšçº¦å¬å¾—æœ‰æ‰“æ–—çš„å£°éŸ³ã€‚\n"NOR);
+	  tell_object(me,HIY"ä½†æ˜¯ä½ æ€»æ˜¯æ— æ³•æ‰¾åˆ°æ­£ç¡®çš„åœ°ç‚¹ã€‚å¯ä»¥è¯¢é—®å·«å¸ˆã€‚\n"NOR);
+	  me->delete_temp("quest/å¤©é¾™å…«éƒ¨");
+	  me->delete_temp("quest/busy");//ä»»åŠ¡å†²çªæ ‡å¿—å–æ¶ˆ 
       ob->delete("busy_id");
-	  //²¹³¥Íæ¼Ò»ú»á
- 	  me->delete("quest/ÌìÁú°Ë²¿/time");
-	  me->delete("quest/ÌìÁú°Ë²¿/combat_exp");  
-  	  log_file("quest/TLBB", sprintf("%s(%s)ÌìÁúËÂÈ±ÉÙroad_copy.cÎÄ¼þ¡£\n", me->name(1),me->query("id")) );
+	  //è¡¥å¿çŽ©å®¶æœºä¼š
+ 	  me->delete("quest/å¤©é¾™å…«éƒ¨/time");
+	  me->delete("quest/å¤©é¾™å…«éƒ¨/combat_exp");  
+  	  log_file("quest/TLBB", sprintf("%s(%s)å¤©é¾™å¯ºç¼ºå°‘road_copy.cæ–‡ä»¶ã€‚\n", me->name(1),me->query("id")) );
 	  return;
   }
   if(room->query("busy_id"))
   {
-    tell_object(me,HIY"\nÔ¶´¦µÄÉ½Â·´«À´Ò»ÕóÇáÐ¥£¬ÒþÔ¼ÌýµÃÓÐ´ò¶·µÄÉùÒô¡£\n"NOR);
-	tell_object(me,HIY"Äã»¹ÊÇÄÍÐÄµØµÈ´ý°É¡£\n"NOR);
+    tell_object(me,HIY"\nè¿œå¤„çš„å±±è·¯ä¼ æ¥ä¸€é˜µè½»å•¸ï¼Œéšçº¦å¬å¾—æœ‰æ‰“æ–—çš„å£°éŸ³ã€‚\n"NOR);
+	tell_object(me,HIY"ä½ è¿˜æ˜¯è€å¿ƒåœ°ç­‰å¾…å§ã€‚\n"NOR);
     call_out("go", 5,me);   
   }
   else 
   {
   	me->move(room);
 	ob->delete("busy_id");
-  	log_file("quest/TLBB", sprintf("%s(%s)ÌìÁúËÂ·ÀÓùÕ¾¿ªÊ¼Õ½¶·¡£¾­Ñé£º%d¡£\n", me->name(1),me->query("id"), me->query("combat_exp")) );
+  	log_file("quest/TLBB", sprintf("%s(%s)å¤©é¾™å¯ºé˜²å¾¡ç«™å¼€å§‹æˆ˜æ–—ã€‚ç»éªŒï¼š%dã€‚\n", me->name(1),me->query("id"), me->query("combat_exp")) );
   }
 }
 int valid_leave(object me, string dir)
 {
 		
-	if ( me->query("family/family_name") != "ÌìÁúËÂ" 
+	if ( me->query("family/family_name") != "å¤©é¾™å¯º" 
 	 && dir != "out" 
 	 && me->query("shen") < 0
 	 && objectp(present("liaohuo chanshi", environment(me))))
-		return notify_fail("ÁË»óìøÊ¦À¹×¡Äã£¬ËµµÀ£ºÌìÁúËÂÄÚ²»µÃËæÒâ½ø³ö¡£\n");
+		return notify_fail("äº†æƒ‘ç¦…å¸ˆæ‹¦ä½ä½ ï¼Œè¯´é“ï¼šå¤©é¾™å¯ºå†…ä¸å¾—éšæ„è¿›å‡ºã€‚\n");
 
-	if ( me->query("family/family_name") != "ÌìÁúËÂ" 
+	if ( me->query("family/family_name") != "å¤©é¾™å¯º" 
 	 && dir != "out" 
 	 && me->query("shen") < 0
 	 && objectp(present("wu seng", environment(me))))
-		return notify_fail("ÎäÉ®À¹×¡Äã£¬ËµµÀ£ºÌìÁúËÂÄÚ²»µÃËæÒâ½ø³ö¡£\n");
+		return notify_fail("æ­¦åƒ§æ‹¦ä½ä½ ï¼Œè¯´é“ï¼šå¤©é¾™å¯ºå†…ä¸å¾—éšæ„è¿›å‡ºã€‚\n");
 	return ::valid_leave(me, dir);
 }

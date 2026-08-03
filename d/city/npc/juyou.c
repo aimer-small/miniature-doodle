@@ -5,10 +5,10 @@ void destroying(object, object);
 
 void create()
 {
-        set_name("¾ÕÓÑ", ({ "ju you", "juyou" }));
-        set("long", "ËıÊÇÒ»¸ö³¤µÃºÜºÃ¿´µÄĞ¡¹ÃÄï£¬ÕıÔÚÃ¦×Å½½Ò»Åè¾Õ»¨¡£\n");
-        set("title","Ñ¾÷ß");
-        set("gender", "Å®ĞÔ");
+        set_name("èŠå‹", ({ "ju you", "juyou" }));
+        set("long", "å¥¹æ˜¯ä¸€ä¸ªé•¿å¾—å¾ˆå¥½çœ‹çš„å°å§‘å¨˜ï¼Œæ­£åœ¨å¿™ç€æµ‡ä¸€ç›†èŠèŠ±ã€‚\n");
+        set("title","ä¸«é¬Ÿ");
+        set("gender", "å¥³æ€§");
         set("age", 15);
 
         set_skill("unarmed", 20);
@@ -28,14 +28,14 @@ int accept_object(object me, object obj)
 {
 object key;
         if ((string)obj->query("id")=="ye juhua") {
-        message("vision",me->name()+"¸ø¾ÕÓÑÒ»¶äÒ°¾Õ»¨¡£\n",environment(me),
+        message("vision",me->name()+"ç»™èŠå‹ä¸€æœµé‡èŠèŠ±ã€‚\n",environment(me),
             ({me}));
         command("ah "+me->query("id"));
-        command("say Ïë²»µ½ÕâÎ»"+RANK_D->query_respect(me)+"Ò²ÊÇ¸ö°®¾Õ»¨µÄÈË¡£");
+        command("say æƒ³ä¸åˆ°è¿™ä½"+RANK_D->query_respect(me)+"ä¹Ÿæ˜¯ä¸ªçˆ±èŠèŠ±çš„äººã€‚");
              key = new(__DIR__"obj/tyaoshi");
         key->move(me);
-             message_vision("$nµİ¸ø$NÒ»°ÑÍ­Ô¿³×¡£\n", me, this_object() );
-        command("say Ïë±ØÄãÒ²Ã»¼û¹ıÂÌ¾Õ»¨°Õ¡£ÎÒ¼ÒĞ¡½ã¹ë·¿ºóÃæÖÖÁËÓĞ£¬Äã¿ÉÒÔÈ¥¿´¿´¡£");
+             message_vision("$né€’ç»™$Nä¸€æŠŠé“œé’¥åŒ™ã€‚\n", me, this_object() );
+        command("say æƒ³å¿…ä½ ä¹Ÿæ²¡è§è¿‡ç»¿èŠèŠ±ç½¢ã€‚æˆ‘å®¶å°å§é—ºæˆ¿åé¢ç§äº†æœ‰ï¼Œä½ å¯ä»¥å»çœ‹çœ‹ã€‚");
         remove_call_out("destroying");
         call_out("destroying", 1, this_object(), obj);
         return 1;

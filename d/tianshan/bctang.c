@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "°Ù²İÌÃ");
+	set("short", "ç™¾è‰å ‚");
 	set("long", @LONG
-ÕâÀïÊÇÁéğÕ¹¬µÄÒ©·¿£¬ÊÒÖĞ°Ú·Å×Å¸÷ÖÖ²»Í¬µÄÅäÒ©µÄÓÃ¾ßºÍÒ»Ğ©ÒÑ¾­ÅäºÃ
-ÁËµÄÒ©¡£
+è¿™é‡Œæ˜¯çµé¹«å®«çš„è¯æˆ¿ï¼Œå®¤ä¸­æ‘†æ”¾ç€å„ç§ä¸åŒçš„é…è¯çš„ç”¨å…·å’Œä¸€äº›å·²ç»é…å¥½
+äº†çš„è¯ã€‚
 LONG);
 	set("exits", ([
 		"south" : __DIR__"zoulang3",
@@ -34,23 +34,23 @@ int do_move(string arg)
 		return 0;
 	
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if ( me->query_temp("ljg/book"))
-		return notify_fail("ÄãÕÒÁË°ëÌì£¬·¢ÏÖÕâÀïÊ²Ã´Ò²Ã»ÓĞ¡£\n");
+		return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œå‘ç°è¿™é‡Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
 
 	if (random(me->query("kar")) > 20) {
 		ob = unew(MEDICINE_D("m-book10"));
-		if(!clonep(ob)) return notify_fail("ÄãÕÒÁË°ëÌì£¬·¢ÏÖÕâÀïÊ²Ã´Ò²Ã»ÓĞ¡£\n");
+		if(!clonep(ob)) return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œå‘ç°è¿™é‡Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
 		if(clonep(ob) && ob->violate_unique()){
 			destruct(ob);
-			return notify_fail("ÄãÕÒÁË°ëÌì£¬·¢ÏÖÕâÀïÊ²Ã´Ò²Ã»ÓĞ¡£\n");
+			return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œå‘ç°è¿™é‡Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
 		}
-		message_vision("$N·¢ÏÖÔÚÒ©·¿µÄ½ÇÂäÀï£¬·Å×ÅÒ»±¾¹ÅÉ«¹ÅÏãµÄÊé¡£\n", me);
+		message_vision("$Nå‘ç°åœ¨è¯æˆ¿çš„è§’è½é‡Œï¼Œæ”¾ç€ä¸€æœ¬å¤è‰²å¤é¦™çš„ä¹¦ã€‚\n", me);
 		ob->move(me);
 		me->set_temp("ljg/book", 1);
 		return 1;
 	}
 	me->set_temp("ljg/book", 1);
-	return notify_fail("ÄãÕÒÁË°ëÌì£¬·¢ÏÖÕâÀïÊ²Ã´Ò²Ã»ÓĞ¡£\n");
+	return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œå‘ç°è¿™é‡Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
 }

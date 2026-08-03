@@ -5,7 +5,7 @@
 int update_condition(object me, int duration)
 {
         if (duration < 1) {  
-           tell_object(me, BLU"听人说好象有只丝绸之路商队要出发了！\n"NOR);      
+           tell_object(me, BLU"鍚汉璇村ソ璞℃湁鍙笣缁镐箣璺晢闃熻鍑哄彂浜嗭紒\n"NOR);      
            me->delete_temp("rob_start", 1);
            me->delete_temp("gb_rob");
            me->delete_temp("gb_job2");

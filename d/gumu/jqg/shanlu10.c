@@ -4,18 +4,18 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-    set("short", HIY"¶Ï³¦ÑÂ"NOR);
+    set("short", HIY"æ–­è‚ å´–"NOR);
     set("long", @LONG
-ÄÇÐüÑÂÏÂÁÙÉî¹È£¬ÉÏÃæÉ½·å±ÊÁ¢£¬·å¶¥ÉîÈëÔÆÎíÖ®ÖÐ£¬²»Öª¾¡Í·¡£¡°¶Ï³¦
-ÑÂ¡±Ç°ºó·ç¾°ÇåÓÄ£¬Ö»ÒòµØÊÆÊµÔÚÌ«ÏÕ£¬É½Ê¯»¬ÁïÁï£¬¼«Ò×µôÈëÉîÔ¨£¬ÈËÃÇÇá
-Ò×²»¸ÒÀ´´Ë¡£
+é‚£æ‚¬å´–ä¸‹ä¸´æ·±è°·ï¼Œä¸Šé¢å±±å³°ç¬”ç«‹ï¼Œå³°é¡¶æ·±å…¥äº‘é›¾ä¹‹ä¸­ï¼Œä¸çŸ¥å°½å¤´ã€‚â€œæ–­è‚ 
+å´–â€å‰åŽé£Žæ™¯æ¸…å¹½ï¼Œåªå› åœ°åŠ¿å®žåœ¨å¤ªé™©ï¼Œå±±çŸ³æ»‘æºœæºœï¼Œæžæ˜“æŽ‰å…¥æ·±æ¸Šï¼Œäººä»¬è½»
+æ˜“ä¸æ•¢æ¥æ­¤ã€‚
 LONG
      );
 
     set("exits", ([ 
 	"westdown"  : __DIR__"shanlu9",        	
     ]));
-    set("outdoors", "¾øÇé¹È");
+    set("outdoors", "ç»æƒ…è°·");
     setup();    
 }
 
@@ -28,7 +28,7 @@ void init()
 int do_look(string arg)
 {
        if( !arg || arg == "" || arg !=  "ya") return 0;
-       write("Äã×ÐÏ¸´òÁ¿ËÄÖÜ¡£·¢ÏÖÔÚ²»Ô¶´¦ÓÐÒ»¿éÍ»³öÀ´µÄÇÍ±Ú£¬¿ÉÒÔÃãÇ¿ÈÝÉí¡£\n");
+       write("ä½ ä»”ç»†æ‰“é‡å››å‘¨ã€‚å‘çŽ°åœ¨ä¸è¿œå¤„æœ‰ä¸€å—çªå‡ºæ¥çš„å³­å£ï¼Œå¯ä»¥å‹‰å¼ºå®¹èº«ã€‚\n");
        this_player()->set_temp("jqg_look1", 1);
        return 1;     
 }
@@ -41,18 +41,18 @@ int do_jump(string arg)
        if (arg != "qiaobi" ) return 0;
        if ( !arg ) return 0;
        if (!me->query_temp("jqg_look1"))
-          return notify_fail("ÄãÒªÍùÄÇÀïÌø£¿\n");
+          return notify_fail("ä½ è¦å¾€é‚£é‡Œè·³ï¼Ÿ\n");
        ob = deep_inventory(me);
        i = sizeof(ob);
        while (i--)
        if (ob[i]->is_character())
-         return notify_fail("ÄãÉíÉÏ±³¸ºÒ»¸öÈË£¬ÎÞ·¨ÇáËÉÌø¹ýÈ¥¡£\n");      
+         return notify_fail("ä½ èº«ä¸ŠèƒŒè´Ÿä¸€ä¸ªäººï¼Œæ— æ³•è½»æ¾è·³è¿‡åŽ»ã€‚\n");      
        if (!living(me)) return 0; 
        if((int)me->query_skill("dodge",1) < 100 )  
-           return notify_fail("ÒÔÄãÄ¿Ç°µÄÇá¹¦ÐÞÎª£¬ÎÞ·¨Ìø¹ýÈ¥¡£\n"); 
-       message_vision("$N×ÝÉíÏòÇ°ÃæµÄÇÍ±ÚÌøÁË¹ýÈ¥¡£\n", me);
+           return notify_fail("ä»¥ä½ ç›®å‰çš„è½»åŠŸä¿®ä¸ºï¼Œæ— æ³•è·³è¿‡åŽ»ã€‚\n"); 
+       message_vision("$Nçºµèº«å‘å‰é¢çš„å³­å£è·³äº†è¿‡åŽ»ã€‚\n", me);
        me->move(__DIR__"duanchang");
-       tell_room(environment(me), me->name() + "´Ó¶Ï³¦ÑÂÌøÁË¹ýÀ´¡£\n", ({ me }));
+       tell_room(environment(me), me->name() + "ä»Žæ–­è‚ å´–è·³äº†è¿‡æ¥ã€‚\n", ({ me }));
        me->delete_temp("jqg_look1");
        return 1;
 }

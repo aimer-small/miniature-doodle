@@ -1,4 +1,4 @@
-//µØÏÂ±ÈÎä³¡£¬È­ÊÖ
+//åœ°ä¸‹æ¯”æ­¦åœºï¼Œæ‹³æ‰‹
 //Created by campsun 2003.09.23
 #include <ansi.h>
 
@@ -10,13 +10,13 @@ inherit NPC;
 
 
 string *nick_first=({
-HIB"ÄÏº£"NOR,HIY"Æ½Ô­"NOR,HIW"ÁÉ¶«"NOR,HIG"´¨Î÷"NOR,RED"Æ½Ñô"NOR,WHT"ÌìÍâ"NOR,
-HIB"¶À¹Â"NOR,HIW"Æ®Ñ©"NOR,YEL"Çó°Ü"NOR,HIY"ÎŞĞÄ"NOR,MAG"ºì·Û"NOR,HIR"Ï¦Ñô"NOR,
-HIY"½­ÄÏ"NOR,});
+HIB"å—æµ·"NOR,HIY"å¹³åŸ"NOR,HIW"è¾½ä¸œ"NOR,HIG"å·è¥¿"NOR,RED"å¹³é˜³"NOR,WHT"å¤©å¤–"NOR,
+HIB"ç‹¬å­¤"NOR,HIW"é£˜é›ª"NOR,YEL"æ±‚è´¥"NOR,HIY"æ— å¿ƒ"NOR,MAG"çº¢ç²‰"NOR,HIR"å¤•é˜³"NOR,
+HIY"æ±Ÿå—"NOR,});
 
 string *nick_second=({
-HIM"°Ô"NOR,CYN"µ¶"NOR,RED"½£"NOR,WHT"Ç¹"NOR,HIB"±Ş"NOR,YEL"Ë÷"NOR,HIR"ºì"NOR,
-CYN"½¿"NOR,HIB"»¢"NOR,HIY"±ª"NOR,HIR"ÀÏÈË"NOR,HIG"¿Í"NOR,WHT"ÏÀ"NOR,HIB"Áú"NOR,
+HIM"éœ¸"NOR,CYN"åˆ€"NOR,RED"å‰‘"NOR,WHT"æª"NOR,HIB"é­"NOR,YEL"ç´¢"NOR,HIR"çº¢"NOR,
+CYN"å¨‡"NOR,HIB"è™"NOR,HIY"è±¹"NOR,HIR"è€äºº"NOR,HIG"å®¢"NOR,WHT"ä¾ "NOR,HIB"é¾™"NOR,
 });
 
 
@@ -26,7 +26,7 @@ string create_nick()
 	nick1=nick_first[random(sizeof(nick_first))];
 	nick2=nick_second[random(sizeof(nick_second))];
 	if(random(5)>3)
-		return nick1+"Ò»"+nick2;
+		return nick1+"ä¸€"+nick2;
 	else
 		return nick1+nick2;
 }
@@ -36,7 +36,7 @@ void set_random_gift();
 
 void create ()
 {
-		set_name("ÎŞÃûÊÏ",({"wuming shi"}));
+		set_name("æ— åæ°",({"wuming shi"}));
 
        	set("shen_type", 1);
        	set("age", random(80)+10);
@@ -46,7 +46,7 @@ void create ()
 		set("max_jing",6000);
 		set("max_qi",6000);
         set_random_gift();
-        set("no_get", "ÄãÉì³öÊÖÏë°Ñ"+query("name")+"´ÓÌ¨ÉÏ×§ÏÂÀ´£¬¿ÉÏ§»¹²îÁËºÃ´óÒ»½Ø¡£\n");
+        set("no_get", "ä½ ä¼¸å‡ºæ‰‹æƒ³æŠŠ"+query("name")+"ä»å°ä¸Šæ‹½ä¸‹æ¥ï¼Œå¯æƒœè¿˜å·®äº†å¥½å¤§ä¸€æˆªã€‚\n");
         set("cloned",0);
   	
         setup();
@@ -120,26 +120,26 @@ void init()
 		for (level = to_int(pow(10.0 * exp, 0.3333333));to_int(level*level/10.0*level)<=exp;level++);
 		
 
-		copy_menpai(({npc_party}),room->query("level"),room->query("use_weapon"),i);					//¸´ÖÆnpcµÄÃÅÅÉÎä¹¦£¬							
+		copy_menpai(({npc_party}),room->query("level"),room->query("use_weapon"),i);					//å¤åˆ¶npcçš„é—¨æ´¾æ­¦åŠŸï¼Œ							
 	
-		get_npc_name();																		//¸ù¾İÃÅÅÉÉè¶¨npcµÄÃû×Ö
+		get_npc_name();																		//æ ¹æ®é—¨æ´¾è®¾å®šnpcçš„åå­—
 		
-		if(me->query("family/family_name")=="¶«·½²»°ÜµÄ´«ÈË")
-			set("gender","ÎŞĞÔ");
+		if(me->query("family/family_name")=="ä¸œæ–¹ä¸è´¥çš„ä¼ äºº")
+			set("gender","æ— æ€§");
 		
 		set("nickname",nickname);
 	
-		copy_state();																		//¸ù¾İÃÅÅÉ¸üĞÂnpc µÄÒ»Ğ©×´Ì¬
+		copy_state();																		//æ ¹æ®é—¨æ´¾æ›´æ–°npc çš„ä¸€äº›çŠ¶æ€
 		
 		if(me->query("tag")=="red")
 		{
-			title=HIR"ºì·½ ";
+			title=HIR"çº¢æ–¹ ";
 			set_name(query("name"),({query("id"),"red"}) );
 			set("pfm_rate",i);
 		}
 		if(me->query("tag")=="black")
 		{
-			title=HIB"ºÚ·½ ";
+			title=HIB"é»‘æ–¹ ";
 			set_name(query("name"),({query("id"),"black"}));
 			set("pfm_rate",i);
 		}	
@@ -169,21 +169,21 @@ void init()
 		set_skills_level(level);
 		if (!room->query("use_weapon"))
 			if (me->query("f_skill2")) 
-				good_skills=to_chinese(me->query("f_skill"))+"ºÍ"+to_chinese(me->query("f_skill2"));
+				good_skills=to_chinese(me->query("f_skill"))+"å’Œ"+to_chinese(me->query("f_skill2"));
 			else	
 				good_skills=to_chinese(me->query("f_skill"));
 		else
 		{
 			good_skills=to_chinese(me->query("f_w_skill"));
-			call_out("check_weapon",4);																		//¼ì²énpcµÄÎäÆ÷×´Ì¬
+			call_out("check_weapon",4);																		//æ£€æŸ¥npcçš„æ­¦å™¨çŠ¶æ€
 			
 		}
 		set("good_skills",good_skills);
 		
         	set("long",
-       	 	"´ËÈËÒ»ÑÛ¿´ÉÏÈ¥¾ÍÊÇ"HIW+me->query("family/family_name")+NOR"µÄ¸ßÊÖ¡£\n"
-       	 	"³ÉÃû¾ø¼¼ÊÇ£º"HIC+good_skills+NOR"¡£\n"
-       	 	"ËûµÄ¾­ÑéÔ¼ÔÚ"+room->query("base_exp")/1000000+"M×óÓÒ¡£\n"
+       	 	"æ­¤äººä¸€çœ¼çœ‹ä¸Šå»å°±æ˜¯"HIW+me->query("family/family_name")+NOR"çš„é«˜æ‰‹ã€‚\n"
+       	 	"æˆåç»æŠ€æ˜¯ï¼š"HIC+good_skills+NOR"ã€‚\n"
+       	 	"ä»–çš„ç»éªŒçº¦åœ¨"+room->query("base_exp")/1000000+"Må·¦å³ã€‚\n"
        	 	);
        	 	me->set("jiali",room->query("base_jiali")*20);
        		me->set("combat_exp",room->query("base_exp"));
@@ -210,41 +210,41 @@ void check_weapon()
 	remove_call_out("check_weapon");
 	if(random(100)<3 && objectp(obweapon) && !me->is_busy() && !me->is_exert() && !me->is_perform() && me->is_fighting())
 	{
-		msg+="Í»È»°ÑÎäÆ÷²å»ØÑü¼ä,¿ÕÊÖÊ¹³ö";
+		msg+="çªç„¶æŠŠæ­¦å™¨æ’å›è…°é—´,ç©ºæ‰‹ä½¿å‡º";
 		if (me->query("f_skill2")) 
-			msg+=to_chinese(me->query("f_skill"))+"ºÍ"+to_chinese(me->query("f_skill2"));
+			msg+=to_chinese(me->query("f_skill"))+"å’Œ"+to_chinese(me->query("f_skill2"));
 		else	
 			msg+=to_chinese(me->query("f_skill"));
-		msg+=HIC"µÄ¾ø¼¼";	
-		message_vision(HIC"$N"+msg+NOR"¡£\n",me);
+		msg+=HIC"çš„ç»æŠ€";	
+		message_vision(HIC"$N"+msg+NOR"ã€‚\n",me);
 		obweapon->unequip();
-        me->map_skill("parry",me->query("nw_parry"));									//²»ÄÃÎäÆ÷£¬³ö¿ÕÊÖpfm
+        me->map_skill("parry",me->query("nw_parry"));									//ä¸æ‹¿æ­¦å™¨ï¼Œå‡ºç©ºæ‰‹pfm
         me->set("chat_msg_combat", query("u_f_pfm") + query("u_pfm"));
         call_out("check_weapon",30);
 		return;		
 	}
     if( stringp(weapon) && weapon!="" && weapon!="null" && !me->query_temp("weapon") && !me->is_busy() && !me->is_perform() ) {
-    	if(random(10)>7)																	//ÔÙ´Î°ÑÎäÆ÷ÄÃÔÚÊÖÀï
+    	if(random(10)>7)																	//å†æ¬¡æŠŠæ­¦å™¨æ‹¿åœ¨æ‰‹é‡Œ
     	{
         	me->map_skill("parry",me->query("w_parry"));
         	w = new(BINGQI_D(weapon));
         	w->move(me);
         	w->wield(me);
         	msg+=w->query("unit")+w->query("name");
-        	message_vision(WHT"$NÒ»¸ö×İÔ½·ÉÉíµ½Ì¨±ßµÄ±øÆ÷¼ÜÅÔ£¬Ë³ÊÖ³é³öÁË"+msg+NOR"¡£\n",me);
+        	message_vision(WHT"$Nä¸€ä¸ªçºµè¶Šé£èº«åˆ°å°è¾¹çš„å…µå™¨æ¶æ—ï¼Œé¡ºæ‰‹æŠ½å‡ºäº†"+msg+NOR"ã€‚\n",me);
         	me->set("chat_msg_combat", query("u_f_pfm") + query("u_w_pfm"));
         	call_out("check_weapon",4);
         }
         else
         {
-        	msg+="ÑÛ¼û±øÆ÷¼ÜÀë×Ô¼º»¹ÓĞÊ®²½Ö®Ò££¬Ë«ÊÖÊ¹³ö"HIW;
+        	msg+="çœ¼è§å…µå™¨æ¶ç¦»è‡ªå·±è¿˜æœ‰åæ­¥ä¹‹é¥ï¼ŒåŒæ‰‹ä½¿å‡º"HIW;
 			if (me->query("f_skill2")) 
-				msg+=to_chinese(me->query("f_skill"))+"ºÍ"+to_chinese(me->query("f_skill2"));
+				msg+=to_chinese(me->query("f_skill"))+"å’Œ"+to_chinese(me->query("f_skill2"));
 			else	
 				msg+=to_chinese(me->query("f_skill"));
-			msg+=HIC"µÄ¾ø¼¼";
-			message_vision(HIC"$N"+msg+NOR"¡£\n",me);
-        	me->map_skill("parry",me->query("nw_parry"));									//²»ÄÃÎäÆ÷£¬³ö¿ÕÊÖpfm
+			msg+=HIC"çš„ç»æŠ€";
+			message_vision(HIC"$N"+msg+NOR"ã€‚\n",me);
+        	me->map_skill("parry",me->query("nw_parry"));									//ä¸æ‹¿æ­¦å™¨ï¼Œå‡ºç©ºæ‰‹pfm
         	me->set("chat_msg_combat", query("u_f_pfm") + query("u_pfm"));
         	call_out("check_weapon",60);
         	return;

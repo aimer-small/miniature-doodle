@@ -2,24 +2,24 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "�ĳ�");
+        set("short", "赌场");
         set("long", @LONG
-������һ�������������䲻�󣬼����˼��ڷ������ˣ������м�����ӱ�
-��վ��һλ��ʮ������ˣ���������ߺ�������һ������һ���ĳ����֣�����
-��������ׯ�ҡ�ǽ�Ϲ���һ������(paizi)��
+这里是一个骨骰房，房间不大，挤满了急于翻本的人，屋子中间的桌子边
+上站着一位四十多岁的人，正在那里吆五喝六，一看就是一个赌场高手，被老
+板请来做庄家。墙上挂着一块牌子(paizi)。
 LONG
         );
 
         set("item_desc", ([
                 "paizi" : "
-ya tc <����> <coin|silver|gold> Ѻͷ��(����˳�򼰵�������ȷ)       һ����ʮ��
-ya dc <����> <coin|silver|gold> Ѻ���(����������ȷ)               һ��ʮ��\n"
-//	"ya sd <����> <coin|silver|gold> Ѻ˫��(������ͬ�Ҿ�Ϊż��)         һ��ʮһ\n"
-"ya kp <����> <coin|silver|gold> Ѻ����(������ͬ�Ҿ�Ϊż��)         һ����
-ya qx <����> <coin|silver|gold> Ѻ����(����֮��Ϊ��)               һ����
-ya dd <����> <coin|silver|gold> Ѻ����(������Ϊ����)               һ����
-ya sx <����> <coin|silver|gold> Ѻɢ��(����֮��Ϊ�����塢�š�ʮһ) һ���
-ÿ�̰����ϵ��µ�˳��ֻ����һ�ֵ���(ͷ�ʺʹ�ʿ�ͬʱ����)�������������ׯ��Ӯ��
+ya tc <数量> <coin|silver|gold> 押头彩(两数顺序及点数均正确)       一赔三十五
+ya dc <数量> <coin|silver|gold> 押大彩(两数点数正确)               一赔十七\n"
+//	"ya sd <数量> <coin|silver|gold> 押双对(两数相同且均为偶数)         一赔十一\n"
+"ya kp <数量> <coin|silver|gold> 押空盘(两数不同且均为偶数)         一赔五
+ya qx <数量> <coin|silver|gold> 押七星(两数之和为七)               一赔五
+ya dd <数量> <coin|silver|gold> 押单对(两数均为奇数)               一赔三
+ya sx <数量> <coin|silver|gold> 押散星(两数之和为三、五、九、十一) 一赔二
+每盘按从上到下的顺序只出现一种点型(头彩和大彩可同时出现)，其他情况都算庄家赢。
 \n",
         ]));
         set("no_fight",1);
@@ -41,6 +41,6 @@ ya sx <����> <coin|silver|gold> Ѻɢ��(����֮��Ϊ�����塢�š�ʮһ) һ���
 int valid_leave(object me, string dir)
 {
         if (dir == "north" && me->query("balance")<100)
-        tell_object(me,"�����ûǮ?!�´β�Ҫ����\n");
+        tell_object(me,"穷鬼，没钱?!下次不要来！\n");
         return ::valid_leave(me, dir);
 }

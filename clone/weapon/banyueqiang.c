@@ -1,4 +1,4 @@
-// banyueqiang.c °ëÔÂÇ¹
+// banyueqiang.c åŠæœˆæª
 
 #include <ansi.h>
 #include <weapon.h>
@@ -6,13 +6,13 @@ inherit SPEAR;
 
 void create()
 {
-        set_name( "°ëÔÂÇ¹" , ({ "banyue qiang", "qiang", "dagger","banyueqiang" }));
+        set_name( "åŠæœˆæª" , ({ "banyue qiang", "qiang", "dagger","banyueqiang" }));
         set_weight(18000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "Õâ±ú³¤Ç¹ÔÚ½ô¿¿Ç¹Ó§ºóÃæ´òÔìÁËÒ»¸ö»¡ĞÎÔÂÑÀ£¬Ôö¼ÓÁË¹¥»÷ÄÜÁ¦ºÍ·¶Î§¡£\n");
+                set("unit", "æŸ„");
+                set("long", "è¿™æŸ„é•¿æªåœ¨ç´§é æªç¼¨åé¢æ‰“é€ äº†ä¸€ä¸ªå¼§å½¢æœˆç‰™ï¼Œå¢åŠ äº†æ”»å‡»èƒ½åŠ›å’ŒèŒƒå›´ã€‚\n");
                 set("value", 1500);
                 set("material", "iron");
         }

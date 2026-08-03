@@ -1,13 +1,13 @@
-// maoniu.c 牦牛
+// maoniu.c 鐗︾墰
 
 inherit NPC;
 
 void create()
 {
-        set_name("牦牛", ({ "mao niu", "niu" ,"yak"}) );
-	set("race", "野兽");
+        set_name("鐗︾墰", ({ "mao niu", "niu" ,"yak"}) );
+	set("race", "閲庡吔");
 	set("age", 5);
-        set("long", "一只身强体壮的牦牛，全身长着长毛，似乎在觅食。\n");
+        set("long", "涓�鍙韩寮轰綋澹殑鐗︾墰锛屽叏韬暱鐫�闀挎瘺锛屼技涔庡湪瑙呴銆俓n");
 	set("attitude", "peaceful");
         set("str",60);
         set("max_qi",1000);
@@ -15,7 +15,7 @@ void create()
         set("max_jing",1000);
         set("jing",1000);
 	
-	set("limbs", ({ "头部", "身体", "前脚", "后脚", "尾巴" }) );
+	set("limbs", ({ "澶撮儴", "韬綋", "鍓嶈剼", "鍚庤剼", "灏惧反" }) );
         set("verbs", ({ "kick", "hoof" }) );
 
         set("combat_exp", 50000);

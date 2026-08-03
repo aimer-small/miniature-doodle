@@ -16,32 +16,32 @@ int main(object me, string arg)
 
 	if( !arg || sscanf(arg, "%s %s", target, msg)!=2 )
 		return help(me);
-	if( strlen(msg) > 40 ) return notify_fail("Ã»±ØÒª¸ãÕâÃ´³¤°É£¿\n");
+	if( strlen(msg) > 40 ) return notify_fail("æ²¡å¿…è¦æè¿™ä¹ˆé•¿å§ï¼Ÿ\n");
 	obj = find_player(target);
-	if (!obj) return notify_fail("ÄãÒª¾¯¸æË­°¡£¿ºÃÏóÃ»("+target+")Õâ¸öÈË°¡¡£\n");
-	if (geteuid(me) != "yuj") message("wizard", getuid(this_player(1))+"·¢²¼¾¯¸æ\n", users());
+	if (!obj) return notify_fail("ä½ è¦è­¦å‘Šè°å•Šï¼Ÿå¥½è±¡æ²¡("+target+")è¿™ä¸ªäººå•Šã€‚\n");
+	if (geteuid(me) != "yuj") message("wizard", getuid(this_player(1))+"å‘å¸ƒè­¦å‘Š\n", users());
 	if (obj->query("id") == "yuj" || obj->query("id") == "linux")
-		message("system", HIR "¡¾¾¯¸æ¡¿" + me->name(1) + "("+ me->query("id")
-		+ ")¡¸ºúÂÒ¾¯¸æÎ×Ê¦¡¹µÄĞĞÎªÔì³ÉÁË²»Á¼Ó°Ïì£¬Èç¹ûÔÙ·¸£¬½«±»Çëµ½ÌÒ»¨Ô´×÷¿Í¡£\n" NOR,users());
+		message("system", HIR "ã€è­¦å‘Šã€‘" + me->name(1) + "("+ me->query("id")
+		+ ")ã€Œèƒ¡ä¹±è­¦å‘Šå·«å¸ˆã€çš„è¡Œä¸ºé€ æˆäº†ä¸è‰¯å½±å“ï¼Œå¦‚æœå†çŠ¯ï¼Œå°†è¢«è¯·åˆ°æ¡ƒèŠ±æºä½œå®¢ã€‚\n" NOR,users());
 	else{
 		mapping note;
-		message("system", HIR "¡¾¾¯¸æ¡¿" + obj->name(1) + "("+ capitalize(obj->query("id"))
-		+ ")¡¸"+msg+"¡¹µÄĞĞÎªÔì³ÉÁË²»Á¼Ó°Ïì£¬Èç¹ûÔÙ·¸£¬½«±»Çëµ½ÌÒ»¨Ô´×÷¿Í¡£\n" NOR,users());
-		//´¦·£¹«¿ª£¬POST×¨ÃÅÁôÑÔ°å
+		message("system", HIR "ã€è­¦å‘Šã€‘" + obj->name(1) + "("+ capitalize(obj->query("id"))
+		+ ")ã€Œ"+msg+"ã€çš„è¡Œä¸ºé€ æˆäº†ä¸è‰¯å½±å“ï¼Œå¦‚æœå†çŠ¯ï¼Œå°†è¢«è¯·åˆ°æ¡ƒèŠ±æºä½œå®¢ã€‚\n" NOR,users());
+		//å¤„ç½šå…¬å¼€ï¼ŒPOSTä¸“é—¨ç•™è¨€æ¿
 		//done_post(object me, mapping note, string text)
 		//title author
-		note = (["title":"¾¯¸æÍæ¼Ò"+obj->name(1) + "("+ capitalize(obj->query("id"))+")¹«¸æ",
+		note = (["title":"è­¦å‘Šç©å®¶"+obj->name(1) + "("+ capitalize(obj->query("id"))+")å…¬å‘Š",
 			"author":me->query("name") + "(" + getuid(me) + ")",
 			"time":0,
 			"msg":0,
 			]);					
-		"/clone/board/wizto_b"->done_post(this_object(),note,"¡¾¾¯¸æ¡¿" + obj->name(1) + "(" + capitalize(obj->query("id"))
-		+ ")¡¸"+msg+"¡¹µÄĞĞÎªÔì³ÉÁË²»Á¼Ó°Ïì£¬Èç¹ûÔÙ·¸£¬½«±»Çëµ½ÌÒ»¨Ô´×÷¿Í¡£\n");
+		"/clone/board/wizto_b"->done_post(this_object(),note,"ã€è­¦å‘Šã€‘" + obj->name(1) + "(" + capitalize(obj->query("id"))
+		+ ")ã€Œ"+msg+"ã€çš„è¡Œä¸ºé€ æˆäº†ä¸è‰¯å½±å“ï¼Œå¦‚æœå†çŠ¯ï¼Œå°†è¢«è¯·åˆ°æ¡ƒèŠ±æºä½œå®¢ã€‚\n");
 		/*
 		"/clone/board/wizto_b"->auto_post(
-		"¾¯¸æÍæ¼Ò"+obj->name(1) + "("+ capitalize(obj->query("id"))+")¹«¸æ",
-		"¡¾¾¯¸æ¡¿" + obj->name(1) + "(" + capitalize(obj->query("id"))
-		+ ")¡¸"+msg+"¡¹µÄĞĞÎªÔì³ÉÁË²»Á¼Ó°Ïì£¬Èç¹ûÔÙ·¸£¬½«±»Çëµ½ÌÒ»¨Ô´×÷¿Í¡£\n");
+		"è­¦å‘Šç©å®¶"+obj->name(1) + "("+ capitalize(obj->query("id"))+")å…¬å‘Š",
+		"ã€è­¦å‘Šã€‘" + obj->name(1) + "(" + capitalize(obj->query("id"))
+		+ ")ã€Œ"+msg+"ã€çš„è¡Œä¸ºé€ æˆäº†ä¸è‰¯å½±å“ï¼Œå¦‚æœå†çŠ¯ï¼Œå°†è¢«è¯·åˆ°æ¡ƒèŠ±æºä½œå®¢ã€‚\n");
 		*/
 	}
         log_file("static/ALARM", sprintf("%s alarm %s because %s.\n",
@@ -60,8 +60,8 @@ string query(string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºalarm <Ä³ÈË> <Ñ¶Ï¢>
-Äã¿ÉÒÔÓÃÕâ¸öÖ¸Áî¾¯¸æÒ»Ğ©Î¥·´ÓÎÏ·¹æÔòµÄÍæ¼Ò¡£
+æŒ‡ä»¤æ ¼å¼ï¼šalarm <æŸäºº> <è®¯æ¯>
+ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤è­¦å‘Šä¸€äº›è¿åæ¸¸æˆè§„åˆ™çš„ç©å®¶ã€‚
 HELP
 	);
 	return 1;

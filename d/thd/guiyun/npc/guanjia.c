@@ -1,13 +1,13 @@
-// guanjia.c ¹Ü¼Ò
+// guanjia.c ç®¡å®¶
 
 inherit NPC;
 
 void create()
 {
-	set_name("¹Ü¼Ò", ({ "guan jia", "guanjia", "guan", "jia" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("ç®¡å®¶", ({ "guan jia", "guanjia", "guan", "jia" }));
+	set("gender", "ç”·æ€§");
 	set("age", 44);
-	set("long", "ËûÊÇ¹éÔÆ×¯µÄ¹Ü¼Ò£¬¸ºÔğÈÕ³£µÄ×¯Îñ¡£\n");
+	set("long", "ä»–æ˜¯å½’äº‘åº„çš„ç®¡å®¶ï¼Œè´Ÿè´£æ—¥å¸¸çš„åº„åŠ¡ã€‚\n");
 	
 	set("combat_exp", 8000);
 	set("shen_type", 0);
@@ -25,7 +25,7 @@ void create()
 	set_temp("apply/defense", 22);
 
 	set("inquiry",([
-		"name" : "¿È£¬ÄÇÃ´Âé·³¸ÉÊ²Ã´£¬ÓĞÊÂÄú¾ÍÖ±ºô¹Ü¼ÒºÃÁË¡£",
+		"name" : "å’³ï¼Œé‚£ä¹ˆéº»çƒ¦å¹²ä»€ä¹ˆï¼Œæœ‰äº‹æ‚¨å°±ç›´å‘¼ç®¡å®¶å¥½äº†ã€‚",
 	]));
 	setup();
 	carry_object("/clone/misc/cloth")->wear();

@@ -4,13 +4,13 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short",HIY "������" NOR);
+	set("short",HIY "万年庵" NOR);
 	set("long", @LONG
-�����ֽ���һ��ͻ���ɽ���ϣ���Χ��ľɭɭ����Ȫ���ȣ��в��޿�����
-���޿�����ɫ�ǳ����ˡ��ɴ����Ϲ�ʮ���̿ɴﻪ�϶�����������������
+万年庵建在一座突起的山峰上，周围古木森森，清泉淙淙，闲步无坎，吟
+游无坷，景色非常迷人。由此西上过十二盘可达华严顶，南下至白龙洞。
 LONG
 	);
-	set("outdoors", "��üɽ");
+	set("outdoors", "峨眉山");
 	set("exits", ([ 
   "westup" : __DIR__"shierpan",
   "enter" : __DIR__"wanniananzd",

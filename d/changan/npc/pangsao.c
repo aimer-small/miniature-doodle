@@ -6,15 +6,15 @@ inherit F_VENDOR;
 
 void create()
 {
-        set_name("ÅÖÉ©", ({ "pang sao", "pangsao", "sao" }) );
-        set("gender", "Å®ĞÔ" );
+        set_name("èƒ–å«‚", ({ "pang sao", "pangsao", "sao" }) );
+        set("gender", "å¥³æ€§" );
         set("age", 38);
         set("per", 21);
         set("unique", 1);
-        set("long","ÕâÎ»ÅÖÉ©ÕıÃ¦Öø½«¹Ï¹û·ÖÃÅ±ğÀàµÄ°Ú·ÅÕûÆë¡£\n");
+        set("long","è¿™ä½èƒ–å«‚æ­£å¿™è‘—å°†ç“œæœåˆ†é—¨åˆ«ç±»çš„æ‘†æ”¾æ•´é½ã€‚\n");
         set("combat_exp", 3000);
         set("attitude", "friendly");
-        set("rank_info/respect", "´óÉ©");
+        set("rank_info/respect", "å¤§å«‚");
         set("vendor_goods", ({
                 (["name": FOOD_D("banana"),"number":5]),
                 (["name": FOOD_D("F_pingguo"),"number":5]),
@@ -37,7 +37,7 @@ void init()
         ::init();
 	if (base_name(environment()) != query("startroom")) return;
         if( interactive(ob) && !is_fighting() ) {
-		if ( ob->query("family/family_name") == "Ø¤°ï"
+		if ( ob->query("family/family_name") == "ä¸å¸®"
 		 && ob->query("gb/bags") < 2 ) {
 			remove_call_out("saying");
 			call_out("saying", 0, ob);
@@ -56,12 +56,12 @@ void greeting(object ob)
         if( !ob || environment(ob) != environment() ) return;
         switch( random(2) ) {
                 case 0:
-                        say( "ÅÖÉ©Ğ¦Ó¯Ó¯µØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬¿ì½øÀ´³¢³¢ĞÂÏÊµÄË®¹û°É¡£\n");
+                        say( "èƒ–å«‚ç¬‘ç›ˆç›ˆåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œå¿«è¿›æ¥å°å°æ–°é²œçš„æ°´æœå§ã€‚\n");
                         break;
                 case 1:
-                        say( "ÅÖÉ©Ğ¦Ó¯Ó¯µØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬Çë½øÇë½ø¡£\n");
+                        say( "èƒ–å«‚ç¬‘ç›ˆç›ˆåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œè¯·è¿›è¯·è¿›ã€‚\n");
                         break;
         }
 }
@@ -71,7 +71,7 @@ void saying(object ob)
 	if (!ob || environment(ob) != environment()) return;
 	if ( file_name(environment(this_object())) != this_object()->query("startroom")) return;
 
-	say("\nÅÖÉ©ÖåÖåÃ¼,ËµµÀ£º¶Ô²»Æğ,Ğ¡µê½ñÈÕ»¹Ã»Âô³ö¶àÉÙË®¹û£¬ÇëÈ¥±ğ´¦°É£¡\n\n");
+	say("\nèƒ–å«‚çš±çš±çœ‰,è¯´é“ï¼šå¯¹ä¸èµ·,å°åº—ä»Šæ—¥è¿˜æ²¡å–å‡ºå¤šå°‘æ°´æœï¼Œè¯·å»åˆ«å¤„å§ï¼\n\n");
 	remove_call_out("kicking");
 	call_out("kicking", 1, ob);
 
@@ -82,6 +82,6 @@ void kicking(object ob)
 	if (!ob || environment(ob) != environment()) return;
 
 	ob->move("/d/changan/eastjie3");
-	message("vision","Ö»Ìı³¤³¤Ò»ÉùÌ¾Ï¢£¬" +  ob->query("name") +
-                "ÎŞ¿ÉÄÎºÎµØÀë¿ªÁË»¨µê¡£\n", environment(ob), ob);
+	message("vision","åªå¬é•¿é•¿ä¸€å£°å¹æ¯ï¼Œ" +  ob->query("name") +
+                "æ— å¯å¥ˆä½•åœ°ç¦»å¼€äº†èŠ±åº—ã€‚\n", environment(ob), ob);
 }

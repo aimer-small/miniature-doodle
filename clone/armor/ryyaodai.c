@@ -1,4 +1,4 @@
-// ryyaodai.c ÈíÓñÑü´ø
+// ryyaodai.c è½¯ç‰è…°å¸¦
 // creat by Lklv 2001.9.28
 
 #include <ansi.h>
@@ -8,17 +8,17 @@ inherit WAIST;
 
 void create()
 {
-	set_name( HIC"ÈíÓñÑü´ø"NOR, ({ "yao dai", "yaodai", "dai" }) );
+	set_name( HIC"è½¯ç‰è…°å¸¦"NOR, ({ "yao dai", "yaodai", "dai" }) );
 	set_weight(400);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ìõ");
-                set("long", "ÕâÊÇÒ»¼şÉÏºÃµÄÀ¶ÌïÈíÓñ×ö³ÉµÄÑü´ø¡£\n");
+		set("unit", "æ¡");
+                set("long", "è¿™æ˜¯ä¸€ä»¶ä¸Šå¥½çš„è“ç”°è½¯ç‰åšæˆçš„è…°å¸¦ã€‚\n");
 		set("value", 5000);
 		set("material", "waist");
-		set("wear_msg", "$N¿´ÁË¿´ÖÜÎ§Ã»ÈË£¬µÍÍ·½«Ò»Ìõ"HIC"ÈíÓñÑü´ø"NOR"ÏµÔÚÑüÉÏ¡£\n");
-		set("remove_msg", "$NäìÈ÷µØ½«"HIC"ÈíÓñÑü´ø"NOR"×ÔÑü¼ä½âÏÂ£¬·ÅÔÚÊÖÀï¡£\n");
+		set("wear_msg", "$Nçœ‹äº†çœ‹å‘¨å›´æ²¡äººï¼Œä½å¤´å°†ä¸€æ¡"HIC"è½¯ç‰è…°å¸¦"NOR"ç³»åœ¨è…°ä¸Šã€‚\n");
+		set("remove_msg", "$Næ½‡æ´’åœ°å°†"HIC"è½¯ç‰è…°å¸¦"NOR"è‡ªè…°é—´è§£ä¸‹ï¼Œæ”¾åœ¨æ‰‹é‡Œã€‚\n");
 		set("armor_prop/armor", 5);
 	}
 	setup();

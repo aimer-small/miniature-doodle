@@ -7,13 +7,13 @@ inherit NECK;
  
 void create() 
 { 
-        set_name( YEL "÷è÷ëÌ¤ÔÆËø" NOR, ({ "qilin suo", "suo" }) ); 
+        set_name( YEL "éº’éºŸè¸äº‘é”" NOR, ({ "qilin suo", "suo" }) ); 
         set_weight(600); 
         if( clonep() ) 
                 set_default_object(__FILE__); 
         else { 
-                set("unit", "Ìõ"); 
-                set("long", "ÕâÊÇÒ»Ìõ´òÔìµÃ·Ç³£¾«ÃÀµÄ³¤ÃüËø£¬Ëø×¹ÊÇÒ»Í·½ÅÌ¤ÏéÔÆµÄ÷è÷ë¡£¾İËµ¿ÉÒÔÇıÄ§±ÙÑı¡£\n"); 
+                set("unit", "æ¡"); 
+                set("long", "è¿™æ˜¯ä¸€æ¡æ‰“é€ å¾—éå¸¸ç²¾ç¾çš„é•¿å‘½é”ï¼Œé”å æ˜¯ä¸€å¤´è„šè¸ç¥¥äº‘çš„éº’éºŸã€‚æ®è¯´å¯ä»¥é©±é­”è¾Ÿå¦–ã€‚\n"); 
                 set("value", 3000); 
                 set("material", "gold"); 
                 set("armor_prop/armor", 5); 

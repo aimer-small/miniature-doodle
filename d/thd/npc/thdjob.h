@@ -3,14 +3,14 @@
 int ask_job_s()
 {
         object ob = this_player();
-        if (ob->query("family/family_name") != "ÌÒ»¨µº") {
-                tell_room(environment(ob),"»ÆÈØÒÉ»óµÄ¿´×Å" + ob->query("name") + ",ËµµÀ: Ê²Ã´Ê¦Ä¸²»Ê¦Ä¸µÄ£¬ÎÒÄ¸Ç×ÊÇÄãËæ±ã½ÐµÄÂð?\n",({ob}));
-                tell_object(ob,"»ÆÈØÒÉ»óµÄ¿´×ÅÄã,ËµµÀ: Ê²Ã´Ê¦Ä¸²»Ê¦Ä¸µÄ£¬ÎÒÄ¸Ç×ÊÇÄãËæ±ã½ÐµÄÂð?\n");
+        if (ob->query("family/family_name") != "æ¡ƒèŠ±å²›") {
+                tell_room(environment(ob),"é»„è“‰ç–‘æƒ‘çš„çœ‹ç€" + ob->query("name") + ",è¯´é“: ä»€ä¹ˆå¸ˆæ¯ä¸å¸ˆæ¯çš„ï¼Œæˆ‘æ¯äº²æ˜¯ä½ éšä¾¿å«çš„å—?\n",({ob}));
+                tell_object(ob,"é»„è“‰ç–‘æƒ‘çš„çœ‹ç€ä½ ,è¯´é“: ä»€ä¹ˆå¸ˆæ¯ä¸å¸ˆæ¯çš„ï¼Œæˆ‘æ¯äº²æ˜¯ä½ éšä¾¿å«çš„å—?\n");
                 return 1;
         }
 
         ob->set_temp("thd/job_s",1);
-        say( "»ÆÈØÌ¾ÁË¿ÚÆø£¬ËµµÀ: ÎÒÄ¸Ç×¾ø¶¥´ÏÃ÷£¬¿ÉÏ§ËýÓ¢ÄêÔçÊÅ£¬ÎÒµùµù½«ËýÔáÔÚÌÒ»¨µºÉÏµÄÒ»×ùÄ¹Àï¡£\n");
+        say( "é»„è“‰å¹äº†å£æ°”ï¼Œè¯´é“: æˆ‘æ¯äº²ç»é¡¶èªæ˜Žï¼Œå¯æƒœå¥¹è‹±å¹´æ—©é€ï¼Œæˆ‘çˆ¹çˆ¹å°†å¥¹è‘¬åœ¨æ¡ƒèŠ±å²›ä¸Šçš„ä¸€åº§å¢“é‡Œã€‚\n");
         this_object()->add_busy(3);
         return 1;
 }
@@ -24,87 +24,87 @@ int ask_job()
         local = localtime(time()*60);
 
         if (local[2] > 9 && local[2] < 17) {
-		tell_room(environment(ob),"»ÆÈØÒÉ»óµÄ¿´×Å" + ob->query("name") + ",ËµµÀ: ÏÖÔÚ´ó°×ÌìµÄ£¬»¹ÊØÊ²Ã´Ä¹Ñ½?\n",({ob}));
-		tell_object(ob,"»ÆÈØÒÉ»óµÄ¿´×ÅÄã,ËµµÀ: ÏÖÔÚ´ó°×ÌìµÄ£¬ÊØÊ²Ã´Ä¹Ñ½?\n");
+		tell_room(environment(ob),"é»„è“‰ç–‘æƒ‘çš„çœ‹ç€" + ob->query("name") + ",è¯´é“: çŽ°åœ¨å¤§ç™½å¤©çš„ï¼Œè¿˜å®ˆä»€ä¹ˆå¢“å‘€?\n",({ob}));
+		tell_object(ob,"é»„è“‰ç–‘æƒ‘çš„çœ‹ç€ä½ ,è¯´é“: çŽ°åœ¨å¤§ç™½å¤©çš„ï¼Œå®ˆä»€ä¹ˆå¢“å‘€?\n");
 		ob->delete_temp("thd/job_s");
 		return 1;
 	}
 
-	if( ob->query("job_name") == "ÌÒ»¨ÊØÄ¹"){
-		command("say Äã¸Õ¸Õ×öºÃÊØÄ¹ÈÎÎñ£¬»¹ÊÇÏÈÐÝÏ¢Ò»»á°É¡£");
+	if( ob->query("job_name") == "æ¡ƒèŠ±å®ˆå¢“"){
+		command("say ä½ åˆšåˆšåšå¥½å®ˆå¢“ä»»åŠ¡ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¼šå§ã€‚");
          	return 1;
 	}
 
 /*
 	if (ob->query("combat_exp") > 2000000 ) {
-		command("say ÄãÎä¹¦ÕâÃ´ºÃ£¬²»ÓÃÂé·³À²¡£");
+		command("say ä½ æ­¦åŠŸè¿™ä¹ˆå¥½ï¼Œä¸ç”¨éº»çƒ¦å•¦ã€‚");
 		ob->delete_temp("thd/job_s");
 		return 1;
 	}
 
 */
-// ÅÐ¶Ï ¾­Ñé
+// åˆ¤æ–­ ç»éªŒ
         if ((int)ob->query("combat_exp") < 100000) {
-                tell_room(environment(ob),"»ÆÈØ¿´ÁË¿´" + ob->query("name") + ",ËµµÀ: ÄãÎä¹¦»ù´¡»¹Ã»´òºÃ£¬ÕâÃ´Î£ÏÕµÄÈÎÎñ»¹ÊÇ±ð×öÁË£¡\n",({ob}));
-                tell_object(ob,"»ÆÈØ¿´ÁË¿´Äã,ËµµÀ£ºÄãÎä¹¦»ù´¡»¹Ã»´òºÃ£¬ÕâÃ´Î£ÏÕµÄÈÎÎñ»¹ÊÇ±ð×öÁË£¡\n");
+                tell_room(environment(ob),"é»„è“‰çœ‹äº†çœ‹" + ob->query("name") + ",è¯´é“: ä½ æ­¦åŠŸåŸºç¡€è¿˜æ²¡æ‰“å¥½ï¼Œè¿™ä¹ˆå±é™©çš„ä»»åŠ¡è¿˜æ˜¯åˆ«åšäº†ï¼\n",({ob}));
+                tell_object(ob,"é»„è“‰çœ‹äº†çœ‹ä½ ,è¯´é“ï¼šä½ æ­¦åŠŸåŸºç¡€è¿˜æ²¡æ‰“å¥½ï¼Œè¿™ä¹ˆå±é™©çš„ä»»åŠ¡è¿˜æ˜¯åˆ«åšäº†ï¼\n");
                 ob->delete_temp("thd/job_s");
                 return 1;
         }
-// ÅÐ¶Ï ÊÇ·ñÒÑ¾­½ÓÁËÈÎÎñ
+// åˆ¤æ–­ æ˜¯å¦å·²ç»æŽ¥äº†ä»»åŠ¡
         if ((int)ob->query_temp("thd/job") > 0) {
-		tell_room(environment(ob),"»ÆÈØµÉÁË" + ob->query("name") + "Ò»ÑÛ,ËµµÀ: ²»ÊÇ½ÐÄãÈ¥ÁËÂð£¬Äã»¹´ôÔÚÕâÀï¸ÉÊ²Ã´?\n",({ob}));
-		tell_object(ob,"»ÆÈØµÉÁËÄãÒ»ÑÛ,ËµµÀ: ²»ÊÇ½ÐÄãÈ¥ÁËÂð£¬Äã»¹´ôÔÚÕâÀï¸ÉÊ²Ã´?\n");
+		tell_room(environment(ob),"é»„è“‰çžªäº†" + ob->query("name") + "ä¸€çœ¼,è¯´é“: ä¸æ˜¯å«ä½ åŽ»äº†å—ï¼Œä½ è¿˜å‘†åœ¨è¿™é‡Œå¹²ä»€ä¹ˆ?\n",({ob}));
+		tell_object(ob,"é»„è“‰çžªäº†ä½ ä¸€çœ¼,è¯´é“: ä¸æ˜¯å«ä½ åŽ»äº†å—ï¼Œä½ è¿˜å‘†åœ¨è¿™é‡Œå¹²ä»€ä¹ˆ?\n");
 		ob->delete_temp("thd/job_s");
 		return 1;
         }
-// ÅÐ¶Ï ÊÇ·ñÓÐÈËÔÚ×öÈÎÎñ
+// åˆ¤æ–­ æ˜¯å¦æœ‰äººåœ¨åšä»»åŠ¡
         if ((int)me->query("thd/havejob")  < 1 ) {
-		command( "say ÒÑ¾­ÓÐÈËÈ¥ÊØÄ¹ÁË£¬ÄãÏÂ´ÎÔÙÈ¥°É£¡");
+		command( "say å·²ç»æœ‰äººåŽ»å®ˆå¢“äº†ï¼Œä½ ä¸‹æ¬¡å†åŽ»å§ï¼");
 		ob->delete_temp("thd/job_s");
 		return 1;
         }
 	if ((int)ob->query_condition("thd_job") > 0) {
-		command( "say Äã¸ÕÊØÍêÄ¹£¬ÐÝÏ¢Ò»ÏÂÔÙÈ¥°É£¡");
+		command( "say ä½ åˆšå®ˆå®Œå¢“ï¼Œä¼‘æ¯ä¸€ä¸‹å†åŽ»å§ï¼");
 		ob->delete_temp("thd/job_s");
                 return 1;
         }
-// ÅÐ¶Ï qimen-baguaÊÇ·ñ>=100
+// åˆ¤æ–­ qimen-baguaæ˜¯å¦>=100
         if (!ob->query_temp("thd/job_s") ){
-		command( "say ÄÑµÃÄãÓÐÕâ·ÝÐÄÒâ£¬µ«ÊÇÎÒÄ¸Ç×µÄÄ¹²»ÊÇËæ±ã¾ÍÄÜ½øÈ¥µÄ¡£");
+		command( "say éš¾å¾—ä½ æœ‰è¿™ä»½å¿ƒæ„ï¼Œä½†æ˜¯æˆ‘æ¯äº²çš„å¢“ä¸æ˜¯éšä¾¿å°±èƒ½è¿›åŽ»çš„ã€‚");
 		return 1;
         }
         if( ob->query_skill("qimen-bagua",1) < 100) {
-		command( "say ÄÑµÃÄãÓÐÕâ·ÝÐÄÒâ£¬µ«ÊÇÄãµÄÆæÃÅ°ËØÔÐÞÐÐ²»¹»£¬¿ÖÅÂ½øÈ¥¾Í³ö²»À´ÁË¡£");
-		command( "say È¥ÐÞÏ°ÆæÃÅ°ËØÔ°É¡£");
+		command( "say éš¾å¾—ä½ æœ‰è¿™ä»½å¿ƒæ„ï¼Œä½†æ˜¯ä½ çš„å¥‡é—¨å…«å¦ä¿®è¡Œä¸å¤Ÿï¼Œææ€•è¿›åŽ»å°±å‡ºä¸æ¥äº†ã€‚");
+		command( "say åŽ»ä¿®ä¹ å¥‡é—¨å…«å¦å§ã€‚");
 		return 1;
         }
 // job busy
 	if ( ob->query_condition("job_busy")
 	 || ob->query_condition("thd_job")>0) {
-		command("say ¶Ô²»Æð£¬ÏÖÔÚÕâÀïÃ»ÓÐÊ²Ã´¿ÉÒÔ¸øÄã×öµÄ¡£");
+		command("say å¯¹ä¸èµ·ï¼ŒçŽ°åœ¨è¿™é‡Œæ²¡æœ‰ä»€ä¹ˆå¯ä»¥ç»™ä½ åšçš„ã€‚");
 		return 1;
 	}
-// ½ÓÊÜÈÎÎñ
+// æŽ¥å—ä»»åŠ¡
         switch( random(2)) {
 		case 0:
-			command( "say ÄÑµÃÄãÓÐÕâ·ÝÐÄÒâ£¬µ«ÊÇÎÒÄ¸Ç×µÄÄ¹²»ÊÇËæ±ã¾ÍÄÜ½øÈ¥µÄ¡£");
+			command( "say éš¾å¾—ä½ æœ‰è¿™ä»½å¿ƒæ„ï¼Œä½†æ˜¯æˆ‘æ¯äº²çš„å¢“ä¸æ˜¯éšä¾¿å°±èƒ½è¿›åŽ»çš„ã€‚");
                         break;
                 case 1:
-                        command( "say ÄãÒªÐ¡ÐÄµã£¬ÎÒÄ¸Ç×µÄÄ¹¿É²»ÊÇÒ»°ãÈË¶¼ÄÜ½øÈ¥µÄ¡£");
+                        command( "say ä½ è¦å°å¿ƒç‚¹ï¼Œæˆ‘æ¯äº²çš„å¢“å¯ä¸æ˜¯ä¸€èˆ¬äººéƒ½èƒ½è¿›åŽ»çš„ã€‚");
                         break;
         }
-        say( "»ÆÈØÏëÁËÏë£¬ËµµÀ: ÕâÑù°É,ÎÒ´øÄãÈ¥!\n");
+        say( "é»„è“‰æƒ³äº†æƒ³ï¼Œè¯´é“: è¿™æ ·å§,æˆ‘å¸¦ä½ åŽ»!\n");
         ob->delete_temp("thd/job_s");
         ob->set_temp("thd/job",1);
         me->delete("thd/havejob");
-//  ÉèÖÃ busy
+//  è®¾ç½® busy
 	ob->apply_condition("thd_job", 3+random(3));
 	ob->apply_condition("job_busy", 9);
-	ob->set("job_name", "ÌÒ»¨ÊØÄ¹");
-	tell_object(ob,"Äã½ô¸ú×Å»ÆÈØ£¬×óÒ»×ª£¬ÓÒÒ»×ª£¬²»Ò»»á¾Íµ½ÁËÄ¹Ç°¡£\n");
+	ob->set("job_name", "æ¡ƒèŠ±å®ˆå¢“");
+	tell_object(ob,"ä½ ç´§è·Ÿç€é»„è“‰ï¼Œå·¦ä¸€è½¬ï¼Œå³ä¸€è½¬ï¼Œä¸ä¸€ä¼šå°±åˆ°äº†å¢“å‰ã€‚\n");
 	ob->move(__THD__"tomb");
-	tell_object(ob,GRN"»ÆÈØÔÚÄã¶ú±ßÇÄÇÄËµµÀ: ÄãÒªºÃºÃÊØÄ¹¡£Èç¹ûÓÐÊ²Ã´ÈË½øµ½Ä¹Àï£¬Äã²»Òª¶ÔËû¿ÍÆø!\n"NOR);
-// ÉèÖÃ ÈÎÎñÊ§°ÜÊ±¼ä
+	tell_object(ob,GRN"é»„è“‰åœ¨ä½ è€³è¾¹æ‚„æ‚„è¯´é“: ä½ è¦å¥½å¥½å®ˆå¢“ã€‚å¦‚æžœæœ‰ä»€ä¹ˆäººè¿›åˆ°å¢“é‡Œï¼Œä½ ä¸è¦å¯¹ä»–å®¢æ°”!\n"NOR);
+// è®¾ç½® ä»»åŠ¡å¤±è´¥æ—¶é—´
         call_out("job_failed",250);
         return 1;
 }
@@ -123,29 +123,29 @@ int accept_object(object who, object ob)
         ||  ob->query("id")=="zi manao") {
 		if(ob->query_temp("thdjob") != who->query("id")){
 			command("hehe "+ who->query("id"));
-			command("say Äã´ÓÄÄÀïÅªÀ´Õâ"+ob->query("name")+"£¬ÄÇ¿É²»ÊÇÄã¸ÉµÄÅ¶¡£");
+			command("say ä½ ä»Žå“ªé‡Œå¼„æ¥è¿™"+ob->query("name")+"ï¼Œé‚£å¯ä¸æ˜¯ä½ å¹²çš„å“¦ã€‚");
 			return 0;
 		}
                 switch( random(5)) {
                         case 0:
                                 command("pat " + who->query("id"));
-                                say("»ÆÈØÐÀÏ²µÄËµµÀ£ºÄã¸ÉµÄºÜ³öÉ«£¬ÕâÊÇ¸øÄãµÄ½±Àø¡£\n");
+                                say("é»„è“‰æ¬£å–œçš„è¯´é“ï¼šä½ å¹²çš„å¾ˆå‡ºè‰²ï¼Œè¿™æ˜¯ç»™ä½ çš„å¥–åŠ±ã€‚\n");
                                 break;
                         case 1:
                                 command("nod " + who->query("id"));
-                                say("»ÆÈØËµµÀ£ºÄãÈÕºóÒª¼ÓÓÍÁ·¹¦£¬¶àÎªÎÒÃÇÌÒ»¨µº×÷Ð©¹±Ï×£¡\n");
+                                say("é»„è“‰è¯´é“ï¼šä½ æ—¥åŽè¦åŠ æ²¹ç»ƒåŠŸï¼Œå¤šä¸ºæˆ‘ä»¬æ¡ƒèŠ±å²›ä½œäº›è´¡çŒ®ï¼\n");
                                 break;
                         case 2:
                                 command("thumb " + who->query("id"));
-                                say("»ÆÈØ¿´ÁË¿´" + ob->query("name") + "£¬ËµµÀ£ºÄã×·»ØÁË±»µÁÔôÇÔ×ßµÄ±¦Îï£¬¹¦ÀÍ¿É²»Ð¡Ñ½£¡\n");
+                                say("é»„è“‰çœ‹äº†çœ‹" + ob->query("name") + "ï¼Œè¯´é“ï¼šä½ è¿½å›žäº†è¢«ç›—è´¼çªƒèµ°çš„å®ç‰©ï¼ŒåŠŸåŠ³å¯ä¸å°å‘€ï¼\n");
                                 break;
                         case 3:
                                 command("touch " + who->query("id"));
-                                say("»ÆÈØÓÃÊÖµß×Å" + ob->query("name") + "£¬ËµµÀ£ºÎÒµùµùÐÁÐÁ¿à¿àÅªÀ´µÄÕâÐ©±¦Îï£¬¿É¶¼ÊÇÎÞ¼ÛÖ®±¦Ñ½£¡\n");
+                                say("é»„è“‰ç”¨æ‰‹é¢ ç€" + ob->query("name") + "ï¼Œè¯´é“ï¼šæˆ‘çˆ¹çˆ¹è¾›è¾›è‹¦è‹¦å¼„æ¥çš„è¿™äº›å®ç‰©ï¼Œå¯éƒ½æ˜¯æ— ä»·ä¹‹å®å‘€ï¼\n");
                                 break;
                         case 4:
                                 command("pat " + who->query("id"));
-                                say("»ÆÈØËµµÀ£ºÄãÎªÔÛÃÇÌÒ»¨µº×÷ÁË´ó¹±Ï×£¬ÎÒ²»»á¿÷´ýÄãµÄ¡£\n");
+                                say("é»„è“‰è¯´é“ï¼šä½ ä¸ºå’±ä»¬æ¡ƒèŠ±å²›ä½œäº†å¤§è´¡çŒ®ï¼Œæˆ‘ä¸ä¼šäºå¾…ä½ çš„ã€‚\n");
                                 break;
                 }
 
@@ -159,9 +159,9 @@ int accept_object(object who, object ob)
                 
                         
 		if (who->query("combat_exp") <= 2000000 ){
-			exp = who->add_exp_combat(exp,this_object(),"ÌÒ»¨µº");
-			//who->add("job_time/ÌÒ»¨µº",1);
-			//GIFT_D->check_count(who,this_object(),"ÌÒ»¨µº");
+			exp = who->add_exp_combat(exp,this_object(),"æ¡ƒèŠ±å²›");
+			//who->add("job_time/æ¡ƒèŠ±å²›",1);
+			//GIFT_D->check_count(who,this_object(),"æ¡ƒèŠ±å²›");
 			//who->add("combat_exp",exp);			
 			pot = exp/5+ random(exp/10);
 			who->add("potential", pot);
@@ -169,27 +169,27 @@ int accept_object(object who, object ob)
 			if (who->query("potential") > who->query("max_pot"))
 				who->set("potential", who->query("max_pot"));
 
-			log_file("job/taohua",sprintf("%8s%-10sµÚ%4d´ÎÈÎÎñ½±Àø¾­Ñé%3d£¬Ç±ÄÜ%2d£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
-				who->name(1),"("+who->query("id")+")", who->query("job_time/ÌÒ»¨µº"),exp,pot, who->query("combat_exp")), who);
-			tell_room(environment(),HIY "»ÆÈØÔÚ"+ who->query("name")+ "µÄ¶ú±ßµÍÉùËµÁË¼¸¾ä£¬"+ who->query("name") +"ÌýµÄ²»×¡µãÍ·£¬Ãæ³ÊÏ²É«¡£\n"NOR, ({ who }));
+			log_file("job/taohua",sprintf("%8s%-10sç¬¬%4dæ¬¡ä»»åŠ¡å¥–åŠ±ç»éªŒ%3dï¼Œæ½œèƒ½%2dï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
+				who->name(1),"("+who->query("id")+")", who->query("job_time/æ¡ƒèŠ±å²›"),exp,pot, who->query("combat_exp")), who);
+			tell_room(environment(),HIY "é»„è“‰åœ¨"+ who->query("name")+ "çš„è€³è¾¹ä½Žå£°è¯´äº†å‡ å¥ï¼Œ"+ who->query("name") +"å¬çš„ä¸ä½ç‚¹å¤´ï¼Œé¢å‘ˆå–œè‰²ã€‚\n"NOR, ({ who }));
 			switch( random(3)) {
 				case 0:
-	                                tell_object(who,HIG"Äã¾õµÄÄÔÖÐ»íÈ»¿ªÀÊ£¬µÃµ½ÁË"+CHINESE_D->chinese_number(exp)+"µã¾­Ñé£¬"
-	                                        +CHINESE_D->chinese_number(pot)+"µãÇ±ÄÜ¡£\n"NOR);
+	                                tell_object(who,HIG"ä½ è§‰çš„è„‘ä¸­è±ç„¶å¼€æœ—ï¼Œå¾—åˆ°äº†"+CHINESE_D->chinese_number(exp)+"ç‚¹ç»éªŒï¼Œ"
+	                                        +CHINESE_D->chinese_number(pot)+"ç‚¹æ½œèƒ½ã€‚\n"NOR);
 	                                break;
 	                        case 1:
-	                                tell_object(who,HIY"Äã»ñµÃÁË"+CHINESE_D->chinese_number(exp)+"µã¾­Ñé£¬"
-	                                        +CHINESE_D->chinese_number(pot)+"µãÇ±ÄÜµÄ½±Àø¡£\n"NOR);
+	                                tell_object(who,HIY"ä½ èŽ·å¾—äº†"+CHINESE_D->chinese_number(exp)+"ç‚¹ç»éªŒï¼Œ"
+	                                        +CHINESE_D->chinese_number(pot)+"ç‚¹æ½œèƒ½çš„å¥–åŠ±ã€‚\n"NOR);
 	                                break;
 	                        case 2:
-	                                tell_object(who,HIR"Äã¸Ð¾õÒ»¹ÉÕæÆøÔÚÌåÄÚÓÎ×ß£¬Ôö¼ÓÁË"+CHINESE_D->chinese_number(exp)+"µã¾­Ñé£¬"
-	                                        +CHINESE_D->chinese_number(pot)+"µãÇ±ÄÜ¡£\n"NOR);
+	                                tell_object(who,HIR"ä½ æ„Ÿè§‰ä¸€è‚¡çœŸæ°”åœ¨ä½“å†…æ¸¸èµ°ï¼Œå¢žåŠ äº†"+CHINESE_D->chinese_number(exp)+"ç‚¹ç»éªŒï¼Œ"
+	                                        +CHINESE_D->chinese_number(pot)+"ç‚¹æ½œèƒ½ã€‚\n"NOR);
 	                                break;
 			}
 		}
 		else
 		{
-			who->add_exp_combat(1,this_object(),"ÌÒ»¨µº");
+			who->add_exp_combat(1,this_object(),"æ¡ƒèŠ±å²›");
 		}
 		who->delete_temp("thd/dojob");
 		me->set("thd/havejob",1);
@@ -206,16 +206,16 @@ void job_failed()
         object me = this_object();
         switch( random(3)) {
                 case 0:
-                        say( "»ÆÈØËµµÀ£º°¥Ñ½£¬È¥ÊØÄ¹µÄÄÇÐ¡×ÓÔõÃ´»¹²»»ØÀ´£¿\n");
+                        say( "é»„è“‰è¯´é“ï¼šå“Žå‘€ï¼ŒåŽ»å®ˆå¢“çš„é‚£å°å­æ€Žä¹ˆè¿˜ä¸å›žæ¥ï¼Ÿ\n");
                         break;
                 case 1:
-                        say( "»ÆÈØ½ôÕÅµÄËµµÀ£ºÈ¥ÊØÄ¹µÄÄÇÐ¡×Ó²»»áËÀÁË°É£¿ÔõÃ´»¹²»¼ûÈËÓ°£¿\n");
+                        say( "é»„è“‰ç´§å¼ çš„è¯´é“ï¼šåŽ»å®ˆå¢“çš„é‚£å°å­ä¸ä¼šæ­»äº†å§ï¼Ÿæ€Žä¹ˆè¿˜ä¸è§äººå½±ï¼Ÿ\n");
                         break;
                 case 2:
-                        say( "»ÆÈØÌ¾ÁË¿ÚÆø£¬ËµµÀ£º»¹ÊÇÕÒÐ©Îä¹¦¸ßµÄµÜ×ÓÈ¥ÊØÄ¹°É£¡\n");
+                        say( "é»„è“‰å¹äº†å£æ°”ï¼Œè¯´é“ï¼šè¿˜æ˜¯æ‰¾äº›æ­¦åŠŸé«˜çš„å¼Ÿå­åŽ»å®ˆå¢“å§ï¼\n");
                         break;
         }
-        say( "»ÆÈØËµµÀ£ºËãÁË£¬ÎÒ»¹ÊÇÁíÍâÕÒ±ðÈËÈ¥ÊØÄ¹°É£¡\n");
+        say( "é»„è“‰è¯´é“ï¼šç®—äº†ï¼Œæˆ‘è¿˜æ˜¯å¦å¤–æ‰¾åˆ«äººåŽ»å®ˆå¢“å§ï¼\n");
         me->set("thd/havejob",1);
 }
 

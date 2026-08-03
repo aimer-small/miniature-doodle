@@ -7,7 +7,7 @@ void cat(string file)
 
 void assure_file(string file)
 {
-	string path = "", *dir;
+	string path_str = "", *dir;
 	int i, j;
 
 	if (file_size(file)!=-1)
@@ -16,9 +16,9 @@ void assure_file(string file)
 	dir = explode(file, "/");
 	j = sizeof(dir) - 1;
 	for(i=0; i<j; i++) {
-		path += "/" + dir[i];
-		if (file_size(path) == -1)
-			mkdir(path);
+		path_str += "/" + dir[i];
+		if (file_size(path_str) == -1)
+			mkdir(path_str);
 	}
 }
 

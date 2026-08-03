@@ -7,21 +7,21 @@ int update_condition(object me, int duration)
 {
 int resist = me->query_skill("poison",1);
 
-if( !living(me) ) message("vision", me->name() + "Í´¿àµØºßÁËÒ»Éù¡£\n", environment(me), me);
+if( !living(me) ) message("vision", me->name() + "ç—›è‹¦åœ°å“¼äº†ä¸€å£°ã€‚\n", environment(me), me);
 else {
-tell_object(me, HIB "ºöÈ»Ò»Õó´Ì¹ÇµÄÆæº®Ï®À´£¬ÄãÖÐµÄÐÇËÞÕÆ¶¾·¢×÷ÁË£¡\n" NOR );
-message("vision", me->name() + "µÄÉí×ÓÍ»È»»ÎÁËÁ½»Î£¬ÑÀ¹Ø¸ñ¸ñµØÏìÁËÆðÀ´¡£\n",
+tell_object(me, HIB "å¿½ç„¶ä¸€é˜µåˆºéª¨çš„å¥‡å¯’è¢­æ¥ï¼Œä½ ä¸­çš„æ˜Ÿå®¿æŽŒæ¯’å‘ä½œäº†ï¼\n" NOR );
+message("vision", me->name() + "çš„èº«å­çªç„¶æ™ƒäº†ä¸¤æ™ƒï¼Œç‰™å…³æ ¼æ ¼åœ°å“äº†èµ·æ¥ã€‚\n",
 environment(me), me);
 }
 me->add_busy(2); 
-me->receive_wound("qi", 300 - resist - random(me->query_con()), "ÐÇËÞ¶¾·¢ÆøÑªÊÜËð");
-me->receive_wound("jing", 180 - random(me->query_con()), "ÐÇËÞ¶¾·¢¾«ÑªÊÜËð");
+me->receive_wound("qi", 300 - resist - random(me->query_con()), "æ˜Ÿå®¿æ¯’å‘æ°”è¡€å—æŸ");
+me->receive_wound("jing", 180 - random(me->query_con()), "æ˜Ÿå®¿æ¯’å‘ç²¾è¡€å—æŸ");
 
 if (duration < random(3)) return 0;
 	
 if (random(duration) > 150 || !living(me)) {
 if(random(me->query_kar()) < 2) {
-me->set_temp("last_damage_from", "ÐÇËÞ¶¾·¢");
+me->set_temp("last_damage_from", "æ˜Ÿå®¿æ¯’å‘");
 me->die();
 return 0;
 }

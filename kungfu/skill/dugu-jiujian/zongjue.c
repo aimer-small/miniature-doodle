@@ -1,7 +1,7 @@
 #include <ansi.h>
 inherit F_SSERVER;
 
-string perform_name() {return HIW"×Ü¾÷Ê½"NOR;}
+string perform_name() {return HIW"æ€»è¯€å¼"NOR;}
 
 int perform(object me, object target)
 {
@@ -16,41 +16,41 @@ int perform(object me, object target)
     if( !objectp(target)
 	||  !target->is_character()
 	||  !me->is_fighting(target) )
-		return notify_fail("¡¸×Ü¾÷Ê½¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€Œæ€»è¯€å¼ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	 || (string)weapon->query("skill_type") != "sword")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 
 	if((int)me->query_skill("dugu-jiujian",1) < 350 )
-		return notify_fail("ÄãµÄ¶À¹Â¾Å½£»¹²»¹»»ğºò¡£\n");
+		return notify_fail("ä½ çš„ç‹¬å­¤ä¹å‰‘è¿˜ä¸å¤Ÿç«å€™ã€‚\n");
 
 	if((string)me->query_skill_mapped("sword") != "dugu-jiujian" && userp(me))
-		  return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸×Ü¾÷Ê½¡¹£¡\n");
+		  return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€Œæ€»è¯€å¼ã€ï¼\n");
 
 	if((string)me->query_skill_mapped("parry") != "dugu-jiujian" && userp(me))
-		  return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸×Ü¾÷Ê½¡¹£¡\n");
+		  return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€Œæ€»è¯€å¼ã€ï¼\n");
 
 
 	if(target->query_temp("dgjj/zongjue") )
-	       return notify_fail("ÄãÏÖÔÚÒÑ¾­ÔÚÏò¶ÔÊÖÊ¹ÓÃ¡¸×Ü¾÷Ê½¡¹ÁË¡£\n");
+	       return notify_fail("ä½ ç°åœ¨å·²ç»åœ¨å‘å¯¹æ‰‹ä½¿ç”¨ã€Œæ€»è¯€å¼ã€äº†ã€‚\n");
 
 	if((int)me->query("jingli")<2500)
-		return notify_fail("ÄãµÄ¾«Á¦²»¹»£¡\n"); 
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿï¼\n"); 
 	
-	msg = HIG"\n$N½£ÉÏÍêÈ«²»³öÄÚÁ¦£¬½£ËæÒâĞĞ£¬ºÁÎŞÕÂ·¨£¡\n"NOR;
-	me->start_perform(2,"¡¸×Ü¾÷Ê½¡¹");
+	msg = HIG"\n$Nå‰‘ä¸Šå®Œå…¨ä¸å‡ºå†…åŠ›ï¼Œå‰‘éšæ„è¡Œï¼Œæ¯«æ— ç« æ³•ï¼\n"NOR;
+	me->start_perform(2,"ã€Œæ€»è¯€å¼ã€");
 
 	me->add("jingli",-800);
 
  if ( random(me->query_int()) >= target->query_int()*2/3 && (me->query("relife/gifts/total")+2) >= target->query("relife/gifts/total")   
 || (!userp(target)&& random(2) )
 )
-//Ô­Éè¼Æ²ÎÊıÎªtarget->query_int(),ÔİÊ±¼ÓÇ¿Ò»ÏÂ
+//åŸè®¾è®¡å‚æ•°ä¸ºtarget->query_int(),æš‚æ—¶åŠ å¼ºä¸€ä¸‹
       {
-	msg+= HIG"\n$nÖ»¾õµÃ´¦´¦ÊÜÖÆ£¬Îä¹¦ÖĞÀ÷º¦Ö®´¦ÍêÈ«ÎŞ·¨·¢»Ó³öÀ´£¡\n"NOR;
+	msg+= HIG"\n$nåªè§‰å¾—å¤„å¤„å—åˆ¶ï¼Œæ­¦åŠŸä¸­å‰å®³ä¹‹å¤„å®Œå…¨æ— æ³•å‘æŒ¥å‡ºæ¥ï¼\n"NOR;
 	skills = target->query_skill_map();
-	if (!skills) return notify_fail("Ëû²¢Ã»ÓĞ¼¤·¢ÌØÊâ¼¼ÄÜ¡£\n");
+	if (!skills) return notify_fail("ä»–å¹¶æ²¡æœ‰æ¿€å‘ç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
 	skill = keys(skills);
 	i = sizeof(skill);
 	while (i--)
@@ -62,7 +62,7 @@ int perform(object me, object target)
 	me->set("jiali",0);
 	call_out("remove_effect",me->query_skill("dugu-jiujian",1)/10,me,target);
 	} else
-	msg+= HIG"\n$nÁé»úÒ»¶¯£¬ÉíËæ½£×ß£¬¹ûÈ»$NÔÙÒ²ÎŞ·¨ËæÒâ³öÕĞ¡£\n"NOR;
+	msg+= HIG"\n$nçµæœºä¸€åŠ¨ï¼Œèº«éšå‰‘èµ°ï¼Œæœç„¶$Nå†ä¹Ÿæ— æ³•éšæ„å‡ºæ‹›ã€‚\n"NOR;
 	message_vision(msg,me,target);
 	return 1;
 }

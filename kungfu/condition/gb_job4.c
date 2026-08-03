@@ -26,16 +26,16 @@ int update_condition(object me, int duration)
 	}               
         
 	if( duration <= 1 && !me->query_temp("gb_job4")){
-		write(HIY "ÄãÊ±¼äÒÑ¹ý£¬ÈÎÎñÊ§°Ü¡£\n" NOR);
-		log_file("job/smy", sprintf("%8s%-10s¿¹µÐËÌÄ¦ÑÂÈÎÎñ£¬Ê±¼ä²»¹»Ê§°Ü£¬¾­Ñé£º%d¡£",
+		write(HIY "ä½ æ—¶é—´å·²è¿‡ï¼Œä»»åŠ¡å¤±è´¥ã€‚\n" NOR);
+		log_file("job/smy", sprintf("%8s%-10sæŠ—æ•Œé¢‚æ‘©å´–ä»»åŠ¡ï¼Œæ—¶é—´ä¸å¤Ÿå¤±è´¥ï¼Œç»éªŒï¼š%dã€‚",
 			me->query("name"), "("+me->query("id")+")", me->query("combat_exp")),me);
 		return 0;
 	}
     
 	if( me->query_temp("gb_job4/enter") 
 	 && file_name( environment(me) ) != "/d/xingxiu/silk3" ){
-		tell_object(me,HIY "ÄãÉÃÀëÖ°ÊØ£¬ÈÎÎñÊ§°Ü¡£\n" NOR);
-		log_file( "job/smy", sprintf("%8s%-10s¿¹µÐËÌÄ¦ÑÂÈÎÎñ£¬Àë¿ªÊ§°Ü£¬¾­Ñé£º%d¡£",
+		tell_object(me,HIY "ä½ æ“…ç¦»èŒå®ˆï¼Œä»»åŠ¡å¤±è´¥ã€‚\n" NOR);
+		log_file( "job/smy", sprintf("%8s%-10sæŠ—æ•Œé¢‚æ‘©å´–ä»»åŠ¡ï¼Œç¦»å¼€å¤±è´¥ï¼Œç»éªŒï¼š%dã€‚",
 			me->query("name"), "("+me->query("id")+")", me->query("combat_exp")),me);
 		me->delete_temp("gb_job4");
 		me->apply_condition("gb_job4",-1);
@@ -68,7 +68,7 @@ int update_condition(object me, int duration)
 		exp = 2000 + random(100);
 		
 		if( !lineup ){
-			       	/*½±Àø¿ØÖÆ¿ªÊ¼*/
+			       	/*å¥–åŠ±æŽ§åˆ¶å¼€å§‹*/
         if (me->query("registered")==3){
 			exp = exp * SMY_JOB_MUL * VIP_MUL /10000;
             		pot = pot * SMY_JOB_MUL * VIP_MUL /10000;
@@ -78,25 +78,25 @@ int update_condition(object me, int duration)
 			exp = exp * SMY_JOB_MUL /100;
            		pot = pot * SMY_JOB_MUL /100;
 		}
-		/*½±Àø¿ØÖÆ½áÊø*/ 
+		/*å¥–åŠ±æŽ§åˆ¶ç»“æŸ*/ 
 			
-			tell_object( me, sprintf(HIW "ºÃ£¬ÈÎÎñÍê³ÉÁË£¬ÄãµÃµ½ÁË"
+			tell_object( me, sprintf(HIW "å¥½ï¼Œä»»åŠ¡å®Œæˆäº†ï¼Œä½ å¾—åˆ°äº†"
 					+ CHINESE_D->chinese_number( exp ) 
-					+ "µãÊµÕ½¾­Ñé£¬" 
+					+ "ç‚¹å®žæˆ˜ç»éªŒï¼Œ" 
 					+ CHINESE_D->chinese_number( pot )
-					+ "µãÇ±ÄÜºÍ"
+					+ "ç‚¹æ½œèƒ½å’Œ"
 					+ CHINESE_D->chinese_number( shen ) 
-					+ "µãÕýÉñ¡£\n" NOR) );
+					+ "ç‚¹æ­£ç¥žã€‚\n" NOR) );
 			me->add( "combat_exp", exp );
 			me->add( "potential", pot );
 			me->apply_condition("gb_job_busy",90);
 			if( me->query("potential") > me->query("max_pot"))
 				me->set("potential",me->query("max_pot"));
 			me->add( "shen", shen );
-			me->add("job_time/±¨Ð§¹ú¼Ò",1);
-                        me->add("job_time/ËÌÄ¦ÑÂ",1);
-			me->set("job_name", "¿¹µÐËÌÄ¦ÑÂ");
-			log_file("job/smy", sprintf(HIR"%8s%-10sËÌÄ¦ÑÂÈÎÎñ½áÊø£¬µÃµ½%dµã¾­Ñé£¬Ä¿Ç°¾­Ñé£º%d¡£"NOR,
+			me->add("job_time/æŠ¥æ•ˆå›½å®¶",1);
+                        me->add("job_time/é¢‚æ‘©å´–",1);
+			me->set("job_name", "æŠ—æ•Œé¢‚æ‘©å´–");
+			log_file("job/smy", sprintf(HIR"%8s%-10sé¢‚æ‘©å´–ä»»åŠ¡ç»“æŸï¼Œå¾—åˆ°%dç‚¹ç»éªŒï¼Œç›®å‰ç»éªŒï¼š%dã€‚"NOR,
 				me->query("name"), "("+me->query("id")+")", exp, me->query("combat_exp")),me);
 
 			if( me->query_condition("fx_busy") > 50 )
@@ -106,7 +106,7 @@ int update_condition(object me, int duration)
 			for(i = 0;i<sizeof(lineup);i++){
 				if( lineup[i] ){
 					
-								       	/*½±Àø¿ØÖÆ¿ªÊ¼*/
+								       	/*å¥–åŠ±æŽ§åˆ¶å¼€å§‹*/
 			        if (lineup[i]->query("registered")==3){
 						exp = exp * SMY_JOB_MUL * VIP_MUL /10000;
 			            		pot = pot * SMY_JOB_MUL * VIP_MUL /10000;
@@ -116,27 +116,27 @@ int update_condition(object me, int duration)
 						exp = exp * SMY_JOB_MUL /100;
 			           		pot = pot * SMY_JOB_MUL /100;
 					}
-					/*½±Àø¿ØÖÆ½áÊø*/ 
+					/*å¥–åŠ±æŽ§åˆ¶ç»“æŸ*/ 
 					
-					tell_object( lineup[i], sprintf(HIW "ºÃ£¬ÈÎÎñÍê³ÉÁË£¬ÄãµÃµ½ÁË" 
+					tell_object( lineup[i], sprintf(HIW "å¥½ï¼Œä»»åŠ¡å®Œæˆäº†ï¼Œä½ å¾—åˆ°äº†" 
 						+ CHINESE_D->chinese_number( exp ) 
-						+ "µãÊµÕ½¾­Ñé£¬" 
+						+ "ç‚¹å®žæˆ˜ç»éªŒï¼Œ" 
 						+ CHINESE_D->chinese_number( pot )
-						+ "µãÇ±ÄÜºÍ"
+						+ "ç‚¹æ½œèƒ½å’Œ"
 						+ CHINESE_D->chinese_number( shen ) 
-						+ "µãÕýÉñ¡£\n" NOR) );
+						+ "ç‚¹æ­£ç¥žã€‚\n" NOR) );
 
 					lineup[i]->add( "combat_exp", exp );
 					lineup[i]->add( "potential", pot );
 					lineup[i]->apply_condition("gb_job_busy", 60);
 					if( lineup[i]->query("potential") > lineup[i]->query("max_pot") )
 						lineup[i]->set("potential",lineup[i]->query("max_pot"));
-					lineup[i]->add("job_time/±¨Ð§¹ú¼Ò",1);
-					lineup[i]->add("job_time/ËÌÄ¦ÑÂ",1);
+					lineup[i]->add("job_time/æŠ¥æ•ˆå›½å®¶",1);
+					lineup[i]->add("job_time/é¢‚æ‘©å´–",1);
 					lineup[i]->add("shen", shen );
-					lineup[i]->set("job_name", "¿¹µÐËÌÄ¦ÑÂ");
+					lineup[i]->set("job_name", "æŠ—æ•Œé¢‚æ‘©å´–");
 
-					log_file("job/smy", sprintf("%8s%-10sËÌÄ¦ÑÂÈÎÎñ½áÊø£¬µÃµ½%dµã¾­Ñé£¬Ä¿Ç°¾­Ñé£º%d¡£",
+					log_file("job/smy", sprintf("%8s%-10sé¢‚æ‘©å´–ä»»åŠ¡ç»“æŸï¼Œå¾—åˆ°%dç‚¹ç»éªŒï¼Œç›®å‰ç»éªŒï¼š%dã€‚",
 						lineup[i]->query("name"), "("+lineup[i]->query("id")+")",exp, lineup[i]->query("combat_exp")),lineup[i]);
 
 					if( lineup[i]->query_condition("fx_busy") > 50 )
@@ -156,8 +156,8 @@ int update_condition(object me, int duration)
         
 	if( duration < 21 
 	 && !me->query_temp("gb_job4/enter")){
-		tell_object(me,HIY "ÄãËÙ¶ÈÌ«Âý£¬Î÷ÏÄÎäÊ¿ÒÑ¹ýËÌÄ¦ÑÂ£¬ÈÎÎñÊ§°Ü¡£\n" NOR);
-		log_file( "job/smy", sprintf("%8s%-10s¿¹µÐËÌÄ¦ÑÂÈÎÎñ£¬ËÙ¶ÈÌ«ÂýÊ§°Ü£¬¾­Ñé£º%d¡£",
+		tell_object(me,HIY "ä½ é€Ÿåº¦å¤ªæ…¢ï¼Œè¥¿å¤æ­¦å£«å·²è¿‡é¢‚æ‘©å´–ï¼Œä»»åŠ¡å¤±è´¥ã€‚\n" NOR);
+		log_file( "job/smy", sprintf("%8s%-10sæŠ—æ•Œé¢‚æ‘©å´–ä»»åŠ¡ï¼Œé€Ÿåº¦å¤ªæ…¢å¤±è´¥ï¼Œç»éªŒï¼š%dã€‚",
 			me->query("name"), "("+me->query("id")+")", me->query("combat_exp")),me);
 		me->delete_temp("gb_job4");
 		me->apply_condition("gb_job4",-1);

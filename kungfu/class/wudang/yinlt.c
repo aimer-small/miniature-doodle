@@ -1,4 +1,4 @@
-// yinliting.cÒóÀæÍ¤
+// yinliting.cæ®·æ¢¨äº­
 
 inherit NPC;
 
@@ -6,12 +6,12 @@ int ask_me();
 
 void create()
 {
-        set_name("ÒóÀæÍ¤", ({ "yin liting", "yin" }));
-        set("nickname", "Îäµ±ÁùÏÀ");
+        set_name("æ®·æ¢¨äº­", ({ "yin liting", "yin" }));
+        set("nickname", "æ­¦å½“å…­ä¾ ");
         set("long", 
-                "Ëû¾ÍÊÇÕÅÈı·áµÄÁùµÜ×ÓÒóÀæÍ¤¡£\n"
-                "³¤µÃÒ»±íÈË²Å£¬ÇÒ¾«ÓÚÎäµ±½£·¨£¬¾ÍÊÇÉúĞÔ½ÏëïÌó¡£\n");
-        set("gender", "ÄĞĞÔ");
+                "ä»–å°±æ˜¯å¼ ä¸‰ä¸°çš„å…­å¼Ÿå­æ®·æ¢¨äº­ã€‚\n"
+                "é•¿å¾—ä¸€è¡¨äººæ‰ï¼Œä¸”ç²¾äºæ­¦å½“å‰‘æ³•ï¼Œå°±æ˜¯ç”Ÿæ€§è¾ƒè…¼è…†ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 28);
         set("attitude", "peaceful");
         set("shen", 9000);
@@ -48,9 +48,9 @@ void create()
         map_skill("parry", "taiji-quan");
         map_skill("sword", "taiji-jian");
         prepare_skill("cuff", "taiji-quan");
-        create_family("Îäµ±ÅÉ", 2, "µÜ×Ó");
+        create_family("æ­¦å½“æ´¾", 2, "å¼Ÿå­");
         set("inquiry", ([
-                "¼ÍÏşÜ½" : (: ask_me :),
+                "çºªæ™“èŠ™" : (: ask_me :),
         ]));
 
         setup(); 
@@ -73,7 +73,7 @@ void kill_ob(object me)
 int accept_fight(object me)
 {
         if((int)me->query("shen") < 1) {
-           command("say Ï°ÎäÖ®ÈËÓ¦Ö¾ÔÚ³ú¶ñ¼ÃÉÆ£¬"+RANK_D->query_respect(me)+"Ä¿Â¶ÕÎÆø£¬ÓĞÎ¥ÎäÑ§Ö®±¾£¿");
+           command("say ä¹ æ­¦ä¹‹äººåº”å¿—åœ¨é”„æ¶æµå–„ï¼Œ"+RANK_D->query_respect(me)+"ç›®éœ²ç˜´æ°”ï¼Œæœ‰è¿æ­¦å­¦ä¹‹æœ¬ï¼Ÿ");
            return 0;
         }
         ::fight_ob(me);
@@ -87,11 +87,11 @@ int ask_me()
         if (base_name(environment(this_object())) != query("startroom")) return 0;
         
         command("blush "+(string)me->query("id"));
-        command("say ¼ÈÈ»ÄãÊÇ¼Í¹ÃÄïµÄÅóÓÑ£¬ÄÇ¾Í¸øÄãĞĞ¸ö·½±ã°É !");
+        command("say æ—¢ç„¶ä½ æ˜¯çºªå§‘å¨˜çš„æœ‹å‹ï¼Œé‚£å°±ç»™ä½ è¡Œä¸ªæ–¹ä¾¿å§ !");
         command("open door");
-        message_vision("ÒóÀæÍ¤Ò»²àÉí£¬°Ñ$NÈÃ½øÁËĞ¡Ôº¡£\n",me);
+        message_vision("æ®·æ¢¨äº­ä¸€ä¾§èº«ï¼ŒæŠŠ$Nè®©è¿›äº†å°é™¢ã€‚\n",me);
 	me->move("/d/wudang/houyuan");
-        tell_room(environment(me), me->name()+"´Ó±±ÃæµÄÁÖ¼äĞ¡¾¶×ßÁË¹ıÀ´¡£\n",({me}));
+        tell_room(environment(me), me->name()+"ä»åŒ—é¢çš„æ—é—´å°å¾„èµ°äº†è¿‡æ¥ã€‚\n",({me}));
         command("close door");
         return 1;
 }

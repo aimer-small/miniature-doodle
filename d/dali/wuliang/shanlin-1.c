@@ -3,14 +3,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ʯ��");
+	set("short", "石道");
 	set("long", @LONG
-������ʯ�������أ�û��һ��������·������������ţ������°ڱ�����
-˺��һƬһƬ���������ƺ���ʱ���ɭ�֡��㴭�˿�����ͻȻ����һ����Ӱ��
-������ȥ��
+这里乱石荆刺满地，没有一条象样的路。你费力的走着，衣衫下摆被荆刺
+撕成一片一片。西面是似乎来时候的森林。你喘了口气，突然发觉一条人影向
+东面逃去。
 LONG
 	);
-        set("outdoors", "����");
+        set("outdoors", "大理");
 
 	set("exits", ([
             "east" : __DIR__"shanlin-2",

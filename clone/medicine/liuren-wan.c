@@ -1,4 +1,4 @@
-// /u/jpei/thd/obj/liuren-wan.c ÁùÈÉ¼¯ÆøÍè 
+// /u/jpei/thd/obj/liuren-wan.c å…­å£¬é›†æ°”ä¸¸ 
 
 #include <ansi.h>
 
@@ -13,12 +13,12 @@ void init()
 
 void create()
 {
-	set_name("ÁùÈÉ¼¯ÆøÍè", ({"liuren wan", "wan"}));
+	set_name("å…­å£¬é›†æ°”ä¸¸", ({"liuren wan", "wan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿Åµ­ÂÌÉ«µÄÍèÒ©£¬ÒşÒşÍ¸³öÇåÏã¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—æ·¡ç»¿è‰²çš„ä¸¸è¯ï¼Œéšéšé€å‡ºæ¸…é¦™ã€‚\n");
 		set("value", 100);
                 set("no_drop", 1);
                 set("no_get", 1);
@@ -31,21 +31,21 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
-	if ( me->query("family/family_name") != "ÌÒ»¨µº" )
+	if ( me->query("family/family_name") != "æ¡ƒèŠ±å²›" )
 	{
 	/*	if (me->add("max_neili", -10) < 0)
 			me->set("max_neili", 0);
-		message_vision(HIR "$N·şÏÂÒ»¿ÅÁùÈÉ¼¯ÆøÍè£¬Ö»¾õµÃ¸Î³¦´ç¶Ï£¬Ô­À´¾¹ÊÇÒ»¿Å¼ÙÒ©£¡\n" NOR, me);
+		message_vision(HIR "$Næœä¸‹ä¸€é¢—å…­å£¬é›†æ°”ä¸¸ï¼Œåªè§‰å¾—è‚è‚ å¯¸æ–­ï¼ŒåŸæ¥ç«Ÿæ˜¯ä¸€é¢—å‡è¯ï¼\n" NOR, me);
 		me->unconcious();
 		destruct(this_object());
 	*/
-		message_vision(HIR "ËùÁ·ÄÚ¹¦²»·û£¬ÕâÒ©Äã²»ÄÜËæ±ã³Ô£¡\n" NOR, me);
+		message_vision(HIR "æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œè¿™è¯ä½ ä¸èƒ½éšä¾¿åƒï¼\n" NOR, me);
 		return 1;
 	}
 	if ( (int)me->query("max_neili" ) < 400) {
-		message_vision(HIR "¹¦Á¦²»¹»£¬ÁéÒ©³ÔÁËÓĞº¦ÎŞÒË¡£\n" NOR, me);
+		message_vision(HIR "åŠŸåŠ›ä¸å¤Ÿï¼Œçµè¯åƒäº†æœ‰å®³æ— å®œã€‚\n" NOR, me);
 		return 1;
 	}
 	
@@ -54,16 +54,16 @@ int do_eat(string arg)
 	{
 		me->add("max_neili", -10);
 			me->set("neili", 0);
-		message_vision(HIR "$N·şÏÂÒ»¿ÅÁùÈÉ¼¯ÆøÍè£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´ÁéÒ©·şÊ³Ì«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Næœä¸‹ä¸€é¢—å…­å£¬é›†æ°”ä¸¸ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŸæ¥çµè¯æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
             else if ((me->query_skill("force")*8 +  me->query("combat_exp",1)/1000 ) <= me->query("max_neili") )
         { 
-                message_vision(HIR "$N³ÔÏÂÒ»¿ÅÁùÈÉ¼¯ÆøÍè£¬Ö»¾õµÃÒ©ĞÔÆ½Æ½£¬ÄÑÒÔÔÙÌá¸ßÄãµÄĞŞÎªÁË£¡\n" NOR, me);
+                message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å…­å£¬é›†æ°”ä¸¸ï¼Œåªè§‰å¾—è¯æ€§å¹³å¹³ï¼Œéš¾ä»¥å†æé«˜ä½ çš„ä¿®ä¸ºäº†ï¼\n" NOR, me);
         }
 	else
 	{
 		me->add("max_neili", 1);
-		message_vision(HIG "$N·şÏÂÒ»¿ÅÁùÈÉ¼¯ÆøÍè£¬Ö»¾õµÃÌåÄÚÕæÁ¦¹Äµ´£¬ÄÚÁ¦ĞŞÎªĞ¡ÓĞ½øÒæ£¡\n" NOR, me);
+		message_vision(HIG "$Næœä¸‹ä¸€é¢—å…­å£¬é›†æ°”ä¸¸ï¼Œåªè§‰å¾—ä½“å†…çœŸåŠ›é¼“è¡ï¼Œå†…åŠ›ä¿®ä¸ºå°æœ‰è¿›ç›Šï¼\n" NOR, me);
 		me->apply_condition("medicine", 60);
 	}
 	destruct(this_object());

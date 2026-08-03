@@ -1,5 +1,5 @@
-//¸Ä±à×ÔsnowmanµÄsanhuan
-//¸Ä±àÕß:caiji
+//æ”¹ç¼–è‡ªsnowmançš„sanhuan
+//æ”¹ç¼–è€…:caiji
 #include <ansi.h>
 
 inherit F_SSERVER;
@@ -15,29 +15,29 @@ int perform(object me, object target)
  || !objectp(target)
         ||  !me->is_fighting(target) 
    || environment(target)!= environment(me))
-                return notify_fail("¡¸ÉñĞÎ¾ãÃğ¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œç¥å½¢ä¿±ç­ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 /*     
    if(me->query_temp("zhuihun/lpf"))
-        return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸ÂÒÅû·ç¡¹¡£\n");
+        return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œä¹±æŠ«é£ã€ã€‚\n");
 */
         if( (int)me->query_skill("zhuihun-gou", 1) < 100 )
-                return notify_fail("ÄãµÄ×·»ê¹³¹¦Á¦Ì«Ç³£¬±ğ×öÃÎÁË¡£\n");
+                return notify_fail("ä½ çš„è¿½é­‚é’©åŠŸåŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 
         if( (int)me->query_skill("hook", 1) < 100 )
-                return notify_fail("ÄãµÄ»ù±¾¹³·¨¹¦Á¦Ì«Ç³£¬±ğ×öÃÎÁË¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬é’©æ³•åŠŸåŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 
         if( (int)me->query_skill("huagong-dafa", 1) < 100 )
-                return notify_fail("ÄãµÄÄÚ¹¦¹¦Á¦Ì«Ç³£¬±ğ×öÃÎÁË¡£\n");
+                return notify_fail("ä½ çš„å†…åŠŸåŠŸåŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
                 
         if( (int)me->query("max_neili") < 1000 )
-                return notify_fail("ÄãµÄÄÚÁ¦Ì«Ç³£¬±ğ×öÃÎÁË¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
         if( (int)me->query("neili") < 500 )
-                return notify_fail("ÄãµÄÕæÆø²»¹»£¬±ğ×öÃÎÁË¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
         if (me->query_skill_mapped("force") != "huagong-dafa")
-                return notify_fail("ÄãÓÃÊ²Ã´ÎªÄÚ¹¦»ù´¡À´Ê¹¡¸ÉñĞÎ¾ãÃğ¡¹?\n");
+                return notify_fail("ä½ ç”¨ä»€ä¹ˆä¸ºå†…åŠŸåŸºç¡€æ¥ä½¿ã€Œç¥å½¢ä¿±ç­ã€?\n");
         if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "hook"
             || me->query_skill_mapped("hook") != "zhuihun-gou")
-                return notify_fail("ÄãÊ¹µÃÁË¡¸ÉñĞÎ¾ãÃğ¡¹Ã´?\n");
+                return notify_fail("ä½ ä½¿å¾—äº†ã€Œç¥å½¢ä¿±ç­ã€ä¹ˆ?\n");
                  
         me->add("neili", -150);
         me->add("jingli", -100);
@@ -46,21 +46,21 @@ int perform(object me, object target)
         me->add_temp("apply/damage", i+j);
 
 if(!userp(target)&& i>=150 ) target->add_busy(2);
-        message_vision(GRN "\n$N´óºÈÒ»Éù¡¸¾øÃü¡¹£¬µÚÒ»ÕĞÊ¹³ö.....\n"NOR,me);
+        message_vision(GRN "\n$Nå¤§å–ä¸€å£°ã€Œç»å‘½ã€ï¼Œç¬¬ä¸€æ‹›ä½¿å‡º.....\n"NOR,me);
         COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);
         if(me->is_fighting(target)){
-        message_vision(YEL "\n$N·´ÊÖÒ»¹³£¬½ô¸ú×Å·¢³öµÚ¶şÕĞ¡¸ÂäÆÇ¡¹£¡\n"NOR,me);
+        message_vision(YEL "\n$Nåæ‰‹ä¸€é’©ï¼Œç´§è·Ÿç€å‘å‡ºç¬¬äºŒæ‹›ã€Œè½é­„ã€ï¼\n"NOR,me);
         COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);
         }
         if(me->is_fighting(target)&&(int)me->query_skill("zhuihun-gou", 1) >= 140){
-        message_vision(RED "\n$NÁè¿ÕÒ»Åü£¬µÚÈıÊ½¡¸¶á»ê¡¹Ëæºó¶øÖÁ£¬Áî$n"RED"´ëÊÖ²»¼°£¡\n"NOR,me,target);
+        message_vision(RED "\n$Nå‡Œç©ºä¸€åŠˆï¼Œç¬¬ä¸‰å¼ã€Œå¤ºé­‚ã€éšåè€Œè‡³ï¼Œä»¤$n"RED"æªæ‰‹ä¸åŠï¼\n"NOR,me,target);
         me->add("neili", -50);        
         COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);        
         }
         if(me->is_fighting(target)&&random(me->query("combat_exp"))>target->query("combat_exp")/3
         &&(int)me->query_skill("zhuihun-gou", 1) >= 180){
 target->set_temp("must_be_hit",1);
-        message_vision(MAG "\n$NÉíĞĞ»Î¶¯£¬×îºóÒ»Ê½¡¸ÍÀÁé¡¹¾¢µÀÁèÀ÷·Ç³££¡\n"NOR,me,target);
+        message_vision(MAG "\n$Nèº«è¡Œæ™ƒåŠ¨ï¼Œæœ€åä¸€å¼ã€Œå± çµã€åŠ²é“å‡Œå‰éå¸¸ï¼\n"NOR,me,target);
         COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);   
 target->delete_temp("must_be_hit");
         me->add("neili", -80);
@@ -69,6 +69,6 @@ target->delete_temp("must_be_hit");
         me->add_temp("apply/damage", -i-j);   
         me->start_busy(1);
         me->delete_temp("zhuihun/jumie"); 
-        me->start_perform(4, "¡¸ÉñĞÎ¾ãÃğ¡¹");
+        me->start_perform(4, "ã€Œç¥å½¢ä¿±ç­ã€");
         return 1;
 }

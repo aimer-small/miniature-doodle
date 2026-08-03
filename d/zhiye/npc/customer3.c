@@ -1,4 +1,4 @@
-// customer3	¹Ë¿Í
+// customer3	é¡¾å®¢
 // by augx@sj	3/4/2002
 
 inherit NPC;
@@ -14,10 +14,10 @@ void create()
 
 	name = RNAME_D->get_random_name(i);
 	set_name(name["name"], name["id"]);
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 
 	set("age", 15 + random(15));
-	set("long", "ÕâÊÇÎ»ÔÚ½­ºşÉÏĞĞÏÀÕÌÒåµÄÏÀ¿Í¡£\n");
+	set("long", "è¿™æ˜¯ä½åœ¨æ±Ÿæ¹–ä¸Šè¡Œä¾ ä»—ä¹‰çš„ä¾ å®¢ã€‚\n");
 	set("combat_exp", 3000000);
 	set("meitude", "peaceful");
         set("no_bark", 1);
@@ -74,7 +74,7 @@ void greeting(object ob)
 
 void dest()
 {
-        command("emote ÂıÂıÀë¿ªÁË¡£");
+        command("emote æ…¢æ…¢ç¦»å¼€äº†ã€‚");
 	destruct(this_object());
 }
 

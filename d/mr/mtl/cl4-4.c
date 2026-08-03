@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 {
-	set("short",HIW"����"NOR);
+	set("short",HIW"长廊"NOR);
 	set("long", @long
-����һ�����ȣ����滭�Ž��������Ĺ��ʻ�����ɫ���������ɫ�������ߣ�
-ʹ���㲻�ɵöԽ������������Ĵ��쾪̾���ѡ��ڳ������棬Ѿ�ߡ��Ҷ�����
-����ȥ����æ���Լ������飬������һ������������ǳ��ȵ����졣
+这是一条长廊，上面画着江南秀美的工笔画。绿色的柱子朱红色的琉璃瓦，
+使得你不由得对江南艺术工匠的创造惊叹不已。在长廊里面，丫鬟、家丁们走
+来走去，都忙着自己的事情，西面是一间客厅，南面是长廊的延伸。
 long);
 	set("exits", ([
 		"west" : __DIR__"keting",
@@ -27,7 +27,7 @@ long);
 int valid_leave(object me, string dir)
 {
 	if (dir == "east" && objectp(present("ya huan", environment(me))))
-		return notify_fail("���˷Ը�û����Ҫ�����鲻Ҫ����С����Ϣ��\n");
+		return notify_fail("夫人吩咐没有重要的事情不要打扰小姐休息。\n");
 
 	return ::valid_leave(me, dir);
 } 

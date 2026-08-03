@@ -1,17 +1,17 @@
-// xiaolu1.c ÁÖ¼äĞ¡¾¶
+// xiaolu1.c æ—é—´å°å¾„
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-	set("short", GRN"Ğ¡¾¶"NOR);
+	set("short", GRN"å°å¾„"NOR);
 	set("long", @LONG
-Äã×ßÔÚÒ»ÌõĞ¡¾¶ÉÏ£¬Á½ÅÔÖÖÂúÁËÖñ×Ó£¬ĞŞóòÉ­É­£¬ÂÌÒñÂúµØ£¬³ıÁËÖñÒ¶Éù
-ºÍÄñÃùÉù£¬Ìı²»µ½±ğµÄ¶¯¾²¡£¶«Î÷Á½²àÊÇ×ßÀÈ¡£
+ä½ èµ°åœ¨ä¸€æ¡å°å¾„ä¸Šï¼Œä¸¤æ—ç§æ»¡äº†ç«¹å­ï¼Œä¿®ç¯æ£®æ£®ï¼Œç»¿è«æ»¡åœ°ï¼Œé™¤äº†ç«¹å¶å£°
+å’Œé¸Ÿé¸£å£°ï¼Œå¬ä¸åˆ°åˆ«çš„åŠ¨é™ã€‚ä¸œè¥¿ä¸¤ä¾§æ˜¯èµ°å»Šã€‚
 LONG
 	);
-	set("outdoors", "Îäµ±");
+	set("outdoors", "æ­¦å½“");
 
 	set("exits", ([
 		"east" : __DIR__"donglang2",
@@ -33,10 +33,10 @@ int valid_leave(object me, string dir)
 
 	local = localtime(time() * 60);
 	
-	if( me->query("family/family_name") != "Îäµ±ÅÉ"
+	if( me->query("family/family_name") != "æ­¦å½“æ´¾"
 	 && present("yu lianzhou", environment(me))
 	 && dir != "north"
 	 && (local[2] < 5 || local[2] >= 20))
-		return notify_fail(CYN"ÓáÁ«ÖÛÀ¹×¡ÄãµÄÈ¥Â·£¬±§È­µÀ£ºÏÖÒÑÒ¹Éî£¬ÕâÎ»"+RANK_D->query_respect(me)+"·ÇÎÒÎäµ±µÜ×Ó²»µÃÈëÄÚ¡£\n"NOR);
+		return notify_fail(CYN"ä¿è²èˆŸæ‹¦ä½ä½ çš„å»è·¯ï¼ŒæŠ±æ‹³é“ï¼šç°å·²å¤œæ·±ï¼Œè¿™ä½"+RANK_D->query_respect(me)+"éæˆ‘æ­¦å½“å¼Ÿå­ä¸å¾—å…¥å†…ã€‚\n"NOR);
 	return ::valid_leave(me, dir);
 }

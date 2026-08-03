@@ -1,17 +1,17 @@
-// OBJ : /d/wudang/obj/fuling.c ÜòÜß
+// OBJ : /d/wudang/obj/fuling.c èŒ¯è‹“
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-        set_name(HIC"ÜòÜß"NOR, ({"yao cai","fu ling","yao"}));
+        set_name(HIC"èŒ¯è‹“"NOR, ({"yao cai","fu ling","yao"}));
         set_weight(500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-            set("unit", "Öê");
-            set("long", YEL"ÕâÊÇÒ»Öê¸Õ´ÓÉ½ÁÖÖĞ²ÉÕªÏÂÀ´µÄÒ©²Ä£¬»¹´ø×Å´ÔÁÖÄàÍÁµÄÆøÏ¢¡£\n"NOR);
+            set("unit", "æ ª");
+            set("long", YEL"è¿™æ˜¯ä¸€æ ªåˆšä»å±±æ—ä¸­é‡‡æ‘˜ä¸‹æ¥çš„è¯æï¼Œè¿˜å¸¦ç€ä¸›æ—æ³¥åœŸçš„æ°”æ¯ã€‚\n"NOR);
             set("value", 100);
         }
         setup();

@@ -3,8 +3,8 @@ inherit NPC;
 
 void create()
 {
-	set_name("Áé»ê", ({ "shenyou npc" }) );
-	set("gender", "ÄÐÐÔ");
+	set_name("çµé­‚", ({ "shenyou npc" }) );
+	set("gender", "ç”·æ€§");
 	set("env/invisibility", 1);    
 	set_skill("dodge", 500);
 	set_skill("longfeng-xiang", 500);
@@ -18,7 +18,7 @@ void create()
 
 void do_setup(object me, object target)
 {
-	set("name", me->name()+"µÄÁé»ê");
+	set("name", me->name()+"çš„çµé­‚");
 	set("master", me);
 	set("target", target);
 	this_object()->set_leader(target);  
@@ -43,7 +43,7 @@ int checking(object target)
 	       
 	if(!objectp(target) || !objectp(where = environment(target))){
 		me = query("master");
-		tell_object(me , GRN"¡¾ÉñÓÎ¡¿ºöÈ»¼ä£¬Ò»ÕóÀä·çÏ®À´£¬ÄãÈâÉí²»½ûÒ»²ü£¡\n"NOR);
+		tell_object(me , GRN"ã€ç¥žæ¸¸ã€‘å¿½ç„¶é—´ï¼Œä¸€é˜µå†·é£Žè¢­æ¥ï¼Œä½ è‚‰èº«ä¸ç¦ä¸€é¢¤ï¼\n"NOR);
 		me->halt_exercise(me);
 		return 0;
 	}
@@ -52,7 +52,7 @@ int checking(object target)
 	|| strsrch(file_name(environment(target)),"/d/") <0
 	|| strsrch(file_name(environment(target)),"/u/") < 0){
 		me = query("master");
-		tell_object(me , RED"¡¾ÉñÓÎ¡¿ºöÈ»¼ä£¬ÄãÑÛÇ°½ð¹âÒ»ÉÁ£¬½«Äã´òÁË»ØÀ´£¡\n"NOR);
+		tell_object(me , RED"ã€ç¥žæ¸¸ã€‘å¿½ç„¶é—´ï¼Œä½ çœ¼å‰é‡‘å…‰ä¸€é—ªï¼Œå°†ä½ æ‰“äº†å›žæ¥ï¼\n"NOR);
 		me->halt_exercise(me);
 		return 0;
 	}
@@ -76,5 +76,5 @@ void relay_message(string msgclass, string msg)
 	player = query("master");
 	for (i=1;i<sizeof(ary);i++)
 		if (player)
-			tell_object(player, GRN"¡¾ÉñÓÎ¡¿"NOR+ary[i]+NOR+"\n");
+			tell_object(player, GRN"ã€ç¥žæ¸¸ã€‘"NOR+ary[i]+NOR+"\n");
 }

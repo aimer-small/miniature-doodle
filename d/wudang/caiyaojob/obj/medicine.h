@@ -6,8 +6,8 @@ void init()
 
 void destroying(object me)
 {
-   if(environment(me)->query("name") != "Ò©Â¨"){
-       message_vision("$NÍ»È»µøÂäÔÚµØÉÏ²»¼ûÁË¡£\n", me);       
+   if(environment(me)->query("name") != "è¯ç¯“"){
+       message_vision("$Nçªç„¶è·Œè½åœ¨åœ°ä¸Šä¸è§äº†ã€‚\n", me);       
        destruct(me);
        return;
        }
@@ -18,16 +18,16 @@ int do_eat(string arg)
 {
         object me=this_player();
 
-        if (!id(arg)) return notify_fail("ÄãÏë³ÔÊ²Ã´£¿\n");
+        if (!id(arg)) return notify_fail("ä½ æƒ³åƒä»€ä¹ˆï¼Ÿ\n");
 
         if((int)me->query_condition("medicine") > 0){
             me->add("qi", -10);
             me->add("neili", 10);
-            message_vision(HIR "$N³ÔÏÂÒ»Öê$n£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´·þÊ³Ì«¼±Ì«¶à£¬Ò©Ð§ÊÊµÃÆä·´£¡\n"NOR, me, this_object());
+            message_vision(HIR "$Nåƒä¸‹ä¸€æ ª$nï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŽŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n"NOR, me, this_object());
             } 
         else{
             me->add("qi", 10);
-            message_vision("$N³ÔÏÂÒ»Öê$n£¬Ö»¾õµÃ»ëÉíÈÈÆøÌÚÌÚ£¬ÉíÌå±äµÄºÃ¶àÁË£¡\n", me, this_object());
+            message_vision("$Nåƒä¸‹ä¸€æ ª$nï¼Œåªè§‰å¾—æµ‘èº«çƒ­æ°”è…¾è…¾ï¼Œèº«ä½“å˜çš„å¥½å¤šäº†ï¼\n", me, this_object());
             me->apply_condition("medicine", 10);
             }
         destruct(this_object());

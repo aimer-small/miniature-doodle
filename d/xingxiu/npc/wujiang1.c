@@ -1,15 +1,15 @@
-// wujiang.c Îä½«
+// wujiang.c æ­¦å°†
 inherit NPC;
 void create()
 {
-        set_name("±ß·ÀÎä½«", ({ "wu jiang", "wu", "jiang" }));
-        set("gender", "ÄĞĞÔ");
+        set_name("è¾¹é˜²æ­¦å°†", ({ "wu jiang", "wu", "jiang" }));
+        set("gender", "ç”·æ€§");
         set("age", random(10) + 30);
         set("str", 35);
         set("int", 19);
         set("con", 30);
         set("dex", 20);
-        set("long", "ËûÊÇÕâÀïµÄ¸±½«¡£\n");
+        set("long", "ä»–æ˜¯è¿™é‡Œçš„å‰¯å°†ã€‚\n");
         set("combat_exp", 80000);
         set("attitude", "peaceful");
         set_skill("unarmed", 55);
@@ -38,7 +38,7 @@ void init()
 
 int accept_fight(object me)
 {
-        command("say ´óÒ¯ÎÒÊØ±ß¹ØÀÛµÃÒªËÀ£¬Ã»¿ÕºÍ"+RANK_D->query_respect(me)+"¹ıÕĞÍæ¡£\n");
+        command("say å¤§çˆ·æˆ‘å®ˆè¾¹å…³ç´¯å¾—è¦æ­»ï¼Œæ²¡ç©ºå’Œ"+RANK_D->query_respect(me)+"è¿‡æ‹›ç©ã€‚\n");
         return 0;
 }
 
@@ -53,12 +53,12 @@ int accept_object(object me, object obj)
            return 1;
            }
         else{
-           command("say ²ÅÕâÃ´µã£¿");
+           command("say æ‰è¿™ä¹ˆç‚¹ï¼Ÿ");
            return 1;
            }
         }
       command("hmm " + me->query("id"));
-      command("say ÎÒ¶Ô"+obj->name()+"²»Ï¡º±¡£");
+      command("say æˆ‘å¯¹"+obj->name()+"ä¸ç¨€ç½•ã€‚");
       return 0;
 }
 

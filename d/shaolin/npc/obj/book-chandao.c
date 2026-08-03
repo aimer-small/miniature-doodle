@@ -3,15 +3,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ìøµ¶¾«Òå", ({ "chandao", "shu", "book" }));
+	set_name("ç¦…åˆ€ç²¾ä¹‰", ({ "chandao", "shu", "book" }));
 	set_weight(50);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
+		set("unit", "æœ¬");
 		set("long",
-			"ÕâÊÇÒ»±¾·ğ¼Òµ¶·¨ÃØ¼®\n"
-			"ÊÇÒ»±¾¾É¾í£¬ÉÏÃæÃÜÃÜÂéÂé»æÓĞ²»ÉÙÉ®ÈËÊÖÖ´½äµ¶ÆË»÷ÌÚÅ²µÄ³¡Ãæ¡£\n");
+			"è¿™æ˜¯ä¸€æœ¬ä½›å®¶åˆ€æ³•ç§˜ç±\n"
+			"æ˜¯ä¸€æœ¬æ—§å·ï¼Œä¸Šé¢å¯†å¯†éº»éº»ç»˜æœ‰ä¸å°‘åƒ§äººæ‰‹æ‰§æˆ’åˆ€æ‰‘å‡»è…¾æŒªçš„åœºé¢ã€‚\n");
 //          set("treasure", 1);
 		set("value", 200);		set("material", "paper");
 		set("skill", ([

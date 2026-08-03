@@ -1,4 +1,4 @@
-// yaoqin.c ÑşÇÙ
+// yaoqin.c ç‘¶ç´
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,20 +7,20 @@ inherit SWORD;
 
 void create()
 {
-        set_name(YEL"ÑşÇÙ"NOR,({"yao qin","qin"}));
+        set_name(YEL"ç‘¶ç´"NOR,({"yao qin","qin"}));
         set_weight(1000);
         if(clonep())
                 set_default_object(__FILE__);
         else{
-                set("unit","ÕÅ");
+                set("unit","å¼ ");
                 set("value",1000);
                 set("material","steel");
                 set("unique", 1);
                 set("rigidity", 5);
                 set("treasure",1);
-                set("long","ÕâÕÅÑşÇÙÑÕÉ«°µ¾É£¬µ±ÊÇÊı°ÙÄêÉõÖÁÊÇÇ§ÄêÒÔÉÏµÄ¹ÅÎï¡£\n");
-                set("wield_msg",YEL"$NÉìÊÖÒ»·÷½«ÑşÇÙÅõÔÚÊÖÖĞ,ÔÚÇÙÏÒÉÏ²¦ÁË¼¸ÏÂ¡£\n"NOR);
-                set("unwield_msg",YEL"$NÊÖÍóÒ»×ª£¬ÇÙÒôÍ£ÁËÏÂÀ´¡£\n"NOR);
+                set("long","è¿™å¼ ç‘¶ç´é¢œè‰²æš—æ—§ï¼Œå½“æ˜¯æ•°ç™¾å¹´ç”šè‡³æ˜¯åƒå¹´ä»¥ä¸Šçš„å¤ç‰©ã€‚\n");
+                set("wield_msg",YEL"$Nä¼¸æ‰‹ä¸€æ‹‚å°†ç‘¶ç´æ§åœ¨æ‰‹ä¸­,åœ¨ç´å¼¦ä¸Šæ‹¨äº†å‡ ä¸‹ã€‚\n"NOR);
+                set("unwield_msg",YEL"$Næ‰‹è…•ä¸€è½¬ï¼Œç´éŸ³åœäº†ä¸‹æ¥ã€‚\n"NOR);
         }
         init_sword(42);
         setup();

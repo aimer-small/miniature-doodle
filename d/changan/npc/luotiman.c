@@ -4,12 +4,12 @@
 inherit NPC;
 void create()
 {
-	set_name("ÂãÌåÄĞ×Ó", ({ "luoti nanzi","nanzi" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("è£¸ä½“ç”·å­", ({ "luoti nanzi","nanzi" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 26);
 	set("per",30);
 	set("no_quest", 1);
-	set("long","ÕâÊÇÒ»Î»ÕıÔÚÏ´ÔèµÄÂãÌåÄĞÈË¡£\n");
+	set("long","è¿™æ˜¯ä¸€ä½æ­£åœ¨æ´—æ¾¡çš„è£¸ä½“ç”·äººã€‚\n");
 
 	setup();
 }
@@ -23,8 +23,8 @@ int do_look(string arg)
 {
 	object me=this_player();
 	if ( arg == "luoti nanzi" || arg == "nanzi") {
-		command("say ¿´Ê²Ã´¿´£¬Ã»¼û¹ı£¿");
-		message_vision("ÂãÌåÄĞ×ÓºİºİµÉÁË$NÒ»ÑÛ¡£\n\n",me);
+		command("say çœ‹ä»€ä¹ˆçœ‹ï¼Œæ²¡è§è¿‡ï¼Ÿ");
+		message_vision("è£¸ä½“ç”·å­ç‹ ç‹ çªäº†$Nä¸€çœ¼ã€‚\n\n",me);
 	}
 	return 0;
 }

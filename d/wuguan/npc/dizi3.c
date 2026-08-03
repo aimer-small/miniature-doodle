@@ -1,4 +1,4 @@
-//dizi3.c Íò¹ç
+//dizi3.c ä¸‡åœ­
 
 #include <ansi.h>
 inherit NPC;
@@ -12,11 +12,11 @@ string* tools = ({
 
 void create()
 {
-       set_name("Íò¹ç",({ "wan gui", "wan","gui" }) );
-       set("title","ÏåÑôÎä¹İÈıµÜ×Ó");
-       set("gender", "ÄĞĞÔ" );
+       set_name("ä¸‡åœ­",({ "wan gui", "wan","gui" }) );
+       set("title","è¥„é˜³æ­¦é¦†ä¸‰å¼Ÿå­");
+       set("gender", "ç”·æ€§" );
        set("age", 26);
-       set("long","ËûÊÇÍòÕğÉ½µÄ¶À×Ó£¬³¤ÉíÓñÁ¢£¬Á³ĞÍÎ¢¼ûÊİÏ÷£¬¿¡ÃÀäìÈ÷¡£\n");
+       set("long","ä»–æ˜¯ä¸‡éœ‡å±±çš„ç‹¬å­ï¼Œé•¿èº«ç‰ç«‹ï¼Œè„¸å‹å¾®è§ç˜¦å‰Šï¼Œä¿Šç¾æ½‡æ´’ã€‚\n");
        set("combat_exp", 4000);
        set("attitude", "friendly");
 
@@ -28,7 +28,7 @@ void create()
 
 
        set("inquiry", ([
-                    "·À¾ß" : (: ask_me :),
+                    "é˜²å…·" : (: ask_me :),
                   ]) );
        setup();
        carry_object(ARMOR_D("cloth"))->wear();
@@ -50,26 +50,26 @@ string ask_me(string name)
         object tool;
 
         if (present("armor", this_player()) || present("junfu",this_player()) || present ("pi beixin",this_player()))
-            return RANK_D->query_respect(this_player())+"Äã²»ÊÇÒÑ¾­À´Òª¹ı·À¾ßÁË£¬ÔõÃ´ÓÖÀ´ÒªÁË£¿¿ÉÕæÌ°ĞÄÅ¶£¡";
+            return RANK_D->query_respect(this_player())+"ä½ ä¸æ˜¯å·²ç»æ¥è¦è¿‡é˜²å…·äº†ï¼Œæ€ä¹ˆåˆæ¥è¦äº†ï¼Ÿå¯çœŸè´ªå¿ƒå“¦ï¼";
  
         if (query("huju_count") < 1)
-            return "±§Ç¸£¬ÄãÀ´µÃ²»ÊÇÊ±ºò£¬·À¾ßÒÑ¾­·¢ÍêÁË¡£";
+            return "æŠ±æ­‰ï¼Œä½ æ¥å¾—ä¸æ˜¯æ—¶å€™ï¼Œé˜²å…·å·²ç»å‘å®Œäº†ã€‚";
 
         if (this_player()->query_temp("getarmor"))
-            return RANK_D->query_respect(this_player())+"Äã²»ÊÇÒÑ¾­À´Òª¹ı·À¾ßÁË£¬ÔõÃ´ÓÖÀ´ÒªÁË£¿¿ÉÕæÌ°ĞÄÅ¶£¡";
+            return RANK_D->query_respect(this_player())+"ä½ ä¸æ˜¯å·²ç»æ¥è¦è¿‡é˜²å…·äº†ï¼Œæ€ä¹ˆåˆæ¥è¦äº†ï¼Ÿå¯çœŸè´ªå¿ƒå“¦ï¼";
 
         tool = new( tools[random(sizeof(tools))]);
         tool->set("value",10);
         tool->move(this_player());        
         this_player()->set_temp("getarmor", 1);
         add("huju_count", -1);
-        message_vision("Íò¹ç¸øÁË$NÒ»¼ş"+tool->name()+"¡£\n", this_player());
-        return "ÄÃÈ¥°É¡£²»¹ıÒª¼Ç×¡£¬·À¾ßÖ»¿É·ÀÉíÁ·Îä£¬²»¿ÉÆ¾´Ë·Áº¦ËûÈË¡£";
+        message_vision("ä¸‡åœ­ç»™äº†$Nä¸€ä»¶"+tool->name()+"ã€‚\n", this_player());
+        return "æ‹¿å»å§ã€‚ä¸è¿‡è¦è®°ä½ï¼Œé˜²å…·åªå¯é˜²èº«ç»ƒæ­¦ï¼Œä¸å¯å‡­æ­¤å¦¨å®³ä»–äººã€‚";
 }     
  
 void greeting(object ob)
 {       
        command("bow "+ob->query("id"));
-       command("say ÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬µ½ÎÒÕâÁì·À¾ß "HIY HBCYN"ask wan about ·À¾ß"CYN" °É¡£"NOR);
+       command("say è¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œåˆ°æˆ‘è¿™é¢†é˜²å…· "HIY HBCYN"ask wan about é˜²å…·"CYN" å§ã€‚"NOR);
 }                               

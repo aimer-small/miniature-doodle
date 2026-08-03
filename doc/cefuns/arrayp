@@ -1,17 +1,17 @@
 
 	arrayp(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		arrayp() - ¿´Ò»¸ö¸ø¶¨µÄ±äÊıÊÇ·ñÎªÕóÁĞ (array).
-	Óï·¨:
+	åç§°:
+		arrayp() - çœ‹ä¸€ä¸ªç»™å®šçš„å˜æ•°æ˜¯å¦ä¸ºé˜µåˆ— (array).
+	è¯­æ³•:
 		int arrayp( mixed arg );
 
-		ÕûÊı arrayp( »ìºÏ arg );
-	ÓÃ·¨:
-		Èç¹û arg ÊÇÒ»¸öÕóÁĞ, ¾Í´«»Ø 1.
-	²Î¿¼:
+		æ•´æ•° arrayp( æ··åˆ arg );
+	ç”¨æ³•:
+		å¦‚æœ arg æ˜¯ä¸€ä¸ªé˜µåˆ—, å°±ä¼ å› 1.
+	å‚è€ƒ:
 		mapp(3), stringp(3), objectp(3), intp(3), bufferp(3),
 		floatp(3), functionp(3), nullp(3), undefinedp(3), 
 		errorp(3), pointerp(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	96.Oct.15.		(printed 3/16/95)

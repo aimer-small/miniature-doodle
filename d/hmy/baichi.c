@@ -1,12 +1,12 @@
-// /d/hmy/baichi.c Èı²í¿Ú
+// /d/hmy/baichi.c ä¸‰å²”å£
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "Èı²í¿Ú");
+        set("short", "ä¸‰å²”å£");
 	set("long", @LONG
-À´µ½Èı²í¿Ú£¬ÍùÎ÷ÄÏºÍÎ÷±±·½Ïò¾ÍÊÇÈÕÔÂÉñ½ÌÊ¯½×£¬É½µÀÊ®·Ö¶¸ÇÍ¡£
+æ¥åˆ°ä¸‰å²”å£ï¼Œå¾€è¥¿å—å’Œè¥¿åŒ—æ–¹å‘å°±æ˜¯æ—¥æœˆç¥æ•™çŸ³é˜¶ï¼Œå±±é“ååˆ†é™¡å³­ã€‚
 LONG
         );
         set("exits", ([ 
@@ -15,7 +15,7 @@ LONG
 	  "south" : __DIR__"meimao",
 	  "eastdown" : __DIR__"shandao2"
 ]));
-        set("outdoors", "ºÚÄ¾ÑÂ");
+        set("outdoors", "é»‘æœ¨å´–");
 
         setup();
 }

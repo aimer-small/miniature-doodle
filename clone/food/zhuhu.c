@@ -1,17 +1,17 @@
-// zhuhu.c  Öñºø
+// zhuhu.c  ç«¹å£¶
 
 inherit ITEM;
 inherit F_LIQUID;
 
 void create()
 {
-	set_name("Öñºø", ({"zhuhu", "hu"}));
+	set_name("ç«¹å£¶", ({"zhuhu", "hu"}));
 	set_weight(700);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»¸öÓÃÀ´×°ÇåË®µÄÖñºø£¬ÓÃ´óÖñ×ö³É¡£\n");
-		set("unit", "¸ö");
+		set("long", "ä¸€ä¸ªç”¨æ¥è£…æ¸…æ°´çš„ç«¹å£¶ï¼Œç”¨å¤§ç«¹åšæˆã€‚\n");
+		set("unit", "ä¸ª");
 		set("value", 100);
 		set("max_liquid", 15);
 	}
@@ -19,7 +19,7 @@ void create()
 	
 	set("liquid", ([
 		"type": "water",
-		"name": "ÇåË®",
+		"name": "æ¸…æ°´",
 		"remaining": 15,
 		"drunk_apply": 15,
 	]));

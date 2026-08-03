@@ -6,16 +6,16 @@ inherit COMBINED_ITEM;
 void create()
 {
 
-       set_name("¶¾³æ·Û", ({ "duchong fen", "duchong", "fen" }) );
+       set_name("æ¯’è™«ç²‰", ({ "duchong fen", "duchong", "fen" }) );
        if( clonep() )
                set_default_object(__FILE__);
        else {
                set("long",
-                       "Ò»°üÒÔòÚò¼¡¢Ö©ÖëµÈÎªÔ­ÁÏÖÆ³ÉµÄ¶¾·Û¡£
-¿ÉÒÔµ¹(pour)½ø¾ÆË®Àï£¬»òÍ¿(tu)ÔÚ±øÆ÷ÉÏ¡£(Í¿Ö®Ç°±ØĞëÏÈµãÈ¼(dian)Ëü)\n" );
-               set("unit", "Ğ©");
+                       "ä¸€åŒ…ä»¥èœˆèš£ã€èœ˜è››ç­‰ä¸ºåŸæ–™åˆ¶æˆçš„æ¯’ç²‰ã€‚
+å¯ä»¥å€’(pour)è¿›é…’æ°´é‡Œï¼Œæˆ–æ¶‚(tu)åœ¨å…µå™¨ä¸Šã€‚(æ¶‚ä¹‹å‰å¿…é¡»å…ˆç‚¹ç‡ƒ(dian)å®ƒ)\n" );
+               set("unit", "äº›");
                set("base_value", 3000);
-               set("base_unit", "°ü");
+               set("base_unit", "åŒ…");
                set("base_weight", 30);
                set("drug2", "/d/xingxiu/obj/yaoa");
                set("poison", "xx_poison");

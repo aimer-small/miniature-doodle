@@ -1,26 +1,26 @@
-//Îå²ÊÀ®°È
+//äº”å½©å–‡å­
 #include <ansi.h>
 inherit SPEC;
 
 void create()
 {
-	set_name(HIM"Îå²ÊÀ®°È" NOR, ({ "wucai laba","laba","wucai"}));
+	set_name(HIM"äº”å½©å–‡å­" NOR, ({ "wucai laba","laba","wucai"}));
         set("long", 
-                 "Ò»¸öÎå²ÊÀ®°È£¬ÓÃËüËµ»°¿ÉÒÔ´øÑÕÉ«Å¶¡£\n"
-                 "ÓÃ·¨£º\n"
-                 "cui ¶¯×÷ ÄãµÄ´ÊÓï ¶¯×÷¿ÉÒÔÊÇsay reply shout chat µÈ \n"
-                 "±ÈÈç cui chat $HIG$ hi\n"
-                 "ÑÕÉ«ÁĞ±í£º\n"
-                        "                     $NOR$ - »Ö¸´Õı³£ÑÕÉ«\n"
-			"$RED$ - "RED"ºìÉ«"NOR"         $HIR$ - "HIR"ÁÁºìÉ«\n"NOR
-			"$GRN$ - "GRN"ÂÌÉ«"NOR"         $HIG$ - "HIG"ÁÁÂÌÉ«\n"NOR
-			"$YEL$ - "YEL"ÍÁ»ÆÉ«"NOR"       $HIY$ - "HIY"»ÆÉ«\n"NOR
-			"$BLU$ - "BLU"ÉîÀ¶É«"NOR"       $HIB$ - "HIB"À¶É«\n"NOR
-			"$MAG$ - "MAG"Ç³×ÏÉ«"NOR"       $HIM$ - "HIM"·ÛºìÉ«\n"NOR
-			"$CYN$ - "CYN"À¶ÂÌÉ«"NOR"       $HIC$ - "HIC"ÌìÇàÉ«\n"NOR
-			"$WHT$ - Ç³»ÒÉ«       $HIW$ - "HIW"°×É«\n"NOR
+                 "ä¸€ä¸ªäº”å½©å–‡å­ï¼Œç”¨å®ƒè¯´è¯å¯ä»¥å¸¦é¢œè‰²å“¦ã€‚\n"
+                 "ç”¨æ³•ï¼š\n"
+                 "cui åŠ¨ä½œ ä½ çš„è¯è¯­ åŠ¨ä½œå¯ä»¥æ˜¯say reply shout chat ç­‰ \n"
+                 "æ¯”å¦‚ cui chat $HIG$ hi\n"
+                 "é¢œè‰²åˆ—è¡¨ï¼š\n"
+                        "                     $NOR$ - æ¢å¤æ­£å¸¸é¢œè‰²\n"
+			"$RED$ - "RED"çº¢è‰²"NOR"         $HIR$ - "HIR"äº®çº¢è‰²\n"NOR
+			"$GRN$ - "GRN"ç»¿è‰²"NOR"         $HIG$ - "HIG"äº®ç»¿è‰²\n"NOR
+			"$YEL$ - "YEL"åœŸé»„è‰²"NOR"       $HIY$ - "HIY"é»„è‰²\n"NOR
+			"$BLU$ - "BLU"æ·±è“è‰²"NOR"       $HIB$ - "HIB"è“è‰²\n"NOR
+			"$MAG$ - "MAG"æµ…ç´«è‰²"NOR"       $HIM$ - "HIM"ç²‰çº¢è‰²\n"NOR
+			"$CYN$ - "CYN"è“ç»¿è‰²"NOR"       $HIC$ - "HIC"å¤©é’è‰²\n"NOR
+			"$WHT$ - æµ…ç°è‰²       $HIW$ - "HIW"ç™½è‰²\n"NOR
                         );
-	set("unit","¸ö");
+	set("unit","ä¸ª");
 	set_weight(100);
 	set("value",3000000);
         set("no_give",1);
@@ -28,7 +28,7 @@ void create()
         set("no_get",1);
 	set("degree",20);
 	set("flag","spec/laba");
-	set("desc","ÓÃËüËµ»°¿ÉÒÔ´øÑÕÉ«¡£");
+	set("desc","ç”¨å®ƒè¯´è¯å¯ä»¥å¸¦é¢œè‰²ã€‚");
 	set("credit",50);	
         setup();
 }
@@ -43,11 +43,11 @@ int do_cui(string arg)
 {
         string arg1,arg2;
         object me = this_player(); 
-        if (!arg) return notify_fail("ÄãÒª´µÊ²Ã´£¿\n");
+        if (!arg) return notify_fail("ä½ è¦å¹ä»€ä¹ˆï¼Ÿ\n");
         sscanf(arg,"%s %s",arg1,arg2);
         if (arg1 != "chat" && arg1 != "sj" && arg1 !="party" && arg1 != "group" 
         && arg1 !="say" && arg1 !="tell" && arg1 !="reply" && arg1 !="whisper" && arg1 !="shout")
-        return notify_fail("ÄãÏëÓÃÎå²ÊÀ®°È´µÊ²Ã´£¿\n");
+        return notify_fail("ä½ æƒ³ç”¨äº”å½©å–‡å­å¹ä»€ä¹ˆï¼Ÿ\n");
         arg2 = replace_string(arg2, "$RED$", RED);
         arg2 = replace_string(arg2, "$GRN$", GRN);
         arg2 = replace_string(arg2, "$YEL$", YEL);

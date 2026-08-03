@@ -15,7 +15,7 @@ inherit F_DBASE;
 
 void create() {
 	seteuid(ROOT_UID);
-	set("channel_id", "ÍøÂ·ÆµµÀ");
+	set("channel_id", "ç½‘è·¯é¢‘é“");
 }
 
 void incoming_request(mapping info)
@@ -32,7 +32,7 @@ void incoming_request(mapping info)
 	if (stringp(info["PORTUDP"]) && stringp(info["HOSTADDRESS"])) 
 	{
 #ifdef DEBUG
-	message("wizard",sprintf("%s %s»Ø¸´±¾µØemoteÇëÇó¡£\n",info["HOSTADDRESS"],info["PORTUDP"]),users() ); 
+	message("wizard",sprintf("%s %så›žå¤æœ¬åœ°emoteè¯·æ±‚ã€‚\n",info["HOSTADDRESS"],info["PORTUDP"]),users() ); 
 #endif
 		if (info["NAME"] == Mud_name())	return;		
 		if (! DNS_MASTER->dns_mudp(info["NAME"]))
@@ -45,7 +45,7 @@ void incoming_request(mapping info)
 			return;
 		if (! userp(ob)) return;
 #ifdef DEBUG
-	message("wizard",sprintf("ºô½Ðchanneld ·¢ËÍÐÅÏ¢¡£\n"),users() ); 
+	message("wizard",sprintf("å‘¼å«channeld å‘é€ä¿¡æ¯ã€‚\n"),users() ); 
 #endif
 		CHANNEL_D->do_remote_channel(ob, info["CHANNEL"], msg);
 	}

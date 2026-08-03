@@ -1,9 +1,9 @@
 inherit NPC;
 void create()
 {
-   set_name("ÀîÆ¼",({"li ping"}));
-   set("gender","Å®ĞÔ");
-   set("long","¹ù¾¸µÄÄ¸Ç×,Á÷ÂäÔÚÃÉ¹Å!\n");
+   set_name("æè",({"li ping"}));
+   set("gender","å¥³æ€§");
+   set("long","éƒ­é–çš„æ¯äº²,æµè½åœ¨è’™å¤!\n");
    set("score",5000);
    set("combat_exp",60000);
    

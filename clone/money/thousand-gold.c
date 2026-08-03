@@ -6,15 +6,15 @@ inherit MONEY;
 
 void create()
 {
-        set_name(HIY "Ò¼ÇªÁ½½ğÆ±" NOR, ({"thousand-gold", "thousand-gold_money", "cash"}));
+        set_name(HIY "å£¹ä»Ÿä¸¤é‡‘ç¥¨" NOR, ({"thousand-gold", "thousand-gold_money", "cash"}));
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("money_id", "thousand-cash");
-                set("long", "Ò»ÕÅÃæ¶îÖµÒ»Ç§Á½»Æ½ğµÄ½ğÆ±£¬Ò»Æ±ÔÚÊÖ£¬³ÔºÈ²»³î¡£\n");
-                set("unit", "µş");
+                set("long", "ä¸€å¼ é¢é¢å€¼ä¸€åƒä¸¤é»„é‡‘çš„é‡‘ç¥¨ï¼Œä¸€ç¥¨åœ¨æ‰‹ï¼Œåƒå–ä¸æ„ã€‚\n");
+                set("unit", "å ");
                 set("base_value", 10000000);
-                set("base_unit", "ÕÅ");
+                set("base_unit", "å¼ ");
                 set("base_weight", 5);
 //                set("no_get", 1);
 //                set("no_drop", 1);

@@ -8,12 +8,12 @@ inherit ITEM;
 string do_look();
 void create()
 {
-	set_name(HIW"¾í²¯"NOR, ({ "murong paper", "paper" }) );
+	set_name(HIW"å·å¸›"NOR, ({ "murong paper", "paper" }) );
 	set_weight(100);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "ÕÅ");
+		set("unit", "å¼ ");
 		set("long", (: do_look :));
 		set("value", 0);
 		set("no_get",1);
@@ -29,8 +29,8 @@ void init()
 	object ob = this_object();
 	object me = this_player();
 	
-	ob->set_temp("skill_lvl", me->query_temp("skill_lvl"));	//ĞèÒªÍµÑ§µÄ¼¶Êı 
-	ob->set_temp("learned_skill",5);			       //ÒÑ¾­ÍµÑ§µÄ¼¶Êı
+	ob->set_temp("skill_lvl", me->query_temp("skill_lvl"));	//éœ€è¦å·å­¦çš„çº§æ•° 
+	ob->set_temp("learned_skill",5);			       //å·²ç»å·å­¦çš„çº§æ•°
 	ob->set_temp("learned_amount",0);
 	add_action("do_touxue", "touxue");
 }
@@ -40,11 +40,11 @@ string do_look()
 	string msg;
 	object me = this_player();
 
-	msg = "ÕâÊÇÒ»ÕÅ·¢»ÆµÄ¾í²¯";
+	msg = "è¿™æ˜¯ä¸€å¼ å‘é»„çš„å·å¸›";
 	if ( me->query_temp("skill_target"))
-		msg += "£¬ÉÏÃæĞ´×Å£ºÍµÑ§"+ HIW+chinese_number(me->query_temp("skill_lvl"))+NOR+"¼¶ "+HIY+me->query_temp("skill_target")+HIR+" ("+me->query_temp("skill_id")+")¡£\n"NOR;
+		msg += "ï¼Œä¸Šé¢å†™ç€ï¼šå·å­¦"+ HIW+chinese_number(me->query_temp("skill_lvl"))+NOR+"çº§ "+HIY+me->query_temp("skill_target")+HIR+" ("+me->query_temp("skill_id")+")ã€‚\n"NOR;
 	else 
-		msg += "¡£\n";
+		msg += "ã€‚\n";
 	return msg;
 }
 
@@ -60,42 +60,42 @@ int do_touxue(string arg)
 	obj = this_object();
        
 	if (me->query_temp("job_done"))
-		return notify_fail(HIW"Äã¸Ğ¾õÒÑ¾­½¥½¥ÁìÎòÁË"+me->query_temp("skill_target")+"µÄ¾«Ëè£¬¿ÉÒÔ»ØÈ¥¸´ÃüÁË¡£\n"NOR);
+		return notify_fail(HIW"ä½ æ„Ÿè§‰å·²ç»æ¸æ¸é¢†æ‚Ÿäº†"+me->query_temp("skill_target")+"çš„ç²¾é«“ï¼Œå¯ä»¥å›å»å¤å‘½äº†ã€‚\n"NOR);
 	       
 	if (me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
-	if( me->query("family/family_name") != "¹ÃËÕÄ½Èİ")
-		return notify_fail("Äã²»ÊÇ¹ÃËÕÄ½ÈİµÜ×Ó£¬¸ù±¾¾Í²»»áÍµÑ§¡£\n");
+	if( me->query("family/family_name") != "å§‘è‹æ…•å®¹")
+		return notify_fail("ä½ ä¸æ˜¯å§‘è‹æ…•å®¹å¼Ÿå­ï¼Œæ ¹æœ¬å°±ä¸ä¼šå·å­¦ã€‚\n");
 
 	if( me->query_skill("douzhuan-xingyi", 1) < 100 )
-		return notify_fail("ÄãµÄ¶·×ªĞÇÒÆ¼¶±ğ²»¹»£¬ÎŞ·¨ÔËÓÃÍµÑ§Õâ¸ö¸ß¼¶¼¼ÄÜ¡£\n");
+		return notify_fail("ä½ çš„æ–—è½¬æ˜Ÿç§»çº§åˆ«ä¸å¤Ÿï¼Œæ— æ³•è¿ç”¨å·å­¦è¿™ä¸ªé«˜çº§æŠ€èƒ½ã€‚\n");
 
 	if(me->query_skill_mapped("parry") != "douzhuan-xingyi")
-		return notify_fail("ÄãÏÖÔÚÃ»ÓĞÓÃ¶·×ªĞÇÒÆ£¬ÔõÃ´ÄÜÍµÑ§µ½±ğÈËµÄÎä¹¦£¿\n");
+		return notify_fail("ä½ ç°åœ¨æ²¡æœ‰ç”¨æ–—è½¬æ˜Ÿç§»ï¼Œæ€ä¹ˆèƒ½å·å­¦åˆ°åˆ«äººçš„æ­¦åŠŸï¼Ÿ\n");
 
 	if(!arg || (sscanf(arg, "%s from %s", skill, teacher)!=2 ))
-		return notify_fail("Ö¸Áî¸ñÊ½£ºtouxue <¼¼ÄÜ> from <Ä³ÈË>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼štouxue <æŠ€èƒ½> from <æŸäºº>\n");
 
 	if (!(ob = present(teacher, environment(me)))
 	|| !ob->is_character()
 	|| query_ip_number(ob) == query_ip_number(me))
-		return notify_fail("ÄãÒªÏòË­ÍµÑ§£¿\n");
+		return notify_fail("ä½ è¦å‘è°å·å­¦ï¼Ÿ\n");
 
 	if (!ob->is_fighting(me) )
-		return notify_fail("²»ÔÚÕ½¶·ÖĞÔõÃ´ÄÜÍµÑ§ÄØ£¿\n");
+		return notify_fail("ä¸åœ¨æˆ˜æ–—ä¸­æ€ä¹ˆèƒ½å·å­¦å‘¢ï¼Ÿ\n");
 
 	if( !living(ob) )
-		return notify_fail("àÅ....ÄãµÃÏÈ°Ñ" + ob->name() + "ÅªĞÑÔÙËµ¡£\n");
+		return notify_fail("å—¯....ä½ å¾—å…ˆæŠŠ" + ob->name() + "å¼„é†’å†è¯´ã€‚\n");
 
 	if( skill != me->query_temp("skill_id") )
-		return notify_fail("ÕâÒ»´ÎÄãÊÇÒªÍµÑ§ÕâÖÖÎä¹¦Ã´£¿\n");
+		return notify_fail("è¿™ä¸€æ¬¡ä½ æ˜¯è¦å·å­¦è¿™ç§æ­¦åŠŸä¹ˆï¼Ÿ\n");
 
 	if( !master_skill = ob->query_skill(skill, 1) )
-		return notify_fail("ÕâÏî¼¼ÄÜÄã¿ÖÅÂ±ØĞëÕÒ±ğÈËÍµÑ§ÁË¡£\n");
+		return notify_fail("è¿™é¡¹æŠ€èƒ½ä½ ææ€•å¿…é¡»æ‰¾åˆ«äººå·å­¦äº†ã€‚\n");
 
 	if( !me->query_condition("mr_job"))
-		return notify_fail("Äã»¹Ã»ÓĞÁìÈÎÎñÄØ¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰é¢†ä»»åŠ¡å‘¢ã€‚\n");
 
 	if (userp(ob)) {
 		if (objectp(weapon = ob->query_temp("weapon"))) {
@@ -111,14 +111,14 @@ int do_touxue(string arg)
 			}
 		}
 		if (!arrayp(v_skill) || member_array(skill, v_skill) < 0) {
-			return notify_fail("¶Ô·½ÏÖÔÚ²¢Ã»ÓĞÊ¹ÓÃÕâÏîÎä¹¦¡£\n");
+			return notify_fail("å¯¹æ–¹ç°åœ¨å¹¶æ²¡æœ‰ä½¿ç”¨è¿™é¡¹æ­¦åŠŸã€‚\n");
 		}
 	}
 
 	me->set_temp("master_exp", ob->query("combat_exp")/(userp(ob)?2:1));
 	lvl = obj->query_temp("learned_skill");
 	if( lvl >= me->query_temp("skill_lvl"))	{
-		write(HIW"Äã¸Ğ¾õÒÑ¾­½¥½¥ÁìÎòÁË"+me->query_temp("skill_target")+"µÄ¾«Ëè£¬¿ÉÒÔ»ØÈ¥¸´ÃüÁË¡£\n"NOR);
+		write(HIW"ä½ æ„Ÿè§‰å·²ç»æ¸æ¸é¢†æ‚Ÿäº†"+me->query_temp("skill_target")+"çš„ç²¾é«“ï¼Œå¯ä»¥å›å»å¤å‘½äº†ã€‚\n"NOR);
 		me->set_temp("job_done", 1);
 		return 1;
 	}
@@ -132,24 +132,24 @@ int do_touxue(string arg)
 		 ob->receive_damage("jingli", gin_cost/5 + 1);
 	}
 	else {
-		write("µ«ÊÇ" + ob->name() + "ÏÔÈ»Ì«ÀÛÁË£¬ÄãÒÑ¾­Ã»ÓĞ°ì·¨ÍµÑ§µ½Ê²Ã´ÁË¡£\n");
+		write("ä½†æ˜¯" + ob->name() + "æ˜¾ç„¶å¤ªç´¯äº†ï¼Œä½ å·²ç»æ²¡æœ‰åŠæ³•å·å­¦åˆ°ä»€ä¹ˆäº†ã€‚\n");
 		return 1;
 	}
 
 	if( me->query("jing") > gin_cost && me->query("jingli") > gin_cost ){
 	       if(skill_name = SKILL_D(skill)->query_skill_name(master_skill))
-			write(sprintf("Äã¸ù¾İ¶·×ªĞÇÒÆµÄ¾«Ëè£¬×ĞÏ¸×ÁÄ¥×Å%sµÄÃ¿¸öÕĞÊı£¬ÓÈÆä¶Ô¡¸%s¡¹ÕâÒ»ÕĞËÆºõÓĞĞ©ĞÄµÃ¡£\n",
+			write(sprintf("ä½ æ ¹æ®æ–—è½¬æ˜Ÿç§»çš„ç²¾é«“ï¼Œä»”ç»†ç¢ç£¨ç€%sçš„æ¯ä¸ªæ‹›æ•°ï¼Œå°¤å…¶å¯¹ã€Œ%sã€è¿™ä¸€æ‹›ä¼¼ä¹æœ‰äº›å¿ƒå¾—ã€‚\n",
 				ob->name(), skill_name));
 		else
-			write("Äã°ÑËùÍµÑ§µÄ"+to_chinese(skill)+"µÄ¾«»ª°µ°µ¼ÇÔÚĞÄÖĞ¡£\n");
+			write("ä½ æŠŠæ‰€å·å­¦çš„"+to_chinese(skill)+"çš„ç²¾åæš—æš—è®°åœ¨å¿ƒä¸­ã€‚\n");
 		obj->add_skill(skill, me->query("int"));
 	}
 	else {
-		write("ÄãÌ«ÀÛÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»ÏÂ°É¡£\n");
+		write("ä½ å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å§ã€‚\n");
 		return 1;
 	}
 	if (random(10) >= 7 && !userp(ob)) {
-		message_vision("$NÍ»È»¾õµÃÓĞÊ²Ã´ÊÂÇé²»´ó¶ÔÁË£¬Ë«ÑÛ¶ÙÆğÉ±Òâ¡£\n", ob);
+		message_vision("$Nçªç„¶è§‰å¾—æœ‰ä»€ä¹ˆäº‹æƒ…ä¸å¤§å¯¹äº†ï¼ŒåŒçœ¼é¡¿èµ·æ€æ„ã€‚\n", ob);
 		ob->kill_ob(me);
 	}
 

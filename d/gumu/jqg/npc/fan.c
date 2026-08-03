@@ -1,14 +1,14 @@
-// yiweng.c ·®Ò»ÎÌ
+// yiweng.c æ¨Šä¸€ç¿
 inherit NPC;
 void consider();
 void create()
 {
-       set_name("·®Ò»ÎÌ", ({ "fan yiweng","fan","yiweng" }) );
-       set("gender", "ÄĞĞÔ" );
-       set("title","¾øÇé¹È´ó¹Ü¼Ò");
+       set_name("æ¨Šä¸€ç¿", ({ "fan yiweng","fan","yiweng" }) );
+       set("gender", "ç”·æ€§" );
+       set("title","ç»æƒ…è°·å¤§ç®¡å®¶");
        set("age", 60);
-       set("long", "ËûÊÇ¹«Ëï¹ÈÖ÷µÄ´óµÜ×Ó£¬¶îÏÂ³¤ĞëÆ®Òİ£¬\n"+
-                   "³¤³¤µØÍÏÔÚµØÉÏ£¬Éí²ÄÉÔÎ¢°«Ğ¡¡£\n");
+       set("long", "ä»–æ˜¯å…¬å­™è°·ä¸»çš„å¤§å¼Ÿå­ï¼Œé¢ä¸‹é•¿é¡»é£˜é€¸ï¼Œ\n"+
+                   "é•¿é•¿åœ°æ‹–åœ¨åœ°ä¸Šï¼Œèº«æç¨å¾®çŸ®å°ã€‚\n");
        set("attitude", "peaceful");
        set("str", 38);
        set("con", 21);

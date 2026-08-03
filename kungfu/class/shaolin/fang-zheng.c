@@ -1,6 +1,6 @@
 // Modify by YUJ@SJ 2000-11-12
 // Modify by LOOKLOVE@SJ 2001-1-8
-// ·´Ó³ÄÑ¶È¹ı´ó ¼Ó³¤Éú´æÊ±¼ä  Ë³±ãfix¼¸¸öbug Ciwei@SJ
+// åæ˜ éš¾åº¦è¿‡å¤§ åŠ é•¿ç”Ÿå­˜æ—¶é—´  é¡ºä¾¿fixå‡ ä¸ªbug Ciwei@SJ
 #include <ansi.h>
 #include <job_mul.h>
 
@@ -10,15 +10,15 @@ int ask_job();
 
 void create()
 {
-	set_name("·½Õı´óÊ¦", ({ "da shi", }));
-	set("long", "ËûÊÇÒ»Î»Éí²Ä°«Ğ¡µÄÀÏÄêÉ®ÈË£¬ÈİÑÕÊİÏ÷£¬ÉñÉ«´ÈºÍ£¬\n"
-		"Ò²ÇÆ²»³öÓĞ¶àÉÙÄê¼Í¡£\n");
-	set("nickname", "ÉÙÁÖ³¤ÀÏ");
-	set("gender", "ÄĞĞÔ");
+	set_name("æ–¹æ­£å¤§å¸ˆ", ({ "da shi", }));
+	set("long", "ä»–æ˜¯ä¸€ä½èº«æçŸ®å°çš„è€å¹´åƒ§äººï¼Œå®¹é¢œç˜¦å‰Šï¼Œç¥è‰²æ…ˆå’Œï¼Œ\n"
+		"ä¹Ÿç§ä¸å‡ºæœ‰å¤šå°‘å¹´çºªã€‚\n");
+	set("nickname", "å°‘æ—é•¿è€");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 	set("muren_winner",1);
-	set("no_get","ÄãëöÁ¦²»¹»£¬±³²»ÆğÀ´¡£");
+	set("no_get","ä½ è†‚åŠ›ä¸å¤Ÿï¼ŒèƒŒä¸èµ·æ¥ã€‚");
 	set("no_ansuan",1);
 	
 	set("age", 60+random(20));
@@ -50,10 +50,10 @@ void create()
 	set_temp("sljob", 1);
 
 	prepare_skill("finger", "yizhi-chan");
-	create_family("ÉÙÁÖÅÉ", 35, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 35, "å¼Ÿå­");
 
 	set("inquiry", ([
-		"¾ÈÔ®" : (: ask_job :),
+		"æ•‘æ´" : (: ask_job :),
 	]));
 
 	setup();
@@ -65,7 +65,7 @@ void create()
 
 void remove_ob()
 {
-	//¿ÉÄÜÓĞĞ©ÈÓÏÂÕÒ²»µ½µÄdashi¾ÍÔÙÈ¥askjob ·ÀÖ¹Íæ¼ÒËğÊ§ ÕâÀï¾Í²»delete_tempÁË
+	//å¯èƒ½æœ‰äº›æ‰”ä¸‹æ‰¾ä¸åˆ°çš„dashiå°±å†å»askjob é˜²æ­¢ç©å®¶æŸå¤± è¿™é‡Œå°±ä¸delete_tempäº†
 	/*
 	object me;
 	int teams;
@@ -76,7 +76,7 @@ void remove_ob()
 			me->delete_temp("sljob");
 	}
 	*/
-	message_vision(HIR "$N²»ÄÍ·³µØËµ£ºÔõÃ´ÕâÃ´¾Ã»¹²»µ½ºãÉ½£¬ÀÏñÄ×Ô¼ºÏÈÈ¥ÁË¡£\n" NOR, this_object());
+	message_vision(HIR "$Nä¸è€çƒ¦åœ°è¯´ï¼šæ€ä¹ˆè¿™ä¹ˆä¹…è¿˜ä¸åˆ°æ’å±±ï¼Œè€è¡²è‡ªå·±å…ˆå»äº†ã€‚\n" NOR, this_object());
 	destruct(this_object());
 }
 
@@ -110,14 +110,14 @@ void init2(object me)
 	if (me==query("jobleader")
 	&& file_name(environment()) == "/d/hengshan/baiyunan") {
 		if( !me->query_temp("sljob") ) {
-			log_file( "job/husong", sprintf("%8s%-10s×öÉÙÁÖ¡°¾ÈÔ®ºãÉ½¡±ÈÎÎñ³öÏÖBUG¡£\n",
+			log_file( "job/husong", sprintf("%8s%-10såšå°‘æ—â€œæ•‘æ´æ’å±±â€ä»»åŠ¡å‡ºç°BUGã€‚\n",
 				me->query("name"), "("+me->query("id")+")" ),me);
 			call_out("remove_obj",1);
 			return;
 		}
-		command("say ºÃÁË£¬Àú¾¡¼èÏÕ£¬ÖÕÓÚµ½ÁËºãÉ½¡£");
-		command("say ÄãÃÇÏÈ»ØÈ¥¸æËß·½ÕÉ£¬ÎÒºÍ¶¨ÏĞÊ¦Ì«Ò»ÆğµÖ¿¹Ä§½ÌµÄ½ø¹¥¡£");
-		CHANNEL_D->do_channel(ob, "rumor", sprintf("%s"HIR"»¤ËÍ´óÊ¦"NOR"Ë³Àûµ½´ïºãÉ½ÁË£¡", me->query("name")));
+		command("say å¥½äº†ï¼Œå†å°½è‰°é™©ï¼Œç»ˆäºåˆ°äº†æ’å±±ã€‚");
+		command("say ä½ ä»¬å…ˆå›å»å‘Šè¯‰æ–¹ä¸ˆï¼Œæˆ‘å’Œå®šé—²å¸ˆå¤ªä¸€èµ·æŠµæŠ—é­”æ•™çš„è¿›æ”»ã€‚");
+		CHANNEL_D->do_channel(ob, "rumor", sprintf("%s"HIR"æŠ¤é€å¤§å¸ˆ"NOR"é¡ºåˆ©åˆ°è¾¾æ’å±±äº†ï¼", me->query("name")));
 		teams=query("teams");
 		for(i=1;i<=teams;i++) {
 			ob1 = query_temp("team" + i);
@@ -135,36 +135,36 @@ void init2(object me)
 				if (!ob1->query_temp("sljob/killed")) exp = 100 + random(50);
 				if ( ob1->query("sl_job") > 1000 && teams < 2 ) exp /= 5;
 								
-				exp = ob1->add_exp_combat(exp,this_object(),"ÉÙÁÖ¾ÈÔ®");
+				exp = ob1->add_exp_combat(exp,this_object(),"å°‘æ—æ•‘æ´");
 				//ob1->add("combat_exp", exp);
-				//GIFT_D->check_count(ob1,this_object(),"ÉÙÁÖ¾ÈÔ®");
-				//ob1->add("job_time/ÉÙÁÖ¾ÈÔ®",1);
+				//GIFT_D->check_count(ob1,this_object(),"å°‘æ—æ•‘æ´");
+				//ob1->add("job_time/å°‘æ—æ•‘æ´",1);
 				pot = exp/6+random(exp/10);
 				
 				ob1->add("potential", pot);
 				if (ob1->query("potential") > ob1->query("max_pot"))
 					ob1->set("potential", ob1->query("max_pot"));
-				ob1->add("job_time/ÉÙÁÖ",1);				
+				ob1->add("job_time/å°‘æ—",1);				
 				
 				ob1->apply_condition("sljob", exp/60 + random(7));
-                                ob1->set("job_name", "ºãÉ½¾ÈÔ®");
+                                ob1->set("job_name", "æ’å±±æ•‘æ´");
                                 ob1->apply_condition("sl_job_busy", 60);
 				ob1->apply_condition("job_busy",2);
-				tell_object(ob1,HIW"ºÃ£¬ÈÎÎñÍê³É£¬ÄãµÃµ½ÁË" 
+				tell_object(ob1,HIW"å¥½ï¼Œä»»åŠ¡å®Œæˆï¼Œä½ å¾—åˆ°äº†" 
 					+ CHINESE_D->chinese_number( exp ) 
-					+ "µãÊµÕ½¾­ÑéºÍ" 
+					+ "ç‚¹å®æˆ˜ç»éªŒå’Œ" 
 					+ CHINESE_D->chinese_number( pot )
-					+ "µãÇ±ÄÜ¡£\n" NOR);
+					+ "ç‚¹æ½œèƒ½ã€‚\n" NOR);
 				
 				log_file( "job/husong", sprintf("%8s%-10s"
-					+"£¬µÚ%5d´Î£¬%2d¸öÉ±ÊÖ£¬ËÀ%2d¸ö£¬"
-					+ "½±Àø%4dµã£¬Ä¿Ç°¾­Ñé£º%d\n", ob1->query("name"),"("+ob1->query("id")+")",
-					ob1->query("job_time/ÉÙÁÖ"),query_temp("sljob/total"),
+					+"ï¼Œç¬¬%5dæ¬¡ï¼Œ%2dä¸ªæ€æ‰‹ï¼Œæ­»%2dä¸ªï¼Œ"
+					+ "å¥–åŠ±%4dç‚¹ï¼Œç›®å‰ç»éªŒï¼š%d\n", ob1->query("name"),"("+ob1->query("id")+")",
+					ob1->query("job_time/å°‘æ—"),query_temp("sljob/total"),
 					ob1->query_temp("sljob/killed"),exp, ob1->query("combat_exp")),ob1);
 				ob1->delete_temp("sljob");
 				// add for sl wuxiang-zhi's quest
-				if (ob1->query("family/family_name")=="ÉÙÁÖÅÉ" 
-				&& ob1->query("job_time/ÉÙÁÖ¾ÈÔ®") > 1000
+				if (ob1->query("family/family_name")=="å°‘æ—æ´¾" 
+				&& ob1->query("job_time/å°‘æ—æ•‘æ´") > 1000
 				&& ob1->query("combat_exp") > 2000000
 				&& random(ob1->query("combat_exp")) > 1500000
 				&& random(ob1->query_skill("shaolin-shenfa",1)) > 200
@@ -172,12 +172,12 @@ void init2(object me)
 				&& random(ob1->query_skill("buddhism",1)) < 20
 				&& !ob1->query_temp("wxz/quest")
 				&& ob1->query("wxz/quest") < 2) {
-					command("whisper "+ob1->query("id")+" ¸Õ²ÅÎÒÅöµ½·½ÉúÊ¦µÜ£¬ËûËÆºõÓĞÒ»Ğ©"
-						+"¹ØÓÚÉÙÁÖÎä¼¼µÄÏë·¨Òª¸æËßÄã£¬ÇëÄãÂíÉÏÈ¥ËûÄÇÀïÒ»ÌË¡£");
+					command("whisper "+ob1->query("id")+" åˆšæ‰æˆ‘ç¢°åˆ°æ–¹ç”Ÿå¸ˆå¼Ÿï¼Œä»–ä¼¼ä¹æœ‰ä¸€äº›"
+						+"å…³äºå°‘æ—æ­¦æŠ€çš„æƒ³æ³•è¦å‘Šè¯‰ä½ ï¼Œè¯·ä½ é©¬ä¸Šå»ä»–é‚£é‡Œä¸€è¶Ÿã€‚");
 					ob1->set_temp("wxz/quest",1);
 					ob1->set("wxz/quest",1);
-					log_file("quest/wuxiang", sprintf("%8s%-18sµÚ%5d´Î»¤ËÍÈÎÎñÊ±£¬»ñµÃÑ§Ï°ÎŞÏà½ÙÖ¸µÄ»ú»á¡£\n",
-						ob1->query("name"), "("+ob1->query("id")+")", ob1->query("job_time/ÉÙÁÖ")), ob1);
+					log_file("quest/wuxiang", sprintf("%8s%-18sç¬¬%5dæ¬¡æŠ¤é€ä»»åŠ¡æ—¶ï¼Œè·å¾—å­¦ä¹ æ— ç›¸åŠ«æŒ‡çš„æœºä¼šã€‚\n",
+						ob1->query("name"), "("+ob1->query("id")+")", ob1->query("job_time/å°‘æ—")), ob1);
 				}
 			}
 		}
@@ -186,14 +186,14 @@ void init2(object me)
 		i=random(teams+1);
 		ob1=query_temp("team"+i);
 		if (ob1 && present(ob1) && random(10)> 8 ) {
-			tell_object(ob1,HIG"Äã´Ó"+query("name")
-				+"ÄÇÀïµÃµ½ÁËÒ»¿ÅÁùÑôÕıÆøµ¤¡£\n" NOR);
+			tell_object(ob1,HIG"ä½ ä»"+query("name")
+				+"é‚£é‡Œå¾—åˆ°äº†ä¸€é¢—å…­é˜³æ­£æ°”ä¸¹ã€‚\n" NOR);
 			ob2=new("/clone/medicine/neili/liuyang-dan.c");
 			if( ob2 ) {
 				ob2->set("owner",ob1->query("id"));
 				ob2->move(ob1);
 			}
-			log_file("quest/neili", sprintf("%-18s»¤ËÍÈÎÎñ½áÊø£¬µÃµ½ÁùÑôÕıÆøµ¤¡£\n",
+			log_file("quest/neili", sprintf("%-18sæŠ¤é€ä»»åŠ¡ç»“æŸï¼Œå¾—åˆ°å…­é˜³æ­£æ°”ä¸¹ã€‚\n",
 				 ob1->query("name")+"("+ob1->query("id")+")" ), ob1);
 		}
 		return;
@@ -211,8 +211,8 @@ void init2(object me)
 			set_heart_beat(0);
 			set_heart_beat(1);
 			ob1=new("/d/shaolin/npc/killer");
-			message_vision(HIR "Í»È»´ÓÂ·±ß³å³öÒ»¸öÄ§½Ì½ÌÍ½£¬Ò»Éù²»¿ÔµÄÏò"
-				+query("name")+"³åÈ¥¡£\n"NOR, ob);
+			message_vision(HIR "çªç„¶ä»è·¯è¾¹å†²å‡ºä¸€ä¸ªé­”æ•™æ•™å¾’ï¼Œä¸€å£°ä¸å­çš„å‘"
+				+query("name")+"å†²å»ã€‚\n"NOR, ob);
 			ob1->set("lvl",query("lvl"));
 			ob1->set("dashi",ob);
 			ob1->set("int", me->query_int());
@@ -221,7 +221,7 @@ void init2(object me)
 			ob1->set_leader(ob);
 			add_temp("sljob/total",1);
 			if (!random(20)) {
-				message_vision(HIY"" + query("name")+"¸ßº°Ò»Éù£ºÇé¿ö½ô¼±£¬ÎÒ³·ÍË£¬ÄãÑÚ»¤¡£\n"NOR,me);
+				message_vision(HIY"" + query("name")+"é«˜å–Šä¸€å£°ï¼šæƒ…å†µç´§æ€¥ï¼Œæˆ‘æ’¤é€€ï¼Œä½ æ©æŠ¤ã€‚\n"NOR,me);
 				envs=({file_name(environment(me))});
 				for(m=0;m<2;m++) {
 					envs2=envs;
@@ -262,11 +262,11 @@ int ask_job()
 	if( me->query_temp("sljob/asked")==0 ) return 0;
 
 	if( me->query_temp("sljob/asked")>1) {
-		command( "say Äã¸Õ²Å²»ÊÇÎÊ¹ıÁËÂğ£¿¿ìÈ¥°É¡£");
+		command( "say ä½ åˆšæ‰ä¸æ˜¯é—®è¿‡äº†å—ï¼Ÿå¿«å»å§ã€‚");
 		return 1;
 	}
-	command("say ºÃµÄ£¬¾ÍÇëÕâÎ»" + RANK_D->query_respect(me) + "ÔÚÇ°Ãæ´øÂ·£¬Ç°È¥ºãÉ½¡£" );
-	message_vision("$N¾ö¶¨¸úËæ$nÒ»ÆğĞĞ¶¯¡£\n",ob,me);
+	command("say å¥½çš„ï¼Œå°±è¯·è¿™ä½" + RANK_D->query_respect(me) + "åœ¨å‰é¢å¸¦è·¯ï¼Œå‰å»æ’å±±ã€‚" );
+	message_vision("$Nå†³å®šè·Ÿéš$nä¸€èµ·è¡ŒåŠ¨ã€‚\n",ob,me);
 	set_leader(me);
 	set("sljob/leader",me);
 	me->set_temp("sljob/asked",2);
@@ -275,7 +275,7 @@ int ask_job()
 
 void attempt_apprentice(object ob)
 {
-	command("say ¶Ô²»Æğ£¬ÀÏñÄÏÖÔÚ²»ÊÕÍ½¡£");
+	command("say å¯¹ä¸èµ·ï¼Œè€è¡²ç°åœ¨ä¸æ”¶å¾’ã€‚");
 }
 
 void unconcious()
@@ -312,8 +312,8 @@ void die()
 		::die();
 		return;
 	}
-	tell_object( me, HIY""+query("name")+"²»ĞÒÕóÍö£¬ÄãÈÎÎñÊ§°Ü¡£\n"NOR);
-	log_file("job/husong", sprintf("%8s%-10sÈÎÎñÊ§°Ü¡£\n", me->query("name"),"("+me->query("id")+")"), me);
+	tell_object( me, HIY""+query("name")+"ä¸å¹¸é˜µäº¡ï¼Œä½ ä»»åŠ¡å¤±è´¥ã€‚\n"NOR);
+	log_file("job/husong", sprintf("%8s%-10sä»»åŠ¡å¤±è´¥ã€‚\n", me->query("name"),"("+me->query("id")+")"), me);
 	me->apply_condition("sljob",10);
 	me->apply_condition("job_busy", 10);
 	me->delete_temp("sljob");
@@ -326,6 +326,6 @@ void kill_ob(object ob)
 	{
 		ob->remove_killer(this_object());
 		remove_killer(ob);
-		message_vision("$NĞÄÖĞºöÈ»¾õµÃ£º¡°×Ô¼ºÔõÃ´ÕâÃ´ÎŞ³Ü£¬¾ÓÈ»¶ÔÕâÑùµÂ¸ßÍûÖØµÄ´óÊ¦ÏÂ´Ë¶¾ÊÖ£¿¡±\n", ob);
+		message_vision("$Nå¿ƒä¸­å¿½ç„¶è§‰å¾—ï¼šâ€œè‡ªå·±æ€ä¹ˆè¿™ä¹ˆæ— è€»ï¼Œå±…ç„¶å¯¹è¿™æ ·å¾·é«˜æœ›é‡çš„å¤§å¸ˆä¸‹æ­¤æ¯’æ‰‹ï¼Ÿâ€\n", ob);
 	}
 }

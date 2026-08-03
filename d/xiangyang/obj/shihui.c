@@ -3,9 +3,9 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIW"Ê¯»Ò·Û"NOR, ({ "shihui fen","fen" }) );
-        set("long",HIW"ÎäÁÖÖÐÎÞ³ÜÖ®Í½Ê¹µÄÊ¯»Ò·Û¡£¿ÉÒÔÈö(sa)ÏòµÐÈËµÄÑÛ¾¦¡£\n"NOR);
-        set("unit", "Ð¡°ü");
+        set_name(HIW"çŸ³ç°ç²‰"NOR, ({ "shihui fen","fen" }) );
+        set("long",HIW"æ­¦æž—ä¸­æ— è€»ä¹‹å¾’ä½¿çš„çŸ³ç°ç²‰ã€‚å¯ä»¥æ’’(sa)å‘æ•Œäººçš„çœ¼ç›ã€‚\n"NOR);
+        set("unit", "å°åŒ…");
         set("weight", 10);
         set("no_sell",1);
         set("no_give",1);
@@ -23,32 +23,32 @@ int blind(string arg)
         object me=this_player();
         object ob;
 
-        if(!arg) return notify_fail("ÄãÒªÈöË­£¿\n");
+        if(!arg) return notify_fail("ä½ è¦æ’’è°ï¼Ÿ\n");
 
         ob = present(arg, environment(me));
 
-        if(!ob) return notify_fail("ÄãÒªÈöË­£¿\n");
+        if(!ob) return notify_fail("ä½ è¦æ’’è°ï¼Ÿ\n");
 
-        if(ob == me) return notify_fail("ÑÛÒ©Ë®»á±È½ÏÊÊºÏ¡£\n");
+        if(ob == me) return notify_fail("çœ¼è¯æ°´ä¼šæ¯”è¾ƒé€‚åˆã€‚\n");
 
         if((ob->query("id") != "cheng ying")&&
             (ob->query("id") != "wu tianfeng")&&
             (ob->query("id") != "feng mofeng"))
-                 return notify_fail("Õâ¸öºÃÏñ²»ÊÇÄãµÄÄ¿±ê¡£\n");
+                 return notify_fail("è¿™ä¸ªå¥½åƒä¸æ˜¯ä½ çš„ç›®æ ‡ã€‚\n");
 
         if( !wizardp(me) && userp(ob) )
-                return notify_fail("Õâ¸öºÃÏñ²»ÊÇÄãµÄÄ¿±ê¡£\n");
+                return notify_fail("è¿™ä¸ªå¥½åƒä¸æ˜¯ä½ çš„ç›®æ ‡ã€‚\n");
 
-        message_vision("$NÍ»È»Ïò×Å$nÈö³öÒ»¶Ñ·ÛÄ©£¡\n",me, ob);
+        message_vision("$Nçªç„¶å‘ç€$næ’’å‡ºä¸€å †ç²‰æœ«ï¼\n",me, ob);
         if (random(me->query_skill("throwing",1)) < random(ob->query_dex()*4))
         {
-                message_vision(HIR"$n¶Ô×Å$NÃÆºßÒ»Éù£º¡°ÎÞ³ÜÐ¡Ôô£¡¡±\n"NOR,me,ob);
+                message_vision(HIR"$nå¯¹ç€$Né—·å“¼ä¸€å£°ï¼šâ€œæ— è€»å°è´¼ï¼â€\n"NOR,me,ob);
                 me->start_busy(5);
                 ob->kill_ob(me);
                 destruct(this_object());
                 return 1;
         } else {
-        message_vision(HIR"$n±»$NÈöÖÐÑÛ¾¦£¬µÇÊ±ÑÛ¾¦¾çÍ´£¬Ä¿²»Ê¶Îï£¡\n"NOR,me,ob);
+        message_vision(HIR"$nè¢«$Næ’’ä¸­çœ¼ç›ï¼Œç™»æ—¶çœ¼ç›å‰§ç—›ï¼Œç›®ä¸è¯†ç‰©ï¼\n"NOR,me,ob);
         if (me->query_temp("xy/job")!=0)
                 me->add_temp("xy/job",1);
         ob->start_busy(5);

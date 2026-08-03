@@ -16,38 +16,38 @@ mapping *day_phase;
 string daytime = "";
 
 string *month_time = ({
-	"´ºÌìÇÄÇÄµØ×ßÀ´ÁË£¬",
-	"´º·çÇáÇáµØ·÷¹ıÄãµÄÁ³ÅÓ£¬",
-	"ÌìÆøÖğ½¥±äÅ¯ÁË£¬",
-	"ÒÑ¾­ÊÇ³õÏÄÊ±½ÚÁË£¬",
-	"ÖªÁËµÄ½ĞÉùÈÃÄã¸Ğ¾õµ½ÁËÊ¢ÏÄµÄÆøÏ¢£¬",
-	"ÌìÆø±äµÃ·Ç³£ÃÆÈÈ£¬",
-	"ËäÈ»ÊÇÇïÌìÁË£¬ÌìÆø»¹ÊÇÓĞĞ©ÈÈ£¬",
-	"ÖĞÇï¼Ñ½Ú¿ìµ½ÁË£¬",
-	"Ò»ÕóÇï·ç´µÀ´£¬¾íÆğÁËµØÉÏµÄÂäÒ¶£¬",
-	"ÇïÈ¥¶¬À´£¬",
-	"º®·çÁİÙı£¬",
-	"¿ìµ½Äê¹ØÁË£¬",
+	"æ˜¥å¤©æ‚„æ‚„åœ°èµ°æ¥äº†ï¼Œ",
+	"æ˜¥é£è½»è½»åœ°æ‹‚è¿‡ä½ çš„è„¸åºï¼Œ",
+	"å¤©æ°”é€æ¸å˜æš–äº†ï¼Œ",
+	"å·²ç»æ˜¯åˆå¤æ—¶èŠ‚äº†ï¼Œ",
+	"çŸ¥äº†çš„å«å£°è®©ä½ æ„Ÿè§‰åˆ°äº†ç››å¤çš„æ°”æ¯ï¼Œ",
+	"å¤©æ°”å˜å¾—éå¸¸é—·çƒ­ï¼Œ",
+	"è™½ç„¶æ˜¯ç§‹å¤©äº†ï¼Œå¤©æ°”è¿˜æ˜¯æœ‰äº›çƒ­ï¼Œ",
+	"ä¸­ç§‹ä½³èŠ‚å¿«åˆ°äº†ï¼Œ",
+	"ä¸€é˜µç§‹é£å¹æ¥ï¼Œå·èµ·äº†åœ°ä¸Šçš„è½å¶ï¼Œ",
+	"ç§‹å»å†¬æ¥ï¼Œ",
+	"å¯’é£å‡›å†½ï¼Œ",
+	"å¿«åˆ°å¹´å…³äº†ï¼Œ",
 });
 string *month_desc = ({
-	"ÕâÊÇÒ»¸ö³õ´ºµÄ",
-	"ÕâÊÇÒ»¸öÔç´º¶şÔÂµÄ",
-	"ÕâÊÇÒ»¸öÑô´ºÈıÔÂµÄ",
-	"ÕâÊÇÒ»¸ö³õÏÄµÄ",
-	"ÕâÊÇÒ»¸öÊ¢ÏÄµÄ",
-	"ÕâÊÇÒ»¸öÖÙÏÄµÄ",
-	"ÕâÊÇÒ»¸ö³õÇïµÄ",
-	"ÕâÊÇÒ»¸öÇïÈÕµÄ",
-	"ÕâÊÇÒ»¸öÉîÇïµÄ",
-	"ÕâÊÇÒ»¸ö³õ¶¬µÄ",
-	"ÕâÊÇÒ»¸öÂ¡¶¬µÄ",
-	"ÕâÊÇÒ»¸öº®¶¬µÄ",
+	"è¿™æ˜¯ä¸€ä¸ªåˆæ˜¥çš„",
+	"è¿™æ˜¯ä¸€ä¸ªæ—©æ˜¥äºŒæœˆçš„",
+	"è¿™æ˜¯ä¸€ä¸ªé˜³æ˜¥ä¸‰æœˆçš„",
+	"è¿™æ˜¯ä¸€ä¸ªåˆå¤çš„",
+	"è¿™æ˜¯ä¸€ä¸ªç››å¤çš„",
+	"è¿™æ˜¯ä¸€ä¸ªä»²å¤çš„",
+	"è¿™æ˜¯ä¸€ä¸ªåˆç§‹çš„",
+	"è¿™æ˜¯ä¸€ä¸ªç§‹æ—¥çš„",
+	"è¿™æ˜¯ä¸€ä¸ªæ·±ç§‹çš„",
+	"è¿™æ˜¯ä¸€ä¸ªåˆå†¬çš„",
+	"è¿™æ˜¯ä¸€ä¸ªéš†å†¬çš„",
+	"è¿™æ˜¯ä¸€ä¸ªå¯’å†¬çš„",
 });
 
 mapping *read_table(string file);
 void init_day_phase();
 
-//È¡µÃµ±Ç°µÄÔÂ·İ
+//å–å¾—å½“å‰çš„æœˆä»½
 int query_month()       
 { 
 	mixed *local;
@@ -74,9 +74,9 @@ void create()
 	switch(get_month)
 	{
 		//spring weather
-		case "Èı":
-		case "ËÄ":
-		case "Îå":
+		case "ä¸‰":
+		case "å››":
+		case "äº”":
 		     switch(random(2))
 		     {
 			case 0:
@@ -91,9 +91,9 @@ void create()
 		     }
 		     break;
 		//summer weather
-		case "Áù":
-		case "Æß":
-		case "°Ë":
+		case "å…­":
+		case "ä¸ƒ":
+		case "å…«":
 		     switch(random(2))
 		     {
 			case 0:
@@ -108,9 +108,9 @@ void create()
 		     }
 		     break;
 		//autumn weather
-		case "¾Å":
-		case "Ê®":
-		case "Ê®Ò»":
+		case "ä¹":
+		case "å":
+		case "åä¸€":
 		     switch(random(2))
 		     {
 			case 0:
@@ -125,9 +125,9 @@ void create()
 		     }
 		     break;
 		//winter weather
-		case "Ê®¶ş":
-		case "Ò»":
-		case "¶ş":
+		case "åäºŒ":
+		case "ä¸€":
+		case "äºŒ":
 		     switch(random(2))
 		     {
 			case 0:
@@ -146,14 +146,14 @@ void create()
 	}
 	switch(get_day)
 	{
-		case "Ò»ÔÂÒ»ÈÕ":
+		case "ä¸€æœˆä¸€æ—¥":
 		     day_phase = read_table("/adm/etc/nature/spring");
 		     break;
-//		case "ÎåÔÂÎåÈÕ":
-//		case "ÆßÔÂÆßÈÕ":
-//		case "°ËÔÂÊ®ÎåÈÕ":
-//		case "¾ÅÔÂ¾ÅÈÕ":
-//		case "Ê®¶şÔÂ°ËÈÕ":
+//		case "äº”æœˆäº”æ—¥":
+//		case "ä¸ƒæœˆä¸ƒæ—¥":
+//		case "å…«æœˆåäº”æ—¥":
+//		case "ä¹æœˆä¹æ—¥":
+//		case "åäºŒæœˆå…«æ—¥":
 	}
 //	day_phase = read_table("/adm/etc/nature/day_phase");
 	init_day_phase();
@@ -178,7 +178,7 @@ void init_day_phase()
 	current_day_phase = i;
 	daytime = day_phase[current_day_phase]["event_fun"];
 
-	// MUD ÔËĞĞÊ±¼ä¾ÃÁË£¬Ê±¼ä»áÓĞÆ«²î£¬ÕâÀïÊÇµ÷Õû³ÌĞò£¬Ã¿Ğ¡Ê±Ö´ĞĞÒ»´Î
+	// MUD è¿è¡Œæ—¶é—´ä¹…äº†ï¼Œæ—¶é—´ä¼šæœ‰åå·®ï¼Œè¿™é‡Œæ˜¯è°ƒæ•´ç¨‹åºï¼Œæ¯å°æ—¶æ‰§è¡Œä¸€æ¬¡
 	// Modify by Yu Jue 98-8-20
 	i = time();
 	remove_call_out("init_day_phase");
@@ -190,7 +190,7 @@ void init_day_phase()
 		if (local[2] < 8) {
 			if (find_call_out("update_day_phase") != -1)
 				message("channel",
-					"\n\t"+CHINESE_MUD_NAME+"½«ÔÚ±±¾©Ê±¼ä°ËµãÖÁ¾ÅµãÖ®¼ä×Ô¶¯ÖØĞÂÆô¶¯¡£\n\n", users()
+					"\n\t"+CHINESE_MUD_NAME+"å°†åœ¨åŒ—äº¬æ—¶é—´å…«ç‚¹è‡³ä¹ç‚¹ä¹‹é—´è‡ªåŠ¨é‡æ–°å¯åŠ¨ã€‚\n\n", users()
 				);
 		} else if (local[2] < 10)
 			"/cmds/common/reboot"->main(this_object(), "10");
@@ -206,7 +206,7 @@ void init_day_phase()
 	call_out("test_robot", 20+random(CALLOUT_TICK));
 	remove_call_out("find_unique");
 	call_out("find_unique", 60+random(CALLOUT_TICK));
-	// ¹«¸æÆµµÀ£¬¶¨Ê±·¢²¼ĞÅÏ¢
+	// å…¬å‘Šé¢‘é“ï¼Œå®šæ—¶å‘å¸ƒä¿¡æ¯
 //	remove_call_out("declare_channel");
 //	call_out("declare_channel",1200);
 }
@@ -220,7 +220,7 @@ void declare_channel()
 	call_out("declare_channel",1200);
 
 	while( s_declare = read_file(DECLARE_FILE,line,1) ) {
-		if( sscanf( s_declare, "ÎÄ±¾£º%sÈ¨Öµ£º%d",	txt,i ) == 2 ) {
+		if( sscanf( s_declare, "æ–‡æœ¬ï¼š%sæƒå€¼ï¼š%d",	txt,i ) == 2 ) {
 			obj += ({ (["txt": txt, "weight": i]) });
 			totle += i;
 		}
@@ -235,7 +235,7 @@ void declare_channel()
 		i+=obj[k]["weight"];
 		k++;
 	}
-	message("channel:declare", HIY "\n¡¾ĞÅÏ¢¡¿"+ obj[k]["txt"]+"\n" NOR,users());
+	message("channel:declare", HIY "\nã€ä¿¡æ¯ã€‘"+ obj[k]["txt"]+"\n" NOR,users());
 	return;
 }
 
@@ -278,22 +278,22 @@ void event_noon()
         {
         case 3: case 4: case 5:
                 ill = "ill_kesou";
-                msg = HIG + "ºöÈ»ºíÍ·Ò»ÕóºÛÑ÷£¬Äã¸Ğ¾õËÆºõÒª¿ÈËÔÁË¡£\n" + NOR;
+                msg = HIG + "å¿½ç„¶å–‰å¤´ä¸€é˜µç—•ç—’ï¼Œä½ æ„Ÿè§‰ä¼¼ä¹è¦å’³å—½äº†ã€‚\n" + NOR;
                 ic  = 5;
                 break;
         case 6: case 7: case 8:
                 ill = "ill_zhongshu";
-                msg = HIG+"Í»È»ÄãĞØÒÜÖ®¼äÒ»Õó·­ÌÚ£¬ÄãÖĞÊîÁË¡£\n" + NOR;
+                msg = HIG+"çªç„¶ä½ èƒ¸è‡†ä¹‹é—´ä¸€é˜µç¿»è…¾ï¼Œä½ ä¸­æš‘äº†ã€‚\n" + NOR;
                 ic  = 5;
                 break;
         case 9: case 10: case 11:
                 ill = "ill_shanghan";
-                msg = HIG+"¶¸µÄÄã´òÁË¸öÀäÕ½£¬Í·»è³Á³ÁµÄ£¬ÄãµÃÉËº®²¡ÁË¡£\n"+NOR;
+                msg = HIG+"é™¡çš„ä½ æ‰“äº†ä¸ªå†·æˆ˜ï¼Œå¤´æ˜æ²‰æ²‰çš„ï¼Œä½ å¾—ä¼¤å¯’ç—…äº†ã€‚\n"+NOR;
                 ic  = 5;
                 break;
         case 12: case 1: case 2:
                 ill = "ill_dongshang";
-                msg = HIG+"ÄãÖ«ÌåÄ©¶ËÒ»Õó½©Ö±£¬¿´À´Äã±»¶³ÉËÁË¡£\n"+NOR;
+                msg = HIG+"ä½ è‚¢ä½“æœ«ç«¯ä¸€é˜µåƒµç›´ï¼Œçœ‹æ¥ä½ è¢«å†»ä¼¤äº†ã€‚\n"+NOR;
                 ic  = 0;
                 break;
         }
@@ -301,7 +301,7 @@ void event_noon()
         if (random(4) == 0)
         {
                 ill = "ill_fashao";
-                msg = HIG+"ÄãÅ¼¸Ğ·çº®£¬¾¹¶ø·¢ÆğÉÕÀ´¡£\n"+NOR;
+                msg = HIG+"ä½ å¶æ„Ÿé£å¯’ï¼Œç«Ÿè€Œå‘èµ·çƒ§æ¥ã€‚\n"+NOR;
         }
 
         ob = users();
@@ -363,7 +363,7 @@ void find_unique() // Reclaim and find unique stuffs.
 
 	i = sizeof(obs);
 	if(!i) return;
-/* ²»Òª×Ô¶¯ reclaim£¬ÕâÑùÓĞ´íÎóÒ²·¢ÏÖ²»ÁË¡£
+/* ä¸è¦è‡ªåŠ¨ reclaimï¼Œè¿™æ ·æœ‰é”™è¯¯ä¹Ÿå‘ç°ä¸äº†ã€‚
 	i = sizeof(obs);
 	while (i--)
 	if (!environment(obs[i]) && !interactive(obs[i]) && !obs[i]->query_temp("body_ob")) {
@@ -387,11 +387,11 @@ void find_unique() // Reclaim and find unique stuffs.
 		else
 			str = TASK_D->get_regions(base_name(environment(where)));
 		if (str == "")
-			str = "ÖĞÔ­";
-		str = (!random(10)?where->query("name"):"ÓĞÈË")+"´ø×Å"+obs[i]->name(1)+ "ÔÚ"+ str + "Ò»´ø³öÏÖ£¡";
+			str = "ä¸­åŸ";
+		str = (!random(10)?where->query("name"):"æœ‰äºº")+"å¸¦ç€"+obs[i]->name(1)+ "åœ¨"+ str + "ä¸€å¸¦å‡ºç°ï¼";
 	}
 	else if(where->query("short"))
-		str = "¾İËµ"+obs[i]->name(1)+ "ºÃÏó²ØÔÚ"+ TASK_D->get_regions(base_name(where)) + where->query("short") + "¸½½ü£¡";
+		str = "æ®è¯´"+obs[i]->name(1)+ "å¥½è±¡è—åœ¨"+ TASK_D->get_regions(base_name(where)) + where->query("short") + "é™„è¿‘ï¼";
 	
 	if(!str) return;
 	
@@ -412,9 +412,9 @@ void event_sunrise()
 
 string outdoor_room_description()
 {
-	return "¡¡¡¡" + sprintf(
+	return "ã€€ã€€" + sprintf(
 		day_phase[current_day_phase]["desc_msg"],
-		month_desc[current_month]) + "¡£\n" NOR;
+		month_desc[current_month]) + "ã€‚\n" NOR;
 }
 
 string game_time()

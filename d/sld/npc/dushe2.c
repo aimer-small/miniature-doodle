@@ -2,13 +2,13 @@ inherit NPC;
 void kuser();
 void create()
 {
-	set_name("����", ({ "du she", "dushe", "snake", "she" }) );
-	set("race", "Ұ��");
+	set_name("毒蛇", ({ "du she", "dushe", "snake", "she" }) );
+	set("race", "野兽");
 	set("age", 20);
-	set("long", "һ�����м�ڵĶ��ߣ�ȫ��Ѫ�졢�������¡�����������ͷ������\n");
+	set("long", "一条黄中间黑的毒蛇，全身血红、长舌吞吐、嗤嗤作声、头作三角\n");
 	set("attitude", "peaceful");
 
-	set("limbs", ({ "ͷ��", "����", "�ߴ�", "β��" }) );
+	set("limbs", ({ "头部", "身体", "七寸", "尾巴" }) );
 	set("verbs", ({ "twist", "bite" }) );
 
 	set("combat_exp", 20000);

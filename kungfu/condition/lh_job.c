@@ -4,7 +4,7 @@ int update_condition(object me, int duration)
 {
 
 	if (duration < 2){
-       tell_object(me, HIY "Ò»¸ö»ëºñµÄÉùÒôÖ±Í¸ÄãµÄ¶ú¹Ç£¬ÄãµÄÖµÇÚÊ±¼äÒÑ¾­µ½ÁË¡£\n" NOR);
+       tell_object(me, HIY "ä¸€ä¸ªæµ‘åŽšçš„å£°éŸ³ç›´é€ä½ çš„è€³éª¨ï¼Œä½ çš„å€¼å‹¤æ—¶é—´å·²ç»åˆ°äº†ã€‚\n" NOR);
        me->delete_temp("lh_teacher");  
         return 0;
        }

@@ -1,4 +1,4 @@
-// huangjingun.c »Æ½ğ¹÷
+// huangjingun.c é»„é‡‘æ£
 
 #include <weapon.h>
 #include <ansi.h>
@@ -6,18 +6,18 @@ inherit CLUB;
 
 void create()
 {
-        set_name(HIY "»Æ½ğ¹÷" NOR, ({ "huangjin gun","gun" }));
+        set_name(HIY "é»„é‡‘æ£" NOR, ({ "huangjin gun","gun" }));
         set_weight(3000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
+                set("unit", "æ ¹");
 		set("unique", 1);
-                set("long", "Õâ½ğ¹÷³¤´ïÆß³ß£¬¾¶Ò»´çÓĞ°ë£¬Í¨Ìå»Æ½ğÖı³É¡£\n");
+                set("long", "è¿™é‡‘æ£é•¿è¾¾ä¸ƒå°ºï¼Œå¾„ä¸€å¯¸æœ‰åŠï¼Œé€šä½“é»„é‡‘é“¸æˆã€‚\n");
                 set("value", 50000);
                 set("material", "steel");
-                set("wield_msg", "$N½«$nÒ»¶¶£¬ÎÕÔÚÊÖÖĞ£¬Ë³ÊÖ¶¶ÆğÁ½¶ä½ğ»¨£¬Ö»¼û½ğ¹âÒ«ÑÛ¡£\n");
-                set("unwield_msg", "$NÊÕÆğÊÖÖĞµÄ$n£¬½ğ¹âºöÈ»ÏûÊ§²»¼û¡£\n");
+                set("wield_msg", "$Nå°†$nä¸€æŠ–ï¼Œæ¡åœ¨æ‰‹ä¸­ï¼Œé¡ºæ‰‹æŠ–èµ·ä¸¤æœµé‡‘èŠ±ï¼Œåªè§é‡‘å…‰è€€çœ¼ã€‚\n");
+                set("unwield_msg", "$Næ”¶èµ·æ‰‹ä¸­çš„$nï¼Œé‡‘å…‰å¿½ç„¶æ¶ˆå¤±ä¸è§ã€‚\n");
         }
                 init_club(120);
         setup();

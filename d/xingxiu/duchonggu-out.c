@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create ()
 {
-	set ("short", "¶¾³æ¹È");
+	set ("short", "æ¯’è™«è°·");
 	set ("long", @LONG
-Ò»Æ¬Æ½Ì¹¹ÈµØ£¬ËÄÖÜÊÇ´óÉ½»·ÈÆ¡£ËÄÖÜÒõ³Á³ÁµÄ£¬Æø·ÕÊ®·Ö¿Ö²À¡£¹ÈÄÚ
-ÕÎÆøËÄÆð£¬¸÷ÖÖ¶¾Îï£¬²»¼ÆÆäÊý£¬µØÏÂ¶¼ÊÇ³ÂÄê¸¯²Ý°ÜÒ¶ÀÃ³ÉµÄÈíÄà¡£º®·ç
-´ÓÉ½¹ÈÍ¨µÀÖÐ¹Î½øÀ´£¬´µµÃÄã¼¡·ôÒþÒþÉúÌÛ¡£
+ä¸€ç‰‡å¹³å¦è°·åœ°ï¼Œå››å‘¨æ˜¯å¤§å±±çŽ¯ç»•ã€‚å››å‘¨é˜´æ²‰æ²‰çš„ï¼Œæ°”æ°›ååˆ†ææ€–ã€‚è°·å†…
+ç˜´æ°”å››èµ·ï¼Œå„ç§æ¯’ç‰©ï¼Œä¸è®¡å…¶æ•°ï¼Œåœ°ä¸‹éƒ½æ˜¯é™ˆå¹´è…è‰è´¥å¶çƒ‚æˆçš„è½¯æ³¥ã€‚å¯’é£Ž
+ä»Žå±±è°·é€šé“ä¸­åˆ®è¿›æ¥ï¼Œå¹å¾—ä½ è‚Œè‚¤éšéšç”Ÿç–¼ã€‚
 LONG);
 
 	set("exits", 
@@ -35,10 +35,10 @@ int do_yell(string arg)
 	
 	me=this_player();
 
-	if( !arg || (arg != "¿ì¹ØÃÅ" && arg != "open" && arg != "¿ì¿ªÃÅ" && arg != "¿ªÃÅ"&&arg!="¹ØÃÅ"&&arg!="close") )
-		return notify_fail("ÄãÒªº°Ê²Ã´£¿\n");       
+	if( !arg || (arg != "å¿«å…³é—¨" && arg != "open" && arg != "å¿«å¼€é—¨" && arg != "å¼€é—¨"&&arg!="å…³é—¨"&&arg!="close") )
+		return notify_fail("ä½ è¦å–Šä»€ä¹ˆï¼Ÿ\n");       
 
-	if(arg == "open" || arg == "¿ì¿ªÃÅ" || arg == "¿ªÃÅ")call_out("open_out", 1);
+	if(arg == "open" || arg == "å¿«å¼€é—¨" || arg == "å¼€é—¨")call_out("open_out", 1);
 	else call_out("close_out",1);
 	return 1; 
 }
@@ -51,8 +51,8 @@ void open_out()
 	{
 		set("exits/south", __DIR__"rukou");
 		uproom->set("exits/north", __FILE__);
-		message("vision", "´óÃÅ·¢³öÔþÔþµÄÉùÒô£¬ÂýÂý´ò¿ª£¬ÄãÏÖÔÚ¿ÉÒÔ½øÈ¥ÁË¡£\n", uproom );
-		message("vision", "´óÃÅ·¢³öÔþÔþµÄÉùÒô£¬ÂýÂý´ò¿ª£¬ÄãÏÖÔÚ¿ÉÒÔ³öÈ¥ÁË¡£\n", this_object() );
+		message("vision", "å¤§é—¨å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œæ…¢æ…¢æ‰“å¼€ï¼Œä½ çŽ°åœ¨å¯ä»¥è¿›åŽ»äº†ã€‚\n", uproom );
+		message("vision", "å¤§é—¨å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œæ…¢æ…¢æ‰“å¼€ï¼Œä½ çŽ°åœ¨å¯ä»¥å‡ºåŽ»äº†ã€‚\n", this_object() );
 	}
 
 	call_out("close_out", 20);
@@ -64,11 +64,11 @@ void close_out()
 
 	if( !query("exits/south") ) return;
 
-	message("vision", "´óÃÅ·¢³öÔþÔþµÄÉùÒô£¬ÖØÐÂÓÖ¹ØÉÏÁË¡£\n", this_object() );
+	message("vision", "å¤§é—¨å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œé‡æ–°åˆå…³ä¸Šäº†ã€‚\n", this_object() );
 
 	if( uproom = find_object(__DIR__"rukou") ) 
 	{
-		message("vision", "´óÃÅ·¢³öÔþÔþµÄÉùÒô£¬ÖØÐÂÓÖ¹ØÉÏÁË¡£\n", uproom );
+		message("vision", "å¤§é—¨å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œé‡æ–°åˆå…³ä¸Šäº†ã€‚\n", uproom );
 		uproom->delete("exits/north");
 	}
 
@@ -81,7 +81,7 @@ int valid_leave(object me, string dir)
 	if(dir == "northwest"){
 
         if (me->query("combat_exp")<3000)
-        return notify_fail("ÕâÀïÃæÌ«Î£ÏÕ£¬Äã»¹ÊÇ²»Òª½øÈ¥ÁË¡£\n");
+        return notify_fail("è¿™é‡Œé¢å¤ªå±é™©ï¼Œä½ è¿˜æ˜¯ä¸è¦è¿›åŽ»äº†ã€‚\n");
         
         time = 10+random(10);
         me->apply_condition("xx_catch",time);

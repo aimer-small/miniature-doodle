@@ -2,10 +2,10 @@ inherit ITEM;
 
 void create()
 {
-        set_name("òşÉßÆ¤", ({"mangshe pi", "pi", "shepi"}));
+        set_name("èŸ’è›‡çš®", ({"mangshe pi", "pi", "shepi"}));
         set_weight(10000);
-        set("unit", "¾í");
-        set("long", "ÕâÊÇÒ»¾íĞÂ°ÎµÄòşÉßÆ¤£¬ºÚÖĞÍ¸×Å¹âÁÁ¡£\n");
+        set("unit", "å·");
+        set("long", "è¿™æ˜¯ä¸€å·æ–°æ‹”çš„èŸ’è›‡çš®ï¼Œé»‘ä¸­é€ç€å…‰äº®ã€‚\n");
         set("value", 50000);
 //        setup();
 }

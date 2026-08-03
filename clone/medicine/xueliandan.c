@@ -1,4 +1,4 @@
-// xueliandan.c Ñ©Á«µ¤
+// xueliandan.c é›ªèŽ²ä¸¹
 
 #include <ansi.h>
 
@@ -14,14 +14,14 @@ void init()
 
 void create()
 {
-	set_name("Ñ©Á«µ¤", ({"xuelian dan", "xueliandan", "dan"}));
+	set_name("é›ªèŽ²ä¸¹", ({"xuelian dan", "xueliandan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿ÅÃÜÖÆµÄÑ©Á«µ¤£¬É¢·¢³öÒ»¹Éµ­µ­µÄÇåÏã£¬ÄËÊÇ´ÓÊýÖêÑ©Á«ÖÐÌáÁ¶ÝÍÈ¡¶øÀ´¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—å¯†åˆ¶çš„é›ªèŽ²ä¸¹ï¼Œæ•£å‘å‡ºä¸€è‚¡æ·¡æ·¡çš„æ¸…é¦™ï¼Œä¹ƒæ˜¯ä»Žæ•°æ ªé›ªèŽ²ä¸­æç‚¼èƒå–è€Œæ¥ã€‚\n");
 		set("value", 2000);
-		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
 	}
 
 	set("xueshan",1);
@@ -33,12 +33,12 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->query_skill_mapped("force") != "longxiang-boruo" )
 	{
 		me->add("max_jingli", -10);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÑ©Á«µ¤£¬Ö»¾õµÃÂú×ì¿ÝÉ¬£¬ÉàÍ··¢½ô£¬ÆßÇÏÉúÑÌ£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËðÕæÔª£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—é›ªèŽ²ä¸¹ï¼Œåªè§‰å¾—æ»¡å˜´æž¯æ¶©ï¼ŒèˆŒå¤´å‘ç´§ï¼Œä¸ƒçªç”ŸçƒŸï¼ŒåŽŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸçœŸå…ƒï¼\n" NOR, me);
 		me->unconcious();
 		destruct(this_object());
 		return 1;
@@ -47,12 +47,12 @@ int do_eat(string arg)
 	if ( (int)me->query_condition("neili_drug" ) > 0 )
 	{
 		me->add("eff_jingli", -1);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÑ©Á«µ¤£¬Ö»¾õµÃÎ¶Èç½ÀÀ¯£¬¾«Éñ·´¶ø²»ÈçÒÔÇ°£¬Ô­À´·þÊ³Ì«¼±Ì«¶à£¬Ò©Ð§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—é›ªèŽ²ä¸¹ï¼Œåªè§‰å¾—å‘³å¦‚åš¼èœ¡ï¼Œç²¾ç¥žåè€Œä¸å¦‚ä»¥å‰ï¼ŒåŽŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
 	else
 	{
 		me->add("eff_jingli", 1);
-		message_vision(HIG "$N³ÔÏÂÒ»¿ÅÑ©Á«µ¤£¬Ö»¾õµÃ×ÔÄÚÏòÍâÒ»¹ÉÏãÆøÇßÈËÐÄÆ¢£¬¾«ÉñÎªÖ®Ò»Õñ!\n" NOR, me);
+		message_vision(HIG "$Nåƒä¸‹ä¸€é¢—é›ªèŽ²ä¸¹ï¼Œåªè§‰å¾—è‡ªå†…å‘å¤–ä¸€è‚¡é¦™æ°”æ²äººå¿ƒè„¾ï¼Œç²¾ç¥žä¸ºä¹‹ä¸€æŒ¯!\n" NOR, me);
 	}
 
 	me->apply_condition("neili_drug", 15);

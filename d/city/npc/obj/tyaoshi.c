@@ -5,13 +5,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(YEL"Í­Ô¿³×"NOR, ({"tong yaoshi", "key", "yaoshi"}));
+	set_name(YEL"é“œé’¥åŒ™"NOR, ({"tong yaoshi", "key", "yaoshi"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
-		set("long", "Õâ¿´ÆğÀ´ËÆºõÊÇÒ»°Ñ¹ë·¿µÄÔ¿³×£¬µ«²»ÖªµÀÅÉÊ²Ã´ÓÃ¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™çœ‹èµ·æ¥ä¼¼ä¹æ˜¯ä¸€æŠŠé—ºæˆ¿çš„é’¥åŒ™ï¼Œä½†ä¸çŸ¥é“æ´¾ä»€ä¹ˆç”¨ã€‚\n");
 		set("value", 200);
 		set("material", "bronze");
 	}

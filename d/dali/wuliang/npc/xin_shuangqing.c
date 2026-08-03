@@ -1,11 +1,11 @@
-// NPC :xin_shuangqing.c ĞÁË«Çå
+// NPC :xin_shuangqing.c è¾›åŒæ¸…
 // By River 98/12
 inherit NPC;
 void create()
 {
-        set_name("ĞÁË«Çå", ({ "xin shuangqing", "xin", "shuangqing"}));
-        set("title","ÎŞÁ¿½£Î÷×ÚÕÆÃÅ");              
-        set("gender", "Å®ĞÔ" );
+        set_name("è¾›åŒæ¸…", ({ "xin shuangqing", "xin", "shuangqing"}));
+        set("title","æ— é‡å‰‘è¥¿å®—æŒé—¨");              
+        set("gender", "å¥³æ€§" );
         set("age", 42);
         set("str", 27);
         set("con", 23);
@@ -23,7 +23,7 @@ void create()
         set("jiali", 40);
         set("unique", 1);
         
-        set("long","ËıÊÇÎŞÁ¿½£Î÷×ÚµÄÕÆÃÅ£¬ÌúÇà×ÅÁ³£¬×ì´½½ô±Õ¡£\n");
+        set("long","å¥¹æ˜¯æ— é‡å‰‘è¥¿å®—çš„æŒé—¨ï¼Œé“é’ç€è„¸ï¼Œå˜´å”‡ç´§é—­ã€‚\n");
         set("combat_exp", 350000);
         set("shen", 1000); 
 

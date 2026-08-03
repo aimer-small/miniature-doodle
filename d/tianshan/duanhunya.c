@@ -6,12 +6,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¶Ï»êÑÂ");
+	set("short", "æ–­é­‚å´–");
 	set("long",
-"ÅÀÉÏĞüÑÂ£¬ÊÇÒ»Æ¬ºÜĞ¡µÄÁ¢×ãÖ®µØ£¬º®·çºôĞ¥£¬´µµÄÄãµÄÉíÌå²»ÓÉµÄ×óÓÒ
-Ò¡°Ú¡£Äã²»ÓÉµÄ²ÁÁË°Ñº¹£¬»ØÍ·¿´¿´À´Â·£¬ÒÑ¾­äÎÃ»ÔÚÔÆÎíÖ®ÖĞÁË¡£ÓÒÊÖÉÏÈı
-¸ö´ó×Ö"HIW"¶Ï»êÑÂ"NOR"ÕıÊÇÄãÏÖÊµĞÄÇéµÄĞ´ÕÕ¡£µ±ÃæÒ»¿é¾ŞÑÒ£¬ÓĞËÄ¡¢ÎåÕÉ¸ß£¬Òò³¤Ê±
-¼äÔÚÕâÀïÊÜ·çÑ©ÇÖÊ´£¬ÒÑÊÇ»¬²»ÁôÊÖ£¬ÉÏÃæÓĞÒ»ĞĞĞ¡×Ö(zi)¡£    
+"çˆ¬ä¸Šæ‚¬å´–ï¼Œæ˜¯ä¸€ç‰‡å¾ˆå°çš„ç«‹è¶³ä¹‹åœ°ï¼Œå¯’é£å‘¼å•¸ï¼Œå¹çš„ä½ çš„èº«ä½“ä¸ç”±çš„å·¦å³
+æ‘‡æ‘†ã€‚ä½ ä¸ç”±çš„æ“¦äº†æŠŠæ±—ï¼Œå›å¤´çœ‹çœ‹æ¥è·¯ï¼Œå·²ç»æ¹®æ²¡åœ¨äº‘é›¾ä¹‹ä¸­äº†ã€‚å³æ‰‹ä¸Šä¸‰
+ä¸ªå¤§å­—"HIW"æ–­é­‚å´–"NOR"æ­£æ˜¯ä½ ç°å®å¿ƒæƒ…çš„å†™ç…§ã€‚å½“é¢ä¸€å—å·¨å²©ï¼Œæœ‰å››ã€äº”ä¸ˆé«˜ï¼Œå› é•¿æ—¶
+é—´åœ¨è¿™é‡Œå—é£é›ªä¾µèš€ï¼Œå·²æ˜¯æ»‘ä¸ç•™æ‰‹ï¼Œä¸Šé¢æœ‰ä¸€è¡Œå°å­—(zi)ã€‚    
 ");
 	 set("exits", ([
                 "east" :__DIR__"banshan",
@@ -23,17 +23,17 @@ void create()
         ]));  
 	 set("item_desc", ([                    
                 "zi":HIR"
-\tÒ»   »Ø
-\tÊ§   Í·
-\t×ã   ²Å
-\t³É   Öª
-\tÇ§   ĞÔ
-\t¹Å   Ãü
-\tºŞ   Õæ\n\n"NOR,
-		"down":"ÏÂÃæÔÆÎíÆ®ÃìËÆºõÓĞ¸ö¾Ş´óµÄË®Ì¶¡£\n",
+\tä¸€   å›
+\tå¤±   å¤´
+\tè¶³   æ‰
+\tæˆ   çŸ¥
+\tåƒ   æ€§
+\tå¤   å‘½
+\tæ¨   çœŸ\n\n"NOR,
+		"down":"ä¸‹é¢äº‘é›¾é£˜æ¸ºä¼¼ä¹æœ‰ä¸ªå·¨å¤§çš„æ°´æ½­ã€‚\n",
         ])
         );
-	set("outdoors", "ÌìÉ½");
+	set("outdoors", "å¤©å±±");
 	setup();
 }
 
@@ -46,7 +46,7 @@ int do_jump(string arg)
 {
 	object me = this_player();
 	
-	if(!arg) return notify_fail("ÄãÒªÍùÄÄÀïÌø£¿\n");
+	if(!arg) return notify_fail("ä½ è¦å¾€å“ªé‡Œè·³ï¼Ÿ\n");
 	if(arg=="down")
 	{
 		object tmp;
@@ -54,17 +54,17 @@ int do_jump(string arg)
 		if(!me->query_temp("comfy_tiao"))
 		{
 			me->set_temp("comfy_tiao",1);
-			return notify_fail(HIR"ËäÈ»ÏÂÃæÊÇ¸öË®Ì¶£¬²»¹ı´Ë´¦Ì«¸ßÌøÏÂÈ¥ºÜÎ£ÏÕµÄ£¬ÄãÏëÇå³şÁËÔÙÌø°É¡£\n"NOR);
+			return notify_fail(HIR"è™½ç„¶ä¸‹é¢æ˜¯ä¸ªæ°´æ½­ï¼Œä¸è¿‡æ­¤å¤„å¤ªé«˜è·³ä¸‹å»å¾ˆå±é™©çš„ï¼Œä½ æƒ³æ¸…æ¥šäº†å†è·³å§ã€‚\n"NOR);
 		}
 		me->delete_temp("comfy_tiao");
-		tell_object(me,"ÄÇºÃ°É¡­¡­ÓÀ±ğÁË¡­¡­\n");
-		tell_object(me,HIR"ÄãÖ»¾õµÃ¶ú±ßºôºô·çÉù×÷Ïì£¬ÉíÌå·É¿ìµÄÏóÏÂ×ºÈ¥....\n"NOR);
+		tell_object(me,"é‚£å¥½å§â€¦â€¦æ°¸åˆ«äº†â€¦â€¦\n");
+		tell_object(me,HIR"ä½ åªè§‰å¾—è€³è¾¹å‘¼å‘¼é£å£°ä½œå“ï¼Œèº«ä½“é£å¿«çš„è±¡ä¸‹ç¼€å»....\n"NOR);
 		room=find_object(__DIR__"longtan")?find_object(__DIR__"longtan"):load_object(__DIR__"longtan");
-		tell_object(room,me->name()+"´ÓÉÏÃæµÄ¶Ï»êÑÂÌøÁËÏÂÀ´¡£\n");
+		tell_object(room,me->name()+"ä»ä¸Šé¢çš„æ–­é­‚å´–è·³äº†ä¸‹æ¥ã€‚\n");
 		me->move(room);
-		message_vision(HIW"ÓÉÓÚËÙ¶ÈÌ«¿ì$NÒ»Í·Ôú½øË®Ì¶Àï¡£\n"NOR,me);
-		tell_object(me,"ÄãÖ»¾õµÃºôÎüÔ½À´Ô½¼èÄÑ¡£\n");
-		me->set_temp("last_damage_from","Ìø½øÁúÌ¶ÑÍ");
+		message_vision(HIW"ç”±äºé€Ÿåº¦å¤ªå¿«$Nä¸€å¤´æ‰è¿›æ°´æ½­é‡Œã€‚\n"NOR,me);
+		tell_object(me,"ä½ åªè§‰å¾—å‘¼å¸è¶Šæ¥è¶Šè‰°éš¾ã€‚\n");
+		me->set_temp("last_damage_from","è·³è¿›é¾™æ½­æ·¹");
 		me->unconcious();
         	me->die();
         	if (tmp = present("corpse", room )) {
@@ -73,14 +73,14 @@ int do_jump(string arg)
         		i = sizeof(ob);        	
         		while (i--) if (userp(ob[i])){
         			ob[i]->move(room);
-        			ob[i]->set_temp("last_damage_from","Ë¤ÏÂ¶Ï»êÑÂµø");
+        			ob[i]->set_temp("last_damage_from","æ‘”ä¸‹æ–­é­‚å´–è·Œ");
         			ob[i]->die();
 			}
 			destruct(tmp);
 			if (me)
 			{
-				tell_room(this_object(), me->name()+"µÄÊ¬¹Ç¶¼ÕÒ²»µ½ÁË¡£\n");
-				tell_room(room, me->name()+"µÄÊ¬¹Ç¶¼ÕÒ²»µ½ÁË¡£\n");
+				tell_room(this_object(), me->name()+"çš„å°¸éª¨éƒ½æ‰¾ä¸åˆ°äº†ã€‚\n");
+				tell_room(room, me->name()+"çš„å°¸éª¨éƒ½æ‰¾ä¸åˆ°äº†ã€‚\n");
 			}
 		}
 		return 1;

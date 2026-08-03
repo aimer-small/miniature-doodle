@@ -1,17 +1,17 @@
-// zongzi.c ×Ø×Ó
+// zongzi.c æ£•å­
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-       set_name("ôÕ×Ó", ({"zong zi","zongzi", "zong"}));
+       set_name("ç²½å­", ({"zong zi","zongzi", "zong"}));
        set_weight(150);
        if (clonep())
                set_default_object(__FILE__);
        else {
-               set("long", "Ò»¸öÏãÅçÅçµÄ×Ø×Ó¡£\n");
-               set("unit", "¸ö");
+               set("long", "ä¸€ä¸ªé¦™å–·å–·çš„æ£•å­ã€‚\n");
+               set("unit", "ä¸ª");
                set("value", 100);
                set("food_remaining", 3);
                set("food_supply", 30);

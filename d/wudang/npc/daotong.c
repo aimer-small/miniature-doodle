@@ -1,13 +1,13 @@
-// NPC : /d/wudang/npc/daotong.c µÀÍ¯
+// NPC : /d/wudang/npc/daotong.c é“ç«¥
 // Lklv modify 2001.9.28
 
 inherit NPC;
 
 void create()
 {
-	set_name("µÀÍ¯", ({ "dao tong", "daotong", "tong" }));
-	set("long", "ËûÊÇÎäµ±É½µÄĞ¡µÀÍ¯¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("é“ç«¥", ({ "dao tong", "daotong", "tong" }));
+	set("long", "ä»–æ˜¯æ­¦å½“å±±çš„å°é“ç«¥ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 16);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -33,7 +33,7 @@ void create()
 	set_temp("apply/defense", 15);
 	set_temp("apply/damage", 5);
 
-	create_family("Îäµ±ÅÉ", 5, "µÜ×Ó");
+	create_family("æ­¦å½“æ´¾", 5, "å¼Ÿå­");
 
 	setup();
 	carry_object("/d/wudang/obj/greyrobe")->wear();

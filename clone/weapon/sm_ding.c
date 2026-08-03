@@ -1,4 +1,4 @@
-// sanmending.c É¥ÃÅ¶¤
+// sanmending.c ä¸§é—¨é’‰
 // cck 17/6/97
 
 #include <weapon.h>
@@ -8,19 +8,19 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-	set_name("É¥ÃÅ¶¤", ({ "sangmen ding", "ding" }));
+	set_name("ä¸§é—¨é’‰", ({ "sangmen ding", "ding" }));
 	set_weight(100);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
-		set("long", "ÕâÊÇÒ»Ã¶É¥ÃÅ¶¤£¬ËÆºõÎ¹µÄÊÇ¡°ÇàÍÓÂŞ»¨¡±µÄ¶¾Ö­¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯ä¸€æšä¸§é—¨é’‰ï¼Œä¼¼ä¹å–‚çš„æ˜¯â€œé’é™€ç½—èŠ±â€çš„æ¯’æ±ã€‚\n");
 		set("value", 1);
 		set("no_sell", 1);
 		set("material", "steel");
-		set("wield_msg", "$N×¥³öÒ»°ÑÉ¥ÃÅ¶¤¿ÛÔÚÊÖĞÄ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄÉ¥ÃÅ¶¤·Å»Ø×°°µÆ÷µÄÆ¤ÄÒÀï¡£\n");
-		set("base_unit", "Ã¶");
+		set("wield_msg", "$NæŠ“å‡ºä¸€æŠŠä¸§é—¨é’‰æ‰£åœ¨æ‰‹å¿ƒã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„ä¸§é—¨é’‰æ”¾å›è£…æš—å™¨çš„çš®å›Šé‡Œã€‚\n");
+		set("base_unit", "æš");
 		set("damage", 5);
 		set("embed", 1);
 		set("base_weight", 50);

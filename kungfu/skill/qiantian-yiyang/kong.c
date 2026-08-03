@@ -8,8 +8,8 @@ inherit F_CLEAN_UP;
 int exert(object me)
 {
         if(!me->query_temp("start_6mai")) 
-                return notify_fail("ÄãÏÖÔÚÃ»ÓĞÔËÓÃÁùÂöÉñ½£¡£\n");     
-        message_vision(HIG"$NÇüÖ¸Ò»ÊÕ£¬ÊÖÖ¸´¹ÏÂ£¬ÌåÄÚ¹Äµ´µÄÁùÂöÕæÆø»º»ºÄÉÈëµ¤Ìï¡£\n\n"NOR,  
+                return notify_fail("ä½ ç°åœ¨æ²¡æœ‰è¿ç”¨å…­è„‰ç¥å‰‘ã€‚\n");     
+        message_vision(HIG"$Nå±ˆæŒ‡ä¸€æ”¶ï¼Œæ‰‹æŒ‡å‚ä¸‹ï¼Œä½“å†…é¼“è¡çš„å…­è„‰çœŸæ°”ç¼“ç¼“çº³å…¥ä¸¹ç”°ã€‚\n\n"NOR,  
                       me);
         me->delete_temp("start_6mai");
         
@@ -18,13 +18,13 @@ int exert(object me)
         return 1;
 }
 
-string exert_name(){ return HIG"¿Õ"NOR; }
+string exert_name(){ return HIG"ç©º"NOR; }
 
 int help(object me)
 {
-        write(HIG"\nÇ¬ÌìÒ»Ñô¹¦Ö®¡¸¿Õ¡¹£º"NOR"\n\n");
+        write(HIG"\nä¹¾å¤©ä¸€é˜³åŠŸä¹‹ã€Œç©ºã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  ±ØĞëÔËÓÃÁùÂöÉñ½£ºó¡£
+        è¦æ±‚ï¼š  å¿…é¡»è¿ç”¨å…­è„‰ç¥å‰‘åã€‚
         
 HELP
         );

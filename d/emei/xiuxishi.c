@@ -1,18 +1,18 @@
 // xiuxishi.c 
-// ĞİÏ¢ÊÒ
+// ä¼‘æ¯å®¤
 inherit ROOM;
 #include <room.h>
 void create()
 {
-	set("short", "ĞİÏ¢ÊÒ");
+	set("short", "ä¼‘æ¯å®¤");
 	set("long",@long
-ÕâÀïÊÇ¶ëáÒ»ª²ØâÖµÄĞİÏ¢ÊÒ¡£´°Á±À­ÏÂÀ´£¬·¿ÀïÕûÕûÆëÆë·ÅÁËºÜ¶àÄ¾´²¡£
-ÓĞ¼¸¸öÒ¹ÍíÊØâÖµÄĞ¡Ê¦Ì«ÕıÔÚË¯¾õ¡£
+è¿™é‡Œæ˜¯å³¨åµ‹åè—åºµçš„ä¼‘æ¯å®¤ã€‚çª—å¸˜æ‹‰ä¸‹æ¥ï¼Œæˆ¿é‡Œæ•´æ•´é½é½æ”¾äº†å¾ˆå¤šæœ¨åºŠã€‚
+æœ‰å‡ ä¸ªå¤œæ™šå®ˆåºµçš„å°å¸ˆå¤ªæ­£åœ¨ç¡è§‰ã€‚
 long);
 	set("exits",([
 	    "north" : __DIR__"huazangancf",
 ]));
-create_door("north", "Ğ¡ÃÅ", "south", DOOR_CLOSED);
+create_door("north", "å°é—¨", "south", DOOR_CLOSED);
         set("no_get_from", 1);
 	set("sleep_room", 1);
      set("no_fight",1);

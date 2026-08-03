@@ -1,4 +1,4 @@
-// rice.c ´óÃ×·¹
+// rice.c å¤§ç±³é¥­
 // cck 17/6/97
 
 #include <ansi.h>
@@ -12,13 +12,13 @@ void init()
 
 void create()
 {
-        set_name(YEL"ÇÉ¿ËÁ¦"NOR,({"chocolate" }));
+        set_name(YEL"å·§å…‹åŠ›"NOR,({"chocolate" }));
         set_weight(700);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long",  HIG"ÕâÊÇÇéÈË½ÚµÄÀñÎï--ÇÉ¿ËÁ¦¡£\n"NOR);
-                set("unit", "¿é");
+                set("long",  HIG"è¿™æ˜¯æƒ…äººèŠ‚çš„ç¤¼ç‰©--å·§å…‹åŠ›ã€‚\n"NOR);
+                set("unit", "å—");
                 set("value", 150);
                 set("food_supply", 50);
                 set("remaining", 3);
@@ -28,19 +28,19 @@ void create()
 int do_drink(string arg)
 {       
         object me = this_player();
-        if (!living(me)) return notify_fail("Ïëµ±»úÂð£¿\n");
+        if (!living(me)) return notify_fail("æƒ³å½“æœºå—ï¼Ÿ\n");
         if (!id(arg)) return 0;
         if( me->query("food") > me->max_food_capacity())
-             return notify_fail("ÄãÒÑ¾­³Ô±¥ÁË£¬Ê²Ã´Ò²³Ô²»ÏÂÁË¡£\n");
+             return notify_fail("ä½ å·²ç»åƒé¥±äº†ï¼Œä»€ä¹ˆä¹Ÿåƒä¸ä¸‹äº†ã€‚\n");
         set("value", 0);
         me->add("food", (int)query("food_supply"));
         add("remaining", -1);
 
         if ( this_object()->query("remaining")){
-            message_vision("$NÁ³´øÎ¢Ð¦£¬ÌðÃÛµØÒ§ÁËÒ»¿Ú"+this_object()->query("name")+"£¬Ö»¾õµÃÏã»¬¿ÉÈË¡£\n",me);
+            message_vision("$Nè„¸å¸¦å¾®ç¬‘ï¼Œç”œèœœåœ°å’¬äº†ä¸€å£"+this_object()->query("name")+"ï¼Œåªè§‰å¾—é¦™æ»‘å¯äººã€‚\n",me);
         }
         else{ 
-            message_vision("$NÒ§ÏÂÁË×îºóÒ»¿Ú"+this_object()->query("name")+"£¬Á³ÉÏ¸¡ÏÖ³öÂú×ãµÄÎ¢Ð¦¡£\n",me);
+            message_vision("$Nå’¬ä¸‹äº†æœ€åŽä¸€å£"+this_object()->query("name")+"ï¼Œè„¸ä¸Šæµ®çŽ°å‡ºæ»¡è¶³çš„å¾®ç¬‘ã€‚\n",me);
             destruct(this_object());
         }
         return 1;

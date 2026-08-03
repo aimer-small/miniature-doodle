@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
- 	set_name("嵩山剑碑", ({ "board" }) );
+ 	set_name("宓╁北鍓戠", ({ "board" }) );
 	set("location", "/d/songshan/chanyuan");
 	set("board_id", "songshan_b");
- 	set("long", "这是一块巨大的石碑，上面有无数剑刻的言语。\n" );
+ 	set("long", "杩欐槸涓�鍧楀法澶х殑鐭崇锛屼笂闈㈡湁鏃犳暟鍓戝埢鐨勮█璇�俓n" );
 	setup();
 	set("capacity", 60);
 }

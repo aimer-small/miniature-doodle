@@ -1,4 +1,4 @@
- // sandou ÁéÉßÈı¶¶
+ // sandou çµè›‡ä¸‰æŠ–
 
 #include <ansi.h>
 
@@ -14,25 +14,25 @@ int perform(object me, object target)
       if( !target ) target = offensive_target(me);
      
       if( !target || !me->is_fighting(target) )
-      return notify_fail("¡¸ÁéÉßÈı¶¶¡¹Ö»ÄÜÔÚÕ½¶·ÖĞ¶Ô¶ÔÊÖÊ¹ÓÃ¡£\n");
+      return notify_fail("ã€Œçµè›‡ä¸‰æŠ–ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­å¯¹å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
       if (!weapon || weapon->query("skill_type") != "whip"
        || me->query_skill_mapped("whip") != "lingshe-bianfa")
-      return notify_fail("ÄãÊÖÀïÃ»ÓĞ±Ş£¬ÎŞ·¨Ê¹ÓÃ¡¸ÁéÉßÈı¶¶¡¹£¡\n");             
+      return notify_fail("ä½ æ‰‹é‡Œæ²¡æœ‰é­ï¼Œæ— æ³•ä½¿ç”¨ã€Œçµè›‡ä¸‰æŠ–ã€ï¼\n");             
 
       if( (int)me->query_skill("lingshe-bianfa",1) < 120 )
-      return notify_fail("ÄãµÄÁéÉß±Ş·¨²»¹»æµÊì£¬²»ÄÜÊ¹ÓÃ¡¸ÁéÉßÈı¶¶¡¹£¡\n");
+      return notify_fail("ä½ çš„çµè›‡é­æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œçµè›‡ä¸‰æŠ–ã€ï¼\n");
       
       if( (int)me->query_skill("dulong-dafa", 1) < 120 )
-      return notify_fail("ÄãµÄ¶¾Áú´ó·¨µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸ÁéÉßÈı¶¶¡¹£¡\n");
+      return notify_fail("ä½ çš„æ¯’é¾™å¤§æ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œçµè›‡ä¸‰æŠ–ã€ï¼\n");
 
       if( (int)me->query("neili") < 200 )
-      return notify_fail("ÄãµÄÄÚÁ¦Ì«ÉÙ£¬²»ÄÜÊ¹ÓÃ¡¸ÁéÉßÈı¶¶¡¹£¡\n");
+      return notify_fail("ä½ çš„å†…åŠ›å¤ªå°‘ï¼Œä¸èƒ½ä½¿ç”¨ã€Œçµè›‡ä¸‰æŠ–ã€ï¼\n");
       
 	if(me->query_skill_mapped("force") != "dulong-dafa")
-       	return notify_fail("ÄãÏÖÔÚÊ¹ÓÃµÄÄÚ¹¦Óë¶¾Áú´ó·¨ÏàµÖ´¥£¬²»ÄÜÊ¹ÓÃ¡¸½ğÉß²øË¿¡¹¡£\n");
+       	return notify_fail("ä½ ç°åœ¨ä½¿ç”¨çš„å†…åŠŸä¸æ¯’é¾™å¤§æ³•ç›¸æŠµè§¦ï¼Œä¸èƒ½ä½¿ç”¨ã€Œé‡‘è›‡ç¼ ä¸ã€ã€‚\n");
 
-      message_vision(HIY"\n$NÁ¬Ğø¶¶¶¯ÊÖÖĞ±Ş×Ó£¬"+weapon->query("name")+HIY+"Ñ­×Å¹îÒìµÄÍ¾¾¶Ïò$nÏ®È¥£¡\n"NOR, me,target);
+      message_vision(HIY"\n$Nè¿ç»­æŠ–åŠ¨æ‰‹ä¸­é­å­ï¼Œ"+weapon->query("name")+HIY+"å¾ªç€è¯¡å¼‚çš„é€”å¾„å‘$nè¢­å»ï¼\n"NOR, me,target);
       me->add("neili", -200); 
       me->add("jingli", -50);
 
@@ -46,6 +46,6 @@ me->start_busy(2);
       COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 1);  
       me->add_temp("apply/attack", -lv/4);
       me->delete_temp("sandou");	
-             me->start_perform(3,"¡¸ÁéÉßÈı¶¶¡¹");
+             me->start_perform(3,"ã€Œçµè›‡ä¸‰æŠ–ã€");
       return 1;
 }

@@ -5,7 +5,7 @@
 #include <combat.h>
 inherit F_SSERVER;
 
-string perform_name() {return HIB"�޽�ʤ�н�"NOR;}
+string perform_name() {return HIB"无剑胜有剑"NOR;}
 
 void remove_effect(object me, object weapon);
 int perform(object me, object target)
@@ -19,39 +19,39 @@ int perform(object me, object target)
 	if( !target ) target = offensive_target(me);
 
 	if( !target || !me->is_fighting(target) )
-		return notify_fail("���޽�ʤ�н���ֻ����ս����ʹ�á�\n");
+		return notify_fail("「无剑胜有剑」只能在战斗中使用。\n");
 
 	if(me->query_temp("wujian"))
-		return notify_fail("������ʹ�á��޽�ʤ�н�����\n");
+		return notify_fail("你正在使用「无剑胜有剑」。\n");
 
 	if(!objectp(weapon = me->query_temp("weapon")) 
 	|| weapon->query("skill_type")!="sword")
-		return notify_fail("�������޽������ʹ�ĳ����������ľ�����\n");
+		return notify_fail("你手中无剑，如何使的出玄铁剑法的绝技！\n");
 
  if(me->query_skill("sword",1) <=550) 
 	if(weapon->query("unique")|| !userp(me) )
-		return notify_fail("����������������������ᡸ�޽�ʤ�н������⾳?\n");
+		return notify_fail("你如此依赖宝剑，如何能领会「无剑胜有剑」的意境?\n");
 
 	if( (int)me->query_skill("xuantie-jianfa", 1) < 200 ) 
-		return notify_fail("�����������������죬����ʹ�á��޽�ʤ�н�����\n");
+		return notify_fail("你的玄铁剑法不够娴熟，不会使用「无剑胜有剑」。\n");
 		
 	if( (int)me->query_skill("force", 1) < 200 )
-		return notify_fail("��Ļ����ڹ��ȼ�����������ʹ�á��޽�ʤ�н�����\n");
+		return notify_fail("你的基本内功等级不够，不能使用「无剑胜有剑」。\n");
 
 if( me->query_skill("sword",1) <=550 )
     	if (me->query_skill_mapped("sword") != "xuantie-jianfa" )
-		return notify_fail("�������޷�ʹ�á��޽�ʤ�н�����\n");
+		return notify_fail("你现在无法使用「无剑胜有剑」。\n");
 
         if( me->query_skill_mapped("force") != "yunu-xinjing" && userp(me))
-                return notify_fail("�������޷�ʹ�á��޽�ʤ�н�����\n");
+                return notify_fail("你现在无法使用「无剑胜有剑」！\n");
 	if( me->query("max_neili")<3000)
-		return notify_fail("���������Ϊ̫�����ʹ�á��޽�ʤ�н�����\n");
+		return notify_fail("你的内力修为太差，不能使用「无剑胜有剑」。\n");
 	if( (int)me->query("neili") < 3000 )
-		return notify_fail("����������̫��������ʹ�á��޽�ʤ�н�����\n");
+		return notify_fail("你现在内力太弱，不能使用「无剑胜有剑」。\n");
 
- if(me->query_skill("sword",1) <=550) 	me->start_perform(1,"���޽�ʤ�н���");
+ if(me->query_skill("sword",1) <=550) 	me->start_perform(1,"「无剑胜有剑」");
 
-	message_vision(HIB "\n$N��������ע���ϣ����������˽���������ؼ���һ����Ϊ�������롸�޽�ʤ�н����ľ��硣\n" NOR, me, target);
+	message_vision(HIB "\n$N将内力灌注剑上，纯以意气运剑，但觉天地间无一不可为剑，渐入「无剑胜有剑」的境界。\n" NOR, me, target);
         i=(me->query_skill("xuantie-jianfa",1)+me->query_skill("force",1))/6;
 	i=i+random(i);
 	if(i>160) i=160+(i-160)/10;
@@ -87,7 +87,7 @@ void remove_effect(object me, object weapon)
 	me->add_temp("apply/damage",-lvl);
 	me->delete_temp("wujian");
 	if (!weapon) {
-		me->set_temp("last_damage_from", "����ʧ�ܱ��ͷ�");
+		me->set_temp("last_damage_from", "作弊失败被惩罚");
     	me->unconcious();
 		return;
 	}
@@ -96,17 +96,17 @@ void remove_effect(object me, object weapon)
 
 int help(object me)
 {
-        write(HIB"\n�����������޽�ʤ�н�����"NOR"\n\n");
+        write(HIB"\n玄铁剑法「无剑胜有剑」："NOR"\n\n");
         write(@HELP
-        Ҫ��  ��ǰ���� 3000 ���ϣ�
-                ������� 3000 ���ϣ�
-                ���������ȼ� 200 ���ϣ�
-                ��Ů�ľ��ȼ� 200 ���ϣ�
-                ��Ч�ڹ��ȼ� 200 ���ϣ�
-                ��������Ϊ����������
-                �����м�Ϊ����������
+        要求：  当前内力 3000 以上；
+                最大内力 3000 以上；
+                玄铁剑法等级 200 以上；
+                玉女心经等级 200 以上；
+                有效内功等级 200 以上；
+                激发剑法为玄铁剑法；
+                激发招架为玄铁剑法。
 
-                ���ȼ�����550��ʱװ����������޷�ʹ�á�
+                当等级低于550级时装备宝物兵器无法使用。
 
 HELP
         );

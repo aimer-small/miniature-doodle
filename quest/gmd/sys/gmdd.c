@@ -6,10 +6,10 @@ inherit F_DBASE;
 void create()
 {
 seteuid(ROOT_UID);
-        set("channel_id", "副本控制程序");
+        set("channel_id", "鍓湰鎺у埗绋嬪簭");
 
-        CHANNEL_D->do_channel( this_object(), "sys", "副本系统已经启动。\n"); 
-set ("name","副本控制程序");
+        CHANNEL_D->do_channel( this_object(), "sys", "鍓湰绯荤粺宸茬粡鍚姩銆俓n"); 
+set ("name","鍓湰鎺у埗绋嬪簭");
 remove_call_out("check_time");
         call_out("check_time",5);
 }
@@ -20,10 +20,10 @@ string ts = ctime(time());
 
 if(ctime(time())[10..15] == " 20:00"){
       FBNPC->move("/d/city/wumiao");
-CHANNEL_D->do_channel(present("kongxing dashi", load_object("/d/city/wumiao")),"chat", HBBLU+HIW"魔教觊觎中原，我辈岂能坐视不理，六大门派弟子且随我远征光明顶炼魔去也！\n"NOR);
+CHANNEL_D->do_channel(present("kongxing dashi", load_object("/d/city/wumiao")),"chat", HBBLU+HIW"榄旀暀瑙婅涓師锛屾垜杈堝矀鑳藉潗瑙嗕笉鐞嗭紝鍏ぇ闂ㄦ淳寮熷瓙涓旈殢鎴戣繙寰佸厜鏄庨《鐐奸瓟鍘讳篃锛乗n"NOR);
 	}
 if(ctime(time())[10..15]==" 22:00"){
-CHANNEL_D->do_channel( present("kongxing dashi", load_object("/d/city/wumiao")), "chat",HBBLU+HIW"今日远征之事暂且停下，你我养精蓄锐，明日再战！\n"NOR); 
+CHANNEL_D->do_channel( present("kongxing dashi", load_object("/d/city/wumiao")), "chat",HBBLU+HIW"浠婃棩杩滃緛涔嬩簨鏆備笖鍋滀笅锛屼綘鎴戝吇绮捐搫閿愶紝鏄庢棩鍐嶆垬锛乗n"NOR); 
 destruct(present("kongxing dashi"));
 
 	}

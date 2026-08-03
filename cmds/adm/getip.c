@@ -2,7 +2,7 @@
 
 int main(object me, string arg)
 {
-	if (!arg) return notify_fail("ÇëÊäÈëIPµØÖ·¡£\n");
+	if (!arg) return notify_fail("è¯·è¾“å…¥IPåœ°å€ã€‚\n");
 	arg = replace_string(arg," ","");
 	write( arg + "   ==>   "+IP_D->ip2name(arg) + "\n");
 	return 1;

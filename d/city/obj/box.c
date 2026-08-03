@@ -1,4 +1,4 @@
-// box.c ¹¦µÂÏä
+// box.c åŠŸå¾·ç®±
 
 #include <ansi.h>
 
@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(RED "¹¦µÂÏä" NOR, ({ "gongde xiang", "xiang", "box" }) );
+	set_name(RED "åŠŸå¾·ç®±" NOR, ({ "gongde xiang", "xiang", "box" }) );
 	set_weight(3000);
 	set_max_encumbrance(5000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ö");
-                set("long", "ÕâÊÇÒ»¸öĞ¡ÃíÀï³£¼ûµÄ¹¦µÂÏä£¬×¨ÃÅÓÃÀ´½ÓÊÜÉÆÄĞĞÅÅ®ÃÇµÄ¾è¿î¡£\n");
+		set("unit", "ä¸ª");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªå°åº™é‡Œå¸¸è§çš„åŠŸå¾·ç®±ï¼Œä¸“é—¨ç”¨æ¥æ¥å—å–„ç”·ä¿¡å¥³ä»¬çš„ææ¬¾ã€‚\n");
 		set("value", 1000);
 		set("material", "wood");
 		set("no_get",1);
@@ -35,7 +35,7 @@ void init()
 		ob=new("/clone/money/silver");
 		ob->set_amount(10);
 		ob->move(this_object());
-		tell_object(me, HIW "\nÄãºöÈ»¿´µ½¹¦µÂÏäÀïÓĞÊ²Ã´¶«Î÷ÔÚÉÁÉÁ·¢¹â£¡\n\n" NOR);
+		tell_object(me, HIW "\nä½ å¿½ç„¶çœ‹åˆ°åŠŸå¾·ç®±é‡Œæœ‰ä»€ä¹ˆä¸œè¥¿åœ¨é—ªé—ªå‘å…‰ï¼\n\n" NOR);
 		me->add("combat_exp", 1);
 	}
 */
@@ -60,7 +60,7 @@ int do_put(string arg)
 	&&  obj->query_amount() >= 5 && amount >= 5 ) 
 	{
 		if( me->query("begger") > 0) {
-			message_vision( sprintf(HIY "$N½«Ò»%s%s·Å½ø%s¡£\n" NOR,
+			message_vision( sprintf(HIY "$Nå°†ä¸€%s%sæ”¾è¿›%sã€‚\n" NOR,
 				obj->query("unit"), obj->name(), 
 				this_object()->name()),me );
 			obj->set_amount(obj->query_amount() - amount);;

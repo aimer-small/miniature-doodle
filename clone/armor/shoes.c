@@ -8,12 +8,12 @@ inherit BOOTS;
 
 void create()
 {
-        set_name("²¼ÂÄ", ({ "shoes" }) );
+        set_name("å¸ƒå±¥", ({ "shoes" }) );
         set_weight(100);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ë«");
+                set("unit", "åŒ");
                 set("material", "boots");
                 set("armor_prop/dodge", 1);
         }

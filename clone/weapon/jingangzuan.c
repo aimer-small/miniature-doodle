@@ -5,13 +5,13 @@ inherit STAFF;
 
 void create()
 {
-        set_name( HIW"ÁúÏó·¨èÆ"NOR , ({ "jingang zuan", "jingangzuan","zuan","staff"}));
+        set_name( HIW"é¾™è±¡æ³•æµ"NOR , ({ "jingang zuan", "jingangzuan","zuan","staff"}));
         set_weight(15000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", HIR"ÕâÊÇ²Ø´«·ğ½ÌÖĞµÄÒ»ÖÖ·¨Æ÷£¬Ô¼ÓĞÆß°Ë³Ù³¤£¬ÈëÊÖ³ÁÖØ£¬ÉÏÃæ¿ÌÂúèóÎÄ¡£\n"NOR);
+                set("unit", "æ ¹");
+                set("long", HIR"è¿™æ˜¯è—ä¼ ä½›æ•™ä¸­çš„ä¸€ç§æ³•å™¨ï¼Œçº¦æœ‰ä¸ƒå…«è¿Ÿé•¿ï¼Œå…¥æ‰‹æ²‰é‡ï¼Œä¸Šé¢åˆ»æ»¡æ¢µæ–‡ã€‚\n"NOR);
                 set("value", 1000);
                 set("material", "steel");
         }

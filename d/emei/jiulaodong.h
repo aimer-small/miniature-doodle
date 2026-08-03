@@ -1,5 +1,5 @@
 // jiulaodong.h
-// ¾ÅÀÏ¶´
+// ä¹è€æ´
 #include <ansi.h>
 void init()
 {
@@ -14,16 +14,16 @@ int do_use(string arg)
         if(!living(me) ) return 0;
 
         if (me->is_busy() || me->is_fighting())
-        return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+        return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
         if(!objectp(ob = present("fire", me)))
-        return notify_fail("ÄãÊÖÖĞÃ»ÓĞ»ğÕÛ£¬ÔõÃ´ÄÜ½øµÄÁËÉ½¶´£¿\n");
+        return notify_fail("ä½ æ‰‹ä¸­æ²¡æœ‰ç«æŠ˜ï¼Œæ€ä¹ˆèƒ½è¿›çš„äº†å±±æ´ï¼Ÿ\n");
 
 	if( !arg || arg=="" ) return 0;
 
 	if( arg == "fire" ) {
-        message_vision(BLU"$NµãÈ¼»ğÕÛ£¬°Ñ¶´ÄÚÕÕÁÁÁËÒ»Ğ©¡£
-¶´ÄÚÁÁÁËÒ»Ğ©£¬Î¢ÈõµÄ»ğ¹âÒ»ÉÁÒ»ÉÁµÄ¡£\n"NOR, me);
+        message_vision(BLU"$Nç‚¹ç‡ƒç«æŠ˜ï¼ŒæŠŠæ´å†…ç…§äº®äº†ä¸€äº›ã€‚
+æ´å†…äº®äº†ä¸€äº›ï¼Œå¾®å¼±çš„ç«å…‰ä¸€é—ªä¸€é—ªçš„ã€‚\n"NOR, me);
         destruct(ob);
         if(!(room = find_object(__DIR__"jiulaodong1")))
             room = load_object(__DIR__"jiulaodong1");
@@ -57,21 +57,21 @@ int do_leave()
         if(!living(me) ) return 0;
 
         if (me->is_busy() || me->is_fighting())
-        return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+        return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
         
         if(present("fire", me) )
-        return notify_fail("ÄãÊÖÀï»¹ÓĞ»ğÕÛ£¬ÎªÊ²Ã´²»ÓÃËûÕÕÕÕÂ·£¿\n");
+        return notify_fail("ä½ æ‰‹é‡Œè¿˜æœ‰ç«æŠ˜ï¼Œä¸ºä»€ä¹ˆä¸ç”¨ä»–ç…§ç…§è·¯ï¼Ÿ\n");
 
         if(!present("fire", me) ){
         if(random(30) >= 20) {
-        write("Äã×ªÀ´×ªÈ¥£¬ÖÕÓÚ×ªµ½ÁË¶´¿Ú¡£\n", me);
+        write("ä½ è½¬æ¥è½¬å»ï¼Œç»ˆäºè½¬åˆ°äº†æ´å£ã€‚\n", me);
         me->move(__DIR__"dongkou");
-        message_vision("$N´Ó¾ÅÀÏÍ­Àï×ßÁË³öÀ´¡£\n", me);
+        message_vision("$Nä»ä¹è€é“œé‡Œèµ°äº†å‡ºæ¥ã€‚\n", me);
 	return 1;
         }
         else {
-        message_vision("$NÏñÃ»Í·²ÔÓ¬Ò»ÑùÔÚ¶´ÀïÏ¹×ê£¬½á¹ûÒ»Í·×²ÔÚ¶´±ÚÉÏ¡£
-Äã¾õµÃÄãÔÎºõºõµÄ£¬ËÆºõ×²ÉµÁË¡£\n", me);
+        message_vision("$Nåƒæ²¡å¤´è‹è‡ä¸€æ ·åœ¨æ´é‡Œçé’»ï¼Œç»“æœä¸€å¤´æ’åœ¨æ´å£ä¸Šã€‚
+ä½ è§‰å¾—ä½ æ™•ä¹ä¹çš„ï¼Œä¼¼ä¹æ’å‚»äº†ã€‚\n", me);
         me->move(__DIR__"jiulaodong1");
         me->receive_damage("jingli", 20);
         me->delete_temp("marks/east");

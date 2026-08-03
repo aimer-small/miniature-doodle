@@ -22,13 +22,13 @@ void init()
 
 void create()
 {
-        set_name(HIG "Ò©Â¯" NOR, ({"yao lu","lu"}));
+        set_name(HIG "è¯ç‚‰" NOR, ({"yao lu","lu"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("long",
-                "ÕâÊÇÒ»Ö»ÓÃÀ´Á¶Ò©µÄÂ¯×Ó£¬¿ÉÒÔÍùÀïÃæ·Å(fang)Ò©²Ä£¬È¡(qu)Ò©²Ä£¬¿´(kan)Â¯×Ó£¬È¡(quyao)Ò©¡£\n");
-                set("unit", "Ö»");
+                "è¿™æ˜¯ä¸€åªç”¨æ¥ç‚¼è¯çš„ç‚‰å­ï¼Œå¯ä»¥å¾€é‡Œé¢æ”¾(fang)è¯æï¼Œå–(qu)è¯æï¼Œçœ‹(kan)ç‚‰å­ï¼Œå–(quyao)è¯ã€‚\n");
+                set("unit", "åª");
                 set("no_sell",1);
                 set("yaocai",0);
                 set("zhuyao",0);
@@ -86,7 +86,7 @@ xm->set("long",me->query("long"));
         xm->move(environment(me));
         me->kill_ob(xm);
         xm->fight_ob(me);
-        message_vision("$N»Ğã±ÖĞºöÈ»¿´¼û$n»ÓÈ­Ïò×Ô¼º»÷À´£¬²»ÓÉµÃ´ó³ÔÒ»¾ª£¡\n",me,xm);
+        message_vision("$Nææƒšä¸­å¿½ç„¶çœ‹è§$næŒ¥æ‹³å‘è‡ªå·±å‡»æ¥ï¼Œä¸ç”±å¾—å¤§åƒä¸€æƒŠï¼\n",me,xm);
         call_out("qiangjie",600);
 }
         
@@ -110,7 +110,7 @@ int do_get(string arg)
                 if(ob==present(arg, environment(ob)))
                 {
                         if(query("zhuyao"))
-                                return notify_fail("²»ÄÜ°á¶¯ÕıÔÚÖóÒ©µÄÂ¯×Ó¡£\n");
+                                return notify_fail("ä¸èƒ½æ¬åŠ¨æ­£åœ¨ç…®è¯çš„ç‚‰å­ã€‚\n");
                 }
                 else
                 {
@@ -120,7 +120,7 @@ if(sscanf(arg,"%s from %s",temp,obj)==2)
                                    objectp(yl=present(obj, environment(me))))
                                 {
                                         if(yl==ob)
-                                                return notify_fail("Ö»ÄÜ´ÓÒ©Â¯ÀïÈ¡(qu)¶«Î÷¡£\n");
+                                                return notify_fail("åªèƒ½ä»è¯ç‚‰é‡Œå–(qu)ä¸œè¥¿ã€‚\n");
                                 }
                         }
                 }
@@ -142,7 +142,7 @@ int do_put(string arg)
                            objectp(yl=present(obj, environment(me))))
                         {
                                 if(yl==this_object())
-                                        return notify_fail("Ö»ÄÜÍùÒ©Â¯Àï·Å(fang)¶«Î÷¡£\n");
+                                        return notify_fail("åªèƒ½å¾€è¯ç‚‰é‡Œæ”¾(fang)ä¸œè¥¿ã€‚\n");
                         }
                 }
         }
@@ -154,14 +154,14 @@ int do_fang(string arg)
         object me = this_player();
         object yc;
 if(!arg)
-                return notify_fail("ÄãÒª·ÅÊ²Ã´µ½Ò©Â¯ÀïÈ¥£¿\n");
+                return notify_fail("ä½ è¦æ”¾ä»€ä¹ˆåˆ°è¯ç‚‰é‡Œå»ï¼Ÿ\n");
         if(!objectp(yc=present(arg, me)))
-                return notify_fail("ÄãÉíÉÏÃ»ÓĞ"+arg+"ÕâÖÖ¶«Î÷¡£\n");
+                return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰"+arg+"è¿™ç§ä¸œè¥¿ã€‚\n");
         if(yc->query("id")!="yao cao")
-                return notify_fail("Äã²»ÄÜ·Å"+yc->query("name")+"µ½Ò©Â¯ÀïÈ¥¡£\n");
+                return notify_fail("ä½ ä¸èƒ½æ”¾"+yc->query("name")+"åˆ°è¯ç‚‰é‡Œå»ã€‚\n");
         if(query("yaocai")>=9)
-                return notify_fail("Ò©Â¯ÒÑ¾­±»Ò©²ÄÈûÂúÁË¡£\n");
-            message_vision(HIY+"\n$N"+HIY+"°ÑÒ»ÖêÒ©²İ·Å½øÒ©Â¯¡£\n"NOR,me);
+                return notify_fail("è¯ç‚‰å·²ç»è¢«è¯æå¡æ»¡äº†ã€‚\n");
+            message_vision(HIY+"\n$N"+HIY+"æŠŠä¸€æ ªè¯è‰æ”¾è¿›è¯ç‚‰ã€‚\n"NOR,me);
         yc->move(this_object());
         yc->set("stime",uptime());
         add("yaocai",1);
@@ -175,15 +175,15 @@ int do_qu(string arg)
         object yc,yl;
 
         if(!arg)
-                return notify_fail("ÄãÒª´ÓÒ©Â¯ÀïÄÃÊ²Ã´¶«Î÷£¿\n");
+                return notify_fail("ä½ è¦ä»è¯ç‚‰é‡Œæ‹¿ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
         /*if(!objectp(yl=present(arg, environment(me))))
-                return notify_fail("Ò©Â¯²»ÔÚÄãÉí±ß¡£\n");*/
+                return notify_fail("è¯ç‚‰ä¸åœ¨ä½ èº«è¾¹ã€‚\n");*/
         yl=this_object();
         if(!objectp(yc=present(arg, yl)))
-                return notify_fail("Ò©Â¯ÀïÃ»ÓĞ"+arg+"ÕâÖÖ¶«Î÷¡£\n");
+                return notify_fail("è¯ç‚‰é‡Œæ²¡æœ‰"+arg+"è¿™ç§ä¸œè¥¿ã€‚\n");
         if(yc->query("id")!="yao cao")
-                return notify_fail("Äã²»ÄÜ´ÓÒ©Â¯ÀïÄÃ"+yc->query("name")+"¡£\n");
-           message_vision(HIY+"\n$N"+HIY+"´ÓÒ©Â¯ÀïÄÃ³öÁËÒ»ÖêÒ©²İ¡£\n"NOR,me);
+                return notify_fail("ä½ ä¸èƒ½ä»è¯ç‚‰é‡Œæ‹¿"+yc->query("name")+"ã€‚\n");
+           message_vision(HIY+"\n$N"+HIY+"ä»è¯ç‚‰é‡Œæ‹¿å‡ºäº†ä¸€æ ªè¯è‰ã€‚\n"NOR,me);
         yc->add("times",uptime()-yc->query("stime"));
         yc->move(me);
         add("yaocai",-1);
@@ -200,13 +200,13 @@ int do_kan(string arg)
         object yc;
         int se,i,j;
         string msg,pre;
-        string * day=({ "Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å"});
-        string * sc=({ "Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å","Ê®","Ê®Ò»"});
+        string * day=({ "ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹"});
+        string * sc=({ "ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹","å","åä¸€"});
 
         if(arg)
         {
                 if(!objectp(yc=present(arg, yl)))
-                        return notify_fail("Ò©Â¯ÀïÃ»ÓĞ"+arg+"ÕâÖÖ¶«Î÷¡£\n");
+                        return notify_fail("è¯ç‚‰é‡Œæ²¡æœ‰"+arg+"è¿™ç§ä¸œè¥¿ã€‚\n");
                 if(!yc->query("bad"))
                 {
                         se=yc->query("times")+uptime()-yc->query("stime");
@@ -214,21 +214,21 @@ int do_kan(string arg)
                         {
                                 i=se/240;
                                 se=se-i*240;
-                                pre="("+yc->query("8type")+yc->query("5type")+"ĞÔ)";
-                                msg="ÒÑ¾­±»¼åÁË";
+                                pre="("+yc->query("8type")+yc->query("5type")+"æ€§)";
+                                msg="å·²ç»è¢«ç…äº†";
                                 if(i>0)
-                                        msg=msg+day[i-1]+"Ìì";
+                                        msg=msg+day[i-1]+"å¤©";
                                 i=se/20;
                                 if(i>0)
-                                        msg=msg+sc[i-1]+"¸öÊ±³½¡£\n";
-                                else if(msg=="ÒÑ¾­±»¼åÁË")
-                                        msg=msg+"Ò»¸öÊ±³½²»µ½¡£\n";
+                                        msg=msg+sc[i-1]+"ä¸ªæ—¶è¾°ã€‚\n";
+                                else if(msg=="å·²ç»è¢«ç…äº†")
+                                        msg=msg+"ä¸€ä¸ªæ—¶è¾°ä¸åˆ°ã€‚\n";
                                 msg=pre+msg;
                         }
                         else
                         {
-                                msg="¡£\n";
-                                yc->set("name","¼å»µÁËµÄ"+yc->query("name"));
+                                msg="ã€‚\n";
+                                yc->set("name","ç…åäº†çš„"+yc->query("name"));
                                 yc->set("bad",1);
                                 tell_object(me,yc->name(1)+msg);
                                 destruct(yc);
@@ -237,7 +237,7 @@ return 1;
                         }
                 }
                 else
-                        msg="¡£\n";
+                        msg="ã€‚\n";
                 tell_object(me,yc->name(1)+msg);
                 return 1;
         }       
@@ -252,21 +252,21 @@ return 1;
                         {
                                 i=se/240;
                                 se=se-i*240;
-                                pre="("+yc->query("8type")+yc->query("5type")+"ĞÔ)";
-                                msg="ÒÑ¾­±»¼åÁË";
+                                pre="("+yc->query("8type")+yc->query("5type")+"æ€§)";
+                                msg="å·²ç»è¢«ç…äº†";
                                 if(i>0)
-                                        msg=msg+day[i-1]+"Ìì";
+                                        msg=msg+day[i-1]+"å¤©";
                                 i=se/20;
                                 if(i>0)
-                                        msg=msg+sc[i-1]+"¸öÊ±³½¡£\n";
-                                else if(msg=="ÒÑ¾­±»¼åÁË")
-                                        msg=msg+"Ò»¸öÊ±³½²»µ½¡£\n";
+                                        msg=msg+sc[i-1]+"ä¸ªæ—¶è¾°ã€‚\n";
+                                else if(msg=="å·²ç»è¢«ç…äº†")
+                                        msg=msg+"ä¸€ä¸ªæ—¶è¾°ä¸åˆ°ã€‚\n";
                                 msg=pre+msg;
                         }
                         else
                         {
-                                msg="¡£\n";
-                                yc->set("name","¼å»µÁËµÄ"+yc->query("name"));
+                                msg="ã€‚\n";
+                                yc->set("name","ç…åäº†çš„"+yc->query("name"));
                                 yc->set("bad",1);
                                 tell_object(me,yc->name(1)+msg);
                                 destruct(yc);
@@ -275,7 +275,7 @@ return 1;
                         }
                 }
 else
-                        msg="¡£\n";
+                        msg="ã€‚\n";
                 tell_object(me,yc->name(1)+msg);
         }
         return 1;
@@ -284,19 +284,19 @@ else
 int do_quyao(string arg)
 {
         object me=this_player(),yl=this_object(),* obs,yao;
-        mapping ycl=(["»ğ":0,"ÍÁ":0,"½ğ":0,"Ë®":0,"Ä¾":0]);
-        //mapping 8type=(["Ç¬":0,"À¤":0,"Õğ":0,"Ùã":0,"¿²":0,"Àë":0,"ôŞ":0,"¶Ò":0]);
+        mapping ycl=(["ç«":0,"åœŸ":0,"é‡‘":0,"æ°´":0,"æœ¨":0]);
+        //mapping 8type=(["ä¹¾":0,"å¤":0,"éœ‡":0,"å·½":0,"å":0,"ç¦»":0,"è‰®":0,"å…‘":0]);
         mapping yc=([]);
         string type5,type88,* order;
         string* num=({"0","1","2","3","4","5","6","7","8"});
-        string* type=({"»ğ","ÍÁ","½ğ","Ë®","Ä¾"});
-        string* type8=({"Ç¬","À¤","Õğ","Ùã","¿²","Àë","ôŞ","¶Ò"});
+        string* type=({"ç«","åœŸ","é‡‘","æ°´","æœ¨"});
+        string* type8=({"ä¹¾","å¤","éœ‡","å·½","å","ç¦»","è‰®","å…‘"});
         int i,se,j,sl,sllv,polv,sesx,add,total,k;
         string msg;
         mapping myfam;
 
         myfam = (mapping)me->query("family");
-        if(!myfam || myfam["family_name"] != "ÉñÁú½Ì")
+        if(!myfam || myfam["family_name"] != "ç¥é¾™æ•™")
         {
                 return 0;
         }
@@ -304,14 +304,14 @@ int do_quyao(string arg)
         polv=me->query_skill("poison",1);
         sesx=(sllv+polv/2)*72/10;
         if(sllv<101 || polv<101)
-                return notify_fail("Äã¶ÔÉñÁúÒ©ÀíÑ§ºÍ¶¾¼¼µÄÁË½â»¹²»¹»£¬²»ÄÜÖÆÒ©¡£\n");
+                return notify_fail("ä½ å¯¹ç¥é¾™è¯ç†å­¦å’Œæ¯’æŠ€çš„äº†è§£è¿˜ä¸å¤Ÿï¼Œä¸èƒ½åˆ¶è¯ã€‚\n");
         if(yl->query("owner")!=me)
-                return notify_fail("Äãµ½±ğÈËµÄÒ©Â¯ÀïÈ¥ÌÍÊ²Ã´£¿\n");
+                return notify_fail("ä½ åˆ°åˆ«äººçš„è¯ç‚‰é‡Œå»æä»€ä¹ˆï¼Ÿ\n");
         if(me->query("rumo")!=0)
-                return notify_fail("ÄãÏÈ¿Ë·şÁËĞÄÄ§ÔÙËµ¡£\n");
+                return notify_fail("ä½ å…ˆå…‹æœäº†å¿ƒé­”å†è¯´ã€‚\n");
         obs=all_inventory(yl);
         if(sizeof(obs)==0)
-                return notify_fail("Ò©Â¯ÀïÃ»ÓĞ¶«Î÷¡£\n");
+                return notify_fail("è¯ç‚‰é‡Œæ²¡æœ‰ä¸œè¥¿ã€‚\n");
         msg=me->query("id");
         for(i=0;i<sizeof(obs);i++)
 {
@@ -320,7 +320,7 @@ int do_quyao(string arg)
                 se=obs[i]->query("times")+uptime()-obs[i]->query("stime");
                 if(se>MAXS)
                 {
-                        obs[i]->set("name","¼å»µÁËµÄ"+obs[i]->query("name"));
+                        obs[i]->set("name","ç…åäº†çš„"+obs[i]->query("name"));
                         obs[i]->set("bad",1);
                         destruct(obs[i]);
                         add("yaocai",-1);
@@ -456,7 +456,7 @@ order=keys(yc[type[i]][type8[j]]);
         me->improve_skill("poison",add,0);
         yao=new("/d/sld/npc/obj/yaowan");
         if(!objectp(yao))
-                return notify_fail("¿ÉÏ§£¬ÄãµÄÒ©±»¼å»µÁË¡£\n");
+                return notify_fail("å¯æƒœï¼Œä½ çš„è¯è¢«ç…åäº†ã€‚\n");
         msg=msg+" "+file_name(yao);
         j=0;k=0;
         yao->set("types",0);
@@ -465,7 +465,7 @@ order=keys(yc[type[i]][type8[j]]);
                 if(ycl[type[i]]<total*1/20)
                         continue;
                 yao->add("types",1);
-                if(type[i]=="ÍÁ")
+                if(type[i]=="åœŸ")
                 {
                         yao->set(type[i],ycl[type[i]]/100);
                         msg=sprintf("%s %s:%d",msg,type[i],ycl[type[i]]/100);
@@ -488,13 +488,13 @@ order=keys(yc[type[i]][type8[j]]);
         }
         else if(j==5)
         {
-                yao->set("poison","È«");
+                yao->set("poison","å…¨");
                 yao->set("zycs",total/1000);
-                msg=sprintf("%s È«::%d",msg,total/1000);        
+                msg=sprintf("%s å…¨::%d",msg,total/1000);        
         }
-        msg=msg+"¡£\n";
+        msg=msg+"ã€‚\n";
 //	write_file("/u/emnil/makeyao",msg);
-        write("Äã´òËã¸øÕâ¿ÅÒ©Æğ¸öÊ²Ã´Ó¢ÎÄÃû×Ö£¿(È±Ê¡£ºdanyao)");
+        write("ä½ æ‰“ç®—ç»™è¿™é¢—è¯èµ·ä¸ªä»€ä¹ˆè‹±æ–‡åå­—ï¼Ÿ(ç¼ºçœï¼šdanyao)");
 	yao->move(me);
         input_to("yao_id",0,yao);
         return 1;
@@ -506,16 +506,16 @@ void yao_id(string arg,object yao)
                 yao->set("id",arg);
         else
                 yao->set("id","danyao");
-        write("Äã´òËã¸øÕâ¿ÅÒ©Æğ¸öÊ²Ã´ÖĞÎÄÃû×Ö£¿(È±Ê¡£ºµ¤Ò©)");
+        write("ä½ æ‰“ç®—ç»™è¿™é¢—è¯èµ·ä¸ªä»€ä¹ˆä¸­æ–‡åå­—ï¼Ÿ(ç¼ºçœï¼šä¸¹è¯)");
         input_to("yao_name",0,yao);
 }
 
 void yao_name(string arg,object yao)
 {
-        yao->set_name(HIG "µ¤Ò©" NOR, ({yao->query("id"),"yao","dan"}));
+        yao->set_name(HIG "ä¸¹è¯" NOR, ({yao->query("id"),"yao","dan"}));
 if(arg && arg!="")
                 yao->set("name",arg);
-        write("Äã´òËãÈçºÎÃèÊöÕâ¿ÅÒ©£¿(È±Ê¡£ºÕâÊÇÒ»¿ÅÉñÁú½Ì¶À¼ÒÃÜÖÆµÄµ¤Ò©¡£)");
+        write("ä½ æ‰“ç®—å¦‚ä½•æè¿°è¿™é¢—è¯ï¼Ÿ(ç¼ºçœï¼šè¿™æ˜¯ä¸€é¢—ç¥é¾™æ•™ç‹¬å®¶å¯†åˆ¶çš„ä¸¹è¯ã€‚)");
         input_to("yao_long",0,yao);
 }
 
@@ -526,7 +526,7 @@ void yao_long(string arg,object yao)
 
 if(arg && arg!="")
               yao->set("long",arg+"\n");
-        message_vision(HIY+"\n$N"+HIY+"´ÓÒ©Â¯ÀïÄÃ³öÁËÒ»¿ÅÒ©¡£\n"NOR,me);
+        message_vision(HIY+"\n$N"+HIY+"ä»è¯ç‚‰é‡Œæ‹¿å‡ºäº†ä¸€é¢—è¯ã€‚\n"NOR,me);
         if(!yao->move(me))
                 yao->move(environment(me));
         if((add=me->query("mkyexp"))!=0)
@@ -540,6 +540,6 @@ if(arg && arg!="")
                 me->add("shen",-add*2);
                 me->delete("mkyexp");
 
-                tell_object(me,"ÄãÕ½Ê¤ĞÄÄ§£¬»ñµÃÁË"+add+"µã¾­Ñé£¬"+qnadd+"µãÇ±ÄÜ£¬"+add*2+"µã¸ºÉñ£¡\n");
+                tell_object(me,"ä½ æˆ˜èƒœå¿ƒé­”ï¼Œè·å¾—äº†"+add+"ç‚¹ç»éªŒï¼Œ"+qnadd+"ç‚¹æ½œèƒ½ï¼Œ"+add*2+"ç‚¹è´Ÿç¥ï¼\n");
         }
 }

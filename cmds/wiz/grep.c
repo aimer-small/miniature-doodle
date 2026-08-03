@@ -13,11 +13,11 @@ int main(object me, string arg)
 
         seteuid(geteuid(me));
         if (!arg || sscanf(arg,"%s %s",str,file)<2) 
-                return notify_fail("Ö¸Áî¸ñÊ½ : grep <×Ö·û´®> <µµ°¸> \n");
+                return notify_fail("æŒ‡ä»¤æ ¼å¼ : grep <å­—ç¬¦ä¸²> <æ¡£æ¡ˆ> \n");
         if( file_size(file) < 0 ) {
                 file = LOG_DIR+file;
                 if( file_size(file) < 0 )
-                        return notify_fail("Ã»ÓĞÕâ¸öµµ°¸¡£\n");
+                        return notify_fail("æ²¡æœ‰è¿™ä¸ªæ¡£æ¡ˆã€‚\n");
         }
 
         searchstr(me,file,str,file_size(file),"");
@@ -49,13 +49,13 @@ void searchstr(object me,string file,string str,int location,string buf)
                 }
 
                 if (location<=0) {
-                        tell_object(me,"\nËÑË÷½áÊø¡£\n");
+                        tell_object(me,"\næœç´¢ç»“æŸã€‚\n");
                         return;
                 }
 
                 if (count>20) {
                         count = 0;
-                        tell_object(me,"== Î´Íê¼ÌĞø == (ENTER ¼ÌĞøÏÂÒ»Ò³£¬q Àë¿ª)");
+                        tell_object(me,"== æœªå®Œç»§ç»­ == (ENTER ç»§ç»­ä¸‹ä¸€é¡µï¼Œq ç¦»å¼€)");
                         input_to("donext",me,file,str,location,buf);
                         return;
                 }
@@ -68,15 +68,15 @@ void donext(string arg,object me,string file,string str,int location,string buf)
         if( arg[0]!='q' )
                 searchstr(me,file,str,location,buf);
         else
-                tell_object(me,"²éÑ¯ÖÕÖ¹¡£\n");
+                tell_object(me,"æŸ¥è¯¢ç»ˆæ­¢ã€‚\n");
 }
 
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : grep <×Ö·û´®> <µµ°¸>
+æŒ‡ä»¤æ ¼å¼ : grep <å­—ç¬¦ä¸²> <æ¡£æ¡ˆ>
  
-ÔÚµµ°¸ÖĞÑ°ÕÒÖ¸¶¨µÄ×Ö·û´®¡£
+åœ¨æ¡£æ¡ˆä¸­å¯»æ‰¾æŒ‡å®šçš„å­—ç¬¦ä¸²ã€‚
 HELP
     );
     return 1;

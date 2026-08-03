@@ -67,7 +67,7 @@ mixed ask_me()
 
 	fighter = this_player();
 
-	if (!fighter->query_condition("lh_job")) return "Õâ¸ö¿É²»ÄÜÂÒËµ¡£";
+	if (!fighter->query_condition("lh_job")) return "è¿™ä¸ªå¯ä¸èƒ½ä¹±è¯´ã€‚";
 	if (query("teacher") && query("teacher") != fighter) {
 		if (fighter->query_temp("ask_monk") == 1) {
 			fighter->set_temp("ask_monk", 2);
@@ -93,7 +93,7 @@ mixed ask_me()
 		set_skill(skill_id, 1);
 	}
 	if (!query("teacher")) level = 10;
-	return "Ğ¡É®ÔÚÑ§"+query("learn")+"£¬ÒÑ¾­Á·µ½" + chinese_number(level) + "¼¶£¬ÇëÄãÖ¸µã(teach monk)¡£";
+	return "å°åƒ§åœ¨å­¦"+query("learn")+"ï¼Œå·²ç»ç»ƒåˆ°" + chinese_number(level) + "çº§ï¼Œè¯·ä½ æŒ‡ç‚¹(teach monk)ã€‚";
 }
 
 void relay_emote(object me, string arg)
@@ -102,7 +102,7 @@ void relay_emote(object me, string arg)
 	if (me->query_temp("ask_monk") > 2 && query("teacher") && query("teacher") != me) {
 		me->delete_temp("ask_monk");
 		command("callname "+query("id"));
-		command("say Ğ¡É®ÔÚÑ§"+query("learn")+"£¬ÒÑ¾­Á·µ½" + chinese_number(level) + "¼¶¡£");
+		command("say å°åƒ§åœ¨å­¦"+query("learn")+"ï¼Œå·²ç»ç»ƒåˆ°" + chinese_number(level) + "çº§ã€‚");
 		return;
 	}
 	command("wuwu "+me->query("id"));
@@ -115,38 +115,38 @@ int do_teach(string arg)
 	int gin_cost, exp,pot;
 
 	teacher=this_player();
-	if (arg != "monk") return notify_fail("ÄãÒª¸ÉÊ²Ã´?\n");
-	if (!query("skill")) return notify_fail("ÄãÎÊÎÒÏëÑ§Ê²Ã´ÁËÂğ?\n");
+	if (arg != "monk") return notify_fail("ä½ è¦å¹²ä»€ä¹ˆ?\n");
+	if (!query("skill")) return notify_fail("ä½ é—®æˆ‘æƒ³å­¦ä»€ä¹ˆäº†å—?\n");
 	if (query("teacher") && query("teacher") != teacher) {
-		command("say ÎÒÕıÓÉ"+ query("teacher")->name(1) + "("
-			+ capitalize(query("teacher")->query("id")) + ")½Ì×ÅÄØ£¡");
+		command("say æˆ‘æ­£ç”±"+ query("teacher")->name(1) + "("
+			+ capitalize(query("teacher")->query("id")) + ")æ•™ç€å‘¢ï¼");
 		return 1;
 	}
-	if (!teacher->query_condition("lh_job")) return notify_fail("Äã»¹ÊÇÏÈÈ¥¸úĞş²Ñ´óÊ¦´òÉùÕĞºô°É¡£\n");
+	if (!teacher->query_condition("lh_job")) return notify_fail("ä½ è¿˜æ˜¯å…ˆå»è·Ÿç„æƒ­å¤§å¸ˆæ‰“å£°æ‹›å‘¼å§ã€‚\n");
 	if (!query("teacher")) {
 		level = 10;
 		my_learned = 0;
 	}
 	my_skill = query("skill");
-	if (level > teacher->query_skill(my_skill,1)) return notify_fail("ÄãµÄĞŞÎª»¹²»ÈçÎÒÄØ£¬»¹Ïë½ÌÎÒ£¿£¡\n");
-	if (teacher->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
-	if (is_busy()) return notify_fail(name()+"ÕıÃ¦×ÅÄØ¡£\n");
+	if (level > teacher->query_skill(my_skill,1)) return notify_fail("ä½ çš„ä¿®ä¸ºè¿˜ä¸å¦‚æˆ‘å‘¢ï¼Œè¿˜æƒ³æ•™æˆ‘ï¼Ÿï¼\n");
+	if (teacher->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+	if (is_busy()) return notify_fail(name()+"æ­£å¿™ç€å‘¢ã€‚\n");
 	foreach(object item in all_inventory(environment())) {
 		if (item != teacher && userp(item) && !wizardp(item) && !random(3)) {
-			tell_room(environment(), teacher->name()+"Ò»¸±¼±²»¿ÉÄÍ¡¢ÈË¼ûÈË°®µÄÑù×Ó¡£\n", teacher);
-			return notify_fail(item->name()+"ÔÚÄãÅÔ±ß£¬ÄãÎŞ·¨×¨ĞÄÖ¸µã¡£\n");
+			tell_room(environment(), teacher->name()+"ä¸€å‰¯æ€¥ä¸å¯è€ã€äººè§äººçˆ±çš„æ ·å­ã€‚\n", teacher);
+			return notify_fail(item->name()+"åœ¨ä½ æ—è¾¹ï¼Œä½ æ— æ³•ä¸“å¿ƒæŒ‡ç‚¹ã€‚\n");
 		}
 	}
 	if (!query("teacher")) set("teacher", teacher);
 	gin_cost = 300 / query("int");
 	if (!living(this_object()) || query("jing") < gin_cost*3) {
-		write(name()+"Ì«ÀÛÁË£¬ÏÖÔÚÃ»ÓĞ°ì·¨Ñ§¡£\n");
+		write(name()+"å¤ªç´¯äº†ï¼Œç°åœ¨æ²¡æœ‰åŠæ³•å­¦ã€‚\n");
 		return 1;
 	}
-	if (!random(5)) tell_room(environment(), teacher->name() + "ÕıÔÚÏò" + name() + "Ö¸µãÎä¹¦¡£\n", teacher);
-	write("Äã¾¡ĞÄ½ßÁ¦£¬¶Ô" + name() + "Ö¸µã" + query("learn") + "µÄµÀÀí¡£\n");
+	if (!random(5)) tell_room(environment(), teacher->name() + "æ­£åœ¨å‘" + name() + "æŒ‡ç‚¹æ­¦åŠŸã€‚\n", teacher);
+	write("ä½ å°½å¿ƒç«­åŠ›ï¼Œå¯¹" + name() + "æŒ‡ç‚¹" + query("learn") + "çš„é“ç†ã€‚\n");
 	if (teacher->query("jing") < gin_cost*2) {
-		message_vision("$NÀÍÀÛ¹ı¶È£¬¾«ÉñÓĞĞ©»Ğã±¡£\n", teacher);
+		message_vision("$NåŠ³ç´¯è¿‡åº¦ï¼Œç²¾ç¥æœ‰äº›ææƒšã€‚\n", teacher);
 		teacher->unconcious();
 		return 1;
 	}
@@ -154,7 +154,7 @@ int do_teach(string arg)
 	teacher->receive_damage("jing", gin_cost*2);
 	me->add_skill(my_skill, me->query_int() / 4 + random(teacher->query_int() * 5 / 3) + random(level * 2 / 3 ));
 	if (random(10) < 6) {
-		tell_object(teacher,"ÔÚ½Ì" + me->name() + "µÄ¹ı³ÌÖĞ£¬ÄãÒ²ÁìÎòÁËÒ»Ğ©" + me->query("learn") + "µÄÃî´¦¡£\n");
+		tell_object(teacher,"åœ¨æ•™" + me->name() + "çš„è¿‡ç¨‹ä¸­ï¼Œä½ ä¹Ÿé¢†æ‚Ÿäº†ä¸€äº›" + me->query("learn") + "çš„å¦™å¤„ã€‚\n");
 		teacher->improve_skill(my_skill, teacher->query_int() / 5 + random(teacher->query_int() * 5 / 6));
 	}
 	exp = level / 10 + 1;
@@ -164,7 +164,7 @@ int do_teach(string arg)
 	pot = exp / 6 + random(exp / 10);
 	exp = random(exp);
 		
-	exp = teacher->add_exp_combat(exp,this_object(),"ÉÙÁÖ½ÌºÍÉĞ",1);
+	exp = teacher->add_exp_combat(exp,this_object(),"å°‘æ—æ•™å’Œå°š",1);
 	//teacher->add("combat_exp",exp );
 	teacher->add("potential",pot );
 			
@@ -172,8 +172,8 @@ int do_teach(string arg)
 		teacher->set("potential", teacher->query("max_pot"));
 	if ( random(level) > 20	 && !teacher->query_temp("meetmotou")){
 		where = names1[random(sizeof(names1))];
-		tell_room(environment(), HIC"Ò»Õó½ô¼±µÄÂàÉùÏìÆğ£¬ÓĞÍâÔôÍµ½øÉÙÁÖËÂÍ¼Ä±²»¹ì£¡\n"NOR);
-		message_vision(HIY + "$NÉñÇéÕñ·Ü£¬Ò»Éù´ó½ĞÏò"+where->query("short")+"±¼È¥£¡\n" NOR, me);
+		tell_room(environment(), HIC"ä¸€é˜µç´§æ€¥çš„é”£å£°å“èµ·ï¼Œæœ‰å¤–è´¼å·è¿›å°‘æ—å¯ºå›¾è°‹ä¸è½¨ï¼\n"NOR);
+		message_vision(HIY + "$Nç¥æƒ…æŒ¯å¥‹ï¼Œä¸€å£°å¤§å«å‘"+where->query("short")+"å¥”å»ï¼\n" NOR, me);
                 teacher->set_temp("meetmotou", 1);
 		na = teacher->query("id");
 		ob=new(__DIR__"motou");
@@ -197,7 +197,7 @@ void waiting(object me,int wait_time)
 	string place;
 
 	if (wait_time >= 100 || !query("teacher")) {
-		message_vision(HIY + "$NÉËºÛÀÛÀÛ£¬ÒÑ¾­Ö§³Ö²»×¡ÁË£¡\n" NOR, me);
+		message_vision(HIY + "$Nä¼¤ç—•ç´¯ç´¯ï¼Œå·²ç»æ”¯æŒä¸ä½äº†ï¼\n" NOR, me);
 		me->die();
 		return;
 	}
@@ -206,11 +206,11 @@ void waiting(object me,int wait_time)
 		call_out("waiting", 1, me, wait_time + 1);
 		return;
 	}
-	message_vision(HIC "$NÒÑ¾«Æ£Á¦¾¡£¬¼û$nµ½À´Ï²³öÍûÍâ£¬×ªÉíÀë¿ªÕ½³¡¡£\n"NOR, me, teacher);
+	message_vision(HIC "$Nå·²ç²¾ç–²åŠ›å°½ï¼Œè§$nåˆ°æ¥å–œå‡ºæœ›å¤–ï¼Œè½¬èº«ç¦»å¼€æˆ˜åœºã€‚\n"NOR, me, teacher);
 	place = me->query("place");
 	me->move(place);
 	me->set("startroom", place);
-	message_vision(BLU"Ò»¸öÃæÉ«»Ò°µ£¬ÂúÁ³Ğ×¹âµÄ´óººÒ»°ÑÀ¹×¡$N£¬ËµµÀ£ºĞ¡ºÍÉĞÅÜÁË£¬ÀÏµÄ±ğÏëÌÓ£¡\n"NOR, teacher);
+	message_vision(BLU"ä¸€ä¸ªé¢è‰²ç°æš—ï¼Œæ»¡è„¸å‡¶å…‰çš„å¤§æ±‰ä¸€æŠŠæ‹¦ä½$Nï¼Œè¯´é“ï¼šå°å’Œå°šè·‘äº†ï¼Œè€çš„åˆ«æƒ³é€ƒï¼\n"NOR, teacher);
 	teacher->start_busy(random(3));
 }
 
@@ -225,7 +225,7 @@ void add_skill(string skill, int amount, int weak_mode)
 		set_skill(mpto[skill],level);
 		map_skill(mpto[skill],skill);
 		prepare_skill(mpto[skill],skill);
-		message_vision("$N×¥¶úÄÓÈù£¬Ò»¸±Ï²²»×Ô½ûµÄÑù×Ó¡£\n", this_object());
+		message_vision("$NæŠ“è€³æŒ è…®ï¼Œä¸€å‰¯å–œä¸è‡ªç¦çš„æ ·å­ã€‚\n", this_object());
 	}
 }
 
@@ -236,7 +236,7 @@ void greeting(object ob)
 	me = this_object();
 	if ( !ob || environment(ob) != environment() ) return;
 	if (me->visible(ob) && interactive(ob) && ob->query_condition("lh_job") && !me->query("teacher"))
-		say(me->name()+"ËµµÀ£»ÕâÎ»ÊÇÀ´Ö¸µãĞ¡É®µÄÂğ?\n");
+		say(me->name()+"è¯´é“ï¼›è¿™ä½æ˜¯æ¥æŒ‡ç‚¹å°åƒ§çš„å—?\n");
 }
 
 int query_level(int lvl)
@@ -252,8 +252,8 @@ void unconcious()
 	me = ob->query_temp("last_damage_from");
 	if (objectp(me))
 		if (me != query("teacher"))
-			command("party "+me->query("name")+"£¬Äã¸ÒÉ±ÎÒ£¡"
-				+(query("teacher")?query("teacher")->query("name")+"£¬ÌæÎÒ±¨³ğ°¡£¡":""));
+			command("party "+me->query("name")+"ï¼Œä½ æ•¢æ€æˆ‘ï¼"
+				+(query("teacher")?query("teacher")->query("name")+"ï¼Œæ›¿æˆ‘æŠ¥ä»‡å•Šï¼":""));
 		else
 			command("party* ghostlove "+me->query("id"));
 	::unconcious();
@@ -266,8 +266,8 @@ void die()
 	me = ob->query_temp("last_damage_from");
 	if (objectp(me))
 		if (me != query("teacher"))
-			command("party "+me->query("name")+"£¬Äã¸ÒÉ±ÎÒ£¡"
-				+(query("teacher")?query("teacher")->query("name")+"£¬ÌæÎÒ±¨³ğ°¡£¡":""));
+			command("party "+me->query("name")+"ï¼Œä½ æ•¢æ€æˆ‘ï¼"
+				+(query("teacher")?query("teacher")->query("name")+"ï¼Œæ›¿æˆ‘æŠ¥ä»‡å•Šï¼":""));
 		else
 			command("party* ghostlove "+me->query("id"));
 	::die();

@@ -12,15 +12,15 @@ int ask_job();
 void create()
 {
 
-        set_name(HIG"Ô¬³ç»À"NOR, ({ "yuan chonghuan", "yuan" }));
-set("title",HIR"¼»ÁÉ¶½Ê¦"NOR);
+        set_name(HIG"è¢å´‡ç„•"NOR, ({ "yuan chonghuan", "yuan" }));
+set("title",HIR"è“Ÿè¾½ç£å¸ˆ"NOR);
 
-        set("gender", "ÄÐÐÔ");
+        set("gender", "ç”·æ€§");
         set("age", 40);
-        set("long","Ô¬³ç»À£¬×ÖÔªËØ£¬ÊÇÒ»Î»ÓÇ¹úÓÇÃñµÄ¿¹Çå½«¾ü£¬ÔøÔÚÉ½º£¹ØÄþÔ¶ÕòÒ»´úµÖÓùÇå¾ü¡£\n");
+        set("long","è¢å´‡ç„•ï¼Œå­—å…ƒç´ ï¼Œæ˜¯ä¸€ä½å¿§å›½å¿§æ°‘çš„æŠ—æ¸…å°†å†›ï¼Œæ›¾åœ¨å±±æµ·å…³å®è¿œé•‡ä¸€ä»£æŠµå¾¡æ¸…å†›ã€‚\n");
 
 	set("inquiry", ([ 
-        	"¿¹Çå" : (: ask_job :),
+        	"æŠ—æ¸…" : (: ask_job :),
             ])); 
 
         setup();
@@ -36,42 +36,42 @@ int ask_job()
 
 	if(!me->is_team_leader())
 	{
-		tell_object(me,"Äã²»ÊÇÁì¶Ó¡£\n");
+		tell_object(me,"ä½ ä¸æ˜¯é¢†é˜Ÿã€‚\n");
 		return 1;
 	}
 
        if  (me->query("fuben/kangqing/time") && time()-me->query("fuben/kangqing/time") < 21600 )
 {
-    tell_object(me,"½ø³ö¸±±¾Ã¿´ÎÐè¼ä¸ô21600Ãë¡£\n");
+    tell_object(me,"è¿›å‡ºå‰¯æœ¬æ¯æ¬¡éœ€é—´éš”21600ç§’ã€‚\n");
 		return 1;
 	}
    
 	team = me->query_team();
 	if(!pointerp(team) || sizeof(team) < 2)
 	{
-		tell_object(me,"ÄãµÄÈËÊÖ²»¹»¡£\n");
+		tell_object(me,"ä½ çš„äººæ‰‹ä¸å¤Ÿã€‚\n");
 		return 1;
 	}
    
 for (i = 0;i < sizeof(team);i ++)
 {   
 if (!team[i])
-command("say ÄãµÄ¶ÓÎé³öÏÖÁËÎÊÌâ£¬Çë½âÉ¢²¢ÖØÐÂ×é½¨¡£\n");
+command("say ä½ çš„é˜Ÿä¼å‡ºçŽ°äº†é—®é¢˜ï¼Œè¯·è§£æ•£å¹¶é‡æ–°ç»„å»ºã€‚\n");
 
                                        if (!present(team[i]))
-                        command("say ÔõÃ´ºÃÏóÈË²»È«°¡£¿" + team[i]->query("name") + "ÔõÃ´Ã»À´£¿\n");
+                        command("say æ€Žä¹ˆå¥½è±¡äººä¸å…¨å•Šï¼Ÿ" + team[i]->query("name") + "æ€Žä¹ˆæ²¡æ¥ï¼Ÿ\n");
 
 
 
  if(team[i]->query("fuben/kangqing/time") && 
 time()-team[i]->query("fuben/kangqing/time") <21600 )
    {
-		tell_object(me,"Äã¶ÓÎéÖÐÓÐÈËÉÐÎ´´ïµ½ÀäÈ´Ê±¼ä£¬ÇëÁíÕÒ¸ßÃ÷¡£\n");
+		tell_object(me,"ä½ é˜Ÿä¼ä¸­æœ‰äººå°šæœªè¾¾åˆ°å†·å´æ—¶é—´ï¼Œè¯·å¦æ‰¾é«˜æ˜Žã€‚\n");
 		return 1;
 	}
 /*
 if (!interactive(team[i]) || query_ip_number(team[i]) == query_ip_number(me)) {
-command("say Í¬IPµÄ²»ÄÜ½øÈë¸±±¾£¬»»¸ö¶ÓÓÑ°É¡£");
+command("say åŒIPçš„ä¸èƒ½è¿›å…¥å‰¯æœ¬ï¼Œæ¢ä¸ªé˜Ÿå‹å§ã€‚");
 			return 1;
 		}
 
@@ -81,16 +81,16 @@ command("say Í¬IPµÄ²»ÄÜ½øÈë¸±±¾£¬»»¸ö¶ÓÓÑ°É¡£");
 
 	if(MIRROR_SYS->query_room_amount() >= 20)
 	{
-		tell_object(me,"¾µÏñÒÑ¾­¿ªÆôÌ«¶à£¬»¶Ó­ÏÂ´Î²ÎÓë¡£\n");
+		tell_object(me,"é•œåƒå·²ç»å¼€å¯å¤ªå¤šï¼Œæ¬¢è¿Žä¸‹æ¬¡å‚ä¸Žã€‚\n");
 		return 1;
 	}
-	//É¾³ý¾ÉµÄ¸±±¾
+	//åˆ é™¤æ—§çš„å‰¯æœ¬
 	memory = me->query_temp("mirror/mirror_memory");
 	if(objectp(memory))
 	{
 		memory->delete("user_id");
 	}
-	//´´½¨ÐÂµÄ¸±±¾
+	//åˆ›å»ºæ–°çš„å‰¯æœ¬
 	MIRROR_SYS->mirror(team,me);
 team->set("fuben/kangqing/time",time());
        	return 1;

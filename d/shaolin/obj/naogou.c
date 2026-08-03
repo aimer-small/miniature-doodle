@@ -3,10 +3,10 @@ inherit ITEM;
 
 void create()
 {
-        set_name("ÄÓ¹³", ({ "nao gou", "gou", "naogou" }));
+        set_name("æŒ é’©", ({ "nao gou", "gou", "naogou" }));
         set_weight(400);
-        set("unit", "°Ñ");
-		set("long", "ÕâÊÇÒ»³¤³¤µÄÄÓ¹³£¬¿ÉÒÔÓÃÀ´ÅÀÉ½¡£\n");
+        set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯ä¸€é•¿é•¿çš„æŒ é’©ï¼Œå¯ä»¥ç”¨æ¥çˆ¬å±±ã€‚\n");
 		set("value", 40);
 		set("material", "wood");
         setup();

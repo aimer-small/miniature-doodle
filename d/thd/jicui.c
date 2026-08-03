@@ -8,11 +8,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", GRN"»ı´äÍ¤"NOR);
+        set("short", GRN"ç§¯ç¿ äº­"NOR);
         set("long", @LONG
-ÕâÊÇ×ùÖñÖ¦´î³ÉµÄÁ¹Í¤£¬Í¤ÖĞ·Å×ÅÖñÌ¨ÖñÒÎ£¬È«ÊÇ¶àÄêÖ®Îï£¬ÓÃµÃ
-¾ÃÁË£¬ÏÖ³öµ­µ­»Æ¹â£¬Á½ÅÔĞü×ÅÒ»¸±¶ÔÁª(duilian)¡£¶«Ãæ²»Ô¶¾ÍÊÇÕĞ
-´ıÉÏµº¿ÍÈËµÄ¿Í·¿£¬ÄÏ±±Á½Ãæ¶¼ÊÇÓôÓô´Ğ´ĞµÄÂÌÖñÁÖ¡£
+è¿™æ˜¯åº§ç«¹ææ­æˆçš„å‡‰äº­ï¼Œäº­ä¸­æ”¾ç€ç«¹å°ç«¹æ¤…ï¼Œå…¨æ˜¯å¤šå¹´ä¹‹ç‰©ï¼Œç”¨å¾—
+ä¹…äº†ï¼Œç°å‡ºæ·¡æ·¡é»„å…‰ï¼Œä¸¤æ—æ‚¬ç€ä¸€å‰¯å¯¹è”(duilian)ã€‚ä¸œé¢ä¸è¿œå°±æ˜¯æ‹›
+å¾…ä¸Šå²›å®¢äººçš„å®¢æˆ¿ï¼Œå—åŒ—ä¸¤é¢éƒ½æ˜¯éƒéƒè‘±è‘±çš„ç»¿ç«¹æ—ã€‚
 LONG
         );
         set("exits",([
@@ -22,20 +22,20 @@ LONG
                 "enter" : __DIR__"room",
         ]) );
 //set("no_clean_up",0);
-        set("outdoors","ÌÒ»¨µº");
+        set("outdoors","æ¡ƒèŠ±å²›");
         set("item_desc",([
                 "duilian" : HIY"
-\t¡ù¡ù¡ù¡ù              ¡ù¡ù¡ù¡ù
-\t¡ù    ¡ù              ¡ù    ¡ù
-\t¡ù ÌÒ ¡ù              ¡ù ±Ì ¡ù
-\t¡ù »¨ ¡ù              ¡ù º£ ¡ù
-\t¡ù Ó° ¡ù              ¡ù ³± ¡ù
-\t¡ù Âä ¡ù              ¡ù Éú ¡ù
-\t¡ù ·É ¡ù              ¡ù °´ ¡ù
-\t¡ù Éñ ¡ù              ¡ù Óñ ¡ù
-\t¡ù ½£ ¡ù              ¡ù óï ¡ù
-\t¡ù    ¡ù              ¡ù    ¡ù 
-\t¡ù¡ù¡ù¡ù              ¡ù¡ù¡ù¡ù\n 
+\tâ€»â€»â€»â€»              â€»â€»â€»â€»
+\tâ€»    â€»              â€»    â€»
+\tâ€» æ¡ƒ â€»              â€» ç¢§ â€»
+\tâ€» èŠ± â€»              â€» æµ· â€»
+\tâ€» å½± â€»              â€» æ½® â€»
+\tâ€» è½ â€»              â€» ç”Ÿ â€»
+\tâ€» é£ â€»              â€» æŒ‰ â€»
+\tâ€» ç¥ â€»              â€» ç‰ â€»
+\tâ€» å‰‘ â€»              â€» ç®« â€»
+\tâ€»    â€»              â€»    â€» 
+\tâ€»â€»â€»â€»              â€»â€»â€»â€»\n 
 "NOR
         ]));
         set("objects",([
@@ -56,10 +56,10 @@ void init()
                 me->set_skill("qimen-bagua", 500);
 		me->set_skill("bihai-chaosheng", lvl1 + lvl2);
 		me->set("cut/thd", lvl2 * 4);
-		write(HIG "ÏµÍ³ÒÑ½«Äú¶àÓàµÄ¡¸ÆæÃÅ°ËØÔ¡¹×ª»»Îª¡¸±Ìº£³±Éú¹¦¡¹¡£\n" NOR);
+		write(HIG "ç³»ç»Ÿå·²å°†æ‚¨å¤šä½™çš„ã€Œå¥‡é—¨å…«å¦ã€è½¬æ¢ä¸ºã€Œç¢§æµ·æ½®ç”ŸåŠŸã€ã€‚\n" NOR);
 	}
 	if ( me->query("thd_job")){
-		me->add("job_time/ÌÒ»¨µº", me->query("thd_job"));
+		me->add("job_time/æ¡ƒèŠ±å²›", me->query("thd_job"));
 		me->delete("thd_job");
 	}
 }
@@ -75,10 +75,10 @@ int valid_leave(object me, string dir)
 		for(i = 0; i < sizeof(ob); i++) {
 			if (userp(ob[i])) {
 				if (!drop_flag) {
-					message_vision("$N¿´µ½»ÆÒ©Ê¦£¬°Ñ±³¸ºµÄÈË·ÅÏÂ£¬Ïò»ÆÒ©Ê¦ĞĞÁË¸öÀñ¡£\n", me);
+					message_vision("$Nçœ‹åˆ°é»„è¯å¸ˆï¼ŒæŠŠèƒŒè´Ÿçš„äººæ”¾ä¸‹ï¼Œå‘é»„è¯å¸ˆè¡Œäº†ä¸ªç¤¼ã€‚\n", me);
 					drop_flag = 1;
 				}
-				message_vision("$N½«$n´Ó±³ÉÏ·ÅÁËÏÂÀ´£¬ÌÉÔÚµØÉÏ¡£\n", me, ob[i]);
+				message_vision("$Nå°†$nä»èƒŒä¸Šæ”¾äº†ä¸‹æ¥ï¼Œèººåœ¨åœ°ä¸Šã€‚\n", me, ob[i]);
 				ob[i]->move(this_object());
 			}
 			else {
@@ -86,10 +86,10 @@ int valid_leave(object me, string dir)
 				for(j = 0; j < sizeof(deep_ob); j++) {
 					if (userp(deep_ob[j])) {
 						if (!drop_flag) {
-							message_vision("$N¿´µ½»ÆÒ©Ê¦£¬°ÑÉíÉÏµÄ±¿ÖØÎïÆ·¶ªÏÂ£¬Ïò»ÆÒ©Ê¦ĞĞÁË¸öÀñ¡£\n", me);
+							message_vision("$Nçœ‹åˆ°é»„è¯å¸ˆï¼ŒæŠŠèº«ä¸Šçš„ç¬¨é‡ç‰©å“ä¸¢ä¸‹ï¼Œå‘é»„è¯å¸ˆè¡Œäº†ä¸ªç¤¼ã€‚\n", me);
 							drop_flag = 1;
 						}
-						message_vision(sprintf("$N¶ªÏÂÒ»%s$n¡£\n", ob[i]->query("unit")), me, ob[i]);
+						message_vision(sprintf("$Nä¸¢ä¸‹ä¸€%s$nã€‚\n", ob[i]->query("unit")), me, ob[i]);
 						ob[i]->move(this_object());
 						break;
 					}
@@ -98,6 +98,6 @@ int valid_leave(object me, string dir)
 		}
 	}
         if( dir =="enter" && objectp(present("huang yaoshi", environment(me)))) 
-		return notify_fail("»ÆÒ©Ê¦°ÑÊÖÒ»Éì£¬À¹×¡ÄãµÄÈ¥Â·£¬Ğ¦µÀ£ºÃ»ÓĞÎÒµÄÍ¬ÒâÎŞÈËÄÜ½øÈëóï·¿¡£\n");
+		return notify_fail("é»„è¯å¸ˆæŠŠæ‰‹ä¸€ä¼¸ï¼Œæ‹¦ä½ä½ çš„å»è·¯ï¼Œç¬‘é“ï¼šæ²¡æœ‰æˆ‘çš„åŒæ„æ— äººèƒ½è¿›å…¥ç®«æˆ¿ã€‚\n");
 	return ::valid_leave(me, dir);
 }

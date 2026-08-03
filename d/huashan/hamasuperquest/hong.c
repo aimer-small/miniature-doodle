@@ -5,13 +5,13 @@ inherit F_MASTER;
 int do_cry();
 void create()
 {
-        set_name("ºéÆß¹«", ({"hong qigong", "hong", "qigong"}));
-        set("nickname", "¾ÅÖ¸ÉñØ¤");
-        set("gender", "ÄÐÐÔ");
+        set_name("æ´ªä¸ƒå…¬", ({"hong qigong", "hong", "qigong"}));
+        set("nickname", "ä¹æŒ‡ç¥žä¸");
+        set("gender", "ç”·æ€§");
         set("age", 75);
         set("long", 
-"ËûÒ»ÕÅ³¤·½Á³£¬ò¢ÏÂÎ¢Ðë£¬´ÖÊÖ´ó½Å£¬ÉíÉÏÒÂ·þ¶«Ò»¿éÎ÷Ò»¿éµÄ´òÂúÁË²¹¶¡£¬
-È´Ï´µÃ¸É¸É¾»¾»£¬±³ÉÏ¸º×Å¸öÖìºìÆáµÄ´óºùÂ«¡£\n");
+"ä»–ä¸€å¼ é•¿æ–¹è„¸ï¼Œé¢Œä¸‹å¾®é¡»ï¼Œç²—æ‰‹å¤§è„šï¼Œèº«ä¸Šè¡£æœä¸œä¸€å—è¥¿ä¸€å—çš„æ‰“æ»¡äº†è¡¥ä¸ï¼Œ
+å´æ´—å¾—å¹²å¹²å‡€å‡€ï¼ŒèƒŒä¸Šè´Ÿç€ä¸ªæœ±çº¢æ¼†çš„å¤§è‘«èŠ¦ã€‚\n");
         set("attitude", "peaceful");
         
         set("str", 35);
@@ -31,18 +31,18 @@ void create()
         set("score", 200000);
         set("death_times",180);
 
-        set_skill("force", 400);             // »ù±¾ÄÚ¹¦
-        set_skill("huntian-qigong", 400);    // »ìÌìÆø¹¦
-        set_skill("strike", 400);            // »ù±¾ÕÆ·¨
-        set_skill("xianglong-zhang", 400);   // ½µÁúÊ®°ËÕÆ
-        set_skill("hand", 360);              // »ù±¾ÊÖ·¨
-        set_skill("dodge", 400);             // »ù±¾¶ãÉÁ
-        set_skill("xiaoyaoyou", 400);        // åÐÒ£ÓÎ
-        set_skill("parry", 400);             // »ù±¾ÕÐ¼Ü
-        set_skill("stick", 400);             // »ù±¾¹÷ÕÈ
-        set_skill("dagou-bang", 400);        // ´ò¹·°ô·¨
-        set_skill("begging", 200);           // ½Ð»¯¾ø»î
-        set_skill("checking", 200);          // µÀÌýÍ¾Ëµ
+        set_skill("force", 400);             // åŸºæœ¬å†…åŠŸ
+        set_skill("huntian-qigong", 400);    // æ··å¤©æ°”åŠŸ
+        set_skill("strike", 400);            // åŸºæœ¬æŽŒæ³•
+        set_skill("xianglong-zhang", 400);   // é™é¾™åå…«æŽŒ
+        set_skill("hand", 360);              // åŸºæœ¬æ‰‹æ³•
+        set_skill("dodge", 400);             // åŸºæœ¬èº²é—ª
+        set_skill("xiaoyaoyou", 400);        // é€é¥æ¸¸
+        set_skill("parry", 400);             // åŸºæœ¬æ‹›æž¶
+        set_skill("stick", 400);             // åŸºæœ¬æ£æ–
+        set_skill("dagou-bang", 400);        // æ‰“ç‹—æ£’æ³•
+        set_skill("begging", 200);           // å«åŒ–ç»æ´»
+        set_skill("checking", 200);          // é“å¬é€”è¯´
 
         map_skill("force", "huntian-qigong");
         map_skill("strike","xianglong-zhang");
@@ -53,7 +53,7 @@ void create()
         
         prepare_skill("strike", "xianglong-zhang");
 
-        create_family("Ø¤°ï", 17, "°ïÖ÷");
+        create_family("ä¸å¸®", 17, "å¸®ä¸»");
         setup();
         
             carry_object(ARMOR_D("bainayi"))->wear();
@@ -92,13 +92,13 @@ int do_cry()
                 j++;
        }
         if (j>1)
-        command("say ÄãÃÇÕâÃ´ÈËÉÏ»ªÉ½¸ÉÊ²Ã´À´ÁË£¡\n");
+        command("say ä½ ä»¬è¿™ä¹ˆäººä¸ŠåŽå±±å¹²ä»€ä¹ˆæ¥äº†ï¼\n");
         else if (me->query("oyf/hamagong") < 3) 
         {       
         
                 command("haha");
-                command("say Ð¡ÍÞ¶ù£¬ÓÐÊ²Ã´ÉËÐÄÊÂ¿ìËµ¸øÄã¹«¹«ÌýÌý£¡\n");
-                tell_object(me,HIM"Äã¾õµÃÉíÌåÒ»Çá£¬ºéÆß¹«ÒÑÀ­×ÅÄãÔ¾ÉÏÁË»ªÉ½¾ø¶¥£¡\n"NOR);
+                command("say å°å¨ƒå„¿ï¼Œæœ‰ä»€ä¹ˆä¼¤å¿ƒäº‹å¿«è¯´ç»™ä½ å…¬å…¬å¬å¬ï¼\n");
+                tell_object(me,HIM"ä½ è§‰å¾—èº«ä½“ä¸€è½»ï¼Œæ´ªä¸ƒå…¬å·²æ‹‰ç€ä½ è·ƒä¸Šäº†åŽå±±ç»é¡¶ï¼\n"NOR);
 
                 call_out("dest_ob", 1, ob,me);
                 

@@ -3,16 +3,16 @@ inherit FIGHTER;
 //#include "/d/city/npc/skills_pfm.h";
 void create()
 {
-	set_name("ÎŞÃûÀÏÉ®", ({
+	set_name("æ— åè€åƒ§", ({
                 "wuming laoseng",
                 "wuming",
                 "laoseng",
         }));
         set("long",
-                "ËûÊÇÒ»Î»Éí´©ÇàÅÛµÄ¿İÊİÉ®ÈË£¬Éí²Ä²»¸ß¡£\n"
-                "Äê¼ÍÒÑÔÚÆßÑ®¿ªÍâ£¬Ï¡Ï¡ÊèÊèµÄ¼¸¸ù³¤ĞëÒÑÈ»È«°×¡£\n"
+                "ä»–æ˜¯ä¸€ä½èº«ç©¿é’è¢çš„æ¯ç˜¦åƒ§äººï¼Œèº«æä¸é«˜ã€‚\n"
+                "å¹´çºªå·²åœ¨ä¸ƒæ—¬å¼€å¤–ï¼Œç¨€ç¨€ç–ç–çš„å‡ æ ¹é•¿é¡»å·²ç„¶å…¨ç™½ã€‚\n"
         );
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
         set("no_bark",1);
@@ -80,7 +80,7 @@ map_skill("parry","yizhi-chan");
                 (: perform_action, "finger.qiankun" :),
                 (: perform_action, "finger.wofo" :),
 	}));
-        create_family("ÉÙÁÖÅÉ", 34, "µÜ×Ó");   
+        create_family("å°‘æ—æ´¾", 34, "å¼Ÿå­");   
 	      set_temp("apply/damage", 50);
         set_temp("apply/dodge", 100);
         set_temp("apply/attack", 80);
@@ -104,8 +104,8 @@ void init()
 	ob->set("setok",1);
 	i=400;	
    	ob->set("party","sl");  	  
-	ob->copy_menpai(({ob->query("party")}),random(2),random(2),100);    //¸´ÖÆnpcµÄÃÅÅÉÎä¹¦£¬                                                   
-	ob->copy_state();				//¸ù¾İÃÅÅÉ¸üĞÂnpc µÄÒ»Ğ©×´Ì¬
+	ob->copy_menpai(({ob->query("party")}),random(2),random(2),100);    //å¤åˆ¶npcçš„é—¨æ´¾æ­¦åŠŸï¼Œ                                                   
+	ob->copy_state();				//æ ¹æ®é—¨æ´¾æ›´æ–°npc çš„ä¸€äº›çŠ¶æ€
 	ob->set("max_qi", 25000);
 	ob->set("eff_qi", 25000);
 	ob->set("qi", 25000);

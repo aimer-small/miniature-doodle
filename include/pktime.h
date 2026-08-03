@@ -1,7 +1,7 @@
 
 #include <ansi.h>
 #define REFRESH_TIME 120
-/* ¶¨Òå×Ô¶¯Çå³ýµÄÊ±¼ä µ¥Î» Ãë */
+/* å®šä¹‰è‡ªåŠ¨æ¸…é™¤çš„æ—¶é—´ å•ä½ ç§’ */
 string* query_same_ip(object me,mapping all,string ip);
 
 int meisdummy(object me,object target)
@@ -30,22 +30,22 @@ int pktime_limit(object me,object target)
 	be_killed_ip = target->query_temp("be_killed_ip");
 	if(!be_killed_ip) be_killed_ip = ([]);
 	ids = keys(be_killed_ip);	
-	if( me!=target &&  interactive(me) && (!sizeof(ids) || member_array(getuid(me),ids) == -1 ) )//²»ÔÚ¹¥»÷¹ýµÄÁÐ±íÄÚ²Å²ÉÈ¡´ëÊ© ÔÙ¼ÓÉÏ±ØÐëÊÇÁ¬ÏßµÄÍæ¼Ò
+	if( me!=target &&  interactive(me) && (!sizeof(ids) || member_array(getuid(me),ids) == -1 ) )//ä¸åœ¨æ”»å‡»è¿‡çš„åˆ—è¡¨å†…æ‰é‡‡å–æŽªæ–½ å†åŠ ä¸Šå¿…é¡»æ˜¯è¿žçº¿çš„çŽ©å®¶
 	{
 		string* ips = values(be_killed_ip);
 		string* check_idip = query_same_ip(target,be_killed_ip,query_ip_number(me));
-		if(ips && sizeof(ips) && member_array( query_ip_number(me),ips)!=-1 && check_idip && sizeof(check_idip)>0 ) //µÃ³öML PKµÄ½áÂÛ
+		if(ips && sizeof(ips) && member_array( query_ip_number(me),ips)!=-1 && check_idip && sizeof(check_idip)>0 ) //å¾—å‡ºML PKçš„ç»“è®º
 		{
 			log_file("nosave/MLPK",
-				sprintf("%-8s ¿ÉÄÜ¸ú %s MLPK %-8s À´×Ô%s",getuid(me), implode(check_idip,","),getuid(target), query_ip_number(me)  ),
+				sprintf("%-8s å¯èƒ½è·Ÿ %s MLPK %-8s æ¥è‡ª%s",getuid(me), implode(check_idip,","),getuid(target), query_ip_number(me)  ),
 				this_object() );
-			tell_object(me,sprintf(HIG"\n±¾ÓÎÏ·½ûÖ¹Multi-Login TK£¬ÒÑ¾­ÓÐ%s¸öºÍÄãIPÏàÍ¬µÄÍæ¼Ò(%s)ÓëÄ¿±êÔÚÕ½¶·ÁË¡£\n"NOR,
+			tell_object(me,sprintf(HIG"\næœ¬æ¸¸æˆç¦æ­¢Multi-Login TKï¼Œå·²ç»æœ‰%sä¸ªå’Œä½ IPç›¸åŒçš„çŽ©å®¶(%s)ä¸Žç›®æ ‡åœ¨æˆ˜æ–—äº†ã€‚\n"NOR,
 				chinese_number(sizeof(check_idip)),implode(check_idip,",")) );			
-			tell_object(me,BLINK HIR"ÄãµÄ·¸¹æÐÐÎªÒÑ¾­±»ÏµÍ³¼ÇÂ¼¡£\n\n"NOR NOR);
+			tell_object(me,BLINK HIR"ä½ çš„çŠ¯è§„è¡Œä¸ºå·²ç»è¢«ç³»ç»Ÿè®°å½•ã€‚\n\n"NOR NOR);
 		}
 		if(check_idip && sizeof(check_idip)>2)
 		{
-			return 1;//²»ÈÃËûÉ±ÁË
+			return 1;//ä¸è®©ä»–æ€äº†
 		}
 		be_killed_ip[getuid(me)]=query_ip_number(me);
 		call_out("delete_ip_flag",REFRESH_TIME,target,getuid(me));
@@ -58,21 +58,21 @@ int pktime_limit(object me,object target)
 	if (strsrch(file_name(environment(me)), "/d/group") >=0 
 	 && strsrch(file_name(environment(me)), "/d/group/entry") !=0 ) return 0;
 	
-	ts = replace_string(ts, "Sun", "ÐÇÆÚÈÕ");
-	ts = replace_string(ts, "Mon", "ÐÇÆÚÒ»");
-	ts = replace_string(ts, "Tue", "ÐÇÆÚ¶þ");
-	ts = replace_string(ts, "Wed", "ÐÇÆÚÈý");
-	ts = replace_string(ts, "Thu", "ÐÇÆÚËÄ");
-	ts = replace_string(ts, "Fri", "ÐÇÆÚÎå");
-	ts = replace_string(ts, "Sat", "ÐÇÆÚÁù");
+	ts = replace_string(ts, "Sun", "æ˜ŸæœŸæ—¥");
+	ts = replace_string(ts, "Mon", "æ˜ŸæœŸä¸€");
+	ts = replace_string(ts, "Tue", "æ˜ŸæœŸäºŒ");
+	ts = replace_string(ts, "Wed", "æ˜ŸæœŸä¸‰");
+	ts = replace_string(ts, "Thu", "æ˜ŸæœŸå››");
+	ts = replace_string(ts, "Fri", "æ˜ŸæœŸäº”");
+	ts = replace_string(ts, "Sat", "æ˜ŸæœŸå…­");
 	
 	
 	
 	return 0;
 
-	if ( ts == "ÐÇÆÚÈÕ" || ts == "ÐÇÆÚÁù") return 0;
+	if ( ts == "æ˜ŸæœŸæ—¥" || ts == "æ˜ŸæœŸå…­") return 0;
 
-	notify_fail("½ñÌìÊÇ"+ts+"£¬ÄúÖ»ÄÜÔÚ¹æ¶¨ÇøÓòÄÚ½øÐÐÖ÷¶¯¹¥»÷ÐÐÎª¡£\n");
+	notify_fail("ä»Šå¤©æ˜¯"+ts+"ï¼Œæ‚¨åªèƒ½åœ¨è§„å®šåŒºåŸŸå†…è¿›è¡Œä¸»åŠ¨æ”»å‡»è¡Œä¸ºã€‚\n");
 	return 1;
 }
 
@@ -99,7 +99,7 @@ string* query_same_ip(object me,mapping all,string ip)
 void delete_ip_flag(object me,string id)
 {
 	mapping bekilledip;
-	//message("wizard:ciwei",sprintf(HIR"¶¨Ê±Çå³ýÐÅÏ¢£º%O id:%s\n"NOR,me,id),users());	
+	//message("wizard:ciwei",sprintf(HIR"å®šæ—¶æ¸…é™¤ä¿¡æ¯ï¼š%O id:%s\n"NOR,me,id),users());	
 	if(!me) return;
 	bekilledip = me->query_temp("be_killed_ip");
 	if(!bekilledip || !mapp(bekilledip)) return;

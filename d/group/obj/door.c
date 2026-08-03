@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW"Ê¯ÃÅ"NOR, ({ "shi men","men","door" }));
+	set_name(HIW"çŸ³é—¨"NOR, ({ "shi men","men","door" }));
 	set_weight(30000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "×ù");
-		set("long", HIW"ÕâÊÇÒ»×ù¼á¹ÌµÄÊ¯ÃÅ¡£\nÉÏÃæ¿Ì×Å¼¸¸ö×­Í·´ó×Ö¡°°ïÅÉÖØµØ£¬ÉÃÈëÕßËÀ!¡±¡£\n"NOR);
+		set("unit", "åº§");
+		set("long", HIW"è¿™æ˜¯ä¸€åº§åšå›ºçš„çŸ³é—¨ã€‚\nä¸Šé¢åˆ»ç€å‡ ä¸ªç¯†å¤´å¤§å­—â€œå¸®æ´¾é‡åœ°ï¼Œæ“…å…¥è€…æ­»!â€ã€‚\n"NOR);
 		set("value", 10000000);
 		set("no_give", 1);
 		set("no_drop", 1);
@@ -41,11 +41,11 @@ int do_drop(string arg)
 	if( !arg || !id(arg) || env!=me ) return 0;
 	env = environment(me);
 	if( !me->query("group/id") ) {
-		tell_object(me,"Äã²¢Ã»ÓĞ¿ª°ïÁ¢ÅÉ£¬Òª"+name()+"ºÎÓÃ£¿\n");
+		tell_object(me,"ä½ å¹¶æ²¡æœ‰å¼€å¸®ç«‹æ´¾ï¼Œè¦"+name()+"ä½•ç”¨ï¼Ÿ\n");
 		return 1;
 	}
 	if( !env ) {
-		tell_object(me,name()+"²»ÄÜ·ÅÔÚÕâÀï£¡\n");
+		tell_object(me,name()+"ä¸èƒ½æ”¾åœ¨è¿™é‡Œï¼\n");
 		return 1;
 	}
 
@@ -55,13 +55,13 @@ int do_drop(string arg)
 			if( strlen(sv[i])>14 && sv[i][0..14]=="/d/group/entry/" )
 				break;
 		if( i >= sizeof(sv) ) {
-			tell_object(me,name()+"Ö»ÄÜ·ÅÔÚ°ï»áºÍÍâ½çÏàÁ¬µÄµØ·½£¡\n");
+			tell_object(me,name()+"åªèƒ½æ”¾åœ¨å¸®ä¼šå’Œå¤–ç•Œç›¸è¿çš„åœ°æ–¹ï¼\n");
 			return 1;
 		}
 	}
 
 	if( present(query("id"),env) ) {
-		tell_object(me,"ÕâÀï²»ÊÇÒÑ¾­ÓĞÁËÒ»"+query("unit")+name()+"ÁËÂğ£¿\n");
+		tell_object(me,"è¿™é‡Œä¸æ˜¯å·²ç»æœ‰äº†ä¸€"+query("unit")+name()+"äº†å—ï¼Ÿ\n");
 		return 1;
 	}
 
@@ -70,13 +70,13 @@ int do_drop(string arg)
 		return 1;
 	}
 
-	GROUP_D->drop_object(this_object(),me,env,"$N¿ªÊ¼½¨Ôì"+name()+"¡­¡­\n","ÄãÃ¦ÂµÁË°ëÌì£¬×ÜËã°Ñ"+name()+"½¨ÔìºÃÁË¡£\n");
+	GROUP_D->drop_object(this_object(),me,env,"$Nå¼€å§‹å»ºé€ "+name()+"â€¦â€¦\n","ä½ å¿™ç¢Œäº†åŠå¤©ï¼Œæ€»ç®—æŠŠ"+name()+"å»ºé€ å¥½äº†ã€‚\n");
 	return 1;
 }
 
 void do_name()
 {
-	set("name",HIW+(query("open")?"³¨¿ª":"¹Ø±Õ")+HIW"µÄÊ¯ÃÅ"NOR);
+	set("name",HIW+(query("open")?"æ•å¼€":"å…³é—­")+HIW"çš„çŸ³é—¨"NOR);
 }
 
 varargs int move(mixed dest, int silently)

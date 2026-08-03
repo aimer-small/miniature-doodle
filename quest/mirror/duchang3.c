@@ -4,9 +4,9 @@ inherit ROOM;
 string look_sign(object me);
 void create()
 {
-        set("short", "¶Ä³¡");
+        set("short", "èµŒåœº");
 	set("long", @LONG
-ÄãÏÖÔÚÕıÕ¾ÔÚ¶Ä³¡Àï£¬¿¿½üÃÅ¿ÚµÄµØ·½ÓĞÒ»¿éÎÚÄ¾µñ³ÉµÄÕĞÅÆ(sign)¡£
+ä½ ç°åœ¨æ­£ç«™åœ¨èµŒåœºé‡Œï¼Œé è¿‘é—¨å£çš„åœ°æ–¹æœ‰ä¸€å—ä¹Œæœ¨é›•æˆçš„æ‹›ç‰Œ(sign)ã€‚
 LONG
         );
         set("exits", ([
@@ -21,7 +21,7 @@ LONG
 }
 string look_sign(object me)
 {
-        return "¶Ä£ºÊ¤ÕßÓ®Ë«¡£\n";
+        return "èµŒï¼šèƒœè€…èµ¢åŒã€‚\n";
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

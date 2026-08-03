@@ -1,31 +1,31 @@
-// liaodu.c, ÁÆ¶¾
+// liaodu.c, ç–—æ¯’
 // by snowman
 // Modified by darken@SJ
 
 #include <ansi.h>
 
-string exert_name(){ return HBRED"ÁÆ¶¾"NOR; }
+string exert_name(){ return HBRED"ç–—æ¯’"NOR; }
 int exert(object me)
 {
         if( me->is_fighting() )
-                return notify_fail("Õ½¶·ÖÐÔË¹¦£¿ÕÒËÀÂð£¿\n");
+                return notify_fail("æˆ˜æ–—ä¸­è¿åŠŸï¼Ÿæ‰¾æ­»å—ï¼Ÿ\n");
 
         if ((int)me->query_skill("huagong-dafa", 1) < 200)
-                return notify_fail("ÄãµÄ»¯¹¦´ó·¨ÐÞÎª»¹²»¹»¡£\n");
+                return notify_fail("ä½ çš„åŒ–åŠŸå¤§æ³•ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
         if ((int)me->query_skill("poison", 1) < 200)
-                return notify_fail("ÄãµÄ»ù±¾¶¾¼¼ÐÞÎª»¹²»¹»¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬æ¯’æŠ€ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
         if ((int)me->query_skill("medicine", 1) < 120)
-                return notify_fail("ÄãµÄ±¾²ÝÊõÀíÐÞÎª»¹²»¹»¡£\n");
+                return notify_fail("ä½ çš„æœ¬è‰æœ¯ç†ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
         if ((int)me->query_skill("jingmai-xue", 1) < 120)
-                return notify_fail("ÄãµÄ¾­ÂöÑ§ÐÞÎª»¹²»¹»¡£\n");
+                return notify_fail("ä½ çš„ç»è„‰å­¦ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
         if( (int)me->query("neili") < 5000 )
-                return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
       
-        message_vision(HIB"$N×øÔÚµØÉÏ£¬Á³ÉÏÇàÒ»Õó°×Ò»Õó£¬¿ªÊ¼ÔË¹¦ÁÆ¶¾¡£\n" NOR, me);
+        message_vision(HIB"$Nååœ¨åœ°ä¸Šï¼Œè„¸ä¸Šé’ä¸€é˜µç™½ä¸€é˜µï¼Œå¼€å§‹è¿åŠŸç–—æ¯’ã€‚\n" NOR, me);
         me->clear_conditions_by_type("poison");
         me->add("neili", -3000);
         me->add("max_neili",-random(2));

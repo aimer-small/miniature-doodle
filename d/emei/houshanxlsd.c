@@ -1,16 +1,16 @@
 // houshanty.c
-// ºóÉ½ĞŞÁ¶É½¶´Ğ¡Â·
+// åå±±ä¿®ç‚¼å±±æ´å°è·¯
 inherit ROOM;
 #include <ansi.h>
 
 void create()
 {
-        set("short", HIG "É½¶´" NOR);
+        set("short", HIG "å±±æ´" NOR);
         set("long", @long
-ÕâÀïÊÇÒ»¸ö³±ÊªÒõÀäµÄÉ½¶´£¬¶´ÖĞÓĞÒ»¿é´óÊ¯Í·£¬½ô¿¿×ÅÉ½¶´µÄºó±Ú£¬ºó
-±ÚÉÏÒşÔ¼ÓĞ¸öÅÌ×øµÄÈËĞÎ¡£
+è¿™é‡Œæ˜¯ä¸€ä¸ªæ½®æ¹¿é˜´å†·çš„å±±æ´ï¼Œæ´ä¸­æœ‰ä¸€å—å¤§çŸ³å¤´ï¼Œç´§é ç€å±±æ´çš„åå£ï¼Œå
+å£ä¸Šéšçº¦æœ‰ä¸ªç›˜åçš„äººå½¢ã€‚
 long);
-        set("outdoors", "¶ëÃ¼É½");
+        set("outdoors", "å³¨çœ‰å±±");
         set("exits",([
              "out":__DIR__"houshansl",
 ]));
@@ -27,20 +27,20 @@ int do_panzuo(string arg)
 {
     object me=this_player();
     if (me->is_busy())
-        return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¡\n");
+        return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
     if (!arg && arg!="stone" && arg!="shitou" && arg!="shi" )
         return 0;
-    message_vision("$NÅÌÍÈ×øÔÚ´óÊ¯Í·ÉÏÃæ£¬ÃæÏòÊ¯±Ú¡£\n", me);
-    me->set_temp("marks", "ÅÌ×ø");
+    message_vision("$Nç›˜è…¿ååœ¨å¤§çŸ³å¤´ä¸Šé¢ï¼Œé¢å‘çŸ³å£ã€‚\n", me);
+    me->set_temp("marks", "ç›˜å");
     return 1;
 }
 
 int do_xiulian()
 {
     object me=this_player();
-    if( me->query_temp("marks") != "ÅÌ×ø" )
+    if( me->query_temp("marks") != "ç›˜å" )
         return 0;
-    message_vision("$NÅÌÍÈ×øÔÚ´óÊ¯Í·ÉÏÃæ£¬ÃæÏòÊ¯±Ú£¬ÏİÈëÉîÉîµÄË¼Ë÷Ö®ÖĞ¡£\n", me);
+    message_vision("$Nç›˜è…¿ååœ¨å¤§çŸ³å¤´ä¸Šé¢ï¼Œé¢å‘çŸ³å£ï¼Œé™·å…¥æ·±æ·±çš„æ€ç´¢ä¹‹ä¸­ã€‚\n", me);
     me->delete_temp("marks");
     me->start_busy(30);
     call_out("end_xiulian", 60, me);
@@ -50,7 +50,7 @@ int do_xiulian()
 void end_xiulian(object me)
 {
 	if (!me) return;
-    message_vision("¹ıÁËÁ¼¾Ã£¬$NÖÕÓÚÉîÓĞËùÎò¡£\n", me);
+    message_vision("è¿‡äº†è‰¯ä¹…ï¼Œ$Nç»ˆäºæ·±æœ‰æ‰€æ‚Ÿã€‚\n", me);
     if( (int)me->query("emsujia") < 2 ) me->add("emsujia", 1);
     me->add("potential", me->query_skill("linji-zhuang",1)/10);
         if((int)me->query("potential", 1)> (int)me->query("max_pot", 1))

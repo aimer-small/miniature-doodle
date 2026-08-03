@@ -1,4 +1,4 @@
-// laoban1.c µ±ÆÌÀÏ°å 
+// laoban1.c å½“é“ºè€æ¿ 
 
 inherit NPC;
 //inherit F_VENDOR;
@@ -6,15 +6,15 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("ÍõºÏ¼Æ", ({ "wang heji", "heji" }));
-	set("title", "µ±ÆÌÀÏ°å");
+	set_name("ç‹åˆè®¡", ({ "wang heji", "heji" }));
+	set("title", "å½“é“ºè€æ¿");
 	set("shen_type", 0);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set_max_encumbrance(100000000);
 	set("age", 35);
 	set("long",
-		"Ëû´ø×ÅÒ»Á³¹îÃØ¡¢¼éÕ©µÄĞ¦Èİ¡£\n");
+		"ä»–å¸¦ç€ä¸€è„¸è¯¡ç§˜ã€å¥¸è¯ˆçš„ç¬‘å®¹ã€‚\n");
 	set("no_get_from", 1);
 
 	set_skill("unarmed", 60);

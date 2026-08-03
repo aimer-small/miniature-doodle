@@ -10,7 +10,7 @@ int main(object me,string arg)
 	write(arg+"\n");
 	return 1;
 	
-	write(sprintf("¶ÏĞĞÎ»ÖÃ£º%d, ³¤¶È£º%d \n",strsrch(arg,"\n"),strlen(arg)));
+	write(sprintf("æ–­è¡Œä½ç½®ï¼š%d, é•¿åº¦ï¼š%d \n",strsrch(arg,"\n"),strlen(arg)));
 	return 1;
 	if(sscanf(arg,"%d",i)!=1) return 0;
 	write(ROOMLEASE_D->get_money_str(i)+"\n");

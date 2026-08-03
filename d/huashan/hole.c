@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ë¼¹ýÑÂ¶´¿Ú");
+	set("short", "æ€è¿‡å´–æ´žå£");
 	set("long", @LONG
-ÕâÀï±ãÊÇ·¸´íÎó»ªÉ½ÅÉµÜ×ÓÊÜ·£Ë¼¹ýµÄµØ·½¡£Î»ÓÚÓñÅ®·å¶¥£¬ÕýºÃÓÐÒ»Ð¡
-¿éÆ½µØ£¬Ò»ÃæÊÇÉî²»¿É²âµÄÉ½¹È¡¢Ò»ÃæÊÇ¶¸ÇÍµÄÐü±Ú(bi)£¬ÁãÁãÂäÂäµÄÓÐ¼¸¿é
-É½Ê¯¡£ÆäÖÐÒ»¿éÌØ±ð¹â»¬£¬ÏëÊÇµÜ×ÓÔÚÃæ±ÚÊÇ¾Ã×ø¶ø³É¡£
+è¿™é‡Œä¾¿æ˜¯çŠ¯é”™è¯¯åŽå±±æ´¾å¼Ÿå­å—ç½šæ€è¿‡çš„åœ°æ–¹ã€‚ä½äºŽçŽ‰å¥³å³°é¡¶ï¼Œæ­£å¥½æœ‰ä¸€å°
+å—å¹³åœ°ï¼Œä¸€é¢æ˜¯æ·±ä¸å¯æµ‹çš„å±±è°·ã€ä¸€é¢æ˜¯é™¡å³­çš„æ‚¬å£(bi)ï¼Œé›¶é›¶è½è½çš„æœ‰å‡ å—
+å±±çŸ³ã€‚å…¶ä¸­ä¸€å—ç‰¹åˆ«å…‰æ»‘ï¼Œæƒ³æ˜¯å¼Ÿå­åœ¨é¢å£æ˜¯ä¹…åè€Œæˆã€‚
 LONG
 	);
 	set("exits", ([
@@ -17,7 +17,7 @@ LONG
 	]));
 
 	set("item_desc", ([
-		"bi" : "Äã¿´×Å¿´×ÅºöÈ»·¢ÏÖÓÐÒ»´¦Ê¯±ÚÉÏµÄÇàÌ¦±È±ð´¦ÉÙµÃ¶à¡£²»½ûÏë....\n",
+		"bi" : "ä½ çœ‹ç€çœ‹ç€å¿½ç„¶å‘çŽ°æœ‰ä¸€å¤„çŸ³å£ä¸Šçš„é’è‹”æ¯”åˆ«å¤„å°‘å¾—å¤šã€‚ä¸ç¦æƒ³....\n",
 	]) );
 
 	setup();
@@ -37,9 +37,9 @@ int do_mianbi()
         object me = this_player();
 
         if (me->is_busy())
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ£¬ÎÞ·¨¾²ÏÂÐÄÀ´Ãæ±ÚË¼¹ý¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼Œæ— æ³•é™ä¸‹å¿ƒæ¥é¢å£æ€è¿‡ã€‚\n");
         if (me->is_fighting())
-                return notify_fail("ÄãÕýÔÚÕ½¶·ÖÐ£¬ÈçºÎ¾²ÏÂÐÄÀ´Ãæ±ÚË¼¹ý£¿\n");
+                return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œå¦‚ä½•é™ä¸‹å¿ƒæ¥é¢å£æ€è¿‡ï¼Ÿ\n");
         if ((int)me->query("shen") < 0)
         {
         	getshen= random(-1 * (int)me->query("shen")/600);
@@ -51,14 +51,14 @@ int do_mianbi()
 
         if (!me->query_temp("break_flag"))
         {
-        message_vision("$N¶Ô×ÅÊ¯±Úµø×ø¾²Ë¼£¬Á¼¾Ã£¬ÈôÓÐËùÎò¡£\n", me);
+        message_vision("$Nå¯¹ç€çŸ³å£è·Œåé™æ€ï¼Œè‰¯ä¹…ï¼Œè‹¥æœ‰æ‰€æ‚Ÿã€‚\n", me);
         me->receive_damage("jing", random(100));
         me->add("shen",getshen);
         me->start_busy(random(3));
         if (random(me->add_temp("mianbi_count", 1)) > 20) {
                 me->set_temp("break_flag", 1);
                 add_action("do_break", "break");
-                write("ÄãºöÈ»²úÉúÒ»ÖÖÆÆ±ÚµÄÓûÍû£¬²»½ûÕ¾ÁËÆðÀ´¡£\n");
+                write("ä½ å¿½ç„¶äº§ç”Ÿä¸€ç§ç ´å£çš„æ¬²æœ›ï¼Œä¸ç¦ç«™äº†èµ·æ¥ã€‚\n");
         }
         }
         return 1;
@@ -75,11 +75,11 @@ int do_break(string arg)
    	room = find_object(__DIR__"rukou");
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("ÄãÊÖÖÐÎÞ½££¬ÔõÄÜÆÆ±Ú£¿\n");
-     message_vision("$N×ßµ½Ê¯±ÚÇ°£¬°Î³öÑü¼äËùÐü³¤½££¬ÔË¾¢ÏòÊ¯±Ú´ÌÁË¹ýÈ¥¡£\n", me);
+		return notify_fail("ä½ æ‰‹ä¸­æ— å‰‘ï¼Œæ€Žèƒ½ç ´å£ï¼Ÿ\n");
+     message_vision("$Nèµ°åˆ°çŸ³å£å‰ï¼Œæ‹”å‡ºè…°é—´æ‰€æ‚¬é•¿å‰‘ï¼Œè¿åŠ²å‘çŸ³å£åˆºäº†è¿‡åŽ»ã€‚\n", me);
 
     if ( n >= 600 ){
-    message_vision("$NÖ»ÌýÒ»ÉùºäÏì£¬Ê¯±Ú±»Í±´©ÁË£¬Ô­À´ÀïÃæÓÐÒ»¸ö´ó¶´¡££¡\n", me);
+    message_vision("$Nåªå¬ä¸€å£°è½°å“ï¼ŒçŸ³å£è¢«æ…ç©¿äº†ï¼ŒåŽŸæ¥é‡Œé¢æœ‰ä¸€ä¸ªå¤§æ´žã€‚ï¼\n", me);
     set("exits/enter",__DIR__"rukou");
     set("exits/out",__DIR__"siguoya");
     this_player()->add("neili", -200);
@@ -87,13 +87,13 @@ int do_break(string arg)
     call_out("close", 5, this_object());
     if(!(room = find_object(__DIR__"rukou"))) room = load_object(__DIR__"rukou");
     if( room = find_object(__DIR__"rukou") ) {
-    message("vision", "ÄãÖ»ÌýÍâÃæÒ»ÉùºäÏì£¬Ê¯¶´±»ÈË´ÓÍâÃæÍ±´©ÁË£¬Â¶³öÁËÒ»¸ö¶´¿Ú¡£\n", room);
+    message("vision", "ä½ åªå¬å¤–é¢ä¸€å£°è½°å“ï¼ŒçŸ³æ´žè¢«äººä»Žå¤–é¢æ…ç©¿äº†ï¼Œéœ²å‡ºäº†ä¸€ä¸ªæ´žå£ã€‚\n", room);
     room->set("exits/out",__DIR__"hole");
 //  remove_call_out("close1");
     call_out("close1", 5, room);   }
     }
     else {
-    message_vision("½á¹ûÖ»ÌýÒ»ÉùÃÆºß£¬$N±»Ê¯±ÚµÄ·´µ¯Á¦ÕðµÃÑÛÇ°Ò»ºÚ....\n", me);
+    message_vision("ç»“æžœåªå¬ä¸€å£°é—·å“¼ï¼Œ$Nè¢«çŸ³å£çš„åå¼¹åŠ›éœ‡å¾—çœ¼å‰ä¸€é»‘....\n", me);
     this_player()->unconcious();
     }
     return 1;
@@ -101,11 +101,11 @@ int do_break(string arg)
 
 void close(object ob)
 {
-        message("vision","ÑÂÉÏºöÈ»µôÏÂÀ´Ò»¿é¾ÞÊ¯£¬½«¶´¿Ú·âÁË¸öÑÏÑÏÊµÊµ¡£\n", ob);
+        message("vision","å´–ä¸Šå¿½ç„¶æŽ‰ä¸‹æ¥ä¸€å—å·¨çŸ³ï¼Œå°†æ´žå£å°äº†ä¸ªä¸¥ä¸¥å®žå®žã€‚\n", ob);
         ob->delete("exits/enter");
 }
 void close1(object room)
 {       
-        message("vision","ÑÂÉÏºöÈ»µôÏÂÀ´Ò»¿é¾ÞÊ¯£¬½«¶´¿Ú·âÁË¸öÑÏÑÏÊµÊµ¡£\n", room);
+        message("vision","å´–ä¸Šå¿½ç„¶æŽ‰ä¸‹æ¥ä¸€å—å·¨çŸ³ï¼Œå°†æ´žå£å°äº†ä¸ªä¸¥ä¸¥å®žå®žã€‚\n", room);
         room->delete("exits/out");
 }

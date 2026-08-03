@@ -5,13 +5,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY"ÆæÃÅ°ËØÔÕó"NOR,({"qimenbagua zhenxing"}));
+	set_name(HIY"å¥‡é—¨å…«å¦é˜µ"NOR,({"qimenbagua zhenxing"}));
 	set_weight(10);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit","¸ö");
-		set("long","ÕâÊÇÒ»¸ö¼òµ¥µÄÆæÃÅ°ËØÔÕó¡£\n");
+		set("unit","ä¸ª");
+		set("long","è¿™æ˜¯ä¸€ä¸ªç®€å•çš„å¥‡é—¨å…«å¦é˜µã€‚\n");
 		set("no_get",1);
              set("dzd",1);
 
@@ -27,19 +27,19 @@ void init()
 	//if(me->query_temp("buzhen")) return;
 	if(interactive(me) && ob->query_temp("zhen_master") != me->query("id")) {
 		if(me->query_skill("qimen-bagua",1) >= 145)
-			return notify_fail("$N¶ÔÕó·¨ÔçÒÑÀÃÊìÓÚÐØ£¬ÐÅ²½×ß³öÁËÆæÃÅ°ËØÔÕó£¡\n");
+			return notify_fail("$Nå¯¹é˜µæ³•æ—©å·²çƒ‚ç†ŸäºŽèƒ¸ï¼Œä¿¡æ­¥èµ°å‡ºäº†å¥‡é—¨å…«å¦é˜µï¼\n");
 		if(random(4)) {
-			message_vision(HIW"$NÒ»Ê±²»²ì£¬µÇÊ±ÏÝÈëÕóÖÐ£¬²»½ûÁ¢Ê±´óÂÒ£¡\n"NOR,me);
+			message_vision(HIW"$Nä¸€æ—¶ä¸å¯Ÿï¼Œç™»æ—¶é™·å…¥é˜µä¸­ï¼Œä¸ç¦ç«‹æ—¶å¤§ä¹±ï¼\n"NOR,me);
 			me->start_busy(6);
 		}
 		else if(random(3)) {
-			message_vision(HIW"$NÒ»Ê±²»²ì£¬µÇÊ±ÏÝÈëÕóÖÐ£¬Ò»¸ö²»É÷£¬ÒÑ±»Õó·¨ËùÉË£¡\n"NOR,me);
+			message_vision(HIW"$Nä¸€æ—¶ä¸å¯Ÿï¼Œç™»æ—¶é™·å…¥é˜µä¸­ï¼Œä¸€ä¸ªä¸æ…Žï¼Œå·²è¢«é˜µæ³•æ‰€ä¼¤ï¼\n"NOR,me);
 			dmg = me->query("eff_qi")/3;
 			me->receive_damage("qi",dmg);
 			me->receive_wound("qi",dmg);
 		}
 		else {
-			message_vision(HIW"$NÒ»Ê±²»²ì£¬µÇÊ±ÏÝÈëÕóÖÐ£¬µ«Î¢Ò»Ë¼¿¼ÒÑµÃÆäÒªÁì£¡\n"NOR,me);
+			message_vision(HIW"$Nä¸€æ—¶ä¸å¯Ÿï¼Œç™»æ—¶é™·å…¥é˜µä¸­ï¼Œä½†å¾®ä¸€æ€è€ƒå·²å¾—å…¶è¦é¢†ï¼\n"NOR,me);
 			dmg = me->query_skill("force",1);
 			dmg -= me->query_skill("qimen-bagua",1);
 			dmg /= 4;

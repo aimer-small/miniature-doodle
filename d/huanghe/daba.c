@@ -7,11 +7,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", HIY"»ÆºÓ´óµÌ"NOR);
+        set("short", HIY"é»„æ²³å¤§å ¤"NOR);
         set("long", @LONG
-ÕâÀï¾ÍÊÇ»ÆºÓ´óµÌÁË£¬ÐÚÓ¿µÄ»ÆºÓË®ÅØÏø×ÅÏò¶«Á÷È¥£¬Ë®Àï»¹²»Ê±¼ÐÔÓ×Å
-´ÓÉÏÓÎ³åÏÂÀ´µÄÒ»Ð©¶¯Îï¡¢Ä¾°å¡¢Ìú¹ø......¡£ÄãËÄÏÂÀï¿´ÁË¿´£¬ºÜ¶àÈËÔÚÕâ
-ÀïÃ¦×Å¼Ó¹ÌµÌ°Ó¡£
+è¿™é‡Œå°±æ˜¯é»„æ²³å¤§å ¤äº†ï¼Œæ±¹æ¶Œçš„é»„æ²³æ°´å’†å“®ç€å‘ä¸œæµåŽ»ï¼Œæ°´é‡Œè¿˜ä¸æ—¶å¤¹æ‚ç€
+ä»Žä¸Šæ¸¸å†²ä¸‹æ¥çš„ä¸€äº›åŠ¨ç‰©ã€æœ¨æ¿ã€é“é”…......ã€‚ä½ å››ä¸‹é‡Œçœ‹äº†çœ‹ï¼Œå¾ˆå¤šäººåœ¨è¿™
+é‡Œå¿™ç€åŠ å›ºå ¤åã€‚
 LONG );
         set("exits", ([
                 "southdown" : __DIR__"huanghe7",
@@ -21,7 +21,7 @@ LONG );
 	set("no_fight",1);
 	set("no_sleep_room",1);
 	
-        set("outdoors", "»ÆºÓ");
+        set("outdoors", "é»„æ²³");
         setup();
 }
 
@@ -36,11 +36,11 @@ int do_qi(string arg)
 	
 	me=this_player();
 	
-	if (arg!="shi") return notify_fail("ÄãÒªÆöÊ²Ã´£¿\n");
+	if (arg!="shi") return notify_fail("ä½ è¦ç Œä»€ä¹ˆï¼Ÿ\n");
 	
 	shi=present("shi kuai",me);
 	
-	if (!shi) return notify_fail("ÄãÒªÓÃÊ²Ã´Æö£¿\n");
+	if (!shi) return notify_fail("ä½ è¦ç”¨ä»€ä¹ˆç Œï¼Ÿ\n");
 	
 	if (me->query_temp("newbiejob1/start"))
 	{
@@ -50,15 +50,15 @@ int do_qi(string arg)
 			return 1;
 		}
 		me->add_temp("newbiejob1/over",1);
-		message_vision(HIY"$N°ÑÒ»¿é¾ÞÊ¯·ÅÔÚÁËµÌ°ÓµÄÒ»½Å£¬È»ºóÓÃ»ÒÄà¸øÆöºÃ¡£\n"NOR,me);
-		tell_object(me,HIM"ÄãÐ¶ÏÂÉíÉÏµÄ¾ÞÊ¯£¬¸Ð¾õÇáËÉÁË²»ÉÙ£¡\n"NOR);
+		message_vision(HIY"$NæŠŠä¸€å—å·¨çŸ³æ”¾åœ¨äº†å ¤åçš„ä¸€è„šï¼Œç„¶åŽç”¨ç°æ³¥ç»™ç Œå¥½ã€‚\n"NOR,me);
+		tell_object(me,HIM"ä½ å¸ä¸‹èº«ä¸Šçš„å·¨çŸ³ï¼Œæ„Ÿè§‰è½»æ¾äº†ä¸å°‘ï¼\n"NOR);
 
 		if( (int)me->query_skill("cuff", 1) < 51 ) {
-			tell_object(me, HIY"ÕâÒ»Â·¼èÄÑ£¬Äã¾õµÃ×Ô¼ºµÄ¶Ô»ù±¾È­·¨ÓÐÐ©ÁìÎò¡£\n"NOR);
+			tell_object(me, HIY"è¿™ä¸€è·¯è‰°éš¾ï¼Œä½ è§‰å¾—è‡ªå·±çš„å¯¹åŸºæœ¬æ‹³æ³•æœ‰äº›é¢†æ‚Ÿã€‚\n"NOR);
 			me->improve_skill("cuff", me->query_int()/2 );
 		}
 		if( (int)me->query_skill("hand", 1) < 51 ) {
-			tell_object(me, HIY"ÕâÒ»Â·¼èÄÑ£¬Äã¾õµÃ×Ô¼ºµÄ¶Ô»ù±¾ÊÖ·¨ÓÐÐ©ÁìÎò¡£\n"NOR);
+			tell_object(me, HIY"è¿™ä¸€è·¯è‰°éš¾ï¼Œä½ è§‰å¾—è‡ªå·±çš„å¯¹åŸºæœ¬æ‰‹æ³•æœ‰äº›é¢†æ‚Ÿã€‚\n"NOR);
 			me->improve_skill("hand", me->query_int()/2 );
 		}
 
@@ -69,7 +69,7 @@ int do_qi(string arg)
 	}
 	else 
 	{
-		tell_object(me,HIR"Í»È»Ò»ÕóÐýÔÎ£¬Äã²»ÓÉ»èÁË¹ýÈ¥¡£\n"NOR);
+		tell_object(me,HIR"çªç„¶ä¸€é˜µæ—‹æ™•ï¼Œä½ ä¸ç”±æ˜äº†è¿‡åŽ»ã€‚\n"NOR);
 		destruct(shi);
 		me->delete_temp("newbiejob1");
 		me->unconcious();

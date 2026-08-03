@@ -1,4 +1,4 @@
-// zhenwu-jian.c ÕæÎä½£
+// zhenwu-jian.c çœŸæ­¦å‰‘
 #include <ansi.h>
 #include <weapon.h>
 
@@ -7,13 +7,13 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIW"ÕæÎä½£"NOR, ({"zhenwu jian", "sword", "zhenwu"}));
+        set_name(HIW"çœŸæ­¦å‰‘"NOR, ({"zhenwu jian", "sword", "zhenwu"}));
         set_weight(20000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long", "Ò»°ÑºÁ²»ÆğÑÛµÄ¹Å½£,½£Éí²»¹æÔòµÄ»¨ÎÆÉÏËÆºõ»¹´øÓĞĞ©ÌúĞâ,½£·æÉÏ¾ÓÈ»»¹ÓĞ¼¸¸öÈ±¿Ú¡£\n");
+                set("unit", "æŠŠ");
+                set("long", "ä¸€æŠŠæ¯«ä¸èµ·çœ¼çš„å¤å‰‘,å‰‘èº«ä¸è§„åˆ™çš„èŠ±çº¹ä¸Šä¼¼ä¹è¿˜å¸¦æœ‰äº›é“é”ˆ,å‰‘é”‹ä¸Šå±…ç„¶è¿˜æœ‰å‡ ä¸ªç¼ºå£ã€‚\n");
                 set("value", 1);
                 set("unique", 1);
                 set("rigidity", 5);
@@ -24,8 +24,8 @@ void create()
                 set("wield_neili", 900);
                 set("wield_maxneili", 1400);
                 set("wield_str", 24);
-                set("wield_msg",HIW"\nÖ»Ìı¡¸à§¡¹µÄÒ»Éù£¬$NÊÖÀï¶àÁËÒ»°Ñº®¹âËÄÉäµÄ±¦½££¬ÕıÊÇÎäµ±É½ÕòÉ½Ö®±¦¡¸ÕæÎä½£¡¹£¡\n"NOR);
-                set("unwield_msg",HIW"$N°ÑÊÖÖĞµÄÕæÎä½£²å»Ø½£ÇÊ¡£\n"NOR);
+                set("wield_msg",HIW"\nåªå¬ã€Œå”°ã€çš„ä¸€å£°ï¼Œ$Næ‰‹é‡Œå¤šäº†ä¸€æŠŠå¯’å…‰å››å°„çš„å®å‰‘ï¼Œæ­£æ˜¯æ­¦å½“å±±é•‡å±±ä¹‹å®ã€ŒçœŸæ­¦å‰‘ã€ï¼\n"NOR);
+                set("unwield_msg",HIW"$NæŠŠæ‰‹ä¸­çš„çœŸæ­¦å‰‘æ’å›å‰‘é˜ã€‚\n"NOR);
         }
         init_sword(80);
         setup();

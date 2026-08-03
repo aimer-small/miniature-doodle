@@ -6,12 +6,12 @@
 inherit F_CLEAN_UP;
 
 mapping hoodname=([
-	"(admin)" :  "¡¾"HIW" Ìì  Éñ"NOR" ¡¿",
-	"(assist)" : "¡¾"HIR" Éñ  ¹Ù "NOR"¡¿",
-	"(arch)" : "¡¾"HIY" Áú  Éñ "NOR"¡¿",
-	"(wizard)" : "¡¾"HIG" ÏÉ  ÈË "NOR"¡¿",
-	"(apprentice)" : "¡¾"HIC" Î×  Ê¦ "NOR"¡¿",
-	"(immortal)" : "¡¾"HIM" ¹Ë  ÎÊ "NOR"¡¿"
+	"(admin)" :  "ã€"HIW" å¤©  ç¥"NOR" ã€‘",
+	"(assist)" : "ã€"HIR" ç¥  å®˜ "NOR"ã€‘",
+	"(arch)" : "ã€"HIY" é¾™  ç¥ "NOR"ã€‘",
+	"(wizard)" : "ã€"HIG" ä»™  äºº "NOR"ã€‘",
+	"(apprentice)" : "ã€"HIC" å·«  å¸ˆ "NOR"ã€‘",
+	"(immortal)" : "ã€"HIM" é¡¾  é—® "NOR"ã€‘"
 ]);
 
 int level(mixed, mixed);
@@ -28,10 +28,10 @@ int main(object me, string arg)
 
         list = sort_array(SECURITY_D->query_wizlist(), (: level :));
 	if (!wiz_level(me)) list = filter_array(list, (: imm :));
-        str = sprintf("\n ¨q%-30s©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¨r\n",
-                WHT"Êé½£¡¤2012Ä¿Ç°¹²ÓĞ" + chinese_number(sizeof(list)) + "Î»Î×Ê¦¡¤"NOR);
-	str = replace_string(str, "  ", "©¤");
-	str += "©¦                                                                    ©¦";
+        str = sprintf("\n â•­%-30sâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•®\n",
+                WHT"ä¹¦å‰‘Â·2012ç›®å‰å…±æœ‰" + chinese_number(sizeof(list)) + "ä½å·«å¸ˆÂ·"NOR);
+	str = replace_string(str, "  ", "â”€");
+	str += "â”‚                                                                    â”‚";
         i = sizeof(list);
         while(i--) {
                 if (hood != wizhood(list[i])) {
@@ -41,17 +41,17 @@ int main(object me, string arg)
                         	j = 6 - j;
                         	if( j > 0){
                         		while(j--) str += "         ";
-					str += "©¦";
+					str += "â”‚";
                         	}
-                        	else str += "©¦";
+                        	else str += "â”‚";
                         }
-                        str += sprintf("\n©¦%-12s£º"NOR, hoodname[hood]);
+                        str += sprintf("\nâ”‚%-12sï¼š"NOR, hoodname[hood]);
                         j = 0;
                 }
 
                 j++;
                 if( j > 6 && j%6==1 )
-                	str += "©¦\n©¦\t\t";
+                	str += "â”‚\nâ”‚\t\t";
 		str += sprintf("%-9s", capitalize(list[i]));
         }
 
@@ -60,13 +60,13 @@ int main(object me, string arg)
                 j = 6 - j;
                 if( j > 0) {
                 	while(j--) str += "         ";
-			str += "©¦";
+			str += "â”‚";
                 }
 
-                else str += "©¦";
+                else str += "â”‚";
         }
-        str += "\n©¦\t\t\t\t\t\t\t\t      ©¦\n";
-        str += "¨t©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤ "WHT"SJ-2012-"NOR" ©¤¨s";
+        str += "\nâ”‚\t\t\t\t\t\t\t\t      â”‚\n";
+        str += "â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ "WHT"SJ-2012-"NOR" â”€â•¯";
         write(str+"\n");
         return 1;
 }
@@ -81,9 +81,9 @@ int level(mixed ob1, mixed ob2)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : wizlist
+æŒ‡ä»¤æ ¼å¼ : wizlist
 
-ÓÃÍ¾ : ÁĞ³öÄ¿Ç°ËùÓĞµÄÎ×Ê¦Ãûµ¥¡£
+ç”¨é€” : åˆ—å‡ºç›®å‰æ‰€æœ‰çš„å·«å¸ˆåå•ã€‚
 HELP
      );
      return 1;

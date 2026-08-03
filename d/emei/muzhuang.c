@@ -1,5 +1,5 @@
 // muzhuang.c
-// Ã·»¨×®
+// æ¢…èŠ±æ¡©
 
 inherit ROOM;
 #include <ansi.h>
@@ -7,9 +7,9 @@ inherit ROOM;
 #include "zhuang.h"
 void create()
 {
-	set("short",HIY "Ã·»¨×®" NOR);
+	set("short",HIY "æ¢…èŠ±æ¡©" NOR);
 	set("long",@long
-Äã×İÉíÌøÉÏÄ¾×®£¬·¢ÏÖÕâÀïÊÇÒ»¸öÁ·Ï°Çá¹¦µÄ¾ø¼Ñ³¡Ëù¡£
+ä½ çºµèº«è·³ä¸Šæœ¨æ¡©ï¼Œå‘ç°è¿™é‡Œæ˜¯ä¸€ä¸ªç»ƒä¹ è½»åŠŸçš„ç»ä½³åœºæ‰€ã€‚
 long);
 set("exits",([
 "down" :  __DIR__"gudelin3",

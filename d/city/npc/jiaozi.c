@@ -1,18 +1,18 @@
-// »¨½Î
+// èŠ±è½¿
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(MAG "»¨" NOR HIR"½Î" NOR, ({ "hua jiao", "huajiao", "jiaozi", "jiao" }) );
+	set_name(MAG "èŠ±" NOR HIR"è½¿" NOR, ({ "hua jiao", "huajiao", "jiaozi", "jiao" }) );
 	if ( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÕâÊÇÒ»¶¥¾«ĞÄ×°ÊÎ¹ıµÄ´óºì»¨½Î£¬´óºìµÄ¶Ğ×Ó²¼°ü×Å£¬ËÄ½ÇÔú×Å´óºì»¨£¬ËÄ¸ù¸Ë×Ó¶¼ÓÃ²Ê´øÈÆ×Å¡£\n");
+		set("long", "è¿™æ˜¯ä¸€é¡¶ç²¾å¿ƒè£…é¥°è¿‡çš„å¤§çº¢èŠ±è½¿ï¼Œå¤§çº¢çš„ç¼å­å¸ƒåŒ…ç€ï¼Œå››è§’æ‰ç€å¤§çº¢èŠ±ï¼Œå››æ ¹æ†å­éƒ½ç”¨å½©å¸¦ç»•ç€ã€‚\n");
 		set("material", "wood");
-		set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
-		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+		set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
+		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
 	}
 	setup();
 }

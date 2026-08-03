@@ -1,15 +1,15 @@
-// mawude.c ÂíÎåµÂ
+// mawude.c é©¬äº”å¾·
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("ÂíÎåµÂ", ({ "ma wude", "ma", "wude" }) );
-	set("gender", "ÄĞĞÔ");         
-        set("title", "µáÄÏÆÕ¶ıÀÏÎäÊ¦");
+        set_name("é©¬äº”å¾·", ({ "ma wude", "ma", "wude" }) );
+	set("gender", "ç”·æ€§");         
+        set("title", "æ»‡å—æ™®æ´±è€æ­¦å¸ˆ");
         set("age", 65);
-	set("long","ÂíÎåµÂÊÇ´ó²èÉÌ£¬ºÀ¸»ºÃ¿Í£¬ÆÄÓĞÃÏ³¢Ö®·ç¡£\n");
+	set("long","é©¬äº”å¾·æ˜¯å¤§èŒ¶å•†ï¼Œè±ªå¯Œå¥½å®¢ï¼Œé¢‡æœ‰å­Ÿå°ä¹‹é£ã€‚\n");
         set("combat_exp", 200000);
         set("shen_type", 1);
 	set("attitude", "peaceful");

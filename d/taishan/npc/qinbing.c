@@ -1,4 +1,4 @@
-// wu-shi1.c Ç×±ø¶Ó³¤
+// wu-shi1.c äº²å…µé˜Ÿé•¿
 
 #include <ansi.h>
 
@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ç×±ø¶Ó³¤", ({ "qinbing duizhang", "duizhang", "qinbing" }) );
-	set("gender", "ÄĞĞÔ");
+	set_name("äº²å…µé˜Ÿé•¿", ({ "qinbing duizhang", "duizhang", "qinbing" }) );
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("long",
-		"Ëû¾ÍÊÇµ±½ñ¡¸ÖĞÉñÍ¨¡¹µÄÇ×±ø¶Ó³¤, ÉíÅûÌú¼×£¬ÊÖÖ´¸Ö½£¡£\n");
+		"ä»–å°±æ˜¯å½“ä»Šã€Œä¸­ç¥é€šã€çš„äº²å…µé˜Ÿé•¿, èº«æŠ«é“ç”²ï¼Œæ‰‹æ‰§é’¢å‰‘ã€‚\n");
 
 	set("combat_exp", 400000);
 	set("attitude", "heroism");

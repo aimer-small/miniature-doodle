@@ -1,4 +1,4 @@
-// OBJ : /d/wudang/obj/daolv.c µÀÂÄ
+// OBJ : /d/wudang/obj/daolv.c é“å±¥
 // By lius 99/8
 
 #include <ansi.h>
@@ -8,13 +8,13 @@ inherit BOOTS;
 
 void create()
 {
-        set_name( WHT"µÀÂÄ"NOR, ({ "dao lv", "lv" }) );
+        set_name( WHT"é“å±¥"NOR, ({ "dao lv", "lv" }) );
         set_weight(1000);
         if( clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ë«");
-                set("long", "Ò»Ë«°×²¼ºÚµ×µÄµÀÂÄ£¬Îäµ±²ÉÒ©µÀÈË¿¿Ëü·­É½Ô¾½§ÈçÂÄÆ½µØ¡£");
+                set("unit", "åŒ");
+                set("long", "ä¸€åŒç™½å¸ƒé»‘åº•çš„é“å±¥ï¼Œæ­¦å½“é‡‡è¯é“äººé å®ƒç¿»å±±è·ƒæ¶§å¦‚å±¥å¹³åœ°ã€‚");
                 set("value", 3000);
                 set("material", "boots");
                 set("armor_prop/dodge", 2);

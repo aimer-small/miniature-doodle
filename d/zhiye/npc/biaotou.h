@@ -14,13 +14,13 @@ string ask_guard()
 		me->delete_temp("worker_skill_limit");
 		me->delete_temp("worker_skill_highest");		
 
-		return  "±¾ïÚ¾ÖÌá¹©ÌùÉí±£ïÚ·şÎñ£¬Ã¿´Î·şÎñµÄÊ±¼äÎªÒ»¿ÌÖÓ£¬Ä¿Ç°ÄÜÎªÄúÌá¹©ÈıÖÓµµ´ÎµÄ±£ïÚ£º\n"+
-			sprintf("%-32s%-14s%-6s%-30s\n","ÆÕÍ¨±£ïÚ(guard1) £­£­£­ Îä¹¦µÈ¼¶£º",CHINESE_D->chinese_number(i),"Ó¶½ğ£º",MONEY_D->price_str( (i>300)?(i*1500):(i*1000) ))+
-			sprintf("%-32s%-14s%-6s%-30s\n","¸ß¼¶±£ïÚ(guard2) £­£­£­ Îä¹¦µÈ¼¶£º",CHINESE_D->chinese_number(j),"Ó¶½ğ£º",MONEY_D->price_str( (j>300)?(j*1500):(j*1000) ))+
-			sprintf("%-32s%-14s%-6s%-30s\n","³¬¼¶±£ïÚ(guard3) £­£­£­ Îä¹¦µÈ¼¶£º",CHINESE_D->chinese_number(k),"Ó¶½ğ£º",MONEY_D->price_str( (k>300)?(k*1500):(k*1000) )) ;
+		return  "æœ¬é•–å±€æä¾›è´´èº«ä¿é•–æœåŠ¡ï¼Œæ¯æ¬¡æœåŠ¡çš„æ—¶é—´ä¸ºä¸€åˆ»é’Ÿï¼Œç›®å‰èƒ½ä¸ºæ‚¨æä¾›ä¸‰é’Ÿæ¡£æ¬¡çš„ä¿é•–ï¼š\n"+
+			sprintf("%-32s%-14s%-6s%-30s\n","æ™®é€šä¿é•–(guard1) ï¼ï¼ï¼ æ­¦åŠŸç­‰çº§ï¼š",CHINESE_D->chinese_number(i),"ä½£é‡‘ï¼š",MONEY_D->price_str( (i>300)?(i*1500):(i*1000) ))+
+			sprintf("%-32s%-14s%-6s%-30s\n","é«˜çº§ä¿é•–(guard2) ï¼ï¼ï¼ æ­¦åŠŸç­‰çº§ï¼š",CHINESE_D->chinese_number(j),"ä½£é‡‘ï¼š",MONEY_D->price_str( (j>300)?(j*1500):(j*1000) ))+
+			sprintf("%-32s%-14s%-6s%-30s\n","è¶…çº§ä¿é•–(guard3) ï¼ï¼ï¼ æ­¦åŠŸç­‰çº§ï¼š",CHINESE_D->chinese_number(k),"ä½£é‡‘ï¼š",MONEY_D->price_str( (k>300)?(k*1500):(k*1000) )) ;
 	}
 	else
-		return "ËµĞ¦ÁË£¬Ïñ¸óÏÂÕâÑùµÄÎäÁÖ¸ßÊÖ»¹ĞèÒªÈË±£»¤£¿";
+		return "è¯´ç¬‘äº†ï¼Œåƒé˜ä¸‹è¿™æ ·çš„æ­¦æ—é«˜æ‰‹è¿˜éœ€è¦äººä¿æŠ¤ï¼Ÿ";
 }
 
 string do_fire(int type)
@@ -29,9 +29,9 @@ string do_fire(int type)
 	int lvl;
 	
 	if( !wizardp(me) && (int)me->query_temp("fire_guard") && me->query_temp("fire_guard")>time() )
-		return "Äã²»ÊÇÒÑ¾­Æ¸Çë±£ïÚÁËÂğ£¿";
+		return "ä½ ä¸æ˜¯å·²ç»è˜è¯·ä¿é•–äº†å—ï¼Ÿ";
 	if( me->query_user_type() != "worker" )
-		return "ËµĞ¦ÁË£¬Ïñ¸óÏÂÕâÑùµÄÎäÁÖ¸ßÊÖ»¹ĞèÒªÈË±£»¤£¿";
+		return "è¯´ç¬‘äº†ï¼Œåƒé˜ä¸‹è¿™æ ·çš„æ­¦æ—é«˜æ‰‹è¿˜éœ€è¦äººä¿æŠ¤ï¼Ÿ";
 		
 	lvl = me->query_temp("worker_skill_highest");
 	lvl = lvl * type / 6;
@@ -40,25 +40,25 @@ string do_fire(int type)
 	me->delete_temp("worker_skill_highest");
 	
 	if( is_wanted(me) )
-		return "ÎÒÃÇ²»±£»¤Í¨¼©·¸£¡";
+		return "æˆ‘ä»¬ä¸ä¿æŠ¤é€šç¼‰çŠ¯ï¼";
 			
 	switch( MONEY_D->player_pay(me, (lvl>300)?(lvl*1500):(lvl*1000)) ) {
 		case 0:
-		case 2:	return "ÄãÃ»ÓĞ×ã¹»µÄÇ®Ö§¸¶Ó¶½ğ¡£";
+		case 2:	return "ä½ æ²¡æœ‰è¶³å¤Ÿçš„é’±æ”¯ä»˜ä½£é‡‘ã€‚";
 		default: break;
 	}
-	message_vision("$N¸¶¸ø$n"+MONEY_D->price_str((lvl>300)?(lvl*1500):(lvl*1000))+"À´¹ÍÓ¶±£ïÚ¡£\n",me,this_object());
+	message_vision("$Nä»˜ç»™$n"+MONEY_D->price_str((lvl>300)?(lvl*1500):(lvl*1000))+"æ¥é›‡ä½£ä¿é•–ã€‚\n",me,this_object());
 	
 	guard = new(__DIR__"wguard");
 	if(!guard) return "error! please tell wizard!";
 	guard->do_copy(me,lvl);
 	
 	guard->move(environment(me));
-	message_vision("$N´ÓÄÚÌÃ×ßÁË³öÀ´¡£\n",guard);
+	message_vision("$Nä»å†…å ‚èµ°äº†å‡ºæ¥ã€‚\n",guard);
 	guard->set_leader(me);
 	
 	me->set_temp("fire_guard",time()+15*60);
-	return "Äú·ÅĞÄ£¬ÔÚÏÂÒ»¿ÌÖÓÄÚ£¬ÎÒÃÇ»á±£Ö¤ÄúµÄ°²È«£¡";
+	return "æ‚¨æ”¾å¿ƒï¼Œåœ¨ä¸‹ä¸€åˆ»é’Ÿå†…ï¼Œæˆ‘ä»¬ä¼šä¿è¯æ‚¨çš„å®‰å…¨ï¼";
 }
 
 string ask_guard1()

@@ -1,19 +1,19 @@
-// bao.c ºì°ü
+// bao.c çº¢åŒ…
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-        set_name(HIR"ºì°ü"NOR, ({ "hong bao", "bao", "bag" }));
-        set("long","ÕâÊÇÒ»¸öºìÉ«ÌÌ½ğµÄĞ¡Ö½´ü×Ó£¬ÉÏÃæÓ¡×Å¡º¹§ºØĞÂìû¡»ºÍ¡º¹§Ï²·¢²Æ¡»\n"+
-                   "µÈ¼ªÏéµÄ×ÖÑù£¬ºìßËßËµØ³äÂúÁËÏ²Æø¡£Äã¿ÉÒÔÓÃ¿ÉÒÔÓÃ fang <Êı×Ö>\n"+  
-                   "(ÒÔcoin¼ÆËã) °ÑÇ®·Å½øºì°ü´üÄÚ¡£\n");
+        set_name(HIR"çº¢åŒ…"NOR, ({ "hong bao", "bao", "bag" }));
+        set("long","è¿™æ˜¯ä¸€ä¸ªçº¢è‰²çƒ«é‡‘çš„å°çº¸è¢‹å­ï¼Œä¸Šé¢å°ç€ã€æ­è´ºæ–°ç¦§ã€å’Œã€æ­å–œå‘è´¢ã€\n"+
+                   "ç­‰å‰ç¥¥çš„å­—æ ·ï¼Œçº¢å’šå’šåœ°å……æ»¡äº†å–œæ°”ã€‚ä½ å¯ä»¥ç”¨å¯ä»¥ç”¨ fang <æ•°å­—>\n"+  
+                   "(ä»¥coinè®¡ç®—) æŠŠé’±æ”¾è¿›çº¢åŒ…è¢‹å†…ã€‚\n");
         set_weight(500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
+                set("unit", "ä¸ª");
                 set("value", 10000);
                 set("material","paper");
         }
@@ -34,15 +34,15 @@ int do_open(string arg)
        me = this_player();
        obj= this_object();
        amount = obj->query("balance");
-       if( !arg || arg != "bag") return notify_fail("ÄãÒª´ò¿ªÊ²Ã´?\n");
-       if( me->is_fighting()) return notify_fail("Äã»¹ÔÚÕ½¶·ÖĞ£¡Ö»ÄÜÒ»´ÎÄÃÒ»Ñù¡£\n");
-       if( !obj->query("finish")) return notify_fail("ÀïÃæÃ»ÓĞÇ®°¡¡£\n");
+       if( !arg || arg != "bag") return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆ?\n");
+       if( me->is_fighting()) return notify_fail("ä½ è¿˜åœ¨æˆ˜æ–—ä¸­ï¼åªèƒ½ä¸€æ¬¡æ‹¿ä¸€æ ·ã€‚\n");
+       if( !obj->query("finish")) return notify_fail("é‡Œé¢æ²¡æœ‰é’±å•Šã€‚\n");
        if( obj->query("owner") == me->query("id"))
-              return notify_fail("×Ô¼º¸ø×Ô¼ººì°ü?\n");
+              return notify_fail("è‡ªå·±ç»™è‡ªå·±çº¢åŒ…?\n");
        me->add("balance", amount) ;
-       message_vision(HIY"$NÂıÂıµÄ´ò¿ªºì°ü......ÍÛ£¡£¡£¡\n"NOR,me);
-       tell_object(me,HIW"\nÄãÊÕµ½"+obj->query("finish")+"("+capitalize(obj->query("owner"))+")¸øÄãµÄºì°ü£¬ÒøĞĞ´æ¿îÔö¼ÓÁË"+chinese_number(amount/10000)+"Á½»Æ½ğ¡£\n\n"NOR);
-        write_file("/log/quest/hongbao",sprintf("%s %s(%s)µÃµ½%s(%s)¸øµÄºì°ü%dÁ½»Æ½ğ¡£\n",ctime(time())[4..19],me->name(1),capitalize(me->query("id")),obj->query("finish"),capitalize(obj->query("owner")),amount/10000));
+       message_vision(HIY"$Næ…¢æ…¢çš„æ‰“å¼€çº¢åŒ…......å“‡ï¼ï¼ï¼\n"NOR,me);
+       tell_object(me,HIW"\nä½ æ”¶åˆ°"+obj->query("finish")+"("+capitalize(obj->query("owner"))+")ç»™ä½ çš„çº¢åŒ…ï¼Œé“¶è¡Œå­˜æ¬¾å¢åŠ äº†"+chinese_number(amount/10000)+"ä¸¤é»„é‡‘ã€‚\n\n"NOR);
+        write_file("/log/quest/hongbao",sprintf("%s %s(%s)å¾—åˆ°%s(%s)ç»™çš„çº¢åŒ…%dä¸¤é»„é‡‘ã€‚\n",ctime(time())[4..19],me->name(1),capitalize(me->query("id")),obj->query("finish"),capitalize(obj->query("owner")),amount/10000));
        destruct(obj);
        return 1;
 }
@@ -53,17 +53,17 @@ int do_fang(string arg)
        int amount;
        me=this_player();
        if(!arg || sscanf(arg, "%d", amount) !=1) return 0;
-       if( me->query("balance") < amount ) return notify_fail("ÄãµÄ´æ¿î²»¹»¡£\n");
-       if( amount < 10000) return notify_fail("´óĞÂÄêµÄ£¬ÄãÒ²Ì«Ğ¡ÆøÁË°É¡£\n");
-       if( this_object()->query("balance")) return notify_fail("ºì°üÀïÃæÒÑ¾­ÓĞÇ®ÁË¡£\n");
+       if( me->query("balance") < amount ) return notify_fail("ä½ çš„å­˜æ¬¾ä¸å¤Ÿã€‚\n");
+       if( amount < 10000) return notify_fail("å¤§æ–°å¹´çš„ï¼Œä½ ä¹Ÿå¤ªå°æ°”äº†å§ã€‚\n");
+       if( this_object()->query("balance")) return notify_fail("çº¢åŒ…é‡Œé¢å·²ç»æœ‰é’±äº†ã€‚\n");
        me->add("balance", - amount);
-       tell_object(me,HIR"\nÄã½«"+ chinese_number(amount/10000)+"Á½»Æ½ğ·ÅÈëºì°ü£¬×¼±¸¸ø±ğÈË×öĞÂÄêÀñÎï¡£\n\n"NOR);
+       tell_object(me,HIR"\nä½ å°†"+ chinese_number(amount/10000)+"ä¸¤é»„é‡‘æ”¾å…¥çº¢åŒ…ï¼Œå‡†å¤‡ç»™åˆ«äººåšæ–°å¹´ç¤¼ç‰©ã€‚\n\n"NOR);
        this_object()->set("balance", amount);
        this_object()->set("finish", me->query("name"));
        this_object()->set("owner", me->query("id"));
        this_object()->set("value", 0);
-       this_object()->set("long","ÕâÊÇÒ»¸öºìÉ«ÌÌ½ğµÄĞ¡Ö½´ü×Ó£¬ÉÏÃæÓ¡×Å¡º¹§ºØĞÂìû¡»ºÍ¡º¹§Ï²·¢²Æ¡»\n"+
-                                 "µÈ¼ªÏéµÄ×ÖÑù£¬ºìßËßËµØ³äÂúÁËÏ²Æø¡£·´ÃæÓ¡×Å¡¸"+this_object()->query("finish")+"¾´×£¡¹µÈ×ÖÑù¡£\n"+
-                                 "Äã¿ÉÒÔÓÃ open bag ´ò¿ªºì°ü¡£\n");
+       this_object()->set("long","è¿™æ˜¯ä¸€ä¸ªçº¢è‰²çƒ«é‡‘çš„å°çº¸è¢‹å­ï¼Œä¸Šé¢å°ç€ã€æ­è´ºæ–°ç¦§ã€å’Œã€æ­å–œå‘è´¢ã€\n"+
+                                 "ç­‰å‰ç¥¥çš„å­—æ ·ï¼Œçº¢å’šå’šåœ°å……æ»¡äº†å–œæ°”ã€‚åé¢å°ç€ã€Œ"+this_object()->query("finish")+"æ•¬ç¥ã€ç­‰å­—æ ·ã€‚\n"+
+                                 "ä½ å¯ä»¥ç”¨ open bag æ‰“å¼€çº¢åŒ…ã€‚\n");
        return 1;
 }

@@ -2,15 +2,15 @@ inherit COMBINED_ITEM;
 #include "/inherit/item/embed.h"
 void create()
 {
-        set_name("×·»êïÚ", ({ "zhuihun biao","zhuihun","biao" }) );
+        set_name("è¿½é­‚é•–", ({ "zhuihun biao","zhuihun","biao" }) );
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-               set("long", "ÕâÊÇÒ»Æ¬Ğ°ÅÉµÄ×·»êïÚ£¬ÉÏÃæÍ¿ÓĞ¾ç¶¾¡£\n");
-               set("unit", "Ğ©");
+               set("long", "è¿™æ˜¯ä¸€ç‰‡é‚ªæ´¾çš„è¿½é­‚é•–ï¼Œä¸Šé¢æ¶‚æœ‰å‰§æ¯’ã€‚\n");
+               set("unit", "äº›");
                set("damage", 3);
                set("base_value", 400);
-               set("base_unit", "Æ¬");
+               set("base_unit", "ç‰‡");
                set("base_weight", 100);
                set("poison", "snake_poison");
                set("material", "steel");

@@ -1,6 +1,6 @@
-                areaÄ¿Â¼ÏêÏ¸ÁĞ±í
+                areaç›®å½•è¯¦ç»†åˆ—è¡¨
 
-Ä¿Â¼£º/oldd/
+ç›®å½•ï¼š/oldd/
 baituo/*      <DIR> chengdu/*     <DIR> city/*        <DIR> dali/*        <DIR>
 death/*       <DIR> emei/*        <DIR> fairyland/   <DIR> foshan/*      <DIR>
 fuzhou/*      <DIR> gb/*          <DIR> gumu/*        <DIR> hengshan/*    <DIR>
@@ -12,91 +12,91 @@ taishan/*     <DIR> thd/*         <DIR> tiezhang/*    <DIR> tls/*         <DIR>
 village/*     <DIR> wizard/*      <DIR> wudang/*      <DIR> wuguan/*      <DIR>
 xiangyang/*   <DIR> xingxiu/*     <DIR> xueshan/*     <DIR> 
 
-Ä¿Â¼£º/area/
+ç›®å½•ï¼š/area/
 caoyuan/    <DIR> dongbei/    <DIR> haiwai/     <DIR> hebei/      <DIR>
 jiangbei/   <DIR> jiangnan/   <DIR> kunlun/     <DIR> special/    <DIR>
 xinan/      <DIR> xiyu/       <DIR> 
 
-1,caoyuanÄ¿Â¼:
-        Î÷ÓòºÍ±±Óò¡£°üÀ¨»Ø½®£¬Î÷ÏÄ£¬ÃÉ¹ÅµÈ¡£
-        Ô­/d/hj -> /area/caoyuan/huiijang
+1,caoyuanç›®å½•:
+        è¥¿åŸŸå’ŒåŒ—åŸŸã€‚åŒ…æ‹¬å›ç–†ï¼Œè¥¿å¤ï¼Œè’™å¤ç­‰ã€‚
+        åŸ/d/hj -> /area/caoyuan/huiijang
         
-2,haiwaiÄ¿Â¼£º
-        ËùÓĞº£µº£¬ÒÔ¼°³öÁËÖĞ»ªµØÓòµÄÇøÓò¡£
-        °üÀ¨ÄªË¹¿Æ£¬²¨Ë¹£¬·öÉ££¬±ù»ğµº£¬ÌÒ»¨µº£¬ÏÀ¿Íµº£¬Ì¨ÍåµºµÈ¡£
-        Ô­/d/sld ->/area/haiwai/shenlongdao,
-        Ô­/d/thd ->/area/haiwai/taohuadao,
-        Ô­/d/mingjiao/lsd -> /area/haiwai/lingshedao
-        Ô­/d/mingjiao/bhd -> /area/haiwai/binghuodao
+2,haiwaiç›®å½•ï¼š
+        æ‰€æœ‰æµ·å²›ï¼Œä»¥åŠå‡ºäº†ä¸­ååœ°åŸŸçš„åŒºåŸŸã€‚
+        åŒ…æ‹¬è«æ–¯ç§‘ï¼Œæ³¢æ–¯ï¼Œæ‰¶æ¡‘ï¼Œå†°ç«å²›ï¼Œæ¡ƒèŠ±å²›ï¼Œä¾ å®¢å²›ï¼Œå°æ¹¾å²›ç­‰ã€‚
+        åŸ/d/sld ->/area/haiwai/shenlongdao,
+        åŸ/d/thd ->/area/haiwai/taohuadao,
+        åŸ/d/mingjiao/lsd -> /area/haiwai/lingshedao
+        åŸ/d/mingjiao/bhd -> /area/haiwai/binghuodao
 
-3,jiangbeiÄ¿Â¼£º
-        ³¤½­ÒÔ±±£¬»ÆºÓÒÔÄÏµÄÖĞ¼äµØ´ø¡£
-        °üÀ¨Ì©É½£¬áÔÉ½£¬Îäµ±É½£¬ÏåÑô£¬»ªÉ½£¬áÇá¼É½£¬ÑïÖİ£¬³¤°²£¬ÖÕÄÏÉ½£¬½ğÁêµÈ¡£
-        Ô­/d/city ->/area/jiangbei/yangzhou
-        Ô­/d/huashan ->/area/jiangbei/huashan
-        Ô­/d/shaolin ->/area/jiangbei/shaoshishan
-        Ô­/d/songshan ->/area/jiangbei/songshan
-        Ô­/d/wudang ->/area/jiangbei/wudangshan
-        Ô­/d/xiangyang ->/area/jiangbei/xiangyang
-        Ô­/d/wuguan ->/area/jiangbei/xiangyang/wuguan
-        Ô­/d/gumu ->/area/jiangbei/zhongnanshan
-        Ô­/d/taishan->/area/jiangbei/taishan
-        Ô­/d/village->/area/jiangbei/huashancun
+3,jiangbeiç›®å½•ï¼š
+        é•¿æ±Ÿä»¥åŒ—ï¼Œé»„æ²³ä»¥å—çš„ä¸­é—´åœ°å¸¦ã€‚
+        åŒ…æ‹¬æ³°å±±ï¼Œåµ©å±±ï¼Œæ­¦å½“å±±ï¼Œè¥„é˜³ï¼Œåå±±ï¼Œå´†å³’å±±ï¼Œæ‰¬å·ï¼Œé•¿å®‰ï¼Œç»ˆå—å±±ï¼Œé‡‘é™µç­‰ã€‚
+        åŸ/d/city ->/area/jiangbei/yangzhou
+        åŸ/d/huashan ->/area/jiangbei/huashan
+        åŸ/d/shaolin ->/area/jiangbei/shaoshishan
+        åŸ/d/songshan ->/area/jiangbei/songshan
+        åŸ/d/wudang ->/area/jiangbei/wudangshan
+        åŸ/d/xiangyang ->/area/jiangbei/xiangyang
+        åŸ/d/wuguan ->/area/jiangbei/xiangyang/wuguan
+        åŸ/d/gumu ->/area/jiangbei/zhongnanshan
+        åŸ/d/taishan->/area/jiangbei/taishan
+        åŸ/d/village->/area/jiangbei/huashancun
 
-4,jiangnanÄ¿Â¼:
-        ³¤½­ÒÔÄÏ£¬²»º¬ÔÆ¹ó´¨µÄËùÓĞÇøÓò¡£
-        °üÀ¨ËÕÖİ£¬¼ÎĞË£¬º¼Öİ£¬ÈªÖİ£¬ºâÉ½£¬ÌìÌ¨É½£¬Ñà×ÓÎë£¬
-        Ã·×¯£¬ÌìµØ»á×Ü¶æ£¬¸£Öİ£¬·ğÉ½£¬¹éÔÆ×¯£¬µÈ¡£
-        Ô­/d/mr ->/area/jiangnan/yanzhiwu
-        Ô­/d/suzhou ->/area/jiangnan/suzhou
-        Ô­/d/fuzhou ->/area/jiangnan/fuzhou
-        Ô­/d/ningbo ->/area/jiangnan/ningbo
-        Ô­/d/hz ->/area/jiangnan/hangzhou
-        Ô­/d/thd/guiyun ->/area/jiangnan/guiyunzhuang
-        Ô­/d/foshan ->/area/jiangnan/foshan
-        Ô­/d/jiaxing ->/area/jiangnan/jiaxing
-        Ô­/d/plummanor->/area/jiangnan/meizhuang
-        Ô­/d/thd/niujia->/area/jiangnan/niujiazhuang
+4,jiangnanç›®å½•:
+        é•¿æ±Ÿä»¥å—ï¼Œä¸å«äº‘è´µå·çš„æ‰€æœ‰åŒºåŸŸã€‚
+        åŒ…æ‹¬è‹å·ï¼Œå˜‰å…´ï¼Œæ­å·ï¼Œæ³‰å·ï¼Œè¡¡å±±ï¼Œå¤©å°å±±ï¼Œç‡•å­åï¼Œ
+        æ¢…åº„ï¼Œå¤©åœ°ä¼šæ€»èˆµï¼Œç¦å·ï¼Œä½›å±±ï¼Œå½’äº‘åº„ï¼Œç­‰ã€‚
+        åŸ/d/mr ->/area/jiangnan/yanzhiwu
+        åŸ/d/suzhou ->/area/jiangnan/suzhou
+        åŸ/d/fuzhou ->/area/jiangnan/fuzhou
+        åŸ/d/ningbo ->/area/jiangnan/ningbo
+        åŸ/d/hz ->/area/jiangnan/hangzhou
+        åŸ/d/thd/guiyun ->/area/jiangnan/guiyunzhuang
+        åŸ/d/foshan ->/area/jiangnan/foshan
+        åŸ/d/jiaxing ->/area/jiangnan/jiaxing
+        åŸ/d/plummanor->/area/jiangnan/meizhuang
+        åŸ/d/thd/niujia->/area/jiangnan/niujiazhuang
         
 
-5,kunlunÄ¿Â¼£º
-        À¥ÂØÉ½ÂöµØÓò¡£°üÀ¨Ã÷½Ì£¬À¥ÂØÅÉ£¬Ñ©É½ÅÉ(½£ÅÉ)£¬ÃÜ×ÚµÈ¡£
-        Ô­/d/mingjiao ->/area/kunlun/guangmingding
-        Ô­/d/xueshan ->/area/kunlun/daxueshan
+5,kunlunç›®å½•ï¼š
+        æ˜†ä»‘å±±è„‰åœ°åŸŸã€‚åŒ…æ‹¬æ˜æ•™ï¼Œæ˜†ä»‘æ´¾ï¼Œé›ªå±±æ´¾(å‰‘æ´¾)ï¼Œå¯†å®—ç­‰ã€‚
+        åŸ/d/mingjiao ->/area/kunlun/guangmingding
+        åŸ/d/xueshan ->/area/kunlun/daxueshan
         
-6,hebeiÄ¿Â¼£º
-        »ÆºÓÒÔ±±£¬Ö±µ½É½º£¹Ø¼äµÄËùÓĞÇøÓò¡£
-        °üÀ¨±±¾©£¬ÍõÎİÉ½£¬ºãÉ½£¬ÎåÌ¨É½£¬É½º£¹Ø£¬ÌìÁúÃÅµÈ¡£
-        Ô­/d/hengshan ->/area/hebei/hengshan
-        Ô­/d/hmy ->/area/hebei/heimuya
-        Ô­/d/huanghe ->/area/hebei/hetao
+6,hebeiç›®å½•ï¼š
+        é»„æ²³ä»¥åŒ—ï¼Œç›´åˆ°å±±æµ·å…³é—´çš„æ‰€æœ‰åŒºåŸŸã€‚
+        åŒ…æ‹¬åŒ—äº¬ï¼Œç‹å±‹å±±ï¼Œæ’å±±ï¼Œäº”å°å±±ï¼Œå±±æµ·å…³ï¼Œå¤©é¾™é—¨ç­‰ã€‚
+        åŸ/d/hengshan ->/area/hebei/hengshan
+        åŸ/d/hmy ->/area/hebei/heimuya
+        åŸ/d/huanghe ->/area/hebei/hetao
 
-7,specialÄ¿Â¼:
-        ËùÓĞÌØÊâÇøÓò£¬²»ÔÚmapËÑË÷·¶Î§ÄÚ¡£
-        °üÀ¨µØÓü£¬Î×Ê¦µØ´ø£¬ÀŞÌ¨µÈ¡£
-        Ô­/d/wizard ->/area/special/wizard
-        Ô­/d/death  ->/area/special/death
+7,specialç›®å½•:
+        æ‰€æœ‰ç‰¹æ®ŠåŒºåŸŸï¼Œä¸åœ¨mapæœç´¢èŒƒå›´å†…ã€‚
+        åŒ…æ‹¬åœ°ç‹±ï¼Œå·«å¸ˆåœ°å¸¦ï¼Œæ“‚å°ç­‰ã€‚
+        åŸ/d/wizard ->/area/special/wizard
+        åŸ/d/death  ->/area/special/death
 
-8,dongbeiÄ¿Â¼:
-        É½º£¹ØÍâËùÓĞÇøÓò¡£°üÀ¨Â¹¶¦É½£¬ÑÅ¸÷²¼µÈ¡£
+8,dongbeiç›®å½•:
+        å±±æµ·å…³å¤–æ‰€æœ‰åŒºåŸŸã€‚åŒ…æ‹¬é¹¿é¼å±±ï¼Œé›…å„å¸ƒç­‰ã€‚
 
-9,xinanÄ¿Â¼:
-        ÇØÁëÒÔÄÏ£¬ÔÆ¹ó´¨ÈıµØ¡£
-        °üÀ¨¶ğÃ¼£¬´óÀí£¬ÌìÁúËÂ£¬Çà³Ç£¬Ãç½®£¬ÎŞÁ¿É½£¬ÎåÖ¸É½£¬³É¶¼µÈ¡£
-        Ô­/d/chengdu ->/area/xinan/chengdu
-        Ô­/d/dali    ->/area/xinan/dali
-        Ô­/d/miaojiang->/area/xinan/miaojiang
-        Ô­/d/tizhang ->/area/xinan/wuzhishan
-        Ô­/d/tls ->/area/xinan/dali/tianlongshi
-        Ô­/d/emei->/area/xinan/emeishan
+9,xinanç›®å½•:
+        ç§¦å²­ä»¥å—ï¼Œäº‘è´µå·ä¸‰åœ°ã€‚
+        åŒ…æ‹¬å¨¥çœ‰ï¼Œå¤§ç†ï¼Œå¤©é¾™å¯ºï¼Œé’åŸï¼Œè‹—ç–†ï¼Œæ— é‡å±±ï¼Œäº”æŒ‡å±±ï¼Œæˆéƒ½ç­‰ã€‚
+        åŸ/d/chengdu ->/area/xinan/chengdu
+        åŸ/d/dali    ->/area/xinan/dali
+        åŸ/d/miaojiang->/area/xinan/miaojiang
+        åŸ/d/tizhang ->/area/xinan/wuzhishan
+        åŸ/d/tls ->/area/xinan/dali/tianlongshi
+        åŸ/d/emei->/area/xinan/emeishan
         
-10,xiyuÄ¿Â¼£º
-        ´Ó¼ÎÓø¹Ø¿ªÊ¼ÍùÎ÷µØÓò¡£
-        °üÀ¨ĞÇËŞº££¬ÒÁÀç£¬°×ÍÓÉ½£¬ÌìÉ½£¬¼ÎÓø¹ØµÈ¡£
-        Ô­/d/baituo  ->/area/xiyu/baituo
-        Ô­/d/xingxiu ->/area/xiyu/xingxiuhai 
+10,xiyuç›®å½•ï¼š
+        ä»å˜‰å³ªå…³å¼€å§‹å¾€è¥¿åœ°åŸŸã€‚
+        åŒ…æ‹¬æ˜Ÿå®¿æµ·ï¼Œä¼ŠçŠï¼Œç™½é™€å±±ï¼Œå¤©å±±ï¼Œå˜‰å³ªå…³ç­‰ã€‚
+        åŸ/d/baituo  ->/area/xiyu/baituo
+        åŸ/d/xingxiu ->/area/xiyu/xingxiuhai 
         
-±¸×¢£ºÒòØ¤°ïµØÀíÎ»ÖÃ·ÖÉ¢£¬¹Ê½«/d/gb°´µØÀíÎ»ÖÃ½«ÎÄ¼ş·Ö²¼ÓÚÏàÓ¦/areaÄ¿Â¼¡£
+å¤‡æ³¨ï¼šå› ä¸å¸®åœ°ç†ä½ç½®åˆ†æ•£ï¼Œæ•…å°†/d/gbæŒ‰åœ°ç†ä½ç½®å°†æ–‡ä»¶åˆ†å¸ƒäºç›¸åº”/areaç›®å½•ã€‚
 
 
 by Looklove 2000/10/1

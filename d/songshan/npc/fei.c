@@ -3,11 +3,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("·Ñ±ò", ({ "fei bin", "fei", "bin" }));
-        set("nickname", "´óáÔÑôÊÖ");
-        set("long", "ÕâÈËËÄÊ®À´Ëê£¬ÖĞµÈÉí²Ä£¬ÊİÏ÷Òì³££¬ÉÏ´½ÁôÁËÁ½Æ²ÊóĞë£¬ÊÇáÔÉ½
-ÅÉÕÆÃÅ×óÀäìøµÄµÚËÄÊ¦µÜ·Ñ±ò¡¢Ò»Ì×´óáÔÑôÊÖÎäÁÖÖĞºÕºÕÓĞÃû¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("è´¹å½¬", ({ "fei bin", "fei", "bin" }));
+        set("nickname", "å¤§åµ©é˜³æ‰‹");
+        set("long", "è¿™äººå››åæ¥å²ï¼Œä¸­ç­‰èº«æï¼Œç˜¦å‰Šå¼‚å¸¸ï¼Œä¸Šå”‡ç•™äº†ä¸¤æ’‡é¼ é¡»ï¼Œæ˜¯åµ©å±±
+æ´¾æŒé—¨å·¦å†·ç¦…çš„ç¬¬å››å¸ˆå¼Ÿè´¹å½¬ã€ä¸€å¥—å¤§åµ©é˜³æ‰‹æ­¦æ—ä¸­èµ«èµ«æœ‰åã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 49);
         set("per", 18);
         set("attitude", "heroism");
@@ -40,7 +40,7 @@ void create()
     map_skill("parry", "songshan-jian");
     map_skill("sword", "songshan-jian");
     prepare_skill("strike", "songyang-zhang");
-    create_family("áÔÉ½ÅÉ", 4, "µÜ×Ó");
+    create_family("åµ©å±±æ´¾", 4, "å¼Ÿå­");
     set("chat_chance", 25);
     set("chat_msg", ({
                 (: random_move :)

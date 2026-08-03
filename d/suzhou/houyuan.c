@@ -3,14 +3,14 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "ºóÔº");
+        set("short", "åé™¢");
         set("long", @LONG
-ÕâÀïÊÇº²ÁÖ¸®µÄºóÔº¡£Ôº×ÓÀïÖÖÁË²»ÉÙµÄ¸÷ÖÖÆæ»¨Òì²İ£¬ÓÈÒÔ
-¸÷É«¾Õ»¨Îª¶à¡£±±ÃæÓĞÒ»ÉÈÃÅ(men)¡£
+è¿™é‡Œæ˜¯ç¿°æ—åºœçš„åé™¢ã€‚é™¢å­é‡Œç§äº†ä¸å°‘çš„å„ç§å¥‡èŠ±å¼‚è‰ï¼Œå°¤ä»¥
+å„è‰²èŠèŠ±ä¸ºå¤šã€‚åŒ—é¢æœ‰ä¸€æ‰‡é—¨(men)ã€‚
 LONG
         );
         set("item_desc", ([
-                "men" : "ÕâÉÈÃÅºó±ãÊÇÁèĞ¡½ãµÄ¹ë·¿¡£\n",
+                "men" : "è¿™æ‰‡é—¨åä¾¿æ˜¯å‡Œå°å§çš„é—ºæˆ¿ã€‚\n",
         ]));
 
         set("exits", ([
@@ -36,13 +36,13 @@ int do_kai(string arg)
 {
         object ob;
         if (query("exits/north"))
-                return notify_fail("ÕâÉÈÃÅÒÑ¾­ÊÇ´ò¿ªµÄ¡£\n");
+                return notify_fail("è¿™æ‰‡é—¨å·²ç»æ˜¯æ‰“å¼€çš„ã€‚\n");
         if (!arg || (arg != "men" && arg != "north"))
-                return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
         if (!(ob = present("tong yaoshi", this_player())))
-                return notify_fail("ÄãÓÃÔ¿³×ÔÚÃÅÀï×ªÁË¼¸ÏÂ,ÎŞÄÎÔõÃ´Ò²´ò²»¿ª¡£\n");
+                return notify_fail("ä½ ç”¨é’¥åŒ™åœ¨é—¨é‡Œè½¬äº†å‡ ä¸‹,æ— å¥ˆæ€ä¹ˆä¹Ÿæ‰“ä¸å¼€ã€‚\n");
         set("exits/north", __DIR__"dongxiang");
-        message_vision("$NÄÇÆğÍ­Ô¿³×´ò¿ª·¿ÃÅ£¬¿ÉÊÇÔ¿³×È´¶ÏÁË¡£\n", this_player());
+        message_vision("$Né‚£èµ·é“œé’¥åŒ™æ‰“å¼€æˆ¿é—¨ï¼Œå¯æ˜¯é’¥åŒ™å´æ–­äº†ã€‚\n", this_player());
         destruct(ob);
         return 1;
 }
@@ -53,6 +53,6 @@ int valid_leave(object me, string dir)
 		return 0;
         if (!wizardp(me) && objectp(present("ling tuisi", environment(me))) && 
 	dir == "north")
-                return notify_fail("ÁèÍËË¼µ²×¡ÁËÄã£ºÄãÏëÈëÄÚÕ¬¸ÉÊ²Ã´? \n");
+                return notify_fail("å‡Œé€€æ€æŒ¡ä½äº†ä½ ï¼šä½ æƒ³å…¥å†…å®…å¹²ä»€ä¹ˆ? \n");
         return ::valid_leave(me, dir);
 }

@@ -45,7 +45,7 @@ int do_clone(object me, object ob)
 	me->set("max_jing",k_jing*3/5);
 	me->set("eff_jing",k_jing*3/5);
 	me->set("jing",k_jing*3/5);
-	me->set_name("玉蜂", ({ ob->query("id")+"'s bee","yu feng", "bee","feng" }) );
+	me->set_name("鐜夎渹", ({ ob->query("id")+"'s bee","yu feng", "bee","feng" }) );
 
 	me->set_temp("skillset1",1);   
 	me->set_leader(ob);
@@ -58,6 +58,6 @@ void dest()
 {
 	object me;
 	me = this_object();
-	write("\n"+me->query("name")+"拍拍翅膀，转身飞走了。\n",me);
+	write("\n"+me->query("name")+"鎷嶆媿缈呰唨锛岃浆韬璧颁簡銆俓n",me);
 	destruct(this_object());
 }

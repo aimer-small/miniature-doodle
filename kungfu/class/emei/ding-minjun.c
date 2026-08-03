@@ -5,10 +5,10 @@ inherit NPC;
 inherit F_MASTER;
 void create()
 {
-        set_name("¶¡Ãô¾ý", ({"ding minjun", "ding", "minjun"}));
-        set("long", "ËýÊÇÃð¾øÊ¦Ì«µÄ°Ë´óË×¼ÒµÚ×ÓÖ®Ò»¡£\n");
-        set("nickname","¶¾ÊÖÎÞÑÎ");
-        set("gender", "Å®ÐÔ");
+        set_name("ä¸æ•å›", ({"ding minjun", "ding", "minjun"}));
+        set("long", "å¥¹æ˜¯ç­ç»å¸ˆå¤ªçš„å…«å¤§ä¿—å®¶ç¬¬å­ä¹‹ä¸€ã€‚\n");
+        set("nickname","æ¯’æ‰‹æ— ç›");
+        set("gender", "å¥³æ€§");
         set("attitude", "friendly");
 	set("unique", 1);
         set("age", 25);
@@ -40,7 +40,7 @@ void create()
 	map_skill("sword", "huifeng-jian");
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
         setup();
 
@@ -52,19 +52,19 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if ((string)ob->query("class") == "bonze" ){
-		command ("say ÎÒÖ»ÊÕË×¼ÒµÜ×Ó¡£");
+		command ("say æˆ‘åªæ”¶ä¿—å®¶å¼Ÿå­ã€‚");
 		return;
 	}
-	if ((string)ob->query("gender") == "ÎÞÐÔ" ){
+	if ((string)ob->query("gender") == "æ— æ€§" ){
 		command ("angry ");
-		command ("say ÎÒ×îÌÖÑáµÄ¾ÍÊÇ²»ÄÐ²»Å®Ö®ÈË¡£");
+		command ("say æˆ‘æœ€è®¨åŽŒçš„å°±æ˜¯ä¸ç”·ä¸å¥³ä¹‹äººã€‚");
 		return;
 	}
 	command (":) ");
-	command ("say ºÃ°É£¡ÎÒ¾ÍÊÕÏÂÄã×ö¶ëáÒÅÉË×¼ÒµÜ×Ó¡£");
+	command ("say å¥½å§ï¼æˆ‘å°±æ”¶ä¸‹ä½ åšå³¨åµ‹æ´¾ä¿—å®¶å¼Ÿå­ã€‚");
 	command("recruit " + ob->query("id"));
 	if( (string)ob->query("class")!="bonze" ){
-		ob->set("title", "¶ëáÒÅÉË×¼ÒµÜ×Ó");
+		ob->set("title", "å³¨åµ‹æ´¾ä¿—å®¶å¼Ÿå­");
 //		ob->set("class","emsujia");
 	}
 }

@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-      set("short", HIC"½£ÊÒ"NOR);
+      set("short", HIC"å‰‘å®¤"NOR);
       set("long", @LONG
-Ò»¼ä°ÚÂú±øÆ÷µÄÊ¯ÊÒ£¬ºÜ¶àÖÖ½£¶¼ÕûÆëµØ¶Ñ·ÅÔÚµØÉÏ¡£ÖÜÎ§µÄ»ğ°ÑÕÕµÄÕû
-¸öÊ¯ÊÒµÆ»ğÍ¨Ã÷£¬¼¸¸ö¹ÅÄ¹µÜ×ÓÕıÕ¾ÔÚÊÒÖĞ×ĞÏ¸ÌôÑ¡×Ô¼ººÏÊÖµÄ±øÈĞ¡£Ç½½Ç·Å
-×ÅÒ»¸öÄ¾ÖÆµÄ»¤¾ß¼Ü(jia)£¬ÉÏÃæ¹Ò×ÅĞ©¹ÅÄ¹µÜ×ÓÆ½Ê±·ÀÉíÓÃµÄ»¤¾ß¡£
+ä¸€é—´æ‘†æ»¡å…µå™¨çš„çŸ³å®¤ï¼Œå¾ˆå¤šç§å‰‘éƒ½æ•´é½åœ°å †æ”¾åœ¨åœ°ä¸Šã€‚å‘¨å›´çš„ç«æŠŠç…§çš„æ•´
+ä¸ªçŸ³å®¤ç¯ç«é€šæ˜ï¼Œå‡ ä¸ªå¤å¢“å¼Ÿå­æ­£ç«™åœ¨å®¤ä¸­ä»”ç»†æŒ‘é€‰è‡ªå·±åˆæ‰‹çš„å…µåˆƒã€‚å¢™è§’æ”¾
+ç€ä¸€ä¸ªæœ¨åˆ¶çš„æŠ¤å…·æ¶(jia)ï¼Œä¸Šé¢æŒ‚ç€äº›å¤å¢“å¼Ÿå­å¹³æ—¶é˜²èº«ç”¨çš„æŠ¤å…·ã€‚
 LONG
       );
 
@@ -18,8 +18,8 @@ LONG
       ]));
 
       set("item_desc", ([
-           "jia" :"Ò»¸öÄ¾Í·ÖÆ³ÉµÄ¼Ü×Ó£¬ÉÏÃæ¹Ò×ÅÌú¼×(armor)µÈ»¤¾ß¡£\n\n"+
-                  "ÃüÁî¸ñÊ½: na armor from jia¡£\n",
+           "jia" :"ä¸€ä¸ªæœ¨å¤´åˆ¶æˆçš„æ¶å­ï¼Œä¸Šé¢æŒ‚ç€é“ç”²(armor)ç­‰æŠ¤å…·ã€‚\n\n"+
+                  "å‘½ä»¤æ ¼å¼: na armor from jiaã€‚\n",
       ]));
 
       set("objects", ([
@@ -43,21 +43,21 @@ int do_get(string arg)
       string arg1,arg2;
       me=this_player();
       if(!arg || sscanf(arg, "%s from %s", arg1, arg2)!=2)
-          return notify_fail("ÃüÁî¸ñÊ½: na <»¤¾ßÃû³Æ> from jia¡£\n");
+          return notify_fail("å‘½ä»¤æ ¼å¼: na <æŠ¤å…·åç§°> from jiaã€‚\n");
       if (arg2!="jia")
-          return notify_fail("ÃüÁî¸ñÊ½: na <»¤¾ßÃû³Æ> from jia¡£\n");
-      if(me->query_temp("gumu/ÄÃ"))
-          return notify_fail("ÄãÔõÃ´ÕâÃ´Ì°ĞÄ£¬ÄÃ¹ıÁË»¹ÒªÄÃ£¿\n");
+          return notify_fail("å‘½ä»¤æ ¼å¼: na <æŠ¤å…·åç§°> from jiaã€‚\n");
+      if(me->query_temp("gumu/æ‹¿"))
+          return notify_fail("ä½ æ€ä¹ˆè¿™ä¹ˆè´ªå¿ƒï¼Œæ‹¿è¿‡äº†è¿˜è¦æ‹¿ï¼Ÿ\n");
       if(me->query("combat_exp") > 120000)
-          return notify_fail("ÄãÎäÒÕÒÑµ½Ò»¶¨³Ì¶È£¬»¹ÊÇ×ÔÊ³ÆäÁ¦°É¡£\n");
+          return notify_fail("ä½ æ­¦è‰ºå·²åˆ°ä¸€å®šç¨‹åº¦ï¼Œè¿˜æ˜¯è‡ªé£Ÿå…¶åŠ›å§ã€‚\n");
       if (arg1 =="armor"){
           ob=new(ARMOR_D("armor")); 
           ob->move(me);
-          message_vision("$N´Ó»¤¾ß¼ÜÉÏÄÃ³öÒ»¼ş$n¡£\n",me, ob); 
-          me->set_temp("gumu/ÄÃ",1);
+          message_vision("$Nä»æŠ¤å…·æ¶ä¸Šæ‹¿å‡ºä¸€ä»¶$nã€‚\n",me, ob); 
+          me->set_temp("gumu/æ‹¿",1);
           return 1;
       }     
-      return notify_fail("»¤¾ß¼ÜÉÏÃ»ÓĞÄãÏëÒªÄÃµÄ¶«Î÷¡£\n");
+      return notify_fail("æŠ¤å…·æ¶ä¸Šæ²¡æœ‰ä½ æƒ³è¦æ‹¿çš„ä¸œè¥¿ã€‚\n");
 }
 
 int valid_leave(object ob, string dir)
@@ -67,6 +67,6 @@ int valid_leave(object ob, string dir)
         int i = sizeof(sword), count = 0;
         while (i--)
                 if (member_array(base_name(sword[i]), jian) != -1) count++;
-        if (count > 1) return notify_fail("ÄãÒ»ÏÂ×ÓÄÃÕâÃ´¶à½££¬±ğÈË²»ÒªÓÃÁËÂğ£¿\n");
+        if (count > 1) return notify_fail("ä½ ä¸€ä¸‹å­æ‹¿è¿™ä¹ˆå¤šå‰‘ï¼Œåˆ«äººä¸è¦ç”¨äº†å—ï¼Ÿ\n");
         return ::valid_leave(ob, dir);
 }

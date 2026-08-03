@@ -1,21 +1,21 @@
 // ITEM: /d/huashan/npc/obj/ling.c
 // Date: Look 99/03/25
-// ÈÎÎñÎŞÅúÅ¶ÄÚÎŞ·¨ÍµÈ¡By server@sjty
+// ä»»åŠ¡æ— æ‰¹å“¦å†…æ— æ³•å·å–By server@sjty
 
 inherit ITEM;
 
 #include <ansi.h>
 void create()
 {
-        set_name(YEL"ÁîÅÆ"NOR, ({ "ling pai","ling"}));
+        set_name(YEL"ä»¤ç‰Œ"NOR, ({ "ling pai","ling"}));
         set_weight(10);
 
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿é");
+                set("unit", "å—");
                 set("long",
-                        "ÕâÊÇÒ»Ã¶»ªÉ½ÅÉµÄÉÍÉÆ·£¶ñÁî£¬ÓĞÁËËü£¬»ªÉ½µÜ×ÓÔÚÍâ±ãÄÜÊ±¿ÌÌáĞÑ×Ô¼ºÉÍÉÆ·£¶ñ¡£\n");
+                        "è¿™æ˜¯ä¸€æšåå±±æ´¾çš„èµå–„ç½šæ¶ä»¤ï¼Œæœ‰äº†å®ƒï¼Œåå±±å¼Ÿå­åœ¨å¤–ä¾¿èƒ½æ—¶åˆ»æé†’è‡ªå·±èµå–„ç½šæ¶ã€‚\n");
                 set("value", 0);
                 set("material", "iron");
                 set("no_steal", 1);

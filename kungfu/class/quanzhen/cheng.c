@@ -2,12 +2,12 @@ inherit NPC;
 inherit F_MASTER;
 void create()
 {
-        set_name("³ÌÑşåÈ", ({"cheng yaojia", "cheng"}));
-        set("gender", "Å®ĞÔ");
+        set_name("ç¨‹ç‘¶è¿¦", ({"cheng yaojia", "cheng"}));
+        set("gender", "å¥³æ€§");
         set("age", 24);
         set("class", "taoist");
         set("long",
-                "ËıÊÇÇå¾»É¢ÈËËï²»¶şµÄµÜ×Ó¡£\n");
+                "å¥¹æ˜¯æ¸…å‡€æ•£äººå­™ä¸äºŒçš„å¼Ÿå­ã€‚\n");
         set("attitude", "friendly");
         set("shen_type",1);
         set("per", 26);
@@ -45,10 +45,10 @@ void create()
         map_skill("strike", "haotian-zhang");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 3, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 3, "å¼Ÿå­");
 
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒĞşÃÅÕı×Ú¡£\n",
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶ç„é—¨æ­£å®—ã€‚\n",
         ]) );
 
         setup();
@@ -61,12 +61,12 @@ void create()
 void attempt_apprentice(object ob)
 {
 
-        if (ob->query("gender")=="ÄĞĞÔ") {
-                command("say ÎÒ²»ÊÕÄĞÍ½£¬Äã»¹ÊÇÈ¥°İÎÒ¼¸Î»Ê¦ĞÖÎªÊ¦°É¡£\n");
+        if (ob->query("gender")=="ç”·æ€§") {
+                command("say æˆ‘ä¸æ”¶ç”·å¾’ï¼Œä½ è¿˜æ˜¯å»æ‹œæˆ‘å‡ ä½å¸ˆå…„ä¸ºå¸ˆå§ã€‚\n");
                 return;
         }
        
-        command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÕâ¸öÍ½µÜÁË¡£");
+        command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ è¿™ä¸ªå¾’å¼Ÿäº†ã€‚");
         command("recruit " + ob->query("id"));
         ob->set("shen",100000);
 }

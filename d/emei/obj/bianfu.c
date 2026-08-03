@@ -5,16 +5,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("����", ({ "bian fu", "fu" }) );
-        set("race", "Ұ��");
+        set_name("蝙蝠", ({ "bian fu", "fu" }) );
+        set("race", "野兽");
         set("age", 20);
-        set("long", "һֻ���𵹹���ʯ�����ϡ�\n");
+        set("long", "一只蝙蝠倒挂在石洞壁上。\n");
         set("attitude", "peaceful");
 
         set("str", 26);
         set("cor", 30);
 
-        set("limbs", ({ "ͷ��", "����", "��", "����", "��צ", "���" }) );
+        set("limbs", ({ "头部", "颈部", "后背", "腹部", "脚爪", "翅膀" }) );
         set("verbs", ({ "bite" }) );
 
         set("combat_exp", 50000);
@@ -40,7 +40,7 @@ void init()
 void die()
 {
         object ob;
-        message_vision("$N��~~��һ��˺�еĽ������ˡ�\n", this_object());
+        message_vision("$N啊~~的一声撕列的叫声死了。\n", this_object());
         destruct(this_object());
 }
 */

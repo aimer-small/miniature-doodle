@@ -7,17 +7,17 @@ inherit HEAD;
 
 void create()
 {
-	set_name(HIR"ºì×°ËØ¹ü"NOR,({ "hongzhuang suguo", "flower", "hua" }) );
+	set_name(HIR"çº¢è£…ç´ è£¹"NOR,({ "hongzhuang suguo", "flower", "hua" }) );
 	set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
+                set("unit", "æœµ");
                 set("value", 90);
                 set("material", "plant");
-                set("long", "ÕâÊÇÒ»¶äºì×°ËØ¹ü¡£\n");
-                set("wear_msg", "$NÄÃÆğÒ»¶ä"HIR"ºì×°ËØ¹ü"NOR"±ğÔÚĞØÇ°¡£\n");
-                set("unequip_msg", "$NÕªÏÂĞØÇ°µÄ$n¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æœµçº¢è£…ç´ è£¹ã€‚\n");
+                set("wear_msg", "$Næ‹¿èµ·ä¸€æœµ"HIR"çº¢è£…ç´ è£¹"NOR"åˆ«åœ¨èƒ¸å‰ã€‚\n");
+                set("unequip_msg", "$Næ‘˜ä¸‹èƒ¸å‰çš„$nã€‚\n");
                 set("armor_prop/armor", 0);
         }
 

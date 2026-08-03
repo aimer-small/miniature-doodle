@@ -7,15 +7,15 @@ inherit HANDS;
 
 void create()
 {
-    set_name("ÌúÂŞºº", ({ "tie luohan", "luohan", "shu", "book" }));
+    set_name("é“ç½—æ±‰", ({ "tie luohan", "luohan", "shu", "book" }));
 	set_weight(2000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¶Ô");
+		set("unit", "å¯¹");
 		set("long",
-			"ÉÙÁÖÌúÂŞºº\n"
-			"ÕâÊÇÒ»¶ÔÖÆ×÷¾«ÇÉÌúÂŞºº£¬ÉÏÃæ»æ×ÅÒ»Ì×¹¥·À¼¼»÷µÄ·¨ÃÅ¡£\n");
+			"å°‘æ—é“ç½—æ±‰\n"
+			"è¿™æ˜¯ä¸€å¯¹åˆ¶ä½œç²¾å·§é“ç½—æ±‰ï¼Œä¸Šé¢ç»˜ç€ä¸€å¥—æ”»é˜²æŠ€å‡»çš„æ³•é—¨ã€‚\n");
 		set("value", 500);
 		set("material", "steel");
 		//set("armor_prop/armor", 3 );
@@ -41,9 +41,9 @@ int do_yanxi(string arg)
 	object me = this_player();
 
 	if ( arg != "iron luohan" && arg != "luohan" )
-	return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
         if (me->is_fighting()&&(int)me->query_skill("parry",1)<30)
-        message_vision("$N´ÜÉÏÌøÏÂ£¬µ«ÌúÂŞººÈ«ÎŞ¶¯¾²¡£\n",me);
+        message_vision("$Nçªœä¸Šè·³ä¸‹ï¼Œä½†é“ç½—æ±‰å…¨æ— åŠ¨é™ã€‚\n",me);
         if ( me->is_fighting() 
 	&& (int)me->query_skill("parry", 1) >= 30 
 	&& (int)me->query_skill("parry", 1) <= 100 )
@@ -55,12 +55,12 @@ int do_yanxi(string arg)
                   }      
                 me->receive_damage("jing", 20);
 		me->improve_skill("parry", me->query("int"));
-		message_vision("$NÕ·×ªÌÚÅ²£¬¼¤·¢ÁËÌúÂŞººµÄ»úÀ¨£¬ËûÃÇÁ¢¿Ì»¥²«ÆğÀ´¡£\n", me);
+		message_vision("$Nè¾—è½¬è…¾æŒªï¼Œæ¿€å‘äº†é“ç½—æ±‰çš„æœºæ‹¬ï¼Œä»–ä»¬ç«‹åˆ»äº’æèµ·æ¥ã€‚\n", me);
 		return 1;
 	}
        	if( me->is_fighting() &&(int)me->query_skill("parry",1)>100)
       {   
-         message_vision("$N·ÉĞıÌ«¼±Ì«ËÙ£¬ÌúÂŞºº»úÀ¨¸ú²»ÉÏËÙ¶È£¬Í£Ö¹ÁËÔË×ª¡£\n",me);
+         message_vision("$Né£æ—‹å¤ªæ€¥å¤ªé€Ÿï¼Œé“ç½—æ±‰æœºæ‹¬è·Ÿä¸ä¸Šé€Ÿåº¦ï¼Œåœæ­¢äº†è¿è½¬ã€‚\n",me);
         return 1;
        }       
 	return 0;

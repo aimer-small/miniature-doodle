@@ -14,29 +14,29 @@ int main(object me, string arg)
 	string target, mud;
 
 	if( !arg || arg=="" )
-		return notify_fail("ÄãÒª»Ø´ğÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å›ç­”ä»€ä¹ˆï¼Ÿ\n");
 
 	if (stringp(target = me->query_temp("reply"))) {
 		if( sscanf(target, "%s@%s", target, mud)==2 ) {
 			if (me->query("combat_exp") < 500000)
-				return notify_fail("ÄãµÄ×ÊÀú»¹²»¹»£¬²»ÄÜÊ¹ÓÃÇ§Àï´«Òô¡£\n");
+				return notify_fail("ä½ çš„èµ„å†è¿˜ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨åƒé‡Œä¼ éŸ³ã€‚\n");
 			GTELL->send_gtell(lower_case(mud), lower_case(target), me, arg);
-			write("ÍøÂ·Ñ¶Ï¢ÒÑËÍ³ö£¬¿ÉÄÜÒªÉÔºò²ÅÄÜµÃµ½»ØÓ¦¡£\n");
+			write("ç½‘è·¯è®¯æ¯å·²é€å‡ºï¼Œå¯èƒ½è¦ç¨å€™æ‰èƒ½å¾—åˆ°å›åº”ã€‚\n");
 			return 1;
 		}
 	}
 
 	if (!objectp(obj = me->query_temp("reply")))
-		return notify_fail("¸Õ²ÅÃ»ÓĞÈËºÍÄãËµ¹ı»°¡£\n");
+		return notify_fail("åˆšæ‰æ²¡æœ‰äººå’Œä½ è¯´è¿‡è¯ã€‚\n");
 
 	if (!interactive(obj))
-		return notify_fail("¸Õ²ÅºÍÄãËµ»°µÄÈË¶ÏÏßÁË¡£\n");
+		return notify_fail("åˆšæ‰å’Œä½ è¯´è¯çš„äººæ–­çº¿äº†ã€‚\n");
 
 	if (!wizardp(me) && me->query("id") == obj->query("env/block"))
-		return notify_fail(obj->query("name")+"²»ÏëÌıÄãÏ¹êş£¡\n");
+		return notify_fail(obj->query("name")+"ä¸æƒ³å¬ä½ çæ°ï¼\n");
 		
-	write(GRN "Äã»Ø´ğ" + (me->visible(obj)?obj->query("name"):obj->name()) + "£º" + arg + "\n" NOR);
-	message("channel", sprintf(GRN"%s»Ø´ğÄã£º%s\n"NOR,
+	write(GRN "ä½ å›ç­”" + (me->visible(obj)?obj->query("name"):obj->name()) + "ï¼š" + arg + "\n" NOR);
+	message("channel", sprintf(GRN"%så›ç­”ä½ ï¼š%s\n"NOR,
 		obj->visible(me)?(me->query("name")+"("+capitalize(me->query("id"))+")"):me->name(), arg), obj);
 
 	obj->set_temp("reply", me);
@@ -46,9 +46,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºreply <Ñ¶Ï¢>
+æŒ‡ä»¤æ ¼å¼ï¼šreply <è®¯æ¯>
 
-Äã¿ÉÒÔÓÃÕâ¸öÖ¸ÁîºÍ¸Õ²ÅÓÃ tell ºÍÄãËµ»°µÄÊ¹ÓÃÕßËµ»°¡£
+ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤å’Œåˆšæ‰ç”¨ tell å’Œä½ è¯´è¯çš„ä½¿ç”¨è€…è¯´è¯ã€‚
 
 see also : tell
 HELP

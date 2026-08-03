@@ -1,13 +1,13 @@
-// xizi.c Ï·×Ó
+// xizi.c æˆå­
 
 #include <ansi.h>
 inherit NPC;
 void create()
 {
-        set_name("Ï·×Ó", ({"xi zi", "xizi", "zi"}) );
-        set("gender", "Å®ĞÔ" );
+        set_name("æˆå­", ({"xi zi", "xizi", "zi"}) );
+        set("gender", "å¥³æ€§" );
         set("age", 20 + random(8));
-        set("long", "Ëı³åÄãÕ£ÁËÏÂ"BLINK"×óÑÛ"NOR"£¬¼ûÄã±íÇéŞÏŞÎ£¬ËıÓÖÕ£ÁËÏÂ"BLINK"ÓÒÑÛ"NOR"¡£\n");
+        set("long", "å¥¹å†²ä½ çœ¨äº†ä¸‹"BLINK"å·¦çœ¼"NOR"ï¼Œè§ä½ è¡¨æƒ…å°´å°¬ï¼Œå¥¹åˆçœ¨äº†ä¸‹"BLINK"å³çœ¼"NOR"ã€‚\n");
         set("shen_type", 0);
         set("attitude","friendly");
 
@@ -35,7 +35,7 @@ void create()
 
         set("chat_chance", 3);
         set("chat_msg", ({
-                "Ï·×Ó»ØÍ·¿´ÁË¿´£¬Å×ÁËÒ»¸ö·ÉÑÛ¸øÄã¡£\n",
+                "æˆå­å›å¤´çœ‹äº†çœ‹ï¼ŒæŠ›äº†ä¸€ä¸ªé£çœ¼ç»™ä½ ã€‚\n",
                 }) );
         setup();
 

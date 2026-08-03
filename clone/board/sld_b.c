@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-        set_name("ÉñÁú½ÌµÜ×ÓÁôÑÔ°æ", ({ "board" }) );
+        set_name("ç¥é¾™æ•™å¼Ÿå­ç•™è¨€ç‰ˆ", ({ "board" }) );
 set("location", "/d/sld/kongdi");
         set("board_id", "sld_b");
-        set("long", "ÕâÊÇÒ»¸ö¹©ÉñÁú½ÌµÜ×ÓÊ¹ÓÃµÄÁôÑÔ°å¡£\n" );
+        set("long", "è¿™æ˜¯ä¸€ä¸ªä¾›ç¥é¾™æ•™å¼Ÿå­ä½¿ç”¨çš„ç•™è¨€æ¿ã€‚\n" );
         setup();
         set("capacity", 60);
 }

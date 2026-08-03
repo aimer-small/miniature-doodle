@@ -3,16 +3,16 @@ inherit NPC;
 
 void create()
 {
-	set_name("É¨µØÆÍÈË", ({ "saodi puren","puren" }) );
-	set("gender", "ÄĞĞÔ");
+	set_name("æ‰«åœ°ä»†äºº", ({ "saodi puren","puren" }) );
+	set("gender", "ç”·æ€§");
 	set("age", 34);
-	set("long","ÕòÄÏÍõ¸®µÄÒ»¸öÉ¨µØÆÍÈË¡£\n");
-	set("title", "ÕòÄÏÍõ¸®ÆÍÈË");
+	set("long","é•‡å—ç‹åºœçš„ä¸€ä¸ªæ‰«åœ°ä»†äººã€‚\n");
+	set("title", "é•‡å—ç‹åºœä»†äºº");
 	set("combat_exp", 50000);
 	set("shen_type", 1);
 	set("attitude", "friendly");
 	set("inquiry", ([
-	     "name" :"ÈËÈË¶¼½ĞÎÒ°¢Ä¾£¬Äã¾Í½ĞÎÒ°¢Ä¾ºÃÁË¡£",
+	     "name" :"äººäººéƒ½å«æˆ‘é˜¿æœ¨ï¼Œä½ å°±å«æˆ‘é˜¿æœ¨å¥½äº†ã€‚",
 	]));
 
 	set("apply/attack", 50);

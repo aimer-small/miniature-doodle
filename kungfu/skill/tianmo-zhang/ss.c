@@ -1,4 +1,4 @@
-// ÈýÊ¬ÄÔÉñ¶¾
+// ä¸‰å°¸è„‘ç¥žæ¯’
 #include <ansi.h>
 #include <combat.h>
 
@@ -10,63 +10,63 @@ int perform(object me, object target)
        if( !target ) target = offensive_target(me);
 
        if( !target || !me->is_fighting(target) )
-            return notify_fail("¡¸ÈýÊ¬ÄÔÉñ¶¾¡¹Ö»ÄÜÔÚÕ½¶·ÖÐ¶Ô¶ÔÊÖÊ¹ÓÃ¡£\n");
+            return notify_fail("ã€Œä¸‰å°¸è„‘ç¥žæ¯’ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­å¯¹å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
        if( objectp(me->query_temp("weapon")) )
-            return notify_fail("Äã±ØÐë¿ÕÊÖ²ÅÄÜÊ¹ÓÃ¡¸ÈýÊ¬ÄÔÉñ¶¾¡¹£¡\n");
+            return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹æ‰èƒ½ä½¿ç”¨ã€Œä¸‰å°¸è„‘ç¥žæ¯’ã€ï¼\n");
 
        if( (int)me->query_skill("tianmo-zhang", 1) < 220 )
-            return notify_fail("ÄãµÄÌìÄ§ÕÆ»¹²»¹»æµÊì£¬Ê¹²»³ö¡¸ÈýÊ¬ÄÔÉñ¶¾¡¹¾ø¼¼¡£\n");
+            return notify_fail("ä½ çš„å¤©é­”æŽŒè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡ºã€Œä¸‰å°¸è„‘ç¥žæ¯’ã€ç»æŠ€ã€‚\n");
 
         if (me->query_skill_mapped("force") != "tianmo-gong" )
           if(me->query_skill_mapped("force") != "xixing--dafa")
-                return notify_fail("ÄãËùÊ¹ÓÃµÄÌØÊâÄÚ¹¦²»¶Ô¡£\n"); 
+                return notify_fail("ä½ æ‰€ä½¿ç”¨çš„ç‰¹æ®Šå†…åŠŸä¸å¯¹ã€‚\n"); 
                 
                         if(!me->query_skill("xixing-dafa", 1))
           if(me->query_skill("tianmo-gong", 1) < 220)
-                return notify_fail("ÒÔÄãÏÖÔÚµÄÄÚ¹¦ÐÞÎª»¹Ê¹²»³ö¡¸ÈýÊ¬ÄÔÉñ¶¾¡¹¡£\n");  
+                return notify_fail("ä»¥ä½ çŽ°åœ¨çš„å†…åŠŸä¿®ä¸ºè¿˜ä½¿ä¸å‡ºã€Œä¸‰å°¸è„‘ç¥žæ¯’ã€ã€‚\n");  
 
        if((int)me->query_skill("poison",1)<151)
-            return notify_fail("Äã¶¾¼Æ²»¹»ÎÞ·¨Ê¹ÓÃÈýÊ¬ÄÔÉñ¶¾¡£\n"); 
+            return notify_fail("ä½ æ¯’è®¡ä¸å¤Ÿæ— æ³•ä½¿ç”¨ä¸‰å°¸è„‘ç¥žæ¯’ã€‚\n"); 
             co=present("corpse",me);       
 
        if (!co)
-           return notify_fail("ÄãÉíÉÏÃ»ÓÐ¸¯ÀÃµÄÊ¬Ìå£¬ÈçºÎÊ¹ÓÃÈýÊ¬ÄÔÉñ¶¾!\n");
+           return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è…çƒ‚çš„å°¸ä½“ï¼Œå¦‚ä½•ä½¿ç”¨ä¸‰å°¸è„‘ç¥žæ¯’!\n");
 
-       if (co->query("name")!="¸¯ÀÃµÄÄÐÊ¬"
-        && co->query("name")!="¸¯ÀÃµÄÅ®Ê¬")
-           return notify_fail("ÄãÉíÉÏµÄÊ¬ÌåÃ»ÓÐ¸¯ÀÃ£¬ÎÞ·¨Ê¹ÓÃÈýÊ¬ÄÔÉñ¶¾¡£\n");
+       if (co->query("name")!="è…çƒ‚çš„ç”·å°¸"
+        && co->query("name")!="è…çƒ‚çš„å¥³å°¸")
+           return notify_fail("ä½ èº«ä¸Šçš„å°¸ä½“æ²¡æœ‰è…çƒ‚ï¼Œæ— æ³•ä½¿ç”¨ä¸‰å°¸è„‘ç¥žæ¯’ã€‚\n");
 
        if (me->query_skill_prepared("strike") != "tianmo-zhang"
         || me->query_skill_mapped("strike") != "tianmo-zhang"
         || me->query_skill_mapped("parry") != "tianmo-zhang")
-           return notify_fail("ÄãÏÖÔÚÎÞ·¨Ê¹ÓÃ¡¸ÈýÊ¬ÄÔÉñ¶¾¡¹£¡\n");                                                                                 
+           return notify_fail("ä½ çŽ°åœ¨æ— æ³•ä½¿ç”¨ã€Œä¸‰å°¸è„‘ç¥žæ¯’ã€ï¼\n");                                                                                 
 
        if( (int)me->query("max_neili") < 1500) 
-           return notify_fail("ÄãÄÚÁ¦Ì«Èõ£¬Ê¹²»³ö¡¸ÈýÊ¬ÄÔÉñ¶¾¡¹¡£\n");      
+           return notify_fail("ä½ å†…åŠ›å¤ªå¼±ï¼Œä½¿ä¸å‡ºã€Œä¸‰å°¸è„‘ç¥žæ¯’ã€ã€‚\n");      
 
        if( (int)me->query("neili") < 1000)
-           return notify_fail("ÄãÏÖÔÚÕæÆøÌ«Èõ£¬Ê¹²»³ö¡¸ÈýÊ¬ÄÔÉñ¶¾¡¹¡£\n");
+           return notify_fail("ä½ çŽ°åœ¨çœŸæ°”å¤ªå¼±ï¼Œä½¿ä¸å‡ºã€Œä¸‰å°¸è„‘ç¥žæ¯’ã€ã€‚\n");
 
-       message_vision(HIB"\n$N´Ó±³ºóÍÏ³öÒ»¾ßÊ¬Ìå£¬Ïò$nÃÍÈ»ÖÀ³ö£¬Ê¬ÌåÒÑ¾­·¢ÉúÑÏÖØ¸¯ÀÃ£¬³ôÆøÑ¬Ìì£¡\n"NOR,me, target);
+       message_vision(HIB"\n$Nä»ŽèƒŒåŽæ‹–å‡ºä¸€å…·å°¸ä½“ï¼Œå‘$nçŒ›ç„¶æŽ·å‡ºï¼Œå°¸ä½“å·²ç»å‘ç”Ÿä¸¥é‡è…çƒ‚ï¼Œè‡­æ°”ç†å¤©ï¼\n"NOR,me, target);
        call_out("destroying", 1, co);
        if (!target->is_killing(me))
           me->kill_ob(target);
        me->add("neili", - (250 + me->query_skill("force")));
        if( random(me->query("combat_exp")) > (int)target->query("combat_exp")* 3/5
         && me->query_str() > (int)target->query_str()/3*2){ 
-         message_vision(HIB"\n$n¼û´Ë¹ÖÒìµÄÕÐÊý£¬ÊÖ×ãÎÞ´ë£¬¶ãÉÁÎÞ¼°£¬Ö»¼ûÉ¢·¢×Å¶ñ³ôµÄÊ¬Ìå£¬Õý»÷ÔÚ×Ô¼ºÉíÉÏ¡£\n"NOR, me, target);
+         message_vision(HIB"\n$nè§æ­¤æ€ªå¼‚çš„æ‹›æ•°ï¼Œæ‰‹è¶³æ— æŽªï¼Œèº²é—ªæ— åŠï¼Œåªè§æ•£å‘ç€æ¶è‡­çš„å°¸ä½“ï¼Œæ­£å‡»åœ¨è‡ªå·±èº«ä¸Šã€‚\n"NOR, me, target);
          me->add("max_neili", -50);
 	if (userp(target))
 		me->add_condition("killer", 90);
-         target->set_temp("last_damage_from", "ÈýÊ¬ÄÔÉñ¶¾ÈëÄÔ");
+         target->set_temp("last_damage_from", "ä¸‰å°¸è„‘ç¥žæ¯’å…¥è„‘");
          target->die();
          return 1;  
        }
        else if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/3
          && me->query_str() > (int)target->query_str()/2){
-          message_vision(HIB"\n$n¼ûÊÂ²»ºÃ£¬Á¬Ã¦×ÝÉíÖ±Æð£¬ÈýÊ¬ÄÔÉñ´ÓÉíÏÂÂÓ¹ý£¬Ã»ÓÐ´òÖÐ¡£\n"NOR,me,target);
-          tell_object(target,HIB"\nÄãËäÈ»¼°Ê±±Ü¿ªÁË¶¾Ê¬£¬µ«Ò»¹ÉÐÈ³ôÆøÈë±Ç£¬ÄãÒÑÖÐÁËÈýÊ¬ÄÔÉñ¶¾ÁË¡£\n"NOR);
+          message_vision(HIB"\n$nè§äº‹ä¸å¥½ï¼Œè¿žå¿™çºµèº«ç›´èµ·ï¼Œä¸‰å°¸è„‘ç¥žä»Žèº«ä¸‹æŽ è¿‡ï¼Œæ²¡æœ‰æ‰“ä¸­ã€‚\n"NOR,me,target);
+          tell_object(target,HIB"\nä½ è™½ç„¶åŠæ—¶é¿å¼€äº†æ¯’å°¸ï¼Œä½†ä¸€è‚¡è…¥è‡­æ°”å…¥é¼»ï¼Œä½ å·²ä¸­äº†ä¸‰å°¸è„‘ç¥žæ¯’äº†ã€‚\n"NOR);
           me->add("max_neili", -70);
 	if (userp(target))
 		me->add_condition("killer", 15);
@@ -75,14 +75,14 @@ int perform(object me, object target)
           target->add_busy(1);
           return 1;
       }
-      message_vision(HIB"\n$nÐØÓÐ³ÉÖñ£¬Ò»Éù³¤Ð¥£¬Ë«ÕÆÁ¬»·Åü³ö£¬°Ñ¶¾Ê¬¶¾Æøµ´ÏòÀ´Â·¡£\n"NOR,me,target);
-      tell_object(me,HIB"\n²»ºÃ£¬¶¾Ê¬·´µ¯ÏòÄã£¬ÄãËäÈ»¶ã¿ª£¬µ«¶¾ÆøÒ²ÇÖÈëÄãµÄÉíÌå¡£\n"NOR);
-      me->set_temp("last_damage_from", "ÈýÊ¬ÄÔÉñ¶¾ÈëÄÔ");
+      message_vision(HIB"\n$nèƒ¸æœ‰æˆç«¹ï¼Œä¸€å£°é•¿å•¸ï¼ŒåŒæŽŒè¿žçŽ¯åŠˆå‡ºï¼ŒæŠŠæ¯’å°¸æ¯’æ°”è¡å‘æ¥è·¯ã€‚\n"NOR,me,target);
+      tell_object(me,HIB"\nä¸å¥½ï¼Œæ¯’å°¸åå¼¹å‘ä½ ï¼Œä½ è™½ç„¶èº²å¼€ï¼Œä½†æ¯’æ°”ä¹Ÿä¾µå…¥ä½ çš„èº«ä½“ã€‚\n"NOR);
+      me->set_temp("last_damage_from", "ä¸‰å°¸è„‘ç¥žæ¯’å…¥è„‘");
       me->receive_damage("qi", 2500);
       me->receive_wound("qi", 2500);
       me->add("max_neili", -100);
       me->apply_condition("sansi_poison", random(3));
-      me->start_perform(10,"ÈýÊ¬ÄÔÉñ¶¾");
+      me->start_perform(10,"ä¸‰å°¸è„‘ç¥žæ¯’");
       return 1;
 }
 
@@ -90,4 +90,4 @@ void destroying(object obj)
 {
         destruct(obj);
 }
-string perform_name(){ return HIB"ÈýÊ¬ÄÔÉñ¶¾"NOR; }
+string perform_name(){ return HIB"ä¸‰å°¸è„‘ç¥žæ¯’"NOR; }

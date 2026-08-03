@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIW "ÊéÐÅ" NOR, ({"letter", "xin"}));
+        set_name(HIW "ä¹¦ä¿¡" NOR, ({"letter", "xin"}));
         set_weight(100);
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("value", 1);
-                set("unit", "·â");
+                set("unit", "å°");
                 set("no_get", 1);
                 set("no_sell",1);
                 set("no_steal",1);
@@ -31,7 +31,7 @@ void drop()
 	object me = environment();
 
 	if (!me) return;
-	message_vision(HIY"$NÒ»Ãþ¿Ú´ü£¬ËÆºõÉÙÁËÊ²Ã´¶«Î÷¡£\n"NOR,me);
+	message_vision(HIY"$Nä¸€æ‘¸å£è¢‹ï¼Œä¼¼ä¹Žå°‘äº†ä»€ä¹ˆä¸œè¥¿ã€‚\n"NOR,me);
 	destruct(this_object());
 }
 
@@ -42,13 +42,13 @@ int do_quan(string arg)
 
         if( !arg || !objectp(ob = present(arg, environment(me))) 
         || !ob->is_character() || ob == me)
-                return notify_fail("±ðÕÒ´íÈË°¡¡£\n");
+                return notify_fail("åˆ«æ‰¾é”™äººå•Šã€‚\n");
         if (ob->query("id") != me->query_temp("zhao/targetid") ||
             ob->query("name") != me->query_temp("zhao/target"))
-                return notify_fail("Ëû²»ÊÇÄãµÄ¶ÔÏó¡£\n");
+                return notify_fail("ä»–ä¸æ˜¯ä½ çš„å¯¹è±¡ã€‚\n");
         
-        message_vision(HIR"$N½«Ò»·âÐÅ½»¸ø$n¡£\n"NOR, me, ob);
-        message_vision(HIC"$NºÈµÀ£º½µ·ü(touxiang)ÔòÉú£¬¿¹¾ÜÔòËÀ£¬ºÃºÃÑ¡Ôñ°É¡£",me);
+        message_vision(HIR"$Nå°†ä¸€å°ä¿¡äº¤ç»™$nã€‚\n"NOR, me, ob);
+        message_vision(HIC"$Nå–é“ï¼šé™ä¼(touxiang)åˆ™ç”Ÿï¼ŒæŠ—æ‹’åˆ™æ­»ï¼Œå¥½å¥½é€‰æ‹©å§ã€‚",me);
         me->force_me("hehe");
         ob->set_temp("pending/touxiang",1);
         this_object()->move(ob);
@@ -59,10 +59,10 @@ int do_touxiang()
 {
         object me = this_player();
         if (!me || !me->query_temp("pending/touxiang"))
-                return notify_fail("Ê²Ã´£¿\n");
+                return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
 
-        message_vision(HIG"$N¿¼ÂÇÁËÒ»ÏÂ£¬¾ö¶¨Í¶½µÃÉ¹Å£¡\n",me);
-        CHANNEL_D->do_channel(this_object(), "rumor", HBGRN+HIW"ÌýËµ"+me->name()+HBGRN+HIW"Í¶½µÁËÃÉ¹Å£¡");
+        message_vision(HIG"$Nè€ƒè™‘äº†ä¸€ä¸‹ï¼Œå†³å®šæŠ•é™è’™å¤ï¼\n",me);
+        CHANNEL_D->do_channel(this_object(), "rumor", HBGRN+HIW"å¬è¯´"+me->name()+HBGRN+HIW"æŠ•é™äº†è’™å¤ï¼");
         me->set_temp("convinced", 1);
         me->set("menggu",1);
         me->delete_temp("pending/touxiang");

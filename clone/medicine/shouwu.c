@@ -1,4 +1,4 @@
-// shouwu.c ºÎÊ×ÎÚ
+// shouwu.c ä½•é¦–ä¹Œ
 #include <ansi.h>
 inherit ITEM;
 
@@ -12,12 +12,12 @@ void init()
 
 void create()
 {
-	set_name(GRN"ºÎÊ×ÎÚ"NOR, ({"heshou wu", "wu"}));
+	set_name(GRN"ä½•é¦–ä¹Œ"NOR, ({"heshou wu", "wu"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Ã");
-		set("long", "ÕâÊÇÒ»¿Ã³õ¾ßÈËÐÎµÄºÎÊ×ÎÚ¡£\n");
+		set("unit", "æ£µ");
+		set("long", "è¿™æ˜¯ä¸€æ£µåˆå…·äººå½¢çš„ä½•é¦–ä¹Œã€‚\n");
 		set("value", 10000);
 	}
 	setup();
@@ -29,18 +29,18 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->query_condition("medicine")) {
         me->add("max_neili", -5);
 		message_vision(
-			HIR "$N³ÔÏÂÒ»ÖêºÎÊ×ÎÚ£¬Ö»¾õ»ëÉí·¢ÕÇ£¬ÆøÑª·­Ó¿¡£\n"
-			"Ô­À´·þÊ³Ì«¼±Ì«¶à£¬Ò©Ð§ÊÊµÃÆä·´£¡\n" NOR, this_player());
+			HIR "$Nåƒä¸‹ä¸€æ ªä½•é¦–ä¹Œï¼Œåªè§‰æµ‘èº«å‘æ¶¨ï¼Œæ°”è¡€ç¿»æ¶Œã€‚\n"
+			"åŽŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, this_player());
 	} else {
 	     me->add("max_neili", 1);
                
 		message_vision(
-			HIG "$N³ÔÏÂÒ»¿ÃºÎÊ×ÎÚ£¬¶ÙÊ±¼ä¾õµÃÈ«Éí³äÂúÁË»îÁ¦ !\n" NOR, me);
+			HIG "$Nåƒä¸‹ä¸€æ£µä½•é¦–ä¹Œï¼Œé¡¿æ—¶é—´è§‰å¾—å…¨èº«å……æ»¡äº†æ´»åŠ› !\n" NOR, me);
          me->apply_condition("medicine", 45);
 	}
 	destruct(this_object());

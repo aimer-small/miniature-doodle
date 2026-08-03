@@ -1,13 +1,13 @@
 // xjroom2.c
-// ÀÎ·¿
+// ç‰¢æˆ¿
 inherit ROOM;
 void create()
 {
-	set("short","ÀÎ·¿");
+	set("short","ç‰¢æˆ¿");
 	set("long",@long
-ÕâÀïÊÇÒ»¼äÉñÁú½ÌµÄÀÎ·¿£¬ÀïÃæÒõ°µ³±Êª¡¢ÐÈ³ôÆË±Ç£¬ºÚ°µÖÐ²»Ê±µØÓÐÊ²
-Ã´¶«Î÷´ÓÄã½Å±ß¡¢½ÅÉÏÅÀ¹ý¡£´Ë´¦ËÄÃæ¶¼ÊÇÓÃ¾ÞÊ¯Æö³ÉµÄÊ¯Ç½£¬Ö»ÓÐÍ·¶¥ÓÐ¸ö
-¶´¸Ç×ÅÊ¯°å(flag)¡£
+è¿™é‡Œæ˜¯ä¸€é—´ç¥žé¾™æ•™çš„ç‰¢æˆ¿ï¼Œé‡Œé¢é˜´æš—æ½®æ¹¿ã€è…¥è‡­æ‰‘é¼»ï¼Œé»‘æš—ä¸­ä¸æ—¶åœ°æœ‰ä»€
+ä¹ˆä¸œè¥¿ä»Žä½ è„šè¾¹ã€è„šä¸Šçˆ¬è¿‡ã€‚æ­¤å¤„å››é¢éƒ½æ˜¯ç”¨å·¨çŸ³ç Œæˆçš„çŸ³å¢™ï¼Œåªæœ‰å¤´é¡¶æœ‰ä¸ª
+æ´žç›–ç€çŸ³æ¿(flag)ã€‚
 long);
       setup();
 }
@@ -33,14 +33,14 @@ int do_push(string arg)
         if(qi>random(200))
         {
 	    me->apply_condition("snake_poison",0);
-            message_vision("$NÊÔ×ÅÍÆÁËÍÆ¶¥ÉÏµÄÊ¯°å£¬¾ÓÈ»¸ø$NÍÆ¿ªÁË£¬$NÁ¢¿ÌÅÀÁËÉÏÈ¥¡£\n",me);
+            message_vision("$Nè¯•ç€æŽ¨äº†æŽ¨é¡¶ä¸Šçš„çŸ³æ¿ï¼Œå±…ç„¶ç»™$NæŽ¨å¼€äº†ï¼Œ$Nç«‹åˆ»çˆ¬äº†ä¸ŠåŽ»ã€‚\n",me);
 	    room=find_object(me->query("uproom"));
 	    if(!objectp(room))
 		me->move("/d/sld/dukou");
 	    else
             	me->move(room);
-            tell_room(environment(me), "Í»È»µØ°å±»ÈËÍÆÆðÒ»¿é£¬"+me->name() + "´ÓÏÂÃæÅÀÁËÉÏÀ´¡£ \n");
-            tell_object(me, "Äã×ÝÉíÒ»Ô¾£¬ÅÀ³öÁËÀÎ·¿¡£\n");
+            tell_room(environment(me), "çªç„¶åœ°æ¿è¢«äººæŽ¨èµ·ä¸€å—ï¼Œ"+me->name() + "ä»Žä¸‹é¢çˆ¬äº†ä¸Šæ¥ã€‚ \n");
+            tell_object(me, "ä½ çºµèº«ä¸€è·ƒï¼Œçˆ¬å‡ºäº†ç‰¢æˆ¿ã€‚\n");
             /*ob->set_temp("number",(int)ob->query_temp("number",1)-1);
             if((int)ob->query_temp("number",1)==0)
                 destruct(ob);*/
@@ -48,7 +48,7 @@ int do_push(string arg)
         }
         else
         {
-            message_vision("$NÊÔ×ÅÍÆÁËÍÆÍ·¶¥ÉÏµÄÊ¯°å£¬µ«ÊÇÃ»ÍÆ¶¯¡£\n",me);
+            message_vision("$Nè¯•ç€æŽ¨äº†æŽ¨å¤´é¡¶ä¸Šçš„çŸ³æ¿ï¼Œä½†æ˜¯æ²¡æŽ¨åŠ¨ã€‚\n",me);
 	      //me->receive_damage("qi", 100);
             //return 1;
         }

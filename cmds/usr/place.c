@@ -7,7 +7,7 @@
 #include <room.h>
 inherit F_CLEAN_UP;
 
-#define LINE  		"\n©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥"
+#define LINE  		"\nâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”"
 #define NO_NORTH 	221..<1
 #define NO_SOUTH 	0..442
 #define NO_NORTH_SOUTH 	221..442
@@ -41,13 +41,13 @@ int main(object me, string arg)
         mapping exits;
         
         if( me->is_busy() || me->is_fighting())
-        	return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+        	return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
         	
         if(!objectp(room = environment(me)))
-        	return notify_fail("ÄãÄ¿Ç°ËùÔÚÆæÌØ£¬ÎŞ·¨ÏÔÊ¾µØÍ¼£¬ÇëÍ¨ÖªÎ×Ê¦¡£\n");
+        	return notify_fail("ä½ ç›®å‰æ‰€åœ¨å¥‡ç‰¹ï¼Œæ— æ³•æ˜¾ç¤ºåœ°å›¾ï¼Œè¯·é€šçŸ¥å·«å¸ˆã€‚\n");
 
         if( !mapp(exits = room->query("exits")) ) 
-        	return notify_fail("ÕâÀïÃ»ÓĞÈÎºÎÃ÷ÏÔµÄ³öÂ·¡£\n");
+        	return notify_fail("è¿™é‡Œæ²¡æœ‰ä»»ä½•æ˜æ˜¾çš„å‡ºè·¯ã€‚\n");
 
  	my_room = room->query("short");
  	
@@ -78,8 +78,8 @@ int main(object me, string arg)
                 	case "eastdown":  if(!e) e = (j)?1:0;  str = replace_string( str, "(     ed     )", (j)?sprintf("%-14s", room->query("short")+"(Ed)"):"              "); break;
                 	case "up":        str = replace_string( str, "(     up     )", (j)?sprintf("%|14s", room->query("short")+"(U)"):"              "); break;
                 	case "down":      str = replace_string( str, "(     do     )", (j)?sprintf("%|14s", room->query("short")+"(D)"):"              "); break;
-                	case "enter":     (j)?def += "\nÀïÃæ£º"+room->query("short")+"(Enter)":""; break;
-                	case "out":       (j)?def += "\nÍâÃæ£º"+room->query("short")+"(Out)":""; break;
+                	case "enter":     (j)?def += "\né‡Œé¢ï¼š"+room->query("short")+"(Enter)":""; break;
+                	case "out":       (j)?def += "\nå¤–é¢ï¼š"+room->query("short")+"(Out)":""; break;
                 }
 	}
 
@@ -90,7 +90,7 @@ int main(object me, string arg)
 			if( !objectp(room = load_object(exits[other[i]])) )
 				continue;
 		}
-		def += "\n"+other[i]+"£º"+room->query("short");
+		def += "\n"+other[i]+"ï¼š"+room->query("short");
 	}
 		
 // For test	
@@ -100,14 +100,14 @@ int main(object me, string arg)
 	write("SOUTH -> " + strsrch(str, "++        ??        ..") + " + " + strlen("++        ??        ..") +"\n");
 */	
    	str = replace_string( str, "(    room    )", sprintf("[1;31m%|13s[0m",my_room));
-   	str = replace_string( str, "\\", (nw)?"£Ü":"  ");
-        str = replace_string( str, "##", (ne)?"£¯":"  ");
-        str = replace_string( str, "!!", (n)?"©§":"  ");
-       	str = replace_string( str, "..", (se)?"£Ü":"  ");
-        str = replace_string( str, "++", (sw)?"£¯":"  ");
-        str = replace_string( str, "??", (s)?"©§":"  ");
-        str = replace_string( str, "______", (w)?"©¥©¥©¥":"  ");
-        str = replace_string( str, "------", (e)?"©¥©¥©¥":"  ");
+   	str = replace_string( str, "\\", (nw)?"ï¼¼":"  ");
+        str = replace_string( str, "##", (ne)?"ï¼":"  ");
+        str = replace_string( str, "!!", (n)?"â”ƒ":"  ");
+       	str = replace_string( str, "..", (se)?"ï¼¼":"  ");
+        str = replace_string( str, "++", (sw)?"ï¼":"  ");
+        str = replace_string( str, "??", (s)?"â”ƒ":"  ");
+        str = replace_string( str, "______", (w)?"â”â”â”":"  ");
+        str = replace_string( str, "------", (e)?"â”â”â”":"  ");
         
    	if( !nw && !ne && !n ){
    		if( !sw && !se && !s )
@@ -117,8 +117,8 @@ int main(object me, string arg)
         else if( !sw && !se && !s )
    			str = str[NO_SOUTH];
    	str += def;
-        write(HIC"\nÕâÀïÊÇ"+my_room+HIC"£¬¹²ÓĞ"+chinese_number(sizeof(keys(exits))) + 
-        "¸ö³ö¿Ú£¬·Ö±ğÍ¨Íù£º"NOR+LINE+"©¥©¥©¥©¥" + str + LINE + HIW"SJ"NOR"©¥©¥©¥\n");
+        write(HIC"\nè¿™é‡Œæ˜¯"+my_room+HIC"ï¼Œå…±æœ‰"+chinese_number(sizeof(keys(exits))) + 
+        "ä¸ªå‡ºå£ï¼Œåˆ†åˆ«é€šå¾€ï¼š"NOR+LINE+"â”â”â”â”" + str + LINE + HIW"SJ"NOR"â”â”â”\n");
         
         return 1;
 }
@@ -126,9 +126,9 @@ int main(object me, string arg)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : place
+æŒ‡ä»¤æ ¼å¼ : place
 
-°ïÖúÄãÁË½âËÄÖÜµÄµØÀí¡£
+å¸®åŠ©ä½ äº†è§£å››å‘¨çš„åœ°ç†ã€‚
 HELP
     	);
     	return 1;

@@ -8,11 +8,11 @@
 inherit ROOM;
 void create()
 {
-	set("short",WHT"ÔºÃÅ"NOR);
+	set("short",WHT"é™¢é—¨"NOR);
 	set ("long",@long
-Ñà×ÓÎëÊÇÄ»ÈÝÊÏÊÀ¾ÓÖ®µØ, Ä»ÈÝÊÏÄËÏ¦ÈÕ´óÑà¹úµÄºóÒá, ºóÀ´ÈÕ¼ûÊ½Î¢£¬
-µ«ÆäµÜ×ÓÈ´Ò»ÐÄÒ»ÒâÏë¹â¸´´óÑà¡£ÆäÎä¹¦¼û³¤ÓÚÒÔ±ËÖ®µÀ, »¹Ê©±ËÉí, ¶ËµÄÊ®
-·ÖÀ÷º¦¡£
+ç‡•å­åžæ˜¯å¹•å®¹æ°ä¸–å±…ä¹‹åœ°, å¹•å®¹æ°ä¹ƒå¤•æ—¥å¤§ç‡•å›½çš„åŽè£”, åŽæ¥æ—¥è§å¼å¾®ï¼Œ
+ä½†å…¶å¼Ÿå­å´ä¸€å¿ƒä¸€æ„æƒ³å…‰å¤å¤§ç‡•ã€‚å…¶æ­¦åŠŸè§é•¿äºŽä»¥å½¼ä¹‹é“, è¿˜æ–½å½¼èº«, ç«¯çš„å
+åˆ†åŽ‰å®³ã€‚
 long);
 	set("exits",([
 		"south" : __DIR__"xiaojing2",
@@ -31,7 +31,7 @@ long);
 void init()
 {
 	if (this_player()->query("mr_job")){
-		this_player()->add("job_time/Ä½ÈÝ", this_player()->query("mr_job"));
+		this_player()->add("job_time/æ…•å®¹", this_player()->query("mr_job"));
 		this_player()->delete("mr_job");
 	}
 	

@@ -4,18 +4,18 @@
 #include <ansi.h>
 inherit CLOTH;
 string *color_name = ({
-HIR"ºìÉ«",HIG"ÂÌÉ«",YEL"ÍÁ»ÆÉ«",HIY"»ÆÉ«",BLU"ÉîÀ¶É«",
-HIB"À¶É«",MAG"×ÏÉ«",HIM"·ÛºìÉ«",HIC"ÌìÇàÉ«",HIW"°×É«",});
+HIR"çº¢è‰²",HIG"ç»¿è‰²",YEL"åœŸé»„è‰²",HIY"é»„è‰²",BLU"æ·±è“è‰²",
+HIB"è“è‰²",MAG"ç´«è‰²",HIM"ç²‰çº¢è‰²",HIC"å¤©é’è‰²",HIW"ç™½è‰²",});
 
 void create()
 {
-        set_name(color_name[random(sizeof(color_name))]+"Ğ¡¼ĞÉÀ"NOR, ({ "cloth" }) );
+        set_name(color_name[random(sizeof(color_name))]+"å°å¤¹è¡«"NOR, ({ "cloth" }) );
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÊÇ¼şĞ¡¼ĞÉÀ¡£\n");
-                set("unit", "¼ş");
+                set("long", "è¿™æ˜¯ä»¶å°å¤¹è¡«ã€‚\n");
+                set("unit", "ä»¶");
                 set("value", 0);
                 set("material", "cloth");
                 set("armor_prop/armor", 10+random(15));

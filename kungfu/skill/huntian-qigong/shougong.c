@@ -1,9 +1,9 @@
-// shougong.c ÊÕ¹¦
+// shougong.c æ”¶åŠŸ
 
 #include <ansi.h>
 inherit F_CLEAN_UP;
 
-string exert_name(){ return HIW"ÊÕ¹¦"NOR; }
+string exert_name(){ return HIW"æ”¶åŠŸ"NOR; }
 
 void remove_effect(object me);
 
@@ -11,30 +11,30 @@ int exert(object me)
 {
 //	int amount;
 
-//	if( !wizardp(me) || !me->query("env/huntian_test") )    return notify_fail("ÔİÊ±¹Ø±Õ¡£\n"); 
+//	if( !wizardp(me) || !me->query("env/huntian_test") )    return notify_fail("æš‚æ—¶å…³é—­ã€‚\n"); 
 
 	if( !me->query_temp("htqg/powerup") )
-		return notify_fail("Äã²¢Ã»ÓĞÊ¹ÓÃ¡¸»ìÌì¡¹Éñ¹¦¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰ä½¿ç”¨ã€Œæ··å¤©ã€ç¥åŠŸã€‚\n");
 
 	if( me->query_temp("htqg/shougong") )
-		return notify_fail("ÄãÕıÔÚ½«ÄÚÁ¦ÊÕ»Øµ¤Ìï¡£\n");
+		return notify_fail("ä½ æ­£åœ¨å°†å†…åŠ›æ”¶å›ä¸¹ç”°ã€‚\n");
 
 	if( me->query_temp("htqg/powerup") > 0 ) {
-		message_vision(HIW"$N±ÕÄ¿ÄıÉñ£¬È«Éí¹Ç½Ú¡°àèÅ¾¡±×öÏì£¬ÏëÒªÉ¢È¥ÌåÄÚ¾¢Á¦¡£\n" NOR, me);
+		message_vision(HIW"$Né—­ç›®å‡ç¥ï¼Œå…¨èº«éª¨èŠ‚â€œå™¼å•ªâ€åšå“ï¼Œæƒ³è¦æ•£å»ä½“å†…åŠ²åŠ›ã€‚\n" NOR, me);
 		me->set_temp("htqg/shougong", 1);
 		if( me->is_fighting() )
 			me->start_busy(random(2));
-	} else return notify_fail("ÄãÏÖÔÚÎŞ·¨ÊÕ¹¦¡£\n");
+	} else return notify_fail("ä½ ç°åœ¨æ— æ³•æ”¶åŠŸã€‚\n");
 	return 1;
 }
 
 int help(object me)
 {
-        write("\n»ìÌìÆø¹¦¡¸ÊÕ¹¦¡¹£º\n");
+        write("\næ··å¤©æ°”åŠŸã€Œæ”¶åŠŸã€ï¼š\n");
         write(@HELP
-        »ìÌìÆø¹¦ÔË¹¦ºó£¬ÈôÒªÌáÇ°È¡ÏûÔË¹¦£¬ĞèÒªÔË¡¸ÊÕ¹¦¡¹À´´ïµ½¡£
-        ÒªÇó£º
-                »ìÌìÆø¹¦ÔË¹¦ÖĞ¡£
+        æ··å¤©æ°”åŠŸè¿åŠŸåï¼Œè‹¥è¦æå‰å–æ¶ˆè¿åŠŸï¼Œéœ€è¦è¿ã€Œæ”¶åŠŸã€æ¥è¾¾åˆ°ã€‚
+        è¦æ±‚ï¼š
+                æ··å¤©æ°”åŠŸè¿åŠŸä¸­ã€‚
 HELP
         );
         return 1;

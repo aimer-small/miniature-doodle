@@ -1,4 +1,4 @@
-// Exert: PowerUp.c ¶ëáÒ¾ÅÑô¹¦¼ÓÁ¦
+// Exert: PowerUp.c å³¨åµ‹ä¹é˜³åŠŸåŠ åŠ›
 // Date : AHA 97/06/29
 
 #include <ansi.h>
@@ -12,21 +12,21 @@ int exert(object me, object target)
 	int skill;
 
 	if( target != me ) 
-		return notify_fail("¶ëáÒ¾ÅÑô¹¦Ö»ÄÜÓÃÓÚÌáÉý×Ô¼ºµÄÕ½¶·Á¦¡£\n");
+		return notify_fail("å³¨åµ‹ä¹é˜³åŠŸåªèƒ½ç”¨äºŽæå‡è‡ªå·±çš„æˆ˜æ–—åŠ›ã€‚\n");
 
 	if (!me->is_fighting())
-		return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖÐÓÃ¶ëáÒ¾ÅÑô¹¦À´ÌáÉýÕ½¶·Á¦¡£\n");
+		return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ä¸­ç”¨å³¨åµ‹ä¹é˜³åŠŸæ¥æå‡æˆ˜æ–—åŠ›ã€‚\n");
 
 	if( (int)me->query("neili") < 100  ) 
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 	if( (int)me->query_temp("powerup") ) 
-		return notify_fail("ÄãÒÑ¾­ÔÚÔË¹¦ÖÐÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨è¿åŠŸä¸­äº†ã€‚\n");
 
 	skill = me->query_skill("force");
 	me->add("neili", -100);
 
-	message_vision(HIY "$NÎüÁËÒ»¿ÚÆø£¬ÔËÆð¶ëáÒ¾ÅÑô¹¦£¬Ë«Ä¿ÖÐÉñ¹âÒ»ÉÁ£¬»ëÉíÉÏÏÂËÆÔöÌíÁË"
-        		"ÎÞÇîÆøÁ¦¡£\n" NOR, me);
+	message_vision(HIY "$Nå¸äº†ä¸€å£æ°”ï¼Œè¿èµ·å³¨åµ‹ä¹é˜³åŠŸï¼ŒåŒç›®ä¸­ç¥žå…‰ä¸€é—ªï¼Œæµ‘èº«ä¸Šä¸‹ä¼¼å¢žæ·»äº†"
+        		"æ— ç©·æ°”åŠ›ã€‚\n" NOR, me);
 
 	me->add_temp("apply/attack", skill/3);
 	me->add_temp("apply/dodge", skill/3);
@@ -45,5 +45,5 @@ void remove_effect(object me, int amount)
 	me->add_temp("apply/attack", - amount);
 	me->add_temp("apply/dodge", - amount);
 	me->delete_temp("powerup");
-	tell_object(me, "ÄãµÄ¶ëáÒ¾ÅÑô¹¦ÔËÐÐÍê±Ï£¬½«ÄÚÁ¦ÊÕ»Øµ¤Ìï¡£\n");
+	tell_object(me, "ä½ çš„å³¨åµ‹ä¹é˜³åŠŸè¿è¡Œå®Œæ¯•ï¼Œå°†å†…åŠ›æ”¶å›žä¸¹ç”°ã€‚\n");
 }

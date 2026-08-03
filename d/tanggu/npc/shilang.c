@@ -3,13 +3,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ê©ÀÅ", ({ "shi lang", "shi" }));
-	set("title", "´óÇåË®¾üÌá¶½");
+	set_name("æ–½ç…", ({ "shi lang", "shi" }));
+	set("title", "å¤§æ¸…æ°´å†›æç£");
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 30);
-	set("long", "ÕâÈË¾ÍÊÇ´óÇåË®¾üÌá¶½£¬Ò»ÉíÎä½«´ò°çÍş·çÁİÁİ¡£\n");
+	set("long", "è¿™äººå°±æ˜¯å¤§æ¸…æ°´å†›æç£ï¼Œä¸€èº«æ­¦å°†æ‰“æ‰®å¨é£å‡›å‡›ã€‚\n");
 
 	set_skill("cuff", 120);
 	set_skill("dodge", 120);

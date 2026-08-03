@@ -22,34 +22,34 @@ int main(object me, string arg)
 
         if (!ob)
         {
-                return notify_fail("ÕÒ²»µ½Õâ¸öÉúÎï.\n");
+                return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªç”Ÿç‰©.\n");
         }
 
-        message_vision(HIY "$N¸ß¾ÙË«ÊÖ´óºÈ£ºÈ¥ËÀ°É£¡\n"
+        message_vision(HIY "$Né«˜ä¸¾åŒæ‰‹å¤§å–ï¼šå»æ­»å§ï¼\n"
                 "\n" HIW
-                "Ö»¼ûÇçÌìÒ»µÀÉÁµç£®£®£®£®£®£®\n"
+                "åªè§æ™´å¤©ä¸€é“é—ªç”µï¼ï¼ï¼ï¼ï¼ï¼\n"
                 "\n" BLU
-                "         ¡ª¡ª¡ª¡ª¡ª¡ª¡ª\n" HIC
+                "         â€”â€”â€”â€”â€”â€”â€”\n" HIC
                 "               /\n"
                 "              /\n"
                 "             /\n"
-                "             ¡ª¡ª\n"
+                "             â€”â€”\n"
                 "                /\n"
                 "               /\n"
                 "              /\n"
                 "\n" HIB
-                "²»Æ«²»ÒĞµØ»÷ÖĞ$n, ½«$n»¯ÎªÒ»¶Ñ»Ò½ı¡£\n" NOR, me, ob);
+                "ä¸åä¸å€šåœ°å‡»ä¸­$n, å°†$nåŒ–ä¸ºä¸€å †ç°çƒ¬ã€‚\n" NOR, me, ob);
 	if (wiz_level(me) < wiz_level(ob))
         {
-                message_vision(HIM "\n$N" HIM "ÉíÉÏÃ°×ÅÂÆÂÆÇàÑÌ£¬"
-                                       "È´Ã»ÓĞ°ëµãÊÂÇé¡£\n\n" NOR,
+                message_vision(HIM "\n$N" HIM "èº«ä¸Šå†’ç€ç¼•ç¼•é’çƒŸï¼Œ"
+                                       "å´æ²¡æœ‰åŠç‚¹äº‹æƒ…ã€‚\n\n" NOR,
                                        ob);
                 return 1;
         }
-        ob->set_temp("last_damage_from", "±»ÉÁµçÅü");
+        ob->set_temp("last_damage_from", "è¢«é—ªç”µåŠˆ");
         ob->die();
 
-        write( HIG "¹ş¹ş¹ş£¬¹ş¹ş¹ş... ºÃË¬£¬Ë¬£¡Ë¬£¡Ë¬£¡\n\n" NOR );
+        write( HIG "å“ˆå“ˆå“ˆï¼Œå“ˆå“ˆå“ˆ... å¥½çˆ½ï¼Œçˆ½ï¼çˆ½ï¼çˆ½ï¼\n\n" NOR );
         
         EMOTE_D->do_emote(me, "innocent", me->query("id"));
 
@@ -59,7 +59,7 @@ int main(object me, string arg)
 int help(object me)
 {
    write(@HELP
-Ö¸Áî¸ñÊ½: smash <ÉúÎï>
+æŒ‡ä»¤æ ¼å¼: smash <ç”Ÿç‰©>
  
 hehehehehe...........
 

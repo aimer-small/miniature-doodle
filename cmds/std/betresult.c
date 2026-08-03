@@ -15,47 +15,47 @@ int main(object me, string arg)
 	int i;
 	
 	if( !stringp(arg) )
-		return notify_fail("ÄãÒªÉèÖÃÊ²Ã´?\n");
+		return notify_fail("ä½ è¦è®¾ç½®ä»€ä¹ˆ?\n");
 
 	//if ( !wizardp(me) && ( (!me->query("gamblers"))||(me->query("gamblers")!=1) ) )
 	if ( !wizardp(me) )
-		return notify_fail("ÄãÃ»ÓĞÕâ¸öÈ¨ÏŞ?\n");
+		return notify_fail("ä½ æ²¡æœ‰è¿™ä¸ªæƒé™?\n");
 
 	sscanf( arg, "%s %d",betcode,oddscode);
 
 	if( oddscode!=0 ){
 		op = DOBET_D->leasedb("select odds_id,odds_remark,odds from "+DB_ODDS_NAME+" where U_Site='"+INTERMUD_MUD_NAME+"' AND code='"+betcode+"' AND odds_id='"+oddscode+"'");
 		if(!op || sizeof(op)<1) 
-			return notify_fail("Ã»ÕÒµ½ÈÎºÎ·ûºÏÌõ¼şµÄ¶Ä¾ÖÅâÂÊ\n");
+			return notify_fail("æ²¡æ‰¾åˆ°ä»»ä½•ç¬¦åˆæ¡ä»¶çš„èµŒå±€èµ”ç‡\n");
 	};
 	
 	ret = DOBET_D->leasedb("select code,context,setup_id,flag,begin_time,stop_time,end_time,deposit,bet_result,remark from "+DB_DOBET_NAME+" where U_Site='"+INTERMUD_MUD_NAME+"' AND code='"+betcode+"'");
 
 	if(!ret || sizeof(ret)<1) 
-		return notify_fail("Ã»ÕÒµ½ÈÎºÎ·ûºÏÌõ¼şµÄ¶Ä¾Ö£¬ÎŞ·¨É¾³ıÅâÂÊ\n");
+		return notify_fail("æ²¡æ‰¾åˆ°ä»»ä½•ç¬¦åˆæ¡ä»¶çš„èµŒå±€ï¼Œæ— æ³•åˆ é™¤èµ”ç‡\n");
 
-	outstr="©³©¥©¥"HIW"¡¾ÄãÒª²Ù×÷µÄ¶Ä¾ÖÎª¡¿"NOR"©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·\n";
-	outstr += "©§"HIG"¶Ä¾Ö´úÂë ¶Ä¾ÖÄÚÈİ                       ×´Ì¬     ¶Ä¾Ö½á¹û        ±¸×¢                     "NOR"©§\n";
+	outstr="â”â”â”"HIW"ã€ä½ è¦æ“ä½œçš„èµŒå±€ä¸ºã€‘"NOR"â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“\n";
+	outstr += "â”ƒ"HIG"èµŒå±€ä»£ç  èµŒå±€å†…å®¹                       çŠ¶æ€     èµŒå±€ç»“æœ        å¤‡æ³¨                     "NOR"â”ƒ\n";
 	for(i=0;i<sizeof(ret);i++)
 	{
-		outstr+= sprintf("©§"HIW"%-8s"NOR" %-30s %8s "HIC"%-15s"NOR" %-25s©§\n",ret[i][0],ret[i][1],
+		outstr+= sprintf("â”ƒ"HIW"%-8s"NOR" %-30s %8s "HIC"%-15s"NOR" %-25sâ”ƒ\n",ret[i][0],ret[i][1],
 			DOBET_D->getflag(ret[i][3]),
 			DOBET_D->getresult(ret[i][0],ret[i][3],ret[i][8]),
 			DOBET_D->getmytime(ret[i][3],ret[i][4],ret[i][5],ret[i][6]));
 	};
-	outstr+="©Ç©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n";
-	outstr += "©§Ô­À´ÅâÂÊµÄÉèÖÃÎª£º                                                                        ©§\n";
-	outstr+=DOBET_D->getoddsstr(ret[0][0],"©§                           ","        ©§\n");
+	outstr+="â”£â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n";
+	outstr += "â”ƒåŸæ¥èµ”ç‡çš„è®¾ç½®ä¸ºï¼š                                                                        â”ƒ\n";
+	outstr+=DOBET_D->getoddsstr(ret[0][0],"â”ƒ                           ","        â”ƒ\n");
 	if( oddscode!=0 ){
-		outstr+="©Ç©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n";
-		outstr += "©§ÄãÉèÖÃÖĞ½±µÄÅâÂÊÎª£º                                                                      ©§\n";
-		outstr+= sprintf("©§                     ¶Ä×¢´úÂë:"HIW"%2i"NOR" ¶Ä×¢ÄÚÈİ£º"CYN"%-20s"NOR" ÅâÂÊ£º"HIW"%3d.%-2d"NOR"              ©§\n",
+		outstr+="â”£â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n";
+		outstr += "â”ƒä½ è®¾ç½®ä¸­å¥–çš„èµ”ç‡ä¸ºï¼š                                                                      â”ƒ\n";
+		outstr+= sprintf("â”ƒ                     èµŒæ³¨ä»£ç :"HIW"%2i"NOR" èµŒæ³¨å†…å®¹ï¼š"CYN"%-20s"NOR" èµ”ç‡ï¼š"HIW"%3d.%-2d"NOR"              â”ƒ\n",
 			op[0][0],op[0][1],op[0][2]/100,op[0][2]%100);
-		outstr += "©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n";
-		outstr+=HIW"Èç¹ûÈ·ÈÏÖĞ½±ÉèÖÃ£¬ÇëÊäÈëy:"NOR;
+		outstr += "â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n";
+		outstr+=HIW"å¦‚æœç¡®è®¤ä¸­å¥–è®¾ç½®ï¼Œè¯·è¾“å…¥y:"NOR;
 	}else{
-		outstr += "©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n";
-		outstr += HIR"Äã¼Æ»®"HIW"È¡Ïû"HIR"±¾´Î¶Ä¾Ö,Èç¹ûÈ·ÈÏ£¬ÇëÊäÈëy:\n"NOR;
+		outstr += "â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n";
+		outstr += HIR"ä½ è®¡åˆ’"HIW"å–æ¶ˆ"HIR"æœ¬æ¬¡èµŒå±€,å¦‚æœç¡®è®¤ï¼Œè¯·è¾“å…¥y:\n"NOR;
 	}
 	write(outstr);
 	input_to("odds_result_yes_no", 1, betcode,oddscode,me);
@@ -67,7 +67,7 @@ private void odds_result_yes_no(string yes_no,string valcode, int valodds_id,obj
 	string sql;
 	
 	if( (yes_no !="y") && (yes_no !="Y") ){
-		write("Äã·ÅÆúÁË±¾´ÎÉ¾³ı\n");
+		write("ä½ æ”¾å¼ƒäº†æœ¬æ¬¡åˆ é™¤\n");
 		return;
 	};
 	sql = "UPDATE "
@@ -77,21 +77,21 @@ private void odds_result_yes_no(string yes_no,string valcode, int valodds_id,obj
 	+" WHERE code='"+valcode+"' AND U_Site='"+INTERMUD_MUD_NAME+"'";
 
 	if(DOBET_D->leasedb(sql)){
-		write("ÖĞ½±ÉèÖÃ³É¹¦\n");
-		log_file("betlog",sprintf("%sÉèÖÃ¶Ä¾Ö½á¹ûÎª%i",
+		write("ä¸­å¥–è®¾ç½®æˆåŠŸ\n");
+		log_file("betlog",sprintf("%sè®¾ç½®èµŒå±€ç»“æœä¸º%i",
 			me->query("id"),valodds_id));
 	}else
-		write("ÖĞ½±ÉèÖÃÊ§°Ü\n");
+		write("ä¸­å¥–è®¾ç½®å¤±è´¥\n");
 }
 
 int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºbetresult <¶Ä¾Ö´úÂë> <ÖĞ½±µÄÅâÂÊ´úÂë>
+æŒ‡ä»¤æ ¼å¼ï¼šbetresult <èµŒå±€ä»£ç > <ä¸­å¥–çš„èµ”ç‡ä»£ç >
 --------------------------------------------------
- betresult ÉèÖÃ¶Ä¾ÖµÄ½á¹û
-Èç¹û½« <ÖĞ½±µÄÅâÂÊ´úÂë>ÉèÖÃÎª0±íÊ¾È¡Ïû±¾´Î¶Ä¾Ö
+ betresult è®¾ç½®èµŒå±€çš„ç»“æœ
+å¦‚æœå°† <ä¸­å¥–çš„èµ”ç‡ä»£ç >è®¾ç½®ä¸º0è¡¨ç¤ºå–æ¶ˆæœ¬æ¬¡èµŒå±€
 --------------------------------------------------
 
 HELP

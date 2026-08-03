@@ -1,17 +1,17 @@
 
 	pointerp(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		pointerp() -  ÅĞ¶ÏÖ¸¶¨µÄ±äÊıÊÇ·ñÎªÒ»¸öÕóÁĞ (array).
-	Óï·¨:
+	åç§°:
+		pointerp() -  åˆ¤æ–­æŒ‡å®šçš„å˜æ•°æ˜¯å¦ä¸ºä¸€ä¸ªé˜µåˆ— (array).
+	è¯­æ³•:
 		int pointerp( mixed arg );
 
-		ÕûÊı pointerp( »ìºÏ arg );
-	ÓÃ·¨:
-		Èç¹û arg ÊÇÒ»¸öÕóÁĞ, Ôò´«»Ø 1.
-	²Î¿¼:
+		æ•´æ•° pointerp( æ··åˆ arg );
+	ç”¨æ³•:
+		å¦‚æœ arg æ˜¯ä¸€ä¸ªé˜µåˆ—, åˆ™ä¼ å› 1.
+	å‚è€ƒ:
 		mapp(3), stringp(3), objectp(3), intp(3), bufferp(3),
 		floatp(3), functionp(3), nullp(3), undefinedp(3), 
 		errorp(3), arrayp(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Apr.24.		(printed 3/16/95)

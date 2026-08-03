@@ -19,10 +19,10 @@ string strip(string str)
 		str = prefix + suffix;
 	return str;
 }
-//Õâ¸öº¯ÊıÌæ»»µ½SQLÓï¾äµÄÌØÊâ×Ö·û£¬±ÜÃâWEB³ö´í¡£
+//è¿™ä¸ªå‡½æ•°æ›¿æ¢åˆ°SQLè¯­å¥çš„ç‰¹æ®Šå­—ç¬¦ï¼Œé¿å…WEBå‡ºé”™ã€‚
 string specialchars(string arg)
 {
 
-       arg = replace_string(arg,"'", "¡¯");
+       arg = replace_string(arg,"'", "'");
        return arg;
 }

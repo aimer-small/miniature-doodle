@@ -10,19 +10,19 @@ void init()
 
 void create()
 {
-        set_name("²¼´ü", ({ "bu dai", "dai", "bag" }));
+        set_name("å¸ƒè¢‹", ({ "bu dai", "dai", "bag" }));
         if (clonep())
 		set_default_object(__FILE__);
         else {
 		set("long", 
-"Ò»Ö»ÓÃ´ÖÂé²¼Ö¯³ÉµÄ´ü×Ó£¬ÉíÉÏËù´ø²¼´üµÄ¶àÉÙ£¬ÊÇØ¤°ïµÜ×Ó½­ºşµØÎ»µÄ±êÖ¾¡£\n");
+"ä¸€åªç”¨ç²—éº»å¸ƒç»‡æˆçš„è¢‹å­ï¼Œèº«ä¸Šæ‰€å¸¦å¸ƒè¢‹çš„å¤šå°‘ï¼Œæ˜¯ä¸å¸®å¼Ÿå­æ±Ÿæ¹–åœ°ä½çš„æ ‡å¿—ã€‚\n");
 		set("material", "cloth");
-		set("unit", "¸ö");
+		set("unit", "ä¸ª");
 		set("base_value", 0);
-		set("base_unit", "¸ö");
+		set("base_unit", "ä¸ª");
 		set("base_weight", 100);
-		set("remove_msg", "$N½«²¼´ü³ıÁËÏÂÀ´¡£\n");
-		set("wear_msg", "$N½«²¼´ü±ğÔÚÉíºó¡£\n");
+		set("remove_msg", "$Nå°†å¸ƒè¢‹é™¤äº†ä¸‹æ¥ã€‚\n");
+		set("wear_msg", "$Nå°†å¸ƒè¢‹åˆ«åœ¨èº«åã€‚\n");
   set("armor_prop/armor", 5);
 		set("no_get",1);
         }
@@ -35,9 +35,9 @@ int do_drop(string str)
 
 	if ( !str ) return 0;
 	if ( !objectp(obj = present(str, me))  
-	|| obj->query("name") != "²¼´ü" || userp(obj) ) 
+	|| obj->query("name") != "å¸ƒè¢‹" || userp(obj) ) 
 		return 0;
-	tell_object(me,"ÉíÎªØ¤°ïµÜ×Ó£¬´üÔÚÈËÔÚ£¬´üÍöÈËÍö£¡\n");
+	tell_object(me,"èº«ä¸ºä¸å¸®å¼Ÿå­ï¼Œè¢‹åœ¨äººåœ¨ï¼Œè¢‹äº¡äººäº¡ï¼\n");
 	return 1;
 }
 
@@ -48,9 +48,9 @@ int do_remove(string str)
 
         if ( !str ) return 0;
 	if ( !objectp(obj = present(str, me))    
-	|| obj->query("name") != "²¼´ü" || userp(obj) )
+	|| obj->query("name") != "å¸ƒè¢‹" || userp(obj) )
 		return 0;
-        tell_object(me,"²¼´üÊÇØ¤°ïµÜ×ÓÉí·İµÄÏóÕ÷£¬Äã²»ÄÜ°ÑËü³ıÏÂ£¡\n");
+        tell_object(me,"å¸ƒè¢‹æ˜¯ä¸å¸®å¼Ÿå­èº«ä»½çš„è±¡å¾ï¼Œä½ ä¸èƒ½æŠŠå®ƒé™¤ä¸‹ï¼\n");
 	return 1;
 }
 

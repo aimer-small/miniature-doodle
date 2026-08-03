@@ -5,13 +5,13 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-   set_name("ÕÅ°¢Éú",({"zhang asheng","zhang","asheng"}));
-   set("gender","ÄĞĞÔ");
-   set("long","½­ÄÏÆß¹ÖÀÏÎå\n");
+   set_name("å¼ é˜¿ç”Ÿ",({"zhang asheng","zhang","asheng"}));
+   set("gender","ç”·æ€§");
+   set("long","æ±Ÿå—ä¸ƒæ€ªè€äº”\n");
    set("shen",80000);
    set("combat_exp",1200000);
-   set("nickname",HIY"Ğ¦ÃÖÍÓ"NOR);
-   set("title",WHT"½­ÄÏÆß¹ÖÀÏÎå"NOR);
+   set("nickname",HIY"ç¬‘å¼¥é™€"NOR);
+   set("title",WHT"æ±Ÿå—ä¸ƒæ€ªè€äº”"NOR);
    
    set("age",28);
    set("pur",20);

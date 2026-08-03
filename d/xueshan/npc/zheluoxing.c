@@ -1,4 +1,4 @@
-// zheluoxing.c ÕÜÂŞĞÇ
+// zheluoxing.c å“²ç½—æ˜Ÿ
 // by iceland
 
 #include <ansi.h>
@@ -8,14 +8,14 @@ string ask_xueliandan();
 
 void create()
 {
-        set_name("ÕÜÂŞĞÇ", ({ "zheluo xing", "zheluoxing","zheluo","xing" }));
+        set_name("å“²ç½—æ˜Ÿ", ({ "zheluo xing", "zheluoxing","zheluo","xing" }));
         set("long",@LONG
-ËûÉí²ÄÖĞµÈ£¬Í··¢ºÍºú×ÓÏ¡Ï¡À­À­µÄ³É¿İ»ÆÉ«£¬Ò»Ë«Ã¼Ã«ÏÂ´¹£¬ÏÔµÃ³îÃ¼¿àÁ³¡£
-ËûÊÇ¸öÎ÷ÓòºúÈË£¬ÒòÎªÑöÄ½´óÂÖËÂµÄ·ğ·¨ºÍÎä¹¦£¬ËùÒÔºÍÊ¦µÜÀ´´ËĞŞĞĞ¡£
+ä»–èº«æä¸­ç­‰ï¼Œå¤´å‘å’Œèƒ¡å­ç¨€ç¨€æ‹‰æ‹‰çš„æˆæ¯é»„è‰²ï¼Œä¸€åŒçœ‰æ¯›ä¸‹å‚ï¼Œæ˜¾å¾—æ„çœ‰è‹¦è„¸ã€‚
+ä»–æ˜¯ä¸ªè¥¿åŸŸèƒ¡äººï¼Œå› ä¸ºä»°æ…•å¤§è½®å¯ºçš„ä½›æ³•å’Œæ­¦åŠŸï¼Œæ‰€ä»¥å’Œå¸ˆå¼Ÿæ¥æ­¤ä¿®è¡Œã€‚
 LONG
         );
-        set("title", HIY "´óÂÖËÂµÚÊ®¶ş´úµÜ×Ó" NOR);
-        set("gender", "ÄĞĞÔ");
+        set("title", HIY "å¤§è½®å¯ºç¬¬åäºŒä»£å¼Ÿå­" NOR);
+        set("gender", "ç”·æ€§");
 	set("class", "huanxi");
         set("age", 34);
         set("attitude", "friendly");
@@ -54,16 +54,16 @@ LONG
 
         prepare_skill("hand","dashou-yin");
 
-        create_family("´óÂÖËÂ", 12, "µÜ×Ó");
+        create_family("å¤§è½®å¯º", 12, "å¼Ÿå­");
         set("class", "huanxi");
 
         set("inquiry", ([
-                "Ñ©Á«µ¤" : (: ask_xueliandan :),
+                "é›ªè²ä¸¹" : (: ask_xueliandan :),
         ]));
         set("xuelian_count", 1 + random(4));
         set("chat_chance", 1);
         set("chat_msg", ({
-		"ÕÜÂŞĞÇ¹ÖÇ»¹Öµ÷µÄ±§Ô¹£º¡°À´µ½ÕâÀïÀÏÒª¸É»î£¬Ñ§²»µ½Îä¹¦£¬»¹²»ÈçÈ¥ÉÙÁÖËÂ¿´¿´¡£¡±\n",
+		"å“²ç½—æ˜Ÿæ€ªè…”æ€ªè°ƒçš„æŠ±æ€¨ï¼šâ€œæ¥åˆ°è¿™é‡Œè€è¦å¹²æ´»ï¼Œå­¦ä¸åˆ°æ­¦åŠŸï¼Œè¿˜ä¸å¦‚å»å°‘æ—å¯ºçœ‹çœ‹ã€‚â€\n",
         }) );
         setup();
         carry_object(__DIR__"obj/gongde-jiasha")->wear();
@@ -76,28 +76,28 @@ string ask_xueliandan()
 	mapping fam; 
         object ob;
         
-        if (!(fam = this_player()->query("family")) || fam["family_name"] !="´óÂÖËÂ")
+        if (!(fam = this_player()->query("family")) || fam["family_name"] !="å¤§è½®å¯º")
                 return RANK_D->query_respect(this_player()) + 
-                "²»ÊÇ±¾ÅÉµÜ×Ó£¬ÔõÃ´¶Ô±¾ÅÉÁéÒ©Ò²´¹ÏÑÈı³ßÑ½£¿";
+                "ä¸æ˜¯æœ¬æ´¾å¼Ÿå­ï¼Œæ€ä¹ˆå¯¹æœ¬æ´¾çµè¯ä¹Ÿå‚æ¶ä¸‰å°ºå‘€ï¼Ÿ";
 
         if ( (int)this_player()->query_condition("neili_drug" ) > 0 )
                 return RANK_D->query_respect(this_player()) + 
-                "Ìå´øÏãÆø£¬ÊÇ²»ÊÇ¸Õ¸Õ³Ô¹ı£¿ÁéÒ©Á¶ÖÆ²»Ò×£¬¶à³ÔÒ²ÊÇÀË·Ñ£¬Ò»»áÔÙÀ´°É¡£";
+                "ä½“å¸¦é¦™æ°”ï¼Œæ˜¯ä¸æ˜¯åˆšåˆšåƒè¿‡ï¼Ÿçµè¯ç‚¼åˆ¶ä¸æ˜“ï¼Œå¤šåƒä¹Ÿæ˜¯æµªè´¹ï¼Œä¸€ä¼šå†æ¥å§ã€‚";
 
         if (  present("xuelian dan", this_player()) )
                 return RANK_D->query_respect(this_player()) + 
-                "ÏÖÔÚÉíÉÏ²»ÊÇÓĞ¿ÅÒ©ÍèÂğ£¬Ôõ÷áÓÖÀ´ÒªÁË£¿ÕæÊÇÌ°µÃÎŞÑá£¡";
+                "ç°åœ¨èº«ä¸Šä¸æ˜¯æœ‰é¢—è¯ä¸¸å—ï¼Œæ€éº½åˆæ¥è¦äº†ï¼ŸçœŸæ˜¯è´ªå¾—æ— åŒï¼";
 
         if ( (int)this_player()->query("max_jingli") < 200 )
-                return RANK_D->query_respect(this_player()) +"¹¦Á¦²»¹»£¬Ñ©Á«µ¤¶ÔÄãÓĞº¦ÎŞÒæ¡£";
+                return RANK_D->query_respect(this_player()) +"åŠŸåŠ›ä¸å¤Ÿï¼Œé›ªè²ä¸¹å¯¹ä½ æœ‰å®³æ— ç›Šã€‚";
 
         if (query("xuelian_count") < 1)
-                return RANK_D->query_respect(this_player()) +"À´µÄ²»ÇÉ£¬ÎÒÕâÀïÒ²Ã»ÓĞÁË¡£";
+                return RANK_D->query_respect(this_player()) +"æ¥çš„ä¸å·§ï¼Œæˆ‘è¿™é‡Œä¹Ÿæ²¡æœ‰äº†ã€‚";
 
         ob = new(MEDICINE_D("xueliandan"));
         ob->move(this_player());
         add("xuelian_count", -1);
 
-        message_vision("$N»ñµÃÒ»¿ÅÑ©Á«µ¤¡£\n",this_player());
-        return "ºÃ°É£¬¼Ç×¡£¬´ËÒ©Á¶ÖÆÊµÔÚ²»Ò×£¬ÍòÍò²»ÒªÀË·ÑÁË¡£";
+        message_vision("$Nè·å¾—ä¸€é¢—é›ªè²ä¸¹ã€‚\n",this_player());
+        return "å¥½å§ï¼Œè®°ä½ï¼Œæ­¤è¯ç‚¼åˆ¶å®åœ¨ä¸æ˜“ï¼Œä¸‡ä¸‡ä¸è¦æµªè´¹äº†ã€‚";
 }

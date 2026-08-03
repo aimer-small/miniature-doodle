@@ -7,10 +7,10 @@
  
  int valid_learn(object me)
  {
-        return notify_fail("武当九阳功的诀窍只有自己从[九阳真经]中领悟！\n");
+        return notify_fail("姝﹀綋涔濋槼鍔熺殑璇�绐嶅彧鏈夎嚜宸变粠[涔濋槼鐪熺粡]涓鎮燂紒\n");
  }
  
  int practice_skill(object me)
  {
-        return notify_fail("武当九阳功的诀窍只有自己从[九阳真经]中领悟！\n");
+        return notify_fail("姝﹀綋涔濋槼鍔熺殑璇�绐嶅彧鏈夎嚜宸变粠[涔濋槼鐪熺粡]涓鎮燂紒\n");
  }

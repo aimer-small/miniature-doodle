@@ -1,4 +1,4 @@
-// Room : /d/wudang/clbinyuan2.c ´ÔÁÖ±ßÔµ
+// Room : /d/wudang/clbinyuan2.c ä¸›æ—è¾¹ç¼˜
 // By lius 99/8
 
 #include <ansi.h>
@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short","´ÔÁÖ±ßÔµ");
+        set("short","ä¸›æ—è¾¹ç¼˜");
         set("long", @LONG
-ÄãÖÕÓÚ×ß³öÁË´ÔÁÖ£¬Ç°ÃæÊÇÒ»×ù¸ßËÊµÄÉ½·å£¬Ò»ÌõÏªÁ÷»·É½¶ø¹ı£¬Á½ÃæÊÇ
-ÇÍ±Ú£¬Äã²»½û¿´×÷ºóÃæµÄ´ÔÁÖºÍÑÛÇ°µÄÉ½Ïª³öÉñ£¬²»ÖªÈçºÎ²ÅÄÜÕÒµ½³öÉ½µÄÂ·
-¾¶¡£
+ä½ ç»ˆäºèµ°å‡ºäº†ä¸›æ—ï¼Œå‰é¢æ˜¯ä¸€åº§é«˜è€¸çš„å±±å³°ï¼Œä¸€æ¡æºªæµç¯å±±è€Œè¿‡ï¼Œä¸¤é¢æ˜¯
+å³­å£ï¼Œä½ ä¸ç¦çœ‹ä½œåé¢çš„ä¸›æ—å’Œçœ¼å‰çš„å±±æºªå‡ºç¥ï¼Œä¸çŸ¥å¦‚ä½•æ‰èƒ½æ‰¾åˆ°å‡ºå±±çš„è·¯
+å¾„ã€‚
 LONG                           
         );
         set("exits", ([               
@@ -19,7 +19,7 @@ LONG
                  "northeast" : __DIR__"conglin"+(random(4)+13),
                  "northwest" : __DIR__"conglin"+(random(4)+13),
         ]));
-        set("outdoors", "Îäµ±");
+        set("outdoors", "æ­¦å½“");
         setup();
 }
 
@@ -34,7 +34,7 @@ int do_tiao(string arg)
         me = this_player(); 
         if (!arg || arg != "river" ) return 0;
  
-        message_vision(WHT"$N²»ÔÙÓÌÔ¥£¬×İÉíÌøÈëÏªÁ÷¡£\n"NOR, me);
+        message_vision(WHT"$Nä¸å†çŠ¹è±«ï¼Œçºµèº«è·³å…¥æºªæµã€‚\n"NOR, me);
         me->move(__DIR__"shuizhong");
         call_out("swim", 5, me);
         return 1;
@@ -42,17 +42,17 @@ int do_tiao(string arg)
 
 int swim(object me)
 {
-        message_vision("$NÖ»¾õ¶úÅÔ»©»©Á÷Ïì£¬Ë®Àä´Ì¹Ç£¬Ã¦ÓÃÄÚÁ¦Ïà¿¹¡£\n", me);
+        message_vision("$Nåªè§‰è€³æ—å“—å“—æµå“ï¼Œæ°´å†·åˆºéª¨ï¼Œå¿™ç”¨å†…åŠ›ç›¸æŠ—ã€‚\n", me);
         if ((int)me->query_skill("force",1) < 100 ){
-          tell_object(me, BLU"º®ÆøÕóÕó±ÆÀ´£¬Ò»ÕóÇ¿ËÆÒ»Õó£¬½¥½¥²»ÄÜµÖ¿¹£¬ËÄÖ«¿ªÊ¼ÂéÄ¾¡£\n"NOR);
+          tell_object(me, BLU"å¯’æ°”é˜µé˜µé€¼æ¥ï¼Œä¸€é˜µå¼ºä¼¼ä¸€é˜µï¼Œæ¸æ¸ä¸èƒ½æŠµæŠ—ï¼Œå››è‚¢å¼€å§‹éº»æœ¨ã€‚\n"NOR);
           me->unconcious();
           me->move("/d/xiangyang/hanshui2");
-          tell_room(environment(me), "Ò»¸öÀËÌÎ´òÀ´½«»èÃÔÖĞµÄ"+me->name()+"ÍÆÉÏ°¶À´¡£\n", ({ me }));
+          tell_room(environment(me), "ä¸€ä¸ªæµªæ¶›æ‰“æ¥å°†æ˜è¿·ä¸­çš„"+me->name()+"æ¨ä¸Šå²¸æ¥ã€‚\n", ({ me }));
           return 1;
         }
         else
          me->move("/d/xiangyang/hanshui2");
-        tell_object(me, HIY"ÄãËæ²¨ÖğÁ÷£¬ÖÕÓÚ·¢ÏÖÁË°¶±ß£¬»ëÉíÊªäõäõµÄÅÀÉÏÁËººË®Î÷°¶¡£\n"NOR);
-        tell_room(environment(me), me->name() + "´ÓÉÏÓÎ³åÁËÏÂÀ´£¬Ëæ¼´ÊªäõäõµØÅÀÉÏ°¶À´¡£\n", ({ me }));
+        tell_object(me, HIY"ä½ éšæ³¢é€æµï¼Œç»ˆäºå‘ç°äº†å²¸è¾¹ï¼Œæµ‘èº«æ¹¿æ¼‰æ¼‰çš„çˆ¬ä¸Šäº†æ±‰æ°´è¥¿å²¸ã€‚\n"NOR);
+        tell_room(environment(me), me->name() + "ä»ä¸Šæ¸¸å†²äº†ä¸‹æ¥ï¼Œéšå³æ¹¿æ¼‰æ¼‰åœ°çˆ¬ä¸Šå²¸æ¥ã€‚\n", ({ me }));
         return 1;
 }

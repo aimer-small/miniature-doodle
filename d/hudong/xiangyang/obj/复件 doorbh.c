@@ -3,18 +3,18 @@
 inherit ITEM;
 void create()
 {
-        set_name(WHT "╟в╩╒цеЁгце" NOR, ({ "baihu chengmen", "chengmen"}) );         
+        set_name(WHT "Г≥╫Х≥▌И≈╗Е÷▌И≈╗" NOR, ({ "baihu chengmen", "chengmen"}) );         
         set_weight(30000000);
         
-        set("unit", "╤т");
+        set("unit", "Е╞╧");
 set("long", @LONG
-уБйгр╩╤т╨Яжь╣дЁгцеё╛╫Т╫Т╣ь╧ь╠увеё╛Ёгцеб╔иойгр╩╤с╤суШв╟╣дй©╠Ь
-въю╢въх╔║ёЁгмБсисза╛дЙ╣ду╫уЫё╛╟ыпуаВюКй╖кЫё╛тЛЁиак╢Сф╛╣д╩д
-╣ьё╛хкяло║иы║ё
+Х©≥Ф≤╞Д╦─Е╞╧Е▌ И┤█Г └Е÷▌И≈╗О╪▄Г╢╖Г╢╖Е°╟Е┘ЁИ≈╜Г²─О╪▄Е÷▌И≈╗Ф╔╪Д╦┼Ф≤╞Д╦─И≤÷И≤÷Ф∙╢Хё┘Г └Её╚Е┘╣
+Х╣╟Ф²╔Х╣╟Е▌╩Ц─┌Е÷▌Е╓√Г■╠Д╨▌Х©·Е╧╢Г └Ф┬≤Д╨┴О╪▄Г≥╬Е╖⌠Ф╣│Г╕╩Е╓╠Ф┴─О╪▄И─═Ф┬░Д╨├Е╓╖Г┴┤Г └Х█▓
+Е°╟О╪▄Д╨╨Г┐÷Г╗─Е╟▒Ц─┌
 LONG);
 set("value",50000000); 
 set("no_get",1);
-set("defend",15); // ╪А╧л
+set("defend",15); // Е² Е⌡╨
         setup();
 }
 
@@ -26,6 +26,6 @@ object me = this_player();
 	
 	if (this_object()->query("defend") <= 0)
  {
-message_vision(RED""+this_object()->query("name")+RED"тыр╡╫Шйэ╡╩в║ЁЕ╩Вё╛╩╘ю╡р╩иЫкЗак║ё\n"NOR, me);
+message_vision(RED""+this_object()->query("name")+RED"Е├█Д╧÷Г╕│Е▐≈Д╦█Д╫▐Е├╡Е┤╩О╪▄Е⌠≈Е∙╕Д╦─Её╟Е║▄Д╨├Ц─┌\n"NOR, me);
 	}
 }

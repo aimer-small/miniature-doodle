@@ -5,28 +5,28 @@
 #include <ansi.h>
 inherit F_CLEAN_UP;
 
-string exert_name(){ return HIC"±±äéÕæÆø"NOR; }
+string exert_name(){ return HIC"åŒ—æºŸçœŸæ°”"NOR; }
 
 int exert(object me, object target)
 {
 	int skill;
 
         if( me->query("neili") < 5000 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
         if( me->query_skill("beiming-shengong", 1) < 300 )
-		return notify_fail("ÄãµÄ±±Ú¤Éñ¹¦µÈ¼¶²»¹»¡£\n");
+		return notify_fail("ä½ çš„åŒ—å†¥ç¥žåŠŸç­‰çº§ä¸å¤Ÿã€‚\n");
 
 	if( me->query_skill_mapped("force") != "beiming-shengong" )
-		return notify_fail("ÄãµÄÄÚ¹¦²»¶Ô¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸä¸å¯¹ã€‚\n");
 
 	if( me->query_temp("bmsg/bm") )
-		return notify_fail("ÄãÒÑ¾­ÔÚÔË¡¸±±äéÕæÆø¡¹ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨è¿ã€ŒåŒ—æºŸçœŸæ°”ã€äº†ã€‚\n");
 
 	skill = (int)me->query_skill("beiming-shengong", 1);
 
 	me->receive_damage("neili", -1000);
-	message_vision(HIB "\n$NÔËÆð±±Ú¤Éñ¹¦¿ÚÖÐÄ¬Äî"NOR"£º"HIB"ÕæÆø¾­ÓÉÁéÌ¨£¬³ßÔó£¬Çú³Ø£¬Áéº££¬Ìì×Ú»ãÈëÆøº£["HIG"±±äé"HIB"]£¬ÐÎ³ÉÒ»¹ÉºÆµ´Ö®Æø¡£\n" NOR, me);
+	message_vision(HIB "\n$Nè¿èµ·åŒ—å†¥ç¥žåŠŸå£ä¸­é»˜å¿µ"NOR"ï¼š"HIB"çœŸæ°”ç»ç”±çµå°ï¼Œå°ºæ³½ï¼Œæ›²æ± ï¼Œçµæµ·ï¼Œå¤©å®—æ±‡å…¥æ°”æµ·["HIG"åŒ—æºŸ"HIB"]ï¼Œå½¢æˆä¸€è‚¡æµ©è¡ä¹‹æ°”ã€‚\n" NOR, me);
 
   me->set_temp("bmsg/bm", me->query_skill("beiming-shengong", 1)); 
   me->add_temp("apply/armor", me->query_skill("beiming-shengong", 1)); 
@@ -35,7 +35,7 @@ int exert(object me, object target)
   me->add_temp("apply/dexerity", me->query_skill("beiming-shengong", 1)/20);
 
 	call_out("remove_effect", 1, me, skill);
-	me->start_exert(1, "±±äéÕæÆø");
+	me->start_exert(1, "åŒ—æºŸçœŸæ°”");
 	if( me->is_fighting() )
 		me->start_busy(random(2));
 	return 1;
@@ -56,18 +56,18 @@ void remove_effect(object me, int count)
     me->add_temp("apply/dexerity", -me->query_skill("beiming-shengong", 1)/20);
 
     me->delete_temp("bmsg/bm");
-		tell_object(me, HIC"Äã½¥½¥µØÉ¢È¥ÁË¾ÛÓÚÆøº£["HIB"±±äé"NOR+HIC"]ÕæÆø¡£\n"NOR);
+		tell_object(me, HIC"ä½ æ¸æ¸åœ°æ•£åŽ»äº†èšäºŽæ°”æµ·["HIB"åŒ—æºŸ"NOR+HIC"]çœŸæ°”ã€‚\n"NOR);
 	}
 }
 
 int help(object me)
 {
-	write(HIW"\n±±Ú¤Éñ¹¦Ö®¡¸±±äéÕæÆø¡¹£º"NOR"\n\n");
+	write(HIW"\nåŒ—å†¥ç¥žåŠŸä¹‹ã€ŒåŒ—æºŸçœŸæ°”ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  
-                µ±Ç°ÄÚÁ¦  10000  ÒÔÉÏ£»
-                ±±Ú¤Éñ¹¦  300  ¼¶ÒÔÉÏ£»
-                Èç¹ûÔÚÎÞÁ¿É½¶´ÖÐ½â³ö±±Ú¤Éñ¹¦Ö®¾«Ëè½«ÓÐÆæÒì¹¦Ð§¡£
+        è¦æ±‚ï¼š  
+                å½“å‰å†…åŠ›  10000  ä»¥ä¸Šï¼›
+                åŒ—å†¥ç¥žåŠŸ  300  çº§ä»¥ä¸Šï¼›
+                å¦‚æžœåœ¨æ— é‡å±±æ´žä¸­è§£å‡ºåŒ—å†¥ç¥žåŠŸä¹‹ç²¾é«“å°†æœ‰å¥‡å¼‚åŠŸæ•ˆã€‚
 HELP
         );
         return 1;

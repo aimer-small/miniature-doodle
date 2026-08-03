@@ -5,12 +5,12 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("´òÌú½³", ({ "Datie jiang", "jiang" }));
+	set_name("æ‰“é“åŒ ", ({ "Datie jiang", "jiang" }));
 	set("shen_type", 1);
 
-	set("gender", "ÄÐÐÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
-	set("long","ÕâÎ»´óºº¹â×ÅÉÏÉí,ÓÉÓÚ³¤Äê´òÌú,¼¡ÈâºÜÊÇ·¢´ï¡£\n");
+	set("long","è¿™ä½å¤§æ±‰å…‰ç€ä¸Šèº«,ç”±äºŽé•¿å¹´æ‰“é“,è‚Œè‚‰å¾ˆæ˜¯å‘è¾¾ã€‚\n");
 	set_skill("unarmed", 20);
 	set_skill("dodge", 20);
 	set_temp("apply/damage", 15);
@@ -20,11 +20,11 @@ void create()
 	set("attitude", "friendly");
 
 	set("inquiry", ([
-		"¹¤×÷"		: "ÎÒÕâÀï¿ÉÃ»Ê²Ã´»î¿ÉÒÔ¸É¡£",
-		"job"		: "ÎÒÕâÀï¿ÉÃ»Ê²Ã´»î¿ÉÒÔ¸É¡£",
-		"Ñ°ÕÒ¿óÊ¯"	: "ÎÒÕâÀï¿ÉÃ»Ê²Ã´»î¿ÉÒÔ¸É¡£",
-		"·ÅÆú"		: "àÅ£¿ÄãÒª·ÅÆúÊ²Ã´°¡£¿",
-		"abandon"	: "àÅ£¿ÄãÒª·ÅÆúÊ²Ã´°¡£¿",
+		"å·¥ä½œ"		: "æˆ‘è¿™é‡Œå¯æ²¡ä»€ä¹ˆæ´»å¯ä»¥å¹²ã€‚",
+		"job"		: "æˆ‘è¿™é‡Œå¯æ²¡ä»€ä¹ˆæ´»å¯ä»¥å¹²ã€‚",
+		"å¯»æ‰¾çŸ¿çŸ³"	: "æˆ‘è¿™é‡Œå¯æ²¡ä»€ä¹ˆæ´»å¯ä»¥å¹²ã€‚",
+		"æ”¾å¼ƒ"		: "å—¯ï¼Ÿä½ è¦æ”¾å¼ƒä»€ä¹ˆå•Šï¼Ÿ",
+		"abandon"	: "å—¯ï¼Ÿä½ è¦æ”¾å¼ƒä»€ä¹ˆå•Šï¼Ÿ",
 	]));
 
 	set("vendor_goods", ({
@@ -46,7 +46,7 @@ void kill_ob(object ob)
 {
 	object me = this_object();
 	command("!!!");
-	command("say ÎÒÊÇÒ»¸öÀÏÊµµÄÌú½³£¬ÎªÊ²Ã´ÒªÉ±ÎÒÄØ£¿");
+	command("say æˆ‘æ˜¯ä¸€ä¸ªè€å®žçš„é“åŒ ï¼Œä¸ºä»€ä¹ˆè¦æ€æˆ‘å‘¢ï¼Ÿ");
 	me->remove_enemy(ob);
 	ob->remove_killer(me);
 	return;
@@ -54,7 +54,7 @@ void kill_ob(object ob)
 
 int accept_fight(object ob)
 {
-	command("say ÎÒÊÇÒ»¸öÀÏÊµµÄÌú½³£¬ÎªÊ²Ã´ÒªÉ±ÎÒÄØ£¿");
+	command("say æˆ‘æ˜¯ä¸€ä¸ªè€å®žçš„é“åŒ ï¼Œä¸ºä»€ä¹ˆè¦æ€æˆ‘å‘¢ï¼Ÿ");
 	return 0;
 }
 
@@ -104,22 +104,22 @@ int do_sell(string arg)
 	int value, improve;
 
 	if (!living(this_object()))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ÐÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (!arg || !(ob = present(arg, me)))
-		return notify_fail("ÄãÒªÂôÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å–ä»€ä¹ˆï¼Ÿ\n");
 
 	if (query_temp("busy"))
-		return notify_fail("Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕýÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
 	if ( !(int)ob->query("kuangshi") && !(int)ob->query("kuangcai") )
-		return notify_fail("ÎÒÖ»ÊÕ¹º¿óÊ¯£¬ºÍÓÃ¿óÊ¯´ò³öÀ´µÄ³ÉÆ·¡£\n");
+		return notify_fail("æˆ‘åªæ”¶è´­çŸ¿çŸ³ï¼Œå’Œç”¨çŸ¿çŸ³æ‰“å‡ºæ¥çš„æˆå“ã€‚\n");
 
 	value = query_goods_value2(ob);
-	message_vision("$NÒÔ"+MONEY_D->price_str(value)+"µÄ¼Û¸ñÂôµôÁËÒ»"+ob->query("unit")+ob->name() + "¸ø$n¡£\n", me, this_object());
+	message_vision("$Nä»¥"+MONEY_D->price_str(value)+"çš„ä»·æ ¼å–æŽ‰äº†ä¸€"+ob->query("unit")+ob->name() + "ç»™$nã€‚\n", me, this_object());
 	destruct(ob);
 	MONEY_D->pay_player(me, value);
 	improve = 40 - me->query("pur");

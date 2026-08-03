@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(YEL"µ¤Ò©"NOR, ({ "dan yao","danyao" }));
+	set_name(YEL"ä¸¹è¯"NOR, ({ "dan yao","danyao" }));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿ÅÓÉÒ©µêÀÏÕÆ¹ñÁ¶ÖÆµÄµ¤Ò©£¬Ò²²»ÖªÓÐºÎ¹¦Ð§¡£ÐèÒªÈËËÍ(song)¸ø¿Í»§¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—ç”±è¯åº—è€æŽŒæŸœç‚¼åˆ¶çš„ä¸¹è¯ï¼Œä¹Ÿä¸çŸ¥æœ‰ä½•åŠŸæ•ˆã€‚éœ€è¦äººé€(song)ç»™å®¢æˆ·ã€‚\n");
 		set("value", 1500);
 		set("no_give", 1);
 		set("no_get", 1);
@@ -35,23 +35,23 @@ int do_give(string arg)
 {
 	object me = this_player() , room , target;
 	
-	if(!arg) return notify_fail("ÄãÒª°Ñµ¤Ò©ËÍ¸øË­£¿\n");
+	if(!arg) return notify_fail("ä½ è¦æŠŠä¸¹è¯é€ç»™è°ï¼Ÿ\n");
 	if(!(int)me->query("worker/djob"))
-		return notify_fail("ÄãÒª°Ñµ¤Ò©ËÍ¸øË­£¿\n");			
+		return notify_fail("ä½ è¦æŠŠä¸¹è¯é€ç»™è°ï¼Ÿ\n");			
 	if( !objectp(room = environment(environment(this_object())) ))
-		return notify_fail("ÄãÒª°Ñµ¤Ò©ËÍ¸øË­£¿\n");
+		return notify_fail("ä½ è¦æŠŠä¸¹è¯é€ç»™è°ï¼Ÿ\n");
 	if( !objectp(target = present(arg, room)) )
-		return notify_fail("ÄãÒª°Ñµ¤Ò©ËÍ¸øË­£¿\n");
+		return notify_fail("ä½ è¦æŠŠä¸¹è¯é€ç»™è°ï¼Ÿ\n");
 	if( me->query("worker/djob_target")!=target->query("name") )
-		return notify_fail("Õâ²»ÊÇÄãÒªËÍ»õµÄ¶ÔÏó£¡\n");
+		return notify_fail("è¿™ä¸æ˜¯ä½ è¦é€è´§çš„å¯¹è±¡ï¼\n");
 	if( me->query("worker/djob_room")!=base_name(room) )
-		return notify_fail("Õâ²»ÊÇÄãÒªËÍ»õµÄ¶ÔÏó£¡\n");
+		return notify_fail("è¿™ä¸æ˜¯ä½ è¦é€è´§çš„å¯¹è±¡ï¼\n");
 	if((int)me->query("worker/djob_far")>0) {
 		if( target->query("player")!=me->query("id") )
-			return notify_fail("Õâ²»ÊÇÄãÒªËÍ»õµÄ¶ÔÏó£¡\n");
+			return notify_fail("è¿™ä¸æ˜¯ä½ è¦é€è´§çš„å¯¹è±¡ï¼\n");
 	}
 	
-	message_vision(HIY"$N°ÑÒ©µêÕÆ¹ñÁ¶ÖÆµÄµ¤Ò©ËÍ¸ø$n¡£\n"NOR, me,target);
+	message_vision(HIY"$NæŠŠè¯åº—æŽŒæŸœç‚¼åˆ¶çš„ä¸¹è¯é€ç»™$nã€‚\n"NOR, me,target);
 	
 	me->set("worker/djob_finish",1);
 	if((int)me->query("worker/djob_far")>0) target->finish();

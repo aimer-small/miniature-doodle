@@ -1,12 +1,12 @@
 /*
-©°¡¾°®ÆÞÍèµÄ¸öÈË×´Ì¬¡¿©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ð©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´
-©¦¡¤¾«Ñª¡¤ 4734/  4734 (100%)   ¡¤¾«Á¦¡¤5956 /  5956(5956)    ©¦ÊÖ³Ö£ºÎÞÎäÆ÷          ©¦
-©¦¡¤ÆøÑª¡¤10372/ 10372 (100%)   ¡¤ÄÚÁ¦¡¤17570/ 17570 (+100)   ©¦Éí´©£º»ÆÉ«Ê¥ÒÂ        ©¦
-©¦¡¤ÕýÆø¡¤ 0                ¡¤ÄÚÁ¦ÉÏÏÞ¡¤15576 / 17610         ©¦½Å´©£º²¼ÂÄ            ©¦
-©¦¡¤Ê³Îï¡¤   60/   150          ¡¤Ç±ÄÜ¡¤  565 /  565          ©¦ÊÖ´÷£ºÎÞ              ©¦
-©¦¡¤ÒûË®¡¤   71/  150           ¡¤¾­Ñé¡¤ 10,000,011 (15.88%)  ©¦ÊÖ´÷£ºÎÞ              ©¦
-©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼
-ºÙºÙ
+â”Œã€çˆ±å¦»ä¸¸çš„ä¸ªäººçŠ¶æ€ã€‘â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚Â·ç²¾è¡€Â· 4734/  4734 (100%)   Â·ç²¾åŠ›Â·5956 /  5956(5956)    â”‚æ‰‹æŒï¼šæ— æ­¦å™¨          â”‚
+â”‚Â·æ°”è¡€Â·10372/ 10372 (100%)   Â·å†…åŠ›Â·17570/ 17570 (+100)   â”‚èº«ç©¿ï¼šé»„è‰²åœ£è¡£        â”‚
+â”‚Â·æ­£æ°”Â· 0                Â·å†…åŠ›ä¸Šé™Â·15576 / 17610         â”‚è„šç©¿ï¼šå¸ƒå±¥            â”‚
+â”‚Â·é£Ÿç‰©Â·   60/   150          Â·æ½œèƒ½Â·  565 /  565          â”‚æ‰‹æˆ´ï¼šæ—               â”‚
+â”‚Â·é¥®æ°´Â·   71/  150           Â·ç»éªŒÂ· 10,000,011 (15.88%)  â”‚æ‰‹æˆ´ï¼šæ—               â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+å˜¿å˜¿
 */
 
 #include <ansi.h>
@@ -100,13 +100,13 @@ string status_color(int current, int max)
 	return RED;
 }
 
-////³ÉÆ·
+////æˆå“
 void refresh_surcoat(object me)
 {
 	string name;
 	refresh_clear(me,6,71,16);	
 	if (me->query_temp("armor/surcoat")) name = me->query_temp("armor/surcoat")->query("name");
-	else name=HIW"ÎÞ"NOR;	
+	else name=HIW"æ— "NOR;	
 	refresh_show(me,6,71,name);	
 }
 void refresh_armor(object me)
@@ -114,7 +114,7 @@ void refresh_armor(object me)
 	string name;
 	refresh_clear(me,5,71,16);	
 	if (me->query_temp("armor/armor")) name = me->query_temp("armor/armor")->query("name");
-	else name=HIW"ÎÞ"NOR;	
+	else name=HIW"æ— "NOR;	
 	refresh_show(me,5,71,name);	
 }
 
@@ -123,7 +123,7 @@ void refresh_boots(object me)
 	string name;
 	refresh_clear(me,4,71,16);	
 	if (me->query_temp("armor/boots")) name = me->query_temp("armor/boots")->query("name");
-	else name=HIW"ÎÞ"NOR;	
+	else name=HIW"æ— "NOR;	
 	refresh_show(me,4,71,name);	
 }
 void refresh_cloth(object me)
@@ -131,7 +131,7 @@ void refresh_cloth(object me)
 	string name;
 	refresh_clear(me,3,71,16);	
 	if (me->query_temp("armor/cloth")) name = me->query_temp("armor/cloth")->query("name");
-	else name=HIW"ÎÞ"NOR;	
+	else name=HIW"æ— "NOR;	
 	refresh_show(me,3,71,name);	
 }
 void refresh_weapon(object me)
@@ -139,7 +139,7 @@ void refresh_weapon(object me)
 	string name;
 	refresh_clear(me,2,71,16);	
 	if (me->query_temp("weapon")) name = me->query_temp("weapon")->query("name");
-	else name=HIW"ÎÞ±øÆ÷"NOR;	
+	else name=HIW"æ— å…µå™¨"NOR;	
 	refresh_show(me,2,71,name);	
 }
 
@@ -192,8 +192,8 @@ void refresh_shen(object ob)
 {
 	mapping my = ob->query_entire_dbase();	
 	refresh_clear(ob,4,0,28);	
-	refresh_show(ob,4,0,sprintf("©¦¡¤%sÆø¡¤%s %-13s"NOR,
-		my["shen"] < 0?"ìå":"Õý",
+	refresh_show(ob,4,0,sprintf("â”‚Â·%sæ°”Â·%s %-13s"NOR,
+		my["shen"] < 0?"æˆ¾":"æ­£",
 		my["shen"] < 0?HIR:HIC,
 		conv( (my["shen"] < 0?-1:1)*my["shen"]),
 		));	
@@ -272,31 +272,31 @@ void refresh_kuangjia(object me)
 	refresh_show_head(me,CLR);
 	refresh_show_head(me,FR(8));	
 	for (i=2;i<=6;i++){
-		refresh_show(me,i,63,"©¦");
-		refresh_show(me,i,87,"©¦");	 	
+		refresh_show(me,i,63,"â”‚");
+		refresh_show(me,i,87,"â”‚");	 	
 	}
 	refresh_head(me);
 	refresh_tail(me);	
-	refresh_show(me,2,0,"©¦¡¤¾«Ñª¡¤");	
-	refresh_show(me,2,33,"¡¤¾«Á¦¡¤");	
-	refresh_show(me,2,65,HIY"ÊÖ³Ö£º"NOR);	
-	refresh_show(me,3,0,"©¦¡¤ÆøÑª¡¤");	
-	refresh_show(me,3,33,"¡¤ÄÚÁ¦¡¤");	
-	refresh_show(me,3,65,HIY"Éí´©£º"NOR);	
-	refresh_show(me,4,29,"¡¤ÄÚÁ¦ÉÏÏÞ¡¤");	
-	refresh_show(me,4,65,HIY"½Å×Å£º"NOR);
-	refresh_show(me,5,0,"©¦¡¤Ê³Îï¡¤");
-	refresh_show(me,5,33,"¡¤Ç±ÄÜ¡¤");	
-	refresh_show(me,5,65,HIY"Éí´÷£º"NOR);	
-	refresh_show(me,6,0,"©¦¡¤ÒûË®¡¤");	
-	refresh_show(me,6,33,"¡¤¾­Ñé¡¤");	
-	refresh_show(me,6,65,HIY"ÉíÅû£º"NOR);	
+	refresh_show(me,2,0,"â”‚Â·ç²¾è¡€Â·");	
+	refresh_show(me,2,33,"Â·ç²¾åŠ›Â·");	
+	refresh_show(me,2,65,HIY"æ‰‹æŒï¼š"NOR);	
+	refresh_show(me,3,0,"â”‚Â·æ°”è¡€Â·");	
+	refresh_show(me,3,33,"Â·å†…åŠ›Â·");	
+	refresh_show(me,3,65,HIY"èº«ç©¿ï¼š"NOR);	
+	refresh_show(me,4,29,"Â·å†…åŠ›ä¸Šé™Â·");	
+	refresh_show(me,4,65,HIY"è„šç€ï¼š"NOR);
+	refresh_show(me,5,0,"â”‚Â·é£Ÿç‰©Â·");
+	refresh_show(me,5,33,"Â·æ½œèƒ½Â·");	
+	refresh_show(me,5,65,HIY"èº«æˆ´ï¼š"NOR);	
+	refresh_show(me,6,0,"â”‚Â·é¥®æ°´Â·");	
+	refresh_show(me,6,33,"Â·ç»éªŒÂ·");	
+	refresh_show(me,6,65,HIY"èº«æŠ«ï¼š"NOR);	
 }
 void refresh_head(object me)
 {	
-        refresh_show(me,1,0,"©°¡¾"HIG"ÄãµÄ¸öÈË×´Ì¬"NOR"¡¿©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ð©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´");	
+        refresh_show(me,1,0,"â”Œã€"HIG"ä½ çš„ä¸ªäººçŠ¶æ€"NOR"ã€‘â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”");	
 }
 void refresh_tail(object me)
 {	
-        refresh_show(me,7,0,"©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼");	
+        refresh_show(me,7,0,"â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜");	
 }

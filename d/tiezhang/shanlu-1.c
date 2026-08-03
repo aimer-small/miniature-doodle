@@ -4,14 +4,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "É½Â·");
+	set("short", "å±±è·¯");
 	set("long", @LONG
-Äã×ßÔÚÒ»ÌõÆéá«µÄÉ½Â·ÉÏ£¬µÀÅÔÉ½·å±ÚÁ¢£¬³¤²Ý¹ýÑü£¬ÖÐ¼äÒ»ÌõÑò³¦Ð¡Â·£¬
-½öÈÝÒ»ÈËÃãÇ¿¹ýÈ¥¡£
+ä½ èµ°åœ¨ä¸€æ¡å´Žå²–çš„å±±è·¯ä¸Šï¼Œé“æ—å±±å³°å£ç«‹ï¼Œé•¿è‰è¿‡è…°ï¼Œä¸­é—´ä¸€æ¡ç¾Šè‚ å°è·¯ï¼Œ
+ä»…å®¹ä¸€äººå‹‰å¼ºè¿‡åŽ»ã€‚
 LONG
 	);
     
-        set("outdoors", "ÌúÕÆÉ½");
+        set("outdoors", "é“æŽŒå±±");
 	
         set("exits", ([ 
 		"north" : __DIR__"shanlu-2",
@@ -33,43 +33,43 @@ int do_dig(string arg)
 	int costj, costq;
 	me = this_player();
         
-	if(me->query_temp("job_name")!="ÍÚÏÝ¾®") 
-		return notify_fail("Äã±ØÐë¸ú°ïÖ÷ÁìÁËÕâ¹¤×÷²ÅÄÜÔÚÕâÀï¸É! \n");
+	if(me->query_temp("job_name")!="æŒ–é™·äº•") 
+		return notify_fail("ä½ å¿…é¡»è·Ÿå¸®ä¸»é¢†äº†è¿™å·¥ä½œæ‰èƒ½åœ¨è¿™é‡Œå¹²! \n");
         
 	if (me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ!\n");
+		return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢!\n");
         
 	if (me->is_fighting())
-		return notify_fail("ÄãÕýÔÚÕ½¶·ÖÐ,ÎÞ·¨×¨ÐÄ¸É»î!\n");
+		return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­,æ— æ³•ä¸“å¿ƒå¹²æ´»!\n");
 	
 	weapon = me->query_temp("weapon");
         
 	if( !weapon || weapon->query("id") != "tie chan")
-		return notify_fail("ÄãÏëÓÃÊ²Ã´À´ÍÚ£¿\n");
+		return notify_fail("ä½ æƒ³ç”¨ä»€ä¹ˆæ¥æŒ–ï¼Ÿ\n");
         
-	if ( !arg || !(arg == "ÏÝ¾®" || arg == "xianjing"))
-		return notify_fail("ÄãÏëÒª¸ÉÊ²Ã´£¿\n");
+	if ( !arg || !(arg == "é™·äº•" || arg == "xianjing"))
+		return notify_fail("ä½ æƒ³è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
              
 	costj = random((int)me->query("con")/2);
 	costq = random((int)me->query("str")/2);
 
 	if ((int)me->query("jingli") < costj 
          || (int)me->query("qi") < costq){
-		message_vision(HIR"ÓÉÓÚ$NÌ«Æ£¾ëÁË£¬$NÒ»¸ö²»Ð¡ÐÄµø½øÁË×Ô¼ºÍÚµÄÏÝ¾®ÖÐ¡£\n"NOR,me);
+		message_vision(HIR"ç”±äºŽ$Nå¤ªç–²å€¦äº†ï¼Œ$Nä¸€ä¸ªä¸å°å¿ƒè·Œè¿›äº†è‡ªå·±æŒ–çš„é™·äº•ä¸­ã€‚\n"NOR,me);
 		me->unconcious();
 		return 1;
 	}        
 	me->receive_damage("jingli", costj);
 	me->add("qi", -costq);       
-	if (((int)me->query_temp("mark/ÍÚÏÝ¾®") > 20 + random(5))){
-		me->set_temp("mark/ÍÚÍê",1);
-		write(HIG"Äã·¢ÏÖÏÝ¾®ÒÑÍÚºÃ£¬¸Ï½ô°ÑÒ»Ð©¸É²ÝÆÌÔÚÏÝ¾®ÉÏ£¬»ØÈ¥¸²ÃüÁË!!\n"NOR);
+	if (((int)me->query_temp("mark/æŒ–é™·äº•") > 20 + random(5))){
+		me->set_temp("mark/æŒ–å®Œ",1);
+		write(HIG"ä½ å‘çŽ°é™·äº•å·²æŒ–å¥½ï¼Œèµ¶ç´§æŠŠä¸€äº›å¹²è‰é“ºåœ¨é™·äº•ä¸Šï¼Œå›žåŽ»è¦†å‘½äº†!!\n"NOR);
 		return 1;
 	}  
-	write ("Äã»ÓÆðÊÖÖÐÌú²ù£¬ÔÚµØÉÏÒ»ÏÂÏÂÍÚÁËÆðÀ´¡£\n");
+	write ("ä½ æŒ¥èµ·æ‰‹ä¸­é“é“²ï¼Œåœ¨åœ°ä¸Šä¸€ä¸‹ä¸‹æŒ–äº†èµ·æ¥ã€‚\n");
 
 	me->add_busy(1);
-	me->add_temp("mark/ÍÚÏÝ¾®",1);
+	me->add_temp("mark/æŒ–é™·äº•",1);
 
 	if ( me->query("combat_exp", 1) > 30000 
 	 && !me->query_temp("mark/meet_gf")

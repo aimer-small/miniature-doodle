@@ -5,10 +5,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "�㳡");
+	set("short", "广场");
 	set("long", @LONG
-�㳡ռ�����󣬲����Ͻ���������ȥ�ɴ�ƺӰ�ġ�������������Χ����
-Щ���ᣬ�����ھ�ס��
+广场占地甚大，部置严谨。往西过去可达黄河帮的「侠义厅」。周围则是
+些房舍，供帮众居住。
 LONG );
 
 	set("exits", ([
@@ -21,6 +21,6 @@ LONG );
 		__DIR__"npc/qian" : 1,
 	]));
 
-	set("outdoors", "�ƺ�");
+	set("outdoors", "黄河");
 	setup();
 }

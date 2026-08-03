@@ -1,5 +1,5 @@
 // zhou-zhiruo.c
-// Lklv 2001.10.18 update hehe Ğ¡æ¤
+// Lklv 2001.10.18 update hehe å°å¦
 
 inherit F_MASTER;
 inherit NPC;
@@ -9,9 +9,9 @@ int ask_dragon();
 
 void create()
 {
-	set_name("ÖÜÜÆÈô", ({ "zhou zhiruo", "zhou", "zhiruo"}));
-	set("long", "ËıÊÇÃğ¾øÊ¦Ì«µÄ°Ë´óË×¼ÒµÚ×ÓÖ®Ò»£¬Ò»¸±ÇåÉ«ÒÂÉÀ£¬ÏÔµÄ³ş³ş¶¯ÈË¡£\n");
-	set("gender", "Å®ĞÔ");
+	set_name("å‘¨èŠ·è‹¥", ({ "zhou zhiruo", "zhou", "zhiruo"}));
+	set("long", "å¥¹æ˜¯ç­ç»å¸ˆå¤ªçš„å…«å¤§ä¿—å®¶ç¬¬å­ä¹‹ä¸€ï¼Œä¸€å‰¯æ¸…è‰²è¡£è¡«ï¼Œæ˜¾çš„æ¥šæ¥šåŠ¨äººã€‚\n");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("age", 25);
 	set("shen_type", -1);
@@ -58,12 +58,12 @@ void create()
         prepare_skill("claw", "jiuyin-baiguzhua");
 
         set("inquiry",([
-		"ÕÅÎŞ¼É" : (: ask_zhang :),
-//		"ÕÔÃô" : (: ask_zhao :),
-		"¹â´ó¶ëáÒ" : (: ask_dragon :),
-		"¹â´óÎÒÅÉ" : (: ask_dragon :),
+		"å¼ æ— å¿Œ" : (: ask_zhang :),
+//		"èµµæ•" : (: ask_zhao :),
+		"å…‰å¤§å³¨åµ‹" : (: ask_dragon :),
+		"å…‰å¤§æˆ‘æ´¾" : (: ask_dragon :),
         ]) );
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
         setup();
         carry_object("/d/emei/obj/shoes")->wear();
@@ -73,24 +73,24 @@ void create()
 void attempt_apprentice(object ob)
 {
         if (! ob->query("family")) {
-		command("say Äã·ÇÎÒ¶ëáÒÅÉµÜ×Ó£¬ÎÒ²»ÄÜÊÕÄã¡£\n");
+		command("say ä½ éæˆ‘å³¨åµ‹æ´¾å¼Ÿå­ï¼Œæˆ‘ä¸èƒ½æ”¶ä½ ã€‚\n");
 		return;
         }
         if ((int)ob->query_skill("claw", 1) < 41 ) {
-		command("say Äã»ù±¾×¦·¨»ğºòÎ´µ½£¬ÎÒ²»ÄÜÊÕÄã¡£\n");
+		command("say ä½ åŸºæœ¬çˆªæ³•ç«å€™æœªåˆ°ï¼Œæˆ‘ä¸èƒ½æ”¶ä½ ã€‚\n");
 		return;
         }
         if ((int)ob->query_skill("strike", 1) < 41 ) {
-		command("say Äã»ù±¾ÕÆ·¨»ğºòÎ´µ½£¬ÎÒ²»ÄÜÊÕÄã¡£\n");
+		command("say ä½ åŸºæœ¬æŒæ³•ç«å€™æœªåˆ°ï¼Œæˆ‘ä¸èƒ½æ”¶ä½ ã€‚\n");
 		return;
         }
 	if (ob->query("class") == "bonze"){
 		command ("blush");
-		command ("say ÎÒÖ»ÊÕË×¼ÒµÜ×Ó¡£");
+		command ("say æˆ‘åªæ”¶ä¿—å®¶å¼Ÿå­ã€‚");
 		return;
 	}
         if ((int)ob->query_skill("jiuyin-baiguzhua", 1) < 41 ) {
-		command("say ÎÒÏÖÔÚ²»ÏëÊÕÍ½¡£\n");
+		command("say æˆ‘ç°åœ¨ä¸æƒ³æ”¶å¾’ã€‚\n");
 		return;
         }
         command("recruit " + ob->query("id"));
@@ -103,13 +103,13 @@ int ask_zhang()
 	object me=this_player();
 	if( me->query_temp("jiuyin140") == 2 ) {
 		command("blush");
-		command("say ËäÈ»ÎÒÒÑ¾­·¢ÊÄ²»ÔÙÏ²»¶Ëû£¬µ«ËûµÄÓ°×ÓÎŞÊ±ÎŞ¿Ì²»³öÏÖÔÚÎÒµÄÄÔº£Àï¡£\n");
-		command("say ÎÒÖÕ¾¿²»ÄÜÆÛÆ­×Ô¼º£¬¸ü²»ÄÜÆÛÆ­Ê¦¸¸£¬Ê¦¸µ½Ì¸øÎÒµÄÒĞÌìÍÀÁúµÄÃØÃÜºÍ¹â´óÎÒÅÉµÄÏë·¨ÖÕ¾¿ÊÇ²»ÄÜÊµÏÖÁË¡£\n");
+		command("say è™½ç„¶æˆ‘å·²ç»å‘èª“ä¸å†å–œæ¬¢ä»–ï¼Œä½†ä»–çš„å½±å­æ— æ—¶æ— åˆ»ä¸å‡ºç°åœ¨æˆ‘çš„è„‘æµ·é‡Œã€‚\n");
+		command("say æˆ‘ç»ˆç©¶ä¸èƒ½æ¬ºéª—è‡ªå·±ï¼Œæ›´ä¸èƒ½æ¬ºéª—å¸ˆçˆ¶ï¼Œå¸ˆå‚…æ•™ç»™æˆ‘çš„å€šå¤©å± é¾™çš„ç§˜å¯†å’Œå…‰å¤§æˆ‘æ´¾çš„æƒ³æ³•ç»ˆç©¶æ˜¯ä¸èƒ½å®ç°äº†ã€‚\n");
 		command("sigh");
 		me->set_temp("jiuyin140", 3 );
 		return 1;
 	}
-	message_vision("ÖÜÜÆÈôµÉÁË$NÒ»ÑÛ¡£\n", me);
+	message_vision("å‘¨èŠ·è‹¥çªäº†$Nä¸€çœ¼ã€‚\n", me);
 	return 1;
 }
 
@@ -117,17 +117,17 @@ int ask_dragon()
 {
 	object me=this_player();
 	if( me->query_temp("jiuyin140") >= 3 ) {
-		if( me->query("family/master_name") != "ÖÜÜÆÈô"
+		if( me->query("family/master_name") != "å‘¨èŠ·è‹¥"
 	 	 && !me->query_skill("jiuyin-baiguzhua",1) ) {
-			command("say ÄãÏÖÔÚ²»ÊÇÎÒµÄÍ½µÜ£¬Ò²Ã»ÓĞ´ÓÎÒÕâÀïÑ§µ½Ê²Ã´¶«Î÷¡£¾ÍÆ¾ÄãÏÖÔÚµÄÎä¹¦ºÜÄÑ×öµ½ÎäÁÖÖÁ×ğµÄ£¬Ò²¾Í¸üÌ¸²»ÉÏ¹â´ó¶ëáÒÁË¡£\n");
+			command("say ä½ ç°åœ¨ä¸æ˜¯æˆ‘çš„å¾’å¼Ÿï¼Œä¹Ÿæ²¡æœ‰ä»æˆ‘è¿™é‡Œå­¦åˆ°ä»€ä¹ˆä¸œè¥¿ã€‚å°±å‡­ä½ ç°åœ¨çš„æ­¦åŠŸå¾ˆéš¾åšåˆ°æ­¦æ—è‡³å°Šçš„ï¼Œä¹Ÿå°±æ›´è°ˆä¸ä¸Šå…‰å¤§å³¨åµ‹äº†ã€‚\n");
 			return 1;
 		}
-		command("say ¼ÈÈ»Èç´Ë£¬Äãµ½ÎÒÊ¦¸µÄÇÀïÑ¯ÎÊÒĞÌìÍÀÁúµÄÃØÃÜ°É¡£\n");
-		command("say ¹â´ó¶ëáÒµÄÏ£ÍûÖ»ÄÜ¼ÄÍĞÓëÄãÁË¡£\n");
+		command("say æ—¢ç„¶å¦‚æ­¤ï¼Œä½ åˆ°æˆ‘å¸ˆå‚…é‚£é‡Œè¯¢é—®å€šå¤©å± é¾™çš„ç§˜å¯†å§ã€‚\n");
+		command("say å…‰å¤§å³¨åµ‹çš„å¸Œæœ›åªèƒ½å¯„æ‰˜ä¸ä½ äº†ã€‚\n");
 		command("sigh");
 		me->set_temp("jiuyin140", 4 );
 		return 1;
 	}
-	message_vision("ÖÜÜÆÈôµ­µ­µØ¿´ÁË$NÒ»ÑÛ£¬Ò¡ÁËÒ¡Í·¡£\n", me);
+	message_vision("å‘¨èŠ·è‹¥æ·¡æ·¡åœ°çœ‹äº†$Nä¸€çœ¼ï¼Œæ‘‡äº†æ‘‡å¤´ã€‚\n", me);
 	return 1;
 }

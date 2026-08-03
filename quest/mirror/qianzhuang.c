@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-	set("short", "Ǯׯ");
+	set("short", "钱庄");
 	set("long", @LONG
-����һ�����ֺŵ�Ǯׯ�����м��������ʷ����ȫ�����ض��зֵꡣ����
-�е���Ʊ�����ǳ��ã�ͨ��ȫ������̨����һ������(paizi)��
+这是一家老字号的钱庄，已有几百年的历史，在全国各地都有分店。它发
+行的银票信誉非常好，通行全国。帐台上有一个牌子(paizi)。
 LONG
 	);
 	set("exits", ([
@@ -14,17 +14,17 @@ LONG
 	]));
         set("item_desc", ([
                 "paizi": @TEXT
-������Ǯׯ��Ŀǰ�����ṩ�ķ����У�
-convert(huan)     �һ�Ǯ�ҡ�
-deposit(cun)      ��Ǯ��
-withdraw(qu)      ȡǮ��
-check(cha)        ��ѯ��
-zhuanrock          תԪ������һ����ҡ�
-ÿ��ȡǮ������ɰٷ�֮һ�������ѣ���ׯ�����Ĵ���п�ȡ��
+这里是钱庄，目前我们提供的服务有：
+convert(huan)     兑换钱币。
+deposit(cun)      存钱。
+withdraw(qu)      取钱。
+check(cha)        查询存款。
+zhuanrock          转元宝给另一个玩家。
+每次取钱必需缴纳百分之一的手续费，敝庄会从你的存款中扣取。
 TEXT
         ]) );
 	setup();
 }
 
-//�Ǿ���
+//是镜像
 int is_mirror() { return 1; }

@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(YEL"ĞÛ»Æ"NOR, ({"xiong huang", "yao"}));
+        set_name(YEL"é›„é»„"NOR, ({"xiong huang", "yao"}));
         set_weight(500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-            set("unit", "Öê");
-            set("long", YEL"ÕâÊÇÒ»ÖêĞ¡²İ£¬¿ÉÊÇÎ¶µÀ·Ç³£µÄ´Ì±Ç£¬ÄãÕ¾ÔÚ¼¸Ã×Ô¶¶¼¿ÉÎÅµ½¡£\n"NOR);
+            set("unit", "æ ª");
+            set("long", YEL"è¿™æ˜¯ä¸€æ ªå°è‰ï¼Œå¯æ˜¯å‘³é“éå¸¸çš„åˆºé¼»ï¼Œä½ ç«™åœ¨å‡ ç±³è¿œéƒ½å¯é—»åˆ°ã€‚\n"NOR);
                set("medicine", "drug");
                 set("make/drug", 1);
             set("value", 100);

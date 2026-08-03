@@ -1,15 +1,15 @@
-// Room: wroad2.c ´óµÀ
+// Room: wroad2.c å¤§é“
 // By jpei
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "´óµÀ");
+	set("short", "å¤§é“");
 	set("long", @LONG
-ÕâÊÇÒ»ÌõÓÉÇàÊ¯ÆÌ³ÉµÄ´óµÀ£¬¶«±ß¼¸Àï´¦¾ÍÊÇÖøÃûµÄÊñ¶¼³É¶¼ÁË¡£
+è¿™æ˜¯ä¸€æ¡ç”±é’çŸ³é“ºæˆçš„å¤§é“ï¼Œä¸œè¾¹å‡ é‡Œå¤„å°±æ˜¯è‘—åçš„èœ€éƒ½æˆéƒ½äº†ã€‚
 LONG);
-	set("outdoors", "³É¶¼");
+	set("outdoors", "æˆéƒ½");
 
 	set("exits", ([
 		"east" : __DIR__"wroad1",

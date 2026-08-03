@@ -6,7 +6,7 @@
 inherit F_CLEAN_UP;
 
 #define MAP_DIR 	HELP_DIR + "map/"
-#define LINE  "\n©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n"
+#define LINE  "\nâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"
 string map_place(object room, mapping exits);
 
 string remove_ansi(string str)
@@ -27,16 +27,16 @@ string remove_ansi(string str)
 }
 
 string n_dir = "                   
-               £Ü           ©§           £¯
-                 £Ü         ©§         £¯
-                   £Ü       ©§       £¯
-                     £Ü     ©§     £¯\n";
+               ï¼¼           â”ƒ           ï¼
+                 ï¼¼         â”ƒ         ï¼
+                   ï¼¼       â”ƒ       ï¼
+                     ï¼¼     â”ƒ     ï¼\n";
 
 string s_dir = "
-                     £¯     ©§     £Ü
-                   £¯       ©§       £Ü
-                 £¯         ©§         £Ü
-               £¯           ©§           £Ü\n";
+                     ï¼     â”ƒ     ï¼¼
+                   ï¼       â”ƒ       ï¼¼
+                 ï¼         â”ƒ         ï¼¼
+               ï¼           â”ƒ           ï¼¼\n";
                        
 
 int main(object me, string arg)
@@ -46,7 +46,7 @@ int main(object me, string arg)
         mapping exits;
         
         if( me->is_busy() || me->is_fighting())
-        	return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+        	return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
         	
         if( !arg ) {
                 me->start_more(read_file(MAP_DIR + "map_all"));
@@ -56,15 +56,15 @@ int main(object me, string arg)
         if( arg == "here" ){
         	if( me->query("combat_exp") > 3000 || !me->query("enter_wuguan")){
         		if( me->query("balance") < 100 && ! wizardp(me) )
-        			return notify_fail("ÄãµÄ´æ¿î²»¹»Ò®£¬ÎŞ·¨ÏÔÊ¾µØÍ¼¡£\n");
+        			return notify_fail("ä½ çš„å­˜æ¬¾ä¸å¤Ÿè€¶ï¼Œæ— æ³•æ˜¾ç¤ºåœ°å›¾ã€‚\n");
         	}
         
         	if(!objectp(room = environment(me)))
-        		return notify_fail("ÄãÄ¿Ç°ËùÔÚÆæÌØ£¬ÎŞ·¨ÏÔÊ¾µØÍ¼£¬ÇëÍ¨ÖªÎ×Ê¦¡£\n");
+        		return notify_fail("ä½ ç›®å‰æ‰€åœ¨å¥‡ç‰¹ï¼Œæ— æ³•æ˜¾ç¤ºåœ°å›¾ï¼Œè¯·é€šçŸ¥å·«å¸ˆã€‚\n");
         
         	place = explode(base_name(room), "/");
         	if( place[0] != "area" && place[0] != "d" && place[1] != "snowman")
-        		return notify_fail("¶Ô²»Æğ£¬ÄãÄ¿Ç°Ëù´¦Ö®µØÎŞ·¨ÏÔÊ¾µØÍ¼¡£\n");
+        		return notify_fail("å¯¹ä¸èµ·ï¼Œä½ ç›®å‰æ‰€å¤„ä¹‹åœ°æ— æ³•æ˜¾ç¤ºåœ°å›¾ã€‚\n");
         		
         	if( sizeof(place) >= 3 && place[1] == "snowman")
         		str = MAP_DIR + "haiwai/" + room->query("region");
@@ -72,31 +72,31 @@ int main(object me, string arg)
         		str = MAP_DIR + place[1] + "/" + room->query("region");
         	else 	str = MAP_DIR + place[1];
         	
-        	//write(str+" Place[1] = "+place[1]+"£¬region = "+room->query("region")+"\n");
+        	//write(str+" Place[1] = "+place[1]+"ï¼Œregion = "+room->query("region")+"\n");
         	if( file_size(str) <= 0) 
-        		return notify_fail("¶Ô²»Æğ£¬ÄãÄ¿Ç°Ëù´¦Ö®µØÔİÊ±»¹ÎŞµØÍ¼¡£\n");
+        		return notify_fail("å¯¹ä¸èµ·ï¼Œä½ ç›®å‰æ‰€å¤„ä¹‹åœ°æš‚æ—¶è¿˜æ— åœ°å›¾ã€‚\n");
         
         	name = remove_ansi(room->query("short"));        
         	str = read_file(str);
 
       		if( strsrch(str, name) < 0 )
-      			return notify_fail("\n¶Ô²»Æğ£¬ÄãÄ¿Ç°Ëù´¦Ö®"+name+"ÔÚµØÍ¼ÖĞ²¢Ã»°üÀ¨¡£\n\n");
+      			return notify_fail("\nå¯¹ä¸èµ·ï¼Œä½ ç›®å‰æ‰€å¤„ä¹‹"+name+"åœ¨åœ°å›¾ä¸­å¹¶æ²¡åŒ…æ‹¬ã€‚\n\n");
       		
         	str = replace_string( str, name, HIW+name+NOR , 1);
-        	write(HIC"\nÄãÄ¿Ç°ËùÔÚµÄ"+name+"£¬ÒÔÁÁ°×É« "HIW"¡ö"HIC" ±êÖ¾ÔÚÏÂÃæµÄµØÍ¼ÖĞ£º"NOR+ LINE + str + LINE); 
+        	write(HIC"\nä½ ç›®å‰æ‰€åœ¨çš„"+name+"ï¼Œä»¥äº®ç™½è‰² "HIW"â– "HIC" æ ‡å¿—åœ¨ä¸‹é¢çš„åœ°å›¾ä¸­ï¼š"NOR+ LINE + str + LINE); 
         	me->start_busy(2);     
         	return 1;
         }
         
         if( arg == "place"){
         	if(!objectp(room = environment(me)))
-        		return notify_fail("ÄãÄ¿Ç°ËùÔÚÆæÌØ£¬ÎŞ·¨ÏÔÊ¾µØÍ¼£¬ÇëÍ¨ÖªÎ×Ê¦¡£\n");
+        		return notify_fail("ä½ ç›®å‰æ‰€åœ¨å¥‡ç‰¹ï¼Œæ— æ³•æ˜¾ç¤ºåœ°å›¾ï¼Œè¯·é€šçŸ¥å·«å¸ˆã€‚\n");
         	/*
         	if( strsrch(base_name(room), "/d") != 0 )
-        		return notify_fail("¶Ô²»Æğ£¬ÄãÄ¿Ç°Ëù´¦Ö®µØÎŞ·¨ÏÔÊ¾µØÍ¼¡£\n");
+        		return notify_fail("å¯¹ä¸èµ·ï¼Œä½ ç›®å‰æ‰€å¤„ä¹‹åœ°æ— æ³•æ˜¾ç¤ºåœ°å›¾ã€‚\n");
         	*/
         	if( !mapp(exits = room->query("exits")) ) 
-        		return notify_fail("ÕâÀïÃ»ÓĞÈÎºÎÃ÷ÏÔµÄ³öÂ·¡£\n");
+        		return notify_fail("è¿™é‡Œæ²¡æœ‰ä»»ä½•æ˜æ˜¾çš„å‡ºè·¯ã€‚\n");
  		
                 write(map_place(room, exits));
                 me->start_busy(2);
@@ -108,7 +108,7 @@ int main(object me, string arg)
         	return 1;
         }
         
-        else return notify_fail("Ä¿Ç°»¹Ã»ÓĞÕâ¸öµØÇøµÄµØÍ¼ÎÄ¼ş¡£\n");
+        else return notify_fail("ç›®å‰è¿˜æ²¡æœ‰è¿™ä¸ªåœ°åŒºçš„åœ°å›¾æ–‡ä»¶ã€‚\n");
 
 }
 
@@ -120,7 +120,7 @@ string map_place(object room, mapping exits)
 	
 	place = sort_array(keys(exits), 1);
  	my_room = HIW+remove_ansi(room->query("short"))+NOR;
-        str = HIC"\nÕâÀïÊÇ"+TASK_D->get_regions(base_name(room))+my_room+HIC"£¬¹²ÓĞ"+chinese_number(sizeof(place))+"¸ö³ö¿Ú£¬·Ö±ğÍ¨Íù£º"NOR+LINE;
+        str = HIC"\nè¿™é‡Œæ˜¯"+TASK_D->get_regions(base_name(room))+my_room+HIC"ï¼Œå…±æœ‰"+chinese_number(sizeof(place))+"ä¸ªå‡ºå£ï¼Œåˆ†åˆ«é€šå¾€ï¼š"NOR+LINE;
            
         for(i=0; i<sizeof(place); i++){
                 if( objectp(room = load_object(exits[place[i]])) )
@@ -141,10 +141,10 @@ string map_place(object room, mapping exits)
                 		case "east":      e1 = remove_ansi(room->query("short"))+"(E)";  break;
                 		case "eastup":	  e2 = remove_ansi(room->query("short"))+"(Eu)"; break;
                 		case "eastdown":  e3 = remove_ansi(room->query("short"))+"(Ed)"; break;
-                		case "enter":     o1 = "ÀïÃæ£º"+remove_ansi(room->query("short"))+"(Enter)"; break;
-                		case "out":       o2 = "ÍâÃæ£º"+remove_ansi(room->query("short"))+"(Out)"; break;
-                		case "up":        o3 = "ÉÏÃæ£º"+remove_ansi(room->query("short"))+"(Up)"; break;
-                		case "down":      o4 = "ÏÂÃæ£º"+remove_ansi(room->query("short"))+"(Down)"; break;
+                		case "enter":     o1 = "é‡Œé¢ï¼š"+remove_ansi(room->query("short"))+"(Enter)"; break;
+                		case "out":       o2 = "å¤–é¢ï¼š"+remove_ansi(room->query("short"))+"(Out)"; break;
+                		case "up":        o3 = "ä¸Šé¢ï¼š"+remove_ansi(room->query("short"))+"(Up)"; break;
+                		case "down":      o4 = "ä¸‹é¢ï¼š"+remove_ansi(room->query("short"))+"(Down)"; break;
                 	}
 	}
                 
@@ -156,40 +156,40 @@ string map_place(object room, mapping exits)
                 if(stringp(n1) || stringp(n2) || stringp(n3))
                 	str += sprintf("\n\t%-16s  %-16s  %-16s", n1, n2, n3);
                	if(stringp(n5) )
-                	str += sprintf("\n\t     £Ü   \t  %-16s £¯", n5 );
+                	str += sprintf("\n\t     ï¼¼   \t  %-16s ï¼", n5 );
                 str += n_dir;        	
-                str = replace_string( str, "£Ü", stringp(n1)?"£Ü":"  ");
-                str = replace_string( str, "©§", stringp(n2)?"©§":stringp(n4)?"©§":stringp(n5)?"©§":"  ");
-                str = replace_string( str, "£¯", stringp(n3)?"£¯":"  ");
+                str = replace_string( str, "ï¼¼", stringp(n1)?"ï¼¼":"  ");
+                str = replace_string( str, "â”ƒ", stringp(n2)?"â”ƒ":stringp(n4)?"â”ƒ":stringp(n5)?"â”ƒ":"  ");
+                str = replace_string( str, "ï¼", stringp(n3)?"ï¼":"  ");
      	}
         // end upper pic.
                 
         // drew middle pic.
         name = sprintf("      %10s   \t\t\t    %-16s", w2, e2);
-        name += sprintf("\n      %10s ¡û©¥©¥  %-10s  ©¥©¥¡ú %-16s\n", w1, my_room, e1);
+        name += sprintf("\n      %10s â†â”â”  %-10s  â”â”â†’ %-16s\n", w1, my_room, e1);
         name += sprintf("      %10s   \t\t\t    %-16s", w3, e3);
         if(stringp(w1) || stringp(w2) || stringp(w3) )
-        	name = replace_string( name, "¡û©¥©¥", "©¥©¥©¥");
-        else name = replace_string( name, "¡û©¥©¥", "      ");
+        	name = replace_string( name, "â†â”â”", "â”â”â”");
+        else name = replace_string( name, "â†â”â”", "      ");
        
        	if(stringp(e1) || stringp(e2) || stringp(e3) )
-        	name = replace_string( name, "©¥©¥¡ú", "©¥©¥©¥");
-        else name = replace_string( name, "©¥©¥¡ú", "      ");
+        	name = replace_string( name, "â”â”â†’", "â”â”â”");
+        else name = replace_string( name, "â”â”â†’", "      ");
         // end middle pic.
                 
         // drew lower pic.
         if(stringp(s1) || stringp(s2) || stringp(s3) || stringp(s4) || stringp(s5)){
                 name += sprintf(s_dir);
                 if(stringp(s4) )
-                	name += sprintf("\t     £¯   \t  %-16s £Ü\n", s4 );
+                	name += sprintf("\t     ï¼   \t  %-16s ï¼¼\n", s4 );
                 	
                 if(stringp(s1) || stringp(s2) || stringp(s3))
                 	name += sprintf("\t%-16s  %-16s  %-16s\n", s1, s2, s3);
                	if(stringp(s5) )
                 	name += sprintf("\t\t\t  %-18s\n", s5 );
-                name = replace_string( name, "£Ü", stringp(s3)?"£Ü":"  ");
-                name = replace_string( name, "©§", stringp(s2)?"©§":stringp(s4)?"©§":stringp(s5)?"©§":"  ");
-                name = replace_string( name, "£¯", stringp(s1)?"£¯":"  ");
+                name = replace_string( name, "ï¼¼", stringp(s3)?"ï¼¼":"  ");
+                name = replace_string( name, "â”ƒ", stringp(s2)?"â”ƒ":stringp(s4)?"â”ƒ":stringp(s5)?"â”ƒ":"  ");
+                name = replace_string( name, "ï¼", stringp(s1)?"ï¼":"  ");
         }
                 
         // end lower pic.
@@ -212,13 +212,13 @@ string map_place(object room, mapping exits)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½£º
-          map        	: ÏÔÊ¾È«Óò´óµØÍ¼¡£
-	  map <µØÇø>	: ÏÔÊ¾´ËµØÇøµÄµØÍ¼¡£
-	  map place     : ÏÔÊ¾ºÍÄãÄ¿Ç°ËùÔÚÏàÁ¬µÄÇøÓò¡£
-	  map here	: ÏÔÊ¾ÄãÄ¿Ç°ËùÔÚµØÔÚµØÍ¼ÖĞµÄÎ»ÖÃ(»¹²»ÍêÉÆ)¡£
+æŒ‡ä»¤æ ¼å¼ï¼š
+          map        	: æ˜¾ç¤ºå…¨åŸŸå¤§åœ°å›¾ã€‚
+	  map <åœ°åŒº>	: æ˜¾ç¤ºæ­¤åœ°åŒºçš„åœ°å›¾ã€‚
+	  map place     : æ˜¾ç¤ºå’Œä½ ç›®å‰æ‰€åœ¨ç›¸è¿çš„åŒºåŸŸã€‚
+	  map here	: æ˜¾ç¤ºä½ ç›®å‰æ‰€åœ¨åœ°åœ¨åœ°å›¾ä¸­çš„ä½ç½®(è¿˜ä¸å®Œå–„)ã€‚
 	  
-Õâ¸öÖ¸ÁîÈÃÄã¿ÉÒÔ»ñÈ¡Ò»¸öµØÇøµÄÏà¹ØµØÍ¼¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ å¯ä»¥è·å–ä¸€ä¸ªåœ°åŒºçš„ç›¸å…³åœ°å›¾ã€‚
 HELP);
         return 1;
 }

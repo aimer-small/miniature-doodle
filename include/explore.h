@@ -1,95 +1,95 @@
 //      File    :  /include/explore.h
 
-// ÃÅÅÉ¶ÔÓ¦µÄÊıÖµ
+// é—¨æ´¾å¯¹åº”çš„æ•°å€¼
 #ifndef __EXPLORE__
 #define __EXPLORE__
 #define EXPLORE_LEVEL 0
 #endif
 string *titlescolor = ({ HIY, HIR, HIW });
 
-string *dietime = ({ "ÈıÌì", "Á½Ìì", "Ò»¸öÔÂ", "ÎåÌì", "Ê®Ìì", "¶şÊ®Ìì" });
+string *dietime = ({ "ä¸‰å¤©", "ä¸¤å¤©", "ä¸€ä¸ªæœˆ", "äº”å¤©", "åå¤©", "äºŒåå¤©" });
 
 int Get_Family_Name(object ob, string family)
 {
         switch(family){
-                case "ÉÙÁÖÅÉ" : return 1; break;
-                case "Îäµ±ÅÉ" : return 2; break;
-                case "»ªÉ½ÅÉ" : return 3; break;
-                case "Ø¤°ï"   : return 4; break;
-                case "ÌÒ»¨µº" : return 5; break;
-                case "ĞÇËŞÅÉ" : return 6; break;
-                case "¹ÃËÕÄ½Èİ":return 7; break;
-                case "Ã÷½Ì"  :  return 8; break;
-                case "¹ÅÄ¹ÅÉ" : return 9; break;
-                case "¶ëáÒÅÉ" : return 10;break;
-                case "È«ÕæÅÉ" : return 11;break;
+                case "å°‘æ—æ´¾" : return 1; break;
+                case "æ­¦å½“æ´¾" : return 2; break;
+                case "åå±±æ´¾" : return 3; break;
+                case "ä¸å¸®"   : return 4; break;
+                case "æ¡ƒèŠ±å²›" : return 5; break;
+                case "æ˜Ÿå®¿æ´¾" : return 6; break;
+                case "å§‘è‹æ…•å®¹":return 7; break;
+                case "æ˜æ•™"  :  return 8; break;
+                case "å¤å¢“æ´¾" : return 9; break;
+                case "å³¨åµ‹æ´¾" : return 10;break;
+                case "å…¨çœŸæ´¾" : return 11;break;
         }
 }
 
-// Ä¿Â¼¶ÔÓ¦µÄÖĞÎÄÃû³Æ
+// ç›®å½•å¯¹åº”çš„ä¸­æ–‡åç§°
 mapping place = ([
-"/d/bdao/" : "±ù»ğµº",
-"/d/chengdu/" : "³É¶¼",
-"/d/city/"  :  "ÑïÖİ³Ç",
-"/d/city2/" :  "±±¾©³Ç",
-"/d/death/" :  "µØÓü",
-"/d/diaoyu/" :  "µöÓãµº",
-"/d/emei/"  : "¶ëáÒÉ½",
-"/d/gaibang/" : "Ø¤°ï",
-"/d/gaochang/" : "¸ß²ı",
-"/d/guiyun/"  : "¹éÔÆ×¯",
-"/d/gumu/"  : "¹ÅÄ¹ÓÄ¾³",
-"/d/hmy/" : "ºÚÄ¹ÑÂ",
-"/d/huanggon/" : "»Ê¹¬",
-"/d/huashan/" : "»ªÉ½",
-"/d/jiaxing/" : "¼ÎĞË³Ç",
-"/d/liaoguo/" : "ÁÉ¹ú",
-"/d/mj/" : "Ã÷½Ì¹âÃ÷¶¥",
-"/d/murong/" : "Ä½ÈİÉ½×¯",
-"/d/npc/"  :  "½ûÖ¹Ä¿Â¼",
-"/d/player/" : "½ûÖ¹Ä¿Â¼",
-"/d/quanzhou/" : "ÈªÖİ³Ç",
-"/d/quest/" : "½ûÖ¹Ä¿Â¼",
-"/d/qz/" : "ÖÕÄÏÉ½",
-"/d/shaolin/" : "áÔÉ½ÉÙÁÖËÂ",
-"/d/shenlong/" : "ÉñÁúµº",
-"/d/taishan/" : "ÌìÉ½",
-"/d/thd/" : "ÌÒ»¨µº",
-"/d/village/" : "»ªÉ½´å",
-"/d/wizard/" : "½ûÖ¹Ä¿Â¼",
-"/d/working/" : "½ûÖ¹Ä¿Â¼",
-"/d/wudang/" : "Îäµ±É½",
-"/d/xiangyang/" : "ÏåÑô³Ç",
-"/d/xiangyang_old/" : "½ûÖ¹Ä¿Â¼",
-"/d/xingxiu/" : "Î÷ÓòĞÇËŞº£",
-"/d/xingxiu_old/"  : "½ûÖ¹Ä¿Â¼",
+"/d/bdao/" : "å†°ç«å²›",
+"/d/chengdu/" : "æˆéƒ½",
+"/d/city/"  :  "æ‰¬å·åŸ",
+"/d/city2/" :  "åŒ—äº¬åŸ",
+"/d/death/" :  "åœ°ç‹±",
+"/d/diaoyu/" :  "é’“é±¼å²›",
+"/d/emei/"  : "å³¨åµ‹å±±",
+"/d/gaibang/" : "ä¸å¸®",
+"/d/gaochang/" : "é«˜æ˜Œ",
+"/d/guiyun/"  : "å½’äº‘åº„",
+"/d/gumu/"  : "å¤å¢“å¹½å¢ƒ",
+"/d/hmy/" : "é»‘å¢“å´–",
+"/d/huanggon/" : "çš‡å®«",
+"/d/huashan/" : "åå±±",
+"/d/jiaxing/" : "å˜‰å…´åŸ",
+"/d/liaoguo/" : "è¾½å›½",
+"/d/mj/" : "æ˜æ•™å…‰æ˜é¡¶",
+"/d/murong/" : "æ…•å®¹å±±åº„",
+"/d/npc/"  :  "ç¦æ­¢ç›®å½•",
+"/d/player/" : "ç¦æ­¢ç›®å½•",
+"/d/quanzhou/" : "æ³‰å·åŸ",
+"/d/quest/" : "ç¦æ­¢ç›®å½•",
+"/d/qz/" : "ç»ˆå—å±±",
+"/d/shaolin/" : "åµ©å±±å°‘æ—å¯º",
+"/d/shenlong/" : "ç¥é¾™å²›",
+"/d/taishan/" : "å¤©å±±",
+"/d/thd/" : "æ¡ƒèŠ±å²›",
+"/d/village/" : "åå±±æ‘",
+"/d/wizard/" : "ç¦æ­¢ç›®å½•",
+"/d/working/" : "ç¦æ­¢ç›®å½•",
+"/d/wudang/" : "æ­¦å½“å±±",
+"/d/xiangyang/" : "è¥„é˜³åŸ",
+"/d/xiangyang_old/" : "ç¦æ­¢ç›®å½•",
+"/d/xingxiu/" : "è¥¿åŸŸæ˜Ÿå®¿æµ·",
+"/d/xingxiu_old/"  : "ç¦æ­¢ç›®å½•",
 ]);
 
 string *damage_types = ({
-  "²ÁÉË",
-  "¸îÉË",
-  "´ÌÉË",
-  "ğöÉË",
-  "ÄÚÉË",
-  "¶¾ÉË",
-  "ÕğÉË",
-  "À­ÉË",
-  "ÔÒÉË",
-  "×¥ÉË",
-  "±ŞÉË",
-  "³éÉË",
+  "æ“¦ä¼¤",
+  "å‰²ä¼¤",
+  "åˆºä¼¤",
+  "ç˜€ä¼¤",
+  "å†…ä¼¤",
+  "æ¯’ä¼¤",
+  "éœ‡ä¼¤",
+  "æ‹‰ä¼¤",
+  "ç ¸ä¼¤",
+  "æŠ“ä¼¤",
+  "é­ä¼¤",
+  "æŠ½ä¼¤",
 });
 
 string *families = ({
-  "ÉÙÁÖÅÉ",
-  "Îäµ±ÅÉ",
-  "Ø¤°ï",
-  "ÌÒ»¨",
-  "ĞÇËŞÅÉ",
-  "¹ÃËÕÄ½Èİ",
-  "Ã÷½Ì",
-  "¹ÅÄ¹ÅÉ",
-  "¶ëáÒÅÉ",
-  "È«ÕæÅÉ",  
+  "å°‘æ—æ´¾",
+  "æ­¦å½“æ´¾",
+  "ä¸å¸®",
+  "æ¡ƒèŠ±",
+  "æ˜Ÿå®¿æ´¾",
+  "å§‘è‹æ…•å®¹",
+  "æ˜æ•™",
+  "å¤å¢“æ´¾",
+  "å³¨åµ‹æ´¾",
+  "å…¨çœŸæ´¾",  
 });
 

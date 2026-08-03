@@ -1,10 +1,10 @@
 inherit NPC;
 void create()
 {
-        set_name("²Ø×å¸¾Å®", ({ "zangzu funv", "woman"}));
-        set("gender", "Å®ÐÔ");
+        set_name("è—æ—å¦‡å¥³", ({ "zangzu funv", "woman"}));
+        set("gender", "å¥³æ€§");
         set("age", 25);
-        set("long", "Ò»Î»ÈÈÇéºÃ¿ÍµÄ²Ø×å¸¾Å®¡£\n");
+        set("long", "ä¸€ä½çƒ­æƒ…å¥½å®¢çš„è—æ—å¦‡å¥³ã€‚\n");
         set("attitude", "friendly");
         set("combat_exp", 500);
         set("str", 18);
@@ -24,7 +24,7 @@ void create()
         setup();
         set("chat_chance", 1);
         set("chat_msg", ({
-"²Ø×å¸¾Å®ºÃÆæµØ¿´×ÅÄã£¬µÀ: ÄãÊÇ´ÓÄÇÀïÀ´µÄ£¿ÒÔÇ°Ã»¼û¹ýÄã¡£\n",
+"è—æ—å¦‡å¥³å¥½å¥‡åœ°çœ‹ç€ä½ ï¼Œé“: ä½ æ˜¯ä»Žé‚£é‡Œæ¥çš„ï¼Ÿä»¥å‰æ²¡è§è¿‡ä½ ã€‚\n",
         }) );
         carry_object(ARMOR_D("pipao"))->wear();
         carry_object(FOOD_D("youcha"));

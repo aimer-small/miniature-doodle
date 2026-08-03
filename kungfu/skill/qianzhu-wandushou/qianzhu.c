@@ -1,4 +1,4 @@
-// qianzhu.c ǧ����
+// qianzhu.c 千蛛万毒
 // by Lsxk@HSBBS
 
 #include <ansi.h>
@@ -8,7 +8,7 @@ inherit F_SSERVER;
 int perform_jigong(object,object);
 int perform_normal(object,object);
 
-string perform_name(){ return HIR"ǧ"HIG"��"HIW"��"HIB"��"NOR;}
+string perform_name(){ return HIR"千"HIG"蛛"HIW"万"HIB"毒"NOR;}
 
 int perform(object me, object target)
 {
@@ -18,32 +18,32 @@ int perform(object me, object target)
         
         if( !objectp(target) || !target->is_character()
            || !me->is_fighting(target) || !living(target) )
-                return notify_fail("��ǧ���򶾡�����ֻ�ܶ�ս���еĶ���ʹ�á�\n");
+                return notify_fail("「千蛛万毒」绝招只能对战斗中的对手使用。\n");
 
         if( (int)me->query_skill("qianzhu-wandushou", 1) < 150 )
-                return notify_fail("���ǧ�����ֹ�����ԶԶ�������޷�ʹ�á�ǧ���򶾡����У�\n");
+                return notify_fail("你的千蛛万毒手功力还远远不够，无法使用「千蛛万毒」绝招！\n");
 
         if( me->query_temp("weapon") )
-                return notify_fail("�������ֲ���ʹ�á�ǧ���򶾡���\n");
+                return notify_fail("你必须空手才能使用「千蛛万毒」！\n");
 
         if (me->query_skill_prepared("hand") != "qianzhu-wandushou" ||
             me->query_skill_mapped("parry") != "qianzhu-wandushou")
-                return notify_fail("������Ƚ�ǧ�������������ַ�֮�в��С�\n");
+                return notify_fail("你必须先将千蛛万毒手运用于手法之中才行。\n");
 
         if( (int)me->query("max_neili") < 2000 )
-                return notify_fail("���������Ϊ���㣬ʹ������ǧ���򶾡����У�\n");     
+                return notify_fail("你的内力修为不足，使不出「千蛛万毒」绝招！\n");     
 
         if( (int)me->query("neili") < 500 )
-                return notify_fail("����������㣬ʹ������ǧ���򶾡����У�\n");     
+                return notify_fail("你的内力不足，使不出「千蛛万毒」绝招！\n");     
 
         if( (int)me->query_skill("hand", 1) < 150 )
-                return notify_fail("����ַ�������죬ʹ������ǧ���򶾡����У�\n");
+                return notify_fail("你的手法不够娴熟，使不出「千蛛万毒」绝招！\n");
 
-        if( me->query("env/ǧ����")=="����"){
+        if( me->query("env/千蛛万毒")=="疾攻"){
              perform_jigong(me,target);
         }
         else{
-             msg= HIB "\n$N����ǧ������˫�֣���������ʱ��ʱ�֣�\n"NOR;
+             msg= HIB "\n$N暗运千蛛万毒于双手，脸上蓝气时隐时现！\n"NOR;
              message_vision(msg, me, target); 
              perform_normal(me,target);
         }
@@ -67,9 +67,9 @@ int perform_jigong(object me,object target)
     me->add_temp("apply/attack", j);
     me->add_temp("apply/damage", j/2);
     me->add_temp("apply/hand", k);
-    msg= HIR "\n$N����ǧ���򶾹��������ڻ���綾����˫�ִ����ȵ�����С���ˣ����������缱�籩���ع���$n��\n"NOR;
+    msg= HIR "\n$N暗运千蛛万毒功，将体内积蓄剧毒逼于双手处，喝道：“小心了！”，便是如急风暴雨般地攻向$n！\n"NOR;
     message_vision(msg, me, target);
-    me->start_perform(4, "��ǧ���򶾡�");
+    me->start_perform(4, "「千蛛万毒」");
 if(!userp(target))  target->start_busy(2);
                                  target->apply_condition("no_fight",1);
                                  target->apply_condition("no_perform",1);
@@ -102,7 +102,7 @@ int perform_normal(object me,object target)
     && me->query_skill_prepared("hand") == "qianzhu-wandushou"
     && me->query_skill_mapped("parry") == "qianzhu-wandushou")
     {
-      me->start_perform(i+1,"��ǧ���򶾡�");
+      me->start_perform(i+1,"「千蛛万毒」");
       me->set_temp("qzwd_pfm2", 1);
       me->add_temp("apply/attack", (int)me->query_skill("qianzhu-wandushou", 1)/4);
       me->add_temp("apply/hand", (int)me->query_skill("hand", 1)/3);
@@ -115,24 +115,24 @@ int perform_normal(object me,object target)
       return 1;
     }
     else
-    message_vision(HIB"\n$N��ǧ���򶾾���ʹ����ϣ������غ�����һ������\n"NOR,me);
+    message_vision(HIB"\n$N的千蛛万毒绝技使用完毕，长长地呼出了一口气！\n"NOR,me);
     return 1;
 
 }
 
 int help(object me)
 {
-   write(WHT"\nǧ�����֡�"HIR"ǧ"HIG"��"HIW"��"HIB"��"WHT"����"NOR"\n");
+   write(WHT"\n千蛛万毒手「"HIR"千"HIG"蛛"HIW"万"HIB"毒"WHT"」："NOR"\n");
    write(@HELP
-   ���С�ǧ���򶾡�������Ч��������ͨ��SET���õ���
-   1��set ǧ���� ����  Ч��������˷���ǿ������������
-   2��unset ǧ���� Ч���������Թ������֣�500���󽫻��ڻ��ͨ��
+   此招「千蛛万毒」有两种效果，可以通过SET来得到。
+   1、set 千蛛万毒 疾攻  效果：向敌人发动强力连续攻击。
+   2、unset 千蛛万毒 效果：持续性攻击对手，500级后将会融会贯通。
 
-   Ҫ��  ���� 500 ���ϣ�
-           ������� 2000 ���ϣ� 
-           ǧ������ 150 ���ϣ�
-           �����ַ� 150 ���ϣ�
-           ���ֱ��ַ�Ϊǧ�����֡�
+   要求：  内力 500 以上；
+           最大内力 2000 以上； 
+           千蛛万毒手 150 以上；
+           基本手法 150 以上；
+           空手备手法为千蛛万毒手。
 
 HELP
    );

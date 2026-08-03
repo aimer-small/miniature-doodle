@@ -1,13 +1,13 @@
-// xdong.c ʯ��
+// xdong.c 石洞
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short", HIB"ʯ��"NOR);
+        set("short", HIB"石洞"NOR);
         set("long", @LONG
-�˴�ΪһСɽ�����м�͸��һ����⣬�����촰һ�㡣�������롢���
-ʯ�������ߵ�һӦ��ȫ��
+此处为一小山洞，中间透入一线天光，宛如天窗一般。这里陶碗、土灶、
+石床、厨具等一应俱全。
 LONG);
 	set("exits",([
 		"out" : __DIR__"shishan1",

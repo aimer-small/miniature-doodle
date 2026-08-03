@@ -3,11 +3,11 @@ inherit FIGHTER;
 //#include "/d/city/npc/skills_pfm.h";
 void create()
 {
-    	set_name("Ø¤°ïµÜ×Ó", ({"gaibang dizi", "dizi"}));
-    	set("gender", "ÄĞĞÔ");
+    	set_name("ä¸å¸®å¼Ÿå­", ({"gaibang dizi", "dizi"}));
+    	set("gender", "ç”·æ€§");
     	set("age", 65);
     	set("per",24);
-    	set("long", "Ø¤°ï³¤ÀÏ¡£\n");
+    	set("long", "ä¸å¸®é•¿è€ã€‚\n");
     	set("attitude", "friendly");
       set("no_bark",1);
       set("dgb/wugou",6);
@@ -54,7 +54,7 @@ void create()
       		(: perform_action, "strike.xiao" :),
         }));
 
-    	create_family("Ø¤°ï", 19, "¾Å´ü³¤ÀÏ");
+    	create_family("ä¸å¸®", 19, "ä¹è¢‹é•¿è€");
         set_temp("apply/damage", 70);
         set_temp("apply/dodge", 80);
         set_temp("apply/attack", 80);
@@ -73,8 +73,8 @@ void init()
 	ob->set("setok",1);
 	i=400;	
    	ob->set("party","gb");  	  
-	ob->copy_menpai(({ob->query("party")}),random(2),random(2),100);    //¸´ÖÆnpcµÄÃÅÅÉÎä¹¦£¬                                                   
-	ob->copy_state();				//¸ù¾İÃÅÅÉ¸üĞÂnpc µÄÒ»Ğ©×´Ì¬
+	ob->copy_menpai(({ob->query("party")}),random(2),random(2),100);    //å¤åˆ¶npcçš„é—¨æ´¾æ­¦åŠŸï¼Œ                                                   
+	ob->copy_state();				//æ ¹æ®é—¨æ´¾æ›´æ–°npc çš„ä¸€äº›çŠ¶æ€
 	ob->set("max_qi", 25000);
 	ob->set("eff_qi", 25000);
 	ob->set("qi", 25000);

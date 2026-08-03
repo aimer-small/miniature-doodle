@@ -1,17 +1,17 @@
-// kaoya.c ¿¾Ñ¼
+// kaoya.c çƒ¤é¸­
 
 inherit ITEM;
 inherit F_FOOD;
 #include <ansi.h>
 void create()
 {
-set_name(MAG"¿¾Ñ¼"NOR, ({"kaoya", "ya"}));
+set_name(MAG"çƒ¤é¸­"NOR, ({"kaoya", "ya"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»Ö»·ÊµÃÁ÷ÓÍµÄ±±¾©¿¾Ñ¼¡£\n");
-		set("unit", "Ö»");
+		set("long", "ä¸€åªè‚¥å¾—æµæ²¹çš„åŒ—äº¬çƒ¤é¸­ã€‚\n");
+		set("unit", "åª");
 		set("value", 150);
 		set("food_remaining", 3);
 		set("food_supply", 60);

@@ -1,16 +1,16 @@
-// fangtianlao.c ·½ÌìÀÍ
+// fangtianlao.c æ–¹å¤©åŠ³
 
 inherit NPC;
 
 void create()
 {
-	set_name("·½ÌìÀÍ", ({ "fang tianlao","tianlao","fang" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æ–¹å¤©åŠ³", ({ "fang tianlao","tianlao","fang" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 52);
-	set("long", "Õâ¸öÀÏÕßÁ³ÈôÖìÉ°£¬Ò»¸ö¾ÆÔã±Ç×Ó»ğÒ²°ãºì£¬Ğ¦ÃĞÃĞµÄÆÄÎª
-ºÍ°ª¿ÉÇ×¡£Ö»ÊÇÉí²ÄÂÔÎª°«Ğ¡¡£\n");
+	set("long", "è¿™ä¸ªè€è€…è„¸è‹¥æœ±ç ‚ï¼Œä¸€ä¸ªé…’ç³Ÿé¼»å­ç«ä¹Ÿèˆ¬çº¢ï¼Œç¬‘çœ¯çœ¯çš„é¢‡ä¸º
+å’Œè”¼å¯äº²ã€‚åªæ˜¯èº«æç•¥ä¸ºçŸ®å°ã€‚\n");
 	set("attitude", "peaceful");
-        set("nickname", "Î÷ÓòÉÙÁÖ³¤ÀÏ");
+        set("nickname", "è¥¿åŸŸå°‘æ—é•¿è€");
 	set("class", "bonze");
 	set("str", 35);
 	set("con", 35);
@@ -46,11 +46,11 @@ void create()
         map_skill("sword", "damo-jian");
         prepare_skill("finger", "yizhi-chan");
 
-	create_family("Î÷ÓòÉÙÁÖ", 19, "µÜ×Ó");
+	create_family("è¥¿åŸŸå°‘æ—", 19, "å¼Ÿå­");
 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"·½ÌìÀÍËµµÀ£¬Ï°ÎäËä¿ÉÇ¿Éí½¡Ìå£¬µ«ÁìÎòìø×Ú·ğ·¨²ÅÊÇ³ö¼ÒÈËÖ®±¾°¡¡£\n",
+		"æ–¹å¤©åŠ³è¯´é“ï¼Œä¹ æ­¦è™½å¯å¼ºèº«å¥ä½“ï¼Œä½†é¢†æ‚Ÿç¦…å®—ä½›æ³•æ‰æ˜¯å‡ºå®¶äººä¹‹æœ¬å•Šã€‚\n",
                  (: random_move :)
 	}) );
 

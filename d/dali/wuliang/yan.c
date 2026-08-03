@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "´óÑÒÊ¯");
+	set("short", "å¤§å²©çŸ³");
 	set("long", @LONG
-ÄãÌøÉÏÁËÒ»¿é´óÑÒÊ¯£¬ÑÒÊ¯ÉÏÂä½ÅµÄµØ·½²¢²»´ó£¬Äã¿´¼ûÑÒÊ¯ÉÏ×ø×ÅÓĞÈË£¬
-Ö»ÊÇÕâÈËÊ¼ÖÕÒ»¶¯²»¶¯£¬ÉíÉÏÓÖ´©×ÅÇàÅÛ£¬ÓëÇàÑÒÍ¬É«¡£
+ä½ è·³ä¸Šäº†ä¸€å—å¤§å²©çŸ³ï¼Œå²©çŸ³ä¸Šè½è„šçš„åœ°æ–¹å¹¶ä¸å¤§ï¼Œä½ çœ‹è§å²©çŸ³ä¸Šåç€æœ‰äººï¼Œ
+åªæ˜¯è¿™äººå§‹ç»ˆä¸€åŠ¨ä¸åŠ¨ï¼Œèº«ä¸Šåˆç©¿ç€é’è¢ï¼Œä¸é’å²©åŒè‰²ã€‚
 LONG
 	);
-        set("outdoors", "´óÀí");
+        set("outdoors", "å¤§ç†");
         set("objects", ([
 	    __DIR__"npc/dyq": 1,
 	]));
@@ -28,12 +28,12 @@ int do_jump(string arg)
       object me;
       me = this_player();
       if (arg !="down") 
-        return notify_fail("ÄãÒªµ½ÄÇÈ¥£¿\n");
+        return notify_fail("ä½ è¦åˆ°é‚£å»ï¼Ÿ\n");
       if( arg=="down"){
-        write("Äã×İÉíÌøÏÂÁËÑÒÊ¯¡£\n");
-        message("vision",me->name() + "Ò»×İÉíÌøÏÂÁËÑÒÊ¯¡£\n",environment(me), ({me}) );
+        write("ä½ çºµèº«è·³ä¸‹äº†å²©çŸ³ã€‚\n");
+        message("vision",me->name() + "ä¸€çºµèº«è·³ä¸‹äº†å²©çŸ³ã€‚\n",environment(me), ({me}) );
         me->move(__DIR__"anbian");
-        message("vision",me->name() + "×ßÁË¹ıÀ´¡£\n",environment(me), ({me}) );
+        message("vision",me->name() + "èµ°äº†è¿‡æ¥ã€‚\n",environment(me), ({me}) );
         }
        return 1;
 }

@@ -12,8 +12,8 @@ void create()
 
 	name = RNAME_D->get_random_name(i);
 	set_name(name["name"], name["id"]);
-   set("title",HIR"ÉñÃØÈËÎï"NOR);
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+   set("title",HIR"ç¥ç§˜äººç‰©"NOR);
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", random(20)+25);      
 	set("str", 20+random(5));
 	set("int", 20+random(5));  
@@ -61,7 +61,7 @@ void check_escape(object me,object ob)
     if(!objectp(me)) return;
 
     if(me->is_fighting()){
-        message_vision(HIC"\n$N¿´$nÀ¹×¡ÁË¶ÔÊÖ£¬ Á¬Ã¦ÕÒ×¼»ú»áÌÓÁË¿ªÈ¥£¡\n"NOR,ob,me);
+        message_vision(HIC"\n$Nçœ‹$næ‹¦ä½äº†å¯¹æ‰‹ï¼Œ è¿å¿™æ‰¾å‡†æœºä¼šé€ƒäº†å¼€å»ï¼\n"NOR,ob,me);
         destruct(ob);
         return;
     }
@@ -83,7 +83,7 @@ void dest(object ob)
 {
 	if (!ob) return;
 	if (!environment(ob)) return;
-    message_vision("$NÍ»È»·¢ÏÖÖÜÎ§Ã»É¶ÈË£¬¼±¼±Ã¦Ã¦µÄ×ß¿ªÁË¡£\n", ob);
+    message_vision("$Nçªç„¶å‘ç°å‘¨å›´æ²¡å•¥äººï¼Œæ€¥æ€¥å¿™å¿™çš„èµ°å¼€äº†ã€‚\n", ob);
 	destruct(ob);
 }
 

@@ -1,5 +1,5 @@
 //by jhkl@sd
-//ÃâµÃpotÎŞÎ½µÄÀË·Ñ
+//å…å¾—potæ— è°“çš„æµªè´¹
 //
 
 inherit ROOM;
@@ -10,30 +10,30 @@ int withdraw(string arg, object ob);
 
 void create ()
 {
-  set ("short", "Ç±ÄÜÒøĞĞ");
+  set ("short", "æ½œèƒ½é“¶è¡Œ");
   set ("long", @LONG
 
-ÕâÊÇÒ»¼ÒÓÉÊé½£Î×Ê¦¿ª·¢×é¿ªÉèµÄ×¨ÎªÍæ¼Ò´¢´æÇ±ÄÜµÄÒøĞĞ¡£
-ÉùÓş·Ç³£µÄºÃ£¬Í¯ÛÅÎŞÆÛ£¬ÔÚÈ«¹úÒ²Ö»ÓĞ´ËÒ»¼Ò£¬±ğÎŞ·ÖºÅ¡£
-ÔÚÄÏÃæÓĞÒ»¿éÓÃÒ»Õû¿é´óÀíÊ¯µñ¿ÌµÄÌìÈ»ÆÁ·ç(pingfeng)¡£
-ÒøĞĞµÄÃÅ¿Ú¹ÒÓĞÒ»¿é»Æ½ğ×öµÄÅÆ×Ó(paizi)¡£
+è¿™æ˜¯ä¸€å®¶ç”±ä¹¦å‰‘å·«å¸ˆå¼€å‘ç»„å¼€è®¾çš„ä¸“ä¸ºç©å®¶å‚¨å­˜æ½œèƒ½çš„é“¶è¡Œã€‚
+å£°èª‰éå¸¸çš„å¥½ï¼Œç«¥åŸæ— æ¬ºï¼Œåœ¨å…¨å›½ä¹Ÿåªæœ‰æ­¤ä¸€å®¶ï¼Œåˆ«æ— åˆ†å·ã€‚
+åœ¨å—é¢æœ‰ä¸€å—ç”¨ä¸€æ•´å—å¤§ç†çŸ³é›•åˆ»çš„å¤©ç„¶å±é£(pingfeng)ã€‚
+é“¶è¡Œçš„é—¨å£æŒ‚æœ‰ä¸€å—é»„é‡‘åšçš„ç‰Œå­(paizi)ã€‚
 
 LONG);
   set("item_desc", ([
                 "paizi": @TEXT
-ÕâÀïÊÇÇ±ÄÜÒøĞĞ£¬Ä¿Ç°ÎÒÃÇÌá¹©µÄ·şÎñÓĞ£º
+è¿™é‡Œæ˜¯æ½œèƒ½é“¶è¡Œï¼Œç›®å‰æˆ‘ä»¬æä¾›çš„æœåŠ¡æœ‰ï¼š
 
-qn_cha         ²éÇ±ÄÜ¡£
-qn_cun         ´æÇ±ÄÜ¡£
-qn_qu          È¡Ç±ÄÜ¡£
+qn_cha         æŸ¥æ½œèƒ½ã€‚
+qn_cun         å­˜æ½œèƒ½ã€‚
+qn_qu          å–æ½œèƒ½ã€‚
 
-×¢Òâ£ºÉÏÏŞÊÇÒ»Ç§Íò¡£
-Áí£º  ½­ºşÅóÓÑÈ¡µÄÊ±ºò»á¿Ûµô0.1%µÄÇ±ÄÜ£¬
+æ³¨æ„ï¼šä¸Šé™æ˜¯ä¸€åƒä¸‡ã€‚
+å¦ï¼š  æ±Ÿæ¹–æœ‹å‹å–çš„æ—¶å€™ä¼šæ‰£æ‰0.1%çš„æ½œèƒ½ï¼Œ
      
 TEXT,
-      "pingfeng": "Õâ¸ö´óÀíÊ¯ÆÁ·çËÆºõ¿ÉÒÔÍÆ¿ª(push)¡£\n",
-      "ÆÁ·ç" : "Õâ¸ö´óÀíÊ¯ÆÁ·çËÆºõ¿ÉÒÔÍÆ¿ª(push)¡£\n",
-      "´óÀíÊ¯ÆÁ·ç" : "Õâ¸ö´óÀíÊ¯ÆÁ·çËÆºõ¿ÉÒÔÍÆ¿ª(push)¡£\n"
+      "pingfeng": "è¿™ä¸ªå¤§ç†çŸ³å±é£ä¼¼ä¹å¯ä»¥æ¨å¼€(push)ã€‚\n",
+      "å±é£" : "è¿™ä¸ªå¤§ç†çŸ³å±é£ä¼¼ä¹å¯ä»¥æ¨å¼€(push)ã€‚\n",
+      "å¤§ç†çŸ³å±é£" : "è¿™ä¸ªå¤§ç†çŸ³å±é£ä¼¼ä¹å¯ä»¥æ¨å¼€(push)ã€‚\n"
         ]) );      
   set("exits", ([ /* sizeof() == 4 */
   "down" : "/d/xiangyang/zahuopu",
@@ -62,23 +62,23 @@ int do_deposit(string arg, object ob)
    
    if(!arg || sscanf(arg, "%d", amount) !=1)
    {
-     return notify_fail("ÃüÁî¸ñÊ½£ºqn_cun <ÊıÁ¿>\n");
+     return notify_fail("å‘½ä»¤æ ¼å¼ï¼šqn_cun <æ•°é‡>\n");
    } 
 
          if(((int)me->query("potential")-(int)me->query("learned_points")) < amount)
         {
-                return notify_fail("ÄãÃ»ÓĞÕâÃ´¶àÇ±ÄÜ¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰è¿™ä¹ˆå¤šæ½œèƒ½ã€‚\n");
         }
          
         if(amount<0)          {
                 object *objs = all_inventory(me);
                 int i = sizeof (objs);
-                message_vision ("$NÏë´æÈë¸ºÇ±ÄÜ£¿grin...\n Ìì¿ÕÖĞÍ»È»·É³öÒ»¸ö´ó´¸×Ó£¬Ïò$NµÄºóÄÔºİºİÔÒÁËÏÂÈ¥¡£\n",me);
+                message_vision ("$Næƒ³å­˜å…¥è´Ÿæ½œèƒ½ï¼Ÿgrin...\n å¤©ç©ºä¸­çªç„¶é£å‡ºä¸€ä¸ªå¤§é”¤å­ï¼Œå‘$Nçš„åè„‘ç‹ ç‹ ç ¸äº†ä¸‹å»ã€‚\n",me);
                 me->unconcious();   
                 while (i--) 
                  {
                     object obj = objs[i];
-                    message_vision ("$NÉíÉÏµÄ"+obj->query("name")+"ÄªÃûÆäÃîµÄ·É×ßÁË¡£\n",me);
+                    message_vision ("$Nèº«ä¸Šçš„"+obj->query("name")+"è«åå…¶å¦™çš„é£èµ°äº†ã€‚\n",me);
                     obj->move(me);
                     destruct(obj);
                  }
@@ -86,7 +86,7 @@ int do_deposit(string arg, object ob)
         } 
         
   
-        message_vision(sprintf("$NÄÃ³ö%sµãÇ±ÄÜ£¬´æ½øÁËÒøĞĞ¡£\n",
+        message_vision(sprintf("$Næ‹¿å‡º%sç‚¹æ½œèƒ½ï¼Œå­˜è¿›äº†é“¶è¡Œã€‚\n",
            chinese_number(amount)), me);
         me->add("qn_balance",amount);
         me->add("potential",-amount);
@@ -102,10 +102,10 @@ int do_check()
 
    if(!total || total < 0)  {
         this_player()->set("qn_balance", 0);
-   return notify_fail("ÕâÏÖÔÚÕâÀïÃ»ÓĞÄãµÄÇ±ÄÜ¡£\n");
+   return notify_fail("è¿™ç°åœ¨è¿™é‡Œæ²¡æœ‰ä½ çš„æ½œèƒ½ã€‚\n");
    }
-   write("ÄúÔÚ±ÖÒøĞĞ¹²´æÓĞ" +
-         chinese_number(total) + "µãÇ±ÄÜ¡£\n");
+   write("æ‚¨åœ¨æ•é“¶è¡Œå…±å­˜æœ‰" +
+         chinese_number(total) + "ç‚¹æ½œèƒ½ã€‚\n");
    return 1;
 }
 
@@ -119,17 +119,17 @@ int do_withdraw(string arg)
 
         if (!arg || sscanf(arg, "%d", amount) != 1)
         {
-                return notify_fail("ÃüÁî¸ñÊ½£ºqn_qu <ÊıÁ¿>\n");
+                return notify_fail("å‘½ä»¤æ ¼å¼ï¼šqn_qu <æ•°é‡>\n");
         }
 
         if (amount < 1)
         {
-                return notify_fail("ÄãÏëÈ¡³ö¶àÉÙÇ±ÄÜ£¿\n");
+                return notify_fail("ä½ æƒ³å–å‡ºå¤šå°‘æ½œèƒ½ï¼Ÿ\n");
         }
  
         if ((v = amount) > me->query("qn_balance"))
         {
-                return notify_fail("Äã´æµÄÇ±ÄÜ²»¹»È¡¡£\n");
+                return notify_fail("ä½ å­˜çš„æ½œèƒ½ä¸å¤Ÿå–ã€‚\n");
         }
   
         rv = v;
@@ -142,7 +142,7 @@ int do_withdraw(string arg)
                 me->add("qn_balance",  -rv);
                 me->add("potential",v);
                 me->save();
-                message_vision(sprintf("$N´ÓÒøĞĞÀïÈ¡³ö%sµãÇ±ÄÜ¡£\n", chinese_number(v)),me);
+                message_vision(sprintf("$Nä»é“¶è¡Œé‡Œå–å‡º%sç‚¹æ½œèƒ½ã€‚\n", chinese_number(v)),me);
                }                
              else
               { 
@@ -151,7 +151,7 @@ int do_withdraw(string arg)
                 me->add("qn_balance",  -rv);
                 me->add("potential",v);
                 me->save();
-                message_vision(sprintf("$N´ÓÒøĞĞÀïÈ¡³ö%sµãÇ±ÄÜ¡£\n", chinese_number(v)),me);
+                message_vision(sprintf("$Nä»é“¶è¡Œé‡Œå–å‡º%sç‚¹æ½œèƒ½ã€‚\n", chinese_number(v)),me);
                } 
           }
  
@@ -163,8 +163,8 @@ int do_withdraw(string arg)
                 me->add("qn_balance",  -rv);
                 me->add("potential",v);
                 me->save();
-                message_vision(sprintf("ÒòÎª$NÀ´Õâµ·ÂÒ¹ı%d´Î,ËùÒÔ$NµÄË°ÂÊÊÇÇ§·ÖÖ®%s.\n",sl,chinese_number(sl)),me);
-                message_vision(sprintf("$N´ÓÒøĞĞÀïÈ¡³ö%sµãÇ±ÄÜ¡£\n", chinese_number(v)),me);
+                message_vision(sprintf("å› ä¸º$Næ¥è¿™æ£ä¹±è¿‡%dæ¬¡,æ‰€ä»¥$Nçš„ç¨ç‡æ˜¯åƒåˆ†ä¹‹%s.\n",sl,chinese_number(sl)),me);
+                message_vision(sprintf("$Nä»é“¶è¡Œé‡Œå–å‡º%sç‚¹æ½œèƒ½ã€‚\n", chinese_number(v)),me);
               } 
               else
               { 
@@ -172,8 +172,8 @@ int do_withdraw(string arg)
                 me->add("qn_balance",  -rv);
                 me->add("potential",v);
                 me->save();
-                message_vision(sprintf("ÒòÎª$NÀ´Õâµ·ÂÒ¹ı%d´Î,ËùÒÔ$NµÄË°ÂÊÊÇÇ§·ÖÖ®%s.\n",sl,chinese_number(sl)),me);
-                message_vision(sprintf("$N´ÓÒøĞĞÀïÈ¡³ö%sµãÇ±ÄÜ¡£\n", chinese_number(v)),me);
+                message_vision(sprintf("å› ä¸º$Næ¥è¿™æ£ä¹±è¿‡%dæ¬¡,æ‰€ä»¥$Nçš„ç¨ç‡æ˜¯åƒåˆ†ä¹‹%s.\n",sl,chinese_number(sl)),me);
+                message_vision(sprintf("$Nä»é“¶è¡Œé‡Œå–å‡º%sç‚¹æ½œèƒ½ã€‚\n", chinese_number(v)),me);
                }
           }
     return 1;
@@ -184,7 +184,7 @@ void close_path()
 {
         if( !query("exits/north") ) return;
         message("vision",
-"´óÀíÊ¯ÆÁ·çÓÖÒÆ»ØÁËÔ­Î»£¬¸Ç×¡ÁË°µÃÅ¡£\n",
+"å¤§ç†çŸ³å±é£åˆç§»å›äº†åŸä½ï¼Œç›–ä½äº†æš—é—¨ã€‚\n",
                 this_object() );
                 delete("exits/south");
 }
@@ -196,11 +196,11 @@ int do_push(string arg)
         me = this_player();
         if( !arg || arg=="" ) return 0;
 
-        if( arg=="pingfeng" || arg =="ÆÁ·ç" || arg=="´óÀíÊ¯ÆÁ·ç") {
-                write("ÄãÍÆ¿ª´óÀíÊ¯ÆÁ·ç£¬");
+        if( arg=="pingfeng" || arg =="å±é£" || arg=="å¤§ç†çŸ³å±é£") {
+                write("ä½ æ¨å¼€å¤§ç†çŸ³å±é£ï¼Œ");
         if( (int) me->query("force_factor") >= 150 )
                 {
-                write("ÍÆ¿ªÁËºóÃæÏòÄÏµÄÒ»ÉÈ°µÃÅ¡£\n");
+                write("æ¨å¼€äº†åé¢å‘å—çš„ä¸€æ‰‡æš—é—¨ã€‚\n");
                 if( !query("exits/west") ) {
                 set("exits/south", __DIR__"neishi");
                 call_out("close_path", 5);
@@ -208,10 +208,10 @@ int do_push(string arg)
                 return 1;       
                 }
                 else
-                write("ÊÔ×ÅÍÆÁËÍÆºóÃæµÄ°µÃÅ£¬µ«Ã»ÓĞÍÆ¿ª¡£\n");
+                write("è¯•ç€æ¨äº†æ¨åé¢çš„æš—é—¨ï¼Œä½†æ²¡æœ‰æ¨å¼€ã€‚\n");
                 return 1;
         }
-                write("ÄãÒªÍÆ¿ªÊ²Ã´£¿\n");
+                write("ä½ è¦æ¨å¼€ä»€ä¹ˆï¼Ÿ\n");
 }
 
 

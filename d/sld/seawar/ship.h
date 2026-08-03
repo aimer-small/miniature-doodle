@@ -16,7 +16,7 @@ void create()
 {	
 	set("mode",1);
 	doinit();
-	set("outdoors", "²³º£");
+	set("outdoors", "æ¸¤æµ·");
 	set("no_save", 1);
 	set("steer",0);
 	set("gunner",0);
@@ -44,33 +44,33 @@ void init()
 int do_steer(string arg)
 {
 	object me = this_player();
-	if(me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if(me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(me->query_temp("seawar/team")!=query("team"))
-		return notify_fail("ÄãÒªÔÚµĞ´¬ÉÏ¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åœ¨æ•Œèˆ¹ä¸Šå¹²ä»€ä¹ˆï¼Ÿ\n");
 	if( objectp(query("steer")) && userp(query("steer")) && environment(query("steer"))==this_object() )
-		return notify_fail("ÒÑ¾­ÓĞÈËÔÚÕÆ¶æÁË¡£\n");
+		return notify_fail("å·²ç»æœ‰äººåœ¨æŒèˆµäº†ã€‚\n");
 	if( me->query_temp("seawar/char") ) 
-		return notify_fail("ÄãÒÑ¾­ÔÚ¹¤×÷ÖĞÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨å·¥ä½œä¸­äº†ã€‚\n");
 	me->set_temp("seawar/char","steer");
 	set("steer",me);
-	message_vision(CYN"$NÕ¾µ½´¬Î²£¬¿ªÊ¼ÕÆ¶æ¡£\n"NOR, me);
+	message_vision(CYN"$Nç«™åˆ°èˆ¹å°¾ï¼Œå¼€å§‹æŒèˆµã€‚\n"NOR, me);
 	return 1;
 }
 
 int do_gunner(string arg)
 {
 	object me = this_player();
-	if(me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
-	if(query("mode")>1) return notify_fail("ÕâÀïÃ»ÓĞÅÚ¿ÉÒÔ¿ª°¡¡£\n");
+	if(me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+	if(query("mode")>1) return notify_fail("è¿™é‡Œæ²¡æœ‰ç‚®å¯ä»¥å¼€å•Šã€‚\n");
 	if(me->query_temp("seawar/team")!=query("team"))
-		return notify_fail("ÄãÒªÔÚµĞ´¬ÉÏ¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åœ¨æ•Œèˆ¹ä¸Šå¹²ä»€ä¹ˆï¼Ÿ\n");
 	if( objectp(query("gunner")) && userp(query("gunner"))  && environment(query("gunner"))==this_object() )
-		return notify_fail("ÒÑ¾­ÓĞÈËÔÚÃé×¼ÁË¡£\n");
+		return notify_fail("å·²ç»æœ‰äººåœ¨ç„å‡†äº†ã€‚\n");
 	if( me->query_temp("seawar/char") ) 
-		return notify_fail("ÄãÒÑ¾­ÔÚ¹¤×÷ÖĞÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨å·¥ä½œä¸­äº†ã€‚\n");
 	me->set_temp("seawar/char","gunner");
 	set("gunner",me);
-	message_vision(CYN"$NÕ¾µ½´¬Í·£¬×¼±¸¿ªÅÚ¡£\n"NOR, me);
+	message_vision(CYN"$Nç«™åˆ°èˆ¹å¤´ï¼Œå‡†å¤‡å¼€ç‚®ã€‚\n"NOR, me);
 	return 1;
 }
 
@@ -78,11 +78,11 @@ int do_stand(string arg)
 {
 	object me = this_player();
 	if(me->query_temp("seawar/team")!=query("team"))
-		return notify_fail("ÄãÒªÔÚµĞ´¬ÉÏ¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åœ¨æ•Œèˆ¹ä¸Šå¹²ä»€ä¹ˆï¼Ÿ\n");
 	if((string)me->query_temp("seawar/char") == "steer")  set("steer",0);
 	if((string)me->query_temp("seawar/char") == "gunner") set("gunner",0);
 	me->delete_temp("seawar/char");
-	message_vision(CYN"$N´ÓÔ­À´µÄ¹¤×÷´¦ÍÑÉí¶ø³ö¡£\n"NOR, me);
+	message_vision(CYN"$Nä»åŸæ¥çš„å·¥ä½œå¤„è„±èº«è€Œå‡ºã€‚\n"NOR, me);
 	me->start_busy(2);
 	return 1;
 }
@@ -105,7 +105,7 @@ int do_water(string arg)
 	if( (string)me->query_temp("seawar/char")=="steer" || (wizardp(me) && me->query("env/test")) )
 		SEAWAR_D->query_water(this_player(),query("job"));
 	else
-		tell_object(this_player(),"ÄãÓÖ²»ÔÚÕÆ¶æ£¬×¢ÒâÕâ¸ö¸ÉÊ²Ã´£¿\n");
+		tell_object(this_player(),"ä½ åˆä¸åœ¨æŒèˆµï¼Œæ³¨æ„è¿™ä¸ªå¹²ä»€ä¹ˆï¼Ÿ\n");
 	return 1;
 }
 
@@ -114,12 +114,12 @@ int do_turn(string arg)
 	int way = 33333;
 	object me = this_player();
 
-	if(me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if(me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(me->query_temp("seawar/team")!=query("team"))
-		return notify_fail("ÄãÒªÔÚµĞ´¬ÉÏ¸ÉÊ²Ã´£¿\n");	
+		return notify_fail("ä½ è¦åœ¨æ•Œèˆ¹ä¸Šå¹²ä»€ä¹ˆï¼Ÿ\n");	
 	if((string)me->query_temp("seawar/char")!="steer" && !(wizardp(me) && me->query("env/test")))
-		return notify_fail("Äã²¢Ã»ÓĞÔÚÕÆ¶æ°¡¡£\n");	
-	if(!arg) return notify_fail("ÄãÒª×ªÏò¶àÉÙ¶È°¡£¿\n");	
+		return notify_fail("ä½ å¹¶æ²¡æœ‰åœ¨æŒèˆµå•Šã€‚\n");	
+	if(!arg) return notify_fail("ä½ è¦è½¬å‘å¤šå°‘åº¦å•Šï¼Ÿ\n");	
 		
 	if(arg && arg=="stop") 
 		way = 10000;
@@ -127,12 +127,12 @@ int do_turn(string arg)
 		if(sscanf(arg,"%d",way)<1) {
 			if(sscanf(arg,"-%d",way)==1) way = -way;
 		}
-		if( way > 10000 ) return notify_fail("ÄãÒª×ªÏò¶àÉÙ¶È£¿\n");
+		if( way > 10000 ) return notify_fail("ä½ è¦è½¬å‘å¤šå°‘åº¦ï¼Ÿ\n");
 		if( ABS(way)>360 ) way = way % 360;
 		if( way < 0 ) way = 360 + way;
 	}
 
-	message_vision(CYN"$N¿ªÊ¼×ª¶æ...\n"NOR,me);
+	message_vision(CYN"$Nå¼€å§‹è½¬èˆµ...\n"NOR,me);
 	me->start_busy(1);
 	if(me->query_temp("seawar/dosteer")<MAX_STEER && me->query_skill("sailing",1)<201) {
 		me->improve_skill("sailing", random(me->query_int()));
@@ -148,9 +148,9 @@ protected void turn_finish(object me,int way)
 	if(!objectp(me)) return;
 	SEAWAR_D->go(me,query("job"),query("team"),way);
 	if(way>360) 
-		message_vision(sprintf(CYN"$N°Ñ´¬Í£ÏÂ¡£\n"NOR,way),me);
+		message_vision(sprintf(CYN"$NæŠŠèˆ¹åœä¸‹ã€‚\n"NOR,way),me);
 	else
-		message_vision(sprintf(CYN"$N×ª¶æ%d¶ÈÍê³É¡£\n"NOR,way),me);		
+		message_vision(sprintf(CYN"$Nè½¬èˆµ%dåº¦å®Œæˆã€‚\n"NOR,way),me);		
 }
 
 int do_way(string arg)
@@ -165,17 +165,17 @@ int do_watch(string arg)
 	object me = this_player();
 
 	if(me->query_temp("seawar/team")!=query("team"))
-		return notify_fail("ÄãÒªÔÚµĞ´¬ÉÏ¸ÉÊ²Ã´£¿\n");		
+		return notify_fail("ä½ è¦åœ¨æ•Œèˆ¹ä¸Šå¹²ä»€ä¹ˆï¼Ÿ\n");		
 	if( (time()-me->query_temp("seawar/look"))<1 && !(wizardp(me) && me->query("env/test")) )
-		return notify_fail("Äã²»ÊÇ²Å¿´¹ıÂğ£¿\n");
+		return notify_fail("ä½ ä¸æ˜¯æ‰çœ‹è¿‡å—ï¼Ÿ\n");
 	
-	if(!arg) return notify_fail("ÄãÒª¿´ÄÄ¸ö·½Ïò£¿\n");
+	if(!arg) return notify_fail("ä½ è¦çœ‹å“ªä¸ªæ–¹å‘ï¼Ÿ\n");
 	if(sscanf(arg,"%d",way)>=1 && (way==2 || way==4 || way==8 || way==6)) way = way;
 	else if(arg=="south" || arg=="s") way = 2;
 	else if(arg=="west"  || arg=="w") way = 4;
 	else if(arg=="north" || arg=="n") way = 8;
 	else if(arg=="east"  || arg=="e") way = 6;
-	else return notify_fail("ÄãÒª¿´ÄÄ¸ö·½Ïò£¿\n");
+	else return notify_fail("ä½ è¦çœ‹å“ªä¸ªæ–¹å‘ï¼Ÿ\n");
 	
 	SEAWAR_D->look(this_player(),query("job"),query("team"),way);
 	me->set_temp("seawar/look",time());
@@ -187,25 +187,25 @@ int do_shot(string arg)
 	int angle,elevation;
 	object me = this_player();
 
-	if(me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");	
+	if(me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");	
 	if(me->query_temp("seawar/team")!=query("team"))
-		return notify_fail("ÄãÒªÔÚµĞ´¬ÉÏ¸ÉÊ²Ã´£¿\n");	
+		return notify_fail("ä½ è¦åœ¨æ•Œèˆ¹ä¸Šå¹²ä»€ä¹ˆï¼Ÿ\n");	
 	if(me->query_temp("seawar/char")!="gunner" && !(wizardp(me) && me->query("env/test")))
-		return notify_fail("Äã²¢Ã»ÓĞ×¼±¸·¢ÅÚ°¡¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰å‡†å¤‡å‘ç‚®å•Šã€‚\n");
 	if(query("mode")>1)
-		return notify_fail("ÕâÀïÃ»ÓĞÅÚ¿ÉÒÔ¿ª°¡¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰ç‚®å¯ä»¥å¼€å•Šã€‚\n");
 		
 	if((time()-query("fire"))<FIRE_BUSY)
-		return notify_fail("»ğÅÚ¸Õ¸Õ·¢Éä¹ı£¬»¹Ã»ÓĞ×¼±¸ºÃÏÂ´Î·¢ÉäÄØ¡£\n");
+		return notify_fail("ç«ç‚®åˆšåˆšå‘å°„è¿‡ï¼Œè¿˜æ²¡æœ‰å‡†å¤‡å¥½ä¸‹æ¬¡å‘å°„å‘¢ã€‚\n");
 	if(!arg || sscanf(arg,"%d %d",angle,elevation)<2)
-		return notify_fail("ÄãÒªÒÔÊ²Ã´½Ç¶ÈÏòÊ²Ã´·½Ïò·¢ÅÚ£¿\n");
+		return notify_fail("ä½ è¦ä»¥ä»€ä¹ˆè§’åº¦å‘ä»€ä¹ˆæ–¹å‘å‘ç‚®ï¼Ÿ\n");
 	if(elevation>80 || elevation<30)
-		return notify_fail("Äãµ÷ÕûµÄÑö½Ç¹ıÓÚÎ£ÏÕ£¬¿ÉÄÜ»á´òµ½×Ô¼º°¡£¡\n");
+		return notify_fail("ä½ è°ƒæ•´çš„ä»°è§’è¿‡äºå±é™©ï¼Œå¯èƒ½ä¼šæ‰“åˆ°è‡ªå·±å•Šï¼\n");
 	
 	if( ABS(angle)>360 ) angle = angle % 360;
 	if( angle < 0 ) angle = 360 + angle;
 	
-	message_vision(HIR"$N¿ªÊ¼Ğ£×¼·½Ïò£¬×°Ìî»ğÒ©£¬×¼±¸·¢ÅÚ...\n"NOR,me);
+	message_vision(HIR"$Nå¼€å§‹æ ¡å‡†æ–¹å‘ï¼Œè£…å¡«ç«è¯ï¼Œå‡†å¤‡å‘ç‚®...\n"NOR,me);
 	me->start_busy(2);
 	if(me->query_temp("seawar/dogunner")<MAX_GUNNER && me->query_skill("gunnery",1)<201) {
 		me->improve_skill("gunnery", random(me->query_int(1)*2));
@@ -221,25 +221,25 @@ protected void fire_finish(object me,int angle,int elevation)
 {
 	if(!objectp(me)) return;
 	SEAWAR_D->fire(me,query("job"),query("team"),angle,elevation);
-	message_vision(RED"Ö»ÌıºäµÄÒ»Éù£¬Ò»Ã¶ÅÚµ¯·ÉÁË³öÈ¥£¡\n"NOR,me);
+	message_vision(RED"åªå¬è½°çš„ä¸€å£°ï¼Œä¸€æšç‚®å¼¹é£äº†å‡ºå»ï¼\n"NOR,me);
 }
 
 int do_jump(string arg)
 {
 	object me = this_player();
 	if( me->is_busy() ) {
-		tell_object(this_player(),"ÄãÕıÃ¦×ÅÄØ£¡\n");
+		tell_object(this_player(),"ä½ æ­£å¿™ç€å‘¢ï¼\n");
 		return 1;
 	}
 	if(arg=="ship") {
 		if(me->query_temp("seawar/team")!=query("team"))
-			tell_object(me,"ÄãÒªÔÚµĞ´¬ÉÏ¸ÉÊ²Ã´£¿\n");
+			tell_object(me,"ä½ è¦åœ¨æ•Œèˆ¹ä¸Šå¹²ä»€ä¹ˆï¼Ÿ\n");
 		else
 			SEAWAR_D->jump(this_player(),query("job"),query("team"));
 	}
 	else if(arg=="back") {
 		if(me->query_temp("seawar/team")==query("team"))
-			tell_object(me,"ÄãÒªÌø»ØÄÇÀï£¿\n");
+			tell_object(me,"ä½ è¦è·³å›é‚£é‡Œï¼Ÿ\n");
 		else
 			SEAWAR_D->back(this_player(),query("job"),query("team"));
 	}
@@ -251,9 +251,9 @@ int do_jump(string arg)
 int do_flee(string arg)
 {
 	object me = this_player();
-	if(me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if(me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(me->query_temp("seawar/team")!=query("team"))
-		tell_object(me,"ÄãÒªÔÚµĞ´¬ÉÏ¸ÉÊ²Ã´£¿\n");
+		tell_object(me,"ä½ è¦åœ¨æ•Œèˆ¹ä¸Šå¹²ä»€ä¹ˆï¼Ÿ\n");
 	else
 		SEAWAR_D->flee(me,query("job"),query("team"));
 	return 1;
@@ -297,9 +297,9 @@ void check_kill()
 			if( inv[i]->query("victim_user") == 1 ) {
 				ship = load_object(__DIR__+sprintf("ship%d%d",query("job")+1,3-query("team")));
 				if(!ship) continue;
-				tell_room(this_object(),"ÅÔ±ß¹ıÀ´¼¸Ìõ´óºº£¬ÂîÂîßÖßÖµÄ°ÑÊ¬ÌåÈÓµ½¶ÔÃæ´¬ÉÏÈ¥¡£\n");
+				tell_room(this_object(),"æ—è¾¹è¿‡æ¥å‡ æ¡å¤§æ±‰ï¼Œéª‚éª‚å’§å’§çš„æŠŠå°¸ä½“æ‰”åˆ°å¯¹é¢èˆ¹ä¸Šå»ã€‚\n");
 				inv[i]->move(ship);
-				tell_room(ship,"Í»È»´Ó¶ÔÃæ´¬ÉÏ¶ª¹ıÀ´Ò»ÍÅ¶«Î÷...\n");
+				tell_room(ship,"çªç„¶ä»å¯¹é¢èˆ¹ä¸Šä¸¢è¿‡æ¥ä¸€å›¢ä¸œè¥¿...\n");
 			}
 		}		
 	}

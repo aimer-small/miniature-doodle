@@ -27,20 +27,20 @@ mapping vote=([
 	"desc": "",
 	"num": 0,
 	"choice": ([
-		"1": "Í¬Òâ",
-		"2": "·´¶Ô"
+		"1": "åŒæ„",
+		"2": "åå¯¹"
 	]),
 	"votes": ([
-		"Í¬Òâ": 0,
-		"·´¶Ô": 0
+		"åŒæ„": 0,
+		"åå¯¹": 0
 	]),
 	"total": 0
 ]);
 
 void set_vote()
 {
-	write("ÏÖÔÚ¿ªÊ¼ÉèÖÃÍ¶Æ±ÄÚÈİ£¬¿ÉÒÔËæÊ±ÊäÈë¿ÕĞĞÀ´È¡Ïû\n");
-	write("ÇëÊäÈëÍ¶Æ±µÄÃèÊö£º");
+	write("ç°åœ¨å¼€å§‹è®¾ç½®æŠ•ç¥¨å†…å®¹ï¼Œå¯ä»¥éšæ—¶è¾“å…¥ç©ºè¡Œæ¥å–æ¶ˆ\n");
+	write("è¯·è¾“å…¥æŠ•ç¥¨çš„æè¿°ï¼š");
 	input_to("get_desc");
 }
 
@@ -49,7 +49,7 @@ void get_desc(string desc)
 	mapping ch = ([]);
 
 	if (desc == "") return;
-	write("ÇëÊäÈë¹©Ñ¡ÔñµÄÄÚÈİ£¬. ±íÊ¾½áÊø\n1£º");
+	write("è¯·è¾“å…¥ä¾›é€‰æ‹©çš„å†…å®¹ï¼Œ. è¡¨ç¤ºç»“æŸ\n1ï¼š");
 	input_to("get_choice", ch, 1, desc);
 }
 
@@ -59,7 +59,7 @@ void get_choice(string arg, mapping ch, int i, string desc)
 	if (arg == ".") {
 		vote=([
 			"desc": desc,
-			"time":	time(),			// ½«À´ÔÙ¼ÓÖ¸¶¨Ê±¼ä£¬lazy yuj 2000-11-11
+			"time":	time(),			// å°†æ¥å†åŠ æŒ‡å®šæ—¶é—´ï¼Œlazy yuj 2000-11-11
 			"valid": time() + 86400*3,
 			"num": i-1,
 			"choice": ch,
@@ -70,7 +70,7 @@ void get_choice(string arg, mapping ch, int i, string desc)
 		return;
 	}
 	ch[""+i] = arg;
-	write(++i+"£º");
+	write(++i+"ï¼š");
 	input_to("get_choice", ch, i, desc);
 }
 
@@ -79,18 +79,18 @@ void show_vote()
 	int t = time(), i;
 	string item;
 
-	write(sprintf("%-30s%4d\n", "ÒÑ¾­ÊÕµ½ÓĞĞ§µÄÑ¡Æ±Êı£º", vote["total"]));
+	write(sprintf("%-30s%4d\n", "å·²ç»æ”¶åˆ°æœ‰æ•ˆçš„é€‰ç¥¨æ•°ï¼š", vote["total"]));
 	for (i = 1; i <= vote["num"]; i++) {
 		item = vote["choice"][""+i];
 		write(
-			sprintf("%-30s%4d%7.2f%%\n", "Ñ¡Ôñ " HIG + item + NOR " µÄÆ±Êı£º",
+			sprintf("%-30s%4d%7.2f%%\n", "é€‰æ‹© " HIG + item + NOR " çš„ç¥¨æ•°ï¼š",
 				vote["votes"][item],
 				vote["total"]?vote["votes"][item]*100.0/vote["total"]:0.0
 			)
 		);
 	}
 	if (t < vote["valid"])
-		write("¾àÀëÍ¶Æ±½áÊø»¹ÓĞ"+CHINESE_D->chinese_time(vote["valid"]-t)+"\n");
+		write("è·ç¦»æŠ•ç¥¨ç»“æŸè¿˜æœ‰"+CHINESE_D->chinese_time(vote["valid"]-t)+"\n");
 }
 
 int main(object me, string arg)
@@ -103,32 +103,32 @@ int main(object me, string arg)
 	int i;
 	string item;
 
-	if (me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if (me->query("age") < 16 && !wizardp(me))
-		return notify_fail("ÃñÖ÷²»ÊÇ¶ùÏ·£¡Ğ¡º¢×ÓÒ»±ßÍæÈ¥£¡\n");
+		return notify_fail("æ°‘ä¸»ä¸æ˜¯å„¿æˆï¼å°å­©å­ä¸€è¾¹ç©å»ï¼\n");
 
 	if (me->query("vote/deprived") && me->query_condition("vote_suspension"))
-		return notify_fail("ÄãÏëÆğµ±³õÍæÅªÃñÖ÷¡¢±»°ş¶áÍ¶Æ±È¨µÄÊÂ£¬×·»ÚÄª¼±¡£\n");
+		return notify_fail("ä½ æƒ³èµ·å½“åˆç©å¼„æ°‘ä¸»ã€è¢«å‰¥å¤ºæŠ•ç¥¨æƒçš„äº‹ï¼Œè¿½æ‚”è«æ€¥ã€‚\n");
 	me->delete("vote/deprived");
 	if (!arg) {
-		if (!vote["time"]) return notify_fail("Ä¿Ç°Ã»ÓĞĞèÒªÍ¶Æ±µÄÄÚÈİ¡£\n");
-		write(sprintf("\n%-30s" HIW "%s\n" NOR, "Ä¿Ç°Í¶Æ±µÄÄÚÈİ£º", vote["desc"]));
-		if (t < vote["time"]) return notify_fail("Í¶Æ±»¹Î´¿ªÊ¼");
+		if (!vote["time"]) return notify_fail("ç›®å‰æ²¡æœ‰éœ€è¦æŠ•ç¥¨çš„å†…å®¹ã€‚\n");
+		write(sprintf("\n%-30s" HIW "%s\n" NOR, "ç›®å‰æŠ•ç¥¨çš„å†…å®¹ï¼š", vote["desc"]));
+		if (t < vote["time"]) return notify_fail("æŠ•ç¥¨è¿˜æœªå¼€å§‹");
 		show_vote();
 		me->set_temp("votes", vote["time"]);
 		if (t > vote["valid"])
-			return notify_fail("Í¶Æ±ÒÑ¾­Í£Ö¹¡£\n");
-		if (wiz_level(me)) return notify_fail("Î×Ê¦Ã»ÓĞÍ¶Æ±È¨¡£\n");
-		if (me->query("votes") > vote["time"]) return notify_fail("ÄãÒÑ¾­Í¶¹ıÆ±ÁË¡£\n");
+			return notify_fail("æŠ•ç¥¨å·²ç»åœæ­¢ã€‚\n");
+		if (wiz_level(me)) return notify_fail("å·«å¸ˆæ²¡æœ‰æŠ•ç¥¨æƒã€‚\n");
+		if (me->query("votes") > vote["time"]) return notify_fail("ä½ å·²ç»æŠ•è¿‡ç¥¨äº†ã€‚\n");
 		if (me->query("mud_age") < (t - me->query("birthday"))/20)
-			return notify_fail("ÄãÄ¿Ç°»¹Ã»ÓĞÍ¶Æ±×Ê¸ñ¡£\n");
+			return notify_fail("ä½ ç›®å‰è¿˜æ²¡æœ‰æŠ•ç¥¨èµ„æ ¼ã€‚\n");
 		if (!vote["num"]) return 1;
 		me->start_busy(1);
-		write("Äã¿ÉÒÔ²»²Î¼ÓÍ¶Æ±»òÕßÓĞÒÔÏÂÑ¡Ôñ£º\n");
+		write("ä½ å¯ä»¥ä¸å‚åŠ æŠ•ç¥¨æˆ–è€…æœ‰ä»¥ä¸‹é€‰æ‹©ï¼š\n");
 		for (i = 1; i <= vote["num"]; i++)
-			write("vote " + i + " ±íÊ¾£º" HIG + vote["choice"][""+i] + NOR "\n");
-		write("Æ±Ò»µ©Í¶³ö¾Í²»ÄÜ¸ü¸Ä£¬Çë×Ô¼º×¢Òâ¡£\n");
-		return notify_fail("ÕâÉñÊ¥µÄÒ»Æ±£¬ÒªÏëÇå³şÁË²ÅÄÜÍ¶¡£\n");
+			write("vote " + i + " è¡¨ç¤ºï¼š" HIG + vote["choice"][""+i] + NOR "\n");
+		write("ç¥¨ä¸€æ—¦æŠ•å‡ºå°±ä¸èƒ½æ›´æ”¹ï¼Œè¯·è‡ªå·±æ³¨æ„ã€‚\n");
+		return notify_fail("è¿™ç¥åœ£çš„ä¸€ç¥¨ï¼Œè¦æƒ³æ¸…æ¥šäº†æ‰èƒ½æŠ•ã€‚\n");
 	}
 
 	if (arg == "set") {
@@ -144,12 +144,12 @@ int main(object me, string arg)
 			"desc": "",
 			"num": 0,
 			"choice": ([
-				"1": "Í¬Òâ",
-				"2": "·´¶Ô"
+				"1": "åŒæ„",
+				"2": "åå¯¹"
 			]),
 			"votes": ([
-				"Í¬Òâ": 0,
-				"·´¶Ô": 0
+				"åŒæ„": 0,
+				"åå¯¹": 0
 			]),
 			"total": 0
 		]);
@@ -158,23 +158,23 @@ int main(object me, string arg)
 	}
 
 	if (sscanf(arg, "%d", i)) {
-		if (wiz_level(me) && wiz_level(me) < 5) return notify_fail("Î×Ê¦Ã»ÓĞÍ¶Æ±È¨¡£\n");
+		if (wiz_level(me) && wiz_level(me) < 5) return notify_fail("å·«å¸ˆæ²¡æœ‰æŠ•ç¥¨æƒã€‚\n");
 //		if (me->query("registered") < 3)
-//			return notify_fail("ÕıÊ½ÓÃ»§²ÅÓĞÍ¶Æ±×Ê¸ñ¡£\n");
+//			return notify_fail("æ­£å¼ç”¨æˆ·æ‰æœ‰æŠ•ç¥¨èµ„æ ¼ã€‚\n");
 		if (me->query_temp("votes") < vote["time"]) {
-			write("Äã»¹Ã»¿´Í¶Æ±ÄÚÈİ¾ÍÍ¶Æ±£¿I ·şÁË You¡£\n");
+			write("ä½ è¿˜æ²¡çœ‹æŠ•ç¥¨å†…å®¹å°±æŠ•ç¥¨ï¼ŸI æœäº† Youã€‚\n");
 			i = 0;
 		}
 		if (t < vote["time"])
-			return notify_fail("Í¶Æ±»¹Î´¿ªÊ¼");
+			return notify_fail("æŠ•ç¥¨è¿˜æœªå¼€å§‹");
 		if (t > vote["valid"])
-			return notify_fail("Í¶Æ±ÒÑ¾­Í£Ö¹¡£\n");
+			return notify_fail("æŠ•ç¥¨å·²ç»åœæ­¢ã€‚\n");
 		if (i < 1 || i > vote["num"])
-			return notify_fail("ÇëÓÃ vote ×ĞÏ¸ÔÄ¶ÁÍ¶Æ±ËµÃ÷¡£\n");
+			return notify_fail("è¯·ç”¨ vote ä»”ç»†é˜…è¯»æŠ•ç¥¨è¯´æ˜ã€‚\n");
 		if (me->query("votes") > vote["time"])
-			return notify_fail("Äã²»ÊÇÒÑ¾­Í¶¹ıÆ±ÁËÂğ£¿\n");
+			return notify_fail("ä½ ä¸æ˜¯å·²ç»æŠ•è¿‡ç¥¨äº†å—ï¼Ÿ\n");
 		item = vote["choice"][""+i];
-		write("\n" HIW + vote["desc"] + NOR " ÄãÑ¡ÔñÁË " HIW + item + NOR "\n");
+		write("\n" HIW + vote["desc"] + NOR " ä½ é€‰æ‹©äº† " HIW + item + NOR "\n");
 		vote["votes"][item]++; vote["total"]++;
 		me->set("votes", t);
 		if (!(vote["total"] % 5))
@@ -184,13 +184,13 @@ int main(object me, string arg)
 	}
 
 	if (sscanf(arg, "%s %s", act_name, victim_name) != 2)
-		return notify_fail("ÕâÉñÊ¥µÄÒ»Æ±£¬ÒªÏëÇå³şÁË²ÅÄÜÍ¶¡£\n");
+		return notify_fail("è¿™ç¥åœ£çš„ä¸€ç¥¨ï¼Œè¦æƒ³æ¸…æ¥šäº†æ‰èƒ½æŠ•ã€‚\n");
 
 	victim = LOGIN_D->find_body(victim_name);
 	if (!victim || !me->visible(victim))
-		return notify_fail("ÄãÒªÍ¶Ë­µÄÆ±£¿\n");
+		return notify_fail("ä½ è¦æŠ•è°çš„ç¥¨ï¼Ÿ\n");
 	if (!wizardp(me) && wizardp(victim))
-		return notify_fail("ÄãÃ»È¨Á¦¶ÔÎ×Ê¦Í¶Æ±!\n");
+		return notify_fail("ä½ æ²¡æƒåŠ›å¯¹å·«å¸ˆæŠ•ç¥¨!\n");
 	if (!victim->query_condition("vote_clear")) {
 		victim->delete("vote/reason");
 		victim->delete("vote/juror");
@@ -198,13 +198,13 @@ int main(object me, string arg)
 	}
 	if( !stringp(file = __DIR__"vote/"+act_name)
 	|| file_size(file + ".c") <= 0 )
-		return 	notify_fail("ÄãÒªÍ¶Æ±¸ÉÊ²Ã´£¿\n");
+		return 	notify_fail("ä½ è¦æŠ•ç¥¨å¹²ä»€ä¹ˆï¼Ÿ\n");
 
 	if ( !(file_ob = find_object(file)) ) file_ob = load_object(file);
 
 	if ((int)file_ob->vote(me, victim) <= 0) {
 		if (me->query("vote/abuse")> 50) {
-			write( HIG "ÄãÒòÎªºúÂÒÍ¶Æ±£¬Í¶Æ±È¨±»°ş¶áÁË£¡\n" NOR);
+			write( HIG "ä½ å› ä¸ºèƒ¡ä¹±æŠ•ç¥¨ï¼ŒæŠ•ç¥¨æƒè¢«å‰¥å¤ºäº†ï¼\n" NOR);
 
 			me->set("vote/deprived", 1);
 			me->apply_condition("vote_suspension", 120);
@@ -240,14 +240,14 @@ int valid_voters(object me)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : vote <¶¯Òé> <Ä³ÈË>
+æŒ‡ä»¤æ ¼å¼ : vote <åŠ¨è®®> <æŸäºº>
 
-´ËÃüÁîÌáÒé¶ÔÄ³ÈË²ÉÈ¡ĞĞ¶¯£¬ÓÉ´ó¼ÒÍ¶Æ±¾ö¶¨¡£¿ÉÊÇÈç¹ûÎå·ÖÖÓÄÚÃ»ÓĞÈË¸½Òé£¬
-Í¶Æ±»á×Ô¶¯È¡Ïû¡£µ±Ç°¿ÉÒÔÓĞÈçÏÂ<¶¯Òé>£º
+æ­¤å‘½ä»¤æè®®å¯¹æŸäººé‡‡å–è¡ŒåŠ¨ï¼Œç”±å¤§å®¶æŠ•ç¥¨å†³å®šã€‚å¯æ˜¯å¦‚æœäº”åˆ†é’Ÿå†…æ²¡æœ‰äººé™„è®®ï¼Œ
+æŠ•ç¥¨ä¼šè‡ªåŠ¨å–æ¶ˆã€‚å½“å‰å¯ä»¥æœ‰å¦‚ä¸‹<åŠ¨è®®>ï¼š
 
-chblk:   ¹Ø±ÕÄ³ÈË½»Ì¸ÆµµÀ¡£
-unchblk: ´ò¿ªÄ³ÈË½»Ì¸ÆµµÀ¡£
-ÆäËû£º¶ÔÄ³ÌØ¶¨ÊÂ¼şÍ¶Æ±£¬ÒªÇó¾­Ñé´óÓÚÎåÊ®Íò¡£
+chblk:   å…³é—­æŸäººäº¤è°ˆé¢‘é“ã€‚
+unchblk: æ‰“å¼€æŸäººäº¤è°ˆé¢‘é“ã€‚
+å…¶ä»–ï¼šå¯¹æŸç‰¹å®šäº‹ä»¶æŠ•ç¥¨ï¼Œè¦æ±‚ç»éªŒå¤§äºäº”åä¸‡ã€‚
 
 HELP
 	);

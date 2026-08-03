@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "Ð¡É½Â·");
+        set("short", "å°å±±è·¯");
         set("long", @LONG
-ÕâÀïÊÇ»ªÉ½µÄÒ»ÌõÐ¡É½Â·£¬µØÊÆ½ÏÎªÆ½»º£¬²»ËÆÆäËüµØ·½ÄÇÃ´ÏÕ¾þ¡£Äã×ß
-ÔÚÕâÀï£¬ËÄÖÜ¾²ÇÄÇÄµÄ£¬Äã¾ÍÏó×ß½øÁËÒ»¸öÊÀÍâÌÒÔ´¡£
+è¿™é‡Œæ˜¯åŽå±±çš„ä¸€æ¡å°å±±è·¯ï¼Œåœ°åŠ¿è¾ƒä¸ºå¹³ç¼“ï¼Œä¸ä¼¼å…¶å®ƒåœ°æ–¹é‚£ä¹ˆé™©å³»ã€‚ä½ èµ°
+åœ¨è¿™é‡Œï¼Œå››å‘¨é™æ‚„æ‚„çš„ï¼Œä½ å°±è±¡èµ°è¿›äº†ä¸€ä¸ªä¸–å¤–æ¡ƒæºã€‚
 LONG
 );
         set("exits", ([ /* sizeof() == 1 */
@@ -16,7 +16,7 @@ LONG
                 "westup" : __DIR__"siguoya",
         ]));
         set("no_clean_up", 0);
-        set("outdoors", "»ªÉ½" );
+        set("outdoors", "åŽå±±" );
 
         set("coor/x",50);
   set("coor/y",50);
@@ -28,7 +28,7 @@ void init()
 {
         object me = this_player();
         if( me->query("family")
-         && me->query("family/family_name") != "»ªÉ½ÅÉ"
+         && me->query("family/family_name") != "åŽå±±æ´¾"
          && me->query("fengset")){
           me->delete("fengset");
         }

@@ -4,13 +4,13 @@ inherit ITEM;
 #include <ansi.h>
 void create()
 {
-	set_name(HIR"Ñªµ¶ÃØ¼®"NOR, ({ "xuedao miji","miji","shu", "book" }));
+	set_name(HIR"è¡€åˆ€ç§˜ç±"NOR, ({ "xuedao miji","miji","shu", "book" }));
 	set_weight(300);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
-		set("long", "ÕâÊÇ±¾ÂÔÎ¢·¢»ÆµÄÊÖ³­Ğ¡²á×Ó£¬¿´À´Äê´ú¾ÃÔ¶£¬ÀïÃæ»æÖÆÁËĞ©ÂãÌåÄĞ×Ó»­Ïñ¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯æœ¬ç•¥å¾®å‘é»„çš„æ‰‹æŠ„å°å†Œå­ï¼Œçœ‹æ¥å¹´ä»£ä¹…è¿œï¼Œé‡Œé¢ç»˜åˆ¶äº†äº›è£¸ä½“ç”·å­ç”»åƒã€‚\n");
 		set("value", 500);
                 set("treasure",1);
                 set("unique", 1);

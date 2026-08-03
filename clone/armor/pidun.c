@@ -6,13 +6,13 @@ inherit SHIELD;
  
 void create() 
 { 
-        set_name("Æ¤¶Ü", ({ "pi dun", "dun" , "pidun" ,"shield"}) ); 
+        set_name("çš®ç›¾", ({ "pi dun", "dun" , "pidun" ,"shield"}) ); 
         set_weight(2300); 
         if( clonep() ) 
                 set_default_object(__FILE__); 
         else { 
-                set("unit", "Ãæ"); 
-                set("long", "ÕâÊÇÒ»ÃæÒÔÁøÌõÃÜ±à£¬Êı²ãÓ²Å£Æ¤ÃÉÃæ±Á³ÉµÄÆ¤¶Ü£¬¿ÉÒÔµ²×¡Ô¶´¦·ÉÀ´µÄ¼ıÊ¸¡£\n"); 
+                set("unit", "é¢"); 
+                set("long", "è¿™æ˜¯ä¸€é¢ä»¥æŸ³æ¡å¯†ç¼–ï¼Œæ•°å±‚ç¡¬ç‰›çš®è’™é¢ç»·æˆçš„çš®ç›¾ï¼Œå¯ä»¥æŒ¡ä½è¿œå¤„é£æ¥çš„ç®­çŸ¢ã€‚\n"); 
                 set("value", 1500); 
                 set("material", "cloth"); 
                 set("armor_prop/armor", 15);

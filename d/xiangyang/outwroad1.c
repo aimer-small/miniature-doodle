@@ -1,17 +1,17 @@
-// /d/xiangyang/outwroad1.c ÇàÊ¯´óµÀ
+// /d/xiangyang/outwroad1.c é’çŸ³å¤§é“
 // Lklv Modify 2001.9.22
 
 inherit ROOM;
 void create()
 {
-	set("short", "Î÷ÃÅÍâ");
+	set("short", "è¥¿é—¨å¤–");
 	set("long", @LONG
-ÕâÊÇÒ»Ìõ±ÊÖ±µÄÇàÊ¯´óµÀ£¬Â·ÉÏÈËÀ´ÈËÍù·Ç³£·±Ã¦£¬²»Ê±ÓĞÈËÆï×ÅÂí´Ò´Ò
-¶ø¹ı¡£Â·ÄÏÓĞÌõĞ¡Â·Í¨ÏòÒ»¸öÉ½Çğ¡£´Ó´ËÍùÎ÷ÊÇÔÆ¹ó´¨µÄ·½Ïò£¬¶«ÃæÔ¶Ô¶µÄ¿É
-ÒÔÍû¼ûÒ»×ù³ÇÂ¥£¬ÄÇÀï¾ÍÊÇÏåÑô³ÇÁË¡£
+è¿™æ˜¯ä¸€æ¡ç¬”ç›´çš„é’çŸ³å¤§é“ï¼Œè·¯ä¸Šäººæ¥äººå¾€éå¸¸ç¹å¿™ï¼Œä¸æ—¶æœ‰äººéª‘ç€é©¬åŒ†åŒ†
+è€Œè¿‡ã€‚è·¯å—æœ‰æ¡å°è·¯é€šå‘ä¸€ä¸ªå±±ä¸˜ã€‚ä»æ­¤å¾€è¥¿æ˜¯äº‘è´µå·çš„æ–¹å‘ï¼Œä¸œé¢è¿œè¿œçš„å¯
+ä»¥æœ›è§ä¸€åº§åŸæ¥¼ï¼Œé‚£é‡Œå°±æ˜¯è¥„é˜³åŸäº†ã€‚
 LONG
 	);
-	set("outdoors", "ÏåÑô");
+	set("outdoors", "è¥„é˜³");
 	set("xyjob", "1"); 
 	set("exits", ([
 		"east" : __DIR__"baihumen",
@@ -26,6 +26,6 @@ int valid_leave(object me, string dir)
      mapping exits = query("exits");
      if (!load_object(exits[dir])->query("xyjob") 
      && me->query_temp("xyjob"))
-             return notify_fail("ÄãÏëÁÙÕóÍÑÌÓÃ´£¿\n");
+             return notify_fail("ä½ æƒ³ä¸´é˜µè„±é€ƒä¹ˆï¼Ÿ\n");
      return ::valid_leave(me, dir);
  }      

@@ -1,4 +1,4 @@
-// ¹ÛÈÕ½£
+// è§‚æ—¥å‰‘
 
 #include <weapon.h>
 #include <ansi.h>
@@ -8,14 +8,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIR "¹ÛÈÕ½£" NOR, ({ "guanri jian", "guanri", "jian" }));
+        set_name(HIR "è§‚æ—¥å‰‘" NOR, ({ "guanri jian", "guanri", "jian" }));
         set_weight(20000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("treasure", 1);
-                set("unit", "°Ñ");
-                set("long", HIR "¹ÛÈÕ½£¾ÝËµÔÚ¹ÛÈÕ·åÊ®ÄêÖý³É£¬¹âÃ¢ÓÌÈç³õÉýÖ®ºìÈÕ£¬ÄÜÆÆÄ§ÏûÔÖ¡£\n" NOR);
+                set("unit", "æŠŠ");
+                set("long", HIR "è§‚æ—¥å‰‘æ®è¯´åœ¨è§‚æ—¥å³°åå¹´é“¸æˆï¼Œå…‰èŠ’çŠ¹å¦‚åˆå‡ä¹‹çº¢æ—¥ï¼Œèƒ½ç ´é­”æ¶ˆç¾ã€‚\n" NOR);
                 set("value", 10000);
                 set("material", "steel");
                 set("rigidity", 3);
@@ -25,8 +25,8 @@ void create()
                 set("wield_neili", 500);
                 set("wield_maxneili", 900);
                 set("wield_str", 23);
-                set("wield_msg", HIR "$N³öÊÖ°Î½£Ò»×ª£¬Ò»ÂÖºìÈÕÈô´Ó½£ÇÊÖÐÉýÆð£¬½£¹âÉÁË¸Ò«ÑÛ¡£\n" NOR);
-                set("unwield_msg", HIR "Ö»¼û$NÊÖÖ¸Î¢¶¯£¬ºìÈÕÃ»ÓÚ½£ÇÊÖ®ÖÐ¡£\n" NOR);
+                set("wield_msg", HIR "$Nå‡ºæ‰‹æ‹”å‰‘ä¸€è½¬ï¼Œä¸€è½®çº¢æ—¥è‹¥ä»Žå‰‘éž˜ä¸­å‡èµ·ï¼Œå‰‘å…‰é—ªçƒè€€çœ¼ã€‚\n" NOR);
+                set("unwield_msg", HIR "åªè§$Næ‰‹æŒ‡å¾®åŠ¨ï¼Œçº¢æ—¥æ²¡äºŽå‰‘éž˜ä¹‹ä¸­ã€‚\n" NOR);
         }
         init_sword(45);
         setup();
@@ -37,7 +37,7 @@ mixed hit_ob(object me, object victim, int damage_bonus)
         int n;
         int my_exp, ob_exp;
 
-if(me->query("family/family_name")!="áÔÉ½ÅÉ" ) return 0;              
+if(me->query("family/family_name")!="åµ©å±±æ´¾" ) return 0;              
 if( victim->query_condition("no_fight") &&  victim->query_condition("no_perform")) return 0;
 if(random(10)>5) return 0;
 
@@ -48,9 +48,9 @@ if(random(10)>5) return 0;
                  n = me->query_skill("sword");
                  victim->add_condition("no_fight", 1);
 
-                return HBYEL HIY"$N" HBYEL HIY"¿çÇ°Ò»²½£¬ÊÖÖÐµÄ" NOR + HIR"¹ÛÈÕ½£" NOR
-                       + HBYEL HIY"·¢³öÒ»µÀµÀ½£Æø£¬Ïò$n" HBYEL HIY"±ÆÈ¥£¬½£ÆøÁèÀ÷Ö®¼«£¬ÈçÍ¬ÍòÕÉºìÈÕ£¬²»¿É±ÆÊÓ¡£\n"
-                       "$n" HBYEL HIY"´ó³ÔÒ»¾ª£¬²»ÖªÈçºÎµÖµ²£¬Ö»ÓÐÁ¬Á¬ºóÍË£¡\n" NOR;
+                return HBYEL HIY"$N" HBYEL HIY"è·¨å‰ä¸€æ­¥ï¼Œæ‰‹ä¸­çš„" NOR + HIR"è§‚æ—¥å‰‘" NOR
+                       + HBYEL HIY"å‘å‡ºä¸€é“é“å‰‘æ°”ï¼Œå‘$n" HBYEL HIY"é€¼åŽ»ï¼Œå‰‘æ°”å‡ŒåŽ‰ä¹‹æžï¼Œå¦‚åŒä¸‡ä¸ˆçº¢æ—¥ï¼Œä¸å¯é€¼è§†ã€‚\n"
+                       "$n" HBYEL HIY"å¤§åƒä¸€æƒŠï¼Œä¸çŸ¥å¦‚ä½•æŠµæŒ¡ï¼Œåªæœ‰è¿žè¿žåŽé€€ï¼\n" NOR;
 
         case 1:
                 n = me->query_skill("sword",1);
@@ -61,11 +61,11 @@ if(random(10)>5) return 0;
                 victim->add_condition("no_perform", 1+random(2));
 
                 
-                return random(2) ? HBYEL HIY"$N" HIY "Ò»Éù³¤Ò÷£¬ÊÖÖÐ"HIR"¹ÛÈÕ½£"HBYEL HIY"±ÅÉä³öÒ»"
-                                   "µÀÏ¬ÀûÎÞ±ÈµÄ½£Æø£¬¼±ÈçÐÇ»ð£¬³¯$n" HBYEL HIY"¼¤Éä¶øÈ¥£¡\n" NOR:
-                                   HBYEL HIY"$N" HBYEL HIY"Í»È»´óÉùºÈµÀ£º¡°¿´ÕÐ£¡¡±½£ÕÐºö±ä"
-                                   "ÊÖÖÐ"HIR"¹ÛÈÕ½£"HBYEL HIY"»Ã»¯³öÎÞÊýµÀ½£¹â£¬Èç³õÉýÖ®³¯Ñô£¬\n" HIY "Ï¼¹âÍòµÀ£¬$n"
-                                   HBYEL HIY"µÇÊ±¾õµÃÍ·»èÄ¿Ñ£ÑÛ»¨çÔÂÒ£¡\n" NOR;
+                return random(2) ? HBYEL HIY"$N" HIY "ä¸€å£°é•¿åŸï¼Œæ‰‹ä¸­"HIR"è§‚æ—¥å‰‘"HBYEL HIY"è¿¸å°„å‡ºä¸€"
+                                   "é“çŠ€åˆ©æ— æ¯”çš„å‰‘æ°”ï¼Œæ€¥å¦‚æ˜Ÿç«ï¼Œæœ$n" HBYEL HIY"æ¿€å°„è€ŒåŽ»ï¼\n" NOR:
+                                   HBYEL HIY"$N" HBYEL HIY"çªç„¶å¤§å£°å–é“ï¼šâ€œçœ‹æ‹›ï¼â€å‰‘æ‹›å¿½å˜"
+                                   "æ‰‹ä¸­"HIR"è§‚æ—¥å‰‘"HBYEL HIY"å¹»åŒ–å‡ºæ— æ•°é“å‰‘å…‰ï¼Œå¦‚åˆå‡ä¹‹æœé˜³ï¼Œ\n" HIY "éœžå…‰ä¸‡é“ï¼Œ$n"
+                                   HBYEL HIY"ç™»æ—¶è§‰å¾—å¤´æ˜ç›®çœ©çœ¼èŠ±ç¼­ä¹±ï¼\n" NOR;
         case 2:
                 n = me->query_skill("sword",1);
                 victim->receive_damage("qi", n*2, me);
@@ -75,11 +75,11 @@ if(random(10)>5) return 0;
                 victim->add_condition("no_perform", 1+random(2));
 
                 
-                return random(2) ? HBYEL HIY"$N" HIY "Ò»Éù³¤Ò÷£¬ÊÖÖÐ"HIR"¹ÛÈÕ½£"HBYEL HIY"±ÅÉä³öÒ»"
-                                   "µÀÏ¬ÀûÎÞ±ÈµÄ½£Æø£¬¼±ÈçÐÇ»ð£¬³¯$n" HBYEL HIY"¼¤Éä¶øÈ¥£¡\n" NOR:
-                                   HBYEL HIY"$N" HBYEL HIY"Í»È»´óÉùºÈµÀ£º¡°¿´ÕÐ£¡¡±½£ÕÐºö±ä"
-                                   "ÊÖÖÐ"HIR"¹ÛÈÕ½£"HBYEL HIY"»Ã»¯³öÎÞÊýµÀ½£¹â£¬Èç³õÉýÖ®³¯Ñô£¬" HIY "Ï¼¹âÍòµÀ£¬$n"
-                                   HBYEL HIY"µÇÊ±¾õµÃÑÛ»¨çÔÂÒ£¡\n" NOR;
+                return random(2) ? HBYEL HIY"$N" HIY "ä¸€å£°é•¿åŸï¼Œæ‰‹ä¸­"HIR"è§‚æ—¥å‰‘"HBYEL HIY"è¿¸å°„å‡ºä¸€"
+                                   "é“çŠ€åˆ©æ— æ¯”çš„å‰‘æ°”ï¼Œæ€¥å¦‚æ˜Ÿç«ï¼Œæœ$n" HBYEL HIY"æ¿€å°„è€ŒåŽ»ï¼\n" NOR:
+                                   HBYEL HIY"$N" HBYEL HIY"çªç„¶å¤§å£°å–é“ï¼šâ€œçœ‹æ‹›ï¼â€å‰‘æ‹›å¿½å˜"
+                                   "æ‰‹ä¸­"HIR"è§‚æ—¥å‰‘"HBYEL HIY"å¹»åŒ–å‡ºæ— æ•°é“å‰‘å…‰ï¼Œå¦‚åˆå‡ä¹‹æœé˜³ï¼Œ" HIY "éœžå…‰ä¸‡é“ï¼Œ$n"
+                                   HBYEL HIY"ç™»æ—¶è§‰å¾—çœ¼èŠ±ç¼­ä¹±ï¼\n" NOR;
 
 
         }

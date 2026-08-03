@@ -1,4 +1,4 @@
-// Àî¹ã¹­
+// æå¹¿å¼“
 
 #include <weapon.h>
 #include <ansi.h>
@@ -8,14 +8,14 @@
 
 void create()
 {
-        set_name(HIY "Àî¹ã¹­" NOR, ({ "liguang gong","arrow" }));
+        set_name(HIY "æå¹¿å¼“" NOR, ({ "liguang gong","arrow" }));
         set_weight(20000);
        /* if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("treasure", 1);
-                set("unit", "°Ñ");
-                set("long", HIC "Õâ¾ÍÊÇµ±Äê·É½«¾üÀî¹ãµ±ÄêÃÎ»¢ÉäÊ¯Ê¹ÓÃµÄ¹­£¬ÈëÊÖÊ®·Ö³ÁÖØ¡£\n" NOR);
+                set("unit", "æŠŠ");
+                set("long", HIC "è¿™å°±æ˜¯å½“å¹´é£å°†å†›æå¹¿å½“å¹´æ¢¦è™å°„çŸ³ä½¿ç”¨çš„å¼“ï¼Œå…¥æ‰‹ååˆ†æ²‰é‡ã€‚\n" NOR);
                 set("value", 20000);
                 set("material", "steel");
                 set("rigidity", 3);
@@ -25,8 +25,8 @@ void create()
                 set("wield_neili", 500);
                 set("wield_maxneili", 3000);
                 set("wield_str", 28);
-                set("wield_msg", HIY "$N´ÓÉìÊÖ´Ó±³ºóÄÃ³öÀî¹ãÖ®¹­£¬²»ÓÉµÃÏÔµÄ$NÆøÊÆ·Ç³£¡£\n" NOR);
-                set("unwield_msg", HIY "$N½«Àî¹ãÖ®¹­·ÅÈë¹ÒÈë±³ÉÏ£¬¶ÙÊ±ºÀÇéÆøÊÆ¶ÙÏû¡£\n" NOR);
+                set("wield_msg", HIY "$Nä»ä¼¸æ‰‹ä»èƒŒåæ‹¿å‡ºæå¹¿ä¹‹å¼“ï¼Œä¸ç”±å¾—æ˜¾çš„$Næ°”åŠ¿éå¸¸ã€‚\n" NOR);
+                set("unwield_msg", HIY "$Nå°†æå¹¿ä¹‹å¼“æ”¾å…¥æŒ‚å…¥èƒŒä¸Šï¼Œé¡¿æ—¶è±ªæƒ…æ°”åŠ¿é¡¿æ¶ˆã€‚\n" NOR);
         }
         init_arrow(180);
         setup();*/

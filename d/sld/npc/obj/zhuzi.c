@@ -5,18 +5,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIY"ĞÛüSÖé×Ó"NOR, ({ "xianghuang zhuzi", "zhuzi","hate snake's zhu"}));
+        set_name(HIY"é›„é»ƒç å­"NOR, ({ "xianghuang zhuzi", "zhuzi","hate snake's zhu"}));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÊÇÒ»´®Î¢Î¢·º×Åµ­»ÆÉ«µÄÖé×Ó£¬¾İËµ´÷ÔÚÉíÉÏ£¬°Ù¶¾²»ÇÖ¡£\n");
+                set("long", "è¿™æ˜¯ä¸€ä¸²å¾®å¾®æ³›ç€æ·¡é»„è‰²çš„ç å­ï¼Œæ®è¯´æˆ´åœ¨èº«ä¸Šï¼Œç™¾æ¯’ä¸ä¾µã€‚\n");
                 set("material", "silk");
-                set("unit", "Ö»");
+                set("unit", "åª");
                 set("unique", 1);
                 set("value", 1000000);
-                set("wear_msg", HIY "$N´ÓÉíÉÏÃş³öÒ»´®µ­»ÆÉ«µÄÖé×Ó´÷ÆğÀ´¡£\n" NOR);
-                set("remove_msg", HIY "$N³ıÏÂĞÛ»ÆÖé×Ó£¬Ğ¡ĞÄÒíÒíµÄ·ÅÔÚÌùÉí´¦¡£\n" NOR);
+                set("wear_msg", HIY "$Nä»èº«ä¸Šæ‘¸å‡ºä¸€ä¸²æ·¡é»„è‰²çš„ç å­æˆ´èµ·æ¥ã€‚\n" NOR);
+                set("remove_msg", HIY "$Né™¤ä¸‹é›„é»„ç å­ï¼Œå°å¿ƒç¿¼ç¿¼çš„æ”¾åœ¨è´´èº«å¤„ã€‚\n" NOR);
         set("armor_prop/neck", 50);
         }
         setup();

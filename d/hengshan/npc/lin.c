@@ -4,8 +4,8 @@ inherit NPC;
 #include <ansi.h>;
 void create()
 {
-        set_name("ÒÇÁÕ", ({ "yi lin", "lin" }) );
-        set("gender", "Å®ĞÔ");
+        set_name("ä»ªç³", ({ "yi lin", "lin" }) );
+        set("gender", "å¥³æ€§");
         set("class", "bonze");
         set("age", 16);
         set("attitude", "peaceful");
@@ -40,9 +40,9 @@ void create()
         map_skill("dodge", "qingmang-jianfa");
         prepare_skill("strike", "sixiang-zhang");
 
-        create_family("ºãÉ½ÅÉ", 14, "µÜ×Ó");
+        create_family("æ’å±±æ´¾", 14, "å¼Ÿå­");
         set("inquiry", ([
-        "Áîºü³å" : "ÒÇÁÕµÄÁ³¡¸à§¡¹µÄÒ»ÏÂºìÁËÆğÀ´ËµµÀ£ºÄãÕÒÁîºü´ó¸çÓĞÊÂÂğ£¿\n",
+        "ä»¤ç‹å†²" : "ä»ªç³çš„è„¸ã€Œå”°ã€çš„ä¸€ä¸‹çº¢äº†èµ·æ¥è¯´é“ï¼šä½ æ‰¾ä»¤ç‹å¤§å“¥æœ‰äº‹å—ï¼Ÿ\n",
         ]));
 
         setup();

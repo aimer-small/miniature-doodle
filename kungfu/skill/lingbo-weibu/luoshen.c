@@ -1,4 +1,4 @@
-// By Spiderii@ty¸üĞÂ
+// By Spiderii@tyæ›´æ–°
 #include <ansi.h>
 #include <skill.h>
 #include <combat.h>
@@ -14,19 +14,19 @@ int perform(object me)
 	if(!target)
 		target = offensive_target(me);
 	if( (int)me->query_skill("force",1) < 300 )
-                return notify_fail("ÄãµÄÄÚ¹¦»¹²»¹»»ğºò£¬Ê¹²»³öÂåÉñ¡£\n");  
+                return notify_fail("ä½ çš„å†…åŠŸè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºæ´›ç¥ã€‚\n");  
        	if( (int)me->query_skill("lingbo-weibu",1) < 150 )
-                return notify_fail("ÄãµÄÁè²¨Î¢²½»¹²»¹»»ğºò£¬Ê¹²»³öÂåÉñ¡£\n");  
+                return notify_fail("ä½ çš„å‡Œæ³¢å¾®æ­¥è¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºæ´›ç¥ã€‚\n");  
        	if( (int)me->query("max_neili",1) < 3000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª»¹²»¹»»ğºò£¬Ê¹²»³öÂåÉñ¡£\n");  
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºæ´›ç¥ã€‚\n");  
        	if( (int)me->query("jingli", 1) < 500 )
-                return notify_fail("ÄãÏÖÔÚ¾«Á¦²»¹»¡£\n");
+                return notify_fail("ä½ ç°åœ¨ç²¾åŠ›ä¸å¤Ÿã€‚\n");
        	if( (int)me->query("neili", 1) < 200 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸å¤Ÿã€‚\n");
        	if (me->query_temp("lbwb/ls"))
-                return notify_fail("ÄãÕıÔÚÊ¹ÓÃÂåÉñ¡£\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨æ´›ç¥ã€‚\n");
 
-       	msg = HIC "$NÔ½×ßÔ½¿ì£¬°´ºÏËÄÏà°ËØÔÖ®ÊÆ,ÄÚÏ¢Ëæ×Å²½·¨²»×¡ÔË×ª,×ªÑÛ¼äÓÌÈçÎíÒ»Ñù£¡\n\n"NOR; 
+       	msg = HIC "$Nè¶Šèµ°è¶Šå¿«ï¼ŒæŒ‰åˆå››ç›¸å…«å¦ä¹‹åŠ¿,å†…æ¯éšç€æ­¥æ³•ä¸ä½è¿è½¬,è½¬çœ¼é—´çŠ¹å¦‚é›¾ä¸€æ ·ï¼\n\n"NOR; 
 
        	me->add("neili", -(200+random(300)));
        	me->add("jingli", -(100+random(50)));
@@ -38,7 +38,7 @@ int perform(object me)
        	me->add_temp("apply/dexerity", i);
        	me->add_temp("apply/dodge", i*5);
        	me->set_temp("lbwb/ls", i);
-       	me->start_perform(2, "ÂåÉñ");
+       	me->start_perform(2, "æ´›ç¥");
        	call_out("remove_effect", 1, me, i*10, i);
        	return 1;
 }
@@ -54,7 +54,7 @@ void remove_effect(object me, int count,int dex)
            	me->add_temp("apply/dexerity", -dex);
                 me->add_temp("apply/dodge", -dex*5);
            	me->delete_temp("lbwb/ls");
-           	message_vision(HIW"$NÄÚÁ¦²»¼Ã£¬Éí·¨ÂıÁËÏÂÀ´¡£\n"NOR, me);
+           	message_vision(HIW"$Nå†…åŠ›ä¸æµï¼Œèº«æ³•æ…¢äº†ä¸‹æ¥ã€‚\n"NOR, me);
            	return;
         }
  	call_out("remove_effect", 1 , me, count -1,dex);

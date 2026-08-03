@@ -1,11 +1,11 @@
 inherit ROOM;
 void create()
 {
-        set("short", "ÖÐÐÄ¹ã³¡");
+        set("short", "ä¸­å¿ƒå¹¿åœº");
         set("long", @LONG
-ÕâÀïÊÇÌÁ¹Á³ÇÖÐÐÄ¹ã³¡£¬ÊÇÌÁ¹Á¿Ú×î·±»ªµÄËùÔÚ¡£°×ÌìÕâÀïÈËÉù¶¦·ÐÍíÉÏ
-¸üÊÇµÆ»ðÍ¨Ã÷£¬Ã¦ÂµÁËÒ»ÌìµÄÈËÃÇÍíÉÏ×ÜÏ²»¶µ½ÕâÀï×ßÒ»×ß£¬¹ã³¡ÉÏÂô¸÷ÖÖ¶«
-Î÷µÄ¶¼ÓÐ£¬²»ÉÙ½­ºþÈËÎï»ì¼£ÆäÖÐ¡£
+è¿™é‡Œæ˜¯å¡˜æ²½åŸŽä¸­å¿ƒå¹¿åœºï¼Œæ˜¯å¡˜æ²½å£æœ€ç¹åŽçš„æ‰€åœ¨ã€‚ç™½å¤©è¿™é‡Œäººå£°é¼Žæ²¸æ™šä¸Š
+æ›´æ˜¯ç¯ç«é€šæ˜Žï¼Œå¿™ç¢Œäº†ä¸€å¤©çš„äººä»¬æ™šä¸Šæ€»å–œæ¬¢åˆ°è¿™é‡Œèµ°ä¸€èµ°ï¼Œå¹¿åœºä¸Šå–å„ç§ä¸œ
+è¥¿çš„éƒ½æœ‰ï¼Œä¸å°‘æ±Ÿæ¹–äººç‰©æ··è¿¹å…¶ä¸­ã€‚
 LONG );
 
         set("exits", ([
@@ -16,7 +16,7 @@ LONG );
 		"west" : __DIR__"stxijie1",
 	]));
 
-	set("outdoors", "ÌÁ¹Á");
+	set("outdoors", "å¡˜æ²½");
 
 	set("objects", ([
                 __DIR__"npc/shuibing" : 2+random(2),

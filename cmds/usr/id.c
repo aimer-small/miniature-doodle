@@ -12,8 +12,8 @@ int main(object me, string arg)
 
 		inv = all_inventory(me);
 		if( !sizeof(inv) )
-			return notify_fail("ÄãÉíÉÏÃ»ÓĞÈÎºÎ¶«Î÷¡£\n");
-		write( "ÄãÉíÉÏĞ¯´øÎïÆ·µÄ±ğ³ÆÈçÏÂ(ÓÒ·½)£º\n");
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n");
+		write( "ä½ èº«ä¸Šæºå¸¦ç‰©å“çš„åˆ«ç§°å¦‚ä¸‹(å³æ–¹)ï¼š\n");
 		for(i=0; i<sizeof(inv); i++) {
 			if (!me->visible(inv[i]))
 				continue;
@@ -28,8 +28,8 @@ int main(object me, string arg)
 	if( arg=="here" ) {
 		inv = all_inventory(environment(me));
 		if( !sizeof(inv) )
-			return notify_fail("ÕâÀïÃ»ÓĞÈÎºÎ¶«Î÷¡£\n");
-		write( "ÔÚÕâ¸ö·¿¼äÖĞ, ÉúÎï¼°ÎïÆ·µÄ(Ó¢ÎÄ)Ãû³ÆÈçÏÂ£º\n");
+			return notify_fail("è¿™é‡Œæ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n");
+		write( "åœ¨è¿™ä¸ªæˆ¿é—´ä¸­, ç”Ÿç‰©åŠç‰©å“çš„(è‹±æ–‡)åç§°å¦‚ä¸‹ï¼š\n");
 		for(i=0; i<sizeof(inv); i++) {
 			if (!me->visible(inv[i]))
 				continue;
@@ -43,11 +43,11 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : id [here]
+æŒ‡ä»¤æ ¼å¼ : id [here]
 
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãÖªµÀÎïÆ·µÄÓ¢ÎÄÃû³Æ¼°Ãû×Ö. Ö»´ò id »áÏÔÊ¾
-ÄãÉíÉÏËùĞ¯´øÎïÆ·µÄÃû³Æ. 'id here' ÔòÏÔÊ¾ËùÓĞ¸úÄãÔÚÍ¬Ò»¸ö
-»·¾³ÀïµÄÎï¼şÃû³Æ.
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ çŸ¥é“ç‰©å“çš„è‹±æ–‡åç§°åŠåå­—. åªæ‰“ id ä¼šæ˜¾ç¤º
+ä½ èº«ä¸Šæ‰€æºå¸¦ç‰©å“çš„åç§°. 'id here' åˆ™æ˜¾ç¤ºæ‰€æœ‰è·Ÿä½ åœ¨åŒä¸€ä¸ª
+ç¯å¢ƒé‡Œçš„ç‰©ä»¶åç§°.
 
 HELP
     );

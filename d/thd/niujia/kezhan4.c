@@ -11,18 +11,18 @@ int do_gg();
 
 void create()
 {
-	set("short", "Î÷Ïá·¿");
+	set("short", "è¥¿å¢æˆ¿");
 	set("long", @LONG
-ÄãÒ»×ß½øÎ÷Ïá·¿£¬¾Í°ÑÃÅ·´ËøÁË¡£»·¹ËËÄÖÜ£¬Ö»ÓĞÒ»ÕÅ´²ºÍÒ»ÕÅ²ĞÆÆµÄ×À
-×Ó(zhuozi)¡£
+ä½ ä¸€èµ°è¿›è¥¿å¢æˆ¿ï¼Œå°±æŠŠé—¨åé”äº†ã€‚ç¯é¡¾å››å‘¨ï¼Œåªæœ‰ä¸€å¼ åºŠå’Œä¸€å¼ æ®‹ç ´çš„æ¡Œ
+å­(zhuozi)ã€‚
 LONG
 	);
 	set("no_clean_up", 0);
 
 	set("item_desc", ([
-		"zhuozi" : "Ò»ÕÅ²ĞÆÆµÄÊé×À£¬³éÌë(chouti)Â¶³öÒ»µÀ·ìÏ¶¡£×À×ÓÉÏ·Å×ÅÒ»±¾·¢»ÆµÄÈÕ¼Ç(riji)¡£\n",
-		"chouti" : "Í¸¹ı·ìÏ¶ÍùÀï¿´£¬ºÚºõºõµØÊ²Ã´Ò²¿´²»Çå£¡\n",
-		"riji" : "ÈÕ¼ÇÉÏÓÃÆæ¹ÖµÄ·ûºÅ»­×ÅÕâÑùµÄÍ¼°¸£º\nThere are so many jewels...If I can remember the location, but I think the\nsailer will remember...\n",
+		"zhuozi" : "ä¸€å¼ æ®‹ç ´çš„ä¹¦æ¡Œï¼ŒæŠ½å±‰(chouti)éœ²å‡ºä¸€é“ç¼éš™ã€‚æ¡Œå­ä¸Šæ”¾ç€ä¸€æœ¬å‘é»„çš„æ—¥è®°(riji)ã€‚\n",
+		"chouti" : "é€è¿‡ç¼éš™å¾€é‡Œçœ‹ï¼Œé»‘ä¹ä¹åœ°ä»€ä¹ˆä¹Ÿçœ‹ä¸æ¸…ï¼\n",
+		"riji" : "æ—¥è®°ä¸Šç”¨å¥‡æ€ªçš„ç¬¦å·ç”»ç€è¿™æ ·çš„å›¾æ¡ˆï¼š\nThere are so many jewels...If I can remember the location, but I think the\nsailer will remember...\n",
 	]));
 
 	set("exits", ([
@@ -51,25 +51,25 @@ int do_open(string arg)
 {
 	object me = this_player();
 
-	if (me->is_busy() || me->is_fighting())	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy() || me->is_fighting())	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (arg == "chouti") {
 		if (!query_temp("jing_got") && !present("wangyuan jing", me)) {
-			write("ÄãÇáÇáµØ´ò¿ª³éÌë£¬·¢ÏÖÁËÒ»¸öÆæ¹ÖµÄ¶«Î÷£¬ËüÓĞÁ½¸öÔ²Í°£¬ÓÃÑÛ¾¦´ÕÉÏÈ¥¿´£¬¾¹È»ÄÜ¿´µ½Ô¶´¦¡£\n");
+			write("ä½ è½»è½»åœ°æ‰“å¼€æŠ½å±‰ï¼Œå‘ç°äº†ä¸€ä¸ªå¥‡æ€ªçš„ä¸œè¥¿ï¼Œå®ƒæœ‰ä¸¤ä¸ªåœ†æ¡¶ï¼Œç”¨çœ¼ç›å‡‘ä¸Šå»çœ‹ï¼Œç«Ÿç„¶èƒ½çœ‹åˆ°è¿œå¤„ã€‚\n");
 			set_temp("jing_got",1);
 			new(__DIR__"obj/wangyuan")->move(me);
 			remove_call_out("delete_got");
 			call_out("delete_got", 300);
 		}
 		else 
-			write("ÄãÇáÇáµØ´ò¿ªÁË³éÌë£¬È´·¢ÏÖÀïÃæÊÇ¿ÕµÄ¡£\n");
+			write("ä½ è½»è½»åœ°æ‰“å¼€äº†æŠ½å±‰ï¼Œå´å‘ç°é‡Œé¢æ˜¯ç©ºçš„ã€‚\n");
 		return 1;
 	}
-	return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 }
 
 int do_quit()
 {
-	write("ÕâÀï²»×¼ÍË³ö£¡\n");
+	write("è¿™é‡Œä¸å‡†é€€å‡ºï¼\n");
 	return 1;
 }
 

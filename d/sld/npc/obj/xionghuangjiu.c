@@ -14,13 +14,13 @@ void init()
 
 void create()
 {
-	set_name(HIG "ĞÛ»Æ¾Æ" NOR, ({"xionghuangjiu","jiu","skin"}));
+	set_name(HIG "é›„é»„é…’" NOR, ({"xionghuangjiu","jiu","skin"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("long",
-		"ÕâÊÇÒ»ÍëĞÛ»Æ¾Æ£¬ÊÇÉñÁú½ÌµÜ×ÓÈë½ÌÊ±±ØºÈ(drink)µÄ£¬¾İËµ¿ÉÒÔ·ÀÉßÒ§¡£\n");
-		set("unit", "Íë");
+		"è¿™æ˜¯ä¸€ç¢—é›„é»„é…’ï¼Œæ˜¯ç¥é¾™æ•™å¼Ÿå­å…¥æ•™æ—¶å¿…å–(drink)çš„ï¼Œæ®è¯´å¯ä»¥é˜²è›‡å’¬ã€‚\n");
+		set("unit", "ç¢—");
 		set("no_get", 1);
 		set("no_drop", 1);
 	}
@@ -30,23 +30,23 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if (!living(me)) return notify_fail("Ïëµ±»úÂğ£¿\n");
+	if (!living(me)) return notify_fail("æƒ³å½“æœºå—ï¼Ÿ\n");
 	if (!id(arg)) return 0;
 
-	if (me->query("family/family_name") != "ÉñÁú½Ì"){
-		message_vision(HIG "$N³ÔÏÂÒ»ÍëĞÛ»Æ¾Æ£¬¶ÙÊ±¾õµÃ¸¹²¿Í´Èçµ¶½Ê¡£\n"NOR,me);
+	if (me->query("family/family_name") != "ç¥é¾™æ•™"){
+		message_vision(HIG "$Nåƒä¸‹ä¸€ç¢—é›„é»„é…’ï¼Œé¡¿æ—¶è§‰å¾—è…¹éƒ¨ç—›å¦‚åˆ€ç»ã€‚\n"NOR,me);
 		me->unconcious();
 		destruct(this_object());
 		return 1;
 	}
 	if (me->query("xionghuangjiu")){
-		message_vision(HIG "$N³ÔÏÂÒ»ÍëĞÛ»Æ¾Æ£¬¶ÙÊ±¾õµÃ¸¹²¿Í´Èçµ¶½Ê¡£\n"NOR,me);
+		message_vision(HIG "$Nåƒä¸‹ä¸€ç¢—é›„é»„é…’ï¼Œé¡¿æ—¶è§‰å¾—è…¹éƒ¨ç—›å¦‚åˆ€ç»ã€‚\n"NOR,me);
 		me->add("max_neili", -5);
 		me->unconcious();
 		destruct(this_object());
 		return 1;
 	}
-	message_vision(HIG "$N³ÔÏÂÒ»ÍëĞÛ»Æ¾Æ£¬¶ÙÊ±¾õµÃÈ«Éí·¢ÈÈ£¬Ò»¹É¾ÆÆøÖ±³åÍ·¶¥¡£\n"NOR,me);
+	message_vision(HIG "$Nåƒä¸‹ä¸€ç¢—é›„é»„é…’ï¼Œé¡¿æ—¶è§‰å¾—å…¨èº«å‘çƒ­ï¼Œä¸€è‚¡é…’æ°”ç›´å†²å¤´é¡¶ã€‚\n"NOR,me);
 	me->set("xionghuangjiu",1);
 	me->add("max_neili", 1);
 	me->start_busy(1);

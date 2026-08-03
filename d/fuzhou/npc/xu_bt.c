@@ -1,12 +1,12 @@
-// xu_bt.c ĞíïÚÍ·
+// xu_bt.c è®¸é•–å¤´
 
 inherit NPC;
 void create()
 {
-	set_name("ĞíïÚÍ·", ({ "xu biaotou", "xu", "biaotou" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("è®¸é•–å¤´", ({ "xu biaotou", "xu", "biaotou" }));
+	set("gender", "ç”·æ€§");
 	set("age", 40);
-	set("long", "ËûÊÇ¡¸¸£ÍşïÚ¾Ö¡¹µÄÒ»¸öïÚÍ·£¬Æ½³£Ï²»¶¶ÄÇ®¡£\n");
+	set("long", "ä»–æ˜¯ã€Œç¦å¨é•–å±€ã€çš„ä¸€ä¸ªé•–å¤´ï¼Œå¹³å¸¸å–œæ¬¢èµŒé’±ã€‚\n");
 	set("shen_type", 1);
 
         set("str", 25);

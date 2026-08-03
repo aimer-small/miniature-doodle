@@ -1,4 +1,4 @@
-// gdismiss.c  ½âÉ¢°ïÅÉ
+// gdismiss.c  è§£æ•£å¸®æ´¾
 // by augx@sj 4/11/2002
 
 #include <ansi.h>
@@ -7,12 +7,12 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
+æŒ‡ä»¤æ ¼å¼ :
 gdimiss
-½âÉ¢°ïÅÉ£¬Ö»ÓĞ°ïÅÉµÄ×î¸ßÊ×Áì¿ÉÒÔÊ¹ÓÃÕâ¸öÃüÁî¡£
+è§£æ•£å¸®æ´¾ï¼Œåªæœ‰å¸®æ´¾çš„æœ€é«˜é¦–é¢†å¯ä»¥ä½¿ç”¨è¿™ä¸ªå‘½ä»¤ã€‚
 
-gdimiss [°ïÅÉid]
-Î×Ê¦×¨ÓÃÃüÁî£¬½âÉ¢Ö¸¶¨°ïÅÉ¡£
+gdimiss [å¸®æ´¾id]
+å·«å¸ˆä¸“ç”¨å‘½ä»¤ï¼Œè§£æ•£æŒ‡å®šå¸®æ´¾ã€‚
 HELP
 	);
 	return 1;
@@ -24,18 +24,18 @@ int main(object me, string arg)
 	mapping mp;
 
 	if( !me->query("group") && !wizardp(me) )
-		return notify_fail("Äã»¹Ã»ÓĞ´´½¨×Ô¼ºµÄ°ïÅÉÄØ¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰åˆ›å»ºè‡ªå·±çš„å¸®æ´¾å‘¢ã€‚\n");
 	if( me->query("group/class")!=1 && !wizardp(me) )
-		return notify_fail("Ö»ÓĞ°ïÅÉµÄÊ×ÁìºÍÎ×Ê¦²ÅÓĞÈ¨Àû½âÉ¢°ïÅÉ¡£\n");
+		return notify_fail("åªæœ‰å¸®æ´¾çš„é¦–é¢†å’Œå·«å¸ˆæ‰æœ‰æƒåˆ©è§£æ•£å¸®æ´¾ã€‚\n");
 	if( wizardp(me) && arg ) gid = arg; else gid = me->query("group/id");
 	if( !GROUP_D->site_now(gid) )
 		return notify_fail( GROUP_D->get_last_error() );
 	if( !(mp=GROUP_D->get_group(gid,1)) )
-		return notify_fail("Ã»ÓĞÕâ¸ö°ïÅÉ¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªå¸®æ´¾ã€‚\n");
 	if( mp["war"] > 1 )
-		return notify_fail("ÄãÃÇµÄ°ïÅÉÕıÔÚÕ½ÕùÖĞÄØ¡£\n");
+		return notify_fail("ä½ ä»¬çš„å¸®æ´¾æ­£åœ¨æˆ˜äº‰ä¸­å‘¢ã€‚\n");
 
-	write("ÄãÈ·¶¨Òª½âÉ¢ÄãµÄ°ïÅÉÂğ£¿[y/n] ");
+	write("ä½ ç¡®å®šè¦è§£æ•£ä½ çš„å¸®æ´¾å—ï¼Ÿ[y/n] ");
 	input_to("confirm_dismiss",me,gid);
 
 	return 1;
@@ -45,8 +45,8 @@ protected void confirm_dismiss(string arg,object me,string gid)
 {
 	if( arg[0]!='y' && arg[0]!='Y' ) return;
 	
-	GROUP_D->set_res("°ïÖ÷Ö÷¶¯½âÉ¢");
+	GROUP_D->set_res("å¸®ä¸»ä¸»åŠ¨è§£æ•£");
 	GROUP_D->delete_group(gid);
-	tell_object(me,"Äã½âÉ¢ÁË×Ô¼ºµÄ°ïÅÉ¡£\n");
+	tell_object(me,"ä½ è§£æ•£äº†è‡ªå·±çš„å¸®æ´¾ã€‚\n");
 	log_file("group/group",sprintf("dismiss:dismiss  :%-8s:%s(%s)",gid,me->name(),me->query("id")),me);
 }

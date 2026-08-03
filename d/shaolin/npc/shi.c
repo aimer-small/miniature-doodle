@@ -1,16 +1,16 @@
-// shi.c Ê·ÇàÉ½
+// shi.c å²é’å±±
 
 inherit NPC;
 
 void create()
 {
-       set_name("Ê·ÇàÉ½", ({ "shi qingshan", "shi" }));
-       set("title", "ÑïÖİÊØ½«");
-       set("gender", "ÄĞĞÔ");
+       set_name("å²é’å±±", ({ "shi qingshan", "shi" }));
+       set("title", "æ‰¬å·å®ˆå°†");
+       set("gender", "ç”·æ€§");
        set("age", 33);
        set("str", 25);
        set("dex", 16);
-       set("long", "Ê·ÇàÉ½Ôø¾­ÊÇØ¤°ïµÄÊ·»ğÁúµÄĞ¡µÜ£¬²»ÖªÎªºÎ³ÔÉÏÁË³¯Í¢·¹¡£\n");
+       set("long", "å²é’å±±æ›¾ç»æ˜¯ä¸å¸®çš„å²ç«é¾™çš„å°å¼Ÿï¼Œä¸çŸ¥ä¸ºä½•åƒä¸Šäº†æœå»·é¥­ã€‚\n");
        set("combat_exp", 200000);
        set("shen_type", 1);
        set("attitude", "heroism");
@@ -42,6 +42,6 @@ void create()
 
 int accept_fight(object me)
 {
-       command("say ÀÏ·ò¾ÃÎ´ºÍ½­ºşÈË¶¯ÊÖ¹ıÕĞÁË£¬½ñÈÕÒ²²»ÏëÆÆÀı¡£");
+       command("say è€å¤«ä¹…æœªå’Œæ±Ÿæ¹–äººåŠ¨æ‰‹è¿‡æ‹›äº†ï¼Œä»Šæ—¥ä¹Ÿä¸æƒ³ç ´ä¾‹ã€‚");
        return 0;
 }

@@ -5,13 +5,13 @@
 
 inherit NPC;
 
-string *first_name = ({ "ÕÔ","ºÎ","Ð»","Àî","ËÕ","Îâ","Ö£","ÎÄ","ÕÅ","³Â","Áõ","ÁÖ" }); 
+string *first_name = ({ "èµµ","ä½•","è°¢","æŽ","è‹","å´","éƒ‘","æ–‡","å¼ ","é™ˆ","åˆ˜","æž—" }); 
 string *first_name_id = ({
 "zhao","he","xie","li","su","wu","zheng","wen","zhang","chen","liu","lin"});
 string *name_words = ({
-"´º","µ¤","·¼","·Ò","·ï","¹Ã","ºì","ºç","½¿","¾ê","¾Õ","À¼","á°","Àö",
-"Àò","Á«","Áá","ÁÕ","ÄÈ","ÇÙ","ÇÛ","Ù»","Æ¼","æÃ","Ï¼","Ïã","ÑÞ","Ñà",
-"Ó¢","çø","Óñ","Õä","Öé",
+"æ˜¥","ä¸¹","èŠ³","èŠ¬","å‡¤","å§‘","çº¢","è™¹","å¨‡","å¨Ÿ","èŠ","å…°","å²š","ä¸½",
+"èŽ‰","èŽ²","çŽ²","ç³","å¨œ","ç´","èŠ¹","å€©","è","å©·","éœž","é¦™","è‰³","ç‡•",
+"è‹±","ç‘›","çŽ‰","ç","ç ",
 });
 string *name_words_id = ({ 
 "chun","dan","fang","fen","feng","gu","hong","hong","jiao","juan","ju","lan","lan","li",
@@ -36,7 +36,7 @@ void create()
         }
 
         set_name(name, ({ first_name_id[i]+" "+name_word, first_name_id[i], name_word}) );
-	set("gender", "Å®ÐÔ" );
+	set("gender", "å¥³æ€§" );
 	set("age", 15+random(10));
 	set("per",25+random(5));
 	set("attitude", "peaceful");
@@ -50,7 +50,7 @@ void create()
 	set("max_neili", 750+random(200));
 	set("combat_exp", random(16000)+25000);
 
-	create_family("ÁéðÕ¹¬",4,"µÜ×Ó");
+	create_family("çµé¹«å®«",4,"å¼Ÿå­");
 
         set_skill("force", 25+random(15));
         set_skill("bahuang-gong", 30);
@@ -69,10 +69,10 @@ void create()
 
 	set("shen_type", 0);
 	set("inquiry", ([
-		"name": "Å«¼Ò½Ð×ö"+this_object()->name()+"£¬´ÓÊ®ÎåËêÆð±ãÍ¶ÔÚÕâÀïÑ§ÒÕ¡£",
-		"rumors": "×î½üºÜÉÙ¼ûµ½¹¬Ö÷¡£",
-		"here": "ÕâÀïÊÇÁéðÕ¹¬£¬ÄãÃ»ÊÂ»¹ÊÇ²»ÒªËæ±ãÂÒ×ªµÄºÃ¡£",
-		"ÁéðÕ¹¬": "ÕâÀï¾ÍÊÇÁéðÕ¹¬°¡£¿£¡",
+		"name": "å¥´å®¶å«åš"+this_object()->name()+"ï¼Œä»Žåäº”å²èµ·ä¾¿æŠ•åœ¨è¿™é‡Œå­¦è‰ºã€‚",
+		"rumors": "æœ€è¿‘å¾ˆå°‘è§åˆ°å®«ä¸»ã€‚",
+		"here": "è¿™é‡Œæ˜¯çµé¹«å®«ï¼Œä½ æ²¡äº‹è¿˜æ˜¯ä¸è¦éšä¾¿ä¹±è½¬çš„å¥½ã€‚",
+		"çµé¹«å®«": "è¿™é‡Œå°±æ˜¯çµé¹«å®«å•Šï¼Ÿï¼",
 	]));
 	setup();
 	carry_object(__DIR__"obj/f-cloth")->wear();
@@ -84,38 +84,38 @@ void init()
 	string room;
 	room=environment(me)->query("short");
 	switch (room) {
-		case "ê»Ìì²¿":
-			me->set("title",WHT"ÁéðÕ¹¬ê»Ìì²¿µÜ×Ó"NOR);
+		case "æ˜Šå¤©éƒ¨":
+			me->set("title",WHT"çµé¹«å®«æ˜Šå¤©éƒ¨å¼Ÿå­"NOR);
 		break;
-		case "ÑôÌì²¿":
-			me->set("title",HIC"ÁéðÕ¹¬ÑôÌì²¿µÜ×Ó"NOR);
+		case "é˜³å¤©éƒ¨":
+			me->set("title",HIC"çµé¹«å®«é˜³å¤©éƒ¨å¼Ÿå­"NOR);
 		break;
-		case HIR"³àÌì²¿"NOR:
-			me->set("title",HIR"ÁéðÕ¹¬³àÌì²¿µÜ×Ó"NOR);
+		case HIR"èµ¤å¤©éƒ¨"NOR:
+			me->set("title",HIR"çµé¹«å®«èµ¤å¤©éƒ¨å¼Ÿå­"NOR);
 		break;
-		case "ÖìÌì²¿":
-			me->set("title",HIR"ÁéðÕ¹¬ÖìÌì²¿µÜ×Ó"NOR);
+		case "æœ±å¤©éƒ¨":
+			me->set("title",HIR"çµé¹«å®«æœ±å¤©éƒ¨å¼Ÿå­"NOR);
 		break;
-		case "³ÉÌì²¿":
-			me->set("title",HIG"ÁéðÕ¹¬³ÉÌì²¿µÜ×Ó"NOR);
+		case "æˆå¤©éƒ¨":
+			me->set("title",HIG"çµé¹«å®«æˆå¤©éƒ¨å¼Ÿå­"NOR);
 		break;
-		case "ÓÄÌì²¿":
-			me->set("title",HIY"ÁéðÕ¹¬ÓÄÌì²¿µÜ×Ó"NOR);
+		case "å¹½å¤©éƒ¨":
+			me->set("title",HIY"çµé¹«å®«å¹½å¤©éƒ¨å¼Ÿå­"NOR);
 		break;
-		case "ð½Ìì²¿":
-			me->set("title",HIB"ÁéðÕ¹¬ð½Ìì²¿µÜ×Ó"NOR);
+		case "é¸¾å¤©éƒ¨":
+			me->set("title",HIB"çµé¹«å®«é¸¾å¤©éƒ¨å¼Ÿå­"NOR);
 		break;
-		case "¾ûÌì²¿":
-			me->set("title",HIW"ÁéðÕ¹¬¾ûÌì²¿µÜ×Ó"NOR);
+		case "é’§å¤©éƒ¨":
+			me->set("title",HIW"çµé¹«å®«é’§å¤©éƒ¨å¼Ÿå­"NOR);
 		break;
-		case "ÐþÌì²¿":
-			me->set("title",MAG"ÁéðÕ¹¬ÐþÌì²¿µÜ×Ó"NOR);
+		case "çŽ„å¤©éƒ¨":
+			me->set("title",MAG"çµé¹«å®«çŽ„å¤©éƒ¨å¼Ÿå­"NOR);
 		break;
 		default:
-    			me->set("title",WHT"ÁéðÕ¹¬µÜ×Ó"NOR);
+    			me->set("title",WHT"çµé¹«å®«å¼Ÿå­"NOR);
     		break;
 	}
-	set("long", "ÕâÊÇÒ»Ãû"+this_object()->query("title")+"£¬Ãû½Ð"+this_object()->query("name")+"¡£\n");
+	set("long", "è¿™æ˜¯ä¸€å"+this_object()->query("title")+"ï¼Œåå«"+this_object()->query("name")+"ã€‚\n");
 }
 
 #include "npc.h";

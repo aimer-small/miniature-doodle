@@ -1,4 +1,4 @@
-// dawancha.c ´óÍë²è
+// dawancha.c å¤§ç¢—èŒ¶
 // Lklv 2001.9.28 modify
 
 inherit ITEM;
@@ -6,18 +6,18 @@ inherit F_LIQUID;
 
 void create()
 {
-	set_name("´óÍë²è",({"dawan cha", "tea", "cha"}));
+	set_name("å¤§ç¢—èŒ¶",({"dawan cha", "tea", "cha"}));
 	set_weight(50);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»±­´óÍë²è£¬ÓÆÓÆµØÃ°×ÅÈÈÆø¡«¡«¡«\n");
-		set("unit", "±­");
+		set("long", "ä¸€æ¯å¤§ç¢—èŒ¶ï¼Œæ‚ æ‚ åœ°å†’ç€çƒ­æ°”ï½ï½ï½\n");
+		set("unit", "æ¯");
 		set("value", 0);
 	}
 	set("liquid", ([
 		"type": "water",
-		"name": "²èË®",
+		"name": "èŒ¶æ°´",
 		"remaining": 3,
 		"drunk_apply": 15,
 	]));

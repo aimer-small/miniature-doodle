@@ -1,9 +1,9 @@
-// yufeng.c ÒøË÷½ğÁå--Óñ·äÕë
+// yufeng.c é“¶ç´¢é‡‘é“ƒ--ç‰èœ‚é’ˆ
 // By River
 inherit F_SSERVER;
 #include <ansi.h>
 #include "/kungfu/skill/eff_msg.h";
-string perform_name(){ return HIY"Óñ·äÕë"NOR; }
+string perform_name(){ return HIY"ç‰èœ‚é’ˆ"NOR; }
 int perform(object me, object target)
 {
        string msg;
@@ -15,30 +15,30 @@ int perform(object me, object target)
        if( !target
         || !target->is_character()
         || !me->is_fighting(target) )
-             return notify_fail("Óñ·äÕëÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+             return notify_fail("ç‰èœ‚é’ˆåªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
        if( !weapon || me->query_skill_mapped("whip") != "yinsuo-jinling") 
-             return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃÓñ·äÕë¹¥»÷¶Ô·½¡£\n");
+             return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ç‰èœ‚é’ˆæ”»å‡»å¯¹æ–¹ã€‚\n");
 
        if(!objectp( ob= (present("yufeng zhen", me))))
-             return notify_fail("ÄãÉíÉÏÃ»ÓĞÓñ·äÕë£¬ÔõÃ´Ê¹ÓÃÓñ·äÕë£¿\n");
+             return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰ç‰èœ‚é’ˆï¼Œæ€ä¹ˆä½¿ç”¨ç‰èœ‚é’ˆï¼Ÿ\n");
 
        if((int)me->query_skill("yunu-xinjing", 1)  < 121 )
-             return notify_fail("ÄãµÄÓñÅ®ĞÄ¾­µÈ¼¶»¹²»¹»£¬Ê¹²»³öÓñ·äÕë¡£\n");
+             return notify_fail("ä½ çš„ç‰å¥³å¿ƒç»ç­‰çº§è¿˜ä¸å¤Ÿï¼Œä½¿ä¸å‡ºç‰èœ‚é’ˆã€‚\n");
 
        if((int)me->query_skill("yinsuo-jinling",1) < 121 ) 
-             return notify_fail("ÄãµÄÒøË÷½ğÁå»¹²»¹»æµÊì£¬²»»áÊ¹ÓÃÓñ·äÕë¡£\n");
+             return notify_fail("ä½ çš„é“¶ç´¢é‡‘é“ƒè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ç‰èœ‚é’ˆã€‚\n");
 
        if((int)me->query_skill("throwing",1) < 101 ) 
-             return notify_fail("ÄãµÄ°µÆ÷¹¦·ò»¹²»¹»æµÊì£¬²»»áÊ¹ÓÃÓñ·äÕë¡£\n");
+             return notify_fail("ä½ çš„æš—å™¨åŠŸå¤«è¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ç‰èœ‚é’ˆã€‚\n");
 
        if((int)me->query("neili") < 500)
-             return notify_fail("ÄãµÄÄÚÁ¦²»¹»ÓÃÀ´¶¯ÊÖ¡£\n");
+             return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç”¨æ¥åŠ¨æ‰‹ã€‚\n");
 
-       if( userp(me) && (string)me->query("family/master_name") != "Ğ¡ÁúÅ®")
-             return notify_fail("Äã²»ÊÇĞ¡ÁúÅ®µÄµÜ×Ó£¬ÔõÃ´»áÊ¹ÓÃÓñ·äÕë£¡\n"); 
+       if( userp(me) && (string)me->query("family/master_name") != "å°é¾™å¥³")
+             return notify_fail("ä½ ä¸æ˜¯å°é¾™å¥³çš„å¼Ÿå­ï¼Œæ€ä¹ˆä¼šä½¿ç”¨ç‰èœ‚é’ˆï¼\n"); 
 
-       msg = HIW"\n$N"+weapon->name()+HIW"½»×óÊÖ£¬ÓÒÊÖĞäÅÛÒ»»Ó£¬Ò»Ã¶Óñ·äÕë´ÓĞäµ×·É³öÖ±Ïò$n¼±Éä¶øÈ¥¡£\n"NOR;
+       msg = HIW"\n$N"+weapon->name()+HIW"äº¤å·¦æ‰‹ï¼Œå³æ‰‹è¢–è¢ä¸€æŒ¥ï¼Œä¸€æšç‰èœ‚é’ˆä»è¢–åº•é£å‡ºç›´å‘$næ€¥å°„è€Œå»ã€‚\n"NOR;
        me->start_busy(2);
        me->add("neili", -150);
        me->add("jingli", -60);
@@ -50,22 +50,22 @@ int perform(object me, object target)
        && random(target->query("kar")) < 13 
        && (int)me->query("combat_exp") > (int)target->query("combat_exp")/2
        || !living(target)) {
-          msg += HIR"$nÃÍ¼û½ğ¹âÒ»ÉÁ£¬¼±Ã¦ÉÁÉí¶ã±Ü£¬µ«ÌıÒ»Éù²Ò½Ğ£¬½á¹ûÈÔÊÇ±»Óñ·äÕë´ÌÖĞ£¡\n"NOR;
+          msg += HIR"$nçŒ›è§é‡‘å…‰ä¸€é—ªï¼Œæ€¥å¿™é—ªèº«èº²é¿ï¼Œä½†å¬ä¸€å£°æƒ¨å«ï¼Œç»“æœä»æ˜¯è¢«ç‰èœ‚é’ˆåˆºä¸­ï¼\n"NOR;
           target->apply_condition("bee_poison", target->query_condition("bee_poison") + damage / 5);
           target->receive_wound("jing", damage/2);
           target->receive_damage("qi", damage + random(damage));
           target->receive_wound("qi", damage); 
           p = (int)target->query("qi")*100/(int)target->query("max_qi");
           msg += "( $n"+eff_status_msg(p)+" )\n";
-          target->set_temp("last_damage_from", "±»"+me->name()+"É±");
-          me->start_perform(4,"Óñ·äÕë");
+          target->set_temp("last_damage_from", "è¢«"+me->name()+"æ€");
+          me->start_perform(4,"ç‰èœ‚é’ˆ");
        }
        else {
-          msg +=CYN"$n¼±Ã¦·ÉÉíºóÔ¾£¬Ö»ÌıàÍÒ»ÉùÇáÏì£¬Óñ·äÕëÉäÔÚ$pÉíÇ°µÄÄàÍÁÖ®ÖĞ¡£\n"NOR;
+          msg +=CYN"$næ€¥å¿™é£èº«åè·ƒï¼Œåªå¬å—¤ä¸€å£°è½»å“ï¼Œç‰èœ‚é’ˆå°„åœ¨$pèº«å‰çš„æ³¥åœŸä¹‹ä¸­ã€‚\n"NOR;
           target->add("jingli", -10);
           me->add("neili",-50);
           me->start_busy(2);
-          me->start_perform(3,"Óñ·äÕë");
+          me->start_perform(3,"ç‰èœ‚é’ˆ");
        }              
        message_vision(msg, me, target);
        if(!target->is_killing(me->query("id"))){

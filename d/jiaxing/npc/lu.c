@@ -1,13 +1,13 @@
-// lu.c Â½ÎŞË«
+// lu.c é™†æ— åŒ
 // By River@SJ 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("Â½ÎŞË«", ({ "lu wushuang", "lu", "wushuang" }));
-	set("long", "Ö»¼ûËıÒ»ÕÅ¹Ï×ÓÁ³£¬ÆÄÎªÇÎÀö£¬Æ¤É«ËäÈ»²»Éõ°×ğª£¬µ«ÈİÃ²ĞãÀö¡£\n");
-	set("gender", "Å®ĞÔ");
+	set_name("é™†æ— åŒ", ({ "lu wushuang", "lu", "wushuang" }));
+	set("long", "åªè§å¥¹ä¸€å¼ ç“œå­è„¸ï¼Œé¢‡ä¸ºä¿ä¸½ï¼Œçš®è‰²è™½ç„¶ä¸ç”šç™½çš™ï¼Œä½†å®¹è²Œç§€ä¸½ã€‚\n");
+	set("gender", "å¥³æ€§");
 	set("age", 17);
 	set("attitude","firendly");
 	set("str", 22);
@@ -64,7 +64,7 @@ void unconcious()
 	me = query_temp("last_damage_from");
 	
 	if(!objectp(me)){
-		tell_room(environment(this_object()),CYN"\nÂ½ÎŞË«½¿ºßÒ»Éù£ºÔ­À´ÊÇÎ×Ê¦´óÈË°¡¡£¡£¡£ÄÇÎÒ¹ÔÁË¡£¡£ÎÒ»Ø¼ÒÈ¥¡£\n\n"NOR);
+		tell_room(environment(this_object()),CYN"\né™†æ— åŒå¨‡å“¼ä¸€å£°ï¼šåŸæ¥æ˜¯å·«å¸ˆå¤§äººå•Šã€‚ã€‚ã€‚é‚£æˆ‘ä¹–äº†ã€‚ã€‚æˆ‘å›å®¶å»ã€‚\n\n"NOR);
 		destruct(this_object());
 		return;
 	}
@@ -73,14 +73,14 @@ void unconcious()
 		book = new(__DIR__"obj/wudu");
 		book->set("owner", me->query("id"));
 		book->move(me);
-		message_vision(CYN"\nÂ½ÎŞË«½¿ºßÒ»Éù£º»¹²»¾ÍÊÇ±¾³ôÊéÃ´£¬ÎÒ²»ÒªÁË¡£\n\n"NOR,me);
-		message_vision("ÑÔ±Ï£¬Â½ÎŞË«½«Ò»±¾Êé¶ªÁË¹ıÀ´£¬Ë³ÊÆÍùºóÔ¾¿ªÊı²½£¬$N½Ó¹ıÊéºó£¬µ±ÏÂ£¬Ò²²»ÔÙ×·¸Ï¡£\n\n",me);
+		message_vision(CYN"\né™†æ— åŒå¨‡å“¼ä¸€å£°ï¼šè¿˜ä¸å°±æ˜¯æœ¬è‡­ä¹¦ä¹ˆï¼Œæˆ‘ä¸è¦äº†ã€‚\n\n"NOR,me);
+		message_vision("è¨€æ¯•ï¼Œé™†æ— åŒå°†ä¸€æœ¬ä¹¦ä¸¢äº†è¿‡æ¥ï¼Œé¡ºåŠ¿å¾€åè·ƒå¼€æ•°æ­¥ï¼Œ$Næ¥è¿‡ä¹¦åï¼Œå½“ä¸‹ï¼Œä¹Ÿä¸å†è¿½èµ¶ã€‚\n\n",me);
 		destruct(this_object());
 		return;
 	}
 	else{
-		message_vision(CYN"\nÂ½ÎŞË«ËµµÀ£ºĞ¡Å®×Ó¿É²»·îÅãÁË¡£\n\n"NOR,me);
-		message_vision("»°ÒôÎ´Âä£¬Â½ÎŞË«Ò»¸ö×ªÉíÒÑÈ»Ô¶È¥¡£\n\n",me);
+		message_vision(CYN"\né™†æ— åŒè¯´é“ï¼šå°å¥³å­å¯ä¸å¥‰é™ªäº†ã€‚\n\n"NOR,me);
+		message_vision("è¯éŸ³æœªè½ï¼Œé™†æ— åŒä¸€ä¸ªè½¬èº«å·²ç„¶è¿œå»ã€‚\n\n",me);
 		destruct(this_object());
 		return;
 	}

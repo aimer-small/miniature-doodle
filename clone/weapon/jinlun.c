@@ -16,7 +16,7 @@ void set_amount(int count)
 
 void create()
 {
-       set_name( HIY "½ğÂÖ" NOR,({ "jin falun" ,"lun" ,"jinlun" }));
+       set_name( HIY "é‡‘è½®" NOR,({ "jin falun" ,"lun" ,"jinlun" }));
         if (clonep())
                 set_default_object(__FILE__);
         else {
@@ -24,18 +24,18 @@ void create()
              set("unique", 5);
              set("rigidity", 9);
              set("base_weight", 15000);
-             set("base_unit", "Ö»");
-             set("unit", "Ğ©");
-             set("long",HIY"Õâ½ğÂÖ¾¶³¤³ß°ë£¬ÄË»Æ½ğÖı³É£¬ÂÖÉÏÖıÓĞ²ØÎÄµÄÃÜ×ÚÕæÑÔ£¬ÖĞ²Ø¾Å¸öĞ¡Çò£¬ËæÊÖÒ»¶¶£¬ÏìÉùÁ¼¾Ã²»¾ø¡£\n" NOR);
+             set("base_unit", "åª");
+             set("unit", "äº›");
+             set("long",HIY"è¿™é‡‘è½®å¾„é•¿å°ºåŠï¼Œä¹ƒé»„é‡‘é“¸æˆï¼Œè½®ä¸Šé“¸æœ‰è—æ–‡çš„å¯†å®—çœŸè¨€ï¼Œä¸­è—ä¹ä¸ªå°çƒï¼Œéšæ‰‹ä¸€æŠ–ï¼Œå“å£°è‰¯ä¹…ä¸ç»ã€‚\n" NOR);
              set("material", "gold");
              set("weapon_prop/dodge", -10);
              set("weapon_prop/parry", 3);
              set("wield_neili", 100);
              set("wield_maxneili", 1500);
              set("wield_str", 23); 
-             set("wield_msg", HIY"\nµ±¡õ¡õÒ»ÕóÏìÁÁ£¬$N´Ó»³ÖĞÈ¡³ö»Æ½ğ·¨ÂÖ¡£Õâ½ğÂÖ¾¶³¤³ß°ë£¬ÄË»Æ½ğÖı³É£¬ÂÖÉÏÖıÓĞ²ØÎÄµÄÃÜ×ÚÕæÑÔ£¬
-ÖĞ²Ø¾Å¸öĞ¡Çò£¬ËæÊÖÒ»¶¶£¬ÏìÉùÁ¼¾Ã²»¾ø¡£\n\n"NOR);
-             set("unwield_msg",HIY"$N½«$n"HIY"Ò»°Ú£¬µ±ßÑßÑÒ»ÕóÏì£¬·Å»ØÑü¼ä¡£\n"NOR);
+             set("wield_msg", HIY"\nå½“â–¡â–¡ä¸€é˜µå“äº®ï¼Œ$Nä»æ€€ä¸­å–å‡ºé»„é‡‘æ³•è½®ã€‚è¿™é‡‘è½®å¾„é•¿å°ºåŠï¼Œä¹ƒé»„é‡‘é“¸æˆï¼Œè½®ä¸Šé“¸æœ‰è—æ–‡çš„å¯†å®—çœŸè¨€ï¼Œ
+ä¸­è—ä¹ä¸ªå°çƒï¼Œéšæ‰‹ä¸€æŠ–ï¼Œå“å£°è‰¯ä¹…ä¸ç»ã€‚\n\n"NOR);
+             set("unwield_msg",HIY"$Nå°†$n"HIY"ä¸€æ‘†ï¼Œå½“å“å“ä¸€é˜µå“ï¼Œæ”¾å›è…°é—´ã€‚\n"NOR);
         }
       set_amount(1);
         init_hammer(25);

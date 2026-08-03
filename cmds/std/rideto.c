@@ -1,9 +1,9 @@
 // /cmds/usr/run.c
 // Modify By Mope@SJ /03/01/02
-// ÆïÂíµÄ×Ô¶¯»¯£¬ÓÃµ½¹ã¶ÈÓÅÏÈËÑË÷£¬½«Â·¾¶°´´ÎÐòÁÐ³ö
-// È±µãÊÇroom->query("short")ÏàÍ¬¾ÍÖ»ÄÜ´ïµ½×î½üµÄµØµã
-// ÖÐÍ¾ÓÐÃÔ¹¬»òË®ÔòÎÞ·¨µ½´ï
-// ½âÃÜµÈÃ»ÓÐÁ¬½Ó³ö¿ÚµÄ·¿¼ä²»¿Éµ½´ï
+// éª‘é©¬çš„è‡ªåŠ¨åŒ–ï¼Œç”¨åˆ°å¹¿åº¦ä¼˜å…ˆæœç´¢ï¼Œå°†è·¯å¾„æŒ‰æ¬¡åºåˆ—å‡º
+// ç¼ºç‚¹æ˜¯room->query("short")ç›¸åŒå°±åªèƒ½è¾¾åˆ°æœ€è¿‘çš„åœ°ç‚¹
+// ä¸­é€”æœ‰è¿·å®«æˆ–æ°´åˆ™æ— æ³•åˆ°è¾¾
+// è§£å¯†ç­‰æ²¡æœ‰è¿žæŽ¥å‡ºå£çš„æˆ¿é—´ä¸å¯åˆ°è¾¾
 
 #include <ansi.h>
 
@@ -16,19 +16,19 @@ int main(object ob,string arg)
         string hname;
         mixed flag;
 
-        if (! arg) return notify_fail("ÄãÏëµÃµ½È¥ÄÄ¶ùµÄÂ·¾¶£¿\n");
+        if (! arg) return notify_fail("ä½ æƒ³å¾—åˆ°åŽ»å“ªå„¿çš„è·¯å¾„ï¼Ÿ\n");
         a = RUN_D->search_for_path(ob, arg);
 
-        if (! a) return notify_fail("Ã»ÓÐÕâ¸öµØ·½£¬»òÕßÕâ¸öµØ·½²»¿Éµ½´ï¡£\n");
-        // Â·³ÌÖÐ¼äÊÇÃÔ¹¬»òË®£¬µ½´ï²»ÁË
+        if (! a) return notify_fail("æ²¡æœ‰è¿™ä¸ªåœ°æ–¹ï¼Œæˆ–è€…è¿™ä¸ªåœ°æ–¹ä¸å¯åˆ°è¾¾ã€‚\n");
+        // è·¯ç¨‹ä¸­é—´æ˜¯è¿·å®«æˆ–æ°´ï¼Œåˆ°è¾¾ä¸äº†
 
         if (stringp(hname = ob->query_temp("is_riding")))
                 horse = ob->query_temp("riding_beast");
         else
-                return notify_fail("ÄãÃ»ÓÐÆïÂí°¡£¿\n");
+                return notify_fail("ä½ æ²¡æœ‰éª‘é©¬å•Šï¼Ÿ\n");
 
         if (ob->is_busy() || ob->is_fighting())
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ£¬ÅÜ²»µô¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼Œè·‘ä¸æŽ‰ã€‚\n");
 
         if (environment(ob) != environment(horse))
         {
@@ -36,7 +36,7 @@ int main(object ob,string arg)
                         horse->delete_temp("is_rided_by");
                 ob->delete_temp("is_riding");
                 ob->delete_temp("riding_beast");
-                return notify_fail("Äã²¢Ã»ÓÐÆïÂí°¡¡£\n");
+                return notify_fail("ä½ å¹¶æ²¡æœ‰éª‘é©¬å•Šã€‚\n");
         }
 
         if (! (flag=ob->query("env/brief"))) {
@@ -52,7 +52,7 @@ int main(object ob,string arg)
         		write(sprintf("Move to %O %d\n",a[1][i],i));
                 ob->move(a[1][i]);
                 horse->move(a[1][i]);
-                tell_room(environment(ob),ob->name()+"Æï×Å"+hname+"Ò»Â·ÕÐÒ¡¼²³Û¶ø¹ý¡£\n", ({ob}));
+                tell_room(environment(ob),ob->name()+"éª‘ç€"+hname+"ä¸€è·¯æ‹›æ‘‡ç–¾é©°è€Œè¿‡ã€‚\n", ({ob}));
                 if(arg == strip((a[1][i])->query("short")))
                 {
                 	if(wizardp(ob) && ob->query("env/test"))
@@ -70,9 +70,9 @@ int main(object ob,string arg)
 void stop(object ob, string hname, string arg, mixed flag)
 {
         if (!ob || !hname || !arg) return;
-        tell_room(environment(ob),ob->name()+"Æï×Å"+hname+"Ò»Â·Ë³Àûµ½´ï"+arg+"¡£\n", ({ob}));
-        tell_object(ob, HIY "Äã¿ìÂí¼Ó±Þ£¬ÐÇÒ¹¸Ïµ½ÁË"HIY + arg + HIY "¡£\n" NOR);
-        message("vision", "\n"+ob->name()+"½ôÀÕçÖÉþ£¬×ËÌ¬ÓÅÃÀ½«"+hname+"Í£ÁËÏÂÀ´¡£ÏÐÈËÒ²¸ø$NÒ»´óºå£¡\n", environment(ob), ob);
+        tell_room(environment(ob),ob->name()+"éª‘ç€"+hname+"ä¸€è·¯é¡ºåˆ©åˆ°è¾¾"+arg+"ã€‚\n", ({ob}));
+        tell_object(ob, HIY "ä½ å¿«é©¬åŠ éž­ï¼Œæ˜Ÿå¤œèµ¶åˆ°äº†"HIY + arg + HIY "ã€‚\n" NOR);
+        message("vision", "\n"+ob->name()+"ç´§å‹’ç¼°ç»³ï¼Œå§¿æ€ä¼˜ç¾Žå°†"+hname+"åœäº†ä¸‹æ¥ã€‚é—²äººä¹Ÿç»™$Nä¸€å¤§å“„ï¼\n", environment(ob), ob);
         if (flag==0) ob->delete("env/brief");
         else ob->set("env/brief", flag);
         

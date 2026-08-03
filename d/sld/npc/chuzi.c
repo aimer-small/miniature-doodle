@@ -1,4 +1,4 @@
-// chuzi.c ³ø×Ó
+// chuzi.c åŽ¨å­
 
 inherit NPC;
 
@@ -7,11 +7,11 @@ int give_water();
 
 void create()
 {
-	set_name("³ø×Ó", ({ "chu zi", "chuzi" }) );
-	set("gender", "ÄÐÐÔ" );
+	set_name("åŽ¨å­", ({ "chu zi", "chuzi" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 34);
 	set("long",
-		"ÕâÊÇÒ»Î»ÉñÁú½Ì³ø·¿ÀïµÄ´óÊ¦¸µ£¬ÕýÔÚÃ¦Âµ×ÅÖó·¹ÉÕ²Ë£¬Äã¿ÉÒÔÎÊËûÒªfoodºÍwater¡£\n");
+		"è¿™æ˜¯ä¸€ä½ç¥žé¾™æ•™åŽ¨æˆ¿é‡Œçš„å¤§å¸ˆå‚…ï¼Œæ­£åœ¨å¿™ç¢Œç€ç…®é¥­çƒ§èœï¼Œä½ å¯ä»¥é—®ä»–è¦foodå’Œwaterã€‚\n");
 	set("combat_exp", 0);
 	set("attitude", "peaceful");
 	set("inquiry", ([
@@ -29,7 +29,7 @@ int give_food()
 
 	obj=new(FOOD_D("baozi"));
 	obj->move(ob);
-	tell_object(ob,me->name()+"¸øÄãÒ»¸ö°ü×Ó¡£\n");
+	tell_object(ob,me->name()+"ç»™ä½ ä¸€ä¸ªåŒ…å­ã€‚\n");
 	return 1;
 }
 
@@ -41,6 +41,6 @@ int give_water()
 
 	obj=new(FOOD_D("jiudai"));
 	obj->move(ob);
-	tell_object(ob,me->name()+"¸øÄãÒ»¸ö¾Æ´ü¡£\n");
+	tell_object(ob,me->name()+"ç»™ä½ ä¸€ä¸ªé…’è¢‹ã€‚\n");
 	return 1;
 }

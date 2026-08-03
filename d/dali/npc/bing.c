@@ -1,14 +1,14 @@
-// bing.c ´óÀí¹Ù±ø
+// bing.c å¤§ç†å®˜å…µ
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("´óÀí¹Ù±ø", ({ "dali guanbing", "bing" }));
+	set_name("å¤§ç†å®˜å…µ", ({ "dali guanbing", "bing" }));
 	set("age", 22);
-	set("gender", "ÄĞĞÔ");
-	set("long", "ËäÈ»¹Ù±øµÄÎäÒÕ²»ÄÜºÍÎäÁÖÈËÊ¿Ïà±È£¬¿ÉÊÇËûÃÇ½²¾¿µÄÊÇÈË¶àÁ¦Á¿´ó¡£\n");
+	set("gender", "ç”·æ€§");
+	set("long", "è™½ç„¶å®˜å…µçš„æ­¦è‰ºä¸èƒ½å’Œæ­¦æ—äººå£«ç›¸æ¯”ï¼Œå¯æ˜¯ä»–ä»¬è®²ç©¶çš„æ˜¯äººå¤šåŠ›é‡å¤§ã€‚\n");
 	set("attitude", "peaceful");
 //	set("vendetta_mark", "authority");
 //      set("pursuer", 1);
@@ -37,8 +37,8 @@ void create()
 
         set("chat_chance_combat", 3);
 	set("chat_msg_combat", ({
-		"´óÀí¹Ù±øºÈµÀ£º´óµ¨µóÃñ£¬¾¹¸ÒÔì·´²»³É£¿\n",
-		"´óÀí¹Ù±øºÈµÀ£ºÅÜµÃÁËºÍÉĞÅÜ²»ÁËÃí£¬Äã»¹ÊÇ¿ì¿ìÊøÊÖ¾ÍÇÜ£¡\n",
+		"å¤§ç†å®˜å…µå–é“ï¼šå¤§èƒ†åˆæ°‘ï¼Œç«Ÿæ•¢é€ åä¸æˆï¼Ÿ\n",
+		"å¤§ç†å®˜å…µå–é“ï¼šè·‘å¾—äº†å’Œå°šè·‘ä¸äº†åº™ï¼Œä½ è¿˜æ˜¯å¿«å¿«æŸæ‰‹å°±æ“’ï¼\n",
 	}));
 	setup();
 	carry_object("/clone/weapon/blade")->wield();
@@ -55,13 +55,13 @@ void init()
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);
 	} else if(ob->query("qinwang")) {
-         message_vision(HIY"¹Ù±ø´óÉùËµµÀ£º¡°¹§¾´"+(string)ob->query("qinwang")+"´ó¼İ!¡±\n"NOR, ob); 
+         message_vision(HIY"å®˜å…µå¤§å£°è¯´é“ï¼šâ€œæ­æ•¬"+(string)ob->query("qinwang")+"å¤§é©¾!â€\n"NOR, ob); 
       }
 }
 
 int accept_fight(object me)
 {
-	command("say ´óÒ¯ÎÒÕıÏëÕÒÈËÉ±ÄÅ£¬½ñÌìËãÄãµ¹Ã¹¡£\n");
+	command("say å¤§çˆ·æˆ‘æ­£æƒ³æ‰¾äººæ€å‘ï¼Œä»Šå¤©ç®—ä½ å€’éœ‰ã€‚\n");
 	if (!is_killing(me->query("id")))
 		me->add_condition("killer", 15);
 	kill_ob(me);

@@ -9,22 +9,22 @@ int update_condition(object me, int duration)
 	int qi;
 
 	if( !living(me) ) {
-		tell_object(me, RED "Äã¾õµÃ»ëÉíÉÏÏÂÏóÓÐÎÞÊý°ÑÐ¡µ¶ÔÚÂÒ²å£¬×êÐÄµØÌÛÍ´£¡\n" NOR );
-		message("vision",HIR+me->name()+HIR"ÉíÉÏÒÂÉÀ»ðÃçÂÒ´Ü£¬Ò»¹É¹É½¹ºýÎ¶Ã°ÁË³öÀ´£¬ÉÕµÃ"
-			+me->name()+HIR"ßÚÑÀßÖ×ì£¬Ë«ÊÖºúÂÒÆË´ò×Å¡£\n"NOR,environment(me), me);
+		tell_object(me, RED "ä½ è§‰å¾—æµ‘èº«ä¸Šä¸‹è±¡æœ‰æ— æ•°æŠŠå°åˆ€åœ¨ä¹±æ’ï¼Œé’»å¿ƒåœ°ç–¼ç—›ï¼\n" NOR );
+		message("vision",HIR+me->name()+HIR"èº«ä¸Šè¡£è¡«ç«è‹—ä¹±çªœï¼Œä¸€è‚¡è‚¡ç„¦ç³Šå‘³å†’äº†å‡ºæ¥ï¼Œçƒ§å¾—"
+			+me->name()+HIR"å‘²ç‰™å’§å˜´ï¼ŒåŒæ‰‹èƒ¡ä¹±æ‰‘æ‰“ç€ã€‚\n"NOR,environment(me), me);
 	}
 
 	if(me->query("eff_qi") < 300) {
-		tell_object(me, RED "Äã¾õµÃ»ëÉíÉÏÏÂÏóÓÐÎÞÊý°ÑÐ¡µ¶ÔÚÂÒ²å£¬×êÐÄµØÌÛÍ´£¡Äã¿ìÈÌÊÜ²»ÏÂÈ¥ÁË¡£\n" NOR );
-		message("vision", HIR+me->name()+HIR"ÉíÉÏ»ðÃçÖð½¥¼õÐ¡£¬µ«¼¡·ô±»ÉÕ³ÉÁËºÚÌ¼ÑÕÉ«¡£"
-			+me->name()+HIR"Ë«ÊÖÔÚ¿ÕÖÐÎÞÁ¦µØ»ÓÎè£¬¿´À´¿ì²»ÐÐÁË¡£\n"NOR,environment(me), me);
+		tell_object(me, RED "ä½ è§‰å¾—æµ‘èº«ä¸Šä¸‹è±¡æœ‰æ— æ•°æŠŠå°åˆ€åœ¨ä¹±æ’ï¼Œé’»å¿ƒåœ°ç–¼ç—›ï¼ä½ å¿«å¿å—ä¸ä¸‹åŽ»äº†ã€‚\n" NOR );
+		message("vision", HIR+me->name()+HIR"èº«ä¸Šç«è‹—é€æ¸å‡å°ï¼Œä½†è‚Œè‚¤è¢«çƒ§æˆäº†é»‘ç¢³é¢œè‰²ã€‚"
+			+me->name()+HIR"åŒæ‰‹åœ¨ç©ºä¸­æ— åŠ›åœ°æŒ¥èˆžï¼Œçœ‹æ¥å¿«ä¸è¡Œäº†ã€‚\n"NOR,environment(me), me);
 	}
 
 	qi = me->query("max_qi")/20;
 	if (qi > 300) qi = 300;
 	if (qi < 50)  qi = 50;
-	me->receive_damage("qi",qi, "±»»ðÉÕ³É½¹Ì¼¶ø");
-	me->receive_wound("qi",qi, "±»»ðÉÕ³É½¹Ì¼¶ø");
+	me->receive_damage("qi",qi, "è¢«ç«çƒ§æˆç„¦ç¢³è€Œ");
+	me->receive_wound("qi",qi, "è¢«ç«çƒ§æˆç„¦ç¢³è€Œ");
 	me->apply_condition("hyd_condition", duration - 1);
 
 	if( (int)me->query_temp("hyd/dec") != 1 ) {

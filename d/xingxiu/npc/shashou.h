@@ -1,5 +1,5 @@
 // by cool 98.6.10
-// 改编者caiji@SJ 8/24/2000
+// 鏀圭紪鑰卌aiji@SJ 8/24/2000
 
 void init()
 {
@@ -28,7 +28,7 @@ void init()
 		remove_call_out("do_clone");
 		call_out("do_clone", 0, me, ob);
 		} else {
-		command("say 想跑，还不给我交出来！！！\n");
+		command("say 鎯宠窇锛岃繕涓嶇粰鎴戜氦鍑烘潵锛侊紒锛乗n");
 		me->set_leader(ob);
 		remove_call_out("dest");
 		call_out("dest",300);
@@ -124,8 +124,8 @@ void dest()
 	ob = this_player();
 	me = this_object();
 
-	write(me->query("name")+"道：这次算你命大！\n",me);
-	write(me->query("name")+"匆匆离开。\n",me);
+	write(me->query("name")+"閬擄細杩欐绠椾綘鍛藉ぇ锛乗n",me);
+	write(me->query("name")+"鍖嗗寙绂诲紑銆俓n",me);
 	destruct(me);
 }
 
@@ -135,8 +135,8 @@ void dest2()
 	ob = this_player();
 	me = this_object();
 
-	write(me->query("name")+"道：你躲得过初一躲不过十五，我还会来的！\n",me);
-	write(me->query("name")+"匆匆离开。\n",me);
+	write(me->query("name")+"閬擄細浣犺翰寰楄繃鍒濅竴韬蹭笉杩囧崄浜旓紝鎴戣繕浼氭潵鐨勶紒\n",me);
+	write(me->query("name")+"鍖嗗寙绂诲紑銆俓n",me);
 	ob->delete_temp("songxin_zuji");
 
 	destruct(me);
@@ -146,7 +146,7 @@ void dest3()
 	object me;
 	me = this_object();
 
-	write(me->query("name")+"大笑道：完成任务了！\n",me);
-	write(me->query("name")+"匆匆离开。\n",me);
+	write(me->query("name")+"澶х瑧閬擄細瀹屾垚浠诲姟浜嗭紒\n",me);
+	write(me->query("name")+"鍖嗗寙绂诲紑銆俓n",me);
 	destruct(me);
 }

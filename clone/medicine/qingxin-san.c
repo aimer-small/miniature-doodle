@@ -1,4 +1,4 @@
-// /u/beyond/obj/qingxin-san.c ÓñÂ¶ÇåĞÂÉ¢
+// /u/beyond/obj/qingxin-san.c ç‰éœ²æ¸…æ–°æ•£
 // this is made by beyond
 // update 1997.6.23
 #include <ansi.h>
@@ -11,14 +11,14 @@ void init()
 }
 void create()
 {
-	set_name("ÓñÂ¶ÇåĞÂÉ¢", ({"qingxin san", "san", }));   
+	set_name("ç‰éœ²æ¸…æ–°æ•£", ({"qingxin san", "san", }));   
 	set("no_drop",1);
 	set("no_get",1);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿ÅÉÁÉÁ·¢ÁÁµÄÓñÂ¶ÇåĞÂÉ¢£¬´ËÒ©ÄËÄ½ÈİÖ®ÕäÒ©£¬Ìá¸ßÌåÁ¦£¬ÁéĞ§ÎŞ±È¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—é—ªé—ªå‘äº®çš„ç‰éœ²æ¸…æ–°æ•£ï¼Œæ­¤è¯ä¹ƒæ…•å®¹ä¹‹çè¯ï¼Œæé«˜ä½“åŠ›ï¼Œçµæ•ˆæ— æ¯”ã€‚\n");
 		set("value", 10000);     
             set("medicine", "drug");
 		set("no_drop",1);
@@ -35,7 +35,7 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->query_skill_mapped("force") != "shenyuan-gong")
 	{
@@ -43,7 +43,7 @@ int do_eat(string arg)
 			me->set("max_jingli", 0);
 		if (me->add("eff_jingli", -20) < 0)
 			me->set("eff_jingli", 0);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÓñÂ¶ÇåĞÂÉ¢£¬Ö»¾õµÃ¸Î³¦´ç¶Ï£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËğÌåÁ¦£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—ç‰éœ²æ¸…æ–°æ•£ï¼Œåªè§‰å¾—è‚è‚ å¯¸æ–­ï¼ŒåŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸä½“åŠ›ï¼\n" NOR, me);
 		me->unconcious();
 		destruct(this_object());
 		return 1;
@@ -55,13 +55,13 @@ int do_eat(string arg)
 			me->set("max_jingli", 0);
 		if (me->add("eff_jingli", -1) < 0)
 			me->set("eff_jingli", 0);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÓñÂ¶ÇåĞÂÉ¢£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´·şÊ³Ì«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—ç‰éœ²æ¸…æ–°æ•£ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
 	else
 	{
 		me->add("max_jingli", 1);
 		me->add("eff_jingli", 1);
-		message_vision(HIY "$N³ÔÏÂÒ»¿ÅÓñÂ¶ÇåĞÂÉ¢£¬Ö»¾õµÃÉíÇáÈçÑà£¬ÌåÁ¦¶ÙÈ»Ìá¸ß£¡\n" NOR, me);
+		message_vision(HIY "$Nåƒä¸‹ä¸€é¢—ç‰éœ²æ¸…æ–°æ•£ï¼Œåªè§‰å¾—èº«è½»å¦‚ç‡•ï¼Œä½“åŠ›é¡¿ç„¶æé«˜ï¼\n" NOR, me);
 		me->apply_condition("medicine", 180);
 	}
 	

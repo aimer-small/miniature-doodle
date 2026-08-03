@@ -1,4 +1,4 @@
-// xiang.c ÏòÎÊÌì
+// xiang.c å‘é—®å¤©
 // Finish by action@SJ 2009.1.6
 #include <ansi.h>
 inherit NPC;
@@ -6,11 +6,11 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("ÏòÎÊÌì", ({ "xiang wentian", "xiang", "wentian"}));
-        set("long", "Ö»¼ûËûÈİÃ²ÇåÊİ£¬ÉíĞÎ¸ß´ó£¬ò¤ÏÂÊèÊèÀÊÀÊÒ»´Ô»¨°×³¤Ğë£¬´¹ÔÚĞØÇ°£¬\n"+
-		"±³ÉÏ¸º×ÅÒ»¸ö°ü¸¤£¬ÔÙ¿´ËûÑü¼äÊ±£¬È´ÎŞÍäµ¶¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì "HIW"¹âÃ÷×óÊ¹"NOR);
-        set("gender", "ÄĞĞÔ");
+        set_name("å‘é—®å¤©", ({ "xiang wentian", "xiang", "wentian"}));
+        set("long", "åªè§ä»–å®¹è²Œæ¸…ç˜¦ï¼Œèº«å½¢é«˜å¤§ï¼Œé¢ä¸‹ç–ç–æœ—æœ—ä¸€ä¸›èŠ±ç™½é•¿é¡»ï¼Œå‚åœ¨èƒ¸å‰ï¼Œ\n"+
+		"èƒŒä¸Šè´Ÿç€ä¸€ä¸ªåŒ…è¢±ï¼Œå†çœ‹ä»–è…°é—´æ—¶ï¼Œå´æ— å¼¯åˆ€ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™ "HIW"å…‰æ˜å·¦ä½¿"NOR);
+        set("gender", "ç”·æ€§");
         set("age", 50);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -50,9 +50,9 @@ void create()
         
         set("chat_chance", 3);
         set("chat_msg", ({
-		        "ÏòÎÊÌìÄÃÆğ¾Æºø£¬¹àÁËÒ»´ó¿Ú£¬µÀ£º¡°ºÃ¾Æ£¡¡±\n",
+		        "å‘é—®å¤©æ‹¿èµ·é…’å£¶ï¼ŒçŒäº†ä¸€å¤§å£ï¼Œé“ï¼šâ€œå¥½é…’ï¼â€\n",
         }));
-               create_family("ÈÕÔÂÉñ½Ì", 8, "³¤ÀÏ");
+               create_family("æ—¥æœˆç¥æ•™", 8, "é•¿è€");
         set("chat_chance_combat", 20);
         set("chat_msg_combat", ({
                 (: perform_action, "club.luanwu" :),
@@ -69,10 +69,10 @@ void attempt_apprentice(object ob)
      if(ob->query_skill("tianmo-gong",1) < 160 ||
       ob->query_skill("tianmo-zhang",1) < 160 ||
         ob->query_skill("tianmo-shou",1) < 160){
-        command("say ÄãµÄÎä¹¦»¹²»¹»æµÊì£¬ÔÙ»ØÈ¥Á·Á·°É¡£");
+        command("say ä½ çš„æ­¦åŠŸè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œå†å›å»ç»ƒç»ƒå§ã€‚");
         return;
         }
-     command("say ºÃ£¬ÎÒÕıÏëÕĞ±øÂòÂí¾È½ÌÖ÷³öÀ´£¬¿´À´Äã»¹²»´íÂï£¬¾ÍÊÕÏÂÄãÁË¡£");
+     command("say å¥½ï¼Œæˆ‘æ­£æƒ³æ‹›å…µä¹°é©¬æ•‘æ•™ä¸»å‡ºæ¥ï¼Œçœ‹æ¥ä½ è¿˜ä¸é”™å˜›ï¼Œå°±æ”¶ä¸‹ä½ äº†ã€‚");
      command("recruit " + ob->query("id"));
-     ob->set("title",HIY"ÈÕÔÂÉñ½Ì¹âÃ÷×óÊ¹×ùÏÂÌÃÖ÷"NOR);
+     ob->set("title",HIY"æ—¥æœˆç¥æ•™å…‰æ˜å·¦ä½¿åº§ä¸‹å ‚ä¸»"NOR);
 }

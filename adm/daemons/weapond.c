@@ -8,65 +8,65 @@
 
 mapping	weapon_actions = ([
 	"slash": ([
-		"damage_type":	"¸îÉË",
-		"action":		"$N»Ó¶¯$w£¬Õ¶Ïò$nµÄ$l",
+		"damage_type":	"å‰²ä¼¤",
+		"action":		"$NæŒ¥åŠ¨$wï¼Œæ–©å‘$nçš„$l",
 		"parry":		20,
 		]),
 	"slice": ([
-		"damage_type":	"ÅüÉË",
-		"action":		"$NÓÃ$wÍù$nµÄ$l¿³È¥",
+		"damage_type":	"åŠˆä¼¤",
+		"action":		"$Nç”¨$wå¾€$nçš„$lç å»",
 		"dodge":		20,
 		]),
 	"chop":	([
-		"damage_type":	"ÅüÉË",
-		"action":		"$NµÄ$w³¯×Å$nµÄ$lÅü½«¹ıÈ¥",
+		"damage_type":	"åŠˆä¼¤",
+		"action":		"$Nçš„$wæœç€$nçš„$låŠˆå°†è¿‡å»",
 		"parry":		-20,
 		]),
 	"hack":	([
-		"action":		"$N»ÓÎè$w£¬¶Ô×¼$nµÄ$lÒ»ÕóÂÒ¿³",
-		"damage_type":	"ÅüÉË",
+		"action":		"$NæŒ¥èˆ$wï¼Œå¯¹å‡†$nçš„$lä¸€é˜µä¹±ç ",
+		"damage_type":	"åŠˆä¼¤",
 		"damage":		30,
 		"dodge":		30,
 		]),
 	"thrust": ([
-		"damage_type":	"´ÌÉË",
-		"action":		"$NÓÃ$wÍù$nµÄ$l´ÌÈ¥",
+		"damage_type":	"åˆºä¼¤",
+		"action":		"$Nç”¨$wå¾€$nçš„$låˆºå»",
 		"dodge":		15,
 		"parry":		-15,
 		]),
 	"pierce": ([
-		"action":		"$NµÄ$wÍù$nµÄ$lºİºİµØÒ»Í±",
-		"damage_type":	"´ÌÉË",
+		"action":		"$Nçš„$wå¾€$nçš„$lç‹ ç‹ åœ°ä¸€æ…",
+		"damage_type":	"åˆºä¼¤",
 		"dodge":		-30,
 		"parry":		-30,
 		]),
 	"whip":	([
-		"action":		"$N½«$wÒ»Ñï£¬Íù$nµÄ$l³éÈ¥",
-		"damage_type":	"À­ÉË",
+		"action":		"$Nå°†$wä¸€æ‰¬ï¼Œå¾€$nçš„$læŠ½å»",
+		"damage_type":	"æ‹‰ä¼¤",
 		"dodge":		-20,
 		"parry":		30,
 		]),
 	"impale": ([
-		"action":		"$NÓÃ$wÍù$nµÄ$lÖ±´Á¹ıÈ¥",
-		"damage_type":	"´ÌÉË",
+		"action":		"$Nç”¨$wå¾€$nçš„$lç›´æˆ³è¿‡å»",
+		"damage_type":	"åˆºä¼¤",
 		"dodge":		-10,
 		"parry":		-10,
 		]),
 	"bash":	([
-		"action":		"$N»ÓÎè$w£¬Íù$nµÄ$lÓÃÁ¦Ò»ÔÒ",
-		"damage_type":	"ÔÒÉË",
+		"action":		"$NæŒ¥èˆ$wï¼Œå¾€$nçš„$lç”¨åŠ›ä¸€ç ¸",
+		"damage_type":	"ç ¸ä¼¤",
 		]),
 	"crush": ([
-		"action":		"$N¸ß¸ß¾ÙÆğ$w£¬Íù$nµÄ$lµ±Í·ÔÒÏÂ",
-		"damage_type":	"ÔÒÉË",
+		"action":		"$Né«˜é«˜ä¸¾èµ·$wï¼Œå¾€$nçš„$lå½“å¤´ç ¸ä¸‹",
+		"damage_type":	"ç ¸ä¼¤",
 		]),
 	"slam":	([
-		"action":		"$NÊÖÎÕ$w£¬ÑÛÂ¶Ğ×¹â£¬ÃÍµØ¶Ô×¼$nµÄ$l»ÓÁË¹ıÈ¥",
-		"damage_type":	"´ìÉË",
+		"action":		"$Næ‰‹æ¡$wï¼Œçœ¼éœ²å‡¶å…‰ï¼ŒçŒ›åœ°å¯¹å‡†$nçš„$læŒ¥äº†è¿‡å»",
+		"damage_type":	"æŒ«ä¼¤",
 		]),
 	"throw": ([
-		"action":		"$N½«$w¶Ô×¼$nµÄ$lÉäÁË¹ıÈ¥",
-		"damage_type":	"´ÌÉË",
+		"action":		"$Nå°†$wå¯¹å‡†$nçš„$lå°„äº†è¿‡å»",
+		"damage_type":	"åˆºä¼¤",
 		"post_action":	(: call_other, __FILE__, "throw_weapon"	:),
 		]),
 ]);
@@ -90,7 +90,7 @@ void throw_weapon(object me, object victim, object weapon, int damage)
 	if( objectp(weapon) ) {
 		if( (int)weapon->query_amount()==1 ) {
 			weapon->unequip();
-			tell_object(me,	"\nÄãµÄ" + weapon->query("name") + "ÓÃÍêÁË£¡\n");
+			tell_object(me,	"\nä½ çš„" + weapon->query("name") + "ç”¨å®Œäº†ï¼\n");
 		}
 		weapon->add_amount(-1);
 	}
@@ -118,7 +118,7 @@ int weapon_cut(object me, object victim, object	weapon,	object vweapon,	int dama
 	&& wp >	1 
 	&& victim->query_condition(poison) < 70) {     // upper	limit for poison hit.
 		if (wp == 2)		       
-			weapon->set_temp("apply/long", ({weapon->query("long")+"ºÃÏóÊÇ±»Î¹¹ı¾ç¶¾£¬²»¹ıĞ§¹ûÒÑ¾­²»Ã÷ÏÔÁË¡£\n"}));
+			weapon->set_temp("apply/long", ({weapon->query("long")+"å¥½è±¡æ˜¯è¢«å–‚è¿‡å‰§æ¯’ï¼Œä¸è¿‡æ•ˆæœå·²ç»ä¸æ˜æ˜¾äº†ã€‚\n"}));
 		weapon->add("poison_number", -1);
 		if( mapp(weapon->query("weapon_mp")) )
 			weapon->add("weapon_mp/poison_number", -1);
@@ -129,23 +129,23 @@ int weapon_cut(object me, object victim, object	weapon,	object vweapon,	int dama
 		if( (pnum-pnum2) > 0 ) {
 			victim->apply_condition(poison,	 victim->query_condition(poison) + pnum - pnum2);
 			victim->set_temp("last_damage_from", me);
-// Ôö¼Ó¡®Í¨¼©¡¯ ±ÜÃâÓÃ´ËÉËº¦ newbie  by Lane@SJ
+// å¢åŠ â€˜é€šç¼‰â€™ é¿å…ç”¨æ­¤ä¼¤å®³ newbie  by Lane@SJ
 			if( userp(me) && userp(victim) && me->query_condition("killer") < 15 )
 				me->add_condition("killer", 15);
 		}
 
-                if(victim->query("race") == "ÈËÀà" && !victim->query("mute") && me->query("combat_exp") > victim->query("combat_exp"))
-			message_vision(HIR"$NÖ»¾õµÃÉË¿ÚÉÏÒ»Âé£¬´ó½ĞÒ»Éù£º²»ºÃ£¡\n"NOR,victim);
-		else if(victim->query("race") == "ÈËÀà")
-			message_vision(HIR"$NÖ»¾õµÃÉË¿ÚÉÏÒ»Âé£¬Ã¼Í·Ò»¼·£¬ÏÔÈ»ÊÇ·¢Å­ÁË£¡\n"NOR,victim);
-		else  message_vision(HIR"$NÃÍÈ»Ò»²ü£¬ÉË¿Ú´¦Á÷³öºÚÑª£¬Ğ×Ïà±ÏÂ¶£¡\n"NOR,victim);
+                if(victim->query("race") == "äººç±»" && !victim->query("mute") && me->query("combat_exp") > victim->query("combat_exp"))
+			message_vision(HIR"$Nåªè§‰å¾—ä¼¤å£ä¸Šä¸€éº»ï¼Œå¤§å«ä¸€å£°ï¼šä¸å¥½ï¼\n"NOR,victim);
+		else if(victim->query("race") == "äººç±»")
+			message_vision(HIR"$Nåªè§‰å¾—ä¼¤å£ä¸Šä¸€éº»ï¼Œçœ‰å¤´ä¸€æŒ¤ï¼Œæ˜¾ç„¶æ˜¯å‘æ€’äº†ï¼\n"NOR,victim);
+		else  message_vision(HIR"$NçŒ›ç„¶ä¸€é¢¤ï¼Œä¼¤å£å¤„æµå‡ºé»‘è¡€ï¼Œå‡¶ç›¸æ¯•éœ²ï¼\n"NOR,victim);
 
                 if( pnum2 >= pnum )
-			message_vision(HIC"µ«ÊÇ$NËÆºõÓĞÒ»ÖÖÉñÃØµÄµÖ¿¹¶¾ĞÔµÄÄÜÁ¦£¬ÍêÈ«²»ÊÜ¶¾ĞÔµÄÉËº¦£¡\n"NOR,victim);
+			message_vision(HIC"ä½†æ˜¯$Nä¼¼ä¹æœ‰ä¸€ç§ç¥ç§˜çš„æŠµæŠ—æ¯’æ€§çš„èƒ½åŠ›ï¼Œå®Œå…¨ä¸å—æ¯’æ€§çš„ä¼¤å®³ï¼\n"NOR,victim);
 		else if( pnum2 > (pnum/2) )
-			message_vision(HIC"µ«ÊÇ$NËÆºõÓĞÒ»ÖÖÉñÃØµÄµÖ¿¹¶¾ĞÔµÄÄÜÁ¦£¬µÖÓùÁË´ó²¿·ÖµÄ¶¾ĞÔÉËº¦¡£\n"NOR,victim);
+			message_vision(HIC"ä½†æ˜¯$Nä¼¼ä¹æœ‰ä¸€ç§ç¥ç§˜çš„æŠµæŠ—æ¯’æ€§çš„èƒ½åŠ›ï¼ŒæŠµå¾¡äº†å¤§éƒ¨åˆ†çš„æ¯’æ€§ä¼¤å®³ã€‚\n"NOR,victim);
 		else if( pnum2 > 0 )
-			message_vision(HIC"µ«ÊÇ$NËÆºõÓĞÒ»ÖÖÉñÃØµÄµÖ¿¹¶¾ĞÔµÄÄÜÁ¦£¬µÖÓùÁË²¿·ÖµÄ¶¾ĞÔÉËº¦¡£\n"NOR,victim);
+			message_vision(HIC"ä½†æ˜¯$Nä¼¼ä¹æœ‰ä¸€ç§ç¥ç§˜çš„æŠµæŠ—æ¯’æ€§çš„èƒ½åŠ›ï¼ŒæŠµå¾¡äº†éƒ¨åˆ†çš„æ¯’æ€§ä¼¤å®³ã€‚\n"NOR,victim);
 
 		if (!victim->is_killing(me->query("id")) && !userp(victim))
 			victim->kill_ob(me);
@@ -173,7 +173,7 @@ int weapon_cut(object me, object victim, object	weapon,	object vweapon,	int dama
 		if( mapp(weapon->query("weapon_mp")) )
 			weapon->add("weapon_mp/dur",-i);
 		if( weapon->query("dur") <= 0 ) {
-			message_vision(HIW"$NÊÖÖĞµÄ"+weapon->name()+HIW"Ê¹ÓÃ¹ı¾Ã£¬ÖÕÓÚ¶ÏÎªÁ½½Ø£¡\n"NOR,me);
+			message_vision(HIW"$Næ‰‹ä¸­çš„"+weapon->name()+HIW"ä½¿ç”¨è¿‡ä¹…ï¼Œç»ˆäºæ–­ä¸ºä¸¤æˆªï¼\n"NOR,me);
 			weapon->broken();
 			k = 1;
 		}
@@ -183,7 +183,7 @@ int weapon_cut(object me, object victim, object	weapon,	object vweapon,	int dama
 		if( mapp(vweapon->query("weapon_mp")) )
 			vweapon->add("weapon_mp/dur",-j);
 		if( vweapon->query("dur") <= 0 ) {
-			message_vision(HIW"$NÊÖÖĞµÄ"+vweapon->name()+HIW"Ê¹ÓÃ¹ı¾Ã£¬ÖÕÓÚ¶ÏÎªÁ½½Ø£¡\n"NOR,victim);
+			message_vision(HIW"$Næ‰‹ä¸­çš„"+vweapon->name()+HIW"ä½¿ç”¨è¿‡ä¹…ï¼Œç»ˆäºæ–­ä¸ºä¸¤æˆªï¼\n"NOR,victim);
 			vweapon->broken();
 			k = 1;
 		}
@@ -212,8 +212,8 @@ int weapon_cut(object me, object victim, object	weapon,	object vweapon,	int dama
 		if( wp > 0 && wp > wap && wp > wdp && 
 		((random(me->query("str")) > victim->query("str")/2 && damage == RESULT_PARRY)
 		|| (random(me->query("str")) > victim->query("str")/3 && damage	> 0))){
-			message_vision(WHT "Ö»Ìı¼û¡¸ßÑ¡¹µØÒ»ÉùÇáÏì£¬$NÊÖÖĞµÄ"+vweapon->name()+WHT"ÒÑ¾­±»"+weapon->name()+WHT"Ï÷ÎªÁ½½Ø£¡\n"NOR, victim );
-			vweapon->broken("¶ÏµôµÄ");
+			message_vision(WHT "åªå¬è§ã€Œå“ã€åœ°ä¸€å£°è½»å“ï¼Œ$Næ‰‹ä¸­çš„"+vweapon->name()+WHT"å·²ç»è¢«"+weapon->name()+WHT"å‰Šä¸ºä¸¤æˆªï¼\n"NOR, victim );
+			vweapon->broken("æ–­æ‰çš„");
 		} 
 		return 1;
 	}
@@ -237,19 +237,19 @@ int weapon_cut(object me, object victim, object	weapon,	object vweapon,	int dama
 		      
 			wap = random(wap);	    
                         if( wap > 2 * wdp&& !vweapon->query("weapon_prop/vipzb")&& !me->query("vip_as")) {
-				message_vision(HIW "$NÖ»¾õµÃÊÖÖĞ" + vweapon->name() + "°Ñ³Ö²»¶¨£¬ÍÑÊÖ·É³ö£¡\n" NOR,victim);
+				message_vision(HIW "$Nåªè§‰å¾—æ‰‹ä¸­" + vweapon->name() + "æŠŠæŒä¸å®šï¼Œè„±æ‰‹é£å‡ºï¼\n" NOR,victim);
 				vweapon->unequip();
 				vweapon->move(environment(victim));
 				victim->reset_action();
 			} 
                         else if( wap > wdp && !vweapon->query("weapon_prop/vipzb") && !me->query("vip_as")) {
-				message_vision(HIW "Ö»Ìı¼û¡¸Å¾¡¹µØÒ»Éù£¬$NÊÖÖĞµÄ"+vweapon->name()+"ÒÑ¾­¶ÏÎªÁ½½Ø£¡\n" NOR, victim );
-				vweapon->broken("¶ÏµôµÄ");
+				message_vision(HIW "åªå¬è§ã€Œå•ªã€åœ°ä¸€å£°ï¼Œ$Næ‰‹ä¸­çš„"+vweapon->name()+"å·²ç»æ–­ä¸ºä¸¤æˆªï¼\n" NOR, victim );
+				vweapon->broken("æ–­æ‰çš„");
 			}   
 			else if( wap > wdp / 2 && random(2)) 
-				message_vision("$NÖ»¾õµÃÊÖÖĞ" +	vweapon->name()	+ "Ò»Õğ£¬ÏÕĞ©ÍÑÊÖ£¡\n",victim);
+				message_vision("$Nåªè§‰å¾—æ‰‹ä¸­" +	vweapon->name()	+ "ä¸€éœ‡ï¼Œé™©äº›è„±æ‰‹ï¼\n",victim);
 		      
-			else if( random(3) == 1) message_vision("$NµÄ" + weapon->name()	+ "ºÍ$nµÄ" + vweapon->name()+"Ïà»÷£¬Ã°³öµãµãµÄ»ğĞÇ¡£\n", me, victim);
+			else if( random(3) == 1) message_vision("$Nçš„" + weapon->name()	+ "å’Œ$nçš„" + vweapon->name()+"ç›¸å‡»ï¼Œå†’å‡ºç‚¹ç‚¹çš„ç«æ˜Ÿã€‚\n", me, victim);
 			return 1;
 	}
 	

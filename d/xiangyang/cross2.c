@@ -3,14 +3,14 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "ÄÏ¶¡×Ö½Ö");
+        set("short", "å—ä¸å­—è¡—");
         set("long", @LONG
-ÕâÀïÊÇ¾üÊÂÖØÕòÏåÑô³ÇÖÐÍ¨ÍùÄÏÃÅºÍ¶«ÃÅµÄ¶¡×ÖÂ·¿Ú£¬²»Ê±µØÓÐ¶¥¿ø¹á¼×
-µÄÊ¿±ø×ßÀ´×ßÈ¥¡£ÏòÄÏ³ö³Ç¿ÉÒÔÈ¥ºþÄÏ£¬Ïò¶«³ö³Ç¿ÉÒÔÈ¥°²»Õ¡¢½­ËÕ¡£±±Ãæ·½
-ÏòÓÐÒ»×ù¸ß´óµÄÅÆÂ¥¡£
+è¿™é‡Œæ˜¯å†›äº‹é‡é•‡è¥„é˜³åŸŽä¸­é€šå¾€å—é—¨å’Œä¸œé—¨çš„ä¸å­—è·¯å£ï¼Œä¸æ—¶åœ°æœ‰é¡¶ç›”è´¯ç”²
+çš„å£«å…µèµ°æ¥èµ°åŽ»ã€‚å‘å—å‡ºåŸŽå¯ä»¥åŽ»æ¹–å—ï¼Œå‘ä¸œå‡ºåŸŽå¯ä»¥åŽ»å®‰å¾½ã€æ±Ÿè‹ã€‚åŒ—é¢æ–¹
+å‘æœ‰ä¸€åº§é«˜å¤§çš„ç‰Œæ¥¼ã€‚
 LONG
         );
-        set("outdoors", "ÏåÑô");
+        set("outdoors", "è¥„é˜³");
         set("xyjob",1);
         set("exits", ([
                 "east" : __DIR__"djie1",
@@ -46,15 +46,15 @@ if( time >=86400 ){
                    me->add("vip/vip_time",365*24*3600);
                                }
   
-         if(me->query("registered")<=3) vip = HIG"ÆÕÍ¨»áÔ±"NOR;
-     if(me->query("m-card-vip"))   vip = HIM"ÔÂ¿¨¹ó±ö"NOR;
-     if(me->query("y-card-vip"))   vip = HIR"Äê¿¨¹ó±ö"NOR;
-    if(me->query("buyvip"))     {  vip = HIW"ÈÙÓþ¹ó±ö"NOR;
+         if(me->query("registered")<=3) vip = HIG"æ™®é€šä¼šå‘˜"NOR;
+     if(me->query("m-card-vip"))   vip = HIM"æœˆå¡è´µå®¾"NOR;
+     if(me->query("y-card-vip"))   vip = HIR"å¹´å¡è´µå®¾"NOR;
+    if(me->query("buyvip"))     {  vip = HIW"è£èª‰è´µå®¾"NOR;
 me->set("y-card-vip",1);}
   	
   me->set("char_check",time());
 
- log_file( "static/check_CREDIT",sprintf("%s(%s)  | Ê£Óà:%s  ÀÛ¼ÆÊ¹ÓÃ:%s,×Ü¼ÆÓµÓÐ%d¡£²ÎÎòÌì¸³%d£¬²ÎÎòEXP%d£¬¹ó±öµÈ¼¶%s¡£Ä¿Ç°¾­Ñé%d¡£\n", 
+ log_file( "static/check_CREDIT",sprintf("%s(%s)  | å‰©ä½™:%s  ç´¯è®¡ä½¿ç”¨:%s,æ€»è®¡æ‹¥æœ‰%dã€‚å‚æ‚Ÿå¤©èµ‹%dï¼Œå‚æ‚ŸEXP%dï¼Œè´µå®¾ç­‰çº§%sã€‚ç›®å‰ç»éªŒ%dã€‚\n", 
              me->name(),
              me->query("id"),
              chinese_number(me->query("SJ_Credit")),
@@ -67,7 +67,7 @@ me->set("y-card-vip",1);}
                       ));
             }
 
-//Ïû·ÑÂú5w×Ô¶¯×ªVIP
+//æ¶ˆè´¹æ»¡5wè‡ªåŠ¨è½¬VIP
  if(me->query("SJ_Credit_Used")>=50000 && !me->query("buyvip"))  me->set("buyvip",1);
 
 if (!me->query("quest/jiuyin1/pass")){
@@ -75,14 +75,14 @@ if (!me->query("quest/jiuyin1/pass")){
       if( me->query_skill("jiuyin-shenfa",1)>221) me->set_skill("jiuyin-shenfa",221);
                                       }
  
-if ( !me->query("quest/pixie/pass") || me->query("gender") != "ÎÞÐÔ"){
+if ( !me->query("quest/pixie/pass") || me->query("gender") != "æ— æ€§"){
     if (me->query_skill("pixie-jian",1) >= 240) me->set_skill("pixie-jian",240); 
                                       }
 
 if(me->query("oyf/son")) { me->delete("oyf/son");
 me->set("oyf_son",1);}
 
-if(!fam || fam["family_name"]!="È«Õæ½Ì" && fam["family_name"]!="¹ÅÄ¹ÅÉ")
+if(!fam || fam["family_name"]!="å…¨çœŸæ•™" && fam["family_name"]!="å¤å¢“æ´¾")
  { 
  if(me->query_skill("anran-zhang")) me->delete_skill("anran-zhang");
  if(me->query_skill("haotian-zhang")) me->delete_skill("haotian-zhang");
@@ -91,13 +91,13 @@ if(!fam || fam["family_name"]!="È«Õæ½Ì" && fam["family_name"]!="¹ÅÄ¹ÅÉ")
  if(me->query_skill("quanzhen-jianfa")) me->delete_skill("quanzhen-jianfa");
   }
            
-if(!fam || fam["family_name"]!="Ã÷½Ì")
+if(!fam || fam["family_name"]!="æ˜Žæ•™")
  { 
  if(me->query_skill("qishang-quan")) me->delete_skill("qishang-quan");
  if(me->query_skill("shenghuo-shengong")) me->delete_skill("shenghuo-shengong");
   }
 if( me->query_skill("yeqiu-quan",1) )  me->delete_skill("yeqiu-quan");
-if(!fam || fam["family_name"]!="ÁéðÕ¹¬" && fam["family_name"]!="åÐÒ£ÅÉ")
+if(!fam || fam["family_name"]!="çµé¹«å®«" && fam["family_name"]!="é€é¥æ´¾")
  { 
  if(me->query_skill("liuyang-zhang")) me->delete_skill("liuyang-zhang");
  if(me->query_skill("zhemei-shou")) me->delete_skill("zhemei-shou");

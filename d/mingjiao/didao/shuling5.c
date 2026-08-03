@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 { 
-       set("short",GRN"����"NOR);
+       set("short",GRN"树林"NOR);
        set("long", @LONG
-����һƬ�����֡���ʮ�ɸߵ���ľ����һ�飬��ʵ��֦Ҷ��һ�����ɡ��
-������գ��������ڵ�˿��Ҳ�ޡ���һ�߽������������ɭ�ֵģ���ĸо���
-���㣬�øϿ��뿪��
+这是一片乱树林。几十丈高的树木簇在一块，密实的枝叶象一蓬蓬巨伞般
+伸向天空，把阳光遮得丝毫也无。你一走进这这觉得阴阴森林的，你的感觉告
+诉你，得赶快离开。
 LONG);    
 	set("exits", ([
 		"east" : __DIR__"shuling2",			
@@ -21,7 +21,7 @@ LONG);
 	set("objects",([
                 CLASS_D("mingjiao") + "/zhu" : 1,
 	]));
-        set("outdoors", "���̹�����");
+        set("outdoors", "明教光明顶");
         set("coor/x",-290);
   set("coor/y",180);
    set("coor/z",100);

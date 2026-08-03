@@ -1,11 +1,11 @@
-// NPC :laifu_er.c À´¸£¶ù 
+// NPC :laifu_er.c æ¥ç¦å„¿ 
 // By River 98/12
 inherit NPC;
 void create()
 {
-        set_name("À´¸£¶ù", ({ "laifu er", "laifu", "er"}));
-        set("title","Íò½Ù¹È¼ÒÈË");                
-        set("gender", "ÄĞĞÔ" );
+        set_name("æ¥ç¦å„¿", ({ "laifu er", "laifu", "er"}));
+        set("title","ä¸‡åŠ«è°·å®¶äºº");                
+        set("gender", "ç”·æ€§" );
         set("age", 33);
         set("str", 17);
         set("con", 23);
@@ -22,7 +22,7 @@ void create()
         set("max_neili", 500);      
         set("unique", 1);
         
-        set("long","Ò»¸öÀÏÀÏÊµÊµµÄÈË£¬ÒÑ¾­ÔÚÍò½Ù¹ÈÖĞ¶àÄêÁË¡£\n");
+        set("long","ä¸€ä¸ªè€è€å®å®çš„äººï¼Œå·²ç»åœ¨ä¸‡åŠ«è°·ä¸­å¤šå¹´äº†ã€‚\n");
         set("combat_exp", 50000);
         set("shen", 0); 
 

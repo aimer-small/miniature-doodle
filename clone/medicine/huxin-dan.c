@@ -12,15 +12,15 @@ void init()
 
 void create()
 {
-        set_name("ÌìÍõ»¤ÐÄµ¤", ({"huxin dan","dan"}));
+        set_name("å¤©çŽ‹æŠ¤å¿ƒä¸¹", ({"huxin dan","dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("long",
-                "Îäµ±ÅÉµ¤Ò©£¬ÁÆÖØÉË¡£\n");
+                "æ­¦å½“æ´¾ä¸¹è¯ï¼Œç–—é‡ä¼¤ã€‚\n");
                 set("value", 10);
                 set_weight(25);
-                set("unit", "¿Å");
+                set("unit", "é¢—");
                 set("no_get", 1);
                 set("no_drop", 1);
                 set("no_give", 1);
@@ -34,26 +34,26 @@ int do_eat(string arg)
         me = this_player();
         if (!id(arg)) return 0;
         if( (int)me->query_condition("medicine") > 0 )
-                return notify_fail("ÄãÉÏ´ÎµÄÒ©¾¢¶ù»¹Ã»¹ýÄØ£¬µÈ»áÔÙ³Ô°É¡£\n");
+                return notify_fail("ä½ ä¸Šæ¬¡çš„è¯åŠ²å„¿è¿˜æ²¡è¿‡å‘¢ï¼Œç­‰ä¼šå†åƒå§ã€‚\n");
         if( (int)me->query("eff_qi") > (int)me->query("max_qi")/2 )
-                return notify_fail("ÄãÃ»ÊÜÖØÉË£¬³ÔÁËÕâ¿ÅÁéµ¤ÃîÒ©Æñ²»¿ÉÏ§£¿\n");
+                return notify_fail("ä½ æ²¡å—é‡ä¼¤ï¼Œåƒäº†è¿™é¢—çµä¸¹å¦™è¯å²‚ä¸å¯æƒœï¼Ÿ\n");
         if( (int)me->query("eff_qi") < (int)me->query("max_qi")/10 )
-                return notify_fail("ÄãµÄÉËÊÆ¹ýÖØ£¬»¹ÊÇÏëÆäËû°ì·¨°É¡£\n");
-        if (!(fam = this_player()->query("family")) || fam["family_name"] !="Îäµ±ÅÉ")
+                return notify_fail("ä½ çš„ä¼¤åŠ¿è¿‡é‡ï¼Œè¿˜æ˜¯æƒ³å…¶ä»–åŠžæ³•å§ã€‚\n");
+        if (!(fam = this_player()->query("family")) || fam["family_name"] !="æ­¦å½“æ´¾")
                {
-                tell_object(me, "£ï£ï£ð£ó£¡ÄãÍ»È»·¢ÏÖÉíÉÏÉÙÁËÒ»¿ÅÌìÍõ»¤ÐÄµ¤¡£¡£¡£\n");
+                tell_object(me, "ï½ï½ï½ï½“ï¼ä½ çªç„¶å‘çŽ°èº«ä¸Šå°‘äº†ä¸€é¢—å¤©çŽ‹æŠ¤å¿ƒä¸¹ã€‚ã€‚ã€‚\n");
                 destruct(this_object());
                 return 1;
                }
 
         if((int)me->query("combat_exp") < 100000 )
-                return notify_fail("ÄãµÄÊµÕ½¾­ÑéÌ«µÍ¡£\n");
+                return notify_fail("ä½ çš„å®žæˆ˜ç»éªŒå¤ªä½Žã€‚\n");
         if((int)me->query_skill("yinyun-ziqi", 1) < 80 )
-                return notify_fail("ÄãµÄë³ëµ×ÏÆø¹¦Á¦²»¹»Éîºñ¡£\n");
+                return notify_fail("ä½ çš„æ°¤æ°²ç´«æ°”åŠŸåŠ›ä¸å¤Ÿæ·±åŽšã€‚\n");
         if((int)me->query_skill("medicine", 1) < 60 )
-                return notify_fail("ÄãµÄÒ©ÀíÖªÊ¶»¹²»×ã¡£\n");
+                return notify_fail("ä½ çš„è¯ç†çŸ¥è¯†è¿˜ä¸è¶³ã€‚\n");
 
-        message_vision(GRN"\n$N·þÏÂÒ»¿ÅÌìÍõ»¤ÐÄµ¤£¬¸Ð¾õÉËÊÆ´ó×ª£¡\n\n"NOR , me);
+        message_vision(GRN"\n$Næœä¸‹ä¸€é¢—å¤©çŽ‹æŠ¤å¿ƒä¸¹ï¼Œæ„Ÿè§‰ä¼¤åŠ¿å¤§è½¬ï¼\n\n"NOR , me);
         me->apply_condition("medicine", 60);
         me->set("eff_qi",(int)me->query("max_qi"));
         me->set("qi",(int)me->query("max_qi"));

@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 // Room: /d/changan/duchang1
@@ -8,20 +8,20 @@ inherit ROOM;
 
 void create()
 {
-  set ("short", "ÆÆ°ÜØÔ³¡");
+  set ("short", "ç ´è´¥å¦åœº");
   set ("long", @LONG
 
-ÂÒÊÀÖ®ÖĞ£¬ÈËÈËÇóÃüÓÚÌì£¬¿ÉÈç½ñ£¬Õâ½âØÔÖ®ÈËÒ²²»ÖªºÎ´¦ÌÓÉúÈ¥ÁË
+ä¹±ä¸–ä¹‹ä¸­ï¼Œäººäººæ±‚å‘½äºå¤©ï¼Œå¯å¦‚ä»Šï¼Œè¿™è§£å¦ä¹‹äººä¹Ÿä¸çŸ¥ä½•å¤„é€ƒç”Ÿå»äº†
 
 LONG);
 
   set("item_desc",([
-    "paizi" : "Ñº´óÇ¬Ç©£º qian dqq <amount> <money>\n"+ 
-              "Ñº´óÀ¤Ç©£º qian dkq <amount> <money>\n"+ 
-              "ÑºĞ¡Ç¬Ç©£º qian xqq <amount> <money>\n"+ 
-              "ÑºĞ¡À¤Ç©£º qian xkq <amount> <money>\n"+ 
-              "ÑºÇ¬Ç©£º   qian qq <amount> <money>\n"+ 
-              "ÑºÀ¤Ç©£º   qian kq <amount> <money>\n",
+    "paizi" : "æŠ¼å¤§ä¹¾ç­¾ï¼š qian dqq <amount> <money>\n"+ 
+              "æŠ¼å¤§å¤ç­¾ï¼š qian dkq <amount> <money>\n"+ 
+              "æŠ¼å°ä¹¾ç­¾ï¼š qian xqq <amount> <money>\n"+ 
+              "æŠ¼å°å¤ç­¾ï¼š qian xkq <amount> <money>\n"+ 
+              "æŠ¼ä¹¾ç­¾ï¼š   qian qq <amount> <money>\n"+ 
+              "æŠ¼å¤ç­¾ï¼š   qian kq <amount> <money>\n",
   ])); 
   set("exits", ([ /* sizeof() == 1 */
     "south" : __DIR__"chat-dc1",
@@ -29,5 +29,5 @@ LONG);
 
   setup();
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

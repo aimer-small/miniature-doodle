@@ -7,20 +7,20 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÇàÍÜ", ({ "qing wa", "qingwa" }) );
-	set("race", "Ò°ÊÞ");
+	set_name("é’è›™", ({ "qing wa", "qingwa" }) );
+	set("race", "é‡Žå…½");
 	set("age", 2);
-	set("long", "ÕâÊÇÒ»¸ö·Ê´óµÄÇàÍÜ¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ä¸ªè‚¥å¤§çš„é’è›™ã€‚\n");
 	set("attitude", "peaceful");
 
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°½Å", "ºó½Å" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰è„š", "åŽè„š" }) );
 	set("verbs", ({ "hoof", "bite" }) );
 
 	set("combat_exp", 10000);
 	set("shen_type", -1);
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"ÇàÍÜ½ÐµÀ£ºßÉßÉßÉ¡£¡£¡£ßÉßÉßÉ¡£¡£¡£\n",
+		"é’è›™å«é“ï¼šå‘±å‘±å‘±ã€‚ã€‚ã€‚å‘±å‘±å‘±ã€‚ã€‚ã€‚\n",
 	}) );
 	set("str",10);
 	set("dex",50);
@@ -31,7 +31,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$NËÀÁË¡£\n", this_object());
+	message_vision("$Næ­»äº†ã€‚\n", this_object());
 	ob = new(__DIR__"obj/frog-meat");
 	ob->move(environment(this_object()));
 	destruct(this_object());

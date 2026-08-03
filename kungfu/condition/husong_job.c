@@ -17,7 +17,7 @@ int update_condition(object me, int duration)
                 me->add_temp("killed",1);
         }}}
         if ((duration < 5) && me->query_temp("mubiao")) {
-                tell_object(me, HIY "你这么长时间还没完成任务，龙门镖局的牌子都让你搞砸了！\n" NOR);
+                tell_object(me, HIY "浣犺繖涔堥暱鏃堕棿杩樻病瀹屾垚浠诲姟锛岄緳闂ㄩ晼灞�鐨勭墝瀛愰兘璁╀綘鎼炵牳浜嗭紒\n" NOR);
                 me->delete_temp("pass");
                 me->delete_temp("mubiao");
                 if (objectp(ob1 = present("biao qi", me)))

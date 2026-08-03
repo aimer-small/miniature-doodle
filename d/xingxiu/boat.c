@@ -4,8 +4,8 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "»ÆºÓ¶É´¬");
-        set("long", "ÕâÊÇÒ»ËÒ»ÆºÓ¶É´¬£¬ÔØÓĞ¶ş¡¢ÈıÊ®¸öÈË¡£¼¸Ãûô¹¹«ÊÖ³Ö³¤Öñ¸İ£¬ÕıÔÚ´¬Î²³ÔÁ¦µØ³Å×Å´¬¡£\n");
+        set("short", "é»„æ²³æ¸¡èˆ¹");
+        set("long", "è¿™æ˜¯ä¸€è‰˜é»„æ²³æ¸¡èˆ¹ï¼Œè½½æœ‰äºŒã€ä¸‰åä¸ªäººã€‚å‡ åè‰„å…¬æ‰‹æŒé•¿ç«¹ç¯™ï¼Œæ­£åœ¨èˆ¹å°¾åƒåŠ›åœ°æ’‘ç€èˆ¹ã€‚\n");
         set("no_fight", "1");
 //        set("no_get_from", 1); 
         set("no_sleep_room", 1); 
@@ -27,9 +27,9 @@ int arrive(string arg)
      if(room = find_object(__DIR__+ob->query("side"))){
         ob->set("exits/out", __DIR__+ob->query("side"));
         room->set("exits/enter", SHIP);
-        message("vision", "\n¶É´¬ÃÍµØÒ»Õğ£¬ÒÑ¾­¿¿°¶£¬´¬·òËµµÀ£º¡°Çë´ó»ï¶ùÏÂ´¬°É£¡¡±\n", ob);
-        message("vision", "Ëµ×Å½«Ò»¿éÌ¤½Å°å´îÉÏµÌ°¶£¬ĞÎ³ÉÒ»¸ö³öÈ¥(out)µÄ½×Ìİ¡£\n", ob);        
-        message("vision", "\nÒ»ËÒ¶É´¬»º»ºµØÊ»ÁË¹ıÀ´£¬ô¹¹«½«Ò»¿éÌ¤½Å°å´îÉÏµÌ°¶£¬ÒÔ±ã³Ë¿ÍÉÏÏÂ(enter)¡£\n", room);
+        message("vision", "\næ¸¡èˆ¹çŒ›åœ°ä¸€éœ‡ï¼Œå·²ç»é å²¸ï¼Œèˆ¹å¤«è¯´é“ï¼šâ€œè¯·å¤§ä¼™å„¿ä¸‹èˆ¹å§ï¼â€\n", ob);
+        message("vision", "è¯´ç€å°†ä¸€å—è¸è„šæ¿æ­ä¸Šå ¤å²¸ï¼Œå½¢æˆä¸€ä¸ªå‡ºå»(out)çš„é˜¶æ¢¯ã€‚\n", ob);        
+        message("vision", "\nä¸€è‰˜æ¸¡èˆ¹ç¼“ç¼“åœ°é©¶äº†è¿‡æ¥ï¼Œè‰„å…¬å°†ä¸€å—è¸è„šæ¿æ­ä¸Šå ¤å²¸ï¼Œä»¥ä¾¿ä¹˜å®¢ä¸Šä¸‹(enter)ã€‚\n", room);
         remove_call_out("on_board");
         call_out("on_board", 20);
         }
@@ -49,16 +49,16 @@ void on_board()
         	obj = all_inventory(ob);
                 for(i = 0; i < sizeof(obj); i++) {
                         if (userp(obj[i]) && obj[i]->query_temp("side") != ob->query("side")) {
-                                if (!living(obj[i])) message_vision("ô¹¹«°Ñ$NÌ§ÏÂÁË´¬¡£\n", obj[i]);
+                                if (!living(obj[i])) message_vision("è‰„å…¬æŠŠ$NæŠ¬ä¸‹äº†èˆ¹ã€‚\n", obj[i]);
                                 obj[i]->move(room);
                                 obj[i]->delete_temp("side");
-                                if (!living(obj[i])) tell_room(room, obj[i]->name() + "±»Ì§ÏÂÁË´¬¡£\n", ({obj[i]}));
-                                else tell_room(room, obj[i]->name() + "×ßÏÂÁË´¬¡£\n", ({obj[i]}));
+                                if (!living(obj[i])) tell_room(room, obj[i]->name() + "è¢«æŠ¬ä¸‹äº†èˆ¹ã€‚\n", ({obj[i]}));
+                                else tell_room(room, obj[i]->name() + "èµ°ä¸‹äº†èˆ¹ã€‚\n", ({obj[i]}));
                         }
                 }
                 room->delete("exits/enter");
-                message("vision", "\nô¹¹«ÃÇ°ÑÌ¤½Å°åÊÕÁËÆğÀ´£¬³¤¸İÒ»µã£¬¶É´¬ÏòºÓĞÄÊ»È¥¡£\n", this_object());
-                message("vision", "\nô¹¹«ÃÇ°ÑÌ¤½Å°åÊÕÆğÀ´£¬ËµÁËÒ»Éù¡°×øÎÈà¶¡±£¬³¤¸İÒ»µã£¬¶É´¬ÏòºÓĞÄÊ»È¥¡£\n", room);
+                message("vision", "\nè‰„å…¬ä»¬æŠŠè¸è„šæ¿æ”¶äº†èµ·æ¥ï¼Œé•¿ç¯™ä¸€ç‚¹ï¼Œæ¸¡èˆ¹å‘æ²³å¿ƒé©¶å»ã€‚\n", this_object());
+                message("vision", "\nè‰„å…¬ä»¬æŠŠè¸è„šæ¿æ”¶èµ·æ¥ï¼Œè¯´äº†ä¸€å£°â€œåç¨³å–½â€ï¼Œé•¿ç¯™ä¸€ç‚¹ï¼Œæ¸¡èˆ¹å‘æ²³å¿ƒé©¶å»ã€‚\n", room);
                 }
         delete("exits/out");
         if(ob->query("side") == "road3") ob->set("side", "road2");

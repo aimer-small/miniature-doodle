@@ -4,17 +4,17 @@ inherit COMBINED_ITEM;
 inherit F_UNIQUE;
 void create()
 {
-	set_name("º¬É³ÉäÓ°", ({ "hansha sheying", "hansha" }));
+	set_name("å«æ²™å°„å½±", ({ "hansha sheying", "hansha" }));
 	if (clonep()) set_default_object(__FILE__);
 	else {
-		set("long", "Ò»¸öºÚÉ«µÄĞ¡ÌúÏ»×Ó£¬ºÃÏó¾ÍÊÇÈÃÈËÎÅ·çÉ¥µ¨µÄº¬É³ÉäÓ°¡£\n");
+		set("long", "ä¸€ä¸ªé»‘è‰²çš„å°é“åŒ£å­ï¼Œå¥½è±¡å°±æ˜¯è®©äººé—»é£ä¸§èƒ†çš„å«æ²™å°„å½±ã€‚\n");
                 set("value", 1);
                 set("unique", 1);
-		set("unit", "¸ö");
+		set("unit", "ä¸ª");
                 set("material", "steel");
                 set("treasure",1);
 		set("base_value", 10000);
-		set("base_unit", "´Î");
+		set("base_unit", "æ¬¡");
 		set("base_weight", 5000);
 	}
 	set_amount(1);
@@ -34,13 +34,13 @@ int do_shoot(string arg)
 
 	if (!arg) return 0;
 	victim = present(arg, environment(ob));
-	if (!victim || !living(victim)) return notify_fail("ÄãÒª¶ÔË­ÏÂÊÖ£¿\n");
+	if (!victim || !living(victim)) return notify_fail("ä½ è¦å¯¹è°ä¸‹æ‰‹ï¼Ÿ\n");
 	if (victim->query_condition("man_poison"))
-		return notify_fail(victim->name()+"ÒÑ¾­ÖĞ¶¾ÁË¡£\n");
-	write("ÄãÇÄÇÄÏÆ¶¯"+name()+"µÄ»ú¹Ø£¬Ò»Åî¾øÏ¸¸ÖÕë¼±Éä¶ø³ö£¬¾¡Êı´òÔÚ"+victim->name()+"ÉíÉÏ¡£\n");
-	tell_room(environment(ob), ob->name()+"ÇÄÇÄÏÆ¶¯"+name()
-		+"µÄ»ú¹Ø£¬Ò»Åî¾øÏ¸¸ÖÕë¼±Éä¶ø³ö£¬¾¡Êı´òÔÚ"+victim->name()+"ÉíÉÏ¡£\n", ({ ob, victim }));
-	victim->set_temp("last_damage_from", "ÖĞº¬É³ÉäÓ°");
+		return notify_fail(victim->name()+"å·²ç»ä¸­æ¯’äº†ã€‚\n");
+	write("ä½ æ‚„æ‚„æ€åŠ¨"+name()+"çš„æœºå…³ï¼Œä¸€è“¬ç»ç»†é’¢é’ˆæ€¥å°„è€Œå‡ºï¼Œå°½æ•°æ‰“åœ¨"+victim->name()+"èº«ä¸Šã€‚\n");
+	tell_room(environment(ob), ob->name()+"æ‚„æ‚„æ€åŠ¨"+name()
+		+"çš„æœºå…³ï¼Œä¸€è“¬ç»ç»†é’¢é’ˆæ€¥å°„è€Œå‡ºï¼Œå°½æ•°æ‰“åœ¨"+victim->name()+"èº«ä¸Šã€‚\n", ({ ob, victim }));
+	victim->set_temp("last_damage_from", "ä¸­å«æ²™å°„å½±");
         victim->die();
 	add_amount(-1);
 	return 1;

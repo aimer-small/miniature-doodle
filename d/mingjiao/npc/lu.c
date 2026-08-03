@@ -2,11 +2,11 @@
 inherit NPC;
 void create()
 {
-        set_name("Ã·»¨Â¹", ({ "meihua lu", "lu" }) );
-        set("race", "Ò°ÊŞ");
+        set_name("æ¢…èŠ±é¹¿", ({ "meihua lu", "lu" }) );
+        set("race", "é‡å…½");
         set("age", 5);
-        set("long", "Ò»Ö»ÎÂË³¿É°®µÄÃ·»¨Â¹¡£\n");
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°×¦", "ºó×¦", "Î²°Í" }) );
+        set("long", "ä¸€åªæ¸©é¡ºå¯çˆ±çš„æ¢…èŠ±é¹¿ã€‚\n");
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰çˆª", "åçˆª", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
         set("combat_exp", 1000);
 	set_temp("apply/attack", 30);

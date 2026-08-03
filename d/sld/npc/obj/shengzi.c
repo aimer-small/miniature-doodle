@@ -5,14 +5,14 @@ inherit ITEM;
 
  void create()
 {
-	set_name("´ÖÉş×Ó",({"cu shengzi","shengzi"}));
+	set_name("ç²—ç»³å­",({"cu shengzi","shengzi"}));
 	set_weight(500);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit","Ìõ");
+		set("unit","æ¡");
 		set("value",1000);
-		set("long","Ò»ÌõÓÃÂé²¼´ê³ÉµÄÉş×Ó¡£\n");
+		set("long","ä¸€æ¡ç”¨éº»å¸ƒæ“æˆçš„ç»³å­ã€‚\n");
 	}
 	setup();
 }
@@ -30,20 +30,20 @@ int do_bang(string arg)
 	if( arg=="mu" || arg== "mu tou") {
 		if(wood=present("mu tou", environment(this_player()))) {
 			if (! environment(this_player())->query("sld_boat"))
-				return notify_fail("ÕâÀï¾Í°óµÄ»°£¬Àë´óº£Ì«Ô¶ÁË°É£¿\n");
+				return notify_fail("è¿™é‡Œå°±ç»‘çš„è¯ï¼Œç¦»å¤§æµ·å¤ªè¿œäº†å§ï¼Ÿ\n");
 			if(raft=present("mufa", environment(this_player())))
-				tell_object(this_player(),"ÄãÕıÔÚÓÃ´ÖÉş×Ó½«¼¸¸ù´óÄ¾Í·°óÔÚÒ»Æğ...\n");
+				tell_object(this_player(),"ä½ æ­£åœ¨ç”¨ç²—ç»³å­å°†å‡ æ ¹å¤§æœ¨å¤´ç»‘åœ¨ä¸€èµ·...\n");
 			else {
-				message_vision("Ö»¼û$NÓÃ´ÖÉş×Ó½«¼¸¸ù´óÄ¾Í·°óÔÚÒ»Æğ...\n" NOR,this_player());
-				message_vision("²»Ò»»á¶ùÒ»¸öĞ¡Ä¾·¤±»$NÔú³ÉÁË¡£\n" NOR,this_player());
-				message_vision("$N°ÑÊ£ÏÂµÄÉş×Ó·Å½øÁË»³Àï¡£\n" NOR,this_player());
+				message_vision("åªè§$Nç”¨ç²—ç»³å­å°†å‡ æ ¹å¤§æœ¨å¤´ç»‘åœ¨ä¸€èµ·...\n" NOR,this_player());
+				message_vision("ä¸ä¸€ä¼šå„¿ä¸€ä¸ªå°æœ¨ç­è¢«$Næ‰æˆäº†ã€‚\n" NOR,this_player());
+				message_vision("$NæŠŠå‰©ä¸‹çš„ç»³å­æ”¾è¿›äº†æ€€é‡Œã€‚\n" NOR,this_player());
 				raft = new(__DIR__"mufa");
 				raft->move(environment(this_player()));
 				destruct(wood);
 			}
 			return 1;
 		}
-		return notify_fail("ÄãÒª°óÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦ç»‘ä»€ä¹ˆï¼Ÿ\n");
 	}
 	return 0;
 }

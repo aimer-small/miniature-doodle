@@ -5,14 +5,14 @@ inherit ITEM;
 
  void create()
 {
-        set_name(YEL "Í¨ĞĞÁîÅÆ" NOR, ({"ling pai"}));
+        set_name(YEL "é€šè¡Œä»¤ç‰Œ" NOR, ({"ling pai"}));
         set_weight(20);
         
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿é");
-                set("long", "ÉñÁú½ÌµÄÍ¨ĞĞÁîÅÆ¡£\n");
+                set("unit", "å—");
+                set("long", "ç¥é¾™æ•™çš„é€šè¡Œä»¤ç‰Œã€‚\n");
 		set("sld",1);
         }
 

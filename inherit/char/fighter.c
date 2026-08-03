@@ -1,5 +1,5 @@
-//±ê×¼Õ½Ê¿ÎÄ¼þ from Campsun
-//target Îª player's id ±ØÐëÏî
+//æ ‡å‡†æˆ˜å£«æ–‡ä»¶ from Campsun
+//target ä¸º player's id å¿…é¡»é¡¹
 inherit NPC;
 
 #include <skills_pfm.h>
@@ -100,11 +100,11 @@ void setparty(int p,int lv,int exp)
                    me->set("combat_exp",exp + random(2500000)); 
 		break;	
 	}	
-	if (me->query("family/family_name") == "ÐÇËÞÅÉ")
-		me->set("env/xx_poison","ÄÚÁ²");
+	if (me->query("family/family_name") == "æ˜Ÿå®¿æ´¾")
+		me->set("env/xx_poison","å†…æ•›");
 	
 	get_npc_name();
-	set("long", me->query("long")+"´ËÈË¿´ÉÏÈ¥Ê¦³Ð"+HIY+me->query("family/family_name")+NOR+"£¬ÉÃ³¤Ê¹ÓÃ"+HIC+to_chinese(me->query("f_w_skill"))+NOR+"ÉËµÐ£¡\n" );
+	set("long", me->query("long")+"æ­¤äººçœ‹ä¸ŠåŽ»å¸ˆæ‰¿"+HIY+me->query("family/family_name")+NOR+"ï¼Œæ“…é•¿ä½¿ç”¨"+HIC+to_chinese(me->query("f_w_skill"))+NOR+"ä¼¤æ•Œï¼\n" );
 }
 
 int checking(object me, object ob)
@@ -113,12 +113,12 @@ int checking(object me, object ob)
 	if((!me->query("qi") >= me->query("max_qi")/2) && (me->query_temp("cure") < 2)){
 		 me->add("qi",me->query("max_qi")/4);
 		 me->add_temp("cure",1);
-		 tell_room(environment(me), me->query("name")+"ÉîÉîµÄÎüÁË¿ÚÆø£¬Á³É«¶ÙÊ±ºÃÁËÐí¶à¡£\n", ({me}));
+		 tell_room(environment(me), me->query("name")+"æ·±æ·±çš„å¸äº†å£æ°”ï¼Œè„¸è‰²é¡¿æ—¶å¥½äº†è®¸å¤šã€‚\n", ({me}));
 	}
 	if(!me->query_temp("weapon") && !me->is_busy() && !me->is_perform())
 	{
 		me->map_skill("parry",me->query("nw_parry"));
-		me->set("chat_msg_combat", query("u_f_pfm") + query("u_pfm"));                                 //³ö¿ÕÊÖpfm
+		me->set("chat_msg_combat", query("u_f_pfm") + query("u_pfm"));                                 //å‡ºç©ºæ‰‹pfm
 	}
 	//else 
 	if(ob->is_fighting(me)){
@@ -149,7 +149,7 @@ void kill_ob(object ob)
 	if(!ob) return;
 	if((obj->query_temp("target") != ob->query("id") && !query("can_guard_ob")  )
 	 && !ob->query("env/invisibility") && objectp(pp) ){
-		tell_room(environment(obj), obj->query("name")+"ÈÂÈÂµÀ£º×ßÔ¶µã£¬ÀÏ×ÓÕýÃ¦×ÅÄØ¡££¡\n", ({obj}));
+		tell_room(environment(obj), obj->query("name")+"åš·åš·é“ï¼šèµ°è¿œç‚¹ï¼Œè€å­æ­£å¿™ç€å‘¢ã€‚ï¼\n", ({obj}));
 		obj->remove_enemy(ob);
         	ob->remove_killer(obj);
 		return;

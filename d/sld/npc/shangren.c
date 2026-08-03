@@ -1,18 +1,18 @@
-// shangren.c ÉÌÈË
+// shangren.c å•†äºº
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("ÉÌÈË", ({ "shang ren", "shang", "ren" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("å•†äºº", ({ "shang ren", "shang", "ren" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 34);
 	set("long",
-		"ÕâÎ»ÉÌÈËÕıĞ¦ßäßäµØÀ´»ØÃ¦Öø£¬»¹²»Ê±ÕĞºô×Å¹ıÍùµÄ¿ÍÈË¡£\n");
+		"è¿™ä½å•†äººæ­£ç¬‘å’ªå’ªåœ°æ¥å›å¿™è‘—ï¼Œè¿˜ä¸æ—¶æ‹›å‘¼ç€è¿‡å¾€çš„å®¢äººã€‚\n");
 	set("combat_exp", 30000);
 	set("attitude", "peaceful");
-	set("rank_info/respect", "ÉÌÈË");
+	set("rank_info/respect", "å•†äºº");
 	set("vendor_goods", ({
                 (["name": __DIR__"obj/shengzi","number" : 3000]),
 		(["name": MISC_D("fire"),"number" : 5]),

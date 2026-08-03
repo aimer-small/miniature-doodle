@@ -1,4 +1,4 @@
-// renshu.c 忍术
+// renshu.c 蹇嶆湳
 // By snowman@SJ 25/01/2000
 
 inherit FORCE;
@@ -7,7 +7,7 @@ int valid_enable(string usage) { return usage=="force"; }
 
 int valid_learn(object me)
 {
-	return notify_fail("NPC武功，不对玩家开放。\n");
+	return notify_fail("NPC姝﹀姛锛屼笉瀵圭帺瀹跺紑鏀俱�俓n");
 }
 
 string exert_function_file(string func)

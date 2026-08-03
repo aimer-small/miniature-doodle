@@ -2,7 +2,7 @@
 #include <ansi.h>
 inherit F_CLEAN_UP;
 
-string exert_name() { return HIG"ÆæÃÅÕ¼²·¾÷"NOR; }
+string exert_name() { return HIG"å¥‡é—¨å åœè¯€"NOR; }
 
 int exert(object me, mixed arg)
 {
@@ -10,45 +10,45 @@ int exert(object me, mixed arg)
         int i;
         
         if(!arg)
-                return notify_fail("¸ñÊ½£ºexert zhanbu <id>| help <id> \n"); 
+                return notify_fail("æ ¼å¼ï¼šexert zhanbu <id>| help <id> \n"); 
         if( objectp(arg) )
-                return notify_fail("ÄãÒªÕÒµÄÈË¾ÍÔÚÒ»ÅÔ£¬»¹¡¸Õ¼²·¡¹¸ÉÊ²Ã´£¿\n"); 
+                return notify_fail("ä½ è¦æ‰¾çš„äººå°±åœ¨ä¸€æ—ï¼Œè¿˜ã€Œå åœã€å¹²ä»€ä¹ˆï¼Ÿ\n"); 
         if( !stringp(arg) )
-                return notify_fail("ÄãÒª¡¸Õ¼²·¡¹Ë­£¿\n"); 
+                return notify_fail("ä½ è¦ã€Œå åœã€è°ï¼Ÿ\n"); 
         if( me->query("zhanbu") )
-                return notify_fail("ÄãÕıÔÚÕ¼²·ÄØ¡£\n");
+                return notify_fail("ä½ æ­£åœ¨å åœå‘¢ã€‚\n");
         if( sscanf(arg,"help %s", arg) == 1)
                 i = 1;
         if( me->query("id") == arg )
-                return notify_fail("Äã×Ô¼ººÃ¶Ë¶ËµÄ£¬»¹ÊÇ·¢ÉÕÁË£¿\n");
-        if( !wizardp(me) && me->query("family/family_name") != "ÌÒ»¨µº" )
-                return notify_fail("Äã²»ÊÇÌÒ»¨µºµÜ×Ó£¬Î´µÃ»ÆÒ©Ê¦Õæ´«£¬ÈçºÎÄÜ¹»Õ¼²·£¿\n");
+                return notify_fail("ä½ è‡ªå·±å¥½ç«¯ç«¯çš„ï¼Œè¿˜æ˜¯å‘çƒ§äº†ï¼Ÿ\n");
+        if( !wizardp(me) && me->query("family/family_name") != "æ¡ƒèŠ±å²›" )
+                return notify_fail("ä½ ä¸æ˜¯æ¡ƒèŠ±å²›å¼Ÿå­ï¼Œæœªå¾—é»„è¯å¸ˆçœŸä¼ ï¼Œå¦‚ä½•èƒ½å¤Ÿå åœï¼Ÿ\n");
         if( !wizardp(me) && (int)me->query("family/generation") < 2 )
-                return notify_fail("Äã±²·Ö¹ıµÍ£¬Î´µÃ»ÆÒ©Ê¦Õæ´«£¬ÈçºÎÄÜ¹»Õ¼²·£¿\n");
+                return notify_fail("ä½ è¾ˆåˆ†è¿‡ä½ï¼Œæœªå¾—é»„è¯å¸ˆçœŸä¼ ï¼Œå¦‚ä½•èƒ½å¤Ÿå åœï¼Ÿ\n");
         if( (int)me->query_skill("qimen-bagua", 1) < 100 )
-                return notify_fail("Äã»¹²»ÖªµÀÔõÑùÕ¼²·ÄØ¡£\n");
+                return notify_fail("ä½ è¿˜ä¸çŸ¥é“æ€æ ·å åœå‘¢ã€‚\n");
         if( me->query("neili") < 2000 )
-                return notify_fail("ÄãÄÚÁ¦²»¹»£¬ÈçºÎÄÜ¹»Õ¼²·£¿\n");
+                return notify_fail("ä½ å†…åŠ›ä¸å¤Ÿï¼Œå¦‚ä½•èƒ½å¤Ÿå åœï¼Ÿ\n");
         if( !present("tie bagua", me) )
-                return notify_fail("ÄãĞèÒªÒ»Ã¶Ìú°ËØÔ²ÅÄÜÕ¼²·¡£\n");
+                return notify_fail("ä½ éœ€è¦ä¸€æšé“å…«å¦æ‰èƒ½å åœã€‚\n");
                 
         if(i) {
                 if(!objectp(ob = present(arg, environment(me))))
-                        return notify_fail("ÕâÀïÃ»ÓĞÕâ¸öÈË¡£\n");
+                        return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººã€‚\n");
                 if( !ob->is_character() || ob->is_corpse() )
-                        return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇ»îÎï¡£\n");
+                        return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯æ´»ç‰©ã€‚\n");
                 if( !ob->query_temp("zhanbu") )
-                        return notify_fail(ob->name()+"Ã»ÓĞÔÚÕ¼²·£¬²»ÓÃÄã°ïÃ¦¡£\n");
+                        return notify_fail(ob->name()+"æ²¡æœ‰åœ¨å åœï¼Œä¸ç”¨ä½ å¸®å¿™ã€‚\n");
                 if( stringp(ob->query_temp("zhanbu")) )
-                        return notify_fail("ÒÑ¾­ÓĞÈË°ïÖú"+ob->name()+"Õ¼²·ÁË¡£\n");
+                        return notify_fail("å·²ç»æœ‰äººå¸®åŠ©"+ob->name()+"å åœäº†ã€‚\n");
                 ob->set_temp("zhanbu", me->query("id") );
-                message_vision(HIG"$N×ö¸öÀ¼»¨ÊÖ£¬ÄıÉñ¾ÛÆø£¬µãÔÚ$nµÄ°Ù»ã´óÑ¨Ö®ÉÏ£¡\n", me, ob);
-                tell_object(ob, "Äã¾õµÃ"+me->name()+"µÄÄÚÁ¦²»¶Ï´«À´£¬Í·ÄÔÖĞµÄ¾°ÏóÒ»ÏÂ×ÓÇåÎúÁË²»ÉÙ£¡\n");
+                message_vision(HIG"$Nåšä¸ªå…°èŠ±æ‰‹ï¼Œå‡ç¥èšæ°”ï¼Œç‚¹åœ¨$nçš„ç™¾æ±‡å¤§ç©´ä¹‹ä¸Šï¼\n", me, ob);
+                tell_object(ob, "ä½ è§‰å¾—"+me->name()+"çš„å†…åŠ›ä¸æ–­ä¼ æ¥ï¼Œå¤´è„‘ä¸­çš„æ™¯è±¡ä¸€ä¸‹å­æ¸…æ™°äº†ä¸å°‘ï¼\n");
                 me->start_busy(5);
         } else {
                 i = ABS(35-(me->query("int")));
                 me->set_temp("zhanbu", 1);
-                message_vision(HIG"$NÄó×ÅÊÖÖ¸£¬°´ÕÕ×Ó¡¢³ó¡¢Òú¡¢Ã®¡¢³½¡¢ËÈ¡¢Îç¡¢Î´¡¢Éê¡¢ÓÏ¡¢Ğç¡¢º¥µÄ·½Î»£¬×ĞÏ¸µÄÆşËã×Å¡£¡£¡£\n"NOR, me);
+                message_vision(HIG"$Næç€æ‰‹æŒ‡ï¼ŒæŒ‰ç…§å­ã€ä¸‘ã€å¯…ã€å¯ã€è¾°ã€å·³ã€åˆã€æœªã€ç”³ã€é…‰ã€æˆŒã€äº¥çš„æ–¹ä½ï¼Œä»”ç»†çš„æç®—ç€ã€‚ã€‚ã€‚\n"NOR, me);
                 call_out("check_target", i, me, arg);
                 me->start_busy(i);
         }
@@ -69,30 +69,30 @@ int check_target(object me, string arg)
         me->start_busy(1);
         i = me->query("max_neili") / 2;
         if( i < 2000 ) i = 2000;
-        me->receive_damage("neili", i, "ÄÚÁ¦ÏûºÄ´ù¾¡¶ø");
+        me->receive_damage("neili", i, "å†…åŠ›æ¶ˆè€—æ®†å°½è€Œ");
         ob = find_player(arg);
         if( !ob ) ob = find_living(arg);
         if( !ob || !me->visible(ob) || ob->query("no_quest") ) 
-                tell_object(me, "Äã·¢ÏÖÄ¿Ç°Ã»Õâ¸öÈËÔÚÏß¡£\n");
+                tell_object(me, "ä½ å‘ç°ç›®å‰æ²¡è¿™ä¸ªäººåœ¨çº¿ã€‚\n");
         else if ( wizardp(ob) )
-                tell_object(me, "ÄãÎŞ·¨Í¨¹ıÕ¼²·ÖªµÀÎ×Ê¦µÄÎ»ÖÃ¡£\n");
+                tell_object(me, "ä½ æ— æ³•é€šè¿‡å åœçŸ¥é“å·«å¸ˆçš„ä½ç½®ã€‚\n");
         else if( me->query("jingli") < ob->query_int() * 10 )
-                tell_object(me, "µ«Äã¾ÚÉ¥µØ·¢ÏÖÄãÏÖÔÚµÄ¾«Á¦²»¹»Ëã³ö¶Ô·½µÄÎ»ÖÃ¡£\n");
+                tell_object(me, "ä½†ä½ æ²®ä¸§åœ°å‘ç°ä½ ç°åœ¨çš„ç²¾åŠ›ä¸å¤Ÿç®—å‡ºå¯¹æ–¹çš„ä½ç½®ã€‚\n");
         else if ( !objectp(where = environment(ob)) ) 
-                tell_object(me, HIW"¿ÉÄãÔõÃ´Ò²Ëã²»³öÕâ¸öÈËÔÚÄÇÀïÒ®...\n"NOR);
+                tell_object(me, HIW"å¯ä½ æ€ä¹ˆä¹Ÿç®—ä¸å‡ºè¿™ä¸ªäººåœ¨é‚£é‡Œè€¶...\n"NOR);
         else if( random(me->query("kar")) * help < ob->query("kar") ){
-                tell_object(me, HIY"¿ÉÊÇÄã·ÑÁË°ëÌìµÄÁ¦Æø£¬¾ÍÊÇÕ¼²·²»³ö"+ob->name(1)+"µÄÎ»ÖÃ¡£\n"NOR);
+                tell_object(me, HIY"å¯æ˜¯ä½ è´¹äº†åŠå¤©çš„åŠ›æ°”ï¼Œå°±æ˜¯å åœä¸å‡º"+ob->name(1)+"çš„ä½ç½®ã€‚\n"NOR);
                 me->add("jingli", -ob->query_skill("force"));
                 me->start_busy(2);
         } else {
                 if( random((int)me->query_int()) * help < (int)ob->query_int()/2 )
-                        tell_object(ob, HIY"Ú¤Ú¤ÖĞÄã¾õµÃºÃÏóÓĞÈËÕıÔÚ¿úÌ½ÄãËùÔÚµÄ·½Î»¡£\n"NOR);
+                        tell_object(ob, HIY"å†¥å†¥ä¸­ä½ è§‰å¾—å¥½è±¡æœ‰äººæ­£åœ¨çª¥æ¢ä½ æ‰€åœ¨çš„æ–¹ä½ã€‚\n"NOR);
                 str = TASK_D->get_regions(base_name(where));
                 if( str == "" )
-                        str = "ÖĞÔ­";
+                        str = "ä¸­åŸ";
                 if( help == 2 && stringp(where->query("short")) )
                         str += where->query("short");
-                tell_object(me, sprintf(HIW"ÄãÆşÖ¸Ëã³ö%s(%s)ÏÖÔÚºÃÏóÔÚ%s"HIW"Ò»´ø»î¶¯¡£\n"NOR,
+                tell_object(me, sprintf(HIW"ä½ ææŒ‡ç®—å‡º%s(%s)ç°åœ¨å¥½è±¡åœ¨%s"HIW"ä¸€å¸¦æ´»åŠ¨ã€‚\n"NOR,
                         (string)ob->name(1) ,capitalize((string)ob->query("id")) ,str));
                 me->add("jingli", -ob->query_skill("force")*2);
                 me->start_busy(2);
@@ -102,16 +102,16 @@ int check_target(object me, string arg)
 
 int help(object me)
 {
-        write(HIG"\n¡¸ÆæÃÅÕ¼²·¾÷¡¹£º"NOR"\n");
+        write(HIG"\nã€Œå¥‡é—¨å åœè¯€ã€ï¼š"NOR"\n");
         write(@HELP
 
-        Ê¹ÓÃÆæÃÅ°ËØÔµÄ¼¼ÇÉ£¬Õ¼²·Ò»¸öÈËµÄËùÔÚÎ»ÖÃ¡£¿ÉÒÔÒ»ÈËÒÔÉÏÍ¬Ê±Õ¼²·À´Ôö
-        ¼Ó¼ÆËãËÙ¶ÈÒÔ¼°³É¹¦»ú»á¡£
+        ä½¿ç”¨å¥‡é—¨å…«å¦çš„æŠ€å·§ï¼Œå åœä¸€ä¸ªäººçš„æ‰€åœ¨ä½ç½®ã€‚å¯ä»¥ä¸€äººä»¥ä¸ŠåŒæ—¶å åœæ¥å¢
+        åŠ è®¡ç®—é€Ÿåº¦ä»¥åŠæˆåŠŸæœºä¼šã€‚
 
-        ÒªÇó£º  ±Ìº£³±ÉúµÈ¼¶ 100 ÒÔÉÏ£»
-                ÆæÃÅ°ËØÔµÈ¼¶ 100 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 2000 ÒÔÉÏ£»
-                ±ØĞëÎª»ÆÒ©Ê¦Ç×´«µÜ×Ó¡£
+        è¦æ±‚ï¼š  ç¢§æµ·æ½®ç”Ÿç­‰çº§ 100 ä»¥ä¸Šï¼›
+                å¥‡é—¨å…«å¦ç­‰çº§ 100 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 2000 ä»¥ä¸Šï¼›
+                å¿…é¡»ä¸ºé»„è¯å¸ˆäº²ä¼ å¼Ÿå­ã€‚
 HELP
         );
         return 1;

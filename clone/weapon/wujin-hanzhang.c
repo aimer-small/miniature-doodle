@@ -5,13 +5,13 @@ inherit STAFF;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(HIR "ÎÚ½ğº®ÕÈ" NOR, ({ "wujin hanzhang", "hanzhang","zhang", "wujin","staff" }));
+        set_name(HIR "ä¹Œé‡‘å¯’æ–" NOR, ({ "wujin hanzhang", "hanzhang","zhang", "wujin","staff" }));
         set_weight(35000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", "ÕâÕÈ£¬Ïà´«ÓÉÀ¥ÂØÉ½¶¥²É¼¯µÄÎÚ½ğ»ìºÏ¾«¸ÖÁ¶³É£¬Í¨Ìå·¢ÎÚ£¬É¢·¢×Å±ùÁ¹º®Æø¡£\n");
+                set("unit", "æ ¹");
+                set("long", "è¿™æ–ï¼Œç›¸ä¼ ç”±æ˜†ä»‘å±±é¡¶é‡‡é›†çš„ä¹Œé‡‘æ··åˆç²¾é’¢ç‚¼æˆï¼Œé€šä½“å‘ä¹Œï¼Œæ•£å‘ç€å†°å‡‰å¯’æ°”ã€‚\n");
                 set("value", 100000);
                 set("unique", 1);
                 set("rigidity", 1);
@@ -21,8 +21,8 @@ void create()
                 set("wield_neili", 400);
                 set("wield_maxneili", 800);
                 set("wield_str", 22);
-                set("wield_msg", HIY"$N·¢Á¦Ò»»Ó£¬ÊÖÖĞÎÕ×ÅÒ»¸ùÎÚ½ğº®ÕÈ£¬ÍşÃÍÖ®¼«£¡\n"NOR);
-                set("unwield_msg", HIY"$NÍùºóĞ±Ğ±Ò»²å£¬½«ÕÈĞ±±³ÔÚ±³ºó¡£\n"NOR);
+                set("wield_msg", HIY"$Nå‘åŠ›ä¸€æŒ¥ï¼Œæ‰‹ä¸­æ¡ç€ä¸€æ ¹ä¹Œé‡‘å¯’æ–ï¼Œå¨çŒ›ä¹‹æï¼\n"NOR);
+                set("unwield_msg", HIY"$Nå¾€åæ–œæ–œä¸€æ’ï¼Œå°†æ–æ–œèƒŒåœ¨èƒŒåã€‚\n"NOR);
         }
         init_staff(65);
         setup();

@@ -12,10 +12,10 @@
 inherit F_SAVE;
 
 // some constatns
-nosave string *c_digit = ({ "Áã","Ê®","°Ù","Ç§","Íò","ÒÚ" });
-nosave string *c_num = ({"Áã","Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å","Ê®"});
-nosave string *sym_tian = ({ "¼×","ÒÒ","±û","¶¡","Îì","¼º","¸ı","ĞÁ","ÈÉ","¹ï" });
-nosave string *sym_di = ({ "×Ó","³ó","Òú","Ã®","³½","ËÈ","Îç","Î´","Éê","ÓÏ","Ğç","º¥" });
+nosave string *c_digit = ({ "é›¶","å","ç™¾","åƒ","ä¸‡","äº¿" });
+nosave string *c_num = ({"é›¶","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹","å"});
+nosave string *sym_tian = ({ "ç”²","ä¹™","ä¸™","ä¸","æˆŠ","å·±","åºš","è¾›","å£¬","ç™¸" });
+nosave string *sym_di = ({ "å­","ä¸‘","å¯…","å¯","è¾°","å·³","åˆ","æœª","ç”³","é…‰","æˆŒ","äº¥" });
 
 mapping dict = ([]);
 
@@ -31,7 +31,7 @@ void create()
 string chinese_number(int i)
 {
 	if (i < 0)
-		return "¸º" + chinese_number(-i);
+		return "è´Ÿ" + chinese_number(-i);
 	if (i < 11)
 		return c_num[i];
 	if (i < 20)
@@ -131,12 +131,12 @@ string chinese_date(int date, int ad)
 	local = localtime(date);
 	if (!ad) {
 		i = (local[LT_HOUR]+1) % 2 * 2 + local[LT_MIN] / 30;
-		return sprintf("%s%sÄê%sÔÂ%sÈÕ%sÊ±%s",
+		return sprintf("%s%så¹´%sæœˆ%sæ—¥%sæ—¶%s",
 			sym_tian[local[LT_YEAR] % 10], sym_di[local[LT_YEAR] % 12],
 			chinese_number(local[LT_MON] + 1),
 			chinese_number(local[LT_MDAY]),
 			sym_di[((local[LT_HOUR] + 1) % 24) / 2],
-			i?chinese_number(i) + "¿Ì":"Õı");
+			i?chinese_number(i) + "åˆ»":"æ­£");
 	}
 	s = local[LT_SEC];
 	m = local[LT_MIN];
@@ -145,17 +145,17 @@ string chinese_date(int date, int ad)
 	mo = local[LT_MON]+1;
 	y = local[LT_YEAR];
 	i = local[LT_YEAR];
-	time = "Äê";
+	time = "å¹´";
 
 	while (y) {
 		time = chinese_number(y%10) + time;
 		y /= 10;
 	}
-	time += chinese_number(mo) + "ÔÂ";
-	time += chinese_number(d) + "ÈÕ";
-	time += chinese_number(h) + "Ê±";
-	time += chinese_number(m) + "·Ö";
-	time += chinese_number(s) + "Ãë";
+	time += chinese_number(mo) + "æœˆ";
+	time += chinese_number(d) + "æ—¥";
+	time += chinese_number(h) + "æ—¶";
+	time += chinese_number(m) + "åˆ†";
+	time += chinese_number(s) + "ç§’";
 	return time;
 }
 
@@ -165,15 +165,15 @@ string chinese_time(int total)
 	string tmp = "";
 
 	if (!total)
-		return "ÁãÃë";
+		return "é›¶ç§’";
 	d = total / 86400;
-	if (d) tmp += chinese_number(d) + "Ìì";
+	if (d) tmp += chinese_number(d) + "å¤©";
 	h = (total % 86400) / 3600;
-	if (h) tmp += chinese_number(h) + "Ğ¡Ê±";
+	if (h) tmp += chinese_number(h) + "å°æ—¶";
 	m = (total % 3600) / 60;
-	if (m) tmp += chinese_number(m) + "·Ö";
+	if (m) tmp += chinese_number(m) + "åˆ†";
 	s = total % 60;
-	if (s) tmp += chinese_number(s) + "Ãë";
+	if (s) tmp += chinese_number(s) + "ç§’";
 	return tmp;
 }
 
@@ -186,7 +186,7 @@ varargs string chinese_graph_font(string str,int show_mode)
 
 	if( str ) str = strip(str);
 	if( !str || (len=strlen(str))<2 || (len%2)==1 )
-		return "´íÎóµÄÊäÈë×Ö·û´®£¡";
+		return "é”™è¯¯çš„è¾“å…¥å­—ç¬¦ä¸²ï¼";
 
 	/*
 	sout = "";
@@ -247,7 +247,7 @@ string font(string str)
 
 	if (str) str = strip(str);
 	if (!str || (len=strlen(str))<2 || (len%2)==1)
-		return "´íÎóµÄÊäÈë×Ö·û´®£¡\n";
+		return "é”™è¯¯çš„è¾“å…¥å­—ç¬¦ä¸²ï¼\n";
 
 	buf  = allocate_buffer(32);
 	buf2 = allocate_buffer(256);
@@ -295,8 +295,8 @@ string get_title(string arg1, string arg2)
 {
 	string arg;
 	arg = YEL"
-	¨X©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¨[\n"+
-sprintf("	©®"HIY"%|28s"YEL"©®\n	©®    "HIR"%|24s"YEL"©®\n",arg1,arg2?arg2:"àò")+
-"	¨^©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¨a\n\n"NOR;
+	â•”â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•—\n"+
+sprintf("	â”Š"HIY"%|28s"YEL"â”Š\n	â”Š    "HIR"%|24s"YEL"â”Š\n",arg1,arg2?arg2:"å›¹")+
+"	â•šâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â•\n\n"NOR;
 	return arg;
 }

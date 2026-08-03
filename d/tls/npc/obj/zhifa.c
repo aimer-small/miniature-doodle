@@ -1,16 +1,16 @@
-// zhifa.c Ö¸·¨¾÷Òª
+// zhifa.c æŒ‡æ³•è¯€è¦
 
 inherit ITEM;
 
 void create()
 {
-	set_name("Ö¸·¨¾÷Òª", ({ "zhifa jueyao", "jueyao", "shu", "book" }));
+	set_name("æŒ‡æ³•è¯€è¦", ({ "zhifa jueyao", "jueyao", "shu", "book" }));
 	set_weight(200);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾½²½âÖ¸·¨ÈëÃÅÁ·¹¦¾÷ÒªµÄÏß×°Êé¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬è®²è§£æŒ‡æ³•å…¥é—¨ç»ƒåŠŸè¯€è¦çš„çº¿è£…ä¹¦ã€‚\n");
 		set("value", 30);
 		set("material", "paper");
 		set("skill", ([

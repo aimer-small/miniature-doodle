@@ -1,12 +1,12 @@
-// zhu.c Öììä
+// zhu.c æœ±ç†¹
 
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name("Ë½ÛÓÏÈÉú", ({ "sishu xiansheng", "xiansheng"}));
-        set("long", "ÕâÎ»ÀÏÏÈÉúÕıÔÚÒ¡Í·»ÎÄÔµØ¶ÁÊé¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("ç§å¡¾å…ˆç”Ÿ", ({ "sishu xiansheng", "xiansheng"}));
+        set("long", "è¿™ä½è€å…ˆç”Ÿæ­£åœ¨æ‘‡å¤´æ™ƒè„‘åœ°è¯»ä¹¦ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 65);
 
         set_skill("literate", 140);
@@ -27,12 +27,12 @@ int recognize_apprentice(object ob)
         int money = 50, level = ob->query_skill("literate", 1);
 	    int rate;
 		/*
-		Íæ¼ÒµÄliterateµÈ¼¶µÍÓÚ80Ê±£¬Ñ§Ï°·ÑÓÃ£¨GOLD£©¼õÉÙÎªÔ­À´µÄ50%¡£
-		Íæ¼ÒµÄliterateµÈ¼¶¸ßÓÚ80Ê±£¬Ñ§Ï°·ÑÓÃ£¨GOLD£©»Ö¸´Õı³£¼ÆËã¹«Ê½¡£
-		Íæ¼ÒµÄliterateµÈ¼¶¸ßÓÚ250Ê±£¬Ñ§Ï°·ÑÓÃ£¨GOLD£©Ôö¼ÓÎªÔ­À´µÄ150%¡£
+		ç©å®¶çš„literateç­‰çº§ä½äº80æ—¶ï¼Œå­¦ä¹ è´¹ç”¨ï¼ˆGOLDï¼‰å‡å°‘ä¸ºåŸæ¥çš„50%ã€‚
+		ç©å®¶çš„literateç­‰çº§é«˜äº80æ—¶ï¼Œå­¦ä¹ è´¹ç”¨ï¼ˆGOLDï¼‰æ¢å¤æ­£å¸¸è®¡ç®—å…¬å¼ã€‚
+		ç©å®¶çš„literateç­‰çº§é«˜äº250æ—¶ï¼Œå­¦ä¹ è´¹ç”¨ï¼ˆGOLDï¼‰å¢åŠ ä¸ºåŸæ¥çš„150%ã€‚
 		*/
         if (level > ob->query("int")*10){
-                message_vision(CYN"\n$N¶Ô×Å$n¶ËÏêÁËÒ»·¬µÀ£º¡°ÄãÒòÏÈÌìËùÖÆ£¬ÒÑÎŞ·¨ÔÙ½øĞŞ¸ü¸ßÉîµÄÑ§ÎÊÁË¡£¡±\n"NOR, this_object(), ob);
+                message_vision(CYN"\n$Nå¯¹ç€$nç«¯è¯¦äº†ä¸€ç•ªé“ï¼šâ€œä½ å› å…ˆå¤©æ‰€åˆ¶ï¼Œå·²æ— æ³•å†è¿›ä¿®æ›´é«˜æ·±çš„å­¦é—®äº†ã€‚â€\n"NOR, this_object(), ob);
                 return 0;
         }
 		rate=1;

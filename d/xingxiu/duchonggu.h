@@ -8,11 +8,11 @@ void create ()
 {
   	int north=(POS/10+4)%5*10+POS%10,south=(POS/10+1)%5*10+POS%10,
       	east=POS/10*10+(POS%10+1)%5,west=POS/10*10+(POS%10+4)%5;
-  	set ("short", "¶¾³æ¹È");
+  	set ("short", "æ¯’è™«è°·");
   	set ("long", @LONG
-Ò»Æ¬Æ½Ì¹¹ÈµØ£¬ËÄÖÜÊÇ´óÉ½»·ÈÆ¡£ËÄÖÜÒõ³Á³ÁµÄ£¬Æø·ÕÊ®·Ö¿Ö²À¡£¹ÈÄÚ
-ÕÎÆøËÄÆğ£¬¸÷ÖÖ¶¾Îï£¬²»¼ÆÆäÊı£¬µØÏÂ¶¼ÊÇ³ÂÄê¸¯²İ°ÜÒ¶ÀÃ³ÉµÄÈíÄà¡£º®·ç
-´ÓÉ½¹ÈÍ¨µÀÖĞ¹Î½øÀ´£¬´µµÃÄã¼¡·ôÒşÒşÉúÌÛ¡£
+ä¸€ç‰‡å¹³å¦è°·åœ°ï¼Œå››å‘¨æ˜¯å¤§å±±ç¯ç»•ã€‚å››å‘¨é˜´æ²‰æ²‰çš„ï¼Œæ°”æ°›ååˆ†ææ€–ã€‚è°·å†…
+ç˜´æ°”å››èµ·ï¼Œå„ç§æ¯’ç‰©ï¼Œä¸è®¡å…¶æ•°ï¼Œåœ°ä¸‹éƒ½æ˜¯é™ˆå¹´è…è‰è´¥å¶çƒ‚æˆçš„è½¯æ³¥ã€‚å¯’é£
+ä»å±±è°·é€šé“ä¸­åˆ®è¿›æ¥ï¼Œå¹å¾—ä½ è‚Œè‚¤éšéšç”Ÿç–¼ã€‚
 LONG);
 
   	set("exits", ([ /* sizeof() == 4 */
@@ -21,7 +21,7 @@ LONG);
 		"east" : __DIR__"duchonggu"+east,
 		"west" : __DIR__"duchonggu"+west,
 	]));
-	set("outdoors","ĞÇËŞº£");
+	set("outdoors","æ˜Ÿå®¿æµ·");
 
 	if(POS%5==0) set("exits/southeast", __DIR__"duchonggu-out");
 
@@ -44,7 +44,7 @@ void init()
 	if (present("du chong")) return;
 	if( this_player()->query_temp("xx_job4")
 	 && mapp(fam)
-	 && fam["family_name"] =="ĞÇËŞÅÉ"
+	 && fam["family_name"] =="æ˜Ÿå®¿æ´¾"
 	 && this_player()->query_condition("job_busy")){
 		add_action("do_burn", "burn");
 		add_action("do_catch", "dai");
@@ -60,9 +60,9 @@ void greeting(object me,object env)
 {
 	object staff;
 	if (!me || environment(me)!=env) return;
-	tell_object(me,BLU"ºöÌıµÃ²İ´ÔÖĞÉªÉªÉùÏì£¬ÂÌ²İÖĞÒ»Îï»Î¶¯£¬Äã²»½ûÍ£ÁËÏÂÀ´£¬Ïë¿´¸ö¾¿¾¹¡£\n"NOR);
+	tell_object(me,BLU"å¿½å¬å¾—è‰ä¸›ä¸­ç‘Ÿç‘Ÿå£°å“ï¼Œç»¿è‰ä¸­ä¸€ç‰©æ™ƒåŠ¨ï¼Œä½ ä¸ç¦åœäº†ä¸‹æ¥ï¼Œæƒ³çœ‹ä¸ªç©¶ç«Ÿã€‚\n"NOR);
 	me->set_temp("xx_burned",1);
-	if(POS==(random(5)*10+random(5)) && (string)me->query("family/family_name")=="ĞÇËŞÅÉ" &&
+	if(POS==(random(5)*10+random(5)) && (string)me->query("family/family_name")=="æ˜Ÿå®¿æ´¾" &&
 	(int)me->query_skill("huagong-dafa", 1) > 100){
 		staff=unew(BINGQI_D("sword/qm-jian"));
 		if(staff) {
@@ -71,7 +71,7 @@ void greeting(object me,object env)
 		}
 		if(staff){ 
 			staff->move(environment(me));
-			message_vision("ÔÚ²İ´ÔÖĞ£¬$N»¹·¢ÏÖÁíÒ»¸öÆæ¹ÖµÄÊÂÎï£¬×ĞÏ¸Ò»¿´£¬Ô­À´ÊÇÒ»¸ùÆÕÍ¨µÄ¸ÖÕÈ¡£\n",me);
+			message_vision("åœ¨è‰ä¸›ä¸­ï¼Œ$Nè¿˜å‘ç°å¦ä¸€ä¸ªå¥‡æ€ªçš„äº‹ç‰©ï¼Œä»”ç»†ä¸€çœ‹ï¼ŒåŸæ¥æ˜¯ä¸€æ ¹æ™®é€šçš„é’¢æ–ã€‚\n",me);
 		}
 		return;
 	}
@@ -82,20 +82,20 @@ int do_burn(string arg)
 	int costj;
 	object me;
 	me = this_player();
-	if( arg != "liuhuang" && arg!="liu huang")return notify_fail("ÄãÏëµãÈ¼Ê²Ã´À´Òı³æ×Ó£¿\n");
-	if (me->is_busy()) return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¡Ã»·¨¾²ÏÂĞÄÀ´ÉÕ¶«Î÷Òı³æ×Ó£¡\n");
-	if (me->is_fighting()) return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ£¬ÎŞ·¨ÌÚ³ö¿ÕÀ´Òı³æ×Ó£¡\n");
-	if (!present("fire", me)) return notify_fail("ÄãÃ»ÓĞ»ğÕÛ£¬ÈçºÎÒı»ğ£¿\n");
-	if (!present("liu huang", me)) return notify_fail("ÄãÃ»ÓĞÒı»ğÖ®Îï£¬ÈçºÎÒı»ğ£¿\n");
+	if( arg != "liuhuang" && arg!="liu huang")return notify_fail("ä½ æƒ³ç‚¹ç‡ƒä»€ä¹ˆæ¥å¼•è™«å­ï¼Ÿ\n");
+	if (me->is_busy()) return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼æ²¡æ³•é™ä¸‹å¿ƒæ¥çƒ§ä¸œè¥¿å¼•è™«å­ï¼\n");
+	if (me->is_fighting()) return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œæ— æ³•è…¾å‡ºç©ºæ¥å¼•è™«å­ï¼\n");
+	if (!present("fire", me)) return notify_fail("ä½ æ²¡æœ‰ç«æŠ˜ï¼Œå¦‚ä½•å¼•ç«ï¼Ÿ\n");
+	if (!present("liu huang", me)) return notify_fail("ä½ æ²¡æœ‰å¼•ç«ä¹‹ç‰©ï¼Œå¦‚ä½•å¼•ç«ï¼Ÿ\n");
 
 	costj = random((int)me->query("int")/2)+2;
 
 	me->add("jingli", -costj);
   
-	message_vision("$N´ÓÁò»ÇÉÏÄóÁËÒ»Ğ¡¿é£¬·ÅÔÚµØÉÏ£¬ÓÃ»ğÕÛµãÈ¼£¬ÉÕÁËÆğÀ´¡£\n",me);
+	message_vision("$Nä»ç¡«ç£ºä¸Šæäº†ä¸€å°å—ï¼Œæ”¾åœ¨åœ°ä¸Šï¼Œç”¨ç«æŠ˜ç‚¹ç‡ƒï¼Œçƒ§äº†èµ·æ¥ã€‚\n",me);
 	me->start_busy(1+random(2));
 	if(!random(2))call_out("greeting",1,this_player(),this_object());
-	else message_vision("ÕâÀïµÄ³æ×ÓËÆºõÒÑ¾­±»ÆäËûÈË×¥¹âÁË£¬ÄãÖ»ºÃÈ¥ÆäËûµØ·½ÊÔÒ»ÊÔÁË¡£\n",me);
+	else message_vision("è¿™é‡Œçš„è™«å­ä¼¼ä¹å·²ç»è¢«å…¶ä»–äººæŠ“å…‰äº†ï¼Œä½ åªå¥½å»å…¶ä»–åœ°æ–¹è¯•ä¸€è¯•äº†ã€‚\n",me);
 	return 1;
 }
 
@@ -104,20 +104,20 @@ int do_catch(string arg)
 	int costj;
 	object me;
 	me = this_player();
-	if(!me->query_temp("xx_burned")) return notify_fail("Äã»¹Ã»ÓĞ°Ñ³æ×ÓÒı³öÀ´¡£\n");
-	if( arg != "chongzi" && arg!="chong zi")return notify_fail("ÄãÏë´şÊ²Ã´¶«¶«\n");
-	if (me->is_busy()) return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ£¡Ã»·¨¾²ÏÂĞÄÀ´×¥³æ×Ó£¡\n");
-	if (me->is_fighting()) return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ£¬ÎŞ·¨ÌÚ³ö¿ÕÀ´×¥³æ×Ó£¡\n");
-	if (!me->query_condition("xx_catch")) return notify_fail("ÄãÏÖÔÚ²»ÄÜ×¥³æ×Ó£¬ºÃÏóÀÏÏÉÃ»ÔÊĞíÄã½øÀ´°É£¡\n");
+	if(!me->query_temp("xx_burned")) return notify_fail("ä½ è¿˜æ²¡æœ‰æŠŠè™«å­å¼•å‡ºæ¥ã€‚\n");
+	if( arg != "chongzi" && arg!="chong zi")return notify_fail("ä½ æƒ³é€®ä»€ä¹ˆä¸œä¸œ\n");
+	if (me->is_busy()) return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ï¼æ²¡æ³•é™ä¸‹å¿ƒæ¥æŠ“è™«å­ï¼\n");
+	if (me->is_fighting()) return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œæ— æ³•è…¾å‡ºç©ºæ¥æŠ“è™«å­ï¼\n");
+	if (!me->query_condition("xx_catch")) return notify_fail("ä½ ç°åœ¨ä¸èƒ½æŠ“è™«å­ï¼Œå¥½è±¡è€ä»™æ²¡å…è®¸ä½ è¿›æ¥å§ï¼\n");
 
 	costj = random((int)me->query("int")/2)+2;
 
 	me->add("jingli", -costj);
 
-	message_vision("$NÏòÇ°Ò»ÆË£¬Ïë½øÒ»²½½Ó½üÕâÖ»³æ×Ó¡£\n",me);
+	message_vision("$Nå‘å‰ä¸€æ‰‘ï¼Œæƒ³è¿›ä¸€æ­¥æ¥è¿‘è¿™åªè™«å­ã€‚\n",me);
 	me->start_busy(1+random(3));
 	if(!random(3)) call_out("greeting1",2,me,this_object());
-	else message_vision("³æ×Ó±»$NÒ»ÏÅ£¬×êÈë²İ´Ô²»¼ûÁË¡£\n",me);
+	else message_vision("è™«å­è¢«$Nä¸€å“ï¼Œé’»å…¥è‰ä¸›ä¸è§äº†ã€‚\n",me);
 	return 1;
 }
 
@@ -130,7 +130,7 @@ void greeting1(object me,object env)
 	chongzi->move(env);
 	chongzi->set("target",me);
 	chongzi->do_copy(me);
-	tell_object(me,MAG"ÄãµÄÑÛÇ°Ò»ÁÁ£¬Ô­À´ÊÇÒ»Ö»"+chongzi->name()+MAG+"È«ÉíÉÁ¹â£¬Í·ÉÏÍ¹Æğ£¬ÓëÑ°³£¶¾³æ´ó´ó²»Í¬¡£\n\n"NOR);
+	tell_object(me,MAG"ä½ çš„çœ¼å‰ä¸€äº®ï¼ŒåŸæ¥æ˜¯ä¸€åª"+chongzi->name()+MAG+"å…¨èº«é—ªå…‰ï¼Œå¤´ä¸Šå‡¸èµ·ï¼Œä¸å¯»å¸¸æ¯’è™«å¤§å¤§ä¸åŒã€‚\n\n"NOR);
 }
 
 int valid_leave(object me, string dir)
@@ -142,11 +142,11 @@ int valid_leave(object me, string dir)
 int do_action(string arg)
 {
 	if(!arg){
-		write("¸Á¹ş£¿ÄãÏë¸Á¹ş£¿\n");
+		write("å™¶å“ˆï¼Ÿä½ æƒ³å™¶å“ˆï¼Ÿ\n");
 		return 1;
 	}
 	if(arg == "roar"){
-		write("¹ÈÀïÕâÃ´¼Å¾²£¬ÄãÏ¹ÈÂÈÂÊ²Ã´£¡\n");
+		write("è°·é‡Œè¿™ä¹ˆå¯‚é™ï¼Œä½ çåš·åš·ä»€ä¹ˆï¼\n");
 		return 1;
 	}
 }

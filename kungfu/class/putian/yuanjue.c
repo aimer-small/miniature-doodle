@@ -6,16 +6,16 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("Ôª¾ö×ğÕß", ({
+        set_name("å…ƒå†³å°Šè€…", ({
                 "yuanjue zunzhe",
                 "yuanjue",
                 "zunzhe",
         }));
         set("long",
-                "ËûÒ»ÕÅËÄ·½Á³£¬ÉñÉ«¼äÂ¶³öÒ»ÖÖÍşÑÏ¡£\n"
+                "ä»–ä¸€å¼ å››æ–¹è„¸ï¼Œç¥è‰²é—´éœ²å‡ºä¸€ç§å¨ä¸¥ã€‚\n"
         );
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
 
@@ -61,7 +61,7 @@ void create()
 		(: perform_action, "claw.canyun" :),
 	}));
 
-        create_family("ÄÏÉÙÁÖ", 23, "µÜ×Ó");
+        create_family("å—å°‘æ—", 23, "å¼Ÿå­");
 
         setup();
 

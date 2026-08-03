@@ -23,11 +23,11 @@ int valid_leave(object me, string dir)
 	if( !door || door->query("open") || door->query("broken") ) return 1;
 	if( !(str=query("exits/"+dir)) || strlen(str)<15 || str[0..14]=="/d/group/entry/" || str[0..8]!="/d/group/" ) return 1;
 	if( me->query("group/id") == query("group1") ) {
-		message_vision("$NÇÃÁËÇÃÃÅ£¬ÀïÃæÓĞÈË´ò¿ªÒ»ÉÈĞ¡ÃÅ£¬ÈÃ$N½øÈ¥ÁË¡£\n",me);
+		message_vision("$Næ•²äº†æ•²é—¨ï¼Œé‡Œé¢æœ‰äººæ‰“å¼€ä¸€æ‰‡å°é—¨ï¼Œè®©$Nè¿›å»äº†ã€‚\n",me);
 		return 1;
 	}
 
-	return notify_fail("´óÃÅÒÑ¾­¹ØÉÏÁË£¬Äã±ØĞë´ò¿ª´óÃÅ²ÅÄÜ½øÈ¥¡£\n");
+	return notify_fail("å¤§é—¨å·²ç»å…³ä¸Šäº†ï¼Œä½ å¿…é¡»æ‰“å¼€å¤§é—¨æ‰èƒ½è¿›å»ã€‚\n");
 }
 
 void reset()

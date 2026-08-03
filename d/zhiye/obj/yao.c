@@ -7,13 +7,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Ò©", ({ "yao" }));
+	set_name("è¯", ({ "yao" }));
 	set_weight(200+random(300));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿Åµ¤Ò©¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—ä¸¹è¯ã€‚\n");
 		set("value", 300);
 		set("yao",1);
 	}
@@ -27,13 +27,13 @@ void set_type(string yao,int lvl,int value,string save_id,object me,int lower)
 	
 	set_name(DRUGS[yao]["name"],DRUGS[yao]["id"]);
 	set("long",DRUGS[yao]["long"]+"\n");
-	if(me) set("long",query("long")+"Õâ¿Åµ¤Ò©ËÆºõÊÇ "+me->short()+" Á¶ÖÆµÄ¡£\n");
+	if(me) set("long",query("long")+"è¿™é¢—ä¸¹è¯ä¼¼ä¹æ˜¯ "+me->short()+" ç‚¼åˆ¶çš„ã€‚\n");
 	set("value",value);
 	set("save_id",save_id);
 	set("lower",lower);
 	set("imbued",DRUGS[yao]["drug_lvl"]);
 	set("neili",DRUGS[yao]["neili"]/2+random(DRUGS[yao]["neili"]));
-	set("long",query("long")+"·şÓÃÕâ¿Åµ¤Ò©ÖÁÉÙĞèÒª"+query("neili")+"µã×î´óÄÚÁ¦¡£\n");
+	set("long",query("long")+"æœç”¨è¿™é¢—ä¸¹è¯è‡³å°‘éœ€è¦"+query("neili")+"ç‚¹æœ€å¤§å†…åŠ›ã€‚\n");
 	
 	if(lvl>390) lvl = 390 + (lvl-390)*11;
 	lvl = MIN(DRUGS[yao]["gain_lvl"],lvl) - DRUGS[yao]["need_lvl"];
@@ -42,17 +42,17 @@ void set_type(string yao,int lvl,int value,string save_id,object me,int lower)
 	if(lvl>100) lvl = 100;
 	set("lvl",lvl);
 	
-	if(lvl<10)	str = "¼«²î";
-	else if(lvl<25) str = "ºÜ²î";
-	else if(lvl<40) str = "½Ï²î";
-	else if(lvl<55) str = "Ò»°ã";
-	else if(lvl<65) str = "»¹ĞĞ";
-	else if(lvl<75) str = "²»´í";
-	else if(lvl<85) str = "½ÏºÃ";
-	else if(lvl<95) str = "ºÜºÃ";
-	else		str = "¼«ºÃ";
-	set("long",query("long")+"Õâ¿Åµ¤Ò©µÄÖÊÁ¿¿´ÆğÀ´ËÆºõ"+str+"¡£\n");
-	if(lower) set("long",query("long")+"Õâ¿Åµ¤Ò©ËÆºõÃ»ÓĞÆäÓ¦ÓĞµÄ¹¦Ğ§¡£\n");
+	if(lvl<10)	str = "æå·®";
+	else if(lvl<25) str = "å¾ˆå·®";
+	else if(lvl<40) str = "è¾ƒå·®";
+	else if(lvl<55) str = "ä¸€èˆ¬";
+	else if(lvl<65) str = "è¿˜è¡Œ";
+	else if(lvl<75) str = "ä¸é”™";
+	else if(lvl<85) str = "è¾ƒå¥½";
+	else if(lvl<95) str = "å¾ˆå¥½";
+	else		str = "æå¥½";
+	set("long",query("long")+"è¿™é¢—ä¸¹è¯çš„è´¨é‡çœ‹èµ·æ¥ä¼¼ä¹"+str+"ã€‚\n");
+	if(lower) set("long",query("long")+"è¿™é¢—ä¸¹è¯ä¼¼ä¹æ²¡æœ‰å…¶åº”æœ‰çš„åŠŸæ•ˆã€‚\n");
 }
 
 int drug_setup(mapping mp)
@@ -124,9 +124,9 @@ void cant_keep(object me)
 {
 	if( !me || !userp(me) || environment(this_object())!=me || !environment(me) ) return;
 	
-	message_vision("µ«ÊÇ$N¸ù±¾ÄÃ²»×¡£¬" + name() + "µôÁËÏÂÀ´£¡\n", me);
+	message_vision("ä½†æ˜¯$Næ ¹æœ¬æ‹¿ä¸ä½ï¼Œ" + name() + "æ‰äº†ä¸‹æ¥ï¼\n", me);
 	if( random(10)==3 || !(this_object()->move(environment(me))) ) {
-		message_vision("Ò»ÏÂ×Ó¾ÍÊ§È¥ÁË×ÙÓ°£¡\n",me);
+		message_vision("ä¸€ä¸‹å­å°±å¤±å»äº†è¸ªå½±ï¼\n",me);
 		destruct(this_object());
 	}
 }
@@ -134,7 +134,7 @@ void cant_keep(object me)
 void dest_drug(object me)
 {
 	if( !me ) return;
-	message_vision("$NµÄ"+query("name")+"ÒÑ¾­±£´æ¹ı¾Ã£¬ÒÑ¾­²»ÄÜ·şÓÃÁË£¡\n", me);
+	message_vision("$Nçš„"+query("name")+"å·²ç»ä¿å­˜è¿‡ä¹…ï¼Œå·²ç»ä¸èƒ½æœç”¨äº†ï¼\n", me);
 	log_file("career/worker",sprintf( "overtime:%-8s:%s\n",me->query("id"),query("save_id")), me);
 	destruct(this_object());
 }
@@ -173,18 +173,18 @@ int do_eat(string arg)
 	if( !living(me) ) return 0;
 	if( !id(arg) ) return 0;
 	if( query("neili") > me->query("max_neili") )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬·şÓÃ´Ëµ¤Ò©¿ÖÅÂ»áÓĞÎ£ÏÕ¡£¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œæœç”¨æ­¤ä¸¹è¯ææ€•ä¼šæœ‰å±é™©ã€‚ã€‚\n");
 	if( me->query_condition("medicine") > 0 )
-		return notify_fail("ÄãÉÏ´ÎµÄÒ©¾¢¶ù»¹Ã»¹ıÄØ£¬µÈ»á¶ùÔÙ·şÓÃ°É¡£\n");
+		return notify_fail("ä½ ä¸Šæ¬¡çš„è¯åŠ²å„¿è¿˜æ²¡è¿‡å‘¢ï¼Œç­‰ä¼šå„¿å†æœç”¨å§ã€‚\n");
 	if( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 		
 	yao = query("id");
 	if( !mapp(DRUGS[yao]) ) return 0;
 	
 	worktime = DRUGS[yao]["worktime"];
 	if( worktime>0 && stringp(me->query_temp("drug_apply/name")) )
-		return notify_fail("ÄãÉÏ´Î·şÓÃµÄ"+me->query_temp("drug_apply/name")+NOR"Ò©¾¢¶ù»¹Ã»¹ıÄØ£¬µÈ»áÔÙ·şÓÃ°É¡£\n");
+		return notify_fail("ä½ ä¸Šæ¬¡æœç”¨çš„"+me->query_temp("drug_apply/name")+NOR"è¯åŠ²å„¿è¿˜æ²¡è¿‡å‘¢ï¼Œç­‰ä¼šå†æœç”¨å§ã€‚\n");
 	
 	lvl = query("lvl");
 	busy = DRUGS[yao]["busy"];

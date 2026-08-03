@@ -1,18 +1,18 @@
 
 	apply(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		apply() - ´¦Àíº¯ÊıÖ¸±ê (function pointer).
-	Óï·¨:
+	åç§°:
+		apply() - å¤„ç†å‡½æ•°æŒ‡æ ‡ (function pointer).
+	è¯­æ³•:
 		mixed apply( mixed f, mixed *args )
 
-		»ìºÏ apply( »ìºÏ f, »ìºÏ *args )
-	ÓÃ·¨:
-		Èç¹û f ÊÇÒ»¸öº¯Ê½, ¾Í»áºô½Ğ f ²¢ÓÃÕóÁĞ args µ±×÷ f
-		µÄ²ÎÊı (argument).
+		æ··åˆ apply( æ··åˆ f, æ··åˆ *args )
+	ç”¨æ³•:
+		å¦‚æœ f æ˜¯ä¸€ä¸ªå‡½å¼, å°±ä¼šå‘¼å« f å¹¶ç”¨é˜µåˆ— args å½“ä½œ f
+		çš„å‚æ•° (argument).
 
-		¡õÀı:
-			apply( f, ({ 1, 2, 3 }) ); Óë 
-			evaluate( f, 1, 2, 3 ); ÊÇÏàÍ¬µÄ.
-	·­Òë:
+		â–¡ä¾‹:
+			apply( f, ({ 1, 2, 3 }) ); ä¸ 
+			evaluate( f, 1, 2, 3 ); æ˜¯ç›¸åŒçš„.
+	ç¿»è¯‘:
 		Spock @ FF   96.Oct.14.			(printed 3/16/95)

@@ -6,9 +6,9 @@
 inherit ROOM;
 void create()
 { 
-       set("short","ÃØµÀ³ö¿Ú");
+       set("short","ç§˜é“å‡ºå£");
        set("long", @LONG
-ÕâÀïÊÇÃ÷½ÌÃØµÀ³ö¿Ú¡£
+è¿™é‡Œæ˜¯æ˜æ•™ç§˜é“å‡ºå£ã€‚
 LONG
      );
     
@@ -24,5 +24,5 @@ void init()
 	object me,room;
 	me=this_player();
 	room=this_object();
-	message_vision(YEL"\n$NÖÕÓÚ×ß³öÁËÃØµÀ¡£\n\n"NOR,me);
+	message_vision(YEL"\n$Nç»ˆäºèµ°å‡ºäº†ç§˜é“ã€‚\n\n"NOR,me);
 }

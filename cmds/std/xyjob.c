@@ -44,10 +44,10 @@ void del_xyjob(object player)
 void xyjob_list(object me)
 {
         int num = sizeof(xyjob);
-        string defend = "ÊØ·½ÉĞ´æÈËÔ±£º";
-        string defend_die = "ÊØ·½ÕóÍöÈËÔ±£º";
-        string attack = "¹¥·½ÉĞ´æÈËÔ±£º";
-        string attack_die = "¹¥·½ÕóÍöÈËÔ±£º";
+        string defend = "å®ˆæ–¹å°šå­˜äººå‘˜ï¼š";
+        string defend_die = "å®ˆæ–¹é˜µäº¡äººå‘˜ï¼š";
+        string attack = "æ”»æ–¹å°šå­˜äººå‘˜ï¼š";
+        string attack_die = "æ”»æ–¹é˜µäº¡äººå‘˜ï¼š";
         while (num--)
         {
         	if (!xyjob[num])
@@ -68,7 +68,7 @@ void xyjob_list(object me)
                 }
         }
 
-        write(HIR"ÏåÑô¹¥·ÀÕ½²ÎÕ½ÈËÔ±±í£º\n"NOR);
+        write(HIR"è¥„é˜³æ”»é˜²æˆ˜å‚æˆ˜äººå‘˜è¡¨ï¼š\n"NOR);
         write(HIB + attack + "\n"NOR);
         write(BLU + attack_die + "\n"NOR);
         write(HIG + defend + "\n"NOR);
@@ -101,7 +101,7 @@ int main(object me,string arg)
         if (wizardp(me) && arg == "reset")
         {
                 xyjob_reset();
-                tell_object(me, "ÁĞ±íÇåÀíÍê±Ï¡£\n");
+                tell_object(me, "åˆ—è¡¨æ¸…ç†å®Œæ¯•ã€‚\n");
                 return 1;
         }
         xyjob_list(me);

@@ -3,13 +3,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name("Ò¹ÐÐÒÂ", ({ "yexing yi", "yi", "cloth"}) );
+        set_name("å¤œè¡Œè¡£", ({ "yexing yi", "yi", "cloth"}) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼þ");
-                set("long", "ÕâÊÇÒ»¼þºÚÉ«µÄÒ¹ÐÐÒÂ¡£\n");
+                set("unit", "ä»¶");
+                set("long", "è¿™æ˜¯ä¸€ä»¶é»‘è‰²çš„å¤œè¡Œè¡£ã€‚\n");
                 set("material", "cloth");
                 set("armor_prop/armor", 20);
                 set("value", 1000);

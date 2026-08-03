@@ -2,8 +2,8 @@ inherit ITEM;
 #include "/inherit/item/embed.h"
 void create()
 {
-        set_name(HIW "±ùÆÇÒøÕë" NOR, ({ "bingpo yinzhen", "zhen", "needle", "yinzhen" }));
-        //bingbo->bingpo ×¢ÒôÎÊÌâ caiji@SJ 
+        set_name(HIW "å†°é­„é“¶é’ˆ" NOR, ({ "bingpo yinzhen", "zhen", "needle", "yinzhen" }));
+        //bingbo->bingpo æ³¨éŸ³é—®é¢˜ caiji@SJ 
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
@@ -11,9 +11,9 @@ void create()
                 set("damage", 3);
                 set("poison", "bing_poison");
                 set("embed", 1);
-                set("unit", "Ã¶");
-                set("throw_msg", HIW"$NĞäÅÛÒ»»Ó£¬Ò»Ã¶±ùÆÇÒøÕë×ÔĞäµ×·É³öÖ±Ïò$n¼±Éä¶øÈ¥£¡\n"NOR);
-                set("long", "Ò»Ã¶´¿ÒøµÄÏ¸Õë£¬ÕëÉíïÎ¿Ì»¨ÎÆ£¬´òÔìµÃ¼«ÊÇ¾«ÖÂ¡£\n");
+                set("unit", "æš");
+                set("throw_msg", HIW"$Nè¢–è¢ä¸€æŒ¥ï¼Œä¸€æšå†°é­„é“¶é’ˆè‡ªè¢–åº•é£å‡ºç›´å‘$næ€¥å°„è€Œå»ï¼\n"NOR);
+                set("long", "ä¸€æšçº¯é“¶çš„ç»†é’ˆï¼Œé’ˆèº«é•‚åˆ»èŠ±çº¹ï¼Œæ‰“é€ å¾—ææ˜¯ç²¾è‡´ã€‚\n");
                 set("unique", 20);
                 set("value", 20000);
         }

@@ -8,10 +8,10 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("ÍõÕÆ¹ñ", ({"wang zhanggui", "wang", "zhanggui"}));
-	set("title", "²ÄÁÏÐÐÀÏ°å");
-	set("gender", "ÄÐÐÔ");
-	set("long", "ÕâÎ»ÍõÕÆ¹ñÒÑ¾­ÔÚ´Ë¾­Ñé²ÄÁÏÐÐ¶àÄê£¬ÐÅÓþºÜºÃ£¬»¹ÓÐºÜ¶à½­ºþ°ï»áÓÐÀ´Íù¡£\nÔÚÕâÀïÂò¶«Î÷»¹¿ÉÒÔÊ¹ÓÃÒøÆ±¡£\n");
+	set_name("çŽ‹æŽŒæŸœ", ({"wang zhanggui", "wang", "zhanggui"}));
+	set("title", "ææ–™è¡Œè€æ¿");
+	set("gender", "ç”·æ€§");
+	set("long", "è¿™ä½çŽ‹æŽŒæŸœå·²ç»åœ¨æ­¤ç»éªŒææ–™è¡Œå¤šå¹´ï¼Œä¿¡èª‰å¾ˆå¥½ï¼Œè¿˜æœ‰å¾ˆå¤šæ±Ÿæ¹–å¸®ä¼šæœ‰æ¥å¾€ã€‚\nåœ¨è¿™é‡Œä¹°ä¸œè¥¿è¿˜å¯ä»¥ä½¿ç”¨é“¶ç¥¨ã€‚\n");
 	set("age", 50);
 
 	set("no_kill",1);
@@ -31,8 +31,8 @@ void create()
 	set("combat_exp",5000000);
 	set("chat_chance", 1);
 	set("chat_msg", ({
-		"ÍõÕÆ¹ñ½¾°ÁµÄËµµÀ£º±¾ÐÐµÄ½¨Öþ²ÄÁÏºÍ¶¼ÊÇ»õÕæ¼ÛÊµµÄ°¡¡£\n",
-		"ÍõÕÆ¹ñËµµÀ£ºÎÒºÍºÜ¶à°ï»áµÄ´ó¸ç¶¼ÓÐ¹ØÏµàÞ£¬±ðÏëÔÚÎÒµÄµêÀïÈÇÊÇÉú·Ç¡£\n"
+		"çŽ‹æŽŒæŸœéª„å‚²çš„è¯´é“ï¼šæœ¬è¡Œçš„å»ºç­‘ææ–™å’Œéƒ½æ˜¯è´§çœŸä»·å®žçš„å•Šã€‚\n",
+		"çŽ‹æŽŒæŸœè¯´é“ï¼šæˆ‘å’Œå¾ˆå¤šå¸®ä¼šçš„å¤§å“¥éƒ½æœ‰å…³ç³»å™¢ï¼Œåˆ«æƒ³åœ¨æˆ‘çš„åº—é‡Œæƒ¹æ˜¯ç”Ÿéžã€‚\n"
 	}));
 
 	set_skill("unarmed", 350);
@@ -90,18 +90,18 @@ int do_buy(string arg)
 	mapping goods;
 
 	if (!living(this_object()))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ÐÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if (!me->query("group/id"))
-		return notify_fail("ÄãÓÖÃ»ÓÐ¼ÓÈë°ï»á£¬ÒªÂòÕâÐ©¶«Î÷¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ åˆæ²¡æœ‰åŠ å…¥å¸®ä¼šï¼Œè¦ä¹°è¿™äº›ä¸œè¥¿å¹²ä»€ä¹ˆï¼Ÿ\n");
 	if (query_temp("busy"))
-		return notify_fail("Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕýÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 	if (!(int)query("move_seller") && base_name(environment()) != query("startroom"))
-		return notify_fail("Õâ¡­¡­ÎÒÕâ´ÎÊÇ³öÀ´ÓÎÍæµÄ£¬ÄãÏÂ´ÎÀ´°É¡£\n");
-	if (!arg) return notify_fail("ÄãÏëÂòÊ²Ã´£¿\n");
+		return notify_fail("è¿™â€¦â€¦æˆ‘è¿™æ¬¡æ˜¯å‡ºæ¥æ¸¸çŽ©çš„ï¼Œä½ ä¸‹æ¬¡æ¥å§ã€‚\n");
+	if (!arg) return notify_fail("ä½ æƒ³ä¹°ä»€ä¹ˆï¼Ÿ\n");
 	if ((ob_file = is_vendor_good(arg)) == "")
-		return notify_fail("ÄãÏëÂòµÄ¶«Î÷ÎÒÕâÀïÃ»ÓÐ¡£\n");
+		return notify_fail("ä½ æƒ³ä¹°çš„ä¸œè¥¿æˆ‘è¿™é‡Œæ²¡æœ‰ã€‚\n");
 	if( !GROUP_D->site_now(me->query("group/id")) )
 		return notify_fail( GROUP_D->get_last_error() );
 
@@ -113,7 +113,7 @@ int do_buy(string arg)
 	ob = new(ob_file);
 	if( ob->query("guard") && file_size("/d/group/"+me->query("group/id"))!=-2 ) {
 		destruct(ob);
-		return notify_fail("ÄãµÄ°ïÅÉ»¹Ã»ÓÐ½¨ÆðÀ´ÄØ£¬ÒªÂò±£ïÚ¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ çš„å¸®æ´¾è¿˜æ²¡æœ‰å»ºèµ·æ¥å‘¢ï¼Œè¦ä¹°ä¿é•–å¹²ä»€ä¹ˆï¼Ÿ\n");
 	}
 
 	i = query_goods_value(ob_file,goods[i]["number"]);
@@ -123,19 +123,19 @@ int do_buy(string arg)
 		i = i/10000 + 1;
 		if( GROUP_D->add_money(me->query("group/id"),-i) < -50000 ) {
 			destruct(ob);
-			return notify_fail("Êý¾Ý¿â²Ù×÷Ê§°Ü£¬Çë±¨¸æÎ×Ê¦£¡\n");
+			return notify_fail("æ•°æ®åº“æ“ä½œå¤±è´¥ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 		}
 		i *= 10000;
 	}
 	else {
 		if( MONEY_D->player_pay(me,i,1) == 0 ) {
 			destruct(ob);
-			return notify_fail("Çî¹âµ°£¬Ò»±ß´ô×ÅÈ¥£¡\n");
+			return notify_fail("ç©·å…‰è›‹ï¼Œä¸€è¾¹å‘†ç€åŽ»ï¼\n");
 		}
 	}
 
 	if( ob->query("guard") ) {
-		message_vision("$NÏëÒÔ"+MONEY_D->price_str(i)+"µÄ¼Û¸ñ´Ó$nÄÇÀï¹ÍÓ¶Ò»Î»" + ob->name() + "¡£\n", me, this_object());
+		message_vision("$Næƒ³ä»¥"+MONEY_D->price_str(i)+"çš„ä»·æ ¼ä»Ž$né‚£é‡Œé›‡ä½£ä¸€ä½" + ob->name() + "ã€‚\n", me, this_object());
 		ob_file = ob->query("guard_file");
 		destruct(ob);
 
@@ -153,7 +153,7 @@ int do_buy(string arg)
 			destruct(ob);
 			return 0;
 		}
-		message_vision("$NÒÔ"+MONEY_D->price_str(i)+"µÄ¼Û¸ñ´Ó$nÄÇÀïÂòÏÂÁËÒ»" + ob->query("unit") + ob->name() + "¡£\n", me, this_object());
+		message_vision("$Nä»¥"+MONEY_D->price_str(i)+"çš„ä»·æ ¼ä»Ž$né‚£é‡Œä¹°ä¸‹äº†ä¸€" + ob->query("unit") + ob->name() + "ã€‚\n", me, this_object());
 	}
 	improve = 40 - me->query("pur");
 	me->improve_skill("trade", improve + random(improve));
@@ -172,12 +172,12 @@ void create_group_npc_finish(object me,string file)
 
 	if( !me ) return;
 	if( !(ob=new(file)) ) {
-		tell_object(me,"NPCÉú³ÉÊ§°Ü£¬Çë±¨¸æÎ×Ê¦£¡\n");
+		tell_object(me,"NPCç”Ÿæˆå¤±è´¥ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 		return;
 	}
 
 	ob->move( environment(me) );
-	ob->set("title",GROUP_D->get_group_name(me->query("group/id"))+"±£ïÚ");
+	ob->set("title",GROUP_D->get_group_name(me->query("group/id"))+"ä¿é•–");
 	ob->set("group",copy(me->query("group")));
 	ob->set("group/class",5);
 	ids = ob->parse_command_id_list();
@@ -185,7 +185,7 @@ void create_group_npc_finish(object me,string file)
 	if( sizeof(ids) > 2 ) ob->set("id2",ids[2]); else ob->set("id2",ob->query("id"));
 	ob->save();
 
-	tell_object(me,"ÄãÒª¹ÍÓ¶µÄ±£ïÚ"+ob->name()+"×ßÁË¹ýÀ´¡£\n");
+	tell_object(me,"ä½ è¦é›‡ä½£çš„ä¿é•–"+ob->name()+"èµ°äº†è¿‡æ¥ã€‚\n");
 	ob->set_leader(me);
-	tell_object(me,ob->name()+"¾ö¶¨¸úËæ"+me->name()+"Ò»ÆðÐÐ¶¯¡£\n");
+	tell_object(me,ob->name()+"å†³å®šè·Ÿéš"+me->name()+"ä¸€èµ·è¡ŒåŠ¨ã€‚\n");
 }

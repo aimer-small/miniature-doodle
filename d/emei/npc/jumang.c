@@ -5,16 +5,16 @@ inherit NPC;
 
 void create()
 {
-	set_name("¾Þòþ", ({ "ju mang", "mang" }));
-	set("race", "Ò°ÊÞ");
+	set_name("å·¨èŸ’", ({ "ju mang", "mang" }));
+	set("race", "é‡Žå…½");
 	set("age", 200);
-	set("long", "Ò»ÌõÅÓ´óÎÞ±È, É«²Ê°ßìµµÄ¾Þòþ¡£ »ëÉí·¢³öÕóÕóÇ¿ÁÒµÄÐÈ³ôÎ¶¡£\n");
+	set("long", "ä¸€æ¡åºžå¤§æ— æ¯”, è‰²å½©æ–‘æ–“çš„å·¨èŸ’ã€‚ æµ‘èº«å‘å‡ºé˜µé˜µå¼ºçƒˆçš„è…¥è‡­å‘³ã€‚\n");
 	set("attitude", "aggressive");
 	set("str", 70);
 	set("con", 50);
 	set("max_qi", 800);
-	set("no_get","¾Þòþ¶ÔÄã¶øÑÔÌ«ÖØÀ²£¬ÄãÎÞ·¨ÄÃ¶¯");
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Î²°Í" }) );
+	set("no_get","å·¨èŸ’å¯¹ä½ è€Œè¨€å¤ªé‡å•¦ï¼Œä½ æ— æ³•æ‹¿åŠ¨");
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å°¾å·´" }) );
 	set("verbs", ({ "bite" }) );
 	set("combat_exp", 200000);
 	set_temp("apply/attack", 50);
@@ -27,7 +27,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$N³é´¤ÁË¼¸ÏÂ£¬ÉíÌåËõÔÚÒ»Æð£¬ËÀÁË¡£\n", this_object());
+	message_vision("$NæŠ½æäº†å‡ ä¸‹ï¼Œèº«ä½“ç¼©åœ¨ä¸€èµ·ï¼Œæ­»äº†ã€‚\n", this_object());
 	ob = new(__DIR__"msdan");
 	ob->move(environment(this_object()));
 	destruct(this_object());

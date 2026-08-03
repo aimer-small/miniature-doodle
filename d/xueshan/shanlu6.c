@@ -4,12 +4,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ѩ���ŵ�");
+	set("short", "雪积古道");
 	set("long", @LONG
-   ���Կ�����������ɽ��
-   ��ѩ���֣������ڵ��ߡ�
-   �����ӹ�ͷ��������ֽУ������ڶ���
-   ���޶������У����п��ӣ�ɱ���ķ���
+   略显开阔，已入深山。
+   积雪松林，屏蔽在道边。
+   怪鸟掠过头顶，阵阵怪叫，不绝于耳；
+   异兽躲于林中，暗中窥视，杀机四伏。
 LONG
 	);
 
@@ -17,7 +17,7 @@ LONG
 		"eastup" : __DIR__"shanlu7",
 		"northwest" : __DIR__"shanlu5",
 	]));
-        set("outdoors", "ѩɽ");
+        set("outdoors", "雪山");
 	set("coor/x",-280);
   set("coor/y",160);
    set("coor/z",20);

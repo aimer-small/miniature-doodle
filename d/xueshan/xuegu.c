@@ -5,10 +5,10 @@ int do_jump(string arg);
 
 void create()
 {
-	set("short", "Ñ©¹È");
+	set("short", "é›ªè°·");
 	set("long", @LONG
-ÕâÀïÊÇÈºÉ½»·ÈÆÖÐµÄÒ»¸öÉ½¹È£¬ÈË¼£º±ÖÁ¡£ÑöÃæÏòÉÏ¿´£¬ËÄÃæÉ½·å¸ßËÊÈëÔÆ£¬
-¸²¸Ç×Å±ùÑ©¡£ÖÜÎ§Ã£Ã£Ñ©Ô­£¬ÉõÖÁÁ¬Ò°ÊÞµÄ×ã¼£¶¼¿´²»µ½¡£
+è¿™é‡Œæ˜¯ç¾¤å±±çŽ¯ç»•ä¸­çš„ä¸€ä¸ªå±±è°·ï¼Œäººè¿¹ç½•è‡³ã€‚ä»°é¢å‘ä¸Šçœ‹ï¼Œå››é¢å±±å³°é«˜è€¸å…¥äº‘ï¼Œ
+è¦†ç›–ç€å†°é›ªã€‚å‘¨å›´èŒ«èŒ«é›ªåŽŸï¼Œç”šè‡³è¿žé‡Žå…½çš„è¶³è¿¹éƒ½çœ‹ä¸åˆ°ã€‚
 LONG
 	);
 	set("exits", ([
@@ -17,7 +17,7 @@ LONG
 	set("objects", ([
 		__DIR__"npc/laozu" : 1,
 	]));
-	set("outdoors", "Ñ©É½");
+	set("outdoors", "é›ªå±±");
 	setup();
 }
 
@@ -25,7 +25,7 @@ void init()
 {
 	object me = this_player();
 	if ( me->query("xs_job") > 0) {
-		me->add("job_time/Ñ©É½", me->query("xs_job"));
+		me->add("job_time/é›ªå±±", me->query("xs_job"));
 		me->delete("xs_job");
 	}
 	add_action("do_jump", ({"jump", "tiao"}));
@@ -37,22 +37,22 @@ int do_jump(string arg)
     {
 		if(me->query_skill("dodge")<150) 
 		{
-			message_vision(HIC"\n$NÎüÁËÒ»¿ÚÆø£¬³¢ÊÔÌøÏÂÑ©¹È£¬È´Í»È»·¢ÏÖ·ç´óÉ½¸ß£¬È´ÍËÁË»ØÀ´¡£\n"NOR,me);
+			message_vision(HIC"\n$Nå¸äº†ä¸€å£æ°”ï¼Œå°è¯•è·³ä¸‹é›ªè°·ï¼Œå´çªç„¶å‘çŽ°é£Žå¤§å±±é«˜ï¼Œå´é€€äº†å›žæ¥ã€‚\n"NOR,me);
 			return 1;
 		}
 		if (!(room = find_object(__DIR__"xuegu2")))
 			room = load_object(__DIR__"xuegu2");
 		if(!room)
 		{ 
-			tell_object(me,HIR"\nÄãÎÞÂÛÔõÃ´Ìø£¬·¢ÏÖ¶¼»¹ÔÚÔ­µØ!\n");
-			log_file("quest/LCHJ", sprintf("%s(%s)È±ÉÙxuegu2.cÎÄ¼þ¡£\n", me->name(1),me->query("id")) );	
+			tell_object(me,HIR"\nä½ æ— è®ºæ€Žä¹ˆè·³ï¼Œå‘çŽ°éƒ½è¿˜åœ¨åŽŸåœ°!\n");
+			log_file("quest/LCHJ", sprintf("%s(%s)ç¼ºå°‘xuegu2.cæ–‡ä»¶ã€‚\n", me->name(1),me->query("id")) );	
 		}
 		else
 		{
-			message_vision(HIC"\n$NÎüÁËÒ»¿ÚÆø£¬Ó¿ÉíÔ¾Âä£¬Ã»ÈëÉîÑ©£¬Ëæ¼´´ÜÉÏ£¬Ô¾Ïò¹È±ßµÄÑÒÊ¯¡£\n"NOR, me);
+			message_vision(HIC"\n$Nå¸äº†ä¸€å£æ°”ï¼Œæ¶Œèº«è·ƒè½ï¼Œæ²¡å…¥æ·±é›ªï¼Œéšå³çªœä¸Šï¼Œè·ƒå‘è°·è¾¹çš„å²©çŸ³ã€‚\n"NOR, me);
 			me->move(room);
 			me->start_busy(1);
-                        tell_room(environment(me),HIC"\nÖ»¼ûÒ»¸öÉíÓ°·ÉÉí¶øÏÂ£¬Ô­À´ÊÇ"+me->name()+"´ÓÑ©¹ÈÉÏÌøÏÂ¡£\n"NOR, ({me}));                       
+                        tell_room(environment(me),HIC"\nåªè§ä¸€ä¸ªèº«å½±é£žèº«è€Œä¸‹ï¼ŒåŽŸæ¥æ˜¯"+me->name()+"ä»Žé›ªè°·ä¸Šè·³ä¸‹ã€‚\n"NOR, ({me}));                       
 		}
 		return 1;
 	}

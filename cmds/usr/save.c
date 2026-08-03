@@ -8,31 +8,31 @@ int main(object me, string arg)
 
 	seteuid(getuid());
 
-    if (me->query_temp("saved")) return notify_fail("¾­³£´æÅÌÓĞº¦ÏµÍ³Ó²ÅÌ½¡¿µ£¬ÇëÉÔºóÔÙÊÔ¡£\n");
+    if (me->query_temp("saved")) return notify_fail("ç»å¸¸å­˜ç›˜æœ‰å®³ç³»ç»Ÿç¡¬ç›˜å¥åº·ï¼Œè¯·ç¨åå†è¯•ã€‚\n");
     me->set_temp("saved", 1);
     me->start_call_out( (: call_other, me, "delete_temp", "saved" :), 60 + random(60));
 	if( !objectp(link_ob = me->query_temp("link_ob")) )
-		return notify_fail("Äã²»ÊÇ¾­ÓÉÕı³£Á¬Ïß½øÈë£¬²»ÄÜ´¢´æ¡£\n");
+		return notify_fail("ä½ ä¸æ˜¯ç»ç”±æ­£å¸¸è¿çº¿è¿›å…¥ï¼Œä¸èƒ½å‚¨å­˜ã€‚\n");
 
 	if( environment(me)->query("valid_startroom") ) {
 		me->set("startroom", base_name(environment(me)));
-		write("µ±ÄãÏÂ´ÎÁ¬Ïß½øÀ´Ê±£¬»á´ÓÕâÀï¿ªÊ¼¡£\n");
+		write("å½“ä½ ä¸‹æ¬¡è¿çº¿è¿›æ¥æ—¶ï¼Œä¼šä»è¿™é‡Œå¼€å§‹ã€‚\n");
 	}
 
 	if( (int)link_ob->save() && (int)me->save() ) {
-        write("µµ°¸´¢´æÍê±Ï¡£\n");
+        write("æ¡£æ¡ˆå‚¨å­˜å®Œæ¯•ã€‚\n");
 		return 1;
 	}
 
-	return notify_fail("´¢´æÊ§°Ü¡£\n");
+	return notify_fail("å‚¨å­˜å¤±è´¥ã€‚\n");
 }
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºsave
+æŒ‡ä»¤æ ¼å¼ï¼šsave
 
-°ÑÄãĞÁ¿à·Ü¶·µÄ½á¹û´æÆğÀ´¡£
+æŠŠä½ è¾›è‹¦å¥‹æ–—çš„ç»“æœå­˜èµ·æ¥ã€‚
 HELP
 	);
 	return 1;

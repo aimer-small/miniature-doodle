@@ -15,28 +15,28 @@ int valid_leave(object me, string dir)
 		me->move(__DIR__"kongfang");
 		me->delete_temp("mark/lvls");
 		me->delete_temp("mark/lvl");
-		return notify_fail("Äã×ß×Å×ß×Å£¬ÄªÃûÆäÃîµÄ×ß½øÁËÒ»¸ö¿Õ·¿¼ä¡£\n");
+		return notify_fail("ä½ èµ°ç€èµ°ç€ï¼Œè«åå…¶å¦™çš„èµ°è¿›äº†ä¸€ä¸ªç©ºæˆ¿é—´ã€‚\n");
 	}
 	if (me->query_temp("mark/lvls") == -6
 	 && me->query_temp("mark/lvl") == 5) {
  		me->move(__DIR__"zhengtang");
 		me->delete_temp("mark/lvls");
 		me->delete_temp("mark/lvl");
-		return notify_fail("ÄãÕı×ß×Å£¬Í»È»·¢ÏÖÇ°ÃæÓĞÒ»µãµãµÆ¹â, Äã½è×ÅµÆ¹â×ßÁË¹ıÈ¥¡£\n");
+		return notify_fail("ä½ æ­£èµ°ç€ï¼Œçªç„¶å‘ç°å‰é¢æœ‰ä¸€ç‚¹ç‚¹ç¯å…‰, ä½ å€Ÿç€ç¯å…‰èµ°äº†è¿‡å»ã€‚\n");
 	}
 	if (me->query_temp("mark/lvls") > 20 
 	|| me->query_temp("mark/lvls") < -20) {  
 		me->move(__DIR__"didao2");
 		me->delete_temp("mark/lvls");
 		me->delete_temp("mark/lvl");
-		return notify_fail("Äã°×·ÑÁË°ëÌì¾¢, ÓÖ×ß»ØÁËÔ­µØ¡£\n");
+		return notify_fail("ä½ ç™½è´¹äº†åŠå¤©åŠ², åˆèµ°å›äº†åŸåœ°ã€‚\n");
 	}
 	if (me->query_temp("mark/lvl") > 20
 	 || me->query_temp("mark/lvl") < -20) {  
 		me->move(__DIR__"didao2");
 		me->delete_temp("mark/lvls");
 		me->delete_temp("mark/lvl");
-		return notify_fail("Äã°×·ÑÁË°ëÌì¾¢, ÓÖ×ß»ØÁËÔ­µØ¡£\n");
+		return notify_fail("ä½ ç™½è´¹äº†åŠå¤©åŠ², åˆèµ°å›äº†åŸåœ°ã€‚\n");
 	}
 	return ::valid_leave(me, dir);
 }

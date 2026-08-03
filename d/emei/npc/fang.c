@@ -5,11 +5,11 @@ int ask_help();
 
 void create()
 {
-        set_name("·½ÆÀ", ({ "fang ping", "fang",}));
+        set_name("æ–¹è¯„", ({ "fang ping", "fang",}));
         set("long",
-                "Ëû¾ÍÊÇºÓÄÏ¿ª·â½ð¹Ï´¸·½ÆÀ·½ÀÏÓ¢ÐÛ£¬Ò»ÉñÇàÉ«²¼ÒÂ£¬ÏÔµÄÏÉ·ç°Á¹Ç¡£Æ½Ê±ÖÖÌï¶ÁÊé£¬´Ó²»ºÍÈË½»Íù¡£\n"
+                "ä»–å°±æ˜¯æ²³å—å¼€å°é‡‘ç“œé”¤æ–¹è¯„æ–¹è€è‹±é›„ï¼Œä¸€ç¥žé’è‰²å¸ƒè¡£ï¼Œæ˜¾çš„ä»™é£Žå‚²éª¨ã€‚å¹³æ—¶ç§ç”°è¯»ä¹¦ï¼Œä»Žä¸å’Œäººäº¤å¾€ã€‚\n"
         );
-        set("gender", "ÄÐÐÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("age", 57);
         set("shen_type", 100000);
@@ -48,11 +48,11 @@ void create()
         map_skill("dodge", "anying-fuxiang");
         prepare_skill("cuff", "taizu-quan");
         set("inquiry",([
-          "°ïÃ¦" : (: ask_help :),
-          "ÖúÕó" : (: ask_help :),
+          "å¸®å¿™" : (: ask_help :),
+          "åŠ©é˜µ" : (: ask_help :),
           "help" : (: ask_help :),
         ]) );
-        create_family("¶ëáÒÅÉ", 3, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 3, "å¼Ÿå­");
 
         setup();
         carry_object("/clone/armor/cloth")->wear();
@@ -69,8 +69,8 @@ int ask_help()
     if( ob->query("pl") != me ) return 0;
     if( !me->query_temp("em_job1/killed") ) {
         command("l "+me->query("id"));
-        command("say ÎÒÔõÃ´²ÅÄÜÏàÐÅÄã£¿\n");
-        command("say ÄÇ±ßÀ´ÁËÁ½¸öÔª±ø£¬Äã°ÑËûÃÇÉ±ÁË£¬ÎÒ¾ÍÕÒÈË°ïÄã¡£\n");
+        command("say æˆ‘æ€Žä¹ˆæ‰èƒ½ç›¸ä¿¡ä½ ï¼Ÿ\n");
+        command("say é‚£è¾¹æ¥äº†ä¸¤ä¸ªå…ƒå…µï¼Œä½ æŠŠä»–ä»¬æ€äº†ï¼Œæˆ‘å°±æ‰¾äººå¸®ä½ ã€‚\n");
         bing1 = new("/d/emei/npc/yuanbing");
         bing1->move(here);
         bing1->setskill(me, bing1);
@@ -89,7 +89,7 @@ int ask_help()
         me->set_temp("em_job1/bing5", me); 
     }
     else if( me->query_temp("em_job1/killed") < 2 ) {
-        command("say ÕâÁ½¸ö¼Ò»ïÄã»¹Ã»¸ÉµôÄØ¡£\n");
+        command("say è¿™ä¸¤ä¸ªå®¶ä¼™ä½ è¿˜æ²¡å¹²æŽ‰å‘¢ã€‚\n");
     }
     else {
         me->delete_temp("eme_job1/killed");
@@ -99,7 +99,7 @@ int ask_help()
         me->delete_temp("eme_job1/bing3");
         me->delete_temp("eme_job1/bing4");
         me->delete_temp("eme_job1/bing5");
-        command("say ºÃ°É£¬ÄãÏÈ»Øµ½Ãð¾øÊ¦Ì«ÄÇÀïµÈÎÒ£¬ÎÒÕâ¾ÍÕÙ¼¯ÈËÂí°ïÄãÖúÕó¡£\n");
+        command("say å¥½å§ï¼Œä½ å…ˆå›žåˆ°ç­ç»å¸ˆå¤ªé‚£é‡Œç­‰æˆ‘ï¼Œæˆ‘è¿™å°±å¬é›†äººé©¬å¸®ä½ åŠ©é˜µã€‚\n");
         move("/d/emei/houdian");
         ob->apply_condition("em_job1", 3);
         set("job_ok", 1);
@@ -120,8 +120,8 @@ void dest()
        here = find_object("/d/emei/houdian");
        here->delete("fighting");
        here = find_object("fang ping");
-       tell_room(here, me->query("name")+"µÀ£ºµÐÈËÒÑ¾­³·ÁË£¬ºó»áÓÐÆÚ£¡\n");  
-       tell_room(here, me->query("name")+"×ªÉíÀë¿ª¡£\n");  
+       tell_room(here, me->query("name")+"é“ï¼šæ•Œäººå·²ç»æ’¤äº†ï¼ŒåŽä¼šæœ‰æœŸï¼\n");  
+       tell_room(here, me->query("name")+"è½¬èº«ç¦»å¼€ã€‚\n");  
        destruct(me);
 }
 

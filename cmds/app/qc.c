@@ -1,20 +1,20 @@
 // qc.c
-// qc.c QCÉêÇë³ÌĞò
+// qc.c QCç”³è¯·ç¨‹åº
 // Create by Looklove 2000.3.6
 // Modified by Numa 2001.3.14
 // Modified by snowman@SJ 17/03/2001
-// Last Modified by Numa@SJ 2001.7.30 Ôö¼ÓÁË²ÎÊıÅĞ¶Ï
+// Last Modified by Numa@SJ 2001.7.30 å¢åŠ äº†å‚æ•°åˆ¤æ–­
 
 #include <ansi.h>
 
 #define QC_FILE  "/data/qc"
 #define TEST_DIR "/root/test"
 #define SJ_DIR   "/root/shujian"
-#define TOP_LINE "©°©¤©¤©Ğ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ğ©¤©¤©¤©¤©Ğ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ğ©¤©¤©Ğ©¤©¤©¤©¤©¤©´\n"\
-                 "©¦"HIR"±àºÅ"HIC"©¦"HIY"                µµ         °¸             "HIC"©¦"HIY"Ìá Çë ÈË"HIC"©¦"HIY"         Ëµ    Ã÷       "HIC"©¦"HIY"×´Ì¬"HIC"©¦"HIY"  Ê±  ¼ä  "HIC"©¦\n"\
-                 "©À©¤©¤©à©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©à©¤©¤©¤©¤©à©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©à©¤©¤©à©¤©¤©¤©¤©¤©È\n"
+#define TOP_LINE "â”Œâ”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”¬â”€â”€â”€â”€â”€â”\n"\
+                 "â”‚"HIR"ç¼–å·"HIC"â”‚"HIY"                æ¡£         æ¡ˆ             "HIC"â”‚"HIY"æ è¯· äºº"HIC"â”‚"HIY"         è¯´    æ˜       "HIC"â”‚"HIY"çŠ¶æ€"HIC"â”‚"HIY"  æ—¶  é—´  "HIC"â”‚\n"\
+                 "â”œâ”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”¼â”€â”€â”€â”€â”€â”¤\n"
         
-#define END_LINE "©¸©¤©¤©Ø©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©Ø©¤©¤©¤©¤©¤©¼\n"NOR
+#define END_LINE "â””â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”´â”€â”€â”€â”€â”€â”˜\n"NOR
 
 inherit F_CLEAN_UP;
 inherit F_SAVE;
@@ -23,7 +23,7 @@ mapping *notes;
 nosave string *qcer = ({"numa", "cocktail", "olives", "snowman"});
 nosave string qc_listing = "";
 nosave int modify = 0;
-// É¾³ı²µ»ØµÄqcÉêÇë±£ÁôÌìÊı
+// åˆ é™¤é©³å›çš„qcç”³è¯·ä¿ç•™å¤©æ•°
 nosave int day = 15;
 
 int help(object me);
@@ -45,24 +45,24 @@ string write_list(int i)
         
         if (notes[i]["overrule"]!="") {
                 if (strlen(notes[i]["overrule"]) > 20) {
-                        output += sprintf("©¦"NOR"%|4d"HIC"©¦"NOR"%-42s"HIC"©¦"HIG"%-8s"HIC"©¦"HIR"¡Á"HIY"¡ú"NOR"%-20s"HIC"©¦"NOR"%-4s"HIC"©¦"WHT"%-10s"HIC"©¦\n",
-                                i+1, notes[i]["filename"], notes[i]["poorman"], notes[i]["overrule"][0..19], (notes[i]["state"] == "²µ»Ø")?(HIR+notes[i]["state"]):(notes[i]["state"]), ctime(notes[i]["time"])[0..9]);
-                        output += sprintf("©¦"NOR"%|4s"HIC"©¦"NOR"%-42s"HIC"©¦"HIG"%-8s"HIC"©¦"NOR"%-24s"HIC"©¦"NOR"%-4s"HIC"©¦"WHT"%-10s"HIC"©¦\n",
+                        output += sprintf("â”‚"NOR"%|4d"HIC"â”‚"NOR"%-42s"HIC"â”‚"HIG"%-8s"HIC"â”‚"HIR"Ã—"HIY"â†’"NOR"%-20s"HIC"â”‚"NOR"%-4s"HIC"â”‚"WHT"%-10s"HIC"â”‚\n",
+                                i+1, notes[i]["filename"], notes[i]["poorman"], notes[i]["overrule"][0..19], (notes[i]["state"] == "é©³å›")?(HIR+notes[i]["state"]):(notes[i]["state"]), ctime(notes[i]["time"])[0..9]);
+                        output += sprintf("â”‚"NOR"%|4s"HIC"â”‚"NOR"%-42s"HIC"â”‚"HIG"%-8s"HIC"â”‚"NOR"%-24s"HIC"â”‚"NOR"%-4s"HIC"â”‚"WHT"%-10s"HIC"â”‚\n",
                                 "","","",notes[i]["overrule"][20..43],"","");
                 }
                 else
-                        output += sprintf("©¦"NOR"%|4d"HIC"©¦"NOR"%-42s"HIC"©¦"HIG"%-8s"HIC"©¦"HIR"¡Á"HIY"¡ú"NOR"%-20s"HIC"©¦"NOR"%-4s"HIC"©¦"WHT"%-10s"HIC"©¦\n",
-                                        i+1, notes[i]["filename"], notes[i]["poorman"], notes[i]["overrule"], (notes[i]["state"] == "²µ»Ø")?(HIR+notes[i]["state"]):(notes[i]["state"]), ctime(notes[i]["time"])[0..9]);
+                        output += sprintf("â”‚"NOR"%|4d"HIC"â”‚"NOR"%-42s"HIC"â”‚"HIG"%-8s"HIC"â”‚"HIR"Ã—"HIY"â†’"NOR"%-20s"HIC"â”‚"NOR"%-4s"HIC"â”‚"WHT"%-10s"HIC"â”‚\n",
+                                        i+1, notes[i]["filename"], notes[i]["poorman"], notes[i]["overrule"], (notes[i]["state"] == "é©³å›")?(HIR+notes[i]["state"]):(notes[i]["state"]), ctime(notes[i]["time"])[0..9]);
         }
         else {
                 if (strlen(notes[i]["reason"]) > 24) {
-                        output += sprintf("©¦"NOR"%|4d"HIC"©¦"NOR"%-42s"HIC"©¦"HIG"%-8s"HIC"©¦"NOR"%-24s"HIC"©¦"NOR"%-4s"HIC"©¦"WHT"%-10s"HIC"©¦\n",
+                        output += sprintf("â”‚"NOR"%|4d"HIC"â”‚"NOR"%-42s"HIC"â”‚"HIG"%-8s"HIC"â”‚"NOR"%-24s"HIC"â”‚"NOR"%-4s"HIC"â”‚"WHT"%-10s"HIC"â”‚\n",
                                 i+1,notes[i]["filename"],notes[i]["poorman"],notes[i]["reason"][0..23],notes[i]["state"],ctime(notes[i]["time"])[0..9]);
-                        output += sprintf("©¦"NOR"%|4s"HIC"©¦"NOR"%-42s"HIC"©¦"HIG"%-8s"HIC"©¦"NOR"%-24s"HIC"©¦"NOR"%-4s"HIC"©¦"WHT"%-10s"HIC"©¦\n",
+                        output += sprintf("â”‚"NOR"%|4s"HIC"â”‚"NOR"%-42s"HIC"â”‚"HIG"%-8s"HIC"â”‚"NOR"%-24s"HIC"â”‚"NOR"%-4s"HIC"â”‚"WHT"%-10s"HIC"â”‚\n",
                                 "","","",notes[i]["reason"][24..47],"","");
                 }
                 else
-                        output += sprintf("©¦"NOR"%|4d"HIC"©¦"NOR"%-42s"HIC"©¦"HIG"%-8s"HIC"©¦"NOR"%-24s"HIC"©¦"NOR"%-4s"HIC"©¦"WHT"%-10s"HIC"©¦\n",
+                        output += sprintf("â”‚"NOR"%|4d"HIC"â”‚"NOR"%-42s"HIC"â”‚"HIG"%-8s"HIC"â”‚"NOR"%-24s"HIC"â”‚"NOR"%-4s"HIC"â”‚"WHT"%-10s"HIC"â”‚\n",
                                 i+1,notes[i]["filename"],notes[i]["poorman"],notes[i]["reason"],notes[i]["state"],ctime(notes[i]["time"])[0..9]);
         }
         return output;
@@ -73,17 +73,17 @@ int qcdetail(int i)
         int n;
         string msg, tmp;
 
-        if( !(n = sizeof(notes)) ) return notify_fail("Ã»ÈË·¢³ö QC ÉêÇë¡£\n");
-        if( i < 1 || i > n ) return notify_fail("Ã»ÓĞ´Ë±àºÅ¡£\n");
-        msg = sprintf("QCÁĞ±í±àºÅ %d ÏêÏ¸ĞÅÏ¢ÈçÏÂ£º\n", i);
+        if( !(n = sizeof(notes)) ) return notify_fail("æ²¡äººå‘å‡º QC ç”³è¯·ã€‚\n");
+        if( i < 1 || i > n ) return notify_fail("æ²¡æœ‰æ­¤ç¼–å·ã€‚\n");
+        msg = sprintf("QCåˆ—è¡¨ç¼–å· %d è¯¦ç»†ä¿¡æ¯å¦‚ä¸‹ï¼š\n", i);
         i -= 1;
-        msg += sprintf("%16s : %s\n", "ÉêÇëÈË", notes[i]["poorman"]);
-        msg += sprintf("%16s : %s\n", "ÎÄ¼şÃû³Æ", notes[i]["filename"]);
-        msg += sprintf("%16s : %s\n", "ÉêÇëÀíÓÉ", notes[i]["reason"]);
-        msg += sprintf("%16s : %s\n", "²µ»ØÔ­Òò", notes[i]["overrule"]);
+        msg += sprintf("%16s : %s\n", "ç”³è¯·äºº", notes[i]["poorman"]);
+        msg += sprintf("%16s : %s\n", "æ–‡ä»¶åç§°", notes[i]["filename"]);
+        msg += sprintf("%16s : %s\n", "ç”³è¯·ç†ç”±", notes[i]["reason"]);
+        msg += sprintf("%16s : %s\n", "é©³å›åŸå› ", notes[i]["overrule"]);
         tmp = notes[i]["state"];
-        msg += sprintf("%16s : %s, µÈ´ı %s QC\n", "Ä¿Ç°×´Ì¬", tmp, capitalize(qcer[atoi(tmp)]));
-        msg += sprintf("%16s : %s\n", "ÉêÇëÊ±¼ä", ctime(notes[i]["time"])[0..9]);
+        msg += sprintf("%16s : %s, ç­‰å¾… %s QC\n", "ç›®å‰çŠ¶æ€", tmp, capitalize(qcer[atoi(tmp)]));
+        msg += sprintf("%16s : %s\n", "ç”³è¯·æ—¶é—´", ctime(notes[i]["time"])[0..9]);
         write(msg);
         return 1;
 }
@@ -120,10 +120,10 @@ int list_qc(object me)
         
         i = sizeof(notes);
         if ( i < 1 )
-                return notify_fail("Ã»ÈË·¢³ö QC ÒªÇó¡£\n");
+                return notify_fail("æ²¡äººå‘å‡º QC è¦æ±‚ã€‚\n");
         
         if( modify == 0 ){
-                str = HIG" ÒÑ¾­Ìá³öµÄ QC ÉêÇëÁĞ±íÈçÏÂ:\n"HIC;
+                str = HIG" å·²ç»æå‡ºçš„ QC ç”³è¯·åˆ—è¡¨å¦‚ä¸‹:\n"HIC;
                 str += TOP_LINE;
                 for (i = 0; i < sizeof(notes); i++) {
                         str += write_list(i);
@@ -143,9 +143,9 @@ int find_id(object me, string id)
 
         i = sizeof(notes);
         if ( i<1 )
-                return notify_fail("Ã»ÈË·¢³ö QC ÒªÇó¡£\n");
+                return notify_fail("æ²¡äººå‘å‡º QC è¦æ±‚ã€‚\n");
 
-        write(sprintf(HIG"²éÕÒµ½µÄ"HIY" %s "HIG"Ìá³öµÄ QC ÉêÇëÁĞ±íÈçÏÂ:\n"HIC,id));
+        write(sprintf(HIG"æŸ¥æ‰¾åˆ°çš„"HIY" %s "HIG"æå‡ºçš„ QC ç”³è¯·åˆ—è¡¨å¦‚ä¸‹:\n"HIC,id));
         write(TOP_LINE);
         for (i = 0; i < sizeof(notes); i++)
                 if ((notes[i]["poorman"])==id)
@@ -164,7 +164,7 @@ void check_qc_list(object me)
                 return;
         t = is_qcer(me);
         if (t>0) sta = sprintf("%d",t);
-        str = HIG"½ñÌìĞèÒªÄã QC ÉêÇëÁĞ±íÈçÏÂ£º\n"HIC;
+        str = HIG"ä»Šå¤©éœ€è¦ä½  QC ç”³è¯·åˆ—è¡¨å¦‚ä¸‹ï¼š\n"HIC;
         str += TOP_LINE;
         for (i = 0; i < sizeof(notes); i++){
                 if ((notes[i]["state"]) == sta ){
@@ -186,13 +186,13 @@ int cp_mirror(int n)
         if (src[<1] == '/') {
                 file = get_dir(src, 0);
                 i = sizeof(file);
-                if (!i) return notify_fail("Ã»ÓĞ "+src+" Õâ¸öÄ¿Â¼£¬ÎŞ·¨¸´ÖÆ.\n");
+                if (!i) return notify_fail("æ²¡æœ‰ "+src+" è¿™ä¸ªç›®å½•ï¼Œæ— æ³•å¤åˆ¶.\n");
                 // log mirror
                 for (; j<=i; j++)
                         log_file("mirror", sprintf("cp %s%s %s%s\n", TEST_DIR, src+file[j-1], SJ_DIR, src+file[j-1]) );
         }
         else log_file("mirror", sprintf("cp %s%s %s%s\n", TEST_DIR, src, SJ_DIR, src) );
-        write("\n"+ src +" "+ j +" ¸öÎÄ¼ş QC ³É¹¦¡£\n");
+        write("\n"+ src +" "+ j +" ä¸ªæ–‡ä»¶ QC æˆåŠŸã€‚\n");
         return 1;
 }
 
@@ -225,8 +225,8 @@ int ana_antistate(int step, int i)
         modify = 0;
         if ( notes[i-1]["state"] == "4" )
                 if (!cp_mirror(i-1))
-                        return notify_fail("¸´ÖÆÎÄ¼ş³ö´í£¬Çë¼ì²é¡£\n");
-        write("´Ë QC ÇëÇó°´Á÷³Ì£¬Äã¸ºÔğµÄ²¿·ÖÒÑ¾­±ê¼ÇÎª QC Íê±Ï¡£\n");
+                        return notify_fail("å¤åˆ¶æ–‡ä»¶å‡ºé”™ï¼Œè¯·æ£€æŸ¥ã€‚\n");
+        write("æ­¤ QC è¯·æ±‚æŒ‰æµç¨‹ï¼Œä½ è´Ÿè´£çš„éƒ¨åˆ†å·²ç»æ ‡è®°ä¸º QC å®Œæ¯•ã€‚\n");
         save();
         return 1;
 }
@@ -237,27 +237,27 @@ int do_state(object me, int i)
 
         id = geteuid(me);
         if( i > sizeof(notes) || i < 1)
-                return notify_fail("Ã»ÓĞÕâ¸ö±àºÅ!\n");
+                return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·!\n");
 
-        if (notes[i-1]["state"]== "²µ»Ø") {
+        if (notes[i-1]["state"]== "é©³å›") {
                 reason = explode(notes[i-1]["overrule"],">");
                 if (reason[0] != capitalize(id))
-                        return notify_fail(notes[i-1]["filename"]+"ÒÑ¾­±» "HIG+ reason[0] +NOR" ²µ»ØÁË¡£\n");
+                        return notify_fail(notes[i-1]["filename"]+"å·²ç»è¢« "HIG+ reason[0] +NOR" é©³å›äº†ã€‚\n");
                 else
                         return ana_antistate(is_qcer(me), i);
         }
 
         if ( notes[i-1]["state"]== "4" )
-                return notify_fail(notes[i-1]["state"]+"ÒÑ¾­ QC Íê±ÏÀ²!\n");
+                return notify_fail(notes[i-1]["state"]+"å·²ç» QC å®Œæ¯•å•¦!\n");
 
         if (ana_state(id, i) == 0)
-                return notify_fail("´Ë QC ÇëÇó°´Á÷³ÌÒÑ¾­½øĞĞµ½ µÚ "HIG+ notes[i-1]["state"] +NOR" ²½£¬Çë"HIY+capitalize(qcer[atoi(notes[i-1]["state"])])+NOR" ½øĞĞQC¡£\n");
+                return notify_fail("æ­¤ QC è¯·æ±‚æŒ‰æµç¨‹å·²ç»è¿›è¡Œåˆ° ç¬¬ "HIG+ notes[i-1]["state"] +NOR" æ­¥ï¼Œè¯·"HIY+capitalize(qcer[atoi(notes[i-1]["state"])])+NOR" è¿›è¡ŒQCã€‚\n");
         modify = 0;
         if ( notes[i-1]["state"]== "4" )
                 if (!cp_mirror(i-1))
-                        return notify_fail("¸´ÖÆÎÄ¼ş³ö´í£¬Çë¼ì²é¡£\n");
+                        return notify_fail("å¤åˆ¶æ–‡ä»¶å‡ºé”™ï¼Œè¯·æ£€æŸ¥ã€‚\n");
         save();
-        write("´Ë QC ÇëÇó°´Á÷³Ì£¬Äã¸ºÔğµÄ²¿·ÖÒÑ¾­±ê¼ÇÎª QC Íê±Ï¡£\n");
+        write("æ­¤ QC è¯·æ±‚æŒ‰æµç¨‹ï¼Œä½ è´Ÿè´£çš„éƒ¨åˆ†å·²ç»æ ‡è®°ä¸º QC å®Œæ¯•ã€‚\n");
         return 1;
 }
 
@@ -266,7 +266,7 @@ int isdest(int i)
         int t = time() - 86400 * day;
 
         if (notes[i]["state"] == "4") return 1;
-        if (notes[i]["state"] == "²µ»Ø"
+        if (notes[i]["state"] == "é©³å›"
          && t > notes[i]["time"])
                 return 1;
         return 0;
@@ -290,7 +290,7 @@ void do_dest_note(int n)
         while (i--) {
                 if (isdest(i)) {
                         modify = 0;
-                        write(notes[i]["poorman"]+"µÄ QC ÉêÇëÒÑ±»É¾³ı£¡\n");
+                        write(notes[i]["poorman"]+"çš„ QC ç”³è¯·å·²è¢«åˆ é™¤ï¼\n");
                         if (sizeof(notes) == 1) notes = ({});
                         else if (i==0) notes = notes[1..<1];
                         else if (i == sizeof(notes)-1) notes = notes[0..<2];
@@ -305,7 +305,7 @@ int print_qcer()
         int i, n;
         
         n = sizeof(qcer);
-        write(sprintf("ÏÖÔÚµÄ QC Ğ¡×éÈçÏÂ¹²ÓĞ %d Ãû³ÉÔ±£º\n",n));
+        write(sprintf("ç°åœ¨çš„ QC å°ç»„å¦‚ä¸‹å…±æœ‰ %d åæˆå‘˜ï¼š\n",n));
         for (i=0;i<n;i++)
                 write(sprintf("    %-2d  %-10s ", i, qcer[i]));
         write("\n");
@@ -342,9 +342,9 @@ int main(object me, string arg)
                         }
                 }
                 if (!opt_reject && sscanf(arg, "%d", arg2) == 1 ) {
-                        if (is_qcer(me)<0) return notify_fail(" ¶Ô²»Æğ£¬Äã²»ÊÇ QC Ğ¡×é³ÉÔ±¡£\n");
-                        if ( arg2<1 || arg2 > sizeof(notes) ) return notify_fail("Ã»ÓĞ´Ë±àºÅ¡£ \n");
-                        if( !(i = sizeof(notes)) ) return notify_fail("Ã»ÈË·¢³ö QC ÉêÇë¡£\n");
+                        if (is_qcer(me)<0) return notify_fail(" å¯¹ä¸èµ·ï¼Œä½ ä¸æ˜¯ QC å°ç»„æˆå‘˜ã€‚\n");
+                        if ( arg2<1 || arg2 > sizeof(notes) ) return notify_fail("æ²¡æœ‰æ­¤ç¼–å·ã€‚ \n");
+                        if( !(i = sizeof(notes)) ) return notify_fail("æ²¡äººå‘å‡º QC ç”³è¯·ã€‚\n");
                         return do_state( me, arg2 );
                 }
 
@@ -356,19 +356,19 @@ int main(object me, string arg)
 
         if (opt_post) {
         if (sscanf(arg, "%s -b %s", filename, reason) == 2) {
-                tell_object(me, HIY "ÄãÍê³ÉÁËÒ»¶Î" HIY MUD_NAME HIY "CODE£¬ÉìÁË¸öÀÁÑü¡£¿ªÊ¼Ïò QC Ğ¡×éÉêÇë·¢³öÉêÇë¡­¡­\n" NOR);
+                tell_object(me, HIY "ä½ å®Œæˆäº†ä¸€æ®µ" HIY MUD_NAME HIY "CODEï¼Œä¼¸äº†ä¸ªæ‡’è…°ã€‚å¼€å§‹å‘ QC å°ç»„ç”³è¯·å‘å‡ºç”³è¯·â€¦â€¦\n" NOR);
 
                 dir = resolve_path(me->query("cwd"), filename);
                 if( file_size(dir)==-2 && dir[<1] != '/' ) dir += "/";
                 file = get_dir(dir, -1);
 
                 if( !sizeof(file) ) {
-                        if (file_size(dir) == -2) return notify_fail("ÇëÖØĞÂ¼ì²éÎÄ¼şÂ·¾¶¡£\n");
-                        else return notify_fail("Ã»ÓĞÕâ¸öÄ¿Â¼»òÕßÎÄ¼ş£¬ÇëÖØĞÂ¼ì²é¡£\n");
+                        if (file_size(dir) == -2) return notify_fail("è¯·é‡æ–°æ£€æŸ¥æ–‡ä»¶è·¯å¾„ã€‚\n");
+                        else return notify_fail("æ²¡æœ‰è¿™ä¸ªç›®å½•æˆ–è€…æ–‡ä»¶ï¼Œè¯·é‡æ–°æ£€æŸ¥ã€‚\n");
                 }
 
-                if (strlen(reason) > 48) return notify_fail("ÎÄ¼şËµÃ÷Ì«³¤£¬Çë¾¡Á¿ÓïÑÔ¾«Á·¡£\n");
-                if (strlen(reason) < 6) return notify_fail("ÎÄ¼şËµÃ÷Ì«¶Ì£¬Çë²»Òª¹ı·Ö¾«Á·¡£\n");
+                if (strlen(reason) > 48) return notify_fail("æ–‡ä»¶è¯´æ˜å¤ªé•¿ï¼Œè¯·å°½é‡è¯­è¨€ç²¾ç»ƒã€‚\n");
+                if (strlen(reason) < 6) return notify_fail("æ–‡ä»¶è¯´æ˜å¤ªçŸ­ï¼Œè¯·ä¸è¦è¿‡åˆ†ç²¾ç»ƒã€‚\n");
                 
                 note = allocate_mapping(6);
                 note["poorman"] = capitalize(geteuid(me));
@@ -384,8 +384,8 @@ int main(object me, string arg)
                 
                 save();
                 modify = 0;
-                tell_object(me, HIC "ÉêÇëÍê±Ï¡£ÄãµÄĞÅÏ¢ÒÑ¾­±»¼Óµ½Í¨Öª¶ÓÁĞÀï¡£\n");
-                message("channel:wiz", HIY "¡¾QCÉêÇë¡¿£ºÎ×Ê¦ "HIG+note["poorman"]+HIY" ÉêÇëQCĞ¡×é¶ÔÒÑÍê³É CODE ½øĞĞ QC £¬ÇëÔÚÏßÎ×Ê¦Ê¹ÓÃ qc ÃüÁî²é¿´¡£\n" NOR,users());
+                tell_object(me, HIC "ç”³è¯·å®Œæ¯•ã€‚ä½ çš„ä¿¡æ¯å·²ç»è¢«åŠ åˆ°é€šçŸ¥é˜Ÿåˆ—é‡Œã€‚\n");
+                message("channel:wiz", HIY "ã€QCç”³è¯·ã€‘ï¼šå·«å¸ˆ "HIG+note["poorman"]+HIY" ç”³è¯·QCå°ç»„å¯¹å·²å®Œæˆ CODE è¿›è¡Œ QC ï¼Œè¯·åœ¨çº¿å·«å¸ˆä½¿ç”¨ qc å‘½ä»¤æŸ¥çœ‹ã€‚\n" NOR,users());
                 return 1;
         }
                 return help(me);
@@ -400,25 +400,25 @@ int main(object me, string arg)
 
         if (opt_correct) {
         if (sscanf(arg, "-c %d %s %s", arg2, filename, reason) == 3) {
-                if( !(i = sizeof(notes)) ) return notify_fail("Ã»ÈË·¢³ö QC ÉêÇë¡£\n");
-                if( arg2 < 1 || arg2 > i ) return notify_fail("Ã»ÓĞ´Ë±àºÅ¡£ \n");
+                if( !(i = sizeof(notes)) ) return notify_fail("æ²¡äººå‘å‡º QC ç”³è¯·ã€‚\n");
+                if( arg2 < 1 || arg2 > i ) return notify_fail("æ²¡æœ‰æ­¤ç¼–å·ã€‚ \n");
                 note = notes[arg2-1];
                 if (note["poorman"] != capitalize(geteuid(me)))
-                        return notify_fail("¶Ô²»Æğ£¬Õâ²»ÊÇÄúµÄ QC ÉêÇë¡£\n");
+                        return notify_fail("å¯¹ä¸èµ·ï¼Œè¿™ä¸æ˜¯æ‚¨çš„ QC ç”³è¯·ã€‚\n");
                 if (note["state"] != "")
-                        return notify_fail("¶Ô²»Æğ£¬ÄúµÄ QC ÉêÇëÒÑ¾­ÕıÔÚ QC µ±ÖĞ£¬ÎŞ·¨¸ü¸Ä¡£\n");
+                        return notify_fail("å¯¹ä¸èµ·ï¼Œæ‚¨çš„ QC ç”³è¯·å·²ç»æ­£åœ¨ QC å½“ä¸­ï¼Œæ— æ³•æ›´æ”¹ã€‚\n");
 
                 dir = resolve_path(me->query("cwd"), filename);
                 if( file_size(dir)==-2 && dir[<1] != '/' ) dir += "/";
                 file = get_dir(dir, -1);
 
                 if( !sizeof(file) ) {
-                        if (file_size(dir) == -2) return notify_fail("ÇëÖØĞÂ¼ì²éÎÄ¼şÂ·¾¶¡£\n");
-                        else return notify_fail("Ã»ÓĞÕâ¸öÄ¿Â¼»òÕßÎÄ¼ş£¬ÇëÖØĞÂ¼ì²é¡£\n");
+                        if (file_size(dir) == -2) return notify_fail("è¯·é‡æ–°æ£€æŸ¥æ–‡ä»¶è·¯å¾„ã€‚\n");
+                        else return notify_fail("æ²¡æœ‰è¿™ä¸ªç›®å½•æˆ–è€…æ–‡ä»¶ï¼Œè¯·é‡æ–°æ£€æŸ¥ã€‚\n");
                 }
 
-                if (strlen(reason) > 48) return notify_fail("ÎÄ¼şËµÃ÷Ì«³¤£¬Çë¾¡Á¿ÓïÑÔ¾«Á·¡£\n");
-                if (strlen(reason) < 6) return notify_fail("ÎÄ¼şËµÃ÷Ì«¶Ì£¬Çë²»Òª¹ı·Ö¾«Á·¡£\n");
+                if (strlen(reason) > 48) return notify_fail("æ–‡ä»¶è¯´æ˜å¤ªé•¿ï¼Œè¯·å°½é‡è¯­è¨€ç²¾ç»ƒã€‚\n");
+                if (strlen(reason) < 6) return notify_fail("æ–‡ä»¶è¯´æ˜å¤ªçŸ­ï¼Œè¯·ä¸è¦è¿‡åˆ†ç²¾ç»ƒã€‚\n");
 
                 note["filename"] = filename;
                 note["reason"] = reason;
@@ -426,56 +426,56 @@ int main(object me, string arg)
                 notes[arg2-1] = note;
                 save();
                 modify = 0;
-                write(HIG "ÄúµÄ QC ÇëÇóĞŞ¸ÄÍê±Ï¡£\n");
+                write(HIG "æ‚¨çš„ QC è¯·æ±‚ä¿®æ”¹å®Œæ¯•ã€‚\n");
                 return 1;
         }
                 return help(me);
         }
         if (opt_delete) {
         if (sscanf(arg, "-d %d", arg2) == 1) {
-                if( !(i = sizeof(notes)) ) return notify_fail("Ã»ÈË·¢³ö QC ÉêÇë¡£\n");
-                if( arg2 < 1 || arg2 > i ) return notify_fail("Ã»ÓĞ´Ë±àºÅ¡£ \n");
+                if( !(i = sizeof(notes)) ) return notify_fail("æ²¡äººå‘å‡º QC ç”³è¯·ã€‚\n");
+                if( arg2 < 1 || arg2 > i ) return notify_fail("æ²¡æœ‰æ­¤ç¼–å·ã€‚ \n");
                 if (notes[arg2-1]["poorman"] != capitalize(geteuid(me)))
-                        return notify_fail("¶Ô²»Æğ£¬Õâ²»ÊÇÄúµÄ QC ÉêÇë¡£\n");
+                        return notify_fail("å¯¹ä¸èµ·ï¼Œè¿™ä¸æ˜¯æ‚¨çš„ QC ç”³è¯·ã€‚\n");
 /*
                 if (notes[arg2-1]["state"] != ""
-                 && notes[arg2-1]["state"] != "²µ»Ø"
-                 && notes[arg2-1]["state"] != HIR"²µ»Ø"NOR)
-                        return notify_fail("¶Ô²»Æğ£¬ÄúµÄ QC ÉêÇëÒÑ¾­ÕıÔÚ QC µ±ÖĞ£¬ÎŞ·¨É¾³ı¡£\n");
+                 && notes[arg2-1]["state"] != "é©³å›"
+                 && notes[arg2-1]["state"] != HIR"é©³å›"NOR)
+                        return notify_fail("å¯¹ä¸èµ·ï¼Œæ‚¨çš„ QC ç”³è¯·å·²ç»æ­£åœ¨ QC å½“ä¸­ï¼Œæ— æ³•åˆ é™¤ã€‚\n");
 */
 
                 do_dest_note(arg2-1);
-                write("ÄúµÄµÚ "+ arg2 +"ºÅ QC ÉêÇëÉ¾³ıÍê±Ï¡£\n");
+                write("æ‚¨çš„ç¬¬ "+ arg2 +"å· QC ç”³è¯·åˆ é™¤å®Œæ¯•ã€‚\n");
                 return 1;
         }
                 return help(me);
         }
         if (opt_dest) {
-                if( !(i = sizeof(notes)) ) return notify_fail("Ã»ÈË·¢³ö QC ÉêÇë¡£\n");
+                if( !(i = sizeof(notes)) ) return notify_fail("æ²¡äººå‘å‡º QC ç”³è¯·ã€‚\n");
                 do_dest_note(-1);
-                write("QC ÁĞ±íÇåÀíÍê±Ï¡£\n");
+                write("QC åˆ—è¡¨æ¸…ç†å®Œæ¯•ã€‚\n");
                 return 1;
         }
 
         if (opt_listqc) {
-                if (is_qcer(me)<0) return notify_fail(" ¶Ô²»Æğ£¬Äã²»ÊÇ QC Ğ¡×é³ÉÔ±¡£\n");         
+                if (is_qcer(me)<0) return notify_fail(" å¯¹ä¸èµ·ï¼Œä½ ä¸æ˜¯ QC å°ç»„æˆå‘˜ã€‚\n");         
                 check_qc_list(me);
                 return 1;
         }
         if (opt_reject) {
         if (sscanf(arg, "%d -k %s", arg2, arg1) == 2 ) {
-                if (is_qcer(me)<0) return notify_fail(" ¶Ô²»Æğ£¬Äã²»ÊÇ QC Ğ¡×é³ÉÔ±¡£\n");
-                if( !(i = sizeof(notes)) ) return notify_fail("Ã»ÈË·¢³öQCÉêÇë¡£\n");
-                if( arg2 < 1 || arg2 > i ) return notify_fail("Ã»ÓĞ´Ë±àºÅ¡£ \n");
-                if (strlen(arg1) > 44) return notify_fail("²µ»ØÀíÓÉÌ«ÂŞàÂ£¬ÇëÑø³ÉÓïÑÔ¾«Á·µÄºÃÏ°¹ß¡£\n");
-                if (strlen(arg1) < 6) return notify_fail("²µ»ØÀíÓÉÌ«¼òµ¥£¬Ï£ÍûÄã²»ÊÇÒòÎªÀíÓÉ²»³ä·Ö¡£\n");
+                if (is_qcer(me)<0) return notify_fail(" å¯¹ä¸èµ·ï¼Œä½ ä¸æ˜¯ QC å°ç»„æˆå‘˜ã€‚\n");
+                if( !(i = sizeof(notes)) ) return notify_fail("æ²¡äººå‘å‡ºQCç”³è¯·ã€‚\n");
+                if( arg2 < 1 || arg2 > i ) return notify_fail("æ²¡æœ‰æ­¤ç¼–å·ã€‚ \n");
+                if (strlen(arg1) > 44) return notify_fail("é©³å›ç†ç”±å¤ªç½—å—¦ï¼Œè¯·å…»æˆè¯­è¨€ç²¾ç»ƒçš„å¥½ä¹ æƒ¯ã€‚\n");
+                if (strlen(arg1) < 6) return notify_fail("é©³å›ç†ç”±å¤ªç®€å•ï¼Œå¸Œæœ›ä½ ä¸æ˜¯å› ä¸ºç†ç”±ä¸å……åˆ†ã€‚\n");
                 if ( notes[arg2-1]["overrule"]!= "" ) {
-                        write(notes[arg2-1]["filename"]+"ÒÑ¾­±»²µ»ØÀ²!\n");
+                        write(notes[arg2-1]["filename"]+"å·²ç»è¢«é©³å›å•¦!\n");
                         return 1;
                 }
                 notes[arg2-1]["overrule"] = ""+ capitalize(geteuid(me))+">"+ arg1;
-                notes[arg2-1]["state"] = "²µ»Ø";
-                write(sprintf("ÄãÒÔ¡°%s¡±µÄÀíÓÉ²µ»ØÁË%sµÄQCÉêÇë¡£\n",arg1,notes[arg2-1]["poorman"]));
+                notes[arg2-1]["state"] = "é©³å›";
+                write(sprintf("ä½ ä»¥â€œ%sâ€çš„ç†ç”±é©³å›äº†%sçš„QCç”³è¯·ã€‚\n",arg1,notes[arg2-1]["poorman"]));
                 save();
                 modify = 0;
                 return 1;
@@ -484,12 +484,12 @@ int main(object me, string arg)
         }
         if (opt_moreqc) {
         if (sscanf(arg, "-m %d", arg2) == 1) {
-                if (is_qcer(me)<0) return notify_fail(" ¶Ô²»Æğ£¬Äã²»ÊÇ QC Ğ¡×é³ÉÔ±¡£\n");
-                if( !(i = sizeof(notes)) ) return notify_fail("Ã»ÈË·¢³ö QC ÉêÇë¡£\n");
-                if( arg2 < 1 || arg2 > i ) return notify_fail("Ã»ÓĞ´Ë±àºÅ¡£ \n");
-                write(HIY"ÎÄ¼ş£º"+notes[arg2-1]["filename"]+"\n\n"NOR);
+                if (is_qcer(me)<0) return notify_fail(" å¯¹ä¸èµ·ï¼Œä½ ä¸æ˜¯ QC å°ç»„æˆå‘˜ã€‚\n");
+                if( !(i = sizeof(notes)) ) return notify_fail("æ²¡äººå‘å‡º QC ç”³è¯·ã€‚\n");
+                if( arg2 < 1 || arg2 > i ) return notify_fail("æ²¡æœ‰æ­¤ç¼–å·ã€‚ \n");
+                write(HIY"æ–‡ä»¶ï¼š"+notes[arg2-1]["filename"]+"\n\n"NOR);
                 if (file_size(notes[arg2-1]["filename"]) != -2) me->start_more(read_file(notes[arg2-1]["filename"]));
-                else write("´ËÎªÄ¿Â¼£¬Çë×ÔĞĞ²é¿´¡£\n");
+                else write("æ­¤ä¸ºç›®å½•ï¼Œè¯·è‡ªè¡ŒæŸ¥çœ‹ã€‚\n");
                 return 1;
         }
                 return help(me);
@@ -501,41 +501,41 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ :
+æŒ‡ä»¤æ ¼å¼ :
 
-qc                      ÏÔÊ¾ QC ÎÄ¼şÁĞ±í¡£
-qc -l <±àºÅ>            ÏÔÊ¾ QC ÎÄ¼şÏêÏ¸ÉêÇëĞÅÏ¢¡£
-qc <ÎÄ¼ş> -b <Ô­Òò>     ·¢³ö QC ÉêÇë¡£
-qc -c <ÎÄ¼ş> <Ô­Òò>     ĞŞ¸Ä×Ô¼ºÒÑ¾­·¢³öµÄ QC ÉêÇë¡£
-qc -d <±àºÅ>            É¾³ı×Ô¼ºÒÑ¾­·¢³öµÄ QC ÉêÇë¡£
-qc <±àºÅ> -k <Ô­Òò>     ¶Ô´Ë±àºÅµÄÉêÇë·¢³ö QC ²µ»ØĞÅÏ¢¡£
-qc -f <id>              ²éÕÒ´ËÎ×Ê¦ËùÓĞÒÑ·¢µÄ QC ÉêÇë¡£
-qc -p                   É¾³ıÒÑ¾­Í¨¹ıµÄ QC
-qc <±àºÅ>               Í¨¹ı´Ë±àºÅµÄ QC ¡£
-qc -q                   ²é¿´×Ô¼ºĞèÒª QC µÄÏîÄ¿¡£
-qc -m <±àºÅ>            ²é¿´ĞèÒª QC µÄÎÄ¼ş¡£
-qc -u                   ²é¿´ QC Ğ¡×éÃûµ¥¡£
+qc                      æ˜¾ç¤º QC æ–‡ä»¶åˆ—è¡¨ã€‚
+qc -l <ç¼–å·>            æ˜¾ç¤º QC æ–‡ä»¶è¯¦ç»†ç”³è¯·ä¿¡æ¯ã€‚
+qc <æ–‡ä»¶> -b <åŸå› >     å‘å‡º QC ç”³è¯·ã€‚
+qc -c <æ–‡ä»¶> <åŸå› >     ä¿®æ”¹è‡ªå·±å·²ç»å‘å‡ºçš„ QC ç”³è¯·ã€‚
+qc -d <ç¼–å·>            åˆ é™¤è‡ªå·±å·²ç»å‘å‡ºçš„ QC ç”³è¯·ã€‚
+qc <ç¼–å·> -k <åŸå› >     å¯¹æ­¤ç¼–å·çš„ç”³è¯·å‘å‡º QC é©³å›ä¿¡æ¯ã€‚
+qc -f <id>              æŸ¥æ‰¾æ­¤å·«å¸ˆæ‰€æœ‰å·²å‘çš„ QC ç”³è¯·ã€‚
+qc -p                   åˆ é™¤å·²ç»é€šè¿‡çš„ QC
+qc <ç¼–å·>               é€šè¿‡æ­¤ç¼–å·çš„ QC ã€‚
+qc -q                   æŸ¥çœ‹è‡ªå·±éœ€è¦ QC çš„é¡¹ç›®ã€‚
+qc -m <ç¼–å·>            æŸ¥çœ‹éœ€è¦ QC çš„æ–‡ä»¶ã€‚
+qc -u                   æŸ¥çœ‹ QC å°ç»„åå•ã€‚
 
-¿ª·¢Î×Ê¦ÔÚCODEÍê³ÉÒÔºó£¬·¢³öQCÉêÇëµÄÖ¸Áî£º
-        qc <filename> -b <reason> ·¢³öQCÉêÇë¡£
-        qc -c <ÎÄ¼ş> <Ô­Òò> ĞŞ¸Ä×Ô¼ºÒÑ¾­·¢³öµÄ QC ÉêÇë¡£
-        qc -d <±àºÅ> É¾³ı×Ô¼ºÒÑ¾­·¢³öµÄ QC ÉêÇë¡£
-	qc -l <±àºÅ> ÏÔÊ¾ QC ÎÄ¼şÏêÏ¸ÉêÇëĞÅÏ¢¡£
-        qc -f <id> ²éÑ¯Ä³Ò»wizÌá³öµÄQCÉêÇë¡£
+å¼€å‘å·«å¸ˆåœ¨CODEå®Œæˆä»¥åï¼Œå‘å‡ºQCç”³è¯·çš„æŒ‡ä»¤ï¼š
+        qc <filename> -b <reason> å‘å‡ºQCç”³è¯·ã€‚
+        qc -c <æ–‡ä»¶> <åŸå› > ä¿®æ”¹è‡ªå·±å·²ç»å‘å‡ºçš„ QC ç”³è¯·ã€‚
+        qc -d <ç¼–å·> åˆ é™¤è‡ªå·±å·²ç»å‘å‡ºçš„ QC ç”³è¯·ã€‚
+	qc -l <ç¼–å·> æ˜¾ç¤º QC æ–‡ä»¶è¯¦ç»†ç”³è¯·ä¿¡æ¯ã€‚
+        qc -f <id> æŸ¥è¯¢æŸä¸€wizæå‡ºçš„QCç”³è¯·ã€‚
 
-×¢Òâ£º Äã·¢³öÉêÇëÊ±µÄfilename¿ÉÒÔÊÇÂ·¾¶(²»º¬×ÓÄ¿Â¼)»òÎÄ¼ş£¬
-       ÇëÔÚ»ñÈ¡È¨ÏŞ×ÔĞĞ²âÊÔÍê±ÏºóÔÙĞĞÌá½» QC ÉêÇë¡£
+æ³¨æ„ï¼š ä½ å‘å‡ºç”³è¯·æ—¶çš„filenameå¯ä»¥æ˜¯è·¯å¾„(ä¸å«å­ç›®å½•)æˆ–æ–‡ä»¶ï¼Œ
+       è¯·åœ¨è·å–æƒé™è‡ªè¡Œæµ‹è¯•å®Œæ¯•åå†è¡Œæäº¤ QC ç”³è¯·ã€‚
 
-QCĞ¡×éÓÃÕâ¸öÖ¸ÁîÀ´±ê¼ÇQC½ø¶È£º
-        qc <±àºÅ> °´Á÷³Ì±ê¼ÇQC×´Ì¬¡£
+QCå°ç»„ç”¨è¿™ä¸ªæŒ‡ä»¤æ¥æ ‡è®°QCè¿›åº¦ï¼š
+        qc <ç¼–å·> æŒ‰æµç¨‹æ ‡è®°QCçŠ¶æ€ã€‚
 
-        qc <±àºÅ> -k <²µ»ØÔ­Òò>
-        ²µ»ØÒ»¸öQCÇëÇó£¬²¢ÇÒËµÃ÷²µ»ØÔ­Òò¡£
+        qc <ç¼–å·> -k <é©³å›åŸå› >
+        é©³å›ä¸€ä¸ªQCè¯·æ±‚ï¼Œå¹¶ä¸”è¯´æ˜é©³å›åŸå› ã€‚
 
-        qc -q                   ²é¿´×Ô¼ºĞèÒª QC µÄÏîÄ¿¡£
-        qc -m <±àºÅ>             ²é¿´ĞèÒª QC µÄÎÄ¼ş¡£
+        qc -q                   æŸ¥çœ‹è‡ªå·±éœ€è¦ QC çš„é¡¹ç›®ã€‚
+        qc -m <ç¼–å·>             æŸ¥çœ‹éœ€è¦ QC çš„æ–‡ä»¶ã€‚
         qc -p
-        QC½áÊø£¬ÎÄ¼ş¼ÓÈëÁíÒ»ÕÅQCÎÄ¼ş¸üĞÂ±íµÄÊ±ºò£¬ÓÃÀ´É¾³ıËùÓĞÒÑ¾­Åú×¼µÄÉêÇë¡£
+        QCç»“æŸï¼Œæ–‡ä»¶åŠ å…¥å¦ä¸€å¼ QCæ–‡ä»¶æ›´æ–°è¡¨çš„æ—¶å€™ï¼Œç”¨æ¥åˆ é™¤æ‰€æœ‰å·²ç»æ‰¹å‡†çš„ç”³è¯·ã€‚
 HELP
     );
     return 1;

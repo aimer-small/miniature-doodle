@@ -1,20 +1,20 @@
-// /d/wudang/tandi2.c  Ë®Ì¶µ×
+// /d/wudang/tandi2.c  æ°´æ½­åº•
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short",HIB"Ë®Ì¶µ×"NOR);
+        set("short",HIB"æ°´æ½­åº•"NOR);
         set("long", @LONG
-ÄãÉí´¦Ë®Ì¶Ì¶µ×£¬Ì¶µ×Ï¸É³ÈçÑ©£¬Ì¶Ë®Ä«À¶£¬Ë®º®´Ì¹Ç£¬¼Å¾²Ò»Æ¬£¬ÒõÉî
-¿Ö²À¡£
+ä½ èº«å¤„æ°´æ½­æ½­åº•ï¼Œæ½­åº•ç»†æ²™å¦‚é›ªï¼Œæ½­æ°´å¢¨è“ï¼Œæ°´å¯’åˆºéª¨ï¼Œå¯‚é™ä¸€ç‰‡ï¼Œé˜´æ·±
+ææ€–ã€‚
 LONG                           
         );
         set("objects",([        
             "/d/wudang/npc/eyu" : 1,
         ]));
-        set("outdoors", "Îäµ±");
+        set("outdoors", "æ­¦å½“");
         setup();
 
 }
@@ -29,17 +29,17 @@ int do_qian(string arg)
         me = this_player();
 
         if ( !arg || (arg != "down" && arg != "up" ))
-            return notify_fail("ÄãÏóÌõÓã°ãÔÚË®ÀïÓÎÀ´ÓÎÈ¥!\n");
+            return notify_fail("ä½ è±¡æ¡é±¼èˆ¬åœ¨æ°´é‡Œæ¸¸æ¥æ¸¸å»!\n");
 
         if (arg =="down")
-            return notify_fail("ÄãÏëµ±ÄàöúÍùµØÏÂ×êÑ½!\n");
+            return notify_fail("ä½ æƒ³å½“æ³¥é³…å¾€åœ°ä¸‹é’»å‘€!\n");
 
         if ( me->is_busy() || me->is_fighting())
-            return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+            return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
             
-        message_vision("$NÒ»µÅÍÈ£¬ÍùÉÏÓÎÈ¥¡£\n", me);
+        message_vision("$Nä¸€è¹¬è…¿ï¼Œå¾€ä¸Šæ¸¸å»ã€‚\n", me);
         me->receive_damage("jingli", 50-(int)me->query_skill("dodge", 1)/20);
         me->move(__DIR__"tandi1");
-        tell_room(environment(me), me->name() + "´ÓË®ÏÂÃ°ÁËÉÏÀ´¡£\n", ({ me }));
+        tell_room(environment(me), me->name() + "ä»æ°´ä¸‹å†’äº†ä¸Šæ¥ã€‚\n", ({ me }));
         return 1;      
 }

@@ -1,4 +1,4 @@
-// zhong3.c ÖÓĞ¡¶ş 
+// zhong3.c é’Ÿå°äºŒ 
 
 #include <ansi.h>
 
@@ -8,10 +8,10 @@ string ask_me();
 
 void create()
 {
-	set_name("ÖÓĞ¡¶ş", ({ "zhong xiaoer","zhong", "xiaoer" }));
+	set_name("é’Ÿå°äºŒ", ({ "zhong xiaoer","zhong", "xiaoer" }));
 	set("long",
-		"Ëû³à×ÅË«×ã£¬ÒÂ¿ãÒÑ±»¶ñ¹·µÄ×¦ÑÀËºµÃÏ¡ÀÃ£¬ÉíºóÒ»Â·µÎ×ÅÏÊÑª¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä»–èµ¤ç€åŒè¶³ï¼Œè¡£è£¤å·²è¢«æ¶ç‹—çš„çˆªç‰™æ’•å¾—ç¨€çƒ‚ï¼Œèº«åä¸€è·¯æ»´ç€é²œè¡€ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 13);
 	set("attitude", "friendly");
 
@@ -31,7 +31,7 @@ void create()
 	set("combat_exp", 500);
 
 	set("inquiry", ([
-		"ÖÓĞ¡Èı"   : (: ask_me :),
+		"é’Ÿå°ä¸‰"   : (: ask_me :),
 	]) );
 	set("shen_type", 0);
 	setup();
@@ -41,15 +41,15 @@ void create()
 string ask_me()
 {
 	if( (random(10) < 5) || is_fighting() )
-		return "ÎÒ¡­²»ÖªµÀ¡£\n";
+		return "æˆ‘â€¦ä¸çŸ¥é“ã€‚\n";
 	else 
 	{
 		if( this_player()->query_temp("marks/feng"))
 		{
 			this_player()->delete_temp("marks/feng");
 			this_player()->set_temp("marks/zhong",1);
-			return "¸ç¸çËÀµÄºÃÔ©Í÷Ñ½!";	
+			return "å“¥å“¥æ­»çš„å¥½å†¤æ‰å‘€!";	
 		}	
-	else return "ÂèÂè²»ÈÃÎÒÂÒËµ»°¡£";
+	else return "å¦ˆå¦ˆä¸è®©æˆ‘ä¹±è¯´è¯ã€‚";
 	}
 }

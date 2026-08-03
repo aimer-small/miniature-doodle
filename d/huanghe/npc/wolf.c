@@ -1,14 +1,14 @@
-// wolf¡¡by xiaoyao
+// wolfã€€by xiaoyao
 #include <ansi.h>
 
 inherit NPC;
 void create()
 {
-        set_name(WHT"»ÒÀÇ"NOR, ({ "hui lang", "wolf", "lang" }));
-        set("race", "Ò°ÊÞ");
+        set_name(WHT"ç°ç‹¼"NOR, ({ "hui lang", "wolf", "lang" }));
+        set("race", "é‡Žå…½");
         set("age", 5);
-        set("long","ÕâÊÇÒ»Í·»ÒÉ«µÄÀÇ£¬ÕýÓÃºìÉ«µÄÑÛ¾¦¶¢×ÅÄã£¬²»Ê±·¢³öÁîÈËµ¨Õ½µÄàÆÉù£¡\n");
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°×¦", "ºó×¦", "Î²°Í" }) );
+        set("long","è¿™æ˜¯ä¸€å¤´ç°è‰²çš„ç‹¼ï¼Œæ­£ç”¨çº¢è‰²çš„çœ¼ç›ç›¯ç€ä½ ï¼Œä¸æ—¶å‘å‡ºä»¤äººèƒ†æˆ˜çš„å—¥å£°ï¼\n");
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰çˆª", "åŽçˆª", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
         set("combat_exp", 200000);
         set("str", 80);
@@ -25,7 +25,7 @@ void create()
 void unconcious()
 {    
        object ob;
-       message_vision("$NÓÃ³ðºÞµÄÑÛ¹â¿´×ÅÄã£¬ÏÊÑª´Ó¼âÀûµÄÑÀ·ìÖÐÁ÷³ö£¬ËÀÁË£¡\n", this_object());
+       message_vision("$Nç”¨ä»‡æ¨çš„çœ¼å…‰çœ‹ç€ä½ ï¼Œé²œè¡€ä»Žå°–åˆ©çš„ç‰™ç¼ä¸­æµå‡ºï¼Œæ­»äº†ï¼\n", this_object());
         ob = new(__DIR__"obj/langya");
        ob->move(environment(this_object()));
        destruct(this_object());     

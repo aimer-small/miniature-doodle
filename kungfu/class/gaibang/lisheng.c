@@ -1,4 +1,4 @@
-// lisheng.c ÀèÉú
+// lisheng.c é»ç”Ÿ
 // Looklove 2000/10/21
 
 #include <ansi.h>
@@ -8,13 +8,13 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ÀèÉú", ({"li sheng", "li", "sheng"}));
-	set("title", "Ø¤°ï°Ë´üµÜ×Ó");
+	set_name("é»ç”Ÿ", ({"li sheng", "li", "sheng"}));
+	set("title", "ä¸å¸®å…«è¢‹å¼Ÿå­");
 	set("gb/bags",8);
-	set("nickname", HIC"½­¶«ÉßÍõ"NOR);
-	set("gender", "ÄĞĞÔ");
+	set("nickname", HIC"æ±Ÿä¸œè›‡ç‹"NOR);
+	set("gender", "ç”·æ€§");
 	set("age", 58);
-	set("long", "ÕâÊÇÎ»ÉúĞÔ¸ÕÖ±£¬¼µ¶ñÈç³ğµÄØ¤°ï°Ë´üµÜ×Ó¡£\n");
+	set("long", "è¿™æ˜¯ä½ç”Ÿæ€§åˆšç›´ï¼Œå«‰æ¶å¦‚ä»‡çš„ä¸å¸®å…«è¢‹å¼Ÿå­ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("str", 32);
@@ -55,7 +55,7 @@ void create()
         	(: exert_function, "huntian" :),
         }));
 
-	create_family("Ø¤°ï", 19, "µÜ×Ó");
+	create_family("ä¸å¸®", 19, "å¼Ÿå­");
 
 	setup();
 
@@ -68,27 +68,27 @@ void attempt_apprentice(object ob)
 {
 	if( ob->query("shen") < 0 ) return;
         if (ob->query("family/family_name")
-        && ob->query("family/family_name") != "Ø¤°ï") {
-                command("say Äã»¹ÊÇÈ¥±ğµÄÃÅÅÉ¿´¿´°É¡£");
+        && ob->query("family/family_name") != "ä¸å¸®") {
+                command("say ä½ è¿˜æ˜¯å»åˆ«çš„é—¨æ´¾çœ‹çœ‹å§ã€‚");
                 return;
 	}
         if ((int)ob->query("gb/bags") >= 2
-        && ob->query("family/family_name") != "Ø¤°ï" ) {
-                command("say Ø¤°ï¿ÉÈİ²»ÏÂÄãÕâÖÖ·´¸´ÎŞ³£µÄĞ¡ÈË£¡¸øÎÒ¹ö£¡");
+        && ob->query("family/family_name") != "ä¸å¸®" ) {
+                command("say ä¸å¸®å¯å®¹ä¸ä¸‹ä½ è¿™ç§åå¤æ— å¸¸çš„å°äººï¼ç»™æˆ‘æ»šï¼");
                 command("kill "+ob->query("id"));
                 return;
         }
 
         if((int)ob->query_skill("xiaoyaoyou",1) < 80 ){
-		command("say åĞÒ£ÓÎÊÇØ¤°ï×æ´«µÄ¹¦·ò£¬Äã¶Ô´Ë×êÑĞ²»¹»°¡¡£\n");
+		command("say é€é¥æ¸¸æ˜¯ä¸å¸®ç¥–ä¼ çš„åŠŸå¤«ï¼Œä½ å¯¹æ­¤é’»ç ”ä¸å¤Ÿå•Šã€‚\n");
 		return;
 	}
-	command("say ºÃ£¬ÓĞÄãÕâÑùÒ»µÈÒ»µÄÈË²Å×öÎÒÍ½µÜ£¬ÎÒ»¶Ï²»¹À´²»¼°ÄØ£¡");
+	command("say å¥½ï¼Œæœ‰ä½ è¿™æ ·ä¸€ç­‰ä¸€çš„äººæ‰åšæˆ‘å¾’å¼Ÿï¼Œæˆ‘æ¬¢å–œè¿˜æ¥ä¸åŠå‘¢ï¼");
         command("recruit " + ob->query("id"));
 
         if (!ob->query("gb/bags")) ob->set("gb/bags", 1);
-        ob->set("title",sprintf("Ø¤°ï×Ü¶æ%s´üµÜ×Ó",
+        ob->set("title",sprintf("ä¸å¸®æ€»èˆµ%sè¢‹å¼Ÿå­",
                 chinese_number(ob->query("gb/bags"))) );
-        ob->set("gb/fenduo","×Ü¶æ");
+        ob->set("gb/fenduo","æ€»èˆµ");
         ob->set("class","beggar");
 }

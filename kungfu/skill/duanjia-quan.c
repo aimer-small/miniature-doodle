@@ -1,28 +1,28 @@
-// duanjia-quan.c ¶Î¼ÒÈ­·¨
+// duanjia-quan.c æ®µå®¶æ‹³æ³•
 // update by cool@SJ,990605
 
 inherit SKILL;
 
 mapping *action = ({
-([      "action" : "$NÒ»Ê½¡¸¸ªµ×³éĞ½¡¹£¬×óÊÖÒ»Ì½£¬ÓÒÊÖ´Ó×óÊÖÈ­µ×´©³ö£¬±ãÏò$n»÷È¥",
-          "skill_name" : "¸ªµ×³éĞ½",
-        "damage_type" : "ğöÉË"
+([      "action" : "$Nä¸€å¼ã€Œé‡œåº•æŠ½è–ªã€ï¼Œå·¦æ‰‹ä¸€æ¢ï¼Œå³æ‰‹ä»å·¦æ‰‹æ‹³åº•ç©¿å‡ºï¼Œä¾¿å‘$nå‡»å»",
+          "skill_name" : "é‡œåº•æŠ½è–ª",
+        "damage_type" : "ç˜€ä¼¤"
 ]),
-([      "action" : "$N³¤Ğ¦ÉùÖĞÒ»Ê½¡¸´óÅôÕ¹³á¡¹£¬ÓÒÊÖÓ²ÉúÉúµÄËõ»Ø£¬×óÊÖ¶Ô×Å$n$lºá»÷¶øÖÁ",
-          "skill_name" : "´óÅôÕ¹³á",
-        "damage_type" : "ğöÉË"
+([      "action" : "$Né•¿ç¬‘å£°ä¸­ä¸€å¼ã€Œå¤§é¹å±•ç¿…ã€ï¼Œå³æ‰‹ç¡¬ç”Ÿç”Ÿçš„ç¼©å›ï¼Œå·¦æ‰‹å¯¹ç€$n$læ¨ªå‡»è€Œè‡³",
+          "skill_name" : "å¤§é¹å±•ç¿…",
+        "damage_type" : "ç˜€ä¼¤"
 ]),
-([      "action" : "$NÒ»Ê½¡¸Á¬Ãà²»¾ø¡¹×óÈ­ÍÆ³ö£¬ÓÒÈ­¼²¸ú¶øÖÁ£¬×óÈ­Ò»Ëõ»Ø£¬ÓÖ¼ÓÔÚÓÒÈ­µÄÍÆÁ¦Ö®ÉÏ",
-         "skill_name" : "Á¬Ãà²»¾ø",
-        "damage_type" : "ğöÉË"
+([      "action" : "$Nä¸€å¼ã€Œè¿ç»µä¸ç»ã€å·¦æ‹³æ¨å‡ºï¼Œå³æ‹³ç–¾è·Ÿè€Œè‡³ï¼Œå·¦æ‹³ä¸€ç¼©å›ï¼ŒåˆåŠ åœ¨å³æ‹³çš„æ¨åŠ›ä¹‹ä¸Š",
+         "skill_name" : "è¿ç»µä¸ç»",
+        "damage_type" : "ç˜€ä¼¤"
 ]),
-([      "action" : "$N²àÉíÈÃ¿ª£¬Ò»Ê½¡¸×óÓÒ·êÔ´¡¹£¬ÓÒÊÖ×ÔÉÏ¶øÏÂĞ±ÂÓ£¬²ÁµÄÒ»Éù£¬»÷Ïò$nÑü¼ä",
-          "skill_name" : "×óÓÒ·êÔ´",
-        "damage_type" : "ğöÉË"
+([      "action" : "$Nä¾§èº«è®©å¼€ï¼Œä¸€å¼ã€Œå·¦å³é€¢æºã€ï¼Œå³æ‰‹è‡ªä¸Šè€Œä¸‹æ–œæ ï¼Œæ“¦çš„ä¸€å£°ï¼Œå‡»å‘$nè…°é—´",
+          "skill_name" : "å·¦å³é€¢æº",
+        "damage_type" : "ç˜€ä¼¤"
 ]), 
-([      "action" : "$NÒ»¸ö¼ı²½£¬Ò»Ê½¡¸ÄæË®ĞĞÖÛ¡¹£¬±ãÏò$nÆËÁË¹ıÀ´£¬ÓÒÊÖÖØÖØÒ»È­£¬´òÏò$nµÄ$l",
-          "skill_name" : "ÄæË®ĞĞÖÛ",
-        "damage_type" : "ÄÚÉË"
+([      "action" : "$Nä¸€ä¸ªç®­æ­¥ï¼Œä¸€å¼ã€Œé€†æ°´è¡ŒèˆŸã€ï¼Œä¾¿å‘$næ‰‘äº†è¿‡æ¥ï¼Œå³æ‰‹é‡é‡ä¸€æ‹³ï¼Œæ‰“å‘$nçš„$l",
+          "skill_name" : "é€†æ°´è¡ŒèˆŸ",
+        "damage_type" : "å†…ä¼¤"
 ]),
 });
 
@@ -31,11 +31,11 @@ int valid_enable(string usage) { return usage=="cuff" || usage=="parry"; }
 int valid_learn(object me)
 {
         if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-                return notify_fail("Á·¶Î¼ÒÈ­·¨±ØĞë¿ÕÊÖ¡£\n");
+                return notify_fail("ç»ƒæ®µå®¶æ‹³æ³•å¿…é¡»ç©ºæ‰‹ã€‚\n");
           if ((int)me->query_skill("qiantian-yiyang", 1) < 20)
-                return notify_fail("ÄãµÄÇ¬ÌìÒ»Ñô¹¦»ğºò²»¹»£¬ÎŞ·¨Ñ§Á·¶Î¼ÒÈ­·¨¡£\n");
+                return notify_fail("ä½ çš„ä¹¾å¤©ä¸€é˜³åŠŸç«å€™ä¸å¤Ÿï¼Œæ— æ³•å­¦ç»ƒæ®µå®¶æ‹³æ³•ã€‚\n");
         if ((int)me->query("max_neili") < 100)
-                return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬ÎŞ·¨Á·¶Î¼ÒÈ­·¨¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œæ— æ³•ç»ƒæ®µå®¶æ‹³æ³•ã€‚\n");
         return 1;
 }
 
@@ -57,11 +57,11 @@ mapping query_action(object me, object weapon)
       && (me->query_skill_prepared("cuff") == "duanjia-quan")
       && random(10)>7 ) {
                 return ([
-                "action": "$N×óÈ­Ò»»Î£¬Ëæ¼´ÓÒÈ­»÷³ö£¬½ô¸ú×ÅË«È­½»´í£¬ÉÏÏÂÇ°ºóÁ¬Ğø»÷³öÈıÊ®ÁùµÀ¾¢·ç£¬ÑÛ»¨çÔÂÒÖ®¼«£®",
+                "action": "$Nå·¦æ‹³ä¸€æ™ƒï¼Œéšå³å³æ‹³å‡»å‡ºï¼Œç´§è·Ÿç€åŒæ‹³äº¤é”™ï¼Œä¸Šä¸‹å‰åè¿ç»­å‡»å‡ºä¸‰åå…­é“åŠ²é£ï¼Œçœ¼èŠ±ç¼­ä¹±ä¹‹æï¼",
                 "parry":(int)me->query_skill("parry")/8,
                 "dodge":(int)me->query_skill("dodge")/6,
                 "force":level*2,
-                "damage_type": "ÄÚÉË"
+                "damage_type": "å†…ä¼¤"
   ]);
         }
         for(i = sizeof(action); i > 0; i--) {
@@ -81,9 +81,9 @@ int practice_skill(object me)
         int i = sizeof(action);
         while (i--) if (lvl == action[i]["lvl"]) return 0;
         if ((int)me->query("jingli") < 30)
-                return notify_fail("ÄãµÄ¾«Á¦Ì«µÍÁË¡£\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›å¤ªä½äº†ã€‚\n");
         if ((int)me->query("neili") < 20)
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·¶Î¼ÒÈ­·¨¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒæ®µå®¶æ‹³æ³•ã€‚\n");
         me->receive_damage("jingli", 25);
         me->add("neili", -5);
         return 1;

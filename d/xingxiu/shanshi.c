@@ -6,14 +6,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "É½Ê¯");
+	set("short", "å±±çŸ³");
 	set("long", @LONG
-ÕâÀïÊÇĞÇËŞº£º£±ßÒ»´¦É½Ê¯¡£¶«ÃæÊÇ·½Ô²¼¸°ÙÀï¶¼ÊÇÒ»ÍûÎŞ¼ÊµÄºş²´ºÍÕÓ
-Ôó¡£ÒòÎªÒõÀä³±Êª£¬´Ë´¦¶¾³æ·±Ö³Éõ¸»¡£ĞÇËŞÅÉµÜ×Ó³£À´´Ë²¶×½¶¾³æ£¬ÒÔ±¸Á·
-¶¾Ö®ÓÃ¡£ÄÏ±ßÓĞ¸öºÚ÷ñ÷ñµÄÉ½¶´(cave)¡£
+è¿™é‡Œæ˜¯æ˜Ÿå®¿æµ·æµ·è¾¹ä¸€å¤„å±±çŸ³ã€‚ä¸œé¢æ˜¯æ–¹åœ†å‡ ç™¾é‡Œéƒ½æ˜¯ä¸€æœ›æ— é™…çš„æ¹–æ³Šå’Œæ²¼
+æ³½ã€‚å› ä¸ºé˜´å†·æ½®æ¹¿ï¼Œæ­¤å¤„æ¯’è™«ç¹æ®–ç”šå¯Œã€‚æ˜Ÿå®¿æ´¾å¼Ÿå­å¸¸æ¥æ­¤æ•æ‰æ¯’è™«ï¼Œä»¥å¤‡ç»ƒ
+æ¯’ä¹‹ç”¨ã€‚å—è¾¹æœ‰ä¸ªé»‘é»¢é»¢çš„å±±æ´(cave)ã€‚
 LONG
         );
-	set("outdoors", "ĞÇËŞ");
+	set("outdoors", "æ˜Ÿå®¿");
 	set("objects", ([
 		__DIR__"npc/haoshou"  : 1,
 		__DIR__"npc/shihou"  : 1,
@@ -22,7 +22,7 @@ LONG
 		"eastdown" : __DIR__"xx6",
         ]));
 	set("item_desc", ([
-		"cave" : "É½¶´ÀïÆ®³öÒ»¹É¹ÉĞÈ³ôÎ¶£¬Äã»¹ÊÇ¿ìµãÀë¿ª°É¡£\n"
+		"cave" : "å±±æ´é‡Œé£˜å‡ºä¸€è‚¡è‚¡è…¥è‡­å‘³ï¼Œä½ è¿˜æ˜¯å¿«ç‚¹ç¦»å¼€å§ã€‚\n"
         ]) );
 	setup();
 }
@@ -36,7 +36,7 @@ void init()
 
 	if(( objectp(present("lanyu bo", me)) || objectp(present("shenmu wangding", me)))
 	 && objectp(ob = present("shihou zi", environment(me)))){
-		message_vision("$N¶Ô×Å$n´óºğÒ»Éù£º´óµ¨"+RANK_D->query_rude(me)+"£¬¾¹¸ÒÍµÄÃ±¾ÅÉ±¦Îï£¡\n", ob, me);
+		message_vision("$Nå¯¹ç€$nå¤§å¼ä¸€å£°ï¼šå¤§èƒ†"+RANK_D->query_rude(me)+"ï¼Œç«Ÿæ•¢å·æ‹¿æœ¬æ´¾å®ç‰©ï¼\n", ob, me);
 		ob->kill_ob(me);
 	}
 	add_action("do_enter", "enter");
@@ -54,15 +54,15 @@ int do_enter(string arg)
 
 	if (arg == "cave" ){
 		if (me->is_fighting() || me->is_busy())
-			return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞ×öÍê¡£\n");
-		if ((!myfam || myfam["family_name"] != "ĞÇËŞÅÉ")
+			return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰åšå®Œã€‚\n");
+		if ((!myfam || myfam["family_name"] != "æ˜Ÿå®¿æ´¾")
 		&& objectp(present("shihou zi", environment(me))))
-			return notify_fail("Ê¨ºğ×ÓÉÁÉíÀ¹ÔÚÄãÃæÇ°£¬ºÈµÀ£º²»Ïë°¤×áµÄ¾Í¿ì¹ö¿ª£¡\n");
+			return notify_fail("ç‹®å¼å­é—ªèº«æ‹¦åœ¨ä½ é¢å‰ï¼Œå–é“ï¼šä¸æƒ³æŒ¨æçš„å°±å¿«æ»šå¼€ï¼\n");
 
-		message_vision("$NĞ¡ĞÄÒíÒíµØÍùÉ½¶´ÀïÌ½ÁËÌ½¡£\n", me);
-		message("vision",me->name() + "Ò»ÍäÑüÍùÉ½¶´Àï×êÁË½øÈ¥¡£\n", environment(me), ({me}) );
+		message_vision("$Nå°å¿ƒç¿¼ç¿¼åœ°å¾€å±±æ´é‡Œæ¢äº†æ¢ã€‚\n", me);
+		message("vision",me->name() + "ä¸€å¼¯è…°å¾€å±±æ´é‡Œé’»äº†è¿›å»ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"cave");
-		message("vision",me->name() + "´ÓÍâÃæ×êÁË½øÀ´¡£\n", environment(me), ({me}) );
+		message("vision",me->name() + "ä»å¤–é¢é’»äº†è¿›æ¥ã€‚\n", environment(me), ({me}) );
 		return 1;
 	}
 }
@@ -71,7 +71,7 @@ int valid_leave(object me, string dir)
 {
 	if((objectp(present("lanyu bo", me)) || objectp(present("shenmu wangding", me)))
 	 && objectp(present("shihou zi", environment(me))) && dir == "east")
-		return notify_fail("Ê¨ºğ×ÓÉÁÉíÀ¹ÔÚÄãÃæÇ°£¬ºÈµÀ£ºÏëÁï£¿Ã»ÄÇÃ´ÈİÒ×£¡\n");
+		return notify_fail("ç‹®å¼å­é—ªèº«æ‹¦åœ¨ä½ é¢å‰ï¼Œå–é“ï¼šæƒ³æºœï¼Ÿæ²¡é‚£ä¹ˆå®¹æ˜“ï¼\n");
 
 	return ::valid_leave(me, dir);
 }

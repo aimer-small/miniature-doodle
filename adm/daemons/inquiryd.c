@@ -15,38 +15,38 @@ string find_gf_wanted_target(mapping target, int shen)
 	string place;
 	
 	if( !mapp(target) || !objectp(target["base"]) || !stringp(target["name"]) )
-		return "ÕâÎÄÊéÉÏµÄ×Ö¼£Ä£ºý²»Çå£¬ÎÒÖªµÀÄãÒªÕÒË­£¿£¿";
+		return "è¿™æ–‡ä¹¦ä¸Šçš„å­—è¿¹æ¨¡ç³Šä¸æ¸…ï¼Œæˆ‘çŸ¥é“ä½ è¦æ‰¾è°ï¼Ÿï¼Ÿ";
 
 	npc = target["base"];
 	if( !npc || !objectp(npc) ){
         	if ( shen )
-        		return "Å¶£¬Õâ¸öÎÒ¾Í²»Çå³þÁË£¬Õâ¸½½üÃ»¼û¹ý"+target["name"]+"ÕâÈË¡£";
-        	else 	return target["name"]+"£¿Ã»¼û¹ý¡£ÎÒÃ¦×ÅÄØ£¬Äã¿ì×ß¿ª£¬±ðÔÚÕâÀï·³ÎÒ£¡";
+        		return "å“¦ï¼Œè¿™ä¸ªæˆ‘å°±ä¸æ¸…æ¥šäº†ï¼Œè¿™é™„è¿‘æ²¡è§è¿‡"+target["name"]+"è¿™äººã€‚";
+        	else 	return target["name"]+"ï¼Ÿæ²¡è§è¿‡ã€‚æˆ‘å¿™ç€å‘¢ï¼Œä½ å¿«èµ°å¼€ï¼Œåˆ«åœ¨è¿™é‡Œçƒ¦æˆ‘ï¼";
         }
         
         where = environment(npc);
         if ( !where ){
         	if ( shen )
-        		return target["name"]+"£¿¼û¹ý£¡¼û¹ý£¡¿ÉÕâÈËÍùÄÄ×ßÁËÄØ£¿¿´ÎÒÕâ¼ÇÐÔ£¬Ïë²»ÆðÀ´ÁË£¡";
-        	else 	return "ÄãÕÒ"+target["name"]+"ÊÇ°É£¿ºÙºÙ£¬ÎÒ¼û¹ý£¬¿É¾Í²»¸æËßÄã£¡";
+        		return target["name"]+"ï¼Ÿè§è¿‡ï¼è§è¿‡ï¼å¯è¿™äººå¾€å“ªèµ°äº†å‘¢ï¼Ÿçœ‹æˆ‘è¿™è®°æ€§ï¼Œæƒ³ä¸èµ·æ¥äº†ï¼";
+        	else 	return "ä½ æ‰¾"+target["name"]+"æ˜¯å§ï¼Ÿå˜¿å˜¿ï¼Œæˆ‘è§è¿‡ï¼Œå¯å°±ä¸å‘Šè¯‰ä½ ï¼";
         }     
         if( userp(where) ){
         	place = where->name();
         	if ( shen )
-        		return target["name"]+"£¿¸Õ²ÅÌýÈËËµ±»"+place+"×¥È¥ÁË£¡";
-        	else 	return "ÏëÕÒ"+target["name"]+"£¿£¡Äã¿ÉÀ´ÍíÀ²£¬¸Õ±»"+place+"×¥×ß£¡";
+        		return target["name"]+"ï¼Ÿåˆšæ‰å¬äººè¯´è¢«"+place+"æŠ“åŽ»äº†ï¼";
+        	else 	return "æƒ³æ‰¾"+target["name"]+"ï¼Ÿï¼ä½ å¯æ¥æ™šå•¦ï¼Œåˆšè¢«"+place+"æŠ“èµ°ï¼";
         }
         if( strsrch(base_name(where), "/d/") != 0 )
-        	return "²»Çå³þ£¬Äãµ½±ð³öÕÒÕÒÈ¥°É¡£";
+        	return "ä¸æ¸…æ¥šï¼Œä½ åˆ°åˆ«å‡ºæ‰¾æ‰¾åŽ»å§ã€‚";
         if( strsrch(base_name(where), "/d/city/") == 0 )
-        	return "Ã»ÌýËµ¹ý£¬Äãµ½±ð³öÕÒÕÒÈ¥°É¡£";
+        	return "æ²¡å¬è¯´è¿‡ï¼Œä½ åˆ°åˆ«å‡ºæ‰¾æ‰¾åŽ»å§ã€‚";
         if( !stringp(place = TASK_D->get_regions(base_name(where))) )
         	place = environment(npc)->query("short");
         else if( random(5) == 1 )
         	place += environment(npc)->query("short");
         if ( shen )
-        	return target["name"]+"ÊÇ°É£¿ÎÒºÃÏóÌýÈËËµÕâÈËÔÚ"+place+"¸½½ü×ªÓÆÄØ£¡";
-        else 	return "ÄãÏëÕÒ"+target["name"]+"£¿£¡¹þ¹þ£¡ÕâÈËÔÚ"+place+"¸½½ü£¬Äã¿ìÈ¥ËÍËÀ°É£¡";
+        	return target["name"]+"æ˜¯å§ï¼Ÿæˆ‘å¥½è±¡å¬äººè¯´è¿™äººåœ¨"+place+"é™„è¿‘è½¬æ‚ å‘¢ï¼";
+        else 	return "ä½ æƒ³æ‰¾"+target["name"]+"ï¼Ÿï¼å“ˆå“ˆï¼è¿™äººåœ¨"+place+"é™„è¿‘ï¼Œä½ å¿«åŽ»é€æ­»å§ï¼";
 }
 
 
@@ -57,63 +57,63 @@ int parse_inquiry(object me, object ob, string topic)
 	
 	switch( topic ) {
 		case "name":
-		case "ÐÕÃû":
-			message_vision(CYN "$NÏò$nÎÊµÀ£º¸ÒÎÊ" + RANK_D->query_respect(ob) + "×ðÐÕ´óÃû£¿\n" NOR, me, ob);
+		case "å§“å":
+			message_vision(CYN "$Nå‘$né—®é“ï¼šæ•¢é—®" + RANK_D->query_respect(ob) + "å°Šå§“å¤§åï¼Ÿ\n" NOR, me, ob);
 			return 1;
 		case "here":
-		case "´ËµØ":
-			message_vision(CYN "$NÏò$nÎÊµÀ£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬"
-			+ RANK_D->query_self(me) + "³õµ½¹ó±¦µØ£¬²»ÖªÕâÀïÓÐÐ©Ê²Ã´·çÍÁÈËÇé£¿\n" NOR, me, ob);
+		case "æ­¤åœ°":
+			message_vision(CYN "$Nå‘$né—®é“ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œ"
+			+ RANK_D->query_self(me) + "åˆåˆ°è´µå®åœ°ï¼Œä¸çŸ¥è¿™é‡Œæœ‰äº›ä»€ä¹ˆé£ŽåœŸäººæƒ…ï¼Ÿ\n" NOR, me, ob);
 			return 1;
 		case "rumors":
-		case "´«ÎÅ":
-			message_vision(CYN "$NÏò$nÎÊµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-			+ "£¬²»Öª×î½üÓÐÃ»ÓÐÌýËµÊ²Ã´ÏûÏ¢£¿\n" NOR, me, ob);
+		case "ä¼ é—»":
+			message_vision(CYN "$Nå‘$né—®é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+			+ "ï¼Œä¸çŸ¥æœ€è¿‘æœ‰æ²¡æœ‰å¬è¯´ä»€ä¹ˆæ¶ˆæ¯ï¼Ÿ\n" NOR, me, ob);
 			return 1;
 		case "news":
-		case "´óÊÂ":
-		case "ÐÂÎÅ":
-			message_vision(CYN "$NÏò$nÎÊµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-			+ "£¬²»Öª×î½üÓÐÃ»ÓÐÌýËµÊ²Ã´´óÊÂ£¿\n" NOR, me, ob);
+		case "å¤§äº‹":
+		case "æ–°é—»":
+			message_vision(CYN "$Nå‘$né—®é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+			+ "ï¼Œä¸çŸ¥æœ€è¿‘æœ‰æ²¡æœ‰å¬è¯´ä»€ä¹ˆå¤§äº‹ï¼Ÿ\n" NOR, me, ob);
 			return 1;
 		case "marry":
-			message_vision(CYN "$NÃÐ×ÅÒ»Ë«ÔôÑÛ£¬²»»³ºÃÒâµÄÏò$n"+CYN"ÎÊµÀ£º¸ÒÎÊÕâÎ»"+RANK_D->query_respect(ob)
-						+"ÊÇ·ñ»éÅä£¿\n" NOR,me,ob);
+			message_vision(CYN "$Nçœ¯ç€ä¸€åŒè´¼çœ¼ï¼Œä¸æ€€å¥½æ„çš„å‘$n"+CYN"é—®é“ï¼šæ•¢é—®è¿™ä½"+RANK_D->query_respect(ob)
+						+"æ˜¯å¦å©šé…ï¼Ÿ\n" NOR,me,ob);
 			return 1;
 		case "food":
-			message_vision(CYN "$N¿ÉÁ¯ÙâÙâµÄÏò$n"+CYN"ÎÊµÀ£º¡°²»ÖªÕâÎ»"+RANK_D->query_respect(ob)
-							+"ÊÇ·ñÄÜ¸øÎÒµã³ÔµÄ, ÔÚÏÂÒÑ¾­ÈýÌìÃ»ÓÐ½øÊ³ÁË£¿¡±\n" NOR,me,ob);
+			message_vision(CYN "$Nå¯æ€œå…®å…®çš„å‘$n"+CYN"é—®é“ï¼šâ€œä¸çŸ¥è¿™ä½"+RANK_D->query_respect(ob)
+							+"æ˜¯å¦èƒ½ç»™æˆ‘ç‚¹åƒçš„, åœ¨ä¸‹å·²ç»ä¸‰å¤©æ²¡æœ‰è¿›é£Ÿäº†ï¼Ÿâ€\n" NOR,me,ob);
 			return 1;
 		
 		case "water":
-			message_vision(CYN "$N¿ÉÁ¯ÙâÙâµÄÏò$n"+CYN"ÎÊµÀ£º¡°²»ÖªÕâÎ»"+RANK_D->query_respect(ob)
-							+"ÊÇ·ñÄÜ¸øÎÒµãºÈµÄ, ÔÚÏÂ¿Ú¿ÊµÃºÜ£¿¡±\n" NOR,me,ob);
+			message_vision(CYN "$Nå¯æ€œå…®å…®çš„å‘$n"+CYN"é—®é“ï¼šâ€œä¸çŸ¥è¿™ä½"+RANK_D->query_respect(ob)
+							+"æ˜¯å¦èƒ½ç»™æˆ‘ç‚¹å–çš„, åœ¨ä¸‹å£æ¸´å¾—å¾ˆï¼Ÿâ€\n" NOR,me,ob);
 			return 1;
 		
 		case "money":
-			message_vision(CYN "$NË«ÊÖ±§È­Ïò$n"+CYN"ÎÊµÀ£º¡°ÔÚÏÂ³õÀ´Õ¦µ½£¬ÐÐ×ß½­ºþÈ±ÁËÐ©ÅÌ²ø,ÕâÎ»"+RANK_D->query_respect(ob)
-							+"ÊÇ·ñÄÜÊ©ÉáÒ»¶þ, ÔÚÏÂ²»Éõ¸Ð¼¤£¿¡±\n" NOR,me,ob);
+			message_vision(CYN "$NåŒæ‰‹æŠ±æ‹³å‘$n"+CYN"é—®é“ï¼šâ€œåœ¨ä¸‹åˆæ¥å’‹åˆ°ï¼Œè¡Œèµ°æ±Ÿæ¹–ç¼ºäº†äº›ç›˜ç¼ ,è¿™ä½"+RANK_D->query_respect(ob)
+							+"æ˜¯å¦èƒ½æ–½èˆä¸€äºŒ, åœ¨ä¸‹ä¸ç”šæ„Ÿæ¿€ï¼Ÿâ€\n" NOR,me,ob);
 			return 1;
 		case "friend":
-			message_vision(CYN "$NË«ÊÖ±§È­Ïò$n"+CYN"ËµµÀ£º¡°ËÄº£Ö®ÄÚ½ÔÐÖµÜÒ²,ÕâÎ»"+RANK_D->query_respect(ob)
-							+",²»ÖªÔ¸·ñÓëÔÚÏÂ½»¸öÅóÓÑ¡±\n" NOR,me,ob);
+			message_vision(CYN "$NåŒæ‰‹æŠ±æ‹³å‘$n"+CYN"è¯´é“ï¼šâ€œå››æµ·ä¹‹å†…çš†å…„å¼Ÿä¹Ÿ,è¿™ä½"+RANK_D->query_respect(ob)
+							+",ä¸çŸ¥æ„¿å¦ä¸Žåœ¨ä¸‹äº¤ä¸ªæœ‹å‹â€\n" NOR,me,ob);
 			return 1;
 		/*case "all":
-			message_vision(CYN "$NÏò$nÎÊµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-				+ "£¬ÇëÎÊÄúÖªµÀÄÄÐ©ÊÂÇé£¿\n" NOR, me, ob);
+			message_vision(CYN "$Nå‘$né—®é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+				+ "ï¼Œè¯·é—®æ‚¨çŸ¥é“å“ªäº›äº‹æƒ…ï¼Ÿ\n" NOR, me, ob);
 			return 1;*/
 		case "wanted":
-		case "Í¨¼©·¸":
+		case "é€šç¼‰çŠ¯":
 			if( !userp(me) ) return 0;
 			if( !objectp(wenshu = present("tiebu wenshu", me)) ) return 0;
 			if( strsrch(base_name(environment(ob)), "/d/city/") == 0 ) return 0;
-			message_vision(CYN "$NÏò$nÎÊµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-				+ "£¬²»Öª×î½üÓÐÃ»ÓÐÌú²¶ÎÄÊéÀïÕâ¸öÍ¨¼©·¸µÄÏûÏ¢£¿\n" NOR, me, ob);
-			me->receive_damage("jingli", 50+random(100), "¾«Á¦ÏûºÄÍê±Ï¶ø");
+			message_vision(CYN "$Nå‘$né—®é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+				+ "ï¼Œä¸çŸ¥æœ€è¿‘æœ‰æ²¡æœ‰é“æ•æ–‡ä¹¦é‡Œè¿™ä¸ªé€šç¼‰çŠ¯çš„æ¶ˆæ¯ï¼Ÿ\n" NOR, me, ob);
+			me->receive_damage("jingli", 50+random(100), "ç²¾åŠ›æ¶ˆè€—å®Œæ¯•è€Œ");
 			if( random(15) < 10 ) return 1;
 			if( wenshu->query("asked_times") >= 3 ) return 1;
 			if( !mapp(target = wenshu->query("target")) )
-				ob->set("inquiry/" + topic, "Ð¦»°£¬ÄãÄÃÕÅ¿Õ°×µÄÎÄÊéÀ´ÕÒ"+RANK_D->query_self(ob)+"¿ªÐÄ°¡£¿");
+				ob->set("inquiry/" + topic, "ç¬‘è¯ï¼Œä½ æ‹¿å¼ ç©ºç™½çš„æ–‡ä¹¦æ¥æ‰¾"+RANK_D->query_self(ob)+"å¼€å¿ƒå•Šï¼Ÿ");
 
 			else ob->set("inquiry/" + topic, find_gf_wanted_target(target, ob->query("shen") > 0));
 			wenshu->add("asked_times", 1);

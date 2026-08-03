@@ -16,13 +16,13 @@ string get_passwd(string id)
 
 	if (!ret)
 	{
-		write("���ݿ�����ʧ�ܡ�\n");
+		write("数据库连接失败。\n");
 		return 0;
 	}
 
 	if (sizeof(ret) == 0)
 	{
-		write("���ݿ��޴��û���Ϣ��\n");
+		write("数据库无此用户信息。\n");
 		return 0;
 	}
 
@@ -32,10 +32,10 @@ string get_passwd(string id)
 	mixed *res;
 
 	if (!intp(mysql))
-		return 0;	// �������ӵ����ݿ�
+		return 0;	// 不能连接到数据库
 	if (1 != db_exec(mysql, "select U_Password from " + INTERMUD_MUD_NAME + "_Users where U_Username='"+id+"'")) {
 		db_close(mysql);
-		return 0;	// û��������¼
+		return 0;	// 没检索到记录
 	}
 	res = db_fetch(mysql, 1);
 	db_close(mysql);
@@ -49,21 +49,21 @@ int set_passwd(string id, string passwd)
 // Modified by mxzhao 2004/02/18
 	if (!get_passwd(id)) 
 	{
-		return 0;	// û��������¼
+		return 0;	// 没检索到记录
 	}
 
 	if (!dbquery("update Users set "
 		"U_Password='"+passwd+"' "
 		"where U_Username='"+id+"'"))
 	{
-		write("���ݿ�����ʧ�ܡ�\n");
+		write("数据库连接失败。\n");
 		return 0;
 	}
 	if (!BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "UPDATE members SET password = 
 		'"+passwd+"' WHERE username = '"+
 		id+"@"+lower_case(INTERMUD_MUD_NAME)+"' limit 1"))
 		{
-			write("WEB���ݿ����ʧ�ܡ�\n");
+			write("WEB数据库更新失败。\n");
 			return 0;
 		}
 	return 1;
@@ -71,10 +71,10 @@ int set_passwd(string id, string passwd)
 	mixed mysql = db_connect("localhost","mud","root");
 
 	if (!intp(mysql))
-		return 0;	// �������ӵ����ݿ�
+		return 0;	// 不能连接到数据库
 	if (!get_passwd(id)) {
 		db_close(mysql);
-		return 0;	// û��������¼
+		return 0;	// 没检索到记录
 	}
 	db_exec(mysql, "update " + INTERMUD_MUD_NAME + "_Users set "
 		"U_Password='"+passwd+"' "

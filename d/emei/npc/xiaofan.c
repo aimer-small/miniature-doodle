@@ -1,18 +1,18 @@
-// xiaofan.c Ğ¡··×Ó
+// xiaofan.c å°è´©å­
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("Ğ¡··×Ó", ({ "xiao fan", "xiao", "fan" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("å°è´©å­", ({ "xiao fan", "xiao", "fan" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 34);
 	set("long",
-		"ÕâÎ»Ğ¡··×ÓÕıĞ¦ßäßäµØÀ´»ØÃ¦Öø£¬»¹²»Ê±ÕĞºô¹ıÍùµÄ¿ÍÈË½øÀ´¡£\n");
+		"è¿™ä½å°è´©å­æ­£ç¬‘å’ªå’ªåœ°æ¥å›å¿™è‘—ï¼Œè¿˜ä¸æ—¶æ‹›å‘¼è¿‡å¾€çš„å®¢äººè¿›æ¥ã€‚\n");
 	set("combat_exp", 300);
 	set("attitude", "peaceful");
-	set("rank_info/respect", "Ğ¡··×Ó");
+	set("rank_info/respect", "å°è´©å­");
         set("vendor_goods", ({
 		(["name":"/d/emei/obj/tieqiao" ,"number":5]),
 		(["name":"/d/emei/obj/qingshui-hulu" ,"number":5]),

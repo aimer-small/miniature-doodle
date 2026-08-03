@@ -15,13 +15,13 @@ void init()
 
 void create()
 {
-        set_name("ÁîÅÆ", ({"ling pai", "ling"}));
+        set_name("ä»¤ç‰Œ", ({"ling pai", "ling"}));
         set_weight(50);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-              set("unit", "¿é");
-              set("long", HIY "ÕâÊÇ¿éÌÒ»¨µºµÄÁîÅÆ£¬ÒÑ¾­ºÜ³Â¾ÉÁË£¬ËÄ½ÇÄ¥µÄºÜÔ²»¬¡£\n" NOR );
+              set("unit", "å—");
+              set("long", HIY "è¿™æ˜¯å—æ¡ƒèŠ±å²›çš„ä»¤ç‰Œï¼Œå·²ç»å¾ˆé™ˆæ—§äº†ï¼Œå››è§’ç£¨çš„å¾ˆåœ†æ»‘ã€‚\n" NOR );
               set("value", 10000);
 //              set("no_drop", 1);
               set("no_get", 1);
@@ -33,16 +33,16 @@ int do_baifang(string str)
 {
         object my_object,me = this_player();
 	if (!str)
-	        return notify_fail("ÄãÒª°İ·ÃË­°¡£¿\n");
+	        return notify_fail("ä½ è¦æ‹œè®¿è°å•Šï¼Ÿ\n");
         if (!(my_object = present(str, environment(me))))
-		return notify_fail("ÄãÒªÕÒµÄÈË²»ÔÚÕâÀï¡£È¥±ğ´¦ÕÒÕÒ¿´°É¡£\n");
+		return notify_fail("ä½ è¦æ‰¾çš„äººä¸åœ¨è¿™é‡Œã€‚å»åˆ«å¤„æ‰¾æ‰¾çœ‹å§ã€‚\n");
 	if ( str != "huang yaoshi")
-		return notify_fail(my_object->query("name")+"ËµµÀ£º"+RANK_D->query_respect(me)+"Ô¶µÀ¶øÀ´£¬ÀïÃæÇë£¬ÀïÃæÇë£¡\n");
+		return notify_fail(my_object->query("name")+"è¯´é“ï¼š"+RANK_D->query_respect(me)+"è¿œé“è€Œæ¥ï¼Œé‡Œé¢è¯·ï¼Œé‡Œé¢è¯·ï¼\n");
         if (!living(my_object))
-		return notify_fail("Å¶£¬ÄãµÃÏÈ°ÑËûÅªĞÑÔÚËµ¡£\n");
-	tell_object(me, HIC + my_object->query("name")+"ÉîÉîµÄÌ¾ÁË¿ÚÆø¡£\n");
-	tell_object(me, HIC + my_object->query("name")+"ËµµÀ£ºÄ¬·çËûÃÇµ±ÄêÒ²ÊÇÊÜÁË±ğÈËµÄÇ£Á¬£¬Ã»Ïëµ½ËûÈç½ñ»¹¼ÇµÃÎÒÕâ¸öÊ¦¸µ¡£\n" NOR);
-	tell_object(me, HIC + RANK_D->query_respect(me)+"Äã»Ø¸æËû£¬¾ÍËµÀÏĞàÔÙ´ÎÊÕËû»ØÊ¦ÃÅ£¡\n" NOR);
+		return notify_fail("å“¦ï¼Œä½ å¾—å…ˆæŠŠä»–å¼„é†’åœ¨è¯´ã€‚\n");
+	tell_object(me, HIC + my_object->query("name")+"æ·±æ·±çš„å¹äº†å£æ°”ã€‚\n");
+	tell_object(me, HIC + my_object->query("name")+"è¯´é“ï¼šé»˜é£ä»–ä»¬å½“å¹´ä¹Ÿæ˜¯å—äº†åˆ«äººçš„ç‰µè¿ï¼Œæ²¡æƒ³åˆ°ä»–å¦‚ä»Šè¿˜è®°å¾—æˆ‘è¿™ä¸ªå¸ˆå‚…ã€‚\n" NOR);
+	tell_object(me, HIC + RANK_D->query_respect(me)+"ä½ å›å‘Šä»–ï¼Œå°±è¯´è€æœ½å†æ¬¡æ”¶ä»–å›å¸ˆé—¨ï¼\n" NOR);
 
 	me->delete_temp("ylj/step6");
 	me->set_temp("ylj/stepend", 1);

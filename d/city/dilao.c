@@ -6,17 +6,17 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "µØÀÎ");
+        set("short", "åœ°ç‰¢");
         set("long", @LONG
-ÕâÀïÊÇÑÃÃÅºóÔºµÄµØÀÎ£¬ËÄ´¦ÓĞ¼¸¸ö¿´ÊØÔÚÑ²Âß£¬Æø·ÕÉ­ÑÏ¡£²»Ê±ÓĞÀ´Ìá
-ÉóµÄÑÃÒÛ¸ô×ÅÌúÃÅÏòÀïÃæ´óÉùßººÈ×ÅÇô·¸µÄÃû×Ö¡£Å¼¶ûÓĞ¼¸¸ö·¸ÈËÔÚ¿´ÊØµÄÑº
-ËÍÏÂ£¬ËÍÀ´ÕâÀï¹ØÑº¡£Î÷±ßµÄÌúÃÅÉÏ¿ªÓĞÒ»¸öĞ¡´°¿Ú(window)¡£ÎªÁË·½±ãÌ½
-¼àµÄ°ÙĞÕ£¬¿ÉÒÔ´ÓÕâ¸ö´°¿Ú´«µİ(pass)Ğ©³ÔµÄ¶«Î÷½øÈ¥¡£
+è¿™é‡Œæ˜¯è¡™é—¨åé™¢çš„åœ°ç‰¢ï¼Œå››å¤„æœ‰å‡ ä¸ªçœ‹å®ˆåœ¨å·¡é€»ï¼Œæ°”æ°›æ£®ä¸¥ã€‚ä¸æ—¶æœ‰æ¥æ
+å®¡çš„è¡™å½¹éš”ç€é“é—¨å‘é‡Œé¢å¤§å£°å†å–ç€å›šçŠ¯çš„åå­—ã€‚å¶å°”æœ‰å‡ ä¸ªçŠ¯äººåœ¨çœ‹å®ˆçš„æŠ¼
+é€ä¸‹ï¼Œé€æ¥è¿™é‡Œå…³æŠ¼ã€‚è¥¿è¾¹çš„é“é—¨ä¸Šå¼€æœ‰ä¸€ä¸ªå°çª—å£(window)ã€‚ä¸ºäº†æ–¹ä¾¿æ¢
+ç›‘çš„ç™¾å§“ï¼Œå¯ä»¥ä»è¿™ä¸ªçª—å£ä¼ é€’(pass)äº›åƒçš„ä¸œè¥¿è¿›å»ã€‚
 LONG
         );
 
         set("item_desc", ([
-                "men" : "ÕâÊÇÒ»ÉÈ¼«ºñµÄÌúÃÅ¡£\n",
+                "men" : "è¿™æ˜¯ä¸€æ‰‡æåšçš„é“é—¨ã€‚\n",
         ]));
         set("exits", ([
                 "southup" : __DIR__"fyhouyuan",
@@ -40,18 +40,18 @@ int do_pass(string arg)
         object ob;
 
         if (!arg || !(ob = present(arg, this_player())))
-                return notify_fail("ÄãÒªËÍÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦é€ä»€ä¹ˆï¼Ÿ\n");
 
         if (ob->query_weight() > 5000)
-                return notify_fail(ob->query("name")+"Ì«´óÁË£¬²»ÄÜ´Ó´°¿ÚÀïÈû½øÈ¥¡£\n");
+                return notify_fail(ob->query("name")+"å¤ªå¤§äº†ï¼Œä¸èƒ½ä»çª—å£é‡Œå¡è¿›å»ã€‚\n");
 
         if (ob->query("no_drop") || ob->query("id") == "man tou" || ob->query("id") == "hulu" || ob->is_container() || ob->query("hsf"))
-                return notify_fail("Õâ¸ö¶«Î÷·Å²»½øÈ¥¡£\n");
+                return notify_fail("è¿™ä¸ªä¸œè¥¿æ”¾ä¸è¿›å»ã€‚\n");
 
-        message_vision("$N°ÑÒ»"+ob->query("unit")+"$n´Ó´°¿ÚÈûÁË½øÈ¥¡£\n", this_player(), ob);
+        message_vision("$NæŠŠä¸€"+ob->query("unit")+"$nä»çª—å£å¡äº†è¿›å»ã€‚\n", this_player(), ob);
         ob->move("/d/city/laofang");
-        message("vision", this_player()->name()+"´Ó´°ÍâÈû½øÀ´Ò»"
-                +ob->query("unit")+ob->query("name")+"¡£\n",environment(ob), ob);
+        message("vision", this_player()->name()+"ä»çª—å¤–å¡è¿›æ¥ä¸€"
+                +ob->query("unit")+ob->query("name")+"ã€‚\n",environment(ob), ob);
         return 1;
 }
 int do_visit(string arg)
@@ -63,8 +63,8 @@ int do_visit(string arg)
         if(!( env = find_object("/d/city/laofang")) )
                 env = load_object("/d/city/laofang");
 
-        message_vision("$NÅ¿ÔÚ´°Ì¨ÉÏÍùÀïÍûÈ¥¡£\n", me);
-        tell_room(env, "Äã¸Ğµ½ÓĞÒ»Ë«ÑÛ¾¦ÔÚ´°Íâ´òÁ¿Äã¡£\n");
+        message_vision("$Nè¶´åœ¨çª—å°ä¸Šå¾€é‡Œæœ›å»ã€‚\n", me);
+        tell_room(env, "ä½ æ„Ÿåˆ°æœ‰ä¸€åŒçœ¼ç›åœ¨çª—å¤–æ‰“é‡ä½ ã€‚\n");
         return COMMAND_DIR"std/look"->look_room(me, env);
 }
 int do_unlock(string arg)
@@ -73,15 +73,15 @@ int do_unlock(string arg)
         me = this_player();
         
         if (query("exits/west"))
-                return notify_fail("ÕâÉÈÃÅÒÑ¾­ÊÇ´ò¿ªµÄ¡£\n");
+                return notify_fail("è¿™æ‰‡é—¨å·²ç»æ˜¯æ‰“å¼€çš„ã€‚\n");
         if (!arg || (arg != "men" && arg != "west"))
-                return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
         if (!(ob = present("dilao yaoshi", me)))
-                return notify_fail("ÄãÃ»ÓĞÔ¿³×£¬´ò²»¿ªÕâ¸öÀÎÃÅ¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰é’¥åŒ™ï¼Œæ‰“ä¸å¼€è¿™ä¸ªç‰¢é—¨ã€‚\n");
         
         set("exits/west", __DIR__"laofang");
         me->set("succor",1);
-        message_vision("$NÄÃ³öÒ»°ÑÔ¿³×´ò¿ªÁËÀÎÃÅ£¬¿ÉÊÇÔ¿³×È´¿¨ÔÚÃÅÉÏÄÃ²»ÏÂÀ´ÁË¡£\n", me);
+        message_vision("$Næ‹¿å‡ºä¸€æŠŠé’¥åŒ™æ‰“å¼€äº†ç‰¢é—¨ï¼Œå¯æ˜¯é’¥åŒ™å´å¡åœ¨é—¨ä¸Šæ‹¿ä¸ä¸‹æ¥äº†ã€‚\n", me);
         destruct(ob);
         return 1;
 }
@@ -89,7 +89,7 @@ int valid_leave(object me, string dir)
 {
         if (!wizardp(me) && objectp(present("kan shou", environment(me))) && 
                 dir == "west")
-                return notify_fail("¿´ÊØÀ¹×¡ÁËÄãµÄÈ¥Â·¡£\n");
+                return notify_fail("çœ‹å®ˆæ‹¦ä½äº†ä½ çš„å»è·¯ã€‚\n");
         return ::valid_leave(me, dir);
 }
 

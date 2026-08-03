@@ -13,13 +13,13 @@ void init()
 
 void create()
 {
-        set_name(HIR"£Í"HIY"£¦"HIB"£Í"HIW"'"HIG"£ó"NOR, ({"mms"}));
+        set_name(HIR"ï¼­"HIY"ï¼†"HIB"ï¼­"HIW"'"HIG"ï½“"NOR, ({"mms"}));
 	set_weight(20);
 	if (clonep())
 	    set_default_object(__FILE__);
 	else {
-	set("unit", "¿Å");
-	set("long", "Ò»ÅõÎåÑÕÁùÉ«µÄ"+this_object()->name()+"ÇÉ¿ËÁ¦¶¹£¬¡ñ¡ð¡ñ¡ð¡ñ¡ð¡ñ¡ð¡«¡« ÕæÊÇÒ»Á£ÔÚÊÖ£¬ÈýÌì³Ô·¹²»³î¡£\n");
+	set("unit", "é¢—");
+	set("long", "ä¸€æ§äº”é¢œå…­è‰²çš„"+this_object()->name()+"å·§å…‹åŠ›è±†ï¼Œâ—â—‹â—â—‹â—â—‹â—â—‹ï½žï½ž çœŸæ˜¯ä¸€ç²’åœ¨æ‰‹ï¼Œä¸‰å¤©åƒé¥­ä¸æ„ã€‚\n");
 	
 	set("value", 300000);
 	set("food_supply", 150);
@@ -38,19 +38,19 @@ void create()
 int do_eat(string arg)
 {       
         object me = this_player();
-        if (!living(me)) return notify_fail("Ïëµ±»úÂð£¿\n");
+        if (!living(me)) return notify_fail("æƒ³å½“æœºå—ï¼Ÿ\n");
         if (!id(arg)) return 0;
         if( me->query("food") > me->max_food_capacity())
-             return notify_fail("ÄãÒÑ¾­³Ô±¥ÁË£¬Ê²Ã´Ò²³Ô²»ÏÂÁË¡£\n");
+             return notify_fail("ä½ å·²ç»åƒé¥±äº†ï¼Œä»€ä¹ˆä¹Ÿåƒä¸ä¸‹äº†ã€‚\n");
         set("value", 0);
         me->add("food", (int)query("food_supply"));
         add("remaining", -1);
 
         if ( this_object()->query("remaining")){
-            message_vision("$NÁ³´øÎ¢Ð¦£¬ÌðÃÛµØÒ§ÁËÒ»¿Ú"+this_object()->query("name")+"£¬Ö»¾õµÃÏã»¬¿ÉÈË¡£\n",me);
+            message_vision("$Nè„¸å¸¦å¾®ç¬‘ï¼Œç”œèœœåœ°å’¬äº†ä¸€å£"+this_object()->query("name")+"ï¼Œåªè§‰å¾—é¦™æ»‘å¯äººã€‚\n",me);
         }
         else{ 
-            message_vision("$NÒ§ÏÂÁË×îºóÒ»¿Ú"+this_object()->query("name")+"£¬Á³ÉÏ¸¡ÏÖ³öÂú×ãµÄÎ¢Ð¦¡£\n",me);
+            message_vision("$Nå’¬ä¸‹äº†æœ€åŽä¸€å£"+this_object()->query("name")+"ï¼Œè„¸ä¸Šæµ®çŽ°å‡ºæ»¡è¶³çš„å¾®ç¬‘ã€‚\n",me);
             destruct(this_object());
         }
         return 1;

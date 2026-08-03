@@ -1,5 +1,5 @@
-// liuzz.c ÁõÖñ×¯
-// Lklv 2001.9.28 update for open ´óÖÇ·Ö¶æ
+// liuzz.c åˆ˜ç«¹åº„
+// Lklv 2001.9.28 update for open å¤§æ™ºåˆ†èˆµ
 
 inherit NPC;
 
@@ -7,12 +7,12 @@ int action_1();
 
 void create()
 {
-        set_name("ÁõÖñ×¯", ({"liu zhuzhuang", "liu" }));
-        set("title", "Ø¤°ï´óÖÇ·Ö¶æÎå´üµÜ×Ó");
+        set_name("åˆ˜ç«¹åº„", ({"liu zhuzhuang", "liu" }));
+        set("title", "ä¸å¸®å¤§æ™ºåˆ†èˆµäº”è¢‹å¼Ÿå­");
         set("gb/bags", 5);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 28);
-        set("long", "ËûÊÇØ¤°ïÎå´üµÜ×Ó£¬´óÖÇ·Ö¶æÊôÏÂ°ïÖÚ¡£\n");
+        set("long", "ä»–æ˜¯ä¸å¸®äº”è¢‹å¼Ÿå­ï¼Œå¤§æ™ºåˆ†èˆµå±ä¸‹å¸®ä¼—ã€‚\n");
         set("attitude", "peaceful");
         set("shen_type", 1);
         set("str", 25);
@@ -31,12 +31,12 @@ void create()
 
         set("combat_exp", 200000);
 
-        set_skill("force", 80); // »ù±¾ÄÚ¹¦
-        set_skill("huntian-qigong", 80); // »ìÌìÆø¹¦
-        set_skill("strike", 80); // »ù±¾È­½Å
-        set_skill("dodge", 80); // »ù±¾¶ãÉÁ
-        set_skill("xiaoyaoyou", 60); // Ç§ÀïĞĞÆò
-        set_skill("parry", 80); // »ù±¾ÕĞ¼Ü
+        set_skill("force", 80); // åŸºæœ¬å†…åŠŸ
+        set_skill("huntian-qigong", 80); // æ··å¤©æ°”åŠŸ
+        set_skill("strike", 80); // åŸºæœ¬æ‹³è„š
+        set_skill("dodge", 80); // åŸºæœ¬èº²é—ª
+        set_skill("xiaoyaoyou", 60); // åƒé‡Œè¡Œä¹
+        set_skill("parry", 80); // åŸºæœ¬æ‹›æ¶
         set_skill("lianhua-zhang", 80);
 
         map_skill("force", "huntian-qigong");
@@ -45,12 +45,12 @@ void create()
 	map_skill("parry", "lianhua-zhang");
 	prepare_skill("strike", "lianhua-zhang");
 
-        create_family("Ø¤°ï", 20, "Îå´üµÜ×Ó");
+        create_family("ä¸å¸®", 20, "äº”è¢‹å¼Ÿå­");
 
         set("inquiry", ([
-                "Ø¤°ï" : "ÎÒÃÇØ¤°ïÊÇÌìÏÂµÚÒ»´ó°ï£¡\n",
-                "ÇÇ·å" : "ÇÇ¡­¡­Ëû¡­¡­£¬²»¹ØÎÒµÄÊÂ£¡\n",
-                "È«¹ÚÇå" : (: action_1 :),
+                "ä¸å¸®" : "æˆ‘ä»¬ä¸å¸®æ˜¯å¤©ä¸‹ç¬¬ä¸€å¤§å¸®ï¼\n",
+                "ä¹”å³°" : "ä¹”â€¦â€¦ä»–â€¦â€¦ï¼Œä¸å…³æˆ‘çš„äº‹ï¼\n",
+                "å…¨å† æ¸…" : (: action_1 :),
         ]));
         setup();
 

@@ -2,10 +2,10 @@
 // Modify by bbb
 // Modify by snowman@SJ 17/02/2000
 // check leitaiuser.
-//ĞŞ¸Ä by hongba
+//ä¿®æ”¹ by hongba
 #include <ansi.h>
 #include <login.h>
-#define SYNTAX  "Ö¸Áî¸ñÊ½£ºxhw <Ä³ÈË> because <Ô­Òò> \n"
+#define SYNTAX  "æŒ‡ä»¤æ ¼å¼ï¼šxhw <æŸäºº> because <åŸå› > \n"
 
 inherit F_CLEAN_UP;
 
@@ -21,34 +21,34 @@ int main(object me, string str)
                   return notify_fail(SYNTAX);
 
         if (!objectp(ob = LOGIN_D->find_body(name)))
-                  return notify_fail("Õâ¸ö...Õâ¸ö... ÓĞÕâ¸öÈËÂğ?\n");
+                  return notify_fail("è¿™ä¸ª...è¿™ä¸ª... æœ‰è¿™ä¸ªäººå—?\n");
 
 
         if (wiz_level(ob))
-                  return notify_fail("¶Ô·½ÊÇ¹²Í¬·Ü¶·µÄÕ½ÓÑàŞ£¬ÄãÕâÑù×ö²»Ì«ºÃ°É£¿\n");
+                  return notify_fail("å¯¹æ–¹æ˜¯å…±åŒå¥‹æ–—çš„æˆ˜å‹å™¢ï¼Œä½ è¿™æ ·åšä¸å¤ªå¥½å§ï¼Ÿ\n");
 
         if (!objectp(where = environment(ob)))
-                  return notify_fail("Õâ¸öÈË²»ÖªµÀ¶ãÔÚÄÄÀïÒ®... :-( \n");
+                  return notify_fail("è¿™ä¸ªäººä¸çŸ¥é“èº²åœ¨å“ªé‡Œè€¶... :-( \n");
 
         if (file_name(where) == RELAX_ROOM)
-                  return notify_fail("ËûÒÑ¾­ÔÚÌÒ»¨Ô´Ë¼¹ıÁË£¬²»ÓÃÔÙ×¥ÁË¡£\n");
+                  return notify_fail("ä»–å·²ç»åœ¨æ¡ƒèŠ±æºæ€è¿‡äº†ï¼Œä¸ç”¨å†æŠ“äº†ã€‚\n");
 
         if (base_name(ob) == "/cmds/leitai/leitaiuser")
-                return notify_fail(ob->name() + "ÕâÈËÊÇ±ÈÎäÀŞÌ¨Clone³öÀ´µÄ£¬ÔÚÀŞÌ¨ÄÚÈÃËûÀë¿ª¾ÍÊÇÁË¡£\n");
+                return notify_fail(ob->name() + "è¿™äººæ˜¯æ¯”æ­¦æ“‚å°Cloneå‡ºæ¥çš„ï¼Œåœ¨æ“‚å°å†…è®©ä»–ç¦»å¼€å°±æ˜¯äº†ã€‚\n");
 
         
-        tell_object(ob, "ÄúÒòÎª£Û" + reason + "£İ£¬ÔİÊ±±»Çëµ½Ğ¡ºÚÎİºÈ²è¡£\n"
+        tell_object(ob, "æ‚¨å› ä¸ºï¼»" + reason + "ï¼½ï¼Œæš‚æ—¶è¢«è¯·åˆ°å°é»‘å±‹å–èŒ¶ã€‚\n"
         );
 
-        message("channel", HIC "\n¡¾¼ÍÂÉ¡¿"+ob->query("name")
+        message("channel", HIC "\nã€çºªå¾‹ã€‘"+ob->query("name")
                 +"("+capitalize(ob->query("id"))
-                +")ÒòÎª£Û" + reason + "£İ£¬ĞèÒª½ÓÊÜµ÷²é£¬¾ö¶¨Çëµ½"
-                "Ğ¡ºÚÎİºÈ²è¡£\n\n" NOR, users()
+                +")å› ä¸ºï¼»" + reason + "ï¼½ï¼Œéœ€è¦æ¥å—è°ƒæŸ¥ï¼Œå†³å®šè¯·åˆ°"
+                "å°é»‘å±‹å–èŒ¶ã€‚\n\n" NOR, users()
         );
         
 ob->move("d/wizard/xhw");
 
-        tell_object(me, "Äã°Ñ"+ob->query("name")+"×¥µ½ÁËĞ¡ºÚÎİ¡£\n");
+        tell_object(me, "ä½ æŠŠ"+ob->query("name")+"æŠ“åˆ°äº†å°é»‘å±‹ã€‚\n");
         
         
         return 1;
@@ -64,9 +64,9 @@ string query(string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : xhw <Ä³ÈË> because <Ô­Òò> 
-´ËÖ¸Áî¿ÉÈÃÄã½«Ä³¸öÎ¥·´¹æÔòµÄÍæ¼ÒÒÆËÍµ½Ğ¡ºÚÎİ¡£
-µÈ´ı´¦Àí£¬²éÇåÎÊÌâ»òÖ÷¶¯ÈÏ´íºó·½¿É·Å³ö¡£
+æŒ‡ä»¤æ ¼å¼ : xhw <æŸäºº> because <åŸå› > 
+æ­¤æŒ‡ä»¤å¯è®©ä½ å°†æŸä¸ªè¿åè§„åˆ™çš„ç©å®¶ç§»é€åˆ°å°é»‘å±‹ã€‚
+ç­‰å¾…å¤„ç†ï¼ŒæŸ¥æ¸…é—®é¢˜æˆ–ä¸»åŠ¨è®¤é”™åæ–¹å¯æ”¾å‡ºã€‚
 HELP
     );
     return 1;

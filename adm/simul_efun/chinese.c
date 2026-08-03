@@ -10,9 +10,20 @@ string to_chinese(string str)
 
 int is_chinese(string str)
 {
-	if (strlen(str) < 2) return 0;
-	if (str[0] < 176 || str[0] > 247) return 0;
-	if (str[1] < 161 || str[1] > 254) return 0;
-	if (str[0] == 215 && str[1] > 249) return 0;
-	return 1;
+	// FluffOS: str[0] returns Unicode codepoint, not byte value
+	int c;
+
+	if (strlen(str) < 1) return 0;
+	c = str[0];
+
+	// CJK Unified Ideographs: U+4E00 - U+9FFF
+	if (c >= 0x4e00 && c <= 0x9fff) return 1;
+	// CJK Extension A: U+3400 - U+4DBF
+	if (c >= 0x3400 && c <= 0x4dbf) return 1;
+	// CJK Compatibility Ideographs: U+F900 - U+FAFF
+	if (c >= 0xf900 && c <= 0xfaff) return 1;
+	// Fullwidth forms / Chinese punctuation
+	// CJK Unified Ideographs Extension B..H — too rare for names, skip
+
+	return 0;
 }

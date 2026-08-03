@@ -1,18 +1,18 @@
-// NPC : /d/wudang/npc/mang.c Ã§
+// NPC : /d/wudang/npc/mang.c è½
 
 
 inherit NPC;
 
 void create()
 {
-        set_name("¾Şòş", ({ "ju mang", "mang" }) );
-        set("race", "Ò°ÊŞ");
-        set("long", "Ò»Ö»»¨ÎÆ¹ÖÒì£¬ÉíĞÍÆæ´óµÄ¾ŞòşÉß¡£\n");
+        set_name("å·¨èŸ’", ({ "ju mang", "mang" }) );
+        set("race", "é‡å…½");
+        set("long", "ä¸€åªèŠ±çº¹æ€ªå¼‚ï¼Œèº«å‹å¥‡å¤§çš„å·¨èŸ’è›‡ã€‚\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("cor", 30);
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Æß´ç", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ä¸ƒå¯¸", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
 
 

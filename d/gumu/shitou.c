@@ -5,11 +5,11 @@
 inherit ROOM;
 void create()
 {
-	set("short",HIC"Ê¯ÊÒ"NOR);
+	set("short",HIC"çŸ³å®¤"NOR);
 	set("long", @LONG
-´ËµØ¹©¸÷µÜ×Ó´ò×ø¾²ĞŞÖ®ÓÃ¡£µØÉÏ½öÓĞ¼¸¸öÆÑÍÅ£¬¼¸¸ö¹ÅÄ¹µÜ×ÓÕıÔÚ±ÕÄ¿
-ÁìÎò¡£ÕıÃæµÄÊ¯Ç½( qiang)ÉÏ¿Ì×Å²»ÉÙÎÄ×Ö, ×ĞÏ¸Ò»¿´£¬Ô­À´¶¼³­Â¼×ÅËÄÊéÎå
-¾­µÈ¹Å¼®£¬ÓÃÀ´¸ø¹ÅÄ¹µÜ×ÓÌá¸ßĞŞÑø¡£
+æ­¤åœ°ä¾›å„å¼Ÿå­æ‰“åé™ä¿®ä¹‹ç”¨ã€‚åœ°ä¸Šä»…æœ‰å‡ ä¸ªè’²å›¢ï¼Œå‡ ä¸ªå¤å¢“å¼Ÿå­æ­£åœ¨é—­ç›®
+é¢†æ‚Ÿã€‚æ­£é¢çš„çŸ³å¢™( qiang)ä¸Šåˆ»ç€ä¸å°‘æ–‡å­—, ä»”ç»†ä¸€çœ‹ï¼ŒåŸæ¥éƒ½æŠ„å½•ç€å››ä¹¦äº”
+ç»ç­‰å¤ç±ï¼Œç”¨æ¥ç»™å¤å¢“å¼Ÿå­æé«˜ä¿®å…»ã€‚
 LONG
 	);
 
@@ -20,10 +20,10 @@ LONG
 	]));
 
 	set("item_desc", ([
-		"qiang" : "Ç½ÉÏĞ´ÂúÁË¸÷ÖÖ¹Å¼®ÎÄ×Ö¡£\n",
+		"qiang" : "å¢™ä¸Šå†™æ»¡äº†å„ç§å¤ç±æ–‡å­—ã€‚\n",
 	]));
 
-	create_door("west", "Ê¯ÃÅ", "east", DOOR_CLOSED);
+	create_door("west", "çŸ³é—¨", "east", DOOR_CLOSED);
 
 	setup();
 }
@@ -41,23 +41,23 @@ int do_du(string arg)
 
 	if ( !living(me) ) return 0;
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÈçºÎÄÜÁìÎò¹ÅÄ¹Îä¹¦£¿\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œå¦‚ä½•èƒ½é¢†æ‚Ÿå¤å¢“æ­¦åŠŸï¼Ÿ\n");
 	if (arg == "qiang"){                 
 		if ((int)me->query("jing") < 20 )
-			return notify_fail("Äã¾õµÃºÃÀÛ,ºÃÏëË¯¾õ¡£\n");
+			return notify_fail("ä½ è§‰å¾—å¥½ç´¯,å¥½æƒ³ç¡è§‰ã€‚\n");
                 if ( me->query_skill("literate",1) >150)
-			return notify_fail("ÄãÒÑ¾­ÍêÈ«¶Á¶®ÁËÇ½ÉÏµÄÎÄ×Ö¡£\n");
+			return notify_fail("ä½ å·²ç»å®Œå…¨è¯»æ‡‚äº†å¢™ä¸Šçš„æ–‡å­—ã€‚\n");
 		if ( me->query("potential", 1) < 1)
-			return notify_fail("ÄãµÄÇ±ÄÜÃ»ÁË£¬²»ÄÜÔÙ¼ÌĞøĞŞÏ°ÁË¡£\n");
+			return notify_fail("ä½ çš„æ½œèƒ½æ²¡äº†ï¼Œä¸èƒ½å†ç»§ç»­ä¿®ä¹ äº†ã€‚\n");
 		me->add("potential", -1);
                 me->receive_damage("jing", 100 / (int)me->query("int"));
                 me->improve_skill("literate", me->query_int() *3/2 );
-		write("Äã¶Ô×ÅÊ¯±Ú£¬·Â·ğÓĞËùÁìÎò¡£\n");
+		write("ä½ å¯¹ç€çŸ³å£ï¼Œä»¿ä½›æœ‰æ‰€é¢†æ‚Ÿã€‚\n");
 		return 1;
 	}
-	return notify_fail("ÄãÒª¶ÁÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦è¯»ä»€ä¹ˆï¼Ÿ\n");
 }
 
 int do_lingwu(string arg)
@@ -71,33 +71,33 @@ int do_lingwu(string arg)
 	if (! living(me)) return 0;
 
 	if( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÈçºÎÄÜÁìÎò¹ÅÄ¹Îä¹¦£¿\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œå¦‚ä½•èƒ½é¢†æ‚Ÿå¤å¢“æ­¦åŠŸï¼Ÿ\n");
 
 	if (! arg ) return 0;
 
 	if ( arg != "parry" && arg != "sword" && arg != "cuff" && arg != "hand"
 	 &&  arg != "strike" && arg != "force" && arg != "throwing" && arg != "dodge" )
-		return notify_fail("ÄãÎŞ·¨´ÓÕâÀïÁìÎòÆäËûµÄÎä¹¦¡£\n");
+		return notify_fail("ä½ æ— æ³•ä»è¿™é‡Œé¢†æ‚Ÿå…¶ä»–çš„æ­¦åŠŸã€‚\n");
 
 	lvl = me->query_skill( arg, 1);
 
 	if ( lvl < 101 ) 
-		return notify_fail("ÄãµÄ"+to_chinese(arg)+"Ì«µÍ£¬ÎŞ·¨ÔÚ´ËÁìÎò¡£\n");
+		return notify_fail("ä½ çš„"+to_chinese(arg)+"å¤ªä½ï¼Œæ— æ³•åœ¨æ­¤é¢†æ‚Ÿã€‚\n");
 
 	if ( lvl > 120 ) 
-		return notify_fail("ÄãÒÑ¾­ÎŞ·¨´ÓÕâÀïÁìÎòµ½Ê²Ã´ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»æ— æ³•ä»è¿™é‡Œé¢†æ‚Ÿåˆ°ä»€ä¹ˆäº†ã€‚\n");
 
 	if (me->query("jing") < 40)
-		return notify_fail("Äã¾«Á¦²»ÄÜ¼¯ÖĞ,È¥ÉÔ×÷ĞªÏ¢°É¡£\n");
+		return notify_fail("ä½ ç²¾åŠ›ä¸èƒ½é›†ä¸­,å»ç¨ä½œæ­‡æ¯å§ã€‚\n");
 
 	if ((int)me->query_skill("literate", 1) < 100)
-		return notify_fail("Äã¶ÁÊéĞ´×ÖµÈ¼¶²»¹»£¬ÎŞ·¨ÁìÎò´Ë´¦µÄ°ÂÃî¡£ \n");
+		return notify_fail("ä½ è¯»ä¹¦å†™å­—ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•é¢†æ‚Ÿæ­¤å¤„çš„å¥¥å¦™ã€‚ \n");
 
         me->receive_damage("jing", 10 + random(10));
         me->improve_skill( arg, (int)(me->query_int())+ (int)(me->query_skill(arg, 1)/2 ));
-	tell_object(me,"Äã¶Ô×ÅÊ¯±Ú£¬¶Ô"+to_chinese(arg)+"ÓĞËùÁìÎò¡£\n");
+	tell_object(me,"ä½ å¯¹ç€çŸ³å£ï¼Œå¯¹"+to_chinese(arg)+"æœ‰æ‰€é¢†æ‚Ÿã€‚\n");
 	return 1;
 }

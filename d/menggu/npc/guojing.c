@@ -1,4 +1,4 @@
-// guojing.c ¹ù¾¸
+// guojing.c éƒ­é–
 // Created by Zhuifeng@sjfy 08/8/2010
 
 inherit NPC;
@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-   set_name("¹ù¾¸",({"guo jing","guo"}));
-   set("gender","ÄĞĞÔ");
-   set("long","¹ù¾¸³öÉúÔÚÃÉ¹Å,Ëæ½­ÄÏÁù¹ÖÑ§ÒÕ!\n");
-   set("title",HIY"½ğµ¶æâÂí"NOR);
+   set_name("éƒ­é–",({"guo jing","guo"}));
+   set("gender","ç”·æ€§");
+   set("long","éƒ­é–å‡ºç”Ÿåœ¨è’™å¤,éšæ±Ÿå—å…­æ€ªå­¦è‰º!\n");
+   set("title",HIY"é‡‘åˆ€é©¸é©¬"NOR);
    set("shen",1000000);
    set("combat_exp",1000000);
    

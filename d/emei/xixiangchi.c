@@ -7,15 +7,15 @@ string look_chi();
 
 void create()
 {
-        set("short",HIW "Ï´Ïó³Ø±ß" NOR);
+        set("short",HIW "æ´—è±¡æ± è¾¹" NOR);
         set("long", @LONG
-Ï´Ïó³ØÔ­Ö»ÊÇÒ»Í¤£¬Í¤Ç°ÓĞÒ»¸öÊ¯ÆöµÄĞ¡³Ø(pool)£¬³Ø±ß²»Ô¶¾ÍÊÇÎ£ÑÒ¡£
-Ï´Ïó³ØÔ¢ÓÚÒ»Æ¬ÀäÉ¼ÁÖÖĞ£¬ÓĞÈô°×ÔÆÉî´¦µÄÏÉÉ½Çí¸ó¡£ÈôÊÇÔÆÊÕÎíÁ²¡¢±Ì¿ÕÍò
-Àï¡¢ÔÂÀÊÖĞÌìÊ±£¬±ã¾õÍòô¥¾ã¼Å£¬Çå¹âÎŞÏŞ£¬ÍğÈôÉíÔÚÌì¹¬£¬³¹ÌåÉúÁ¹¡£ÕâÕı
-ÊÇÖøÃûµÄ¡¸Ïó³ØÒ¹ÔÂ¡¹¡£ÓÉ´ËÏòÄÏÉÏÅÊ£¬±ãÖÁÀ×¶´Æº£¬¶«ÏÂÖÁÁ«»¨Ê¯¡£
+æ´—è±¡æ± åŸåªæ˜¯ä¸€äº­ï¼Œäº­å‰æœ‰ä¸€ä¸ªçŸ³ç Œçš„å°æ± (pool)ï¼Œæ± è¾¹ä¸è¿œå°±æ˜¯å±å²©ã€‚
+æ´—è±¡æ± å¯“äºä¸€ç‰‡å†·æ‰æ—ä¸­ï¼Œæœ‰è‹¥ç™½äº‘æ·±å¤„çš„ä»™å±±ç¼é˜ã€‚è‹¥æ˜¯äº‘æ”¶é›¾æ•›ã€ç¢§ç©ºä¸‡
+é‡Œã€æœˆæœ—ä¸­å¤©æ—¶ï¼Œä¾¿è§‰ä¸‡ç±ä¿±å¯‚ï¼Œæ¸…å…‰æ— é™ï¼Œå®›è‹¥èº«åœ¨å¤©å®«ï¼Œå½»ä½“ç”Ÿå‡‰ã€‚è¿™æ­£
+æ˜¯è‘—åçš„ã€Œè±¡æ± å¤œæœˆã€ã€‚ç”±æ­¤å‘å—ä¸Šæ”€ï¼Œä¾¿è‡³é›·æ´åªï¼Œä¸œä¸‹è‡³è²èŠ±çŸ³ã€‚
 LONG
         );
-        set("outdoors", "¶ëáÒÉ½");
+        set("outdoors", "å³¨åµ‹å±±");
         set("item_desc",([          
             "pool" : (: look_chi :),
         ]));
@@ -52,8 +52,8 @@ int do_jump(string arg)
         int i, j;
         object me, room, *ob, *inv;
         me = this_player();
-        if ( me->query("gender") == "ÄĞĞÔ" ) {
-            tell_object(me, "ÄãÒ»¸ö´óÀÏÒ¯ÃÇ×öÄÇĞ©ÊÂÇé¸ÉÊ²Ã´£¿\n");
+        if ( me->query("gender") == "ç”·æ€§" ) {
+            tell_object(me, "ä½ ä¸€ä¸ªå¤§è€çˆ·ä»¬åšé‚£äº›äº‹æƒ…å¹²ä»€ä¹ˆï¼Ÿ\n");
             return 1;
         }
         if (!(room = find_object(__DIR__"chi")))
@@ -63,13 +63,13 @@ int do_jump(string arg)
 
      if(!living(me) ) return 0;
      if (me->is_busy() || me->is_fighting())
-        return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+        return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
      if( !arg || arg == "" || arg != "pool" )
-        return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+        return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
         
      if((me->query_encumbrance()*20) > me->query_max_encumbrance())
-        return notify_fail("ÄãÉíÉÏµÄ¶«Î÷Ì«¶àÁË£¡\n");
+        return notify_fail("ä½ èº«ä¸Šçš„ä¸œè¥¿å¤ªå¤šäº†ï¼\n");
 
      inv = all_inventory(me);
        for (i = 0; i < sizeof(inv); i++){
@@ -78,28 +78,28 @@ int do_jump(string arg)
                else if(inv[i]->query("equipped"))
                    inv[i]->unequip();
                else
-                  tell_object(me, "Äã½«"+inv[i]->name()+"ÓÃÒÂÎï×ĞÏ¸°üºÃ¡£\n");         
+                  tell_object(me, "ä½ å°†"+inv[i]->name()+"ç”¨è¡£ç‰©ä»”ç»†åŒ…å¥½ã€‚\n");         
                 }
 
-        tell_object(me, GRN "Äã×ßµ½³Ø±ß£¬³ıÈ¥ÒÂÎï£¬±ãÒªÌø½øÏ´Ïó³Ø¡£\n"NOR);
-        tell_room(environment(me), me->name()+"×ªÉí×ßµ½³Ø±ß£¬ºÃÏóÊÇÒªÌø½ø³ØÀïÓÎË®È¥¡£\n", ({ me }));
+        tell_object(me, GRN "ä½ èµ°åˆ°æ± è¾¹ï¼Œé™¤å»è¡£ç‰©ï¼Œä¾¿è¦è·³è¿›æ´—è±¡æ± ã€‚\n"NOR);
+        tell_room(environment(me), me->name()+"è½¬èº«èµ°åˆ°æ± è¾¹ï¼Œå¥½è±¡æ˜¯è¦è·³è¿›æ± é‡Œæ¸¸æ°´å»ã€‚\n", ({ me }));
        if(j>0){
                 if(j>1) {
-                        write(HIR"ÄãÍ»È»·¢ÏÖ³ØË®ÖĞÓĞÈË£¬¶øÇÒ»¹²»Ö¹Ò»¸ö£¬ÄãÁ¬Ã¦ÍËÁË»ØÀ´¡£\n"NOR);
+                        write(HIR"ä½ çªç„¶å‘ç°æ± æ°´ä¸­æœ‰äººï¼Œè€Œä¸”è¿˜ä¸æ­¢ä¸€ä¸ªï¼Œä½ è¿å¿™é€€äº†å›æ¥ã€‚\n"NOR);
                         return 1;
                 }
-                tell_object(me, "ÄãÍ»È»·¢ÏÖ³ØË®ÖĞÓĞÈË£¡\n");
+                tell_object(me, "ä½ çªç„¶å‘ç°æ± æ°´ä¸­æœ‰äººï¼\n");
                 for(i=0; i<sizeof(ob); i++) {
                         if(!living(ob[i])) continue;
                         if(me->query("gender") == ob[i]->query("gender")){
-                                if(me->query("gender") == "Å®ĞÔ")
-                                        tell_object(me, "¶¨ÑÛÒ»¿´£¬Ô­À´Ò²ÊÇ¸öÅ®×Ó¡£ÄãÇáÇáÒ»Ğ¦£¬×İÉíÌøÏÂË®È¥¡£\n");
-                                if(me->query("gender") != "Å®ĞÔ")
-                                        tell_object(me, "¶¨ÑÛÒ»¿´£¬¶Ô·½²»ÊÇÅ®×Ó¡£ÄãÉîÉîÌ¾ÁË¿ÚÆø£¬×İÉíÌøÏÂË®È¥¡£\n");
+                                if(me->query("gender") == "å¥³æ€§")
+                                        tell_object(me, "å®šçœ¼ä¸€çœ‹ï¼ŒåŸæ¥ä¹Ÿæ˜¯ä¸ªå¥³å­ã€‚ä½ è½»è½»ä¸€ç¬‘ï¼Œçºµèº«è·³ä¸‹æ°´å»ã€‚\n");
+                                if(me->query("gender") != "å¥³æ€§")
+                                        tell_object(me, "å®šçœ¼ä¸€çœ‹ï¼Œå¯¹æ–¹ä¸æ˜¯å¥³å­ã€‚ä½ æ·±æ·±å¹äº†å£æ°”ï¼Œçºµèº«è·³ä¸‹æ°´å»ã€‚\n");
                                 me->move(__DIR__"chi");
                         } else {
-                                tell_object(me, "¶¨ÑÛÒ»¿´£¬Ô­À´¶Ô·½ÊÇÎ»¡£¡£¡£¡£ÄãÁ³ÉÏÒ»ºì£¬Á¬Ã¦´©ÉÏÒÂ·şÍËÁË»ØÀ´¡£\n");
-                                tell_room(environment(me), me->name()+"×ªÉí×ßµ½³Ø±ß£¬¶ÙÁËÒ»¶Ù£¬ÓÖÍËÁË»ØÀ´¡£\n", ({ me })); 
+                                tell_object(me, "å®šçœ¼ä¸€çœ‹ï¼ŒåŸæ¥å¯¹æ–¹æ˜¯ä½ã€‚ã€‚ã€‚ã€‚ä½ è„¸ä¸Šä¸€çº¢ï¼Œè¿å¿™ç©¿ä¸Šè¡£æœé€€äº†å›æ¥ã€‚\n");
+                                tell_room(environment(me), me->name()+"è½¬èº«èµ°åˆ°æ± è¾¹ï¼Œé¡¿äº†ä¸€é¡¿ï¼Œåˆé€€äº†å›æ¥ã€‚\n", ({ me })); 
                         }
                 }
                 return 1; 
@@ -118,24 +118,24 @@ void kan_pool(object me, object room)
     ob = all_inventory(room);
      j = sizeof(ob);
     if (j>0){
-        if (me->query("gender") == "Å®ĞÔ")
+        if (me->query("gender") == "å¥³æ€§")
             return;
-        tell_object(me, HIY "½á¹û·¢ÏÖ³ØÖĞÓĞÈËÔÚÂãÉíÓÎË®£¡ÄãÔ¶Ô¶¿´×ÅÄÇÄ£ºıµÄÑ©°×±³Ó°£¬²»½û´ôÁË¡£¡£¡£\n"NOR);
+        tell_object(me, HIY "ç»“æœå‘ç°æ± ä¸­æœ‰äººåœ¨è£¸èº«æ¸¸æ°´ï¼ä½ è¿œè¿œçœ‹ç€é‚£æ¨¡ç³Šçš„é›ªç™½èƒŒå½±ï¼Œä¸ç¦å‘†äº†ã€‚ã€‚ã€‚\n"NOR);
         if (!wizardp(me))
-                tell_room(environment(me), HIY +me->name()+"Í»È»Á½ÑÛ·¢Ö±£¬ÕÅ´óÁË¿Ú£¬¿ÚË®µÎàªµÎàªÖ±ÍùÍâÁ÷¡£\n"NOR, ({ me }));
+                tell_room(environment(me), HIY +me->name()+"çªç„¶ä¸¤çœ¼å‘ç›´ï¼Œå¼ å¤§äº†å£ï¼Œå£æ°´æ»´å—’æ»´å—’ç›´å¾€å¤–æµã€‚\n"NOR, ({ me }));
         for(i=0; i<sizeof(ob); i++) {
           if(!living(ob[i])) continue;
-          tell_object(ob[i], HIR"\nÄã²»¾­ÒâÒ»»ØÍ·£¬·¢ÏÖÓĞÈË¹í¹íËîËîÔÚ³Ø±ßÍµ¿´£¡\n"NOR);
+          tell_object(ob[i], HIR"\nä½ ä¸ç»æ„ä¸€å›å¤´ï¼Œå‘ç°æœ‰äººé¬¼é¬¼ç¥Ÿç¥Ÿåœ¨æ± è¾¹å·çœ‹ï¼\n"NOR);
           ob[i]->set_temp("looked", 1);
-          if(ob[i]->query("gender") == "Å®ĞÔ"){
-             tell_object(ob[i], HIR"ÄãÑªÆøÉÏ³å£¬¶ÙÊ±¸Ğµ½Ò»ÕóĞıÔÎ£¡\n"NOR);           
+          if(ob[i]->query("gender") == "å¥³æ€§"){
+             tell_object(ob[i], HIR"ä½ è¡€æ°”ä¸Šå†²ï¼Œé¡¿æ—¶æ„Ÿåˆ°ä¸€é˜µæ—‹æ™•ï¼\n"NOR);           
             if(ob[i]->query("jing")>=100)
                 ob[i]->add("jing",-100);
          else
              ob[i]->unconcious();
-          ob[i]->set_temp("apply/short", ({ob[i]->name()+"("+ob[i]->query("id")+")"HIR" <È«Âã> "NOR}));       
+          ob[i]->set_temp("apply/short", ({ob[i]->name()+"("+ob[i]->query("id")+")"HIR" <å…¨è£¸> "NOR}));       
          } else{
-          tell_object(ob[i], "\nÄãËä²»ÒÔÎªÒâ£¬µ«ÒÑ¾­Ã»ÓĞĞËÈ¤ÔÙ¼ÌĞøÓÎË®ÁË¡£\n");
+          tell_object(ob[i], "\nä½ è™½ä¸ä»¥ä¸ºæ„ï¼Œä½†å·²ç»æ²¡æœ‰å…´è¶£å†ç»§ç»­æ¸¸æ°´äº†ã€‚\n");
           ob[i]->force_me("halt");     
           }
         }
@@ -152,9 +152,9 @@ string look_chi()
           room = load_object(__DIR__"chi");
 
         if (me->is_busy())
-                return "ÄãÕıÃ¦×ÅÄØ¡£\n";
+                return "ä½ æ­£å¿™ç€å‘¢ã€‚\n";
         if (!wizardp(me)) {
-                message_vision("$NÇÄÇÄ×ªµ½³Ø±ß£¬Éì³¤²±×ÓÍù³ØÀïÍûÈ¥¡£\n", me);
+                message_vision("$Næ‚„æ‚„è½¬åˆ°æ± è¾¹ï¼Œä¼¸é•¿è„–å­å¾€æ± é‡Œæœ›å»ã€‚\n", me);
                 me->start_busy(30);
         }
         "/cmds/std/look.c"->look_room(this_player(), room);
@@ -170,10 +170,10 @@ int valid_leave(object me, string dir)
       me->receive_damage("jingli",  (int)me->query("dex"));
       return 1; 
         } 
-      if (me->query("gender") != "Å®ĞÔ"
+      if (me->query("gender") != "å¥³æ€§"
         && (dir == "north")) {
                 if (objectp(present("hou zi", environment(me))))
-                        return notify_fail("Ò»Ö»ºï×ÓÔÚÄãÃæÇ°ßóßóÔûÔûµÄ½Ğ×Å¡£\n");
+                        return notify_fail("ä¸€åªçŒ´å­åœ¨ä½ é¢å‰å”§å”§å–³å–³çš„å«ç€ã€‚\n");
                 
         }
       return ::valid_leave(me, dir);

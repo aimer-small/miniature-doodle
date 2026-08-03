@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("µØÆ¦", ({"dipi"}) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("åœ°ç—", ({"dipi"}) );
+        set("gender", "ç”·æ€§" );
         set("age", 20);
-        set("long", "ÕâÊÇÒ»¸öºÈµÄ×íõ¸õ¸µÄµØÆ¦¡£\n");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªå–çš„é†‰é†ºé†ºçš„åœ°ç—ã€‚\n");
 
         set_temp("apply/attack", 15);
         set_temp("apply/defense", 15);

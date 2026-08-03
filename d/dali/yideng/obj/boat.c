@@ -5,13 +5,13 @@
 
 void create()
 {
-	set_name(HIB"ÌúÖÛ"NOR, ({ "tie zhou", "zhou", "boat"}));
+	set_name(HIB"é“èˆŸ"NOR, ({ "tie zhou", "zhou", "boat"}));
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»ËÒºÚ÷î÷îµÄÐ¡´¬¡£\n");
-		set("unit", "ËÒ");
+		set("long", "ä¸€è‰˜é»‘é»é»çš„å°èˆ¹ã€‚\n");
+		set("unit", "è‰˜");
 		set("value", 2000);
 		set("no_sell", 1);
 		set("no_drop", 1);
@@ -34,22 +34,22 @@ int do_pao(string arg)
 	if (!id(arg)) return 0;
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (! objectp(present("tie jiang", me)))
-		return notify_fail("ÄãµÄÌú½°ÄØ£¿\n");
+		return notify_fail("ä½ çš„é“æ¡¨å‘¢ï¼Ÿ\n");
 
 	if ( !environment(me)->query("yideng_boat"))
-		return notify_fail("ÄãÔÚÄÇÀïÖÀÌúÖÛ°¡£¿\n");
+		return notify_fail("ä½ åœ¨é‚£é‡ŒæŽ·é“èˆŸå•Šï¼Ÿ\n");
 
 	if(!( room = find_object("/d/dali/yideng/boat")))
 		room = load_object("/d/dali/yideng/boat");
 
 	if ( room->query("ppl"))
-		return notify_fail("ÆÙ²¼µÄË®Á÷¹ýÓÚÍÄ¼±£¬ÏÖÔÚÒÑ¾­ÓÐËÒÌúÖÛÔÚºÓÖÐÁË£¬Äã»¹ÊÇÏÈµÈ»á°É¡£\n");
+		return notify_fail("ç€‘å¸ƒçš„æ°´æµè¿‡äºŽæ¹æ€¥ï¼ŒçŽ°åœ¨å·²ç»æœ‰è‰˜é“èˆŸåœ¨æ²³ä¸­äº†ï¼Œä½ è¿˜æ˜¯å…ˆç­‰ä¼šå§ã€‚\n");
 
-	message_vision(HIW"\n$N×ª¹ýÉ½½Ç£¬ºÈÒ»Éù£º¡°Æð£¡¡±ÓÃÁ¦ÖÀÈëÆÙ²¼µÄÉÏÓÎ£¬ÌúÖÛÒ»¾­ÖÀ³ö£¬½«Ìú½°\n"+
-		"Ð®ÔÚ×óÒ¸Ö®ÏÂ£¬Ö»¼ûÌúÖÛÒÑË³×ÅË®Á÷³åµ½¸úÇ°£¬Ó¿ÉíÇ°Ô¾£¬ÂäÈëÖÛÖÐ¡£\n\n"NOR, me);
+	message_vision(HIW"\n$Nè½¬è¿‡å±±è§’ï¼Œå–ä¸€å£°ï¼šâ€œèµ·ï¼â€ç”¨åŠ›æŽ·å…¥ç€‘å¸ƒçš„ä¸Šæ¸¸ï¼Œé“èˆŸä¸€ç»æŽ·å‡ºï¼Œå°†é“æ¡¨\n"+
+		"æŒŸåœ¨å·¦è…‹ä¹‹ä¸‹ï¼Œåªè§é“èˆŸå·²é¡ºç€æ°´æµå†²åˆ°è·Ÿå‰ï¼Œæ¶Œèº«å‰è·ƒï¼Œè½å…¥èˆŸä¸­ã€‚\n\n"NOR, me);
 	me->delete_temp("yideng");
 	me->move(room);
 	room->set("ppl", me->name(1));

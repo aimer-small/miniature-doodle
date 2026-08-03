@@ -1,7 +1,7 @@
-// shi.c Ê·ÇàÉ½
+// shi.c å²é’å±±
 // Modified by snowman 21/05/2000
 // Modified by Looklove 2002.1.24
-// changed ask ³¯Í¢¹ÙÎ» to  other file, and changed temp short to temp title
+// changed ask æœå»·å®˜ä½ to  other file, and changed temp short to temp title
 
 inherit NPC;
 #include <ansi.h>
@@ -9,13 +9,13 @@ inherit NPC;
 void create()
 {
 	object ob;
-	set_name("Ê·ÇàÉ½", ({ "shi qingshan", "shi", "qingshan" }));
-	set("title", "ÕıÎåÆ·ÊØ±¸");
-	set("gender", "ÄĞĞÔ");
+	set_name("å²é’å±±", ({ "shi qingshan", "shi", "qingshan" }));
+	set("title", "æ­£äº”å“å®ˆå¤‡");
+	set("gender", "ç”·æ€§");
 	set("age", 33);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "ËûÔøÊÇÎäµ±Ë×¼ÒµÜ×Ó£¬ÓÖ¸úØ¤°ïÓĞµã¹ØÁª£¬ÏÖÔÚÈ´³ÔÉÏÁË³¯Í¢·¹¡£\n");
+	set("long", "ä»–æ›¾æ˜¯æ­¦å½“ä¿—å®¶å¼Ÿå­ï¼Œåˆè·Ÿä¸å¸®æœ‰ç‚¹å…³è”ï¼Œç°åœ¨å´åƒä¸Šäº†æœå»·é¥­ã€‚\n");
 	set("combat_exp", 200000);
 	set("shen_type", 1);
 	set("attitude", "heroism");
@@ -39,8 +39,8 @@ void create()
 	set_temp("apply/damage", 70);
 
 	set("inquiry", ([
-		"Îª¹Ù" : "ÄãÒªÊÇÓĞÒâË¼Í¶¿¿³¯Í¢µÄ»°£¬¾ÍÈ¥ÕÒÕÔÖª¸®°É¡£\n",
-		"±¨Ğ§³¯Í¢" : "ÄãÒªÊÇÓĞÒâË¼Í¶¿¿³¯Í¢µÄ»°£¬¾ÍÈ¥ÕÒÕÔÖª¸®°É¡£\n",
+		"ä¸ºå®˜" : "ä½ è¦æ˜¯æœ‰æ„æ€æŠ•é æœå»·çš„è¯ï¼Œå°±å»æ‰¾èµµçŸ¥åºœå§ã€‚\n",
+		"æŠ¥æ•ˆæœå»·" : "ä½ è¦æ˜¯æœ‰æ„æ€æŠ•é æœå»·çš„è¯ï¼Œå°±å»æ‰¾èµµçŸ¥åºœå§ã€‚\n",
 	]));
 
 	set("max_qi", 1700);
@@ -64,7 +64,7 @@ void create()
 
 int accept_fight(object me)
 {
-       command("say ÀÏ·ò¾ÃÎ´ºÍ½­ºşÈË¶¯ÊÖ¹ıÕĞÁË£¬½ñÈÕÒ²²»ÏëÆÆÀı¡£");
+       command("say è€å¤«ä¹…æœªå’Œæ±Ÿæ¹–äººåŠ¨æ‰‹è¿‡æ‹›äº†ï¼Œä»Šæ—¥ä¹Ÿä¸æƒ³ç ´ä¾‹ã€‚");
        return 0;
 }
 
@@ -84,7 +84,7 @@ void die()
 	object killer;
 	if(objectp(killer = query_temp("last_damage_from")) ){
 		killer->add_condition("killer", 30);
-		command("say "+killer->name()+"Äã¾¹¸ÒÄ±É±³¯Í¢Ãü¹Ù£¡À´ÈË°¡¡£¡£¡£");
+		command("say "+killer->name()+"ä½ ç«Ÿæ•¢è°‹æ€æœå»·å‘½å®˜ï¼æ¥äººå•Šã€‚ã€‚ã€‚");
 	}
         ::die();
 }

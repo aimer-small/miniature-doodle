@@ -6,8 +6,8 @@ int update_condition(object me, int duration)
 {
     me->receive_wound("jing", 20*(1+random(10)));
  	me->apply_condition("sy_poison", duration - 1);
-	tell_object(me, HIG "Ò»¹ÉÈÈÆøÓ¿ÈëĞÄÍ·£¬Äã²»½û·³¶ñÓûÅ»¡£ÄãÖĞµÄ" HIR "´óÊÖÓ¡ÕÆ¶¾" HIG "·¢×÷ÁË£¡\n" NOR );
-        message("vision", me->name() + "ÃæÉ«³±ºì£¬²½ÂÄõçõÇ£¬ËÄÖ«ÂÒ²üÕ¾Á¢²»ÎÈ¡£\n",
+	tell_object(me, HIG "ä¸€è‚¡çƒ­æ°”æ¶Œå…¥å¿ƒå¤´ï¼Œä½ ä¸ç¦çƒ¦æ¶æ¬²å‘•ã€‚ä½ ä¸­çš„" HIR "å¤§æ‰‹å°æŒæ¯’" HIG "å‘ä½œäº†ï¼\n" NOR );
+        message("vision", me->name() + "é¢è‰²æ½®çº¢ï¼Œæ­¥å±¥è¹’è·šï¼Œå››è‚¢ä¹±é¢¤ç«™ç«‹ä¸ç¨³ã€‚\n",
             environment(me), me);
         if( duration < 1 ) return 0;
 	return 1;

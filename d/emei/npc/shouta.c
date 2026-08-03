@@ -5,10 +5,10 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name("ÊØËşµÜ×Ó", ({ "shouta dizi", "dizi"  }));
-        set("long","ÕâÊÇ¸ö×¨ÃÅÊØËşµÄ¶ëáÒÅÉÅ®µÜ×Ó£¬ËıÒ»¼ûÄãÉíÉÏ´ø×ÅÌúÖ¸»·£¬Á¢¿ÌÉÏÇ°×èÖ¹Äã¡£\n");
+        set_name("å®ˆå¡”å¼Ÿå­", ({ "shouta dizi", "dizi"  }));
+        set("long","è¿™æ˜¯ä¸ªä¸“é—¨å®ˆå¡”çš„å³¨åµ‹æ´¾å¥³å¼Ÿå­ï¼Œå¥¹ä¸€è§ä½ èº«ä¸Šå¸¦ç€é“æŒ‡ç¯ï¼Œç«‹åˆ»ä¸Šå‰é˜»æ­¢ä½ ã€‚\n");
         
-        set("gender", "Å®ĞÔ");
+        set("gender", "å¥³æ€§");
         set("attitude", "aggressive");
         set("class", "bonze");
 
@@ -43,7 +43,7 @@ void create()
         map_skill("sword", "huifeng-jian");
         map_skill("parry", "huifeng-jian");
         map_skill("dodge", "anying-fuxiang");
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
         setup();
         carry_object("/d/emei/obj/changjian")->wield();
@@ -71,7 +71,7 @@ int checking(object me)
         object ob;
         if(objectp(ob = present("corpse", environment(me)))){
            destruct(ob);       
-           tell_room(environment(me), me->query("name")+"ºÙºÙÒ»Ğ¦£¬½«Ê¬ÌåÒ»½ÅÌß¿ª¡£\n", ({me}));
+           tell_room(environment(me), me->query("name")+"å˜¿å˜¿ä¸€ç¬‘ï¼Œå°†å°¸ä½“ä¸€è„šè¸¢å¼€ã€‚\n", ({me}));
            call_out("checking", 2, me);
            return 1;
            }
@@ -92,7 +92,7 @@ void do_back(object me)
               "west" : "/d/emei/zhulin",          
 	      "enter" : "/d/emei/wanfota",
          ]));  
-  tell_room(environment(me), me->query("name")+"¼¸¸öÆğÂä£¬ÉÁÉí²»¼ûÁË¡£\n", ({me}));     
+  tell_room(environment(me), me->query("name")+"å‡ ä¸ªèµ·è½ï¼Œé—ªèº«ä¸è§äº†ã€‚\n", ({me}));     
   destruct(me); 
   return;
 }

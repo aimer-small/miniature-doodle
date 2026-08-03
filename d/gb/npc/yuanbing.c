@@ -10,9 +10,9 @@ void create()
 	string weapon;
 	weapon = k_weapon[random(sizeof(k_weapon))];
 
-	set_name("Ôª±ø", ({ "yuan bing", "bing" }));
-	set("gender", "ÄĞĞÔ");
-	set("long", "ÕâÈËÉí´©¾ü×°£¬Ë«Ä¿ÓĞÉñ£¬ÂúÁ³ºúĞë£¬À´»ØÑ²ÊÓ¡£\n");
+	set_name("å…ƒå…µ", ({ "yuan bing", "bing" }));
+	set("gender", "ç”·æ€§");
+	set("long", "è¿™äººèº«ç©¿å†›è£…ï¼ŒåŒç›®æœ‰ç¥ï¼Œæ»¡è„¸èƒ¡é¡»ï¼Œæ¥å›å·¡è§†ã€‚\n");
 	set("age", random(20)+25);
 	set("str", 20+random(5));
 	set("int",20+random(5));
@@ -55,8 +55,8 @@ void init()
 	if(!ob->query_temp("gb_job2")
     	 && (file_name(environment(ob)))[0..14]=="/d/gb/liangcang"
          && userp(ob)){
-    	command("say Ê²Ã´ÈË£¿·Å¼ı£¡\n");
-    	message_vision("$NÁ¬ÖĞÊı¼ı£¬Âä»Ä¶øÌÓ¡£\n",ob);
+    	command("say ä»€ä¹ˆäººï¼Ÿæ”¾ç®­ï¼\n");
+    	message_vision("$Nè¿ä¸­æ•°ç®­ï¼Œè½è’è€Œé€ƒã€‚\n",ob);
 		ob->move("/d/xiangyang/xuanwumen.c");
 		ob->set("qi",100);
 		ob->set("eff_qi",100);
@@ -64,7 +64,7 @@ void init()
 	   	return;
 	}
 
-   	command("say ´óµ¨£¡£¡£¡\n");
+   	command("say å¤§èƒ†ï¼ï¼ï¼\n");
 
 	killerskill1 = skill2[random(sizeof(skill2))];
 	number = (int)(number*(9+random(1))/10);

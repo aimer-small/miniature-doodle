@@ -62,12 +62,12 @@ mapping *dest = ({
 
 void create()
 {
-	set_name("ÂæÍÕÉÌ¶Ó", ({ "shangdui"}));
-	set("unit", "Ö»");
+	set_name("éª†é©¼å•†é˜Ÿ", ({ "shangdui"}));
+	set("unit", "åª");
 	set("location", 1);
 	set_weight(900000);
-	set("long", "Ò»Ö»Ô¶µÀ¶øÀ´µÄÂæÍÕÉÌ¶Ó£¬ÂæÍÕ±³ÉÏ¶ÑÂúÁË»õÎï¡£\n"+
-			"ÉÌÈËÃÇÊÖÖĞÌá×ÅÒ»Ğ©²¼´ü£¬¿´À´ÊÇ±È½ÏÖØÒªµÄ¶«Î÷¡£¡£¡£\n");
+	set("long", "ä¸€åªè¿œé“è€Œæ¥çš„éª†é©¼å•†é˜Ÿï¼Œéª†é©¼èƒŒä¸Šå †æ»¡äº†è´§ç‰©ã€‚\n"+
+			"å•†äººä»¬æ‰‹ä¸­æç€ä¸€äº›å¸ƒè¢‹ï¼Œçœ‹æ¥æ˜¯æ¯”è¾ƒé‡è¦çš„ä¸œè¥¿ã€‚ã€‚ã€‚\n");
 	set("no_get", 1);
 	set("no_drop", 1);
 }
@@ -93,12 +93,12 @@ int do_rob()
    	if(!living(me)) return 0;
    	
 	if( query_temp("robber") != me ) 
-		return notify_fail("ÄãÕâ¼éÔô£¬¾¹¸Ò¹âÌì»¯ÈÕÖ®ÏÂÀ¹½ØÉÌ¶Ó£¬²»ÅÂ±»´òÈëÌìÀÎÂğ£¿\n");
+		return notify_fail("ä½ è¿™å¥¸è´¼ï¼Œç«Ÿæ•¢å…‰å¤©åŒ–æ—¥ä¹‹ä¸‹æ‹¦æˆªå•†é˜Ÿï¼Œä¸æ€•è¢«æ‰“å…¥å¤©ç‰¢å—ï¼Ÿ\n");
 
 	if( objectp(present("hubiao biaoshi", environment(me))) )
-		return notify_fail("»¤ïÚïÚÊ¦¿´À´Îä¹¦²»Èõ£¬Äã»¹ÊÇÏÈ´ò·¢ÁËÃæÇ°Õâ¸öÔÙËµ°É£¡\n");  
+		return notify_fail("æŠ¤é•–é•–å¸ˆçœ‹æ¥æ­¦åŠŸä¸å¼±ï¼Œä½ è¿˜æ˜¯å…ˆæ‰“å‘äº†é¢å‰è¿™ä¸ªå†è¯´å§ï¼\n");  
 
-	message_vision(HIY"$N¶Ô×Å$n´óºğÒ»Éù£ºĞÇËŞ"+me->name()+"ÔÚ´Ë£¡ÁôÏÂÄãÃÇµÄÇ®²ÆÀ´£¡\n"NOR, me, ob);
+	message_vision(HIY"$Nå¯¹ç€$nå¤§å¼ä¸€å£°ï¼šæ˜Ÿå®¿"+me->name()+"åœ¨æ­¤ï¼ç•™ä¸‹ä½ ä»¬çš„é’±è´¢æ¥ï¼\n"NOR, me, ob);
 	me->set_temp("xx_rob", 1);
 	if(!ob->query("going")){
 		while (i--) if (arg == dest[i]["name"]) break;
@@ -129,13 +129,13 @@ void make_bs(object me, object ob)
         }
         
    	else{
-       		message_vision(HIW"$N¼ûÒÑ¾­ÎŞÈË±£»¤£¬ÔÚ$nµÄÍşĞ²ÏÂ£¬Ö»µÃÍ£ÁËÏÂÀ´£¬½«Ëù´øµÄ²ÆÎï¹Ô¹ÔµØÏ×ÉÏ£¡\n"NOR, ob, me);    
+       		message_vision(HIW"$Nè§å·²ç»æ— äººä¿æŠ¤ï¼Œåœ¨$nçš„å¨èƒä¸‹ï¼Œåªå¾—åœäº†ä¸‹æ¥ï¼Œå°†æ‰€å¸¦çš„è´¢ç‰©ä¹–ä¹–åœ°çŒ®ä¸Šï¼\n"NOR, ob, me);    
        		obj=new("/d/xingxiu/obj/red");
        		obj->move(me);
        		obj->set("owner", me->query("id"));
        		me->add("shen", -(me->query("combat_exp")/20));
        		me->delete_temp("xx_rob");
-       		message_vision("$N´ø×ÅÂæÍÕ£¬×ª¹ı¼¸¸öĞ¡É½Çğ¾Í²»¼ûÁË¡£\n", ob);
+       		message_vision("$Nå¸¦ç€éª†é©¼ï¼Œè½¬è¿‡å‡ ä¸ªå°å±±ä¸˜å°±ä¸è§äº†ã€‚\n", ob);
        		destruct(ob);
        }       
 }
@@ -146,21 +146,21 @@ void go_stage(object me, int stage, int i, int size, object player)
    	int f = me->query("f");
    	
    	if(stage < size && objectp(player)) {
-     		message_vision(HIY"$N´Ò´ÒÃ¦Ã¦µØÏòÓĞ×¤¾üµÄ¹Ø¿Ú·½ÏòÌÓÈ¥¡£\n"NOR, me);
+     		message_vision(HIY"$NåŒ†åŒ†å¿™å¿™åœ°å‘æœ‰é©»å†›çš„å…³å£æ–¹å‘é€ƒå»ã€‚\n"NOR, me);
      		me->move(dest[i]["context"][stage]);
-     		message_vision(HIY"$N´Ò´ÒÃ¦Ã¦µØ±¼ÁË¹ıÀ´¡£\n"NOR, me);
+     		message_vision(HIY"$NåŒ†åŒ†å¿™å¿™åœ°å¥”äº†è¿‡æ¥ã€‚\n"NOR, me);
      		where = environment(me); 
-     		tell_object(player, HIM+me->query("name")+"ºÃÏóÌÓÍùÁË"+(string)where->query("short")+HIM"Ò»´ø¡£\n"NOR);
+     		tell_object(player, HIM+me->query("name")+"å¥½è±¡é€ƒå¾€äº†"+(string)where->query("short")+HIM"ä¸€å¸¦ã€‚\n"NOR);
      		call_out("go_stage", f, me, ++stage, i, size, player);
      	}
    	else {    
    		if(objectp(player)){
-     			tell_object(player, HIM+me->query("name")+HIM"³É¹¦µØÌÓ½øÁË³ÇÕò¡£\n"NOR);
+     			tell_object(player, HIM+me->query("name")+HIM"æˆåŠŸåœ°é€ƒè¿›äº†åŸé•‡ã€‚\n"NOR);
      			player->delete_temp("xx2");
      			player->delete_temp("xx_rob");
      		}
      		
-     		message_vision(MAG"\n$N×ª½ø¹ØÖĞ£¬ÔÚ¹Ù±øµÄ»¤ËÍÏÂÀë¿ªÁË¡£\n"NOR,me);      
+     		message_vision(MAG"\n$Nè½¬è¿›å…³ä¸­ï¼Œåœ¨å®˜å…µçš„æŠ¤é€ä¸‹ç¦»å¼€äº†ã€‚\n"NOR,me);      
      		destruct(me);
      	}
 }
@@ -168,13 +168,13 @@ void go_stage(object me, int stage, int i, int size, object player)
 void destroying(object me, int i)
 {
 	if( i ){
-		message_vision("$N´ø×ÅÂæÍÕ£¬×ª¹ı¼¸¸öĞ¡É½Çğ¾Í²»¼ûÁË¡£\n", me);       
+		message_vision("$Nå¸¦ç€éª†é©¼ï¼Œè½¬è¿‡å‡ ä¸ªå°å±±ä¸˜å°±ä¸è§äº†ã€‚\n", me);       
        		destruct(me);
        		return;
        	}
        	
    	if(!me->query("going")){
-       		message_vision("$N´ø×ÅÂæÍÕ£¬×ª¹ı¼¸¸öĞ¡É½Çğ¾Í²»¼ûÁË¡£\n", me);       
+       		message_vision("$Nå¸¦ç€éª†é©¼ï¼Œè½¬è¿‡å‡ ä¸ªå°å±±ä¸˜å°±ä¸è§äº†ã€‚\n", me);       
        		destruct(me);
        		return;
        	}

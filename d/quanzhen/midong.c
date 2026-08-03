@@ -1,15 +1,15 @@
-// È«Õæ½Ì qixing-jian/lianzhen2 quest
+// å…¨çœŸæ•™ qixing-jian/lianzhen2 quest
 //modifield by action@SJ 2008/9/18
 #include <ansi.h>;
 inherit ROOM;
 
 void create()
 {
-	set("short", HIB"ÃÜ¶´"NOR);
+	set("short", HIB"å¯†æ´ž"NOR);
 	set("long", @LONG
-ÕâÊÇÈ«Õæ½ÌÍõÖØÑô×Ô¼ºÍÚ¾òµÄÃÜ¶´£¬µ±Ì«ÑôÉýÆðÊ±ÄÜÖ±ÉäÈ«¶´¡£ÏóÊÇÓÐÈËÔÚ´Ë×¡
-¹ý£¬ÕýÃæÓÐÒ»Ê¯´²£¬×ó±ß·ÅÓÐÒ»Ð©Ê¯Íë£¬¶¥ÉÏµÄ¾ÓÈ»ÓÐ¼¸¸öÐ¡¶´(hole)£¬Ñô¹âÍ¸
-¹ýÐ¡¶´Ö±Éä½øÀ´£¬ÕâÓÐÐ¡¶´µÄÅÅÁÐºÜÏñ±±¶·ÆßÐÇµÄÅÅÁÐ£¬Äã¿ÉÒÔÑÝÁ·(yanlian)¡£
+è¿™æ˜¯å…¨çœŸæ•™çŽ‹é‡é˜³è‡ªå·±æŒ–æŽ˜çš„å¯†æ´žï¼Œå½“å¤ªé˜³å‡èµ·æ—¶èƒ½ç›´å°„å…¨æ´žã€‚è±¡æ˜¯æœ‰äººåœ¨æ­¤ä½
+è¿‡ï¼Œæ­£é¢æœ‰ä¸€çŸ³åºŠï¼Œå·¦è¾¹æ”¾æœ‰ä¸€äº›çŸ³ç¢—ï¼Œé¡¶ä¸Šçš„å±…ç„¶æœ‰å‡ ä¸ªå°æ´ž(hole)ï¼Œé˜³å…‰é€
+è¿‡å°æ´žç›´å°„è¿›æ¥ï¼Œè¿™æœ‰å°æ´žçš„æŽ’åˆ—å¾ˆåƒåŒ—æ–—ä¸ƒæ˜Ÿçš„æŽ’åˆ—ï¼Œä½ å¯ä»¥æ¼”ç»ƒ(yanlian)ã€‚
 LONG
 	);
 
@@ -32,22 +32,22 @@ int do_yanlian(string arg)
 	if( !living(me) ) return 0;
 
 	if( (int)me->query_skill("qixing-jian", 1) < 400 )
-		return notify_fail("ÄãµÄ±±¶·ÆßÐÇ½£·¨µÈ¼¶²»×ã£¬ÔõÃ´Á·Ò²Ã»ÓÐÓÃ¡£\n");
+		return notify_fail("ä½ çš„åŒ—æ–—ä¸ƒæ˜Ÿå‰‘æ³•ç­‰çº§ä¸è¶³ï¼Œæ€Žä¹ˆç»ƒä¹Ÿæ²¡æœ‰ç”¨ã€‚\n");
 
 	if( me->is_busy() || me->is_fighting() )
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	
   	       
-	if( arg == "½£ÕÐ" ) {
+	if( arg == "å‰‘æ‹›" ) {
 	
-			message_vision("$NÂýÂý°´ÕÕÐ¡¶´ÖÐÉä½øÀ´µÄ¹âÏß£¬×ßÆø±±¶·ÆßÐÇ½£ÆßÐÇÁ¬ÕóµÄÕÐÊ½À´¡£\n", me);
+			message_vision("$Næ…¢æ…¢æŒ‰ç…§å°æ´žä¸­å°„è¿›æ¥çš„å…‰çº¿ï¼Œèµ°æ°”åŒ—æ–—ä¸ƒæ˜Ÿå‰‘ä¸ƒæ˜Ÿè¿žé˜µçš„æ‹›å¼æ¥ã€‚\n", me);
 			me->set("/quest/quanzhen/lianzhen/time",time());
       me->set("/quest/quanzhen/lianzhen/combat_exp",me->query("combat_exp"));
 		    remove_call_out("canwu");
        call_out("canwu", 1, me);  
        return 1;
          }  
-      return notify_fail("Ê²Ã´£¿\n");
+      return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
          
 } 							
 void canwu(object me)
@@ -55,7 +55,7 @@ void canwu(object me)
   if(!me) return;  
     remove_call_out("thinking");
     call_out("thinking", 1, me); 
-    tell_object(me,HIR"Äã¸ú×Å´ÓÐ¡¶´·¢³öÀ´µÄ¹âÏß£¬ÑÝÁ·×Å±±¶·ÆßÐÇµÄ²½·¨.........\n"NOR);
+    tell_object(me,HIR"ä½ è·Ÿç€ä»Žå°æ´žå‘å‡ºæ¥çš„å…‰çº¿ï¼Œæ¼”ç»ƒç€åŒ—æ–—ä¸ƒæ˜Ÿçš„æ­¥æ³•.........\n"NOR);
     me->start_busy(2);
 }
 
@@ -67,8 +67,8 @@ int thinking(object me, object ob)
   if(me->query_temp("lianzhen_thinking")<(3+random(3)))
 	{
 		me->add_temp("lianzhen_thinking",1);
-    if(random(2)) tell_object(me,WHT"\nÄã°´ÕÕ¹âÏßÕÕ½øÀ´µÄÂ·ÏßÕÐÊ½,ÊÔ×ÅÁ·ÁËÒ»±é£¬Äã·¢ÏÖÄãµÄ½£ÕÐÔ½À´Ô½¿ì...\n"NOR);
-    else tell_object(me,HIG"\n\nÍ»È»¼ä£¬ÄãËÆºõ×¥µ½ÁËÊ²Ã´£¬ö®Ê±ÃÜ¶´ÖÐ½ð¹âÉÁÒ«£¬ÄãËÆºõ¸Ð¾õµ½ÁË±±¶·ÐÇÔËÐÐ±ä»¯...\n"NOR);
+    if(random(2)) tell_object(me,WHT"\nä½ æŒ‰ç…§å…‰çº¿ç…§è¿›æ¥çš„è·¯çº¿æ‹›å¼,è¯•ç€ç»ƒäº†ä¸€éï¼Œä½ å‘çŽ°ä½ çš„å‰‘æ‹›è¶Šæ¥è¶Šå¿«...\n"NOR);
+    else tell_object(me,HIG"\n\nçªç„¶é—´ï¼Œä½ ä¼¼ä¹ŽæŠ“åˆ°äº†ä»€ä¹ˆï¼ŒéœŽæ—¶å¯†æ´žä¸­é‡‘å…‰é—ªè€€ï¼Œä½ ä¼¼ä¹Žæ„Ÿè§‰åˆ°äº†åŒ—æ–—æ˜Ÿè¿è¡Œå˜åŒ–...\n"NOR);
 	  remove_call_out("thinking");
 		call_out("thinking",3+random(3), me, ob);
 	}
@@ -80,22 +80,22 @@ int thinking(object me, object ob)
 
          if(p > 25 && random(me->query("kar"))>20)
     {
-       tell_object(me,HIG"\nÄã·¢ÏÖÄãÒÑ¾­ÍêÈ«¿´¶®ÁËÇ½±ÚµÄÕÐÊ½£¬ÕÐÊ½ÒÑÈçÎÞÓëÂ×±ÈÖ®¾³£¬Õæ¸öÊ¯ÊÒ³äÂúÁËÒ»¸öÕæÆø¡£\n"NOR);
-       message_vision(HIG"\n$N¡¸¹þ¹þ¹þ¡¹´óÐ¦¼¸Éù£¬ËµµÀ£º¡°Ô­À´Èç´Ë£¬Ô­À´Èç´Ë¡£¡±\n"NOR,me); 
+       tell_object(me,HIG"\nä½ å‘çŽ°ä½ å·²ç»å®Œå…¨çœ‹æ‡‚äº†å¢™å£çš„æ‹›å¼ï¼Œæ‹›å¼å·²å¦‚æ— ä¸Žä¼¦æ¯”ä¹‹å¢ƒï¼ŒçœŸä¸ªçŸ³å®¤å……æ»¡äº†ä¸€ä¸ªçœŸæ°”ã€‚\n"NOR);
+       message_vision(HIG"\n$Nã€Œå“ˆå“ˆå“ˆã€å¤§ç¬‘å‡ å£°ï¼Œè¯´é“ï¼šâ€œåŽŸæ¥å¦‚æ­¤ï¼ŒåŽŸæ¥å¦‚æ­¤ã€‚â€\n"NOR,me); 
        me->set("quest/quanzhen/lianzhen","pass");
        me->delete_temp("quest/lianzhen/asked");
-       message_vision(HIC"\nÄã¸ù¾ÝÕÕ½øÀ´µÄ¹âÏß£¬ÖÕÓÚÁìÎòÁËÆßÐÇÁ¬ÕóµÄ¾«»ªËùÔÚ¡£¡±\n"NOR,me);     
+       message_vision(HIC"\nä½ æ ¹æ®ç…§è¿›æ¥çš„å…‰çº¿ï¼Œç»ˆäºŽé¢†æ‚Ÿäº†ä¸ƒæ˜Ÿè¿žé˜µçš„ç²¾åŽæ‰€åœ¨ã€‚â€\n"NOR,me);     
     
        
-	log_file("quest/quanzhen", sprintf("%s(%s) Ê§°Ü%d´Î³É¹¦½â¿ªÆßÐÇÁ¬Õó¡£¸»Ô´£º%d£»¾­Ñé£º%d¡£", me->name(1),me->query("id"), me->query("quest/quanzhen/lianzhen/fail"),me->query("kar"),me->query("combat_exp")) );
+	log_file("quest/quanzhen", sprintf("%s(%s) å¤±è´¥%dæ¬¡æˆåŠŸè§£å¼€ä¸ƒæ˜Ÿè¿žé˜µã€‚å¯Œæºï¼š%dï¼›ç»éªŒï¼š%dã€‚", me->name(1),me->query("id"), me->query("quest/quanzhen/lianzhen/fail"),me->query("kar"),me->query("combat_exp")) );
     }
     else
     {
-       tell_object(me,HIG"\nÄãÄÔº£ÀïËÆºõ×¥×¡ÁËÊ²Ã´£¬¿ÉÊÇÒÀÈ»²»µÃÒªÁì¡£\n"NOR);
-       message_vision(HIC"\n$NÒ¡ÁËÒ¡Í·£¬µÀ£º¡°ºÃÏñ»¹ÊÇºÜÀ§ÄÑµÄ¡£¡±Ëµ°Õ£¬ÉîÉîµØÌ¾ÁË¿ÚÆø¡£\n"NOR,me); 
+       tell_object(me,HIG"\nä½ è„‘æµ·é‡Œä¼¼ä¹ŽæŠ“ä½äº†ä»€ä¹ˆï¼Œå¯æ˜¯ä¾ç„¶ä¸å¾—è¦é¢†ã€‚\n"NOR);
+       message_vision(HIC"\n$Næ‘‡äº†æ‘‡å¤´ï¼Œé“ï¼šâ€œå¥½åƒè¿˜æ˜¯å¾ˆå›°éš¾çš„ã€‚â€è¯´ç½¢ï¼Œæ·±æ·±åœ°å¹äº†å£æ°”ã€‚\n"NOR,me); 
        me->add("quest/quanzhen/lianzhen/fail",1);
        me->move("d/quanzhen/shandong");
-	log_file("quest/quanzhen", sprintf("%s(%s) ½âÆßÐÇÁ¬ÕóÊ§°Ü£º%d´Î¡£¸»Ô´£º%d£»¾­Ñé£º%d¡£", me->name(1),me->query("id"), me->query("quest/quanzhen/lianzhen/fail"),me->query("kar"),me->query("combat_exp")) );
+	log_file("quest/quanzhen", sprintf("%s(%s) è§£ä¸ƒæ˜Ÿè¿žé˜µå¤±è´¥ï¼š%dæ¬¡ã€‚å¯Œæºï¼š%dï¼›ç»éªŒï¼š%dã€‚", me->name(1),me->query("id"), me->query("quest/quanzhen/lianzhen/fail"),me->query("kar"),me->query("combat_exp")) );
     }
   }
   return 1;

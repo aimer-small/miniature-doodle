@@ -1,12 +1,12 @@
-// zhang_bt.c ÕÅïÚÍ·
+// zhang_bt.c å¼ é•–å¤´
 
 inherit NPC;
 void create()
 {
-	set_name("ÕÅïÚÍ·", ({ "zhang biaotou", "zhang", "biaotou" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("å¼ é•–å¤´", ({ "zhang biaotou", "zhang", "biaotou" }));
+	set("gender", "ç”·æ€§");
 	set("age", 40);
-	set("long", "ËûÊÇ¡¸¸£ÍşïÚ¾Ö¡¹µÄÒ»¸öïÚÍ·¡£\n");
+	set("long", "ä»–æ˜¯ã€Œç¦å¨é•–å±€ã€çš„ä¸€ä¸ªé•–å¤´ã€‚\n");
 	set("shen_type", 1);
 
         set("str", 25);

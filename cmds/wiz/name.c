@@ -16,37 +16,37 @@ int main(object me, string arg)
 //	mixed mysql;
 
 	if( !arg )
-		return notify_fail("ÄãÒª¸øË­È¡Ê²Ã´Ãû×Ö£¿\n");
+		return notify_fail("ä½ è¦ç»™è°å–ä»€ä¹ˆåå­—ï¼Ÿ\n");
 
 	if (sscanf(arg, "%s %s", tmp, arg) == 2) {
 		if (arg == "noname")
-			arg = "Ãû×Ö´ı¶¨";
+			arg = "åå­—å¾…å®š";
 		ob = LOGIN_D->find_body(tmp);
 	}
 
 	if (!ob)
-		return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
 
 	if (wiz_level(me) < wiz_level(ob))
-		return notify_fail("Äã²»ÄÜ°ïÎ×Ê¦µÈ¼¶±ÈÄã¸ßµÄÎ×Ê¦¸ÄÃû¡£\n");
+		return notify_fail("ä½ ä¸èƒ½å¸®å·«å¸ˆç­‰çº§æ¯”ä½ é«˜çš„å·«å¸ˆæ”¹åã€‚\n");
 
 	if (strlen(arg) < 4)
-		return notify_fail("Õâ¸öÃû×ÖÌ«¶ÌÁË£¬ÏëÒ»¸ö³¤Ò»µãµÄ¡¢ÏìÁÁÒ»µãµÄ¡£\n");
+		return notify_fail("è¿™ä¸ªåå­—å¤ªçŸ­äº†ï¼Œæƒ³ä¸€ä¸ªé•¿ä¸€ç‚¹çš„ã€å“äº®ä¸€ç‚¹çš„ã€‚\n");
 
 	if (strlen(arg) > 8)
-		return notify_fail("Õâ¸öÃû×ÖÌ«³¤ÁË£¬ÏëÒ»¸ö¶ÌÒ»µãµÄ¡¢ÏìÁÁÒ»µãµÄ¡£\n");
+		return notify_fail("è¿™ä¸ªåå­—å¤ªé•¿äº†ï¼Œæƒ³ä¸€ä¸ªçŸ­ä¸€ç‚¹çš„ã€å“äº®ä¸€ç‚¹çš„ã€‚\n");
 
 	ret = dbquery("select U_Name from Users where U_Name='" + arg + "'");
 
 	if (!ret)
 	{
-		write("Êı¾İ¿âÁ¬½ÓÊ§°Ü¡£\n");
+		write("æ•°æ®åº“è¿æ¥å¤±è´¥ã€‚\n");
 		return 0;
 	}
 
-	if (sizeof(ret) > 0 && arg !="Ãû×Ö´ı¶¨")
+	if (sizeof(ret) > 0 && arg !="åå­—å¾…å®š")
 	{
-		write("´ËÖĞÎÄÃûÒÑ±»ÆäËûÈËÊ¹ÓÃ¡£\n");
+		write("æ­¤ä¸­æ–‡åå·²è¢«å…¶ä»–äººä½¿ç”¨ã€‚\n");
 		return 1;
 	}
 
@@ -54,18 +54,18 @@ int main(object me, string arg)
 		"U_Name='" + strip(arg) + "' "
 		"where U_Username='" + ob->query("id") + "'"))
 	{
-		write("Êı¾İ¿âÁ¬½ÓÊ§°Ü¡£\n");
+		write("æ•°æ®åº“è¿æ¥å¤±è´¥ã€‚\n");
 		return 1;
 	}
 
 	if (me != ob) 
 	{
-		write(HIY"Äã½«"HIW+ob->name(1)+HIY"µÄÃû×Ö¸ÄÎª"HIW+arg+HIY"¡£\n"NOR);
-		tell_object(ob, HIY+me->name()+"½«ÄãµÄÃû×Ö¸ÄÎª"HIW+arg+HIY"¡£\n" NOR);
+		write(HIY"ä½ å°†"HIW+ob->name(1)+HIY"çš„åå­—æ”¹ä¸º"HIW+arg+HIY"ã€‚\n"NOR);
+		tell_object(ob, HIY+me->name()+"å°†ä½ çš„åå­—æ”¹ä¸º"HIW+arg+HIY"ã€‚\n" NOR);
 	}
 	else
 	{
-		write(HIY"Äã½«×Ô¼ºµÄÃû×Ö¸ÄÎª"HIW+arg+HIY"¡£\n"NOR);
+		write(HIY"ä½ å°†è‡ªå·±çš„åå­—æ”¹ä¸º"HIW+arg+HIY"ã€‚\n"NOR);
 	}
 
 	ob->set("name", arg);
@@ -75,9 +75,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: name [Íæ¼Ò] Ãû×Ö
+æŒ‡ä»¤æ ¼å¼: name [ç©å®¶] åå­—
 
-ĞŞ¸ÄÍæ¼Ò»ò×Ô¼ºµÄÃû×Ö£¬½«´ÓÒøĞĞ´æ¿îÖĞ¿Û³ıÁ½°Ù¶§»Æ½ğµÄÊÖĞø·Ñ¡£
+ä¿®æ”¹ç©å®¶æˆ–è‡ªå·±çš„åå­—ï¼Œå°†ä»é“¶è¡Œå­˜æ¬¾ä¸­æ‰£é™¤ä¸¤ç™¾é”­é»„é‡‘çš„æ‰‹ç»­è´¹ã€‚
 
 HELP );
 	return 1;

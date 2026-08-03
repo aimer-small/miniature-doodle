@@ -2,13 +2,13 @@
 inherit ROOM;
 void create()
 {
-        set("short", "�϶ɿ�");
+        set("short", "老渡口");
         set("long", @LONG
-��ӭ�����󺣷������˶ɿڣ�������һ���Ѿ��������˺ܾõĶɿڡ�
-    ����ɿ��������ٹ�һ�κܳ���ʱ�䣬��Ϊ��ʱ�ʵ�Ϊ�˵õ�������
-�Ͼʹ����������˵�е��������С�
+你迎着阵阵海风来到了渡口，这里是一个已经被废弃了很久的渡口。
+    这个渡口曾经繁荣过一段很长的时间，因为古时皇帝为了得到长生不
+老就从这里出发向传说中的蓬莱航行。
 LONG);
-	set("outdoors", "��ɽ");
+	set("outdoors", "佛山");
 	set("no_fight",1);
 	set("exits",([
 		"north" : __DIR__"shulin_dzd",
@@ -45,9 +45,9 @@ void move_to_boat(object me)
 	job["ready"]=1;
 	map_delete(job,"asked");
 	XKD_D->player_ready(me);
-	tell_object(me,"ֻ��ԶԶ�и���������˸��к����㶨��һ�������������������������ӡ�\n");
-	tell_object(me,"��������������Ц���������㲻�������أ�����ϴ��ɡ�\n");
-	message_vision("$N��һ����������Ծ���˸�ǳ�ڱ��ϵ�С����\n",me);
+	tell_object(me,"只见远远有个人想你打了个招呼，你定睛一看，正是那邀你来的中年男子。\n");
+	tell_object(me,"那中年男子朗声笑道：还道你不敢来了呢，这就上船吧。\n");
+	message_vision("$N略一沉吟，纵身跃上了搁浅在边上的小船。\n",me);
 	me->move(XKD_D->query_boat());
-	tell_room(environment(me),me->name()+"��������������\n",({me}));	
+	tell_room(environment(me),me->name()+"纵身跳了上来。\n",({me}));	
 }

@@ -6,19 +6,19 @@ inherit HEAD;
 
 void create()
 {
-	set_name(HIR"É¯é¡»¨"NOR, ({"shaluo hua" "flower", "hua"}));
+	set_name(HIR"èæ¤¤èŠ±"NOR, ({"shaluo hua" "flower", "hua"}));
         set_weight(140);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
-                set("long", "ÕâÊÇÒ»¶äÃÀÀöµÄÉ¯é¡»¨£¬ÏãÆøÇåĞÂ¡£\n");
+                set("unit", "æœµ");
+                set("long", "è¿™æ˜¯ä¸€æœµç¾ä¸½çš„èæ¤¤èŠ±ï¼Œé¦™æ°”æ¸…æ–°ã€‚\n");
                 set("value", 230);
                 set("material", "plant");
                 set("armor_prop/armor", 1);
                 set("armor_prop/personality", 1);
-                set("wear_msg", "$NÇáÇáµØ°ÑÒ»¶ä$n´÷ÔÚÍ·ÉÏ¡£\n");
-                set("unequip_msg", "$NÇáÇáµØ°Ñ$n´ÓÍ·ÉÏÕªÁËÏÂÀ´¡£\n");
+                set("wear_msg", "$Nè½»è½»åœ°æŠŠä¸€æœµ$næˆ´åœ¨å¤´ä¸Šã€‚\n");
+                set("unequip_msg", "$Nè½»è½»åœ°æŠŠ$nä»å¤´ä¸Šæ‘˜äº†ä¸‹æ¥ã€‚\n");
         }
         setup();
 }

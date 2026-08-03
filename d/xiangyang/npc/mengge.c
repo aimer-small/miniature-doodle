@@ -1,4 +1,4 @@
-//¶¨ÒåÈÎÎñË¢ÐÂµØµã£¬·½±ã¼ì²é±ê¼Ç¡£ By lsxk@hsbbs 2007/7/10
+//å®šä¹‰ä»»åŠ¡åˆ·æ–°åœ°ç‚¹ï¼Œæ–¹ä¾¿æ£€æŸ¥æ ‡è®°ã€‚ By lsxk@hsbbs 2007/7/10
 #define JOB_CHECK_PLACE "/d/xiangyang/cross2"
 
 #include <ansi.h>
@@ -9,10 +9,10 @@ int ask_attack();
 
 void create()
 {
-    	set_name("ÃÉ¸ç", ({ "meng ge", "meng", "ge" }));
-    	set("title","ÃÉ¹ÅÔªË§");
-    	set("gender", "ÄÐÐÔ");
-    	set("long", "ÕâÊÇ´Ë´Î¸ºÔð½ø¹¥ÏåÑôµÄÃÉ¹ÅÔªË§¡£\n");
+    	set_name("è’™å“¥", ({ "meng ge", "meng", "ge" }));
+    	set("title","è’™å¤å…ƒå¸…");
+    	set("gender", "ç”·æ€§");
+    	set("long", "è¿™æ˜¯æ­¤æ¬¡è´Ÿè´£è¿›æ”»è¥„é˜³çš„è’™å¤å…ƒå¸…ã€‚\n");
     	set("age", 25);
     	set("str", 30);
     	set("int",20);
@@ -51,7 +51,7 @@ void create()
         map_skill("parry", "xiuluo-dao");
         map_skill("blade", "xiuluo-dao");
 
-// ÏÞÖÆÈËÊý
+// é™åˆ¶äººæ•°
         set("sljob",3);
         set("xxjob",4);
         set("xsjob",2);
@@ -59,7 +59,7 @@ void create()
         set("job",6);
 
         set("inquiry", ([
-//                "¹¥³Ç": (: ask_attack :),
+//                "æ”»åŸŽ": (: ask_attack :),
         ]) );
 
         setup();
@@ -76,28 +76,28 @@ int accept_object(object who, object obj)
     }
 /*
     if(JOB_CHECK_PLACE->query("xyjobing")){
-        command("say ÎÒ¾ü¶¼ÒÑ¾­ÔÚºÍÏåÑôÊØ¾ü¿àÕ½ÁË£¬"+who->query("name")+"Äãµ½ÏÖÔÚ²ÅËÍÕâ·âÃÜº¯À´¡£¡£¡£¡£¡£");
+        command("say æˆ‘å†›éƒ½å·²ç»åœ¨å’Œè¥„é˜³å®ˆå†›è‹¦æˆ˜äº†ï¼Œ"+who->query("name")+"ä½ åˆ°çŽ°åœ¨æ‰é€è¿™å°å¯†å‡½æ¥ã€‚ã€‚ã€‚ã€‚ã€‚");
         command("sigh "+ who->query("id"));
         command("kick2 "+ who->query("id"));
         call_out("destroy_letter",1,obj);
-        log_file("job/xyjob", sprintf(HIR"%8s%sÓûÔÚxyjob¹ý³ÌÖÐÊ¹ÓÃÃÉ¹ÅÃÜº¯¿ªÆôÏåÑô¹¥·ÀÕ½,¿ªÆôÊ§°Ü¡£"NOR, ctime(time())[4..19],who->name(1)+"("+who->query("id")+")")  );
+        log_file("job/xyjob", sprintf(HIR"%8s%sæ¬²åœ¨xyjobè¿‡ç¨‹ä¸­ä½¿ç”¨è’™å¤å¯†å‡½å¼€å¯è¥„é˜³æ”»é˜²æˆ˜,å¼€å¯å¤±è´¥ã€‚"NOR, ctime(time())[4..19],who->name(1)+"("+who->query("id")+")")  );
         return 1;
     }
   */
   command("thank "+who->query("id"));
-    command("say ¶àÐ»"+who->query("name")+"Ç°À´ËÍÐÅ£¬Ô­À´Ä¿Ç°ÏåÑôÊØ¾ü²»×ã£¬ÕýÊÇÎÒÃÉ¹Å½ø¾üµÄºÃÊ±»ú£¡");
+    command("say å¤šè°¢"+who->query("name")+"å‰æ¥é€ä¿¡ï¼ŒåŽŸæ¥ç›®å‰è¥„é˜³å®ˆå†›ä¸è¶³ï¼Œæ­£æ˜¯æˆ‘è’™å¤è¿›å†›çš„å¥½æ—¶æœºï¼");
     command("grin");
-    command("say Õâµã¶«Î÷¾Íµ±ÊÇÎÒËÍ¸ø"+who->query("name")+"µÄÐ»Àñ°É£¡");
+    command("say è¿™ç‚¹ä¸œè¥¿å°±å½“æ˜¯æˆ‘é€ç»™"+who->query("name")+"çš„è°¢ç¤¼å§ï¼");
          who->add("shen",-(1000+random(2000)));
          who->add("combat_exp",1000+random(1000));
          who->add("SJ_Credit",20+random(10));
-       tell_object(who, "Äã¸ÏÃ¦¸ú×Å¼ÙÐ¦ÁË¼¸Éù£¡\n");
-       tell_object(who, "ÄãµÄ½­ºþÔÄÀúÔö¼ÓÁË£¡\n");    
+       tell_object(who, "ä½ èµ¶å¿™è·Ÿç€å‡ç¬‘äº†å‡ å£°ï¼\n");
+       tell_object(who, "ä½ çš„æ±Ÿæ¹–é˜…åŽ†å¢žåŠ äº†ï¼\n");    
 
 
 //    me->start_call_out( (: call_other, "/d/xiangyang/cross2", "xyjob_1" :),2 );
   
-     log_file("job/xyjob", sprintf(HIG"%8s%sÊ¹ÓÃ"+HIR+"ÃÉ¹ÅÃÜº¯"+HIG+"³É¹¦¿ªÆôÏåÑô¹¥·ÀÕ½¡£"NOR, ctime(time())[4..19],who->name(1)+"("+who->query("id")+")")  );
+     log_file("job/xyjob", sprintf(HIG"%8s%sä½¿ç”¨"+HIR+"è’™å¤å¯†å‡½"+HIG+"æˆåŠŸå¼€å¯è¥„é˜³æ”»é˜²æˆ˜ã€‚"NOR, ctime(time())[4..19],who->name(1)+"("+who->query("id")+")")  );
     call_out("destroy_letter",1,obj);
     return 1;
 }
@@ -120,43 +120,43 @@ int ask_attack()
 
 /*   if(wizardp(me))
 	{
-           command("say ÉñÏÉ»¹ÊÇ²»Òª²Î¼ÓµÄºÃ!");
+           command("say ç¥žä»™è¿˜æ˜¯ä¸è¦å‚åŠ çš„å¥½!");
 		return 1;
 	}
 */
         if (!query("ready_attack") || !guo)
         {
-            	command(" say Ä¿Ç°ÎÒ¾üÏÈ·æÎÞ·¨¹¥ÆÆÏåÑô·ÀÊØ£¬±¾½«¾ü»¹ÔÚÑÐ¾¿ÏàÓ¦Ö®²ß¡£");
+            	command(" say ç›®å‰æˆ‘å†›å…ˆé”‹æ— æ³•æ”»ç ´è¥„é˜³é˜²å®ˆï¼Œæœ¬å°†å†›è¿˜åœ¨ç ”ç©¶ç›¸åº”ä¹‹ç­–ã€‚");
             	return 1;
         }
 
 	if (query("start_attack"))
         {
-            	command(" say ÎÒ¾üÒÑ¾­¿ªÊ¼½ø¹¥ÁË£¬±ðÎÊÁË£¡");
+            	command(" say æˆ‘å†›å·²ç»å¼€å§‹è¿›æ”»äº†ï¼Œåˆ«é—®äº†ï¼");
             	return 1;
         }
 
         if (me->query("combat_exp")<1000000)
         {
             	command("sneer");
-            	command("say ¾ÍÆ¾ÄãÕâÖÖÈý½ÅÃ¨µÄ¹¦·ò£¬ÄÜ¸ÉÊ²Ã´?");
+            	command("say å°±å‡­ä½ è¿™ç§ä¸‰è„šçŒ«çš„åŠŸå¤«ï¼Œèƒ½å¹²ä»€ä¹ˆ?");
             	return 1;
         }
 
 	if (me->query_conditions_by_type("poison") || me->query_conditions_by_type("hurt"))
         {
-        	command("say ÄãÉíÖÐ¾ç¶¾£¬ÈçºÎ°ïÖúÎÒ¹¥³Ç£¿\n");
+        	command("say ä½ èº«ä¸­å‰§æ¯’ï¼Œå¦‚ä½•å¸®åŠ©æˆ‘æ”»åŸŽï¼Ÿ\n");
         	return 1;
         }
 
         if (me->query_condition("killer")) {
-                notify_fail("Äã»¹ÊÇÁË½áÍê½­ºþ¶÷Ô¹ÔÙÀ´°ïÃ¦°É¡£\n");
+                notify_fail("ä½ è¿˜æ˜¯äº†ç»“å®Œæ±Ÿæ¹–æ©æ€¨å†æ¥å¸®å¿™å§ã€‚\n");
                 return 1;
         }
 
         if (me->query_temp("xyjob"))
         {
-            	command("say ±ðÐÄ¼±£¬ÈËÊÖ×ãÁË£¬ÎÒ¾Í»áÏÂÁî¿ªÕ½¡£");
+            	command("say åˆ«å¿ƒæ€¥ï¼Œäººæ‰‹è¶³äº†ï¼Œæˆ‘å°±ä¼šä¸‹ä»¤å¼€æˆ˜ã€‚");
            	return 1;
         }
         if (!"/cmds/std/xyjob"->player_list())
@@ -169,7 +169,7 @@ int ask_attack()
 		d_exp += defenders[i]->query("combat_exp");
 		if (query_ip_number(defenders[i]) == query_ip_number(me))
 		{
-			command("say ÄãÒÑ¾­ÔÚ·ÀÊØÏåÑôÁË£¬ÄÑµÀ»¹ÏëÀ´×ö¼éÏ¸£¿\n");
+			command("say ä½ å·²ç»åœ¨é˜²å®ˆè¥„é˜³äº†ï¼Œéš¾é“è¿˜æƒ³æ¥åšå¥¸ç»†ï¼Ÿ\n");
 			return 1;
 		}
 	}
@@ -178,27 +178,27 @@ int ask_attack()
 		a_exp += attackers[i]->query("combat_exp");
 		if (query_ip_number(attackers[i]) == query_ip_number(me))
 		{
-			command("say ×³Ê¿²»ÊÇÒÑ¾­ÔÚ°ïÖúÎÒÃÇÁË£¬¿ªÊ²Ã´ÍæÐ¦£¿\n");
+			command("say å£®å£«ä¸æ˜¯å·²ç»åœ¨å¸®åŠ©æˆ‘ä»¬äº†ï¼Œå¼€ä»€ä¹ˆçŽ©ç¬‘ï¼Ÿ\n");
 			return 1;
 		}
 	}
     	if (a_exp - d_exp > 10000000)
 	{
-		command("say ÎÒ¾ü¸ßÊÖÖÚ¶à£¬ÄÃÏÂÏåÑô³ÇÒ×Èç·´ÕÆ£¬²»ÓÃÀÍ·³¸óÏÂÁË¡£\n");
+		command("say æˆ‘å†›é«˜æ‰‹ä¼—å¤šï¼Œæ‹¿ä¸‹è¥„é˜³åŸŽæ˜“å¦‚åæŽŒï¼Œä¸ç”¨åŠ³çƒ¦é˜ä¸‹äº†ã€‚\n");
 		return 1;
 	}
 
         command("ok");
-        command("say Äã¾ÍÔÚ´Ë×¼±¸£¬µÈ´ýÎÒµÄ¾üÁî£¬µ±×÷ÎÒ¾ü¹¥»÷ÏåÑôµÄÏÈ·æ!");
+        command("say ä½ å°±åœ¨æ­¤å‡†å¤‡ï¼Œç­‰å¾…æˆ‘çš„å†›ä»¤ï¼Œå½“ä½œæˆ‘å†›æ”»å‡»è¥„é˜³çš„å…ˆé”‹!");
         "/cmds/std/xyjob"->add_xyjob(me);
         me->set_temp("special_die", 1);
         me->set_temp("special_poison", 1);
         me->set_temp("xyjob/attack", 1);
         me->set_temp("xyjob/mg_attack", 1);
         me->set_temp("living", 1);
-        me->set_temp("apply/short", ({HIR"ÃÉ¹ÅÏÈ·æ¾ü "NOR+me->name()+"("+capitalize(me->query("id"))+")"}));
+        me->set_temp("apply/short", ({HIR"è’™å¤å…ˆé”‹å†› "NOR+me->name()+"("+capitalize(me->query("id"))+")"}));
         me->apply_condition("job_busy", 100);
-        me->set("job_name", "ÏåÑô¹¥·ÀÕ½");
+        me->set("job_name", "è¥„é˜³æ”»é˜²æˆ˜");
         return 1;
 }
 
@@ -217,7 +217,7 @@ void die()
 {
         object killer;
 
-        command("chat ¿É¶ñ°¡£¬ÏåÑô¾Í... ¾ÍÔÚÑÛÇ°ÁË...");
+        command("chat å¯æ¶å•Šï¼Œè¥„é˜³å°±... å°±åœ¨çœ¼å‰äº†...");
         command("chat* dead");
 
         if(objectp(killer = query_temp("last_damage_from")) && killer->query_temp("xyjob/xy_defend"))

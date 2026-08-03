@@ -1,4 +1,4 @@
-// É½±Ú shanbi.c
+// å±±å£ shanbi.c
  
 #include <ansi.h>
 #include <wanted.h>
@@ -6,18 +6,18 @@ inherit ROOM;
 
 void create() 
 { 
-        set("short", "É½±Ú");
+        set("short", "å±±å£");
         set("long", @LONG
-ÕâÀïæÌºìæ±×Ï£¬±éÉ½±éÒ°¶¼ÊÇÏÊ»¨£¬´º¹âÀËÂşÒÑ¼«£¬×ªÁË¼¸¸öÍä£¬È´¼ûÓ­
-ÃæÒ»¿éÉ½±Ú£¬Â·Í¾ÒÑ¾¡¡£ÅÔ±ßÊÇÒ»ÅÅ»¨´Ô(huacong)¡£
+è¿™é‡Œå«£çº¢å§¹ç´«ï¼Œéå±±éé‡éƒ½æ˜¯é²œèŠ±ï¼Œæ˜¥å…‰æµªæ¼«å·²æï¼Œè½¬äº†å‡ ä¸ªå¼¯ï¼Œå´è§è¿
+é¢ä¸€å—å±±å£ï¼Œè·¯é€”å·²å°½ã€‚æ—è¾¹æ˜¯ä¸€æ’èŠ±ä¸›(huacong)ã€‚
 LONG
         );
 
         set("item_desc", ([
-                "huacong" : "ÕâÊÇÒ»ÅÅÆ¯ÁÁµÄ»¨´Ô£¬¼¸Ö»ºûµû´Ó»¨´ÓÀï×êÁË½øÈ¥¡£\n",
+                "huacong" : "è¿™æ˜¯ä¸€æ’æ¼‚äº®çš„èŠ±ä¸›ï¼Œå‡ åªè´è¶ä»èŠ±ä»é‡Œé’»äº†è¿›å»ã€‚\n",
         ]));
 
-        set("outdoors", "ºûµû¹È");
+        set("outdoors", "è´è¶è°·");
 
         set("exits", ([ 
             "south" : "/d/city/wroad3",
@@ -45,14 +45,14 @@ int do_bo(string arg)
         if(!living(me) ) return 0;
 
         if ( me->is_busy() || me->is_fighting())
-              return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+              return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
         if( !arg || arg != "huacong" ) return 0;
 
         if( arg == "huacong" ){
-            if ((!fam || fam["family_name"] != "Ã÷½Ì") && (!me->query_temp("hdq")))
-                return notify_fail("Äã²¦ÁË²¦»¨´Ô£¬²¢Ã»ÓĞÊ²Ã´·¢ÏÖ£¬²»½ûÓĞĞ©âêÈ»¡£\n");
-            message_vision(HIC"$N²¦ÁË²¦ÖÜÎ§µÄ»¨´Ô£¬Í»È»·¢ÏÖÓÒ±ß"HIY"(Right)"HIC"ºÃÏóÓĞÒ»ÌõĞ¡Â·¡£\n"NOR, me);
+            if ((!fam || fam["family_name"] != "æ˜æ•™") && (!me->query_temp("hdq")))
+                return notify_fail("ä½ æ‹¨äº†æ‹¨èŠ±ä¸›ï¼Œå¹¶æ²¡æœ‰ä»€ä¹ˆå‘ç°ï¼Œä¸ç¦æœ‰äº›æ€…ç„¶ã€‚\n");
+            message_vision(HIC"$Næ‹¨äº†æ‹¨å‘¨å›´çš„èŠ±ä¸›ï¼Œçªç„¶å‘ç°å³è¾¹"HIY"(Right)"HIC"å¥½è±¡æœ‰ä¸€æ¡å°è·¯ã€‚\n"NOR, me);
             if(!(room = find_object(__DIR__"shanbi")))
               room = load_object(__DIR__"shanbi");
               set("exits/right", __DIR__"huacong1");
@@ -63,7 +63,7 @@ int do_bo(string arg)
 
 void delete_exit(object room)
 {       
-        message("vision",HIW"Ò»ÕóÎ¢·ç´µÀ´£¬»¨´Ô¶¯ÁËÆğÀ´£¬µ²×¡ÁËĞ¡Â·¡£\n"NOR, room);
+        message("vision",HIW"ä¸€é˜µå¾®é£å¹æ¥ï¼ŒèŠ±ä¸›åŠ¨äº†èµ·æ¥ï¼ŒæŒ¡ä½äº†å°è·¯ã€‚\n"NOR, room);
         delete("exits/right");
 }
 

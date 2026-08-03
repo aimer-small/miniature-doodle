@@ -1,11 +1,11 @@
 // wanfota.c
-// Íò·ğËş
+// ä¸‡ä½›å¡”
 inherit ROOM;
 void create()
 {
-	set("short", "Íò·ğËş");
+	set("short", "ä¸‡ä½›å¡”");
 	set("long",@long
-ÕâÀï¾ÍÊÇÍò·ğ¶¥ÉÏµÄÍò·ğËşÁË£¬ËşÄÚ¹©·î×ÅºÜ¶àÅÆÎ»¡£
+è¿™é‡Œå°±æ˜¯ä¸‡ä½›é¡¶ä¸Šçš„ä¸‡ä½›å¡”äº†ï¼Œå¡”å†…ä¾›å¥‰ç€å¾ˆå¤šç‰Œä½ã€‚
 long);
 	set("exits",([
 	 "out" : __DIR__"wanfoding",
@@ -22,7 +22,7 @@ void reset()
 void init()
 {
 	add_action("do_ketou", "ketou");
-	add_action("do_ketou", "°İ¼À");
+	add_action("do_ketou", "æ‹œç¥­");
 }             
 
 int do_ketou()
@@ -36,15 +36,15 @@ int do_ketou()
 	if ( me->query_temp("ketou") >= random( 60 ) + 1 ) {
 		if ( query("count") > 0 && ring = unew(__DIR__"obj/ring")) {
 			ring->move(ob);
-			message("vision","Ö»Ìı¼ûîõµÄÒ»Éù£¬ÁéÅÆÀïµôÏÂÒ»Ö»" +
-				"ÌúÖ¸»·¡£\n",me);
+			message("vision","åªå¬è§é“›çš„ä¸€å£°ï¼Œçµç‰Œé‡Œæ‰ä¸‹ä¸€åª" +
+				"é“æŒ‡ç¯ã€‚\n",me);
 			me->delete_temp("ketou",1);
                         me->set_temp("marks/get_ring",1);
 			add("count", -1);
 			return 1;
 		}
 		else {
-			message("vision","Äã²»¾­ÒâÍû¼ûÁéÅÆËÆºõÒÑ±»´ò¿ª¹ı¡£\n",
+			message("vision","ä½ ä¸ç»æ„æœ›è§çµç‰Œä¼¼ä¹å·²è¢«æ‰“å¼€è¿‡ã€‚\n",
 				me);
 			me->delete_temp("ketou");
 			return 1;
@@ -52,7 +52,7 @@ int do_ketou()
 	}
 	else {
 		me->add_temp("ketou", 1);
-		message_vision("$N¹§¹§¾´¾´µØÔÚÁéÅÆÇ°¿ÄÁË¸öÏìÍ·¡£\n", me);
+		message_vision("$Næ­æ­æ•¬æ•¬åœ°åœ¨çµç‰Œå‰ç£•äº†ä¸ªå“å¤´ã€‚\n", me);
 		return 1;
 	}
 }	

@@ -1,4 +1,4 @@
-// блжч
+// Г╩©Ф╢╡
 
 #include <ansi.h>
 
@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "╩ь╫╝блжч" NOR);
+        set("short", "Е⌡·Г√├Г╩©Ф╢╡" NOR);
         set("long", @LONG
-тз╦Й╠з╣д╬║м╥ЁЖожакр╩╦Жблжч║ёуБюОсп©зк╝╬╝ё╛©ийгря╬╜╦и╨так║ё
+Е°╗Ф┬┬Её│Г └Е╟╫Е╓╢Е┤╨Г▌╟Д╨├Д╦─Д╦╙Г╩©Ф╢╡Ц─┌Х©≥И┤▄Ф°┴Е▐ёФ╟╢Д╨∙О╪▄Е▐╞Ф≤╞Е╥╡Г╩▐Е╧╡Ф╤╦Д╨├Ц─┌
 LONG);
         set("no_sleep_room", 1);
         set("valid_startroom", 1);
@@ -25,7 +25,7 @@ LONG);
               "northeast" : __DIR__"gebi4",
         ]));
 
-        set("outdoors", "нВсР");
+        set("outdoors", "Х╔©Е÷÷");
         setup(); 
 
 }
@@ -37,19 +37,19 @@ void init()
        switch(random(4)) {
        case 0 :
                me->set_temp("gc1_n",1); 
-               tell_object(me, HIC "м╩х╩╢сйж╬НиоотЁЖр╩лУж╦оР╠╠цФ╣до╦оъю╢║ё\n" NOR);          
+               tell_object(me, HIC "Г╙│Г└╤Д╩▌Ф┴▀Г╩╒Д╦┼Ф≤╬Е┤╨Д╦─Ф²║Ф▄┤Е░▒Е▄≈И²╒Г └Г╩├Г╨©Ф²╔Ц─┌\n" NOR);          
                break;
        case 1 :
                me->set_temp("gc1_s",1); 
-               tell_object(me, HIC "м╩х╩╢сйж╬НиоотЁЖр╩лУж╦оРдоцФ╣до╦оъю╢║ё\n" NOR);
+               tell_object(me, HIC "Г╙│Г└╤Д╩▌Ф┴▀Г╩╒Д╦┼Ф≤╬Е┤╨Д╦─Ф²║Ф▄┤Е░▒Е█≈И²╒Г └Г╩├Г╨©Ф²╔Ц─┌\n" NOR);
                break;
        case 2 :
                me->set_temp("gc1_e",1); 
-               tell_object(me, HIC "м╩х╩╢сйж╬НиоотЁЖр╩лУж╦оР╤╚цФ╣до╦оъю╢║ё\n" NOR);
+               tell_object(me, HIC "Г╙│Г└╤Д╩▌Ф┴▀Г╩╒Д╦┼Ф≤╬Е┤╨Д╦─Ф²║Ф▄┤Е░▒Д╦°И²╒Г └Г╩├Г╨©Ф²╔Ц─┌\n" NOR);
                break;
        case 3 :
                me->set_temp("gc1_w",1); 
-               tell_object(me, HIC "м╩х╩╢сйж╬НиоотЁЖр╩лУж╦оРнВцФ╣до╦оъю╢║ё\n" NOR);
+               tell_object(me, HIC "Г╙│Г└╤Д╩▌Ф┴▀Г╩╒Д╦┼Ф≤╬Е┤╨Д╦─Ф²║Ф▄┤Е░▒Х╔©И²╒Г └Г╩├Г╨©Ф²╔Ц─┌\n" NOR);
                break;
        }
     }             

@@ -1,4 +1,4 @@
-// paper.c °×Ö½
+// paper.c ç™½çº¸
 // By River@SJ 
 
 inherit ITEM;
@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW"°×Ö½"NOR, ({ "bai zhi", "bai", "zhi" }));
+	set_name(HIW"ç™½çº¸"NOR, ({ "bai zhi", "bai", "zhi" }));
 	set_weight(5);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "ÕÅ");
-		set("long", "Ò»ÕÅ¸É¸É¾»¾»µÄ°×Ö½£¬¿´À´¿ÉÒÔÓÃËüÀ´ÕÛµşĞ©Ê²Ã´¡£\n");
+		set("unit", "å¼ ");
+		set("long", "ä¸€å¼ å¹²å¹²å‡€å‡€çš„ç™½çº¸ï¼Œçœ‹æ¥å¯ä»¥ç”¨å®ƒæ¥æŠ˜å äº›ä»€ä¹ˆã€‚\n");
 		set("value", 100);
 		set("material", "paper");
 	}

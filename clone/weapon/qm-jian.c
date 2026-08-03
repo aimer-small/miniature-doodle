@@ -8,15 +8,15 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(CYN"ÇàÚ¤½£"NOR, ({"qingming jian", "sword", "jian","qingming"}));
+        set_name(CYN"é’å†¥å‰‘"NOR, ({"qingming jian", "sword", "jian","qingming"}));
         set_weight(15000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long", "´Ë½£Ç£³¶ÎÞÊý½­ºþ¶÷Ô¹£¬ÓÐËÄ°ÙÄêµÄÀ´Àú£¬½£ÇÊÊ®·Ö¾«ÃÀ¡£\n"+
-"³¤¶þ³ß¾Å£¬¿íÒ»´çÒ»£¬»¤ÊÖÒ»´ç£¬¿í¶þ´çÁù£¬ºñÆß´ç£¬Á½¶ú¸÷Ò»´çÎå¡£\n"+
-"½£±úºÜÖØ£¬ÏâÓÐÆßÐÇ£¬´Ó½£µÄÐýÎÆ¿´£¬ÊÇÏÈÇØÎâ¹úµÄÖý½£·¨£¬µ½ºº³¯¾ÍÊ§´«ÁË¡£\n");
+                set("unit", "æŠŠ");
+                set("long", "æ­¤å‰‘ç‰µæ‰¯æ— æ•°æ±Ÿæ¹–æ©æ€¨ï¼Œæœ‰å››ç™¾å¹´çš„æ¥åŽ†ï¼Œå‰‘éž˜ååˆ†ç²¾ç¾Žã€‚\n"+
+"é•¿äºŒå°ºä¹ï¼Œå®½ä¸€å¯¸ä¸€ï¼ŒæŠ¤æ‰‹ä¸€å¯¸ï¼Œå®½äºŒå¯¸å…­ï¼ŒåŽšä¸ƒå¯¸ï¼Œä¸¤è€³å„ä¸€å¯¸äº”ã€‚\n"+
+"å‰‘æŸ„å¾ˆé‡ï¼Œé•¶æœ‰ä¸ƒæ˜Ÿï¼Œä»Žå‰‘çš„æ—‹çº¹çœ‹ï¼Œæ˜¯å…ˆç§¦å´å›½çš„é“¸å‰‘æ³•ï¼Œåˆ°æ±‰æœå°±å¤±ä¼ äº†ã€‚\n");
                 set("value", 1);
                 set("unique", 1);
                 set("rigidity", 4);
@@ -28,16 +28,16 @@ void create()
                 set("wield_neili", 500);
                 set("wield_maxneili", 700);
                 set("wield_str", 20);
-                set("wield_msg",HIC"\nÖ»Ìý¡¸à§¡¹µÄÒ»Éù£¬$NÊÖÀï¶àÁËÒ»°ÑÇà¹âËÄÉäµÄ±¦½££¬·¢³öÎËÎËµÄÉùÒô£¡\n"NOR);
-                set("unwield_msg",HIC"$N°ÑÊÖÖÐµÄÇàÚ¤½£·ÅÁËÏÂÀ´¡£\n"+
-                "´Ë½£¸ÕÈáÏà¼Ã¡£ËÆºõ´ÓÖÐ»¹ÄÜÁìÎò³öÒ»Ð©×öÈËµÄµÀÀí¡£\n"NOR);
+                set("wield_msg",HIC"\nåªå¬ã€Œå”°ã€çš„ä¸€å£°ï¼Œ$Næ‰‹é‡Œå¤šäº†ä¸€æŠŠé’å…‰å››å°„çš„å®å‰‘ï¼Œå‘å‡ºå—¡å—¡çš„å£°éŸ³ï¼\n"NOR);
+                set("unwield_msg",HIC"$NæŠŠæ‰‹ä¸­çš„é’å†¥å‰‘æ”¾äº†ä¸‹æ¥ã€‚\n"+
+                "æ­¤å‰‘åˆšæŸ”ç›¸æµŽã€‚ä¼¼ä¹Žä»Žä¸­è¿˜èƒ½é¢†æ‚Ÿå‡ºä¸€äº›åšäººçš„é“ç†ã€‚\n"NOR);
         }
         init_sword(45);
         setup();
 }
 void init()
 {
-    add_action("do_add", "²å");
+    add_action("do_add", "æ’");
     add_action("do_add", "cha");
 }
 
@@ -47,14 +47,14 @@ int do_add(string arg)
      me = this_player();
      ob = this_object();
      obj = present("jian qiao", me);
-     if(arg!="jian" && arg!="½£")
-           return notify_fail("ÄãÏë²åÊ²Ã´¶«Î÷°¡£¡\n");
+     if(arg!="jian" && arg!="å‰‘")
+           return notify_fail("ä½ æƒ³æ’ä»€ä¹ˆä¸œè¥¿å•Šï¼\n");
      if(!objectp(obj))
-           return notify_fail("ÄãÃ»ÓÐ½£ÇÊ£¬Ïë°Ñ½£²åµ½ÄÄÀïÈ¥°¡£¡\n");
+           return notify_fail("ä½ æ²¡æœ‰å‰‘éž˜ï¼Œæƒ³æŠŠå‰‘æ’åˆ°å“ªé‡ŒåŽ»å•Šï¼\n");
      if((int)me->query("neili") < 150)
-                return notify_fail("Äã¸Ð¾õÈ«ÉíÆøÑª·­ÌÚ£¬Ô­À´ÄãÕæÆø²»¹»£¬ÎÞ·¨½«½£²åÈë½£ÇÊ£¡\n");
+                return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”è¡€ç¿»è…¾ï¼ŒåŽŸæ¥ä½ çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•å°†å‰‘æ’å…¥å‰‘éž˜ï¼\n");
      me->add("neili", -100);
-     message_vision(HIY"\nÖ»Ìýà§ÀãÒ»Éù£¬$N°ÑÇàÚ¤½£²åÈë½£ÇÊÖÐ£¬³ÉÎªÒ»¸ùºÜ´ÖµÄ¸ÖÕÈ¡£\n"NOR, me);
+     message_vision(HIY"\nåªå¬å”°æ¥žä¸€å£°ï¼Œ$NæŠŠé’å†¥å‰‘æ’å…¥å‰‘éž˜ä¸­ï¼Œæˆä¸ºä¸€æ ¹å¾ˆç²—çš„é’¢æ–ã€‚\n"NOR, me);
      destruct(obj);   
      zhang = new(BINGQI_D("staff/gangzhang-sp"))->move(me, 1);     
      destruct(ob);

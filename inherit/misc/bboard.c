@@ -1,6 +1,6 @@
 // bboard.c modify by XiaoYao 01/10/2000
-// modify by linux 10/17/2003 Ôö¼ÓÁôÑÔ»Ø¸´
-// Modified by Ciwei@SJ 5/8/2004 ÓëbbsÁ¬½Ó
+// modify by linux 10/17/2003 å¢åŠ ç•™è¨€å›å¤
+// Modified by Ciwei@SJ 5/8/2004 ä¸bbsè¿æ¥
 
 inherit ITEM;
 inherit F_SAVE;
@@ -10,12 +10,12 @@ inherit F_SAVE;
 #include <mudlib.h>
 
 #define BOARD_CAPACITY query("capacity")
-#define TEXT_LINE "©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤"
+#define TEXT_LINE "â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€"
 #ifndef BBS_ADDR
 #define BBS_ADDR "http://bbs.mymud.com"
 #endif
-#define BBS_OK(x) sprintf(WHT"%s·¢±íµ½ÂÛÌ³Íê³É¡£\n"NOR,x)
-#define BBS_URL(x) sprintf(CYN"ÏêÇéÇëä¯ÀÀ£º%s/viewthread.php?tid=%d¡£\n"NOR,BBS_ADDR,x)
+#define BBS_OK(x) sprintf(WHT"%så‘è¡¨åˆ°è®ºå›å®Œæˆã€‚\n"NOR,x)
+#define BBS_URL(x) sprintf(CYN"è¯¦æƒ…è¯·æµè§ˆï¼š%s/viewthread.php?tid=%dã€‚\n"NOR,BBS_ADDR,x)
 
 void setup()
 {
@@ -54,7 +54,7 @@ string short()
 
         notes = query("notes");
         if( !pointerp(notes) || !sizeof(notes) )
-                return ::short() + " ¡¸ Ã»ÓĞÈÎºÎÁôÑÔ ¡¹";
+                return ::short() + " ã€Œ æ²¡æœ‰ä»»ä½•ç•™è¨€ ã€";
 
         if( this_player() ) {
                 last_read_time = (int)this_player()->query("board_last_read/" + (string)query("board_id"));
@@ -62,19 +62,19 @@ string short()
                         if( notes[i]["time"] <= last_read_time ) break;
         }
         if( unread )
-                return sprintf("%s ¡¸ %d ÕÅÁôÑÔ£¬"HIY"%d "NOR"ÕÅ"HIR"Î´¶Á"NOR" ¡¹", ::short(), sizeof(notes), unread);
+                return sprintf("%s ã€Œ %d å¼ ç•™è¨€ï¼Œ"HIY"%d "NOR"å¼ "HIR"æœªè¯»"NOR" ã€", ::short(), sizeof(notes), unread);
         else
-                return sprintf("%s ¡¸ %d ÕÅÁôÑÔ ¡¹", ::short(), sizeof(notes));
+                return sprintf("%s ã€Œ %d å¼ ç•™è¨€ ã€", ::short(), sizeof(notes));
 }
 
 string long()
 {
         return ::long() + @LONG
-ÁôÑÔ°æµÄÊ¹ÓÃ·½·¨£º
-list [ÁôÑÔ±àºÅ|new]     : ²é¿´ÁôÑÔ±êÌâ
-post <±êÌâ>             : ÁôÑÔ
-read <ÁôÑÔ±àºÅ|new|next>: ²é¿´ÁôÑÔÄÚÈİ
-discard <ÁôÑÔ±àºÅ>      : É¾³ıÁôÑÔ
+ç•™è¨€ç‰ˆçš„ä½¿ç”¨æ–¹æ³•ï¼š
+list [ç•™è¨€ç¼–å·|new]     : æŸ¥çœ‹ç•™è¨€æ ‡é¢˜
+post <æ ‡é¢˜>             : ç•™è¨€
+read <ç•™è¨€ç¼–å·|new|next>: æŸ¥çœ‹ç•™è¨€å†…å®¹
+discard <ç•™è¨€ç¼–å·>      : åˆ é™¤ç•™è¨€
 LONG;
 }
 
@@ -84,7 +84,7 @@ void post_ok(mixed ret)
 {
 	mapping *notes;
 	
-	if(environment()) tell_room(environment(),BBS_OK("ÁôÑÔ"));
+	if(environment()) tell_room(environment(),BBS_OK("ç•™è¨€"));
 	notes = query("notes");
 	if(!notes || !sizeof(notes)) return;
 	if(op != sizeof(notes)-1) return;//have somebody change it
@@ -102,12 +102,12 @@ void done_post(object me, mapping note, string text)
 
         note["time"] = time();
         note["msg"] = text;
-        //×ª»»ÌØÊâ×Ö·û
+        //è½¬æ¢ç‰¹æ®Šå­—ç¬¦
         note["title"] = specialchars(note["title"]);
         text = specialchars(text);
-        //×ª»»ÌØÊâ×Ö·û½áÊø
+        //è½¬æ¢ç‰¹æ®Šå­—ç¬¦ç»“æŸ
         if(query("board_id") && !undefinedp(BOARD_FID[query("board_id")]))
-		BBS_D->bbs_post(BOARD_FID[query("board_id")],wizardp(me)?me->query("id"):me->query("id")+"@"+lower_case(INTERMUD_MUD_NAME),note["title"],"·¢±íÓÚ"+CHINESE_MUD_NAME+::short() + "\n\n" + text,0,0,0,this_object(),"post_ok" );
+		BBS_D->bbs_post(BOARD_FID[query("board_id")],wizardp(me)?me->query("id"):me->query("id")+"@"+lower_case(INTERMUD_MUD_NAME),note["title"],"å‘è¡¨äº"+CHINESE_MUD_NAME+::short() + "\n\n" + text,0,0,0,this_object(),"post_ok" );
         
         notes = query("notes");
         if( !pointerp(notes) || !sizeof(notes) )
@@ -123,17 +123,17 @@ void done_post(object me, mapping note, string text)
         set("notes", notes);
         save();
         note = copy(note);
-        note["msg"] = "À´×Ô " + ::short() + "\n" + text;
+        note["msg"] = "æ¥è‡ª " + ::short() + "\n" + text;
         "/clone/board/post_b"->done_post(me, note);
 
         tell_object(me, TEXT_LINE + WHT"[ E n d ]\n"NOR);
-        tell_object(me, "ÁôÑÔÍê±Ï¡£\n");        
+        tell_object(me, "ç•™è¨€å®Œæ¯•ã€‚\n");        
         me->add_busy(1);
 }
 
 void re_ok(mixed ret)
 {
-	if(environment()) tell_room(environment(),BBS_OK("»Ø¸´"));
+	if(environment()) tell_room(environment(),BBS_OK("å›å¤"));
 	if(ret && sizeof(ret)) if(environment()) tell_room(environment(),BBS_URL(ret[0][0]));
 }
 
@@ -148,7 +148,7 @@ void done_re(object me, mapping report, int project, string text)
 
         if (strlen(text) > 64 * 1024)
         {
-                tell_object(me, "ÄãµÄÁôÑÔÌ«³¤ÁË£¬ÇëÂÔÈ¥Ò»Ğ©²»±ØÒªµÄ¡£\n");
+                tell_object(me, "ä½ çš„ç•™è¨€å¤ªé•¿äº†ï¼Œè¯·ç•¥å»ä¸€äº›ä¸å¿…è¦çš„ã€‚\n");
                 return;
         }
 
@@ -156,13 +156,13 @@ void done_re(object me, mapping report, int project, string text)
         i = sizeof(lines);
         if (i > 2000)
         {
-                tell_object(me, "ÄãµÄÁôÑÔÌ«³¤ÁË£¬ÇëÂÔÈ¥Ò»Ğ©²»±ØÒªµÄ¡£\n");
+                tell_object(me, "ä½ çš„ç•™è¨€å¤ªé•¿äº†ï¼Œè¯·ç•¥å»ä¸€äº›ä¸å¿…è¦çš„ã€‚\n");
                 return;
         }
 
         if (i > 20 && strlen(text) / i < 10)
         {
-                tell_object(me, "ÄãµÄÁôÑÔÖĞ¶Ì¾äÌ«¶àÁË£¬Çëµ÷ÕûÒ»ÏÂÒÔ±ãËûÈËÔÄ¶Á¡£\n");
+                tell_object(me, "ä½ çš„ç•™è¨€ä¸­çŸ­å¥å¤ªå¤šäº†ï¼Œè¯·è°ƒæ•´ä¸€ä¸‹ä»¥ä¾¿ä»–äººé˜…è¯»ã€‚\n");
                 return;
         }
 
@@ -171,7 +171,7 @@ void done_re(object me, mapping report, int project, string text)
                 // scan all lines
                 if (strlen(lines[i]) > 300)
                 {
-                        tell_object(me, "ÄãÁôÑÔÖĞÓĞĞ©ĞĞÌ«³¤ÁË£¬Çë·ÖĞĞÒÔ±ãËûÈËÔÄ¶Á¡£\n");
+                        tell_object(me, "ä½ ç•™è¨€ä¸­æœ‰äº›è¡Œå¤ªé•¿äº†ï¼Œè¯·åˆ†è¡Œä»¥ä¾¿ä»–äººé˜…è¯»ã€‚\n");
                         return;
                 }
         }
@@ -183,7 +183,7 @@ void done_re(object me, mapping report, int project, string text)
 	report["title"] = specialchars(report["title"]);
 	text = specialchars(text);
 	
-	text = "·¢±íÓÚ"+CHINESE_MUD_NAME+::short() + "\n\n" + text;
+	text = "å‘è¡¨äº"+CHINESE_MUD_NAME+::short() + "\n\n" + text;
 	if(query("board_id") && !undefinedp(BOARD_FID[query("board_id")]) && !undefinedp(notes[project]["tid"]) && notes[project]["tid"] )
 		BBS_D->bbs_post(BOARD_FID[query("board_id")],wizardp(me)?me->query("id"):me->query("id")+"@"+lower_case(INTERMUD_MUD_NAME),report["title"],text,notes[project]["tid"],0,0,this_object(),"re_ok" );
 	
@@ -194,7 +194,7 @@ void done_re(object me, mapping report, int project, string text)
 	notes[project]["time"] = time();
 
 	set("notes", notes);
-	tell_object(me,"©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥[ »Ø¸´½áÊø ]\n");
+	tell_object(me,"â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”[ å›å¤ç»“æŸ ]\n");
 
 	save();
 	return;
@@ -205,26 +205,26 @@ int do_post(string arg)
         int i;
         object me;
 
-        if( !arg ) return notify_fail("ÁôÑÔÇëÖ¸¶¨Ò»¸ö±êÌâ¡£\n");
+        if( !arg ) return notify_fail("ç•™è¨€è¯·æŒ‡å®šä¸€ä¸ªæ ‡é¢˜ã€‚\n");
 
         me = this_player();
         if (me->is_busy())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         i = strlen(arg);
         if( !wizardp(me) ){
-                if (i < 4 || i > 24 || i%2) {
-                        write("¶Ô²»Æğ£¬±êÌâ±ØĞëÊÇ 2 µ½ 12 ¸öÖĞÎÄ×Ö¡£\n");
+                if (i < 2 || i > 12) {
+                        write("å¯¹ä¸èµ·ï¼Œæ ‡é¢˜å¿…é¡»æ˜¯ 2 åˆ° 12 ä¸ªä¸­æ–‡å­—ã€‚\n");
                         return 0;
                 }
 
                 while(i--)
-                        if (i%2==0 && !is_chinese(arg[i..<1])) {
-                                write("¶Ô²»Æğ£¬ÇëÄúÓÃ¡¸ÖĞÎÄ¡¹È¡±êÌâ¡£\n");
+                        if (!is_chinese(arg[i..i])) {
+                                write("å¯¹ä¸èµ·ï¼Œè¯·æ‚¨ç”¨ã€Œä¸­æ–‡ã€å–æ ‡é¢˜ã€‚\n");
                                 return 0;
                         }
         }
         else if( i > 24 )
-                return notify_fail("ÄãµÄ±êÌâÌ«³¤ÁË£¬ÇëËõ¶ÌÄãµÄ±êÌâ¡£\n");
+                return notify_fail("ä½ çš„æ ‡é¢˜å¤ªé•¿äº†ï¼Œè¯·ç¼©çŸ­ä½ çš„æ ‡é¢˜ã€‚\n");
 
         note = allocate_mapping(4);
         note["title"] = arg;
@@ -245,9 +245,9 @@ int do_read(string arg)
         notes = query("notes");
 
         if( !pointerp(notes) || !sizeof(notes) )
-                return notify_fail("ÁôÑÔ°åÉÏÄ¿Ç°Ã»ÓĞÈÎºÎÁôÑÔ¡£\n");
+                return notify_fail("ç•™è¨€æ¿ä¸Šç›®å‰æ²¡æœ‰ä»»ä½•ç•™è¨€ã€‚\n");
 
-        if( !arg ) return notify_fail("Ö¸Áî¸ñÊ½£ºread <ÁôÑÔ±àºÅ>|new|next\n");
+        if( !arg ) return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šread <ç•™è¨€ç¼–å·>|new|next\n");
         if( arg=="new" || arg=="next" ) {
                 if( !mapp(last_read_time) || undefinedp(last_read_time[myid]) )
                         num = 1;
@@ -256,10 +256,10 @@ int do_read(string arg)
                                 if( notes[num-1]["time"] > last_read_time[myid] ) break;
 
         } else if( !sscanf(arg, "%d", num) )
-                return notify_fail("ÄãÒª¶ÁµÚ¼¸ÕÅÁôÑÔ£¿\n");
+                return notify_fail("ä½ è¦è¯»ç¬¬å‡ å¼ ç•™è¨€ï¼Ÿ\n");
 
         if( num < 1 || num > sizeof(notes) )
-                return notify_fail("Ã»ÓĞÕâÕÅÁôÑÔ¡£\n");
+                return notify_fail("æ²¡æœ‰è¿™å¼ ç•™è¨€ã€‚\n");
         num--;
         
         if(notes[num]["tid"])
@@ -268,7 +268,7 @@ int do_read(string arg)
         if (sizeof(notes[num]["re"])) {
 				for (j=0;j<sizeof(notes[num]["re"]);j++) {
 					msg+=sprintf(
-					"\n%s ÓÚ %s »Ø¸´ÈçÏÂ£º"NOR" %s\n"
+					"\n%s äº %s å›å¤å¦‚ä¸‹ï¼š"NOR" %s\n"
 					TEXT_LINE +"\n"
 					"%s\n",
 					notes[num]["re"][j]["author"]+"("+
@@ -279,9 +279,9 @@ int do_read(string arg)
 				}
 			}		
 			
-        this_player()->start_more(sprintf(HIW"±àºÅ£º"NOR"%-4d "HIW"×÷Õß£º"NOR"%-35s"HIW"Ê±¼ä£º"NOR"%s\n"HIW"±êÌâ£º"NOR"%s\n%s\n%s",
+        this_player()->start_more(sprintf(HIW"ç¼–å·ï¼š"NOR"%-4d "HIW"ä½œè€…ï¼š"NOR"%-35s"HIW"æ—¶é—´ï¼š"NOR"%s\n"HIW"æ ‡é¢˜ï¼š"NOR"%s\n%s\n%s",
         num + 1, notes[num]["author"], ctime(notes[num]["time"]),
-        notes[num]["title"], TEXT_LINE +"©¤©¤©¤©¤©¤©¤", notes[num]["msg"] + msg + TEXT_LINE + "[ ±¾ Æª Íê ]\n"));
+        notes[num]["title"], TEXT_LINE +"â”€â”€â”€â”€â”€â”€", notes[num]["msg"] + msg + TEXT_LINE + "[ æœ¬ ç¯‡ å®Œ ]\n"));
 
         // Keep track which post we were reading last time.
         if( !mapp(last_read_time) )
@@ -303,14 +303,14 @@ int do_re(string arg)
 	if (!wizardp(me)) return 0;
 
 	if(!arg || sscanf(arg, "%d.%s", num, title)<1)
-		return notify_fail("Ö¸Áî¸ñÊ½£ºre <Ìù×Ó±àºÅ>.<»Ø¸´±êÌâ>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šre <è´´å­ç¼–å·>.<å›å¤æ ‡é¢˜>\n");
 
 	notes = query("notes");
 	if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-		return notify_fail("Ã»ÓĞÕâ¸öÌù×Ó¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªè´´å­ã€‚\n");
 
 	if (strlen(title) > 30)
-		return notify_fail("Õâ¸ö»Ø¸´±êÌâÌ«³¤ÁË£¬Çë»»Ò»¸ö¼ò½àÒ»µãµÄ¡£\n");
+		return notify_fail("è¿™ä¸ªå›å¤æ ‡é¢˜å¤ªé•¿äº†ï¼Œè¯·æ¢ä¸€ä¸ªç®€æ´ä¸€ç‚¹çš„ã€‚\n");
 
 
 	if (!title) title="Re: "+notes[num-1]["title"];
@@ -330,21 +330,21 @@ int do_discard(string arg)
         int num;
 
         if( !arg || sscanf(arg, "%d", num)!=1 )
-                return notify_fail("Ö¸Áî¸ñÊ½£ºdiscard <ÁôÑÔ±àºÅ>\n");
+                return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šdiscard <ç•™è¨€ç¼–å·>\n");
         notes = query("notes");
         if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-                return notify_fail("Ã»ÓĞÕâÕÅÁôÑÔ¡£\n");
+                return notify_fail("æ²¡æœ‰è¿™å¼ ç•™è¨€ã€‚\n");
         num--;
         if (notes[num]["author"] != me->query("name") + "("+me->query("id")+")"
         && SECURITY_D->get_status(me) != "(admin)"
         && SECURITY_D->get_status(me) != "(assist)"
         && SECURITY_D->get_status(me) != "(arch)")
-                return notify_fail("Õâ¸öÁôÑÔ²»ÊÇÄãĞ´µÄ¡£\n");
+                return notify_fail("è¿™ä¸ªç•™è¨€ä¸æ˜¯ä½ å†™çš„ã€‚\n");
 
         notes = notes[0..num-1] + notes[num+1..<1];
         set("notes", notes);
         save();
-        write("É¾³ıµÚ " + (num+1) + " ºÅÁôÑÔ....Ok¡£\n");
+        write("åˆ é™¤ç¬¬ " + (num+1) + " å·ç•™è¨€....Okã€‚\n");
         return 1;
 }
 
@@ -367,7 +367,7 @@ int do_list(string arg)
                                 if( notes[num-1]["time"] > last_read_time[myid] ) break;
         };
 
-        if (num > sizeof(notes)) return notify_fail("Ã»ÓĞÄúÒªµÄÁôÑÔ¡£\n");
+        if (num > sizeof(notes)) return notify_fail("æ²¡æœ‰æ‚¨è¦çš„ç•™è¨€ã€‚\n");
 
         if (mapp(last_read_time)) last_time_read = last_read_time[myid];
 

@@ -6,9 +6,9 @@
 inherit ROOM;
 void create()
 {
-	set("short",BLU"µØµÀ"NOR);
+	set("short",BLU"åœ°é“"NOR);
 	set("long", @long
-ÕâÀïÊÇÄ½ÈİÊÀ¼ÒµÄÃØÃÜÍ¨µÀ£¬ÀïÃæ»ú¹ØÃÜ²¼£¬Òì³£³±ÊªÒõ°µ¡£
+è¿™é‡Œæ˜¯æ…•å®¹ä¸–å®¶çš„ç§˜å¯†é€šé“ï¼Œé‡Œé¢æœºå…³å¯†å¸ƒï¼Œå¼‚å¸¸æ½®æ¹¿é˜´æš—ã€‚
 long);
 	set("exits",([
 		"yanziwu" : __DIR__"yanziwu/shuixie",

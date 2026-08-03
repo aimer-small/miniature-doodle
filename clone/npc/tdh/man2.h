@@ -4,15 +4,15 @@
 void dest()
 {
 	object jober;
-	if ( stringp(query("ÌìµØ»ájober"))
-	 && objectp( jober = find_player(query("ÌìµØ»ájober")))
+	if ( stringp(query("å¤©åœ°ä¼šjober"))
+	 && objectp( jober = find_player(query("å¤©åœ°ä¼šjober")))
 	 && jober->query_temp("tdhjob")
-	 && jober->query_temp("ÌìµØ»ájob/get") == query("id")){
-		log_file("job/tiandi", sprintf("%8s%-10sµÚ%4d´ÎÈÎÎñÊ§°Ü(2)£¬Ê±¼ä£º%4d£¬ÏÖ¾­Ñé£º%d¡£",
-			jober->name(), "("+jober->query("id")+")", jober->query("job_time/ÌìµØ»á")+1, uptime()-jober->query_temp("ÌìµØ»ájob/time"), jober->query("combat_exp")), jober);
-		jober->delete_temp("ÌìµØ»ájob");
-		jober->set_temp("ÌìµØ»ájob/lost", query("name"));
-		tell_object(jober, HIY"\nÓÉÓÚÄã¶¯×÷Ì«Âı£¬"+this_object()->name()+"Îª¶ã±ÜÇåÍ¢×·»÷£¬ÒÑÏÈĞĞ²ØÄäÁË£¬ÄãÈÎÎñÊ§°Ü£¡\n"NOR);
+	 && jober->query_temp("å¤©åœ°ä¼šjob/get") == query("id")){
+		log_file("job/tiandi", sprintf("%8s%-10sç¬¬%4dæ¬¡ä»»åŠ¡å¤±è´¥(2)ï¼Œæ—¶é—´ï¼š%4dï¼Œç°ç»éªŒï¼š%dã€‚",
+			jober->name(), "("+jober->query("id")+")", jober->query("job_time/å¤©åœ°ä¼š")+1, uptime()-jober->query_temp("å¤©åœ°ä¼šjob/time"), jober->query("combat_exp")), jober);
+		jober->delete_temp("å¤©åœ°ä¼šjob");
+		jober->set_temp("å¤©åœ°ä¼šjob/lost", query("name"));
+		tell_object(jober, HIY"\nç”±äºä½ åŠ¨ä½œå¤ªæ…¢ï¼Œ"+this_object()->name()+"ä¸ºèº²é¿æ¸…å»·è¿½å‡»ï¼Œå·²å…ˆè¡Œè—åŒ¿äº†ï¼Œä½ ä»»åŠ¡å¤±è´¥ï¼\n"NOR);
 	}
 	destruct(this_object());
 }
@@ -21,13 +21,13 @@ int ask_tdh()
 {
 	object me=this_player();
 
-	if (!me->query_temp("ÌìµØ»ájob") || !me->query("ÌìµØ»á") ) {
+	if (!me->query_temp("å¤©åœ°ä¼šjob") || !me->query("å¤©åœ°ä¼š") ) {
 		command("oh "+me->query("id"));
-		command("say ³£ÌıÈËËµÌìµØ»áµÄ¶¼ÊÇºÃºº×Ó£¬Ö»ÊÇÎŞÔµ½á½»¡£");
+		command("say å¸¸å¬äººè¯´å¤©åœ°ä¼šçš„éƒ½æ˜¯å¥½æ±‰å­ï¼Œåªæ˜¯æ— ç¼˜ç»“äº¤ã€‚");
 		return 1;
 	}
 	command("look "+me->query("id"));
-	command("say Äã¿ÉÖªµÀËûÃÇ×öµÄÊÇÊ²Ã´ÊÂ£¿");
+	command("say ä½ å¯çŸ¥é“ä»–ä»¬åšçš„æ˜¯ä»€ä¹ˆäº‹ï¼Ÿ");
 	return 1;
 }
 
@@ -37,27 +37,27 @@ int ask_fq()
 	object me=this_player();
 	object ob=this_object();
 
-	tk = me->query("ÌìµØ»á/tangkou");
-	tname = me->query("ÌìµØ»á/title");
-	str = me->query_temp("ÌìµØ»ájob/target_1");
+	tk = me->query("å¤©åœ°ä¼š/tangkou");
+	tname = me->query("å¤©åœ°ä¼š/title");
+	str = me->query_temp("å¤©åœ°ä¼šjob/target_1");
 
-	if ( !me->query_temp("ÌìµØ»ájob")
-	|| !me->query("ÌìµØ»á")
-	|| query("ÌìµØ»ájober") != me->query("id") ) {
+	if ( !me->query_temp("å¤©åœ°ä¼šjob")
+	|| !me->query("å¤©åœ°ä¼š")
+	|| query("å¤©åœ°ä¼šjober") != me->query("id") ) {
 		command("fear "+me->query("id"));
-		command("say ²»ÒªÂÒËµ£¬ÄÇ¿ÉÊÇÒªµôÄÔ´üµÄ£¡");
+		command("say ä¸è¦ä¹±è¯´ï¼Œé‚£å¯æ˜¯è¦æ‰è„‘è¢‹çš„ï¼");
 		return 1;
 	}
 	if ( stringp(str)
 	&& !stringp(query("have_leader")) ) {
-		message_vision(CYN"$N¶Ô$nµÀ£ºÔÚÏÂÌìµØ»á"+tk+tname+me->name()+"£¬ÊÜÃüÇ°À´±£»¤ÏÈÉú¡£\n"NOR, me, ob);
+		message_vision(CYN"$Nå¯¹$né“ï¼šåœ¨ä¸‹å¤©åœ°ä¼š"+tk+tname+me->name()+"ï¼Œå—å‘½å‰æ¥ä¿æŠ¤å…ˆç”Ÿã€‚\n"NOR, me, ob);
 		command("touch "+me->query("id"));
 		command("follow "+me->query("id"));
 		set_leader(me);
 		set("have_leader", me->query("id"));
-		me->set_temp("ÌìµØ»ájob/get", ob->query("id"));
-		me->set_temp("ÌìµØ»ájob/get_name", ob->name());
-		message_vision(CYN"$n¶Ô$NµÀ£º¶àĞ»¸óÏÂÔ®ÊÖ£¬ÔÚÏÂÕâÀïÏÈĞ»¹ıÁË¡£Çë´øÎÒÈ¥¼û"+str+"¡£\n"NOR, me, ob);
+		me->set_temp("å¤©åœ°ä¼šjob/get", ob->query("id"));
+		me->set_temp("å¤©åœ°ä¼šjob/get_name", ob->name());
+		message_vision(CYN"$nå¯¹$Né“ï¼šå¤šè°¢é˜ä¸‹æ´æ‰‹ï¼Œåœ¨ä¸‹è¿™é‡Œå…ˆè°¢è¿‡äº†ã€‚è¯·å¸¦æˆ‘å»è§"+str+"ã€‚\n"NOR, me, ob);
 		remove_call_out("happen");
 		call_out("happen", 1, me, ob);
 		return 1;
@@ -79,11 +79,11 @@ void init()
 	}
 	if (interactive(me)
 	&& userp(me)
-	&& query("ÌìµØ»ájober") == me->query("id") ){
+	&& query("å¤©åœ°ä¼šjober") == me->query("id") ){
 		if ( query("have_leader")
 		&& !random(4)
-		&& stringp(me->query_temp("ÌìµØ»ájob/3a"))
-		&& me->query_temp("ÌìµØ»ájob/killer") < 7
+		&& stringp(me->query_temp("å¤©åœ°ä¼šjob/3a"))
+		&& me->query_temp("å¤©åœ°ä¼šjob/killer") < 7
 		&& !(environment(me)->query("no_fight")) ) {
 			me->add_busy(1 + random(1));
 			remove_call_out("addbing");
@@ -104,17 +104,17 @@ void heart_beat()
 
 	ob = this_object();
 	if ( !ob) return;
-	if ( ! query("have_leader") || ! query("ÌìµØ»ájober")) return;
-	if ( !(	me = find_player(query("ÌìµØ»ájober"))) || !environment(me) || !environment(ob)) return;
-	if ( environment(ob)->query("no_fight") && ! me->query_temp("ÌìµØ»ájob/get"))
+	if ( ! query("have_leader") || ! query("å¤©åœ°ä¼šjober")) return;
+	if ( !(	me = find_player(query("å¤©åœ°ä¼šjober"))) || !environment(me) || !environment(ob)) return;
+	if ( environment(ob)->query("no_fight") && ! me->query_temp("å¤©åœ°ä¼šjob/get"))
 		random_move();
-	if ( me->query_temp("ÌìµØ»ájob/target_2") != query("id")) {
+	if ( me->query_temp("å¤©åœ°ä¼šjob/target_2") != query("id")) {
 		dest();
 		return;
 	}
 	if ( environment(me) != environment(ob) && ! ob->is_fighting()){
 		ob->move(environment(me));
-		message_vision("$N½ô¸ú×Å$n¿ì²½×ßÁË¹ıÀ´¡£\n", ob, me);
+		message_vision("$Nç´§è·Ÿç€$nå¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n", ob, me);
 	}
 	if ( environment(me) != environment(ob) && ob->is_fighting()){
 		ob->receive_wound("qi", 300);
@@ -125,18 +125,18 @@ void greeting(object me)
 {
 	object ob = this_object();
 
-	if (!me || !ob || !present(me, environment(ob)) || query("ÌìµØ»ájober") != me->query("id"))
+	if (!me || !ob || !present(me, environment(ob)) || query("å¤©åœ°ä¼šjober") != me->query("id"))
 		return;
 
 	set("miss", 1);
-	if ( !stringp(me->query_temp("ÌìµØ»ájob/get")) ) {
-		message_vision(HIW"\n$NÀÏÔ¶¿´¼ûÒ»ÈË£¬Ñù×Ó»Ğã±ºÍ"+me->query_temp("ÌìµØ»ájob/target_1")+"ËµµÄÄÇÈËºÜÏñ¡£\n"NOR, me, ob);
-		message_vision(CYN"$N×ßÉÏÇ°È¥£¬×÷Ò¾µÀ£º¡°ÇëÎÊ¸óÏÂ¿ÉÊÇ"+ob->name()+"£¿¡± ÄÇÈË´ğµÀ£º¡°ÕıÊÇ¡£¡±\n"NOR, me, ob);
+	if ( !stringp(me->query_temp("å¤©åœ°ä¼šjob/get")) ) {
+		message_vision(HIW"\n$Nè€è¿œçœ‹è§ä¸€äººï¼Œæ ·å­ææƒšå’Œ"+me->query_temp("å¤©åœ°ä¼šjob/target_1")+"è¯´çš„é‚£äººå¾ˆåƒã€‚\n"NOR, me, ob);
+		message_vision(CYN"$Nèµ°ä¸Šå‰å»ï¼Œä½œæ–é“ï¼šâ€œè¯·é—®é˜ä¸‹å¯æ˜¯"+ob->name()+"ï¼Ÿâ€ é‚£äººç­”é“ï¼šâ€œæ­£æ˜¯ã€‚â€\n"NOR, me, ob);
 		return;
 	}
 
 	command("look "+me->query("id"));
-	command("say ÷²×ÓÕÒµÄÊÇÎÒ£¬ºÍÆäËûÈËÎŞ¹Ø¡£");
+	command("say é‘å­æ‰¾çš„æ˜¯æˆ‘ï¼Œå’Œå…¶ä»–äººæ— å…³ã€‚");
 	return;
 }
 
@@ -144,15 +144,15 @@ void happen( object me, object ob )
 {
 	object target;
 
-	if ( !ob || !me || query("ÌìµØ»ájober") != me->query("id"))
+	if ( !ob || !me || query("å¤©åœ°ä¼šjober") != me->query("id"))
 		return;
 
-	if ( me->query_temp("ÌìµØ»ájob/meet") > 0) {
+	if ( me->query_temp("å¤©åœ°ä¼šjob/meet") > 0) {
 		call_out("addbing", 15, me, ob );
 		return;
 	}
 
-	if ( me->query_temp("ÌìµØ»ájob/lost")){
+	if ( me->query_temp("å¤©åœ°ä¼šjob/lost")){
 		command("sigh");
 		command("bye "+ me->query("id"));
 		dest();
@@ -160,17 +160,17 @@ void happen( object me, object ob )
 	}
 
 	target = new(__DIR__"bing");
-	target->set("ÌìµØ»ájober", me->query("id"));
+	target->set("å¤©åœ°ä¼šjober", me->query("id"));
 	target->set("tdh_bing2", ob);
 	copy_npc(me, target, 110);
 
 	target->move(environment(ob));
-	me->add_temp("ÌìµØ»ájob/meet", 1);
+	me->add_temp("å¤©åœ°ä¼šjob/meet", 1);
 	target->kill_ob(ob);
 	ob->kill_ob(target);
-	message_vision(CYN"\nÒ»¸ö¹Ù²îÄ£ÑùµÄÈËÏò$nµÀ£º¡®·´Ôô$n£¬ÀÏ×Ó·îÃüÀ´ÄÃÄã£¬×ßÒ»ÌË°É£¡¡¯\n"NOR, target, ob);
-	message_vision(CYN"$NºßµÀ£º¡°$n£¬ÄãÈ¥ËÀ°É£¡¡±¡£\n"NOR, ob, target);
-	message_vision(CYN"$NÅ­µÀ£º¡°¹Ù¸®¼©ÄÃÇÕ·¸£¬ÏĞÔÓÈËµÈÉÁ¿ª£¡¡±Ëµ°Õ±ãÓë$nÕ½ÔÚÁËÒ»Æğ¡£\n"NOR,target, ob);
+	message_vision(CYN"\nä¸€ä¸ªå®˜å·®æ¨¡æ ·çš„äººå‘$né“ï¼šâ€˜åè´¼$nï¼Œè€å­å¥‰å‘½æ¥æ‹¿ä½ ï¼Œèµ°ä¸€è¶Ÿå§ï¼â€™\n"NOR, target, ob);
+	message_vision(CYN"$Nå“¼é“ï¼šâ€œ$nï¼Œä½ å»æ­»å§ï¼â€ã€‚\n"NOR, ob, target);
+	message_vision(CYN"$Næ€’é“ï¼šâ€œå®˜åºœç¼‰æ‹¿é’¦çŠ¯ï¼Œé—²æ‚äººç­‰é—ªå¼€ï¼â€è¯´ç½¢ä¾¿ä¸$næˆ˜åœ¨äº†ä¸€èµ·ã€‚\n"NOR,target, ob);
 
 	remove_call_out("addbing");
 
@@ -184,22 +184,22 @@ void addbing( object me, object ob )
 {
 	object target;
 
-	if ( !ob || !me || query("ÌìµØ»ájober") != me->query("id"))
+	if ( !ob || !me || query("å¤©åœ°ä¼šjober") != me->query("id"))
 		return;
 
-	if ( me->query_temp("ÌìµØ»ájob/lost")){
+	if ( me->query_temp("å¤©åœ°ä¼šjob/lost")){
 		command("sigh");
 		command("bye "+ me->query("id"));
 		dest();
 		return;
 	}
-	if ( me->query_temp("ÌìµØ»ájob/meet") < 2) {
+	if ( me->query_temp("å¤©åœ°ä¼šjob/meet") < 2) {
 		target = new(__DIR__"bing");
-		target->set("ÌìµØ»ájober", me->query("id"));
+		target->set("å¤©åœ°ä¼šjober", me->query("id"));
 		copy_npc(me, target, 110);
 		target->set("tdh_bing2", ob);
 		target->move(environment(me));
-		me->add_temp("ÌìµØ»ájob/meet", 1);
+		me->add_temp("å¤©åœ°ä¼šjob/meet", 1);
 	}
 	else {
 		call_out("addbing", 20, me, ob );
@@ -208,9 +208,9 @@ void addbing( object me, object ob )
 
 	me->add_busy(1 + random(2));
 	command("escape "+me->query("id"));
-	message_vision(HIR"\nÔ¶´¦·É±¼¹ıÀ´¸öÈËÓ°£¬±ßÅÜ±ß½Ğ£º¡°ÓùÇ°ÊÌÎÀ$NÔÚ´Ë£¡ÌìµØ»á·´ÔôĞİ×ß£¡¡±¡£\n", target);
-	message_vision(CYN"$N½ĞµÀ£º¡°¼©ÄÃÇÕ·¸£¬ÏĞÔÓÈËµÈÉÁ¿ª£¡¡±Ëµ°Õ±ãÓë$nÕ½ÔÚÁËÒ»Æğ¡£\n"NOR, target, me);
-	message_vision(CYN"$NÖ±Ïò$nÆËÁË¹ıÈ¥£¬×ìÀï´óº°µÀ£º¡°·´Ôô£¡¿ì¿ìÊøÊÖ¾ÍÇÜ°É£¡¡±\n"NOR, target, ob);
+	message_vision(HIR"\nè¿œå¤„é£å¥”è¿‡æ¥ä¸ªäººå½±ï¼Œè¾¹è·‘è¾¹å«ï¼šâ€œå¾¡å‰ä¾å«$Nåœ¨æ­¤ï¼å¤©åœ°ä¼šåè´¼ä¼‘èµ°ï¼â€ã€‚\n", target);
+	message_vision(CYN"$Nå«é“ï¼šâ€œç¼‰æ‹¿é’¦çŠ¯ï¼Œé—²æ‚äººç­‰é—ªå¼€ï¼â€è¯´ç½¢ä¾¿ä¸$næˆ˜åœ¨äº†ä¸€èµ·ã€‚\n"NOR, target, me);
+	message_vision(CYN"$Nç›´å‘$næ‰‘äº†è¿‡å»ï¼Œå˜´é‡Œå¤§å–Šé“ï¼šâ€œåè´¼ï¼å¿«å¿«æŸæ‰‹å°±æ“’å§ï¼â€\n"NOR, target, ob);
 	target->kill_ob(me);
 	return;
 }
@@ -222,8 +222,8 @@ void kill_ob(object ob)
 	if (!me) return;
 
 	if (userp(me) && query("have_killer") != me->name()){
-//                command("say ºÃÄã¸ö÷²×ÓµÄ×ß¹·£¡½ñÌìÎÒÀ´ÎªÃñ³ıº¦£¡");
-//                 command("chat "+me->name()+"¼éÕ©ÏÕ¶ñ£¬¾¹È»Í¶¿¿ÇåÍ¢×öÁË÷²×ÓµÄ×ß¹·£¬´ó¼ÒĞ¡ĞÄ...");
+//                command("say å¥½ä½ ä¸ªé‘å­çš„èµ°ç‹—ï¼ä»Šå¤©æˆ‘æ¥ä¸ºæ°‘é™¤å®³ï¼");
+//                 command("chat "+me->name()+"å¥¸è¯ˆé™©æ¶ï¼Œç«Ÿç„¶æŠ•é æ¸…å»·åšäº†é‘å­çš„èµ°ç‹—ï¼Œå¤§å®¶å°å¿ƒ...");
 		set("have_killer", me->name());
 		set("job_npc",1);///added by Ciwei
 	}
@@ -240,17 +240,17 @@ void die()
 		killer->add("shen", -DE_LVL* 20);
 		killer->set_temp("kill_tdhnpc", this_object()->name());
 	}
-	if ( stringp(query("ÌìµØ»ájober"))
-	 && objectp( jober = find_player(query("ÌìµØ»ájober")))
+	if ( stringp(query("å¤©åœ°ä¼šjober"))
+	 && objectp( jober = find_player(query("å¤©åœ°ä¼šjober")))
 	 && jober->query_temp("tdhjob")
-	 && jober->query_temp("ÌìµØ»ájob/get") == query("id")){
-		log_file("job/tiandi", sprintf("%8s%-10sµÚ%4d´ÎÈÎÎñÊ§°Ü(4)£¬Ê±¼ä£º%4d£¬ÏÖ¾­Ñé£º%d¡£",
-			jober->name(), "("+jober->query("id")+")", jober->query("job_time/ÌìµØ»á")+1, uptime()-jober->query_temp("ÌìµØ»ájob/time"), jober->query("combat_exp")), jober);
-		jober->delete_temp("ÌìµØ»ájob");
-		jober->set_temp("ÌìµØ»ájob/lost", query("name"));
-		message_vision(HIY"\nÔãÁË£¡"+this_object()->name()+"ËÀÍö£¬ÈÎÎñÊ§°Ü£¡\n"NOR, jober);
+	 && jober->query_temp("å¤©åœ°ä¼šjob/get") == query("id")){
+		log_file("job/tiandi", sprintf("%8s%-10sç¬¬%4dæ¬¡ä»»åŠ¡å¤±è´¥(4)ï¼Œæ—¶é—´ï¼š%4dï¼Œç°ç»éªŒï¼š%dã€‚",
+			jober->name(), "("+jober->query("id")+")", jober->query("job_time/å¤©åœ°ä¼š")+1, uptime()-jober->query_temp("å¤©åœ°ä¼šjob/time"), jober->query("combat_exp")), jober);
+		jober->delete_temp("å¤©åœ°ä¼šjob");
+		jober->set_temp("å¤©åœ°ä¼šjob/lost", query("name"));
+		message_vision(HIY"\nç³Ÿäº†ï¼"+this_object()->name()+"æ­»äº¡ï¼Œä»»åŠ¡å¤±è´¥ï¼\n"NOR, jober);
 	}
 
-	command("say ×öÁË¹íÎÒÒ²»¹ÊÇÒª·´Çå¸´Ã÷£¡");
+	command("say åšäº†é¬¼æˆ‘ä¹Ÿè¿˜æ˜¯è¦åæ¸…å¤æ˜ï¼");
 	::die();
 }

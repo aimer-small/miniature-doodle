@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short","·å¶¥");
+        set("short","å³°é¡¶");
         set("long", @LONG
-ÕâÀïÊÇÎäµ±ºóÉ½µÄ·å¶¥£¬ËÄÖÜÊ÷Ä¾Çà´ä£¬ÌÒ»¯ÕÀ·Å¡£µØÉÏÓĞĞí¶à²»ÖªÃûµÄ
-²İ±¾Ö²Îï£¬×İºá½»´í¡£Ò»Ğ©²»ÏÔÑÛµÄÖ²Îï½á³öÁËĞí¶àºÖÉ«µÄ¼á¹û¡£
+è¿™é‡Œæ˜¯æ­¦å½“åå±±çš„å³°é¡¶ï¼Œå››å‘¨æ ‘æœ¨é’ç¿ ï¼Œæ¡ƒåŒ–ç»½æ”¾ã€‚åœ°ä¸Šæœ‰è®¸å¤šä¸çŸ¥åçš„
+è‰æœ¬æ¤ç‰©ï¼Œçºµæ¨ªäº¤é”™ã€‚ä¸€äº›ä¸æ˜¾çœ¼çš„æ¤ç‰©ç»“å‡ºäº†è®¸å¤šè¤è‰²çš„åšæœã€‚
 LONG                           
         );
         set("tenghuang_count",500);
@@ -33,24 +33,24 @@ int do_wa(string arg)
         object me;
         me = this_player();
         if (!( present("yao chu", this_player())))
-        return notify_fail("ÄãÉì³öÁ½ÊÖ£¬ºúÂÒÔÚµØÉÏÂÒÅÙ£¡\n");
+        return notify_fail("ä½ ä¼¸å‡ºä¸¤æ‰‹ï¼Œèƒ¡ä¹±åœ¨åœ°ä¸Šä¹±åˆ¨ï¼\n");
         if ( !arg || arg != "caoyao" )
-            return notify_fail("ÄãÍÚÊ²÷á£¿\n");
+            return notify_fail("ä½ æŒ–ä»€éº½ï¼Ÿ\n");
         if (!(int)me->query_temp("mark/wd_mission"))
-             return notify_fail("ÄãÒª×öÊ²÷á£¿\n");
+             return notify_fail("ä½ è¦åšä»€éº½ï¼Ÿ\n");
           if ( (int)me->query("jingli")<80) 
-             { write("ÄãÌ«ÀÛÁË£¡\n");
+             { write("ä½ å¤ªç´¯äº†ï¼\n");
          return 1;
             }
         if(random(5)!=3) {
         me->add("jingli",-40);
-        return notify_fail("ÄãÂÖÆğÒ©³ú£¬ÏòµØÉÏÅÙÈ¥,Ö»ÍÚ³öÁËÒ»Ğ©Ò°²İ¡£\n"); 
+        return notify_fail("ä½ è½®èµ·è¯é”„ï¼Œå‘åœ°ä¸Šåˆ¨å»,åªæŒ–å‡ºäº†ä¸€äº›é‡è‰ã€‚\n"); 
          }
 //        if ((int)me->query("jingli",1) < 60 )
-//            return notify_fail("ÄãĞèÒªÊÊµ±ĞİÏ¢Ò»»áÁË£¡\n");
+//            return notify_fail("ä½ éœ€è¦é€‚å½“ä¼‘æ¯ä¸€ä¼šäº†ï¼\n");
         if (query("tenghuang_count") > 0) 
        {
-        message_vision("$NÂÖÆğÒ©³ú£¬ºöÈ»¼äÍÚµ½ÁËÒ»ÖêÌÙ»Æ¡£\n",me);
+        message_vision("$Nè½®èµ·è¯é”„ï¼Œå¿½ç„¶é—´æŒ–åˆ°äº†ä¸€æ ªè—¤é»„ã€‚\n",me);
         add("tenghuang_count", -1);
         tenghuang=new("/clone/medicine/tenghuang");
         tenghuang->move(me);
@@ -58,7 +58,7 @@ int do_wa(string arg)
         
         }
         else
-       message_vision("$N·ÑÁË°ëÌì¾¢£¬Ö»ÍÚµ½Ò»Ğ©Ò°²İ¡£\n", me);
+       message_vision("$Nè´¹äº†åŠå¤©åŠ²ï¼ŒåªæŒ–åˆ°ä¸€äº›é‡è‰ã€‚\n", me);
         return 1;
 }
 

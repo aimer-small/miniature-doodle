@@ -1,17 +1,17 @@
-// baogou.c ÉñÁú¶áÃü¹³
+// baogou.c ç¥é¾™å¤ºå‘½é’©
 
 #include <weapon.h>
 inherit HOOK;
 
 void create()
 {
-        set_name("ÉñÁú¶áÃü¹³", ({ "shenlong gou", "gou" }));
+        set_name("ç¥é¾™å¤ºå‘½é’©", ({ "shenlong gou", "gou" }));
         set_weight(3000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "ÕâÊÇÒ»±úÈñÀûÎŞ±ÈµÄ±¦¹³¡£\n");
+                set("unit", "æŸ„");
+                set("long", "è¿™æ˜¯ä¸€æŸ„é”åˆ©æ— æ¯”çš„å®é’©ã€‚\n");
                 set("value", 30);
                 set("material", "steel");
 		set("rigidity", 9);

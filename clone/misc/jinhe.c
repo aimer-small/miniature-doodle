@@ -1,4 +1,4 @@
-// jinhe.c ½ðÖ½º×
+// jinhe.c é‡‘çº¸é¹¤
 // By River@SJ 
 
 inherit ITEM;
@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY"½ðÖ½º×"NOR, ({ "jin zhihe", "jin", "zhihe" }));
+	set_name(HIY"é‡‘çº¸é¹¤"NOR, ({ "jin zhihe", "jin", "zhihe" }));
 	set("weight", 50);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»Ö»èòèòÈçÉúµÄ½ðÉ«Ö½º×£¬×ÐÏ¸¿´È¥£¬Ô­À´ÊÇÓÃÇÉÊÖ¾«ÐÄÕÛµþ(zhedie)¶ø³ÉµÄ¡£\n");
+		set("long", "ä¸€åªæ ©æ ©å¦‚ç”Ÿçš„é‡‘è‰²çº¸é¹¤ï¼Œä»”ç»†çœ‹åŽ»ï¼ŒåŽŸæ¥æ˜¯ç”¨å·§æ‰‹ç²¾å¿ƒæŠ˜å (zhedie)è€Œæˆçš„ã€‚\n");
                 set("value", 500);
-		set("unit", "Ö»");
+		set("unit", "åª");
 		set("no_drop", 1);
 		set("no_give", 1);
 		set("no_get", 1);
@@ -37,9 +37,9 @@ void he_done(object me,object ob,string msg,int i)
 	if (! wizardp(me))
 		me->add_busy(random(i/5)+1);
 	he = new(MISC_D("zhihe"));
-        he->set("name", HIW+me->query("name")+"µþµÄÖ½º×"NOR);
+        he->set("name", HIW+me->query("name")+"å çš„çº¸é¹¤"NOR);
 	he->set("id", me->query("id")+"'s zhihe");
-	he->set("long", he->query("long") +"ÕâÊÇÓÉ"+me->query("name")+"("+capitalize(me->query("id"))+")Ç×ÊÖÕÛµþ¶ø³ÉµÄ¡£\n");
+	he->set("long", he->query("long") +"è¿™æ˜¯ç”±"+me->query("name")+"("+capitalize(me->query("id"))+")äº²æ‰‹æŠ˜å è€Œæˆçš„ã€‚\n");
 	he->set_amount(i);
 	he->move(me);
 	destruct(ob);
@@ -52,44 +52,44 @@ int do_zhedie(string arg)
 	int i =1;
 
 	if (! arg || arg != "zhihe")
-		return notify_fail("ÄãÏëÕÛµþÊ²Ã´£¿\n");
+		return notify_fail("ä½ æƒ³æŠ˜å ä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if ( ! objectp( ob =present("bai zhi", me)))
-		return notify_fail("ÄãÃ»ÓÐÒ»ÕÅ¸É¾»µÄ°×Ö½£¬ÓÃÊ²Ã´À´ÕÛµþ°¡£¿\n");
+		return notify_fail("ä½ æ²¡æœ‰ä¸€å¼ å¹²å‡€çš„ç™½çº¸ï¼Œç”¨ä»€ä¹ˆæ¥æŠ˜å å•Šï¼Ÿ\n");
 	
 	if ( !wizardp(me) && query("owner") != me->query("id"))
-		return notify_fail("Äã´ÓÄÇÀïµÃµ½µÄ½ðÖ½º×°¡£¿\n");
+		return notify_fail("ä½ ä»Žé‚£é‡Œå¾—åˆ°çš„é‡‘çº¸é¹¤å•Šï¼Ÿ\n");
 
 	if ( me->query_temp("make_zhihe/done"))
-		return notify_fail("ÄãÒÑ¾­ÓÐÒ»Ç§Ö»Ö½º×ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»æœ‰ä¸€åƒåªçº¸é¹¤äº†ã€‚\n");
 
 	if (me->query_temp("zhihe") < 50) {
 		me->add_temp("zhihe", i);
-		msg = "$NÄÃÆðÒ»ÕÅ°×Ö½£¬ÕÕ×Å½ðÖ½º×µÄÑù×Ó¿ªÊ¼µþ£¬ÖÕÓÚµþºÃÁËÒ»Ö»£¬Í»È»·¢ÏÖ×Ô¼ºÒÑÊÇ´óº¹ÁÜÀì¡£\n"; 
+		msg = "$Næ‹¿èµ·ä¸€å¼ ç™½çº¸ï¼Œç…§ç€é‡‘çº¸é¹¤çš„æ ·å­å¼€å§‹å ï¼Œç»ˆäºŽå å¥½äº†ä¸€åªï¼Œçªç„¶å‘çŽ°è‡ªå·±å·²æ˜¯å¤§æ±—æ·‹æ¼“ã€‚\n"; 
 		he_done(me, ob, msg, i);
 		return 1;
 	}
 	if (me->query_temp("zhihe") >= 50 && me->query_temp("zhihe") < 300 ) {
 		i = 3 + random(5);
 		me->add_temp("zhihe", i);
-		msg = "$NÄÃ×Å°×Ö½¿ªÊ¼µþº×£¬½¥½¥¿ªÊ¼ÊìÁ·ÆðÀ´£¬²»Ò»»á¾ÍµþºÃÁË"+chinese_number(i)+"Ö»¡£\n"; 
+		msg = "$Næ‹¿ç€ç™½çº¸å¼€å§‹å é¹¤ï¼Œæ¸æ¸å¼€å§‹ç†Ÿç»ƒèµ·æ¥ï¼Œä¸ä¸€ä¼šå°±å å¥½äº†"+chinese_number(i)+"åªã€‚\n"; 
 		he_done(me, ob, msg, i);
 		return 1;
 	}
 	if (me->query_temp("zhihe") >= 300 && me->query_temp("zhihe") < 550) {
 		i = 5 + random(10);
 		me->add_temp("zhihe", i);
-		msg = "$NÄÃ×Å°×Ö½£¬·Ç³£ÊìÁ·µØÕÛµþÆðÀ´£¬ºÜ¿ì¾ÍÕÛºÃÁË"+chinese_number(i)+"Ö»Ö½º×¡£\n"; 
+		msg = "$Næ‹¿ç€ç™½çº¸ï¼Œéžå¸¸ç†Ÿç»ƒåœ°æŠ˜å èµ·æ¥ï¼Œå¾ˆå¿«å°±æŠ˜å¥½äº†"+chinese_number(i)+"åªçº¸é¹¤ã€‚\n"; 
 		he_done(me, ob, msg, i);
 		return 1;
 	}
 	if (me->query_temp("zhihe") >= 550 && me->query_temp("zhihe") < 800) {
 		i = 10 + random(20);
 		me->add_temp("zhihe", i);
-		msg = "$NÄÃÆð°×Ö½£¬ÊìÁ·µØÕÛµþ×Å£¬ÐÄÀïÏë×ÅÄ³¸öÈË£¬µþ³ÉµÄº×Ò²½¥½¥ÏÔµÃÓÐÁéÆøÁË¡£\n"; 
+		msg = "$Næ‹¿èµ·ç™½çº¸ï¼Œç†Ÿç»ƒåœ°æŠ˜å ç€ï¼Œå¿ƒé‡Œæƒ³ç€æŸä¸ªäººï¼Œå æˆçš„é¹¤ä¹Ÿæ¸æ¸æ˜¾å¾—æœ‰çµæ°”äº†ã€‚\n"; 
 		he_done(me, ob, msg, i);
 		return 1;
 	}
@@ -98,12 +98,12 @@ int do_zhedie(string arg)
 		if ( i + me->query_temp("zhihe") > 1000)
 			i = 1000 - me->query_temp("zhihe");
 		me->add_temp("zhihe", i);
-		msg = "$NÒ»±ßµþ×Å°×Ö½£¬Ò»±ßÐÒ¸£µØÎ¢Ð¦×Å£¬µþ³ÉµÄÖ½º×Ò²ÉõÊÇÁé¶¯£¬·Â·ðÂíÉÏ¾Í»á·Éµ½ÁíÒ»¸öÈËµÄÉí±ß¡£\n"; 
+		msg = "$Nä¸€è¾¹å ç€ç™½çº¸ï¼Œä¸€è¾¹å¹¸ç¦åœ°å¾®ç¬‘ç€ï¼Œå æˆçš„çº¸é¹¤ä¹Ÿç”šæ˜¯çµåŠ¨ï¼Œä»¿ä½›é©¬ä¸Šå°±ä¼šé£žåˆ°å¦ä¸€ä¸ªäººçš„èº«è¾¹ã€‚\n"; 
 		he_done(me, ob, msg, i);
 		return 1;
 	}
 	if (me->query_temp("zhihe") >= 1000 ) {
-		msg = HIW"\n$N¸ÕµþÍêÕâÖ»º×£¬Í»È»¾õµÃÑô¹âºÃÏóÒ²±äµÃÎÂÈáÁËÒ»Ð©£¬Ô­À´ÉíÉÏÒÑ¾­µþºÃÁËÒ»Ç§Ö»Ö½º×¡£\n"NOR;
+		msg = HIW"\n$Nåˆšå å®Œè¿™åªé¹¤ï¼Œçªç„¶è§‰å¾—é˜³å…‰å¥½è±¡ä¹Ÿå˜å¾—æ¸©æŸ”äº†ä¸€äº›ï¼ŒåŽŸæ¥èº«ä¸Šå·²ç»å å¥½äº†ä¸€åƒåªçº¸é¹¤ã€‚\n"NOR;
 		message_vision(msg, me);
 		me->delete_temp("zhihe");
 		me->set_temp("make_zhihe/done", 1);

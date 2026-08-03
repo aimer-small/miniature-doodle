@@ -1,4 +1,4 @@
-//bestfalun.c ·ç»ğÂÖ
+//bestfalun.c é£ç«è½®
 //by iceland
 #include <ansi.h>
 #include <weapon.h>
@@ -6,14 +6,14 @@ inherit HAMMER;
 inherit F_UNIQUE;
 void create()
 {
-        set_name( HIR"·ç»ğÂÖ"NOR,({ "fenghuo lun" ,"lun" ,"falun","fenghuolun"}));
+        set_name( HIR"é£ç«è½®"NOR,({ "fenghuo lun" ,"lun" ,"falun","fenghuolun"}));
         set_weight(75000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ö»");
-                set("long",HIR"ÕâÖ»ÅÓ´óµÄ·¨ÂÖÉÏÃæ¿Ì×ÅºÜ¶àÏóĞÎÍ¼°¸£¬×ª¶¯Ö®¼äÒşÒşÏÔ³ö»ğÑæ·ÉÌÚ£¬ÕâÊÇ´«ËµÖĞµÄ±øÆ÷--·ç»ğÂÖ¡£\n"
-                           "ËüÊÇÓÉÊıÖ»·¨ÂÖ×éºÏ¶ø³É£¬Èç¹ûÁ¦Á¿×ã¹»£¬Ó¦¸Ã¿ÉÒÔ·Ö¿ª(fenkai)¡£\n"NOR);
+		set("unit", "åª");
+                set("long",HIR"è¿™åªåºå¤§çš„æ³•è½®ä¸Šé¢åˆ»ç€å¾ˆå¤šè±¡å½¢å›¾æ¡ˆï¼Œè½¬åŠ¨ä¹‹é—´éšéšæ˜¾å‡ºç«ç„°é£è…¾ï¼Œè¿™æ˜¯ä¼ è¯´ä¸­çš„å…µå™¨--é£ç«è½®ã€‚\n"
+                           "å®ƒæ˜¯ç”±æ•°åªæ³•è½®ç»„åˆè€Œæˆï¼Œå¦‚æœåŠ›é‡è¶³å¤Ÿï¼Œåº”è¯¥å¯ä»¥åˆ†å¼€(fenkai)ã€‚\n"NOR);
                 set("value", 1500);
                 set("rigidity", 10);
                 set("sharpness", 8);
@@ -23,15 +23,15 @@ void create()
                 set("wield_maxneili", 1800);
                 set("wield_str", 40);
                 set("material", "gsbil");
-                set("wield_msg", HIR"$N´Ó±³ºóÈ¡³öÒ»Ö»$n"HIR"ÎÕÔÚÊÖÖĞ£¬Ë²¼äÌì»èµØ°µ£¬¿ñ·ç´ó×ö£¬ËÄÏÂÀï»ğ¹â´Ü¶¯¡£\n"NOR);
-                set("unwield_msg",HIR"$NµÍÍ·¿´×Å$n"HIR"£¬ÔŞĞíµÄÌ¾ÁË¿ÚÆø£¬ÁµÁµ²»ÉáµÄ±³ÔÚÁË±³ºó¡£\n"NOR);
+                set("wield_msg", HIR"$Nä»èƒŒåå–å‡ºä¸€åª$n"HIR"æ¡åœ¨æ‰‹ä¸­ï¼Œç¬é—´å¤©æ˜åœ°æš—ï¼Œç‹‚é£å¤§åšï¼Œå››ä¸‹é‡Œç«å…‰çªœåŠ¨ã€‚\n"NOR);
+                set("unwield_msg",HIR"$Nä½å¤´çœ‹ç€$n"HIR"ï¼Œèµè®¸çš„å¹äº†å£æ°”ï¼Œæ‹æ‹ä¸èˆçš„èƒŒåœ¨äº†èƒŒåã€‚\n"NOR);
 	}
         init_hammer(150);
 	setup();
 }
 void init()
 {
-    add_action("do_sub",({"fenkai", "·Ö¿ª"}));
+    add_action("do_sub",({"fenkai", "åˆ†å¼€"}));
 }
 
 int do_sub()
@@ -40,7 +40,7 @@ int do_sub()
      object ob1, ob2, ob3, ob4, ob5;;
      me = this_player();
      if((int)me->query_skill("longxiang-boruo",1)<200)
-     return notify_fail("ÄãµÄÁúÏó°ãÈô¹¦Á¦ĞŞÎªÉĞÎ´Í»ÆÆµÚÊ®²ãÌìÈË¾ø¾³£¬ÎŞ·¨·Ö¿ª´ËÂÖ¡£\n");
+     return notify_fail("ä½ çš„é¾™è±¡èˆ¬è‹¥åŠŸåŠ›ä¿®ä¸ºå°šæœªçªç ´ç¬¬åå±‚å¤©äººç»å¢ƒï¼Œæ— æ³•åˆ†å¼€æ­¤è½®ã€‚\n");
      ob = this_object();
      ob1 = unew(BINGQI_D("gold-falun"));
      ob2 = unew(BINGQI_D("silver-falun"));
@@ -53,7 +53,7 @@ int do_sub()
              ob3->move(me);
              ob4->move(me);
              ob5->move(me);
-             message_vision(HIY"$N½«·ç»ğÂÖÒ»×ª£¬Ö»Ìı¶£¶£¼¸ÉùÇáÏì£¬·ç»ğÂÖÉ¢³ÉÁËÎåÖ»·¨ÂÖ¡£\n"NOR, me);
+             message_vision(HIY"$Nå°†é£ç«è½®ä¸€è½¬ï¼Œåªå¬å®å®å‡ å£°è½»å“ï¼Œé£ç«è½®æ•£æˆäº†äº”åªæ³•è½®ã€‚\n"NOR, me);
              destruct(ob);
 		return 1;
      }
@@ -62,5 +62,5 @@ int do_sub()
 	if (ob3) destruct(ob3);
 	if (ob4) destruct(ob4);
 	if (ob5) destruct(ob5);
-     return notify_fail("ÄãÊÔÍ¼½«·ç»ğÂÖ·Ö³ÉÎå¸ö·¨ÂÖ£¬È´·¢ÏÖÎåÂÖ»·»·ÏàÇ¶£¬ÊµÔÚÎŞ·¨·Ö¿ª¡£\n");
+     return notify_fail("ä½ è¯•å›¾å°†é£ç«è½®åˆ†æˆäº”ä¸ªæ³•è½®ï¼Œå´å‘ç°äº”è½®ç¯ç¯ç›¸åµŒï¼Œå®åœ¨æ— æ³•åˆ†å¼€ã€‚\n");
 }

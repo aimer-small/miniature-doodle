@@ -1,4 +1,4 @@
-// cuishan.c  ÁºÏª´à÷­
+// cuishan.c  æ¢æºªè„†é³
 
 #include <ansi.h>
 
@@ -7,14 +7,14 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name(HIY "ÁºÏª´à÷­" NOR, ({"liangxi cuishan", "cuishan"}));
+	set_name(HIY "æ¢æºªè„†é³" NOR, ({"liangxi cuishan", "cuishan"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÁºÏª´à÷­ĞÎÈçÒ»×ùÔìĞÍÓÅÃÀµÄÉ½£¬´íÂäÓĞÖÂ£¬É«³Ê½´ºÖ£¬ÎÚ¹âÓÍÁÁ£¬
-´àÄÜ½À¶ÏÊı½Ø£¬ËÉÔòÂú¿ÚÏûÈÚ£¬ÌğÖĞÓĞÏÌ£¬´Ğ½ªÒçÏã¡£\n");
-		set("unit", "ÅÌ");
+		set("long", "æ¢æºªè„†é³å½¢å¦‚ä¸€åº§é€ å‹ä¼˜ç¾çš„å±±ï¼Œé”™è½æœ‰è‡´ï¼Œè‰²å‘ˆé…±è¤ï¼Œä¹Œå…‰æ²¹äº®ï¼Œ
+è„†èƒ½åš¼æ–­æ•°æˆªï¼Œæ¾åˆ™æ»¡å£æ¶ˆèï¼Œç”œä¸­æœ‰å’¸ï¼Œè‘±å§œæº¢é¦™ã€‚\n");
+		set("unit", "ç›˜");
 		set("value", 200);
 		set("food_remaining", 2);
 		set("food_supply", 35);

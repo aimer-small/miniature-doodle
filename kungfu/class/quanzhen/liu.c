@@ -4,14 +4,14 @@ inherit NPC;
 
 void create()
 {
-        set_name("Áõ´¦Ðþ", ({"liu chuxuan", "liu"}));
-        set("gender", "ÄÐÐÔ");
+        set_name("åˆ˜å¤„çŽ„", ({"liu chuxuan", "liu"}));
+        set("gender", "ç”·æ€§");
         set("age", 38);
         set("class", "taoist");
-        set("nickname",WHT"³¤Éú×Ó"NOR);
+        set("nickname",WHT"é•¿ç”Ÿå­"NOR);
         set("long",
-                "Ëû¾ÍÊÇÈ«ÕæÈýÍ½Áõ´¦ÐþÁõÕæÈË£¬ËûÉí²ÄÊÝÐ¡£¬µ«¹ËÅÎ¼ä×ÔÓÐÒ»\n"
-                "ÖÖÍþÑÏÆø¸Å¡£\n");
+                "ä»–å°±æ˜¯å…¨çœŸä¸‰å¾’åˆ˜å¤„çŽ„åˆ˜çœŸäººï¼Œä»–èº«æç˜¦å°ï¼Œä½†é¡¾ç›¼é—´è‡ªæœ‰ä¸€\n"
+                "ç§å¨ä¸¥æ°”æ¦‚ã€‚\n");
         set("attitude", "peaceful");
         set("shen_type",1);
         set("str", 30);
@@ -19,7 +19,7 @@ void create()
         set("con", 28);
         set("dex", 30);
 
-        set("title","È«ÕæÆß×ÓÖ®Èý");
+        set("title","å…¨çœŸä¸ƒå­ä¹‹ä¸‰");
 
 
         set("qi", 4400);
@@ -52,7 +52,7 @@ void create()
         map_skill("strike", "haotian-zhang");
         prepare_skill("strike","haotian-zhang");
 
-        create_family("È«Õæ½Ì", 2, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 2, "å¼Ÿå­");
 
         set("inquiry", ([
 
@@ -70,15 +70,15 @@ void attempt_apprentice(object ob)
 
         if ((int)ob->query_skill("xiantian-gong",1) < 70 )
         {
-                command("say ÄãµÄ±¾ÃÅÄÚ¹¦ÐÄ·¨»ðºò²»×ã,ÄÑÒÔÁìÂÔ¸ü¸ßÉîµÄÎä¹¦¡£");
+                command("say ä½ çš„æœ¬é—¨å†…åŠŸå¿ƒæ³•ç«å€™ä¸è¶³,éš¾ä»¥é¢†ç•¥æ›´é«˜æ·±çš„æ­¦åŠŸã€‚");
                 return;
         }
         if ((int)ob->query("shen") < 6000)
         {
-                command("say ¶à×öÒ»Ð©ÐÐÏÀÕÌÒåµÄÊÂÇéÔÙËµ°É£¡¡£\n");
+                command("say å¤šåšä¸€äº›è¡Œä¾ ä»—ä¹‰çš„äº‹æƒ…å†è¯´å§ï¼ã€‚\n");
                 return;
         }
-        command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÕâ¸öÍ½µÜÁË¡£");
+        command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ è¿™ä¸ªå¾’å¼Ÿäº†ã€‚");
         command("recruit " + ob->query("id"));
 }
 */

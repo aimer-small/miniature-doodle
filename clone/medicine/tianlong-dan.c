@@ -9,12 +9,12 @@ void init()
 
 void create()
 {
-	set_name("ÌìÁúµ¤", ({"tianlong dan", "dan"}));
+	set_name("å¤©é¾™ä¸¹", ({"tianlong dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿Å½ð»ÆÉ«Ô²ÁïÁïµÄÒ©Íè£¬É¢·¢Ò»¹ÉÇåÏã£¬ÕýÊÇÁéÒ©ÌìÁúµ¤¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—é‡‘é»„è‰²åœ†æºœæºœçš„è¯ä¸¸ï¼Œæ•£å‘ä¸€è‚¡æ¸…é¦™ï¼Œæ­£æ˜¯çµè¯å¤©é¾™ä¸¹ã€‚\n");
 		set("value", 100);
                 set("no_drop", 1);
                         set("no_get", 1);
@@ -29,7 +29,7 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->query_skill_mapped("force") != "qiantian-yiyang" )
       {
@@ -39,11 +39,11 @@ int do_eat(string arg)
 	/*
 		if (me->add("max_neili", -10) < 0)
 			me->set("max_neili", 0);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÌìÁúµ¤£¬Ö»¾õµÃ¸Î³¦´ç¶Ï£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËðÕæÔª£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å¤©é¾™ä¸¹ï¼Œåªè§‰å¾—è‚è‚ å¯¸æ–­ï¼ŒåŽŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸçœŸå…ƒï¼\n" NOR, me);
 		me->unconcious();
 		destruct(this_object());
 	*/
-		write("ËùÁ·ÄÚ¹¦²»·û£¬ÕâÒ©Äã»¹ÊÇ²»Òª³ÔµÄºÃ£¡\n");
+		write("æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œè¿™è¯ä½ è¿˜æ˜¯ä¸è¦åƒçš„å¥½ï¼\n");
 
 		return 1;
 
@@ -53,19 +53,19 @@ int do_eat(string arg)
          if ( me->query("max_neili") < 450 )
 	{
 		me->add("max_neili", -1);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÌìÁúµ¤£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´¹¦Á¦²»¹»£¬Ò©Ð§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å¤©é¾™ä¸¹ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŽŸæ¥åŠŸåŠ›ä¸å¤Ÿï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
 	else if ( (int)me->query_condition("medicine" ) > 0 )
 	{
 		            me->add("max_neili", -10);
 			me->set("neili", 0);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÌìÁúµ¤£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´·þÊ³Ì«¼±Ì«¶à£¬Ò©Ð§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å¤©é¾™ä¸¹ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŽŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
 
 	else
 	{
 		me->add("max_neili", 1);
-		message_vision(HIG "$N³ÔÏÂÒ»¿ÅÌìÁúµ¤£¬Ö»¾õµÃÌåÄÚÕæÁ¦Ô´Ô´×ÌÉú£¬±é²¼Ææ½î°ËÂö£¬È«Éí¹¦Á¦¶ÙÈ»Ìá¸ß£¡\n" NOR, me);
+		message_vision(HIG "$Nåƒä¸‹ä¸€é¢—å¤©é¾™ä¸¹ï¼Œåªè§‰å¾—ä½“å†…çœŸåŠ›æºæºæ»‹ç”Ÿï¼Œéå¸ƒå¥‡ç­‹å…«è„‰ï¼Œå…¨èº«åŠŸåŠ›é¡¿ç„¶æé«˜ï¼\n" NOR, me);
 		me->apply_condition("medicine", 60);
 	}
 	destruct(this_object());

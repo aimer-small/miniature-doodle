@@ -7,10 +7,10 @@ inherit F_BANKER;
 
 void create()
 {
-        set_name("ÑÔ´ïÆ½", ({"yan daping", "yan", "daping"}));
-        set("title", "ÏåÑôÎä¹İÕÊ·¿");
-        set("long","ÉíĞÎÏûÊİ£¬Ë«Ä¿¾¼¾¼ÓĞÉñ£¬¿´ÆğÀ´ÏóÒ»¸öÒÂÊÎ»ª¹óµÄ´ó²ÆÖ÷¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("è¨€è¾¾å¹³", ({"yan daping", "yan", "daping"}));
+        set("title", "è¥„é˜³æ­¦é¦†å¸æˆ¿");
+        set("long","èº«å½¢æ¶ˆç˜¦ï¼ŒåŒç›®ç‚¯ç‚¯æœ‰ç¥ï¼Œçœ‹èµ·æ¥è±¡ä¸€ä¸ªè¡£é¥°åè´µçš„å¤§è´¢ä¸»ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 54);    
         set("combat_exp",90000);
         set("shen_type", 1);
@@ -33,8 +33,8 @@ void create()
 void init()
 {
         ::init();
-        add_action("do_check", ({"check", "chazhang", "²éÕÊ"}));
-        add_action("do_convert", ({"convert", "duihuan", "¶Ò»»"}));
-        add_action("do_deposit", ({"deposit", "cun", "´æ"}));
-        add_action("do_withdraw", ({"withdraw", "qu", "È¡"}));
+        add_action("do_check", ({"check", "chazhang", "æŸ¥å¸"}));
+        add_action("do_convert", ({"convert", "duihuan", "å…‘æ¢"}));
+        add_action("do_deposit", ({"deposit", "cun", "å­˜"}));
+        add_action("do_withdraw", ({"withdraw", "qu", "å–"}));
 }

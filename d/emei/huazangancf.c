@@ -1,15 +1,15 @@
 // huazangancf.c
-// ìø·¿
+// ç¦…æˆ¿
 inherit ROOM;
 #include <room.h>
 #include <ansi.h>
 //#include "jingzuo.h";
 void create()
 {
-	set("short", "ìø·¿");
+	set("short", "ç¦…æˆ¿");
 	set("long",@long
-ÕâÀï±ãÊÇ¶ëáÒ»ª²ØâÖµÄìø·¿¡£µØÏÂÉ¢ÂÒµØ·Å×ÅĞí¶àÆÑÍÅ£¬Ä¾ÓãµÈ£¬´Ë´¦
-ÕıÊÇ±¾ÅÉµÜ×Ó´ò×øĞŞĞĞÖ®Ëù¡£¼¸Î»ÄêÇáÊ¦Ì«ºÍË×¼ÒÅ®µÜ×ÓÕıËàÈİÈë¶¨¡£
+è¿™é‡Œä¾¿æ˜¯å³¨åµ‹åè—åºµçš„ç¦…æˆ¿ã€‚åœ°ä¸‹æ•£ä¹±åœ°æ”¾ç€è®¸å¤šè’²å›¢ï¼Œæœ¨é±¼ç­‰ï¼Œæ­¤å¤„
+æ­£æ˜¯æœ¬æ´¾å¼Ÿå­æ‰“åä¿®è¡Œä¹‹æ‰€ã€‚å‡ ä½å¹´è½»å¸ˆå¤ªå’Œä¿—å®¶å¥³å¼Ÿå­æ­£è‚ƒå®¹å…¥å®šã€‚
 long);
 	set("exits",([
 	    "north" : __DIR__"xcelang",
@@ -18,14 +18,14 @@ long);
 ]));
     set("jingzuo", 1);
     set("no_fight", 1);
-create_door("south", "Ğ¡ÃÅ", "north", DOOR_CLOSED);
+create_door("south", "å°é—¨", "north", DOOR_CLOSED);
 	setup();
 }
 
 int valid_leave(object me, string dir)
 {
-        if ((string)me->query("gender")=="ÄĞĞÔ" && dir == "south")
-                return notify_fail("ÄÇÀïÊÇÊ¦Ì«ÃÇĞİÏ¢µÄµØ·½£¬Äã²»ÄÜ½øÈ¥¡£\n");
+        if ((string)me->query("gender")=="ç”·æ€§" && dir == "south")
+                return notify_fail("é‚£é‡Œæ˜¯å¸ˆå¤ªä»¬ä¼‘æ¯çš„åœ°æ–¹ï¼Œä½ ä¸èƒ½è¿›å»ã€‚\n");
         return ::valid_leave(me, dir);
 }
 

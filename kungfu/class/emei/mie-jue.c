@@ -1,5 +1,5 @@
 // /kungfu/class/emei/mie-jue.c
-// ËÀÄá¹ÃÃğ¾ø
+// æ­»å°¼å§‘ç­ç»
 // Lklv 2001.10.18 update
 
 #include <ansi.h>
@@ -14,12 +14,12 @@ int ask_dragon();
 
 void create()
 {
-	set_name("Ãğ¾øÊ¦Ì«", ({"miejue shitai", "miejue", "shitai"}));
-	set("long","Ëı¾ÍÊÇ¶ëáÒÅÉµÚÈı´úÕÆÃÅÈËÃğ¾øÊ¦Ì«ÁË¡£\n"
-"ËıÈİÃ²ËãµÃ¼«ÃÀ£¬µ«Á½ÌõÃ¼Ã«Ğ±Ğ±ÏÂ´¹£¬Ò»¸±ÃæÏà±ã±äµÃ¼«ÊÇ¹îÒì£¬¼¸ºõ\n"
-"ÓĞµã¶ùÏ·Ì¨ÉÏµÄµõËÀ¹íÎ¶µÀ¡£\n"
+	set_name("ç­ç»å¸ˆå¤ª", ({"miejue shitai", "miejue", "shitai"}));
+	set("long","å¥¹å°±æ˜¯å³¨åµ‹æ´¾ç¬¬ä¸‰ä»£æŒé—¨äººç­ç»å¸ˆå¤ªäº†ã€‚\n"
+"å¥¹å®¹è²Œç®—å¾—æç¾ï¼Œä½†ä¸¤æ¡çœ‰æ¯›æ–œæ–œä¸‹å‚ï¼Œä¸€å‰¯é¢ç›¸ä¾¿å˜å¾—ææ˜¯è¯¡å¼‚ï¼Œå‡ ä¹\n"
+"æœ‰ç‚¹å„¿æˆå°ä¸Šçš„åŠæ­»é¬¼å‘³é“ã€‚\n"
 	);
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 	set("class", "bonze");
@@ -58,13 +58,13 @@ void create()
         set_skill("force", 170);
         set_skill("anying-fuxiang", 170);
         set("inquiry",([
-		"ÒĞÌì½£" : (: ask_sword :),
-		"¾ÅÒõÕæ¾­" : (: ask_jiuyin :),
-		"ÖÜÜÆÈô" : (: ask_zhou :),
-		"¹ù¾¸" : (: ask_guo :),
-		"»ÆÈØ" : (: ask_guo :),
-		"ÒĞÌìÍÀÁú" : (: ask_dragon :),
-		"ÎäÁÖÖÁ×ğ" : (: ask_dragon :),
+		"å€šå¤©å‰‘" : (: ask_sword :),
+		"ä¹é˜´çœŸç»" : (: ask_jiuyin :),
+		"å‘¨èŠ·è‹¥" : (: ask_zhou :),
+		"éƒ­é–" : (: ask_guo :),
+		"é»„è“‰" : (: ask_guo :),
+		"å€šå¤©å± é¾™" : (: ask_dragon :),
+		"æ­¦æ—è‡³å°Š" : (: ask_dragon :),
         ]) );
 
         map_skill("force", "linji-zhuang");
@@ -77,7 +77,7 @@ void create()
 
         prepare_skill("hand", "jieshou-jiushi");
 
-        create_family("¶ëáÒÅÉ", 3, "ÕÆÃÅ");
+        create_family("å³¨åµ‹æ´¾", 3, "æŒé—¨");
 
         setup();
         carry_object(BINGQI_D("changjian"))->wield();
@@ -105,13 +105,13 @@ void greeting(object me)
 
         if ( file_name(environment(this_object())) != this_object()->query("startroom")) return;
 
-        if(shen <= -200000 && me->query("family/family_name") == "¶ëáÒÅÉ"){
+        if(shen <= -200000 && me->query("family/family_name") == "å³¨åµ‹æ´¾"){
         	command("chat* kick2 "+me->query("id"));
-        	command("say ÄãÂúÑÛÕÎÆø£¬Éí´øĞ°Æø£¬ÔÙºÍĞ°Ä§ÍâµÀÀ´ÍùÎÒ¿ª³ıÄã³ö¶ëáÒÅÉ£¡");
+        	command("say ä½ æ»¡çœ¼ç˜´æ°”ï¼Œèº«å¸¦é‚ªæ°”ï¼Œå†å’Œé‚ªé­”å¤–é“æ¥å¾€æˆ‘å¼€é™¤ä½ å‡ºå³¨åµ‹æ´¾ï¼");
 	}
-	if(shen <0 && shen > -200000 && me->query("family/family_name") == "¶ëáÒÅÉ"){
+	if(shen <0 && shen > -200000 && me->query("family/family_name") == "å³¨åµ‹æ´¾"){
 		command("look "+me->query("id"));
-		command("say ÎÒ¿´ÄãÂúÑÛÕÎÆø£¬Éí´øĞ°Æø£¬×î½üÊÇ²»ÊÇÔÚÍâÃæ×öÁËÊ²Ã´»µÊÂ£¿");
+		command("say æˆ‘çœ‹ä½ æ»¡çœ¼ç˜´æ°”ï¼Œèº«å¸¦é‚ªæ°”ï¼Œæœ€è¿‘æ˜¯ä¸æ˜¯åœ¨å¤–é¢åšäº†ä»€ä¹ˆåäº‹ï¼Ÿ");
 	}
 	else command("buddhi miejue shitai");
 }

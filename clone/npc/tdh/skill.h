@@ -1,8 +1,8 @@
 // include for tdh job npc
 // by Lklv
 
-#define DE_LVL 120	// Ä¬ÈÏnpc skill¼¶±ð
-#define DE_GIFT 20	// Ä¬ÈÏnpc ÊôÐÔ
+#define DE_LVL 120	// é»˜è®¤npc skillçº§åˆ«
+#define DE_GIFT 20	// é»˜è®¤npc å±žæ€§
 
 string s_sword,s_blade,s_club,s_whip,s_staff,s_dodge, weapon;
 

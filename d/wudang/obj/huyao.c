@@ -1,5 +1,5 @@
 // huyao.c
-// caiji@SJ 8/27/2000 ¸ù¾İÉÙÁÖ»¤ÑüĞŞ¸Ä£¬Èç¸Ğ¾õÀ×Í¬µÄ»°£¬Çë°ïÃ¦CUT¡£
+// caiji@SJ 8/27/2000 æ ¹æ®å°‘æ—æŠ¤è…°ä¿®æ”¹ï¼Œå¦‚æ„Ÿè§‰é›·åŒçš„è¯ï¼Œè¯·å¸®å¿™CUTã€‚
 
 #include <ansi.h>
 #include <armor.h>
@@ -8,13 +8,13 @@ inherit WAIST;
 
 void create()
 {
-        set_name(HIR "µ¤·ï»¤Ñü" NOR, ({ "danfeng huyao", "huyao" }) );
+        set_name(HIR "ä¸¹å‡¤æŠ¤è…°" NOR, ({ "danfeng huyao", "huyao" }) );
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ìõ");
-                set("long", "ÕâÊÇÒ»ÌõÓÃ¼áÈÍÖ®Æ¤¸ïÖÆ³ÉµÄ¸ß¼¶»¤Ñü£¬ÕıÃæÓĞÒ»Ìõ»ğºìµÄ·ï»Ë¡£\n");
+                set("unit", "æ¡");
+                set("long", "è¿™æ˜¯ä¸€æ¡ç”¨åšéŸ§ä¹‹çš®é©åˆ¶æˆçš„é«˜çº§æŠ¤è…°ï¼Œæ­£é¢æœ‰ä¸€æ¡ç«çº¢çš„å‡¤å‡°ã€‚\n");
                 set("value", 6000);
                 set("material", "waist");
                 set("armor_prop/armor", 4);

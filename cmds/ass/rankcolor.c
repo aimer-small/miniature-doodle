@@ -11,28 +11,28 @@ int main(object me,string arg)
         string color;
         //if( me != this_player() ) return 0;
         if( !arg || sscanf(arg, "%s %s", ob, color) != 2 )
-                return notify_fail("ÄãÏëÎªË­ÉèÖÃÊ²Ã´ÑÕÉ«£¿\n");
+                return notify_fail("ä½ æƒ³ä¸ºè°è®¾ç½®ä»€ä¹ˆé¢œè‰²ï¼Ÿ\n");
         if(!(ob = present(ob, environment(me))) )
-                return notify_fail("Ã»ÓĞÕâ¸öÈË ¡£\n");
+                return notify_fail("æ²¡æœ‰è¿™ä¸ªäºº ã€‚\n");
         if( wiz_level(me) < wiz_level(ob) )
-               return notify_fail("ÄãÃ»ÓĞÕâÖÖÈ¨Á¦¡£\n");
+               return notify_fail("ä½ æ²¡æœ‰è¿™ç§æƒåŠ›ã€‚\n");
         ob->set("rankcolor",color);
         return 1;
 }
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : rankcolor <id, color>
+æŒ‡ä»¤æ ¼å¼ : rankcolor <id, color>
  
-Õâ¸öÖ¸ÁîÄÜÈÃÄãĞŞ¸ÄrankµÄÑÕÉ«£¬Ä¿Ç°¿ÉĞŞ¸ÄµÄÑÕÉ«ÓĞ£º
-BLK - ºÚÉ«              NOR - »Ö¸´Õı³£ÑÕÉ«
-RED - ºìÉ«              HIR - ÁÁºìÉ«
-GRN - ÂÌÉ«              HIG - ÁÁÂÌÉ«
-YEL - ÍÁ»ÆÉ«    HIY - »ÆÉ«
-BLU - ÉîÀ¶É«    HIB - À¶É«
-MAG - Ç³×ÏÉ«    HIM - ·ÛºìÉ«
-CYN - À¶ÂÌÉ«    HIC - ÌìÇàÉ«
-WHT - Ç³»ÒÉ«    HIW - °×É«
+è¿™ä¸ªæŒ‡ä»¤èƒ½è®©ä½ ä¿®æ”¹rankçš„é¢œè‰²ï¼Œç›®å‰å¯ä¿®æ”¹çš„é¢œè‰²æœ‰ï¼š
+BLK - é»‘è‰²              NOR - æ¢å¤æ­£å¸¸é¢œè‰²
+RED - çº¢è‰²              HIR - äº®çº¢è‰²
+GRN - ç»¿è‰²              HIG - äº®ç»¿è‰²
+YEL - åœŸé»„è‰²    HIY - é»„è‰²
+BLU - æ·±è“è‰²    HIB - è“è‰²
+MAG - æµ…ç´«è‰²    HIM - ç²‰çº¢è‰²
+CYN - è“ç»¿è‰²    HIC - å¤©é’è‰²
+WHT - æµ…ç°è‰²    HIW - ç™½è‰²
 HELP
         );
         return 1;

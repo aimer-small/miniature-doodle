@@ -37,14 +37,14 @@ void init()
 		me->set_temp("songxin_zuji1",  1);
 		if (!me->query_temp("zuji_target")) me->set_temp("zuji_target",t_name);
 		if (!me->query_temp("skill_set")) {
-			command("say Ê¦ÐÖ£¬µã×ÓÓ²µÃºÜ£¬ÎÒÀ´°ïÄã£¡£¡£¡");
+			command("say å¸ˆå…„ï¼Œç‚¹å­ç¡¬å¾—å¾ˆï¼Œæˆ‘æ¥å¸®ä½ ï¼ï¼ï¼");
 			remove_call_out("dest");
 			call_out("dest",300,ob);
 			remove_call_out("do_clone");
 			call_out("do_clone", 0, me, ob);
 		}
 		else {
-			command("say ÏëÅÜ£¬»¹²»¸øÎÒ½»³öÀ´£¡£¡£¡");
+			command("say æƒ³è·‘ï¼Œè¿˜ä¸ç»™æˆ‘äº¤å‡ºæ¥ï¼ï¼ï¼");
 			me->set_leader(ob);
 			remove_call_out("dest");
 			call_out("dest",300,ob);
@@ -164,8 +164,8 @@ int do_clone(object me, object ob)
 void dest(object ob)
 {
 	if (ob) {
-		tell_object(ob, query("name")+"µÀ£ºÕâ´ÎËãÄãÃü´ó£¡\n");
-		tell_object(ob, query("name")+"´Ò´ÒÀë¿ª¡£\n");
+		tell_object(ob, query("name")+"é“ï¼šè¿™æ¬¡ç®—ä½ å‘½å¤§ï¼\n");
+		tell_object(ob, query("name")+"åŒ†åŒ†ç¦»å¼€ã€‚\n");
 	}
 	destruct(this_object());
 }
@@ -173,8 +173,8 @@ void dest(object ob)
 void dest2(object ob)
 {
 	if (ob) {
-		tell_object(ob, query("name")+"µÀ£ºÄã¶ãµÃ¹ý³õÒ»¶ã²»¹ýÊ®Îå£¬ÎÒÃÇ»¹»áÀ´µÄ£¡\n");
-		tell_object(ob, query("name")+"´Ò´ÒÀë¿ª¡£\n");
+		tell_object(ob, query("name")+"é“ï¼šä½ èº²å¾—è¿‡åˆä¸€èº²ä¸è¿‡åäº”ï¼Œæˆ‘ä»¬è¿˜ä¼šæ¥çš„ï¼\n");
+		tell_object(ob, query("name")+"åŒ†åŒ†ç¦»å¼€ã€‚\n");
 		ob->delete_temp("songxin_zuji");
 	}
 	destruct(this_object());

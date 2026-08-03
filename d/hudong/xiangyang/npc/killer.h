@@ -1,4 +1,4 @@
-// boss.h for ÏåÑô¸±±¾ cigarman 2008.7.21
+// boss.h for è¥„é˜³å‰¯æœ¬ cigarman 2008.7.21
 
 void init()
 {
@@ -9,9 +9,9 @@ void init()
         if (interactive(ob = this_player())  
          && living(me)
          && !me->is_fighting()
-         && ob->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª")
-         && me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª")
-         && me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª") != ob->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª")) {
+         && ob->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥")
+         && me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥")
+         && me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥") != ob->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥")) {
 
 
         if (!me->query("make_weapon") && random(100)<2 ){"/cmds/usr/call_weapon"->main(me,"2");}
@@ -37,7 +37,7 @@ void kill_ob(object ob)
         object me;
         me = this_object(); 
         if (!ob) return;
-        command("say ÄÃÃüÀ´£¡£¡£¡");
+        command("say æ‹¿å‘½æ¥ï¼ï¼ï¼");
         ob->start_busy(1);
         ::kill_ob(ob);   
                         call_out("check_fight", 1, me, ob);     
@@ -64,7 +64,7 @@ void die()
                 me->set("jingli", me->query("max_jingli"));
 //               if(ob && userp(ob) && living(ob) && environment(ob) ) ob->kill_ob(me);
                 me->add("cure", 1);
-                message_vision("$NÉîÉîÎüÁË¼¸¿ÚÆø£¬Á³É«¿´ÆðÀ´ºÃ¶àÁË¡£\n",me);
+                message_vision("$Næ·±æ·±å¸äº†å‡ å£æ°”ï¼Œè„¸è‰²çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n",me);
                 me->start_busy(1);
                 return;
         }
@@ -73,10 +73,10 @@ void die()
           && objectp(ob) 
           && userp(ob) 
           && living(ob) 
-          && ob->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª")
-          && me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª")
-          && me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª") != ob->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª")){ 
-          command("say °¡........");
+          && ob->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥")
+          && me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥")
+          && me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥") != ob->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥")){ 
+          command("say å•Š........");
         
        if (!random(3)){
           obj = new("clone/gift/danwan");          
@@ -92,8 +92,8 @@ void check_fight(object me,object ob)
 
 
         if( !me|| !ob ) return;
-        if( !ob->query_temp("»¥¶¯ÈÎÎñ") ) {
-              command("say ½áÊøÁË»¹´ò£¿Ã»Ê±¼äºÍÄãÄ¥²ä¡£°Ý°Ý£¡£¡");
+        if( !ob->query_temp("äº’åŠ¨ä»»åŠ¡") ) {
+              command("say ç»“æŸäº†è¿˜æ‰“ï¼Ÿæ²¡æ—¶é—´å’Œä½ ç£¨è¹­ã€‚æ‹œæ‹œï¼ï¼");
               me->start_busy(-1);        
               me->remove_all_enemy();
               me->delete_temp("kill_other");

@@ -5,11 +5,11 @@ inherit NPC;
 void create()
 {
 	int name_no = random(4); 
-	string *name_string = ({"°î","Óê","ÓÀ","¸Õ","Çå","Áú","·½","ÑÔ"});
+	string *name_string = ({"é‚¦","é›¨","æ°¸","åˆš","æ¸…","é¾™","æ–¹","è¨€"});
 
-	set_name("¶Î"+name_string[name_no], ({"nan dizi", "nan", "dizi"}) );
-	set("long", "Ëû´óÀí¶ÎÊÏµÄ¼ÒÈË£¬´ÓĞ¡±»ËÍµ½ÌìÁúÑ§ÒÕ¡£\n");
-	set("gender", "ÄĞĞÔ" );
+	set_name("æ®µ"+name_string[name_no], ({"nan dizi", "nan", "dizi"}) );
+	set("long", "ä»–å¤§ç†æ®µæ°çš„å®¶äººï¼Œä»å°è¢«é€åˆ°å¤©é¾™å­¦è‰ºã€‚\n");
+	set("gender", "ç”·æ€§" );
 	set("age", 26);
 	set("attitude", "peaceful");
 	set("str",22);
@@ -42,9 +42,9 @@ void create()
 	prepare_skill("finger","yiyang-zhi");
 
 	set("shen_type", 1);
-	create_family("ÌìÁúËÂ", 15, "µÜ×Ó");
+	create_family("å¤©é¾™å¯º", 15, "å¼Ÿå­");
 	set("inquiry", ([
-		"name": "ÔÚÏÂĞÕ¶Î£¬Ãû»½" + name_string[name_no] + "£¬´ÓÊ®ÁùËêÆğ±ãÍ¶ÔÚÕâÀïÑ§ÒÕ¡£",
+		"name": "åœ¨ä¸‹å§“æ®µï¼Œåå”¤" + name_string[name_no] + "ï¼Œä»åå…­å²èµ·ä¾¿æŠ•åœ¨è¿™é‡Œå­¦è‰ºã€‚",
 			]) );
 
 	setup();

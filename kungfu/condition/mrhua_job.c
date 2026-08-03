@@ -9,9 +9,9 @@ int update_condition(object me, int duration)
             //  me->delete_temp("mrhua");
               me->delete_temp("yanpopo");
               me->delete_temp("mark/ok");
-              me->delete_temp("mark/»¹ÁË");
-              me->delete_temp("mark/´Î");
-              tell_object(me,HIY"Í»È»Ò»¸ö¼Ò¶¡ÌøÁË³öÀ´£¬´óÉùºÈµÀ£ºÄãÔõÃ´±ÈÖí»¹Âý£¬ÈÎÎñ±»È¡ÏûÁË¡£\n"NOR);
+              me->delete_temp("mark/è¿˜äº†");
+              me->delete_temp("mark/æ¬¡");
+              tell_object(me,HIY"çªç„¶ä¸€ä¸ªå®¶ä¸è·³äº†å‡ºæ¥ï¼Œå¤§å£°å–é“ï¼šä½ æ€Žä¹ˆæ¯”çŒªè¿˜æ…¢ï¼Œä»»åŠ¡è¢«å–æ¶ˆäº†ã€‚\n"NOR);
               me->clear_condition("mrhua_job");
                   }
         if (!duration) return 0;

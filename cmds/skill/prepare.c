@@ -1,16 +1,16 @@
 // prepare.c
-// YUJ@SJ 2001-0610 Ö§³Ö prepare basic_skill µÄ¸ñÊ½
+// YUJ@SJ 2001-0610 æ”¯æŒ prepare basic_skill çš„æ ¼å¼
 
 inherit F_CLEAN_UP;
 
 mapping valid_types =
 ([
-	"claw":		"×¦·¨",
-	"cuff":		"È­·¨",
-	"finger":	"Ö¸·¨",
-	"hand":		"ÊÖ·¨",
-	"leg":		"ÍÈ·¨",
-	"strike":	"ÕÆ·¨",
+	"claw":		"çˆªæ³•",
+	"cuff":		"æ‹³æ³•",
+	"finger":	"æŒ‡æ³•",
+	"hand":		"æ‰‹æ³•",
+	"leg":		"è…¿æ³•",
+	"strike":	"æŒæ³•",
 ]);
 
 int main(object me, string arg)
@@ -22,20 +22,20 @@ int main(object me, string arg)
 
 	if (userp(me) && arg && (me->query_temp("no_prepare") || me->is_busy() || me->query_temp("thd/xinghe")
 	|| me->query_condition("no_perform") || me->is_perform()))
-		return notify_fail("ÄãÏÖÔÚ²»ÄÜ×¼±¸ÌØÊâ¼¼ÄÜ¡£\n");
+		return notify_fail("ä½ ç°åœ¨ä¸èƒ½å‡†å¤‡ç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
 
 	if (!sizeof(smap))
-		return notify_fail("ÄãÏÖÔÚÃ»ÓĞ¼¤·¢ÈÎºÎÓĞĞ§ÌØÊâ¼¼ÄÜ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ²¡æœ‰æ¿€å‘ä»»ä½•æœ‰æ•ˆç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
 
 	pmap = me->query_skill_prepare();
 	if (!pmap) pmap = ([]);
 
 	if (!arg) {
 		if (!sizeof(pmap))
-			return notify_fail("ÄãÏÖÔÚÃ»ÓĞ×¼±¸ÈÎºÎÌØÊâ¼¼ÄÜ¡£\n");
+			return notify_fail("ä½ ç°åœ¨æ²¡æœ‰å‡†å¤‡ä»»ä½•ç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
 
 		skill = keys(pmap);
-		write("ÒÔÏÂÊÇÄãÄ¿Ç°×éºÏÖĞµÄÌØÊâ¼¼ÄÜ£º\n");
+		write("ä»¥ä¸‹æ˜¯ä½ ç›®å‰ç»„åˆä¸­çš„ç‰¹æ®ŠæŠ€èƒ½ï¼š\n");
 		foreach (string item in skill) {
 			if (!me->query_skill(item))
 				continue;
@@ -48,7 +48,7 @@ int main(object me, string arg)
 	}
 
 	if (arg == "?") {
-		write("ÒÔÏÂÊÇ¿ÉÒÔÊ¹ÓÃµÄÌØÊâÈ­½Å¼¼ÄÜÖÖÀà£º\n");
+		write("ä»¥ä¸‹æ˜¯å¯ä»¥ä½¿ç”¨çš„ç‰¹æ®Šæ‹³è„šæŠ€èƒ½ç§ç±»ï¼š\n");
 		skill = sort_array(keys(valid_types), (: strcmp :));
 		foreach (string item in skill)
 			write(sprintf("  %s: (%s)\n", valid_types[item], item));
@@ -57,44 +57,44 @@ int main(object me, string arg)
 
 	if (arg == "none") {
 		if (!sizeof(pmap))
-			return notify_fail("ÄãÏÖÔÚÃ»ÓĞ×éºÏÈÎºÎÌØÊâÈ­½Å¼¼ÄÜ¡£\n");
+			return notify_fail("ä½ ç°åœ¨æ²¡æœ‰ç»„åˆä»»ä½•ç‰¹æ®Šæ‹³è„šæŠ€èƒ½ã€‚\n");
 
 		skill = keys(pmap);
 		foreach (string item in skill)
 			me->prepare_skill(item);
 
 		me->reset_action();
-		write("È¡ÏûÈ«²¿¼¼ÄÜ×¼±¸¡£\n");
+		write("å–æ¶ˆå…¨éƒ¨æŠ€èƒ½å‡†å¤‡ã€‚\n");
 		return 1;
 	}
 
 	if (sizeof(pmap) >= 2)
-		return notify_fail("ÄãÏÖÔÚÒÑ¾­×éºÏÁËÁ½ÖÖÌØÊâ¼¼ÄÜ¡£\n");
+		return notify_fail("ä½ ç°åœ¨å·²ç»ç»„åˆäº†ä¸¤ç§ç‰¹æ®ŠæŠ€èƒ½ã€‚\n");
 
 	if (sscanf(arg, "%*s %*s %*s") == 3)
-		return notify_fail("Ö¸Áî¸ñÊ½£ºprepare|bei [<¼¼ÄÜÃû³ÆÒ»>|<¼¼ÄÜÃû³Æ¶ş>]\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šprepare|bei [<æŠ€èƒ½åç§°ä¸€>|<æŠ€èƒ½åç§°äºŒ>]\n");
 
 	if (sscanf(arg, "%s %s", arg1, arg2) == 2)
 	{
 		if (sizeof(pmap) == 1)
-			return notify_fail("ÄãÒÑ×¼±¸ÓĞÒ»ÖÖ¼¼ÄÜÁË¡£\n");
+			return notify_fail("ä½ å·²å‡†å¤‡æœ‰ä¸€ç§æŠ€èƒ½äº†ã€‚\n");
 		if (!undefinedp(valid_types[arg1])) {
 			basic1 = arg1;
 			arg1 = me->query_skill_mapped(basic1);
 			if (!arg1)
-				return notify_fail("ÄãÃ»ÓĞ¼¤·¢ÌØÊâµÄ" + valid_types[basic1] + "¡£\n");
+				return notify_fail("ä½ æ²¡æœ‰æ¿€å‘ç‰¹æ®Šçš„" + valid_types[basic1] + "ã€‚\n");
 		}
 		if (!undefinedp(valid_types[arg2])) {
 			basic2 = arg2;
 			arg2 = me->query_skill_mapped(basic2);
 			if (!arg2)
-				return notify_fail("ÄãÃ»ÓĞ¼¤·¢ÌØÊâµÄ" + valid_types[basic2] + "¡£\n");
+				return notify_fail("ä½ æ²¡æœ‰æ¿€å‘ç‰¹æ®Šçš„" + valid_types[basic2] + "ã€‚\n");
 		}
 		if (!me->query_skill(arg1, 1) || !me->query_skill(arg2, 1))
-			return notify_fail("ÄãÖÁÉÙ²»»áÕâÁ½ÖÖÈ­½Å¼¼ÄÜµÄÆäÖĞÖ®Ò»¡£\n");
+			return notify_fail("ä½ è‡³å°‘ä¸ä¼šè¿™ä¸¤ç§æ‹³è„šæŠ€èƒ½çš„å…¶ä¸­ä¹‹ä¸€ã€‚\n");
 
 		if (!SKILL_D(arg1)->valid_combine(arg2) || !SKILL_D(arg2)->valid_combine(arg1))
-			return notify_fail(to_chinese(arg1)+"ºÍ"+to_chinese(arg2)+"²»ÄÜ×éºÏ¡£\n");
+			return notify_fail(to_chinese(arg1)+"å’Œ"+to_chinese(arg2)+"ä¸èƒ½ç»„åˆã€‚\n");
 
 		skill = keys(valid_types);
 		foreach (string item in skill) {
@@ -103,7 +103,7 @@ int main(object me, string arg)
 		}
 
 		if (!basic1 || !basic2)
-			return notify_fail("ÕâÁ½ÖÖ¼¼ÄÜÉĞÎ´¼¤·¢»ò²»ÊÇÈ­½Å¼¼ÄÜ¡£\n");
+			return notify_fail("è¿™ä¸¤ç§æŠ€èƒ½å°šæœªæ¿€å‘æˆ–ä¸æ˜¯æ‹³è„šæŠ€èƒ½ã€‚\n");
 
 		me->prepare_skill(basic1, arg1);
 		me->prepare_skill(basic2, arg2);
@@ -113,40 +113,40 @@ int main(object me, string arg)
 			basic1 = arg1;
 			arg1 = me->query_skill_mapped(basic1);
 			if (!arg1)
-				return notify_fail("ÄãÃ»ÓĞ¼¤·¢ÌØÊâµÄ" + valid_types[basic1] + "¡£\n");
+				return notify_fail("ä½ æ²¡æœ‰æ¿€å‘ç‰¹æ®Šçš„" + valid_types[basic1] + "ã€‚\n");
 		}
 		if (!me->query_skill(arg1, 1))
-			return notify_fail("Äã²»»áÕâÖÖ¼¼ÄÜ¡£\n");
+			return notify_fail("ä½ ä¸ä¼šè¿™ç§æŠ€èƒ½ã€‚\n");
 
 		skill = keys(pmap);
 		if ( sizeof(pmap)
 		&& (!SKILL_D(arg1)->valid_combine(pmap[skill[0]])
 		|| !SKILL_D(pmap[skill[0]])->valid_combine(arg1)) )
-			return notify_fail(to_chinese(arg1)+"²»ÄÜÓÃÓÚÄãÏÖÓĞµÄÈ­½Å¼¼ÄÜ×éºÏ¡£\n");
+			return notify_fail(to_chinese(arg1)+"ä¸èƒ½ç”¨äºä½ ç°æœ‰çš„æ‹³è„šæŠ€èƒ½ç»„åˆã€‚\n");
 
 		skill = keys(valid_types);
 		foreach (string item in skill)
 			if (!basic1 && smap[item] == arg1) basic1 = item;
 
 		if (!basic1)
-			return notify_fail("ÕâÖÖ¼¼ÄÜÉĞÎ´¼¤·¢»ò²»ÊÇÈ­½Å¼¼ÄÜ¡£\n");
+			return notify_fail("è¿™ç§æŠ€èƒ½å°šæœªæ¿€å‘æˆ–ä¸æ˜¯æ‹³è„šæŠ€èƒ½ã€‚\n");
 
 		me->prepare_skill(basic1, arg1);
 	}
 	me->reset_action();
-	write("Íê³ÉÈ­½Å¼¼ÄÜ×¼±¸¡£\n");
+	write("å®Œæˆæ‹³è„šæŠ€èƒ½å‡†å¤‡ã€‚\n");
 	return 1;
 }
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : prepare|bei [<»ù±¾»òÌØÊâ¼¼ÄÜÒ»>|<»ù±¾»òÌØÊâ¼¼ÄÜ¶ş>|none]
+æŒ‡ä»¤æ ¼å¼ : prepare|bei [<åŸºæœ¬æˆ–ç‰¹æ®ŠæŠ€èƒ½ä¸€>|<åŸºæœ¬æˆ–ç‰¹æ®ŠæŠ€èƒ½äºŒ>|none]
 	   prepare|bei ?
 
-Õâ¸öÖ¸ÁîÈÃÄãÖ¸¶¨ËùÒªÓÃµÄÈ­½Å¼¼ÄÜ£¬ ĞèÖ¸Ã÷Ò»ÖÖ»òÒÔÉÏµÄÏàÓ¦¼¼ÄÜÃû³Æ¡£
-Èç¹û²»¼Ó²ÎÊıÔò»áÏÔÊ¾³ö¼¼ÄÜÖÖÀà¼°ÄãÄ¿Ç°ËùÊ¹ÓÃµÄ¼¼ÄÜÃû³Æ £¬Èç¹û¼ÓÒ»
-¸ö ? »áÁĞ³öËùÓĞÄÜÊ¹ÓÃÌØÊâÈ­½Å¼¼ÄÜµÄ¼¼ÄÜÖÖÀà¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ æŒ‡å®šæ‰€è¦ç”¨çš„æ‹³è„šæŠ€èƒ½ï¼Œ éœ€æŒ‡æ˜ä¸€ç§æˆ–ä»¥ä¸Šçš„ç›¸åº”æŠ€èƒ½åç§°ã€‚
+å¦‚æœä¸åŠ å‚æ•°åˆ™ä¼šæ˜¾ç¤ºå‡ºæŠ€èƒ½ç§ç±»åŠä½ ç›®å‰æ‰€ä½¿ç”¨çš„æŠ€èƒ½åç§° ï¼Œå¦‚æœåŠ ä¸€
+ä¸ª ? ä¼šåˆ—å‡ºæ‰€æœ‰èƒ½ä½¿ç”¨ç‰¹æ®Šæ‹³è„šæŠ€èƒ½çš„æŠ€èƒ½ç§ç±»ã€‚
 
 HELP
 	);

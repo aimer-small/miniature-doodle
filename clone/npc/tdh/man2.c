@@ -1,4 +1,4 @@
-// tdhjob µÚ2²½Á÷³Ì npc by Lklv
+// tdhjob ç¬¬2æ­¥æµç¨‹ npc by Lklv
 
 inherit NPC;
 inherit F_UNIQUE;
@@ -7,7 +7,7 @@ inherit F_SAVE;
 #include "skill.h"
 #include "man2.h"
 
-string *rtitle = ({"·´ÇåÖ¾Ê¿", "²İÃ§Ó¢ĞÛ", "ÂÌÁÖºÃºº"});
+string *rtitle = ({"åæ¸…å¿—å£«", "è‰è½è‹±é›„", "ç»¿æ—å¥½æ±‰"});
 
 void create()
 {
@@ -25,7 +25,7 @@ void create()
 	weapon = weapon_list[random(sizeof(weapon_list))];
 
 	set_name(name["name"], name["id"]);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("shen", DE_LVL*10);
 	set("age", 20 + random(40));
 	set("meitude", "peaceful");
@@ -77,11 +77,11 @@ void create()
 	prepare_skill("cuff", "taizu-quan");
 
 	set("inquiry", ([
-		"ÌìµØ»á": (: ask_tdh :),
-		"·´Çå¸´Ã÷": (: ask_fq :),
-		"³Â½üÄÏ": "³£ÌıÈËËµ£º¡®Æ½Éú²»Ê¶³Â½üÄÏ£¬¾Í³ÆÓ¢ĞÛÒ²Í÷È»¡£¡¯\n",
-		"Ö£³É¹¦": "¹úĞÕÒ¯ÊÇµ±ÊÀµÚÒ»Ó¢ĞÛ\n",
-		"¹úĞÕÒ¯": "¹úĞÕÒ¯ÊÇµ±ÊÀµÚÒ»Ó¢ĞÛ\n",
+		"å¤©åœ°ä¼š": (: ask_tdh :),
+		"åæ¸…å¤æ˜": (: ask_fq :),
+		"é™ˆè¿‘å—": "å¸¸å¬äººè¯´ï¼šâ€˜å¹³ç”Ÿä¸è¯†é™ˆè¿‘å—ï¼Œå°±ç§°è‹±é›„ä¹Ÿæ‰ç„¶ã€‚â€™\n",
+		"éƒ‘æˆåŠŸ": "å›½å§“çˆ·æ˜¯å½“ä¸–ç¬¬ä¸€è‹±é›„\n",
+		"å›½å§“çˆ·": "å›½å§“çˆ·æ˜¯å½“ä¸–ç¬¬ä¸€è‹±é›„\n",
 	]));
 	setup();
 

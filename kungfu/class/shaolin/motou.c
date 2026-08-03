@@ -125,9 +125,9 @@ mapping *skill2=({
 
 void create()
 {
-	set_name("Ğ°µÀÄ§Í·", ({ "mo tou", "motou", "mo" }) );
-	set("gender", "ÄĞĞÔ");
-	set("long", "Õâ¼Ò»ïÂúÁ³ºáÈâ£¬Ò»¸¶Ğ×Éñ¶ñÉ·µÄÄ£Ñù£¬ÁîÈËÍû¶øÉúÎ·¡£\n");
+	set_name("é‚ªé“é­”å¤´", ({ "mo tou", "motou", "mo" }) );
+	set("gender", "ç”·æ€§");
+	set("long", "è¿™å®¶ä¼™æ»¡è„¸æ¨ªè‚‰ï¼Œä¸€ä»˜å‡¶ç¥æ¶ç…çš„æ¨¡æ ·ï¼Œä»¤äººæœ›è€Œç”Ÿç•ã€‚\n");
 	set("shen", -15000);
 	set("age", random(20)+25);
 	set("str", 20+random(5));
@@ -180,14 +180,14 @@ void init()
 	&& (query_temp("killer") == name1 )) {
 		if (!query_temp("skillset")) {
 			if (!ob->is_busy()) ob->add_busy(2);
-			command("say ËÀÍºÂ¿ÄÄÀïÅÜ£¬½ñÌì·ÇÉÕÁËÉÙÁÖËÂ²»¿É£¡£¡£¡\n");
+			command("say æ­»ç§ƒé©´å“ªé‡Œè·‘ï¼Œä»Šå¤©éçƒ§äº†å°‘æ—å¯ºä¸å¯ï¼ï¼ï¼\n");
 			remove_call_out("dest");
 			call_out("dest", 120);
 			set_leader(ob);
 			do_clone(me, ob);
 			command("slogan " + name1);
 		} else {
-			command("say ËÀÍºÂ¿ÄÄÀïÅÜ£¬½ñÌì·ÇÉÕÁËÉÙÁÖËÂ²»¿É£¡\n");
+			command("say æ­»ç§ƒé©´å“ªé‡Œè·‘ï¼Œä»Šå¤©éçƒ§äº†å°‘æ—å¯ºä¸å¯ï¼\n");
 			ob->add_busy(1);
 			set_leader(ob);
 			remove_call_out("dest");
@@ -298,7 +298,7 @@ void dest()
 {
 	object me = this_object();
 
-	say(me->name()+ "µÀ£ºËûÄÌÄÌµÄ£¬ÀÏ×Ó»¹ÓĞÊÂ£¬ÏÂ»ØÔÙÀ´ÉÕËÂ£¡\n");
-	say(me->name()+ "´Ò´ÒÀë¿ª¡£\n");
+	say(me->name()+ "é“ï¼šä»–å¥¶å¥¶çš„ï¼Œè€å­è¿˜æœ‰äº‹ï¼Œä¸‹å›å†æ¥çƒ§å¯ºï¼\n");
+	say(me->name()+ "åŒ†åŒ†ç¦»å¼€ã€‚\n");
 	destruct(me);
 }

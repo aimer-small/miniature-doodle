@@ -1,4 +1,4 @@
-// Room: /u/beyond/ningbo/tianfengta.c Ìì·âËş
+// Room: /u/beyond/ningbo/tianfengta.c å¤©å°å¡”
 // Beyond make 1997.6.8
 
 #include <room.h>
@@ -6,16 +6,16 @@
 inherit ROOM;
 void create()
 {
-	set("short", HIW"Ìì·âËş"NOR);
+	set("short", HIW"å¤©å°å¡”"NOR);
 	set("long", @LONG
-Ìì·âËşÊÇÄş²¨³Ç¸½½ü×î¸ßµÄ½¨ÖşÎïÁË£¬·²ÊÇµ½ÁËÄş²¨µÄÎÄÈË¡¢ÃûÊ¿ºÍÓÎ¿Í
-×ÜÒªµÇÉÏËş¶¥£¬Ò»ÀÀÈ«³Ç·ç¹â£¬ÔÚËş±ÚÉÏÁôÏÂ²»ÉÙÌâÓ½¡£
+å¤©å°å¡”æ˜¯å®æ³¢åŸé™„è¿‘æœ€é«˜çš„å»ºç­‘ç‰©äº†ï¼Œå‡¡æ˜¯åˆ°äº†å®æ³¢çš„æ–‡äººã€åå£«å’Œæ¸¸å®¢
+æ€»è¦ç™»ä¸Šå¡”é¡¶ï¼Œä¸€è§ˆå…¨åŸé£å…‰ï¼Œåœ¨å¡”å£ä¸Šç•™ä¸‹ä¸å°‘é¢˜å’ã€‚
 LONG
 	);
         set("objects",([
 		__DIR__"npc/you" : 1,
         ]));
-	set("outdoors", "Äş²¨");
+	set("outdoors", "å®æ³¢");
 	set("exits", ([
 		"north" : __DIR__"shilu",
 		"east" : __DIR__"aywsi",

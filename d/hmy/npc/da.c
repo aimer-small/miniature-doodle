@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ë¾Âí´ó", ({ "sima da", "sima", "da"}));
+	set_name("å¸é©¬å¤§", ({ "sima da", "sima", "da"}));
         set("long", 
-"Õâ´óººÉí²Ä¿ýÎàÖ®¼«£¬¾ÞÈË°ãµÄÉíÌåÔÚ×ß¶¯
-Ê±£¬½Å²½Éù¼«Ö®³ÁÖØ£¬Õû¸öµØ°å¶¼ÎªÖ®Õð¶¯¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "GRN"ÇàÁúÌÃ¶æÖ÷"NOR);
-        set("gender", "ÄÐÐÔ");
+"è¿™å¤§æ±‰èº«æé­æ¢§ä¹‹æžï¼Œå·¨äººèˆ¬çš„èº«ä½“åœ¨èµ°åŠ¨
+æ—¶ï¼Œè„šæ­¥å£°æžä¹‹æ²‰é‡ï¼Œæ•´ä¸ªåœ°æ¿éƒ½ä¸ºä¹‹éœ‡åŠ¨ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥žæ•™  "GRN"é’é¾™å ‚èˆµä¸»"NOR);
+        set("gender", "ç”·æ€§");
         set("age", 40);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -42,7 +42,7 @@ void create()
 	      map_skill("sword", "tianmo-jian");
 	      map_skill("strike", "tianmo-zhang");
 	      prepare_skill("strike", "tianmo-zhang"); 
-	      create_family("ÈÕÔÂÉñ½Ì", 9, "µÜ×Ó");       
+	      create_family("æ—¥æœˆç¥žæ•™", 9, "å¼Ÿå­");       
         setup();
 
 	carry_object(BINGQI_D("changjian"))->wield();

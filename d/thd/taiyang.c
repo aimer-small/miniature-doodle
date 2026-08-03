@@ -9,10 +9,10 @@ int do_save();
 
 void create()
 {
-	set("short", "̫��");
+	set("short", "太阳");
 	set("long", @LONG
-������������̫����̫��������֮����Ҳ���������Ϸ���Ӧ�������е�
-��ȸ������֮�Σ��к졣�Է�λ�����У���һ������ֱͨ�·����Ϸ�������
+这里是四象层的太阳。太阳是阳中之阳，也即至阳。南方对应四灵兽中的
+朱雀，赤日之形，尚红。以方位入五行，有一道铁梯直通下方的南方丙丁火。
 LONG
 	);
 	set("exits", ([ 
@@ -42,13 +42,13 @@ void init()
 
 int do_save()
 {
-	write("���ﲻ׼���̣�\n");
+	write("这里不准存盘！\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("���ﲻ׼�˳���\n");
+	write("这里不准退出！\n");
 	return 1;
 }
 

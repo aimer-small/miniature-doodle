@@ -6,12 +6,12 @@ inherit F_VENDOR;
 #include <ansi.h>
 void create()
 {
-        set_name("µ¶°ÌÕÅ", ({ "daoba zhang", "daoba", "zhang"}) );
-        set("gender", "ÄÐÐÔ" );
+        set_name("åˆ€ç–¤å¼ ", ({ "daoba zhang", "daoba", "zhang"}) );
+        set("gender", "ç”·æ€§" );
         set("age", 35);
         set("per", 14);
         set("unique", 1);
-        set("long","ËûÁ³ÉÏÒ»µÀÉîÉîµÄµ¶°Ì£¬´ó¼Ò¶¼½ÐËûµ¶°ÌÕÅ¡£\n");
+        set("long","ä»–è„¸ä¸Šä¸€é“æ·±æ·±çš„åˆ€ç–¤ï¼Œå¤§å®¶éƒ½å«ä»–åˆ€ç–¤å¼ ã€‚\n");
         set("combat_exp", 10000);
         set("vendor_goods", ({
                 (["name":BINGQI_D("sword/sword"),"number":10]),
@@ -26,8 +26,8 @@ void create()
         }));
         set("chat_chance", 5);
         set("chat_msg", ({
-                "µ¶°ÌÕÅÉîÉîµÄÌ¾ÁË¿ÚÆø¡£\n",
-                "µ¶°ÌÕÅ¿´ÁË¿´×Ô¼º£¬×ÔÑÔ×ÔÓïµÄ²»ÖªµÀËµÐ©Ê²Ã´£¡\n",
+                "åˆ€ç–¤å¼ æ·±æ·±çš„å¹äº†å£æ°”ã€‚\n",
+                "åˆ€ç–¤å¼ çœ‹äº†çœ‹è‡ªå·±ï¼Œè‡ªè¨€è‡ªè¯­çš„ä¸çŸ¥é“è¯´äº›ä»€ä¹ˆï¼\n",
         }) );
         setup();
         carry_object(ARMOR_D("cloth"))->wear();

@@ -1,17 +1,17 @@
-// NPC : /d/wudang/npc/bird.c Ğ¡Äñ
+// NPC : /d/wudang/npc/bird.c å°é¸Ÿ
 #include <ansi.h>
 
 inherit NPC;
 
 void create()
 {
-        set_name(YEL"Ğ¡Äñ"NOR, ({ "xiao niao", "niao","bird"}) );
-        set("race", "Ò°ÊŞ");
+        set_name(YEL"å°é¸Ÿ"NOR, ({ "xiao niao", "niao","bird"}) );
+        set("race", "é‡å…½");
         set("age", 5);
-        set("long", "Ò»Ö»Ê®·Ö¿É°®µÄĞ¡Äñ¡£\n");
+        set("long", "ä¸€åªååˆ†å¯çˆ±çš„å°é¸Ÿã€‚\n");
         set("attitude", "peaceful");
         
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "½Å", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "è„š", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
 
         set("combat_exp", 500);

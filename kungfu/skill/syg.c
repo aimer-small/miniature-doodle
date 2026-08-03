@@ -3,7 +3,7 @@ inherit FORCE;
 
 int valid_enable(string usage)
 {
-	  if (this_player()->query("family/family_name")=="¹ÃËÕÄ½ÈÝ" || this_player()->query("cw_mp/¹ÃËÕÄ½ÈÝ"))
+	  if (this_player()->query("family/family_name")=="å§‘è‹æ…•å®¹" || this_player()->query("cw_mp/å§‘è‹æ…•å®¹"))
         return usage == "force";
 }
 
@@ -12,17 +12,17 @@ int valid_enable(string usage)
 int valid_learn(object me)
 {
 		mapping fam  = me->query("family");
-	if ((!fam || fam["family_name"] != "¹ÃËÕÄ½ÈÝ" )&& !me->query("cw_mp/¹ÃËÕÄ½ÈÝ") )
-			 	return notify_fail("Äã²¢·ÇÄ½ÈÝµÜ×Ó£¬ÈçºÎÏ°µÃÁËÄ½ÈÝÉñ¹¦¡£\n");
+	if ((!fam || fam["family_name"] != "å§‘è‹æ…•å®¹" )&& !me->query("cw_mp/å§‘è‹æ…•å®¹") )
+			 	return notify_fail("ä½ å¹¶éžæ…•å®¹å¼Ÿå­ï¼Œå¦‚ä½•ä¹ å¾—äº†æ…•å®¹ç¥žåŠŸã€‚\n");
         if ((int)me->query_skill("force", 1) < 10)
-                return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ðºò»¹²»¹»£¬ÎÞ·¨Áì»áÉñÔª¹¦¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šç¥žå…ƒåŠŸã€‚\n");
 
-	if ( me->query("gender") == "ÎÞÐÔ")
-		return notify_fail("ÄãÎÞ¸ùÎÞÐÔ£¬ÒõÑô²»µ÷£¬ÄÑÒÔÁì»á¸ßÉîµÄÉñÔª¹¦¡£\n");
+	if ( me->query("gender") == "æ— æ€§")
+		return notify_fail("ä½ æ— æ ¹æ— æ€§ï¼Œé˜´é˜³ä¸è°ƒï¼Œéš¾ä»¥é¢†ä¼šé«˜æ·±çš„ç¥žå…ƒåŠŸã€‚\n");
 
         if ((int)me->query_skill("shenyuan-gong", 1) > me->query_skill("force", 1) + 10
           && me->query_skill("shenyuan-gong", 1) >= 200 )
-               return notify_fail("ÄãµÄ»ù±¾¹¦»ðºòÎ´µ½£¬±ØÐëÏÈ´òºÃ»ù´¡²ÅÄÜ¼ÌÐøÌá¸ß¡£\n");
+               return notify_fail("ä½ çš„åŸºæœ¬åŠŸç«å€™æœªåˆ°ï¼Œå¿…é¡»å…ˆæ‰“å¥½åŸºç¡€æ‰èƒ½ç»§ç»­æé«˜ã€‚\n");
 
         return valid_public(me);
 }
@@ -38,9 +38,9 @@ int practice_skill(object me)
                    me->add("potential", -1*(1+random(3)));
                    return 1;
            }
-           else return notify_fail("ÄãÏÖÔÚµÄÐÞÎª²»×ãÒÔÌá¸ßÉñÔª¹¦ÁË¡£\n");
+           else return notify_fail("ä½ çŽ°åœ¨çš„ä¿®ä¸ºä¸è¶³ä»¥æé«˜ç¥žå…ƒåŠŸäº†ã€‚\n");
        }
-        else return notify_fail("ÄãÏÖÔÚµÄÉñÔª¹¦ÐÞÎªÖ»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+        else return notify_fail("ä½ çŽ°åœ¨çš„ç¥žå…ƒåŠŸä¿®ä¸ºåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢žåŠ ç†Ÿç»ƒåº¦ã€‚\n");
 
               
 }
@@ -52,12 +52,12 @@ string exert_function_file(string func)
 mapping exercise_msg(object me)
 {
 	return ([
-		"status_msg" : HIB + me->name()+"ÑÛÉñÁèÀ÷£¬ÉñÌ¬¼«ÎªÄýÖØ" NOR,
-		"start_my_msg" : "ÄãËæÒâÒ»Õ¾£¬Ë«ÊÖ»º»ºÌ§Æð£¬ÉîÎüÒ»¿ÚÆø£¬ÕæÆø¿ªÊ¼ÔÚÌåÄÚÔË×ª¡£\n",
-		"start_other_msg" : me->name()+"ËæÒâÔÚÄÇÀïÒ»Õ¾£¬Ë«ÊÖ»º»ºÌ§Æð£¬ÑÛÉñ¿ªÊ¼±äµÄÁèÀ÷ÆðÀ´¡£\n",
-		"halt_msg" : "$NÃ¼Í·Ò»Öå£¬¼±ËÙÔËÆø£¬°ÑÊÖ·ÅÁËÏÂÀ´¡£\n",
-		"end_my_msg" : "Äã½«ÕæÆøÔÚÌåÄÚÑØÂöÂçÔËÐÐÁËÒ»È¦£¬»º»ºÄÉÈëµ¤Ìï£¬·ÅÏÂÊÖ£¬³¤ÍÂÁËÒ»¿ÚÆø¡£\n",
-		"end_other_msg" : "Ö»¼û"+me->name()+"µÄÑÛ¾¦ÂýÂý±ÕÉÏ£¬Á¢¿ÌÕö¿ª£¬°ÑÊÖ·ÅÏÂ£¬³¤ÍÂÁËÒ»¿ÚÆø¡£\n"
+		"status_msg" : HIB + me->name()+"çœ¼ç¥žå‡ŒåŽ‰ï¼Œç¥žæ€æžä¸ºå‡é‡" NOR,
+		"start_my_msg" : "ä½ éšæ„ä¸€ç«™ï¼ŒåŒæ‰‹ç¼“ç¼“æŠ¬èµ·ï¼Œæ·±å¸ä¸€å£æ°”ï¼ŒçœŸæ°”å¼€å§‹åœ¨ä½“å†…è¿è½¬ã€‚\n",
+		"start_other_msg" : me->name()+"éšæ„åœ¨é‚£é‡Œä¸€ç«™ï¼ŒåŒæ‰‹ç¼“ç¼“æŠ¬èµ·ï¼Œçœ¼ç¥žå¼€å§‹å˜çš„å‡ŒåŽ‰èµ·æ¥ã€‚\n",
+		"halt_msg" : "$Nçœ‰å¤´ä¸€çš±ï¼Œæ€¥é€Ÿè¿æ°”ï¼ŒæŠŠæ‰‹æ”¾äº†ä¸‹æ¥ã€‚\n",
+		"end_my_msg" : "ä½ å°†çœŸæ°”åœ¨ä½“å†…æ²¿è„‰ç»œè¿è¡Œäº†ä¸€åœˆï¼Œç¼“ç¼“çº³å…¥ä¸¹ç”°ï¼Œæ”¾ä¸‹æ‰‹ï¼Œé•¿åäº†ä¸€å£æ°”ã€‚\n",
+		"end_other_msg" : "åªè§"+me->name()+"çš„çœ¼ç›æ…¢æ…¢é—­ä¸Šï¼Œç«‹åˆ»çå¼€ï¼ŒæŠŠæ‰‹æ”¾ä¸‹ï¼Œé•¿åäº†ä¸€å£æ°”ã€‚\n"
 	]);
 }
 
@@ -91,13 +91,13 @@ mixed hit_ob(object me, object target)
          {
 		switch(random(2)) {
 			case 0 :
-				msg = HIW"$NÄ¬ÔËÉñÔªÉñ¹¦£¬Ö¸·çÇáÆ®Æ®µØµãÏò$n£¬Ò»¹ÉÄÚ¾¢ÎÞÉùÎÞÏ¢µÄÈÆÏò$nÖÜÉí´óÑ¨£¡\n";
-				msg += "$nÖ»¾õÈ«ÉíÒ»Âé£¬ÒÑ±»Ò»ÕÐµãÖÐ¡¸ÉñãØÑ¨¡¹£¡\n"NOR; 
+				msg = HIW"$Né»˜è¿ç¥žå…ƒç¥žåŠŸï¼ŒæŒ‡é£Žè½»é£˜é£˜åœ°ç‚¹å‘$nï¼Œä¸€è‚¡å†…åŠ²æ— å£°æ— æ¯çš„ç»•å‘$nå‘¨èº«å¤§ç©´ï¼\n";
+				msg += "$nåªè§‰å…¨èº«ä¸€éº»ï¼Œå·²è¢«ä¸€æ‹›ç‚¹ä¸­ã€Œç¥žé˜–ç©´ã€ï¼\n"NOR; 
 				target->add_busy(1+random(3));
 target->add_condition("no_perform",1+random(2));
 				break;
 			case 1 :
-				msg = HIR"$NÖ¸·çÏ¬Àû£¬ËÆÒ»µÀÎÞÐÎ½£Æø£¬½«$nÁýÕÖÓÚÄÚ£¡$nÖ»¾õÐØ¿ÚÒ»Í´£¬È«ÉíÕæÆø¿ñÐº¶ø³ö¡£\n"NOR;
+				msg = HIR"$NæŒ‡é£ŽçŠ€åˆ©ï¼Œä¼¼ä¸€é“æ— å½¢å‰‘æ°”ï¼Œå°†$nç¬¼ç½©äºŽå†…ï¼$nåªè§‰èƒ¸å£ä¸€ç—›ï¼Œå…¨èº«çœŸæ°”ç‹‚æ³»è€Œå‡ºã€‚\n"NOR;
 				target->recevied_damage("neili", j);
 target->add_busy(1+random(3));
 target->add_condition("no_exert",1+random(2));

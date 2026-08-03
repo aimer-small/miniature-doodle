@@ -2,7 +2,7 @@
 int update_condition(object me, int duration)
 {
 	if (duration < 2) {
-		tell_object(me, "°µÉ±ÈÎÎñ½áÊø£¡\n");
+		tell_object(me, "æš—æ€ä»»åŠ¡ç»“æŸï¼\n");
 		return 0;
 	}
 	me->apply_condition("ansha_job", duration - 1);

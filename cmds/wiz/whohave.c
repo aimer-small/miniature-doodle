@@ -1,7 +1,7 @@
 // whohave.c
 //wzfeng 98 10 30
 // Modified by Numa 2000.2.19
-// Modify By River@SJ 2000.2.19 ¼ÓÈëÈç¹ûÊÇwiz cloneµÄÓĞ±ê¼Ç :)
+// Modify By River@SJ 2000.2.19 åŠ å…¥å¦‚æœæ˜¯wiz cloneçš„æœ‰æ ‡è®° :)
 
 #include <ansi.h>
 inherit F_CLEAN_UP;
@@ -23,7 +23,7 @@ void listing (object who, string prefix, string arg)
                		if (ilist[j]->query("clone_by_wizard")) {
 	        		write (sprintf("%2s%8s%-10s : ",prefix,who->query("name"),"("+who->query("id")+")"));
        	        		clone = HIR BLINK+"*"+NOR;
-               			clone_by = !ilist[j]->query("clone_by_which_wizard")?"":"£¬("+ilist[j]->query("clone_by_which_wizard")+")";
+               			clone_by = !ilist[j]->query("clone_by_which_wizard")?"":"ï¼Œ("+ilist[j]->query("clone_by_which_wizard")+")";
                			write (" "+clone+ob->short()+" --> " + base_name(ob)+".c  " + clone_by + "\n");
                			continue;
                		}
@@ -47,7 +47,7 @@ void listing (object who, string prefix, string arg)
                 	string *ids = ob->parse_command_id_list();
                		if (ilist[j]->query("clone_by_wizard")) {
 	       	        	clone = HIR BLINK+"*"+NOR;
-        	       		clone_by = !ilist[j]->query("clone_by_which_wizard")?"":"£¬("+ilist[j]->query("clone_by_which_wizard")+")";
+        	       		clone_by = !ilist[j]->query("clone_by_which_wizard")?"":"ï¼Œ("+ilist[j]->query("clone_by_which_wizard")+")";
                		}
                		else {
                			clone ="";
@@ -72,7 +72,7 @@ mixed main(object me, string arg, int remote)
         int i;
 
         if (!arg)
-                return notify_fail ("Ö¸Áî¸ñÊ½£ºwhohave <id|-wiz>\n");
+                return notify_fail ("æŒ‡ä»¤æ ¼å¼ï¼šwhohave <id|-wiz>\n");
 	if (arg == "-wiz")
        		arg = "wiz_ob";
         ulist = users();
@@ -86,10 +86,10 @@ mixed main(object me, string arg, int remote)
 int help (object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : whohave <id|-wiz>
+æŒ‡ä»¤æ ¼å¼ : whohave <id|-wiz>
  
-¿ÉÁĞ³öÄ¿Ç°Ğ¯´øÄ³¸öÎïÆ·µÄÍæ¼Ò¡£Èç¹û´ø²ÎÊı"-wiz"£¬
-ÔòÏÔÊ¾ËùÓĞÏßÉÏÎ×Ê¦¸´ÖÆÎïÆ·ÁĞ±í¡£
+å¯åˆ—å‡ºç›®å‰æºå¸¦æŸä¸ªç‰©å“çš„ç©å®¶ã€‚å¦‚æœå¸¦å‚æ•°"-wiz"ï¼Œ
+åˆ™æ˜¾ç¤ºæ‰€æœ‰çº¿ä¸Šå·«å¸ˆå¤åˆ¶ç‰©å“åˆ—è¡¨ã€‚
  
  
 HELP

@@ -4,31 +4,31 @@ inherit ITEM;
 inherit F_FOOD;
 
 string *names = ({
-  "µ¶Ï÷Ãæ",
-  "Ñô´ºÃæ",
-  "ÈâË¿Ãæ",
-  "¼¦Ë¿Ãæ",
-  "Å£ÈâÃæ",
-  "¸Ç½½Ãæ",
-  "Â±Î¶Ãæ",
-  "ÅÅ¹ÇÃæ",
-  "¶¹Ë¿Ãæ",
-  "º£ÏÊÃæ",
-  "âÆâ½Ãæ",
-  "µ£µ£Ãæ",
-  "ÈâÖóÃæ",
-  "³¤ÊÙÃæ",
+  "åˆ€å‰Šé¢",
+  "é˜³æ˜¥é¢",
+  "è‚‰ä¸é¢",
+  "é¸¡ä¸é¢",
+  "ç‰›è‚‰é¢",
+  "ç›–æµ‡é¢",
+  "å¤å‘³é¢",
+  "æ’éª¨é¢",
+  "è±†ä¸é¢",
+  "æµ·é²œé¢",
+  "é¦„é¥¨é¢",
+  "æ‹…æ‹…é¢",
+  "è‚‰ç…®é¢",
+  "é•¿å¯¿é¢",
 });
 
 void create()
 {
-  set_name("¸÷Ê½ÃæÌõ", ({"mian tiao", "miantiao", "mian"}));
+  set_name("å„å¼é¢æ¡", ({"mian tiao", "miantiao", "mian"}));
   set_weight(100);
   if (clonep())
     set_default_object(__FILE__);
   else {
-    set("long", "Ò»ÍëÈÈÆøÌÚÌÚµÄÃæÌõ¡£\n");
-    set("unit", "Íë");
+    set("long", "ä¸€ç¢—çƒ­æ°”è…¾è…¾çš„é¢æ¡ã€‚\n");
+    set("unit", "ç¢—");
     set("value", 200);
     set("food_remaining", 5);
     set("food_supply", 35);
@@ -37,7 +37,7 @@ void create()
 
 void init()
 {
-  if (query("name")=="¸÷Ê½ÃæÌõ")
+  if (query("name")=="å„å¼é¢æ¡")
     set_name(names[random(sizeof(names))], ({"mian tiao","miantiao","mian"}));
   ::init();
 }

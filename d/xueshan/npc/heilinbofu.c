@@ -1,4 +1,4 @@
-// heilinbofu.c ºÚÁÖ²§·ò
+// heilinbofu.c é»‘æž—é’µå¤«
 // by iceland
 
 #include <ansi.h>
@@ -8,20 +8,20 @@ string ask_for_join();
 
 void create()
 {
-	set_name("ºÚÁÖ²§·ò", ({"heilin bofu","heilinbofu","heilin","bofu"}));
+	set_name("é»‘æž—é’µå¤«", ({"heilin bofu","heilinbofu","heilin","bofu"}));
 	set("long",
-                "ËûÉúµÃÉí¸ßÌåÀ«£¬»¢±³ÐÜÑü£¬ÂúÁ³µÄºáÈâ£¬Ò»Ë«ÂÌ¶¹Ð¡ÑÛ\n"
-                "³¯ËÄÍâÀ´»Ø´òÁ¿×Å¡£\n"
+                "ä»–ç”Ÿå¾—èº«é«˜ä½“é˜”ï¼Œè™ŽèƒŒç†Šè…°ï¼Œæ»¡è„¸çš„æ¨ªè‚‰ï¼Œä¸€åŒç»¿è±†å°çœ¼\n"
+                "æœå››å¤–æ¥å›žæ‰“é‡ç€ã€‚\n"
 	);
 
-        set("title", HIY "´óÂÖËÂµÚÊ®Èý´úµÜ×Ó" NOR);
-	set("gender", "ÄÐÐÔ");
+        set("title", HIY "å¤§è½®å¯ºç¬¬åä¸‰ä»£å¼Ÿå­" NOR);
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "huanxi");
 
 	set("inquiry",([
-		"³ö¼Ò"	: (: ask_for_join :),
-		"ÊÜ½ä"	: (: ask_for_join :),
+		"å‡ºå®¶"	: (: ask_for_join :),
+		"å—æˆ’"	: (: ask_for_join :),
 	]));
 
 	set("age", 30);
@@ -57,7 +57,7 @@ void create()
 
 	prepare_skill("claw", "tianwang-zhua");
 
-	create_family("´óÂÖËÂ", 13, "µÜ×Ó");
+	create_family("å¤§è½®å¯º", 13, "å¼Ÿå­");
 
 	setup();
 
@@ -72,20 +72,20 @@ string ask_for_join()
 
 	me = this_player();
 
-	if (me->query("family/family_name") != "´óÂÖËÂ")
-		return RANK_D->query_respect(me) + "²»ÊÇÔÚ¿ªÍæÐ¦°É¡£\n";
+	if (me->query("family/family_name") != "å¤§è½®å¯º")
+		return RANK_D->query_respect(me) + "ä¸æ˜¯åœ¨å¼€çŽ©ç¬‘å§ã€‚\n";
 
 	if( (string)me->query("class")=="huanxi" )
-		return "ÎÒÒÑ¾­¸øÄã¿ªÌ³ÊÜ½ä¹ýÁË£¬ÄãÏë±È±ðÈË¶àÒ»´Î£¿Õâ¿É²»ÐÐ¡£\n";
+		return "æˆ‘å·²ç»ç»™ä½ å¼€å›å—æˆ’è¿‡äº†ï¼Œä½ æƒ³æ¯”åˆ«äººå¤šä¸€æ¬¡ï¼Ÿè¿™å¯ä¸è¡Œã€‚\n";
 
-	if( (string)me->query("gender") == "ÎÞÐÔ" )
-		return "Ê©Ö÷ÉíÌå²ÐÈ±£¬ËäËµ·ð×æÆÕ¶ÉÖÚÉú£¬¿ÉÊÇ¡­¡­\n";
+	if( (string)me->query("gender") == "æ— æ€§" )
+		return "æ–½ä¸»èº«ä½“æ®‹ç¼ºï¼Œè™½è¯´ä½›ç¥–æ™®æ¸¡ä¼—ç”Ÿï¼Œå¯æ˜¯â€¦â€¦\n";
 
 	if (me->query_temp("pending/join_huanxi"))
-		return "ò¯³Ïµã£¬×ö·¨ÊÂµÄÊ±ºò±ðÀÏÎÊÕâÎÊÄÇ¡£\n";
+		return "è™”è¯šç‚¹ï¼Œåšæ³•äº‹çš„æ—¶å€™åˆ«è€é—®è¿™é—®é‚£ã€‚\n";
         
 	me->set_temp("pending/join_huanxi", 1);
-	return "ÄãÈôÕæÐÄÏ×ÉíÊÌ·î»¶Ï²·ð£¬Çë¹òÏÂ(kneel)ÊÜ½ä¡£\n";
+	return "ä½ è‹¥çœŸå¿ƒçŒ®èº«ä¾å¥‰æ¬¢å–œä½›ï¼Œè¯·è·ªä¸‹(kneel)å—æˆ’ã€‚\n";
 }
 
 int do_kneel()
@@ -95,13 +95,13 @@ int do_kneel()
 	if( !me->query_temp("pending/join_huanxi") )
 		return 0;
 
-	message_vision("$NÍäÑüµÍÍ·£¬¹§¹§¾´¾´µØ¹òÁËÏÂÀ´¡£\n\n",me);
-        message_vision("ºÚÁÖ²§·òÌÍ³ö¼¸¼þ·¨Æ÷£¬µÍÃ¼´¹Ä¿£¬Î§×ÅÄãÈÆÁË¼¸È¦£¬¿ÚÖÐÄîÄîÓÐ´Ê¡£\n\n",me);
-        message_vision("ºÚÁÖ²§·òµ¯Ð©ÇåË®ÈöÔÚ$NÍ·ÉÏ£¬É½·çÒ»´µ£¬$N²»ÓÉµÃ´òÁË¼¸¸öº®Õ½¡£\n\n",me);
-        message_vision("ºÚÁÖ²§·òÉùÒôÔ½À´Ô½¸ß£¬¶îÍ·Éø³öÃÜÃÜµÄº¹Ë®£¬ËÆºõÓÃÁËºÜ´óµÄÁ¦Æø¡£\n\n",me);
-        message_vision("ºÚÁÖ²§·ò³¤ÓõÁËÒ»¿ÚÆø£¬°Ñ·¨Æ÷·Å»Ø»³ÖÐ£¬ÓÃÒÂÐä²ÁÁË²ÁÁ³ÉÏµÄº¹Ë®¡£\n\n",me);
+	message_vision("$Nå¼¯è…°ä½Žå¤´ï¼Œæ­æ­æ•¬æ•¬åœ°è·ªäº†ä¸‹æ¥ã€‚\n\n",me);
+        message_vision("é»‘æž—é’µå¤«æŽå‡ºå‡ ä»¶æ³•å™¨ï¼Œä½Žçœ‰åž‚ç›®ï¼Œå›´ç€ä½ ç»•äº†å‡ åœˆï¼Œå£ä¸­å¿µå¿µæœ‰è¯ã€‚\n\n",me);
+        message_vision("é»‘æž—é’µå¤«å¼¹äº›æ¸…æ°´æ’’åœ¨$Nå¤´ä¸Šï¼Œå±±é£Žä¸€å¹ï¼Œ$Nä¸ç”±å¾—æ‰“äº†å‡ ä¸ªå¯’æˆ˜ã€‚\n\n",me);
+        message_vision("é»‘æž—é’µå¤«å£°éŸ³è¶Šæ¥è¶Šé«˜ï¼Œé¢å¤´æ¸—å‡ºå¯†å¯†çš„æ±—æ°´ï¼Œä¼¼ä¹Žç”¨äº†å¾ˆå¤§çš„åŠ›æ°”ã€‚\n\n",me);
+        message_vision("é»‘æž—é’µå¤«é•¿åäº†ä¸€å£æ°”ï¼ŒæŠŠæ³•å™¨æ”¾å›žæ€€ä¸­ï¼Œç”¨è¡£è¢–æ“¦äº†æ“¦è„¸ä¸Šçš„æ±—æ°´ã€‚\n\n",me);
 	command("smile");
-	command("say ºÃÀ²£¬ÊÜ½ä·¨ÊÂ×öÍêÁË£¬´Ó½ñÒÔºó»¶Ï²·ð×æ»á±£ÓÓÄãµÄ¡£\n");
+	command("say å¥½å•¦ï¼Œå—æˆ’æ³•äº‹åšå®Œäº†ï¼Œä»Žä»Šä»¥åŽæ¬¢å–œä½›ç¥–ä¼šä¿ä½‘ä½ çš„ã€‚\n");
 	me->delete_temp("pending/join_huanxi");
 	me->set("class", "huanxi");
         return 1;

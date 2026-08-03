@@ -4,10 +4,10 @@ inherit F_MASTER;
 void create()
 
 {
-	set_name("ÂÌÖñÎÌ", ({ "lu zhuweng", "lu", "zhuweng"}));
+	set_name("ç»¿ç«¹ç¿", ({ "lu zhuweng", "lu", "zhuweng"}));
         set("long", 
-"´ËÈËÇÙÆåÊé»­ÎŞÒ»²»¾«£¬ÓÈÆäÉÆÓÚ»­Öñ£¬Îä¹¦ÈçºÎ¾Í²»µÃ¶øÖªÁË¡£\n");
-        set("gender", "ÄĞĞÔ");
+"æ­¤äººç´æ£‹ä¹¦ç”»æ— ä¸€ä¸ç²¾ï¼Œå°¤å…¶å–„äºç”»ç«¹ï¼Œæ­¦åŠŸå¦‚ä½•å°±ä¸å¾—è€ŒçŸ¥äº†ã€‚\n");
+        set("gender", "ç”·æ€§");
 	set("age", 80);
 	set("attitude", "peaceful");
 	set("shen_type", -1);
@@ -41,7 +41,7 @@ void create()
 	map_skill("strike", "tianmo-zhang");
 	map_skill("parry", "tianmo-zhang");
 	prepare_skill("strike","tianmo-zhang");
-	create_family("ÈÕÔÂÉñ½Ì",9,"µÜ×Ó");
+	create_family("æ—¥æœˆç¥æ•™",9,"å¼Ÿå­");
 	
    setup();
         

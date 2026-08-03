@@ -1,4 +1,4 @@
-// yuexia-qiulu ÔÂÏÂÇïÂ¶
+// yuexia-qiulu æœˆä¸‹ç§‹éœ²
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit SWORD;
 
 void create()
 {
-	set_name(HIG"ÇÙÖĞ½£"NOR,({ "qinzhong jian", "jian", "sword" }) );
+	set_name(HIG"ç´ä¸­å‰‘"NOR,({ "qinzhong jian", "jian", "sword" }) );
 	set_weight(8000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Ú");
-		set("long", HIG"ÕâÊÇÒ»¿Ú"HIY"ĞÓ»ÆËë"HIG"£¬Í¨Ìå÷ìÂÌµÄ³¤½£¡£\n½£ÆøÀäÉ­£¬½şÈë¼¡·ö£¬¹ûÈ»ÊÇÒ»¿Úº±¼ûµÄÏ¡ÊÀ±¦½£¡£\n"NOR);
+		set("unit", "å£");
+		set("long", HIG"è¿™æ˜¯ä¸€å£"HIY"æé»„ç©—"HIG"ï¼Œé€šä½“é»›ç»¿çš„é•¿å‰‘ã€‚\nå‰‘æ°”å†·æ£®ï¼Œæµ¸å…¥è‚Œæ‰¶ï¼Œæœç„¶æ˜¯ä¸€å£ç½•è§çš„ç¨€ä¸–å®å‰‘ã€‚\n"NOR);
 		set("value", 1);
 		set("rigidity", 5);
 		set("sharpness", 5);
@@ -24,8 +24,8 @@ void create()
 		set("wield_neili", 500);
 		set("wield_maxneili", 800);
 		set("wield_str", 25);
-		set("wield_msg", HIM"Ëæ×Å$N»Ó³öµÄÓÒÊÖ£¬$n"HIM"ÉÁ³öÁËÒ»Ä¨²Ğºç¡£\n"NOR);
-		set("unwield_msg", HIY"$NÊÖÒ»ÕĞ£¬$n"HIY"»Ã»¯³ÉÒ»µÀÉÁµç£¬¸üËÆ¹ÂÔÆ°×º×°ãÏûÊ§ÁË¡£\n" NOR);
+		set("wield_msg", HIM"éšç€$NæŒ¥å‡ºçš„å³æ‰‹ï¼Œ$n"HIM"é—ªå‡ºäº†ä¸€æŠ¹æ®‹è™¹ã€‚\n"NOR);
+		set("unwield_msg", HIY"$Næ‰‹ä¸€æ‹›ï¼Œ$n"HIY"å¹»åŒ–æˆä¸€é“é—ªç”µï¼Œæ›´ä¼¼å­¤äº‘ç™½é¹¤èˆ¬æ¶ˆå¤±äº†ã€‚\n" NOR);
 	}
 	init_sword(50);
 	setup();

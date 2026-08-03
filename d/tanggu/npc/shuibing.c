@@ -3,12 +3,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ë®±ø", ({ "shui bing", "shui", "bing" }));
+	set_name("æ°´å…µ", ({ "shui bing", "shui", "bing" }));
 	set("shen_type", 1);
 
-	set("gender", "ÄÐÐÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 20);
-	set("long", "Ò»¸ö¾«¶Ì´ò°çµÄË®±ø¡£\n");
+	set("long", "ä¸€ä¸ªç²¾çŸ­æ‰“æ‰®çš„æ°´å…µã€‚\n");
 	set_skill("cuff", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 30);

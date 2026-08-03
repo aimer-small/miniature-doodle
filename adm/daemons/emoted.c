@@ -1,5 +1,5 @@
 // emoted.c
-// Modify by Yu Jue 1998-3-5, 优化速度
+// Modify by Yu Jue 1998-3-5, 浼樺寲閫熷害
 
 #include <ansi.h>
 
@@ -59,7 +59,7 @@ varargs mixed do_emote(object me, string verb, string arg, int channel_emote, st
                 mapping def;
                 mapping rwho = ([]);
                 string my_name = me->name();
-                // 根据其他MUD返回的信息做生成EMOTE表情
+                // 鏍规嵁鍏朵粬MUD杩斿洖鐨勪俊鎭仛鐢熸垚EMOTE琛ㄦ儏
                 if (sscanf(arg,"mud=%s name=%s id=%s age=%d gender=%s respect=%s rude=%s ",
                                         rwho["mud"],
                                         rwho["name"],
@@ -97,7 +97,7 @@ varargs mixed do_emote(object me, string verb, string arg, int channel_emote, st
 
 	if ( !mapp(emote) || undefinedp(emote[verb]) ) return 0;
 
-	notify_fail("你要对谁做这个动作？\n");
+	notify_fail("浣犺瀵硅皝鍋氳繖涓姩浣滐紵\n");
 	// Determine the pattern to be searched and the target.
 	if ( stringp(arg) && arg != "" ) {
 		target = present(arg, environment(me));

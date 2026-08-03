@@ -1,5 +1,5 @@
 // begger.h
-// Creat by Looklove@SJ 2001.9.27 º£¿Ú
+// Creat by Looklove@SJ 2001.9.27 æµ·å£
 // include for beggers :)
 
 void init()
@@ -8,7 +8,7 @@ void init()
 
 	::init();
 	if( interactive(ob = this_player())
-	&& ob->query("family/family_name") != "Ø¤°ï"
+	&& ob->query("family/family_name") != "ä¸å¸®"
 	&& ob->query("age") > 18
 	&& random(ob->query_per()) < 10
 	&& !random(5)) {
@@ -39,17 +39,17 @@ int do_kill(string arg)
 	if (!ob || !ob->is_character() || !living(ob2)) return 0;
 	if ( query("gb/bags") <= 3 ) return 0;
 
-	if ( userp(ob) && ob->query("family/family_name") == "Ø¤°ï") {
-		if ( userp(me) && me->query("family/family_name") == "Ø¤°ï") {
-			message_vision(ob2->name()+"¶Ô$N½ĞµÀ£ºÄã¾ÓÈ»É±×Ô¼ºµÄÍ¬ÃÅ£¿ÎÒÔ×ÁËÄã£¡\n", me);
-			message_vision(ob2->name()+"¶Ô$N½ĞµÀ£ºĞÖµÜ¿ì×ß£¬$nÒª¶Ô$NÏÂÊÖ£¡\n", ob, me);
+	if ( userp(ob) && ob->query("family/family_name") == "ä¸å¸®") {
+		if ( userp(me) && me->query("family/family_name") == "ä¸å¸®") {
+			message_vision(ob2->name()+"å¯¹$Nå«é“ï¼šä½ å±…ç„¶æ€è‡ªå·±çš„åŒé—¨ï¼Ÿæˆ‘å®°äº†ä½ ï¼\n", me);
+			message_vision(ob2->name()+"å¯¹$Nå«é“ï¼šå…„å¼Ÿå¿«èµ°ï¼Œ$nè¦å¯¹$Nä¸‹æ‰‹ï¼\n", ob, me);
 			command("guard "+ob->query("id"));
 			ob->add_busy(2);
 			kill_ob(me);
 		}
 		else {
-			message_vision(ob2->name()+"¶Ô$NºÈµÀ£º´óµ¨£¬¾ÓÈ»¸Ò¶ÔÎÒØ¤°ïµÜ×ÓÏÂÊÖ£¡\n", me);
-			message_vision(ob2->name()+"¶Ô$N½ĞµÀ£ºĞÖµÜ¿ì×ß£¬$nÒª¶Ô$NÏÂÊÖ£¡\n", ob, me);
+			message_vision(ob2->name()+"å¯¹$Nå–é“ï¼šå¤§èƒ†ï¼Œå±…ç„¶æ•¢å¯¹æˆ‘ä¸å¸®å¼Ÿå­ä¸‹æ‰‹ï¼\n", me);
+			message_vision(ob2->name()+"å¯¹$Nå«é“ï¼šå…„å¼Ÿå¿«èµ°ï¼Œ$nè¦å¯¹$Nä¸‹æ‰‹ï¼\n", ob, me);
 			command("guard "+ob->query("id"));
 			ob->add_busy(2);
 			kill_ob(me);
@@ -123,7 +123,7 @@ int accept_object(object me, object obj)
 	}
 	else {
 		command("shrug " + ob->query("id"));
-		command("say Õâ¶«Î÷»¹ÊÇÄã×Ô¼ºÁô×Å°Ñ¡£");
+		command("say è¿™ä¸œè¥¿è¿˜æ˜¯ä½ è‡ªå·±ç•™ç€æŠŠã€‚");
 		return notify_fail("");
 	}
 

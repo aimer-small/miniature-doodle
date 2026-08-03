@@ -1,17 +1,17 @@
 
 	query_ip_name(3)	MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		query_ip_name() - ´«»ØÖ¸¶¨Íæ¼ÒµÄ ip Ãû³Æ.
-	Óï·¨:	
+	åç§°:
+		query_ip_name() - ä¼ å›æŒ‡å®šç©å®¶çš„ ip åç§°.
+	è¯­æ³•:	
 		string query_ip_name( object ob );
 
-		×Ö´® query_ip_name( Îï¼ş ob );
-	ÓÃ·¨:
-		´«»ØÍæ¼Ò ob µÄ IP Î»Ö·. Ò»¸ö½Ğ×ö addr_server µÄ·ÇÍ¬²½
-		³ÌĞò»áÕÒ³öÕâĞ©Ãû³Æ. Èç¹ûÕÒ²»µ½ ip Ãû³Æ, ¾Í»á´«»Ø ip ºÅÂë.
-	²Î¿¼:
+		å­—ä¸² query_ip_name( ç‰©ä»¶ ob );
+	ç”¨æ³•:
+		ä¼ å›ç©å®¶ ob çš„ IP ä½å€. ä¸€ä¸ªå«åš addr_server çš„éåŒæ­¥
+		ç¨‹åºä¼šæ‰¾å‡ºè¿™äº›åç§°. å¦‚æœæ‰¾ä¸åˆ° ip åç§°, å°±ä¼šä¼ å› ip å·ç .
+	å‚è€ƒ:
 		query_ip_number(3), query_host_name(3), resolve(3),
 		socket_address(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.May.1.		(printed 3/16/95)

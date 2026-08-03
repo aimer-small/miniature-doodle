@@ -5,21 +5,21 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("ÂíîÚ", ({"ma yu", "ma"}));
-        set("gender", "ÄÐÐÔ");
+        set_name("é©¬é’°", ({"ma yu", "ma"}));
+        set("gender", "ç”·æ€§");
         set("age", 42);
         set("class", "taoist");
-        set("nickname",MAG"µ¤Ñô×Ó"NOR);
+        set("nickname",MAG"ä¸¹é˜³å­"NOR);
         set("long",
-                "Ëû¾ÍÊÇÍõÖØÑôµÄ´óµÜ×Ó£¬È«ÕæÆß×ÓÖ®Ê×£¬µ¤Ñô×ÓÂíîÚÂíÕæÈË¡£\n"
-                "Ëû´ÈÃ¼ÉÆÄ¿£¬ºÍ°ª¿ÉÇ×£¬ÕýÐ¦×Å¿´×ÅÄã¡£\n");
+                "ä»–å°±æ˜¯çŽ‹é‡é˜³çš„å¤§å¼Ÿå­ï¼Œå…¨çœŸä¸ƒå­ä¹‹é¦–ï¼Œä¸¹é˜³å­é©¬é’°é©¬çœŸäººã€‚\n"
+                "ä»–æ…ˆçœ‰å–„ç›®ï¼Œå’Œè”¼å¯äº²ï¼Œæ­£ç¬‘ç€çœ‹ç€ä½ ã€‚\n");
         set("attitude", "peaceful");
         set("shen_type",1);
         set("str", 28);
         set("int", 32);
         set("con", 31);
         set("dex", 30);
-        set("title","È«ÕæÆß×ÓÖ®Ê×");
+        set("title","å…¨çœŸä¸ƒå­ä¹‹é¦–");
         set("qi", 4500);
         set("max_qi", 4500);
         set("jing", 2200);
@@ -51,12 +51,12 @@ void create()
         map_skill("strike", "haotian-zhang");
         prepare_skill("strike","haotian-zhang");
 
-        create_family("È«Õæ½Ì", 2, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 2, "å¼Ÿå­");
 
         set("book_count",1);
         set("miji_count",1);
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒÐþÃÅÕý×Ú¡£\n",             
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶çŽ„é—¨æ­£å®—ã€‚\n",             
         ]) );
 
         setup();
@@ -68,21 +68,21 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-        if (ob->query("gender")=="Å®ÐÔ") {
-                command("say ÐþÃÅÄÚµ¤ÐÞÁ¶Ö®Êõ£¬ÄÐÅ®ÓÐ±ð£¬Äã»¹ÊÇÈ¥ËïÊ¦ÃÃÄÇÀï¿´¿´°É¡£\n");
+        if (ob->query("gender")=="å¥³æ€§") {
+                command("say çŽ„é—¨å†…ä¸¹ä¿®ç‚¼ä¹‹æœ¯ï¼Œç”·å¥³æœ‰åˆ«ï¼Œä½ è¿˜æ˜¯åŽ»å­™å¸ˆå¦¹é‚£é‡Œçœ‹çœ‹å§ã€‚\n");
                 return;
         }
         if ((int)ob->query_skill("xiantian-gong",1) < 100 )
         {
-                command("say ÄãµÄ±¾ÃÅÄÚ¹¦ÐÄ·¨»ðºò²»×ã,ÄÑÒÔÁìÂÔ¸ü¸ßÉîµÄÎä¹¦¡£");
+                command("say ä½ çš„æœ¬é—¨å†…åŠŸå¿ƒæ³•ç«å€™ä¸è¶³,éš¾ä»¥é¢†ç•¥æ›´é«˜æ·±çš„æ­¦åŠŸã€‚");
                 return;
         }
         if ((int)ob->query("shen") < 500000)
         {
-                command("say ÐÐÏÀÕÌÒåÎÒ±²Ñ§ÎäÈËÐèÃú¼ÇÔÚÐÄ£¬ÕâµãÄã×öµÄ¿É²»¹»°¡£¡\n");
+                command("say è¡Œä¾ ä»—ä¹‰æˆ‘è¾ˆå­¦æ­¦äººéœ€é“­è®°åœ¨å¿ƒï¼Œè¿™ç‚¹ä½ åšçš„å¯ä¸å¤Ÿå•Šï¼\n");
                 return;
         }
         command("pat " + ob->query("id"));
-        command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÕâ¸öÍ½µÜÁË¡£");
+        command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ è¿™ä¸ªå¾’å¼Ÿäº†ã€‚");
         command("recruit " + ob->query("id"));
 }

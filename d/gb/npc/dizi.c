@@ -6,17 +6,17 @@
 inherit FIGHTER;
 #include <ansi.h>
 
-#define QUESTDIR3 "quest/ÌìÁú°Ë²¿/Ïô·åÉíÊÀÆª/"
-#define QUESTDIR4 "quest/ÌìÁú°Ë²¿/´óÁÉ¾ÈÔ®Æª/"
-#define QUESTDIR5 "quest/ÌìÁú°Ë²¿/¸´ĞËÌìÏÂÆª/"
+#define QUESTDIR3 "quest/å¤©é¾™å…«éƒ¨/è§å³°èº«ä¸–ç¯‡/"
+#define QUESTDIR4 "quest/å¤©é¾™å…«éƒ¨/å¤§è¾½æ•‘æ´ç¯‡/"
+#define QUESTDIR5 "quest/å¤©é¾™å…«éƒ¨/å¤å…´å¤©ä¸‹ç¯‡/"
 
 //nosave string *str_menpai = ({ "wd","hs","ss","gm","tz","dls","sld","xx","mj","thd","kl"});	
 //#include "/d/city/npc/skills_pfm.h";
 void create()
 {
-	set_name("µÜ×Ó", ({ "di zi", "dizi"}));
-	set("long", "Ò»Î»Ä³ÃÅÅÉµÜ×Ó¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("å¼Ÿå­", ({ "di zi", "dizi"}));
+	set("long", "ä¸€ä½æŸé—¨æ´¾å¼Ÿå­ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 33);
 	set("attitude", "peaceful");
 	set("shen", -100);
@@ -52,16 +52,16 @@ void init()
     ob = this_object();
     if(ob->query("setok")) return;
 	  if(!ob->query("party"))	ob->set("party",str_menpai[random(sizeof(str_menpai))]);  	 
-	  if(ob->query("party")=="sl") 	set_name("»¤·¨µÜ×Ó", ({ "shaolin dizi", "hufa dizi","dizi"}));
-	  else if(ob->query("party")=="gb")	set_name("Ø¤°ïµÜ×Ó", ({ "gaibang dizi","dizi"}));
-    else	set_name("ÎŞÃûµÜ×Ó", ({ "wuming dizi", "dizi"}));
-    ob->copy_menpai(({ob->query("party")}),random(2),random(2),50+random(50));  //¸´ÖÆnpcµÄÃÅÅÉÎä¹¦                                              
-	  ob->copy_state();				//¸ù¾İÃÅÅÉ¸üĞÂnpc µÄÒ»Ğ©×´Ì¬
+	  if(ob->query("party")=="sl") 	set_name("æŠ¤æ³•å¼Ÿå­", ({ "shaolin dizi", "hufa dizi","dizi"}));
+	  else if(ob->query("party")=="gb")	set_name("ä¸å¸®å¼Ÿå­", ({ "gaibang dizi","dizi"}));
+    else	set_name("æ— åå¼Ÿå­", ({ "wuming dizi", "dizi"}));
+    ob->copy_menpai(({ob->query("party")}),random(2),random(2),50+random(50));  //å¤åˆ¶npcçš„é—¨æ´¾æ­¦åŠŸ                                              
+	  ob->copy_state();				//æ ¹æ®é—¨æ´¾æ›´æ–°npc çš„ä¸€äº›çŠ¶æ€
 		if (ob->query("f_skill2")) 
-				good_skills=to_chinese(ob->query("f_skill"))+"ºÍ"+to_chinese(ob->query("f_skill2"));
+				good_skills=to_chinese(ob->query("f_skill"))+"å’Œ"+to_chinese(ob->query("f_skill2"));
 		else	
 				good_skills=to_chinese(ob->query("f_skill"));
-   	ob->set("long",HIW+ob->query("family/family_name")+"¸ßÊÖ£¬³ÉÃû¾ø¼¼£º"+good_skills+"¡£"NOR);
+   	ob->set("long",HIW+ob->query("family/family_name")+"é«˜æ‰‹ï¼Œæˆåç»æŠ€ï¼š"+good_skills+"ã€‚"NOR);
     if(!ob->query("fight_id"))
     {
 		  ob->set_skills_level(350+random(200));
@@ -94,7 +94,7 @@ void init()
     ob->set("combat_exp",me->query("combat_exp"));
  		ob->set_skill("literate",ob->query("int")*10); 	 											//full literate
 
- 		if(ob->query("teamleader")) message_vision(HIC"\n$N¶Ô$nµãÁËµãÍ·µÀ£ºÕó·¨¶şÊ®ÃëÖÓÖ®ÄÚÆô¶¯¡£\n" NOR, ob,me);
+ 		if(ob->query("teamleader")) message_vision(HIC"\n$Nå¯¹$nç‚¹äº†ç‚¹å¤´é“ï¼šé˜µæ³•äºŒåç§’é’Ÿä¹‹å†…å¯åŠ¨ã€‚\n" NOR, ob,me);
 	  if(ob->query("party")=="sl") 	ob->set_skill("fumoquan-zhen",200);
     else if(ob->query("party")=="gb")	ob->set_skill("dagou-zhen",200);
     else	ob->set_skill("wuxing-zhen",200);
@@ -144,7 +144,7 @@ void check(object ob, object me)
   	 me->set("qi",100);		
   	 me->set("jing",100);
 	   me->set("jingli",100);
-     tell_room(environment(ob), HIG+""+ob->name()+"Ò»ÑÔ²»·¢£¬ÂıÂıµØÏûÊ§ÔÚ½ÇÂäÀï¡£\n"NOR);
+     tell_room(environment(ob), HIG+""+ob->name()+"ä¸€è¨€ä¸å‘ï¼Œæ…¢æ…¢åœ°æ¶ˆå¤±åœ¨è§’è½é‡Œã€‚\n"NOR);
 	   destruct(ob);
 	   return;
 	}                  
@@ -154,8 +154,8 @@ void check(object ob, object me)
    ||me->query("qi")<me->query("max_qi")/20
     || environment(me)!=environment(ob)){
     	 remove_call_out("check");
-     if(me && environment(me)==environment(ob)&& !random(3))  tell_room(environment(ob), HIW+"\n"+ob->name()+"Î¢Ğ¦µØ¶Ô×Å"+me->name()+"µÀ£º¡°ÏÂ´ÎÅ¬Á¦°¡¡£¡±\n"NOR);
-    else tell_room(environment(ob), HIY+""+ob->name()+"Ò»ÑÔ²»·¢£¬ÂıÂıµØÏûÊ§ÔÚ½ÇÂäÀï¡£\n"NOR);
+     if(me && environment(me)==environment(ob)&& !random(3))  tell_room(environment(ob), HIW+"\n"+ob->name()+"å¾®ç¬‘åœ°å¯¹ç€"+me->name()+"é“ï¼šâ€œä¸‹æ¬¡åŠªåŠ›å•Šã€‚â€\n"NOR);
+    else tell_room(environment(ob), HIY+""+ob->name()+"ä¸€è¨€ä¸å‘ï¼Œæ…¢æ…¢åœ°æ¶ˆå¤±åœ¨è§’è½é‡Œã€‚\n"NOR);
     
      if(me &&  ob->query("party")=="sl")
   	 {
@@ -201,22 +201,22 @@ void die()
 				{
 					if(me->query(QUESTDIR3+"good")) me->set_temp(QUESTDIR4+"shaolinzhen",1);
 					else if(me->query(QUESTDIR3+"bad")) me->set_temp(QUESTDIR5+"shaolinzhen",1);
-					message_vision(HIC"\n$NÑïÉùµÀ£º¹§Ï²$n´³¹ıÕâÉÙÁÖ´óÕó£¬¹ûÈ»ÊÇ"+me->query("family/master_name")+"×ùÏÂ"+me->query("family/family_name")+"¸ßÊÖ£¬È·ÊµÎä¹¦ÁËµÃ¡£\n" NOR, ob,me);
-					log_file("quest/TLBB", sprintf("%s(%s)ÉÙÁÖÕó´³Õó³É¹¦¡£¾­Ñé£º%d¡£\n", me->name(1),me->query("id"), me->query("combat_exp")) );                  
+					message_vision(HIC"\n$Næ‰¬å£°é“ï¼šæ­å–œ$né—¯è¿‡è¿™å°‘æ—å¤§é˜µï¼Œæœç„¶æ˜¯"+me->query("family/master_name")+"åº§ä¸‹"+me->query("family/family_name")+"é«˜æ‰‹ï¼Œç¡®å®æ­¦åŠŸäº†å¾—ã€‚\n" NOR, ob,me);
+					log_file("quest/TLBB", sprintf("%s(%s)å°‘æ—é˜µé—¯é˜µæˆåŠŸã€‚ç»éªŒï¼š%dã€‚\n", me->name(1),me->query("id"), me->query("combat_exp")) );                  
 				}
 				if(ob->query("party")=="gb") 
 				{
 					if(me->query(QUESTDIR3+"good")) me->set_temp(QUESTDIR4+"dagouzhen",1);
 					else if(me->query(QUESTDIR3+"bad")) me->set_temp(QUESTDIR5+"dagouzhen",1);	
-					message_vision(HIC"\n$NÑïÉùµÀ£º¹§Ï²$n´³¹ıÕâ´ò¹·Õó£¬¹ûÈ»ÊÇ"+me->query("family/master_name")+"×ùÏÂ"+me->query("family/family_name")+"¸ßÊÖ£¬È·ÊµÎä¹¦ÁËµÃ¡£\n" NOR, ob,me);
-					log_file("quest/TLBB", sprintf("%s(%s)´ò¹·Õó´³Õó³É¹¦¡£¾­Ñé£º%d¡£\n", me->name(1),me->query("id"), me->query("combat_exp")) );                  
+					message_vision(HIC"\n$Næ‰¬å£°é“ï¼šæ­å–œ$né—¯è¿‡è¿™æ‰“ç‹—é˜µï¼Œæœç„¶æ˜¯"+me->query("family/master_name")+"åº§ä¸‹"+me->query("family/family_name")+"é«˜æ‰‹ï¼Œç¡®å®æ­¦åŠŸäº†å¾—ã€‚\n" NOR, ob,me);
+					log_file("quest/TLBB", sprintf("%s(%s)æ‰“ç‹—é˜µé—¯é˜µæˆåŠŸã€‚ç»éªŒï¼š%dã€‚\n", me->name(1),me->query("id"), me->query("combat_exp")) );                  
 				}		
 			}
 
 		}
 	}
-	if(random(2)) message_vision(HIG"$NµãÁËµãÍ·£¬»º»ºÏûÊ§ÔÚ½ÇÂäÀï¡£\n\n" NOR, ob);
-	else message_vision(HIG"$NÂıÂıµØÍËÁË³öÈ¥¡£\n\n" NOR, ob);
+	if(random(2)) message_vision(HIG"$Nç‚¹äº†ç‚¹å¤´ï¼Œç¼“ç¼“æ¶ˆå¤±åœ¨è§’è½é‡Œã€‚\n\n" NOR, ob);
+	else message_vision(HIG"$Næ…¢æ…¢åœ°é€€äº†å‡ºå»ã€‚\n\n" NOR, ob);
 	destruct(ob);
 }
 void unconcious()

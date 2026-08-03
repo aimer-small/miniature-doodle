@@ -1,14 +1,14 @@
-// »á¿ÍÊÒ
+// ä¼šå®¢å®¤
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-	set("short", HIC"ĞİÏ¢ÊÒ"NOR);
+	set("short", HIC"ä¼‘æ¯å®¤"NOR);
 	set("long", @LONG
-ÕâÀïÊÇ¹ÜÀíÔ±µÄĞİÏ¢ÊÒ£¬ÊÇÈÃ¹ÜÀíÔ±ÓÃÀ´ĞİÏ¢µÄµØ·½¡£ÊÒÄÚ´°Ã÷¼¸¾»£¬³ÂÉè¼ò
-µ¥£¬¹ÜÀíÔ±Æ½³£¶¼ÊÇÔÚÄÇÀïĞİÏ¢£¬Ç½ÉÏÓĞÒ»Ö½ËµÃ÷(shuoming)¡£
+è¿™é‡Œæ˜¯ç®¡ç†å‘˜çš„ä¼‘æ¯å®¤ï¼Œæ˜¯è®©ç®¡ç†å‘˜ç”¨æ¥ä¼‘æ¯çš„åœ°æ–¹ã€‚å®¤å†…çª—æ˜å‡ å‡€ï¼Œé™ˆè®¾ç®€
+å•ï¼Œç®¡ç†å‘˜å¹³å¸¸éƒ½æ˜¯åœ¨é‚£é‡Œä¼‘æ¯ï¼Œå¢™ä¸Šæœ‰ä¸€çº¸è¯´æ˜(shuoming)ã€‚
 LONG);
 
 	set("no_fight", 1);
@@ -16,9 +16,9 @@ LONG);
 	set("no_sleep_room", 1);
 	set("no_death", 1);
 	set("item_desc", ([
-		"shuoming" : "ÔÚ´Ë·¿¼ä¿ÉÊ¹ÓÃÏÂÁĞÃüÁî£º\n"+
-		"\t1¡¢full£º	×Ô¼º×´Ì¬È«Âú¡£\n"+
-		"\t2¡¢unchblk£º	´ò¿ª×Ô¼ºËùÓĞÆµµÀ¡£\n\n",
+		"shuoming" : "åœ¨æ­¤æˆ¿é—´å¯ä½¿ç”¨ä¸‹åˆ—å‘½ä»¤ï¼š\n"+
+		"\t1ã€fullï¼š	è‡ªå·±çŠ¶æ€å…¨æ»¡ã€‚\n"+
+		"\t2ã€unchblkï¼š	æ‰“å¼€è‡ªå·±æ‰€æœ‰é¢‘é“ã€‚\n\n",
 	]));
 
 	setup();
@@ -35,7 +35,7 @@ void init()
 		me->reincarnate();
 		me->set("combat_exp", 300000);
 		if ( !me->query("family"))
-			me->set("family/family_name", "ÔÚÏß·şÎñ");
+			me->set("family/family_name", "åœ¨çº¿æœåŠ¡");
 		add_action("do_full", "full");
 		add_action("do_open", "unchblk");
 	}
@@ -46,7 +46,7 @@ int do_full()
 	object me = this_player();
 
 	me->reincarnate();
-	tell_object(me, "ÄãµÄ×´Ì¬»Ö¸´Íê±Ï£¡\n");
+	tell_object(me, "ä½ çš„çŠ¶æ€æ¢å¤å®Œæ¯•ï¼\n");
 	return 1;
 }
 
@@ -60,6 +60,6 @@ int do_open()
 	me->delete("chblk_party");
 	me->delete("chblk_sj");
 	me->clear_condition();
-	tell_object(me, "ÄãµÄÆµµÀ±»´ò¿ªÁË¡£\n");
+	tell_object(me, "ä½ çš„é¢‘é“è¢«æ‰“å¼€äº†ã€‚\n");
 	return 1;
 }

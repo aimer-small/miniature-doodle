@@ -1,13 +1,13 @@
-// sshanlu5.c É½Â·
+// sshanlu5.c å±±è·¯
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-    set("short", YEL"É½Â·"NOR);
+    set("short", YEL"å±±è·¯"NOR);
     set("long",@LONG
-ÕâÊÇÒ»ÌõÒ»Õ­ÓÖ¶¸µÄÉ½Â·£¬É½Â·Á½ÅÔ³¤×ÅÓÖ¸ßÓÖÔÓµÄÂÒ²ÝÔÓÊ÷£¬¼¸Ã»ÈËÍ·£¬
-Å¼¶û»áÓÐ¼¸Ö¦¾£¼¬µ²×¡ÄãµÄÈ¥Â·£¬Ò»²»Ð¡ÐÄÔò»á±»Æä´ÌÉË¡£
+è¿™æ˜¯ä¸€æ¡ä¸€çª„åˆé™¡çš„å±±è·¯ï¼Œå±±è·¯ä¸¤æ—é•¿ç€åˆé«˜åˆæ‚çš„ä¹±è‰æ‚æ ‘ï¼Œå‡ æ²¡äººå¤´ï¼Œ
+å¶å°”ä¼šæœ‰å‡ æžè†æ£˜æŒ¡ä½ä½ çš„åŽ»è·¯ï¼Œä¸€ä¸å°å¿ƒåˆ™ä¼šè¢«å…¶åˆºä¼¤ã€‚
 LONG);
     set("exits",([
         "westdown"  :     __DIR__"xuanya3",
@@ -23,7 +23,7 @@ LONG);
  set("coor/y",130);
    set("coor/z",50);
    setup();
-    set("outdoors", "Ã÷½Ì¹âÃ÷¶¥");
+    set("outdoors", "æ˜Žæ•™å…‰æ˜Žé¡¶");
 }
 
 int valid_leave(object me, string dir)
@@ -39,7 +39,7 @@ void init()
 {
 	object me=this_player();
 	if (me->query("jing")<20 || me->query("qi")<20 ){
-	  write("Äã¿´ÆðÀ´ÒÑ¾­ºÜÀÛÁË£¬ÐÝÏ¢Ò»ÏÂÔÙ¸ÏÂ·°É¡£\n"NOR);
+	  write("ä½ çœ‹èµ·æ¥å·²ç»å¾ˆç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¸‹å†èµ¶è·¯å§ã€‚\n"NOR);
           me->start_busy(2);
         }
 }

@@ -6,18 +6,18 @@
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
-#define QUESTDIR1 "quest/ÌìÁú°Ë²¿/Áè²¨Î¢²½Æª/"
+#define QUESTDIR1 "quest/å¤©é¾™å…«éƒ¨/å‡Œæ³¢å¾®æ­¥ç¯‡/"
 void create()
 {
-        set("short", "Ê¯ÎÝÀï");
+        set("short", "çŸ³å±‹é‡Œ");
         set("long", @LONG
-ÕâÀïÊÇÊ¯ÎÝÀïÁË£¬ÀïÃæºÚÆáÆáµÄ£¬Ê²Ã´Ò²¿´²»Çå³þ£¬Ñô¹â¶¼±»ÃÅ¿ÚµÄÒ»¿é
-´óÑÒÊ¯µ²×¡ÁË£¬Ö»ÄÜÍ¸¹ý¼¸ÂÆÊ¯·ìÖÐÍ¸¹ýÀ´µÄÑô¹â£¬Äã´òÁ¿×ÅÕâ¼äÎÝ×Ó¡£
+è¿™é‡Œæ˜¯çŸ³å±‹é‡Œäº†ï¼Œé‡Œé¢é»‘æ¼†æ¼†çš„ï¼Œä»€ä¹ˆä¹Ÿçœ‹ä¸æ¸…æ¥šï¼Œé˜³å…‰éƒ½è¢«é—¨å£çš„ä¸€å—
+å¤§å²©çŸ³æŒ¡ä½äº†ï¼Œåªèƒ½é€è¿‡å‡ ç¼•çŸ³ç¼ä¸­é€è¿‡æ¥çš„é˜³å…‰ï¼Œä½ æ‰“é‡ç€è¿™é—´å±‹å­ã€‚
 LONG
         );
 
         set("item_desc", ([
-              "yan" : "Ò»¿é´óÑÒÊ¯£¬¿ÉÒÔÊÔ×ÅÍÆ¿ª!¡£\n",
+              "yan" : "ä¸€å—å¤§å²©çŸ³ï¼Œå¯ä»¥è¯•ç€æŽ¨å¼€!ã€‚\n",
         ]));
         setup();
 }
@@ -49,17 +49,17 @@ int do_tui(string arg)
        int i;
         i = this_player()->query("neili");
        if( !arg || arg!="yan" ) 
-         return notify_fail("ÄãÒªÍÆÊ²Ã´£¿\n");
-        message_vision(HIY"$NÕ¾ÔÚÃÅºó£¬°ÑË«ÕÆ·ÅÔÚÑÒÉÏ£¬ÉîÉîµÄÎüÁËÒ»¿ÚÆø£¬Ë«±ÛÒ»·¢¾¢£¬´óºÈÒ»Éù¡°¿ª¡±¡£\n"NOR, this_player());
+         return notify_fail("ä½ è¦æŽ¨ä»€ä¹ˆï¼Ÿ\n");
+        message_vision(HIY"$Nç«™åœ¨é—¨åŽï¼ŒæŠŠåŒæŽŒæ”¾åœ¨å²©ä¸Šï¼Œæ·±æ·±çš„å¸äº†ä¸€å£æ°”ï¼ŒåŒè‡‚ä¸€å‘åŠ²ï¼Œå¤§å–ä¸€å£°â€œå¼€â€ã€‚\n"NOR, this_player());
        if ( i >=800 ){
-        message_vision(RED"$NÖ»ÌýÒ»ÕóºäÏì£¬´óÊ¯»º»ºµÄÒÆ¿ªÁË£¡\n"NOR, this_player());
+        message_vision(RED"$Nåªå¬ä¸€é˜µè½°å“ï¼Œå¤§çŸ³ç¼“ç¼“çš„ç§»å¼€äº†ï¼\n"NOR, this_player());
         set("exits/out", __DIR__"muwu2");
         this_player()->add("neili",-800);
         remove_call_out("close");
         call_out("close", 5, this_object());
         }
        else {
-        message_vision("$NÈ´¼û´óÊ¯ÎÆË¿²»¶¯£¬¿´À´$NµÄÄÚÁ¦»¹²»¹»¡£\n", this_player());
+        message_vision("$Nå´è§å¤§çŸ³çº¹ä¸ä¸åŠ¨ï¼Œçœ‹æ¥$Nçš„å†…åŠ›è¿˜ä¸å¤Ÿã€‚\n", this_player());
         this_player()->set("neili",0);
         }
     return 1;
@@ -67,6 +67,6 @@ int do_tui(string arg)
 
 void close(object room)
 {
-      message("vision",YEL"´óÊ¯»º»ºÒÆ¶¯£¬°ÑÊ¯ÎÝÔÙ´Î·â×¡ÁË¡£\n"NOR, room);
+      message("vision",YEL"å¤§çŸ³ç¼“ç¼“ç§»åŠ¨ï¼ŒæŠŠçŸ³å±‹å†æ¬¡å°ä½äº†ã€‚\n"NOR, room);
       room->delete("exits/out");
 }

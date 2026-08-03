@@ -6,15 +6,15 @@ int do_zhao(string arg);
 
 void create()
 {
-	set_name("Óñ·äÆ¿",({"yufeng ping","ping"}));
+	set_name("ç‰èœ‚ç“¶",({"yufeng ping","ping"}));
 	set_weight(500);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","ÕâÊÇµ±ÄêĞ¡ÁúÅ®Ñø·äÓÃµÄÓñ·äÆ¿£¬×öµÄ¾«ÖÂÒì³££¡
-²»ÖªµÀÏÖÔÚ»¹¿É²»¿ÉÒÔÕĞ(zhao)Óñ·ä£¿\n");
+		set("long","è¿™æ˜¯å½“å¹´å°é¾™å¥³å…»èœ‚ç”¨çš„ç‰èœ‚ç“¶ï¼Œåšçš„ç²¾è‡´å¼‚å¸¸ï¼
+ä¸çŸ¥é“ç°åœ¨è¿˜å¯ä¸å¯ä»¥æ‹›(zhao)ç‰èœ‚ï¼Ÿ\n");
 		set("value",200000);
-		set("unit","¸ö");
+		set("unit","ä¸ª");
              set("dzd",1);
 
 	}
@@ -47,24 +47,24 @@ int do_zhao(string arg)
 	object me = this_player();
 	
 	if( environment(me)->query("no_fight"))
-	 	return notify_fail("ÕâÀï²»×¼Õ½¶·¡£\n");	 	
+	 	return notify_fail("è¿™é‡Œä¸å‡†æˆ˜æ–—ã€‚\n");	 	
 	//if(!arg || arg!= "yufeng")
-	//	return notify_fail("ÄãÏëÕĞÊ²Ã´£¿\n");	
+	//	return notify_fail("ä½ æƒ³æ‹›ä»€ä¹ˆï¼Ÿ\n");	
 	if( !arg ) 
 		target = offensive_target(me);
 	else {
 		target = present(arg, environment(me));
 	}
-	if(!target) return notify_fail("ÄãÏë¶ÔË­ÓÃ£¿\n");
-	if(!target->is_character()) return notify_fail("ÄúÀÏ¸ãĞ¦°¡£¿\n");
+	if(!target) return notify_fail("ä½ æƒ³å¯¹è°ç”¨ï¼Ÿ\n");
+	if(!target->is_character()) return notify_fail("æ‚¨è€æç¬‘å•Šï¼Ÿ\n");
 	//if(!target || !target->is_character() || !me->is_fighting(target))
-		//return notify_fail("Óñ·äÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ£¡\n");
+		//return notify_fail("ç‰èœ‚åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ï¼\n");
 	if(!living(target))
-		return notify_fail("¶¼ÕâÑùÁË£¬Äã¾Í²»±Ø·ÑĞÄ»úÁË¡£\n");	
+		return notify_fail("éƒ½è¿™æ ·äº†ï¼Œä½ å°±ä¸å¿…è´¹å¿ƒæœºäº†ã€‚\n");	
 	if(me->query_temp("dzd_quest/yufeng_used"))
-		return notify_fail("ÄãÕıÔÚÕĞÓñ·ä£¡\n");
-	message_vision(HIW"$N´Ó»³ÖĞÈ¡³öÓñÆ¿£¬ÓÒÊÖÉìÕÆÎÕ×¡£¬°Î¿ªÆ¿Èû£¬Ç±ÔËÕÆÁ¦£¬ÈÈÆø´ÓÕÆĞÄ´«ÈëÆ¿ÖĞ£¬
-¹ı²»¶àÊ±£¬Ò»¹É·Ò·¼ğ¥ÓôµÄÃÛÏãËÍÁË³öÈ¥¡££¡\n"NOR,me);
+		return notify_fail("ä½ æ­£åœ¨æ‹›ç‰èœ‚ï¼\n");
+	message_vision(HIW"$Nä»æ€€ä¸­å–å‡ºç‰ç“¶ï¼Œå³æ‰‹ä¼¸æŒæ¡ä½ï¼Œæ‹”å¼€ç“¶å¡ï¼Œæ½œè¿æŒåŠ›ï¼Œçƒ­æ°”ä»æŒå¿ƒä¼ å…¥ç“¶ä¸­ï¼Œ
+è¿‡ä¸å¤šæ—¶ï¼Œä¸€è‚¡èŠ¬èŠ³é¦¥éƒçš„èœœé¦™é€äº†å‡ºå»ã€‚ï¼\n"NOR,me);
 	me->set_temp("dzd_quest/yufeng_used",1);
 	//remove_call_out("zhao_yf1");
 	call_out("zhao_yf1",2,me,target);
@@ -82,24 +82,24 @@ void zhao_yf1(object me,object target)
 	if( !target ) target = offensive_target(me);
 	if(!target || !target->is_character() || !me->is_fighting(target)) return;
 	if(!living(target)) return;
-	message_vision(HIW"Í»È»Ê÷ÁÖÖĞ»ÒÓ°ÉÁ¶¯£¬·É³öÒ»ÈºÓñ·ä¡£$NĞ¡Ö¸Ö¸¼×ÉìÈëÓñÆ¿£¬ÌôÁËÒ»µã·äÃÛÏò$nµ¯È¥£¬
-×óÊÖÊ³Ö¸Ïò$n×ó±ßÒ»µã£¬ÓÒ±ßÒ»µã£¬¿ÚÖĞºôĞ¥ßººÈ£¬¼¸Ç§Ö»Óñ·ä×ªÉíÏò$n³åÈ¥¡£\n"NOR,me,target);
+	message_vision(HIW"çªç„¶æ ‘æ—ä¸­ç°å½±é—ªåŠ¨ï¼Œé£å‡ºä¸€ç¾¤ç‰èœ‚ã€‚$Nå°æŒ‡æŒ‡ç”²ä¼¸å…¥ç‰ç“¶ï¼ŒæŒ‘äº†ä¸€ç‚¹èœ‚èœœå‘$nå¼¹å»ï¼Œ
+å·¦æ‰‹é£ŸæŒ‡å‘$nå·¦è¾¹ä¸€ç‚¹ï¼Œå³è¾¹ä¸€ç‚¹ï¼Œå£ä¸­å‘¼å•¸å†å–ï¼Œå‡ åƒåªç‰èœ‚è½¬èº«å‘$nå†²å»ã€‚\n"NOR,me,target);
 	if(random(10) >= 3) {
-		message_vision(HIW"$N´ó¾ª£¬»Ó¶¯ÅÛĞäÒª½«·ä×ÓÇı¿ª¡£\n"NOR,target);
+		message_vision(HIW"$Nå¤§æƒŠï¼ŒæŒ¥åŠ¨è¢è¢–è¦å°†èœ‚å­é©±å¼€ã€‚\n"NOR,target);
 		if(random(3)) {
-			message_vision(HIW"·äÈºÍ»·ÖÎª¶ş£¬Ò»ÈºÕıÃæÆËÀ´£¬ÁíÒ»ÈºÈ´´Óºó¹¥ÖÁ£¡$N¸üÊÇĞÄ¾ª£¬²»¸Òµ¡Âı£¬
-Ë«Ğä·ÉÎè£¬»¤×¡È«Éí,Ò»Ê±ÎŞÏ¾³öÕĞ¡£\n"NOR,target);
+			message_vision(HIW"èœ‚ç¾¤çªåˆ†ä¸ºäºŒï¼Œä¸€ç¾¤æ­£é¢æ‰‘æ¥ï¼Œå¦ä¸€ç¾¤å´ä»åæ”»è‡³ï¼$Næ›´æ˜¯å¿ƒæƒŠï¼Œä¸æ•¢æ€ æ…¢ï¼Œ
+åŒè¢–é£èˆï¼ŒæŠ¤ä½å…¨èº«,ä¸€æ—¶æ— æš‡å‡ºæ‹›ã€‚\n"NOR,target);
 			target->start_busy(5);
 		} else {
-			message_vision(HIW"$NÖ»¼ûÎŞÊı°×É«·ä×ÓÔÚÉíÖÜ·ÉÎèÀ´È¥£¬¶úÖĞÌıµ½µÄ¾¡ÊÇÎËÎËÖ®Éù£¬
-ÒÂĞäÎèµÃÎ¢Ò»»ºÂı£¬¼¸Ö»Óñ·äÃÍµØ´Ó¿ÕÏ¶ÖĞ·ÉÁË½øÈ¥£¬ÔÚ$NÉíÉÏÉÏ¸÷ó§ÁËÒ»Õë¡£\n"NOR,target);
+			message_vision(HIW"$Nåªè§æ— æ•°ç™½è‰²èœ‚å­åœ¨èº«å‘¨é£èˆæ¥å»ï¼Œè€³ä¸­å¬åˆ°çš„å°½æ˜¯å—¡å—¡ä¹‹å£°ï¼Œ
+è¡£è¢–èˆå¾—å¾®ä¸€ç¼“æ…¢ï¼Œå‡ åªç‰èœ‚çŒ›åœ°ä»ç©ºéš™ä¸­é£äº†è¿›å»ï¼Œåœ¨$Nèº«ä¸Šä¸Šå„è«äº†ä¸€é’ˆã€‚\n"NOR,target);
 			target->add_condition("yufeng_poison",6);
 			dmg = target->query("max_qi")/5;
 			target->receive_damage("qi",dmg);
 			target->receive_wound("qi",dmg);
 		}
 	} else {
-		message_vision(HIW"$N´ó¾ª£¬Ã¦Ç±ÔËÄÚÁ¦£¬»Ó¶¯ÅÛĞä½«Óñ·ä¾¡ÊıÇı¿ª¡£\n"NOR,target);
+		message_vision(HIW"$Nå¤§æƒŠï¼Œå¿™æ½œè¿å†…åŠ›ï¼ŒæŒ¥åŠ¨è¢è¢–å°†ç‰èœ‚å°½æ•°é©±å¼€ã€‚\n"NOR,target);
 		me->start_busy(1);
 	}
 }

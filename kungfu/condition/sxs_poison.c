@@ -7,20 +7,20 @@ int update_condition(object me, int duration)
 {
 	if (duration % 2) {
    if( !living(me) ) {
-      message("vision", me->name() + "Á³ÉÏºöÏÖ¹Å¹ÖÐ¦ÈÝ¡£\n", environment(me), me);
+      message("vision", me->name() + "è„¸ä¸Šå¿½çŽ°å¤æ€ªç¬‘å®¹ã€‚\n", environment(me), me);
    }
    else {
-      message("vision", me->name() + "Í»È»¼äÎ¢Î¢Ò»Ð¦£¬ÉñÉ«¹Å¹Ö¡£\n",
+      message("vision", me->name() + "çªç„¶é—´å¾®å¾®ä¸€ç¬‘ï¼Œç¥žè‰²å¤æ€ªã€‚\n",
             environment(me), me);
    }
 	}
 
       me->apply_condition("sxs_poison", duration - 1);
    if( duration < 1 ) {
-      tell_object(me, BLU "Í»È»£¬ÄãÁ³ÉÏÓÖÏÖ¹îÃØÖ®¼«µÄÐ¦ÈÝ¡£\n" NOR );
-      message("vision", me->name() + "Í»È»Éí×ÓÌ±Èí£¬Å¤¶¯ÁË¼¸ÏÂ£¬¸©·üÔÚµØ£¬Ò»¶¯Ò²²»¶¯ÁË£¡\n",
+      tell_object(me, BLU "çªç„¶ï¼Œä½ è„¸ä¸ŠåˆçŽ°è¯¡ç§˜ä¹‹æžçš„ç¬‘å®¹ã€‚\n" NOR );
+      message("vision", me->name() + "çªç„¶èº«å­ç˜«è½¯ï¼Œæ‰­åŠ¨äº†å‡ ä¸‹ï¼Œä¿¯ä¼åœ¨åœ°ï¼Œä¸€åŠ¨ä¹Ÿä¸åŠ¨äº†ï¼\n",
       environment(me), me);
-      me->set_temp("last_damage_from", "ÖÐÈýÐ¦É¢Ö®¶¾");
+      me->set_temp("last_damage_from", "ä¸­ä¸‰ç¬‘æ•£ä¹‹æ¯’");
       me->die();
       return 0;
       }

@@ -1,11 +1,11 @@
-// goupu.c ¹·ÆÍ
+// goupu.c ç‹—ä»†
 
 inherit NPC;
 
 void create()
 {
-	set_name("¹·ÆÍ", ({"gou pu", "pu"}));
-	set("gender", "ÄÐÐÔ");
+	set_name("ç‹—ä»†", ({"gou pu", "pu"}));
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 
 	set("combat_exp", 4000);

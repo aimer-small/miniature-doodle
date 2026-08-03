@@ -12,72 +12,72 @@ int main(object me, string arg)
 	int gfight;
 
 	if (!arg)
-		return notify_fail("ÄãÏëÉ±Ë­£¿\n");
+		return notify_fail("ä½ æƒ³æ€è°ï¼Ÿ\n");
 
 	if(!objectp(obj = present(arg, environment(me))))
-		return notify_fail("ÕâÀïÃ»ÓĞÕâ¸öÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 
 	if( environment(me)->query("no_fight") && !obj->query_condition("killer"))
-		return notify_fail("ÕâÀï²»×¼Õ½¶·¡£\n");
+		return notify_fail("è¿™é‡Œä¸å‡†æˆ˜æ–—ã€‚\n");
 
 	if (userp(obj))
-		return notify_fail("Èç¹ûÄãÈ·ÈÏÒªÉ±ËÀ¸ÃÍæ¼Ò£¬ÇëÊ¹ÓÃkillÖ¸Áî£¡\n");
+		return notify_fail("å¦‚æœä½ ç¡®è®¤è¦æ€æ­»è¯¥ç©å®¶ï¼Œè¯·ä½¿ç”¨killæŒ‡ä»¤ï¼\n");
 
 	if (strsrch(file_name(environment(me)),"/d/wuguan/") >= 0 )
-		return notify_fail("Îä¹İÄÚ½ûÖ¹É±ÈË¡£\n");
+		return notify_fail("æ­¦é¦†å†…ç¦æ­¢æ€äººã€‚\n");
 
 	if (!obj->is_character() || obj->is_corpse())
-		return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇ»îÎï¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯æ´»ç‰©ã€‚\n");
 		
 
-	if (obj == me) return notify_fail("ÓÃ suicide -f Ö¸Áî»á±È½Ï¿ìĞ©¡£\n");
+	if (obj == me) return notify_fail("ç”¨ suicide -f æŒ‡ä»¤ä¼šæ¯”è¾ƒå¿«äº›ã€‚\n");
 
 	if ( obj->query("job_npc") && me->query("registered") < 3 )
-		return notify_fail("Äã²»ÄÜ¶Ô"+obj->name(1)+"ÏÂÊÖ¡£\n");
+		return notify_fail("ä½ ä¸èƒ½å¯¹"+obj->name(1)+"ä¸‹æ‰‹ã€‚\n");
 
 	if (userp(obj) && userp(me)
 	&& (!living(obj) && me->query("mud_age") < (time() - me->query("birthday"))/24
 	|| me->query("mud_age") < (time() - me->query("birthday"))/48))
-		return notify_fail("ËÀ´óÃ×£¬Ò»±ßÁ¹¿ìÈ¥¡£\n");
+		return notify_fail("æ­»å¤§ç±³ï¼Œä¸€è¾¹å‡‰å¿«å»ã€‚\n");
 
 	if (me->is_killing(obj->query("id")) && me->is_fighting(obj))
-		return notify_fail("¼ÓÓÍ£¡¼ÓÓÍ£¡\n");
+		return notify_fail("åŠ æ²¹ï¼åŠ æ²¹ï¼\n");
 
 	if (me->query_temp("combat_yield"))
-		return notify_fail("ÄãÕı´ò²»»¹ÊÖÄØ£¬ÔõÃ´É±£¿\n");
+		return notify_fail("ä½ æ­£æ‰“ä¸è¿˜æ‰‹å‘¢ï¼Œæ€ä¹ˆæ€ï¼Ÿ\n");
 
 	if ( obj->query("job_npc") && (me->query("kill_job_npc/time") + 86400) > time())
-		return notify_fail("Äã¸ÕÉ±¹ı"+me->query("kill_job_npc/target")+"£¬»¹ÊÇµÃÈÄÈË´¦ÇÒÈÄÈË°É¡£\n");
+		return notify_fail("ä½ åˆšæ€è¿‡"+me->query("kill_job_npc/target")+"ï¼Œè¿˜æ˜¯å¾—é¥¶äººå¤„ä¸”é¥¶äººå§ã€‚\n");
 
 	callname = RANK_D->query_rude(obj);
 
-	if(me->query("race")=="ÈËÀà"){
+	if(me->query("race")=="äººç±»"){
 		if(me->query("mute"))
-			msg = "\n$NÍ»È»³åÏò$n£¬Ë«ÑÛÍ¨ºì£¬¿´À´ÊÇÒªÖÁ$pÓÚËÀµØ£¡£¡\n\n";
+			msg = "\n$Nçªç„¶å†²å‘$nï¼ŒåŒçœ¼é€šçº¢ï¼Œçœ‹æ¥æ˜¯è¦è‡³$päºæ­»åœ°ï¼ï¼\n\n";
 
 		else if(stringp(me->query("env/kill_msg")) && strlen( strip(me->query("env/kill_msg")) ) < 50 )
-			msg = "\n$N¶Ô×Å$n´óºÈÒ»Éù£º¡¸"+callname+"£¡"+me->query("env/kill_msg")+"£¡¡¹\n\n";
+			msg = "\n$Nå¯¹ç€$nå¤§å–ä¸€å£°ï¼šã€Œ"+callname+"ï¼"+me->query("env/kill_msg")+"ï¼ã€\n\n";
 
 		else if(me->query("combat_exp") > obj->query("combat_exp")*2){
 			if(me->query("shen") < -10000)
-				msg = "\n$N¶Ô×Å$nßıÁËÒ»¿Ú£º¡¸"+callname+"£¡¹ÖÄãÉú²»·êÊ±£¬"+RANK_D->query_self_rude(me)+"½ñÌì¿´Äã¼«²»Ë³ÑÛ£¬ÈÏÃü°É£¡£¡¡¹\n\n";
-			else msg = "\n$N¶Ô×Å$nºğµÀ£º¡¸"+callname+"£¡Äã¼ÇºÃ"+RANK_D->query_self_rude(me)+"µÄÃû×Ö£¬ËÀºóµ½ÒõË¾È¥¸æÎÒÒ»×´°É£¡£¡¡¹\n\n";
+				msg = "\n$Nå¯¹ç€$nå•äº†ä¸€å£ï¼šã€Œ"+callname+"ï¼æ€ªä½ ç”Ÿä¸é€¢æ—¶ï¼Œ"+RANK_D->query_self_rude(me)+"ä»Šå¤©çœ‹ä½ æä¸é¡ºçœ¼ï¼Œè®¤å‘½å§ï¼ï¼ã€\n\n";
+			else msg = "\n$Nå¯¹ç€$nå¼é“ï¼šã€Œ"+callname+"ï¼ä½ è®°å¥½"+RANK_D->query_self_rude(me)+"çš„åå­—ï¼Œæ­»ååˆ°é˜´å¸å»å‘Šæˆ‘ä¸€çŠ¶å§ï¼ï¼ã€\n\n";
 		}
 
 		else if(obj->query("combat_exp") > me->query("combat_exp")*2){
 			if(me->query("shen") < -10000)
-				msg = "\n$N¶Ô×Å$nÒ»Éù¼éĞ¦£º¡¸"+callname+"£¡±ğ¿´ÄãÆ½Ê±Ò«ÎäÑïÍş£¬½ñÌì"+RANK_D->query_self_rude(me)+"¾ÍÒªÈ¡ÄãĞÔÃü£¡£¡¡¹\n\n";
-			else msg = "\n$N¶Ô×Å$nºÙºÙÒ»Ğ¦£º"+callname+"£¬ÎÒËä¼¼²»ÈçÄã£¬µ«½ñÌì¾ÍÊÇÆ´ÁËÃüÒ²Òª½«ÄãËéÊ¬Íò¶Ï£¡£¡\n\n";
+				msg = "\n$Nå¯¹ç€$nä¸€å£°å¥¸ç¬‘ï¼šã€Œ"+callname+"ï¼åˆ«çœ‹ä½ å¹³æ—¶è€€æ­¦æ‰¬å¨ï¼Œä»Šå¤©"+RANK_D->query_self_rude(me)+"å°±è¦å–ä½ æ€§å‘½ï¼ï¼ã€\n\n";
+			else msg = "\n$Nå¯¹ç€$nå˜¿å˜¿ä¸€ç¬‘ï¼š"+callname+"ï¼Œæˆ‘è™½æŠ€ä¸å¦‚ä½ ï¼Œä½†ä»Šå¤©å°±æ˜¯æ‹¼äº†å‘½ä¹Ÿè¦å°†ä½ ç¢å°¸ä¸‡æ–­ï¼ï¼\n\n";
 		}
 
 		else {
 			if(me->query("shen") < -10000)
-				msg = "\n$N¶Ô×Å$nÃÍºğÒ»Éù£º¡¸"+callname+"£¡Ã÷ÄêµÄ½ñÌì¾ÍÊÇÄãµÄ¼ÀÈÕ£¬ÈÃ"+RANK_D->query_self_rude(me)+"ËÍÄãÉÏÂ·°É£¡£¡¡¹\n\n";
-			else    msg = "\n$N¶Ô×Å$nºÈµÀ£º¡¸" + callname + "£¡ÄãËÀÆÚÒÑµ½£¬½ñÌì¾ÍÈÃ"+RANK_D->query_self_rude(me)+"ËÍÄãÉÏÎ÷Ìì°É£¡¡¹\n\n";
+				msg = "\n$Nå¯¹ç€$nçŒ›å¼ä¸€å£°ï¼šã€Œ"+callname+"ï¼æ˜å¹´çš„ä»Šå¤©å°±æ˜¯ä½ çš„ç¥­æ—¥ï¼Œè®©"+RANK_D->query_self_rude(me)+"é€ä½ ä¸Šè·¯å§ï¼ï¼ã€\n\n";
+			else    msg = "\n$Nå¯¹ç€$nå–é“ï¼šã€Œ" + callname + "ï¼ä½ æ­»æœŸå·²åˆ°ï¼Œä»Šå¤©å°±è®©"+RANK_D->query_self_rude(me)+"é€ä½ ä¸Šè¥¿å¤©å§ï¼ã€\n\n";
 		}
 
 	}
-	else msg = "\n$N´óºğÒ»Éù£¬ÃÍÈ»ÆËÏò$n£¬¿´À´ÊÇÒª½«$pÉ±ËÀ£¡£¡\n\n";
+	else msg = "\n$Nå¤§å¼ä¸€å£°ï¼ŒçŒ›ç„¶æ‰‘å‘$nï¼Œçœ‹æ¥æ˜¯è¦å°†$pæ€æ­»ï¼ï¼\n\n";
 
 	message_vision(msg, me, obj);
 
@@ -87,7 +87,7 @@ int main(object me, string arg)
 
 	if (userp(me) && userp(obj))
 		log_file("ATTEMP_KILL",
-			sprintf("%s(%s)(%s) ÊÔÍ¼É±ËÀ %s(%s)\n",
+			sprintf("%s(%s)(%s) è¯•å›¾æ€æ­» %s(%s)\n",
 				me->name(1),me->query("id"),query_ip_number(me),obj->name(1),obj->query("id")
 			), me, ({ obj }),"1"
 		);
@@ -98,14 +98,14 @@ int main(object me, string arg)
 		if (userp(me))
 			tell_object(obj,
 				HIR  + me->name()+ "("
-				+capitalize(me->parse_command_id_list()[0])+")ÏëºÍÄãĞÔÃüÏà²«£¬¿ÉËû»¹ÊÇÈÌÏÂÁËÕâ¸ö³å¶¯¡£\n"NOR
+				+capitalize(me->parse_command_id_list()[0])+")æƒ³å’Œä½ æ€§å‘½ç›¸æï¼Œå¯ä»–è¿˜æ˜¯å¿ä¸‹äº†è¿™ä¸ªå†²åŠ¨ã€‚\n"NOR
 			);
 	} else {
 		obj->fight_ob(me);
 		if (userp(me)) {
 			tell_object(obj,
-				HIR "Èç¹ûÄãÒªºÍ" + me->name()+ "("
-				+capitalize(me->parse_command_id_list()[0])+")ĞÔÃüÏà²«£¬ÇëÄãÒ²¶ÔÕâ¸öÈËÏÂÒ»´Î kill Ö¸Áî¡£\n"NOR
+				HIR "å¦‚æœä½ è¦å’Œ" + me->name()+ "("
+				+capitalize(me->parse_command_id_list()[0])+")æ€§å‘½ç›¸æï¼Œè¯·ä½ ä¹Ÿå¯¹è¿™ä¸ªäººä¸‹ä¸€æ¬¡ kill æŒ‡ä»¤ã€‚\n"NOR
 			);
 			if ( (!obj->query_condition("killer") || !obj->query_condition("pk"))
 			&& (me->query_temp("kill_other/"+obj->query("id"))
@@ -116,7 +116,7 @@ int main(object me, string arg)
 				gfight = GROUP_D->is_group_fight(me,obj);
 				if( gfight != 1 ) {
 					if( gfight < 0 ) me->add_busy(15); else me->add_busy(2);
-					message_vision("$NÎŞ·¨ÂíÉÏÏò$n·¢¶¯¹¥»÷¡£\n", me, obj);
+					message_vision("$Næ— æ³•é©¬ä¸Šå‘$nå‘åŠ¨æ”»å‡»ã€‚\n", me, obj);
 				}
 			}
 		}
@@ -124,7 +124,7 @@ int main(object me, string arg)
 		
         if(meisdummy(me,obj) && !strsrch(file_name(environment(me)), "/cmds/leitai/dzd") >= 0 )
 	{
-		message_vision("$NºöÈ»ÏëÆğ×Ô¼ºÊÇËÀ´óÃ×£¬¶ÙÊ±ÍòÄî¾ã»Ò¡£\n", me);
+		message_vision("$Nå¿½ç„¶æƒ³èµ·è‡ªå·±æ˜¯æ­»å¤§ç±³ï¼Œé¡¿æ—¶ä¸‡å¿µä¿±ç°ã€‚\n", me);
 		me->set("qi", -1);		
 	}
 	return 1;
@@ -133,12 +133,12 @@ int main(object me, string arg)
 int help(object me)
 {
   write(@HELP
-Ö¸Áî¸ñÊ½ : nkill <NPC>
+æŒ‡ä»¤æ ¼å¼ : nkill <NPC>
 
-Õâ¸öÖ¸ÁîÈÃÄãÖ÷¶¯¿ªÊ¼¹¥»÷Ò»¸öNPC£¬²¢ÇÒÊÔÍ¼É±ËÀ¶Ô·½£¬nkill ºÍ kill ×î´óµÄ
-²»Í¬ÔÚÓÚÄãÖ»ÄÜ¶ÔNPCÊ¹ÓÃÕâ¸öÖ¸Áî¡£NPC¶ÔÄãÊ¹ÓÃ kill¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ ä¸»åŠ¨å¼€å§‹æ”»å‡»ä¸€ä¸ªNPCï¼Œå¹¶ä¸”è¯•å›¾æ€æ­»å¯¹æ–¹ï¼Œnkill å’Œ kill æœ€å¤§çš„
+ä¸åŒåœ¨äºä½ åªèƒ½å¯¹NPCä½¿ç”¨è¿™ä¸ªæŒ‡ä»¤ã€‚NPCå¯¹ä½ ä½¿ç”¨ killã€‚
 
-ÆäËûÏà¹ØÖ¸Áî: kill fight
+å…¶ä»–ç›¸å…³æŒ‡ä»¤: kill fight
 
 HELP
     );

@@ -1,4 +1,4 @@
-// deng.c áÔÉ½ÅÉµÚÈı´úµÜ×Ó µË°Ë¹«
+// deng.c åµ©å±±æ´¾ç¬¬ä¸‰ä»£å¼Ÿå­ é‚“å…«å…¬
 // Lklv 2001.10.18 Modified
 
 #include <ansi.h>
@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("µË°Ë¹«", ({ "deng bagong", "deng", "bagong" }));
-        set("nickname", HIC"Éñ±Ş"NOR);
-        set("long", "ÕâÊÇÒ»ÃûÊİÏ÷µÄÀÏÕß£¬Ò»ÊÖáÔÑô±ŞÎèµÄ³öÉñÈë»¯¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("é‚“å…«å…¬", ({ "deng bagong", "deng", "bagong" }));
+        set("nickname", HIC"ç¥é­"NOR);
+        set("long", "è¿™æ˜¯ä¸€åç˜¦å‰Šçš„è€è€…ï¼Œä¸€æ‰‹åµ©é˜³é­èˆçš„å‡ºç¥å…¥åŒ–ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("unique", 1);
         set("age", 45);
         set("per", 20);
@@ -50,7 +50,7 @@ void create()
 	map_skill("sword", "songshan-jian");
 	prepare_skill("hand", "songyang-shou");
 
-	create_family("áÔÉ½ÅÉ", 3, "µÜ×Ó");
+	create_family("åµ©å±±æ´¾", 3, "å¼Ÿå­");
 
 	set("class", "songshan");
 	set("chat_chance_combat", 10);
@@ -59,9 +59,9 @@ void create()
                 (: exert_function, "juhan" :),
 	}));
 	set("inquiry", ([
-		"áÔÉ½ÅÉ" : "ÎÒÃÇáÔÉ½ÅÉÊÇÎåÔÀ½£ÅÉÖ®Ê×£¡\n",
-		"ÎåÔÀ½£ÅÉ" : "ÎÒÃÇÎåÔÀ½£ÅÉÔÚÎäÁÖÖ®ÖĞÊÆÁ¦¾Ş´ó£¬¿ÉÓëÉÙÁÖ¡¢Îäµ±¿¹ºâ¡£\n",
-		"×óÀäìø" : "Ëû¾ÍÊÇÎÒÃÇµÄÕÆÃÅÈË£¬¹¦·òÉî²»¿É²â¡£\n",
+		"åµ©å±±æ´¾" : "æˆ‘ä»¬åµ©å±±æ´¾æ˜¯äº”å²³å‰‘æ´¾ä¹‹é¦–ï¼\n",
+		"äº”å²³å‰‘æ´¾" : "æˆ‘ä»¬äº”å²³å‰‘æ´¾åœ¨æ­¦æ—ä¹‹ä¸­åŠ¿åŠ›å·¨å¤§ï¼Œå¯ä¸å°‘æ—ã€æ­¦å½“æŠ—è¡¡ã€‚\n",
+		"å·¦å†·ç¦…" : "ä»–å°±æ˜¯æˆ‘ä»¬çš„æŒé—¨äººï¼ŒåŠŸå¤«æ·±ä¸å¯æµ‹ã€‚\n",
 	]) );
         setup();
         carry_object(ARMOR_D("changpao1"))->wear();

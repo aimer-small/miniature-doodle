@@ -1,4 +1,4 @@
-// zhaoji.c ºÍ ´úÕÆÃÅÏµÍ³²¢ÓÃ
+// zhaoji.c å’Œ ä»£æŒé—¨ç³»ç»Ÿå¹¶ç”¨
 // by lane@SJ 1/10/2005
 
 #include <ansi.h>
@@ -15,19 +15,19 @@ int main(object me)
 	fam = me->query("family/family_name");
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¬ÏÈĞª¿ÚÆø°É¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼Œå…ˆæ­‡å£æ°”å§ã€‚\n");
 
 	if( !fam )
-		return notify_fail("ÄãÏëÕÙ¼¯Á÷Ã¥ÄÖÊÂ£¿\n");
+		return notify_fail("ä½ æƒ³å¬é›†æµæ°“é—¹äº‹ï¼Ÿ\n");
 
 	if( !me->query_temp("inherit_master") )
-		return notify_fail("¾ÍÄãÕâĞ¡½ÇÉ«£¬Æ¾Ê²Ã´ÔÚ"+fam+"ÖĞ·¢ºÅÊ©Áî°¡£¿\n");
+		return notify_fail("å°±ä½ è¿™å°è§’è‰²ï¼Œå‡­ä»€ä¹ˆåœ¨"+fam+"ä¸­å‘å·æ–½ä»¤å•Šï¼Ÿ\n");
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÕâÀï²»ÄÜÕ½¶·£¬Äã¾Í»»¸öµØ·½ÔÙÄÖÊÂ°É£¡\n");
+		return notify_fail("è¿™é‡Œä¸èƒ½æˆ˜æ–—ï¼Œä½ å°±æ¢ä¸ªåœ°æ–¹å†é—¹äº‹å§ï¼\n");
 
 	if( !me->is_fighting() )
-		return notify_fail("Ã»Ê²Ã´´óÊÂ¾Í±ğÕÙ¼¯ÁË°É£¬±ğÈËÅÜÀ´ÅÜÈ¥Ò²ºÜÀÛµÄ£¡\n");
+		return notify_fail("æ²¡ä»€ä¹ˆå¤§äº‹å°±åˆ«å¬é›†äº†å§ï¼Œåˆ«äººè·‘æ¥è·‘å»ä¹Ÿå¾ˆç´¯çš„ï¼\n");
 
 	enemy = me->query_enemy();
 	i = sizeof(enemy);
@@ -36,33 +36,33 @@ int main(object me)
 		if( me->is_killing(enemy[i]->query("id")) ) break;
 	}
 	if (i < 0)
-		return notify_fail("ºÍ±ğÈËÇĞ´èÎäÒÕ£¬Ã»±ØÒªÕâÃ´ÀÍÊ¦¶¯ÖÚ°É£¡\n");
+		return notify_fail("å’Œåˆ«äººåˆ‡ç£‹æ­¦è‰ºï¼Œæ²¡å¿…è¦è¿™ä¹ˆåŠ³å¸ˆåŠ¨ä¼—å§ï¼\n");
 
 	if( me->query_temp("zhaoji_start") )
-		return notify_fail("ÄãÒÑ¾­·Å³öÁËÕÙ¼¯Í¬ÃÅµÄÑ¶ºÅ£¬ÄÍĞÄµÈµÈ´ı°É£¡\n");
+		return notify_fail("ä½ å·²ç»æ”¾å‡ºäº†å¬é›†åŒé—¨çš„è®¯å·ï¼Œè€å¿ƒç­‰ç­‰å¾…å§ï¼\n");
 
 	obj = me->query_temp("zhaoji_npc");
 
 	if( obj && environment(me) == environment(obj) ) {
-		message_vision(CYN"$NºÍ$n¶ÔÊÓÒ»Íû£¬ÁéÏ¬»¥Í¨£¬Î¢Ğ¦²»Óï¡£\n"NOR, me, obj);
+		message_vision(CYN"$Nå’Œ$nå¯¹è§†ä¸€æœ›ï¼ŒçµçŠ€äº’é€šï¼Œå¾®ç¬‘ä¸è¯­ã€‚\n"NOR, me, obj);
 		me->start_busy(1);
 			return 1;
 	}
 
 	switch( random(6) ) {
-		case 0:fire = YEL"»ÆÑæ"NOR; break;
-		case 1:fire = RED"ºìÑæ"NOR; break;
-		case 2:fire = HIG"ÂÌÑæ"NOR; break;
-		case 3:fire = BLU"À¶Ñæ"NOR; break;
-		case 4:fire = WHT"ÒøÑæ"NOR; break;
-		case 5:fire = MAG"×ÏÑæ"NOR; break;
+		case 0:fire = YEL"é»„ç„°"NOR; break;
+		case 1:fire = RED"çº¢ç„°"NOR; break;
+		case 2:fire = HIG"ç»¿ç„°"NOR; break;
+		case 3:fire = BLU"è“ç„°"NOR; break;
+		case 4:fire = WHT"é“¶ç„°"NOR; break;
+		case 5:fire = MAG"ç´«ç„°"NOR; break;
 	}
 	switch( random(5) ) {
-		case 0:message_vision(HIM"\n$NÍ»È»×İÔ¾¶øÆğ£¬½ô¸ú×Å"+ chinese_number(1+random(3)) +"Ö»°×¸ë´Ó$NÉíºóÕñ³á·ÉÆğ£¬³åÈëÔÆ¶Ë¡£\n\n"NOR, me); break;
-		case 1:message_vision(HIW"\n$NÃÍµÄ×İÉí¶øÆğ£¬Ë«ÊÖÒ»ÍĞ£¬"+ chinese_number(1+random(3)) +"Ö»°×¸ëÕñ³á·ÉÆğ£¬Ö±³åÔÆÏö¡£\n\n"NOR, me); break;
-		case 2:message_vision(HIR"\n$NÃÍÈ»Ìø³öÈ¦Íâ£¬´ÓÉíºóÌÍ³öÒ»¸ö±¬Öñ£¬½ô¸ú×Å"+ chinese_number(1+random(3)) +"µÀ"+fire+HIR"Ö±³åÔÆÏö¡£\n\n"NOR, me); break;
-		case 3:message_vision(HIY"\n$NÍ»È»µÄ´ÓÉíºóÌÍ³öÒ»¸ö±¬Öñ£¬½ô¸ú×Å"+ chinese_number(1+random(3)) +"µÀ"+fire+HIY"³åÌìÉıÆğ¡£\n\n"NOR, me); break;
-		case 4:message_vision(HIC"\n$NºöÈ»¼±¹¥ÊıÕĞ£¬±ÆÍË½üµĞºóÁ¢¼´·Å³öºôÕÙÍ¬ÃÅµÄÑ¶ºÅ£¬Ö»¼û"+ chinese_number(1+random(3)) +"µÀ"+fire+HIC"³åÌìÉıÆğ¡£\n\n"NOR, me); break;
+		case 0:message_vision(HIM"\n$Nçªç„¶çºµè·ƒè€Œèµ·ï¼Œç´§è·Ÿç€"+ chinese_number(1+random(3)) +"åªç™½é¸½ä»$Nèº«åæŒ¯ç¿…é£èµ·ï¼Œå†²å…¥äº‘ç«¯ã€‚\n\n"NOR, me); break;
+		case 1:message_vision(HIW"\n$NçŒ›çš„çºµèº«è€Œèµ·ï¼ŒåŒæ‰‹ä¸€æ‰˜ï¼Œ"+ chinese_number(1+random(3)) +"åªç™½é¸½æŒ¯ç¿…é£èµ·ï¼Œç›´å†²äº‘éœ„ã€‚\n\n"NOR, me); break;
+		case 2:message_vision(HIR"\n$NçŒ›ç„¶è·³å‡ºåœˆå¤–ï¼Œä»èº«åæå‡ºä¸€ä¸ªçˆ†ç«¹ï¼Œç´§è·Ÿç€"+ chinese_number(1+random(3)) +"é“"+fire+HIR"ç›´å†²äº‘éœ„ã€‚\n\n"NOR, me); break;
+		case 3:message_vision(HIY"\n$Nçªç„¶çš„ä»èº«åæå‡ºä¸€ä¸ªçˆ†ç«¹ï¼Œç´§è·Ÿç€"+ chinese_number(1+random(3)) +"é“"+fire+HIY"å†²å¤©å‡èµ·ã€‚\n\n"NOR, me); break;
+		case 4:message_vision(HIC"\n$Nå¿½ç„¶æ€¥æ”»æ•°æ‹›ï¼Œé€¼é€€è¿‘æ•Œåç«‹å³æ”¾å‡ºå‘¼å¬åŒé—¨çš„è®¯å·ï¼Œåªè§"+ chinese_number(1+random(3)) +"é“"+fire+HIC"å†²å¤©å‡èµ·ã€‚\n\n"NOR, me); break;
 	}
 	me->set_temp("zhaoji_start", 1);
 	me->start_busy(1+random(2));
@@ -90,7 +90,7 @@ void start(object me)
 	obj = new("/clone/npc/party_npc");
 
 	if( !obj ) {
-		write(HIW"\n²»ºÃ£¬ÌıËµÄãµÄÃÅÅÉ±»µĞÈË¼ßÃğÁË£¬Çë¸Ï¿ìÍ¨ÖªÎ×Ê¦£º Party Npc cannot go to here...\n\n"NOR);
+		write(HIW"\nä¸å¥½ï¼Œå¬è¯´ä½ çš„é—¨æ´¾è¢«æ•Œäººæ­¼ç­äº†ï¼Œè¯·èµ¶å¿«é€šçŸ¥å·«å¸ˆï¼š Party Npc cannot go to here...\n\n"NOR);
 		return;
 	}
 
@@ -99,12 +99,12 @@ void start(object me)
 	obj->set_master_player(me);
 
 	switch( random(4) ) {
-		case 0:message_vision(CYN"\nÔ¶´¦µÄÍ»È»´«À´Ò»ÕóÇáĞ¥£¬Ò»ÈË$nÊ©Õ¹Çá¹¦·É³Û¶øÀ´¡£\n"NOR, me, obj); break;
-		case 1:message_vision(CYN"\nÖ»¼ûÔ¶´¦´Ò´Ò¸ÏÀ´Ò»¸ö$n¡£\n"NOR, me, obj); break;
-		case 2:message_vision(CYN"\nÒ»¸ö$n¿´¼ûÁË$NµÄÑ¶ºÅ£¬´Ò´ÒÃ¦Ã¦¸ÏÁË¹ıÀ´¡£\n"NOR, me, obj); break;
-		case 3:message_vision(CYN"\nÍ»È»µÄÔ¶´¦Ğ¡Â·ÉÏÉÁ³öÒ»¸ö$n£¬Á¢¼´ÅÜµ½Äã¸úÇ°¡£\n"NOR, me, obj); break;
+		case 0:message_vision(CYN"\nè¿œå¤„çš„çªç„¶ä¼ æ¥ä¸€é˜µè½»å•¸ï¼Œä¸€äºº$næ–½å±•è½»åŠŸé£é©°è€Œæ¥ã€‚\n"NOR, me, obj); break;
+		case 1:message_vision(CYN"\nåªè§è¿œå¤„åŒ†åŒ†èµ¶æ¥ä¸€ä¸ª$nã€‚\n"NOR, me, obj); break;
+		case 2:message_vision(CYN"\nä¸€ä¸ª$nçœ‹è§äº†$Nçš„è®¯å·ï¼ŒåŒ†åŒ†å¿™å¿™èµ¶äº†è¿‡æ¥ã€‚\n"NOR, me, obj); break;
+		case 3:message_vision(CYN"\nçªç„¶çš„è¿œå¤„å°è·¯ä¸Šé—ªå‡ºä¸€ä¸ª$nï¼Œç«‹å³è·‘åˆ°ä½ è·Ÿå‰ã€‚\n"NOR, me, obj); break;
 	}
-	message_vision(HIW"$nÒ»¼ûĞÎÊ½¶Ù¾õ²»Ãî£¬´ó½ĞÒ»Éù£º¡°´úÕÆÃÅÎ£ÏÕ£¡ÎÒÀ´°ïÄã¡­¡­¡±\n"NOR, me, obj);
+	message_vision(HIW"$nä¸€è§å½¢å¼é¡¿è§‰ä¸å¦™ï¼Œå¤§å«ä¸€å£°ï¼šâ€œä»£æŒé—¨å±é™©ï¼æˆ‘æ¥å¸®ä½ â€¦â€¦â€\n"NOR, me, obj);
 	return;
 }
 
@@ -112,8 +112,8 @@ int help(object me)
 {
 	write(@HELP
 
-Õâ¸öÖ¸ÁîÈÃÄãÕÙ¼¯ÃÅÅÉµÜ×Ó°ïÖúÄãÒ»ÆğÕ½¶·£¬µ±È»Äã±ØĞëÊÇÃÅÅÉÖĞÓĞÍşĞÅµÄ
-ÈËÎï¡£ÃÅÅÉµÜ×Ó»á½ÓÏÂºÍÄãÕ½¶·µÄÆäËüÉúÎï£¨Íæ¼Ò³ıÍâ£©¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ å¬é›†é—¨æ´¾å¼Ÿå­å¸®åŠ©ä½ ä¸€èµ·æˆ˜æ–—ï¼Œå½“ç„¶ä½ å¿…é¡»æ˜¯é—¨æ´¾ä¸­æœ‰å¨ä¿¡çš„
+äººç‰©ã€‚é—¨æ´¾å¼Ÿå­ä¼šæ¥ä¸‹å’Œä½ æˆ˜æ–—çš„å…¶å®ƒç”Ÿç‰©ï¼ˆç©å®¶é™¤å¤–ï¼‰ã€‚
 
 HELP);
 	return 1;

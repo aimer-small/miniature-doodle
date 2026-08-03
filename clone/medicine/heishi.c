@@ -6,12 +6,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Óñ¶´ºÚÊ¯µ¤", ({"heishi dan", "dan","heishi"}));
+	set_name("çŽ‰æ´žé»‘çŸ³ä¸¹", ({"heishi dan", "dan","heishi"}));
    	if (clonep())
       		set_default_object(__FILE__);
    	else {
-      	set("unit", "°ü");
-      	set("long","ÕâÊÇÒ»°üáÇá¼ÅÉµÄ½â¶¾ÁéÒ©¡£\n");
+      	set("unit", "åŒ…");
+      	set("long","è¿™æ˜¯ä¸€åŒ…å´†å³’æ´¾çš„è§£æ¯’çµè¯ã€‚\n");
       	set("value", 5000);
    	}
    	setup();
@@ -27,9 +27,9 @@ int do_eat(string arg)
 	object me = this_player();
 
    	if(!id(arg))
-       		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+       		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
-   	message_vision("$N³ÔÏÂÒ»°ü" + name() + "¡£\n", me);
+   	message_vision("$Nåƒä¸‹ä¸€åŒ…" + name() + "ã€‚\n", me);
    	if ((int)me->query_condition("hb_poison") < 5) {
       		me->apply_condition("hb_poison", 1);
    	}

@@ -1,4 +1,4 @@
-// jixue.c  Ñªµ¶¾­ [¼ÀÑªÉñµ¶]
+// jixue.c  è¡€åˆ€ç» [ç¥­è¡€ç¥åˆ€]
 // coded by emnil@sj	2/5/2000
 
 #include <ansi.h>
@@ -7,7 +7,7 @@
 #include <weapon.h>
 inherit F_SSERVER;
 
-string perform_name(){ return HIR"¼ÀÑªÉñµ¶"NOR; }
+string perform_name(){ return HIR"ç¥­è¡€ç¥åˆ€"NOR; }
 
 void jixue(object me,object target,int times,int now);
  
@@ -18,32 +18,32 @@ int perform(object me, object target)
 	int lvl,times;
     
 	if( !me->is_fighting() )
-		return notify_fail("¡¸¼ÀÑªÉñµ¶¡¹Ö»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€Œç¥­è¡€ç¥åˆ€ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
 
 	if (!objectp(weapon = me->query_temp("weapon"))	|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
  
 	if((int)me->query_skill("xuedao-jing",1) < 120)
-		return notify_fail("ÄãµÄµ¶·¨ĞŞÎª²»¹»£¬ Ä¿Ç°²»ÄÜÊ¹ÓÃ¡¸¼ÀÑªÉñµ¶¡¹! \n");
+		return notify_fail("ä½ çš„åˆ€æ³•ä¿®ä¸ºä¸å¤Ÿï¼Œ ç›®å‰ä¸èƒ½ä½¿ç”¨ã€Œç¥­è¡€ç¥åˆ€ã€! \n");
 
 	if(me->query_temp("xs/jixue"))
-		return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸¼ÀÑªÉñµ¶¡¹! \n");
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œç¥­è¡€ç¥åˆ€ã€! \n");
 
 	if((int)me->query_skill("longxiang-boruo",1) < 120)
-		return notify_fail("ÄãµÄÁúÏó°ãÈô¹¦ĞŞÎª²»¹»£¬ Ä¿Ç°²»ÄÜÊ¹ÓÃ¡¸¼ÀÑªÉñµ¶¡¹! \n");
+		return notify_fail("ä½ çš„é¾™è±¡èˆ¬è‹¥åŠŸä¿®ä¸ºä¸å¤Ÿï¼Œ ç›®å‰ä¸èƒ½ä½¿ç”¨ã€Œç¥­è¡€ç¥åˆ€ã€! \n");
 
 	if( me->query_skill_mapped("blade") != "xuedao-jing")
-		return notify_fail("Äã±ØĞëÊ¹ÓÃÑªµ¶¾­£¬²ÅÄÜÊ¹ÓÃ¡¸Éñµ¶´©ĞÄ¡¹µÄ¾ø¼¼£¡\n");
+		return notify_fail("ä½ å¿…é¡»ä½¿ç”¨è¡€åˆ€ç»ï¼Œæ‰èƒ½ä½¿ç”¨ã€Œç¥åˆ€ç©¿å¿ƒã€çš„ç»æŠ€ï¼\n");
 
 	if( me->query_skill_mapped("force") != "longxiang-boruo")
-		return notify_fail("ÄãÏÖÔÚËùÊ¹ÓÃµÄÄÚ¹¦Í¬¡¸ÁúÏó°ãÈô¹¦¡¹ÏòµÖ´¥£¬²»ÄÜÊ¹³ö¡¸¼ÀÑªÉñµ¶¡¹µÄ¾ø¼¼£¡\n");
+		return notify_fail("ä½ ç°åœ¨æ‰€ä½¿ç”¨çš„å†…åŠŸåŒã€Œé¾™è±¡èˆ¬è‹¥åŠŸã€å‘æŠµè§¦ï¼Œä¸èƒ½ä½¿å‡ºã€Œç¥­è¡€ç¥åˆ€ã€çš„ç»æŠ€ï¼\n");
 
 	if( (int)me->query("max_neili") < 2000 )
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼\n");
 	if((int)me->query("neili")<500)
-		return notify_fail("ÄãµÄÕæÆø²»¹»£¡\n"); 
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼\n"); 
 	if((int)me->query("jingli")<300)
-		return notify_fail("ÄãµÄ¾«Á¦²»¹»£¡\n"); 
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿï¼\n"); 
 
 	ob = me->select_opponent();
 	lvl = me->query_skill("xuedao-jing",1);
@@ -53,10 +53,10 @@ int perform(object me, object target)
 	if(times > lvl/40) times = lvl/40;
 	if(times > 6) times = 6;
 
-	msg = HIR"\n$NÁ³É«¶¸È»Ò»±ä£¬¿ÚÖĞÄîÄîÓĞ´Ê£¬Í¬Ê±µ¹×ª±øÈĞ£¬²»ÖªµÀÒª×öÊ²Ã´£¡\n\n"NOR;
+	msg = HIR"\n$Nè„¸è‰²é™¡ç„¶ä¸€å˜ï¼Œå£ä¸­å¿µå¿µæœ‰è¯ï¼ŒåŒæ—¶å€’è½¬å…µåˆƒï¼Œä¸çŸ¥é“è¦åšä»€ä¹ˆï¼\n\n"NOR;
 	message_vision(msg, me);
 	me->add("neili", -100);
-	me->start_perform(10,"¼ÀÑªÉñµ¶");
+	me->start_perform(10,"ç¥­è¡€ç¥åˆ€");
 
 	call_out("jixue",0,me,ob,times,0);
 
@@ -73,9 +73,9 @@ void jixue(object me,object target,int times,int now)
 	if( !objectp(target) || !me->is_fighting(target) || (now >= times) || (me->query("neili")<200) || 
 	  (!objectp(weapon = me->query_temp("weapon"))) || ((string)weapon->query("skill_type")!="blade") ) {
 		me->set_temp("xs/jixue",0);
-		me->start_perform(1,"¼ÀÑªÉñµ¶");
+		me->start_perform(1,"ç¥­è¡€ç¥åˆ€");
 		if(living(me))
-			message_vision(HIC"\n$NÂıÂıÊÕ»ØÄÚ¾¢£¬Á³ÉÏÒ²ËÆºõÓĞÁËÑªÉ«¡£\n"NOR, me);
+			message_vision(HIC"\n$Næ…¢æ…¢æ”¶å›å†…åŠ²ï¼Œè„¸ä¸Šä¹Ÿä¼¼ä¹æœ‰äº†è¡€è‰²ã€‚\n"NOR, me);
 		return;
 	}
 
@@ -86,19 +86,19 @@ void jixue(object me,object target,int times,int now)
 
 	now++;
 	if(now <= 1)
-		msg = HIR"\n$N¿ñĞ¥Ò»Éù£¬ÒÔ±øÈĞ×Ô¿³ÊÖ±Û£¬¶ÙÊ±Ò»ì­ÏÊÑª·É½¦ÔÚ"NOR+weaname+HIR"Ö®ÉÏ£¬"NOR+weaname+HIR"ÒşÒş·º³öÒ»²ãÑªÉ«¡£";
+		msg = HIR"\n$Nç‹‚å•¸ä¸€å£°ï¼Œä»¥å…µåˆƒè‡ªç æ‰‹è‡‚ï¼Œé¡¿æ—¶ä¸€é£™é²œè¡€é£æº…åœ¨"NOR+weaname+HIR"ä¹‹ä¸Šï¼Œ"NOR+weaname+HIR"éšéšæ³›å‡ºä¸€å±‚è¡€è‰²ã€‚";
 	else
 	if(now <= 3)
-		msg = HIR"\n$N¿ñĞ¥Ò»Éù£¬ÒÔ±øÈĞ×Ô¿³ĞØÌÅ£¬¶ÙÊ±Ò»Ç»ÏÊÑª·É½¦ÔÚ"+weaname+HIR"Ö®ÉÏ£¬"NOR+weaname+HIR"·º³öÒ»²ãÑªÉ«£¡";
+		msg = HIR"\n$Nç‹‚å•¸ä¸€å£°ï¼Œä»¥å…µåˆƒè‡ªç èƒ¸è†›ï¼Œé¡¿æ—¶ä¸€è…”é²œè¡€é£æº…åœ¨"+weaname+HIR"ä¹‹ä¸Šï¼Œ"NOR+weaname+HIR"æ³›å‡ºä¸€å±‚è¡€è‰²ï¼";
 	else
-		msg = RED"\n$N¿ñĞ¥Ò»Éù£¬µ±Í·¿³ÁË×Ô¼ºÒ»µ¶£¬¶ÙÊ±Ò»¹ÉÏÊÑª·É½¦ÔÚ"+weaname+RED"Ö®ÉÏ£¬"NOR+weaname+RED"Õû¸ö±äµÄÍ¨ºì£¡£¡£¡";
+		msg = RED"\n$Nç‹‚å•¸ä¸€å£°ï¼Œå½“å¤´ç äº†è‡ªå·±ä¸€åˆ€ï¼Œé¡¿æ—¶ä¸€è‚¡é²œè¡€é£æº…åœ¨"+weaname+RED"ä¹‹ä¸Šï¼Œ"NOR+weaname+RED"æ•´ä¸ªå˜çš„é€šçº¢ï¼ï¼ï¼";
 	
 	attack = 7-now;
 	damage = 8-now;
 	if(me->query_temp("xs/longxiang")) {
 		damage--;
 		if(damage<2) damage=2;
-		msg += "$N¸ü°ÑÁúÏóÄÚ¾¢¸½ÓÚ±øÈĞÖ®ÉÏ£¡";
+		msg += "$Næ›´æŠŠé¾™è±¡å†…åŠ²é™„äºå…µåˆƒä¹‹ä¸Šï¼";
 	}
 	msg += "\n"NOR;
 	message_vision(msg, me);

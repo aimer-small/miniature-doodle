@@ -1,16 +1,16 @@
 // sanpo1.c
-// É½ÆÂ1
+// å±±å¡1
 inherit ROOM;
 
 int do_hit(string arg);
 
 void create()
 {
-	set("short","É½ÆÂ");
+	set("short","å±±å¡");
 	set("long",@long
-ÕâÀïÊÇÒ»¿é²»Ð¡µÄÆ½ÆÂ£¬É½Â·µ½ÁËÕâÀï×ªÁË¸ö·½Ïò¼ÌÐøÍùÉÏÑÓÉì¡£ÔÚ
-É½ÆÂµÄÖÐÑëÓÐÒ»¸öÊ¯×À£¬×ÀÅÔÊÇËÄÖ»Ê¯µÊ£¬×ö¹¤¶¼ºÜÊÇ´Ö²Ú£¬Ö»²»¹ý½«¾Í
-µØ¿ÉÒÔÓÃ¶øÒÑ¡£
+è¿™é‡Œæ˜¯ä¸€å—ä¸å°çš„å¹³å¡ï¼Œå±±è·¯åˆ°äº†è¿™é‡Œè½¬äº†ä¸ªæ–¹å‘ç»§ç»­å¾€ä¸Šå»¶ä¼¸ã€‚åœ¨
+å±±å¡çš„ä¸­å¤®æœ‰ä¸€ä¸ªçŸ³æ¡Œï¼Œæ¡Œæ—æ˜¯å››åªçŸ³å‡³ï¼Œåšå·¥éƒ½å¾ˆæ˜¯ç²—ç³™ï¼Œåªä¸è¿‡å°†å°±
+åœ°å¯ä»¥ç”¨è€Œå·²ã€‚
 long);
 	set("exits",([
 	    "eastup" : __DIR__"sanroad5",
@@ -18,9 +18,9 @@ long);
           "north" : __DIR__"sanroad6",
 ]));
 	set("item_desc",([
-        "Ê¯×À" : "×ÀÃæÉÏÓÐÐí¶à±»»÷´ò(hit)³öÀ´µÄÓ¡¼£¡£\n",
+        "çŸ³æ¡Œ" : "æ¡Œé¢ä¸Šæœ‰è®¸å¤šè¢«å‡»æ‰“(hit)å‡ºæ¥çš„å°è¿¹ã€‚\n",
 ]));
-	set("outdoors", "ÉñÁúµº");
+	set("outdoors", "ç¥žé¾™å²›");
         set("coor/x",490);
   set("coor/y",420);
    set("coor/z",30);
@@ -38,41 +38,41 @@ int do_hit(string arg)
 	object me=this_player();
         int lev;
 
-	if(!arg || arg=="" || arg==" " || arg!="Ê¯×À")
+	if(!arg || arg=="" || arg==" " || arg!="çŸ³æ¡Œ")
 		return 0;
 	if(me->query("jingli")<50)
 	{
-		tell_object(me,"ÄãÏÖÔÚÌ«Æ£¾ëÁË£¬ÏÈÐÝÏ¢Ò»ÏÂ°É¡£\n");
+		tell_object(me,"ä½ çŽ°åœ¨å¤ªç–²å€¦äº†ï¼Œå…ˆä¼‘æ¯ä¸€ä¸‹å§ã€‚\n");
 		return 1;
 	}
 	weapon = me->query_temp("weapon");
 	if (!weapon || weapon->query("skill_type") != "whip")
 	{
-		tell_object(me,"ÄãºÝºÝµØÅÄ»÷ÁËÒ»ÏÂÊ¯×À£¬ÑïÆðÂúÌì»Ò³¾¡£\n");
+		tell_object(me,"ä½ ç‹ ç‹ åœ°æ‹å‡»äº†ä¸€ä¸‹çŸ³æ¡Œï¼Œæ‰¬èµ·æ»¡å¤©ç°å°˜ã€‚\n");
                 me->add("jingli",-50);
 		return 1;
 	}
 	lev=me->query_skill("whip", 1);
 	if(lev<50 || lev>=100)
 	{
-		tell_object(me,"ÄãºÝºÝµØÅÄ»÷ÁËÒ»ÏÂÊ¯×À£¬ÑïÆðÂúÌì»Ò³¾¡£\n");
+		tell_object(me,"ä½ ç‹ ç‹ åœ°æ‹å‡»äº†ä¸€ä¸‹çŸ³æ¡Œï¼Œæ‰¬èµ·æ»¡å¤©ç°å°˜ã€‚\n");
                 me->add("jingli",-50);
 		return 1;
 	}
 	if( (string)SKILL_D("whip")->type()=="martial" &&
           lev * lev * lev / 10 > (int)me->query("combat_exp") ) 
         {
-		tell_object(me,"ÄãºÝºÝµØÅÄ»÷ÁËÒ»ÏÂÊ¯×À£¬ÑïÆðÂúÌì»Ò³¾¡£\n");
+		tell_object(me,"ä½ ç‹ ç‹ åœ°æ‹å‡»äº†ä¸€ä¸‹çŸ³æ¡Œï¼Œæ‰¬èµ·æ»¡å¤©ç°å°˜ã€‚\n");
                 me->add("jingli",-50);
 		return 1;           
         } 
 	if( !SKILL_D("whip")->valid_learn(me) )
 	{
-		tell_object(me,"ÄãºÝºÝµØÅÄ»÷ÁËÒ»ÏÂÊ¯×À£¬ÑïÆðÂúÌì»Ò³¾¡£\n");
+		tell_object(me,"ä½ ç‹ ç‹ åœ°æ‹å‡»äº†ä¸€ä¸‹çŸ³æ¡Œï¼Œæ‰¬èµ·æ»¡å¤©ç°å°˜ã€‚\n");
                 me->add("jingli",-50);
 		return 1;           
         } 
-	tell_object(me,"ÄãºÝºÝµØÅÄ»÷ÁËÒ»ÏÂÊ¯×À£¬ÑïÆðÂúÌì»Ò³¾¡£\n");
+	tell_object(me,"ä½ ç‹ ç‹ åœ°æ‹å‡»äº†ä¸€ä¸‹çŸ³æ¡Œï¼Œæ‰¬èµ·æ»¡å¤©ç°å°˜ã€‚\n");
         me->add("jingli",-50);
 	me->improve_skill("whip",lev/5+1,0);
 	return 1;

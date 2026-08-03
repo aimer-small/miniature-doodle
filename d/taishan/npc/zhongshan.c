@@ -1,4 +1,4 @@
-// zhongshan.c µ¥ÖÙÉ½
+// zhongshan.c å•ä»²å±±
 
 #include <ansi.h>
 
@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("µ¥ÖÙÉ½", ({ "shan zhongshan", "shan", "zhongshan" }) );
-	set("gender", "ÄĞĞÔ");
+        set_name("å•ä»²å±±", ({ "shan zhongshan", "shan", "zhongshan" }) );
+	set("gender", "ç”·æ€§");
         set("age", 30);
 	set("long",
-        "ËûÊÇÌ©É½¡°ÌúÃæÅĞ¹Ù¡±µ¥ÕıµÄ¶ş¶ù×Óµ¥ÖÙÉ½¡£\n"
-        "Å¨Ã¼´óºº, ÓëÖÚĞÖµÜÈİÃ²ÉõÎªÏàËÆ¡£\n");
+        "ä»–æ˜¯æ³°å±±â€œé“é¢åˆ¤å®˜â€å•æ­£çš„äºŒå„¿å­å•ä»²å±±ã€‚\n"
+        "æµ“çœ‰å¤§æ±‰, ä¸ä¼—å…„å¼Ÿå®¹è²Œç”šä¸ºç›¸ä¼¼ã€‚\n");
         set("combat_exp", 45000);
         set("shen_type", 1);
 	set("attitude", "heroism");

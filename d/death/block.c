@@ -2,8 +2,8 @@ inherit ROOM;
 
 void create()
 {
-	set("short","ËÀÐÌ·¿");
-	set("long","ÄãÍêÁË¡­¡­\n");
+	set("short","æ­»åˆ‘æˆ¿");
+	set("long","ä½ å®Œäº†â€¦â€¦\n");
 	set("no_update", 1);
 	set("exits/out", VOID_OB);
 	setup();
@@ -41,7 +41,7 @@ int valid_leave(object me, string dir)
 	int exp = me->query("combat_exp");
 
 	if (exp < 100000)
-		return notify_fail("Äã»¹ÊÇÀÏÀÏÊµÊµµØ´ý×Å°É¡£\n");
+		return notify_fail("ä½ è¿˜æ˜¯è€è€å®žå®žåœ°å¾…ç€å§ã€‚\n");
 	if (exp > 1000000)
 		exp /= 10;
 	else
@@ -49,11 +49,11 @@ int valid_leave(object me, string dir)
 	if (!me->query_temp("confirm")) {
 		me->set_temp("confirm", 1);
 		me->start_busy(2);
-		return notify_fail("Àë¿ªÕâÀï½«ÊÜµ½¿Û³ý"+chinese_number(exp)+"µã¾­ÑéµÄ´¦·££¬Èç¹ûÄãÍ¬Òâ£¬¾ÍÔÙÊäÈëÒ»´Î out\n");
+		return notify_fail("ç¦»å¼€è¿™é‡Œå°†å—åˆ°æ‰£é™¤"+chinese_number(exp)+"ç‚¹ç»éªŒçš„å¤„ç½šï¼Œå¦‚æžœä½ åŒæ„ï¼Œå°±å†è¾“å…¥ä¸€æ¬¡ out\n");
 	}
 	me->delete_temp("confirm");
 	me->add("combat_exp", -exp);
-	tell_object(me, "Äã±»¿Û³ýÁË"+chinese_number(exp)+"µã¾­Ñé¡£\n");
+	tell_object(me, "ä½ è¢«æ‰£é™¤äº†"+chinese_number(exp)+"ç‚¹ç»éªŒã€‚\n");
 	me->setup();
 	return ::valid_leave(me, dir);
 }

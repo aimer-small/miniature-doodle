@@ -1,6 +1,6 @@
 // enforce.c
-// Modified by snowman@SJ 02/08/2000. ¼ÓÉÏ 200 ÉÏÏŞ¡£
-// By Spiderii@ty ×ªÉúÍæ¼Òjiali²»ÊÜ200ÉÏÏŞÏŞÖÆ
+// Modified by snowman@SJ 02/08/2000. åŠ ä¸Š 200 ä¸Šé™ã€‚
+// By Spiderii@ty è½¬ç”Ÿç©å®¶jialiä¸å—200ä¸Šé™é™åˆ¶
 inherit F_CLEAN_UP;
 
 int main(object me, string arg)
@@ -8,16 +8,16 @@ int main(object me, string arg)
         int pts;
 
         if( !arg || (arg!="none" && arg!="max" && !sscanf(arg, "%d", pts)) ) 
-                return notify_fail("Ö¸Áî¸ñÊ½£ºenforce|jiali <Ê¹³ö¼¸µãÄÚÁ¦ÉËµĞ>|none|max\n");
+                return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šenforce|jiali <ä½¿å‡ºå‡ ç‚¹å†…åŠ›ä¼¤æ•Œ>|none|max\n");
 
         if( !me->query_skill_mapped("force") )
-                return notify_fail("Äã±ØĞëÏÈ enable Ò»ÖÖÄÚ¹¦¡£\n");
+                return notify_fail("ä½ å¿…é¡»å…ˆ enable ä¸€ç§å†…åŠŸã€‚\n");
 
 	if ( me->query_temp("qkdny/hua"))
-		return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸»¯¡¹×Ö¾÷£¬ÔİÊ±ÎŞ·¨¼ÓÁ¦¡£\n");
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€ŒåŒ–ã€å­—è¯€ï¼Œæš‚æ—¶æ— æ³•åŠ åŠ›ã€‚\n");
 
         if( me->query_condition("no_enforce") )
-                return notify_fail("Äãµ¤Ìï±»ÆÆ£¬ÔİÊ±²»ÄÜ¼ÓÁ¦¡£\n");
+                return notify_fail("ä½ ä¸¹ç”°è¢«ç ´ï¼Œæš‚æ—¶ä¸èƒ½åŠ åŠ›ã€‚\n");
                 
         if( arg == "none" )
                 me->delete("jiali");
@@ -32,14 +32,14 @@ int main(object me, string arg)
          else
         {
                 if( pts < 0 || pts > me->query_skill("force") / 2 || (pts > 200 && !me->query_temp("jiuyang/yijin")))
-                        return notify_fail("ÄãÖ»ÄÜÓÃ none ±íÊ¾²»ÔËÄÚÁ¦£¬»òÊı×Ö±íÊ¾Ã¿Ò»»÷ÓÃ¼¸µãÄÚÁ¦£¬ÉÏÏŞÊÇ 200¡£\n");
+                        return notify_fail("ä½ åªèƒ½ç”¨ none è¡¨ç¤ºä¸è¿å†…åŠ›ï¼Œæˆ–æ•°å­—è¡¨ç¤ºæ¯ä¸€å‡»ç”¨å‡ ç‚¹å†…åŠ›ï¼Œä¸Šé™æ˜¯ 200ã€‚\n");
                 me->set("jiali", pts);
         }
 
         if (pts)
-                write("Äã¾ö¶¨ÓÃ" + chinese_number(pts) + "µãµÄÄÚÁ¦ÉËµĞ¡£\n");
+                write("ä½ å†³å®šç”¨" + chinese_number(pts) + "ç‚¹çš„å†…åŠ›ä¼¤æ•Œã€‚\n");
         else
-                write("Äã¾ö¶¨²»Ê¹ÓÃÄÚÁ¦ÉËµĞ¡£\n");
+                write("ä½ å†³å®šä¸ä½¿ç”¨å†…åŠ›ä¼¤æ•Œã€‚\n");
         return 1;
 }
 
@@ -47,11 +47,11 @@ int main(object me, string arg)
 int help (object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½: enforce|jiali <Ê¹³ö¼¸µãÄÚÁ¦ÉËµĞ>|none
+æŒ‡ä»¤æ ¼å¼: enforce|jiali <ä½¿å‡ºå‡ ç‚¹å†…åŠ›ä¼¤æ•Œ>|none
  
-Õâ¸öÖ¸ÁîÈÃÄãÖ¸¶¨Ã¿´Î»÷ÖĞµĞÈËÊ±£¬Òª·¢³ö¼¸µãÄÚÁ¦ÉËµĞ¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ æŒ‡å®šæ¯æ¬¡å‡»ä¸­æ•Œäººæ—¶ï¼Œè¦å‘å‡ºå‡ ç‚¹å†…åŠ›ä¼¤æ•Œã€‚
 
-enforce none Ôò±íÊ¾Äã²»Ê¹ÓÃÄÚÁ¦¡£ 
+enforce none åˆ™è¡¨ç¤ºä½ ä¸ä½¿ç”¨å†…åŠ›ã€‚ 
 
 See Also: enable
 HELP

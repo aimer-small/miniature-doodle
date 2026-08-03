@@ -1,20 +1,20 @@
-// ysroad2.c ��ʯ·
+// ysroad2.c 岩石路
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short", HIR"��ʯ·"NOR);
+        set("short", HIR"岩石路"NOR);
 	set("long", @LONG
-��ʯ·���ɻ�ɽ�Ҷѳɣ���ʱ�ã�����ʮ�ּ�Ӳ���������ѿ��Կ�������
-����֮�о��к��ⲻ�ϵ������ԭ������֮����һ�����ɽ���ߵ������Ѹ�
-��һ˿�������������������ʮ����·�͵����ɽ�����ˡ�
+岩石路皆由火山灰堆成，厉时久，地面十分坚硬。在这里已可以看见那缕
+黑烟之中竟有红火光不断的喷出，原来黑烟之处是一座活火山，走到这里已感
+到一丝的热气扑面而来，再走十多里路就到达火山脚下了。
 LONG);
 	set("exits",([
 		"west" : __DIR__"hsjiao",
 		"east" : __DIR__"ysroad1",
 	]));
-	set("outdoors","����");
+	set("outdoors","冰火岛");
 	setup();
 }
 

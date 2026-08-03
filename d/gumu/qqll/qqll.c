@@ -1,15 +1,15 @@
-// qqll.c ÆßÇÏÁáçç
-// kxkxkx 2004Äê3ÔÂ
-//¡¾ÏÉÈË¡¿´Ìâ¬(Ciwei)£º³ÌÊ½£º/d/gumu/qqll/qqll.c µÚ 410 ĞĞ
+// qqll.c ä¸ƒçªç²ç‘
+// kxkxkx 2004å¹´3æœˆ
+//ã€ä»™äººã€‘åˆºçŒ¬(Ciwei)ï¼šç¨‹å¼ï¼š/d/gumu/qqll/qqll.c ç¬¬ 410 è¡Œ
 
-// ÆßÇÏÁáççÓĞÈçÏÂÊôĞÔ£¬·Ö±ğÔÚ³ÌĞò²»Í¬µÄµØ·½ÉèÖÃ£º
+// ä¸ƒçªç²ç‘æœ‰å¦‚ä¸‹å±æ€§ï¼Œåˆ†åˆ«åœ¨ç¨‹åºä¸åŒçš„åœ°æ–¹è®¾ç½®ï¼š
 //    "pal"            <--   team member object
-//    "ok"             <--   ÈÎÎñok
-//    "killer"         <--   µ±Ç°µÄkiller object
-//    "killers"        <--   ÒÑ³öÏÖµÄÃÉÃæÉ±ÊÖÊı
-//    "max_killers"    <--   ×î¶à³öÏÖµÄÃÉÃæÉ±ÊÖÊı
-//    "d_area_n"       <--   Ä¿µÄµØÇøÓòÃû
-//    "d_room"         <--   Ä¿µÄµØobject
+//    "ok"             <--   ä»»åŠ¡ok
+//    "killer"         <--   å½“å‰çš„killer object
+//    "killers"        <--   å·²å‡ºç°çš„è’™é¢æ€æ‰‹æ•°
+//    "max_killers"    <--   æœ€å¤šå‡ºç°çš„è’™é¢æ€æ‰‹æ•°
+//    "d_area_n"       <--   ç›®çš„åœ°åŒºåŸŸå
+//    "d_room"         <--   ç›®çš„åœ°object
 
 #include <ansi.h>
 #include <command.h>
@@ -33,19 +33,19 @@ void give_hook_completion(object user);
 
 void create()
 {
-	set_name(HIG"ÆßÑÛÊ¯"NOR, ({"qiyan shi","qiyan stone"}));
+	set_name(HIG"ä¸ƒçœ¼çŸ³"NOR, ({"qiyan shi","qiyan stone"}));
 	set_weight(25000);
 	if(clonep())
 	set_default_object(__FILE__);
 	else {
-		set("unit", "¿é");
-		set("long", "Ò»¿éºÁÎŞÆæÌØÖ®´¦µÄÍçÊ¯¡£\n"
-		"¾¹²»ÖªµÀÎªºÎ±»ÈË³ÆÎª¡°ÆßÇÏÁáçç¡±¡£\n"
-		"ÉÏÃæ¿Ó¿ÓÍİÍİÓĞÆß¸öĞ¡Ê¯ÑÛ¡£\n"
-		"ÒşÔ¼²¼³É±±¶·ÆßĞÇµÄĞÎ×´¡£\n"
-		"ÕâÑùÒ»·½ÆÕÍ¨µÃ²»ÄÜÔÙÆÕÍ¨µÄÊ¯Í·£¬\n"
-		"½­ºÓºşº££¬ÃûÉ½´ó´¨ÖĞÓ¦¸Ã¶àµÄÊÇ£¬\n"
-		"¾¹²»ÖªµÀÎªºÎ±»ÈË³ÆÎª[ÆßÇÏÁáçç]¡£\n"
+		set("unit", "å—");
+		set("long", "ä¸€å—æ¯«æ— å¥‡ç‰¹ä¹‹å¤„çš„é¡½çŸ³ã€‚\n"
+		"ç«Ÿä¸çŸ¥é“ä¸ºä½•è¢«äººç§°ä¸ºâ€œä¸ƒçªç²ç‘â€ã€‚\n"
+		"ä¸Šé¢å‘å‘æ´¼æ´¼æœ‰ä¸ƒä¸ªå°çŸ³çœ¼ã€‚\n"
+		"éšçº¦å¸ƒæˆåŒ—æ–—ä¸ƒæ˜Ÿçš„å½¢çŠ¶ã€‚\n"
+		"è¿™æ ·ä¸€æ–¹æ™®é€šå¾—ä¸èƒ½å†æ™®é€šçš„çŸ³å¤´ï¼Œ\n"
+		"æ±Ÿæ²³æ¹–æµ·ï¼Œåå±±å¤§å·ä¸­åº”è¯¥å¤šçš„æ˜¯ï¼Œ\n"
+		"ç«Ÿä¸çŸ¥é“ä¸ºä½•è¢«äººç§°ä¸º[ä¸ƒçªç²ç‘]ã€‚\n"
 		);
 		set("value", 800000);
 		set("no_sell", 1);
@@ -96,7 +96,7 @@ int can_cmds()
 		
 	if(!present(pal,environment(user)))
 	{
-		tell_object(user,HIY"ÄãµÄ´îµµÈ¥ÄÄÀïÁË£¿\n"NOR);
+		tell_object(user,HIY"ä½ çš„æ­æ¡£å»å“ªé‡Œäº†ï¼Ÿ\n"NOR);
 		return 0;
 	}
 	return 1;
@@ -104,11 +104,11 @@ int can_cmds()
 
 void dest()
 {
-	message_vision("$NºöÈ»µôÂäÔÚÂ·ÉÏ£¬ÄãÔÙÒ²²»¼ûÁË¡£\n", this_object());
+	message_vision("$Nå¿½ç„¶æ‰è½åœ¨è·¯ä¸Šï¼Œä½ å†ä¹Ÿä¸è§äº†ã€‚\n", this_object());
 	destruct(this_object());
 }
 
-// ¼ì²éteamÊÇ·ñ·ûºÏÒªÇó£¬×ÜÊÇ·µ»Ø0£¨ÈÃcommandÄÜ±»Õı³£´¦Àí£©¡£
+// æ£€æŸ¥teamæ˜¯å¦ç¬¦åˆè¦æ±‚ï¼Œæ€»æ˜¯è¿”å›0ï¼ˆè®©commandèƒ½è¢«æ­£å¸¸å¤„ç†ï¼‰ã€‚
 private nomask int check_team_hook(string arg)
 {
 	object user;
@@ -116,12 +116,12 @@ private nomask int check_team_hook(string arg)
 	user = this_user();
 	if(qqll_valid_team() || (wizardp(user) && user->query("env/test")) )
 	return 0;
-	// team²»ºÏÒªÇóÁË£¬ÈÎÎñÊ§°Ü
+	// teamä¸åˆè¦æ±‚äº†ï¼Œä»»åŠ¡å¤±è´¥
 	call_out("check_team_hook_completion", 1, user);
 	return 0;
 }
 
-// ÅĞ¶Ï£¨µÃµ½ÈÎÎñºóµÄ£©teamÊÇ·ñÓĞĞ§
+// åˆ¤æ–­ï¼ˆå¾—åˆ°ä»»åŠ¡åçš„ï¼‰teamæ˜¯å¦æœ‰æ•ˆ
 private nomask int qqll_valid_team()
 {
 	object user, *team;
@@ -141,38 +141,38 @@ private nomask int qqll_valid_team()
 	return 0;
 }
 
-// check_team_hookµÄcompeltionº¯Êı
-// ×¢Òâ£ºÈÎÎñÒòÎªteam³ö´í¶øÊ§°Ü£¬Èç¹ûÒòÎªteamµÄ³ÉÔ±quit¶ødismissÊ±£¬
-// ÄÇ¸ö³ÉÔ±µÄjob_busy²»»á¼õÉÙ£¬·ñÔò±ØĞëloadÄÇ¸ö³ÉÔ±£¬ÓĞ°²È«Òş»¼
+// check_team_hookçš„compeltionå‡½æ•°
+// æ³¨æ„ï¼šä»»åŠ¡å› ä¸ºteamå‡ºé”™è€Œå¤±è´¥ï¼Œå¦‚æœå› ä¸ºteamçš„æˆå‘˜quitè€Œdismissæ—¶ï¼Œ
+// é‚£ä¸ªæˆå‘˜çš„job_busyä¸ä¼šå‡å°‘ï¼Œå¦åˆ™å¿…é¡»loadé‚£ä¸ªæˆå‘˜ï¼Œæœ‰å®‰å…¨éšæ‚£
 private nomask void check_team_hook_completion(object user)
 {
 	object pal, killer;
 	
 	if(!user->is_ghost())
-	user->apply_condition("job_busy", 10); // Èç¹ûÃ»ËÀ
+	user->apply_condition("job_busy", 10); // å¦‚æœæ²¡æ­»
 	pal = query("pal", 1);
-	// Èç¹ûÍ¬°équitÁË£¬¾ÍÎŞ·¨¼õÉÙËûµÄjob_busyÁË¡£
+	// å¦‚æœåŒä¼´quitäº†ï¼Œå°±æ— æ³•å‡å°‘ä»–çš„job_busyäº†ã€‚
 	if(pal && !pal->is_ghost()) {
-		pal->apply_condition("job_busy", 10);  // Èç¹ûÃ»quit£¬Ã»ËÀ
+		pal->apply_condition("job_busy", 10);  // å¦‚æœæ²¡quitï¼Œæ²¡æ­»
 	}
 	killer = query("killer", 1);
 	if(!killer) {
-		tell_room(environment(user), query("name") + "Í»È»´Ó" +
-		user->query("name") + "µÄÉíÉÏµôÏÂÀ´²»¼ûÁË£¡\n", ({user}));
+		tell_room(environment(user), query("name") + "çªç„¶ä»" +
+		user->query("name") + "çš„èº«ä¸Šæ‰ä¸‹æ¥ä¸è§äº†ï¼\n", ({user}));
 		tell_object(user, query("name") +
-		"Í»È»´ÓÄãµÄÉíÉÏµôÏÂÀ´²»¼ûÁË£¡\n");
+		"çªç„¶ä»ä½ çš„èº«ä¸Šæ‰ä¸‹æ¥ä¸è§äº†ï¼\n");
 	}
 	else {
 		if(user->is_ghost()) {
 			killer->force_me("yeah");
-			tell_room(environment(killer), killer->query("name") + "´Ó" +
-			user->query("name") + "µÄÊ¬ÌåÉÏËÑ³öÒ»" + query("unit") +
-			query("name") + "£¬×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n");
+			tell_room(environment(killer), killer->query("name") + "ä»" +
+			user->query("name") + "çš„å°¸ä½“ä¸Šæœå‡ºä¸€" + query("unit") +
+			query("name") + "ï¼Œè½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n");
 		}
 		else {
-			killer->force_me("say ºß£¬Õâ´ÎËãÄã×ßÔË¡£\n");
+			killer->force_me("say å“¼ï¼Œè¿™æ¬¡ç®—ä½ èµ°è¿ã€‚\n");
 			tell_room(environment(killer), killer->query("name") +
-			"¼±¼±Ã¦Ã¦µØÀë¿ªÁË¡£\n");
+			"æ€¥æ€¥å¿™å¿™åœ°ç¦»å¼€äº†ã€‚\n");
 		}
 		destruct(killer);
 	}
@@ -189,7 +189,7 @@ int check(object ob,string place)
 	|| strsrch(base_name(environment(ob)),place) != 0 ) return 0;
 	return 1;
 }
-// ÔÚ³õÊ¼ÇøÓòÄÚÏònpc´òÌı´¾ÓÚÀ¶µÄÏÂÂä
+// åœ¨åˆå§‹åŒºåŸŸå†…å‘npcæ‰“å¬æ·³äºè“çš„ä¸‹è½
 private nomask int ask_hook(string arg)
 {
 	object user, npc , target;
@@ -198,11 +198,11 @@ private nomask int ask_hook(string arg)
 	int i,j;   	 
 	
 	if(!(npc = do_ask(arg)))
-	return 0;   // ²»·ûºÏÌõ¼ş
+	return 0;   // ä¸ç¬¦åˆæ¡ä»¶
 	
 	user = this_user();
-	message_vision("$NÏò$n´òÌıÓĞ¹Ø¡º" + HIG +"´¾ÓÚÀ¶" + NOR + "¡»µÄÏûÏ¢¡£\n", user, npc);
-	npc->force_me("say Å¶£¬ÉÏ´ÎÈ·ÊµÓĞÕâÃ´Ò»¸öÈËÀ´¹ı¡£");
+	message_vision("$Nå‘$næ‰“å¬æœ‰å…³ã€" + HIG +"æ·³äºè“" + NOR + "ã€çš„æ¶ˆæ¯ã€‚\n", user, npc);
+	npc->force_me("say å“¦ï¼Œä¸Šæ¬¡ç¡®å®æœ‰è¿™ä¹ˆä¸€ä¸ªäººæ¥è¿‡ã€‚");
 	living = livings();
 	for (i=0;i < sizeof(living);i++){
 		j = random(sizeof(living));
@@ -210,29 +210,29 @@ private nomask int ask_hook(string arg)
 		if(check(living[j],query("target_place")) ){
 			target = living[j];
 			str = environment(target)->query("short");
-			if( str == "ÎäÉ®ÌÃ" 
-			|| str == HIR"ĞÄìøÌÃ"NOR
-			|| str == "½ğ¸Õ·üÄ§È¦" ) continue;
+			if( str == "æ­¦åƒ§å ‚" 
+			|| str == HIR"å¿ƒç¦…å ‚"NOR
+			|| str == "é‡‘åˆšä¼é­”åœˆ" ) continue;
 		}
 	}
 	
 	if(!target)
 	{
-		npc->force_me("whisper "+user->query("id")+" ²»¹ıÎÒÃ»¿´Çå³şËûÈ¥ÄÄÀïÁË¡£");
+		npc->force_me("whisper "+user->query("id")+" ä¸è¿‡æˆ‘æ²¡çœ‹æ¸…æ¥šä»–å»å“ªé‡Œäº†ã€‚");
 		return 1;
 	}
 	
 	set("real_place",base_name(environment(target)));
 	
-	// ÕâÀïÓÃwhisper£¬¶ÔÍæ¼ÒÀ´ËµÉÔÎ¢°²È«Ğ©
+	// è¿™é‡Œç”¨whisperï¼Œå¯¹ç©å®¶æ¥è¯´ç¨å¾®å®‰å…¨äº›
 	npc->force_me("whisper " + user->query("id") +
-	" ²»¹ıËûÏÖÔÚÒÑ¾­È¥" + str + "ÁË¡£");   
-	set("start", 1);  // ´Ó´ËÒÔºó£¬¿ªÊ¼ÓĞÃÉÃæÉ±ÊÖ/´¾ÓÚÀ¶³öÏÖ
+	" ä¸è¿‡ä»–ç°åœ¨å·²ç»å»" + str + "äº†ã€‚");   
+	set("start", 1);  // ä»æ­¤ä»¥åï¼Œå¼€å§‹æœ‰è’™é¢æ€æ‰‹/æ·³äºè“å‡ºç°
 	return 1;
 }
 
-// ÅĞ¶ÏÊÇ·ñÄÜ¹»Ïònpc´òÌı´¾ÓÚÀ¶µÄÏÂÂä£¬
-// Èç¹û¿ÉÒÔÔò·µ»Ønpc object£¬·ñÔò·µ»Ø0
+// åˆ¤æ–­æ˜¯å¦èƒ½å¤Ÿå‘npcæ‰“å¬æ·³äºè“çš„ä¸‹è½ï¼Œ
+// å¦‚æœå¯ä»¥åˆ™è¿”å›npc objectï¼Œå¦åˆ™è¿”å›0
 private nomask mixed do_ask(string arg)
 {
 	object user, room, obj;
@@ -242,69 +242,69 @@ private nomask mixed do_ask(string arg)
 	room = environment(user);
 	//room_f = base_name(room);
 	
-	//if(!present(query("pal"),room)) //Partner²»ÔÚ±ßÉÏ
+	//if(!present(query("pal"),room)) //Partnerä¸åœ¨è¾¹ä¸Š
 	//return 0;	
 	if(!can_cmds()) return 0;
 	
 	if(user->is_busy())
-	return 0;   // team leaderÃ¦
+	return 0;   // team leaderå¿™
 	if(sscanf(arg, "%s about %s", askee, topic) != 2)
-	return 0;   // askÃüÁî²»¶Ô
-	if(topic != "´¾ÓÚÀ¶")
-	return 0;   // ÎÊµÄ²»ÊÇ´¾ÓÚÀ¶
+	return 0;   // askå‘½ä»¤ä¸å¯¹
+	if(topic != "æ·³äºè“")
+	return 0;   // é—®çš„ä¸æ˜¯æ·³äºè“
 	
 	obj = present(askee, room);
 	if(!objectp(obj))
-	return 0;   // Ã»Õâ¸öÈË
+	return 0;   // æ²¡è¿™ä¸ªäºº
 	if(!living(obj))
-	return 0;   // ²»ÊÇ»îÎï
+	return 0;   // ä¸æ˜¯æ´»ç‰©
 	if(!obj->query("can_speak"))
-	return 0;   // ²»»áËµ»°
+	return 0;   // ä¸ä¼šè¯´è¯
 	if(obj->query("mute"))
-	return 0;   // ÑÆ°Í
+	return 0;   // å“‘å·´
 	if(!userp(obj))
-	return 0;   // ·ÇÍæ¼Ò
+	return 0;   // éç©å®¶
 	if(!living(obj))
 	return 0;
 	if(random(2) < 1)
-	return 0;   // 1/2µÄ¸ÅÂÊ²»ÖªµÀ
+	return 0;   // 1/2çš„æ¦‚ç‡ä¸çŸ¥é“
 	if(obj->query("id") != query("target_player"))
 	return 0;
 	
 	return obj;
 }
 
-// ÁìÆßÇÏÁáççÈÎÎñºó£¬´¦Àíteam leaderµÄÒÆ¶¯¿ÉÄÜ³öÏÖµÄ
-// Çé¿ö£¨ÃÉÃæÉ±ÊÖ£¬´¾ÓÚÀ¶£©
-// ×¢Òâ£¬Ö»ÓĞteam leaderÖ÷¶¯ÒÆ¶¯²Å»á¿ÉÄÜ³öÏÖÕâĞ©Çé¿ö£¬
-// ÒòÎªfollow±ğÈË¶øÒÆ¶¯£¬Ôò²»»á³öÏÖÕâÖÖÇé¿ö¡£
-// Ã¿´Î×î¶àÖ»³öÏÖÒ»¸öÃÉÃæÉ±ÊÖ£¬±»ÏµÍ³force¶øfollow
-// team leader£¬¼´Ê¹followµ½nofight roomÒ²²»·ÅÆúfollow
-// ËùÒÔÍæ¼ÒÈÔÈ»ÓĞ¿ÉÄÜ°ÑÃÉÃæÉ±ÊÖ´ø³öÈ¥É±ËÀ¡£É±ËÀÒ»¸öÃÉÃæ
-// É±ÊÖºó£¬²Å»áÓĞÏÂÒ»¸ö³öÏÖ£¬É±ËÀËùÓĞ3-5¸öÃÉÃæÉ±ÊÖºó£¬
-// ×ßµ½Ö¸¶¨Î»ÖÃ²Å»áÓĞ´¾ÓÚÀ¶³öÏÖ£¬´¾ÓÚÀ¶Ö»´æÔÚ2·ÖÖÓ£¬Èç
-// ¹ûÃ»ÓĞ¼°Ê±give chunyu lan linglong, ÈÎÎñÊµ¼ÊÉÏ¾ÍÊ§°ÜÁË¡£
+// é¢†ä¸ƒçªç²ç‘ä»»åŠ¡åï¼Œå¤„ç†team leaderçš„ç§»åŠ¨å¯èƒ½å‡ºç°çš„
+// æƒ…å†µï¼ˆè’™é¢æ€æ‰‹ï¼Œæ·³äºè“ï¼‰
+// æ³¨æ„ï¼Œåªæœ‰team leaderä¸»åŠ¨ç§»åŠ¨æ‰ä¼šå¯èƒ½å‡ºç°è¿™äº›æƒ…å†µï¼Œ
+// å› ä¸ºfollowåˆ«äººè€Œç§»åŠ¨ï¼Œåˆ™ä¸ä¼šå‡ºç°è¿™ç§æƒ…å†µã€‚
+// æ¯æ¬¡æœ€å¤šåªå‡ºç°ä¸€ä¸ªè’™é¢æ€æ‰‹ï¼Œè¢«ç³»ç»Ÿforceè€Œfollow
+// team leaderï¼Œå³ä½¿followåˆ°nofight roomä¹Ÿä¸æ”¾å¼ƒfollow
+// æ‰€ä»¥ç©å®¶ä»ç„¶æœ‰å¯èƒ½æŠŠè’™é¢æ€æ‰‹å¸¦å‡ºå»æ€æ­»ã€‚æ€æ­»ä¸€ä¸ªè’™é¢
+// æ€æ‰‹åï¼Œæ‰ä¼šæœ‰ä¸‹ä¸€ä¸ªå‡ºç°ï¼Œæ€æ­»æ‰€æœ‰3-5ä¸ªè’™é¢æ€æ‰‹åï¼Œ
+// èµ°åˆ°æŒ‡å®šä½ç½®æ‰ä¼šæœ‰æ·³äºè“å‡ºç°ï¼Œæ·³äºè“åªå­˜åœ¨2åˆ†é’Ÿï¼Œå¦‚
+// æœæ²¡æœ‰åŠæ—¶give chunyu lan linglong, ä»»åŠ¡å®é™…ä¸Šå°±å¤±è´¥äº†ã€‚
 private nomask int go_hook(string arg)
 {
 	object user, *team;
 	user = this_user();
 	team = user->query_team();
 	if(!GO_CMD->main(user, arg))
-	return 0;   // Õâ¸ö·½ÏòÃ»ÓĞ³öÂ·
-	if(query("iamover")) return 1;//CylÒÑ¾­³öÏÖ
+	return 0;   // è¿™ä¸ªæ–¹å‘æ²¡æœ‰å‡ºè·¯
+	if(query("iamover")) return 1;//Cylå·²ç»å‡ºç°
 	if(!query("start"))
-	return 1;   // »¹Ã»¿ªÊ¼³öÏÖÃÉÃæÉ±ÊÖ
-	add("steps", 1);  // Ôö¼ÓÒÆ¶¯µÄ²½Êı
+	return 1;   // è¿˜æ²¡å¼€å§‹å‡ºç°è’™é¢æ€æ‰‹
+	add("steps", 1);  // å¢åŠ ç§»åŠ¨çš„æ­¥æ•°
 	if(move_with_killer())
-	return 1;   // ºÍÃÉÃæÉ±ÊÖÕ½¶·ÖĞÒÆ¶¯
+	return 1;   // å’Œè’™é¢æ€æ‰‹æˆ˜æ–—ä¸­ç§»åŠ¨
 	if(!present(query("pal"), environment(user))) return 1;
 	if(encounter_killer())
-	return 1;   // Óöµ½ĞÂµÄÃÉÃæÉ±ÊÖ
+	return 1;   // é‡åˆ°æ–°çš„è’™é¢æ€æ‰‹
 	if(encounter_cyl())
-	return 1;   // Óöµ½´¾ÓÚÀ¶
+	return 1;   // é‡åˆ°æ·³äºè“
 	return 1;
 }
-// ÅĞ¶ÏÊÇ·ñÔÚºÍÃÉÃæÉ±ÊÖÕ½¶·ÖĞÒÆ¶¯
+// åˆ¤æ–­æ˜¯å¦åœ¨å’Œè’™é¢æ€æ‰‹æˆ˜æ–—ä¸­ç§»åŠ¨
 private nomask int move_with_killer()
 {
 	object killer;
@@ -315,7 +315,7 @@ private nomask int move_with_killer()
 	return 1;
 }
 
-// Óöµ½ĞÂÃÉÃæÉ±ÊÖ£¿
+// é‡åˆ°æ–°è’™é¢æ€æ‰‹ï¼Ÿ
 //private nomask 
 int encounter_killer()
 {
@@ -326,23 +326,23 @@ int encounter_killer()
 	if(!can_cmds()) return 0;
 	
 	if(query("killers") == query("max_killers"))
-	return 0;   // Ã»ÓĞ¸ü¶àµÄÃÉÃæÉ±ÊÖ	
+	return 0;   // æ²¡æœ‰æ›´å¤šçš„è’™é¢æ€æ‰‹	
 	if(query("steps") < 10)
-	return 0;   // »¹Ã»ÔÙ×ßµ½10²½ 
+	return 0;   // è¿˜æ²¡å†èµ°åˆ°10æ­¥ 
 	if(random(4) < 3)
-	return 0;   // 3/4µÄ¸ÅÂÊÃ»ÃÉÃæÉ±ÊÖ	
+	return 0;   // 3/4çš„æ¦‚ç‡æ²¡è’™é¢æ€æ‰‹	
 	user = this_user();
 	room = environment(user);
 	if(room->query("no_fight"))
-	return 0;   // ÔÚ·ÇÕ½¶··¿¼ä	
-	set("steps", 0);  // ÖØÉè²½Êı	
+	return 0;   // åœ¨éæˆ˜æ–—æˆ¿é—´	
+	set("steps", 0);  // é‡è®¾æ­¥æ•°	
 	killer = new(__DIR__"killer");
 	killer->set("target", this_object());
 	set("killer", killer);
 	tell_object(user,
-	YEL"Äã¾õµÃĞĞÄÒÖĞµÄÍçÊ¯Ô½À´Ô½³Á£¬ÁîÄã¾Ù²½Î¬¼è¡­¡­¡£\n"NOR);
-	tell_room(room, RED"Ò»¸öÃÉÃæÉ±ÊÖ´ÓÂ·±ßÌøÁË³öÀ´¡£´óÉùºÈµÀ£º"
-	"¡¸°ÑÍõÖØÑôµÄ±¦ÎïÁôÏÂ£¬²»È»È¡ÄãµÄĞÔÃü¡£¡¹\n"NOR);
+	YEL"ä½ è§‰å¾—è¡Œå›Šä¸­çš„é¡½çŸ³è¶Šæ¥è¶Šæ²‰ï¼Œä»¤ä½ ä¸¾æ­¥ç»´è‰°â€¦â€¦ã€‚\n"NOR);
+	tell_room(room, RED"ä¸€ä¸ªè’™é¢æ€æ‰‹ä»è·¯è¾¹è·³äº†å‡ºæ¥ã€‚å¤§å£°å–é“ï¼š"
+	"ã€ŒæŠŠç‹é‡é˜³çš„å®ç‰©ç•™ä¸‹ï¼Œä¸ç„¶å–ä½ çš„æ€§å‘½ã€‚ã€\n"NOR);
 	
 	killer->setparty(1+random(10),pal->query("max_pot")-80,pal->query("combat_exp")*12/10 );
 		
@@ -360,7 +360,7 @@ int encounter_killer()
 	return 1;
 }
 
-// Óöµ½´¾ÓÚÀ¶£¿
+// é‡åˆ°æ·³äºè“ï¼Ÿ
 private nomask int encounter_cyl()
 {
 	object room, cyl;
@@ -372,14 +372,14 @@ private nomask int encounter_cyl()
 	if(query("killer")) return 0;
 	
 	if(query("killers") < query("max_killers"))
-	return 0;   // »¹ÓĞÃÉÃæÉ±ÊÖ³öÏÖ	
+	return 0;   // è¿˜æœ‰è’™é¢æ€æ‰‹å‡ºç°	
 	if(query("real_place") != base_name(room))
 	return 0;	
-	set("start", 0);  // ±ÜÃâ¶ÔÒ»¸öÍæ¼Ò£¬ÖØ¸´³öÏÖ¶à¸ö´¾ÓÚÀ¶
+	set("start", 0);  // é¿å…å¯¹ä¸€ä¸ªç©å®¶ï¼Œé‡å¤å‡ºç°å¤šä¸ªæ·³äºè“
 	set("iamover",1);
 	cyl = new(__DIR__"cyl");
 	set("cyl", cyl);
-	tell_room(room, cyl->query("name") + "¼±¼±×ßÁË¹ıÀ´¡£\n");
+	tell_room(room, cyl->query("name") + "æ€¥æ€¥èµ°äº†è¿‡æ¥ã€‚\n");
 	cyl->move(room);
 	return 1;
 }
@@ -390,12 +390,12 @@ void give_hook_completion(object user)
 
 	cyl = query("cyl", 1);
 	room = environment(user);
-	message_vision("$NÎ¢Î¢Ò»Ğ¦£¬Ì¾µÀ£º¡¸ÄÇÂíîÚÒ²ÊÇ³ÕÈË£¬¾¹È»²»½âÍõÕæÈËµÄÕæÒâ¡£¡¹\n",cyl);   
-	cyl->force_me("say " HIY"ÍçÊ¯Ò»·½£¬ÍıÑÔÁáçç£¬ºÎÀ´ÆßÇÏ£¬"
-	"ÈËÊÀ·×ÈÅ¡£ÍõÕæÈËÊÇÒªÖ¸µãµÜ×Ó£¬\n"
-	"Ì°ÁµÈËÊÀÆßÇé£¬¾ÍÊÇÍçÊ¯£»¿±ÆÆµÀµÂÎŞÎª£¬±ãÖ¤Ááçç¡£"
-	"Äã¿É½«´ËÑÔ¸æÖªÄÇÅ£±Ç×Ó°É¡£"NOR);
-	message_vision("$n¸ø$NÒ»"+query("unit")+query("name") + "¡£\n",user,cyl);
-	message_vision("$NÒ»Õ£ÑÛ£¬ÓÖ²»Öªµ½ÄÄÀïÈ¥ÁË¡£\n",cyl);
+	message_vision("$Nå¾®å¾®ä¸€ç¬‘ï¼Œå¹é“ï¼šã€Œé‚£é©¬é’°ä¹Ÿæ˜¯ç—´äººï¼Œç«Ÿç„¶ä¸è§£ç‹çœŸäººçš„çœŸæ„ã€‚ã€\n",cyl);   
+	cyl->force_me("say " HIY"é¡½çŸ³ä¸€æ–¹ï¼Œå¦„è¨€ç²ç‘ï¼Œä½•æ¥ä¸ƒçªï¼Œ"
+	"äººä¸–çº·æ‰°ã€‚ç‹çœŸäººæ˜¯è¦æŒ‡ç‚¹å¼Ÿå­ï¼Œ\n"
+	"è´ªæ‹äººä¸–ä¸ƒæƒ…ï¼Œå°±æ˜¯é¡½çŸ³ï¼›å‹˜ç ´é“å¾·æ— ä¸ºï¼Œä¾¿è¯ç²ç‘ã€‚"
+	"ä½ å¯å°†æ­¤è¨€å‘ŠçŸ¥é‚£ç‰›é¼»å­å§ã€‚"NOR);
+	message_vision("$nç»™$Nä¸€"+query("unit")+query("name") + "ã€‚\n",user,cyl);
+	message_vision("$Nä¸€çœ¨çœ¼ï¼Œåˆä¸çŸ¥åˆ°å“ªé‡Œå»äº†ã€‚\n",cyl);
 	destruct(cyl);
 }

@@ -1,6 +1,6 @@
 // move.c
 // Modified by snowman@SJ 21/11/2000
-// ÆÁ±Î old_ob
+// å±è”½ old_ob
 // Modified again by snowman@SJ 13/02/2001
 // Modified by augx@SJ 9/19/2001
 
@@ -34,7 +34,7 @@ void over_encumbrance()
 	object me = this_object();
 
 	if (!interactive(me)) return;
-	tell_object(me, "ÄãµÄ¸ººÉ¹ıÖØÁË£¡\n");
+	tell_object(me, "ä½ çš„è´Ÿè·è¿‡é‡äº†ï¼\n");
 }
 
 nomask int query_weight() { return weight; }
@@ -68,7 +68,7 @@ varargs int move(mixed dest, int silently)
 
 	// If we are equipped, unequip first.
 	if (where && query("equipped") && !me->unequip())
-			return notify_fail("ÄãÃ»ÓĞ°ì·¨È¡ÏÂÕâÑù¶«Î÷¡£\n");
+			return notify_fail("ä½ æ²¡æœ‰åŠæ³•å–ä¸‹è¿™æ ·ä¸œè¥¿ã€‚\n");
 
 	// Find the destination ob for moving.
 	if (objectp(dest))
@@ -91,9 +91,9 @@ varargs int move(mixed dest, int silently)
 	if ((ob==this_player() || userp(ob) || !living(ob)) && where && !env
 	&& (int)ob->query_encumbrance() + weight + encumb > (int)ob->query_max_encumbrance()) {
 		if (ob==this_player())
-			return notify_fail( me->name() + "¶ÔÄã¶øÑÔÌ«ÖØÁË¡£\n");
+			return notify_fail( me->name() + "å¯¹ä½ è€Œè¨€å¤ªé‡äº†ã€‚\n");
 		else
-			return notify_fail( me->name() + "¶Ô" + ob->name() + "¶øÑÔÌ«ÖØÁË¡£\n");
+			return notify_fail( me->name() + "å¯¹" + ob->name() + "è€Œè¨€å¤ªé‡äº†ã€‚\n");
 	}
 
 	// Move the object and update encumbrance
@@ -146,7 +146,7 @@ varargs int move(mixed dest, int silently)
 						dirs[i] = 0;
 				dirs -= ({ 0 });
 				if( !query("env/newlook") || query_temp("pending/follow") ) {
-					if (sizeof(dirs)) str += " - " + BOLD + implode(dirs, "¡¢") + NOR;
+					if (sizeof(dirs)) str += " - " + BOLD + implode(dirs, "ã€") + NOR;
 				} else {
 					for(i=0; i<sizeof(dirs); i++) {
 						switch (dirs[i]) {
@@ -175,7 +175,7 @@ varargs int move(mixed dest, int silently)
 					if(dirs2d[4])  str+=HIR; str += "w  "NOR;
 					if(dirs2d[10]) str+=HIR; str += "r "NOR;
 					if(dirs2d[0])  str+=HIR; str += " e"NOR;
-					if (sizeof(dirs)) str += " - "+BOLD+implode(dirs, "¡¢")+NOR; str+="\n";
+					if (sizeof(dirs)) str += " - "+BOLD+implode(dirs, "ã€")+NOR; str+="\n";
 					if(dirs2d[3])  str+=HIR; str += "sw "NOR;
 					if(dirs2d[2])  str+=HIR; str += "s "NOR;
 					if(dirs2d[1])  str+=HIR; str += "se"NOR;
@@ -197,7 +197,7 @@ varargs int move(mixed dest, int silently)
 					if (!mapp(exits[arg]) ) {
 						exits[arg] = ([
 							"total" : 1,
-							"unit" : (inv[i]->query("unit")?inv[i]->query("unit"):"¸ö"),
+							"unit" : (inv[i]->query("unit")?inv[i]->query("unit"):"ä¸ª"),
 							"short" : inv[i]->short(),
 						]);
 					}
@@ -229,19 +229,19 @@ varargs int move(mixed dest, int silently)
 	if (!silently && query("treasure") && userp(ob) && ob == env ) {
 		str = ob->query("name");
 		if (query("treasure") > 0) {
-			str += "Åªµ½ÁËÒ»"+ query("unit") + query("name");
+			str += "å¼„åˆ°äº†ä¸€"+ query("unit") + query("name");
 			set("treasure", -1);
 			set("old_ob", ob);
-			CHANNEL_D->do_channel(this_object(), "rumor", str+"£¡");
+			CHANNEL_D->do_channel(this_object(), "rumor", str+"ï¼");
 		}
 		else if (query("old_ob") != ob && random(15) == 7 ) {
-			// ÆÁ±Î£¬ÒòÎªupdated ¼ì²é±¦Îï£¬¿´ÊÇ·ñÊÇÕæÕıµÄÖ÷ÈË¡£
+			// å±è”½ï¼Œå› ä¸ºupdated æ£€æŸ¥å®ç‰©ï¼Œçœ‹æ˜¯å¦æ˜¯çœŸæ­£çš„ä¸»äººã€‚
 			//set("old_ob", ob);
 			if (where->query("short"))
-				str += "ÔÚ" + where->query("short") +"¼ñµ½ÁËÒ»" + query("unit") + query("name");
+				str += "åœ¨" + where->query("short") +"æ¡åˆ°äº†ä¸€" + query("unit") + query("name");
 			else
-				str += "´Ó" + where->query("name") +"´¦µÃµ½ÁËÒ»" + query("unit") + query("name");
-			CHANNEL_D->do_channel(this_object(), "rumor", str+"¡£");
+				str += "ä»" + where->query("name") +"å¤„å¾—åˆ°äº†ä¸€" + query("unit") + query("name");
+			CHANNEL_D->do_channel(this_object(), "rumor", str+"ã€‚");
 		}
 	}
 	env->init2(me, silently);
@@ -278,7 +278,7 @@ void remove(string euid)
 			log_file("destruct", sprintf("%s attempt to destruct user object %s (%s)\n",
 				euid, query("id"), ctime(time()))
 			);
-			error("Äã(" + euid + ")²»ÄÜ´İ»ÙÆäËûµÄÊ¹ÓÃÕß¡£\n");
+			error("ä½ (" + euid + ")ä¸èƒ½æ‘§æ¯å…¶ä»–çš„ä½¿ç”¨è€…ã€‚\n");
 		}
 		dbquery("update Users set U_Online='N', U_Name="+save_variable(strip(me->query("name")))+
 		" where U_Username="+save_variable(geteuid(me))+" limit 1");
@@ -291,7 +291,7 @@ void remove(string euid)
 				"where U_Username="+save_variable(geteuid(me))+" limit 1"
 			);
 			db_close(mysql);
-		}*/ //ÔİÊ±²»ÔÚweb½øĞĞÌí¼Ó L
+		}*/ //æš‚æ—¶ä¸åœ¨webè¿›è¡Œæ·»åŠ  L
 	} else
 		me->unequip();
 
@@ -309,7 +309,7 @@ void remove(string euid)
 int move_or_destruct( object dest )
 {
 	if (userp(this_object())) {
-		tell_object(this_object(), "Ò»ÕóÊ±¿ÕµÄÅ¤Çú½«Äã´«ËÍµ½ÁíÒ»¸öµØ·½....\n");
+		tell_object(this_object(), "ä¸€é˜µæ—¶ç©ºçš„æ‰­æ›²å°†ä½ ä¼ é€åˆ°å¦ä¸€ä¸ªåœ°æ–¹....\n");
 		move(VOID_OB);
 	}
 }

@@ -1,7 +1,7 @@
-// By Spiderii@yt ĞÂĞ´ ÌúÕÆÇÜÄÃÊÖ
+// By Spiderii@yt æ–°å†™ é“æŒæ“’æ‹¿æ‰‹
 
 #include <ansi.h>
-string perform_name(){ return HBBLU"ÌúÕÆÇÜÄÃÊÖ"NOR; }
+string perform_name(){ return HBBLU"é“æŒæ“’æ‹¿æ‰‹"NOR; }
 inherit F_SSERVER;
 int perform(object me, object target)
 {
@@ -14,67 +14,67 @@ int perform(object me, object target)
           || !me->is_fighting(target)
           || !objectp(target)
           || !living(target)
-          || environment(target)!= environment(me))return notify_fail("ÌúÕÆÇÜÄÃÊÖÖ»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");
+          || environment(target)!= environment(me))return notify_fail("é“æŒæ“’æ‹¿æ‰‹åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
 
           weapon = target->query_temp("weapon");
 
         if( userp(me) 
         &&( me->query_skill_mapped("parry") != "tiezhang-zhangfa"))
-                return notify_fail("¡¸ÌúÕÆÇÜÄÃÊÖ¡¹±ØĞëÔÚÓÃÌúÕÆÕÆ·¨¼¤·¢ÕĞ¼ÜµÄÇé¿öÏÂ²ÅÄÜÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œé“æŒæ“’æ‹¿æ‰‹ã€å¿…é¡»åœ¨ç”¨é“æŒæŒæ³•æ¿€å‘æ‹›æ¶çš„æƒ…å†µä¸‹æ‰èƒ½ä½¿ç”¨ã€‚\n");
 /*
         if( userp(me) && (me->query_skill_mapped("force") != "guiyuan-tunafa"
         || me->query_skill_prepared("strike") != "tiezhang-zhangfa") )
-                return notify_fail("ÄãµÄÄÚ¹¦»òÕÆ·¨²»¶Ô£¬¸ù±¾²»ÄÜ·¢»Ó³ö¡¸ÌúÕÆÇÜÄÃÊÖ¡¹µÄÓÅÊÆ¡£\n");  
+                return notify_fail("ä½ çš„å†…åŠŸæˆ–æŒæ³•ä¸å¯¹ï¼Œæ ¹æœ¬ä¸èƒ½å‘æŒ¥å‡ºã€Œé“æŒæ“’æ‹¿æ‰‹ã€çš„ä¼˜åŠ¿ã€‚\n");  
 
         if((int)me->query_skill("guiyuan-tunafa", 1)  < 150 )
-             return notify_fail("ÄãµÄ¹éÔªÍÂÄÅ·¨µÈ¼¶»¹²»¹»£¬Ê¹²»³ö¡¸ÌúÕÆÇÜÄÃÊÖ¡¹¡£\n");
+             return notify_fail("ä½ çš„å½’å…ƒåå‘æ³•ç­‰çº§è¿˜ä¸å¤Ÿï¼Œä½¿ä¸å‡ºã€Œé“æŒæ“’æ‹¿æ‰‹ã€ã€‚\n");
 */
         if((int)me->query_skill("tiezhang-zhangfa",1) < 150 ) 
-             return notify_fail("ÄãµÄÌúÕÆÕÆ·¨µÈ¼¶²»¹»£¬²»»áÊ¹ÓÃ¡¸ÌúÕÆÇÜÄÃÊÖ¡¹¡£\n");
+             return notify_fail("ä½ çš„é“æŒæŒæ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸ä¼šä½¿ç”¨ã€Œé“æŒæ“’æ‹¿æ‰‹ã€ã€‚\n");
 
 
         if( me->query_temp("weapon"))
-                return notify_fail("ÄãÏÈ·ÅÏÂÊÖÖĞµÄÎäÆ÷ÔÙËµ°É£¿£¡\n");     
+                return notify_fail("ä½ å…ˆæ”¾ä¸‹æ‰‹ä¸­çš„æ­¦å™¨å†è¯´å§ï¼Ÿï¼\n");     
 
 
         if((int)me->query("neili") < 1500)
-             return notify_fail("ÄãµÄÄÚÁ¦²»¹»ÓÃÀ´¡¸ÌúÕÆÇÜÄÃÊÖ¡¹¡£\n");
+             return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç”¨æ¥ã€Œé“æŒæ“’æ‹¿æ‰‹ã€ã€‚\n");
 
         if((int)me->query("jingli") < 500)
-             return notify_fail("ÄãµÄ¾«Á¦²»¹»ÓÃÀ´¡¸ÌúÕÆÇÜÄÃÊÖ¡¹¡£\n");
+             return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿç”¨æ¥ã€Œé“æŒæ“’æ‹¿æ‰‹ã€ã€‚\n");
       
-       message_vision(HIM"\n$NÉíĞÎÒ»»ÎÍ»È»±äÕĞ£¬ÒÔÑ¸À×²»¼°ÑÚ¶úÖ®ÊÆ£¬Ïò$n¼çÉÏÄÃÈ¥£¡\n" NOR, me, target);
+       message_vision(HIM"\n$Nèº«å½¢ä¸€æ™ƒçªç„¶å˜æ‹›ï¼Œä»¥è¿…é›·ä¸åŠæ©è€³ä¹‹åŠ¿ï¼Œå‘$nè‚©ä¸Šæ‹¿å»ï¼\n" NOR, me, target);
 
-        if (objectp(weapon)) //Èç¹û¶Ô·½ÊÖÖĞÓĞ±øÆ÷,ÄÇÃ´´òµô
+        if (objectp(weapon)) //å¦‚æœå¯¹æ–¹æ‰‹ä¸­æœ‰å…µå™¨,é‚£ä¹ˆæ‰“æ‰
         {
 
-              message_vision(HIM"\n$n¼±Ã¦¾ÙÆğ" + weapon->name() + HIM"µ²¸ñ£¬$N±äÕĞ¿ì¼«£¬×óÊÖÏÂÑ¹£¬ÒÑ×¥×¡" + weapon->name() + HIM"Í·²¿¡£ÕÆÔµ¸¦´¥£¬ÉĞÎ´×¥½ô£¬ÒÑÏòÀï¶á¡£\n"NOR, me, target);
+              message_vision(HIM"\n$næ€¥å¿™ä¸¾èµ·" + weapon->name() + HIM"æŒ¡æ ¼ï¼Œ$Nå˜æ‹›å¿«æï¼Œå·¦æ‰‹ä¸‹å‹ï¼Œå·²æŠ“ä½" + weapon->name() + HIM"å¤´éƒ¨ã€‚æŒç¼˜ç”«è§¦ï¼Œå°šæœªæŠ“ç´§ï¼Œå·²å‘é‡Œå¤ºã€‚\n"NOR, me, target);
               if (random(me->query_str()) > target->query_str()/2 ){
 
-                          message_vision(HIM"\n$n»ëÉíÒ»ÈÈ£¬ÊÖÕÆ»¢¿Ú¾ŞÍ´£¬ÊÖÖĞ" + weapon->name() + HIM"ÍÑÊÖ¶ø³ö¡£\n"NOR, me, target);
+                          message_vision(HIM"\n$næµ‘èº«ä¸€çƒ­ï¼Œæ‰‹æŒè™å£å·¨ç—›ï¼Œæ‰‹ä¸­" + weapon->name() + HIM"è„±æ‰‹è€Œå‡ºã€‚\n"NOR, me, target);
                        weapon->unequip();
                         weapon->move(environment(target));
                         target->start_busy(1);
-                       me->start_perform(5,"¡¸ÌúÕÆÇÜÄÃÊÖ¡¹");
+                       me->start_perform(5,"ã€Œé“æŒæ“’æ‹¿æ‰‹ã€");
                 }
                 else
                 {
-                        message_vision( HIM"\nÔõÁÏ$nÎä¹¦Êâ·Ç·º·º£¬Ò»¾ªÖ®ÏÂ£¬×¥×¡" + weapon->name() + HIM"²»·Å£¬Äã¾¹Ã»ÓĞ¶áµ½£¡\n"NOR, me, target);
+                        message_vision( HIM"\næ€æ–™$næ­¦åŠŸæ®Šéæ³›æ³›ï¼Œä¸€æƒŠä¹‹ä¸‹ï¼ŒæŠ“ä½" + weapon->name() + HIM"ä¸æ”¾ï¼Œä½ ç«Ÿæ²¡æœ‰å¤ºåˆ°ï¼\n"NOR, me, target);
                         me->start_busy(1);
-                       me->start_perform(3,"¡¸ÌúÕÆÇÜÄÃÊÖ¡¹");
+                       me->start_perform(3,"ã€Œé“æŒæ“’æ‹¿æ‰‹ã€");
               }
                 return 1;
         }
-        // Èç¹û¶ÔÊÖ²»ÊÇÓÃµÄ±øÆ÷µÄ»° ,×¥¶Ô·½ÂöÃÅ,busy
+        // å¦‚æœå¯¹æ‰‹ä¸æ˜¯ç”¨çš„å…µå™¨çš„è¯ ,æŠ“å¯¹æ–¹è„‰é—¨,busy
            if (random(me->query_con()) > target->query_con()/2 ){
-           message_vision(HIW"\n$nÉÁÉí¼±±Ü£¬ÔõÁÏ$NË«ÕÆÓÌÈç¸½¹ÇÖ®ÇùÒ»°ã£¬Ò»¸ö²»²ì£¬ÂöÃÅÒªÑ¨ÒÑ±»$NËÀËÀÄÃ×¡¡£\n"NOR, me, target);
+           message_vision(HIW"\n$né—ªèº«æ€¥é¿ï¼Œæ€æ–™$NåŒæŒçŠ¹å¦‚é™„éª¨ä¹‹è›†ä¸€èˆ¬ï¼Œä¸€ä¸ªä¸å¯Ÿï¼Œè„‰é—¨è¦ç©´å·²è¢«$Næ­»æ­»æ‹¿ä½ã€‚\n"NOR, me, target);
            target->add_busy(2+random(3));
-           me->start_perform(5,"¡¸ÌúÕÆÇÜÄÃÊÖ¡¹");
+           me->start_perform(5,"ã€Œé“æŒæ“’æ‹¿æ‰‹ã€");
                }
         else{
-           message_vision( HIM"\n$nÒÑÓĞ·À±¸£¬ÖªÄãÊÖÕÆÀ÷º¦£¬²»¸ÒÓ²½Ó£¬ÃÍµØÀïÉíĞÎ¼±×ª£¬ºóÍËÊı²½¡£\n"NOR, me, target);
+           message_vision( HIM"\n$nå·²æœ‰é˜²å¤‡ï¼ŒçŸ¥ä½ æ‰‹æŒå‰å®³ï¼Œä¸æ•¢ç¡¬æ¥ï¼ŒçŒ›åœ°é‡Œèº«å½¢æ€¥è½¬ï¼Œåé€€æ•°æ­¥ã€‚\n"NOR, me, target);
            me->start_busy(1);
-           me->start_perform(3,"¡¸ÌúÕÆÇÜÄÃÊÖ¡¹");
+           me->start_perform(3,"ã€Œé“æŒæ“’æ‹¿æ‰‹ã€");
         }
                 return 1;
 

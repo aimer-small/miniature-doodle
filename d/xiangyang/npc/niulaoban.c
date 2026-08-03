@@ -1,4 +1,4 @@
-// niulaoban.c Å£ÀÏ°å
+// niulaoban.c ç‰›è€æ¿
 
 inherit NPC;
 inherit F_VENDOR;
@@ -6,11 +6,11 @@ inherit F_VENDOR;
 
 void create()
 {
-        set_name("Å£ÀÏ°å", ({ "niu laoban", "laoban", "niu" }));
+        set_name("ç‰›è€æ¿", ({ "niu laoban", "laoban", "niu" }));
         set("shen_type", 1);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 56);
-        set("long", "Å£ÀÏ°åÕı¶¢×ÅÄã¿´£¬²»ÖªµÀ´òĞ©Ê²Ã´Ö÷Òâ¡£\n");
+        set("long", "ç‰›è€æ¿æ­£ç›¯ç€ä½ çœ‹ï¼Œä¸çŸ¥é“æ‰“äº›ä»€ä¹ˆä¸»æ„ã€‚\n");
         set_skill("unarmed", 100);
         set_skill("dodge", 100);
         set_temp("apply/damage", 100);

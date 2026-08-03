@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("Îâ°ØÓ¢", ({ "wu baiying", "wu", "baiying"}));
-        set("long", "ÕâÅ®×Ó¼¡·ôÎ¢ºÚ£¬Ë«ÑÛ¼«Ğ¡£¬ºÚÈçµãÆá¡£\n");
-        set("nickname","Í©°ØË«Ææ");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "HIW"°×»¢ÌÃ¶æÖ÷"NOR);
-        set("gender", "Å®ĞÔ");
+        set_name("å´æŸè‹±", ({ "wu baiying", "wu", "baiying"}));
+        set("long", "è¿™å¥³å­è‚Œè‚¤å¾®é»‘ï¼ŒåŒçœ¼æå°ï¼Œé»‘å¦‚ç‚¹æ¼†ã€‚\n");
+        set("nickname","æ¡æŸåŒå¥‡");
+        set("title",HIY"æ—¥æœˆç¥æ•™  "HIW"ç™½è™å ‚èˆµä¸»"NOR);
+        set("gender", "å¥³æ€§");
         set("age", 30);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -42,7 +42,7 @@ void create()
 	map_skill("parry", "tianmo-dao");
 	map_skill("hand", "tianmo-shou");
 	prepare_skill("hand", "tianmo-shou");
-	create_family("ÈÕÔÂÉñ½Ì",9,"µÜ×Ó");
+	create_family("æ—¥æœˆç¥æ•™",9,"å¼Ÿå­");
 
 
         setup();

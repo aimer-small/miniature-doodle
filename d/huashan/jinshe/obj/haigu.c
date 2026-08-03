@@ -15,14 +15,14 @@ void init()
 
 void create()
 {
-       set_name("º¡¹Ç", ({"haigu","skeleton"}) );
+       set_name("éª¸éª¨", ({"haigu","skeleton"}) );
        set_weight(10000);
        set_max_encumbrance(6000000);
        if( clonep() )
                set_default_object(__FILE__);
        else{
-       set("unit", "¾ß");
-       set("long", "Õâ¸±º¡¹ÇÌÉÔÚÕâÀïÒÑ¾­ºÜ¾ÃÁË¡£\n");
+       set("unit", "å…·");
+       set("long", "è¿™å‰¯éª¸éª¨èººåœ¨è¿™é‡Œå·²ç»å¾ˆä¹…äº†ã€‚\n");
        set("value", 0);
        set("material","wood");
        set("no_get",1);

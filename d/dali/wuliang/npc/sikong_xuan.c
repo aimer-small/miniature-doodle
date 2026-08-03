@@ -1,11 +1,11 @@
-// NPC :sikong_xuan.c Ë¾¿ÕĞş
+// NPC :sikong_xuan.c å¸ç©ºç„
 // By River 98/12
 inherit NPC;
 void create()
 {
-        set_name("Ë¾¿ÕĞş", ({ "sikong xuan", "sikong", "xuan"}));
-        set("title","ÉñÅ©°ï°ïÖ÷"); 
-        set("gender", "ÄĞĞÔ" );
+        set_name("å¸ç©ºç„", ({ "sikong xuan", "sikong", "xuan"}));
+        set("title","ç¥å†œå¸®å¸®ä¸»"); 
+        set("gender", "ç”·æ€§" );
         set("age", 56);
         set("str", 27);
         set("con", 23);
@@ -23,7 +23,7 @@ void create()
         set("jiali", 40);
         set("unique", 1);
         
-        set("long","ËûÊÇÉñÅ©°ï°ïÖ÷£¬ò¤ÏÂÒ»°ÑÉ½Ñòºú×Ó£¬ÉñÌ¬ÉõÊÇÙÆ°Á¡£\n");
+        set("long","ä»–æ˜¯ç¥å†œå¸®å¸®ä¸»ï¼Œé¢ä¸‹ä¸€æŠŠå±±ç¾Šèƒ¡å­ï¼Œç¥æ€ç”šæ˜¯å€¨å‚²ã€‚\n");
         set("combat_exp", 400000);
         set("shen", -1000); 
 

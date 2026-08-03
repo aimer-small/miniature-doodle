@@ -8,26 +8,26 @@ int ask_songhua();
 int do_song(string arg);
 void create()
 {
-                  set_name("×ÏÖñ", ({ "zi zhu", "zi" ,"zhu" }));
+                  set_name("ç´«ç«¹", ({ "zi zhu", "zi" ,"zhu" }));
                   
                   set("shen_type", 1);
-                  set("title",HIM"»¨µêÀÏ°å"NOR);
+                  set("title",HIM"èŠ±åº—è€æ¿"NOR);
                   set("no_get", 1);
         	  set("no_bark", 1);
         	  set("job_npc", 1);
         	  set("no_ansuan", 1);
 
 
-                  set("gender", "Å®ĞÔ");
+                  set("gender", "å¥³æ€§");
                   set("per", 30);
                   set("age", 15);
                   set("long",
-"ËıÊÇÕâÀïµÄÂô»¨Å®£¬Ö»¼ûÆäº¬Ğ¦Èç´ºÌÒ£¬Óñ´½º¬Ïã,ÏËÏËÏ¸Ñü,æ¹ÄÈ¶à×Ë£¬
-Ëä´Ö²¼»¨ÒÂ£¬µ«²»ÑÚÆäÇåĞã£¬ÊµÄËÈË¼ä¾øÉ«¡£\n"
+"å¥¹æ˜¯è¿™é‡Œçš„å–èŠ±å¥³ï¼Œåªè§å…¶å«ç¬‘å¦‚æ˜¥æ¡ƒï¼Œç‰å”‡å«é¦™,çº¤çº¤ç»†è…°,å©€å¨œå¤šå§¿ï¼Œ
+è™½ç²—å¸ƒèŠ±è¡£ï¼Œä½†ä¸æ©å…¶æ¸…ç§€ï¼Œå®ä¹ƒäººé—´ç»è‰²ã€‚\n"
 );
                   set("attitude", "friendly");
                   set("inquiry", ([
-                                "ËÍ»¨" : (: ask_songhua :),
+                                "é€èŠ±" : (: ask_songhua :),
 				"songhua" : (:ask_songhua :),
                   ]));
 
@@ -69,12 +69,12 @@ void create()
 int do_full_flower()
 {
    
-	 tell_room(environment(), "\n¼¸¸ö»¨½³Ìá×ÅÏÊ»¨×ßÁË½øÀ´¡£\n");
-	 tell_room(environment(), "¡°àË£¡×ÏÖñ£¬ÎÒÃÇ¸øÄãËÍÏÊ»¨À´ÁË¡£¡±´øÍ·µÄÄÇ¸ö»¨½³¶Ô×ÏÖñ´òÕĞºô¡£\n");
-	 tell_room(environment(), "¡°×ÏÖñÏ²ÉùµÀ£º¡°Ğ»Ğ»»¨½³ÊåÊå£¬·ÅÔÚºóÃæµÄ»¨ÊÒÀï°É¡£¡±\n");
- 	 tell_room(environment(), "»¨½³ÃÇ×ß¹ıÈ¥½«»¨·ÅÖÃºÃ¡£\n");
-	 tell_room(environment(), "»¨½³ÃÇ×ßÁË³öÀ´¶Ô×ÏÖñËµµÀ£º¡°»¨·ÅºÃÁË£¬ÎÒÃÇÏÂ´ÎÔÙÀ´¡£¡±\n");
-	 tell_room(environment(), "»¨½³ÃÇ×ßÁË³öÈ¥¡£\n");
+	 tell_room(environment(), "\nå‡ ä¸ªèŠ±åŒ æç€é²œèŠ±èµ°äº†è¿›æ¥ã€‚\n");
+	 tell_room(environment(), "â€œå—¨ï¼ç´«ç«¹ï¼Œæˆ‘ä»¬ç»™ä½ é€é²œèŠ±æ¥äº†ã€‚â€å¸¦å¤´çš„é‚£ä¸ªèŠ±åŒ å¯¹ç´«ç«¹æ‰“æ‹›å‘¼ã€‚\n");
+	 tell_room(environment(), "â€œç´«ç«¹å–œå£°é“ï¼šâ€œè°¢è°¢èŠ±åŒ å”å”ï¼Œæ”¾åœ¨åé¢çš„èŠ±å®¤é‡Œå§ã€‚â€\n");
+ 	 tell_room(environment(), "èŠ±åŒ ä»¬èµ°è¿‡å»å°†èŠ±æ”¾ç½®å¥½ã€‚\n");
+	 tell_room(environment(), "èŠ±åŒ ä»¬èµ°äº†å‡ºæ¥å¯¹ç´«ç«¹è¯´é“ï¼šâ€œèŠ±æ”¾å¥½äº†ï¼Œæˆ‘ä»¬ä¸‹æ¬¡å†æ¥ã€‚â€\n");
+	 tell_room(environment(), "èŠ±åŒ ä»¬èµ°äº†å‡ºå»ã€‚\n");
 
 	set("vendor_goods", ({
            (["name":__DIR__"obj/flower/red_rose","number":99]),
@@ -105,9 +105,9 @@ int do_full_flower()
 private void go_home()
 {
 	if( !living(this_object()) ) return;
-        message_vision("$NÉñÉ«»ÅÕÅµØÀë¿ªÁË¡£\n", this_object());
+        message_vision("$Nç¥è‰²æ…Œå¼ åœ°ç¦»å¼€äº†ã€‚\n", this_object());
         this_object()->move("/d/city/huadian");
-	message_vision("$N¿ì²½×ßÁË¹ıÀ´¡£\n", this_object());
+	message_vision("$Nå¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n", this_object());
 }
 	
 
@@ -175,9 +175,9 @@ int do_check_flower()
 int ask_songhua()
 {
         object ob = this_player();        
-        write(CYN"×ÏÖñÇ·ÉíËµµ½£º¡°¸ĞĞ»" + RANK_D->query_respect(ob) + "¹âÁÙĞ¡µê£¬ÄúÏÈÔÚÕâÀï½«»¨ÂòºÃ£¬È»ºó¸æËßĞ¡Å®ÒªËÍ¸øË­£¬Ğ¡Å®Ò»¶¨ÎªÄúËÍµ½¡£\n"
-			  "ËÍ»¨¸ñÊ½£º(song »¨Ãû to Íæ¼ÒID)¡±\n"
-			  "ÎÒÃÇ»¨µêÊÕ·Ñ¹æÔòÊÇ£ºÃ¿Ò»¶ä»¨ÊÕÈ¡Ò»¶§»Æ½ğµÄËÍ»¨·Ñ¡£¡±\n"NOR);
+        write(CYN"ç´«ç«¹æ¬ èº«è¯´åˆ°ï¼šâ€œæ„Ÿè°¢" + RANK_D->query_respect(ob) + "å…‰ä¸´å°åº—ï¼Œæ‚¨å…ˆåœ¨è¿™é‡Œå°†èŠ±ä¹°å¥½ï¼Œç„¶åå‘Šè¯‰å°å¥³è¦é€ç»™è°ï¼Œå°å¥³ä¸€å®šä¸ºæ‚¨é€åˆ°ã€‚\n"
+			  "é€èŠ±æ ¼å¼ï¼š(song èŠ±å to ç©å®¶ID)â€\n"
+			  "æˆ‘ä»¬èŠ±åº—æ”¶è´¹è§„åˆ™æ˜¯ï¼šæ¯ä¸€æœµèŠ±æ”¶å–ä¸€é”­é»„é‡‘çš„é€èŠ±è´¹ã€‚â€\n"NOR);
 
                 
                 return 1;
@@ -190,39 +190,39 @@ int do_song(string arg)
 	string flower_name,who;
 	me=this_player();
     	if( !arg || sscanf(arg, "%s to %s", flower_name, who)!=2 )
-		return notify_fail("ÄãÒªËÍÊ²Ã´»¨¸øË­£¿\n");
+		return notify_fail("ä½ è¦é€ä»€ä¹ˆèŠ±ç»™è°ï¼Ÿ\n");
 	
 	if(!FINGER_D->acquire_login_ob(who))
-		  return notify_fail("ÕâÀïÓĞÕâ¸öÈËÂğ£¿\n");
+		  return notify_fail("è¿™é‡Œæœ‰è¿™ä¸ªäººå—ï¼Ÿ\n");
 	 ob_flower=present(flower_name,me);
      	if(!ob_flower)
-        return notify_fail("ÄãÉíÉÏºÃÏñ²¢Ã»ÓĞÕâÖÖÎïÆ·£¿\n");
+        return notify_fail("ä½ èº«ä¸Šå¥½åƒå¹¶æ²¡æœ‰è¿™ç§ç‰©å“ï¼Ÿ\n");
         if (flower_name == "mms")
-        return notify_fail(HIR"£Í"HIY"£¦"HIB"£Í"HIW"'"HIG"£ó"NOR"ÊÇ³ÔµÄ¶«Î÷£¬±¾µêÔİÊ±²»ÔËËÍ¡£\n");
+        return notify_fail(HIR"ï¼­"HIY"ï¼†"HIB"ï¼­"HIW"'"HIG"ï½“"NOR"æ˜¯åƒçš„ä¸œè¥¿ï¼Œæœ¬åº—æš‚æ—¶ä¸è¿é€ã€‚\n");
 	if(!ob_flower->query("flower_w"))
-        return notify_fail("¶Ô²»Æğ£¡ÎÒÃÇÕâÀï²»¸ºÔğËÍÕâ¸ö¡£\n");
+        return notify_fail("å¯¹ä¸èµ·ï¼æˆ‘ä»¬è¿™é‡Œä¸è´Ÿè´£é€è¿™ä¸ªã€‚\n");
 	if(me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
 
 		if(!send_flower=new("/clone/misc/flower"))
-			return notify_fail("/clone/misc/flower³õÊ¼»¯´íÎó,ºÍÎ×Ê¦ÁªÏµ\n");
+			return notify_fail("/clone/misc/floweråˆå§‹åŒ–é”™è¯¯,å’Œå·«å¸ˆè”ç³»\n");
 		send_flower->set_owner(who);
 
 		if(send_flower->query("flowername")==flower_name)
 		  {
 			  command("hmm ");
-			  return notify_fail("¶Ô²»Æğ£¬ÎÒ»¹Ã»½«ÄúÉÏ´ÎµÄ»¨ËÍµ½ÄØ£¬ÇëÄúÉÔºóÔÙÀ´°É¡£\n");
+			  return notify_fail("å¯¹ä¸èµ·ï¼Œæˆ‘è¿˜æ²¡å°†æ‚¨ä¸Šæ¬¡çš„èŠ±é€åˆ°å‘¢ï¼Œè¯·æ‚¨ç¨åå†æ¥å§ã€‚\n");
 		  }
 		
 		if(send_flower->query("from")==(me->name(1) + "(" + me->query("id") + ")"))
 		  {
 			  command("hmm ");
-			  return notify_fail("¶Ô²»Æğ£¬ÎÒ»¹Ã»½«ÄúÉÏ´ÎµÄ»¨ËÍµ½ÄØ£¬ÇëÄúÉÔºóÔÙÀ´°É¡£\n");
+			  return notify_fail("å¯¹ä¸èµ·ï¼Œæˆ‘è¿˜æ²¡å°†æ‚¨ä¸Šæ¬¡çš„èŠ±é€åˆ°å‘¢ï¼Œè¯·æ‚¨ç¨åå†æ¥å§ã€‚\n");
 		  }
 
 		/////////////////////////////////////////////////////////////////////////////////
-		//******************************ÊÕ·Ñ*******************************************//
+		//******************************æ”¶è´¹*******************************************//
 		if(ob_flower->query_amount()<10)
 			money_amount=10;
 		else
@@ -239,12 +239,12 @@ int do_song(string arg)
 		{
 	        case 0:  
 	        	destruct(send_flower);		
-			return notify_fail("ÄúºÃÏñÃ»ÓĞ×ã¹»µÄÒøÁ½À´Ö§¸¶ËÍ»¨·ÑÓÃ¡£\n");
+			return notify_fail("æ‚¨å¥½åƒæ²¡æœ‰è¶³å¤Ÿçš„é“¶ä¸¤æ¥æ”¯ä»˜é€èŠ±è´¹ç”¨ã€‚\n");
             	case 2: 
             		destruct(send_flower);
-			return notify_fail("ÄúµÄÁãÇ®²»¹»ÁË£¬ÒøÆ±ÓÖÃ»ÈËÕÒµÃ¿ª¡£\n");
+			return notify_fail("æ‚¨çš„é›¶é’±ä¸å¤Ÿäº†ï¼Œé“¶ç¥¨åˆæ²¡äººæ‰¾å¾—å¼€ã€‚\n");
         	}
-		message_vision("$N¶Ô$nËµµÀ£º¡°Ã»ÎÊÌâ£¬´Ë´ÎËÍ»¨¹²ÊÕÄú"+MONEY_D->price_str(money_amount*10000)+"¡±¡£\n",this_object(),this_player());
+		message_vision("$Nå¯¹$nè¯´é“ï¼šâ€œæ²¡é—®é¢˜ï¼Œæ­¤æ¬¡é€èŠ±å…±æ”¶æ‚¨"+MONEY_D->price_str(money_amount*10000)+"â€ã€‚\n",this_object(),this_player());
 		////////////////////////////////////////////////////////////////////////////////
 		send_flower->set("flowername",ob_flower->query("name"));
 		send_flower->set("flower_id",ob_flower->query("id"));
@@ -265,8 +265,8 @@ int do_song(string arg)
 		send_flower->save();
 
 		
-		message_vision("$n½«ÉíÉÏµÄ"+ chinese_number(ob_flower->query_amount()) +ob_flower->query("unit")+flower["flowername"]+"ÄÃ³ö½»¸ø$N¡£\n",this_object(),this_player());
-		message_vision("$N¶Ô$nËµµÀ£º¡°ºÃ°É£¬Ğ¡Å®×Ó¶¨»á½«»¨ËÍµ½£¬°üÄúÂúÒâ¡£¡±\n",this_object(),this_player());
+		message_vision("$nå°†èº«ä¸Šçš„"+ chinese_number(ob_flower->query_amount()) +ob_flower->query("unit")+flower["flowername"]+"æ‹¿å‡ºäº¤ç»™$Nã€‚\n",this_object(),this_player());
+		message_vision("$Nå¯¹$nè¯´é“ï¼šâ€œå¥½å§ï¼Œå°å¥³å­å®šä¼šå°†èŠ±é€åˆ°ï¼ŒåŒ…æ‚¨æ»¡æ„ã€‚â€\n",this_object(),this_player());
 		
 		destruct(send_flower);
 		destruct(ob_flower);

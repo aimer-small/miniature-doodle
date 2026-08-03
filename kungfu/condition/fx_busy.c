@@ -5,11 +5,11 @@ int update_condition(object me, int duration)
 {
  if( duration < 1 ) return 0;
  if( !living(me) ) {
- message("vision", me->name() + "Í´¿àµØºßÁËÒ»Éù¡£\n", environment(me), me);
+ message("vision", me->name() + "ç—›è‹¦åœ°å“¼äº†ä¸€å£°ã€‚\n", environment(me), me);
  }
 else {
-tell_object(me, HIB "ºöÈ»Ò»¹ÉÒõÈáÖ®¼°µÄÄÚÁ¦ÔÚÄãÖÜÉí¾­ÂöÅÌÐýÉÏÏÂ£¬ÄãµÄÄÚÏ¢ÎÞ·¨µ÷Ë³£¡\n" NOR );
- message("vision", me->name() + "½Å²½õÔõÄ£¬¶¯µ¯²»µÃ¡£\n",
+tell_object(me, HIB "å¿½ç„¶ä¸€è‚¡é˜´æŸ”ä¹‹åŠçš„å†…åŠ›åœ¨ä½ å‘¨èº«ç»è„‰ç›˜æ—‹ä¸Šä¸‹ï¼Œä½ çš„å†…æ¯æ— æ³•è°ƒé¡ºï¼\n" NOR );
+ message("vision", me->name() + "è„šæ­¥è¸‰è·„ï¼ŒåŠ¨å¼¹ä¸å¾—ã€‚\n",
   environment(me), me);
    }
 me->add_busy(random(3)+2);

@@ -1,4 +1,4 @@
-// worker.c Å®¹¤
+// worker.c å¥³å·¥
 
 #include <ansi.h>
 inherit NPC;
@@ -26,10 +26,10 @@ switch (random(3)){
 	}
 	set_name(name, ({ "nv gong","nvgong","nv","gong"}));
 	set("age", random(30)+14);
-	set("gender", "Å®ĞÔ");
-	set("long", "Ëı¿´ÆğÀ´Ãæ»Æ¼¡Êİ£¬ÉíÌåµ¥±¡¡£Ò»¿´¾ÍÖªµÀÊÇÇî¿àÈË¡£\n");
+	set("gender", "å¥³æ€§");
+	set("long", "å¥¹çœ‹èµ·æ¥é¢é»„è‚Œç˜¦ï¼Œèº«ä½“å•è–„ã€‚ä¸€çœ‹å°±çŸ¥é“æ˜¯ç©·è‹¦äººã€‚\n");
 	set("attitude", "peaceful");
-        set("title","ÍÂŞ¬Ö¯Ôì×÷·»Å®¹¤");
+        set("title","åè•ƒç»‡é€ ä½œåŠå¥³å·¥");
 
 	set("str", 15);
 	set("dex", 10);

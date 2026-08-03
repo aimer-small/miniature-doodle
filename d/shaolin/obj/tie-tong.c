@@ -7,13 +7,13 @@ inherit F_LIQUID;
 
 void create()
 {
-	set_name("´óÌúÍ°", ({"tie tong", "tong"}));
+	set_name("å¤§é“æ¡¶", ({"tie tong", "tong"}));
 	set_weight(50000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»¶Ô´óÌúÍ°£¬±ÈÖ®Ñ°³£Ë®Í°´óÁËÁ½±¶ÓĞÓà£¬Ö»ÅÂÓĞ¶ş°Ù¶à½ïÖØ¡£\n");
-		set("unit", "¶Ô");
+		set("long", "ä¸€å¯¹å¤§é“æ¡¶ï¼Œæ¯”ä¹‹å¯»å¸¸æ°´æ¡¶å¤§äº†ä¸¤å€æœ‰ä½™ï¼Œåªæ€•æœ‰äºŒç™¾å¤šæ–¤é‡ã€‚\n");
+		set("unit", "å¯¹");
 		set("value", 100);
 		set("max_liquid", 10);
 		set("shaolin", 1);
@@ -22,7 +22,7 @@ void create()
 
 	set("liquid", ([ 
 		"type": "water",
-		"name": "ÇåË®",
+		"name": "æ¸…æ°´",
 		"drunk_supply": 10,
         ]));
 }
@@ -44,7 +44,7 @@ int do_fill(string arg)
 
 	if (!arg || !id(arg)) return 0;
 	if (base_name(environment(me)) != "/d/shaolin/fxjing") return 0;
-	message_vision("$N½«$n×°ÂúÇåË®¡£\n", me, this_object());
+	message_vision("$Nå°†$nè£…æ»¡æ¸…æ°´ã€‚\n", me, this_object());
 	set("liquid/remaining", query("max_liquid"));
 	return 1;
 }
@@ -56,20 +56,20 @@ int do_pour(string arg)
 	if (!arg || arg != "gang") return 0;
 	if (base_name(environment(me)) != "/d/shaolin/houdian") return 0;
 	if (!query("liquid/remaining")) {
-		message_vision("$NÄÃ×ÅÁ½Ö»¿ÕÌúÍ°¶Ô×Å´óË®¸×±È»®×Å¡£\n", me);
+		message_vision("$Næ‹¿ç€ä¸¤åªç©ºé“æ¡¶å¯¹ç€å¤§æ°´ç¼¸æ¯”åˆ’ç€ã€‚\n", me);
 		return 1;
 	}
 	if (query("liquid/remaining") < query("max_liquid")){
-		message_vision("$NÄÃ×ÅÁ½Ö»Ã»×°ÂúË®µÄÌúÍ°¶Ô×Å´óË®¸×±È»®×Å¡£\n", me);
+		message_vision("$Næ‹¿ç€ä¸¤åªæ²¡è£…æ»¡æ°´çš„é“æ¡¶å¯¹ç€å¤§æ°´ç¼¸æ¯”åˆ’ç€ã€‚\n", me);
 		return 1;
 	}
-	message_vision("$N½«ÇåË®µ¹Èë´óË®¸×ÖĞ¡£\n", me, this_object());
+	message_vision("$Nå°†æ¸…æ°´å€’å…¥å¤§æ°´ç¼¸ä¸­ã€‚\n", me, this_object());
 	me->add("jingli", -100);
 	me->improve_skill("shaolin-shenfa", 2*(me->query("dex")));
 	delete("liquid/remaining");
 	if (me->add("carry_count", -1) < 1){
 		me->delete("carry_count");
-		message_vision("$N¸ÉÍê»î£¬¶ªÏÂÁÍîíºÍÌúÍ°£¬ÉìÁË¸öÀÁÑü¡£\n", me);
+		message_vision("$Nå¹²å®Œæ´»ï¼Œä¸¢ä¸‹é•£é“å’Œé“æ¡¶ï¼Œä¼¸äº†ä¸ªæ‡’è…°ã€‚\n", me);
 		if (present("liao kao", me)) destruct(present("liao kao", me));
 		destruct(this_object());
 	}
@@ -84,32 +84,32 @@ int do_jiao(string arg)
 	
 	if(!ob) return 0;
 
-	if (!arg || arg != "²Ë") return 0;
+	if (!arg || arg != "èœ") return 0;
 	if (base_name(environment(me))[0..14] != "/d/shaolin/cyzi") return 0;
 	if (!me->query_temp("jiaoshui_job")) return 0;
 	if ( me->is_busy() || me->is_fighting()) 
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if (!ob->query("liquid/remaining")) {
-		message_vision("$NÄÃ×ÅÁ½Ö»¿ÕÌúÍ°¶Ô×Å²ËµØ±È»®×Å¡£\n", me);
+		message_vision("$Næ‹¿ç€ä¸¤åªç©ºé“æ¡¶å¯¹ç€èœåœ°æ¯”åˆ’ç€ã€‚\n", me);
 		return 1;
 	}
 	if (ob->query("liquid/remaining") < query("max_liquid")){
-		message_vision("$NÄÃ×ÅÁ½Ö»Ã»×°ÂúË®µÄÌúÍ°¶Ô×Å²ËµØ±È»®×Å¡£\n", me);
+		message_vision("$Næ‹¿ç€ä¸¤åªæ²¡è£…æ»¡æ°´çš„é“æ¡¶å¯¹ç€èœåœ°æ¯”åˆ’ç€ã€‚\n", me);
 		return 1;
 	}
-	message_vision("$N½«Í°ÀïµÄÇåË®Ò»Æ°Æ°µØ½½ÔÚ²ËµØÀï¡£\n", me);
+	message_vision("$Nå°†æ¡¶é‡Œçš„æ¸…æ°´ä¸€ç“¢ç“¢åœ°æµ‡åœ¨èœåœ°é‡Œã€‚\n", me);
 	me->add_busy(1);
 	me->add("jingli", -50);
 	delete("liquid/remaining");
 	if (me->add_temp("jiaoshui_job", 1) > 10 + random(4)){
 		me->delete_temp("jiaoshui_job");
-		message_vision("$N¸ÉÍê»î£¬¶ªÏÂÌúÍ°£¬ÉìÁË¸öÀÁÑü¡£\n", me);
+		message_vision("$Nå¹²å®Œæ´»ï¼Œä¸¢ä¸‹é“æ¡¶ï¼Œä¼¸äº†ä¸ªæ‡’è…°ã€‚\n", me);
 		pot = 20 + random(5);		
 		exp = 60 + random(me->query_skill("buddhism"))/2;
-		exp = me->add_exp_combat(exp,"Ôµ¸ù","ÉÙÁÖ²ËµØ");
+		exp = me->add_exp_combat(exp,"ç¼˜æ ¹","å°‘æ—èœåœ°");
 		//me->add("combat_exp",exp);
-		//me->add("job_time/ÉÙÁÖ²ËµØ",1);
-		//GIFT_D->check_count(me,"Ôµ¸ù","ÉÙÁÖ²ËµØ");				
+		//me->add("job_time/å°‘æ—èœåœ°",1);
+		//GIFT_D->check_count(me,"ç¼˜æ ¹","å°‘æ—èœåœ°");				
 		me->add("potential",pot);		
 		if( me->query("potential")>me->query("max_pot"))
 			me->set("potential",me->query("max_pot"));

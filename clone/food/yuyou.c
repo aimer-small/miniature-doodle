@@ -1,17 +1,17 @@
-// yuyou.c ÓãÓÍ
+// yuyou.c é±¼æ²¹
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-	set_name("ÓãÓÍ", ({"yu you", "yuyou","you"}));
+	set_name("é±¼æ²¹", ({"yu you", "yuyou","you"}));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»¿éĞÂÏÊµÄÓãÓÍ£¬»ÆÉ«¶ø°ëÍ¸Ã÷£¬È¡×ÔÓÚÔÚº®ÀäË®ÓòÖĞÉú»îµÄÓãÉíÉÏ¡£\n");
-		set("unit", "¿é");
+		set("long", "ä¸€å—æ–°é²œçš„é±¼æ²¹ï¼Œé»„è‰²è€ŒåŠé€æ˜ï¼Œå–è‡ªäºåœ¨å¯’å†·æ°´åŸŸä¸­ç”Ÿæ´»çš„é±¼èº«ä¸Šã€‚\n");
+		set("unit", "å—");
 		set("value", 200);
 		set("food_remaining", 1);
 		set("food_supply", 60);
@@ -28,11 +28,11 @@ int do_eat(string arg)
         object me = this_player();
         object ob = this_object();
         if( !arg || arg != "yu you" || arg == "")
-             return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+             return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         if( arg == "yuyou" || "yu you" || "you") 
     {
         message_vision(
-        "$NÖ»¾õµÄÓãÓÍ»¬ÁïÎŞ±È£¬ßêÁïÒ»ÏÂ¾ÍÑÊÁËÏÂÈ¥£¬\n$NßÆÁËßÆ×ì£¬Ö»¾õµÃÒ»Ë¿Å¯Òâ´Ó¸¹ÖĞÉıÁËÆğÀ´¡£\n",this_player());
+        "$Nåªè§‰çš„é±¼æ²¹æ»‘æºœæ— æ¯”ï¼Œå“§æºœä¸€ä¸‹å°±å’½äº†ä¸‹å»ï¼Œ\n$Nå’‚äº†å’‚å˜´ï¼Œåªè§‰å¾—ä¸€ä¸æš–æ„ä»è…¹ä¸­å‡äº†èµ·æ¥ã€‚\n",this_player());
         me->add("neili", 100);
         destruct(ob);
         return 1;
@@ -43,11 +43,11 @@ int do_chi(string arg)
         object me = this_player();
         object ob = this_object();
         if( !arg || arg != "yu you" ||  arg == "")
-             return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+             return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         if( arg == "yuyou" || "yu you" || "you") 
     {
         message_vision(
-        "$NÖ»¾õµÄÓãÓÍ»¬ÁïÎŞ±È£¬ßêÁïÒ»ÏÂ¾ÍÑÊÁËÏÂÈ¥£¬\n$NßÆÁËßÆ×ì£¬Ö»¾õµÃÒ»Ë¿Å¯Òâ´Ó¸¹ÖĞÉıÁËÆğÀ´¡£\n",this_player());
+        "$Nåªè§‰çš„é±¼æ²¹æ»‘æºœæ— æ¯”ï¼Œå“§æºœä¸€ä¸‹å°±å’½äº†ä¸‹å»ï¼Œ\n$Nå’‚äº†å’‚å˜´ï¼Œåªè§‰å¾—ä¸€ä¸æš–æ„ä»è…¹ä¸­å‡äº†èµ·æ¥ã€‚\n",this_player());
         me->add("neili", 100);
         destruct(ob);
         return 1;

@@ -7,24 +7,24 @@ int exert(object me)
 {
 	int i;
 	if (me->is_fighting())
-		return notify_fail("Õ½¶·ÖĞÔË¹¦ÁÆÉË£¿ÕÒËÀÂğ£¿\n");
+		return notify_fail("æˆ˜æ–—ä¸­è¿åŠŸç–—ä¼¤ï¼Ÿæ‰¾æ­»å—ï¼Ÿ\n");
 
 	if ((int)me->query_skill("longxiang-boruo", 1) < 100)
-		return notify_fail("ÄãµÄÄÚ¹¦ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if ((int)me->query_skill("medicine", 1) < 80)
-		return notify_fail("ÄãµÄ±¾²İÊõÀíĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„æœ¬è‰æœ¯ç†ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("neili") < 1000 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("eff_qi") >= (int)me->query("max_qi"))
-		return notify_fail("Ã»ÊÜÉËÁÆÊ²Ã´ÉË£¿\n");
+		return notify_fail("æ²¡å—ä¼¤ç–—ä»€ä¹ˆä¼¤ï¼Ÿ\n");
 
 	if (me->query("eff_qi")+me->query_temp("apply/qi") < ((me->query("max_qi") + me->query_temp("apply/qi"))/4))
-		return notify_fail("ÄãÒÑ¾­ÊÜÉË¹ıÖØ£¬¾­ÊÜ²»ÆğÕæÆøÕğµ´£¡\n");
+		return notify_fail("ä½ å·²ç»å—ä¼¤è¿‡é‡ï¼Œç»å—ä¸èµ·çœŸæ°”éœ‡è¡ï¼\n");
 
-	message_vision(HIW"$NÊÕõæĞÄÉñ£¬ÆÁÏ¢¾²Æø£¬»º»º¿ªÊ¼ÔË¹¦ÁÆÉË¡£\n"NOR,me);
+	message_vision(HIW"$Næ”¶è¹‘å¿ƒç¥ï¼Œå±æ¯é™æ°”ï¼Œç¼“ç¼“å¼€å§‹è¿åŠŸç–—ä¼¤ã€‚\n"NOR,me);
 
 	i = me->query("max_qi");
 	i -= me->query("eff_qi");
@@ -39,8 +39,8 @@ int exert(object me)
 		me->start_busy(i);
 		return 1;
 	}
-	message_vision(HIW"$N³¤ÎüÒ»¿ÚÆø£¬¾«Éñ¶¶ËÓµÄÕ¾ÁËÆğÀ´¡£\n"NOR, me);
-	me->start_exert(1, "¾ÛÑª");
+	message_vision(HIW"$Né•¿å¸ä¸€å£æ°”ï¼Œç²¾ç¥æŠ–æ“çš„ç«™äº†èµ·æ¥ã€‚\n"NOR, me);
+	me->start_exert(1, "èšè¡€");
 	me->start_busy(random(2));
 	return 1;
 }
@@ -51,8 +51,8 @@ void heal_done(object me, int count)
 	if( me->is_fighting() 
 	|| count < 0
 	|| me->query("neili") < 200) {
-		message_vision(HIW"$N³¤ÎüÒ»¿ÚÆø£¬¾«Éñ¶¶ËÓµÄÕ¾ÁËÆğÀ´¡£\n"NOR, me);
-		me->start_exert(1, "¾ÛÑª");
+		message_vision(HIW"$Né•¿å¸ä¸€å£æ°”ï¼Œç²¾ç¥æŠ–æ“çš„ç«™äº†èµ·æ¥ã€‚\n"NOR, me);
+		me->start_exert(1, "èšè¡€");
 		me->start_busy(-1);
 		me->start_busy(random(2));
 		return;
@@ -63,16 +63,16 @@ void heal_done(object me, int count)
 	call_out("heal_done", 1, me, count -1);
 }
 
-string exert_name(){ return HIW"¾ÛÑª"NOR; }
+string exert_name(){ return HIW"èšè¡€"NOR; }
 
 int help(object me)
 {
-        write(HIW"\nÁúÏó°ãÈô¹¦Ö®¡¸¾ÛÑª¡¹£º"NOR"\n\n");
+        write(HIW"\né¾™è±¡èˆ¬è‹¥åŠŸä¹‹ã€Œèšè¡€ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1000 ÒÔÉÏ£»
-                ±¾²İÊõÀíµÈ¼¶ 80 ÒÔÉÏ£»
-                ÁúÏó°ãÈô¹¦µÈ¼¶ 100 ÒÔÉÏ£»
-                ÊÜÉËºóµÄÆøÉÏÏŞ²»Ğ¡ÓÚÔ­ÆøÉÏÏŞµÄ 25%¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1000 ä»¥ä¸Šï¼›
+                æœ¬è‰æœ¯ç†ç­‰çº§ 80 ä»¥ä¸Šï¼›
+                é¾™è±¡èˆ¬è‹¥åŠŸç­‰çº§ 100 ä»¥ä¸Šï¼›
+                å—ä¼¤åçš„æ°”ä¸Šé™ä¸å°äºåŸæ°”ä¸Šé™çš„ 25%ã€‚
 
 HELP
         );

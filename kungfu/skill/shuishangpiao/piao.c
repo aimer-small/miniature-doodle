@@ -1,4 +1,4 @@
-//piao.c Æ®
+//piao.c é£˜
 //BY BOBO@SJ
 // modified by darken@SJ
 
@@ -7,7 +7,7 @@
 
 inherit F_SSERVER;
 
-string perform_name(){ return HIC"Ë®ÉÏÆ®"NOR; }
+string perform_name(){ return HIC"æ°´ä¸Šé£˜"NOR; }
 
 void remove_effect(object me, int improve);
 
@@ -17,31 +17,31 @@ int perform(object me)
       int improve;
       
       if( (int)me->query_skill("shuishangpiao",1) < 140 )
-           return notify_fail("ÄãµÄË®ÉÏÆ®²»¹»æµÊì£¬²»»áÊ¹ÓÃ¡¸Æ®¡¹£¡\n");
+           return notify_fail("ä½ çš„æ°´ä¸Šé£˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ã€Œé£˜ã€ï¼\n");
 
       if( (int)me->query_skill("guiyuan-tunafa",1) < 140 )
-           return notify_fail("ÄãµÄ¹éÔªÍÂÄÉ·¨µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸Æ®¡¹£¡\n");  
+           return notify_fail("ä½ çš„å½’å…ƒåçº³æ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œé£˜ã€ï¼\n");  
 
       if (me->query_skill_mapped("force") != "guiyuan-tunafa")
-           return notify_fail("ÄãµÄÄÚ¹¦²»¶Ô£¬²»ÄÜÊ¹ÓÃ¡¸Æ®¡¹¡£\n");
+           return notify_fail("ä½ çš„å†…åŠŸä¸å¯¹ï¼Œä¸èƒ½ä½¿ç”¨ã€Œé£˜ã€ã€‚\n");
 
       if( (int)me->query_dex() < 28 )
-           return notify_fail("ÄãµÄÉí·¨Ì«µÍ£¬²»ÄÜÊ¹ÓÃ¡¸Æ®¡¹£¡\n");
+           return notify_fail("ä½ çš„èº«æ³•å¤ªä½ï¼Œä¸èƒ½ä½¿ç”¨ã€Œé£˜ã€ï¼\n");
       
       if( (int)me->query_skill("dodge", 1) < 120 )
-           return notify_fail("ÄãµÄ»ù±¾Çá¹¦Ì«²î£¬ÉíÌå±¿×¾£¬²»ÄÜÊ¹ÓÃ¡¸Æ®¡¹£¡\n");
+           return notify_fail("ä½ çš„åŸºæœ¬è½»åŠŸå¤ªå·®ï¼Œèº«ä½“ç¬¨æ‹™ï¼Œä¸èƒ½ä½¿ç”¨ã€Œé£˜ã€ï¼\n");
       
       if( (int)me->query("neili") < 400 )
-           return notify_fail("ÄãµÄÄÚÁ¦Ì«ÉÙÁË£¬ÎŞ·¨Ê¹ÓÃ³ö¡¸Æ®¡¹£¡\n");   
+           return notify_fail("ä½ çš„å†…åŠ›å¤ªå°‘äº†ï¼Œæ— æ³•ä½¿ç”¨å‡ºã€Œé£˜ã€ï¼\n");   
     
       if (me->query_skill_mapped("dodge") != "shuishangpiao")
-           return notify_fail("ÄãÏÖÔÚ¼¤·¢µÄÇá¹¦ÎŞ·¨ÓÃ¡¸Æ®¡¹¾ø¼¼¡£\n");
+           return notify_fail("ä½ ç°åœ¨æ¿€å‘çš„è½»åŠŸæ— æ³•ç”¨ã€Œé£˜ã€ç»æŠ€ã€‚\n");
 
       if( me->query_temp("piao"))
-           return notify_fail("ÄãÕıÔÚÊ¹ÓÃË®ÉÏÆ®µÄÌØÊâ·ÀÓù¡¸Æ®¡¹£¡\n");
+           return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨æ°´ä¸Šé£˜çš„ç‰¹æ®Šé˜²å¾¡ã€Œé£˜ã€ï¼\n");
        
-      msg = HIC"$NÍ»È»ÉîÎüÒ»¿ÚÆø£¬Ë«Ä¿¾«¹âÒ»ÉÁ£¬Ò»Ì§ÍÈÈçòßòÑµãË®°ã£¬ÉíÌåÇáÇáÆ®³öÊıÕÉ" +
-               "ÓÖÇáÇáÆ®ÁË¹ıÀ´£¡\n" NOR;
+      msg = HIC"$Nçªç„¶æ·±å¸ä¸€å£æ°”ï¼ŒåŒç›®ç²¾å…‰ä¸€é—ªï¼Œä¸€æŠ¬è…¿å¦‚èœ»èœ“ç‚¹æ°´èˆ¬ï¼Œèº«ä½“è½»è½»é£˜å‡ºæ•°ä¸ˆ" +
+               "åˆè½»è½»é£˜äº†è¿‡æ¥ï¼\n" NOR;
       
       message_vision(msg, me); 
       improve = (int)me->query_skill("dodge");
@@ -57,5 +57,5 @@ void remove_effect(object me, int improve)
       if(!me) return;
       me->add_temp("apply/dexerity", - improve/10);
       me->delete_temp("piao");
-      tell_object(me, HIC"ÄãÇáÇáºô³öÒ»¿ÚÆø£¬É¢È¥ÁËµ¤ÌïÄı¾ÛµÄÄÚÁ¦¡£\n"NOR);
+      tell_object(me, HIC"ä½ è½»è½»å‘¼å‡ºä¸€å£æ°”ï¼Œæ•£å»äº†ä¸¹ç”°å‡èšçš„å†…åŠ›ã€‚\n"NOR);
 }

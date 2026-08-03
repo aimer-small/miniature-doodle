@@ -7,16 +7,16 @@ inherit BOOTS;
 
 void create()
 {
-        set_name(WHT"Èíµ×¿ìÑ¥"NOR, ({ "ruan xue", "xue", "xuezi", "shoes" }) );
+        set_name(WHT"è½¯åº•å¿«é´"NOR, ({ "ruan xue", "xue", "xuezi", "shoes" }) );
         set_weight(100);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ë«");
+                set("unit", "åŒ");
 		set("value", 1550);
                 set("material", "boots");
                 set("armor_prop/dodge", 6);
-                set("long", WHT"Ò»Ë«¶Ğ×ÓÃæµÄÈíµ×¿ìÑ¥£¬´©ÔÚ½ÅÉÏÌØ±ğÇá¿ì¡£\n"NOR);
+                set("long", WHT"ä¸€åŒç¼å­é¢çš„è½¯åº•å¿«é´ï¼Œç©¿åœ¨è„šä¸Šç‰¹åˆ«è½»å¿«ã€‚\n"NOR);
         }
         setup();
 }

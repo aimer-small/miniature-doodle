@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÉúÒâÈË", ({ "shengyi ren", "ren" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("ç”Ÿæ„äºº", ({ "shengyi ren", "ren" }));
+	set("gender", "ç”·æ€§");
 	set("age", random(10) + 20);
         set("str", 20);
 	set("dex", 20);
-	set("long", "ÕâÊÇ¸ö×ßÄÏ´³±±µÄÉúÒâÈË£¬ËûºÃÏóÕıÔÚÕÒ×ÅÊ²Ã´¶«Î÷¡£\n");
+	set("long", "è¿™æ˜¯ä¸ªèµ°å—é—¯åŒ—çš„ç”Ÿæ„äººï¼Œä»–å¥½è±¡æ­£åœ¨æ‰¾ç€ä»€ä¹ˆä¸œè¥¿ã€‚\n");
 	set("combat_exp", 30000);
 	set("shen_type", 1);
         set("unique", 1);
@@ -28,7 +28,7 @@ void create()
         set("qi", 250); 
 	set("chat_chance", 3);
         set("chat_msg", ({
-	"ÉúÒâÈË½ĞµÀ£ºÄÄ¸ö¸ÃËÀµÄÍµÁËÎÒµÄÇ®°¡£¡\n",
+	"ç”Ÿæ„äººå«é“ï¼šå“ªä¸ªè¯¥æ­»çš„å·äº†æˆ‘çš„é’±å•Šï¼\n",
 	       (: random_move :)
         }));
 	setup();

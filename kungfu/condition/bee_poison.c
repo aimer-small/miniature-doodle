@@ -1,4 +1,4 @@
-//bee_poison.c Óñ·ä¶¾
+//bee_poison.c çŽ‰èœ‚æ¯’
 #include <ansi.h>
 #include <condition.h>
 inherit F_CLEAN_UP;
@@ -6,12 +6,12 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
 	object where=environment(me);
-	tell_object(me, MAG"Í»È»ÄãÖ»¸ÐÂéÑ÷ÄÑµ±£¬ËÆºõÎåÔàÁù¸­Ò²ÔÚ·¢Ñ÷£¡\n" NOR );
-	tell_room(environment(me), HIR+me->name()+"ÒÑÈ»Á¢×ã²»¶¨£¬µ¹ÔÚ"+where->query("short")+HIR"µÄµØÉÏ¹öÀ´¹öÈ¥£¬´óÉùºô½Ð£¡\n" NOR,({ me }));
+	tell_object(me, MAG"çªç„¶ä½ åªæ„Ÿéº»ç—’éš¾å½“ï¼Œä¼¼ä¹Žäº”è„å…­è…‘ä¹Ÿåœ¨å‘ç—’ï¼\n" NOR );
+	tell_room(environment(me), HIR+me->name()+"å·²ç„¶ç«‹è¶³ä¸å®šï¼Œå€’åœ¨"+where->query("short")+HIR"çš„åœ°ä¸Šæ»šæ¥æ»šåŽ»ï¼Œå¤§å£°å‘¼å«ï¼\n" NOR,({ me }));
 	me->receive_damage("qi", 50+random(30));
 	me->receive_wound("jing", 30+random(30));
 	me->add_busy(2);
-	me->set_temp("last_damage_from", "ÖÐÓñ·ä¶¾·¢×÷");
+	me->set_temp("last_damage_from", "ä¸­çŽ‰èœ‚æ¯’å‘ä½œ");
 	me->apply_condition("bee_poison", duration - 1);
 	if( duration < 1 ) return 0;
 	return CND_CONTINUE;

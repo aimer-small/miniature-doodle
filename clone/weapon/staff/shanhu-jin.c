@@ -1,19 +1,19 @@
-//shanyu-jin Éºº÷½ğ
+//shanyu-jin çŠç‘šé‡‘
 #include <weapon.h>
 #include <ansi.h>
 inherit STAFF;
 
 void create()
 {
-        set_name(BLU"Éºº÷½ğ"NOR, ({ "shanhu jin", "shanhu","jin" }) );
+        set_name(BLU"çŠç‘šé‡‘"NOR, ({ "shanhu jin", "shanhu","jin" }) );
         set_weight(32000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»¸ùÉºº÷×ö³ÉµÄ¹ÕÕÈ£¬ÊÇÁéÉßµºÅÔº£µ×µÄÌØ²ú£¬ÓÉÊıÖÖ½ğÊô»ìºÍ£¬\n"
-                            "ÔÚº£µ×ÖĞÀ÷Ç§ÍòÄê¶ø³ÉÉºº÷£¬Ï÷ÌúÈçÇĞ¶¹¸¯£¬´òÊ¯ÈçÇÃÃŞ»¨£¬²»ÂÛ¶à·æ\n"
-                            "ÀûµÄÀûÈĞ£¬ÓöÖ®Á¢ÕÛ¡£\n"
+                set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æ ¹çŠç‘šåšæˆçš„æ‹æ–ï¼Œæ˜¯çµè›‡å²›æ—æµ·åº•çš„ç‰¹äº§ï¼Œç”±æ•°ç§é‡‘å±æ··å’Œï¼Œ\n"
+                            "åœ¨æµ·åº•ä¸­å‰åƒä¸‡å¹´è€ŒæˆçŠç‘šï¼Œå‰Šé“å¦‚åˆ‡è±†è…ï¼Œæ‰“çŸ³å¦‚æ•²æ£‰èŠ±ï¼Œä¸è®ºå¤šé”‹\n"
+                            "åˆ©çš„åˆ©åˆƒï¼Œé‡ä¹‹ç«‹æŠ˜ã€‚\n"
                 );
                 set("rigidity", 4);
                 set("weapon_prop/parry", 4);
@@ -24,8 +24,8 @@ void create()
                 set("treature", 1);
                 set("value", 1000);
                 set("material", "steel");
-                set("wield_msg", "$NÄÃ³öÒ»¸ù$n£¬ÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+                set("wield_msg", "$Næ‹¿å‡ºä¸€æ ¹$nï¼Œæ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
         }
         init_staff(75);
         setup();

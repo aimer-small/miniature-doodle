@@ -6,15 +6,15 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
         if(!living(me)) {
-      		message("vision", me->name() + "È«Éí±äºÚ£¬É¢·¢³öÒ»Õó½¹ºýÎ¶¡£\n", environment(me), me);
+      		message("vision", me->name() + "å…¨èº«å˜é»‘ï¼Œæ•£å‘å‡ºä¸€é˜µç„¦ç³Šå‘³ã€‚\n", environment(me), me);
    	}
 	else {
-      	tell_object(me, HIR "ºöÈ»±»Õ¨ÉËµÄµØ·½´«À´Ò»Õó¾ÞÍ´£¡\n" NOR );
-      	tell_room(environment(me), HIR "Ò»Õó½¹ºýµÄÎ¶µÀ´Ó"+ me->name()+"ÉíÉÏ´«ÁË³öÀ´£¬"+ me->name()+"±»ÌÛÉëÒ÷²»Ö¹¡£\n" NOR,
+      	tell_object(me, HIR "å¿½ç„¶è¢«ç‚¸ä¼¤çš„åœ°æ–¹ä¼ æ¥ä¸€é˜µå·¨ç—›ï¼\n" NOR );
+      	tell_room(environment(me), HIR "ä¸€é˜µç„¦ç³Šçš„å‘³é“ä»Ž"+ me->name()+"èº«ä¸Šä¼ äº†å‡ºæ¥ï¼Œ"+ me->name()+"è¢«ç–¼å‘»åŸä¸æ­¢ã€‚\n" NOR,
                 ({ me })); 
 	}	
       	me->receive_damage("qi", 2000);
-      	me->set_temp("last_damage_from", "±»Åùö¨À×»ðµ¯Õ¨");
+      	me->set_temp("last_damage_from", "è¢«éœ¹é›³é›·ç«å¼¹ç‚¸");
       	if(userp(me))
         	me->receive_wound("jing", 2000);
       	else me->receive_wound("jing", 3000);

@@ -1,13 +1,13 @@
-// liumang.c µØÆ¦
+// liumang.c åœ°ç—
 
 inherit NPC;
 
 void create()
 {
-	set_name("´óÀíµØÆ¦", ({ "dali dipi", "dipi", "pi" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("å¤§ç†åœ°ç—", ({ "dali dipi", "dipi", "pi" }));
+	set("gender", "ç”·æ€§");
 	set("age", 19);
-	set("long", "ËûÊÇÒ»¸ö³ÉÌìÓÎÊÖºÃÏĞµÄµØÆ¦¡£\n");
+	set("long", "ä»–æ˜¯ä¸€ä¸ªæˆå¤©æ¸¸æ‰‹å¥½é—²çš„åœ°ç—ã€‚\n");
 	
 	set("combat_exp", 1500);
 	set("shen_type", -1);

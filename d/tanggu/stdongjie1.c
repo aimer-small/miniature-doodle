@@ -1,11 +1,11 @@
 inherit ROOM;
 void create()
 {
-        set("short", "¶«½Ö");
+        set("short", "ä¸œè¡—");
         set("long", @LONG
-ÕâÊÇÌÁ¹Á¶«½Ö¡£Î÷Ãæ²»¶ÏÓÐÈËÆïÂí¼±³Û¶ø³ö£¬ÄÇÀïÊÇÌÁ¹Á¿Ú³ÇÖÐÐÄ£¬±±Ãæ
-ÊÇÒ»¼Ò×¨ÂôÔÓ»õµÄµê×Ó£¬ÍùÄÏ¾ÍÊÇ±¾³ÇÊÖÒÕ×îºÃµÄÒÂµê¡£¶«Ãæ¿ÉÒÔÒþÔ¼¿´¼ûº£
-ÉÏ²»ÉÙµÄ´¬Ö»ÄÄ¾ÍÊÇ³öº£µÄ¸Û¿ÚÁË¡£
+è¿™æ˜¯å¡˜æ²½ä¸œè¡—ã€‚è¥¿é¢ä¸æ–­æœ‰äººéª‘é©¬æ€¥é©°è€Œå‡ºï¼Œé‚£é‡Œæ˜¯å¡˜æ²½å£åŸŽä¸­å¿ƒï¼ŒåŒ—é¢
+æ˜¯ä¸€å®¶ä¸“å–æ‚è´§çš„åº—å­ï¼Œå¾€å—å°±æ˜¯æœ¬åŸŽæ‰‹è‰ºæœ€å¥½çš„è¡£åº—ã€‚ä¸œé¢å¯ä»¥éšçº¦çœ‹è§æµ·
+ä¸Šä¸å°‘çš„èˆ¹åªå“ªå°±æ˜¯å‡ºæµ·çš„æ¸¯å£äº†ã€‚
 LONG );
 
         set("exits", ([
@@ -15,6 +15,6 @@ LONG );
 		"west" : __DIR__"center",
         	
 	]));
-	set("outdoors", "ÌÁ¹Á");
+	set("outdoors", "å¡˜æ²½");
 	setup();
 }

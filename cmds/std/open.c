@@ -12,25 +12,25 @@ int main(object me, string arg)
 	object room, door;
 	int i,delay;
 
-	if( !arg ) return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 
 	if( sscanf(arg,"%s at %s",arg,dir) == 2 ) {
 		if( !environment(me)->query("group1") )
-			return notify_fail("ÄãÖ»ÄÜÔÚ×Ô¼ºµÄ°ïÅÉÀï¿ª¹Ø×Ô¼ºµÄ´óÃÅ¡£\n");
+			return notify_fail("ä½ åªèƒ½åœ¨è‡ªå·±çš„å¸®æ´¾é‡Œå¼€å…³è‡ªå·±çš„å¤§é—¨ã€‚\n");
 		if( !(str=environment(me)->query("exits/"+dir)) )
-			return notify_fail("Ã»ÓĞÕâ¸ö·½Ïò¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªæ–¹å‘ã€‚\n");
 		if( !(room=find_object(str)) )
 			if( !(room=load_object(str)) )
-				return notify_fail("Õâ¸ö³ö¿ÚÓĞÎÊÌâ£¬Çë±¨¸æÎ×Ê¦¡£\n");
+				return notify_fail("è¿™ä¸ªå‡ºå£æœ‰é—®é¢˜ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆã€‚\n");
 		if( !room->query("group1") || room->query("group1")!=me->query("group/id") )
-			return notify_fail("ÄãÖ»ÄÜÓÃÕâÖÖ·½Ê½´ò¿ªÄã×Ô¼º°ïÅÉµÄ´óÃÅ¡£\n");
+			return notify_fail("ä½ åªèƒ½ç”¨è¿™ç§æ–¹å¼æ‰“å¼€ä½ è‡ªå·±å¸®æ´¾çš„å¤§é—¨ã€‚\n");
 		if( !(door=present(arg,room)) )
-			return notify_fail("ÄÇ¸öµØ·½Ã»ÓĞÃÅ°¡£¿\n");
+			return notify_fail("é‚£ä¸ªåœ°æ–¹æ²¡æœ‰é—¨å•Šï¼Ÿ\n");
 		if( door->query("open") )
-			return notify_fail("ÃÅÒÑ¾­´ò¿ªÁË¡£\n");
+			return notify_fail("é—¨å·²ç»æ‰“å¼€äº†ã€‚\n");
 
-		message_vision("$NÊ¹¾¡Á¦ÆøÈ¥ÍÆ¶¯"+door->name()+"£¬´ò¿ªÁË"+door->name()+"......\n",me);
-		tell_room(room,me->name()+"Ê¹¾¡Á¦ÆøÈ¥ÍÆ¶¯"+door->name()+"£¬´ò¿ªÁË"+door->name()+"......\n");
+		message_vision("$Nä½¿å°½åŠ›æ°”å»æ¨åŠ¨"+door->name()+"ï¼Œæ‰“å¼€äº†"+door->name()+"......\n",me);
+		tell_room(room,me->name()+"ä½¿å°½åŠ›æ°”å»æ¨åŠ¨"+door->name()+"ï¼Œæ‰“å¼€äº†"+door->name()+"......\n");
 		door->set("open",1);
 		door->do_name();
 
@@ -49,10 +49,10 @@ int main(object me, string arg)
 				dir = dirs[i];
 				break;
 			}
-		if( !dir ) return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+		if( !dir ) return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 
 		if( environment(me)->open_door(dir) ) {
-			message_vision("$N½«" + doors[dir]["name"] + "´ò¿ª¡£\n", me);
+			message_vision("$Nå°†" + doors[dir]["name"] + "æ‰“å¼€ã€‚\n", me);
 			return 1;
 		}
 	}
@@ -63,10 +63,10 @@ int main(object me, string arg)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : open <door>
-           open <door> at <·½Ïò>
+æŒ‡ä»¤æ ¼å¼ : open <door>
+           open <door> at <æ–¹å‘>
 
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã´ò¿ªÃÅ.
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ æ‰“å¼€é—¨.
 
 HELP
     );

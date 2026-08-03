@@ -1,4 +1,4 @@
-// vendor.c ÂôÖ÷
+// vendor.c å–ä¸»
 
 // Modify by tiantian@sj
 
@@ -40,9 +40,9 @@ int query_goods_value(string goods, int number)
 
 	
 
-	if(me->query("quest/wxbjiebai") && query("name")=="Î¤Ğ¡±¦" )
+	if(me->query("quest/wxbjiebai") && query("name")=="éŸ¦å°å®" )
 
-		value = value * 9 /10;//½á°İĞÖµÜ´ò¸öÕÛ		
+		value = value * 9 /10;//ç»“æ‹œå…„å¼Ÿæ‰“ä¸ªæŠ˜		
 
 	if(value<0) value = 1;
 
@@ -104,7 +104,7 @@ int do_list(string arg)
 
 	{
 
-		tell_object(me,"»¹ÊÇµÈ¶Ô·½ĞÑÀ´ÔÙËµ°É¡£\n");
+		tell_object(me,"è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 		return 1;
 
@@ -116,7 +116,7 @@ int do_list(string arg)
 
 	{	
 
-		command("say Õâ¡­¡­ÎÒÕâ´ÎÊÇ³öÀ´ÓÎÍæµÄ£¬ÄãÏÂ´ÎÀ´°É¡£");
+		command("say è¿™â€¦â€¦æˆ‘è¿™æ¬¡æ˜¯å‡ºæ¥æ¸¸ç©çš„ï¼Œä½ ä¸‹æ¬¡æ¥å§ã€‚");
 
 		return 1;
 
@@ -130,17 +130,17 @@ int do_list(string arg)
 
 	{
 
-		write(query("name") + "Ä¿Ç°³öÊÛÒÔÏÂ»õÎï£º\n");
+		write(query("name") + "ç›®å‰å‡ºå”®ä»¥ä¸‹è´§ç‰©ï¼š\n");
 
-                write("©³©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·\n");
+                write("â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“\n");
 
-		write("©§  »õ  Îï                          ¼Û  ¸ñ                        ¿â´æ/×ÜÁ¿ ©§\n");
+		write("â”ƒ  è´§  ç‰©                          ä»·  æ ¼                        åº“å­˜/æ€»é‡ â”ƒ\n");
 
-		write("©Ç©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n");
+		write("â”£â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n");
 
 		for (i = 0; i < sizeof(goods); i++)
 
-                   write(sprintf("©§%-30s%-34s%4d/%4d ©§\n", goods[i]["name"]->short(),
+                   write(sprintf("â”ƒ%-30s%-34s%4d/%4d â”ƒ\n", goods[i]["name"]->short(),
 				MONEY_D->price_str(query_goods_value(goods[i]["name"], goods[i]["number"])),
 
 				goods[i]["number"]-query_temp("vendor_goods/"+goods[i]["name"]),
@@ -149,7 +149,7 @@ int do_list(string arg)
 
 			);
 
-		write("©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n");
+		write("â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n");
 
 		return 1;
 
@@ -179,7 +179,7 @@ int do_buy(string arg)
 
 	{
 
-		tell_object(me,"»¹ÊÇµÈ¶Ô·½ĞÑÀ´ÔÙËµ°É¡£\n");
+		tell_object(me,"è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 		return 1;
 
@@ -189,7 +189,7 @@ int do_buy(string arg)
 
 	if (me->is_busy() || me->is_fighting()){
 
-		tell_object(me,"ÄãÕıÃ¦×ÅÄØ¡£\n");
+		tell_object(me,"ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 		return 1;
 
@@ -199,7 +199,7 @@ int do_buy(string arg)
 
 	if (query_temp("busy")){
 
-		tell_object(me,"Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		tell_object(me,"å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
 		return 1;
 
@@ -209,7 +209,7 @@ int do_buy(string arg)
 
 	if (!(int)query("move_seller") && base_name(environment()) != query("startroom")){	
 
-		command("say Õâ¡­¡­ÎÒÕâ´ÎÊÇ³öÀ´ÓÎÍæµÄ£¬ÄãÏÂ´ÎÀ´°É¡£");
+		command("say è¿™â€¦â€¦æˆ‘è¿™æ¬¡æ˜¯å‡ºæ¥æ¸¸ç©çš„ï¼Œä½ ä¸‹æ¬¡æ¥å§ã€‚");
 
 		return 1;
 
@@ -219,7 +219,7 @@ int do_buy(string arg)
 
 	if (!arg) {	
 
-		command("say "+me->name(1)+",ÄãÏëÂòÊ²Ã´£¿");
+		command("say "+me->name(1)+",ä½ æƒ³ä¹°ä»€ä¹ˆï¼Ÿ");
 
 		return 1;
 
@@ -231,7 +231,7 @@ int do_buy(string arg)
 
 	{	
 
-		command("say ÄãÏëÂòµÄ¶«Î÷ÎÒÕâÀïÃ»ÓĞ¡£");
+		command("say ä½ æƒ³ä¹°çš„ä¸œè¥¿æˆ‘è¿™é‡Œæ²¡æœ‰ã€‚");
 
 		return 1;
 
@@ -251,13 +251,13 @@ int do_buy(string arg)
 
 	ob = new(ob_file);
 
-	if (query("name") == "Î¤Ğ¡±¦"){
+	if (query("name") == "éŸ¦å°å®"){
 
 		if (query_goods_value(ob_file,goods[i]["number"]) > me->query("balance"))	
 
 		{
 
-		tell_object(me,"ÄúÃ»ÓĞÕâÃ´¶à´æ¿î¡£\n");
+		tell_object(me,"æ‚¨æ²¡æœ‰è¿™ä¹ˆå¤šå­˜æ¬¾ã€‚\n");
 
 		return 1;
 
@@ -273,17 +273,17 @@ int do_buy(string arg)
 
 		}
 
-		if(me->query("quest/wxbjiebai") && query("name")=="Î¤Ğ¡±¦" )
+		if(me->query("quest/wxbjiebai") && query("name")=="éŸ¦å°å®" )
 
-		message_vision("$N¹ş¹ş´óĞ¦£¬×Ô¼ÒĞÖµÜ±ãÒËµãÂôÁË¡£\n",this_object());
+		message_vision("$Nå“ˆå“ˆå¤§ç¬‘ï¼Œè‡ªå®¶å…„å¼Ÿä¾¿å®œç‚¹å–äº†ã€‚\n",this_object());
 
-		message_vision("$NÒÔ"+MONEY_D->price_str(query_goods_value(ob_file,goods[i]["number"]))+"µÄ¼Û¸ñ´Ó$nÄÇÀïÂòÏÂÁËÒ»" + ob->query("unit") +
+		message_vision("$Nä»¥"+MONEY_D->price_str(query_goods_value(ob_file,goods[i]["number"]))+"çš„ä»·æ ¼ä»$né‚£é‡Œä¹°ä¸‹äº†ä¸€" + ob->query("unit") +
 
-			ob->name() + "£¬¸ÃÇ®Ö±½Ó´ÓÒøĞĞ´æ¿î¿Û³ı¡£\n", me, this_object());
+			ob->name() + "ï¼Œè¯¥é’±ç›´æ¥ä»é“¶è¡Œå­˜æ¬¾æ‰£é™¤ã€‚\n", me, this_object());
 
 			CHANNEL_D->do_channel( this_object(), "rumor",
 
-		sprintf("ÌıËµÓĞÈË´ÓÎ¤Ğ¡±¦ÄÇÀïÂòÁËÒ»%s£¡", ob->query("unit")+ob->name()));
+		sprintf("å¬è¯´æœ‰äººä»éŸ¦å°å®é‚£é‡Œä¹°äº†ä¸€%sï¼", ob->query("unit")+ob->name()));
 
 		me->add("balance",-query_goods_value(ob_file,goods[i]["number"]));
 
@@ -309,7 +309,7 @@ int do_buy(string arg)
 
 		destruct(ob);
 
-		command("say Çî¹âµ°£¬Ò»±ß´ô×ÅÈ¥£¡");
+		command("say ç©·å…‰è›‹ï¼Œä¸€è¾¹å‘†ç€å»ï¼");
 
 		return 1;
 
@@ -317,7 +317,7 @@ int do_buy(string arg)
 
 		destruct(ob);
 
-		command("say ÄúµÄÁãÇ®²»¹»ÁË£¬ÒøÆ±ÓÖÃ»ÈËÕÒµÃ¿ª¡£");
+		command("say æ‚¨çš„é›¶é’±ä¸å¤Ÿäº†ï¼Œé“¶ç¥¨åˆæ²¡äººæ‰¾å¾—å¼€ã€‚");
 
 		return 1;
 
@@ -331,9 +331,9 @@ int do_buy(string arg)
 
 		}
 
-		message_vision("$NÒÔ"+MONEY_D->price_str(i)+"µÄ¼Û¸ñ´Ó$nÄÇÀïÂòÏÂÁËÒ»" + ob->query("unit") +
+		message_vision("$Nä»¥"+MONEY_D->price_str(i)+"çš„ä»·æ ¼ä»$né‚£é‡Œä¹°ä¸‹äº†ä¸€" + ob->query("unit") +
 
-			ob->name() + "¡£\n", me, this_object());
+			ob->name() + "ã€‚\n", me, this_object());
 
 		improve = 40 - me->query("pur");
 

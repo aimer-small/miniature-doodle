@@ -2,16 +2,16 @@
 inherit ITEM;
 void create()
 {
-        set_name(HIB"Ì³×Ó"NOR, ({ "tan zi","tanzi"}));
+        set_name(HIB"å›å­"NOR, ({ "tan zi","tanzi"}));
         set_weight(1000);
         set_max_encumbrance(60);
 
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
-                set("long","ÕâÊÇÒ»¸öÌÕÖÆµÄÌ³×Ó¡£\n"+
-                           "Äã¿ÉÒÔÍùÕâ¸öÌ³×ÓÀï×°(zhuang)Ò»Ğ©Ğ¡³æ×Ó¡£\n");
+                set("unit", "ä¸ª");
+                set("long","è¿™æ˜¯ä¸€ä¸ªé™¶åˆ¶çš„å›å­ã€‚\n"+
+                           "ä½ å¯ä»¥å¾€è¿™ä¸ªå›å­é‡Œè£…(zhuang)ä¸€äº›å°è™«å­ã€‚\n");
                 set("value", 499);
         }
         setup();
@@ -28,22 +28,22 @@ int do_zhuang(string arg){
         object ob,obj;
         
 
-        if(!arg || sscanf(arg,"%s in %s",item,target)!=2)return notify_fail("ÃüÁî¸ñÊ½£ºzhuang <³æ×Ó> in <Ì³×Ó>¡£\n");
-        if(!objectp(ob=present(target,this_player()))) return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâ¸ö¶«Î÷¡£\n"); 
-        if(!objectp(obj=present(item,this_player()))) return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâ¸ö¶«Î÷¡£\n");
-        if(!obj->query("cook/allow")) return notify_fail("Õâ¸öÌ³×Ó£¬Ö»ÄÜ×°Ò»Ğ©¶¾³æ¡£\n");
-        if(ob->query("id")!="tan zi") return notify_fail("Ö»ÄÜÓÃÌ³×Ó×°¶¾³æ¡£\n");
-        if(ob->query_encumbrance()>=60) return notify_fail("Õâ¸öÌ³×Ó£¬ÒÑ¾­×°²»ÏÂ³æ×ÓÁË¡£\n");
-        message_vision("$N½«Ò»Ö»"+(string)obj->query("name")+"×°Èë$n¡£\n",this_player(),ob);
+        if(!arg || sscanf(arg,"%s in %s",item,target)!=2)return notify_fail("å‘½ä»¤æ ¼å¼ï¼šzhuang <è™«å­> in <å›å­>ã€‚\n");
+        if(!objectp(ob=present(target,this_player()))) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™ä¸ªä¸œè¥¿ã€‚\n"); 
+        if(!objectp(obj=present(item,this_player()))) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™ä¸ªä¸œè¥¿ã€‚\n");
+        if(!obj->query("cook/allow")) return notify_fail("è¿™ä¸ªå›å­ï¼Œåªèƒ½è£…ä¸€äº›æ¯’è™«ã€‚\n");
+        if(ob->query("id")!="tan zi") return notify_fail("åªèƒ½ç”¨å›å­è£…æ¯’è™«ã€‚\n");
+        if(ob->query_encumbrance()>=60) return notify_fail("è¿™ä¸ªå›å­ï¼Œå·²ç»è£…ä¸ä¸‹è™«å­äº†ã€‚\n");
+        message_vision("$Nå°†ä¸€åª"+(string)obj->query("name")+"è£…å…¥$nã€‚\n",this_player(),ob);
         obj->move(ob);
         return 1;
         }
 
 int do_noput(string arg) {
         string item, target;
-        if(!arg) return notify_fail("ÄãÒª½«Ê²Ã´¶«Î÷·Å½øÄÄÀï£¿\n");
+        if(!arg) return notify_fail("ä½ è¦å°†ä»€ä¹ˆä¸œè¥¿æ”¾è¿›å“ªé‡Œï¼Ÿ\n");
         if(sscanf(arg,"%s in %s",item,target)==2 && target == "tan zi"||target =="tanzi" ) {
-          write("ÄãÖ»¿ÉÒÔ°Ñ³æ×Ó×°(zhuang)µ½Ì³×ÓÀï¡£\n");
+          write("ä½ åªå¯ä»¥æŠŠè™«å­è£…(zhuang)åˆ°å›å­é‡Œã€‚\n");
           return 1; 
           }
 }

@@ -10,14 +10,14 @@ object obj;
 
 void create()
 {
-	set_name(YEL "ÉñÁúÕĞ»êÅÆ" NOR, ({"zhaohunpai" ,"pai" }));
+	set_name(YEL "ç¥é¾™æ‹›é­‚ç‰Œ" NOR, ({"zhaohunpai" ,"pai" }));
 	set_weight(20);
         
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿é");
-		set("long", "ÕâÊÇÒ»¿éÉñÁú½ÌµÄÕĞ»êÅÆ£¬ÊÇÉñÁúµÜ×ÓÓÃÀ´(zhaohun)£¬ÓÕÆÈËûÈË¹éË³µÄ£¬\n");
+		set("unit", "å—");
+		set("long", "è¿™æ˜¯ä¸€å—ç¥é¾™æ•™çš„æ‹›é­‚ç‰Œï¼Œæ˜¯ç¥é¾™å¼Ÿå­ç”¨æ¥(zhaohun)ï¼Œè¯±è¿«ä»–äººå½’é¡ºçš„ï¼Œ\n");
 		set("no_sell",1);
 		set("no_get",1);
 		set("no_steal",1);
@@ -43,14 +43,14 @@ int do_zh(string arg)
 	string * skill=({"poison","shenlong-yaoli","force","dulong-dafa"});
 
 	if((uptime()-query("zhaotime"))<2)
-		return notify_fail("²»ÓÃÈç´ËÂôÁ¦£¬ĞİÏ¢Ò»ÏÂÔÙÕĞ°É¡£");
+		return notify_fail("ä¸ç”¨å¦‚æ­¤å–åŠ›ï¼Œä¼‘æ¯ä¸€ä¸‹å†æ‹›å§ã€‚");
 	else
 		set("zhaotime",uptime());
 	if(!arg || arg==" " || arg==" ") return 0;
 
 	if((obj = present(arg, environment(me))) && (obj->is_character())) {
 		if(obj->is_corpse())
-			return notify_fail("ÈË¶¼ËÀÁË£¬Äã»¹ÕĞÊ²Ã´ÕĞ£¿! \n");
+			return notify_fail("äººéƒ½æ­»äº†ï¼Œä½ è¿˜æ‹›ä»€ä¹ˆæ‹›ï¼Ÿ! \n");
 		tname=obj->name();
 		tid=obj->query("id");
 		texp=obj->query("combat_exp"); 
@@ -59,13 +59,13 @@ int do_zh(string arg)
 		if(!living(obj))
 		{
 			if((texp<=myexp) || random(3)==0)
-				return notify_fail("Õâ¸öÈËÏÖÔÚ´¦ÓÚ»èÃÔÖĞ£¬Ìı²»µ½ÄãËµµÄ»°! \n");
+				return notify_fail("è¿™ä¸ªäººç°åœ¨å¤„äºæ˜è¿·ä¸­ï¼Œå¬ä¸åˆ°ä½ è¯´çš„è¯! \n");
 			bz=random(2)+2;
 		}
 		if((tname!=me->query("quest_kill/name")) || (tid!=me->query("quest_kill/id")))
-			return notify_fail("Ã»ÓĞÈÃÄãÓÕÆÈÕâ¸öÈË¹éË³Ñ½! \n");
+			return notify_fail("æ²¡æœ‰è®©ä½ è¯±è¿«è¿™ä¸ªäººå½’é¡ºå‘€! \n");
 
-		message_vision("$NÄÃ³öÕĞ»êÅÆ¶Ô×Å"+tname+"Ò»»Î£¬È»ºó¿ÚÄîÖäÓï¡£\n",me);
+		message_vision("$Næ‹¿å‡ºæ‹›é­‚ç‰Œå¯¹ç€"+tname+"ä¸€æ™ƒï¼Œç„¶åå£å¿µå’’è¯­ã€‚\n",me);
 		
 		me->receive_damage("jingli",50);
 
@@ -88,17 +88,17 @@ int do_zh(string arg)
 		if ( (bz < (i*(random(500)+500))) || random(2)) {
 			me->start_busy(random(3)+1);
 			if(random(3)==0)  {
-				message_vision(tname+"ºİºİµØµÉÁË$NÒ»ÑÛ¡£\n",me);
+				message_vision(tname+"ç‹ ç‹ åœ°çªäº†$Nä¸€çœ¼ã€‚\n",me);
 				
 				return 1;
 			}
 			else  {
-				message_vision(tname+"¶Ô$NÅ­ºÈµÀ£º¿´À´·Ç½ÌÑµÄãÒ»ÏÂ²»¿É£¡\n",me);
+				message_vision(tname+"å¯¹$Næ€’å–é“ï¼šçœ‹æ¥éæ•™è®­ä½ ä¸€ä¸‹ä¸å¯ï¼\n",me);
 				
 				obj->kill_ob(me);
 				me->fight_ob(obj);
                                 obj->set_leader(me);
-                                tell_object(me, tname+"¾ö¶¨¸úËæÄãÒ»ÆğĞĞ¶¯£¡\n");
+                                tell_object(me, tname+"å†³å®šè·Ÿéšä½ ä¸€èµ·è¡ŒåŠ¨ï¼\n");
 				zhcs++;
                 		me->set_temp("zhaohun/times",zhcs);
                                 remove_call_out("nofollow");
@@ -114,14 +114,14 @@ int do_zh(string arg)
 			remove_call_out("nofollow");
 			obj->set_leader(0);
 		}
-		tell_room(environment(obj),tname+"Í»È»ÈëÄ§ËÆµØ²»ÓÉ×ÔÖ÷µØÈ«Éí·¢¶¶£¬ËæÖ®Ì±µ¹ÔÚµØ¡£\n");
+		tell_room(environment(obj),tname+"çªç„¶å…¥é­”ä¼¼åœ°ä¸ç”±è‡ªä¸»åœ°å…¨èº«å‘æŠ–ï¼Œéšä¹‹ç˜«å€’åœ¨åœ°ã€‚\n");
 		if(random(10)>7)    {
-			tell_object(me, tname+"¶ÔÄã°§ÇóµÀ£ºÕâ¶ùÊÇµãĞ¡ÒâË¼£¬Äú¾Í´óÈË´óÁ¿·Å¹ıÎÒ°É£¡(yes/no)\n");
+			tell_object(me, tname+"å¯¹ä½ å“€æ±‚é“ï¼šè¿™å„¿æ˜¯ç‚¹å°æ„æ€ï¼Œæ‚¨å°±å¤§äººå¤§é‡æ”¾è¿‡æˆ‘å§ï¼(yes/no)\n");
 			me->set_temp("quest/huilu",1);
 			return 1;
 		}
 
-		tell_room(environment(obj), tname+"¹òµ¹ÔÚµØ£¬¸ßºôµÀ£ººé½ÌÖ÷ÉñÍ¨¹ã´ó£¬Õ½ÎŞ²»Ê¤£¡\n" );
+		tell_room(environment(obj), tname+"è·ªå€’åœ¨åœ°ï¼Œé«˜å‘¼é“ï¼šæ´ªæ•™ä¸»ç¥é€šå¹¿å¤§ï¼Œæˆ˜æ— ä¸èƒœï¼\n" );
 
 		me->set("quest_kill/questing",0);
 
@@ -201,7 +201,7 @@ int do_zh(string arg)
                 if (adds <30) adds = 30;
                 
                 //me->add("combat_exp",adds);
-                adds = me->add_exp_combat(adds,tname,"ÉñÁúÕĞ»ê");
+                adds = me->add_exp_combat(adds,tname,"ç¥é¾™æ‹›é­‚");
                 
 		qnadd = adds/5 + random(adds/10);
 		me->add("potential",qnadd);
@@ -211,11 +211,11 @@ int do_zh(string arg)
 
 		me->add("shen",-adds*2);
 
-		tell_object(me,"Äã±»½±ÀøÁË"+chinese_number(adds)+"µã¾­Ñé£¬"
-			+chinese_number(qnadd)+"µãÇ±ÄÜ£¬"+chinese_number(adds*2)+"µã¸ºÉñ£¡\n");
+		tell_object(me,"ä½ è¢«å¥–åŠ±äº†"+chinese_number(adds)+"ç‚¹ç»éªŒï¼Œ"
+			+chinese_number(qnadd)+"ç‚¹æ½œèƒ½ï¼Œ"+chinese_number(adds*2)+"ç‚¹è´Ÿç¥ï¼\n");
 
-// add ÕĞ»ê Log By River
-	        log_file("job/shenlong",sprintf("%8s%-10sÕĞ»êÈÎÎñ(0)½±Àø¾­Ñé%3d£¬Ç±ÄÜ%2d£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
+// add æ‹›é­‚ Log By River
+	        log_file("job/shenlong",sprintf("%8s%-10sæ‹›é­‚ä»»åŠ¡(0)å¥–åŠ±ç»éªŒ%3dï¼Œæ½œèƒ½%2dï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
 			me->name(1),"("+me->query("id")+")", adds ,qnadd, me->query("combat_exp")));
 
 		if(me->query_temp("quest_kill/failin5",1)!=0)
@@ -263,8 +263,8 @@ int do_yes(string arg)
 
 	if((tname!=me->query("quest_kill/name")) || (tid!=me->query("quest_kill/id")))  return 0;
 
-	tell_object(me,"Äã¶Ô"+tname+"ºÙºÙÒ»Ğ¦£¬µÀ£ºÒ²°Õ£¬Õâ´Î¾Í·ÅÄãÒ»Âí£¡Ç®ÄØ£¿\n");
-	tell_object(me,tname+"¸ÏÃ¦´Ó»³ÀïÌÍ³ö¼¸¿éÒø×Ó£¬ÇÄÇÄµØÈû¸øÄã¡£\n");
+	tell_object(me,"ä½ å¯¹"+tname+"å˜¿å˜¿ä¸€ç¬‘ï¼Œé“ï¼šä¹Ÿç½¢ï¼Œè¿™æ¬¡å°±æ”¾ä½ ä¸€é©¬ï¼é’±å‘¢ï¼Ÿ\n");
+	tell_object(me,tname+"èµ¶å¿™ä»æ€€é‡Œæå‡ºå‡ å—é“¶å­ï¼Œæ‚„æ‚„åœ°å¡ç»™ä½ ã€‚\n");
 
 	golds=random(texp/1000)*kar/20;
 	if(golds<10) golds=10;
@@ -286,7 +286,7 @@ int do_yes(string arg)
 
 	adds=100+random(120*texp*kar/(times*myexp));
 	me->add("shen",-adds);
-	tell_object(me,"Äã±»½±ÀøÁË"+chinese_number(adds)+"µã¸ºÉñ£¡\n");
+	tell_object(me,"ä½ è¢«å¥–åŠ±äº†"+chinese_number(adds)+"ç‚¹è´Ÿç¥ï¼\n");
 	me->delete_temp("quest/huilu");
 	destruct(this_object());
 
@@ -315,8 +315,8 @@ int do_no(string arg)
 
 	if((tname!=me->query("quest_kill/name")) || (tid!=me->query("quest_kill/id")))    return 0;
 
-	tell_object(me,"Äã¶Ô"+tname+"ÀäĞ¦Ò»Éù£¬µÀ£º¾ÍÕâÃ´µãÇ®£¬´ò·¢½Ğ»¯×Ó°¡£¿£¡Ëæ¼´ÓÖÏò"+tname+"¿ÚÄîÖäÓï¡£\n");
-	tell_room(environment(obj), tname+"¹òµ¹ÔÚµØ£¬¸ßºôµÀ£ººé½ÌÖ÷ÉñÍ¨¹ã´ó£¬Õ½ÎŞ²»Ê¤£¡\n" );
+	tell_object(me,"ä½ å¯¹"+tname+"å†·ç¬‘ä¸€å£°ï¼Œé“ï¼šå°±è¿™ä¹ˆç‚¹é’±ï¼Œæ‰“å‘å«åŒ–å­å•Šï¼Ÿï¼éšå³åˆå‘"+tname+"å£å¿µå’’è¯­ã€‚\n");
+	tell_room(environment(obj), tname+"è·ªå€’åœ¨åœ°ï¼Œé«˜å‘¼é“ï¼šæ´ªæ•™ä¸»ç¥é€šå¹¿å¤§ï¼Œæˆ˜æ— ä¸èƒœï¼\n" );
 
 	me->set("quest_kill/questing",0);
 
@@ -395,19 +395,19 @@ int do_no(string arg)
 	if (adds <30) adds = 30;
         if (adds >300) adds = 280+random(40);
         
-        adds = me->add_exp_combat(adds,tname,"ÉñÁúÕĞ»ê");
+        adds = me->add_exp_combat(adds,tname,"ç¥é¾™æ‹›é­‚");
         //me->add("combat_exp",adds);
-        //me->add("job_time/ÉñÁúÕĞ»ê",1);
+        //me->add("job_time/ç¥é¾™æ‹›é­‚",1);
 	qnadd = adds/5 + random(adds/10);
 	
 	me->add("potential",qnadd);
 	if( me->query("potential") > me->query("max_pot"))
 		me->set("potential", me->query("max_pot"));
 	me->add("shen",-adds*2);
-	tell_object(me,"Äã±»½±ÀøÁË"+chinese_number(adds)+"µã¾­Ñé£¬"
-			+chinese_number(qnadd)+"µãÇ±ÄÜ£¬"+chinese_number(adds*2)+"µã¸ºÉñ£¡\n");	
+	tell_object(me,"ä½ è¢«å¥–åŠ±äº†"+chinese_number(adds)+"ç‚¹ç»éªŒï¼Œ"
+			+chinese_number(qnadd)+"ç‚¹æ½œèƒ½ï¼Œ"+chinese_number(adds*2)+"ç‚¹è´Ÿç¥ï¼\n");	
 
-        log_file("job/shenlong",sprintf("%8s%-10sÕĞ»êÈÎÎñ(1)½±Àø¾­Ñé%3d£¬Ç±ÄÜ%2d£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
+        log_file("job/shenlong",sprintf("%8s%-10sæ‹›é­‚ä»»åŠ¡(1)å¥–åŠ±ç»éªŒ%3dï¼Œæ½œèƒ½%2dï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
 		me->name(1),"("+me->query("id")+")", adds ,qnadd, me->query("combat_exp")));
 
 	if(me->query_temp("quest_kill/failin5",1)!=0)

@@ -1,13 +1,13 @@
-// yanshang.c ÑÎÉÌ
+// yanshang.c ç›å•†
 
 inherit NPC;
 
 void create()
 {
-	set_name("ÑÎÉÌ", ({ "yan shang", "yanshang", "shang ren", "trader"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("ç›å•†", ({ "yan shang", "yanshang", "shang ren", "trader"}));
+	set("gender", "ç”·æ€§");
 	set("age", 32+random(20));
-	set("long", "ËûÊÇÒ»¸ö··½­±±»´ÑÎµÄÑÎÉÌ£¬Ã¿´Îµ½ÑïÖİÒ»¶¨È¥ÃùÓñ·»ÅÅóÛÏ¯æÎ¼Ë¡£\n");
+	set("long", "ä»–æ˜¯ä¸€ä¸ªè´©æ±ŸåŒ—æ·®ç›çš„ç›å•†ï¼Œæ¯æ¬¡åˆ°æ‰¬å·ä¸€å®šå»é¸£ç‰åŠæ’ç­µå¸­å«–å¦“ã€‚\n");
 
 	set("combat_exp", 3000);
 	set("shen_type", 1);

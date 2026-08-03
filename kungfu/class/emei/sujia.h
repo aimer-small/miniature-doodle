@@ -4,18 +4,18 @@
 void attempt_apprentice(object ob)
 {
 	if ((string)ob->query("class") == "bonze" ){
-		command ("say ÎÒÖ»ÊÕË×¼ÒµÜ×Ó¡£");
+		command ("say æˆ‘åªæ”¶ä¿—å®¶å¼Ÿå­ã€‚");
 		return;
 	}
-	if( (string)ob->query("gender") != "Å®ÐÔ" ){
+	if( (string)ob->query("gender") != "å¥³æ€§" ){
 		command ("blush");
-		command ("say ÎÒÖ»ÊÕË×¼ÒÅ®µÜ×Ó¡£");
+		command ("say æˆ‘åªæ”¶ä¿—å®¶å¥³å¼Ÿå­ã€‚");
 		return;
 	}
-	command ("say ºÃ°É£¡ÎÒ¾ÍÊÕÏÂÄã×ö¶ëáÒÅÉË×¼ÒµÜ×Ó¡£");
+	command ("say å¥½å§ï¼æˆ‘å°±æ”¶ä¸‹ä½ åšå³¨åµ‹æ´¾ä¿—å®¶å¼Ÿå­ã€‚");
 	command("recruit " + ob->query("id"));
 	if( (string)ob->query("class")!="bonze" ){
-		ob->set("title", "¶ëáÒÅÉË×¼ÒµÜ×Ó");
+		ob->set("title", "å³¨åµ‹æ´¾ä¿—å®¶å¼Ÿå­");
 //		ob->set("class","emsujia");
 	}
 }

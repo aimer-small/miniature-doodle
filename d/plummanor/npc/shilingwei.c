@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ê©ÁîÍş", ({ "shi lingwei", "shi" }));
-	set("nickname", "¼ÒÈË");
+	set_name("æ–½ä»¤å¨", ({ "shi lingwei", "shi" }));
+	set("nickname", "å®¶äºº");
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
-	set("long", "ËûÄ¿¹â¾¼¾¼£¬²½ÂÄÎÈÖØ£¬ÏÔÊÇÎä¹¦²»µÍ¡£\n");
+	set("long", "ä»–ç›®å…‰ç‚¯ç‚¯ï¼Œæ­¥å±¥ç¨³é‡ï¼Œæ˜¾æ˜¯æ­¦åŠŸä¸ä½ã€‚\n");
 	set_skill("unarmed", 120);
 	set_skill("dodge", 120);
 	set_temp("apply/damage", 40);
@@ -26,7 +26,7 @@ void init()
 {
 	string where;
 
-	set("nickname", "¼ÒÈË");
+	set("nickname", "å®¶äºº");
 	::init();
 	where = base_name(environment(this_object()));
 	if (where == "/d/plummanor/entrance")
@@ -39,11 +39,11 @@ int do_flatter(string arg)
 	object me = this_player();
 
 	if (base_name(environment(npc)) != "/d/plummanor/entrance") return 0;
-	if (!arg) return notify_fail("ÄãÒªÅÄË­µÄÂíÆ¨£¿\n");
+	if (!arg) return notify_fail("ä½ è¦æ‹è°çš„é©¬å±ï¼Ÿ\n");
 	if (arg == "four-friends") {
 		if (me->query_temp("plummanor/flag") != 2) {
-			message_vision("$NÒ»Á³ÚÆÃÄµØ¶Ô×ÅÁ½Î»¼ÒÈËËµµÀ£º¡°½­ÄÏËÄÓÑ£¬µÂÅäÌìµØ£¬ÍşÕğå¾Óî£¬¹Å½ñÎŞ±È£¡¡±\n", me);
-			message_vision("Á½Î»¼ÒÈË±ÉÒÄµØ¿´×Å$N£¬ËÆºõÒ»±²×Ó¶¼Ã»¼û¹ıÕâÃ´ºñÑÕÎŞ³ÜµÄÈË¡£\n", me);
+			message_vision("$Nä¸€è„¸è°„åªšåœ°å¯¹ç€ä¸¤ä½å®¶äººè¯´é“ï¼šâ€œæ±Ÿå—å››å‹ï¼Œå¾·é…å¤©åœ°ï¼Œå¨éœ‡å¯°å®‡ï¼Œå¤ä»Šæ— æ¯”ï¼â€\n", me);
+			message_vision("ä¸¤ä½å®¶äººé„™å¤·åœ°çœ‹ç€$Nï¼Œä¼¼ä¹ä¸€è¾ˆå­éƒ½æ²¡è§è¿‡è¿™ä¹ˆåšé¢œæ— è€»çš„äººã€‚\n", me);
 			me->add_temp("plummanor/ding_friend", -15);
 			me->add_temp("plummanor/shi_friend", -15);
 			return 1;
@@ -51,30 +51,30 @@ int do_flatter(string arg)
 		me->add_temp("plummanor/friends_flatter", 1);
 		if (me->query_temp("plummanor/friends_flatter") > 2) {
 			me->add_temp("plummanor/friends_flatter", -1);
-			write("Äã»¹ÅÄ½­ÄÏËÄÓÑ£¬×Ô¼º²»¾õµÃÈâÂéÂğ£¿\n");
+			write("ä½ è¿˜æ‹æ±Ÿå—å››å‹ï¼Œè‡ªå·±ä¸è§‰å¾—è‚‰éº»å—ï¼Ÿ\n");
 			return 1;
 		}
 		if (me->query_temp("plummanor/friends_flatter") == 1) {
-			write("Äã¶Ô×ÅÁ½Î»¼ÒÈËËµµÀ£º¡°½­ÄÏËÄÎ»Ç°±²ÊÇºÎµÈÑùÈË£¬×ÔÈ»²»»á½«ÔÚÏÂ¿´ÔÚÑÛÀïµÄ¡£¡±\n");
-			tell_room(environment(npc), me->name() + "¶Ô×ÅÁ½Î»¼ÒÈËËµÁËĞ©³ÆËÌ½­ÄÏËÄÓÑµÄ»°¡£\n", ({me}));
-			message_vision("Á½Î»¼ÒÈËÌı$N»°ÖĞ½«½­ÄÏËÄÓÑµÄÉí·İÌ§µÃÉõ¸ß£¬Á³É«±ãºÍ»ºÁËĞí¶à¡£\n", me);
+			write("ä½ å¯¹ç€ä¸¤ä½å®¶äººè¯´é“ï¼šâ€œæ±Ÿå—å››ä½å‰è¾ˆæ˜¯ä½•ç­‰æ ·äººï¼Œè‡ªç„¶ä¸ä¼šå°†åœ¨ä¸‹çœ‹åœ¨çœ¼é‡Œçš„ã€‚â€\n");
+			tell_room(environment(npc), me->name() + "å¯¹ç€ä¸¤ä½å®¶äººè¯´äº†äº›ç§°é¢‚æ±Ÿå—å››å‹çš„è¯ã€‚\n", ({me}));
+			message_vision("ä¸¤ä½å®¶äººå¬$Nè¯ä¸­å°†æ±Ÿå—å››å‹çš„èº«ä»½æŠ¬å¾—ç”šé«˜ï¼Œè„¸è‰²ä¾¿å’Œç¼“äº†è®¸å¤šã€‚\n", me);
 			me->add_temp("plummanor/ding_friend", 5);
 			me->add_temp("plummanor/shi_friend", 5);
 			call_out("decrease_friend", 1, me);
 			return 1;
 		}
 		else if (!me->query_temp("plummanor/ding_flatter") || !me->query_temp("plummanor/shi_flatter")) {
-			message_vision("$NÒ»Á³ÚÆÃÄµØ¶Ô×ÅÁ½Î»¼ÒÈËËµµÀ£º¡°½­ÄÏËÄÓÑ£¬µÂÅäÌìµØ£¬ÍşÕğå¾Óî£¬¹Å½ñÎŞ±È£¡¡±\n", me);
-			message_vision("Á½Î»¼ÒÈË±ÉÒÄµØ¿´×Å$N£¬ËÆºõÒ»±²×Ó¶¼Ã»¼û¹ıÕâÃ´ºñÑÕÎŞ³ÜµÄÈË¡£\n", me);
+			message_vision("$Nä¸€è„¸è°„åªšåœ°å¯¹ç€ä¸¤ä½å®¶äººè¯´é“ï¼šâ€œæ±Ÿå—å››å‹ï¼Œå¾·é…å¤©åœ°ï¼Œå¨éœ‡å¯°å®‡ï¼Œå¤ä»Šæ— æ¯”ï¼â€\n", me);
+			message_vision("ä¸¤ä½å®¶äººé„™å¤·åœ°çœ‹ç€$Nï¼Œä¼¼ä¹ä¸€è¾ˆå­éƒ½æ²¡è§è¿‡è¿™ä¹ˆåšé¢œæ— è€»çš„äººã€‚\n", me);
 			me->add_temp("plummanor/ding_friend", -15);
 			me->add_temp("plummanor/shi_friend", -15);
 			call_out("decrease_friend", 1, me);
 			return 1;
 		}
 		else {
-			write("Äã¶Ô×ÅÁ½Î»¼ÒÈËËµµÀ£º¡°ÔÚÏÂÕâ´ÎÀ´½­ÄÏ£¬ĞÄÏë½­ÄÏËÄÓÑËäÎ´±ØÇÆµÃÆğÔÚÏÂ£¬µ«ÈçÄÜ¼ûµ½¡°Ò»×Öµç½£¡±ºÍ¡°ÎåÂ·Éñ¡±¶şÎ»£¬±ãËã²»Ğé´ËĞĞ¡£¡±\n");
-			tell_room(environment(npc), me->name() + "¶Ô×ÅÁ½Î»¼ÒÈËËµÁËĞ©Ì§¸ß½­ÄÏËÄÓÑÓÖË³±ã³ÆËÌÁ½ÈËµÄ»°¡£\n", ({me}));
-			message_vision("¶¡Ê©¶şÈËÌı$N¼ÈÅõ½­ÄÏËÄÓÑ£¬ÓÖ´ó´óµÄÅõÁË×Ô¼º¶şÈË£¬ÉõÎª¸ßĞË¡£\n", me);
+			write("ä½ å¯¹ç€ä¸¤ä½å®¶äººè¯´é“ï¼šâ€œåœ¨ä¸‹è¿™æ¬¡æ¥æ±Ÿå—ï¼Œå¿ƒæƒ³æ±Ÿå—å››å‹è™½æœªå¿…ç§å¾—èµ·åœ¨ä¸‹ï¼Œä½†å¦‚èƒ½è§åˆ°â€œä¸€å­—ç”µå‰‘â€å’Œâ€œäº”è·¯ç¥â€äºŒä½ï¼Œä¾¿ç®—ä¸è™šæ­¤è¡Œã€‚â€\n");
+			tell_room(environment(npc), me->name() + "å¯¹ç€ä¸¤ä½å®¶äººè¯´äº†äº›æŠ¬é«˜æ±Ÿå—å››å‹åˆé¡ºä¾¿ç§°é¢‚ä¸¤äººçš„è¯ã€‚\n", ({me}));
+			message_vision("ä¸æ–½äºŒäººå¬$Næ—¢æ§æ±Ÿå—å››å‹ï¼Œåˆå¤§å¤§çš„æ§äº†è‡ªå·±äºŒäººï¼Œç”šä¸ºé«˜å…´ã€‚\n", me);
 			me->add_temp("plummanor/ding_friend", 12);
 			me->add_temp("plummanor/shi_friend", 12);
 			call_out("decrease_friend", 1, me);
@@ -83,19 +83,19 @@ int do_flatter(string arg)
 	}
 	if (id(arg)) {
 		if (me->query_temp("plummanor/flag") != 2) {
-			message_vision("$NÖ¸×Å$nÔŞËÌµÀ£º¡°$nÎä¹¦µ±ÊÀ¹ÌÈ»ÎŞÈË¿É±È£¬¾ÍÁ¬·Å¸öÆ¨Ò²Ğè´óÉùºôÎü£¬ÖÔĞÄÔŞËÌ£¡¡±\n", me, npc);
-			message_vision("$N±ÉÒÄµØ¿´×Å$n£¬ËÆºõÒ»±²×Ó¶¼Ã»¼û¹ıÕâÃ´ºñÑÕÎŞ³ÜµÄÈË¡£\n", npc, me);
+			message_vision("$NæŒ‡ç€$nèµé¢‚é“ï¼šâ€œ$næ­¦åŠŸå½“ä¸–å›ºç„¶æ— äººå¯æ¯”ï¼Œå°±è¿æ”¾ä¸ªå±ä¹Ÿéœ€å¤§å£°å‘¼å¸ï¼Œè¡·å¿ƒèµé¢‚ï¼â€\n", me, npc);
+			message_vision("$Né„™å¤·åœ°çœ‹ç€$nï¼Œä¼¼ä¹ä¸€è¾ˆå­éƒ½æ²¡è§è¿‡è¿™ä¹ˆåšé¢œæ— è€»çš„äººã€‚\n", npc, me);
 			me->add_temp("plummanor/shi_friend", -12);
 			return 1;
 		}
 		if (me->query_temp("plummanor/shi_flatter")) {
-			write("Äã»¹ÅÄÊ©ÁîÍşÑ½£¬×Ô¼º²»¾õµÃÈâÂéÂğ£¿\n");
+			write("ä½ è¿˜æ‹æ–½ä»¤å¨å‘€ï¼Œè‡ªå·±ä¸è§‰å¾—è‚‰éº»å—ï¼Ÿ\n");
 			return 1;
 		}
 		me->set_temp("plummanor/shi_flatter", 1);
-		write("Äã¶Ô×ÅÊ©ÁîÍşËµµÀ£º¡°Ïëµ±ÄêÊ©ĞÖÔÚºş±±ºá½­¾È¹Â£¬Ò»±ú×Ï½ğ°ËØÔµ¶É±µÃÇàÁú°ïÒ»Ê®ÈıÃû´óÍ·×ÓÑª½¦ººË®½­Í·£¬ÔÚÏÂÈ´³£ÔÚĞÄÍ·£¡¡±\n");
-		tell_room(environment(npc), me->name() + "¶Ô×ÅÊ©ÁîÍşËµÁËĞ©³ÆËÌµÄ»°¡£\n", ({me}));
-		message_vision("$NÌıÁË$nÕâÒ»·¬»°£¬²»ÓÉµÃÁ³Â¶Ï²É«¡£\n", npc, me);
+		write("ä½ å¯¹ç€æ–½ä»¤å¨è¯´é“ï¼šâ€œæƒ³å½“å¹´æ–½å…„åœ¨æ¹–åŒ—æ¨ªæ±Ÿæ•‘å­¤ï¼Œä¸€æŸ„ç´«é‡‘å…«å¦åˆ€æ€å¾—é’é¾™å¸®ä¸€åä¸‰åå¤§å¤´å­è¡€æº…æ±‰æ°´æ±Ÿå¤´ï¼Œåœ¨ä¸‹å´å¸¸åœ¨å¿ƒå¤´ï¼â€\n");
+		tell_room(environment(npc), me->name() + "å¯¹ç€æ–½ä»¤å¨è¯´äº†äº›ç§°é¢‚çš„è¯ã€‚\n", ({me}));
+		message_vision("$Nå¬äº†$nè¿™ä¸€ç•ªè¯ï¼Œä¸ç”±å¾—è„¸éœ²å–œè‰²ã€‚\n", npc, me);
 		me->add_temp("plummanor/shi_friend", 10);
 		call_out("decrease_friend", 1, me);
 		return 1;
@@ -121,18 +121,18 @@ void kill_ob(object ob)
 {
 	ob->remove_killer(this_object());
 	remove_killer(ob);
-	message_vision("Ê©ÁîÍşÄ®È»µÀ£º¡°ÕâÖÖ½­ºş³ğÉ±ÒÑ¾­ÓëÎÒÎŞ¹ØÁË¡£¡±\n", ob);
+	message_vision("æ–½ä»¤å¨æ¼ ç„¶é“ï¼šâ€œè¿™ç§æ±Ÿæ¹–ä»‡æ€å·²ç»ä¸æˆ‘æ— å…³äº†ã€‚â€\n", ob);
 }
 
 int accept_fight(object ob)
 {
-	message_vision("Ê©ÁîÍşÒ¡Ê×µÀ£º¡°ÎÒÍËÒşÃ·×¯£¬²»ÔÙºÍÈË¶¯ÊÖÁË¡£¡±\n", ob);
+	message_vision("æ–½ä»¤å¨æ‘‡é¦–é“ï¼šâ€œæˆ‘é€€éšæ¢…åº„ï¼Œä¸å†å’ŒäººåŠ¨æ‰‹äº†ã€‚â€\n", ob);
 	return 0;
 }
 
 void unconcious()
 {
-	say("Ê©ÁîÍşºÈµÀ£º¡°×¡ÊÖ£¡ÎÒÒÑ¾­²»ÔÙºÍÈË¶¯ÊÖÁË£¡¡±\n");
+	say("æ–½ä»¤å¨å–é“ï¼šâ€œä½æ‰‹ï¼æˆ‘å·²ç»ä¸å†å’ŒäººåŠ¨æ‰‹äº†ï¼â€\n");
 	reincarnate();
 	set("eff_qi", query("max_qi"));
 	set("qi", query("max_qi"));

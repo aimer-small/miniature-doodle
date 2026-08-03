@@ -6,13 +6,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ìì¾®");
+	set("short", "å¤©äº•");
 	set("long", @LONG
-ÕâÊÇ×¯ÄÚµÄÒ»¸ö´óÌì¾®£¬Ìì¾®µÄ×óÓÒ¸÷Ö²ÓÐÒ»¿ÃÀÏÃ·Ê÷£¬Ö¦¸ÉÈçÌú£¬¼«
-ÊÇ²Ô¾¢¡£ÄÏÃæÊÇÒ»¼äÌüÌÃ£¬³öÌì¾®±±Ãæ·½Ïò¾ÍÊÇ×¯ÃÅ¡£
+è¿™æ˜¯åº„å†…çš„ä¸€ä¸ªå¤§å¤©äº•ï¼Œå¤©äº•çš„å·¦å³å„æ¤æœ‰ä¸€æ£µè€æ¢…æ ‘ï¼Œæžå¹²å¦‚é“ï¼Œæž
+æ˜¯è‹åŠ²ã€‚å—é¢æ˜¯ä¸€é—´åŽ…å ‚ï¼Œå‡ºå¤©äº•åŒ—é¢æ–¹å‘å°±æ˜¯åº„é—¨ã€‚
 LONG
 	);
-	set("outdoors","Ã·×¯");
+	set("outdoors","æ¢…åº„");
 
 	set("exits", ([
 		"east" : __DIR__"huilang25",
@@ -28,7 +28,7 @@ int valid_leave(object me, string dir)
 	if (dir != "south" && me->query_temp("mz_quest/flag")==3
 	&& (objectp(present("ding jian", environment(me)))
 	|| objectp(present("shi lingwei", environment(me))) )){
-		return notify_fail(CYN"Á½¸ö¼ÒÈËÀ¹ÔÚÄãµÄÉíÇ°µÀ£º¡°" + RANK_D->query_respect(me) + "Áô²½£¬ÇëËæÎÒ¶þÈË½ø×¯°Õ¡£¡±\n"NOR);
+		return notify_fail(CYN"ä¸¤ä¸ªå®¶äººæ‹¦åœ¨ä½ çš„èº«å‰é“ï¼šâ€œ" + RANK_D->query_respect(me) + "ç•™æ­¥ï¼Œè¯·éšæˆ‘äºŒäººè¿›åº„ç½¢ã€‚â€\n"NOR);
 	}
 	if (dir == "south" && me->query_temp("mz_quest/go")==1)
 		me->set_temp("mz_quest/go",2);

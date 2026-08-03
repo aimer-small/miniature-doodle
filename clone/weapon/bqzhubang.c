@@ -1,4 +1,4 @@
-// zhubang.c Öñ°ô
+// zhubang.c ç«¹æ£’
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,18 +7,18 @@ inherit STICK;
 
 void create()
 {
-        set_name(HIG"·ÂÖÆÓñÖñ°ô"NOR, ({ "zhu bang", "zhubang", "bang" }));
+        set_name(HIG"ä»¿åˆ¶ç‰ç«¹æ£’"NOR, ({ "zhu bang", "zhubang", "bang" }));
         set_weight(1500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»¸ù·ÂÖÆØ¤°ï°ïÖ÷ĞÅÎïµÄÖñ°ô£¬ÈëÊÖ³ÁµéµéµÄ£¬Ïàµ±½áÊµ¡£\n");
+                set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æ ¹ä»¿åˆ¶ä¸å¸®å¸®ä¸»ä¿¡ç‰©çš„ç«¹æ£’ï¼Œå…¥æ‰‹æ²‰ç”¸ç”¸çš„ï¼Œç›¸å½“ç»“å®ã€‚\n");
                 set("value", 60000);
                 set("no_sell", 1);
                 set("material", "steel");
-                set("wield_msg", "$N³é³öÒ»¸ù$nÎÕÔÚÊÖÖĞµàÁËµà¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$nÇáÇá±ğ»ØÑü¼ä¡£\n");
+                set("wield_msg", "$NæŠ½å‡ºä¸€æ ¹$næ¡åœ¨æ‰‹ä¸­æ‚äº†æ‚ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nè½»è½»åˆ«å›è…°é—´ã€‚\n");
         }
         init_stick(120);
         setup();

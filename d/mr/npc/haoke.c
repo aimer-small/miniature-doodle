@@ -6,10 +6,10 @@ inherit F_SAVE;
 
 void create()
 {
-        set_name("½­ºþºÀ¿Í",({"jianghu ke","ke","haoke"}));
-        set("gender", "ÄÐÐÔ");
+        set_name("æ±Ÿæ¹–è±ªå®¢",({"jianghu ke","ke","haoke"}));
+        set("gender", "ç”·æ€§");
         set("long",
-              "ÕâÈËÉí´©ºÚÉ«½ô×°£¬ÃæÉÏÃÉ×ÅÒ»¿éºÚ²¼£¬Ö»Â¶³öÒ»Ë«ÑÛ¾¦£¬¾«¹âËÄÉä¡£\n");
+              "è¿™äººèº«ç©¿é»‘è‰²ç´§è£…ï¼Œé¢ä¸Šè’™ç€ä¸€å—é»‘å¸ƒï¼Œåªéœ²å‡ºä¸€åŒçœ¼ç›ï¼Œç²¾å…‰å››å°„ã€‚\n");
         set("age", random(20)+25);      
         set("str", 15+random(5));
         set("int",15+random(5));  
@@ -59,9 +59,9 @@ void init()
         
         number = (int)ob->query("max_pot");
         number = number - 115;
-        k_qi = (int)ob->query("max_qi")*2/3;          // ºÀ¿ÍµÄÆø
+        k_qi = (int)ob->query("max_qi")*2/3;          // è±ªå®¢çš„æ°”
         k_jing = (int)ob->query("max_jing")*2/3;      // 
-        k_neili = (int)ob->query("max_neili")*2/3;    // ÄÚÁ¦
+        k_neili = (int)ob->query("max_neili")*2/3;    // å†…åŠ›
 
        /*set haoke's skill*/
         killerskill1 = skill1[random(sizeof(skill1))];

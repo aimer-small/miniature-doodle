@@ -3,13 +3,13 @@
 inherit NPC;
 void create()
 {
-        set_name("»ª»Ô", ({ "hua hui", "hua", "hui"}));
-        set("gender", "ÄĞĞÔ");
-        set("nickname", "Ò»Ö¸Õğ½­ÄÏ");
+        set_name("åè¾‰", ({ "hua hui", "hua", "hui"}));
+        set("gender", "ç”·æ€§");
+        set("nickname", "ä¸€æŒ‡éœ‡æ±Ÿå—");
         set("age", 65);
         set("long", "
-ÕâÈËÊÇ¸öÀÏÎÌ£¬ÉíĞÎÊİÈõ£¬ĞÎÈİ¿İéÂ£¬³îÃ¼¿àÁ³£¬ÉíÉÏ´©µÄÊÇ
-ººÈË×°Êø£¬ÒÂÃ±¶¼ÒÑÆÆÀÃ²»¿°¡£µ«ËûÍ··¢¾íÇú£¬È´ÓÖ²»´óÏñººÈË¡£\n");
+è¿™äººæ˜¯ä¸ªè€ç¿ï¼Œèº«å½¢ç˜¦å¼±ï¼Œå½¢å®¹æ¯æ§ï¼Œæ„çœ‰è‹¦è„¸ï¼Œèº«ä¸Šç©¿çš„æ˜¯
+æ±‰äººè£…æŸï¼Œè¡£å¸½éƒ½å·²ç ´çƒ‚ä¸å ªã€‚ä½†ä»–å¤´å‘å·æ›²ï¼Œå´åˆä¸å¤§åƒæ±‰äººã€‚\n");
         set("attitude", "aggressive");
         set("combat_exp", 960000);
         set("shen", -9600);
@@ -60,7 +60,7 @@ void unconcious()
       room->set("exits", ([
               "north" : "/d/hj/mg-room1",          
       ]));  
-      tell_room(environment(me), me->query("name")+"¼¸¸öÆğÂä£¬ÉÁÉí²»¼ûÁË¡£\n", ({me}));	
+      tell_room(environment(me), me->query("name")+"å‡ ä¸ªèµ·è½ï¼Œé—ªèº«ä¸è§äº†ã€‚\n", ({me}));	
       destruct(me);        
 }
 

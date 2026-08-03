@@ -1,4 +1,4 @@
-// shenyuan.c yun shenyuan ¿ÉÒÔÔÚÕ½¶·ÖĞÔö¼ÓÏàµ±µÄ·ÀÓù
+// shenyuan.c yun shenyuan å¯ä»¥åœ¨æˆ˜æ–—ä¸­å¢åŠ ç›¸å½“çš„é˜²å¾¡
 
 #include <ansi.h>
 #include <skill.h>
@@ -8,36 +8,36 @@ inherit F_CLEAN_UP;
 
 void remove_effect(object me, int skill);
 
-string exert_name(){ return HIY"ÉñÔª¹¦"NOR; }
+string exert_name(){ return HIY"ç¥å…ƒåŠŸ"NOR; }
 
 int exert(object me, object target)
 {
 	int skill;
 
 	if (!me->is_fighting())
-		return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃÉñÔª¹¦¡£\n");
+		return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ç¥å…ƒåŠŸã€‚\n");
 
 	skill = me->query_skill("force") + random(50);
 	
 	if( (int)me->query_skill("shenyuan-gong",1) < 60 )
-		return notify_fail("ÄãÄ¿Ç°ÉĞ²»ÄÜÊ¹ÓÃÉñÔª¹¦¡£\n");
+		return notify_fail("ä½ ç›®å‰å°šä¸èƒ½ä½¿ç”¨ç¥å…ƒåŠŸã€‚\n");
 
 	if( (int)me->query("neili") < skill  )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
  
 	if( (int)me->query_temp("shenyuan") ) 
-		return notify_fail("ÄãÒÑ¾­ÔÚÔËÓÃÉñÔª¹¦ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨è¿ç”¨ç¥å…ƒåŠŸäº†ã€‚\n");
 
 	me->add("neili", -1 * skill);
 	me->add_temp("apply/parry", skill/3);
 	me->add_temp("apply/dexerity", skill/20);
 
-	message_vision(HIY "$NÔËÆğÄ½Èİ¾øÑ§ÉñÔª¹¦£¬ËÆºõÊìÖªÎä¹¦Â·Êı£¬¹¥ÊØÉÏÇáËÉ¶àÁË¡£\n" NOR, me);
+	message_vision(HIY "$Nè¿èµ·æ…•å®¹ç»å­¦ç¥å…ƒåŠŸï¼Œä¼¼ä¹ç†ŸçŸ¥æ­¦åŠŸè·¯æ•°ï¼Œæ”»å®ˆä¸Šè½»æ¾å¤šäº†ã€‚\n" NOR, me);
 
 	me->set_temp("shenyuan", skill);
 	call_out("remove_effect", 1, me, skill);
 
-	me->start_exert(1, "ÉñÔª¹¦");
+	me->start_exert(1, "ç¥å…ƒåŠŸ");
 if( skill <300 )	me->start_busy(1);
 
 	return 1;
@@ -48,13 +48,13 @@ void remove_effect(object me, int skill)
 	if (objectp(me)) {
 	  if (me->is_fighting()){
 	      call_out("remove_effect", 1, me, skill);
-//	    me->start_exert(1, "ÉñÔª¹¦"); 
+//	    me->start_exert(1, "ç¥å…ƒåŠŸ"); 
 	      return;
 	  }
 	  me->delete_temp("shenyuan");
 	  me->add_temp("apply/parry", -1 * skill/3);
 	  me->add_temp("apply/dexerity", -1 * skill/20);
-//	tell_object(me, "¶ÔÊÖÖğ½¥ÊÊÓ¦ÁËÄãµÄ·ÀÊØÕĞÊ½£¬½¥½¥¼ÓÇ¿ÁË¹¥ÊÆ¡£\n");
+//	tell_object(me, "å¯¹æ‰‹é€æ¸é€‚åº”äº†ä½ çš„é˜²å®ˆæ‹›å¼ï¼Œæ¸æ¸åŠ å¼ºäº†æ”»åŠ¿ã€‚\n");
 	}
 	return;
 }

@@ -3,16 +3,16 @@
 inherit ROOM;
 void create()
 {
-        set("short", YEL"ÓªÕÊÍâ"NOR);
-        set("long", "ÕâÀïÊÇÏåÑô²»Ô¶´¦ÃÉ¹Å¾üÓª´óÕÊÒÔÍâ£º\n"+
-"ÏòÎ÷×ß¿Éµ½´ï£º¡¸"+HIG"ÇàÁúÃÅ"NOR+"¡¹¡£\n"+
-"Ïò¶«×ß¿Éµ½´ï£º¡¸"+HIW"°×»¢ÃÅ"NOR+"¡¹¡£\n"+
-"Ïò±±×ß¿Éµ½´ï£º¡¸"+HIR"ÖìÈ¸ÃÅ"NOR+"¡¹¡£\n"+
-"ÏòÄÏ×ß¿Éµ½´ï£º¡¸"+CYN"ĞûÎäÃÅ"NOR+"¡¹¡£\n"
+        set("short", YEL"è¥å¸å¤–"NOR);
+        set("long", "è¿™é‡Œæ˜¯è¥„é˜³ä¸è¿œå¤„è’™å¤å†›è¥å¤§å¸ä»¥å¤–ï¼š\n"+
+"å‘è¥¿èµ°å¯åˆ°è¾¾ï¼šã€Œ"+HIG"é’é¾™é—¨"NOR+"ã€ã€‚\n"+
+"å‘ä¸œèµ°å¯åˆ°è¾¾ï¼šã€Œ"+HIW"ç™½è™é—¨"NOR+"ã€ã€‚\n"+
+"å‘åŒ—èµ°å¯åˆ°è¾¾ï¼šã€Œ"+HIR"æœ±é›€é—¨"NOR+"ã€ã€‚\n"+
+"å‘å—èµ°å¯åˆ°è¾¾ï¼šã€Œ"+CYN"å®£æ­¦é—¨"NOR+"ã€ã€‚\n"
         );
 
         set("no_save", 1);
-        set("outdoors", "ÏåÑô");
+        set("outdoors", "è¥„é˜³");
         
 
         set("exits", ([
@@ -30,7 +30,7 @@ int valid_leave(object me, string dir)
 {
         if (dir == "west" || dir == "east" || dir == "north" ||dir == "south"  ){
 if ( !me->query_temp("cart"))
-                        return notify_fail("ÁìÁË³å³µÔÙ×ß¡£\n");
+                        return notify_fail("é¢†äº†å†²è½¦å†èµ°ã€‚\n");
         }
 return ::valid_leave(me, dir);
 
@@ -44,18 +44,18 @@ int do_get(string arg)
 {
 	object me = this_player();
 object obj;
-if(!arg || arg == "" || arg != "³å³µ")	
-return notify_fail("ÄãÏëÁìÊ²Ã´£¿\n");
+if(!arg || arg == "" || arg != "å†²è½¦")	
+return notify_fail("ä½ æƒ³é¢†ä»€ä¹ˆï¼Ÿ\n");
 if(me->query_temp("cart"))
-return notify_fail("ÄãÒÑ¾­Áì¹ıÁË¡£\n");
-if(arg == "³å³µ")
+return notify_fail("ä½ å·²ç»é¢†è¿‡äº†ã€‚\n");
+if(arg == "å†²è½¦")
 {
 obj =new("d/hudong/xiangyang/obj/cart");
-message_vision(CYN"$NÒ»Á¾³å³µºäÂ¡Â¡µØÊ»ÁË³öÀ´¡£\n"NOR, me);
-me->set_temp("cart",1);  // ÁìÈ¡Ò»Á¾³å³µ
+message_vision(CYN"$Nä¸€è¾†å†²è½¦è½°éš†éš†åœ°é©¶äº†å‡ºæ¥ã€‚\n"NOR, me);
+me->set_temp("cart",1);  // é¢†å–ä¸€è¾†å†²è½¦
 obj->move(this_object());
 obj->set("name",obj->query("name")+(me->query("id")));
-obj->set("long", obj->query("long")+"ÕâÁ½³å³µÊÇÓÉ"+me->query("name")+"¸ºÔğ²Ù×İµÄ¡£\n");
+obj->set("long", obj->query("long")+"è¿™ä¸¤å†²è½¦æ˜¯ç”±"+me->query("name")+"è´Ÿè´£æ“çºµçš„ã€‚\n");
 obj->set("make",me->query("id"));
 return 1;
 }

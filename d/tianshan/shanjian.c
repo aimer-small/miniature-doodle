@@ -7,32 +7,32 @@ inherit ROOM;
 string long();
 
 mapping dirs = ([
-	"west":"Î÷·½",
-	"westdown":"Î÷ÏÂ·½",
-	"westup":"Î÷ÉÏ·½",
-	"east":"¶«·½",
-	"eastdown":"¶«ÏÂ·½",
-	"eastup":"¶«ÉÏ·½",
-	"south":"ÄÏ·½",
-	"southdown":"ÄÏÏÂ·½",
-	"southup":"ÄÏÉÏ·½",
-	"north":"±±·½",
-	"northdown":"±±ÏÂ·½",
-	"northup":"±±ÉÏ·½",
-	"northeast":"¶«±±·½",
-	"northwest":"Î÷±±·½",
-	"southeast":"¶«ÄÏ·½",
-	"southwest":"Î÷ÄÏ·½",
+	"west":"è¥¿æ–¹",
+	"westdown":"è¥¿ä¸‹æ–¹",
+	"westup":"è¥¿ä¸Šæ–¹",
+	"east":"ä¸œæ–¹",
+	"eastdown":"ä¸œä¸‹æ–¹",
+	"eastup":"ä¸œä¸Šæ–¹",
+	"south":"å—æ–¹",
+	"southdown":"å—ä¸‹æ–¹",
+	"southup":"å—ä¸Šæ–¹",
+	"north":"åŒ—æ–¹",
+	"northdown":"åŒ—ä¸‹æ–¹",
+	"northup":"åŒ—ä¸Šæ–¹",
+	"northeast":"ä¸œåŒ—æ–¹",
+	"northwest":"è¥¿åŒ—æ–¹",
+	"southeast":"ä¸œå—æ–¹",
+	"southwest":"è¥¿å—æ–¹",
 ]);
 
 void create()
 {
-        set("short", "É½½§");
+        set("short", "å±±æ¶§");
         set("long", (:long:) );
          foreach (string dir in keys(dirs))
          	set("exits/"+dir,__DIR__"shanjian");
 
-        set("outdoors", "ÌìÉ½");
+        set("outdoors", "å¤©å±±");
         setup();
 }
 
@@ -47,11 +47,11 @@ int valid_leave(object me, string dir)
 {
 	if(me->query_temp("shanjian_dir")==dir)
 	{
-		tell_object(me,"Äã¿ì²½×ß³öÁËÉ½½§¡£\n");
+		tell_object(me,"ä½ å¿«æ­¥èµ°å‡ºäº†å±±æ¶§ã€‚\n");
 		me->move(__DIR__"longtan");
-		tell_room(environment(me),me->name()+"¿ì²½×ßÁË¹ıÀ´¡£\n",({me}) );
+		tell_room(environment(me),me->name()+"å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n",({me}) );
 		me->delete_temp("shanjian_dir");
-		return notify_fail("ÄãÑÛÇ°Í»È»Ò»ÁÁ£¬·¢ÏÖ¾ÓÈ»µ½ÁËÒ»¸ö¸üÎª¾Ş´óµÄË®Ì¶±ß¡£\n");
+		return notify_fail("ä½ çœ¼å‰çªç„¶ä¸€äº®ï¼Œå‘ç°å±…ç„¶åˆ°äº†ä¸€ä¸ªæ›´ä¸ºå·¨å¤§çš„æ°´æ½­è¾¹ã€‚\n");
 	}
 	return ::valid_leave(me,dir);
 }
@@ -59,8 +59,8 @@ int valid_leave(object me, string dir)
 string long()
 {
 	object me = this_player();
-	string str ="ÕâÊÇÌìÉ½ÀïµÄÒ»¸öÉ½½§£¬ÅÔ±ßÊÇÓÉÓÚÉÏÃæµÄÉ½Èª³£ÄêÀÛÔÂ³å»÷ĞÎ³ÉµÄÒ»¸ö\nºÜÉîµÄË®Ì¶¡£ÕâÀïÖÜÎ§³¤ÂúÁË¹àÄ¾";
+	string str ="è¿™æ˜¯å¤©å±±é‡Œçš„ä¸€ä¸ªå±±æ¶§ï¼Œæ—è¾¹æ˜¯ç”±äºä¸Šé¢çš„å±±æ³‰å¸¸å¹´ç´¯æœˆå†²å‡»å½¢æˆçš„ä¸€ä¸ª\nå¾ˆæ·±çš„æ°´æ½­ã€‚è¿™é‡Œå‘¨å›´é•¿æ»¡äº†çŒæœ¨";
 	if(me && me->query_temp("shanjian_dir"))
-		return str+"£¬"+dirs[me->query_temp("shanjian_dir")]+"ËÆºõÄÜ×ß¹ıÈ¥£¬Äã²»ÓÉµÄ¼Ó¿ìÁË²½·¥¡£\n";
-	return str+"¡£\n";
+		return str+"ï¼Œ"+dirs[me->query_temp("shanjian_dir")]+"ä¼¼ä¹èƒ½èµ°è¿‡å»ï¼Œä½ ä¸ç”±çš„åŠ å¿«äº†æ­¥ä¼ã€‚\n";
+	return str+"ã€‚\n";
 }

@@ -2,7 +2,7 @@
 int update_condition(object me, int duration)
 {
         if (duration < 1) {               
-		tell_object(me, HIY "Äã¸Ð¾õÐØÖÐ³äÂúºÆÈ»ÕýÆø£¬ÐÄÖÐÎªÖ®Ò»Õð¡£\n" NOR);
+		tell_object(me, HIY "ä½ æ„Ÿè§‰èƒ¸ä¸­å……æ»¡æµ©ç„¶æ­£æ°”ï¼Œå¿ƒä¸­ä¸ºä¹‹ä¸€éœ‡ã€‚\n" NOR);
 		return 0;
                 }
          me->apply_condition("sljob", duration - 1);

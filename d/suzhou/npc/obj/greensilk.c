@@ -6,13 +6,13 @@
 inherit NECK;
 void create()
 {
-        set_name(GRN"ÂÌË¿½í"NOR, ({ "green silk", "silk" }) );
+        set_name(GRN"ç»¿ä¸å·¾"NOR, ({ "green silk", "silk" }) );
         set_weight(1);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long","Ò»ÌõÈçÑÌÈçÎíµÄÂÌË¿½í£¬·ÅÔÚÊÖÉÏÓĞÒ»ÖÖÈôÓĞÈôÎŞµÄ¸Ğ¾õ¡£\n");
-		set("unit", "Ìõ");
+                set("long","ä¸€æ¡å¦‚çƒŸå¦‚é›¾çš„ç»¿ä¸å·¾ï¼Œæ”¾åœ¨æ‰‹ä¸Šæœ‰ä¸€ç§è‹¥æœ‰è‹¥æ— çš„æ„Ÿè§‰ã€‚\n");
+		set("unit", "æ¡");
                 set("value", 0);
                 set("material", "cloth");
                 set("armor_type", "cloth");

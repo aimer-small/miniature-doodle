@@ -3,16 +3,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("²Ë»¨Éß", ({ "caihua she", "she" }) );
-        set("race", "Ò°ÊÞ");
+        set_name("èœèŠ±è›‡", ({ "caihua she", "she" }) );
+        set("race", "é‡Žå…½");
         set("age", 1);
-        set("long", "Ò»Ö»ÇàÓÄÓÄµÄ²Ë»¨Éß£¬Í·²¿³ÊÍÖÔ²ÐÎ¡£\n");
+        set("long", "ä¸€åªé’å¹½å¹½çš„èœèŠ±è›‡ï¼Œå¤´éƒ¨å‘ˆæ¤­åœ†å½¢ã€‚\n");
         set("attitude", "peaceful");
  
         set("str", 15);
         set("cor", 16);
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Æß´ç", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ä¸ƒå¯¸", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
  
         set("combat_exp", 1000+random(500));
@@ -28,7 +28,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$N³é´¤Á½ÏÂ£¬$NËÀÁË¡£\n", this_object());
+	message_vision("$NæŠ½æä¸¤ä¸‹ï¼Œ$Næ­»äº†ã€‚\n", this_object());
 	ob = new(__DIR__"sherou");
 	ob->move(environment(this_object()));
 	destruct(this_object());

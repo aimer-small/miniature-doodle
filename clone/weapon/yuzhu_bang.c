@@ -1,4 +1,4 @@
-// bamboo_stick.c ÓñÖñ°ô
+// bamboo_stick.c ç‰ç«¹æ£’
 // by shang 97/6
 // modified by explorer, 9/11/97
 
@@ -19,14 +19,14 @@ void create()
         i = 0;
         if (random(10) > 6) i = 1;
 
-        set_name(HIG "ÓñÖñ°ô" NOR, ({"yuzhu bang", "bang", "stick"}));
+        set_name(HIG "ç‰ç«¹æ£’" NOR, ({"yuzhu bang", "bang", "stick"}));
         set_weight(5000);
 
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-        set("long",HIG + "Ò»¸ù¿´ÆğÀ´ÎÂÈó¾§Ó¨,Í¨Ìå±ÌÂÌµÄÖñ°ô,,·º×Åµ­µ­µÄÇà¹â ¡£\n" NOR);
+                set("unit", "æ ¹");
+        set("long",HIG + "ä¸€æ ¹çœ‹èµ·æ¥æ¸©æ¶¦æ™¶è¹,é€šä½“ç¢§ç»¿çš„ç«¹æ£’,,æ³›ç€æ·¡æ·¡çš„é’å…‰ ã€‚\n" NOR);
                 set("value", 10000);
                 set("material", "bamboo");
                 set("weight", 10000);
@@ -34,8 +34,8 @@ void create()
                 set("unique", 1);
                 set("weapon_prop/parry", 3);
                 set("rigidity", 9);                
-                set("wield_msg", "$N³é³öÒ»¸ùÇà¹âÉÁÉÁµÄÓñÖñÕÈ×¥ÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N°ÑÊÖÖĞµÄÓñÖñÕÈ²å»ØÑüÖĞ¡£\n");
+                set("wield_msg", "$NæŠ½å‡ºä¸€æ ¹é’å…‰é—ªé—ªçš„ç‰ç«¹æ–æŠ“åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$NæŠŠæ‰‹ä¸­çš„ç‰ç«¹æ–æ’å›è…°ä¸­ã€‚\n");
                 set("skill", ([
                      "name": skills[i],
                      "exp_required": 50000,
@@ -60,21 +60,21 @@ int do_study(string arg)
         object me = this_player();
 
         if ( arg != "bang" && arg != "stick" )
-            return notify_fail("ÄãÒªÑ§Ê²Ã´£¿\n");
+            return notify_fail("ä½ è¦å­¦ä»€ä¹ˆï¼Ÿ\n");
 
         if ((int)me->query_skill("literate", 1) < 30 )
-            return notify_fail("ÄãµÄÑ§Ê¶»¹Ã»¹»Áì»á°ôÉÏµÄ¿Ú¾ö¡£\n");
+            return notify_fail("ä½ çš„å­¦è¯†è¿˜æ²¡å¤Ÿé¢†ä¼šæ£’ä¸Šçš„å£å†³ã€‚\n");
 
         if ((int)me->query_skill("bangjue",1) > 120)
-            return notify_fail("ÄãÒÑ¾­²»ÄÜ´Ó°ôÉÏÑ§µ½ÈÎºÎ¶«Î÷ÁË¡£\n");
+            return notify_fail("ä½ å·²ç»ä¸èƒ½ä»æ£’ä¸Šå­¦åˆ°ä»»ä½•ä¸œè¥¿äº†ã€‚\n");
 
         if ((int)me->query_skill("stick", 1) < 60 )
-            return notify_fail("ÄãµÄ»ù±¾°ô·¨Ì«²î, »¹Áì»á²»ÁË°ô¾ö¡£\n");
+            return notify_fail("ä½ çš„åŸºæœ¬æ£’æ³•å¤ªå·®, è¿˜é¢†ä¼šä¸äº†æ£’å†³ã€‚\n");
 
         damage = 2400 / (int)me->query("int");
         me->receive_damage("jing", damage);
         me->receive_damage("jingli", damage);
         me->improve_skill("bangjue", me->query("int"));
-        message_vision("$N¿´×Å°ôÉÏµÄ×Ö¼£, ÄıË¼²»ÒÑ¡£\n", me);
+        message_vision("$Nçœ‹ç€æ£’ä¸Šçš„å­—è¿¹, å‡æ€ä¸å·²ã€‚\n", me);
         return 0;
 }

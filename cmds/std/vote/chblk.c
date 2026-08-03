@@ -18,19 +18,19 @@ int vote(object me, object victim)
 		me->set("vote/deprived", 1);
 		me->apply_condition("vote_suspension", 240);
 		me->delete("vote/abuse");
-		return notify_fail(HIR"ÄãÒòÎªºúÂÒÍ¶Æ±£¬Í¶Æ±È¨±»°ş¶áÁË£¡\n" NOR);
+		return notify_fail(HIR"ä½ å› ä¸ºèƒ¡ä¹±æŠ•ç¥¨ï¼ŒæŠ•ç¥¨æƒè¢«å‰¥å¤ºäº†ï¼\n" NOR);
 	}
 
   	if (me == victim){
 		if (random(2)) me->add("vote/abuse", 10);
-		return notify_fail("Äã²»ÊÇ¿ªÍæĞ¦°É£¿µ±ĞÄ±»°ş¶á±í¾öÈ¨£¡\n");
+		return notify_fail("ä½ ä¸æ˜¯å¼€ç©ç¬‘å§ï¼Ÿå½“å¿ƒè¢«å‰¥å¤ºè¡¨å†³æƒï¼\n");
   	}
 
   	if ((reason = (int)victim->query("vote/reason"))>0 && (reason!=V_CHBLK))
-		return notify_fail("Òª°Ñµ±Ç°µÄ±í¾öÍê³ÉÒÔºó²Å¿ÉÒÔÌáĞÂµÄ¶¯Òé¡£\n");
+		return notify_fail("è¦æŠŠå½“å‰çš„è¡¨å†³å®Œæˆä»¥åæ‰å¯ä»¥ææ–°çš„åŠ¨è®®ã€‚\n");
 
   	if( victim->query("chblk_on") )
-  		return notify_fail(victim->name(1)+"µÄÆµµÀÒÑ¾­ÊÇ¹Ø±ÕµÄÁË¡£\n");
+  		return notify_fail(victim->name(1)+"çš„é¢‘é“å·²ç»æ˜¯å…³é—­çš„äº†ã€‚\n");
 
   	if (reason <= 0)
 		victim->set("vote/reason", (int)V_CHBLK);
@@ -46,7 +46,7 @@ int vote(object me, object victim)
   		victim->set("vote/juror", juror+({ my_id }) );
   	else {
 		me->add("vote/abuse", 10);
-		return notify_fail("Ò»ÈËÒ»Æ±£¡ÀÄÓÃ±í¾öÈ¨ÊÇÒªÊÜ³Í·£µÄ£¡\n");
+		return notify_fail("ä¸€äººä¸€ç¥¨ï¼æ»¥ç”¨è¡¨å†³æƒæ˜¯è¦å—æƒ©ç½šçš„ï¼\n");
   	}
 
   	vv = (int) ("/cmds/std/vote")->valid_voters(me)/10;
@@ -56,21 +56,21 @@ int vote(object me, object victim)
   	if (vv < 4) df = 4 - vc;
 	v_name = victim->name(1)+"("+capitalize(victim->query("id"))+")";
   	if (df>0){
-		shout( HIW "¡¾±í¾ö¡¿"+me->name(1)+"Í¶Æ±¹Ø±Õ"+v_name+
-			"µÄ½»Ì¸ÆµµÀ£¬»¹²î"+chinese_number(df)+"Æ±¡£\n" NOR);
-		write( HIW "¡¾±í¾ö¡¿"+me->name(1)+"Í¶Æ±¹Ø±Õ" +v_name
-			+"µÄ½»Ì¸ÆµµÀ£¬»¹²î"+chinese_number(df)+"Æ±¡£\n" NOR);
-		victim->query("vote/deprived")? me->add("vote/abuse", 5) : me->add("vote/abuse", 10);	// add by Lklv ·ÀÖ¹ºúÂÒÍ¶Æ±
+		shout( HIW "ã€è¡¨å†³ã€‘"+me->name(1)+"æŠ•ç¥¨å…³é—­"+v_name+
+			"çš„äº¤è°ˆé¢‘é“ï¼Œè¿˜å·®"+chinese_number(df)+"ç¥¨ã€‚\n" NOR);
+		write( HIW "ã€è¡¨å†³ã€‘"+me->name(1)+"æŠ•ç¥¨å…³é—­" +v_name
+			+"çš„äº¤è°ˆé¢‘é“ï¼Œè¿˜å·®"+chinese_number(df)+"ç¥¨ã€‚\n" NOR);
+		victim->query("vote/deprived")? me->add("vote/abuse", 5) : me->add("vote/abuse", 10);	// add by Lklv é˜²æ­¢èƒ¡ä¹±æŠ•ç¥¨
 		victim->apply_condition("vote_clear", 10);
   	}
   	else {
-		shout( HIW "¡¾±í¾ö¡¿"+me->name(1)+"Í¶Æ±¹Ø±Õ" +v_name+
-			"µÄ½»Ì¸ÆµµÀ¡£"+v_name+"µÄ½»Ì¸ÆµµÀ±»¹Ø±ÕÁË£¡\n" NOR);
-		write( HIW "¡¾±í¾ö¡¿"+me->name(1)+"Í¶Æ±¹Ø±Õ" +v_name
-			+"µÄ½»Ì¸ÆµµÀ¡£"+v_name+"µÄ½»Ì¸ÆµµÀ±»¹Ø±ÕÁË£¡\n" NOR);
+		shout( HIW "ã€è¡¨å†³ã€‘"+me->name(1)+"æŠ•ç¥¨å…³é—­" +v_name+
+			"çš„äº¤è°ˆé¢‘é“ã€‚"+v_name+"çš„äº¤è°ˆé¢‘é“è¢«å…³é—­äº†ï¼\n" NOR);
+		write( HIW "ã€è¡¨å†³ã€‘"+me->name(1)+"æŠ•ç¥¨å…³é—­" +v_name
+			+"çš„äº¤è°ˆé¢‘é“ã€‚"+v_name+"çš„äº¤è°ˆé¢‘é“è¢«å…³é—­äº†ï¼\n" NOR);
 
 		victim->apply_condition("vote_clear", -10);
-		victim->apply_condition("vote_chblk", 50); // Ê®·ÖÖÓ¶àÒ»µã
+		victim->apply_condition("vote_chblk", 50); // ååˆ†é’Ÿå¤šä¸€ç‚¹
 		victim->set("chblk_on", 1);
 		victim->delete("chblk_rumor");
 		victim->delete("chblk_chat");

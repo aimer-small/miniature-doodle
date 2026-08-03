@@ -3,13 +3,13 @@ inherit ITEM;
 inherit F_FOOD;
 void create()
 {
-	set_name(MAG"Ïã½¶"NOR, ({"xiang jiao", "xiangjiao"}));
+	set_name(MAG"é¦™è•‰"NOR, ({"xiang jiao", "xiangjiao"}));
 	set_weight(80);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»µúÏã½¶£¬ÏãÆøÅ¨Óô£¬ÄãÕæÏëÁ¢¿Ì³ÔÉÏÒ»¸ö¡£\n");
-		set("unit", "µú");
+		set("long", "ä¸€ç¢Ÿé¦™è•‰ï¼Œé¦™æ°”æµ“éƒï¼Œä½ çœŸæƒ³ç«‹åˆ»åƒä¸Šä¸€ä¸ªã€‚\n");
+		set("unit", "ç¢Ÿ");
 		set("value", 50);
 		set("food_remaining", 3);
 		set("food_supply", 20);

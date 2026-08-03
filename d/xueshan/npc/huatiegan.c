@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("»¨Ìú¸É", ({ "hua tiegan", "hua"}));
-	set("title", HIY"ÖĞÆ½Ç¹"NOR);
-	set("long", "ÈË³Æ¡°ÖĞÆ½ÎŞµĞ¡±£¬ÒÔ¡°ÖĞÆ½Ç¹¡±ÏíÓşÎäÁÖ¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("èŠ±é“å¹²", ({ "hua tiegan", "hua"}));
+	set("title", HIY"ä¸­å¹³æª"NOR);
+	set("long", "äººç§°â€œä¸­å¹³æ— æ•Œâ€ï¼Œä»¥â€œä¸­å¹³æªâ€äº«èª‰æ­¦æ—ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 33);
 	set("attitude", "peaceful");
 	set("shen", -100);
@@ -69,16 +69,16 @@ void die()
 		       me->set_temp(QUESTDIR1+"kill_hua",1);
 		  else 
 		  {
-		  	tell_object(me,HIY"Ö»¿ÉÏ§µÒÔÆ¾¹È»²»ĞÒ±»º¦£¬ÏëÀ´Ò²ºÜÀ¢¾Î¶¡µä¶¡´óÏÀ¡£"NOR);
+		  	tell_object(me,HIY"åªå¯æƒœç‹„äº‘ç«Ÿç„¶ä¸å¹¸è¢«å®³ï¼Œæƒ³æ¥ä¹Ÿå¾ˆæ„§ç–šä¸å…¸ä¸å¤§ä¾ ã€‚"NOR);
 		  	me->delete_temp(QUESTDIR);
 		  }
 		}
-	  message_vision(HIR"\n$NºÙºÙ½ĞÁË¼¸Éù£¬ÈÂµÀ£ºÎÒÏÈÀë¿ªÁË¡£\n"NOR,ob);
+	  message_vision(HIR"\n$Nå˜¿å˜¿å«äº†å‡ å£°ï¼Œåš·é“ï¼šæˆ‘å…ˆç¦»å¼€äº†ã€‚\n"NOR,ob);
 	  destruct(ob);
 }
 void dest()
 {
-	message_vision(HIR"\n$NºÙºÙ½ĞÁË¼¸Éù£¬ÈÂµÀ£ºÎÒÏÈÀë¿ªÁË¡£\n"NOR,this_object());
+	message_vision(HIR"\n$Nå˜¿å˜¿å«äº†å‡ å£°ï¼Œåš·é“ï¼šæˆ‘å…ˆç¦»å¼€äº†ã€‚\n"NOR,this_object());
 	destruct(this_object());
 }
 void unconcious()

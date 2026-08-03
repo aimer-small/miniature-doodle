@@ -5,12 +5,12 @@ inherit NECK;
 
 void create()
 {
-        set_name("ÀÇÑÀ", ({ "lang ya", "ya" }) );
+        set_name("ç‹¼ç‰™", ({ "lang ya", "ya" }) );
         set_weight(2000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
+                set("unit", "é¢—");
                 set("material", "jade");
                 set("value", 2000);
                 set("armor_prop/armor", 10);

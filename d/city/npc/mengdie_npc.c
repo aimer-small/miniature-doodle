@@ -21,15 +21,15 @@ void create()
 	name = RNAME_D->get_random_name(random(3));
 	set_name(name["name"], name["id"]);
 	set_name(query("name"), ({ query("id"),"dls dizi"}));
-	set("gender", (sex?"ÄĞĞÔ":"Å®ĞÔ"));
-	set("long", "ÉñÃØÈË£¬Äã¾¡Á¦µØÈ¥È¥¿´Çå£¬È´»¹ÊÇÒ»Æ¬Ä£ºı¡£\n");
+	set("gender", (sex?"ç”·æ€§":"å¥³æ€§"));
+	set("long", "ç¥ç§˜äººï¼Œä½ å°½åŠ›åœ°å»å»çœ‹æ¸…ï¼Œå´è¿˜æ˜¯ä¸€ç‰‡æ¨¡ç³Šã€‚\n");
 	set("age", 25+random(100));
 	set("attitude", "peaceful");
-	set("rank_info/rank","ÉñÃØÈË");
-	set("rank_info/self_rude","ÉñÃØÈË");
-	set("rank_info/self","Ğ¡Éú");
-	set("rank_info/rude","ÉñÃØÈË");
-	set("rank_info/respect","ÉñÃØÈË");
+	set("rank_info/rank","ç¥ç§˜äºº");
+	set("rank_info/self_rude","ç¥ç§˜äºº");
+	set("rank_info/self","å°ç”Ÿ");
+	set("rank_info/rude","ç¥ç§˜äºº");
+	set("rank_info/respect","ç¥ç§˜äºº");
 	set("rank_info/color","HIW");
 
 	set("str", 30);
@@ -44,8 +44,8 @@ void create()
 	set("max_neili", 100);
 	set("jiali", 20);
 	set("combat_exp", 8000+random(500));
-//Ò»Ğ©Îä¹¦¾ø¼¼±»Éè¶¨ÒòÎªquestÈ¡Ïû£¬ÌØÒâÔö¼Ó¸Ã±äÁ¿
-//Ä¿Ç°Éè¶¨²»ÔÊĞíÊ¹ÓÃµÄÊÇtanzhi-shentongµÄpfm qiankun
+//ä¸€äº›æ­¦åŠŸç»æŠ€è¢«è®¾å®šå› ä¸ºquestå–æ¶ˆï¼Œç‰¹æ„å¢åŠ è¯¥å˜é‡
+//ç›®å‰è®¾å®šä¸å…è®¸ä½¿ç”¨çš„æ˜¯tanzhi-shentongçš„pfm qiankun
     set("quest_cancel",1);
 
 	set_skill("force", 70);
@@ -55,9 +55,9 @@ void create()
 	set_skill("sword", 80);
 	set_skill("cuff", 80);
 	set("inquiry", ([
-		"name" : random(2)?"Ê²Ã´½ĞÃû×Ö£¿":"ºÇºÇ£¬ÈËÉúÈçÃÎ£¬Ãû×ÖÔç¾ÍÍü¼ÇÁË¡£",
-		"Ãû×Ö" : random(2)?"Ê²Ã´½ĞÃû×Ö£¿":"ºÇºÇ£¬ÈËÉúÈçÃÎ£¬Ãû×ÖÔç¾ÍÍü¼ÇÁË¡£",
-		"°İÊ¦" : "àÅ....£¬Ğ¡Éú×¢¶¨Ò»ÉùÆ¯²´£¬»¹ÊÇËãÁË°É¡£",
+		"name" : random(2)?"ä»€ä¹ˆå«åå­—ï¼Ÿ":"å‘µå‘µï¼Œäººç”Ÿå¦‚æ¢¦ï¼Œåå­—æ—©å°±å¿˜è®°äº†ã€‚",
+		"åå­—" : random(2)?"ä»€ä¹ˆå«åå­—ï¼Ÿ":"å‘µå‘µï¼Œäººç”Ÿå¦‚æ¢¦ï¼Œåå­—æ—©å°±å¿˜è®°äº†ã€‚",
+		"æ‹œå¸ˆ" : "å—¯....ï¼Œå°ç”Ÿæ³¨å®šä¸€å£°æ¼‚æ³Šï¼Œè¿˜æ˜¯ç®—äº†å§ã€‚",
     ]));
 
 	setup();
@@ -105,8 +105,8 @@ void die()
 		i=i*i;
 		me->add_temp("quest/special/score",i);
 		me->add("quest/special/score",i);
-		tell_object(me,HIR"\nÄã³É¹¦µÄ»÷ÍË"+ob->short(1)+HIR"£¬»ñµÃ½±Àø·ÖÊı"+i+"¡£*_* \n"NOR);
-		log_file("quest/SPECIAL", sprintf("%s(%s) µûÃÎÂ¥±ÈÎä»ñµÃ·ÖÊı½±Àø£º%d¡£¾­Ñé£º%d¡£\n", me->name(1),me->query("id"),i,me->query("combat_exp")) );
+		tell_object(me,HIR"\nä½ æˆåŠŸçš„å‡»é€€"+ob->short(1)+HIR"ï¼Œè·å¾—å¥–åŠ±åˆ†æ•°"+i+"ã€‚*_* \n"NOR);
+		log_file("quest/SPECIAL", sprintf("%s(%s) è¶æ¢¦æ¥¼æ¯”æ­¦è·å¾—åˆ†æ•°å¥–åŠ±ï¼š%dã€‚ç»éªŒï¼š%dã€‚\n", me->name(1),me->query("id"),i,me->query("combat_exp")) );
 	}
 	obs = deep_inventory(ob);       
 	obs = filter_array(obs,(:$1->query("imbued"):));
@@ -114,9 +114,9 @@ void die()
 	while(i--)
 	{
 		obs[i]->move(environment(ob));
-		message_vision(YEL"$N¶ªÏÂÒ»"+obs[i]->query("unit")+obs[i]->name()+NOR+YEL"¡£\n"NOR,ob);
+		message_vision(YEL"$Nä¸¢ä¸‹ä¸€"+obs[i]->query("unit")+obs[i]->name()+NOR+YEL"ã€‚\n"NOR,ob);
 	}
-	message_vision(HIY"\nÍ»È»Ò»Õó·çÉ¢£¬$NÔ­À´Õ¾×ÅµÄµØ·½¾¹È»Ò»µãºÛ¼£Ò²Ã»ÓĞÁôÏÂ¡£\n"HIM"¸Õ²ÅµÄÒ»ÇĞÈçÃÎ»Ã°ã£¬È«È»ÏûÊÅÔÚ·çÖĞ¡£\n"NOR,this_object());
+	message_vision(HIY"\nçªç„¶ä¸€é˜µé£æ•£ï¼Œ$NåŸæ¥ç«™ç€çš„åœ°æ–¹ç«Ÿç„¶ä¸€ç‚¹ç—•è¿¹ä¹Ÿæ²¡æœ‰ç•™ä¸‹ã€‚\n"HIM"åˆšæ‰çš„ä¸€åˆ‡å¦‚æ¢¦å¹»èˆ¬ï¼Œå…¨ç„¶æ¶ˆé€åœ¨é£ä¸­ã€‚\n"NOR,this_object());
 	destruct(this_object());
 }
 void unconcious()
@@ -125,7 +125,7 @@ void unconcious()
 }
 void dest()
 {
-	message_vision(HIR"\nÍ»È»Ò»Õó·çÉ¢£¬$NÔ­À´Õ¾×ÅµÄµØ·½¾¹È»Ò»µãºÛ¼£Ò²Ã»ÓĞÁôÏÂ¡£"HIM"¸Õ²ÅµÄÒ»ÇĞÈçÃÎ»Ã°ã£¬È«È»ÏûÊÅÔÚ·çÖĞ¡£\n"NOR,this_object());
+	message_vision(HIR"\nçªç„¶ä¸€é˜µé£æ•£ï¼Œ$NåŸæ¥ç«™ç€çš„åœ°æ–¹ç«Ÿç„¶ä¸€ç‚¹ç—•è¿¹ä¹Ÿæ²¡æœ‰ç•™ä¸‹ã€‚"HIM"åˆšæ‰çš„ä¸€åˆ‡å¦‚æ¢¦å¹»èˆ¬ï¼Œå…¨ç„¶æ¶ˆé€åœ¨é£ä¸­ã€‚\n"NOR,this_object());
 	destruct(this_object());
 }
 void do_copy(object ob)
@@ -221,277 +221,277 @@ void do_copy(object ob)
         if( query("jiali") > 200 ) set("jiali", 200 );
         set("combat_exp",hp_status["combat_exp"]);
 
-		if(query("family/family_name")=="Îäµ±ÅÉ")
+		if(query("family/family_name")=="æ­¦å½“æ´¾")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "yinyun" :)});             //ë³ëµ×ÏÆøpfm:ë³ëµÄÚ¾Û
-			u_pfm=u_pfm + ({(: exert_function, "taiji" :)});             //Ì«¼«
-			u_pfm=u_pfm + ({(: perform_action, "dodge.zong" :)});         //ÌßÔÆ×İpfm:×İ   
-			u_pfm=u_pfm + ({(: perform_action, "strike.bingdi" :)});  //ÕğÉ½ÃàÕÆpfm:»¨¿ª²¢µÙ
-			u_pfm = u_pfm + ({(: perform_action, "cuff.ji" :)});				//Ì«¼«È­pfm:¼·
-			u_pfm = u_pfm + ({(: perform_action, "cuff.zhannian" :)});			//Õ³ğ¤
-			u_pfm = u_pfm + ({(: perform_action, "cuff.zhen" :)});				//Õğ
-			u_pfm = u_pfm + ({(: perform_action, "cuff.luanhuan" :)});			//ÂÒ»¹¾ö
-			u_pfm = u_pfm + ({(: perform_action, "cuff.yinyang" :)});			//ÒõÑô¾ö
-			u_pfm = u_pfm + ({(: perform_action, "cuff.gangrou" :)});			//¸ÕÈá¾ö
-			u_pfm = u_pfm + ({(: perform_action, "cuff.dongjing" :)});			//¶¯¾²¾ö
-			u_pfm = u_pfm + ({(: perform_action, "cuff.an" :)});				//°´
-			u_pfm = u_pfm + ({(: perform_action, "sword.chan" :)});				//Ì«¼«½£pfm£º²ø
-			u_pfm = u_pfm + ({(: perform_action, "sword.sanhuan" :)});			//Èı»·Ì×ÔÂ
-			u_pfm = u_pfm + ({(: perform_action, "sword.lian" :)});				//Á¬
+			u_pfm=u_pfm + ({(: exert_function, "yinyun" :)});             //æ°¤æ°²ç´«æ°”pfm:æ°¤æ°²å†…èš
+			u_pfm=u_pfm + ({(: exert_function, "taiji" :)});             //å¤ªæ
+			u_pfm=u_pfm + ({(: perform_action, "dodge.zong" :)});         //è¸¢äº‘çºµpfm:çºµ   
+			u_pfm=u_pfm + ({(: perform_action, "strike.bingdi" :)});  //éœ‡å±±ç»µæŒpfm:èŠ±å¼€å¹¶è’‚
+			u_pfm = u_pfm + ({(: perform_action, "cuff.ji" :)});				//å¤ªææ‹³pfm:æŒ¤
+			u_pfm = u_pfm + ({(: perform_action, "cuff.zhannian" :)});			//ç²˜é»
+			u_pfm = u_pfm + ({(: perform_action, "cuff.zhen" :)});				//éœ‡
+			u_pfm = u_pfm + ({(: perform_action, "cuff.luanhuan" :)});			//ä¹±è¿˜å†³
+			u_pfm = u_pfm + ({(: perform_action, "cuff.yinyang" :)});			//é˜´é˜³å†³
+			u_pfm = u_pfm + ({(: perform_action, "cuff.gangrou" :)});			//åˆšæŸ”å†³
+			u_pfm = u_pfm + ({(: perform_action, "cuff.dongjing" :)});			//åŠ¨é™å†³
+			u_pfm = u_pfm + ({(: perform_action, "cuff.an" :)});				//æŒ‰
+			u_pfm = u_pfm + ({(: perform_action, "sword.chan" :)});				//å¤ªæå‰‘pfmï¼šç¼ 
+			u_pfm = u_pfm + ({(: perform_action, "sword.sanhuan" :)});			//ä¸‰ç¯å¥—æœˆ
+			u_pfm = u_pfm + ({(: perform_action, "sword.lian" :)});				//è¿
 			set("wd/raozhi",1);
-			u_pfm = u_pfm + ({(: perform_action, "sword.raozhi" :)});			//ÈÆÖ¸Èá½£
+			u_pfm = u_pfm + ({(: perform_action, "sword.raozhi" :)});			//ç»•æŒ‡æŸ”å‰‘
 		}
-		if(query("family/family_name")=="áÔÉ½ÅÉ")
+		if(query("family/family_name")=="åµ©å±±æ´¾")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "hanbing" :)});   //º®±ùÕæÆøpfm£ºº®±ù
-			u_pfm=u_pfm + ({(: exert_function, "juhan" :)});     //¾Ûº®
-			u_pfm=u_pfm + ({(: perform_action, "hand.junji" :)});        //áÔÑôÊÖpfm£º¿¢¼«
-			u_pfm=u_pfm + ({(: perform_action, "hand.yinyang" :)});      //ÒõÑô
-			u_pfm=u_pfm + ({(: perform_action, "whip.luan" :)});          //áÔÑô±Şpfm£ºÂÒ
-			u_pfm = u_pfm + ({(: perform_action, "strike.hanbing" :)});     //º®±ùÉñÕÆpfm£ºº®±ù
-			u_pfm = u_pfm + ({(: perform_action, "sword.feiwu" :)});        	//áÔÉ½½£·¨pfm£º·ÉÎè
-			u_pfm = u_pfm + ({(: perform_action, "sword.leiting" :)});			//À×öªÒ»»÷
-			u_pfm = u_pfm + ({(: perform_action, "sword.longfeng" :)});			//Áú·É	
-			u_pfm = u_pfm + ({(: perform_action, "sword.songyang" :)});			//áÔÑô
+			u_pfm=u_pfm + ({(: exert_function, "hanbing" :)});   //å¯’å†°çœŸæ°”pfmï¼šå¯’å†°
+			u_pfm=u_pfm + ({(: exert_function, "juhan" :)});     //èšå¯’
+			u_pfm=u_pfm + ({(: perform_action, "hand.junji" :)});        //åµ©é˜³æ‰‹pfmï¼šç«£æ
+			u_pfm=u_pfm + ({(: perform_action, "hand.yinyang" :)});      //é˜´é˜³
+			u_pfm=u_pfm + ({(: perform_action, "whip.luan" :)});          //åµ©é˜³é­pfmï¼šä¹±
+			u_pfm = u_pfm + ({(: perform_action, "strike.hanbing" :)});     //å¯’å†°ç¥æŒpfmï¼šå¯’å†°
+			u_pfm = u_pfm + ({(: perform_action, "sword.feiwu" :)});        	//åµ©å±±å‰‘æ³•pfmï¼šé£èˆ
+			u_pfm = u_pfm + ({(: perform_action, "sword.leiting" :)});			//é›·éœ†ä¸€å‡»
+			u_pfm = u_pfm + ({(: perform_action, "sword.longfeng" :)});			//é¾™é£	
+			u_pfm = u_pfm + ({(: perform_action, "sword.songyang" :)});			//åµ©é˜³
 		}
-		if(query("family/family_name")=="Ø¤°ï")
+		if(query("family/family_name")=="ä¸å¸®")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "huntian" :)});          //»ìÌìÆø¹¦pfm£ºpowerup
-			u_pfm=u_pfm + ({(: perform_action, "whip.huixuan" :)});       //»Ø·ç±Şpfm£º»Ø·ç
-			u_pfm=u_pfm + ({(: perform_action, "staff.feizhi" :)});       //Á«»¨µ¶·¨pfm£ºÆæÃÅÈı²Å	
-			u_pfm = u_pfm + ({(: perform_action, "strike.paiyun" :)});         //½µÁúÕÆpfm£ºÅÅÔÆË«ÕÆ
-			u_pfm = u_pfm + ({(: perform_action, "strike.xiao" :)});		//Ğ¥
-			u_pfm = u_pfm + ({(: perform_action, "strike.kanglong" :)});	//¿ºÁúÎŞ»Ú
-			u_pfm = u_pfm + ({(: perform_action, "stick.chan" :)});       	//´ò¹·°ô·¨pfm£º²ø
-			u_pfm = u_pfm + ({(: perform_action, "stick.chuo" :)});			//´Á
-			u_pfm = u_pfm + ({(: perform_action, "stick.shuangjue" :)});	//°ôÕÆË«¾ø
-			u_pfm = u_pfm + ({(: perform_action, "stick.tiao" :)});			//Ìô
-			u_pfm = u_pfm + ({(: perform_action, "stick.zhuan" :)});		//×ª
-			u_pfm = u_pfm + ({(: perform_action, "stick.wugou" :)});		//ÌìÏÂÎŞ¹·
+			u_pfm=u_pfm + ({(: exert_function, "huntian" :)});          //æ··å¤©æ°”åŠŸpfmï¼špowerup
+			u_pfm=u_pfm + ({(: perform_action, "whip.huixuan" :)});       //å›é£é­pfmï¼šå›é£
+			u_pfm=u_pfm + ({(: perform_action, "staff.feizhi" :)});       //è²èŠ±åˆ€æ³•pfmï¼šå¥‡é—¨ä¸‰æ‰	
+			u_pfm = u_pfm + ({(: perform_action, "strike.paiyun" :)});         //é™é¾™æŒpfmï¼šæ’äº‘åŒæŒ
+			u_pfm = u_pfm + ({(: perform_action, "strike.xiao" :)});		//å•¸
+			u_pfm = u_pfm + ({(: perform_action, "strike.kanglong" :)});	//äº¢é¾™æ— æ‚”
+			u_pfm = u_pfm + ({(: perform_action, "stick.chan" :)});       	//æ‰“ç‹—æ£’æ³•pfmï¼šç¼ 
+			u_pfm = u_pfm + ({(: perform_action, "stick.chuo" :)});			//æˆ³
+			u_pfm = u_pfm + ({(: perform_action, "stick.shuangjue" :)});	//æ£’æŒåŒç»
+			u_pfm = u_pfm + ({(: perform_action, "stick.tiao" :)});			//æŒ‘
+			u_pfm = u_pfm + ({(: perform_action, "stick.zhuan" :)});		//è½¬
+			u_pfm = u_pfm + ({(: perform_action, "stick.wugou" :)});		//å¤©ä¸‹æ— ç‹—
 		}
-		if(query("family/family_name")=="»ªÉ½ÅÉ")
+		if(query("family/family_name")=="åå±±æ´¾")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "zixia" :)});            //×ÏÏ¼¹¦pfm£ºzixia    
-			u_pfm=u_pfm + ({(: perform_action, "blade.sanshenfeng" :)});       //·´Á½ÒÇµ¶·¨pfm£º»ªÔÀÈıÉñ·å
-			u_pfm=u_pfm + ({(: perform_action, "strike.wuji" :)});       //»ìÔªÕÆpfm£º»ìÔªÎŞ¼«
-			u_pfm = u_pfm + ({(: perform_action, "sword.feijian" :)});     	//»ªÉ½½£·¨pfm£º·É½£
-			u_pfm = u_pfm + ({(: perform_action, "sword.junzi" :)});		//¾ı×Ó
-			u_pfm = u_pfm + ({(: perform_action, "sword.kuaijian" :)});		//¿ì½£
-			u_pfm = u_pfm + ({(: perform_action, "sword.lianhuan" :)});		//Á¬»·
-			u_pfm = u_pfm + ({(: perform_action, "sword.sanqingfeng" :)});	//ÈıÇå·ç
-			u_pfm = u_pfm + ({(: perform_action, "sword.shijiushi" :)});	//Ê®¾ÅÊ½
-			u_pfm = u_pfm + ({(: perform_action, "sword.shunv" :)});		//ÊçÅ®
-			u_pfm = u_pfm + ({(: perform_action, "sword.wushuang" :)});		//ÎŞË«
-			u_pfm = u_pfm + ({(: perform_action, "sword.xiyi" :)});			//Ï£ÒÄ
-			u_pfm = u_pfm + ({(: perform_action, "sword.yangwu" :)});		//ÑöÎá
-			u_pfm = u_pfm + ({(: perform_action, "sword.kuangfeng" :)});    //¶À¹Â¾Å½£pfm£º¿ñ·ç
+			u_pfm=u_pfm + ({(: exert_function, "zixia" :)});            //ç´«éœåŠŸpfmï¼šzixia    
+			u_pfm=u_pfm + ({(: perform_action, "blade.sanshenfeng" :)});       //åä¸¤ä»ªåˆ€æ³•pfmï¼šåå²³ä¸‰ç¥å³°
+			u_pfm=u_pfm + ({(: perform_action, "strike.wuji" :)});       //æ··å…ƒæŒpfmï¼šæ··å…ƒæ— æ
+			u_pfm = u_pfm + ({(: perform_action, "sword.feijian" :)});     	//åå±±å‰‘æ³•pfmï¼šé£å‰‘
+			u_pfm = u_pfm + ({(: perform_action, "sword.junzi" :)});		//å›å­
+			u_pfm = u_pfm + ({(: perform_action, "sword.kuaijian" :)});		//å¿«å‰‘
+			u_pfm = u_pfm + ({(: perform_action, "sword.lianhuan" :)});		//è¿ç¯
+			u_pfm = u_pfm + ({(: perform_action, "sword.sanqingfeng" :)});	//ä¸‰æ¸…é£
+			u_pfm = u_pfm + ({(: perform_action, "sword.shijiushi" :)});	//åä¹å¼
+			u_pfm = u_pfm + ({(: perform_action, "sword.shunv" :)});		//æ·‘å¥³
+			u_pfm = u_pfm + ({(: perform_action, "sword.wushuang" :)});		//æ— åŒ
+			u_pfm = u_pfm + ({(: perform_action, "sword.xiyi" :)});			//å¸Œå¤·
+			u_pfm = u_pfm + ({(: perform_action, "sword.yangwu" :)});		//ä»°å¾
+			u_pfm = u_pfm + ({(: perform_action, "sword.kuangfeng" :)});    //ç‹¬å­¤ä¹å‰‘pfmï¼šç‹‚é£
 			u_pfm = u_pfm + ({(: perform_action, "sword.pobian" :)});		
 			u_pfm = u_pfm + ({(: perform_action, "sword.pojian" :)});		
 			u_pfm = u_pfm + ({(: perform_action, "sword.pozhang" :)});		
 			u_pfm = u_pfm + ({(: perform_action, "sword.poqi" :)});	
 			u_pfm = u_pfm + ({(: perform_action, "sword.poqiang" :)});	
 			u_pfm = u_pfm + ({(: perform_action, "sword.posuo" :)});		
-			u_pfm = u_pfm + ({(: perform_action, "sword.zongjue" :)});		//×Ü¾ö
+			u_pfm = u_pfm + ({(: perform_action, "sword.zongjue" :)});		//æ€»å†³
 
 		}
-		if(query("family/family_name")=="ÌúÕÆ°ï")
+		if(query("family/family_name")=="é“æŒå¸®")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "focus" :)});          //ÌúÕÆÆø¹¦pfm£ºfocus
-			u_pfm=u_pfm + ({(: perform_action, "dodge.piao" :)});     //Ë®ÉÏÆ¯pfm:Æ¯
-			u_pfm = u_pfm + ({(: perform_action, "strike.duoming" :)});     //ÌúÕÆÕÆ·¨pfm£º¶áÃüÌú×¦
-			u_pfm = u_pfm + ({(: perform_action, "strike.heisha" :)});     //ÌúÕÆÕÆ·¨pfm£ººÚ É° ÕÆ
-			u_pfm = u_pfm + ({(: perform_action, "strike.heyi" :)});     //ÌúÕÆÕÆ·¨pfm£ºÒõÑôºÏÒ»
-			u_pfm = u_pfm + ({(: perform_action, "strike.honglei" :)});     //ÌúÕÆÕÆ·¨pfm£ººäÀ×Ë«ÕÆ
-			u_pfm = u_pfm + ({(: perform_action, "strike.judu" :)});     //ÌúÕÆÕÆ·¨pfm£º¾Û    ¶¾
-			u_pfm = u_pfm + ({(: perform_action, "strike.pangen" :)});     //ÌúÕÆÕÆ·¨pfm£º¿İÊ÷ÅÌ¸ù
-			u_pfm = u_pfm + ({(: perform_action, "strike.pushan" :)});     //ÌúÕÆÕÆ·¨pfm£ºÌúÆÑÉÈÕÆ
-			u_pfm = u_pfm + ({(: perform_action, "strike.qinna" :)});     //ÌúÕÆÕÆ·¨pfm£ºÌúÕÆÇÜÄÃ
-			u_pfm = u_pfm + ({(: perform_action, "strike.rubairen" :)});     //ÌúÕÆÕÆ·¨pfm£ºÈë °× ÈĞ
-			u_pfm = u_pfm + ({(: perform_action, "strike.tianlei" :)});     //ÌúÕÆÕÆ·¨pfm£ºÌì À× Æø
-			u_pfm = u_pfm + ({(: perform_action, "strike.xuanfeng" :)});     //ÌúÕÆÕÆ·¨pfm£ºĞı·ç¿ìÕÆ
-			u_pfm = u_pfm + ({(: perform_action, "strike.zhangdao" :)});     //ÌúÕÆÕÆ·¨pfm£ºÌúÕÆÕÆµ¶
-			u_pfm = u_pfm + ({(: perform_action, "strike.tiezhang" :)});     //ÌúÕÆÕÆ·¨pfm£ºÌúÕÆ
-			u_pfm=u_pfm + ({(: perform_action, "blade.daozhang" :)});   //ÁøÒ¶µ¶·¨pfm£ºµ¶ÕÆ
-			u_pfm=u_pfm + ({(: perform_action, "axe.lihun" :)});  		//ÁÑÌì¸«pfm£ºÀë»ê
+			u_pfm=u_pfm + ({(: exert_function, "focus" :)});          //é“æŒæ°”åŠŸpfmï¼šfocus
+			u_pfm=u_pfm + ({(: perform_action, "dodge.piao" :)});     //æ°´ä¸Šæ¼‚pfm:æ¼‚
+			u_pfm = u_pfm + ({(: perform_action, "strike.duoming" :)});     //é“æŒæŒæ³•pfmï¼šå¤ºå‘½é“çˆª
+			u_pfm = u_pfm + ({(: perform_action, "strike.heisha" :)});     //é“æŒæŒæ³•pfmï¼šé»‘ ç ‚ æŒ
+			u_pfm = u_pfm + ({(: perform_action, "strike.heyi" :)});     //é“æŒæŒæ³•pfmï¼šé˜´é˜³åˆä¸€
+			u_pfm = u_pfm + ({(: perform_action, "strike.honglei" :)});     //é“æŒæŒæ³•pfmï¼šè½°é›·åŒæŒ
+			u_pfm = u_pfm + ({(: perform_action, "strike.judu" :)});     //é“æŒæŒæ³•pfmï¼šèš    æ¯’
+			u_pfm = u_pfm + ({(: perform_action, "strike.pangen" :)});     //é“æŒæŒæ³•pfmï¼šæ¯æ ‘ç›˜æ ¹
+			u_pfm = u_pfm + ({(: perform_action, "strike.pushan" :)});     //é“æŒæŒæ³•pfmï¼šé“è’²æ‰‡æŒ
+			u_pfm = u_pfm + ({(: perform_action, "strike.qinna" :)});     //é“æŒæŒæ³•pfmï¼šé“æŒæ“’æ‹¿
+			u_pfm = u_pfm + ({(: perform_action, "strike.rubairen" :)});     //é“æŒæŒæ³•pfmï¼šå…¥ ç™½ åˆƒ
+			u_pfm = u_pfm + ({(: perform_action, "strike.tianlei" :)});     //é“æŒæŒæ³•pfmï¼šå¤© é›· æ°”
+			u_pfm = u_pfm + ({(: perform_action, "strike.xuanfeng" :)});     //é“æŒæŒæ³•pfmï¼šæ—‹é£å¿«æŒ
+			u_pfm = u_pfm + ({(: perform_action, "strike.zhangdao" :)});     //é“æŒæŒæ³•pfmï¼šé“æŒæŒåˆ€
+			u_pfm = u_pfm + ({(: perform_action, "strike.tiezhang" :)});     //é“æŒæŒæ³•pfmï¼šé“æŒ
+			u_pfm=u_pfm + ({(: perform_action, "blade.daozhang" :)});   //æŸ³å¶åˆ€æ³•pfmï¼šåˆ€æŒ
+			u_pfm=u_pfm + ({(: perform_action, "axe.lihun" :)});  		//è£‚å¤©æ–§pfmï¼šç¦»é­‚
 		}
-		if(query("family/family_name")=="´óÂÖËÂ")
+		if(query("family/family_name")=="å¤§è½®å¯º")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "longxiang" :)});   //ÁúÏó°ãÈô¹¦pfm£ºÁúÏó
-			u_pfm=u_pfm + ({(: exert_function, "shield" :)});      //Æø¶Ü
-			u_pfm=u_pfm + ({(: perform_action, "hand.tianyin" :)});  //´óÊÖÓ¡pfm£º°¢ĞŞÂŞÌìÓ¡
+			u_pfm=u_pfm + ({(: exert_function, "longxiang" :)});   //é¾™è±¡èˆ¬è‹¥åŠŸpfmï¼šé¾™è±¡
+			u_pfm=u_pfm + ({(: exert_function, "shield" :)});      //æ°”ç›¾
+			u_pfm=u_pfm + ({(: perform_action, "hand.tianyin" :)});  //å¤§æ‰‹å°pfmï¼šé˜¿ä¿®ç½—å¤©å°
 
-			u_pfm = u_pfm + ({(: perform_action, "strike.fen" :)});     //»ğÑæµ¶pfm£ºèû
-			u_pfm = u_pfm + ({(: perform_action, "strike.ran" :)});     //»ğÑæµ¶pfm£ºèû
-			u_pfm = u_pfm + ({(: perform_action, "strike.daoqi" :)});     //»ğÑæµ¶pfm£ºèû
-			u_pfm = u_pfm + ({(: perform_action, "blade.jixue" :)});        	//pfm ¼ÀÑª
-			u_pfm = u_pfm + ({(: perform_action, "blade.shendao" :)});			//Éñµ¶´©ĞÄ
-			u_pfm = u_pfm + ({(: perform_action, "hammer.wushuai" :)});        	//ÌìÈËÎåË¥
-			u_pfm = u_pfm + ({(: perform_action, "hammer.dazhuan" :)});			//´ó×ª
+			u_pfm = u_pfm + ({(: perform_action, "strike.fen" :)});     //ç«ç„°åˆ€pfmï¼šæ£¼
+			u_pfm = u_pfm + ({(: perform_action, "strike.ran" :)});     //ç«ç„°åˆ€pfmï¼šæ£¼
+			u_pfm = u_pfm + ({(: perform_action, "strike.daoqi" :)});     //ç«ç„°åˆ€pfmï¼šæ£¼
+			u_pfm = u_pfm + ({(: perform_action, "blade.jixue" :)});        	//pfm ç¥­è¡€
+			u_pfm = u_pfm + ({(: perform_action, "blade.shendao" :)});			//ç¥åˆ€ç©¿å¿ƒ
+			u_pfm = u_pfm + ({(: perform_action, "hammer.wushuai" :)});        	//å¤©äººäº”è¡°
+			u_pfm = u_pfm + ({(: perform_action, "hammer.dazhuan" :)});			//å¤§è½¬
 		}
-		if(query("family/family_name")=="¹ÅÄ¹ÅÉ")
+		if(query("family/family_name")=="å¤å¢“æ´¾")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "xinjing" :)});  //ÓñÅ®ĞÄ¾­pfm£ºxinjing
-			u_pfm = u_pfm + ({(: perform_action, "cuff.shexin" :)});		//ÃÀÅ®È­·¨pfm:ÉãĞÄ
-			u_pfm=u_pfm + ({(: perform_action, "sword.suxin" :)});      //ÓñÅ®ËØĞÄ½£pfm£ºËØĞÄ
-			u_pfm=u_pfm + ({(: perform_action, "sword.qixing" :)});     	//È«Õæ½£·¨pfm£ºÆßĞÇ¾Û¶¥
-			u_pfm=u_pfm + ({(: perform_action, "sword.sanqing" :)});   	    //ÈıÇå·ç
-			u_pfm = u_pfm + ({(: perform_action, "strike.anran" :)});     //÷öÈ»Ïú»êÕÆpfm£º÷öÈ»
-			u_pfm = u_pfm + ({(: perform_action, "strike.jishi" :)});     //÷öÈ»Ïú»êÕÆpfm£º¼µÊÀ
-			u_pfm = u_pfm + ({(: perform_action, "strike.xiaohun" :)});     //÷öÈ»Ïú»êÕÆpfm£ºÏú»ê
-			u_pfm = u_pfm + ({(: perform_action, "sword.haichao" :)});        	//ĞşÌúpfm£ºº£³±
-			u_pfm = u_pfm + ({(: perform_action, "sword.wujian" :)});			//ÎŞ½£
+			u_pfm=u_pfm + ({(: exert_function, "xinjing" :)});  //ç‰å¥³å¿ƒç»pfmï¼šxinjing
+			u_pfm = u_pfm + ({(: perform_action, "cuff.shexin" :)});		//ç¾å¥³æ‹³æ³•pfm:æ‘„å¿ƒ
+			u_pfm=u_pfm + ({(: perform_action, "sword.suxin" :)});      //ç‰å¥³ç´ å¿ƒå‰‘pfmï¼šç´ å¿ƒ
+			u_pfm=u_pfm + ({(: perform_action, "sword.qixing" :)});     	//å…¨çœŸå‰‘æ³•pfmï¼šä¸ƒæ˜Ÿèšé¡¶
+			u_pfm=u_pfm + ({(: perform_action, "sword.sanqing" :)});   	    //ä¸‰æ¸…é£
+			u_pfm = u_pfm + ({(: perform_action, "strike.anran" :)});     //é»¯ç„¶é”€é­‚æŒpfmï¼šé»¯ç„¶
+			u_pfm = u_pfm + ({(: perform_action, "strike.jishi" :)});     //é»¯ç„¶é”€é­‚æŒpfmï¼šå«‰ä¸–
+			u_pfm = u_pfm + ({(: perform_action, "strike.xiaohun" :)});     //é»¯ç„¶é”€é­‚æŒpfmï¼šé”€é­‚
+			u_pfm = u_pfm + ({(: perform_action, "sword.haichao" :)});        	//ç„é“pfmï¼šæµ·æ½®
+			u_pfm = u_pfm + ({(: perform_action, "sword.wujian" :)});			//æ— å‰‘
 			set("gmsanwu",1);
-			u_pfm = u_pfm + ({(: perform_action, "whip.sanwu" :)});        	//ÒøË÷½ğÁåpfm£ºÈıÎŞÈı²»ÊÖ
+			u_pfm = u_pfm + ({(: perform_action, "whip.sanwu" :)});        	//é“¶ç´¢é‡‘é“ƒpfmï¼šä¸‰æ— ä¸‰ä¸æ‰‹
 		}
-		if(query("family/family_name")=="¹ÃËÕÄ½Èİ")
+		if(query("family/family_name")=="å§‘è‹æ…•å®¹")
 		{		
-			u_pfm=u_pfm + ({(: exert_function, "shenyuan" :)});   		//ÉñÔª¹¦pfm£ºÉñÔª
-			u_pfm=u_pfm + ({(: perform_action, "parry.xingyi" :)});     //¶·×ªĞÇÒÆpfm£ºĞÇÒÆ
-			u_pfm=u_pfm + ({(: perform_action, "strike.riyue" :)});        //ĞÇÒÆÕÆpfm£ºÈÕÔÂÍ¬»Ô
-			u_pfm = u_pfm + ({(: perform_action, "finger.ci" :)});     //²ÎºÏÖ¸pfm£º´Ì
-			u_pfm=u_pfm + ({(: perform_action, "blade.daoying" :)});     //Ä½Èİµ¶·¨pfm£ºµ¶Ó°ÕÆ
-			u_pfm = u_pfm + ({(: perform_action, "sword.lianhuan" :)});        	//Ä½Èİ½£·¨pfm£ºÁ¬»·
-			u_pfm = u_pfm + ({(: perform_action, "sword.sanhua" :)});			//É¢»¨
+			u_pfm=u_pfm + ({(: exert_function, "shenyuan" :)});   		//ç¥å…ƒåŠŸpfmï¼šç¥å…ƒ
+			u_pfm=u_pfm + ({(: perform_action, "parry.xingyi" :)});     //æ–—è½¬æ˜Ÿç§»pfmï¼šæ˜Ÿç§»
+			u_pfm=u_pfm + ({(: perform_action, "strike.riyue" :)});        //æ˜Ÿç§»æŒpfmï¼šæ—¥æœˆåŒè¾‰
+			u_pfm = u_pfm + ({(: perform_action, "finger.ci" :)});     //å‚åˆæŒ‡pfmï¼šåˆº
+			u_pfm=u_pfm + ({(: perform_action, "blade.daoying" :)});     //æ…•å®¹åˆ€æ³•pfmï¼šåˆ€å½±æŒ
+			u_pfm = u_pfm + ({(: perform_action, "sword.lianhuan" :)});        	//æ…•å®¹å‰‘æ³•pfmï¼šè¿ç¯
+			u_pfm = u_pfm + ({(: perform_action, "sword.sanhua" :)});			//æ•£èŠ±
 		}
-		if(query("family/family_name")=="ÉñÁú½Ì")
+		if(query("family/family_name")=="ç¥é¾™æ•™")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "wudi" :)});   		//¶¾Áú´ó·¨pfm£ºÎŞµĞ
-			u_pfm=u_pfm + ({(: perform_action, "whip.chan" :)});          //ÁéÉß±Ş·¨pfm£º²øÈÆ
-			u_pfm=u_pfm + ({(: perform_action, "whip.sandou" :)});        //ÁéÉß±Ş·¨pfm£º²øÈÆ
-			u_pfm = u_pfm + ({(: perform_action, "strike.bujue" :)});     //»¯¹ÇÃàÕÆpfm£º²»¾ø
-			u_pfm = u_pfm + ({(: perform_action, "dagger.diqing" :)});        	//ÌÚÁúØ°·¨pfm£ºµÒÇà½µÁú
-			u_pfm = u_pfm + ({(: perform_action, "dagger.feiyan" :)});			//·ÉÑà»ØÏè
-			u_pfm = u_pfm + ({(: perform_action, "dagger.guifei" :)});			//¹óåú»Øíø	
-			u_pfm = u_pfm + ({(: perform_action, "dagger.luda" :)});			//Â³´ï°ÎÁø
-			u_pfm = u_pfm + ({(: perform_action, "dagger.xiaolian" :)});		//Ğ¡Á¯ºá³Â
-			u_pfm = u_pfm + ({(: perform_action, "dagger.zixu" :)});			//×Óñã¾Ù¶¦
+			u_pfm=u_pfm + ({(: exert_function, "wudi" :)});   		//æ¯’é¾™å¤§æ³•pfmï¼šæ— æ•Œ
+			u_pfm=u_pfm + ({(: perform_action, "whip.chan" :)});          //çµè›‡é­æ³•pfmï¼šç¼ ç»•
+			u_pfm=u_pfm + ({(: perform_action, "whip.sandou" :)});        //çµè›‡é­æ³•pfmï¼šç¼ ç»•
+			u_pfm = u_pfm + ({(: perform_action, "strike.bujue" :)});     //åŒ–éª¨ç»µæŒpfmï¼šä¸ç»
+			u_pfm = u_pfm + ({(: perform_action, "dagger.diqing" :)});        	//è…¾é¾™åŒ•æ³•pfmï¼šç‹„é’é™é¾™
+			u_pfm = u_pfm + ({(: perform_action, "dagger.feiyan" :)});			//é£ç‡•å›ç¿”
+			u_pfm = u_pfm + ({(: perform_action, "dagger.guifei" :)});			//è´µå¦ƒå›çœ¸	
+			u_pfm = u_pfm + ({(: perform_action, "dagger.luda" :)});			//é²è¾¾æ‹”æŸ³
+			u_pfm = u_pfm + ({(: perform_action, "dagger.xiaolian" :)});		//å°æ€œæ¨ªé™ˆ
+			u_pfm = u_pfm + ({(: perform_action, "dagger.zixu" :)});			//å­èƒ¥ä¸¾é¼
 		}
-		if(query("family/family_name")=="ĞÇËŞÅÉ")
+		if(query("family/family_name")=="æ˜Ÿå®¿æ´¾")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "judu" :)});   //¾Û¶¾
-			u_pfm = u_pfm + ({(: perform_action, "staff.feizhi" :)});        	//ÌìÉ½ÕÈ·¨pfm£º·ÉÖÀ
-			u_pfm = u_pfm + ({(: perform_action, "strike.biyan" :)});     //³éËèÕÆpfm£º±ÌÑæ
-			u_pfm = u_pfm + ({(: perform_action, "strike.huoqiang" :)});     //³éËèÕÆpfm£º»ğÇ½
-			u_pfm = u_pfm + ({(: perform_action, "strike.huoqiu" :)});     //³éËèÕÆpfm£º»ğÇò
-			u_pfm = u_pfm + ({(: perform_action, "strike.yinhuo" :)});     //³éËèÕÆpfm£ºÒø»ğ
+			u_pfm=u_pfm + ({(: exert_function, "judu" :)});   //èšæ¯’
+			u_pfm = u_pfm + ({(: perform_action, "staff.feizhi" :)});        	//å¤©å±±æ–æ³•pfmï¼šé£æ·
+			u_pfm = u_pfm + ({(: perform_action, "strike.biyan" :)});     //æŠ½é«“æŒpfmï¼šç¢§ç„°
+			u_pfm = u_pfm + ({(: perform_action, "strike.huoqiang" :)});     //æŠ½é«“æŒpfmï¼šç«å¢™
+			u_pfm = u_pfm + ({(: perform_action, "strike.huoqiu" :)});     //æŠ½é«“æŒpfmï¼šç«çƒ
+			u_pfm = u_pfm + ({(: perform_action, "strike.yinhuo" :)});     //æŠ½é«“æŒpfmï¼šé“¶ç«
 		}
-		if(query("family/family_name")=="¶ğÃ¼ÅÉ")
+		if(query("family/family_name")=="å¨¥çœ‰æ´¾")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "fengyun" :)});   //ÁÙ¼ÃÊ®¶ş×¯pfm£º·çÔÆ
-			u_pfm=u_pfm + ({(: exert_function, "riyue" :)});	 //ÈÕÔÂ
-			u_pfm=u_pfm + ({(: exert_function, "tiandi" :)});    //ÌìµØ 
-			u_pfm=u_pfm + ({(: exert_function, "wuwo" :)});      //ÎŞÎÒ
-			u_pfm=u_pfm + ({(: exert_function, "yinyang" :)});   //ÒõÑô  
+			u_pfm=u_pfm + ({(: exert_function, "fengyun" :)});   //ä¸´æµåäºŒåº„pfmï¼šé£äº‘
+			u_pfm=u_pfm + ({(: exert_function, "riyue" :)});	 //æ—¥æœˆ
+			u_pfm=u_pfm + ({(: exert_function, "tiandi" :)});    //å¤©åœ° 
+			u_pfm=u_pfm + ({(: exert_function, "wuwo" :)});      //æ— æˆ‘
+			u_pfm=u_pfm + ({(: exert_function, "yinyang" :)});   //é˜´é˜³  
 			if(random(5)==1)
-			u_pfm=u_pfm + ({(: exert_function, "youming" :)});   //ÓÄÚ¤  
-			u_pfm=u_pfm + ({(: exert_function, "zhixin" :)});    //Ö®ĞÄ 
-			u_pfm=u_pfm + ({(: perform_action, "blade.feiyang" :)});          //ÑãĞĞµ¶·¨pfm£º·ÉÑï
-			u_pfm=u_pfm + ({(: perform_action, "blade.huanying" :)});         //ÑãĞĞµ¶·¨pfm£º»ÃÓ°
-			u_pfm = u_pfm + ({(: perform_action, "sword.jue" :)});        		//»Ø·ç·÷Áø½£pfm£º¾ø
-			u_pfm = u_pfm + ({(: perform_action, "sword.liaoyuan" :)});			//ÁÇÔ­
-			u_pfm = u_pfm + ({(: perform_action, "sword.mie" :)});				//Ãğ
-			u_pfm = u_pfm + ({(: perform_action, "hand.foguang" :)});     //½ØÊÖ¾ÅÊ½pfm£ºº®±ù
+			u_pfm=u_pfm + ({(: exert_function, "youming" :)});   //å¹½å†¥  
+			u_pfm=u_pfm + ({(: exert_function, "zhixin" :)});    //ä¹‹å¿ƒ 
+			u_pfm=u_pfm + ({(: perform_action, "blade.feiyang" :)});          //é›è¡Œåˆ€æ³•pfmï¼šé£æ‰¬
+			u_pfm=u_pfm + ({(: perform_action, "blade.huanying" :)});         //é›è¡Œåˆ€æ³•pfmï¼šå¹»å½±
+			u_pfm = u_pfm + ({(: perform_action, "sword.jue" :)});        		//å›é£æ‹‚æŸ³å‰‘pfmï¼šç»
+			u_pfm = u_pfm + ({(: perform_action, "sword.liaoyuan" :)});			//ç‡åŸ
+			u_pfm = u_pfm + ({(: perform_action, "sword.mie" :)});				//ç­
+			u_pfm = u_pfm + ({(: perform_action, "hand.foguang" :)});     //æˆªæ‰‹ä¹å¼pfmï¼šå¯’å†°
 
 		}
-		if(query("family/family_name")=="Ã÷½Ì")
+		if(query("family/family_name")=="æ˜æ•™")
 		{	
-			u_pfm=u_pfm + ({(: exert_function, "tougu" :)});	 //Ê¥»ğÉñ¹¦pfm:Í¸¹Ç
-			u_pfm=u_pfm + ({(: exert_function, "yinfeng" :)});	 //Òõ·ç		
-			u_pfm = u_pfm + ({(: perform_action, "strike.xixue" :)});		//º®±ùÃàÕÆpfm:ÎüÑª
-			u_pfm = u_pfm + ({(: perform_action, "blade.shenghuo" :)});		 //ÁÒÑæµ¶pfm:Ê¥»ğ
+			u_pfm=u_pfm + ({(: exert_function, "tougu" :)});	 //åœ£ç«ç¥åŠŸpfm:é€éª¨
+			u_pfm=u_pfm + ({(: exert_function, "yinfeng" :)});	 //é˜´é£		
+			u_pfm = u_pfm + ({(: perform_action, "strike.xixue" :)});		//å¯’å†°ç»µæŒpfm:å¸è¡€
+			u_pfm = u_pfm + ({(: perform_action, "blade.shenghuo" :)});		 //çƒˆç„°åˆ€pfm:åœ£ç«
 			u_pfm=u_pfm + ({(: exert_function, "powerup" :)});	 //powerup	
-			u_pfm = u_pfm + ({(: perform_action, "cuff.qishang" :)});     //ÆßÉËÈ­pfm£ºÆßÉË
-			u_pfm = u_pfm + ({(: perform_action, "cuff.duanhun" :)});     //ÆßÉËÈ­pfm£º¶Ï»ê
-			u_pfm = u_pfm + ({(: perform_action, "dagger.duo" :)});        	//Ê¥»ğÁî·¨pfm£º¶á
-			u_pfm = u_pfm + ({(: perform_action, "dagger.ji" :)});			//»÷
-			u_pfm = u_pfm + ({(: perform_action, "dagger.tisha" :)});			//ÌßÉ³	
-			u_pfm = u_pfm + ({(: perform_action, "dagger.xinmo" :)});			//ĞÄÄ§
+			u_pfm = u_pfm + ({(: perform_action, "cuff.qishang" :)});     //ä¸ƒä¼¤æ‹³pfmï¼šä¸ƒä¼¤
+			u_pfm = u_pfm + ({(: perform_action, "cuff.duanhun" :)});     //ä¸ƒä¼¤æ‹³pfmï¼šæ–­é­‚
+			u_pfm = u_pfm + ({(: perform_action, "dagger.duo" :)});        	//åœ£ç«ä»¤æ³•pfmï¼šå¤º
+			u_pfm = u_pfm + ({(: perform_action, "dagger.ji" :)});			//å‡»
+			u_pfm = u_pfm + ({(: perform_action, "dagger.tisha" :)});			//è¸¢æ²™	
+			u_pfm = u_pfm + ({(: perform_action, "dagger.xinmo" :)});			//å¿ƒé­”
 		}
-		if(query("family/family_name")=="ÌÒ»¨µº")
+		if(query("family/family_name")=="æ¡ƒèŠ±å²›")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "maze" :)});     //²¼Õó
-			u_pfm=u_pfm + ({(: exert_function, "qimen" :)});     //ÆæÃÅÎåĞĞ
-			u_pfm=u_pfm + ({(: perform_action, "dodge.wuzhuan" :)});			//Ëæ²¨ÖğÁ÷pfm:Îå×ª
-			u_pfm=u_pfm + ({(: perform_action, "strike.pikong" :)});        //ÂäÓ¢Éñ½£ÕÆpfm£ºÅü¿Õ
-			u_pfm=u_pfm + ({(: perform_action, "leg.kuangfeng" :)});        //Ğı·çÉ¨Ò¶ÍÈpfm£º¿ñ·ç
-			u_pfm = u_pfm + ({(: perform_action, "sword.feiying" :)});        	//Óñóï½£·¨pfm£º·ÉÓ°
-			u_pfm = u_pfm + ({(: perform_action, "sword.qimen" :)});			//ÆæÃÅ
-			u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)});     //µ¯Ö¸ÉñÍ¨pfm£ºÇ¬À¤Ò»Ö¸
-			u_pfm = u_pfm + ({(: perform_action, "finger.shentong" :)});     //µ¯Ö¸ÉñÍ¨pfm£ºÉñÍ¨
-			u_pfm = u_pfm + ({(: perform_action, "sword.feiying" :)});        	//Óñóï½£·¨pfm£º·ÉÓ°
-			u_pfm = u_pfm + ({(: perform_action, "sword.qimen" :)});			//ÆæÃÅ
+			u_pfm=u_pfm + ({(: exert_function, "maze" :)});     //å¸ƒé˜µ
+			u_pfm=u_pfm + ({(: exert_function, "qimen" :)});     //å¥‡é—¨äº”è¡Œ
+			u_pfm=u_pfm + ({(: perform_action, "dodge.wuzhuan" :)});			//éšæ³¢é€æµpfm:äº”è½¬
+			u_pfm=u_pfm + ({(: perform_action, "strike.pikong" :)});        //è½è‹±ç¥å‰‘æŒpfmï¼šåŠˆç©º
+			u_pfm=u_pfm + ({(: perform_action, "leg.kuangfeng" :)});        //æ—‹é£æ‰«å¶è…¿pfmï¼šç‹‚é£
+			u_pfm = u_pfm + ({(: perform_action, "sword.feiying" :)});        	//ç‰ç®«å‰‘æ³•pfmï¼šé£å½±
+			u_pfm = u_pfm + ({(: perform_action, "sword.qimen" :)});			//å¥‡é—¨
+			u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)});     //å¼¹æŒ‡ç¥é€špfmï¼šä¹¾å¤ä¸€æŒ‡
+			u_pfm = u_pfm + ({(: perform_action, "finger.shentong" :)});     //å¼¹æŒ‡ç¥é€špfmï¼šç¥é€š
+			u_pfm = u_pfm + ({(: perform_action, "sword.feiying" :)});        	//ç‰ç®«å‰‘æ³•pfmï¼šé£å½±
+			u_pfm = u_pfm + ({(: perform_action, "sword.qimen" :)});			//å¥‡é—¨
 		}
-		if(query("family/family_name")=="ÌìÁúËÂ")
+		if(query("family/family_name")=="å¤©é¾™å¯º")
 		{		
 			u_pfm=u_pfm + ({(: exert_function, "xinjing" :)});   
-			u_pfm = u_pfm + ({(: perform_action, "finger.sandie" :)}); 			//Ò»ÑôÖ¸pfm£ºÑô¹ØÈıµş
-			u_pfm = u_pfm + ({(: perform_action, "finger.yizhisanmai" :)}); 	//Ò»Ö¸ÈıÂö
-			u_pfm=u_pfm + ({(: perform_action, "sword.fenglei" :)});          	//¶Î¼Ò½£·¨pfm£º·çÀ×ËÄ»÷
-			u_pfm = u_pfm + ({(: exert_function, "rong" :)}); 					//¿İÈÙìø¹¦pfm£ºÈÙ
-			u_pfm = u_pfm + ({(: perform_action, "strike.jiuchong" :)});		//¾ÅÖØÌì
-			u_pfm = u_pfm + ({(: perform_action, "whip.cibei" :)});        		//´Èº½±Şpfm£º´È±¯×Ö¾÷
-			u_pfm = u_pfm + ({(: perform_action, "axe.jingtian" :)});        	//ÅÌ¸ù´í½á¸«pfm£º¾ªÌì¶ÏÔÆ¸«
+			u_pfm = u_pfm + ({(: perform_action, "finger.sandie" :)}); 			//ä¸€é˜³æŒ‡pfmï¼šé˜³å…³ä¸‰å 
+			u_pfm = u_pfm + ({(: perform_action, "finger.yizhisanmai" :)}); 	//ä¸€æŒ‡ä¸‰è„‰
+			u_pfm=u_pfm + ({(: perform_action, "sword.fenglei" :)});          	//æ®µå®¶å‰‘æ³•pfmï¼šé£é›·å››å‡»
+			u_pfm = u_pfm + ({(: exert_function, "rong" :)}); 					//æ¯è£ç¦…åŠŸpfmï¼šè£
+			u_pfm = u_pfm + ({(: perform_action, "strike.jiuchong" :)});		//ä¹é‡å¤©
+			u_pfm = u_pfm + ({(: perform_action, "whip.cibei" :)});        		//æ…ˆèˆªé­pfmï¼šæ…ˆæ‚²å­—è¯€
+			u_pfm = u_pfm + ({(: perform_action, "axe.jingtian" :)});        	//ç›˜æ ¹é”™ç»“æ–§pfmï¼šæƒŠå¤©æ–­äº‘æ–§
 		}
-		if(query("family/family_name")=="ÉÙÁÖÅÉ")
+		if(query("family/family_name")=="å°‘æ—æ´¾")
 		{	
-			u_pfm=u_pfm + ({(: exert_function, "jingang" :)});   							//Ò×½î¾­pfm£º½ğ¸Õ²»»µÌåÉñ¹¦
+			u_pfm=u_pfm + ({(: exert_function, "jingang" :)});   							//æ˜“ç­‹ç»pfmï¼šé‡‘åˆšä¸åä½“ç¥åŠŸ
 			u_pfm = u_pfm + ({(: perform_action, "strike.sanhua" :)});
 			u_pfm = u_pfm + ({(: perform_action, "finger.fuxue" :)});    
-			u_pfm = u_pfm + ({(: perform_action, "finger.wofo" :)});    		//Ò»Ö¸ìøpfm£ºğ§ÒÀÎÒ·ğ
-			u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)}); 		//Ò»Ö¸Ç¬À¤
-			u_pfm = u_pfm + ({(: perform_action, "claw.canyun" :)}); 			//Áú×¦¹¦pfm£º·ç¾í²ĞÔÆ
-			u_pfm = u_pfm + ({(: perform_action, "hand.qianshou" :)});    		//ÈçÀ´Ç§Ò¶ÊÖpfm£ºÇ§ÊÖÈçÀ´
-			u_pfm = u_pfm + ({(: perform_action, "leg.ruying" :)});    			//ÈçÓ°ËæĞÎÍÈpfm£ºÈçÓ°ËæĞÎ
-			u_pfm = u_pfm + ({(: perform_action, "strike.chaodu" :)}); 			//°ãÈôÕÆpfm£º³¬¶ÈÁ¬»·¾÷
+			u_pfm = u_pfm + ({(: perform_action, "finger.wofo" :)});    		//ä¸€æŒ‡ç¦…pfmï¼šçšˆä¾æˆ‘ä½›
+			u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)}); 		//ä¸€æŒ‡ä¹¾å¤
+			u_pfm = u_pfm + ({(: perform_action, "claw.canyun" :)}); 			//é¾™çˆªåŠŸpfmï¼šé£å·æ®‹äº‘
+			u_pfm = u_pfm + ({(: perform_action, "hand.qianshou" :)});    		//å¦‚æ¥åƒå¶æ‰‹pfmï¼šåƒæ‰‹å¦‚æ¥
+			u_pfm = u_pfm + ({(: perform_action, "leg.ruying" :)});    			//å¦‚å½±éšå½¢è…¿pfmï¼šå¦‚å½±éšå½¢
+			u_pfm = u_pfm + ({(: perform_action, "strike.chaodu" :)}); 			//èˆ¬è‹¥æŒpfmï¼šè¶…åº¦è¿ç¯è¯€
 			if(random(5)==1)
-				u_pfm = u_pfm + ({(: perform_action, "strike.yipai" :)});   		//Ò»ÅÄÁ½É¢
-			u_pfm = u_pfm + ({(: perform_action, "cuff.fumo" :)});    			//´ó½ğ¸ÕÈ­pfm£º½ğ¸Õ·üÄ§
-			u_pfm = u_pfm + ({(: perform_action, "whip.fumoquan" :)});        	//ÈÕÔÂ±Ş·¨pfm£º½ğ¸Õ·üÄ§È¦
-			u_pfm = u_pfm + ({(: perform_action, "whip.chanrao" :)});        	//Ìì²øµØÈÆ 
-			u_pfm = u_pfm + ({(: perform_action, "blade.fentian" :)});			//È¼Ä¾µ¶·¨pfm£º¾Ù»ğ·ÙÌì
-			u_pfm = u_pfm + ({(: perform_action, "blade.fenwo" :)});        	//·ÙÎÒ
-			u_pfm = u_pfm + ({(: perform_action, "club.leidong" :)});			//Î¤ÍÓèÆpfm£ºÀ×¶¯¾ÅÌì
-			u_pfm = u_pfm + ({(: perform_action, "club.chaodu" :)});        	//³¬¶È¼«ÀÖ 
+				u_pfm = u_pfm + ({(: perform_action, "strike.yipai" :)});   		//ä¸€æ‹ä¸¤æ•£
+			u_pfm = u_pfm + ({(: perform_action, "cuff.fumo" :)});    			//å¤§é‡‘åˆšæ‹³pfmï¼šé‡‘åˆšä¼é­”
+			u_pfm = u_pfm + ({(: perform_action, "whip.fumoquan" :)});        	//æ—¥æœˆé­æ³•pfmï¼šé‡‘åˆšä¼é­”åœˆ
+			u_pfm = u_pfm + ({(: perform_action, "whip.chanrao" :)});        	//å¤©ç¼ åœ°ç»• 
+			u_pfm = u_pfm + ({(: perform_action, "blade.fentian" :)});			//ç‡ƒæœ¨åˆ€æ³•pfmï¼šä¸¾ç«ç„šå¤©
+			u_pfm = u_pfm + ({(: perform_action, "blade.fenwo" :)});        	//ç„šæˆ‘
+			u_pfm = u_pfm + ({(: perform_action, "club.leidong" :)});			//éŸ¦é™€æµpfmï¼šé›·åŠ¨ä¹å¤©
+			u_pfm = u_pfm + ({(: perform_action, "club.chaodu" :)});        	//è¶…åº¦æä¹ 
 		}
-		if(query("family/family_name")=="À¥ÂØÅÉ")
+		if(query("family/family_name")=="æ˜†ä»‘æ´¾")
 		{
-			u_pfm=u_pfm + ({(: exert_function, "xuantian" :)});   							//ĞşÌìÎŞ¼«¹¦
+			u_pfm=u_pfm + ({(: exert_function, "xuantian" :)});   							//ç„å¤©æ— æåŠŸ
 			u_pfm=u_pfm + ({(: exert_function, "wuji" :)});     							//
-			u_pfm = u_pfm + ({(: perform_action, "strike.diezhang" :)});     //À¥ÂØÕÆ·¨pfm£ºÀ¥É½µşÕÆ
-			u_pfm = u_pfm + ({(: perform_action, "sword.xunlei" :)});     //À¥ÂØÕÆ·¨pfm£ºÀ¥É½µşÕÆ
-			u_pfm = u_pfm + ({(: perform_action, "sword.hundun" :)});     //À¥ÂØÕÆ·¨pfm£ºÀ¥É½µşÕÆ
-			u_pfm = u_pfm + ({(: perform_action, "leg.chuanyun" :)});     //À¥ÂØÕÆ·¨pfm£ºÀ¥É½µşÕÆ
+			u_pfm = u_pfm + ({(: perform_action, "strike.diezhang" :)});     //æ˜†ä»‘æŒæ³•pfmï¼šæ˜†å±±å æŒ
+			u_pfm = u_pfm + ({(: perform_action, "sword.xunlei" :)});     //æ˜†ä»‘æŒæ³•pfmï¼šæ˜†å±±å æŒ
+			u_pfm = u_pfm + ({(: perform_action, "sword.hundun" :)});     //æ˜†ä»‘æŒæ³•pfmï¼šæ˜†å±±å æŒ
+			u_pfm = u_pfm + ({(: perform_action, "leg.chuanyun" :)});     //æ˜†ä»‘æŒæ³•pfmï¼šæ˜†å±±å æŒ
 		}
-		if(query("family/family_name")=="¾ÅÒõÕæ¾­´«ÈË")
+		if(query("family/family_name")=="ä¹é˜´çœŸç»ä¼ äºº")
 		{
 			u_pfm=u_pfm + ({(: exert_function, "yihuen" :)});   
-			u_pfm=u_pfm + ({(: exert_function, "zongjue" :)});   							//¾ÅÒõ×Ü¾÷
-			u_pfm=u_pfm + ({(: perform_action, "dodge.huanyinbu" :)});      				//¾ÅÒõÉí·¨pfm£º»ÃÒõ²½
-			u_pfm=u_pfm + ({(: perform_action, "claw.jiuyin" :)});			//¾ÅÒõ°×¹Ç×¦pfm£º¾ÅÒõÈı¾ø×¦
+			u_pfm=u_pfm + ({(: exert_function, "zongjue" :)});   							//ä¹é˜´æ€»è¯€
+			u_pfm=u_pfm + ({(: perform_action, "dodge.huanyinbu" :)});      				//ä¹é˜´èº«æ³•pfmï¼šå¹»é˜´æ­¥
+			u_pfm=u_pfm + ({(: perform_action, "claw.jiuyin" :)});			//ä¹é˜´ç™½éª¨çˆªpfmï¼šä¹é˜´ä¸‰ç»çˆª
 			u_pfm=u_pfm + ({(: perform_action, "strike.cuixin" :)});
-			u_pfm=u_pfm + ({(: perform_action, "whip.chanrao" :)});   	   //¾ÅÒõÒøÁú±Şpfm£º²øÈÆ¾÷			
-			u_pfm=u_pfm + ({(: perform_action, "whip.feilong" :)});        //·ÉÁú  
-			u_pfm = u_pfm + ({(: perform_action, "strike.shenzhang" :)});   //¾ÅÒõÉñÕÆpfm£ºÉñÕÆ¶áÆÇ
-			u_pfm = u_pfm + ({(: perform_action, "strike.yinyang" :)});		//ÒõÑôË«ÕÆ   
-			u_pfm = u_pfm + ({(: perform_action, "strike.sanjue" :)});      //¾ÅÒõÉñ×¦pfm£º¾ÅÒõÈı¾ø×¦
-			u_pfm = u_pfm + ({(: perform_action, "sword.xuanyin" :)});      //ĞşÒõ½£·¨pfm£ºĞşÒõ¾÷ 	
-			u_pfm = u_pfm + ({(: perform_action, "sword.zhan" :)});			//Õ¶×Ö¾÷	
+			u_pfm=u_pfm + ({(: perform_action, "whip.chanrao" :)});   	   //ä¹é˜´é“¶é¾™é­pfmï¼šç¼ ç»•è¯€			
+			u_pfm=u_pfm + ({(: perform_action, "whip.feilong" :)});        //é£é¾™  
+			u_pfm = u_pfm + ({(: perform_action, "strike.shenzhang" :)});   //ä¹é˜´ç¥æŒpfmï¼šç¥æŒå¤ºé­„
+			u_pfm = u_pfm + ({(: perform_action, "strike.yinyang" :)});		//é˜´é˜³åŒæŒ   
+			u_pfm = u_pfm + ({(: perform_action, "strike.sanjue" :)});      //ä¹é˜´ç¥çˆªpfmï¼šä¹é˜´ä¸‰ç»çˆª
+			u_pfm = u_pfm + ({(: perform_action, "sword.xuanyin" :)});      //ç„é˜´å‰‘æ³•pfmï¼šç„é˜´è¯€ 	
+			u_pfm = u_pfm + ({(: perform_action, "sword.zhan" :)});			//æ–©å­—è¯€	
 		}
-		if(query("family/family_name")=="¸òó¡¹¦´«ÈË")
+		if(query("family/family_name")=="è›¤èŸ†åŠŸä¼ äºº")
 		{
 			set("oyf/hamagong",3);
 			u_pfm = u_pfm + ({(: perform_action, "strike.hama" :)});        	
 			u_pfm = u_pfm + ({(: exert_function, "nizhuan" :)});        	
 		}
-		if(query("family/family_name")=="¶«·½²»°ÜµÄ´«ÈË")
+		if(query("family/family_name")=="ä¸œæ–¹ä¸è´¥çš„ä¼ äºº")
 		{	
-			u_pfm=u_pfm + ({(: exert_function, "hanbing" :)});   //º®±ùÕæÆøpfm£ºº®±ù
-			u_pfm=u_pfm + ({(: exert_function, "juhan" :)});     //¾Ûº®
+			u_pfm=u_pfm + ({(: exert_function, "hanbing" :)});   //å¯’å†°çœŸæ°”pfmï¼šå¯’å†°
+			u_pfm=u_pfm + ({(: exert_function, "juhan" :)});     //èšå¯’
 			u_pfm = u_pfm + ({(: perform_action, "sword.cimu" :)});        	
 			u_pfm = u_pfm + ({(: perform_action, "dodge.feiying" :)});        	
 			u_pfm = u_pfm + ({(: perform_action, "sword.jue" :)});        	
 		}
-		if(query("family/family_name")=="½ğÉß½£·¨µÄ´«ÈË")
+		if(query("family/family_name")=="é‡‘è›‡å‰‘æ³•çš„ä¼ äºº")
 		{
 			u_pfm = u_pfm + ({(: perform_action, "sword.kuangwu" :)});        	
      	}

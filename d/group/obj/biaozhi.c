@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY"����"NOR, ({ "pai bian","bian" }));
+	set_name(HIY"牌匾"NOR, ({ "pai bian","bian" }));
 	set_weight(15000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "��");
-		set("long", HIY"����һ��հ׵����ҡ�\n"NOR);
+		set("unit", "块");
+		set("long", HIY"这是一块空白的牌匾。\n"NOR);
 		set("value", 25000000);
 		set("no_give", 1);
 		set("no_drop", 1);
@@ -37,11 +37,11 @@ int do_drop(string arg)
 	if( !arg || !id(arg) || env!=me ) return 0;
 	env = environment(me);
 	if( !me->query("group/id") ) {
-		tell_object(me,"�㲢û�п������ɣ�Ҫ���Һ��ã�\n");
+		tell_object(me,"你并没有开帮立派，要牌匾何用？\n");
 		return 1;
 	}
 	if( env && stringp(env->query("outdoors")) ) {
-		tell_object(me,"���Ҳ��ܷ������⣡\n");
+		tell_object(me,"牌匾不能放在室外！\n");
 		return 1;
 	}
 	if( !GROUP_D->site_now(me->query("group/id")) ) {
@@ -49,7 +49,7 @@ int do_drop(string arg)
 		return 1;
 	}
 
-	GROUP_D->drop_object(this_object(),me,env,"$N��ʼС�ĵİ������ҡ���\n","��æµ�˰��죬��������Ұ��á�\n");
+	GROUP_D->drop_object(this_object(),me,env,"$N开始小心的安放牌匾……\n","你忙碌了半天，总算把牌匾安好。\n");
 	return 1;
 }
 
@@ -60,7 +60,7 @@ varargs int move(mixed dest, int silently)
 	if( !objectp(dest) || clonep(dest) ) return result;
 	if( !dest->query("group2") ) return result;
 
-	set("name",HIY+dest->query("group2")+HIY"������"NOR);
-	set("long",HIY"����һ�������������ң����顰"+dest->query("group2")+HIY"���������֡�\n������Ҿ��ǰ��ɵı�־���������ڰ��ڣ��һٰ�����\n"NOR);
+	set("name",HIY+dest->query("group2")+HIY"的牌匾"NOR);
+	set("long",HIY"这是一块金光闪闪的牌匾，上书“"+dest->query("group2")+HIY"”几个大字。\n这块牌匾就是帮派的标志，真是匾在帮在，匾毁帮亡。\n"NOR);
 	return result;
 }

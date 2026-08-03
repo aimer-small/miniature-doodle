@@ -4,13 +4,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("Âí·ò×Ó", ({ "ma fuzi", "ma" ,"fuzi"}));
-	set("title", "Âí·¿ÀÏ°å");
-	set("long","Âí·ò×Ó±¾½ĞÂíµÂ£¬ÒòÎª³¤ÄêÂôÂí£¬´ó¼Ò¶¼½ĞËûÂí·ò×Ó¡£\n");
+	set_name("é©¬å¤«å­", ({ "ma fuzi", "ma" ,"fuzi"}));
+	set("title", "é©¬æˆ¿è€æ¿");
+	set("long","é©¬å¤«å­æœ¬å«é©¬å¾·ï¼Œå› ä¸ºé•¿å¹´å–é©¬ï¼Œå¤§å®¶éƒ½å«ä»–é©¬å¤«å­ã€‚\n");
 	set("shen_type", 1);
 	set("unique", 1);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);

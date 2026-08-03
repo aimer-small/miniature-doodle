@@ -13,36 +13,36 @@ int perform(object me, object target)
         ||  !target->is_character()
         ||  !me->is_fighting(target) 
         || !living(target))
-                return notify_fail("Ò»µ¶¼ÐË«ÕÆÖ»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ä¸€åˆ€å¤¹åŒæŽŒåªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if( (int)me->query_skill("liuye-daofa", 1) < 100 )
-                return notify_fail("ÄãµÄÁøÒ¶µ¶·¨¹¦Á¦Ì«Ç³£¬ÎÞ·¨Ê¹ÓÃÒ»µ¶¼ÐË«ÕÆ¹¥»÷¡£\n");
+                return notify_fail("ä½ çš„æŸ³å¶åˆ€æ³•åŠŸåŠ›å¤ªæµ…ï¼Œæ— æ³•ä½¿ç”¨ä¸€åˆ€å¤¹åŒæŽŒæ”»å‡»ã€‚\n");
 
         if( (int)me->query_skill("tiezhang-zhangfa", 1) < 100 )
-                return notify_fail("ÄãµÄÌúÕÆÕÆ·¨¹¦Á¦Ì«Ç³£¬ÎÞ·¨Ê¹ÓÃÒ»µ¶¼ÐË«ÕÆ¹¥»÷¡£\n");
+                return notify_fail("ä½ çš„é“æŽŒæŽŒæ³•åŠŸåŠ›å¤ªæµ…ï¼Œæ— æ³•ä½¿ç”¨ä¸€åˆ€å¤¹åŒæŽŒæ”»å‡»ã€‚\n");
 
         if( (int)me->query("max_neili") < 1000 )
-                return notify_fail("ÄãµÄÄÚÁ¦Ì«Ç³£¬ÎÞ·¨Ê¹ÓÃÒ»µ¶¼ÐË«ÕÆ¹¥»÷¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›å¤ªæµ…ï¼Œæ— æ³•ä½¿ç”¨ä¸€åˆ€å¤¹åŒæŽŒæ”»å‡»ã€‚\n");
 
         if( (int)me->query("neili") < 400 )
-                return notify_fail("ÄãµÄÕæÆø²»×ã£¬ÎÞ·¨Ê¹ÓÃÒ»µ¶¼ÐË«ÕÆ¹¥»÷¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸è¶³ï¼Œæ— æ³•ä½¿ç”¨ä¸€åˆ€å¤¹åŒæŽŒæ”»å‡»ã€‚\n");
 
         if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "blade"
             || me->query_skill_mapped("blade") != "liuye-daofa" || 
                me->query_skill_prepared("strike") != "tiezhang-zhangfa")
-                return notify_fail("ÄãµÄ×¼±¸¹¦·ò²»¶Ô¡£\n");
+                return notify_fail("ä½ çš„å‡†å¤‡åŠŸå¤«ä¸å¯¹ã€‚\n");
 
         me->add("neili", -200);
         me->add("jingli", -40);
-        message_vision(BLU"$NºôºôºôÁ¬»·ÈýÕÐ£¬µ¶·çÖÐ¼Ð×ÅÁ½ÕÐÌúÕÆÕÆ·¨£¬Ñ¸ËÙÏò$n¿³È¥£¡\n" NOR,me,target);
+        message_vision(BLU"$Nå‘¼å‘¼å‘¼è¿žçŽ¯ä¸‰æ‹›ï¼Œåˆ€é£Žä¸­å¤¹ç€ä¸¤æ‹›é“æŽŒæŽŒæ³•ï¼Œè¿…é€Ÿå‘$nç åŽ»ï¼\n" NOR,me,target);
         COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 0);
         weapon->unequip();
         if(me->is_fighting(target)) COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 1);
         if(me->is_fighting(target)) COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);
         weapon->wield();
-        me->start_perform(4,"Ò»µ¶Ð®Ë«ÕÆ");
+        me->start_perform(4,"ä¸€åˆ€æŒŸåŒæŽŒ");
         me->start_busy(1);
         return 1;
 }
 
-string perform_name(){ return BLU"ÕÆµ¶"NOR; }
+string perform_name(){ return BLU"æŽŒåˆ€"NOR; }

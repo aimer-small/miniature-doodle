@@ -1,4 +1,4 @@
-//sjsz_ling.c  ÊÔ½£É½×¯ÁîÅÆ  by lsxk@hsbbs 2008/06/27
+//sjsz_ling.c  è¯•å‰‘å±±åº„ä»¤ç‰Œ  by lsxk@hsbbs 2008/06/27
 
 #include <ansi.h>
 #include <combat.h>
@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-       set_name(HIY"ÊÔ½£Áî"NOR, ({ "shijian ling","ling"}));
+       set_name(HIY"è¯•å‰‘ä»¤"NOR, ({ "shijian ling","ling"}));
 	set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿é");
-               set("long",HIY"ÕâÊÇÒ»¿éÊÔ½£É½×¯µÄÊÔ½£Áî£¬¾İËµ¿ÉÒÔÊ¹ÓÃ´ËÎïÃüÁîÉ½×¯ÊØÎÀ¿ªÃÅÓ­¿Í£¡\n"NOR);
+		set("unit", "å—");
+               set("long",HIY"è¿™æ˜¯ä¸€å—è¯•å‰‘å±±åº„çš„è¯•å‰‘ä»¤ï¼Œæ®è¯´å¯ä»¥ä½¿ç”¨æ­¤ç‰©å‘½ä»¤å±±åº„å®ˆå«å¼€é—¨è¿å®¢ï¼\n"NOR);
 		set("value", 0);
                set("treasure",1);
 		set("material", "wood");

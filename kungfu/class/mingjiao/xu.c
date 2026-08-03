@@ -1,15 +1,15 @@
-// xu.c Ğì´ï
+// xu.c å¾è¾¾
 // Modify By River@sj 99.06
 #include <ansi.h>
 inherit NPC;
 void create()
 {
-	set_name("Ğì´ï", ({ "xu da","xu","da" }) );
-	set("title", "Ã÷½ÌºéË®ÆìµÜ×Ó");
-        create_family("Ã÷½Ì",38,"µÜ×Ó");
-	set("gender", "ÄĞĞÔ");
+	set_name("å¾è¾¾", ({ "xu da","xu","da" }) );
+	set("title", "æ˜æ•™æ´ªæ°´æ——å¼Ÿå­");
+        create_family("æ˜æ•™",38,"å¼Ÿå­");
+	set("gender", "ç”·æ€§");
 	set("age",36);
-	set("long", "ËûÊÇºóÀ´Ã÷³¯µÄ¿ª¹ú´ó¹¦³¼¡£\n");
+	set("long", "ä»–æ˜¯åæ¥æ˜æœçš„å¼€å›½å¤§åŠŸè‡£ã€‚\n");
        	set("str", 24);
 	set("int", 27);
 	set("con", 23);
@@ -40,7 +40,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {     
-        command("say ºÇºÇ£¬ÎÒÎä¹¦µÍÎ¢£¬¿É²»¸ÒÊÕÍ½°¡¡£");
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"»¹ÊÇÇë»Ø°É¡£");
+        command("say å‘µå‘µï¼Œæˆ‘æ­¦åŠŸä½å¾®ï¼Œå¯ä¸æ•¢æ”¶å¾’å•Šã€‚");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"è¿˜æ˜¯è¯·å›å§ã€‚");
         return;
 }

@@ -24,16 +24,16 @@ void init()
 		for(i=0;i < sizeof(ob);i++) {
 						
 			if(ob[i]->query("marry") && me->query("marry") && me->query("marry/id")==ob[i]->query("id")){
-				tell_object(me,HIM"Äã¿´µ½"+ob[i]->query("name")+"ÔÚÕâÀï´ó³ÔÒ»¾ª£¬ÉîÇéµØ¿´×Å"+me->query("gender")=="ÄĞĞÔ"?"Ëı":"Ëû"+"£¬àÇµÀ£ºÄãÔõÃ´Ò²À´ÕâÀïÁË°¡¡£\n"NOR );
-				tell_object(ob[i],HIM""+me->query("name")+"¿´µ½ÄãÔÚÕâÀï´ó³ÔÒ»¾ª£¬ÉîÇéµØ¿´×ÅÄã£¬àÇµÀ£ºÄãÔõÃ´Ò²À´ÕâÀïÁË°¡¡£\n"NOR );
+				tell_object(me,HIM"ä½ çœ‹åˆ°"+ob[i]->query("name")+"åœ¨è¿™é‡Œå¤§åƒä¸€æƒŠï¼Œæ·±æƒ…åœ°çœ‹ç€"+me->query("gender")=="ç”·æ€§"?"å¥¹":"ä»–"+"ï¼Œå—²é“ï¼šä½ æ€ä¹ˆä¹Ÿæ¥è¿™é‡Œäº†å•Šã€‚\n"NOR );
+				tell_object(ob[i],HIM""+me->query("name")+"çœ‹åˆ°ä½ åœ¨è¿™é‡Œå¤§åƒä¸€æƒŠï¼Œæ·±æƒ…åœ°çœ‹ç€ä½ ï¼Œå—²é“ï¼šä½ æ€ä¹ˆä¹Ÿæ¥è¿™é‡Œäº†å•Šã€‚\n"NOR );
 				continue;
 			}
 			
 			
 			if(userp(ob[i]) && !wizardp(ob[i]) && ob[i] != me) {
-				tell_object(me,HIW"ÄãÍ»È»·¢ÏÖ"+ob[i]->name()+"Ò²"+W_MSG+",²»½û´ó³ÔÒ»¾ª£¡\n"NOR);
-				message_vision(HIW"$n¿´µ½$N·¢ÏÖÁË$p£¬´óºğÒ»Éù£¬Ïò$NÆËÁË¹ıÀ´!\n"NOR,me,ob[i]);
-				tell_object(ob[i],"²ØÔÚÕâÃ´ÒşÃØµÄµØ·½¾ÓÈ»Ò²»á±»·¢ÏÖ£¬Äã²»½ûÊÖ½Å´óÂÒ¡£\n");
+				tell_object(me,HIW"ä½ çªç„¶å‘ç°"+ob[i]->name()+"ä¹Ÿ"+W_MSG+",ä¸ç¦å¤§åƒä¸€æƒŠï¼\n"NOR);
+				message_vision(HIW"$nçœ‹åˆ°$Nå‘ç°äº†$pï¼Œå¤§å¼ä¸€å£°ï¼Œå‘$Næ‰‘äº†è¿‡æ¥!\n"NOR,me,ob[i]);
+				tell_object(ob[i],"è—åœ¨è¿™ä¹ˆéšç§˜çš„åœ°æ–¹å±…ç„¶ä¹Ÿä¼šè¢«å‘ç°ï¼Œä½ ä¸ç¦æ‰‹è„šå¤§ä¹±ã€‚\n");
 				ob[i]->add_busy(1+random(4));
 				me->kill_ob(ob[i]);
 				ob[i]->kill_ob(me);
@@ -49,16 +49,16 @@ int do_tiao(string arg)
 	object me = this_player();
 	string msg1,msg2;
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(!arg || arg != "down")
-		return notify_fail("ÄãÒªÌøµ½ÄÄ¶ù£¿\n");
-	if (W_MSG=="¸½ÔÚÊ¯±ÚÉÏ"){
-		msg1 = HIY"$NÇáÇáÒ»×İÉí£¬ÈçÓğÃ«°ãÇáÇáÆ®ÁËÏÂÀ´¡£\n"NOR;
-		msg2 = HIY""+me->name()+"´ÓÊ¯±ÚÉÏÌøÁËÏÂÀ´\n"NOR;
+		return notify_fail("ä½ è¦è·³åˆ°å“ªå„¿ï¼Ÿ\n");
+	if (W_MSG=="é™„åœ¨çŸ³å£ä¸Š"){
+		msg1 = HIY"$Nè½»è½»ä¸€çºµèº«ï¼Œå¦‚ç¾½æ¯›èˆ¬è½»è½»é£˜äº†ä¸‹æ¥ã€‚\n"NOR;
+		msg2 = HIY""+me->name()+"ä»çŸ³å£ä¸Šè·³äº†ä¸‹æ¥\n"NOR;
 	}
-	if (W_MSG=="ÔÚÊ÷ÉÏ"){
-		msg1 = HIY"$NÇáÇáÒ»×İ£¬Ìøµ½ÁËµØÉÏ¡£\n"NOR;
-		msg2 = HIY""+me->name()+"´ÓÊ÷ÉÏÌøÁËÏÂÀ´\n"NOR;
+	if (W_MSG=="åœ¨æ ‘ä¸Š"){
+		msg1 = HIY"$Nè½»è½»ä¸€çºµï¼Œè·³åˆ°äº†åœ°ä¸Šã€‚\n"NOR;
+		msg2 = HIY""+me->name()+"ä»æ ‘ä¸Šè·³äº†ä¸‹æ¥\n"NOR;
 	}
 	message_vision(msg1,me);
 	me->move(OUT_DOWN);
@@ -80,27 +80,27 @@ int do_kill(string arg)
 	object ob,room;
 	object me = this_player();
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(!arg || !(room = find_object(OUT_DOWN)))
-		return notify_fail("ÄãÒªÍµÏ®Ë­£¿\n");
+		return notify_fail("ä½ è¦å·è¢­è°ï¼Ÿ\n");
 	if(!(ob = present(arg,room)))
-		return notify_fail("ÄãÒªÍµÏ®Ë­£¿\n");
+		return notify_fail("ä½ è¦å·è¢­è°ï¼Ÿ\n");
 	if(!ob->is_character() || ob->is_corpse())
-		return notify_fail("¿´Çå³şÒ»µã£¡\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼\n");
 	if(!userp(ob))
-		return notify_fail("ÍµÏ®npc? ¡­¡­\n");
+		return notify_fail("å·è¢­npc? â€¦â€¦\n");
 	//if(wiz_level(me) < wiz_level(ob))
-		//return notify_fail("Äã²»ÄÜÍµÏ®Î×Ê¦µÈ¼¶±ÈÄã¸ßµÄ¶ÔÊÖ¡£\n");
-	message_vision(HIW"$N´ÓÊ¯±ÚÉÏÒ»Ô¾¶øÏÂ£¬ÆøÊÆÈçºç£¬Ö±È¡"+ob->name()+"£¡\n"NOR,me);
-	message_vision(HIW"ºöÈ»Ò»¹ÉÉ±ÆøÏ®À´£¬$NÌ§Í·ÍûÈ¥£¬Ö»¼ûÒ»¸öÈËÓ°Ğ®×Å¾¢Æø·ÉÂÓ¶øÏÂ£¡£¡\n"NOR,ob);
+		//return notify_fail("ä½ ä¸èƒ½å·è¢­å·«å¸ˆç­‰çº§æ¯”ä½ é«˜çš„å¯¹æ‰‹ã€‚\n");
+	message_vision(HIW"$Nä»çŸ³å£ä¸Šä¸€è·ƒè€Œä¸‹ï¼Œæ°”åŠ¿å¦‚è™¹ï¼Œç›´å–"+ob->name()+"ï¼\n"NOR,me);
+	message_vision(HIW"å¿½ç„¶ä¸€è‚¡æ€æ°”è¢­æ¥ï¼Œ$NæŠ¬å¤´æœ›å»ï¼Œåªè§ä¸€ä¸ªäººå½±æŒŸç€åŠ²æ°”é£æ è€Œä¸‹ï¼ï¼\n"NOR,ob);
 	me->move(room);
 	if(!random(10)) {
-		message_vision(HIY"È´¼û$NÔçÓĞ×¼±¸£¬Éí×ÓÇáÇáÒ»²àÈÃ¹ıÀ´ÊÆ£¬³Ã»ú¶Ô$n·¢¶¯¹¥»÷¡£\n"NOR,ob,me);
+		message_vision(HIY"å´è§$Næ—©æœ‰å‡†å¤‡ï¼Œèº«å­è½»è½»ä¸€ä¾§è®©è¿‡æ¥åŠ¿ï¼Œè¶æœºå¯¹$nå‘åŠ¨æ”»å‡»ã€‚\n"NOR,ob,me);
 		me->start_busy(3);
 	} else if(!random(5)) {
-			message_vision(HIW"$N´ó³ÔÒ»¾ª£¬´ÒÃ¦½«Éí×ÓÏòºóÒ»Ñö£¬$n¿°¿°²Á×Å$NµÄ±Ç¼âÂÓ¹ı£¡\n"NOR,ob,me);
+			message_vision(HIW"$Nå¤§åƒä¸€æƒŠï¼ŒåŒ†å¿™å°†èº«å­å‘åä¸€ä»°ï¼Œ$nå ªå ªæ“¦ç€$Nçš„é¼»å°–æ è¿‡ï¼\n"NOR,ob,me);
 		} else {
-			message_vision(HIR"$NÖ»¾õÒ»¹ÉÁèÀ÷´Ì¹ÇµÄÉ±ÆøÏ®À´£¬²»¼°»Ø±Ü£¬ÒÑ±»$nÒ»»÷¶øÖĞ£¡£¡\n"NOR,ob,me);
+			message_vision(HIR"$Nåªè§‰ä¸€è‚¡å‡Œå‰åˆºéª¨çš„æ€æ°”è¢­æ¥ï¼Œä¸åŠå›é¿ï¼Œå·²è¢«$nä¸€å‡»è€Œä¸­ï¼ï¼\n"NOR,ob,me);
 			ob->start_busy(4);
 			}
 	me->kill_ob(ob);
@@ -109,7 +109,7 @@ int do_kill(string arg)
 	else {	
 		ob->fight_ob(me);
 		if(userp(me))
-			tell_object(ob,HIR"Èç¹ûÄãÒªºÍ" + me->name() + "ĞÔÃüÏà²«£¬ÇëÄãÒ²¶ÔÕâ¸öÈËÏÂÒ»´ÎkillÖ¸Áî¡£\n"NOR);
+			tell_object(ob,HIR"å¦‚æœä½ è¦å’Œ" + me->name() + "æ€§å‘½ç›¸æï¼Œè¯·ä½ ä¹Ÿå¯¹è¿™ä¸ªäººä¸‹ä¸€æ¬¡killæŒ‡ä»¤ã€‚\n"NOR);
 		}
 	return 1; 
 }

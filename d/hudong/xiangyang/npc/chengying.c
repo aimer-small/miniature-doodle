@@ -6,9 +6,9 @@ int ask_lineup();
 
 void create()
 {
-        set_name("³ÌÓ¢", ({"cheng ying", "cheng", "ying"}) );
-        set("long", "ËýÊÇ»ÆÒ©Ê¦ÍíÄêÊÕµÄµÜ×Ó£¬´ÏÃ÷ÁæÀþ¡£\n");
-        set("gender", "Å®ÐÔ" );
+        set_name("ç¨‹è‹±", ({"cheng ying", "cheng", "ying"}) );
+        set("long", "å¥¹æ˜¯é»„è¯å¸ˆæ™šå¹´æ”¶çš„å¼Ÿå­ï¼Œèªæ˜Žä¼¶ä¿ã€‚\n");
+        set("gender", "å¥³æ€§" );
         set("age", 20);
         set("attitude", "friendly");
         set("apprentice",1);
@@ -52,13 +52,13 @@ void create()
         prepare_skill("leg", "xuanfeng-tui");
 
         set("inquiry", ([
-                "ÊØ³Ç": (: ask_job :),
-                "²¼Õó": (: ask_lineup :),
+                "å®ˆåŸŽ": (: ask_job :),
+                "å¸ƒé˜µ": (: ask_lineup :),
         ]) );
 
         set("shen_type", 1);
         set("shen", 100);
-        create_family("ÌÒ»¨µº", 2, "µÜ×Ó");
+        create_family("æ¡ƒèŠ±å²›", 2, "å¼Ÿå­");
         set("class", "fighter");
         setup();
 
@@ -71,16 +71,16 @@ int ask_job()
        object me = this_player();
        if (!me->query_temp("xy/job"))
        {
-               command("say ÇëÏÈÏò¹ù´óÏÀÇëÊ¾¡£");
+               command("say è¯·å…ˆå‘éƒ­å¤§ä¾ è¯·ç¤ºã€‚");
                return 1;
        }
-      if (me->query("family/family_name") != "ÌÒ»¨µº")
+      if (me->query("family/family_name") != "æ¡ƒèŠ±å²›")
       {
-               command("say Äã¿ìÈ¥Ö¸¶¨µÄµØµã°É£¬¿´À´ÃÉ¹Å±ø¾ÍÒª¹¥³ÇÁË£¡");
+               command("say ä½ å¿«åŽ»æŒ‡å®šçš„åœ°ç‚¹å§ï¼Œçœ‹æ¥è’™å¤å…µå°±è¦æ”»åŸŽäº†ï¼");
                return 1;
       }
-      command("say ¶àÐ¡ÐÄ°¡¡£");
-      command("say ²¼ºÃÕó·¨¾ÍÍ¨ÖªÎÒÃÇÒ»ÏÂ¡£");
+      command("say å¤šå°å¿ƒå•Šã€‚");
+      command("say å¸ƒå¥½é˜µæ³•å°±é€šçŸ¥æˆ‘ä»¬ä¸€ä¸‹ã€‚");
       command("smile");
       me->set_temp("xy/job",2);
       return 1;

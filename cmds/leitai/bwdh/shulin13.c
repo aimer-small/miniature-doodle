@@ -1,4 +1,4 @@
-//shulin.c ����
+//shulin.c 树林
 
 #include <ansi.h>
 #include <room.h>
@@ -6,10 +6,10 @@
 inherit ROOM;
 void create()
 {
-	set("short",HIG"����"NOR);
+	set("short",HIG"树林"NOR);
 	set("long", @LONG
-����һƬ���֡���ʮ�ɸߵĴ�������һ�飬��ʵ��֦Ҷ��һ�����ɡ����
-����գ��������ڵ�˿��Ҳ�ޡ������������У������µ���Ҷ�ȵ�ɳɳ�졣
+这是一片树林。几十丈高的大树簇在一块，密实的枝叶象一蓬蓬巨伞般伸
+向天空，把阳光遮得丝毫也无。你走在树林中，将脚下的树叶踩的沙沙响。
 LONG
 	);
 
@@ -19,7 +19,7 @@ LONG
 		"south" : __DIR__"shulin12",
 	]));
 
-	set("outdoors", "�Խ�ɽׯ");
+	set("outdoors", "试剑山庄");
 	setup();
 }
 

@@ -35,7 +35,7 @@ void color_cat(string file)
     write(color_filter(read_file(file)));
 }
 
-// append color after the $N°¢$n°¢$w for the string color won't be
+// append color after the $N„ÄÅ$n„ÄÅ$w for the string color won't be
 // break by the NOR after the name
 string append_color(string arg, string default_color)
 {

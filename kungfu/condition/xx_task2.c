@@ -5,7 +5,7 @@
 int update_condition(object me, int duration)
 {
         if (duration < 1) {  
-           tell_object(me, BLU"听人说好象有支过丝绸之路的商队要出发了！\n"NOR);                
+           tell_object(me, BLU"鍚汉璇村ソ璞℃湁鏀繃涓濈桓涔嬭矾鐨勫晢闃熻鍑哄彂浜嗭紒\n"NOR);                
            return 0;
         }
         me->apply_condition("xx_task2", duration - 1);

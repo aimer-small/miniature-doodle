@@ -10,13 +10,13 @@ void destructing(object);
 
 void create()
 {
-	set_name(HIR"ïÚ³µ"NOR, ({ "biao che", "silver cart", "cart", "che"}) );
+	set_name(HIR"é•–è½¦"NOR, ({ "biao che", "silver cart", "cart", "che"}) );
 	set_weight(300000);
 	set("no_get", 1);
 	set("no_get_from", 1);
 	set_max_encumbrance(80000);
-	set("unit", "Á¾");
-	set("long", "Ò»Á¾ºÚÆáÆáµÄïÚ³µ£¬ÉÏÃæ²å×Å¸£ÍşïÚ¾ÖµÄïÚÆì¡£\n");
+	set("unit", "è¾†");
+	set("long", "ä¸€è¾†é»‘æ¼†æ¼†çš„é•–è½¦ï¼Œä¸Šé¢æ’ç€ç¦å¨é•–å±€çš„é•–æ——ã€‚\n");
 	set("closed", 1);
 	set("value", 2000);
 	set("location",1);
@@ -39,8 +39,8 @@ int do_close(string arg)
 	object ob=this_object();
 	me = this_player();
 	if(arg != "cart" && arg != "silver cart")
-		return notify_fail("ÄãÒª¹ØÉÏÊ²Ã´£¿\n");
-	message_vision("$N°Ñ$nÃÅ¹ØÉÏÁË¡£\n", me, ob);
+		return notify_fail("ä½ è¦å…³ä¸Šä»€ä¹ˆï¼Ÿ\n");
+	message_vision("$NæŠŠ$né—¨å…³ä¸Šäº†ã€‚\n", me, ob);
 	ob->set("closed",1);
 	return 1;
 }
@@ -52,7 +52,7 @@ int do_open(string arg)
 	int i,zd=0;
 
 	if(arg != "cart" && arg != "silver cart")
-		return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 	me = this_player();
 	cart = this_object();
 	set("closed",0);
@@ -60,18 +60,18 @@ int do_open(string arg)
 		return 1;
 
 	if( me->query("combat_exp") < 5000000 )
-		return notify_fail("¾ÍÆ¾ÄãÕâµã¾­Ñé£¬»¹ÏëÑ§±ğÈËÇÀïÚ³µ£¿\n");
+		return notify_fail("å°±å‡­ä½ è¿™ç‚¹ç»éªŒï¼Œè¿˜æƒ³å­¦åˆ«äººæŠ¢é•–è½¦ï¼Ÿ\n");
 
 if(me->query("no_pk")) 
-                return notify_fail("ÄãÒÑ¾­½ğÅèÏ´ÊÖÍË³ö½­ºşÁË£¬»¹ÊÇÉÙÈÇÂé·³ÎªÃî¡£\n");
+                return notify_fail("ä½ å·²ç»é‡‘ç›†æ´—æ‰‹é€€å‡ºæ±Ÿæ¹–äº†ï¼Œè¿˜æ˜¯å°‘æƒ¹éº»çƒ¦ä¸ºå¦™ã€‚\n");
 	if ( environment(me)->query("no_fight"))
-		return notify_fail("ÕâÀï¶¯ÊÖ²»Ì«ºÃ°É£¿\n");
+		return notify_fail("è¿™é‡ŒåŠ¨æ‰‹ä¸å¤ªå¥½å§ï¼Ÿ\n");
 
-	message_vision("$N½«$n¸Ç´ò¿ª¡£\n", me, this_object());
+	message_vision("$Nå°†$nç›–æ‰“å¼€ã€‚\n", me, this_object());
 
 	if( me->query_temp("protecting") && me->query_temp("protecting") == cart){
 		me->delete_temp("protecting");
-		CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%s¼àÊØ×ÔµÁ£¬ÇÀïÚ³µÁË£¡"NOR, me->name(1)));
+		CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%sç›‘å®ˆè‡ªç›—ï¼ŒæŠ¢é•–è½¦äº†ï¼"NOR, me->name(1)));
 		zd=1;
 	}
 	obj = all_inventory(environment(me));
@@ -104,13 +104,13 @@ int do_driver(string arg)
 	cart = this_object();
 /*
 	if (me->query_temp("protecting") != cart)
-		return notify_fail("ÄãÓÖÃ»²Î¼ÓÕâ´Î»¤ïÚ£¬Ï¹Ã¦»îÊ²Ã´°¡£¿\n");
+		return notify_fail("ä½ åˆæ²¡å‚åŠ è¿™æ¬¡æŠ¤é•–ï¼Œçå¿™æ´»ä»€ä¹ˆå•Šï¼Ÿ\n");
 */
 	if( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦£¬²»ÄÜÖ¸»ÓïÚ³µÇ°½ø¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ï¼Œä¸èƒ½æŒ‡æŒ¥é•–è½¦å‰è¿›ã€‚\n");
 
 	if (query_temp("busy/"+me->query("id")))
-		return notify_fail("ÄãÍÆÄÇÃ´¿ì£¬Ïë°ÑïÚ³µÅªÉ¢¼ÜÂğ£¿\n");
+		return notify_fail("ä½ æ¨é‚£ä¹ˆå¿«ï¼Œæƒ³æŠŠé•–è½¦å¼„æ•£æ¶å—ï¼Ÿ\n");
 
 	if(!checkteam())
 		return 1;
@@ -119,7 +119,7 @@ int do_driver(string arg)
 	if (sizeof(team)==0) team=({me});
 /*
 	if (sizeof(team) != 0 && (team[0]!=me))
-		return notify_fail("Ö»ÓĞ¶ÓÎéÊ×Áì²ÅÄÜÖ¸»ÓïÚ¶ÓÇ°½ø¡£\n");
+		return notify_fail("åªæœ‰é˜Ÿä¼é¦–é¢†æ‰èƒ½æŒ‡æŒ¥é•–é˜Ÿå‰è¿›ã€‚\n");
 */
 	for(i=0;i<sizeof(team);i++){
 		if(team[i]->query("combat_exp") > maxexp) {
@@ -134,46 +134,46 @@ int do_driver(string arg)
 	for(j = 0; j < sizeof(obj); j++)
 		if(obj[j]->query("hubiao_jiefei") && obj[j]->query_temp("target") == cart) break;
 	if( j < sizeof(obj))
-		return notify_fail("½Ù·ËÉĞÎ´³ıÈ¥£¬ÄãÏëÍùÄÄÀï×ß£¿£¡\n");
+		return notify_fail("åŠ«åŒªå°šæœªé™¤å»ï¼Œä½ æƒ³å¾€å“ªé‡Œèµ°ï¼Ÿï¼\n");
 	switch(arg) {
-		case "e":	dir="east";		dirname="¶«Ãæ";		break;
-		case "w":	dir="west";		dirname="Î÷Ãæ";		break;
-		case "n":	dir="north";		dirname="±±Ãæ";		break;
-		case "s":	dir="south";		dirname="ÄÏÃæ";		break;
-		case "ne":	dir="northeast";	dirname="¶«±±";		break;
-		case "nw":	dir="northwest";	dirname="Î÷±±";		break;
-		case "se":	dir="southeast";	dirname="¶«ÄÏ";		break;
-		case "sw":	dir="southwest";	dirname="Î÷ÄÏ";		break;
-		case "u":	dir="up";		dirname="ÉÏÃæ";		break;
-		case "up":	dir="up";		dirname="ÉÏÃæ";		break;
-		case "d":	dir="down";		dirname="ÏÂÃæ";		break;
-		case "down":	dir="down";		dirname="ÏÂÃæ";		break;
-		case "nu":	dir="northup";		dirname="±±±ß";		break;
-		case "eu":	dir="eastup";		dirname="¶«±ß";		break;
-		case "su":	dir="southup";		dirname="ÄÏ±ß";		break;
-		case "wu":	dir="westup";		dirname="Î÷±ß";		break;
-		case "nd":	dir="northdown";	dirname="±±±ß";		break;
-		case "ed":	dir="eastdown";		dirname="¶«±ß";		break;
-		case "sd":	dir="southdown";	dirname="ÄÏ±ß";		break;
-		case "wd":	dir="westdown";		dirname="Î÷±ß";		break;
-		case "enter":	dir="enter";		dirname="ÀïÃæ";		break;
-		case "out":	dir="out";		dirname="ÍâÃæ";		break;
-		default:	dir=arg;		dirname="Ò»±ß";		break;
+		case "e":	dir="east";		dirname="ä¸œé¢";		break;
+		case "w":	dir="west";		dirname="è¥¿é¢";		break;
+		case "n":	dir="north";		dirname="åŒ—é¢";		break;
+		case "s":	dir="south";		dirname="å—é¢";		break;
+		case "ne":	dir="northeast";	dirname="ä¸œåŒ—";		break;
+		case "nw":	dir="northwest";	dirname="è¥¿åŒ—";		break;
+		case "se":	dir="southeast";	dirname="ä¸œå—";		break;
+		case "sw":	dir="southwest";	dirname="è¥¿å—";		break;
+		case "u":	dir="up";		dirname="ä¸Šé¢";		break;
+		case "up":	dir="up";		dirname="ä¸Šé¢";		break;
+		case "d":	dir="down";		dirname="ä¸‹é¢";		break;
+		case "down":	dir="down";		dirname="ä¸‹é¢";		break;
+		case "nu":	dir="northup";		dirname="åŒ—è¾¹";		break;
+		case "eu":	dir="eastup";		dirname="ä¸œè¾¹";		break;
+		case "su":	dir="southup";		dirname="å—è¾¹";		break;
+		case "wu":	dir="westup";		dirname="è¥¿è¾¹";		break;
+		case "nd":	dir="northdown";	dirname="åŒ—è¾¹";		break;
+		case "ed":	dir="eastdown";		dirname="ä¸œè¾¹";		break;
+		case "sd":	dir="southdown";	dirname="å—è¾¹";		break;
+		case "wd":	dir="westdown";		dirname="è¥¿è¾¹";		break;
+		case "enter":	dir="enter";		dirname="é‡Œé¢";		break;
+		case "out":	dir="out";		dirname="å¤–é¢";		break;
+		default:	dir=arg;		dirname="ä¸€è¾¹";		break;
 	}
 	if(!room || !room->query("exits/"+dir))
-		return notify_fail("ÄãÒªÍùÄÄÀïÈ¥£¿\n");
+		return notify_fail("ä½ è¦å¾€å“ªé‡Œå»ï¼Ÿ\n");
 
 	newroomfile=room->query("exits/"+dir);
 	if (room->query_door(dir, "status") & DOOR_CLOSED)
-		return notify_fail("Äã±ØĞëÏÈ°Ñ" + room->query_door(dir, "name") + "´ò¿ª£¡\n");
+		return notify_fail("ä½ å¿…é¡»å…ˆæŠŠ" + room->query_door(dir, "name") + "æ‰“å¼€ï¼\n");
 
 	if(!objectp(newroom=find_object(newroomfile))) newroom=load_object(newroomfile);
 
-	message_vision(HIW"ïÚ³µÔÚ$NµÄ»¤ÎÀÏÂ»º»ºµØÍù"+dirname+"µÄ"+newroom->query("short")+HIW"ÀëÈ¥ÁË¡£\n"NOR, me);
+	message_vision(HIW"é•–è½¦åœ¨$Nçš„æŠ¤å«ä¸‹ç¼“ç¼“åœ°å¾€"+dirname+"çš„"+newroom->query("short")+HIW"ç¦»å»äº†ã€‚\n"NOR, me);
 
 	move(newroom);
 
-	// ¼ÆËãÊ±¼ä
+	// è®¡ç®—æ—¶é—´
 	i = uptime();
 	if (query("last_time")) add("total_time", i-query("last_time"));
 	set("last_time", i);
@@ -192,7 +192,7 @@ int do_driver(string arg)
 	dir = "busy/"+me->query("id");
 	set_temp(dir, 1);
 	call_out("delete_temp", 4 + random(3), dir);
-	tell_room(newroom, HIW"ïÚ³µÔÚïÚ¶ÓµÄ»¤ÎÀÏÂ»º»ºµØĞĞ½ø¹ıÀ´ÁË¡£\n"NOR);
+	tell_room(newroom, HIW"é•–è½¦åœ¨é•–é˜Ÿçš„æŠ¤å«ä¸‹ç¼“ç¼“åœ°è¡Œè¿›è¿‡æ¥äº†ã€‚\n"NOR);
 
 	remove_call_out("fail");
 	remove_call_out("check");
@@ -209,20 +209,20 @@ int do_driver(string arg)
 		set("fei_time", i);
 
 		jf = new(__DIR__"cateran");
-		jf->set_temp("target", cart); //ÒªÇÀ½ÙµÄÄ¿±ê
+		jf->set_temp("target", cart); //è¦æŠ¢åŠ«çš„ç›®æ ‡
 		jf->set_temp("team_member", maxplayer->query_team());
 		jf->do_copy(maxplayer);
 		jf->move(newroom);
 
 		jf = new(__DIR__"cateran");
-		jf->set_temp("target", cart); //ÒªÇÀ½ÙµÄÄ¿±ê
+		jf->set_temp("target", cart); //è¦æŠ¢åŠ«çš„ç›®æ ‡
 		jf->set_temp("team_member", maxplayer->query_team());
 		jf->do_copy(maxplayer);
 		jf->move(newroom);
 
 		add("cateran", 2);
-		tell_room(newroom,HIR"Í»È»Â·±ßÌø³öÒ»Èº½Ù·Ë£¡\n"NOR);
-		tell_room(newroom,HIR+jf->query("name")+"¶ñºİºİµØËµµÀ£º´ËÂ·ÊÇÎÒ¿ª£¡´ËÊ÷ÊÇÎÒÔÔ£¡ÖªµÀÏÂÃæÊÇÊ²Ã´ÁË°É£¡\n"NOR);
+		tell_room(newroom,HIR"çªç„¶è·¯è¾¹è·³å‡ºä¸€ç¾¤åŠ«åŒªï¼\n"NOR);
+		tell_room(newroom,HIR+jf->query("name")+"æ¶ç‹ ç‹ åœ°è¯´é“ï¼šæ­¤è·¯æ˜¯æˆ‘å¼€ï¼æ­¤æ ‘æ˜¯æˆ‘æ ½ï¼çŸ¥é“ä¸‹é¢æ˜¯ä»€ä¹ˆäº†å§ï¼\n"NOR);
 
 		for(i=0; i<sizeof(obj); i++){
 			if(userp(obj[i]) && obj[i]->query_temp("protecting") == cart){
@@ -248,7 +248,7 @@ int do_finish(string arg)
 	cart = this_object();
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (!checkteam())
 		return 1;
@@ -257,7 +257,7 @@ int do_finish(string arg)
 	team=me->query_team();
 
 	if (sizeof(team) != 0 && (team[0]!=me))
-		return notify_fail("Ö»ÓĞ¶ÓÎéÊ×Áì²ÅÄÜ¾ö¶¨»¤ïÚÊÇ·ñÒÑ¾­½áÊø¡£\n");
+		return notify_fail("åªæœ‰é˜Ÿä¼é¦–é¢†æ‰èƒ½å†³å®šæŠ¤é•–æ˜¯å¦å·²ç»ç»“æŸã€‚\n");
 
 	where = environment(me);
 	obj = all_inventory(where);
@@ -269,7 +269,7 @@ int do_finish(string arg)
 			break;
 	}
 	if(j < sizeof(obj))
-		return notify_fail("½Ù·Ë»¹ÔÚ£¬±¾´ÎÈÎÎñÉĞÎ´Íê³É£¡\n");
+		return notify_fail("åŠ«åŒªè¿˜åœ¨ï¼Œæœ¬æ¬¡ä»»åŠ¡å°šæœªå®Œæˆï¼\n");
 
 	for(j=0; j < sizeof(team); j++){
 		if(!present(team[j]) || team[j]->query_temp("protecting") != cart)
@@ -277,13 +277,13 @@ int do_finish(string arg)
 	}
 
 	if( me->query_temp("hubiao/where") != file_name(where))
-		return notify_fail("ÄãÏÖÔÚ»¹Ã»ÓĞµ½´ïÄ¿µÄµØ£¡\n");
+		return notify_fail("ä½ ç°åœ¨è¿˜æ²¡æœ‰åˆ°è¾¾ç›®çš„åœ°ï¼\n");
 
 	if( j < sizeof(team))
-		return notify_fail("ÄãµÄ¶ÓÔ±ÉĞÎ´µ½Æë£¡\n");
+		return notify_fail("ä½ çš„é˜Ÿå‘˜å°šæœªåˆ°é½ï¼\n");
 
 	if (! present(target = me->query_temp("hubiao/target"), where))
-		return notify_fail("ß×£¿°ÑïÚ½»¸øË­°¡£¿\n");
+		return notify_fail("å’¦ï¼ŸæŠŠé•–äº¤ç»™è°å•Šï¼Ÿ\n");
 
 	j = 0;
 	for (i=0; i<sizeof(team); i++)
@@ -295,18 +295,18 @@ int do_finish(string arg)
 
 		time = uptime()-me->query_temp("hubiao/biao_time");
 		tui_time = query("total_time");
-		step = query("step");		                      // Êµ¼ÊÂ·³Ì ²âÊÔÏÂÀ´×î¶à120²½£¬×îÉÙ59²½£¬»ù±¾ÉÏÔÚ80²½×óÓÒ¡£ÄÇÃ´Ò»²½60expÀ´Ëã¡£
-		hehe = query("hehe");		                  // ¶à×ßµÄÂ·
-		cateran = query("cateran");	              // ½Ù·ËÈËÊı£¬Ã¿×é½Ù·ËÊÇÁ½¸ö
-        tb = cateran * 3 / 2;                          // Ò»×é½Ù·Ë¸ø3¸öTB         
+		step = query("step");		                      // å®é™…è·¯ç¨‹ æµ‹è¯•ä¸‹æ¥æœ€å¤š120æ­¥ï¼Œæœ€å°‘59æ­¥ï¼ŒåŸºæœ¬ä¸Šåœ¨80æ­¥å·¦å³ã€‚é‚£ä¹ˆä¸€æ­¥60expæ¥ç®—ã€‚
+		hehe = query("hehe");		                  // å¤šèµ°çš„è·¯
+		cateran = query("cateran");	              // åŠ«åŒªäººæ•°ï¼Œæ¯ç»„åŠ«åŒªæ˜¯ä¸¤ä¸ª
+        tb = cateran * 3 / 2;                          // ä¸€ç»„åŠ«åŒªç»™3ä¸ªTB         
          exp= step * ( 60+random(20))  + cateran * 45 ;
 			peop = sizeof(team);
-		exp1 = exp;                                      //±ê¼ÇÓ¦µÃ½±ÀøÊıÖµ
-		exp -= hehe * hehe * 160;	                    // ¶à×ßµÄ³Í·£
-		times = -10 + step * 5;                      //Ã¿²½¸ø5ÃëµÄÊ±¼ä
+		exp1 = exp;                                      //æ ‡è®°åº”å¾—å¥–åŠ±æ•°å€¼
+		exp -= hehe * hehe * 160;	                    // å¤šèµ°çš„æƒ©ç½š
+		times = -10 + step * 5;                      //æ¯æ­¥ç»™5ç§’çš„æ—¶é—´
 
-		if (tui_time > times) exp -= (tui_time - times) * 30;      //³¬Ê±³Í·£
-		else exp += times - tui_time;                                   //¿ìËÙ½±Àø
+		if (tui_time > times) exp -= (tui_time - times) * 30;      //è¶…æ—¶æƒ©ç½š
+		else exp += times - tui_time;                                   //å¿«é€Ÿå¥–åŠ±
 
 		if (step < 1) step = 1;
        if (exp> 8500  ) exp =8500 + random(500);
@@ -318,11 +318,11 @@ int do_finish(string arg)
           
 jl = jl * 2 / peop;
 		  team[i]->add("combat_exp",jl);
-			j = jl/6;                                            //½±Àøpot
+			j = jl/6;                                            //å¥–åŠ±pot
 			team[i]->add_busy(1);			
 //                        team[i]->add("SJ_Credit", tb);
 			team[i]->add("balance", 100000);
-			team[i]->set("job_name", "¸£Öİ»¤ïÚ");
+			team[i]->set("job_name", "ç¦å·æŠ¤é•–");
       team[i]->apply_condition("hb_job_busy", 30);
 			team[i]->clear_condition("job_busy");
       team[i]->add("potential", j);
@@ -345,30 +345,30 @@ if( team[i]->query_condition("db_exp") )
 				gold->move(environment(team[i]));
 			
                if (target)
-		        tell_object(team[i], CYN + target->query("name") + "¶ÔÄã±íÊ¾ÖÔĞÄµÄ¸ĞĞ»¡£\n"NOR);
-			    tell_object(team[i],HIY"Äã±»½±ÀøÁË"+chinese_number(jl)+"µã¾­Ñé£¬"+chinese_number(j)+"µãÇ±ÄÜ£¬"+chinese_number(120)+"Á½»Æ½ğ£¡\n"NOR);
+		        tell_object(team[i], CYN + target->query("name") + "å¯¹ä½ è¡¨ç¤ºè¡·å¿ƒçš„æ„Ÿè°¢ã€‚\n"NOR);
+			    tell_object(team[i],HIY"ä½ è¢«å¥–åŠ±äº†"+chinese_number(jl)+"ç‚¹ç»éªŒï¼Œ"+chinese_number(j)+"ç‚¹æ½œèƒ½ï¼Œ"+chinese_number(120)+"ä¸¤é»„é‡‘ï¼\n"NOR);
 	
        if( team[i]->query("relife/exp_ext") )     
-               tell_object(team[i],HBGRN"Äã×ĞÏ¸»ØÏë×Å»¤ïÚµÄ¹ı³Ì£¬ÓÖ¶îÍâÔö¼ÓÁË"+chinese_number(jl*ext/20)+"µãÊµÕ½¾­Ñé£¡\n"NOR);
+               tell_object(team[i],HBGRN"ä½ ä»”ç»†å›æƒ³ç€æŠ¤é•–çš„è¿‡ç¨‹ï¼Œåˆé¢å¤–å¢åŠ äº†"+chinese_number(jl*ext/20)+"ç‚¹å®æˆ˜ç»éªŒï¼\n"NOR);
 
 
 	if( team[i]->query_condition("db_exp") )     
 		
-               tell_object(team[i],HBGRN"Ë«±¶¾­Ñé½±ÀøÆÚ¼ä£¬Äã¶îÍâµØÔö¼ÓÁË"+chinese_number(dbexp)+"µãÊµÕ½¾­Ñé£¡\n"NOR);
+               tell_object(team[i],HBGRN"åŒå€ç»éªŒå¥–åŠ±æœŸé—´ï¼Œä½ é¢å¤–åœ°å¢åŠ äº†"+chinese_number(dbexp)+"ç‚¹å®æˆ˜ç»éªŒï¼\n"NOR);
 
 
 
 
 
 
-  log_file("job/hubiao", sprintf("%8s%-10s»¤ïÚÈÎÎñ½±Àø¾­Ñé%4d£¬Ç±ÄÜ%3d£¬ÏÖÔÚ¾­Ñé%d¡£\n",
+  log_file("job/hubiao", sprintf("%8s%-10sæŠ¤é•–ä»»åŠ¡å¥–åŠ±ç»éªŒ%4dï¼Œæ½œèƒ½%3dï¼Œç°åœ¨ç»éªŒ%dã€‚\n",
 				team[i]->query("name"),
 				"("+capitalize(team[i]->query("id"))+")",
 				jl,
 				j,
 				team[i]->query("combat_exp")), team[i]
 			);
-  write_file("/log/job/Hubiao", sprintf("%8s%-10s»¤ïÚ½±Àø¾­Ñé%4d,Ç±ÄÜ%3d,ÏÖÔÚ¾­Ñé%d,Ó¦µÃ%d,²½Êı%d,·ÑÊ±%d,½Ù·Ë%d,ÍÆÊ±%d/%d,×ß´í%d)¡£\n",
+  write_file("/log/job/Hubiao", sprintf("%8s%-10sæŠ¤é•–å¥–åŠ±ç»éªŒ%4d,æ½œèƒ½%3d,ç°åœ¨ç»éªŒ%d,åº”å¾—%d,æ­¥æ•°%d,è´¹æ—¶%d,åŠ«åŒª%d,æ¨æ—¶%d/%d,èµ°é”™%d)ã€‚\n",
 				team[i]->query("name"),
 				"("+capitalize(team[i]->query("id"))+")",
 				jl,
@@ -392,7 +392,7 @@ if( team[i]->query_condition("db_exp") )
 	me->dismiss_team();
 	if ( target)
 		destruct(target);
-	CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%sÂÊïÚ¶ÓË³Àûµ½´ï%s£¡", me->name(1), query("arrive")));
+	CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%sç‡é•–é˜Ÿé¡ºåˆ©åˆ°è¾¾%sï¼", me->name(1), query("arrive")));
 	destructing(cart);
 	return 1;
 }
@@ -465,12 +465,12 @@ void check2(object me)
 			team[j]->dismiss_team();
 			if (team[j]->query_temp("protecting")==cart)
 				team[j]->delete_temp("protecting");
-	 	        log_file("job/hubiao",sprintf("%8s%-10s»¤ïÚÈÎÎñÊ§°Ü£¬ÏÖÔÚ¾­Ñé%d¡£\n",
+	 	        log_file("job/hubiao",sprintf("%8s%-10sæŠ¤é•–ä»»åŠ¡å¤±è´¥ï¼Œç°åœ¨ç»éªŒ%dã€‚\n",
 				team[j]->name(1),"("+capitalize(team[j]->query("id"))+")", team[j]->query("combat_exp")), team[j]);
-			tell_object(team[j],HIR"ÓÉÓÚÄã»¤ïÚÊ§°Ü£¬½»¸øïÚ¾ÖµÄÎåÊ®Á½»Æ½ğ±»ÓÃÀ´Åâ³¥ÁË¡£\n"NOR);
+			tell_object(team[j],HIR"ç”±äºä½ æŠ¤é•–å¤±è´¥ï¼Œäº¤ç»™é•–å±€çš„äº”åä¸¤é»„é‡‘è¢«ç”¨æ¥èµ”å¿äº†ã€‚\n"NOR);
 		}
-		tell_room(environment(cart),HIR"½Ù·ËºÙºÙÒ»Ğ¦£¬µÀ£º½ñÌìÓÖÀÌÁËÒ»Æ±¡£»°±ÏÍÆ×ÅïÚ³µ×ßÁË¡£\n"NOR);
-		CHANNEL_D->do_channel( this_object(), "rumor", sprintf("%sµÄïÚ³µ±»½Ù·Ë½Ù×ßÁË£¡", query("teamhead")));
+		tell_room(environment(cart),HIR"åŠ«åŒªå˜¿å˜¿ä¸€ç¬‘ï¼Œé“ï¼šä»Šå¤©åˆæäº†ä¸€ç¥¨ã€‚è¯æ¯•æ¨ç€é•–è½¦èµ°äº†ã€‚\n"NOR);
+		CHANNEL_D->do_channel( this_object(), "rumor", sprintf("%sçš„é•–è½¦è¢«åŠ«åŒªåŠ«èµ°äº†ï¼", query("teamhead")));
 		destructing(cart);
 	}
 	else {
@@ -512,11 +512,11 @@ void fail(object ob)
 			team[j]->dismiss_team();
 			if (team[j]->query_temp("protecting")==cart)
 				team[j]->delete_temp("protecting");
-	 	        log_file("job/hubiao",sprintf("%8s%-10s»¤ïÚÈÎÎñÊ§°Ü£¬ÏÖÔÚ¾­Ñé%d¡£\n",
+	 	        log_file("job/hubiao",sprintf("%8s%-10sæŠ¤é•–ä»»åŠ¡å¤±è´¥ï¼Œç°åœ¨ç»éªŒ%dã€‚\n",
 				team[j]->name(1),"("+capitalize(team[j]->query("id"))+")", team[j]->query("combat_exp")),team[j]);
-			tell_object(team[j],HIR"ÓÉÓÚÄã»¤ïÚÊ§°Ü£¬½»¸øïÚ¾ÖµÄÎåÊ®Á½»Æ½ğ±»ÓÃÀ´Åâ³¥ÁË¡£\n"NOR);
+			tell_object(team[j],HIR"ç”±äºä½ æŠ¤é•–å¤±è´¥ï¼Œäº¤ç»™é•–å±€çš„äº”åä¸¤é»„é‡‘è¢«ç”¨æ¥èµ”å¿äº†ã€‚\n"NOR);
 		}
-		CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%s¼°ÆäïÚ¶Ó»¤ïÚÊ§°Ü£¡", query("teamhead")));
+		CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%såŠå…¶é•–é˜ŸæŠ¤é•–å¤±è´¥ï¼", query("teamhead")));
 	}
 	destructing(cart);
 }
@@ -577,22 +577,22 @@ int checkteam()
 	if (!fail) {
 		if (query("target"))
 			return 1;
-		message("team", "½ÓïÚÈËµÈµÃ²»ÄÍ·³£¬ÒÑ¾­Àë¿ªÁË¡£\n", team2);
+		message("team", "æ¥é•–äººç­‰å¾—ä¸è€çƒ¦ï¼Œå·²ç»ç¦»å¼€äº†ã€‚\n", team2);
 	}
 
 	for(j=0; j<sizeof(team2); j++){
 		team2[j]->dismiss_team();
 		if (team2[j]->query_temp("protecting")==cart)
 			team2[j]->delete_temp("protecting");
-	        log_file("job/hubiao",sprintf("%8s%-10s»¤ïÚÈÎÎñÊ§°Ü£¬ÏÖÔÚ¾­Ñé%d¡£\n",
+	        log_file("job/hubiao",sprintf("%8s%-10sæŠ¤é•–ä»»åŠ¡å¤±è´¥ï¼Œç°åœ¨ç»éªŒ%dã€‚\n",
 			team2[j]->name(1),"("+capitalize(team2[j]->query("id"))+")", team2[j]->query("combat_exp")), team2[j]);
-		tell_object(team2[j],HIR"ÓÉÓÚÄã»¤ïÚÊ§°Ü£¬½»¸øïÚ¾ÖµÄÎåÊ®Á½»Æ½ğ±»ÓÃÀ´Åâ³¥ÁË¡£\n"NOR);
+		tell_object(team2[j],HIR"ç”±äºä½ æŠ¤é•–å¤±è´¥ï¼Œäº¤ç»™é•–å±€çš„äº”åä¸¤é»„é‡‘è¢«ç”¨æ¥èµ”å¿äº†ã€‚\n"NOR);
 	}
 
 	if (fail)
-		CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%sµÄïÚ³µ±»½Ù·Ë½Ù×ßÁË£¡", query("teamhead")));
+		CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%sçš„é•–è½¦è¢«åŠ«åŒªåŠ«èµ°äº†ï¼", query("teamhead")));
 	else
-		CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%sµÄïÚ¶ÓÃ»ÄÜ¼°Ê±´ïµ½Ä¿µÄµØ£¡", query("teamhead")));
+		CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%sçš„é•–é˜Ÿæ²¡èƒ½åŠæ—¶è¾¾åˆ°ç›®çš„åœ°ï¼", query("teamhead")));
 	destructing(cart);
 	return 0;
 }

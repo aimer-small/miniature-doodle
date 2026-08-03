@@ -6,13 +6,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "°ëÉ½ĞüÑÂ");
+	set("short", "åŠå±±æ‚¬å´–");
 	set("long", @LONG
-ÄãÏòÎ÷ÅÀĞĞ£¬Õâ±ßµÄÉ½ÊÆÊ®·ÖĞ×ÏÕ£¬Ö±ÅÀÁË°ë¸öÊ±³½Ò²ÎŞÈÎºÎÈ¥Â·ÁË¡£
+ä½ å‘è¥¿çˆ¬è¡Œï¼Œè¿™è¾¹çš„å±±åŠ¿ååˆ†å‡¶é™©ï¼Œç›´çˆ¬äº†åŠä¸ªæ—¶è¾°ä¹Ÿæ— ä»»ä½•å»è·¯äº†ã€‚
 LONG	);
 	set("no_clean_up", 0);
 
-	set("outdoors", "À¥ÂØÉ½");
+	set("outdoors", "æ˜†ä»‘å±±");
 	setup();
 }
 
@@ -25,12 +25,12 @@ int do_climb(string arg)
 {
 	object me = this_player();
         if(me->is_busy() || me->is_fighting())
-              return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+              return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (arg == "east") {
-		message_vision("$NÏò¶«ÃæµÄËÉÊ÷ÅÀÈ¥¡£\n", me);
+		message_vision("$Nå‘ä¸œé¢çš„æ¾æ ‘çˆ¬å»ã€‚\n", me);
 		me->move(__DIR__"songshu");
                 me->start_busy(1);
-		message("vision", me->name() + "´Ó°ëÉ½ĞüÑÂÅÀÁË¹ıÀ´£¬Ğ¡ĞÄÒíÒíµØÅÀÉÏÁËËÉÊ÷¡£\n", environment(me), ({me}));
+		message("vision", me->name() + "ä»åŠå±±æ‚¬å´–çˆ¬äº†è¿‡æ¥ï¼Œå°å¿ƒç¿¼ç¿¼åœ°çˆ¬ä¸Šäº†æ¾æ ‘ã€‚\n", environment(me), ({me}));
 		return 1;
 	}
 	return 0;

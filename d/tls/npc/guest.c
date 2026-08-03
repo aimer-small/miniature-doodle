@@ -1,11 +1,11 @@
-// guest.c ½øÏã¿Í
+// guest.c è¿›é¦™å®¢
 
 inherit NPC;
 
-string *first_name = ({ "ÕÔ","Ëï","Àî","ÖÜ","Îâ","Ö£","Íõ","ÕÅ","³Â","Áø","·ç","Áõ","ÁÖ", }); 
-string *man_name_words = ({ "Çà","Ë³","·ç","·å","½¨","Ã÷","Ãú","Õ½","¹Ú", });
-string *woman_name_words = ({ "Á«","Ñà","ÄÈ","Äİ","·¼","Ïã","ÏÉ","Ü·","ÜÍ", });
-string *xing = ({ "ÄĞĞÔ","Å®ĞÔ", });
+string *first_name = ({ "èµµ","å­™","æ","å‘¨","å´","éƒ‘","ç‹","å¼ ","é™ˆ","æŸ³","é£","åˆ˜","æ—", }); 
+string *man_name_words = ({ "é’","é¡º","é£","å³°","å»º","æ˜","é“­","æˆ˜","å† ", });
+string *woman_name_words = ({ "è²","ç‡•","å¨œ","å¦®","èŠ³","é¦™","ä»™","èŠŠ","èŠ¡", });
+string *xing = ({ "ç”·æ€§","å¥³æ€§", });
 
 void create()
 {
@@ -14,14 +14,14 @@ void create()
 		age = 20 + random(40);
 		xingbie = xing[random(sizeof(xing))];
         name = first_name[random(sizeof(first_name))];
-        if (xingbie !="ÄĞĞÔ")
+        if (xingbie !="ç”·æ€§")
 		{
 		name += woman_name_words[random(sizeof(woman_name_words))]; 
         } else { name += man_name_words[random(sizeof(man_name_words))]; }
  
 
 	set_name(name, ({ "guest" }));
-    set("title", "½øÏã¿Í");
+    set("title", "è¿›é¦™å®¢");
     set("gender", xingbie);
 	set("age", age);
 	set_skill("unarmed", random(40));
@@ -34,10 +34,10 @@ void create()
 		 set("chat_chance", 2);
 
 	 set("chat_msg", ({
-	 "½øÏã¿ÍµÍÉùÒ÷µÀ£ºÒ»ÇĞÓĞÎª·¨£¬ÈçÃÎ»ÃÅİÓ°\n",
-	 "½øÏã¿Í±ÕÄ¿ºÏÊ²£ºÄÏÎŞ°¢ÃÖÍÓ·ğ \n",
-	 "½øÏã¿ÍÀÊÉùËµµÀ£ºÓĞ·¨ÎŞ·¨£¬½ÔÊÇĞéÍı\n",
-	 "½øÏã¿ÍËµµÀ£ºÄÏÎŞ¾È¿à¾ÈÄÑ¹ã´óÁé¸Ğ¹ÛÊÀÒôÆĞÈø£¡\n",
+	 "è¿›é¦™å®¢ä½å£°åŸé“ï¼šä¸€åˆ‡æœ‰ä¸ºæ³•ï¼Œå¦‚æ¢¦å¹»æ³¡å½±\n",
+	 "è¿›é¦™å®¢é—­ç›®åˆä»€ï¼šå—æ— é˜¿å¼¥é™€ä½› \n",
+	 "è¿›é¦™å®¢æœ—å£°è¯´é“ï¼šæœ‰æ³•æ— æ³•ï¼Œçš†æ˜¯è™šå¦„\n",
+	 "è¿›é¦™å®¢è¯´é“ï¼šå—æ— æ•‘è‹¦æ•‘éš¾å¹¿å¤§çµæ„Ÿè§‚ä¸–éŸ³è©è¨ï¼\n",
 	     (: random_move :)
         }) );
 	setup();

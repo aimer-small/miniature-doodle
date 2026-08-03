@@ -3,10 +3,10 @@ inherit NPC;
 string ask_gift();
 void create()
 {
-        set_name("ÁøËæ·ç", ({"robot darken", "darken", "robot"}) );
-        set("long", "Õâ¸öÊÇÁøËæ·ç×ö³öÀ´·¢ÀñÎïÓÃµÄ»úÆ÷ÈË¡£\n");
-        set("gender", "ÄÐÐÔ" );
-        set("title", "»úÆ÷ÈË");
+        set_name("æŸ³éšé£Ž", ({"robot darken", "darken", "robot"}) );
+        set("long", "è¿™ä¸ªæ˜¯æŸ³éšé£Žåšå‡ºæ¥å‘ç¤¼ç‰©ç”¨çš„æœºå™¨äººã€‚\n");
+        set("gender", "ç”·æ€§" );
+        set("title", "æœºå™¨äºº");
         set("age", 24);
         set("attitude", "peaceful");
         set("str",1);
@@ -27,7 +27,7 @@ void create()
         set("class", "fighter");
 
         set("inquiry", ([
-                "ÀñÎï": (: ask_gift :),
+                "ç¤¼ç‰©": (: ask_gift :),
         ]) );
 
         setup();
@@ -38,13 +38,13 @@ string ask_gift()
         object ob = this_player();
         object gift;
         if (!ob->query("biwu_winner"))
-           return RANK_D->query_respect(ob)+"´ÕÊ²Ã´ÈÈÄÖ£¿\n";
+           return RANK_D->query_respect(ob)+"å‡‘ä»€ä¹ˆçƒ­é—¹ï¼Ÿ\n";
         if (present("biwu gift", ob))
-           return RANK_D->query_respect(ob)+"ÉíÉÏ²»ÊÇÓÐÁËÃ´£¿\n";
+           return RANK_D->query_respect(ob)+"èº«ä¸Šä¸æ˜¯æœ‰äº†ä¹ˆï¼Ÿ\n";
 
         gift = new("/d/huanghe/obj/"+ob->query("id"));
         gift->move(ob);
-        message_vision("$NµÃµ½ÁË"+gift->query("name")+"£¡\n", ob);
-        return "Ð¡ÐÄÊÕºÃ°¡£¬²»Ð¡ÐÄ¶ªÁËÔÙÕÒÎÒ°É¡£\n";
+        message_vision("$Nå¾—åˆ°äº†"+gift->query("name")+"ï¼\n", ob);
+        return "å°å¿ƒæ”¶å¥½å•Šï¼Œä¸å°å¿ƒä¸¢äº†å†æ‰¾æˆ‘å§ã€‚\n";
 }
 

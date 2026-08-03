@@ -7,12 +7,12 @@ string ask_me_1();
 
 void create()
 {
-        set_name("ÄªÉù¹È", ({ "mo shenggu", "mo" }));
-        set("nickname", "Îäµ±ÆßÏÀ");
+        set_name("è«å£°è°·", ({ "mo shenggu", "mo" }));
+        set("nickname", "æ­¦å½“ä¸ƒä¾ ");
         set("long", 
-                "Ëû¾ÍÊÇÕÅÈı·áµÄÆßµÜ×ÓÄªÉù¹È¡£\n"
-                "ËûÄê¼Í×îÇá£¬µ«Éí²Ä¿ıÎà£¬¾«Ã÷ÄÜ¸É¡£\n");
-        set("gender", "ÄĞĞÔ");
+                "ä»–å°±æ˜¯å¼ ä¸‰ä¸°çš„ä¸ƒå¼Ÿå­è«å£°è°·ã€‚\n"
+                "ä»–å¹´çºªæœ€è½»ï¼Œä½†èº«æé­æ¢§ï¼Œç²¾æ˜èƒ½å¹²ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 22);
         set("attitude", "peaceful");
         set("shen_type", 1);
@@ -47,9 +47,9 @@ void create()
         map_skill("parry", "taiji-jian");
         map_skill("sword", "taiji-jian");
         prepare_skill("cuff", "taiji-quan");
-        create_family("Îäµ±ÅÉ", 2, "µÜ×Ó");
+        create_family("æ­¦å½“æ´¾", 2, "å¼Ÿå­");
         set("inquiry", ([
-                "ÏÂÉ½" : (: ask_me_1 :),
+                "ä¸‹å±±" : (: ask_me_1 :),
         ]));
 
         setup();
@@ -64,16 +64,16 @@ string ask_me_1()
  if ( (int)me->query_skill("yinyun-ziqi", 1) < 20)
    {
     command("pat "+(string)me->query("id"));
-    return "ÄãÎäÒÕÎ´³É£¬»¹ÊÇ±ğÏÂÉ½µÄºÃ£¡\n";
+    return "ä½ æ­¦è‰ºæœªæˆï¼Œè¿˜æ˜¯åˆ«ä¸‹å±±çš„å¥½ï¼\n";
    }
   if((int)me->query("wudang_given")) 
     { command("kick "+me->query("id"));
-      return "ĞŞµÀÖ®ÈËµ­±¡ÃûÀû£¬ÄãºÃºÃ·´Ê¡°É£¡\n";
+      return "ä¿®é“ä¹‹äººæ·¡è–„ååˆ©ï¼Œä½ å¥½å¥½åçœå§ï¼\n";
     }
     command("nod "+(string)me->query("id"));
     add_money("silver",(int)(me->query_skill("yinyun-ziqi", 1)) );
     command("give "+me->query("id")+" "+(int)(me->query_skill("yinyun-ziqi", 1))+" silver");
     me->set("wudang_given",1);
-    return "ÄãÏÂÉ½ºóÒª¶àĞĞÏÀÕÌÒå£¬ÒªÊÇÎª·Ç×÷´õ£¬ÎÒ±ØÇåÀíÃÅ»§£¡\n";
+    return "ä½ ä¸‹å±±åè¦å¤šè¡Œä¾ ä»—ä¹‰ï¼Œè¦æ˜¯ä¸ºéä½œæ­¹ï¼Œæˆ‘å¿…æ¸…ç†é—¨æˆ·ï¼\n";
 }
 

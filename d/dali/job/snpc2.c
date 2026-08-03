@@ -7,7 +7,7 @@ inherit NPC;
 
 #include "skill.h";
 
-string *color_title = ({"ÌìÉ±ÃÅ", "µØÉ·ÃÅ"});
+string *color_title = ({"å¤©æ€é—¨", "åœ°ç…é—¨"});
 
 void create()
 {
@@ -18,9 +18,9 @@ void create()
 
 	name = RNAME_D->get_random_name(i);
 	set_name(name["name"], name["id"] + ({ "killer" }));
-	set("title", color_title[random(sizeof(color_title))]+(i?"":"Å®")+"É±ÊÖ");
-	set("gender", i?"ÄĞĞÔ":"Å®ĞÔ");
-	set("long", "ÕâÈËÉí´©ºÚÉ«½ô×°£¬ÃæÉÏÃÉ×ÅÒ»¿éºÚ²¼£¬Ö»Â¶³öÒ»Ë«ÑÛ¾¦£¬¾«¹âËÄÉä¡£\n");
+	set("title", color_title[random(sizeof(color_title))]+(i?"":"å¥³")+"æ€æ‰‹");
+	set("gender", i?"ç”·æ€§":"å¥³æ€§");
+	set("long", "è¿™äººèº«ç©¿é»‘è‰²ç´§è£…ï¼Œé¢ä¸Šè’™ç€ä¸€å—é»‘å¸ƒï¼Œåªéœ²å‡ºä¸€åŒçœ¼ç›ï¼Œç²¾å…‰å››å°„ã€‚\n");
 	set("age", random(20)+25);
 	set("str", 18+random(5));
 	set("int",20+random(5));

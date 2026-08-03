@@ -1,25 +1,25 @@
-// yan.c ÑÕÔ«
+// yan.c é¢œå£
 // Modify By River@sj 99.06
 inherit NPC;
 string ask_xunluo();
 string ask_jihe();
 void create()
 {
-        set_name("ÑÕÔ«", ({ "yan tan", "yan", "tan" }));
-        set("gender", "ÄĞĞÔ");
-        create_family("Ã÷½Ì", 37, "µÜ×Ó");
+        set_name("é¢œå£", ({ "yan tan", "yan", "tan" }));
+        set("gender", "ç”·æ€§");
+        create_family("æ˜æ•™", 37, "å¼Ÿå­");
         set("age", 45);
-        set("long", "´ËÈË°«°«ÅÖÅÖ£¬Ô²ÈçÊ¯¹Ä£¬Ä£ÑùÉõÊÇ¿ÉĞ¦£¬\n"+
-                    "µ«Éí·¨È´¼«Áé»î£¬ÌìÉúÉñÁ¦£¬ºÅ³ÆÃ÷½ÌµÚÒ»ÉñÁ¦Ö®Ê¿¡£\n");        
-        set("rank_info/respect","ÆìÖ÷");
-        set("title","Ã÷½ÌºñÍÁÆìÕÆÆìÊ¹");
+        set("long", "æ­¤äººçŸ®çŸ®èƒ–èƒ–ï¼Œåœ†å¦‚çŸ³é¼“ï¼Œæ¨¡æ ·ç”šæ˜¯å¯ç¬‘ï¼Œ\n"+
+                    "ä½†èº«æ³•å´æçµæ´»ï¼Œå¤©ç”Ÿç¥åŠ›ï¼Œå·ç§°æ˜æ•™ç¬¬ä¸€ç¥åŠ›ä¹‹å£«ã€‚\n");        
+        set("rank_info/respect","æ——ä¸»");
+        set("title","æ˜æ•™åšåœŸæ——æŒæ——ä½¿");
         set("str", 33);
         set("int", 20);
         set("con", 22);
         set("dex", 22);
         set("per", 10);
         set("unique", 1);
-        set("no_get", "ÑÕÔ«¶ÔÄãÀ´ËµÌ«ÖØÁË¡£\n");
+        set("no_get", "é¢œå£å¯¹ä½ æ¥è¯´å¤ªé‡äº†ã€‚\n");
 
         set("combat_exp", 160000);
         set("attitude", "peaceful");
@@ -45,8 +45,8 @@ void create()
         map_skill("cuff","taizu-quan");
         prepare_skill("cuff","taizu-quan"); 
         set("inquiry", ([
-                "»­Ó¡"  : (: ask_xunluo :),
-                "¼¯ºÏ"  : (: ask_jihe :),
+                "ç”»å°"  : (: ask_xunluo :),
+                "é›†åˆ"  : (: ask_jihe :),
         ]));
         set("xl", 3);
         set("xl2", "yan");
@@ -58,17 +58,17 @@ void create()
 string ask_jihe()
 {
         if (!this_player()->query_temp("mj/ling"))
-           return "¼¯ºÏÊ²Ã´Ñ½£¿³Ô·¹Ê±¼äµ½ÁË£¿";
+           return "é›†åˆä»€ä¹ˆå‘€ï¼Ÿåƒé¥­æ—¶é—´åˆ°äº†ï¼Ÿ";
         command("nod");
-        command("say ÎÒÁ¢¿Ìµ½¹âÃ÷¶¥¹ã³¡¼¯ºÏ¡£");
+        command("say æˆ‘ç«‹åˆ»åˆ°å…‰æ˜é¡¶å¹¿åœºé›†åˆã€‚");
         this_object()->move("/d/mingjiao/gmd");
-        return "ÄãÈ¥ÇëÆäËûµÄÆìÊ¹°É";
+        return "ä½ å»è¯·å…¶ä»–çš„æ——ä½¿å§";
 }
 
 void attempt_apprentice(object ob)
 {     
-        command("say ÓÉÓÚ½ÌÊÂ·±Ã¦£¬ÎÒÒÑĞí¾Ã²»ÊÕµÜ×ÓÁË¡£");
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"»¹ÊÇÇë»Ø°É¡£");
+        command("say ç”±äºæ•™äº‹ç¹å¿™ï¼Œæˆ‘å·²è®¸ä¹…ä¸æ”¶å¼Ÿå­äº†ã€‚");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"è¿˜æ˜¯è¯·å›å§ã€‚");
         return;
 }
 

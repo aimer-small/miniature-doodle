@@ -15,9 +15,9 @@ int main(object me,string arg)
 
         
         ob = new("/d/wuguan/npc/dizi1.c");
-        exp = me->add_exp_combat(100,ob,"����");
+        exp = me->add_exp_combat(100,ob,"送信");
         destruct(ob);
-        write("����:"+exp+"\n");
+        write("增加:"+exp+"\n");
   	if (me->is_robot(0))
 		{
 			if(m<4000) iexp = iexp;
@@ -44,9 +44,9 @@ int main(object me,string arg)
 int help(object me)
 {
         write(@HELP
-ָ���ʽ: where <��ҵ� ID>
+指令格式: where <玩家的 ID>
 
-���ָ����������֪���Ŀǰ���ڵ�λ��.
+这个指令是用来得知玩家目前所在的位置.
 
 HELP
         );

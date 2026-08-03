@@ -1,19 +1,19 @@
-// shuitang.c Ë®ÌÁ
+// shuitang.c æ°´å¡˜
 // By River 99.5.25
 #include <room.h>
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-	set("short","Ë®ÌÁ");
+	set("short","æ°´å¡˜");
 	set("long",@LONG
-´©¹ýÖñÁÖ£¬Í»È»Ò»ÕóÇåÏãÓ¿ÖÁ£¬ÑÛÇ°ÎÞ±ßÎÞ¼ÊµÄÈ«ÊÇË®ÏÉ»¨£¬Ô­À´µØÏÂÊÇ
-Ç³Ç³µÄÒ»Æ¬Ë®ÌÁ£¬Éî²»Óâ³ß£¬ÖÖÂúÁËË®ÏÉ£¬Õâ»¨ÊÇÔ­ÊÇÄÏ·½Ö®Îï£¬²»ÖªºÎÒÔ¾¹
-»áÔÚ¹ØÂåÖ®¼äµÄÉ½¶¥³öÏÖ¡£
+ç©¿è¿‡ç«¹æž—ï¼Œçªç„¶ä¸€é˜µæ¸…é¦™æ¶Œè‡³ï¼Œçœ¼å‰æ— è¾¹æ— é™…çš„å…¨æ˜¯æ°´ä»™èŠ±ï¼ŒåŽŸæ¥åœ°ä¸‹æ˜¯
+æµ…æµ…çš„ä¸€ç‰‡æ°´å¡˜ï¼Œæ·±ä¸é€¾å°ºï¼Œç§æ»¡äº†æ°´ä»™ï¼Œè¿™èŠ±æ˜¯åŽŸæ˜¯å—æ–¹ä¹‹ç‰©ï¼Œä¸çŸ¥ä½•ä»¥ç«Ÿ
+ä¼šåœ¨å…³æ´›ä¹‹é—´çš„å±±é¡¶å‡ºçŽ°ã€‚
 LONG
 );
 
-	set("outdoors","¾øÇé¹È");
+	set("outdoors","ç»æƒ…è°·");
 	set("exits",([
 		"eastup": __DIR__"shanding",
 		"westdown": __DIR__"qsroad",
@@ -30,14 +30,14 @@ int valid_leave(object me, string dir)
 	i = me->query("kar") + me->query_int();
 
 	if (dir == "eastup") {
-		write("¶«ÃæÊÇÒ»´óÆ¬ÖñÁÖ£¬±±·½ºÜÉÙ¼û³¤µÃÕâ°ãÃ¯ÃÜµÄÖñÁÖ£¬ÊýÁ¿Ö®´ó£¬È·Êµº±¼û¡£\n");
+		write("ä¸œé¢æ˜¯ä¸€å¤§ç‰‡ç«¹æž—ï¼ŒåŒ—æ–¹å¾ˆå°‘è§é•¿å¾—è¿™èˆ¬èŒ‚å¯†çš„ç«¹æž—ï¼Œæ•°é‡ä¹‹å¤§ï¼Œç¡®å®žç½•è§ã€‚\n");
 		inv = filter_array(deep_inventory(me), (: userp :));
 		if ( random(i) > 20 && ! sizeof(inv))
-			write(HIW"\nÄã»º»ºÔÚÂÌÖñóòÖÐ´©¹ý£¬ÎÅµ½Ò»ÕóÕóµ­µ­»¨Ïã£¬µÇ¾õ·³Ë×¾¡Ïû¡£\n\n"NOR);
+			write(HIW"\nä½ ç¼“ç¼“åœ¨ç»¿ç«¹ç¯ä¸­ç©¿è¿‡ï¼Œé—»åˆ°ä¸€é˜µé˜µæ·¡æ·¡èŠ±é¦™ï¼Œç™»è§‰çƒ¦ä¿—å°½æ¶ˆã€‚\n\n"NOR);
 		else {
-			tell_room(environment(me), me->name()+"Íù¶«±ßµÄ"GRN"ÖñÁÖ"NOR"¿ì²½Àë¿ª¡£\n"NOR, ({ me }));
+			tell_room(environment(me), me->name()+"å¾€ä¸œè¾¹çš„"GRN"ç«¹æž—"NOR"å¿«æ­¥ç¦»å¼€ã€‚\n"NOR, ({ me }));
 			me->move(__DIR__"zhulin" + (random(6) + 1));
-			tell_room(environment(me), me->name()+"´ÓË®ÌÁ¿ì²½×ßÁË¹ýÀ´¡£\n"NOR, ({ me }));
+			tell_room(environment(me), me->name()+"ä»Žæ°´å¡˜å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n"NOR, ({ me }));
 			me->look();
 			return notify_fail("");
 		}

@@ -1,4 +1,4 @@
-//  jingtian.c ¾ªÌì¶ÏÔÆ¸« 
+//  jingtian.c æƒŠå¤©æ–­äº‘æ–§ 
 //  by Leontt 2000.6.11
 
 #include <ansi.h>
@@ -13,29 +13,29 @@ int perform(object me, object target)
      
      if(!objectp(target) || !me->is_fighting(target) || !living(target)
         || environment(target)!=environment(me))
-                return notify_fail("ÅÌ¸ù´í½Ú¸«Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ç›˜æ ¹é”™èŠ‚æ–§åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
     
       if (!weapon || weapon->query("skill_type") != "axe"
        || me->query_skill_mapped("axe") != "pangen-fu")
-        return notify_fail("ÄãÊ¹ÓÃµÄ±øÈĞ²»¶Ô£¬ÎŞ·¨Ê¹ÓÃ¡¸¾ªÌì¶ÏÔÆ¸«¡¹£¡\n");             
+        return notify_fail("ä½ ä½¿ç”¨çš„å…µåˆƒä¸å¯¹ï¼Œæ— æ³•ä½¿ç”¨ã€ŒæƒŠå¤©æ–­äº‘æ–§ã€ï¼\n");             
 
       if( (int)me->query_skill("pangen-fu",1) < 120 )
-        return notify_fail("ÄãµÄÅÌ¸ù¸«·¨²»¹»æµÊì£¬²»ÄÜÊ¹ÓÃ¡¸¾ªÌì¶ÏÔÆ¸«¡¹£¡\n"); 
+        return notify_fail("ä½ çš„ç›˜æ ¹æ–§æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€ŒæƒŠå¤©æ–­äº‘æ–§ã€ï¼\n"); 
       
       if( (int)me->query_skill("axe",1) < 100 )
-        return notify_fail("ÄãµÄ»ù±¾¸«·¨µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸¾ªÌì¶ÏÔÆ¸«¡¹£¡\n");  
+        return notify_fail("ä½ çš„åŸºæœ¬æ–§æ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€ŒæƒŠå¤©æ–­äº‘æ–§ã€ï¼\n");  
      
       if( (int)me->query_skill("qiantian-yiyang", 1) < 100 )
-        return notify_fail("ÄãµÄÇ¬ÌìÒ»Ñô¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸¾ªÌì¶ÏÔÆ¸«¡¹£¡\n");
+        return notify_fail("ä½ çš„ä¹¾å¤©ä¸€é˜³åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€ŒæƒŠå¤©æ–­äº‘æ–§ã€ï¼\n");
 
       if( (int)me->query("max_neili") < 1000 )
-        return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ¡¸¾ªÌì¶ÏÔÆ¸«¡¹£¡\n");
+        return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ã€ŒæƒŠå¤©æ–­äº‘æ–§ã€ï¼\n");
       
       if( (int)me->query("neili") < ( me->query_skill("force")+ lvl ))
-        return notify_fail("ÄãµÄÄÚÁ¦Ì«ÉÙÁË£¬ÎŞ·¨Ê¹ÓÃ³ö¡¸¾ªÌì¶ÏÔÆ¸«¡¹£¡\n");   
+        return notify_fail("ä½ çš„å†…åŠ›å¤ªå°‘äº†ï¼Œæ— æ³•ä½¿ç”¨å‡ºã€ŒæƒŠå¤©æ–­äº‘æ–§ã€ï¼\n");   
       
-      message_vision(HIY"\n$NÍ»È»´óºÈÒ»Éù,ÔË×ãÄÚÁ¦£¬ÊÖÖĞ"+weapon->query("name") +HIY"ÂÖÔ²ÁËÅü½«ÏÂÀ´£¬¾Ş¸«±¾ÒÑÉõÎª"+
-                          "ÉîÖØ£¬¼ÓÉÏ$NÈ«Á¦Ê©Õ¹£¬Á¦µÀºÎÖ¹Ç§½ï£¬Ö±ÓĞ¾ªÌì¶ÏÔÆÖ®Íş£¡\n"NOR, me,target);
+      message_vision(HIY"\n$Nçªç„¶å¤§å–ä¸€å£°,è¿è¶³å†…åŠ›ï¼Œæ‰‹ä¸­"+weapon->query("name") +HIY"è½®åœ†äº†åŠˆå°†ä¸‹æ¥ï¼Œå·¨æ–§æœ¬å·²ç”šä¸º"+
+                          "æ·±é‡ï¼ŒåŠ ä¸Š$Nå…¨åŠ›æ–½å±•ï¼ŒåŠ›é“ä½•æ­¢åƒæ–¤ï¼Œç›´æœ‰æƒŠå¤©æ–­äº‘ä¹‹å¨ï¼\n"NOR, me,target);
       me->add("neili", - (300+random(200)));
       me->add("jingli", -80);      
       lvl= lvl/5 + me->query("con") + me->query("str");
@@ -61,6 +61,6 @@ int perform(object me, object target)
       me->add_temp("apply/damage",- lvl);
       me->delete_temp("jingtian");
       me->start_busy(random(2));
-      me->start_perform(5,"¡¸¾ªÌì¶ÏÔÆ¸«¡¹");
+      me->start_perform(5,"ã€ŒæƒŠå¤©æ–­äº‘æ–§ã€");
       return 1;
 }

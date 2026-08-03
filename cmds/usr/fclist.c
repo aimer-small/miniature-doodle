@@ -13,25 +13,25 @@ int main(object me)
 	revenge_list = me->query("revenge");
 
         if (!sizeof(revenge_list))
-	  return notify_fail("ÄãÄ¿Ç°¸´³ğÃûµ¥ÊÇ¿ÕµÄ¡£\n");
+	  return notify_fail("ä½ ç›®å‰å¤ä»‡åå•æ˜¯ç©ºçš„ã€‚\n");
 
-		list = "\nÄãÄ¿Ç°µÄ¸´³ğÃûµ¥ÈçÏÂ£º\n";
+		list = "\nä½ ç›®å‰çš„å¤ä»‡åå•å¦‚ä¸‹ï¼š\n";
 
 		for( i = 0 ; i < sizeof(revenge_list); i++) {
                      revenge_user= keys(revenge_list)[i];
 
 			if( (obj = LOGIN_D->find_body(revenge_user) )) {
 				if( me->visible(obj) ) list += sprintf("  [%2d] %s\n", i+1, obj->short(1));
-				else list += sprintf("  [%2d] %-9sÄ¿Ç°²»ÔÚÏßÉÏ¡£\n", i+1, capitalize(revenge_user));
+				else list += sprintf("  [%2d] %-9sç›®å‰ä¸åœ¨çº¿ä¸Šã€‚\n", i+1, capitalize(revenge_user));
 			                                                 } 
                             else  if( file_size(DATA_DIR+"login/"+ revenge_user[0..0] +"/"+ revenge_user +__SAVE_EXTENSION__) > 0 )
-				list += sprintf("  [%2d] %-9sÄ¿Ç°²»ÔÚÏßÉÏ¡£\n", i+1, capitalize(revenge_user));
+				list += sprintf("  [%2d] %-9sç›®å‰ä¸åœ¨çº¿ä¸Šã€‚\n", i+1, capitalize(revenge_user));
 
 			     else if (file_size(DATA_DIR+"login/"+ revenge_user[0..0] +"/"+ revenge_user + ".ppp") > 0)
-				list += sprintf("  [%2d] %-9s"HIR"ÒÑ¾­×ÔÉ±¡£", i+1, capitalize(revenge_user));
+				list += sprintf("  [%2d] %-9s"HIR"å·²ç»è‡ªæ€ã€‚", i+1, capitalize(revenge_user));
 			    
                              else	
-				list += sprintf("  [%2d] %-9s"HIR"ÒÑ¾­±»É¾³ı¡£",i+1, capitalize(revenge_user));
+				list += sprintf("  [%2d] %-9s"HIR"å·²ç»è¢«åˆ é™¤ã€‚",i+1, capitalize(revenge_user));
 
 			}
 	
@@ -44,8 +44,8 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºfclist
-            ²éÑ¯×Ô¼ºµÄ³ğ¼ÒÃûµ¥
+æŒ‡ä»¤æ ¼å¼ï¼šfclist
+            æŸ¥è¯¢è‡ªå·±çš„ä»‡å®¶åå•
 HELP
     );
     return 1;

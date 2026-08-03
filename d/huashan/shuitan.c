@@ -7,9 +7,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÆÙ²¼µ×");
+	set("short", "ç€‘å¸ƒåº•");
 	set("long",@LONG
-ÄãÖ»¾õµÃË®ÏÂÃæºÚ¹¾Â¡ßËµÄ......£¬Ê²Ã´Ò²¿´²»Çå¡£
+ä½ åªè§‰å¾—æ°´ä¸‹é¢é»‘å’•éš†å’šçš„......ï¼Œä»€ä¹ˆä¹Ÿçœ‹ä¸æ¸…ã€‚
 LONG );
 	set("cant_hubiao", 1);
 	set("objects", ([
@@ -28,16 +28,16 @@ int do_qian(string arg)
 	object me=this_player();
 
 	if ( !arg || (arg != "down" && arg != "up" ))
-		return notify_fail("ÄãÏóÌõÓã°ãÔÚË®ÀïÓÎÀ´ÓÎÈ¥!\n");
+		return notify_fail("ä½ è±¡æ¡é±¼èˆ¬åœ¨æ°´é‡Œæ¸¸æ¥æ¸¸å»!\n");
 
 	if (arg =="down") {
-		return notify_fail("ÄãÏëµ±ÄàöúÍùµØÏÂ×êÑ½!\n");
+		return notify_fail("ä½ æƒ³å½“æ³¥é³…å¾€åœ°ä¸‹é’»å‘€!\n");
 	}
         else {
-		message_vision("$NÒ»µÅÍÈ£¬ÍùÉÏÓÎÈ¥¡£\n", me);
+		message_vision("$Nä¸€è¹¬è…¿ï¼Œå¾€ä¸Šæ¸¸å»ã€‚\n", me);
 		me->receive_damage("jingli", 50-(int)me->query_skill("dodge", 1)/20);
 		me->move(__DIR__"pubu");
-		tell_room(environment(me), me->name() + "´ÓË®ÏÂÃ°ÁËÉÏÀ´¡£\n", ({ me }));
+		tell_room(environment(me), me->name() + "ä»æ°´ä¸‹å†’äº†ä¸Šæ¥ã€‚\n", ({ me }));
 		return 1;
 	}
 	return 1;

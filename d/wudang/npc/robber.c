@@ -26,7 +26,7 @@ string *dodge_skill = ({
 
 string *weapon_list = ({ "chui","sword","blade","whip","gun","sword","gangzhang","blade" }); 
 
-string *first_name = ({ "²İ¿Ü","Õ¯Ö÷","¶ñ°Ô","Á÷Ã¥","É½Ôô","ÍÁ·Ë","·ÉÔô","µØÆ¦","ÎŞÀµ","µÁÔô"}); 
+string *first_name = ({ "è‰å¯‡","å¯¨ä¸»","æ¶éœ¸","æµæ°“","å±±è´¼","åœŸåŒª","é£è´¼","åœ°ç—","æ— èµ–","ç›—è´¼"}); 
 
 void create()
 {
@@ -41,9 +41,9 @@ void create()
         weapon = weapon_list[random(sizeof(weapon_list))];
 
         set_name(name, ({ "robber"}));
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 20 + random(40));
-        set("long", "Õâ¼Ò»ïÒ»¸¶Ğ×Éñ¶ñÉ·µÄÄ£Ñù£¬Ê±²»Ê±·¢³öĞ°¶ñµÄÒõĞ¦¡£\n");
+        set("long", "è¿™å®¶ä¼™ä¸€ä»˜å‡¶ç¥æ¶ç…çš„æ¨¡æ ·ï¼Œæ—¶ä¸æ—¶å‘å‡ºé‚ªæ¶çš„é˜´ç¬‘ã€‚\n");
         set("combat_exp", 800000);
 //        set("meitude", "aggressive");
         set("meitude", "peaceful");
@@ -126,7 +126,7 @@ void greeting(object ob)
         if (me->query_temp("target")!=ob->query("id"))
                         return;
                  else{
-        message_vision(HIR""+me->name()+"¶Ô×Å$N·¢³öÒ»ÕóÒõĞ¦£¬ËµµÀ£º¼ÈÈ»±»ÄãÕâ¸ö" + RANK_D->query_rude(ob)+ "×²¼ûÁË£¬ÄÇÒ²¾ÍÖ»ÄÜËãÄãÃü¶ÌÁË£¡\n\n"NOR,ob);
+        message_vision(HIR""+me->name()+"å¯¹ç€$Nå‘å‡ºä¸€é˜µé˜´ç¬‘ï¼Œè¯´é“ï¼šæ—¢ç„¶è¢«ä½ è¿™ä¸ª" + RANK_D->query_rude(ob)+ "æ’è§äº†ï¼Œé‚£ä¹Ÿå°±åªèƒ½ç®—ä½ å‘½çŸ­äº†ï¼\n\n"NOR,ob);
                         ob->start_busy(1+random(2));
                         remove_call_out("checking");
                         call_out("checking", 1, me, ob);
@@ -191,7 +191,7 @@ void dest()
         ob = this_player();
         me = this_object();
 
-//        write(me->query("name")+"¼±¼±Ã¦Ã¦Àë¿ªÁË¡£\n");
+//        write(me->query("name")+"æ€¥æ€¥å¿™å¿™ç¦»å¼€äº†ã€‚\n");
         destruct(me);
 }
 
@@ -203,14 +203,14 @@ void do_escape()
         if(!ob) return;
         else if(!present(ob->query("id"),  environment(me) ) )
         {ob->set("wd/wd_job_lost2",1);
-        tell_room(environment(me), me->query("name")+"×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n", ({me})); 
+        tell_room(environment(me), me->query("name")+"è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n", ({me})); 
         destruct(me);
         return;
             }
       else
         {
          ob->set("wd/wd_jobok",1);
-         tell_room(environment(me), me->query("name")+"×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n", ({me})); 
+         tell_room(environment(me), me->query("name")+"è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n", ({me})); 
          destruct(me);
 return;
          }
@@ -223,7 +223,7 @@ void do_lost()
         ob = find_player(me->query_temp("target"));
         if(!ob) return;
         ob->set("wd/wd_job_lost",1);
-        tell_room(environment(me), me->query("name")+"×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n", ({me}));    
+        tell_room(environment(me), me->query("name")+"è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n", ({me}));    
         destruct(me);
 }
 
@@ -236,8 +236,8 @@ void kill_ob(object ob)
         if(obj->query_temp("target")!=ob->query("id"))
        {
          ob->set("wd/wd_job_lost2",1);
-         tell_room(environment(obj), obj->query("name")+"ÈÂÈÂµÀ£ººÃºº²»³ÔÑÛÇ°¿÷£¬³¶ºô£¡\n", ({obj}));    
-         tell_room(environment(obj), obj->query("name")+"×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n", ({obj}));    
+         tell_room(environment(obj), obj->query("name")+"åš·åš·é“ï¼šå¥½æ±‰ä¸åƒçœ¼å‰äºï¼Œæ‰¯å‘¼ï¼\n", ({obj}));    
+         tell_room(environment(obj), obj->query("name")+"è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n", ({obj}));    
          destruct(obj);
        }
         ::kill_ob(ob);
@@ -255,7 +255,7 @@ int checking(object me, object ob)
           {
            me->add("qi",me->query("max_qi")/4);
            me->add_temp("cure",1);
-           tell_room(environment(me), me->query("name")+"ÉîÉîµÄÎüÁË¿ÚÆø£¬Á³É«¶ÙÊ±ºÃÁËĞí¶à¡£\n", ({me})); 
+           tell_room(environment(me), me->query("name")+"æ·±æ·±çš„å¸äº†å£æ°”ï¼Œè„¸è‰²é¡¿æ—¶å¥½äº†è®¸å¤šã€‚\n", ({me})); 
            }
         if(!ob || environment(ob)!= environment(me))
          {

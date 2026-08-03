@@ -1,6 +1,6 @@
 //edit by rock
 //2008.10.16
-//±¾ÎÄ¼ş²»»á±»¿ËÂ¡
+//æœ¬æ–‡ä»¶ä¸ä¼šè¢«å…‹éš†
 
 #include <ansi.h>
 #include <localtime.h>
@@ -13,53 +13,53 @@
 #define BOSS_NPC       "/quest/xyfm/npc/boss"
 #define MAX_KILLER_INDEX 200
 
-//È«¾Ö±äÁ¿
+//å…¨å±€å˜é‡
 int make_room_index;
 int ob_time;
 
-//º¯ÊıÉùÃ÷
+//å‡½æ•°å£°æ˜
 void check_time();
 int mirror(object player);
 void del_npc();
 void mirror_ok(object me);
 varargs void make_killer(object *player,int boss);
 
-//º¯Êı£º²éÑ¯ÏÖÓĞÁ¿¾µÏñÊıÁ¿
+//å‡½æ•°ï¼šæŸ¥è¯¢ç°æœ‰é‡é•œåƒæ•°é‡
 int query_room_amount() { return make_room_index; }
 /*
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void create() { check_time(); }
 
-//¼ì²éÊ±¼ä
+//æ£€æŸ¥æ—¶é—´
 void check_time()
 {
 	object npc;
 
 	if(!ob_time)
 	{
-		//2Ğ¡Ê±Ò»´Î
+		//2å°æ—¶ä¸€æ¬¡
 		ob_time = time()+2*3600;
 	}
-//tell_object(find_player("rock"),"\nÊ±¼ä.......\n");
+//tell_object(find_player("rock"),"\næ—¶é—´.......\n");
 	if(ob_time <= time())
 	{
-		//»î¶¯Í¨¸æ
-		//¿ËÂ¡NPC
+		//æ´»åŠ¨é€šå‘Š
+		//å…‹éš†NPC
 		npc = new(OFFICE_NPC);
 		if(npc)
 		{
-			CHANNEL_D->do_channel( npc, "chat", "½µÑı·üÄ§¾µÏñÒÑ¾­´ò¿ª£¬Íû¸÷Î»Ó¢ĞÛÇ°À´Ò»Ì½¾¿¾¹¡£\n");
-			//·Åµ½ /d/city/wumiao
+			CHANNEL_D->do_channel( npc, "chat", "é™å¦–ä¼é­”é•œåƒå·²ç»æ‰“å¼€ï¼Œæœ›å„ä½è‹±é›„å‰æ¥ä¸€æ¢ç©¶ç«Ÿã€‚\n");
+			//æ”¾åˆ° /d/city/wumiao
 			npc->move("/d/city/wumiao");
-			//¸±±¾×î´óÊıÁ¿ÇåÁã
+			//å‰¯æœ¬æœ€å¤§æ•°é‡æ¸…é›¶
 			make_room_index = 0;
-			//¼¤»îÊÕÆğNPC(10·ÖÖÓ)
+			//æ¿€æ´»æ”¶èµ·NPC(10åˆ†é’Ÿ)
 			call_out("del_npc",600);
-			//ÖØÉèÊ±¼ä
+			//é‡è®¾æ—¶é—´
 			ob_time = time()+2*3600;
 		}
 	}
-	//Ê±¼äÃ»µ½¾Í¼ÌĞøÑ­»·
+	//æ—¶é—´æ²¡åˆ°å°±ç»§ç»­å¾ªç¯
 	if((time() + 1800) >= ob_time)
 	{
 		call_out("check_time",600);
@@ -71,7 +71,7 @@ void check_time()
 	else call_out("check_time",1800);
 }
 */
-//NPCµ÷ÓÃ£¬´´Ôì¾µÏñÊÀ½ç
+//NPCè°ƒç”¨ï¼Œåˆ›é€ é•œåƒä¸–ç•Œ
 int mirror(object player)
 {
 
@@ -83,37 +83,37 @@ object maps,memory,start_room;
 
 	if(!player /*|| make_room_index >= MAX_ROOM_INDEX*/ ) return 0;
 
-	//´´½¨ÄÚ´æ
+	//åˆ›å»ºå†…å­˜
 	if(!memory = new(MIRROR_MEMORY)) return 0;
 
 	memory->set(sprintf("user_id/%d",i),player->query("id"));
 		memory->set(sprintf("user/%d",i),player);
 		player->set_temp("mirror/mirror_memory",memory);
-tell_object(player,WHT"Õ½»öËÄÆğ£¬¸¡Ê¬±éÒ°£¬Ãñ²»ÁÄÉú£¬¶øÊ±·êÂÒÊÀÖ®Çï,\n"+
-             "ÓĞËÄ·½ÑıÈË¼ÙÍĞ½©Ê¬Ô¹Äõ×÷ÂÒ×÷Ëî£¬ÆóÍ¼¶áµÃÌìÏÂ£¬\n"+
-             "µÀ½Ì¸ßÈËÕÂµÀÁéÏÉÊ¦Ì½µÃÑıÈËĞĞ×Ù£¬ÓûÑ°ÒåÊ¿ÏàÖú£¬\n"+             
-             "ÄÜ·ñ½Ò´©ÑıÈËÕæÏà£¬»¹Çå°×ÀÊÀÊÓÚÇ¬À¤£¬¾Í¿´ÄãµÄÁË£¡\n\n"NOR);
+tell_object(player,WHT"æˆ˜ç¥¸å››èµ·ï¼Œæµ®å°¸éé‡ï¼Œæ°‘ä¸èŠç”Ÿï¼Œè€Œæ—¶é€¢ä¹±ä¸–ä¹‹ç§‹,\n"+
+             "æœ‰å››æ–¹å¦–äººå‡æ‰˜åƒµå°¸æ€¨å­½ä½œä¹±ä½œç¥Ÿï¼Œä¼å›¾å¤ºå¾—å¤©ä¸‹ï¼Œ\n"+
+             "é“æ•™é«˜äººç« é“çµä»™å¸ˆæ¢å¾—å¦–äººè¡Œè¸ªï¼Œæ¬²å¯»ä¹‰å£«ç›¸åŠ©ï¼Œ\n"+             
+             "èƒ½å¦æ­ç©¿å¦–äººçœŸç›¸ï¼Œè¿˜æ¸…ç™½æœ—æœ—äºä¹¾å¤ï¼Œå°±çœ‹ä½ çš„äº†ï¼\n\n"NOR);
 
-             tell_object(player,HIG"¡¾ÌáÊ¾¡¿Óöµ½½©Ê¬²»±Øº¦ÅÂ£¬Ö»¹ÜÉÏÇ°½µ·ü£¬·½ÄÜÌ½Ã÷ÕæÏà¡£\n"NOR);
-             tell_object(player,HIG"¡¾ÌáÊ¾¡¿¸±±¾½ìÊ±»á×Ô¶¯¹Ø±Õ£¬Íæ¼Ò×ÔĞĞ´«ËÍ»Ø³Ç£¬²»±Øµ£ĞÄ¡£\n\n"NOR);
+             tell_object(player,HIG"ã€æç¤ºã€‘é‡åˆ°åƒµå°¸ä¸å¿…å®³æ€•ï¼Œåªç®¡ä¸Šå‰é™ä¼ï¼Œæ–¹èƒ½æ¢æ˜çœŸç›¸ã€‚\n"NOR);
+             tell_object(player,HIG"ã€æç¤ºã€‘å‰¯æœ¬å±Šæ—¶ä¼šè‡ªåŠ¨å…³é—­ï¼Œç©å®¶è‡ªè¡Œä¼ é€å›åŸï¼Œä¸å¿…æ‹…å¿ƒã€‚\n\n"NOR);
 
-	tell_object(player,HIR"¡¾½µÑı·üÄ§¡¿ÕıÔÚÎªÄãÖÆÔì½µÑı·üÄ§¸±±¾£¬ÇëÉÔºò......\n"NOR);
-	player->disable_player("<½øÈë¾µÏñÖĞ>");
+	tell_object(player,HIR"ã€é™å¦–ä¼é­”ã€‘æ­£åœ¨ä¸ºä½ åˆ¶é€ é™å¦–ä¼é­”å‰¯æœ¬ï¼Œè¯·ç¨å€™......\n"NOR);
+	player->disable_player("<è¿›å…¥é•œåƒä¸­>");
 	player->set_temp("block_msg/all",1);
 
-	//ÖÆÔìÊÀ½ç
+	//åˆ¶é€ ä¸–ç•Œ
 	size = sizeof(mirror_maps);
 	for(j=0;j<size;j++)
 	{
 		maps = new(mirror_maps[j]);
 if(maps)
 		{
-			//ËùÓĞµØÍ¼½ømemory
+			//æ‰€æœ‰åœ°å›¾è¿›memory
 			memory->set(sprintf("maps/%d",j),maps);
 			sscanf(mirror_maps[j],"/quest/xyfm/%s",fileName);
 			memory->set(fileName,maps);
 			maps->set("memory",memory);
-			if(maps->query("short") == "Ò°ÍâÆ½µØ")
+			if(maps->query("short") == "é‡å¤–å¹³åœ°")
 			{
 				start_room = maps;
 			}
@@ -128,13 +128,13 @@ if(index < 1 || !start_room)
 		{
 			player->enable_player();
 			player->delete_temp("block_msg");
-			tell_object(player,"Error: ¾µÏñÖÆÔìÊ§°Ü£¬ÇëÁªÏµÎ×Ê¦¡£\n");
+			tell_object(player,"Error: é•œåƒåˆ¶é€ å¤±è´¥ï¼Œè¯·è”ç³»å·«å¸ˆã€‚\n");
 		}
 
 		memory->delete_map();
 		destruct(memory);
 		time = localtime(time());
-		log_file("mirror",sprintf("%dÔÂ%dÈÕ %d:%d  ĞéÄâ¿Õ¼ä´´½¨Ê§°Ü¡£\n",1+time[LT_MON],time[LT_MDAY],time[LT_HOUR],time[LT_MIN]));
+		log_file("mirror",sprintf("%dæœˆ%dæ—¥ %d:%d  è™šæ‹Ÿç©ºé—´åˆ›å»ºå¤±è´¥ã€‚\n",1+time[LT_MON],time[LT_MDAY],time[LT_HOUR],time[LT_MIN]));
 		return 0;
 	}
 	else
@@ -145,11 +145,11 @@ if(index < 1 || !start_room)
 			player->set_temp("mirror/start_room",start_room);
 			call_out("mirror_ok",20,player);
 		
-		memory->set("mirror_time",time()+1800); //ÈÎÎñ½áÊøÊ±¼ä
-		memory->set("open_time",time());        //ÈÎÎñ¿ªÊ¼Ê±¼ä
-		memory->len_exits(); //Á¬Í¨µØÍ¼(Ğ¡ĞÄ)
-		memory->heart(1);  //Æô¶¯ĞÄÌø
-		call_out("make_killer",60,player);   //Ò»·ÖÖÓºó¿ªÊ¼Ë¢¹Ö
+		memory->set("mirror_time",time()+1800); //ä»»åŠ¡ç»“æŸæ—¶é—´
+		memory->set("open_time",time());        //ä»»åŠ¡å¼€å§‹æ—¶é—´
+		memory->len_exits(); //è¿é€šåœ°å›¾(å°å¿ƒ)
+		memory->heart(1);  //å¯åŠ¨å¿ƒè·³
+		call_out("make_killer",60,player);   //ä¸€åˆ†é’Ÿåå¼€å§‹åˆ·æ€ª
 	}
 }
 
@@ -167,10 +167,10 @@ void mirror_ok(object me)
 	me->enable_player();
 	me->delete_temp("block_msg");
 
-	//Ã»ÓĞ¿ªÊ¼·¿¼ä
+	//æ²¡æœ‰å¼€å§‹æˆ¿é—´
 	if(!start_room)
 	{
-		tell_object(me,"×ø±ê´íÎó£¬ÄãÃ»ÄÜ½øÈë¾µÏñ¡£\n");
+		tell_object(me,"åæ ‡é”™è¯¯ï¼Œä½ æ²¡èƒ½è¿›å…¥é•œåƒã€‚\n");
 		user_id = (mapping)memory->query("user_id");
 		size = sizeof(user_id);
 
@@ -188,7 +188,7 @@ void mirror_ok(object me)
 	else
 	{
 		me->move(start_room);
-		tell_object(me,HIR"¡¾½µÑı·üÄ§¡¿Çë×öºÃ×¼±¸£¬30Ãëºó´óÁ¿Ô¹Äõ³öÏÖ¡£\n"NOR); //¹ã¸æ
+		tell_object(me,HIR"ã€é™å¦–ä¼é­”ã€‘è¯·åšå¥½å‡†å¤‡ï¼Œ30ç§’åå¤§é‡æ€¨å­½å‡ºç°ã€‚\n"NOR); //å¹¿å‘Š
 	}
 }
 
@@ -201,8 +201,8 @@ varargs void make_killer(object player,int boss)
 	if(!player) return;
 
 	memory = (object)player->query_temp("mirror/mirror_memory");
-	if(!memory) return; //·À±§´í
-	//·ÅÖÃÖ÷¶¯¹¥»÷NPC
+	if(!memory) return; //é˜²æŠ±é”™
+	//æ”¾ç½®ä¸»åŠ¨æ”»å‡»NPC
 	if(!boss) i = MAX_KILLER_INDEX;
 	else i = 1;
 
@@ -216,7 +216,7 @@ if(!boss)
 				memory->add("npc_amount",1);
 				maps = memory->query("maps");
 				size = sizeof(maps);
-				rand_map = (object)maps[sprintf("%d",random(size))];  //Ëæ»úµØÍ¼
+				rand_map = (object)maps[sprintf("%d",random(size))];  //éšæœºåœ°å›¾
 
 				killer->move(rand_map);
 			}
@@ -227,14 +227,14 @@ if(killer = new(BOSS_NPC))
 			{
 				memory->add("npc_amount",1);
 				maps = memory->query("maps");
-				rand_map = (object)maps[sprintf("%d",random(size))];  //Ëæ»úµØÍ¼
+				rand_map = (object)maps[sprintf("%d",random(size))];  //éšæœºåœ°å›¾
 
 				killer->move(rand_map);
 			}
 		}
 	}
 }
-//ÊÕÆğ NPC
+//æ”¶èµ· NPC
 void del_npc()
 {
 	object *office;

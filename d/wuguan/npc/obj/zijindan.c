@@ -5,13 +5,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIM"×Ï½ðµ¤"NOR,({"zijin dan", "dan" }));
+        set_name(HIM"ç´«é‡‘ä¸¹"NOR,({"zijin dan", "dan" }));
         set_weight(50);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "¾ÝËµÊÇ°´ÕÕÌ«ÉÏÀÏ¾ýÒÅÊ§ÔÚÈË¼äµÄ¡´Á¶µ¤²ÐÆª¡µÁ¶ÖÆ¶ø³É¡£\n");
-                set("unit", "¿Å");
+                set("long", "æ®è¯´æ˜¯æŒ‰ç…§å¤ªä¸Šè€å›é—å¤±åœ¨äººé—´çš„ã€ˆç‚¼ä¸¹æ®‹ç¯‡ã€‰ç‚¼åˆ¶è€Œæˆã€‚\n");
+                set("unit", "é¢—");
                 set("no_get",1);
                 set("no_give",1);
                 set("no_drop",1);
@@ -33,9 +33,9 @@ int do_eat(string arg)
 	kar = me->query("kar");
 	pur = me->query("pur");
 	if(!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
-	message_vision("$N³ÔÏÂÒ»¿Å" + name() + "£¬ÉíÌåÓÌÈç³éË¿°þ¼ëÒ»°ãÅÐÈôÁ½ÈË£¡¡£\n", me);
-	message_vision("Ò»¸öÉùÒôËµµÀ£º$NµÄÈÝÃ²ÊÇ"+per+"µã,¸»Ô´ÊÇ"+kar+"µã,´¾ÆÓÊÇ"+pur+"µã¡£\n", me);
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
+	message_vision("$Nåƒä¸‹ä¸€é¢—" + name() + "ï¼Œèº«ä½“çŠ¹å¦‚æŠ½ä¸å‰¥èŒ§ä¸€èˆ¬åˆ¤è‹¥ä¸¤äººï¼ã€‚\n", me);
+	message_vision("ä¸€ä¸ªå£°éŸ³è¯´é“ï¼š$Nçš„å®¹è²Œæ˜¯"+per+"ç‚¹,å¯Œæºæ˜¯"+kar+"ç‚¹,æ·³æœ´æ˜¯"+pur+"ç‚¹ã€‚\n", me);
 	me->reincarnate();
 	me->set("neili", me->query("max_neili")*2);
         destruct(this_object());

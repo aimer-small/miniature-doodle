@@ -15,30 +15,30 @@ int perform(object me, object target)
 	if( !objectp(target)
 	 || !target->is_character()
 	 || !me->is_fighting(target) )
-		return notify_fail("áÔÑô¾÷Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("åµ©é˜³è¯€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if( me->query_skill("hanbing-zhenqi", 1) < 90 )
-		return notify_fail("ÄãµÄº®±ùÕæÆø²»¹»£¬ÎŞ·¨Ê©Õ¹áÔÑô¾÷£¡\n");
+		return notify_fail("ä½ çš„å¯’å†°çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•æ–½å±•åµ©é˜³è¯€ï¼\n");
 
 	if( me->query_skill("songshan-jian", 1) < 90 )
-		return notify_fail("ÄãµÄ½£·¨³Ì¶È»¹²»ÄÜÊ¹ÓÃáÔÑô¾÷£¡\n");
+		return notify_fail("ä½ çš„å‰‘æ³•ç¨‹åº¦è¿˜ä¸èƒ½ä½¿ç”¨åµ©é˜³è¯€ï¼\n");
 
 	if( me->query_skill("songyang-shou", 1) < 90 )
-		return notify_fail("Äã¶Ô´óáÔÑôÊÖÈÏÊ¶»¹²»¹»£¡\n");
+		return notify_fail("ä½ å¯¹å¤§åµ©é˜³æ‰‹è®¤è¯†è¿˜ä¸å¤Ÿï¼\n");
 
 	if( me->query("neili") < 500 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Ê¹ÓÃáÔÑô¾÷£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿä½¿ç”¨åµ©é˜³è¯€ï¼\n");
 
 	if( me->query("jingli") < 300 )
-		return notify_fail("ÄãµÄ¾«Á¦²»¹»Ê¹ÓÃáÔÑô¾÷£¡\n");
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿä½¿ç”¨åµ©é˜³è¯€ï¼\n");
 
 	if (!weapon
 	 || weapon->query("skill_type") != "sword"
 	 || me->query_skill_mapped("sword") != "songshan-jian"
 	 || me->query_skill_mapped("parry") != "songshan-jian" )
-		return notify_fail("Äã±ØĞëÊ¹ÓÃáÔÉ½½£·¨£¡\n");
+		return notify_fail("ä½ å¿…é¡»ä½¿ç”¨åµ©å±±å‰‘æ³•ï¼\n");
 
-	message_vision(HIW"\n$N³¤Ğ¥Ò»Éù£¬½£·¨Í»±ä£¬ÊÖÖĞ½£ÏòºóÒ»±³£¬µçÊ¯»ğ¹â¼äÃÍÈ»Ê©Õ¹³ö´óáÔÑôÊÖµÄÕĞÊı£¡\n" NOR, me);
+	message_vision(HIW"\n$Né•¿å•¸ä¸€å£°ï¼Œå‰‘æ³•çªå˜ï¼Œæ‰‹ä¸­å‰‘å‘åä¸€èƒŒï¼Œç”µçŸ³ç«å…‰é—´çŒ›ç„¶æ–½å±•å‡ºå¤§åµ©é˜³æ‰‹çš„æ‹›æ•°ï¼\n" NOR, me);
 	me->set_temp("ssj_songyang", 2);
  if( me->query_skill("songyang-shou", 1) < 160 ) target->start_busy(1+random(1));
         me->add_temp("apply/attack", 50);
@@ -52,25 +52,25 @@ int perform(object me, object target)
 	me->add("neili", -200);
 	me->add("jingli", -100);
 	me->delete_temp("ssj_songyang");
-	me->start_perform(2+random(2), "áÔÑô¾÷");
+	me->start_perform(2+random(2), "åµ©é˜³è¯€");
 	me->start_busy(random(2));
 	return 1;
 }
 
-string perform_name(){ return HIW"áÔÑô¾÷"NOR; }
+string perform_name(){ return HIW"åµ©é˜³è¯€"NOR; }
 
 int help(object me)
 {
-        write(HIW"\náÔÉ½½£·¨Ö®¡¸áÔÑô¾÷¡¹£º"NOR"\n\n");
+        write(HIW"\nåµ©å±±å‰‘æ³•ä¹‹ã€Œåµ©é˜³è¯€ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 500 ÒÔÉÏ£»
-                µ±Ç°¾«Á¦ 300 ÒÔÉÏ£»
-                áÔÉ½½£·¨µÈ¼¶ 90 ÒÔÉÏ£»
-                º®±ùÕæÆøµÈ¼¶ 90 ÒÔÉÏ£»
-                ´óáÔÑôÊÖµÈ¼¶ 90 ÒÔÉÏ£»
-                ¼¤·¢½£·¨ÎªáÔÉ½½£·¨£»
-                ¼¤·¢ÕĞ¼ÜÎªáÔÉ½½£·¨£»
-                ÇÒÊÖ³Ö±øÆ÷¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 500 ä»¥ä¸Šï¼›
+                å½“å‰ç²¾åŠ› 300 ä»¥ä¸Šï¼›
+                åµ©å±±å‰‘æ³•ç­‰çº§ 90 ä»¥ä¸Šï¼›
+                å¯’å†°çœŸæ°”ç­‰çº§ 90 ä»¥ä¸Šï¼›
+                å¤§åµ©é˜³æ‰‹ç­‰çº§ 90 ä»¥ä¸Šï¼›
+                æ¿€å‘å‰‘æ³•ä¸ºåµ©å±±å‰‘æ³•ï¼›
+                æ¿€å‘æ‹›æ¶ä¸ºåµ©å±±å‰‘æ³•ï¼›
+                ä¸”æ‰‹æŒå…µå™¨ã€‚
 
 HELP
         );

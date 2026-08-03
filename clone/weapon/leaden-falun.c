@@ -1,4 +1,4 @@
-//lead-falun.c Ç¦·¨ÂÖ
+//lead-falun.c é“…æ³•è½®
 #include <ansi.h>
 #include <weapon.h>
 inherit F_HAMMER;
@@ -15,21 +15,21 @@ set("weapon_prop/damage", 20*count);
 
 void create()
 {
-        set_name( WHT"Ç¦·¨ÂÖ"NOR,({ "leaden falun" ,"lun" ,"falun","qian falun","qianfalun" }));
+        set_name( WHT"é“…æ³•è½®"NOR,({ "leaden falun" ,"lun" ,"falun","qian falun","qianfalun" }));
         set_weight(40000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-		set("unit", "Ö»");
-                set("long","ÕâÊÇÒ»Ö»Ç¦ÖÆ·¨ÂÖ£¬Ô¼ÓÐ³ß°ë´óÐ¡£¬ÉÏÃæÖýÓÐÃÜ×Ú·üÄ§ÕæÑÔ£¬ÄÚ²Ø¾Å¸öÐ¡Çò£¬ÊÇÉ®ÈËÃÇ×÷·¨ÊÂÓÃµÄÒ»ÖÖ·¨Æ÷¡£\n");
+		set("unit", "åª");
+                set("long","è¿™æ˜¯ä¸€åªé“…åˆ¶æ³•è½®ï¼Œçº¦æœ‰å°ºåŠå¤§å°ï¼Œä¸Šé¢é“¸æœ‰å¯†å®—ä¼é­”çœŸè¨€ï¼Œå†…è—ä¹ä¸ªå°çƒï¼Œæ˜¯åƒ§äººä»¬ä½œæ³•äº‹ç”¨çš„ä¸€ç§æ³•å™¨ã€‚\n");
                 set("value", 50);
                 set("weapon_prop/dodge", -5);
                 set("weapon_prop/parry", 2);    
                 set("material", "stannum");
-                set("base_unit", "Ö»");
+                set("base_unit", "åª");
                 set("base_weight", 18000);
-                set("wield_msg", "$N´Ó»³ÖÐÌÍ³ö$nµàÁËµà·ÖÁ¿£¬ÎÕÔÚÊÖÖÐ£¬µ±à¥à¥ÏìÉùÁ¼¾Ã¡£\n");
-                set("unwield_msg","$N½«ÊÖÖÐµÄ$n´§»Ø»³ÖÐ¡£\n");
+                set("wield_msg", "$Nä»Žæ€€ä¸­æŽå‡º$næŽ‚äº†æŽ‚åˆ†é‡ï¼Œæ¡åœ¨æ‰‹ä¸­ï¼Œå½“å•·å•·å“å£°è‰¯ä¹…ã€‚\n");
+                set("unwield_msg","$Nå°†æ‰‹ä¸­çš„$næ£å›žæ€€ä¸­ã€‚\n");
         }    
         set_amount(1);           
         init_hammer(25);
@@ -42,34 +42,34 @@ int wield()
 	if (!userp(ob)) return ::wield();
         if (living(ob) && query_amount() >= 6 &&
              ob->query_str() < 60){
-                message_vision("$NÌÍ³ö"+name()+"ÊÔÁËÊÔ·ÖÁ¿£¬Ì«³ÁÁË£¬¸ù±¾ÎÞ·¨ÔÚÕ½¶·ÖÐ×ÔÈçÔËÓÃ¡£\n", ob);
+                message_vision("$NæŽå‡º"+name()+"è¯•äº†è¯•åˆ†é‡ï¼Œå¤ªæ²‰äº†ï¼Œæ ¹æœ¬æ— æ³•åœ¨æˆ˜æ–—ä¸­è‡ªå¦‚è¿ç”¨ã€‚\n", ob);
                 return 0;
                 }
 
         if (living(ob) && query_amount() == 2 &&
             (ob->query_skill("xiangfu-lun", 1) < 50 ||
              ob->query_str() < 30)){
-                message_vision("$NÌÍ³ö"+name()+"ÊÔÁËÊÔ·ÖÁ¿£¬Ì«³ÁÁË£¬¸ù±¾ÎÞ·¨ÔÚÕ½¶·ÖÐ×ÔÈçÔËÓÃ¡£\n", ob);
+                message_vision("$NæŽå‡º"+name()+"è¯•äº†è¯•åˆ†é‡ï¼Œå¤ªæ²‰äº†ï¼Œæ ¹æœ¬æ— æ³•åœ¨æˆ˜æ–—ä¸­è‡ªå¦‚è¿ç”¨ã€‚\n", ob);
                 return 0;
                 }
         if (living(ob) && query_amount() == 3 &&
             (ob->query_skill("xiangfu-lun", 1) < 100 ||
              ob->query_str() < 35)){
-                message_vision("$NÌÍ³ö"+name()+"ÊÔÁËÊÔ·ÖÁ¿£¬Ì«³ÁÁË£¬¸ù±¾ÎÞ·¨ÔÚÕ½¶·ÖÐ×ÔÈçÔËÓÃ¡£\n", ob);
+                message_vision("$NæŽå‡º"+name()+"è¯•äº†è¯•åˆ†é‡ï¼Œå¤ªæ²‰äº†ï¼Œæ ¹æœ¬æ— æ³•åœ¨æˆ˜æ–—ä¸­è‡ªå¦‚è¿ç”¨ã€‚\n", ob);
                 return 0;
                 }
 
         if (living(ob) && query_amount() == 4 &&
             (ob->query_skill("xiangfu-lun", 1) < 150 ||
              ob->query_str() < 40)){
-                message_vision("$NÌÍ³ö"+name()+"ÊÔÁËÊÔ·ÖÁ¿£¬Ì«³ÁÁË£¬¸ù±¾ÎÞ·¨ÔÚÕ½¶·ÖÐ×ÔÈçÔËÓÃ¡£\n", ob);
+                message_vision("$NæŽå‡º"+name()+"è¯•äº†è¯•åˆ†é‡ï¼Œå¤ªæ²‰äº†ï¼Œæ ¹æœ¬æ— æ³•åœ¨æˆ˜æ–—ä¸­è‡ªå¦‚è¿ç”¨ã€‚\n", ob);
                 return 0;
                 }
 
         if (living(ob) && query_amount() == 5 &&
             (ob->query_skill("xiangfu-lun", 1) < 200 ||
              ob->query_str() < 45)){
-                message_vision("$NÌÍ³ö"+name()+"ÊÔÁËÊÔ·ÖÁ¿£¬Ì«³ÁÁË£¬¸ù±¾ÎÞ·¨ÔÚÕ½¶·ÖÐ×ÔÈçÔËÓÃ¡£\n", ob);
+                message_vision("$NæŽå‡º"+name()+"è¯•äº†è¯•åˆ†é‡ï¼Œå¤ªæ²‰äº†ï¼Œæ ¹æœ¬æ— æ³•åœ¨æˆ˜æ–—ä¸­è‡ªå¦‚è¿ç”¨ã€‚\n", ob);
                 return 0;
                 }
 

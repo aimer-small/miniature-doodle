@@ -7,8 +7,8 @@ varargs void make_jjkiller(object player,int jjboss)
 	if(!player) return;
 
 	memory = (object)player->query_temp("mirror/mirror_memory");
-	if(!memory) return; //·À±§´í
-	//·ÅÖÃÖ÷¶¯¹¥»÷NPC
+	if(!memory) return; //é˜²æŠ±é”™
+	//æ”¾ç½®ä¸»åŠ¨æ”»å‡»NPC
 	if(!boss) i = MAX_KILLER_INDEX;
 	else i = 1;
 
@@ -22,7 +22,7 @@ varargs void make_jjkiller(object player,int jjboss)
 				memory->add("npc_amount",1);
 				maps = memory->query("maps");
 				size = sizeof(maps);
-				rand_map = (object)maps[sprintf("%d",random(size))];  //Ëæ»úµØÍ¼
+				rand_map = (object)maps[sprintf("%d",random(size))];  //éšæœºåœ°å›¾
 
 				killer->move(rand_map);
 			}
@@ -33,7 +33,7 @@ varargs void make_jjkiller(object player,int jjboss)
 			{
 				memory->add("npc_amount",1);
 				maps = memory->query("maps");
-				rand_map = (object)maps[sprintf("%d",random(size))];  //Ëæ»úµØÍ¼
+				rand_map = (object)maps[sprintf("%d",random(size))];  //éšæœºåœ°å›¾
 
 				killer->move(rand_map);
 			}

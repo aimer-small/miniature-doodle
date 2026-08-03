@@ -1,4 +1,4 @@
-// xiaoyaozi.c åĞÒ£×Ó
+// xiaoyaozi.c é€é¥å­
 // zly 7/6/99
 
 #include <ansi.h>
@@ -7,17 +7,17 @@ string ask_yaoshi();
 
 void create()
 {
-	set_name("åĞÒ£×Ó", ({"xiaoyao zi", "zi", "xiaoyao"}));
-	set("title", HIY"Ì«ÔÀËÄÏÀ"NOR);
-	set("nickname", "ÑÌÏ¼ÉñÁú");
+	set_name("é€é¥å­", ({"xiaoyao zi", "zi", "xiaoyao"}));
+	set("title", HIY"å¤ªå²³å››ä¾ "NOR);
+	set("nickname", "çƒŸéœç¥é¾™");
         set("shen_type", 1);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "aggressive");
         set("vendetta/authority",1);
 	set("age", 38);
 	set("long", 
-"ÕâÊÇÒ»¸ö²¡·òÄ£ÑùµÄÖĞÄêÈË£¬ÒÂÉÀñÜñÚ£¬Ò§×ÅÒ»¸ùºµÑÌ¹Ü£¬Ë«Ä¿
-ËÆÕùËÆ±Õ£¬×ìÀïÂıÂıÅç×ÅÑÌÎí¡£\n"
+"è¿™æ˜¯ä¸€ä¸ªç—…å¤«æ¨¡æ ·çš„ä¸­å¹´äººï¼Œè¡£è¡«è¤´è¤›ï¼Œå’¬ç€ä¸€æ ¹æ—±çƒŸç®¡ï¼ŒåŒç›®
+ä¼¼äº‰ä¼¼é—­ï¼Œå˜´é‡Œæ…¢æ…¢å–·ç€çƒŸé›¾ã€‚\n"
 	);
 
 	set("str", 20);
@@ -47,11 +47,11 @@ void create()
 
         set("chat_chance", 3);
         set("chat_msg", ({
-            "åĞÒ£×ÓºÙºÙĞ¦×ÅµÍÉù×ÔÑÔ×ÔÓïµÀ£º¡°ÎÒÒªºÃºÃµØ²Ø×Å...¡±ËµÍê£¬¾¯ÌèµØÍûÁËÍûËÄÖÜ¡£\n",
+            "é€é¥å­å˜¿å˜¿ç¬‘ç€ä½å£°è‡ªè¨€è‡ªè¯­é“ï¼šâ€œæˆ‘è¦å¥½å¥½åœ°è—ç€...â€è¯´å®Œï¼Œè­¦æƒ•åœ°æœ›äº†æœ›å››å‘¨ã€‚\n",
         }) );
 
         set("inquiry", ([
-           "Ô¿³×"  : (: ask_yaoshi :),
+           "é’¥åŒ™"  : (: ask_yaoshi :),
         ]));
 
         setup();
@@ -67,7 +67,7 @@ string ask_yaoshi()
         object me=this_player();
         me->set_temp("tao",1);
         command("hehe");
-        command("whisper "+me->query("id")+" ´òËÀÎÒÒ²²»»á¸æËßÄãµÄ¡£");
-        return "ËµÍê£¬ÍµÍµÏò¼ÙÉ½ÄÇ±ßÍûÁËÒ»ÑÛ¡£\n";
+        command("whisper "+me->query("id")+" æ‰“æ­»æˆ‘ä¹Ÿä¸ä¼šå‘Šè¯‰ä½ çš„ã€‚");
+        return "è¯´å®Œï¼Œå·å·å‘å‡å±±é‚£è¾¹æœ›äº†ä¸€çœ¼ã€‚\n";
 }
 

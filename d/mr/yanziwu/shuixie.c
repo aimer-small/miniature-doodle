@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 {
-         set("short",HIW"ÌıÏãË®é¿"NOR);
+         set("short",HIW"å¬é¦™æ°´æ¦­"NOR);
          set("long",@long
-Õâ¼ä·¿ÉáĞ¡ÇÉÁáçç, ÆÄÎª¾«ÑÅ¡£Ğ¡ÉáØÒ¶îÉÏĞ´×Å"ÌıÏãË®é¿"ËÄ¸ö´ó×Ö, ±Ê
-ÖÂÆÄÎªäìÈ÷¡£¶«±ßÊÇÒ»ÌõĞ¡Â·£¬²»ÖªÊÇÍ¨ÍùÄÄÀïµÄ¡£ÔÙÍùÇ°×ß£¬¾Íµ½ÁË¡°Ñà×Ó
-Îë¡±¡£ÄÏ±ßÊÇË®é¿µÄºóÔº¡£
+è¿™é—´æˆ¿èˆå°å·§ç²ç‘, é¢‡ä¸ºç²¾é›…ã€‚å°èˆåŒ¾é¢ä¸Šå†™ç€"å¬é¦™æ°´æ¦­"å››ä¸ªå¤§å­—, ç¬”
+è‡´é¢‡ä¸ºæ½‡æ´’ã€‚ä¸œè¾¹æ˜¯ä¸€æ¡å°è·¯ï¼Œä¸çŸ¥æ˜¯é€šå¾€å“ªé‡Œçš„ã€‚å†å¾€å‰èµ°ï¼Œå°±åˆ°äº†â€œç‡•å­
+åâ€ã€‚å—è¾¹æ˜¯æ°´æ¦­çš„åé™¢ã€‚
 long);
 	set("exits",([
 		"north" : __DIR__"anbian2",
@@ -36,13 +36,13 @@ int do_zuan(string arg)
 	myfam = (mapping)me->query("family");
 	
 	if (!arg || arg != "didao" || me->is_busy())
-		return notify_fail("ÄãÒªÍùÄÄÀï×ê£¿\n");       
+		return notify_fail("ä½ è¦å¾€å“ªé‡Œé’»ï¼Ÿ\n");       
 
-        if (myfam && myfam["family_name"] != "¹ÃËÕÄ½Èİ")
+        if (myfam && myfam["family_name"] != "å§‘è‹æ…•å®¹")
 		return 0;
             
-	message_vision("$NÒ»×ªÉí£¬ºöÈ»Ò»ÏÂ×Ó×êµ½µØÏÂ²»¼ûÁË¡£\n",me);
+	message_vision("$Nä¸€è½¬èº«ï¼Œå¿½ç„¶ä¸€ä¸‹å­é’»åˆ°åœ°ä¸‹ä¸è§äº†ã€‚\n",me);
 	me->move("/d/mr/didao");
-	message("vision",me->name() + "´ÓË®³Ø±ßÔ¾ÁËÉÏÀ´¡£\n",environment(me), ({me}) );
+	message("vision",me->name() + "ä»æ°´æ± è¾¹è·ƒäº†ä¸Šæ¥ã€‚\n",environment(me), ({me}) );
         return 1;
 }

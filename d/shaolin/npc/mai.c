@@ -1,13 +1,13 @@
-// mai.c Âó¾¨
+// mai.c éº¦é²¸
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-       set_name("Âó¾¨", ({ "mai jing", "mai" }) );
-       set("title", "¾Ş¾¨°ï°ïÖ÷");
-       set("gender", "ÄĞĞÔ" );
+       set_name("éº¦é²¸", ({ "mai jing", "mai" }) );
+       set("title", "å·¨é²¸å¸®å¸®ä¸»");
+       set("gender", "ç”·æ€§" );
        set("shen_type", -1);
        set("age", 50);
        set("str", 30);
@@ -15,12 +15,12 @@ void create()
        set("int", 10);
        set("dex", 30);
        set("long",
-               "Õâ¾ÍÊÇºáĞĞÆßº£µÄ´óµÁ£¬ÉÕÉ±ÒùÂÓÎŞËù²»Îª¡£\n" );
+               "è¿™å°±æ˜¯æ¨ªè¡Œä¸ƒæµ·çš„å¤§ç›—ï¼Œçƒ§æ€æ·«æ æ— æ‰€ä¸ä¸ºã€‚\n" );
        set("combat_exp", 600000);
        set("attitude", "peaceful");
        set("chat_chance", 2);
        set("chat_msg", ({
-           "Âó¾¨ËµµÀ: ¾Ş¾¨°ïÊÇº£ÉÏµÚÒ»´ó°ï£¬Ë­Ò²²»ÅÂ¡£\n",
+           "éº¦é²¸è¯´é“: å·¨é²¸å¸®æ˜¯æµ·ä¸Šç¬¬ä¸€å¤§å¸®ï¼Œè°ä¹Ÿä¸æ€•ã€‚\n",
          (: random_move :)
          }));
           set("chat_chance_combat", 20);

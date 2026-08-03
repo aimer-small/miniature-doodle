@@ -3,15 +3,15 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-   set_name("ÇåĞÄÉ¢", ({"qingxin san", "qingxin","san"}));
+   set_name("æ¸…å¿ƒæ•£", ({"qingxin san", "qingxin","san"}));
    if (clonep())
       set_default_object(__FILE__);
    else {
       set("value", 5000);
-      set("unit", "Ğ©");
-      set("long","ÕâÊÇÒ»·İĞÇËŞÅÉµÄÇåĞÄÉ¢£¬¿ÉÒÔ½â¶¾¡£\n");
+      set("unit", "äº›");
+      set("long","è¿™æ˜¯ä¸€ä»½æ˜Ÿå®¿æ´¾çš„æ¸…å¿ƒæ•£ï¼Œå¯ä»¥è§£æ¯’ã€‚\n");
       set("base_value", 5000);
-      set("base_unit", "·İ");
+      set("base_unit", "ä»½");
       set("base_weight", 30);
    }
    set_amount(1);
@@ -27,16 +27,16 @@ int do_eat(string arg)
    object me = this_player();
 
    if(!id(arg))
-       return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+       return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
    if (!me->query_condition("xx_poison"))
-           return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃÇåĞÄÉ¢¡£\n");
+           return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨æ¸…å¿ƒæ•£ã€‚\n");
    else {       
         if(me->query_condition("xx_poison") > 5)
            me->apply_condition("xx_poison", me->query_condition("xx_poison")-5);
         else
            me->clear_condition("xx_poison");
-        message_vision("$N·şÏÂÒ»·İÇåĞÄÉ¢£¬Á³ÉÏµÄÒõÆøÏûÉ¢ÁËÒ»µã¡£\n", this_player());
+        message_vision("$Næœä¸‹ä¸€ä»½æ¸…å¿ƒæ•£ï¼Œè„¸ä¸Šçš„é˜´æ°”æ¶ˆæ•£äº†ä¸€ç‚¹ã€‚\n", this_player());
         add_amount(-1);
         return 1;
         }

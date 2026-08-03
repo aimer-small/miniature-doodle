@@ -1,14 +1,14 @@
-//dizi5.c ²·Ô« by river
+//dizi5.c åœå£ by river
 
 inherit NPC;
 
 #include <ansi.h>
 void create()
 {
-        set_name("²·Ô«", ({ "bo yuan", "bo", "yuan"}));
-        set("title","ÏåÑôÎä¹İÎåµÜ×Ó");
-        set("long", "ËûÊÇÍòÕğÉ½µÄÎåµÜ×Ó£¬ÎÄÖÊ±ò±ò£¬Ò»µã²»Ïó¸öÎäÁÖÖĞÈË¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("åœå£", ({ "bo yuan", "bo", "yuan"}));
+        set("title","è¥„é˜³æ­¦é¦†äº”å¼Ÿå­");
+        set("long", "ä»–æ˜¯ä¸‡éœ‡å±±çš„äº”å¼Ÿå­ï¼Œæ–‡è´¨å½¬å½¬ï¼Œä¸€ç‚¹ä¸è±¡ä¸ªæ­¦æ—ä¸­äººã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 24);
         set("combat_exp", 4500);
         set("shen_type", 1);
@@ -59,7 +59,7 @@ int recognize_apprentice(object ob)
         switch(MONEY_D->player_pay(ob, money)){
                 case 0:
                 case 2:
-                return notify_fail("ÄãÏÖÔÚÑ§Ï°Ò»´ÎËùĞèÒªµÄ·ÑÓÃÊÇ"+MONEY_D->money_str(money)+"£¬ÄãÉíÉÏ´øµÄÁãÇ®²»¹»ÁË¡£\n");
+                return notify_fail("ä½ ç°åœ¨å­¦ä¹ ä¸€æ¬¡æ‰€éœ€è¦çš„è´¹ç”¨æ˜¯"+MONEY_D->money_str(money)+"ï¼Œä½ èº«ä¸Šå¸¦çš„é›¶é’±ä¸å¤Ÿäº†ã€‚\n");
         }
         ob->set_temp("mark/literate", 1);
         return 1;
@@ -70,6 +70,6 @@ void greeting(object ob)
         if( !ob || environment(ob) != environment() ) return;
         if ( ob->query_skill("literate") >= 30 ) return;
         command("hi " + ob->query("id"));
-        command("say ÕâÎ»" + RANK_D->query_respect(ob)+ "£¬ËäËµÁ·Îä±È¶ÁÊéÖØÒª£¬µ«ÄãÄ¿²»Ê¶¶¡£¬ÈçºÎÈ¥Àí½âÄÇ\n"+
-                "Ğ©Îä¹¦ÃØ¼®ÄØ£¿Äã¿ÉÒÔ¸úÎÒÑ§µã¶ÁÊéĞ´×Ö "HIY HBCYN"xue bo literate"CYN" ¡£"NOR);
+        command("say è¿™ä½" + RANK_D->query_respect(ob)+ "ï¼Œè™½è¯´ç»ƒæ­¦æ¯”è¯»ä¹¦é‡è¦ï¼Œä½†ä½ ç›®ä¸è¯†ä¸ï¼Œå¦‚ä½•å»ç†è§£é‚£\n"+
+                "äº›æ­¦åŠŸç§˜ç±å‘¢ï¼Ÿä½ å¯ä»¥è·Ÿæˆ‘å­¦ç‚¹è¯»ä¹¦å†™å­— "HIY HBCYN"xue bo literate"CYN" ã€‚"NOR);
 }

@@ -1,4 +1,4 @@
-// Ì´ÏãÉÈ
+// æª€é¦™æ‰‡
 
 #include <weapon.h>
 #include <ansi.h>
@@ -8,17 +8,17 @@ inherit SWORD;
 
 void create()
 {
-        set_name(GRN "Ì´ÏãÉÈ" NOR, ({ "tanxiang shan", "shan" }));
+        set_name(GRN "æª€é¦™æ‰‡" NOR, ({ "tanxiang shan", "shan" }));
         set_weight(1000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long", "Ò»°Ñ³ÁµéµéµÄÌ´ÏãÄ¾±¦ÉÈ¡£\n");
+                set("unit", "æŠŠ");
+                set("long", "ä¸€æŠŠæ²‰ç”¸ç”¸çš„æª€é¦™æœ¨å®æ‰‡ã€‚\n");
                 set("value", 1000);
                 set("material", "steel");
-                set("wield_msg", GRN "$NÕ¹¿ªÉÈ×Ó£¬ÇáÇáµØÉÈÁËÉÈ¡£\n" NOR);
-                set("unwield_msg", GRN "$NË¢µÄÒ»ÉùºÏÉÏÉÈ×Ó£¬·Å»ØĞäÖĞ¡£\n" NOR);
+                set("wield_msg", GRN "$Nå±•å¼€æ‰‡å­ï¼Œè½»è½»åœ°æ‰‡äº†æ‰‡ã€‚\n" NOR);
+                set("unwield_msg", GRN "$Nåˆ·çš„ä¸€å£°åˆä¸Šæ‰‡å­ï¼Œæ”¾å›è¢–ä¸­ã€‚\n" NOR);
         }
         init_sword(40);
         setup();

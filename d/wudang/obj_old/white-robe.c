@@ -1,4 +1,4 @@
-// white-robe.c °×É«µÀÅÛ
+// white-robe.c ç™½è‰²é“è¢
 // By Marz
 
 #include <armor.h>
@@ -7,14 +7,14 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("°×É«µÀÅÛ", ({"pao", "cloth", "dao pao"}) );
+	set_name("ç™½è‰²é“è¢", ({"pao", "cloth", "dao pao"}) );
     set_weight(4500);
     if( clonep() )
        set_default_object(__FILE__);
     else {
-        set("unit", "¼ş");
-		set("long", "ÕâÊÇ¼ş²Ã¼õºÏÌåµÄ°×É«µÀÅÛ£¬ËäÈ»ÑùÊ½¼òµ¥£¬µ«´©ÔÚÉíÉÏ£¬È´
-ÄÜ³ÄÍĞ³öÒ»ÖÖÏÉ·çµÀ¹ÅÖ®Æø¡£\n");
+        set("unit", "ä»¶");
+		set("long", "è¿™æ˜¯ä»¶è£å‡åˆä½“çš„ç™½è‰²é“è¢ï¼Œè™½ç„¶æ ·å¼ç®€å•ï¼Œä½†ç©¿åœ¨èº«ä¸Šï¼Œå´
+èƒ½è¡¬æ‰˜å‡ºä¸€ç§ä»™é£é“å¤ä¹‹æ°”ã€‚\n");
         set("material", "cloth");
         set("armor_prop/armor", 35);
     }

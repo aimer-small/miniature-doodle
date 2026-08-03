@@ -6,18 +6,18 @@ inherit  SWORD;
 
 void  create()
 {
-                set_name("·ç»ØÑ©Îè½£",  ({  "snowsword",  "xue  jian",  "sword"  })  );
+                set_name("é£å›é›ªèˆå‰‘",  ({  "snowsword",  "xue  jian",  "sword"  })  );
                 set_weight(400);
                 if(  clonep()  )
                                 set_default_object(__FILE__);
                 else  {
-                                set("unit",  "°Ñ");
+                                set("unit",  "æŠŠ");
                                 set("value",  45000);
                                 set("no_sell", 1);
                                 set("material",  "steel");
-                                set("long",  "ÕâÊÇÒ»°ÑÓÃÀ´Á·ÎèµÄ½££¬½£ÉíÏ¸³¤£¬ÇáÇÉÓÈ·æÀû¡£\n");
-                                set("wield_msg",  "$N´ÓÑü¼ä³é³öÒ»°Ñ½£ÉíÏ¸³¤µÄ½££¬ÎèÁË¸ö½£»¨¡£\n");
-                                set("unequip_msg",  "$N½«ÊÖÖĞµÄ$nÅÌ»ØÑü¼ä¡£\n");
+                                set("long",  "è¿™æ˜¯ä¸€æŠŠç”¨æ¥ç»ƒèˆçš„å‰‘ï¼Œå‰‘èº«ç»†é•¿ï¼Œè½»å·§å°¤é”‹åˆ©ã€‚\n");
+                                set("wield_msg",  "$Nä»è…°é—´æŠ½å‡ºä¸€æŠŠå‰‘èº«ç»†é•¿çš„å‰‘ï¼Œèˆäº†ä¸ªå‰‘èŠ±ã€‚\n");
+                                set("unequip_msg",  "$Nå°†æ‰‹ä¸­çš„$nç›˜å›è…°é—´ã€‚\n");
                                 set("weapon_prop/courage",  4);
                 }
                 init_sword(80);

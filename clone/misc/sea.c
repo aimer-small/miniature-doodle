@@ -2,11 +2,11 @@
 inherit ROOM;
 void create()
 {
-	set("short", "´óº£");
-	set("outdoors","º£ÉÏ");
-        set("long", "Ò»ÍûÎŞ¼ÊµÄ´óº££¬µ«¼ûÏ¦Ñô¼´½«Ã»Èë²¨ĞÄ£¬ÕÕµÃË®ÃæÉÏÍòµÀ½ğÉß£¬ÉÁË¸²»¶¨¡£Ò»¸öÀËÍ·
-°é×ÅĞÚÓ¿ÅìÅÈµÄÀËÌÎÉùÆË½«ÉÏÀ´£¬Õâ¾ŞÀËÓÌËÆÒ»¶Â½áÊµµÄË®Ç½£¬ÅéµÄÒ»Éù´óÏì£¬Ö»´òµÃ
-´¬Ä¾ºá·É£¬ÏÕĞ©·­×ª¹ıÈ¥£¡\n");
+	set("short", "å¤§æµ·");
+	set("outdoors","æµ·ä¸Š");
+        set("long", "ä¸€æœ›æ— é™…çš„å¤§æµ·ï¼Œä½†è§å¤•é˜³å³å°†æ²¡å…¥æ³¢å¿ƒï¼Œç…§å¾—æ°´é¢ä¸Šä¸‡é“é‡‘è›‡ï¼Œé—ªçƒä¸å®šã€‚ä¸€ä¸ªæµªå¤´
+ä¼´ç€æ±¹æ¶Œæ¾æ¹ƒçš„æµªæ¶›å£°æ‰‘å°†ä¸Šæ¥ï¼Œè¿™å·¨æµªçŠ¹ä¼¼ä¸€å µç»“å®çš„æ°´å¢™ï¼Œç °çš„ä¸€å£°å¤§å“ï¼Œåªæ‰“å¾—
+èˆ¹æœ¨æ¨ªé£ï¼Œé™©äº›ç¿»è½¬è¿‡å»ï¼\n");
         set("no_clean_up", 1);
 	setup();
 }
@@ -15,11 +15,11 @@ void init()
 {
    string dest;
    if(this_player()->is_character()) {
-        tell_object(this_player(), HIR"\nÒ»¸ö¾ŞÀË´òÀ´£¬½«ÄãÅ×ÉÏÁËÌì¡£¡£¡££¡\n"NOR);
+        tell_object(this_player(), HIR"\nä¸€ä¸ªå·¨æµªæ‰“æ¥ï¼Œå°†ä½ æŠ›ä¸Šäº†å¤©ã€‚ã€‚ã€‚ï¼\n"NOR);
         this_player()->unconcious();
         dest = ({ "/d/mingjiao/xikou", "/d/mingjiao/lsd/anbian"})[random(2)];
         this_player()->move(dest);
-        message("vision", "Í»È»Ò»Õó´ó·ç¹Î¹ı£¬½«Ò»¸ö"+this_player()->name()+"´Óº£Àï´µÉÏ°¶À´£¡\n",environment(this_player()), ({this_player()}));
+        message("vision", "çªç„¶ä¸€é˜µå¤§é£åˆ®è¿‡ï¼Œå°†ä¸€ä¸ª"+this_player()->name()+"ä»æµ·é‡Œå¹ä¸Šå²¸æ¥ï¼\n",environment(this_player()), ({this_player()}));
         }   
 }
 

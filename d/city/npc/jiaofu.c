@@ -1,13 +1,13 @@
-// jiaofu.c ½Î·ò
+// jiaofu.c è½¿å¤«
 #include <ansi.h>
 
 inherit NPC;
 
 void create()
 {
-	set_name("½Î·ò", ({ "jiao fu", "jiaofu", "fu" }));
-	set("long", "ÕâÊÇÒ»¸öÉíÇ¿Ìå×³µÄ½Î·ò£¬ÏàÃ²¶ËÕı£¬´©´÷ÕûÆë¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("è½¿å¤«", ({ "jiao fu", "jiaofu", "fu" }));
+	set("long", "è¿™æ˜¯ä¸€ä¸ªèº«å¼ºä½“å£®çš„è½¿å¤«ï¼Œç›¸è²Œç«¯æ­£ï¼Œç©¿æˆ´æ•´é½ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 	set("attitude", "peaceful");
 	set("str", 50);

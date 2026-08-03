@@ -14,10 +14,10 @@ string type()
 
 int valid_learn(object me) 
 {
-	return notify_fail("ÒôÂÉÖ»ÄÜÍ¨¹ý´µ×àÀÖÆ÷»òÕßÑÐÏ°ÀÖÆ×ÌáÉý¡£\n");
+	return notify_fail("éŸ³å¾‹åªèƒ½é€šè¿‡å¹å¥ä¹å™¨æˆ–è€…ç ”ä¹ ä¹è°±æå‡ã€‚\n");
 }
 
 int practice_skill(object me)
 {	
-	return notify_fail("ÒôÂÉÖ»ÄÜÍ¨¹ý´µ×àÀÖÆ÷»òÕßÑÐÏ°ÀÖÆ×ÌáÉý¡£\n");
+	return notify_fail("éŸ³å¾‹åªèƒ½é€šè¿‡å¹å¥ä¹å™¨æˆ–è€…ç ”ä¹ ä¹è°±æå‡ã€‚\n");
 }

@@ -5,10 +5,10 @@ inherit NPC;
 inherit F_MASTER;
 void create()
 {
-  set_name("ÉÏ¹ÙÔÆ", ({ "shangguan yun", "yun", "shangguan"}));
-  set("long", "Ö»¼ûËû³¤ÊÖ³¤½Å£¬Ë«Ä¿¾«¹â²ÓÀÃ£¬ÉõÓĞÍşÊÆ¡£\n");
-  set("title",HIY"ÈÕÔÂÉñ½Ì  "GRN"ÇàÁúÌÃÌÃÖ÷"NOR);
-  set("gender", "ÄĞĞÔ");
+  set_name("ä¸Šå®˜äº‘", ({ "shangguan yun", "yun", "shangguan"}));
+  set("long", "åªè§ä»–é•¿æ‰‹é•¿è„šï¼ŒåŒç›®ç²¾å…‰ç¿çƒ‚ï¼Œç”šæœ‰å¨åŠ¿ã€‚\n");
+  set("title",HIY"æ—¥æœˆç¥æ•™  "GRN"é’é¾™å ‚å ‚ä¸»"NOR);
+  set("gender", "ç”·æ€§");
   set("age", 40);
   set("attitude", "peaceful");
   set("shen_type", -1);
@@ -43,7 +43,7 @@ void create()
 	map_skill("parry", "tianmo-zhang");
 	map_skill("strike", "tianmo-zhang");
 	prepare_skill("strike", "tianmo-zhang");
-	create_family("ÈÕÔÂÉñ½Ì",8,"µÜ×Ó");
+	create_family("æ—¥æœˆç¥æ•™",8,"å¼Ÿå­");
 	
         setup();
         

@@ -29,8 +29,8 @@ int armor_cut(object me, object victim, object weapon, int damage)
                         if( mapp(armors[i]->query("armor_mp")) && random(10)>8 )
                                 armors[i]->add("armor_mp/dur", -dur);
                         if( (int)armors[i]->query("dur") <= 0 ) {
-                                message_vision(HIW"$NÉíÉÏµÄ"+armors[i]->name()+HIW"ÊÙÃüÒÑµ½£¬ÖÕÓÚÁÑÎªËéÆ¬£¡\n"NOR,victim);
-                                armors[i]->broken("ÆÆËéµÄ");
+                                message_vision(HIW"$Nèº«ä¸Šçš„"+armors[i]->name()+HIW"å¯¿å‘½å·²åˆ°ï¼Œç»ˆäºŽè£‚ä¸ºç¢Žç‰‡ï¼\n"NOR,victim);
+                                armors[i]->broken("ç ´ç¢Žçš„");
                                 return 1;
                         }
                 }

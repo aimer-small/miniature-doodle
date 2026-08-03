@@ -5,10 +5,10 @@ inherit F_CLEAN_UP;
 
 int update_condition(object me, int duration)
 {    
-      	tell_object(me, HIC "ÄãÏëÆðÉñÁúÐ°½ÌµÄÖÖÖÖ¹îÒìÖ®´¦£¬Ò»Ç»ºÀÆøÔÙÒ²Ìá²»ÆðÀ´¡£\n" NOR );
-      	message_vision(HIC"$NÍ»È»Ò»Õó¿Ö¾å£¬Ë²Ï¢Ö®¼ä·Â·ðÀÏÁË¼¸Ê®Ëê¡£\n"NOR, me);
+      	tell_object(me, HIC "ä½ æƒ³èµ·ç¥žé¾™é‚ªæ•™çš„ç§ç§è¯¡å¼‚ä¹‹å¤„ï¼Œä¸€è…”è±ªæ°”å†ä¹Ÿæä¸èµ·æ¥ã€‚\n" NOR );
+      	message_vision(HIC"$Nçªç„¶ä¸€é˜µææƒ§ï¼Œçž¬æ¯ä¹‹é—´ä»¿ä½›è€äº†å‡ åå²ã€‚\n"NOR, me);
         
-        me->set_temp("last_damage_from", "¿Ö¾å¶ø");
+        me->set_temp("last_damage_from", "ææƒ§è€Œ");
         me->receive_wound("jing", random(me->query_skill("force"))/2 );
         me->receive_damage("jingli", random(me->query_skill("force")) );
         me->add_condition("sld_shexin",-1);

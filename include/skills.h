@@ -1,5 +1,5 @@
 // create by athoi@sj 2004.xx.xx
-// modify by athoi@sj 2005.01.23 ¸ü¸Ä·ÉÔ¾¹«Ê½
+// modify by athoi@sj 2005.01.23 æ›´æ”¹é£žè·ƒå…¬å¼
 
 #define BASIC 		2
 #define ADVANCED	3
@@ -67,15 +67,15 @@ int practice_skill(object me, int cost)
 		   	return 1;
 	   	}
 	   	else
-	   		return notify_fail("ÄãÏÖÔÚµÄÐÞÎª²»×ãÒÔÌá¸ß" + to_chinese(skill_name()) + "ÁË¡£\n");
+	   		return notify_fail("ä½ çŽ°åœ¨çš„ä¿®ä¸ºä¸è¶³ä»¥æé«˜" + to_chinese(skill_name()) + "äº†ã€‚\n");
        	}
 	else
-		return notify_fail("ÄãÏÖÔÚµÄ" + to_chinese(skill_name()) + "ÐÞÎªÖ»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨çš„" + to_chinese(skill_name()) + "ä¿®ä¸ºåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢žåŠ ç†Ÿç»ƒåº¦ã€‚\n");
 #endif
         if (me->query("jingli") < cost * LEVEL)
-          	return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·" + to_chinese(skill_name()) + "¡£\n");
+          	return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒ" + to_chinese(skill_name()) + "ã€‚\n");
         if (me->query("neili") < cost * LEVEL)
-          	return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·" + to_chinese(skill_name()) + "¡£\n");
+          	return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒ" + to_chinese(skill_name()) + "ã€‚\n");
         me->receive_damage("jingli", cost * LEVEL);
         if (LEARN_TYPE != "dodge")
 		me->receive_damage("neili", cost * LEVEL);
@@ -86,10 +86,10 @@ int valid_learn(object me, object weapon)
 {
 	int lvl = me->query_skill(skill_name(), 1);
 #ifdef NPC_SKILL
-	return notify_fail("NPCÎä¹¦£¬²»¶ÔÍæ¼Ò¿ª·Å\n");
+	return notify_fail("NPCæ­¦åŠŸï¼Œä¸å¯¹çŽ©å®¶å¼€æ”¾\n");
 #endif
         if (me->query("max_neili") < lvl * lvl * LEVEL * LEVEL / (100 * ((LEVEL - 1)?(LEVEL - 1):1)))
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
         switch (LEARN_TYPE)
         {
         	case "unarmed":
@@ -100,7 +100,7 @@ int valid_learn(object me, object weapon)
 		case "hand":
 		case "leg":
 			if (weapon || me->query_temp("secondary_weapon"))
-				return notify_fail("Ñ§" + to_chinese(skill_name()) + "±ØÐë¿ÕÊÖ¡£\n");
+				return notify_fail("å­¦" + to_chinese(skill_name()) + "å¿…é¡»ç©ºæ‰‹ã€‚\n");
 			break;
 		case "sword":
 		case "blade":
@@ -116,16 +116,16 @@ int valid_learn(object me, object weapon)
 		case "axe":
 		case "hammer":
         		if (!objectp(weapon) || weapon->query("skill_type") != LEARN_TYPE )
-               			return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+               			return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
                		break;
                	default :
                		break;
         }
         if (!me->query_skill(force, 1))
-        	return notify_fail("Ñ§Ï°" + to_chinese(skill_name()) + "ÐèÒªÓÐ" + to_chinese(force) + "µÄÖ§³Ö¡£\n");
+        	return notify_fail("å­¦ä¹ " + to_chinese(skill_name()) + "éœ€è¦æœ‰" + to_chinese(force) + "çš„æ”¯æŒã€‚\n");
         if (me->query_skill(force, 1) < (me->query_skill(skill_name(), 1) - (5 - LEVEL) * 10)
        	&& me->query_skill(skill_name(), 1) < SKILL_LEVEL)
-               	return notify_fail("ÄãµÄ" + to_chinese(force) + "»ðºòÌ«Ç³¡£\n");
+               	return notify_fail("ä½ çš„" + to_chinese(force) + "ç«å€™å¤ªæµ…ã€‚\n");
         return learn_check(me, weapon);
 }
 

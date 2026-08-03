@@ -8,13 +8,13 @@ string type() { return "knowledge"; }
 int valid_learn(object me)
 {
     if ( me->query_skill("force", 1) < 50 )
-	return notify_fail("你的内功如此不济，研习此临床医术又有何用？\n");
+	return notify_fail("浣犵殑鍐呭姛濡傛涓嶆祹锛岀爺涔犳涓村簥鍖绘湳鍙堟湁浣曠敤锛焅n");
 
     if ( me->query_skill("linchuang-shu", 1) == me->query_skill("force", 1)+20 )
-	return notify_fail("你的内功已经无法支持你研习更高深的临床医术了。\n");
+	return notify_fail("浣犵殑鍐呭姛宸茬粡鏃犳硶鏀寔浣犵爺涔犳洿楂樻繁鐨勪复搴婂尰鏈簡銆俓n");
 
     if ( me->query_skill("linchuang-shou", 1) == me->query_skill("literate", 1)+50 )
-	return notify_fail("你的读书识字水平难以使你理解更高深的临床医术了。\n");
+	return notify_fail("浣犵殑璇讳功璇嗗瓧姘村钩闅句互浣夸綘鐞嗚В鏇撮珮娣辩殑涓村簥鍖绘湳浜嗐�俓n");
 
     return 1;
 }

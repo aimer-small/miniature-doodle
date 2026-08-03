@@ -1,4 +1,4 @@
-//Ê¥µ®ÉñÖí pig.c
+//åœ£è¯ç¥çŒª pig.c
 //Created by campsun 2003.12.14
 
 inherit NPC;
@@ -39,7 +39,7 @@ void create ()
         set_name("pig",({"pig"}));
 
         set("shen_type", 1);
-         set("gender", "Å®ĞÔ");
+         set("gender", "å¥³æ€§");
         set("age", random(10)+10);
         set("attitude","heroism");
         
@@ -75,15 +75,15 @@ void init()
                 pig_party = ob->query("party");
                 pig_desc = map_menpai[pig_party];
                 
-                set_name(gGetRndColor() + pig_desc["nickname"]  + "Öí"NOR,({pig_party + " piggy","piggy","pig"}));
-                set("long",gGetRndColor() + "ÕâÊÇÒ»Ö»·Ê·ÊÅÖÅÖ¿É°®µÄ´óÖí¡£\n" + pig_desc["desc"] + "\nËÆºõÒª" +YEL "¹°£¨Gong£©"NOR + "Ëı²ÅÓĞ¿ÉÄÜÉúµ°¡£"NOR);
+                set_name(gGetRndColor() + pig_desc["nickname"]  + "çŒª"NOR,({pig_party + " piggy","piggy","pig"}));
+                set("long",gGetRndColor() + "è¿™æ˜¯ä¸€åªè‚¥è‚¥èƒ–èƒ–å¯çˆ±çš„å¤§çŒªã€‚\n" + pig_desc["desc"] + "\nä¼¼ä¹è¦" +YEL "æ‹±ï¼ˆGongï¼‰"NOR + "å¥¹æ‰æœ‰å¯èƒ½ç”Ÿè›‹ã€‚"NOR);
                 set("cloned",1);
                 set("chat_chance", 5);
                 call_out("do_over",6000);
         }
-        strTemp = query("name") + gGetRndColor() +"±Ç×ÓÀï·¢³ö¡°ºßºßßóßó¡±µÄÉùÒô¡£\n"NOR;
-        strTemp = strTemp + query("name") +gGetRndColor() + "ºßßó×Å£º¡¸¹°ÎÒÑ½£¬Äãµ¹ÊÇ¹°ÎÒÑ½£¬WIZ¶¼ÒÑ¾­¹°¹ıÎÒÁË£¬ÄãÒ²¹°ÎÒÑ½~~~~¡¹¡£\n"NOR;
-        strTemp = strTemp + query("name") +gGetRndColor() + "ºßßó×Å£º¡¸" + pig_desc["say_desc"]+"¡¹¡£\n"NOR;
+        strTemp = query("name") + gGetRndColor() +"é¼»å­é‡Œå‘å‡ºâ€œå“¼å“¼å”§å”§â€çš„å£°éŸ³ã€‚\n"NOR;
+        strTemp = strTemp + query("name") +gGetRndColor() + "å“¼å”§ç€ï¼šã€Œæ‹±æˆ‘å‘€ï¼Œä½ å€’æ˜¯æ‹±æˆ‘å‘€ï¼ŒWIZéƒ½å·²ç»æ‹±è¿‡æˆ‘äº†ï¼Œä½ ä¹Ÿæ‹±æˆ‘å‘€~~~~ã€ã€‚\n"NOR;
+        strTemp = strTemp + query("name") +gGetRndColor() + "å“¼å”§ç€ï¼šã€Œ" + pig_desc["say_desc"]+"ã€ã€‚\n"NOR;
         set("chat_msg", ({strTemp}) );
 }
 int do_gong(string arg)
@@ -97,40 +97,40 @@ int do_gong(string arg)
         
         if (me->query("family/family_name")!=pig_desc["party"])
         {
-                tell_object(me,HIG"ÄãÒÔÎªÊÇÍ·Öí£¬¾Í¿ÉÒÔ¹°×ÅÍæÃ´£¿ÕæÊÇÆñÓĞ´ËÀí£¡£¡£¡\n"NOR);
+                tell_object(me,HIG"ä½ ä»¥ä¸ºæ˜¯å¤´çŒªï¼Œå°±å¯ä»¥æ‹±ç€ç©ä¹ˆï¼ŸçœŸæ˜¯å²‚æœ‰æ­¤ç†ï¼ï¼ï¼\n"NOR);
                 return 1;
         }
-        message_vision(HIG"$NÓÃ×Ô¼ºµÄ±Ç×Ó´ÕÉÏÈ¥ÍÆ$n"+HIG+"£¬ºßßó×Å¡°ÄãÕâÖ»´ó·ÊÖíÔõÃ´¾ÍÄÇÃ´³ÁÑ½¡±¡£\n"NOR,me ,ob);
+        message_vision(HIG"$Nç”¨è‡ªå·±çš„é¼»å­å‡‘ä¸Šå»æ¨$n"+HIG+"ï¼Œå“¼å”§ç€â€œä½ è¿™åªå¤§è‚¥çŒªæ€ä¹ˆå°±é‚£ä¹ˆæ²‰å‘€â€ã€‚\n"NOR,me ,ob);
         
         if (random(me->query("kar"))<=0)
         {
                 ob->set("gong",0);
                 ob->set("answer",1);
-                tell_object(me,HIW"ÄãÒòÎªÅ¬Á¦¹°Öí£¬ÄÚÁ¦ĞŞÎªµÃµ½ÁËÌáÉı¡£\n"NOR);
+                tell_object(me,HIW"ä½ å› ä¸ºåŠªåŠ›æ‹±çŒªï¼Œå†…åŠ›ä¿®ä¸ºå¾—åˆ°äº†æå‡ã€‚\n"NOR);
                 improve = random(10) + 10;
                 me->add("max_neili",improve);
-                log_file("quest/sdgift",sprintf("%s %s(%s)Å¬Á¦¹°%sÌáÉıÄÚÁ¦%sµã¡£\n",
+                log_file("quest/sdgift",sprintf("%s %s(%s)åŠªåŠ›æ‹±%sæå‡å†…åŠ›%sç‚¹ã€‚\n",
                   ctime(time())[4..19],me->name(1),capitalize(me->query("id")),this_object()->name(),chinese_number(improve)));
-                message_vision("$N"+HIG+"°ï$n²ÁÁË²ÁÁ³ÉÏµÄº¹£º¡¸¹°µÃºÜĞÁ¿à°É£¿¡¹\n"NOR,ob ,me);
+                message_vision("$N"+HIG+"å¸®$næ“¦äº†æ“¦è„¸ä¸Šçš„æ±—ï¼šã€Œæ‹±å¾—å¾ˆè¾›è‹¦å§ï¼Ÿã€\n"NOR,ob ,me);
                 switch (ob->query("quest_passed"))
                 {
                 case 0: 
-                        message_vision("$N"+HIG+"ËµµÀ£º¡¸¿´ÄãÃÇ¹°µÃÄÇÃ´ĞÁ¿à£¬ÎÒÀ´ÎÊÎÊÄãÃÇ£¬ÄãÃÇ»Ø´ğ£¨"+RED+"answer"+NOR+HIG"£©¶ÔÁËÎÒ¾Í¶¯µ¯Ò»ÏÂ±íÊ¾ÎÒµÄÎ¿ÎÊ¡£¡¹\n"NOR,ob);
-                        message_vision("$N"+HIG+"ËµµÀ£º¡¸"+gGetRndColor() +pig_desc["question"] +HIG+"¡¹\n"NOR,ob );
+                        message_vision("$N"+HIG+"è¯´é“ï¼šã€Œçœ‹ä½ ä»¬æ‹±å¾—é‚£ä¹ˆè¾›è‹¦ï¼Œæˆ‘æ¥é—®é—®ä½ ä»¬ï¼Œä½ ä»¬å›ç­”ï¼ˆ"+RED+"answer"+NOR+HIG"ï¼‰å¯¹äº†æˆ‘å°±åŠ¨å¼¹ä¸€ä¸‹è¡¨ç¤ºæˆ‘çš„æ…°é—®ã€‚ã€\n"NOR,ob);
+                        message_vision("$N"+HIG+"è¯´é“ï¼šã€Œ"+gGetRndColor() +pig_desc["question"] +HIG+"ã€\n"NOR,ob );
                 break;
                 case 1:
                         i = random(sizeof(question2));
                         set("question2_answer",question2[i]["answer"]);
-                        message_vision("$N"+HIG+"ËµµÀ£º¡¸¿´ÄãÃÇ¹°µÃÄÇÃ´ĞÁ¿à£¬ÎÒÀ´ÎÊÎÊÄãÃÇ£¬ÄãÃÇ»Ø´ğ£¨"+RED+"answer"+NOR+HIG"£©¶ÔÁËÎÒ¾Í¶¯µ¯Ò»ÏÂ±íÊ¾ÎÒµÄÎ¿ÎÊ¡£¡¹\n"NOR,ob);
-                        message_vision("$N"+HIG+"ËµµÀ£º¡¸"+gGetRndColor() +question2[i]["question"] +HIG+"¡¹\n"NOR,ob );
+                        message_vision("$N"+HIG+"è¯´é“ï¼šã€Œçœ‹ä½ ä»¬æ‹±å¾—é‚£ä¹ˆè¾›è‹¦ï¼Œæˆ‘æ¥é—®é—®ä½ ä»¬ï¼Œä½ ä»¬å›ç­”ï¼ˆ"+RED+"answer"+NOR+HIG"ï¼‰å¯¹äº†æˆ‘å°±åŠ¨å¼¹ä¸€ä¸‹è¡¨ç¤ºæˆ‘çš„æ…°é—®ã€‚ã€\n"NOR,ob);
+                        message_vision("$N"+HIG+"è¯´é“ï¼šã€Œ"+gGetRndColor() +question2[i]["question"] +HIG+"ã€\n"NOR,ob );
                 break;
                 case 2:
                         i = random(sizeof(food));
                         set("food_id",food[i]["id"]);
                         set("food_name",food[i]["name"]);
-                        message_vision("$N"+HIG+"ËµµÀ£º¡¸¿´ÄãÃÇ¹°µÃÄÇÃ´ĞÁ¿à£¬ÎÒ¾Í´ó·¢´È±¯Éú¸öµ°°É¡£¡¹\n"NOR,ob );
-                        message_vision("$N"+HIG+"¶«ÕÅÎ÷Íû£º¡¸Éúµ°ÕâÖÖÊÂÇé£¬ÊµÔÚÊÇĞèÒªÓªÑø°¡¡£¡¹\n"NOR,ob );
-                        message_vision("$N"+HIG+"ËµµÀ£º¡¸ÕâÓĞÊ²Ã´ºÃÆæ¹ÖµÄ£¬ÎÒÊÇÖíÃ´£¬×ÔÈ»Òª¸ãµã³ÔµÄ£¬ÎÒ²ÅÄÜÉúµ°ÉúµÃÍ´¿ì£¬ÄãÃÇÈ¥Åª¸ö¡¾"+gGetRndColor()+ob->query("food_name")+HIG"¡¿¹ıÀ´°É£¿¡¹\n"NOR,ob );
+                        message_vision("$N"+HIG+"è¯´é“ï¼šã€Œçœ‹ä½ ä»¬æ‹±å¾—é‚£ä¹ˆè¾›è‹¦ï¼Œæˆ‘å°±å¤§å‘æ…ˆæ‚²ç”Ÿä¸ªè›‹å§ã€‚ã€\n"NOR,ob );
+                        message_vision("$N"+HIG+"ä¸œå¼ è¥¿æœ›ï¼šã€Œç”Ÿè›‹è¿™ç§äº‹æƒ…ï¼Œå®åœ¨æ˜¯éœ€è¦è¥å…»å•Šã€‚ã€\n"NOR,ob );
+                        message_vision("$N"+HIG+"è¯´é“ï¼šã€Œè¿™æœ‰ä»€ä¹ˆå¥½å¥‡æ€ªçš„ï¼Œæˆ‘æ˜¯çŒªä¹ˆï¼Œè‡ªç„¶è¦æç‚¹åƒçš„ï¼Œæˆ‘æ‰èƒ½ç”Ÿè›‹ç”Ÿå¾—ç—›å¿«ï¼Œä½ ä»¬å»å¼„ä¸ªã€"+gGetRndColor()+ob->query("food_name")+HIG"ã€‘è¿‡æ¥å§ï¼Ÿã€\n"NOR,ob );
                         ob->set("getfood",1);
                         ob->set("gong",0);
                         ob->set("answer",0);
@@ -155,7 +155,7 @@ int do_answer(string arg)
         case 0:
                 if (arg != pig_desc["answer"])
                 {
-                        message_vision("$N"+gGetRndColor()+"¶Ô$nºÙºÙÒ»Ğ¦£º¡¸´ó¼Ò¿ìÀ´¿´ÖíÄÔ´üÑ½¡­¡­¡­¡­¡¹\n"NOR,ob ,me);
+                        message_vision("$N"+gGetRndColor()+"å¯¹$nå˜¿å˜¿ä¸€ç¬‘ï¼šã€Œå¤§å®¶å¿«æ¥çœ‹çŒªè„‘è¢‹å‘€â€¦â€¦â€¦â€¦ã€\n"NOR,ob ,me);
                         return 1;
                 }
                 ob->set("quest_passed",1);
@@ -163,19 +163,19 @@ int do_answer(string arg)
         case 1:
                 if (arg != ob->query("question2_answer"))
                 {
-                        message_vision("$N"+gGetRndColor()+"¶Ô$nºÙºÙÒ»Ğ¦£º¡¸´ó¼Ò¿ìÀ´¿´ÖíÄÔ´üÑ½¡­¡­¡­¡­¡¹\n"NOR,ob ,me);
+                        message_vision("$N"+gGetRndColor()+"å¯¹$nå˜¿å˜¿ä¸€ç¬‘ï¼šã€Œå¤§å®¶å¿«æ¥çœ‹çŒªè„‘è¢‹å‘€â€¦â€¦â€¦â€¦ã€\n"NOR,ob ,me);
                         return 1;
                 }
                 ob->set("quest_passed",2);
         break;  
         }
-        tell_object(me,HIW"ÄãÒòÎªÎÊÌâ»Ø´ğÕıÈ·£¬»ñµÃÒ»Ğ©Ç±ÄÜ½±Àø¡£\n"NOR);
+        tell_object(me,HIW"ä½ å› ä¸ºé—®é¢˜å›ç­”æ­£ç¡®ï¼Œè·å¾—ä¸€äº›æ½œèƒ½å¥–åŠ±ã€‚\n"NOR);
         improve = random(100) + 100;
         me->add("potential",improve);
-        log_file("quest/sdgift",sprintf("%s %s(%s)´ğ¶ÔÁË%sÌá³öµÄÎÊÌâ ÌáÉıÇ±ÄÜ%sµã¡£\n",
+        log_file("quest/sdgift",sprintf("%s %s(%s)ç­”å¯¹äº†%sæå‡ºçš„é—®é¢˜ æå‡æ½œèƒ½%sç‚¹ã€‚\n",
                   ctime(time())[4..19],me->name(1),capitalize(me->query("id")),this_object()->name(),chinese_number(improve)));        
-        message_vision("$N"+gGetRndColor() + "ÅÄÁËÅÄ$nµÄÍ·£º¡¸»¹Ëã´ÏÃ÷¡­¡­¡¹\n"NOR,ob ,me);
-        message_vision("$N"+gGetRndColor() + "¿´×Å·¢´ôµÄ$n£¬ºßßóµÀ£º¡¸·¢Ê²Ã´ã¶Ñ½£¬»Ø´ğ³öÄÇÃ´¼òµ¥µÄÎÊÌâ¾ÍÖ¸ÍûÎÒÉúµ°£¿¼ÌĞø¹°°ÉÄã¡­¡­¡¹\n"NOR,ob ,me);
+        message_vision("$N"+gGetRndColor() + "æ‹äº†æ‹$nçš„å¤´ï¼šã€Œè¿˜ç®—èªæ˜â€¦â€¦ã€\n"NOR,ob ,me);
+        message_vision("$N"+gGetRndColor() + "çœ‹ç€å‘å‘†çš„$nï¼Œå“¼å”§é“ï¼šã€Œå‘ä»€ä¹ˆæ„£å‘€ï¼Œå›ç­”å‡ºé‚£ä¹ˆç®€å•çš„é—®é¢˜å°±æŒ‡æœ›æˆ‘ç”Ÿè›‹ï¼Ÿç»§ç»­æ‹±å§ä½ â€¦â€¦ã€\n"NOR,ob ,me);
         ob->set("answer",0);    
         ob->set("gong",1);      
         return 1;               
@@ -196,13 +196,13 @@ int accept_object(object who, object ob)
         if (strip(ofood->query("name"))!=strip(ob->query("food_name"))) return 0;
         //if (ofood->query("id")!=ob->query("food_id")) return 0;
         
-        message_vision("$N"+gGetRndColor() + "¸ßĞËµÃÌøÁËÆğÀ´¡£±§×Å$nÍ´¿àÁ÷Ìé£º¡¸ÎÒÖÕÓÚ³Ôµ½ÕâÃ´ÃÀÎ¶µÄ$nÀ²¡£¡¹\n"NOR,ob ,ofood);
-    message_vision("$N"+gGetRndColor() + "½«$n³ÔµÄ¾«¹â¡£\n"NOR,ob ,ofood);
-        message_vision("$N"+gGetRndColor() + "Ïò$nÊ¹ÁËÒ»ÃÄÑÛ£¬$n»³ÖĞµÄĞ¡Â¹ÂÒÌø¡£\n"NOR,ob ,me);
-        tell_object(me,HIW"ÄãÒòÎª°ïÖíÕÒµ½ÁËÊ³Îï£¬»ñµÃÒ»Ğ©¾­Ñé½±Àø¡£\n"NOR);
+        message_vision("$N"+gGetRndColor() + "é«˜å…´å¾—è·³äº†èµ·æ¥ã€‚æŠ±ç€$nç—›è‹¦æµæ¶•ï¼šã€Œæˆ‘ç»ˆäºåƒåˆ°è¿™ä¹ˆç¾å‘³çš„$nå•¦ã€‚ã€\n"NOR,ob ,ofood);
+    message_vision("$N"+gGetRndColor() + "å°†$nåƒçš„ç²¾å…‰ã€‚\n"NOR,ob ,ofood);
+        message_vision("$N"+gGetRndColor() + "å‘$nä½¿äº†ä¸€åªšçœ¼ï¼Œ$næ€€ä¸­çš„å°é¹¿ä¹±è·³ã€‚\n"NOR,ob ,me);
+        tell_object(me,HIW"ä½ å› ä¸ºå¸®çŒªæ‰¾åˆ°äº†é£Ÿç‰©ï¼Œè·å¾—ä¸€äº›ç»éªŒå¥–åŠ±ã€‚\n"NOR);
         improve = random(500) + 500;
         me->add("combat_exp",improve);
-        log_file("quest/sdgift",sprintf("%s %s(%s)Î¹%s ÌáÉıÊµÕ½¾­Ñé%sµã¡£\n",
+        log_file("quest/sdgift",sprintf("%s %s(%s)å–‚%s æå‡å®æˆ˜ç»éªŒ%sç‚¹ã€‚\n",
                   ctime(time())[4..19],me->name(1),capitalize(me->query("id")),this_object()->name(),chinese_number(improve)));
         
         call_out("destroying", 1, ofood);
@@ -212,18 +212,18 @@ int accept_object(object who, object ob)
                 set("food_id",food[i]["id"]);
                 set("food_name",food[i]["name"]);
                 ob->set("food",1);
-                message_vision("$N"+HIG+"ÃşÃş×Ô¼ºµÄ¶Ç×Ó£º¡¸ÚÀ£¬ÎÒ»¹Ã»³Ô±¥ÄØ¡£¡¹\n"NOR,ob );
-                message_vision("$N"+HIG+"ËµµÀ£º¡¸ÄãÃÇÔÙÈ¥Åª¸ö¡¾"+gGetRndColor()+ob->query("food_name")+HIG"¡¿¹ıÀ´°É£¿¡¹\n"NOR,ob );
+                message_vision("$N"+HIG+"æ‘¸æ‘¸è‡ªå·±çš„è‚šå­ï¼šã€Œè¯¶ï¼Œæˆ‘è¿˜æ²¡åƒé¥±å‘¢ã€‚ã€\n"NOR,ob );
+                message_vision("$N"+HIG+"è¯´é“ï¼šã€Œä½ ä»¬å†å»å¼„ä¸ªã€"+gGetRndColor()+ob->query("food_name")+HIG"ã€‘è¿‡æ¥å§ï¼Ÿã€\n"NOR,ob );
                 return 1;               
         }
         else
         {
-                message_vision("$N"HIG"ÃşÃş×Ô¼ºµÄ¶Ç×Ó£º¡¸³ÔµÄÕæ±¥°¡¡£Õâ¾Í¸øÄãÉú¸öµ°°É£¡¡¹\n"NOR,ob );
-                command("chat " + me->query("name") + HIY"£¬Êé½£È«Ìå¹¤×÷ÈËÔ±×£ÄãÊ¥µ®¿ìÀÖ£¡£¡£¡"NOR);
-                message_vision("$N"+HIG+"¸ø$nÒ»¿Å¡¸ÖíÄàÊ¥µ°¡¹£¡£¡£¡\n"NOR,ob,me );
+                message_vision("$N"HIG"æ‘¸æ‘¸è‡ªå·±çš„è‚šå­ï¼šã€Œåƒçš„çœŸé¥±å•Šã€‚è¿™å°±ç»™ä½ ç”Ÿä¸ªè›‹å§ï¼ã€\n"NOR,ob );
+                command("chat " + me->query("name") + HIY"ï¼Œä¹¦å‰‘å…¨ä½“å·¥ä½œäººå‘˜ç¥ä½ åœ£è¯å¿«ä¹ï¼ï¼ï¼"NOR);
+                message_vision("$N"+HIG+"ç»™$nä¸€é¢—ã€ŒçŒªæ³¥åœ£è›‹ã€ï¼ï¼ï¼\n"NOR,ob,me );
                 egg = new("/d/city/npc/obj/egg");
                 egg->move(me);
-                log_file("quest/sdgift",sprintf("%s %s(%s)µÃµ½ÁË¡¸ÖíÄàÊ¥µ°¡¹¡£\n",
+                log_file("quest/sdgift",sprintf("%s %s(%s)å¾—åˆ°äº†ã€ŒçŒªæ³¥åœ£è›‹ã€ã€‚\n",
                   ctime(time())[4..19],me->name(1),capitalize(me->query("id")),));
                 call_out("do_over",10);
                 return 1;
@@ -233,8 +233,8 @@ void do_over()
 {
         object ob = this_object();
         remove_call_out("do_over");
-        message_vision("$N"+HIG+"ËµµÀ£º¡¸³Ô±¥ÁË£¬ÎÒ¸ÃÈ¥Ë¯Ò»¾õÁË¡£¡¹\n"NOR,ob );
-        message_vision("$N"+HIG+"Ò»²½Ò»»ÎµÄÀë¿ªÁË¡£\n"NOR,ob );
+        message_vision("$N"+HIG+"è¯´é“ï¼šã€Œåƒé¥±äº†ï¼Œæˆ‘è¯¥å»ç¡ä¸€è§‰äº†ã€‚ã€\n"NOR,ob );
+        message_vision("$N"+HIG+"ä¸€æ­¥ä¸€æ™ƒçš„ç¦»å¼€äº†ã€‚\n"NOR,ob );
         destruct(ob);
         return; 
 }
@@ -245,7 +245,7 @@ void die()
 
 void unconcious()
 {
-	say(this_object()->name()+"ºßÒ»Éù: ¼û¹ı²»»áËÀµÄÖíÃ´£¿ÏÖÔÚ¼ûµ½ÁË°É\n");
+	say(this_object()->name()+"å“¼ä¸€å£°: è§è¿‡ä¸ä¼šæ­»çš„çŒªä¹ˆï¼Ÿç°åœ¨è§åˆ°äº†å§\n");
         reincarnate();
         set("eff_qi", query("max_qi"));
         set("qi", query("max_qi"));

@@ -1,7 +1,7 @@
 // NPC: /d/huashan/npc/laodenuo.c
 // Date: Look 99/03/25
 // Lklv Modify at 2001.10.18
-// By Spiderii@yt�޸�ٺ»
+// By Spiderii@yt修改俸禄
 inherit NPC;
 
 #include <ansi.h>
@@ -11,12 +11,12 @@ string ask_me(object who);
 
 void create()
 {
-        set_name("�͵�ŵ", ({ "lao denuo", "lao", "denuo" }));
-        set("nickname", "�Ϻ���");
+        set_name("劳德诺", ({ "lao denuo", "lao", "denuo" }));
+        set("nickname", "老好人");
         set("long",
-"�͵�ŵ���İ��֣������⣬����Ц���еģ�����\n"
-"ͬ�������еڶ����ǻ�ɽ������һ����Ψһ����Ͷʦ�ġ�\n");
-        set("gender", "����");
+"劳德诺身材矮胖，满面红光，成天笑眯眯的，他在\n"
+"同门中排行第二，是华山派年轻一代中唯一带艺投师的。\n");
+        set("gender", "男性");
         set("age", 54);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -60,11 +60,11 @@ void create()
 
   
         set("inquiry", ([
-              "��ϼ�ؼ�"   : (: ask_me :),
-                //"������" : (: ask_gold :),
+              "紫霞秘籍"   : (: ask_me :),
+                //"左掌门" : (: ask_gold :),
         ]) );
 
-        create_family("��ɽ��", 14, "����");
+        create_family("华山派", 14, "弟子");
 
         setup();
         carry_object(BINGQI_D("sword/sword"))->wield();
@@ -77,7 +77,7 @@ string ask_me(object who)
         object *ob,book;
 
         if( (random(10) < 8) || is_fighting() )
-                return "�Բ�������£��Ҳ�������㻹������ʦ��ȥ�ɣ�\n";
+                return "对不起，这件事，我不清楚，你还是问我师傅去吧！\n";
         set_temp("apply/attack",  500);
         set_temp("apply/defense", 500);
         set_temp("apply/damage",  500);
@@ -143,16 +143,16 @@ string ask_me(object who)
                 ob[i]->fight(this_object());
                
        message("vision",
-                YEL "����������㶼֪���ˣ�������ȥ���ɣ�\n"
-                "�͵�ŵʹ���������������棬�����ޱȣ�һ������Ц�����ģ����\n" NOR,
+                YEL "看来这件事你都知道了？臭贼，去死吧！\n"
+                "劳德诺使开长剑，招数精奇，狠辣无比，一改整日笑咪咪的模样。\n" NOR,
                 environment(), this_object() );
       
       
-       return "�Ҵ���Ͷʦ�����踺�أ��㾹�Ҵ��ҵ����⣬ȥ���ɣ�\n";
+       return "我带艺投师，忍辱负重，你竟敢打我的主意，去死吧！\n";
                 
         }
         
    
     
-        return "�Բ�������£��Ҳ�������㻹������ʦ��ȥ�ɣ�\n";
+        return "对不起，这件事，我不清楚，你还是问我师傅去吧！\n";
 }

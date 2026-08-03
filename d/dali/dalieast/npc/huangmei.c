@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-        set_name("»ÆÃ¼ºÍÉĞ", ({ "huangmei heshang", "heshang", "huangmei" }) );
-        set("title", "Äé»¨ËÂÖ÷³Ö");
-        set("gender", "ÄĞĞÔ" );
+        set_name("é»„çœ‰å’Œå°š", ({ "huangmei heshang", "heshang", "huangmei" }) );
+        set("title", "æ‹ˆèŠ±å¯ºä¸»æŒ");
+        set("gender", "ç”·æ€§" );
         set("age", 65);
         set("str", 25);
         set("con", 23);
@@ -20,9 +20,9 @@ void create()
         set("max_neili", 2500);
         set("jiali", 100);       
 
-       create_family("¸£½¨ÆÎÌïÉÙÁÖËÂ", 10, "µÜ×Ó");
+       create_family("ç¦å»ºè†ç”°å°‘æ—å¯º", 10, "å¼Ÿå­");
         set("long", 
-        "Ò»¸öÂúÁ³ÖåÎÆ¡¢ÉíĞÎ¸ß´óµÄÀÏÉ®¡£ÕâÀÏÉ®Á½µÀ½¹»Æ³¤Ã¼£¬Ã¼Î²ÏÂ´¹¡£\n");
+        "ä¸€ä¸ªæ»¡è„¸çš±çº¹ã€èº«å½¢é«˜å¤§çš„è€åƒ§ã€‚è¿™è€åƒ§ä¸¤é“ç„¦é»„é•¿çœ‰ï¼Œçœ‰å°¾ä¸‹å‚ã€‚\n");
 
         set("combat_exp", 1000000);
         set("score", 20000);       

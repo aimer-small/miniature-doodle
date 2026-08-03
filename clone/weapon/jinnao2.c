@@ -5,13 +5,13 @@ inherit BLADE;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(HIY"Õ¶Ñı½ğîó"NOR,({ "zhanyao nao", "nao","zhanyao" }) );
+        set_name(HIY"æ–©å¦–é‡‘é“™"NOR,({ "zhanyao nao", "nao","zhanyao" }) );
         set_weight(15000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("treasure", 1);
-                set("unit", "¸±");
+                set("unit", "å‰¯");
                 set("value", 500000);
                 set("unique", 1);
                 set("rigidity", 3);
@@ -22,10 +22,10 @@ void create()
                 set("wield_neili", 100);
                 set("wield_maxneili", 700);
                 set("wield_str", 22);
-                set("wield_msg",HIY"Ö»Ìı¼û¡¸à§¡¹µØÒ»Éù£¬Õ¶Ñı½ğîó·É³ö$NÊÖÖĞ£¬ÉÁ³öµÀµÀ½ğ¹â£¬ÍşÉùÕğÌì£¡\n"NOR);
-                set("long", HIY"\nÕâÊÇÓÃ´¿½ğ´òÔìµÄÒ»¸±½ğîóµÄ×ó°ë¸±£¬Ö±¾¶¶ş³ßÓĞÈı£¬ÉÏÃæ¿ÌÂúÕ¶Ñı·¨¾÷¡£
-Èç¹ûÕÒµ½ÓÒ°ë¸±£¬Ó¦¸Ã¿ÉÒÔ½«Á½¸±½ğîóºÏÆğÀ´¡£\n"NOR);                
-                set("unwield_msg", HIY "Õ¶Ñı½ğîóÏò°ë¿Õ·É³ö£¬ÓÖ·É»ØÁË$NµÄÊÖÖĞ¡£\n"NOR);               
+                set("wield_msg",HIY"åªå¬è§ã€Œå”°ã€åœ°ä¸€å£°ï¼Œæ–©å¦–é‡‘é“™é£å‡º$Næ‰‹ä¸­ï¼Œé—ªå‡ºé“é“é‡‘å…‰ï¼Œå¨å£°éœ‡å¤©ï¼\n"NOR);
+                set("long", HIY"\nè¿™æ˜¯ç”¨çº¯é‡‘æ‰“é€ çš„ä¸€å‰¯é‡‘é“™çš„å·¦åŠå‰¯ï¼Œç›´å¾„äºŒå°ºæœ‰ä¸‰ï¼Œä¸Šé¢åˆ»æ»¡æ–©å¦–æ³•è¯€ã€‚
+å¦‚æœæ‰¾åˆ°å³åŠå‰¯ï¼Œåº”è¯¥å¯ä»¥å°†ä¸¤å‰¯é‡‘é“™åˆèµ·æ¥ã€‚\n"NOR);                
+                set("unwield_msg", HIY "æ–©å¦–é‡‘é“™å‘åŠç©ºé£å‡ºï¼Œåˆé£å›äº†$Nçš„æ‰‹ä¸­ã€‚\n"NOR);               
         }
         init_blade(80);
         setup();

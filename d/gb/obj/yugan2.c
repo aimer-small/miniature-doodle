@@ -1,16 +1,16 @@
-// yugan2.c ¶ÏµôµÄÓã¸Í
+// yugan2.c æ–­æ‰çš„é±¼ç«¿
 
 inherit ITEM;
 
 void create()
 {
-        set_name("¶ÏµôµÄÓã¸Í", ({ "duan yugan",}) );
+        set_name("æ–­æ‰çš„é±¼ç«¿", ({ "duan yugan",}) );
         set_weight(150);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»¸ù¶ÏµôµÄÓã¸Í£¬¿´À´ÒÑ¾­Ã»Ê²Ã´ÓÃÁË¡£\n");
+                set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æ ¹æ–­æ‰çš„é±¼ç«¿ï¼Œçœ‹æ¥å·²ç»æ²¡ä»€ä¹ˆç”¨äº†ã€‚\n");
         }
         setup();
 }

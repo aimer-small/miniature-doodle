@@ -16,7 +16,7 @@ void set_amount(int count)
 
 void create()
 {
-        set_name( HIW "ÒøÂÖ" NOR,({ "yin lun" ,"lun" ,"yinlun" }));
+        set_name( HIW "é“¶è½®" NOR,({ "yin lun" ,"lun" ,"yinlun" }));
         if (clonep())
                 set_default_object(__FILE__);
         else {
@@ -24,17 +24,17 @@ void create()
              set("unique", 5);
              set("rigidity", 3);
              set("base_weight", 15000);
-             set("base_unit", "Ö»");
-             set("unit", "Ğ©");
-             set("long",HIY"ÕâÊÇ¾¶³¤³ß°ë£¬ÓÉ°×ÒøÖı³É£¬ÂÖÉÏÖıÓĞ²ØÎÄµÄÃÜ×ÚÕæÑÔ£¬ÖĞ²Ø¾Å¸öĞ¡ÇòµÄ·¨ÂÖ£¬ËæÊÖÒ»¶¶£¬ÏìÉùÁ¼¾Ã²»¾ø¡£\n" NOR);
+             set("base_unit", "åª");
+             set("unit", "äº›");
+             set("long",HIY"è¿™æ˜¯å¾„é•¿å°ºåŠï¼Œç”±ç™½é“¶é“¸æˆï¼Œè½®ä¸Šé“¸æœ‰è—æ–‡çš„å¯†å®—çœŸè¨€ï¼Œä¸­è—ä¹ä¸ªå°çƒçš„æ³•è½®ï¼Œéšæ‰‹ä¸€æŠ–ï¼Œå“å£°è‰¯ä¹…ä¸ç»ã€‚\n" NOR);
              set("material", "silver");
              set("weapon_prop/dodge", -10);
              set("weapon_prop/parry", 2);
              set("wield_neili", 100);
              set("wield_maxneili", 1200);
              set("wield_str", 23); 
-             set("wield_msg", HIW"\nµ±¡õ¡õÒ»ÕóÏìÁÁ£¬$N´Ó»³ÖĞÈ¡³ö°×Òø·¨ÂÖ¡£ËæÊÖÒ»¶¶£¬ÏìÉùÁ¼¾Ã²»¾ø¡£\n\n"NOR);
-             set("unwield_msg",HIW"$N½«$n"HIY"Ò»°Ú£¬µ±ßÑßÑÒ»ÕóÏì£¬·Å»ØÑü¼ä¡£\n"NOR);
+             set("wield_msg", HIW"\nå½“â–¡â–¡ä¸€é˜µå“äº®ï¼Œ$Nä»æ€€ä¸­å–å‡ºç™½é“¶æ³•è½®ã€‚éšæ‰‹ä¸€æŠ–ï¼Œå“å£°è‰¯ä¹…ä¸ç»ã€‚\n\n"NOR);
+             set("unwield_msg",HIW"$Nå°†$n"HIY"ä¸€æ‘†ï¼Œå½“å“å“ä¸€é˜µå“ï¼Œæ”¾å›è…°é—´ã€‚\n"NOR);
         }
         set_amount(1);
         init_hammer(22);

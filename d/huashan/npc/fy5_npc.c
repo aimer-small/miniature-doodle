@@ -1,6 +1,6 @@
 // tangfeng@SJ 2004
 //inherit NPC;
-// fy5_npc.c  ÐÞ¸Ä³Éfengyi5 questµÄnpc  by lsxk@hsbbs  2007/8/29
+// fy5_npc.c  ä¿®æ”¹æˆfengyi5 questçš„npc  by lsxk@hsbbs  2007/8/29
 
 inherit FIGHTER;
 inherit F_UNIQUE;
@@ -11,10 +11,10 @@ inherit F_UNIQUE;
 //#include "/d/city/npc/skills_pfm.h";
 void create()
 {
-   set_name(HIB"ÃÉÃæ¶ñÈË"NOR, ({ "mengmian eren","eren","killer"}));
-	set("long", "Ò»Î»Ä³ÃÅÅÉµÜ×Ó¡£\n");
-   set("title", BLU"ºÚµÀ¸ßÊÖ"NOR);
-	set("gender", "ÄÐÐÔ");
+   set_name(HIB"è’™é¢æ¶äºº"NOR, ({ "mengmian eren","eren","killer"}));
+	set("long", "ä¸€ä½æŸé—¨æ´¾å¼Ÿå­ã€‚\n");
+   set("title", BLU"é»‘é“é«˜æ‰‹"NOR);
+	set("gender", "ç”·æ€§");
 	set("age", 33);
 	set("attitude", "peaceful");
    set("shen", -4000000-random(1000000));
@@ -51,19 +51,19 @@ void init()
     ob = this_object();
     if(ob->query("setok")) return;
 	  if(!ob->query("party"))	ob->set("party",str_menpai[random(sizeof(str_menpai))]);  	 
-    ob->copy_menpai(({ob->query("party")}),1,random(2),50+random(50));	//¸´ÖÆnpcµÄÃÅÅÉÎä¹¦£¬			
-	  ob->copy_state();				//¸ù¾ÝÃÅÅÉ¸üÐÂnpc µÄÒ»Ð©×´Ì¬
+    ob->copy_menpai(({ob->query("party")}),1,random(2),50+random(50));	//å¤åˆ¶npcçš„é—¨æ´¾æ­¦åŠŸï¼Œ			
+	  ob->copy_state();				//æ ¹æ®é—¨æ´¾æ›´æ–°npc çš„ä¸€äº›çŠ¶æ€
 		if (ob->query("f_skill2")) 
-				good_skills=to_chinese(ob->query("f_skill"))+"ºÍ"+to_chinese(ob->query("f_skill2"));
+				good_skills=to_chinese(ob->query("f_skill"))+"å’Œ"+to_chinese(ob->query("f_skill2"));
 		else	
 				good_skills=to_chinese(ob->query("f_skill"));
-   	ob->set("long",HIW+ob->query("family/family_name")+"¸ßÊÖ£¬³ÉÃû¾ø¼¼£º"+good_skills+"¡£"NOR);
+   	ob->set("long",HIW+ob->query("family/family_name")+"é«˜æ‰‹ï¼Œæˆåç»æŠ€ï¼š"+good_skills+"ã€‚"NOR);
      if(!me->query("quest/hsjf/fy5/meet_killers")) 
 	  {
 		  ob->set_skills_level(350+random(200));
     	return;
     }
-        ob->set("long",HIY"ÕâÊÇÒ»Î»ºÚµÀ¸ßÊÖ£¬Îä¹¦ÒÑ³öÉñÈë»¯,ÏÊÓÐ¶ÔÊÖ£¡\n"NOR);
+        ob->set("long",HIY"è¿™æ˜¯ä¸€ä½é»‘é“é«˜æ‰‹ï¼Œæ­¦åŠŸå·²å‡ºç¥žå…¥åŒ–,é²œæœ‰å¯¹æ‰‹ï¼\n"NOR);
  		ob->set("setok",1);
 	  i=me->query("max_pot");
 	  if(i<350) i=350;
@@ -95,9 +95,9 @@ int do_kill(object me)
 	object ob = this_object();
 	if(!me) return 0;
     if(!me->query_temp("quest/huashan/fy5/killer_killed"))
-        message_vision(HIY"$NÀäÐ¦Ò»ÉùµÀ£º²»ÖªÌì¸ßµØºñ£¬¾¹È»¸ÒÀ´¹Ü"+RANK_D->query_self_rude(ob) +"ÎÒ£¬½ñÌì¾ÍÒªÄãµÄÃü£¡\n"NOR,ob);
+        message_vision(HIY"$Nå†·ç¬‘ä¸€å£°é“ï¼šä¸çŸ¥å¤©é«˜åœ°åŽšï¼Œç«Ÿç„¶æ•¢æ¥ç®¡"+RANK_D->query_self_rude(ob) +"æˆ‘ï¼Œä»Šå¤©å°±è¦ä½ çš„å‘½ï¼\n"NOR,ob);
     else
-        message_vision(HIW"$N³å×Å$n³¤Ð¥Ò»Éù£º¡°´óµ¨Êó±²£¬¾¹¸Ò»µÎÒµÈºÃÊÂ£¬ÁôÄã²»µÃ!\n"NOR,ob,me);
+        message_vision(HIW"$Nå†²ç€$né•¿å•¸ä¸€å£°ï¼šâ€œå¤§èƒ†é¼ è¾ˆï¼Œç«Ÿæ•¢åæˆ‘ç­‰å¥½äº‹ï¼Œç•™ä½ ä¸å¾—!\n"NOR,ob,me);
   command("follow "+me->query("id"));
   ob->set_leader(me);
 	remove_call_out("checking");
@@ -110,7 +110,7 @@ int do_kill(object me)
     return 1;
 }
 
-//¼ì²é£¬quest¹ý³Ì²»ÔÊÐíËÀÍö
+//æ£€æŸ¥ï¼Œquestè¿‡ç¨‹ä¸å…è®¸æ­»äº¡
 int checking(object me, object ob)
 {
 	int ret =  ::checking(me,ob);
@@ -120,7 +120,7 @@ int checking(object me, object ob)
   if(!living(me) && living(ob) && ob->query("jing")>0 && ob->query("jingli")>0 && ob->query("qi")>0  ){
 		remove_call_out("checking");
 		me->set("qi",100);																		
-    log_file("quest/fengyi5", sprintf(HIY"ÓÐ·ïÀ´ÒÇ5Quest¼ÇÂ¼£º%s(%s)"HIW"ÌôÕ½"HIY"µÚ%d¸öÃÉÃæ¶ñÈËÊ§°Ü¡£¾­Ñé%d¡£"NOR, me->name(1),me->query("id"), (int)me->query_temp("quest/huashan/fy5/killer_killed")+1,me->query("combat_exp")) );
+    log_file("quest/fengyi5", sprintf(HIY"æœ‰å‡¤æ¥ä»ª5Questè®°å½•ï¼š%s(%s)"HIW"æŒ‘æˆ˜"HIY"ç¬¬%dä¸ªè’™é¢æ¶äººå¤±è´¥ã€‚ç»éªŒ%dã€‚"NOR, me->name(1),me->query("id"), (int)me->query_temp("quest/huashan/fy5/killer_killed")+1,me->query("combat_exp")) );
                 me->set("jing",100);
                 me->set("jingli",100);
                 me->set("quest/hsjf/fy5/exp",me->query("combat_exp"));
@@ -128,8 +128,8 @@ int checking(object me, object ob)
                 me->add("quest/hsjf/fy5/kill_killer_fail",1);
                 me->set("quest/hsjf/fy5/yanlian","again");
                 me->delete_temp("quest/huashan/fy5");
-          if(!random(3)) tell_room(environment(ob), HIB"\n"+ob->name()+"ºßÁËÒ»Éù£¬×ªÉí¼¸¸öÆðÂä¾Í²»¼ûÁË¡£\n"NOR);
-        else tell_room(environment(ob), HIB"\n"+ob->name()+"ÇáÃïµÄî©ÁË"+me->name()+"Ò»ÑÛµÀ£º¡°ÕâÖÖ±¾ÊÂ¾Í²»ÒªÔÙ³öÀ´¶ªÈËÏÖÑÛÁË!¡±\n"NOR);
+          if(!random(3)) tell_room(environment(ob), HIB"\n"+ob->name()+"å“¼äº†ä¸€å£°ï¼Œè½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n"NOR);
+        else tell_room(environment(ob), HIB"\n"+ob->name()+"è½»è”‘çš„çžŸäº†"+me->name()+"ä¸€çœ¼é“ï¼šâ€œè¿™ç§æœ¬äº‹å°±ä¸è¦å†å‡ºæ¥ä¸¢äººçŽ°çœ¼äº†!â€\n"NOR);
 		destruct(ob);
 		return 1;
 	}
@@ -147,21 +147,21 @@ void do_lost()
 	ob = this_object();
    me = find_player(ob->query("fy5_id"));
 	if(!me) return;
-    log_file("quest/fengyi5", sprintf(HIY"ÓÐ·ïÀ´ÒÇ5Quest¼ÇÂ¼£º%s(%s)"HIW"ÌôÕ½"HIY"µÚ%d¸öÃÉÃæ¶ñÈËÊ§°Ü¡£¾­Ñé%d¡£"NOR, me->name(1),me->query("id"), (int)me->query_temp("quest/huashan/fy5/killer_killed")+1,me->query("combat_exp")) );
+    log_file("quest/fengyi5", sprintf(HIY"æœ‰å‡¤æ¥ä»ª5Questè®°å½•ï¼š%s(%s)"HIW"æŒ‘æˆ˜"HIY"ç¬¬%dä¸ªè’™é¢æ¶äººå¤±è´¥ã€‚ç»éªŒ%dã€‚"NOR, me->name(1),me->query("id"), (int)me->query_temp("quest/huashan/fy5/killer_killed")+1,me->query("combat_exp")) );
     me->set("quest/hsjf/fy5/exp",me->query("combat_exp"));
     me->set("quest/hsjf/fy5/time",time());
     me->add("quest/hsjf/fy5/kill_killer_fail",1);
     me->set("quest/hsjf/fy5/yanlian","again");
     me->delete_temp("quest/huashan/fy5");
-        if(!random(3)) tell_room(environment(ob), HIB"\n"+ob->name()+"ºßÁËÒ»Éù£¬×ªÉí¼¸¸öÆðÂä¾Í²»¼ûÁË¡£\n"NOR);
-        else tell_room(environment(ob), HIB"\n"+ob->name()+"ÇáÃïµÄî©ÁË"+me->name()+"Ò»ÑÛµÀ£º¡°ÕâÖÖ±¾ÊÂ¾Í²»ÒªÔÙ³öÀ´¶ªÈËÏÖÑÛÁË!¡±\n"NOR);
+        if(!random(3)) tell_room(environment(ob), HIB"\n"+ob->name()+"å“¼äº†ä¸€å£°ï¼Œè½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n"NOR);
+        else tell_room(environment(ob), HIB"\n"+ob->name()+"è½»è”‘çš„çžŸäº†"+me->name()+"ä¸€çœ¼é“ï¼šâ€œè¿™ç§æœ¬äº‹å°±ä¸è¦å†å‡ºæ¥ä¸¢äººçŽ°çœ¼äº†!â€\n"NOR);
 	destruct(ob);
 }
 
 void dest(object ob)
 {
   if(!ob) return;
-  tell_room(environment(ob), HIR+"\n"+ob->name()+"ºßÁËÒ»Éù£¬×ªÉí¼¸¸öÆðÂä¾Í²»¼ûÁË¡£\n"NOR);
+  tell_room(environment(ob), HIR+"\n"+ob->name()+"å“¼äº†ä¸€å£°ï¼Œè½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n"NOR);
 	destruct(ob);
 }
 
@@ -185,8 +185,8 @@ void die()
 
     if(!killer->query_condition("fy5_killers")&&(int)killer->query_temp("quest/huashan/fy5/killer_killed")>3){
         if(ob->query("fengyi5_boss")){
-            tell_object(killer,HIM"ÄãÖ»¾õµÃ"+ob->query("name")+"Ê¹µÃ»ªÉ½½£·¨ÆæÌØÎÞ±È£¬¶ÙÊ±ÈÃÄãÏëµ½ÁËÊ¯±ÚÉÏµÄ½£ÕÐ¡£\n"+
-            HIG+"Í»È»Äã¾õµÃÈç¹û¿ÉÒÔÔÙ´Î´§Ä¦ÏÂ£¬»òÐí»áÓÐÐÂµÄ·¢ÏÖ£¡\n"NOR);
+            tell_object(killer,HIM"ä½ åªè§‰å¾—"+ob->query("name")+"ä½¿å¾—åŽå±±å‰‘æ³•å¥‡ç‰¹æ— æ¯”ï¼Œé¡¿æ—¶è®©ä½ æƒ³åˆ°äº†çŸ³å£ä¸Šçš„å‰‘æ‹›ã€‚\n"+
+            HIG+"çªç„¶ä½ è§‰å¾—å¦‚æžœå¯ä»¥å†æ¬¡æ£æ‘©ä¸‹ï¼Œæˆ–è®¸ä¼šæœ‰æ–°çš„å‘çŽ°ï¼\n"NOR);
             killer->delete("quest/hsjf/fy5/meet_killers");
             killer->delete("quest/hsjf/fy5/location");
             killer->set("quest/hsjf/fy5/chuaimo",1);
@@ -195,11 +195,11 @@ void die()
             killer->set("quest/hsjf/fy5/kill_killer_pass",1);
             killer->set("quest/hsjf/fy5/yanlian","pass");
             killer->delete_temp("quest/huashan/fy5");
-            log_file("quest/fengyi5", sprintf(HIG"ÓÐ·ïÀ´ÒÇ5Quest¼ÇÂ¼£º%s(%s)"HIW"³É¹¦"HIG"ÌôÕ½ÃÉÃæ¶ñÈËBOSS¡£¾­Ñé%d¡£"NOR, killer->name(1),killer->query("id"),killer->query("combat_exp")) );
+            log_file("quest/fengyi5", sprintf(HIG"æœ‰å‡¤æ¥ä»ª5Questè®°å½•ï¼š%s(%s)"HIW"æˆåŠŸ"HIG"æŒ‘æˆ˜è’™é¢æ¶äººBOSSã€‚ç»éªŒ%dã€‚"NOR, killer->name(1),killer->query("id"),killer->query("combat_exp")) );
             ::die();
             return;
         }
-    message_vision(HIW"\n¡°¹þ¹þ¹þ£¡¡±£¬Í»È»´«À´Ò»ÕóÀäÐ¦Éù£¬¡°"+RANK_D->query_rude(killer) +"£¡Îä¹¦²»´í°¡£¬¿ÉÏ§¾ÍÒªÈ¥¼ûÑÖÍõÁË£¡¡±\n"NOR,ob,killer);
+    message_vision(HIW"\nâ€œå“ˆå“ˆå“ˆï¼â€ï¼Œçªç„¶ä¼ æ¥ä¸€é˜µå†·ç¬‘å£°ï¼Œâ€œ"+RANK_D->query_rude(killer) +"ï¼æ­¦åŠŸä¸é”™å•Šï¼Œå¯æƒœå°±è¦åŽ»è§é˜ŽçŽ‹äº†ï¼â€\n"NOR,ob,killer);
     newob = new(__DIR__"fy5_npc");
     newob->set("party","hs");
     newob->set("fengyi5_boss",1);
@@ -207,13 +207,13 @@ void die()
     newob->set_name(newob->query("name"), ({ newob->query("id"),"killer"}));
     newob->move(environment(killer));
     killer->add_temp("quest/huashan/fy5/killer_killed",1);
-    log_file("quest/fengyi5", sprintf(HIC"ÓÐ·ïÀ´ÒÇ5Quest¼ÇÂ¼£º%s(%s)"HIW"»ñµÃ"HIC"ÌôÕ½ÃÉÃæ¶ñÈËBOSS»ú»á¡£¾­Ñé%d¡£"NOR, killer->name(1),killer->query("id"),killer->query("combat_exp")) );
+    log_file("quest/fengyi5", sprintf(HIC"æœ‰å‡¤æ¥ä»ª5Questè®°å½•ï¼š%s(%s)"HIW"èŽ·å¾—"HIC"æŒ‘æˆ˜è’™é¢æ¶äººBOSSæœºä¼šã€‚ç»éªŒ%dã€‚"NOR, killer->name(1),killer->query("id"),killer->query("combat_exp")) );
     destruct(ob);
     return;
     }
 
-    message_vision(HIY"\nÍ»È»ÓÖ´Ú³öÒ»¸ö"HIB"ÃÉÃæ¶ñÈË"HIY"£¬¶Ô$N"HIY"½ÐµÀ£º¡°ºß£¡ÄãÇÒ³·ÍË£¬ÈÃÎÒÀ´½ÌÑµ½ÌÑµÕâ¸ö"+RANK_D->query_rude(killer) +"£¡\n"NOR,ob,killer);
-    message_vision(HIR"$N"HIR"Á¬µÀ:¡°ÐÖµÜÐ¡ÐÄ£¬Õâ¸ö"+RANK_D->query_rude(killer) +"ÉíÊÖ²»´í£¡¡±£¬ËµÍê¾Í×ªÉí¼¸¸öÆðÂä²»¼ûÁË¡££¡\n\n"NOR,ob,killer);
+    message_vision(HIY"\nçªç„¶åˆè¹¿å‡ºä¸€ä¸ª"HIB"è’™é¢æ¶äºº"HIY"ï¼Œå¯¹$N"HIY"å«é“ï¼šâ€œå“¼ï¼ä½ ä¸”æ’¤é€€ï¼Œè®©æˆ‘æ¥æ•™è®­æ•™è®­è¿™ä¸ª"+RANK_D->query_rude(killer) +"ï¼\n"NOR,ob,killer);
+    message_vision(HIR"$N"HIR"è¿žé“:â€œå…„å¼Ÿå°å¿ƒï¼Œè¿™ä¸ª"+RANK_D->query_rude(killer) +"èº«æ‰‹ä¸é”™ï¼â€ï¼Œè¯´å®Œå°±è½¬èº«å‡ ä¸ªèµ·è½ä¸è§äº†ã€‚ï¼\n\n"NOR,ob,killer);
     newob = new(__DIR__"fy5_npc");
     newob->move(environment(killer));
     killer->add_temp("quest/huashan/fy5/killer_killed",1);

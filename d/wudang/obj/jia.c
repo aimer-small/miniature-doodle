@@ -2,19 +2,19 @@
 inherit ITEM;
 void create()
 {
-        set_name(HIW "±øÆ÷¼Ü" NOR, ({ "bingqi jia", "jia" }) );         
+        set_name(HIW "å…µå™¨æ¶" NOR, ({ "bingqi jia", "jia" }) );         
         set_weight(30000000);
         if( clonep() )
                 set_default_object(__FILE__);
         else{
-        set("unit", "¸ö");
-        set("long", "ÕâÊÇÒ»¸ö×¨ÃÅÓÃÀ´·Å¸÷ÖÖ±øÆ÷µÄ¼Ü×Ó¡£
-ÀïÃæÓĞ£º
-       ¸Öµ¶(blade)£¬        ³¤½£(jian)£¬
-       Ä¾µ¶(mudao)£¬        Öñ½£(zhujian)£¬ 
-       Ç¦´ü(dai)£¬          µÀÂÄ(lv)£¬
+        set("unit", "ä¸ª");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªä¸“é—¨ç”¨æ¥æ”¾å„ç§å…µå™¨çš„æ¶å­ã€‚
+é‡Œé¢æœ‰ï¼š
+       é’¢åˆ€(blade)ï¼Œ        é•¿å‰‘(jian)ï¼Œ
+       æœ¨åˆ€(mudao)ï¼Œ        ç«¹å‰‘(zhujian)ï¼Œ 
+       é“…è¢‹(dai)ï¼Œ          é“å±¥(lv)ï¼Œ
 
-µÈÎäÆ÷»¤¾ß¡£\n");
+ç­‰æ­¦å™¨æŠ¤å…·ã€‚\n");
         set("material","wood");
         set("no_get",1);
         }
@@ -31,11 +31,11 @@ int do_get(string arg)
   string arg1,arg2;
   me=this_player();
   if(!arg || sscanf(arg, "%s from %s", arg1, arg2)!=2)
-   return notify_fail("ÃüÁî¸ñÊ½: get <±øÆ÷Ãû³Æ> from jia¡£\n");
+   return notify_fail("å‘½ä»¤æ ¼å¼: get <å…µå™¨åç§°> from jiaã€‚\n");
   if (arg2!="jia")
-     return notify_fail("ÃüÁî¸ñÊ½: get <±øÆ÷Ãû³Æ> from jia¡£\n");
+     return notify_fail("å‘½ä»¤æ ¼å¼: get <å…µå™¨åç§°> from jiaã€‚\n");
   if(present(arg1, me) || present(arg1, environment()))
-     return notify_fail("ÒÑ¾­ÓĞÕâÑù¶«Î÷ÁË¡£\n");
+     return notify_fail("å·²ç»æœ‰è¿™æ ·ä¸œè¥¿äº†ã€‚\n");
     switch (arg1){
           case "jian": ob=new("/clone/weapon/changjian"); break;             
           case "blade": ob=new("/clone/weapon/blade"); break;   
@@ -44,9 +44,9 @@ int do_get(string arg)
           case "dai": ob=new("/d/wudang/obj/qiandai"); break;   
           case "lv": ob=new("/d/wudang/obj/daolv"); break;   
           default :
-                 return notify_fail("Ã»ÓĞÕâÖÖ±øÆ÷¡£\n");
+                 return notify_fail("æ²¡æœ‰è¿™ç§å…µå™¨ã€‚\n");
           }
      if(ob) ob->move(me);
-       message_vision("$N´Ó±øÆ÷¼ÜÉÏÄÃ³öÒ»¼ş$n¡£\n",me, ob);  
+       message_vision("$Nä»å…µå™¨æ¶ä¸Šæ‹¿å‡ºä¸€ä»¶$nã€‚\n",me, ob);  
        return 1;
 }

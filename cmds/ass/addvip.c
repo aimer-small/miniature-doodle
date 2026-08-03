@@ -49,7 +49,7 @@ int main(object me, string arg)
 	
 	if (sscanf(arg, "%s -m", key) == 1) {
 		if (!stringp(key) || sscanf(key, "%*s@%*s.%*s") != 3) 
-			return notify_fail("ÄúÒªËÑË÷µÄµç×ÓÓÊ¼şµØÖ·´íÎó¡£ \n");
+			return notify_fail("æ‚¨è¦æœç´¢çš„ç”µå­é‚®ä»¶åœ°å€é”™è¯¯ã€‚ \n");
 		search_viplist(me,key,0);
 		return 1;
 	}
@@ -63,73 +63,73 @@ int main(object me, string arg)
 
 	if (sscanf(arg, "%s %s %s %d", site, player, mail, day) == 4) {
 		if (wiz_level(me)<4)
-			return notify_fail("Ö»ÓĞarch²Å¿ÉÒÔ½«Íæ¼ÒÁĞÈëVIP×Ü¹ÜÀíÃûµ¥¡£ \n");
+			return notify_fail("åªæœ‰archæ‰å¯ä»¥å°†ç©å®¶åˆ—å…¥VIPæ€»ç®¡ç†åå•ã€‚ \n");
 			
 	   site = lower_case(site);
 	   player = lower_case(player);
 	    if ( site!="ln"&& site!="ln2" && site!="bx" && site!="ty" && site!="cq") 
-           	 	return notify_fail("±ØĞëÊÇLN,LN2,BX,TY,CQÕâ¼¸¸öÕ¾µÄÍæ¼Ò!\n");
+           	 	return notify_fail("å¿…é¡»æ˜¯LN,LN2,BX,TY,CQè¿™å‡ ä¸ªç«™çš„ç©å®¶!\n");
 	    if (!stringp(mail) || sscanf(mail, "%*s@%*s.%*s") != 3) 
-			return notify_fail("µç×ÓÓÊ¼şµØÖ·´íÎó¡£ \n");
+			return notify_fail("ç”µå­é‚®ä»¶åœ°å€é”™è¯¯ã€‚ \n");
 		site = upper_case(site);
 		i = search_mail(mail);
 		if (i > 0) {
-			write(" "+HIY+mail+NOR+" Õâ¸öĞÅÏäµØÖ·ÒÑ¾­ÓĞÈËÊ¹ÓÃÁË£¬±àºÅÎª£º" + HIW + i + NOR + " ¡£");
+			write(" "+HIY+mail+NOR+" è¿™ä¸ªä¿¡ç®±åœ°å€å·²ç»æœ‰äººä½¿ç”¨äº†ï¼Œç¼–å·ä¸ºï¼š" + HIW + i + NOR + " ã€‚");
 			search_viplist(me,mail,0);
 			return 1;
 		
 		}
 		i = search_player(player,site);
 		if (i > 0) {
-			write(" "+HIY+player+"@"+site+NOR+" Õâ¸öÍæ¼ÒÒÑ¾­µÇ¼Ç¹ıÁË£¬±àºÅÎª£º" + HIW + i + NOR + " ¡£");
+			write(" "+HIY+player+"@"+site+NOR+" è¿™ä¸ªç©å®¶å·²ç»ç™»è®°è¿‡äº†ï¼Œç¼–å·ä¸ºï¼š" + HIW + i + NOR + " ã€‚");
 			search_viplist(me,player,1);
 			return 1;
 		
 		}
 	
 		note = allocate_mapping(6);
-		note["time"] = time(); 	//Ê±¼ä
-		note["wiz"] = me->query("id"); //´¦ÀíÎ×Ê¦
-		note["player"] = player+"@"+site; //¹ó±öID¾
-		note["mail"] = mail; 	//¹ó±öĞÅÏä
-		note["day"] = sprintf("%d",day); 	//¹ó±öÊ±¼ä
-		note["renew"] = NULL;	//ÊÇ·ñĞø·Ñ
+		note["time"] = time(); 	//æ—¶é—´
+		note["wiz"] = me->query("id"); //å¤„ç†å·«å¸ˆ
+		note["player"] = player+"@"+site; //è´µå®¾IDï¿½
+		note["mail"] = mail; 	//è´µå®¾ä¿¡ç®±
+		note["day"] = sprintf("%d",day); 	//è´µå®¾æ—¶é—´
+		note["renew"] = NULL;	//æ˜¯å¦ç»­è´¹
 		
         if( !pointerp(notes) || !sizeof(notes) )
                 notes = ({ note });
         else
                 notes += ({ note });
 		save();
-		write("Äã°Ñ " + HIY + player + "@" + site + NOR + " ³É¹¦µØÁĞÈëVIP×Ü¹ÜÀíÃûµ¥£¬¸ÃÍæ¼Ò×¢²áĞÅÏäÎª "+HIY+mail+NOR"£¬¹ó±öÓĞĞ§ÆÚÎª "+HIY+day+NOR+" Ìì¡£\n");
+		write("ä½ æŠŠ " + HIY + player + "@" + site + NOR + " æˆåŠŸåœ°åˆ—å…¥VIPæ€»ç®¡ç†åå•ï¼Œè¯¥ç©å®¶æ³¨å†Œä¿¡ç®±ä¸º "+HIY+mail+NOR"ï¼Œè´µå®¾æœ‰æ•ˆæœŸä¸º "+HIY+day+NOR+" å¤©ã€‚\n");
 		return 1;
 	}
 
 	if (sscanf(arg, "-d %d", num)== 1) {
 		if ( wiz_level(me)<4 )
-			return notify_fail("Ö»ÓĞarch²Å¿ÉÒÔÉ¾³ıVIP×Ü¹ÜÀíÃûµ¥ÉÏµÄÄÚÈİ¡£ \n");
+			return notify_fail("åªæœ‰archæ‰å¯ä»¥åˆ é™¤VIPæ€»ç®¡ç†åå•ä¸Šçš„å†…å®¹ã€‚ \n");
 		if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-			return notify_fail("VIP×Ü¹ÜÀíÃûµ¥ÉÏÃ»ÓĞÕâ¸ö±àºÅµÄÄÚÈİ¡£\n");
+			return notify_fail("VIPæ€»ç®¡ç†åå•ä¸Šæ²¡æœ‰è¿™ä¸ªç¼–å·çš„å†…å®¹ã€‚\n");
 		num--;
 		notes = notes[0..num-1] + notes[num+1..<1];
 		save();
-		write("µÚ "+HIY+ (num+1) +NOR+ " ºÅVIP×Ü¹ÜÀíÃûµ¥µÄÄÚÈİÒÑ¾­É¾³ı¡£\n");
+		write("ç¬¬ "+HIY+ (num+1) +NOR+ " å·VIPæ€»ç®¡ç†åå•çš„å†…å®¹å·²ç»åˆ é™¤ã€‚\n");
 		return 1;
 	}
 
 	if (sscanf(arg, "-r %d %d", num, renew)== 2) {
 		if ( wiz_level(me)<4 )
-			return notify_fail("Ö»ÓĞarch²Å¿ÉÒÔĞŞ¸ÄVIP×Ü¹ÜÀíÃûµ¥ÉÏµÄÄÚÈİ¡£ \n");
+			return notify_fail("åªæœ‰archæ‰å¯ä»¥ä¿®æ”¹VIPæ€»ç®¡ç†åå•ä¸Šçš„å†…å®¹ã€‚ \n");
 		if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-			return notify_fail("VIP×Ü¹ÜÀíÃûµ¥ÉÏÃ»ÓĞÕâ¸ö±àºÅµÄÄÚÈİ¡£\n");
+			return notify_fail("VIPæ€»ç®¡ç†åå•ä¸Šæ²¡æœ‰è¿™ä¸ªç¼–å·çš„å†…å®¹ã€‚\n");
 		notes[num-1]["renewwiz"]=me->query("id");
 		notes[num-1]["renew"]=renew;
 		save();
-		write("µÚ "+HIY+ (num) + NOR+" ºÅVIP×Ü¹ÜÀíÃûµ¥µÄĞø·ÑÒÑ¾­Íê±Ï¡£\n");
+		write("ç¬¬ "+HIY+ (num) + NOR+" å·VIPæ€»ç®¡ç†åå•çš„ç»­è´¹å·²ç»å®Œæ¯•ã€‚\n");
 		return 1;
 	}
 
 
-	write("Óï·¨´íÎó£¬Çëhelp addvip¡£\n");
+	write("è¯­æ³•é”™è¯¯ï¼Œè¯·help addvipã€‚\n");
 	return 1;
 }
 
@@ -145,12 +145,12 @@ void list_viplist(object me, int num)
 	string str;
 
 	i = sizeof(notes);
-	if( i < 1 ) write("Êé½£VIP×Ü¹ÜÀíÃûµ¥Ä¿Ç°Ã»ÓĞÈÎºÎÄÚÈİ¡£\n");
+	if( i < 1 ) write("ä¹¦å‰‘VIPæ€»ç®¡ç†åå•ç›®å‰æ²¡æœ‰ä»»ä½•å†…å®¹ã€‚\n");
 	else {
-		str="Êé½£VIP×Ü¹ÜÀíÃûµ¥£º\n";
-		str += repeat_string("©¥", 55) + "\n";
+		str="ä¹¦å‰‘VIPæ€»ç®¡ç†åå•ï¼š\n";
+		str += repeat_string("â”", 55) + "\n";
 		while (i-- && (i>=sizeof(notes)-num || num==0)) {
-			str += sprintf("%3d %s %-12sĞÅÏä£º%-=20s ÈÕÆÚ£º%s Ìì   ´¦ÀíÎ×Ê¦£º%s£¬%s\n",
+			str += sprintf("%3d %s %-12sä¿¡ç®±ï¼š%-=20s æ—¥æœŸï¼š%s å¤©   å¤„ç†å·«å¸ˆï¼š%sï¼Œ%s\n",
 				i+1,
 				ctime(notes[i]["time"])[4..15],
 				capitalize(notes[i]["player"]),
@@ -158,11 +158,11 @@ void list_viplist(object me, int num)
 				notes[i]["day"],
 				capitalize(notes[i]["wiz"]),
 				notes[i]["renew"]?
-					("Ğø·Ñ£º"+notes[i]["renew"]+
-						" Ìì Ğø·ÑÎ×Ê¦£º"+capitalize(notes[i]["renewwiz"]))
-					:"¸ÃÍæ¼ÒÃ»ÓĞĞø·Ñ"
+					("ç»­è´¹ï¼š"+notes[i]["renew"]+
+						" å¤© ç»­è´¹å·«å¸ˆï¼š"+capitalize(notes[i]["renewwiz"]))
+					:"è¯¥ç©å®¶æ²¡æœ‰ç»­è´¹"
 			);
-			str += repeat_string("©¥", 55) + "\n";
+			str += repeat_string("â”", 55) + "\n";
 		}
 	}
 	me->start_more( str );
@@ -191,12 +191,12 @@ void do_read(object me, int i)
 {
     string s;
     if( i > sizeof(notes) || i < 1) {
-	write("Êé½£VIP×Ü¹ÜÀíÃûµ¥ÖĞÎŞ´Ë±àºÅ!!\n");
+	write("ä¹¦å‰‘VIPæ€»ç®¡ç†åå•ä¸­æ— æ­¤ç¼–å·!!\n");
 	return;
     }
-    s="Êé½£VIP×Ü¹ÜÀíÃûµ¥±àºÅ£º"+HIG+i+NOR+"\n";
-    s += repeat_string("©¥", 55) + "\n";
-    s += sprintf("%3d %s %-12sĞÅÏä£º%-=20s ÈÕÆÚ£º%s Ìì   ´¦ÀíÎ×Ê¦£º%s£¬%s\n",
+    s="ä¹¦å‰‘VIPæ€»ç®¡ç†åå•ç¼–å·ï¼š"+HIG+i+NOR+"\n";
+    s += repeat_string("â”", 55) + "\n";
+    s += sprintf("%3d %s %-12sä¿¡ç®±ï¼š%-=20s æ—¥æœŸï¼š%s å¤©   å¤„ç†å·«å¸ˆï¼š%sï¼Œ%s\n",
 				i,
 				ctime(notes[i-1]["time"])[4..15],
 				capitalize(notes[i-1]["player"]),
@@ -204,11 +204,11 @@ void do_read(object me, int i)
 				notes[i-1]["day"],
 				capitalize(notes[i-1]["wiz"]),
 				notes[i-1]["renew"]?
-					("Ğø·Ñ£º"+notes[i-1]["renew"]+
-						" Ìì Ğø·ÑÎ×Ê¦£º"+capitalize(notes[i-1]["renewwiz"]))
-					:"¸ÃÍæ¼ÒÃ»ÓĞĞø·Ñ"
+					("ç»­è´¹ï¼š"+notes[i-1]["renew"]+
+						" å¤© ç»­è´¹å·«å¸ˆï¼š"+capitalize(notes[i-1]["renewwiz"]))
+					:"è¯¥ç©å®¶æ²¡æœ‰ç»­è´¹"
 			);
-    s += repeat_string("©¥", 55) + "\n";
+    s += repeat_string("â”", 55) + "\n";
 			
     me->start_more(s);
 }
@@ -219,14 +219,14 @@ void search_viplist(object me, string arg, int flag)
 	str2 = "";
 
 	i = sizeof(notes) -1;
-	if( i < 0 ) write("Êé½£VIP×Ü¹ÜÀíÃûµ¥Ä¿Ç°Ã»ÓĞÈÎºÎÄÚÈİ£¬ÎŞ·¨½øĞĞËÑË÷¡£\n");
+	if( i < 0 ) write("ä¹¦å‰‘VIPæ€»ç®¡ç†åå•ç›®å‰æ²¡æœ‰ä»»ä½•å†…å®¹ï¼Œæ— æ³•è¿›è¡Œæœç´¢ã€‚\n");
 	else {
-		str="Êé½£VIP×Ü¹ÜÀíÃûµ¥£¬Äúµ±Ç°ËÑË÷µÄ¹Ø¼ü×ÖÊÇ£º" + HIY + arg + NOR"\n";
-		str += repeat_string("©¥", 55) + "\n";
+		str="ä¹¦å‰‘VIPæ€»ç®¡ç†åå•ï¼Œæ‚¨å½“å‰æœç´¢çš„å…³é”®å­—æ˜¯ï¼š" + HIY + arg + NOR"\n";
+		str += repeat_string("â”", 55) + "\n";
 		while (i>=0) {
 			
 			if (notes[i]["mail"] == arg){
-			str2 += sprintf("%3d %s %-12sĞÅÏä£º"HBRED+HIY"%-=20s "+NOR+"ÈÕÆÚ£º%s Ìì   ´¦ÀíÎ×Ê¦£º%s£¬%s\n",
+			str2 += sprintf("%3d %s %-12sä¿¡ç®±ï¼š"HBRED+HIY"%-=20s "+NOR+"æ—¥æœŸï¼š%s å¤©   å¤„ç†å·«å¸ˆï¼š%sï¼Œ%s\n",
 				i+1,
 				ctime(notes[i]["time"])[4..15],
 				capitalize(notes[i]["player"]),
@@ -234,15 +234,15 @@ void search_viplist(object me, string arg, int flag)
 				notes[i]["day"],
 				capitalize(notes[i]["wiz"]),
 				notes[i]["renew"]?
-					("Ğø·Ñ£º"+notes[i]["renew"]+
-						" Ìì Ğø·ÑÎ×Ê¦£º"+capitalize(notes[i]["renewwiz"]))
-					:"¸ÃÍæ¼ÒÃ»ÓĞĞø·Ñ"
+					("ç»­è´¹ï¼š"+notes[i]["renew"]+
+						" å¤© ç»­è´¹å·«å¸ˆï¼š"+capitalize(notes[i]["renewwiz"]))
+					:"è¯¥ç©å®¶æ²¡æœ‰ç»­è´¹"
 			);
-			str2 += repeat_string("©¥", 55) + "\n";
+			str2 += repeat_string("â”", 55) + "\n";
 		}
 		
 			if (strsrch(notes[i]["player"],arg) > -1 && flag){
-			str2 += sprintf("%3d %s %-12sĞÅÏä£º%-=20s ÈÕÆÚ£º%s Ìì   ´¦ÀíÎ×Ê¦£º%s£¬%s\n",
+			str2 += sprintf("%3d %s %-12sä¿¡ç®±ï¼š%-=20s æ—¥æœŸï¼š%s å¤©   å¤„ç†å·«å¸ˆï¼š%sï¼Œ%s\n",
 				i+1,
 				ctime(notes[i]["time"])[4..15],
 				HBRED+HIY+capitalize(notes[i]["player"])+NOR,
@@ -250,18 +250,18 @@ void search_viplist(object me, string arg, int flag)
 				notes[i]["day"],
 				capitalize(notes[i]["wiz"]),
 				notes[i]["renew"]?
-					("Ğø·Ñ£º"+notes[i]["renew"]+
-						" Ìì Ğø·ÑÎ×Ê¦£º"+capitalize(notes[i]["renewwiz"]))
-					:"¸ÃÍæ¼ÒÃ»ÓĞĞø·Ñ"
+					("ç»­è´¹ï¼š"+notes[i]["renew"]+
+						" å¤© ç»­è´¹å·«å¸ˆï¼š"+capitalize(notes[i]["renewwiz"]))
+					:"è¯¥ç©å®¶æ²¡æœ‰ç»­è´¹"
 			);
-			str2 += repeat_string("©¥", 55) + "\n";			
+			str2 += repeat_string("â”", 55) + "\n";			
 		}
 		i--;
 		}
 		if (str2==""){
-			str += "Ã»ÓĞÕÒµ½ÓÃ " + arg + " ÎªĞÅÏäµÄ¹ó±öÍæ¼Ò¡£\n";
-			str += "ÇëÈ·ÈÏ¸ÃĞÅÏäÊÇ·ñÎªÕıÊ½½É·ÑĞÅÏä£¬Èç¹ûÊÇ£¬ÇëÏÈµÇ¼Ç£¬È»ºóÔÚÓÎÏ·ÖĞ¼ÓÍæ¼ÒµÄ¹ó±öÊ±¼ä¡£\n";
-			str += repeat_string("©¥", 55) + "\n";	
+			str += "æ²¡æœ‰æ‰¾åˆ°ç”¨ " + arg + " ä¸ºä¿¡ç®±çš„è´µå®¾ç©å®¶ã€‚\n";
+			str += "è¯·ç¡®è®¤è¯¥ä¿¡ç®±æ˜¯å¦ä¸ºæ­£å¼ç¼´è´¹ä¿¡ç®±ï¼Œå¦‚æœæ˜¯ï¼Œè¯·å…ˆç™»è®°ï¼Œç„¶ååœ¨æ¸¸æˆä¸­åŠ ç©å®¶çš„è´µå®¾æ—¶é—´ã€‚\n";
+			str += repeat_string("â”", 55) + "\n";	
 		}
 		else
 			str = str + str2;	
@@ -272,25 +272,25 @@ void search_viplist(object me, string arg, int flag)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ :
-addvip [site] [player] [mail] [day] Ôö¼ÓĞÂÍæ¼Òµ½ Êé½£VIP¹ÜÀí ×ÜÁĞ±í
-site 	ÊÇËùÔÚÊé½£Õ¾µã£¬µ±Ç°Ö»ÔÊĞí LN,LN2,BX,TY,CQÕâ¼¸¸öÕ¾µÄÍæ¼Ò 
-player 	ÊÇÍæ¼ÒID
-mail	ÊÇÍæ¼ÒÉêÇë¹ó±öÊ±ºòµÄÓĞĞ§°ÙĞÕEmail
-day	ÊÇÍæ¼ÒµÄ¹ó±öÓĞĞ§ÆÚ
+æŒ‡ä»¤æ ¼å¼ :
+addvip [site] [player] [mail] [day] å¢åŠ æ–°ç©å®¶åˆ° ä¹¦å‰‘VIPç®¡ç† æ€»åˆ—è¡¨
+site 	æ˜¯æ‰€åœ¨ä¹¦å‰‘ç«™ç‚¹ï¼Œå½“å‰åªå…è®¸ LN,LN2,BX,TY,CQè¿™å‡ ä¸ªç«™çš„ç©å®¶ 
+player 	æ˜¯ç©å®¶ID
+mail	æ˜¯ç©å®¶ç”³è¯·è´µå®¾æ—¶å€™çš„æœ‰æ•ˆç™¾å§“Email
+day	æ˜¯ç©å®¶çš„è´µå®¾æœ‰æ•ˆæœŸ
 
-addvip [num] ²é¿´¾ßÌåÄ³¸ö±àºÅµÄ¾ßÌå
-num	ÊÇÁĞ±íÖĞµÄ±àºÅ
+addvip [num] æŸ¥çœ‹å…·ä½“æŸä¸ªç¼–å·çš„å…·ä½“
+num	æ˜¯åˆ—è¡¨ä¸­çš„ç¼–å·
 
-addvip [key] -m °´ÕÕkeyÎª¹Ø¼ü×Ö£¬²éÕÒÓĞÃ»ÓĞÊ¹ÓÃ[key]Îª×¢²áĞÅÏäµÄÍæ¼Ò¡£
-addvip [key] -p °´ÕÕkeyÎª¹Ø¼ü×Ö£¬²éÕÒÓĞÃ»ÓĞÊ¹ÓÃ[key]µÄÍæ¼Ò¡£
+addvip [key] -m æŒ‰ç…§keyä¸ºå…³é”®å­—ï¼ŒæŸ¥æ‰¾æœ‰æ²¡æœ‰ä½¿ç”¨[key]ä¸ºæ³¨å†Œä¿¡ç®±çš„ç©å®¶ã€‚
+addvip [key] -p æŒ‰ç…§keyä¸ºå…³é”®å­—ï¼ŒæŸ¥æ‰¾æœ‰æ²¡æœ‰ä½¿ç”¨[key]çš„ç©å®¶ã€‚
 
-addvip -d [num] É¾³ıÒ»Ìõ¼ÇÂ¼
-num	ÊÇÁĞ±íÖĞµÄ±àºÅ
+addvip -d [num] åˆ é™¤ä¸€æ¡è®°å½•
+num	æ˜¯åˆ—è¡¨ä¸­çš„ç¼–å·
 
-addvip -r [num] [day] Ğø·Ñ¹ı³Ì
-num	ÊÇÁĞ±íÖĞµÄ±àºÅ
-day	ÊÇĞø·ÑµÄ¾ßÌåÊ±¼ä
+addvip -r [num] [day] ç»­è´¹è¿‡ç¨‹
+num	æ˜¯åˆ—è¡¨ä¸­çš„ç¼–å·
+day	æ˜¯ç»­è´¹çš„å…·ä½“æ—¶é—´
 
 HELP);
  

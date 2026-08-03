@@ -11,9 +11,9 @@ void create()
 	string weapon;
 	weapon = k_weapon[random(sizeof(k_weapon))];
 
-	set_name("ÖĞ¾üÊÌÎÀ", ({ "zhongjun shiwei", "shiwei" }));
-	set("gender", "ÄĞĞÔ");
-	set("long", "ÕâÊÇ¸ºÔğ±£»¤ÃÉ¹Å´óººµÄÖĞ¾üÊÌÎÀ£¬Ë«Ä¿ÓĞÉñ£¬ÂúÁ³ºúĞë¡£\n");
+	set_name("ä¸­å†›ä¾å«", ({ "zhongjun shiwei", "shiwei" }));
+	set("gender", "ç”·æ€§");
+	set("long", "è¿™æ˜¯è´Ÿè´£ä¿æŠ¤è’™å¤å¤§æ±‰çš„ä¸­å†›ä¾å«ï¼ŒåŒç›®æœ‰ç¥ï¼Œæ»¡è„¸èƒ¡é¡»ã€‚\n");
 	set("age", random(20)+25);
 	set("str", 20+random(5));
 	set("int",20+random(5));
@@ -59,14 +59,14 @@ void init()
 	if(!ob->query_temp("gb_job3")
     	 && (file_name(environment(ob)))[0..13]=="/d/gb/zhongjun"
     	 && userp(ob) && !wizardp(ob)){
-	    	command("say Ê²Ã´ÈË¾¹È»ÉÃ´³ÖĞ¾ü£¡À´ÈË£¬·Å¼ı£¡\n");
-    		message_vision("Ò»ÕóÂÒ¼ıÉäÀ´£¬$Nµ¹ÔÚÑª²´Ö®ÖĞ¡£\n",ob);
-		ob->set_temp("last_damage_from","±»ÂÒ¼ıÉä");
+	    	command("say ä»€ä¹ˆäººç«Ÿç„¶æ“…é—¯ä¸­å†›ï¼æ¥äººï¼Œæ”¾ç®­ï¼\n");
+    		message_vision("ä¸€é˜µä¹±ç®­å°„æ¥ï¼Œ$Nå€’åœ¨è¡€æ³Šä¹‹ä¸­ã€‚\n",ob);
+		ob->set_temp("last_damage_from","è¢«ä¹±ç®­å°„");
     		ob->die();
     		return;
 	}
 
-   	command("say ´óµ¨£¡£¡£¡\n");
+   	command("say å¤§èƒ†ï¼ï¼ï¼\n");
 
 	killerskill1 = skill2[random(sizeof(skill2))];
 	number = number - 15 + random(20);

@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÇàÊ¯´óµÀ");
+	set("short", "é’çŸ³å¤§é“");
 	set("long", @LONG
-Äã×ßÔÚÒ»ÌõÇàÊ¯´óµÀÉÏ£¬ÈËÀ´ÈËÍù·Ç³£·±Ã¦£¬²»Ê±ÓĞÈËÆï×ÅÂí´Ò´Ò¶ø¹ı¡£
-´óµÀÍùÄÏ½øÈëºşÄÏ¾³ÄÚ¡£±±±ßÍ¨ÏòÏåÑô³Ç¡£
+ä½ èµ°åœ¨ä¸€æ¡é’çŸ³å¤§é“ä¸Šï¼Œäººæ¥äººå¾€éå¸¸ç¹å¿™ï¼Œä¸æ—¶æœ‰äººéª‘ç€é©¬åŒ†åŒ†è€Œè¿‡ã€‚
+å¤§é“å¾€å—è¿›å…¥æ¹–å—å¢ƒå†…ã€‚åŒ—è¾¹é€šå‘è¥„é˜³åŸã€‚
 LONG
 	);
-        set("outdoors", "ÏåÑô");
+        set("outdoors", "è¥„é˜³");
 	set("xyjob", "1"); 
 	set("exits", ([
 		"south" : __DIR__"outsroad3",
@@ -24,6 +24,6 @@ int valid_leave(object me, string dir)
      mapping exits = query("exits");
      if (!load_object(exits[dir])->query("xyjob") 
      && me->query_temp("xyjob"))
-              return notify_fail("ÄãÏëÁÙÕóÍÑÌÓÃ´£¿\n");
+              return notify_fail("ä½ æƒ³ä¸´é˜µè„±é€ƒä¹ˆï¼Ÿ\n");
      return ::valid_leave(me, dir);
  }

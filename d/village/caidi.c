@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-       set("short","²ËµØ");
+       set("short","èœåœ°");
        set("long", @LONG
-ÕâÀïÊÇ»ªÉ½´åÃñÃÇÀµÒÔÎªÉúµÄ²ËµØ£¬¿Õ¿õµÄÒ»Æ¬£¬ÄãÒ»ÑÛÍü²»µ½Í·£¬Äã×ß
-×Å×ß×Å£¬ºöÈ»Íü¼ÇÁËÀ´Ê±µÄÂ·ÁË¡£
+è¿™é‡Œæ˜¯åå±±æ‘æ°‘ä»¬èµ–ä»¥ä¸ºç”Ÿçš„èœåœ°ï¼Œç©ºæ—·çš„ä¸€ç‰‡ï¼Œä½ ä¸€çœ¼å¿˜ä¸åˆ°å¤´ï¼Œä½ èµ°
+ç€èµ°ç€ï¼Œå¿½ç„¶å¿˜è®°äº†æ¥æ—¶çš„è·¯äº†ã€‚
 LONG
      );
 
@@ -39,15 +39,15 @@ void init()
 int valid_leave(object me, string dir)
 {
 	if (random(10) < 6)
-		me->add_temp("mark/²½Êı",1);
+		me->add_temp("mark/æ­¥æ•°",1);
 	if (random(10) > 8)
-		me->add_temp("mark/²½Êı",-1); 
+		me->add_temp("mark/æ­¥æ•°",-1); 
         
-	if (me->query_temp("mark/²½Êı") > 9)
+	if (me->query_temp("mark/æ­¥æ•°") > 9)
 	{
 		me->move(__DIR__"zhongxin");
-		me->delete_temp("mark/²½Êı");
-		return notify_fail("ÄãÂÒ×ßÁËÒ»Í¨£¬¾ÓÈ»·¢ÏÖ×Ô¼º×ß»ØÁËÔ­µØ¡£\n");
+		me->delete_temp("mark/æ­¥æ•°");
+		return notify_fail("ä½ ä¹±èµ°äº†ä¸€é€šï¼Œå±…ç„¶å‘ç°è‡ªå·±èµ°å›äº†åŸåœ°ã€‚\n");
 	}  
 
 	return ::valid_leave(me, dir);

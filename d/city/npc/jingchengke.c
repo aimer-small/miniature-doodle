@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("¾©³Ç¿Í", ({ "jingcheng ke", "ke" }) );
-        set("long","Ëû²Ù×ÅÂú×ìµÄ¾©Æ¬×Ó£¬Ã÷ÏÔÊÇ´Ó¾©³ÇÀ´µÄ¡£\n");
+        set_name("äº¬åŸå®¢", ({ "jingcheng ke", "ke" }) );
+        set("long","ä»–æ“ç€æ»¡å˜´çš„äº¬ç‰‡å­ï¼Œæ˜æ˜¾æ˜¯ä»äº¬åŸæ¥çš„ã€‚\n");
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 30);
         set("attitude", "peaceful");
         set("shen_type", 0);

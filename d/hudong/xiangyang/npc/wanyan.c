@@ -2,10 +2,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÍêÑÕÆ¼", ({ "wanyan ping","wanyan","ping" }) );
-        set("gender", "Å®ĞÔ" );
+        set_name("å®Œé¢œè", ({ "wanyan ping","wanyan","ping" }) );
+        set("gender", "å¥³æ€§" );
         set("age", 26);
-        set("long", "ËıÃæÄ¿³ş³ş£¬ÊÇÌúÕÆÕÆ·¨µÄ´«ÈË¡£\n");
+        set("long", "å¥¹é¢ç›®æ¥šæ¥šï¼Œæ˜¯é“æŒæŒæ³•çš„ä¼ äººã€‚\n");
         set("attitude", "friendly");
         set("str", 35);
         set("con", 30);
@@ -37,7 +37,7 @@ void create()
         map_skill("parry", "tiezhang-zhangfa");
         prepare_skill("strike", "tiezhang-zhangfa");
 
-        create_family("ÌúÕÆ°ï", 16, "´«ÈË");
+        create_family("é“æŒå¸®", 16, "ä¼ äºº");
 
         setup();
         carry_object("/d/city/obj/cloth")->wear();

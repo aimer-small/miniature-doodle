@@ -1,16 +1,16 @@
-// yinsuo-jinling.c ÒøË÷½ğÁå
+// yinsuo-jinling.c é“¶ç´¢é‡‘é“ƒ
 // By River
 #include <ansi.h>
 inherit SKILL;
 
 string  *msg = ({
-"$N×óÊÖÇáÑï£¬ÊÖÖĞ$wºöµØË¦ÁË³öÀ´£¬Ö±ÆË$nµÄ$l¡£ÎŞÉùÎŞÏ¢£¬ÊÂÏÈ¾¹Ã»°ëµãëŞÕ×",
-"$NÊÖ³Ö$w½ÃÊ¸ËÆÁéÉß»÷Ïò$n£¬ÔÙ¼ÓÁ½Ã¶½ğÇò²»¶Ï·¢³öçàçàÖ®Éù£¬¸üÊÇÈÅÈËĞÄÆÇ",
-"$nÓÖÌıµÃ½ğÇòÖĞ·¢³öçàçàÉùÏì£¬ÉùËä²»´ó£¬È´ÊÇÊ®·Ö¹ÖÒì£¬Èë¶úµ´ĞÄÒ¡ÆÇ¡£",
-"$NÉíĞÎÒ»±ä£¬×ªÊÖÒ»»Ó$w£¬$n´ó¾ªÖ®ÏÂ£¬Éí×ÓááÑö£¬$wÀëÁ³Êı´ç¼±ÂÓ¶ø¹ı",
-"$NÊÖÍóÎ¢¶¶£¬$w·­½«¹ıÈ¥£¬×ÔÏÂ¶øÉÏ£¬´òÏò$nÉíÉÏ$l´¦µÄ¡¸ºÏ¹ÈÑ¨¡¹",
-"$NÊÖÖĞÁ½Ìõ$wÓÌÈçË®Éß°ãòêÑÑ¶ø³ö£¬çàçàÁ½Ïì£¬$nÊÖÍóÉÏµÄ¡¸ÁéµÀÑ¨¡¹¶¼±»$wµãÖĞ",
-"$NÎ¢Î¢Ò»Ğ¦¿çÇ°Ò»²½£¬ÓÒÊÖ$wÒ»¶¶£¬$w½ÃØ²·ÉÎè£¬ºÃ±È²Ê·ï³¯ÑôÒ»°ã³éÏò$n",
+"$Nå·¦æ‰‹è½»æ‰¬ï¼Œæ‰‹ä¸­$wå¿½åœ°ç”©äº†å‡ºæ¥ï¼Œç›´æ‰‘$nçš„$lã€‚æ— å£°æ— æ¯ï¼Œäº‹å…ˆç«Ÿæ²¡åŠç‚¹æœ•å…†",
+"$Næ‰‹æŒ$wçŸ«çŸ¢ä¼¼çµè›‡å‡»å‘$nï¼Œå†åŠ ä¸¤æšé‡‘çƒä¸æ–­å‘å‡ºççä¹‹å£°ï¼Œæ›´æ˜¯æ‰°äººå¿ƒé­„",
+"$nåˆå¬å¾—é‡‘çƒä¸­å‘å‡ºççå£°å“ï¼Œå£°è™½ä¸å¤§ï¼Œå´æ˜¯ååˆ†æ€ªå¼‚ï¼Œå…¥è€³è¡å¿ƒæ‘‡é­„ã€‚",
+"$Nèº«å½¢ä¸€å˜ï¼Œè½¬æ‰‹ä¸€æŒ¥$wï¼Œ$nå¤§æƒŠä¹‹ä¸‹ï¼Œèº«å­å¾Œä»°ï¼Œ$wç¦»è„¸æ•°å¯¸æ€¥æ è€Œè¿‡",
+"$Næ‰‹è…•å¾®æŠ–ï¼Œ$wç¿»å°†è¿‡å»ï¼Œè‡ªä¸‹è€Œä¸Šï¼Œæ‰“å‘$nèº«ä¸Š$lå¤„çš„ã€Œåˆè°·ç©´ã€",
+"$Næ‰‹ä¸­ä¸¤æ¡$wçŠ¹å¦‚æ°´è›‡èˆ¬èœ¿èœ’è€Œå‡ºï¼Œççä¸¤å“ï¼Œ$næ‰‹è…•ä¸Šçš„ã€Œçµé“ç©´ã€éƒ½è¢«$wç‚¹ä¸­",
+"$Nå¾®å¾®ä¸€ç¬‘è·¨å‰ä¸€æ­¥ï¼Œå³æ‰‹$wä¸€æŠ–ï¼Œ$wçŸ«å¤­é£èˆï¼Œå¥½æ¯”å½©å‡¤æœé˜³ä¸€èˆ¬æŠ½å‘$n",
 });
 
 int valid_enable(string usage)
@@ -25,7 +25,7 @@ mapping query_action(object me, object weapon)
         return ([
                 "action":       msg[random(sizeof(msg))],
                 "damage":       180 + random(120),
-                "damage_type":  "À­ÉË",
+                "damage_type":  "æ‹‰ä¼¤",
                 "dodge":        5+random(30),
                 "force":        random(330) + 180,
                 "parry":        random(30),
@@ -34,7 +34,7 @@ mapping query_action(object me, object weapon)
         return ([
                 "action":HIW +replace_string(replace_string(msg[random(sizeof(msg))], "$w", "$w"), "$w", "$w"HIW)+NOR,
                 "damage":       200 + random(140),
-                "damage_type":  "À­ÉË",
+                "damage_type":  "æ‹‰ä¼¤",
                 "dodge":        10+random(30),
                 "force":        random(300) + 200,
                 "parry":        random(30),
@@ -43,7 +43,7 @@ mapping query_action(object me, object weapon)
         return ([
                 "action":HIR +replace_string(replace_string(msg[random(sizeof(msg))], "$w", "$w"), "$w", "$w"HIR)+NOR,
                 "damage":       150 + random(200),
-                "damage_type":  "À­ÉË",
+                "damage_type":  "æ‹‰ä¼¤",
                 "dodge":        20+random(30),
                 "force":        random(300) + 200,
                 "parry":        random(30),
@@ -53,7 +53,7 @@ mapping query_action(object me, object weapon)
         return ([
                 "action":HIG +replace_string(replace_string(msg[random(sizeof(msg))], "$w", "$w"), "$w", "$w"HIG)+NOR,
                 "damage":       220 + random(150),
-                "damage_type":  "À­ÉË",
+                "damage_type":  "æ‹‰ä¼¤",
                 "dodge":        10+random(30),
                 "force":        random(300) + 200,
                 "parry":        random(30),
@@ -62,7 +62,7 @@ mapping query_action(object me, object weapon)
 	return ([
 		"action":	msg[random(sizeof(msg))],
 		"damage":	160 + random(100),
-		"damage_type":	"À­ÉË",
+		"damage_type":	"æ‹‰ä¼¤",
 		"dodge":	random(30),
 		"force":	random(300) + 150,
 		"parry":	random(30),
@@ -73,21 +73,21 @@ int valid_learn(object me)
 {
 	object weapon;
 	if( (int)me->query("max_neili") < 500 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»×ã£¬Ã»ÓĞ°ì·¨Á·ÒøË÷½ğÁå, ¶àÁ·Ğ©ÄÚÁ¦ÔÙÀ´°É¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸è¶³ï¼Œæ²¡æœ‰åŠæ³•ç»ƒé“¶ç´¢é‡‘é“ƒ, å¤šç»ƒäº›å†…åŠ›å†æ¥å§ã€‚\n");
 	if ((int)me->query_skill("yunu-xinjing", 1) < 100)
-		return notify_fail("ÄãµÄÓñÅ®ĞÄ¾­ÄÚ¹¦»ğºòÌ«Ç³¡£\n");
+		return notify_fail("ä½ çš„ç‰å¥³å¿ƒç»å†…åŠŸç«å€™å¤ªæµ…ã€‚\n");
 	if (!objectp(weapon = me->query_temp("weapon"))
 	 || ( string)weapon->query("skill_type") != "whip" )
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	return 1;
 }
  
 int practice_skill(object me)
 {
 	if ( me->query("jingli") < 40)
-		return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·ÒøË÷½ğÁå¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒé“¶ç´¢é‡‘é“ƒã€‚\n");
 	if ( me->query("neili") < 20)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·ÒøË÷½ğÁå¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒé“¶ç´¢é‡‘é“ƒã€‚\n");
 	me->receive_damage("jingli", 30);
 	me->add("neili", -10);
 	return 1;
@@ -106,17 +106,17 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 	 && victim->query_temp("weapon")
 	 && random(me->query_skill("yinsuo-jinling",1)) > victim->query_skill("dodge", 1)/2 
 	 && random(10) > 7) {
-		message_vision(HIY"Ö»¼û$N¼±ËÙ»ÓÎè"+ weap1->name() + HIY"£¬×ª³öÎŞÊı¸ö´óĞ¡È¦×Ó£¬ÒÔÒõÈáÖ®¾¢²ø×¡¶Ô·½µÄ" + weap->name() +HIY"£¡\n" NOR, me );
+		message_vision(HIY"åªè§$Næ€¥é€ŸæŒ¥èˆ"+ weap1->name() + HIY"ï¼Œè½¬å‡ºæ— æ•°ä¸ªå¤§å°åœˆå­ï¼Œä»¥é˜´æŸ”ä¹‹åŠ²ç¼ ä½å¯¹æ–¹çš„" + weap->name() +HIY"ï¼\n" NOR, me );
 		victim->add_busy(1);
 		ap = me->query("combat_exp", 1) /1000 * me->query_dex(1);
 		dp = victim->query("combat_exp", 1) /1000 * victim->query_str(1);
 		if (random(ap + dp ) > dp ) {
-			message_vision(HIY"$NÆøÔËÊÖ±ÛÓÃÁ¦Ò»×§£¬"+ weap->name()+ HIY"È´ÎŞ·¨´Ó"+weap1->name()+HIY"µÄ²øÈÆÖĞÍÑ¿ª£¬Çé¼±Ö®ÏÂÖ»ºÃ·ÅÆúÁËÊÖÖĞµÄ±øÈĞ¡£\n" NOR, victim );
+			message_vision(HIY"$Næ°”è¿æ‰‹è‡‚ç”¨åŠ›ä¸€æ‹½ï¼Œ"+ weap->name()+ HIY"å´æ— æ³•ä»"+weap1->name()+HIY"çš„ç¼ ç»•ä¸­è„±å¼€ï¼Œæƒ…æ€¥ä¹‹ä¸‹åªå¥½æ”¾å¼ƒäº†æ‰‹ä¸­çš„å…µåˆƒã€‚\n" NOR, victim );
 			weap->move(environment(me));
 			victim->reset_action();
 		}
 		else {
-			message_vision(HIY"$N°µÔËÇÉ¾¢£¬"+ weap->name()+ HIY"Ë³×Å·½Ïò¿ìËÙĞı×ªÊıÏÂ£¬½â¿ªÁË"+weap1->name()+HIY"µÄ²øÈÆ¡£\n" NOR, victim );
+			message_vision(HIY"$Næš—è¿å·§åŠ²ï¼Œ"+ weap->name()+ HIY"é¡ºç€æ–¹å‘å¿«é€Ÿæ—‹è½¬æ•°ä¸‹ï¼Œè§£å¼€äº†"+weap1->name()+HIY"çš„ç¼ ç»•ã€‚\n" NOR, victim );
 			victim->add("neili", -50);
 		}
 		me->add("neili", -(20+random(30)));

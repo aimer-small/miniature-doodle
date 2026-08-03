@@ -4,21 +4,21 @@ inherit NPC;
 
 void create()
 {
-	set_name("éáÈ®", ({ "dog" }) );
-	set("race", "Ò°ÊŞ");
+	set_name("ç’çŠ¬", ({ "dog" }) );
+	set("race", "é‡å…½");
 	set("age",8);
-	set("long", "ÍşÃÍµÄéáÈ®,²±×ÓÉÏ¹ÒÁË´ø´ÌµÄ¾±È¦¡£\n");
+	set("long", "å¨çŒ›çš„ç’çŠ¬,è„–å­ä¸ŠæŒ‚äº†å¸¦åˆºçš„é¢ˆåœˆã€‚\n");
 	
 	set("str", 32);
 	set("combat_exp",20000);
 
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°½Å", "áá½Å", "Î²°Í","ÑÀ³İ" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰è„š", "å¾Œè„š", "å°¾å·´","ç‰™é½¿" }) );
 	set("verbs", ({ "bite", "claw","hoof", }) );
 
 	set("chat_chance", 6);
 	set("chat_msg", ({
-		"éáÈ®×ì½Ç´îÀ­ÏÂÁ½³¤ÌõÍÙÒº¡£\n",
-		"éáÈ®×ì½ÇÂıÂıµÄÁÑ¿ªÀ´£¬Â¶³ö·æÀûµÄÈ®ÑÀ¡£\n",
+		"ç’çŠ¬å˜´è§’æ­æ‹‰ä¸‹ä¸¤é•¿æ¡å”¾æ¶²ã€‚\n",
+		"ç’çŠ¬å˜´è§’æ…¢æ…¢çš„è£‚å¼€æ¥ï¼Œéœ²å‡ºé”‹åˆ©çš„çŠ¬ç‰™ã€‚\n",
      }));
 	set_temp("apply/attack",30);
 	set_temp("apply/armor",30);
@@ -37,8 +37,8 @@ void init()
 void greeting(object ob)
 {
 if (!ob||environment(ob)!=environment()) return;
-  if (environment()->query("short")=="²ìºÏÌ¨ÓªÕÊ")  {	
-    message_vision("$NÂ¶³ö°×É«â²ÑÀ,Ïò$n³åÈ¥.\n",this_object(),ob);
+  if (environment()->query("short")=="å¯Ÿåˆå°è¥å¸")  {	
+    message_vision("$Néœ²å‡ºç™½è‰²ç ç‰™,å‘$nå†²å».\n",this_object(),ob);
     kill_ob(ob);
     return;
      }

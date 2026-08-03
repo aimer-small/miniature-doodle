@@ -1,17 +1,17 @@
-// red-cloth.c ºìÉ«Ê¥ÒÂ
+// red-cloth.c çº¢è‰²åœ£è¡£
 #include <armor.h>
 #include <ansi.h>
 inherit CLOTH;
 
 void create()
 {
-        set_name(RED"ºìÉ«Ê¥ÒÂ"NOR, ({ "cloth" }) );
+        set_name(RED"çº¢è‰²åœ£è¡£"NOR, ({ "cloth" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-		set("long","ÕâÊÇÒ»¼şĞå×ÅºìÉ«»ğÑæµÄºìÉ«Ê¥ÒÂ¡£\n");
-                set("unit", "¼ş");
+		set("long","è¿™æ˜¯ä¸€ä»¶ç»£ç€çº¢è‰²ç«ç„°çš„çº¢è‰²åœ£è¡£ã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 20);
         }

@@ -3,17 +3,17 @@
 inherit FINGER;
 void create()
 {
-        set_name(HIW"Óñïí×Ó"NOR,({ "yu zhuozi", "zhuozi" }));
+        set_name(HIW"ç‰é•¯å­"NOR,({ "yu zhuozi", "zhuozi" }));
         set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸¶");
-		set("long", "\nÕâÊÇÒ»¸¶Ãû¹óµÄÓñïí¡£\n");
+		set("unit", "ä»˜");
+		set("long", "\nè¿™æ˜¯ä¸€ä»˜åè´µçš„ç‰é•¯ã€‚\n");
 		set("value", 500000); 
                 set("unique", 1);
                 set("treasure", 1);
-                set("unequip_msg", "$NÕªÏÂÊÖÉÏµÄ$n¡£\n");
+                set("unequip_msg", "$Næ‘˜ä¸‹æ‰‹ä¸Šçš„$nã€‚\n");
                 set("armor_prop/armor", 1);
 	}
 	setup();
@@ -23,14 +23,14 @@ int wear()
 {
         object me = environment();
 	int ret;
-        message_vision("$N°ÑÒ»¸¶" + this_object()->query("name") + "£¬´÷ÔÚÊÖÉÏ¡£", me);
+        message_vision("$NæŠŠä¸€ä»˜" + this_object()->query("name") + "ï¼Œæˆ´åœ¨æ‰‹ä¸Šã€‚", me);
         if (ret=::wear()) {
-                if (me->query("gender") == "ÄĞĞÔ")
-                        message_vision("ÄĞÈË¼ÒÒ²Òª´øÓñïí£¬ÕæÊÇĞ¦ËÀÈËÁË¡£\n", me);
-                else if (me->query("gender") == "Å®ĞÔ")
-                        message_vision("´øÉÏÕâ¸¶Óñïí£¬$NÏÔµÃ¸ü¼ÓÇÎÀö£¡\n", me);
+                if (me->query("gender") == "ç”·æ€§")
+                        message_vision("ç”·äººå®¶ä¹Ÿè¦å¸¦ç‰é•¯ï¼ŒçœŸæ˜¯ç¬‘æ­»äººäº†ã€‚\n", me);
+                else if (me->query("gender") == "å¥³æ€§")
+                        message_vision("å¸¦ä¸Šè¿™ä»˜ç‰é•¯ï¼Œ$Næ˜¾å¾—æ›´åŠ ä¿ä¸½ï¼\n", me);
                 else
-                        message_vision("$NÏÖÔÚÔ½·¢Ïë¶«·½²»°ÜÁË¡£\n", me);
+                        message_vision("$Nç°åœ¨è¶Šå‘æƒ³ä¸œæ–¹ä¸è´¥äº†ã€‚\n", me);
         }
         return ret;
 }

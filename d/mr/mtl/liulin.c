@@ -7,12 +7,12 @@
 inherit ROOM;
 void create()
 {
-         set("short",GRN"������"NOR);
+         set("short",GRN"柳树林"NOR);
          set("long",@long
-����һƬ���̵������֣�һƬ���̵���ɫ����������ȥ֦Ҷïʢ�����ϼ�
-ֻС�����������Ľи���ͣ����������΢������ڶ���
+这是一片碧绿的柳树林，一片碧绿的颜色，柳树看上去枝叶茂盛，树上几
+只小鸟唧唧喳喳的叫个不停，柳条随着微风轻轻摆动。
 long);
-	set("outdoors","��٢��ɽׯ");
+	set("outdoors","曼佗罗山庄");
 
 	set("exits",([
 		"south" : __DIR__"xiaojing5",

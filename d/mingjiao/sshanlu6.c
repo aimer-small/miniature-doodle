@@ -1,13 +1,13 @@
-// sshanlu6.c É½Â·
+// sshanlu6.c å±±è·¯
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-    set("short", YEL"É½Â·"NOR);
+    set("short", YEL"å±±è·¯"NOR);
     set("long",@LONG
-ÕâÊÇÒ»ÌõÒ»Õ­ÓÖ¶¸µÄÉ½Â·£¬ÕâÀïÒÑ¼û°×Ñ©£¬°×Ñ©¸Ç×ÅÉ½Â·Á½ÅÔÓÖ¸ßÓÖÔÓµÄ
-ÂÒ²ÝÔÓÊ÷£¬¼«ÊÇÃÀÀö¡£Äã¸Ðµ½ÕóÕóµÄº®ÓÁÉÏÐÄÍ·¡£ÄÏ±ßÊÇ°ëÉ½Ñü¡£
+è¿™æ˜¯ä¸€æ¡ä¸€çª„åˆé™¡çš„å±±è·¯ï¼Œè¿™é‡Œå·²è§ç™½é›ªï¼Œç™½é›ªç›–ç€å±±è·¯ä¸¤æ—åˆé«˜åˆæ‚çš„
+ä¹±è‰æ‚æ ‘ï¼Œæžæ˜¯ç¾Žä¸½ã€‚ä½ æ„Ÿåˆ°é˜µé˜µçš„å¯’æ¿ä¸Šå¿ƒå¤´ã€‚å—è¾¹æ˜¯åŠå±±è…°ã€‚
 LONG);
     set("exits",([
         "eastdown"  :     __DIR__"shanting",
@@ -20,7 +20,7 @@ LONG);
  set("coor/y",120);
    set("coor/z",70);
    setup();
-    set("outdoors", "Ã÷½Ì¹âÃ÷¶¥");
+    set("outdoors", "æ˜Žæ•™å…‰æ˜Žé¡¶");
 }
 
 int valid_leave(object me, string dir)
@@ -36,7 +36,7 @@ void init()
 {
 	object me=this_player();
 	if (me->query("jing")<20 || me->query("qi") < 20){
-	write("Äã¿´ÆðÀ´ÒÑ¾­ºÜÀÛÁË£¬ÐÝÏ¢Ò»ÏÂÔÙ¸ÏÂ·°É¡£\n"NOR);
+	write("ä½ çœ‹èµ·æ¥å·²ç»å¾ˆç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¸‹å†èµ¶è·¯å§ã€‚\n"NOR);
         me->start_busy(2);
         }
 }

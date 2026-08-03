@@ -1,15 +1,15 @@
-//juebi-1.c ¾ø±Ú
+//juebi-1.c ç»å£
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-    set("short", "¾ø±Ú");
+    set("short", "ç»å£");
 	set("long", @LONG
-Äã×ßµ½ÕâÀï£¬·¢ÏÖÇ°ÃæÒÑ¾­Ã»ÓĞÂ·ÁË¡£ÄãÃæÇ°ÊÇÒ»×ùÁ¢¶¸µÄÉ½·å£¬¸ßËÊÈë
-ÔÆ£¬¿´²»µ½¾¡Í·¡£Ê¯±ÚÉÏÉú³¤×ÅºÜ¶àËÉÊ÷£¬¼²·ç´µÀ´£¬É³É³×÷Ïì¡£¿´À´ÏëÉÏ·å
-¶¥£¬Ö»ÄÜÅÀÉÏÈ¥ÁË¡£
+ä½ èµ°åˆ°è¿™é‡Œï¼Œå‘ç°å‰é¢å·²ç»æ²¡æœ‰è·¯äº†ã€‚ä½ é¢å‰æ˜¯ä¸€åº§ç«‹é™¡çš„å±±å³°ï¼Œé«˜è€¸å…¥
+äº‘ï¼Œçœ‹ä¸åˆ°å°½å¤´ã€‚çŸ³å£ä¸Šç”Ÿé•¿ç€å¾ˆå¤šæ¾æ ‘ï¼Œç–¾é£å¹æ¥ï¼Œæ²™æ²™ä½œå“ã€‚çœ‹æ¥æƒ³ä¸Šå³°
+é¡¶ï¼Œåªèƒ½çˆ¬ä¸Šå»äº†ã€‚
 LONG
 	);
 
@@ -18,7 +18,7 @@ LONG
 	]));
 
 	set("no_clean_up", 0);
-        set("outdoors", "ÌúÕÆÉ½");
+        set("outdoors", "é“æŒå±±");
 	setup();
 }
 
@@ -32,37 +32,37 @@ int do_zhua(string arg)
 {
         object me=this_player();
         if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-        if (arg =="ËÉÊ÷"){
-		write("ÄãÀÎÀÎµÄ×¥×¡Ê¯±ÚÉÏµÄËÉÊ÷¡£\n");
-		me->set_temp("marks/×¥1", 1);
+        if (arg =="æ¾æ ‘"){
+		write("ä½ ç‰¢ç‰¢çš„æŠ“ä½çŸ³å£ä¸Šçš„æ¾æ ‘ã€‚\n");
+		me->set_temp("marks/æŠ“1", 1);
 		return 1;
 	}
-        return notify_fail("ÄãÒª×¥Ê²Ã´£¿\n");
+        return notify_fail("ä½ è¦æŠ“ä»€ä¹ˆï¼Ÿ\n");
 }
 
 int do_climb(string arg)
 {
         object me=this_player();
         if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if ((int)me->query_skill("dodge", 1) < 30)
-		return notify_fail("ÄãµÄÇá¹¦²»¹»£¬ÎŞ·¨ÅÀÉÏÈ¥¡£\n");
+		return notify_fail("ä½ çš„è½»åŠŸä¸å¤Ÿï¼Œæ— æ³•çˆ¬ä¸Šå»ã€‚\n");
 	if (!arg || arg != "up")
-		return notify_fail("ÄãÒªÍùÄÄ¶ùÅÀ£¿\n");
-        if (me->query("family/family_name") != "ÌúÕÆ°ï")
-		return notify_fail("Äã·Ç±¾°ïµÜ×Ó£¬²»ÄÜÉÏ·å£¡\n");
-        if (me->query_temp("marks/×¥1") && arg =="up" ){
-		write("ÄãÎüÁË¿ÚÆø£¬Ğ¡ĞÄµÄÏòÉÏÅÀÈ¥¡£\n");
-		message("vision",me->name() + "ÏòÉÏÒ»×İÍ»È»²»¼ûÁË¡£\n", environment(me), ({me}) );
+		return notify_fail("ä½ è¦å¾€å“ªå„¿çˆ¬ï¼Ÿ\n");
+        if (me->query("family/family_name") != "é“æŒå¸®")
+		return notify_fail("ä½ éæœ¬å¸®å¼Ÿå­ï¼Œä¸èƒ½ä¸Šå³°ï¼\n");
+        if (me->query_temp("marks/æŠ“1") && arg =="up" ){
+		write("ä½ å¸äº†å£æ°”ï¼Œå°å¿ƒçš„å‘ä¸Šçˆ¬å»ã€‚\n");
+		message("vision",me->name() + "å‘ä¸Šä¸€çºµçªç„¶ä¸è§äº†ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"juebi-2");
 		me->receive_damage("jingli",50);
-		message("vision", me->name() + "ÅÀÁËÉÏÀ´¡£\n",
+		message("vision", me->name() + "çˆ¬äº†ä¸Šæ¥ã€‚\n",
 		environment(me), ({me}) );
-		me->delete_temp("marks/×¥1");
+		me->delete_temp("marks/æŠ“1");
 		return 1;
 	}
-	return notify_fail("ÕâÀïÎŞ´¦ÅÊÔ®£¬ÄãÎŞ·¨ÅÀÉÏÈ¥¡£\n");
+	return notify_fail("è¿™é‡Œæ— å¤„æ”€æ´ï¼Œä½ æ— æ³•çˆ¬ä¸Šå»ã€‚\n");
 }

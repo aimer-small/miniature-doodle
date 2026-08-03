@@ -3,7 +3,7 @@ inherit ITEM;
 inherit F_FOOD;
 void create()
 {
-     set_name(HIR"Æ»¹û"NOR, ({
+     set_name(HIR"è‹¹æœ"NOR, ({
               "pingguo",
               "guo"
              }));
@@ -11,9 +11,9 @@ void create()
      if (clonep())
      set_default_object(__FILE__);
      else {
-     set("unit", "Ö»");
+     set("unit", "åª");
      set("long", 
-     "ÕâÊÇÒ»Ö»´óÆ»¹û£¬ºìÍ®Í®µÄ£¬·¢³öÕóÕóÓÕÈËµÄ·¼Ïã¡£\n");
+     "è¿™æ˜¯ä¸€åªå¤§è‹¹æœï¼Œçº¢å½¤å½¤çš„ï¼Œå‘å‡ºé˜µé˜µè¯±äººçš„èŠ³é¦™ã€‚\n");
      set("food_remaining", 4);
     set("food_supply", 40); 
     setup();

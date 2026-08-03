@@ -11,8 +11,8 @@ int main(object me, string arg)
 	object ob, *inv;
 	int i;
 
-	if (!arg) return notify_fail("ÄãÒªÍÑµôÊ²Ã´£¿\n");
-	if (userp(me) && me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if (!arg) return notify_fail("ä½ è¦è„±æ‰ä»€ä¹ˆï¼Ÿ\n");
+	if (userp(me) && me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if(arg=="all") {
 		inv = all_inventory(me);
@@ -23,7 +23,7 @@ int main(object me, string arg)
 	}
 
 	if( !objectp(ob = present(arg, me)) )
-		return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 	return do_remove(me, ob);
 }
 
@@ -32,9 +32,9 @@ int do_remove(object me, object ob)
 	string str;
 //add embed for throw stuffs
         if(ob->query("embedded")){
-	      message_vision(HIR "$NÒ»Ò§ÑÀ½«$n"HIR"´ÓÉË¿Ú´¦°ÎÁËÏÂÀ´£¬Ó¿³öÒ»´ó¹ÉÏÊÑª£¡\n" NOR, me,ob);
-              me->receive_wound("qi", ob->query("damage")*5, "ÉíÖĞ"+ob->name()+"¶ø");
-              me->receive_damage("qi", ob->query("damage")*10, "ÉíÖĞ"+ob->name()+"¶ø");
+	      message_vision(HIR "$Nä¸€å’¬ç‰™å°†$n"HIR"ä»ä¼¤å£å¤„æ‹”äº†ä¸‹æ¥ï¼Œæ¶Œå‡ºä¸€å¤§è‚¡é²œè¡€ï¼\n" NOR, me,ob);
+              me->receive_wound("qi", ob->query("damage")*5, "èº«ä¸­"+ob->name()+"è€Œ");
+              me->receive_damage("qi", ob->query("damage")*10, "èº«ä¸­"+ob->name()+"è€Œ");
               ob->delete("embedded");
               me->delete_temp("embed");
               return 1;
@@ -42,7 +42,7 @@ int do_remove(object me, object ob)
         
 // end of throw 
 	if( (string)ob->query("equipped")!="worn" )
-		return notify_fail("Äã²¢Ã»ÓĞ×°±¸ÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰è£…å¤‡è¿™æ ·ä¸œè¥¿ã€‚\n");
 
 	if( ob->unequip() ) {
 		if( !stringp(str = ob->query("remove_msg")) )
@@ -51,13 +51,13 @@ int do_remove(object me, object ob)
 				case "armor":
 				case "surcoat":
 				case "boots":
-					str = YEL "$N½«$n"YEL"ÍÑÁËÏÂÀ´¡£\n" NOR;
+					str = YEL "$Nå°†$n"YEL"è„±äº†ä¸‹æ¥ã€‚\n" NOR;
 					break;
 				case "bandage":
-					str = YEL "$N½«$n"YEL"´ÓÉË¿Ú´¦²ğÁËÏÂÀ´¡£\n" NOR;
+					str = YEL "$Nå°†$n"YEL"ä»ä¼¤å£å¤„æ‹†äº†ä¸‹æ¥ã€‚\n" NOR;
 					break;
 				default:
-					str = YEL "$NĞ¶³ı$n"YEL"µÄ×°±¸¡£\n" NOR;
+					str = YEL "$Nå¸é™¤$n"YEL"çš„è£…å¤‡ã€‚\n" NOR;
 			}
 		message_vision(str, me, ob);
 		return 1;
@@ -68,9 +68,9 @@ int do_remove(object me, object ob)
 int help(object me)
 {
   write(@HELP
-Ö¸Áî¸ñÊ½ : remove all | <ÎïÆ·Ãû³Æ>
+æŒ‡ä»¤æ ¼å¼ : remove all | <ç‰©å“åç§°>
  
-Õâ¸öÖ¸ÁîÈÃÄãÍÑµôÉíÉÏÄ³¼ş·À¾ß.
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ è„±æ‰èº«ä¸ŠæŸä»¶é˜²å…·.
  
 HELP
     );

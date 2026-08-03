@@ -1,17 +1,17 @@
-// fish2.c º£¹ê
+// fish2.c æµ·é¾Ÿ
 
 inherit ITEM;
 
 void create()
 {
-	set_name("º£¹ê", ({ "hai gui", "gui", "haigui", "yu", "fish" }) );
+	set_name("æµ·é¾Ÿ", ({ "hai gui", "gui", "haigui", "yu", "fish" }) );
 	set_weight(2000+random(2000));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ö»");
+		set("unit", "åª");
 		set("value", 50000);
-		set("long", "Ò»Ö»Õ£×ÅÑÛ¾¦µÄº£¹ê£¬ÄªÃûÆäÃîµØ¿´×ÅÄã¡£\n");
+		set("long", "ä¸€åªçœ¨ç€çœ¼ç›çš„æµ·é¾Ÿï¼Œè«åå…¶å¦™åœ°çœ‹ç€ä½ ã€‚\n");
 	}
 	setup();
 }

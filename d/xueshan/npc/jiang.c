@@ -1,17 +1,17 @@
-// jiang.c ½­À´¸£
+// jiang.c æ±Ÿæ¥ç¦
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("½­À´¸£", ({ "jiang laifu", "jiang" ,"jianglaifu","laifu"}));
+	set_name("æ±Ÿæ¥ç¦", ({ "jiang laifu", "jiang" ,"jianglaifu","laifu"}));
 	set("shen_type", 1);
 
 	set("str", 20);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
-        set("long", "ÌıËûµÄÃû×Ö¾ÍÖªµÀ£¬Ëû¾ÍÊÇÀ´¸£ÔÓ»õµÄÀÏ°å£¬³¤µÃ¸ö×Ó²»¸ß£¬Áô×ÅÁ½Æ²ÊóĞë¡£\n");
+        set("long", "å¬ä»–çš„åå­—å°±çŸ¥é“ï¼Œä»–å°±æ˜¯æ¥ç¦æ‚è´§çš„è€æ¿ï¼Œé•¿å¾—ä¸ªå­ä¸é«˜ï¼Œç•™ç€ä¸¤æ’‡é¼ é¡»ã€‚\n");
         set("combat_exp", 1500);
         set("qi", 300);
         set("max_qi", 300);

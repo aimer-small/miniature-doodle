@@ -10,28 +10,28 @@ int perform(object me, object target)
 	if( !target ) target = offensive_target(me);
 
 	if( !objectp(target) || !target->is_character() || !me->is_fighting(target) )
-		return notify_fail("���Ķϳ�ֻ�ܶ�ս���еĶ���ʹ�á�\n");
+		return notify_fail("催心断肠只能对战斗中的对手使用。\n");
 
 	if( !target->is_busy())
-		return notify_fail("���Ķϳ�ֻ�ܶ�æ���еĶ���ʹ�á�\n");
+		return notify_fail("催心断肠只能对忙乱中的对手使用。\n");
 
 	if( me->query_temp("weapon"))
-		return notify_fail("������������\n");   
+		return notify_fail("你拿着武器！\n");   
 
 	if( (int)me->query_skill("cuixin-zhang",1) < 180 )
-		return notify_fail("����Ʒ���Ϊ���㣬ʹ�������Ķϳ���\n");
+		return notify_fail("你的掌法修为不足，使不出催心断肠。\n");
 
 	if( (int)me->query("neili") < 1000 )
-		return notify_fail("����������̫�������ܴ�����Ķϳ���\n");
+		return notify_fail("你现在内力太弱，不能打出催心断肠。\n");
 
 	if( (int)me->query("jiali") < 100 )
-		return notify_fail("�����ڼ���̫�������ܴ�����Ķϳ���\n");
+		return notify_fail("你现在加力太弱，不能打出催心断肠。\n");
 
 	if (me->query_skill_prepared("strike") != "cuixin-zhang"
 	|| me->query_skill_mapped("parry") != "cuixin-zhang")
-		return notify_fail("�������޷�ʹ�ô��Ķϳ���\n");
+		return notify_fail("你现在无法使用催心断肠！\n");
                 
-	msg = HIR"\n$N����$n��æ����֮ʱ��ʹ�������Ķϳ�����\n"NOR;
+	msg = HIR"\n$N趁着$n手忙脚乱之时，使出“催心断肠”！\n"NOR;
 	damage = me->query_skill("strike");
 	damage += random(me->query("jiali") * 3);
 	damage *= 2;
@@ -43,32 +43,32 @@ int perform(object me, object target)
 	target->receive_damage("qi", damage, me);
 	target->receive_wound("qi", damage/2, me);
 	p = (int)target->query("qi")*100/(int)target->query("max_qi");
-	msg += "������صĴ���$n���ؿڣ�$n��ʱ��Ѫ���硣\n";
+	msg += "结果重重的打在$n的胸口，$n登时鲜血狂喷。\n";
 	msg += "( $n"+eff_status_msg(p)+" )\n"; 
         message_vision(msg, me, target);
-if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"���"+ target->query("name") +"�����"RED+ damage+ WHT"�㹥���˺���\n"NOR); 
-if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"�Ĺ������������"RED+ damage+ WHT"���˺���\n"NOR); ;
+if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"你对"+ target->query("name") +"造成了"RED+ damage+ WHT"点攻击伤害。\n"NOR); 
+if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"的攻击对你造成了"RED+ damage+ WHT"点伤害。\n"NOR); ;
 	me->add("neili", -350);
 	me->add("jingli", -150);
 	me->start_busy(random(2));
-	me->start_perform(3,"���Ķϳ�");
+	me->start_perform(3,"催心断肠");
 	return 1;
 }
 
-string perform_name(){ return HIR"���Ķϳ�"NOR; }
+string perform_name(){ return HIR"催心断肠"NOR; }
 
 int help(object me)
 {
-        write(HIR"\n������֮�����Ķϳ�����"NOR"\n\n");
+        write(HIR"\n摧心掌之「催心断肠」："NOR"\n\n");
         write(@HELP
-        Ҫ��  ��ǰ���� 1000 ���ϣ�
-                ������� 1500 ���ϣ�
-                ��ǰ���� 1000 ���ϣ�
-                �����Ƶȼ� 180 ���ϣ�
-                �����Ʒ�Ϊ�����ƣ�
-                �����м�Ϊ�����ƣ�
-                ���Ʒ�Ϊ�����ƣ�
-                �����ޱ�����
+        要求：  当前内力 1000 以上；
+                最大内力 1500 以上；
+                当前精力 1000 以上；
+                摧心掌等级 180 以上；
+                激发掌法为摧心掌；
+                激发招架为摧心掌；
+                备掌法为摧心掌；
+                且手无兵器。
 
 HELP
         );

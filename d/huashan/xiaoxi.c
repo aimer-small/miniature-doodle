@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short",  HIW "Ğ¡Ïª" NOR );
+	set("short",  HIW "å°æºª" NOR );
 	set("long", @LONG
-ÕâÀïÊÇ·åÏÂµÄÒ»ÌõĞ¡Ïª£¬Ã¿ÄêÓê¼¾µÄÊ±ºò£¬ÕâÀïµÄË®Á÷¾ÍºÜ¼±¡£ÆäÓàµÄÊ±
-ºò£¬Ö»ÄÜ¿´¼û±»Ë®³åË¢µÄÒ»ÌõÉî¹µ.
+è¿™é‡Œæ˜¯å³°ä¸‹çš„ä¸€æ¡å°æºªï¼Œæ¯å¹´é›¨å­£çš„æ—¶å€™ï¼Œè¿™é‡Œçš„æ°´æµå°±å¾ˆæ€¥ã€‚å…¶ä½™çš„æ—¶
+å€™ï¼Œåªèƒ½çœ‹è§è¢«æ°´å†²åˆ·çš„ä¸€æ¡æ·±æ²Ÿ.
 LONG
 );
 	set("exits", ([ /* sizeof() == 1 */
@@ -18,7 +18,7 @@ LONG
 
 	set("no_clean_up", 0);
 
-	set("outdoors", "»ªÉ½" );
+	set("outdoors", "åå±±" );
 	set("coor/x",70);
   set("coor/y",0);
    set("coor/z",60);
@@ -34,17 +34,17 @@ int do_tiao(string arg)
 {
         object me = this_player();
 	if (arg != "xiaoxi")
-                return notify_fail("ÄãÒªÍùÄÄÀïÌø£¿\n");
+                return notify_fail("ä½ è¦å¾€å“ªé‡Œè·³ï¼Ÿ\n");
         if (me->is_busy() || me->is_fighting())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if ((int)me->query("max_neili") < 401)
-		return notify_fail("Äã³¢ÊÔ×ÅÌø¹ıĞ¡Ïª¡£È´·¢ÏÖ×Ô¼ºÌø²»¹ıÈ¥¡£\n");
-	message_vision("$NÒ»¸ö×İÉí£¬Ïò¶Ô°¶Ìø¹ıÈ¥¡£\n", me);
-	tell_object(me, "ÄãÌø¹ıĞ¡Ïª£¬·¢ÏÖ×Ô¼ºÀ´µ½ÁËÒ»¸öÉ½ÑÂÏÂ¡£\n");
+		return notify_fail("ä½ å°è¯•ç€è·³è¿‡å°æºªã€‚å´å‘ç°è‡ªå·±è·³ä¸è¿‡å»ã€‚\n");
+	message_vision("$Nä¸€ä¸ªçºµèº«ï¼Œå‘å¯¹å²¸è·³è¿‡å»ã€‚\n", me);
+	tell_object(me, "ä½ è·³è¿‡å°æºªï¼Œå‘ç°è‡ªå·±æ¥åˆ°äº†ä¸€ä¸ªå±±å´–ä¸‹ã€‚\n");
 
         me->receive_damage("jing", 30);
 	me->move(__DIR__"shanya");
-	message_vision("$N´ÓĞ¡ÏªÄÇ±ßÌøÁË¹ıÀ´¡£\n", me);
+	message_vision("$Nä»å°æºªé‚£è¾¹è·³äº†è¿‡æ¥ã€‚\n", me);
 
         me->start_busy(random(2));
         return 1;

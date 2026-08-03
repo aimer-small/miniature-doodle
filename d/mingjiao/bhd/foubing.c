@@ -1,20 +1,20 @@
-// foubing.c ±ùÉ½
+// foubing.c å†°å±±
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-	set("short",HIW"±ùÉ½"NOR);
+	set("short",HIW"å†°å±±"NOR);
 	set("long", @LONG
-ÕâÊÇÒ»¿éºÜ´ó¸¡¶¯±ùÉ½£¬ÊÇÓÉÍòÄêÐþ±ù×é³É¡£ÓÉÓÚÇ°ÃæµÄ±ùÉ½ÊÜµ½»ðÉ½Ö®
-ÈÈ£¬²»¶ÏµÄÈÛ»¯£¬¶ø²úÉúÎüÁ¦£¬°ÑÐí¶à¸¡±ù²»¶ÏµÄÎü½ø£¬ËùÒÔ±ùÉ½ÊÇ²»¶ÏµÄ¿¿
-½ü»ðÉ½¡£
+è¿™æ˜¯ä¸€å—å¾ˆå¤§æµ®åŠ¨å†°å±±ï¼Œæ˜¯ç”±ä¸‡å¹´çŽ„å†°ç»„æˆã€‚ç”±äºŽå‰é¢çš„å†°å±±å—åˆ°ç«å±±ä¹‹
+çƒ­ï¼Œä¸æ–­çš„ç†”åŒ–ï¼Œè€Œäº§ç”Ÿå¸åŠ›ï¼ŒæŠŠè®¸å¤šæµ®å†°ä¸æ–­çš„å¸è¿›ï¼Œæ‰€ä»¥å†°å±±æ˜¯ä¸æ–­çš„é 
+è¿‘ç«å±±ã€‚
 LONG);
         set("no_fight", 1);
         set("no_get_from", 1); 
         set("no_sleep_room", 1);
 	set("ppl", 0);
-        set("outdoors","¼«±±");
+        set("outdoors","æžåŒ—");
 	setup();
 }
 
@@ -22,7 +22,7 @@ void run(object ob)
 {
 	set("ppl", 0);
 	if (!ob || environment(ob)!= this_object()) return;
-	tell_object(ob, HIW"\n±ùÉ½»º»ºµÄÏò±±Æ®È¥¡£\n\n"NOR);
+	tell_object(ob, HIW"\nå†°å±±ç¼“ç¼“çš„å‘åŒ—é£˜åŽ»ã€‚\n\n"NOR);
 	ob->move(__DIR__"foubing1");
 }
 

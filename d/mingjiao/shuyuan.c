@@ -1,15 +1,15 @@
-// shuyuan.c ÊéÔº
+// shuyuan.c ä¹¦é™¢
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 { 
-       set("short", HIC"ÊéÔº"NOR);
+       set("short", HIC"ä¹¦é™¢"NOR);
        set("long", @LONG
-ÕâÀïÊÇÃ÷½Ì²ØÊéÖ®µØ£¬Ò»ÅÅÅÅµÄÊé¼ÜÕûÆëµÄÅÅÁÐ×Å£¬Êé¼ÜÉÏ·Å×Å¸÷ÖÖ¸÷Ñù
-µÄÊé¼®£¬ÔºÄÚ¾­³£ÓÐÈË´òÉ¨£¬Êé¼ÜÉÏÒ»³¾²»È¾¡£Ðí¶àÃ÷½ÌµÜ×ÓÕýÔÚ´Ë×¨ÐÄµÄÑÐ
-¶Á£¬±Ë´Ë¾²ÇÄÇÄµÄ¡£¶«ÃæÊÇÒ»ÌõÍ¨Ïò¾ÛÒåÌÃµÄ×ßÀÈ¡£
+è¿™é‡Œæ˜¯æ˜Žæ•™è—ä¹¦ä¹‹åœ°ï¼Œä¸€æŽ’æŽ’çš„ä¹¦æž¶æ•´é½çš„æŽ’åˆ—ç€ï¼Œä¹¦æž¶ä¸Šæ”¾ç€å„ç§å„æ ·
+çš„ä¹¦ç±ï¼Œé™¢å†…ç»å¸¸æœ‰äººæ‰“æ‰«ï¼Œä¹¦æž¶ä¸Šä¸€å°˜ä¸æŸ“ã€‚è®¸å¤šæ˜Žæ•™å¼Ÿå­æ­£åœ¨æ­¤ä¸“å¿ƒçš„ç ”
+è¯»ï¼Œå½¼æ­¤é™æ‚„æ‚„çš„ã€‚ä¸œé¢æ˜¯ä¸€æ¡é€šå‘èšä¹‰å ‚çš„èµ°å»Šã€‚
 LONG);    
        set("exits", ([
              "east" : __DIR__"wu1",		
@@ -35,7 +35,7 @@ int valid_leave(object ob, string dir)
 	int i = sizeof(shu), count = 0;
 	while (i--)
 		if (member_array(base_name(shu[i]), book) != -1) count++;
-	if (count > 1) return notify_fail("ÄãÒ»ÏÂ×ÓÄÃÕâÃ´Êé£¬¿´µÃ¹ýÀ´Âð£¿\n");
-        if (count) ob->set_temp("marks/Ôº1", 1);
+	if (count > 1) return notify_fail("ä½ ä¸€ä¸‹å­æ‹¿è¿™ä¹ˆä¹¦ï¼Œçœ‹å¾—è¿‡æ¥å—ï¼Ÿ\n");
+        if (count) ob->set_temp("marks/é™¢1", 1);
 	return ::valid_leave(ob, dir);
 }

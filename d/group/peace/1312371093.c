@@ -4,8 +4,8 @@ inherit ROOM;
 #include "/d/group/gate.h"
 void create()
 {
-set("short","²ÆÔ´¹ö¹ö[0;0m");
-set("long"," [1;31m²ÆÔ´¹ö¹öÀ´!
+set("short","è´¢æºæ»šæ»š[0;0m");
+set("long"," [1;31mè´¢æºæ»šæ»šæ¥!
 [0;0m");
 set("exits",([
 "south":__DIR__"1312371061.c",
@@ -13,9 +13,9 @@ set("exits",([
 set("objects",([
 "/d/group/obj/qiangui.c":1,
 ]));
-set("indoors","[1;36mºÍÆ½[1;37m·¹µê[0;0m");
+set("indoors","[1;36må’Œå¹³[1;37mé¥­åº—[0;0m");
 set("group1","peace");
-set("group2","[1;36mºÍÆ½[1;37m·¹µê[0;0m");
+set("group2","[1;36må’Œå¹³[1;37mé¥­åº—[0;0m");
 setup();
 setup_var();
 }

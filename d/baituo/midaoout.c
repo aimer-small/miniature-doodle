@@ -2,11 +2,11 @@
 inherit ROOM;
 void create()
 {
-        set("short", HIR"ÃØµÀ"NOR);
+        set("short", HIR"ç§˜é“"NOR);
         set("long", @LONG
-ÕâÌõÒõ°µµÄÃØµÀÔÚÉ½¸¹ÖĞÇúÕÛÑÓÉì£¬²»ÖªÍ¨ÍùºÎ´¦¡£Ç°ÃæµÄµÀÂ·Ô½À´
-Ô½°µ£¬Äã¿ìÒª¿´²»¼û¶«Î÷ÁË¡£ÕâÀï¿ÕÆøÎÛ×Ç£¬»¹¼ĞÔÓ×ÅÒ»¹É´Ì±ÇµÄÎ¶µÀ£¬
-ÄãÒ»×ß¹ıÀ´±ã¾õµÃÍ·ÄÔ·¢ÔÎ£¬ÏóÊÇÖĞ¶¾ÁË¡£
+è¿™æ¡é˜´æš—çš„ç§˜é“åœ¨å±±è…¹ä¸­æ›²æŠ˜å»¶ä¼¸ï¼Œä¸çŸ¥é€šå¾€ä½•å¤„ã€‚å‰é¢çš„é“è·¯è¶Šæ¥
+è¶Šæš—ï¼Œä½ å¿«è¦çœ‹ä¸è§ä¸œè¥¿äº†ã€‚è¿™é‡Œç©ºæ°”æ±¡æµŠï¼Œè¿˜å¤¹æ‚ç€ä¸€è‚¡åˆºé¼»çš„å‘³é“ï¼Œ
+ä½ ä¸€èµ°è¿‡æ¥ä¾¿è§‰å¾—å¤´è„‘å‘æ™•ï¼Œè±¡æ˜¯ä¸­æ¯’äº†ã€‚
 LONG);                
         set("exits", ([
               "west" : __FILE__,
@@ -21,8 +21,8 @@ void init()
 {    
 	object me = this_player();
 	if (random(me->query("kar")) <13 && me->query_con(1) < 35){ 
-		tell_object(me, HIB "ÄãºöÈ»¸Ğµ½ºôÎüÒ»½ô£¬Ô­À´ÊÇÕâÀïµÄ¿ÕÆøÎÛ×Ç¡¢Á÷Í¨²»³©¡£\n" NOR );      
-		tell_room(environment(me), me->name()+"Í»È»Á³É«±äµÃ¼«ÎªÄÑ¿´£¬²¢ÉîÉîµØÎüÁË¿ÚÆø¡£\n" NOR,({ me }));
+		tell_object(me, HIB "ä½ å¿½ç„¶æ„Ÿåˆ°å‘¼å¸ä¸€ç´§ï¼ŒåŸæ¥æ˜¯è¿™é‡Œçš„ç©ºæ°”æ±¡æµŠã€æµé€šä¸ç•…ã€‚\n" NOR );      
+		tell_room(environment(me), me->name()+"çªç„¶è„¸è‰²å˜å¾—æä¸ºéš¾çœ‹ï¼Œå¹¶æ·±æ·±åœ°å¸äº†å£æ°”ã€‚\n" NOR,({ me }));
 		me->receive_damage("neili", 60);
 		me->receive_damage("jingli", 50);
 		me->receive_wound("jing", 20);
@@ -38,8 +38,8 @@ int do_use(string arg)
 	if( !arg || arg=="" ) return 0;
 	if (!present("fire", me))  return 0;
 	if( arg=="fire" ) {
-		write("ÄãµãÈ¼ÁË»ğÕÛ£¬·¢ÏÖÇ°ÃæÊ¯±ÚÉÏÓĞÒ»¶´¿Ú£¬µ«±»¾ŞÊ¯¶Â×¡ÁË£¬²»ÖªÄÜ²»ÄÜÍÆ(tui)¿ªËü¡£\n");
-		this_player()->set_temp("marks/ÍÆ", 1);
+		write("ä½ ç‚¹ç‡ƒäº†ç«æŠ˜ï¼Œå‘ç°å‰é¢çŸ³å£ä¸Šæœ‰ä¸€æ´å£ï¼Œä½†è¢«å·¨çŸ³å µä½äº†ï¼Œä¸çŸ¥èƒ½ä¸èƒ½æ¨(tui)å¼€å®ƒã€‚\n");
+		this_player()->set_temp("marks/æ¨", 1);
 		return 1;
 	}
 }
@@ -49,27 +49,27 @@ int do_tui(string arg)
         object me = this_player();
         
         if( (int)me->is_busy() || me->is_fighting()) 
-        	return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+        	return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         	
         if (arg == "stone" || arg == "jushi" ){    
-        	if (me->query_temp("marks/ÍÆ") ) {
+        	if (me->query_temp("marks/æ¨") ) {
           		if(me->query_skill_mapped("force") != "hamagong" ){
                			me->add("max_neili", -(1+random(4)));
-               			message_vision(HIR "$NÔËÆøÃÍÁ¦Ïò¾ŞÊ¯Ò»»÷£¬½á¹û²»µ«Ã»ÍÆ¿ªËü£¬·´¶øÕğÉËÁË×Ô¼º¡£\n" NOR, me);
+               			message_vision(HIR "$Nè¿æ°”çŒ›åŠ›å‘å·¨çŸ³ä¸€å‡»ï¼Œç»“æœä¸ä½†æ²¡æ¨å¼€å®ƒï¼Œåè€Œéœ‡ä¼¤äº†è‡ªå·±ã€‚\n" NOR, me);
                			me->unconcious();
                			return 1;
                			}
            		else{
-				message_vision("$N³öÕÆµÖ×¡¾ŞÊ¯£¬ÃÍµØÒ»ÍÆ½«¾ŞÊ¯ÍÆ¿ªÒ»Ìõ·ì×êÁË³öÈ¥¡£\n", me);  
+				message_vision("$Nå‡ºæŒæŠµä½å·¨çŸ³ï¼ŒçŒ›åœ°ä¸€æ¨å°†å·¨çŸ³æ¨å¼€ä¸€æ¡ç¼é’»äº†å‡ºå»ã€‚\n", me);  
 				me->move("/d/hj/hswz");
-				message("vision", me->name() + "´ÓÂÒÊ¯¶ÑÀï×êÁË³öÀ´¡£\n",environment(me), ({me}) );
-				this_player()->delete_temp("marks/ÍÆ");
+				message("vision", me->name() + "ä»ä¹±çŸ³å †é‡Œé’»äº†å‡ºæ¥ã€‚\n",environment(me), ({me}) );
+				this_player()->delete_temp("marks/æ¨");
 				return 1;
 			}
 		}
 	}
 	else {
-		write("ÄãÏëÍÆÊ²Ã´£¿\n");
+		write("ä½ æƒ³æ¨ä»€ä¹ˆï¼Ÿ\n");
 		return 1;
 	}
 }

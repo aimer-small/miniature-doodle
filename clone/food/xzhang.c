@@ -1,17 +1,17 @@
-// xzhang.c ĞÜÕÆ
+// xzhang.c ç†ŠæŒ
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-        set_name("ĞÜÕÆ", ({"xiong zhang", "xiong"}));
+        set_name("ç†ŠæŒ", ({"xiong zhang", "xiong"}));
         set_weight(900);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»Ö»ÓÖ·ÊÓÖ´óµÄ´óĞÜÕÆ¡£\n");
-                set("unit", "¿é");
+                set("long", "ä¸€åªåˆè‚¥åˆå¤§çš„å¤§ç†ŠæŒã€‚\n");
+                set("unit", "å—");
                 set("value", 10000);
                 set("food_remaining", 6);
                 set("food_supply", 60);

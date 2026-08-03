@@ -4,24 +4,24 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIW "ÎïÆ·¼Ü" NOR, ({ "wupin jia", "jia" }) );         
+        set_name(HIW "ç‰©å“æ¶" NOR, ({ "wupin jia", "jia" }) );         
         set_weight(30000000);
         if( clonep() )
                 set_default_object(__FILE__);
         else{
-        set("unit", "¸ö");
-        set("long", "ÕâÊÇÒ»¸ö×¨ÃÅÓÃÀ´·Å¸÷ÖÖÎïÆ·µÄ¼Ü×Ó¡£
-Äã¿ÉÄÃ×Ô¼ºÏ²»¶µÄÎïÆ· ( na <ÎïÆ·Ãû³Æ> from jia )¡£
-ÀïÃæÓĞ£º
-    µ¶(dao, blade)£¬       ±Ş(bian, whip)£¬
-    ½£(jian, sword)£¬      ¹÷(gun, club)£¬
-    Õë(zhen, needle)£¬     ÕÈ(zhang, staff)£¬
-    Áî(ling)£¬             °ô(bang, stick)£¬
-    Ìú¼×(jia, armor)£¬     ´¸(chui, hammer)£¬
-    ¹³(gou, hook)£¬        ¸«(fu)£¬
-    »ğÕÛ(fire)£¬           ¶¾·Û(fen)£¬
-    ÂÖ(lun)£¬              Ê¯×Ó(shi)£¬
-    ±Ê(bi,brush)¡£
+        set("unit", "ä¸ª");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªä¸“é—¨ç”¨æ¥æ”¾å„ç§ç‰©å“çš„æ¶å­ã€‚
+ä½ å¯æ‹¿è‡ªå·±å–œæ¬¢çš„ç‰©å“ ( na <ç‰©å“åç§°> from jia )ã€‚
+é‡Œé¢æœ‰ï¼š
+    åˆ€(dao, blade)ï¼Œ       é­(bian, whip)ï¼Œ
+    å‰‘(jian, sword)ï¼Œ      æ£(gun, club)ï¼Œ
+    é’ˆ(zhen, needle)ï¼Œ     æ–(zhang, staff)ï¼Œ
+    ä»¤(ling)ï¼Œ             æ£’(bang, stick)ï¼Œ
+    é“ç”²(jia, armor)ï¼Œ     é”¤(chui, hammer)ï¼Œ
+    é’©(gou, hook)ï¼Œ        æ–§(fu)ï¼Œ
+    ç«æŠ˜(fire)ï¼Œ           æ¯’ç²‰(fen)ï¼Œ
+    è½®(lun)ï¼Œ              çŸ³å­(shi)ï¼Œ
+    ç¬”(bi,brush)ã€‚
 
 \n");
         set("material","wood");
@@ -31,7 +31,7 @@ void create()
 }
 void init()
 {
-    add_action("do_get",({"ÄÃ","na"}));
+    add_action("do_get",({"æ‹¿","na"}));
 }
 
 int do_get(string arg)
@@ -40,9 +40,9 @@ int do_get(string arg)
   string arg1,arg2;
   me=this_player();
   if(!arg || sscanf(arg, "%s from %s", arg1, arg2)!=2)
-         return notify_fail("ÃüÁî¸ñÊ½: na <ÎïÆ·Ãû³Æ> from jia¡£\n");
+         return notify_fail("å‘½ä»¤æ ¼å¼: na <ç‰©å“åç§°> from jiaã€‚\n");
   if (arg2!="jia")
-     return notify_fail("ÃüÁî¸ñÊ½: na <ÎïÆ·Ãû³Æ> from jia¡£\n");
+     return notify_fail("å‘½ä»¤æ ¼å¼: na <ç‰©å“åç§°> from jiaã€‚\n");
     switch (arg1){
           case "sword":                
           case "jian":
@@ -92,13 +92,13 @@ int do_get(string arg)
                 ob=new("/d/tiezhang/obj/tiebi");break;
 
           default :
-                 return notify_fail("Ã»ÓĞÕâÖÖ¶«Î÷¡£\n");
+                 return notify_fail("æ²¡æœ‰è¿™ç§ä¸œè¥¿ã€‚\n");
                 }
        if(!ob) return 0;
        ob->delete("value");
        if(ob->query("weapon_prop/damage"))
           ob->set("weapon_prop/damage", 50);
        ob->move(me);
-       message_vision("$N´ÓÎïÆ·¼ÜÉÏÄÃ³öÒ»"+ob->query("unit")+"$n¡£\n",me, ob);  
+       message_vision("$Nä»ç‰©å“æ¶ä¸Šæ‹¿å‡ºä¸€"+ob->query("unit")+"$nã€‚\n",me, ob);  
        return 1;
 }

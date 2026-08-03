@@ -4,8 +4,8 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÃÉ¹ÅÎäÊ¿", ({ "wushi","solider" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("è’™å¤æ­¦å£«", ({ "wushi","solider" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 35+random(10));
         set("attitude", "friendly");
         set("str", 20+random(10));
@@ -48,6 +48,6 @@ void init()
 void dest()
 {
        object me = this_object();
-       message_vision(HIY"$NËµµÀ£º¡°²»´íÂï£¬½ñÌì¾Í·Å¹ıÄãÁË¡£¡±\n"NOR,me);
+       message_vision(HIY"$Nè¯´é“ï¼šâ€œä¸é”™å˜›ï¼Œä»Šå¤©å°±æ”¾è¿‡ä½ äº†ã€‚â€\n"NOR,me);
        destruct(me);
 }

@@ -4,7 +4,7 @@
 int update_condition(object me, int duration)
 {
         if (duration < 1) {
-                    tell_object(me, HIY "ÄãµÄ¸òó¡Éñ¹¦ÖÕÓÚ¸´Ô­£¡\n" NOR);
+                    tell_object(me, HIY "ä½ çš„è›¤èŸ†ç¥žåŠŸç»ˆäºŽå¤åŽŸï¼\n" NOR);
                     me->clear_condition("hama_po");
                  }else
          {       me->add_temp("apply/attack", -random(10));

@@ -1,4 +1,4 @@
-// tieyan-ling.c Ã÷½ÌÌúÑæÁî
+// tieyan-ling.c æ˜æ•™é“ç„°ä»¤
 // by snowman@SJ 18/02/2000
 
 #include <weapon.h>
@@ -26,16 +26,16 @@ void add_amount(int v) { set_amount((int)query_amount()+v); }
 
 void create()
 {
-       set_name( RED"ÌúÑæÁî"NOR, ({ "tieyan ling", "ling", "tieyan" }) );
+       set_name( RED"é“ç„°ä»¤"NOR, ({ "tieyan ling", "ling", "tieyan" }) );
        if( clonep() )
                set_default_object(__FILE__);
       else {
-               set("unit", "¿é");
-               set("base_unit", "¿é");
+               set("unit", "å—");
+               set("base_unit", "å—");
                set("base_weight", 1000);
-               set("long", "ÕâÊÇÓÃÓÚÍ¨ĞĞÃ÷½ÌµÄÌúÖıÁîÅÆ¡£ÅÆÉÏÓÃ
-½ğË¿ÏâÇ¶×ÅÒ»¸öºìÉ«»ğÑæÖ®ĞÎ¡£ÁîÅÆ±ß
-Ôµ·æÀû£¬ºÃÏó¿ÉÒÔÕ¶(zhan)¶«Î÷¡£\n");
+               set("long", "è¿™æ˜¯ç”¨äºé€šè¡Œæ˜æ•™çš„é“é“¸ä»¤ç‰Œã€‚ç‰Œä¸Šç”¨
+é‡‘ä¸é•¶åµŒç€ä¸€ä¸ªçº¢è‰²ç«ç„°ä¹‹å½¢ã€‚ä»¤ç‰Œè¾¹
+ç¼˜é”‹åˆ©ï¼Œå¥½è±¡å¯ä»¥æ–©(zhan)ä¸œè¥¿ã€‚\n");
                set("value", 100);
                set("base_damage", 20);
                set("material", "iron");
@@ -53,16 +53,16 @@ int wield()
         object me = environment();
 
         if (!living(me)){
-                message_vision("$NÄÃ³ö"+name()+"¿´¿´ÁË£¬È´¸ã²»¶®ÔõÃ´Ê¹ÓÃÕâ¸ö¶«Î÷¡£\n", me);
+                message_vision("$Næ‹¿å‡º"+name()+"çœ‹çœ‹äº†ï¼Œå´æä¸æ‡‚æ€ä¹ˆä½¿ç”¨è¿™ä¸ªä¸œè¥¿ã€‚\n", me);
                 return 0;
         }           
         if( query_amount() > 2 ){
-                message_vision("$NÄÃ³ö"+name()+"¿´¿´ÁË£¬È´¸ã²»¶®ÔõÃ´Í¬Ê±Ê¹ÓÃËü¡£\n", me);
+                message_vision("$Næ‹¿å‡º"+name()+"çœ‹çœ‹äº†ï¼Œå´æä¸æ‡‚æ€ä¹ˆåŒæ—¶ä½¿ç”¨å®ƒã€‚\n", me);
                 return 0;
         }    
         if (query_amount() > 1){
                 if (me->query_skill("shenghuo-lingfa", 1) < 130 || me->query_int() < 32){
-                	message_vision("$NÄÃ³ö"+name()+"¿´¿´ÁË£¬È´¸ã²»¶®ÔõÃ´ÓÃËü¡£\n", me);
+                	message_vision("$Næ‹¿å‡º"+name()+"çœ‹çœ‹äº†ï¼Œå´æä¸æ‡‚æ€ä¹ˆç”¨å®ƒã€‚\n", me);
                 	return 0;
                 }
         }

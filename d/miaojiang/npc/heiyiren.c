@@ -3,17 +3,17 @@
 #include <ansi.h>
 //inherit NPC;
 inherit FIGHTER;
-#define QUESTDIR2 "quest/Ñ©É½·Éºü/¸´³ðÆª/"
+#define QUESTDIR2 "quest/é›ªå±±é£žç‹/å¤ä»‡ç¯‡/"
 
 //string *str_menpai = ({ "gm","tz","dls","mj","kl"});	
 //#include "/d/city/npc/skills_pfm.h";
 
 void create()
 {
-  set_name("ºÚÒÂÈË", ({ "heiyi ren", "ren" }));
-  set("title", "ºÚÒÂÈË");
-	set("gender", "ÄÐÐÔ");
-	set("long", "ÕâÈËÉí´©ºÚÉ«½ô×°£¬ÃæÉÏÃÉ×ÅÒ»¿éºÚ²¼£¬Ö»Â¶³öÒ»Ë«ÑÛ¾¦£¬¾«¹âËÄÉä¡£\n");
+  set_name("é»‘è¡£äºº", ({ "heiyi ren", "ren" }));
+  set("title", "é»‘è¡£äºº");
+	set("gender", "ç”·æ€§");
+	set("long", "è¿™äººèº«ç©¿é»‘è‰²ç´§è£…ï¼Œé¢ä¸Šè’™ç€ä¸€å—é»‘å¸ƒï¼Œåªéœ²å‡ºä¸€åŒçœ¼ç›ï¼Œç²¾å…‰å››å°„ã€‚\n");
 	set("str", 25);
 	set("dex", 25);
 	set("con", 25);
@@ -72,8 +72,8 @@ void init()
     ob->set("setok",1);
 	  if(ob->query("type_speical"))	ob->set("party",ob->query("type_speical"));  
     else 	ob->set("party",str_menpai[random(sizeof(str_menpai))]);  	  
-          ob->copy_menpai(({ob->query("party")}),1,random(2),100);    //¸´ÖÆnpcµÄÃÅÅÉÎä¹¦£¬                           
-		ob->copy_state();				//¸ù¾ÝÃÅÅÉ¸üÐÂnpc µÄÒ»Ð©×´Ì¬
+          ob->copy_menpai(({ob->query("party")}),1,random(2),100);    //å¤åˆ¶npcçš„é—¨æ´¾æ­¦åŠŸï¼Œ                           
+		ob->copy_state();				//æ ¹æ®é—¨æ´¾æ›´æ–°npc çš„ä¸€äº›çŠ¶æ€
 	  i=me->query("max_pot");
 	  if(i<350) i=350;
 	  i=i-100;	

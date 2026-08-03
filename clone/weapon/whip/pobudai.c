@@ -1,4 +1,4 @@
-// pobudai.c ÆÆ²¼´ü
+// pobudai.c ç ´å¸ƒè¢‹
 
 #include <weapon.h>
 inherit WHIP;
@@ -6,13 +6,13 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("ÆÆ²¼´ü", ({ "po budai", "budai","bian" }));
+        set_name("ç ´å¸ƒè¢‹", ({ "po budai", "budai","bian" }));
         set_weight(8000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
-                set("long", "ÕâÊÇÒ»¸öÔàÙâÙâµÄÆÆÂé²¼´ü£¬ÀïÃæÈäÈä¶ø¶¯¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªè„å…®å…®çš„ç ´éº»å¸ƒè¢‹ï¼Œé‡Œé¢è •è •è€ŒåŠ¨ã€‚\n");
                 set("value", 10);
                 set("unique", 1);
                 set("material", "cloth");
@@ -22,8 +22,8 @@ void create()
                 set("wield_neili", 500);
                 set("wield_maxneili", 900);  
                 set("wield_str", 22);
-                set("wield_msg", "$N´Ó»³ÀïÌÍ³öÒ»ÍÅÆÆ²¼£¬×¥ÔÚÊÖÖĞµ±±øÆ÷¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$nÕÛÒ»ÕÛ£¬·Å½ø»³Àï¡£\n");
+                set("wield_msg", "$Nä»æ€€é‡Œæå‡ºä¸€å›¢ç ´å¸ƒï¼ŒæŠ“åœ¨æ‰‹ä¸­å½“å…µå™¨ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næŠ˜ä¸€æŠ˜ï¼Œæ”¾è¿›æ€€é‡Œã€‚\n");
         }
         init_whip(40);
         setup();

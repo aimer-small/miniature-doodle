@@ -1,4 +1,4 @@
-// r-rose.c ºìÃµ¹å
+// r-rose.c çº¢ç«ç‘°
 // update by cool
 // update by Lklv 2001.9.28
 
@@ -8,16 +8,16 @@ inherit HEAD;
 
 void create()
 {
-        set_name(HIR "ºìÃµ¹å" NOR, ({ "hong meigui", "meigui", "rose" }));
+        set_name(HIR "çº¢ç«ç‘°" NOR, ({ "hong meigui", "meigui", "rose" }));
         set("weight", 100);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
-                set("long", HIR "Ò»¶äËÍ¸øÇéÈËµÄºìÃµ¹å£¬´ø¸øÄãÒ»Ë¿ÎÂÇé¡£ËüÏãÆøÃÔÈË£¬ÈÃÈËÈÌ²»×¡ÏëÎÅ(wen)Ò»ÏÂ¡£\n" NOR);
+                set("unit", "æœµ");
+                set("long", HIR "ä¸€æœµé€ç»™æƒ…äººçš„çº¢ç«ç‘°ï¼Œå¸¦ç»™ä½ ä¸€ä¸æ¸©æƒ…ã€‚å®ƒé¦™æ°”è¿·äººï¼Œè®©äººå¿ä¸ä½æƒ³é—»(wen)ä¸€ä¸‹ã€‚\n" NOR);
 		set("value", 1020);
-		set("wear_msg", HIM "$NÎûÎûÒ»Ğ¦£¬°Ñ»¨¶ù±ğÔÚ·¢÷ÙÉÏ£¬ÓĞÈçÌìÅ®ÏÂ·²¡£\n" NOR);
-		set("remove_msg", HIM "$N°Ñ»¨¶ù´Ó·¢÷ÙÈ¡ÏÂ£¬ÉîÉîÎÅÁËÎÅ£¬´§»Ø»³ÖĞ¡£\n" NOR);
+		set("wear_msg", HIM "$Nå˜»å˜»ä¸€ç¬‘ï¼ŒæŠŠèŠ±å„¿åˆ«åœ¨å‘é«»ä¸Šï¼Œæœ‰å¦‚å¤©å¥³ä¸‹å‡¡ã€‚\n" NOR);
+		set("remove_msg", HIM "$NæŠŠèŠ±å„¿ä»å‘é«»å–ä¸‹ï¼Œæ·±æ·±é—»äº†é—»ï¼Œæ£å›æ€€ä¸­ã€‚\n" NOR);
 		set("armor_prop/armor", 1);
         }
         setup();
@@ -36,10 +36,10 @@ int come_life(string arg)
 	ob = this_object();
 
 	if( !ob || !me ) return 0;
-	if( !arg ) return notify_fail("ÄãÎÅÁËÏÂ¿ÕÆø£¬¸Ğ¾õºÃÏñÉÙÁËµãÊ²Ã´£¿\n");
+	if( !arg ) return notify_fail("ä½ é—»äº†ä¸‹ç©ºæ°”ï¼Œæ„Ÿè§‰å¥½åƒå°‘äº†ç‚¹ä»€ä¹ˆï¼Ÿ\n");
 	if(arg == "rose" || arg == "meigui" || arg == "hong meigui" ){
-		message_vision("$NÓÃĞ¡Ö¸ÇáÇáÄí×¡ºìÃµ¹å£¬ÄÃÆğÀ´ÉîÉîµØÎÅÁËÎÅ¡£\n",me);
-        	tell_object(me, HIY "àÅ¡£¡£¡£°¡¡£¡£¡£ºÃÏãÑ½£¡\n" NOR);
+		message_vision("$Nç”¨å°æŒ‡è½»è½»æ»ä½çº¢ç«ç‘°ï¼Œæ‹¿èµ·æ¥æ·±æ·±åœ°é—»äº†é—»ã€‚\n",me);
+        	tell_object(me, HIY "å—¯ã€‚ã€‚ã€‚å•Šã€‚ã€‚ã€‚å¥½é¦™å‘€ï¼\n" NOR);
 	}
 	return 1;
 }
@@ -51,6 +51,6 @@ void dest()
 	ob = this_object();
 
 	if( !ob || !me ) return 0;
-	message_vision("$NÊÖÖĞµÄºìÃµ¹å½¥½¥¿İÎ®ÁË¡£\n",me);
+	message_vision("$Næ‰‹ä¸­çš„çº¢ç«ç‘°æ¸æ¸æ¯èäº†ã€‚\n",me);
 	destruct(ob);
 }

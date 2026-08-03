@@ -2,13 +2,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "ëÙÖ¬", ({ "yan zhi", "yanzhi" }) );
+	set_name( "èƒ­è„‚", ({ "yan zhi", "yanzhi" }) );
 	set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "ºĞ");
-                set("long", "ÕâÊÇÒ»ºĞÅ®ÈË»¯×±ÓÃµÄëÙÖ¬¡£ \n");
+		set("unit", "ç›’");
+                set("long", "è¿™æ˜¯ä¸€ç›’å¥³äººåŒ–å¦†ç”¨çš„èƒ­è„‚ã€‚ \n");
 		set("value", 200);
 		set("material", "iron");
 	}

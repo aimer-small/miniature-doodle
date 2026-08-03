@@ -12,26 +12,26 @@ int update_condition(object me, int duration)
 	string roomf,dis,oroom;
 	string* luanyu=({"...","????"});
 	mapping dirs = ([
-	"north":		"±±Ãæ",
-	"south":		"ÄÏÃæ",
-	"east":			"¶«Ãæ",
-	"west":			"Î÷Ãæ",
-	"northup":		"±±±ß",
-	"southup":		"ÄÏ±ß",
-	"eastup":		"¶«±ß",
-	"westup":		"Î÷±ß",
-	"northdown":	"±±±ß",
-	"southdown":	"ÄÏ±ß",
-	"eastdown":		"¶«±ß",
-	"westdown":		"Î÷±ß",
-	"northeast":	"¶«±±",
-	"northwest":	"Î÷±±",
-	"southeast":	"¶«ÄÏ",
-	"southwest":	"Î÷ÄÏ",
-	"up":			"ÉÏÃæ",
-	"down":			"ÏÂÃæ",
-	"enter":		"ÀïÃæ",
-	"out":			"ÍâÃæ"
+	"north":		"åŒ—é¢",
+	"south":		"å—é¢",
+	"east":			"ä¸œé¢",
+	"west":			"è¥¿é¢",
+	"northup":		"åŒ—è¾¹",
+	"southup":		"å—è¾¹",
+	"eastup":		"ä¸œè¾¹",
+	"westup":		"è¥¿è¾¹",
+	"northdown":	"åŒ—è¾¹",
+	"southdown":	"å—è¾¹",
+	"eastdown":		"ä¸œè¾¹",
+	"westdown":		"è¥¿è¾¹",
+	"northeast":	"ä¸œåŒ—",
+	"northwest":	"è¥¿åŒ—",
+	"southeast":	"ä¸œå—",
+	"southwest":	"è¥¿å—",
+	"up":			"ä¸Šé¢",
+	"down":			"ä¸‹é¢",
+	"enter":		"é‡Œé¢",
+	"out":			"å¤–é¢"
 	]);
 
 	if(!me)
@@ -63,7 +63,7 @@ int update_condition(object me, int duration)
                 return 0;
         }
 	dutype=me->query("poisontype");
-	if(dutype!="Ë®")
+	if(dutype!="æ°´")
 	{
 		if(objectp(me->query_temp("huanjue",1)))
 		{
@@ -75,8 +75,8 @@ int update_condition(object me, int duration)
 	}
 	switch(dutype)
 	{
-		case "½ğ"://É±Æø
-			tell_object(me,HIR"Äã¸Ğµ½Í»È»ÓĞÒ»¹ÉÉ±Æø´ÓĞÄÍ·Ã°³ö£¡\n"NOR);
+		case "é‡‘"://æ€æ°”
+			tell_object(me,HIR"ä½ æ„Ÿåˆ°çªç„¶æœ‰ä¸€è‚¡æ€æ°”ä»å¿ƒå¤´å†’å‡ºï¼\n"NOR);
 			ob = all_inventory(environment(me));
            		for(i=0; i<sizeof(ob); i++) 
 			{
@@ -93,20 +93,20 @@ int update_condition(object me, int duration)
 			{
 				if(me->query("neili")>=100)
 				{
-					tell_object(me,"ÄãÃ¦ÔËÄÚÁ¦Ñ¹ÖÆĞÄÖĞµÄÉ±Æø¡£\n");
+					tell_object(me,"ä½ å¿™è¿å†…åŠ›å‹åˆ¶å¿ƒä¸­çš„æ€æ°”ã€‚\n");
 					me->add("neili",-100);
 				}
 				else if(me->query("qi")>me->query("max_qi")/20)
 				{
-					tell_object(me,"È´ÎŞ´¦¿ÉÒÔ·¢Ğ¹£¬Ö»µÃÖØÖØµØ´·ÁË×Ô¼ºµÄĞØÌÅÒ»È­£¬ÍÂÁËÒ»¿ÚÏÊÑª³öÀ´£¡\n");
+					tell_object(me,"å´æ— å¤„å¯ä»¥å‘æ³„ï¼Œåªå¾—é‡é‡åœ°æ¶äº†è‡ªå·±çš„èƒ¸è†›ä¸€æ‹³ï¼Œåäº†ä¸€å£é²œè¡€å‡ºæ¥ï¼\n");
 					me->add("qi",-me->query("max_qi")/50);
 				}
 				else
-					tell_object(me,"µ«ÄãÏÖÔÚÆøÑª²»×ã£¬»¹ÊÇÀÏÊµµã°É¡£\n");	
+					tell_object(me,"ä½†ä½ ç°åœ¨æ°”è¡€ä¸è¶³ï¼Œè¿˜æ˜¯è€å®ç‚¹å§ã€‚\n");	
 			}
 			break;
-		case "Ä¾"://Î·¾å
-			tell_object(me,HIR"ÄãÍ»È»¸Ğµ½Íò·Ö¿Ö¾å£¬Ö»ÏëÕÒ¸öµØ·½¶ãÆğÀ´£¡\n"NOR);
+		case "æœ¨"://ç•æƒ§
+			tell_object(me,HIR"ä½ çªç„¶æ„Ÿåˆ°ä¸‡åˆ†ææƒ§ï¼Œåªæƒ³æ‰¾ä¸ªåœ°æ–¹èº²èµ·æ¥ï¼\n"NOR);
 			if(me->query("shen")>0)
 			{
 				me->add("shen",-(1000+random(501)));
@@ -121,7 +121,7 @@ int update_condition(object me, int duration)
 			}
 			me->set_temp("no_fight",1);
 			break;
-		case "Ë®"://»Ã¾õ
+		case "æ°´"://å¹»è§‰
 			if(!me->query_temp("huanjue",1))
 			{
 				obj=new("/d/sld/npc/obj/huanjue");
@@ -131,7 +131,7 @@ int update_condition(object me, int duration)
 					me->set_temp("huanjue",obj);
 				else
 				{
-					me->set("poisontype","Ä¾");
+					me->set("poisontype","æœ¨");
 					destruct(obj);
 					break;
 				}
@@ -151,7 +151,7 @@ int update_condition(object me, int duration)
 						me->set_temp("huanjue",obj);
 					else
 					{
-						me->set("poisontype","Ä¾");
+						me->set("poisontype","æœ¨");
 						destruct(obj);
 						break;
 					}
@@ -159,10 +159,10 @@ int update_condition(object me, int duration)
 			}
 			me->set_temp("block_msg/sound",1);
 			me->set_temp("block_msg/emote",1);
-			tell_object(me,HIR"ÄãÏİÈëÁËÃÔ»ÃÖ®ÖĞ£¡\n"NOR);
+			tell_object(me,HIR"ä½ é™·å…¥äº†è¿·å¹»ä¹‹ä¸­ï¼\n"NOR);
 			break;
-		case "»ğ"://ÈÈ
-			tell_object(me,HIR"ÄãÍ»È»¸Ğµ½È«ÉíÔïÈÈÎŞ±È£¡\n"NOR);
+		case "ç«"://çƒ­
+			tell_object(me,HIR"ä½ çªç„¶æ„Ÿåˆ°å…¨èº«ç‡¥çƒ­æ— æ¯”ï¼\n"NOR);
 			ob = all_inventory(me);
 			for(i=0;i<sizeof(ob);i++)
 			{
@@ -177,10 +177,10 @@ int update_condition(object me, int duration)
 				else if(ob[i]->move(environment(me)))
 				{
             				if(ob[i]->is_character() )
-                				message_vision("$N½«$n´Ó±³ÉÏ·ÅÁËÏÂÀ´£¬ÌÉÔÚµØÉÏ¡£\n", me, ob[i]);
+                				message_vision("$Nå°†$nä»èƒŒä¸Šæ”¾äº†ä¸‹æ¥ï¼Œèººåœ¨åœ°ä¸Šã€‚\n", me, ob[i]);
             				else 
 					{
-                				message_vision(sprintf("$N¶ªÏÂÒ»%s$n¡£\n",ob[i]->query("unit")),me,ob[i]);
+                				message_vision(sprintf("$Nä¸¢ä¸‹ä¸€%s$nã€‚\n",ob[i]->query("unit")),me,ob[i]);
                                         }
             			}
         		}
@@ -189,8 +189,8 @@ int update_condition(object me, int duration)
 			else
 				me->set("jingli",1);
 			break;
-		case "ÍÁ"://´íÂÒ
-			tell_object(me,HIR"ÄãÍ»È»¸Ğµ½Í·ÄÔÒ»Æ¬»ìÂÒ£¬ÉñÖÇ²»Çå£¡\n"NOR);
+		case "åœŸ"://é”™ä¹±
+			tell_object(me,HIR"ä½ çªç„¶æ„Ÿåˆ°å¤´è„‘ä¸€ç‰‡æ··ä¹±ï¼Œç¥æ™ºä¸æ¸…ï¼\n"NOR);
 			switch(random(3))
 			{
 				case 0: //random move
@@ -205,9 +205,9 @@ int update_condition(object me, int duration)
 							if(objectp(find_object(roomf)) || objectp(load_object(roomf)))
 							{
 								oroom=environment(me)->name(1);
-								message_vision(sprintf("$NÍù%sÀë¿ªÁË¡£\n",dirs[dis]),me);
+								message_vision(sprintf("$Nå¾€%sç¦»å¼€äº†ã€‚\n",dirs[dis]),me);
 								me->move(roomf);
-								message_vision(sprintf("$N´Ó%s×ß¹ıÀ´¡£\n",oroom),me);
+								message_vision(sprintf("$Nä»%sèµ°è¿‡æ¥ã€‚\n",oroom),me);
 								break;
 							}
 						}
@@ -235,7 +235,7 @@ int update_condition(object me, int duration)
 									continue;
 								if(living(ob[j]) && inv[i]->move(ob[j]))
 								{
-									message_vision(sprintf("$N°Ñ%sÈû¸ø$n¡£\n",inv[i]->name(1)),me,ob[j]);
+									message_vision(sprintf("$NæŠŠ%så¡ç»™$nã€‚\n",inv[i]->name(1)),me,ob[j]);
 									break;
 								}
 							}
@@ -251,8 +251,8 @@ int update_condition(object me, int duration)
 		default:
 			break;
 	}
-	me->set_temp("last_damage_from", "ÉñÁúÎåĞĞ"+dutype+"¶¾·¢×÷");
-	message_vision(BLU "$NÉíÖĞµÄÉñÁúÎåĞĞ"+dutype+"¶¾·¢×÷ÁË£¡\n" NOR, me);
+	me->set_temp("last_damage_from", "ç¥é¾™äº”è¡Œ"+dutype+"æ¯’å‘ä½œ");
+	message_vision(BLU "$Nèº«ä¸­çš„ç¥é¾™äº”è¡Œ"+dutype+"æ¯’å‘ä½œäº†ï¼\n" NOR, me);
 	me->apply_condition("wh_poison", duration-1);
 	
 	return 1;

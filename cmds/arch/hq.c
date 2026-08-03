@@ -2,11 +2,11 @@
 //
 //      hq.c
 //      Created by mychat 31/04/2004
-//      ±£ÁôÎÒµÄÇ©ÃûÇé¿öÏÂ free of use.
-//      µ±È»¸ü»¶Ó­ĞŞ¸Ä¡¢ÓÅ»¯µÈ¡£
+//      ä¿ç•™æˆ‘çš„ç­¾åæƒ…å†µä¸‹ free of use.
+//      å½“ç„¶æ›´æ¬¢è¿ä¿®æ”¹ã€ä¼˜åŒ–ç­‰ã€‚
 //
 //      Email & MSN: codemake@163.com
-//      ÎÄ¼şÎ»ÓÚ/cmds/usrÏÂ
+//      æ–‡ä»¶ä½äº/cmds/usrä¸‹
 // 		
 ***********************************************************************************/
 #include <ansi.h>
@@ -21,13 +21,13 @@ int main(object me, string arg)
 	string outstr;
 	
         if (!wizardp(me) && me->query_temp("command_busy"))
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         me->set_temp("command_busy",1);
         call_out("remove_busy", 3, me);
         if(arg && arg=="me") outstr=ROOMLEASE_D->query_list(me->query("id"));
         else outstr=ROOMLEASE_D->query_list();
 	if(!outstr)
-		return notify_fail("Ã»ÓĞÈÎºÎ³ö×âµêÆÌµÄĞÅÏ¢£¡Òª²»ÕÒwiz¿¹ÒéÈ¥£¿\n");
+		return notify_fail("æ²¡æœ‰ä»»ä½•å‡ºç§Ÿåº—é“ºçš„ä¿¡æ¯ï¼è¦ä¸æ‰¾wizæŠ—è®®å»ï¼Ÿ\n");
 	me->start_more( outstr );
 	return 1;
 }
@@ -42,10 +42,10 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºhg [me]
+æŒ‡ä»¤æ ¼å¼ï¼šhg [me]
 --------------------------------------------------
-  ¿´µ±Ç°Í¶±êµÄĞĞÇé
-  Ê¹ÓÃ²ÎÊıme±íÊ¾²é¿´¸ú×Ô¼ºÏà¹ØµÄĞĞÇé
+  çœ‹å½“å‰æŠ•æ ‡çš„è¡Œæƒ…
+  ä½¿ç”¨å‚æ•°meè¡¨ç¤ºæŸ¥çœ‹è·Ÿè‡ªå·±ç›¸å…³çš„è¡Œæƒ…
   
 --------------------------------------------------
 

@@ -1,4 +1,4 @@
-// miaofeng.c √Ó∑Á π
+// miaofeng.c Â¶ôÈ£é‰Ωø
 // Modify By River@sj 99.06
 #include <ansi.h>
 inherit NPC;
@@ -6,13 +6,13 @@ int p();
 void create()
 {
         object ob;
-        set_name("√Ó∑Á π", ({ "miaofeng shi", "miaofeng", "shi"}) );
-        set("title", "√˜ΩÃ≤®Àπ»˝ π");
-        set("gender", "ƒ––‘");
+        set_name("Â¶ôÈ£é‰Ωø", ({ "miaofeng shi", "miaofeng", "shi"}) );
+        set("title", "ÊòéÊïôÊ≥¢ÊñØ‰∏â‰Ωø");
+        set("gender", "Áî∑ÊÄß");
         set("attitude", "friendly");
         set("age",49);
-        set("long", "À˚…Ì≤ƒ∏ﬂ¥Û£¨ª∆–Î”•±«°£\n");
-        set("rank_info/respect"," π’ﬂ");
+        set("long", "‰ªñË∫´ÊùêÈ´òÂ§ßÔºåÈªÑÈ°ªÈπ∞Èºª„ÄÇ\n");
+        set("rank_info/respect","‰ΩøËÄÖ");
         set("str", 29);
         set("int", 20);
         set("con", 28);
@@ -62,12 +62,12 @@ void kill_ob(object me)
           ::kill_ob(me);
           if(objectp(ob = present("liuyun shi", environment(this_object())))
             && !ob->is_killing(me->query("id"))){
-             message_vision(HIY"≥§–¶…˘÷–$n…Ì–ŒªŒ∂Ø£¨‘Ωπ˝√Ó∑Á π’æµΩ$N◊Û±ﬂ£¨Ω´$Nº–‘⁄÷–º‰£°\n", me, ob);
+             message_vision(HIY"ÈïøÁ¨ëÂ£∞‰∏≠$nË∫´ÂΩ¢ÊôÉÂä®ÔºåË∂äËøáÂ¶ôÈ£é‰ΩøÁ´ôÂà∞$NÂ∑¶ËæπÔºåÂ∞Ü$NÂ§πÂú®‰∏≠Èó¥ÔºÅ\n", me, ob);
              if(!ob->is_killing(me->query("id"))) ob->kill_ob(me); 
           }
           if(objectp(ob = present("huiyue shi", environment(this_object())))
             && !ob->is_killing(me->query("id"))){
-             message_vision(HIY"≥§–¶…˘÷–$n…Ì–ŒªŒ∂Ø£¨‘Ωπ˝√Ó∑Á π’æµΩ$N◊Û±ﬂ£¨Ω´$Nº–‘⁄÷–º‰£°\n", me, ob);
+             message_vision(HIY"ÈïøÁ¨ëÂ£∞‰∏≠$nË∫´ÂΩ¢ÊôÉÂä®ÔºåË∂äËøáÂ¶ôÈ£é‰ΩøÁ´ôÂà∞$NÂ∑¶ËæπÔºåÂ∞Ü$NÂ§πÂú®‰∏≠Èó¥ÔºÅ\n", me, ob);
              if(!ob->is_killing(me->query("id"))) ob->kill_ob(me);  
           }  
        }

@@ -7,9 +7,9 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIG"ÖñÉÚ"NOR, ({ "zhushao","shao" }) );
-	set("long",HIG"ÕâÊÇÒ»Ö»ÓÃÀ´Ñ±ÉßµÄÖñÉÚ¡£\n"NOR);
-	set("unit", "Ö»");
+	set_name(HIG"ç«¹å“¨"NOR, ({ "zhushao","shao" }) );
+	set("long",HIG"è¿™æ˜¯ä¸€åªç”¨æ¥é©¯è›‡çš„ç«¹å“¨ã€‚\n"NOR);
+	set("unit", "åª");
 	set("weight", 50);
 	set("no_sell",1);
 	set("no_get",1);
@@ -36,16 +36,16 @@ int do_xunshe(string arg)
 	object me = this_player();
 	
 	if((int)me->query_skill("dulong-dafa",1) < 100) 
-		return notify_fail("ÄãµÄ¶¾Áú´ó·¨ĞŞÎª²»¹»£¬²»ÄÜÑ±Éß¡£\n");
+		return notify_fail("ä½ çš„æ¯’é¾™å¤§æ³•ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½é©¯è›‡ã€‚\n");
 	if((int)me->query("eff_jingli") < 800) 
-		return notify_fail("ÄãµÄ¾«ÑªÌ«ÉÙÁË£¬²»ÄÜÑ±Éß¡£\n");		
+		return notify_fail("ä½ çš„ç²¾è¡€å¤ªå°‘äº†ï¼Œä¸èƒ½é©¯è›‡ã€‚\n");		
 	if( objectp(me->query_temp("sld/snake")) )
-		return notify_fail("ÄãÒÑ¾­ÄÃµ½Ò»ÌõÉßÁË¡£\n");
+		return notify_fail("ä½ å·²ç»æ‹¿åˆ°ä¸€æ¡è›‡äº†ã€‚\n");
 	if((int)environment(me)->query("canfindsnake")!=1)
-		return notify_fail("ÄãÔÚÕâÀïÕÒ²»µ½Éß¡£\n");
+		return notify_fail("ä½ åœ¨è¿™é‡Œæ‰¾ä¸åˆ°è›‡ã€‚\n");
 
-	message_vision(HIG"$NÄÃ³öÖñÉÚ£¬ÓÄÓÄµÄ´µÁËÆğÀ´£¬²»Ò»»á¶ù£¬Ò»Ìõ½ğ¹âÉÁÉÁµÄĞ¡Éß´ÓÊ÷ÁÖÖĞ×êÁË³öÀ´£¡\n"+
-			  "$N°ÑÊÖÖ¸Éìµ½ÉßÃæÇ°£¬Ğ¡ÉßÎüÆğ$NµÄ¾«Ñª£¬$NµÄÁ³ÉÏÍ»È»ÏÖ³öÒ»Ë¿½ğ¹â£¡\n"NOR,me);
+	message_vision(HIG"$Næ‹¿å‡ºç«¹å“¨ï¼Œå¹½å¹½çš„å¹äº†èµ·æ¥ï¼Œä¸ä¸€ä¼šå„¿ï¼Œä¸€æ¡é‡‘å…‰é—ªé—ªçš„å°è›‡ä»æ ‘æ—ä¸­é’»äº†å‡ºæ¥ï¼\n"+
+			  "$NæŠŠæ‰‹æŒ‡ä¼¸åˆ°è›‡é¢å‰ï¼Œå°è›‡å¸èµ·$Nçš„ç²¾è¡€ï¼Œ$Nçš„è„¸ä¸Šçªç„¶ç°å‡ºä¸€ä¸é‡‘å…‰ï¼\n"NOR,me);
 	me->add("eff_jingli",-2);
 	me->set("sld/mysnake",1);
 	me->set("sld/getsnake",0);
@@ -59,17 +59,17 @@ int do_zhaoshe(string arg)
 
 	me = this_player();
 	if( !(int)me->query("sld/mysnake") )
-		return notify_fail("Äã»¹Ã»ÓĞÉßÄØ£¡\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰è›‡å‘¢ï¼\n");
 	if( (int)me->query("sld/getsnake") )
-		return notify_fail("ÄãÒÑ¾­ÄÃµ½ÉßÁË¡£\n");
+		return notify_fail("ä½ å·²ç»æ‹¿åˆ°è›‡äº†ã€‚\n");
 	if((int)environment(me)->query("canfindsnake")!=1)
-		return notify_fail("ÄãÔÚÕâÀïÕÒ²»µ½Éß¡£\n");
+		return notify_fail("ä½ åœ¨è¿™é‡Œæ‰¾ä¸åˆ°è›‡ã€‚\n");
 
-	message_vision(HIG"$NÄÃ³öÖñÉÚ£¬ÓÄÓÄµÄ´µÁËÆğÀ´£¬²»Ò»»á¶ù£¬Ò»Ìõ½ğ¹âÉÁÉÁµÄĞ¡Éß´®µ½$NµÄÉíÉÏ¡£\n"NOR,me);
+	message_vision(HIG"$Næ‹¿å‡ºç«¹å“¨ï¼Œå¹½å¹½çš„å¹äº†èµ·æ¥ï¼Œä¸ä¸€ä¼šå„¿ï¼Œä¸€æ¡é‡‘å…‰é—ªé—ªçš„å°è›‡ä¸²åˆ°$Nçš„èº«ä¸Šã€‚\n"NOR,me);
 
 	//seteuid(getuid());
 	ob = new(__DIR__"ssnake");
-	if (!ob) return notify_fail("Òì³£´íÎó£ºÎŞ·¨´´½¨½ğÉß£¡\n");
+	if (!ob) return notify_fail("å¼‚å¸¸é”™è¯¯ï¼šæ— æ³•åˆ›å»ºé‡‘è›‡ï¼\n");
 	ob->set("owner",me);
 	
 	exp = me->query("combat_exp"); 
@@ -118,17 +118,17 @@ int do_fangshe(string arg)
 
 	me = this_player();
 	if( !(int)me->query("sld/getsnake") )
-		return notify_fail("ÄãÃ»ÓĞÄÃµ½Éß¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰æ‹¿åˆ°è›‡ã€‚\n");
 	if( !(int)environment(me)->query("canfindsnake") )
-		return notify_fail("Äã²»ÄÜÔÚÕâÀï·ÅÉß¡£\n");
+		return notify_fail("ä½ ä¸èƒ½åœ¨è¿™é‡Œæ”¾è›‡ã€‚\n");
 		
 	all = all_inventory(me);                      
 	j=0; 
 	for (i=0; i<sizeof(all); i++)
 		if ( objectp(me->query_temp("sld/snake")) && all[i]==me->query_temp("sld/snake") ) j=1;
-	if (!j) return notify_fail("ÄãµÄÉßÏÖÔÚ²»ÔÚÄãÉíÉÏ£¡\n");
+	if (!j) return notify_fail("ä½ çš„è›‡ç°åœ¨ä¸åœ¨ä½ èº«ä¸Šï¼\n");
 
-	message_vision(HIG"$NÇáÇáµÄ°ÑĞ¡Éß·ÅÏÂ£¬ÅÄÅÄËüµÄÍ·£¬Ğ¡ÉßÇá½ĞÒ»Éù¾Í´Ü»ØÊ÷ÁÖÖĞÈ¥ÁË¡£\n"NOR,me);
+	message_vision(HIG"$Nè½»è½»çš„æŠŠå°è›‡æ”¾ä¸‹ï¼Œæ‹æ‹å®ƒçš„å¤´ï¼Œå°è›‡è½»å«ä¸€å£°å°±çªœå›æ ‘æ—ä¸­å»äº†ã€‚\n"NOR,me);
 	destruct(me->query_temp("sld/snake"));
 	me->delete("sld/getsnake");
 	me->delete_temp("sld/snake");
@@ -144,15 +144,15 @@ int do_nashe(string arg)
 
 	me = this_player();
 	if( !(int)me->query("sld/getsnake") )
-                return notify_fail("ÄãÃ»ÓĞÄÃµ½Éß¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰æ‹¿åˆ°è›‡ã€‚\n");
  
 	all = all_inventory(environment(me));                      
 	j=0;
 	for (i=0; i<sizeof(all); i++)
 		if ( objectp(me->query_temp("sld/snake")) && all[i]==me->query_temp("sld/snake") ) j=1;
-	if (!j) return notify_fail("ÄãÒªÄÃµÄÉß²»ÔÚÕâÀïÑ½£¡\n");
+	if (!j) return notify_fail("ä½ è¦æ‹¿çš„è›‡ä¸åœ¨è¿™é‡Œå‘€ï¼\n");
 
-	message_vision("$NÇáÇáÄÃÆğĞ¡Éß¡£\n",me);
+	message_vision("$Nè½»è½»æ‹¿èµ·å°è›‡ã€‚\n",me);
 	(me->query_temp("sld/snake"))->move(me);
 
 	return 1;
@@ -165,15 +165,15 @@ int do_chushe(string arg)
 
 	me = this_player();
 	if( !(int)me->query("sld/getsnake") )
-		return notify_fail("ÄãÃ»ÓĞÄÃµ½Éß¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰æ‹¿åˆ°è›‡ã€‚\n");
 
 	all = all_inventory(me);                      
 	j=0;
 	for (i=0; i<sizeof(all); i++)
 		if ( objectp(me->query_temp("sld/snake")) && all[i]==me->query_temp("sld/snake") ) j=1;
-	if (!j)  return notify_fail("ÄãµÄÉßÒÑ¾­·Å³öÈ¥ÁË£¡\n");
+	if (!j)  return notify_fail("ä½ çš„è›‡å·²ç»æ”¾å‡ºå»äº†ï¼\n");
 
-	message_vision("$NÇáÇá·ÅÏÂĞ¡Éß¡£\n",me);
+	message_vision("$Nè½»è½»æ”¾ä¸‹å°è›‡ã€‚\n",me);
 	(me->query_temp("sld/snake"))->move(environment(me));
 
 	return 1;
@@ -185,11 +185,11 @@ int do_she(string arg)
 
 	me = this_player();
 	if( !(int)me->query("sld/getsnake") )
-		return notify_fail("ÄãÃ»ÓĞÄÃµ½Éß¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰æ‹¿åˆ°è›‡ã€‚\n");
  	if( !objectp(ob=me->query_temp("sld/snake")) )
-		return notify_fail("ÄãÏÖÔÚÃ»ÓĞÉß¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ²¡æœ‰è›‡ã€‚\n");
 	if( environment(ob) == me )
-		notify_fail("ÄãµÄÉß»¹Ã»ÓĞ·Å³öÈ¥£¡\n");	
+		notify_fail("ä½ çš„è›‡è¿˜æ²¡æœ‰æ”¾å‡ºå»ï¼\n");	
 		
 	ob->do_command(arg);
 	return 1;
@@ -201,13 +201,13 @@ int do_gongji(string arg)
 
 	me = this_player();
 	if( !(int)me->query("sld/getsnake") )
-		return notify_fail("ÄãÃ»ÓĞÄÃµ½Éß¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰æ‹¿åˆ°è›‡ã€‚\n");
  	if( !objectp(ob=me->query_temp("sld/snake")) )
-		return notify_fail("ÄãÏÖÔÚÃ»ÓĞÉß¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ²¡æœ‰è›‡ã€‚\n");
 	if( environment(ob) != me )
-		return notify_fail("Éß²»ÔÚÄãÉíÉÏ£¡\n");
+		return notify_fail("è›‡ä¸åœ¨ä½ èº«ä¸Šï¼\n");
 	if( !me->is_fighting() )
-		return notify_fail("Äã²¢Ã»ÓĞÔÚÕ½¶·°¡£¡\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰åœ¨æˆ˜æ–—å•Šï¼\n");
 		
 	return notify_fail(ob->gongji());
 }
@@ -218,13 +218,13 @@ int do_huti(string arg)
 
 	me = this_player();
 	if( !(int)me->query("sld/getsnake") )
-		return notify_fail("ÄãÃ»ÓĞÄÃµ½Éß¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰æ‹¿åˆ°è›‡ã€‚\n");
  	if( !objectp(ob=me->query_temp("sld/snake")) )
-		return notify_fail("ÄãÏÖÔÚÃ»ÓĞÉß¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ²¡æœ‰è›‡ã€‚\n");
 	if( environment(ob) != me )
-		return notify_fail("Éß²»ÔÚÄãÉíÉÏ£¡\n");
+		return notify_fail("è›‡ä¸åœ¨ä½ èº«ä¸Šï¼\n");
 	if( !me->is_fighting() )
-		return notify_fail("Äã²¢Ã»ÓĞÔÚÕ½¶·°¡£¡\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰åœ¨æˆ˜æ–—å•Šï¼\n");
 		
 	return notify_fail(ob->huti());
 }

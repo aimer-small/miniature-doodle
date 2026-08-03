@@ -5,7 +5,7 @@
 inherit F_DBASE;
 inherit F_SSERVER;
 
-string perform_name(){ return HIR"ÉñÍşÇ¹"NOR; }
+string perform_name(){ return HIR"ç¥å¨æª"NOR; }
 int perform(object me, object target)
 {
         object weapon;
@@ -16,42 +16,42 @@ int perform(object me, object target)
         if( !target
          || !target->is_character()
          || !me->is_fighting(target) )
-                return notify_fail("¡¸ÉñÍşÇ¹¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œç¥å¨æªã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if( !objectp(weapon = me->query_temp("weapon"))
          || weapon->query("skill_type") != "spear" )
-                return notify_fail("ÄãÊÖÖĞÎŞÇ¹£¬ÔõÄÜÔËÓÃ¡¸ÉñÍşÇ¹¡¹£¿£¡\n");
+                return notify_fail("ä½ æ‰‹ä¸­æ— æªï¼Œæ€èƒ½è¿ç”¨ã€Œç¥å¨æªã€ï¼Ÿï¼\n");
 
         if( me->query_temp("yjq/shenwei"))
-                return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸ÉñÍşÇ¹¡¹¾ø¼¼£¡\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œç¥å¨æªã€ç»æŠ€ï¼\n");
                 
         if( me->query_temp("yjq/qinghe"))
-                return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸ÖèÓêÇåºÉ¡¹¾ø¼¼£¡\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œéª¤é›¨æ¸…è·ã€ç»æŠ€ï¼\n");
                 
         if( me->query_temp("yjq/jifeng"))
-                return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸¼²·çÇ¹¡¹¾ø¼¼£¡\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œç–¾é£æªã€ç»æŠ€ï¼\n");
 
         if((int)me->query_skill("yangjia-qiang", 1) < 250
          ||(int)me->query_skill("spear", 1) < 250)
-                return notify_fail("ÄãĞŞÎª»¹²»¹»£¬»¹Î´ÄÜÁìÎò¡¸ÉñÍşÇ¹¡¹£¡\n");
+                return notify_fail("ä½ ä¿®ä¸ºè¿˜ä¸å¤Ÿï¼Œè¿˜æœªèƒ½é¢†æ‚Ÿã€Œç¥å¨æªã€ï¼\n");
 
         if (me->query_skill_mapped("spear") != "yangjia-qiang"
          || me->query_skill_mapped("parry") != "yangjia-qiang")
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸ÉñÍşÇ¹¡¹½øĞĞ¹¥»÷¡£\n");
+                return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€Œç¥å¨æªã€è¿›è¡Œæ”»å‡»ã€‚\n");
 
         if( me->query("max_neili") <= 6000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»×ã£¬²»×ãÒÔÊ©Õ¹¡¸ÉñÍşÇ¹¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸è¶³ï¼Œä¸è¶³ä»¥æ–½å±•ã€Œç¥å¨æªã€ï¼\n");
 
         if( me->query("neili") <= 3000 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬²»×ãÒÔÊ©Õ¹¡¸ÉñÍşÇ¹¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œä¸è¶³ä»¥æ–½å±•ã€Œç¥å¨æªã€ï¼\n");
 
         if( me->query("jingli") <= 2000 )
-                return notify_fail("ÄãµÄ¾«Á¦ÓĞÏŞ£¬²»×ãÒÔÊ©Õ¹¡¸ÉñÍşÇ¹¡¹£¡\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›æœ‰é™ï¼Œä¸è¶³ä»¥æ–½å±•ã€Œç¥å¨æªã€ï¼\n");
                 
         if( (int)me->query_str() < 25 )
-		            return notify_fail("ÄãµÄÏÈÌì±ÛÁ¦²»×ã£¬¹À¼ÆÎŞ·¨Ê¹³ö¡¸ÉñÍşÇ¹¡¹¾ø¼¼¡£\n");
+		            return notify_fail("ä½ çš„å…ˆå¤©è‡‚åŠ›ä¸è¶³ï¼Œä¼°è®¡æ— æ³•ä½¿å‡ºã€Œç¥å¨æªã€ç»æŠ€ã€‚\n");
 
-        message_vision(HIM"\n$NÔË³ïá¡á¢£¬Í»È»Å­·¢³å¹ÚÊ¹³öÑî¼ÒÇ¹¾ø¼¼Ö®¡¸ÉñÍşÇ¹¡¹£¬Ö»¼û"NOR+weapon->name()+HIM"»·ÈÆ×ÅºìÉ«¹âÃ¢£¬ÍğÈç"HIR"»ğÑæÇ¹"HIM"Ò»°ã£¡\n" NOR, me);
+        message_vision(HIM"\n$Nè¿ç­¹å¸·å¹„ï¼Œçªç„¶æ€’å‘å†²å† ä½¿å‡ºæ¨å®¶æªç»æŠ€ä¹‹ã€Œç¥å¨æªã€ï¼Œåªè§"NOR+weapon->name()+HIM"ç¯ç»•ç€çº¢è‰²å…‰èŠ’ï¼Œå®›å¦‚"HIR"ç«ç„°æª"HIM"ä¸€èˆ¬ï¼\n" NOR, me);
 
         if(userp(me)){
            me->add("neili", -300);
@@ -66,7 +66,7 @@ int perform(object me, object target)
         me->add_temp("apply/spear", improve);
         me->add_temp("apply/strength", improve/10 );
         call_out("remove_effect", 1,  me, weapon, skill);
-        me->start_perform(5+random(8), "¡¸ÉñÍşÇ¹¡¹");
+        me->start_perform(5+random(8), "ã€Œç¥å¨æªã€");
         return 1;
 }
 
@@ -85,11 +85,11 @@ void remove_effect(object me,object weapon,int count)
           me->add_temp("apply/strength", -i/10 );
           me->delete_temp("yjq/shenwei");
 	if (weapon)
-		message_vision(HIW"\n$NÒ»Ì×¡¸ÉñÍşÇ¹¡¹Ê¹Íê£¬ÊÖÖĞ"NOR+weapon->name()+HIY"ÉÏµÄºìÉ«¹âÃ¢Öğ½¥ÏûÊ§ÁË¡£\n"NOR, me);
+		message_vision(HIW"\n$Nä¸€å¥—ã€Œç¥å¨æªã€ä½¿å®Œï¼Œæ‰‹ä¸­"NOR+weapon->name()+HIY"ä¸Šçš„çº¢è‰²å…‰èŠ’é€æ¸æ¶ˆå¤±äº†ã€‚\n"NOR, me);
           return;
         }
         else {
-          me->start_perform(1,"¡¸ÉñÍşÇ¹¡¹");
+          me->start_perform(1,"ã€Œç¥å¨æªã€");
           call_out("remove_effect", 1, me, weapon, count -1);
         }
 }

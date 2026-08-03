@@ -1,23 +1,23 @@
-// huoshan2.c »ğÉ½¿Ú
+// huoshan2.c ç«å±±å£
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-	set("short", HIR"»ğÉ½¿Ú"NOR);
+	set("short", HIR"ç«å±±å£"NOR);
 	set("long", @LONG
-µ½ÁËÕâÀï¾ÍµÈÓÚµ½ÁËµØÓüÁË¡£
+åˆ°äº†è¿™é‡Œå°±ç­‰äºåˆ°äº†åœ°ç‹±äº†ã€‚
 LONG);
 	set("exits",([
 		"southdown" : __DIR__"huoshan1",
 	]));
-        set("outdoors","±ù»ğµº");
+        set("outdoors","å†°ç«å²›");
 	setup();
 }
 
 void init()
 {
         object me =this_player();
-        me->set_temp("last_damage_from", "ÎóÈë»ğÉ½¿ÚÉÕ");
+        me->set_temp("last_damage_from", "è¯¯å…¥ç«å±±å£çƒ§");
        	me->die();
 }

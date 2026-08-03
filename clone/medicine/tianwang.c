@@ -1,19 +1,19 @@
-// tianwang.c ÌìÍõ»¤ĞÄµ¤
+// tianwang.c å¤©ç‹æŠ¤å¿ƒä¸¹
 // Modify By Looklove@SJ 2000/1/15
 #include <ansi.h>
 inherit COMBINED_ITEM;
 
 void create()
 {
-        set_name("ÌìÍõ»¤ĞÄµ¤", ({"tianwang huxindan", "tianwang","huxindan","dan"}));
+        set_name("å¤©ç‹æŠ¤å¿ƒä¸¹", ({"tianwang huxindan", "tianwang","huxindan","dan"}));
         if (clonep())
         set_default_object(__FILE__);
         else {
                 set("value", 20000);
-                set("unit", "Ğ©");
-                set("long","ÕâÊÇÒ»Á£ÌìÍõ»¤ĞÄµ¤£¬ÓÃÓÚ½âº®¶¾¡£\n");
+                set("unit", "äº›");
+                set("long","è¿™æ˜¯ä¸€ç²’å¤©ç‹æŠ¤å¿ƒä¸¹ï¼Œç”¨äºè§£å¯’æ¯’ã€‚\n");
                 set("base_value", 20000);
-                set("base_unit", "Á£");
+                set("base_unit", "ç²’");
                 set("base_weight", 30);
         }
         set_amount(1);
@@ -30,24 +30,24 @@ int do_eat(string arg)
         object ob = this_object();
 
         if(!arg || arg!="dan")
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
         if (!me->query_condition("cold_poison"))
-                return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃÌìÍõ»¤ĞÄµ¤¡£\n");
+                return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨å¤©ç‹æŠ¤å¿ƒä¸¹ã€‚\n");
         
         if(me->query_condition("cold_poison") > 1000)
-                return notify_fail("ÄãÏÖÔÚÖĞ¶¾Ì«Éî£¬ÌìÍõ»¤ĞÄµ¤Ã»ÓĞÊ²Ã´Ğ§ÓÃ¡£\n");
+                return notify_fail("ä½ ç°åœ¨ä¸­æ¯’å¤ªæ·±ï¼Œå¤©ç‹æŠ¤å¿ƒä¸¹æ²¡æœ‰ä»€ä¹ˆæ•ˆç”¨ã€‚\n");
                         
         if(me->query_condition("cold_poison") > 50){
                 me->apply_condition("cold_poison", me->query_condition("cold_poison")-50);
-                message_vision("$N·şÏÂÒ»Á£ÌìÍõ»¤ĞÄµ¤£¬Á³É«¿´ÆğÀ´ºÃ¶àÁË¡£\n", me, ob);
+                message_vision("$Næœä¸‹ä¸€ç²’å¤©ç‹æŠ¤å¿ƒä¸¹ï¼Œè„¸è‰²çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n", me, ob);
                 destruct(ob);
                 return 1;
         }
         add_amount(-1);
-        message_vision("$N·şÏÂÁËÒ»Á£ÌìÍõ»¤ĞÄµ¤¡£\n", me, ob);
+        message_vision("$Næœä¸‹äº†ä¸€ç²’å¤©ç‹æŠ¤å¿ƒä¸¹ã€‚\n", me, ob);
         me->clear_condition("cold_poison");
-        write("ÄãÉñÉ«½¥½¥¿ªÊ¼ºÃ×ª£¬Á³ÉÏµÄº®ÆøÒ²¿ªÊ¼ÏûÍËÁË¡£\n", me);
+        write("ä½ ç¥è‰²æ¸æ¸å¼€å§‹å¥½è½¬ï¼Œè„¸ä¸Šçš„å¯’æ°”ä¹Ÿå¼€å§‹æ¶ˆé€€äº†ã€‚\n", me);
         destruct(ob);
         return 1;
 }

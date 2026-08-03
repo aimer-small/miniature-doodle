@@ -9,13 +9,13 @@ inherit F_SAVE;
 
 void create()
 { 
-	set_name( "ÃÉ¹ÅÓÂÊ¿" , ({"menggu yongshi", "yong shi", "yongshi"}));
-	set("title", HIB "ÃÉ¹Å´ó¾ü" NOR);
+	set_name( "è’™å¤å‹‡å£«" , ({"menggu yongshi", "yong shi", "yongshi"}));
+	set("title", HIB "è’™å¤å¤§å†›" NOR);
 	set("init",0);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 20 + random(60));
-	set("long", "ÕâÊÇÃÉ¹ÅÉí¾­°ÙÕ½µÄÃÉ¹ÅÓÂÊ¿¡£\n" );
+	set("long", "è¿™æ˜¯è’™å¤èº«ç»ç™¾æˆ˜çš„è’™å¤å‹‡å£«ã€‚\n" );
 	if( random(20) < 1 )
 		set("double_attack",1);
 
@@ -82,8 +82,8 @@ void init()
 
 		set("ciwei_level",me->query_temp("xykm_job/finish"));
 				
-		set_name( "ÃÉ¹ÅÓÂÊ¿" , ({"menggu yongshi", "yong shi", "yongshi"}));
-	  set("title", HIB "ÃÉ¹Å´ó¾ü" NOR);	
+		set_name( "è’™å¤å‹‡å£«" , ({"menggu yongshi", "yong shi", "yongshi"}));
+	  set("title", HIB "è’™å¤å¤§å†›" NOR);	
 		
 		set("max_neili",query_skill("force")*8 + query("combat_exp")/1000);
 		set("max_jingli",query_skill("force")*8);
@@ -94,7 +94,7 @@ void init()
 		reincarnate();
 								
 		cloth = new(ARMOR_D("cloth"));
-		cloth->set("name",HIB"ÃÉ¹ÅÕ½ÅÛ"NOR);
+		cloth->set("name",HIB"è’™å¤æˆ˜è¢"NOR);
 		cloth->move(ob);
 		cloth->wear();
 		add_money("silver", 20+random(30));
@@ -139,7 +139,7 @@ void check(object ob, object me)
 	 || !me->query_temp("xykm_job")
 	 || me->query("qi")<1000
 	 || environment(me)!=environment(ob)){
-		tell_room(environment(ob), "ÃÉ¹ÅÓÂÊ¿Ëµ£ºÖÕÓÚ¹¥ÏÂÁËÏåÑô³ÇĞşÎäÃÅ£¬ÂíÉÏÅÉÈËÍ¨Öª±İÏÂ¡£\n");
+		tell_room(environment(ob), "è’™å¤å‹‡å£«è¯´ï¼šç»ˆäºæ”»ä¸‹äº†è¥„é˜³åŸç„æ­¦é—¨ï¼Œé©¬ä¸Šæ´¾äººé€šçŸ¥é™›ä¸‹ã€‚\n");
 		me->delete_temp("xykm_job");
 		me->apply_condition("job_busy",20+random(20));
 		me->apply_condition("xykm_job",0);

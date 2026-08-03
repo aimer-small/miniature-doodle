@@ -18,7 +18,7 @@ void quit();
 varargs void create(string arg)
 {
 	::create();
-	set_name("ÀÞÌ¨Íæ¼ÒÊý¾Ý", ({ arg }) );
+	set_name("æ“‚å°çŽ©å®¶æ•°æ®", ({ arg }) );
 	userid = arg;
 }
 
@@ -48,7 +48,7 @@ void die()
 		ob->remove_all_killer();
 		all_inventory(environment())->remove_killer(ob);
 	}
-	fam = query("family/family_name")?query("family/family_name"):"ÆÕÍ¨°ÙÐÕ";
+	fam = query("family/family_name")?query("family/family_name"):"æ™®é€šç™¾å§“";
 	color = query("color")?" "+query("color"):" ";
 	fam = fam + color + query("name") + NOR + "(" + capitalize(query("id")) + ")";
 	if (objectp(ob)) {
@@ -65,16 +65,16 @@ void quit()
 
 	link_ob = query("link_ob");
 	if (query_temp("leitai"))
-		message_vision("\n$NÍË³öÁËÀÞÌ¨¡£\n\n", ob);
+		message_vision("\n$Né€€å‡ºäº†æ“‚å°ã€‚\n\n", ob);
 	if (environment()->query_temp("leitai") > 0)
 		environment()->add_temp("leitai", -1);
 
 	if (objectp(link_ob)) {
 		link_ob->delete_temp("apply/short");
-		tell_room(environment(link_ob), link_ob->query("name")+"´ÓÀÞÌ¨ÉÏÌøÁËÏÂÀ´¡£\n");
+		tell_room(environment(link_ob), link_ob->query("name")+"ä»Žæ“‚å°ä¸Šè·³äº†ä¸‹æ¥ã€‚\n");
 		if (!query_temp("netdead")) {
 			if (wizardp(ob))
-				tell_object(ob, "ÄãµÄ»êÆÇ»Øµ½×Ô¼ºµÄÉíÉÏ¡£\n");
+				tell_object(ob, "ä½ çš„é­‚é­„å›žåˆ°è‡ªå·±çš„èº«ä¸Šã€‚\n");
 			exec(link_ob, ob);
 			link_ob->force_me("look");
 		} else {
@@ -93,7 +93,7 @@ private void net_dead()
 
 	set_temp("netdead", uptime());
 	set_heart_beat(0);
-	tell_room(environment(), query("name") + "¶ÏÏßÁË¡£\n");
+	tell_room(environment(), query("name") + "æ–­çº¿äº†ã€‚\n");
 	if (ob)
 		destruct(ob);
 	die();
@@ -105,7 +105,7 @@ void reconnect()
 
 	set_heart_beat(1);
 	delete_temp("netdead");
-	tell_object(this_object(), "ÖØÐÂÁ¬ÏßÍê±Ï¡£\n");
+	tell_object(this_object(), "é‡æ–°è¿žçº¿å®Œæ¯•ã€‚\n");
 	if (ob)
 		ob->set_temp("link_ob", query_temp("link_ob"));
 }

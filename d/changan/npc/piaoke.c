@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("æÎ¿Í", ({"piao ke", "ke" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("å«–å®¢", ({"piao ke", "ke" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 35+random(15));
-        set("long", "ÕâÊÇ¸öÔÚ³¤°²ÍòºìÂ¥ÀïÑ°»¨ÎÊÁøµÄæÎ¿Í¡£\n");
+        set("long", "è¿™æ˜¯ä¸ªåœ¨é•¿å®‰ä¸‡çº¢æ¥¼é‡Œå¯»èŠ±é—®æŸ³çš„å«–å®¢ã€‚\n");
 
 	set_temp("apply/attack", 25);
 	set_temp("apply/defense", 25);
@@ -25,7 +25,7 @@ void create()
 
         set("chat_chance", 3);
         set("chat_msg", ({
-		"æÎ¿Í´óÉùÈÂµÀ£º¡°½ĞÄãÃÇ×îºìµÄ¹ÃÄï³öÀ´£¬´óÒ¯ÎÒÓĞµÄÊÇÇ®£¡¡±\n",
+		"å«–å®¢å¤§å£°åš·é“ï¼šâ€œå«ä½ ä»¬æœ€çº¢çš„å§‘å¨˜å‡ºæ¥ï¼Œå¤§çˆ·æˆ‘æœ‰çš„æ˜¯é’±ï¼â€\n",
 	}) );
 	carry_object(ARMOR_D("cloth"))->wear();
 	add_money("silver", 50);

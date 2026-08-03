@@ -3,19 +3,19 @@ inherit F_BOAT;
 
 void create()
 {
-        set_name("Ğ¡·«´¬", ({ "boat" }));
-        set("short", "Ğ¡·«´¬");
+        set_name("å°å¸†èˆ¹", ({ "boat" }));
+        set("short", "å°å¸†èˆ¹");
         set_weight(1000000);
         set_max_encumbrance(700000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ö»");
-                set("long", "ÕâÊÇÒ»Ìõ¼òÂªµÄ×ÔÖÆ·«´¬£¬´¬ÉíÉÏÏÂÈ«ÊÇÓÃÊ÷Ä¾×ö³É¡£º½ĞĞÊ±¿ÉÒÔ¿´¼û(lookout)
-Ò»ÅÅÅÅµÄ·çÀË´Ó´óº£´òÀ´£¬Ê¹Ö®²»×¡µØµßô¤¡£\n");
+                set("unit", "åª");
+                set("long", "è¿™æ˜¯ä¸€æ¡ç®€é™‹çš„è‡ªåˆ¶å¸†èˆ¹ï¼Œèˆ¹èº«ä¸Šä¸‹å…¨æ˜¯ç”¨æ ‘æœ¨åšæˆã€‚èˆªè¡Œæ—¶å¯ä»¥çœ‹è§(lookout)
+ä¸€æ’æ’çš„é£æµªä»å¤§æµ·æ‰“æ¥ï¼Œä½¿ä¹‹ä¸ä½åœ°é¢ ç°¸ã€‚\n");
                 set("value", 50);
                 set("location", 1);
-                set("outdoors", "´óº£");
+                set("outdoors", "å¤§æµ·");
         }
         setup();
 }

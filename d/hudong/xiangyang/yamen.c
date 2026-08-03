@@ -5,11 +5,11 @@
 inherit ROOM;
 void create()
 {
-        set("short", HIR"ÑÃÃÅ"NOR);
+        set("short", HIR"è¡™é—¨"NOR);
         set("long", @LONG
-ÕâÀïÊÇÑÃÃÅ´óÃÅ£¬Á½ÉÈÖìÄ¾´óÃÅ½ô½ô¹Ø±Õ×Å¡£¡°Ëà¾²¡±¡°»Ø±Ü¡±µÄÅÆ×Ó·Ö
-·ÅÁ½Í·Ê¯Ê¨×ÓµÄÅÔ±ß¡£Ç°ÃæÓĞÒ»¸ö´ó¹Ä£¬ÏÔÈ»ÊÇ¹©Ğ¡ÃñÃùÔ©ÓÃµÄ¡£¼¸ÃûÑÃÒÛÔÚ
-ÃÅÇ°Ñ²Âß¡£
+è¿™é‡Œæ˜¯è¡™é—¨å¤§é—¨ï¼Œä¸¤æ‰‡æœ±æœ¨å¤§é—¨ç´§ç´§å…³é—­ç€ã€‚â€œè‚ƒé™â€â€œå›é¿â€çš„ç‰Œå­åˆ†
+æ”¾ä¸¤å¤´çŸ³ç‹®å­çš„æ—è¾¹ã€‚å‰é¢æœ‰ä¸€ä¸ªå¤§é¼“ï¼Œæ˜¾ç„¶æ˜¯ä¾›å°æ°‘é¸£å†¤ç”¨çš„ã€‚å‡ åè¡™å½¹åœ¨
+é—¨å‰å·¡é€»ã€‚
 LONG
         );
         set("xyjob", 1);
@@ -31,9 +31,9 @@ int valid_leave(object me, string dir)
 {
         if (!wizardp(me) && objectp(present("ya yi", environment(me))) && dir != "east"){
         	if( me->query_condition("killer"))
-        		return notify_fail("ÑÃÒÛºÈµÀ£º¡°ÄãÊÇË­£¿¿ì¿ìÀë¿ªÕâÀï¡£¡±\n");
+        		return notify_fail("è¡™å½¹å–é“ï¼šâ€œä½ æ˜¯è°ï¼Ÿå¿«å¿«ç¦»å¼€è¿™é‡Œã€‚â€\n");
         	if( !objectp(present("tiebu wenshu", me)) )
-                	return notify_fail("ÑÃÒÛºÈµÀ£º¡°Íş¡­¡­Îä¡­¡­¡£¡±\n");
+                	return notify_fail("è¡™å½¹å–é“ï¼šâ€œå¨â€¦â€¦æ­¦â€¦â€¦ã€‚â€\n");
         }
         return ::valid_leave(me, dir);
 }

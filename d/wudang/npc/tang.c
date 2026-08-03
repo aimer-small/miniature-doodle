@@ -10,14 +10,14 @@ void init()
 }
 void create()
 {
-        set_name(HIG"ÈË²Î¹û"NOR, ({"renshen guo", "guo"}));
+        set_name(HIG"äººå‚æœ"NOR, ({"renshen guo", "guo"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ã¶");
+                set("unit", "æš");
                 set("long",
-                "Öí°Ë½äÔø¾­³Ô¹ıµÄ¶«Î÷£¬¿´ÆğÀ´ÏóÒ»¸ö°×°×ÅÖÅÖµÄĞ¡ÄĞº¢¡£\n"
-                "ÓĞ»Ö¸´ÌåÁ¦£¬Ôö¼Ó¹¦Á¦µÄÉñÆæĞ§¹û¡£\n");
+                "çŒªå…«æˆ’æ›¾ç»åƒè¿‡çš„ä¸œè¥¿ï¼Œçœ‹èµ·æ¥è±¡ä¸€ä¸ªç™½ç™½èƒ–èƒ–çš„å°ç”·å­©ã€‚\n"
+                "æœ‰æ¢å¤ä½“åŠ›ï¼Œå¢åŠ åŠŸåŠ›çš„ç¥å¥‡æ•ˆæœã€‚\n");
                 set("value", 1000);
         }
         setup();
@@ -27,7 +27,7 @@ int do_eat(string arg)
 {
         object me = this_player();
         message_vision(HIB"
-$N³ÔÏÂÒ»Ã¶ÈË²Î¹û£¬ÔãÁË¡­¡­¼ÙµÄ£¡\n\n"NOR,me);
+$Nåƒä¸‹ä¸€æšäººå‚æœï¼Œç³Ÿäº†â€¦â€¦å‡çš„ï¼\n\n"NOR,me);
         destruct(this_object());
         return 1;
 }

@@ -4,13 +4,13 @@ inherit ROOM;
  
 void create() 
 { 
-	set("short", "��ɽ����");
+	set("short", "佛山北街");
 	set("long", @LONG
-�����Ƿ�ɽ�ı���֣������Ľֵ��ϳ�ˮ���������������������߾�
-�Ƿ�ɽ�Ĺ㳡�ˣ������������У��ƺ�ʮ�����֡�
+这里是佛山的北大街，宽阔的街道上车水马龙，人来人往，向南走就
+是佛山的广场了，那里人声鼎沸，似乎十分热闹。
 LONG
 	);
-        set("outdoors","��ɽ");
+        set("outdoors","佛山");
         set("exits", ([ 
             "south" : __DIR__"guangchang",
             "north" : __DIR__"beimen",

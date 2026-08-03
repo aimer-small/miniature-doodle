@@ -11,15 +11,15 @@ int main(object me, string arg)
 	int i, count;
 
 	if (userp(me) && (me->is_busy() || me->query_temp("thd/xinghe")))
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
                 
 	if (userp(me) && me->is_exert()) 
-		return notify_fail("ÄãÕıÔÚÊ¹ÓÃ"+me->query_exert()+"¡£\n");
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨"+me->query_exert()+"ã€‚\n");
 
 	if (userp(me) && me->is_perform() ) 
-		return notify_fail("ÄãÕıÔÚÊ¹ÓÃ"+me->query_perform()+"¡£\n");
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨"+me->query_perform()+"ã€‚\n");
 
-	if (!arg) return notify_fail("ÄãÒª×°±¸Ê²Ã´ÎäÆ÷£¿\n");
+	if (!arg) return notify_fail("ä½ è¦è£…å¤‡ä»€ä¹ˆæ­¦å™¨ï¼Ÿ\n");
 
 	if (arg=="all") {
 		inv = all_inventory(me);
@@ -31,24 +31,24 @@ int main(object me, string arg)
 			if(inv[i]->query("no_wield") && me->query("family/family_name")!=inv[i]->query("family_required")) continue;
 			if(do_wield(me, inv[i]) ) count ++;
 		}
-		write("×°±¸Íê±Ï¡£\n");
+		write("è£…å¤‡å®Œæ¯•ã€‚\n");
 		return 1;
 	}
 
 	if( !objectp(ob = present(arg, me)) )
-		return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
 	if( ob->query("equipped"))
-		return notify_fail("ÄãÒÑ¾­×°±¸ÖøÁË¡£\n");
+		return notify_fail("ä½ å·²ç»è£…å¤‡è‘—äº†ã€‚\n");
 	if (ob->query("no_wield"))
 		if(me->query("family/family_name")!=ob->query("family_required"))
-			return notify_fail("Äã²»ÄÜÊ¹ÓÃÕâ¼şÎäÆ÷¡£\n");
+			return notify_fail("ä½ ä¸èƒ½ä½¿ç”¨è¿™ä»¶æ­¦å™¨ã€‚\n");
 	if((int)me->query("max_neili") < (int)ob->query("wield_maxneili"))
-		return notify_fail("Äã¸Ğ¾õÈ«ÉíÆøÏ¢·­ÌÚ£¬Ô­À´ÄãÄÚÁ¦²»¹»£¬²»ÄÜ×°±¸"+ob->name()+"¡£\n");
+		return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”æ¯ç¿»è…¾ï¼ŒåŸæ¥ä½ å†…åŠ›ä¸å¤Ÿï¼Œä¸èƒ½è£…å¤‡"+ob->name()+"ã€‚\n");
 	if((int)me->query("neili") < (int)ob->query("wield_neili"))
-		return notify_fail("Äã¸Ğ¾õÈ«ÉíÆøÏ¢·­ÌÚ£¬Ô­À´ÄãÕæÆø²»¹»£¬²»ÄÜ×°±¸"+ob->name()+"¡£\n");
+		return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”æ¯ç¿»è…¾ï¼ŒåŸæ¥ä½ çœŸæ°”ä¸å¤Ÿï¼Œä¸èƒ½è£…å¤‡"+ob->name()+"ã€‚\n");
 	if((int)me->query_str() < (int)ob->query("wield_str"))
-		return notify_fail("ÄãÏë¾ÙÆğ"+ob->name()+"£¬ÔõÄÎÁ¦Á¿²»¹»£¬Ö»ºÃ×÷°Õ¡£\n");
+		return notify_fail("ä½ æƒ³ä¸¾èµ·"+ob->name()+"ï¼Œæ€å¥ˆåŠ›é‡ä¸å¤Ÿï¼Œåªå¥½ä½œç½¢ã€‚\n");
 	return do_wield(me, ob);
 }
 
@@ -56,11 +56,11 @@ int do_wield(object me, object ob)
 {
 	string str;
 
-	notify_fail("ÄãÖ»ÄÜ×°±¸¿Éµ±×÷ÎäÆ÷µÄ¶«Î÷¡£\n");
+	notify_fail("ä½ åªèƒ½è£…å¤‡å¯å½“ä½œæ­¦å™¨çš„ä¸œè¥¿ã€‚\n");
 	if (ob->wield()) {
 		if (userp(me) && me->is_fighting()) me->start_busy(1);
 		if( !stringp(str = ob->query("wield_msg")) )
-			str = "$N×°±¸$n×÷ÎäÆ÷¡£\n";
+			str = "$Nè£…å¤‡$nä½œæ­¦å™¨ã€‚\n";
 		message_vision(str, me, ob);
 		return 1;
 	}
@@ -70,9 +70,9 @@ int do_wield(object me, object ob)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºwield <×°±¸Ãû³Æ>
+æŒ‡ä»¤æ ¼å¼ï¼šwield <è£…å¤‡åç§°>
  
-Õâ¸öÖ¸ÁîÈÃÄã×°±¸Ä³¼şÎïÆ·×÷ÎäÆ÷, Äã±ØĞèÒªÓµÓĞÕâÑùÎïÆ·.
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ è£…å¤‡æŸä»¶ç‰©å“ä½œæ­¦å™¨, ä½ å¿…éœ€è¦æ‹¥æœ‰è¿™æ ·ç‰©å“.
  
 HELP
 	);

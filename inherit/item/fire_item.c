@@ -27,7 +27,7 @@ void fire_decay()
 
              if((string)obj->query("light/off_msg"))
 	             message_vision(obj->query("light/off_msg"), obj);
-             else message_vision("$NÂıÂıÏ¨ÃğÁË¡£\n", obj);  	    
+             else message_vision("$Næ…¢æ…¢ç†„ç­äº†ã€‚\n", obj);  	    
         }
 }
 

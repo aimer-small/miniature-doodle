@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ºş±õĞ¡Â·");
+	set("short", "æ¹–æ»¨å°è·¯");
 	set("long", @LONG
-Ò»Ìõºş±õµÄĞ¡Â·£¬ÍùÔ¶´¦¿´ËÆºõºá×ÅÒ»ÌõĞ¡ºÓ¡£
+ä¸€æ¡æ¹–æ»¨çš„å°è·¯ï¼Œå¾€è¿œå¤„çœ‹ä¼¼ä¹æ¨ªç€ä¸€æ¡å°æ²³ã€‚
 LONG
 	);
 	set("no_clean_up", 0);
-	set("outdoors","¹éÔÆ×¯");
+	set("outdoors","å½’äº‘åº„");
 
 	set("objects",([
 		__DIR__"npc/youke" : 1,

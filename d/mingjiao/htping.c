@@ -1,14 +1,14 @@
-// htping.c  »ÆÍÁÆº
+// htping.c  é»„åœŸåª
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 { 
-       set("short",YEL"»ÆÍÁÆº"NOR);
+       set("short",YEL"é»„åœŸåª"NOR);
        set("long", @LONG
-ÕâÊÇÒ»Æ¬½Ï´óµÄ»ÆÍÁÆº¡£ÖÜÎ§Ö»ÓĞ¼¸ÖêÒÑ¸É¿İµÄ¹ÅÊ÷ºÍ»ÆÉ³¡£¿ÉÒÔ¿´³öÕâ
-ÀïÒÔÇ°ÔøÊÇÂÌÖŞ£¬¶«±ßÊÇÒ»¸ö¸öĞ¡É³Çğ¡£
+è¿™æ˜¯ä¸€ç‰‡è¾ƒå¤§çš„é»„åœŸåªã€‚å‘¨å›´åªæœ‰å‡ æ ªå·²å¹²æ¯çš„å¤æ ‘å’Œé»„æ²™ã€‚å¯ä»¥çœ‹å‡ºè¿™
+é‡Œä»¥å‰æ›¾æ˜¯ç»¿æ´²ï¼Œä¸œè¾¹æ˜¯ä¸€ä¸ªä¸ªå°æ²™ä¸˜ã€‚
 LONG);    
 	set("exits", ([
 		"southeast" : __DIR__"shaqiu4",
@@ -20,7 +20,7 @@ LONG);
                 CLASS_D("mingjiao") + "/wufu" : 1,
                 __DIR__"npc/m-dizi" : 1,
 	]));
-        set("outdoors", "Ã÷½Ì¹âÃ÷¶¥");
+        set("outdoors", "æ˜æ•™å…‰æ˜é¡¶");
         set("coor/x",-320);
   set("coor/y",90);
    set("coor/z",0);

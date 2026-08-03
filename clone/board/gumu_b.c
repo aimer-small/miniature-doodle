@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-	set_name("隔世石碑", ({ "board" }) );
+	set_name("闅斾笘鐭崇", ({ "board" }) );
 	set("location", "/d/gumu/rukou");
 	set("board_id", "gumu_b");
-	set("long", "这是一块立在古墓门下的石碑，上面刻有无数人的笔迹。\n" );
+	set("long", "杩欐槸涓�鍧楃珛鍦ㄥ彜澧撻棬涓嬬殑鐭崇锛屼笂闈㈠埢鏈夋棤鏁颁汉鐨勭瑪杩广�俓n" );
 	setup();
 	set("capacity", 60);
 }

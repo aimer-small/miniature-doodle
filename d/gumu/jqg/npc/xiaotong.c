@@ -5,10 +5,10 @@ string ask_tea(object ob);
 inherit NPC;
 void create()
 {
-       set_name("ÂÌÒÂĞ¡Ù×", ({ "luyi xiaotong", "xiaotong", "luyi"}));
-       set("long","Ëû³¤µÃÃ¼ÇåÄ¿Ğã£¬ÊÇ¸ö×¨ÃÅÊÌ²èµÄĞ¡Ù×¡£\n");
-       set("title","¾øÇé¹ÈÊÌÍ¯");
-       set("gender", "ÄĞĞÔ");
+       set_name("ç»¿è¡£å°åƒ®", ({ "luyi xiaotong", "xiaotong", "luyi"}));
+       set("long","ä»–é•¿å¾—çœ‰æ¸…ç›®ç§€ï¼Œæ˜¯ä¸ªä¸“é—¨ä¾èŒ¶çš„å°åƒ®ã€‚\n");
+       set("title","ç»æƒ…è°·ä¾ç«¥");
+       set("gender", "ç”·æ€§");
        set("age", 15);
        set("shen_type",1);
        set("attitude", "peaceful");
@@ -27,7 +27,7 @@ void create()
 
        set("combat_exp",10000);
        set("inquiry", ([
-		   "²è" : (: ask_tea :),
+		   "èŒ¶" : (: ask_tea :),
        ]));
 
        setup();
@@ -46,20 +46,20 @@ void init()
 void greeting(object ob)
 {
         if( !ob || environment(ob) != environment() ) return;
-        say("ÂÌÒÂĞ¡Ù×Ğ¦Ò÷Ò÷µØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-             + "ÇëÁË£¬" + "ÎÒÕâ¾Í¸øÄúÅİ²è¡£\n");
+        say("ç»¿è¡£å°åƒ®ç¬‘åŸåŸåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+             + "è¯·äº†ï¼Œ" + "æˆ‘è¿™å°±ç»™æ‚¨æ³¡èŒ¶ã€‚\n");
 }
 
 string ask_tea(object ob)
 { 
        object obj;
        if ((this_player()->query("water")*10/this_player()->max_water_capacity())>8)
-            return "ÄãÔõÃ´ºÈ±¥ÁË»¹ÏëÒª£¿";
+            return "ä½ æ€ä¹ˆå–é¥±äº†è¿˜æƒ³è¦ï¼Ÿ";
        if ( present("longjin cha", this_player()))
-            return "ÄãÏÈºÈÍêÁËÎÒ¸øÄãµÄÔÙËµ°É¡£";
+            return "ä½ å…ˆå–å®Œäº†æˆ‘ç»™ä½ çš„å†è¯´å§ã€‚";
        if ( present("longjin cha",  environment(ob)) )
-            return "ÄÇ²»ÊÇÓĞÂğ£¿ÏÈºÈÍêÁËÔÙËµ¡£";
+            return "é‚£ä¸æ˜¯æœ‰å—ï¼Ÿå…ˆå–å®Œäº†å†è¯´ã€‚";
        obj=new("/d/gumu/jqg/obj/longjin");
        obj->move(this_player());
-            return "Õâ±­Áú¾®²è¸øÄú£¬ÇëÂıµãºÈÓ´¡£";
+            return "è¿™æ¯é¾™äº•èŒ¶ç»™æ‚¨ï¼Œè¯·æ…¢ç‚¹å–å“Ÿã€‚";
 }

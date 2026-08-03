@@ -9,15 +9,15 @@ void init()
 		return;
         if  (me->query("combat_exp") >= 1500000 
 	 &&  me->query("shen") >= 10000
-	 &&  me->query("max_neili") >= 5000  //¿¼ÂÇºóÃæÇé½Ú±³¸ö´ó²¼´ü»¹ÅÜµÄ·É¿ì£¬¶ÔÄÚÁ¦ÓĞµãÒªÇó¡£
+	 &&  me->query("max_neili") >= 5000  //è€ƒè™‘åé¢æƒ…èŠ‚èƒŒä¸ªå¤§å¸ƒè¢‹è¿˜è·‘çš„é£å¿«ï¼Œå¯¹å†…åŠ›æœ‰ç‚¹è¦æ±‚ã€‚
 	 &&  random(me->query("kar")) >= 20
 	 &&  me->query("quest/tonglao/quest") <= me->query("combat_exp") / 1000000
 	 &&  (time() - me->query("quest/tonglao/time")) > 86400
 	 &&  !(me->query_temp("tonglao/pass1"))
-	 &&  !(me->query("quest/tonglao/pass"))	//ÒÑ¾­½â¿ª¸Ãquest
+	 &&  !(me->query("quest/tonglao/pass"))	//å·²ç»è§£å¼€è¯¥quest
 	 &&  random(200) > 100 ) {
-		tell_object(me, YEL"ÄãÕıÔÚÂ·ÉÏ×ß×Å£¬ºö¼ûÓÒÊ×É½¹ÈÖĞÂ¶³öÒ»µã"HIY"µÆ»ğ"YEL"£¡¡£\n\n"+
-				"Äã²»ÓÉµÃÍ£ÏÂ½Å²½£¬×ß¹ıÈ¥¿´¸ö¾¿¾¹¡£\n"NOR);
+		tell_object(me, YEL"ä½ æ­£åœ¨è·¯ä¸Šèµ°ç€ï¼Œå¿½è§å³é¦–å±±è°·ä¸­éœ²å‡ºä¸€ç‚¹"HIY"ç¯ç«"YEL"ï¼ã€‚\n\n"+
+				"ä½ ä¸ç”±å¾—åœä¸‹è„šæ­¥ï¼Œèµ°è¿‡å»çœ‹ä¸ªç©¶ç«Ÿã€‚\n"NOR);
 	        me->add_busy(4 + random(4));
 		me->move(__DIR__"shandao1",1);
 		me->set_temp("tonglao/pass1",1);
@@ -25,10 +25,10 @@ void init()
 		me->set_temp("tonglao/step",-i);
 		me->add("quest/tonglao/quest",1);
 		me->set("quest/tonglao/time", time());
-		log_file("quest/tonglao",sprintf("%8s%-10sÍ¨¹ıÍ¯ÀÑ½âÃÔµÚÒ»²½£¬¾­Ñé£º%d£¬¸££º%d£¬´ÎÊı£º%d¡£\n",
+		log_file("quest/tonglao",sprintf("%8s%-10sé€šè¿‡ç«¥å§¥è§£è¿·ç¬¬ä¸€æ­¥ï¼Œç»éªŒï¼š%dï¼Œç¦ï¼š%dï¼Œæ¬¡æ•°ï¼š%dã€‚\n",
 			me->name(),"("+me->query("id")+")", me->query("combat_exp"), 
 			me->query("kar"), me->query("quest/tonglao/quest")), me);
-		tell_room(environment(me), me->name()+"´ÓÉ½¾¶×ßÁË¹ıÀ´¡£\n",  ({ me }));
+		tell_room(environment(me), me->name()+"ä»å±±å¾„èµ°äº†è¿‡æ¥ã€‚\n",  ({ me }));
 		return;
         }
 }

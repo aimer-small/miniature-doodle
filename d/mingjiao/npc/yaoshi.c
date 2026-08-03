@@ -1,12 +1,12 @@
-// yaoshi.c Ò©Ê¦
+// yaoshi.c è¯å¸ˆ
 inherit NPC;
 inherit F_VENDOR;
 void create()
 {
-        set_name("Ò©Ê¦", ({ "yao shi", "yao", "shi" }) );       
-        set("gender", "ÄĞĞÔ" );
+        set_name("è¯å¸ˆ", ({ "yao shi", "yao", "shi" }) );       
+        set("gender", "ç”·æ€§" );
         set("age", 34);
-        set("long","ÕâÊÇÒ»Î»½ÌÖ÷Ç×ÊÖµ÷½Ì³öÀ´µÄÒ©Ê¦¡£\n");
+        set("long","è¿™æ˜¯ä¸€ä½æ•™ä¸»äº²æ‰‹è°ƒæ•™å‡ºæ¥çš„è¯å¸ˆã€‚\n");
         set("combat_exp", 400);
         set("unique", 1); 
         set("attitude", "peaceful");
@@ -38,5 +38,5 @@ void init()
 void greeting(object ob)
 {
        if( !ob || environment(ob) != environment() ) return;
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"ÇëÁË£¬ÇëÎÊÒªÂòÊ²Ã´Ò©£¿");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"è¯·äº†ï¼Œè¯·é—®è¦ä¹°ä»€ä¹ˆè¯ï¼Ÿ");
 }

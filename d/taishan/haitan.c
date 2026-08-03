@@ -15,10 +15,10 @@ string* escapename = ({
 
 void create()
 {
-	set("short", "º£Ì²");
+	set("short", "æµ·æ»©");
 	set("long", @LONG
-ÕâÀïÊÇ¶«º£Ö®±õµÄÒ»¸öĞ¡º£Ì²¡£·ÅÑÛÍûÈ¥£¬Ò»Æ¬ÎŞ¼ÊµÄµÄÃ£Ã£´óº££¬Ô¶´¦
-º£ÌìÒ»Ïß£¬ÄãÒşÒş¿´µ½¼¸Ö»º£Å¸ÔÚº£ÉÏ·ÉÏè¡£
+è¿™é‡Œæ˜¯ä¸œæµ·ä¹‹æ»¨çš„ä¸€ä¸ªå°æµ·æ»©ã€‚æ”¾çœ¼æœ›å»ï¼Œä¸€ç‰‡æ— é™…çš„çš„èŒ«èŒ«å¤§æµ·ï¼Œè¿œå¤„
+æµ·å¤©ä¸€çº¿ï¼Œä½ éšéšçœ‹åˆ°å‡ åªæµ·é¸¥åœ¨æµ·ä¸Šé£ç¿”ã€‚
 LONG
 );
 
@@ -26,7 +26,7 @@ LONG
 		"west" : __DIR__"daizong",
 	]));
 
-	set("outdoors", "Ì©É½");
+	set("outdoors", "æ³°å±±");
 	setup();
 }
 
@@ -39,9 +39,9 @@ void init()
 	if( ! (present("qiang fei", environment(me)) ) 
 	&& me->query_temp("newbiejob2/start") 
 	&& ! (me->query_temp("newbiejob2/middle"))) {
-		message_vision(HIM "²»´ó¹¦·ò£¬Ò»ÌõĞ¡ô®°å´ÓÔ¶´¦µÄº£Ãæ¿ªÁË¹ıÀ´£¬Ò»¸öô¹¹«´ÓÀïÃæ×ßÁË³öÀ´¡£\n"NOR,me);
+		message_vision(HIM "ä¸å¤§åŠŸå¤«ï¼Œä¸€æ¡å°èˆ¢æ¿ä»è¿œå¤„çš„æµ·é¢å¼€äº†è¿‡æ¥ï¼Œä¸€ä¸ªè‰„å…¬ä»é‡Œé¢èµ°äº†å‡ºæ¥ã€‚\n"NOR,me);
 		if (random(50) > 1) {
-			message_vision(HIM "ô¹¹«´Ó´¬²ÕÀïÃæÈ¡³öÒ»°üÑÎ°Í£¬ÕıÒªµİ¸ø$N¡£\n" NOR,me);
+			message_vision(HIM "è‰„å…¬ä»èˆ¹èˆ±é‡Œé¢å–å‡ºä¸€åŒ…ç›å·´ï¼Œæ­£è¦é€’ç»™$Nã€‚\n" NOR,me);
 			ob=new("/d/sld/npc/qiangfei");
 			where = escapename[random(sizeof(escapename))];
 			name1 = me->query("id");
@@ -49,14 +49,14 @@ void init()
 			new("/d/sld/obj/yanba")->move(ob);
 			ob->move(where);
 			me->set_temp("newbiejob2/middle", 1);
-			message_vision(HIW "Í»È»´Ü³öÒ»¸öÇÀ·Ë£¬Ò»°Ñ´Óô¹¹«ÊÖÀïÇÀ¹ıÑÎ°Í£¬ÏòÑïÖİ³ÇµÄ"HIR+where->query("short")+HIW"·½ÏòÌÓÈ¥£¡\n"NOR,me); 
+			message_vision(HIW "çªç„¶çªœå‡ºä¸€ä¸ªæŠ¢åŒªï¼Œä¸€æŠŠä»è‰„å…¬æ‰‹é‡ŒæŠ¢è¿‡ç›å·´ï¼Œå‘æ‰¬å·åŸçš„"HIR+where->query("short")+HIW"æ–¹å‘é€ƒå»ï¼\n"NOR,me); 
 		}
 		else {
-			message_vision(HIM "ô¹¹«´Ó´¬²ÕÀïÃæÈ¡³öÒ»°üÑÎ°Í£¬µİ¸øÁË$N¡£\n" NOR,me);
+			message_vision(HIM "è‰„å…¬ä»èˆ¹èˆ±é‡Œé¢å–å‡ºä¸€åŒ…ç›å·´ï¼Œé€’ç»™äº†$Nã€‚\n" NOR,me);
 			new("/d/sld/obj/yanba")->move(me);
 			me->set_temp("newbiejob2/middle",1);
 			me->set_temp("newbiejob2/over",1);
-			message_vision(HIM "$N½Ó¹ıÑÎ°Í£¬¸Ï½ô´§ÔÚÁË»³Àï¡£\n"NOR , me);
+			message_vision(HIM "$Næ¥è¿‡ç›å·´ï¼Œèµ¶ç´§æ£åœ¨äº†æ€€é‡Œã€‚\n"NOR , me);
 		}
 	}
 }

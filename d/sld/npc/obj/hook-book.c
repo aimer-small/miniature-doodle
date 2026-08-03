@@ -4,10 +4,10 @@ inherit ITEM;
 
 void create()
 {
-        set_name("»ù±¾¹³·¨", ({ "hook book", "book" }));
+        set_name("åŸºæœ¬é’©æ³•", ({ "hook book", "book" }));
         set_weight(200);
-        set("unit", "²á");
-        set("long", "ÕâÊÇÒ»²á»ù±¾¹³·¨£¬ÉÏÃæ»­ÂúÁË¸÷ÖÖ³öÕĞµÄ×ËÊÆ¡£\n");
+        set("unit", "å†Œ");
+        set("long", "è¿™æ˜¯ä¸€å†ŒåŸºæœ¬é’©æ³•ï¼Œä¸Šé¢ç”»æ»¡äº†å„ç§å‡ºæ‹›çš„å§¿åŠ¿ã€‚\n");
 	set("unique", 1);
         set("treasure",1);
         set("value", 3000);

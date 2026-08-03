@@ -1,4 +1,4 @@
-// liuyun.c Á÷ÔÆÊ¹
+// liuyun.c æµäº‘ä½¿
 // Modify By River@sj 99.06
 #include <ansi.h>
 inherit NPC;
@@ -6,13 +6,13 @@ int p();
 void create()
 {
         object ob;
-        set_name("Á÷ÔÆÊ¹", ({ "liuyun shi", "shi", "liuyun"}) );
-        set("title", "Ã÷½Ì²¨Ë¹ÈıÊ¹");
-        set("gender", "ÄĞĞÔ");
+        set_name("æµäº‘ä½¿", ({ "liuyun shi", "shi", "liuyun"}) );
+        set("title", "æ˜æ•™æ³¢æ–¯ä¸‰ä½¿");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("age",49);
-        set("long", "ËûÉí²Ä¸ß´ó£¬ò°÷×±ÌÑÛ¡£\n");
-        set("rank_info/respect","Ê¹Õß");
+        set("long", "ä»–èº«æé«˜å¤§ï¼Œè™¬é«¯ç¢§çœ¼ã€‚\n");
+        set("rank_info/respect","ä½¿è€…");
         set("str", 25);
         set("int", 22);
         set("con", 25);
@@ -62,12 +62,12 @@ void kill_ob(object me)
           ::kill_ob(me);
           if(objectp(ob = present("miaofeng shi", environment(this_object())))
            && !ob->is_killing(me->query("id"))){
-             message_vision(HIY"³¤Ğ¦ÉùÖĞ$nÉíĞÎ»Î¶¯£¬Ô½¹ıÁ÷ÔÆÊ¹Õ¾µ½$N×ó±ß£¬½«$N¼ĞÔÚÖĞ¼ä£¡\n", me, ob);
+             message_vision(HIY"é•¿ç¬‘å£°ä¸­$nèº«å½¢æ™ƒåŠ¨ï¼Œè¶Šè¿‡æµäº‘ä½¿ç«™åˆ°$Nå·¦è¾¹ï¼Œå°†$Nå¤¹åœ¨ä¸­é—´ï¼\n", me, ob);
              if(!ob->is_killing(me->query("id"))) ob->kill_ob(me); 
           }
           if(objectp(ob = present("huiyue shi", environment(this_object())))
            && !ob->is_killing(me->query("id"))){
-             message_vision(HIY"³¤Ğ¦ÉùÖĞ$nÉíĞÎ»Î¶¯£¬Ô½¹ıÁ÷ÔÆÊ¹Õ¾µ½$N×ó±ß£¬½«$N¼ĞÔÚÖĞ¼ä£¡\n", me, ob);
+             message_vision(HIY"é•¿ç¬‘å£°ä¸­$nèº«å½¢æ™ƒåŠ¨ï¼Œè¶Šè¿‡æµäº‘ä½¿ç«™åˆ°$Nå·¦è¾¹ï¼Œå°†$Nå¤¹åœ¨ä¸­é—´ï¼\n", me, ob);
              if(!ob->is_killing(me->query("id"))) ob->kill_ob(me);  
           }  
         }
@@ -101,6 +101,6 @@ void greeting(object ob)
 {
         mapping myfam;
         myfam = (mapping)ob->query("family");
-        if(myfam && myfam["family_name"] == "Ã÷½Ì")
-           command("say ¼ûÊ¥»ğÁîÈç½ÌÖ÷Ç×ÁÙ£¬"+ob->name()+"Äã»¹²»ÏÂ¹ò£¿");         
+        if(myfam && myfam["family_name"] == "æ˜æ•™")
+           command("say è§åœ£ç«ä»¤å¦‚æ•™ä¸»äº²ä¸´ï¼Œ"+ob->name()+"ä½ è¿˜ä¸ä¸‹è·ªï¼Ÿ");         
 }

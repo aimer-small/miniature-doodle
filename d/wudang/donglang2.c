@@ -1,4 +1,4 @@
-// Room: donglang2.c  ¶«Ïá×ßÀÈ
+// Room: donglang2.c  ä¸œå¢èµ°å»Š
 
 #include <ansi.h>
 
@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-    set("short", "¶«Ïá×ßÀÈ");
+    set("short", "ä¸œå¢èµ°å»Š");
     set("long", @LONG
-Äã×ßÔÚÒ»ÌõÄ¾ÖÆ½á¹¹µÄ×ßÀÈÉÏ£¬ÄÏÃæÊÇÒ»¼ä´óÎİ£¬ÃÅ¿Ú¹ÒÓĞÒ»±ê¼Ç£¬ÃÅÅÆ
-(pai)ÊÇÀ¶µÄ£¬¶«±ßÊÇÎäµ±ÅÉµÜ×ÓÆ½Ê±ÓÃÉÅµÄ³¡Ëù¡£
+ä½ èµ°åœ¨ä¸€æ¡æœ¨åˆ¶ç»“æ„çš„èµ°å»Šä¸Šï¼Œå—é¢æ˜¯ä¸€é—´å¤§å±‹ï¼Œé—¨å£æŒ‚æœ‰ä¸€æ ‡è®°ï¼Œé—¨ç‰Œ
+(pai)æ˜¯è“çš„ï¼Œä¸œè¾¹æ˜¯æ­¦å½“æ´¾å¼Ÿå­å¹³æ—¶ç”¨è†³çš„åœºæ‰€ã€‚
 LONG
     );
         set("exits", ([
@@ -20,7 +20,7 @@ LONG
         ]));
 
         set("item_desc",([
-           "pai" : HIB"\t\t\tÇ¬\n"NOR,
+           "pai" : HIB"\t\t\tä¹¾\n"NOR,
         ]));
         setup();
 }
@@ -28,7 +28,7 @@ LONG
 
 int valid_leave(object me, string dir)
 {
-        if ((me->query("gender") == "Å®ĞÔ") && dir == "south") 
-           return notify_fail("Å®×ÓÈË¼Ò»¹ÊÇ²»Òªµ½ÄÇÈ¥µÄºÃ£¬·ñÔò¾Í²»ºÃÕÒÆÅ¼ÒÁË¡£\n");
+        if ((me->query("gender") == "å¥³æ€§") && dir == "south") 
+           return notify_fail("å¥³å­äººå®¶è¿˜æ˜¯ä¸è¦åˆ°é‚£å»çš„å¥½ï¼Œå¦åˆ™å°±ä¸å¥½æ‰¾å©†å®¶äº†ã€‚\n");
         return ::valid_leave(me, dir);
 }

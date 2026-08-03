@@ -15,38 +15,38 @@ int perform(object me, object target)
         if( !target
         ||      !target->is_character()
         ||      !me->is_fighting(target) )
-                return notify_fail("ÄãÖ»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ä½ åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if( (int)me->query_skill("jinshe-zhuifa", 1) < 120 )
-                return notify_fail("ÄãµÄ½ðÉß×¶·¨²»¹»æµÊì£¬²»»áÊ¹ÓÃÉßÓ°ÍòµÀ¡£\n");
+                return notify_fail("ä½ çš„é‡‘è›‡é”¥æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨è›‡å½±ä¸‡é“ã€‚\n");
 
     if( (int)me->query("neili", 1) < 500 )
-       return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»×ã£¡\n");  
+       return notify_fail("ä½ çŽ°åœ¨å†…åŠ›ä¸è¶³ï¼\n");  
         if( (int)me->query_str() < 40  )
-                return notify_fail("ÄãµÄ±ÛÁ¦Ì«µÍ£¬ÎÞ·¨Í¬Ê±·¢³öÄÇÃ´¶à½ðÉß×¶¡£\n");
+                return notify_fail("ä½ çš„è‡‚åŠ›å¤ªä½Žï¼Œæ— æ³•åŒæ—¶å‘å‡ºé‚£ä¹ˆå¤šé‡‘è›‡é”¥ã€‚\n");
        
         if (!weapon || !(weapon->id("zhui"))
         || me->query_skill_mapped("throwing") != "jinshe-zhuifa")
-                return notify_fail("ÄãÏÖÔÚÎÞ·¨Ê¹ÓÃÉßÓ°ÍòµÀ¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨æ— æ³•ä½¿ç”¨è›‡å½±ä¸‡é“ã€‚\n");
         if ((weapon->query_amount())<30)
-             return notify_fail("ÄãÉíÉÏµÄ°µÆ÷²»¹»£¬ÎÞ·¨Ê¹³öÉßÓ°ÍòµÀ¡£\n");  
+             return notify_fail("ä½ èº«ä¸Šçš„æš—å™¨ä¸å¤Ÿï¼Œæ— æ³•ä½¿å‡ºè›‡å½±ä¸‡é“ã€‚\n");  
        
         me->add("neili", -450);
         me->add("jingli", -150);
-        message_vision(RED"$NÇåß³Ò»ÉùÍ»È»³öÊÖ£¬ÊýÊ®µÀº®¹âËæÉù±©Éä¶ø³ö£¬ÓÐµÄ½»»÷»¥×²£¬ÓÐµÄ½èÁ¦·´µ¯£¬ÅÌÐý·ÉÎè£¬ÂúÌì¶øÀ´£¡\n"NOR, me, target);
-        message_vision(RED"$nÑÛÇ°É²ÄÇ¼äº®Ã¢ÉÁ¶¯£¬ÎÞÊý½ðÃ¢Ò«ÆðÍòÕÉ½ð¹â£¬¼±Èç·ÉÉßÉÁµç£¬Ã¦½«±øÈÐ¿ñÎè£¬Ïë»¤×¡È«Éí£¡\n"NOR, me, target);;
+        message_vision(RED"$Næ¸…å±ä¸€å£°çªç„¶å‡ºæ‰‹ï¼Œæ•°åé“å¯’å…‰éšå£°æš´å°„è€Œå‡ºï¼Œæœ‰çš„äº¤å‡»äº’æ’žï¼Œæœ‰çš„å€ŸåŠ›åå¼¹ï¼Œç›˜æ—‹é£žèˆžï¼Œæ»¡å¤©è€Œæ¥ï¼\n"NOR, me, target);
+        message_vision(RED"$nçœ¼å‰åˆ¹é‚£é—´å¯’èŠ’é—ªåŠ¨ï¼Œæ— æ•°é‡‘èŠ’è€€èµ·ä¸‡ä¸ˆé‡‘å…‰ï¼Œæ€¥å¦‚é£žè›‡é—ªç”µï¼Œå¿™å°†å…µåˆƒç‹‚èˆžï¼Œæƒ³æŠ¤ä½å…¨èº«ï¼\n"NOR, me, target);;
 
   if(random(me->query("combat_exp")) > (int)target->query("combat_exp")/2 &&
      me->query_str() > (int)target->query_dex()) {
                 destruct(weapon);
-                message_vision(HIR"\nÖ»Ìý$n²Ò½ÐÒ»Éù£¬ÎÞÊý"+HIY+"½ðÉß×¶"+HIR+"ÒÑ¾­»÷ÖÐÈ«ÉíÒªÑ¨£¬¿´À´ÒÑ¾­±»´ò³ÉÉ¸×ÓÁË£¡\n"NOR, me, target);
-                tell_object(target, HIY "°¡£¡ÄãÈ«ÉíÉÏÏÂ¶¼±»°µÆ÷´ò´©ÁË£¡\n" NOR);
+                message_vision(HIR"\nåªå¬$næƒ¨å«ä¸€å£°ï¼Œæ— æ•°"+HIY+"é‡‘è›‡é”¥"+HIR+"å·²ç»å‡»ä¸­å…¨èº«è¦ç©´ï¼Œçœ‹æ¥å·²ç»è¢«æ‰“æˆç­›å­äº†ï¼\n"NOR, me, target);
+                tell_object(target, HIY "å•Šï¼ä½ å…¨èº«ä¸Šä¸‹éƒ½è¢«æš—å™¨æ‰“ç©¿äº†ï¼\n" NOR);
                 target->receive_damage("qi", (int)(me->query_skill("jinshe-zhuifa",1))*5);
                 target->receive_wound("qi", 150);
                 target->kill_ob(me);
                 }
   else {
-         message_vision(HIY"$n±§Í·Ëõ¾±Ò»¸ö¹ö·­£¬×ÜËã¶ã¿ªÁË$NÕâÖÂÃü¹¥»÷¡£\n"NOR, me, target);
+         message_vision(HIY"$næŠ±å¤´ç¼©é¢ˆä¸€ä¸ªæ»šç¿»ï¼Œæ€»ç®—èº²å¼€äº†$Nè¿™è‡´å‘½æ”»å‡»ã€‚\n"NOR, me, target);
          weapon->move(environment(me));
          me->start_busy(random(3));
          target->kill_ob(me);

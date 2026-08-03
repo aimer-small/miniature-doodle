@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIW"ÄïçÙÓñ¶´-ÊµÕ½²¿"NOR);
+	set("short",HIW"å¨˜ç¼³çŽ‰æ´ž-å®žæˆ˜éƒ¨"NOR);
 	set ("long",@long
-ÕâÊÇÂüÙ¢ÂÞÉ½×¯´æ·ÅÎä¹¦ÃØ¼®µÄµØ·½£¬Ò»ÅÅÅÅÊé¼ÜÉÏÕûÆëµÄ°Ú·Å×Å¸÷ÖÖÊé
-¼®£¬ËÆºõÓëÈçºÎ¸ü¿ìµÄ»ñÈ¡ÊµÕ½¾­ÑéÓÐ¹Ø¡£Äã¿ÉÒÔÔÚÕâÀï²ÎÎò(canwu)Ïà¹ØÄÚÈÝ¡£
+è¿™æ˜¯æ›¼ä½—ç½—å±±åº„å­˜æ”¾æ­¦åŠŸç§˜ç±çš„åœ°æ–¹ï¼Œä¸€æŽ’æŽ’ä¹¦æž¶ä¸Šæ•´é½çš„æ‘†æ”¾ç€å„ç§ä¹¦
+ç±ï¼Œä¼¼ä¹Žä¸Žå¦‚ä½•æ›´å¿«çš„èŽ·å–å®žæˆ˜ç»éªŒæœ‰å…³ã€‚ä½ å¯ä»¥åœ¨è¿™é‡Œå‚æ‚Ÿ(canwu)ç›¸å…³å†…å®¹ã€‚
 long);
 	set("exits",([
 		"out" : __DIR__"huandong",
@@ -35,27 +35,27 @@ int do_canwu(string arg)
      object me = this_player();
 
      if(arg != "combat")
-           return notify_fail("ÕâÀïÖ»ÄÜ²ÎÎòÊµÕ½(combat)²¿·Ö!\n");
+           return notify_fail("è¿™é‡Œåªèƒ½å‚æ‚Ÿå®žæˆ˜(combat)éƒ¨åˆ†!\n");
 
      if (me->is_busy() || me->is_fighting()|| me->query_temp("con_exp") )
-                  return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                  return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 
      if( me->query("combat_exp",1)<15000000)
-                 return notify_fail("ÄãºúÂÒµÄ·­ÁË·­Êé¼ÜÉÏµÄ²ØÊé£¬·¢ÏÖÀïÃæµÄÄÚÈÝ¸ßÉîÄª²â£¬ÎÞ·¨Àí½â£¬²»ÓÉµÃÒ¡ÁËÒ¡Í·¡£\n");
+                 return notify_fail("ä½ èƒ¡ä¹±çš„ç¿»äº†ç¿»ä¹¦æž¶ä¸Šçš„è—ä¹¦ï¼Œå‘çŽ°é‡Œé¢çš„å†…å®¹é«˜æ·±èŽ«æµ‹ï¼Œæ— æ³•ç†è§£ï¼Œä¸ç”±å¾—æ‘‡äº†æ‘‡å¤´ã€‚\n");
        
      
      if ( me->query("relife/exp_ext",1) >=20 )
-                 return notify_fail("ÄãÒÑ¾­ÍêÈ«ÕÆÎÕÁËÊµÕ½²¿·Ö²ØÊéµÄ¾«Ëè£¬ÎÞ·¨¸ü½øÒ»²½ÁË¡£¡£\n");
+                 return notify_fail("ä½ å·²ç»å®Œå…¨æŽŒæ¡äº†å®žæˆ˜éƒ¨åˆ†è—ä¹¦çš„ç²¾é«“ï¼Œæ— æ³•æ›´è¿›ä¸€æ­¥äº†ã€‚ã€‚\n");
 
   if (me->query_temp("canwu_now") )
-       return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+       return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if (query_temp("canwu") )
-        return notify_fail("ÓÐÈËÕýÔÚ²ÎÎòÄØ£¬ÄãµÈÒ»»á°Ñ¡£\n");
+        return notify_fail("æœ‰äººæ­£åœ¨å‚æ‚Ÿå‘¢ï¼Œä½ ç­‰ä¸€ä¼šæŠŠã€‚\n");
 
-       message_vision( HIW"$N×ÐÏ¸µÄ·­¿´×ÅÊé¼ÜÉÏµÄ²ØÊé£¬¶ÔÀïÃæÈçºÎ¸üºÃµÄ»ñÈ¡ÊµÕ½¾­ÑéµÄÄÚÈÝºÜ¸ÐÐËÈ¤¡£\n"NOR,me);
-        message_vision( HIW"$NÒ»Í·Ôú½øÊé¶ÑÀï.²»Í£µÄ·­¿´×Å¡£¡£ \n"NOR, me);
+       message_vision( HIW"$Nä»”ç»†çš„ç¿»çœ‹ç€ä¹¦æž¶ä¸Šçš„è—ä¹¦ï¼Œå¯¹é‡Œé¢å¦‚ä½•æ›´å¥½çš„èŽ·å–å®žæˆ˜ç»éªŒçš„å†…å®¹å¾ˆæ„Ÿå…´è¶£ã€‚\n"NOR,me);
+        message_vision( HIW"$Nä¸€å¤´æ‰Žè¿›ä¹¦å †é‡Œ.ä¸åœçš„ç¿»çœ‹ç€ã€‚ã€‚ \n"NOR, me);
        me->start_busy(100);               
      me->set_temp("canwu_now",1); 
      set_temp("canwu",1);         
@@ -72,10 +72,10 @@ int thinking(object me)
 	
   if(me->query_temp("con_exp")<(3+random(3)))
        {  me->add_temp("con_exp",1);
-          if(random(2)) tell_object(me,HIG"\nÄã×ÐÏ¸µÄÑÐ¶Á×ÅÊéÀïÃæµÄÄÚÈÝ£¬Ö»¾õµÃ¶úÄ¿Ò»ÐÂ...\n"NOR);
-                   else tell_object(me,HIY"\nÄã²ÎÕÕ×Å×Ô¼º¹ýÍùµÄÊµÕ½¹ý³Ì£¬ÐÄÀïÓÐËùÁìÎò...\n"NOR);  
+          if(random(2)) tell_object(me,HIG"\nä½ ä»”ç»†çš„ç ”è¯»ç€ä¹¦é‡Œé¢çš„å†…å®¹ï¼Œåªè§‰å¾—è€³ç›®ä¸€æ–°...\n"NOR);
+                   else tell_object(me,HIY"\nä½ å‚ç…§ç€è‡ªå·±è¿‡å¾€çš„å®žæˆ˜è¿‡ç¨‹ï¼Œå¿ƒé‡Œæœ‰æ‰€é¢†æ‚Ÿ...\n"NOR);  
 
-	  tell_room(environment(me),HIC""+me->query("name")+"Ã¼Í·½ôÖå£¬ËÆºõÔÚË¼Ë÷×ÅÊ²Ã´...\n"NOR, ({}));
+	  tell_room(environment(me),HIC""+me->query("name")+"çœ‰å¤´ç´§çš±ï¼Œä¼¼ä¹Žåœ¨æ€ç´¢ç€ä»€ä¹ˆ...\n"NOR, ({}));
 
 	  remove_call_out("thinking");
 	  call_out("thinking",3+random(3), me);
@@ -85,9 +85,9 @@ int thinking(object me)
  else { 
          me->delete_temp("con_exp");
          me->start_busy(1);     
-  message_vision(HIC"\n$N¡¸¹þ¹þ¹þ¡¹´óÐ¦¼¸Éù£¬ËµµÀ£º¡°Ô­À´Èç´Ë£¬Ô­À´Èç´Ë¡£¡±\n"NOR,me); 
+  message_vision(HIC"\n$Nã€Œå“ˆå“ˆå“ˆã€å¤§ç¬‘å‡ å£°ï¼Œè¯´é“ï¼šâ€œåŽŸæ¥å¦‚æ­¤ï¼ŒåŽŸæ¥å¦‚æ­¤ã€‚â€\n"NOR,me); 
   
-     tell_object(me,HIR"\nÄãÍ¨¹ý±¾´ÎÑÐ¶Á£¬³É¹¦µÄ²ÎÎòµÃÒ»µãÊµÕ½¾÷ÇÏ£¡\n"NOR);
+     tell_object(me,HIR"\nä½ é€šè¿‡æœ¬æ¬¡ç ”è¯»ï¼ŒæˆåŠŸçš„å‚æ‚Ÿå¾—ä¸€ç‚¹å®žæˆ˜è¯€çªï¼\n"NOR);
 me->add("cw_exp",1);
        me->add("relife/exp_ext",1);
        i = me->query("relife/exp_ext",1) * 5;
@@ -97,9 +97,9 @@ me->add("cw_exp",1);
        if(me->query("buyvip") )             exp=1600000; 
        me->add("combat_exp",-exp);
 
-    tell_object(me,HBYEL"\nÄã±¾´Î²ÎÎò¹²ºÄ·ÑÁË" + HIW + chinese_number( exp ) + HIR + "ÊµÕ½¾­Ñé£¬µ«ÊÇÄã½«ÔÚÃ¿´ÎÊµÕ½ÖÐ¶à»ñÈ¡°Ù·ÖÖ®" + HIW + chinese_number( i ) + HIR + "µÄ¾­Ñé£¡\n"NOR);
+    tell_object(me,HBYEL"\nä½ æœ¬æ¬¡å‚æ‚Ÿå…±è€—è´¹äº†" + HIW + chinese_number( exp ) + HIR + "å®žæˆ˜ç»éªŒï¼Œä½†æ˜¯ä½ å°†åœ¨æ¯æ¬¡å®žæˆ˜ä¸­å¤šèŽ·å–ç™¾åˆ†ä¹‹" + HIW + chinese_number( i ) + HIR + "çš„ç»éªŒï¼\n"NOR);
 
-      log_file("canwu/getexp", sprintf("%s(%s) µÚ%d´Î²ÎÎòÊµÕ½¾­Ñé²¿·Ö£¬µ±Ç°¾­Ñé£º%d¡£\n",
+      log_file("canwu/getexp", sprintf("%s(%s) ç¬¬%dæ¬¡å‚æ‚Ÿå®žæˆ˜ç»éªŒéƒ¨åˆ†ï¼Œå½“å‰ç»éªŒï¼š%dã€‚\n",
        me->name(1),
        me->query("id"),
        me->query("relife/exp_ext",1),

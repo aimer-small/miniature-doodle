@@ -1,18 +1,18 @@
-// yang.c ÑîÀÏ°å 
+// yang.c æ¨è€æ¿ 
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("ÕÔÀÏ°å", ({ "zhao laoban", "zhao", "laoban"}));
-	set("title", "ÔÓ»õÆÌÀÏ°å");
+	set_name("èµµè€æ¿", ({ "zhao laoban", "zhao", "laoban"}));
+	set("title", "æ‚è´§é“ºè€æ¿");
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set("long",
-		"ÕÔÀÏ°åÊÇÍÁÉúÍÁ³¤µÄ´óÀíÈË£¬×öÁË¼¸Ê®ÄêµÄĞ¡ÂòÂô¡£\n");
+		"èµµè€æ¿æ˜¯åœŸç”ŸåœŸé•¿çš„å¤§ç†äººï¼Œåšäº†å‡ åå¹´çš„å°ä¹°å–ã€‚\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);

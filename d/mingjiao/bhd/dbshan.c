@@ -1,23 +1,23 @@
-// dbshan.c ±ùÉ½
+// dbshan.c å†°å±±
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-	set("short", HIW"±ùÉ½"NOR);
+	set("short", HIW"å†°å±±"NOR);
 	set("long", @LONG
-´ó±ùÉ½ÔÚÈÕ¹âµÄÕÕÉäÏÂ·¢³ö´ÌÑÛµÄ¹âÃ¢£¬ÏÔµÃÊ®·ÖÆæÀö£¬ÕâÀïµ½´¦¶¼ÊÇ±ù
-Ñ©£¬±ùÉ½ÆÄ´ó£¬ÈçÂ½µØÉÏÖ®É½Çð£¬Ò»ÑÛÍûÈ¥£¬ºá°ÙÓàÕÉ£¬×Ý³¤¼¸Ê®ÕÉ£¬±ùÉ½ÉÏ
-»¬²»Áô²½¡£º£ÖÐ²»Ê±ÓÐ¼¸¿éÐ¡¸¡±ù(fubing)ÕýÔÚÏò±±Æ®Á÷¡£
+å¤§å†°å±±åœ¨æ—¥å…‰çš„ç…§å°„ä¸‹å‘å‡ºåˆºçœ¼çš„å…‰èŠ’ï¼Œæ˜¾å¾—ååˆ†å¥‡ä¸½ï¼Œè¿™é‡Œåˆ°å¤„éƒ½æ˜¯å†°
+é›ªï¼Œå†°å±±é¢‡å¤§ï¼Œå¦‚é™†åœ°ä¸Šä¹‹å±±ä¸˜ï¼Œä¸€çœ¼æœ›åŽ»ï¼Œæ¨ªç™¾ä½™ä¸ˆï¼Œçºµé•¿å‡ åä¸ˆï¼Œå†°å±±ä¸Š
+æ»‘ä¸ç•™æ­¥ã€‚æµ·ä¸­ä¸æ—¶æœ‰å‡ å—å°æµ®å†°(fubing)æ­£åœ¨å‘åŒ—é£˜æµã€‚
 LONG);	
-	set("outdoors", "¼«±±");
+	set("outdoors", "æžåŒ—");
 	set("arrive", 0);
 	set("exits", ([
 		"east" : __DIR__"dbshan1",
 	]));
 	set("item_desc", ([
-		"fubing" : "ÅÔ±ßµÄº£Ë®ÀïÃæÆ¯¸¡×Å¼¸¿é¸¡±ù£¬µ«ÊÇÏà¸ôºÜÔ¶£¬¿´À´»¹Ã»·¨¹ýÈ¥¡£\n",
+		"fubing" : "æ—è¾¹çš„æµ·æ°´é‡Œé¢æ¼‚æµ®ç€å‡ å—æµ®å†°ï¼Œä½†æ˜¯ç›¸éš”å¾ˆè¿œï¼Œçœ‹æ¥è¿˜æ²¡æ³•è¿‡åŽ»ã€‚\n",
 	]));
 	setup();
 }
@@ -35,7 +35,7 @@ void init()
 
 void change()
 {
-	tell_room(this_object(),HIW"±ãÔÚ´ËÊ±£¬Ö»ÌýµÃ¶¡¶¬¡¢¶¡¶¬ÊýÉù£¬¼«ÊÇÇå´à¶¯Ìý£¬¼¸¿é¸¡±ùÆ®½üÁË¡£\n"NOR);
+	tell_room(this_object(),HIW"ä¾¿åœ¨æ­¤æ—¶ï¼Œåªå¬å¾—ä¸å†¬ã€ä¸å†¬æ•°å£°ï¼Œæžæ˜¯æ¸…è„†åŠ¨å¬ï¼Œå‡ å—æµ®å†°é£˜è¿‘äº†ã€‚\n"NOR);
 	this_object()->set_temp("fubing", 1);
 	remove_call_out("change1");
 	call_out("change1", 10);  
@@ -43,7 +43,7 @@ void change()
 
 void change1()
 {
-	tell_room(this_object(),"º£ÖÐ³±Á÷Ó¿¹ý£¬ÄÇÇå´àÖ®ÉùÓÖ½¥½¥Ô¶È¥ÁË¡£\n");    
+	tell_room(this_object(),"æµ·ä¸­æ½®æµæ¶Œè¿‡ï¼Œé‚£æ¸…è„†ä¹‹å£°åˆæ¸æ¸è¿œåŽ»äº†ã€‚\n");    
 	set("arrive", 0);
 	this_object()->delete_temp("fubing");    
 	remove_call_out("change");
@@ -59,15 +59,15 @@ int do_jump(string arg)
 		if(!( room = find_object(__DIR__"foubing")))
 			room = load_object(__DIR__"foubing");
 		if ( room->query("ppl") > 0 ) {
-			tell_object(me, "ÄÇÀïÒÑ¾­ÓÐÈËÁË£¬ÄãÔÙÌøµÄ»°£¬¿ÉÄÜ»á·­¡£\n");
+			tell_object(me, "é‚£é‡Œå·²ç»æœ‰äººäº†ï¼Œä½ å†è·³çš„è¯ï¼Œå¯èƒ½ä¼šç¿»ã€‚\n");
 			return 1;
 		}
-		message("vision",me->name() + "Ò»×ÝÉí£¬Õû¸öÈËÒÑµ½ÁË¸¡±ùÉÏ¡£\n",environment(me), ({me}) );
+		message("vision",me->name() + "ä¸€çºµèº«ï¼Œæ•´ä¸ªäººå·²åˆ°äº†æµ®å†°ä¸Šã€‚\n",environment(me), ({me}) );
 		me->move(__DIR__"foubing");
-		message("vision",me->name() + "´Ó±ùÉ½ÉÏ·ÉÉí¶øÀ´¡£\n",environment(me), ({me}) );
+		message("vision",me->name() + "ä»Žå†°å±±ä¸Šé£žèº«è€Œæ¥ã€‚\n",environment(me), ({me}) );
 		if(random(me->query_dex()) < 50) {
-			message_vision("½á¹û$NÒ»²»Ð¡ÐÄ½ÅÏÂÒ»»¬£¬ÑöÌìÒ»¸ö´óË¤õÓ£¡\n",me);
-			me->set_temp("last_damage_from", "Ë¤µ¹ÔÚ±ùÉ½ÉÏ£¬ÄÔÒçÑª¶ø");
+			message_vision("ç»“æžœ$Nä¸€ä¸å°å¿ƒè„šä¸‹ä¸€æ»‘ï¼Œä»°å¤©ä¸€ä¸ªå¤§æ‘”è·¤ï¼\n",me);
+			me->set_temp("last_damage_from", "æ‘”å€’åœ¨å†°å±±ä¸Šï¼Œè„‘æº¢è¡€è€Œ");
 			me->receive_wound("qi", 50);
 			me->receive_damage("qi", 100);
 		}

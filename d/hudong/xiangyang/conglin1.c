@@ -4,19 +4,19 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ɽ·");
+	set("short", "山路");
 	set("long", @LONG
-������ɽ´��Ψһ��һ����·��ɽ����Ȼ������̫�ߣ����Ǽ�
-Ϊ���ͣ����ܴ����ܲ�����ʱ����Ұ�޵����С�ֻ�к��о������
-���Ÿ������ﲶ�ԣ���˵����Ķ��߹����쳣�׺ݡ�������������
-�˼���
+这里是山麓上唯一的一条土路，山势虽然并不算太高，但是极
+为陡峭，四周丛林密部，不时传来野兽的鸣叫。只有很有经验的猎
+户才敢来这里捕猎，据说这里的毒蛇怪蟒异常凶狠。所以这里少有
+人迹。
 LONG	);
 	set("exits", ([
         	"eastdown" : __DIR__"outsroad3",
         	"westup" : __DIR__"conglin2",
 	]));
 
-        set("outdoors", "����");
+        set("outdoors", "襄阳");
 	setup();
 }
 int valid_leave(object me, string dir)
@@ -24,12 +24,12 @@ int valid_leave(object me, string dir)
         if ((dir != "westup") && (dir != "eastdown"));
          if ((userp(me)) && (dir == "westup")){
             me->receive_damage("jingli", 50);
-            write("���͵�ɽ´�������ĸг�����һ����ͺ���䤱���\n");
+            write("陡峭的山麓，让你颇感吃力，一会你就汗流浃背。\n");
     }
 
         if ((userp(me)) && (dir == "eastdown")){
         me->receive_damage("jingli", 50);
-        write("���͵�ɽ´�������ĸг�����һ����ͺ���䤱���\n");
+        write("陡峭的山麓，让你颇感吃力，一会你就汗流浃背。\n");
 }
         return 1;
 }

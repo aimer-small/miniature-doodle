@@ -10,9 +10,9 @@
 
 		/*  Foreground Colors  */
 
-#define SET(r,c) ESC+"["+r+";"+c+"H"	/*Éè¶¨¹â±êÎ»ÖÃ*/
+#define SET(r,c) ESC+"["+r+";"+c+"H"	/*è®¾å®šå…‰æ ‡ä½ç½®*/
 #define FRSCREEN(a,b) ESC+"["+a+";"+b+"r" 
-#define DELLINE	ESC+"[K"               /*É¾³ı¹â±êËùÔÚµÄĞĞ*/
+#define DELLINE	ESC+"[K"               /*åˆ é™¤å…‰æ ‡æ‰€åœ¨çš„è¡Œ*/
 #define FR(a) ESC+"["+a+"r"
 
 #define BLK ESC+"[0;30m"	/* Black   */

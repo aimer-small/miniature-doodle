@@ -1,12 +1,12 @@
-// NPC :gan_baobao.c ¸Ê±¦±¦ 
+// NPC :gan_baobao.c ç”˜å®å® 
 // By River 98/12
 inherit NPC;
 void create()
 {
-        set_name("¸Ê±¦±¦", ({ "gan baobao", "gan", "baobao"}));
-        set("title","Íò½Ù¹È¹ÈÖ÷·òÈË");
-        set("nickname","ÇÎÒ¹²æ");        
-        set("gender", "Å®ĞÔ" );
+        set_name("ç”˜å®å®", ({ "gan baobao", "gan", "baobao"}));
+        set("title","ä¸‡åŠ«è°·è°·ä¸»å¤«äºº");
+        set("nickname","ä¿å¤œå‰");        
+        set("gender", "å¥³æ€§" );
         set("age", 36);
         set("str", 17);
         set("con", 23);
@@ -23,7 +23,7 @@ void create()
         set("max_neili", 1000);      
         set("unique", 1);
         
-        set("long","Õâ¸¾ÈËÔ¼ÄªÈıÊ®ÁùÆßËê×óÓÒÄê¼Í£¬ÈİÉ«ÇåĞã£¬Ã¼Ä¿¼äÒÀÏ¡ÓëÖÓÁéÉõÊÇÏàËÆ¡£\n");
+        set("long","è¿™å¦‡äººçº¦è«ä¸‰åå…­ä¸ƒå²å·¦å³å¹´çºªï¼Œå®¹è‰²æ¸…ç§€ï¼Œçœ‰ç›®é—´ä¾ç¨€ä¸é’Ÿçµç”šæ˜¯ç›¸ä¼¼ã€‚\n");
         set("combat_exp", 200000);
         set("shen", 800); 
 
@@ -41,7 +41,7 @@ void create()
         prepare_skill("strike","zhongjia-zhang");
 
         set("inquiry", ([            
-//            "¶ÎÕı´¾" : (: ask_duan :),
+//            "æ®µæ­£æ·³" : (: ask_duan :),
         ]));
 
         setup();

@@ -5,9 +5,9 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-        set("short", "¹ûÔ°");
+        set("short", "æžœå›­");
         set("long", @LONG
-ÕâÀïÊÇÃçÈËµÄ¹ûÔ°£¬ÀïÃæÖÖÂúÁËË®¸÷ÖÖ¹û¡£ÓÐ¼¸Î»Ãç¼ÒÅ®×ÓÕýÔÚÊ÷ÏÂ¸É»î¡£
+è¿™é‡Œæ˜¯è‹—äººçš„æžœå›­ï¼Œé‡Œé¢ç§æ»¡äº†æ°´å„ç§æžœã€‚æœ‰å‡ ä½è‹—å®¶å¥³å­æ­£åœ¨æ ‘ä¸‹å¹²æ´»ã€‚
 LONG
         );
 
@@ -18,7 +18,7 @@ LONG
 //    __DIR__"npc/obj/lanseyaohua" : 1,
         ]));
         set("no_clean_up", 0);
-        set("outdoors", "Ãç½®");
+        set("outdoors", "è‹—ç–†");
         setup();
 }
 void init()
@@ -33,32 +33,32 @@ int do_search(string arg)
         me = this_player();
 
         if( ! arg || (arg != "di"&& arg != "yao hua"&& arg != "lanse yaohua"&& arg != "yaohua"&& arg != "yaocao"))
-          return notify_fail("ÄãÒªÕÒÊ²÷á£¿\n");
+          return notify_fail("ä½ è¦æ‰¾ä»€éº½ï¼Ÿ\n");
 	      if( me->is_busy() )
-		      return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓÐÍê³É£¡\n");
+		      return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼\n");
 	     if( me->is_fighting() )
-		      return notify_fail("Äã»¹ÊÇ×¨ÐÄ×÷Õ½°É£¡\n");
+		      return notify_fail("ä½ è¿˜æ˜¯ä¸“å¿ƒä½œæˆ˜å§ï¼\n");
         if ((int)me->query("jingli") < 500) 
-           return notify_fail("ÄãµÄ¾«Á¦²»¹»×öÕâ¼þÊÂ£¡\n");  
-      	message_vision(HIC"$N¶×ÔÚµØÉÏ£¬ËÄ´¦Ñ°ÕÒ¡£\n"NOR, me);
+           return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿåšè¿™ä»¶äº‹ï¼\n");  
+      	message_vision(HIC"$Nè¹²åœ¨åœ°ä¸Šï¼Œå››å¤„å¯»æ‰¾ã€‚\n"NOR, me);
         me->start_busy(1);
         if(random(6)!=1) 
         {
            me->add("jingli",-200);
-           tell_room(environment(me), me->name() + "ÕÒÁË°ëÌì£¬Ö»ÅªÁËÒ»ÊÖÄà¡£\n", ({ me }));
-           return notify_fail("ÄãÕÒÁË°ëÌì£¬Ê²Ã´Ò²Ã»ÕÒµ½¡£\n");
+           tell_room(environment(me), me->name() + "æ‰¾äº†åŠå¤©ï¼Œåªå¼„äº†ä¸€æ‰‹æ³¥ã€‚\n", ({ me }));
+           return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œä»€ä¹ˆä¹Ÿæ²¡æ‰¾åˆ°ã€‚\n");
         }
         else
         {
         obj = new(__DIR__"npc/obj/lanseyaohua");
-        message_vision(HIB"$NÖÕÓÚ·¢ÏÖÒ»¿ÅÀ¶É«Ò©»¨¡£ÄãÉìÊÖÈ¥ÕªÁËÏÂÀ´¡£\n"NOR,me);
+        message_vision(HIB"$Nç»ˆäºŽå‘çŽ°ä¸€é¢—è“è‰²è¯èŠ±ã€‚ä½ ä¼¸æ‰‹åŽ»æ‘˜äº†ä¸‹æ¥ã€‚\n"NOR,me);
         me->add("jingli", -500);
         obj->set("owner",me->query("id"));
         obj->move(me);
         j=me->query_skill("force");
         if(random(2)) obj=new("/d/sld/npc/dushe");
         else obj=new("/clone/animal/langgou");
-        message_vision(HIB"Í»È»£¬²Ý´ÔÖÐ×ê³öÒ»Ö»"+obj->name()+"¡£\n"NOR,me);
+        message_vision(HIB"çªç„¶ï¼Œè‰ä¸›ä¸­é’»å‡ºä¸€åª"+obj->name()+"ã€‚\n"NOR,me);
 		    obj->set("combat_exp", me->query("combat_exp"));
 		    obj->set("max_qi", me->query("max_qi")*4);
 		    obj->set("eff_qi", me->query("max_qi")*4);
@@ -83,7 +83,7 @@ int do_search(string arg)
 		    obj->move(environment(me));
 		    obj->set_leader(me);
 		    obj->kill_ob(me);
-		    message_vision(RED"$N¾ö¶¨ºÍ$nÒ»ÆðÐÐ¶¯¡£\n"NOR,obj,me);
+		    message_vision(RED"$Nå†³å®šå’Œ$nä¸€èµ·è¡ŒåŠ¨ã€‚\n"NOR,obj,me);
         return 1;
        }
 }

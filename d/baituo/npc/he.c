@@ -2,13 +2,13 @@
 inherit NPC;
 void create()
 {
-    set_name(HIW"µ¤¶¥º×"NOR, ({ "danding he", "he", "danding" }) );
-        set("race", "Ò°ÊÞ");
+    set_name(HIW"ä¸¹é¡¶é¹¤"NOR, ({ "danding he", "he", "danding" }) );
+        set("race", "é‡Žå…½");
 	set("age", 170);
-    set("long", "Ò»Ö»º±¼ûµÄµ¤¶¥º×£¬Í¨ÉíÑ©°×£¬Í·ÉÏµÄ³à¶¥È´ÊÇºì¹âÉÁÉÁ¡£
-È´¼ûËü×ó½Å±»Ò»ÌõÌúÁ´Ë©×¡£¬ÌúÁ´µÄÁíÒ»Í·°ðÔÚÒ»¿é´óÊ¯ÉÏ¡£\n");
+    set("long", "ä¸€åªç½•è§çš„ä¸¹é¡¶é¹¤ï¼Œé€šèº«é›ªç™½ï¼Œå¤´ä¸Šçš„èµ¤é¡¶å´æ˜¯çº¢å…‰é—ªé—ªã€‚
+å´è§å®ƒå·¦è„šè¢«ä¸€æ¡é“é“¾æ‹´ä½ï¼Œé“é“¾çš„å¦ä¸€å¤´æ¢†åœ¨ä¸€å—å¤§çŸ³ä¸Šã€‚\n");
     set("attitude", "peaceful");
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "³á°ò", "¾±²¿" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ç¿…è†€", "é¢ˆéƒ¨" }) );
 	set("verbs", ({ "poke", "claw" }) );
         set("str", 30);
         set("dex", 80);
@@ -26,7 +26,7 @@ void create()
 void die()
 {
 	object ob;
-    message_vision("$NÆà²ÒµØÃù½ÐÁË¼¸Éù£¬ÆË¶¯ÁË¼¸ÏÂ¾Í²»¶¯ÁË¡£\n", this_object());
+    message_vision("$Nå‡„æƒ¨åœ°é¸£å«äº†å‡ å£°ï¼Œæ‰‘åŠ¨äº†å‡ ä¸‹å°±ä¸åŠ¨äº†ã€‚\n", this_object());
 	ob = new("/d/baituo/obj/hdh");
 	ob->move(environment(this_object()));
 	destruct(this_object());

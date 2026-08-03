@@ -1,17 +1,17 @@
-// roubing.c ´óÍõÈâ±ı
+// roubing.c å¤§ç‹è‚‰é¥¼
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-	set_name("´óÍõÈâ±ı", ({"rou bing", "roubing"}));
+	set_name("å¤§ç‹è‚‰é¥¼", ({"rou bing", "roubing"}));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»ÕÅ¿¾³É½ğ»ÆÉ«µÄÏãÅçÅçµÄÈâ±ı¡£\n");
-		set("unit", "ÕÅ");
+		set("long", "ä¸€å¼ çƒ¤æˆé‡‘é»„è‰²çš„é¦™å–·å–·çš„è‚‰é¥¼ã€‚\n");
+		set("unit", "å¼ ");
 		set("value", 200);
 		set("food_remaining", 3);
 		set("food_supply", 40);

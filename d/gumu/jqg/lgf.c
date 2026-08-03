@@ -1,13 +1,13 @@
-//liangongfang.c Á·¹¦·¿
+//liangongfang.c ç»ƒåŠŸæˆ¿
 //edit by snow
 inherit ROOM;
 #include <ansi.h>
 void create()
 {
-           set("short",YEL"Á·¹¦·¿"NOR);
+           set("short",YEL"ç»ƒåŠŸæˆ¿"NOR);
            set("long",@LONG
-ÕâÀïÊÇÁ·¹¦·¿£¬µØÉÏ·Å×Å¼¸ÕÅÆÑÍÅ£¬¼¸Ãû¾øÇé¹ÈµÜ×ÓÔÚÕâÀïÍÂÄÉÁ·¹¦£¬Á·
-¹¦·¿µÄËÄ¸ö½ÇÉÏ¸÷·Å×ÅÒ»Ö»ÏãÂ¯£¬·¿ÄÚÃÖÂþ×ÅÒ»¹Éµ­µ­µÄÏãÆø¡£
+è¿™é‡Œæ˜¯ç»ƒåŠŸæˆ¿ï¼Œåœ°ä¸Šæ”¾ç€å‡ å¼ è’²å›¢ï¼Œå‡ åç»æƒ…è°·å¼Ÿå­åœ¨è¿™é‡Œåçº³ç»ƒåŠŸï¼Œç»ƒ
+åŠŸæˆ¿çš„å››ä¸ªè§’ä¸Šå„æ”¾ç€ä¸€åªé¦™ç‚‰ï¼Œæˆ¿å†…å¼¥æ¼«ç€ä¸€è‚¡æ·¡æ·¡çš„é¦™æ°”ã€‚
 LONG
 );          
            set("exits",([

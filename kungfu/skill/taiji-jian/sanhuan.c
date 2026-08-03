@@ -16,38 +16,38 @@ int perform(object me, object target)
 	 || !target->is_character()
 	 || !me->is_fighting(target)
 	 || !living(target) )
-		return notify_fail("¡¸Èý»·Ì×ÔÂ¡¹Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€Œä¸‰çŽ¯å¥—æœˆã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if( me->query_temp("tjj/lian") )
-		return notify_fail("ÄãÕýÔÚÊ¹ÓÃÁ¬¡£\n");
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨è¿žã€‚\n");
  
         if( (int)me->query_skill("taiji-jian", 1) < 150 )
-		return notify_fail("ÄãµÄÌ«¼«½£·¨¹¦Á¦Ì«Ç³£¬±ð×öÃÎÁË¡£\n");
+		return notify_fail("ä½ çš„å¤ªæžå‰‘æ³•åŠŸåŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
  
         if( (int)me->query_skill("sword", 1) < 150 )
-		return notify_fail("ÄãµÄ»ù±¾½£·¨¹¦Á¦Ì«Ç³£¬±ð×öÃÎÁË¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å‰‘æ³•åŠŸåŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 
 	if( (int)me->query_temp("tjj/chan") )
-		return notify_fail("ÄãÏÖÔÚÕýÔÚÊ¹ÓÃ¡¸²ø¡¹×Ö¾÷¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨æ­£åœ¨ä½¿ç”¨ã€Œç¼ ã€å­—è¯€ã€‚\n");
 
         if( (int)me->query_skill("yinyun-ziqi", 1) < 150 )
-		return notify_fail("ÄãµÄÄÚ¹¦¹¦Á¦Ì«Ç³£¬±ð×öÃÎÁË¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸåŠŸåŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 
         if( (int)me->query("max_neili") < 2500 )
-		return notify_fail("ÄãµÄÄÚÁ¦Ì«Ç³£¬±ð×öÃÎÁË¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 
 	if( (int)me->query("neili") < 1000 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»£¬±ð×öÃÎÁË¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 /*
 	if( me->query_skill_mapped("force") != "yinyun-ziqi" )
-		return notify_fail("ÄãÓÃÊ²Ã´ÎªÄÚ¹¦»ù´¡À´Ê¹¡¸Èý»·Ì×ÔÂ¡¹?\n");
+		return notify_fail("ä½ ç”¨ä»€ä¹ˆä¸ºå†…åŠŸåŸºç¡€æ¥ä½¿ã€Œä¸‰çŽ¯å¥—æœˆã€?\n");
 */
 	if( !objectp(weapon = me->query_temp("weapon"))
 	 || weapon->query("skill_type") != "sword"
 	 || me->query_skill_mapped("sword") != "taiji-jian" )
-		return notify_fail("ÄãÊ¹µÃÁË¡¸Èý»·Ì×ÔÂ¡¹Ã´?\n");
+		return notify_fail("ä½ ä½¿å¾—äº†ã€Œä¸‰çŽ¯å¥—æœˆã€ä¹ˆ?\n");
 
-  	j = lvl /2; //Ô­1/3
+  	j = lvl /2; //åŽŸ1/3
 	if ( lvl > 449 )
 		j = to_int(lvl * lvl/825);
 
@@ -57,7 +57,7 @@ if(!userp(me)) j = j/3;
         me->add_temp("apply/attack", j*2/3);
         me->add_temp("apply/damage", j*2/3);
 	if( wizardp(me) )
-           tell_object(me, "ÄãµÄ¡¸"HIW"Èý»·Ì×ÔÂ"NOR"¡¹Ôö¼Ó£ºÓÐÐ§½£·¨ "+j+"£»ÃüÖÐÂÊ "+j+"£»ÉËº¦ "+j/4+"¡£\n"NOR);
+           tell_object(me, "ä½ çš„ã€Œ"HIW"ä¸‰çŽ¯å¥—æœˆ"NOR"ã€å¢žåŠ ï¼šæœ‰æ•ˆå‰‘æ³• "+j+"ï¼›å‘½ä¸­çŽ‡ "+j+"ï¼›ä¼¤å®³ "+j/4+"ã€‚\n"NOR);
 
 	if( ( weapon->query("material") == "wood"
 	   || weapon->query("material") == "bamboo"
@@ -70,7 +70,7 @@ if(!userp(me)) j = j/3;
                         me->add_temp("apply/attack", i);
 			me->set_temp("tjj/sanhuan_damage", i);
 	if( wizardp(me) ) 
-                tell_object(me, "Äã¡¸"HIW"Èý»·Ì×ÔÂ"NOR"¡¹ÍþÁ¦¼Ó³É£º "+i+"¡£\n"NOR);
+                tell_object(me, "ä½ ã€Œ"HIW"ä¸‰çŽ¯å¥—æœˆ"NOR"ã€å¨åŠ›åŠ æˆï¼š "+i+"ã€‚\n"NOR);
 if(!userp(target)) target->add_busy(2);
             }
 
@@ -96,27 +96,27 @@ if(!userp(target)) target->add_busy(2);
 	me->start_busy(random(2));
 	me->add("neili", -300);
 	me->add("jingli", -150);
-	me->start_perform(3, "¡¸Èý»·Ì×ÔÂ¡¹");
+	me->start_perform(3, "ã€Œä¸‰çŽ¯å¥—æœˆã€");
 	return 1;
 }
 
-string perform_name(){ return HIG"Èý»·Ì×ÔÂ"NOR; }
+string perform_name(){ return HIG"ä¸‰çŽ¯å¥—æœˆ"NOR; }
 
 int help(object me)
 {
-        write(HIG"\nÌ«¼«½£·¨Ö®¡¸Èý»·Ì×ÔÂ¡¹£º"NOR"\n\n");
+        write(HIG"\nå¤ªæžå‰‘æ³•ä¹‹ã€Œä¸‰çŽ¯å¥—æœˆã€ï¼š"NOR"\n\n");
         write(@HELP
-        Îäµ±¾ø¼¼£¬Á¬Ðø¹¥»÷ÈýÕÐ£¬ÊÇÎäµ±¹¦·òÖÐ×î¾ß¹¥»÷ÐÔµÄ£¬Èç¹ûÊ¹ÓÃ
-        ÎäÆ÷µÃ·¨£¬ÍþÁ¦¸üÉõ¡£
+        æ­¦å½“ç»æŠ€ï¼Œè¿žç»­æ”»å‡»ä¸‰æ‹›ï¼Œæ˜¯æ­¦å½“åŠŸå¤«ä¸­æœ€å…·æ”»å‡»æ€§çš„ï¼Œå¦‚æžœä½¿ç”¨
+        æ­¦å™¨å¾—æ³•ï¼Œå¨åŠ›æ›´ç”šã€‚
 
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1000 ÒÔÉÏ;
-                ×î´óÄÚÁ¦ 2500 ÒÔÉÏ£»
-                Ì«¼«½£·¨µÈ¼¶ 150 ÒÔÉÏ£»
-                ë³ëµ×ÏÆøµÈ¼¶ 150 ÒÔÉÏ£»
-                »ù±¾½£·¨µÈ¼¶ 150 ÒÔÉÏ£»
-                ¼¤·¢½£·¨ÎªÌ«¼«½£·¨£»
-                ¼¤·¢ÕÐ¼ÜÎªÌ«¼«½£·¨£»
-                ¼¤·¢ÄÚ¹¦Îªë³ëµ×ÏÆø¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1000 ä»¥ä¸Š;
+                æœ€å¤§å†…åŠ› 2500 ä»¥ä¸Šï¼›
+                å¤ªæžå‰‘æ³•ç­‰çº§ 150 ä»¥ä¸Šï¼›
+                æ°¤æ°²ç´«æ°”ç­‰çº§ 150 ä»¥ä¸Šï¼›
+                åŸºæœ¬å‰‘æ³•ç­‰çº§ 150 ä»¥ä¸Šï¼›
+                æ¿€å‘å‰‘æ³•ä¸ºå¤ªæžå‰‘æ³•ï¼›
+                æ¿€å‘æ‹›æž¶ä¸ºå¤ªæžå‰‘æ³•ï¼›
+                æ¿€å‘å†…åŠŸä¸ºæ°¤æ°²ç´«æ°”ã€‚
 
 HELP
         );

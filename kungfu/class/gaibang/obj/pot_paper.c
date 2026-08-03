@@ -5,12 +5,12 @@ string do_look();
 
 void create()
 {
-	set_name("²ËÆ×", ({ "cai pu", "pu", "hong's menu" }));
+	set_name("èœè°±", ({ "cai pu", "pu", "hong's menu" }));
 	set_weight(150);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
+		set("unit", "æœ¬");
 		set("long", (: do_look:));
 		set("value", 100);
 		set("no_get", 1);
@@ -45,25 +45,25 @@ int do_make(string arg)
 		return 0;
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 
 	if ( ! meat1 || ! meat2 || !meat3 || !meat4 || !meat5)
-		return notify_fail("ºÃÏñ»¹È±ÉÙÒ»Ğ©Ô­ÁÏ°¡£¿\n");
+		return notify_fail("å¥½åƒè¿˜ç¼ºå°‘ä¸€äº›åŸæ–™å•Šï¼Ÿ\n");
 
 	if ( meat1->query_temp("job_id") != me )
-		return notify_fail("ÄãµÄÑò¸á×øÍÎºÃÏñ²»ÊÇºéÆß¹«ÒªÄãÕÒµÄÄÇÖÖÔ­ÁÏ°É£¿\n");
+		return notify_fail("ä½ çš„ç¾Šç¾”åè‡€å¥½åƒä¸æ˜¯æ´ªä¸ƒå…¬è¦ä½ æ‰¾çš„é‚£ç§åŸæ–™å§ï¼Ÿ\n");
 
 	if ( meat2->query_temp("job_id") != me )
-		return notify_fail("ÄãµÄĞ¡Öí¶ú¶äºÃÏñ²»ÊÇºéÆß¹«ÒªÄãÕÒµÄÄÇÖÖÔ­ÁÏ°É£¿\n");
+		return notify_fail("ä½ çš„å°çŒªè€³æœµå¥½åƒä¸æ˜¯æ´ªä¸ƒå…¬è¦ä½ æ‰¾çš„é‚£ç§åŸæ–™å§ï¼Ÿ\n");
 
 	if ( meat3->query_temp("job_id") != me )
-		return notify_fail("ÄãµÄĞ¡Å£Ñü×ÓºÃÏñ²»ÊÇºéÆß¹«ÒªÄãÕÒµÄÄÇÖÖÔ­ÁÏ°É£¿\n");
+		return notify_fail("ä½ çš„å°ç‰›è…°å­å¥½åƒä¸æ˜¯æ´ªä¸ƒå…¬è¦ä½ æ‰¾çš„é‚£ç§åŸæ–™å§ï¼Ÿ\n");
 
 	if ( meat4->query_temp("job_id") != me )
-		return notify_fail("ÄãµÄâ¯ÍÈÈâºÃÏñ²»ÊÇºéÆß¹«ÒªÄãÕÒµÄÄÇÖÖÔ­ÁÏ°É£¿\n");
+		return notify_fail("ä½ çš„çè…¿è‚‰å¥½åƒä¸æ˜¯æ´ªä¸ƒå…¬è¦ä½ æ‰¾çš„é‚£ç§åŸæ–™å§ï¼Ÿ\n");
 
 	if ( meat5->query_temp("job_id") != me )
-		return notify_fail("ÄãµÄÃâÈâºÃÏñ²»ÊÇºéÆß¹«ÒªÄãÕÒµÄÄÇÖÖÔ­ÁÏ°É£¿\n");
+		return notify_fail("ä½ çš„å…è‚‰å¥½åƒä¸æ˜¯æ´ªä¸ƒå…¬è¦ä½ æ‰¾çš„é‚£ç§åŸæ–™å§ï¼Ÿ\n");
 
 	destruct(meat1);
 	destruct(meat2);
@@ -76,17 +76,17 @@ int do_make(string arg)
 
 	if ( random(i)){
 		ob = new(__DIR__"pot_food");
-		ob->set_name("ÓñµÑË­¼ÒÌıÂäÃ·", ({"yudi luomei", "luomei", "food"}));
-		ob->set("long", "ÕâÊÇÒ»ÅÌ¡¸ÓñµÑË­¼ÒÌıÂäÃ·¡¹£¬ÏãÆ®ËÄÒç£¬¿´ÆğÀ´Î¶µÀ²»´í¡£\n");
-		ob->set("unit", "ÅÌ");
+		ob->set_name("ç‰ç¬›è°å®¶å¬è½æ¢…", ({"yudi luomei", "luomei", "food"}));
+		ob->set("long", "è¿™æ˜¯ä¸€ç›˜ã€Œç‰ç¬›è°å®¶å¬è½æ¢…ã€ï¼Œé¦™é£˜å››æº¢ï¼Œçœ‹èµ·æ¥å‘³é“ä¸é”™ã€‚\n");
+		ob->set("unit", "ç›˜");
 		ob->setup();
 		ob->move(me);
 		me->set_temp("potjob/finish", 1);
-		message_vision(HIY"$N½«Ô­ÁÏ·ÅÔÚÒ»Æğ£¬Ò»»á¾Í×ö³öÁËÒ»ÅÌÏã¿ÚÃÀÎ¶µÄ¡¸ÓñµÑË­¼ÒÌıÂäÃ·¡¹¡£\n"NOR, me);
+		message_vision(HIY"$Nå°†åŸæ–™æ”¾åœ¨ä¸€èµ·ï¼Œä¸€ä¼šå°±åšå‡ºäº†ä¸€ç›˜é¦™å£ç¾å‘³çš„ã€Œç‰ç¬›è°å®¶å¬è½æ¢…ã€ã€‚\n"NOR, me);
 	}
 	else {
 		me->delete_temp("potjob");
-		message_vision(HIY"$NÒ»Ê±×ßÉñ£¬·Å´íÁËÅäÁÏ£¬ÀË·ÑÁËÖÆ³É¡¸ÓñµÑË­¼ÒÌıÂäÃ·¡¹µÄ´óºÃ»ú»á¡£\n"NOR, me);
+		message_vision(HIY"$Nä¸€æ—¶èµ°ç¥ï¼Œæ”¾é”™äº†é…æ–™ï¼Œæµªè´¹äº†åˆ¶æˆã€Œç‰ç¬›è°å®¶å¬è½æ¢…ã€çš„å¤§å¥½æœºä¼šã€‚\n"NOR, me);
 	}
 	return 1;
 }
@@ -100,17 +100,17 @@ string do_look()
 
 	if ( me->query_temp("potjob/job")) {
 		if ( me->query_temp("potjob/finish"))
-			return "ÄãÒÑ¾­Ë³ÀûÍê³ÉÁË¡¸ÓñµÑË­¼ÒÌıÂäÃ·¡¹µÄÁÏÀí¡£\n";
+			return "ä½ å·²ç»é¡ºåˆ©å®Œæˆäº†ã€Œç‰ç¬›è°å®¶å¬è½æ¢…ã€çš„æ–™ç†ã€‚\n";
 
 		place = me->query_temp("potjob/pot_job_place");
 		i = sizeof(keys(place));
 		if ( i > 0) {
-			msg = "Äã»¹ÓĞÏÂÁĞÔ­ÁÏÉĞÎ´ÕÒµ½£º\n\n";
+			msg = "ä½ è¿˜æœ‰ä¸‹åˆ—åŸæ–™å°šæœªæ‰¾åˆ°ï¼š\n\n";
 			for( j =0; j < i; j ++){
 				msg += sprintf("%-8s  %-20s  %-8s\n", keys(place)[j], values(place)[j], 
 				me->query_temp("potjob/for_menu/"+keys(place)[j]));
 			}
-			msg += "\nÄãÒÑ¾­ÕÒµ½µÄÔ­ÁÏÓĞ£º";
+			msg += "\nä½ å·²ç»æ‰¾åˆ°çš„åŸæ–™æœ‰ï¼š";
 			be_get = me->query_temp("potjob/be_get");
 			if ( be_get )
 				i = sizeof(keys(be_get));
@@ -122,11 +122,11 @@ string do_look()
 				}
 			}
 			else
-				msg += "ÎŞ";
+				msg += "æ— ";
 			msg += "\n";
 			return msg;
 		}
-		return "ÄãÒÑ¾­ÕÒÆëÁËÔ­ÁÏ£¬¸Ï¿ì×ö¡¸ÓñµÑË­¼ÒÌıÂäÃ·¡¹(zuo cai)°É¡£\n";
+		return "ä½ å·²ç»æ‰¾é½äº†åŸæ–™ï¼Œèµ¶å¿«åšã€Œç‰ç¬›è°å®¶å¬è½æ¢…ã€(zuo cai)å§ã€‚\n";
 	}
-	return "Ò»±¾²ËÆ×£¬¿´À´ÊÇ½ÌÄãÈçºÎÅëâ¿¡¸ÓñµÑË­¼ÒÌıÂäÃ·¡¹µÄÊé¡£\n";
+	return "ä¸€æœ¬èœè°±ï¼Œçœ‹æ¥æ˜¯æ•™ä½ å¦‚ä½•çƒ¹é¥ªã€Œç‰ç¬›è°å®¶å¬è½æ¢…ã€çš„ä¹¦ã€‚\n";
 }

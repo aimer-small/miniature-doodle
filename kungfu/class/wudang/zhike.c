@@ -1,12 +1,12 @@
-// zhike.c Öª¿Í
+// zhike.c çŸ¥å®¢
 
 inherit NPC;
 
 void create()
 {
-	set_name("Öª¿ÍµÀ³¤", ({ "zhike daozhang", "zhike", "daozhang" }));
-	set("long", "ËûÊÇÎäµ±É½µÄÖª¿ÍµÀ³¤¡£\n");
-	set("gender", "ÄÐÐÔ");
+	set_name("çŸ¥å®¢é“é•¿", ({ "zhike daozhang", "zhike", "daozhang" }));
+	set("long", "ä»–æ˜¯æ­¦å½“å±±çš„çŸ¥å®¢é“é•¿ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 38);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -44,7 +44,7 @@ void create()
         map_skill("cuff", "taiji-quan");
         prepare_skill("cuff", "taiji-quan");
 
-	create_family("Îäµ±ÅÉ", 4, "µÜ×Ó");
+	create_family("æ­¦å½“æ´¾", 4, "å¼Ÿå­");
 
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();

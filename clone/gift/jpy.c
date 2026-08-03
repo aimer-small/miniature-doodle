@@ -1,29 +1,29 @@
 // By action@SJ 
-// 2009Äê¹ıÄêÔÒ½ğµ°
+// 2009å¹´è¿‡å¹´ç ¸é‡‘è›‹
 #include <ansi.h>
-#define JADE    "/d/zhiye/obj/othermaterial" //Óñ
-#define KUANGSHI    "/d/zhiye/obj/kuangshi" //¿ó
-#define BULIAO    "/d/zhiye/obj/buliao" //²¼ÁÏ
+#define JADE    "/d/zhiye/obj/othermaterial" //ç‰
+#define KUANGSHI    "/d/zhiye/obj/kuangshi" //çŸ¿
+#define BULIAO    "/d/zhiye/obj/buliao" //å¸ƒæ–™
 inherit SPEC;
 void create()
 {
-        set_name(HIY"½ğµ°"NOR, ({ "jindan"}) );
+        set_name(HIY"é‡‘è›‹"NOR, ({ "jindan"}) );
         set_weight(10);
-                set("unit", "¿Å");
-                set("long", HIY"¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù\n"NOR+
-                	HIY"¡ù"HBBLU+HIW"Å£ÄêĞÂÄê¿ìÀ´µ½ÁË£¬¿¨ÃıÌØµØÈ¥ÕÒÀîÓ½ÒªÀ´µÄ½ğµ°£¬ÄãÊÇ²»ÊÇÔÚ¡¶ĞÒÔË52ÖĞ¡·¿´µ½¹ıÅ¶¡£"NOR+HIY"¡ù\n"NOR+
-                	HIY"¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù\n"NOR+
-                	HIY"¡ù¡ù¡ù"HBRED"¹ıÄêÔÒ½ğµ°£¬¿ªÄê¼ûÏ²£¬×£¸÷Î»Êé½£Íæ¼Ò£ºĞÂ´ºÓä¿ì£¬²ÆÔ´¹ö¹ö£¬Å£ÄêĞĞ´óÔË¡£"NOR+HIY"¡ù¡ù¡ù\n"NOR+
-                	HIY"¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù"HBGRN+HIW"»¹ÊÇÈ¥ÕÒ°ÑÄ¾é³È¥°Ñ½ğµ°ÔÒ¿ª°É£¬È¥Ä¾½³µêÊ¦¸µÕÒÕÒ°É£¡"NOR+HIY"¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù\n"NOR+
-                	HIY"¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù"HBGRN+HIW"»òĞíËûÃÇÄÄ¶ùÓĞÄ¾é³Äã¿ÉÒÔÊ¹ÓÃ(za)ÃüÁîÔÒ¿ª½ğµ°£¡"NOR+HIY"¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù\n"NOR+
-                	HIY"¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù\n"NOR);
+                set("unit", "é¢—");
+                set("long", HIY"â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»\n"NOR+
+                	HIY"â€»"HBBLU+HIW"ç‰›å¹´æ–°å¹´å¿«æ¥åˆ°äº†ï¼Œå¡è°¬ç‰¹åœ°å»æ‰¾æå’è¦æ¥çš„é‡‘è›‹ï¼Œä½ æ˜¯ä¸æ˜¯åœ¨ã€Šå¹¸è¿52ä¸­ã€‹çœ‹åˆ°è¿‡å“¦ã€‚"NOR+HIY"â€»\n"NOR+
+                	HIY"â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»\n"NOR+
+                	HIY"â€»â€»â€»"HBRED"è¿‡å¹´ç ¸é‡‘è›‹ï¼Œå¼€å¹´è§å–œï¼Œç¥å„ä½ä¹¦å‰‘ç©å®¶ï¼šæ–°æ˜¥æ„‰å¿«ï¼Œè´¢æºæ»šæ»šï¼Œç‰›å¹´è¡Œå¤§è¿ã€‚"NOR+HIY"â€»â€»â€»\n"NOR+
+                	HIY"â€»â€»â€»â€»â€»â€»â€»â€»"HBGRN+HIW"è¿˜æ˜¯å»æ‰¾æŠŠæœ¨æ§Œå»æŠŠé‡‘è›‹ç ¸å¼€å§ï¼Œå»æœ¨åŒ åº—å¸ˆå‚…æ‰¾æ‰¾å§ï¼"NOR+HIY"â€»â€»â€»â€»â€»â€»â€»â€»\n"NOR+
+                	HIY"â€»â€»â€»â€»â€»â€»â€»â€»â€»"HBGRN+HIW"æˆ–è®¸ä»–ä»¬å“ªå„¿æœ‰æœ¨æ§Œä½ å¯ä»¥ä½¿ç”¨(za)å‘½ä»¤ç ¸å¼€é‡‘è›‹ï¼"NOR+HIY"â€»â€»â€»â€»â€»â€»â€»â€»â€»\n"NOR+
+                	HIY"â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»â€»\n"NOR);
                 set("value", 1500);
                 set("material", "wood");
-                set("no_drop", "ÕâÑù¹óÖØµÄ¶«Î÷ÔõÃ´ÄÜËæ±ãÂÒ¶ªÄØ¡£\n");
-                set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
+                set("no_drop", "è¿™æ ·è´µé‡çš„ä¸œè¥¿æ€ä¹ˆèƒ½éšä¾¿ä¹±ä¸¢å‘¢ã€‚\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
                 set_weight(100);
                 set("value",3000000);
-                set("desc","¡¶ĞÒÔË52ÖĞ¡·ÖĞ¾­³£¿´¼ûµÄ½ğµ°¡£");
+                set("desc","ã€Šå¹¸è¿52ä¸­ã€‹ä¸­ç»å¸¸çœ‹è§çš„é‡‘è›‹ã€‚");
                 set("credit",150);    
 
        setup();
@@ -41,7 +41,7 @@ int do_za(string arg)
        int i = random(2);
 
        if(arg!="jindan")
-          return notify_fail(HIR"À÷º¦°¡£¡´ó¹ıÄêµÄÄãÏëÒªÔÒµçÊÓ»ú£¿»¹ÊÇ¿Õµ÷»ú£¿\n"NOR);
+          return notify_fail(HIR"å‰å®³å•Šï¼å¤§è¿‡å¹´çš„ä½ æƒ³è¦ç ¸ç”µè§†æœºï¼Ÿè¿˜æ˜¯ç©ºè°ƒæœºï¼Ÿ\n"NOR);
                     
 
        switch(i) {
@@ -54,8 +54,8 @@ int do_za(string arg)
                                 obj = new (JADE);
                                 obj->set("secret_obj",1);
                                 obj->set_level(5);
-                                str = "¼«Æ·";
-                                str += "Óñ"; 
+                                str = "æå“";
+                                str += "ç‰"; 
                                 break;                                   
                         case 2:         
                                 obj = new (BULIAO);
@@ -69,17 +69,17 @@ int do_za(string arg)
                 }
       	obj->move(this_player());
 
-        message_vision(HIW"\n\nÄã»Ó×ÅÄ¾é³³¯×Å"HIY"½ğµ°"NOR+HIW"ÔÒÈ¥£¬"HIY"½ğµ°"NOR+HIW"¶ÙÊ±¿ª»¨£¬É¢·¢³ö"HIR"½ğ"HIM"»¨"HIG"ËÄ"HIC"½¦"NOR+HIW"µÄ¡°"HIR"¹â"HIB"Ã¢¡±"GRN"£®£®£®£®£®£®\n"NOR
+        message_vision(HIW"\n\nä½ æŒ¥ç€æœ¨æ§Œæœç€"HIY"é‡‘è›‹"NOR+HIW"ç ¸å»ï¼Œ"HIY"é‡‘è›‹"NOR+HIW"é¡¿æ—¶å¼€èŠ±ï¼Œæ•£å‘å‡º"HIR"é‡‘"HIM"èŠ±"HIG"å››"HIC"æº…"NOR+HIW"çš„â€œ"HIR"å…‰"HIB"èŠ’â€"GRN"ï¼ï¼ï¼ï¼ï¼ï¼\n"NOR
                 "\n" 
-		"            "HIM"^¨¯^^¨¯^^¨¯^^¨¯^\^¨¯^^¨¯^^¨¯^ "NOR"\n"+
-		"          "HIR"(*^©n^*)"HIC"(*^©n^*)"HIG"(*^©n^*)"NOR"\n"+
-		"         "HIB"¨ˆ "HIR"¡î"HIY"¡ï"HIG"¡î"HIM"¡ï"HIC"©S"HIR"¡î"HIM"¡î"HIB"¡ï"HIY"¡î"HIB"¡ï"MAG"¡î"HIB"¨ˆ \n"NOR+
-		"                  "HIC"¡÷"HIR"€"HIB"©–"HIR"€"HIC"¡÷ \n"+
-		"                    "HIG"¡â"HIG"¡â     \n"+
-		"                     "GRN"¡â     \n"NOR+
+		"            "HIM"^Ç’^^Ç’^^Ç’^^Ç’^\^Ç’^^Ç’^^Ç’^ "NOR"\n"+
+		"          "HIR"(*^ï¹^*)"HIC"(*^ï¹^*)"HIG"(*^ï¹^*)"NOR"\n"+
+		"         "HIB"â–“ "HIR"â˜†"HIY"â˜…"HIG"â˜†"HIM"â˜…"HIC"ã’"HIR"â˜†"HIM"â˜†"HIB"â˜…"HIY"â˜†"HIB"â˜…"MAG"â˜†"HIB"â–“ \n"NOR+
+		"                  "HIC"â–³"HIR"â‚¬"HIB"ã€‡"HIR"â‚¬"HIC"â–³ \n"+
+		"                    "HIG"â™€"HIG"â™€     \n"+
+		"                     "GRN"â™€     \n"NOR+
                 "\n" NOR, me, ob);  
-        //CHANNEL_D->do_channel( this_object(), "rumor",sprintf(HIM"ÌıËµ%s´Ó"HIY"½ğµ°"HIM"ÖĞ»ñµÃÁËÒ»"+obj->query("unit")+obj->name()+"£¡", me->name(1)));
-        message_vision("$N´Ó"HIY"½ğµ°"NOR"ÖĞµÃµ½ÁËÒ»"+obj->query("unit")+obj->name()+"¡£\n\n",me); 
+        //CHANNEL_D->do_channel( this_object(), "rumor",sprintf(HIM"å¬è¯´%sä»"HIY"é‡‘è›‹"HIM"ä¸­è·å¾—äº†ä¸€"+obj->query("unit")+obj->name()+"ï¼", me->name(1)));
+        message_vision("$Nä»"HIY"é‡‘è›‹"NOR"ä¸­å¾—åˆ°äº†ä¸€"+obj->query("unit")+obj->name()+"ã€‚\n\n",me); 
                
         destruct(this_object());
         return 1;               

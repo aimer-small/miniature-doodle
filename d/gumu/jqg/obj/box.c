@@ -1,15 +1,15 @@
-// box.c ÌúºĞ
+// box.c é“ç›’
 #include <ansi.h>
 inherit ITEM;
 void create()
 {
-        set_name(RED "´óÌúºĞ" NOR, ({ "da tiehe", "tiehe", "box" }) );
+        set_name(RED "å¤§é“ç›’" NOR, ({ "da tiehe", "tiehe", "box" }) );
         set_weight(30000000);
         if( clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
-                set("long", "Ò»¸öĞâ¼£°ß°ßµÄ´óÌúºĞ×Ó£¬¿´À´ºÜ¾ÃÃ»ÓĞÈË¶¯¹ıÁË¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "ä¸€ä¸ªé”ˆè¿¹æ–‘æ–‘çš„å¤§é“ç›’å­ï¼Œçœ‹æ¥å¾ˆä¹…æ²¡æœ‰äººåŠ¨è¿‡äº†ã€‚\n");
                 set("value", 1000);
                 set("material", "steel");
                 set("no_get",1);
@@ -30,25 +30,25 @@ int do_xian(string arg)
       me=this_player();
       ob=this_object();
       if (me->is_busy() || me->is_fighting())
-           return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
-      if (!me->query_temp("marks/ÌúºĞ")) return 0;
+           return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
+      if (!me->query_temp("marks/é“ç›’")) return 0;
       if ( arg =="box" || arg=="da tiehe" || arg =="tiehe") {   
         if(!objectp( present("silver key", me)))        
-           return notify_fail("ÄãÃ»ÓĞÔ¿³×£¬ÓÃÊ²Ã´¿ª°¡£¿\n");
+           return notify_fail("ä½ æ²¡æœ‰é’¥åŒ™ï¼Œç”¨ä»€ä¹ˆå¼€å•Šï¼Ÿ\n");
         suo=unew("/clone/weapon/yinsuo");
         if(!objectp(suo))
-         return notify_fail("ÄãÏÆ¿ªÌúºĞ£¬·¢ÏÖÀ´ÍíÁË£¬ÀïÃæ¿ÕÎŞÒ»Îï¡£\n");
+         return notify_fail("ä½ æ€å¼€é“ç›’ï¼Œå‘ç°æ¥æ™šäº†ï¼Œé‡Œé¢ç©ºæ— ä¸€ç‰©ã€‚\n");
         if(!clonep(suo))
-         return notify_fail("ÄãÏÆ¿ªÌúºĞ£¬·¢ÏÖÀ´ÍíÁË£¬ÀïÃæ¿ÕÎŞÒ»Îï¡£\n");
+         return notify_fail("ä½ æ€å¼€é“ç›’ï¼Œå‘ç°æ¥æ™šäº†ï¼Œé‡Œé¢ç©ºæ— ä¸€ç‰©ã€‚\n");
         //if(clonep(suo) && ob->violate_unique()){
           // destruct(suo);
-           //return notify_fail("ÄãÏÆ¿ªÌúºĞ£¬·¢ÏÖÀ´ÍíÁË£¬ÀïÃæ¿ÕÎŞÒ»Îï¡£\n");
+           //return notify_fail("ä½ æ€å¼€é“ç›’ï¼Œå‘ç°æ¥æ™šäº†ï¼Œé‡Œé¢ç©ºæ— ä¸€ç‰©ã€‚\n");
            //} 
-        message_vision(HIY"$NÏÆ¿ªÌúºĞ£¬·¢ÏÖÀïÃæ·Å×ÅÒ»ÍÅ±ùç¯°ãµÄÎïÊÂ¡£\n"NOR,me);
-        me->delete_temp("marks/ÌúºĞ");
+        message_vision(HIY"$Næ€å¼€é“ç›’ï¼Œå‘ç°é‡Œé¢æ”¾ç€ä¸€å›¢å†°ç»¡èˆ¬çš„ç‰©äº‹ã€‚\n"NOR,me);
+        me->delete_temp("marks/é“ç›’");
         suo->move(me); 
         destruct(ob);               
         return 1;
         }
-       return notify_fail("ÄãÒªÏÆ¿ªÊ²Ã´£¿\n");
+       return notify_fail("ä½ è¦æ€å¼€ä»€ä¹ˆï¼Ÿ\n");
 }

@@ -1,4 +1,4 @@
-// Ôö¼Ó³ÇÊĞÅĞ¶Ï augx@sj
+// å¢åŠ åŸå¸‚åˆ¤æ–­ augx@sj
 
 inherit F_CLEAN_UP;
 
@@ -15,7 +15,7 @@ int main(object me, string arg)
 				if( !(room=find_object(dir+arg)) )
 					room=find_object(dir+arg+".c");
 		if( !room ) {
-			tell_object(this_player(),"ÕÒ²»µ½Ä¿±ê·¿¼ä£¡\n");
+			tell_object(this_player(),"æ‰¾ä¸åˆ°ç›®æ ‡æˆ¿é—´ï¼\n");
 			return 1;
 		}
 		do_one_room(room);
@@ -30,7 +30,7 @@ int do_one_room(object room)
 	string file;
          
 	if (room->query("incity")) {
-		tell_object(this_player(),"³ÇÊĞ±êÖ¾ÒÑ¾­Éè¶¨¹ıÁË¡£\n");
+		tell_object(this_player(),"åŸå¸‚æ ‡å¿—å·²ç»è®¾å®šè¿‡äº†ã€‚\n");
 		return 1;
 	}
 	reset_eval_cost();
@@ -38,9 +38,9 @@ int do_one_room(object room)
 	file = replace_string(file,"setup()","set(\"incity\",1);\n	setup()");
 		
 	if(write_file(base_name(room)+".c",file,1))
-		tell_object(this_player(),"³ÇÊĞ±êÖ¾Éè¶¨Íê³É£º"+ base_name(room) +"\n");
+		tell_object(this_player(),"åŸå¸‚æ ‡å¿—è®¾å®šå®Œæˆï¼š"+ base_name(room) +"\n");
 	else
-		tell_object(this_player(),"Ğ´³ÇÊĞ±êÖ¾´íÎó£¡\n");
+		tell_object(this_player(),"å†™åŸå¸‚æ ‡å¿—é”™è¯¯ï¼\n");
 		
 	return 1;
 }

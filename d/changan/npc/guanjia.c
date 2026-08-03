@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("¹Ü¼Ò", ({ "guan jia", "guanjia" }) );
-        set("gender", "ÄÐÐÔ" );
+        set_name("ç®¡å®¶", ({ "guan jia", "guanjia" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 56);
-        set("long","ËûÂúÍ·°×·¢£¬¿´À´ÎªÁÏÀí¸®ÖÐÊÂÎñ²ÙÁË²»ÉÙÐÄ¡£\n");
+        set("long","ä»–æ»¡å¤´ç™½å‘ï¼Œçœ‹æ¥ä¸ºæ–™ç†åºœä¸­äº‹åŠ¡æ“äº†ä¸å°‘å¿ƒã€‚\n");
         set("combat_exp", 10000);
         set("attitude", "friendly");
         setup();
@@ -31,12 +31,12 @@ void greeting(object ob)
         if (!ob || !present(ob, environment())) return;
         switch( random(2) ) {
                 case 0:
-                        say( "¹Ü¼ÒÓ­ÉÏÀ´ËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬½«¾ü²»ÔÚ¼Ò£¬ÓÐÊÂÇëÍíÐ©Ê±ºòÔÙÀ´°É¡£\n");
+                        say( "ç®¡å®¶è¿Žä¸Šæ¥è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œå°†å†›ä¸åœ¨å®¶ï¼Œæœ‰äº‹è¯·æ™šäº›æ—¶å€™å†æ¥å§ã€‚\n");
                         break;
                 case 1:
-                        say( "¹Ü¼ÒÓ­ÉÏÀ´ËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬½«¾ü²»ÔÚ¼Ò£¬Äú×øÏÂÀ´µÈÒ»µÈ£¬ÎÒÕâ¾ÍÈ¥ÉÏ²è¡£\n");
+                        say( "ç®¡å®¶è¿Žä¸Šæ¥è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œå°†å†›ä¸åœ¨å®¶ï¼Œæ‚¨åä¸‹æ¥ç­‰ä¸€ç­‰ï¼Œæˆ‘è¿™å°±åŽ»ä¸ŠèŒ¶ã€‚\n");
                         break;
         }
 }

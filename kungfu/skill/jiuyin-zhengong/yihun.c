@@ -1,4 +1,4 @@
-// ÎÒÈÏÎªÖĞÁËyihunÓ¦¸Ã100%´òÖĞ×Ô¼º¡£Ö÷ÒªÅĞ¶ÏpfmÊÇ·ñÃüÖĞ¡£¡£ 
+// æˆ‘è®¤ä¸ºä¸­äº†yihunåº”è¯¥100%æ‰“ä¸­è‡ªå·±ã€‚ä¸»è¦åˆ¤æ–­pfmæ˜¯å¦å‘½ä¸­ã€‚ã€‚ 
 #include <ansi.h>
 inherit F_SSERVER;
 
@@ -12,36 +12,36 @@ int exert(object me, object target)
 	|| !target->is_character()
         || !me->is_fighting(target)
         || !necessary(target) )
-		return notify_fail("ÒÆ»ê´ó·¨Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ç§»é­‚å¤§æ³•åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if ((int)me->query_skill("jiuyin-zhengong", 1) <= 220)
-		return notify_fail("ÄãµÄ¾ÅÒõÕæ¹¦ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„ä¹é˜´çœŸåŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query_int(1) < 45 )
-                return notify_fail("ÄãµÄÎòĞÔ²»¹»¡£\n");
+                return notify_fail("ä½ çš„æ‚Ÿæ€§ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("neili") < 2000 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	skill = me->query_skill("jiuyin-zhengong",1);
 
         ap = me->query_skill("force");
         dp = target->query_skill("force")/3;
 
-	message_vision(HIW"$NÁ³ÉÏÍ»È»¿ªÊ¼×ö³ö¸÷ÑùÆæ¹ÖµÄ±íÇé¡£\n"NOR, me, target);
+	message_vision(HIW"$Nè„¸ä¸Šçªç„¶å¼€å§‹åšå‡ºå„æ ·å¥‡æ€ªçš„è¡¨æƒ…ã€‚\n"NOR, me, target);
 
         if (     random(me->query_int()) > target->query("int")/2) 
               {
         	int qi2 = target->query("qi");
-                message_vision(HIW"$n¿´ÁË×¼±¸È¡Ğ¦$N£¬È´²»Öª²»¾õµÄÑ§Æğ$NµÄ±íÇé¡£\n"NOR, me, target);
-		message_vision(HIW"$NÃÍÈ»×ö³öÏò×Ô¼º¹¥»÷µÄ¶¯×÷£¬$nÁ¢¿ÌÏò×Ô¼º·¢·èËÆµÄ¹¥»÷ÆğÀ´£¬³öÊÖÔ½À´Ô½ÖØ£¡\n"NOR, me, target);
+                message_vision(HIW"$nçœ‹äº†å‡†å¤‡å–ç¬‘$Nï¼Œå´ä¸çŸ¥ä¸è§‰çš„å­¦èµ·$Nçš„è¡¨æƒ…ã€‚\n"NOR, me, target);
+		message_vision(HIW"$NçŒ›ç„¶åšå‡ºå‘è‡ªå·±æ”»å‡»çš„åŠ¨ä½œï¼Œ$nç«‹åˆ»å‘è‡ªå·±å‘ç–¯ä¼¼çš„æ”»å‡»èµ·æ¥ï¼Œå‡ºæ‰‹è¶Šæ¥è¶Šé‡ï¼\n"NOR, me, target);
 		target->add_temp("apply/attack",skill/3);
 		target->add_temp("apply/damage",skill/3);
                 target->set_temp("must_be_hit",1);
 		target->add_temp("apply/dodge",-skill);
 		target->add_temp("apply/parry",-skill);
 		target->add_temp("apply/defence",-skill);
-              //ÕâÀïÊÇÎªÁËÃüÖĞÂÊ°É£¬ÏÖÔÚÓÃmust_be_hit²ÎÊıºÃÁË
+              //è¿™é‡Œæ˜¯ä¸ºäº†å‘½ä¸­ç‡å§ï¼Œç°åœ¨ç”¨must_be_hitå‚æ•°å¥½äº†
                 COMBAT_D->do_attack(target, target, target->query_temp("weapon"), 3);
                 if( me->is_fighting(target)&& random(2)) COMBAT_D->do_attack(target, target, target->query_temp("weapon"),3);
                 if( me->is_fighting(target)) COMBAT_D->do_attack(target, target, target->query_temp("weapon"),3);
@@ -53,7 +53,7 @@ int exert(object me, object target)
                         target->delete_temp("must_be_hit");
 			target->add_temp("apply/dodge",skill);
 			target->add_temp("apply/parry",skill);
-			target->add_temp("apply/defence",skill);//Ô­À´ÊÇ1
+			target->add_temp("apply/defence",skill);//åŸæ¥æ˜¯1
 
 			if(qi2 > target->query("qi")) target->set_temp("last_damage_from", me);
                 }
@@ -61,25 +61,25 @@ int exert(object me, object target)
 	        me->add("jingli", -100);
 	}
 	else {
-		message_vision(HIW"²»¹Ü$NÔõÃ´±ä»¯±íÇé£¬$n×ÜÊÇÀäÀäµÄÎŞ¶¯ÓÚÖÔ¡£\n"NOR, me, target); 
+		message_vision(HIW"ä¸ç®¡$Næ€ä¹ˆå˜åŒ–è¡¨æƒ…ï¼Œ$næ€»æ˜¯å†·å†·çš„æ— åŠ¨äºè¡·ã€‚\n"NOR, me, target); 
 	        me->add("neili", - 150);
 	        me->add("jingli", -50);
 	}
-        me->start_exert(3, "¡¸ÒÆ»ê´ó·¨¡¹");
+        me->start_exert(3, "ã€Œç§»é­‚å¤§æ³•ã€");
 	if ( !me->is_perform())
-		me->start_perform(1, "¡¸ÒÆ»ê´ó·¨¡¹");
+		me->start_perform(1, "ã€Œç§»é­‚å¤§æ³•ã€");
 	return 1;
 }
 
-string exert_name(){ return HIW"ÒÆ»ê´ó·¨"NOR; }
+string exert_name(){ return HIW"ç§»é­‚å¤§æ³•"NOR; }
 
 int help(object me)
 {
-        write(HIW"\n¾ÅÒõÕæ¹¦Ö®¡¸ÒÆ»ê´ó·¨¡¹£º"NOR"\n\n");
+        write(HIW"\nä¹é˜´çœŸåŠŸä¹‹ã€Œç§»é­‚å¤§æ³•ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 2000 ÒÔÉÏ£»
-        	ºóÌìÎòĞÔ 45 ÒÔÉÏ£»
-                ¾ÅÒõÕæ¹¦µÈ¼¶ 220 ÒÔÉÏ¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 2000 ä»¥ä¸Šï¼›
+        	åå¤©æ‚Ÿæ€§ 45 ä»¥ä¸Šï¼›
+                ä¹é˜´çœŸåŠŸç­‰çº§ 220 ä»¥ä¸Šã€‚
 
 HELP
         );

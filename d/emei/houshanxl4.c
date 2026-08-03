@@ -1,5 +1,5 @@
 // houshanty.c
-// ºóÉ½Ğ¡Â·
+// åå±±å°è·¯
 inherit ROOM;
 #include <ansi.h>
 
@@ -7,14 +7,14 @@ int do_ban(string arg);
 
 void create()
 {
-        set("short", HIG "ºóÉ½Ğ¡Â·" NOR);
+        set("short", HIG "åå±±å°è·¯" NOR);
         set("long", @long
-ÕâÀïËäËµÊÇĞ¡Â·£¬µ«¹àÄ¾´ÔÉú£¬ºÜÄÑÔÙÕÒµ½ÏÂÉ½µÄÂ·ÁË¡£Ç°ÃæÒ»¿é´óÊ¯Í·
-(stone)µ²×¡ÁËÏÂÉ½µÄÈ¥Â·¡£
+è¿™é‡Œè™½è¯´æ˜¯å°è·¯ï¼Œä½†çŒæœ¨ä¸›ç”Ÿï¼Œå¾ˆéš¾å†æ‰¾åˆ°ä¸‹å±±çš„è·¯äº†ã€‚å‰é¢ä¸€å—å¤§çŸ³å¤´
+(stone)æŒ¡ä½äº†ä¸‹å±±çš„å»è·¯ã€‚
 long);
-        set("outdoors", "¶ëÃ¼É½");
+        set("outdoors", "å³¨çœ‰å±±");
         set("item_desc", ([ 
-            "stone" : "    ÕâÊÇÒ»¿é´óÊ¯Í·£¬¿´À´Ê¹µã¾¢¿ÉÒÔ°á(move)¿ª¡£\n",
+            "stone" : "    è¿™æ˜¯ä¸€å—å¤§çŸ³å¤´ï¼Œçœ‹æ¥ä½¿ç‚¹åŠ²å¯ä»¥æ¬(move)å¼€ã€‚\n",
 ]));
         set("exits",([
             "southup":__DIR__"houshanxl3",
@@ -31,9 +31,9 @@ int do_ban(string arg)
 {
     object me = this_player();
     if(!arg) return 0;
-    if(arg != "´óÊ¯Í·" && arg != "Ê¯Í·" && arg != "stone" && arg != "shitou" ) return 0;
+    if(arg != "å¤§çŸ³å¤´" && arg != "çŸ³å¤´" && arg != "stone" && arg != "shitou" ) return 0;
     if( random((int)me->query_str()) >= 15) {
-        message_vision("$NË«°ò½Ï¾¢£¬°á¿ªÁË´óÊ¯Í·¡£\n", me);
+        message_vision("$NåŒè†€è¾ƒåŠ²ï¼Œæ¬å¼€äº†å¤§çŸ³å¤´ã€‚\n", me);
         set("exits",([
             "southup":__DIR__"houshanxl3",
             "northdown":__DIR__"qingyinge",
@@ -41,7 +41,7 @@ int do_ban(string arg)
         
     }
     else {
-        message_vision("$NÊ¹¾¡ÁË³ÔÄÌµÄÁ¦Æø£¬Ò²Ã»°á¿ª´óÊ¯Í·¡£\n", me);
+        message_vision("$Nä½¿å°½äº†åƒå¥¶çš„åŠ›æ°”ï¼Œä¹Ÿæ²¡æ¬å¼€å¤§çŸ³å¤´ã€‚\n", me);
     }
     return 1;
 }

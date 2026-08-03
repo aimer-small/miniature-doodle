@@ -6,14 +6,14 @@ int do_sm(string arg);
 
 void create()
 {
-	set_name(YEL "ÉñÁúË÷ÃüÅÆ" NOR, ({"suomingpai" ,"pai" }));
+	set_name(YEL "ç¥žé¾™ç´¢å‘½ç‰Œ" NOR, ({"suomingpai" ,"pai" }));
 	set_weight(20);
         
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿é");
-		set("long", "ÕâÊÇÒ»¿éÉñÁú½ÌµÄË÷ÃüÅÆ£¬ÊÇÉñÁúµÜ×ÓÓÃÀ´(suoming)µÄ£¬\n");
+		set("unit", "å—");
+		set("long", "è¿™æ˜¯ä¸€å—ç¥žé¾™æ•™çš„ç´¢å‘½ç‰Œï¼Œæ˜¯ç¥žé¾™å¼Ÿå­ç”¨æ¥(suoming)çš„ï¼Œ\n");
 		set("no_sell",1);
 		set("no_get",1);
 		set("no_steal",1);
@@ -39,15 +39,15 @@ int do_sm(string arg)
 	if(!arg || arg==" " || arg==" ") return 0;
 
 	if((obj = present(arg, environment(me))) && (obj->is_character()))  {
-		if(!obj->is_corpse()) return notify_fail("Õâ¸öÈË»¹Ã»ËÀÄØ! \n");
+		if(!obj->is_corpse()) return notify_fail("è¿™ä¸ªäººè¿˜æ²¡æ­»å‘¢! \n");
 		if(!objectp(killer=obj->query("kill_by")))  {
 			cond=obj->query("kill_by");
-			if(cond !="»¯¹ÇÃàÕÆ¶¾·¢×÷")
-				return notify_fail("Õâ¸öÈË²»ÊÇÄãÉ±µÄ£¡\n");    
+			if(cond !="åŒ–éª¨ç»µæŽŒæ¯’å‘ä½œ")
+				return notify_fail("è¿™ä¸ªäººä¸æ˜¯ä½ æ€çš„ï¼\n");    
 		}
 		else  {
 			if(killer->query("id")!=me->query("id"))
-				return notify_fail("Õâ¸öÈË²»ÊÇÄãÉ±µÄ£¡\n");
+				return notify_fail("è¿™ä¸ªäººä¸æ˜¯ä½ æ€çš„ï¼\n");
 		}
 
 		tname=obj->query("victim_name");
@@ -58,10 +58,10 @@ int do_sm(string arg)
 		if((tname!=me->query("quest_kill/name"))
 		 || (tid!=me->query("quest_kill/id"))
 		 || (texp< myexp*2/3))
-			return notify_fail("Õâ¸öÈË²»ÊÇÒªÄãÉ±µÄÈË! \n");
+			return notify_fail("è¿™ä¸ªäººä¸æ˜¯è¦ä½ æ€çš„äºº! \n");
 
 		if(present("suomingpai", obj))
-			return notify_fail("ÄãÒÑ¾­Ë÷¹ýÕâ¸öÈËµÄÃüÁË! \n");
+			return notify_fail("ä½ å·²ç»ç´¢è¿‡è¿™ä¸ªäººçš„å‘½äº†! \n");
 
 		me->set("quest_kill/questing",0);
 		kar=random(me->query_kar());
@@ -127,8 +127,8 @@ int do_sm(string arg)
 		if (adds < 30) adds = 30;
                 if (adds > 300) adds = 280+random(30);
                                 
-                adds = me->add_exp_combat(adds,"ºé°²Í¨","ÉñÁúË÷Ãü");
-                //me->add("job_time/ÉñÁúË÷Ãü",1);
+                adds = me->add_exp_combat(adds,"æ´ªå®‰é€š","ç¥žé¾™ç´¢å‘½");
+                //me->add("job_time/ç¥žé¾™ç´¢å‘½",1);
                 //me->add("combat_exp", adds);
                 
 		qnadd = adds/5 + random(adds/10);			
@@ -137,10 +137,10 @@ int do_sm(string arg)
 			me->set("potential", me->query("max_pot"));
 		me->add("shen",-adds*2);
 
-		tell_object(me,"Äã±»½±ÀøÁË"+chinese_number(adds)+"µã¾­Ñé£¬"
-			+chinese_number(qnadd)+"µãÇ±ÄÜ£¬"+chinese_number(adds*2)+"µã¸ºÉñ£¡\n");
-// add Ë÷Ãü Log By River
-	        log_file("job/shenlong",sprintf("%8s%-10sË÷ÃüÈÎÎñ(2)½±Àø¾­Ñé%3d£¬Ç±ÄÜ%2d£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
+		tell_object(me,"ä½ è¢«å¥–åŠ±äº†"+chinese_number(adds)+"ç‚¹ç»éªŒï¼Œ"
+			+chinese_number(qnadd)+"ç‚¹æ½œèƒ½ï¼Œ"+chinese_number(adds*2)+"ç‚¹è´Ÿç¥žï¼\n");
+// add ç´¢å‘½ Log By River
+	        log_file("job/shenlong",sprintf("%8s%-10sç´¢å‘½ä»»åŠ¡(2)å¥–åŠ±ç»éªŒ%3dï¼Œæ½œèƒ½%2dï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
 			me->name(1),"("+me->query("id")+")", adds ,qnadd, me->query("combat_exp")));
 
 		if(me->query_temp("quest_kill/failin5",1) !=0)

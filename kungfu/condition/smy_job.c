@@ -1,7 +1,7 @@
 // rebuild for smy job
 // by Lklv 2002.07.12
 // hehe by Ciwei 2004
-// update by lsxk ,µ÷ÓÃTASKREWARD_DÍ³Ò»¼ÆËã¾­Ñé½±Àø¡£  2008/1/8
+// update by lsxk ,è°ƒç”¨TASKREWARD_Dç»Ÿä¸€è®¡ç®—ç»éªŒå¥–åŠ±ã€‚  2008/1/8
 
 #include <ansi.h>
 
@@ -33,8 +33,8 @@ int update_condition(object me, int duration)
 	}
 		
 	if( duration <= 1 && !me->query_temp("smy_job")){
-		write(HIY "ÄãÊ±¼äÒÑ¹ı£¬ÈÎÎñÊ§°Ü¡£\n" NOR);
-		log_file("job/smy", sprintf("%8s%-10s¿¹µĞËÌÄ¦ÑÂÈÎÎñ£¬Ê±¼ä²»¹»Ê§°Ü£¬¾­Ñé£º%d¡£",
+		write(HIY "ä½ æ—¶é—´å·²è¿‡ï¼Œä»»åŠ¡å¤±è´¥ã€‚\n" NOR);
+		log_file("job/smy", sprintf("%8s%-10sæŠ—æ•Œé¢‚æ‘©å´–ä»»åŠ¡ï¼Œæ—¶é—´ä¸å¤Ÿå¤±è´¥ï¼Œç»éªŒï¼š%dã€‚",
 			me->query("name"), "("+me->query("id")+")", me->query("combat_exp")),me);
 		return 0;
 	}
@@ -50,8 +50,8 @@ int update_condition(object me, int duration)
 			return 0;
 	 	}
 	 	
-		tell_object(me,HIY "ÄãÉÃÀëÖ°ÊØ£¬ÈÎÎñÊ§°Ü¡£\n" NOR);
-		log_file( "job/smy", sprintf("%8s%-10s¿¹µĞËÌÄ¦ÑÂÈÎÎñ£¬Àë¿ªÊ§°Ü£¬¾­Ñé£º%d¡£",
+		tell_object(me,HIY "ä½ æ“…ç¦»èŒå®ˆï¼Œä»»åŠ¡å¤±è´¥ã€‚\n" NOR);
+		log_file( "job/smy", sprintf("%8s%-10sæŠ—æ•Œé¢‚æ‘©å´–ä»»åŠ¡ï¼Œç¦»å¼€å¤±è´¥ï¼Œç»éªŒï¼š%dã€‚",
 			me->query("name"), "("+me->query("id")+")", me->query("combat_exp")),me);
 		me->delete_temp("smy_job");
 		me->apply_condition("smy_job",-1);
@@ -60,8 +60,8 @@ int update_condition(object me, int duration)
 	}
 	
 	if(
-   me->query_temp("smy_job/finish") >= 11 //¸üĞÂ³É×Ü¹²10×é£¬ÒÔÇ°ÊÇ8×é£¬ by lsxk@hsbbs 2008/1/10
-	 ///ÎŞ¾ßÌåÊµ¼ÊÏŞÖÆ ¿ÉÒÔ·Å´óµ½9 .... and more
+   me->query_temp("smy_job/finish") >= 11 //æ›´æ–°æˆæ€»å…±10ç»„ï¼Œä»¥å‰æ˜¯8ç»„ï¼Œ by lsxk@hsbbs 2008/1/10
+	 ///æ— å…·ä½“å®é™…é™åˆ¶ å¯ä»¥æ”¾å¤§åˆ°9 .... and more
 	 && file_name(environment(me)) == JOB_PLACE ){
 		if( present( "xixia wushi", environment(me) ) )
 		return 1;
@@ -72,14 +72,14 @@ int update_condition(object me, int duration)
 	if( duration == 5
 	 && file_name( environment(me)) == JOB_PLACE 
 	 && !me->query_temp("smy_job/enter") ){
-	 	///¿ªÊ¼	 	
+	 	///å¼€å§‹	 	
 		me->set_temp("smy_job/enter",1);
 		me->set_temp("smy_job/time",random(8));
 	}
 	if( duration < 5
 	 && !me->query_temp("smy_job/enter") ){
-		tell_object(me,HIY "ÄãËÙ¶ÈÌ«Âı£¬Î÷ÏÄÎäÊ¿ÒÑ¹ıËÌÄ¦ÑÂ£¬ÈÎÎñÊ§°Ü¡£\n" NOR);
-		log_file( "job/smy", sprintf("%8s%-10s¿¹µĞËÌÄ¦ÑÂÈÎÎñ£¬ËÙ¶ÈÌ«ÂıÊ§°Ü£¬¾­Ñé£º%d¡£",
+		tell_object(me,HIY "ä½ é€Ÿåº¦å¤ªæ…¢ï¼Œè¥¿å¤æ­¦å£«å·²è¿‡é¢‚æ‘©å´–ï¼Œä»»åŠ¡å¤±è´¥ã€‚\n" NOR);
+		log_file( "job/smy", sprintf("%8s%-10sæŠ—æ•Œé¢‚æ‘©å´–ä»»åŠ¡ï¼Œé€Ÿåº¦å¤ªæ…¢å¤±è´¥ï¼Œç»éªŒï¼š%dã€‚",
 			me->query("name"), "("+me->query("id")+")", me->query("combat_exp")),me);
 		me->delete_temp("smy_job");
 		me->apply_condition("smy_job",-1);
@@ -87,9 +87,9 @@ int update_condition(object me, int duration)
 		return 0;
 	}
 	/*
-	Ã¿¼ä¸ô1 c À´Ò»Åú (»Ö¸´µ½7c)			
-	Íæ¼Ò¿ÉÒÔÉèÖÃ10 c 5c ÓÃÓÚ×ßµ½smy
-	5 c ½øÈë×¼±¸×´Ì¬
+	æ¯é—´éš”1 c æ¥ä¸€æ‰¹ (æ¢å¤åˆ°7c)			
+	ç©å®¶å¯ä»¥è®¾ç½®10 c 5c ç”¨äºèµ°åˆ°smy
+	5 c è¿›å…¥å‡†å¤‡çŠ¶æ€
 	*/
 	if( file_name(environment(me)) == JOB_PLACE && me->query_temp("smy_job") ){
 		object npc;
@@ -97,20 +97,20 @@ int update_condition(object me, int duration)
 			case 9:
 			case 7:
 				if ( random(80) >75 )
-				message_vision(CYN "Ò»¶ÔÆõµ¤·şÊÎµÄ·ò¸¾£¬Å®µÄÆïÃ«Â¿£¬ÄĞÈË²½ĞĞ£¬»º»º¾­¹ıÉ½ÑÂ¡£\n" NOR, me);
+				message_vision(CYN "ä¸€å¯¹å¥‘ä¸¹æœé¥°çš„å¤«å¦‡ï¼Œå¥³çš„éª‘æ¯›é©´ï¼Œç”·äººæ­¥è¡Œï¼Œç¼“ç¼“ç»è¿‡å±±å´–ã€‚\n" NOR, me);
 				else if ( random(80) >50 )
-				message_vision(BLU "Ô¶´¦´«À´Ò»ÕóÒ°ÊŞµÄ½ĞÉù£¬×ĞÏ¸ÌıÆğÀ´£¬·Â·ğÀÇº¿¡£\n" NOR, me);
+				message_vision(BLU "è¿œå¤„ä¼ æ¥ä¸€é˜µé‡å…½çš„å«å£°ï¼Œä»”ç»†å¬èµ·æ¥ï¼Œä»¿ä½›ç‹¼åšã€‚\n" NOR, me);
 				else
-				message_vision(BLU "É½ÑÂÏÂµÄÉ½¹È´«À´Ò»ÉùÆàÀ÷µÄ³¤Ğ¥£¬ÁîÈËÃ«¹Çã¤È»¡£\n" NOR, me);
+				message_vision(BLU "å±±å´–ä¸‹çš„å±±è°·ä¼ æ¥ä¸€å£°å‡„å‰çš„é•¿å•¸ï¼Œä»¤äººæ¯›éª¨æ‚šç„¶ã€‚\n" NOR, me);
 				break;
 			case 5:	
-				message_vision(BLU "Ò»ÕóºôĞ¥µÄÉ½·ç¹Î¹ı£¬É½Á½²àµÄÇÍ±ÚÏÔµÃ¸ñÍâÒõÉ­¡£\n" NOR, me);
+				message_vision(BLU "ä¸€é˜µå‘¼å•¸çš„å±±é£åˆ®è¿‡ï¼Œå±±ä¸¤ä¾§çš„å³­å£æ˜¾å¾—æ ¼å¤–é˜´æ£®ã€‚\n" NOR, me);
 				break;			
 			case 3:
-				message_vision(CYN"Ô¶´¦µÄÉ½Â·´«À´Ò»ÕóÇáĞ¥£¬ÒşÔ¼ÌıµÃÓĞÈËÊ©Õ¹Çá¹¦·É³Û¶øÀ´¡£\n"NOR, me);
+				message_vision(CYN"è¿œå¤„çš„å±±è·¯ä¼ æ¥ä¸€é˜µè½»å•¸ï¼Œéšçº¦å¬å¾—æœ‰äººæ–½å±•è½»åŠŸé£é©°è€Œæ¥ã€‚\n"NOR, me);
 				break;
 			case 1:					
-				message_vision(CYN"É½ÑÂ±±ÃæµÄĞ¡Â·ÉÏÉÁ³öÁ½ÌõÈËÓ°£¬$N×İÉí¶øÆğ£¬Á¢¼´ºÍÈËÓ°Õ½ÔÚÁËÒ»Æğ¡£\n"NOR, me);
+				message_vision(CYN"å±±å´–åŒ—é¢çš„å°è·¯ä¸Šé—ªå‡ºä¸¤æ¡äººå½±ï¼Œ$Nçºµèº«è€Œèµ·ï¼Œç«‹å³å’Œäººå½±æˆ˜åœ¨äº†ä¸€èµ·ã€‚\n"NOR, me);
 				me->add_temp("smy_job/finish",1);
 				
 				npc = new(JOB_NPC);				
@@ -140,12 +140,12 @@ int update_condition(object me, int duration)
 	{
 		me->apply_condition("smy_job", 7);
 		if (wizardp(me)) 
-			tell_object(me,HIR "ÖØĞÂÖÃ7¡£\n" NOR);
-		message("wizard", HIG"ÖØĞÂÖÃ7¡£\n"NOR, environment(me), me);
+			tell_object(me,HIR "é‡æ–°ç½®7ã€‚\n" NOR);
+		message("wizard", HIG"é‡æ–°ç½®7ã€‚\n"NOR, environment(me), me);
 	}
 	if (wizardp(me))
-		tell_object(me,HIR "µ÷ÊÔ¼ÆÊ±£º"+duration+"¡£\n" NOR);
-	message("wizard", HIG"µ÷ÊÔ¼ÆÊ±£º"+duration+"¡£\n"NOR, environment(me), me);
+		tell_object(me,HIR "è°ƒè¯•è®¡æ—¶ï¼š"+duration+"ã€‚\n" NOR);
+	message("wizard", HIG"è°ƒè¯•è®¡æ—¶ï¼š"+duration+"ã€‚\n"NOR, environment(me), me);
 	return 1;
 }
 
@@ -197,14 +197,14 @@ private void give_raward(object me)
 		me->apply_condition("gb_job_busy",60);
 		me->delete_temp("smy_job");
 		me->clear_condition("smy_job");
-		me->set("job_name", "¿¹µĞËÌÄ¦ÑÂ");
+		me->set("job_name", "æŠ—æ•Œé¢‚æ‘©å´–");
 		
           if(j > 1 && j <= 4 )
-              TASKREWARD_D->get_reward(me,"ËÌÄ¦ÑÂ",1,1,(me->query("relife/times")?(j+random(1+j)):random(j+1)),0,3,j-1,0);
+              TASKREWARD_D->get_reward(me,"é¢‚æ‘©å´–",1,1,(me->query("relife/times")?(j+random(1+j)):random(j+1)),0,3,j-1,0);
           else if(j == 1)
-              TASKREWARD_D->get_reward(me,"ËÌÄ¦ÑÂ",1,1,(me->query("relife/times")?(j+random(1+j)):random(j+1)),0,1,1,0);
+              TASKREWARD_D->get_reward(me,"é¢‚æ‘©å´–",1,1,(me->query("relife/times")?(j+random(1+j)):random(j+1)),0,1,1,0);
           else
-              TASKREWARD_D->get_reward(me,"ËÌÄ¦ÑÂ",1,1,(me->query("relife/times")?(j+random(1+j)):random(j+1)),0,4,j,0);
+              TASKREWARD_D->get_reward(me,"é¢‚æ‘©å´–",1,1,(me->query("relife/times")?(j+random(1+j)):random(j+1)),0,4,j,0);
 
 			if( me->query_condition("fx_busy") > 50 )
 			me->apply_condition("fx_busy",50);
@@ -215,14 +215,14 @@ private void give_raward(object me)
 					lineup[i]->apply_condition("gb_job_busy", 30);
 					lineup[i]->delete_temp("smy_job");
 		      lineup[i]->clear_condition("smy_job");
-					lineup[i]->set("job_name", "¿¹µĞËÌÄ¦ÑÂ");					
+					lineup[i]->set("job_name", "æŠ—æ•Œé¢‚æ‘©å´–");					
 
                                   if(j > 1 && j <= 4 )
-                                      TASKREWARD_D->get_reward(lineup[i],"ËÌÄ¦ÑÂ",1,1,(lineup[i]->query("relife/times")?(j+random(1+j)):random(j+1)),0,3,j-1,0);
+                                      TASKREWARD_D->get_reward(lineup[i],"é¢‚æ‘©å´–",1,1,(lineup[i]->query("relife/times")?(j+random(1+j)):random(j+1)),0,3,j-1,0);
                                   else if(j == 1)
-                                      TASKREWARD_D->get_reward(lineup[i],"ËÌÄ¦ÑÂ",1,1,(lineup[i]->query("relife/times")?(j+random(1+j)):random(j+1)),0,1,1,0);
+                                      TASKREWARD_D->get_reward(lineup[i],"é¢‚æ‘©å´–",1,1,(lineup[i]->query("relife/times")?(j+random(1+j)):random(j+1)),0,1,1,0);
                                   else
-                                      TASKREWARD_D->get_reward(lineup[i],"ËÌÄ¦ÑÂ",1,1,(lineup[i]->query("relife/times")?(j+random(1+j)):random(j+1)),0,4,j,0);
+                                      TASKREWARD_D->get_reward(lineup[i],"é¢‚æ‘©å´–",1,1,(lineup[i]->query("relife/times")?(j+random(1+j)):random(j+1)),0,4,j,0);
 
 					if( lineup[i]->query_condition("fx_busy") > 50 )
 						lineup[i]->apply_condition("fx_busy",30+random(20));
@@ -230,5 +230,5 @@ private void give_raward(object me)
 			}
 		}
 	me->delete_temp("smy_job");
-	me->clear_condition("smy_job");//·ÀÖ¹Bug
+	me->clear_condition("smy_job");//é˜²æ­¢Bug
 }

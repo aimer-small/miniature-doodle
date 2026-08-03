@@ -1,18 +1,18 @@
 // shiye.c modified by fengyue 2008.10.19
 
 #include <ansi.h>
-#define JADE    "/d/zhiye/obj/othermaterial" //Óñ
-#define KUANGSHI    "/d/zhiye/obj/kuangshi" //¿ó
-#define BULIAO    "/d/zhiye/obj/buliao" //²¼ÁÏ
+#define JADE    "/d/zhiye/obj/othermaterial" //ç‰
+#define KUANGSHI    "/d/zhiye/obj/kuangshi" //çŸ¿
+#define BULIAO    "/d/zhiye/obj/buliao" //å¸ƒæ–™
 
 inherit NPC;
 int ask_me(object who);
 
 void create()
 {
-	set_name("Íõ»µË®", ({ "wang huaishui", "wang" }));
-	set("title", "´Ó¾ÅÆ·Ê¦Ò¯");
-	set("gender", "ÄĞĞÔ");
+	set_name("ç‹åæ°´", ({ "wang huaishui", "wang" }));
+	set("title", "ä»ä¹å“å¸ˆçˆ·");
+	set("gender", "ç”·æ€§");
 	set("age", 57);
 	set("combat_exp", 30000);
 	set_skill("unarmed", 50);
@@ -22,7 +22,7 @@ void create()
 	set_temp("apply/damage",  20);
 	set("shen", -1);
 	set("inquiry", ([
-                 "ÙºÂ»" : (: ask_me :),
+                 "ä¿¸ç¦„" : (: ask_me :),
 	]));
 	setup();
 	carry_object("/clone/armor/cloth")->wear();
@@ -37,21 +37,21 @@ int ask_me(object who)
 
         string str = "";
        int i = random(3);
-        times = (int)me->query("job_time/¹Ù¸®",1);
+        times = (int)me->query("job_time/å®˜åºœ",1);
 
-        if ( times<49 || times - me->query("job_time/¹Ù¸®ÁìÈ¡") <=49 ){
-		command("say ÄãÃ»Îª³¯Í¢³ö¹ıÊ²÷áÁ¦£¬»¹ÏëÒªÙºÂ»£¿\n");
+        if ( times<49 || times - me->query("job_time/å®˜åºœé¢†å–") <=49 ){
+		command("say ä½ æ²¡ä¸ºæœå»·å‡ºè¿‡ä»€éº½åŠ›ï¼Œè¿˜æƒ³è¦ä¿¸ç¦„ï¼Ÿ\n");
 		return 1;
 	}
 /*	
         if ( times > 15000 ){
-		command("say ÔÚÏÂ²»¹ıÊÇ¸öÖª¸®Ê¦Ò¯£¬Ôõ÷á»¹¸Ò¸øÄú·¢ÙºÂ»ÄØ£¿\n");
+		command("say åœ¨ä¸‹ä¸è¿‡æ˜¯ä¸ªçŸ¥åºœå¸ˆçˆ·ï¼Œæ€éº½è¿˜æ•¢ç»™æ‚¨å‘ä¿¸ç¦„å‘¢ï¼Ÿ\n");
 		command("flatter " + me->query("id"));
 		return 1;
         }
 */
 
-this_time=times- me->query("job_time/¹Ù¸®ÁìÈ¡");
+this_time=times- me->query("job_time/å®˜åºœé¢†å–");
 if( (int)me->query("gf_gives") < (int)me->query("age") && time()- me->query("gf_job_time")>86400 ) 
 {
 
@@ -67,14 +67,14 @@ me->set("gf_job_time",time());
 if (me->query_temp("mark/huilu"))
            {
 			command("hehe " + me->query("id"));
-                        message_vision("Íõ»µË®µãÍ·¹şÑüµÄËµµÀ£¬ÕâÎ»"+RANK_D->query_respect(me)+"ĞÁ¿àÁË, ÒÔºó»¹Íû¶à¶à¹ØÕÕÔÚÏÂ¡£\n",me);
+                        message_vision("ç‹åæ°´ç‚¹å¤´å“ˆè…°çš„è¯´é“ï¼Œè¿™ä½"+RANK_D->query_respect(me)+"è¾›è‹¦äº†, ä»¥åè¿˜æœ›å¤šå¤šå…³ç…§åœ¨ä¸‹ã€‚\n",me);
 			me->delete_temp("mark/huilu");
                         me->set("gf_gives",(int)me->query("age"));
                         me->add("balance", gold);
                         me->add("SJ_Credit", tb );
                         me->add("combat_exp", exp);
 
-                 message_vision(HIC"Íõ»µË®ÄÃ³öÒ»ÕÅĞÌ²¿ĞĞÎÄµİ¸ø"+me->query("name")+"Ëµ£ºÕâÊÇĞÌ²¿·¢ÎÒÑïÖİ¹ÙÔ±Äê¶ÈÙºÂ»ĞĞÎÄ,ÕâÎ»"+RANK_D->query_respect(me)+",Äã×Ô¼º¿´°É¡£\n",me);
+                 message_vision(HIC"ç‹åæ°´æ‹¿å‡ºä¸€å¼ åˆ‘éƒ¨è¡Œæ–‡é€’ç»™"+me->query("name")+"è¯´ï¼šè¿™æ˜¯åˆ‘éƒ¨å‘æˆ‘æ‰¬å·å®˜å‘˜å¹´åº¦ä¿¸ç¦„è¡Œæ–‡,è¿™ä½"+RANK_D->query_respect(me)+",ä½ è‡ªå·±çœ‹å§ã€‚\n",me);
                  switch(i) {
                         case 0:         
                                 obj = new (KUANGSHI);
@@ -92,56 +92,56 @@ if (me->query_temp("mark/huilu"))
                                 
                                         obj->set("secret_obj",1);
                                         obj->set_level(4+random(1));
-                                        str = "¼«Æ·";
+                                        str = "æå“";
                                 
-                                str += "Óñ";  
+                                str += "ç‰";  
                                 break;   
                                 break;  
                         default:return 1;
                            }
                            obj->move(me);
     
-              message_vision(HIC""+me->query("name")+""HIC"½ñÄêÓ¦µÃÙºÂ»Îª»Æ½ğ" + CHINESE_D->chinese_number(gold2) + "¶§,Í¨±¦" + CHINESE_D->chinese_number(tb) + "¸ö¡£\n"NOR, me);  
-              tell_object(me,HIY"ÌØ±ğ¼Î½±¡º"+obj->name()+""HIY"¡»Ò»"+obj->query("unit")+"¡£\n"NOR);
-              tell_object(me,HIY"Äã»ñµÃÁË" + CHINESE_D->chinese_number(exp) + "µã¾­Ñé½±Àø£¡\n"NOR);
+              message_vision(HIC""+me->query("name")+""HIC"ä»Šå¹´åº”å¾—ä¿¸ç¦„ä¸ºé»„é‡‘" + CHINESE_D->chinese_number(gold2) + "é”­,é€šå®" + CHINESE_D->chinese_number(tb) + "ä¸ªã€‚\n"NOR, me);  
+              tell_object(me,HIY"ç‰¹åˆ«å˜‰å¥–ã€"+obj->name()+""HIY"ã€ä¸€"+obj->query("unit")+"ã€‚\n"NOR);
+              tell_object(me,HIY"ä½ è·å¾—äº†" + CHINESE_D->chinese_number(exp) + "ç‚¹ç»éªŒå¥–åŠ±ï¼\n"NOR);
 
 
 
              if(this_time >= 500 && random(10) > 5 )
 {
-  message_vision(HIC"ÓÉÓÚ"+me->query("name")+""HIC"¹¤×÷ÇÚ·Ü£¬³É¼¨ì³È»£¬»ñµÃÄê¶È¡º"HIR"½­ºşÉñ²¶"HIC"¡»³ÆºÅ£¬ÍşÃû´óÔö£¡\n"NOR, me);  
-  tell_object(me,HIY"Äã¶îÍâ»ñµÃÁË" + CHINESE_D->chinese_number(exp) + "µã¾­Ñé½±Àø£¡\n"NOR);
+  message_vision(HIC"ç”±äº"+me->query("name")+""HIC"å·¥ä½œå‹¤å¥‹ï¼Œæˆç»©æ–ç„¶ï¼Œè·å¾—å¹´åº¦ã€"HIR"æ±Ÿæ¹–ç¥æ•"HIC"ã€ç§°å·ï¼Œå¨åå¤§å¢ï¼\n"NOR, me);  
+  tell_object(me,HIY"ä½ é¢å¤–è·å¾—äº†" + CHINESE_D->chinese_number(exp) + "ç‚¹ç»éªŒå¥–åŠ±ï¼\n"NOR);
                       me->add("combat_exp", exp);
-                      me->set_temp("title", HIR"½­ºşÉñ²¶"NOR);
+                      me->set_temp("title", HIR"æ±Ÿæ¹–ç¥æ•"NOR);
 
 
 }
 
- me->set("job_time/¹Ù¸®ÁìÈ¡",times);
+ me->set("job_time/å®˜åºœé¢†å–",times);
 
 			return 1;
 	}
 
-//Èç¹û²»¸øËû»ßÂ¸
+//å¦‚æœä¸ç»™ä»–è´¿èµ‚
 		command("look " + me->query("id"));
 		command("hmm " + me->query("id"));
-		command("say µÈÏÂ£¬ÈÃÎÒ¿´Ò»¿´£¡\n");
+		command("say ç­‰ä¸‹ï¼Œè®©æˆ‘çœ‹ä¸€çœ‹ï¼\n");
            
-             message_vision(WHT"Íõ»µË®×°Ä£×÷ÑùµÄÄÃ³öÒ»ÕÅĞÌ²¿ÅúÎÄ¿´ÁË¿´¡£\n"NOR, me);
-    message_vision(HIC"Íõ»µË®ËµµÀ£º"+me->query("name")+"½ñÄêÓ¦µÃÙºÂ»Îª»Æ½ğ" + CHINESE_D->chinese_number(gold3) + "¶§,Í¨±¦" + CHINESE_D->chinese_number(tb2) + "¸ö¡£\n"NOR, me); 
+             message_vision(WHT"ç‹åæ°´è£…æ¨¡ä½œæ ·çš„æ‹¿å‡ºä¸€å¼ åˆ‘éƒ¨æ‰¹æ–‡çœ‹äº†çœ‹ã€‚\n"NOR, me);
+    message_vision(HIC"ç‹åæ°´è¯´é“ï¼š"+me->query("name")+"ä»Šå¹´åº”å¾—ä¿¸ç¦„ä¸ºé»„é‡‘" + CHINESE_D->chinese_number(gold3) + "é”­,é€šå®" + CHINESE_D->chinese_number(tb2) + "ä¸ªã€‚\n"NOR, me); 
                         me->add("balance", gold/2);
                         me->add("SJ_Credit", tb2);
                         me->add("combat_exp", exp1);
 
- tell_object(me,HIY"Äã»ñµÃÁË" + CHINESE_D->chinese_number(exp1) + "µã¾­Ñé½±Àø£¡\n"NOR);
+ tell_object(me,HIY"ä½ è·å¾—äº†" + CHINESE_D->chinese_number(exp1) + "ç‚¹ç»éªŒå¥–åŠ±ï¼\n"NOR);
 		
- message_vision(WHT""+me->query("name")+"ÒşÔ¼¾õµÃÊıÄ¿ºÃÏó²»´ó¶Ô°¡¡£\n"NOR, me);
+ message_vision(WHT""+me->query("name")+"éšçº¦è§‰å¾—æ•°ç›®å¥½è±¡ä¸å¤§å¯¹å•Šã€‚\n"NOR, me);
 		me->set("gf_gives",(int)me->query("age"));
- me->set("job_time/¹Ù¸®ÁìÈ¡",times);
+ me->set("job_time/å®˜åºœé¢†å–",times);
                 return 1;
 	}
 
-        command("say Ã»µ½Ê±¼äÄØ£¬ÁìÊ²÷áÙºÂ»£¿!\n");
+        command("say æ²¡åˆ°æ—¶é—´å‘¢ï¼Œé¢†ä»€éº½ä¿¸ç¦„ï¼Ÿ!\n");
 
         return 1;
 }
@@ -149,23 +149,23 @@ if (me->query_temp("mark/huilu"))
 int accept_object(object me, object obj)
 {
         int times;
-        times=me->query("job_time/¹Ù¸®",1);
+        times=me->query("job_time/å®˜åºœ",1);
 
-        if (!me->query("job_time/¹Ù¸®")){
-		command("say ÎŞÔµÎŞ¹ÊËÍÀñ£¬Ïë»ßÂ¸ÎÒ£¿\n");
+        if (!me->query("job_time/å®˜åºœ")){
+		command("say æ— ç¼˜æ— æ•…é€ç¤¼ï¼Œæƒ³è´¿èµ‚æˆ‘ï¼Ÿ\n");
 		return 1;
         }
         if(obj->query("money_id")){
                 if(obj->value() >= times*10){
 			command("hehe "+me->query("id"));
-			command("whisper "+me->query("id")+" Äã¾Í·ÅĞÄ°É£¬»ØÍ·ÎÒ»áºÃºÃ¹ØÕÕÄãµÄ£¡");
+			command("whisper "+me->query("id")+" ä½ å°±æ”¾å¿ƒå§ï¼Œå›å¤´æˆ‘ä¼šå¥½å¥½å…³ç…§ä½ çš„ï¼");
 			me->set_temp("mark/huilu",1);
 			return 1;
 		}
-		command("say ÕâÃ´µãÇ®ÄÜ¸ÉÊ²÷á£¿»¹²»¹»ÎÒÈ¥Ò»´ÎÀö´ºÔºµÄÄØ£¿");
+		command("say è¿™ä¹ˆç‚¹é’±èƒ½å¹²ä»€éº½ï¼Ÿè¿˜ä¸å¤Ÿæˆ‘å»ä¸€æ¬¡ä¸½æ˜¥é™¢çš„å‘¢ï¼Ÿ");
 		return 1;
         }
-	command("say ÄÃÕâ¸ö"+obj->name()+"À´¸øÎÒ£¬ÓĞÊ²÷áÓÃ£¿£¡");
+	command("say æ‹¿è¿™ä¸ª"+obj->name()+"æ¥ç»™æˆ‘ï¼Œæœ‰ä»€éº½ç”¨ï¼Ÿï¼");
 	return 0;
 }
 

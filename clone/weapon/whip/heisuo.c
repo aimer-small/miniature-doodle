@@ -6,12 +6,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("ºÚË÷",({ "hei suo", "whip","bian","suo" }) );
+        set_name("é»‘ç´¢",({ "hei suo", "whip","bian","suo" }) );
         set_weight(15000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ìõ");
+                set("unit", "æ¡");
                 set("value", 1);
                 set("unique", 3);
                 set("rigidity", 7);
@@ -21,9 +21,9 @@ void create()
                 set("wield_neili", 900);
                 set("wield_maxneili", 1400);
                 set("wield_str", 24);
-                set("long", "ÕâÊÇÌõÍ¨Ìå÷îºÚÎŞ¹âµÄ³¤Ë÷£¬±ãÈçÒ»ÌõÕÅÑÀÎè×¦µÄÄ«Áú£¬Ò¹ÍíÎè¶¯Ö®Ê±ÇÆ²»¼û°ëµãÓ°×Ó¡£\n");                
-                set("unwield_msg", "$NËæÊÖÒ»¶¶£¬½«$nÅÌ»ØÑü¼ä¡£\n");
-                set("wield_msg", "$NËæÊÖÒ»¶¶£¬³é³öÒ»Ìõ$nÎÕÔÚÊÖÖĞ¡£\n");
+                set("long", "è¿™æ˜¯æ¡é€šä½“é»é»‘æ— å…‰çš„é•¿ç´¢ï¼Œä¾¿å¦‚ä¸€æ¡å¼ ç‰™èˆçˆªçš„å¢¨é¾™ï¼Œå¤œæ™šèˆåŠ¨ä¹‹æ—¶ç§ä¸è§åŠç‚¹å½±å­ã€‚\n");                
+                set("unwield_msg", "$Néšæ‰‹ä¸€æŠ–ï¼Œå°†$nç›˜å›è…°é—´ã€‚\n");
+                set("wield_msg", "$Néšæ‰‹ä¸€æŠ–ï¼ŒæŠ½å‡ºä¸€æ¡$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
         }
         init_whip(120);
         setup();

@@ -4,16 +4,16 @@ int do_tiao(string arg)
 	object me;
 	me=this_player();
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if ( !arg || arg != "shenyuan")
-       		return notify_fail("ÄãÒªÍùÄÄÌø£¿\n");
+       		return notify_fail("ä½ è¦å¾€å“ªè·³ï¼Ÿ\n");
 	if( !me->query_temp("tiaoya")){
-		write(HIR"Õâ¸öĞüÑÂÈç´ËĞ×ÏÕ£¬Äã¾ÍÕâÃ´ÌøÏÂÈ¥Ö»ÅÂĞ×¶à¼ªÉÙ£¬Äã»¹ÊÇÔÙ¿¼ÂÇÒ»ÏÂ°É¡£\n"NOR);
-		write(HIR"¾ö¶¨Ìø¾ÍÇÃ£¨yes£©£¬¸Ä±äÖ÷Òâ¾ÍÇÃ£¨no£©¡£\n"NOR);
+		write(HIR"è¿™ä¸ªæ‚¬å´–å¦‚æ­¤å‡¶é™©ï¼Œä½ å°±è¿™ä¹ˆè·³ä¸‹å»åªæ€•å‡¶å¤šå‰å°‘ï¼Œä½ è¿˜æ˜¯å†è€ƒè™‘ä¸€ä¸‹å§ã€‚\n"NOR);
+		write(HIR"å†³å®šè·³å°±æ•²ï¼ˆyesï¼‰ï¼Œæ”¹å˜ä¸»æ„å°±æ•²ï¼ˆnoï¼‰ã€‚\n"NOR);
 		me->set_temp("tiaoya", 1);
 		return 1;
 	}
-	write("Äãµ½µ×ÔõÃ´¾ö¶¨µÄ£¿\n");
+	write("ä½ åˆ°åº•æ€ä¹ˆå†³å®šçš„ï¼Ÿ\n");
 	return 1;
 }
 
@@ -21,12 +21,12 @@ int do_yes()
 {
 	object me = this_player(); 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if( !me->query_temp("tiaoya") )
 		return 0;
-	message_vision(HIR"$NÓÌÔ¥ÔÙÈı£¬ÖÕÓÚÏÂ¶¨¾öĞÄ£¬Á½ÑÛÒ»±Õ£¬Ó¿ÉíÏòÑÂµ×ÌøÈ¥£¡\n"NOR, me);
+	message_vision(HIR"$NçŠ¹è±«å†ä¸‰ï¼Œç»ˆäºä¸‹å®šå†³å¿ƒï¼Œä¸¤çœ¼ä¸€é—­ï¼Œæ¶Œèº«å‘å´–åº•è·³å»ï¼\n"NOR, me);
 	me->delete_temp("tiaoya");
-	message_vision(HIR"\n$NÉíÌå³å¿ªÃÔÎí£¬Ö»¸Ğ¾õ¶ú±ßÉú·ç£¬ÏòÑÂµ×Ö±×¹ÏÂÈ¥¡£\n"NOR,me);
+	message_vision(HIR"\n$Nèº«ä½“å†²å¼€è¿·é›¾ï¼Œåªæ„Ÿè§‰è€³è¾¹ç”Ÿé£ï¼Œå‘å´–åº•ç›´å ä¸‹å»ã€‚\n"NOR,me);
 	if ((int)me->query("kar",1) >= 28){
 		call_out("win", 1, me);
 		return 1;
@@ -42,39 +42,39 @@ int do_no()
 	me=this_player();
 	
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if( !me->query_temp("tiaoya") )
 		return 0;
-	write(HIG"ÄãË¼ÂÇÔÙÈıÈ¡ÏûÁËÌøÏÂÈ¥µÄ¾ö¶¨¡£\n"NOR);
+	write(HIG"ä½ æ€è™‘å†ä¸‰å–æ¶ˆäº†è·³ä¸‹å»çš„å†³å®šã€‚\n"NOR);
 	me->delete_temp("tiaoya");
 	return 1;
 }
 
 int win(object me)
 {
-	tell_object(me,HIR"\nÄãÉíÌå¾àÀë¹Èµ×Ô½À´Ô½½ü£¬¶¨¾¦¿´È¥£¬¹Èµ×Ô­À´ÊÇÒ»Æ¬Ë®Ì¶£¡\n"NOR,);
-	tell_object(me,HIR"\nÄãÔÚ¿ÕÖĞ£¬ÉíÌåÒÑ¾­²»ÊÜ¿ØÖÆ£¬Ö±½ÓÏòË®ÖĞÂäÈ¥¡£\n"NOR);
-	tell_object(me,HIR"\nÆËÍ¨Ò»Éù£¬Äã¶Ç×ÓÊ×ÏÈÈëË®£¬ÎåÔàÁù¸­Ò»Õó·­¹ö¡£ÕÅ×ìÏëÒª¾ªºô£¬¹¾àà¹¾àà£¬\n"+
-                 "·´¶ø±»¹àÁËÒ»¶Ç×ÓË®¡£\n"NOR);
+	tell_object(me,HIR"\nä½ èº«ä½“è·ç¦»è°·åº•è¶Šæ¥è¶Šè¿‘ï¼Œå®šç›çœ‹å»ï¼Œè°·åº•åŸæ¥æ˜¯ä¸€ç‰‡æ°´æ½­ï¼\n"NOR,);
+	tell_object(me,HIR"\nä½ åœ¨ç©ºä¸­ï¼Œèº«ä½“å·²ç»ä¸å—æ§åˆ¶ï¼Œç›´æ¥å‘æ°´ä¸­è½å»ã€‚\n"NOR);
+	tell_object(me,HIR"\næ‰‘é€šä¸€å£°ï¼Œä½ è‚šå­é¦–å…ˆå…¥æ°´ï¼Œäº”è„å…­è…‘ä¸€é˜µç¿»æ»šã€‚å¼ å˜´æƒ³è¦æƒŠå‘¼ï¼Œå’•å™œå’•å™œï¼Œ\n"+
+                 "åè€Œè¢«çŒäº†ä¸€è‚šå­æ°´ã€‚\n"NOR);
        me->move(__DIR__"guditan1");
-       tell_room(environment(me), "Ö»Ìıµ½Ò»Éù²Ò½Ğ£¬"+me->name() + "´ÓÌì¿ÕÖ±×¹ÁËÏÂÀ´¡£\n", ({ me }));
-       tell_room(environment(me), me->name() + "ÏòÏÂÃæ¾¶Ö±³ÁÁËÏÂÈ¥¡£\n", ({ me }));
+       tell_room(environment(me), "åªå¬åˆ°ä¸€å£°æƒ¨å«ï¼Œ"+me->name() + "ä»å¤©ç©ºç›´å äº†ä¸‹æ¥ã€‚\n", ({ me }));
+       tell_room(environment(me), me->name() + "å‘ä¸‹é¢å¾„ç›´æ²‰äº†ä¸‹å»ã€‚\n", ({ me }));
        me->receive_damage("jingli", 100);
        me->receive_damage("qi", 100);
        me->move(__DIR__"guditan2");
-       tell_room(environment(me), me->name() + "´ÓÉÏÃæÖ±×¹ÁËÏÂÀ´¡£\n", ({ me }));
-       tell_room(environment(me), me->name() + "ÏòÏÂÃæ¾¶Ö±³ÁÁËÏÂÈ¥¡£\n", ({ me }));
+       tell_room(environment(me), me->name() + "ä»ä¸Šé¢ç›´å äº†ä¸‹æ¥ã€‚\n", ({ me }));
+       tell_room(environment(me), me->name() + "å‘ä¸‹é¢å¾„ç›´æ²‰äº†ä¸‹å»ã€‚\n", ({ me }));
        me->receive_damage("jingli", 200);
        me->receive_damage("qi", 200);
        me->move(__DIR__"guditan3");
-       tell_room(environment(me), me->name() + "´ÓÉÏÃæÖ±×¹ÁËÏÂÀ´¡£\n", ({ me }));
-       tell_room(environment(me), me->name() + "ÏòÏÂÃæ¾¶Ö±³ÁÁËÏÂÈ¥¡£\n", ({ me }));
+       tell_room(environment(me), me->name() + "ä»ä¸Šé¢ç›´å äº†ä¸‹æ¥ã€‚\n", ({ me }));
+       tell_room(environment(me), me->name() + "å‘ä¸‹é¢å¾„ç›´æ²‰äº†ä¸‹å»ã€‚\n", ({ me }));
        me->receive_damage("jingli", 300);
        me->receive_damage("qi", 300);
        me->set("water", me->max_water_capacity()+200);
        me->move(__DIR__"guditan4");       
-       tell_room(environment(me), me->name() + "´ÓÉÏÃæÖ±×¹ÁËÏÂÀ´¡£\n", ({ me }));
-       message_vision (HIB"$NÖ»¾õµÃÍ·ÔÎÔÎµÄ£¬ÉíÌå½şÔÚ±ùÀäµÄË®ÖĞ£¬²»×¡µÄ²ü¶¶¡£\n"NOR,me);
+       tell_room(environment(me), me->name() + "ä»ä¸Šé¢ç›´å äº†ä¸‹æ¥ã€‚\n", ({ me }));
+       message_vision (HIB"$Nåªè§‰å¾—å¤´æ™•æ™•çš„ï¼Œèº«ä½“æµ¸åœ¨å†°å†·çš„æ°´ä¸­ï¼Œä¸ä½çš„é¢¤æŠ–ã€‚\n"NOR,me);
        return 1;
 	
 }
@@ -84,13 +84,13 @@ int fail(object me)
 	object tmp;
 	object *ob;
 	int i;
-	tell_object(me, HIR"\nÄãÉíÌå¾àÀë¹Èµ×Ô½À´Ô½½ü£¬¶¨¾¦¿´È¥£¬¹Èµ×Ô­À´ÊÇÒ»Æ¬Ë®Ì¶£¡\n"NOR);
-	tell_object(me, HIR"\nÄãÔÚ¿ÕÖĞ£¬ÉíÌåÒÑ¾­²»ÊÜ¿ØÖÆ£¬Ö±½ÓÏòÌ¶±ßÒ»¿é´óÊ¯Í·×¹È¥£¡\n"NOR);
-	tell_object(me, HIR"\nÄã¼±×ªÉíĞÎ£¬ÏëÒªµ÷Õû·½Ïò£¬ÎŞÄÍËÄÌåĞüÔÚ¿ÕÖĞ£¬Æ®ºöºöµÄ»ë²»×ÅÁ¦£¬ÑÛ¿´×Å\n"+
-                 "¾àÀëÊ¯Í·Ô½À´Ô½½üÁË£¡ÕâÊ±ºîÄãĞÄÖĞ²»½û·ºÆğÒ»Ë¿»ÚÒâ£ºĞ¡ÁúÅ®°®µÄÓÖ²»ÊÇÎÒ£¬\n"+
-                 "ÎÒÌøÏÂÀ´¸ÉÊ²Ã´£¿\n"NOR);
+	tell_object(me, HIR"\nä½ èº«ä½“è·ç¦»è°·åº•è¶Šæ¥è¶Šè¿‘ï¼Œå®šç›çœ‹å»ï¼Œè°·åº•åŸæ¥æ˜¯ä¸€ç‰‡æ°´æ½­ï¼\n"NOR);
+	tell_object(me, HIR"\nä½ åœ¨ç©ºä¸­ï¼Œèº«ä½“å·²ç»ä¸å—æ§åˆ¶ï¼Œç›´æ¥å‘æ½­è¾¹ä¸€å—å¤§çŸ³å¤´å å»ï¼\n"NOR);
+	tell_object(me, HIR"\nä½ æ€¥è½¬èº«å½¢ï¼Œæƒ³è¦è°ƒæ•´æ–¹å‘ï¼Œæ— è€å››ä½“æ‚¬åœ¨ç©ºä¸­ï¼Œé£˜å¿½å¿½çš„æµ‘ä¸ç€åŠ›ï¼Œçœ¼çœ‹ç€\n"+
+                 "è·ç¦»çŸ³å¤´è¶Šæ¥è¶Šè¿‘äº†ï¼è¿™æ—¶ä¾¯ä½ å¿ƒä¸­ä¸ç¦æ³›èµ·ä¸€ä¸æ‚”æ„ï¼šå°é¾™å¥³çˆ±çš„åˆä¸æ˜¯æˆ‘ï¼Œ\n"+
+                 "æˆ‘è·³ä¸‹æ¥å¹²ä»€ä¹ˆï¼Ÿ\n"NOR);
        me->move(__DIR__"gudi");
-       me->set_temp("last_damage_from","ÌøÏÂÉ½ÑÂË¤");
+       me->set_temp("last_damage_from","è·³ä¸‹å±±å´–æ‘”");
        me->unconcious();
        me->die();
        	if (tmp = present("corpse", this_object())) 
@@ -99,7 +99,7 @@ int fail(object me)
 		i = sizeof(ob);
 		while (i--) if (userp(ob[i])) ob[i]->move(this_object());
 		destruct(tmp);
-               if (me) tell_room(this_object(), me->name()+"µÄÊ¬¹Ç¶¼ÕÒ²»µ½ÁË¡£\n");
+               if (me) tell_room(this_object(), me->name()+"çš„å°¸éª¨éƒ½æ‰¾ä¸åˆ°äº†ã€‚\n");
 	}
 	return 1;
 }

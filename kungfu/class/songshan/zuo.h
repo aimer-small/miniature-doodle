@@ -9,8 +9,8 @@ string do_cancel()
 	me = this_player();
 	exp = me->query("combat_exp");
 
-	if(!me->query_temp("quest") || me->query_temp("quest/family") != "áÔÉ½ÅÉ")
-		return "ÄãÃ»ÓĞÁìÈÎÎñ£¬ºÍÎÒÈÂÈÂÊ²Ã´£¿";
+	if(!me->query_temp("quest") || me->query_temp("quest/family") != "åµ©å±±æ´¾")
+		return "ä½ æ²¡æœ‰é¢†ä»»åŠ¡ï¼Œå’Œæˆ‘åš·åš·ä»€ä¹ˆï¼Ÿ";
 
 	me->add("combat_exp",-(20+random(50)));
 	if(exp > 500000){
@@ -23,7 +23,7 @@ string do_cancel()
 		me->apply_condition("job_busy", 9 - i);
 	me->delete_temp("songshan_job");
 	me->delete_temp("quest");
-	return "¼ÈÈ»Äã¸É²»ÁËÒ²Ã»¹ØÏµ£¬ÔÙÈ¥¿Ì¿àÁ·¹¦°É£¬ÒÔºóÔÙÀ´ÎªÎÒÃÇµÄ²¢ÅÉ´ó¼Æ³öÁ¦£¡";
+	return "æ—¢ç„¶ä½ å¹²ä¸äº†ä¹Ÿæ²¡å…³ç³»ï¼Œå†å»åˆ»è‹¦ç»ƒåŠŸå§ï¼Œä»¥åå†æ¥ä¸ºæˆ‘ä»¬çš„å¹¶æ´¾å¤§è®¡å‡ºåŠ›ï¼";
 }
 
 string do_ask()
@@ -35,44 +35,44 @@ string do_ask()
 	me = this_player();
 	ob = this_object();
 
-	if(ob->is_busy()) return "ÎÒÕıÃ¦×ÅÄØ£¬ÄãµÈµÈ¡£";
+	if(ob->is_busy()) return "æˆ‘æ­£å¿™ç€å‘¢ï¼Œä½ ç­‰ç­‰ã€‚";
 
 	if(me->query("combat_exp") > 4000000)
-		return "ÄãµÄ¹¦·òÕâÃ´¸ß£¬²»ÓÃÄãÅÜÍÈÁË¡£";
+		return "ä½ çš„åŠŸå¤«è¿™ä¹ˆé«˜ï¼Œä¸ç”¨ä½ è·‘è…¿äº†ã€‚";
 
 	if( me->query("combat_exp") < 100000
 	 || me->query("shen") > -1000)
-		return RANK_D->query_respect(ob)+"ÎÒ¿´ÄãÊÖ½ÅÉ¢Âş£¬ĞĞ¶¯³Ù»º£¬ÔÙ¼ÓÂúÁ³ÖÉÆø¡£ÔõÄÜ·ÅĞÄÈÃÄãÈ¥°ì´óÊÂÄØ£¿";
+		return RANK_D->query_respect(ob)+"æˆ‘çœ‹ä½ æ‰‹è„šæ•£æ¼«ï¼Œè¡ŒåŠ¨è¿Ÿç¼“ï¼Œå†åŠ æ»¡è„¸ç¨šæ°”ã€‚æ€èƒ½æ”¾å¿ƒè®©ä½ å»åŠå¤§äº‹å‘¢ï¼Ÿ";
 
-	if( me->query("job_name") == "áÔÉ½²¢ÅÉ")
-		return "àÅ£¬ÎÒÏÖÔÚÕıÔÚË¼¿¼²¢ÅÉ´ó¼Æ£¬Äã±ğ´òÈÅ¡£";
+	if( me->query("job_name") == "åµ©å±±å¹¶æ´¾")
+		return "å—¯ï¼Œæˆ‘ç°åœ¨æ­£åœ¨æ€è€ƒå¹¶æ´¾å¤§è®¡ï¼Œä½ åˆ«æ‰“æ‰°ã€‚";
 
 	if( me->query_temp("quest/id")&& me->query_temp("songshan_job"))
-		return "²»ÊÇÈÃÄãÈ¥"+HIY+me->query_temp("quest/place")+CYN+me->query_temp("quest/type")+HIG+me->query_temp("quest/name")+CYN+"ÁËÂğ£¬ÔõÃ´»¹ÔÚÕâÀï£¿";
+		return "ä¸æ˜¯è®©ä½ å»"+HIY+me->query_temp("quest/place")+CYN+me->query_temp("quest/type")+HIG+me->query_temp("quest/name")+CYN+"äº†å—ï¼Œæ€ä¹ˆè¿˜åœ¨è¿™é‡Œï¼Ÿ";
 
 	if( me->query_condition("job_busy"))
-		return "àÅ£¬ÎÒÏÖÔÚÃ¦£¬Äã±ğ´òÈÅ¡£";
+		return "å—¯ï¼Œæˆ‘ç°åœ¨å¿™ï¼Œä½ åˆ«æ‰“æ‰°ã€‚";
 
-	type = random(2)?"Çë":"É±";
+	type = random(2)?"è¯·":"æ€";
 
 	// get a random npc from TASK_D.
-	if(!mapp(quest= TASK_D->get_quest(me, 0, type, "áÔÉ½ÅÉ")))
-		return "àÅ£¬ÎÒÏÖÔÚÕıÔÚË¼¿¼²¢ÅÉ´ó¼Æ£¬Äã±ğ´òÈÅ¡£";
+	if(!mapp(quest= TASK_D->get_quest(me, 0, type, "åµ©å±±æ´¾")))
+		return "å—¯ï¼Œæˆ‘ç°åœ¨æ­£åœ¨æ€è€ƒå¹¶æ´¾å¤§è®¡ï¼Œä½ åˆ«æ‰“æ‰°ã€‚";
 
 	me->set_temp("quest", quest);
 	me->apply_condition("job_busy", 40);
 	t = TASK_D->get_time(quest["time"]);   // get time limit.
 
 	me->set_temp("songshan_job", 1);
-	if(type == "É±"){
+	if(type == "æ€"){
 		command("grin");
-		command("say ÄãÌıºÃÁË£¬ÓĞµÜ×Ó»Ø±¨"HIR+quest["name"]+CYN"ÕâÈË¶ÔÎÒÎåÔÀ²¢ÅÉÖ®¾ÙÉî±í²»Âú£¬ÄÇÃ´¡­¡­");
-		return "ºÙºÙ£¬ËûÔÚ"HIY+quest["place"]+CYN"Ò»´ø£¬ÄãÈ¥½«ËûÉ±ÁË£¬Îñ±ØÔÚ"+t+CYN"Ö®Ç°´ø×ÅËûµÄÊ¬Ìå¸Ï»ØÀ´¡£\n";
+		command("say ä½ å¬å¥½äº†ï¼Œæœ‰å¼Ÿå­å›æŠ¥"HIR+quest["name"]+CYN"è¿™äººå¯¹æˆ‘äº”å²³å¹¶æ´¾ä¹‹ä¸¾æ·±è¡¨ä¸æ»¡ï¼Œé‚£ä¹ˆâ€¦â€¦");
+		return "å˜¿å˜¿ï¼Œä»–åœ¨"HIY+quest["place"]+CYN"ä¸€å¸¦ï¼Œä½ å»å°†ä»–æ€äº†ï¼ŒåŠ¡å¿…åœ¨"+t+CYN"ä¹‹å‰å¸¦ç€ä»–çš„å°¸ä½“èµ¶å›æ¥ã€‚\n";
 	}
 	else{
 		command("nod");
-		command("say ¶ÔÁË£¬"HIG+quest["name"]+CYN"ºÍÎÒ½»Çé²»´í£¬ÈçµÃËûÏàÖú£¬ÎåÔÀ²¢ÅÉÖ®ÊÂ¼òÖ±Ò×Èç·´ÕÆ¡£");
-		return "Äã¾Í´ú±íÎÒÈ¥"HIY+quest["place"]+CYN"ÑûÇëËû£¬Îñ±ØÔÚ"+t+CYN"Ö®Ç°¸Ï»ØÀ´¡£";
+		command("say å¯¹äº†ï¼Œ"HIG+quest["name"]+CYN"å’Œæˆ‘äº¤æƒ…ä¸é”™ï¼Œå¦‚å¾—ä»–ç›¸åŠ©ï¼Œäº”å²³å¹¶æ´¾ä¹‹äº‹ç®€ç›´æ˜“å¦‚åæŒã€‚");
+		return "ä½ å°±ä»£è¡¨æˆ‘å»"HIY+quest["place"]+CYN"é‚€è¯·ä»–ï¼ŒåŠ¡å¿…åœ¨"+t+CYN"ä¹‹å‰èµ¶å›æ¥ã€‚";
 	}
 }
 
@@ -83,42 +83,42 @@ int accept_object(object who, object ob,object me)
 
        // check job.
 
-       if( who->query_temp("quest/family") != "áÔÉ½ÅÉ")
+       if( who->query_temp("quest/family") != "åµ©å±±æ´¾")
 		    return 0;
 
        type = TASK_D->is_target(ob, who);
        switch (type){
-	    case 0: command("say ÄãÄÃ¸ö"+ob->name()+"¸øÎÒ¸ÉÂï£¿");
+	    case 0: command("say ä½ æ‹¿ä¸ª"+ob->name()+"ç»™æˆ‘å¹²å˜›ï¼Ÿ");
 		    return 0;
-	    case -1:command("say Ò®£¿ÈÃÇëÈËÄã²»È¥£¬µ¹É±ÈË¶ªÁ³È¥ÁË£¬¹ö¿ª£¡");
+	    case -1:command("say è€¶ï¼Ÿè®©è¯·äººä½ ä¸å»ï¼Œå€’æ€äººä¸¢è„¸å»äº†ï¼Œæ»šå¼€ï¼");
 		    return 0;
-	    case -2:command("say ºÙºÙ£¬Ë­ÈÃÄãÈ¥ÂÒÉ±ÈËÁË£¿¼òÖ±ÊÇ¸øÎÒáÔÉ½ÅÉÄ¨ºÚ£¡");
+	    case -2:command("say å˜¿å˜¿ï¼Œè°è®©ä½ å»ä¹±æ€äººäº†ï¼Ÿç®€ç›´æ˜¯ç»™æˆ‘åµ©å±±æ´¾æŠ¹é»‘ï¼");
 		    who->apply_condition("job_busy", 9);
 		    return 0;
-	    case -3:command("say àÅ£¬ÕâÃ´¾Ã²Å°ìÍê£¬Äã¸ÉÊ²Ã´È¥ÁË£¿¸øÎÒ¹öÒ»±ßÈ¥£¡");
+	    case -3:command("say å—¯ï¼Œè¿™ä¹ˆä¹…æ‰åŠå®Œï¼Œä½ å¹²ä»€ä¹ˆå»äº†ï¼Ÿç»™æˆ‘æ»šä¸€è¾¹å»ï¼");
 		    who->apply_condition("job_busy", 9);
 		    return 0;
-	    case -4:command("say Å¶£¬ÕâÊÇ¸öÍ¬ÃûÍ¬ĞÔµÄÈË£¬ËãËûµ¹Ã¹°É£¡");
+	    case -4:command("say å“¦ï¼Œè¿™æ˜¯ä¸ªåŒååŒæ€§çš„äººï¼Œç®—ä»–å€’éœ‰å§ï¼");
 		    return 0;
 	    default:command("haha");
-		    command("say ºÃ£¡ºÃ£¡Äã°ìÊÂ²»´í£¬ÊÇ¿éºÃÁÏ×Ó¡£");
-		    message_vision("\n$N¸ø$n½²½âÒ»Ğ©ÎäÑ§ÉÏµÄÒÉÄÑ£¬$nÈôÓĞËùË¼µØµã×ÅÍ·¡£\n",me, who);
+		    command("say å¥½ï¼å¥½ï¼ä½ åŠäº‹ä¸é”™ï¼Œæ˜¯å—å¥½æ–™å­ã€‚");
+		    message_vision("\n$Nç»™$nè®²è§£ä¸€äº›æ­¦å­¦ä¸Šçš„ç–‘éš¾ï¼Œ$nè‹¥æœ‰æ‰€æ€åœ°ç‚¹ç€å¤´ã€‚\n",me, who);
 		    // give rewards.
-		    TASK_D->give_reward(who, who->query_temp("quest"), -1, ABS(me->query("job_time/áÔÉ½")/100) ,this_object(),"áÔÉ½" );
+		    TASK_D->give_reward(who, who->query_temp("quest"), -1, ABS(me->query("job_time/åµ©å±±")/100) ,this_object(),"åµ©å±±" );
 
-	//who->add("job_time/áÔÉ½", 1);
-	//GIFT_D->check_count(who,this_object(),"áÔÉ½");
+	//who->add("job_time/åµ©å±±", 1);
+	//GIFT_D->check_count(who,this_object(),"åµ©å±±");
 	
 	who->delete_temp("songshan_job");
-	count = who->query("job_time/áÔÉ½");
+	count = who->query("job_time/åµ©å±±");
 	if (count<1) count=1;
 	pot= who->query_temp("quest/pot_reward");
 	exp= who->query_temp("quest/exp_reward");
 	who->delete_temp("quest");
 
-	log_file("job/songshan",sprintf("%8s%-10sµÚ%4d´ÎáÔÉ½É±ÈËÈÎÎñ»ñµÃ%3dµã¾­Ñé£¬%2dµãÇ±ÄÜ£¬¾­Ñé£º%d\n",
+	log_file("job/songshan",sprintf("%8s%-10sç¬¬%4dæ¬¡åµ©å±±æ€äººä»»åŠ¡è·å¾—%3dç‚¹ç»éªŒï¼Œ%2dç‚¹æ½œèƒ½ï¼Œç»éªŒï¼š%d\n",
 	who->name(),"("+who->query("id")+")",count,exp,pot,who->query("combat_exp")),who);
-	who->set("job_name", "áÔÉ½²¢ÅÉ");
+	who->set("job_name", "åµ©å±±å¹¶æ´¾");
 	who->clear_condition("job_busy");
 	call_out("destroy", 1, ob);
 	return 1;
@@ -136,11 +136,11 @@ string do_ask_hb()
 	object me = this_player();
 
 	if (!me->query("ss/hb_improve"))
-		return "Ê²Ã´Õâ¸öÄÇ¸öµÄÑ½£¿£¡";
+		return "ä»€ä¹ˆè¿™ä¸ªé‚£ä¸ªçš„å‘€ï¼Ÿï¼";
 	if (random(2)==1)
-		return "Õâ¸öÂï£¬¾ßÌåµØµãÎÒÒ²²»ÊÇºÜÇå³ş£¡";
+		return "è¿™ä¸ªå˜›ï¼Œå…·ä½“åœ°ç‚¹æˆ‘ä¹Ÿä¸æ˜¯å¾ˆæ¸…æ¥šï¼";
 	me->set_temp("ss/hb_1",1);
-		return "´ó¸ÅµØµã¾ÍÔÚÒ»¸öÏ¿¹È¸½½ü£¬¾ßÌåµØµãÎÒÊµÔÚÏë²»ÆğÀ´ÁË¡£";
+		return "å¤§æ¦‚åœ°ç‚¹å°±åœ¨ä¸€ä¸ªå³¡è°·é™„è¿‘ï¼Œå…·ä½“åœ°ç‚¹æˆ‘å®åœ¨æƒ³ä¸èµ·æ¥äº†ã€‚";
 }
 
 void reset()
@@ -157,14 +157,14 @@ string do_ask_grj()
 {
 	object me=this_player() , weapon;
 
-	if (me->query("family/master_name") != "×óÀäìø")
+	if (me->query("family/master_name") != "å·¦å†·ç¦…")
 		return 0;
 	weapon = present("guanri jian", this_object());
 	if (!objectp(weapon))
-		return "¹ÛÈÕ½£ÒÑ¾­±»ÄãÊ¦ĞÖÄÃ×ßÁË,ÏÖÔÚ²»ÔÚÎÒÊÖÀï¡£";
+		return "è§‚æ—¥å‰‘å·²ç»è¢«ä½ å¸ˆå…„æ‹¿èµ°äº†,ç°åœ¨ä¸åœ¨æˆ‘æ‰‹é‡Œã€‚";
 	command("unwield guanri jian");
 	command("give guanri jian to " + me->query("id"));
-	return "Õâ¹ÛÈÕ½£¾Í¸øÄãÁË£¬Äã¿ÉÒªÍ×ÉÆ±£¹ÜºÃ£¡";
+	return "è¿™è§‚æ—¥å‰‘å°±ç»™ä½ äº†ï¼Œä½ å¯è¦å¦¥å–„ä¿ç®¡å¥½ï¼";
 }
 
 string do_ask_times(object who)
@@ -172,8 +172,8 @@ string do_ask_times(object who)
 	object me = this_player();
 	int i;
 
-	if(!intp(i = me->query("job_time/áÔÉ½")))
-		return "ÄãÕâ¸öĞ¡»ìµ°£¬ÄãÊÇÇë¹ıÈË£¬»¹ÊÇÉ±¹ıÈË£¿ÏëÆ­ÎÒ£¿";
-	message_vision("$N¶Ô×Å$nÏëÁËÏë£¬ËµµÀ£¬ÄãÄ¿Ç°ÒÑ¼Ç¹¦" + chinese_number(i) + "´Î¡£\n", who,me);
-	return "ÎÒáÔÉ½ÏòÀ´ÉÍ·£·ÖÃ÷£¬¼ÌĞøÅ¬Á¦°É£¡";
+	if(!intp(i = me->query("job_time/åµ©å±±")))
+		return "ä½ è¿™ä¸ªå°æ··è›‹ï¼Œä½ æ˜¯è¯·è¿‡äººï¼Œè¿˜æ˜¯æ€è¿‡äººï¼Ÿæƒ³éª—æˆ‘ï¼Ÿ";
+	message_vision("$Nå¯¹ç€$næƒ³äº†æƒ³ï¼Œè¯´é“ï¼Œä½ ç›®å‰å·²è®°åŠŸ" + chinese_number(i) + "æ¬¡ã€‚\n", who,me);
+	return "æˆ‘åµ©å±±å‘æ¥èµç½šåˆ†æ˜ï¼Œç»§ç»­åŠªåŠ›å§ï¼";
 }

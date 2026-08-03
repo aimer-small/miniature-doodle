@@ -1,14 +1,14 @@
-// baoziwang.c °ü×ÓÍõ
+// baoziwang.c åŒ…å­ç‹
 // Lklv 2001.9.24
 
 inherit NPC;
 inherit F_VENDOR;
 void create()
 {
-        set_name("°ü×ÓÍõ", ({"baozi wang", "wang"}) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("åŒ…å­ç‹", ({"baozi wang", "wang"}) );
+        set("gender", "ç”·æ€§" );
         set("age", 34+random(10));
-        set("long", "Ëû°×°×ÅÖÅÖ£¬Á³ÉÏ´ø×ÅÎ¢Ğ¦¡£\n");
+        set("long", "ä»–ç™½ç™½èƒ–èƒ–ï¼Œè„¸ä¸Šå¸¦ç€å¾®ç¬‘ã€‚\n");
         set("attitude","heroism");
         set("combat_exp", 120000 + random(50000) );
         set("shen_type", 0);

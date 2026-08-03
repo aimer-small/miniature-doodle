@@ -11,7 +11,7 @@ void close(int);
 void write_s(int);
 void create()
 {
-set("channel_id","ÌìÆøÔ¤±¨");
+set("channel_id","å¤©æ°”é¢„æŠ¥");
 seteuid(getuid());
 check_time();
 }
@@ -20,7 +20,7 @@ int check_time()
 mixed* times=localtime(time());
 int hours=times[2];
 int fd,fc;
-if(! have_get)//Ã¿Ìì3µã¿ªÊ¼×¥ÍøÒ³
+if(! have_get)//æ¯å¤©3ç‚¹å¼€å§‹æŠ“ç½‘é¡µ
 {
  if(fd=socket_create(STREAM,"read_callback")<0)
         {
@@ -36,11 +36,11 @@ if(! have_get)//Ã¿Ìì3µã¿ªÊ¼×¥ÍøÒ³
         remove_call_out("write_s");
         call_out("write_s",2,fd);
         remove_call_out("close");
-        call_out("close",20,fd);//µÈ´ı¶şÊ®Ãë£¬¹ıÊ±ÈÏÎªÁ¬½ÓÊ§°Ü¡£
+        call_out("close",20,fd);//ç­‰å¾…äºŒåç§’ï¼Œè¿‡æ—¶è®¤ä¸ºè¿æ¥å¤±è´¥ã€‚
 }
 if(hours==12)
 {
- have_get=0;//12µãÇå³ı±ê¼Ç
+ have_get=0;//12ç‚¹æ¸…é™¤æ ‡è®°
  msg="";
  fail=0;
 }
@@ -63,12 +63,12 @@ string sun;
        string diwen;
        string fengli;
        write("close start\n");
-if(strsrch(msg,"HTTP/1.1 200 OK")!=-1) //³É¹¦¶ÁÈ¡
+if(strsrch(msg,"HTTP/1.1 200 OK")!=-1) //æˆåŠŸè¯»å–
        {
-        //ÕâĞ©×Ö·û´®·ÖÎöÓë¾ßÌåÍøÒ³Ïà¹Ø¡£
+        //è¿™äº›å­—ç¬¦ä¸²åˆ†æä¸å…·ä½“ç½‘é¡µç›¸å…³ã€‚
         int index,index2;
         string* msgArray=({});
-        index=strsrch(msg,"±±¾©");
+        index=strsrch(msg,"åŒ—äº¬");
         msg=msg[index..sizeof(msg)];
         index2=strsrch(msg,"</tr>");
         msg=msg[0..index2-1];
@@ -82,7 +82,7 @@ if(strsrch(msg,"HTTP/1.1 200 OK")!=-1) //³É¹¦¶ÁÈ¡
     {
      write(msgArray[i]);
     }
-    write("¸ñÊ½´íÎó£¡\n");
+    write("æ ¼å¼é”™è¯¯ï¼\n");
    }
         else
         {
@@ -90,15 +90,15 @@ if(strsrch(msg,"HTTP/1.1 200 OK")!=-1) //³É¹¦¶ÁÈ¡
          fengli=msgArray[2];
          diwen=msgArray[3];
          gaowen=msgArray[6];
-   write_file("/adm/etc/weather.log","\n\t\t\t½ñÈÕ±±¾©ÌìÆø£º"+HIB+sun+NOR+"
-\n\t\t\t×îµÍÆøÎÂ:"+HIR+diwen+NOR+"\n\t\t\t×î¸ßÆøÎÂ:"+HIY+gaowen+NOR+"\n",1);
+   write_file("/adm/etc/weather.log","\n\t\t\tä»Šæ—¥åŒ—äº¬å¤©æ°”ï¼š"+HIB+sun+NOR+"
+\n\t\t\tæœ€ä½æ°”æ¸©:"+HIR+diwen+NOR+"\n\t\t\tæœ€é«˜æ°”æ¸©:"+HIY+gaowen+NOR+"\n",1);
 
    write("OK!\n");
   }
        }
 else
 {
- write("¶ÁÈ¡´íÎó£¡\n");
+ write("è¯»å–é”™è¯¯ï¼\n");
 }
        socket_close(fd);
 }

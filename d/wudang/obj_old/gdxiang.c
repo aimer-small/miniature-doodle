@@ -1,18 +1,18 @@
-// box.c ¹¦µÂÏä
+// box.c åŠŸå¾·ç®±
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(RED "¹¦µÂÏä" NOR, ({ "gongde xiang", "xiang", "box" }) );
+	set_name(RED "åŠŸå¾·ç®±" NOR, ({ "gongde xiang", "xiang", "box" }) );
 	set_weight(3000);
 	set_max_encumbrance(5000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ö");
-                set("long", "ÕâÊÇÒ»¸öĞ¡ÃíÀï³£¼ûµÄ¹¦µÂÏä£¬×¨ÃÅÓÃÀ´½ÓÊÜÉÆÄĞĞÅÅ®ÃÇµÄ¾è¿î¡£\n");
+		set("unit", "ä¸ª");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªå°åº™é‡Œå¸¸è§çš„åŠŸå¾·ç®±ï¼Œä¸“é—¨ç”¨æ¥æ¥å—å–„ç”·ä¿¡å¥³ä»¬çš„ææ¬¾ã€‚\n");
 		set("value", 1000);
 		set("material", "wood");
 		set("no_get",1);
@@ -35,7 +35,7 @@ void init()
 		ob=new("/clone/money/silver");
 		ob->set_amount(10);
 		ob->move(this_object());
-		tell_object(me, HIW "\nÄãºöÈ»¿´µ½¹¦µÂÏäÀïÓĞÊ²Ã´¶«Î÷ÔÚÉÁÉÁ·¢¹â£¡\n\n" NOR);
+		tell_object(me, HIW "\nä½ å¿½ç„¶çœ‹åˆ°åŠŸå¾·ç®±é‡Œæœ‰ä»€ä¹ˆä¸œè¥¿åœ¨é—ªé—ªå‘å…‰ï¼\n\n" NOR);
 		me->add("combat_exp", 1);
 	}
 */
@@ -49,27 +49,27 @@ int do_ketou(string arg)
   me=this_player();
   if (!arg ||( arg != "gongde xiang" && arg != "xiang" && arg != "box"))
    {
-     message_vision( HIY "$N¿ÄÍ·ÈçĞ¡¼¦×ÄÃ×ËÆµØ³¯ËÄÖÜÂÒ°İÒ»Æø¡£ÖÜÎ§µÄĞĞÈËÒÔÎª$NÔÚ·¢Ñ÷ñ²·è£¬¶¼Ò»Á³µÄ¾ªÑÈ£¡\n"NOR,me);
+     message_vision( HIY "$Nç£•å¤´å¦‚å°é¸¡å•„ç±³ä¼¼åœ°æœå››å‘¨ä¹±æ‹œä¸€æ°”ã€‚å‘¨å›´çš„è¡Œäººä»¥ä¸º$Nåœ¨å‘ç—’ç™«ç–¯ï¼Œéƒ½ä¸€è„¸çš„æƒŠè®¶ï¼\n"NOR,me);
      return 1;
    }
-  message_vision( HIY "$N¿ÄÍ·ĞíÔ¸:µÜ×ÓÔÚ´Ë³ÏĞÄ¹ò°İ£¬ÇëÌ«ÉÏÀÏ¾ı±£ÓÓÎÒ½ñºóÄÜ³Í¶ñ³ú¼é£¬ÌæÌìĞĞµÀ¡£ÈçÓĞÎ¥Ô¸£¬ÈËÉñ¹²Æú£¡\n"NOR,me);
+  message_vision( HIY "$Nç£•å¤´è®¸æ„¿:å¼Ÿå­åœ¨æ­¤è¯šå¿ƒè·ªæ‹œï¼Œè¯·å¤ªä¸Šè€å›ä¿ä½‘æˆ‘ä»Šåèƒ½æƒ©æ¶é”„å¥¸ï¼Œæ›¿å¤©è¡Œé“ã€‚å¦‚æœ‰è¿æ„¿ï¼Œäººç¥å…±å¼ƒï¼\n"NOR,me);
   what_ob = present("gold_money", me);
 
   if ((int)me->query("shen",1) < (int)me->query("combat_exp",1))
   {
    if ( !present("gold", me) )
     {
-      message_vision( RED "$N¿ÄÍêÍ·£¬ÉìÊÖÈë»³ÏëÒªÄÃĞ©Ç®¾èÔù£¬È´·¢ÏÖ×Ô¼ºÃ»´ø¶àÉÙÇ®¡£ÊÖ°ëÌìÒ²ÄÃ²»³öÀ´ÉõÊÇŞÏŞÎ£¡\n"NOR,me);
+      message_vision( RED "$Nç£•å®Œå¤´ï¼Œä¼¸æ‰‹å…¥æ€€æƒ³è¦æ‹¿äº›é’±æèµ ï¼Œå´å‘ç°è‡ªå·±æ²¡å¸¦å¤šå°‘é’±ã€‚æ‰‹åŠå¤©ä¹Ÿæ‹¿ä¸å‡ºæ¥ç”šæ˜¯å°´å°¬ï¼\n"NOR,me);
       return 1;
     }
     else
     {
-     message_vision( HIY"$N¿ÄÍêÍ·£¬ÌÍ³öÒ»Á½»Æ½ğÍ¶Èë¹¦µÂÏä¡£\n"NOR,me);
+     message_vision( HIY"$Nç£•å®Œå¤´ï¼Œæå‡ºä¸€ä¸¤é»„é‡‘æŠ•å…¥åŠŸå¾·ç®±ã€‚\n"NOR,me);
      what_ob->add_amount(-1);
      if (me->query("shen",1) <2000)
     {
       me->add("shen",random(100)+10); 
-      write(HIW"Äã×öÍêÉÆÊÂ,ĞÄÇé¶ÙÊ±ºÃ¶àÁË.\n"NOR);
+      write(HIW"ä½ åšå®Œå–„äº‹,å¿ƒæƒ…é¡¿æ—¶å¥½å¤šäº†.\n"NOR);
      }
    }
   }
@@ -93,7 +93,7 @@ int do_put(string arg)
 	&&  obj->query_amount() >= 5 && amount >= 5 ) 
 	{
 		if( me->query("begger") > 0) {
-			message_vision( sprintf(HIY "$N½«Ò»%s%s·Å½ø%s¡£\n" NOR,
+			message_vision( sprintf(HIY "$Nå°†ä¸€%s%sæ”¾è¿›%sã€‚\n" NOR,
 				obj->query("unit"), obj->name(), 
 				this_object()->name()),me );
 			obj->set_amount(obj->query_amount() - amount);;

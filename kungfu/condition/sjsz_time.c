@@ -1,4 +1,4 @@
-// sjsz_time.c  ÊÔ½£É½×¯Ñ°±¦ÓĞĞ§Ê±¼ä¼ÆÊ±
+// sjsz_time.c  è¯•å‰‘å±±åº„å¯»å®æœ‰æ•ˆæ—¶é—´è®¡æ—¶
 // Create By lsxk@hsbbs 2008/6/20
 
 #include <ansi.h>
@@ -9,25 +9,25 @@ int update_condition(object me, int duration)
        int i;
 
        if (duration < 1){
-           tell_object(me,BLINK + HIC"Í»È»´Ó±ßÉÏ´Ü³öÁ½¸ö±ëĞÎ´óºº£¬Ò»°Ñ¿¹ÆğÄã£¬¶ªµ½ÁË³ÇÚòÃí¡£Äã¶ÙÊ±ÓôÃÆÁË°ëÌì¡£\n"NOR);
+           tell_object(me,BLINK + HIC"çªç„¶ä»è¾¹ä¸Šçªœå‡ºä¸¤ä¸ªå½ªå½¢å¤§æ±‰ï¼Œä¸€æŠŠæŠ—èµ·ä½ ï¼Œä¸¢åˆ°äº†åŸéšåº™ã€‚ä½ é¡¿æ—¶éƒé—·äº†åŠå¤©ã€‚\n"NOR);
            me->move("/d/city/chmiao");
            return 0;
        }
        me->apply_condition("sjsz_time", duration - 1);
-       //Ôö¼ÓËæ»ú½±Àø¡£by lsxk@hsbbs
+       //å¢åŠ éšæœºå¥–åŠ±ã€‚by lsxk@hsbbs
      if ( strsrch(file_name(environment(me)), "/cmds/leitai/bwdh") >= 0){
        switch(random(5)){
        case 0:
            me->add("combat_exp",(i=71+random(80)));
-           tell_object(me,HIM"ÄãÕıÔÚÊÔ½£É½×¯ÖĞÌ½ÏÕ£¬¶îÍâ»ñµÃÁË"+HIW+chinese_number(i)+HIM+"µã¾­ÑéÖµ½±Àø!\n"NOR);
+           tell_object(me,HIM"ä½ æ­£åœ¨è¯•å‰‘å±±åº„ä¸­æ¢é™©ï¼Œé¢å¤–è·å¾—äº†"+HIW+chinese_number(i)+HIM+"ç‚¹ç»éªŒå€¼å¥–åŠ±!\n"NOR);
            break;
        case 1:
            me->add("max_neili",(i=1+random(3)));
-           tell_object(me,HIG"ÄãÕıÔÚÊÔ½£É½×¯ÖĞÌ½ÏÕ£¬¶îÍâ»ñµÃÁË"+HIW+chinese_number(i)+HIG+"µã×î´óÄÚÁ¦½±Àø!\n"NOR);
+           tell_object(me,HIG"ä½ æ­£åœ¨è¯•å‰‘å±±åº„ä¸­æ¢é™©ï¼Œé¢å¤–è·å¾—äº†"+HIW+chinese_number(i)+HIG+"ç‚¹æœ€å¤§å†…åŠ›å¥–åŠ±!\n"NOR);
            break;
        default:
            me->add("potential",(i=21+random(30)));
-           tell_object(me,HIC"ÄãÕıÔÚÊÔ½£É½×¯ÖĞÌ½ÏÕ£¬¶îÍâ»ñµÃÁË"+HIW+chinese_number(i)+HIC+"µãÇ±ÄÜ½±Àø!\n"NOR);
+           tell_object(me,HIC"ä½ æ­£åœ¨è¯•å‰‘å±±åº„ä¸­æ¢é™©ï¼Œé¢å¤–è·å¾—äº†"+HIW+chinese_number(i)+HIC+"ç‚¹æ½œèƒ½å¥–åŠ±!\n"NOR);
            break;
        }
      }

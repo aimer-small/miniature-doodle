@@ -25,13 +25,13 @@ int sort_user(object ob1, object ob2)
 
 void create()
 {
-        set_name("Ææ¹ÖµÄ¶«Î÷", ({ "dongxi", "object" }) );
+        set_name("å¥‡æ€ªçš„ä¸œè¥¿", ({ "dongxi", "object" }) );
         set_weight(100);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
-		set("long", "¿´²»³öÀ´ÕâÊÇ¸öÊ²Ã´¶«Î÷¡£\n");
+                set("unit", "ä¸ª");
+		set("long", "çœ‹ä¸å‡ºæ¥è¿™æ˜¯ä¸ªä»€ä¹ˆä¸œè¥¿ã€‚\n");
         }
         setup();
 }
@@ -47,21 +47,21 @@ int do_who2htm()
     object *list, *ob;
     string s,s1,s2;
     string str= "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\">"
-                "<title>±±¾©Êé½£ÔÚÏßÍæ¼ÒÁĞ±í</title><meta name=\"GENERATOR\" content=\"Microsoft FrontPage 3.0\">"
-                "</head><body><p align=\"center\"><big>±±¾©Êé½£ÔÚÏßÍæ¼ÒÁĞ±í</big></p>"
-                "<table border=\"1\" width=\"100%\"><tr><td width=\"10%\" align=\"center\">³ÆÎ½</td>"
-                "<td width=\"85%\" align=\"center\">Íæ¼ÒÈËÎïĞÅÏ¢</td><td width=\"5%\" align=\"center\">×´Ì¬</td></tr>";
+                "<title>åŒ—äº¬ä¹¦å‰‘åœ¨çº¿ç©å®¶åˆ—è¡¨</title><meta name=\"GENERATOR\" content=\"Microsoft FrontPage 3.0\">"
+                "</head><body><p align=\"center\"><big>åŒ—äº¬ä¹¦å‰‘åœ¨çº¿ç©å®¶åˆ—è¡¨</big></p>"
+                "<table border=\"1\" width=\"100%\"><tr><td width=\"10%\" align=\"center\">ç§°è°“</td>"
+                "<td width=\"85%\" align=\"center\">ç©å®¶äººç‰©ä¿¡æ¯</td><td width=\"5%\" align=\"center\">çŠ¶æ€</td></tr>";
 
     ob = filter_array(objects(), (: userp :));
     list = sort_array(ob, (: sort_user :));
     i = sizeof(list);
     while( i-- ) {
         if( !environment(list[i]) ) continue;
-        sscanf( RANK_D->query_rank(list[i]), "%s¡¾%s¡¿%s", s1, s, s2);
+        sscanf( RANK_D->query_rank(list[i]), "%sã€%sã€‘%s", s1, s, s2);
         str = sprintf("%s<tr><td>%s<td>%s<td>%s</tr>",
               str, s,
               list[i]->short(1),
-              interactive(list[i])?(query_idle(list[i]) > 120?"·¢´ô":"ÔÚÏß"):"¶ÏÏß"
+              interactive(list[i])?(query_idle(list[i]) > 120?"å‘å‘†":"åœ¨çº¿"):"æ–­çº¿"
               );
     }
     str = sprintf("%s</table><p align=\"right\">%s</body></html>",str, ctime(time()));

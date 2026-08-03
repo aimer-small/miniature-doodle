@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short",HIY+"Ãç½®Ææ¾³"+NOR);
+        set("short",HIY+"è‹—ç–†å¥‡å¢ƒ"+NOR);
         set("long", @LONG
-ÕâÀïÊÇÉ½¶¥µÄÉî´¦£¬µ«Ñô¹â·Ç³£Ã÷ÃÄ¡£ËÄÖÜµÄÖ²ÎïÉÏÄı½á×ÅĞí¶àÂ¶Ë®¡£ËÆ
-ºõÒ»Ğ©ÁéÒ©ÍùÍùÉú³¤ÔÚÕâĞ©µØ·½¡£
+è¿™é‡Œæ˜¯å±±é¡¶çš„æ·±å¤„ï¼Œä½†é˜³å…‰éå¸¸æ˜åªšã€‚å››å‘¨çš„æ¤ç‰©ä¸Šå‡ç»“ç€è®¸å¤šéœ²æ°´ã€‚ä¼¼
+ä¹ä¸€äº›çµè¯å¾€å¾€ç”Ÿé•¿åœ¨è¿™äº›åœ°æ–¹ã€‚
 LONG                           
         );
 
@@ -18,7 +18,7 @@ LONG
              "northup" : __DIR__"shulin",
         ]));
 
-	set("outdoors", "Ãç½®");
+	set("outdoors", "è‹—ç–†");
 
         set("objects",([
                 __DIR__"npc/guaimang" : 1,
@@ -42,37 +42,37 @@ int do_wa(string arg)
         i = sizeof(inv);
 
         if(!( present("xiao tiechan", this_player())))
-		return notify_fail("ÁéÒ©ÔõÄÜÓÃÊÖÈ¥²É£¿\n");
+		return notify_fail("çµè¯æ€èƒ½ç”¨æ‰‹å»é‡‡ï¼Ÿ\n");
 
         if( !arg || arg != "qiannian shouwu" )
-		return notify_fail("ÄãÏë×öÊ²÷á£¿\n");
+		return notify_fail("ä½ æƒ³åšä»€éº½ï¼Ÿ\n");
         
         if((int)me->query("jingli") < 200) 
-		return notify_fail("ÄãÌ«ÀÛÁË£¡\n");
+		return notify_fail("ä½ å¤ªç´¯äº†ï¼\n");
 
         if(random(20)!= 3) {
 		me->add("jingli",-120);
-		return notify_fail("ÄãÍÚÁË°ëÌì£¬Ã»ÓĞÊ²÷á·¢ÏÖ¡£\n"); 
+		return notify_fail("ä½ æŒ–äº†åŠå¤©ï¼Œæ²¡æœ‰ä»€éº½å‘ç°ã€‚\n"); 
         }
 
         while (i--)
         if( inv[i]->query("drug"))
-		return notify_fail("ÄãÍÚÁË°ëÌì£¬Ã»ÓĞÊ²÷á·¢ÏÖ¡£\n"); 
+		return notify_fail("ä½ æŒ–äº†åŠå¤©ï¼Œæ²¡æœ‰ä»€éº½å‘ç°ã€‚\n"); 
         
         if( query("qnwu_count") < 1 )
-		return notify_fail("ÄãÍÚÁË°ëÌì£¬½á¹ûÒ»ÎŞËù»ñ¡£\n");
+		return notify_fail("ä½ æŒ–äº†åŠå¤©ï¼Œç»“æœä¸€æ— æ‰€è·ã€‚\n");
 
         qnwu = unew(MEDICINE_D("neili/qnshouwu"));
 
-        if(!clonep(qnwu)) return notify_fail ("ÄãÍÚÁË°ëÌì£¬½á¹ûÒ»ÎŞËù»ñ¡£\n");
+        if(!clonep(qnwu)) return notify_fail ("ä½ æŒ–äº†åŠå¤©ï¼Œç»“æœä¸€æ— æ‰€è·ã€‚\n");
         if(clonep(qnwu) && qnwu->violate_unique()){
 		destruct(qnwu);
-		return notify_fail ("ÄãÍÚÁË°ëÌì£¬½á¹ûÒ»ÎŞËù»ñ¡£\n");
+		return notify_fail ("ä½ æŒ–äº†åŠå¤©ï¼Œç»“æœä¸€æ— æ‰€è·ã€‚\n");
         } 
 	add("qnwu_count", -1);
 	qnwu->set("owner", me->query("id"));
 	qnwu->move(me);
-	log_file("quest/neili",sprintf("%-18sÔÚÃç½®ÍÚµ½ÁË%s¡£\n",
+	log_file("quest/neili",sprintf("%-18såœ¨è‹—ç–†æŒ–åˆ°äº†%sã€‚\n",
 			me->name(1)+"("+capitalize(me->query("id"))+")",qnwu->name()), me);
 	me->add("jingli", -200);
 	return 1;

@@ -5,17 +5,17 @@ inherit ROOM;
 int do_drop(object me, object obj);
 void create()
 {
-	set("short", "°ÙÕÉ½§");
+	set("short", "ç™¾ä¸ˆæ¶§");
 	set("long", @LONG
-ÑÛÇ°ÊÇÒ»´¦É½½§£¬Éî²»¿É²â¡£Á¬½ÓÁ½²àÇÍ±ÚµÄ¾¹ÊÇ¼¸ÌõÌúÁ´£¬ÌúÁ´ÉÏµÄÄ¾
-°åÔçÒÑ²»¼û¡£Õâ±ßÇÅÖùÉÏ¶¤Õâ¼¸Ã¶°µÆ÷£¬ËÄÖÜ»ıÑ©ÖĞ²åÓĞÊı±ú¶Ïµ¶¶Ï½££¬¸ü¶à
-µÄÊÇĞ©ÆæÃÅ±øÆ÷£¬ÓĞ¼¸±úÉ«·ºÓÆÀ¶£¬¶¨ÊÇÍ¿ÓĞ¾ç¶¾, É½½§ÏÂÃæÊÇÔÆÎíÃÖÂşµÄÍò
-ÕÉÉîÑÂ£¬¿´À´µôÏÂÈ¥¶¨ÎŞÉúÂ·¡£
+çœ¼å‰æ˜¯ä¸€å¤„å±±æ¶§ï¼Œæ·±ä¸å¯æµ‹ã€‚è¿æ¥ä¸¤ä¾§å³­å£çš„ç«Ÿæ˜¯å‡ æ¡é“é“¾ï¼Œé“é“¾ä¸Šçš„æœ¨
+æ¿æ—©å·²ä¸è§ã€‚è¿™è¾¹æ¡¥æŸ±ä¸Šé’‰è¿™å‡ æšæš—å™¨ï¼Œå››å‘¨ç§¯é›ªä¸­æ’æœ‰æ•°æŸ„æ–­åˆ€æ–­å‰‘ï¼Œæ›´å¤š
+çš„æ˜¯äº›å¥‡é—¨å…µå™¨ï¼Œæœ‰å‡ æŸ„è‰²æ³›æ‚ è“ï¼Œå®šæ˜¯æ¶‚æœ‰å‰§æ¯’, å±±æ¶§ä¸‹é¢æ˜¯äº‘é›¾å¼¥æ¼«çš„ä¸‡
+ä¸ˆæ·±å´–ï¼Œçœ‹æ¥æ‰ä¸‹å»å®šæ— ç”Ÿè·¯ã€‚
 LONG);
 	set("exits", ([
                 "south" :__DIR__"shizhuyan",
         ]));       
-	set("outdoors", "ÌìÉ½");
+	set("outdoors", "å¤©å±±");
 	setup();	
 }
 
@@ -30,17 +30,17 @@ int do_zhan(string arg)
 {
 	object me,weapon;
 	me=this_player();
-	if (me->is_busy() || me->is_fighting())	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if( (!arg) || !((arg == "tielian") || (arg == "ÌúÁ´") || (arg == "tieliang")))
-		return notify_fail("ÄãÒª¿³Ê²Ã´£¿\n"); 
+	if (me->is_busy() || me->is_fighting())	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if( (!arg) || !((arg == "tielian") || (arg == "é“é“¾") || (arg == "tieliang")))
+		return notify_fail("ä½ è¦ç ä»€ä¹ˆï¼Ÿ\n"); 
 	if( !objectp(weapon = me->query_temp("weapon")) )
-		return notify_fail("ÄãµÃÓÃ¼ş·æÀûµÄÆ÷¾ß²ÅÄÜ¿³¶ÏÌúÁ´¡£\n");
-	if (me->query_temp("ÌìÉ½¿³ÌúÁ´"))
-		return notify_fail("ÌúÁ´²»ÊÇÒÑ¾­Õ¶¶ÏÁËÂğ£¿\n");
+		return notify_fail("ä½ å¾—ç”¨ä»¶é”‹åˆ©çš„å™¨å…·æ‰èƒ½ç æ–­é“é“¾ã€‚\n");
+	if (me->query_temp("å¤©å±±ç é“é“¾"))
+		return notify_fail("é“é“¾ä¸æ˜¯å·²ç»æ–©æ–­äº†å—ï¼Ÿ\n");
 	if( weapon->query("flag") != 4 )
-		return notify_fail("ÄãÊÖÉÏÕâ¼ş±øÆ÷ÎŞ·æÎŞÈĞ£¬ÈçºÎÄÜ¿³¶ÏÕâ¸ùÌúÁ´£¿\n");
-	message_vision("$NÎÕ½ôÊÖÖĞ"+weapon->name()+"£¬ÄÚÁ¦µ½´¦£¬ÒÑ½«¿ÛÔÚÇÍ±ÚÊ¯¶´ÖĞµÄ°ë½ØÌúÁ´Õ¶ÁËÏÂÀ´£¬ÎÕÔÚÊÖÖĞ!\n", me);
-	me->set_temp("ÌìÉ½¿³ÌúÁ´",1);
+		return notify_fail("ä½ æ‰‹ä¸Šè¿™ä»¶å…µå™¨æ— é”‹æ— åˆƒï¼Œå¦‚ä½•èƒ½ç æ–­è¿™æ ¹é“é“¾ï¼Ÿ\n");
+	message_vision("$Næ¡ç´§æ‰‹ä¸­"+weapon->name()+"ï¼Œå†…åŠ›åˆ°å¤„ï¼Œå·²å°†æ‰£åœ¨å³­å£çŸ³æ´ä¸­çš„åŠæˆªé“é“¾æ–©äº†ä¸‹æ¥ï¼Œæ¡åœ¨æ‰‹ä¸­!\n", me);
+	me->set_temp("å¤©å±±ç é“é“¾",1);
 	me->add_busy(2);
 	return 1;
 }
@@ -51,43 +51,43 @@ int do_jump(string arg)
 	object *inv;
 	int i;
 
-	if (me->is_busy() || me->is_fighting())	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (!me->query_temp("ÌìÉ½¿³ÌúÁ´"))
-		return notify_fail("Ê²Ã´£¿\n");
+	if (me->is_busy() || me->is_fighting())	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (!me->query_temp("å¤©å±±ç é“é“¾"))
+		return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
 	if (arg == "down") { 
-        	message_vision( "$NÒ»¸ö×İÉí£¬ÌøÏÂÁËĞüÑÂ¡£\n",me);
+        	message_vision( "$Nä¸€ä¸ªçºµèº«ï¼Œè·³ä¸‹äº†æ‚¬å´–ã€‚\n",me);
 		me->move(__DIR__"yadi");
-		me->set_temp("last_damage_from", "ÌøÏÂĞüÑÂË¤");
+		me->set_temp("last_damage_from", "è·³ä¸‹æ‚¬å´–æ‘”");
 		me->unconcious();
 		me->die();
 		return 1;
 	}
-	if( (!arg) || !((arg == "duimian") || (arg == "¶ÔÃæ")))
-		return notify_fail("ÄãÒªÌøµ½ÄÄÀïÈ¥£¬É½ÏÂÂğ£¿\n");
+	if( (!arg) || !((arg == "duimian") || (arg == "å¯¹é¢")))
+		return notify_fail("ä½ è¦è·³åˆ°å“ªé‡Œå»ï¼Œå±±ä¸‹å—ï¼Ÿ\n");
 
 	inv = filter_array(deep_inventory(me), (: userp :));
 	if (sizeof(inv)) {
-		message_vision("$NÒ»×İÉíÏëÌøµ½¶ÔÃæÉ½ÑÂÉÏ£¬²»ÁÏÒ»¸öÊ§×ã......\n", me);
+		message_vision("$Nä¸€çºµèº«æƒ³è·³åˆ°å¯¹é¢å±±å´–ä¸Šï¼Œä¸æ–™ä¸€ä¸ªå¤±è¶³......\n", me);
 		me->unconcious();
 		return 1;
 	}
 
         if( (int)me->query_skill("dodge", 1) < 30 )
-		return notify_fail("Äã¾õµÃ×Ô¼ºµÄÇá¹¦Ì«²î£¬Ìø¹ıÈ¥Æñ²»ÊÇËÍËÀ£¡\n");
+		return notify_fail("ä½ è§‰å¾—è‡ªå·±çš„è½»åŠŸå¤ªå·®ï¼Œè·³è¿‡å»å²‚ä¸æ˜¯é€æ­»ï¼\n");
 	
-	message_vision("\n$NÊÖÎÕÌúÁ´£¬°ÑĞÄÒ»ºá³å×Å¶ÔÃæĞüÑÂÌøÁË¹ıÈ¥¡£ÈËÔÚ°ë¿Õ£¬ÕæÆøÒ»×Ç£¬ÉíĞÎ¼±ËÙÏÂ×¹,\n"+
-			"Í»È»$NÊÖ»ÓÌúÁ´Ïò¶ÔÃæµÄ°ë¸ù´¹ÏÂµÄÌúÁ´¾íÈ¥£¬Ö»¼û¾í¸öÕı×Å¡£¾ÍÓÉ×ÅÕâµã½èÁ¦£¬$N\n"+
-			"ÔÚ¿ÕÖĞÇáÇÉµÄÒ»¸öÅÌĞı£¬ÒÑ¾­ÂäÔÚ¶ÔÃæÑÂÉÏ¡£\n\n",me);
+	message_vision("\n$Næ‰‹æ¡é“é“¾ï¼ŒæŠŠå¿ƒä¸€æ¨ªå†²ç€å¯¹é¢æ‚¬å´–è·³äº†è¿‡å»ã€‚äººåœ¨åŠç©ºï¼ŒçœŸæ°”ä¸€æµŠï¼Œèº«å½¢æ€¥é€Ÿä¸‹å ,\n"+
+			"çªç„¶$Næ‰‹æŒ¥é“é“¾å‘å¯¹é¢çš„åŠæ ¹å‚ä¸‹çš„é“é“¾å·å»ï¼Œåªè§å·ä¸ªæ­£ç€ã€‚å°±ç”±ç€è¿™ç‚¹å€ŸåŠ›ï¼Œ$N\n"+
+			"åœ¨ç©ºä¸­è½»å·§çš„ä¸€ä¸ªç›˜æ—‹ï¼Œå·²ç»è½åœ¨å¯¹é¢å´–ä¸Šã€‚\n\n",me);
 
 	inv = deep_inventory(me);
 	i= random(sizeof(inv));
 	if ((int)me->query_encumbrance() * 100 / (int)me->query_max_encumbrance() >= 80) {
 		do_drop(me, inv[i]);
 	}
-	me->delete_temp("ÌìÉ½¿³ÌúÁ´");
+	me->delete_temp("å¤©å±±ç é“é“¾");
 	me->add_busy(2);
 	me->move(__DIR__"xcmen");
-	tell_room(environment(me), me->name() + "´Ó¶ÔÃæµÄ°ÙÕÉ½§µ´ÁË¹ıÀ´¡£\n",me);
+	tell_room(environment(me), me->name() + "ä»å¯¹é¢çš„ç™¾ä¸ˆæ¶§è¡äº†è¿‡æ¥ã€‚\n",me);
 	return 1;
 }
 
@@ -98,7 +98,7 @@ int do_drop(object me, object obj)
 	if( obj->is_character())
 		return 1;
 	else {
-		message_vision( sprintf("µ«ÊÇ$NÓÉÓÚÓÃÁ¦¹ı¶È£¬ÉíÉÏµÄÒ»%s$n¶ªÏÂÁËÉ½½§£¬ÔÙÒ²ÕÒ²»»ØÀ´ÁË¡£\n", obj->query("unit")),me, obj );
+		message_vision( sprintf("ä½†æ˜¯$Nç”±äºç”¨åŠ›è¿‡åº¦ï¼Œèº«ä¸Šçš„ä¸€%s$nä¸¢ä¸‹äº†å±±æ¶§ï¼Œå†ä¹Ÿæ‰¾ä¸å›æ¥äº†ã€‚\n", obj->query("unit")),me, obj );
 		destruct(obj);
 	}
 	return 1;
@@ -108,20 +108,20 @@ int do_ren(string arg)
 {
 	object me=this_player();
 
-	if (!me->query_temp("ÌìÉ½¿³ÌúÁ´"))
-		return notify_fail("Ê²Ã´£¿\n");
+	if (!me->query_temp("å¤©å±±ç é“é“¾"))
+		return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
 
-	if( (!arg) || !((arg == "tielian") || (arg == "ÌúÁ´")))
-		return notify_fail("ÄãÒªÈÓÊ²Ã´£¬°ÑÄã×Ô¼ºÈÓÏÂÈ¥Âğ£¿\n");
+	if( (!arg) || !((arg == "tielian") || (arg == "é“é“¾")))
+		return notify_fail("ä½ è¦æ‰”ä»€ä¹ˆï¼ŒæŠŠä½ è‡ªå·±æ‰”ä¸‹å»å—ï¼Ÿ\n");
 
-	message_vision("$N°ÑÌúÁ´ÈÓÔÚµØÉÏ¡£\n",me);
-	me->delete_temp("ÌìÉ½¿³ÌúÁ´");	
+	message_vision("$NæŠŠé“é“¾æ‰”åœ¨åœ°ä¸Šã€‚\n",me);
+	me->delete_temp("å¤©å±±ç é“é“¾");	
 	return 1;
 }
 
 int valid_leave(object me,string dir)
 {
-	if ( me->query_temp("ÌìÉ½¿³ÌúÁ´") && dir == "south" )
-	return notify_fail("ÄãÊÖÉÏÄÃ×ÅÌúÁ´£¬ÔõÃ´Àë¿ª£¡\n");
+	if ( me->query_temp("å¤©å±±ç é“é“¾") && dir == "south" )
+	return notify_fail("ä½ æ‰‹ä¸Šæ‹¿ç€é“é“¾ï¼Œæ€ä¹ˆç¦»å¼€ï¼\n");
 	return ::valid_leave(me, dir);
 }

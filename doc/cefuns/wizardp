@@ -1,15 +1,15 @@
 
 	wizardp(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		wizardp() - ÅĞ¶ÏÖ¸¶¨µÄÎï¼şÊÇ·ñÖ´ĞĞ¹ı enable_wizard()
-	Óï·¨:
+	åç§°:
+		wizardp() - åˆ¤æ–­æŒ‡å®šçš„ç‰©ä»¶æ˜¯å¦æ‰§è¡Œè¿‡ enable_wizard()
+	è¯­æ³•:
 		int wizardp( object );
 
-		ÕûÊı wizardp( Îï¼ş );
-	ÓÃ·¨:
-		Èç¹û arg  ÔøÖ´ĞĞ¹ı enable_wizard(), wizardp() ¾Í´«»Ø 1.
-	²Î¿¼:
+		æ•´æ•° wizardp( ç‰©ä»¶ );
+	ç”¨æ³•:
+		å¦‚æœ arg  æ›¾æ‰§è¡Œè¿‡ enable_wizard(), wizardp() å°±ä¼ å› 1.
+	å‚è€ƒ:
 		disable_wizard(3), enable_wizard(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.jul.25.		(printed 3/16/95)

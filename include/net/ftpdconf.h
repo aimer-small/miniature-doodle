@@ -41,7 +41,7 @@
 #define LOGIN_MSG       "/adm/etc/ftpd_welcome"
 
 /* the name of the MUD */
-#define THE_MUD_NAME "•ø„¦"
+#define THE_MUD_NAME "æ›¸åŠ"
 
 /* Maximum number of simultaneous ftp users. */
 #define FTPD_MAX_USERS 8

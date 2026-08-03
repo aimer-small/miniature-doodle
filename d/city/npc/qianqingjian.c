@@ -1,14 +1,14 @@
-// qianqingjian.Ç®Çà½¡
+// qianqingjian.é’±é’å¥
 inherit NPC;
  
 void create()
 {
-	set_name("Ç®Çà½¡", ({ "qianqing jian", "jian" }));
-	set("nickname", "É¥ÃÅ¸«");
+	set_name("é’±é’å¥", ({ "qianqing jian", "jian" }));
+	set("nickname", "ä¸§é—¨æ–§");
 	set("long", 
-        "Ëû¾ÍÊÇ»ÆºÓËÄ¹íµÄÇ®Çà½¡¡£\n"
-        " Ò»¸±½Æ»«¶à¶ËµÄÑù×Ó¡£\n");
-	set("gender", "ÄĞĞÔ");
+        "ä»–å°±æ˜¯é»„æ²³å››é¬¼çš„é’±é’å¥ã€‚\n"
+        " ä¸€å‰¯ç‹¡çŒ¾å¤šç«¯çš„æ ·å­ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 32);
 	set("attitude", "peaceful");
 	set("shen_type", -1);

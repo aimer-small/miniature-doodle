@@ -2,17 +2,17 @@ inherit NPC;
 mixed ask_me();
 void create()
 {
-	set_name("Ô²ÃğºÍÉĞ", ({
+	set_name("åœ†ç­å’Œå°š", ({
 		"yuanmie heshang",
 		"yuanmie",
 		"monk",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Éí²Ä¿ıÎàµÄÎäÉ®£¬Éí´©Ò»Ï®»Æ²¼ôÂôÄ¡£\n"
-		"ËÆºõÎä¹¦»ù´¡ÔúÊµ¡£\n"
+		"ä»–æ˜¯ä¸€ä½èº«æé­æ¢§çš„æ­¦åƒ§ï¼Œèº«ç©¿ä¸€è¢­é»„å¸ƒè¢ˆè£Ÿã€‚\n"
+		"ä¼¼ä¹æ­¦åŠŸåŸºç¡€æ‰å®ã€‚\n"
 	);
-	set("nickname", "ÂŞººÌÃ»¤ËÂÎäÉ®");
-	set("gender", "ÄĞĞÔ");
+	set("nickname", "ç½—æ±‰å ‚æŠ¤å¯ºæ­¦åƒ§");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 	set("unique", 1);
@@ -37,10 +37,10 @@ void create()
 	map_skill("force", "yijin-jing");
 	map_skill("dodge", "shaolin-shenfa");
 	set("inquiry", ([
-		"Îä¼¼"     : (: ask_me :)
+		"æ­¦æŠ€"     : (: ask_me :)
 	]));
 
-	create_family("ÉÙÁÖÅÉ", 41, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 41, "å¼Ÿå­");
 	setup();
 	carry_object("/d/shaolin/obj/qing-cloth")->wear();
 }

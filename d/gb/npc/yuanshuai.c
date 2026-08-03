@@ -12,11 +12,11 @@ void create()
 	string weapon;
 	weapon = k_weapon[random(sizeof(k_weapon))];
 
-	set_name("Õ³¶øÌû", ({ "zhan ertie","zhan", "ertie" }));
-	set("title","ÃÉ¹Å ÖĞ¾üÔªË§");
-	set("gender", "ÄĞĞÔ");
+	set_name("ç²˜è€Œå¸–", ({ "zhan ertie","zhan", "ertie" }));
+	set("title","è’™å¤ ä¸­å†›å…ƒå¸…");
+	set("gender", "ç”·æ€§");
 	set("no_quest",1);
-	set("long", "ÕâÊÇ´Ë´Î¸ºÔğ½ø¹¥ÏåÑôµÄÃÉ¹Å´ó¾üÍ³Ë§¡£\n");
+	set("long", "è¿™æ˜¯æ­¤æ¬¡è´Ÿè´£è¿›æ”»è¥„é˜³çš„è’™å¤å¤§å†›ç»Ÿå¸…ã€‚\n");
 	set("age", 35);
 	set("str", 30);
 	set("int",20);
@@ -87,31 +87,31 @@ void die()
 
 	exp = 200 + i * 80 + random(400);
 	
-	exp = me->add_exp_combat(exp,"Ò×´ó±ë","´ÌÉ±");
+	exp = me->add_exp_combat(exp,"æ˜“å¤§å½ª","åˆºæ€");
 	
 	pot = exp/5+random(exp/10);
 	shen = exp/2 + pot/2;
 	
 	me->add( "potential", pot );
 	if ( me->query("gb_job2")){
-		me->add("job_time/±¨Ğ§¹ú¼Ò", me->query("gb_job2"));
+		me->add("job_time/æŠ¥æ•ˆå›½å®¶", me->query("gb_job2"));
 		me->delete("gb_job2");
 	}
-	me->add("job_time/±¨Ğ§¹ú¼Ò",1);
+	me->add("job_time/æŠ¥æ•ˆå›½å®¶",1);
 		
 	if( me->query("potential") > me->query("max_pot") )
         	me->set("potential",me->query("max_pot"));
 	me->add( "shen", shen );
 
-    	message_vision( sprintf(HIW "\nºÃ£¬ÈÎÎñÍê³ÉÁË£¬ÄãµÃµ½ÁË"
+    	message_vision( sprintf(HIW "\nå¥½ï¼Œä»»åŠ¡å®Œæˆäº†ï¼Œä½ å¾—åˆ°äº†"
 	    	+ CHINESE_D->chinese_number(exp)
-        	+ "µãÊµÕ½¾­Ñé£¬"
+        	+ "ç‚¹å®æˆ˜ç»éªŒï¼Œ"
         	+ CHINESE_D->chinese_number(pot)
-        	+ "µãÇ±ÄÜºÍ"
+        	+ "ç‚¹æ½œèƒ½å’Œ"
        		+ CHINESE_D->chinese_number(shen)
-	        + "µãÕıÉñ¡£\n" NOR),me);
+	        + "ç‚¹æ­£ç¥ã€‚\n" NOR),me);
 
-	log_file("job/zhongjun", sprintf("%8s%-10s´ÌÉ±µĞÔªË§ÈÎÎñ£¬¾­Ñé£º%4d£¬Ç±ÄÜ£º%3d£¬É±µĞ£º%d£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
+	log_file("job/zhongjun", sprintf("%8s%-10såˆºæ€æ•Œå…ƒå¸…ä»»åŠ¡ï¼Œç»éªŒï¼š%4dï¼Œæ½œèƒ½ï¼š%3dï¼Œæ€æ•Œï¼š%dï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
 		me->query("name"), "("+me->query("id")+")", exp,pot, i, me->query("combat_exp") ),me);
 
 	if( ob1 = present( "shiwei 3",environment(me)))
@@ -121,9 +121,9 @@ void die()
 	if( ob1 = present( "shiwei",environment(me)))
 		destruct( ob1 );
 
-	me->set("job_name","´ÌÉ±µĞÔªË§");
+	me->set("job_name","åˆºæ€æ•Œå…ƒå¸…");
 	me->delete_temp("kill_zhongjun");
-	message_vision(HIW"\nÄã³Ã×Å»ìÂÒ³å³öÁËÔª¾ü´óÓª¡£\n"NOR,me);
+	message_vision(HIW"\nä½ è¶ç€æ··ä¹±å†²å‡ºäº†å…ƒå†›å¤§è¥ã€‚\n"NOR,me);
 	me->move("/d/xiangyang/xuanwumen");
 	::die();
 
@@ -134,7 +134,7 @@ void kill_ob(object ob)
 	if( present("zhongjun shiwei",environment(ob))){
 	    	ob->remove_killer(this_object());
     		remove_killer(ob);
-	    	message_vision(CYN"Õ³¶øÌû´óÉùº°µÀ£ºÀ´ÈËÄÄ£¬ÓĞÈËÒªĞĞ´Ì±¾Ë§¡£\n"NOR, ob);
+	    	message_vision(CYN"ç²˜è€Œå¸–å¤§å£°å–Šé“ï¼šæ¥äººå“ªï¼Œæœ‰äººè¦è¡Œåˆºæœ¬å¸…ã€‚\n"NOR, ob);
     		return;
 	}
 	::kill_ob(ob);

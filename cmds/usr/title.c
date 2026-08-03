@@ -15,18 +15,18 @@ int help(object me)
 {
 	if(wizardp(me)) 
 	write(@HELP
-ָ���ʽ: title [����]
+指令格式: title [参数]
  
-��ʾ��Ŀǰ�Ľ׼���ͷ�Ρ�
+显示你目前的阶级和头衔。
 
-����в������޸��Լ���ͷ�Ρ�
+如果有参数则修改自己的头衔。
  
 HELP
 	);
 	else write(@HELP
-ָ���ʽ: title
+指令格式: title
  
-��ʾ��Ŀǰ�Ľ׼���ͷ�Ρ�
+显示你目前的阶级和头衔。
  
 HELP
 	);

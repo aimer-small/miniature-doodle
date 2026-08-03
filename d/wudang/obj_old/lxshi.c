@@ -1,4 +1,4 @@
-// lianxinshi.cÁ·ĞÄÊ¯
+// lianxinshi.cç»ƒå¿ƒçŸ³
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,22 +7,22 @@ inherit HAMMER;
 
 void create()
 {
-        set_name(HIW"Á·ĞÄÊ¯"NOR,({"lianxin shi", "lianxin" }) );
+        set_name(HIW"ç»ƒå¿ƒçŸ³"NOR,({"lianxin shi", "lianxin" }) );
          set_weight(4000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "×ù");
+                set("unit", "åº§");
                 set("value", 1);
                 set("material", "stone");
-                set("long", "ÕâÊÇÒ»×ù¾Ş´óµÄ°×ÓñÉ«´óÑÒÊ¯¡£Ò»ÃæÆ½»¬£¬ÉÏÃæĞ´×ÅÒ»Ğ©Ö®×Ö\n"+
+                set("long", "è¿™æ˜¯ä¸€åº§å·¨å¤§çš„ç™½ç‰è‰²å¤§å²©çŸ³ã€‚ä¸€é¢å¹³æ»‘ï¼Œä¸Šé¢å†™ç€ä¸€äº›ä¹‹å­—\n"+
 
 
-        HIW" Á· ĞÄ Ê¯ "NOR+"~~~~~~~~~~~~~~~~~~~~~~~~
-        ´ËÊ¯ÄËÀÏµÀĞŞĞÄÖ®Îï£¬Ò²½èÆä×÷±ÕÆøÁ·¹¦Ö®ÓÃ¡£ºóĞŞÎªÈÕÉî£¬¹ÊÁ¢ÓÚÁ·¹¦´¦ÒÔ´ıÓĞÔµÈË
-                                                                 ÕÅÈı·á\n");
-                set("wield_msg", "$NË«ÊÖÍĞÆğÒ»×ù$n£¬¼¸ºõÁ¬ÑÛ¾¦¶¼µ²×¡ÁË¡£\n");
-                set("unequip_msg", "$N·ÅÏÂÊÖÖĞµÄ$n£¬ÊÖ±Û¶¼ÂéÁË¡£\n");
+        HIW" ç»ƒ å¿ƒ çŸ³ "NOR+"~~~~~~~~~~~~~~~~~~~~~~~~
+        æ­¤çŸ³ä¹ƒè€é“ä¿®å¿ƒä¹‹ç‰©ï¼Œä¹Ÿå€Ÿå…¶ä½œé—­æ°”ç»ƒåŠŸä¹‹ç”¨ã€‚åä¿®ä¸ºæ—¥æ·±ï¼Œæ•…ç«‹äºç»ƒåŠŸå¤„ä»¥å¾…æœ‰ç¼˜äºº
+                                                                 å¼ ä¸‰ä¸°\n");
+                set("wield_msg", "$NåŒæ‰‹æ‰˜èµ·ä¸€åº§$nï¼Œå‡ ä¹è¿çœ¼ç›éƒ½æŒ¡ä½äº†ã€‚\n");
+                set("unequip_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nï¼Œæ‰‹è‡‚éƒ½éº»äº†ã€‚\n");
         }
         init_hammer(20);
         setup();
@@ -39,11 +39,11 @@ int do_mianbi()
         object me;
         me = this_player();
         if ( (int)me->query_skill("taoism", 1) < 101 )
-           return notify_fail("Äã¾²ĞÄĞŞÁ¶,Ò»»á¾Í´òÆğÁËî§Ë¯¡£\n");
+           return notify_fail("ä½ é™å¿ƒä¿®ç‚¼,ä¸€ä¼šå°±æ‰“èµ·äº†çŒç¡ã€‚\n");
         if ( (int)me->query_skill("taoism", 1) >120 )
-        return notify_fail("Äã¾²ĞÄĞŞÁ¶,µ«ËÆºõÒÑµ½ÁËÆ¿¾±¡£\n");
+        return notify_fail("ä½ é™å¿ƒä¿®ç‚¼,ä½†ä¼¼ä¹å·²åˆ°äº†ç“¶é¢ˆã€‚\n");
         me->receive_damage("jing", 20+random(5));
         me->improve_skill("taoism", me->query("int"));
-        message_vision("$N±ÕÄ¿¶Ë×ø,ÏëÊÇÔÚÁìÎòÊ²Ã´¡£\n", me);
+        message_vision("$Né—­ç›®ç«¯å,æƒ³æ˜¯åœ¨é¢†æ‚Ÿä»€ä¹ˆã€‚\n", me);
         return 1;
 }

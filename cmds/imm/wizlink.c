@@ -4,9 +4,9 @@
 #include <ansi.h>
 #define LINK_FILE "/log/wizlink"
 #define WIZ_FILE  "/log/wiz_tell"
-#define TITLE HIY"Î×Ê¦ÁªÏµÏµÍ³"NOR
-#define TMP "ÔİÎŞ"
-#define HELP_WIZLINK "\nwizlinkÖ÷ÒªÖ¸ÁîÓÃ·¨Ïê½â£º\n\nwizlink			ÏÔÊ¾Ö÷½çÃæ¡£\nwizlink me		ĞŞ¸Ä±¾ÈËĞÅÏ¢¡£\nwizlink -[option]	·Ö±ğÏÔÊ¾Î×Ê¦ĞÅÏ¢ÁĞ±í¡£\nwizlink [ID] [ÄÚÈİ]	¸øÄ³Î»Î×Ê¦Áô±ãÌõ¡£\nwizlink note		²é¿´×Ô¼ºµÄ±ãÌõ¡£\nwizlink del note	É¾³ı×Ô¼º¸ø±ğÈËµÄµÄ±ãÌõ¡£\n\noption ·Ö±ğÎª£º \n	phone		µç»°ÁĞ±í\n	bp		ºô»úÁĞ±í\n	mobile		ÊÖ»úÁĞ±í\n	email		µç×ÓÓÊ¼şÁĞ±í\n	homepage	¸öÈËÖñÒ¶ÁĞ±í\n\n\t\t"HIC"All Rights Reserved By Numa@SJ.2000\n\n"NOR
+#define TITLE HIY"å·«å¸ˆè”ç³»ç³»ç»Ÿ"NOR
+#define TMP "æš‚æ— "
+#define HELP_WIZLINK "\nwizlinkä¸»è¦æŒ‡ä»¤ç”¨æ³•è¯¦è§£ï¼š\n\nwizlink			æ˜¾ç¤ºä¸»ç•Œé¢ã€‚\nwizlink me		ä¿®æ”¹æœ¬äººä¿¡æ¯ã€‚\nwizlink -[option]	åˆ†åˆ«æ˜¾ç¤ºå·«å¸ˆä¿¡æ¯åˆ—è¡¨ã€‚\nwizlink [ID] [å†…å®¹]	ç»™æŸä½å·«å¸ˆç•™ä¾¿æ¡ã€‚\nwizlink note		æŸ¥çœ‹è‡ªå·±çš„ä¾¿æ¡ã€‚\nwizlink del note	åˆ é™¤è‡ªå·±ç»™åˆ«äººçš„çš„ä¾¿æ¡ã€‚\n\noption åˆ†åˆ«ä¸ºï¼š \n	phone		ç”µè¯åˆ—è¡¨\n	bp		å‘¼æœºåˆ—è¡¨\n	mobile		æ‰‹æœºåˆ—è¡¨\n	email		ç”µå­é‚®ä»¶åˆ—è¡¨\n	homepage	ä¸ªäººç«¹å¶åˆ—è¡¨\n\n\t\t"HIC"All Rights Reserved By Numa@SJ.2000\n\n"NOR
 
 inherit F_CLEAN_UP;
 
@@ -23,18 +23,18 @@ string *line = ({
 });
 
 string *line_info = ({
-	"ÄúµÄĞÔ±ğ£º",
-	"ÄúµÄÄêÁä£º",
-        "ÄúµÄµç»°£º",
-        "ÄúµÄºô»ú£º",
-        "ÄúµÄÊÖ»ú£º",
-        "ÄúµÄµç×ÓÓÊ¼ş£º",
-        "ÄúµÄ×¡Ö·£º",
-        "ÄúµÄÖñÒ¶£º",
-        "±¸×¢£º",
+	"æ‚¨çš„æ€§åˆ«ï¼š",
+	"æ‚¨çš„å¹´é¾„ï¼š",
+        "æ‚¨çš„ç”µè¯ï¼š",
+        "æ‚¨çš„å‘¼æœºï¼š",
+        "æ‚¨çš„æ‰‹æœºï¼š",
+        "æ‚¨çš„ç”µå­é‚®ä»¶ï¼š",
+        "æ‚¨çš„ä½å€ï¼š",
+        "æ‚¨çš„ç«¹å¶ï¼š",
+        "å¤‡æ³¨ï¼š",
 });
 
-// ´«Êä
+// ä¼ è¾“
 int tellme(object ob, string msg)
 {
 	if (ob)
@@ -105,7 +105,7 @@ int wizard_sec(string me, string lev)
 	}
 }
 
-// ½âÎöÎÄ¼ş½á¹¹
+// è§£ææ–‡ä»¶ç»“æ„
 string *analyse_file(string filename)
 {
 	string *file = ({});
@@ -131,23 +131,23 @@ int have_me(string *file, string myid)
 	return j;
 }
 
-// Â¼Èë£¬ĞŞ¸Ä±¾ÈËĞÅÏ¢
+// å½•å…¥ï¼Œä¿®æ”¹æœ¬äººä¿¡æ¯
 int correct_me(object me)
 {
 	string *file, *sfile = ({"id" + ":" + geteuid(me),"","","","","","","","",""});
 	int j, tmp = 0;
 	
 	if ((file = analyse_file(LINK_FILE)) == ({}))
-		write(HIR"\n»¶Ó­ÄúµÚÒ»¸öÊ¹ÓÃ"+TITLE+HIR"£¡\nÄ¿Ç°"+TITLE+HIR"ÎŞÈÎºÎ¼ÇÂ¼¡£\n"NOR);
+		write(HIR"\næ¬¢è¿æ‚¨ç¬¬ä¸€ä¸ªä½¿ç”¨"+TITLE+HIR"ï¼\nç›®å‰"+TITLE+HIR"æ— ä»»ä½•è®°å½•ã€‚\n"NOR);
 	else {
 		if ((j = have_me(file, geteuid(me))) == -1) {
-			write(HIC"\nÄ¿Ç°"+TITLE+HIC"Àï»¹Ã»ÓĞÄúµÄĞÅÏ¢£¬»¶Ó­ÄúÂ¼Èë×Ô¼ºµÄĞÅÏ¢¡£\n"NOR);
+			write(HIC"\nç›®å‰"+TITLE+HIC"é‡Œè¿˜æ²¡æœ‰æ‚¨çš„ä¿¡æ¯ï¼Œæ¬¢è¿æ‚¨å½•å…¥è‡ªå·±çš„ä¿¡æ¯ã€‚\n"NOR);
 			j = sizeof(file);
-			write("ÏÂÃæÇëÄúÂ¼ÈëÄúµÄĞÅÏ¢£º\n");
+			write("ä¸‹é¢è¯·æ‚¨å½•å…¥æ‚¨çš„ä¿¡æ¯ï¼š\n");
 		}
 		else {
-			write(HIW"\n"+me->name(1)+"£¬ÄúºÃ£¡\nÄúÊÇ"+TITLE+HIW"µÄµÚ"+chinese_number(j+1)+"Î»Â¼ÈëĞÅÏ¢Õß¡£Äú¿ÉÒÔĞŞ¸Ä×Ô¼ºµÄĞÅÏ¢¡£\n");
-			write("ÏÂÃæÇëÄúĞŞ¸ÄÄúµÄĞÅÏ¢£º\n");
+			write(HIW"\n"+me->name(1)+"ï¼Œæ‚¨å¥½ï¼\næ‚¨æ˜¯"+TITLE+HIW"çš„ç¬¬"+chinese_number(j+1)+"ä½å½•å…¥ä¿¡æ¯è€…ã€‚æ‚¨å¯ä»¥ä¿®æ”¹è‡ªå·±çš„ä¿¡æ¯ã€‚\n");
+			write("ä¸‹é¢è¯·æ‚¨ä¿®æ”¹æ‚¨çš„ä¿¡æ¯ï¼š\n");
 			tmp = 1;
 		}
 
@@ -164,34 +164,34 @@ int correct_me(object me)
 		input_to("get_my_info_2", file, sfile, tmp, 1);
 		return 1;
 	}
-	write("ÏÂÃæÇëÄúÂ¼ÈëÄúµÄĞÅÏ¢£º\n");
+	write("ä¸‹é¢è¯·æ‚¨å½•å…¥æ‚¨çš„ä¿¡æ¯ï¼š\n");
 	write(line_info[0]);
 	input_to("get_my_info", sfile, 1);
 	return 1;
 }
 
-// ¹ıÂË×Ö·ûĞÅÏ¢
+// è¿‡æ»¤å­—ç¬¦ä¿¡æ¯
 string filter_input(string msg, int t)
 {
 	if ( msg == "" )
 		return TMP;
 	if ( t == 9 ) {
 		if (strlen(msg) >= 60) {
-			write("ÄãÊäÈëµÄĞÅÏ¢¹ı³¤£¬Çë¿ØÖÆÔÚ60¸ö×Ö·ûÒÔÄÚ¡£\n");
-			write("ÄúµÄ±¸×¢£º");
+			write("ä½ è¾“å…¥çš„ä¿¡æ¯è¿‡é•¿ï¼Œè¯·æ§åˆ¶åœ¨60ä¸ªå­—ç¬¦ä»¥å†…ã€‚\n");
+			write("æ‚¨çš„å¤‡æ³¨ï¼š");
 			return "ReEnter";
 		}
 	}
 	else if (strlen(msg) >= 30) {
-		write("ÄãÊäÈëµÄĞÅÏ¢¹ı³¤£¬Çë¿ØÖÆÔÚ30¸ö×Ö·ûÒÔÄÚ¡£\n");
+		write("ä½ è¾“å…¥çš„ä¿¡æ¯è¿‡é•¿ï¼Œè¯·æ§åˆ¶åœ¨30ä¸ªå­—ç¬¦ä»¥å†…ã€‚\n");
 		write(line_info[t-1]);
 		return "ReEnter";
 	}
 	switch (t) {
 		case 6 :
 			if (strsrch(msg, "@") < 2) {
-				write("µç×ÓÓÊ¼şµØÖ·±ØĞëÊÇ id@address µÄ¸ñÊ½¡£\n");
-				write("ÄúµÄµç×ÓÓÊ¼ş£º");
+				write("ç”µå­é‚®ä»¶åœ°å€å¿…é¡»æ˜¯ id@address çš„æ ¼å¼ã€‚\n");
+				write("æ‚¨çš„ç”µå­é‚®ä»¶ï¼š");
 				return "ReEnter";
 			}
 		default :
@@ -207,13 +207,13 @@ int get_my_info(string msg, string *sfile, int t)
         }
         if (t == 9) {
                 sfile[t] = line[t-1] + ":" + msg;
-                write("\nÄúµÄĞÅÏ¢Â¼ÈëÍê±Ï¡£\n");
+                write("\næ‚¨çš„ä¿¡æ¯å½•å…¥å®Œæ¯•ã€‚\n");
                 if (write_file(LINK_FILE,implode(sfile, ",") + "\n",1)) {
-                	write("´æ´¢Íê±Ï¡£\n");
+                	write("å­˜å‚¨å®Œæ¯•ã€‚\n");
                 	return 1;
                 }
                 else {
-                	write("´æ´¢´íÎó£¬ÎŞ·¨´æ´¢¡£\n");
+                	write("å­˜å‚¨é”™è¯¯ï¼Œæ— æ³•å­˜å‚¨ã€‚\n");
                 	return 0;
                 }
         }
@@ -233,14 +233,14 @@ int get_my_info_2(string msg, string *file, string *sfile, int tmp, int t)
         }
         if (t == 9) {
                 sfile[t] = line[t-1] + ":" + msg;
-                write("\nÄúµÄĞÅÏ¢Â¼ÈëÍê±Ï¡£\n");
+                write("\næ‚¨çš„ä¿¡æ¯å½•å…¥å®Œæ¯•ã€‚\n");
 //                write(sprintf("%O\n",sfile));
                 if (write_file(LINK_FILE,implode(sfile, ",") + "\n")) {
-                	write("´æ´¢Íê±Ï¡£\n");
+                	write("å­˜å‚¨å®Œæ¯•ã€‚\n");
                 	return 1;
                 }
                 else {
-                	write("´æ´¢´íÎó£¬ÎŞ·¨´æ´¢¡£\n");
+                	write("å­˜å‚¨é”™è¯¯ï¼Œæ— æ³•å­˜å‚¨ã€‚\n");
                 	return 0;
                 }
         }
@@ -254,7 +254,7 @@ int get_my_info_2(string msg, string *file, string *sfile, int tmp, int t)
 }
 		
 	
-// ÏÔÊ¾Î×Ê¦ĞÅÏ¢
+// æ˜¾ç¤ºå·«å¸ˆä¿¡æ¯
 int introduce(object me, string name)
 {
 	string *file, *sfile, lev, msg = "\n";
@@ -262,67 +262,67 @@ int introduce(object me, string name)
 
 	lev = wizard_lev(name);	
 	if ((file = analyse_file(LINK_FILE)) == ({}) ) {
-		write(TITLE+"ÀïÔİÎŞ×ÊÁÏ£¡\n");
+		write(TITLE+"é‡Œæš‚æ— èµ„æ–™ï¼\n");
 		return 1;
 	}
 	if (lev == "Ply") {
-		write(TITLE+"£º"+name+"²»ÊÇÎ×Ê¦£¡\n");
+		write(TITLE+"ï¼š"+name+"ä¸æ˜¯å·«å¸ˆï¼\n");
 		return 1;
 	}
 	if (!wizard_sec(geteuid(me), lev)) {
-		write(TITLE+"£ºÒÔÄúÄ¿Ç°µÄ¼¶±ğ»¹ÎŞ·¨²é¿´"+name+"("+lev+")µÄ×ÊÁÏ£¡\n");
+		write(TITLE+"ï¼šä»¥æ‚¨ç›®å‰çš„çº§åˆ«è¿˜æ— æ³•æŸ¥çœ‹"+name+"("+lev+")çš„èµ„æ–™ï¼\n");
 		return 1;
 	}
 	if ((j = have_me(file, name)) == -1) {
-		write(TITLE+"ÀïÔİÎŞ"+name+"µÄ×ÊÁÏ£¬ÇëÓÃwizlinkÖ¸Áî²é¿´£¡\n");
+		write(TITLE+"é‡Œæš‚æ— "+name+"çš„èµ„æ–™ï¼Œè¯·ç”¨wizlinkæŒ‡ä»¤æŸ¥çœ‹ï¼\n");
 		return 1;
 	}
 	sfile = explode(file[j],",");
-	msg += sprintf(HIC"¡ó©¤©¨"HIY"%|16s"HIC"©¨©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¡ó\n",capitalize(name)+"¸öÈËĞÅÏ¢");
-	msg += sprintf("©¦"WHT"  Î×Ê¦µÈ¼¶£º"HIG"%-30s"HIC"  ©¦\n",lev);
-	msg += sprintf("©¦"WHT"  ĞÔ    ±ğ£º"HIG"%-30s"HIC"  ©¦\n",sfile[1][4..strlen(sfile[1])]);
-	msg += sprintf("©¦"WHT"  Äê    Áä£º"HIG"%-30s"HIC"  ©¦\n",sfile[2][4..strlen(sfile[2])]);
-	msg += sprintf("©¦"WHT"  µç    »°£º"HIG"%-30s"HIC"  ©¦\n",sfile[3][6..strlen(sfile[3])]);
-	msg += sprintf("©¦"WHT"  ºô    »ú£º"HIG"%-30s"HIC"  ©¦\n",sfile[4][3..strlen(sfile[4])]);
-	msg += sprintf("©¦"WHT"  ÊÖ    »ú£º"HIG"%-30s"HIC"  ©¦\n",sfile[5][7..strlen(sfile[5])]);
-	msg += sprintf("©¦"WHT"  µç×ÓÓÊ¼ş£º"HIG"%-30s"HIC"  ©¦\n",sfile[6][6..strlen(sfile[6])]);
-	msg += sprintf("©¦"WHT"  µØ    Ö·£º"HIG"%-30s"HIC"  ©¦\n",sfile[7][9..strlen(sfile[7])]);
-	msg += sprintf("©¦"WHT"  ¸öÈËÖñÒ¶£º"HIG"%-30s"HIC"  ©¦\n",sfile[8][9..strlen(sfile[8])]);
+	msg += sprintf(HIC"â—‡â”€â”„"HIY"%|16s"HIC"â”„â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â—‡\n",capitalize(name)+"ä¸ªäººä¿¡æ¯");
+	msg += sprintf("â”‚"WHT"  å·«å¸ˆç­‰çº§ï¼š"HIG"%-30s"HIC"  â”‚\n",lev);
+	msg += sprintf("â”‚"WHT"  æ€§    åˆ«ï¼š"HIG"%-30s"HIC"  â”‚\n",sfile[1][4..strlen(sfile[1])]);
+	msg += sprintf("â”‚"WHT"  å¹´    é¾„ï¼š"HIG"%-30s"HIC"  â”‚\n",sfile[2][4..strlen(sfile[2])]);
+	msg += sprintf("â”‚"WHT"  ç”µ    è¯ï¼š"HIG"%-30s"HIC"  â”‚\n",sfile[3][6..strlen(sfile[3])]);
+	msg += sprintf("â”‚"WHT"  å‘¼    æœºï¼š"HIG"%-30s"HIC"  â”‚\n",sfile[4][3..strlen(sfile[4])]);
+	msg += sprintf("â”‚"WHT"  æ‰‹    æœºï¼š"HIG"%-30s"HIC"  â”‚\n",sfile[5][7..strlen(sfile[5])]);
+	msg += sprintf("â”‚"WHT"  ç”µå­é‚®ä»¶ï¼š"HIG"%-30s"HIC"  â”‚\n",sfile[6][6..strlen(sfile[6])]);
+	msg += sprintf("â”‚"WHT"  åœ°    å€ï¼š"HIG"%-30s"HIC"  â”‚\n",sfile[7][9..strlen(sfile[7])]);
+	msg += sprintf("â”‚"WHT"  ä¸ªäººç«¹å¶ï¼š"HIG"%-30s"HIC"  â”‚\n",sfile[8][9..strlen(sfile[8])]);
 	lev = sfile[9][7..strlen(sfile[9])];
 	if (strlen(lev) > 30) {
-		msg += sprintf("©¦"WHT"  ±¸    ×¢£º"HIG"%-30s"HIC"  ©¦\n",lev[0..29]);
-		msg += sprintf("©¦            "HIG"%-30s"HIC"  ©¦\n",lev[31..strlen(lev)]);
+		msg += sprintf("â”‚"WHT"  å¤‡    æ³¨ï¼š"HIG"%-30s"HIC"  â”‚\n",lev[0..29]);
+		msg += sprintf("â”‚            "HIG"%-30s"HIC"  â”‚\n",lev[31..strlen(lev)]);
 	}
 	else
-		msg += sprintf("©¦"WHT"  ±¸    ×¢£º"HIG"%-30s"HIC"  ©¦\n",lev);
-	msg += "¡ó©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¨ SJ ©¨©¤¡ó\n\n"NOR;
+		msg += sprintf("â”‚"WHT"  å¤‡    æ³¨ï¼š"HIG"%-30s"HIC"  â”‚\n",lev);
+	msg += "â—‡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”„ SJ â”„â”€â—‡\n\n"NOR;
 	tellme(me, msg);
 	return 1;
 }
 
-// ÏÔÊ¾Ö÷½çÃæ
+// æ˜¾ç¤ºä¸»ç•Œé¢
 int main_page(object me)
 {
 	string *file, *sfile, msg = "\n", last_log;
 	int i, j;
 
 	if ((file = analyse_file(LINK_FILE)) == ({}) ) {
-		write(TITLE+"ÀïÔİÎŞÈÎºÎ×ÊÁÏ£¡\n");
+		write(TITLE+"é‡Œæš‚æ— ä»»ä½•èµ„æ–™ï¼\n");
 		return 1;
 	}
 	j = sizeof(file);
-	msg += HIC"\t\t\t¡ó"+TITLE+HIC"¡ó\n";
-	msg += HIC"\t¡ó©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¡ó\n";
-	msg += sprintf("\t©¦"WHT"%|42s"HIC"©¦\n","Ä¿Ç°¹²ÓĞ"+chinese_number(j)+"Î»Î×Ê¦µÄ¸öÈËĞÅÏ¢");
-	msg += HIC"\t¡ó©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¡ó\n";
+	msg += HIC"\t\t\tâ—‡"+TITLE+HIC"â—‡\n";
+	msg += HIC"\tâ—‡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â—‡\n";
+	msg += sprintf("\tâ”‚"WHT"%|42s"HIC"â”‚\n","ç›®å‰å…±æœ‰"+chinese_number(j)+"ä½å·«å¸ˆçš„ä¸ªäººä¿¡æ¯");
+	msg += HIC"\tâ—‡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â—‡\n";
 	for (i=0;i<j;i++) {
 		sfile = explode(file[i],",");
 		if (i == j-1)
 			last_log = sfile[0][3..strlen(sfile[0])];
-		msg += sprintf("\t©¦"WHT"  %-2d¡¢"HIG"%-8s %-10s %-10s ..."HIC"  ©¦\n", i+1, capitalize(sfile[0][3..strlen(sfile[0])]), sfile[1][0..9], sfile[2][0..9]);
+		msg += sprintf("\tâ”‚"WHT"  %-2dã€"HIG"%-8s %-10s %-10s ..."HIC"  â”‚\n", i+1, capitalize(sfile[0][3..strlen(sfile[0])]), sfile[1][0..9], sfile[2][0..9]);
 	}
-	msg += HIC"\t¡ó©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¡ó\n";
-	msg += sprintf("\t©¦"WHT"%|42s"HIC"©¦\n","×îºóÒ»Î»µÇÂ¼ĞÅÏ¢µÄÊÇ"+capitalize(last_log));
+	msg += HIC"\tâ—‡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â—‡\n";
+	msg += sprintf("\tâ”‚"WHT"%|42s"HIC"â”‚\n","æœ€åä¸€ä½ç™»å½•ä¿¡æ¯çš„æ˜¯"+capitalize(last_log));
 	if ((file = analyse_file(WIZ_FILE)) != ({}) ) {
 		j = 0;
 		for (i=0;i<sizeof(file);i++) {
@@ -331,41 +331,41 @@ int main_page(object me)
 				continue;
 			}
 		}
-		msg += sprintf("\t©¦"HIR"%|42s"HIC"©¦\n","ÓĞÄú"+chinese_number(j)+"ÕÅ±ãÌõ");
+		msg += sprintf("\tâ”‚"HIR"%|42s"HIC"â”‚\n","æœ‰æ‚¨"+chinese_number(j)+"å¼ ä¾¿æ¡");
 	}
-	msg += HIC"\t¡ó©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¨ SJ ©¨©¤¡ó\n";
+	msg += HIC"\tâ—‡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”„ SJ â”„â”€â—‡\n";
 	tellme(me, msg);
 	return 1;
 }
 	
-// ÏÔÊ¾ÁĞ±íĞÅÏ¢
+// æ˜¾ç¤ºåˆ—è¡¨ä¿¡æ¯
 int list(object me, string pattern)
 {
 	string *file, *sfile, msg = "\n";
 	int i, j, t;
 	
 	if ((file = analyse_file(LINK_FILE)) == ({}) ) {
-		write(TITLE+"ÀïÔİÎŞÈÎºÎ×ÊÁÏ£¡\n");
+		write(TITLE+"é‡Œæš‚æ— ä»»ä½•èµ„æ–™ï¼\n");
 		return 1;
 	}
-	msg += sprintf(HIC"¡ó©¤©¨"HIY"%|16s"HIC"©¨©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¡ó\n",capitalize(pattern)+"²éÕÒ½á¹û");
+	msg += sprintf(HIC"â—‡â”€â”„"HIY"%|16s"HIC"â”„â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â—‡\n",capitalize(pattern)+"æŸ¥æ‰¾ç»“æœ");
 	t = strlen(pattern) +1;
 	for (i=0;i<sizeof(file);i++) {
 		sfile = explode(file[i],",");
 		for (j=0;j<sizeof(sfile);j++) {
 			if (strsrch(sfile[j],pattern) >= 0) {
 				if (wizard_sec(geteuid(me), wizard_lev(sfile[0][3..strlen(sfile[0])])))
-					msg += sprintf("©¦"WHT"  %-8s£º"HIG"%-30s"HIC"  ©¦\n", capitalize(sfile[0][3..strlen(sfile[0])]), sfile[j][t..strlen(sfile[j])]);
+					msg += sprintf("â”‚"WHT"  %-8sï¼š"HIG"%-30s"HIC"  â”‚\n", capitalize(sfile[0][3..strlen(sfile[0])]), sfile[j][t..strlen(sfile[j])]);
 				break;
 			}
 		}
 	}
-	msg += "¡ó©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¨ SJ ©¨©¤¡ó\n\n"NOR;
+	msg += "â—‡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”„ SJ â”„â”€â—‡\n\n"NOR;
 	tellme(me, msg);
 	return 1;
 }	
 
-// Í¨ÖªÎ×Ê¦
+// é€šçŸ¥å·«å¸ˆ
 int tell_other(object me, string id, string msg, int i)
 {
 	string *file, *sfile, lev, e_msg, output = "\n";
@@ -373,56 +373,56 @@ int tell_other(object me, string id, string msg, int i)
 	
 	if (i == 0) {
 		if ((file = analyse_file(WIZ_FILE)) == ({}) ) {
-			write(TITLE+"£ºÃ»ÓĞÄãµÄ±ãÌõ¡£\n");
+			write(TITLE+"ï¼šæ²¡æœ‰ä½ çš„ä¾¿æ¡ã€‚\n");
 			return 1;
 		}
 		if ((j = have_me(file, "to " + geteuid(me))) == -1) {
-			write(TITLE+"£ºÃ»ÓĞÄãµÄ±ãÌõ¡£\n");
+			write(TITLE+"ï¼šæ²¡æœ‰ä½ çš„ä¾¿æ¡ã€‚\n");
 			return 1;
 		}
-		output += sprintf(HIC"¡ó©¤©¨"HIY"%|16s"HIC"©¨©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¡ó\n",capitalize(geteuid(me))+"¸öÈË±ãÌõ");
+		output += sprintf(HIC"â—‡â”€â”„"HIY"%|16s"HIC"â”„â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â—‡\n",capitalize(geteuid(me))+"ä¸ªäººä¾¿æ¡");
 
 		for (i=0;i<sizeof(file);i++) {
 			if (strsrch(file[i], "to " + geteuid(me))>=0) {
 				e_msg = file[j];
-				sfile = explode(e_msg,"¡á");
-				output += sprintf("©¦"WHT"  1. À´×Ô£º%-8s   ÈÕÆÚ£º%-30s"HIC"  ©¦\n", sfile[1][5..strlen(sfile[1])], sfile[2][3..strlen(sfile[2])]);
+				sfile = explode(e_msg,"â™‚");
+				output += sprintf("â”‚"WHT"  1. æ¥è‡ªï¼š%-8s   æ—¥æœŸï¼š%-30s"HIC"  â”‚\n", sfile[1][5..strlen(sfile[1])], sfile[2][3..strlen(sfile[2])]);
 				if (strlen(sfile[3]) > 54) {
-					output += sprintf("©¦"HIG"     %-54s"HIC" ©¦\n",sfile[3][0..53]);
-					output += sprintf("©¦"HIG"     %-54s"HIC" ©¦\n",sfile[3][54..strlen(sfile[3])]);
+					output += sprintf("â”‚"HIG"     %-54s"HIC" â”‚\n",sfile[3][0..53]);
+					output += sprintf("â”‚"HIG"     %-54s"HIC" â”‚\n",sfile[3][54..strlen(sfile[3])]);
 				}
 				else
-					output += sprintf("©¦"HIG"     %-54s"HIC" ©¦\n",sfile[3]);
-				output += "¡ó©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤¡ó\n";
+					output += sprintf("â”‚"HIG"     %-54s"HIC" â”‚\n",sfile[3]);
+				output += "â—‡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â—‡\n";
 				num += 1;
 				continue;
 			}
 		}
-		output += sprintf("©¦"WHT"%|60s"HIC"©¦\n", "ÄãÏÖÔÚ¹²ÓĞ"+chinese_number(num)+"ÕÅ±ãÌõ");
-		output += "¡ó©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¨ SJ ©¨©¤¡ó\n\n"NOR;
+		output += sprintf("â”‚"WHT"%|60s"HIC"â”‚\n", "ä½ ç°åœ¨å…±æœ‰"+chinese_number(num)+"å¼ ä¾¿æ¡");
+		output += "â—‡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”„ SJ â”„â”€â—‡\n\n"NOR;
 		tellme(me, output);
 		return 1;
 	}
 	if (i == 2) {
 		if ((file = analyse_file(WIZ_FILE)) == ({}) ) {
-			write(TITLE+"£ºÃ»ÓĞÈÎºÎ±ãÌõ¡£\n");
+			write(TITLE+"ï¼šæ²¡æœ‰ä»»ä½•ä¾¿æ¡ã€‚\n");
 			return 1;
 		}
 		if ((j = have_me(file, "from " + geteuid(me))) == -1) {
-			write(TITLE+"£ºÃ»ÓĞÄãÁôµÄ±ãÌõ¡£\n");
+			write(TITLE+"ï¼šæ²¡æœ‰ä½ ç•™çš„ä¾¿æ¡ã€‚\n");
 			return 1;
 		}
-		sfile = explode(file[j],"¡á");
+		sfile = explode(file[j],"â™‚");
      		if (j != 0)
        			file = file[0..j-1] + file[j+1..sizeof(file)];
        		else
        			file = file[1..sizeof(file)];
      		if (write_file(WIZ_FILE, implode(file,"\n")+"\n", 1)) {
-       	        	write("ÄúÁô¸ø"+capitalize(sfile[0][3..strlen(sfile[0])])+"µÄ±ãÌõÒÑ¾­É¾³ı¡£\n");
+       	        	write("æ‚¨ç•™ç»™"+capitalize(sfile[0][3..strlen(sfile[0])])+"çš„ä¾¿æ¡å·²ç»åˆ é™¤ã€‚\n");
                		return 1;
                 }
        	        else {
-               		write("ÄúÁô¸ø"+capitalize(sfile[0][3..strlen(sfile[0])])+"µÄ±ãÌõÎŞ·¨É¾³ı¡£\n");
+               		write("æ‚¨ç•™ç»™"+capitalize(sfile[0][3..strlen(sfile[0])])+"çš„ä¾¿æ¡æ— æ³•åˆ é™¤ã€‚\n");
                		return 0;
                 }
 	}
@@ -430,27 +430,27 @@ int tell_other(object me, string id, string msg, int i)
 	lev = wizard_lev(id);	
 
 	if (lev == "Ply") {
-		write(TITLE+"£º"+id+"²»ÊÇÎ×Ê¦£¡\n");
+		write(TITLE+"ï¼š"+id+"ä¸æ˜¯å·«å¸ˆï¼\n");
 		return 1;
 	}
 	if ((file = analyse_file(WIZ_FILE)) == ({}) ) {
                 if (write_file(WIZ_FILE,msg)) {
-                	write("´æ´¢Íê±Ï¡£\n");
+                	write("å­˜å‚¨å®Œæ¯•ã€‚\n");
                 	return 1;
                 }
                 else {
-                	write("´æ´¢´íÎó£¬ÎŞ·¨´æ´¢¡£\n");
+                	write("å­˜å‚¨é”™è¯¯ï¼Œæ— æ³•å­˜å‚¨ã€‚\n");
                 	return 0;
                 }
         }
 	else {
 		if ((j = have_me(file, "from " + geteuid(me))) == -1) {
 	                if (write_file(WIZ_FILE,msg)) {
-        	        	write("´æ´¢Íê±Ï¡£\n");
+        	        	write("å­˜å‚¨å®Œæ¯•ã€‚\n");
                 		return 1;
 	                }
         	        else {
-                		write("´æ´¢´íÎó£¬ÎŞ·¨´æ´¢¡£\n");
+                		write("å­˜å‚¨é”™è¯¯ï¼Œæ— æ³•å­˜å‚¨ã€‚\n");
                 		return 0;
 	                }
 		}
@@ -461,11 +461,11 @@ int tell_other(object me, string id, string msg, int i)
        				file = file[1..sizeof(file)];
        			write_file(WIZ_FILE,implode(file,"\n"),1);
 	                if (write_file(WIZ_FILE,msg)) {
-        	        	write("´æ´¢Íê±Ï¡£\n");
+        	        	write("å­˜å‚¨å®Œæ¯•ã€‚\n");
                 		return 1;
 	                }
         	        else {
-                		write("´æ´¢´íÎó£¬ÎŞ·¨´æ´¢¡£\n");
+                		write("å­˜å‚¨é”™è¯¯ï¼Œæ— æ³•å­˜å‚¨ã€‚\n");
                 		return 0;
 	                }
 		}
@@ -505,8 +505,8 @@ int main(object me, string arg)
 	}
 	if (sscanf(arg, "%s %s", id, arg1) == 2) {
 		if (strlen(arg1) >= 100)
-			return notify_fail("ÄãËùÁôµÄ±ãÌõÌ«³¤¡£\n");
-		arg1 = "to "+id+"¡áfrom "+geteuid(me)+"¡á"+ctime(time())+"¡á"+arg1+"\n";
+			return notify_fail("ä½ æ‰€ç•™çš„ä¾¿æ¡å¤ªé•¿ã€‚\n");
+		arg1 = "to "+id+"â™‚from "+geteuid(me)+"â™‚"+ctime(time())+"â™‚"+arg1+"\n";
 		tell_other(me, id, arg1, 1);
 		return 1;
 	}

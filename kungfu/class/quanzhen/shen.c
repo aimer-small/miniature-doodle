@@ -1,15 +1,15 @@
-// shen.c ÉêÖ¾·²
+// shen.c ç”³å¿—å‡¡
 
 inherit NPC;
 
 void create()
 {
-        set_name("ÉêÖ¾·²", ({"shen zhifan", "shen"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("ç”³å¿—å‡¡", ({"shen zhifan", "shen"}));
+        set("gender", "ç”·æ€§");
         set("age", 24);
         set("class", "taoist");
         set("long",
-                "Ëû¾ÍÊÇÈ«Õæ½ÌµÚÈı´úµÜ×ÓÖĞµÄºÃÊÖ£¬ºÂ´óÍ¨µÄµÜ×Ó¡£\n");
+                "ä»–å°±æ˜¯å…¨çœŸæ•™ç¬¬ä¸‰ä»£å¼Ÿå­ä¸­çš„å¥½æ‰‹ï¼Œéƒå¤§é€šçš„å¼Ÿå­ã€‚\n");
         set("attitude", "friendly");
         set("shen_type",1);
         set("str", 26);
@@ -46,10 +46,10 @@ void create()
         map_skill("strike", "haotian-zhang");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 3, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 3, "å¼Ÿå­");
 
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒĞşÃÅÕı×Ú¡£\n",
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶ç„é—¨æ­£å®—ã€‚\n",
         ]) );
 
         setup();

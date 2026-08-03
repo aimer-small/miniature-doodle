@@ -6,10 +6,10 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HIC"����֮��"NOR, ({ "sbook"}));
-	set("long","����һ��"HIC"����֮��"NOR"��������Ķ�(read)�й���������(str)����(int)����(con)����(dex)�����֪ʶ��\n");
+	set_name (HIC"素质之书"NOR, ({ "sbook"}));
+	set("long","这是一本"HIC"素质之书"NOR"，你可以阅读(read)有关增长臂力(str)悟性(int)根骨(con)身法(dex)方面的知识。\n");
 
-	set("unit","��");
+	set("unit","本");
 	set_weight(100);
 	set("value",3000000);
         set("no_give",1);
@@ -17,7 +17,7 @@ void create()
         set("no_get",1);
 	set("degree",1);
 	set("flag","spec/sbook");
-	set("desc","��ʱ�����һЩ�츳��");
+	set("desc","暂时性提高一些天赋。");
 	set("credit",50);	
 	setup();
 }
@@ -34,15 +34,15 @@ int do_read(string arg)
 	int i;
 	    
 	if (!arg)
-      		return notify_fail("��Ҫ�Ķ�ʲô֪ʶ?\n");
+      		return notify_fail("你要阅读什么知识?\n");
       		
 	if (arg!="str" && arg!="dex" && arg!="int" && arg!="con")
-      		return notify_fail("��Ҫ�Ķ�ʲô֪ʶ?\n");
+      		return notify_fail("你要阅读什么知识?\n");
       	
       	if (me->query_temp("sbook")>9)
-      		return notify_fail("�㿴�˿��Ȿ�飬�����Ѿ�ûʲô��ѧ����!\n");
+      		return notify_fail("你看了看这本书，发现已经没什么好学的了!\n");
       		
-	if (!restrict()&& !me->query("buyvip")) {return notify_fail("�������Ѿ�����ʹ��"+this_object()->query("name")+"�ˡ�\n");}
+	if (!restrict()&& !me->query("buyvip")) {return notify_fail("本周你已经不能使用"+this_object()->query("name")+"了。\n");}
 
 	i=random(3)+3;
 	if (i+query_temp("sbook")>9) i=10-query_temp("sbook");
@@ -63,7 +63,7 @@ int do_read(string arg)
 			break;
 	}
 	me->add_temp("sbook",i);
-	write(HIY"�����"HIC"����֮��"HIY"�����Լ�������������һ�㡣\n"NOR);
+	write(HIY"你读完"HIC"素质之书"HIY"发现自己好象变得厉害了一点。\n"NOR);
 	degree();
 	return 1;
 }	 

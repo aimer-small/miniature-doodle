@@ -5,7 +5,7 @@ string TimeDate(int t)
         string tm;
        // int tt;
         tm = ts[11..18];
-        ts = ts[20..23]+"Äê"+ts[4..6]+"ÔÂ"+ts[8..9]+"ÈÕ";
+        ts = ts[20..23]+"å¹´"+ts[4..6]+"æœˆ"+ts[8..9]+"æ—¥";
         
         ts = replace_string(ts, " 1", "01");
         ts = replace_string(ts, " 2", "02");
@@ -30,8 +30,8 @@ string TimeDate(int t)
         ts = replace_string(ts, "Dec", "12");
         
         sscanf(tm,"%d:%*d:%*d",t);
-        if(t<12) ts +="ÕıÎçÇ°";
-        if(t>=12) ts +="ÕıÎçºó";
+        if(t<12) ts +="æ­£åˆå‰";
+        if(t>=12) ts +="æ­£åˆå";
                         
         return ts;
 }

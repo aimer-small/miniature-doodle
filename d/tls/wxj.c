@@ -1,4 +1,4 @@
-// modified by snowman.  ¼ì²éÊÇ·ñbusy»ò fighting
+// modified by snowman.  æ£€æŸ¥æ˜¯å¦busyæˆ– fighting
 
 #include <room.h>
 #include <ansi.h>
@@ -6,19 +6,19 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIY"ÎŞĞÄ¾®"NOR);
+	set("short", HIY"æ— å¿ƒäº•"NOR);
 	set("long", @LONG
-ÕâÊÇÒ»¿ÚÇ§Äê¹Å¾®£¬¾®ÅÔÊÇÓÃÇàÊ¯Æö³ÉµÄ¾®Ì¨£¬ÉÏÃæÊÇÓÃÉúÌúÖı
-¾ÍµÄÒ»¸ö¸ßÒ»³ßµÄ¾®Ôµ¡£¾®ÄÚÉî´ïÊ®¼¸Ã×£¬Ë®ÃæÉÏÆ¯ÂúÁËÂäÒ¶¡£¾®ÅÔ
-ÔÓ²İ´ÔÉú£¬¾®±ßµÄéïê¤¼ÜÒ²Ôç¾ÍĞàÁË£¬ÏÔÈ»ºÜ¾ÃÃ»ÈËÓÃÁË£¬Ææ¹ÖµÄÊÇ
-¾®±ßµÄÊ¯°å¾ÓÈ»Ê®·Ö¹â»¬¡£
+è¿™æ˜¯ä¸€å£åƒå¹´å¤äº•ï¼Œäº•æ—æ˜¯ç”¨é’çŸ³ç Œæˆçš„äº•å°ï¼Œä¸Šé¢æ˜¯ç”¨ç”Ÿé“é“¸
+å°±çš„ä¸€ä¸ªé«˜ä¸€å°ºçš„äº•ç¼˜ã€‚äº•å†…æ·±è¾¾åå‡ ç±³ï¼Œæ°´é¢ä¸Šæ¼‚æ»¡äº†è½å¶ã€‚äº•æ—
+æ‚è‰ä¸›ç”Ÿï¼Œäº•è¾¹çš„è½±è¾˜æ¶ä¹Ÿæ—©å°±æœ½äº†ï¼Œæ˜¾ç„¶å¾ˆä¹…æ²¡äººç”¨äº†ï¼Œå¥‡æ€ªçš„æ˜¯
+äº•è¾¹çš„çŸ³æ¿å±…ç„¶ååˆ†å…‰æ»‘ã€‚
 LONG);
 	set("exits", ([
 		"west" : __DIR__"bzqn",
 	]));
 
         set("resource/water",1); 
-	set("outdoors", "ÌìÁúËÂ");
+	set("outdoors", "å¤©é¾™å¯º");
 	set("coor/x",-380);
   set("coor/y",-270);
    set("coor/z",30);
@@ -35,20 +35,20 @@ int do_tiao(string arg)
 	object weapon = me->query_temp("weapon");
 
         if ( !arg || (arg != "leaf") )
-		return notify_fail("ÄãÒªÌôÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æŒ‘ä»€ä¹ˆï¼Ÿ\n");
          
-        if( me->is_busy() || me->is_fighting() ) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+        if( me->is_busy() || me->is_fighting() ) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if (!weapon || weapon->query("skill_type") != "sword" )
-		return notify_fail("ÄãÒªÓÃÊÖ°ÑÊ÷Ò¶Ìô³öÀ´£¿\n");
+		return notify_fail("ä½ è¦ç”¨æ‰‹æŠŠæ ‘å¶æŒ‘å‡ºæ¥ï¼Ÿ\n");
 
         if ((int)me->query_skill("sword", 1) < 30 )
-          return notify_fail("ÄãÂúÍ·´óº¹µÄÌôÁË°ëÌì£¬Á¬Ò»Æ¬Ò³×ÓÒ²Ã»Åö×Å£¬»¹ÊÇ¸É´àÓÃÊÖÄÃ°É¡£\n");
+          return notify_fail("ä½ æ»¡å¤´å¤§æ±—çš„æŒ‘äº†åŠå¤©ï¼Œè¿ä¸€ç‰‡é¡µå­ä¹Ÿæ²¡ç¢°ç€ï¼Œè¿˜æ˜¯å¹²è„†ç”¨æ‰‹æ‹¿å§ã€‚\n");
 
         if ((int)me->query_skill("sword", 1) >100 )
-        return notify_fail("Äã¡°à§à§¡±¼¸½£¾Í°ÑËùÓĞµÄÂäÒ¶¶¼Ìô³öÁË¾®Íâ¡£\n");
+        return notify_fail("ä½ â€œå”°å”°â€å‡ å‰‘å°±æŠŠæ‰€æœ‰çš„è½å¶éƒ½æŒ‘å‡ºäº†äº•å¤–ã€‚\n");
     
 	me->receive_damage("jingli", random(40));
-        write("Äã²»¶ÏÓÃ½£°ÑÂäÒ¶Ìô³ö¾®Íâ£¬ÂäÒ¶ËæË®Æ¯À´Æ¯È¥£¬Äã¶Ô½£ÊõÓĞÁËĞÂµÄÈÏÊ¶¡£\n");
+        write("ä½ ä¸æ–­ç”¨å‰‘æŠŠè½å¶æŒ‘å‡ºäº•å¤–ï¼Œè½å¶éšæ°´æ¼‚æ¥æ¼‚å»ï¼Œä½ å¯¹å‰‘æœ¯æœ‰äº†æ–°çš„è®¤è¯†ã€‚\n");
          me->improve_skill("sword", me->query("int"));       
          return 1;
 }                                     

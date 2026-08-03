@@ -13,23 +13,23 @@ int main(object me,string arg)
 	if( sscanf(arg,"%s %s",db,sql)!=2 ) return help(me);
         BBS_D->add_Bbs_Up_Map(db,sql,this_object(),"back",1);
 	athor = me;
-	write("×¼±¸Ö´ĞĞ¡£¡£¡£¡£¡£¡£\n");
+	write("å‡†å¤‡æ‰§è¡Œã€‚ã€‚ã€‚ã€‚ã€‚ã€‚\n");
 	return 1;
 }
 
 void back(mixed ret)
 {
-	if(athor) tell_object(athor,"ÄãÒªÇóµÄSQLÓï¾äÒÑ¾­³É¹¦ÔÚWEB·şÎñÆ÷ÉÏÖ´ĞĞ¡£\n");
+	if(athor) tell_object(athor,"ä½ è¦æ±‚çš„SQLè¯­å¥å·²ç»æˆåŠŸåœ¨WEBæœåŠ¡å™¨ä¸Šæ‰§è¡Œã€‚\n");
 	if(!sizeof(ret)) return;
-	if(athor) tell_object(athor,sprintf("WEB·şÎñÆ÷·µ»ØµÄ½á¹ûÊÇ£º%O",ret));
+	if(athor) tell_object(athor,sprintf("WEBæœåŠ¡å™¨è¿”å›çš„ç»“æœæ˜¯ï¼š%O",ret));
 }
 
 
 int help(object me)
 {
 	write(@HELP
-	Ö¸Áî¸ñÊ½£ºbbs <dbname> <sqlÓï¾ä>
-	¹¦ÄÜ¿ÉÒÔÔÚÔ¶³ÌÓëMUDÏàÁ¬µÄWEB·şÎñÆ÷ÉÏÖ´ĞĞÒ»ÌõSQLÓï¾ä¡£
+	æŒ‡ä»¤æ ¼å¼ï¼šbbs <dbname> <sqlè¯­å¥>
+	åŠŸèƒ½å¯ä»¥åœ¨è¿œç¨‹ä¸MUDç›¸è¿çš„WEBæœåŠ¡å™¨ä¸Šæ‰§è¡Œä¸€æ¡SQLè¯­å¥ã€‚
 HELP
 	);
 	return 1;	

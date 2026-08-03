@@ -1,19 +1,19 @@
-// leitai.c ÑïÖİÀŞÌ¨Ç°¹ã³¡
+// leitai.c æ‰¬å·æ“‚å°å‰å¹¿åœº
 
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-	set("short","ÀŞÌ¨Ç°¹ã³¡");
+	set("short","æ“‚å°å‰å¹¿åœº");
 	set("long",@long
-ÕâÀïÊÇÑïÖİÀŞÌ¨Ç°ÃæµÄÒ»¸ö´óĞÍ¹ã³¡£¬ÓĞĞí¶àÈËÕıÔÚÀŞÌ¨ÉÏ±ÈÎä£¬µ½´¦
-ÊÇÈËÉ½ÈËº££¬Èç¹ûÄãÒ²ÏëÊÔÊÔÉíÊÖ£¬ÄÇÃ´¾ÍÇëÉÏÀŞÌ¨±ÈÊÔ±ÈÊÔ°É¡£
+è¿™é‡Œæ˜¯æ‰¬å·æ“‚å°å‰é¢çš„ä¸€ä¸ªå¤§å‹å¹¿åœºï¼Œæœ‰è®¸å¤šäººæ­£åœ¨æ“‚å°ä¸Šæ¯”æ­¦ï¼Œåˆ°å¤„
+æ˜¯äººå±±äººæµ·ï¼Œå¦‚æœä½ ä¹Ÿæƒ³è¯•è¯•èº«æ‰‹ï¼Œé‚£ä¹ˆå°±è¯·ä¸Šæ“‚å°æ¯”è¯•æ¯”è¯•å§ã€‚
 long);
 	set("exits",([
 		"fengyun" : "/d/wizard/lt1",
 		"southeast" : __DIR__"guangchangbei",
 	]));
-	set("outdoors", "ÑïÖİ");
+	set("outdoors", "æ‰¬å·");
 	setup();
 }
 
@@ -23,11 +23,11 @@ int valid_leave(object me,string dir)
 	int i;
 
 	if(me->query_condition("killer") > 0 && dir != "southeast")
-		return notify_fail(HIW"\nÍ¨¼©·¸²»µÃ½øÈëÀŞÌ¨ÖØµØ£¡\n\n"NOR);
+		return notify_fail(HIW"\né€šç¼‰çŠ¯ä¸å¾—è¿›å…¥æ“‚å°é‡åœ°ï¼\n\n"NOR);
 	ob = deep_inventory(me);
 	i = sizeof(ob);
 	while (i--)
 	if ((ob[i]->is_character() || ob[i]->query("unique")) && dir != "southeast")
-		return notify_fail(HIW"\nÄã²»µÃ´øÈË»ò´ø±¦Îï½øÈëÀŞÌ¨ÖØµØ¡£\n\n"NOR);
+		return notify_fail(HIW"\nä½ ä¸å¾—å¸¦äººæˆ–å¸¦å®ç‰©è¿›å…¥æ“‚å°é‡åœ°ã€‚\n\n"NOR);
 	return ::valid_leave(me, dir);
 }

@@ -14,13 +14,13 @@ void init()
 
 void create()
 {
-        set_name(HIR"²Øºì»¨"NOR, ({"zang honghua","zanghonghua","hua"}));
+        set_name(HIR"è—çº¢èŠ±"NOR, ({"zang honghua","zanghonghua","hua"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
-                set("long", "ÕâÊÇÒ»¶äÉú³¤ÔÚÎ÷²Ø¸ßÔ­ÉÏ¼«Æäº±¼ûµÄ²Øºì»¨¡£\n"
-                           "¾İËµ²Øºì»¨ÎåÄêÒ»¿ª»¨£¬Æä»¨ÓĞÆğËÀ»ØÉúµÄĞ§¹û£¬¡£\n");
+                set("unit", "æœµ");
+                set("long", "è¿™æ˜¯ä¸€æœµç”Ÿé•¿åœ¨è¥¿è—é«˜åŸä¸Šæå…¶ç½•è§çš„è—çº¢èŠ±ã€‚\n"
+                           "æ®è¯´è—çº¢èŠ±äº”å¹´ä¸€å¼€èŠ±ï¼Œå…¶èŠ±æœ‰èµ·æ­»å›ç”Ÿçš„æ•ˆæœï¼Œã€‚\n");
                 set("value", 1000);
         }
 
@@ -32,17 +32,17 @@ int do_eat(string arg)
         object me = this_player();
 
         if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         
 	if (me->is_busy() || me->is_fighting())
-        return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+        return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if ((int)me->query("eff_qi") ==
             (int)me->query("max_qi"))
-                return notify_fail("ÄãÏÖÔÚ¾«Éñ±¥Âú£¬ÆøÑª³äÓ¯£¬²»ĞèÒªÓÃÒ©Îï¡£\n");
+                return notify_fail("ä½ ç°åœ¨ç²¾ç¥é¥±æ»¡ï¼Œæ°”è¡€å……ç›ˆï¼Œä¸éœ€è¦ç”¨è¯ç‰©ã€‚\n");
 
              if(me->query_condition("medicine")){
-               message_vision(HIR "$N·şÏÂ²Øºì»¨£¬Ö»¾õÌìĞıµØ×ª£¬Ô­À´·şÒ©¹ıÆµ£¬ÉËÊÆ·´¶ø¼ÓÖØ¡£\n" NOR, me);
+               message_vision(HIR "$Næœä¸‹è—çº¢èŠ±ï¼Œåªè§‰å¤©æ—‹åœ°è½¬ï¼ŒåŸæ¥æœè¯è¿‡é¢‘ï¼Œä¼¤åŠ¿åè€ŒåŠ é‡ã€‚\n" NOR, me);
                me->set("eff_qi", 1);
 	       me->add("max_neili",-(1+random(20)));
                me->start_busy(2);
@@ -53,7 +53,7 @@ int do_eat(string arg)
         me->add("max_neili",1+random(2));
         me->set("eff_qi", me->query("max_qi"));
         me->set("qi", me->query("max_qi"));
-        message_vision(HIW"$N·şÏÂ²Øºì»¨£¬Ö»¾õ±éÌåÉúÁ¹£¬ÉñÇåÆøË¬£¬²»µ«ÉËÊÆ´óÎªºÃ×ª£¬ÉíÌåËÆºõÒ²±ÈÒÔÇ°Ç¿½¡Ğí¶à¡£\n"NOR, this_player());
+        message_vision(HIW"$Næœä¸‹è—çº¢èŠ±ï¼Œåªè§‰éä½“ç”Ÿå‡‰ï¼Œç¥æ¸…æ°”çˆ½ï¼Œä¸ä½†ä¼¤åŠ¿å¤§ä¸ºå¥½è½¬ï¼Œèº«ä½“ä¼¼ä¹ä¹Ÿæ¯”ä»¥å‰å¼ºå¥è®¸å¤šã€‚\n"NOR, this_player());
         me->apply_condition("medicine", 60);
         me->start_busy(1);
         

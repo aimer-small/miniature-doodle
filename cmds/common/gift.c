@@ -3,8 +3,8 @@
 // Modified by bbb 99/11/02
 // rewrite by snowman@SJ 25/12/1999
 // Modified by snowman@SJ 04/02/2000 -- Adapted to updated.c
-// »¹ÊÇÒªÎÒÀ´ÍêÉÆ£¬´ó´ó¼ÓÇ¿ YUJ@SJ 2001-0530
-// Õâ´ÎÊÇÎÒÀ´¼ÓÇ¿¿©... Çì×£Èı°Ë¸¾Å®½Ú... augx@sj 3/8/2002
+// è¿˜æ˜¯è¦æˆ‘æ¥å®Œå–„ï¼Œå¤§å¤§åŠ å¼º YUJ@SJ 2001-0530
+// è¿™æ¬¡æ˜¯æˆ‘æ¥åŠ å¼ºå’¯... åº†ç¥ä¸‰å…«å¦‡å¥³èŠ‚... augx@sj 3/8/2002
 
 #include <ansi.h>
 inherit F_CLEAN_UP;
@@ -19,21 +19,21 @@ int sex;
 
 nosave mapping add_types =
 ([
-	"combat_exp":	({ "ÊµÕ½¾­Ñé", "add" }),
-	"potential":	({ "Ç±ÄÜ", "add" }),
-	"max_neili":	({ "×î´óÄÚÁ¦", "add" }),
-	"max_jingli":	({ "×î´ó¾«Á¦", "add" }),
-	"balance":	({ "´æ¿î", "add" }),
-        "relife/gifts/now":        ({ "×ÔÓÉÊôĞÔµã", "add" }),
-        "relife/gifts/total":        ({ "ÊôĞÔµã", "add" }),
-	"jingli":	({ "¾«Á¦", "add" }),
-	"food":		({ "Ê³Îï", "add" }),
-	"water":	({ "ÒûË®", "add" }),
-  "qn_balance":	({ "Ç±ÄÜÒøĞĞ´æ¿î", "add" }),
-	"apply/dodge":	({ "ÁÙÊ±»ù±¾Çá¹¦", "add_temp" }),
- 	"beauty":	({ "×¤ÑÕÊõ", "add" }),
-        "SJ_Credit":    ({ "Êé½£Í¨±¦", "add" }),
-        "party_cont":    ({ "ÃÅÅÉ¹±Ï×", "add" }),
+	"combat_exp":	({ "å®æˆ˜ç»éªŒ", "add" }),
+	"potential":	({ "æ½œèƒ½", "add" }),
+	"max_neili":	({ "æœ€å¤§å†…åŠ›", "add" }),
+	"max_jingli":	({ "æœ€å¤§ç²¾åŠ›", "add" }),
+	"balance":	({ "å­˜æ¬¾", "add" }),
+        "relife/gifts/now":        ({ "è‡ªç”±å±æ€§ç‚¹", "add" }),
+        "relife/gifts/total":        ({ "å±æ€§ç‚¹", "add" }),
+	"jingli":	({ "ç²¾åŠ›", "add" }),
+	"food":		({ "é£Ÿç‰©", "add" }),
+	"water":	({ "é¥®æ°´", "add" }),
+  "qn_balance":	({ "æ½œèƒ½é“¶è¡Œå­˜æ¬¾", "add" }),
+	"apply/dodge":	({ "ä¸´æ—¶åŸºæœ¬è½»åŠŸ", "add_temp" }),
+ 	"beauty":	({ "é©»é¢œæœ¯", "add" }),
+        "SJ_Credit":    ({ "ä¹¦å‰‘é€šå®", "add" }),
+        "party_cont":    ({ "é—¨æ´¾è´¡çŒ®", "add" }),
 ]);
 
 int help(object me);
@@ -69,7 +69,7 @@ int main(object me, string arg)
 	string *str, msg;
 	int j, i;
 
-	if (wiz_level(me) < 4) return notify_fail("¡¾ÀñÎï¡¿Õâ¸ö......Äã×îºÃ»¹ÊÇÇëÊ¾Ò»ÏÂ°É¡£\n");
+	if (wiz_level(me) < 4) return notify_fail("ã€ç¤¼ç‰©ã€‘è¿™ä¸ª......ä½ æœ€å¥½è¿˜æ˜¯è¯·ç¤ºä¸€ä¸‹å§ã€‚\n");
 
 	if (!arg ) return help(me);
 
@@ -80,40 +80,40 @@ int main(object me, string arg)
 		if (UPDATE_D->query_new_gift())
 			UPDATE_D->have_new_gift();
 		save();
-		return notify_fail("¡¾ÀñÎï¡¿setting Çå³ıÍê±Ï¡£\n");
+		return notify_fail("ã€ç¤¼ç‰©ã€‘setting æ¸…é™¤å®Œæ¯•ã€‚\n");
 	}
 	if( arg == "?" )
 	{
 		if (sizeof(types) < 1)
-			return notify_fail("¡¾ÀñÎï¡¿»¹Ã»ÓĞÉè¶¨ÈÎºÎÀñÆ·¡£\n");
+			return notify_fail("ã€ç¤¼ç‰©ã€‘è¿˜æ²¡æœ‰è®¾å®šä»»ä½•ç¤¼å“ã€‚\n");
 		msg = "";
 		for (j=0; j<sizeof(types); j++)
 			msg += add_types[keys(types)[j]][0] + "(" + types[keys(types)[j]] + ") ";
 		msg += "\n";
 		if ((i = start_time - time()) > 0)
-			tell_object(me, "¾àÀë¿ªÊ¼·¢ÀñÆ·µÄÊ±¼ä»¹ÓĞ£º" + CHINESE_D->chinese_time(i) + "¡£\n");
+			tell_object(me, "è·ç¦»å¼€å§‹å‘ç¤¼å“çš„æ—¶é—´è¿˜æœ‰ï¼š" + CHINESE_D->chinese_time(i) + "ã€‚\n");
 		else if ((i += duration) > 0)
-			tell_object(me, "¾àÀë½áÊø·¢ÀñÆ·µÄÊ±¼ä»¹ÓĞ£º" + CHINESE_D->chinese_time(i) + "¡£\n");
-		return notify_fail("¡¾ÀñÎï¡¿¼ÇÂ¼Îª£º"+gift_temp+"£¬½±ÀøÎª£º"+msg);
+			tell_object(me, "è·ç¦»ç»“æŸå‘ç¤¼å“çš„æ—¶é—´è¿˜æœ‰ï¼š" + CHINESE_D->chinese_time(i) + "ã€‚\n");
+		return notify_fail("ã€ç¤¼ç‰©ã€‘è®°å½•ä¸ºï¼š"+gift_temp+"ï¼Œå¥–åŠ±ä¸ºï¼š"+msg);
 	}
 	if (sscanf(arg,"send %s", msg) == 1)
 	{
 		int st, dur;
 
 		if (UPDATE_D->query_new_gift())
-			return notify_fail("¡¾ÀñÎï¡¿ÇëÏÈÇå³ıÇ°Ò»´ÎÀñÆ·µÄÉè¶¨¡£\n");
+			return notify_fail("ã€ç¤¼ç‰©ã€‘è¯·å…ˆæ¸…é™¤å‰ä¸€æ¬¡ç¤¼å“çš„è®¾å®šã€‚\n");
 		if (sscanf(msg,"%s %s %d %d %d", gift_desc, gift_temp, sex, st, dur) == 5)
 		{
 			if (sizeof(types) < 1)
-				return notify_fail("¡¾ÀñÎï¡¿ÇëÔÚËÍÀñÇ°ÏÈÓÃ gift set < > to < > Éè¶¨½±Àø¡£\n");
+				return notify_fail("ã€ç¤¼ç‰©ã€‘è¯·åœ¨é€ç¤¼å‰å…ˆç”¨ gift set < > to < > è®¾å®šå¥–åŠ±ã€‚\n");
 			if (!stringp(gift_temp) || gift_temp == "")
-				return notify_fail("¡¾ÀñÎï¡¿ÇëÏÈÉè¶¨ÀñÆ·µÄ¼ÇÂ¼¡£\n");
+				return notify_fail("ã€ç¤¼ç‰©ã€‘è¯·å…ˆè®¾å®šç¤¼å“çš„è®°å½•ã€‚\n");
 			if (!stringp(gift_desc) || gift_desc == "")
-				return notify_fail("¡¾ÀñÎï¡¿ÇëÏÈÉè¶¨ÀñÆ·µÄÃèÊö¡£\n");
+				return notify_fail("ã€ç¤¼ç‰©ã€‘è¯·å…ˆè®¾å®šç¤¼å“çš„æè¿°ã€‚\n");
 			if (dur < 0)
-				return notify_fail("¡¾ÀñÎï¡¿³ÖĞøÊ±¼ä²»ÄÜĞ¡ÓÚÁã¡£\n");
+				return notify_fail("ã€ç¤¼ç‰©ã€‘æŒç»­æ—¶é—´ä¸èƒ½å°äºé›¶ã€‚\n");
 			if (sex<0 || sex>2)
-				return notify_fail("¡¾ÀñÎï¡¿¶ÔÏóĞÔ±ğ±ØĞëÊÇ0»ò1»ò2¡£\n");
+				return notify_fail("ã€ç¤¼ç‰©ã€‘å¯¹è±¡æ€§åˆ«å¿…é¡»æ˜¯0æˆ–1æˆ–2ã€‚\n");
 
 			msg = "";
 			for (j=0; j<sizeof(types); j++)
@@ -124,22 +124,22 @@ int main(object me, string arg)
 				start_time = time() + st;
 				duration = dur;
 				log_file("static/GIFTS",
-					sprintf("%s ·¢²¼ %s ÀñÎï£¬±êÖ¾Îª %s\n½±ÀøÊÇ£º%s",
+					sprintf("%s å‘å¸ƒ %s ç¤¼ç‰©ï¼Œæ ‡å¿—ä¸º %s\nå¥–åŠ±æ˜¯ï¼š%s",
 						me->query("id"), gift_desc, gift_temp, msg
 					), me
 				);
 			}
 			save();
 			if (UPDATE_D->have_new_gift())
-				return notify_fail("\n¡¾ÀñÎï¡¿½±ÀøÎª£º"+msg);
-			else return notify_fail("\n¡¾ÀñÎï¡¿´íÎó£¡UPDATE_D ÉèÖÃÊ§°Ü£¡\n");
+				return notify_fail("\nã€ç¤¼ç‰©ã€‘å¥–åŠ±ä¸ºï¼š"+msg);
+			else return notify_fail("\nã€ç¤¼ç‰©ã€‘é”™è¯¯ï¼UPDATE_D è®¾ç½®å¤±è´¥ï¼\n");
 		}
-		return notify_fail("¡¾ÀñÎï¡¿ÇëÓÃ gift send <ÃèÊö> <¼ÇÂ¼> <¿ªÊ¼> <³ÖĞø> µÄ¸ñÊ½¡£\n");
+		return notify_fail("ã€ç¤¼ç‰©ã€‘è¯·ç”¨ gift send <æè¿°> <è®°å½•> <å¼€å§‹> <æŒç»­> çš„æ ¼å¼ã€‚\n");
 	}
 	if (sscanf(arg, "set %s to %d", msg, j) == 2)
 	{
 		if (UPDATE_D->query_new_gift())
-			return notify_fail("¡¾ÀñÎï¡¿ÇëÏÈÇå³ıÇ°Ò»´ÎÀñÆ·µÄÉè¶¨¡£\n");
+			return notify_fail("ã€ç¤¼ç‰©ã€‘è¯·å…ˆæ¸…é™¤å‰ä¸€æ¬¡ç¤¼å“çš„è®¾å®šã€‚\n");
 		str = keys(add_types);
 		for (i = 0; i < sizeof(str); i++)
 			if( msg == str[i]) {
@@ -148,11 +148,11 @@ int main(object me, string arg)
 				for (j = 0;  j < sizeof(types); j++)
 					msg += add_types[keys(types)[j]][0] + "(" + types[keys(types)[j]] + ") ";
 				save();
-				return notify_fail("¡¾ÀñÎï¡¿ÀñÆ·Îª "+ msg +"\n");
+				return notify_fail("ã€ç¤¼ç‰©ã€‘ç¤¼å“ä¸º "+ msg +"\n");
 			}
-		 return notify_fail("¡¾ÀñÎï¡¿ÀñÆ·±ØĞëÊÇÒÑ¾­¶¨ÒåÁËµÄÒ»ÖÖ¡£\n");
+		 return notify_fail("ã€ç¤¼ç‰©ã€‘ç¤¼å“å¿…é¡»æ˜¯å·²ç»å®šä¹‰äº†çš„ä¸€ç§ã€‚\n");
 	}
-	return notify_fail("ÀñÎï£ºÇëÏÈÓÃ gift set < > to < > À´Éè¶¨ÀñÎï£¬ÔÙÓÃ gift send À´·¢ËÍ¡£\n");
+	return notify_fail("ç¤¼ç‰©ï¼šè¯·å…ˆç”¨ gift set < > to < > æ¥è®¾å®šç¤¼ç‰©ï¼Œå†ç”¨ gift send æ¥å‘é€ã€‚\n");
 }
 
 int launching(object me)
@@ -164,7 +164,7 @@ int launching(object me)
 		return 0;
 	if ((j = start_time - i) > 0) {
 		if (wizardp(me))
-			tell_object(me, "¾àÀë¿ªÊ¼·¢ÀñÆ·µÄÊ±¼ä»¹ÓĞ£º" + CHINESE_D->chinese_time(j) + "¡£\n");
+			tell_object(me, "è·ç¦»å¼€å§‹å‘ç¤¼å“çš„æ—¶é—´è¿˜æœ‰ï¼š" + CHINESE_D->chinese_time(j) + "ã€‚\n");
 		return 0;
 	}
 	if (i >= start_time + duration) {
@@ -177,7 +177,7 @@ int launching(object me)
 		return 0;
 	}
 	if (wizardp(me)) {
-		tell_object(me, HIY"ÏÖÔÚÕıÔÚ·¢ËÍÀñÎï£¬±êÖ¾Îª "HIR+gift_temp+HIY"£¬¾ßÌåÇëÓÃ gift ? ²é¿´¡£\n"NOR);
+		tell_object(me, HIY"ç°åœ¨æ­£åœ¨å‘é€ç¤¼ç‰©ï¼Œæ ‡å¿—ä¸º "HIR+gift_temp+HIY"ï¼Œå…·ä½“è¯·ç”¨ gift ? æŸ¥çœ‹ã€‚\n"NOR);
 		return 0;
 	}
 	if (me->query("gift/time") >= start_time) return 0;
@@ -187,7 +187,7 @@ int launching(object me)
 	//mud_time	5404861
 	//mud_age       5404885
 	//
-	//if (me->query("mud_age")/6 > me->query("combat_exp")) {	// Ã¿Ê®·ÖÖÓ >= 100 exp
+	//if (me->query("mud_age")/6 > me->query("combat_exp")) {	// æ¯ååˆ†é’Ÿ >= 100 exp
 	//	if (me->query("online_total") < 3600) {
 	//		me->set("gift/time", start_time + duration);
 	//		me->set("gift/name", gift_temp);
@@ -200,12 +200,12 @@ int launching(object me)
 	if (me->query("registered") < 3
 	&& (me->query("mud_time") - me->query("gift/mud_time")) < (i - me->query("gift/last_time")) / 24
 	&& me->query("combat_exp") <= (me->query("gift/exp") + 10000)
-	)//ÉÏ´ÎÁì½± ÒÔºóexpÔö¼ÓÉÙÓÚ10K 
+	)//ä¸Šæ¬¡é¢†å¥– ä»¥åexpå¢åŠ å°‘äº10K 
 		return 0;
 */
 
 	if ((j += duration) > 0)
-		tell_object(me, "¾àÀë½áÊø·¢ÀñÆ·µÄÊ±¼ä»¹ÓĞ£º" + CHINESE_D->chinese_time(j) + "¡£\n");
+		tell_object(me, "è·ç¦»ç»“æŸå‘ç¤¼å“çš„æ—¶é—´è¿˜æœ‰ï¼š" + CHINESE_D->chinese_time(j) + "ã€‚\n");
 	me->set("gift/time", start_time + duration);
 	me->set("gift/name", gift_temp);
 	me->set("gift/last_time", i);
@@ -213,17 +213,17 @@ int launching(object me)
 	me->set("gift/exp", me->query("combat_exp") + types["combat_exp"] );
 	if (sizeof(types) < 1) {
 		if (wizardp(me))
-			tell_object(me, "ÀñÎïÏµÍ³ÓĞÎÊÌâ£¬Çë¼ì²é gift.c¡£\n");
+			tell_object(me, "ç¤¼ç‰©ç³»ç»Ÿæœ‰é—®é¢˜ï¼Œè¯·æ£€æŸ¥ gift.cã€‚\n");
 		return 0;
 	}
 	
-	if(sex==1 && me->query("gender")!="ÄĞĞÔ") return 0;
-	if(sex==2 && me->query("gender")!="Å®ĞÔ") return 0;
+	if(sex==1 && me->query("gender")!="ç”·æ€§") return 0;
+	if(sex==2 && me->query("gender")!="å¥³æ€§") return 0;
 
 	tell_object(me,
-		HIW "\nËæ×ÅÒ»Éù¡°" BLINK HIR+gift_desc+ NOR HIW "¡±£¬´ÓÌìÉÏµôÏÂÒ»µÎ¸ÊÂ¶ÕıºÃÂäÔÚÄãµÄ×ì´½ÉÏ£¡\n" NOR
+		HIW "\néšç€ä¸€å£°â€œ" BLINK HIR+gift_desc+ NOR HIW "â€ï¼Œä»å¤©ä¸Šæ‰ä¸‹ä¸€æ»´ç”˜éœ²æ­£å¥½è½åœ¨ä½ çš„å˜´å”‡ä¸Šï¼\n" NOR
 	);
-	msg = "ÄãÔÚ»Ğã±ÖĞ¿´¼ûÁË";
+	msg = "ä½ åœ¨ææƒšä¸­çœ‹è§äº†";
 	str = keys(types);
 	for (i=0; i<sizeof(str); i++){
 		if (str[i] == "beauty")
@@ -237,15 +237,15 @@ int launching(object me)
 			if (j < 0) call_other(me, add_types[str[i]][1], "eff_jingli", -j);
 		}
 		if (str[i] == "beauty")
-			msg += chinese_number(types[str[i]])+"¼¶"+add_types[str[i]][0]+"£¬";
+			msg += chinese_number(types[str[i]])+"çº§"+add_types[str[i]][0]+"ï¼Œ";
 		else if (str[i] == "balance")
-			msg += MONEY_D->money_str(types[str[i]])+"µÄ"+add_types[str[i]][0]+"£¬";
+			msg += MONEY_D->money_str(types[str[i]])+"çš„"+add_types[str[i]][0]+"ï¼Œ";
 		else
-			msg += chinese_number(types[str[i]])+"µã"+add_types[str[i]][0]+"£¬";
+			msg += chinese_number(types[str[i]])+"ç‚¹"+add_types[str[i]][0]+"ï¼Œ";
 	}
 
-	msg += "£¡\n";
-	msg = replace_string(msg, "£¬£¡", "£¡");
+	msg += "ï¼\n";
+	msg = replace_string(msg, "ï¼Œï¼", "ï¼");
 	tell_object(me, msg);
 
 	return 1;
@@ -255,16 +255,16 @@ int help(object me)
 {
 	int i;
 	write(@HELP
-·¢ËÍ²½Öè:
-1	gift set -> Çå³ıÀñÎï
-2	gift set <ÀñÆ·> to <xxx> -> set ÀñÎï
-3	gift send <ÀñÎïÃèÊö> <¼ÇÂ¼ÃèÊö> <ĞÔ±ğ> <ÆğÊ¼Ê±¼ä> <½áÊøÊ±¼ä>-> ËÍÀñÎï
-ÆäÖĞÆğÊ¼Ê±¼äÊÇµ±Ç°Ê±¼äµÄÏà¶ÔÖµ£¬µ¥Î»ÎªÃë£»ĞÔ±ğÎªÊı×Ö£º0Îª²»Çø·Ö£¬1ÎªÄĞĞÔ£¬2ÎªÅ®ĞÔ¡£
-ÀıÈç£ºgift send ´òµ¹É±ÊÖ sloganbbb 0 60 3600
-±íÊ¾£ºÒ»·ÖÖÓºó¿ªÊ¼·¢ÀñÎï£¬³ÖĞøÒ»Ğ¡Ê±£¬¶ÔÏó²»·ÖÄÇÄĞÅ®¡£
+å‘é€æ­¥éª¤:
+1	gift set -> æ¸…é™¤ç¤¼ç‰©
+2	gift set <ç¤¼å“> to <xxx> -> set ç¤¼ç‰©
+3	gift send <ç¤¼ç‰©æè¿°> <è®°å½•æè¿°> <æ€§åˆ«> <èµ·å§‹æ—¶é—´> <ç»“æŸæ—¶é—´>-> é€ç¤¼ç‰©
+å…¶ä¸­èµ·å§‹æ—¶é—´æ˜¯å½“å‰æ—¶é—´çš„ç›¸å¯¹å€¼ï¼Œå•ä½ä¸ºç§’ï¼›æ€§åˆ«ä¸ºæ•°å­—ï¼š0ä¸ºä¸åŒºåˆ†ï¼Œ1ä¸ºç”·æ€§ï¼Œ2ä¸ºå¥³æ€§ã€‚
+ä¾‹å¦‚ï¼šgift send æ‰“å€’æ€æ‰‹ sloganbbb 0 60 3600
+è¡¨ç¤ºï¼šä¸€åˆ†é’Ÿåå¼€å§‹å‘ç¤¼ç‰©ï¼ŒæŒç»­ä¸€å°æ—¶ï¼Œå¯¹è±¡ä¸åˆ†é‚£ç”·å¥³ã€‚
 
-Õâ¸öÖ¸ÁîÈÃÎ×Ê¦¿ÉÒÔÔÚ½ÚÇìÈÕËÍÀñÎï¸øÍæ¼Ò¡£
-ÆäÖĞ£¬ÀñÆ·Ö§³Ö£º
+è¿™ä¸ªæŒ‡ä»¤è®©å·«å¸ˆå¯ä»¥åœ¨èŠ‚åº†æ—¥é€ç¤¼ç‰©ç»™ç©å®¶ã€‚
+å…¶ä¸­ï¼Œç¤¼å“æ”¯æŒï¼š
 HELP);
 
 	i = sizeof(keys(add_types));

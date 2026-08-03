@@ -6,16 +6,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIC"ÅäÌì×÷Õò·»"NOR);
+	set("short", HIC"é…å¤©ä½œé•‡åŠ"NOR);
 	set("long", @LONG
-ÍùÉÏÐÐ±ãÊÇÎ»ÓÚáÔÉ½Ö®áÛµÄ·âìøÌ¨¡£Ïò±±ÍûÈ¥£¬Ò£¼û³É¸ÞÓñÃÅ£¬»Æ
-ºÓÓÐÈçÒ»Ïß£¬Î÷ÏòÒþÒþ¼ûµ½ÂåÑôÒÁãÚ£¬¶«ÄÏÁ½·½½ÔÊÇÖØÖØµþµþµÄÉ½·å¡£
+å¾€ä¸Šè¡Œä¾¿æ˜¯ä½äºŽåµ©å±±ä¹‹å·…çš„å°ç¦…å°ã€‚å‘åŒ—æœ›åŽ»ï¼Œé¥è§æˆçš‹çŽ‰é—¨ï¼Œé»„
+æ²³æœ‰å¦‚ä¸€çº¿ï¼Œè¥¿å‘éšéšè§åˆ°æ´›é˜³ä¼Šé˜™ï¼Œä¸œå—ä¸¤æ–¹çš†æ˜¯é‡é‡å å çš„å±±å³°ã€‚
 LONG);
 	set("exits", ([
 		"southdown" : __DIR__"shidao3",
 		"northup" : __DIR__"fengchantai",
 	]));
-	set("outdoors", "áÔÉ½");
+	set("outdoors", "åµ©å±±");
 	setup();
 }
 
@@ -23,7 +23,7 @@ void init()
 {
 	object me = this_player();
 
-	if ( me->query("family/family_name") == "áÔÉ½ÅÉ"
-	&& me->query("title") == "áÔÉ½ÅÉµÚËÄ´úµÜ×Ó")
-		me->set("title", HIC"ÎåÔÀÃËÖ÷Ç×´«µÜ×Ó"NOR);
+	if ( me->query("family/family_name") == "åµ©å±±æ´¾"
+	&& me->query("title") == "åµ©å±±æ´¾ç¬¬å››ä»£å¼Ÿå­")
+		me->set("title", HIC"äº”å²³ç›Ÿä¸»äº²ä¼ å¼Ÿå­"NOR);
 }

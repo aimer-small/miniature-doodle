@@ -1,4 +1,4 @@
-// parrot.c ğĞğÄ
+// parrot.c é¹¦é¹‰
 // Lklv modify 2001.10.18
 
 #include <ansi.h>
@@ -16,14 +16,14 @@ int password_try = 0;
 
 void create()
 {
-	set_name("ğĞğÄ", ({ "ying wu", "parrot", "yingwu" }) );
-	set("race", "Ò°ÊŞ");
-	set("gender", "ĞÛĞÔ" );
+	set_name("é¹¦é¹‰", ({ "ying wu", "parrot", "yingwu" }) );
+	set("race", "é‡å…½");
+	set("gender", "é›„æ€§" );
 	set("age", 2);
-	set("long", "Ò»Ö»»áËµ»°µÄĞ¡ÂÌğĞğÄ¡£\n");
+	set("long", "ä¸€åªä¼šè¯´è¯çš„å°ç»¿é¹¦é¹‰ã€‚\n");
 	set("attitude", "peaceful");
 
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "³á°ò", "Î²²¿" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ç¿…è†€", "å°¾éƒ¨" }) );
 	set("verbs", ({ "claw", "poke" }) );
 
 	set("str", 15);
@@ -42,15 +42,15 @@ void create()
 
 	set("inquiry", ([
 		"name": (: ask_name :),
-		"rumors": "ÌıËµÈÕ±¾ÈËÒ²ÔÚÑ°ÕÒÈğÊ¿ÒøĞĞÄÇ¸öÕÊ»§µÄÃÜÂë¡£",
-		"here": "ÎÒÓÖ²»ÊÇÈË£¬ÔõÃ´ÖªµÀ£¿£¡",
-		"º®Óê": "ËµÆğÀ´Ò²ÊÇËû´´ÔìÁËÎÒ£¬²»¹ıÕâ¼Ò»ïÊÇ¸öÔì£ñ£õ£å£ó£ô¿ñ¡£",
-		"jpei": "ËµÆğÀ´Ò²ÊÇËû´´ÔìÁËÎÒ£¬²»¹ıÕâ¼Ò»ïÊÇ¸öÔì£ñ£õ£å£ó£ô¿ñ¡£",
-		"°µºÅ" : "Õâ¶¼²»ÖªµÀ£¿È¥¿´¡¶¸»¹ó±øÍÅ¡·£¡",
-		"ÕÊ»§" : "ÏÈ¶ÔÉÏ°µºÅÔÙ¸æÄãÃÜÂë£¡",
-		"²ÆÉñ" : (: ask_caishen :),
-		"ÍòÀï³¤³ÇÍòÀï³¤": (: ask_greatwall :),
-		"ÃÜÂë": (: ask_password :),
+		"rumors": "å¬è¯´æ—¥æœ¬äººä¹Ÿåœ¨å¯»æ‰¾ç‘å£«é“¶è¡Œé‚£ä¸ªå¸æˆ·çš„å¯†ç ã€‚",
+		"here": "æˆ‘åˆä¸æ˜¯äººï¼Œæ€ä¹ˆçŸ¥é“ï¼Ÿï¼",
+		"å¯’é›¨": "è¯´èµ·æ¥ä¹Ÿæ˜¯ä»–åˆ›é€ äº†æˆ‘ï¼Œä¸è¿‡è¿™å®¶ä¼™æ˜¯ä¸ªé€ ï½‘ï½•ï½…ï½“ï½”ç‹‚ã€‚",
+		"jpei": "è¯´èµ·æ¥ä¹Ÿæ˜¯ä»–åˆ›é€ äº†æˆ‘ï¼Œä¸è¿‡è¿™å®¶ä¼™æ˜¯ä¸ªé€ ï½‘ï½•ï½…ï½“ï½”ç‹‚ã€‚",
+		"æš—å·" : "è¿™éƒ½ä¸çŸ¥é“ï¼Ÿå»çœ‹ã€Šå¯Œè´µå…µå›¢ã€‹ï¼",
+		"å¸æˆ·" : "å…ˆå¯¹ä¸Šæš—å·å†å‘Šä½ å¯†ç ï¼",
+		"è´¢ç¥" : (: ask_caishen :),
+		"ä¸‡é‡Œé•¿åŸä¸‡é‡Œé•¿": (: ask_greatwall :),
+		"å¯†ç ": (: ask_password :),
 	]));
 
 	set("chat_chance_combat", 20);
@@ -62,7 +62,7 @@ void create()
 		(: command, "chicken" :),
 	}));
 
-	set("race", "·ÉÇİ");
+	set("race", "é£ç¦½");
 	set("can_speak", 1);
 	setup();
 }
@@ -84,9 +84,9 @@ void init()
 int continue_follow(object ob)
 {
 	if (objectp(ob) && !present(ob, environment(this_object()))) {
-		say("ğĞğÄºöÈ»Õñ³á·É×ßÁË¡£\n");
+		say("é¹¦é¹‰å¿½ç„¶æŒ¯ç¿…é£èµ°äº†ã€‚\n");
 		move(environment(ob));
-		message_vision("ğĞğÄ·ÉÁË¹ıÀ´£¬Í£ÔÚ$NµÄ¼ç°òÉÏ¡£\n", ob);
+		message_vision("é¹¦é¹‰é£äº†è¿‡æ¥ï¼Œåœåœ¨$Nçš„è‚©è†€ä¸Šã€‚\n", ob);
 	}
 }
 
@@ -96,12 +96,12 @@ int do_let(string arg)
 	string myid, todie;
 
 	if (!arg || sscanf(arg, "%s %s", myid, todie) < 2)
-		return notify_fail("ÄãÏë×öÊ²Ã´£¿\n");
-	if (!id(myid)) return notify_fail("ÄãÏëË­×öÊ²Ã´£¿\n");
-	if (todie != "to die" && todie != "È¥ËÀ" && todie != "die")
-		return notify_fail("ÄãÏëÈÃğĞğÄ×öÊ²Ã´£¿\n");
-	if (ob != follow_ob) return notify_fail("ğĞğÄ²Å²»ÀíÄãÄØ£¡\n");
-	message_vision("$N¶Ô×ÅğĞğÄºÈµÀ£º¡°ÄãÈ¥ËÀ°É£¡¡±\n", ob);
+		return notify_fail("ä½ æƒ³åšä»€ä¹ˆï¼Ÿ\n");
+	if (!id(myid)) return notify_fail("ä½ æƒ³è°åšä»€ä¹ˆï¼Ÿ\n");
+	if (todie != "to die" && todie != "å»æ­»" && todie != "die")
+		return notify_fail("ä½ æƒ³è®©é¹¦é¹‰åšä»€ä¹ˆï¼Ÿ\n");
+	if (ob != follow_ob) return notify_fail("é¹¦é¹‰æ‰ä¸ç†ä½ å‘¢ï¼\n");
+	message_vision("$Nå¯¹ç€é¹¦é¹‰å–é“ï¼šâ€œä½ å»æ­»å§ï¼â€\n", ob);
 	command("inn " + ob->query("id"));
 	command("deadlove parrot");
 	die();
@@ -112,7 +112,7 @@ void relay_say(object ob, string msg)
 {
 
 	if (!msg) return;
-	say(CYN + "ğĞğÄÖØ¸´µÀ£º¡¸" + msg + "¡¹\n" + NOR);
+	say(CYN + "é¹¦é¹‰é‡å¤é“ï¼šã€Œ" + msg + "ã€\n" + NOR);
 }
 
 void relay_emote(object me, string arg)
@@ -457,10 +457,10 @@ int return_home(object home)
 	if (!living(this_object()) || is_fighting()) return 0;
 
 	if (!follow_ob || !objectp(follow_ob)) {
-		message("vision", this_object()->name() + "¼±¼±Ã¦Ã¦µØ·É×ßÁË¡£\n",
+		message("vision", this_object()->name() + "æ€¥æ€¥å¿™å¿™åœ°é£èµ°äº†ã€‚\n",
 			environment(), this_object());
 		if (move(home)) {
-			message("vision", this_object()->name() + "¼±¼±Ã¦Ã¦µØ·ÉÁË¹ıÀ´¡£\n",
+			message("vision", this_object()->name() + "æ€¥æ€¥å¿™å¿™åœ°é£äº†è¿‡æ¥ã€‚\n",
 				environment(), this_object());
 			return 1;
 		}
@@ -472,44 +472,44 @@ int return_home(object home)
 string ask_name()
 {
 	if (this_player()->query_temp("parrot"))
-		return "ÎÒ¾ÍÊÇ²ÆÉñ¡£";
+		return "æˆ‘å°±æ˜¯è´¢ç¥ã€‚";
 	else
-		return "ÄãÃ»¸ã´í°É£¿ğĞğÄÒ²ÓĞÃû×ÖÂğ£¿";
+		return "ä½ æ²¡æé”™å§ï¼Ÿé¹¦é¹‰ä¹Ÿæœ‰åå­—å—ï¼Ÿ";
 }
 
 string ask_password()
 {
 	if (this_player()->query_temp("parrot"))
-		return "ÃÜÂëËäÈ»³¤£¬µ«ÊÇºÜºÃ¼Ç£º43420 024 420 Äî°Ë±é¡£";
+		return "å¯†ç è™½ç„¶é•¿ï¼Œä½†æ˜¯å¾ˆå¥½è®°ï¼š43420 024 420 å¿µå…«éã€‚";
 	else {
 		if (password_try < 16012345) password_try += random(10) + 1;
-		return "Ê²Ã´ÃÜÂë£¿masterµÄµÇÂ¼ÃÜÂëÂğ£¿ÎÒÊÔÁË" + chinese_number(password_try) + "´ÎÁË£¬»¹Ã»ÊÔ³öÀ´....";
+		return "ä»€ä¹ˆå¯†ç ï¼Ÿmasterçš„ç™»å½•å¯†ç å—ï¼Ÿæˆ‘è¯•äº†" + chinese_number(password_try) + "æ¬¡äº†ï¼Œè¿˜æ²¡è¯•å‡ºæ¥....";
 	}
 }
 
 string ask_caishen()
 {
 	if (this_player()->query_temp("parrot"))
-		return "²ÆÉñ¾ÍÊÇÎÒ¡£";
+		return "è´¢ç¥å°±æ˜¯æˆ‘ã€‚";
 	else
-		return "Ïë·¢²ÆÏë·èÁË£¿£¡";
+		return "æƒ³å‘è´¢æƒ³ç–¯äº†ï¼Ÿï¼";
 }
 
 string ask_greatwall()
 {
 	this_player()->set_temp("parrot", 1);
-	return "ÆëĞÄºÏÁ¦½¨¼ÒÏç¡£";
+	return "é½å¿ƒåˆåŠ›å»ºå®¶ä¹¡ã€‚";
 }
 
 void kill_ob(object ob)
 {
 	ob->remove_killer(this_object());
 	remove_killer(ob);
-	message_vision("$NÕıÏë¶ÔğĞğÄÏÂ¶¾ÊÖ£¬ºöÈ»±»ÈËÌßÁË¸ö¸úÍ·£¬Ò»¸ö¶¯Îï±£»¤Ö÷ÒåÕßºÈµÀ£º¡°Çë°®»¤Ğ¡¶¯Îï£¡¡±\n", ob);
+	message_vision("$Næ­£æƒ³å¯¹é¹¦é¹‰ä¸‹æ¯’æ‰‹ï¼Œå¿½ç„¶è¢«äººè¸¢äº†ä¸ªè·Ÿå¤´ï¼Œä¸€ä¸ªåŠ¨ç‰©ä¿æŠ¤ä¸»ä¹‰è€…å–é“ï¼šâ€œè¯·çˆ±æŠ¤å°åŠ¨ç‰©ï¼â€\n", ob);
 }
 
 int accept_fight(object ob)
 {
-	message_vision("ğĞğÄ¶Ô×Å$N´ó½Ğ£º¡°" + RANK_D->query_rude(ob) + "£¬ÓĞ±¾ÊÂÉ±ÎÒÑ½£¡¡±\n", ob);
+	message_vision("é¹¦é¹‰å¯¹ç€$Nå¤§å«ï¼šâ€œ" + RANK_D->query_rude(ob) + "ï¼Œæœ‰æœ¬äº‹æ€æˆ‘å‘€ï¼â€\n", ob);
 	return 0;
 }

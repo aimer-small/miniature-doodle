@@ -6,9 +6,9 @@ inherit ITEM;
 
 void create()
 {	
-	set_name(HIW"Ë®¾§ºĞ×Ó"NOR, ({ "box","li he" }) );
-	set("long", "Ò»¸öÓÃË®¾§×ö³ÉµÄĞ¡ºĞ×Ó¡£\n");
-	set("unit","¸ö");
+	set_name(HIW"æ°´æ™¶ç›’å­"NOR, ({ "box","li he" }) );
+	set("long", "ä¸€ä¸ªç”¨æ°´æ™¶åšæˆçš„å°ç›’å­ã€‚\n");
+	set("unit","ä¸ª");
 	set("no_drop",1);
         set("no_give",1);
         set("no_cun",1);
@@ -20,7 +20,7 @@ void init()
 {
 	if((this_player() == environment()) && (this_player()->query_temp("token/maker")))
 	{
-		set("long", "Ò»¸ö×°×ÅÀñÎïµÄË®¾§ºĞ×Ó,Äã¿ÉÒÔ°ÑËüÔùËÍ(present)¸øÄãµÄÇ×ÓÑ¡£\n");
+		set("long", "ä¸€ä¸ªè£…ç€ç¤¼ç‰©çš„æ°´æ™¶ç›’å­,ä½ å¯ä»¥æŠŠå®ƒèµ é€(present)ç»™ä½ çš„äº²å‹ã€‚\n");
 	}
 
 
@@ -34,36 +34,36 @@ int do_present(string arg)
 	object ob,me = this_player();
 	
 	if (!me->query_temp("token/maker"))
-		return notify_fail("Õâ¸ö¶«Î÷²»ÄÜ×ªËÍ¡£\n");
+		return notify_fail("è¿™ä¸ªä¸œè¥¿ä¸èƒ½è½¬é€ã€‚\n");
 		
 	if (!arg)
-		return notify_fail("ÄãÒª°Ñ¶«Î÷ÔùËÍ¸øË­°¡£¿\n");
+		return notify_fail("ä½ è¦æŠŠä¸œè¥¿èµ é€ç»™è°å•Šï¼Ÿ\n");
 
 if(me->query("age")<18 && arg!= me->query("id"))
-             return notify_fail("Ğ¡Ğ¡Äê¼Í¾Í¿ªÊ¼Ì¸ÇéËµ°®£¬Õâ¸öÎïÆ·Èç´ËÕä¹ó£¬Äã»¹ÊÇÁô×Å×Ô¼ºÓÃ°É¡£\n");
+             return notify_fail("å°å°å¹´çºªå°±å¼€å§‹è°ˆæƒ…è¯´çˆ±ï¼Œè¿™ä¸ªç‰©å“å¦‚æ­¤çè´µï¼Œä½ è¿˜æ˜¯ç•™ç€è‡ªå·±ç”¨å§ã€‚\n");
 	if (!(ob = present(arg, environment(me))))
-		return notify_fail("ÕâÀïÃ»ÓĞÕâ¸öÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 	
 	if (!userp(ob))
-		return notify_fail("Äã»¹ÊÇ²»Òª×Ô×ö¶àÇéÁË¡£\n");
+		return notify_fail("ä½ è¿˜æ˜¯ä¸è¦è‡ªåšå¤šæƒ…äº†ã€‚\n");
 
 	if (!living(ob))
-		return notify_fail("ÄãµÃÏÈ°ÑÈË¼ÒÅªĞÑÑ½¡£\n");
+		return notify_fail("ä½ å¾—å…ˆæŠŠäººå®¶å¼„é†’å‘€ã€‚\n");
 	
 	if (ob->query_temp("token/apply"))
-		return notify_fail(ob->query("name")+"ÒÑ¾­ÊÕµ½Ò»¸öÀñÎïÁË,ÄãµÈµÈÔÙËÍ°É¡£\n");
+		return notify_fail(ob->query("name")+"å·²ç»æ”¶åˆ°ä¸€ä¸ªç¤¼ç‰©äº†,ä½ ç­‰ç­‰å†é€å§ã€‚\n");
 		
 	if (mapp(ob->query("token/"+query("token/id"))))
-		return notify_fail(ob->query("name")+"ÒÑ¾­±£´æÁËÒ»¼şÍ¬ÀàµÄ¼ÍÄîÆ·,²»ÄÜÔÙ½ÓÊÜÄãµÄÀ¡ÔùÁË¡£\n");
+		return notify_fail(ob->query("name")+"å·²ç»ä¿å­˜äº†ä¸€ä»¶åŒç±»çš„çºªå¿µå“,ä¸èƒ½å†æ¥å—ä½ çš„é¦ˆèµ äº†ã€‚\n");
 
 		
-	set("long", "ÕâÊÇ"+this_player()->query("name")+"ÔùËÍ¸øÄãµÄ"+query("name")+"Äã¿ÉÒÔ½ÓÊÜ(apply)Ëü¡£\n");
+	set("long", "è¿™æ˜¯"+this_player()->query("name")+"èµ é€ç»™ä½ çš„"+query("name")+"ä½ å¯ä»¥æ¥å—(apply)å®ƒã€‚\n");
 
 	me->delete_temp("token");
 	ob->set_temp("token/apply",1);
 	this_object()->move(ob);
-	tell_object(me, "ÄãºÜĞ¡ĞÄµØ´Ó»³ÀïÄÃ³öÒ»¸ö"+query("name")+"½»¸ø"+ob->query("name")+"¡£\n");
-	tell_object(ob,me->query("name")+"ºÜĞ¡ĞÄµØ´Ó»³ÀïÄÃ³öÒ»¸ö"+query("name")+"½»¸øÄã¡£\n");
+	tell_object(me, "ä½ å¾ˆå°å¿ƒåœ°ä»æ€€é‡Œæ‹¿å‡ºä¸€ä¸ª"+query("name")+"äº¤ç»™"+ob->query("name")+"ã€‚\n");
+	tell_object(ob,me->query("name")+"å¾ˆå°å¿ƒåœ°ä»æ€€é‡Œæ‹¿å‡ºä¸€ä¸ª"+query("name")+"äº¤ç»™ä½ ã€‚\n");
 	return 1;
 }
 
@@ -72,10 +72,10 @@ int do_apply()
 	object ob,me = this_player();
 
 	if (!me->query_temp("token/apply"))
-		return notify_fail("ÒÑ¾­×°ºÃÁË¾Í²»ÒªÔÙ¿´ÁË°É¡£\n");
+		return notify_fail("å·²ç»è£…å¥½äº†å°±ä¸è¦å†çœ‹äº†å§ã€‚\n");
 		
 	if (mapp(me->query("token/"+query("token/id"))))
-		return notify_fail("ÄãÒÑ¾­±£´æÁËÒ»¼ş¼ÍÄîÆ·,²»ÄÜÔÙ½ÓÊÜ±ğÈËµÄÀ¡ÔùÁË¡£\n");
+		return notify_fail("ä½ å·²ç»ä¿å­˜äº†ä¸€ä»¶çºªå¿µå“,ä¸èƒ½å†æ¥å—åˆ«äººçš„é¦ˆèµ äº†ã€‚\n");
 			
 	me->delete_temp("token");
 	me->set("token/"+query("token/id")+"/desc",query("token/desc"));
@@ -85,7 +85,7 @@ int do_apply()
 		me->set("token/"+query("token/id")+"/dodge",query("token/dodge"));
 	ob=new("clone/spec/item/"+query("token/id")+".c");
 	ob->move(me);
-	tell_object(me, "Äã´ò¿ªË®¾§ºĞ×Ó¾ªÆæµØ·¢ÏÖÀïÃæµÄÓĞÒ»"+ob->query("unit")+ob->query("name")+",Äã¿ªĞÄµÄ´÷ÉÏÁË"+ob->query("name")+",ËæÊÖ°ÑË®¾§ºĞ×Ó¶ªÔÚÒ»±ß¡£\n");	
+	tell_object(me, "ä½ æ‰“å¼€æ°´æ™¶ç›’å­æƒŠå¥‡åœ°å‘ç°é‡Œé¢çš„æœ‰ä¸€"+ob->query("unit")+ob->query("name")+",ä½ å¼€å¿ƒçš„æˆ´ä¸Šäº†"+ob->query("name")+",éšæ‰‹æŠŠæ°´æ™¶ç›’å­ä¸¢åœ¨ä¸€è¾¹ã€‚\n");	
 	destruct(this_object());
 	return 1;
 }

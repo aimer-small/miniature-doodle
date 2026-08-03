@@ -1,11 +1,11 @@
-//tulong.c ÍÀÁú
+//tulong.c å± é¾™
 // By Spiderii@ty
 #include <ansi.h>
 
 inherit F_DBASE;
 inherit F_SSERVER;
  
-string perform_name() {return HIC"ÒÐÌìÍÀÁú¾÷"NOR;}
+string perform_name() {return HIC"å€šå¤©å± é¾™è¯€"NOR;}
 
 int perform(object me, object target)
 {
@@ -17,34 +17,34 @@ int perform(object me, object target)
         if( !objectp(target)
         ||      !target->is_character()
         ||      !me->is_fighting(target) )
-                return notify_fail("ÍÀÁú¾÷Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("å± é¾™è¯€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
     
         
       if((int)me->query_skill("yitian-tulong",1) < 200 )
-         return notify_fail("ÄãµÄÒÐÌìÍÀÁú¹¦»¹²»¹»ÊìÁ·£¬Ê¹²»³öÍÀÁú¾÷£¡\n");
+         return notify_fail("ä½ çš„å€šå¤©å± é¾™åŠŸè¿˜ä¸å¤Ÿç†Ÿç»ƒï¼Œä½¿ä¸å‡ºå± é¾™è¯€ï¼\n");
       
       if((int)me->query_skill("literate",1) < 200 )
-         return notify_fail("ÄãµÄ¶ÁÊéÐ´×ÖµÈ¼¶²»¹»£¬Ê¹²»³öÍÀÁú¾÷£¡\n");  
+         return notify_fail("ä½ çš„è¯»ä¹¦å†™å­—ç­‰çº§ä¸å¤Ÿï¼Œä½¿ä¸å‡ºå± é¾™è¯€ï¼\n");  
 
       if((int)me->query_skill("sword",1) < 200 )
-         return notify_fail("ÄãµÄ»ù±¾½£·¨»¹²»¹»ÊìÁ·£¡\n");
+         return notify_fail("ä½ çš„åŸºæœ¬å‰‘æ³•è¿˜ä¸å¤Ÿç†Ÿç»ƒï¼\n");
 
         if( me->query("neili") <= 3000 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»Ê¹ÓÃÍÀÁú¾÷£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿä½¿ç”¨å± é¾™è¯€ï¼\n");
 
         if( me->query("jingli") <= 1000 )
-                return notify_fail("ÄãµÄ¾«Á¦²»¹»Ê¹ÓÃÍÀÁú¾÷£¡\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿä½¿ç”¨å± é¾™è¯€ï¼\n");
 
         if( me->query_temp("yttlg/tulong"))
-                return notify_fail("ÄãÕýÔÚÔËÓÃÍÀÁú¾÷£¡\n");
+                return notify_fail("ä½ æ­£åœ¨è¿ç”¨å± é¾™è¯€ï¼\n");
 
         if( !me->query_temp("weapon") || (me->query_temp("weapon"))->query("skill_type") != "sword" )
-                return notify_fail("ÄãÊÖÖÐÎÞ½£ÔõÄÜÊ¹ÓÃÍÀÁú¾÷£¿£¡\n");
+                return notify_fail("ä½ æ‰‹ä¸­æ— å‰‘æ€Žèƒ½ä½¿ç”¨å± é¾™è¯€ï¼Ÿï¼\n");
               
         weapon = (me->query_temp("weapon"))->query("name");
               
-       message_vision(HIY "\n$NÒÔÊÖÖÐ" + weapon + HIY"×ö±Ê£¬ÔÚ¿ÕÖÐÐ´Æð×ÖÀ´£¬Ã¿Ò»×Ö°üº¬ÊýÕÐ£¬±ãÓÐÊý°ã±ä»¯¡£\n" +
-        "µ«¼û½£ÕÐ¿ªºÏ£¬¿¡ÒÝ´¦Èç·çÆ®Ñ©Îè£¬ºñÖØ´¦Èç»¢¶×Ïó²½£¬µ±ÕæÊÇÐÛ»ë¸Õ½¡£¬ÁÜÀìº¨³©¡£\n" NOR, me, target);
+       message_vision(HIY "\n$Nä»¥æ‰‹ä¸­" + weapon + HIY"åšç¬”ï¼Œåœ¨ç©ºä¸­å†™èµ·å­—æ¥ï¼Œæ¯ä¸€å­—åŒ…å«æ•°æ‹›ï¼Œä¾¿æœ‰æ•°èˆ¬å˜åŒ–ã€‚\n" +
+        "ä½†è§å‰‘æ‹›å¼€åˆï¼Œä¿Šé€¸å¤„å¦‚é£Žé£˜é›ªèˆžï¼ŒåŽšé‡å¤„å¦‚è™Žè¹²è±¡æ­¥ï¼Œå½“çœŸæ˜¯é›„æµ‘åˆšå¥ï¼Œæ·‹æ¼“é…£ç•…ã€‚\n" NOR, me, target);
 
 skill = me->query_skill("yitian-tulong",1);
 
@@ -59,7 +59,7 @@ skill = me->query_skill("yitian-tulong",1);
         
        me->add("neili", -(me->query_skill("force")));
        me->add("jingli", - 100);
-       me->start_perform(4, "ÍÀÁú¾÷");
+       me->start_perform(4, "å± é¾™è¯€");
        call_out("remove_effect", 1, me, target, weapon, skill/10);
        return 1;
 }
@@ -79,7 +79,7 @@ int remove_effect(object me,object target,object weapon,int count)
            me->add_temp("apply/dodge",- me->query_skill("yitian-tulong", 1)/10);
            me->delete_temp("yttlg/tulong");
            if(living(me))
-             message_vision(HIG "\n$NÒÔ½£´ú±Ê£¬¶þÊ®ËÄ¸ö×ÖÒ»±éÓÖÒ»±éµÄ·­¸²ÑÝÕ¹£¬Á¼¾ÃÊ¼°Õ£¡\n\n" NOR, me);
+             message_vision(HIG "\n$Nä»¥å‰‘ä»£ç¬”ï¼ŒäºŒåå››ä¸ªå­—ä¸€éåˆä¸€éçš„ç¿»è¦†æ¼”å±•ï¼Œè‰¯ä¹…å§‹ç½¢ï¼\n\n" NOR, me);
            return 0;
          }
          call_out("remove_effect", 1 ,me ,target, weapon, count -1);
@@ -88,24 +88,24 @@ int remove_effect(object me,object target,object weapon,int count)
 
 int help(object me)
 {
-   write(HIG"\n¡¸"HIW"ÒÐÌìÍÀÁú¾÷"HIG"¡¹£º"NOR"\n");
+   write(HIG"\nã€Œ"HIW"å€šå¤©å± é¾™è¯€"HIG"ã€ï¼š"NOR"\n");
 	write(@HELP
    
-   ¡°ÎäÁÖÖÁ×ð£¬±¦µ¶ÍÀÁú¡£ºÅÁîÌìÏÂ£¬Äª¸Ò²»´Ó¡£ÒÐÌì²»³ö£¬Ë­ÓëÕù·æ¡£¡±
+   â€œæ­¦æž—è‡³å°Šï¼Œå®åˆ€å± é¾™ã€‚å·ä»¤å¤©ä¸‹ï¼ŒèŽ«æ•¢ä¸ä»Žã€‚å€šå¤©ä¸å‡ºï¼Œè°ä¸Žäº‰é”‹ã€‚â€
   
-   ÕÅÈý·áÊÙµ®Ö®ÈÕ,Ôâ·ê´ó±ä,ÇéÖ®ËùÖÁ£¬½«Õâ¶þÊ®ËÄ¸ö×ÖÑÝÎªÒ»Ì×Îä¹¦£¬ºó´«
-   ÓÚÎäµ±ÕÅ´äÉ½ÕÅÎäÏÀ¡£
+   å¼ ä¸‰ä¸°å¯¿è¯žä¹‹æ—¥,é­é€¢å¤§å˜,æƒ…ä¹‹æ‰€è‡³ï¼Œå°†è¿™äºŒåå››ä¸ªå­—æ¼”ä¸ºä¸€å¥—æ­¦åŠŸï¼ŒåŽä¼ 
+   äºŽæ­¦å½“å¼ ç¿ å±±å¼ æ­¦ä¾ ã€‚
   
-    Ö¸Áî£ºperform sword(parry).yttl
+    æŒ‡ä»¤ï¼šperform sword(parry).yttl
 
-    ÒªÇó£º»ù±¾½£·¨200¼¶
-          ¶ÁÊéÐ´×Ö200¼¶
-          ÒÐÌìÍÀÁú¹¦200¼¶
-          µ±Ç°ÄÚÁ¦3000ÒÔÉÏ£¬µ±Ç°¾«Á¦1000ÒÔÉÏ£¬ÊÖÖÐ³ÖÓÐ½£ÀàÎäÆ÷¡£
+    è¦æ±‚ï¼šåŸºæœ¬å‰‘æ³•200çº§
+          è¯»ä¹¦å†™å­—200çº§
+          å€šå¤©å± é¾™åŠŸ200çº§
+          å½“å‰å†…åŠ›3000ä»¥ä¸Šï¼Œå½“å‰ç²¾åŠ›1000ä»¥ä¸Šï¼Œæ‰‹ä¸­æŒæœ‰å‰‘ç±»æ­¦å™¨ã€‚
                     
 
-    ËµÃ÷£ºÒÐÌìÍÀÁú¹¦ÄËÊÇÓÉÈ­·¨ÑÝ±ä¶øÀ´¡£ÒªÇó¾ø¸ßµÄÊé·¨ÔìÒè£¬
-          ÁìÎòÖ®ºó£¬²»ÅÐ¶Ï¼¤·¢¡£
+    è¯´æ˜Žï¼šå€šå¤©å± é¾™åŠŸä¹ƒæ˜¯ç”±æ‹³æ³•æ¼”å˜è€Œæ¥ã€‚è¦æ±‚ç»é«˜çš„ä¹¦æ³•é€ è¯£ï¼Œ
+          é¢†æ‚Ÿä¹‹åŽï¼Œä¸åˆ¤æ–­æ¿€å‘ã€‚
 HELP
 	);
 	return 1;

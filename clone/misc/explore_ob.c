@@ -8,14 +8,14 @@ int decayed;
 
 void create()
 {
-        set_name("ÎŞÃûÊ¬Ìå", ({ "corpse" }) );
+        set_name("æ— åå°¸ä½“", ({ "corpse" }) );
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÊÇÒ»¾ßÎŞÃûÊ¬Ìå¡£\n");
-                set("unit", "¾ß" );
-                set("wield_msg", "$N¿¸Æğ$n×¼±¸Õ½¶·¡£\n");
-                set("unwield_msg", "$N°Ñ$nÖØĞÂ±³ÔÚ¼çÉÏ¡£\n");
+                set("long", "è¿™æ˜¯ä¸€å…·æ— åå°¸ä½“ã€‚\n");
+                set("unit", "å…·" );
+                set("wield_msg", "$Næ‰›èµ·$nå‡†å¤‡æˆ˜æ–—ã€‚\n");
+                set("unwield_msg", "$NæŠŠ$né‡æ–°èƒŒåœ¨è‚©ä¸Šã€‚\n");
         }
         decayed = 0;
         if( clonep(this_object()) ) call_out("decay", 120, 1);
@@ -34,27 +34,27 @@ void decay(int phase)
         decayed = phase;
         switch(phase) {
                 case 1:
-                        say( query("name") + "¿ªÊ¼¸¯ÀÃÁË£¬·¢³öÒ»¹ÉÄÑÎÅµÄ¶ñ³ô¡£\n" );
+                        say( query("name") + "å¼€å§‹è…çƒ‚äº†ï¼Œå‘å‡ºä¸€è‚¡éš¾é—»çš„æ¶è‡­ã€‚\n" );
                         delete_temp("apply");
                         switch(query("gender")) {
-                                case "ÄĞĞÔ":
-                                        set_name("¸¯ÀÃµÄÄĞÊ¬", ({ "corpse", "Ê¬Ìå" }) );
-                                case "Å®ĞÔ":
-                                        set_name("¸¯ÀÃµÄÅ®Ê¬", ({ "corpse", "Ê¬Ìå" }) );
+                                case "ç”·æ€§":
+                                        set_name("è…çƒ‚çš„ç”·å°¸", ({ "corpse", "å°¸ä½“" }) );
+                                case "å¥³æ€§":
+                                        set_name("è…çƒ‚çš„å¥³å°¸", ({ "corpse", "å°¸ä½“" }) );
                                 default:
-                                        set_name("¸¯ÀÃµÄÊ¬Ìå", ({ "corpse", "Ê¬Ìå" }) );
+                                        set_name("è…çƒ‚çš„å°¸ä½“", ({ "corpse", "å°¸ä½“" }) );
                         }
-                        set("long",     "Õâ¾ßÊ¬ÌåÏÔÈ»ÒÑ¾­ÌÉÔÚÕâÀïÓĞÒ»¶ÎÊ±¼äÁË£¬ÕıÉ¢·¢×ÅÒ»¹É¸¯Ê¬µÄÎ¶µÀ¡£\n");
+                        set("long",     "è¿™å…·å°¸ä½“æ˜¾ç„¶å·²ç»èººåœ¨è¿™é‡Œæœ‰ä¸€æ®µæ—¶é—´äº†ï¼Œæ­£æ•£å‘ç€ä¸€è‚¡è…å°¸çš„å‘³é“ã€‚\n");
                         call_out("decay", 120, phase + 1);
                         break;
                 case 2:
-                        say( query("name") + "±»·ç´µ¸ÉÁË£¬±ä³ÉÒ»¾ßº¡¹Ç¡£\n" );
-                        set_name("¿İ¸ÉµÄº¡¹Ç", ({ "skeleton" }) );
-                        set("long", "Õâ¸±º¡¹ÇÒÑ¾­ÌÉÔÚÕâÀïºÜ¾ÃÁË¡£\n");
+                        say( query("name") + "è¢«é£å¹å¹²äº†ï¼Œå˜æˆä¸€å…·éª¸éª¨ã€‚\n" );
+                        set_name("æ¯å¹²çš„éª¸éª¨", ({ "skeleton" }) );
+                        set("long", "è¿™å‰¯éª¸éª¨å·²ç»èººåœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚\n");
                         call_out("decay", 60, phase + 1);
                         break;
                 case 3:
-                        say( "Ò»Õó·ç´µ¹ı£¬°Ñ" + query("name") + "»¯³É¹Ç»Ò´µÉ¢ÁË¡£\n" );
+                        say( "ä¸€é˜µé£å¹è¿‡ï¼ŒæŠŠ" + query("name") + "åŒ–æˆéª¨ç°å¹æ•£äº†ã€‚\n" );
                         if( environment() ) {
                                 object *inv;
                                 int i;

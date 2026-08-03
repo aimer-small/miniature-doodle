@@ -1,13 +1,13 @@
-// wanqing.c ÍòÇàÀï
+// wanqing.c ä¸‡é’é‡Œ
 
 inherit NPC;
 
 void create()
 {
-        set_name("ÍòÇàÀï", ({ "wan qingli", "wan","qingli" }));
+        set_name("ä¸‡é’é‡Œ", ({ "wan qingli", "wan","qingli" }));
 	set("long", 
-		"Ò»¸ö±ëº·µÄºº×Ó£¬ËûÊÇÓáÁ«ÖÛµÄ´óµÜ×Ó¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä¸€ä¸ªå½ªæ‚çš„æ±‰å­ï¼Œä»–æ˜¯ä¿è²èˆŸçš„å¤§å¼Ÿå­ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 28);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -47,7 +47,7 @@ void create()
         prepare_skill("cuff", "taiji-quan");
         prepare_skill("hand", "juehu-shou");
 
-	create_family("Îäµ±ÅÉ", 3, "µÜ×Ó");
+	create_family("æ­¦å½“æ´¾", 3, "å¼Ÿå­");
 
 	setup();
         carry_object("/d/wudang/obj/white-robe")->wear();

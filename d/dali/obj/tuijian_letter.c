@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIR"ÍÆ¼öĞÅ"NOR, ({ "tuijian xin", "xin", "letter" }));
+        set_name(HIR"æ¨èä¿¡"NOR, ({ "tuijian xin", "xin", "letter" }));
         set_weight(50);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-                set("unit","·â");
-		set("long","ÕâÊÇÒ»·âÕòÄÏÍõÇ×±ÊÊÖÊéµÄÍÆ¼öĞÅ£¬ĞÅÊÇĞ´¸øÌìÁúËÂÁË»óìøÊ¦µÄ¡£\n");
+                set("unit","å°");
+		set("long","è¿™æ˜¯ä¸€å°é•‡å—ç‹äº²ç¬”æ‰‹ä¹¦çš„æ¨èä¿¡ï¼Œä¿¡æ˜¯å†™ç»™å¤©é¾™å¯ºäº†æƒ‘ç¦…å¸ˆçš„ã€‚\n");
                 set("no_get", 1);              
                 set("material", "paper");
          }

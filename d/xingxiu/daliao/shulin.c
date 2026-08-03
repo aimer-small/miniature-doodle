@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "Ê÷ÁÖ");
+        set("short", "æ ‘æ—");
         set("long", @LONG
-ÕâÊÇÒ»ÅÅĞ¡Ê÷ÁÖ£¬¹âÏßºÜ°µ¡£µØÉÏËÆºõÓĞÒ»Ğ©òşÉßÅÀ¹ıµÄºÛ¼£¡£
+è¿™æ˜¯ä¸€æ’å°æ ‘æ—ï¼Œå…‰çº¿å¾ˆæš—ã€‚åœ°ä¸Šä¼¼ä¹æœ‰ä¸€äº›èŸ’è›‡çˆ¬è¿‡çš„ç—•è¿¹ã€‚
 LONG);
         set("exits", ([
                 "east" : __FILE__,
@@ -33,8 +33,8 @@ int valid_leave(object me, string dir)
             me->move(__DIR__"shanlu1");
             me->delete_temp("daliao/north");
             me->delete_temp("daliao/south");
-            tell_room(environment(me), me->name()+"´ÓÄÏ±ßµÄÊ÷ÁÖ×ßÁË¹ıÀ´¡£\n", ({ me }));
-            return notify_fail("ÄãÀÛµÃ°ëËÀ£¬ÖÕì¶×ß³öÁËÊ÷ÁÖ¡£\n");
+            tell_room(environment(me), me->name()+"ä»å—è¾¹çš„æ ‘æ—èµ°äº†è¿‡æ¥ã€‚\n", ({ me }));
+            return notify_fail("ä½ ç´¯å¾—åŠæ­»ï¼Œç»ˆæ–¼èµ°å‡ºäº†æ ‘æ—ã€‚\n");
           }
           
         if (me->query_temp("daliao/south") >= 10)
@@ -42,8 +42,8 @@ int valid_leave(object me, string dir)
             me->move("/d/xingxiu/silk3");
             me->delete_temp("daliao/north");
             me->delete_temp("daliao/south");
-            tell_room(environment(me), me->name()+"´Ó±±±ßµÄÊ÷ÁÖ×ßÁË¹ıÀ´¡£\n", ({ me }));
-            return notify_fail("ÄãÀÛµÃ°ëËÀ£¬ÖÕì¶×ß³öÁËÊ÷ÁÖ¡£\n");
+            tell_room(environment(me), me->name()+"ä»åŒ—è¾¹çš„æ ‘æ—èµ°äº†è¿‡æ¥ã€‚\n", ({ me }));
+            return notify_fail("ä½ ç´¯å¾—åŠæ­»ï¼Œç»ˆæ–¼èµ°å‡ºäº†æ ‘æ—ã€‚\n");
           }
           
         return ::valid_leave(me,dir);

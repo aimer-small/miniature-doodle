@@ -1,15 +1,15 @@
-// Hong-yaoshi.c ºìÔ¿³×
+// Hong-yaoshi.c çº¢é’¥åŒ™
 // zly 99.7.28.
 
 inherit ITEM;
 
 void create()
 {
-        set_name("ºìÔ¿³×", ({"yaoshi","hys"}));
+        set_name("çº¢é’¥åŒ™", ({"yaoshi","hys"}));
         set("long",
-                "ÕâÊÇÒ»°ÑºìÔ¿³×¡£\n");
-        set("unit", "°Ñ");
+                "è¿™æ˜¯ä¸€æŠŠçº¢é’¥åŒ™ã€‚\n");
+        set("unit", "æŠŠ");
         set("weight", 10);
         set("value", 10000);
-        set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+        set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
 }

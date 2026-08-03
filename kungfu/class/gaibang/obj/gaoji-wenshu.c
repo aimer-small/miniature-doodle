@@ -5,7 +5,7 @@ inherit ITEM;
 
 void create()
 {
-	set("unit","·â");
+	set("unit","å°");
 	set("no_get", 1);
 	set("no_drop", 1);
 	set("no_put", 1);
@@ -19,8 +19,8 @@ void init()
 {
 	object me = this_player();
 
-	set_name ("¸æ¼±ÎÄÊé", ({ "wenshu" }));
-	set("long", "ÕâÊÇÒ»·â¸æ¼±ÎÄÊé(gaoji XXX)¡£\n");
+	set_name ("å‘Šæ€¥æ–‡ä¹¦", ({ "wenshu" }));
+	set("long", "è¿™æ˜¯ä¸€å°å‘Šæ€¥æ–‡ä¹¦(gaoji XXX)ã€‚\n");
 	if (me && present(this_object(), me)) {
 		add_action("do_gaoji", "gaoji");
 	}
@@ -34,42 +34,42 @@ int do_gaoji(string str)
 	int exp, pot, shen;
 
 	if (!str || str=="")
-		return notify_fail ("ÄãÒªÏòË­¸æ¼±£¿\n");
+		return notify_fail ("ä½ è¦å‘è°å‘Šæ€¥ï¼Ÿ\n");
 
 	if(!objectp(ob1 = present(str, environment(me))) )
-		return notify_fail("ÕâÀïÃ» " + str + " Õâ¸öÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡ " + str + " è¿™ä¸ªäººã€‚\n");
 
 	if( !living(ob1) )
-		return notify_fail("ÄãµÈ" + ob1->name() + "ÐÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("ä½ ç­‰" + ob1->name() + "é†’æ¥å†è¯´å§ã€‚\n");
 
 	if( ob1->query("id") != "hou junji" )
-		return notify_fail("±ß¹Ø¾üÇé¿É²»ÄÜËæ±ã¶ÔÊ²Ã´ÈË¶¼ÂÒËµ¡£\n");
+		return notify_fail("è¾¹å…³å†›æƒ…å¯ä¸èƒ½éšä¾¿å¯¹ä»€ä¹ˆäººéƒ½ä¹±è¯´ã€‚\n");
 
 	if( file_name (environment(this_player())) != "/d/xingxiu/jyg" )
-		return notify_fail("ºî¾ý¼¯Õâ´ÎÊÇ³öÀ´ÓÎÍæµÄ£¬²»Ïë¿¼ÂÇÆäËüÊÂÇé¡£\n");
+		return notify_fail("ä¾¯å›é›†è¿™æ¬¡æ˜¯å‡ºæ¥æ¸¸çŽ©çš„ï¼Œä¸æƒ³è€ƒè™‘å…¶å®ƒäº‹æƒ…ã€‚\n");
 
 	fam = (string)me->query("family/family_name");
-	message_vision("$N½»¸ø$nÒ»ÕÅ¸æ¼±ÎÄÊé¡£\n",me,ob1);
-	message_vision(CYN"$n¶Ô$NËµµÀ£º¶àÐ»"
+	message_vision("$Näº¤ç»™$nä¸€å¼ å‘Šæ€¥æ–‡ä¹¦ã€‚\n",me,ob1);
+	message_vision(CYN"$nå¯¹$Nè¯´é“ï¼šå¤šè°¢"
 		+ RANK_D->query_respect(me)
-		+ "Ç°À´±¨Ñ¶£¬ÎÒ¶¨½ÐÎ÷ÏÄ´ó¾üÓÐÀ´ÎÞ»Ø¡£\n"NOR, me, ob1 );
+		+ "å‰æ¥æŠ¥è®¯ï¼Œæˆ‘å®šå«è¥¿å¤å¤§å†›æœ‰æ¥æ— å›žã€‚\n"NOR, me, ob1 );
 	me->delete_temp("gb_job1");
 	exp = 50 + random( 50 );
 		
-	exp = me->add_exp_combat(exp,ob1,"¸æ¼±");
+	exp = me->add_exp_combat(exp,ob1,"å‘Šæ€¥");
 	
 	pot = exp/5+random(exp/10);
 	shen = exp/2 + pot/2;
 	me->add( "potential", pot );
 	me->add( "shen", shen );
-	write( sprintf(HIW "ºÃ£¬ÈÎÎñÍê³ÉÁË£¬ÄãµÃµ½ÁË"
-    		+ CHINESE_D->chinese_number( exp ) + "µãÊµÕ½¾­Ñé£¬"
-	        + CHINESE_D->chinese_number( pot ) + "µãÇ±ÄÜºÍ"
-	        + CHINESE_D->chinese_number( shen ) + "µãÕýÉñ¡£\n" NOR));
+	write( sprintf(HIW "å¥½ï¼Œä»»åŠ¡å®Œæˆäº†ï¼Œä½ å¾—åˆ°äº†"
+    		+ CHINESE_D->chinese_number( exp ) + "ç‚¹å®žæˆ˜ç»éªŒï¼Œ"
+	        + CHINESE_D->chinese_number( pot ) + "ç‚¹æ½œèƒ½å’Œ"
+	        + CHINESE_D->chinese_number( shen ) + "ç‚¹æ­£ç¥žã€‚\n" NOR));
 
-	log_file( "job/junqing", sprintf("%8s%-10sÍòÀï±¨¾üÇéÈÎÎñ£¬µÃµ½%3dµã¾­Ñé£¬%2dµãÇ±ÄÜ¡£\n",
+	log_file( "job/junqing", sprintf("%8s%-10sä¸‡é‡ŒæŠ¥å†›æƒ…ä»»åŠ¡ï¼Œå¾—åˆ°%3dç‚¹ç»éªŒï¼Œ%2dç‚¹æ½œèƒ½ã€‚\n",
 		me->query("name"), "("+me->query("id")+")", exp,pot ),me);	
-	if (fam == "Ø¤°ï") me->delete("job_name");
+	if (fam == "ä¸å¸®") me->delete("job_name");
 	if( me->query("potential") > me->query("max_pot") )
 		me->set("potential", me->query("max_pot") );
 	

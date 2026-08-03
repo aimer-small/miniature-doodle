@@ -1,19 +1,19 @@
-// guanjia2.c Ä¾·¿¹ÜÊÂ
+// guanjia2.c æœ¨æˆ¿ç®¡äº‹
 // Modify By River@SJ
 
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-       set_name("Ä¾·¿¹ÜÊÂ", ({ "mufang guanshi", "guanshi" }) );
-       set("gender", "ÄĞĞÔ" );
+       set_name("æœ¨æˆ¿ç®¡äº‹", ({ "mufang guanshi", "guanshi" }) );
+       set("gender", "ç”·æ€§" );
        set("age", 30);
-       set("long","ËûÊÇÏåÑôÎä¹İµÄÒ»¸ö¹Ü¼Ò£¬×¨¹ÜÄ¾·¿£¡\n");
+       set("long","ä»–æ˜¯è¥„é˜³æ­¦é¦†çš„ä¸€ä¸ªç®¡å®¶ï¼Œä¸“ç®¡æœ¨æˆ¿ï¼\n");
        set("combat_exp", 2500);
        set("attitude", "friendly");
 
        set("inquiry", ([
-             "¾âÄ¾Í·" : "Äã¾ÍÔÚÕâÀÏÀÏÊµÊµ¸øÎÒ¾âÄ¾Í·£¬Ã»ÓĞÎÒµÄÂúÒâ£¬Äã±ğÏë»ØÈ¥¸²Ãü£¡",               
+             "é”¯æœ¨å¤´" : "ä½ å°±åœ¨è¿™è€è€å®å®ç»™æˆ‘é”¯æœ¨å¤´ï¼Œæ²¡æœ‰æˆ‘çš„æ»¡æ„ï¼Œä½ åˆ«æƒ³å›å»è¦†å‘½ï¼",               
        ]) );
 
        setup();
@@ -33,14 +33,14 @@ void init()
 void greeting(object ob)
 {
        if( !ob || environment(ob) != environment() ) return;
-       if( ob->query_temp("job_name") != "¾âÄ¾Í·") return; 
+       if( ob->query_temp("job_name") != "é”¯æœ¨å¤´") return; 
        if (!( present("ju zi", ob))){
            command("hmm "+ob->query("id"));
-           command("say Äã»¹Ã»Áì¹¤¾ß°É£¬È¥ÎïÆ··¿ÕÒÁùÊ¦ĞÖÒª¡£");
+           command("say ä½ è¿˜æ²¡é¢†å·¥å…·å§ï¼Œå»ç‰©å“æˆ¿æ‰¾å…­å¸ˆå…„è¦ã€‚");
            return;
        }
-       if(!(ob->query_temp("job_name")!="¾âÄ¾Í·")){
+       if(!(ob->query_temp("job_name")!="é”¯æœ¨å¤´")){
            command("nod "+ob->query("id"));
-           command("say " + RANK_D->query_respect(ob)+ "£¬Äã¾ÍÔÚÕâ¾âÄ¾Í· "HIY HBCYN"ju Ä¾Í·"CYN" °É¡£"NOR);
+           command("say " + RANK_D->query_respect(ob)+ "ï¼Œä½ å°±åœ¨è¿™é”¯æœ¨å¤´ "HIY HBCYN"ju æœ¨å¤´"CYN" å§ã€‚"NOR);
        }
 }

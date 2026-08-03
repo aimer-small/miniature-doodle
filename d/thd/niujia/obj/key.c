@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-        set_name("Í­Ô¿³×", ({ "kezhan key", "key" }) );
+        set_name("é“œé’¥åŒ™", ({ "kezhan key", "key" }) );
         set_weight(10);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
         }
         setup();
 }

@@ -1,11 +1,11 @@
 //by action 6/7/2008
-//¿û»¨¹í÷È
+//è‘µèŠ±é¬¼é­…
 
 #include <ansi.h>
 #include <skill.h>
 #include <combat.h>
 
-string exert_name(){ return MAG"¹í÷È"NOR; }
+string exert_name(){ return MAG"é¬¼é­…"NOR; }
 inherit F_SSERVER;
 
 int exert(object me)
@@ -18,25 +18,25 @@ int exert(object me)
 		target = offensive_target(me);
 		
 	if( (int)me->query_skill("force",1) < 100 )
-                return notify_fail("ÄãµÄÄÚ¹¦»¹²»¹»»ğºò£¬Ê¹²»³ö¡¸¹í÷È¡¹¾ø¼¼¡£\n");  
+                return notify_fail("ä½ çš„å†…åŠŸè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºã€Œé¬¼é­…ã€ç»æŠ€ã€‚\n");  
                 
        	if( (int)me->query_skill("kuihua-shengong",1) < 100 )
-                return notify_fail("ÄãµÄ¿û»¨Éñ¹¦»¹²»¹»»ğºò£¬Ê¹²»³ö¡¸¹í÷È¡¹¾ø¼¼¡£\n");  
+                return notify_fail("ä½ çš„è‘µèŠ±ç¥åŠŸè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºã€Œé¬¼é­…ã€ç»æŠ€ã€‚\n");  
                 
        	if( (int)me->query("max_neili",1) < 3000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª»¹²»¹»»ğºò£¬Ê¹²»³ö¡¸¹í÷È¡¹¾ø¼¼¡£\n"); 
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºã€Œé¬¼é­…ã€ç»æŠ€ã€‚\n"); 
                  
        	if( (int)me->query("jingli", 1) < 1000 )
-                return notify_fail("ÄãÏÖÔÚ¾«Á¦²»¹»¡£\n");
+                return notify_fail("ä½ ç°åœ¨ç²¾åŠ›ä¸å¤Ÿã€‚\n");
                 
        	if( (int)me->query("neili", 1) < 2000 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸å¤Ÿã€‚\n");
                 
        	if (me->query_temp("khsg/gm"))
-                return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸¹í÷È¡¹¡£\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œé¬¼é­…ã€ã€‚\n");
 
-       	msg = HIC "$NÎ¢Ò»ÄıÉñ£¬ÔËÆğ¿û»¨ĞÄ·¨£¬Õû¸öÈËÈçÍ¬±»ÑÌÎíÁıÕÖÒ»°ã£¬Æ®ºö²»¶¨"
-        HIB"  ¹í÷ÈÖÁ¼«\n\n"NOR; 
+       	msg = HIC "$Nå¾®ä¸€å‡ç¥ï¼Œè¿èµ·è‘µèŠ±å¿ƒæ³•ï¼Œæ•´ä¸ªäººå¦‚åŒè¢«çƒŸé›¾ç¬¼ç½©ä¸€èˆ¬ï¼Œé£˜å¿½ä¸å®š"
+        HIB"  é¬¼é­…è‡³æ\n\n"NOR; 
 
        	me->add("neili", -(200+random(300)));
        	me->add("jingli", -(100+random(50)));
@@ -52,7 +52,7 @@ int exert(object me)
        	me->add_temp("apply/constitution", i/5);
        	me->add_temp("apply/strength", i/5);
        	me->set_temp("khsg/gm", i);
-       	me->start_perform(2, "¡¸¹í÷È¡¹");
+       	me->start_perform(2, "ã€Œé¬¼é­…ã€");
        	call_out("remove_effect", 1, me, i, i);
        	return 1;
 }
@@ -72,7 +72,7 @@ void remove_effect(object me, int count,int dex,int con,int str)
        	    me->add_temp("apply/constitution", -dex/5);
        	    me->add_temp("apply/strength", -dex/5);
            	me->delete_temp("khsg/gm");
-           	tell_object(me,HIW"ÄãµÄ¡¸"HIR"¿û»¨Éñ¹¦"HIW"¡¹Ö®¡¸"HIB"¹í ÷È"HIW"¡¹¾ø¼¼ÔËĞĞÍê±Ï£¬È«ÉíºöµÄÒ»¶Ù£¬ÏÖ³öÕû¸öÉíĞÎ¡£\n"NOR);
+           	tell_object(me,HIW"ä½ çš„ã€Œ"HIR"è‘µèŠ±ç¥åŠŸ"HIW"ã€ä¹‹ã€Œ"HIB"é¬¼ é­…"HIW"ã€ç»æŠ€è¿è¡Œå®Œæ¯•ï¼Œå…¨èº«å¿½çš„ä¸€é¡¿ï¼Œç°å‡ºæ•´ä¸ªèº«å½¢ã€‚\n"NOR);
            	return;
         }
  	call_out("remove_effect", 1 , me, count -1,dex);

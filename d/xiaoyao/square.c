@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "���䳡");
+        set("short", "练武场");
         set("long", @LONG
-��������ң�ɵ����䳡���������⼸��ľ�ˣ��ϱ��Ǵ����ݣ�
-ͨ����������ң�ɵ����ڴ�ϰ��������
+这里是逍遥派的练武场，场上立这几个木人，南边是打铁屋，
+通常有许多逍遥派弟子在此习武练剑。
 LONG );
         set("exits", ([ /* sizeof() == 2 */         
             "south"     : __DIR__"bingqif"

@@ -5,18 +5,18 @@ inherit NPC;
 inherit F_MASTER;
 void create()
 {
-        set_name("¹ÅóÆ³Ï", ({ "gu ducheng", "gu", "ducheng" }));
-        set("title", "´óÀí¹úÕòÄÏÍõ¸®¼Ò½«");
-        set("gender", "ÄĞĞÔ");
+        set_name("å¤ç¬ƒè¯š", ({ "gu ducheng", "gu", "ducheng" }));
+        set("title", "å¤§ç†å›½é•‡å—ç‹åºœå®¶å°†");
+        set("gender", "ç”·æ€§");
         set("age", 33);
         set("str", 27);
         set("dex", 26);
         set("per", 20);
-        set("long", "ÕâÈËÉí´©¾ü·ş£¬ÊÖ³ÖÁ½±ú°å¸«£¬Íş·çÁİÁİ¡£\n");
+        set("long", "è¿™äººèº«ç©¿å†›æœï¼Œæ‰‹æŒä¸¤æŸ„æ¿æ–§ï¼Œå¨é£å‡›å‡›ã€‚\n");
         set("combat_exp", 400000);
         set("shen_type", 1);
         set("attitude", "friendly");
-        create_family("´óÀí", 3 , "µÜ×Ó");
+        create_family("å¤§ç†", 3 , "å¼Ÿå­");
         set_skill("cuff", 90);
         set_skill("qiantian-yiyang", 100);
         set_skill("tianlong-xiang", 100);

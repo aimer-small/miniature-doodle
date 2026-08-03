@@ -9,12 +9,12 @@ int do_climb(string arg);
 
 void create()
 {
-	set("short", "Ê÷ÁÖÉî´¦");
+	set("short", "æ ‘æ—æ·±å¤„");
 	set("long",@LONG
-ÕâÊÇÒ»Æ¬Ğ¡Ê÷ÁÖµÄÉî´¦¡£µØÃæÉÏÂÌ²İÈçÒñ£¬Ã¯ÃÜµØÉú³¤×Å¡£ËÄÖÜ°²¾²µÃÁî
-ÈËÃ«¹Çã¤È»£¬¿´À´»¹ÊÇ¸Ï½ôÀë¿ªÕâÀïÎªÃî¡£Ê÷´ÔÖĞÓĞÒ»¿ÃÀÏÊ÷(tree)£¬Ïà¶ÔÓÚ
-ÆäËüÊ÷ÏÔµÃÊ®·ÖµÄ´Ö×³£¬Ê÷ÉÏµÄÊ÷Ò¶(leaf)·Ç³£Ã¯ÃÜ£¬ÓĞ¼¸Ö»²»ÖªÃûµÄĞ¡ÄñÔÚ
-ÆäÖĞ´ÜÀ´´ÜÈ¥¡£
+è¿™æ˜¯ä¸€ç‰‡å°æ ‘æ—çš„æ·±å¤„ã€‚åœ°é¢ä¸Šç»¿è‰å¦‚è«ï¼ŒèŒ‚å¯†åœ°ç”Ÿé•¿ç€ã€‚å››å‘¨å®‰é™å¾—ä»¤
+äººæ¯›éª¨æ‚šç„¶ï¼Œçœ‹æ¥è¿˜æ˜¯èµ¶ç´§ç¦»å¼€è¿™é‡Œä¸ºå¦™ã€‚æ ‘ä¸›ä¸­æœ‰ä¸€æ£µè€æ ‘(tree)ï¼Œç›¸å¯¹äº
+å…¶å®ƒæ ‘æ˜¾å¾—ååˆ†çš„ç²—å£®ï¼Œæ ‘ä¸Šçš„æ ‘å¶(leaf)éå¸¸èŒ‚å¯†ï¼Œæœ‰å‡ åªä¸çŸ¥åçš„å°é¸Ÿåœ¨
+å…¶ä¸­çªœæ¥çªœå»ã€‚
 LONG
 );
 	set("exits",([
@@ -22,11 +22,11 @@ LONG
 		"north" : __DIR__"shulin7",
 	]) );
 	set("item_desc", ([
-		"tree" : "Ò»¿Ã´óÊ÷£¬Ö¦Ò¶Ã¯ÃÜ£¬¿´²»ÇåÉÏÃæµÄÇé¿ö¡£Ö¦Í·¹ÒÂúÁËÒ°¹û£¬ÒÑ¾­ÊìµØÒªµôÏÂÀ´ÁË¡£\n",
-		"leaf" : "Ê÷Ò¶ËÉËÉµØ¹ÒÔÚÊ÷ÉÏ£¬¿´ÉÏÈ¥ºÜÏë°ÑËüÕªÏÂÀ´¡£\n",
+		"tree" : "ä¸€æ£µå¤§æ ‘ï¼Œæå¶èŒ‚å¯†ï¼Œçœ‹ä¸æ¸…ä¸Šé¢çš„æƒ…å†µã€‚æå¤´æŒ‚æ»¡äº†é‡æœï¼Œå·²ç»ç†Ÿåœ°è¦æ‰ä¸‹æ¥äº†ã€‚\n",
+		"leaf" : "æ ‘å¶æ¾æ¾åœ°æŒ‚åœ¨æ ‘ä¸Šï¼Œçœ‹ä¸Šå»å¾ˆæƒ³æŠŠå®ƒæ‘˜ä¸‹æ¥ã€‚\n",
 	]) );
 	set("no_clean_up",0);
-	set("outdoors", "¹éÔÆ×¯");
+	set("outdoors", "å½’äº‘åº„");
 	set("stick_count", 3);
 	setup();
 }
@@ -53,7 +53,7 @@ void init()
 	add_action("do_climb", "pa");
 	add_action("do_zhai", "zhai");
 	if (room = find_object(__DIR__"shushang"))
-		tell_room(room, "Í¸¹ıÊ÷Ò¶µÄ·ìÏ¶£¬Äã¿´¼û" + this_player()->name() + "À´µ½ÁËÊ÷ÏÂ¡£\n");
+		tell_room(room, "é€è¿‡æ ‘å¶çš„ç¼éš™ï¼Œä½ çœ‹è§" + this_player()->name() + "æ¥åˆ°äº†æ ‘ä¸‹ã€‚\n");
 }
 
 int do_zhai(string arg)
@@ -61,9 +61,9 @@ int do_zhai(string arg)
 	object me = this_player();
 
 	if (arg != "leaf" && arg != "shuye" && arg != "ye")
-		return notify_fail("ÄãÒªÕªÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‘˜ä»€ä¹ˆï¼Ÿ\n");
 
-	message_vision("$NÉìÊÖÈ¥¹»Ê÷ÉÏµÄÒ¶×Ó£¬·¢ÏÖÊÖ±ÛĞèÒªÔÙ³¤¼¸Ê®³ß²ÅĞĞ£¡\n", me);
+	message_vision("$Nä¼¸æ‰‹å»å¤Ÿæ ‘ä¸Šçš„å¶å­ï¼Œå‘ç°æ‰‹è‡‚éœ€è¦å†é•¿å‡ åå°ºæ‰è¡Œï¼\n", me);
 	return 1;
 }
 
@@ -75,19 +75,19 @@ int do_sling(string arg)
 	string weapon_name;
 
 	if (arg != "leaf" && arg != "shuye" && arg != "ye")
-		return notify_fail("ÄãÒªÉäÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å°„ä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
 	weapon = me->query_temp("weapon");
 	if (!weapon) {
-		message_vision("$N¶Ô×ÅÊ÷ÉÏµÄÒ¶×ÓÔËÆø£¬ÓÖ±ÄÓÖÌøÊÔÍ¼°ÑËüÕªÏÂÀ´£¬È´Ê¼ÖÕÃ»·¨¹»µ½¡£\n", me);
+		message_vision("$Nå¯¹ç€æ ‘ä¸Šçš„å¶å­è¿æ°”ï¼Œåˆè¹¦åˆè·³è¯•å›¾æŠŠå®ƒæ‘˜ä¸‹æ¥ï¼Œå´å§‹ç»ˆæ²¡æ³•å¤Ÿåˆ°ã€‚\n", me);
 		return 1;
 	}
 	weapon_name = weapon->query("name");
 	if (weapon->query("skill_type") != "throwing") {
-		message_vision("$NÓÃÊÖÖĞµÄ" + weapon_name + "È¥¹»Ê÷ÉÏµÄÒ¶×Ó£¬È´²»¹»³¤¡£\n", me);
+		message_vision("$Nç”¨æ‰‹ä¸­çš„" + weapon_name + "å»å¤Ÿæ ‘ä¸Šçš„å¶å­ï¼Œå´ä¸å¤Ÿé•¿ã€‚\n", me);
 		return 1;
 	}
 
@@ -99,10 +99,10 @@ int do_sling(string arg)
 			ob = all_inventory(room);
 			for (i = 0; i < sizeof(ob); i++) {
 				if (userp(ob[i])) {
-					tell_object(ob[i], me->name() + "ÌÍ³öÒ»¿Å" + weapon_name + "£¬¶Ô×ÅÊ÷ÉÏµ¯À´£¬È´ÕıºÃ»÷ÖĞÄã£¬Äã½ÅÏÂÒ»¸ö²»ÎÈ£¬µôÁËÏÂÈ¥¡£\n");
-					tell_room(room, me->name() + "ÌÍ³öÒ»¿Å" + weapon_name + "£¬¶Ô×ÅÊ÷ÉÏµ¯À´£¬È´ÕıºÃ»÷ÖĞ" + ob[i]->name() + "£¬" + ob[i]->name() + "½ÅÏÂÒ»¸ö²»ÎÈ£¬µôÁËÏÂÈ¥¡£\n", ({ob[i]}));
-					write("ÄãÌÍ³öÒ»¿Å" + weapon_name + "£¬¶Ô×¼Ê÷Ò¶µ¯È¥£¬Ö»Ìı¡°°¡¡±µØÒ»Éù²Ò½Ğ£¬Ò»¸öÈË´ÓÊ÷ÉÏµôÁËÏÂÀ´£¬×ĞÏ¸Ò»¿´£¬È´ÊÇ" + ob[i]->name() + "¡£\n");
-					tell_room(this_object(), me->name() + "ÌÍ³öÒ»¿Å" + weapon_name + "£¬¶Ô×¼Ê÷Ò¶µ¯È¥£¬Ö»Ìı¡°°¡¡±µØÒ»Éù²Ò½Ğ£¬Ò»¸öÈË´ÓÊ÷ÉÏµôÁËÏÂÀ´£¬×ĞÏ¸Ò»¿´£¬È´ÊÇ" + ob[i]->name() + "¡£\n", ({me}));
+					tell_object(ob[i], me->name() + "æå‡ºä¸€é¢—" + weapon_name + "ï¼Œå¯¹ç€æ ‘ä¸Šå¼¹æ¥ï¼Œå´æ­£å¥½å‡»ä¸­ä½ ï¼Œä½ è„šä¸‹ä¸€ä¸ªä¸ç¨³ï¼Œæ‰äº†ä¸‹å»ã€‚\n");
+					tell_room(room, me->name() + "æå‡ºä¸€é¢—" + weapon_name + "ï¼Œå¯¹ç€æ ‘ä¸Šå¼¹æ¥ï¼Œå´æ­£å¥½å‡»ä¸­" + ob[i]->name() + "ï¼Œ" + ob[i]->name() + "è„šä¸‹ä¸€ä¸ªä¸ç¨³ï¼Œæ‰äº†ä¸‹å»ã€‚\n", ({ob[i]}));
+					write("ä½ æå‡ºä¸€é¢—" + weapon_name + "ï¼Œå¯¹å‡†æ ‘å¶å¼¹å»ï¼Œåªå¬â€œå•Šâ€åœ°ä¸€å£°æƒ¨å«ï¼Œä¸€ä¸ªäººä»æ ‘ä¸Šæ‰äº†ä¸‹æ¥ï¼Œä»”ç»†ä¸€çœ‹ï¼Œå´æ˜¯" + ob[i]->name() + "ã€‚\n");
+					tell_room(this_object(), me->name() + "æå‡ºä¸€é¢—" + weapon_name + "ï¼Œå¯¹å‡†æ ‘å¶å¼¹å»ï¼Œåªå¬â€œå•Šâ€åœ°ä¸€å£°æƒ¨å«ï¼Œä¸€ä¸ªäººä»æ ‘ä¸Šæ‰äº†ä¸‹æ¥ï¼Œä»”ç»†ä¸€çœ‹ï¼Œå´æ˜¯" + ob[i]->name() + "ã€‚\n", ({me}));
 					ob[i]->move(this_object());
 					qi = ob[i]->query("qi");
 					if (qi > 200) ob[i]->receive_damage("qi", qi / 2);
@@ -116,28 +116,28 @@ int do_sling(string arg)
 	level = me->query_skill("throwing", 1);
 	jinglicost = level / 3 + random(level / 3);
         if (me->query("jingli") <= jinglicost) {
-		write("ÄãÌ«ÀÛÁË£¬ÏÈĞªĞª°É£¡\n");
+		write("ä½ å¤ªç´¯äº†ï¼Œå…ˆæ­‡æ­‡å§ï¼\n");
 		return 1;
 	}
 	if (level < 30) {
-		write("ÄãÌÍ³öÒ»¿Å" + weapon_name + "£¬¶Ô×¼Ê÷Ò¶µ¯È¥£¬È´ÒòÎªÖ¸¾¢Ì«Èõ¶øÃ»ÓĞµ¯µ½¡£\n");
+		write("ä½ æå‡ºä¸€é¢—" + weapon_name + "ï¼Œå¯¹å‡†æ ‘å¶å¼¹å»ï¼Œå´å› ä¸ºæŒ‡åŠ²å¤ªå¼±è€Œæ²¡æœ‰å¼¹åˆ°ã€‚\n");
 		WEAPON_D->throw_weapon(me, me, weapon, 0);
 		return 1;
 	}
 	me->receive_damage("jingli", jinglicost);
 	if (level <= 100) {
-		write("ÄãÌÍ³öÒ»¿Å" + weapon_name + "£¬¶Ô×¼Ê÷Ò¶µ¯È¥£¬Ö»Ìı¡°àÍ¡±µØÉùÏì¹ıºó£¬Ò»Æ¬Ê÷Ò¶Ó¦Éù¶øÂä¡£\n");
+		write("ä½ æå‡ºä¸€é¢—" + weapon_name + "ï¼Œå¯¹å‡†æ ‘å¶å¼¹å»ï¼Œåªå¬â€œå—¤â€åœ°å£°å“è¿‡åï¼Œä¸€ç‰‡æ ‘å¶åº”å£°è€Œè½ã€‚\n");
 		WEAPON_D->throw_weapon(me, me, weapon, 0);
 		me->improve_skill("throwing", me->query("int"));
 	}
 	else {
 		if (query("stick_count")) {
-			message_vision("$NÌÍ³öÒ»¿Å" + weapon_name + "£¬¶Ô×¼Ê÷Ò¶µ¯È¥£¬½á¹ûÓÃ¾¢¹ı´ó£¬Á¬Ê÷Ö¦¶¼ÇÃÁËÏÂÀ´£¬°µÆ÷¹¦·òÉÏÈ´Ã»ÓĞĞÂ½øÕ¹¡£\n", me);
+			message_vision("$Næå‡ºä¸€é¢—" + weapon_name + "ï¼Œå¯¹å‡†æ ‘å¶å¼¹å»ï¼Œç»“æœç”¨åŠ²è¿‡å¤§ï¼Œè¿æ ‘æéƒ½æ•²äº†ä¸‹æ¥ï¼Œæš—å™¨åŠŸå¤«ä¸Šå´æ²¡æœ‰æ–°è¿›å±•ã€‚\n", me);
 			add("stick_count", -1);
 			new(__DIR__"obj/stick.c")->move(this_object());
 		}
 		else
-			write("ÄãÌÍ³öÒ»¿Å" + weapon_name + "£¬¶Ô×¼Ê÷Ò¶µ¯È¥£¬·¢ÏÖÕâÑùÁ·Ï°Ì«ÇáËÉÁË£¬°µÆ÷¹¦·òÉÏÒÑ¾­ÎŞ·¨È¡µÃĞÂ½øÕ¹¡£\n");
+			write("ä½ æå‡ºä¸€é¢—" + weapon_name + "ï¼Œå¯¹å‡†æ ‘å¶å¼¹å»ï¼Œå‘ç°è¿™æ ·ç»ƒä¹ å¤ªè½»æ¾äº†ï¼Œæš—å™¨åŠŸå¤«ä¸Šå·²ç»æ— æ³•å–å¾—æ–°è¿›å±•ã€‚\n");
 		WEAPON_D->throw_weapon(me, me, weapon, 0);
 	}
 	return 1;
@@ -150,10 +150,10 @@ int do_shake(string arg)
 	int i, qi, level, jinglicost, temp;
 
 	if (arg != "tree" && arg != "shu" && arg != "dashu")
-		return notify_fail("ÄãÒªÒ¡Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‘‡ä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
 	if (room = find_object(__DIR__"shushang")) {
 //		room = load_object(__DIR__"shushang");
@@ -163,10 +163,10 @@ int do_shake(string arg)
 			ob = all_inventory(room);
 			for (i = 0; i < sizeof(ob); i++) {
 				if (userp(ob[i])) {
-					tell_object(ob[i], me->name() + "Ê¹¾¢µØÒ¡»Î×Å´óÊ÷£¬Äã½ÅÏÂÒ»¸ö²»ÎÈ£¬µôÁËÏÂÈ¥¡£\n");
-					tell_room(room, me->name() + "Ê¹¾¢µØÒ¡»Î×Å´óÊ÷£¬" + ob[i]->name() + "½ÅÏÂÒ»¸ö²»ÎÈ£¬µôÁËÏÂÈ¥¡£\n", ({ob[i]}));
-					write("ÄãÊ¹¾¢µØÒ¡»Î×Å´óÊ÷£¬ºöÌı¡°»©À²¡±Ò»Éù£¬Ò»¸öÈË´ÓÊ÷ÉÏµôÁËÏÂÀ´£¬×ĞÏ¸Ò»¿´£¬È´ÊÇ" + ob[i]->name() + "¡£\n");
-					tell_room(this_object(), me->name() + "Ê¹¾¢µØÒ¡»Î×Å´óÊ÷£¬ºöÌı¡°»©À²¡±Ò»Éù£¬Ò»¸öÈË´ÓÊ÷ÉÏµôÁËÏÂÀ´£¬×ĞÏ¸Ò»¿´£¬È´ÊÇ" + ob[i]->name() + "¡£\n", ({me}));
+					tell_object(ob[i], me->name() + "ä½¿åŠ²åœ°æ‘‡æ™ƒç€å¤§æ ‘ï¼Œä½ è„šä¸‹ä¸€ä¸ªä¸ç¨³ï¼Œæ‰äº†ä¸‹å»ã€‚\n");
+					tell_room(room, me->name() + "ä½¿åŠ²åœ°æ‘‡æ™ƒç€å¤§æ ‘ï¼Œ" + ob[i]->name() + "è„šä¸‹ä¸€ä¸ªä¸ç¨³ï¼Œæ‰äº†ä¸‹å»ã€‚\n", ({ob[i]}));
+					write("ä½ ä½¿åŠ²åœ°æ‘‡æ™ƒç€å¤§æ ‘ï¼Œå¿½å¬â€œå“—å•¦â€ä¸€å£°ï¼Œä¸€ä¸ªäººä»æ ‘ä¸Šæ‰äº†ä¸‹æ¥ï¼Œä»”ç»†ä¸€çœ‹ï¼Œå´æ˜¯" + ob[i]->name() + "ã€‚\n");
+					tell_room(this_object(), me->name() + "ä½¿åŠ²åœ°æ‘‡æ™ƒç€å¤§æ ‘ï¼Œå¿½å¬â€œå“—å•¦â€ä¸€å£°ï¼Œä¸€ä¸ªäººä»æ ‘ä¸Šæ‰äº†ä¸‹æ¥ï¼Œä»”ç»†ä¸€çœ‹ï¼Œå´æ˜¯" + ob[i]->name() + "ã€‚\n", ({me}));
 					ob[i]->move(this_object());
 					if (!random(3)) {
 						qi = ob[i]->query("qi");
@@ -182,22 +182,22 @@ int do_shake(string arg)
 	level = me->query_skill("parry", 1);
 	jinglicost = level / 3 + random(level / 3);
         if (me->query("jingli") <= jinglicost) {
-		write("ÄãÌ«ÀÛÁË£¬ÏÈĞªĞª°É£¡\n");
+		write("ä½ å¤ªç´¯äº†ï¼Œå…ˆæ­‡æ­‡å§ï¼\n");
 		return 1;
 	}
 	if (level < 30) {
-		write("ÄãÊ¹¾¢µØÒ¡»Î×Å´óÊ÷£¬´óÊ÷È´ÎÆË¿²»¶¯£¬Äã²»½ûÏëµ½ÄÇ¾ä¡°ò·òİº³Ê÷¡±µÄ³ÉÓïÀ´¡£\n");
+		write("ä½ ä½¿åŠ²åœ°æ‘‡æ™ƒç€å¤§æ ‘ï¼Œå¤§æ ‘å´çº¹ä¸ä¸åŠ¨ï¼Œä½ ä¸ç¦æƒ³åˆ°é‚£å¥â€œèšèœ‰æ’¼æ ‘â€çš„æˆè¯­æ¥ã€‚\n");
 		return 1;
 	}
 	if (level > 100) {
-		write("ÄãÊ¹¾¢µØÒ¡»Î×Å´óÊ÷£¬°ÑÊ÷ÉÏµÄ¹û×Ó¶¼Ò¡µÃÂäµ½¼¸ÕÉ¿ªÍâÈ¥ÁË¡£\n");
+		write("ä½ ä½¿åŠ²åœ°æ‘‡æ™ƒç€å¤§æ ‘ï¼ŒæŠŠæ ‘ä¸Šçš„æœå­éƒ½æ‘‡å¾—è½åˆ°å‡ ä¸ˆå¼€å¤–å»äº†ã€‚\n");
 		return 1;
 	}
 	me->receive_damage("jingli", jinglicost);
 	if (!random(5))
-		message_vision("$NÊ¹¾¢µØÒ¡×Å´óÊ÷£¬´ÓÊ÷ÉÏµôÏÂ¼¸¸ö¹û×ÓÀ´£¬ÔÒÏò$NµÄÍ·Á³£¬$N¸ÏÃ¦Éì±Û¼Ü¿ª¡£\n", me);
+		message_vision("$Nä½¿åŠ²åœ°æ‘‡ç€å¤§æ ‘ï¼Œä»æ ‘ä¸Šæ‰ä¸‹å‡ ä¸ªæœå­æ¥ï¼Œç ¸å‘$Nçš„å¤´è„¸ï¼Œ$Nèµ¶å¿™ä¼¸è‡‚æ¶å¼€ã€‚\n", me);
 	else
-		write("ÄãÊ¹¾¢µØÒ¡×Å´óÊ÷£¬´ÓÊ÷ÉÏµôÏÂ¼¸¸ö¹û×ÓÀ´£¬ÔÒÏòÄãµÄÍ·Á³£¬Äã¸ÏÃ¦Éì±Û¼Ü¿ª¡£\n");
+		write("ä½ ä½¿åŠ²åœ°æ‘‡ç€å¤§æ ‘ï¼Œä»æ ‘ä¸Šæ‰ä¸‹å‡ ä¸ªæœå­æ¥ï¼Œç ¸å‘ä½ çš„å¤´è„¸ï¼Œä½ èµ¶å¿™ä¼¸è‡‚æ¶å¼€ã€‚\n");
 	me->improve_skill("parry", me->query("int"));
 	return 1;
 }
@@ -209,10 +209,10 @@ int do_strike(string arg)
 	int i, qi, level, jinglicost, temp;
 
 	if (arg != "tree" && arg != "shu" && arg != "dashu")
-		return notify_fail("ÄãÒªÅÄÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‹ä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
 	if (room = find_object(__DIR__"shushang")) {
 //		room = load_object(__DIR__"shushang");
@@ -222,10 +222,10 @@ int do_strike(string arg)
 			ob = all_inventory(room);
 			for (i = 0; i < sizeof(ob); i++) {
 				if (userp(ob[i])) {
-					tell_object(ob[i], me->name() + "Ò»ÕÆÅÄÏò´óÊ÷£¬Äã½ÅÏÂÒ»¸ö²»ÎÈ£¬µôÁËÏÂÈ¥¡£\n");
-					tell_room(room, me->name() + "Ò»ÕÆÅÄÏò´óÊ÷£¬" + ob[i]->name() + "½ÅÏÂÒ»¸ö²»ÎÈ£¬µôÁËÏÂÈ¥¡£\n", ({ob[i]}));
-					write("ÄãÒ»ÕÆÅÄÏò´óÊ÷£¬ºöÌı¡°»©À²¡±Ò»Éù£¬Ò»¸öÈË´ÓÊ÷ÉÏµôÁËÏÂÀ´£¬×ĞÏ¸Ò»¿´£¬È´ÊÇ" + ob[i]->name() + "¡£\n");
-					tell_room(this_object(), me->name() + "Ò»ÕÆÅÄÏò´óÊ÷£¬ºöÌı¡°»©À²¡±Ò»Éù£¬Ò»¸öÈË´ÓÊ÷ÉÏµôÁËÏÂÀ´£¬×ĞÏ¸Ò»¿´£¬È´ÊÇ" + ob[i]->name() + "¡£\n", ({me}));
+					tell_object(ob[i], me->name() + "ä¸€æŒæ‹å‘å¤§æ ‘ï¼Œä½ è„šä¸‹ä¸€ä¸ªä¸ç¨³ï¼Œæ‰äº†ä¸‹å»ã€‚\n");
+					tell_room(room, me->name() + "ä¸€æŒæ‹å‘å¤§æ ‘ï¼Œ" + ob[i]->name() + "è„šä¸‹ä¸€ä¸ªä¸ç¨³ï¼Œæ‰äº†ä¸‹å»ã€‚\n", ({ob[i]}));
+					write("ä½ ä¸€æŒæ‹å‘å¤§æ ‘ï¼Œå¿½å¬â€œå“—å•¦â€ä¸€å£°ï¼Œä¸€ä¸ªäººä»æ ‘ä¸Šæ‰äº†ä¸‹æ¥ï¼Œä»”ç»†ä¸€çœ‹ï¼Œå´æ˜¯" + ob[i]->name() + "ã€‚\n");
+					tell_room(this_object(), me->name() + "ä¸€æŒæ‹å‘å¤§æ ‘ï¼Œå¿½å¬â€œå“—å•¦â€ä¸€å£°ï¼Œä¸€ä¸ªäººä»æ ‘ä¸Šæ‰äº†ä¸‹æ¥ï¼Œä»”ç»†ä¸€çœ‹ï¼Œå´æ˜¯" + ob[i]->name() + "ã€‚\n", ({me}));
 					ob[i]->move(this_object());
 					if (!random(3)) {
 						qi = ob[i]->query("qi");
@@ -241,22 +241,22 @@ int do_strike(string arg)
 	level = me->query_skill("strike", 1);
 	jinglicost = level / 3 + random(level / 3);
         if (me->query("jingli") <= jinglicost) {
-		write("ÄãÌ«ÀÛÁË£¬ÏÈĞªĞª°É£¡\n");
+		write("ä½ å¤ªç´¯äº†ï¼Œå…ˆæ­‡æ­‡å§ï¼\n");
 		return 1;
 	}
 	if (level < 30) {
-		write("ÄãÒ»ÕÆÅÄÏò´óÊ÷£¬´óÊ÷È´ÎÆË¿²»¶¯£¬Äã¸Ğµ½Ê®·Ö¾ÚÉ¥¡£\n");
+		write("ä½ ä¸€æŒæ‹å‘å¤§æ ‘ï¼Œå¤§æ ‘å´çº¹ä¸ä¸åŠ¨ï¼Œä½ æ„Ÿåˆ°ååˆ†æ²®ä¸§ã€‚\n");
 		return 1;
 	}
 	if (level > 100) {
-		write("ÄãÒ»ÕÆÅÄÏò´óÊ÷£¬°ÑÊ÷ÉÏµÄ¹û×Ó¶¼ÕğµÃÂäµ½¼¸ÕÉ¿ªÍâÈ¥ÁË¡£\n");
+		write("ä½ ä¸€æŒæ‹å‘å¤§æ ‘ï¼ŒæŠŠæ ‘ä¸Šçš„æœå­éƒ½éœ‡å¾—è½åˆ°å‡ ä¸ˆå¼€å¤–å»äº†ã€‚\n");
 		return 1;
 	}
 	me->receive_damage("jingli", jinglicost);
 	if (!random(5))
-		message_vision("$NÒ»ÕÆÅÄÏò´óÊ÷£¬´óÊ÷»ÎÁË¼¸»Î£¬$N¶ÔÓÚ×Ô¼ºµÄÕÆ·¨¸üÓĞ×ÔĞÅÁË¡£\n", me);
+		message_vision("$Nä¸€æŒæ‹å‘å¤§æ ‘ï¼Œå¤§æ ‘æ™ƒäº†å‡ æ™ƒï¼Œ$Nå¯¹äºè‡ªå·±çš„æŒæ³•æ›´æœ‰è‡ªä¿¡äº†ã€‚\n", me);
 	else
-		write("ÄãÒ»ÕÆÅÄÏò´óÊ÷£¬´óÊ÷»ÎÁË¼¸»Î£¬Äã¶ÔÓÚ×Ô¼ºµÄÕÆ·¨¸üÓĞ×ÔĞÅÁË¡£\n");
+		write("ä½ ä¸€æŒæ‹å‘å¤§æ ‘ï¼Œå¤§æ ‘æ™ƒäº†å‡ æ™ƒï¼Œä½ å¯¹äºè‡ªå·±çš„æŒæ³•æ›´æœ‰è‡ªä¿¡äº†ã€‚\n");
 	me->improve_skill("strike", me->query("int"));
 	return 1;
 }
@@ -266,12 +266,12 @@ int do_climb(string arg)
 	object me = this_player();
 
 	if (arg != "tree" && arg != "shu" && arg != "dashu" && arg != "up")
-		return notify_fail("ÄãÒªÅÀÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦çˆ¬ä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
-	message_vision("$NÍùÊÖĞÄÀïßıÁËÁ½¿ÚÍÙÄ­£¬ÔËÁËÔËÆø£¬Ë³×ÅÊ÷¸ÉÅÀÁËÉÏÈ¥¡£\n", me);
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
+	message_vision("$Nå¾€æ‰‹å¿ƒé‡Œå•äº†ä¸¤å£å”¾æ²«ï¼Œè¿äº†è¿æ°”ï¼Œé¡ºç€æ ‘å¹²çˆ¬äº†ä¸Šå»ã€‚\n", me);
 	me->move(__DIR__"shushang", 1);
-	message("vision", me->name() + "´ÓÊ÷ÏÂÅÀÁËÉÏÀ´¡£\n", __DIR__"shushang", ({me}));
+	message("vision", me->name() + "ä»æ ‘ä¸‹çˆ¬äº†ä¸Šæ¥ã€‚\n", __DIR__"shushang", ({me}));
 	return 1;
 }
 
@@ -282,7 +282,7 @@ int valid_leave(object me, string dir)
 
 	valid = ::valid_leave(me, dir);
 	if (valid && room = find_object(__DIR__"shushang"))
-		tell_room(room, "Í¸¹ıÊ÷Ò¶µÄ·ìÏ¶£¬Äã¿´¼û" + me->name() + "Àë¿ªÁËÊ÷ÏÂ¡£\n");
+		tell_room(room, "é€è¿‡æ ‘å¶çš„ç¼éš™ï¼Œä½ çœ‹è§" + me->name() + "ç¦»å¼€äº†æ ‘ä¸‹ã€‚\n");
 	return valid;
 }
 */

@@ -1,6 +1,6 @@
 // Lingwu.c 
 // Created by snowman@SJ 25/09/2000
-// By lsxk@hsbbs  Ôö¼ÓÌì¸³Ó°ÏìĞ§¹û  2008/3/14
+// By lsxk@hsbbs  å¢åŠ å¤©èµ‹å½±å“æ•ˆæœ  2008/3/14
 
 #include <ansi.h>
 
@@ -48,34 +48,34 @@ int main(object me, string arg)
         
                 
         if( me->is_busy() || me->is_fighting() )
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ£¬ÏÈĞªÏ¢Ò»ÏÂÔÙÁìÎò°É¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼Œå…ˆæ­‡æ¯ä¸€ä¸‹å†é¢†æ‚Ÿå§ã€‚\n");
        
-        if( !arg ) return notify_fail("ÄãÒªÁìÎòÊ²Ã´£¿\n");
+        if( !arg ) return notify_fail("ä½ è¦é¢†æ‚Ÿä»€ä¹ˆï¼Ÿ\n");
         
         if( sscanf(arg, "%s %d", arg, cnt) != 2 )
-                return notify_fail("¸ñÊ½£º lingwu <¼¼ÄÜ> [´ÎÊı]\n");
+                return notify_fail("æ ¼å¼ï¼š lingwu <æŠ€èƒ½> [æ¬¡æ•°]\n");
         if( cnt < 1 ) 
-                return notify_fail("´íÎó£º[´ÎÊı] ±ØĞë´óÓÚ»òµÈÓÚ 1 ¡£\n");
+                return notify_fail("é”™è¯¯ï¼š[æ¬¡æ•°] å¿…é¡»å¤§äºæˆ–ç­‰äº 1 ã€‚\n");
         
         basic_lvl = me->query_skill(arg, 1);
         
         if( !basic_lvl )
-                return notify_fail("Äã²»»áÕâÖÖ¼¼ÄÜ¡£\n");
+                return notify_fail("ä½ ä¸ä¼šè¿™ç§æŠ€èƒ½ã€‚\n");
                
         if( basic_lvl < 100 )
-                return notify_fail("ÄãµÄ"+to_chinese(arg)+"»¹Ã»µ½¿ÉÒÔ×Ô¼ºÁìÎòµÄ¾³½ç£¡\n");
+                return notify_fail("ä½ çš„"+to_chinese(arg)+"è¿˜æ²¡åˆ°å¯ä»¥è‡ªå·±é¢†æ‚Ÿçš„å¢ƒç•Œï¼\n");
                         
         if( (int)me->query("potential") < 1 || (int)me->query("potential") < cnt ) 
-                return notify_fail("ÁìÎòĞèÒªÇ±ÄÜ£¬¶øÄãÄ¿Ç°µÄÇ±ÄÜ²»¹»ÁìÎò"+chinese_number(cnt)+"´ÎËùĞè¡£\n");
+                return notify_fail("é¢†æ‚Ÿéœ€è¦æ½œèƒ½ï¼Œè€Œä½ ç›®å‰çš„æ½œèƒ½ä¸å¤Ÿé¢†æ‚Ÿ"+chinese_number(cnt)+"æ¬¡æ‰€éœ€ã€‚\n");
                 
         if( me->query("jing") * 100 / me->query("max_jing") < 80 )
-                return notify_fail("ÄãÄ¿Ç°¾«ÉñÆ£ÀÍ£¬²»ÊÊºÏÁìÎòÎäÑ§¡£\n");
+                return notify_fail("ä½ ç›®å‰ç²¾ç¥ç–²åŠ³ï¼Œä¸é€‚åˆé¢†æ‚Ÿæ­¦å­¦ã€‚\n");
                 
         if( !objectp(room = environment(me)) )
-                return notify_fail("´ËµØÔÚĞéÎŞÆ®Ãì¼ä£¬Äã»¹ÊÇ±ğÁìÎòÁË°É¡£\n");
+                return notify_fail("æ­¤åœ°åœ¨è™šæ— é£˜æ¸ºé—´ï¼Œä½ è¿˜æ˜¯åˆ«é¢†æ‚Ÿäº†å§ã€‚\n");
         
         if( !mapp(lw_skill = room->query("lingwu")) )
-                return notify_fail("´ËµØÎŞÊ²ÌØ±ğÖ®´¦£¬ÓĞÊ²Ã´ºÃÁìÎòµÄ£¿\n"); 
+                return notify_fail("æ­¤åœ°æ— ä»€ç‰¹åˆ«ä¹‹å¤„ï¼Œæœ‰ä»€ä¹ˆå¥½é¢†æ‚Ÿçš„ï¼Ÿ\n"); 
                        
         special = base_name(room);
         if( stringp(special) ){
@@ -83,7 +83,7 @@ int main(object me, string arg)
                 if( !mapp(lingwu_places[special] ) )
                         lingwu_places[special] = lw_skill;
                 else if( lingwu_places[special] != lw_skill ){
-                        log_file("static/lingwu_place_changed", sprintf("%s changed! Skill %s -> %s£¬ Up %d -> %d£¬Low %d -> %d£¬Cost %d -> %d¡£",
+                        log_file("static/lingwu_place_changed", sprintf("%s changed! Skill %s -> %sï¼Œ Up %d -> %dï¼ŒLow %d -> %dï¼ŒCost %d -> %dã€‚",
                                 special, lingwu_places[special]["skill"], lw_skill["skill"],
                                 lingwu_places[special]["up_limit"], lw_skill["up_limit"],
                                 lingwu_places[special]["low_limit"], lw_skill["low_limit"],
@@ -95,29 +95,29 @@ int main(object me, string arg)
         
         /* Wrong s*/
         if( lw_skill["skill"] != arg )
-                return notify_fail("ÔÚ´ËÁìÎò " + arg + " £¿Ó¦¸ÃÊÇ " + lw_skill["skill"] + " ²Å¶Ô°¡¡£\n");
+                return notify_fail("åœ¨æ­¤é¢†æ‚Ÿ " + arg + " ï¼Ÿåº”è¯¥æ˜¯ " + lw_skill["skill"] + " æ‰å¯¹å•Šã€‚\n");
         
         /* have no enbaled this skill */        
         if( !stringp(special = me->query_skill_mapped(arg)) )
-                return notify_fail("ÄãÖ»ÄÜ´ÓÌØÊâ¼¼ÄÜÖĞÁìÎò" + to_chinese(arg) + "µÄÎÊÌâ¡£\n");
+                return notify_fail("ä½ åªèƒ½ä»ç‰¹æ®ŠæŠ€èƒ½ä¸­é¢†æ‚Ÿ" + to_chinese(arg) + "çš„é—®é¢˜ã€‚\n");
                 
         special_lvl = me->query_skill(special, 1);
         
         if( basic_lvl > special_lvl )
-                return notify_fail("ÄãµÄ"+to_chinese(special)+"ÔìÒè²»¹»£¬ÎŞ·¨ÁìÎò¸üÉîÒ»²ãµÄ"+to_chinese(arg)+"¡£\n");
+                return notify_fail("ä½ çš„"+to_chinese(special)+"é€ è¯£ä¸å¤Ÿï¼Œæ— æ³•é¢†æ‚Ÿæ›´æ·±ä¸€å±‚çš„"+to_chinese(arg)+"ã€‚\n");
                 
         special = to_chinese(special);
         
         me->start_busy(2);      
         
         if( lw_skill["low_limit"] > me->query_skill(arg, 1) ){
-                message_vision("$NµÍÍ·³ÁË¼£¬¿É¾ÍÊÇÏë²»Í¸ÓĞ¹Ø" + to_chinese(arg) + "µÄÎÊÌâ¡£\n", me);
-                return notify_fail("Äã¸Ğ¾õ×Ô¼º»¹ÎŞ·¨Áì»á´ÎÖĞµÄÒâË¼£¬¿´À´»¹µÃÉîÔì²ÅĞĞ¡£\n");   
+                message_vision("$Nä½å¤´æ²‰æ€ï¼Œå¯å°±æ˜¯æƒ³ä¸é€æœ‰å…³" + to_chinese(arg) + "çš„é—®é¢˜ã€‚\n", me);
+                return notify_fail("ä½ æ„Ÿè§‰è‡ªå·±è¿˜æ— æ³•é¢†ä¼šæ¬¡ä¸­çš„æ„æ€ï¼Œçœ‹æ¥è¿˜å¾—æ·±é€ æ‰è¡Œã€‚\n");   
         }
         
         if( lw_skill["up_limit"] < me->query_skill(arg, 1) ){
-                message_vision("$NÇáÇáÒ»Ğ¦£¬¿´À´ÒÑ¶Ô" + to_chinese(arg) + "µÄÎÊÌâÁËÈçÖ¸ÕÆÁË¡£\n", me);
-                return notify_fail("Äã¸Ğ¾õ×Ô¼ºÔÚ´ËÒÑÎŞ·¨ÁìÎòµ½¸ü¸ßµÄ¾³½çÁË¡£\n");   
+                message_vision("$Nè½»è½»ä¸€ç¬‘ï¼Œçœ‹æ¥å·²å¯¹" + to_chinese(arg) + "çš„é—®é¢˜äº†å¦‚æŒ‡æŒäº†ã€‚\n", me);
+                return notify_fail("ä½ æ„Ÿè§‰è‡ªå·±åœ¨æ­¤å·²æ— æ³•é¢†æ‚Ÿåˆ°æ›´é«˜çš„å¢ƒç•Œäº†ã€‚\n");   
         }
 
         // Should be 10..30
@@ -127,14 +127,14 @@ int main(object me, string arg)
         i = basic_lvl / i * 10 ;
         
         if( me->query("jing") < i )
-                return notify_fail("ÄãÄ¿Ç°µÄ¾«Éñ»¹²»¹»ÁìÎòÒ»´ÎÎäÑ§ËùĞè¡£\n");   
+                return notify_fail("ä½ ç›®å‰çš„ç²¾ç¥è¿˜ä¸å¤Ÿé¢†æ‚Ÿä¸€æ¬¡æ­¦å­¦æ‰€éœ€ã€‚\n");   
         
         if( stringp(str = lw_skill["lw_msg"]) ){
                 str = replace_string( str, "$s", special );
                 str = replace_string( str, "$b", to_chinese(arg) );
                 message_vision(str, me);
         }
-        else    message_vision("$N¿ªÊ¼¶ÔÕÕ×Ô¼ºµÄ" + special + "£¬Ç±ĞÄÁìÎò" + to_chinese(arg) + "ÓĞ¹ØµÄÎäÑ§ÎÊÌâ¡£\n", me);
+        else    message_vision("$Nå¼€å§‹å¯¹ç…§è‡ªå·±çš„" + special + "ï¼Œæ½œå¿ƒé¢†æ‚Ÿ" + to_chinese(arg) + "æœ‰å…³çš„æ­¦å­¦é—®é¢˜ã€‚\n", me);
         
         //add for ggss improve
         
@@ -161,17 +161,17 @@ int start_lingwu(object me)
         skill = me->query_temp("lingwu_type");
         temp = me->query_skill("literate",1) + me->query_int() * 10;
 
-        //Ìì¸³¡°ÉñÍ¯ÔÚÊÀ¡±Ó°ÏìĞ§¹û   by lsxk@hsbbs 2008/3/14
+        //å¤©èµ‹â€œç¥ç«¥åœ¨ä¸–â€å½±å“æ•ˆæœ   by lsxk@hsbbs 2008/3/14
         if((int)me->query("relife/study/stzs",1) > 0)
             zstemp = temp + temp * (int)me->query("relife/study/stzs",1) * 2 / 100;
         
-        me->receive_damage("jing", cost, "ĞÄÑª¿İ½ß");
+        me->receive_damage("jing", cost, "å¿ƒè¡€æ¯ç«­");
         
         if( !living(me) || !stringp(skill) ) return 0;
         
         if (me->query("registered") ==3 && me->query_temp("ggs/started") && me->query("ggs/started")){
             if((int)me->query("relife/study/stzs",1) > 0){
-                tell_object(me,HIG"ÄãÖ»¾õµÃ×Ô¼ºÌì¸³¾ªÈË£¬ÁìÎòÄÜÁ¦Ô¶±È±ğÈË¸ß³öºÜ¶à£¡\n"NOR);
+                tell_object(me,HIG"ä½ åªè§‰å¾—è‡ªå·±å¤©èµ‹æƒŠäººï¼Œé¢†æ‚Ÿèƒ½åŠ›è¿œæ¯”åˆ«äººé«˜å‡ºå¾ˆå¤šï¼\n"NOR);
                 me->improve_skill(skill, zstemp);
             }
             else
@@ -179,7 +179,7 @@ int start_lingwu(object me)
         }
         else{
             if((int)me->query("relife/study/stzs",1) > 0){
-                tell_object(me,HIG"ÄãÖ»¾õµÃ×Ô¼ºÌì¸³¾ªÈË£¬ÁìÎòÄÜÁ¦Ô¶±È±ğÈË¸ß³öºÜ¶à£¡\n"NOR);
+                tell_object(me,HIG"ä½ åªè§‰å¾—è‡ªå·±å¤©èµ‹æƒŠäººï¼Œé¢†æ‚Ÿèƒ½åŠ›è¿œæ¯”åˆ«äººé«˜å‡ºå¾ˆå¤šï¼\n"NOR);
                 me->improve_skill(skill, zstemp/2);
             }
             else
@@ -187,8 +187,8 @@ int start_lingwu(object me)
         }
         me->add("potential", -1);
         if( me->query("potential") < 1 || cnt < 1 || me->query("jing") <= cost ){
-                write("ÄãÒÑ¾­ÁìÎòµ½Ò»¶ÎÂäÁË¡£\n");
-                message_vision("$NÁìÎòÍê±Ï£¬Õ¾ÆğÉíÀ´¡£\n", me);
+                write("ä½ å·²ç»é¢†æ‚Ÿåˆ°ä¸€æ®µè½äº†ã€‚\n");
+                message_vision("$Né¢†æ‚Ÿå®Œæ¯•ï¼Œç«™èµ·èº«æ¥ã€‚\n", me);
                 me->delete_temp("pending/lingwu");             
                 me->delete_temp("lingwu_cost");
                 me->start_busy(1);
@@ -205,31 +205,31 @@ int start_lingwu(object me)
                         if( me->query("potential") > 1 )
                                 me->add("potential", -1);
                         if( !random(3) )
-                                write("Äãî¨Ë¼¿àÏë£¬¶Ô"+to_chinese(skill)+"µÄÌå»áÓÖÉîÁËÒ»²ã¡£\n");
+                                write("ä½ ç‘æ€è‹¦æƒ³ï¼Œå¯¹"+to_chinese(skill)+"çš„ä½“ä¼šåˆæ·±äº†ä¸€å±‚ã€‚\n");
                         me->improve_skill(skill, me->query_skill("literate",1) + me->query_int() * 10 );
                         break;
                 case 5:
                 case 2:
                         me->add("potential", -1);
                         if( !random(3) )
-                                write("ÄãÓÃÊÖ±È»®×Å£¬¶Ô"+to_chinese(skill)+"µÄÀí½âÓÖ¼ÓÉîÁËÒ»µã¡£\n");
+                                write("ä½ ç”¨æ‰‹æ¯”åˆ’ç€ï¼Œå¯¹"+to_chinese(skill)+"çš„ç†è§£åˆåŠ æ·±äº†ä¸€ç‚¹ã€‚\n");
                         me->improve_skill(skill, me->query_skill("literate",1)/2 + me->query("int")*5 );
                         break;
                 case 4:
                 case 1:
                         if( !random(3) )
-                                write("Äã½Ê¾¡ÄÔÖ­£¬ÒÀÈ»ÎŞ·¨ÏëÍ¨ÓĞ¹Ø"+to_chinese(skill)+"µÄÎÊÌâ¡£\n");
+                                write("ä½ ç»å°½è„‘æ±ï¼Œä¾ç„¶æ— æ³•æƒ³é€šæœ‰å…³"+to_chinese(skill)+"çš„é—®é¢˜ã€‚\n");
                         me->improve_skill(skill, me->query_int() * 4);
                         break;
                 case 0:
                         if( !random(3) )
-                                write("ÄãÏëÁË°ëÌì£¬È´¸ù±¾ÎŞ·¨Àí³ö¸öÍ·Ğ÷À´¡£\n");
+                                write("ä½ æƒ³äº†åŠå¤©ï¼Œå´æ ¹æœ¬æ— æ³•ç†å‡ºä¸ªå¤´ç»ªæ¥ã€‚\n");
                         me->improve_skill(skill, random(50));
                         break;
         }
         if (me->query("registered") ==3 && me->query_temp("ggs/started") && me->query("ggs/started") ){
-                if (!random(5) ) write("Äã²ÎÕÕ×Ô¼ºÔÚ"HIG"¹í¹ÈËãÊõ"NOR"ÉÏµÄĞŞÎª£¬ÔËÉñÍ¨Êı£¬¾õµÃ×Ô¼ºÁìÎòÆğÀ´ÊÂ°ë¹¦±¶¡£\n");
-                if (!random(10)) tell_room(environment(me), me->name() + "ÕıÔÚ²ÎÕÕ"HIG"¹í¹ÈËãÊõ"NOR"ÉÏµÄĞŞÎª£¬ÔËÉñÍ¨Êı£¬ÁìÎòÓĞ¹Ø" + to_chinese(skill) + "µÄÎÊÌâ¡£\n", ({ me }));
+                if (!random(5) ) write("ä½ å‚ç…§è‡ªå·±åœ¨"HIG"é¬¼è°·ç®—æœ¯"NOR"ä¸Šçš„ä¿®ä¸ºï¼Œè¿ç¥é€šæ•°ï¼Œè§‰å¾—è‡ªå·±é¢†æ‚Ÿèµ·æ¥äº‹åŠåŠŸå€ã€‚\n");
+                if (!random(10)) tell_room(environment(me), me->name() + "æ­£åœ¨å‚ç…§"HIG"é¬¼è°·ç®—æœ¯"NOR"ä¸Šçš„ä¿®ä¸ºï¼Œè¿ç¥é€šæ•°ï¼Œé¢†æ‚Ÿæœ‰å…³" + to_chinese(skill) + "çš„é—®é¢˜ã€‚\n", ({ me }));
         }
         //add for ggss improve msg
         return 1;
@@ -241,8 +241,8 @@ int halt_lingwu(object me)
         
         if( environment(me) && me->query_temp("pending/lingwu") ) { 
                 if( living(me) )
-                        message_vision("$NÃ¼Í·½ôËø£¬¿´À´ÊÇÁìÎò²»µÃÒªÁì£¬ÅÄÅÄÒÂĞäÕ¾ÁËÆğÀ´¡£\n", me);
-                me->receive_damage("jing", me->query("jing")/2, "ĞÄÑª¿İ½ß");
+                        message_vision("$Nçœ‰å¤´ç´§é”ï¼Œçœ‹æ¥æ˜¯é¢†æ‚Ÿä¸å¾—è¦é¢†ï¼Œæ‹æ‹è¡£è¢–ç«™äº†èµ·æ¥ã€‚\n", me);
+                me->receive_damage("jing", me->query("jing")/2, "å¿ƒè¡€æ¯ç«­");
                 me->delete_temp("pending/lingwu");             
                 me->delete_temp("lingwu_cost");
                 me->start_busy(2+random(2));
@@ -254,14 +254,14 @@ int halt_lingwu(object me)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : lingwu <¼¼ÄÜ> [´ÎÊı]
+æŒ‡ä»¤æ ¼å¼ : lingwu <æŠ€èƒ½> [æ¬¡æ•°]
 
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãÔÚÌØ¶¨µØµãÁìÎòÎäÑ§¼¼ÄÜ¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ åœ¨ç‰¹å®šåœ°ç‚¹é¢†æ‚Ÿæ­¦å­¦æŠ€èƒ½ã€‚
 
-Àı£º    ÔÚ¶ğáÒÉ½×êÌìÆÂ£¬¿ÉÒÔ lingwu dodge  ´Ó 100 ¼¶µ½ 200 ¼¶¡£
-        ÔÚ¶ğáÒÉ½À×¶´Æº£¬¿ÉÒÔ lingwu force  ´Ó 150 ¼¶µ½ 200 ¼¶¡£
+ä¾‹ï¼š    åœ¨å¨¥åµ‹å±±é’»å¤©å¡ï¼Œå¯ä»¥ lingwu dodge  ä» 100 çº§åˆ° 200 çº§ã€‚
+        åœ¨å¨¥åµ‹å±±é›·æ´åªï¼Œå¯ä»¥ lingwu force  ä» 150 çº§åˆ° 200 çº§ã€‚
 
-ÁìÎòÏûºÄµÄÊÇ¾«Éñ£¬Ã¿´ÎÁìÎò¶àÉÙ£¬Òª¿´¸÷ÈËµÄÎòĞÔºÍÎÄÑ§ĞŞÑøÁË¡£
+é¢†æ‚Ÿæ¶ˆè€—çš„æ˜¯ç²¾ç¥ï¼Œæ¯æ¬¡é¢†æ‚Ÿå¤šå°‘ï¼Œè¦çœ‹å„äººçš„æ‚Ÿæ€§å’Œæ–‡å­¦ä¿®å…»äº†ã€‚
 
 HELP
         );

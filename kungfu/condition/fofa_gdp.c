@@ -11,13 +11,13 @@ int update_condition(object me, int duration)
         
         if(random(10)==1)
 	{
-		tell_room(environment(me), me->name() + "身上散发出一阵阵飘渺的香气。\n", ({ me }));
-		tell_object(me, HIG"在这虚无飘渺的香气中，尘世间的争斗似乎和你再没关系。\n"NOR);
+		tell_room(environment(me), me->name() + "韬笂鏁ｅ彂鍑轰竴闃甸樀椋樻负鐨勯姘斻�俓n", ({ me }));
+		tell_object(me, HIG"鍦ㄨ繖铏氭棤椋樻负鐨勯姘斾腑锛屽皹涓栭棿鐨勪簤鏂椾技涔庡拰浣犲啀娌″叧绯汇�俓n"NOR);
 	}
 
         if( duration < 1 ) 
         {
-        	tell_object(me, HIW"你身上的香气渐渐淡去。\n"NOR);
+        	tell_object(me, HIW"浣犺韩涓婄殑棣欐皵娓愭笎娣″幓銆俓n"NOR);
         	me->delete("no_pk");
         	return 0;
         }

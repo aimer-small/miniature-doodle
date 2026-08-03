@@ -3,7 +3,7 @@ inherit ITEM;
 
 void create()
 {
-        set_name("ҩ��", ({ "yaogui", "gui"}) );
+        set_name("药柜", ({ "yaogui", "gui"}) );
         set_weight(5000);
         set_max_encumbrance(8000);
         set("no_get", 1);
@@ -12,8 +12,8 @@ void create()
                 set_default_object(__FILE__);
         else {
 		set("prep", "in");
-                set("unit", "ֻ");
-                set("long", "һֻҩ��\n");
+                set("unit", "只");
+                set("long", "一只药柜。\n");
                 set("value", 1);
         }
 }

@@ -3,9 +3,9 @@ void copy_menpai3()
 {
 	switch(u_menpai)
 	{
-	case "mj":												//Éè¶¨Ã÷½ÌÎä¹¦
-			set("family/family_name","Ã÷½Ì");
-			set_skill("piaoyi-shenfa",500);						//Ã÷½ÌÇá¹¦£ºÆ®ÒíÉí·¨
+	case "mj":												//è®¾å®šæ˜æ•™æ­¦åŠŸ
+			set("family/family_name","æ˜æ•™");
+			set_skill("piaoyi-shenfa",500);						//æ˜æ•™è½»åŠŸï¼šé£˜ç¿¼èº«æ³•
 			map_skill("dodge", "piaoyi-shenfa");
 			set_skill("qiankun-danuoyi",500);
 			u_f_pfm=u_f_pfm + ({(: perform_action, "parry.hua" :)});	
@@ -14,24 +14,24 @@ void copy_menpai3()
 			switch(in_level)
 			{
 				case 0:
-					set_skill("shenghuo-shengong",500);									//Ã÷½ÌµÍ¼¶ÄÚ¹¦£ºÊ¥»ğÉñ¹¦
+					set_skill("shenghuo-shengong",500);									//æ˜æ•™ä½çº§å†…åŠŸï¼šåœ£ç«ç¥åŠŸ
 					map_skill("force","shenghuo-shengong");
 
 					switch(random(2))
 					{
 						case 0:
-							set_skill("yingzhua-shou",500);                             //Ã÷½ÌµÍ¼¶¿ÕÊÖ£ºÓ¥×¦ÇÜÄÃÊÖ
+							set_skill("yingzhua-shou",500);                             //æ˜æ•™ä½çº§ç©ºæ‰‹ï¼šé¹°çˆªæ“’æ‹¿æ‰‹
 							map_skill("hand","yingzhua-shou");
-							nw_parry="qiankun-danuoyi";									//Éè¶¨Ç¬À¤´óÅ²ÒÆÎªÕĞ¼Ü
+							nw_parry="qiankun-danuoyi";									//è®¾å®šä¹¾å¤å¤§æŒªç§»ä¸ºæ‹›æ¶
 							prepare_skill("hand", "yingzhua-shou");
 							set("f_skill","yingzhua-shou");
 						break;
 						case 1:
-							set_skill("hanbing-mianzhang",500);                             //Ã÷½ÌµÍ¼¶¿ÕÊÖ£ºº®±ùÃàÕÆ
+							set_skill("hanbing-mianzhang",500);                             //æ˜æ•™ä½çº§ç©ºæ‰‹ï¼šå¯’å†°ç»µæŒ
 							map_skill("strike","hanbing-mianzhang");
-							nw_parry="hanbing-mianzhang";									//pfm xixue ÒªÇóparry Îªhanbing-mianzhang
+							nw_parry="hanbing-mianzhang";									//pfm xixue è¦æ±‚parry ä¸ºhanbing-mianzhang
 							prepare_skill("strike", "hanbing-mianzhang");
-							u_pfm = u_pfm + ({(: perform_action, "strike.xixue" :)});		//º®±ùÃàÕÆpfm:ÎüÑª
+							u_pfm = u_pfm + ({(: perform_action, "strike.xixue" :)});		//å¯’å†°ç»µæŒpfm:å¸è¡€
 							set("f_skill","hanbing-mianzhang");
 						break;
 
@@ -39,37 +39,37 @@ void copy_menpai3()
 					switch(random(2))
 					{
 						case 0:
-							set_skill("liehuo-jian",500);                             		  //Ã÷½ÌµÍ¼¶ÎäÆ÷£ºÁÒ»ğ½£
+							set_skill("liehuo-jian",500);                             		  //æ˜æ•™ä½çº§æ­¦å™¨ï¼šçƒˆç«å‰‘
 							map_skill("sword","liehuo-jian");
-							w_parry="qiankun-danuoyi";									      //Éè¶¨Ç¬À¤´óÅ²ÒÆÎªÕĞ¼Ü
+							w_parry="qiankun-danuoyi";									      //è®¾å®šä¹¾å¤å¤§æŒªç§»ä¸ºæ‹›æ¶
 							u_weapon="sword";
 							set("f_w_skill","liehuo-jian");
 						break;
 						case 1:
-							set_skill("lieyan-dao",500);                              		 //Ã÷½ÌµÍ¼¶ÎäÆ÷£ºÁÒÑæµ¶
+							set_skill("lieyan-dao",500);                              		 //æ˜æ•™ä½çº§æ­¦å™¨ï¼šçƒˆç„°åˆ€
 							map_skill("blade","lieyan-dao");
-							w_parry="qiankun-danuoyi";										 //Éè¶¨Ç¬À¤´óÅ²ÒÆÎªÕĞ¼Ü
-							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.shenghuo" :)});		 //ÁÒÑæµ¶pfm:Ê¥»ğ
+							w_parry="qiankun-danuoyi";										 //è®¾å®šä¹¾å¤å¤§æŒªç§»ä¸ºæ‹›æ¶
+							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.shenghuo" :)});		 //çƒˆç„°åˆ€pfm:åœ£ç«
 							u_weapon="blade";
 							set("f_w_skill","lieyan-dao");
 						break;
 					}
 				break;
 				case 1:
-					set_skill("jiuyang-shengong",500);									//Ã÷½Ì¸ß¼¶ÄÚ¹¦£º¾ÅÑôÉñ¹¦
-					set_skill("shenghuo-shengong",500);									//Ã÷½ÌµÍ¼¶ÄÚ¹¦£ºÊ¥»ğÉñ¹¦
+					set_skill("jiuyang-shengong",500);									//æ˜æ•™é«˜çº§å†…åŠŸï¼šä¹é˜³ç¥åŠŸ
+					set_skill("shenghuo-shengong",500);									//æ˜æ•™ä½çº§å†…åŠŸï¼šåœ£ç«ç¥åŠŸ
 					map_skill("force","jiuyang-shengong");
 					u_f_pfm=u_f_pfm + ({(: exert_function, "jiuyang" :)});	 //powerup	
 					if(!in_weapon)
-					switch(random(1))													//Ã÷½ÌÊ¥»ğÁî·¨¿ÉÒÔÎªcuff£¬µ«Ç¿ÖÆÒªÇótishaĞèÒªcuff Îªshenghuo-lingfa Ôò²»ºÃ
-					{																	//ÖÁÉÙÏŞÖÆÁË¿ÕÊÖºóÃ÷½ÌµÄÖ÷´òÎä¹¦ÆßÉËÈ­¡£ campsun ×¢	
+					switch(random(1))													//æ˜æ•™åœ£ç«ä»¤æ³•å¯ä»¥ä¸ºcuffï¼Œä½†å¼ºåˆ¶è¦æ±‚tishaéœ€è¦cuff ä¸ºshenghuo-lingfa åˆ™ä¸å¥½
+					{																	//è‡³å°‘é™åˆ¶äº†ç©ºæ‰‹åæ˜æ•™çš„ä¸»æ‰“æ­¦åŠŸä¸ƒä¼¤æ‹³ã€‚ campsun æ³¨	
 						case 0:
-							set_skill("qishang-quan",500);								//Ã÷½Ì¸ß¼¶¿ÕÊÖ£ºÆßÉËÈ­		
+							set_skill("qishang-quan",500);								//æ˜æ•™é«˜çº§ç©ºæ‰‹ï¼šä¸ƒä¼¤æ‹³		
 							map_skill("cuff","qishang-quan");
-							nw_parry="qiankun-danuoyi";										//Éè¶¨Ç¬À¤´óÅ²ÒÆÎªÕĞ¼Ü
+							nw_parry="qiankun-danuoyi";										//è®¾å®šä¹¾å¤å¤§æŒªç§»ä¸ºæ‹›æ¶
 							prepare_skill("cuff","qishang-quan");
-							u_pfm = u_pfm + ({(: perform_action, "cuff.qishang" :)});     //ÆßÉËÈ­pfm£ºÆßÉË
-							u_pfm = u_pfm + ({(: perform_action, "cuff.duanhun" :)});     //ÆßÉËÈ­pfm£º¶Ï»ê
+							u_pfm = u_pfm + ({(: perform_action, "cuff.qishang" :)});     //ä¸ƒä¼¤æ‹³pfmï¼šä¸ƒä¼¤
+							u_pfm = u_pfm + ({(: perform_action, "cuff.duanhun" :)});     //ä¸ƒä¼¤æ‹³pfmï¼šæ–­é­‚
 							set("f_skill","qishang-quan");
 						break;
 					}
@@ -77,8 +77,8 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("shenghuo-lingfa",500);										//Ã÷½Ì¸ß¼¶±øÆ÷£ºÊ¥»ğÁî·¨
-							map_skill("dagger","shenghuo-lingfa");									//Éè¶¨Ç¬À¤´óÅ²ÒÆÎªÕĞ¼Ü
+							set_skill("shenghuo-lingfa",500);										//æ˜æ•™é«˜çº§å…µå™¨ï¼šåœ£ç«ä»¤æ³•
+							map_skill("dagger","shenghuo-lingfa");									//è®¾å®šä¹¾å¤å¤§æŒªç§»ä¸ºæ‹›æ¶
 							if(in_weapon)
 							{
 								pmap = query_skill_prepare();
@@ -87,7 +87,7 @@ void copy_menpai3()
 									skill = keys(pmap);
 									foreach (string item in skill)
 									prepare_skill(item);
-								}																		//·ÀÖ¹hubei
+								}																		//é˜²æ­¢hubei
 								
 								map_skill("cuff","shenghuo-lingfa");
 								prepare_skill("cuff","shenghuo-lingfa");
@@ -95,10 +95,10 @@ void copy_menpai3()
 								set("f_skill","shenghuo-lingfa");
 							}
 							w_parry="qiankun-danuoyi";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.duo" :)});        	//Ê¥»ğÁî·¨pfm£º¶á
-							u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.ji" :)});			//»÷
-							u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.tisha" :)});			//ÌßÉ³	
-							u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.xinmo" :)});			//ĞÄÄ§
+							u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.duo" :)});        	//åœ£ç«ä»¤æ³•pfmï¼šå¤º
+							u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.ji" :)});			//å‡»
+							u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.tisha" :)});			//è¸¢æ²™	
+							u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.xinmo" :)});			//å¿ƒé­”
 							//u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.tougu" :)});
 							//u_w_pfm = u_w_pfm + ({(: perform_action, "dagger.yinfeng" :)});
 							u_weapon="dagger";
@@ -109,18 +109,18 @@ void copy_menpai3()
 				}
 			break;//end case mj	
 
-		case "thd":												//Éè¶¨ÌÒ»¨µºÎä¹¦
-			set("family/family_name","ÌÒ»¨µº");
-			set_skill("bihai-chaosheng",500);					//ÌÒ»¨µºÄÚ¹¦£º±Ìº£³±Éú¹¦			
-			set_skill("suibo-zhuliu",500);						//ÌÒ»¨µºÇá¹¦£ºËæ²¨ÖğÁ÷ 
+		case "thd":												//è®¾å®šæ¡ƒèŠ±å²›æ­¦åŠŸ
+			set("family/family_name","æ¡ƒèŠ±å²›");
+			set_skill("bihai-chaosheng",500);					//æ¡ƒèŠ±å²›å†…åŠŸï¼šç¢§æµ·æ½®ç”ŸåŠŸ			
+			set_skill("suibo-zhuliu",500);						//æ¡ƒèŠ±å²›è½»åŠŸï¼šéšæ³¢é€æµ 
 			set_skill("qimen-bagua",200);
 			set("thd/perform",31);
 			map_skill("force", "bihai-chaosheng");
 			map_skill("dodge", "suibo-zhuliu");
-//			u_f_pfm=u_f_pfm + ({(: exert_function, "play" :)});   //±Ìº£³±Éú¹¦pfm£º´µóï
-			u_f_pfm=u_f_pfm + ({(: exert_function, "maze" :)});     //²¼Õó
-			u_ub_pfm=u_ub_pfm + ({(: exert_function, "qimen" :)});     //ÆæÃÅÎåĞĞ
-			u_f_pfm=u_f_pfm + ({(: perform_action, "dodge.wuzhuan" :)});			//Ëæ²¨ÖğÁ÷pfm:Îå×ª
+//			u_f_pfm=u_f_pfm + ({(: exert_function, "play" :)});   //ç¢§æµ·æ½®ç”ŸåŠŸpfmï¼šå¹ç®«
+			u_f_pfm=u_f_pfm + ({(: exert_function, "maze" :)});     //å¸ƒé˜µ
+			u_ub_pfm=u_ub_pfm + ({(: exert_function, "qimen" :)});     //å¥‡é—¨äº”è¡Œ
+			u_f_pfm=u_f_pfm + ({(: perform_action, "dodge.wuzhuan" :)});			//éšæ³¢é€æµpfm:äº”è½¬
 
 			switch(in_level)
 			{
@@ -128,45 +128,45 @@ void copy_menpai3()
 					switch(random(3))
 					{
 						case 0:
-							set_skill("lanhua-shou",500);                             //ÌÒ»¨µºµÍ¼¶¿ÕÊÖ£ºÀ¼»¨·÷Ñ¨ÊÖ
+							set_skill("lanhua-shou",500);                             //æ¡ƒèŠ±å²›ä½çº§ç©ºæ‰‹ï¼šå…°èŠ±æ‹‚ç©´æ‰‹
 							map_skill("hand","lanhua-shou");
 							nw_parry="lanhua-shou";
 							prepare_skill("hand", "lanhua-shou");
-							u_pfm=u_pfm + ({(: perform_action, "hand.fuxue" :)});        //À¼»¨·÷Ñ¨ÊÖpfm£º¸§Ñ¨
+							u_pfm=u_pfm + ({(: perform_action, "hand.fuxue" :)});        //å…°èŠ±æ‹‚ç©´æ‰‹pfmï¼šæŠšç©´
 							set("f_skill","lanhua-shou");
 						break;
 						case 1:
-							set_skill("luoying-zhang",500);                             //ÌÒ»¨µºµÍ¼¶¿ÕÊÖ£ºÂäÓ¢Éñ½£ÕÆ
+							set_skill("luoying-zhang",500);                             //æ¡ƒèŠ±å²›ä½çº§ç©ºæ‰‹ï¼šè½è‹±ç¥å‰‘æŒ
 							map_skill("strike","luoying-zhang");
 							nw_parry="luoying-zhang";
 							prepare_skill("strike", "luoying-zhang");
-							u_pfm=u_pfm + ({(: perform_action, "strike.fugu" :)});        //ÂäÓ¢Éñ½£ÕÆpfm£º¸§¹Ç
-							u_pfm=u_pfm + ({(: perform_action, "strike.pikong" :)});        //ÂäÓ¢Éñ½£ÕÆpfm£ºÅü¿Õ
-							u_pfm=u_pfm + ({(: perform_action, "strike.bading" :)});        //ÂäÓ¢Éñ½£ÕÆpfm£º°Î¶¤
+							u_pfm=u_pfm + ({(: perform_action, "strike.fugu" :)});        //è½è‹±ç¥å‰‘æŒpfmï¼šæŠšéª¨
+							u_pfm=u_pfm + ({(: perform_action, "strike.pikong" :)});        //è½è‹±ç¥å‰‘æŒpfmï¼šåŠˆç©º
+							u_pfm=u_pfm + ({(: perform_action, "strike.bading" :)});        //è½è‹±ç¥å‰‘æŒpfmï¼šæ‹”é’‰
 							set("f_skill","luoying-zhang");
 
 						break;
 						case 2:
-							set_skill("xuanfeng-tui",500);                             //ÌÒ»¨µºµÍ¼¶¿ÕÊÖ£ºĞı·çÉ¨Ò¶ÍÈ
-							set_skill("luoying-zhang",500);                             //pfm xuanfeng µÄÒªÇó
+							set_skill("xuanfeng-tui",500);                             //æ¡ƒèŠ±å²›ä½çº§ç©ºæ‰‹ï¼šæ—‹é£æ‰«å¶è…¿
+							set_skill("luoying-zhang",500);                             //pfm xuanfeng çš„è¦æ±‚
 							map_skill("strike","luoying-zhang");
 							map_skill("leg","xuanfeng-tui");
 							nw_parry="xuanfeng-tui";
 							prepare_skill("leg", "xuanfeng-tui");
-							u_pfm=u_pfm + ({(: perform_action, "leg.kuangfeng" :)});        //Ğı·çÉ¨Ò¶ÍÈpfm£º¿ñ·ç
+							u_pfm=u_pfm + ({(: perform_action, "leg.kuangfeng" :)});        //æ—‹é£æ‰«å¶è…¿pfmï¼šç‹‚é£
 							set("f_skill","xuanfeng-tui");
 						break;
 					}
 					switch(random(1))															
 					{
 						case 0:
-							set_skill("tanzhi-shentong",500);								//ÌÒ»¨µº¸ß¼¶¿ÕÊÖ£ºµ¯Ö¸ÉñÍ¨	
+							set_skill("tanzhi-shentong",500);								//æ¡ƒèŠ±å²›é«˜çº§ç©ºæ‰‹ï¼šå¼¹æŒ‡ç¥é€š	
 							map_skill("finger","tanzhi-shentong");
-							map_skill("throwing","tanzhi-shentong");						//µ¯Ö¸ÉñÍ¨×ö°µÆ÷
+							map_skill("throwing","tanzhi-shentong");						//å¼¹æŒ‡ç¥é€šåšæš—å™¨
 							w_parry="tanzhi-shentong";
 							prepare_skill("finger","tanzhi-shentong");
-							u_w_pfm = u_w_pfm + ({(: perform_action, "finger.shentong" :)});     //µ¯Ö¸ÉñÍ¨pfm£ºÉñÍ¨
-							u_w_pfm = u_w_pfm + ({(: perform_action, "finger.tan" :)});     //µ¯Ö¸ÉñÍ¨pfm£ºµ¯
+							u_w_pfm = u_w_pfm + ({(: perform_action, "finger.shentong" :)});     //å¼¹æŒ‡ç¥é€špfmï¼šç¥é€š
+							u_w_pfm = u_w_pfm + ({(: perform_action, "finger.tan" :)});     //å¼¹æŒ‡ç¥é€špfmï¼šå¼¹
 							u_w_pfm = u_w_pfm + ({(: perform_action, "finger.huayu" :)}); 
 							switch(random(3))
 							{
@@ -187,7 +187,7 @@ void copy_menpai3()
 								break;
 							
 							}
-							u_w_pfm = u_w_pfm + ({(: perform_action, "finger.xinghe" :)});     //µ¯Ö¸ÉñÍ¨pfm£ºĞÇºÓÇ§·«Îè
+							u_w_pfm = u_w_pfm + ({(: perform_action, "finger.xinghe" :)});     //å¼¹æŒ‡ç¥é€špfmï¼šæ˜Ÿæ²³åƒå¸†èˆ
 							set("f_w_skill","tanzhi-shentong");
 							u_weapon="feihuangshi";
 						break;
@@ -198,13 +198,13 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("tanzhi-shentong",500);								//ÌÒ»¨µº¸ß¼¶¿ÕÊÖ£ºµ¯Ö¸ÉñÍ¨	
+							set_skill("tanzhi-shentong",500);								//æ¡ƒèŠ±å²›é«˜çº§ç©ºæ‰‹ï¼šå¼¹æŒ‡ç¥é€š	
 							map_skill("finger","tanzhi-shentong");
-							map_skill("throwing","tanzhi-shentong");						//µ¯Ö¸ÉñÍ¨×ö°µÆ÷
+							map_skill("throwing","tanzhi-shentong");						//å¼¹æŒ‡ç¥é€šåšæš—å™¨
 							nw_parry="tanzhi-shentong";
 							prepare_skill("finger","tanzhi-shentong");
-//							u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)});     //µ¯Ö¸ÉñÍ¨pfm£ºÇ¬À¤Ò»Ö¸
-							u_pfm = u_pfm + ({(: perform_action, "finger.tan" :)});     //µ¯Ö¸ÉñÍ¨pfm£ºµ¯
+//							u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)});     //å¼¹æŒ‡ç¥é€špfmï¼šä¹¾å¤ä¸€æŒ‡
+							u_pfm = u_pfm + ({(: perform_action, "finger.tan" :)});     //å¼¹æŒ‡ç¥é€špfmï¼šå¼¹
 							switch(random(3))
 							{
 								case 0:
@@ -224,7 +224,7 @@ void copy_menpai3()
 								break;
 							
 							}
-							u_pfm = u_pfm + ({(: perform_action, "finger.xinghe" :)});     //µ¯Ö¸ÉñÍ¨pfm£ºĞÇºÓÇ§·«Îè
+							u_pfm = u_pfm + ({(: perform_action, "finger.xinghe" :)});     //å¼¹æŒ‡ç¥é€špfmï¼šæ˜Ÿæ²³åƒå¸†èˆ
 							set("f_skill","tanzhi-shentong");
 
 						break;
@@ -232,7 +232,7 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("yuxiao-jian",500);										//ÌÒ»¨µº¸ß¼¶±øÆ÷£ºÓñóï½£·¨
+							set_skill("yuxiao-jian",500);										//æ¡ƒèŠ±å²›é«˜çº§å…µå™¨ï¼šç‰ç®«å‰‘æ³•
 							set_skill("tanzhi-shentong",500);
 							map_skill("finger","tanzhi-shentong");
 							set_skill("xuanfeng-tui",500);
@@ -243,9 +243,9 @@ void copy_menpai3()
 							map_skill("hand","lanhua-shou");
 							map_skill("sword","yuxiao-jian");
 							w_parry="yuxiao-jian";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.feiying" :)});        	//Óñóï½£·¨pfm£º·ÉÓ°
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.qimen" :)});			//ÆæÃÅ
-							u_weapon="xiao";													//pfm feiying ĞèÒª×°±¸óïÎªÎäÆ÷		
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.feiying" :)});        	//ç‰ç®«å‰‘æ³•pfmï¼šé£å½±
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.qimen" :)});			//å¥‡é—¨
+							u_weapon="xiao";													//pfm feiying éœ€è¦è£…å¤‡ç®«ä¸ºæ­¦å™¨		
 							set("f_w_skill","yuxiao-jian");
 						break;
 					}					
@@ -254,10 +254,10 @@ void copy_menpai3()
 			break;//end case thd
 			
 		case "tls":																		//tls kungfu set							
-			set("family/family_name","ÌìÁúËÂ");
-			set("family/master_name","Ò»µÆ´óÊ¦");
-			set_skill("qiantian-yiyang",500);											//ÌìÁúËÂµÍ¼¶ÄÚ¹¦£ºÇ¬ÌìÒ»Ñô
-			set_skill("tianlong-xiang",500);											//ÌìÁúËÂÇá¹¦£ºÌìÁúÏè
+			set("family/family_name","å¤©é¾™å¯º");
+			set("family/master_name","ä¸€ç¯å¤§å¸ˆ");
+			set_skill("qiantian-yiyang",500);											//å¤©é¾™å¯ºä½çº§å†…åŠŸï¼šä¹¾å¤©ä¸€é˜³
+			set_skill("tianlong-xiang",500);											//å¤©é¾™å¯ºè½»åŠŸï¼šå¤©é¾™ç¿”
 			set_skill("buddhism",200);
 			set("class","bonze");		
 			map_skill("force", "qiantian-yiyang");
@@ -270,27 +270,27 @@ void copy_menpai3()
 					switch(random(3))
 					{
 						case 0:
-							set_skill("qingyan-zhang",500);                             		//ÌìÁúËÂµÍ¼¶¿ÕÊÖ£ºÎåÂŞÇáÑÌÕÆ
+							set_skill("qingyan-zhang",500);                             		//å¤©é¾™å¯ºä½çº§ç©ºæ‰‹ï¼šäº”ç½—è½»çƒŸæŒ
 							map_skill("strike","qingyan-zhang");
 							nw_parry="qingyan-zhang";
 							prepare_skill("strike", "qingyan-zhang");
-							u_pfm = u_pfm + ({(: perform_action, "strike.piaoying" :)});		//Æ®Ó°ÕÆ
+							u_pfm = u_pfm + ({(: perform_action, "strike.piaoying" :)});		//é£˜å½±æŒ
 							set("f_skill","qingyan-zhang");
 						break;
 						case 1:
-							set_skill("duanjia-quan",500);                             			//ÌìÁúËÂµÍ¼¶¿ÕÊÖ£º¶Î¼ÒÈ­·¨
+							set_skill("duanjia-quan",500);                             			//å¤©é¾™å¯ºä½çº§ç©ºæ‰‹ï¼šæ®µå®¶æ‹³æ³•
 							map_skill("cuff","duanjia-quan");
 							nw_parry="duanjia-quan";
 							prepare_skill("cuff", "duanjia-quan");
 							set("f_skill","duanjia-quan");
 						break;
 						case 2:
-							set_skill("yiyang-zhi",500);										//ÌìÁúËÂµÍ¼¶¿ÕÊÖ£ºÒ»ÑôÖ¸
+							set_skill("yiyang-zhi",500);										//å¤©é¾™å¯ºä½çº§ç©ºæ‰‹ï¼šä¸€é˜³æŒ‡
 							map_skill("finger","yiyang-zhi");
 							nw_parry="yiyang-zhi";
 							prepare_skill("finger","yiyang-zhi");
-							u_pfm = u_pfm + ({(: perform_action, "finger.sandie" :)}); 			//Ò»ÑôÖ¸pfm£ºÑô¹ØÈıµş
-							u_pfm = u_pfm + ({(: perform_action, "finger.yizhisanmai" :)}); 	//Ò»Ö¸ÈıÂö
+							u_pfm = u_pfm + ({(: perform_action, "finger.sandie" :)}); 			//ä¸€é˜³æŒ‡pfmï¼šé˜³å…³ä¸‰å 
+							u_pfm = u_pfm + ({(: perform_action, "finger.yizhisanmai" :)}); 	//ä¸€æŒ‡ä¸‰è„‰
 							u_pfm = u_pfm + ({(: perform_action, "staff.rou" :)});
 							set("f_skill","yiyang-zhi");
 						break;
@@ -299,7 +299,7 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("duanjia-jianfa",500);                               		//ÌìÁúËÂµÍ¼¶±øÆ÷£º¶Î¼Ò½£·¨
+							set_skill("duanjia-jianfa",500);                               		//å¤©é¾™å¯ºä½çº§å…µå™¨ï¼šæ®µå®¶å‰‘æ³•
 							map_skill("sword","duanjia-jianfa");
 							if(in_weapon)
 							{
@@ -316,28 +316,28 @@ void copy_menpai3()
 								set("f_skill","qingyan-zhang");
 							}
 							w_parry="qingyan-zhang";
-							u_w_pfm=u_w_pfm + ({(: perform_action, "sword.fenglei" :)});          	//¶Î¼Ò½£·¨pfm£º·çÀ×ËÄ»÷
+							u_w_pfm=u_w_pfm + ({(: perform_action, "sword.fenglei" :)});          	//æ®µå®¶å‰‘æ³•pfmï¼šé£é›·å››å‡»
 							u_weapon="sword";
 							set("f_w_skill","duanjia-jianfa");						
 						break;
 					}
 				break;
 				case 1:
-					set_skill("kurong-changong",500);											//ÌìÁúËÂ¸ß¼¶ÄÚ¹¦£º¿İÈÙìø¹¦
+					set_skill("kurong-changong",500);											//å¤©é¾™å¯ºé«˜çº§å†…åŠŸï¼šæ¯è£ç¦…åŠŸ
 					map_skill("force","kurong-changong");
 					switch(random(2))
 					{
 						case 0:										
-							map_skill("strike","kurong-changong");								//ÌìÁúËÂ¸ß¼¶¿ÕÊÖ£º¿İÈÙìø¹¦
+							map_skill("strike","kurong-changong");								//å¤©é¾™å¯ºé«˜çº§ç©ºæ‰‹ï¼šæ¯è£ç¦…åŠŸ
 							nw_parry="kurong-changong";
 							prepare_skill("strike","kurong-changong");
-							u_pfm = u_pfm + ({(: exert_function, "rong" :)}); 					//¿İÈÙìø¹¦pfm£ºÈÙ
-							u_pfm = u_pfm + ({(: perform_action, "strike.jiuchong" :)});		//¾ÅÖØÌì
+							u_pfm = u_pfm + ({(: exert_function, "rong" :)}); 					//æ¯è£ç¦…åŠŸpfmï¼šè£
+							u_pfm = u_pfm + ({(: perform_action, "strike.jiuchong" :)});		//ä¹é‡å¤©
 							u_pfm = u_pfm + ({(: exert_function, "ku" :)});
 							set("f_skill","kurong-changong");     
 						break;
 						case 1:
-							u_liumai=str_liumai[random(sizeof(str_liumai))];					//ÌìÁúËÂ¸ß¼¶¿ÕÊÖ£ºÁùÂöÉñ½£
+							u_liumai=str_liumai[random(sizeof(str_liumai))];					//å¤©é¾™å¯ºé«˜çº§ç©ºæ‰‹ï¼šå…­è„‰ç¥å‰‘
 							set("env/liumai",u_liumai);
 							set("liumai-shenjian/"+u_liumai,1);
 							set_skill("yiyang-zhi",500);
@@ -356,25 +356,25 @@ void copy_menpai3()
 					switch(random(3))
 					{
 						case 0:
-							set_skill("cihang-bian",500);										//ÌìÁúËÂ¸ß¼¶±øÆ÷£º´Èº½±Ş
+							set_skill("cihang-bian",500);										//å¤©é¾™å¯ºé«˜çº§å…µå™¨ï¼šæ…ˆèˆªé­
 							set("shen",530000);												//need for pfm	
 							map_skill("whip","cihang-bian");
 							w_parry="cihang-bian";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "whip.cibei" :)});        		//´Èº½±Şpfm£º´È±¯×Ö¾÷
+							u_w_pfm = u_w_pfm + ({(: perform_action, "whip.cibei" :)});        		//æ…ˆèˆªé­pfmï¼šæ…ˆæ‚²å­—è¯€
 							u_weapon="whip";
 							set("f_w_skill","cihang-bian");
 						break;
 						case 1:
-							set_skill("pangen-fu",500);											//ÌìÁúËÂ¸ß¼¶±øÆ÷£ºÅÌ¸ù´í½á¸«
+							set_skill("pangen-fu",500);											//å¤©é¾™å¯ºé«˜çº§å…µå™¨ï¼šç›˜æ ¹é”™ç»“æ–§
 							map_skill("axe","pangen-fu");
 							w_parry="pangen-fu";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "axe.jingtian" :)});        	//ÅÌ¸ù´í½á¸«pfm£º¾ªÌì¶ÏÔÆ¸«
+							u_w_pfm = u_w_pfm + ({(: perform_action, "axe.jingtian" :)});        	//ç›˜æ ¹é”™ç»“æ–§pfmï¼šæƒŠå¤©æ–­äº‘æ–§
 							u_weapon="axe";
 							set("f_w_skill","pangen-fu");
 						break;
 						case 2:
 							map_skill("force", "qiantian-yiyang");
-							set_skill("yiyang-zhi",500);											//ÌìÁúËÂ¸ß¼¶±øÆ÷£ºÒ»ÑôÖ¸
+							set_skill("yiyang-zhi",500);											//å¤©é¾™å¯ºé«˜çº§å…µå™¨ï¼šä¸€é˜³æŒ‡
 							map_skill("staff","yiyang-zhi");
 							map_skill("finger","yiyang-zhi");
 							prepare_skill("finger","yiyang-zhi");
@@ -390,70 +390,70 @@ void copy_menpai3()
 			break;//end case tls		
 
 		case "sl":		
-			set("family/family_name","ÉÙÁÖÅÉ");
-			set_skill("yijin-jing",500);													//ÉÙÁÖÄÚ¹¦£ºÒ×½î¾­
-			set_skill("shaolin-shenfa",500);												//ÉÙÁÖÇá¹¦£ºÉÙÁÖÉí·¨
-			set_skill("buddhism",200);														//ÉÙÁÖÔÓÏî£ºìø×ÚĞÄ·¨
+			set("family/family_name","å°‘æ—æ´¾");
+			set_skill("yijin-jing",500);													//å°‘æ—å†…åŠŸï¼šæ˜“ç­‹ç»
+			set_skill("shaolin-shenfa",500);												//å°‘æ—è½»åŠŸï¼šå°‘æ—èº«æ³•
+			set_skill("buddhism",200);														//å°‘æ—æ‚é¡¹ï¼šç¦…å®—å¿ƒæ³•
 			map_skill("force", "yijin-jing");
 			map_skill("dodge", "shaolin-shenfa");
-			u_f_pfm=u_f_pfm + ({(: exert_function, "jingang" :)});   							//Ò×½î¾­pfm£º½ğ¸Õ²»»µÌåÉñ¹¦
+			u_f_pfm=u_f_pfm + ({(: exert_function, "jingang" :)});   							//æ˜“ç­‹ç»pfmï¼šé‡‘åˆšä¸åä½“ç¥åŠŸ
 			switch(in_level)
 			{
 				case 0:
 					switch(random(8))
 					{
 						case 0:
-							set_skill("fengyun-shou",500);                             		//ÉÙÁÖµÍ¼¶¿ÕÊÖ£º·çÔÆÊÖ
+							set_skill("fengyun-shou",500);                             		//å°‘æ—ä½çº§ç©ºæ‰‹ï¼šé£äº‘æ‰‹
 							map_skill("hand","fengyun-shou");
 							nw_parry="fengyun-shou";
 							prepare_skill("hand", "fengyun-shou");
 							set("f_skill","fengyun-shou");
 						break;
 						case 1:
-							set_skill("yingzhua-gong",500);                             	//ÉÙÁÖµÍ¼¶¿ÕÊÖ£ºÓ¥×¦¹¦
+							set_skill("yingzhua-gong",500);                             	//å°‘æ—ä½çº§ç©ºæ‰‹ï¼šé¹°çˆªåŠŸ
 							map_skill("claw","yingzhua-gong");
 							nw_parry="yingzhua-gong";
 							prepare_skill("claw", "yingzhua-gong");
 							set("f_skill","yingzhua-gong");
 						break;
 						case 2:
-							set_skill("mohe-zhi",500);                             			//ÉÙÁÖµÍ¼¶¿ÕÊÖ£ºÄ¦Ú­Ö¸
+							set_skill("mohe-zhi",500);                             			//å°‘æ—ä½çº§ç©ºæ‰‹ï¼šæ‘©è¯ƒæŒ‡
 							map_skill("finger","mohe-zhi");
 							nw_parry="mohe-zhi";
 							prepare_skill("finger", "mohe-zhi");
 							set("f_skill","mohe-zhi");
 						break;
 						case 3:
-							set_skill("jimie-zhua",500);                             		//ÉÙÁÖµÍ¼¶¿ÕÊÖ£º¼ÅÃğ×¦
+							set_skill("jimie-zhua",500);                             		//å°‘æ—ä½çº§ç©ºæ‰‹ï¼šå¯‚ç­çˆª
 							map_skill("claw","jimie-zhua");
 							nw_parry="jimie-zhua";
 							prepare_skill("claw", "jimie-zhua");
 							set("f_skill","jimie-zhua");
 						break;
 						case 4:
-							set_skill("shaolin-tantui",500);                             	//ÉÙÁÖµÍ¼¶¿ÕÊÖ£ºÉÙÁÖµ¯ÍÈ
+							set_skill("shaolin-tantui",500);                             	//å°‘æ—ä½çº§ç©ºæ‰‹ï¼šå°‘æ—å¼¹è…¿
 							map_skill("leg","shaolin-tantui");
 							nw_parry="shaolin-tantui";
 							prepare_skill("leg", "shaolin-tantui");
 							set("f_skill","shaolin-tantui");
 						break;
 						case 5:
-							set_skill("weituo-zhang",500);                             		//ÉÙÁÖµÍ¼¶¿ÕÊÖ£ºÎ¤ÍÓÕÆ
+							set_skill("weituo-zhang",500);                             		//å°‘æ—ä½çº§ç©ºæ‰‹ï¼šéŸ¦é™€æŒ
 							map_skill("strike","weituo-zhang");
 							nw_parry="weituo-zhang";
 							prepare_skill("strike", "weituo-zhang");
 							set("f_skill","weituo-zhang");
 						break;
 						case 6:
-							set_skill("luohan-quan",500);                             		//ÉÙÁÖµÍ¼¶¿ÕÊÖ£ºÂŞººÈ­
+							set_skill("luohan-quan",500);                             		//å°‘æ—ä½çº§ç©ºæ‰‹ï¼šç½—æ±‰æ‹³
 							map_skill("cuff","luohan-quan");
 							nw_parry="luohan-quan";
 							prepare_skill("cuff", "luohan-quan");
 							set("f_skill","luohan-quan");
 						break;
 						case 7:
-							set_skill("sanhua-zhang",500);     								//ÉÙÁÖµÍ¼¶¿ÕÊÖ£ºÉ¢»¨ÕÆ
-							set_skill("nianhua-zhi",500);                             		//ÉÙÁÖµÍ¼¶¿ÕÊÖ£ºÄé»¨Ö¸
+							set_skill("sanhua-zhang",500);     								//å°‘æ—ä½çº§ç©ºæ‰‹ï¼šæ•£èŠ±æŒ
+							set_skill("nianhua-zhi",500);                             		//å°‘æ—ä½çº§ç©ºæ‰‹ï¼šæ‹ˆèŠ±æŒ‡
                       		map_skill("strike","sanhua-zhang");
     						map_skill("finger","nianhua-zhi");
 							prepare_skill("strike", "sanhua-zhang");
@@ -461,8 +461,8 @@ void copy_menpai3()
 							nw_parry="nianhua-zhi";
 							u_pfm = u_pfm + ({(: perform_action, "strike.sanhua" :)});
 							u_pfm = u_pfm + ({(: perform_action, "finger.fuxue" :)});    
-							set("f_skill","sanhua-zhang");									//É¢»¨ÕÆpfm£ºËÄ¼¾É¢»¨
-							set("f_skill2","nianhua-zhi");									//Äé»¨Ö¸pfm£ºÄé»¨·÷Ñ¨
+							set("f_skill","sanhua-zhang");									//æ•£èŠ±æŒpfmï¼šå››å­£æ•£èŠ±
+							set("f_skill2","nianhua-zhi");									//æ‹ˆèŠ±æŒ‡pfmï¼šæ‹ˆèŠ±æ‹‚ç©´
 							
 						break;
 
@@ -470,58 +470,58 @@ void copy_menpai3()
 					switch(random(8))
 					{
 						case 0:
-							set_skill("xiuluo-dao",500);                               		//ÉÙÁÖµÍ¼¶±øÆ÷£ºĞŞÂŞµ¶ 
+							set_skill("xiuluo-dao",500);                               		//å°‘æ—ä½çº§å…µå™¨ï¼šä¿®ç½—åˆ€ 
 							map_skill("blade","xiuluo-dao");
 							w_parry="xiuluo-dao";
 							u_weapon="blade";
 							set("f_w_skill","xiuluo-dao");
 						break;
 						case 1:
-							set_skill("pudu-zhang",500);                               		//ÉÙÁÖµÍ¼¶±øÆ÷£ºÆÕ¶ÉÕÈ
+							set_skill("pudu-zhang",500);                               		//å°‘æ—ä½çº§å…µå™¨ï¼šæ™®æ¸¡æ–
 							map_skill("staff","pudu-zhang");
 							w_parry="pudu-zhang";
 							u_weapon="staff";
 							set("f_w_skill","pudu-zhang");
 						break;
 						case 2:
-							set_skill("zui-gun",500);                               		//ÉÙÁÖµÍ¼¶±øÆ÷£ºÉÙÁÖ×í¹÷
+							set_skill("zui-gun",500);                               		//å°‘æ—ä½çº§å…µå™¨ï¼šå°‘æ—é†‰æ£
 							map_skill("club","zui-gun");
 							apply_condition("drunk",300);
 							w_parry="zui-gun";
 							u_weapon="club";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "club.zuijiu" :)}); 		//ÉÙÁÖ×í¹÷pfm£º°ËÏÉ×í´ò
+							u_w_pfm = u_w_pfm + ({(: perform_action, "club.zuijiu" :)}); 		//å°‘æ—é†‰æ£pfmï¼šå…«ä»™é†‰æ‰“
 							set("f_w_skill","zui-gun");   
 						break;
 						case 3:
-							set_skill("damo-jian",500);                               		//ÉÙÁÖµÍ¼¶±øÆ÷£º´ïÄ¦½£
+							set_skill("damo-jian",500);                               		//å°‘æ—ä½çº§å…µå™¨ï¼šè¾¾æ‘©å‰‘
 							map_skill("sword","damo-jian");
 							w_parry="damo-jian";
 							u_weapon="sword";
 							set("f_w_skill","damo-jian");
 						break;
 						case 4:
-							set_skill("weituo-gun",500);                               		//ÉÙÁÖµÍ¼¶±øÆ÷£ºÎ¤ÍÓ¹÷
+							set_skill("weituo-gun",500);                               		//å°‘æ—ä½çº§å…µå™¨ï¼šéŸ¦é™€æ£
 							map_skill("club","weituo-gun");
 							w_parry="weituo-gun";
 							u_weapon="club";
 							set("f_w_skill","weituo-gun");
 						break;
 						case 5:
-							set_skill("cibei-dao",500);                               		//ÉÙÁÖµÍ¼¶±øÆ÷£º´È±¯µ¶
+							set_skill("cibei-dao",500);                               		//å°‘æ—ä½çº§å…µå™¨ï¼šæ…ˆæ‚²åˆ€
 							map_skill("blade","cibei-dao");
 							w_parry="cibei-dao";
 							u_weapon="blade";
 							set("f_w_skill","cibei-dao");
 						break;
 						case 6:
-							set_skill("fumo-jian",500);                               		//ÉÙÁÖµÍ¼¶±øÆ÷£º·üÄ§½£	
+							set_skill("fumo-jian",500);                               		//å°‘æ—ä½çº§å…µå™¨ï¼šä¼é­”å‰‘	
 							map_skill("sword","fumo-jian");
 							w_parry="fumo-jian";
 							u_weapon="sword";
 							set("f_w_skill","fumo-jian");
 						break;
 						case 7:
-							set_skill("wuchang-zhang",500);                               	//ÉÙÁÖµÍ¼¶±øÆ÷£ºÎŞ³£ÕÈ
+							set_skill("wuchang-zhang",500);                               	//å°‘æ—ä½çº§å…µå™¨ï¼šæ— å¸¸æ–
 							map_skill("staff","wuchang-zhang");
 							w_parry="wuchang-zhang";
 							u_weapon="staff";
@@ -533,83 +533,83 @@ void copy_menpai3()
 					switch(random(4))
 					{
 						case 0:
-							set_skill("yizhi-chan",500);										//ÉÙÁÖ¸ß¼¶¿ÕÊÖ£ºÒ»Ö¸ìø
-							set_skill("longzhua-gong",500);										//ÉÙÁÖ¸ß¼¶¿ÕÊÖ£ºÁú×¦¹¦
+							set_skill("yizhi-chan",500);										//å°‘æ—é«˜çº§ç©ºæ‰‹ï¼šä¸€æŒ‡ç¦…
+							set_skill("longzhua-gong",500);										//å°‘æ—é«˜çº§ç©ºæ‰‹ï¼šé¾™çˆªåŠŸ
 							map_skill("claw","longzhua-gong");
 							map_skill("finger","yizhi-chan");
 							prepare_skill("claw","longzhua-gong");
 							prepare_skill("finger","yizhi-chan");
 							nw_parry="yizhi-chan";
-							u_pfm = u_pfm + ({(: perform_action, "finger.wofo" :)});    		//Ò»Ö¸ìøpfm£ºğ§ÒÀÎÒ·ğ
-							u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)}); 		//Ò»Ö¸Ç¬À¤
-							u_pfm = u_pfm + ({(: perform_action, "claw.canyun" :)}); 			//Áú×¦¹¦pfm£º·ç¾í²ĞÔÆ
+							u_pfm = u_pfm + ({(: perform_action, "finger.wofo" :)});    		//ä¸€æŒ‡ç¦…pfmï¼šçšˆä¾æˆ‘ä½›
+							u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)}); 		//ä¸€æŒ‡ä¹¾å¤
+							u_pfm = u_pfm + ({(: perform_action, "claw.canyun" :)}); 			//é¾™çˆªåŠŸpfmï¼šé£å·æ®‹äº‘
 							set("f_skill","yizhi-chan");
 							set("f_skill2","longzhua-gong");   
    						break;
 						case 1:
-							set_skill("ruying-suixingtui",500);									//ÉÙÁÖ¸ß¼¶¿ÕÊÖ£ºÈçÓ°ËæĞÎÍÈ
-							set_skill("qianye-shou",500);										//ÉÙÁÖ¸ß¼¶¿ÕÊÖ£ºÈçÀ´Ç§Ò¶ÊÖ
+							set_skill("ruying-suixingtui",500);									//å°‘æ—é«˜çº§ç©ºæ‰‹ï¼šå¦‚å½±éšå½¢è…¿
+							set_skill("qianye-shou",500);										//å°‘æ—é«˜çº§ç©ºæ‰‹ï¼šå¦‚æ¥åƒå¶æ‰‹
 							map_skill("leg","ruying-suixingtui");
 							map_skill("hand","qianye-shou");
 							prepare_skill("leg","ruying-suixingtui");
 							prepare_skill("hand","qianye-shou");
 							nw_parry="qianye-shou";
-							u_pfm = u_pfm + ({(: perform_action, "hand.qianshou" :)});    		//ÈçÀ´Ç§Ò¶ÊÖpfm£ºÇ§ÊÖÈçÀ´
-							u_pfm = u_pfm + ({(: perform_action, "leg.ruying" :)});    			//ÈçÓ°ËæĞÎÍÈpfm£ºÈçÓ°ËæĞÎ
+							u_pfm = u_pfm + ({(: perform_action, "hand.qianshou" :)});    		//å¦‚æ¥åƒå¶æ‰‹pfmï¼šåƒæ‰‹å¦‚æ¥
+							u_pfm = u_pfm + ({(: perform_action, "leg.ruying" :)});    			//å¦‚å½±éšå½¢è…¿pfmï¼šå¦‚å½±éšå½¢
 							set("f_skill","ruying-suixingtui");
 							set("f_skill2","qianye-shou");
 						break;
 						case 2:
-							set_skill("jingang-quan",500);										//ÉÙÁÖ¸ß¼¶¿ÕÊÖ£º´ó½ğ¸ÕÈ­
+							set_skill("jingang-quan",500);										//å°‘æ—é«˜çº§ç©ºæ‰‹ï¼šå¤§é‡‘åˆšæ‹³
 							map_skill("cuff","jingang-quan");
-							set_skill("banruo-zhang",500);										//ÉÙÁÖ¸ß¼¶¿ÕÊÖ£º°ãÈôÕÆ
+							set_skill("banruo-zhang",500);										//å°‘æ—é«˜çº§ç©ºæ‰‹ï¼šèˆ¬è‹¥æŒ
 							map_skill("strike","banruo-zhang");
 							nw_parry="banruo-zhang";
 							prepare_skill("strike","banruo-zhang");
 							prepare_skill("cuff","jingang-quan");
-							u_pfm = u_pfm + ({(: perform_action, "strike.chaodu" :)}); 			//°ãÈôÕÆpfm£º³¬¶ÈÁ¬»·¾÷
+							u_pfm = u_pfm + ({(: perform_action, "strike.chaodu" :)}); 			//èˆ¬è‹¥æŒpfmï¼šè¶…åº¦è¿ç¯è¯€
 							if(random(5)==1)
-							u_pfm = u_pfm + ({(: perform_action, "strike.yipai" :)});   		//Ò»ÅÄÁ½É¢
-							u_pfm = u_pfm + ({(: perform_action, "cuff.fumo" :)});    			//´ó½ğ¸ÕÈ­pfm£º½ğ¸Õ·üÄ§
+							u_pfm = u_pfm + ({(: perform_action, "strike.yipai" :)});   		//ä¸€æ‹ä¸¤æ•£
+							u_pfm = u_pfm + ({(: perform_action, "cuff.fumo" :)});    			//å¤§é‡‘åˆšæ‹³pfmï¼šé‡‘åˆšä¼é­”
 							set("f_skill","jingang-quan");
 							set("f_skill2","banruo-zhang");
  						break;
  						case 3:
-							set_skill("wuxiang-zhi",500);										//ÉÙÁÖ¸ß¼¶¿ÕÊÖ£ºÎŞÏà½ÙÖ¸
+							set_skill("wuxiang-zhi",500);										//å°‘æ—é«˜çº§ç©ºæ‰‹ï¼šæ— ç›¸åŠ«æŒ‡
 							map_skill("finger","wuxiang-zhi");
 							prepare_skill("finger","wuxiang-zhi");
 							nw_parry="wuxiang-zhi";
- 							u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)}); 		//ÎŞÏà½ÙÖ¸pfm£ºĞäÀïÇ¬À¤
+ 							u_pfm = u_pfm + ({(: perform_action, "finger.qiankun" :)}); 		//æ— ç›¸åŠ«æŒ‡pfmï¼šè¢–é‡Œä¹¾å¤
 							set("f_skill","wuxiang-zhi");
    						break;
 					}
 					switch(random(3))
 					{
 						case 0:
-							set_skill("riyue-bian",500);										//ÉÙÁÖ¸ß¼¶±øÆ÷£ºÈÕÔÂ±Ş·¨
+							set_skill("riyue-bian",500);										//å°‘æ—é«˜çº§å…µå™¨ï¼šæ—¥æœˆé­æ³•
 							map_skill("whip","riyue-bian");
 							w_parry="riyue-bian";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "whip.fumoquan" :)});        	//ÈÕÔÂ±Ş·¨pfm£º½ğ¸Õ·üÄ§È¦
-							u_w_pfm = u_w_pfm + ({(: perform_action, "whip.chanrao" :)});        	//Ìì²øµØÈÆ 
+							u_w_pfm = u_w_pfm + ({(: perform_action, "whip.fumoquan" :)});        	//æ—¥æœˆé­æ³•pfmï¼šé‡‘åˆšä¼é­”åœˆ
+							u_w_pfm = u_w_pfm + ({(: perform_action, "whip.chanrao" :)});        	//å¤©ç¼ åœ°ç»• 
 							u_weapon="whip";
 							set("f_w_skill","riyue-bian");
 						break;
 						case 1:
-							set_skill("ranmu-daofa",500);										//ÉÙÁÖ¸ß¼¶±øÆ÷£ºÈ¼Ä¾µ¶·¨
+							set_skill("ranmu-daofa",500);										//å°‘æ—é«˜çº§å…µå™¨ï¼šç‡ƒæœ¨åˆ€æ³•
 							map_skill("blade","ranmu-daofa");
 							w_parry="ranmu-daofa";
-//							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.fentian" :)});			//È¼Ä¾µ¶·¨pfm£º¾Ù»ğ·ÙÌì
-							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.fenwo" :)});        	//·ÙÎÒ
-							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.fenxin" :)});        	//·ÙĞÄ ĞèÒªÄ¾µ¶²ÅÄÜ·¢
+//							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.fentian" :)});			//ç‡ƒæœ¨åˆ€æ³•pfmï¼šä¸¾ç«ç„šå¤©
+							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.fenwo" :)});        	//ç„šæˆ‘
+							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.fenxin" :)});        	//ç„šå¿ƒ éœ€è¦æœ¨åˆ€æ‰èƒ½å‘
 							u_weapon="blade";
 							set("f_w_skill","ranmu-daofa");
 						break;
 						case 2:
-							set_skill("weituo-chu",500);										//ÉÙÁÖ¸ß¼¶±øÆ÷£ºÎ¤ÍÓèÆ
+							set_skill("weituo-chu",500);										//å°‘æ—é«˜çº§å…µå™¨ï¼šéŸ¦é™€æµ
 							map_skill("club","weituo-chu");
 							w_parry="weituo-chu";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "club.leidong" :)});			//Î¤ÍÓèÆpfm£ºÀ×¶¯¾ÅÌì
-							u_w_pfm = u_w_pfm + ({(: perform_action, "club.chaodu" :)});        	//³¬¶È¼«ÀÖ 
+							u_w_pfm = u_w_pfm + ({(: perform_action, "club.leidong" :)});			//éŸ¦é™€æµpfmï¼šé›·åŠ¨ä¹å¤©
+							u_w_pfm = u_w_pfm + ({(: perform_action, "club.chaodu" :)});        	//è¶…åº¦æä¹ 
 							u_weapon="club";
 							set("f_w_skill","weituo-chu");
 						break;
@@ -618,10 +618,10 @@ void copy_menpai3()
 				}
 			break;//end case sl	
 		case "kl":
-			set("family/family_name","À¥ÂØÅÉ");
-			set_skill("xuantian-wuji",500);													//À¥ÂØÄÚ¹¦£ºĞşÌìÎŞ¼«¹¦
-			set_skill("taxue-wuhen",500);													//À¥ÂØÇá¹¦£ºÌ¤Ñ©ÎŞºÛ
-			set_skill("art",200);															//À¥ÂØÔÓÏî£ºÇÙÆåÊé»­	
+			set("family/family_name","æ˜†ä»‘æ´¾");
+			set_skill("xuantian-wuji",500);													//æ˜†ä»‘å†…åŠŸï¼šç„å¤©æ— æåŠŸ
+			set_skill("taxue-wuhen",500);													//æ˜†ä»‘è½»åŠŸï¼šè¸é›ªæ— ç—•
+			set_skill("art",200);															//æ˜†ä»‘æ‚é¡¹ï¼šç´æ£‹ä¹¦ç”»	
 			map_skill("force", "xuantian-wuji");
 			map_skill("dodge", "taxue-wuhen");
 			u_f_pfm=u_f_pfm + ({(: exert_function, "riyue" :)});   							
@@ -632,7 +632,7 @@ void copy_menpai3()
 					switch(random(2))
 					{
 						case 0:
-							set_skill("chuanyun-tui",500);                            		//À¥ÂØµÍ¼¶¿ÕÊÖ£º´©ÔÆÍÈ
+							set_skill("chuanyun-tui",500);                            		//æ˜†ä»‘ä½çº§ç©ºæ‰‹ï¼šç©¿äº‘è…¿
 							map_skill("leg","chuanyun-tui");
 							nw_parry="chuanyun-tui";
 							prepare_skill("leg", "chuanyun-tui");
@@ -640,7 +640,7 @@ void copy_menpai3()
 							set("f_skill","chuanyun-tui");
 						break;
 						case 1:
-							set_skill("zhentian-quan",500);                            		//À¥ÂØµÍ¼¶¿ÕÊÖ£ºÕğÌìÈ­
+							set_skill("zhentian-quan",500);                            		//æ˜†ä»‘ä½çº§ç©ºæ‰‹ï¼šéœ‡å¤©æ‹³
 							map_skill("cuff","zhentian-quan");
 							nw_parry="zhentian-quan";
 							prepare_skill("cuff", "zhentian-quan");
@@ -652,7 +652,7 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("xunlei-jian",500);                              		//À¥ÂØµÍ¼¶±øÆ÷£ºÑ¸À×½£
+							set_skill("xunlei-jian",500);                              		//æ˜†ä»‘ä½çº§å…µå™¨ï¼šè¿…é›·å‰‘
 							map_skill("sword","xunlei-jian");
 							w_parry="xunlei-jian";
 							u_weapon="sword";
@@ -665,11 +665,11 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("kunlun-zhang",500);									 //À¥ÂØ¸ß¼¶¿ÕÊÖ£ºÀ¥ÂØÕÆ·¨
+							set_skill("kunlun-zhang",500);									 //æ˜†ä»‘é«˜çº§ç©ºæ‰‹ï¼šæ˜†ä»‘æŒæ³•
 							map_skill("strike","kunlun-zhang");
 							nw_parry="kunlun-zhang";
 							prepare_skill("strike","kunlun-zhang");
-							u_pfm = u_pfm + ({(: perform_action, "strike.diezhang" :)});     //À¥ÂØÕÆ·¨pfm£ºÀ¥É½µşÕÆ
+							u_pfm = u_pfm + ({(: perform_action, "strike.diezhang" :)});     //æ˜†ä»‘æŒæ³•pfmï¼šæ˜†å±±å æŒ
 							u_pfm = u_pfm + ({(: perform_action, "strike.xuebeng" :)});
 							set("f_skill","kunlun-zhang");
 						break;
@@ -677,10 +677,10 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("liangyi-jian",500);									//À¥ÂØ¸ß¼¶±øÆ÷£ºÁ½ÒÇ½£·¨	
+							set_skill("liangyi-jian",500);									//æ˜†ä»‘é«˜çº§å…µå™¨ï¼šä¸¤ä»ªå‰‘æ³•	
 							map_skill("sword","liangyi-jian");
 							w_parry="liangyi-jian";
-//							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.hebi" :)});        	//Á½ÒÇ½£·¨pfm£ºË«½£ºÏ±Ú 
+//							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.hebi" :)});        	//ä¸¤ä»ªå‰‘æ³•pfmï¼šåŒå‰‘åˆå£ 
 //							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.hundun" :)});
 							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.xunlei" :)});
 							u_weapon="sword";
@@ -691,46 +691,46 @@ void copy_menpai3()
 				}
 			break;//end case kl	
 		case "9y":
-			set("family/family_name","¾ÅÒõÕæ¾­´«ÈË");
-			set_skill("jiuyin-zhengong",500);												//¾ÅÒõÄÚ¹¦£º¾ÅÒõÕæ¹¦	
-			set_skill("jiuyin-shenfa",500);													//¾ÅÒõÇá¹¦£º¾ÅÒõÉí·¨	
+			set("family/family_name","ä¹é˜´çœŸç»ä¼ äºº");
+			set_skill("jiuyin-zhengong",500);												//ä¹é˜´å†…åŠŸï¼šä¹é˜´çœŸåŠŸ	
+			set_skill("jiuyin-shenfa",500);													//ä¹é˜´è½»åŠŸï¼šä¹é˜´èº«æ³•	
 			set_skill("daode-jing",200);			
 			map_skill("force", "jiuyin-zhengong");
 			map_skill("dodge", "jiuyin-shenfa");
 			u_f_pfm=u_f_pfm + ({(: exert_function, "yihuen" :)});   
-			u_ub_pfm=u_ub_pfm + ({(: exert_function, "zongjue" :)});   							//¾ÅÒõ×Ü¾÷
-			u_f_pfm=u_f_pfm + ({(: perform_action, "dodge.huanyinbu" :)});      				//¾ÅÒõÉí·¨pfm£º»ÃÒõ²½
+			u_ub_pfm=u_ub_pfm + ({(: exert_function, "zongjue" :)});   							//ä¹é˜´æ€»è¯€
+			u_f_pfm=u_f_pfm + ({(: perform_action, "dodge.huanyinbu" :)});      				//ä¹é˜´èº«æ³•pfmï¼šå¹»é˜´æ­¥
 			switch(in_level)
 			{
 				case 0:
 					switch(random(2))
 					{
 						case 0:
-							set_skill("jiuyin-baiguzhua",500);                              //¾ÅÒõµÍ¼¶¿ÕÊÖ£º¾ÅÒõ°×¹Ç×¦
+							set_skill("jiuyin-baiguzhua",500);                              //ä¹é˜´ä½çº§ç©ºæ‰‹ï¼šä¹é˜´ç™½éª¨çˆª
 							map_skill("claw","jiuyin-baiguzhua");
 							nw_parry="jiuyin-baiguzhua";
 							prepare_skill("claw", "jiuyin-baiguzhua");
-							u_pfm=u_pfm + ({(: perform_action, "claw.jiuyin" :)});			//¾ÅÒõ°×¹Ç×¦pfm£º¾ÅÒõÈı¾ø×¦
+							u_pfm=u_pfm + ({(: perform_action, "claw.jiuyin" :)});			//ä¹é˜´ç™½éª¨çˆªpfmï¼šä¹é˜´ä¸‰ç»çˆª
 							set("f_skill","jiuyin-baiguzhua");       
 						break;
 						case 1:
-							set_skill("cuixin-zhang",500);                             		//¾ÅÒõµÍ¼¶¿ÕÊÖ£º´İĞÄÕÆ
+							set_skill("cuixin-zhang",500);                             		//ä¹é˜´ä½çº§ç©ºæ‰‹ï¼šæ‘§å¿ƒæŒ
 							map_skill("strike","cuixin-zhang");
 							nw_parry="cuixin-zhang";
 							prepare_skill("strike", "cuixin-zhang");
 							u_pfm=u_pfm + ({(: perform_action, "strike.cuixin" :)});
-							set("f_skill","cuixin-zhang");       							//´İĞÄÕÆpfm£º´ßĞÄ¶Ï³¦
+							set("f_skill","cuixin-zhang");       							//æ‘§å¿ƒæŒpfmï¼šå‚¬å¿ƒæ–­è‚ 
 						break;
 
 					}
 					switch(random(1))
 					{
 						case 0:
-							set_skill("yinlong-bian",500);                                 //¾ÅÒõµÍ¼¶±øÆ÷£º¾ÅÒõÒøÁú±Ş
+							set_skill("yinlong-bian",500);                                 //ä¹é˜´ä½çº§å…µå™¨ï¼šä¹é˜´é“¶é¾™é­
 							map_skill("whip","yinlong-bian");
 							w_parry="yinlong-bian";
-							u_w_pfm=u_w_pfm + ({(: perform_action, "whip.chanrao" :)});   	   //¾ÅÒõÒøÁú±Şpfm£º²øÈÆ¾÷
-							u_w_pfm=u_w_pfm + ({(: perform_action, "whip.feilong" :)});        //·ÉÁú  
+							u_w_pfm=u_w_pfm + ({(: perform_action, "whip.chanrao" :)});   	   //ä¹é˜´é“¶é¾™é­pfmï¼šç¼ ç»•è¯€
+							u_w_pfm=u_w_pfm + ({(: perform_action, "whip.feilong" :)});        //é£é¾™  
 							u_weapon="whip";
 							set("f_w_skill","yinlong-bian");
 						break;
@@ -740,39 +740,39 @@ void copy_menpai3()
 					switch(random(3))
 					{
 						case 0:
-							set_skill("jiuyin-shenzhang",500);								//¾ÅÒõ¸ß¼¶¿ÕÊÖ£º¾ÅÒõÉñÕÆ
+							set_skill("jiuyin-shenzhang",500);								//ä¹é˜´é«˜çº§ç©ºæ‰‹ï¼šä¹é˜´ç¥æŒ
 							map_skill("strike","jiuyin-shenzhang");
 							nw_parry="jiuyin-shenzhang";
 							prepare_skill("strike","jiuyin-shenzhang");
-							u_pfm = u_pfm + ({(: perform_action, "strike.shenzhang" :)});   //¾ÅÒõÉñÕÆpfm£ºÉñÕÆ¶áÆÇ
-							u_pfm = u_pfm + ({(: perform_action, "strike.yinyang" :)});		//ÒõÑôË«ÕÆ   
+							u_pfm = u_pfm + ({(: perform_action, "strike.shenzhang" :)});   //ä¹é˜´ç¥æŒpfmï¼šç¥æŒå¤ºé­„
+							u_pfm = u_pfm + ({(: perform_action, "strike.yinyang" :)});		//é˜´é˜³åŒæŒ   
 							set("f_skill","jiuyin-shenzhang");     
   						break;
   						case 1:
-							set_skill("jiuyin-shenzhua",500);								//¾ÅÒõ¸ß¼¶¿ÕÊÖ£º¾ÅÒõÉñ×¦
+							set_skill("jiuyin-shenzhua",500);								//ä¹é˜´é«˜çº§ç©ºæ‰‹ï¼šä¹é˜´ç¥çˆª
 							map_skill("claw","jiuyin-shenzhua");
 							nw_parry="jiuyin-shenzhua";
 							prepare_skill("claw","jiuyin-shenzhua");
-							u_pfm = u_pfm + ({(: perform_action, "strike.sanjue" :)});      //¾ÅÒõÉñ×¦pfm£º¾ÅÒõÈı¾ø×¦
+							u_pfm = u_pfm + ({(: perform_action, "strike.sanjue" :)});      //ä¹é˜´ç¥çˆªpfmï¼šä¹é˜´ä¸‰ç»çˆª
 							set("f_skill","jiuyin-shenzhua");
   						break;
    						case 2:
-							set_skill("dafumo-quan",500);								    //¾ÅÒõ¸ß¼¶¿ÕÊÖ£º´ó·üÄ§È­
+							set_skill("dafumo-quan",500);								    //ä¹é˜´é«˜çº§ç©ºæ‰‹ï¼šå¤§ä¼é­”æ‹³
 							map_skill("cuff","dafumo-quan");
 							nw_parry="dafumo-quan";
 							prepare_skill("cuff","dafumo-quan");
-							u_pfm = u_pfm + ({(: perform_action, "cuff.fumo" :)});     		//´ó·üÄ§È­pfm£º·üÄ§ 
+							u_pfm = u_pfm + ({(: perform_action, "cuff.fumo" :)});     		//å¤§ä¼é­”æ‹³pfmï¼šä¼é­” 
 							set("f_skill","dafumo-quan");
   						break;
 					}
 					switch(random(1))
 					{
 						case 0:
-							set_skill("xuanyin-jian",500);									//¾ÅÒõ¸ß¼¶±øÆ÷£ºĞşÒõ½£·¨	
+							set_skill("xuanyin-jian",500);									//ä¹é˜´é«˜çº§å…µå™¨ï¼šç„é˜´å‰‘æ³•	
 							map_skill("sword","xuanyin-jian");
 							w_parry="xuanyin-jian";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.xuanyin" :)});      //ĞşÒõ½£·¨pfm£ºĞşÒõ¾÷ 	
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.zhan" :)});			//Õ¶×Ö¾÷	
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.xuanyin" :)});      //ç„é˜´å‰‘æ³•pfmï¼šç„é˜´è¯€ 	
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.zhan" :)});			//æ–©å­—è¯€	
 							u_weapon="sword";
 							set("f_w_skill","xuanyin-jian");
 						break;
@@ -781,7 +781,7 @@ void copy_menpai3()
 				}
 			break;//end case 9y		
 			case "hmg":
-				set("family/family_name","¸òó¡¹¦´«ÈË");		
+				set("family/family_name","è›¤èŸ†åŠŸä¼ äºº");		
 				set_skill("hamagong",500);
 				set_skill("lingshe-quanfa",500);
 				set_skill("lingshe-zhangfa",500);
@@ -801,7 +801,7 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-              set_skill("lingshe-quanfa",500);								//¸òó¡¹¦¿ÕÊÖ£ºÁéÉßÈ­·¨ÎŞpfm		
+              set_skill("lingshe-quanfa",500);								//è›¤èŸ†åŠŸç©ºæ‰‹ï¼šçµè›‡æ‹³æ³•æ— pfm		
 							map_skill("cuff","lingshe-quanfa");
 							nw_parry="lingshe-quanfa";
 							prepare_skill("cuff","lingshe-quanfa");
@@ -812,10 +812,10 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("lingshe-zhangfa",500);                               //¸òó¡¹¦¸ß¼¶Æ÷Ğµ£ºÁéÉßÕÈ·¨
+							set_skill("lingshe-zhangfa",500);                               //è›¤èŸ†åŠŸé«˜çº§å™¨æ¢°ï¼šçµè›‡æ–æ³•
 							map_skill("staff","lingshe-zhangfa");
 							w_parry="lingshe-zhangfa";
-							u_w_pfm=u_w_pfm + ({(: perform_action, "staff.shoot" :)});          //¸òó¡¹¦¸ß¼¶Æ÷Ğµ£ºÅç¶¾
+							u_w_pfm=u_w_pfm + ({(: perform_action, "staff.shoot" :)});          //è›¤èŸ†åŠŸé«˜çº§å™¨æ¢°ï¼šå–·æ¯’
 							u_weapon="staff";
 							set("f_w_skill","lingshe-zhangfa");
 						break;
@@ -825,11 +825,11 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("lingshe-quanfa",500);                             //¸òó¡¹¦¸ß¼¶¿ÕÊÖ£ºÁéÉßÈ­·¨
+							set_skill("lingshe-quanfa",500);                             //è›¤èŸ†åŠŸé«˜çº§ç©ºæ‰‹ï¼šçµè›‡æ‹³æ³•
 							map_skill("cuff","lingshe-quanfa");
 							nw_parry="lingshe-quanfa";
 							prepare_skill("cuff", "lingshe-quanfa");
-              u_pfm = u_pfm + ({(: perform_action, "cuff.lingshe" :)});     //ÁéÉßÈ­·¨pfm£ºÁéÉß¾¢				
+              u_pfm = u_pfm + ({(: perform_action, "cuff.lingshe" :)});     //çµè›‡æ‹³æ³•pfmï¼šçµè›‡åŠ²				
 							set("f_skill","lingshe-quanfa");
 							
 							
@@ -839,11 +839,11 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("lingshe-zhangfa",500);										//¸òó¡¹¦¸ß¼¶Æ÷Ğµ£ºÁéÉßÕÈ·¨
+							set_skill("lingshe-zhangfa",500);										//è›¤èŸ†åŠŸé«˜çº§å™¨æ¢°ï¼šçµè›‡æ–æ³•
 							map_skill("staff","lingshe-zhangfa");
 							w_parry="lingshe-zhangfa";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "staff.baibian" :)});			//ÁéÉß°Ù±ä
-							u_w_pfm = u_w_pfm + ({(: perform_action, "staff.luoye" :)});	//¿ñ·çÉ¨ÂäÒ¶					
+							u_w_pfm = u_w_pfm + ({(: perform_action, "staff.baibian" :)});			//çµè›‡ç™¾å˜
+							u_w_pfm = u_w_pfm + ({(: perform_action, "staff.luoye" :)});	//ç‹‚é£æ‰«è½å¶					
 							u_weapon="staff";
 							set("f_w_skill","lingshe-zhangfa");
 						break;
@@ -852,15 +852,15 @@ void copy_menpai3()
 				}
 			break;//end hmg
 			case "pxj":
-				set("family/family_name","¶«·½²»°ÜµÄ´«ÈË");		
-				set("gender","ÎŞĞÔ");
+				set("family/family_name","ä¸œæ–¹ä¸è´¥çš„ä¼ äºº");		
+				set("gender","æ— æ€§");
 				set_skill("pixie-jian",500);
-				set_skill("hanbing-zhenqi",500);					//áÔÉ½ÄÚ¹¦£ºº®±ùÕæÆø			
+				set_skill("hanbing-zhenqi",500);					//åµ©å±±å†…åŠŸï¼šå¯’å†°çœŸæ°”			
 				map_skill("force", "hanbing-zhenqi");
 				map_skill("dodge", "pixie-jian");
 				map_skill("sword", "pixie-jian");
-				u_f_pfm=u_f_pfm + ({(: exert_function, "hanbing" :)});   //º®±ùÕæÆøpfm£ºº®±ù
-				u_f_pfm=u_f_pfm + ({(: exert_function, "juhan" :)});     //¾Ûº®
+				u_f_pfm=u_f_pfm + ({(: exert_function, "hanbing" :)});   //å¯’å†°çœŸæ°”pfmï¼šå¯’å†°
+				u_f_pfm=u_f_pfm + ({(: exert_function, "juhan" :)});     //èšå¯’
 				u_f_pfm = u_f_pfm + ({(: perform_action, "sword.cimu" :)});        	
 				u_f_pfm = u_f_pfm + ({(: perform_action, "dodge.feiying" :)});        	
 				u_f_pfm = u_f_pfm + ({(: perform_action, "sword.jue" :)});        	
@@ -869,9 +869,9 @@ void copy_menpai3()
 				set("f_w_skill","pixie-jian");
 			break;//end pxj
 			case "jsj":
-				set("family/family_name","½ğÉß½£·¨µÄ´«ÈË");		
-				set_skill("zixia-gong",500);								//»ªÉ½ÄÚ¹¦£º×ÏÏ¼¹¦
-				set_skill("huashan-shenfa",500);							//»ªÉ½Çá¹¦£º»ªÉ½Éí·¨				
+				set("family/family_name","é‡‘è›‡å‰‘æ³•çš„ä¼ äºº");		
+				set_skill("zixia-gong",500);								//åå±±å†…åŠŸï¼šç´«éœåŠŸ
+				set_skill("huashan-shenfa",500);							//åå±±è½»åŠŸï¼šåå±±èº«æ³•				
 				set_skill("jinshe-jianfa",500);
 				set_skill("jinshe-zhangfa",500);
 				map_skill("force","zixia-gong");
@@ -888,28 +888,28 @@ void copy_menpai3()
 
 				
 			break;//end jsj
-			case "rysj":											//Éè¶¨ÈÕÔÂÉñ½ÌµÄÎä¹¦
-			set("family/family_name","ÈÕÔÂÉñ½Ì");
-			set_skill("tianmo-gong",500);					//ÈÕÔÂÉñ½ÌÄÚ¹¦£ºÌìÄ§¹¦
-			set_skill("ding-dodge",500);						//ÈÕÔÂÉñ½ÌÇá¹¦: ¶¡×Ö²½
-			set_skill("tianmo-jue",200);                        //ÈÕÔÂÉñ½ÌÔÓÏî£ºÌìÄ§¾÷
+			case "rysj":											//è®¾å®šæ—¥æœˆç¥æ•™çš„æ­¦åŠŸ
+			set("family/family_name","æ—¥æœˆç¥æ•™");
+			set_skill("tianmo-gong",500);					//æ—¥æœˆç¥æ•™å†…åŠŸï¼šå¤©é­”åŠŸ
+			set_skill("ding-dodge",500);						//æ—¥æœˆç¥æ•™è½»åŠŸ: ä¸å­—æ­¥
+			set_skill("tianmo-jue",200);                        //æ—¥æœˆç¥æ•™æ‚é¡¹ï¼šå¤©é­”è¯€
 			map_skill("force", "tianmo-gong");              
 			map_skill("dodge", "ding-dodge");
-			u_f_pfm=u_f_pfm + ({(: exert_function, "richu" :)});             //ÌìÄ§¹¦exert:ÈÕ³ö¹â»ª
+			u_f_pfm=u_f_pfm + ({(: exert_function, "richu" :)});             //å¤©é­”åŠŸexert:æ—¥å‡ºå…‰å
 			switch(in_level)
 			{
 				case 0:
 					switch(random(2))
 					{
 						case 0:
-							set_skill("tianmo-shou",500);                 //ÈÕÔÂÉñ½ÌµÍ¼¶¿ÕÊÖ£ºÌìÄ§ÊÖ
+							set_skill("tianmo-shou",500);                 //æ—¥æœˆç¥æ•™ä½çº§ç©ºæ‰‹ï¼šå¤©é­”æ‰‹
 							map_skill("hand","tianmo-shou");
 							nw_parry="tianmo-shou";
 							prepare_skill("hand", "tianmo-shou");
 							set("f_skill","tianmo-shou");
 						break;
 						case 1:
-							set_skill("tianmo-zhang",500);          //ÈÕÔÂÉñ½ÌµÍ¼¶¿ÕÊÖ£ºÌìÄ§ÕÆ 
+							set_skill("tianmo-zhang",500);          //æ—¥æœˆç¥æ•™ä½çº§ç©ºæ‰‹ï¼šå¤©é­”æŒ 
 							map_skill("strike","tianmo-zhang");
 							nw_parry="tianmo-zhang";
 							prepare_skill("strike","tianmo-zhang");
@@ -919,7 +919,7 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("tianmo-jian",500);                          //ÈÕÔÂÉñ½ÌµÍ¼¶±øÆ÷£ºÌìÄ§½£
+							set_skill("tianmo-jian",500);                          //æ—¥æœˆç¥æ•™ä½çº§å…µå™¨ï¼šå¤©é­”å‰‘
 							map_skill("sword","tianmo-jian");
 							w_parry="tianmo-jian";
 							set("f_w_skill","tianmo-jian");
@@ -931,12 +931,12 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("tianmo-gun",500);                      	         	   //ÈÕÔÂÉñ½Ì¸ß¼¶¿ÕÊÖ£ºÌìÄ§¹÷
+							set_skill("tianmo-gun",500);                      	         	   //æ—¥æœˆç¥æ•™é«˜çº§ç©ºæ‰‹ï¼šå¤©é­”æ£
 							map_skill("club","tianmo-gun");
 							nw_parry="tianmo-gun";
 							prepare_skill("club","tianmo-gun");
-							u_pfm = u_pfm + ({(: perform_action, "club.luanwu" :)});				//ÌìÄ§¹÷pfm:Éñ¹íÂÒÎè
-							u_pfm = u_pfm + ({(: perform_action, "club.tian" :)});			//ÌìµØĞı×ª
+							u_pfm = u_pfm + ({(: perform_action, "club.luanwu" :)});				//å¤©é­”æ£pfm:ç¥é¬¼ä¹±èˆ
+							u_pfm = u_pfm + ({(: perform_action, "club.tian" :)});			//å¤©åœ°æ—‹è½¬
 							u_weapon="club";
 							set("f_skill","tianmo-gun");
 						break;
@@ -944,11 +944,11 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("tianmo-dao",500);										//ÈÕÔÂÉñ½Ì¸ß¼¶±øÆ÷£ºÌìÄ§µ¶
+							set_skill("tianmo-dao",500);										//æ—¥æœˆç¥æ•™é«˜çº§å…µå™¨ï¼šå¤©é­”åˆ€
 							map_skill("sword","tianmo-dao");
 							w_parry="tianmo-dao";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.huashen" :)});				//ÌìÄ§µ¶pfm£º»¯ÉíÍòÇ§
-							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.jingshen" :)});			//¾ªÉñ¾÷
+							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.huashen" :)});				//å¤©é­”åˆ€pfmï¼šåŒ–èº«ä¸‡åƒ
+							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.jingshen" :)});			//æƒŠç¥è¯€
 							u_weapon="sword";
 							set("f_w_skill","tianmo-dao");
 						break;
@@ -957,48 +957,48 @@ void copy_menpai3()
 				}
 			break;//end case rysj
 			
-					case "xxdf":												//Éè¶¨ÎüĞÇ´ó·¨Îä¹¦
-			set("family/family_name","ÈÕÔÂÉñ½Ì");
-			set_skill("xixing-dafa",500);					//ÎüĞÇ´ó·¨ÄÚ¹¦£ºÎüĞÇ´ó·¨			
-			set_skill("piaomiao-shenfa",500);						//ÎüĞÇ´ó·¨Çá¹¦£ºçÎç¿Éí·¨
+					case "xxdf":												//è®¾å®šå¸æ˜Ÿå¤§æ³•æ­¦åŠŸ
+			set("family/family_name","æ—¥æœˆç¥æ•™");
+			set_skill("xixing-dafa",500);					//å¸æ˜Ÿå¤§æ³•å†…åŠŸï¼šå¸æ˜Ÿå¤§æ³•			
+			set_skill("piaomiao-shenfa",500);						//å¸æ˜Ÿå¤§æ³•è½»åŠŸï¼šç¼¥ç¼ˆèº«æ³•
 			map_skill("force", "xixing-dafa");
 			map_skill("dodge", "piaomiao-shenfa");
-			u_f_pfm=u_f_pfm + ({(: exert_function, "xixing" :)});   //ÎüĞÇ´ó·¨pfm£ºÎüĞÇ´ó·¨
+			u_f_pfm=u_f_pfm + ({(: exert_function, "xixing" :)});   //å¸æ˜Ÿå¤§æ³•pfmï¼šå¸æ˜Ÿå¤§æ³•
 					switch(random(1))
 					{
 						case 0:
-							set_skill("huanmo-longtianwu",500);                             //ÎüĞÇ´ó·¨¸ß¼¶¿ÕÊÖ£º»ÃÄ§ëÊÌìÎè
+							set_skill("huanmo-longtianwu",500);                             //å¸æ˜Ÿå¤§æ³•é«˜çº§ç©ºæ‰‹ï¼šå¹»é­”èƒ§å¤©èˆ
 							map_skill("strike","huanmo-longtianwu");
 							nw_parry="huanmo-longtianwu";
 							prepare_skill("strike", "huanmo-longtianwu");
-							u_pfm=u_pfm + ({(: perform_action, "strike.zhen" :)});        //»ÃÄ§ëÊÌìÎèpfm£º·µè±¹éÕæ
+							u_pfm=u_pfm + ({(: perform_action, "strike.zhen" :)});        //å¹»é­”èƒ§å¤©èˆpfmï¼šè¿”ç’å½’çœŸ
 							set("f_skill","huanmo-longtianwu");
 						break;
 					}
 					switch(random(1))
 					{
 						case 0:
-							set_skill("qixian-wuxingjian",500);										//ÎüĞÇ´ó·¨¸ß¼¶±øÆ÷£ºÆßÏÒÎŞĞÎ½£
+							set_skill("qixian-wuxingjian",500);										//å¸æ˜Ÿå¤§æ³•é«˜çº§å…µå™¨ï¼šä¸ƒå¼¦æ— å½¢å‰‘
 							map_skill("sword","qixian-wuxingjian");
 							w_parry="qixian-wuxingjian";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.guangling" :)});        	//ÆßÏÒÎŞĞÎ½£pfm£º¹ãÁêÉ¢Çú
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.yin" :)});			//ÆßÏÒÎŞĞÎÒô
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.shan" :)});			//ÆßÏÒ»ÆÁúÉÁ	
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.guangling" :)});        	//ä¸ƒå¼¦æ— å½¢å‰‘pfmï¼šå¹¿é™µæ•£æ›²
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.yin" :)});			//ä¸ƒå¼¦æ— å½¢éŸ³
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.shan" :)});			//ä¸ƒå¼¦é»„é¾™é—ª	
 							u_weapon="sword";
 							set("f_w_skill","qixian-wuxingjian");
 						break;
 					}					
 			break;//end case xxdf	
 			
-			case "ljg":												//Éè¶¨ÁéğÕ¹¬Îä¹¦
-			set("family/family_name","ÁéğÕ¹¬");
-			set_skill("bahuang-gong",500);						//ÁéğÕ¹¬ÄÚ¹¦£º°Ë»ÄÁùºÍÎ¨ÎÒ¶À×ğ			
-			set_skill("yueying-wubu",500);					//ÁéğÕ¹¬Çá¹¦£ºÔÂÓ°Îè²½
-			set_skill("yangyanshu",500);						//ÁéğÕ¹¬ÔÓÏî£ºÑøÑÕÊõ
+			case "ljg":												//è®¾å®šçµé¹«å®«æ­¦åŠŸ
+			set("family/family_name","çµé¹«å®«");
+			set_skill("bahuang-gong",500);						//çµé¹«å®«å†…åŠŸï¼šå…«è’å…­å’Œå”¯æˆ‘ç‹¬å°Š			
+			set_skill("yueying-wubu",500);					//çµé¹«å®«è½»åŠŸï¼šæœˆå½±èˆæ­¥
+			set_skill("yangyanshu",500);						//çµé¹«å®«æ‚é¡¹ï¼šå…»é¢œæœ¯
 			set("class","dancer");
 			map_skill("force", "bahuang-gong");
 			map_skill("dodge", "yueying-wubu");
-			u_f_pfm=u_f_pfm + ({(: exert_function, "duzun" :)});   //°Ë»ÄÁùºÍÎ¨ÎÒ¶À×ğpfm£º¶À×ğ
+			u_f_pfm=u_f_pfm + ({(: exert_function, "duzun" :)});   //å…«è’å…­å’Œå”¯æˆ‘ç‹¬å°Špfmï¼šç‹¬å°Š
 
      
 			switch(in_level)
@@ -1007,7 +1007,7 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("liuyang-zhang",500);                             //ÁéğÕ¹¬µÍ¼¶¿ÕÊÖ£ºÁùÑôÕÆ
+							set_skill("liuyang-zhang",500);                             //çµé¹«å®«ä½çº§ç©ºæ‰‹ï¼šå…­é˜³æŒ
 							map_skill("strike","liuyang-zhang");
 							nw_parry="liuyang-zhang";
 							prepare_skill("strike", "liuyang-zhang");
@@ -1018,10 +1018,10 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("tianyu-qijian",500);                               //ÁéğÕ¹¬µÍ¼¶ÎäÆ÷£ºÌìÓğÆæ½£
+							set_skill("tianyu-qijian",500);                               //çµé¹«å®«ä½çº§æ­¦å™¨ï¼šå¤©ç¾½å¥‡å‰‘
 							map_skill("sword","tianyu-qijian");
 							w_parry="tianyu-qijian";
-							u_w_pfm=u_w_pfm + ({(: perform_action, "sword.kuangwu" :)});          //ÌìÓğÆæ½£pfm£ºÌìÓğ¿ñÎè
+							u_w_pfm=u_w_pfm + ({(: perform_action, "sword.kuangwu" :)});          //å¤©ç¾½å¥‡å‰‘pfmï¼šå¤©ç¾½ç‹‚èˆ
 							u_weapon="sword";
 							set("f_w_skill","tianyu-qijian");
 						break;
@@ -1031,23 +1031,23 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("zhemei-shou",500);								//ÁéğÕ¹¬¸ß¼¶¿ÕÊÖ£º½ØÊÖ¾ÅÊ½		
+							set_skill("zhemei-shou",500);								//çµé¹«å®«é«˜çº§ç©ºæ‰‹ï¼šæˆªæ‰‹ä¹å¼		
 							map_skill("hand","zhemei-shou");
 							nw_parry="zhemei-shou";
 							prepare_skill("hand","zhemei-shou");
-							u_pfm = u_pfm + ({(: perform_action, "hand.tanmei" :)});     //½ØÊÖ¾ÅÊ½pfm£ºº®±ù
+							u_pfm = u_pfm + ({(: perform_action, "hand.tanmei" :)});     //æˆªæ‰‹ä¹å¼pfmï¼šå¯’å†°
 							set("f_skill","zhemei-shou");
 						break;
 					}
 					switch(random(1))
 					{
 						case 0:
-							set_skill("tianyu-qijian",500);										//ÁéğÕ¹¬¸ß¼¶±øÆ÷£ºÌìÓğÆæ½£
+							set_skill("tianyu-qijian",500);										//çµé¹«å®«é«˜çº§å…µå™¨ï¼šå¤©ç¾½å¥‡å‰‘
 							map_skill("sword","tianyu-qijian");
 							w_parry="tianyu-qijian";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.shandian" :)});			//ÉÁµç
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.piaomiao" :)});				//Æ®Ãì¾÷
-							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.san" :)});				//É¢»¨								
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.shandian" :)});			//é—ªç”µ
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.piaomiao" :)});				//é£˜æ¸ºè¯€
+							u_w_pfm = u_w_pfm + ({(: perform_action, "sword.san" :)});				//æ•£èŠ±								
 							u_weapon="sword";
 							set("f_w_skill","tianyu-qijian");
 						break;
@@ -1056,15 +1056,15 @@ void copy_menpai3()
 				}
 			break;//end case ljg
 			
-			case "xy":												//Éè¶¨±±Ú¤Éñ¹¦Îä¹¦
-			set("family/family_name","åĞÒ£ÅÉ");
-			set_skill("beiming-shengong",500);						//±±Ú¤Éñ¹¦ÄÚ¹¦£º±±Ú¤Éñ¹¦			
-			set_skill("piaomiao-shenfa",500);					//±±Ú¤Éñ¹¦Çá¹¦£ºÁè²¨Î¢²½
-			set_skill("taoism",200);						//±±Ú¤Éñ¹¦ÔÓÏî£ºµÀÑ§ĞÄ·¨
+			case "xy":												//è®¾å®šåŒ—å†¥ç¥åŠŸæ­¦åŠŸ
+			set("family/family_name","é€é¥æ´¾");
+			set_skill("beiming-shengong",500);						//åŒ—å†¥ç¥åŠŸå†…åŠŸï¼šåŒ—å†¥ç¥åŠŸ			
+			set_skill("piaomiao-shenfa",500);					//åŒ—å†¥ç¥åŠŸè½»åŠŸï¼šå‡Œæ³¢å¾®æ­¥
+			set_skill("taoism",200);						//åŒ—å†¥ç¥åŠŸæ‚é¡¹ï¼šé“å­¦å¿ƒæ³•
 			map_skill("force", "beiming-shengong");
 			map_skill("dodge", "piaomiao-shenfa");
-			u_f_pfm=u_f_pfm + ({(: exert_function, "beiming" :)});   //±±Ú¤Éñ¹¦pfm£º±±Ú¤ÕæÆø
-			u_f_pfm=u_f_pfm + ({(: exert_function, "bing" :)});   //±±Ú¤Éñ¹¦pfm£º±ùĞÄ¾÷
+			u_f_pfm=u_f_pfm + ({(: exert_function, "beiming" :)});   //åŒ—å†¥ç¥åŠŸpfmï¼šåŒ—å†¥çœŸæ°”
+			u_f_pfm=u_f_pfm + ({(: exert_function, "bing" :)});   //åŒ—å†¥ç¥åŠŸpfmï¼šå†°å¿ƒè¯€
 
      
 			switch(in_level)
@@ -1073,7 +1073,7 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-              set_skill("zhemei-shou",500);								//åĞÒ£¸ß¼¶¿ÕÊÖ£ºÕÛÃ·ÊÖ		
+              set_skill("zhemei-shou",500);								//é€é¥é«˜çº§ç©ºæ‰‹ï¼šæŠ˜æ¢…æ‰‹		
 							map_skill("hand","zhemei-shou");
 							nw_parry="zhemei-shou";
 							prepare_skill("hand","zhemei-shou");
@@ -1084,10 +1084,10 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("ruyi-dao",500);                               //åĞÒ£ÅÉµÍ¼¶ÎäÆ÷£ºÈçÒâµ¶·¨
+							set_skill("ruyi-dao",500);                               //é€é¥æ´¾ä½çº§æ­¦å™¨ï¼šå¦‚æ„åˆ€æ³•
 							map_skill("blade","ruyi-dao");
 							w_parry="ruyi-dao";
-							u_w_pfm=u_w_pfm + ({(: perform_action, "blade.wenrou" :)});          //ÈçÒâµ¶·¨pfm£ºÎÂÈáÒ»µ¶
+							u_w_pfm=u_w_pfm + ({(: perform_action, "blade.wenrou" :)});          //å¦‚æ„åˆ€æ³•pfmï¼šæ¸©æŸ”ä¸€åˆ€
 							u_weapon="blade";
 							set("f_w_skill","ruyi-dao");
 						break;
@@ -1097,12 +1097,12 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("liuyang-zhang",500);                             //åĞÒ£ÅÉµÍ¼¶¿ÕÊÖ£ºÁùÑôÕÆ
+							set_skill("liuyang-zhang",500);                             //é€é¥æ´¾ä½çº§ç©ºæ‰‹ï¼šå…­é˜³æŒ
 							map_skill("strike","liuyang-zhang");
 							nw_parry="liuyang-zhang";
 							prepare_skill("strike", "liuyang-zhang");
-              u_pfm = u_pfm + ({(: perform_action, "strike.jiutian" :)});     //ÌìÉ½ÁùÑôÕÆpfm£º¾ÅÌìÇ¬Ñô		
-              u_pfm = u_pfm + ({(: perform_action, "strike.baihong" :)});     //ÌìÉ½ÁùÑôÕÆpfm£º°×ºçÕÆ·¨						
+              u_pfm = u_pfm + ({(: perform_action, "strike.jiutian" :)});     //å¤©å±±å…­é˜³æŒpfmï¼šä¹å¤©ä¹¾é˜³		
+              u_pfm = u_pfm + ({(: perform_action, "strike.baihong" :)});     //å¤©å±±å…­é˜³æŒpfmï¼šç™½è™¹æŒæ³•						
 							set("f_skill","liuyang-zhang");
 							
 							
@@ -1112,11 +1112,11 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("ruyi-dao",500);										//åĞÒ£¸ß¼¶±øÆ÷£ºÈçÒâµ¶·¨
+							set_skill("ruyi-dao",500);										//é€é¥é«˜çº§å…µå™¨ï¼šå¦‚æ„åˆ€æ³•
 							map_skill("blade","ruyi-dao");
 							w_parry="ruyi-dao";
-							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.ruyi" :)});			//ÈçÒâ
-							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.xiaoyao" :)});				//åĞÒ£					
+							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.ruyi" :)});			//å¦‚æ„
+							u_w_pfm = u_w_pfm + ({(: perform_action, "blade.xiaoyao" :)});				//é€é¥					
 							u_weapon="blade";
 							set("f_w_skill","ruyi-dao");
 						break;
@@ -1125,16 +1125,16 @@ void copy_menpai3()
 				}
 			break;//end case qzj
 			
-			case "qzj":												//Éè¶¨È«ÕæÎä¹¦
-			set("family/family_name","È«Õæ½Ì");
-			set_skill("xiantian-gong",500);						//È«ÕæÄÚ¹¦£ºÏÈÌì¹¦			
-			set_skill("jinyan-gong",500);					//È«ÕæÇá¹¦£º½ğÑã¹¦
-			set_skill("taoism",200);						//È«ÕæÔÓÏî£ºµÀÑ§ĞÄ·¨
+			case "qzj":												//è®¾å®šå…¨çœŸæ­¦åŠŸ
+			set("family/family_name","å…¨çœŸæ•™");
+			set_skill("xiantian-gong",500);						//å…¨çœŸå†…åŠŸï¼šå…ˆå¤©åŠŸ			
+			set_skill("jinyan-gong",500);					//å…¨çœŸè½»åŠŸï¼šé‡‘é›åŠŸ
+			set_skill("taoism",200);						//å…¨çœŸæ‚é¡¹ï¼šé“å­¦å¿ƒæ³•
 			set("class","taoism");
 			map_skill("force", "xiantian-gong");
 			map_skill("dodge", "jinyan-gong");
-			u_f_pfm=u_f_pfm + ({(: exert_function, "wuqi" :)});   //ÏÈÌì¹¦pfm£ºÎåÆø³¯Ôª
-			u_f_pfm=u_f_pfm + ({(: exert_function, "yiyang" :)});   //ÏÈÌì¹¦pfm£ºÒ»ÑôÖ¸½£Æø				
+			u_f_pfm=u_f_pfm + ({(: exert_function, "wuqi" :)});   //å…ˆå¤©åŠŸpfmï¼šäº”æ°”æœå…ƒ
+			u_f_pfm=u_f_pfm + ({(: exert_function, "yiyang" :)});   //å…ˆå¤©åŠŸpfmï¼šä¸€é˜³æŒ‡å‰‘æ°”				
 
      
 			switch(in_level)
@@ -1143,11 +1143,11 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-              set_skill("haotian-zhang",500);								//È«Õæ¸ß¼¶¿ÕÊÖ£ºê»ÌìÕÆ		
+              set_skill("haotian-zhang",500);								//å…¨çœŸé«˜çº§ç©ºæ‰‹ï¼šæ˜Šå¤©æŒ		
 							map_skill("strike","haotian-zhang");
 							nw_parry="haotian-zhang";
 							prepare_skill("strike","haotian-zhang");
-              u_pfm = u_pfm + ({(: perform_action, "strike.ju" :)});     //ê»ÌìÕÆpfm£ºÈı»¨¾Û¶¥									
+              u_pfm = u_pfm + ({(: perform_action, "strike.ju" :)});     //æ˜Šå¤©æŒpfmï¼šä¸‰èŠ±èšé¡¶									
 							set("f_skill","haotian-zhang");
 							break;
 
@@ -1155,11 +1155,11 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("quanzhen-jianfa",500);                               //È«ÕæµÍ¼¶ÎäÆ÷£ºÈ«Õæ½£·¨
+							set_skill("quanzhen-jianfa",500);                               //å…¨çœŸä½çº§æ­¦å™¨ï¼šå…¨çœŸå‰‘æ³•
 							map_skill("sword","quanzhen-jianfa");
 							w_parry="quanzhen-jianfa";
-							u_w_pfm=u_w_pfm + ({(: perform_action, "sword.qixing" :)});          //È«Õæ½£·¨pfm£ºÆßĞÇ½£
-              u_w_pfm=u_w_pfm + ({(: perform_action, "sword.ding" :)});          //È«Õæ½£·¨pfm£º¶¨ÑôÕë								
+							u_w_pfm=u_w_pfm + ({(: perform_action, "sword.qixing" :)});          //å…¨çœŸå‰‘æ³•pfmï¼šä¸ƒæ˜Ÿå‰‘
+              u_w_pfm=u_w_pfm + ({(: perform_action, "sword.ding" :)});          //å…¨çœŸå‰‘æ³•pfmï¼šå®šé˜³é’ˆ								
 							u_weapon="sword";
 							set("f_w_skill","quanzhen-jianfa");
 						break;
@@ -1169,11 +1169,11 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-              set_skill("haotian-zhang",500);								//È«Õæ¸ß¼¶¿ÕÊÖ£ºê»ÌìÕÆ		
+              set_skill("haotian-zhang",500);								//å…¨çœŸé«˜çº§ç©ºæ‰‹ï¼šæ˜Šå¤©æŒ		
 							map_skill("strike","haotian-zhang");
 							nw_parry="haotian-zhang";
 							prepare_skill("strike","haotian-zhang");
-              u_pfm = u_pfm + ({(: perform_action, "strike.lianhuan" :)});     //ê»ÌìÕÆpfm£ºÖØÑôÁ¬»·ÕÆ						
+              u_pfm = u_pfm + ({(: perform_action, "strike.lianhuan" :)});     //æ˜Šå¤©æŒpfmï¼šé‡é˜³è¿ç¯æŒ						
 							set("f_skill","haotian-zhang");
 							
 							
@@ -1183,13 +1183,13 @@ void copy_menpai3()
 					switch(random(1))
 					{
 						case 0:
-							set_skill("quanzhen-jianfa",500);                               //È«Õæ¸ß¼¶ÎäÆ÷£ºÈ«Õæ½£·¨
+							set_skill("quanzhen-jianfa",500);                               //å…¨çœŸé«˜çº§æ­¦å™¨ï¼šå…¨çœŸå‰‘æ³•
 							map_skill("sword","quanzhen-jianfa");
 							w_parry="quanzhen-jianfa";
-							u_w_pfm=u_w_pfm + ({(: perform_action, "sword.sanqing" :)});          //È«Õæ½£·¨pfm£ºÒ»½£»¯ÈıÇå
-              u_w_pfm=u_w_pfm + ({(: perform_action, "sword.lian" :)});          //È«Õæ½£·¨pfm£ºÈıÁ¬»·	
-              u_w_pfm=u_w_pfm + ({(: perform_action, "sword.jianjue" :)});          //È«Õæ½£·¨pfm£ºÍ¬¹é½£¾÷		
-              u_w_pfm=u_w_pfm + ({(: perform_action, "sword.ding" :)});          //È«Õæ½£·¨pfm£º¶¨ÑôÕë	              								
+							u_w_pfm=u_w_pfm + ({(: perform_action, "sword.sanqing" :)});          //å…¨çœŸå‰‘æ³•pfmï¼šä¸€å‰‘åŒ–ä¸‰æ¸…
+              u_w_pfm=u_w_pfm + ({(: perform_action, "sword.lian" :)});          //å…¨çœŸå‰‘æ³•pfmï¼šä¸‰è¿ç¯	
+              u_w_pfm=u_w_pfm + ({(: perform_action, "sword.jianjue" :)});          //å…¨çœŸå‰‘æ³•pfmï¼šåŒå½’å‰‘è¯€		
+              u_w_pfm=u_w_pfm + ({(: perform_action, "sword.ding" :)});          //å…¨çœŸå‰‘æ³•pfmï¼šå®šé˜³é’ˆ	              								
 							u_weapon="sword";
 							set("f_w_skill","quanzhen-jianfa");
 						break;

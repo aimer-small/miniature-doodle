@@ -6,16 +6,16 @@ inherit ITEM;
  
 void create()
  {
-         set_name(HIR"ÎüĞÇ´ó·¨ÍØ±¾"NOR, ({ "xixing miji","miji","book" }));
+         set_name(HIR"å¸æ˜Ÿå¤§æ³•æ‹“æœ¬"NOR, ({ "xixing miji","miji","book" }));
          set_weight(200);
          if( clonep() )
                  set_default_object(__FILE__);
          else {
-                 set("unit", "±¾");
-                 set("long","ÕâÊÇÒ»±¾¼ÇÂ¼ÎüĞÇ´ó·¨µÄÃØ¼®£¬ÊÇ´ÓÃ·×¯µØÀÎÃÜÊÒÍØÏÂÀ´µÄ£¬Ò»°ãÈËÎŞ·¨ÁìÎò¡£\n");
+                 set("unit", "æœ¬");
+                 set("long","è¿™æ˜¯ä¸€æœ¬è®°å½•å¸æ˜Ÿå¤§æ³•çš„ç§˜ç±ï¼Œæ˜¯ä»æ¢…åº„åœ°ç‰¢å¯†å®¤æ‹“ä¸‹æ¥çš„ï¼Œä¸€èˆ¬äººæ— æ³•é¢†æ‚Ÿã€‚\n");
                  set("value", 500000);
-                 set("no_get","ÕâÊÇÄÇÈËµÄ±¦±´£¬ÄãÈçºÎÄÃµÄ×ß£¿\n");
-                 set("no_drop","ÕâÃ´Õä¹óµÄ¶«Î÷£¬Äã¸ÒÂÒ¶ª£¿\n");
+                 set("no_get","è¿™æ˜¯é‚£äººçš„å®è´ï¼Œä½ å¦‚ä½•æ‹¿çš„èµ°ï¼Ÿ\n");
+                 set("no_drop","è¿™ä¹ˆçè´µçš„ä¸œè¥¿ï¼Œä½ æ•¢ä¹±ä¸¢ï¼Ÿ\n");
                  set("treasure",1);
                  set("unique",1);
                  set("material", "paper");
@@ -35,33 +35,33 @@ void create()
          if(!id(arg)) return 0;
  
          if(me->is_fighting())
-                 return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞ×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª£¡\n");
+                 return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ï¼\n");
          if(me->is_busy()) 
-                 return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+                 return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
  
          if(!me->query("quest/xxdf/pass"))
-                 return notify_fail("Äã´ÓÄÄÀïÍµÀ´µÄÃØ¼®£¿¿É²»ÄÜÍµ¶ÁÅ¶£¡\n");
+                 return notify_fail("ä½ ä»å“ªé‡Œå·æ¥çš„ç§˜ç±ï¼Ÿå¯ä¸èƒ½å·è¯»å“¦ï¼\n");
          if(this_object()->query("clone_by_wizard") && !wizardp(me)) 
-                 return notify_fail("Äã´ÓÄÄÀïÍµÀ´µÄ£¿¿É²»ÄÜÍµ¶ÁÅ¶£¡\n"); 
+                 return notify_fail("ä½ ä»å“ªé‡Œå·æ¥çš„ï¼Ÿå¯ä¸èƒ½å·è¯»å“¦ï¼\n"); 
          if(!me->query_skill("literate", 1)) 
-                 return notify_fail("ÄãÊÇ¸öÎÄÃ¤£¬ÏÈÑ§µãÎÄ»¯(literate)°É¡£\n");        
+                 return notify_fail("ä½ æ˜¯ä¸ªæ–‡ç›²ï¼Œå…ˆå­¦ç‚¹æ–‡åŒ–(literate)å§ã€‚\n");        
          if(me->query("jing") < 20)
-                 return notify_fail("ÄãÏÖÔÚ¹ıÓÚÆ£¾ë£¬ÎŞ·¨×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª¡£\n");
+                 return notify_fail("ä½ ç°åœ¨è¿‡äºç–²å€¦ï¼Œæ— æ³•ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ã€‚\n");
          lev = me->query_skill("xixing-dafa", 1);
          if (lev >200)
-                 return notify_fail("ÄãÒÑ¾­²»ÄÜ´ÓÕâ±¾ÊéÀïµÃµ½ÈÎºÎÖ¸µãÁË¡£\n");
+                 return notify_fail("ä½ å·²ç»ä¸èƒ½ä»è¿™æœ¬ä¹¦é‡Œå¾—åˆ°ä»»ä½•æŒ‡ç‚¹äº†ã€‚\n");
              neili = 20+random(20);
               if (me->query("neili") < neili) 
-                 return notify_fail("ÄãÄÚÁ¦²»¹»£¬ÎŞ·¨×êÑĞÕâÃ´¸ßÉîµÄÎä¹¦¡£\n");
+                 return notify_fail("ä½ å†…åŠ›ä¸å¤Ÿï¼Œæ— æ³•é’»ç ”è¿™ä¹ˆé«˜æ·±çš„æ­¦åŠŸã€‚\n");
           if (!lev)
-                 write(HIR"\nÄã¿´ÁË¿´ÃØ¼®£¬·âÆ¤ÉÏºÕÈ»Ğ´µÀ£º"HIR"\n\n\t\t\tÎüĞÇ´ó·¨\n\n"HIY"Äã·­¿ªÃØ¼®£¬·¢ÏÖÕâ±¾¾ÓÈ»ÊÇÈÕÔÂÉñ½ÌÎüĞÇ´ó·¨Ö®ÄÚ¹¦¾÷Òª¡£\n"NOR);
-         write("ÄãÑĞ¶Á¡¸ÎüĞÇ´ó·¨¡¹ÃØ¼®ÍØ±¾£¬¶ÔÕÕ×Ô¼ºµÄÁìÎòÒª¾÷£¬ËÆºõÓĞĞ©ĞÄµÃ¡£\n");
+                 write(HIR"\nä½ çœ‹äº†çœ‹ç§˜ç±ï¼Œå°çš®ä¸Šèµ«ç„¶å†™é“ï¼š"HIR"\n\n\t\t\tå¸æ˜Ÿå¤§æ³•\n\n"HIY"ä½ ç¿»å¼€ç§˜ç±ï¼Œå‘ç°è¿™æœ¬å±…ç„¶æ˜¯æ—¥æœˆç¥æ•™å¸æ˜Ÿå¤§æ³•ä¹‹å†…åŠŸè¯€è¦ã€‚\n"NOR);
+         write("ä½ ç ”è¯»ã€Œå¸æ˜Ÿå¤§æ³•ã€ç§˜ç±æ‹“æœ¬ï¼Œå¯¹ç…§è‡ªå·±çš„é¢†æ‚Ÿè¦è¯€ï¼Œä¼¼ä¹æœ‰äº›å¿ƒå¾—ã€‚\n");
          me->receive_damage("jing", 30);
          me->receive_damage("neili", neili);
          me->improve_skill("xixing-dafa", me->query_skill("literate", 1) );
  
          if (!random(5))
-                 message("vision", me->name() + "ÄÃ×ÅÒ»±¾ÃØ¼®ÔÚÈÏÕæµØÑĞ¶Á×Å¡£\n", environment(me), ({me}));
+                 message("vision", me->name() + "æ‹¿ç€ä¸€æœ¬ç§˜ç±åœ¨è®¤çœŸåœ°ç ”è¯»ç€ã€‚\n", environment(me), ({me}));
          return 1;
  } 
  

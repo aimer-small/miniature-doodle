@@ -1,5 +1,5 @@
-// baichahua.c °×²è»¨
-// creat by Lklv@SJ for ¸÷Î»ÃÀÅ® @@
+// baichahua.c ç™½èŒ¶èŠ±
+// creat by Lklv@SJ for å„ä½ç¾å¥³ @@
 
 #include <ansi.h>
 #include <armor.h>
@@ -7,18 +7,18 @@ inherit HEAD;
 
 void create()
 {
-	set_name(HIW"°×²è»¨"NOR, ({"bai chahua", "chahua", "hua"}));
+	set_name(HIW"ç™½èŒ¶èŠ±"NOR, ({"bai chahua", "chahua", "hua"}));
 	set_weight(300);
 	if( clonep() )
 		set_default_object(__FILE__);
         else {
-        	set("unit","¶ä");
+        	set("unit","æœµ");
 		set("value",150);
 		set("female_only", 1);
         	set("armor_prop/armor", 1);
-		set("long", "ÕâÊÇÒ»Êø°×²è»¨£¬ÑÕÉ«½à°×£¬Ïó´¿½àµÄÉÙÅ®¡£\n");
-		set("wear_msg", "$NÄÃÆğÒ»¶ä"HIW"°×²è»¨"NOR"²åÔÚ·¢±ß¡£\n");
-		set("remove_msg", "$NÕªÏÂ·¢±ßµÄ"HIW"°×²è»¨"NOR"£¬Ğ¡ĞÄÒíÒíµÄ°ÑËüÊÕºÃ¡£\n"NOR);
+		set("long", "è¿™æ˜¯ä¸€æŸç™½èŒ¶èŠ±ï¼Œé¢œè‰²æ´ç™½ï¼Œè±¡çº¯æ´çš„å°‘å¥³ã€‚\n");
+		set("wear_msg", "$Næ‹¿èµ·ä¸€æœµ"HIW"ç™½èŒ¶èŠ±"NOR"æ’åœ¨å‘è¾¹ã€‚\n");
+		set("remove_msg", "$Næ‘˜ä¸‹å‘è¾¹çš„"HIW"ç™½èŒ¶èŠ±"NOR"ï¼Œå°å¿ƒç¿¼ç¿¼çš„æŠŠå®ƒæ”¶å¥½ã€‚\n"NOR);
 	}
         setup();
 }

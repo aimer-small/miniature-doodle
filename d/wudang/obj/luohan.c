@@ -1,4 +1,4 @@
-// tieluohan.c ÌúÂŞºº
+// tieluohan.c é“ç½—æ±‰
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,17 +7,17 @@ inherit HAMMER;
 
 void create()
 {
-        set_name(HIY"ÌúÂŞºº"NOR,({"tie luohan","tieluohan"}));
+        set_name(HIY"é“ç½—æ±‰"NOR,({"tie luohan","tieluohan"}));
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "×ğ");
+                set("unit", "å°Š");
                 set("value", 1000);
                 set("material", "steel");
-                set("long", "ÕâÊÇÒ»×ğÖÆ×ö¾«ÇÉµÄË«ÈËÌúÂŞºº¡£°´¶¯¿ª¹Ø£¬ËûÃÇ¾Í»áÑİÁ·Ò»Ì×ÂŞººÈ­!\n");
-                set("wield_msg", "$NË«ÊÖ×¥ÆğÒ»×ğ$n£¬Ğ¦ÎûÎûµØ°ÑÍæ×Å¡£\n");
-                set("unequip_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+                set("long", "è¿™æ˜¯ä¸€å°Šåˆ¶åšç²¾å·§çš„åŒäººé“ç½—æ±‰ã€‚æŒ‰åŠ¨å¼€å…³ï¼Œä»–ä»¬å°±ä¼šæ¼”ç»ƒä¸€å¥—ç½—æ±‰æ‹³!\n");
+                set("wield_msg", "$NåŒæ‰‹æŠ“èµ·ä¸€å°Š$nï¼Œç¬‘å˜»å˜»åœ°æŠŠç©ç€ã€‚\n");
+                set("unequip_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
         }
         init_hammer(5);
         setup();

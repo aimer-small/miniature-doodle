@@ -6,7 +6,7 @@
 
 inherit F_SSERVER;
 
-string perform_name() { return HIG"ÆæÃÅÎå×ª"NOR; }
+string perform_name() { return HIG"å¥‡é—¨äº”è½¬"NOR; }
 
 int perform(object me)
 {
@@ -14,21 +14,21 @@ int perform(object me)
        int i;
 
        if( !me->is_fighting() && (me->query_skill("suibo-zhuliu",1) < 400 ))
-                return notify_fail("ÆæÃÅÎå×ªÖ»ÄÜÔÚÕ½¶·ÖÐÊ¹ÓÃ¡£\n");
+                return notify_fail("å¥‡é—¨äº”è½¬åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
        if( (int)me->query_skill("bihai-chaosheng",1) < 150 )
-                return notify_fail("ÄãµÄ±Ìº£³±Éú¹¦»¹²»¹»»ðºò£¬Ê¹²»³öÆæÃÅÎå×ª¡£\n");  
+                return notify_fail("ä½ çš„ç¢§æµ·æ½®ç”ŸåŠŸè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºå¥‡é—¨äº”è½¬ã€‚\n");  
        if( (int)me->query_skill("suibo-zhuliu",1) < 150 )
-                return notify_fail("ÄãµÄËæ²¨ÖðÁ÷»¹²»¹»»ðºò£¬Ê¹²»³öÆæÃÅÎå×ª¡£\n");  
+                return notify_fail("ä½ çš„éšæ³¢é€æµè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºå¥‡é—¨äº”è½¬ã€‚\n");  
        if( (int)me->query_skill("qimen-bagua",1) < 150 )
-                return notify_fail("ÄãµÄÆæÃÅ°ËØÔ»¹²»¹»»ðºò£¬Ê¹²»³öÆæÃÅÎå×ª¡£\n");  
+                return notify_fail("ä½ çš„å¥‡é—¨å…«å¦è¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºå¥‡é—¨äº”è½¬ã€‚\n");  
        if( (int)me->query("jingli", 1) < 500 )
-                return notify_fail("ÄãÏÖÔÚ¾«Á¦²»¹»¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨ç²¾åŠ›ä¸å¤Ÿã€‚\n");
        if( (int)me->query("neili", 1) < 200 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨å†…åŠ›ä¸å¤Ÿã€‚\n");
        if (me->query_temp("thd/is_fast"))
-                return notify_fail("ÄãÕýÔÚÊ¹ÓÃÆæÃÅÎå×ª¡£\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨å¥‡é—¨äº”è½¬ã€‚\n");
 
-       msg = HIW "$NÒ»ÉùÇåÐ¥£¬Ê¹³öÌÒ»¨µºµÄ¾øÑ§ÆæÃÅÎå×ª£¬½ÅÌ¤×Å°ËØÔ·½Î»£¬²½·¨ÐéÐéÊµÊµ£¬ÐÐÈô¹í÷È£¬Éí·¨¶¸È»¼Ó¿ì£¡\n\n"NOR; 
+       msg = HIW "$Nä¸€å£°æ¸…å•¸ï¼Œä½¿å‡ºæ¡ƒèŠ±å²›çš„ç»å­¦å¥‡é—¨äº”è½¬ï¼Œè„šè¸ç€å…«å¦æ–¹ä½ï¼Œæ­¥æ³•è™šè™šå®žå®žï¼Œè¡Œè‹¥é¬¼é­…ï¼Œèº«æ³•é™¡ç„¶åŠ å¿«ï¼\n\n"NOR; 
 
        me->add("neili", -(200+random(300)));
        me->add("jingli", -(100+random(50)));
@@ -37,7 +37,7 @@ int perform(object me)
        me->add_temp("apply/dexerity", i);
        me->set_temp("thd/is_fast", i);
        me->set_temp("double_attack", 1);
-       if (me->query_skill("suibo-zhuliu",1) < 400) me->start_perform(1, "ÆæÃÅÎå×ª");
+       if (me->query_skill("suibo-zhuliu",1) < 400) me->start_perform(1, "å¥‡é—¨äº”è½¬");
        call_out("remove_effect", 1, me, i, i);
        return 1;
 }
@@ -52,7 +52,7 @@ void remove_effect(object me, int count, int dex)
                 me->add_temp("apply/dexerity", -dex);
                 me->delete_temp("thd/is_fast");
                 me->delete_temp("double_attack");
-                message_vision(HIW"$NÄÚÁ¦²»¼Ã£¬Éí·¨ÂýÁËÏÂÀ´¡£\n"NOR, me);
+                message_vision(HIW"$Nå†…åŠ›ä¸æµŽï¼Œèº«æ³•æ…¢äº†ä¸‹æ¥ã€‚\n"NOR, me);
                 return;
         }
         call_out("remove_effect", 1 , me, count -1, dex);
@@ -60,19 +60,19 @@ void remove_effect(object me, int count, int dex)
 
 int help(object me)
 {
-        write(HIG"\n¡¸ÆæÃÅÎå×ª¡¹£º"NOR"\n");
+        write(HIG"\nã€Œå¥‡é—¨äº”è½¬ã€ï¼š"NOR"\n");
         write(@HELP
 
-        »ÆÒ©Ê¦Ëù´´Ö®¹îÒìÉí·¨¡£Ê¹ÓÃÆæÃÅ°ËØÔÅäºÏËæ²¨ÖðÁ÷²½·¨£¬Ê¹ÐÐ¶¯Áî¶ÔÊÖ³ö
-        ºõÒâÁÏ£¬ÎÞ·¨Ô¤²â£¬Òò¶øÌáÉýÉÁ¶ãÒÔ¼°ÃüÖÐµÄ»úÂÊ£¬Í¬Ê±Ò²¼Ó¿ì¹¥»÷µÄËÙ¶È
-        ÊÇ¶ÔÊÖ·À²»Ê¤·À¡£ÅäºÏÆäËûÌÒ»¨µºÌØÊâ¼¼ÇÉ£¬¸üÄÜÊÂ°ë¹¦±¶¡£
+        é»„è¯å¸ˆæ‰€åˆ›ä¹‹è¯¡å¼‚èº«æ³•ã€‚ä½¿ç”¨å¥‡é—¨å…«å¦é…åˆéšæ³¢é€æµæ­¥æ³•ï¼Œä½¿è¡ŒåŠ¨ä»¤å¯¹æ‰‹å‡º
+        ä¹Žæ„æ–™ï¼Œæ— æ³•é¢„æµ‹ï¼Œå› è€Œæå‡é—ªèº²ä»¥åŠå‘½ä¸­çš„æœºçŽ‡ï¼ŒåŒæ—¶ä¹ŸåŠ å¿«æ”»å‡»çš„é€Ÿåº¦
+        æ˜¯å¯¹æ‰‹é˜²ä¸èƒœé˜²ã€‚é…åˆå…¶ä»–æ¡ƒèŠ±å²›ç‰¹æ®ŠæŠ€å·§ï¼Œæ›´èƒ½äº‹åŠåŠŸå€ã€‚
 
-        ÒªÇó£º  ±Ìº£³±ÉùµÈ¼¶ 150 ÒÔÉÏ£»
-                ÆæÃÅ°ËØÔµÈ¼¶ 150 ÒÔÉÏ£»
-                Ëæ²¨ÖðÁ÷µÈ¼¶ 150 ÒÔÉÏ£»
-                Ã¿»ØºÏÏûºÄÄÚÁ¦£»
-                Ëæ²¨ÖðÁ÷µÈ¼¶ 400 ÒÔÉÏ£¬¿É·ÇÕ½¶·Ê©Õ¹£»
-                Ëæ²¨ÖðÁ÷µÈ¼¶ 400 ÒÔÉÏÊ¹ÓÃÊ±¼õÉÙÊÕÕÐÊ±¼ä¡£
+        è¦æ±‚ï¼š  ç¢§æµ·æ½®å£°ç­‰çº§ 150 ä»¥ä¸Šï¼›
+                å¥‡é—¨å…«å¦ç­‰çº§ 150 ä»¥ä¸Šï¼›
+                éšæ³¢é€æµç­‰çº§ 150 ä»¥ä¸Šï¼›
+                æ¯å›žåˆæ¶ˆè€—å†…åŠ›ï¼›
+                éšæ³¢é€æµç­‰çº§ 400 ä»¥ä¸Šï¼Œå¯éžæˆ˜æ–—æ–½å±•ï¼›
+                éšæ³¢é€æµç­‰çº§ 400 ä»¥ä¸Šä½¿ç”¨æ—¶å‡å°‘æ”¶æ‹›æ—¶é—´ã€‚
 HELP
         );
         return 1;

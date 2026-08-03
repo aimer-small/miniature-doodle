@@ -1,4 +1,4 @@
-// zhougjian.c ÖÜ¹«½£
+// zhougjian.c å‘¨å…¬å‰‘
 
 #include <weapon.h>
 #include <ansi.h>
@@ -8,12 +8,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIC"ÖÜ¹«½£"NOR,({ "zhougong jian", "zhougong", "sword", "jian" }) );
+        set_name(HIC"å‘¨å…¬å‰‘"NOR,({ "zhougong jian", "zhougong", "sword", "jian" }) );
         set_weight(15000);
         if( clonep())
 		set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
+                set("unit", "æŸ„");
                 set("value", 1);
                 set("rigidity", 4);
                 set("sharpness", 5);
@@ -26,9 +26,9 @@ void create()
                 set("wield_neili", 300);
                 set("wield_maxneili", 700);
                 set("wield_str", 22);
-                set("wield_msg", HIG"$N³¤½£Ò»Í¦£¬½£¼âÉÏÍ»È»Éú³ö°ë³ßÍÌÍÂ²»¶¨µÄÇàÃ¢¡£\n"NOR);
-                set("long", "ÕâÊÇÒ»°ÑÒ»×Ö»Û½£ÃÅÃÅÖ÷¡º½£Éñ¡»×¿²»·²µÄÅå½£¡£\n");                
-                set("unwield_msg", HIY "ÖÜ¹«½£»Ã×÷Ò»µÀ°×¹â£¬¡¸à§¡¹µØ·ÉÈë½£ÇÊ¡£\n" NOR);                  
+                set("wield_msg", HIG"$Né•¿å‰‘ä¸€æŒºï¼Œå‰‘å°–ä¸Šçªç„¶ç”Ÿå‡ºåŠå°ºååä¸å®šçš„é’èŠ’ã€‚\n"NOR);
+                set("long", "è¿™æ˜¯ä¸€æŠŠä¸€å­—æ…§å‰‘é—¨é—¨ä¸»ã€å‰‘ç¥ã€å“ä¸å‡¡çš„ä½©å‰‘ã€‚\n");                
+                set("unwield_msg", HIY "å‘¨å…¬å‰‘å¹»ä½œä¸€é“ç™½å…‰ï¼Œã€Œå”°ã€åœ°é£å…¥å‰‘é˜ã€‚\n" NOR);                  
         }
         init_sword(70);
         setup();

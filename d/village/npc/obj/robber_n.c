@@ -1,9 +1,9 @@
-// Created by ChinaNet@SD robber_n.c ÇÀ½ÙÈË2
+// Created by ChinaNet@SD robber_n.c æŠ¢åŠ«äºº2
 // 2004/2/10
 
 //add exp By ChinaNet
 //by 2004/4/28
-//Ôö¼Ó×ßË½ÈËÔ±Title by server
+//å¢žåŠ èµ°ç§äººå‘˜Title by server
 
 
 #define NAME_D    "/inherit/misc/r_name"
@@ -35,8 +35,8 @@ string *dodge_skill = ({
 
 string *weapon_list = ({ "chui","sword","blade","whip","gun","sword","gangzhang","blade" }); 
 
-string *first_title = ({"½ð·çÏ¸ÓêÂ¥","ÌìÏÂ»á","ÌìµØ»á","³¯Í¢","Çà°ï","ÇÀ½Ù»á","·Ë°ï"});
-string *second_title = ({ "¿óÊ¯×ßË½ÌÃÖ÷","¿óÊ¯×ßË½Ô±","¿óÊ¯×ßË½ÌÃÖ÷","¿óÊ¯×ßË½·¸"});
+string *first_title = ({"é‡‘é£Žç»†é›¨æ¥¼","å¤©ä¸‹ä¼š","å¤©åœ°ä¼š","æœå»·","é’å¸®","æŠ¢åŠ«ä¼š","åŒªå¸®"});
+string *second_title = ({ "çŸ¿çŸ³èµ°ç§å ‚ä¸»","çŸ¿çŸ³èµ°ç§å‘˜","çŸ¿çŸ³èµ°ç§å ‚ä¸»","çŸ¿çŸ³èµ°ç§çŠ¯"});
 
 void create()
 {
@@ -59,15 +59,15 @@ void create()
 
    set_name(name["name"], name["id"]);
    set("title", HIW+title+NOR);
-	set("gender", (i==0?"Å®ÐÔ":"ÄÐÐÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 20 + random(40));
-	set("long", "ÌýÎÅ²»ÈÕ½«ÓÐÉñÃØ½£Ê¦ÔÙÏÖ½­ºþ£¬´ËÈË·îÃüÔÚ¸÷µØ²É¹º¿óÊ¯×¼±¸ÔÙÏÖ¾øÊÀÉñ±ø¡£\n");
+	set("long", "å¬é—»ä¸æ—¥å°†æœ‰ç¥žç§˜å‰‘å¸ˆå†çŽ°æ±Ÿæ¹–ï¼Œæ­¤äººå¥‰å‘½åœ¨å„åœ°é‡‡è´­çŸ¿çŸ³å‡†å¤‡å†çŽ°ç»ä¸–ç¥žå…µã€‚\n");
 	set("combat_exp", 8000000);
 	set("meitude", "peaceful");
 	set("str", 40);
 	set("dex", 30);
 	set("int", 30);
-	set("no_get","Õâ¸öÈË±³²»ÆðÀ´¡£\n");
+	set("no_get","è¿™ä¸ªäººèƒŒä¸èµ·æ¥ã€‚\n");
 	set("con", 30);
 	set("max_qi", 20000);
 	set("max_jing", 20000);
@@ -134,7 +134,7 @@ void kill_ob(object me)
 	{
 		me->remove_killer(ob);
 		ob->remove_killer(me);
-		tell_object(me, ob->query("name")+"¶ÔÄãÎ¢Î¢Ò»Ð¦£¬ÁÝÈ»²»¾å¡£Äã²»ÓÉµÃÍ£ÏÂÁËÊÖ¡£\n");
+		tell_object(me, ob->query("name")+"å¯¹ä½ å¾®å¾®ä¸€ç¬‘ï¼Œå‡›ç„¶ä¸æƒ§ã€‚ä½ ä¸ç”±å¾—åœä¸‹äº†æ‰‹ã€‚\n");
 		return;
 	}
 
@@ -223,12 +223,12 @@ void die()
 				if( exp > 350 ) exp = 300 + random(50);
 				if( exp < 100 ) exp = 50 + random(50);
 				me->add("combat_exp",exp);
-				tell_object(me,"\nÄã»ñµÃÁË¶îÍâµÄ" + chinese_number(exp) + "µã¾­Ñé½±Àø¡£\n");
+				tell_object(me,"\nä½ èŽ·å¾—äº†é¢å¤–çš„" + chinese_number(exp) + "ç‚¹ç»éªŒå¥–åŠ±ã€‚\n");
 			}
 			mine->move(me);
 			me->set_temp("minejob/killed",1);
-			tell_object(me,"\nÄãÉìÊÖ½«" + mine->query("name") + "¼ðÁËÆðÀ´¡£\n");
-				log_file("job/minejob",sprintf("%s %s(%s)ÇÀ½Ùµ½ÁË%s¼¶±ðµÄ¿óÊ¯¡£Npc:%s(%s)¡£¿óÊ¯£º%s\n",
+			tell_object(me,"\nä½ ä¼¸æ‰‹å°†" + mine->query("name") + "æ‹£äº†èµ·æ¥ã€‚\n");
+				log_file("job/minejob",sprintf("%s %s(%s)æŠ¢åŠ«åˆ°äº†%sçº§åˆ«çš„çŸ¿çŸ³ã€‚Npc:%s(%s)ã€‚çŸ¿çŸ³ï¼š%s\n",
 					ctime(time())[4..19],me->name(1),capitalize(me->query("id")),mine->query("level"), ob->query("name"),ob->query("id"),mine->query("name")));
 
 		}

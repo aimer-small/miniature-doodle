@@ -12,24 +12,24 @@ int main(object me, string arg)
 	int i;
 	
 	if( !stringp(arg) )
-		return notify_fail("ÄãÒªÉ¾³ıÊ²Ã´?\n");
+		return notify_fail("ä½ è¦åˆ é™¤ä»€ä¹ˆ?\n");
 
 	ret = DOBET_D->leasedb("select code,context,setup_id,flag,begin_time,stop_time,end_time,deposit,bet_result,remark from "+DB_DOBET_NAME+" where U_Site='"+INTERMUD_MUD_NAME+"' AND code='"+arg+"'");
 
 	if(!ret || sizeof(ret)<1) 
-		return notify_fail("Ã»ÕÒµ½ÈÎºÎ·ûºÏÌõ¼şµÄ¶Ä¾Ö\n");
+		return notify_fail("æ²¡æ‰¾åˆ°ä»»ä½•ç¬¦åˆæ¡ä»¶çš„èµŒå±€\n");
 
-	outstr="©³©¥©¥"HIW"¡¾ÄãÒªÉ¾³ıµÄ¶Ä¾ÖÎª¡¿"NOR"©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·\n";
-	outstr += "©§"HIG"¶Ä¾Ö´úÂë ¶Ä¾ÖÄÚÈİ                       ×´Ì¬     ¶Ä¾Ö½á¹û        ±¸×¢                     "NOR"©§\n";
+	outstr="â”â”â”"HIW"ã€ä½ è¦åˆ é™¤çš„èµŒå±€ä¸ºã€‘"NOR"â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“\n";
+	outstr += "â”ƒ"HIG"èµŒå±€ä»£ç  èµŒå±€å†…å®¹                       çŠ¶æ€     èµŒå±€ç»“æœ        å¤‡æ³¨                     "NOR"â”ƒ\n";
 	for(i=0;i<sizeof(ret);i++)
 	{
-		outstr+= sprintf("©§"HIW"%-8s"NOR" %-30s %8s "HIC"%-15s"NOR" %-25s©§\n",ret[i][0],ret[i][1],
+		outstr+= sprintf("â”ƒ"HIW"%-8s"NOR" %-30s %8s "HIC"%-15s"NOR" %-25sâ”ƒ\n",ret[i][0],ret[i][1],
 			DOBET_D->getflag(ret[i][3]),
 			DOBET_D->getresult(ret[i][0],ret[i][3],ret[i][8]),
 			DOBET_D->getmytime(ret[i][3],ret[i][4],ret[i][5],ret[i][6]));
 	};
-	outstr += "©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n";
-	outstr+="Èç¹ûÈ·ÈÏÉ¾³ı£¬ÇëÊäÈëy:";
+	outstr += "â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n";
+	outstr+="å¦‚æœç¡®è®¤åˆ é™¤ï¼Œè¯·è¾“å…¥y:";
 	write(outstr);
 	input_to("bet_del_yes_no", 1, arg,me);
 	return 1;
@@ -38,14 +38,14 @@ int main(object me, string arg)
 private void bet_del_yes_no(string yes_no,string valcode,object me)
 {
 	if( (yes_no !="y") && (yes_no !="Y") ){
-		write("Äã·ÅÆúÁË±¾´ÎÉ¾³ı\n");
+		write("ä½ æ”¾å¼ƒäº†æœ¬æ¬¡åˆ é™¤\n");
 		return;
 	};
 	if( DOBET_D->delete_bet(valcode) != 1)
-		write("±¾´ÎÉ¾³ıÊ§°Ü\n");
+		write("æœ¬æ¬¡åˆ é™¤å¤±è´¥\n");
 	else{
-		write("±¾´ÎÉ¾³ı³É¹¦\n");
-		log_file("betlog",sprintf("%s %sÉ¾³ı¶Ä¾Ö%s",
+		write("æœ¬æ¬¡åˆ é™¤æˆåŠŸ\n");
+		log_file("betlog",sprintf("%s %såˆ é™¤èµŒå±€%s",
 			DOBET_D->longtime(time()),
 			me->query("id"),valcode));
 	};
@@ -55,9 +55,9 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºbetdel <¶Ä¾Ö´úÂë>
+æŒ‡ä»¤æ ¼å¼ï¼šbetdel <èµŒå±€ä»£ç >
 --------------------------------------------------
- betdel É¾³ı¶Ä¾Ö
+ betdel åˆ é™¤èµŒå±€
  
 --------------------------------------------------
 

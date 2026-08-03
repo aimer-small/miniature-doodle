@@ -1,11 +1,11 @@
-// NPC :rong_ziju.c Èİ×Ó¾Ø
+// NPC :rong_ziju.c å®¹å­çŸ©
 // By River 98/12
 inherit NPC;
 void create()
 {
-        set_name("Èİ×Ó¾Ø", ({ "rong ziju", "rong", "ziju"}));
-        set("title","ÎŞÁ¿½£¶«×ÚÕÆÃÅÊ¦µÜ");              
-        set("gender", "ÄĞĞÔ" );
+        set_name("å®¹å­çŸ©", ({ "rong ziju", "rong", "ziju"}));
+        set("title","æ— é‡å‰‘ä¸œå®—æŒé—¨å¸ˆå¼Ÿ");              
+        set("gender", "ç”·æ€§" );
         set("age", 46);
         set("str", 27);
         set("con", 23);
@@ -23,7 +23,7 @@ void create()
         set("jiali", 40);
         set("unique", 1);
         
-        set("long","ËûÊÇÎŞÁ¿½£¶«×ÚµÄÕÆÃÅµÄÊ¦µÜ¡£\n");
+        set("long","ä»–æ˜¯æ— é‡å‰‘ä¸œå®—çš„æŒé—¨çš„å¸ˆå¼Ÿã€‚\n");
         set("combat_exp", 350000);
         set("shen", 1000); 
 

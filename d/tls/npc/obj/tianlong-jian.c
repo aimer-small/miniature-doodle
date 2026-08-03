@@ -1,4 +1,4 @@
-// tianlong-jian.c ÌìÁúÉñ½£
+// tianlong-jian.c å¤©é¾™ç¥å‰‘
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,19 +7,19 @@ inherit SWORD;
 
 void create()
 {
-        set_name("ÌìÁú½£",({ "tianlong jian", "tianlong", "sword", "jian" }) );
+        set_name("å¤©é¾™å‰‘",({ "tianlong jian", "tianlong", "sword", "jian" }) );
         set_weight(10000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
                 set("value", 100000);
                 set("treasure",1);
                 set("material", "steel");
-                set("long", "ÕâÊÇ°ÑÊ½Ñù¹ÅÆÓµÄ±¦½££¬²»ÖªµÀÓĞ¶àÉÙÄêÍ·ÁË£¬Õû¸ö½£ÉíÒş²ØÔÚÒ»²ãÇàÆøµ±ÖĞ£¬³äÂúÉ±Æø¡£\n");
-                set("wield_msg", HIY "Ö»Ìı¼û¡¸ï£¡¹µØÒ»Éù£¬ÑÛÇ°Ò»µÀÇà¹â³åÌì¶øÆğ,$N³é³öÌìÁúÉñ½££¬½£ÉíÈçË®£¬Á÷×ª²»¶¨¡£\n" NOR);
-                set("unwield_msg", HIY "Ò»¹ÉÇàÃ¢¡¸à§¡¹µØÒşÈë½£ÇÊ,É±Æø¶ÙÈ»ÏûÊ§¡£\n" NOR);
-                set("unequip_msg", HIY "Ò»¹ÉÇàÃ¢¡¸à§¡¹µØÒşÈë½£ÇÊ,É±Æø¶ÙÈ»ÏûÊ§¡£\n" NOR);
+                set("long", "è¿™æ˜¯æŠŠå¼æ ·å¤æœ´çš„å®å‰‘ï¼Œä¸çŸ¥é“æœ‰å¤šå°‘å¹´å¤´äº†ï¼Œæ•´ä¸ªå‰‘èº«éšè—åœ¨ä¸€å±‚é’æ°”å½“ä¸­ï¼Œå……æ»¡æ€æ°”ã€‚\n");
+                set("wield_msg", HIY "åªå¬è§ã€Œé“®ã€åœ°ä¸€å£°ï¼Œçœ¼å‰ä¸€é“é’å…‰å†²å¤©è€Œèµ·,$NæŠ½å‡ºå¤©é¾™ç¥å‰‘ï¼Œå‰‘èº«å¦‚æ°´ï¼Œæµè½¬ä¸å®šã€‚\n" NOR);
+                set("unwield_msg", HIY "ä¸€è‚¡é’èŠ’ã€Œå”°ã€åœ°éšå…¥å‰‘é˜,æ€æ°”é¡¿ç„¶æ¶ˆå¤±ã€‚\n" NOR);
+                set("unequip_msg", HIY "ä¸€è‚¡é’èŠ’ã€Œå”°ã€åœ°éšå…¥å‰‘é˜,æ€æ°”é¡¿ç„¶æ¶ˆå¤±ã€‚\n" NOR);
         }
 init_sword(180);
         setup();

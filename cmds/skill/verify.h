@@ -1,687 +1,687 @@
-//      Tbh ¾ßÌåÖÆ×÷
+//      Tbh å…·ä½“åˆ¶ä½œ
 //      HBRED   HBGRN   HBYEL   HBBLU   HBMAG   HBCYN   HBWHT
 
 #include <ansi.h>
 
 mapping exert_names = ([
-//  °Ë»ÄÁùºÏ¹¦
-        "bahuang-liuhe/bahuang":HBRED+HIW"¡¼°Ë»ÄÁùºÏ¡½"NOR,
-        "bahuang-liuhe/chuanyin":RED"´«Òô´ó·¨"NOR,
-        "bahuang-liuhe/duzun":        HIG"¡ï"HIR"Î¨ÎÒ¶À×ğ"HIG"¡ï"NOR,
+//  å…«è’å…­åˆåŠŸ
+        "bahuang-liuhe/bahuang":HBRED+HIW"ã€–å…«è’å…­åˆã€—"NOR,
+        "bahuang-liuhe/chuanyin":RED"ä¼ éŸ³å¤§æ³•"NOR,
+        "bahuang-liuhe/duzun":        HIG"â˜…"HIR"å”¯æˆ‘ç‹¬å°Š"HIG"â˜…"NOR,
 
-//  ±±Ú¤Éñ¹¦
-        "beiming-shengong/beiming":             BLU"±±Ú¤´ó·¨"NOR,
-        "beiming-shengong/huti":HBCYN+HIG"±±Ú¤»¤Ìå"NOR,
-        "beiming-shengong/jiedu":HIG"½â¶¾´ó·¨"NOR,
-        "beiming-shengong/shengsifu":                  HIR"Éú"BLU" ËÀ "WHT"·û"NOR,
-        "beiming-shengong/shougong":                  BLU"ÊÕ¹¦´ó·¨"NOR,
+//  åŒ—å†¥ç¥åŠŸ
+        "beiming-shengong/beiming":             BLU"åŒ—å†¥å¤§æ³•"NOR,
+        "beiming-shengong/huti":HBCYN+HIG"åŒ—å†¥æŠ¤ä½“"NOR,
+        "beiming-shengong/jiedu":HIG"è§£æ¯’å¤§æ³•"NOR,
+        "beiming-shengong/shengsifu":                  HIR"ç”Ÿ"BLU" æ­» "WHT"ç¬¦"NOR,
+        "beiming-shengong/shougong":                  BLU"æ”¶åŠŸå¤§æ³•"NOR,
 
-//  ±Ìº£³±Éù¹¦        
-        "bihai-chaosheng/cuidu":HIW"´ß    ¶¾"NOR,
-        "bihai-chaosheng/zhanbu":HIG"Õ¼ ²· Êõ"NOR,
-        "bihai-chaosheng/lifeheal":HIW"ËûÈËÁÆÉË"NOR,
-        "bihai-chaosheng/maze":HIY"ÆæÃÅÃÔ»êÕó"NOR,
-        "bihai-chaosheng/play":HIM"´µ    óï"NOR,
-        "bihai-chaosheng/qimen":HIW"ÆæÃÅ°ËØÔ"NOR,
+//  ç¢§æµ·æ½®å£°åŠŸ        
+        "bihai-chaosheng/cuidu":HIW"å‚¬    æ¯’"NOR,
+        "bihai-chaosheng/zhanbu":HIG"å  åœ æœ¯"NOR,
+        "bihai-chaosheng/lifeheal":HIW"ä»–äººç–—ä¼¤"NOR,
+        "bihai-chaosheng/maze":HIY"å¥‡é—¨è¿·é­‚é˜µ"NOR,
+        "bihai-chaosheng/play":HIM"å¹    ç®«"NOR,
+        "bihai-chaosheng/qimen":HIW"å¥‡é—¨å…«å¦"NOR,
 
-//  ¶¾Áú´ó·¨        
-        "dulong-dafa/jiedu":HIW"½â    ¶¾"NOR,
-        "dulong-dafa/shougong":CYN"ÊÕ    ¹¦"NOR,
-        "dulong-dafa/wudi":RED"ÎŞµĞ´ó·¨"NOR,
-        "dulong-dafa/shexin":HIR"Éã    ĞÄ"NOR,
+//  æ¯’é¾™å¤§æ³•        
+        "dulong-dafa/jiedu":HIW"è§£    æ¯’"NOR,
+        "dulong-dafa/shougong":CYN"æ”¶    åŠŸ"NOR,
+        "dulong-dafa/wudi":RED"æ— æ•Œå¤§æ³•"NOR,
+        "dulong-dafa/shexin":HIR"æ‘„    å¿ƒ"NOR,
 
-//  ¶ğÃ¼¾ÅÑôÉñ¹¦        
-//        "emei-jiuyang/heal":HIW"ÕæÆøÁÆÉË"NOR,
-//        "emei-jiuyang/lifeheal":HIW"ËûÈËÁÆÉË"NOR,
-//        "emei-jiuyang/powerup":HIY"¶ëáÒ¾ÅÑô¹¦"NOR,
+//  å¨¥çœ‰ä¹é˜³ç¥åŠŸ        
+//        "emei-jiuyang/heal":HIW"çœŸæ°”ç–—ä¼¤"NOR,
+//        "emei-jiuyang/lifeheal":HIW"ä»–äººç–—ä¼¤"NOR,
+//        "emei-jiuyang/powerup":HIY"å³¨åµ‹ä¹é˜³åŠŸ"NOR,
 
-//  ¹éÔªÍÂÄÉ·¨        
-        "guiyuan-tunafa/focus":HBBLU"¾Û    Á¦"NOR,
-//        "guiyuan-tunafa/lifeheal":HIY"ËûÈËÁÆÉË"NOR,
+//  å½’å…ƒåçº³æ³•        
+        "guiyuan-tunafa/focus":HBBLU"èš    åŠ›"NOR,
+//        "guiyuan-tunafa/lifeheal":HIY"ä»–äººç–—ä¼¤"NOR,
 
-//  º®±ùÕæÆø        
-        "hanbing-zhenqi/hanbing":HIW"º® ±ù ¾÷"NOR,
-        "hanbing-zhenqi/juhan":HIW"¾Û    º®"NOR,
-        "hanbing-zhenqi/liaodu":HIW"ÁÆ    ¶¾"NOR,
+//  å¯’å†°çœŸæ°”        
+        "hanbing-zhenqi/hanbing":HIW"å¯’ å†° è¯€"NOR,
+        "hanbing-zhenqi/juhan":HIW"èš    å¯’"NOR,
+        "hanbing-zhenqi/liaodu":HIW"ç–—    æ¯’"NOR,
 
-//  »¯¹¦´ó·¨
-        "huagong-dafa/duwu":HIB"¶¾    Îí"NOR,
-        "huagong-dafa/huadu":BLU"»¯    ¶¾"NOR,
-        "huagong-dafa/huagong":BLU"»¯    ¹¦"NOR,
-        "huagong-dafa/huajing":HIB"»¯    ¾«"NOR,
-        "huagong-dafa/judu":BLU"¾Û¶¾»¤Éí"NOR,
-        "huagong-dafa/liaodu":HIB"ÁÆ    ¶¾"NOR,
+//  åŒ–åŠŸå¤§æ³•
+        "huagong-dafa/duwu":HIB"æ¯’    é›¾"NOR,
+        "huagong-dafa/huadu":BLU"åŒ–    æ¯’"NOR,
+        "huagong-dafa/huagong":BLU"åŒ–    åŠŸ"NOR,
+        "huagong-dafa/huajing":HIB"åŒ–    ç²¾"NOR,
+        "huagong-dafa/judu":BLU"èšæ¯’æŠ¤èº«"NOR,
+        "huagong-dafa/liaodu":HIB"ç–—    æ¯’"NOR,
 
-// »ìÔªÒ»Æø
-        "hunyuan-yiqi/heal":HIW"ÕæÆøÁÆÉË"NOR,
-        "hunyuan-yiqi/lifeheal":HIW"ËûÈËÁÆÉË"NOR,
-        "hunyuan-yiqi/roar":HIY"Ê¨ ×Ó ºğ"NOR,
+// æ··å…ƒä¸€æ°”
+        "hunyuan-yiqi/heal":HIW"çœŸæ°”ç–—ä¼¤"NOR,
+        "hunyuan-yiqi/lifeheal":HIW"ä»–äººç–—ä¼¤"NOR,
+        "hunyuan-yiqi/roar":HIY"ç‹® å­ å¼"NOR,
         
-/*        "hunyuan-gong/jianmang":                MAG"½£¡¡¡¡Ã¢"NOR,
-        "hunyuan-gong/ningshen":                MAG"Äı¡¡¡¡Éñ"NOR,
-        "hunyuan-gong/lifeforce":               MAG"ÖÎÁÆÄÚÉË"NOR,
-        "hunyuan-gong/lifeheal":                MAG"ÁÆ¡¡¡¡ÉË"NOR,
-        "hunyuan-gong/zixia":                   MAG"×Ï¡¡¡¡Ï¼"NOR, */
+/*        "hunyuan-gong/jianmang":                MAG"å‰‘ã€€ã€€èŠ’"NOR,
+        "hunyuan-gong/ningshen":                MAG"å‡ã€€ã€€ç¥"NOR,
+        "hunyuan-gong/lifeforce":               MAG"æ²»ç–—å†…ä¼¤"NOR,
+        "hunyuan-gong/lifeheal":                MAG"ç–—ã€€ã€€ä¼¤"NOR,
+        "hunyuan-gong/zixia":                   MAG"ç´«ã€€ã€€éœ"NOR, */
 
-//  »ìÌìÆø¹¦        
-        "huntian-qigong/huntian":HIR"»ì    Ìì"NOR,
-        "huntian-qigong/shentong":HIW"Éñ    Í¨"NOR,
-        "huntian-qigong/powerup":HIR"»ìÌìÆø¹¦"NOR,
-        "huntian-qigong/shougong":GRN"ÊÕ    ¹¦"NOR,
+//  æ··å¤©æ°”åŠŸ        
+        "huntian-qigong/huntian":HIR"æ··    å¤©"NOR,
+        "huntian-qigong/shentong":HIW"ç¥    é€š"NOR,
+        "huntian-qigong/powerup":HIR"æ··å¤©æ°”åŠŸ"NOR,
+        "huntian-qigong/shougong":GRN"æ”¶    åŠŸ"NOR,
 
-/*        "huagong-dafa/heal":                    RED"ÕæÆøÁÆÉË"NOR,
-        "huagong-dafa/huadu":                   RED"»¯¡¡¡¡¶¾"NOR,
-        "huagong-dafa/huagong":                 RED"»¯¡¡¡¡¹¦"NOR,
-        "huagong-dafa/judu":                    RED"¾Û¡¡¡¡¶¾"NOR,
-        "huagong-dafa/liaodu":                  RED"ÁÆ¡¡¡¡¶¾"NOR, */
+/*        "huagong-dafa/heal":                    RED"çœŸæ°”ç–—ä¼¤"NOR,
+        "huagong-dafa/huadu":                   RED"åŒ–ã€€ã€€æ¯’"NOR,
+        "huagong-dafa/huagong":                 RED"åŒ–ã€€ã€€åŠŸ"NOR,
+        "huagong-dafa/judu":                    RED"èšã€€ã€€æ¯’"NOR,
+        "huagong-dafa/liaodu":                  RED"ç–—ã€€ã€€æ¯’"NOR, */
 
-//  ¸òó¡¹¦        
-        "hamagong/hama":HIB"¸ò ó¡ ¹¦"NOR,
-        "hamagong/nizhuan":HIW"Äæ    ×ª"NOR,
-        "hamagong/qudu":HIW"Çı    ¶¾"NOR,
+//  è›¤èŸ†åŠŸ        
+        "hamagong/hama":HIB"è›¤ èŸ† åŠŸ"NOR,
+        "hamagong/nizhuan":HIW"é€†    è½¬"NOR,
+        "hamagong/qudu":HIW"é©±    æ¯’"NOR,
 
-// ÀäÈªÉñ¹¦
-        "lengquan-shengong/lengquan":HIB"Àä    Èª"NOR,
-        "lengquan-shengong/yinyang":HIY"ÒõÑôÎŞ³£"NOR,
+// å†·æ³‰ç¥åŠŸ
+        "lengquan-shengong/lengquan":HIB"å†·    æ³‰"NOR,
+        "lengquan-shengong/yinyang":HIY"é˜´é˜³æ— å¸¸"NOR,
 
-//  ÁÙ¼ÃÊ®¶ş×¯        
-        "linji-zhuang/fengyun":MAG"·ç    ÔÆ"NOR,
-        "linji-zhuang/riyue":MAG"ÈÕ    ÔÂ"NOR,
-        "linji-zhuang/tiandi":HIW"Ìì    µØ"NOR,
-        "linji-zhuang/wuwo":HIW"ÎŞ    ÎÒ"NOR,
-        "linji-zhuang/yinyang":HBBLU"Òõ    Ñô"NOR,
-        "linji-zhuang/zhixin":MAG"Ö®    ĞÄ"NOR,
-        "linji-zhuang/youming":HIW"ÓÄ    Ú¤"NOR,
+//  ä¸´æµåäºŒåº„        
+        "linji-zhuang/fengyun":MAG"é£    äº‘"NOR,
+        "linji-zhuang/riyue":MAG"æ—¥    æœˆ"NOR,
+        "linji-zhuang/tiandi":HIW"å¤©    åœ°"NOR,
+        "linji-zhuang/wuwo":HIW"æ—     æˆ‘"NOR,
+        "linji-zhuang/yinyang":HBBLU"é˜´    é˜³"NOR,
+        "linji-zhuang/zhixin":MAG"ä¹‹    å¿ƒ"NOR,
+        "linji-zhuang/youming":HIW"å¹½    å†¥"NOR,
 
-//  ÁúÏó°ãÈô¹¦
-        "longxiang-boruo/fenchang":BLU"ÄıÉñèó³ª"NOR,
-        "longxiang-boruo/longxiang":            MAG"ÁúÏóÖ®Á¦"NOR,
-        "longxiang-boruo/shield":               CYN"ÕæÆø»¤Ìå"NOR,
-        "longxiang-boruo/guiyuan":HIY"ËÑÆÇ¹éÔª"NOR,
-        "longxiang-boruo/juxue":HIW"ÁÆ    ÉË"NOR,
-        "longxiang-boruo/shenyou":HIW"Éñ    ÓÎ"NOR,
+//  é¾™è±¡èˆ¬è‹¥åŠŸ
+        "longxiang-boruo/fenchang":BLU"å‡ç¥æ¢µå”±"NOR,
+        "longxiang-boruo/longxiang":            MAG"é¾™è±¡ä¹‹åŠ›"NOR,
+        "longxiang-boruo/shield":               CYN"çœŸæ°”æŠ¤ä½“"NOR,
+        "longxiang-boruo/guiyuan":HIY"æœé­„å½’å…ƒ"NOR,
+        "longxiang-boruo/juxue":HIW"ç–—    ä¼¤"NOR,
+        "longxiang-boruo/shenyou":HIW"ç¥    æ¸¸"NOR,
 
-//  ¾ÅÑôÉñ¹¦
-        "jiuyang-shengong/chuangong":           HIR"´«¡¡¡¡¹¦"NOR,
-        "jiuyang-shengong/jiuyang":             HIR"¾ÅÑôÉñ¹¦"NOR,
-        "jiuyang-shengong/tougu":               HIW"Í¸ ¹Ç Õë"NOR,
-        "jiuyang-shengong/yinfeng":             HIW"Òõ ·ç µ¶"NOR,
-        "jiuyang-shengong/xinmo":            HIR"ĞÄ¡¡¡¡Ä§"NOR,
+//  ä¹é˜³ç¥åŠŸ
+        "jiuyang-shengong/chuangong":           HIR"ä¼ ã€€ã€€åŠŸ"NOR,
+        "jiuyang-shengong/jiuyang":             HIR"ä¹é˜³ç¥åŠŸ"NOR,
+        "jiuyang-shengong/tougu":               HIW"é€ éª¨ é’ˆ"NOR,
+        "jiuyang-shengong/yinfeng":             HIW"é˜´ é£ åˆ€"NOR,
+        "jiuyang-shengong/xinmo":            HIR"å¿ƒã€€ã€€é­”"NOR,
 
-//  ¾ÅÒõÕæ¹¦        
-        "jiuyin-zhengong/huanxue":HIB"ÒÆ¾­»»Ñ¨"NOR,
-        "jiuyin-zhengong/liaojing":HIW"ÕæÆøÁÆ¾«"NOR,
-        "jiuyin-zhengong/heyi":HIR"Íò±äºÏÒ»"NOR,
-        "jiuyin-zhengong/jiuyin":WHT"¾ÅÒõÕæÆø"NOR,
-        "jiuyin-zhengong/shehun":HIW"Éã»ê´ó·¨"NOR,
-        "jiuyin-zhengong/yihun":HIW"ÒÆ»ê´ó·¨"NOR,
-        "jiuyin-zhengong/zongjue":HIY"¾ÅÒõ×Ü¾÷"NOR,
+//  ä¹é˜´çœŸåŠŸ        
+        "jiuyin-zhengong/huanxue":HIB"ç§»ç»æ¢ç©´"NOR,
+        "jiuyin-zhengong/liaojing":HIW"çœŸæ°”ç–—ç²¾"NOR,
+        "jiuyin-zhengong/heyi":HIR"ä¸‡å˜åˆä¸€"NOR,
+        "jiuyin-zhengong/jiuyin":WHT"ä¹é˜´çœŸæ°”"NOR,
+        "jiuyin-zhengong/shehun":HIW"æ‘„é­‚å¤§æ³•"NOR,
+        "jiuyin-zhengong/yihun":HIW"ç§»é­‚å¤§æ³•"NOR,
+        "jiuyin-zhengong/zongjue":HIY"ä¹é˜´æ€»è¯€"NOR,
 
-//  ¿İÈÙìø¹¦       
-        "kurong-changong/kong":HIG"¿Õ    Ã÷"NOR,
-        "kurong-changong/ku":         GRN"¿İ×Ö´ó·¨"NOR,
-        "kurong-changong/liao":         HIY"ÕæÆøÁÆÉË"NOR,
-        "kurong-changong/roar":         HIY"Ê¨ ×Ó ºğ"NOR,
-        "kurong-changong/rong":       HIR"ÈÙ×Ö´ó·¨"NOR,
-        "kurong-changong/xinjing":       GRN"¾²ĞÄÇ±ĞŞ"NOR,
+//  æ¯è£ç¦…åŠŸ       
+        "kurong-changong/kong":HIG"ç©º    æ˜"NOR,
+        "kurong-changong/ku":         GRN"æ¯å­—å¤§æ³•"NOR,
+        "kurong-changong/liao":         HIY"çœŸæ°”ç–—ä¼¤"NOR,
+        "kurong-changong/roar":         HIY"ç‹® å­ å¼"NOR,
+        "kurong-changong/rong":       HIR"è£å­—å¤§æ³•"NOR,
+        "kurong-changong/xinjing":       GRN"é™å¿ƒæ½œä¿®"NOR,
         
-//  Ç¬ÌìÒ»Ñô¹¦
-        "qiantian-yiyang/kong":HIG"¿Õ    Ã÷"NOR,
-        "qiantian-yiyang/liao":HIY"ÕæÆøÁÆÉË"NOR,
-        "qiantian-yiyang/xinjing":GRN"¾²ĞÄÇ±ĞŞ"NOR,
+//  ä¹¾å¤©ä¸€é˜³åŠŸ
+        "qiantian-yiyang/kong":HIG"ç©º    æ˜"NOR,
+        "qiantian-yiyang/liao":HIY"çœŸæ°”ç–—ä¼¤"NOR,
+        "qiantian-yiyang/xinjing":GRN"é™å¿ƒæ½œä¿®"NOR,
 
-//  Ê¥»ğÉñ¹¦
-        "shenghuo-shengong/chuangong":          HIR"´«¡¡¡¡¹¦"NOR,
-        "shenghuo-shengong/tougu":              HIW"Í¸ ¹Ç Õë"NOR,
-        "shenghuo-shengong/yinfeng":            HIW"Òõ ·ç µ¶"NOR,
-        "shenghuo-shengong/xinmo":            HIR"ĞÄ¡¡¡¡Ä§"NOR,
+//  åœ£ç«ç¥åŠŸ
+        "shenghuo-shengong/chuangong":          HIR"ä¼ ã€€ã€€åŠŸ"NOR,
+        "shenghuo-shengong/tougu":              HIW"é€ éª¨ é’ˆ"NOR,
+        "shenghuo-shengong/yinfeng":            HIW"é˜´ é£ åˆ€"NOR,
+        "shenghuo-shengong/xinmo":            HIR"å¿ƒã€€ã€€é­”"NOR,
 
-//  ÉñÔª¹¦        
-//        "shenyuan-gong/heal":HIW"ÕæÆøÁÆÉË"NOR,
-//        "shenyuan-gong/lifeheal":HIW"ËûÈËÁÆÉË"NOR,
-        "shenyuan-gong/shenyuan":HIY"Éñ Ôª ¹¦"NOR,
+//  ç¥å…ƒåŠŸ        
+//        "shenyuan-gong/heal":HIW"çœŸæ°”ç–—ä¼¤"NOR,
+//        "shenyuan-gong/lifeheal":HIW"ä»–äººç–—ä¼¤"NOR,
+        "shenyuan-gong/shenyuan":HIY"ç¥ å…ƒ åŠŸ"NOR,
         
         
-//        "songshan-qigong/jianqi":GRN"ÔË ½£ Æø"NOR,
+//        "songshan-qigong/jianqi":GRN"è¿ å‰‘ æ°”"NOR,
         
-/*        "tiangang-zhengqi/heal":HIW"ÕæÆøÁÆÉË"NOR,
-        "tiangang-zhengqi/lifeheal":HIW"ËûÈËÁÆÉË"NOR,
-        "tiangang-zhengqi/powerup":HIR"ÔË Ìì î¸"NOR, */
+/*        "tiangang-zhengqi/heal":HIW"çœŸæ°”ç–—ä¼¤"NOR,
+        "tiangang-zhengqi/lifeheal":HIW"ä»–äººç–—ä¼¤"NOR,
+        "tiangang-zhengqi/powerup":HIR"è¿ å¤© ç½¡"NOR, */
 
-//  Ğ¡ÎŞÏàÉñ¹¦
-        "xiaowuxiang-gong/liaojing":                  HIC"ÁÆ¾«"NOR,
-        "xiaowuxiang-gong/wuxiang":                  HBCYN+HIC"ÎŞ¸ùÎŞÏà"NOR,
+//  å°æ— ç›¸ç¥åŠŸ
+        "xiaowuxiang-gong/liaojing":                  HIC"ç–—ç²¾"NOR,
+        "xiaowuxiang-gong/wuxiang":                  HBCYN+HIC"æ— æ ¹æ— ç›¸"NOR,
         
-//  ĞşÌìÎŞ¼«¹¦
-        "xuantian-wuji/taxue":                        MAG"Ì¤Ñ©ÎŞºÛ"NOR,
-        "xuantian-wuji/light":                        HIW"ÔË¹¦ÓÚ½£"NOR,
+//  ç„å¤©æ— æåŠŸ
+        "xuantian-wuji/taxue":                        MAG"è¸é›ªæ— ç—•"NOR,
+        "xuantian-wuji/light":                        HIW"è¿åŠŸäºå‰‘"NOR,
 
 /*        
-        "xixing-dafa/heal":HIW"ÕæÆøÁÆÉË"NOR,
-        "xixing-dafa/lifeheal":HIW"ËûÈËÁÆÉË"NOR,
-        "xixing-dafa/powerup":HIR"ÎüĞÄ´ó·¨"NOR,
-        "xixing-dafa/roar":HIR"³¤¿Õ¿ñºğ"NOR,
-        "xixing-dafa/xijing":HIR"Îü    ¾«"NOR,
-        "xixing-dafa/xineili":HIR"Îü ÄÚ Á¦"NOR,
-        "xixing-dafa/xiqi":HIR"Îü    Æø"NOR,  
+        "xixing-dafa/heal":HIW"çœŸæ°”ç–—ä¼¤"NOR,
+        "xixing-dafa/lifeheal":HIW"ä»–äººç–—ä¼¤"NOR,
+        "xixing-dafa/powerup":HIR"å¸å¿ƒå¤§æ³•"NOR,
+        "xixing-dafa/roar":HIR"é•¿ç©ºç‹‚å¼"NOR,
+        "xixing-dafa/xijing":HIR"å¸    ç²¾"NOR,
+        "xixing-dafa/xineili":HIR"å¸ å†… åŠ›"NOR,
+        "xixing-dafa/xiqi":HIR"å¸    æ°”"NOR,  
 */
         
-//  Ò×½î¾­        
-        "yijin-jing/jingang":HIR"½ğ¸Õ²»»µÌåÉñ¹¦"NOR,
-        "yijin-jing/roar":HIY"Ê¨ ×Ó ºğ"NOR,
+//  æ˜“ç­‹ç»        
+        "yijin-jing/jingang":HIR"é‡‘åˆšä¸åä½“ç¥åŠŸ"NOR,
+        "yijin-jing/roar":HIY"ç‹® å­ å¼"NOR,
 
-//  ë³ëµ×ÏÆø        
-        "yinyun-ziqi/qudu":                     HIY"´¿ÑôÎŞ¼«¹¦"NOR,
-        "yinyun-ziqi/lifesave":                 HIW"º××ì¾¢µãÁúÔ¾ÇÏ"NOR,
-        "yinyun-ziqi/taiji":                    CYN"Ì« ¼« ¹¦"NOR,
-        "yinyun-ziqi/yinyun":                   MAG"ë³ëµÄÚ¾Û"NOR,  
+//  æ°¤æ°²ç´«æ°”        
+        "yinyun-ziqi/qudu":                     HIY"çº¯é˜³æ— æåŠŸ"NOR,
+        "yinyun-ziqi/lifesave":                 HIW"é¹¤å˜´åŠ²ç‚¹é¾™è·ƒçª"NOR,
+        "yinyun-ziqi/taiji":                    CYN"å¤ª æ åŠŸ"NOR,
+        "yinyun-ziqi/yinyun":                   MAG"æ°¤æ°²å†…èš"NOR,  
         
-//  ÓñÅ®ĞÄ¾­
-        "yunu-xinjing/hebi":HIY"ºÏ    ±Ú"NOR,
-        "yunu-xinjing/xinjing":HIY"ĞÄ    ¾­"NOR, 
+//  ç‰å¥³å¿ƒç»
+        "yunu-xinjing/hebi":HIY"åˆ    å£"NOR,
+        "yunu-xinjing/xinjing":HIY"å¿ƒ    ç»"NOR, 
 
-//  ×ÏÏ¼Éñ¹¦        
-        "zixia-gong/jianyi":HIM"×ÏÏ¼½£Òâ"NOR,
-        "zixia-gong/zixia":MAG"×Ï    Ï¼"NOR,
-        "zixia-gong/jianqi":MAG"×ÏÏ¼½£Æø"NOR,
-        "zixia-gong/lifeforce":    MAG"»ìÔªÎŞ¼«¹¦"NOR,
+//  ç´«éœç¥åŠŸ        
+        "zixia-gong/jianyi":HIM"ç´«éœå‰‘æ„"NOR,
+        "zixia-gong/zixia":MAG"ç´«    éœ"NOR,
+        "zixia-gong/jianqi":MAG"ç´«éœå‰‘æ°”"NOR,
+        "zixia-gong/lifeforce":    MAG"æ··å…ƒæ— æåŠŸ"NOR,
 
-//ÉñÕÕ¾­
-           "shenzhao-jing/shenzhao":HIW"Éñ    ÕÕ"NOR,
+//ç¥ç…§ç»
+           "shenzhao-jing/shenzhao":HIW"ç¥    ç…§"NOR,
 
 ]);
 
 mapping perform_names = ([
-//  ÷öÈ»Ïú»êÕÆ
-        "anran-zhang/anran":HIY"÷öÈ»Ïú»ê"NOR,
-        "anran-zhang/xiaohun":HIW"Ïú»ê"NOR,
-        "anran-zhang/jishi":HIY"¼µÊÀ·ßË×"NOR,
+//  é»¯ç„¶é”€é­‚æŒ
+        "anran-zhang/anran":HIY"é»¯ç„¶é”€é­‚"NOR,
+        "anran-zhang/xiaohun":HIW"é”€é­‚"NOR,
+        "anran-zhang/jishi":HIY"å«‰ä¸–æ„¤ä¿—"NOR,
 
-//  °µÓ°¸¡Ïã
-        "anying-fuxiang/huashen":HBYEL"ÖîÌì»¯Éí²½"NOR,
+//  æš—å½±æµ®é¦™
+        "anying-fuxiang/huashen":HBYEL"è¯¸å¤©åŒ–èº«æ­¥"NOR,
 
-        "banruo-zhang/yipai":RED"Ò»ÅÄÁ½É¢"NOR,
+        "banruo-zhang/yipai":RED"ä¸€æ‹ä¸¤æ•£"NOR,
 
 //  
-        "canglang-goufa/beauty":MAG"ÃÀÈËÈıÕĞ"NOR,
-        "canglang-goufa/hero":HIR"Ó¢ĞÛÈıÕĞ"NOR,
+        "canglang-goufa/beauty":MAG"ç¾äººä¸‰æ‹›"NOR,
+        "canglang-goufa/hero":HIR"è‹±é›„ä¸‰æ‹›"NOR,
 
-//  ²ÎºÏÖ¸
-        "canhe-zhi/ci":HIC"´Ì ×Ö ¾÷"NOR,
+//  å‚åˆæŒ‡
+        "canhe-zhi/ci":HIC"åˆº å­— è¯€"NOR,
 
-//  ´ÈĞĞ±Ş
-        "cihang-bian/cibei":            RED"´È±¯×Ö¾÷"NOR,
+//  æ…ˆè¡Œé­
+        "cihang-bian/cibei":            RED"æ…ˆæ‚²å­—è¯€"NOR,
 
-//  ³åÁé½£·¨
-        "chongling-jian/hebi":          HIY"Ë«½£ºÏèµ"NOR,
+//  å†²çµå‰‘æ³•
+        "chongling-jian/hebi":          HIY"åŒå‰‘åˆç’§"NOR,
 
-//  ³éËèÕÆ
-        "chousui-zhang/biyan":          HIC"±Ì¡¡¡¡Ñæ"NOR,
-        "chousui-zhang/chousui":          BLU"ÈıÒõ³éËè"NOR,
-        "chousui-zhang/huoqiang":       BLU"»ğ¡¡¡¡Ç½"NOR,
-        "chousui-zhang/huoqiu":         HIR"»ğ¡¡¡¡Çò"NOR,
-        "chousui-zhang/yinhuo":         YEL"Òø¡¡¡¡»ğ"NOR,
-        "chousui-zhang/fushidu":         BLU"¸¯Ê¬¹¥»÷"NOR,
-//  ´©ÔÆÍÈ
-        "chuanyun-tui/chuanyun":         HIG"´©    ÔÆ"NOR,
+//  æŠ½é«“æŒ
+        "chousui-zhang/biyan":          HIC"ç¢§ã€€ã€€ç„°"NOR,
+        "chousui-zhang/chousui":          BLU"ä¸‰é˜´æŠ½é«“"NOR,
+        "chousui-zhang/huoqiang":       BLU"ç«ã€€ã€€å¢™"NOR,
+        "chousui-zhang/huoqiu":         HIR"ç«ã€€ã€€çƒ"NOR,
+        "chousui-zhang/yinhuo":         YEL"é“¶ã€€ã€€ç«"NOR,
+        "chousui-zhang/fushidu":         BLU"è…å°¸æ”»å‡»"NOR,
+//  ç©¿äº‘è…¿
+        "chuanyun-tui/chuanyun":         HIG"ç©¿    äº‘"NOR,
 
 
-//  ´ºÀ¼½£·¨
-        "chunlan-jianfa/lianji":         HIC"À¼½£Á¬»÷"NOR,
+//  æ˜¥å…°å‰‘æ³•
+        "chunlan-jianfa/lianji":         HIC"å…°å‰‘è¿å‡»"NOR,
 
-//  ´ßĞÄÕÆ
-        "cuixin-zhang/cuixin":         HIR"´ßĞÄ¶Ï³¦"NOR,
-        "cuixin-zhang/yinyang":         HIG"ÒõÑôË«ÕÆ"NOR,
+//  å‚¬å¿ƒæŒ
+        "cuixin-zhang/cuixin":         HIR"å‚¬å¿ƒæ–­è‚ "NOR,
+        "cuixin-zhang/yinyang":         HIG"é˜´é˜³åŒæŒ"NOR,
 
-//  ´ó·üÄ§È­
-        "dafumo-quan/fumo":HIY"·ü   Ä§"NOR,
-        "dafumo-quan/xiangmo":HIG"½µ   Ä§"NOR,
-        "dafumo-quan/posha":HIY"ÆÆ   É·"NOR,
-        "dafumo-quan/qiankun":HIY"Ç¬À¤Ò»»÷"NOR,
+//  å¤§ä¼é­”æ‹³
+        "dafumo-quan/fumo":HIY"ä¼   é­”"NOR,
+        "dafumo-quan/xiangmo":HIG"é™   é­”"NOR,
+        "dafumo-quan/posha":HIY"ç ´   ç…"NOR,
+        "dafumo-quan/qiankun":HIY"ä¹¾å¤ä¸€å‡»"NOR,
 
-//  ´ò¹·°ô
-        "dagou-bang/chan":HBGRN"²ø ×Ö ¾÷"NOR,
-        "dagou-bang/zhuan":HBYEL"×ª ×Ö ¾÷"NOR,
-        "dagou-bang/shuangjue":HIW"°ôÕÆË«¾ø"NOR,
-        "dagou-bang/chuo":HBWHT"´Á ×Ö ¾÷"NOR,
-        "dagou-bang/tiao":HBMAG"Ìô ×Ö ¾÷"NOR,
-        "dagou-bang/wugou":HIY"ÌìÏÂÎŞ¹·"NOR,
-        "dagou-bang/pi":HBRED"Åü ×Ö ¾÷"NOR,
-        "dagou-bang/ban":HBBLU"°í ×Ö ¾÷"NOR,
-        "dagou-bang/yin":HBCYN"Òı ×Ö ¾÷"NOR,
+//  æ‰“ç‹—æ£’
+        "dagou-bang/chan":HBGRN"ç¼  å­— è¯€"NOR,
+        "dagou-bang/zhuan":HBYEL"è½¬ å­— è¯€"NOR,
+        "dagou-bang/shuangjue":HIW"æ£’æŒåŒç»"NOR,
+        "dagou-bang/chuo":HBWHT"æˆ³ å­— è¯€"NOR,
+        "dagou-bang/tiao":HBMAG"æŒ‘ å­— è¯€"NOR,
+        "dagou-bang/wugou":HIY"å¤©ä¸‹æ— ç‹—"NOR,
+        "dagou-bang/pi":HBRED"åŠˆ å­— è¯€"NOR,
+        "dagou-bang/ban":HBBLU"ç»Š å­— è¯€"NOR,
+        "dagou-bang/yin":HBCYN"å¼• å­— è¯€"NOR,
 
-//  ´ïÄ¦½£
-        "damo-jian/sanjue":RED"´ïÄ¦Èı¾ø"NOR, 
+//  è¾¾æ‘©å‰‘
+        "damo-jian/sanjue":RED"è¾¾æ‘©ä¸‰ç»"NOR, 
 
-//  ÃÜ×Ú´óÊÖÓ¡
-        "dashou-yin/tianyin":           HIY"°¢ĞŞÂŞÌìÓ¡"NOR,
+//  å¯†å®—å¤§æ‰‹å°
+        "dashou-yin/tianyin":           HIY"é˜¿ä¿®ç½—å¤©å°"NOR,
 
-//  ¶¬Ã·½£·¨
-        "dongmei-jianfa/wumei":           HIM"ÎèÃ·ÅªÓ°"NOR,
+//  å†¬æ¢…å‰‘æ³•
+        "dongmei-jianfa/wumei":           HIM"èˆæ¢…å¼„å½±"NOR,
 
-//  ¶·×ªĞÇÒÆ
-        "douzhuan-xingyi/xingyi":       HIY"ĞÇÒÆ¶·×ª"NOR,
-        "douzhuan-xingyi/bishen":       HIG"ÒÔ±ËÖ®µÀ»¹Ê©±ËÉí"NOR,
+//  æ–—è½¬æ˜Ÿç§»
+        "douzhuan-xingyi/xingyi":       HIY"æ˜Ÿç§»æ–—è½¬"NOR,
+        "douzhuan-xingyi/bishen":       HIG"ä»¥å½¼ä¹‹é“è¿˜æ–½å½¼èº«"NOR,
 
-//  ¶Î¼Ò½£·¨
-        "duanjia-jianfa/fenglei":BLU"·çÀ×ËÄ»÷"NOR,
+//  æ®µå®¶å‰‘æ³•
+        "duanjia-jianfa/fenglei":BLU"é£é›·å››å‡»"NOR,
 
-//  ¶À¹Â¾Å½£
-        "dugu-jiujian/kuangfeng":       HIC"¿ñ·ç¾íµØ"NOR,
-        "dugu-jiujian/poqi":HIC"ÆÆ Æø Ê½"NOR,
-        "dugu-jiujian/pobian":HIW"ÆÆ ±Ş Ê½"NOR,
-        "dugu-jiujian/podao":HIW"ÆÆ µ¶ Ê½"NOR,
-        "dugu-jiujian/pozhang":HIW"ÆÆ ÕÆ Ê½"NOR,
-        "dugu-jiujian/pojian":HIW"ÆÆ ½£ Ê½"NOR,
-        "dugu-jiujian/pojianshi":HIW"ÆÆ ¼ı Ê½"NOR,
-        "dugu-jiujian/poqiang":HIW"ÆÆ Ç¹ Ê½"NOR,
-        "dugu-jiujian/posuo":HIW"ÆÆ Ë÷ Ê½"NOR,
-        "dugu-jiujian/zongjue":HIW"×Ü ¾÷ Ê½"NOR,
+//  ç‹¬å­¤ä¹å‰‘
+        "dugu-jiujian/kuangfeng":       HIC"ç‹‚é£å·åœ°"NOR,
+        "dugu-jiujian/poqi":HIC"ç ´ æ°” å¼"NOR,
+        "dugu-jiujian/pobian":HIW"ç ´ é­ å¼"NOR,
+        "dugu-jiujian/podao":HIW"ç ´ åˆ€ å¼"NOR,
+        "dugu-jiujian/pozhang":HIW"ç ´ æŒ å¼"NOR,
+        "dugu-jiujian/pojian":HIW"ç ´ å‰‘ å¼"NOR,
+        "dugu-jiujian/pojianshi":HIW"ç ´ ç®­ å¼"NOR,
+        "dugu-jiujian/poqiang":HIW"ç ´ æª å¼"NOR,
+        "dugu-jiujian/posuo":HIW"ç ´ ç´¢ å¼"NOR,
+        "dugu-jiujian/zongjue":HIW"æ€» è¯€ å¼"NOR,
 
-//  ¶áÃü½ğ»¨
-        "duoming-jinhua/huayu":         HIW"ÂúÌì»¨Óê"NOR,
+//  å¤ºå‘½é‡‘èŠ±
+        "duoming-jinhua/huayu":         HIW"æ»¡å¤©èŠ±é›¨"NOR,
 
-//  ·´Á½ÒÇµ¶
-        "fanliangyi-dao/hebi":          HIY"ºÏ¡¡¡¡èµ"NOR,
-        "fanliangyi-dao/sanshenfeng":HIC"»ªÔÀÈıÉñ·å"NOR,
+//  åä¸¤ä»ªåˆ€
+        "fanliangyi-dao/hebi":          HIY"åˆã€€ã€€ç’§"NOR,
+        "fanliangyi-dao/sanshenfeng":HIC"åå²³ä¸‰ç¥å³°"NOR,
 
-        "fengmo-zhang/feizhang":HIR"·É    ÕÈ"NOR,
+        "fengmo-zhang/feizhang":HIR"é£    æ–"NOR,
 
-//  º®±ùÃàÕÆ
-        "hanbing-mianzhang/xixue":      HIC"ÎüÑªÇàòğ"NOR,
+//  å¯’å†°ç»µæŒ
+        "hanbing-mianzhang/xixue":      HIC"å¸è¡€é’è "NOR,
 
-//  º®±ùÉñÕÆ
-        "hanbing-shenzhang/hanbing":BLU"º®±ùÕæÆø"NOR,
+//  å¯’å†°ç¥æŒ
+        "hanbing-shenzhang/hanbing":BLU"å¯’å†°çœŸæ°”"NOR,
 
-        "hansha-sheying/xiangyin":HIY"ĞÄĞÄÏàÓ¡"NOR,
+        "hansha-sheying/xiangyin":HIY"å¿ƒå¿ƒç›¸å°"NOR,
 
-//  »¯¹ÇÃàÕÆ
-        "huagu-mianzhang/bujue":HIC"ÃàÃà²»¾ø"NOR,
-        "huagu-mianzhang/huagu":HIY"»¯    ¹Ç"NOR,
-        "huagu-mianzhang/puhuo":RED"·É¶êÆË»ğ"NOR,
+//  åŒ–éª¨ç»µæŒ
+        "huagu-mianzhang/bujue":HIC"ç»µç»µä¸ç»"NOR,
+        "huagu-mianzhang/huagu":HIY"åŒ–    éª¨"NOR,
+        "huagu-mianzhang/puhuo":RED"é£è›¾æ‰‘ç«"NOR,
 
-//  »ªÉ½½£·¨
-//        "huashan-jianfa/jianzhang":HIR"½£ÕÆÎåÁ¬»·"NOR,
-        "huashan-jianfa/feijian":HIC"·É    ½£"NOR,
-        "huashan-jianfa/lianhuan":      MAG"¶áÃüÁ¬»·ÈıÏÉ½£"NOR,
-        "huashan-jianfa/wushuang":HIR"ÎŞË«ÎŞ¶Ô"NOR,
-        "huashan-jianfa/xiyi":HIC"Ï£ÒÄ½£·¨"NOR,
-        "huashan-jianfa/sanqingfeng":HIR"Ì«ÔÀÈıÇà·å"NOR,
-        "huashan-jianfa/yangwu":MAG"ÑøÎá½£·¨"NOR,
-        "huashan-jianfa/shunv":HIC"ÊçÅ®½£·¨"NOR,
-        "huashan-jianfa/junzi":HIC"¾ı×Ó½£·¨"NOR,
-        "huashan-jianfa/shijiushi":HIC"ÓñÅ®Ê®¾ÅÊ½"NOR,
-        "huashan-jianfa/kuaijian":HIG"¿ñ·ç¿ì½£"NOR,
+//  åå±±å‰‘æ³•
+//        "huashan-jianfa/jianzhang":HIR"å‰‘æŒäº”è¿ç¯"NOR,
+        "huashan-jianfa/feijian":HIC"é£    å‰‘"NOR,
+        "huashan-jianfa/lianhuan":      MAG"å¤ºå‘½è¿ç¯ä¸‰ä»™å‰‘"NOR,
+        "huashan-jianfa/wushuang":HIR"æ— åŒæ— å¯¹"NOR,
+        "huashan-jianfa/xiyi":HIC"å¸Œå¤·å‰‘æ³•"NOR,
+        "huashan-jianfa/sanqingfeng":HIR"å¤ªå²³ä¸‰é’å³°"NOR,
+        "huashan-jianfa/yangwu":MAG"å…»å¾å‰‘æ³•"NOR,
+        "huashan-jianfa/shunv":HIC"æ·‘å¥³å‰‘æ³•"NOR,
+        "huashan-jianfa/junzi":HIC"å›å­å‰‘æ³•"NOR,
+        "huashan-jianfa/shijiushi":HIC"ç‰å¥³åä¹å¼"NOR,
+        "huashan-jianfa/kuaijian":HIG"ç‹‚é£å¿«å‰‘"NOR,
 
-//  »Ø·ç±Ş·¨
-        "huifeng-bian/huixuan":HIY"»ØĞıÊ®ÈıÊ½"NOR,
+//  å›é£é­æ³•
+        "huifeng-bian/huixuan":HIY"å›æ—‹åä¸‰å¼"NOR,
 
-//  »Ø·ç·÷Áø½£
-        "huifeng-jian/jue":HIW"¾ø    ½£"NOR,
-        "huifeng-jian/liaoyuan":HIW"ÁÇÔ­°Ù»÷"NOR,
-        "huifeng-jian/mie":HIW"Ãğ    ½£"NOR,
-        "huifeng-jian/miejue":HIW"Ãğ¾øĞÄ·¨"NOR,
+//  å›é£æ‹‚æŸ³å‰‘
+        "huifeng-jian/jue":HIW"ç»    å‰‘"NOR,
+        "huifeng-jian/liaoyuan":HIW"ç‡åŸç™¾å‡»"NOR,
+        "huifeng-jian/mie":HIW"ç­    å‰‘"NOR,
+        "huifeng-jian/miejue":HIW"ç­ç»å¿ƒæ³•"NOR,
 
-// ºú¼Òµ¶·¨
-        "hujia-daofa/feidao":HIC"·É µ¶ ¾÷"NOR,
-        "hujia-daofa/luandao":HIR"ÂÒ µ¶ ¾÷"NOR,
-        "hujia-daofa/roudao":HIG"Èá µ¶ ¾÷"NOR,
+// èƒ¡å®¶åˆ€æ³•
+        "hujia-daofa/feidao":HIC"é£ åˆ€ è¯€"NOR,
+        "hujia-daofa/luandao":HIR"ä¹± åˆ€ è¯€"NOR,
+        "hujia-daofa/roudao":HIG"æŸ” åˆ€ è¯€"NOR,
 
-//  »ìÔªÕÆ
-        "hunyuan-zhang/wuji":HIR"»ìÔªÎŞ¼«"NOR,
+//  æ··å…ƒæŒ
+        "hunyuan-zhang/wuji":HIR"æ··å…ƒæ— æ"NOR,
 
-//  »ğÑæµ¶
-        "huoyan-dao/daoqi":               HIY"»ğÑæµ¶Æø"NOR,
-        "huoyan-dao/fen":               HIR"·Ù ×Ö ¾÷"NOR,
-        "huoyan-dao/ran":               HIR"È¼ ×Ö ¾÷"NOR,
+//  ç«ç„°åˆ€
+        "huoyan-dao/daoqi":               HIY"ç«ç„°åˆ€æ°”"NOR,
+        "huoyan-dao/fen":               HIR"ç„š å­— è¯€"NOR,
+        "huoyan-dao/ran":               HIR"ç‡ƒ å­— è¯€"NOR,
 
-//  ¿İÈÙìø¹¦
-        "kurong-changong/jiuchong":     BLU"¾Å ÖØ Ìì"NOR,
+//  æ¯è£ç¦…åŠŸ
+        "kurong-changong/jiuchong":     BLU"ä¹ é‡ å¤©"NOR,
 
-//  À¼»¨·÷Ñ¨ÊÖ
-        "lanhua-shou/fuxue":HIC"À¼»¨·÷Ñ¨"NOR,
+//  å…°èŠ±æ‹‚ç©´æ‰‹
+        "lanhua-shou/fuxue":HIC"å…°èŠ±æ‹‚ç©´"NOR,
 
-//  Á½ÒÇ½£·¨
-//        "liangyi-jian/sanqiu":CYN"Ò»ÈÕÈıÇï"NOR,
-        "liangyi-jian/hebi":MAG"Ë«½£ºÏèµ"NOR,
-        "liangyi-jian/hundun":HIG"»ìãç½£Æø"NOR,
-        "liangyi-jian/jianqin":HIB"ÇÙ½£Ë«¾ø"NOR,
+//  ä¸¤ä»ªå‰‘æ³•
+//        "liangyi-jian/sanqiu":CYN"ä¸€æ—¥ä¸‰ç§‹"NOR,
+        "liangyi-jian/hebi":MAG"åŒå‰‘åˆç’§"NOR,
+        "liangyi-jian/hundun":HIG"æ··æ²Œå‰‘æ°”"NOR,
+        "liangyi-jian/jianqin":HIB"ç´å‰‘åŒç»"NOR,
 
-        "lietian-fu/lihun":RED"Àë »ê Õ¶"NOR,
+        "lietian-fu/lihun":RED"ç¦» é­‚ æ–©"NOR,
 
-//  ÁÒÑæµ¶·¨
-        "lieyan-dao/shenghuo":          HIR"Ê¥»ğ¹âÃ÷"NOR,
+//  çƒˆç„°åˆ€æ³•
+        "lieyan-dao/shenghuo":          HIR"åœ£ç«å…‰æ˜"NOR,
 
-//  Áè²¨Î¢²½
-        "lingbo-weibu/luoshen":HIG"Âå    Éñ"NOR,
+//  å‡Œæ³¢å¾®æ­¥
+        "lingbo-weibu/luoshen":HIG"æ´›    ç¥"NOR,
 
-//  ÁéÉß±Ş·¨
-        "lingshe-bianfa/chan":HIY"½ğÉß²øË¿"NOR,
-        "lingshe-bianfa/sandou":HIY"ÁéÉßÈı¶¶"NOR,
+//  çµè›‡é­æ³•
+        "lingshe-bianfa/chan":HIY"é‡‘è›‡ç¼ ä¸"NOR,
+        "lingshe-bianfa/sandou":HIY"çµè›‡ä¸‰æŠ–"NOR,
 
-//  ÁùºÏµ¶·¨
-        "liuhe-daofa/sancai":CYN"ÆæÃÅÈı²Åµ¶"NOR,
+//  å…­åˆåˆ€æ³•
+        "liuhe-daofa/sancai":CYN"å¥‡é—¨ä¸‰æ‰åˆ€"NOR,
 
-//  ÁùÂöÉñ½£
-        "liumai-shenjian/ciqu":MAG"´ËÈ¥±ËÀ´"NOR,
+//  å…­è„‰ç¥å‰‘
+        "liumai-shenjian/ciqu":MAG"æ­¤å»å½¼æ¥"NOR,
 
-//  ÌìÉ½ÁùÑôÕÆ
-        "liuyang-zhang/duanzhang":            WHT"¶ÎÕÆÉñÍş"NOR,
-        "liuyang-zhang/liuyang":          HBCYN+HIC"ÁùÑô¾÷"NOR,
+//  å¤©å±±å…­é˜³æŒ
+        "liuyang-zhang/duanzhang":            WHT"æ®µæŒç¥å¨"NOR,
+        "liuyang-zhang/liuyang":          HBCYN+HIC"å…­é˜³è¯€"NOR,
 
-//  ÁøÒ¶µ¶·¨
-        "liuye-daofa/daozhang":            BLU"Ò»µ¶¼ĞË«ÕÆ"NOR,
+//  æŸ³å¶åˆ€æ³•
+        "liuye-daofa/daozhang":            BLU"ä¸€åˆ€å¤¹åŒæŒ"NOR,
         
-        "longzhua-gong/canyun":RED"·ç¾í²ĞÔÆ"NOR,
-
-//  ÂäÓ¢Éñ½£ÕÆ
-        "luoying-zhang/bading":HIW"°Î¸½¹Ç¶¤"NOR,
-        "luoying-zhang/fugu":HIR"¸½ ¹Ç ¶¤"NOR,
-        "luoying-zhang/pikong":HIB"Åü ¿Õ ÕÆ"NOR,
-        "luoying-zhang/shenjian":HIM"ÌÒ»¨Ó°Àï·ÉÉñ½£"NOR,
-
-//  ½ØÊÖ¾ÅÊ½
-        "jieshou-jiushi/foguang":MAG"·ğ¹âÆÕÕÕ"NOR,
-
-        "jingang-quan/fumo":HIR"½ğ¸Õ·üÄ§"NOR,
+        "longzhua-gong/canyun":RED"é£å·æ®‹äº‘"NOR,
+
+//  è½è‹±ç¥å‰‘æŒ
+        "luoying-zhang/bading":HIW"æ‹”é™„éª¨é’‰"NOR,
+        "luoying-zhang/fugu":HIR"é™„ éª¨ é’‰"NOR,
+        "luoying-zhang/pikong":HIB"åŠˆ ç©º æŒ"NOR,
+        "luoying-zhang/shenjian":HIM"æ¡ƒèŠ±å½±é‡Œé£ç¥å‰‘"NOR,
+
+//  æˆªæ‰‹ä¹å¼
+        "jieshou-jiushi/foguang":MAG"ä½›å…‰æ™®ç…§"NOR,
+
+        "jingang-quan/fumo":HIR"é‡‘åˆšä¼é­”"NOR,
 
-//  ½ğÉß½£·¨
-        "jinshe-jianfa/kuangwu":        HIR"½ğÉß¿ñÎè"NOR,
+//  é‡‘è›‡å‰‘æ³•
+        "jinshe-jianfa/kuangwu":        HIR"é‡‘è›‡ç‹‚èˆ"NOR,
 
-// ½ğÉßÓÎÉíÕÆ
-        "jinshe-zhangfa/chanshen":        HIY"½ğÉß²øÉí"NOR,
-
-// ½ğÉß×¶·¨
-        "jinshe-zhuifa/sheying":HIR"ÉßÓ°ÍòµÀ"NOR,
-
-// ¾ÅÒõ°×¹Ç×¦
-        "jiuyin-baiguzhua/jiuyin":RED"¾ÅÒõÈı¾ø×¦"NOR,
-        "jiuyin-baiguzhua/duzhua":HIB"¾ÅÒõ¶¾×¦"NOR,
-        "jiuyin-baiguzhua/zhuagou":HIB"¾ÅÒõ×¦¹³"NOR,
-        "jiuyin-shenzhang/shenzhang":HIR"ÉñÕÆ¶áÆÇ"NOR,
-        "jiuyin-shenzhang/yinyang":HIG"ÒõÑôË«ÕÆ"NOR,
-        "jiuyin-shenzhua/sanjue":RED"¾ÅÒõÈı¾ø×¥"NOR,
-        "jiuyin-shenfa/huanyinbu":HIW"»ÃÒõ²½"NOR,
-        "juehu-shou/juehu":             BLU"¾ø¡¡¡¡»§"NOR,
-        "kongming-quan/luanwu":RED"ÈºÄ§ÂÒÎè"NOR,
-        "kongmingquan/chan":CYN"²ø ×Ö ¾÷"NOR,
-        "kongmingquan/kongqianjiuhou":CYN"¿ÕÇ°¾øºó"NOR,
-        "kunlun-zhang/diezhang":HIG"À¥ÂØµşÕÆ"NOR,
+// é‡‘è›‡æ¸¸èº«æŒ
+        "jinshe-zhangfa/chanshen":        HIY"é‡‘è›‡ç¼ èº«"NOR,
+
+// é‡‘è›‡é”¥æ³•
+        "jinshe-zhuifa/sheying":HIR"è›‡å½±ä¸‡é“"NOR,
+
+// ä¹é˜´ç™½éª¨çˆª
+        "jiuyin-baiguzhua/jiuyin":RED"ä¹é˜´ä¸‰ç»çˆª"NOR,
+        "jiuyin-baiguzhua/duzhua":HIB"ä¹é˜´æ¯’çˆª"NOR,
+        "jiuyin-baiguzhua/zhuagou":HIB"ä¹é˜´çˆªé’©"NOR,
+        "jiuyin-shenzhang/shenzhang":HIR"ç¥æŒå¤ºé­„"NOR,
+        "jiuyin-shenzhang/yinyang":HIG"é˜´é˜³åŒæŒ"NOR,
+        "jiuyin-shenzhua/sanjue":RED"ä¹é˜´ä¸‰ç»æŠ“"NOR,
+        "jiuyin-shenfa/huanyinbu":HIW"å¹»é˜´æ­¥"NOR,
+        "juehu-shou/juehu":             BLU"ç»ã€€ã€€æˆ·"NOR,
+        "kongming-quan/luanwu":RED"ç¾¤é­”ä¹±èˆ"NOR,
+        "kongmingquan/chan":CYN"ç¼  å­— è¯€"NOR,
+        "kongmingquan/kongqianjiuhou":CYN"ç©ºå‰ç»å"NOR,
+        "kunlun-zhang/diezhang":HIG"æ˜†ä»‘å æŒ"NOR,
 
-//  ÃÀÅ®È­·¨
-        "meinu-quanfa/shexin":HIY"Éã    ĞÄ"NOR,
+//  ç¾å¥³æ‹³æ³•
+        "meinu-quanfa/shexin":HIY"æ‘„    å¿ƒ"NOR,
 
-//  Ãç¼Ò½£·¨
-        "miaojia-jianfa/duoming":HIW"Á¬»·¶áÃü¾÷"NOR,
-        "miaojia-jianfa/ci":HBBLU+HIW"¾ø  Ãü  ´Ì"NOR,
+//  è‹—å®¶å‰‘æ³•
+        "miaojia-jianfa/duoming":HIW"è¿ç¯å¤ºå‘½è¯€"NOR,
+        "miaojia-jianfa/ci":HBBLU+HIW"ç»  å‘½  åˆº"NOR,
 
-//  Ä½Èİµ¶·¨
-        "murong-daofa/daoying":HIR"µ¶ Ó° ÕÆ"NOR,
+//  æ…•å®¹åˆ€æ³•
+        "murong-daofa/daoying":HIR"åˆ€ å½± æŒ"NOR,
 
-//  Ä½Èİ½£·¨
-        "murong-jianfa/lianhuan":HIC"Æß½£Á¬»·Ö¸"NOR,
-        "murong-jianfa/sanhua":HIG"ÌìÅ®É¢»¨"NOR,
-//        "murong-jianfa/qixingplus":HIB"Æß½£×ªÆßĞÇ"NOR,
+//  æ…•å®¹å‰‘æ³•
+        "murong-jianfa/lianhuan":HIC"ä¸ƒå‰‘è¿ç¯æŒ‡"NOR,
+        "murong-jianfa/sanhua":HIG"å¤©å¥³æ•£èŠ±"NOR,
+//        "murong-jianfa/qixingplus":HIB"ä¸ƒå‰‘è½¬ä¸ƒæ˜Ÿ"NOR,
 
 
-        "nianhua-zhi/fuxue":HIY"·÷Ñ¨¾ø¼¼"NOR,
-
-// ÄıÑªÉñ×¦
-        "ningxue-shenzhua/ningxue":HIR"ÄıÑª¾÷"NOR,
-        "ningxue-shenzhua/liao":HIY"ÁÆ×Ö¾÷"NOR,
-
-        "pangen-cuojie/pifeng":HIR"ÂÒ Åû ·ç"NOR,
-        "pixie-jian/cimu":            RED"·ÉÕë´ÌÄ¿"NOR,
-        "pixie-jian/feiying":         MAG"¿û»¨·ÉÓ°Êõ"NOR,
-        "pixie-jian/jue":             MAG"¾ø Ãü Õë"NOR,
-
-//  ÅüÊ¯ÆÆÓñÈ­
-        "poyu-quan/leidong":MAG"À×¶¯¾ÅÌì"NOR,
-
-//  Ç¬À¤´óÅ²ÒÆ
-        "qiankun-danuoyi/hua":           HIW"»¯ ×Ö ¾÷"NOR,
-        "qiankun-danuoyi/yi":           BLU"ÒÆ ×Ö ¾÷"NOR,
-        "qiankun-danuoyi/xu":           HIY"Ğî ×Ö ¾÷"NOR,
-        "qiankun-danuoyi/yin":           HIG"Òı ×Ö ¾÷"NOR,
-
-//  ÈçÀ´Ç§Ò¶ÊÖ
-        "qianye-shou/qianshou":HIY"Ç§ÊÖÈçÀ´"NOR,
-
-//  Çï¾Õ½£·¨        
-        "qiuju-jianfa/chan":HBRED"¾ÕÏã²øÈË"NOR,
-
-"qingxu-bian/fei":HIB"Áú·ïË«·É"NOR,
-
-//        "qingyan-zhang/liaorao":HIY"ÑÌÎíçÔÈÆ"NOR,
-
-//  ÆßÉËÈ­
-        "qishang-quan/duanhun":         HIR"¶Ï»ê¶áÆÇ"NOR,
-        "qishang-quan/qishang":         HIR"ÆßÉË×Ü¾÷"NOR,
-
-//  È«Õæ½£·¨
-        "quanzhen-jianfa/qixing":HIW"ÆßĞÇ¾øÃü½£"NOR,
-        "quanzhen-jianfa/sanqing":HIW"Ò»½£»¯ÈıÇå"NOR,
-
-        "ranmu-daofa/fentian":HIR"¾Ù»ğ·ÙÌì"NOR,
-        "ranmu-daofa/fenwo":HIR"·Ù    ÎÒ"NOR,
-        "ranmu-daofa/fenxin":HIR"·Ù ĞÄ ¾ö"NOR,
-        "riyue-bian/chanrao":HIY"²ø ÈÆ ¾÷"NOR,
-        "riyue-bian/fumoquan":HIY"½ğ¸Õ·üÄ§È¦"NOR,
-        "riyue-bian/riyue":HIC"ÈÕÔÂÉñ±Ş"NOR,
-        "ruying-suixingtui":YEL"ÈçÓ°ËæĞÎ"NOR,
-        "sanhua-zhang/sanhua":HIW"ËÄ¼¾É¢»¨"NOR,
-
-//  ÈıÒõòÚò¼×¥
-        "sanyin-zhua/sanyin":           HBBLU"ÈıÒõ¶¾òÎ×¥"NOR,
-
-//  Ê¥»ğÁî·¨    
-"shenghuo-lingfa/duo":          BCYN"¶á ×Ö ¾÷"NOR,
-        "shenghuo-lingfa/ji":           HIY"»÷ ×Ö ¾÷"NOR,
-        "shenghuo-lingfa/tisha":        HIM"Ìß¡¡¡¡É³"NOR,
-        "shenghuo-lingfa/xinmo":        HIR"ĞÄ¡¡¡¡Ä§"NOR,
-
-//  ÉñÁú×·ÃüÍÈ
-        "shenlong-tuifa/zhuiming":HIY"ÉñÁú×·ÃüÍÈ"NOR,
-
-//  Ë®ÉÏÆ¯
-        "shuishangpiao/piao":HIC"Æ¯"NOR,
-
-//  ËÄ»¨ÎèÓ°½£
-        "sihua-wuying/chan":HBRED"¾ÕÏã²øÈË"NOR,
-        "sihua-wuying/lianji":HIC"À¼½£Á¬»÷"NOR,
-        "sihua-wuying/wuqing":HIR"Öñ½£ÎŞÇé"NOR,
-        "sihua-wuying/wumei":HIM"ÎèÃ·ÅªÓ°"NOR,
-        "sihua-wuying/tongqi":HIG"Í¬ÆøÁ¬Ö¦"NOR,
-
-
-//  áÔÉ½½£·¨
-        "songshan-jian/feiwu":BLU"·É    Îè"NOR,
-        "songshan-jian/leiting":YEL"À×öªÍò¾û"NOR,
-        "songshan-jian/longfeng":HIR"ÁúÒ÷·ïÏè"NOR,
-        "songshan-jian/songyang":HIW"áÔ Ñô ¾÷"NOR,
-
-//  ´óáÔÑôÉñÕÆ
-        "songyang-zhang/junji":CYN"¾ş¼«ÉñÕÆ"NOR,
-
-//  ´óáÔÑôÊÖ
-        "songyang-shou/junji":CYN"¾ş¼«ÉñÕÆ"NOR,
-        "songyang-shou/yinyang":HIY"´óÒõÑôÊÖ"NOR,
-
-// áÔÑô±Ş
-        "songyang-bian/luan":BLU"ÂÒ ±Ş ¾÷"NOR,
-
-
-        "suibo-zhuliu/wuzhuan":HIW"ÆæÃÅÎå×ª"NOR,
-        "suishangpiao/piao":HIC"   Æ®  "NOR,
-
-//  Ì«¼«½£
-        "taiji-jian/chan":              HIW"Ìì²øµØÈÆ¾÷"NOR,
-        "taiji-jian/lian":              CYN"Á¬ ×Ö ¾÷"NOR,
-        "taiji-jian/lianhuan":              HIC"Á¬ »· ¾÷"NOR,
-        "taiji-jian/sanhuan":           HIG"Èı»·Ì×ÔÂ"NOR,
-        "taiji-jian/tongshou":          HIC"ÌìµØÍ¬ÊÙ"NOR,
-        "taiji-jian/raozhi":           HIR"ÈÆÖ¸Èá½£"NOR,
-
-//  Ì«¼«È­
-        "taiji-quan/ji":                RED"¼· ×Ö ¾÷"NOR,
-        "taiji-quan/luanhuan":          HIC"ÂÒ »· ¾÷"NOR,
-        "taiji-quan/zhen":              RED"Õğ ×Ö ¾÷"NOR,
-        "taiji-quan/an":              HIB"°´ ×Ö ¾÷"NOR,
-        "taiji-quan/dongjing":              MAG"¶¯ ¾² ¾÷"NOR,
-        "taiji-quan/gangrou":              HIB"¸Õ Èá ¾÷"NOR,
-        "taiji-quan/yinyang":              GRN"Òõ Ñô ¾÷"NOR,
-        "taiji-quan/zhannian":              CYN"Õ³ Õ³ ¾÷"NOR,
-        "taiji-quan/taiji":              WHT"Ì«    ¼«"NOR,
-
-//  µ¯Ö¸ÉñÍ¨
-        "tanzhi-shentong/huayu":CYN"ÂşÌì»¨Óê"NOR,
-        "tanzhi-shentong/qiankun":HIG"Ç¬À¤Ò»Ö¸"NOR,
-        "tanzhi-shentong/shentong":HIW"µ¯Ö¸ÉñÍ¨"NOR,
-        "tanzhi-shentong/tan":HIG"µ¯ ×Ö ¾÷"NOR,
-        "tanzhi-shentong/xinghe":HIW"ĞÇºÓÇ§·«Îè"NOR,
-
-
-//  ÌÚÁúØ°·¨
-        "tenglong-bifa/diqing":HIY"µÒÇà½µÁú"NOR,
-        "tenglong-bifa/feiyan":HIR"·ÉÑà»ØÏè"NOR,
-        "tenglong-bifa/guifei":HIR"¹óåú»Øíø"NOR,
-        "tenglong-bifa/luda":HIY"Â³´ï°ÎÁø"NOR,
-        "tenglong-bifa/xiaolian":HIR"Ğ¡Á¯ºá³Â"NOR,
-        "tenglong-bifa/zixu":HIY"×Óñã¾Ù¶¦"NOR,
-
-        "tiangang-jian/qixinggongyue":YEL"ÆßĞÇ¹°ÔÂ"NOR,
-        "tiangang-zhang/tiangang":HIG"Ìì    î¸"NOR,
-
-//  ÌìÉ½ÕÈ·¨
-        "tianshan-zhang/feizhi":        BLU"·ÉÖÀ"NOR,
-
-//        "tianyu-qijian/san":HIR"ÌìÅ®É¢»¨"NOR,
-
-//  ÌúÕÆÕÆ·¨
-        "tiezhang-zhangfa/tianlei":HIY"Ìì À× Æø"NOR,
-        "tiezhang-zhangfa/duoming":HBBLU"¶áÃüÌú×¦"NOR,
-        "tiezhang-zhangfa/heisha":HBBLU"ºÚ É° ÕÆ"NOR,
-        "tiezhang-zhangfa/heyi":HIW"ÒõÑôºÏÒ»"NOR,
-        "tiezhang-zhangfa/honglei":HBBLU"ºäÀ×Ë«ÕÆ"NOR,
-        "tiezhang-zhangfa/judu":HIB"¾Û    ¶¾"NOR,
-        "tiezhang-zhangfa/pangen":HBBLU"¿İÊ÷ÅÌ¸ù"NOR,
-        "tiezhang-zhangfa/pushan":HIW"ÌúÆÑÉÈÕÆ"NOR,
-        "tiezhang-zhangfa/qinna":HBBLU"ÌúÕÆÇÜÄÃ"NOR,
-        "tiezhang-zhangfa/rubairen":HBBLU"Èë °× ÈĞ"NOR,
-        "tiezhang-zhangfa/tiezhang":HBBLU"Ìú    ÕÆ"NOR,
-        "tiezhang-zhangfa/xuanfeng":HBBLU"Ğı·ç¿ìÕÆ"NOR,
-        "tiezhang-zhangfa/zhangdao":HIW"ÌúÕÆÕÆµ¶"NOR,
-
-//  ÌİÔÆ×İ
-        "tiyunzong/zong":               HIY"×İ×Ö¾÷"NOR,
-
-//  Îå»¢¶ÎÃÅµ¶
-        "wuhu-duanmendao/duan":HIY"¶Ï×Ö¾÷"NOR,
-
-//  ½ğ¸Õ½µ·üÂÖ
-        "xiangfu-lun/dazhuan":          HIY"ÎåÂÖ´ó×ª"NOR,
-        "xiangfu-lun/wushuai":          HIY"ÌìÈËÎåË¥"NOR,
-
-//  ½µÁúÊ®°ËÕÆ
-        "xianglong-zhang/kanglong":HIC"¿ºÁúÓĞ»Ú"NOR,
-        "xianglong-zhang/paiyun":WHT"ÅÅÔÆË«ÕÆ"NOR,
-        "xianglong-zhang/xiao":YEL"½µ Áú Ğ¥"NOR,
-
-//  ÏÄÖñ½£·¨
-        "xiazhu-jianfa/wuqing":HIR"Öñ½£ÎŞÇé"NOR,
-
-
-//  ĞÇÒÆÕÆ
-        "xingyi-zhang/riyue":CYN"ÈÕÔÂÍ¬»Ô"NOR,
-//        "xingyi-zhang/xingdian":HIW"ĞÇ¹âµãµã"NOR,
-
-//  Ğı·çÉ¨Ò¶ÍÈ
-        "xuanfeng-tui/kuangfeng":HIG"¿ñ·ç¾ø¼¼"NOR,
-
-//  ĞşÌú½£·¨
-        "xuantie-jianfa/haichao":HIB"º£³±ĞÚÓ¿"NOR,
-        "xuantie-jianfa/wujian":HIB"ÎŞ½£Ê¤ÓĞ½£"NOR,
-
-//  ĞşĞéµ¶·¨
-        "xuanxu-daofa/luanhuanjue":        HIY"ÂÒ »· ¾÷"NOR,
-
-//  ĞşÒõ½£·¨
-        "xuanyin-jian/xuanyin":        HIB"Ğş Òõ ¾÷"NOR,
-        "xuanyin-jian/zhan":        HIB"Õ¶ ×Ö ¾÷"NOR,
-        "xuanyin-jian/jiulianji":        HIR"ĞşÒõ¾ÅÁ¬»÷"NOR,
-
-
-//  Ñªµ¶¾­
-        "xuedao-jing/jixue":            HIR"¼ÀÑªÉñµ¶"NOR,
-        "xuedao-jing/shendao":          HIR"Éñµ¶´©ĞÄ"NOR,
-
-//  ÑãĞĞµ¶·¨
-        "yanxing-daofa/feiyan":HIY"·ÉÑãËæ·çÈĞ"NOR,
-        "yanxing-daofa/chuanliu":HIY"ÑãĞĞ´©Áøµ¶"NOR,
-        "yanxing-daofa/hebi":MAG"Ë«µ¶ºÏèµ"NOR,
-        "yanxing-daofa/huanying":HIY"ÎŞĞÎ»ÃÓ°"NOR,
-
-//  ¾ÅÒõÒøÁú±Ş
-        "yinlong-bian/chanrao":HIG"²øÈÆ¾÷"NOR,
-        "yinlong-bian/feilong":HIG"·ÉÁú¾÷"NOR,
-        "yinlong-bian/chou":HIB"³é×Ö¾÷"NOR,
-
-        "yingou-bifa/caoshu":HIM"²İ    Êé"NOR,
-        "yingou-bifa/kaishu":HIC"¿¬    Êé"NOR,
-        "yingou-bifa/shigu":HIY"Ê¯ ¹Ä ÎÄ"NOR,
-
-//  ÒøË÷½ğÁå
-        "yinsuo-jinling/sanwu":HIW"ÈıÎŞÈı²»ÊÖ"NOR,
-        "yinsuo-jinling/yueyin":HIW"ÀÖÒô¾ø¼¼"NOR,
-//        "yinsuo-jinling/feng":HIC"·â    Ñ¨"NOR,
-        "yinsuo-jinling/yufeng":HIW"Óñ ·ä Õë"NOR,
-
-//  Ò»ÑôÖ¸
-        "yiyang-zhi/ciqu":HIG"´ËÈ¥±ËÀ´"NOR,
-        "yiyang-zhi/yizhisanmai":HIR"Ò»Ö¸µãÈıÂö"NOR,
-        "yiyang-zhi/liumai":HIW"ÁùÂöÉñ½£"NOR,
-        "yiyang-zhi/sandie":HIY"Ñô¹ØÈıµş"NOR,
-        "yiyang-zhi/qianlong":           WHT"Ç±ÁúÎğÓÃ"NOR,
-
-//  Ò»Ö¸ìø
-        "yizhi-chan/wofo":              HIW"ğ§ÒÀÎÒ·ğ"NOR,
-
-//  ÓÎÁúÉí·¨
-        "youlong-shenfa/baibian":HIY"ÉñĞĞ°Ù±ä"NOR,
-
-        "youming-zhao/youming":HIR"ºô»½¹í»ê"NOR,
-        "yubi-jianfa/san":              HIM"ÌìÅ®É¢»¨"NOR,
-        "yubi-jianfa/shuangzhao":       HIG"èµÓ°Ë«ÕÕ"NOR,
-
-//  ÓñÅ®ËØĞÄ½£
-        "yunu-jianfa/hebi":HIY"Ë«½£ºÏ±Ú"NOR,        
-        "yunu-jianfa/suxin":HIW"ÓñÅ®ËØĞÄ"NOR,        
-        "yuxiao-jian/feiying":HIW"·É    Ó°"NOR,
-        "yuxiao-jian/qimen":HIG"ÆæÃÅÓñóï"NOR,
-//        "yuxiao-jian/yuxiao":CYN"±Ìº£³±Éú°´Óñóï"NOR,
-
-//  ÌìÉ½ÕÛÃ·ÊÖ
-        "zhemei-shou/luanmei":           MAG"ÂÒÃ··ÉÎè"NOR,
-        "zhemei-shou/zhe":           HIY"ÕÛ×Ö¾÷"NOR,
-        "zhemei-shou/duo":           CYN"¿ÕÊÖ¶áÈĞ"NOR,
-        "zhemei-shou/hanmei":           HIM"º®Ã·Å¯Ñô"NOR,
-        "zhemei-shou/jue":           HIY"ÕÛÃ·ÊÖĞÄ¾÷"NOR,
-        "zhemei-shou/poyun":           CYN"ÉñğÕÆÆÔÆÊ½"NOR,
-        "zhemei-shou/tanmei":           HIY"µ¯Ã·¡¤ÂäÑ©¡¤É¢»¨Ïã"NOR,
-
-//  ÕğÉ½ÃàÕÆ
-        "zhenshan-mianzhang/bingdi":    HIC"»¨¿ª²¢µÙ"NOR,
-
-        "zhuihun-gou/luanpifeng":       HIB"ÂÒ Åû ·ç"NOR,
-        "zui-gun/zuida":HIY"°ËÏÉ×í´ò"NOR,
-        "zuibaxian/zuijiu":GRN"°ËÏÉ×í¾Æ"NOR,
-
-//Ç§ÖëÍò¶¾ÊÖ
-        "qianzhu-wandushou/qianzhu":HIR"Ç§"HIG"Öë"HIW"Íò"HIB"¶¾"NOR,  
-
-//¿ÕÃ÷È­
-        "kongming-quan/kong":HIW"¿Õ ×Ö ¾÷"NOR,  
-        "kongming-quan/ming":HIW"Ã÷ ×Ö ¾÷"NOR,  
+        "nianhua-zhi/fuxue":HIY"æ‹‚ç©´ç»æŠ€"NOR,
+
+// å‡è¡€ç¥çˆª
+        "ningxue-shenzhua/ningxue":HIR"å‡è¡€è¯€"NOR,
+        "ningxue-shenzhua/liao":HIY"ç–—å­—è¯€"NOR,
+
+        "pangen-cuojie/pifeng":HIR"ä¹± æŠ« é£"NOR,
+        "pixie-jian/cimu":            RED"é£é’ˆåˆºç›®"NOR,
+        "pixie-jian/feiying":         MAG"è‘µèŠ±é£å½±æœ¯"NOR,
+        "pixie-jian/jue":             MAG"ç» å‘½ é’ˆ"NOR,
+
+//  åŠˆçŸ³ç ´ç‰æ‹³
+        "poyu-quan/leidong":MAG"é›·åŠ¨ä¹å¤©"NOR,
+
+//  ä¹¾å¤å¤§æŒªç§»
+        "qiankun-danuoyi/hua":           HIW"åŒ– å­— è¯€"NOR,
+        "qiankun-danuoyi/yi":           BLU"ç§» å­— è¯€"NOR,
+        "qiankun-danuoyi/xu":           HIY"è“„ å­— è¯€"NOR,
+        "qiankun-danuoyi/yin":           HIG"å¼• å­— è¯€"NOR,
+
+//  å¦‚æ¥åƒå¶æ‰‹
+        "qianye-shou/qianshou":HIY"åƒæ‰‹å¦‚æ¥"NOR,
+
+//  ç§‹èŠå‰‘æ³•        
+        "qiuju-jianfa/chan":HBRED"èŠé¦™ç¼ äºº"NOR,
+
+"qingxu-bian/fei":HIB"é¾™å‡¤åŒé£"NOR,
+
+//        "qingyan-zhang/liaorao":HIY"çƒŸé›¾ç¼­ç»•"NOR,
+
+//  ä¸ƒä¼¤æ‹³
+        "qishang-quan/duanhun":         HIR"æ–­é­‚å¤ºé­„"NOR,
+        "qishang-quan/qishang":         HIR"ä¸ƒä¼¤æ€»è¯€"NOR,
+
+//  å…¨çœŸå‰‘æ³•
+        "quanzhen-jianfa/qixing":HIW"ä¸ƒæ˜Ÿç»å‘½å‰‘"NOR,
+        "quanzhen-jianfa/sanqing":HIW"ä¸€å‰‘åŒ–ä¸‰æ¸…"NOR,
+
+        "ranmu-daofa/fentian":HIR"ä¸¾ç«ç„šå¤©"NOR,
+        "ranmu-daofa/fenwo":HIR"ç„š    æˆ‘"NOR,
+        "ranmu-daofa/fenxin":HIR"ç„š å¿ƒ å†³"NOR,
+        "riyue-bian/chanrao":HIY"ç¼  ç»• è¯€"NOR,
+        "riyue-bian/fumoquan":HIY"é‡‘åˆšä¼é­”åœˆ"NOR,
+        "riyue-bian/riyue":HIC"æ—¥æœˆç¥é­"NOR,
+        "ruying-suixingtui":YEL"å¦‚å½±éšå½¢"NOR,
+        "sanhua-zhang/sanhua":HIW"å››å­£æ•£èŠ±"NOR,
+
+//  ä¸‰é˜´èœˆèš£æŠ“
+        "sanyin-zhua/sanyin":           HBBLU"ä¸‰é˜´æ¯’è›­æŠ“"NOR,
+
+//  åœ£ç«ä»¤æ³•    
+"shenghuo-lingfa/duo":          BCYN"å¤º å­— è¯€"NOR,
+        "shenghuo-lingfa/ji":           HIY"å‡» å­— è¯€"NOR,
+        "shenghuo-lingfa/tisha":        HIM"è¸¢ã€€ã€€æ²™"NOR,
+        "shenghuo-lingfa/xinmo":        HIR"å¿ƒã€€ã€€é­”"NOR,
+
+//  ç¥é¾™è¿½å‘½è…¿
+        "shenlong-tuifa/zhuiming":HIY"ç¥é¾™è¿½å‘½è…¿"NOR,
+
+//  æ°´ä¸Šæ¼‚
+        "shuishangpiao/piao":HIC"æ¼‚"NOR,
+
+//  å››èŠ±èˆå½±å‰‘
+        "sihua-wuying/chan":HBRED"èŠé¦™ç¼ äºº"NOR,
+        "sihua-wuying/lianji":HIC"å…°å‰‘è¿å‡»"NOR,
+        "sihua-wuying/wuqing":HIR"ç«¹å‰‘æ— æƒ…"NOR,
+        "sihua-wuying/wumei":HIM"èˆæ¢…å¼„å½±"NOR,
+        "sihua-wuying/tongqi":HIG"åŒæ°”è¿æ"NOR,
+
+
+//  åµ©å±±å‰‘æ³•
+        "songshan-jian/feiwu":BLU"é£    èˆ"NOR,
+        "songshan-jian/leiting":YEL"é›·éœ†ä¸‡é’§"NOR,
+        "songshan-jian/longfeng":HIR"é¾™åŸå‡¤ç¿”"NOR,
+        "songshan-jian/songyang":HIW"åµ© é˜³ è¯€"NOR,
+
+//  å¤§åµ©é˜³ç¥æŒ
+        "songyang-zhang/junji":CYN"å³»æç¥æŒ"NOR,
+
+//  å¤§åµ©é˜³æ‰‹
+        "songyang-shou/junji":CYN"å³»æç¥æŒ"NOR,
+        "songyang-shou/yinyang":HIY"å¤§é˜´é˜³æ‰‹"NOR,
+
+// åµ©é˜³é­
+        "songyang-bian/luan":BLU"ä¹± é­ è¯€"NOR,
+
+
+        "suibo-zhuliu/wuzhuan":HIW"å¥‡é—¨äº”è½¬"NOR,
+        "suishangpiao/piao":HIC"   é£˜  "NOR,
+
+//  å¤ªæå‰‘
+        "taiji-jian/chan":              HIW"å¤©ç¼ åœ°ç»•è¯€"NOR,
+        "taiji-jian/lian":              CYN"è¿ å­— è¯€"NOR,
+        "taiji-jian/lianhuan":              HIC"è¿ ç¯ è¯€"NOR,
+        "taiji-jian/sanhuan":           HIG"ä¸‰ç¯å¥—æœˆ"NOR,
+        "taiji-jian/tongshou":          HIC"å¤©åœ°åŒå¯¿"NOR,
+        "taiji-jian/raozhi":           HIR"ç»•æŒ‡æŸ”å‰‘"NOR,
+
+//  å¤ªææ‹³
+        "taiji-quan/ji":                RED"æŒ¤ å­— è¯€"NOR,
+        "taiji-quan/luanhuan":          HIC"ä¹± ç¯ è¯€"NOR,
+        "taiji-quan/zhen":              RED"éœ‡ å­— è¯€"NOR,
+        "taiji-quan/an":              HIB"æŒ‰ å­— è¯€"NOR,
+        "taiji-quan/dongjing":              MAG"åŠ¨ é™ è¯€"NOR,
+        "taiji-quan/gangrou":              HIB"åˆš æŸ” è¯€"NOR,
+        "taiji-quan/yinyang":              GRN"é˜´ é˜³ è¯€"NOR,
+        "taiji-quan/zhannian":              CYN"ç²˜ ç²˜ è¯€"NOR,
+        "taiji-quan/taiji":              WHT"å¤ª    æ"NOR,
+
+//  å¼¹æŒ‡ç¥é€š
+        "tanzhi-shentong/huayu":CYN"æ¼«å¤©èŠ±é›¨"NOR,
+        "tanzhi-shentong/qiankun":HIG"ä¹¾å¤ä¸€æŒ‡"NOR,
+        "tanzhi-shentong/shentong":HIW"å¼¹æŒ‡ç¥é€š"NOR,
+        "tanzhi-shentong/tan":HIG"å¼¹ å­— è¯€"NOR,
+        "tanzhi-shentong/xinghe":HIW"æ˜Ÿæ²³åƒå¸†èˆ"NOR,
+
+
+//  è…¾é¾™åŒ•æ³•
+        "tenglong-bifa/diqing":HIY"ç‹„é’é™é¾™"NOR,
+        "tenglong-bifa/feiyan":HIR"é£ç‡•å›ç¿”"NOR,
+        "tenglong-bifa/guifei":HIR"è´µå¦ƒå›çœ¸"NOR,
+        "tenglong-bifa/luda":HIY"é²è¾¾æ‹”æŸ³"NOR,
+        "tenglong-bifa/xiaolian":HIR"å°æ€œæ¨ªé™ˆ"NOR,
+        "tenglong-bifa/zixu":HIY"å­èƒ¥ä¸¾é¼"NOR,
+
+        "tiangang-jian/qixinggongyue":YEL"ä¸ƒæ˜Ÿæ‹±æœˆ"NOR,
+        "tiangang-zhang/tiangang":HIG"å¤©    ç½¡"NOR,
+
+//  å¤©å±±æ–æ³•
+        "tianshan-zhang/feizhi":        BLU"é£æ·"NOR,
+
+//        "tianyu-qijian/san":HIR"å¤©å¥³æ•£èŠ±"NOR,
+
+//  é“æŒæŒæ³•
+        "tiezhang-zhangfa/tianlei":HIY"å¤© é›· æ°”"NOR,
+        "tiezhang-zhangfa/duoming":HBBLU"å¤ºå‘½é“çˆª"NOR,
+        "tiezhang-zhangfa/heisha":HBBLU"é»‘ ç ‚ æŒ"NOR,
+        "tiezhang-zhangfa/heyi":HIW"é˜´é˜³åˆä¸€"NOR,
+        "tiezhang-zhangfa/honglei":HBBLU"è½°é›·åŒæŒ"NOR,
+        "tiezhang-zhangfa/judu":HIB"èš    æ¯’"NOR,
+        "tiezhang-zhangfa/pangen":HBBLU"æ¯æ ‘ç›˜æ ¹"NOR,
+        "tiezhang-zhangfa/pushan":HIW"é“è’²æ‰‡æŒ"NOR,
+        "tiezhang-zhangfa/qinna":HBBLU"é“æŒæ“’æ‹¿"NOR,
+        "tiezhang-zhangfa/rubairen":HBBLU"å…¥ ç™½ åˆƒ"NOR,
+        "tiezhang-zhangfa/tiezhang":HBBLU"é“    æŒ"NOR,
+        "tiezhang-zhangfa/xuanfeng":HBBLU"æ—‹é£å¿«æŒ"NOR,
+        "tiezhang-zhangfa/zhangdao":HIW"é“æŒæŒåˆ€"NOR,
+
+//  æ¢¯äº‘çºµ
+        "tiyunzong/zong":               HIY"çºµå­—è¯€"NOR,
+
+//  äº”è™æ®µé—¨åˆ€
+        "wuhu-duanmendao/duan":HIY"æ–­å­—è¯€"NOR,
+
+//  é‡‘åˆšé™ä¼è½®
+        "xiangfu-lun/dazhuan":          HIY"äº”è½®å¤§è½¬"NOR,
+        "xiangfu-lun/wushuai":          HIY"å¤©äººäº”è¡°"NOR,
+
+//  é™é¾™åå…«æŒ
+        "xianglong-zhang/kanglong":HIC"äº¢é¾™æœ‰æ‚”"NOR,
+        "xianglong-zhang/paiyun":WHT"æ’äº‘åŒæŒ"NOR,
+        "xianglong-zhang/xiao":YEL"é™ é¾™ å•¸"NOR,
+
+//  å¤ç«¹å‰‘æ³•
+        "xiazhu-jianfa/wuqing":HIR"ç«¹å‰‘æ— æƒ…"NOR,
+
+
+//  æ˜Ÿç§»æŒ
+        "xingyi-zhang/riyue":CYN"æ—¥æœˆåŒè¾‰"NOR,
+//        "xingyi-zhang/xingdian":HIW"æ˜Ÿå…‰ç‚¹ç‚¹"NOR,
+
+//  æ—‹é£æ‰«å¶è…¿
+        "xuanfeng-tui/kuangfeng":HIG"ç‹‚é£ç»æŠ€"NOR,
+
+//  ç„é“å‰‘æ³•
+        "xuantie-jianfa/haichao":HIB"æµ·æ½®æ±¹æ¶Œ"NOR,
+        "xuantie-jianfa/wujian":HIB"æ— å‰‘èƒœæœ‰å‰‘"NOR,
+
+//  ç„è™šåˆ€æ³•
+        "xuanxu-daofa/luanhuanjue":        HIY"ä¹± ç¯ è¯€"NOR,
+
+//  ç„é˜´å‰‘æ³•
+        "xuanyin-jian/xuanyin":        HIB"ç„ é˜´ è¯€"NOR,
+        "xuanyin-jian/zhan":        HIB"æ–© å­— è¯€"NOR,
+        "xuanyin-jian/jiulianji":        HIR"ç„é˜´ä¹è¿å‡»"NOR,
+
+
+//  è¡€åˆ€ç»
+        "xuedao-jing/jixue":            HIR"ç¥­è¡€ç¥åˆ€"NOR,
+        "xuedao-jing/shendao":          HIR"ç¥åˆ€ç©¿å¿ƒ"NOR,
+
+//  é›è¡Œåˆ€æ³•
+        "yanxing-daofa/feiyan":HIY"é£é›éšé£åˆƒ"NOR,
+        "yanxing-daofa/chuanliu":HIY"é›è¡Œç©¿æŸ³åˆ€"NOR,
+        "yanxing-daofa/hebi":MAG"åŒåˆ€åˆç’§"NOR,
+        "yanxing-daofa/huanying":HIY"æ— å½¢å¹»å½±"NOR,
+
+//  ä¹é˜´é“¶é¾™é­
+        "yinlong-bian/chanrao":HIG"ç¼ ç»•è¯€"NOR,
+        "yinlong-bian/feilong":HIG"é£é¾™è¯€"NOR,
+        "yinlong-bian/chou":HIB"æŠ½å­—è¯€"NOR,
+
+        "yingou-bifa/caoshu":HIM"è‰    ä¹¦"NOR,
+        "yingou-bifa/kaishu":HIC"æ¥·    ä¹¦"NOR,
+        "yingou-bifa/shigu":HIY"çŸ³ é¼“ æ–‡"NOR,
+
+//  é“¶ç´¢é‡‘é“ƒ
+        "yinsuo-jinling/sanwu":HIW"ä¸‰æ— ä¸‰ä¸æ‰‹"NOR,
+        "yinsuo-jinling/yueyin":HIW"ä¹éŸ³ç»æŠ€"NOR,
+//        "yinsuo-jinling/feng":HIC"å°    ç©´"NOR,
+        "yinsuo-jinling/yufeng":HIW"ç‰ èœ‚ é’ˆ"NOR,
+
+//  ä¸€é˜³æŒ‡
+        "yiyang-zhi/ciqu":HIG"æ­¤å»å½¼æ¥"NOR,
+        "yiyang-zhi/yizhisanmai":HIR"ä¸€æŒ‡ç‚¹ä¸‰è„‰"NOR,
+        "yiyang-zhi/liumai":HIW"å…­è„‰ç¥å‰‘"NOR,
+        "yiyang-zhi/sandie":HIY"é˜³å…³ä¸‰å "NOR,
+        "yiyang-zhi/qianlong":           WHT"æ½œé¾™å‹¿ç”¨"NOR,
+
+//  ä¸€æŒ‡ç¦…
+        "yizhi-chan/wofo":              HIW"çšˆä¾æˆ‘ä½›"NOR,
+
+//  æ¸¸é¾™èº«æ³•
+        "youlong-shenfa/baibian":HIY"ç¥è¡Œç™¾å˜"NOR,
+
+        "youming-zhao/youming":HIR"å‘¼å”¤é¬¼é­‚"NOR,
+        "yubi-jianfa/san":              HIM"å¤©å¥³æ•£èŠ±"NOR,
+        "yubi-jianfa/shuangzhao":       HIG"ç’§å½±åŒç…§"NOR,
+
+//  ç‰å¥³ç´ å¿ƒå‰‘
+        "yunu-jianfa/hebi":HIY"åŒå‰‘åˆå£"NOR,        
+        "yunu-jianfa/suxin":HIW"ç‰å¥³ç´ å¿ƒ"NOR,        
+        "yuxiao-jian/feiying":HIW"é£    å½±"NOR,
+        "yuxiao-jian/qimen":HIG"å¥‡é—¨ç‰ç®«"NOR,
+//        "yuxiao-jian/yuxiao":CYN"ç¢§æµ·æ½®ç”ŸæŒ‰ç‰ç®«"NOR,
+
+//  å¤©å±±æŠ˜æ¢…æ‰‹
+        "zhemei-shou/luanmei":           MAG"ä¹±æ¢…é£èˆ"NOR,
+        "zhemei-shou/zhe":           HIY"æŠ˜å­—è¯€"NOR,
+        "zhemei-shou/duo":           CYN"ç©ºæ‰‹å¤ºåˆƒ"NOR,
+        "zhemei-shou/hanmei":           HIM"å¯’æ¢…æš–é˜³"NOR,
+        "zhemei-shou/jue":           HIY"æŠ˜æ¢…æ‰‹å¿ƒè¯€"NOR,
+        "zhemei-shou/poyun":           CYN"ç¥é¹«ç ´äº‘å¼"NOR,
+        "zhemei-shou/tanmei":           HIY"å¼¹æ¢…Â·è½é›ªÂ·æ•£èŠ±é¦™"NOR,
+
+//  éœ‡å±±ç»µæŒ
+        "zhenshan-mianzhang/bingdi":    HIC"èŠ±å¼€å¹¶è’‚"NOR,
+
+        "zhuihun-gou/luanpifeng":       HIB"ä¹± æŠ« é£"NOR,
+        "zui-gun/zuida":HIY"å…«ä»™é†‰æ‰“"NOR,
+        "zuibaxian/zuijiu":GRN"å…«ä»™é†‰é…’"NOR,
+
+//åƒè››ä¸‡æ¯’æ‰‹
+        "qianzhu-wandushou/qianzhu":HIR"åƒ"HIG"è››"HIW"ä¸‡"HIB"æ¯’"NOR,  
+
+//ç©ºæ˜æ‹³
+        "kongming-quan/kong":HIW"ç©º å­— è¯€"NOR,  
+        "kongming-quan/ming":HIW"æ˜ å­— è¯€"NOR,  
 
 ]);
 

@@ -1,5 +1,5 @@
-// cyl.c ´¾ÓÚÀ¶
-// kxkxkx 2004Äê3ÔÂ
+// cyl.c æ·³äºè“
+// kxkxkx 2004å¹´3æœˆ
 
 #include <ansi.h>
 
@@ -15,16 +15,16 @@ string ask_me()
 	
 	if ( present("qiyan stone", me)) me->set_temp("askqysd",1);
 	
-	return "ÄãËµµÄÊ²Ã´±¦±´£¬Ğ¡ÀÏ¶ùÎÒµ¹Ã»Ìı¹ı¡£\n";
+	return "ä½ è¯´çš„ä»€ä¹ˆå®è´ï¼Œå°è€å„¿æˆ‘å€’æ²¡å¬è¿‡ã€‚\n";
 }
 
 void create()
 {
-   set_name("´¾ÓÚÀ¶", ({"chunyu lan", "chunyu", "lan"}));
-   set("title", HIW"½­ÄÏÉñ½³"NOR);
-   set("gender", "ÄĞĞÔ");
+   set_name("æ·³äºè“", ({"chunyu lan", "chunyu", "lan"}));
+   set("title", HIW"æ±Ÿå—ç¥åŒ "NOR);
+   set("gender", "ç”·æ€§");
    set("age", 45);
-   set("long", "Ò»¸ö²»ÖªÀ´×ÔºÎ·½µÄ½³Ê¦¡£\n");
+   set("long", "ä¸€ä¸ªä¸çŸ¥æ¥è‡ªä½•æ–¹çš„åŒ å¸ˆã€‚\n");
 
    set("attitude", "friendly");
    set("no_bark",1);
@@ -47,7 +47,7 @@ void create()
    set_skill("cuff", 100);
 
    set("inquiry", ([
-      "ÆßÑÛÊ¯" : (:ask_me:),
+      "ä¸ƒçœ¼çŸ³" : (:ask_me:),
    ]));
 
    set_temp("apply/attack", 50);
@@ -85,21 +85,21 @@ void move_back(object ob,object user)
 	switch(ob->query("max_killers")) {
 		case 3:
 		ob->set("ok", 1);
-		message_vision("$N¹îÒìµØÒ»Ğ¦£º¡¸×³Ê¿Äã¿É±ğ¸æËß±ğÈË°¡¡£Ğ¡ÀÏ¶ùÆäÊµÖ»ÊÇ¸ö»ì½­ºşÆ­·¹³ÔµÄ£¬\nÄÄÀïÖªµÀÕâĞ©°ÂÃîµÄ¶«Î÷°¡¡£¡¹\n",cyl);
-		message_vision("$n¸ø$NÒ»"+ob->query("unit")+ob->query("name") + "¡£\n",user,cyl);
-		message_vision("$NÒ»Õ£ÑÛ£¬ÓÖ²»Öªµ½ÄÄÀïÈ¥ÁË¡£\n",cyl);
+		message_vision("$Nè¯¡å¼‚åœ°ä¸€ç¬‘ï¼šã€Œå£®å£«ä½ å¯åˆ«å‘Šè¯‰åˆ«äººå•Šã€‚å°è€å„¿å…¶å®åªæ˜¯ä¸ªæ··æ±Ÿæ¹–éª—é¥­åƒçš„ï¼Œ\nå“ªé‡ŒçŸ¥é“è¿™äº›å¥¥å¦™çš„ä¸œè¥¿å•Šã€‚ã€\n",cyl);
+		message_vision("$nç»™$Nä¸€"+ob->query("unit")+ob->query("name") + "ã€‚\n",user,cyl);
+		message_vision("$Nä¸€çœ¨çœ¼ï¼Œåˆä¸çŸ¥åˆ°å“ªé‡Œå»äº†ã€‚\n",cyl);
 		destruct(cyl);
 		break;
 		case 4:
 		ob->set("ok", 2);
-		cyl->force_me("say ´ËÄËÎ÷·½ÆßÇÏÓñ£¬»¯³ÉÍçÊ¯Ö®Ì¬¡£µ¹Ò²Ëã¸ö±¦±´£¬\nµ«±Ï¾¹²»ÊÇÊ²Ã´Ï¡º±Îï¼ş¡£¾ÓÈ»»¹ÓĞÈËÒÔ´ËÎª°Á£¬ÕæÊÇÁîÈË²»½â°¡¡£");
-		message_vision("$n¸ø$NÒ»"+ob->query("unit")+ob->query("name") + "¡£\n",user,cyl);
-		message_vision("$NÒ»Õ£ÑÛ£¬ÓÖ²»Öªµ½ÄÄÀïÈ¥ÁË¡£\n",cyl);
+		cyl->force_me("say æ­¤ä¹ƒè¥¿æ–¹ä¸ƒçªç‰ï¼ŒåŒ–æˆé¡½çŸ³ä¹‹æ€ã€‚å€’ä¹Ÿç®—ä¸ªå®è´ï¼Œ\nä½†æ¯•ç«Ÿä¸æ˜¯ä»€ä¹ˆç¨€ç½•ç‰©ä»¶ã€‚å±…ç„¶è¿˜æœ‰äººä»¥æ­¤ä¸ºå‚²ï¼ŒçœŸæ˜¯ä»¤äººä¸è§£å•Šã€‚");
+		message_vision("$nç»™$Nä¸€"+ob->query("unit")+ob->query("name") + "ã€‚\n",user,cyl);
+		message_vision("$Nä¸€çœ¨çœ¼ï¼Œåˆä¸çŸ¥åˆ°å“ªé‡Œå»äº†ã€‚\n",cyl);
 		destruct(cyl);
 		break;
 		default:
 		ob->set("ok", 3);
-		message_vision("$N¿ªÊ¼Ï¸Ï¸Æ·¼ø×Å"+ob->name()+ "¡£\n",cyl);
+		message_vision("$Nå¼€å§‹ç»†ç»†å“é‰´ç€"+ob->name()+ "ã€‚\n",cyl);
 		user->start_busy(10);
 		call_out("give_hook_completion", 10,user,ob);
 		break;
@@ -116,28 +116,28 @@ private nomask void sure_leave()
    object self;
          
    self = this_object();
-   message_vision("$NºÃÏóÍ»È»ÏëÆğÊ²Ã´ÊÂ£¬¼±¼±Ã¦Ã¦µÄÀë¿ªÁË¡£\n", self);
+   message_vision("$Nå¥½è±¡çªç„¶æƒ³èµ·ä»€ä¹ˆäº‹ï¼Œæ€¥æ€¥å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n", self);
    destruct(self);
 }
 
 
-// ÊÔÍ¼È¡ÏûÀë¿ª£¬ÒòÎªÕâÊ±Íæ¼ÒÒª°ÑÆßÇÏÁáçç¸ø´¾ÓÚÀ¶
+// è¯•å›¾å–æ¶ˆç¦»å¼€ï¼Œå› ä¸ºè¿™æ—¶ç©å®¶è¦æŠŠä¸ƒçªç²ç‘ç»™æ·³äºè“
 int cancel_leave()
 {
    return remove_call_out("leave") != -1;
 }
 
-// 120ÃëºóÀë¿ªµÄcall_out
+// 120ç§’åç¦»å¼€çš„call_out
 private nomask void leave()
 {
    object self;
    
    self = this_object();
-	message_vision("$NºÃÏóÍ»È»ÏëÆğÊ²Ã´ÊÂ£¬¼±¼±Ã¦Ã¦µÄÀë¿ªÁË¡£\n", self);
+	message_vision("$Nå¥½è±¡çªç„¶æƒ³èµ·ä»€ä¹ˆäº‹ï¼Œæ€¥æ€¥å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n", self);
 	destruct(self);
 }
 
-// ±ÜÃâ±»´òÔÎ£¬´ÓËÍĞÅnpc´¦¿½±´
+// é¿å…è¢«æ‰“æ™•ï¼Œä»é€ä¿¡npcå¤„æ‹·è´
 void unconcious()
 {
 	reincarnate();
@@ -148,13 +148,13 @@ void unconcious()
 	set("jingli", query("eff_jingli"));
 }
 
-// ±ÜÃâ±»´òËÀ£¬´ÓËÍĞÅnpc´¦¿½±´
+// é¿å…è¢«æ‰“æ­»ï¼Œä»é€ä¿¡npcå¤„æ‹·è´
 void die()
 {
 	unconcious();
 }
 
-// ±ÜÃâ¸úÈË´ò¼Ü£¬´ÓËÍĞÅnpc´¦¿½±´
+// é¿å…è·Ÿäººæ‰“æ¶ï¼Œä»é€ä¿¡npcå¤„æ‹·è´
 void kill_ob(object obj)
 {
 	object me = this_object();
@@ -165,7 +165,7 @@ void kill_ob(object obj)
 	return;
 }
 
-// ±ÜÃâ¸úÈË´ò¼Ü£¬´ÓËÍĞÅnpc´¦¿½±´
+// é¿å…è·Ÿäººæ‰“æ¶ï¼Œä»é€ä¿¡npcå¤„æ‹·è´
 void accept_fight(object obj)
 {
 	command("peace " + obj->query("id"));

@@ -3,11 +3,11 @@ inherit NPC;
 string ask_me();
 void create()
 {
-        set_name("������ʦ", ({ "liaoxiu chanshi","liaoxiu","chanshi"}) );
-        set("nickname", "��������");
-        set("long", "������ʦ�Ǳ����ɵĵ���λ���ӣ������ĸߴ�
-��֫�޳������ա���ѧ��ʮ���˵á�\n");
-        set("gender", "����" );
+        set_name("了修禅师", ({ "liaoxiu chanshi","liaoxiu","chanshi"}) );
+        set("nickname", "天眼尊者");
+        set("long", "了修禅师是本因方丈的第三位弟子，他身材高大，
+四肢修长，武艺、佛学均十分了得。\n");
+        set("gender", "男性" );
         set("attitude", "friendly");
         set("class", "bonze");
         set("age", 40);
@@ -16,9 +16,9 @@ void create()
         set("int", 22);
         set("con", 24);
         set("dex", 24);
-        create_family("������", 14, "����");
+        create_family("天龙寺", 14, "弟子");
         set("inquiry",([
-                "ָ����Ҫ" : (: ask_me :),
+                "指法诀要" : (: ask_me :),
         ]));
 
         set("qi", 1800);
@@ -60,15 +60,15 @@ string ask_me()
         mapping fam = this_player()->query("family");
         object ob;
         
-        if(!fam || fam["family_name"] != "������")
-           return RANK_D->query_respect(this_player())+"�뱾��������������֪�˻��Ӻ�̸��";
+        if(!fam || fam["family_name"] != "天龙寺")
+           return RANK_D->query_respect(this_player())+"与本寺素无来往，不知此话从何谈起？";
          if(this_player()->query_skill("finger",1) > 30)
-           return "���ָ���Ѿ���һ�������ˣ��Ȿ�����ûʲô�ã�����������ĵ��Ӱ�";
+           return "你的指法已经有一定基础了，这本书对你没什么用，还是留给别的弟子吧";
 		if(query("book_count") < 1)
-           return "�������ˣ����ɵġ�ָ����Ҫ�����ڴ˴���";
+           return "你来晚了，本派的《指法诀要》不在此处。";
         add("book_count", -1);
         ob = new("/d/tls/obj/zhifa");
         ob->move(this_player());
-        return "�ðɣ��Ȿ��ָ����Ҫ�����û�ȥ�ú����С�";
+        return "好吧，这本「指法诀要」你拿回去好好钻研。";
 }
 #include "liao.h";

@@ -1,4 +1,4 @@
-// qinbing1.c Ç×±ø
+// qinbing1.c äº²å…µ
 
 #include <ansi.h>
 
@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ç×±ø", ({ "qin bing", "qinbing", "bing"}) );
-        set("gender", "ÄĞĞÔ");
+        set_name("äº²å…µ", ({ "qin bing", "qinbing", "bing"}) );
+        set("gender", "ç”·æ€§");
         set("age", 40);
-        set("long", "Ëû¾ÍÊÇµ±½ñ¡¸ÖĞÉñÍ¨¡¹µÄÇ×±ø, ÉíÅûÌú¼×£¬ÊÖÖ´¸Ö½£¡£\n");
+        set("long", "ä»–å°±æ˜¯å½“ä»Šã€Œä¸­ç¥é€šã€çš„äº²å…µ, èº«æŠ«é“ç”²ï¼Œæ‰‹æ‰§é’¢å‰‘ã€‚\n");
 
         set("combat_exp", 300000);
         set("attitude", "heroism");

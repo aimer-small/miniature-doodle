@@ -10,30 +10,30 @@ int main(object me, string arg)
 	string s1,s2;
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( !arg || sscanf(arg,"%s to %s",s1,s2)<2 )
-		return notify_fail("ÄãÒª¸øÊ²Ã´¶¯ÎïÎ¹Ê³£¿\n");
+		return notify_fail("ä½ è¦ç»™ä»€ä¹ˆåŠ¨ç‰©å–‚é£Ÿï¼Ÿ\n");
 
 	if( !(target=present(s2,environment(me))) )
-		return notify_fail("ÄãÒª¸øÊ²Ã´¶¯ÎïÎ¹Ê³£¿\n");
+		return notify_fail("ä½ è¦ç»™ä»€ä¹ˆåŠ¨ç‰©å–‚é£Ÿï¼Ÿ\n");
 
 	if( !(obj=present(s1,me)) && !(obj=present(s1,environment(me))) )
-		return notify_fail("ÄãÒªÓÃÊ²Ã´À´Î¹Ê³£¿\n");
+		return notify_fail("ä½ è¦ç”¨ä»€ä¹ˆæ¥å–‚é£Ÿï¼Ÿ\n");
 
 	if( !living(target) )
-		return notify_fail("ÄÇ²»ÊÇ»îÎï¡£\n");
+		return notify_fail("é‚£ä¸æ˜¯æ´»ç‰©ã€‚\n");
 
 	if( target->query("master") != me->query("id") )
-		return notify_fail("Äã»¹Ã»ÓĞ½µ·üËüÄØ¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰é™ä¼å®ƒå‘¢ã€‚\n");
 
 	if( obj->query("food_supply") ) {
 		if( !obj->query("food_remaining") )
-	     		return notify_fail( obj->name() + "ÒÑ¾­Ã»Ê²Ã´ºÃ³ÔµÄÁË¡£\n");
+	     		return notify_fail( obj->name() + "å·²ç»æ²¡ä»€ä¹ˆå¥½åƒçš„äº†ã€‚\n");
 	     	if( target->query("food") >= target->max_food_capacity() )
-	     		return notify_fail("ËüÒÑ¾­³ÔÌ«±¥ÁË£¬ÔÙÒ²Èû²»ÏÂÈÎºÎ¶«Î÷ÁË¡£\n");
+	     		return notify_fail("å®ƒå·²ç»åƒå¤ªé¥±äº†ï¼Œå†ä¹Ÿå¡ä¸ä¸‹ä»»ä½•ä¸œè¥¿äº†ã€‚\n");
 
-		message_vision(CYN"$N°ÑÒ»"+obj->query("unit")+obj->query("name")+CYN"Î¹¸ø$n¡£\n"NOR, me, target);
+		message_vision(CYN"$NæŠŠä¸€"+obj->query("unit")+obj->query("name")+CYN"å–‚ç»™$nã€‚\n"NOR, me, target);
 		env = environment(obj);
 		obj->move(target);
 		"/cmds/std/eat.c"->main(target,obj->query("id"));
@@ -41,18 +41,18 @@ int main(object me, string arg)
 	}
 	else if( obj->query("liquid") ) {
 		if( !obj->query("liquid/remaining") )
-			return notify_fail( obj->name() + (obj->query("liquid/name") ? "ÒÑ¾­±»ºÈµÃÒ»µÎÒ²²»Ê£ÁË¡£\n":"ÊÇ¿ÕµÄ¡£\n"));
+			return notify_fail( obj->name() + (obj->query("liquid/name") ? "å·²ç»è¢«å–å¾—ä¸€æ»´ä¹Ÿä¸å‰©äº†ã€‚\n":"æ˜¯ç©ºçš„ã€‚\n"));
 		if( target->query("water") >= target->max_water_capacity() )
-			return notify_fail("ËüÒÑ¾­ºÈµÃÌ«¶àÁË£¬ÔÙÒ²¹à²»ÏÂÒ»µÎË®ÁË¡£\n");
+			return notify_fail("å®ƒå·²ç»å–å¾—å¤ªå¤šäº†ï¼Œå†ä¹ŸçŒä¸ä¸‹ä¸€æ»´æ°´äº†ã€‚\n");
 
-		message_vision(CYN"$N°ÑÒ»"+obj->query("unit")+obj->query("name")+CYN"Î¹¸ø$n¡£\n"NOR, me, target);
+		message_vision(CYN"$NæŠŠä¸€"+obj->query("unit")+obj->query("name")+CYN"å–‚ç»™$nã€‚\n"NOR, me, target);
 		env = environment(obj);
 		obj->move(target);
 		"/cmds/std/drink.c"->main(target,obj->query("id"));
 		if(obj) obj->move(env);
 	}
 	else
-		return notify_fail("ÕâÑù¶«Î÷¼È²»ÄÜ³ÔÒ²²»ÄÜºÈÑ½¡£\n");
+		return notify_fail("è¿™æ ·ä¸œè¥¿æ—¢ä¸èƒ½åƒä¹Ÿä¸èƒ½å–å‘€ã€‚\n");
 
 	return 1;
 }
@@ -60,9 +60,9 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : feed <Ê³Îï»òË®> to <³èÎï>
+æŒ‡ä»¤æ ¼å¼ : feed <é£Ÿç‰©æˆ–æ°´> to <å® ç‰©>
 
-Õâ¸öÃüÁîÓÃÀ´¸øÄãµÄ³èÎïÎ¹Ê³¡£
+è¿™ä¸ªå‘½ä»¤ç”¨æ¥ç»™ä½ çš„å® ç‰©å–‚é£Ÿã€‚
 HELP
 );
 	return 1;

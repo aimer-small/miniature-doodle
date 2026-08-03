@@ -9,10 +9,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "»úÆ÷ÈË·¨Í¥");
+        set("short", "æœºå™¨äººæ³•åº­");
         set("long", @LONG
-ÕâÀïÊÇ×îÁî»úÆ÷ÈËº¦ÅÂµÄ»úÆ÷ÈË·¨Í¥£¬³ıÁË¿¿Ç½µÄÒ»ÕÅÌÒÄ¾×ÀºÍ×Àºó×ø×Å
-µÄ»úÆ÷ÈË·¨¹ÙÍâ£¬ËÄÖÜÊ²Ã´Ò²Ã»ÓĞ¡£
+è¿™é‡Œæ˜¯æœ€ä»¤æœºå™¨äººå®³æ€•çš„æœºå™¨äººæ³•åº­ï¼Œé™¤äº†é å¢™çš„ä¸€å¼ æ¡ƒæœ¨æ¡Œå’Œæ¡Œååç€
+çš„æœºå™¨äººæ³•å®˜å¤–ï¼Œå››å‘¨ä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚
 LONG);
 
         set("objects", ([
@@ -30,7 +30,7 @@ void init()
         object me = this_player();
         object weapon = me->query_temp("weapon");
         if (weapon && !weapon->query("imbued")) {
-		tell_object(me, YEL"·¨Í¥ÀïÑÏ½ûĞ¯´ø±øÆ÷£¬¿ì½»³öÀ´°É¡£\n"NOR);
+		tell_object(me, YEL"æ³•åº­é‡Œä¸¥ç¦æºå¸¦å…µå™¨ï¼Œå¿«äº¤å‡ºæ¥å§ã€‚\n"NOR);
 		weapon->unequip();
 		weapon->move(environment(me));
 		me->start_busy(random(5));
@@ -49,7 +49,7 @@ int do_action(string arg)
                 case "meditate":
                 case "lian":
                 case "practice":
-                        write("Õâ²»ÊÇÄãÄÜÁ·¹¦µÄµØ·½¡£\n");
+                        write("è¿™ä¸æ˜¯ä½ èƒ½ç»ƒåŠŸçš„åœ°æ–¹ã€‚\n");
                         return 1;
 
                 case "yun":
@@ -59,15 +59,15 @@ int do_action(string arg)
                 case "fight":
                 case "hit":
                 case "kill":
-                        write("Õâ²»ÊÇÄãÄÜ´ò¼ÜµÄµØ·½¡£\n");
+                        write("è¿™ä¸æ˜¯ä½ èƒ½æ‰“æ¶çš„åœ°æ–¹ã€‚\n");
                         return 1;
 
                 case "save":
-                        write("Õâ²»ÊÇÄãÄÜ´æÅÌµÄµØ·½¡£\n");
+                        write("è¿™ä¸æ˜¯ä½ èƒ½å­˜ç›˜çš„åœ°æ–¹ã€‚\n");
                         return 1;
                 case "get":
                 case "give":
-                        write("ÀÏÊµµã£¬ÕâÀïÊÇ·¨Í¥¡£\n");
+                        write("è€å®ç‚¹ï¼Œè¿™é‡Œæ˜¯æ³•åº­ã€‚\n");
                         return 1;
         }
         return 0;
@@ -80,7 +80,7 @@ void test_robot()
         object antirobot;
         object *ob = users();
 
-        message("channel:chat", HIC "¡¾ÏĞÁÄ¡¿»úÆ÷ÈËÕì¼©×Ü²¿£º·´´ô×é¸÷Ì½Ô±Çë×¢Òâ£¬É¨´ôĞĞ¶¯ÕıÊ½¿ªÊ¼£¡\n" NOR, users());
+        message("channel:chat", HIC "ã€é—²èŠã€‘æœºå™¨äººä¾¦ç¼‰æ€»éƒ¨ï¼šåå‘†ç»„å„æ¢å‘˜è¯·æ³¨æ„ï¼Œæ‰«å‘†è¡ŒåŠ¨æ­£å¼å¼€å§‹ï¼\n" NOR, users());
         for (i = 0; i < sizeof(ob); i++) {
                 antirobot = new("/clone/npc/antirobot2");
                 antirobot->test_robot(ob[i]);

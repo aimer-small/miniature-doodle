@@ -4,31 +4,31 @@
 
 inherit F_SSERVER;
 void remove_effect(object me, int count);
-string perform_name() {return HIR"Ó¥"HIC"·É"HIW"Ñã"HIM"Îè"NOR;}
+string perform_name() {return HIR"é¹°"HIC"é£"HIW"é›"HIM"èˆ"NOR;}
 int perform(object me, object target)
 {
         string msg;
         int i;
         
         if (! me->is_fighting())
-                return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖÖÊ¹ÓÃ¡¸Ó¥·ÉÑãÎè¡¹¡£\n");
+                return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ç§ä½¿ç”¨ã€Œé¹°é£é›èˆã€ã€‚\n");
 
         if ((int)me->query_skill("xiantian-gong", 1) < 100)
-                return notify_fail("ÄãµÄÏÈÌì¹¦»¹²»¹»»ğºò£¬Ê¹²»³ö¡¸Ó¥·ÉÑãÎè¡¹¡£\n");  
+                return notify_fail("ä½ çš„å…ˆå¤©åŠŸè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºã€Œé¹°é£é›èˆã€ã€‚\n");  
 
         if ((int)me->query_skill("jinyan-gong", 1) < 100)
-                return notify_fail("ÄãµÄ½ğÑã¹¦»¹²»¹»»ğºò£¬Ê¹²»³ö¡¸Ó¥·ÉÑãÎè¡¹¡£\n");  
+                return notify_fail("ä½ çš„é‡‘é›åŠŸè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºã€Œé¹°é£é›èˆã€ã€‚\n");  
 
         if ((int)me->query("jing", 1) < 500)
-                return notify_fail("ÄãÏÖÔÚ¾«²»¹»¡£\n");
+                return notify_fail("ä½ ç°åœ¨ç²¾ä¸å¤Ÿã€‚\n");
 
         if ((int)me->query("neili", 1) < 500)
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸å¤Ÿã€‚\n");
 
         if (me->query_temp("quanzhen/parry"))
-                return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸Ó¥·ÉÑãÎè¡¹¡£\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œé¹°é£é›èˆã€ã€‚\n");
 
-        msg = HIC "Äã³¤Ğ¥Ò»Éù£¬Éí·¨¶¸È»¼Ó¿ì£¬ÓÌÈçÓ¥»÷³¤¿Õ¡¢ÓÖÈçÈºÑã·ÉÎè£¬ÁîÈËÑÛ»¨ÁÃÂÒ£¬É·ÊÇºÃ¿´¡£\n\n" NOR; 
+        msg = HIC "ä½ é•¿å•¸ä¸€å£°ï¼Œèº«æ³•é™¡ç„¶åŠ å¿«ï¼ŒçŠ¹å¦‚é¹°å‡»é•¿ç©ºã€åˆå¦‚ç¾¤é›é£èˆï¼Œä»¤äººçœ¼èŠ±æ’©ä¹±ï¼Œç…æ˜¯å¥½çœ‹ã€‚\n\n" NOR; 
 
         me->add("neili", -200 + random(100));
         me->recieve_damage("jing", 50);
@@ -59,7 +59,7 @@ void remove_effect(object me, int count)
          me->add_temp("apply/dodge", -i);
          me->add_temp("apply/parry", -i);
          me->delete_temp("quanzhen/parry");
-       tell_object(me, HIC "ÄãÉíĞÎ½¥Í££¬ÉîÎüÒ»¿ÚÆø£¬ÊÕ»ØÁË¡¸Ó¥·ÉÑãÎè¡¹Çá¹¦¾ø¼¼¡£\n" NOR);
+       tell_object(me, HIC "ä½ èº«å½¢æ¸åœï¼Œæ·±å¸ä¸€å£æ°”ï¼Œæ”¶å›äº†ã€Œé¹°é£é›èˆã€è½»åŠŸç»æŠ€ã€‚\n" NOR);
             return;
        }
 }

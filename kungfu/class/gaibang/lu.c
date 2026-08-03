@@ -1,6 +1,6 @@
-// NPC: lu.c Â³ÓĞ½Å
+// NPC: lu.c é²æœ‰è„š
 // Lklv 2001.9.28 update
-// By Spiderii@ty srf,tjf²»¿ÉÒÔask jobÅÜtj.
+// By Spiderii@ty srf,tjfä¸å¯ä»¥ask jobè·‘tj.
 #include <job_mul.h>
 #include <ansi.h>
 inherit NPC;
@@ -15,12 +15,12 @@ int ask_num();
 
 void create()
 {
-	set_name("Â³ÓĞ½Å", ({"lu youjiao", "lu", "youjiao"}));
-	set("title", HIW"Ø¤°ï¾Å´ü³¤ÀÏ"NOR);
-	set("nickname", "ÕÆ°ôÁúÍ·");
-	set("gender", "ÄĞĞÔ");
+	set_name("é²æœ‰è„š", ({"lu youjiao", "lu", "youjiao"}));
+	set("title", HIW"ä¸å¸®ä¹è¢‹é•¿è€"NOR);
+	set("nickname", "æŒæ£’é¾™å¤´");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
-	set("long", "ËûÔÚØ¤°ïÖĞÓĞÈÊÓĞÒå£¬ĞĞÊÂ¹âÃ÷ÀÚÂä£¬ÉîµÃºéÆß¹«µÄÆ÷ÖØ¡£\n");
+	set("long", "ä»–åœ¨ä¸å¸®ä¸­æœ‰ä»æœ‰ä¹‰ï¼Œè¡Œäº‹å…‰æ˜ç£Šè½ï¼Œæ·±å¾—æ´ªä¸ƒå…¬çš„å™¨é‡ã€‚\n");
 
         set("attitude", "friendly");
         set("str", 25);
@@ -30,7 +30,7 @@ void create()
         set("unique", 1);
         set("no_bark",1);
         set("job_npc",1);
-        set("no_get","Â³ÓĞ½Å¶ÔÄãÀ´ËµÌ«ÖØÁË¡£\n");
+        set("no_get","é²æœ‰è„šå¯¹ä½ æ¥è¯´å¤ªé‡äº†ã€‚\n");
 
         set("qi", 3500);
         set("eff_jingli", 2000);
@@ -45,15 +45,15 @@ void create()
         set("combat_exp", 1200000);
         set("score", 20000);
 
-        set_skill("force", 190); // »ù±¾ÄÚ¹¦
-        set_skill("huntian-qigong", 190); // »ìÌìÆø¹¦
-        set_skill("strike",195); // »ù±¾È­½Å
-        set_skill("xianglong-zhang", 190); // ½µÁúÊ®°ËÕÆ
-        set_skill("dodge", 190); // »ù±¾¶ãÉÁ
-        set_skill("xiaoyaoyou", 190); // åĞÒ£ÓÎ
-        set_skill("parry", 190); // »ù±¾ÕĞ¼Ü
+        set_skill("force", 190); // åŸºæœ¬å†…åŠŸ
+        set_skill("huntian-qigong", 190); // æ··å¤©æ°”åŠŸ
+        set_skill("strike",195); // åŸºæœ¬æ‹³è„š
+        set_skill("xianglong-zhang", 190); // é™é¾™åå…«æŒ
+        set_skill("dodge", 190); // åŸºæœ¬èº²é—ª
+        set_skill("xiaoyaoyou", 190); // é€é¥æ¸¸
+        set_skill("parry", 190); // åŸºæœ¬æ‹›æ¶
         set_skill("literate", 100);
-        set_skill("stick", 185); // »ù±¾¹÷ÕÈ
+        set_skill("stick", 185); // åŸºæœ¬æ£æ–
         set_skill("begging", 160);
 
         map_skill("force", "huntian-qigong");
@@ -69,14 +69,14 @@ void create()
         	(: exert_function, "huntian" :),
         }));
 
-        create_family("Ø¤°ï", 18, "¾Å´ü³¤ÀÏ");
+        create_family("ä¸å¸®", 18, "ä¹è¢‹é•¿è€");
 
         set("inquiry", ([
-                "°ô·¨Í¼½â" : (:ask_me:),
-                "±¨Ğ§¹ú¼Ò" : (:ask_job:),
-                "¹¦ÀÍ": (: ask_num :),
-             "²¹³¥": (: ask_gift :),
-                "ºéÆß¹«": "ÎÒÃÇÆ½³£¶¼½ĞËû¡°°ïÖ÷¡±£¬Ç×½üÒ»µãµÄ½ĞËû¡°Æß¹«¡±¡£\n",
+                "æ£’æ³•å›¾è§£" : (:ask_me:),
+                "æŠ¥æ•ˆå›½å®¶" : (:ask_job:),
+                "åŠŸåŠ³": (: ask_num :),
+             "è¡¥å¿": (: ask_gift :),
+                "æ´ªä¸ƒå…¬": "æˆ‘ä»¬å¹³å¸¸éƒ½å«ä»–â€œå¸®ä¸»â€ï¼Œäº²è¿‘ä¸€ç‚¹çš„å«ä»–â€œä¸ƒå…¬â€ã€‚\n",
         ]));
         set("count",1);
 
@@ -107,28 +107,28 @@ void init()
                 me->delete_temp("gb_job2_finish");
                 exp = 400 + random(300);
                 
-                exp = me->add_exp_combat(exp,this_object(),"²İÁÏ³¡");
+                exp = me->add_exp_combat(exp,this_object(),"è‰æ–™åœº");
                 
                 pot = exp/5+random(exp/10);
                 shen = exp*3;
                 command("thumb "+me->query("id"));
                 
-                me->add("job_time/±¨Ğ§¹ú¼Ò", 1);                
-                write( sprintf(HIW"\nºÃ£¬ÈÎÎñÍê³ÉÁË£¬ÄãµÃµ½ÁË"
+                me->add("job_time/æŠ¥æ•ˆå›½å®¶", 1);                
+                write( sprintf(HIW"\nå¥½ï¼Œä»»åŠ¡å®Œæˆäº†ï¼Œä½ å¾—åˆ°äº†"
 	                 + CHINESE_D->chinese_number( exp )
-        	         + "µãÊµÕ½¾­Ñé£¬"
+        	         + "ç‚¹å®æˆ˜ç»éªŒï¼Œ"
                 	 + CHINESE_D->chinese_number( pot )
-           	      	+ "µãÇ±ÄÜºÍ"
+           	      	+ "ç‚¹æ½œèƒ½å’Œ"
                		+ CHINESE_D->chinese_number( shen )
-                 	+ "µãÕıÉñ¡£\n" NOR));
+                 	+ "ç‚¹æ­£ç¥ã€‚\n" NOR));
         	
         	me->add( "potential", pot );
         	if( me->query("potential") > me->query("max_pot") )
                 	me->set("potential", me->query("max_pot") );
             	me->add( "shen", shen );
-		me->set("job_name","»ğÉÕ²İÁÏ³¡");
+		me->set("job_name","ç«çƒ§è‰æ–™åœº");
 		
-            	log_file("job/caoliao", sprintf("%8s%-10s»ğÉÕ²İÁÏ³¡ÈÎÎñ£¬¾­Ñé£º%3d£¬Ç±ÄÜ£º%3d£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
+            	log_file("job/caoliao", sprintf("%8s%-10sç«çƒ§è‰æ–™åœºä»»åŠ¡ï¼Œç»éªŒï¼š%3dï¼Œæ½œèƒ½ï¼š%3dï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
 	           me->query("name"), "("+me->query("id")+")", exp, pot,me->query("combat_exp")),me );
         }
         add_action("qingjiao", "qingjiao");
@@ -138,23 +138,23 @@ string ask_me()
 {
         object me = this_player();
 
-        if ( me->query("family/family_name") != "Ø¤°ï" ){
+        if ( me->query("family/family_name") != "ä¸å¸®" ){
                 command("laugh " + me->query("id"));
-                return RANK_D->query_respect(me) + "Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+                return RANK_D->query_respect(me) + "ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
         }
         if (random(4)) {
                 command("hehe");
-                return "ÎÒ²»ÖªµÀ¡£";
+                return "æˆ‘ä¸çŸ¥é“ã€‚";
         }
         if (query("count")){
                 new(__DIR__"obj/stick-book")->move(me);
                 add("count", -1);
                 command(":(");
-                message_vision("$N¸ø$nÒ»ÕÅÖ½Æ¬¡£\n", this_object(), me);
-                return "ºÃ°É£¬Õâ±¾Í¼½âÄãÄÃÈ¥ÑĞ¾¿£¬²»¶®µÄÀ´ÎÊÎÒ¡£";
+                message_vision("$Nç»™$nä¸€å¼ çº¸ç‰‡ã€‚\n", this_object(), me);
+                return "å¥½å§ï¼Œè¿™æœ¬å›¾è§£ä½ æ‹¿å»ç ”ç©¶ï¼Œä¸æ‡‚çš„æ¥é—®æˆ‘ã€‚";
         }
         command("sigh " + me->query("id"));
-        return "ÄãÀ´³ÙÁËÒ»²½£¬Í¼½âÒÑ¾­±»ÈËÄÃ×ßÁË¡£";
+        return "ä½ æ¥è¿Ÿäº†ä¸€æ­¥ï¼Œå›¾è§£å·²ç»è¢«äººæ‹¿èµ°äº†ã€‚";
 }
 
 string ask_gift()
@@ -163,18 +163,18 @@ string ask_gift()
         mapping fam;
 
         fam = me->query("family");
-        if (!fam || fam["family_name"] !="Ø¤°ï")
-           return RANK_D->query_respect(me)+"Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ?¡£\n";
+        if (!fam || fam["family_name"] !="ä¸å¸®")
+           return RANK_D->query_respect(me)+"ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·?ã€‚\n";
         if( me->query("gb/gift") )
-           return RANK_D->query_respect(me)+"»¹ÏëÒª²¹³¥£¿Õâ¸öÒ»ÈËÖ»ÄÜÒªÒ»´Î¡£\n";
+           return RANK_D->query_respect(me)+"è¿˜æƒ³è¦è¡¥å¿ï¼Ÿè¿™ä¸ªä¸€äººåªèƒ½è¦ä¸€æ¬¡ã€‚\n";
 
-           me->set("job_time/×¥Éß",1000);
-           me->set("job_time/Ø¤°ï",1000);
-           me->set("job_time/´ÌÉ±",1000);
-           me->set("job_time/ËÌÄ¦ÑÂ",1000);
+           me->set("job_time/æŠ“è›‡",1000);
+           me->set("job_time/ä¸å¸®",1000);
+           me->set("job_time/åˆºæ€",1000);
+           me->set("job_time/é¢‚æ‘©å´–",1000);
            me->set("gb/gift", 1);
 
-        return  "ºÃÁË£¬ÄãµÄ¸æ¼±¡¢ËÌÄ¦ÑÂ¡¢´ÌÉ±¶¼¸øÄã×ã¹»²¹³¥ÁË.\n" ;
+        return  "å¥½äº†ï¼Œä½ çš„å‘Šæ€¥ã€é¢‚æ‘©å´–ã€åˆºæ€éƒ½ç»™ä½ è¶³å¤Ÿè¡¥å¿äº†.\n" ;
 }
 
 string ask_job()
@@ -183,21 +183,21 @@ string ask_job()
         int exp = me->query("combat_exp");
 
         //if( (int)me->query("shen") < 0 )
-          //      return "ÎÒ¿´Äãâ¯Í·ÊóÄ¿£¬²»Ïó¸öºÃÈË£¬ÈçºÎÄÜ·ÅĞÄ°Ñ¾ü»ú´óÊÂÍĞ¸¶¸øÄã¡£\n";
+          //      return "æˆ‘çœ‹ä½ çå¤´é¼ ç›®ï¼Œä¸è±¡ä¸ªå¥½äººï¼Œå¦‚ä½•èƒ½æ”¾å¿ƒæŠŠå†›æœºå¤§äº‹æ‰˜ä»˜ç»™ä½ ã€‚\n";
 
         if( exp < 3000 )
-                return RANK_D->query_respect(me) + "×İÓĞ´ËĞÄ£¬ÄÎºÎÎä¹¦ĞŞÎªÌ«²î¡£\n";
+                return RANK_D->query_respect(me) + "çºµæœ‰æ­¤å¿ƒï¼Œå¥ˆä½•æ­¦åŠŸä¿®ä¸ºå¤ªå·®ã€‚\n";
 
         if( !wizardp(me) && me->query_condition("job_busy"))
-                return "ÎÒÕâÀïÏÖÔÚÃ»ÓĞÊ²Ã´ÈÎÎñ£¬ÄãµÈ»áÔÙÀ´°É¡£\n";
+                return "æˆ‘è¿™é‡Œç°åœ¨æ²¡æœ‰ä»€ä¹ˆä»»åŠ¡ï¼Œä½ ç­‰ä¼šå†æ¥å§ã€‚\n";
 
-		if(me->query_temp("quest/busy")) //added by tangfeng Óëquest³åÍ»
-			    return "ÏÖÔÚÎÒÕâÀïÃ»ÓĞ¸øÄãµÄÈÎÎñ£¬Äã»¹ÊÇÏÈ´¦ÀíºÃÄãÆäËûÊÂÇéÔÙËµ°É¡£";
+		if(me->query_temp("quest/busy")) //added by tangfeng ä¸questå†²çª
+			    return "ç°åœ¨æˆ‘è¿™é‡Œæ²¡æœ‰ç»™ä½ çš„ä»»åŠ¡ï¼Œä½ è¿˜æ˜¯å…ˆå¤„ç†å¥½ä½ å…¶ä»–äº‹æƒ…å†è¯´å§ã€‚";
 
        if ( me->query_condition("killer"))
-                 return "ÄãÏÖÔÚÊÇ¹Ù¸®×½ÄÃµÄÒª·¸£¬»¹ÊÇÏÈ´¦ÀíºÃÄã×Ô¼ºµÄÊÂÇé°É!"; // By Spiderii@ty¼ÓÈëÏŞÖÆ
+                 return "ä½ ç°åœ¨æ˜¯å®˜åºœæ‰æ‹¿çš„è¦çŠ¯ï¼Œè¿˜æ˜¯å…ˆå¤„ç†å¥½ä½ è‡ªå·±çš„äº‹æƒ…å§!"; // By Spiderii@tyåŠ å…¥é™åˆ¶
         if( me->query("menggu") )
-                return "ºß£¬ÄãÕâºº¼é£¬»¹ÏëÒªÈÎÎñ£¿\n";
+                return "å“¼ï¼Œä½ è¿™æ±‰å¥¸ï¼Œè¿˜æƒ³è¦ä»»åŠ¡ï¼Ÿ\n";
 
         if( exp < 80000 ){
                 return gb_job1();
@@ -211,21 +211,21 @@ string ask_job()
         else {
                 return smy_job();
         }
-        return "ÎÒÕâÀïÃ»ÓĞÊ²Ã´¿ÉÒÔ¸øÄã×öµÄÈÎÎñÁË¡£\n";
+        return "æˆ‘è¿™é‡Œæ²¡æœ‰ä»€ä¹ˆå¯ä»¥ç»™ä½ åšçš„ä»»åŠ¡äº†ã€‚\n";
 }
 
 int ask_num()
 {
         object me = this_player();
         //old
-        //int num = me->query("job_time/±¨Ğ§¹ú¼Ò");
+        //int num = me->query("job_time/æŠ¥æ•ˆå›½å®¶");
         //old end
-        int num = me->query("job_time/¸æ¼±") + me->query("job_time/´ÌÉ±") + me->query("job_time/ËÌÄ¦ÑÂ");
+        int num = me->query("job_time/å‘Šæ€¥") + me->query("job_time/åˆºæ€") + me->query("job_time/é¢‚æ‘©å´–");
 
         command( "say "
-        	+ RANK_D->query_respect(me) + "ÒÑ¾­Îª¹ú¼Ò×öÁË"
+        	+ RANK_D->query_respect(me) + "å·²ç»ä¸ºå›½å®¶åšäº†"
         	+ CHINESE_D->chinese_number( num )
-        	+ "´Î¹±Ï×¡£" );
+        	+ "æ¬¡è´¡çŒ®ã€‚" );
         command("addoil " + me->query("id"));
         return 1;
 }
@@ -236,15 +236,15 @@ int qingjiao(string arg)
         int lvl = me->query_skill("stick", 1);
 
         if (!living(me)) return 0;
-        if (arg != "stick" || !present("stick book", me)) return notify_fail("ÄãÒªÇë½ÌÊ²Ã´£¿\n");
-        if (!living(this_object())) return notify_fail("ÄãÏÈ°ÑËûÅªĞÑÔÙËµ°É£¡\n");
+        if (arg != "stick" || !present("stick book", me)) return notify_fail("ä½ è¦è¯·æ•™ä»€ä¹ˆï¼Ÿ\n");
+        if (!living(this_object())) return notify_fail("ä½ å…ˆæŠŠä»–å¼„é†’å†è¯´å§ï¼\n");
         if (this_object()->is_busy() || this_object()->is_fighting())
-        	return notify_fail(this_object()->query("name")+"ÕıÃ¦×ÅÄØ¡£\n");
-        if (lvl < 30) return notify_fail("ÄãµÄ»ù±¾°ô·¨ĞŞÎª²»¹»£¬¶ÔÂ³ÓĞ½ÅµÄ½²½âËÆ¶®·Ç¶®¡£\n");
+        	return notify_fail(this_object()->query("name")+"æ­£å¿™ç€å‘¢ã€‚\n");
+        if (lvl < 30) return notify_fail("ä½ çš„åŸºæœ¬æ£’æ³•ä¿®ä¸ºä¸å¤Ÿï¼Œå¯¹é²æœ‰è„šçš„è®²è§£ä¼¼æ‡‚éæ‡‚ã€‚\n");
         if (lvl < 101) {
-                write("ÄãÄÃ×Å°ô·¨Í¼½âÏòÂ³ÓĞ½ÅÇë½Ì¡£\n");
+                write("ä½ æ‹¿ç€æ£’æ³•å›¾è§£å‘é²æœ‰è„šè¯·æ•™ã€‚\n");
                 me->receive_damage("jing", 30);
-                write("ÄãµÄ¡¸»ù±¾°ô·¨¡¹½ø²½ÁË¡£\n");
+                write("ä½ çš„ã€ŒåŸºæœ¬æ£’æ³•ã€è¿›æ­¥äº†ã€‚\n");
                 me->improve_skill("stick", me->query("int"));
                 return 1;
         }

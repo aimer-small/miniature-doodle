@@ -1,4 +1,4 @@
-// machaoxing.c Âí³¬ĞË tdh
+// machaoxing.c é©¬è¶…å…´ tdh
 
 inherit NPC;
 #include "tdh_npc.h"
@@ -6,13 +6,13 @@ inherit NPC;
 void create()
 {
 	int x=3;
-	set_name("Âí³¬ĞË", ({ "ma chaoxing", "ma", "chaoxing" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("é©¬è¶…å…´", ({ "ma chaoxing", "ma", "chaoxing" }));
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("shen_type", 1);
-	set("ÌìµØ»á/tangkou","¼ÒºóÌÃ");
-	set("ÌìµØ»á/title","ÏãÖ÷");
-	if ( random(10) >7 ) set("long","ËûÊÇÌìµØ»áµÄ¼ÒºóÌÃÏãÖ÷¡£");
+	set("å¤©åœ°ä¼š/tangkou","å®¶åå ‚");
+	set("å¤©åœ°ä¼š/title","é¦™ä¸»");
+	if ( random(10) >7 ) set("long","ä»–æ˜¯å¤©åœ°ä¼šçš„å®¶åå ‚é¦™ä¸»ã€‚");
 
         set("str", 35);
         set("int", 25);
@@ -46,18 +46,18 @@ void create()
 	set_temp("apply/attack", 35);
 
 	set("inquiry", ([
-		"ÍòÔÆÁú": (: ask_join :),
-		"ÌìµØ»á": (: ask_tdh :),
-		"ºéÃÅ": (: ask_tdh :),
-		"·´Çå¸´Ã÷": (: ask_fq :),
-		"³Â½üÄÏ": (: ask_chen :),
-		"Ö£³É¹¦": (: ask_zheng :),
-		"¹úĞÕÒ¯": (: ask_zheng :),
-		"¹úĞÕÒ¯": (: ask_zheng :),
-		"Èıµã¸ïÃüÊ«": (: ask_sandian :),
-		"ÇĞ¿Ú": (: ask_qk :),
-		"°µºÅ": (: ask_qk :),
-		"»î¶¯": (: ask_job :),
+		"ä¸‡äº‘é¾™": (: ask_join :),
+		"å¤©åœ°ä¼š": (: ask_tdh :),
+		"æ´ªé—¨": (: ask_tdh :),
+		"åæ¸…å¤æ˜": (: ask_fq :),
+		"é™ˆè¿‘å—": (: ask_chen :),
+		"éƒ‘æˆåŠŸ": (: ask_zheng :),
+		"å›½å§“çˆ·": (: ask_zheng :),
+		"å›½å§“çˆ·": (: ask_zheng :),
+		"ä¸‰ç‚¹é©å‘½è¯—": (: ask_sandian :),
+		"åˆ‡å£": (: ask_qk :),
+		"æš—å·": (: ask_qk :),
+		"æ´»åŠ¨": (: ask_job :),
 		"job": (: ask_job :),
 	]));
 	setup();

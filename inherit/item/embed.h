@@ -11,14 +11,14 @@ int do_embed(object me)
     	if(environment(ob) != me 
        	|| me->is_ghost() 
        	|| !me->query_temp("embed")){
-       		tell_room(environment(me), "à¸Å¶£¡\n" , ({ me }));  
+       		tell_room(environment(me), "å–”å“¦ï¼\n" , ({ me }));  
             	delete("embedded");
               	return 0;
         }
         
-    	me->receive_wound("qi", ob->query("damage"), "ÉíÖĞ"+ob->name()+"¶ø");
-        tell_object(me, HIR "ÏÊÑªÕıË³×ÅÄãÉíÉÏµÄ"+ob->name()+HIR"àÖàªàÖàªµØÖ±ÍùÏÂÁ÷£¡\n" NOR );
-        tell_room(environment(me), HIR + "ÏÊÑªË³×Å"+me->name()+HIR"ÉíÉÏµÄ"+ob->name()+HIR"Ö±ÍùÏÂÁ÷£¡\n" NOR, ({ me }));  
+    	me->receive_wound("qi", ob->query("damage"), "èº«ä¸­"+ob->name()+"è€Œ");
+        tell_object(me, HIR "é²œè¡€æ­£é¡ºç€ä½ èº«ä¸Šçš„"+ob->name()+HIR"å˜€å—’å˜€å—’åœ°ç›´å¾€ä¸‹æµï¼\n" NOR );
+        tell_room(environment(me), HIR + "é²œè¡€é¡ºç€"+me->name()+HIR"èº«ä¸Šçš„"+ob->name()+HIR"ç›´å¾€ä¸‹æµï¼\n" NOR, ({ me }));  
         call_out("do_embed", 15+random(10), me);
         
     	return 1;

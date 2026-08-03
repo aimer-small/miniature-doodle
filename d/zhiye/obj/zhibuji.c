@@ -8,13 +8,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW"Ö¯²¼»ú"NOR, ({ "zhibu ji" , "ji" }));
+	set_name(HIW"ç»‡å¸ƒæœº"NOR, ({ "zhibu ji" , "ji" }));
 	set_weight(1000000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¼Ü");
-		set("long", HIW"ÕâÊÇÒ»½ĞÖÕÈÕÃ¦Âµ²»Í£µÄÖ¯²¼»ú¡£\n"NOR+"Äã¿ÉÒÔÓÃËüÀ´±àÖ¯(bianzhi)£ºbianzhi ²¼ÁÏ\n");
+		set("unit", "æ¶");
+		set("long", HIW"è¿™æ˜¯ä¸€å«ç»ˆæ—¥å¿™ç¢Œä¸åœçš„ç»‡å¸ƒæœºã€‚\n"NOR+"ä½ å¯ä»¥ç”¨å®ƒæ¥ç¼–ç»‡(bianzhi)ï¼šbianzhi å¸ƒæ–™\n");
 		set("value", 3000);
 		set("no_get", 1);
 	}
@@ -31,44 +31,44 @@ int do_bianzhi(string arg)
 	object me = this_player() ,obj,obj2,weapon;
 	int delay,level,time;
 
-	if (me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (me->is_fight()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (!arg) return notify_fail("ÄãÒª±àÖ¯Ê²Ã´£¿\n");
+	if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (me->is_fight()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (!arg) return notify_fail("ä½ è¦ç¼–ç»‡ä»€ä¹ˆï¼Ÿ\n");
 	if (!objectp(obj = present(arg, me)))
-		return notify_fail("ÄãÉíÉÏÓĞÕâÑù¶«Î÷Âğ£¿\n");
+		return notify_fail("ä½ èº«ä¸Šæœ‰è¿™æ ·ä¸œè¥¿å—ï¼Ÿ\n");
 	obj = present(obj->query("id"), me);
 	if (!objectp(obj2 = present(obj->query("id")+" 2", me)))
-		return notify_fail("Äã±ØĞëÓÃÁ½À¦"+obj->query("name")+"À´±àÖ¯¡£\n");
+		return notify_fail("ä½ å¿…é¡»ç”¨ä¸¤æ†"+obj->query("name")+"æ¥ç¼–ç»‡ã€‚\n");
 	if( !(int)obj->query("buliao") || !(int)obj->query("level")
 	 || !(int)obj2->query("buliao") || !(int)obj2->query("level"))
-		return notify_fail("ÔÚÕâÀïÖ»ÄÜÓÃ²¼ÁÏÀ´±àÖ¯¡£\n");
+		return notify_fail("åœ¨è¿™é‡Œåªèƒ½ç”¨å¸ƒæ–™æ¥ç¼–ç»‡ã€‚\n");
 	if ( !objectp(weapon=me->query_temp("weapon")) || weapon->query("id")!="fang suo" )
-		return notify_fail("Äã±ØĞë×°±¸·ÄËó²ÅÄÜÀ´±àÖ¯¡£\n");
+		return notify_fail("ä½ å¿…é¡»è£…å¤‡çººæ¢­æ‰èƒ½æ¥ç¼–ç»‡ã€‚\n");
 	if ( !weapon->query("worker_tool"))
-		return notify_fail("Äã±ØĞë×°±¸·ÄËó²ÅÄÜÀ´±àÖ¯¡£\n");
+		return notify_fail("ä½ å¿…é¡»è£…å¤‡çººæ¢­æ‰èƒ½æ¥ç¼–ç»‡ã€‚\n");
 	if ( !wizardp(me) && (time()<(int)me->query("worker/bianzhi")) )
-		return notify_fail("Äã¸Õ¸Õ±àÖ¯Íê±Ï£¬¸Ğ¾õ¹ıÓÚÀÍÀÛ£¡\n");
+		return notify_fail("ä½ åˆšåˆšç¼–ç»‡å®Œæ¯•ï¼Œæ„Ÿè§‰è¿‡äºåŠ³ç´¯ï¼\n");
 
 	time = time()- me->query("pk_time");
 	if ( time < 432000)
-		return notify_fail("ÄãÄ¿Ç°µÄ×´Ì¬ÎŞ·¨±àÖ¯¡£\n");
+		return notify_fail("ä½ ç›®å‰çš„çŠ¶æ€æ— æ³•ç¼–ç»‡ã€‚\n");
 
 	level = (int)me->query_skill("bianzhi",1);
-	if ( level<1 ) return notify_fail("Äã¸ù±¾¾Í²»»á±àÖ¯Âï£¡\n");
+	if ( level<1 ) return notify_fail("ä½ æ ¹æœ¬å°±ä¸ä¼šç¼–ç»‡å˜›ï¼\n");
 
 	switch( (int)obj->query_level() ) {
 		case 1: break;
-		case 2: if(level<40)  return notify_fail("ÄãµÄ±àÖ¯¼¼ÄÜ²»¹»£¡\n"); break;
-		case 3: if(level<80)  return notify_fail("ÄãµÄ±àÖ¯¼¼ÄÜ²»¹»£¡\n"); break;
-		case 4: if(level<120) return notify_fail("ÄãµÄ±àÖ¯¼¼ÄÜ²»¹»£¡\n"); break;
-		case 5: if(level<170) return notify_fail("ÄãµÄ±àÖ¯¼¼ÄÜ²»¹»£¡\n"); break;
-		case 6: if(level<220) return notify_fail("ÄãµÄ±àÖ¯¼¼ÄÜ²»¹»£¡\n"); break;
-		case 7: if(level<270) return notify_fail("ÄãµÄ±àÖ¯¼¼ÄÜ²»¹»£¡\n"); break;
-		case 8: if(level<330) return notify_fail("ÄãµÄ±àÖ¯¼¼ÄÜ²»¹»£¡\n"); break;
-		case 9: if(level<390) return notify_fail("ÄãµÄ±àÖ¯¼¼ÄÜ²»¹»£¡\n"); break;
+		case 2: if(level<40)  return notify_fail("ä½ çš„ç¼–ç»‡æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case 3: if(level<80)  return notify_fail("ä½ çš„ç¼–ç»‡æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case 4: if(level<120) return notify_fail("ä½ çš„ç¼–ç»‡æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case 5: if(level<170) return notify_fail("ä½ çš„ç¼–ç»‡æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case 6: if(level<220) return notify_fail("ä½ çš„ç¼–ç»‡æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case 7: if(level<270) return notify_fail("ä½ çš„ç¼–ç»‡æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case 8: if(level<330) return notify_fail("ä½ çš„ç¼–ç»‡æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
+		case 9: if(level<390) return notify_fail("ä½ çš„ç¼–ç»‡æŠ€èƒ½ä¸å¤Ÿï¼\n"); break;
 	}
 
-	message_vision(HIW"$N°Ñ"+obj->query("name")+HIW"·Åµ½±àÖ¯»úÉÏ£¬È»ºó¿ª¶¯±àÖ¯»ú£¬¿ªÊ¼±àÖ¯......\n"NOR, me);
+	message_vision(HIW"$NæŠŠ"+obj->query("name")+HIW"æ”¾åˆ°ç¼–ç»‡æœºä¸Šï¼Œç„¶åå¼€åŠ¨ç¼–ç»‡æœºï¼Œå¼€å§‹ç¼–ç»‡......\n"NOR, me);
 	delay = 6 + random(12);
 	if(wizardp(me) && (int)me->query("env/test")) delay = 3;
 	me->start_busy(delay+1);
@@ -91,7 +91,7 @@ void datie_finish(object me,object obj)
 	if(level>390) level = 390 + (level-390)*11;
 	buliao = (int)obj->query_level();
 
-	message_vision(HIW"¾­¹ı·´¸´µÄ±àÖ¯£¬$N×ÜËãÍ£ÏÂÁË±àÖ¯»ú¡£\n"NOR, me);
+	message_vision(HIW"ç»è¿‡åå¤çš„ç¼–ç»‡ï¼Œ$Næ€»ç®—åœä¸‹äº†ç¼–ç»‡æœºã€‚\n"NOR, me);
 	if ( objectp(tools) && tools->query("id")=="fang suo" )
 		tools->use();
 
@@ -143,7 +143,7 @@ void datie_finish(object me,object obj)
 			me->add("potential", random(improve/2));
 		}
 		obj->change_state();
-		message_vision(HIC"$N´Ó±àÖ¯»úÉÏÄÃÏÂÒ»Æ¥"+obj->query("name")+"¡£\n"NOR, me);
+		message_vision(HIC"$Nä»ç¼–ç»‡æœºä¸Šæ‹¿ä¸‹ä¸€åŒ¹"+obj->query("name")+"ã€‚\n"NOR, me);
 	}
 	else {
 		me->improve_skill("bianzhi", improve*2);
@@ -153,7 +153,7 @@ void datie_finish(object me,object obj)
 			me->add("potential", random(improve/5));
 		}
 		obj->change_state();
-		message_vision(HIC"µ«ÊÇ$N±àÖ¯ÍêµÄ"+obj->query("name")+HIC"£¬Ò»ÄÃÏÂ±àÖ¯»ú¾Í¶ÏµôÁË¡£\n"NOR, me);
+		message_vision(HIC"ä½†æ˜¯$Nç¼–ç»‡å®Œçš„"+obj->query("name")+HIC"ï¼Œä¸€æ‹¿ä¸‹ç¼–ç»‡æœºå°±æ–­æ‰äº†ã€‚\n"NOR, me);
 		destruct(obj);
 	}
 	if ( (int)me->query("potential", 1) > (int)me->query("max_pot", 1) )

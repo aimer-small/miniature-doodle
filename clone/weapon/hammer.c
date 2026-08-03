@@ -1,7 +1,7 @@
-//iron-falun Ìú·¨ÂÖ
+//iron-falun é“æ³•è½®
 // copy to hammer.c
 //modified by campsun 2003/09/20
-//ÂÖ×Ó£¬×îÖÕÍşÁ¦×î´óµÄ»ù±¾ÎäÆ÷¡£
+//è½®å­ï¼Œæœ€ç»ˆå¨åŠ›æœ€å¤§çš„åŸºæœ¬æ­¦å™¨ã€‚
 #include <ansi.h>
 #include <weapon.h>
 inherit F_HAMMER;
@@ -10,22 +10,22 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-        set_name( BLU"Ìú·¨ÂÖ"NOR,({ "iron falun" ,"lun" ,"falun","tie falun","tiefalun" }));
+        set_name( BLU"é“æ³•è½®"NOR,({ "iron falun" ,"lun" ,"falun","tie falun","tiefalun" }));
         set_weight(25000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-		set("unit", "Ö»");
-                set("long","ÕâÊÇÒ»Ö»ÌúÖÆ·¨ÂÖ£¬Ô¼ÓĞ³ß°ë´óĞ¡£¬ÉÏÃæÖıÓĞÃÜ×Ú·üÄ§ÕæÑÔ£¬ÄÚ²Ø¾Å¸öĞ¡Çò£¬ÊÇÉ®ÈËÃÇ×÷·¨ÊÂÓÃµÄÒ»ÖÖ·¨Æ÷¡£\n");
+		set("unit", "åª");
+                set("long","è¿™æ˜¯ä¸€åªé“åˆ¶æ³•è½®ï¼Œçº¦æœ‰å°ºåŠå¤§å°ï¼Œä¸Šé¢é“¸æœ‰å¯†å®—ä¼é­”çœŸè¨€ï¼Œå†…è—ä¹ä¸ªå°çƒï¼Œæ˜¯åƒ§äººä»¬ä½œæ³•äº‹ç”¨çš„ä¸€ç§æ³•å™¨ã€‚\n");
                 set("value", 100);
                 set("rigidity", 1);
                 set("weapon_prop/dodge", -6);
                 set("weapon_prop/parry", 2);    
                 set("material", "iron");
-                set("base_unit", "Ö»");
+                set("base_unit", "åª");
                 set("base_weight", 18000);
-                set("wield_msg", "$N´Ó»³ÖĞÌÍ³ö$nµàÁËµà·ÖÁ¿£¬ÎÕÔÚÊÖÖĞ£¬µ±à¥à¥ÏìÉùÁ¼¾Ã¡£\n");
-                set("unwield_msg","$N½«ÊÖÖĞµÄ$n´§»Ø»³ÖĞ¡£\n");
+                set("wield_msg", "$Nä»æ€€ä¸­æå‡º$næ‚äº†æ‚åˆ†é‡ï¼Œæ¡åœ¨æ‰‹ä¸­ï¼Œå½“å•·å•·å“å£°è‰¯ä¹…ã€‚\n");
+                set("unwield_msg","$Nå°†æ‰‹ä¸­çš„$næ£å›æ€€ä¸­ã€‚\n");
         }    
         set_amount(5);           
         init_hammer(40);

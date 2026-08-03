@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ñ§Í¯",({ "xue tong", "boy", "xuetong" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("å­¦ç«¥",({ "xue tong", "boy", "xuetong" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 13);
-        set("long", "ÕâÊÇ¸öÑïÖİ³¤´óµÄÄĞº¢, ±»¸¸Ä¸±Æ×ÅÀ´ÊéÔº¶ÁÊé¡£\n");
+        set("long", "è¿™æ˜¯ä¸ªæ‰¬å·é•¿å¤§çš„ç”·å­©, è¢«çˆ¶æ¯é€¼ç€æ¥ä¹¦é™¢è¯»ä¹¦ã€‚\n");
 
         set("str", 17);
         set("dex", 16);

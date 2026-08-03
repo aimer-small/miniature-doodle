@@ -16,37 +16,37 @@ int perform(object me, object target)
 	 || !target->is_character()
 	 || !me->is_fighting(target)
 	 || !living(target) )
-		return notify_fail("¡¸¹ãÁêÉ¢Çú¡¹Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€Œå¹¿é™µæ•£æ›²ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if( me->query_temp("qxwxj/shan") )
-		return notify_fail("ÄãÕýÔÚÊ¹ÓÃ¡¸ÆßÏÒ»ÆÁúÉÁ¡¹¡£\n");
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œä¸ƒå¼¦é»„é¾™é—ªã€ã€‚\n");
  
         if( (int)me->query_skill("qixian-wuxingjian", 1) < 120 )
-		return notify_fail("ÄãµÄÆßÏÒÎÞÐÎ½£µÈ¼¶²»×ã£¬ÎÞ·¨Ê¹³ö¡¸¹ãÁêÉ¢Çú¡¹¡£\n");
+		return notify_fail("ä½ çš„ä¸ƒå¼¦æ— å½¢å‰‘ç­‰çº§ä¸è¶³ï¼Œæ— æ³•ä½¿å‡ºã€Œå¹¿é™µæ•£æ›²ã€ã€‚\n");
  
         if( (int)me->query_skill("sword", 1) < 120 )
-		return notify_fail("ÄãµÄ»ù±¾½£·¨µÈ¼¶²»×ã£¬ÎÞ·¨Ê¹³ö¡¸¹ãÁêÉ¢Çú¡¹¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å‰‘æ³•ç­‰çº§ä¸è¶³ï¼Œæ— æ³•ä½¿å‡ºã€Œå¹¿é™µæ•£æ›²ã€ã€‚\n");
 
 
         if( (int)me->query_skill("xixing-dafa", 1) < 120 )
-		return notify_fail("ÄãµÄÎüÐÇ´ó·¨µÈ¼¶²»×ã£¬ÎÞ·¨Ê¹³ö¡¸¹ãÁêÉ¢Çú¡¹¡£\n");
+		return notify_fail("ä½ çš„å¸æ˜Ÿå¤§æ³•ç­‰çº§ä¸è¶³ï¼Œæ— æ³•ä½¿å‡ºã€Œå¹¿é™µæ•£æ›²ã€ã€‚\n");
 
         if( (int)me->query("max_neili") < 2500 )
-		return notify_fail("ÄãµÄÄÚÁ¦ÐÞÎªÌ«Ç³£¬ÎÞ·¨Ê¹³ö¡¸¹ãÁêÉ¢Çú¡¹¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºå¤ªæµ…ï¼Œæ— æ³•ä½¿å‡ºã€Œå¹¿é™µæ•£æ›²ã€ã€‚\n");
 
 	if( (int)me->query("neili") < 1000 )
-		return notify_fail("ÄãµÄÕæÆø²»×ã£¬ÎÞ·¨Ê¹³ö¡¸¹ãÁêÉ¢Çú¡¹¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸è¶³ï¼Œæ— æ³•ä½¿å‡ºã€Œå¹¿é™µæ•£æ›²ã€ã€‚\n");
 		
 		if( (int)me->query("jingli") < 1000 )
-		return notify_fail("ÄãµÄ¾«Á¦²»×ã£¬ÎÞ·¨Ê¹³ö¡¸¹ãÁêÉ¢Çú¡¹¡£\n");
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸è¶³ï¼Œæ— æ³•ä½¿å‡ºã€Œå¹¿é™µæ•£æ›²ã€ã€‚\n");
 
 	if( me->query_skill_mapped("force") != "xixing-dafa" )
-		return notify_fail("ÄãÃ»ÓÐÊ¹ÓÃÎüÐÇ´ó·¨£¬ÎÞ·¨Ê¹³ö¡¸¹ãÁêÉ¢Çú¡¹?\n");
+		return notify_fail("ä½ æ²¡æœ‰ä½¿ç”¨å¸æ˜Ÿå¤§æ³•ï¼Œæ— æ³•ä½¿å‡ºã€Œå¹¿é™µæ•£æ›²ã€?\n");
 
 	if( !objectp(weapon = me->query_temp("weapon"))
 	 || weapon->query("skill_type") != "sword"
 	 || me->query_skill_mapped("sword") != "qixian-wuxingjian" )
-		return notify_fail("ÄãÊ¹µÃÁË¡¸¹ãÁêÉ¢Çú¡¹Ã´?\n");
+		return notify_fail("ä½ ä½¿å¾—äº†ã€Œå¹¿é™µæ•£æ›²ã€ä¹ˆ?\n");
 
         i = (int)me->query_skill("qixian-wuxingjian",1) /3 +(int)me->query_skill("xixing-dafa",1) /3;
         
@@ -73,9 +73,9 @@ int perform(object me, object target)
         }
 		me->delete_temp("guangling");
 		me->delete_temp("gl_sword");
-        me->start_perform( 3 + random(2), "¡¸¹ãÁêÉ¢Çú¡¹");
+        me->start_perform( 3 + random(2), "ã€Œå¹¿é™µæ•£æ›²ã€");
         me->start_busy(2);
         return 1;
 }
 
-string perform_name(){ return HIM"¹ãÁêÉ¢Çú"NOR; }
+string perform_name(){ return HIM"å¹¿é™µæ•£æ›²"NOR; }

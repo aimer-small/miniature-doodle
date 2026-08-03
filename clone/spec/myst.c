@@ -1,4 +1,4 @@
-// By Spiderii@yt btÎïÆ·
+// By Spiderii@yt btç‰©å“
 #include <ansi.h>
 inherit SPEC;
 
@@ -27,21 +27,21 @@ int sort_basic(string sk)
 
 void create()
 {
-        set_name(HIR"ÎòµÀÃØ¼®"HIW"(Äê¿¨×¨¹©)"NOR, ({ "mbook","book" }) );
+        set_name(HIR"æ‚Ÿé“ç§˜ç±"HIW"(å¹´å¡ä¸“ä¾›)"NOR, ({ "mbook","book" }) );
         set_weight(10);
-                set("unit", "±¾");
-                set("long", "Ò»±¾ÉñÆæÃØ¼®¡£\n¾İËµ¼ÇÔØ×ÅÌìÉñÉÁµçÓÉÎäÈëµÀµÄÌåÎò£¬ÔÄ¶ÁºóÄÜ¼«´óµÄÌá¸ßÄãµÄÎäÑ§¼¼ÄÜ¡£\n");
+                set("unit", "æœ¬");
+                set("long", "ä¸€æœ¬ç¥å¥‡ç§˜ç±ã€‚\næ®è¯´è®°è½½ç€å¤©ç¥é—ªç”µç”±æ­¦å…¥é“çš„ä½“æ‚Ÿï¼Œé˜…è¯»åèƒ½æå¤§çš„æé«˜ä½ çš„æ­¦å­¦æŠ€èƒ½ã€‚\n");
                 set("material", "paper");
-                set("no_drop", "ÕâÑù¶«Î÷¼«ÆäÕä¹ó£¬Äã»¹ÊÇ¿¼ÂÇÒ»ÏÂ°É¡£\n");
-                set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
-   //             set("no_give", "ÕâÑù¶«Î÷¼«ÆäÕä¹ó£¬Äã»¹ÊÇ¿¼ÂÇÒ»ÏÂ°É¡£\n");
+                set("no_drop", "è¿™æ ·ä¸œè¥¿æå…¶çè´µï¼Œä½ è¿˜æ˜¯è€ƒè™‘ä¸€ä¸‹å§ã€‚\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
+   //             set("no_give", "è¿™æ ·ä¸œè¥¿æå…¶çè´µï¼Œä½ è¿˜æ˜¯è€ƒè™‘ä¸€ä¸‹å§ã€‚\n");
                 set_weight(100);
                 set("value",30000000);
                 set("treasure",1);
                 set("degree",1);
                 set("rest",2);
                 set("flag","spec/myst");
-                set("desc","ÔÄ¶ÁºóÄÜ¼«´óµÄÌá¸ßÎäÑ§¼¼ÄÜ¡£");
+                set("desc","é˜…è¯»åèƒ½æå¤§çš„æé«˜æ­¦å­¦æŠ€èƒ½ã€‚");
                 set("credit",1000);  
 
        setup();
@@ -64,13 +64,13 @@ int do_open(string arg)
 
 
     if (!arg|| arg!="mbook")
-            return notify_fail("ÄãÒª¶ÁÊ²Ã´£¿\n");
+            return notify_fail("ä½ è¦è¯»ä»€ä¹ˆï¼Ÿ\n");
             
      if (!ob->query("y-card-vip"))
-            return notify_fail("Äã»¹²»ÊÇÄê¿¨¹ó±ö£¬ÔİÊ±²»ÄÜÊ¹ÓÃÕâ¸öÎïÆ·¡£\n");     
+            return notify_fail("ä½ è¿˜ä¸æ˜¯å¹´å¡è´µå®¾ï¼Œæš‚æ—¶ä¸èƒ½ä½¿ç”¨è¿™ä¸ªç‰©å“ã€‚\n");     
          
             
-	if (!restrict()) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
+	if (!restrict()) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
 
  skl = ob->query_skills();
 
@@ -84,7 +84,7 @@ int do_open(string arg)
 	sname=filter_array( allskills, (: sort_skill :) );
 	allskills-=sname;
 
-//ÕâÀïÊÇ»ù±¾
+//è¿™é‡Œæ˜¯åŸºæœ¬
 
 	sname=filter_array( allskills, (: sort_basic :) );
 	allskills-=sname;
@@ -97,7 +97,7 @@ int do_open(string arg)
                   }
 
 
-//ÕâÀïÊÇÌØÊâ
+//è¿™é‡Œæ˜¯ç‰¹æ®Š
 	sname=allskills;
 
 	j = sizeof(sname);
@@ -127,7 +127,7 @@ int do_open(string arg)
 */
                              ob->set_skill(sname[i], ob->query("max_pot",1)-100);
                   }
-CHANNEL_D->do_channel(this_object(), "rumor", HIC"ÌıËµ" + ob->name(1) + "ÔÄ¶ÁÁËÒ»´Î"HIR"ÎòµÀÃØ¼®"HIC"£¬²¹ÂúÁËËùÓĞµÄ¼¼ÄÜ£¡\n"NOR);
+CHANNEL_D->do_channel(this_object(), "rumor", HIC"å¬è¯´" + ob->name(1) + "é˜…è¯»äº†ä¸€æ¬¡"HIR"æ‚Ÿé“ç§˜ç±"HIC"ï¼Œè¡¥æ»¡äº†æ‰€æœ‰çš„æŠ€èƒ½ï¼\n"NOR);
 
 
 	degree();

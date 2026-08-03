@@ -3,14 +3,14 @@
 inherit ROOM;
 void create()
 {
-	set("short",HIW"Ğ¡Ê¯ÇÅ"NOR);
+	set("short",HIW"å°çŸ³æ¡¥"NOR);
 	set("long",@long
-ÕâÊÇÒ»×ùĞ¡Ğ¡µÄ°×Ê¯¹°ÇÅ¡£ÇÅÏÂ±ÌÂÌµÄºşË®Õıµ´×ÅÎ¢²¨¡£Ô¶´¦µÄºşÃæÉÏ´«
-À´ÕóÕó¸èÉù£¬²»Ô¶´¦Á½Ö»Ô§ÑìÔÚÒ»ÆğÏ·Ë®£¬°¶±ßµÄÁøÊ÷Ëæ×ÅºşÃæÉÏ´µÀ´µÄÎ¢·ç
-Ê±²»Ê±µØÒ¡°Ú×Å¡£
+è¿™æ˜¯ä¸€åº§å°å°çš„ç™½çŸ³æ‹±æ¡¥ã€‚æ¡¥ä¸‹ç¢§ç»¿çš„æ¹–æ°´æ­£è¡ç€å¾®æ³¢ã€‚è¿œå¤„çš„æ¹–é¢ä¸Šä¼ 
+æ¥é˜µé˜µæ­Œå£°ï¼Œä¸è¿œå¤„ä¸¤åªé¸³é¸¯åœ¨ä¸€èµ·æˆæ°´ï¼Œå²¸è¾¹çš„æŸ³æ ‘éšç€æ¹–é¢ä¸Šå¹æ¥çš„å¾®é£
+æ—¶ä¸æ—¶åœ°æ‘‡æ‘†ç€ã€‚
 long);
 // will add a npc to ask chuan
-	set("outdoors","Ä½Èİ");
+	set("outdoors","æ…•å®¹");
 	set("exits", ([
 		"south" : __DIR__"testmatou1",
 		"northwest" : __DIR__"hubian2",
@@ -25,9 +25,9 @@ void init()
 
 int do_push(string arg)
 {
-	if (arg != "ÇÅÀ¸" || query("exits/down")) return notify_fail("ÄãÒª°´Ê²Ã´£¿\n");
+	if (arg != "æ¡¥æ " || query("exits/down")) return notify_fail("ä½ è¦æŒ‰ä»€ä¹ˆï¼Ÿ\n");
 	
-	message_vision("ÇÅÍ·Í»È»ÏİÏÂÈ¥ÁËÒ»¿é£¬Â¶³öÒ»¸öµØ¶´¡£\n",this_player());
+	message_vision("æ¡¥å¤´çªç„¶é™·ä¸‹å»äº†ä¸€å—ï¼Œéœ²å‡ºä¸€ä¸ªåœ°æ´ã€‚\n",this_player());
 	
 	set("exits/down", __DIR__"didao");
 	
@@ -39,14 +39,14 @@ int do_push(string arg)
 
 void close()
 {
-	tell_room(this_object(), "µØÃæ»º»ºµÄÉıÆğÀ´£¬¶´¿ÚÒ²ÏûÊ§²»¼ûÁË¡£\n");
+	tell_room(this_object(), "åœ°é¢ç¼“ç¼“çš„å‡èµ·æ¥ï¼Œæ´å£ä¹Ÿæ¶ˆå¤±ä¸è§äº†ã€‚\n");
 	delete("exits/down");
 }
 
 int valid_leave(object me, string dir)
 {
-	if (me->query("family/family_name") != "¹ÃËÕÄ½Èİ" && dir=="down")
-		return notify_fail("Ò»Î»Ä½Èİ¼Ò¶¡ºöÈ»´ÓÒõ°µ´¦ÌøÁË³öÀ´£¬À¹×¡ÁËÄãËµµÀ£ºÉÃ´³Ä½ÈİÃÜµÀÕßËÀ£¡£¡\nËµÍê£¬ÄÇÎ»¼Ò¶¡ÉíĞÎÒ»»Î£¬ÓÖÍË»Ø°µ´¦¡£\n");
+	if (me->query("family/family_name") != "å§‘è‹æ…•å®¹" && dir=="down")
+		return notify_fail("ä¸€ä½æ…•å®¹å®¶ä¸å¿½ç„¶ä»é˜´æš—å¤„è·³äº†å‡ºæ¥ï¼Œæ‹¦ä½äº†ä½ è¯´é“ï¼šæ“…é—¯æ…•å®¹å¯†é“è€…æ­»ï¼ï¼\nè¯´å®Œï¼Œé‚£ä½å®¶ä¸èº«å½¢ä¸€æ™ƒï¼Œåˆé€€å›æš—å¤„ã€‚\n");
 
 	return ::valid_leave(me, dir);
 }

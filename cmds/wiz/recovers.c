@@ -1,10 +1,10 @@
 // recovers.c
 // Created by Numa 19990906
 // Modified by Numa 19990926
-// Modified by Numa 19991120 ĞŞ¸´ÁËÍæ¼ÒÈç¹ûÔÚÏßÊ±»Ö¸´²»³É¹¦µÄbug
-// modify by snowman@SJ 26/02/2000 ¸ÄÁËlog fileµÄÎ»ÖÃ
-// modify by looklove 29/07/2000 ĞŞ¸Ä²¿·Ö·µ»ØĞÅÏ¢
-// modify by looklove 2001-7-5 ·¢ËÍÍ¨ÖªĞÅ¼ş & ·ÀÖ¹»Ö¸´ÒÑÉ¾³ıIDµÄs -fÊı¾İ
+// Modified by Numa 19991120 ä¿®å¤äº†ç©å®¶å¦‚æœåœ¨çº¿æ—¶æ¢å¤ä¸æˆåŠŸçš„bug
+// modify by snowman@SJ 26/02/2000 æ”¹äº†log fileçš„ä½ç½®
+// modify by looklove 29/07/2000 ä¿®æ”¹éƒ¨åˆ†è¿”å›ä¿¡æ¯
+// modify by looklove 2001-7-5 å‘é€é€šçŸ¥ä¿¡ä»¶ & é˜²æ­¢æ¢å¤å·²åˆ é™¤IDçš„s -fæ•°æ®
 
 inherit F_CLEAN_UP;
 
@@ -28,12 +28,12 @@ int main(object me,string arg)
 	if (!arg) return help(me);
 	me = this_player(1);
 	if (sscanf(arg,"%s %s", arg, nod) != 2) {
-		if (file_size("/data/user/"+ arg[0..0] + "/" + arg + ".ppp")>0) //add by looklove, ±ÜÃâ»Ö¸´±»É¾³ıµÄID ¡£
-			return notify_fail(arg + " ´ËidÊÇ±»É¾³ıµÄid£¬Çë¼Ó -p ²ÎÊı£¡\n");
+		if (file_size("/data/user/"+ arg[0..0] + "/" + arg + ".ppp")>0) //add by looklove, é¿å…æ¢å¤è¢«åˆ é™¤çš„ID ã€‚
+			return notify_fail(arg + " æ­¤idæ˜¯è¢«åˆ é™¤çš„idï¼Œè¯·åŠ  -p å‚æ•°ï¼\n");
 		if (file_size("/data/login/" + arg[0..0] + "/" + arg + ".ooo") < 0)
-			return notify_fail(arg + " µÄµÇÂ¼µµ°¸±¸·İ²»´æÔÚ£¬ÎŞ·¨»Ö¸´£¡\n");
+			return notify_fail(arg + " çš„ç™»å½•æ¡£æ¡ˆå¤‡ä»½ä¸å­˜åœ¨ï¼Œæ— æ³•æ¢å¤ï¼\n");
 		if (file_size("/data/user/"+ arg[0..0] + "/" + arg + ".ooo")<0)
-			return notify_fail(arg + " µÄÊı¾İµµ°¸±¸·İ²»´æÔÚ£¬ÎŞ·¨»Ö¸´£¡\n");
+			return notify_fail(arg + " çš„æ•°æ®æ¡£æ¡ˆå¤‡ä»½ä¸å­˜åœ¨ï¼Œæ— æ³•æ¢å¤ï¼\n");
 
 		rename("/data/login/" + arg[0..0] + "/" + arg + ".ooo", "/data/login/" + arg[0..0] + "/" + arg + ".o");
 
@@ -41,32 +41,32 @@ int main(object me,string arg)
 		rename("/data/user/" + arg[0..0] + "/" + arg + ".ooo", "/data/user/" + arg[0..0] + "/" + arg + ".o");
 		//log to recover_suicide
 		log_file("static/recover_suicide",
-			sprintf("%s»Ö¸´(%s)[×ÔÉ±ÓÚ%s]¡£\n",
+			sprintf("%sæ¢å¤(%s)[è‡ªæ€äº%s]ã€‚\n",
 				geteuid(me),arg,ctime(file_info[1])
 			), me, ({ arg })
 		);
-		write(arg + " µÄ×ÔÉ±Êı¾İ»Ö¸´Íê±Ï£¬Í¨ÖªĞÅ¼ş·¢ËÍÖĞ¡­¡­\n");
+		write(arg + " çš„è‡ªæ€æ•°æ®æ¢å¤å®Œæ¯•ï¼Œé€šçŸ¥ä¿¡ä»¶å‘é€ä¸­â€¦â€¦\n");
 
-		//·¢ËÍÍ¨ÖªĞÅ¼ş
-		msg =   ""+arg+ "£¬ÄúºÃ£º\n"+
-			"    ºÜ¸ßĞËÍ¨ÖªÄú£¬ÄúÔÚ"+CHINESE_MUD_NAME+"µÄ×ÔÉ±IDÒÑ¾­»Ö¸´¡£»¶Ó­Äú»ØÀ´¼ÌĞø½øĞĞÓÎÏ·¡£\n"+
-			"Èç¹ûÄúÓĞÈÎºÎÒâ¼ûºÍ½¨Òé£¬ÇëºÍËùÔÚ·ÖÕ¾µÄÎ×Ê¦ÁªÏµ¡£ÓÃ¡°wizlist¡±Ö¸Áî¿ÉÒÔ\n"+
-			"²é¿´ËûÃÇµÄID¡£\n"+
+		//å‘é€é€šçŸ¥ä¿¡ä»¶
+		msg =   ""+arg+ "ï¼Œæ‚¨å¥½ï¼š\n"+
+			"    å¾ˆé«˜å…´é€šçŸ¥æ‚¨ï¼Œæ‚¨åœ¨"+CHINESE_MUD_NAME+"çš„è‡ªæ€IDå·²ç»æ¢å¤ã€‚æ¬¢è¿æ‚¨å›æ¥ç»§ç»­è¿›è¡Œæ¸¸æˆã€‚\n"+
+			"å¦‚æœæ‚¨æœ‰ä»»ä½•æ„è§å’Œå»ºè®®ï¼Œè¯·å’Œæ‰€åœ¨åˆ†ç«™çš„å·«å¸ˆè”ç³»ã€‚ç”¨â€œwizlistâ€æŒ‡ä»¤å¯ä»¥\n"+
+			"æŸ¥çœ‹ä»–ä»¬çš„IDã€‚\n"+
 			"\n"+
 			"\n"+
-			"´ËÖÂ\n"+
-			"				Êé½£Î×Ê¦×é\n"+
+			"æ­¤è‡´\n"+
+			"				ä¹¦å‰‘å·«å¸ˆç»„\n"+
 			"\n"+ctime(time());
 
-		SMTP_D->send_mail(me,arg,"Í¨ÖªÓÊ¼ş",msg);
+		SMTP_D->send_mail(me,arg,"é€šçŸ¥é‚®ä»¶",msg);
 	} else {
 		if (nod != "-p") return help(me);
  if (geteuid(me) != "hongba" && geteuid(me) != "master")
-return notify_fail("ÇëÍ¨Öª8×Ü»ò²Ë×Ü¡£\n");
+return notify_fail("è¯·é€šçŸ¥8æ€»æˆ–èœæ€»ã€‚\n");
 		if (file_size("/data/login/" + arg[0..0] + "/" + arg + ".ppp") < 0)
-			return notify_fail(arg + " µÄµÇÂ¼µµ°¸±¸·İ²»´æÔÚ£¬ÎŞ·¨»Ö¸´£¡\n");
+			return notify_fail(arg + " çš„ç™»å½•æ¡£æ¡ˆå¤‡ä»½ä¸å­˜åœ¨ï¼Œæ— æ³•æ¢å¤ï¼\n");
 		if (file_size("/data/user/"+ arg[0..0] + "/" + arg + ".ppp")<0)
-			return notify_fail(arg + " µÄÊı¾İµµ°¸±¸·İ²»´æÔÚ£¬ÎŞ·¨»Ö¸´£¡\n");
+			return notify_fail(arg + " çš„æ•°æ®æ¡£æ¡ˆå¤‡ä»½ä¸å­˜åœ¨ï¼Œæ— æ³•æ¢å¤ï¼\n");
 
 		rename("/data/login/" + arg[0..0] + "/" + arg + ".ppp","/data/login/" + arg[0..0] + "/" + arg + ".o");
 
@@ -74,25 +74,25 @@ return notify_fail("ÇëÍ¨Öª8×Ü»ò²Ë×Ü¡£\n");
 		rename("/data/user/" + arg[0..0] + "/" + arg + ".ppp","/data/user/" + arg[0..0] + "/" + arg + ".o");
 		//log to recover_purge
 		log_file("static/recover_purge",
-			sprintf("%s»Ö¸´(%s)[É¾³ıÓÚ%s]¡£\n",
+			sprintf("%sæ¢å¤(%s)[åˆ é™¤äº%s]ã€‚\n",
 				geteuid(me),arg,ctime(file_info[1])
 			), me, ({ arg })
 		);
-		write(arg + " µÄÉ¾³ıÊı¾İ»Ö¸´Íê±Ï£¬ÏµÍ³ÕıÔÚ·¢ËÍÍ¨ÖªĞÅ¼ş¡£\n");
+		write(arg + " çš„åˆ é™¤æ•°æ®æ¢å¤å®Œæ¯•ï¼Œç³»ç»Ÿæ­£åœ¨å‘é€é€šçŸ¥ä¿¡ä»¶ã€‚\n");
 
-		//·¢ËÍÍ¨ÖªĞÅ¼ş
-		msg =   ""+arg+ "£¬ÄúºÃ£º\n"+
-			"    ÄúÔÚ"+CHINESE_MUD_NAME+"±»É¾³ıµÄIDÒÑ¾­»Ö¸´¡£»¶Ó­Äú»ØÀ´¼ÌĞø½øĞĞÓÎÏ·¡£\n"+
-			"Èç¹ûÄúÓĞÈÎºÎÒâ¼ûºÍ½¨Òé£¬ÇëºÍËùÔÚ·ÖÕ¾µÄÎ×Ê¦ÁªÏµ¡£ÓÃ¡°wizlist¡±Ö¸Áî¿ÉÒÔ\n"+
-			"²é¿´ËûÃÇµÄID¡£\n"+
-			"    ÇëÓÃ¡°help rules¡±Ö¸Áî²é¿´ÓÎÏ·¹æÔò£¬²¢Çë×¢Òâ×ñÊØ¡£Ğ»Ğ»¡£\n"+
+		//å‘é€é€šçŸ¥ä¿¡ä»¶
+		msg =   ""+arg+ "ï¼Œæ‚¨å¥½ï¼š\n"+
+			"    æ‚¨åœ¨"+CHINESE_MUD_NAME+"è¢«åˆ é™¤çš„IDå·²ç»æ¢å¤ã€‚æ¬¢è¿æ‚¨å›æ¥ç»§ç»­è¿›è¡Œæ¸¸æˆã€‚\n"+
+			"å¦‚æœæ‚¨æœ‰ä»»ä½•æ„è§å’Œå»ºè®®ï¼Œè¯·å’Œæ‰€åœ¨åˆ†ç«™çš„å·«å¸ˆè”ç³»ã€‚ç”¨â€œwizlistâ€æŒ‡ä»¤å¯ä»¥\n"+
+			"æŸ¥çœ‹ä»–ä»¬çš„IDã€‚\n"+
+			"    è¯·ç”¨â€œhelp rulesâ€æŒ‡ä»¤æŸ¥çœ‹æ¸¸æˆè§„åˆ™ï¼Œå¹¶è¯·æ³¨æ„éµå®ˆã€‚è°¢è°¢ã€‚\n"+
 			"\n"+
 			"\n"+
-			"´ËÖÂ\n"+
-			"				Êé½£Î×Ê¦×é\n"+
+			"æ­¤è‡´\n"+
+			"				ä¹¦å‰‘å·«å¸ˆç»„\n"+
 			"\n"+ctime(time());
 
-		SMTP_D->send_mail(me,arg,"Í¨ÖªÓÊ¼ş",msg);
+		SMTP_D->send_mail(me,arg,"é€šçŸ¥é‚®ä»¶",msg);
 	}
 	if (ob = LOGIN_D->find_body(arg))
 		update_player(ob);
@@ -123,7 +123,7 @@ private int update_player(object me)
 	obj->restore();
 	LOGIN_D->enter_world(link_ob, obj, 1);
 
-	tell_object(obj, "ÄãµÄÊı¾İ»Ö¸´Íê±Ï¡£\n");
+	tell_object(obj, "ä½ çš„æ•°æ®æ¢å¤å®Œæ¯•ã€‚\n");
 	obj->write_prompt();
 	return 1;
 }
@@ -131,10 +131,10 @@ private int update_player(object me)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : recovers <Ä¿±êID> [-p]
+æŒ‡ä»¤æ ¼å¼ : recovers <ç›®æ ‡ID> [-p]
 
-Õâ¸öÖ¸Áî¿ÉÒÔ×Ô¶¯»Ö¸´×ÔÉ±µÄÍæ¼Ò¡£
-¼ÓÉÏ -p ²ÎÊı¶Ô purge ½øĞĞ»Ö¸´¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è‡ªåŠ¨æ¢å¤è‡ªæ€çš„ç©å®¶ã€‚
+åŠ ä¸Š -p å‚æ•°å¯¹ purge è¿›è¡Œæ¢å¤ã€‚
 
 HELP
 );

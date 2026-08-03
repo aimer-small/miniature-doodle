@@ -5,18 +5,18 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIB "À¶É«¶ĞÅÛ" NOR, ({ "duan pao", "cloth","duanpao","pao"}));
+        set_name(HIB "è“è‰²ç¼è¢" NOR, ({ "duan pao", "cloth","duanpao","pao"}));
         set_weight(4000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÊÇÒ»¼ş×ö¹¤¾«Ï¸µÄÀ¶É«³¤ÅÛ£¬ËÆºõÊÇÓÃÃû¹óµÄ½­ÄÏ³ñ¶Ğ¼ô²Ã¶ø³É¡£\n");
-                set("unit", "¼ş");
+                set("long", "è¿™æ˜¯ä¸€ä»¶åšå·¥ç²¾ç»†çš„è“è‰²é•¿è¢ï¼Œä¼¼ä¹æ˜¯ç”¨åè´µçš„æ±Ÿå—ç»¸ç¼å‰ªè£è€Œæˆã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 35);
                 set("value", 100);
-                set("wear_msg","$N°Ñ$nËæÒâÒ»»Ó£¬»º»ºµÄÅûÔÚÉíÉÏ¡£\n");
-                set("remove_msg","$NÇáÇáµÄ°Ñ$n´ÓÉíÉÏÍÑÁËÏÂÀ´¡£\n");
+                set("wear_msg","$NæŠŠ$néšæ„ä¸€æŒ¥ï¼Œç¼“ç¼“çš„æŠ«åœ¨èº«ä¸Šã€‚\n");
+                set("remove_msg","$Nè½»è½»çš„æŠŠ$nä»èº«ä¸Šè„±äº†ä¸‹æ¥ã€‚\n");
         }
         setup();
 }

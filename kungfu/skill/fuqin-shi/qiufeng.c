@@ -1,4 +1,4 @@
-// qiufeng.c Çï·ç¸§ÇÙÊ½
+// qiufeng.c ç§‹é£æŠšç´å¼
 // Created by snowman@SJ 08/03/2001
 
 #include <ansi.h>
@@ -7,7 +7,7 @@ inherit F_SSERVER;
 
 int is_pfm() { return 1;}
 
-#define PFM_NAME 	"Çï·ç¸§ÇÙÊ½"
+#define PFM_NAME 	"ç§‹é£æŠšç´å¼"
 
 string perform_name(){ return YEL+PFM_NAME+NOR; }
 
@@ -19,28 +19,28 @@ int perform(object me, object target)
       	|| !me->is_fighting(target) 
       	|| !living(target)
       	|| environment(target) != environment(me) )
-      		return notify_fail("¡¸"PFM_NAME + "¡¹Ö»ÄÜÔÚÕ½¶·ÖĞ¶Ô¶ÔÊÖÊ¹ÓÃ¡£\n");      
+      		return notify_fail("ã€Œ"PFM_NAME + "ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­å¯¹å¯¹æ‰‹ä½¿ç”¨ã€‚\n");      
 
 	if( target->is_busy() )
-      		return notify_fail("¶Ô·½ÒÑ¾­×Ô¹Ë²»Ï¾ÁË£¬²»±ØÊ¹ÓÃ¡¸" + PFM_NAME + "¡¹°É£¿\n");
+      		return notify_fail("å¯¹æ–¹å·²ç»è‡ªé¡¾ä¸æš‡äº†ï¼Œä¸å¿…ä½¿ç”¨ã€Œ" + PFM_NAME + "ã€å§ï¼Ÿ\n");
       		
       	if( (int)me->query_skill("fuqin-shi",1) < 100 )
-      		return notify_fail("ÄãµÄ¸§ÇÙÊ½²»¹»æµÊì£¬²»ÄÜÊ¹ÓÃ¡¸" + PFM_NAME + "¡¹£¡\n");
+      		return notify_fail("ä½ çš„æŠšç´å¼ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œ" + PFM_NAME + "ã€ï¼\n");
       
       	if( (int)me->query_skill("whip",1) < 100 )
-      		return notify_fail("ÄãµÄ»ù±¾±Ş·¨µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸" + PFM_NAME + "¡¹£¡\n");  
+      		return notify_fail("ä½ çš„åŸºæœ¬é­æ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œ" + PFM_NAME + "ã€ï¼\n");  
       
       	if( (int)me->query_skill("sancheng-gong", 1) < 80 )
-      		return notify_fail("ÄãµÄÈı³Ë¹¦·¨µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸" + PFM_NAME + "¡¹£¡\n");
+      		return notify_fail("ä½ çš„ä¸‰ä¹˜åŠŸæ³•ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œ" + PFM_NAME + "ã€ï¼\n");
 
       	if( (int)me->query("max_neili") < 800 )
-      		return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ¡¸" + PFM_NAME + "¡¹£¡\n");
+      		return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ã€Œ" + PFM_NAME + "ã€ï¼\n");
       
       	if( (int)me->query("neili") < 300 )
-      		return notify_fail("ÄãµÄÄÚÁ¦Ì«ÉÙÁË£¬ÎŞ·¨Ê¹ÓÃ³ö¡¸" + PFM_NAME + "¡¹£¡\n");   
+      		return notify_fail("ä½ çš„å†…åŠ›å¤ªå°‘äº†ï¼Œæ— æ³•ä½¿ç”¨å‡ºã€Œ" + PFM_NAME + "ã€ï¼\n");   
                                                                                  
       	if( me->query_skill_mapped("force") != "sancheng-gong")
-      		return notify_fail("ÄãÏÖÔÚµÄÄÚ¹¦ÎŞ·¨Ö§³ÖÊ¹ÓÃ¡¸" + PFM_NAME + "¡¹½øĞĞ¹¥»÷¡£\n");
+      		return notify_fail("ä½ ç°åœ¨çš„å†…åŠŸæ— æ³•æ”¯æŒä½¿ç”¨ã€Œ" + PFM_NAME + "ã€è¿›è¡Œæ”»å‡»ã€‚\n");
 
 	return (int)call_other( this_object(), "main", me, target);
 }
@@ -56,15 +56,15 @@ int main(object me, object target)
         if( !target || !target->is_character() || !me->is_fighting(target) || !living(target) 
         || me->query("neili") < 400 || me->query("jingli") < 100 
         || environment(target) != environment(me) )
-                return notify_fail("ÄãÄ¿Ç°ÎŞ·¨Ê¹ÓÃ¡¸" + PFM_NAME + "£¡\n");   
+                return notify_fail("ä½ ç›®å‰æ— æ³•ä½¿ç”¨ã€Œ" + PFM_NAME + "ï¼\n");   
                 
         weapon = me->query_temp("weapon");
         if (!weapon || weapon->query("skill_type") != "whip"
        	|| me->query_skill_mapped("whip") != "fuqin-shi")
-      		return notify_fail("ÄãÊÖÀïÃ»ÓĞ±Ş£¬ÎŞ·¨Ê¹ÓÃ¡¸" + PFM_NAME + "¡¹£¡\n");   
+      		return notify_fail("ä½ æ‰‹é‡Œæ²¡æœ‰é­ï¼Œæ— æ³•ä½¿ç”¨ã€Œ" + PFM_NAME + "ã€ï¼\n");   
       		
-      	msg = YEL"\nµ«¼ûÇï·ç´µ·÷×Å·åÂÍ£¬Ò¡º³×Å´ÔÁÖ£¬·¢³öÉùÉùºôĞ¥£¬Æ¬Æ¬³ÈºìµÄ"RED"·ãÒ¶"YEL"ÔÚ¿ÕÖĞ·ÉÎè£¬Á÷Ë®¡¢Çï·ç¡¢Ê÷ÌÎÏà»¥Ó¦ºÍ×Å¡­¡­\n\n"HIC
-      	"$NÓ­·ç¶øÁ¢£¬ÌáÍó¶¶±Ş£¬"+weapon->name()+HIC"·É´®¶ø³ö£¬Ó­×Å½ğ·ç¶øÈë£¬¡¸" + PFM_NAME + "¡¹·Â·ğÎªÆ®Æ®ºìÒ¶°éÎè£¬Ö±Ï®$n£¡\n"NOR;
+      	msg = YEL"\nä½†è§ç§‹é£å¹æ‹‚ç€å³°å³¦ï¼Œæ‘‡æ’¼ç€ä¸›æ—ï¼Œå‘å‡ºå£°å£°å‘¼å•¸ï¼Œç‰‡ç‰‡æ©™çº¢çš„"RED"æ«å¶"YEL"åœ¨ç©ºä¸­é£èˆï¼Œæµæ°´ã€ç§‹é£ã€æ ‘æ¶›ç›¸äº’åº”å’Œç€â€¦â€¦\n\n"HIC
+      	"$Nè¿é£è€Œç«‹ï¼Œæè…•æŠ–é­ï¼Œ"+weapon->name()+HIC"é£ä¸²è€Œå‡ºï¼Œè¿ç€é‡‘é£è€Œå…¥ï¼Œã€Œ" + PFM_NAME + "ã€ä»¿ä½›ä¸ºé£˜é£˜çº¢å¶ä¼´èˆï¼Œç›´è¢­$nï¼\n"NOR;
       	
       	me->add("neili", -(200+random(100))); 
       	me->add("jingli", -50);
@@ -77,7 +77,7 @@ int main(object me, object target)
 		
         if( random(ap + dp) > dp ){
         	target->start_busy(me->query_int()/8);
-        	msg += YEL"½á¹û$nÒ»²»ÁôÉñ£¬±»¾í½øÁËÕâ±ŞÓ°ÖĞ£¬¶ÙÊ±ÕĞ·¨´íÂÒ£¡\n"NOR;
+        	msg += YEL"ç»“æœ$nä¸€ä¸ç•™ç¥ï¼Œè¢«å·è¿›äº†è¿™é­å½±ä¸­ï¼Œé¡¿æ—¶æ‹›æ³•é”™ä¹±ï¼\n"NOR;
         }
        	else{
                 me->start_busy(1+random(2));

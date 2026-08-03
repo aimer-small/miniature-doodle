@@ -1,4 +1,4 @@
-// hongying-qiang.c ºìÓ§Ç¹
+// hongying-qiang.c çº¢ç¼¨æª
 
 #include <ansi.h>
 #include <weapon.h>
@@ -6,18 +6,18 @@ inherit SPEAR;
 
 void create()
 {
-        set_name(RED"ºìÓ§°×À¯´óÇ¹"NOR , ({ "hongying qiang", "qiang", "spear","hongying" }));
+        set_name(RED"çº¢ç¼¨ç™½èœ¡å¤§æª"NOR , ({ "hongying qiang", "qiang", "spear","hongying" }));
        set_weight(1200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "´ËÇ¹ÓÉ°×À°¸ËÖÆ³É,³¤ÕÉÈıÓĞÓà£¬Í¨Ìå½à°×ÈçÓñ¡¢¼á¶ø²»Ó²¡¢Èá¶ø²»ÕÛ¡£Ç¹Í·ÓÉ¾«¸Ö´òÖÆ£¬ÈñÀûÎŞÆ¥¡£\n");
+                set("unit", "æŸ„");
+                set("long", "æ­¤æªç”±ç™½è…Šæ†åˆ¶æˆ,é•¿ä¸ˆä¸‰æœ‰ä½™ï¼Œé€šä½“æ´ç™½å¦‚ç‰ã€åšè€Œä¸ç¡¬ã€æŸ”è€Œä¸æŠ˜ã€‚æªå¤´ç”±ç²¾é’¢æ‰“åˆ¶ï¼Œé”åˆ©æ— åŒ¹ã€‚\n");
                 set("value", 70000);
                 set("no_sell", 1);
                 set("material", "steel");
-                set("wield_msg", "$NÇáÇáÒ»¶¶ÊÖÖĞ$n£¬Ö»¼ûÇ¹¼âÍ»ÈçÉÁµç£¬ÔÚ¿ÕÖĞµã³öÆß¶äÀæ»¨¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞ$nÒ»¶¶£¬Ğ±Ğ±¿¹ÔÚ¼çÉÏ¡£\n");
+                set("wield_msg", "$Nè½»è½»ä¸€æŠ–æ‰‹ä¸­$nï¼Œåªè§æªå°–çªå¦‚é—ªç”µï¼Œåœ¨ç©ºä¸­ç‚¹å‡ºä¸ƒæœµæ¢¨èŠ±ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­$nä¸€æŠ–ï¼Œæ–œæ–œæŠ—åœ¨è‚©ä¸Šã€‚\n");
         }
         init_spear(80);
         setup();

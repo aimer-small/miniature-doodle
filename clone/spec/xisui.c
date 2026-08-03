@@ -6,10 +6,10 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HBMAG"Ï´Ëèµ¤"NOR, ({ "xisui dan","dan","xisui"}));
-	set("long","ÕâÊÇÒ»¿Å½­ºşÈËÊ¿ÃÎÃÂÒÔÇóµÄ"HBMAG"Ï´Ëèµ¤"NOR"£¬¾İËµÊ¹ÓÃ("HIY"use xisui"NOR")ºó¿ÉÒÔÍÑÌ¥»»¹Ç¡£\n");
+	set_name (HBMAG"æ´—é«“ä¸¹"NOR, ({ "xisui dan","dan","xisui"}));
+	set("long","è¿™æ˜¯ä¸€é¢—æ±Ÿæ¹–äººå£«æ¢¦å¯ä»¥æ±‚çš„"HBMAG"æ´—é«“ä¸¹"NOR"ï¼Œæ®è¯´ä½¿ç”¨("HIY"use xisui"NOR")åå¯ä»¥è„±èƒæ¢éª¨ã€‚\n");
 
-	set("unit","¿Å");
+	set("unit","é¢—");
 	set_weight(100);
 	set("value",3000000);
         set("no_give",1);
@@ -19,7 +19,7 @@ void create()
 	set("degree",1);
 	set("flag","spec/xishui");
         set("rest",7);
-	set("desc","¿ÉÒÔÃâ·Ñµ÷ÕûÌì¸³Ò»´Î£¨ÏŞ¶¨´ÎÊı£¬²»¿É±£´æ£©¡£");
+	set("desc","å¯ä»¥å…è´¹è°ƒæ•´å¤©èµ‹ä¸€æ¬¡ï¼ˆé™å®šæ¬¡æ•°ï¼Œä¸å¯ä¿å­˜ï¼‰ã€‚");
         set("credit",2500);       
 	setup();
 }
@@ -35,20 +35,20 @@ int do_pray(string arg)
 	object me=this_player();
 	    
 	if (!arg)
-      		return notify_fail("Ê²Ã´?\n");
+      		return notify_fail("ä»€ä¹ˆ?\n");
       		
 	if (arg!="xisui" && arg!="xisui dan" && arg!="dan")
-      		return notify_fail("Ê²Ã´?\n");
-       if (me->is_busy() || me->is_fighting() ) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");      	
+      		return notify_fail("ä»€ä¹ˆ?\n");
+       if (me->is_busy() || me->is_fighting() ) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");      	
 
       	if (me->query("can_cgift"))
-      		return notify_fail("ÄãÉÏ´Î·şÓÃµÄÏ´Ëèµ¤µÄĞ§Á¦ÉĞÎ´ÍËÈ¥£¬»¹ÊÇµÈµÈÔÙÓÃ°É!\n");
+      		return notify_fail("ä½ ä¸Šæ¬¡æœç”¨çš„æ´—é«“ä¸¹çš„æ•ˆåŠ›å°šæœªé€€å»ï¼Œè¿˜æ˜¯ç­‰ç­‰å†ç”¨å§!\n");
       		
-      	if (!restrict()) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}   
+      	if (!restrict()) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}   
 
 
-	write(HIY"Äã³ÔÏÂÒ»¿Å"MAG"Ï´Ëèµ¤"HIY"£¬¶ÙÊ±¾õµÃ¶ú´ÏÄ¿Ã÷£¬½î¹ÇÇ¿½¡......\n"NOR);
-	write(HIW"Äã¾õµÃ×Ô¼ºµÄÌì¸³·ÖÅäºÃÏñÓĞĞ©²»Ì«ºÏÊÊ£¬Ó¦¸ÃÊ¹ÓÃcgiftÀ´µ÷ÕûÒ»ÏÂ¡£\n"NOR);
+	write(HIY"ä½ åƒä¸‹ä¸€é¢—"MAG"æ´—é«“ä¸¹"HIY"ï¼Œé¡¿æ—¶è§‰å¾—è€³èªç›®æ˜ï¼Œç­‹éª¨å¼ºå¥......\n"NOR);
+	write(HIW"ä½ è§‰å¾—è‡ªå·±çš„å¤©èµ‹åˆ†é…å¥½åƒæœ‰äº›ä¸å¤ªåˆé€‚ï¼Œåº”è¯¥ä½¿ç”¨cgiftæ¥è°ƒæ•´ä¸€ä¸‹ã€‚\n"NOR);
          me->set("can_cgift",1);
 	degree();
 	return 1;

@@ -1,13 +1,13 @@
-// yelvqi.c Ò®ÂÉÆë
+// yelvqi.c è€¶å¾‹é½
 
 #include <ansi.h>
 inherit NPC;
 void create()
 {
-        set_name("Ò®ÂÉÆë", ({"yelv qi", "yelv", "qi"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("è€¶å¾‹é½", ({"yelv qi", "yelv", "qi"}));
+        set("gender", "ç”·æ€§");
         set("age", 30);
-        set("long", "ËûÊÇØ¤°ïµÄµÚ¶şÊ®´ú°ïÖ÷£¬¹ù´óÏÀµÄÅ®Ğö¡£\n");
+        set("long", "ä»–æ˜¯ä¸å¸®çš„ç¬¬äºŒåä»£å¸®ä¸»ï¼Œéƒ­å¤§ä¾ çš„å¥³å©¿ã€‚\n");
         set("attitude", "peaceful");
         set("str", 35);
         set("int", 25);
@@ -43,7 +43,7 @@ void create()
                 (: perform_action, "strike.paiyun" :),
                 (: perform_action, "strike.kanglong" :),
         }));
-        create_family("Ø¤°ï", 20, "°ïÖ÷");
+        create_family("ä¸å¸®", 20, "å¸®ä¸»");
         setup();
 
 	carry_object(ARMOR_D("changpao"))->wear();

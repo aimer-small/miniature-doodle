@@ -2,10 +2,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", HIR"ÃØµÀ"NOR);
+        set("short", HIR"ç§˜é“"NOR);
         set("long", @LONG
-ÕâÌõÒõ°µµÄÃØµÀÔÚÉ½¸¹ÖÐÇúÕÛÑÓÉì£¬²»ÖªÍ¨ÍùºÎ´¦¡£ÕâÀïµÄÊ¯±Ú·Ç³£
-³±Êª£¬¿´À´¸½½üÓÐË®Ô´¡£
+è¿™æ¡é˜´æš—çš„ç§˜é“åœ¨å±±è…¹ä¸­æ›²æŠ˜å»¶ä¼¸ï¼Œä¸çŸ¥é€šå¾€ä½•å¤„ã€‚è¿™é‡Œçš„çŸ³å£éžå¸¸
+æ½®æ¹¿ï¼Œçœ‹æ¥é™„è¿‘æœ‰æ°´æºã€‚
 LONG);
         set("objects", ([
                     __DIR__"npc/hama" : 1,
@@ -21,8 +21,8 @@ void init()
 {    
   	object me = this_player();
      	if (random(me->query("kar")) <8 && me->query_con() < 35){ 
-        	tell_object(me, HIB "ÄãºöÈ»¸Ðµ½ºôÎüÒ»½ô£¬Ô­À´ÊÇÕâÀïµÄ¿ÕÆøÎÛ×Ç¡¢Á÷Í¨²»³©¡£\n" NOR );      
-             	tell_room(environment(me), me->name()+"Í»È»Á³É«±äµÃ¼«ÎªÄÑ¿´£¬²¢ÉîÉîµØÎüÁË¿ÚÆø¡£\n" NOR,({ me }));
+        	tell_object(me, HIB "ä½ å¿½ç„¶æ„Ÿåˆ°å‘¼å¸ä¸€ç´§ï¼ŒåŽŸæ¥æ˜¯è¿™é‡Œçš„ç©ºæ°”æ±¡æµŠã€æµé€šä¸ç•…ã€‚\n" NOR );      
+             	tell_room(environment(me), me->name()+"çªç„¶è„¸è‰²å˜å¾—æžä¸ºéš¾çœ‹ï¼Œå¹¶æ·±æ·±åœ°å¸äº†å£æ°”ã€‚\n" NOR,({ me }));
              	me->receive_damage("neili", 50);
              	me->receive_damage("jingli", 50);
              	me->receive_wound("jing", 20);

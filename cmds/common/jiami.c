@@ -13,7 +13,7 @@ int main(object me, string arg)
 	int size, i, flag;
 
 	seteuid(getuid(me));
-	if (!arg) return notify_fail("Ö¸Áî¸ñÊ½£ºjiami <ÎÄ¼şÃû>\n");
+	if (!arg) return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šjiami <æ–‡ä»¶å>\n");
 	flag = wizardp(me);
 	file = resolve_path(me->query("cwd"), arg);
 	switch (file[<2..<1]) {
@@ -21,16 +21,16 @@ int main(object me, string arg)
 		case ".h":
 			break;
 		default:
-			return notify_fail("ÎÄ¼ş±ØĞëÒÔ .c »ò .h ½áÎ²¡£\n");
+			return notify_fail("æ–‡ä»¶å¿…é¡»ä»¥ .c æˆ– .h ç»“å°¾ã€‚\n");
 	}
-	if (file_size(file) < 0) return notify_fail("Ã»ÓĞÕâ¸öÎÄ¼ş¡£\n");
-	if (flag) write("¶ÁÈ¡ " + file + "... ");
+	if (file_size(file) < 0) return notify_fail("æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶ã€‚\n");
+	if (flag) write("è¯»å– " + file + "... ");
 	buf = read_buffer(file);
 	size = sizeof(buf);
-	if (flag) write(size + " ×Ö½Ú ... ");
-	if (!size) return notify_fail(file + " ³¤¶ÈÎªÁã¡£\n");
-	if (buf[0] & 0x80) return notify_fail(file + " ÒÑ¾­±»¼ÓÃÜÁË¡£\n");
-	if (flag) write(" ¼ÓÃÜ ... ");
+	if (flag) write(size + " å­—èŠ‚ ... ");
+	if (!size) return notify_fail(file + " é•¿åº¦ä¸ºé›¶ã€‚\n");
+	if (buf[0] & 0x80) return notify_fail(file + " å·²ç»è¢«åŠ å¯†äº†ã€‚\n");
+	if (flag) write(" åŠ å¯† ... ");
 	if(size>MAX_SIZE) size=MAX_SIZE;
 	// 1000
 	for (i = 0; i < size; i++) buf[i] = ((buf[i] ^ ((i+128) & 0xD5)) * 257) >> (i & 7);
@@ -38,12 +38,12 @@ int main(object me, string arg)
 	{
 		obb=me;
 		call_out("check_again",0,size);
-		if (flag) write(" ¼´½«Íê³É\n");
+		if (flag) write(" å³å°†å®Œæˆ\n");
 		return 1;
 	}
-	if (flag) write(" ±£´æ ... ");
+	if (flag) write(" ä¿å­˜ ... ");
 	write_buffer(file, 0, buf);
-	if (flag) write(" Íê³É\n");
+	if (flag) write(" å®Œæˆ\n");
 	return 1;
 }
 
@@ -52,7 +52,7 @@ void check_again(int now)
 	int i,size;
 	if(now>=sizeof(buf)){
 		write_buffer(file, 0, buf);
-		if(obb && userp(obb)) tell_object(obb,"¼ÓÃÜÍê³É¡£\n");
+		if(obb && userp(obb)) tell_object(obb,"åŠ å¯†å®Œæˆã€‚\n");
 		return;
 	}
 	size=sizeof(buf)-now;

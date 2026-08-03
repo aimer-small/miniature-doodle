@@ -1,4 +1,4 @@
-// OBJ : /d/wudang/obj/mitao.c Ë®ÃÛÌÒ
+// OBJ : /d/wudang/obj/mitao.c æ°´èœœæ¡ƒ
 // By Marz
 
 inherit ITEM;
@@ -6,13 +6,13 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name("Ë®ÃÛÌÒ", ({"mi tao", "mitao", "tao" }));
+        set_name("æ°´èœœæ¡ƒ", ({"mi tao", "mitao", "tao" }));
         set_weight(40);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»µúË®ÁéĞÂÏÊµÄË®ÃÛÌÒ£¬¸úÌÒ»¨µÄÁ³µ°¶ùÒ»ÑùºìÑŞ¿ÉÈË¡£\n");
-                set("unit", "µú");
+                set("long", "ä¸€ç¢Ÿæ°´çµæ–°é²œçš„æ°´èœœæ¡ƒï¼Œè·Ÿæ¡ƒèŠ±çš„è„¸è›‹å„¿ä¸€æ ·çº¢è‰³å¯äººã€‚\n");
+                set("unit", "ç¢Ÿ");
                 set("food_remaining", 4);
                 set("food_supply", 30);
         }

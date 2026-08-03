@@ -1,15 +1,15 @@
-// eatroom.c ³ø·¿ 
+// eatroom.c å¨æˆ¿ 
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 { 
-       set("short",HIW"³ø·¿"NOR);
+       set("short",HIW"å¨æˆ¿"NOR);
        set("long", @long
-ÕâÀïÊÇ³¤ÀÖ°ïµÄ³ø·¿¡£Î»ÓÚÎ÷ÀÈÖ®ÍâµÄÒ»¼äºÜ´óµÄ·¿¼ä¡£·¿½ÇÀïÓĞÒ»Ö»Ğ¡
-Ì¿Â¯¡£Ò²²»ÖªµÀÔÚìÀÖøÊ²Ã´¶«Î÷£¬²¨²¨²¨µÄÖ±Ïì¡£×À×ÓÉÏ·ÅÖøÒ»Ğ©ÖóºÃµÄÊ³Îï£¬
-ÏãÎ¶ÆË±Ç¡£
+è¿™é‡Œæ˜¯é•¿ä¹å¸®çš„å¨æˆ¿ã€‚ä½äºè¥¿å»Šä¹‹å¤–çš„ä¸€é—´å¾ˆå¤§çš„æˆ¿é—´ã€‚æˆ¿è§’é‡Œæœ‰ä¸€åªå°
+ç‚­ç‚‰ã€‚ä¹Ÿä¸çŸ¥é“åœ¨ç‚–è‘—ä»€ä¹ˆä¸œè¥¿ï¼Œæ³¢æ³¢æ³¢çš„ç›´å“ã€‚æ¡Œå­ä¸Šæ”¾è‘—ä¸€äº›ç…®å¥½çš„é£Ÿç‰©ï¼Œ
+é¦™å‘³æ‰‘é¼»ã€‚
 long);
 	set("exits", ([		
 		"north" : __DIR__"zoulang2",
@@ -30,7 +30,7 @@ int valid_leave(object me, string dir)
 	if( dir == "north" ){
 		while (i--)
 		if(ob[i]->id("xiang cha") || ob[i]->id("rice"))
-			return notify_fail(CYN"Ğ¡Ù×ºßÁËÒ»Éù£º³Ô±¥ºÈ×ãÁË»¹Òª´ø×ßÑ½£¡\n"NOR);
+			return notify_fail(CYN"å°åƒ®å“¼äº†ä¸€å£°ï¼šåƒé¥±å–è¶³äº†è¿˜è¦å¸¦èµ°å‘€ï¼\n"NOR);
 	}
 	return ::valid_leave(me, dir);
 }

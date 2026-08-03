@@ -1,14 +1,14 @@
-// yusan.c ÓÚÈıÄï
+// yusan.c äºä¸‰å¨˜
 // Lklv 2001.9.24
 
 inherit NPC;
 inherit F_VENDOR;
 void create()
 {
-        set_name("ÓÚÈıÄï", ({"yu sanniang", "yu", "sanniang" }) );
-        set("gender", "Å®ĞÔ" );
+        set_name("äºä¸‰å¨˜", ({"yu sanniang", "yu", "sanniang" }) );
+        set("gender", "å¥³æ€§" );
         set("age", 34+random(10));
-        set("long", "ËıĞìÄï°ëÀÏ£¬·çÔÏÓÌ´æ¡£\n");
+        set("long", "å¥¹å¾å¨˜åŠè€ï¼Œé£éŸµçŠ¹å­˜ã€‚\n");
         set("attitude","heroism");
         set("combat_exp", 100000 + random(50000) );
         set("shen_type", 0);
@@ -42,7 +42,7 @@ void create()
 
         set("chat_chance", 2);
         set("chat_msg", ({
-                "ÓÚÈıÄï¿´ÁËÄãÒ»ÑÛ£¬¶ÔÄãÎ¢Î¢Ğ¦ÁËĞ¦¡£\n",
+                "äºä¸‰å¨˜çœ‹äº†ä½ ä¸€çœ¼ï¼Œå¯¹ä½ å¾®å¾®ç¬‘äº†ç¬‘ã€‚\n",
         }) );
         setup();
         carry_object(ARMOR_D("changqun2"))->wear();

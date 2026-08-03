@@ -5,14 +5,14 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("ф╠ся", ({ "piao you", "piao", "you" }) );
-	set("gender", "дппт" );
+	set_name("Г╔╗Е▐▀", ({ "piao you", "piao", "you" }) );
+	set("gender", "Г■╥Ф─╖" );
 	set("age", 34);
 	set("long",
-		"уБн╩╬ш╬╚╩АиЯ╣ь©╢вео╥ё╛дЦр╙йг╧Щх╔╢Руп╨Тё╛кШ©о╤╗╩А╡╩дм╥Ё╣д║ё\n");
+		"Х©≥Д╫█Х│ Г╡╬Д╪ Г╔·Е°╟Г°▀Г²─Ф┬▐О╪▄Д╫═Х╕│Ф≤╞Х©┤Е▌╩Ф┴⌠Ф▀⌡Е▒╪О╪▄Д╩√Х┌╞Е╝ Д╪ Д╦█Х─░Г┐╕Г └Ц─┌\n");
 	set("combat_exp", 1500);
 	set("attitude", "peaceful");
-	set("rank_info/respect", "ф╠ся");
+	set("rank_info/respect", "Г╔╗Е▐▀");
 	
 	setup();
 }
@@ -33,11 +33,11 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	switch( random(2) ) {
 		case 0:
-			say( "ф╠сявтятвтсО╣ьк╣ё╨║╟©╢я╫ё╛╤Ю╟Т╣до╥ё╛уФйг╠хтз╪р╢Твег©╤Юак║ё║╠\n");
+			say( "Г╔╗Е▐▀Х┤╙Х╗─Х┤╙Х╞╜Е°╟Х╞╢О╪ Б─°Г°▀Е▒─О╪▄Е╓ Фё▓Г └Ф┬▐О╪▄Г°÷Ф≤╞Ф╞■Е°╗Е╝╤Е▒├Г²─Е╪╨Е╓ Д╨├Ц─┌Б─²\n");
 			break;
 		case 1:
-			say( "ф╠ся╤тведЦгдгд╣ьк╣ё╨уБн╩" + RANK_D->query_respect(ob)
-				+ "ё╛г╖мР╠П╦ФкънрюофенртзуБюО║ё\n");
+			say( "Г╔╗Е▐▀Е╞╧Г²─Д╫═Ф┌└Ф┌└Е°╟Х╞╢О╪ Х©≥Д╫█" + RANK_D->query_respect(ob)
+				+ "О╪▄Е█┐Д╦┤Е┬╚Е▒┼Х╞┴Ф┬▒Х─│Е╘├Ф┬▒Е°╗Х©≥И┤▄Ц─┌\n");
 			break;
 	}
 }

@@ -1,17 +1,17 @@
 
 	interactive(3)		MudOS v21c2		(5 Sep 1994)
-	Ãû³Æ:
-		interactive() - ÅĞ¶ÏÒ»¸öÖ¸¶¨µÄÎï¼şÊÇ·ñÎª¡¸¿É»¥¶¯µÄ¡¹
+	åç§°:
+		interactive() - åˆ¤æ–­ä¸€ä¸ªæŒ‡å®šçš„ç‰©ä»¶æ˜¯å¦ä¸ºã€Œå¯äº’åŠ¨çš„ã€
 				(interactive)
-	Óï·¨:
+	è¯­æ³•:
 		int interactive( object ob );
 
-		ÕûÊı interactive( Îï¼ş ob );
-	ÓÃ·¨:
-		Èç¹û ob ÊÇÒ»¸ö¿É»¥¶¯µÄÍæ¼Ò, ¾Í´«»Ø·ÇÁãÖµ. Èç¹ûÍæ¼Ò
-		¶ÏÏß (link dead), Ôò´«»Ø 0.
-	²Î¿¼:
+		æ•´æ•° interactive( ç‰©ä»¶ ob );
+	ç”¨æ³•:
+		å¦‚æœ ob æ˜¯ä¸€ä¸ªå¯äº’åŠ¨çš„ç©å®¶, å°±ä¼ å›éé›¶å€¼. å¦‚æœç©å®¶
+		æ–­çº¿ (link dead), åˆ™ä¼ å› 0.
+	å‚è€ƒ:
 		query_ip_number(3), query_ip_name(3), enable_commands(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Feb.14.		(printed 3/16/95)
 

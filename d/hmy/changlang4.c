@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "³¤ÀÈ");
+	set("short", "é•¿å»Š");
 	set("long", @LONG
-Ò»Ìõ³¤³¤µÄ¹ıµÀ£¬×óÓÒÁ½ÅÔ¶¼ÊÇÇ½£¬Ã¿¸ôËÄÎåÕÉ£¬Ç½ÉÏ¶¼µã×ÅÒ»Ö§Ã÷»Î»Î
-µÄ¾ŞÖò¡£
+ä¸€æ¡é•¿é•¿çš„è¿‡é“ï¼Œå·¦å³ä¸¤æ—éƒ½æ˜¯å¢™ï¼Œæ¯éš”å››äº”ä¸ˆï¼Œå¢™ä¸Šéƒ½ç‚¹ç€ä¸€æ”¯æ˜æ™ƒæ™ƒ
+çš„å·¨çƒ›ã€‚
 LONG
 	);
 	set("exits", ([ 
@@ -22,7 +22,7 @@ LONG
 
 int valid_leave(object me, string dir)
 {
-        if (dir == "north" && this_player()->query("gender") != "Å®ĞÔ" )
-		return notify_fail("¿´Çå³ş£¬ÄÇÊÇÅ®µÜ×ÓĞİÏ¢ÊÒ£¡£¡£¬ÒªË¯µ½Ïá·¿È¥£¡\n");
+        if (dir == "north" && this_player()->query("gender") != "å¥³æ€§" )
+		return notify_fail("çœ‹æ¸…æ¥šï¼Œé‚£æ˜¯å¥³å¼Ÿå­ä¼‘æ¯å®¤ï¼ï¼ï¼Œè¦ç¡åˆ°å¢æˆ¿å»ï¼\n");
 	return ::valid_leave(me, dir);
 }

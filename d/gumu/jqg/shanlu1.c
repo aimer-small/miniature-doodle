@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "ɽ��С·");
+        set("short", "山间小路");
         set("long", @LONG
-������һ�����Ѷ��ϵ�ɽ��С·�ϣ�����ʮ�ֻ�����ǰ�治Զ������һЩ
-С���֣���������С·����ͨ��һ��СϪ����
+你走在一条蜿蜒而上的山间小路上，这里十分荒凉，前面不远处就是一些
+小树林，北面有条小路好象通向一条小溪流。
 LONG
         );
-        set("outdoors", "����");
+        set("outdoors", "襄阳");
 
         set("exits", ([
                 "north" : __DIR__"xibian",

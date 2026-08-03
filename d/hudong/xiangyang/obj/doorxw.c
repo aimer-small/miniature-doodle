@@ -3,16 +3,16 @@
 inherit ITEM;
 void create()
 {
-        set_name(CYN "ĞşÎäÃÅ³ÇÃÅ" NOR, ({ "xuanwu chengmen", "chengmen"}) );         
+        set_name(CYN "ç„æ­¦é—¨åŸé—¨" NOR, ({ "xuanwu chengmen", "chengmen"}) );         
         set_weight(30000000);
         if( clonep() )
                 set_default_object(__FILE__);
         else{
-        set("unit", "¶Ô");
+        set("unit", "å¯¹");
 set("long", @LONG
-ÕâÊÇÒ»¶ÔºñÖØµÄ³ÇÃÅ£¬½ô½ôµØ¹Ø±Õ×Å£¬³ÇÃÅÂ¥ÉÏÊÇÒ»¶Ó¶ÓÕû×°µÄÊ¿±ø
-×ßÀ´×ßÈ¥¡£³ÇÍâÓÉÓÚÁ¬ÄêµÄÕ½Õù£¬°ÙĞÕÁ÷ÀëÊ§Ëù£¬Ôì³ÉÁË´óÆ¬µÄ»Ä
-µØ£¬ÈËÑÌÏ¡ÉÙ¡£
+è¿™æ˜¯ä¸€å¯¹åšé‡çš„åŸé—¨ï¼Œç´§ç´§åœ°å…³é—­ç€ï¼ŒåŸé—¨æ¥¼ä¸Šæ˜¯ä¸€é˜Ÿé˜Ÿæ•´è£…çš„å£«å…µ
+èµ°æ¥èµ°å»ã€‚åŸå¤–ç”±äºè¿å¹´çš„æˆ˜äº‰ï¼Œç™¾å§“æµç¦»å¤±æ‰€ï¼Œé€ æˆäº†å¤§ç‰‡çš„è’
+åœ°ï¼ŒäººçƒŸç¨€å°‘ã€‚
 LONG);
 set("value",50000000); 
 set("no_get",1);
@@ -31,23 +31,23 @@ int do_recover(string arg)
 object me = this_player();
 object ob = this_object();
 if (!arg)
-		return notify_fail("ÄãÒª¸øÊ²Ã´²¹¸ø?\n");
+		return notify_fail("ä½ è¦ç»™ä»€ä¹ˆè¡¥ç»™?\n");
 	    
-	if (arg!="³ÇÃÅ" && arg!="chengmen")
-		return notify_fail("ÄãÒª¸øÊ²Ã´²¹¸ø?\n");
-if ( !me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª") || me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª") != 1)
-return notify_fail("Äã²»ÄÜ¸ø³ÇÃÅ²¹¸ø?\n");
+	if (arg!="åŸé—¨" && arg!="chengmen")
+		return notify_fail("ä½ è¦ç»™ä»€ä¹ˆè¡¥ç»™?\n");
+if ( !me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥") || me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥") != 1)
+return notify_fail("ä½ ä¸èƒ½ç»™åŸé—¨è¡¥ç»™?\n");
 if( me->is_busy() || me->is_fighting())
-return notify_fail("ÄãÏÖÔÚÃ¦µÃºÜ£¬²»ÄÜ²¹¸ø³ÇÃÅ¡£\n");
+return notify_fail("ä½ ç°åœ¨å¿™å¾—å¾ˆï¼Œä¸èƒ½è¡¥ç»™åŸé—¨ã€‚\n");
 if(ob->query("defend")>=50000 )
-return notify_fail(""+ob->query("name")+"ÏÖÔÚ²»ĞèÒª²¹¸ø¡£\n");
-message_vision(WHT"$NÖ¸»Ó×ÅÒ»¶ÓËÎ¾ü±§À´Ò»´ó¶ÑÄ¾ÁÏ£¬ËÀËÀµØ¶¥×¡ÁË"+ob->query("name")+WHT",ÔİÊ±È·±£ÁË°²È«¡£\n"NOR, me);
+return notify_fail(""+ob->query("name")+"ç°åœ¨ä¸éœ€è¦è¡¥ç»™ã€‚\n");
+message_vision(WHT"$NæŒ‡æŒ¥ç€ä¸€é˜Ÿå®‹å†›æŠ±æ¥ä¸€å¤§å †æœ¨æ–™ï¼Œæ­»æ­»åœ°é¡¶ä½äº†"+ob->query("name")+WHT",æš‚æ—¶ç¡®ä¿äº†å®‰å…¨ã€‚\n"NOR, me);
 ob->add("defend",random(30));
-message_vision(HIG""+ob->query("name")+HIG"µÄ¼á¹ÌÔö¼Óµ½ÁË"+ob->query("defend")+"¡£\n"NOR, me);
+message_vision(HIG""+ob->query("name")+HIG"çš„åšå›ºå¢åŠ åˆ°äº†"+ob->query("defend")+"ã€‚\n"NOR, me);
 me->start_busy(random(4));
 if(random(10)>6)
 {
-message_vision(RED"Í»È»´Ó³ÇÍâÉä½ø¼¸Ö§Àä¼ı£¬$NÉí±ßµÄ¼¸ÃûËÎ±øÖĞ¼ıµ¹ÏÂ£¬$N²»½û·½´ç´óÂÒ¡£\n"NOR, me);
+message_vision(RED"çªç„¶ä»åŸå¤–å°„è¿›å‡ æ”¯å†·ç®­ï¼Œ$Nèº«è¾¹çš„å‡ åå®‹å…µä¸­ç®­å€’ä¸‹ï¼Œ$Nä¸ç¦æ–¹å¯¸å¤§ä¹±ã€‚\n"NOR, me);
 me->add_busy(random(6));
 }
 

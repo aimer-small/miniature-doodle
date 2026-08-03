@@ -10,11 +10,11 @@ int main()
         ob=users();
         ob=filter_array(ob,(: !wizardp($1) && environment($1) && ($1->query_temp("apply/damage")>100 || $1->query_temp("apply/armor")>100):));
         
-        msg=HIC"Íæ¼Ò¹¥»÷Á¦ÁÐ±í£º\n"NOR;
+        msg=HIC"çŽ©å®¶æ”»å‡»åŠ›åˆ—è¡¨ï¼š\n"NOR;
         i=sizeof(ob);
         
         while (i--) {
-                 msg+=sprintf(NOR"%-10s "+HIY"¹¥»÷¸½¼ÓÉËº¦Á¦£º"+HIW" %-5d "+HIY" ·ÀÓù¸½¼ÓÁ¦£º"HIW+" %-5d \n",
+                 msg+=sprintf(NOR"%-10s "+HIY"æ”»å‡»é™„åŠ ä¼¤å®³åŠ›ï¼š"+HIW" %-5d "+HIY" é˜²å¾¡é™„åŠ åŠ›ï¼š"HIW+" %-5d \n",
                         ob[i]->query("name")+"("+ob[i]->query("id")+")",
                         ob[i]->query_temp("apply/damage"),
                         ob[i]->query_temp("apply/armor"),

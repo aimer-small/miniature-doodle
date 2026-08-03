@@ -1,4 +1,4 @@
-// sailing.c º½º£Êõ
+// sailing.c èˆªæµ·æœ¯
 // 2/5/2002	by augx@sj
 
 inherit SKILL;
@@ -6,5 +6,5 @@ string type() { return "knowledge"; }
 void skill_improved(object me) { }
 int valid_learn(object me)
 {
-	return notify_fail("ÄãÖ»ÄÜÔÚÊµ¼ùÖĞÑ§Ï°ÕâÑù¼¼Êõ¡£\n");
+	return notify_fail("ä½ åªèƒ½åœ¨å®è·µä¸­å­¦ä¹ è¿™æ ·æŠ€æœ¯ã€‚\n");
 }

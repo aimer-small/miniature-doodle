@@ -8,14 +8,14 @@ string ask_me2();
 
 void create()
 {
-        set_name("�", ({"yang kang", "kang", "yang"}));
-        set("gender", "����");
-        set("title", HIC "ȫ��̵���������"NOR );
+        set_name("杨康", ({"yang kang", "kang", "yang"}));
+        set("gender", "男性");
+        set("title", HIC "全真教第三代弟子"NOR );
         set("age", 24);
         set("class", "fighter");
         set("long",
-                "���������տ�����ĸ��ϧ�������պ��Һ󣬳���С���ӣ�
-̰ͼ�����������ġ�\n");
+                "他又名完颜康。随母包惜弱嫁完颜洪烈后，成了小王子，
+贪图富贵，至死不改。\n");
         set("attitude", "friendly");
         set("shen_type",1);
         set("str", 26);
@@ -46,7 +46,7 @@ void create()
         set("max_neili", 100000);
         set("jiali", 200);
         set("quest/jiuyin2/pass",1);
-        set("quest/���Ӣ�۴�/yangjiaqiang/pass",1);
+        set("quest/射雕英雄传/yangjiaqiang/pass",1);
 
         set("combat_exp", 4300000);
 
@@ -80,19 +80,19 @@ void create()
         prepare_skill("claw", "jiuyin-baiguzhua");
         
         set("inquiry", ([
-    "��Х��" : "�Ҳ���ʶ��",
-    "������" : "�Ҳ���ʶ��",
-    "����" : "�Ҳ���ʶ��",
-    "��Ƽ" : "�Ҳ���ʶ��",
-    "��ϧ��" : "�������",
-    "�����" : "�����ҵ�Ů�ˣ���������ʲô��",
-    "����" : "˭������",
-    "���պ���" : "�����Ҹ���ʲô���飿",
-    "�𴦻�" : "������ʦ��",
-    "÷����" : "������ʦ��",
-    "ŷ����" : "��С��������ε�Ϸ��ȣ��Ҳ���Ź����ģ�",
-    "���տ�" : (: ask_me :),
-    "�" : (: ask_me2 :),
+    "郭啸天" : "我不认识。",
+    "杨铁心" : "我不认识。",
+    "郭靖" : "我不认识。",
+    "李萍" : "我不认识。",
+    "包惜弱" : "她是我娘。",
+    "穆念慈" : "她是我的女人，你问她干什么。",
+    "黄蓉" : "谁？？？",
+    "完颜洪烈" : "你找我父王什么事情？",
+    "丘处机" : "他是我师父",
+    "梅超风" : "他是我师父",
+    "欧阳克" : "这小子三番五次调戏念慈，我不会放过他的！",
+    "完颜康" : (: ask_me :),
+    "杨康" : (: ask_me2 :),
 
 
 	]));
@@ -100,10 +100,10 @@ void create()
 
   set("chat_chance", 5);
  set("chat_msg", ({
-       "˭Ҳ���������뿪�Ҹ�����������ÿ��Ҫ���뿪���Ҿ��ȼ�װ��Ӧ�����ٺ٣�Ů�����ƭ��\n",
-       "ʦ��Ҫ�������˺������ֱ��䣬����������λ��Һ��£������Ҫ�����ÿ����ߡ��ߣ�\n",
+       "谁也不能让我离开我父王，念慈如果每次要我离开，我就先假装答应她，嘿嘿：女人真好骗！\n",
+       "师父要我来嘉兴和我义兄比武，此人三番五次坏我好事，这次我要让他好看，哼、哼！\n",
  }) );
-        create_family("ȫ���", 3, "����");
+        create_family("全真教", 3, "弟子");
 
         setup();
 
@@ -117,9 +117,9 @@ string ask_me()
 	ob=this_player();
 	me=this_object();
         command("unwield shan"); 
-	me->set_name("���տ�", ({ "wanyan kang", "kang","wanyan"}) );
-	me->set("title",HIY"����С��ү"NOR);
-	return "�ұ��Ǵ���С��ү������ʲô���飡";
+	me->set_name("完颜康", ({ "wanyan kang", "kang","wanyan"}) );
+	me->set("title",HIY"大金国小王爷"NOR);
+	return "我便是大金国小王爷，你有什么事情！";
 }
 
 string ask_me2()
@@ -128,8 +128,8 @@ string ask_me2()
 	ob=this_player();
 	me=this_object();
   command("wield shan");
-	me->set_name("�", ({ "yang kang", "kang","yang"}) );
-	me->set("title",HIC"ȫ��̵���������"NOR);
-	return "���±�����������Һ��£�";
+	me->set_name("杨康", ({ "yang kang", "kang","yang"}) );
+	me->set("title",HIC"全真教第三代弟子"NOR);
+	return "在下便是杨康，你找我何事！";
 }
 

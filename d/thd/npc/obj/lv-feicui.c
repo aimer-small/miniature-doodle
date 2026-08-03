@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIG"ÂÌôä´ä"NOR,({ "lv feicui","feicui" }));
+	set_name(HIG"ç»¿ç¿¡ç¿ "NOR,({ "lv feicui","feicui" }));
 	set_weight(100);
 	if( clonep() )
                 set_default_object(__FILE__);
         else
         {
-        	set("unit","¸ö");
-        	set("long","ÕâÊÇÒ»¸ö¾§ÌåÍ¨ÁÁµÄÂÌôä£¬Ò»¿´¾ÍÖªµÀÊÇÎŞ¼ÛÖ®±¦¡£");
+        	set("unit","ä¸ª");
+        	set("long","è¿™æ˜¯ä¸€ä¸ªæ™¶ä½“é€šäº®çš„ç»¿ç¿¡ï¼Œä¸€çœ‹å°±çŸ¥é“æ˜¯æ— ä»·ä¹‹å®ã€‚");
         	set("value",0);
         }
 	setup();

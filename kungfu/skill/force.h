@@ -18,7 +18,7 @@ int valid_public(object me)
         || sk[i] == "shenyuan-gong"|| sk[i] == "shenghuo-shengong") continue;
         
         if (sk[i] != skl_name && SKILL_D(sk[i])->valid_enable("force"))
-          return notify_fail("你不散掉"+to_chinese(sk[i])+"，如何能修习"+to_chinese(skl_name)+"。\n");
+          return notify_fail("浣犱笉鏁ｆ帀"+to_chinese(sk[i])+"锛屽浣曡兘淇範"+to_chinese(skl_name)+"銆俓n");
       }
       return 1;
 }

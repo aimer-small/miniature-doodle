@@ -8,7 +8,7 @@ int do_attack(string arg)
 
 	if( !arg || !id(arg) || env==me ) return 0;
 
-	message_vision("$N¿ªÊ¼»÷´ò"+name()+"...\n",me);
+	message_vision("$Nå¼€å§‹å‡»æ‰“"+name()+"...\n",me);
 	t = 15 + random(30);
 	me->start_busy(t/2+1);
 	env->set("attack",time()+t);
@@ -30,8 +30,8 @@ void attack_finish(object env,object me)
 	env->set("attack_type","");
 
 	if( !me ) return;
-	tell_room(env,me->name()+"¹¥»÷½áÊøÁË¡£\n",({me}));
-	tell_object(me,"Äã¹¥»÷½áÊøÁË¡£\n");
+	tell_room(env,me->name()+"æ”»å‡»ç»“æŸäº†ã€‚\n",({me}));
+	tell_object(me,"ä½ æ”»å‡»ç»“æŸäº†ã€‚\n");
 
 	if( environment(me) != env ) return;
 	GROUP_D->attack_room(this_object(),me);

@@ -2,15 +2,15 @@
 
 inherit ROOM;
 #include <ansi.h>
-#define QUESTDIR "quest/ÉäµñÓ¢ĞÛ´«/·çÑ©¾ª±ä/"
+#define QUESTDIR "quest/å°„é›•è‹±é›„ä¼ /é£é›ªæƒŠå˜/"
 
 void create()
 {
-	set("short", GRN "Ç°Ôº" NOR);
+	set("short", GRN "å‰é™¢" NOR);
 	set("long",@long
-ÕâÀïÊÇÑîÌúĞÄ¼ÒµÄÇ°Ôº£¬Ôº×ÓÓÉÀé°ÊºÍÖñ×Ó±à³ÉµÄÕ¤À¸£¬Ôº×ÓÀï·Å×ÅÒ»¸öÌúÀç£¬ÏÔµÃ¸ñÍâ²ÔÁ¹¡£
+è¿™é‡Œæ˜¯æ¨é“å¿ƒå®¶çš„å‰é™¢ï¼Œé™¢å­ç”±ç¯±ç¬†å’Œç«¹å­ç¼–æˆçš„æ …æ ï¼Œé™¢å­é‡Œæ”¾ç€ä¸€ä¸ªé“çŠï¼Œæ˜¾å¾—æ ¼å¤–è‹å‡‰ã€‚
 long);
-  set("outdoors", "À¼Öİ");
+  set("outdoors", "å…°å·");
 	set("exits",([
 		"north" : __DIR__"yangjia",
 		"south" : __DIR__"njroad3",
@@ -22,9 +22,9 @@ long);
 int valid_leave(object me, string dir)
 {
     if (dir == "north" && !me->query(QUESTDIR+"over"))
-          return notify_fail(RED"Ã»ÓĞÖ÷ÈËµÄÔÊĞíÄã²»¿ÉÒÔÈ¥ÈË¼Ò¼ÒÀï¡£\n"NOR);
+          return notify_fail(RED"æ²¡æœ‰ä¸»äººçš„å…è®¸ä½ ä¸å¯ä»¥å»äººå®¶å®¶é‡Œã€‚\n"NOR);
         if(dir == "north" &&me->query_condition("killer")) 
-   		          return notify_fail(RED"Ã»ÓĞÖ÷ÈËµÄÔÊĞíÄã²»¿ÉÒÔÈ¥ÈË¼Ò¼ÒÀï¡£\n"NOR);
+   		          return notify_fail(RED"æ²¡æœ‰ä¸»äººçš„å…è®¸ä½ ä¸å¯ä»¥å»äººå®¶å®¶é‡Œã€‚\n"NOR);
     return ::valid_leave(me, dir);
 }
 
@@ -38,11 +38,11 @@ void init()
 	   &&!me->query(QUESTDIR+"over")
      &&!me->query_temp(QUESTDIR+"kill"))
   {
-     tell_object(me,YEL"Ö»ÌıµÃÖÚ±ø¶¡ÆëÉù½Ğº°£º¡°×½ÄÃ·´Ôô£¬ÄªÈÃ·´ÔôÌÓÁË£¡¡±¡±\n"NOR); 
-     tell_object(me,YEL"ºöÌıÒ»ÃûÎä½«¸ßÉù½ĞµÀ£º¡°¹ùĞ¥Ìì¡¢ÑîÌúĞÄÁ½Ãû·´Ôô£¬¿ì¿ì³öÀ´ÊÜ¸¿ÄÉÃü¡£¡±\n"NOR);       
+     tell_object(me,YEL"åªå¬å¾—ä¼—å…µä¸é½å£°å«å–Šï¼šâ€œæ‰æ‹¿åè´¼ï¼Œè«è®©åè´¼é€ƒäº†ï¼â€â€\n"NOR); 
+     tell_object(me,YEL"å¿½å¬ä¸€åæ­¦å°†é«˜å£°å«é“ï¼šâ€œéƒ­å•¸å¤©ã€æ¨é“å¿ƒä¸¤ååè´¼ï¼Œå¿«å¿«å‡ºæ¥å—ç¼šçº³å‘½ã€‚â€\n"NOR);       
      remove_call_out("goyangjia");
      call_out("goyangjia", 3, me);      
-     write(CYN"\nÄã²»ÓÉ¸Ğµ½Ê®·ÖºÃÆæ£¬ÄãÍ£ÁËÏÂÀ´£¬¾²¾²ÇãÌı¡£\n"NOR);
+     write(CYN"\nä½ ä¸ç”±æ„Ÿåˆ°ååˆ†å¥½å¥‡ï¼Œä½ åœäº†ä¸‹æ¥ï¼Œé™é™å€¾å¬ã€‚\n"NOR);
   } 
   else
   {  
@@ -59,33 +59,33 @@ void greeting(object me)
    if(!present(me,this_object())) return;
    if(me->query(QUESTDIR+"start")) return;
    shen = me->query("shen");
-  if(shen <0) tell_object(me,HIR"Ö»ÌıÃÅÄÚÒ»¸öÉî³Á»ëºñµÄÉùÒô´«À´£º¿´ÄãÒ»ÉíĞ°Æø£¬»¹ÇëÀë¿ª£¡\n"NOR);
-     else tell_object(me,HIR"Ö»ÌıÃÅÄÚÒ»¸öÉî³Á»ëºñµÄÉùÒô´«À´£ºÕâÎ»ÉÙÏÀ£¬»¹ÇëÀë¿ª£¡\n"NOR);
+  if(shen <0) tell_object(me,HIR"åªå¬é—¨å†…ä¸€ä¸ªæ·±æ²‰æµ‘åšçš„å£°éŸ³ä¼ æ¥ï¼šçœ‹ä½ ä¸€èº«é‚ªæ°”ï¼Œè¿˜è¯·ç¦»å¼€ï¼\n"NOR);
+     else tell_object(me,HIR"åªå¬é—¨å†…ä¸€ä¸ªæ·±æ²‰æµ‘åšçš„å£°éŸ³ä¼ æ¥ï¼šè¿™ä½å°‘ä¾ ï¼Œè¿˜è¯·ç¦»å¼€ï¼\n"NOR);
 }
 void goyangjia(object me)
 {
   if(!me) return;
   if(!present(me,this_object()))
   {
-      tell_object(me,HIY"ÄãÉÃ×ÔÀë¿ªÅ£¼Ò´åÑî¼ÒÇ°Ôº£¬´í¹ıÁË¾«²ÊµÄÒ»Ä»¡£\n"NOR);
-        log_file("quest/SheDiao", sprintf("%s(%s)³õ½øÅ£¼Ò´åÑî¼ÒÇ°Ôº£¬È´ÉÃ×ÔÀë¿ª£¬Ê§°Ü¡£¾­Ñé%d¡£\n", me->name(1),me->query("id"), me->query("combat_exp")) );
+      tell_object(me,HIY"ä½ æ“…è‡ªç¦»å¼€ç‰›å®¶æ‘æ¨å®¶å‰é™¢ï¼Œé”™è¿‡äº†ç²¾å½©çš„ä¸€å¹•ã€‚\n"NOR);
+        log_file("quest/SheDiao", sprintf("%s(%s)åˆè¿›ç‰›å®¶æ‘æ¨å®¶å‰é™¢ï¼Œå´æ“…è‡ªç¦»å¼€ï¼Œå¤±è´¥ã€‚ç»éªŒ%dã€‚\n", me->name(1),me->query("id"), me->query("combat_exp")) );
      me->delete_temp(QUESTDIR+"start");
     return;
 }
 
-     tell_object(me,YEL"\nÄãÌıµ½ÑîÌúĞÄµÍËµµÀ£º¡°¹Ù¼Ò²»ÖªÎªÁËºÎÊÂ£¬¾¹À´ÎÛº¦Á¼Ãñ¡£¸ú¹Ù¸®ÊÇ±ç²»Çå³şµÄ£¬ÔÛÃÇÖ»ºÃÌÓÃü¡£Äã±ğ»Å£¬Æ¾ÎÒÕâ¸ËÇ¹£¬¶¨ÄÜ±£Äã³å³öÖØÎ§¡£¡±\n"NOR); 
-	   tell_room(environment(me), YEL+me->name()+"Ò»Ïë´óÏÀÑîÌúĞÄÒªÍ»ÊÜÎ£ÄÑ£¬ÃÍÈ»³å½øÑî¼ÒÈ¥¾ÈÑîÌúĞÄ£¡\n" NOR, ({me}));
-        log_file("quest/SheDiao", sprintf("%s(%s)³õ½øÅ£¼Ò´åÑî¼ÒÇ°Ôº¡£¾­Ñé%d¡£\n", me->name(1),me->query("id"), me->query("combat_exp")) );
+     tell_object(me,YEL"\nä½ å¬åˆ°æ¨é“å¿ƒä½è¯´é“ï¼šâ€œå®˜å®¶ä¸çŸ¥ä¸ºäº†ä½•äº‹ï¼Œç«Ÿæ¥æ±¡å®³è‰¯æ°‘ã€‚è·Ÿå®˜åºœæ˜¯è¾©ä¸æ¸…æ¥šçš„ï¼Œå’±ä»¬åªå¥½é€ƒå‘½ã€‚ä½ åˆ«æ…Œï¼Œå‡­æˆ‘è¿™æ†æªï¼Œå®šèƒ½ä¿ä½ å†²å‡ºé‡å›´ã€‚â€\n"NOR); 
+	   tell_room(environment(me), YEL+me->name()+"ä¸€æƒ³å¤§ä¾ æ¨é“å¿ƒè¦çªå—å±éš¾ï¼ŒçŒ›ç„¶å†²è¿›æ¨å®¶å»æ•‘æ¨é“å¿ƒï¼\n" NOR, ({me}));
+        log_file("quest/SheDiao", sprintf("%s(%s)åˆè¿›ç‰›å®¶æ‘æ¨å®¶å‰é™¢ã€‚ç»éªŒ%dã€‚\n", me->name(1),me->query("id"), me->query("combat_exp")) );
 	   me->move(__DIR__"yangjia");  
 }
 int do_save()
 {
-	write("ÕâÀï²»×¼´æÅÌ£¡\n");
+	write("è¿™é‡Œä¸å‡†å­˜ç›˜ï¼\n");
 	return 1;
 }
 int do_quit()
 {
-	write("ÕâÀï²»×¼ÍË³ö£¡\n");
+	write("è¿™é‡Œä¸å‡†é€€å‡ºï¼\n");
 	return 1;
 }
 

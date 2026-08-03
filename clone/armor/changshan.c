@@ -7,14 +7,14 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIC"ÇàÉ«³¤ÉÀ"NOR, ({ "changshan", "cloth" }) );
+        set_name(HIC"é’è‰²é•¿è¡«"NOR, ({ "changshan", "cloth" }) );
         set_weight(400);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
                 set("material", "cloth");
-                set("long", HIC"Ò»¼şÇàÄêÄĞ×Ó´©µÄÌìÇàÉ«³¤ÉÀ¡£\n"NOR);
+                set("long", HIC"ä¸€ä»¶é’å¹´ç”·å­ç©¿çš„å¤©é’è‰²é•¿è¡«ã€‚\n"NOR);
                 set("value", 3500);
                 set("armor_prop/armor", 2);
         }

@@ -44,7 +44,7 @@ nomask mixed query_busy() { return busy; }
 nomask int is_busy() { return busy; }
 
 nosave int exert_time;
-nosave string exert_type = "ÄÚ¹¦";
+nosave string exert_type = "å†…åŠŸ";
 
 varargs void start_exert(int new_exert, string new_type)
 {
@@ -52,7 +52,7 @@ varargs void start_exert(int new_exert, string new_type)
 		error("action: Invalid exert time.\n");
 	exert_time = new_exert;
 	if (!stringp(new_type))
-		new_type = "ÄÚ¹¦";
+		new_type = "å†…åŠŸ";
 	exert_type = new_type;
 	set_heart_beat(1);
 }
@@ -62,7 +62,7 @@ nomask int is_exert() { return exert_time; }
 
 nosave int perform_time;
 nosave int perform_nohalt_time;
-nosave string perform_type = "Íâ¹¦";
+nosave string perform_type = "å¤–åŠŸ";
 
 varargs void start_perform(int new_perform, string new_type)
 {
@@ -71,7 +71,7 @@ varargs void start_perform(int new_perform, string new_type)
 	perform_time = new_perform;
 	perform_nohalt_time = perform_time>3 ? 3 : perform_time;
 	if (!stringp(new_type))
-		new_type = "Íâ¹¦";
+		new_type = "å¤–åŠŸ";
 	perform_type = new_type;
 	set_heart_beat(1);
 }
@@ -163,7 +163,7 @@ int start_call_out(function fun, int delay)
 	if( !previous_object()
 	||  (geteuid(previous_object()) != ROOT_UID
 	     && userp(this_object())
-	     && this_player() != this_object()) ) //ÕâÀïÎÒÈ¥µôÁËÒ»¸ö 1  ÊÇÎªÁË·ÀÖ¹Íæ¼ÒÀûÓÃBUGÊ¹Call_outÎŞĞ§ By Ciwei@SJ
+	     && this_player() != this_object()) ) //è¿™é‡Œæˆ‘å»æ‰äº†ä¸€ä¸ª 1  æ˜¯ä¸ºäº†é˜²æ­¢ç©å®¶åˆ©ç”¨BUGä½¿Call_outæ— æ•ˆ By Ciwei@SJ
 	     {
 		return 0;
 	}

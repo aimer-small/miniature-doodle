@@ -2,26 +2,26 @@
 // 15.03.99 by snowman@SJ
 // Modified by snowman@SJ 03/09/2000
 
-///kungfu/class/gaibang/wu.c -> /tmp/ciwei/job/wu.c ³É¹¦¡£
-///d/xingxiu/obj/di.c -> /tmp/ciwei/job/di.c ³É¹¦¡£
-///d/xingxiu/npc/ding.c -> /tmp/ciwei/job/ding.c ³É¹¦¡£
+///kungfu/class/gaibang/wu.c -> /tmp/ciwei/job/wu.c æˆåŠŸã€‚
+///d/xingxiu/obj/di.c -> /tmp/ciwei/job/di.c æˆåŠŸã€‚
+///d/xingxiu/npc/ding.c -> /tmp/ciwei/job/ding.c æˆåŠŸã€‚
 // zuo.c zuo.h
 
 /*
-ÓÃ·¨: get_quest(this_player(), shen type(int), job type(string), family name(string))
+ç”¨æ³•: get_quest(this_player(), shen type(int), job type(string), family name(string))
 shen type is either 1 for +shen npcs or -1 for -shen npcs,
-´«»ØÊÇ mapping£º
-	["id"] = target µÄ ID,
-	["name"] = taget µÄÃû×Ö,
-	["last_id"] = ÉÏ¸ötargetµÄid£¬ÒÔÃâÖØ¸´,
-	["time"] = ×îºóÊ±¼äÏŞÖÆ,
-	["exp_reward"] = EXP ½±Àø,
-	["pot_reward"] = POT ½±Àø,
-	["type"] = ÖÖÀà£¬±ÈÈç "É±", "Çë", "ÕÒ"...,
-	["family"] = ÃÅÅÉÃû£¬Èç¹û²»¸øfamily£¬½«µÈÓÚplayer×Ô¼ºµÄÃÅÅÉÃû,
-	["place"] = µØµã£¬targetÄ¿Ç°µÄËùÔÚµØ.
+ä¼ å›æ˜¯ mappingï¼š
+	["id"] = target çš„ ID,
+	["name"] = taget çš„åå­—,
+	["last_id"] = ä¸Šä¸ªtargetçš„idï¼Œä»¥å…é‡å¤,
+	["time"] = æœ€åæ—¶é—´é™åˆ¶,
+	["exp_reward"] = EXP å¥–åŠ±,
+	["pot_reward"] = POT å¥–åŠ±,
+	["type"] = ç§ç±»ï¼Œæ¯”å¦‚ "æ€", "è¯·", "æ‰¾"...,
+	["family"] = é—¨æ´¾åï¼Œå¦‚æœä¸ç»™familyï¼Œå°†ç­‰äºplayerè‡ªå·±çš„é—¨æ´¾å,
+	["place"] = åœ°ç‚¹ï¼Œtargetç›®å‰çš„æ‰€åœ¨åœ°.
 
- PS: get_time(quest["time"]) ½«´«»ØÖĞÎÄµÄÊ±¼äÏŞÖÆ.
+ PS: get_time(quest["time"]) å°†ä¼ å›ä¸­æ–‡çš„æ—¶é—´é™åˆ¶.
 */
 
 #include <job_mul.h> 
@@ -83,7 +83,7 @@ string query_all_stuffs()
 	int i;
 	i = sizeof(st);
 	while(i--)
-		str += sprintf(" %-30s  ½±Àø£º%d\n", st[i]+"("+stuffs[st[i]]["id"]+")", stuffs[st[i]]["reward"]);
+		str += sprintf(" %-30s  å¥–åŠ±ï¼š%d\n", st[i]+"("+stuffs[st[i]]["id"]+")", stuffs[st[i]]["reward"]);
 	return str;
 }
 
@@ -98,7 +98,7 @@ mapping get_quest(object me, int shen, string type, string family, string gender
 	if(!family || !stringp(family))
 		family = me->query("family/family_name");
 
-	if(type == "ÕÒ"){
+	if(type == "æ‰¾"){
 		if( !stuffs || sizeof(stuffs) < 1) return 0;
 		i = random(sizeof(st));
 		j = stuffs[st[i]]["reward"];
@@ -116,10 +116,10 @@ mapping get_quest(object me, int shen, string type, string family, string gender
 	if (!shen || !intp(shen))  shen = 0;
 	shen = SGN(shen);
 
-	if(!type || !stringp(type)) type = "É±";
+	if(!type || !stringp(type)) type = "æ€";
 
-	if(gender !="Å®" && gender !="ÄĞ" && gender !="ÎŞĞÔ")
-		gender = "ÎŞ";
+	if(gender !="å¥³" && gender !="ç”·" && gender !="æ— æ€§")
+		gender = "æ— ";
 
 	my_exp = me->query("combat_exp");
 	last_id = me->query_temp("quest/last_id");
@@ -138,7 +138,7 @@ mapping get_quest(object me, int shen, string type, string family, string gender
 
 	i = quest_reward(me->query("combat_exp"), target->query("combat_exp")); // get the rewards.
 
-	if (type == "Çë")
+	if (type == "è¯·")
 		i += random(i/10);
 
 	target->set_temp("last_quest_time", quest_time);
@@ -162,7 +162,7 @@ private int check(object ob, object me, string fam, string type, int shen, strin
 	string room_name;
 
 	reset_eval_cost();
-	if (type == "ËÍ")
+	if (type == "é€")
 		my_exp = 0;
 
 	if (!objectp(ob)
@@ -171,10 +171,10 @@ private int check(object ob, object me, string fam, string type, int shen, strin
 	|| ob->query("env/invisibility")
 	|| ob->query("no_quest")
 	|| ob->query("job_npc") 
-	|| ob->query_temp("last_quest_time") > quest_time - 180	// ¼ä¸ôÈı·ÖÖÓ YUJ@SJ 2001-11-01
+	|| ob->query_temp("last_quest_time") > quest_time - 180	// é—´éš”ä¸‰åˆ†é’Ÿ YUJ@SJ 2001-11-01
 	|| member_array(ob->query("id"), no_kill_list) != -1  // special npcs, like zhong shentong, attacker, biaoshi etc.
 	|| ob->query("id") == last_id
-	|| ob->query("race") !="ÈËÀà"
+	|| ob->query("race") !="äººç±»"
 	|| ob->query("family/family_name") == fam
 	|| ob->query("have_master")
 	|| strsrch(base_name(ob), "/d/") != 0
@@ -195,11 +195,11 @@ private int check(object ob, object me, string fam, string type, int shen, strin
 	if (intp(shen) && (ob->query("shen") > 0 && shen > 0
 	|| ob->query("shen") < 0 && shen < 0))
 		return 0;
-	if(gender != "ÎŞ" && ob->query("gender") != gender) return 0;
+	if(gender != "æ— " && ob->query("gender") != gender) return 0;
 
 	switch(type){
-		case "Çë": if(ob->query("attitude")=="aggressive") return 0;
-		case "ËÍ": if(strsrch(room_name,"/d/dali") == 0) return 0;
+		case "è¯·": if(ob->query("attitude")=="aggressive") return 0;
+		case "é€": if(strsrch(room_name,"/d/dali") == 0) return 0;
 		default : return 1;
 	}
 }
@@ -223,7 +223,7 @@ int is_target(object corpse, object me)
 
 	if ( quest["time"] < TIME_TICK) return -3; // time up.
 
-	if ( quest["type"] != "É±") return -1;  // job type is not killing
+	if ( quest["type"] != "æ€") return -1;  // job type is not killing
 
 	if ( corpse->query("id") != "corpse"
 	&& corpse->query("id") != "shouji") return 0;// it's not a corpse or head.
@@ -356,7 +356,7 @@ void give_reward(object me, mapping quest, int shen, int extra,mixed giver,strin
 	me->add("potential", pot);
 	if(me->query("potential") > me->query("max_pot"))
 		me->set("potential", me->query("max_pot"));
-	tell_object(me, HIY"Äã¾õµÃÄÔÖĞ»íÈ»¿ªÀÊ£¬Ôö¼ÓÁË"+chinese_number(pot)+"µãÇ±ÄÜºÍ"+chinese_number(exp)+"µã¾­Ñé£¡\n"NOR);
+	tell_object(me, HIY"ä½ è§‰å¾—è„‘ä¸­è±ç„¶å¼€æœ—ï¼Œå¢åŠ äº†"+chinese_number(pot)+"ç‚¹æ½œèƒ½å’Œ"+chinese_number(exp)+"ç‚¹ç»éªŒï¼\n"NOR);
 	if(shen)
 		me->add("shen", shen * quest["exp_reward"] * 3);
 	me->delete_temp("quest");

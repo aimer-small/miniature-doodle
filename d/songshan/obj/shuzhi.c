@@ -11,25 +11,25 @@ void set_amount(int count)
 {
     unequip();
         set("weapon_prop/damage", 10*count);
-        set("long", "ÕâÊÇ"+CHINESE_D->chinese_number(count)+"Ö¦ËÉÖ¦¡£\n");
+        set("long", "è¿™æ˜¯"+CHINESE_D->chinese_number(count)+"ææ¾æã€‚\n");
        :: set_amount(count);
 }
 
 void create()
 {
-        set_name( MAG"ËÉÖ¦"NOR, ({ "shu zhi", "zhi" }));
+        set_name( MAG"æ¾æ"NOR, ({ "shu zhi", "zhi" }));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-               set("base_unit", "¸ù");
+                set("unit", "æ ¹");
+               set("base_unit", "æ ¹");
                set("base_value", 0);
                set("base_weight", 100);
-                set("long", "ÕâÊÇÒ»Ö¦Ê÷Ö¦¡£\n");
+                set("long", "è¿™æ˜¯ä¸€ææ ‘æã€‚\n");
                 set("value", 0);
                 set("material", "wood");
-                set("wield_msg", "$NÄÃ³ö$n£¬ÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»Ø½£ÇÊ¡£\n");
+                set("wield_msg", "$Næ‹¿å‡º$nï¼Œæ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›å‰‘é˜ã€‚\n");
         }
         set_amount(1);
         setup();
@@ -46,18 +46,18 @@ int do_cuo(string arg)
 {
         object me = this_player();
         if (!arg)
-                return notify_fail("Ê²Ã´£¿\n");
+                return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
         if (arg == "songzhi" || arg == "shuzhi" || arg == "shu zhi" || arg == "zhi")
         {
                 if (this_object()->query_amount() <2)
-                        return notify_fail("¾ÍÕâµãËÉÖ¦£¬´éµÄ³öÀ´ËÉÉşÄ©£¿\n");
+                        return notify_fail("å°±è¿™ç‚¹æ¾æï¼Œæ’®çš„å‡ºæ¥æ¾ç»³æœ«ï¼Ÿ\n");
                 new(__DIR__"sheng")->move(me);
-                message_vision("$NÓÃ×ãÁ¦Æø£¬¼¸ÏÂ¾Í½«ÊÖÖĞµÄËÉÖ¦´é³ÉÁËÒ»¸ùËÉÉş¡£\n",me);
+                message_vision("$Nç”¨è¶³åŠ›æ°”ï¼Œå‡ ä¸‹å°±å°†æ‰‹ä¸­çš„æ¾ææ’®æˆäº†ä¸€æ ¹æ¾ç»³ã€‚\n",me);
                 call_out("destroy",1,this_object());
                return 1;
         }
         else
-                return notify_fail("ÄãÒª´éÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦æ’®ä»€ä¹ˆï¼Ÿ\n");
 }
 
 void destroy(object ob)

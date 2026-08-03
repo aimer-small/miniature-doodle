@@ -1,19 +1,19 @@
-// maotan.c Ã«Ìº
+// maotan.c æ¯›æ¯¯
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-        set_name(HIY"Ğå»¨ÃÜÖ¯Ìº"NOR, ({"mao tan", "maotan"}));
+        set_name(HIY"ç»£èŠ±å¯†ç»‡æ¯¯"NOR, ({"mao tan", "maotan"}));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
          set("long", "
-            ÕâÊÇÒ»ÕÅÊÖ¹¤±àÖ¯µÄ´¿Ã«Ìº£¬ÌºÃ«Ï¸ÃÜºñÊµ£¬ÃşÉÏÈ¥·Ç³£ÈáÈí£¬\n
-            ¿ÉÒÔ¹ÒÔÚÇ½±Ú»òÆÌÔÚµØ°åÉÏ¡£\n");
-                set("unit", "ÕÅ");
+            è¿™æ˜¯ä¸€å¼ æ‰‹å·¥ç¼–ç»‡çš„çº¯æ¯›æ¯¯ï¼Œæ¯¯æ¯›ç»†å¯†åšå®ï¼Œæ‘¸ä¸Šå»éå¸¸æŸ”è½¯ï¼Œ\n
+            å¯ä»¥æŒ‚åœ¨å¢™å£æˆ–é“ºåœ¨åœ°æ¿ä¸Šã€‚\n");
+                set("unit", "å¼ ");
                 set("value", 50000);
         }
 }

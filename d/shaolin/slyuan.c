@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIY"����Ժ"NOR);
+	set("short", HIY"舍利院"NOR);
 	set("long", @LONG
-����һ���ž���СԺ��Ժ�ж��������õ�ľ�񣬼��������ײ�ɮ�µ�ɮ
-����������æµ�š�����������ɮ��Բ�ź󣬷ٻ������ĳ�����Ժ�������
-��һ��С�š�
+这是一座寂静的小院，院中堆满的劈好的木柴，几名身穿白布僧衣的僧
+人正在往来忙碌着。这里是寺中僧人圆寂后，焚化归西的场所。院落的西面
+有一道小门。
 LONG
 	);
         set("no_fight",1);
@@ -20,7 +20,7 @@ LONG
                  "west" : __DIR__ "talin1",
         ]));
 
-        create_door("west", "ľ��", "east", DOOR_CLOSED);
+        create_door("west", "木门", "east", DOOR_CLOSED);
 	
 	set("coor/x",20);
   set("coor/y",310);

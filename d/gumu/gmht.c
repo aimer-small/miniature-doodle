@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIG"ºóÌÃ"NOR);
+	set("short", HIG"åå ‚"NOR);
 	set("long", @LONG
-ÌÃÉÏÒ²ÊÇ¿Õµ´µ´µÄÃ»Ê²Ã´°ÚÉè£¬ÕıÇ°·½Ğ´×ÅÒ»ĞĞ´ó×Ö£¨zi£©£¬¶«Î÷Á½±Ú¶¼
-¹Ò×ÅÒ»·ù»­¡£Î÷Ê× (westpic)µÄ»­ÏñÊÇÁ½¸öÅ®ÀÉ£¬ÕıÊÇ¹ÅÄ¹ÅÉµÄÊ¦×ğÁÖ³¯Ó¢ºÍ
-Ê¦×æÆÅÆÅµÄĞ¤Ïñ£¬¶«²à£¨eastpic£©»­ÏñÖĞÈ´ÊÇÒ»¸öµÀÊ¿¡£ 
+å ‚ä¸Šä¹Ÿæ˜¯ç©ºè¡è¡çš„æ²¡ä»€ä¹ˆæ‘†è®¾ï¼Œæ­£å‰æ–¹å†™ç€ä¸€è¡Œå¤§å­—ï¼ˆziï¼‰ï¼Œä¸œè¥¿ä¸¤å£éƒ½
+æŒ‚ç€ä¸€å¹…ç”»ã€‚è¥¿é¦– (westpic)çš„ç”»åƒæ˜¯ä¸¤ä¸ªå¥³éƒï¼Œæ­£æ˜¯å¤å¢“æ´¾çš„å¸ˆå°Šæ—æœè‹±å’Œ
+å¸ˆç¥–å©†å©†çš„è‚–åƒï¼Œä¸œä¾§ï¼ˆeastpicï¼‰ç”»åƒä¸­å´æ˜¯ä¸€ä¸ªé“å£«ã€‚ 
 LONG        );
 
 	set("exits", ([
@@ -21,14 +21,14 @@ LONG        );
 	]));
 
 	set("item_desc", ([
-		"westpic" : "Î÷±Ú»­ÖĞÊÇÁ½¸ö¹ÃÄï¡£Ò»¸ö¶şÊ®ÎåÁùËê£¬ÕıÔÚ¶Ô¾µÊá×°£¬ÁíÒ»¸öÊÇÊ®ËÄÎåËêµÄ\n"+
-			"Ñ¾÷ß£¬ÊÖÅõÃæÅè£¬ÔÚÅÔÊÌºò¡£»­ÖĞ¾µÀïÓ³³öÄÇÄê³¤Å®ÀÉÈİÃ²¼«ÃÀ£¬ĞãÃ¼Èë÷Ş£¬\n"+
-			"ÑÛ½ÇÖ®¼äÈ´ÒşÒş´øÖøÒ»²ãÉ±Æø¡£\n",          
-		"eastpic" : "Ö»¼ûÏñÖĞµÀÈËÉí²ÄÉõ¸ß£¬ÑüĞü³¤½££¬ÓÒÊÖÊ³Ö¸Ö¸×Å¶«±±½Ç£¬Ö»ÊÇ±³¼¹ÏòÍâ£¬Ãæ\n"+
-			"Ã²È´¿´²»¼û¡£\n",
-		"zi" : HIR"\tÈëÎÒ¹ÅÄ¹£¬ÏÈÍÙÖØÑô£¬Óû³ÉÉñ¹¦£¬°İÎÒ×æÊ¦¡£\n"NOR,
+		"westpic" : "è¥¿å£ç”»ä¸­æ˜¯ä¸¤ä¸ªå§‘å¨˜ã€‚ä¸€ä¸ªäºŒåäº”å…­å²ï¼Œæ­£åœ¨å¯¹é•œæ¢³è£…ï¼Œå¦ä¸€ä¸ªæ˜¯åå››äº”å²çš„\n"+
+			"ä¸«é¬Ÿï¼Œæ‰‹æ§é¢ç›†ï¼Œåœ¨æ—ä¾å€™ã€‚ç”»ä¸­é•œé‡Œæ˜ å‡ºé‚£å¹´é•¿å¥³éƒå®¹è²Œæç¾ï¼Œç§€çœ‰å…¥é¬“ï¼Œ\n"+
+			"çœ¼è§’ä¹‹é—´å´éšéšå¸¦è‘—ä¸€å±‚æ€æ°”ã€‚\n",          
+		"eastpic" : "åªè§åƒä¸­é“äººèº«æç”šé«˜ï¼Œè…°æ‚¬é•¿å‰‘ï¼Œå³æ‰‹é£ŸæŒ‡æŒ‡ç€ä¸œåŒ—è§’ï¼Œåªæ˜¯èƒŒè„Šå‘å¤–ï¼Œé¢\n"+
+			"è²Œå´çœ‹ä¸è§ã€‚\n",
+		"zi" : HIR"\tå…¥æˆ‘å¤å¢“ï¼Œå…ˆå”¾é‡é˜³ï¼Œæ¬²æˆç¥åŠŸï¼Œæ‹œæˆ‘ç¥–å¸ˆã€‚\n"NOR,
 	]));
-	create_door("south", "Ê¯ÃÅ", "north", DOOR_CLOSED);
+	create_door("south", "çŸ³é—¨", "north", DOOR_CLOSED);
 	setup();
 }
 
@@ -56,23 +56,23 @@ int do_ketou(string arg)
 	object key, me = this_player();
 	fam = me->query("family");
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	if( !arg || arg != "westpic") return 0;
-		message_vision("$NÏòÎ÷¹òµ¹£¬Ë«Ï¥¼°µØ£¬¹§¹§¾´¾´Ïò×æÊ¦ÆÅÆÅµÄ»­Ïñ¿ÄÁËÒ»¸öÏìÍ·. \n", me);
+		message_vision("$Nå‘è¥¿è·ªå€’ï¼ŒåŒè†åŠåœ°ï¼Œæ­æ­æ•¬æ•¬å‘ç¥–å¸ˆå©†å©†çš„ç”»åƒç£•äº†ä¸€ä¸ªå“å¤´. \n", me);
 	me->add_temp("marks/ketou", 1);
 	if( me->query_temp("marks/tuo") == 2 
 	 && me->query_temp("marks/ketou") == 4 ){
-		if( fam && fam["family_name"] != "¹ÅÄ¹ÅÉ" && !can_betray(me))
-			return notify_fail("ÄãÊÇÔõÃ´Áï½ø¹ÅÄ¹À´µÄ£¿\n"); 
-		if( fam && fam["family_name"] == "¹ÅÄ¹ÅÉ")
-			return notify_fail("ÄãÒÑ¾­ÊÇ¹ÅÄ¹ÅÉµÄµÜ×ÓÁË£¬¾Í²»ÓÃ¶à¿ÄÍ·ÁË¡£\n");
+		if( fam && fam["family_name"] != "å¤å¢“æ´¾" && !can_betray(me))
+			return notify_fail("ä½ æ˜¯æ€ä¹ˆæºœè¿›å¤å¢“æ¥çš„ï¼Ÿ\n"); 
+		if( fam && fam["family_name"] == "å¤å¢“æ´¾")
+			return notify_fail("ä½ å·²ç»æ˜¯å¤å¢“æ´¾çš„å¼Ÿå­äº†ï¼Œå°±ä¸ç”¨å¤šç£•å¤´äº†ã€‚\n");
 		if( ! fam && me->query("expell"))
-			return notify_fail("ÄãÊÇÔõÃ´Áï½ø¹ÅÄ¹À´µÄ£¿£¿\n");
-		if ( fam && fam["family_name"] != "¹ÅÄ¹ÅÉ") {
+			return notify_fail("ä½ æ˜¯æ€ä¹ˆæºœè¿›å¤å¢“æ¥çš„ï¼Ÿï¼Ÿ\n");
+		if ( fam && fam["family_name"] != "å¤å¢“æ´¾") {
 			int count = me->add("betrayer", 1);
 			log_file("static/BETRAY",
-				me->query("name")+"("+me->query("id")+")µÚ"+count+"´Î´Ó"
-				+me->query("family/family_name")+"ÅÑÈë¹ÅÄ¹ÅÉ\n",
+				me->query("name")+"("+me->query("id")+")ç¬¬"+count+"æ¬¡ä»"
+				+me->query("family/family_name")+"å›å…¥å¤å¢“æ´¾\n",
 				me
 			);
 			if (count <= 1)
@@ -84,9 +84,9 @@ int do_ketou(string arg)
 			me->add("combat_exp", - me->query("combat_exp") / count);
 			me->setup();
 		}
-		me->create_family("¹ÅÄ¹ÅÉ", 5, "´«ÈË");
+		me->create_family("å¤å¢“æ´¾", 5, "ä¼ äºº");
 		me->set("class","sworder");
-		tell_object(me,HIR"\n¹§Ï²Äã×ÔÔ¸³ÉÎªÒ»Ãû¹ÅÄ¹µÜ×Ó¡£\n\n"NOR);
+		tell_object(me,HIR"\næ­å–œä½ è‡ªæ„¿æˆä¸ºä¸€åå¤å¢“å¼Ÿå­ã€‚\n\n"NOR);
 		me->start_busy(2);
 		me->delete_temp("marks/tuo");
 		me->delete_temp("marks/ketou");
@@ -95,15 +95,15 @@ int do_ketou(string arg)
 	if( me->query_temp("marks/ketou") == 15 ){
 		me->delete_temp("marks/ketou");
 		if(me->query_temp("marks/goldkey"))
-			return notify_fail(HIR"Äã²»ÊÇÒÑ¾­ÄÃ¹ıÁËÂğ£¿ÔõÃ´»¹ÒªÄÃ£¿\n"NOR);
+			return notify_fail(HIR"ä½ ä¸æ˜¯å·²ç»æ‹¿è¿‡äº†å—ï¼Ÿæ€ä¹ˆè¿˜è¦æ‹¿ï¼Ÿ\n"NOR);
 		key=unew(__DIR__"obj/goldkey");
 		if(!clonep(key))
-			return notify_fail (HIR"µØÉÏÂ¶³öÒ»·½Ğ¡¿×,µ«ÀïÃæ¿Õ¿ÕÈçÒ²,Ïë±ØÓĞÈËÏÈÄãÏÂÊÖÁË. \n"NOR);  
+			return notify_fail (HIR"åœ°ä¸Šéœ²å‡ºä¸€æ–¹å°å­”,ä½†é‡Œé¢ç©ºç©ºå¦‚ä¹Ÿ,æƒ³å¿…æœ‰äººå…ˆä½ ä¸‹æ‰‹äº†. \n"NOR);  
 		if(clonep(key) && key->violate_unique()){
 			destruct(key);
-			return notify_fail (HIR"µØÉÏÂ¶³öÒ»·½Ğ¡¿×,µ«ÀïÃæ¿Õ¿ÕÈçÒ²,Ïë±ØÓĞÈËÏÈÄãÏÂÊÖÁË. \n"NOR);
+			return notify_fail (HIR"åœ°ä¸Šéœ²å‡ºä¸€æ–¹å°å­”,ä½†é‡Œé¢ç©ºç©ºå¦‚ä¹Ÿ,æƒ³å¿…æœ‰äººå…ˆä½ ä¸‹æ‰‹äº†. \n"NOR);
 		}
-		message_vision(HIY"$NÃæÇ°µÄÊ¯µØÍ»È»ÏÂ³Á,Â¶³öÒ»°Ñ½ğÔ¿³×,$NµÃµ½Ò»°Ñ½ğÔ¿³×. \n"NOR, me);
+		message_vision(HIY"$Né¢å‰çš„çŸ³åœ°çªç„¶ä¸‹æ²‰,éœ²å‡ºä¸€æŠŠé‡‘é’¥åŒ™,$Nå¾—åˆ°ä¸€æŠŠé‡‘é’¥åŒ™. \n"NOR, me);
 		me->set_temp("marks/goldkey", 1);
 		key->move(me);
 	}
@@ -114,11 +114,11 @@ int do_tuo(string arg)
 {
 	object me = this_player();
 	if (me->query_temp("marks/tuo") == 2)
-		return notify_fail("ÄãÍÙ¹»ÁËÃ»ÓĞ£¿\n");
+		return notify_fail("ä½ å”¾å¤Ÿäº†æ²¡æœ‰ï¼Ÿ\n");
 	if ( arg=="eastpic") {
-		message_vision("$N³¯ÍõÖØÑôµÄ»­ÏñºİºİÍÙÁËÒ»¿Ú. \n", me);
+		message_vision("$Næœç‹é‡é˜³çš„ç”»åƒç‹ ç‹ å”¾äº†ä¸€å£. \n", me);
 		me->add_temp("marks/tuo", 1);
 		return 1;
 	}
-	return notify_fail("Äã²»ÒªËæ±ãÂÒÍÙ¿ÚË®°¡£¡\n");
+	return notify_fail("ä½ ä¸è¦éšä¾¿ä¹±å”¾å£æ°´å•Šï¼\n");
 }

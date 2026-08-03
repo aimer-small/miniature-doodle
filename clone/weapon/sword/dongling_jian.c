@@ -6,13 +6,13 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(CYN"¶«ÁéÌú½£"NOR, ({ "dongling tiejian", "tiejian", "jian", "sword" }));
+        set_name(CYN"ä¸œçµé“å‰‘"NOR, ({ "dongling tiejian", "tiejian", "jian", "sword" }));
         set_weight(16000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "Ò»±úºÚ÷î÷îµÄÌúÖı¶Ì½££¬½£ÉíÉÏ¿Ì×ÅÒ»ĞĞ×­ÎÄ¡¾¼û´ËÌú½££¬Èç¼û¶«Áé¡¿¡£\n");
+                set("unit", "æŸ„");
+                set("long", "ä¸€æŸ„é»‘é»é»çš„é“é“¸çŸ­å‰‘ï¼Œå‰‘èº«ä¸Šåˆ»ç€ä¸€è¡Œç¯†æ–‡ã€è§æ­¤é“å‰‘ï¼Œå¦‚è§ä¸œçµã€‘ã€‚\n");
                 set("value", 1500);
                 set("unique", 1);
                 set("sharpness", 3);
@@ -23,8 +23,8 @@ void create()
                 set("wield_maxneili", 900);
                 set("wield_str", 22);
                 set("material", "steel");
-                set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»Ø½£ÇÊ¡£\n");
+                set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›å‰‘é˜ã€‚\n");
         }
         init_sword(42);
         setup();

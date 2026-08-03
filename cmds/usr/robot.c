@@ -10,22 +10,22 @@ int main(object me, string arg)
 {
         object ob;
         if (!me->is_robot())
-	return notify_fail("�㵱ǰû�б�ϵͳ�ж�Ϊ�����ˣ�����Ҫ�ٻ�����ɱ�֡�\n");
+	return notify_fail("你当前没有被系统判断为机器人，不需要召唤银翼杀手。\n");
         if (me->query_temp("robot_test"))
-	return notify_fail("�㻹���Ⱥúûش�ǰ������ɡ�\n");    
+	return notify_fail("你还是先好好回答当前的问题吧。\n");    
    
         ob = new("/clone/npc/antirobotnew");
         ob->test_robot(me);
-        tell_object(me,HIY"��������һ������ɱ�֡�\n");   
+        tell_object(me,HIY"你召来了一个银翼杀手。\n");   
         return 1;
 }
 int help(object me)
 {
 write(@HELP
-ָ���ʽ : robot
+指令格式 : robot
 
-��ָ��������ڻ�����״̬������һ������ɱ�֣�
-�����Ļ�����״̬��
+此指令可让你在机器人状态下召来一个银翼杀手，
+解除你的机器人状态。
 
 HELP
     );

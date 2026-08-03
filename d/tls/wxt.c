@@ -7,20 +7,20 @@ inherit ROOM;
 string tree(object);
 void create()
 {
-  set("short","ÍüÑ©Í¤");
+  set("short","å¿˜é›ªäº­");
   set("long",@LONG
-ÕâÊÇÒ»¸öÐ¡Í¤×Ó£¬Í¤±ß³¤×ÅÒ»¿Ã¿ÝÊ÷¡£ºóÃæÉ½±ÚÉÏÓÐ¸ö¶´¿Ú£¬¾Ý
-ËµÊÇ¹ýÈ¥Àú´ú¸ßÉ®¿àÐÞµÄµØ·½£¬ÕâÀïÉ½·çÒõÀä£¬Äã²»ÓÉµÄ´òÁË¸öº®²ü£¬
-ÑÀ³ÝÒ²¿ªÊ¼´òÆð²üÀ´£¬»¹ÊÇ¸Ï¿ìÏÂÈ¥°É¡£
+è¿™æ˜¯ä¸€ä¸ªå°äº­å­ï¼Œäº­è¾¹é•¿ç€ä¸€æ£µæž¯æ ‘ã€‚åŽé¢å±±å£ä¸Šæœ‰ä¸ªæ´žå£ï¼Œæ®
+è¯´æ˜¯è¿‡åŽ»åŽ†ä»£é«˜åƒ§è‹¦ä¿®çš„åœ°æ–¹ï¼Œè¿™é‡Œå±±é£Žé˜´å†·ï¼Œä½ ä¸ç”±çš„æ‰“äº†ä¸ªå¯’é¢¤ï¼Œ
+ç‰™é½¿ä¹Ÿå¼€å§‹æ‰“èµ·é¢¤æ¥ï¼Œè¿˜æ˜¯èµ¶å¿«ä¸‹åŽ»å§ã€‚
 LONG);
 
-     set("outdoors", "ÌìÁúËÂ");
+     set("outdoors", "å¤©é¾™å¯º");
      set("exits",([
            "southdown" : __DIR__"fqg",
            "down" : __DIR__"wfd",
      ]));
      set("item_desc", ([
-        "¿ÝÊ÷" : (: tree :),
+        "æž¯æ ‘" : (: tree :),
         "tree" : (: tree :),
         "shu" : (: tree :),
      ]));
@@ -34,34 +34,34 @@ LONG);
 string tree(object me)
 {   
     if((int)me->query_skill("kurong-changong", 1) < 40)
-        return  "ÕâÊÇÒ»¿ÃÀÏÊ÷¡£\n";
+        return  "è¿™æ˜¯ä¸€æ£µè€æ ‘ã€‚\n";
     if((int)me->query_skill("kurong-changong", 1) >= 40)
-        return  "ÕâÊÇÒ»¿ÃÀÏÊ÷,Äã×ÐÏ¸¿´ÁË¿´£¬ÕâÊ÷³¤µÄÉõÊÇÆæ¹Ö£¬Ò»°ë±ßÊ÷¶¼¿ÝÁË£¬¿ÉÁí°ë±ßµÄÊ÷¸É»¹³¤³öÁËÂÌÒ¶¡£\n"; 
+        return  "è¿™æ˜¯ä¸€æ£µè€æ ‘,ä½ ä»”ç»†çœ‹äº†çœ‹ï¼Œè¿™æ ‘é•¿çš„ç”šæ˜¯å¥‡æ€ªï¼Œä¸€åŠè¾¹æ ‘éƒ½æž¯äº†ï¼Œå¯å¦åŠè¾¹çš„æ ‘å¹²è¿˜é•¿å‡ºäº†ç»¿å¶ã€‚\n"; 
 }
 
 void init()
 {
 	add_action("do_jingzuo","jingzuo");	
-        add_action("do_jingzuo","¾²×ø");	
+        add_action("do_jingzuo","é™å");	
 }
 
 int do_jingzuo()
 {
 	object me = this_player();
        if ( (int)me->query_skill("kurong-changong", 1) < 40 )
-               return notify_fail("Äã×øÔÚÕâÀï¸ÉÂï£¬Ïë¶³ËÀ°¡¡£\n");
+               return notify_fail("ä½ ååœ¨è¿™é‡Œå¹²å˜›ï¼Œæƒ³å†»æ­»å•Šã€‚\n");
         if ( (int)me->query_skill("kurong-changong", 1) > 120 )
-               return notify_fail("Äã¿´À´¿´È¥£¬¾õµÄÔÙ×øÏÂÈ¥Ò²Ã»Ê²Ã´ÊÕ»ñÁË¡£\n");
+               return notify_fail("ä½ çœ‹æ¥çœ‹åŽ»ï¼Œè§‰çš„å†åä¸‹åŽ»ä¹Ÿæ²¡ä»€ä¹ˆæ”¶èŽ·äº†ã€‚\n");
        if (me->query_skill_mapped("force") != "kurong-changong")
-               return notify_fail("ÄãÏÖÔÚµÄÄÚ¹¦²»¶Ô¡£\n");
+               return notify_fail("ä½ çŽ°åœ¨çš„å†…åŠŸä¸å¯¹ã€‚\n");
        if ( (int)me->query_skill("buddhism", 1) < 120 )
-               return notify_fail("Äã¿´ÁË°ëÌì£¬¿ÉÊÇÄã·ðÑ§ÔìÒèÌ«Ç³£¬Ã»ÓÐÊ²Ã´Ìå»á¡£\n");
+               return notify_fail("ä½ çœ‹äº†åŠå¤©ï¼Œå¯æ˜¯ä½ ä½›å­¦é€ è¯£å¤ªæµ…ï¼Œæ²¡æœ‰ä»€ä¹ˆä½“ä¼šã€‚\n");
        if ( (int)me->query("jing")<30) 
-        { write("ÄãÌ«ÀÛÁË£¬»¹ÊÇÐª»áÔÙÑÐ¶Á°É£¡\n");
+        { write("ä½ å¤ªç´¯äº†ï¼Œè¿˜æ˜¯æ­‡ä¼šå†ç ”è¯»å§ï¼\n");
         return 1;
          }
    
-	message_vision("$N¿´×ÅÕâ¿Ã°ë¿Ý°ëÈÙµÄÀÏÊ÷£¬Äã°µÓ¡·ð·¨£¬ÐÄÖÐÈôÓÐËùË¼¡£\n", me);
+	message_vision("$Nçœ‹ç€è¿™æ£µåŠæž¯åŠè£çš„è€æ ‘ï¼Œä½ æš—å°ä½›æ³•ï¼Œå¿ƒä¸­è‹¥æœ‰æ‰€æ€ã€‚\n", me);
        	me->receive_damage("jing", 30);
               me->receive_damage("jingli", 10); 
 		me->improve_skill("kurong-changong", (int)me->query("int"));

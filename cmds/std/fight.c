@@ -10,47 +10,47 @@ int main(object me, string arg)
         string msg;
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÕâÀï½ûÖ¹Õ½¶·¡£\n");
+		return notify_fail("è¿™é‡Œç¦æ­¢æˆ˜æ–—ã€‚\n");
 
 	if(!arg || !objectp(obj = present(arg, environment(me))))
-		return notify_fail("ÄãÏë¹¥»÷Ë­£¿\n");
+		return notify_fail("ä½ æƒ³æ”»å‡»è°ï¼Ÿ\n");
 
 	if( !obj->is_character() )
-		return notify_fail("¿´Çå³þÒ»µã£¬ÄÇ²¢²»ÊÇÉúÎï¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯ç”Ÿç‰©ã€‚\n");
 
 	if( obj->is_fighting(me) )
-		return notify_fail("¼ÓÓÍ£¡¼ÓÓÍ£¡¼ÓÓÍ£¡\n");
+		return notify_fail("åŠ æ²¹ï¼åŠ æ²¹ï¼åŠ æ²¹ï¼\n");
 
 	if( !living(obj) )
-		return notify_fail(obj->name() + "ÒÑ¾­ÎÞ·¨Õ½¶·ÁË¡£\n"); 
+		return notify_fail(obj->name() + "å·²ç»æ— æ³•æˆ˜æ–—äº†ã€‚\n"); 
 
 	if ( obj->query("job_npc"))
-		return notify_fail(obj->name()+"¿´ÆðÀ´Ã»Ê²Ã´ÐËÈ¤ºÍÄãÕ½¶·¡£\n");
+		return notify_fail(obj->name()+"çœ‹èµ·æ¥æ²¡ä»€ä¹ˆå…´è¶£å’Œä½ æˆ˜æ–—ã€‚\n");
 
-	if(obj==me) return notify_fail("Äã²»ÄÜ¹¥»÷×Ô¼º¡£\n");
+	if(obj==me) return notify_fail("ä½ ä¸èƒ½æ”»å‡»è‡ªå·±ã€‚\n");
 
 	if( userp(obj) && (object)obj->query_temp("pending/fight")!=me ) {
 		if(me->query("combat_exp") > obj->query("combat_exp")*2){
 			if(me->query("shen") < -10000)
-		                msg = "\n$N¶Ô×Å$nÒ»Æ³£º"+RANK_D->query_self_rude(me)+"¿´Äã»¹²»Àµ£¬ÔõÃ´Ñù£¬À´ºÍÎÒË£Á½ÊÖÊÔÊÔ£¿\n\n";
-		        else msg = "\n$N¶Ô×Å$n¿´ÁË¿´£º"+RANK_D->query_respect(obj)+"¿´ÆðÀ´ÉíÊÖ²»´í°¡¡£À´£¬ÈÃÎÒÖ¸µãÖ¸µãÄã¼¸ÕÐÔõÃ´Ñù£¿\n\n";
+		                msg = "\n$Nå¯¹ç€$nä¸€çž¥ï¼š"+RANK_D->query_self_rude(me)+"çœ‹ä½ è¿˜ä¸èµ–ï¼Œæ€Žä¹ˆæ ·ï¼Œæ¥å’Œæˆ‘è€ä¸¤æ‰‹è¯•è¯•ï¼Ÿ\n\n";
+		        else msg = "\n$Nå¯¹ç€$nçœ‹äº†çœ‹ï¼š"+RANK_D->query_respect(obj)+"çœ‹èµ·æ¥èº«æ‰‹ä¸é”™å•Šã€‚æ¥ï¼Œè®©æˆ‘æŒ‡ç‚¹æŒ‡ç‚¹ä½ å‡ æ‹›æ€Žä¹ˆæ ·ï¼Ÿ\n\n";
 		        }
 		else if(obj->query("combat_exp") > me->query("combat_exp")*2){
 			if(me->query("shen") < -10000)
-		                msg = "\n$N¶Ô×Å$nÒ»±§È­£º"+RANK_D->query_respect(obj)+"£¬"+RANK_D->query_self(me)+"Õâ²»ÈçÑÛµÄ×¯¼Ú°ÑÊ½ÇëÄúÖ¸µã¼¸ÕÐÈçºÎ£¿\n\n";
-		        else msg = "\n$N¶Ô×Å$nÉîÉîÒ»¾ÏµÀ£º"+RANK_D->query_self(me)+me->name()+"£¬ÔÚ´Ë¿ÒÇë"+obj->name()+RANK_D->query_close(obj, me)+"´Í½Ì£¡\n\n";
+		                msg = "\n$Nå¯¹ç€$nä¸€æŠ±æ‹³ï¼š"+RANK_D->query_respect(obj)+"ï¼Œ"+RANK_D->query_self(me)+"è¿™ä¸å¦‚çœ¼çš„åº„ç¨¼æŠŠå¼è¯·æ‚¨æŒ‡ç‚¹å‡ æ‹›å¦‚ä½•ï¼Ÿ\n\n";
+		        else msg = "\n$Nå¯¹ç€$næ·±æ·±ä¸€éž é“ï¼š"+RANK_D->query_self(me)+me->name()+"ï¼Œåœ¨æ­¤æ³è¯·"+obj->name()+RANK_D->query_close(obj, me)+"èµæ•™ï¼\n\n";
 		        }
 		else {
 			if(me->query("shen") < -10000)
-		                msg = "\n$N¶Ô×Å$n¹þ¹þÒ»Ð¦£ºÔçÌýÈËËµ"+RANK_D->query_respect(obj)+"ÎäÒÕ¸ßÇ¿£¬"+RANK_D->query_self_rude(me)+"ÏëÔÚ´ËÁì½Ì¼¸Ê½¸ßÕÐ£¬ÈçºÎ£¿\n\n";
-		        else msg = "\n$N¶Ô×Å$nËµµÀ£º" + RANK_D->query_self(me) + me->name() + "£¬Áì½Ì"+ RANK_D->query_respect(obj) + "µÄ¸ßÕÐ£¡\n\n";
+		                msg = "\n$Nå¯¹ç€$nå“ˆå“ˆä¸€ç¬‘ï¼šæ—©å¬äººè¯´"+RANK_D->query_respect(obj)+"æ­¦è‰ºé«˜å¼ºï¼Œ"+RANK_D->query_self_rude(me)+"æƒ³åœ¨æ­¤é¢†æ•™å‡ å¼é«˜æ‹›ï¼Œå¦‚ä½•ï¼Ÿ\n\n";
+		        else msg = "\n$Nå¯¹ç€$nè¯´é“ï¼š" + RANK_D->query_self(me) + me->name() + "ï¼Œé¢†æ•™"+ RANK_D->query_respect(obj) + "çš„é«˜æ‹›ï¼\n\n";
 		        }
 		message_vision(msg, me, obj);
 		if( objectp(old_target = me->query_temp("pending/fight")) )
-			tell_object(old_target, YEL + me->name() + "È¡ÏûÁËºÍÄã±ÈÊÔµÄÄîÍ·¡£\n" NOR);
+			tell_object(old_target, YEL + me->name() + "å–æ¶ˆäº†å’Œä½ æ¯”è¯•çš„å¿µå¤´ã€‚\n" NOR);
 		me->set_temp("pending/fight", obj);
-		tell_object(obj, YEL "Èç¹ûÄãÔ¸ÒâºÍ¶Ô·½±ÈÊÔÎäÒÕ£¬ÇëÄãÒ²¶Ô" + me->name() + "ÏÂÒ»´Î fight Ö¸Áî¡£\n" NOR);
-		write(YEL "ÓÉÓÚ¶Ô·½ÊÇÓÉÍæ¼Ò¿ØÖÆµÄÈËÎï£¬Äã±ØÐëµÈ¶Ô·½Í¬Òâ²ÅÄÜ½øÐÐ±ÈÊÔ¡£\n" NOR);
+		tell_object(obj, YEL "å¦‚æžœä½ æ„¿æ„å’Œå¯¹æ–¹æ¯”è¯•æ­¦è‰ºï¼Œè¯·ä½ ä¹Ÿå¯¹" + me->name() + "ä¸‹ä¸€æ¬¡ fight æŒ‡ä»¤ã€‚\n" NOR);
+		write(YEL "ç”±äºŽå¯¹æ–¹æ˜¯ç”±çŽ©å®¶æŽ§åˆ¶çš„äººç‰©ï¼Œä½ å¿…é¡»ç­‰å¯¹æ–¹åŒæ„æ‰èƒ½è¿›è¡Œæ¯”è¯•ã€‚\n" NOR);
 		return 1;
 	}
 
@@ -58,29 +58,29 @@ int main(object me, string arg)
 	if( obj->query("can_speak") ) {
 		if(me->query("combat_exp") > obj->query("combat_exp")*2 && userp(obj)){
 			if(me->query("shen") < -10000)
-		                msg = "\n$NÒ»ÉùÀäÐ¦£ººÃ°É£¬¿´ÄãÕâ"+RANK_D->query_rude(obj)+"»¹²»Àµ£¬¾ÍÈÃÎÒ½ÌÑµ½ÌÑµÄã°É£¡\n\n";
-		        else msg = "\n$N¡°ºÇºÇ¡±Ò»Ð¦£º¼ÈÈ»"+RANK_D->query_respect(obj)+"Çë½Ì£¬¾ÍÈÃÎÒÀ´Ö¸µãÖ¸µãÄã¼¸ÕÐ°É£¡\n\n";
+		                msg = "\n$Nä¸€å£°å†·ç¬‘ï¼šå¥½å§ï¼Œçœ‹ä½ è¿™"+RANK_D->query_rude(obj)+"è¿˜ä¸èµ–ï¼Œå°±è®©æˆ‘æ•™è®­æ•™è®­ä½ å§ï¼\n\n";
+		        else msg = "\n$Nâ€œå‘µå‘µâ€ä¸€ç¬‘ï¼šæ—¢ç„¶"+RANK_D->query_respect(obj)+"è¯·æ•™ï¼Œå°±è®©æˆ‘æ¥æŒ‡ç‚¹æŒ‡ç‚¹ä½ å‡ æ‹›å§ï¼\n\n";
 		        }
 		else if(obj->query("combat_exp") > me->query("combat_exp")*2 && userp(obj)){
 			if(me->query("shen") < -10000)
-		                msg = "\n$N¸ÉÐ¦Ò»Éù£º°¥Ó´£¬"+RANK_D->query_respect(obj)+"ÄúÕâÃ´¿´µÃÆð"+RANK_D->query_self(me)+"£¬ÎÒÖ»ºÃÔÚ´ËÏ×Ï×³óÁË£¡\n\n";
-		        else msg = "\n$NËàÈ»Æð¾´£º³ÐÃÉ"+RANK_D->query_respect(obj)+"¿´µÃÆð"+RANK_D->query_self(me)+"£¬ÎÒÖ»ºÃ¹§¾´¶ø²»Èç´ÓÃüÁË£¡\n\n";
+		                msg = "\n$Nå¹²ç¬‘ä¸€å£°ï¼šå“Žå“Ÿï¼Œ"+RANK_D->query_respect(obj)+"æ‚¨è¿™ä¹ˆçœ‹å¾—èµ·"+RANK_D->query_self(me)+"ï¼Œæˆ‘åªå¥½åœ¨æ­¤çŒ®çŒ®ä¸‘äº†ï¼\n\n";
+		        else msg = "\n$Nè‚ƒç„¶èµ·æ•¬ï¼šæ‰¿è’™"+RANK_D->query_respect(obj)+"çœ‹å¾—èµ·"+RANK_D->query_self(me)+"ï¼Œæˆ‘åªå¥½æ­æ•¬è€Œä¸å¦‚ä»Žå‘½äº†ï¼\n\n";
 		        }
 		else {
 			if(me->query("shen") < -10000)
-		                msg = "\n$N¶Ô×Å$nºÙºÙÒ»Ð¦£ºÀ´À´À´£¡¾ÍÈÃ"+RANK_D->query_self_rude(me)+"À´Áì½ÌÁì½Ì"+RANK_D->query_respect(obj)+"µÄ¸ßÕÐ°É£¡\n\n";
-		        else msg = "\n$N¶Ô×Å$nËµµÀ£º" + RANK_D->query_self(me) + me->name() + "£¬Áì½Ì"+ RANK_D->query_respect(obj) + "µÄ¸ßÕÐ£¡\n\n";
+		                msg = "\n$Nå¯¹ç€$nå˜¿å˜¿ä¸€ç¬‘ï¼šæ¥æ¥æ¥ï¼å°±è®©"+RANK_D->query_self_rude(me)+"æ¥é¢†æ•™é¢†æ•™"+RANK_D->query_respect(obj)+"çš„é«˜æ‹›å§ï¼\n\n";
+		        else msg = "\n$Nå¯¹ç€$nè¯´é“ï¼š" + RANK_D->query_self(me) + me->name() + "ï¼Œé¢†æ•™"+ RANK_D->query_respect(obj) + "çš„é«˜æ‹›ï¼\n\n";
 		}
 		obj->delete_temp("pending/fight");
         message_vision(CYN + msg + NOR, me, obj);
 
-		notify_fail("¿´ÆðÀ´" + obj->name() + "²¢²»Ïë¸úÄã½ÏÁ¿¡£\n");
+		notify_fail("çœ‹èµ·æ¥" + obj->name() + "å¹¶ä¸æƒ³è·Ÿä½ è¾ƒé‡ã€‚\n");
 		if( !userp(obj) && !obj->accept_fight(me) ) return 0;
 
 		me->fight_ob(obj);
 		obj->fight_ob(me);
 	} else {
-		message_vision("\n$N´óºÈÒ»Éù£¬¿ªÊ¼¶Ô$n·¢¶¯¹¥»÷£¡\n\n", me, obj);
+		message_vision("\n$Nå¤§å–ä¸€å£°ï¼Œå¼€å§‹å¯¹$nå‘åŠ¨æ”»å‡»ï¼\n\n", me, obj);
 		me->fight_ob(obj);
 		obj->kill_ob(me);
 	}
@@ -90,16 +90,16 @@ int main(object me, string arg)
 int help(object me)
 {
   write(@HELP
-Ö¸Áî¸ñÊ½ : fight <ÈËÎï>
+æŒ‡ä»¤æ ¼å¼ : fight <äººç‰©>
  
-Õâ¸öÖ¸ÁîÈÃÄãÏòÒ»¸öÈËÎï¡¸ÌÖ½Ì¡¹»òÕßÊÇ¡¸ÇÐ´èÎäÒÕ¡¹£¬ÕâÖÖÐÎÊ½µÄÕ½¶·´¿´âÊÇ
-µãµ½ÎªÖ¹£¬Òò´ËÖ»»áÏûºÄÌåÁ¦£¬²»»áÕæµÄÊÜÉË£¬µ«ÊÇ²¢²»ÊÇËùÓÐµÄ  NPC ¶¼Ï²»¶
-´ò¼Ü£¬Òò´ËÓÐÐè¶à×´¿öÄãµÄ±ÈÎäÒªÇó»á±»¾Ü¾ø¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ å‘ä¸€ä¸ªäººç‰©ã€Œè®¨æ•™ã€æˆ–è€…æ˜¯ã€Œåˆ‡ç£‹æ­¦è‰ºã€ï¼Œè¿™ç§å½¢å¼çš„æˆ˜æ–—çº¯ç²¹æ˜¯
+ç‚¹åˆ°ä¸ºæ­¢ï¼Œå› æ­¤åªä¼šæ¶ˆè€—ä½“åŠ›ï¼Œä¸ä¼šçœŸçš„å—ä¼¤ï¼Œä½†æ˜¯å¹¶ä¸æ˜¯æ‰€æœ‰çš„  NPC éƒ½å–œæ¬¢
+æ‰“æž¶ï¼Œå› æ­¤æœ‰éœ€å¤šçŠ¶å†µä½ çš„æ¯”æ­¦è¦æ±‚ä¼šè¢«æ‹’ç»ã€‚
  
-ÆäËûÏà¹ØÖ¸Áî: kill
+å…¶ä»–ç›¸å…³æŒ‡ä»¤: kill
 
-PS. Èç¹û¶Ô·½²»Ô¸Òâ½ÓÊÜÄãµÄÌôÕ½£¬ÄãÈÔÈ»¿ÉÒÔåÉÐÐÓÃ kill Ö¸Áî¿ªÊ¼Õ½¶·£¬ÓÐ
-    ¹Ø fight ¸ú kill µÄÇø·ÖÇë¿´ 'help combat'.
+PS. å¦‚æžœå¯¹æ–¹ä¸æ„¿æ„æŽ¥å—ä½ çš„æŒ‘æˆ˜ï¼Œä½ ä»ç„¶å¯ä»¥è¿³è¡Œç”¨ kill æŒ‡ä»¤å¼€å§‹æˆ˜æ–—ï¼Œæœ‰
+    å…³ fight è·Ÿ kill çš„åŒºåˆ†è¯·çœ‹ 'help combat'.
 HELP
     );
     return 1;

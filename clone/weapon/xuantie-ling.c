@@ -24,12 +24,12 @@ void add_amount(int v) { set_amount((int)query_amount()+v); }
 
 void create()
 {
-       set_name( HIB"ÐþÌúÁî"NOR, ({ "tie ling", "xuantie ling", "ling" }) );
+       set_name( HIB"çŽ„é“ä»¤"NOR, ({ "tie ling", "xuantie ling", "ling" }) );
        if( clonep() )
                set_default_object(__FILE__);
       else {
-               set("unit", "¿é");
-               set("base_unit", "¿é");
+               set("unit", "å—");
+               set("base_unit", "å—");
                set("base_weight", 1000);
                set("value", 100);
        set("unique", 3);
@@ -47,17 +47,17 @@ int wield()
         object me = environment();
 
 /*        if (userp(me) && living(me) && me->query_skill("shenghuo-lingfa", 1) < 150){
-                message_vision("$NÄÃ³ö"+name()+"¿´¿´ÁË£¬È´¸ã²»¶®ÔõÃ´Ê¹ÓÃÕâ¸ö¶«Î÷¡£\n", me);
+                message_vision("$Næ‹¿å‡º"+name()+"çœ‹çœ‹äº†ï¼Œå´æžä¸æ‡‚æ€Žä¹ˆä½¿ç”¨è¿™ä¸ªä¸œè¥¿ã€‚\n", me);
                 return 0;
         }           
 */
         if( query_amount() > 2 ){
-                message_vision("$NÄÃ³ö"+name()+"¿´¿´ÁË£¬È´¸ã²»¶®ÔõÃ´Í¬Ê±Ê¹ÓÃËü¡£\n", me);
+                message_vision("$Næ‹¿å‡º"+name()+"çœ‹çœ‹äº†ï¼Œå´æžä¸æ‡‚æ€Žä¹ˆåŒæ—¶ä½¿ç”¨å®ƒã€‚\n", me);
                 return 0;
         }    
         if (query_amount() > 1){
                 if (me->query_skill("shenghuo-lingfa", 1) < 200 || me->query_int() < 36){
-                        message_vision("$NÄÃ³ö"+name()+"¿´¿´ÁË£¬È´¸ã²»¶®ÔõÃ´ÓÃËü¡£\n", me);
+                        message_vision("$Næ‹¿å‡º"+name()+"çœ‹çœ‹äº†ï¼Œå´æžä¸æ‡‚æ€Žä¹ˆç”¨å®ƒã€‚\n", me);
                         return 0;
                 }
         }

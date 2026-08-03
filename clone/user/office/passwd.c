@@ -1,5 +1,5 @@
 // snedpasswd.c
-// ·¢ËÍÃÜÂë
+// å‘é€å¯†ç 
 
 #include <ansi.h>
 #include <net/dns.h>
@@ -23,7 +23,7 @@ nosave string rcpt,msg;
 void create()
 {
         seteuid(ROOT_UID);
-        set("channel_id", "ÃÜÂë¾«Áé");
+        set("channel_id", "å¯†ç ç²¾çµ");
 }
 
 void write_message(string);
@@ -35,16 +35,16 @@ int do_telnet(string arg)
         if( connected ) socket_close(my_socket);
         my_socket = socket_create( STREAM, "in_read_callback","in_close_callback" );
         if ( my_socket < 0 ) {
-//                tell_object(me, "´´½¨Ì×½Ó×ÖÊ§°Ü¡£\n" );
+//                tell_object(me, "åˆ›å»ºå¥—æ¥å­—å¤±è´¥ã€‚\n" );
                 return 0;
         }
         err = socket_connect( my_socket, arg , "read_callback","write_callback" );
         if( err==EESUCCESS ) {
-                write(HIW"\nÏÖÔÚ·¢ËÍĞÅ¼ş...\n"NOR);
+                write(HIW"\nç°åœ¨å‘é€ä¿¡ä»¶...\n"NOR);
                 connected = 1;
                 return 1;
         }
-        write("ÓÊ¼ş·şÎñÆ÷ÎŞ·¨Á¬½Ó¡£\n");
+        write("é‚®ä»¶æœåŠ¡å™¨æ— æ³•è¿æ¥ã€‚\n");
         return 0;
 }
 
@@ -86,7 +86,7 @@ void read_callback(int fd, mixed message)
                         write_message("DATA");
                         return;
                 }
-                write("ÓÊ¼şµØÖ·´íÎó£¬Çë¼ì²é£¡\n");
+                write("é‚®ä»¶åœ°å€é”™è¯¯ï¼Œè¯·æ£€æŸ¥ï¼\n");
                 break;
         case 4:
                 if(sscanf(message,"354%*s")) {
@@ -96,16 +96,16 @@ void read_callback(int fd, mixed message)
                 }
                 break;
         case 5:
-                if(sscanf(message,"451%*s")) write("·¢ĞÅ³ö´í£¡ÇëÉÔºòÔÙÊÔ¡£\n");
+                if(sscanf(message,"451%*s")) write("å‘ä¿¡å‡ºé”™ï¼è¯·ç¨å€™å†è¯•ã€‚\n");
                 else {
-                        write("×¢²áĞÅ¼şÒÑ¾­ÕıÈ··¢ËÍÁË¡£\n");
+                        write("æ³¨å†Œä¿¡ä»¶å·²ç»æ­£ç¡®å‘é€äº†ã€‚\n");
                         if( linkob ) destruct(linkob);
                         mail_ob = 0;
                 }
                 
                 break;                          
         }
-        if(status!=5 || !sscanf(message,"250%*s")) write("·¢ĞÅ³ö´í£¡\n");
+        if(status!=5 || !sscanf(message,"250%*s")) write("å‘ä¿¡å‡ºé”™ï¼\n");
         status=0;
         write_message("QUIT");
         close_socket();
@@ -147,7 +147,7 @@ private string change_passwd(object ob)
         ob->set("password",crypt(pass,"$1$ShuJian"));
         if( ob->query("newpassword") )
                 ob->set("newpassword", crypt(pass,"$1$ShuJian"));
-        write("Íæ¼Ò"+ ob->query("name")+ "(" + ob->query("id") + ")µÄÃÜÂëÒÑ¾­¸ü¸Ä£¬·¢ËÍĞÅ¼ş³É¹¦¡£\n");
+        write("ç©å®¶"+ ob->query("name")+ "(" + ob->query("id") + ")çš„å¯†ç å·²ç»æ›´æ”¹ï¼Œå‘é€ä¿¡ä»¶æˆåŠŸã€‚\n");
         return pass;
 }
 
@@ -155,9 +155,9 @@ private string do_auto(object me, string dest)
 {
         string id, mail, wiz_status;
         
-        if( mail_ob ) return "ÕıÔÚ°ìÀíËûÈËµÄÃÜÂëÊÖĞø£¬ÇëÉÔºò¡£\n";
+        if( mail_ob ) return "æ­£åœ¨åŠç†ä»–äººçš„å¯†ç æ‰‹ç»­ï¼Œè¯·ç¨å€™ã€‚\n";
         
-        if( me != this_player(1) ) return "Éí·İÑéÖ¤Ê§°Ü£¡\n";
+        if( me != this_player(1) ) return "èº«ä»½éªŒè¯å¤±è´¥ï¼\n";
         
         if (!do_telnet(smtp_ip)) {
                 mail_ob = 0;
@@ -175,14 +175,14 @@ private string do_auto(object me, string dest)
                 if( !linkob->restore() ) {
                         mail_ob = 0;
                         destruct(linkob);
-                        return "Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n";
+                        return "æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n";
                 } 
                 else {         
                         wiz_status = SECURITY_D->get_status(linkob);
                         if( wiz_status == "(admin)" && SECURITY_D->get_status(me) != "(admin)" ){
                                 mail_ob = 0;
                                 destruct(linkob);
-                                return "Äã²»¿ÉÒÔ¸ü¸Ä Admin µÄÃÜÂë¡£\n";
+                                return "ä½ ä¸å¯ä»¥æ›´æ”¹ Admin çš„å¯†ç ã€‚\n";
                         }
                 }
         }
@@ -191,19 +191,19 @@ private string do_auto(object me, string dest)
                 wiz_status = SECURITY_D->get_status(mail_ob);
                 if( wiz_status == "(admin)" && SECURITY_D->get_status(me) != "(admin)" ){
                         mail_ob = 0;
-                        return "Äã²»¿ÉÒÔ¸ü¸Ä Admin µÄÃÜÂë¡£\n";
+                        return "ä½ ä¸å¯ä»¥æ›´æ”¹ Admin çš„å¯†ç ã€‚\n";
                 }
                   
                 linkob = mail_ob->query_temp("link_ob");
                 if( !linkob ) {
                         mail_ob = 0;
-                        return "´ËÈËµÄLink_ob´íÎó¡£ÎŞ·¨½øĞĞĞŞ¸Ä¡£\n";
+                        return "æ­¤äººçš„Link_obé”™è¯¯ã€‚æ— æ³•è¿›è¡Œä¿®æ”¹ã€‚\n";
                 }
                 
                 if( !stringp(mail) ){
                         mail = linkob->query("email");
                         if( !stringp(mail) || sscanf(mail, "%*s@%*s.%*s") != 3 )
-                                return "´ËÈËµÄµç×ÓÓÊ¼şµØÖ·´íÎó£¬²»ÄÜ¸ü¸ÄÃÜÂë¡£\n";
+                                return "æ­¤äººçš„ç”µå­é‚®ä»¶åœ°å€é”™è¯¯ï¼Œä¸èƒ½æ›´æ”¹å¯†ç ã€‚\n";
                 }
                 // Kick this player out afer changed his/her passwd.
                 Dest = 1;
@@ -214,30 +214,30 @@ private string do_auto(object me, string dest)
                 if( !stringp(mail) || sscanf(mail, "%*s@%*s.%*s") != 3 ){
                         mail_ob = 0;
 			destruct(linkob);
-                        return "´ËÈËµÄµç×ÓÓÊ¼şµØÖ·´íÎó£¬²»ÄÜ¸ü¸ÄÃÜÂë¡£\n";
+                        return "æ­¤äººçš„ç”µå­é‚®ä»¶åœ°å€é”™è¯¯ï¼Œä¸èƒ½æ›´æ”¹å¯†ç ã€‚\n";
                 }
         }
         rcpt = mail;
         status = 0;
-        write("¿ªÊ¼°ìÀíÃÜÂë×¢²áÊÖĞø¼°·¢ËÍÖÁ "+ mail +" ...\n");
-        //ÉèÖÃÍæ¼ÒµÄ×¢²áĞÅÏ¢
+        write("å¼€å§‹åŠç†å¯†ç æ³¨å†Œæ‰‹ç»­åŠå‘é€è‡³ "+ mail +" ...\n");
+        //è®¾ç½®ç©å®¶çš„æ³¨å†Œä¿¡æ¯
         if ( linkob->query("email") != mail )
-        	log_file("static/sendpasswd", sprintf("%s %s(%s)ĞŞ¸ÄÁË%s(%s)µÄÃÜÂë send to %s\n", ctime(time()),me->name(1),
+        	log_file("static/sendpasswd", sprintf("%s %s(%s)ä¿®æ”¹äº†%s(%s)çš„å¯†ç  send to %s\n", ctime(time()),me->name(1),
                  me->query("id"), linkob->query("name"), linkob->query("id"), mail));
 
         msg=
-                "SUBJECT: "+CHINESE_MUD_NAME+"×¢²áĞÅ¼ş£¡\n"+
-                "FROM: \""+"ÃÜÂë¹ÜÀíÔ±@"+CHINESE_MUD_NAME+"\" <password@mymud.com>\n"+
+                "SUBJECT: "+CHINESE_MUD_NAME+"æ³¨å†Œä¿¡ä»¶ï¼\n"+
+                "FROM: \""+"å¯†ç ç®¡ç†å‘˜@"+CHINESE_MUD_NAME+"\" <password@mymud.com>\n"+
                 "TO: \""+linkob->query("name")+"("+linkob->query("id")+")"+"\" <"+dest+">\n"+
                 "MIME-Version: 1.0\n"+
                 "DATE: "+ctime(time())+"\n"+
                 "X-MAILER: LPC SMTP Client v0.4\n\n\n"+
-                linkob->query("name")+"("+linkob->query("id")+")" + " ÄúºÃ£¡»¶Ó­¹âÁÙ"+CHINESE_MUD_NAME+"£¡\n"+
-                "Çë¹Ø±Õ×Ô¶¯µÇÂ¼¹¦ÄÜ£¬Ê¹ÓÃÏÂÃæÌá¹©µÄÃÜÂëµÇÂ¼¡£\n\n"+
-                "ÄãµÄ×¢²áÃÜÂëÊÇ£º"+ change_passwd(linkob) +"\n\n"+
-                "ÓÃ´ËÃÜÂëµÇÂ¼³É¹¦ºó£¬ÇëÓÃ passwd Ö¸Áî¸ü»»ÄúµÄÃÜÂë¡£\n"+
-                  "ÏêÇéÇë²Î¿¼ help passwd ¡£\n"+
-                "×ÜÕ¾Ö÷Ò³£ºhttp://www.mymud.com\n"+
+                linkob->query("name")+"("+linkob->query("id")+")" + " æ‚¨å¥½ï¼æ¬¢è¿å…‰ä¸´"+CHINESE_MUD_NAME+"ï¼\n"+
+                "è¯·å…³é—­è‡ªåŠ¨ç™»å½•åŠŸèƒ½ï¼Œä½¿ç”¨ä¸‹é¢æä¾›çš„å¯†ç ç™»å½•ã€‚\n\n"+
+                "ä½ çš„æ³¨å†Œå¯†ç æ˜¯ï¼š"+ change_passwd(linkob) +"\n\n"+
+                "ç”¨æ­¤å¯†ç ç™»å½•æˆåŠŸåï¼Œè¯·ç”¨ passwd æŒ‡ä»¤æ›´æ¢æ‚¨çš„å¯†ç ã€‚\n"+
+                  "è¯¦æƒ…è¯·å‚è€ƒ help passwd ã€‚\n"+
+                "æ€»ç«™ä¸»é¡µï¼šhttp://www.mymud.com\n"+
                 ctime(time());
 
         linkob->set("email", mail);
@@ -246,31 +246,31 @@ private string do_auto(object me, string dest)
         call_out("fail", 90, mail_ob);
         if( Dest ){
                 mail_ob->save();
-                tell_object(mail_ob, HIW"ÓĞÈËĞŞ¸ÄÁËÄúµÄ×¢²áÃÜÂë£¬ÇëÍË³öºóÖØĞÂµÇÂ¼¡£\n"NOR);
-                tell_object(me, "ÄãĞŞ¸ÄÁË´ËÈËµÄ×¢²áÃÜÂë£¬½«ËûÍËÀëÓÎÏ·¡£\n");
+                tell_object(mail_ob, HIW"æœ‰äººä¿®æ”¹äº†æ‚¨çš„æ³¨å†Œå¯†ç ï¼Œè¯·é€€å‡ºåé‡æ–°ç™»å½•ã€‚\n"NOR);
+                tell_object(me, "ä½ ä¿®æ”¹äº†æ­¤äººçš„æ³¨å†Œå¯†ç ï¼Œå°†ä»–é€€ç¦»æ¸¸æˆã€‚\n");
                 destruct(linkob);
                 catch(destruct(mail_ob));
                 if( mail_ob ) 
-                	return "ÄãÎŞ·¨ÈÃÕâ¸öÍæ¼ÒÀëÏß¡£\n";
-                CHANNEL_D->do_channel(this_object(), "sys", "ÃÜÂë¸ü¶¯ -> "NOR + id + HIR" ÍË³öÁËÏµÍ³£¬ÃÜÂë·¢ËÍÖÁ "+mail+" ¡£");
+                	return "ä½ æ— æ³•è®©è¿™ä¸ªç©å®¶ç¦»çº¿ã€‚\n";
+                CHANNEL_D->do_channel(this_object(), "sys", "å¯†ç æ›´åŠ¨ -> "NOR + id + HIR" é€€å‡ºäº†ç³»ç»Ÿï¼Œå¯†ç å‘é€è‡³ "+mail+" ã€‚");
         }
         else {
-        	CHANNEL_D->do_channel(this_object(), "sys", "ÃÜÂë¸ü¶¯ -> "NOR + id + HIR" µÄÃÜÂë¸üĞÂ£¬·¢ËÍÖÁ "+mail+" ¡£");
+        	CHANNEL_D->do_channel(this_object(), "sys", "å¯†ç æ›´åŠ¨ -> "NOR + id + HIR" çš„å¯†ç æ›´æ–°ï¼Œå‘é€è‡³ "+mail+" ã€‚");
 	}
-        return "·¢ËÍÍæ¼Ò "+ dest +" ÃÜÂë³É¹¦£¬ÃÜÂëĞÅ¼şÒÑ¾­·¢Íù "+ mail +"¡£\n";
+        return "å‘é€ç©å®¶ "+ dest +" å¯†ç æˆåŠŸï¼Œå¯†ç ä¿¡ä»¶å·²ç»å‘å¾€ "+ mail +"ã€‚\n";
 }
 
 void fail(object ob)
 {
         if (!ob || ob != mail_ob) return;
         close_socket();
-        message_vision("ÃÜÂë×¢²áÊ§°Ü£¡\n", me);
-        write("ÇëÖØĞÂ×¢²á¡£\n");
+        message_vision("å¯†ç æ³¨å†Œå¤±è´¥ï¼\n", me);
+        write("è¯·é‡æ–°æ³¨å†Œã€‚\n");
         mail_ob = 0;
 }
 
 
 string *help()
 {
-	return ({"passwd [id]","·¢ËÍĞÂÃÜÂëµ½Íæ¼Ò×¢²ámailµØÖ·¡£"});
+	return ({"passwd [id]","å‘é€æ–°å¯†ç åˆ°ç©å®¶æ³¨å†Œmailåœ°å€ã€‚"});
 }

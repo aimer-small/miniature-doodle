@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 { 
-       set("short",GRN"����"NOR);
+       set("short",GRN"树林"NOR);
        set("long", @LONG
-����һƬ�����֡���ʮ�ɸߵ���ľ����һ�飬��ʵ��֦Ҷ��һ�����ɡ��
-������գ��������ڵ�˿��Ҳ�ޡ���һ�߽������������ɭ�ֵģ���ĸо���
-���㣬�øϿ��뿪��
+这是一片乱树林。几十丈高的树木簇在一块，密实的枝叶象一蓬蓬巨伞般
+伸向天空，把阳光遮得丝毫也无。你一走进这这觉得阴阴森林的，你的感觉告
+诉你，得赶快离开。
 LONG);    
 	set("exits", ([
 		"south" : __DIR__"shenchu5",			
@@ -22,7 +22,7 @@ LONG);
           BINGQI_D("da-shugan") : 1,
 	]));
         set("outer_times", 10);
-        set("outdoors", "���̹�����");
+        set("outdoors", "明教光明顶");
         set("coor/x",-300);
   set("coor/y",170);
    set("coor/z",100);

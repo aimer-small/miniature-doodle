@@ -7,12 +7,12 @@ string type() { return "martial"; }
 
 int valid_learn(object me)
 {
-	return notify_fail("六脉神剑的运气法门只有从[六脉神剑经]中领悟！\n");
+	return notify_fail("鍏剦绁炲墤鐨勮繍姘旀硶闂ㄥ彧鏈変粠[鍏剦绁炲墤缁廬涓鎮燂紒\n");
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("六脉神剑的运气法门只有从[六脉神剑经]中领悟！\n");
+	return notify_fail("鍏剦绁炲墤鐨勮繍姘旀硶闂ㄥ彧鏈変粠[鍏剦绁炲墤缁廬涓鎮燂紒\n");
 }
 
 

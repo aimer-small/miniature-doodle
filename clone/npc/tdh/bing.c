@@ -4,7 +4,7 @@ inherit NPC;
 #include <ansi.h>
 #include "skill.h"
 
-//string *rtitle = ({HIY"ÓùÇ°ÊÌÎÀ"NOR, HIR"ĞÌ²¿Ìú²¶"NOR, HIM"´óÄÚ¸ßÊÖ"NOR});
+//string *rtitle = ({HIY"å¾¡å‰ä¾å«"NOR, HIR"åˆ‘éƒ¨é“æ•"NOR, HIM"å¤§å†…é«˜æ‰‹"NOR});
 
 void create()
 {
@@ -14,13 +14,13 @@ void create()
 //	str = rtitle[random(sizeof(rtitle))];
 
 	set_name(name["name"], name["id"]+({"shi wei"}) );
-	set("gender", "ÄĞĞÔ");
-	set("long", "Õâ¼Ò»ï°ò´óÑüÔ²£¬ÆøÊÆĞÚĞÚ£¬ÁîÈËÍû¶øÉúÎ·¡£\n");
+	set("gender", "ç”·æ€§");
+	set("long", "è¿™å®¶ä¼™è†€å¤§è…°åœ†ï¼Œæ°”åŠ¿æ±¹æ±¹ï¼Œä»¤äººæœ›è€Œç”Ÿç•ã€‚\n");
 	set("shen", -5000);
 	set("attitude", "friendly");
 	set("age", random(20)+25);
 //	set("title", str);
-	set("title",HIY"ÓùÇ°ÊÌÎÀ"NOR);
+	set("title",HIY"å¾¡å‰ä¾å«"NOR);
 
 	set("no_ansuan", 1);
 	set("no_bark", 1);
@@ -75,15 +75,15 @@ void dest(object ob)
 
 	if ( !ob ) return;
 	if ( ob->is_fighting())
-		tell_room(environment(ob), "\n"+ob->name()+"¶ñºİºİËµµÀ£ººÃºº²»³ÔÑÛÇ°¿÷£¬ÀÏ×ÓÏÈ³·ÁË¡£\n");
+		tell_room(environment(ob), "\n"+ob->name()+"æ¶ç‹ ç‹ è¯´é“ï¼šå¥½æ±‰ä¸åƒçœ¼å‰äºï¼Œè€å­å…ˆæ’¤äº†ã€‚\n");
 	else
-		tell_room(environment(ob), "\n"+ob->name()+"×ªÑÛ¼ä×ßµÄÎŞÓ°ÎŞ×Ù¡£\n");
+		tell_room(environment(ob), "\n"+ob->name()+"è½¬çœ¼é—´èµ°çš„æ— å½±æ— è¸ªã€‚\n");
 
-	if ( stringp(query("ÌìµØ»ájober"))
-	 && objectp(jober= find_player(query("ÌìµØ»ájober")))
+	if ( stringp(query("å¤©åœ°ä¼šjober"))
+	 && objectp(jober= find_player(query("å¤©åœ°ä¼šjober")))
 	 && jober->query_temp("tdhjob")
-	 && !jober->query_temp("ÌìµØ»ájob/lost")){
-		jober->add_temp("ÌìµØ»ájob/meet", -1);
+	 && !jober->query_temp("å¤©åœ°ä¼šjob/lost")){
+		jober->add_temp("å¤©åœ°ä¼šjob/meet", -1);
 	}
 	destruct(ob);
 }
@@ -94,9 +94,9 @@ void heart_beat()
 
 	::heart_beat();
 
-	if ( stringp(query("ÌìµØ»ájober"))
-	 && objectp(jober= find_player(query("ÌìµØ»ájober")))
-	 && jober->query_temp("ÌìµØ»ájob/lost")){
+	if ( stringp(query("å¤©åœ°ä¼šjober"))
+	 && objectp(jober= find_player(query("å¤©åœ°ä¼šjober")))
+	 && jober->query_temp("å¤©åœ°ä¼šjob/lost")){
 		dest(this_object());
 	}
 }
@@ -105,7 +105,7 @@ void kill_ob(object ob)
 {
 	object me = this_object();
 
-	if( me->query("ÌìµØ»ájober") != ob->query("id") && userp(ob)){
+	if( me->query("å¤©åœ°ä¼šjober") != ob->query("id") && userp(ob)){
 		me->remove_enemy(ob);
 		ob->remove_killer(me);
 		return;
@@ -115,8 +115,8 @@ void kill_ob(object ob)
 
 void fight_ob(object ob)
 {
-	if( query("ÌìµØ»ájober") != ob->query("id") && userp(ob)){
-		command("say "+ob->name()+"Äã¿ì×ßÔ¶µã£¬ÀÏ×ÓÎÒÕıÔÚÖ´ĞĞ¹«Îñ£¡");
+	if( query("å¤©åœ°ä¼šjober") != ob->query("id") && userp(ob)){
+		command("say "+ob->name()+"ä½ å¿«èµ°è¿œç‚¹ï¼Œè€å­æˆ‘æ­£åœ¨æ‰§è¡Œå…¬åŠ¡ï¼");
 		ob->remove_killer(this_object());
 	}
 	else ::fight_ob(ob);
@@ -128,19 +128,19 @@ void die()
 	ob = this_object();
 
 	if ( objectp( jober = ob->query_temp("last_damage_from") )
-	&& query("ÌìµØ»ájober") == jober->query("id")
-	&& !jober->query_temp("ÌìµØ»ájob/lost")
+	&& query("å¤©åœ°ä¼šjober") == jober->query("id")
+	&& !jober->query_temp("å¤©åœ°ä¼šjob/lost")
 	&& jober->query_temp("tdhjob")){
-		jober->add_temp("ÌìµØ»ájob/killer", 1);
+		jober->add_temp("å¤©åœ°ä¼šjob/killer", 1);
 	}
 	if ( random(3)){
 		dest(ob);
 		return;
 	}
-	if (objectp(jober= find_player(query("ÌìµØ»ájober")))
+	if (objectp(jober= find_player(query("å¤©åœ°ä¼šjober")))
 	 && jober->query_temp("tdhjob")
-	 && !jober->query_temp("ÌìµØ»ájob/lost")){
-		jober->add_temp("ÌìµØ»ájob/meet", -1);
+	 && !jober->query_temp("å¤©åœ°ä¼šjob/lost")){
+		jober->add_temp("å¤©åœ°ä¼šjob/meet", -1);
 	}
 	::die();
 }
@@ -148,6 +148,6 @@ void die()
 void unconcious()
 {
 	object ob = this_object();
-	tell_room(environment(ob), "\n"+ob->name()+"´ó½ĞµÀ£º¡°·´Ôô£¡ÄãÃÇÊÇÅÜ²»ÁËµÄ£¡¡±\n");
+	tell_room(environment(ob), "\n"+ob->name()+"å¤§å«é“ï¼šâ€œåè´¼ï¼ä½ ä»¬æ˜¯è·‘ä¸äº†çš„ï¼â€\n");
 	die();
 }

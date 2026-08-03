@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ԯ��");
+	set("short", "辕门");
 	set("long", @LONG
-ԯ�Űѱ�Ӫ�;�������ָ�����.ԭľ��ԯ�ű�����������ͨ�е�ÿ
-һ����.�������ӭ����չ,һ��ֱ����ͨ����ľ���Ӫ��.
+辕门把兵营和居民帐篷分隔开来.原木的辕门边有守卫监视通行的每
+一个人.两排旌旗迎风招展,一条直道向北通向铁木真的营帐.
 LONG
 	);
 	set("no_clean_up", 0);

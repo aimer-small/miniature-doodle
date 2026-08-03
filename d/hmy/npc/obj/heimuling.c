@@ -1,17 +1,17 @@
-// heimu-ling.c ºÚÄ¾Áî
+// heimu-ling.c é»‘æœ¨ä»¤
 
 inherit ITEM;
 #include <ansi.h>;
 void create()
 {
-        set_name(HIB"ºÚÄ¾Áî"NOR, ({"heimu ling", "heimu", "ling"}));
+        set_name(HIB"é»‘æœ¨ä»¤"NOR, ({"heimu ling", "heimu", "ling"}));
         set_weight(800);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ãæ");
-                set("long","ÕâÊÇÒ»¿éÊÇ¿é¿İ½¹µÄºÚÉ«Ä¾Í·£¬³¤Ô¼°ë³ß£¬ÉÏÃæµñ¿ÌÓĞ»¨ÎÆÎÄ×Ö£¬¿´À´Ê®·Ö¹îÒì¡£\n");
-		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+                set("unit", "é¢");
+                set("long","è¿™æ˜¯ä¸€å—æ˜¯å—æ¯ç„¦çš„é»‘è‰²æœ¨å¤´ï¼Œé•¿çº¦åŠå°ºï¼Œä¸Šé¢é›•åˆ»æœ‰èŠ±çº¹æ–‡å­—ï¼Œçœ‹æ¥ååˆ†è¯¡å¼‚ã€‚\n");
+		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
                 set("material", "wood");
         }
 }

@@ -1,14 +1,14 @@
-// dclaoban.c ¶Ä³¡ÀÏ°å
+// dclaoban.c èµŒåœºè€æ¿
 
 inherit NPC;
 
 void create()
 {
-        set_name("¶Ä³¡ÀÏ°å", ({ "lao ban", "laoban" }));
+        set_name("èµŒåœºè€æ¿", ({ "lao ban", "laoban" }));
         set("shen_type", 0);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 42);
-        set("long", "ËûÊÖÀïÄÃ×ÅÒ»Şû²ÊÆ±£¬ÕıÔÚ·­¿´×Å¡£\n");
+        set("long", "ä»–æ‰‹é‡Œæ‹¿ç€ä¸€æ‘å½©ç¥¨ï¼Œæ­£åœ¨ç¿»çœ‹ç€ã€‚\n");
         set("no_get_from", 1);
         set("no_get", 1);
         set("no_bark", 1);

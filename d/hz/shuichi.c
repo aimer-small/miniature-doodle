@@ -1,13 +1,13 @@
-// /u/beyond/hz/shuichi.c ˮ��
+// /u/beyond/hz/shuichi.c 水池
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short",HIW"ˮ��"NOR);
+        set("short",HIW"水池"NOR);
         set("long", @LONG
-��ɽ�������ʯ��һ��Ȫˮ����������ӿ�������γɶ༶�ٲ���ע����
-�ء���������ɽʯ�Ϸֱ���š�ˮ����������������顱����������һ��
-԰��С����
+假山中央的岩石上一道泉水从龙口中喷涌而出，形成多级瀑布，注入深
+池。池畔两块山石上分别刻着“水不在深”，“有龙则灵”。池西面是一组
+园林小筑。
 LONG
         );
 set("objects",([

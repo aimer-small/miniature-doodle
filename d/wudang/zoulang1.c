@@ -1,4 +1,4 @@
-// xilang.c Î÷Ïá×ßÀÈ
+// xilang.c è¥¿å¢èµ°å»Š
 // by shang 97/6
 
 #include <ansi.h>
@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "×ßÀÈ");
+        set("short", "èµ°å»Š");
         set("long", @LONG
-Äã×ßÔÚÒ»Ìõ×ßÀÈÉÏ£¬Î÷±ßÓĞÒ»¼äÒ©·¿£¬ÔÙÍù¶«ÊÇÒ»¼äÁ¶µ¤·¿, ±±ÃæÊÇÁ·¹¦
-·¿¡£Õâ¶ùÊÇÎäµ±½ûµØ, ·Ç³£°²¾², ÓĞÒ»Îäµ±µÜ×Ó¿´ÊØ×Å¡£
+ä½ èµ°åœ¨ä¸€æ¡èµ°å»Šä¸Šï¼Œè¥¿è¾¹æœ‰ä¸€é—´è¯æˆ¿ï¼Œå†å¾€ä¸œæ˜¯ä¸€é—´ç‚¼ä¸¹æˆ¿, åŒ—é¢æ˜¯ç»ƒåŠŸ
+æˆ¿ã€‚è¿™å„¿æ˜¯æ­¦å½“ç¦åœ°, éå¸¸å®‰é™, æœ‰ä¸€æ­¦å½“å¼Ÿå­çœ‹å®ˆç€ã€‚
 LONG
         );
 
@@ -35,11 +35,11 @@ int valid_leave(object me, string dir)
         mapping myfam;
         myfam = (mapping)me->query("family");
 
-        if ((!myfam || myfam["family_name"] != "Îäµ±ÅÉ")
+        if ((!myfam || myfam["family_name"] != "æ­¦å½“æ´¾")
          && dir != "south"
          && objectp( obj = present("zhang songxi", environment(me)))
          && living(obj))    
-          return notify_fail(CYN"ÕÅËÉÏªºÈµÀ£ºÎäµ±ÖØµØ£¬ÍâÈË²»µÃÈëÄÚ¡£\n"NOR);
+          return notify_fail(CYN"å¼ æ¾æºªå–é“ï¼šæ­¦å½“é‡åœ°ï¼Œå¤–äººä¸å¾—å…¥å†…ã€‚\n"NOR);
                
         return ::valid_leave(me, dir);
 }

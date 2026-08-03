@@ -8,14 +8,14 @@ void init()
 }
 void create()
 {
-	set_name("Ñ©Â¶Íè", ({"xuelu wan", "wan", }));   
+	set_name("é›ªéœ²ä¸¸", ({"xuelu wan", "wan", }));   
 	set("no_drop",1);
 	set("no_get",1);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿Å¾§Ó¨°ëÍ¸Ã÷µÄÒ©Íè£¬Ç³ÂÌÉ«´øÓÐÒ»¹ÉÇåÏã£¬´ËÒ©ÊÇÌìÁúËÂÃØ´«ÒÔÌìÉ½Ñ©Á«Óë±ÌÓñ²ÝºÏ³É£¬Ìá¸ßÌåÁ¦£¬ÁéÐ§ÎÞ±È¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—æ™¶èŽ¹åŠé€æ˜Žçš„è¯ä¸¸ï¼Œæµ…ç»¿è‰²å¸¦æœ‰ä¸€è‚¡æ¸…é¦™ï¼Œæ­¤è¯æ˜¯å¤©é¾™å¯ºç§˜ä¼ ä»¥å¤©å±±é›ªèŽ²ä¸Žç¢§çŽ‰è‰åˆæˆï¼Œæé«˜ä½“åŠ›ï¼Œçµæ•ˆæ— æ¯”ã€‚\n");
 		set("value", 10000);     
 		set("no_drop",1);
 	set("no_get",1);
@@ -31,7 +31,7 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->query_skill_mapped("force") != "qiantian-yiyang" )
       {
@@ -42,11 +42,11 @@ int do_eat(string arg)
 			me->set("max_jingli", 0);
 		if (me->add("eff_jingli", -20) < 0)
 			me->set("eff_jingli", 0);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÑ©Â¶Íè£¬Ö»¾õµÃ¸Î³¦´ç¶Ï£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËðÌåÁ¦£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—é›ªéœ²ä¸¸ï¼Œåªè§‰å¾—è‚è‚ å¯¸æ–­ï¼ŒåŽŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸä½“åŠ›ï¼\n" NOR, me);
 		me->unconcious();
 		destruct(this_object());
 	*/
-		write("ËùÁ·ÄÚ¹¦²»·û£¬ÕâÒ©Äã»¹ÊÇ²»Òª³ÔµÄºÃ£¡\n");
+		write("æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œè¿™è¯ä½ è¿˜æ˜¯ä¸è¦åƒçš„å¥½ï¼\n");
 		return 1;
 	}
       } 
@@ -57,13 +57,13 @@ int do_eat(string arg)
 			me->set("max_jingli", 0);
 		if (me->add("eff_jingli", -1) < 0)
 			me->set("eff_jingli", 0);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÑ©Â¶Íè£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´·þÊ³Ì«¼±Ì«¶à£¬Ò©Ð§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—é›ªéœ²ä¸¸ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŽŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
 	else
 	{
 		me->add("max_jingli", 1);
 		me->add("eff_jingli", 1);
-		message_vision(HIY "$N³ÔÏÂÒ»¿ÅÑ©Â¶Íè£¬Ö»¾õµÃÌåÁ¦¶ÙÈ»Ìá¸ß£¬È«ÉíËÆÓÐÎÞÇîµÄ¾«Á¦£¡\n" NOR, me);
+		message_vision(HIY "$Nåƒä¸‹ä¸€é¢—é›ªéœ²ä¸¸ï¼Œåªè§‰å¾—ä½“åŠ›é¡¿ç„¶æé«˜ï¼Œå…¨èº«ä¼¼æœ‰æ— ç©·çš„ç²¾åŠ›ï¼\n" NOR, me);
 		me->apply_condition("bonze_drug", 25);
 	}
 	

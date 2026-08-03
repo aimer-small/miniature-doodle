@@ -5,15 +5,15 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "Î÷ºþ±ß");
+        set("short", "è¥¿æ¹–è¾¹");
         set("long", @LONG
-Õâºþ×÷ÍÖÔ°Ö®ÐÎ£¬´ó°ë²¿ÒþÔÚ»¨Ê÷´ÔÖÐ£¬¶«ÄÏÎ÷±±¾¡ÊÇÐüÑÂÇÍ±Ú£¬Ö»ÓÐ¸Õ
-ÅÀÏÂÀ´µÄÉ½ÆÂ±È½Ï×îÐ±£¬ÆäËû¸÷´¦¾ö¼ÆÎÞ·¨ÅÊÉÏ£¬ºþÅÏÉú³¤×ÅÒ»´Ô´ÔµÄ²è»¨£¬
-Ò¡ÒÄÉú×Ë¡£ºþË®Çå³º£¬ÉÁ×ÅÒø¹â¡£
+è¿™æ¹–ä½œæ¤­å›­ä¹‹å½¢ï¼Œå¤§åŠéƒ¨éšåœ¨èŠ±æ ‘ä¸›ä¸­ï¼Œä¸œå—è¥¿åŒ—å°½æ˜¯æ‚¬å´–å³­å£ï¼Œåªæœ‰åˆš
+çˆ¬ä¸‹æ¥çš„å±±å¡æ¯”è¾ƒæœ€æ–œï¼Œå…¶ä»–å„å¤„å†³è®¡æ— æ³•æ”€ä¸Šï¼Œæ¹–ç•”ç”Ÿé•¿ç€ä¸€ä¸›ä¸›çš„èŒ¶èŠ±ï¼Œ
+æ‘‡å¤·ç”Ÿå§¿ã€‚æ¹–æ°´æ¸…æ¾ˆï¼Œé—ªç€é“¶å…‰ã€‚
 LONG
         );
         set("resource/water", 1);
-        set("outdoors", "´óÀí");
+        set("outdoors", "å¤§ç†");
         set("exits", ([
                 "east" : __DIR__"donghubian",
 		"southwest" : __DIR__"nanhubian",
@@ -39,11 +39,11 @@ int do_drink(string arg)
         max_water = me->query("str")*10 + 100;
         if (current_water<max_water) {
             me->set("water", current_water+30);
-            message("vision", me->name()+"Å¿ÔÚºþ±ßÓÃÊÖÅõÁËÒ»Ð©Ë®ºÈ¡£\n"
+            message("vision", me->name()+"è¶´åœ¨æ¹–è¾¹ç”¨æ‰‹æ§äº†ä¸€äº›æ°´å–ã€‚\n"
             , environment(me), ({me}) );
-            write("ÄãºÈÁËÒ»¿Ú´ÓÉ½ÉÏÆÙ²¼Á÷ÌÊÏÂÀ´µÄºþË®£¬¸ÊÃÀÒì³£¡£\n");
+            write("ä½ å–äº†ä¸€å£ä»Žå±±ä¸Šç€‘å¸ƒæµæ·Œä¸‹æ¥çš„æ¹–æ°´ï¼Œç”˜ç¾Žå¼‚å¸¸ã€‚\n");
         }
-        else write("ºÈÄÇÃ´¶àµÄÁ¹Ë®£¬Äã²»ÅÂÉú²¡Âð?\n");
+        else write("å–é‚£ä¹ˆå¤šçš„å‡‰æ°´ï¼Œä½ ä¸æ€•ç”Ÿç—…å—?\n");
         return 1;
 }
 

@@ -25,19 +25,19 @@ void init()
 	if(!query("item_desc/sign"))
 	set("item_desc/sign",
         	"
-                    Êé½£¸öÈË´¢ÎïÏä È«¹úÁªºÅ Ê¹ÓÃËµÃ÷
+                    ä¹¦å‰‘ä¸ªäººå‚¨ç‰©ç®± å…¨å›½è”å· ä½¿ç”¨è¯´æ˜
         ============================================================
-                             Ãü Áî Ëµ Ã÷
+                             å‘½ ä»¤ è¯´ æ˜
         ------------------------------------------------------------
-                       ÏÔÊ¾ÎïÆ·£ºdlist
-                       ±£´æÎïÆ·£ºbaocun/cun     [ÎïÆ·Ãû]
-                       ÌáÈ¡ÎïÆ·£ºtiqu/qu        [ÎïÆ·Ãû]
-                       É¾³ıÎïÆ·£ºdelete/shanchu [ÎïÆ·Ãû]
+                       æ˜¾ç¤ºç‰©å“ï¼šdlist
+                       ä¿å­˜ç‰©å“ï¼šbaocun/cun     [ç‰©å“å]
+                       æå–ç‰©å“ï¼štiqu/qu        [ç‰©å“å]
+                       åˆ é™¤ç‰©å“ï¼šdelete/shanchu [ç‰©å“å]
 
         ============================================================
-        ¼Û¸ñ¹«µÀ£¬Í¯ÛÅÎŞÆÛ£¬"HIR+chinese_number(MISCD->get_days())+"ÌìÄÚ²»ÌáÈ¡×Ô¶¯Ïú»õ¡£"NOR"
+        ä»·æ ¼å…¬é“ï¼Œç«¥åŸæ— æ¬ºï¼Œ"HIR+chinese_number(MISCD->get_days())+"å¤©å†…ä¸æå–è‡ªåŠ¨é”€è´§ã€‚"NOR"
         	
-        Æğ²½¼Û£ºÒ»Á½°×Òø¡£
+        èµ·æ­¥ä»·ï¼šä¸€ä¸¤ç™½é“¶ã€‚
                 \n",
         );
       if (userp(me) && getuid(me)=="zmud")
@@ -54,13 +54,13 @@ int do_delete(string arg)
 	int *v,i;
 	int f = 1;	
 	
-	if(me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if(me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if(!arg) return do_show(me);
 	if(sscanf(arg,"%s %s %d",id1,id2,num)==3) id = sprintf("%s %s",id1,id2);
 	else if(sscanf(arg,"%s %d",id1,num)==2) id = id1;
-	else id = arg;//Ps: Ó¦¸ÃÃ»ÓĞÊ²Ã´¶«Î÷id µÄ¸ñÊ½³¬¹ı Èı¸ñ°É£¿hehe
+	else id = arg;//Ps: åº”è¯¥æ²¡æœ‰ä»€ä¹ˆä¸œè¥¿id çš„æ ¼å¼è¶…è¿‡ ä¸‰æ ¼å§ï¼Ÿhehe
 	list = MISCD->query_show_list(me,1);
-	notify_fail("Äã²¢Ã»ÓĞ±£´æ¸ÃÎïÆ·¡£\n");
+	notify_fail("ä½ å¹¶æ²¡æœ‰ä¿å­˜è¯¥ç‰©å“ã€‚\n");
 	v = keys(list);
 	if(sizeof(v)==0)
 		return 0;	
@@ -71,9 +71,9 @@ int do_delete(string arg)
 			if(f==num) {				
 				ob = MISCD->load_this_object(me,list[v[i]]["save_id"],v[i]);	
 				if(objectp(ob)) {				
-				message_vision(CYN"$N½«$n"+CYN"´Ó×Ô¼ºµÄ¸öÈË´¢ÎïÏäÀïÉ¾³ıÁË¡£\n"NOR,me,ob);
+				message_vision(CYN"$Nå°†$n"+CYN"ä»è‡ªå·±çš„ä¸ªäººå‚¨ç‰©ç®±é‡Œåˆ é™¤äº†ã€‚\n"NOR,me,ob);
 				destruct(ob);
-				me->start_busy(1+random(2));//·ÀÖ¹bug
+				me->start_busy(1+random(2));//é˜²æ­¢bug
 				}
 				else {return 0;}
 				return 1;
@@ -97,13 +97,13 @@ int do_save(string arg)
 	object me = this_player();
 	mapping list;
 	
-	if(me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕıÃ¦×Å£¡\n");
-	if(!arg) return notify_fail("ÄãÒª±£´æÊ²Ã´¶«Î÷£¿\n");
-	if(!objectp(obj = present(arg, me))) return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+	if(me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€ï¼\n");
+	if(!arg) return notify_fail("ä½ è¦ä¿å­˜ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
+	if(!objectp(obj = present(arg, me))) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 	
-	if(me->query_condition("killer")) return notify_fail("ÄãÕıÔÚ±»¹Ù¸®Í¨¼©£¬Ğ¡µê¿É²»¸Ò±£´æÄãµÄÎïÆ·¡£\n");
+	if(me->query_condition("killer")) return notify_fail("ä½ æ­£åœ¨è¢«å®˜åºœé€šç¼‰ï¼Œå°åº—å¯ä¸æ•¢ä¿å­˜ä½ çš„ç‰©å“ã€‚\n");
 	
-	notify_fail(obj->name()+"²»¿ÉÒÔ±»±£´æ¡£\n");
+	notify_fail(obj->name()+"ä¸å¯ä»¥è¢«ä¿å­˜ã€‚\n");
 	
 	if(!clonep(obj)
 	||obj->query("unique")
@@ -115,7 +115,7 @@ int do_save(string arg)
 	||obj->is_corpse()
 	||obj->query("food_remaining")
 	||obj->query("liquid")
-	||obj->query("material")=="meat"//Èâ£¿
+	||obj->query("material")=="meat"//è‚‰ï¼Ÿ
 	||obj->query("money_id")
 	||strsrch(file_name(obj),"/d/city/weapon/")==0
 	||strsrch(file_name(obj),"/clone/weapon/user_weapon_sn")==0
@@ -126,20 +126,20 @@ int do_save(string arg)
 	//||obj->query("")
 	//||obj->query("")
 	) return 0;	
-	//ËäÈ»¿ÉÒÔ±£´æÈÎºÎÎïÆ· ²»¹ı×ÜµÃÓĞĞ©ÏŞÖÆ...
+	//è™½ç„¶å¯ä»¥ä¿å­˜ä»»ä½•ç‰©å“ ä¸è¿‡æ€»å¾—æœ‰äº›é™åˆ¶...
 	
-	if(obj->query("equipped")) return notify_fail("Äã»¹ÊÇÏÈ°Ñ"+obj->name()+"ÄÃÏÂÀ´°É¡£\n");
+	if(obj->query("equipped")) return notify_fail("ä½ è¿˜æ˜¯å…ˆæŠŠ"+obj->name()+"æ‹¿ä¸‹æ¥å§ã€‚\n");
 	
 	list = MISCD->query_show_list(me,1);
 	if(mapp(list) && sizeof(keys(list))>=MISCD->get_save_num(me)){
-		if(me->query("registered")!=3) write(HIG"ÉêÇë¹ó±öÓÃ»§½«ÏíÊÜ¸ü¸ß±£´æÊıÁ¿¡£\n"NOR);
-		return notify_fail("ÄãµÄ¸öÈË´¢ÎïÏäÒÑÂúÁË¡£\n");
+		if(me->query("registered")!=3) write(HIG"ç”³è¯·è´µå®¾ç”¨æˆ·å°†äº«å—æ›´é«˜ä¿å­˜æ•°é‡ã€‚\n"NOR);
+		return notify_fail("ä½ çš„ä¸ªäººå‚¨ç‰©ç®±å·²æ»¡äº†ã€‚\n");
 	}
         if (MISCD->save_this_object(me,obj)) {
-        	message_vision(CYN"$N´ÓÉíÉÏÄÃ³öÒ»"+obj->query("unit")+"$n"+CYN"£¬·ÅÈë×Ô¼ºµÄ¸öÈË´¢ÎïÏä¡£\n"NOR,me,obj);
+        	message_vision(CYN"$Nä»èº«ä¸Šæ‹¿å‡ºä¸€"+obj->query("unit")+"$n"+CYN"ï¼Œæ”¾å…¥è‡ªå·±çš„ä¸ªäººå‚¨ç‰©ç®±ã€‚\n"NOR,me,obj);
         	obj->move(this_object());
         	destruct(obj);
-        	me->start_busy(1+random(2));//·ÀÖ¹bug
+        	me->start_busy(1+random(2));//é˜²æ­¢bug
         	return 1;
         }
         //log
@@ -156,14 +156,14 @@ int do_get(string arg)
 	int f = 1;
 	int value;
 	
-	if(me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕıÃ¦×Å£¡\n");
+	if(me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€ï¼\n");
 	if(!arg) return do_show(me);
 	if(sscanf(arg,"%s %s %d",id1,id2,num)==3) id = sprintf("%s %s",id1,id2);
 	else if(sscanf(arg,"%s %d",id1,num)==2) id = id1;
-	else id = arg;//Ps: Ó¦¸ÃÃ»ÓĞÊ²Ã´¶«Î÷id µÄ¸ñÊ½³¬¹ı Èı¸ñ°É£¿hehe
+	else id = arg;//Ps: åº”è¯¥æ²¡æœ‰ä»€ä¹ˆä¸œè¥¿id çš„æ ¼å¼è¶…è¿‡ ä¸‰æ ¼å§ï¼Ÿhehe
 	list = MISCD->query_show_list(me,1);	
-	if(!mapp(list)) return notify_fail("ÄãÃ»ÓĞ±£´æÈÎºÎÎïÆ·¡£\n");
-	notify_fail("Äã²¢Ã»ÓĞ±£´æ¸ÃÎïÆ·¡£\n");
+	if(!mapp(list)) return notify_fail("ä½ æ²¡æœ‰ä¿å­˜ä»»ä½•ç‰©å“ã€‚\n");
+	notify_fail("ä½ å¹¶æ²¡æœ‰ä¿å­˜è¯¥ç‰©å“ã€‚\n");
 	v = keys(list);
 	if(sizeof(v)==0)
 		return 0;	
@@ -174,19 +174,19 @@ int do_get(string arg)
 			if(f==num) {				
 				value = get_value(me,list[v[i]] );				
 				if(!me->query("balance")|| value >me->query("balance"))
-					return notify_fail("ÄãµÄ´æ¿î²»¹»Ö§¸¶¸ÃÎïÆ·µÄ±£¹Ü·Ñ¡£\n");
+					return notify_fail("ä½ çš„å­˜æ¬¾ä¸å¤Ÿæ”¯ä»˜è¯¥ç‰©å“çš„ä¿ç®¡è´¹ã€‚\n");
 				ob = MISCD->load_this_object(me,list[v[i]]["save_id"],v[i]);	
 				if(objectp(ob)) {
 				me->add("balance",-1*value);
-				message_vision(CYN"$N°Ñ$n"+CYN+"´Ó¸öÈË´¢ÎïÏäÖĞÌáÈ¡³öÀ´¡£\n"NOR,me,ob);
-				tell_object(me,"ÄãµÄ´æ¿îÖĞ¿Û³ıÁË"+MONEY_D->money_str(value)+"À´Ö§¸¶±£¹Ü·Ñ¡£\n"NOR);
+				message_vision(CYN"$NæŠŠ$n"+CYN+"ä»ä¸ªäººå‚¨ç‰©ç®±ä¸­æå–å‡ºæ¥ã€‚\n"NOR,me,ob);
+				tell_object(me,"ä½ çš„å­˜æ¬¾ä¸­æ‰£é™¤äº†"+MONEY_D->money_str(value)+"æ¥æ”¯ä»˜ä¿ç®¡è´¹ã€‚\n"NOR);
 				ob->move(me);
-				me->start_busy(1+random(2));//·ÀÖ¹bug
+				me->start_busy(1+random(2));//é˜²æ­¢bug
 				
-				//Ò»Ğ©bugÎïÆ·µÄÇå³ı
+				//ä¸€äº›bugç‰©å“çš„æ¸…é™¤
 				if(strsrch(base_name(ob),"/cmds")==0 )
 				{
-					message_vision("$NÒ»¸ö²»Ğ¡ĞÄ°Ñ"+ob->name()+"Åª¶ªÁË¡£\n",me);
+					message_vision("$Nä¸€ä¸ªä¸å°å¿ƒæŠŠ"+ob->name()+"å¼„ä¸¢äº†ã€‚\n",me);
 					destruct(ob);
 				}
 								
@@ -209,19 +209,19 @@ int do_show(object me)
 	list = MISCD->query_show_list(me,1);
 	v = keys(list);
 	if(sizeof(v)<=0){
-		write("ÄãÃ»ÓĞ±£´æÈÎºÎÎïÆ·¡£\n");
+		write("ä½ æ²¡æœ‰ä¿å­˜ä»»ä½•ç‰©å“ã€‚\n");
 		return 1;
 	}
 	
-	write(WHT"¡¤ÄãµÄ¸öÈË´¢ÎïÏä±£´æÓĞ("+chinese_number(sizeof(v))+"¼şÎïÆ·)¡¤\n"NOR);
-	write("©³©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·\n");
-	write("©§       ID             »õ  Îï               ¼Û  ¸ñ               È¡»õĞè¸¶×Ê·Ñ              ±£´æÊ±¼ä        ©§\n");
+	write(WHT"Â·ä½ çš„ä¸ªäººå‚¨ç‰©ç®±ä¿å­˜æœ‰("+chinese_number(sizeof(v))+"ä»¶ç‰©å“)Â·\n"NOR);
+	write("â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“\n");
+	write("â”ƒ       ID             è´§  ç‰©               ä»·  æ ¼               å–è´§éœ€ä»˜èµ„è´¹              ä¿å­˜æ—¶é—´        â”ƒ\n");
 	/////////12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890	
-	write("©Ç©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n");
+	write("â”£â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n");
 	for(i=0;i<sizeof(v);i++)
 	{		
 		sscanf(list[v[i]]["save_id"],"%*s%ds",savetime);
-            write(sprintf("©§%|16s%|18s%|24s%|24s%|24s©§\n",
+            write(sprintf("â”ƒ%|16s%|18s%|24s%|24s%|24sâ”ƒ\n",
 		list[v[i]]["id"],
 		list[v[i]]["name"],
 		money_str2(list[v[i]]["value"]),
@@ -229,37 +229,37 @@ int do_show(object me)
 		ctime(savetime),
 		));
 	}
-	write("©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n");
+	write("â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n");
 	return 1;
 }
 string money_str2(int v)
 {
 	string re;
 	
-	if(!v || v==0) return HIW"Ò»ÎÄ²»Ãû"NOR;
+	if(!v || v==0) return HIW"ä¸€æ–‡ä¸å"NOR;
 	if(!intp(v)) return "";
 	re = MONEY_D->money_str(v);
 	while(strlen(strip(re))>24)
 	{
-		if(strsrch(re,"Í­Ç®")!=-1){
-			if(strsrch(re,"°×Òø")!=-1){
-				sscanf(re,"%s°×Òø%*s",re);
-				re = re+"°×Òø";
+		if(strsrch(re,"é“œé’±")!=-1){
+			if(strsrch(re,"ç™½é“¶")!=-1){
+				sscanf(re,"%sç™½é“¶%*s",re);
+				re = re+"ç™½é“¶";
 				continue;
 			}
 			else{
-				if(strsrch(re,"»Æ½ğ")!=-1){
-					sscanf(re,"%s»Æ½ğ%*s",re);
-					re = re+"»Æ½ğ";
+				if(strsrch(re,"é»„é‡‘")!=-1){
+					sscanf(re,"%sé»„é‡‘%*s",re);
+					re = re+"é»„é‡‘";
 					continue;
 				}
 				else break;
 			}
 		}
-		else if(strsrch(re,"°×Òø")!=-1){
-			if(strsrch(re,"»Æ½ğ")!=-1){
-				sscanf(re,"%s»Æ½ğ%*s",re);
-				re = re+"»Æ½ğ";
+		else if(strsrch(re,"ç™½é“¶")!=-1){
+			if(strsrch(re,"é»„é‡‘")!=-1){
+				sscanf(re,"%sé»„é‡‘%*s",re);
+				re = re+"é»„é‡‘";
 				continue;
 			}
 			else break;
@@ -285,9 +285,9 @@ int get_value(object me,mapping list)
 	if(!savetime ||savetime==0) savetime = 1;
 	back = get_value2(savetime,value);
 	if(back<0){
-		MISCD->delete_user_item(me,list["save_id"],"±£¹Ü·ÑÓÃÔ¶´óÓÚ»õÆ·±¾Éí¼ÛÖµ");
+		MISCD->delete_user_item(me,list["save_id"],"ä¿ç®¡è´¹ç”¨è¿œå¤§äºè´§å“æœ¬èº«ä»·å€¼");
 		return 99999999999;
-	} //·ÀÖ¹ÀûÓÃbug hehe
+	} //é˜²æ­¢åˆ©ç”¨bug hehe
         if(back<100) return 100;
         if(back>100) return 100;
 	return back;

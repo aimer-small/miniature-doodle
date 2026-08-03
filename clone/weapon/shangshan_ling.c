@@ -8,13 +8,13 @@ inherit DAGGER;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(WHT"ÉÍÉÆÁî"NOR,({ "shangshan ling", "shangshan", "ling", "dagger" }) );
+        set_name(WHT"èµå–„ä»¤"NOR,({ "shangshan ling", "shangshan", "ling", "dagger" }) );
         set_weight(4000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("treasure", 1);
-                set("unit", "¿é");
+                set("unit", "å—");
                 set("value", 500000);
                 set("unique", 1);
                 set("rigidity", 2);
@@ -25,10 +25,10 @@ void create()
                 set("wield_neili", 30);
                 set("wield_maxneili", 500);
                 set("wield_str", 15);
-                set("wield_msg", WHT"$NÃþ³öÒ»°ÑÉÍÉÆÁî£¬ÈÌ²»×¡¼éÐ¦ÁË¼¸Éù£¡\n"NOR);
-                set("long", WHT"\nÒ»¿éÉÁÉÁ·¢¹âµÄ°×Í­ÅÆ×Ó£¬Ô¼ÓÐ°ÍÕÆ´óÐ¡£¬¿ÌµÄÊÇÒ»ÕÅÐ¦Á³£¬ºÍ°ª´ÈÏé£¡
-¿´À´Èç¹ûÓÐÁ½°Ñ£¬Ó¦¸ÃÄÜºÏ²¢(hebing)ÆðÀ´£¡\n"NOR);
-                set("unwield_msg", WHT"$N"WHT"½«$n"WHT"ÊÕ»Øµ½¿Ú´üÀï¡£\n" NOR);               
+                set("wield_msg", WHT"$Næ‘¸å‡ºä¸€æŠŠèµå–„ä»¤ï¼Œå¿ä¸ä½å¥¸ç¬‘äº†å‡ å£°ï¼\n"NOR);
+                set("long", WHT"\nä¸€å—é—ªé—ªå‘å…‰çš„ç™½é“œç‰Œå­ï¼Œçº¦æœ‰å·´æŽŒå¤§å°ï¼Œåˆ»çš„æ˜¯ä¸€å¼ ç¬‘è„¸ï¼Œå’Œè”¼æ…ˆç¥¥ï¼
+çœ‹æ¥å¦‚æžœæœ‰ä¸¤æŠŠï¼Œåº”è¯¥èƒ½åˆå¹¶(hebing)èµ·æ¥ï¼\n"NOR);
+                set("unwield_msg", WHT"$N"WHT"å°†$n"WHT"æ”¶å›žåˆ°å£è¢‹é‡Œã€‚\n" NOR);               
         }
         init_dagger(60);
         setup();
@@ -36,7 +36,7 @@ void create()
 
 void init()
 {
-    	add_action("do_add", "ºÏ²¢");
+    	add_action("do_add", "åˆå¹¶");
     	add_action("do_add", "hebing");
 }
 
@@ -48,13 +48,13 @@ int do_add()
      	obj = present("fae ling", me);
      	
      	if(!objectp(obj))
-           	return notify_fail("ÄãÊÖÖÐÖ»ÓÐÒ»Ö»ÉÍÉÆÁî£¬ÏÈÕÒµ½ÁíÒ»Ö»ÔÙËµ°É¡£\n");
+           	return notify_fail("ä½ æ‰‹ä¸­åªæœ‰ä¸€åªèµå–„ä»¤ï¼Œå…ˆæ‰¾åˆ°å¦ä¸€åªå†è¯´å§ã€‚\n");
      	if((int)me->query("neili") < 200)
-		return notify_fail("Äã¸Ð¾õÈ«ÉíÆøÑª·­ÌÚ£¬Ô­À´ÄãÕæÆø²»¹»£¬ÎÞ·¨½«Ë«ÁîºÏ²¢£¡\n");
+		return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”è¡€ç¿»è…¾ï¼ŒåŽŸæ¥ä½ çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•å°†åŒä»¤åˆå¹¶ï¼\n");
      	if((int)me->query_str() < 25)
-		return notify_fail("Äã¸Ð¾õÈ«ÉíÆøÑª·­ÌÚ£¬Ô­À´ÄãÁ¦Á¿²»¹»£¬ÎÞ·¨½«Ë«ÁîºÏ²¢£¡\n");
+		return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”è¡€ç¿»è…¾ï¼ŒåŽŸæ¥ä½ åŠ›é‡ä¸å¤Ÿï¼Œæ— æ³•å°†åŒä»¤åˆå¹¶ï¼\n");
      	me->add("neili", -150);
-     	message_vision(HIW"\nÖ»¼û$N½«Á½°ÑÁîÅÆÔÚÊÖÖÐÏà»¥Ä¦²Á£¬Ò»Ë²¼ä¾¹È»À­³öÒ»µÀÉÁµç£¬½«Á½ÁîÁ¬ÔÚÒ»Æð£¡\n"NOR, me);
+     	message_vision(HIW"\nåªè§$Nå°†ä¸¤æŠŠä»¤ç‰Œåœ¨æ‰‹ä¸­ç›¸äº’æ‘©æ“¦ï¼Œä¸€çž¬é—´ç«Ÿç„¶æ‹‰å‡ºä¸€é“é—ªç”µï¼Œå°†ä¸¤ä»¤è¿žåœ¨ä¸€èµ·ï¼\n"NOR, me);
      	destruct(obj);   
      	ling = new(BINGQI_D("sf_ling"))->move(me, 1);     
      	destruct(ob);

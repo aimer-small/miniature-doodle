@@ -4,14 +4,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "���");
+	set("short", "村口");
 	set("long", @LONG
-����һ��С����Ķ���ڡ����Ӻ�С��������һƬ�ž��С��ϱ���Լ����
-����һ���󽭡�����������ͨ�򺣱ߵ�С·��
+这是一座小村落的东村口。村子很小，笼罩在一片寂静中。南边隐约可以
+看到一条大江。东北方是条通向海边的小路。
 LONG
 	);
 	set("no_clean_up", 0);
-	set("outdoors","ţ�Ҵ�");
+	set("outdoors","牛家村");
 
 	set("exits", ([
 		"west": __DIR__"njroad3.c",

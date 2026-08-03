@@ -5,23 +5,23 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "�˵�");
+        set("short", "菜地");
         set("long", @LONG
-���˵�λ�ڷ����ϵĺ�լ�ԣ�վ������︮��Ρ���ǽ����Ŀ��
-�����˵����ܲ��ײ˳�����Ϊ�����������Զ���һ��С��ñ�ӣ�һ������
-���ޡ�������һ��ľ��(door)��
+这块菜地位于凤天南的豪宅旁，站在这里，凤府的巍阁雕墙，举目可
+见。菜地中萝卜白菜长得甚为肥美，菜畦旁丢着一顶小孩帽子，一个粗陶
+娃娃。西边是一扇木门(door)。
 LONG
         );
-        set("outdoors","��ɽ");
+        set("outdoors","佛山");
         set("exits", ([
             "west" :  __DIR__"zhongjia",
         ]));
 
         set("item_desc", ([
-            "door" : "����һ���ƾɵ�ľ�š�\n",
+            "door" : "这是一扇破旧的木门。\n",
 ]));
 
-        create_door("west", "ľ��", "east", DOOR_CLOSED);
+        create_door("west", "木门", "east", DOOR_CLOSED);
         set("coor/x",20);
   set("coor/y",-570);
    set("coor/z",0);

@@ -2,10 +2,10 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ÉñÁúÒ©Àí¾­", ({ "shenlongyaoli jing", "jing"}));
+	set_name("ç¥é¾™è¯ç†ç»", ({ "shenlongyaoli jing", "jing"}));
 	set_weight(1000);
-	set("unit", "±¾");
-	set("long", "ÕâÊÇÒ»±¾Â½¸ßĞùÊÖÊéµÄÉñÁúÒ©Àí¾­¡£\n");
+	set("unit", "æœ¬");
+	set("long", "è¿™æ˜¯ä¸€æœ¬é™†é«˜è½©æ‰‹ä¹¦çš„ç¥é¾™è¯ç†ç»ã€‚\n");
 	set("value", 10000);
 	set("material", "paper");
 	set("unique", 1);

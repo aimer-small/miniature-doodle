@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "·ï³Ø");
+        set("short", "å‡¤æ± ");
         set("long", @LONG
-Ò»ÈëÃÅ£¬ÈÈÆøÆËÃæ£¬°×°×µÄË®ÆøÁ¢¿Ì°üÎ§ÁËÄã¡£ÄãÒÀÏ¡¿´µ½Ò»¸ö¾Þ´óµÄÌ´
-Ä¾Ë®³Ø£¬Ë®³Ê±ÌÂÌ£¬É¢·¢×ÅÒ»ÖÖÆæÌØµÄÒ©Ïã£¬Ë®ÃæÉÏ»¹Æ¯×ÅÒ»Æ¬Æ¬ºìºìµÄ»¨°ê
-¶ù£¬ÄãÕæÏë¿ìµãÏÂÈ¥Ï´(wash)¸öÔè£¬±ÕÉÏÑÛ¾¦ºÃºÃµÄ·ÅËÉÒ»ÏÂ¡£
+ä¸€å…¥é—¨ï¼Œçƒ­æ°”æ‰‘é¢ï¼Œç™½ç™½çš„æ°´æ°”ç«‹åˆ»åŒ…å›´äº†ä½ ã€‚ä½ ä¾ç¨€çœ‹åˆ°ä¸€ä¸ªå·¨å¤§çš„æª€
+æœ¨æ°´æ± ï¼Œæ°´å‘ˆç¢§ç»¿ï¼Œæ•£å‘ç€ä¸€ç§å¥‡ç‰¹çš„è¯é¦™ï¼Œæ°´é¢ä¸Šè¿˜æ¼‚ç€ä¸€ç‰‡ç‰‡çº¢çº¢çš„èŠ±ç“£
+å„¿ï¼Œä½ çœŸæƒ³å¿«ç‚¹ä¸‹åŽ»æ´—(wash)ä¸ªæ¾¡ï¼Œé—­ä¸Šçœ¼ç›å¥½å¥½çš„æ”¾æ¾ä¸€ä¸‹ã€‚
 LONG
         );
         set("exits", ([
@@ -47,18 +47,18 @@ int do_wash()
 	object *inv;
 	int i;
 
-	if (me->query_temp("ca_wash")>0) return notify_fail("ÄãÒÑ¾­ÅÝÔÚË®³ØÖÐÁË£¡\n");
+	if (me->query_temp("ca_wash")>0) return notify_fail("ä½ å·²ç»æ³¡åœ¨æ°´æ± ä¸­äº†ï¼\n");
 	if (weapon) 
-		return notify_fail("²»ÒªÄÇÃ´½ôÕÅ°¡£¬Ï´Ôè»¹ÄÃ×ÅÎäÆ÷£¿\n");
+		return notify_fail("ä¸è¦é‚£ä¹ˆç´§å¼ å•Šï¼Œæ´—æ¾¡è¿˜æ‹¿ç€æ­¦å™¨ï¼Ÿ\n");
 
 	inv= all_inventory(me);
 	i = sizeof(inv);
 	while (i--)
 	if( inv[i]->query("equipped") && (! inv[i]->query_autoload() && inv[i]->query("id") != "bu dai"))
-		return notify_fail("ÉíÉÏ´©×ÅÒÂ·þÔõÃ´Ï´Ôè£¿\n"); 
-	message_vision("$N×ß½øÔ¡³Ø£¬½«È«Éí¶¼½þÅÝµ½Ë®ÖÐ¡£\n",me);
+		return notify_fail("èº«ä¸Šç©¿ç€è¡£æœæ€Žä¹ˆæ´—æ¾¡ï¼Ÿ\n"); 
+	message_vision("$Nèµ°è¿›æµ´æ± ï¼Œå°†å…¨èº«éƒ½æµ¸æ³¡åˆ°æ°´ä¸­ã€‚\n",me);
 	me->set_temp("ca_wash",1);
-	tell_object(me,"Äã¸Ðµ½ÎÞ±ÈµÄÊæÌ©¡­¡­\n");
+	tell_object(me,"ä½ æ„Ÿåˆ°æ— æ¯”çš„èˆ’æ³°â€¦â€¦\n");
 	me->start_busy(20);
 	call_out("overwash",10+random(5), me);
 	return 1;
@@ -66,7 +66,7 @@ int do_wash()
 
 int action()
 {
-	write("Äã»¹ÊÇÏÈÏ´Ôè°É¡£\n");
+	write("ä½ è¿˜æ˜¯å…ˆæ´—æ¾¡å§ã€‚\n");
 	return 1;
 }
 
@@ -80,7 +80,7 @@ void overwash(object me)
         neili=(int)me->query("max_neili");
 
         if( me && environment(me) == this_object()) {
-		message_vision("$N¾«Éñ¶¶ËÓµÄ´ÓÔ¡³ØÖÐ×ßÁË³öÀ´£¡\n", me);
+		message_vision("$Nç²¾ç¥žæŠ–æ“žçš„ä»Žæµ´æ± ä¸­èµ°äº†å‡ºæ¥ï¼\n", me);
 		me->delete_temp("ca_wash",1);
 		//me->set("eff_qi",qi);
 		//me->set("eff_jing",jing);
@@ -95,7 +95,7 @@ void overwash(object me)
 int valid_leave(object me,string dir)
 {
         if (dir == "west") {
-		write("µØÃæºÜ»¬£¬ÄãÐ¡ÐÄÒíÒíµÄ´ÓÀïÃæ×ß³öÀ´£¡\n");
+		write("åœ°é¢å¾ˆæ»‘ï¼Œä½ å°å¿ƒç¿¼ç¿¼çš„ä»Žé‡Œé¢èµ°å‡ºæ¥ï¼\n");
 		me->delete_temp("pay_wash");
 	}
 	return ::valid_leave(me,dir);

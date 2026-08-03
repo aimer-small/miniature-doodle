@@ -1,4 +1,4 @@
-// Npc: /d/putian/npc/wuseng.c Œ‰…Æ
+// Npc: /d/putian/npc/wuseng.c Ê≠¶ÂÉß
 // Lklv 2001.9.10
 
 #include <ansi.h>
@@ -7,16 +7,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("Œ‰…Æ", ({
+        set_name("Ê≠¶ÂÉß", ({
                 "wu seng",
                 "seng",
                 "wu",
         }));
         set("long",
-                "“ªŒª…Ì≤ƒ∏ﬂ¥ÛµƒŒ‰…Æ£¨¡Ω±€¥÷◊≥£¨∞Ú¿´—¸‘≤°£”–“ª…Ì∫√Œ‰“’°£\n"
+                "‰∏Ä‰ΩçË∫´ÊùêÈ´òÂ§ßÁöÑÊ≠¶ÂÉßÔºå‰∏§ËáÇÁ≤óÂ£ÆÔºåËÜÄÈòîËÖ∞ÂúÜ„ÄÇÊúâ‰∏ÄË∫´Â•ΩÊ≠¶Ëâ∫„ÄÇ\n"
         );
 
-        set("gender", "ƒ––‘");
+        set("gender", "Áî∑ÊÄß");
         set("attitude", "peaceful");
         set("class", "bonze");
         set("no_quest", 1);
@@ -82,7 +82,7 @@ void init()
         me = this_object();
 
 	if (interactive(ob) && ob->query_temp("target_putian")){
-		command("say ¥Ûµ®øÒÕΩ£¨æπ∏“¥≥µΩ…Ÿ¡÷À¬¿Ô¿¥»ˆ“∞£°£°£°");
+		command("say Â§ßËÉÜÁãÇÂæíÔºåÁ´üÊï¢ÈóØÂà∞Â∞ëÊûóÂØ∫ÈáåÊù•ÊííÈáéÔºÅÔºÅÔºÅ");
 		me->set_leader(ob);
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);

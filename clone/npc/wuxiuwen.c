@@ -1,4 +1,4 @@
-// wuxiuwen.cÎäÐÞÎÄ
+// wuxiuwen.cæ­¦ä¿®æ–‡
 
 inherit NPC;
 
@@ -8,10 +8,10 @@ void consider();
 
 void create()
 {
-	set_name("ÎäÐÞÎÄ", ({ "wu xiuwen","wu","xiuwen" }) );
-	set("gender", "ÄÐÐÔ" );
+	set_name("æ­¦ä¿®æ–‡", ({ "wu xiuwen","wu","xiuwen" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 26);
-	set("long", "Éí²ÄÐÞ³¤£¬ÃæÄ¿¿¡ÀÊ£¬Ò»¿´¾ÍÊÇÃûÃÅºó´ú¡£\n");
+	set("long", "èº«æä¿®é•¿ï¼Œé¢ç›®ä¿Šæœ—ï¼Œä¸€çœ‹å°±æ˜¯åé—¨åŽä»£ã€‚\n");
 	set("attitude", "friendly");
 //      set("nickname", "");
         set("str", 35);
@@ -54,15 +54,15 @@ void create()
         map_skill("parry", "xianglong-zhang");
         prepare_skill("strike", "xianglong-zhang");
 
-	create_family("Ø¤°ï", 19, "¹ÒÃûµÜ×Ó");
+	create_family("ä¸å¸®", 19, "æŒ‚åå¼Ÿå­");
 
  set("inquiry", ([
-       "½Ð»¯¼¦" : (: ask_ji :),
+       "å«åŒ–é¸¡" : (: ask_ji :),
       ]));
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"ÎäÐÞÎÄËµµ½£º¡°ÒªÄÜÑ§µÃ¹ù²®²®Á½Èý³É¹¦·ò£¬ÄÇÒ²¿ÉÒ²...\n",
-		"ÎäÐÞÎÄËµµ½£º¡°²»ÖªµÀ¹ùÜ½ÐÄÀíµ½µ×Ôõ÷áÏëµÄ£¿\n",
+		"æ­¦ä¿®æ–‡è¯´åˆ°ï¼šâ€œè¦èƒ½å­¦å¾—éƒ­ä¼¯ä¼¯ä¸¤ä¸‰æˆåŠŸå¤«ï¼Œé‚£ä¹Ÿå¯ä¹Ÿ...\n",
+		"æ­¦ä¿®æ–‡è¯´åˆ°ï¼šâ€œä¸çŸ¥é“éƒ­èŠ™å¿ƒç†åˆ°åº•æ€Žéº½æƒ³çš„ï¼Ÿ\n",
                  (: random_move :)
 	}) );
 
@@ -78,7 +78,7 @@ if (ob->query("shen")<=0) return 0;
 if (ob->query_temp("marks/jiaohua-ji") || ob->query_temp("marks/lost-ji") )
 {
 command("cry");
-command("say ¸Õ¸ÕÔÚÑïÖÝ,..ÔÚÑïÖÝ,ÎÒ°Ñ¼¦¸ã¶ªÁË!ÎÒ²»¸Ò»ØÈ¥¼ûÀÏÒ¯×ÓÁË,ËûÖªµÀ×¼°ÑÎÒ´òËÀ!\n");
+command("say åˆšåˆšåœ¨æ‰¬å·ž,..åœ¨æ‰¬å·ž,æˆ‘æŠŠé¸¡æžä¸¢äº†!æˆ‘ä¸æ•¢å›žåŽ»è§è€çˆ·å­äº†,ä»–çŸ¥é“å‡†æŠŠæˆ‘æ‰“æ­»!\n");
 command("cry "+ob->query("id")+"\n");
 ob->delete_temp("marks/jiaohua-ji",1);
 ob->set_temp("marks/lost-ji",1);

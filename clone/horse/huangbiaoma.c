@@ -5,11 +5,11 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIY "»ÆæôÂí" NOR, ({ "huangbiaoma"}));
-        set("race", "Ò°ÊŞ");
-        set("gender", "ĞÛĞÔ");
+        set_name(HIY "é»„éª é©¬" NOR, ({ "huangbiaoma"}));
+        set("race", "é‡å…½");
+        set("gender", "é›„æ€§");
         set("age", random(3));
-        set("long", "ÕâÊÇÒ»Æ¥»Ææô¿¥Âí£¬È«Éí½ğ»Æ£¬Ã»ÓĞÒ»Ë¿ÔÓÃ«¡£\n");
+        set("long", "è¿™æ˜¯ä¸€åŒ¹é»„éª éªé©¬ï¼Œå…¨èº«é‡‘é»„ï¼Œæ²¡æœ‰ä¸€ä¸æ‚æ¯›ã€‚\n");
         set("ridable", 1);
         set("int", 30);
         set("qi", 300);
@@ -20,7 +20,7 @@ void create()
         set("combat_exp",50000);
         set("attitude", "peaceful");
 
-        set("limbs", ({ "Í·²¿", "¸¹²¿", "Î²°Í","ºóÍÈ","Ç°ÍÈ" }) );
+        set("limbs", ({ "å¤´éƒ¨", "è…¹éƒ¨", "å°¾å·´","åè…¿","å‰è…¿" }) );
         set("verbs", ({ "bite", "hoof" }) );
         set_temp("apply/attack", 50);
         set_temp("apply/armor", 15);

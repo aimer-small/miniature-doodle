@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ºóµî");
+	set("short", "åŽæ®¿");
 	set("long", @LONG
-µîÖÐÎÞ´°£¬µî¿Úµã×ÅÃ÷»Î»ÎµÄÀ¯Öò£¬µ±ÖÐ°Ú·ÅÒ»ÕÅ´ó³¤×À£¬Á½ÅÔ°ÚÂúÁË¸÷
-Ê½ÒÎ×Ó£¬Ò»¿´¾ÍÖªµÀÕâÀïÊÇ½ÌÖÐÖØÒªÈËÎïÒéÊÂÄ±²ßµÄµØ·½¡£
+æ®¿ä¸­æ— çª—ï¼Œæ®¿å£ç‚¹ç€æ˜Žæ™ƒæ™ƒçš„èœ¡çƒ›ï¼Œå½“ä¸­æ‘†æ”¾ä¸€å¼ å¤§é•¿æ¡Œï¼Œä¸¤æ—æ‘†æ»¡äº†å„
+å¼æ¤…å­ï¼Œä¸€çœ‹å°±çŸ¥é“è¿™é‡Œæ˜¯æ•™ä¸­é‡è¦äººç‰©è®®äº‹è°‹ç­–çš„åœ°æ–¹ã€‚
 LONG
 	);
 	set("exits", ([ 
@@ -31,7 +31,7 @@ void init()
 void close_passage(object me)
 {
 	if (!query("exits/east")) return;
-	message_vision("Ç½±ÚÍ»È»»º»ºµÄºÏÂ££¬½«¶«ÃæµÄ³ö¿Úµ²×¡ÁË¡£\n",me);
+	message_vision("å¢™å£çªç„¶ç¼“ç¼“çš„åˆæ‹¢ï¼Œå°†ä¸œé¢çš„å‡ºå£æŒ¡ä½äº†ã€‚\n",me);
 	delete("exits/east");
 	return;
 }
@@ -43,23 +43,23 @@ int do_push(string arg)
 	object obj1,obj2;
 
 	if (!arg || arg == "")
-		return notify_fail("ÄãÒªÍÆÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æŽ¨ä»€ä¹ˆï¼Ÿ\n");
 	if (arg == "wall") {
 		if ( me->query("neili") < 1000)
-			return notify_fail("ÄãÓÃ¾¡È«Á¦Ïë½«Ç½±ÚÍÆÏòÁ½±ß£¬ÎÞÄÎÄÚÁ¦²»¹»¡£\n");
+			return notify_fail("ä½ ç”¨å°½å…¨åŠ›æƒ³å°†å¢™å£æŽ¨å‘ä¸¤è¾¹ï¼Œæ— å¥ˆå†…åŠ›ä¸å¤Ÿã€‚\n");
 		if (!query("exits/east")) {
-			message_vision("$NÓÃ¾¡È«Á¦½«Ç½±ÚÏòÁ½±ßÍÆÈ¥¡£\n",me);
+			message_vision("$Nç”¨å°½å…¨åŠ›å°†å¢™å£å‘ä¸¤è¾¹æŽ¨åŽ»ã€‚\n",me);
 			obj1 = present("wu baiying",ob);
 			obj2 = present("zhou gutong",ob);
 			if (objectp(obj1)) {
-				message_vision(obj1->name() + "ÉìÊÖ°Ñ$NÀ¹×¡£¬½ÐµÀ£º¡°¸ÉÊ²Ã´£¡¡±\n",me);
+				message_vision(obj1->name() + "ä¼¸æ‰‹æŠŠ$Næ‹¦ä½ï¼Œå«é“ï¼šâ€œå¹²ä»€ä¹ˆï¼â€\n",me);
 				return 1;
 			}
 			if (objectp(obj2)) {
-				message_vision(obj2->name() + "ÉìÊÖ°Ñ$NÀ¹×¡£¬½ÐµÀ£º¡°¸ÉÊ²Ã´£¡¡±\n",me);
+				message_vision(obj2->name() + "ä¼¸æ‰‹æŠŠ$Næ‹¦ä½ï¼Œå«é“ï¼šâ€œå¹²ä»€ä¹ˆï¼â€\n",me);
 				return 1;
 			}
-			message_vision("Ç½±ÚÍ»È»ÏòÁ½±ß»º»ºÒÆ¶¯£¬Â¶³öÁËÒ»¸öÏò¶«µÄ³ö¿Ú¡£\n",me);
+			message_vision("å¢™å£çªç„¶å‘ä¸¤è¾¹ç¼“ç¼“ç§»åŠ¨ï¼Œéœ²å‡ºäº†ä¸€ä¸ªå‘ä¸œçš„å‡ºå£ã€‚\n",me);
 			me->add("neili",-500);
 			me->start_busy(random(2) + 1);
 			set("exits/east", __DIR__"andao1");
@@ -67,11 +67,11 @@ int do_push(string arg)
 			return 1;
 		}
 		else {
-			message_vision("$NÓÃ¾¡È«Á¦È¥ÍÆÇ½±Ú£¬¿ÉÊÇÇ½±ÚÈ´ÎÆË¿²»¶¯¡£\n",me);
+			message_vision("$Nç”¨å°½å…¨åŠ›åŽ»æŽ¨å¢™å£ï¼Œå¯æ˜¯å¢™å£å´çº¹ä¸ä¸åŠ¨ã€‚\n",me);
 			me->add("neili",-500);
 			me->start_busy(random(2) + 1);
 			return 1;
 		}
 	}
-	else return notify_fail("Ê²Ã´£¿\n");
+	else return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
 }

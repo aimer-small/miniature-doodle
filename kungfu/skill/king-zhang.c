@@ -3,17 +3,17 @@
 inherit SKILL;
 
 string *dodge_msg = ({
-        HIY "$n¶Ë×øÎ¢Ğ¦£¬ºö¶øÁ³ÏÖ×¯ÑÏÖ®É«£¬$NÁ¢¿ÌÙéÙëÔÚµØ£¬ò¯³ÏÄ¤°İ¡£\n" NOR ,
+        HIY "$nç«¯åå¾®ç¬‘ï¼Œå¿½è€Œè„¸ç°åº„ä¸¥ä¹‹è‰²ï¼Œ$Nç«‹åˆ»åŒåŒåœ¨åœ°ï¼Œè™”è¯šè†œæ‹œã€‚\n" NOR ,
 });
 
 mapping *action = ({
-([      "action": HIR "$NÄé»¨Î¢Ğ¦£¬ÖÜÉíÓ¿ÆğÒ»Æ¬ÏéÔÆÕÖÏò$n" NOR ,
+([      "action": HIR "$Næ‹ˆèŠ±å¾®ç¬‘ï¼Œå‘¨èº«æ¶Œèµ·ä¸€ç‰‡ç¥¥äº‘ç½©å‘$n" NOR ,
         "force" : 0,
         "dodge" : 0,
         "damage": 0,
         "lvl" : 0,
-        "skill_name" : "¾ıÁÙÌìÏÂ",
-        "damage_type":   "Ê¥¹âÖ®ãå"
+        "skill_name" : "å›ä¸´å¤©ä¸‹",
+        "damage_type":   "åœ£å…‰ä¹‹æ²"
 ]),
 });
 
@@ -41,7 +41,7 @@ string query_dodge_msg(string limb)
 int valid_learn(object me)
 {	
 	if ( ! wizardp(me))
-        return notify_fail("£Û¾ıÁÙÌìÏÂ£İÉñ¹¦Ö»ÄÜÓÉÎ×Ê¦Ñ§Ï°¡£\n");
+        return notify_fail("ï¼»å›ä¸´å¤©ä¸‹ï¼½ç¥åŠŸåªèƒ½ç”±å·«å¸ˆå­¦ä¹ ã€‚\n");
 }
 
 string exert_function_file(string func)

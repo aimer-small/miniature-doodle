@@ -14,18 +14,18 @@ mapping dUser;
 /*
 ([
   "gumu":([
-  		"max": ×î¸ßÔÚÏßÈËÊı
-  		"min": ×îµÍÔÚÏßÈËÊı
-  		"now": Ä¿Ç°ÔÚÏßÈËÊı
-  		"normal": Æ½¾ùÔÚÏßÈËÊı
+  		"max": æœ€é«˜åœ¨çº¿äººæ•°
+  		"min": æœ€ä½åœ¨çº¿äººæ•°
+  		"now": ç›®å‰åœ¨çº¿äººæ•°
+  		"normal": å¹³å‡åœ¨çº¿äººæ•°
   	])
 ])
 */
 nosave mapping dUser_temp;
 /*
-¼ÇÂ¼Ã¿Ò»¸öÊ±¶ÎÔÚÏßÈËÊı
+è®°å½•æ¯ä¸€ä¸ªæ—¶æ®µåœ¨çº¿äººæ•°
 ([
- "gumu":({10,20,.....}) /Ã¿Ğ¡Ê±¼ÇÂ¼Ò»´Î
+ "gumu":({10,20,.....}) /æ¯å°æ—¶è®°å½•ä¸€æ¬¡
 ])
 */
 mapping dPerform;
@@ -39,10 +39,10 @@ mapping dPerform;
  ...
 ])
 */
-mapping dExert;//ÀàËÆdPerform
+mapping dExert;//ç±»ä¼¼dPerform
 mapping dSkilltoParty;
 /*
-½«skillÓëparty½¨Á¢¶ÔÓ¦¹ØÏµ
+å°†skillä¸partyå»ºç«‹å¯¹åº”å…³ç³»
 ([
   "gumu":({anran-zhang})  
   ...
@@ -83,7 +83,7 @@ void t_check()
 	tm = localtime(time());
 		
 	if(tm[LT_SEC]) return;
-	//Ã¿Ò»·ÖÖÓÖ´ĞĞÒ»´Î ¼ÇÂ¼ÔÚÏßÈËÊı
+	//æ¯ä¸€åˆ†é’Ÿæ‰§è¡Œä¸€æ¬¡ è®°å½•åœ¨çº¿äººæ•°
 	Get_dUser();
 	
 	if(tm[LT_MIN]) return;
@@ -259,18 +259,18 @@ public string query_skill(string skill)
 	string ret = "";
 	int j;
 
-	ret += capitalize(skill)+"£º\n";
+	ret += capitalize(skill)+"ï¼š\n";
 		
 	//Exert
 	if(!undefinedp(dExert[skill]))
 	{
-		ret += "ÄÚ¹¦Ê¹ÓÃÇé¿ö£º\n";
+		ret += "å†…åŠŸä½¿ç”¨æƒ…å†µï¼š\n";
 		use = keys(dExert[skill]);
 		if(use && j = sizeof(use))
 		{
 			while(j--)
 			{
-				ret += "    "+capitalize(use[j])+"£º"+sprintf("%d£»\n",dExert[skill][use[j]]);
+				ret += "    "+capitalize(use[j])+"ï¼š"+sprintf("%dï¼›\n",dExert[skill][use[j]]);
 			}
 		}
 	}
@@ -278,13 +278,13 @@ public string query_skill(string skill)
 	//Perform
 	if(!undefinedp(dPerform[skill]))
 	{
-		ret += "Íâ¹¦Ê¹ÓÃÇé¿ö£º\n";
+		ret += "å¤–åŠŸä½¿ç”¨æƒ…å†µï¼š\n";
 		use = keys(dPerform[skill]);
 		if(use && j = sizeof(use))
 		{
 			while(j--)
 			{
-				ret += "    "+capitalize(use[j])+"£º"+sprintf("%d£»\n",dPerform[skill][use[j]]);
+				ret += "    "+capitalize(use[j])+"ï¼š"+sprintf("%dï¼›\n",dPerform[skill][use[j]]);
 			}
 		}
 	}
@@ -301,8 +301,8 @@ public string query_party(string party)
 	if(undefinedp(dSkilltoParty[party])) return 0;
 	skills = dSkilltoParty[party];
 	
-	ret = "¹ØÓÚ"+party+"ÏµÍ³Ìá¹©µÄÓĞ¹Ø×ÉÑ¯ÊÇ£º\n";
-	if(query_power(party)) ret += sprintf("ÃÅÅÉÊµÁ¦Îª£º%d¡£\n",query_power(party));
+	ret = "å…³äº"+party+"ç³»ç»Ÿæä¾›çš„æœ‰å…³å’¨è¯¢æ˜¯ï¼š\n";
+	if(query_power(party)) ret += sprintf("é—¨æ´¾å®åŠ›ä¸ºï¼š%dã€‚\n",query_power(party));
 	
 	if(!skills)
 	{		
@@ -314,7 +314,7 @@ public string query_party(string party)
 		return ret;
 	}
 	
-	ret += "¸ÃÃÅÅÉ¸÷ÏîSkillsµÄÊ¹ÓÃÇé¿öÈçÏÂ£º\n";
+	ret += "è¯¥é—¨æ´¾å„é¡¹Skillsçš„ä½¿ç”¨æƒ…å†µå¦‚ä¸‹ï¼š\n";
 	while(i--)
 	{
 		ret += query_skill(skills[i]);

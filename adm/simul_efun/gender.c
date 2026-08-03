@@ -3,20 +3,20 @@
 string gender_self(string sex)
 {
 	switch(sex) {
-		case "Å®ĞÔ": return "Äã";
-		default: return "Äã";
+		case "å¥³æ€§": return "ä½ ";
+		default: return "ä½ ";
 	}
 }
 
 string gender_pronoun(string sex)
 {
 	switch(sex) {
-		case "ÖĞĞÔÉñ":	return "Ëû";
-		case "ÄĞĞÔ":	return "Ëû";
-		case "ÎŞĞÔ":    return "Ëû";
-		case "Å®ĞÔ":	return "Ëı";
-		case "ĞÛĞÔ":
-		case "´ÆĞÔ":	return "Ëü";
-		default: return "Ëü";
+		case "ä¸­æ€§ç¥":	return "ä»–";
+		case "ç”·æ€§":	return "ä»–";
+		case "æ— æ€§":    return "ä»–";
+		case "å¥³æ€§":	return "å¥¹";
+		case "é›„æ€§":
+		case "é›Œæ€§":	return "å®ƒ";
+		default: return "å®ƒ";
 	}
 }

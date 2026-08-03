@@ -1,10 +1,10 @@
-// yunu-jianfa ÓñÅ®ËØĞÄ
+// yunu-jianfa ç‰å¥³ç´ å¿ƒ
 // by dubei
 // Modify By River 99.5.26
 #include <ansi.h>
 #include <combat.h>
 inherit F_SSERVER;
-string perform_name(){ return HIM"ÓñÅ®ËØĞÄ"NOR; }
+string perform_name(){ return HIM"ç‰å¥³ç´ å¿ƒ"NOR; }
 int perform(object me, string arg)
 {
       object weapon, target;
@@ -12,57 +12,57 @@ int perform(object me, string arg)
       dex = me->query_dex()*2;
       armor = me->query_int()*3;
       skill = me->query_skill("yunu-xinjing",1)/5 + me->query_skill("yunu-jianfa",1)/5;
-      if (me->query("gender") == "Å®ĞÔ") skill *= 5/4;
+      if (me->query("gender") == "å¥³æ€§") skill *= 5/4;
       weapon = me->query_temp("weapon");
 
       if( !target ) target = offensive_target(me);
 
       if( !target || !me->is_fighting(target) )
-               return notify_fail("¡¸ÓñÅ®ËØĞÄ¡¹Ö»ÄÜÔÚÕ½¶·ÖĞ¶Ô¶ÔÊÖÊ¹ÓÃ¡£\n");
+               return notify_fail("ã€Œç‰å¥³ç´ å¿ƒã€åªèƒ½åœ¨æˆ˜æ–—ä¸­å¯¹å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
       if ( !weapon
         || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "yunu-jianfa" 
         || me->query_skill_mapped("parry") != "yunu-jianfa")
-               return notify_fail("ÄãÃ»ÓÃÓñÅ®ËØĞÄ½£ÔõÃ´Ê¹³ö¡¸ÓñÅ®ËØĞÄ¡¹ÄØ£¿±ğ×öÃÎÁË£¡\n");
+               return notify_fail("ä½ æ²¡ç”¨ç‰å¥³ç´ å¿ƒå‰‘æ€ä¹ˆä½¿å‡ºã€Œç‰å¥³ç´ å¿ƒã€å‘¢ï¼Ÿåˆ«åšæ¢¦äº†ï¼\n");
 
       if((int)me->query_skill("yunu-jianfa", 1) < 120 )
-               return notify_fail("ÄãµÄÓñÅ®½£·¨ĞŞÎª²»¹» ¡£\n");
+               return notify_fail("ä½ çš„ç‰å¥³å‰‘æ³•ä¿®ä¸ºä¸å¤Ÿ ã€‚\n");
 
       if((int)me->query_skill("sword", 1) < 120 )
-               return notify_fail("ÄãµÄ»ù±¾¹¦»¹²»¹»æµÊì£¬Ê¹²»³ö¡¸ÓñÅ®ËØĞÄ¡¹¾ø¼¼¡£\n");
+               return notify_fail("ä½ çš„åŸºæœ¬åŠŸè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡ºã€Œç‰å¥³ç´ å¿ƒã€ç»æŠ€ã€‚\n");
 
       if((int)me->query_dex() < 30)
-               return notify_fail("ÄãµÄÉí·¨»¹²»¹»Ñ¸½İ£¬Ê¹²»³ö¡¸ÓñÅ®ËØĞÄ¡¹¾ø¼¼¡£\n");
+               return notify_fail("ä½ çš„èº«æ³•è¿˜ä¸å¤Ÿè¿…æ·ï¼Œä½¿ä¸å‡ºã€Œç‰å¥³ç´ å¿ƒã€ç»æŠ€ã€‚\n");
 
       if((int)me->query_skill("yunu-xinjing", 1) < 110 )   
-               return notify_fail("ÄãµÄÓñÅ®ĞÄ¾­ĞŞÎª²»¹»£¬ÎŞ·¨Ê¹ÓÃ¡¸ÓñÅ®ËØĞÄ¡¹¾ø¼¼¡£\n");  
+               return notify_fail("ä½ çš„ç‰å¥³å¿ƒç»ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨ã€Œç‰å¥³ç´ å¿ƒã€ç»æŠ€ã€‚\n");  
         if( me->query_skill_mapped("force") != "yunu-xinjing" && userp(me))
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸ÓñÅ®ËØĞÄ¡¹£¡\n");
+                return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€Œç‰å¥³ç´ å¿ƒã€ï¼\n");
       if((int)me->query_temp("gumu_suxin")) 
-               return notify_fail("ÄãÏÖÔÚÕıÔÚÊ¹ÓÃ¡¸ÓñÅ®ËØĞÄ¡¹¾ø¼¼¡£\n"); 
+               return notify_fail("ä½ ç°åœ¨æ­£åœ¨ä½¿ç”¨ã€Œç‰å¥³ç´ å¿ƒã€ç»æŠ€ã€‚\n"); 
 
         if( me->query_temp("wujian") )
-                return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸ÎŞ½£Ê¤ÓĞ½£¡¹ÄØ£¡\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œæ— å‰‘èƒœæœ‰å‰‘ã€å‘¢ï¼\n");
 
       if((int)me->query_temp("hebi"))
-               return notify_fail("ÄãÕıÔÚÊ©Õ¹Ë«½£ºÏ±Ú£¬ÎŞ·¨Ê¹ÓÃ¡¸ÓñÅ®ËØ?Ä¡¹¾ø¼¼¡£\n"); 
+               return notify_fail("ä½ æ­£åœ¨æ–½å±•åŒå‰‘åˆå£ï¼Œæ— æ³•ä½¿ç”¨ã€Œç‰å¥³ç´ ?æ‘¹å’•ï¿½æŠ€ã€‚\n"); 
 
       if((int)me->query("max_neili") < 1000)
-               return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»¡£\n");
+               return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿã€‚\n");
 
       if((int)me->query("neili") < 700)
-               return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+               return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
       if((int)me->query("jingli") < 600)
-               return notify_fail("ÄãµÄ¾«Á¦²»¹»¡£\n");
+               return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿã€‚\n");
 
        me->add("neili", -300);
        me->add("jingli", -150);
        me->add_temp("apply/armor", armor);
        me->add_temp("apply/dexerity",dex);
        me->set_temp("gumu_suxin", 1); 
-       message_vision(HIW"\n$NĞÅÊÖÒ»½££¬¼«¾¡äìÈ÷ÍÑÒİÖ®Ãî£¬ÊÖÖĞ"+weapon->name()+HIW"»Ã»¯³öÎŞÊıºçÃ¢£¬Ïò$nµç³¸¹¥È¥¡£\n"NOR,me,target);
+       message_vision(HIW"\n$Nä¿¡æ‰‹ä¸€å‰‘ï¼Œæå°½æ½‡æ´’è„±é€¸ä¹‹å¦™ï¼Œæ‰‹ä¸­"+weapon->name()+HIW"å¹»åŒ–å‡ºæ— æ•°è™¹èŠ’ï¼Œå‘$nç”µæ£æ”»å»ã€‚\n"NOR,me,target);
        me->add_temp("apply/damage", skill);
 
 target->add_temp("lost_attack", 1+random(3));
@@ -74,7 +74,7 @@ if(random(2) || !userp(target))   target->add_busy(2+random(2));
        me->add_temp("apply/damage", -skill);
 
     if(me->query_skill("yunu-jianfa",1)<=550) 
-       me->start_perform(1,"¡¸ÓñÅ®ËØĞÄ¡¹");
+       me->start_perform(1,"ã€Œç‰å¥³ç´ å¿ƒã€");
 
        call_out("check_fight", 1, me, dex, armor, skill);
        return 1;
@@ -85,7 +85,7 @@ void remove_effect(object me, int dex, int armor, object weapon)
        me->add_temp("apply/armor", -armor);
        me->add_temp("apply/dexerity",-dex);
        me->delete_temp("gumu_suxin");
-       tell_object(me, HIW"Äã¡¸ÓñÅ®ËØĞÄ¡¹Ê©Õ¹Íê±Ï£¬»º»ºÊæÁËÒ»¿ÚÆø¡£\n" NOR); 
+       tell_object(me, HIW"ä½ ã€Œç‰å¥³ç´ å¿ƒã€æ–½å±•å®Œæ¯•ï¼Œç¼“ç¼“èˆ’äº†ä¸€å£æ°”ã€‚\n" NOR); 
 }
 
 void check_fight(object me, int dex, int armor, int skill)

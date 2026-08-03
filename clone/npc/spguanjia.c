@@ -2,26 +2,26 @@
 //
 //      spguanjia.c
 //      Created by mychat 02/05/2004
-//      ±£ÁôÎÒµÄÇ©ÃûÇé¿öÏÂ free of use.
-//      µ±È»¸ü»¶Ó­ĞŞ¸Ä¡¢ÓÅ»¯µÈ¡£
+//      ä¿ç•™æˆ‘çš„ç­¾åæƒ…å†µä¸‹ free of use.
+//      å½“ç„¶æ›´æ¬¢è¿ä¿®æ”¹ã€ä¼˜åŒ–ç­‰ã€‚
 //
 //      Email & MSN: codemake@163.com
-//      ÎÄ¼şÎ»ÓÚ/clone/npcÏÂ
-// 		´¦Àí³ö×â·¿¼ä»»ÕĞÅÆµÄÎÊÌâ
+//      æ–‡ä»¶ä½äº/clone/npcä¸‹
+// 		å¤„ç†å‡ºç§Ÿæˆ¿é—´æ¢æ‹›ç‰Œçš„é—®é¢˜
 ***********************************************************************************/
 
 inherit NPC;
 
 void create()
 {
-	set_name("ÉÌÆÌ¹Ü¼Ò", ({ "shangpu guanjia" }));
+	set_name("å•†é“ºç®¡å®¶", ({ "shangpu guanjia" }));
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 65);
 	set("no_quest", 1);
 	set("no_drop", 1);
 	set("no_get", 1);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 
 	set("combat_exp", 7500);
         set_skill("unarmed", 35);
@@ -33,7 +33,7 @@ void create()
 	set("combat_exp", 5000000);
 
 	set("inquiry", ([
-		"name": "ÎÒÊÇ°ïÎ¤¾ôÒ¯¸É»îµÄ£¬µ½´¦¿´¿´×Ô¼Ò³ö×âµÄµêÆÌÂòÂôÊÇ·ñ»¹ºÃ",
+		"name": "æˆ‘æ˜¯å¸®éŸ¦çˆµçˆ·å¹²æ´»çš„ï¼Œåˆ°å¤„çœ‹çœ‹è‡ªå®¶å‡ºç§Ÿçš„åº—é“ºä¹°å–æ˜¯å¦è¿˜å¥½",
 	]) );
 	set("attitude", "friendly");
 
@@ -47,7 +47,7 @@ void init()
 	if(query("work_over")) return;
 	set("work_over",1);
 	if ( base_name(environment())==query("target") )
-		if( environment()->change_rsname() ) message_vision("Ö»¼û$N³å×Å»ï¼ÆßººÈ£º»»ÀÏ°åÁË£¬»¹¿ì²»°ÑÕĞÅÆ»»ÁË¡£\n", this_object());	
+		if( environment()->change_rsname() ) message_vision("åªè§$Nå†²ç€ä¼™è®¡å†å–ï¼šæ¢è€æ¿äº†ï¼Œè¿˜å¿«ä¸æŠŠæ‹›ç‰Œæ¢äº†ã€‚\n", this_object());	
 	call_out("dest", 10, this_object());
 }
 
@@ -55,7 +55,7 @@ void kill_ob(object ob)
 {
 	ob->remove_killer(this_object());
 	remove_killer(ob);
-	message_vision("$N¾ÚÉ¥µØ·¢ÏÖÉÌÆÌ¹Ü¼ÒºÃÏñ²»ÖªµÀ·¢ÉúÁËÊ²Ã´ÊÂ£¬¼ÌĞøÔÚÃ¦×Ô¼ºµÄÊÂ¡£\n", ob);
+	message_vision("$Næ²®ä¸§åœ°å‘ç°å•†é“ºç®¡å®¶å¥½åƒä¸çŸ¥é“å‘ç”Ÿäº†ä»€ä¹ˆäº‹ï¼Œç»§ç»­åœ¨å¿™è‡ªå·±çš„äº‹ã€‚\n", ob);
 }
 
 void unconcious()
@@ -66,7 +66,7 @@ void unconcious()
 	set("eff_jing", query("max_jing"));
 	set("jing", query("max_jing"));
 	set("jingli", query("eff_jingli"));
-	say("ÉÌÆÌ¹Ü¼Ò¿àĞ¦×ÅËµ£ºÎÒÖ»ÊÇ°ïÎ¤¾ôÒ¯¸É»îµÄĞ¡ÈËÎï£¬´óÏÀºÎ¿àºÍÎÒÒ»°ã¼ûÊ¶\n");
+	say("å•†é“ºç®¡å®¶è‹¦ç¬‘ç€è¯´ï¼šæˆ‘åªæ˜¯å¸®éŸ¦çˆµçˆ·å¹²æ´»çš„å°äººç‰©ï¼Œå¤§ä¾ ä½•è‹¦å’Œæˆ‘ä¸€èˆ¬è§è¯†\n");
 	command("hehe");
 }
 
@@ -81,7 +81,7 @@ void dest(object ob)
 	if ( !ob ) return;
     	if (ob->is_character() ){
     		if( environment(ob))
-       			message_vision("Ö»¼û$NÃ¦ÍêÊÖÖĞµÄÊÂÇé£¬²»»Å²»Ã¦µØ×ßÁË¡£\n", ob);  
+       			message_vision("åªè§$Nå¿™å®Œæ‰‹ä¸­çš„äº‹æƒ…ï¼Œä¸æ…Œä¸å¿™åœ°èµ°äº†ã€‚\n", ob);  
        	}
        	
        	destruct(ob);

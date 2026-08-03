@@ -1,31 +1,31 @@
-// wenjia-daofa.c ÎÂ¼Òµ¶·¨£¨NPC¹¦·ò£©
+// wenjia-daofa.c æ¸©å®¶åˆ€æ³•ï¼ˆNPCåŠŸå¤«ï¼‰
 
 inherit SKILL;
 
 mapping *action = ({
 ([
-	"action" : "$NÒ»Ê½¡¸²ÔËÉÓ­¿Í¡¹£¬ÉíÌåÎ¢²à£¬µ¶·æÆ½Òı£¬Ğ±Åü$nµÄ$l",
+	"action" : "$Nä¸€å¼ã€Œè‹æ¾è¿å®¢ã€ï¼Œèº«ä½“å¾®ä¾§ï¼Œåˆ€é”‹å¹³å¼•ï¼Œæ–œåŠˆ$nçš„$l",
 	"lvl" : 0,
-	"skill_name" : "²ÔËÉÓ­¿Í",
-	"damage_type" : "´ÌÉË"
+	"skill_name" : "è‹æ¾è¿å®¢",
+	"damage_type" : "åˆºä¼¤"
 ]),
 ([
-	"action" : "$NÏòÇ°Ô¾ÉÏÒ»²½£¬ÓÒÊÖ¼±ËÙÎè¶¯ÊÖÖĞµÄ$w£¬Ò»ÕĞ¡¸¿ªÃÅ¼ûÉ½¡¹Ö±Ìô$nµÄ$l",
+	"action" : "$Nå‘å‰è·ƒä¸Šä¸€æ­¥ï¼Œå³æ‰‹æ€¥é€ŸèˆåŠ¨æ‰‹ä¸­çš„$wï¼Œä¸€æ‹›ã€Œå¼€é—¨è§å±±ã€ç›´æŒ‘$nçš„$l",
 	"lvl" : 10,
-	"skill_name" : "¿ªÃÅ¼ûÉ½",
-	"damage_type" : "´ÌÉË"
+	"skill_name" : "å¼€é—¨è§å±±",
+	"damage_type" : "åˆºä¼¤"
 ]),
 ([
-	"action" : "$NÒ»¸öĞ±²à²½£¬Ò»ÕĞ¡¸ÎÅ¼¦ÆğÎè¡¹£¬ÊÖÖĞ$wÆ½Æ½µÄÍÆÏò$nµÄ$l",
+	"action" : "$Nä¸€ä¸ªæ–œä¾§æ­¥ï¼Œä¸€æ‹›ã€Œé—»é¸¡èµ·èˆã€ï¼Œæ‰‹ä¸­$wå¹³å¹³çš„æ¨å‘$nçš„$l",
 	"lvl" : 20,
-	"skill_name" : "ÎÅ¼¦ÆğÎè",
-	"damage_type" : "´ÌÉË"
+	"skill_name" : "é—»é¸¡èµ·èˆ",
+	"damage_type" : "åˆºä¼¤"
 ]),
 ([
-	"action" : "$NÒ»ÕĞ¡¸ÍÆ²¨ÖúÀ½¡¹£¬ÊÖÀïµÄ$w»®³öÒ»¸ö´ó»¡£¬¼±ËÙ¿³Ïò$nµÄ$l",
+	"action" : "$Nä¸€æ‹›ã€Œæ¨æ³¢åŠ©æ¾œã€ï¼Œæ‰‹é‡Œçš„$wåˆ’å‡ºä¸€ä¸ªå¤§å¼§ï¼Œæ€¥é€Ÿç å‘$nçš„$l",
 	"lvl" : 30,
-	"skill_name" : "ÍÆ²¨ÖúÀ½",
-	"damage_type" : "´ÌÉË"
+	"skill_name" : "æ¨æ³¢åŠ©æ¾œ",
+	"damage_type" : "åˆºä¼¤"
 ]),
 });
 
@@ -37,9 +37,9 @@ int valid_learn(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	if ((int)me->query("max_neili") < 100)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 	return 1;
 }
 
@@ -74,9 +74,9 @@ mapping query_action(object me, object weapon)
 int practice_skill(object me)
 {
 	if ((int)me->query("jingli") < 40)
-		return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·ÎÂ¼Òµ¶·¨¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒæ¸©å®¶åˆ€æ³•ã€‚\n");
 	if ((int)me->query("neili") < 20)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·ÎÂ¼Òµ¶·¨¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒæ¸©å®¶åˆ€æ³•ã€‚\n");
 	me->receive_damage("jingli", 30);
 	me->add("neili", -10);
 	return 1;

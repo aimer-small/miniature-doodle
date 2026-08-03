@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Ñ©²ÎÓñó¸Íè",({"xueshen yuchanwan","wan"}));
+	set_name("é›ªå‚çŽ‰èŸ¾ä¸¸",({"xueshen yuchanwan","wan"}));
 	set_weight(100);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","ÕâÊÇÒ»Á£³¯ÏÊ¹úÍõ½ø¹±µÄÁÆÉËÊ¥Ò©¡£É«Ôó¾§Ó¨£¬Í¨Ìå°ëÍ¸Ã÷×´,ÐáÖ®ÔòÓÐµ­µ­ÇåÏã¡£\n");
+		set("long","è¿™æ˜¯ä¸€ç²’æœé²œå›½çŽ‹è¿›è´¡çš„ç–—ä¼¤åœ£è¯ã€‚è‰²æ³½æ™¶èŽ¹ï¼Œé€šä½“åŠé€æ˜ŽçŠ¶,å—…ä¹‹åˆ™æœ‰æ·¡æ·¡æ¸…é¦™ã€‚\n");
 		set("value",10000);
-		set("unit","Á£");
+		set("unit","ç²’");
 		set("no_drop",1);
              set("dzd",1);
 
@@ -35,8 +35,8 @@ int do_eat(string arg)
 	if(!arg || ( arg!= "wan" && arg!="xueshen yuchanwan"))
 		return 0;
 	if(me->query("qi")==me->query("max_qi") && me->query("jing")==me->query("max_jing"))
-		return notify_fail("ÄãÃ»ÊÂ³ÔÕâ¸ö×öÊ²Ã´£¿\n");
-	message_vision("$N³ÔÏÂÒ»Á£" + name() + ",ÉËÊÆ¶ÙÊ±ºÃ×ª£¡\n",me);
+		return notify_fail("ä½ æ²¡äº‹åƒè¿™ä¸ªåšä»€ä¹ˆï¼Ÿ\n");
+	message_vision("$Nåƒä¸‹ä¸€ç²’" + name() + ",ä¼¤åŠ¿é¡¿æ—¶å¥½è½¬ï¼\n",me);
 	me->set("eff_qi",me->query("max_qi"));
 	me->set("qi",me->query("max_qi"));
 	me->set("eff_jing",me->query("max_jing"));

@@ -8,17 +8,17 @@ inherit HEAD;
 
 void create()
 {
-	set_name(HIY"Ê®°ËÑ§Ê¿"NOR,({ "shiba xueshi", "hua", "flower" }) );
+	set_name(HIY"åå…«å­¦å£«"NOR,({ "shiba xueshi", "hua", "flower" }) );
 	set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
+                set("unit", "æœµ");
                 set("value", 70);
                 set("material", "plant");
-                set("long", "ÕâÊÇÒ»¶äÊ®°ËÑ§Ê¿¡£\n");
-                set("wear_msg", "$NÄÃÆğÒ»¶ä$n±ğÔÚĞØÇ°¡£\n");
-                set("unequip_msg", "$NÕªÏÂĞØÇ°µÄ$n¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æœµåå…«å­¦å£«ã€‚\n");
+                set("wear_msg", "$Næ‹¿èµ·ä¸€æœµ$nåˆ«åœ¨èƒ¸å‰ã€‚\n");
+                set("unequip_msg", "$Næ‘˜ä¸‹èƒ¸å‰çš„$nã€‚\n");
                 set("armor_prop/armor", 0);
         }
 

@@ -33,13 +33,13 @@ string *base = ({
 
 void create()
 {
-    set_name("Ò»Æ·ÌÃ ÎäÊ¿", ({ "wu shi", "wushi", "shi"}));
+    set_name("ä¸€å“å ‚ æ­¦å£«", ({ "wu shi", "wushi", "shi"}));
 
 	set("init",0);
 	
-    set("gender", "ÄĞĞÔ");
+    set("gender", "ç”·æ€§");
     set("age", 20 + random(60));
-    set("long", "ÕâÊÇÎ÷ÏÄÒ»Æ·ÌÃ´Ó½­ºşÉÏÖØ½ğÕĞÆ¸µÄÒ»ÃûÎäÁÖ¸ßÊÖ¡£\n" );
+    set("long", "è¿™æ˜¯è¥¿å¤ä¸€å“å ‚ä»æ±Ÿæ¹–ä¸Šé‡é‡‘æ‹›è˜çš„ä¸€åæ­¦æ—é«˜æ‰‹ã€‚\n" );
 	if( random(10) < 1 )
 		set("double_attack",1);
 }       
@@ -88,7 +88,7 @@ void init()
 		s_perform = perform[ index ];
 		s_base = base[ index ];
      
-	    set("gender", "ÄĞĞÔ");
+	    set("gender", "ç”·æ€§");
 	    set("age", 20 + random(60));
 
 	    set("combat_exp", lvl*lvl*lvl/10);

@@ -15,10 +15,10 @@ int main(object me, string arg)
         }
         
         if( strlen(arg) > 30 )
-                return notify_fail("ÄãµÄÍ·ÏÎÌ«³¤ÁË£¬ÏëÒ»¸ö¶ÌÒ»µãµÄ¡¢ÏìÁÁÒ»µãµÄ¡£\n");
+                return notify_fail("ä½ çš„å¤´è¡”å¤ªé•¿äº†ï¼Œæƒ³ä¸€ä¸ªçŸ­ä¸€ç‚¹çš„ã€å“äº®ä¸€ç‚¹çš„ã€‚\n");
 
 	if( sscanf(arg, "%s %s", arg, str)!=2 )
-		return notify_fail("ÄãÒªÉèÖÃÍ·ÏÎµÄÄÄÒ»Ïî£¿(rank, color, level, self_rude, self, rude, respect)\n");
+		return notify_fail("ä½ è¦è®¾ç½®å¤´è¡”çš„å“ªä¸€é¡¹ï¼Ÿ(rank, color, level, self_rude, self, rude, respect)\n");
 		
 	switch(arg){
 		case "rank": 
@@ -32,19 +32,19 @@ int main(object me, string arg)
 		case "level": if(intp(atoi(str)) )
 				me->set("rank_info/level", atoi(str)); 
 				break;
-		default: return notify_fail("ÄãÒªÉèÖÃÍ·ÏÎµÄÄÄÒ»Ïî£¿(rank, color, level, self_rude, self, rude, respect)\n");
+		default: return notify_fail("ä½ è¦è®¾ç½®å¤´è¡”çš„å“ªä¸€é¡¹ï¼Ÿ(rank, color, level, self_rude, self, rude, respect)\n");
 	}
 
-        write("Äã½«Í·ÏÎµÄ "+arg+" Ïî£¬ÉèÖÃÎª£º"+str+"¡£\n");
+        write("ä½ å°†å¤´è¡”çš„ "+arg+" é¡¹ï¼Œè®¾ç½®ä¸ºï¼š"+str+"ã€‚\n");
         write(RANK_D->query_rank(me)+me->short(1)+"\n");
         return 1;
 }
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : rank <ÏîÄ¿> <×Ö´®>
+æŒ‡ä»¤æ ¼å¼ : rank <é¡¹ç›®> <å­—ä¸²>
  
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãÎª×Ô¼ºÉè¶¨Ò»¸öÍ·ÏÎµÄµÈ¼¶£¬ÑÕÉ«µÈ¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ ä¸ºè‡ªå·±è®¾å®šä¸€ä¸ªå¤´è¡”çš„ç­‰çº§ï¼Œé¢œè‰²ç­‰ã€‚
 HELP
         );
         return 1;

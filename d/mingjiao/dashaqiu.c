@@ -1,16 +1,16 @@
-// dashaqiu.c  ´óÉ³Çð
+// dashaqiu.c  å¤§æ²™ä¸˜
 // Modify By River@SJ 99.06
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-	set("short", YEL"´óÉ³Çð"NOR);
-	set("long", "ÕâÊÇÒ»¸öºÜ´óµÄÉ³Çð£¬É³ÇðÉÏÓÐ¼¸¾ßÈËµÄ¹ÇÍ·¡£\n");
+	set("short", YEL"å¤§æ²™ä¸˜"NOR);
+	set("long", "è¿™æ˜¯ä¸€ä¸ªå¾ˆå¤§çš„æ²™ä¸˜ï¼Œæ²™ä¸˜ä¸Šæœ‰å‡ å…·äººçš„éª¨å¤´ã€‚\n");
 	set("exits", ([
 	        "west" : __DIR__"shejing",
                 "east" : __DIR__"htping",
         ]));
-        set("outdoors", "Ã÷½Ì¹âÃ÷¶¥");
+        set("outdoors", "æ˜Žæ•™å…‰æ˜Žé¡¶");
 	set("coor/x",-330);
   set("coor/y",90);
    set("coor/z",0);

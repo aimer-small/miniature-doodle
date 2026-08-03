@@ -16,8 +16,8 @@ void condition_check()
         	if (objectp(ob == me->query_temp("is_rided_by"))) {
                        ob->delete_temp("riding_beast");
                        ob->delete_temp("is_riding");
-                       message_vision("$NÒ»Í·´Ó$nÉÏÔÔÏÂÀ´£¬µøµôÁ½¿ÅÃÅÑÀ¡£\n", ob, me);
-                       ob->receive_wound("qi", 150, "´Ó"+me->name()+"ÉÏµøÏÂÀ´Ë¤");
+                       message_vision("$Nä¸€å¤´ä»$nä¸Šæ ½ä¸‹æ¥ï¼Œè·Œæ‰ä¸¤é¢—é—¨ç‰™ã€‚\n", ob, me);
+                       ob->receive_wound("qi", 150, "ä»"+me->name()+"ä¸Šè·Œä¸‹æ¥æ‘”");
                 }
                 me->delete_temp("is_rided_by");
                 // modified by aln to let horses follow none after be faint
@@ -28,13 +28,13 @@ void condition_check()
 
         if(my_yq <=30 && my_yq > 20){
                 if (!random(3))
-                say(me->name() +"Ö»ÔÚ´­Æø£¬½¥½¥µØ¿ìÅÜ²»¶¯ÁË£¡\n");
+                say(me->name() +"åªåœ¨å–˜æ°”ï¼Œæ¸æ¸åœ°å¿«è·‘ä¸åŠ¨äº†ï¼\n");
            	return;
         }
 
 	if(my_yq <= my_mj/3){
                 if (!random(3))
-                say(me->name() +"´ó¿Ú´ó¿ÚµØ´­×Å´ÖÆø¡£\n");
+                say(me->name() +"å¤§å£å¤§å£åœ°å–˜ç€ç²—æ°”ã€‚\n");
                 return;
         }
 }
@@ -47,7 +47,7 @@ void init()
         object ob = me->query_temp("rided_by");
 
         if (objectp(ob) && (ob->query_temp("netdead") || !interactive(ob))) {
-                   message_vision("$N´Ó$nÉÏÒ»Ô¾¶øÏÂ¡£\n", ob, me);
+                   message_vision("$Nä»$nä¸Šä¸€è·ƒè€Œä¸‹ã€‚\n", ob, me);
                    me->delete_temp("rided_by");
                    ob->delete_temp("riding_beast");
                    ob->delete_temp("is_riding");
@@ -75,10 +75,10 @@ void init()
         }
 
 	if (((int)environment(me)->query("grass") > 0
-        ||      strsrch(environment(me)->query("short"), "²İµØ") >= 0
-        ||      strsrch(environment(me)->query("short"), "Ê÷ÁÖ") >= 0
-        ||      strsrch(environment(me)->query("short"), "²İº£") >= 0
-        ||      strsrch(environment(me)->query("short"), "²İÔ°") >= 0)
+        ||      strsrch(environment(me)->query("short"), "è‰åœ°") >= 0
+        ||      strsrch(environment(me)->query("short"), "æ ‘æ—") >= 0
+        ||      strsrch(environment(me)->query("short"), "è‰æµ·") >= 0
+        ||      strsrch(environment(me)->query("short"), "è‰å›­") >= 0)
         &&      environment(me)->query("outdoors")
         &&     	me->query("food") < (me->max_food_capacity())) {
            	my_jing  = (int)me->query("jingli");
@@ -93,7 +93,7 @@ void init()
                          me->add("jingli", addjing);
                 if ((int)environment(me)->query("grass"))
                          environment(me)->add("grass", -1);
-                message("vision", me->name() + "µÍÏÂÍ·ÔÚ²İµØÉÏ³ÔÆğ²İÀ´¡£\n", environment(me), me); 
+                message("vision", me->name() + "ä½ä¸‹å¤´åœ¨è‰åœ°ä¸Šåƒèµ·è‰æ¥ã€‚\n", environment(me), me); 
 	}
 }
 

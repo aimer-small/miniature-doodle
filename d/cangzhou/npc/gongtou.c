@@ -5,15 +5,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("Íõ´óÃ×", ({ "wang dami", "dami", "wang" }));
-	set("gender", "ÄĞĞÔ");
-	set("nickname", HIC"Ã×ĞĞ¹¤Í·"NOR);
+	set_name("ç‹å¤§ç±³", ({ "wang dami", "dami", "wang" }));
+	set("gender", "ç”·æ€§");
+	set("nickname", HIC"ç±³è¡Œå·¥å¤´"NOR);
 	set("age", 40);
 	set("str", 20);
 	set("dex", 20);
 	set("per", 20);
-	set("long", "ÕâÎ»¾ÍÊÇÕâ¼ÒÃ×ĞĞµÄ¹¤Í·£¬¸ºÔğÖ¸»Ó¹¤ÈË½«»õÎï°á½ø°á³ö£¬\n"+
-		"Èç¹ûÄãÏë´ò¹¤×¬Ğ©Ç®£¬¿ÉÒÔ¸úËûÌ¸Ì¸¿´¡£\n");
+	set("long", "è¿™ä½å°±æ˜¯è¿™å®¶ç±³è¡Œçš„å·¥å¤´ï¼Œè´Ÿè´£æŒ‡æŒ¥å·¥äººå°†è´§ç‰©æ¬è¿›æ¬å‡ºï¼Œ\n"+
+		"å¦‚æœä½ æƒ³æ‰“å·¥èµšäº›é’±ï¼Œå¯ä»¥è·Ÿä»–è°ˆè°ˆçœ‹ã€‚\n");
 	set("combat_exp", 35000);
 	set("shen_type", 0);
 	set("attitude", "peaceful");

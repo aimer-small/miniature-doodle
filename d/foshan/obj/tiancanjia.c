@@ -1,4 +1,4 @@
-// baojia.c Ìì²Ï±¦¼×
+// baojia.c å¤©èš•å®ç”²
 
 #include <ansi.h>
 #include <armor.h>
@@ -7,12 +7,12 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIW "Ìì²Ï±¦¼×" NOR, ({ "bao jia", "jia" }) );
+        set_name(HIW "å¤©èš•å®ç”²" NOR, ({ "bao jia", "jia" }) );
         set_weight(5000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
 		set("unique", 1);
                 set("value", 50000);
                 set("material", "gold");

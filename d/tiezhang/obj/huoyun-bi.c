@@ -4,13 +4,13 @@
 inherit BRUSH;
 void create()
 {
-        set_name(HIR"»ðÔÆ±Ê"NOR,({ "huoyun bi", "bi","brush" }) );
+        set_name(HIR"ç«äº‘ç¬”"NOR,({ "huoyun bi", "bi","brush" }) );
         set_weight(15000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
 
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
                 set("value", 10000000);
                 set("unique", 1);
                 set("rigidity", 1);
@@ -19,9 +19,9 @@ void create()
 		set("treasure",1);
                  set("wield_maxneili", 1000);
                 set("wield_str", 30);
-		set("long", HIR"ÕâÊÇÒ»°Ñ³¤¶þ³ßÈý´çµÄÍ­±Ê£¬Í¨Ìå·ººì£¬ÈçÒ»ÍÅ»ðºìµÄÔÆ¶ä£¬±¬Éä³ö»ðºìµÄ¹âÃ¢¡£"NOR);
-                set("wield_msg",HIR"Ö»¼ûºì¹âÒ»ÉÁ£¬$NÒÑ¾­½«»ðÔÆ±Ê³­ÔÚÁËÊÖÖÐ¡£\n"NOR);             
-                set("unwield_msg", HIR "$NË«ÊÖÇáÂ££¬ºì¹âÒ»Òþ£¬½«»ðÔÆ±ÊÊÕÈëÐäÖÐ£¬¶¯×÷Æ®ÒÝÖ®ÖÁ¡£\n"NOR);               
+		set("long", HIR"è¿™æ˜¯ä¸€æŠŠé•¿äºŒå°ºä¸‰å¯¸çš„é“œç¬”ï¼Œé€šä½“æ³›çº¢ï¼Œå¦‚ä¸€å›¢ç«çº¢çš„äº‘æœµï¼Œçˆ†å°„å‡ºç«çº¢çš„å…‰èŠ’ã€‚"NOR);
+                set("wield_msg",HIR"åªè§çº¢å…‰ä¸€é—ªï¼Œ$Nå·²ç»å°†ç«äº‘ç¬”æŠ„åœ¨äº†æ‰‹ä¸­ã€‚\n"NOR);             
+                set("unwield_msg", HIR "$NåŒæ‰‹è½»æ‹¢ï¼Œçº¢å…‰ä¸€éšï¼Œå°†ç«äº‘ç¬”æ”¶å…¥è¢–ä¸­ï¼ŒåŠ¨ä½œé£˜é€¸ä¹‹è‡³ã€‚\n"NOR);               
         }
         init_brush(120);
         setup();
@@ -34,8 +34,8 @@ int do_wield(string arg)
         if (!id(arg))
                 return 0;      
         if((int)me->query_skill("guiyuan-tunafa", 1) < 120)
-                return notify_fail("ÄãÎÞ·¨×°±¸»ðÔÆ±Ê¡£\n");
+                return notify_fail("ä½ æ— æ³•è£…å¤‡ç«äº‘ç¬”ã€‚\n");
         if((int)me->query_skill("yingou-bifa", 1) < 120)
-                return notify_fail("ÄãÎÞ·¨×°±¸»ðÔÆ±Ê¡£\n");
+                return notify_fail("ä½ æ— æ³•è£…å¤‡ç«äº‘ç¬”ã€‚\n");
 
 }

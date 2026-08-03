@@ -1,14 +1,14 @@
-// ping.c Æ½Ò»Ö¸
+// ping.c å¹³ä¸€æŒ‡
 
 inherit NPC;
 inherit F_DEALER;
 
 void create()
 {
-	set_name("ÕÅÀÏ°å", ({ "zhang laoban", "zhang", "laoban" }));
-	set("title", "Ò©ÆÌÀÏ°å");
-	set("gender", "ÄĞĞÔ");
-	set("long", "ËûÊÇ´óÀí³ÇÀïÎ¨Ò»µÄÒ½Ê¦¡£\n");
+	set_name("å¼ è€æ¿", ({ "zhang laoban", "zhang", "laoban" }));
+	set("title", "è¯é“ºè€æ¿");
+	set("gender", "ç”·æ€§");
+	set("long", "ä»–æ˜¯å¤§ç†åŸé‡Œå”¯ä¸€çš„åŒ»å¸ˆã€‚\n");
 	set("age", 65);
         set("unique", 1);
 	set("int", 30);

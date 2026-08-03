@@ -13,33 +13,33 @@ int perform(object me, object target)
 	if( !target ) target = offensive_target(me);
 
 	if( !target || !target->is_character() || !me->is_fighting(target) )
-		return notify_fail("°∏ÃÏÓ∏°π÷ªƒ‹‘⁄’Ω∂∑÷–∂‘∂‘ ÷ π”√°£\n");
+		return notify_fail("„ÄåÂ§©ÁΩ°„ÄçÂè™ËÉΩÂú®ÊàòÊñó‰∏≠ÂØπÂØπÊâã‰ΩøÁî®„ÄÇ\n");
 
 	if( objectp( me->query_temp("weapon")) )
-		return notify_fail("÷ª”–ø’ ÷≤≈ƒ‹ ©’π°∏ÃÏÓ∏°π°£\n");
+		return notify_fail("Âè™ÊúâÁ©∫ÊâãÊâçËÉΩÊñΩÂ±ï„ÄåÂ§©ÁΩ°„Äç„ÄÇ\n");
 
 	if( (int)me->query_skill("tiangang-zhang", 1) < 150 )
-		return notify_fail("ƒ„µƒÃÏÓ∏’∆∑®≤ªπªÊµ Ï£¨≤ªª· π”√°∏ÃÏÓ∏°π°£\n");
+		return notify_fail("‰Ω†ÁöÑÂ§©ÁΩ°ÊéåÊ≥ï‰∏çÂ§üÂ®¥ÁÜüÔºå‰∏ç‰ºö‰ΩøÁî®„ÄåÂ§©ÁΩ°„Äç„ÄÇ\n");
 
 	if( (int)me->query_skill("xiantian-gong", 1) < 90 )
-		return notify_fail("ƒ„µƒœ»ÃÏπ¶µ»º∂≤ªπª£¨≤ªƒ‹ π”√°∏ÃÏÓ∏°π°£\n");
+		return notify_fail("‰Ω†ÁöÑÂÖàÂ§©ÂäüÁ≠âÁ∫ß‰∏çÂ§üÔºå‰∏çËÉΩ‰ΩøÁî®„ÄåÂ§©ÁΩ°„Äç„ÄÇ\n");
 
 	if( (int)me->query_str() < 35 )
-		return notify_fail("ƒ„µƒÎˆ¡¶≤ªπª«ø£¨≤ªƒ‹ π”√°∏ÃÏÓ∏°π°£\n");
+		return notify_fail("‰Ω†ÁöÑËÜÇÂäõ‰∏çÂ§üÂº∫Ôºå‰∏çËÉΩ‰ΩøÁî®„ÄåÂ§©ÁΩ°„Äç„ÄÇ\n");
 
 	if( arg <= 1 )
-		return notify_fail("÷¡…Ÿ“™”–¡Ω’–≤≈ø…◊È≥…°∏ÃÏÓ∏°π°£\n");
+		return notify_fail("Ëá≥Â∞ëË¶ÅÊúâ‰∏§ÊãõÊâçÂèØÁªÑÊàê„ÄåÂ§©ÁΩ°„Äç„ÄÇ\n");
 
 	if( (int)me->query("neili", 1) < 1200 )
-		return notify_fail("ƒ„œ÷‘⁄ƒ⁄¡¶Ã´»ı£¨≤ªƒ‹ π”√°∏ÃÏÓ∏°π°£\n");
+		return notify_fail("‰Ω†Áé∞Âú®ÂÜÖÂäõÂ§™Âº±Ôºå‰∏çËÉΩ‰ΩøÁî®„ÄåÂ§©ÁΩ°„Äç„ÄÇ\n");
 
 	if( (int)me->query("neili", 1) < 100 * arg )
-		return notify_fail("ƒ„œ÷‘⁄µƒƒ⁄¡¶ ©’π≤ª¡Àƒ«√¥∂‡’–°£\n");
+		return notify_fail("‰Ω†Áé∞Âú®ÁöÑÂÜÖÂäõÊñΩÂ±ï‰∏ç‰∫ÜÈÇ£‰πàÂ§öÊãõ„ÄÇ\n");
 
 //	if( (int)me->query_skill("tiangang-zhang", 1) < arg * 30 )
-//		return notify_fail("ƒ„µƒÃÏÓ∏’∆∑®ªπ√ª”––ﬁ¡∑µΩƒ«÷÷æ≥ΩÁ£°\n");
+//		return notify_fail("‰Ω†ÁöÑÂ§©ÁΩ°ÊéåÊ≥ïËøòÊ≤°Êúâ‰øÆÁªÉÂà∞ÈÇ£ÁßçÂ¢ÉÁïåÔºÅ\n");
 
-	message_vision(HIG"$NÕª»ª◊Û’∆œÚ«∞“ªÃΩ£¨”“’∆Ÿøµÿ≈ƒ≥ˆ£¨…ÌÀÊ’∆––£¨±º––”˙ÀŸ£¨À´’∆∫ˆª∫∫ˆº±≈ƒ≥ˆ"+ chinese_number(arg) +"’∆°£\n\n"NOR,  
+	message_vision(HIG"$NÁ™ÅÁÑ∂Â∑¶ÊéåÂêëÂâç‰∏ÄÊé¢ÔºåÂè≥ÊéåÂÄèÂú∞ÊãçÂá∫ÔºåË∫´ÈöèÊéåË°åÔºåÂ•îË°åÊÑàÈÄüÔºåÂèåÊéåÂøΩÁºìÂøΩÊÄ•ÊãçÂá∫"+ chinese_number(arg) +"Êéå„ÄÇ\n\n"NOR,  
 	              me, target);
 
 	limbs = target->query("limbs");
@@ -48,7 +48,7 @@ int perform(object me, object target)
 	  message_vision(
 		replace_string(
 	  SKILL_D("tiangang-zhang")->query_action(me, me->query_temp("weapon"))["action"],
-		"$l", limbs[random(sizeof(limbs))]) + "£°\n\n", me, target);
+		"$l", limbs[random(sizeof(limbs))]) + "ÔºÅ\n\n", me, target);
      damage = damage+150+random(150);
         }    
 

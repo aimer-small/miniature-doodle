@@ -1,15 +1,15 @@
 
 	master(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		master() - ´«»ØÖ÷Ô×Îï¼ş (master object)
-	Óï·¨:
+	åç§°:
+		master() - ä¼ å›ä¸»å®°ç‰©ä»¶ (master object)
+	è¯­æ³•:
 		object master( void );
 
-		Îï¼ş master( ÎŞ²ÎÊı );
-	ÓÃ·¨:
-		´«»ØÖ¸ÏòÖ÷Ô×Îï¼ş (master object) µÄÖ¸±ê (pointer).
-	²Î¿¼:
+		ç‰©ä»¶ master( æ— å‚æ•° );
+	ç”¨æ³•:
+		ä¼ å›æŒ‡å‘ä¸»å®°ç‰©ä»¶ (master object) çš„æŒ‡æ ‡ (pointer).
+	å‚è€ƒ:
 		find_object(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Apr.13.		(printed 3/16/95)

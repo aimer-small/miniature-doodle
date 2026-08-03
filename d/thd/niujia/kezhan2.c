@@ -10,10 +10,10 @@ string look_men();
 
 void create()
 {
-	set("short", "¶şÂ¥");
+	set("short", "äºŒæ¥¼");
 	set("long", @LONG
-ÕâÊÇ¿ÍÕ»µÄ¶şÂ¥£¬¾¹È»Ö»ÓĞÁ½¼ä·¿×Ó¡£¶«Ïá·¿µÄÃÅ³¨¿ª×Å£¬¶øÎ÷Ïá·¿µÄÃÅ
-(men)È´ÊÇ¹Ø×ÅµÄ¡£
+è¿™æ˜¯å®¢æ ˆçš„äºŒæ¥¼ï¼Œç«Ÿç„¶åªæœ‰ä¸¤é—´æˆ¿å­ã€‚ä¸œå¢æˆ¿çš„é—¨æ•å¼€ç€ï¼Œè€Œè¥¿å¢æˆ¿çš„é—¨
+(men)å´æ˜¯å…³ç€çš„ã€‚
 LONG
 	);
 	set("no_clean_up", 0);
@@ -41,14 +41,14 @@ int do_unlock()
 	object ob;
 	object me = this_player();
 
-	if (me->is_busy() || me->is_fighting())	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy() || me->is_fighting())	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (is_wanted(me))
 		return 0;
 	if (__DIR__"kezhan4.c"->query_temp("busy")) 
-		return notify_fail("ÕâÉÈÃÅÒÑ¾­±»ÈË´ÓÀïÃæ·´ËøÁË¡£\n");
+		return notify_fail("è¿™æ‰‡é—¨å·²ç»è¢«äººä»é‡Œé¢åé”äº†ã€‚\n");
 	if (!(ob = present("kezhan key", me)))
-		return notify_fail("Äã²»»áÇËËø¡£\n");
-	message_vision("$NÓÃÒ»°ÑÔ¿³×´ò¿ªÁËÎ÷Ïá·¿ÃÅ¡£\n", me);
+		return notify_fail("ä½ ä¸ä¼šæ’¬é”ã€‚\n");
+	message_vision("$Nç”¨ä¸€æŠŠé’¥åŒ™æ‰“å¼€äº†è¥¿å¢æˆ¿é—¨ã€‚\n", me);
 	destruct(ob);
 	this_player()->move(__DIR__"kezhan4");
 	return 1;
@@ -57,7 +57,7 @@ int do_unlock()
 string look_men()
 {
 	if (__DIR__"kezhan4.c"->query_temp("busy")) 
-		return "ÕâÉÈÃÅÒÑ¾­±»ÈË´ÓÀïÃæ·´ËøÁË¡£\n";
+		return "è¿™æ‰‡é—¨å·²ç»è¢«äººä»é‡Œé¢åé”äº†ã€‚\n";
 	else
-		return "ÕâÉÈÃÅÉÏ¹Ò×ÅÒ»°Ñ´óÌúËø¡£\n";
+		return "è¿™æ‰‡é—¨ä¸ŠæŒ‚ç€ä¸€æŠŠå¤§é“é”ã€‚\n";
 }

@@ -7,10 +7,10 @@ inherit WRISTS;
 
 void create()
 {
-	set_name(HIR "ÏãÄÒ" NOR, ({ "xiang nang", "nang" }) );
+	set_name(HIR "é¦™å›Š" NOR, ({ "xiang nang", "nang" }) );
 	set_weight(100);
 	if (clonep()) set_default_object(__FILE__);
-	set("unit", "¸ö");
+	set("unit", "ä¸ª");
 	set("value", 1);
 	set("material", "silk");
 	set("armor_type", "married");
@@ -30,9 +30,9 @@ void init()
 	object ob = this_player();
 
         if (environment() == ob && !wizardp(ob)) {
-		if (ob->query("gender") == "Å®ĞÔ") {
-        set_name(HIC "ÓñÅå" NOR, ({ "yu pei", "yupei" }) );
-			set("unit", "¿é");
+		if (ob->query("gender") == "å¥³æ€§") {
+        set_name(HIC "ç‰ä½©" NOR, ({ "yu pei", "yupei" }) );
+			set("unit", "å—");
 			set("material", "jade");
 		}
 		if (!ob->query("marry/id") || !ob->query("marry/name")) {
@@ -40,13 +40,13 @@ void init()
 			call_out("lost", 1);
 			return;
 		}
-		set("long", "ÕâÊÇÄã"
-			+ (ob->query("gender") == "Å®ĞÔ"?"Ïà¹«":"Äï×Ó")
-			+ "ËÍ¸øÄãµÄ¶¨ÇéĞÅÎï£¬ÉÏÃæ"
-			+ (ob->query("gender") == "Å®ĞÔ"?"¿Ì":"Ğå")
-			+ "×ÅÒ»ĞĞĞ¡×Ö£º¡¸"
-			+ (ob->query("gender") == "Å®ĞÔ"?"ÇéÉî²»ÊÙ ":"Ç¿¼«ÔòÈè ")
-			+ ob->query("marry/name") + "¡¹¡£\n");
+		set("long", "è¿™æ˜¯ä½ "
+			+ (ob->query("gender") == "å¥³æ€§"?"ç›¸å…¬":"å¨˜å­")
+			+ "é€ç»™ä½ çš„å®šæƒ…ä¿¡ç‰©ï¼Œä¸Šé¢"
+			+ (ob->query("gender") == "å¥³æ€§"?"åˆ»":"ç»£")
+			+ "ç€ä¸€è¡Œå°å­—ï¼šã€Œ"
+			+ (ob->query("gender") == "å¥³æ€§"?"æƒ…æ·±ä¸å¯¿ ":"å¼ºæåˆ™è¾± ")
+			+ ob->query("marry/name") + "ã€ã€‚\n");
 		wear();
 	}
 }
@@ -56,7 +56,7 @@ void lost()
 	object ob = environment();
 
 	if (userp(ob) && (!ob->query("marry/id") || !ob->query("marry/name"))) {
-		tell_object(ob, HIB "\nÄãÒşÔ¼¾õµÃÓĞÒ»ÑùºÜÖØÒªµÄ¶«Î÷¶ªÊ§ÁË£¡\n\n" NOR);
+		tell_object(ob, HIB "\nä½ éšçº¦è§‰å¾—æœ‰ä¸€æ ·å¾ˆé‡è¦çš„ä¸œè¥¿ä¸¢å¤±äº†ï¼\n\n" NOR);
 		destruct(this_object());
 	}
 }
@@ -66,7 +66,7 @@ int unequip()
 	object ob = environment();
 
 	if (ob && userp(ob) && ob->query("marry/id") && ob->query("marry/name"))
-		return notify_fail("Äã²»ÄÜĞ¶ÏÂÄãµÄ¶¨ÇéĞÅÎï¡£\n");
+		return notify_fail("ä½ ä¸èƒ½å¸ä¸‹ä½ çš„å®šæƒ…ä¿¡ç‰©ã€‚\n");
 
 	return ::unequip();
 }

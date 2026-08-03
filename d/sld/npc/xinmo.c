@@ -1,4 +1,4 @@
-// 心魔
+// 蹇冮瓟
 
 #include "ansi.h"
 
@@ -8,7 +8,7 @@ int check();
 
 void create()
 {
-	set_name("心魔", ({ "xinmo"}));   
+	set_name("蹇冮瓟", ({ "xinmo"}));   
 	set("shen", -10000);
 	set("attitude", "peaceful");
 	set_temp("no_fight",1);
@@ -62,7 +62,7 @@ int check()
 		f=1;
 	}
 	if(f!=0)
-		tell_object(me,"你感到被什么东西重重地击了一下！\n");
+		tell_object(me,"浣犳劅鍒拌浠�涔堜笢瑗块噸閲嶅湴鍑讳簡涓�涓嬶紒\n");
 	return 1;
 }
 
@@ -80,6 +80,6 @@ void die()
 		else
 			me->add("mkyexp",100);
 	}
-    	message_vision("$N挣扎了几下就如同烟雾般消失不见了。\n", ob);
+    	message_vision("$N鎸ｆ墡浜嗗嚑涓嬪氨濡傚悓鐑熼浘鑸秷澶变笉瑙佷簡銆俓n", ob);
 	destruct(ob);
 }

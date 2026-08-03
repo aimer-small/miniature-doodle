@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(RED"»ğÕÛ"NOR, ({"fire"}));
+	set_name(RED"ç«æŠ˜"NOR, ({"fire"}));
 	set_weight(80);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-	set("long", "ÕâÊÇÕıÔÚÈ»ÉÕÖĞµÄ»ğÕÛ¡£\n");
-	set("unit", "Ö§");
+	set("long", "è¿™æ˜¯æ­£åœ¨ç„¶çƒ§ä¸­çš„ç«æŠ˜ã€‚\n");
+	set("unit", "æ”¯");
 	set("value", 80);
         }
 }
@@ -25,6 +25,6 @@ void init()
 void dest(object ob,object me)
 {
 	me->delete_temp("marks/study");
-	message_vision("$NµÄ$nÒÑ¾­ÉÕÍêÁË£¬ÆËÉÁÁË¼¸ÏÂ£¬¾ÍÏ¨ÃğÁË¡£\n",me,ob);
+	message_vision("$Nçš„$nå·²ç»çƒ§å®Œäº†ï¼Œæ‰‘é—ªäº†å‡ ä¸‹ï¼Œå°±ç†„ç­äº†ã€‚\n",me,ob);
 	destruct(ob);
 }

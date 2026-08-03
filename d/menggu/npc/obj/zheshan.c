@@ -1,4 +1,4 @@
-// Mr.music  yangzhou's ÉÈ×Ó
+// Mr.music  yangzhou's æ‰‡å­
 
 #include <weapon.h>
 
@@ -6,17 +6,17 @@ inherit SWORD;
 
 void create()
 {
-	set_name("Ì´ÏãÉÈ",({"shanzi"}));
+	set_name("æª€é¦™æ‰‡",({"shanzi"}));
 	set_weight(1400);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("value", 100);
 		set("material", "steel");
-		set("long", "ÕâÊÇÒ»±ú¿´À´ºÜÆÕÍ¨µÄÉÈ×Ó¡£\n");
-		set("wield_msg", "$Nà§µÄÒ»ÉùË¦¿ªÁËÉÈ×Ó¡£\n");
-		set("unequip_msg", "$NÊÕÆğÊÖÖĞµÄ$n¡£\n");
+		set("long", "è¿™æ˜¯ä¸€æŸ„çœ‹æ¥å¾ˆæ™®é€šçš„æ‰‡å­ã€‚\n");
+		set("wield_msg", "$Nå”°çš„ä¸€å£°ç”©å¼€äº†æ‰‡å­ã€‚\n");
+		set("unequip_msg", "$Næ”¶èµ·æ‰‹ä¸­çš„$nã€‚\n");
 		set("weapon_prop/courage", -4);
 	}
 	init_sword(20);

@@ -6,15 +6,15 @@
 inherit COMBINED_ITEM;
 void create()
 {
-	set_name(HIW"Ï¸Ë¿"NOR, ({ "xi si", "thread", "si" }));
+	set_name(HIW"ç»†ä¸"NOR, ({ "xi si", "thread", "si" }));
 	set_weight(100);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
-		set("long", "ÕâÊÇÓÉÊ÷Æ¤´ê³ÉµÄÏ¸Ë¿¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯ç”±æ ‘çš®æ“æˆçš„ç»†ä¸ã€‚\n");
 		set("material", "wood");
-                set("base_unit", "¸ù");
+                set("base_unit", "æ ¹");
                 set("base_weight", 100);
 	}
         set_amount(1);

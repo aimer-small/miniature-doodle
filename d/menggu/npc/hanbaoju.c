@@ -1,17 +1,17 @@
-// hanbaoju.c º«±¦¾Ô
+// hanbaoju.c éŸ©å®é©¹
 // Created by Zhuifeng@sjfy 08/8/2010
 
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-   set_name("º«±¦¾Ô",({"han baoju","han","baoju"}));
-   set("gender","ÄĞĞÔ");
-   set("long","½­ÄÏÆß¹ÖÀÏÈı,ÎèµÄÒ»ÊÖ½ğÁú±Ş·¨\n");
+   set_name("éŸ©å®é©¹",({"han baoju","han","baoju"}));
+   set("gender","ç”·æ€§");
+   set("long","æ±Ÿå—ä¸ƒæ€ªè€ä¸‰,èˆçš„ä¸€æ‰‹é‡‘é¾™é­æ³•\n");
    set("shen",80000);
    set("combat_exp",1200000);
-   set("nickname",HIB"ÂíÍõÉñ"NOR);
-   set("title",WHT"½­ÄÏÆß¹ÖÀÏÈı"NOR);
+   set("nickname",HIB"é©¬ç‹ç¥"NOR);
+   set("title",WHT"æ±Ÿå—ä¸ƒæ€ªè€ä¸‰"NOR);
    
    set("age",29);
    set("pur",28);

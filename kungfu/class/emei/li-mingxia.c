@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÀîÃ÷Ï¼", ({"li mingxia", "li"}));
-        set("long", "ËıÊÇÃğ¾øÊ¦Ì«µÄ°Ë´óË×¼ÒµÚ×ÓÖ®Ò»¡£\n");
+        set_name("ææ˜éœ", ({"li mingxia", "li"}));
+        set("long", "å¥¹æ˜¯ç­ç»å¸ˆå¤ªçš„å…«å¤§ä¿—å®¶ç¬¬å­ä¹‹ä¸€ã€‚\n");
 
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 	set("age", 35);
@@ -44,7 +44,7 @@ void create()
 
 	prepare_skill("strike", "sixiang-zhang");
 
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
         setup();
         carry_object("/d/emei/obj/shoes")->wear();

@@ -3,14 +3,14 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIY"Ç×±ÊĞÅº¯"NOR, ({ "xuanci letter","letter" }));
+        set_name(HIY"äº²ç¬”ä¿¡å‡½"NOR, ({ "xuanci letter","letter" }));
         set_weight(10);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "·â");
+                set("unit", "å°");
                 set("long",
-                        "ÕâÊÇÒ»·âµ±½ñÉÙÁÖËÂ·½ÕÉµÄÇ×±ÊĞÅº¯¡£\n");
+                        "è¿™æ˜¯ä¸€å°å½“ä»Šå°‘æ—å¯ºæ–¹ä¸ˆçš„äº²ç¬”ä¿¡å‡½ã€‚\n");
                 set("value", 0);
                 set("no_get", 0);
                 set("no_drop", 0);

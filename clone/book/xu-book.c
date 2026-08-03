@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-      set_name(GRN "ĞìÏ¼¿ÍÓÎ¼Ç" NOR, ({ "xuxiake youji","youji" }));
+      set_name(GRN "å¾éœå®¢æ¸¸è®°" NOR, ({ "xuxiake youji","youji" }));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
-		set("long", "Ò»±¾ºñºñµÄÊé£¬ÊÇĞìÏ¼¿Í¶Ô¸÷µØ·ç¾°ÃûÊ¤ºÍµØÀíµÄ¼ÇÔØ¡£\n");
+		set("unit", "æœ¬");
+		set("long", "ä¸€æœ¬åšåšçš„ä¹¦ï¼Œæ˜¯å¾éœå®¢å¯¹å„åœ°é£æ™¯åèƒœå’Œåœ°ç†çš„è®°è½½ã€‚\n");
 		set("value", 10000);
 		set("material", "paper");
              }

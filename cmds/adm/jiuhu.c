@@ -40,10 +40,10 @@ int main(string str)
 			write(sprintf("%s(%s,%s) in %s(%s)\n",ob[i]->query("name"),ob[i]->query("id"),file_name(ob[i]),where->query("short"),file_name(where)));
 			if (userp(ob[i]))
 			{
-			tell_object(ob[i],HIR"ÉÁµçÒ»¸ö²»ÎÈ£¬´ÓÔÆÍ·µôÁËÏÂÀ´¡£ÕıºÃË¤ÔÚÄãÃæÇ°¡£"NOR);
-        		tell_object(ob[i],CYN"\nÉÁµç¿´¿´ËÄÏÂÎŞÈË£¬ÍµÍµÈûÁË¸öºì°ü¸øÄã£¬È»ºó×°×÷ÈôÎŞÆäÊÂµÄ×ßÁË.....\n"NOR);
+			tell_object(ob[i],HIR"é—ªç”µä¸€ä¸ªä¸ç¨³ï¼Œä»äº‘å¤´æ‰äº†ä¸‹æ¥ã€‚æ­£å¥½æ‘”åœ¨ä½ é¢å‰ã€‚"NOR);
+        		tell_object(ob[i],CYN"\né—ªç”µçœ‹çœ‹å››ä¸‹æ— äººï¼Œå·å·å¡äº†ä¸ªçº¢åŒ…ç»™ä½ ï¼Œç„¶åè£…ä½œè‹¥æ— å…¶äº‹çš„èµ°äº†.....\n"NOR);
         		}
-        		ob[i]->set_temp("last_damage_from", "½ÙºóÓàÉú");
+        		ob[i]->set_temp("last_damage_from", "åŠ«åä½™ç”Ÿ");
  
 			call_out("buchang", random(30), ob[i]);
         }

@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ԫ��", ({ "yuan bing", "yuanbing", "bing" }) );
-        set("gender", "����");
+        set_name("元兵", ({ "yuan bing", "yuanbing", "bing" }) );
+        set("gender", "男性");
         set("long",
-                "��һ�����Բ���������ڣ�����������η��\n");
+                "这家伙膀大腰圆，气势汹汹，令人望而生畏。\n");
         set("shen", -15000);
         set("age", random(10)+25);
         set("str", 30);
@@ -47,8 +47,8 @@ void create()
 void dest()
 {
        object me = this_object();
-       write(me->query("name")+"����������ã������ѶԸ����ú�������ǰ���������ȳ��ˡ�\n",me);  
-       write(me->query("name")+"��æ���롣\n",me);  
+       write(me->query("name")+"道：这帮臭尼姑，还很难对付。好汉不吃眼前亏，老子先撤了。\n",me);  
+       write(me->query("name")+"仓忙逃离。\n",me);  
        destruct(me);
 }
 
@@ -66,7 +66,7 @@ void unconcious()
          && ob->query_temp("em_job1/bing3") != me
          && ob->query_temp("em_job1/bing4") != me
          && ob->query_temp("em_job1/bing5") != me)
-            tell_room(here, "Ԫ���ε�ǰ���ߵش�У�������׽�ö��ҷ����ɱ���ƨ�£���\n");
+            tell_room(here, "元兵晕倒前气愤地大叫：“我们捉拿峨嵋反贼干别人屁事！”\n");
     }
 }
 

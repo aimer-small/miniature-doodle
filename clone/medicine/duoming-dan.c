@@ -11,12 +11,12 @@ void init()
 
 void create()
 {
-        set_name(HIW"°×»¢¶áÃüµ¤"NOR, ({"duoming dan","dan"}));
+        set_name(HIW"ç™½è™Žå¤ºå‘½ä¸¹"NOR, ({"duoming dan","dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿Å¾§Ó¨ÈçÖéµÄ¾ÈÃüÒ©Íè¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—æ™¶èŽ¹å¦‚ç çš„æ•‘å‘½è¯ä¸¸ã€‚\n");
                 set("value", 1000);
         }
 	set_weight(100);
@@ -29,16 +29,16 @@ int do_eat(string arg)
         object me = this_player();
 
         if (!id(arg))
-        return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+        return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         if ( (int)me->query_condition("medicine") > 0 )
       {
               me->add("max_neili", -10);
-              message_vision(HIR "$N³ÔÏÂÒ»¿Å°×»¢¶áÃüµ¤£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´·þÊ³Ì«¼±Ì«¶à£¬Ò©Ð§ÊÊµÃÆä·´£¡\n" NOR, me);
+              message_vision(HIR "$Nåƒä¸‹ä¸€é¢—ç™½è™Žå¤ºå‘½ä¸¹ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŽŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
               me->unconcious();
               destruct(this_object());
               return 1;
       }
-        message_vision(HIW "$N³ÔÏÂÒ»¿Å°×»¢¶áÃüµ¤£¬µ«¾õÒ»¹ÉÅ¯Á÷×Ôµ¤ÌïÉýÆð£¬Ëæ¼´±é²¼ËÄÖ«£¬»ëÉíËµ²»³öÓÐ¶àÊæ·þ£¡\n" NOR, me);
+        message_vision(HIW "$Nåƒä¸‹ä¸€é¢—ç™½è™Žå¤ºå‘½ä¸¹ï¼Œä½†è§‰ä¸€è‚¡æš–æµè‡ªä¸¹ç”°å‡èµ·ï¼Œéšå³éå¸ƒå››è‚¢ï¼Œæµ‘èº«è¯´ä¸å‡ºæœ‰å¤šèˆ’æœï¼\n" NOR, me);
         me->set("eff_qi", me->query("max_qi"));
         me->set("qi", me->query("eff_qi"));
         me->set("eff_jing", me->query("max_jing"));

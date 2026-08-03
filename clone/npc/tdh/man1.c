@@ -1,4 +1,4 @@
-// tdhjob ��һ������ npc by Lklv
+// tdhjob 第一步流程 npc by Lklv
 
 inherit NPC;
 inherit F_UNIQUE;
@@ -11,11 +11,11 @@ inherit F_SAVE;
 #include "man1.h"
 
 string *first_title = ({
-	"������","��˳��","�Һ���","��̫��","�껯��",
-	"��ľ��","�����","������","��ˮ��","������"
+	"莲花堂","洪顺堂","家后堂","参太堂","宏化堂",
+	"青木堂","赤火堂","西金堂","玄水堂","黄土堂"
 });
 string *second_title = ({
-	"����","����","�Ե�","̽��","����","����","����"
+	"会众","眼线","卧底","探马","弟子","护卫","护法"
 });
 
 void create()
@@ -28,12 +28,12 @@ void create()
 	title2 = second_title[random(sizeof(second_title))];
 
 	set_name(name["name"], name["id"]);
-	set("gender", "����");
+	set("gender", "男性");
 	set("shen", DE_LVL*10);
 	set("age", 20 + random(40));
 	set("meitude", "peaceful");
-	set("��ػ�/tangkou",title);
-	set("��ػ�/title",title2);
+	set("天地会/tangkou",title);
+	set("天地会/title",title2);
 	set("tdh_job_target1", 1);
 	set("no_get", 1);
 	set("no_quest", 1);
@@ -68,18 +68,18 @@ void create()
 	prepare_skill("cuff", "taizu-quan");
 
 	set("inquiry", ([
-		"��ػ�": (: ask_tdh :),
-		"����": (: ask_tdh :),
-		"���帴��": (: ask_fq :),
-		"�½���": (: ask_chen :),
-		"֣�ɹ�": (: ask_zheng :),
-		"����ү": (: ask_zheng :),
-		"�����巴ĸ�ظ���": (: ask_qk :),
-		"�п�": (: ask_qk :),
-		"����": (: ask_qk :),
-		"����": (: ask_target :),
-		"ؤ��": "��˵��ػ������Ҳ�кܶ�ؤ����ֵܡ�\n",
-		"��Ѫ��צ": "��˵��ػ��ܶ����½���������ôһ�Ź��򣬺���������\n",
+		"天地会": (: ask_tdh :),
+		"洪门": (: ask_tdh :),
+		"反清复明": (: ask_fq :),
+		"陈近南": (: ask_chen :),
+		"郑成功": (: ask_zheng :),
+		"国姓爷": (: ask_zheng :),
+		"明复清反母地父天": (: ask_qk :),
+		"切口": (: ask_qk :),
+		"暗号": (: ask_qk :),
+		"联络": (: ask_target :),
+		"丐帮": "据说天地会会里面也有很多丐帮的兄弟。\n",
+		"凝血神爪": "据说天地会总舵主陈近南练有这么一门功夫，很是厉害。\n",
 	]));
 	setup();
 
@@ -96,8 +96,8 @@ void kill_ob(object ob)
 
 	if ( !me || !ob ) return;
 	if (userp(me) && query("have_killer") != me->name()){
-		command("say ��������ӵ��߹�����������Ϊ�������");
-//                 command("chat "+me->name()+"��թ�ն񣬾�ȻͶ����͢�������ӵ��߹������С��...");
+		command("say 好你个鞑子的走狗！今天我来为民除害！");
+//                 command("chat "+me->name()+"奸诈险恶，竟然投靠清廷做了鞑子的走狗，大家小心...");
 		set("have_killer", me->name());
 		set("job_npc",1);///added by Ciwei
 	}
@@ -113,17 +113,17 @@ void die()
 		killer->add("shen", -DE_LVL* 20);
 		killer->set_temp("kill_tdhnpc", ob->name());
 	}
-	if ( query("��ػ�jober")
-	&& objectp( jober = find_player(query("��ػ�jober")) )
+	if ( query("天地会jober")
+	&& objectp( jober = find_player(query("天地会jober")) )
 	&& jober->query_temp("tdhjob")
-	&& jober->query_temp("��ػ�job/target_1id") == query("id")){
-		log_file("job/tiandi", sprintf("%8s%-10s��%4d������ʧ��(3)��ʱ�䣺%4d���־��飺%d��",
-			jober->name(), "("+jober->query("id")+")", jober->query("job_time/��ػ�")+1, uptime()-jober->query_temp("��ػ�job/time"), jober->query("combat_exp")), jober);
-		jober->delete_temp("��ػ�job");
-		jober->set_temp("��ػ�job/lost", query("name"));
-		message_vision(HIY"\n���ˣ�"+ob->name()+"����������ʧ�ܣ�\n"NOR, jober);
+	&& jober->query_temp("天地会job/target_1id") == query("id")){
+		log_file("job/tiandi", sprintf("%8s%-10s第%4d次任务失败(3)，时间：%4d，现经验：%d。",
+			jober->name(), "("+jober->query("id")+")", jober->query("job_time/天地会")+1, uptime()-jober->query_temp("天地会job/time"), jober->query("combat_exp")), jober);
+		jober->delete_temp("天地会job");
+		jober->set_temp("天地会job/lost", query("name"));
+		message_vision(HIY"\n糟了！"+ob->name()+"死亡，任务失败！\n"NOR, jober);
 	}
 
-	command("say ���˹���Ҳ����Ҫ���帴����");
+	command("say 做了鬼我也还是要反清复明！");
 	::die();
 }

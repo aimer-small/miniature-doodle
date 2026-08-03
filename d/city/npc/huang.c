@@ -1,4 +1,4 @@
-// huang.c »ÆÀÏ°å
+// huang.c é»„è€æ¿
 
 inherit NPC;
 //inherit F_VENDOR;
@@ -6,13 +6,13 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("µ±ÆÌÀÏ°å", ({ "lao ban", "laoban" }));
+	set_name("å½“é“ºè€æ¿", ({ "lao ban", "laoban" }));
 	set("shen_type", 0);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
 	set_max_encumbrance(100000000);
 	set("age", 35);
 	set("long",
-		"µ±ÆÌÀÏ°åÕıÔÚ¶¢×ÅÄã¿´À´¿´È¥¡£\n");
+		"å½“é“ºè€æ¿æ­£åœ¨ç›¯ç€ä½ çœ‹æ¥çœ‹å»ã€‚\n");
 	set("no_get_from", 1);
 
 	set_skill("unarmed", 60);
@@ -52,10 +52,10 @@ mixed ask_obj()
 		command("taoyan "+me->query("id"));
 		return 1;
 	}
-	if (!sizeof(item)) return "°¥Ñ½£¬¶«Î÷ÒÑ¾­±»Ô­Ö÷ÈËÈ¡×ßÁË¡£";
+	if (!sizeof(item)) return "å“å‘€ï¼Œä¸œè¥¿å·²ç»è¢«åŸä¸»äººå–èµ°äº†ã€‚";
 	delete("bid_obj");
 	command("take "+item[0]+" "+item[1]);
-	if (!(obj = query("bid_obj")))  return "°¥Ñ½£¬"+item[2]+"ÒÑ¾­±»Ô­Ö÷ÈËÈ¡×ßÁË¡£";
+	if (!(obj = query("bid_obj")))  return "å“å‘€ï¼Œ"+item[2]+"å·²ç»è¢«åŸä¸»äººå–èµ°äº†ã€‚";
 	command("pat "+me->query("id"));
 	if (present("1") == obj) command("give 1 to "+me->query("id"));
 	else obj->move(me);
@@ -76,7 +76,7 @@ void do_bid()
 	delete("inquiry");
 	if (!(i = sizeof(obj))) return;
 	item = obj[random(i)];
-	command("chat "+item[2]+"ÔÚĞ¡µêÒÑ¾­´æ·ÅÁË"+chinese_number((time()-item[3])/360/12/120)+"ÄêÓĞÓà£¬ Ô­Ö÷ÈË("+capitalize(item[0])+")ÎŞÁ¦Ö§¸¶Êê½ğ£¬ Ò»Ö±Î´ÔøÈ¡×ß£¬ ÏÖÎŞ³¥×ªÈÃ£¬ ÓĞÒâÕßÇëËÙÀ´Ç¢Ì¸£¡");
+	command("chat "+item[2]+"åœ¨å°åº—å·²ç»å­˜æ”¾äº†"+chinese_number((time()-item[3])/360/12/120)+"å¹´æœ‰ä½™ï¼Œ åŸä¸»äºº("+capitalize(item[0])+")æ— åŠ›æ”¯ä»˜èµé‡‘ï¼Œ ä¸€ç›´æœªæ›¾å–èµ°ï¼Œ ç°æ— å¿è½¬è®©ï¼Œ æœ‰æ„è€…è¯·é€Ÿæ¥æ´½è°ˆï¼");
 	set("inquiry/"+strip(item[2]), (: ask_obj :));
 }
 */

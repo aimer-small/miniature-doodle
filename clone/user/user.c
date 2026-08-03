@@ -18,7 +18,7 @@ void change_frozen(object me,string prop,string type);
 void create()
 {
 	::create();
-	set_name("Ê¹ÓÃÕßÎï¼ş", ({ "user object", "user", "object" }) );
+	set_name("ä½¿ç”¨è€…ç‰©ä»¶", ({ "user object", "user", "object" }) );
 }
 
 void terminal_type(string term_type)
@@ -77,13 +77,13 @@ void update_age()
 	object me = this_object();
 	int minute, age = 14, month, day, modify = query("age_modify");
 	int gap = uptime() - last_age_set;
-	int vip = query("vip/vip_time") - time(); //¹ó±ö LinuX@SJ
+	int vip = query("vip/vip_time") - time(); //è´µå®¾ LinuX@SJ
 
 	call_out("change_frozen",1,me,"","all");
-	//for refresh Ã»ÓĞºô½Ğ¹ıshow_two_screen() ÊÇ²»»áÓĞÈÎºÎĞ§¹û ^_^ by ciwei@SJ
+	//for refresh æ²¡æœ‰å‘¼å«è¿‡show_two_screen() æ˜¯ä¸ä¼šæœ‰ä»»ä½•æ•ˆæœ ^_^ by ciwei@SJ
 	delete("age_modify");
-	add("mud_time", gap);	// ´ËÎªÊµ¼ÊÁ¬ÏßÊ±¼ä yuj@SJ 2001-09-26
-	if (query("mud_age") / 6 > query("combat_exp"))	// ¾­ÑéÔö³¤ÂıµÄÄêÁäÔö³¤Ò²Âı yuj@SJ 2001-09-26
+	add("mud_time", gap);	// æ­¤ä¸ºå®é™…è¿çº¿æ—¶é—´ yuj@SJ 2001-09-26
+	if (query("mud_age") / 6 > query("combat_exp"))	// ç»éªŒå¢é•¿æ…¢çš„å¹´é¾„å¢é•¿ä¹Ÿæ…¢ yuj@SJ 2001-09-26
 		add("mud_age", -gap/2);
 	minute = add("mud_age", gap) / 60;
 	if (minute <=8640) {
@@ -120,22 +120,22 @@ void update_age()
 	if (query("month") != month) {
 		set("month", month);
 		set("kar", 10+random(21));
-		//ÓĞ¹Ø¹ó±ö¼¤»î LinuX@SJ 2004-02-17
+		//æœ‰å…³è´µå®¾æ¿€æ´» LinuX@SJ 2004-02-17
 		if ( vip > 0 && (me->query("registered") < 3 )) {
                 set("registered",3);
-                tell_object(me, HBRED+HIY"ÄúµÄ¹ó±öÒÑ¾­±»ÏµÍ³×Ô¶¯¼¤»î£¡\n"NOR);
+                tell_object(me, HBRED+HIY"æ‚¨çš„è´µå®¾å·²ç»è¢«ç³»ç»Ÿè‡ªåŠ¨æ¿€æ´»ï¼\n"NOR);
         	}
         	if ( vip < 0 && (me->query("registered") > 2 )) {
         		set("registered",2);
         		delete("vip/vip_time");
         		delete("vip/vip_start_time");
-        		tell_object(me, HBRED+HIY"ÄúµÄ¹ó±öÒÑ¾­µ½ÆÚ£¬ÏµÍ³ÒÑ¾­×Ô¶¯È¡ÏûÄúµÄ¹ó±ö£¡\n"NOR);
+        		tell_object(me, HBRED+HIY"æ‚¨çš„è´µå®¾å·²ç»åˆ°æœŸï¼Œç³»ç»Ÿå·²ç»è‡ªåŠ¨å–æ¶ˆæ‚¨çš„è´µå®¾ï¼\n"NOR);
         	}
         	if (query("age") != age) {
 			set("age", age);
-			tell_object(me, "Ê±¼ä¹ıµÃÕæ¿ì£¬²»Öª²»¾õÄãÒÑ¾­" + chinese_number(age) + "ËêÁË¡£\n");
+			tell_object(me, "æ—¶é—´è¿‡å¾—çœŸå¿«ï¼Œä¸çŸ¥ä¸è§‰ä½ å·²ç»" + chinese_number(age) + "å²äº†ã€‚\n");
 		}
-		else tell_object(me, "Ò»¸öÔÂÓÖ¹ıÈ¥ÁË£¬ÏÖÔÚµÄÔËÆø²»ÖªµÀÔõÃ´Ñù¡£\n");
+		else tell_object(me, "ä¸€ä¸ªæœˆåˆè¿‡å»äº†ï¼Œç°åœ¨çš„è¿æ°”ä¸çŸ¥é“æ€ä¹ˆæ ·ã€‚\n");
 		save();
 	}
 
@@ -164,22 +164,22 @@ void update_age()
 	if (!living(me) || wizardp(me) || me->is_ghost() || me->query_temp("quit")) ;
 
 	else if (query("online_total") >= 48*3600 && query("registered") < 3) {
-		tell_object(me, BLINK "ÄãÉÏÏßÊ±¼äÌ«³¤£¬ÊµÔÚÖ§³Ö²»×¡ÁË¡£\n" NOR);
+		tell_object(me, BLINK "ä½ ä¸Šçº¿æ—¶é—´å¤ªé•¿ï¼Œå®åœ¨æ”¯æŒä¸ä½äº†ã€‚\n" NOR);
 		receive_damage("jingli", query("eff_jingli")/3);
 	} else if (query("online_total") >= 47*3600+1800 && query("registered") < 3)
-		tell_object(me, BLINK "ÄãºöÈ»¾õµÃ·³ÃÆÓûÍÂ£¬¿´À´¸ÃÍË³öĞİÏ¢Ò»»áÁË¡£\n" NOR);
+		tell_object(me, BLINK "ä½ å¿½ç„¶è§‰å¾—çƒ¦é—·æ¬²åï¼Œçœ‹æ¥è¯¥é€€å‡ºä¼‘æ¯ä¸€ä¼šäº†ã€‚\n" NOR);
 		
 	if(query("online_total")>24*3600 && uptime()-query_temp("warning_time_time") > 10*60 )
 	{
-		tell_object(me, "ÄãÒÑ¾­Á¬ĞøÔÚÊé½£·Ü¶·"+chinese_number(query("online_total")/3600)+"Ğ¡Ê±ÁË£¬Çë×¢ÒâĞİÏ¢¡£\n");
+		tell_object(me, "ä½ å·²ç»è¿ç»­åœ¨ä¹¦å‰‘å¥‹æ–—"+chinese_number(query("online_total")/3600)+"å°æ—¶äº†ï¼Œè¯·æ³¨æ„ä¼‘æ¯ã€‚\n");
 		me->set_temp("warning_time_time",uptime() );
 	}	
 	/*
 	else if (query_temp("online_time") >= 20*3600) {
-		tell_object(me, BLINK "ÄãÉÏÏßÊ±¼äÌ«³¤£¬ÊµÔÚÖ§³Ö²»×¡ÁË¡£\n" NOR);
+		tell_object(me, BLINK "ä½ ä¸Šçº¿æ—¶é—´å¤ªé•¿ï¼Œå®åœ¨æ”¯æŒä¸ä½äº†ã€‚\n" NOR);
 		receive_damage("jingli", query("eff_jingli")/3);
 	} else if (query_temp("online_time") >= 19*3600+1800)
-		tell_object(me, BLINK "ÄãºöÈ»¾õµÃ·³ÃÆÓûÍÂ£¬¿´À´¸ÃÍË³öĞİÏ¢Ò»»áÁË¡£\n" NOR);
+		tell_object(me, BLINK "ä½ å¿½ç„¶è§‰å¾—çƒ¦é—·æ¬²åï¼Œçœ‹æ¥è¯¥é€€å‡ºä¼‘æ¯ä¸€ä¼šäº†ã€‚\n" NOR);
 	*/
 }
 
@@ -204,25 +204,25 @@ void user_dump(int type)
 			if(me->query("on_hook/time")-time()>0) break;
 			
 			if (me->query("on_hook/time")-time()<=0)
-				tell_room( environment(), query("name") + "±Õ¹ØÇ±ĞŞ½áÊø£¬×Ô¶¯ÍË³öÕâ¸öÊÀ½ç¡£\n");
+				tell_room( environment(), query("name") + "é—­å…³æ½œä¿®ç»“æŸï¼Œè‡ªåŠ¨é€€å‡ºè¿™ä¸ªä¸–ç•Œã€‚\n");
 			"/cmds/usr/quit"->main(me);
 			break;	
 								
 			if (!wizardp(me) || !me->query("env/invisibility"))
-				tell_room( environment(), query("name") + "¶ÏÏß³¬¹ı"
+				tell_room( environment(), query("name") + "æ–­çº¿è¶…è¿‡"
 					+ chinese_number((uptime()-query_temp("netdead"))/60)
-					+ "·ÖÖÓ£¬×Ô¶¯ÍË³öÕâ¸öÊÀ½ç¡£\n");
+					+ "åˆ†é’Ÿï¼Œè‡ªåŠ¨é€€å‡ºè¿™ä¸ªä¸–ç•Œã€‚\n");
 			"/cmds/usr/quit"->main(me);
 			break;
 		case DUMP_IDLE:
 			if (wizardp(me)) break;
 			if ( me->query("no_idle_quit")) break;
 			if (me->query("on_hook")) break;
-			tell_object(me, "¶Ô²»Æğ£¬ÄúÒÑ¾­·¢´ô³¬¹ı "
-				+ IDLE_TIMEOUT/60 + " ·ÖÖÓÁË£¬ÇëÏÂ´ÎÔÙÀ´¡£\n");
+			tell_object(me, "å¯¹ä¸èµ·ï¼Œæ‚¨å·²ç»å‘å‘†è¶…è¿‡ "
+				+ IDLE_TIMEOUT/60 + " åˆ†é’Ÿäº†ï¼Œè¯·ä¸‹æ¬¡å†æ¥ã€‚\n");
 			if (!wizardp(me) || !me->query("env/invisibility"))
-				tell_room(environment(), "Ò»Õó·ç´µÀ´£¬½«·¢´ôÖĞµÄ" + query("name")
-					+ "»¯ÎªÒ»¶Ñ·É»Ò£¬ÏûÊ§ÁË¡£\n", me);
+				tell_room(environment(), "ä¸€é˜µé£å¹æ¥ï¼Œå°†å‘å‘†ä¸­çš„" + query("name")
+					+ "åŒ–ä¸ºä¸€å †é£ç°ï¼Œæ¶ˆå¤±äº†ã€‚\n", me);
 			"/cmds/usr/quit"->main(me);
 	}
 }
@@ -257,13 +257,13 @@ private void net_dead()
 		call_out("user_dump", wiz_level(me)?1:NET_DEAD_TIMEOUT, DUMP_NET_DEAD);
 		if (!wizardp(me) || !me->query("env/invisibility"))
                         if(!me->query("on_hook"))
-		{	tell_room(environment(), name() + "¶ÏÏßÁË¡£\n", me);
-		CHANNEL_D->do_channel(load_object(LOGIN_D), wiz_level(me)?"wiz":"sys", short(1) + NOR " ¶ÏÏßÁË¡£");
+		{	tell_room(environment(), name() + "æ–­çº¿äº†ã€‚\n", me);
+		CHANNEL_D->do_channel(load_object(LOGIN_D), wiz_level(me)?"wiz":"sys", short(1) + NOR " æ–­çº¿äº†ã€‚");
 	   }
 	   else{ 
 	   	  me->set_temp("block_msg/all",1);
-	   	  tell_room(environment(), name() + "¿ªÊ¼±Õ¹ØÁ·¹¦¡£\n", me);
-	  		CHANNEL_D->do_channel(load_object(LOGIN_D), wiz_level(me)?"wiz":"sys", short(1) + NOR " ¿ªÊ¼ÀëÏß¹Ò»ú¡£"); 	
+	   	  tell_room(environment(), name() + "å¼€å§‹é—­å…³ç»ƒåŠŸã€‚\n", me);
+	  		CHANNEL_D->do_channel(load_object(LOGIN_D), wiz_level(me)?"wiz":"sys", short(1) + NOR " å¼€å§‹ç¦»çº¿æŒ‚æœºã€‚"); 	
 	         }
 	}
 }
@@ -274,21 +274,21 @@ void reconnect()
 	set_heart_beat(1);
 	delete_temp("netdead");
 	remove_call_out("user_dump");
-	tell_object(this_object(), "ÖØĞÂÁ¬ÏßÍê±Ï¡£\n");
+	tell_object(this_object(), "é‡æ–°è¿çº¿å®Œæ¯•ã€‚\n");
 
  if(this_object()->query("on_hook")){
  	this_object()->delete_temp("block_msg");
   this_object()->start_busy(99999);
   
  if(this_object()->query("on_hook/time")-time()>0) {
- 	tell_object(this_object(),HIG"\n\nÄãÄ¿Ç°ÕıÔÚ±Õ¹ØÇ±ĞŞÖĞ£¬Ô¤¼Æ»¹½«³ÖĞø"+ CHINESE_D->chinese_time(this_object()->query("on_hook/time")-time())+ "¡£\n"NOR);
- 	tell_object(this_object(), HIG"Èç¹ûÄãÒª¼ÌĞøÇ±ĞŞ£¬ÇëÖ±½Ó¹Ø±ÕMUD´°¿Ú¡£\n");
- 	tell_object(this_object(), HIG"Èç¹ûÄãÒªÈ¡ÏûÇ±ĞŞ£¬ÇëÊäÈë"HIR"onhook halt"HIG"Ö¸Áî¡£\n\n\n"NOR);
+ 	tell_object(this_object(),HIG"\n\nä½ ç›®å‰æ­£åœ¨é—­å…³æ½œä¿®ä¸­ï¼Œé¢„è®¡è¿˜å°†æŒç»­"+ CHINESE_D->chinese_time(this_object()->query("on_hook/time")-time())+ "ã€‚\n"NOR);
+ 	tell_object(this_object(), HIG"å¦‚æœä½ è¦ç»§ç»­æ½œä¿®ï¼Œè¯·ç›´æ¥å…³é—­MUDçª—å£ã€‚\n");
+ 	tell_object(this_object(), HIG"å¦‚æœä½ è¦å–æ¶ˆæ½œä¿®ï¼Œè¯·è¾“å…¥"HIR"onhook halt"HIG"æŒ‡ä»¤ã€‚\n\n\n"NOR);
                                         }
                                         
  if(this_object()->query("on_hook/time")-time()<=0) {
- 	tell_object(this_object(),HIG"\n\nÄã±Õ¹ØÇ±ĞŞÒÑ¾­ÓÚ"+ CHINESE_D->chinese_time(time()-this_object()->query("on_hook/time"))+ "Ç°½áÊø¡£\n"NOR);
- 	tell_object(this_object(), HIG"ÇëÊäÈë"HIR"onhook over"HIG"Ö¸Áî½áÊøÇ±ĞŞ×´Ì¬À´ÁìÈ¡ÊÕÒæ¡£\n\n\n");
+ 	tell_object(this_object(),HIG"\n\nä½ é—­å…³æ½œä¿®å·²ç»äº"+ CHINESE_D->chinese_time(time()-this_object()->query("on_hook/time"))+ "å‰ç»“æŸã€‚\n"NOR);
+ 	tell_object(this_object(), HIG"è¯·è¾“å…¥"HIR"onhook over"HIG"æŒ‡ä»¤ç»“æŸæ½œä¿®çŠ¶æ€æ¥é¢†å–æ”¶ç›Šã€‚\n\n\n");
                                         }
 
 }
@@ -298,7 +298,7 @@ void reconnect()
 void namemodify_bbsback(mixed ret)
 {
 	if(!clonep()) return;
-	tell_object(this_object(),"ÄúÔÚÂÛÌ³µÄÃû×ÖÒÑ¾­³É¹¦¸üĞÂ¡£\n");
+	tell_object(this_object(),"æ‚¨åœ¨è®ºå›çš„åå­—å·²ç»æˆåŠŸæ›´æ–°ã€‚\n");
 }
 ////////////////////////////for refresh frozen///////////////////////
 
@@ -341,7 +341,7 @@ int delete(string prop)
 	if(r){
 		if(clonep() && prop=="name" && stringp(data) && strlen(data)<=8 &&  previous_object()!=find_object(LOGIN_D) && previous_object()!=find_object(FINGER_D) )
 			if(!BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,"UPDATE members SET cname = '"+data+"' WHERE username = '"+getuid(this_object())+"@"+lower_case(INTERMUD_MUD_NAME)+"' limit 1",this_object(),"namemodify_bbsback"))
-				tell_object(this_object(),"ÎŞ·¨¸üĞÂÄúÔÚÂÛÌ³µÄÃû×Ö£¬ÇëÍ¨ÖªÂÛÌ³Ö÷¹ÜÊÖ¶¯ĞŞ¸Ä¡£\n");
+				tell_object(this_object(),"æ— æ³•æ›´æ–°æ‚¨åœ¨è®ºå›çš„åå­—ï¼Œè¯·é€šçŸ¥è®ºå›ä¸»ç®¡æ‰‹åŠ¨ä¿®æ”¹ã€‚\n");
 		change_frozen(this_object(),prop,"db");
 	}
 	return r;
@@ -350,8 +350,8 @@ int delete(string prop)
 void change_frozen(object me,string prop,string type)
 {	
 	if(!me->query_temp("show_frozen")) return;
-	//×îºÃ°ÑÕâ¸ö¿ØÖÆ×ö³ÉÍæ¼Ò²»ÄÜ¿ØÖÆµÚ ^_^ just login call and refresh call Ò²¾ÍÊÇ
-	//Õâ¸ö¿ØÖÆ±äÁ¿±ä»¯µÄÍ¬Ê±	
+	//æœ€å¥½æŠŠè¿™ä¸ªæ§åˆ¶åšæˆç©å®¶ä¸èƒ½æ§åˆ¶ç¬¬ ^_^ just login call and refresh call ä¹Ÿå°±æ˜¯
+	//è¿™ä¸ªæ§åˆ¶å˜é‡å˜åŒ–çš„åŒæ—¶	
 	if(type=="all"){
 		F_FROZEN->refresh_screen_all(me);
 	}
@@ -400,7 +400,7 @@ void change_frozen(object me,string prop,string type)
 
 //if(type=="skill")
 	//{
-		//tell_object(this_object(),"ÓĞcallµ½Õâ¸öº¯ÊıÃ´£¿\n");
+		//tell_object(this_object(),"æœ‰callåˆ°è¿™ä¸ªå‡½æ•°ä¹ˆï¼Ÿ\n");
 	//	if(prop=="force") refresh_jingli(this_object());
 	//	if(prop=="force") refresh_maxneili(this_object());
 		//if(prop=="") refresh_(this_object());		
@@ -408,7 +408,7 @@ void change_frozen(object me,string prop,string type)
 
 int skill_improved(string prop)
 {
-	//tell_object(this_object(),"ÓĞcallµ½Õâ¸öº¯ÊıÃ´£¿\n");
+	//tell_object(this_object(),"æœ‰callåˆ°è¿™ä¸ªå‡½æ•°ä¹ˆï¼Ÿ\n");
 	change_frozen(prop,"skill");
 }
 

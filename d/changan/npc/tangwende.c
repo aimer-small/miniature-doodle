@@ -6,13 +6,13 @@ inherit F_VENDOR;
 #include <ansi.h>
 void create()
 {
-        set_name("ÌÆÎÄµÂ", ({ "tang wende", "tang", "wende"}) );
-        set("title",CYN"²Å¸ß°Ë¶·"NOR);
-        set("gender", "ÄĞĞÔ" );
+        set_name("å”æ–‡å¾·", ({ "tang wende", "tang", "wende"}) );
+        set("title",CYN"æ‰é«˜å…«æ–—"NOR);
+        set("gender", "ç”·æ€§" );
         set("age", 47);
         set("per", 20);
         set("unique", 1);
-        set("long","¾İËµÕâÎ»²Å¸ß°Ë¶·µÄÏÈÉúÔø½Ì¹ıÄÄÎ»µ±³¯´ó¹ÙµÄÊé¡£\n");
+        set("long","æ®è¯´è¿™ä½æ‰é«˜å…«æ–—çš„å…ˆç”Ÿæ›¾æ•™è¿‡å“ªä½å½“æœå¤§å®˜çš„ä¹¦ã€‚\n");
         set("combat_exp", 3000);
         set("vendor_goods", ({
                 (["name": BOOK_D("beauty_book.c"),"number":5]),

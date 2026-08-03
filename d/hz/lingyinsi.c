@@ -1,12 +1,12 @@
-// /u/beyond/hz/lingyinsi.c ������
+// /u/beyond/hz/lingyinsi.c 灵隐寺
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short",HIY"������"NOR);
+        set("short",HIY"灵隐寺"NOR);
         set("long", @LONG
-�����¾߽�����һǧ�������ʷ�ˣ��Ƿ������ʮɲ֮һ�������¹�ģ
-���Ⱥ��������ǰ��һ�������ᾭ�������Խ��ʱ��ԭ���Ϊ���
+灵隐寺具今以有一千多年的历史了，是佛教禅宗十刹之一。灵隐寺规模
+宏大超群，二天门前的一对陀罗尼经幢是五代越国时的原物，极为珍贵。
 LONG
         );
         set("exits", ([

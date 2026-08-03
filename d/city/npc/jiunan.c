@@ -7,16 +7,16 @@ string ask_job();
 string ask_fail();
 void create()
 {
-set_name("¾ÅÄÑÊ¦Ì«", ({ "jiunan shitai", "jiunan" ,"shitai"}));
+set_name("ä¹éš¾å¸ˆå¤ª", ({ "jiunan shitai", "jiunan" ,"shitai"}));
 set("long",@LONG
-Ëı¾ÍÊÇ³çìõ»ÊµÛÇ×ÉúÅ®¶ù³¤Æ½¹«Ö÷£¬Ãû½ĞÖì‹‰ŠÆ£¬ÒòÎªÅÅĞĞµÚ¾Å¹ÊĞ¡Ãû°¢¾Å¡£
-Àî×Ô³É¹¥ÆÆ×Ï½û³Ç£¬³çìõÅÂÆäÊÜÈè£¬»Ó½£¿³É±Ö®£¬Ò»Ê§ÊÖÈí¶ÏÆäÒ»±Û£¬°¢¾Å
-½ÄĞÒ´æ»î¡£ÖĞÄê³ö¼Ò£¬·¨ºÅ¡°¾ÅÄÑ¡±Á·¾Í¾øÊÀÉñ¹¦£¬ÊÄÎª¸¸ĞÖ±¨³ğ£¬½­ºşÈË
-³Æ¶À±ÛÉñÄá¡£
+å¥¹å°±æ˜¯å´‡ç¥¯çš‡å¸äº²ç”Ÿå¥³å„¿é•¿å¹³å…¬ä¸»ï¼Œåå«æœ±åªºå¨–ï¼Œå› ä¸ºæ’è¡Œç¬¬ä¹æ•…å°åé˜¿ä¹ã€‚
+æè‡ªæˆæ”»ç ´ç´«ç¦åŸï¼Œå´‡ç¥¯æ€•å…¶å—è¾±ï¼ŒæŒ¥å‰‘ç æ€ä¹‹ï¼Œä¸€å¤±æ‰‹è½¯æ–­å…¶ä¸€è‡‚ï¼Œé˜¿ä¹
+ä¾¥å¹¸å­˜æ´»ã€‚ä¸­å¹´å‡ºå®¶ï¼Œæ³•å·â€œä¹éš¾â€ç»ƒå°±ç»ä¸–ç¥åŠŸï¼Œèª“ä¸ºçˆ¶å…„æŠ¥ä»‡ï¼Œæ±Ÿæ¹–äºº
+ç§°ç‹¬è‡‚ç¥å°¼ã€‚
 LONG
 	);
-	set("title", HIG "¶À±ÛÉñÄá" NOR);
-        set("gender", "Å®ĞÔ");
+	set("title", HIG "ç‹¬è‡‚ç¥å°¼" NOR);
+        set("gender", "å¥³æ€§");
         set("class", "bonze");
         set("age", 45);
         set("per", 24);
@@ -32,7 +32,7 @@ LONG
         set("max_jing",1200);
         set("combat_exp", 1200000);
         set("shen_type", 1);
-        set("no_get","Ëı¶ÔÄãÀ´ËµÌ«ÖØÁË¡£\n");
+        set("no_get","å¥¹å¯¹ä½ æ¥è¯´å¤ªé‡äº†ã€‚\n");
 set("no_quest",1);
 set("no_bark",1);
         set_skill("sword", 160);
@@ -46,9 +46,9 @@ set("chat_msg", ({
   }) );
 
 set("inquiry", ([
-               "½ÙÇô³µ":        (: ask_job :),
+               "åŠ«å›šè½¦":        (: ask_job :),
 		"job" :		(: ask_job :),
-                "Ê§°Ü" :	(: ask_fail :),
+                "å¤±è´¥" :	(: ask_fail :),
 		"shibai":	(: ask_fail :),
 
 ]));
@@ -66,25 +66,25 @@ string ask_job()
 	int i,j;
 	string str;
 if( me->query("combat_exp") < 100000 )
-		return "ÄãµÄÊµÕ½¾­ÑéÌ«ÉÙÁË£¬ÅÉÄãÈ¥ÎÒ¿ÉÊµÔÚ²»´ó·ÅĞÄ£¡";
+		return "ä½ çš„å®æˆ˜ç»éªŒå¤ªå°‘äº†ï¼Œæ´¾ä½ å»æˆ‘å¯å®åœ¨ä¸å¤§æ”¾å¿ƒï¼";
 if( !(wizardp(me) && me->query("env/test")) && me->query("jn/qiuche") && ((time()-(int)me->query("jn/qiuche_time"))<(12*60)) )
-		return "ÎÒ²»ÊÇ½ĞÄãµ½"+me->query("jn/qiuche_place")+"È¥½ÙÇô³µÁËÃ´£¿";
+		return "æˆ‘ä¸æ˜¯å«ä½ åˆ°"+me->query("jn/qiuche_place")+"å»åŠ«å›šè½¦äº†ä¹ˆï¼Ÿ";
 if( !(wizardp(me) && me->query("env/test")))
 	if( me->query_condition("job_busy") || me->query_condition("jn_job")) {
-		if ( me->query("job_name") == "½ÙÇô³µ") {
+		if ( me->query("job_name") == "åŠ«å›šè½¦") {
 		    command("shake "+(string)me->query("id"));
-		    return "ÄãÏÈĞªĞª°É£¡";
+		    return "ä½ å…ˆæ­‡æ­‡å§ï¼";
 		}
 		else
-		    return "Äã»¹ÊÇÏÈĞİÏ¢ĞİÏ¢°É¡£";
+		    return "ä½ è¿˜æ˜¯å…ˆä¼‘æ¯ä¼‘æ¯å§ã€‚";
 	}
 me->delete("jn/qiuche_busy");
 
 	if(me->query("shen") < 0 && !wizardp(me)){
-		return "ÎÒ¿´ÄãÃæÄ¿¿ÉÒÉ£¬ÊÇ²»ÊÇ÷²×ÓµÄ¼éÏ¸£¿";
+		return "æˆ‘çœ‹ä½ é¢ç›®å¯ç–‘ï¼Œæ˜¯ä¸æ˜¯é‘å­çš„å¥¸ç»†ï¼Ÿ";
 	}
-	if(me->query_temp("quest/busy")) //added by tangfeng Óëquest³åÍ»
-		return "ÏÖÔÚÎÒÕâÀïÃ»ÓĞ¸øÄãµÄÈÎÎñ£¬Äã»¹ÊÇÏÈ´¦ÀíºÃÄãÆäËûÊÂÇéÔÙËµ°É¡£";
+	if(me->query_temp("quest/busy")) //added by tangfeng ä¸questå†²çª
+		return "ç°åœ¨æˆ‘è¿™é‡Œæ²¡æœ‰ç»™ä½ çš„ä»»åŠ¡ï¼Œä½ è¿˜æ˜¯å…ˆå¤„ç†å¥½ä½ å…¶ä»–äº‹æƒ…å†è¯´å§ã€‚";
 
 	living = livings();
 	for (i=0;i < sizeof(living);i++){
@@ -93,10 +93,10 @@ me->delete("jn/qiuche_busy");
 		if(check(living[j]) ){
 			target = living[j];
 			str = environment(target)->query("short");
-			if( str == "ÎäÉ®ÌÃ"
-			 || str == HIR"ĞÄìøÌÃ"NOR
-			 || str == "½ğ¸Õ·üÄ§È¦"
-			 || str == HIB"½äÂÉÔº"NOR) continue;
+			if( str == "æ­¦åƒ§å ‚"
+			 || str == HIR"å¿ƒç¦…å ‚"NOR
+			 || str == "é‡‘åˆšä¼é­”åœˆ"
+			 || str == HIB"æˆ’å¾‹é™¢"NOR) continue;
 			if( get_place(base_name(environment(target)))!="" )
 				break;
 		}
@@ -104,7 +104,7 @@ me->delete("jn/qiuche_busy");
 
 
 	if( !target )
-		return "ÎÒ×î½üÃ»ÌıËµÓĞÊ²Ã´·´ÇåÖ¾Ê¿Òª±»ÎÊÕ¶£¬Äã¹ıÒ»»á¶ùÔÙÀ´°É¡£";
+		return "æˆ‘æœ€è¿‘æ²¡å¬è¯´æœ‰ä»€ä¹ˆåæ¸…å¿—å£«è¦è¢«é—®æ–©ï¼Œä½ è¿‡ä¸€ä¼šå„¿å†æ¥å§ã€‚";
 
 me->apply_condition("job_busy", 40);
 	me->apply_condition("jn_job", 40);
@@ -117,15 +117,15 @@ me->apply_condition("job_busy", 40);
         beauty->set("guard", me->query("id"));
 
 	beauty->set("long", beauty->query("long")+
-		"¿´À´¾ÍÊÇ¾ÅÄÑÊ¦Ì«ÒªÇó"+me->query("name")+"("+capitalize(me->query("id"))+")Òª½ÙµÄÇô³µ¡£\n");
+		"çœ‹æ¥å°±æ˜¯ä¹éš¾å¸ˆå¤ªè¦æ±‚"+me->query("name")+"("+capitalize(me->query("id"))+")è¦åŠ«çš„å›šè½¦ã€‚\n");
 	beauty->move(environment(target));
 	
 
 if(wizardp(me)) tell_object(me, base_name(environment(target))+"\n");
 		command("nod");
-	command("whisper " + me->query("id")+ " ÌıËµ×î½ü"+me->query("jn/qiuche_place")+GRN"¸½½üÒªÂ·¹ıÒ»Á¾Çô³µ£¬ÉÏÃæÑº½â×ÅÒ»Ãû¼´½«ÎÊÕ¶µÄ·´ÇåÖ¾Ê¿¡£");
+	command("whisper " + me->query("id")+ " å¬è¯´æœ€è¿‘"+me->query("jn/qiuche_place")+GRN"é™„è¿‘è¦è·¯è¿‡ä¸€è¾†å›šè½¦ï¼Œä¸Šé¢æŠ¼è§£ç€ä¸€åå³å°†é—®æ–©çš„åæ¸…å¿—å£«ã€‚");
 
-	return "Äã°ïÎÒ½ÙÏÂËü£¬Ç§ÍòĞ¡ĞÄ¡£";
+	return "ä½ å¸®æˆ‘åŠ«ä¸‹å®ƒï¼Œåƒä¸‡å°å¿ƒã€‚";
 }
 string ask_fail()
 {
@@ -133,7 +133,7 @@ string ask_fail()
 	int i;
 
 	if( !me->query("jn/qiuche") )
-		return "Äã¸ù±¾¾ÍÃ»ÈÎÎñ£¬Ê§°ÜÊ²Ã´Ñ½£¿";
+		return "ä½ æ ¹æœ¬å°±æ²¡ä»»åŠ¡ï¼Œå¤±è´¥ä»€ä¹ˆå‘€ï¼Ÿ";
 
 	command("ok "+me->query("id"));
 
@@ -155,19 +155,19 @@ me->delete("jn/time");
 
 me->apply_condition("jn_job",40);
 		me->delete("jn/qiuche_place");
-	return "Ã»¹ØÏµ£¬ÄãÓĞĞÄ¾ÍĞĞÁË£¬ÏÂ´Î°ïÎÒ°É¡£";
+	return "æ²¡å…³ç³»ï¼Œä½ æœ‰å¿ƒå°±è¡Œäº†ï¼Œä¸‹æ¬¡å¸®æˆ‘å§ã€‚";
 }
 void kill_ob(object ob)
 {
         ob->remove_killer(this_object());
         remove_killer(ob);
-        message_vision("¾ÅÄÑÊ¦Ì«¶ÔÄãÒ¡ÁËÒ¡Í·£¬Ò»Ë«Ã÷íøÉõÊÇÇå³º¡£\n", ob);
-        message_vision("ÄãĞÄÏë£¬ÎÒÔõÄÜ¶ÔÕâÎ»ÀÏÊ¦Ì«¶¯ÊÖ£¿Î´ÃâÌ«ö»öºÁË¡£\n", ob);
+        message_vision("ä¹éš¾å¸ˆå¤ªå¯¹ä½ æ‘‡äº†æ‘‡å¤´ï¼Œä¸€åŒæ˜çœ¸ç”šæ˜¯æ¸…æ¾ˆã€‚\n", ob);
+        message_vision("ä½ å¿ƒæƒ³ï¼Œæˆ‘æ€èƒ½å¯¹è¿™ä½è€å¸ˆå¤ªåŠ¨æ‰‹ï¼Ÿæœªå…å¤ªé¾Œé¾Šäº†ã€‚\n", ob);
 }
 
 void unconcious()
 {
-        say( "¾ÅÄÑÊ¦Ì«¿ÚĞû·ğºÅ£¬Ë²¼äÓÖ»Ö¸´ÁË¾«Éñ¡£\n");
+        say( "ä¹éš¾å¸ˆå¤ªå£å®£ä½›å·ï¼Œç¬é—´åˆæ¢å¤äº†ç²¾ç¥ã€‚\n");
         reincarnate();
         set("eff_qi", query("max_qi"));
         set("qi", query("max_qi"));
@@ -205,7 +205,7 @@ int check(object ob)
 	 || !objectp(room=environment(ob))
 	 || room->query("no_fight")
 	 || room->query("quest")
-	 || room->query("outdoors") == "À¥ÂØ´ä¹È"
+	 || room->query("outdoors") == "æ˜†ä»‘ç¿ è°·"
 	 || strsrch(room_name = file_name(room),"/d/") != 0
 	 || strsrch(room_name, "/d/wizard/") == 0
 	 || strsrch(room_name, "/d/wuguan/") == 0

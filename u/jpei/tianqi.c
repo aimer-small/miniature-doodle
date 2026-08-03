@@ -6,17 +6,17 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HIC"ÌïÆßöèµ¨É¢"NOR, ({"tianqi","san"}));
+	set_name (HIC"ç”°ä¸ƒé²¨èƒ†æ•£"NOR, ({"tianqi","san"}));
 	
-	set("long",HIW"²É¼¯ÌïÆßöèµ¨¾«ĞÄÁ·ÖÆµÄÁÆÉËÃØÒ©¡£\n"NOR);
+	set("long",HIW"é‡‡é›†ç”°ä¸ƒé²¨èƒ†ç²¾å¿ƒç»ƒåˆ¶çš„ç–—ä¼¤ç§˜è¯ã€‚\n"NOR);
 
-	set("unit","·İ");
+	set("unit","ä»½");
 	set_weight(100);
 	set("value",3000000);
         set("treasure",1);
         set("degree",1);
 	set("flag","spec/tianqi");
-	set("desc","¿ÉÒÔÖÎÁÆ¸÷ÖÖÍç¹ÌµÄÔÓÖ¢¡£");
+	set("desc","å¯ä»¥æ²»ç–—å„ç§é¡½å›ºçš„æ‚ç—‡ã€‚");
         set("credit",15);       
 	setup();
 }
@@ -31,9 +31,9 @@ int do_eat(string arg)
 {
         object me = this_player();
         if (!id(arg))
-              return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+              return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
-       if (me->is_busy() || me->is_fighting() ) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+       if (me->is_busy() || me->is_fighting() ) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 
         me->clear_conditions_by_type("poison");
@@ -48,7 +48,7 @@ int do_eat(string arg)
         me->clear_condition("no_enforce");
         me->clear_conditions_by_type("hurt");
 	      me->clear_conditions_by_type("wound");
-        message_vision(HIR"$N·şÏÂÒ»·İÌïÆßöèµ¨É¢£¬ÅÌÏ¥Á¼¾Ã£¬Ö»¾õµÃÒ»¹ÉÇåÁ¹µÄÆøÏ¢×Ôµ¤ÌïÓ¿ÉÏÀ´¡£\n"NOR, this_player());
+        message_vision(HIR"$Næœä¸‹ä¸€ä»½ç”°ä¸ƒé²¨èƒ†æ•£ï¼Œç›˜è†è‰¯ä¹…ï¼Œåªè§‰å¾—ä¸€è‚¡æ¸…å‡‰çš„æ°”æ¯è‡ªä¸¹ç”°æ¶Œä¸Šæ¥ã€‚\n"NOR, this_player());
 //        destruct(this_object());
        degree();
 	     return 1;

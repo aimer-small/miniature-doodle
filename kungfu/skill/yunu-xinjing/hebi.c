@@ -1,10 +1,10 @@
-// hebi.c ºÏ±Ú
+// hebi.c åˆå£
 // by Yu Jue 98/7
 // Modify by River 98/10
-// server ¿ª·Åµ¥ÈËHebi
+// server å¼€æ”¾å•äººHebi
 
 #include <ansi.h>
-string exert_name(){ return HIW"Ë«½£ºÏ±Ú"NOR; }
+string exert_name(){ return HIW"åŒå‰‘åˆå£"NOR; }
 int exert(object me, object target)
 {
         object *enemy;
@@ -12,88 +12,88 @@ int exert(object me, object target)
         mapping fam,fam1;
         object weapon1,weapon = me->query_temp("weapon");
 
-      if (!target || (target == me && !me->query("double_attack"))) return notify_fail("ÄãÒªºÍË­ºÏ±Ú£¿\n");
+      if (!target || (target == me && !me->query("double_attack"))) return notify_fail("ä½ è¦å’Œè°åˆå£ï¼Ÿ\n");
     
-        if (!target || (target == me && me->query("gender")=="ÄĞĞÔ")) return notify_fail("ÄãÒªºÍË­ºÏ±Ú£¿\n");
-        if( ! present(target,environment(me))) return notify_fail("ÕâÀïÓĞÕâ¸öÈËÂğ£¿\n");
-        if (me->query_temp("hebi")) return notify_fail("ÄãÒÑ¾­ÔÚºÏ±ÚÁË¡£\n");
-        if (target->query_temp("hebi")) return notify_fail("ÄãÒÑ¾­ÔÚºÏ±ÚÁË¡£\n");
-        if (me->query("jingli") < 200) return notify_fail("ÄãµÄ¾«Á¦²»¹»ÁË¡£\n");
-        if (target->query("jingli") < 200) return notify_fail("¶Ô·½µÄ¾«Á¦²»¹»ÁË¡£\n");
-        if (!me->is_fighting()) return notify_fail("ºÏ±ÚÖ»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");
-        if (me->is_fighting(target)) return notify_fail("ÄãÕıÔÚºÍ¶Ô·½´ò¼Ü£¬ºÏ±Ú¸ÉÊ²Ã´£¿\n");
-        if ((int)me->query_temp("gumu_suxin")) return notify_fail("ÄãÏÖÔÚÕıÔÚÊ¹ÓÃ¡¸ÓñÅ®ËØĞÄ¡¹¾ø¼¼¡£\n");
-        if((int)target->query_temp("gumu_suxin")) return notify_fail("¶Ô·½ÏÖÔÚÕıÔÚÊ¹ÓÃ¡¸ÓñÅ®ËØĞÄ¡¹¾ø¼¼¡£\n"); 
+        if (!target || (target == me && me->query("gender")=="ç”·æ€§")) return notify_fail("ä½ è¦å’Œè°åˆå£ï¼Ÿ\n");
+        if( ! present(target,environment(me))) return notify_fail("è¿™é‡Œæœ‰è¿™ä¸ªäººå—ï¼Ÿ\n");
+        if (me->query_temp("hebi")) return notify_fail("ä½ å·²ç»åœ¨åˆå£äº†ã€‚\n");
+        if (target->query_temp("hebi")) return notify_fail("ä½ å·²ç»åœ¨åˆå£äº†ã€‚\n");
+        if (me->query("jingli") < 200) return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿäº†ã€‚\n");
+        if (target->query("jingli") < 200) return notify_fail("å¯¹æ–¹çš„ç²¾åŠ›ä¸å¤Ÿäº†ã€‚\n");
+        if (!me->is_fighting()) return notify_fail("åˆå£åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
+        if (me->is_fighting(target)) return notify_fail("ä½ æ­£åœ¨å’Œå¯¹æ–¹æ‰“æ¶ï¼Œåˆå£å¹²ä»€ä¹ˆï¼Ÿ\n");
+        if ((int)me->query_temp("gumu_suxin")) return notify_fail("ä½ ç°åœ¨æ­£åœ¨ä½¿ç”¨ã€Œç‰å¥³ç´ å¿ƒã€ç»æŠ€ã€‚\n");
+        if((int)target->query_temp("gumu_suxin")) return notify_fail("å¯¹æ–¹ç°åœ¨æ­£åœ¨ä½¿ç”¨ã€Œç‰å¥³ç´ å¿ƒã€ç»æŠ€ã€‚\n"); 
 
         fam= me->query("family");
         fam1= target->query("family");
-        if (!fam || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-                return notify_fail("Äã²»ÊÇ¹ÅÄ¹µÜ×ÓÔõÃ´ÄÜºÏ±Ú£¿\n");
-        if (!fam1 || fam1["family_name"] != "¹ÅÄ¹ÅÉ")
-                return notify_fail("¶Ô·½²»ÊÇ¹ÅÄ¹µÜ×Ó£¬²»ÄÜºÍÄãºÏ±Ú£¡\n");
+        if (!fam || fam["family_name"] != "å¤å¢“æ´¾")
+                return notify_fail("ä½ ä¸æ˜¯å¤å¢“å¼Ÿå­æ€ä¹ˆèƒ½åˆå£ï¼Ÿ\n");
+        if (!fam1 || fam1["family_name"] != "å¤å¢“æ´¾")
+                return notify_fail("å¯¹æ–¹ä¸æ˜¯å¤å¢“å¼Ÿå­ï¼Œä¸èƒ½å’Œä½ åˆå£ï¼\n");
 
-        if((string)me->query("gender") =="Å®ĞÔ" 
+        if((string)me->query("gender") =="å¥³æ€§" 
          && (int)me->query_skill("yunu-jianfa", 1) < 100 )
-                return notify_fail("ÄãµÄÓñÅ®½£·¨²»¹»æµÊì£¬²»»áÊ¹ÓÃºÏ±Ú¡£\n");
-        if((string)me->query("gender") =="ÄĞĞÔ" 
+                return notify_fail("ä½ çš„ç‰å¥³å‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨åˆå£ã€‚\n");
+        if((string)me->query("gender") =="ç”·æ€§" 
          && (int)me->query_skill("quanzhen-jianfa", 1) < 100 )
-                return notify_fail("ÄãµÄÈ«Õæ½£·¨²»¹»æµÊì£¬²»»áÊ¹ÓÃºÏ±Ú¡£\n");
+                return notify_fail("ä½ çš„å…¨çœŸå‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨åˆå£ã€‚\n");
 
-        if ((string)me->query("gender")=="Å®ĞÔ" 
+        if ((string)me->query("gender")=="å¥³æ€§" 
         && (!weapon || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "yunu-jianfa"
         || me->query_skill_mapped("parry") != "yunu-jianfa"))
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨ºÏ±Ú¡£\n");
-        if ((string)me->query("gender")=="ÄĞĞÔ" 
+                return notify_fail("ä½ ç°åœ¨æ— æ³•åˆå£ã€‚\n");
+        if ((string)me->query("gender")=="ç”·æ€§" 
         && (!weapon || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "quanzhen-jianfa"
         || me->query_skill_mapped("parry") != "quanzhen-jianfa"))
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨ºÏ±Ú¡£\n");
+                return notify_fail("ä½ ç°åœ¨æ— æ³•åˆå£ã€‚\n");
 
         if( me->query("id") != target->query("marry/id") && !me->query("double_attack"))
-                return notify_fail("¶Ô·½²»ÊÇÄãµÄÅäÅ¼£¬ËùÒÔÄãÁ½ÎŞ·¨´ïµ½Ë«½£ºÏ±ÚËùĞèÒªµÄÒâ¾³¡£\n");
+                return notify_fail("å¯¹æ–¹ä¸æ˜¯ä½ çš„é…å¶ï¼Œæ‰€ä»¥ä½ ä¸¤æ— æ³•è¾¾åˆ°åŒå‰‘åˆå£æ‰€éœ€è¦çš„æ„å¢ƒã€‚\n");
 
         enemy = me->query_enemy();
         i = sizeof(enemy);
         while (i--) if (target->is_fighting(enemy[i])) break;
-        if (i<0) return notify_fail(target->name()+"²¢Ã»ÓĞºÍÄãµÄ¶ÔÊÖÔÚ½»Õ½¡£\n");
+        if (i<0) return notify_fail(target->name()+"å¹¶æ²¡æœ‰å’Œä½ çš„å¯¹æ‰‹åœ¨äº¤æˆ˜ã€‚\n");
 
-        if((string)me->query("gender")=="ÄĞĞÔ" 
+        if((string)me->query("gender")=="ç”·æ€§" 
          && (int)target->query_skill("yunu-jianfa", 1) < 100)
-                return notify_fail("¶Ô·½µÄÓñÅ®½£·¨²»¹»æµÊì£¬²»»áÊ¹ÓÃºÏ±Ú¡£\n");
-        if((string)me->query("gender")=="Å®ĞÔ"
+                return notify_fail("å¯¹æ–¹çš„ç‰å¥³å‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨åˆå£ã€‚\n");
+        if((string)me->query("gender")=="å¥³æ€§"
          && (int)target->query_skill("quanzhen-jianfa", 1) < 100)
-                return notify_fail("¶Ô·½µÄÈ«Õæ½£·¨²»¹»æµÊì£¬²»»áÊ¹ÓÃºÏ±Ú¡£\n");
+                return notify_fail("å¯¹æ–¹çš„å…¨çœŸå‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨åˆå£ã€‚\n");
 
         weapon = target->query_temp("weapon");
-        if ((string)target->query("gender")=="Å®ĞÔ"
+        if ((string)target->query("gender")=="å¥³æ€§"
         && (target->is_busy() || !weapon || weapon->query("skill_type") != "sword"
         || target->query_skill_mapped("sword") != "yunu-jianfa"
         || target->query_skill_mapped("parry") != "yunu-jianfa"))
-                return notify_fail("¶Ô·½ÏÖÔÚÎŞ·¨ºÏ±Ú¡£\n");
-        if ((string)target->query("gender")=="ÄĞĞÔ" 
+                return notify_fail("å¯¹æ–¹ç°åœ¨æ— æ³•åˆå£ã€‚\n");
+        if ((string)target->query("gender")=="ç”·æ€§" 
         && (target->is_busy() || !weapon || weapon->query("skill_type") != "sword"
         || target->query_skill_mapped("sword") != "quanzhen-jianfa"
         || target->query_skill_mapped("parry") != "quanzhen-jianfa"))
-                return notify_fail("¶Ô·½ÏÖÔÚÎŞ·¨ºÏ±Ú¡£\n");
+                return notify_fail("å¯¹æ–¹ç°åœ¨æ— æ³•åˆå£ã€‚\n");
 
         if (target == me)
-    message_vision(HIY "\n$NÔËÓÃ×óÓÒ»¥²«Ö®Êõ£¬¶·È»¼äÎä¹¦±¶Ôö£¬Ò»ÈËÍ¬Ê¹Á½½££¬½ÏÖ®Ë«½£ºÏ±Ú£¬ÍşÁ¦ÓÈÇ¿¡£\n\n" NOR, me);
+    message_vision(HIY "\n$Nè¿ç”¨å·¦å³äº’æä¹‹æœ¯ï¼Œæ–—ç„¶é—´æ­¦åŠŸå€å¢ï¼Œä¸€äººåŒä½¿ä¸¤å‰‘ï¼Œè¾ƒä¹‹åŒå‰‘åˆå£ï¼Œå¨åŠ›å°¤å¼ºã€‚\n\n" NOR, me);
         else
-        message_vision(HIY "\n$NĞÄÖĞÂúÒçÈáÇéÃÜÒâ£¬»ØÊ×ÄıÊÓ$n£¬¶şÈË½Ô²»ÊØ¶ø½ÔÊØ£¬Ë«½£Ö®ÊÆÖèÈ»¶ø³¤¡£\n\n" NOR, me, target);
+        message_vision(HIY "\n$Nå¿ƒä¸­æ»¡æº¢æŸ”æƒ…å¯†æ„ï¼Œå›é¦–å‡è§†$nï¼ŒäºŒäººçš†ä¸å®ˆè€Œçš†å®ˆï¼ŒåŒå‰‘ä¹‹åŠ¿éª¤ç„¶è€Œé•¿ã€‚\n\n" NOR, me, target);
         me->set_temp("hebi", 1);
         target->set_temp("hebi", 1);
         me->receive_damage("jingli", 100);
         target->receive_damage("jingli", 100);
  //       me->start_busy(1);
  //      target->start_busy(1);
-        if ((string)me->query("gender")=="Å®ĞÔ")
+        if ((string)me->query("gender")=="å¥³æ€§")
         i = me->query_skill("yunu-jianfa", 1) / 3;
-        if ((string)me->query("gender") =="ÄĞĞÔ")
+        if ((string)me->query("gender") =="ç”·æ€§")
         i = me->query_skill("quanzhen-jianfa", 1) / 3;
-        if ((string)target->query("gender") =="ÄĞĞÔ")
+        if ((string)target->query("gender") =="ç”·æ€§")
         j = target->query_skill("quanzhen-jianfa", 1) / 3;
-        if ((string)target->query("gender") =="Å®ĞÔ")
+        if ((string)target->query("gender") =="å¥³æ€§")
         j = target->query_skill("yunu-jianfa", 1) / 3;
 
         me->add_temp("apply/parry", i);
@@ -110,16 +110,16 @@ int exert(object me, object target)
 
         weapon = me->query_temp("weapon");
         weapon1 = target->query_temp("weapon");
-        if( me->query("gender") == "ÄĞĞÔ" 
+        if( me->query("gender") == "ç”·æ€§" 
          && weapon->query("id") == "junzi jian" 
-         && target->query("gender") == "Å®ĞÔ" 
+         && target->query("gender") == "å¥³æ€§" 
          && weapon1->query("id") =="shunu jian"){
           me->set_temp("double_attack", 1);
           target->set_temp("double_attack", 1);
         }
-        if( me->query("gender") == "Å®ĞÔ" 
+        if( me->query("gender") == "å¥³æ€§" 
          && weapon->query("id") == "shunu jian" 
-         && target->query("gender") == "ÄĞĞÔ" 
+         && target->query("gender") == "ç”·æ€§" 
          && weapon1->query("id") =="junzi jian"){
           me->set_temp("double_attack", 1);
           target->set_temp("double_attack", 1);
@@ -134,7 +134,7 @@ void hebi(object me, object target, object env, int i, int j, int count)
 
         if (!me && !target) return;
         if (!me && target) {
-                tell_room(env, HIY "\nºÏ±Ú×Ô¶¯Íß½â¡£\n" NOR);
+                tell_room(env, HIY "\nåˆå£è‡ªåŠ¨ç“¦è§£ã€‚\n" NOR);
 
         target->add_temp("apply/parry",- j);
         target->add_temp("apply/attack", -j); 
@@ -148,7 +148,7 @@ void hebi(object me, object target, object env, int i, int j, int count)
                 return;
         }
         if (me && !target) {
-                tell_room(env, HIY "\nºÏ±Ú×Ô¶¯Íß½â¡£\n" NOR);
+                tell_room(env, HIY "\nåˆå£è‡ªåŠ¨ç“¦è§£ã€‚\n" NOR);
 
         me->add_temp("apply/parry",- i);
         me->add_temp("apply/attack", -i);
@@ -161,11 +161,11 @@ void hebi(object me, object target, object env, int i, int j, int count)
                 return;
         }
         weapon = me->query_temp("weapon");
-        if ((string)me->query("gender") =="ÄĞĞÔ" 
+        if ((string)me->query("gender") =="ç”·æ€§" 
         && (!weapon || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "quanzhen-jianfa"
         || me->query_skill_mapped("parry") != "quanzhen-jianfa")) {
-                tell_room(env, HIY "ºÏ±Ú×Ô¶¯Íß½â¡£\n" NOR);
+                tell_room(env, HIY "åˆå£è‡ªåŠ¨ç“¦è§£ã€‚\n" NOR);
 
         me->add_temp("apply/parry",- i);
         me->add_temp("apply/attack", -i);
@@ -186,11 +186,11 @@ void hebi(object me, object target, object env, int i, int j, int count)
                 target->delete_temp("double_attack");
                 return;
         }
-        if ((string)me->query("gender") =="Å®ĞÔ" 
+        if ((string)me->query("gender") =="å¥³æ€§" 
         && (!weapon || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "yunu-jianfa"
         || me->query_skill_mapped("parry") != "yunu-jianfa")) {
-                tell_room(env, HIY "ºÏ±Ú×Ô¶¯Íß½â¡£\n" NOR);
+                tell_room(env, HIY "åˆå£è‡ªåŠ¨ç“¦è§£ã€‚\n" NOR);
   
 
 
@@ -214,11 +214,11 @@ void hebi(object me, object target, object env, int i, int j, int count)
                 return;
         }
         weapon = target->query_temp("weapon");
-        if ((string)target->query("gender") =="ÄĞĞÔ"
+        if ((string)target->query("gender") =="ç”·æ€§"
         && (!weapon || weapon->query("skill_type") != "sword"
         || target->query_skill_mapped("sword") != "quanzhen-jianfa"
         || target->query_skill_mapped("parry") != "quanzhen-jianfa")) {
-                tell_room(env, HIY "ºÏ±Ú×Ô¶¯Íß½â¡£\n" NOR);
+                tell_room(env, HIY "åˆå£è‡ªåŠ¨ç“¦è§£ã€‚\n" NOR);
 
         me->add_temp("apply/parry",- i);
         me->add_temp("apply/attack", -i);
@@ -241,11 +241,11 @@ void hebi(object me, object target, object env, int i, int j, int count)
                 target->delete_temp("hebi");
                 return;
         }
-        if ((string)target->query("gender") =="Å®ĞÔ" 
+        if ((string)target->query("gender") =="å¥³æ€§" 
         && (!weapon || weapon->query("skill_type") != "sword"
         || target->query_skill_mapped("sword") != "yunu-jianfa"
         || target->query_skill_mapped("parry") != "yunu-jianfa")) {
-                tell_room(env, HIY "ºÏ±Ú×Ô¶¯Íß½â¡£\n" NOR);
+                tell_room(env, HIY "åˆå£è‡ªåŠ¨ç“¦è§£ã€‚\n" NOR);
         me->add_temp("apply/parry",- i);
         me->add_temp("apply/attack", -i);
         me->add_temp("apply/sword",- i);
@@ -263,7 +263,7 @@ void hebi(object me, object target, object env, int i, int j, int count)
                 return;
         }
         if (environment(me) != env || environment(target) != env) {
-                tell_room(env, HIY "ºÏ±Ú×Ô¶¯Íß½â¡£\n" NOR);
+                tell_room(env, HIY "åˆå£è‡ªåŠ¨ç“¦è§£ã€‚\n" NOR);
         me->add_temp("apply/parry",- i);
         me->add_temp("apply/attack", -i);
         me->add_temp("apply/sword",- i);
@@ -284,7 +284,7 @@ void hebi(object me, object target, object env, int i, int j, int count)
         {
         if (target == me)
                 {
-                message_vision(HIY "\n$NºÏ±ÚÍê±Ï£¬´ÓÈİÊÕÕĞ¡£\n" NOR, me);
+                message_vision(HIY "\n$Nåˆå£å®Œæ¯•ï¼Œä»å®¹æ”¶æ‹›ã€‚\n" NOR, me);
         me->add_temp("apply/parry",- i);
         me->add_temp("apply/attack", -i);
         me->add_temp("apply/sword",- i);
@@ -302,7 +302,7 @@ void hebi(object me, object target, object env, int i, int j, int count)
                 }
                 else
                 {
-                message_vision(HIY "\n$NºÍ$nÏàÊÓÒ»Ğ¦£¬¸÷×ÔÊÕÕĞ¡£\n" NOR, me, target);
+                message_vision(HIY "\n$Nå’Œ$nç›¸è§†ä¸€ç¬‘ï¼Œå„è‡ªæ”¶æ‹›ã€‚\n" NOR, me, target);
         me->add_temp("apply/parry",- i);
         me->add_temp("apply/attack", -i);
         me->add_temp("apply/sword",- i);
@@ -325,16 +325,16 @@ void hebi(object me, object target, object env, int i, int j, int count)
 }
 int help(object me)
 {
-write(HIW"\nÓñÅ®ĞÄ¾­¡¸Ë«½£ºÏ±Ú¡¹£º"NOR"\n");
+write(HIW"\nç‰å¥³å¿ƒç»ã€ŒåŒå‰‘åˆå£ã€ï¼š"NOR"\n");
 write(@HELP
-´ËÊ½ÒªÇó·òÆŞ¶şÈËÍ¬Ê±Ê©Õ¹·½ÄÜÊ¹ÓÃ£¬ÄĞÊ¹È«Õæ½£·¨Å®Ê¹ÓñÅ®ËØĞÄ½£·¨£¬
-ÀûÓÃÈ«Õæ½£·¨ºÍÓñÅ®ËØĞÄ½£·¨Ïà¸¨Ïà³ÉµÄÇÉºÏÊ©Õ¹ÍêÃÀÎŞè¦µÄÕĞÊı£¬Áî¶Ô
-ÈõÊ¤Ç¿£¬ÈçÈô×ÔÉíÏ°µÄ×óÓÒ»¥²«Ö®Êõ£¬ÔòÍşÁ¦¸üÊÇ¾ªÈË£¡
+æ­¤å¼è¦æ±‚å¤«å¦»äºŒäººåŒæ—¶æ–½å±•æ–¹èƒ½ä½¿ç”¨ï¼Œç”·ä½¿å…¨çœŸå‰‘æ³•å¥³ä½¿ç‰å¥³ç´ å¿ƒå‰‘æ³•ï¼Œ
+åˆ©ç”¨å…¨çœŸå‰‘æ³•å’Œç‰å¥³ç´ å¿ƒå‰‘æ³•ç›¸è¾…ç›¸æˆçš„å·§åˆæ–½å±•å®Œç¾æ— ç‘•çš„æ‹›æ•°ï¼Œä»¤å¯¹
+å¼±èƒœå¼ºï¼Œå¦‚è‹¥è‡ªèº«ä¹ çš„å·¦å³äº’æä¹‹æœ¯ï¼Œåˆ™å¨åŠ›æ›´æ˜¯æƒŠäººï¼
 
-      ÒªÇó£ºÄÚÁ¦ 300 ÒÔÉÏ£»
-            ¾«Á¦ 200 ÒÔÉÏ£»
-            ÓñÅ®½£·¨ 100 ÒÔÉÏ£»
-            È«Õæ½£·¨ 100 ÒÔÉÏ£»
+      è¦æ±‚ï¼šå†…åŠ› 300 ä»¥ä¸Šï¼›
+            ç²¾åŠ› 200 ä»¥ä¸Šï¼›
+            ç‰å¥³å‰‘æ³• 100 ä»¥ä¸Šï¼›
+            å…¨çœŸå‰‘æ³• 100 ä»¥ä¸Šï¼›
 
 HELP
 );

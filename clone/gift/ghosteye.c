@@ -6,10 +6,10 @@ inherit ITEM;
 void create()
 {
     seteuid(getuid());
-	set_name (HIB"¹íÑÛ"NOR, ({ "ghosteye","eye" }));
-	set("long","ÕâÊÇÒ»¿Å"HIB"¹íÑÛ"NOR"£¬Í¸¹ıËüÄã¿ÉÒÔ¿úÊÓ(peek)ÆäËüÍæ¼ÒµÄ×´Ì¬¡£\n");
+	set_name (HIB"é¬¼çœ¼"NOR, ({ "ghosteye","eye" }));
+	set("long","è¿™æ˜¯ä¸€é¢—"HIB"é¬¼çœ¼"NOR"ï¼Œé€è¿‡å®ƒä½ å¯ä»¥çª¥è§†(peek)å…¶å®ƒç©å®¶çš„çŠ¶æ€ã€‚\n");
 
-	set("unit","¿Å");
+	set("unit","é¢—");
 	set("no_get", 1);
 	set("no_drop", 1);
 	set_weight(-100000);
@@ -40,10 +40,10 @@ int do_peek(string arg)
 	
 
        if(!arg)
-                return notify_fail("ÄãÏë¿úÊÓÄÄ¸öÍæ¼Ò¡£\n");           
+                return notify_fail("ä½ æƒ³çª¥è§†å“ªä¸ªç©å®¶ã€‚\n");           
        else{
          while (last_on--) if (arg[last_on] < 'a' || arg[last_on] > 'z')
-		    {return notify_fail(arg+"ÊÇÊ²Ã´¶«¶«£¿\n");break;}
+		    {return notify_fail(arg+"æ˜¯ä»€ä¹ˆä¸œä¸œï¼Ÿ\n");break;}
        }
 
 	if(!objectp(ob = LOGIN_D->find_body(arg))) {
@@ -52,17 +52,17 @@ int do_peek(string arg)
 	  export_uid(ob);
 	  ob->set_name("", ({ arg }));
 	  if (!ob->restore())
-        { destruct(ob); return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");}
+        { destruct(ob); return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");}
 	}
 	
 	if (wiz_level(me) < wiz_level(ob))
-		return notify_fail(HIR"¹íÑÛÍ»È»·¢³öÒ«ÑÛµÄºì¹âÕÕµÃÄãÁ½ÑÛ¶¼Õö²»¿ª¡£\n"NOR);
+		return notify_fail(HIR"é¬¼çœ¼çªç„¶å‘å‡ºè€€çœ¼çš„çº¢å…‰ç…§å¾—ä½ ä¸¤çœ¼éƒ½çä¸å¼€ã€‚\n"NOR);
 
    	if (ob == me)
-		return notify_fail("Äã»¹ÊÇÈ¥ÕÕ¾µ×Ó°É£¡\n");
+		return notify_fail("ä½ è¿˜æ˜¯å»ç…§é•œå­å§ï¼\n");
 
 	if (ob->is_corpse() || !ob->is_character())
-		return notify_fail("ÄÇ²»ÊÇ»îÎïÒ®£¡\n");
+		return notify_fail("é‚£ä¸æ˜¯æ´»ç‰©è€¶ï¼\n");
 
 	my = ob->query_entire_dbase();
 
@@ -74,20 +74,20 @@ int do_peek(string arg)
 
 	if (!my["max_jing"]) my["max_jing"] = 1;
 	if (!my["max_qi"]) my["max_qi"] = 1;
-	write(HIY"Ú¤Ú¤ÖĞÄã¿´µ½ÁË"+ob->name(1)+"µÄ×´Ì¬"NOR); 
-	write(sprintf("\n¡¤¾«Ñª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤¾«Á¦¡¤%s%5d / %5d%s(%d)\n" NOR,
+	write(HIY"å†¥å†¥ä¸­ä½ çœ‹åˆ°äº†"+ob->name(1)+"çš„çŠ¶æ€"NOR); 
+	write(sprintf("\nÂ·ç²¾è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·ç²¾åŠ›Â·%s%5d / %5d%s(%d)\n" NOR,
 		status_color(my["jing"], my["eff_jing"]+ob->query_temp("apply/jing")), my["jing"], my["eff_jing"]+ob->query_temp("apply/jing"),
 		status_color(my["eff_jing"]+ob->query_temp("apply/jing"), my["max_jing"]), ((my["eff_jing"]+ob->query_temp("apply/jing")) * 100 / my["max_jing"]),
 		status_color(my["jingli"], my["eff_jingli"]+ob->query_temp("apply/jingli")), my["jingli"], my["eff_jingli"]+ob->query_temp("apply/jingli"),
 		status_color(my["jingli"], my["eff_jingli"]+ob->query_temp("apply/jingli")), my["eff_jingli"]-my["max_jingli"]+ob->query_skill("force")*8 ));
-	write(sprintf("¡¤ÆøÑª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤ÄÚÁ¦¡¤%s%5d / %5d(+%d)\n" NOR,
+	write(sprintf("Â·æ°”è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·å†…åŠ›Â·%s%5d / %5d(+%d)\n" NOR,
 		status_color(my["qi"], my["eff_qi"]+ob->query_temp("apply/qi")), my["qi"], my["eff_qi"]+ob->query_temp("apply/qi"),
 		status_color(my["eff_qi"]+ob->query_temp("apply/qi"), my["max_qi"]), ((my["eff_qi"]+ob->query_temp("apply/qi")) * 100 / my["max_qi"]),
 		status_color(my["neili"], my["max_neili"]+ob->query_temp("apply/neili")), my["neili"], my["max_neili"]+ob->query_temp("apply/neili"),
 		my["jiali"] ));
 
-	write(sprintf("¡¤%sÆø¡¤%s %-13s   " NOR " ¡¤ÄÚÁ¦ÉÏÏŞ¡¤"HIC"%5d / %5d\n" NOR,
-		my["shen"] < 0?"ìå":"Õı",
+	write(sprintf("Â·%sæ°”Â·%s %-13s   " NOR " Â·å†…åŠ›ä¸Šé™Â·"HIC"%5d / %5d\n" NOR,
+		my["shen"] < 0?"æˆ¾":"æ­£",
 		my["shen"] < 0?HIR:HIC,
 		conv((my["shen"] < 0?-1:1) * my["shen"]),
 		(ob->query_skill("force")-ob->query_temp("apply/force"))*8 + my["combat_exp"]/1000 + ob->query_temp("apply/neili"),
@@ -95,12 +95,12 @@ int do_peek(string arg)
 
 	i = ob->max_food_capacity();
 	if (!i) i = 1;
-	write(sprintf("¡¤Ê³Îï¡¤%s%7.2f%%	 " NOR "     ¡¤Ç±ÄÜ¡¤"HIY" %4d / %4d\n" NOR,
+	write(sprintf("Â·é£Ÿç‰©Â·%s%7.2f%%	 " NOR "     Â·æ½œèƒ½Â·"HIY" %4d / %4d\n" NOR,
 		status_color(my["food"], i),
 		my["food"]*100.0/i, my["potential"], my["max_pot"] ));
 	i = ob->max_water_capacity();
 	if (!i) i = 1;
-	write(sprintf("¡¤ÒûË®¡¤%s%7.2f%%	 " NOR "     ¡¤¾­Ñé¡¤"HIM" %s\n"NOR,
+	write(sprintf("Â·é¥®æ°´Â·%s%7.2f%%	 " NOR "     Â·ç»éªŒÂ·"HIM" %s\n"NOR,
 		status_color(my["water"], i),
 		my["water"]*100.0/i,
 		conv(ob->query("id") == "zhong shentong"?my["combat_exp"]/3*2:my["combat_exp"])));

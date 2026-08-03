@@ -10,16 +10,16 @@ int main(string str)
 	ob = filter_array(objects(), (: userp :));
 	for(i=0; i<sizeof(ob); i++)
 		write(sprintf("%10s : %40O%s\n", ob[i]->query("id"), ob[i],
-		interactive(ob[i])?"":" ¶ÏÏßÖĞ"));
+		interactive(ob[i])?"":" æ–­çº¿ä¸­"));
         return 1;
 }
 
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : ulist
+æŒ‡ä»¤æ ¼å¼ : ulist
 
-½«ÏßÉÏËùÓĞÍæ¼ÒµÄ/obj/user number ÏÔÊ¾³öÀ´¡£
+å°†çº¿ä¸Šæ‰€æœ‰ç©å®¶çš„/obj/user number æ˜¾ç¤ºå‡ºæ¥ã€‚
 HELP
     );
     return 1;

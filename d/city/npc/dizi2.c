@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÇàÄêÆòØ¤", ({ "qi gai", "beggar" }) );
-	set("gender", "ÄĞĞÔ");
+        set_name("é’å¹´ä¹ä¸", ({ "qi gai", "beggar" }) );
+	set("gender", "ç”·æ€§");
 	set("age", 19);
-	set("long", "ÕâÊÇÒ»¸öÄêÇáµÄÆòØ¤£¬Á³ÉÏ´ø×Å¿ªÀÊµÄĞ¦Èİ¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ä¸ªå¹´è½»çš„ä¹ä¸ï¼Œè„¸ä¸Šå¸¦ç€å¼€æœ—çš„ç¬‘å®¹ã€‚\n");
 
 
 	set("combat_exp", 1000);

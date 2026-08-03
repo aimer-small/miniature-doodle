@@ -5,11 +5,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("±¾²Î´óÊ¦", ({ "bencan dashi","bencan","dashi"}) );
-        set("nickname", "Ä²ÄáÌÃÀÏÉ®");
-        set("long", "Ò»Î»°×Ğë°×Ã¼µÄÀÏÉ®£¬Éí´©Ò»Ï®½ğË¿Ä¾ÃŞôÂôÄ¡£
-ËûÉí²Ä¿ıÎà£¬ÊÇ±¾Òò·½ÕÉµÄÊ¦µÜ¡£\n");
-	set("gender", "ÄĞĞÔ" );
+	set_name("æœ¬å‚å¤§å¸ˆ", ({ "bencan dashi","bencan","dashi"}) );
+        set("nickname", "ç‰Ÿå°¼å ‚è€åƒ§");
+        set("long", "ä¸€ä½ç™½é¡»ç™½çœ‰çš„è€åƒ§ï¼Œèº«ç©¿ä¸€è¢­é‡‘ä¸æœ¨æ£‰è¢ˆè£Ÿã€‚
+ä»–èº«æé­æ¢§ï¼Œæ˜¯æœ¬å› æ–¹ä¸ˆçš„å¸ˆå¼Ÿã€‚\n");
+	set("gender", "ç”·æ€§" );
         set("attitude", "friendly");
 	set("class", "bonze");
 	set("age", 65);
@@ -20,7 +20,7 @@ void create()
 	set("dex", 23);
 	set("unique", 1);
 	set("per",24);
-        create_family("ÌìÁúËÂ", 13, "µÜ×Ó");
+        create_family("å¤©é¾™å¯º", 13, "å¼Ÿå­");
 
 	set("qi", 2500);
 	set("max_qi", 2500);

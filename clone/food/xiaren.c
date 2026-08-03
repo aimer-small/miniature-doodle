@@ -1,17 +1,17 @@
-// lingbai-xiaren Áâ°×ÏºÈÊ
+// lingbai-xiaren è±ç™½è™¾ä»
 #include <ansi.h>
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-        set_name(HIW"Áâ°×ÏºÈÊ"NOR, ({"lingbai xiaren", "xiaren"}));
+        set_name(HIW"è±ç™½è™¾ä»"NOR, ({"lingbai xiaren", "xiaren"}));
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»ÅÌÉ«ÈôÃµ¹å£¬ÌğÄÛÏãÄÛµÄÁâ°×ÏºÈÊ¡£\n");
-		set("unit", "ÅÌ");
+                set("long", "ä¸€ç›˜è‰²è‹¥ç«ç‘°ï¼Œç”œå«©é¦™å«©çš„è±ç™½è™¾ä»ã€‚\n");
+		set("unit", "ç›˜");
                 set("value", 150);
                 set("food_remaining", 4);
                 set("food_supply", 40);

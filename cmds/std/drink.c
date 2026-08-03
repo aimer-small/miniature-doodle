@@ -8,25 +8,25 @@ int main(object me, string arg)
 {
 	object obj;
 	
-	if (me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if (me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( (int)me->query("water") >= me->max_water_capacity() )
-		 return notify_fail("ÄãÒÑ¾­ºÈµÃÌ«¶àÁË£¬ÔÙÒ²¹à²»ÏÂÒ»µÎË®ÁË¡£\n");
+		 return notify_fail("ä½ å·²ç»å–å¾—å¤ªå¤šäº†ï¼Œå†ä¹ŸçŒä¸ä¸‹ä¸€æ»´æ°´äº†ã€‚\n");
 
 	if(!arg){
 		obj = environment(me);
-		if(!obj->query("resource/water")) return notify_fail("ÕâµØ·½¿ÉÃ»Ë®¡£\n");
+		if(!obj->query("resource/water")) return notify_fail("è¿™åœ°æ–¹å¯æ²¡æ°´ã€‚\n");
 
 		if((string)obj->query("drink_msg")) message_vision(obj->query("drink_msg"), me);
-		else message_vision("$NÅõÆğÒ»Ğ©ÇåË®£¬ÂıÂıºÈÁËÏÂÈ¥¡£\n", me);
+		else message_vision("$Næ§èµ·ä¸€äº›æ¸…æ°´ï¼Œæ…¢æ…¢å–äº†ä¸‹å»ã€‚\n", me);
 		me->add("water", 20);
 		if( obj->query("liquid/drink_func") ) return 1;
 		return 1;
-	} else if(!objectp(obj = present(arg, me)) ) return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+	} else if(!objectp(obj = present(arg, me)) ) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
-	if(!obj->query("liquid") ) return notify_fail("¿´Çå³şµã£¬Õâ¶«Î÷×°ÓĞºÈµÄÂğ£¿\n");
+	if(!obj->query("liquid") ) return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œè¿™ä¸œè¥¿è£…æœ‰å–çš„å—ï¼Ÿ\n");
 	if(!obj->query("liquid/remaining") )
-		return notify_fail( obj->name() + (obj->query("liquid/name") ? "ÒÑ¾­±»ºÈµÃÒ»µÎÒ²²»Ê£ÁË¡£\n":"ÊÇ¿ÕµÄ¡£\n"));
+		return notify_fail( obj->name() + (obj->query("liquid/name") ? "å·²ç»è¢«å–å¾—ä¸€æ»´ä¹Ÿä¸å‰©äº†ã€‚\n":"æ˜¯ç©ºçš„ã€‚\n"));
 			
 	me->add("water", 10+((int)obj->query("liquid/drunk_apply")?obj->query("liquid/drunk_apply"):20));
 
@@ -36,11 +36,11 @@ int main(object me, string arg)
 		me->start_busy(obj->query("liquid/busy"));
 	
 	if((string)obj->query("drink_msg")) message_vision(obj->query("drink_msg"), me, obj);
-	else message_vision("$NÄÃÆğ$n¹¾ààààµØºÈÁË¼¸¿Ú" + obj->query("liquid/name")+ "¡£\n", me, obj);
+	else message_vision("$Næ‹¿èµ·$nå’•å™œå™œåœ°å–äº†å‡ å£" + obj->query("liquid/name")+ "ã€‚\n", me, obj);
 			  
 	if( !obj->query("liquid/remaining") ){
 		if((string)obj->query("finish_msg")) write(obj->query("finish_msg"));
-		else write("ÄãÒÑ¾­½«" + obj->name() + "ÀïµÄ" + obj->query("liquid/name")+ "ºÈµÃÒ»µÎÒ²²»Ê£ÁË¡£\n");
+		else write("ä½ å·²ç»å°†" + obj->name() + "é‡Œçš„" + obj->query("liquid/name")+ "å–å¾—ä¸€æ»´ä¹Ÿä¸å‰©äº†ã€‚\n");
 	}
 
 	if( obj->query("liquid/drink_func") ) return 1;
@@ -57,14 +57,14 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : drink [ÎïÆ·Ãû³Æ]
+æŒ‡ä»¤æ ¼å¼ : drink [ç‰©å“åç§°]
  
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãºÈÒûË®¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ å–é¥®æ°´ã€‚
 
-Àı£º
+ä¾‹ï¼š
 	drink jiudai
 
-	drink   ( Èç¹ûÄãËùÔÚµÄµØ·½ÓĞË®Ô´µÄ»°)¡£
+	drink   ( å¦‚æœä½ æ‰€åœ¨çš„åœ°æ–¹æœ‰æ°´æºçš„è¯)ã€‚
 
 HELP
 	);

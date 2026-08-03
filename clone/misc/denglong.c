@@ -4,13 +4,13 @@
 inherit FIRE_ITEM;
 void create()
 {
-        set_name("µÆÁı", ({"deng long", "deng", "light"}));
+        set_name("ç¯ç¬¼", ({"deng long", "deng", "light"}));
         set_weight(800);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÊÇÒ»ÕµÖ½·óµÄµÆÁı£¬µ½ÁËºÚ°µµÄµØ·½¾ÍÓÃ(light)µÃ×ÅÁË¡£\n");
-                set("unit", "Õµ");
+                set("long", "è¿™æ˜¯ä¸€ç›çº¸æ•·çš„ç¯ç¬¼ï¼Œåˆ°äº†é»‘æš—çš„åœ°æ–¹å°±ç”¨(light)å¾—ç€äº†ã€‚\n");
+                set("unit", "ç›");
                 set("value", 100);
                 set("light/time", 180);
         }

@@ -1,14 +1,14 @@
-// wu.c Îâ¾¢²İ
+// wu.c å´åŠ²è‰
 // Modify By River@sj 99.06
 inherit NPC;
 void create()
 {
-        set_name("Îâ¾¢²İ", ({ "wu jincao", "wu", "jincao" }));
-        set("gender", "ÄĞĞÔ");
+        set_name("å´åŠ²è‰", ({ "wu jincao", "wu", "jincao" }));
+        set("gender", "ç”·æ€§");
         set("age", 43);                
-	set("rank_info/respect","ÆìÖ÷");
-	set("title","Ã÷½ÌÈñ½ğÆì¸±ÕÆÆìÊ¹");
-        create_family("Ã÷½Ì", 37, "µÜ×Ó");
+	set("rank_info/respect","æ——ä¸»");
+	set("title","æ˜æ•™é”é‡‘æ——å‰¯æŒæ——ä½¿");
+        create_family("æ˜æ•™", 37, "å¼Ÿå­");
 	set("str", 28);
         set("int", 20);
         set("con", 23);
@@ -41,7 +41,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {     
-        command("say ÓÉÓÚ½ÌÊÂ·±Ã¦£¬ÎÒÒÑĞí¾Ã²»ÊÕµÜ×ÓÁË¡£");
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"»¹ÊÇÇë»Ø°É¡£");
+        command("say ç”±äºæ•™äº‹ç¹å¿™ï¼Œæˆ‘å·²è®¸ä¹…ä¸æ”¶å¼Ÿå­äº†ã€‚");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"è¿˜æ˜¯è¯·å›å§ã€‚");
         return;
 }

@@ -1,4 +1,4 @@
-// yiren.c ÒÕÈË
+// yiren.c è‰ºäºº
 
 inherit NPC;
 
@@ -6,11 +6,11 @@ void create()
 {
         string gender;
 
-        set_name("½­ºşÒÕÈË", ({ "yi ren", "yiren" }));
-        gender = random(2)?"ÄĞĞÔ":"Å®ĞÔ";
+        set_name("æ±Ÿæ¹–è‰ºäºº", ({ "yi ren", "yiren" }));
+        gender = random(2)?"ç”·æ€§":"å¥³æ€§";
 	set("gender", gender);
         set("age", 23+random(10));
-        set("long", "Ò»¸ö×ßÄÏ´³±±µÄ½­ºşÒÕÈË¡£\n");
+        set("long", "ä¸€ä¸ªèµ°å—é—¯åŒ—çš„æ±Ÿæ¹–è‰ºäººã€‚\n");
 
 	set("combat_exp", 7000);
         set("shen_type", 0);

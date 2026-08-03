@@ -1,4 +1,4 @@
-// junzi jian ¾ı×Ó½£
+// junzi jian å›å­å‰‘
 // Modify By River
 #include <weapon.h>
 #include <ansi.h>
@@ -7,12 +7,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(HIW"¾ı×Ó½£"NOR,({ "junzi jian", "junzi", "jian", "sword" }) );
+        set_name(HIW"å›å­å‰‘"NOR,({ "junzi jian", "junzi", "jian", "sword" }) );
         set_weight(12000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
+                set("unit", "æŸ„");
                 set("value", 1500);
                 set("rigidity", 3);
                 set("sharpness", 3);
@@ -23,9 +23,9 @@ void create()
                 set("wield_neili", 500);
                 set("wield_maxneili", 900);
                 set("wield_str", 22);
-                set("long", "´Ë½£ÎÚºÚµÄ½£Éí£¬Ã»°ëµã¹âÔó£¬¾ÍËÆÒ»¶ÎºÚÄ¾¡£¿Ì×Å¾ı×Ó¶ş×Ö¡£ÓëÊçÅ®½£Ò»°ã³¤¶Ì£¬È«ÎŞ¶şÖÂ¡£\n");
-                set("wield_msg", HIW"$N»º»º³é³ö¾ı×Ó½££¬Ö»¾õÇáÆ®Æ®ÎŞÉõ·İÁ¿£¬µ½ÊÇÒ»ÕóÁ¹ÒâÁİÈ»±ÆÈË£¬ÁîÈËÄª¿ÉºöÊÓ¡£\n"NOR);
-                set("unwield_msg", HIW"$N×÷¸ö½£ÊÆ£¬½«¾ı×Ó½£»º»º²å»Ø½£ÇÊ£¬µ±ÕæÆø¶È·Ç·²¡£\n" NOR);
+                set("long", "æ­¤å‰‘ä¹Œé»‘çš„å‰‘èº«ï¼Œæ²¡åŠç‚¹å…‰æ³½ï¼Œå°±ä¼¼ä¸€æ®µé»‘æœ¨ã€‚åˆ»ç€å›å­äºŒå­—ã€‚ä¸æ·‘å¥³å‰‘ä¸€èˆ¬é•¿çŸ­ï¼Œå…¨æ— äºŒè‡´ã€‚\n");
+                set("wield_msg", HIW"$Nç¼“ç¼“æŠ½å‡ºå›å­å‰‘ï¼Œåªè§‰è½»é£˜é£˜æ— ç”šä»½é‡ï¼Œåˆ°æ˜¯ä¸€é˜µå‡‰æ„å‡›ç„¶é€¼äººï¼Œä»¤äººè«å¯å¿½è§†ã€‚\n"NOR);
+                set("unwield_msg", HIW"$Nä½œä¸ªå‰‘åŠ¿ï¼Œå°†å›å­å‰‘ç¼“ç¼“æ’å›å‰‘é˜ï¼Œå½“çœŸæ°”åº¦éå‡¡ã€‚\n" NOR);
         }
         init_sword(55);
         setup();

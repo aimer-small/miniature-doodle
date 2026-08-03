@@ -10,9 +10,9 @@ int ask_tsj();
 void create()
 {
         object ob;
-        set_name("ÌìÃÅµÀÈË", ({ "tianmen daoren", "daoren", "tianmen" }) );
-        set("gender", "ÄĞĞÔ");
-        set("title", HIW"Ì©É½ÅÉµÚÊ®Èı´úÕÆÃÅ"NOR);
+        set_name("å¤©é—¨é“äºº", ({ "tianmen daoren", "daoren", "tianmen" }) );
+        set("gender", "ç”·æ€§");
+        set("title", HIW"æ³°å±±æ´¾ç¬¬åä¸‰ä»£æŒé—¨"NOR);
         set("class", "taoist");
         set("age", 55);
         set("attitude", "peaceful");
@@ -26,17 +26,17 @@ void create()
         set("combat_exp", 4450000);
         set("shen_type", 1);
         set("inquiry", ([
-                "×óÀäìø" : "ÕâØËÏëÈÃÎåÔÀÍ¬ÃË£¬ÊÇÏëÈÃÎÒÃÇ°ïËûĞ§Ãü°ÕÁË¡£¡£\n",
-                "¶«ÁéµÀÈË" : "´óµ¨£¬Äã¾¡¸ÉÖ±ºôÎÒ×æÊ¦Ò¯µÄÃû×Ö£¬\n",
-//                "ÅÑÍ½" : (: ask_tsjob :),
-                "¹¦ÀÍ" : (: ask_tsjobtime :),
-                "Ì©É½½£·¨" : (: ask_tsj :),
+                "å·¦å†·ç¦…" : "è¿™å®æƒ³è®©äº”å²³åŒç›Ÿï¼Œæ˜¯æƒ³è®©æˆ‘ä»¬å¸®ä»–æ•ˆå‘½ç½¢äº†ã€‚ã€‚\n",
+                "ä¸œçµé“äºº" : "å¤§èƒ†ï¼Œä½ å°½å¹²ç›´å‘¼æˆ‘ç¥–å¸ˆçˆ·çš„åå­—ï¼Œ\n",
+//                "å›å¾’" : (: ask_tsjob :),
+                "åŠŸåŠ³" : (: ask_tsjobtime :),
+                "æ³°å±±å‰‘æ³•" : (: ask_tsj :),
         ]));
         set("chat_chance", 3);
         set("chat_msg", ({
-         	"ÌìÃÅµÀÈËÅ­²»¿É¶ô£¬´óÉùµÀ£º¡°ÎÒÖ»ÊÇÒ»Ê±µÄÆø»°£¬±¾ÅÉÕÆÃÅÈËÖ®Î»£¬ÆñÄÜÈç´Ë²İ²İ¡­¡­²İ²İ´«ÊÚ¡£\n",
-         	"ÌìÃÅµÀÈËÌ¾Ï¢µÀ£ºÏóÓñçá×ÓÕâÖÖÈË£¬ÎÒÊÇÍòÍò²»ÄÜ´«ÊÚËûÎªÕÆÃÅ¡£\n",
-         	"ÌìÃÅµÀÈËÅ­ºğ£º¡°ÄãÃÇÕæÒª´ò£¿ÄÇ¾ÍÀ´ŞÕ¸öÄãËÀÎÒ»î¡£\n",
+         	"å¤©é—¨é“äººæ€’ä¸å¯éï¼Œå¤§å£°é“ï¼šâ€œæˆ‘åªæ˜¯ä¸€æ—¶çš„æ°”è¯ï¼Œæœ¬æ´¾æŒé—¨äººä¹‹ä½ï¼Œå²‚èƒ½å¦‚æ­¤è‰è‰â€¦â€¦è‰è‰ä¼ æˆã€‚\n",
+         	"å¤©é—¨é“äººå¹æ¯é“ï¼šè±¡ç‰ç‘å­è¿™ç§äººï¼Œæˆ‘æ˜¯ä¸‡ä¸‡ä¸èƒ½ä¼ æˆä»–ä¸ºæŒé—¨ã€‚\n",
+         	"å¤©é—¨é“äººæ€’å¼ï¼šâ€œä½ ä»¬çœŸè¦æ‰“ï¼Ÿé‚£å°±æ¥æ‹šä¸ªä½ æ­»æˆ‘æ´»ã€‚\n",
         	(: command("sneer") :),
         	(: command("pei") :),
         }) );
@@ -61,7 +61,7 @@ void create()
         map_skill("cuff","taizu-quan");
         prepare_skill("cuff", "taizu-quan");
 
-        create_family("Ì©É½ÅÉ", 13, "ÕÆÃÅ");
+        create_family("æ³°å±±æ´¾", 13, "æŒé—¨");
         setup();
         if (clonep())
         {
@@ -77,7 +77,7 @@ void create()
 void attempt_apprentice(object ob)
 {
         command("shake");
-        command("say Ì©É½ÅÉÏÖµÜ×Ó½ü¶şÈı°ÙÈË£¬Æ¶µÀÎÒÔİ²»ÏëÊÕÍ½¡£");
+        command("say æ³°å±±æ´¾ç°å¼Ÿå­è¿‘äºŒä¸‰ç™¾äººï¼Œè´«é“æˆ‘æš‚ä¸æƒ³æ”¶å¾’ã€‚");
         return;
 }
 
@@ -90,25 +90,25 @@ int ask_tsjob()
         if (me->query("combat_exp") < 1000000)
         {
                 command("shake");
-                command("whisper " + me->query("id") + " Õâ¸ö¹¤×÷²¢²»ÊÊºÏÄã£¬²»ÓÃÂé·³ÁË¡£");
+                command("whisper " + me->query("id") + " è¿™ä¸ªå·¥ä½œå¹¶ä¸é€‚åˆä½ ï¼Œä¸ç”¨éº»çƒ¦äº†ã€‚");
                 return 1;
         }
         if (me->query_condition("tsjob_busy"))
         {
-                command("whisper " + me->query("id") + " Äã¸Õ°ïÎÒ½ØÏÂÒ»ÃûÅÑÍ½£¬ÏÈĞİÏ¢Ò»ÏÂ°É¡£");
+                command("whisper " + me->query("id") + " ä½ åˆšå¸®æˆ‘æˆªä¸‹ä¸€åå›å¾’ï¼Œå…ˆä¼‘æ¯ä¸€ä¸‹å§ã€‚");
                 command("pat "+ me->query("id"));
                 return 1;
         }
         if (me->query_condition("job_busy"))
         {
-                command("whisper " + me->query("id") + " Äã¸Õ°ïÎÒ½ØÏÂÒ»ÃûÅÑÍ½£¬ÏÈĞİÏ¢Ò»ÏÂ°É¡£");
+                command("whisper " + me->query("id") + " ä½ åˆšå¸®æˆ‘æˆªä¸‹ä¸€åå›å¾’ï¼Œå…ˆä¼‘æ¯ä¸€ä¸‹å§ã€‚");
                 command("pat "+ me->query("id"));
                 return 1;
         }
         if (me->query_temp("tsjob/asked"))
         {
                 command("push");
-                command("whisper " + me->query("id") + " ¿ìÈ¥×·°¡£¬ÍíÁË¾ÍÀ´²»¼°ÁË£¡");
+                command("whisper " + me->query("id") + " å¿«å»è¿½å•Šï¼Œæ™šäº†å°±æ¥ä¸åŠäº†ï¼");
                 return 1;
         }
 
@@ -116,8 +116,8 @@ int ask_tsjob()
         me->set_temp("tsjob/target", target);
         me->set_temp("tsjob/asked", 1);
         me->apply_condition("tsjob",30);
-        target->set("long", target->query("long") + "ËÆºõÊÇ´Ó"+me->query("name")+"ÊÖÉÏÌÓÍÑµÄ¡£\n");
-        target->set_name("Ì©É½ÅÉÅÑÍ½", ({ me->query("id")+"'s pantu"}) );
+        target->set("long", target->query("long") + "ä¼¼ä¹æ˜¯ä»"+me->query("name")+"æ‰‹ä¸Šé€ƒè„±çš„ã€‚\n");
+        target->set_name("æ³°å±±æ´¾å›å¾’", ({ me->query("id")+"'s pantu"}) );
         i = me->query("max_pot")-100;
         if (me->query("combat_exp") > 2000000)
         {
@@ -136,8 +136,8 @@ int ask_tsjob()
         TASK_D->copy_status(me, target, 1);
         target->move(environment(this_object()));
         target->movement(0);
-        command("whisper " + me->query("id") + " ×óÀäìøÕâ¼Ò»ï´Ó¸÷ÅÉÊÕÂòÁËÈË£¬ÆóÍ¼ËËÓÁ²¢ÅÉ£¬¸Õ²Å×¥µ½Ò»¸öÅÑÍ½È´¸øÅÜÁË¡£");
-        command("whisper " + me->query("id") + " Äã¾Í¿ì¿ì°ïÎÒ×·È¥£¬²»ÓÃ¶àËµÉ±ÁË±ãÊÇ£¬Ëû±ØÈ»ÊÇÍùáÔÉ½È¥ÁË¡£");
+        command("whisper " + me->query("id") + " å·¦å†·ç¦…è¿™å®¶ä¼™ä»å„æ´¾æ”¶ä¹°äº†äººï¼Œä¼å›¾æ€‚æ¿å¹¶æ´¾ï¼Œåˆšæ‰æŠ“åˆ°ä¸€ä¸ªå›å¾’å´ç»™è·‘äº†ã€‚");
+        command("whisper " + me->query("id") + " ä½ å°±å¿«å¿«å¸®æˆ‘è¿½å»ï¼Œä¸ç”¨å¤šè¯´æ€äº†ä¾¿æ˜¯ï¼Œä»–å¿…ç„¶æ˜¯å¾€åµ©å±±å»äº†ã€‚");
         return 1;
 }
 
@@ -149,17 +149,17 @@ int ask_tsj()
         if (i < 1)
         {
                 command("ugly " + me->query("id"));
-                command("say ÄãÎªÎÒÌ©É½ÅÉ×öÁËÊ²Ã´ÁË£¿");
+                command("say ä½ ä¸ºæˆ‘æ³°å±±æ´¾åšäº†ä»€ä¹ˆäº†ï¼Ÿ");
                 return 1;
         }
         if (i < me->query("tsjf"))
         {
                 command("hmm");
-                command("say ÄÜ½ÌÄãµÄ¶¼ÒÑ¾­½ÌÄãÁË£¬ÆäËûµÄÂï¡£¡£¡£");
+                command("say èƒ½æ•™ä½ çš„éƒ½å·²ç»æ•™ä½ äº†ï¼Œå…¶ä»–çš„å˜›ã€‚ã€‚ã€‚");
                 return 1;
         }
         command("ok tianmen");
-        message_vision("$N¶Ô$nÖ¸µ¼ÁËÒ»Ğ©Ì©É½½£·¨µÄ½£¾÷¡£\n", this_object(), me);
+        message_vision("$Nå¯¹$næŒ‡å¯¼äº†ä¸€äº›æ³°å±±å‰‘æ³•çš„å‰‘è¯€ã€‚\n", this_object(), me);
         me->add("tsjf",1);
         if (me->query_skill("taishan-jianfa",1) < 1)
                 me->set_skill("taishan-jianfa",1);
@@ -175,11 +175,11 @@ int ask_tsjobtime()
         if (i < 1)
         {
                 command("crazy " + me->query("id"));
-                command("say Äã¸ù±¾Ã»°ïÎÒ×·¹ıÅÑÍ½¡£");
+                command("say ä½ æ ¹æœ¬æ²¡å¸®æˆ‘è¿½è¿‡å›å¾’ã€‚");
                 return 1;
         }
         command("wa2");
-        str = "Äã×Ü¹²°ïÎÒ½ØÏÂÁË"+CHINESE_D->chinese_number(i)+"ÃûÅÑÍ½¡£";
+        str = "ä½ æ€»å…±å¸®æˆ‘æˆªä¸‹äº†"+CHINESE_D->chinese_number(i)+"åå›å¾’ã€‚";
         command("say "+str);
         return 1;
 }

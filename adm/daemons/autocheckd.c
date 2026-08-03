@@ -10,11 +10,11 @@ void auto_check(int duration);
 void create()
 {
         seteuid(getuid());
-        set("name", "¼à¿Ø¾«Áé");
-        set("channel_id", "¼à¿Ø¾«Áé(ROOT)");
+        set("name", "ç›‘æ§ç²¾çµ");
+        set("channel_id", "ç›‘æ§ç²¾çµ(ROOT)");
         set("id", "autocheck");
 
-        CHANNEL_D->do_channel( this_object(), "sys", "¼à¿Ø¾«ÁéÒÑ¾­Æô¶¯¡£\n");
+        CHANNEL_D->do_channel( this_object(), "sys", "ç›‘æ§ç²¾çµå·²ç»å¯åŠ¨ã€‚\n");
 
         remove_call_out("auto_check");
         call_out("auto_check", 10, 0);
@@ -34,7 +34,7 @@ void auto_check(int duration)
 	    while( j-- ) {
 	        if( !environment(list[j]) 
 	        || !interactive(list[j])  ) continue;
-	        //auto record pot Òì³£
+	        //auto record pot å¼‚å¸¸
 	        
 	        if(list[j]->query("potential")>list[j]->query("max_pot"))
 	        	log_file("nosave/autocheck",
@@ -55,7 +55,7 @@ void auto_check(int duration)
 	        	);
 	        
 	        if((list[j]->query("mud_age") - list[j]->query_temp("mud_age"))<=0) continue;
-	        //ÒòÎªÔÚchar.c Àï¿ØÖÆÁË8M
+	        //å› ä¸ºåœ¨char.c é‡Œæ§åˆ¶äº†8M
 	        if(list[j]->query("combat_exp") < 8000000) continue;
 	        i = (list[j]->query("combat_exp") - list[j]->query_temp("combat_exp")) * 60
 	                / (list[j]->query("mud_age") - list[j]->query_temp("mud_age"));
@@ -63,7 +63,7 @@ void auto_check(int duration)
 	        t = list[j]->query("mud_age") - list[j]->query_temp("mud_age");
 	                   
 	        log_file("nosave/autocheck",
-					sprintf("%-23s%-16d %-16d%-3d£¯%-16d%s\n",
+					sprintf("%-23s%-16d %-16d%-3dï¼%-16d%s\n",
 						                (list[j]->is_robot()?(HIG+list[j]->name(1)+NOR):list[j]->name(1))+"("+list[j]->query("id")+")",
 						                list[j]->query_temp("combat_exp"), 
 						                list[j]->query("combat_exp"),
@@ -78,9 +78,9 @@ void auto_check(int duration)
 	        
 	    }      
         if (flag)
-        	        CHANNEL_D->do_channel( this_object(), "sys",sprintf("ÏµÍ³·¢ÏÖÍæ¼ÒËÙ¶ÈÒì³££¬Çë¼ì²é¡£"));
+        	        CHANNEL_D->do_channel( this_object(), "sys",sprintf("ç³»ç»Ÿå‘ç°ç©å®¶é€Ÿåº¦å¼‚å¸¸ï¼Œè¯·æ£€æŸ¥ã€‚"));
 */
-        CHANNEL_D->do_channel( this_object(), "sys",sprintf("ÏµÍ³×Ô¶¯Çå³ı " + reclaim_objects() + " ¸ö±äÊı¡£"));
+        CHANNEL_D->do_channel( this_object(), "sys",sprintf("ç³»ç»Ÿè‡ªåŠ¨æ¸…é™¤ " + reclaim_objects() + " ä¸ªå˜æ•°ã€‚"));
         remove_call_out("auto_check");
-        call_out("auto_check", 50+random(10), duration); //ÂÖÒ»´ÎµÄÊ±¼äÊÇ35*13
+        call_out("auto_check", 50+random(10), duration); //è½®ä¸€æ¬¡çš„æ—¶é—´æ˜¯35*13
 }

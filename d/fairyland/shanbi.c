@@ -5,10 +5,10 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", YEL"É½±Ú"NOR);
+	set("short", YEL"å±±å£"NOR);
 	set("long", @LONG
-¶¸ÇÍµÄÉ½±Ú£¬È«Îª¼«Îª¼áÓ²µÄÑÒÊ¯£¬»¬²»Áï½Å£¬ÉÔÎ¢²»Ð¡ÐÄ¾Í»á»¬µ¹¡£Íù
-Î÷¶øÏÂÊÇÒ»Æ¬´ä¹È£¬Íù¶«¶øÏÂÊÇÒ»É½¹µ¡£
+é™¡å³­çš„å±±å£ï¼Œå…¨ä¸ºæžä¸ºåšç¡¬çš„å²©çŸ³ï¼Œæ»‘ä¸æºœè„šï¼Œç¨å¾®ä¸å°å¿ƒå°±ä¼šæ»‘å€’ã€‚å¾€
+è¥¿è€Œä¸‹æ˜¯ä¸€ç‰‡ç¿ è°·ï¼Œå¾€ä¸œè€Œä¸‹æ˜¯ä¸€å±±æ²Ÿã€‚
 LONG	);
 	set("exits", ([
 		"westdown" : __DIR__"cuigu",
@@ -18,7 +18,7 @@ LONG	);
               __DIR__"obj/rock1" : 1,
 	]));
 
-	set("outdoors", "À¥ÂØ´ä¹È");
+	set("outdoors", "æ˜†ä»‘ç¿ è°·");
 	set("no_clean_up", 0);
 
 	setup();
@@ -35,20 +35,20 @@ int do_bind(string arg)
 	object me = this_player();
 	if (arg == "xiao hou" || arg == "hou" || arg == "monkey") {
             if(!(monkey = present("xiao hou", this_object())))
-		return notify_fail("ÔÙ×ÐÏ¸³ò³ò£¬ÕâÀïÃ»ÓÐºï×Ó£¡\n");
+		return notify_fail("å†ä»”ç»†çž…çž…ï¼Œè¿™é‡Œæ²¡æœ‰çŒ´å­ï¼\n");
             if(me->query_skill("medicine", 1) < 100 )
-                return notify_fail("Äã¸Ðµ½×Ô¼ºÒ½Êõ²»¹»¾«Éî£¬Ö»ÄÜÒ¡ÁËÒ¡Í·¡£\n");
+                return notify_fail("ä½ æ„Ÿåˆ°è‡ªå·±åŒ»æœ¯ä¸å¤Ÿç²¾æ·±ï¼Œåªèƒ½æ‘‡äº†æ‘‡å¤´ã€‚\n");
 	    if(!monkey->query("get_wound"))
-		return notify_fail("Ëü²¢Ã»ÓÐÊÜÉË£¡\n");
+		return notify_fail("å®ƒå¹¶æ²¡æœ‰å—ä¼¤ï¼\n");
 	    if(!monkey->query("rock_moved"))
-		return notify_fail("Ëü±»Ñ¹ÔÚÑÒÊ¯ÏÂÃæÄÄ£¡\n");
+		return notify_fail("å®ƒè¢«åŽ‹åœ¨å²©çŸ³ä¸‹é¢å“ªï¼\n");
 	    if(!(plywood1 = present("zhi tiao 1", me))
              ||!(plywood2 = present("zhi tiao 2", me)))
-		return notify_fail("¿ÉÏ§ÄãÊÖÍ·Ã»ÓÐ×ã¹»µÄ¹Ì¶¨¶Ï¹ÇµÄ¹¤¾ß¡£\n");
+		return notify_fail("å¯æƒœä½ æ‰‹å¤´æ²¡æœ‰è¶³å¤Ÿçš„å›ºå®šæ–­éª¨çš„å·¥å…·ã€‚\n");
 	    if(!(thread = present("xi si", me)))
-		return notify_fail("¿ÉÏ§ÄãÊÖÍ·Ã»ÓÐÀ¦ÔúÓÃµÄÏß¡£\n");
+		return notify_fail("å¯æƒœä½ æ‰‹å¤´æ²¡æœ‰æ†æ‰Žç”¨çš„çº¿ã€‚\n");
 	    if(!(yaocao = present("yao cao", me)))
-		return notify_fail("¿ÉÏ§ÄãÊÖÍ·Ã»ÓÐ²ÝÒ©¡£\n");
+		return notify_fail("å¯æƒœä½ æ‰‹å¤´æ²¡æœ‰è‰è¯ã€‚\n");
 	    destruct(plywood1);
             destruct(plywood2);
 	    thread->add_amount(-1);
@@ -59,9 +59,9 @@ int do_bind(string arg)
 	    me->set_temp("help_monkey", 1);
 	    new(__DIR__"obj/xianguo")->move(me);
 	    new(__DIR__"obj/xianguo")->move(me);
-	    write(HIY"ÄãÓÃÁ½¸ùÖ¦Ìõ×÷Îª¼Ð°å£¬ÌæÐ¡ºï×ÓÐøÉÏ¶Ï¹Ç£¬°Ñ²ÝÒ©½ÀÀÃÁË¸øËü·óÔÚÉË´¦¡£\n"NOR);
-	    write(HIY"ÄÇºï¶ù¾ÓÈ»Ò²Öª¸Ð¶÷Í¼±¨£¬¸øÄãÕªÁËÐ©ÏÊ¹ûÀ´£¬È»ºó¾ÍÈ¥Ñ°±ðµÄºï×ÓÍæË£È¥ÁË¡£\n"NOR);
-            message_vision("$n¸øÁË$NÒ»Ð©ÏÊ¹û¡£\n",me,monkey);
+	    write(HIY"ä½ ç”¨ä¸¤æ ¹æžæ¡ä½œä¸ºå¤¹æ¿ï¼Œæ›¿å°çŒ´å­ç»­ä¸Šæ–­éª¨ï¼ŒæŠŠè‰è¯åš¼çƒ‚äº†ç»™å®ƒæ•·åœ¨ä¼¤å¤„ã€‚\n"NOR);
+	    write(HIY"é‚£çŒ´å„¿å±…ç„¶ä¹ŸçŸ¥æ„Ÿæ©å›¾æŠ¥ï¼Œç»™ä½ æ‘˜äº†äº›é²œæžœæ¥ï¼Œç„¶åŽå°±åŽ»å¯»åˆ«çš„çŒ´å­çŽ©è€åŽ»äº†ã€‚\n"NOR);
+            message_vision("$nç»™äº†$Nä¸€äº›é²œæžœã€‚\n",me,monkey);
 	    monkey->random_move();
             return 1;
 	}

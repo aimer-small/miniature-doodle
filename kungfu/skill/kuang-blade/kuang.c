@@ -1,4 +1,4 @@
-//kuang.c -¡¸¿ñ·ç¶şÊ®Ò»Ê½¡¹
+//kuang.c -ã€Œç‹‚é£äºŒåä¸€å¼ã€
 // Modified by Venus Oct.1997
 #include <ansi.h>
 #include <combat.h>
@@ -12,23 +12,23 @@ int perform(object me, object target)
 	extra=me->query_skill("kuang-blade",1);
     if( !target ) target = offensive_target(me);
     if( !target||!target->is_character()||!me->is_fighting(target) )
-    return notify_fail("ÄãÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡¸¿ñ·ç¶şÊ®Ò»Ê½¡¹¡£\n");
+    return notify_fail("ä½ åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€Œç‹‚é£äºŒåä¸€å¼ã€ã€‚\n");
     if( (int)me->query_skill("kuang-blade",1) < 70)
-    return notify_fail("ÄãÄ¿Ç°¹¦Á¦»¹Ê¹²»³ö¡¸¿ñ·ç¶şÊ®Ò»Ê½¡¹¡£\n");
+    return notify_fail("ä½ ç›®å‰åŠŸåŠ›è¿˜ä½¿ä¸å‡ºã€Œç‹‚é£äºŒåä¸€å¼ã€ã€‚\n");
     	if (!objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade")
-			return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+			return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	if( (int)me->query("neili") < 100 )
-    return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+    return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
     me->add("neili", -60);
-    msg = HIW"$N´ó½ĞÒ»Éù£¬É±°¡£¡¾ÍÔÚÕâÒ»Ë²Ö®¼ä£¬"+
-    "$NÒÑÅü³öÈıµ¶£¡µ¶¼ĞÔÓ×Å·ç£¬·çÀïº¬×Åµ¶Ó°£¡$nÖ»¾õµÃĞÄÌø¶¼Í£Ö¹ÁË£¡"NOR;
+    msg = HIW"$Nå¤§å«ä¸€å£°ï¼Œæ€å•Šï¼å°±åœ¨è¿™ä¸€ç¬ä¹‹é—´ï¼Œ"+
+    "$Nå·²åŠˆå‡ºä¸‰åˆ€ï¼åˆ€å¤¹æ‚ç€é£ï¼Œé£é‡Œå«ç€åˆ€å½±ï¼$nåªè§‰å¾—å¿ƒè·³éƒ½åœæ­¢äº†ï¼"NOR;
         message_vision(msg, me, target);                
-	msg = HIW  "---µÚÒ»µ¶£¡" NOR;
+	msg = HIW  "---ç¬¬ä¸€åˆ€ï¼" NOR;
 	COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
-        msg = HIC  "-----µÚ¶şµ¶£¡£¡" NOR;
+        msg = HIC  "-----ç¬¬äºŒåˆ€ï¼ï¼" NOR;
         COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
-        msg = HIY  "-------×îºóÒ»µ¶£¡" NOR;
+        msg = HIY  "-------æœ€åä¸€åˆ€ï¼" NOR;
         COMBAT_D->do_attack(me,target, me->query_temp("weapon"),TYPE_REGULAR,msg);
 
 	me->start_busy(3);

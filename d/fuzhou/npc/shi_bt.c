@@ -1,12 +1,12 @@
-// shi_bt.c Ê·ïÚÍ·
+// shi_bt.c å²é•–å¤´
 
 inherit NPC;
 void create()
 {
-	set_name("Ê·ïÚÍ·", ({ "shi biaotou", "shi", "biaotou" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("å²é•–å¤´", ({ "shi biaotou", "shi", "biaotou" }));
+	set("gender", "ç”·æ€§");
 	set("age", 42);
-	set("long", "ËûÊÇ¡¸¸£ÍşïÚ¾Ö¡¹µÄÒ»¸öïÚÍ·¡£\n");
+	set("long", "ä»–æ˜¯ã€Œç¦å¨é•–å±€ã€çš„ä¸€ä¸ªé•–å¤´ã€‚\n");
 	set("shen_type", -1);
 
         set("str", 30);

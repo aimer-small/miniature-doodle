@@ -5,12 +5,12 @@
 inherit ROOM;
 void create()
 {
-        set("short", "ËĞ¾­ÌÃ");
+        set("short", "è¯µç»å ‚");
         set("long", @LONG
-ÕâÀïÊÇËÂÄÚÉ®ÈËËĞ¾­µÄµØ·½¡£Ò»ÑÛÍûÈ¥£¬´óÌÃÄÚ×øÂúÁËÈË£¬ËĞ¾­
-ÉùÆğ·ü²»¾ø£¬ÓĞµÄµÍ³Á»ºÂı£¬ÓĞµÄ¼âÉù¼±´Ù£¬ÖĞ¼äÔÓ×ÅÒ¡¶¯·¨Æ÷µÄ½ğ
-ÊôÉù¡£ÄãÇÄÇÄÕÒ¸öµØ·½£¬ÅÌÍÈ×øÏÂÀ´£¬¿ªÊ¼Äî¾­¡£ÄãÇ°Ãæ·ÅÁËĞí¶à±¡
-±¡µÄĞ¡²á¾­Êé(book),ÒÔ¹©Äã¶ÁÓÃ¡£
+è¿™é‡Œæ˜¯å¯ºå†…åƒ§äººè¯µç»çš„åœ°æ–¹ã€‚ä¸€çœ¼æœ›å»ï¼Œå¤§å ‚å†…åæ»¡äº†äººï¼Œè¯µç»
+å£°èµ·ä¼ä¸ç»ï¼Œæœ‰çš„ä½æ²‰ç¼“æ…¢ï¼Œæœ‰çš„å°–å£°æ€¥ä¿ƒï¼Œä¸­é—´æ‚ç€æ‘‡åŠ¨æ³•å™¨çš„é‡‘
+å±å£°ã€‚ä½ æ‚„æ‚„æ‰¾ä¸ªåœ°æ–¹ï¼Œç›˜è…¿åä¸‹æ¥ï¼Œå¼€å§‹å¿µç»ã€‚ä½ å‰é¢æ”¾äº†è®¸å¤šè–„
+è–„çš„å°å†Œç»ä¹¦(book),ä»¥ä¾›ä½ è¯»ç”¨ã€‚
 LONG);
         set("exits", ([
                 "east" : __DIR__"yz6",
@@ -42,20 +42,20 @@ int do_look(string arg)
 	if (arg == "book") {
 	        if (me->query_skill("buddhism",1)<120)
 			{
-            write("ÕâĞ©¶¼ÊÇ¾­Êé¶ÔÄã¶øÑÔÌ«¹ıÉî°ÂÁË¡£\n");
+            write("è¿™äº›éƒ½æ˜¯ç»ä¹¦å¯¹ä½ è€Œè¨€å¤ªè¿‡æ·±å¥¥äº†ã€‚\n");
 			} else {
-			write("ÕâĞ©¶¼ÊÇ¾­Êé£¬·Ö³ÉĞ¡²á×Ó£¬Äã¿ÉÒÔ¶Á(songjing)ËüÃÇÀ´Ìá¸ß×Ô¼º\n"
-			+"µÄ·ğÑ§ÖªÊ¶ \n"
-            +"¡¶½ğ¸Õ¾­-¾í1¡·(jingang-jing1)    ¡¶½ğ¸Õ¾­-¾í2¡·(jingang-jing2)\n"
-			+"¡¶½ğ¸Õ¾­-¾í3¡·(jingang-jing3)    ¡¶½ğ¸Õ¾­-¾í4¡·(jingang-jing4)\n"
-			+"¡¶½ğ¸Õ¾­-¾í5¡·(jingang-jing5)    ¡¶½ğ¸Õ¾­-¾í6¡·(jingang-jing6)\n"
-			+"¡¶½ğ¸Õ¾­-¾í7¡·(jingang-jing7)    ¡¶½ğ¸Õ¾­-¾í8¡·(jingang-jing8)\n"
-			+"¡¶½ğ¸Õ¾­-¾í9¡·(jingang-jing9)    ¡¶½ğ¸Õ¾­-¾í10¡·(jingang-jing10)\n"
-			+"¡¶½ğ¸Õ¾­-¾í11¡·(jingang-jing11)  ¡¶½ğ¸Õ¾­-¾í12¡·(jingang-jing12)\n"
-            +"¡¶½ğ¸Õ¾­-¾í13¡·(jingang-jing13)  ¡¶½ğ¸Õ¾­-¾í14¡·(jingang-jing14)\n"
-			+"¡¶½ğ¸Õ¾­-¾í15¡·(jingang-jing15)  ¡¶½ğ¸Õ¾­-¾í16¡·(jingang-jing16)\n"
-			+"¡¶°ãÈô²¨ÂŞÃÛĞÄ¾­¡·(xin-jing)\n"
-             +"ÄãÈç¹ûÀÛÁË£¬¿ÉÒÔÍ£(ting)ÏÂ£¬ĞİÏ¢ÏÂ£¬ÔÙÖØÍ·¶ÁÆğ¡£\n");
+			write("è¿™äº›éƒ½æ˜¯ç»ä¹¦ï¼Œåˆ†æˆå°å†Œå­ï¼Œä½ å¯ä»¥è¯»(songjing)å®ƒä»¬æ¥æé«˜è‡ªå·±\n"
+			+"çš„ä½›å­¦çŸ¥è¯† \n"
+            +"ã€Šé‡‘åˆšç»-å·1ã€‹(jingang-jing1)    ã€Šé‡‘åˆšç»-å·2ã€‹(jingang-jing2)\n"
+			+"ã€Šé‡‘åˆšç»-å·3ã€‹(jingang-jing3)    ã€Šé‡‘åˆšç»-å·4ã€‹(jingang-jing4)\n"
+			+"ã€Šé‡‘åˆšç»-å·5ã€‹(jingang-jing5)    ã€Šé‡‘åˆšç»-å·6ã€‹(jingang-jing6)\n"
+			+"ã€Šé‡‘åˆšç»-å·7ã€‹(jingang-jing7)    ã€Šé‡‘åˆšç»-å·8ã€‹(jingang-jing8)\n"
+			+"ã€Šé‡‘åˆšç»-å·9ã€‹(jingang-jing9)    ã€Šé‡‘åˆšç»-å·10ã€‹(jingang-jing10)\n"
+			+"ã€Šé‡‘åˆšç»-å·11ã€‹(jingang-jing11)  ã€Šé‡‘åˆšç»-å·12ã€‹(jingang-jing12)\n"
+            +"ã€Šé‡‘åˆšç»-å·13ã€‹(jingang-jing13)  ã€Šé‡‘åˆšç»-å·14ã€‹(jingang-jing14)\n"
+			+"ã€Šé‡‘åˆšç»-å·15ã€‹(jingang-jing15)  ã€Šé‡‘åˆšç»-å·16ã€‹(jingang-jing16)\n"
+			+"ã€Šèˆ¬è‹¥æ³¢ç½—èœœå¿ƒç»ã€‹(xin-jing)\n"
+             +"ä½ å¦‚æœç´¯äº†ï¼Œå¯ä»¥åœ(ting)ä¸‹ï¼Œä¼‘æ¯ä¸‹ï¼Œå†é‡å¤´è¯»èµ·ã€‚\n");
 			me->set_temp("book_list", 1);
 		    }
 			return 1;
@@ -64,16 +64,16 @@ int do_look(string arg)
 int do_zuo(string arg)
 {
 
-	if (arg) return notify_fail("ÕâÀïÃ»Ê²Ã´¿É×øµÄ£¬×øµØÉÏ°É\n");	
+	if (arg) return notify_fail("è¿™é‡Œæ²¡ä»€ä¹ˆå¯åçš„ï¼Œååœ°ä¸Šå§\n");	
 	
 	if (this_player()->query("class")!="bonze")
-		return notify_fail("Äã²»ÊÇ³ö¼ÒÈË£¬²»¿ÉÒÔÔÚÕâÀïËĞ¾­¡£\n");	
+		return notify_fail("ä½ ä¸æ˜¯å‡ºå®¶äººï¼Œä¸å¯ä»¥åœ¨è¿™é‡Œè¯µç»ã€‚\n");	
 	
 	if (this_player()->query_temp("book_sit"))
-		return notify_fail("ÄãÒÑ¾­×øÔÚµØÉÏÁË¡£\n");	
+		return notify_fail("ä½ å·²ç»ååœ¨åœ°ä¸Šäº†ã€‚\n");	
 			
 	this_player()->set_temp("book_sit", 1);
-	return notify_fail("ÄãÕÒÁË¸ö¿ÕµØÅÌÍÈ×øÏÂ¡£\n");	
+	return notify_fail("ä½ æ‰¾äº†ä¸ªç©ºåœ°ç›˜è…¿åä¸‹ã€‚\n");	
 }
 
 int do_halt()
@@ -82,7 +82,7 @@ int do_halt()
     if (find_call_out("sing_stage") < 0) return 0;
 	me->receive_damage("jingli",(int)me->query_skill("buddhism",1)/3);
 	me->receive_damage("jing", (int)me->query_skill("buddhism",1)/4);
-    message_vision(HIR"\n$NÄã¾õµÄÓĞĞ©ÀÛÁË£¬Í£ÏÂÀ´ĞİÏ¢ÏÂ¡£\n"NOR,me);
+    message_vision(HIR"\n$Nä½ è§‰çš„æœ‰äº›ç´¯äº†ï¼Œåœä¸‹æ¥ä¼‘æ¯ä¸‹ã€‚\n"NOR,me);
     remove_call_out("sing_stage");
     return 1;
 }
@@ -96,23 +96,23 @@ int do_song(string arg)
        stage = 0;
        me = this_player();
        ob = this_object();
-	   if (me->query("class")!="bonze") return notify_fail("Äã²»ÊÇ³ö¼ÒÈË£¬²»¿ÉÒÔÔÚÕâÀïËĞ¾­¡£\n");
-       if(me->query_skill("buddhism", 1) >= 200) return notify_fail("ÄãµÄìø×ÚĞÄ·¨ÒÑ¾­ÎŞ·¨Í¨¹ıËĞ¾­À´Ìá¸ßÁË¡£\n");
-       if (!me->query_temp("book_list")) return notify_fail("À÷º¦£¬ÊéÃû¶¼²»¿´£¬¾Í¿ªÊ¼¶Á£¿\n"); 
-	   if(!arg) return notify_fail("ÄãÏë¶ÁÊ²Ã´¾­£¿\n");
-	   if (!me->query_temp("book_sit")) return notify_fail("ÓĞ¸öĞÔ£¡Õ¾×Å¶Á£¿\n"); 
-	   if (find_call_out("sing_stage") >= 0) return notify_fail("ÄãÄÜÍ¬Ê±¶ÁÁ½±¾¾­ÊéÂğ£¿\n");
-       if(!arg) return notify_fail("ÄãÏë¶ÁÊ²Ã´¾­£¿\n");
+	   if (me->query("class")!="bonze") return notify_fail("ä½ ä¸æ˜¯å‡ºå®¶äººï¼Œä¸å¯ä»¥åœ¨è¿™é‡Œè¯µç»ã€‚\n");
+       if(me->query_skill("buddhism", 1) >= 200) return notify_fail("ä½ çš„ç¦…å®—å¿ƒæ³•å·²ç»æ— æ³•é€šè¿‡è¯µç»æ¥æé«˜äº†ã€‚\n");
+       if (!me->query_temp("book_list")) return notify_fail("å‰å®³ï¼Œä¹¦åéƒ½ä¸çœ‹ï¼Œå°±å¼€å§‹è¯»ï¼Ÿ\n"); 
+	   if(!arg) return notify_fail("ä½ æƒ³è¯»ä»€ä¹ˆç»ï¼Ÿ\n");
+	   if (!me->query_temp("book_sit")) return notify_fail("æœ‰ä¸ªæ€§ï¼ç«™ç€è¯»ï¼Ÿ\n"); 
+	   if (find_call_out("sing_stage") >= 0) return notify_fail("ä½ èƒ½åŒæ—¶è¯»ä¸¤æœ¬ç»ä¹¦å—ï¼Ÿ\n");
+       if(!arg) return notify_fail("ä½ æƒ³è¯»ä»€ä¹ˆç»ï¼Ÿ\n");
 	   if (me->query("jing")<100 ||me->query("jingli")<200)
-             return notify_fail("ÄãÏÖÔÚ¾«Á¦²»¹»£¬»¹ÊÇĞİÏ¢ĞİÏ¢ÔÙ¶Á°É£¿\n");
+             return notify_fail("ä½ ç°åœ¨ç²¾åŠ›ä¸å¤Ÿï¼Œè¿˜æ˜¯ä¼‘æ¯ä¼‘æ¯å†è¯»å§ï¼Ÿ\n");
         while (i--) if (arg == book[i]["name"]) break;
-        if (i<0) return notify_fail("ÕâÀïÃ»ÓĞÄãÏë¶ÁµÄ¾­¡£\n");
+        if (i<0) return notify_fail("è¿™é‡Œæ²¡æœ‰ä½ æƒ³è¯»çš„ç»ã€‚\n");
         if(me->is_busy())
-           return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
-		tell_object(me,HIC"Äã¶ËÕıÉí×Ó£¬ÇáÇáËĞµÀ£º\n"
-                      +"ÎŞÉÏÉõÉîÎ¢Ãî·¨ °ÙÇ§Íò½ÙÄÑÔâÓö \n"
-                      +"ÎÒ½ñ¼ûÎÅµÃÊÜ³Ö Ô¸½âÈçÀ´ÕæÊµÒå \n"NOR);   
-        message_vision(HIW "$N¡°ßË¡±µÄÇÃÁËÏÂÄ¾Óã£¬·­¿ª¾­Êé£¬¿ªÊ¼ßóßóßÉßÉ¶ÁÆğÀ´¡£¡£\n\n"NOR, me);
+           return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+		tell_object(me,HIC"ä½ ç«¯æ­£èº«å­ï¼Œè½»è½»è¯µé“ï¼š\n"
+                      +"æ— ä¸Šç”šæ·±å¾®å¦™æ³• ç™¾åƒä¸‡åŠ«éš¾é­é‡ \n"
+                      +"æˆ‘ä»Šè§é—»å¾—å—æŒ æ„¿è§£å¦‚æ¥çœŸå®ä¹‰ \n"NOR);   
+        message_vision(HIW "$Nâ€œå’šâ€çš„æ•²äº†ä¸‹æœ¨é±¼ï¼Œç¿»å¼€ç»ä¹¦ï¼Œå¼€å§‹å”§å”§å‘±å‘±è¯»èµ·æ¥ã€‚ã€‚\n\n"NOR, me);
               
       call_out("sing_stage", 2, me, stage, i, sizeof(book[i]["context"]));
       return 1;
@@ -127,14 +127,14 @@ void sing_stage(object me, int stage, int i, int size)
    call_out("sing_stage", 1, me, ++stage, i, size);
    }
 else {
-      message_vision(HIW"\n¹ıÁËÒ»»á£¬$NÉùÒô½¥½¥Ğ¡ÁËÏÂÀ´£¬½Ó×Å¡°ïÏ¡±µÄÒ»Éù·¨ÁåÇåÏì£¬Ëæ¼´¼ÅÈ»ÎŞÉù¡£\n"NOR,me);
+      message_vision(HIW"\nè¿‡äº†ä¸€ä¼šï¼Œ$Nå£°éŸ³æ¸æ¸å°äº†ä¸‹æ¥ï¼Œæ¥ç€â€œé”µâ€çš„ä¸€å£°æ³•é“ƒæ¸…å“ï¼Œéšå³å¯‚ç„¶æ— å£°ã€‚\n"NOR,me);
       if (me->query_skill("buddhism",1)<180){
-        tell_object(me,"Äã¾õµÃÕâĞ©¾­ÎÄ·Ç³£Éî°Â£¬ËĞ¾­²¢²»ÄÜÌá¸ßÄãµÄ·ğÑ§ĞŞÎª¡£\n");
+        tell_object(me,"ä½ è§‰å¾—è¿™äº›ç»æ–‡éå¸¸æ·±å¥¥ï¼Œè¯µç»å¹¶ä¸èƒ½æé«˜ä½ çš„ä½›å­¦ä¿®ä¸ºã€‚\n");
        } else {
 	    me->receive_damage("jingli",(int)me->query_skill("buddhism",1)/2);
 		me->receive_damage("jing", (int)me->query_skill("buddhism",1)/3);
         me->improve_skill("buddhism", (int)me->query_int()*2+random((int)me->query_int())); 
-		tell_object(me,"ÄãÓĞĞ©Æ£ÀÛ£¬²»¹ıÔÚËĞ¾­ÖĞ£¬¶Ô·ğ·¨ÓĞËùÁìÎò¡£\n");  
+		tell_object(me,"ä½ æœ‰äº›ç–²ç´¯ï¼Œä¸è¿‡åœ¨è¯µç»ä¸­ï¼Œå¯¹ä½›æ³•æœ‰æ‰€é¢†æ‚Ÿã€‚\n");  
     if ((int)me->query("shen")<-((int)me->query_skill("buddhism",1)*2))
    me->add("shen",(int)me->query_skill("buddhism",1)*2);
 	   }

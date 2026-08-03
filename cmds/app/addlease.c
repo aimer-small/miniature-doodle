@@ -2,12 +2,12 @@
 //
 //      roomleased.c
 //      Created by mychat 31/04/2004
-//      ±£ÁôÎÒµÄÇ©ÃûÇé¿öÏÂ free of use.
-//      µ±È»¸ü»¶Ó­ĞŞ¸Ä¡¢ÓÅ»¯µÈ¡£
+//      ä¿ç•™æˆ‘çš„ç­¾åæƒ…å†µä¸‹ free of use.
+//      å½“ç„¶æ›´æ¬¢è¿ä¿®æ”¹ã€ä¼˜åŒ–ç­‰ã€‚
 //
 //      Email & MSN: codemake@163.com
-//      ÎÄ¼şÎ»ÓÚ/cmds/admÏÂ
-// 		Ìí¼Óµ±Ç°·¿¼äÎª¿É³ö×âµÄ·¿¼ä
+//      æ–‡ä»¶ä½äº/cmds/admä¸‹
+// 		æ·»åŠ å½“å‰æˆ¿é—´ä¸ºå¯å‡ºç§Ÿçš„æˆ¿é—´
 ***********************************************************************************/
 
 //#include <roomlease.h>
@@ -27,12 +27,12 @@ int main(object me, string arg)
 		valminskill, valmaxskill, valdiscount;
 	
 	if(id&&id!="*"&&id!=getuid(me))
-		return notify_fail("idÕıÔÚÊ¹ÓÃ¸ÃÖ¸Áî µÈµÈÅ¶¡£¡£\n");
+		return notify_fail("idæ­£åœ¨ä½¿ç”¨è¯¥æŒ‡ä»¤ ç­‰ç­‰å“¦ã€‚ã€‚\n");
 		
 	if(!arg) return help(me);
 	
 	if(!objectp(room = environment(me)))
-		return notify_fail("ÄãÄ¿Ç°ËùÔÚÆæÌØ£¬bug!!\n");
+		return notify_fail("ä½ ç›®å‰æ‰€åœ¨å¥‡ç‰¹ï¼Œbug!!\n");
 	if(arg=="add here")
 	{
 		id=getuid(me);
@@ -40,28 +40,28 @@ int main(object me, string arg)
 		else
 		{
 			if(member_array(base_name(room),files)!=-1)
-				return notify_fail("¸Ã·¿¼äÒÑ¾­Ìí¼Ó£¡\n");			
+				return notify_fail("è¯¥æˆ¿é—´å·²ç»æ·»åŠ ï¼\n");			
 			files += ({base_name(room)});
 		}
-		write(sprintf("³É¹¦Ìí¼Ó%s,Ä¿Ç°ÁĞ±íÓĞ£º%O\n",base_name(room),files));		
+		write(sprintf("æˆåŠŸæ·»åŠ %s,ç›®å‰åˆ—è¡¨æœ‰ï¼š%O\n",base_name(room),files));		
 		return 1;
 	}
 	else if(arg=="clear")
 	{
 		id="*";
 		files=({});
-		write("ÁĞ±íÒÑ¾­Çå¿Õ¡£\n");
+		write("åˆ—è¡¨å·²ç»æ¸…ç©ºã€‚\n");
 		return 1;		
 	}
 	else if(sscanf(arg, "%s %d %d %d %d %d %d %d", 
 		roomid, valbidtype, valminirent, valminirentadd, valleasetime, 
 		valminskill, valmaxskill, valdiscount)!=8)		
-		return notify_fail("²ÎÊı²»Æë!!\n");	
+		return notify_fail("å‚æ•°ä¸é½!!\n");	
 	if(!files || !sizeof(files) ) files = ({base_name(room)});	
 	if(ROOMLEASE_D->set_room(files, roomid, valbidtype, valminirent*100, valminirentadd*100, 
 		room->query("short"), valleasetime*60, 
-		valminskill, valmaxskill, valdiscount,base_name(room))) write(sprintf("³É¹¦³ö×â¸Ã·¿¼ä£¬ÒÔÏÂÊÇ¸½Êô·¿¼äÁĞ±í£º%O\n",files));
-	else write("²Ù×÷Ê§°Ü£¬Í·´óÁËÅ¶£¡\n");
+		valminskill, valmaxskill, valdiscount,base_name(room))) write(sprintf("æˆåŠŸå‡ºç§Ÿè¯¥æˆ¿é—´ï¼Œä»¥ä¸‹æ˜¯é™„å±æˆ¿é—´åˆ—è¡¨ï¼š%O\n",files));
+	else write("æ“ä½œå¤±è´¥ï¼Œå¤´å¤§äº†å“¦ï¼\n");
 	id="*";
 	files=({});			
 	return 1;
@@ -72,23 +72,23 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºaddlease add here Ôö¼ÓÕâ·¿¼äÈëÁĞ±í
-	  addlease clear Çå¿ÕÁĞ±í
+æŒ‡ä»¤æ ¼å¼ï¼šaddlease add here å¢åŠ è¿™æˆ¿é—´å…¥åˆ—è¡¨
+	  addlease clear æ¸…ç©ºåˆ—è¡¨
 	  addlease 	roomid bidtype minirent minirentadd leasetime 
 		minskill maxskill discount
-		ÁĞ±íÈë¿â£¬ÒÔ¼°Çå¿Õ£¬½÷É÷Ê¹ÓÃ¡£
+		åˆ—è¡¨å…¥åº“ï¼Œä»¥åŠæ¸…ç©ºï¼Œè°¨æ…ä½¿ç”¨ã€‚
 --------------------------------------------------
- ½«µ±Ç°·¿¼äÉèÎª¿ÉÍ¶±êµÄ·¿¼ä£¬»òĞŞ¸Äµ±Ç°·¿¼äÍ¶±êÅäÖÃ£¬ĞŞ¸Äµ±Ç°·¿¼äµÄÅäÖÃ²»
- »áÓ°Ïìµ±Ç°µÄ×â½èºÍÍ¶±êÇé¿ö£¬µ«¿ÉÄÜ»áµ¼ÖÂµ±Ç°Í¶±êÕßÔÚÖĞ±êºóµÄ×â½èÌõ¼ş±ä»¯¡£
- addlease Ê¹ÓÃÕâ¸öÃüÁî£¬±ØĞë´¦ÔÚÒªÅäÖÃµÄ·¿¼äÖĞ
-room id Í¶±ê´úÂë
-bidtype		 0 Í£Ö¹½ÓÊÜÍ¶±ê1¿ÉÒÔÊµÃûÍ¶±ê2±ØĞëÄäÃûÍ¶±ê
-minirent		×îµÍÍ¶±ê×â½ğ(Á½Òø×ÓÎªµ¥Î»)
-minirentadd		×îµÍ¼Ó¼Û½ğ¶î(Á½Òø×ÓÎªµ¥Î»)
-leasetime		³ö×âÒ»´ÎµÄÊ±¼ä³¤¶È(·ÖÖÓÎªµ¥Î»)
-minskill		Í¶±£ĞèÒªµÄ×îÉÙbusiness skills ÔİÊ±ÎŞÓÃ
-maxskill		Í¶±£ĞèÒªµÄ×î´óbusiness skills£¬³¬¹ı±¾skill²»ÄÜÍ¶±ê£¬±£»¤µÍÊÖ ÔİÊ±ÎŞÓÃ
-discount		ÊÕÒæµÄÕÛ¿ÛÂÊ(Íò·ÖÖ®)
+ å°†å½“å‰æˆ¿é—´è®¾ä¸ºå¯æŠ•æ ‡çš„æˆ¿é—´ï¼Œæˆ–ä¿®æ”¹å½“å‰æˆ¿é—´æŠ•æ ‡é…ç½®ï¼Œä¿®æ”¹å½“å‰æˆ¿é—´çš„é…ç½®ä¸
+ ä¼šå½±å“å½“å‰çš„ç§Ÿå€Ÿå’ŒæŠ•æ ‡æƒ…å†µï¼Œä½†å¯èƒ½ä¼šå¯¼è‡´å½“å‰æŠ•æ ‡è€…åœ¨ä¸­æ ‡åçš„ç§Ÿå€Ÿæ¡ä»¶å˜åŒ–ã€‚
+ addlease ä½¿ç”¨è¿™ä¸ªå‘½ä»¤ï¼Œå¿…é¡»å¤„åœ¨è¦é…ç½®çš„æˆ¿é—´ä¸­
+room id æŠ•æ ‡ä»£ç 
+bidtype		 0 åœæ­¢æ¥å—æŠ•æ ‡1å¯ä»¥å®åæŠ•æ ‡2å¿…é¡»åŒ¿åæŠ•æ ‡
+minirent		æœ€ä½æŠ•æ ‡ç§Ÿé‡‘(ä¸¤é“¶å­ä¸ºå•ä½)
+minirentadd		æœ€ä½åŠ ä»·é‡‘é¢(ä¸¤é“¶å­ä¸ºå•ä½)
+leasetime		å‡ºç§Ÿä¸€æ¬¡çš„æ—¶é—´é•¿åº¦(åˆ†é’Ÿä¸ºå•ä½)
+minskill		æŠ•ä¿éœ€è¦çš„æœ€å°‘business skills æš‚æ—¶æ— ç”¨
+maxskill		æŠ•ä¿éœ€è¦çš„æœ€å¤§business skillsï¼Œè¶…è¿‡æœ¬skillä¸èƒ½æŠ•æ ‡ï¼Œä¿æŠ¤ä½æ‰‹ æš‚æ—¶æ— ç”¨
+discount		æ”¶ç›Šçš„æŠ˜æ‰£ç‡(ä¸‡åˆ†ä¹‹)
 write by mychat@ln(codemake@163.com)
 --------------------------------------------------
 

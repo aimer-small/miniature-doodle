@@ -1,4 +1,4 @@
-// changcf.c ³£³¤·ç
+// changcf.c å¸¸é•¿é£
 // zly 7/6/99
 
 #include <ansi.h>
@@ -7,15 +7,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("³£³¤·ç", ({"chang changfeng", "chang", "changfeng"}));
-	set("title", HIY"Ì«ÔÀËÄÏÀ"NOR);
-	set("nickname", "Ë«ÕÆ¿ª±®");
+	set_name("å¸¸é•¿é£", ({"chang changfeng", "chang", "changfeng"}));
+	set("title", HIY"å¤ªå²³å››ä¾ "NOR);
+	set("nickname", "åŒæŒå¼€ç¢‘");
         set("shen_type", 1);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set("long", 
-"ÕâÈË¿´ÆğÀ´ÓÖ¸ßÓÖ·Ê£¬±ãÈçÊÇÒ»×ùÌúËş°ÚÔÚµØÏÂ£¬ËûÉíÇ°·Å×ÅÒ»
-¿é´óÊ¯±®£¬±®ÉÏĞ´µÄÊÇ¡°ÏÈ¿¼»Æ¸®¾ı³Ï±¾Ö®Ä¹¡±¡£\n"
+"è¿™äººçœ‹èµ·æ¥åˆé«˜åˆè‚¥ï¼Œä¾¿å¦‚æ˜¯ä¸€åº§é“å¡”æ‘†åœ¨åœ°ä¸‹ï¼Œä»–èº«å‰æ”¾ç€ä¸€
+å—å¤§çŸ³ç¢‘ï¼Œç¢‘ä¸Šå†™çš„æ˜¯â€œå…ˆè€ƒé»„åºœå›è¯šæœ¬ä¹‹å¢“â€ã€‚\n"
 	);
 
 	set("attitude", "aggressive");

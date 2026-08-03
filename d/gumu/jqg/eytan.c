@@ -1,14 +1,14 @@
-// eytan.c öùÓãÌ¶
+// eytan.c é³„é±¼æ½­
 // By River 99.5.25
 inherit ROOM;
 #include <ansi.h>
 void create()
 {
-          set("short",HIB"öùÓãÌ¶"NOR);
+          set("short",HIB"é³„é±¼æ½­"NOR);
           set("long",@LONG
-ÕâÀïºÚÆáÆáµÄ£¬ÄãÖ»¾õµÃÉí×ÓÔÚË®ÖĞ²»¶ÏÍùÏÂÇ±³Á£¬´ı³ÁÊÆÉÔ»º£¬²¦Ë®ÉÏ
-Éı£¬¸Õ×ê³öË®ÃæÎüÁË¼¸¿ÚÆø£¬Í»È»±ÇÖĞÎÅµ½Ò»¹ÉĞÈ³ô£¬Í¬Ê±×óÊ×Ë®²¨¼¤µ´£¬ËÆ
-ÓĞÉõ÷á¾Ş´óË®×åÀ´Ï®¡£
+è¿™é‡Œé»‘æ¼†æ¼†çš„ï¼Œä½ åªè§‰å¾—èº«å­åœ¨æ°´ä¸­ä¸æ–­å¾€ä¸‹æ½œæ²‰ï¼Œå¾…æ²‰åŠ¿ç¨ç¼“ï¼Œæ‹¨æ°´ä¸Š
+å‡ï¼Œåˆšé’»å‡ºæ°´é¢å¸äº†å‡ å£æ°”ï¼Œçªç„¶é¼»ä¸­é—»åˆ°ä¸€è‚¡è…¥è‡­ï¼ŒåŒæ—¶å·¦é¦–æ°´æ³¢æ¿€è¡ï¼Œä¼¼
+æœ‰ç”šéº½å·¨å¤§æ°´æ—æ¥è¢­ã€‚
 LONG
 );
 
@@ -17,7 +17,7 @@ LONG
              __DIR__"npc/eyu1":1,
           ]));
 
-          set("indoor","¾øÇé¹È");
+          set("indoor","ç»æƒ…è°·");
           setup();
 }
 
@@ -33,11 +33,11 @@ int do_ta(string arg)
      if(!objectp(present("corpse", environment(me)))) return 0;
      if( arg =="corpse"){
       if (me->is_busy() || me->is_fighting())
-            return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
-      message_vision(HIC"$NÓÒ×ãÌ¤ÔÚËÀöù¶ÇÉÏ£¬½è¾¢Ô¾Æğ£¬½ÓÖø×ó×ãÔÚöùÓãµÄ±³ÉÏÒ»µã¡£$NÒÑÔ¾µ½¶Ô°¶¡£\n"NOR,this_player());
+            return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
+      message_vision(HIC"$Nå³è¶³è¸åœ¨æ­»é³„è‚šä¸Šï¼Œå€ŸåŠ²è·ƒèµ·ï¼Œæ¥è‘—å·¦è¶³åœ¨é³„é±¼çš„èƒŒä¸Šä¸€ç‚¹ã€‚$Nå·²è·ƒåˆ°å¯¹å²¸ã€‚\n"NOR,this_player());
       me->move(__DIR__"cave1");
-      tell_room(environment(me), me->name() + "´Ó¶Ô°¶·ÉÔ¾¶øÀ´¡£\n", ({ me }));
+      tell_room(environment(me), me->name() + "ä»å¯¹å²¸é£è·ƒè€Œæ¥ã€‚\n", ({ me }));
       return 1;
       }
-      return notify_fail("Äã×¼±¸Ì¤ÔÚÊ²Ã´ÉÏÃæ¹ıºÓ£¿\n");
+      return notify_fail("ä½ å‡†å¤‡è¸åœ¨ä»€ä¹ˆä¸Šé¢è¿‡æ²³ï¼Ÿ\n");
 }

@@ -1,4 +1,4 @@
-// wushuai.c ÌìÈËÎåË¥
+// wushuai.c å¤©äººäº”è¡°
 // Rewrite By lsxk@hsbbs 2007/5/16
 
 #include <ansi.h>
@@ -6,7 +6,7 @@
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h";
 
-string perform_name(){ return HIY"ÌìÈËÎåË¥"NOR; }
+string perform_name(){ return HIY"å¤©äººäº”è¡°"NOR; }
 
 int perform(object me,object target)
 {
@@ -16,51 +16,51 @@ int perform(object me,object target)
     if( !target ) target = offensive_target(me);
      
     if( !userp(me) && userp(target) )
-                return notify_fail("¡¸ÌìÈËÎåË¥¡¹Ö»ÄÜÓÉÍæ¼ÒÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œå¤©äººäº”è¡°ã€åªèƒ½ç”±ç©å®¶ä½¿ç”¨ã€‚\n");
 
     if( !objectp (target) || !me->is_fighting(target) || !living(target)
         || environment(target)!=environment(me))
-                return notify_fail("¡¸ÌìÈËÎåË¥¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œå¤©äººäº”è¡°ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
     if(me->query_skill_mapped("force") != "longxiang-boruo")
-                return notify_fail("ÄãµÄÄÚ¹¦²»ÊÇÁúÏó²¨Èô¹¦£¬ÎŞ·¨Ê¹ÓÃ¡¸ÌìÈËÎåË¥¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠŸä¸æ˜¯é¾™è±¡æ³¢è‹¥åŠŸï¼Œæ— æ³•ä½¿ç”¨ã€Œå¤©äººäº”è¡°ã€ï¼\n");
 
     if( (int)me->query_skill("longxiang-boruo", 1) < 150 )
-                return notify_fail("ÄãµÄÁúÏó²¨Èô¹¦µÈ¼¶²»¹»£¬ÎŞ·¨Ê¹ÓÃ¡¸ÌìÈËÎåË¥¡¹£¡\n");
+                return notify_fail("ä½ çš„é¾™è±¡æ³¢è‹¥åŠŸç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨ã€Œå¤©äººäº”è¡°ã€ï¼\n");
 
     if( (int)me->query_skill("xiangfu-lun", 1) < 160 ) 
-                return notify_fail("ÄãµÄ½ğ¸Õ½µ·üÂÖ»¹Î´Á·³É£¬ÎŞ·¨Ê¹ÓÃ¡¸ÌìÈËÎåË¥¡¹£¡\n");
+                return notify_fail("ä½ çš„é‡‘åˆšé™ä¼è½®è¿˜æœªç»ƒæˆï¼Œæ— æ³•ä½¿ç”¨ã€Œå¤©äººäº”è¡°ã€ï¼\n");
 
     if((int)me->query_skill("hammer", 1) < 160 )
-                return notify_fail("ÄãµÄ»ù±¾´¸·¨²»¹»æµÊì£¬²»ÄÜÊ¹ÓÃ¡¸ÌìÈËÎåË¥¡¹£¡\n");
+                return notify_fail("ä½ çš„åŸºæœ¬é”¤æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œå¤©äººäº”è¡°ã€ï¼\n");
 
     if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "hammer"
         || me->query_skill_mapped("hammer") != "xiangfu-lun")
-                return notify_fail("Äã±ØĞëÊ¹ÓÃ´¸·¨£¬²ÅÄÜÊ¹³ö¡¸ÌìÈËÎåË¥¡¹!\n");
+                return notify_fail("ä½ å¿…é¡»ä½¿ç”¨é”¤æ³•ï¼Œæ‰èƒ½ä½¿å‡ºã€Œå¤©äººäº”è¡°ã€!\n");
                 
    if((int)me->query_str() < 40)
-           return notify_fail("ÄãµÄëöÁ¦»¹²»¹»Ç¿¾¢£¬Ê¹²»³ö¡¸ÌìÈËÎåË¥¡¹¾ø¼¼¡£\n");
+           return notify_fail("ä½ çš„è†‚åŠ›è¿˜ä¸å¤Ÿå¼ºåŠ²ï¼Œä½¿ä¸å‡ºã€Œå¤©äººäº”è¡°ã€ç»æŠ€ã€‚\n");
 
    if(me->query_skill_mapped("parry") != "xiangfu-lun")
-           return notify_fail("¡¸ÌìÈËÎåË¥¡¹ĞèÒªÊ¹ÓÃ½µ·üÂÖ·¨ÕĞ¼ÜÒ»ÇĞµĞ·½¹¥»÷¡£\n"); 
+           return notify_fail("ã€Œå¤©äººäº”è¡°ã€éœ€è¦ä½¿ç”¨é™ä¼è½®æ³•æ‹›æ¶ä¸€åˆ‡æ•Œæ–¹æ”»å‡»ã€‚\n"); 
 
    if((int)me->query("max_neili") < 3000 )
-           return notify_fail("ÄãÄÚÁ¦ĞŞÎªÉĞÇ³£¬Ê¹²»³ö¡¸ÌìÈËÎåË¥¡¹¡£\n");  
+           return notify_fail("ä½ å†…åŠ›ä¿®ä¸ºå°šæµ…ï¼Œä½¿ä¸å‡ºã€Œå¤©äººäº”è¡°ã€ã€‚\n");  
 
    if( (int)me->query("neili") < 600 )
-           return notify_fail("ÄãÏÖÔÚÕæÆøÌ«Èõ£¬Ê¹²»³ö¡¸ÌìÈËÎåË¥¡¹¡£\n");
+           return notify_fail("ä½ ç°åœ¨çœŸæ°”å¤ªå¼±ï¼Œä½¿ä¸å‡ºã€Œå¤©äººäº”è¡°ã€ã€‚\n");
 
-        message_vision(HIY"\nÖ»Ìı¡°ÎØ-ÎØ-¡±Ö®Éù´ó×÷£¬$N½«ÊÖÖĞ·¨ÂÖĞı×ªÖÀ³ö£¬Ê¹³ö¡¸ÌìÈËÎåË¥¡¹¾ø¼¼£¬·ÜÁ¦ÖÀ³ö£¡\n"NOR, me,target);
+        message_vision(HIY"\nåªå¬â€œå‘œ-å‘œ-â€ä¹‹å£°å¤§ä½œï¼Œ$Nå°†æ‰‹ä¸­æ³•è½®æ—‹è½¬æ·å‡ºï¼Œä½¿å‡ºã€Œå¤©äººäº”è¡°ã€ç»æŠ€ï¼Œå¥‹åŠ›æ·å‡ºï¼\n"NOR, me,target);
 
     lev = (int)me->query_skill("xiangfu-lun",1)/4;
 
     if( me->query_temp("xs/longxiang") ) {
-           message_vision(MAG"$N¸ü°ÑÁúÏóÄÚ¾¢¸½ÓÚ±øÈĞÖ®ÉÏ£¬"+weapon->query("name")+MAG"Í¨ÌåÁ÷ÌÊ×ÅÒìÑùµÄ×ÏÉ«¹âÃ¢£¡\n\n"NOR, me,target);
+           message_vision(MAG"$Næ›´æŠŠé¾™è±¡å†…åŠ²é™„äºå…µåˆƒä¹‹ä¸Šï¼Œ"+weapon->query("name")+MAG"é€šä½“æµæ·Œç€å¼‚æ ·çš„ç´«è‰²å…‰èŠ’ï¼\n\n"NOR, me,target);
            lev *= 2;
            if(!userp(target)) target->start_busy(2);
        }
 
-    me->start_perform(5,"¡¸ÌìÈËÎåË¥¡¹");
+    me->start_perform(5,"ã€Œå¤©äººäº”è¡°ã€");
     me->add("neili", -300);
     me->set_temp("xfl/wushuai", 1);
         jiali = ((int)me->query("str",1)/2 + (int)me->query("con",1))/2 + random((int)me->query("jiali")/20 );

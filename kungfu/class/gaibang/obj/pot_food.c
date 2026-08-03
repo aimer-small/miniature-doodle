@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Ê³Îï", ({ "food" }));
+	set_name("é£Ÿç‰©", ({ "food" }));
 	set_weight(100);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ìõ");
+		set("unit", "æ¡");
 		set("value", 100);
 		set("no_get", 1);
 		set("no_give", 1);
@@ -29,6 +29,6 @@ int do_eat(string arg)
 	if (!id(arg))
 		return 0;
 
-	write("ÄãÏëÏëÕâÊÇÎªÁËºéÆß¹«¶øÌØÒâÅªµÄ£¬»¹ÊÇËãÁË£¬²»³ÔÁË¡£\n");
+	write("ä½ æƒ³æƒ³è¿™æ˜¯ä¸ºäº†æ´ªä¸ƒå…¬è€Œç‰¹æ„å¼„çš„ï¼Œè¿˜æ˜¯ç®—äº†ï¼Œä¸åƒäº†ã€‚\n");
 	return 1;
 }

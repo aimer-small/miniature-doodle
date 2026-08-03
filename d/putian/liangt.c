@@ -8,11 +8,11 @@ void delete_served(object me);
 
 void create()
 {
-        set("short", "Á¹Í¤");
+        set("short", "å‡‰äº­");
         set("long", @LONG
-ÕâÊÇ°ëÉ½ÑüµÄÒ»¸öĞ¡Á¹Í¤£¬ÖĞÑë·ÅÓĞÒ»ÕÅ°×É«µÄÊ¯Í·×À(table)£¬ÖÜÎ§ÁãÉ¢
-°ÚÓĞËÄÎå¸öÊ¯Í·µÊ(chair)¡£ÓĞ¼¸¸ö¾¢×°´ò°çµÄÍâµØÈË£¬Õı×øÔÚÄÇÀïĞİÏ¢³ËÁ¹¡£
-Ò»¸öĞ¡ºÍÉĞÊÖÀïÅõ×Å²èºøÕ¾ÔÚÒ»ÅÔ¡£
+è¿™æ˜¯åŠå±±è…°çš„ä¸€ä¸ªå°å‡‰äº­ï¼Œä¸­å¤®æ”¾æœ‰ä¸€å¼ ç™½è‰²çš„çŸ³å¤´æ¡Œ(table)ï¼Œå‘¨å›´é›¶æ•£
+æ‘†æœ‰å››äº”ä¸ªçŸ³å¤´å‡³(chair)ã€‚æœ‰å‡ ä¸ªåŠ²è£…æ‰“æ‰®çš„å¤–åœ°äººï¼Œæ­£ååœ¨é‚£é‡Œä¼‘æ¯ä¹˜å‡‰ã€‚
+ä¸€ä¸ªå°å’Œå°šæ‰‹é‡Œæ§ç€èŒ¶å£¶ç«™åœ¨ä¸€æ—ã€‚
 LONG
         );
 
@@ -21,13 +21,13 @@ LONG
         ]));
 
         set("item_desc", ([
-                "table" : "Ò»ÕÅÊ¯Í·×À£¬ÉÏÃæ·Å×Å¼¸¸ö´ó²èÍë¡£\n",
-                "chair" : "Ò»¸öÊ¯Í·µÊ£¬½ÇÉÏÉÔÎ¢ÓĞĞ©ÆÆËğ¡£\n",
+                "table" : "ä¸€å¼ çŸ³å¤´æ¡Œï¼Œä¸Šé¢æ”¾ç€å‡ ä¸ªå¤§èŒ¶ç¢—ã€‚\n",
+                "chair" : "ä¸€ä¸ªçŸ³å¤´å‡³ï¼Œè§’ä¸Šç¨å¾®æœ‰äº›ç ´æŸã€‚\n",
         ]));
         set("objects", ([
                 __DIR__"npc/shami" : 1,
         ]));
-        set("outdoors", "¸£Öİ");
+        set("outdoors", "ç¦å·");
         set("no_fight", 1);
         setup();
 }
@@ -46,7 +46,7 @@ int serve_tea(object me)
 
         if (!present(me, this_object())) return 0;
         if (objectp(ob = present("xiao shami", environment(me)))){
-                message_vision("Ğ¡É³ÃÖ×ß¹ıÀ´£¬¸ø$Nµ¹ÁËÒ»±­²è¡£\n", me);
+                message_vision("å°æ²™å¼¥èµ°è¿‡æ¥ï¼Œç»™$Nå€’äº†ä¸€æ¯èŒ¶ã€‚\n", me);
                 new("/d/thd/obj/huacha.c")->move(environment(me));
                 me->set_temp("marks/tea_served", 1);
                 call_out("delete_served", 120, me);
@@ -63,20 +63,20 @@ int do_sit(string arg)
 {
         object me = this_player();
 
-        if (me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+        if (me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
         if (arg == "table" || arg == "zhuozi")
-                return notify_fail("ÄãÕıÒª×øÔÚ×À×ÓÉÏ£¬ÅÔ±ßµÄ¼¸¸öºº×ÓµÄÑÛ¾¦Ò»ÆğµÉÁË¹ıÀ´£¬Äã¼±Ã¦Ö±ÁËÖ±Ñü¡£\n");
+                return notify_fail("ä½ æ­£è¦ååœ¨æ¡Œå­ä¸Šï¼Œæ—è¾¹çš„å‡ ä¸ªæ±‰å­çš„çœ¼ç›ä¸€èµ·çªäº†è¿‡æ¥ï¼Œä½ æ€¥å¿™ç›´äº†ç›´è…°ã€‚\n");
 
         if ( !arg || (arg != "chair" && arg != "dengzi") )
-                return notify_fail("ÄãÕıÒª×øÔÚµØÉÏ£¬Ì§Í·¿´¼ûÅÔ±ßÒ»Î»ÒìĞÔµÄÄ¿¹âÉ¨¹ıÀ´£¬ÎªÁË²»Ó°ÏìĞÎÏó£¬ÄãÓÖÖ±ÑüÕ¾ÁËÆğÀ´¡£\n");
+                return notify_fail("ä½ æ­£è¦ååœ¨åœ°ä¸Šï¼ŒæŠ¬å¤´çœ‹è§æ—è¾¹ä¸€ä½å¼‚æ€§çš„ç›®å…‰æ‰«è¿‡æ¥ï¼Œä¸ºäº†ä¸å½±å“å½¢è±¡ï¼Œä½ åˆç›´è…°ç«™äº†èµ·æ¥ã€‚\n");
 
         if (me->query_temp("marks/sit"))
-                return notify_fail("ÄãÒÑ¾­×øÔÚ×ùÎ»ÉÏÁË¡£\n");
+                return notify_fail("ä½ å·²ç»ååœ¨åº§ä½ä¸Šäº†ã€‚\n");
 
-        message_vision("$NÕÒÁË¸ö¿ÕÎ»×ùÏÂ£¬µÈ×ÅÉÏ²è¡£\n", me);
+        message_vision("$Næ‰¾äº†ä¸ªç©ºä½åº§ä¸‹ï¼Œç­‰ç€ä¸ŠèŒ¶ã€‚\n", me);
         if( me->query_temp("marks/tea_served") ) {
-                message_vision("Ğ¡É³ÃÖ×ß¹ıÀ´¶Ô$NËµ£ºÊ©Ö÷£¬ºÈ±¥ÁËµÄ¾Í³öÈ¥°É£¬Çë±ğÕ¼×ÅµØ·½£¡\n", me);
-                message_vision("$N·¢¾õÖÚÈËµÄÑÛ¹â¶¼ÔÚ¶¢×Å×Ô¼º£¬Ã¦Õ¾ÆğÉíÀ´ŞÏŞÎµØËµ£ºÎÒÆäÊµÊÇÔÚ¿´ÕâÊ¯µÊÉÏµÄÂìÒÏ¡£\n", me);
+                message_vision("å°æ²™å¼¥èµ°è¿‡æ¥å¯¹$Nè¯´ï¼šæ–½ä¸»ï¼Œå–é¥±äº†çš„å°±å‡ºå»å§ï¼Œè¯·åˆ«å ç€åœ°æ–¹ï¼\n", me);
+                message_vision("$Nå‘è§‰ä¼—äººçš„çœ¼å…‰éƒ½åœ¨ç›¯ç€è‡ªå·±ï¼Œå¿™ç«™èµ·èº«æ¥å°´å°¬åœ°è¯´ï¼šæˆ‘å…¶å®æ˜¯åœ¨çœ‹è¿™çŸ³å‡³ä¸Šçš„èš‚èšã€‚\n", me);
                 return notify_fail("");
         }
         me->set_temp("marks/sit", 1);
@@ -90,9 +90,9 @@ int do_stand()
         object me = this_player();
 
         if (!me->query_temp("marks/sit"))
-                return notify_fail("ÄãÒÑ¾­Õ¾×ÅÁË£¬ÊÇ²»ÊÇÕ¾¾ÃÁËÓĞµã·¢»è°¡£¿\n");
+                return notify_fail("ä½ å·²ç»ç«™ç€äº†ï¼Œæ˜¯ä¸æ˜¯ç«™ä¹…äº†æœ‰ç‚¹å‘æ˜å•Šï¼Ÿ\n");
 
-        message_vision("$NÅÄÅÄÆ¨¹É£¬Õ¾ÁËÆğÀ´¡£\n", me);
+        message_vision("$Næ‹æ‹å±è‚¡ï¼Œç«™äº†èµ·æ¥ã€‚\n", me);
         me->delete_temp("marks/sit");
         return 1;
 }
@@ -100,10 +100,10 @@ int do_stand()
 int valid_leave(object me, string dir)
 {
         if (me->query_temp("marks/sit"))
-                return notify_fail("Äã´òËãÁ¬µÊ×ÓÒ²°á³öÈ¥£¿\n");
+                return notify_fail("ä½ æ‰“ç®—è¿å‡³å­ä¹Ÿæ¬å‡ºå»ï¼Ÿ\n");
 
         if (dir == "out" && present("moli huacha", me))
-                return notify_fail("Ğ¡É³ÃÖ×ß¹ıÀ´ËµµÀ£ºÊ©Ö÷£¬²è±­ÊÇÎÒÃÇËÂÀïµÄ£¬Çë±ğ´ø×ß¡£\n");
+                return notify_fail("å°æ²™å¼¥èµ°è¿‡æ¥è¯´é“ï¼šæ–½ä¸»ï¼ŒèŒ¶æ¯æ˜¯æˆ‘ä»¬å¯ºé‡Œçš„ï¼Œè¯·åˆ«å¸¦èµ°ã€‚\n");
 
         return ::valid_leave(me, dir);
 }

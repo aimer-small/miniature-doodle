@@ -1,11 +1,11 @@
-// caoyaoren.c ²ÉÒ©ÈË
+// caoyaoren.c é‡‡è¯äºº
 
 inherit NPC;
 void create()
 {
-	set_name("²ÉÒ©ÈË", ({ "caiyao ren",  "caiyaoren", "caiyao", "ren" }) );
-	set("long", "Ò»¸ö²ÉÒ©ÈË¡£\n");
-	set("gender","ÄĞĞÔ");
+	set_name("é‡‡è¯äºº", ({ "caiyao ren",  "caiyaoren", "caiyao", "ren" }) );
+	set("long", "ä¸€ä¸ªé‡‡è¯äººã€‚\n");
+	set("gender","ç”·æ€§");
 
 	set("age", 20+random(22));
 	set("str", 20);

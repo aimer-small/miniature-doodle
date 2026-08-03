@@ -1,38 +1,38 @@
-// xiuluo-dao.c ÐÞÂÞµ¶
+// xiuluo-dao.c ä¿®ç½—åˆ€
 
 inherit SKILL;
 #include <ansi.h>
 
 mapping *action = ({
 ([
-	"action" : "$Nµ¶·æ»Ø×ª£¬Á¬³öÊýµ¶£¬µ¶µ¶²»Àë$nµÄ$l",
+	"action" : "$Nåˆ€é”‹å›žè½¬ï¼Œè¿žå‡ºæ•°åˆ€ï¼Œåˆ€åˆ€ä¸ç¦»$nçš„$l",
 	"lvl" : 0,
-	"damage_type" : "¸îÉË"
+	"damage_type" : "å‰²ä¼¤"
 ]),
 ([
-	"action" : "$N×óÒ»µ¶£¬ÓÒÒ»µ¶£¬±ÆÖø$nÁ¬Á¬ºóÍË",
+	"action" : "$Nå·¦ä¸€åˆ€ï¼Œå³ä¸€åˆ€ï¼Œé€¼è‘—$nè¿žè¿žåŽé€€",
 	"lvl" : 20,
-	"damage_type" : "¸îÉË"
+	"damage_type" : "å‰²ä¼¤"
 ]),
 ([
-	"action" : "$NÍ»È»µ¶½»×óÊÖ£¬Ò»µ¶¿³Ïò$nµÄ$l£¬$n¾ª»ÅÖ®ÏÂ£¬Ö»µÃÏòºó¼±ÍË",
+	"action" : "$Nçªç„¶åˆ€äº¤å·¦æ‰‹ï¼Œä¸€åˆ€ç å‘$nçš„$lï¼Œ$næƒŠæ…Œä¹‹ä¸‹ï¼Œåªå¾—å‘åŽæ€¥é€€",
 	"lvl" : 50,
-	"damage_type" : "¸îÉË"
+	"damage_type" : "å‰²ä¼¤"
 ]),
 ([
-	"action" : "$NÊ©Õ¹³öÌúÕÆÕÆ·¨£¬×óÊÖÁ¬ÅÄ£¬$nÍù×óÒ»±Ü£¬Õý×²ÉÏµ¶·æÀ´Â·",
+	"action" : "$Næ–½å±•å‡ºé“æŽŒæŽŒæ³•ï¼Œå·¦æ‰‹è¿žæ‹ï¼Œ$nå¾€å·¦ä¸€é¿ï¼Œæ­£æ’žä¸Šåˆ€é”‹æ¥è·¯",
 	"lvl" : 80,
-	"damage_type" : "¸îÉË"
+	"damage_type" : "å‰²ä¼¤"
 ]),
 ([
-	"action" : "$Nµ¶µ¶Á¬»·£¬²»µÈÕÐÊýÊ¹ÀÏ±ãÒÑ±äÕÐ£¬Ê®Áùµ¶Á¬ÐøÍù$nµÄ$lÕÐºô",
+	"action" : "$Nåˆ€åˆ€è¿žçŽ¯ï¼Œä¸ç­‰æ‹›æ•°ä½¿è€ä¾¿å·²å˜æ‹›ï¼Œåå…­åˆ€è¿žç»­å¾€$nçš„$læ‹›å‘¼",
 	"lvl" : 120,
-	"damage_type" : "¸îÉË"
+	"damage_type" : "å‰²ä¼¤"
 ]),
 ([
-	"action" : "$N¹Â×¢Ò»ÖÀ£¬¼¯È«ÉíÖ®Á¦ÓÚµ¶·æÉÏ£¬Ïò$nÒ»»÷¿³³ö",
+	"action" : "$Nå­¤æ³¨ä¸€æŽ·ï¼Œé›†å…¨èº«ä¹‹åŠ›äºŽåˆ€é”‹ä¸Šï¼Œå‘$nä¸€å‡»ç å‡º",
 	"lvl" : 160,
-	"damage_type" : "¸îÉË"
+	"damage_type" : "å‰²ä¼¤"
 ]),
 });
 
@@ -44,11 +44,11 @@ int valid_learn(object me)
 
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	if ((int)me->query("max_neili") < 50)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 	if ((int)me->query_skill("guiyuan-tunafa", 1) < 10)
-		return notify_fail("ÄãµÄ¹éÔªÍÂÄÉ·¨»ðºòÌ«Ç³¡£\n");
+		return notify_fail("ä½ çš„å½’å…ƒåçº³æ³•ç«å€™å¤ªæµ…ã€‚\n");
 	return 1;
 }
 
@@ -92,9 +92,9 @@ int practice_skill(object me)
 	while (i--) if (lvl == action[i]["lvl"]) return 0;
 
 	if ( me->query("jingli") < 40)
-		return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·ÁøÒ¶µ¶·¨¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒæŸ³å¶åˆ€æ³•ã€‚\n");
 	if ( me->query("neili") < 20)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·ÁøÒ¶µ¶·¨¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒæŸ³å¶åˆ€æ³•ã€‚\n");
         me->receive_damage("jingli", 30);
 	me->add("neili", -10);
 	return 1;

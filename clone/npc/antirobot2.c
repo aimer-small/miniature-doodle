@@ -6,7 +6,7 @@ inherit NPC;
 
 string key="";
 string ans=" ";
-string str = "ÒøÒíÉ±ÊÖËµµÀ£ºÇëÓÃ answer »Ø´ğ£¬ÏÂÃæÕâĞĞÓ¢ÎÄÖĞ³öÏÖÁËÕıºÃ";
+string str = "é“¶ç¿¼æ€æ‰‹è¯´é“ï¼šè¯·ç”¨ answer å›ç­”ï¼Œä¸‹é¢è¿™è¡Œè‹±æ–‡ä¸­å‡ºç°äº†æ­£å¥½";
 
 #include "antirobot.h";
 
@@ -23,13 +23,13 @@ int do_answer(string arg)
     	object obj = this_player();
 
     	if (obj != ob) return 0;
-    	if (!arg || strlen(arg) > 1) return notify_fail("´ğ°¸ÊÇÒ»¸ö×ÖÄ¸£¬ÔÙ×ĞÏ¸ÏëÏë¡£\n");
+    	if (!arg || strlen(arg) > 1) return notify_fail("ç­”æ¡ˆæ˜¯ä¸€ä¸ªå­—æ¯ï¼Œå†ä»”ç»†æƒ³æƒ³ã€‚\n");
     	if (arg==ans) {
-        	message_vision("$NµãÁËµãÍ·£¬ËµµÀ£ºOK£¬$n¼ÌĞøÃ¦°É¡£\n", me, ob);
-        	message_vision("$NÍ»È»ÏûÊ§²»¼ûÁË¡£\n", me);
+        	message_vision("$Nç‚¹äº†ç‚¹å¤´ï¼Œè¯´é“ï¼šOKï¼Œ$nç»§ç»­å¿™å§ã€‚\n", me, ob);
+        	message_vision("$Nçªç„¶æ¶ˆå¤±ä¸è§äº†ã€‚\n", me);
     	} 
     	else {
-        	message_vision("$NÌ¾ÁË¿ÚÆøµÀ£º"+arg+"£¿"+ans+"²Å¶Ô£¬ÕâÃ´¼òµ¥¶¼´ğ²»³ö£¿È¥·¨Í¥½ÓÊÜñöÑ¶°É£¡\n", me);
+        	message_vision("$Nå¹äº†å£æ°”é“ï¼š"+arg+"ï¼Ÿ"+ans+"æ‰å¯¹ï¼Œè¿™ä¹ˆç®€å•éƒ½ç­”ä¸å‡ºï¼Ÿå»æ³•åº­æ¥å—è†è®¯å§ï¼\n", me);
         	move_to_court(ob);
     	}
     	destruct(this_object());
@@ -45,9 +45,9 @@ void test_robot(object obj)
     	ob = obj;
     	if (environment(ob) && !ob->is_fighting()) {
         	me->move(environment(ob), 1);
-        	message_vision("$NºöÈ»³öÏÖÔÚ$nÃæÇ°£¡\n", me, ob);
+        	message_vision("$Nå¿½ç„¶å‡ºç°åœ¨$né¢å‰ï¼\n", me, ob);
         	set_leader(ob);
-        	tell_object(ob, "ÒøÒíÉ±ÊÖÂÔ´øÇ¸ÒâµØËµ£º¡°»úÆ÷ÈË»ü²é£¬ÀıĞĞ¹«ÊÂ£¬Çë»Ø´ğÒ»¸öĞ¡ÎÊÌâ¡£¡±\n");
+        	tell_object(ob, "é“¶ç¿¼æ€æ‰‹ç•¥å¸¦æ­‰æ„åœ°è¯´ï¼šâ€œæœºå™¨äººç¨½æŸ¥ï¼Œä¾‹è¡Œå…¬äº‹ï¼Œè¯·å›ç­”ä¸€ä¸ªå°é—®é¢˜ã€‚â€\n");
         	temp = len = random(5)*2+7;
         	t1 = random(26);
         	while (temp--) {
@@ -58,7 +58,7 @@ void test_robot(object obj)
         	t1 += 'a';
         	ans[0] = t1;
         	temp = random(len/2) + len/2 + 1;
-        	str += chinese_number(temp)+"´ÎµÄ×ÖÄ¸ÊÇ£¿\n";
+        	str += chinese_number(temp)+"æ¬¡çš„å­—æ¯æ˜¯ï¼Ÿ\n";
         	while (temp--) {
             		do t3 = random(len); while (key[t3]==t1);
             		key[t3] = t1;

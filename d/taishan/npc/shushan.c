@@ -1,4 +1,4 @@
-// shushan.c µ¥ÊåÉ½
+// shushan.c å•å”å±±
 // by pishou
 
 #include <ansi.h>
@@ -7,12 +7,12 @@ inherit NPC;
 
 void create()
 {
-    set_name("µ¥ÊåÉ½", ({ "shan shushan", "shan", "shushan" }) );
-	set("gender", "ÄĞĞÔ");
+    set_name("å•å”å±±", ({ "shan shushan", "shan", "shushan" }) );
+	set("gender", "ç”·æ€§");
         set("age", 30);
 	set("long",
-        "ËûÊÇÌ©É½¡°ÌúÃæÅĞ¹Ù¡±µ¥ÕıµÄÈı¶ù×Óµ¥ÊåÉ½¡£\n"
-        "Å¨Ã¼´óºº, ÓëÖÚĞÖµÜÈİÃ²ÉõÎªÏàËÆ¡£\n");
+        "ä»–æ˜¯æ³°å±±â€œé“é¢åˆ¤å®˜â€å•æ­£çš„ä¸‰å„¿å­å•å”å±±ã€‚\n"
+        "æµ“çœ‰å¤§æ±‰, ä¸ä¼—å…„å¼Ÿå®¹è²Œç”šä¸ºç›¸ä¼¼ã€‚\n");
         set("combat_exp", 40000);
         set("shen_type", 1);
         set("unique", 1);

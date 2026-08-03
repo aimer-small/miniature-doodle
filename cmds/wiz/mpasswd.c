@@ -12,7 +12,7 @@ int main(object me, string arg)
 	len = atoi(arg);
 
 	if( (len < 12) || (len > 20) )
-		return notify_fail("Ëæ»úÃÜÂëÖ»ÄÜ 12-20 Î»¡£\n");
+		return notify_fail("éšæœºå¯†ç åªèƒ½ 12-20 ä½ã€‚\n");
 
 	sz = sizeof(Random_Passwd);
 
@@ -35,7 +35,7 @@ int main(object me, string arg)
 	}
 	while(!cap || !low || !num);
 
-	printf("ÄãÏ£ÍûµÄ %d Î»Ëæ»úÃÜÂëÈçÏÂ£º\n%s\n\n", len, passwd);
+	printf("ä½ å¸Œæœ›çš„ %d ä½éšæœºå¯†ç å¦‚ä¸‹ï¼š\n%s\n\n", len, passwd);
 
 	return 1;
 }
@@ -43,11 +43,11 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: mpasswd Ëæ»úÃÜÂëµÄÎ»Êı
+æŒ‡ä»¤æ ¼å¼: mpasswd éšæœºå¯†ç çš„ä½æ•°
 
-Õâ¸öÖ¸Áî°ïÖúÎ×Ê¦Éú³ÉÒ»¸öÖ¸¶¨Î»Êı£¬·û
-ºÏÎ×Ê¦ÃÜÂëÒªÇóµÄËæ»úÃÜÂë¡£
-ÔÊĞíµÄÎ»ÊıÎª 12-20 Î»¡£
+è¿™ä¸ªæŒ‡ä»¤å¸®åŠ©å·«å¸ˆç”Ÿæˆä¸€ä¸ªæŒ‡å®šä½æ•°ï¼Œç¬¦
+åˆå·«å¸ˆå¯†ç è¦æ±‚çš„éšæœºå¯†ç ã€‚
+å…è®¸çš„ä½æ•°ä¸º 12-20 ä½ã€‚
 
 HELP
 	);

@@ -1,4 +1,4 @@
-// tiejiang.c Ìú½³
+// tiejiang.c é“åŒ 
 
 inherit NPC;
 inherit F_VENDOR;
@@ -7,13 +7,13 @@ int ask_me();
  
 void create()
 {
-	set_name("Ìú½³", ({ "tie jiang", "tie", "jiang" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("é“åŒ ", ({ "tie jiang", "tie", "jiang" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 34);
-	set("long", "ÕâÊÇÒ»Î»Î»ÕıÔÚÂÕ×Å´óÌú´¸£¬¶£¶£µ±µ±µÄ´òÌúµÄÌú½³¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ä½ä½æ­£åœ¨æŠ¡ç€å¤§é“é”¤ï¼Œå®å®å½“å½“çš„æ‰“é“çš„é“åŒ ã€‚\n");
 	set("combat_exp", 30000);
 	set("attitude", "peaceful");
-	set("rank_info/respect", "Ìú½³");
+	set("rank_info/respect", "é“åŒ ");
 	set("vendor_goods", ({
 		(["name":__DIR__"obj/changjian","number":15]),
 		(["name":__DIR__"obj/gangjian","number":20]),
@@ -23,11 +23,11 @@ void create()
 		(["name":__DIR__"obj/bishou","number":10])
 	}));
 	set("inquiry", ([
-		"name" : "±¾ÈËĞÕÍõ£¬´òĞ¡¾Í×¡ÔÚËÕÖİ³Ç£¬ÄãÏëÎÊÉ¶£¿\n",
-		"rumors" : "ÎÒµù±»³¯Í¢À­È¥ĞŞÔËºÓ£¬ËûÀÏÈË¼ÒÉí×Ó¹Ç²»ºÃ£¬Ç°Ğ©Ìì²»ĞÒÊÅÈ¥ÁË¡£\n",
-		"here" : "ÕâÀïÊÇ³ÇÀïÎ¨Ò»µÄ´òÌúÆÌÁË£¬Ê²Ã´ÈË¶¼µ½ÎÒÕâÀïÀ´´ò¶«Î÷¡£\n",
-		"Ìú³ú": (: ask_me :),
-		"³úÍ·": "³úÍ·... ±§Ç¸£¬³úÍ·ÒÑ¾­Âô¹âÁË...", 
+		"name" : "æœ¬äººå§“ç‹ï¼Œæ‰“å°å°±ä½åœ¨è‹å·åŸï¼Œä½ æƒ³é—®å•¥ï¼Ÿ\n",
+		"rumors" : "æˆ‘çˆ¹è¢«æœå»·æ‹‰å»ä¿®è¿æ²³ï¼Œä»–è€äººå®¶èº«å­éª¨ä¸å¥½ï¼Œå‰äº›å¤©ä¸å¹¸é€å»äº†ã€‚\n",
+		"here" : "è¿™é‡Œæ˜¯åŸé‡Œå”¯ä¸€çš„æ‰“é“é“ºäº†ï¼Œä»€ä¹ˆäººéƒ½åˆ°æˆ‘è¿™é‡Œæ¥æ‰“ä¸œè¥¿ã€‚\n",
+		"é“é”„": (: ask_me :),
+		"é”„å¤´": "é”„å¤´... æŠ±æ­‰ï¼Œé”„å¤´å·²ç»å–å…‰äº†...", 
 	]));
 	setup();
 	carry_object(ARMOR_D("cloth"))->wear();
@@ -51,10 +51,10 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	switch( random(2) ) {
 		case 0:
-			say( "Ìú½³Ğ¦ßäßäµØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬ÕâÀïÖ»ÒªÊÇÌúµÄ¼Ò»ï£¬Ó¦ÓĞ¾¡ÓĞ¡£\n");
+			say( "é“åŒ ç¬‘å’ªå’ªåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œè¿™é‡Œåªè¦æ˜¯é“çš„å®¶ä¼™ï¼Œåº”æœ‰å°½æœ‰ã€‚\n");
 			break;
 		case 1:
-			say( "Ìú½³Ğ¦ºÇºÇµØËµ£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬ÄúÏëÒªµãÊ²Ã´£¿\n");
+			say( "é“åŒ ç¬‘å‘µå‘µåœ°è¯´ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œæ‚¨æƒ³è¦ç‚¹ä»€ä¹ˆï¼Ÿ\n");
 			break;
 	}
 }
@@ -67,14 +67,14 @@ int ask_me()
 	ob = this_player();
         
 	if ( present("tie chu", ob) ) {
-		command("say Äã²»ÊÇÓĞÁËÂğ£¬»¹ÏëÒªÊ²÷á£¿\n");
+		command("say ä½ ä¸æ˜¯æœ‰äº†å—ï¼Œè¿˜æƒ³è¦ä»€éº½ï¼Ÿ\n");
 		return 1;
 	}
 	command("look " + ob->query("id")); 
-	command("say ÕâÀïÕıºÃÓĞÒ»°ÑÌú³úÃ»Ê²÷áÓÃ£¬ÄãÒª¾ÍÄÃÈ¥°É¡£\n");
+	command("say è¿™é‡Œæ­£å¥½æœ‰ä¸€æŠŠé“é”„æ²¡ä»€éº½ç”¨ï¼Œä½ è¦å°±æ‹¿å»å§ã€‚\n");
 	chu = new("/d/huashan/jinshe/obj/tiechu");
 	chu->set("no_sell", 1);
 	chu->move(ob);
-	message_vision("$N¸øÁË$nÒ»°ÑÌú³ú¡£\n", me, ob);
+	message_vision("$Nç»™äº†$nä¸€æŠŠé“é”„ã€‚\n", me, ob);
 	return 1;
 }

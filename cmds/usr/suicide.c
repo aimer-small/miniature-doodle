@@ -6,27 +6,27 @@
 int main(object me, string arg)
 {
 	if (wiz_level(me)) {
-		return notify_fail("��ʦ�����������ɱ���������ʱ��ʲô�벻���ģ����Ƕ�ʹ�����İɡ�\n");
+		return notify_fail("巫师不可以随便自杀。如果你暂时有什么想不开的，还是多和大家聊聊吧。\n");
 	}
 
 	if( me->is_busy() )
-		return notify_fail("����һ��������û��ɡ�\n");
+		return notify_fail("你上一个动作还没完成。\n");
 
 	if( !arg || arg != "-f") {
-		write("���� suicide -f ȷ����ɱ��\n");
+		write("请用 suicide -f 确定自杀。\n");
 		return 1;
 	}
 
-	if (me->is_ghost()) return notify_fail("������ɱ��û��˵����\n");
+	if (me->is_ghost()) return notify_fail("鬼魂自杀？没听说过。\n");
 	if (environment(me)->query("no_fight"))
-		return notify_fail("�����ƺ�û����ɱ��������\n");
+		return notify_fail("这里似乎没有自杀的条件。\n");
 
 	if (!me->query_temp("link_ob"))
-		return notify_fail("�㲻���������߽���ģ�������ɱ��\n");
+		return notify_fail("你不是正常连线进入的，不能自杀。\n");
 
 	write(
-		"ѡ����ɱ��ζ�������������Ͼ���Զɾ���ˣ�����ؿ��������\n"
-		"ȷ���Ļ��������������룺");
+		"选择自杀意味着这个人物的资料就永远删除了，请务必考虑清楚，\n"
+		"确定的话请输入您的密码：");
 	input_to("check_password", 1, me, 1);
 	return 1;
 }
@@ -39,13 +39,13 @@ private void check_password(string passwd, object me, int forever)
 	link_ob = me->query_temp("link_ob");
 	old_pass = link_ob->query("password");
 	if( crypt(passwd, old_pass)!=old_pass ) {
-		write("�������\n");
+		write("密码错误！\n");
 		return;
 	}
 
 	if (forever) {
-		tell_object( me, HIR "\n�����Ҫ��ɱ�ˣ���������ˡ�\n\n" NOR);
-//		if (!wiz_level(me)) CHANNEL_D->do_channel(this_object(),"rumor",me->short(1) + "����Ҫ��ɱ�ˡ�");
+		tell_object( me, HIR "\n你决定要自杀了，真的永别了。\n\n" NOR);
+//		if (!wiz_level(me)) CHANNEL_D->do_channel(this_object(),"rumor",me->short(1) + "决定要自杀了。");
 		me->set_temp("suicide_countdown", 6);
 		me->start_busy( (: call_other, this_object(), "slow_suicide" :),
 			(: call_other, this_object(), "halt_suicide" :) );
@@ -63,7 +63,7 @@ name = me->query("id");
 	stage = me->add_temp("suicide_countdown", -1);
 	if( stage > 1 ) {
 		if( stage%5 == 0 )
-			tell_object(me, HIR "�㻹��" + chinese_number(stage+stage) + "�������ʱ�䣬��ֹͣ���� halt��\n" NOR);
+			tell_object(me, HIR "你还有" + chinese_number(stage+stage) + "秒的生存时间，想停止可以 halt。\n" NOR);
 		return 1;
 	}
 
@@ -71,9 +71,9 @@ name = me->query("id");
 		sprintf("%s suicide on %s\n", geteuid(me), ctime(time())) );
            rm(DATA_DIR + "career/" + name[0..0] + "/" + name + ".o");
 	seteuid(getuid());
-	write("�ðɣ�������:)��\n");
+	write("好吧，永别了:)。\n");
 	if (me->query("g_title") && me->query("g_level") == 1)
-		log_file( "group", sprintf("%s %s ��ɢ��%s ( %s ) ��ɱ��\n", ctime(time())[4..19],
+		log_file( "group", sprintf("%s %s 解散，%s ( %s ) 自杀。\n", ctime(time())[4..19],
 			me->query("g_title"), me->query("name"), me->query("id")));
 	if( !wiz_level(me) ) {
 		int i;
@@ -106,8 +106,8 @@ name = me->query("id");
 //		rename(me->query_save_file() + SAVE_EXTENSION, me->query_save_file() + ".ooo");
 	}
 	tell_room(environment(me), me->name() +
-		"��ɱ�ˣ��Ժ�����Ҳ������������ˡ�\n", ({me}));
-//	if (!wiz_level(me)) CHANNEL_D->do_channel(this_object(),"rumor",me->short(1) + "��ɱ�ˣ��Ժ�����Ҳ������������ˡ�");
+		"自杀了，以后你再也看不到这个人了。\n", ({me}));
+//	if (!wiz_level(me)) CHANNEL_D->do_channel(this_object(),"rumor",me->short(1) + "自杀了，以后你再也见不到这个人了。");
 	destruct(link_ob);
 	destruct(me);
 	return 0;
@@ -115,26 +115,26 @@ name = me->query("id");
 
 int halt_suicide(object me)
 {
-	tell_object(me, "���������ɱ����ͷ��\n");
+	tell_object(me, "你放弃了自杀的念头。\n");
 	if (!wiz_level(me)) {
-//		CHANNEL_D->do_channel(this_object(),"rumor",me->name(1) + "���������¸ҵػ���ȥ��");
+//		CHANNEL_D->do_channel(this_object(),"rumor",me->name(1) + "决定继续勇敢地活下去。");
                 me->start_busy(6);
 	}
-	notify_fail("�������˳�ʱ��ĳ�˼֮�С�\n");
+	notify_fail("你陷入了长时间的沉思之中。\n");
 	return 1;
 }
 
 int help (object me)
 {
 	write(@HELP
-ָ���ʽ: suicide [-f]
+指令格式: suicide [-f]
 
-�����Ϊĳ��ԭ���㲻����ˣ������ѡ����ɱ��
+如果因为某种原因你不想活了，你可以选择自杀：
 
-suicide -f : ��Զ�ĳ�ȥ�������, ϵͳ��Ҫ��������������ȷ�����ݡ�
+suicide -f : 永远的除去玩家资料, 系统会要求你输入密码以确认身份。
 
-ϵͳ��Ծ��� 20K ������֮������Ͻ����Զ����沢��ȥ 10% �ľ������Ӧ�ĵȼ��� 
-ͬʱû�����вƲ���������ѡ�� :)
+系统会对经验 20K 或以上之玩家资料进行自动保存并扣去 10% 的经验和相应的等级。 
+同时没收所有财产。请慎重选择 :)
 HELP
 );
 	return 1;

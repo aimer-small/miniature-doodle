@@ -13,7 +13,7 @@ int main(object me,string arg)
 
         status = wizhood(me);
         if( me!=this_player(1) ||wiz_level(me) <wiz_level(status) )
-                return notify_fail("ÄãÃ»ÓÐÈ¨Á¦Ê¹ÓÃÕâ¸öÖ¸Áî¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰æƒåŠ›ä½¿ç”¨è¿™ä¸ªæŒ‡ä»¤ã€‚\n");
         if(arg)
                 return help(me);
         return check_multilogin();
@@ -56,7 +56,7 @@ private int check_multilogin()
         }
         for (i=0;i<s1;i++)
                 multy[i]=multy[i]-({0});
-        printf(BBLU HIW"%s\t\t%s    %s\t\t\t\t\n" NOR,"IP µØÖ·","ÈËÊý", "ÈËÎï±êÊ¶ID");
+        printf(BBLU HIW"%s\t\t%s    %s\t\t\t\t\n" NOR,"IP åœ°å€","äººæ•°", "äººç‰©æ ‡è¯†ID");
         write ("----------------------------------------------------------------\n");
         for (i=0;i<s1;i++) {
                 printf("%s\t%d\t",ip_addr[i],count[i]);
@@ -65,7 +65,7 @@ private int check_multilogin()
                 printf("\n");
         }
         write ("----------------------------------------------------------------\n");
-        printf ("ÏÖÔÚ¹²ÓÐ"+ HIC +"%s"+ NOR +"¸öÍæ¼Ò£¬" + HIC "%s" + NOR + "¸ö²»Í¬µÄIPµØÖ·¡£\n",
+        printf ("çŽ°åœ¨å…±æœ‰"+ HIC +"%s"+ NOR +"ä¸ªçŽ©å®¶ï¼Œ" + HIC "%s" + NOR + "ä¸ªä¸åŒçš„IPåœ°å€ã€‚\n",
                 chinese_number(s), chinese_number(s1));
 
         return 1;
@@ -75,10 +75,10 @@ int help(object me)
 {
         write(@TEXT
 
-Ö¸Áî¸ñÊ½£ºip
+æŒ‡ä»¤æ ¼å¼ï¼šip
 
-Õâ¸öÖ¸ÁîÊÇÈÃÄã¼ì²éÄ¿Ç°ÓÎÏ·ÖÐ¹²ÓÐ¶àÉÙ¸öÏàÍ¬µÄIP£¬Ïà¹Ø
-Ö¸Áî£ºmcheck¡£
+è¿™ä¸ªæŒ‡ä»¤æ˜¯è®©ä½ æ£€æŸ¥ç›®å‰æ¸¸æˆä¸­å…±æœ‰å¤šå°‘ä¸ªç›¸åŒçš„IPï¼Œç›¸å…³
+æŒ‡ä»¤ï¼šmcheckã€‚
 
 TEXT);
         return 1;

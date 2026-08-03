@@ -3,21 +3,21 @@
 inherit ITEM;
 void create()
 {
-        set_name(HIW "±øÆ÷¼Ü" NOR, ({ "bingqi jia", "jia" }) );         
+        set_name(HIW "å…µå™¨æ¶" NOR, ({ "bingqi jia", "jia" }) );         
         set_weight(30000000);
         if( clonep() )
                 set_default_object(__FILE__);
         else{
-        set("unit", "¸ö");
-        set("long", "ÕâÊÇÒ»¸ö×¨ÃÅÓÃÀ´·Å¸÷ÖÖ±øÆ÷µÄ¼Ü×Ó¡£
-ÀïÃæÓĞ£º
-       ±Ş(bian)£¬        µ¶(dao)£¬ 
-       ¹÷(gun)£¬         °ô(bang)£¬
-       ÕÈ(gangzhang)£¬   ½£(jian)£¬
-       ´¸(chui)£¬        Áî(ling)£¬ 
+        set("unit", "ä¸ª");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªä¸“é—¨ç”¨æ¥æ”¾å„ç§å…µå™¨çš„æ¶å­ã€‚
+é‡Œé¢æœ‰ï¼š
+       é­(bian)ï¼Œ        åˆ€(dao)ï¼Œ 
+       æ£(gun)ï¼Œ         æ£’(bang)ï¼Œ
+       æ–(gangzhang)ï¼Œ   å‰‘(jian)ï¼Œ
+       é”¤(chui)ï¼Œ        ä»¤(ling)ï¼Œ 
 
-µÈÎäÆ÷»¤¾ß¡£\n
-ÃüÁî¸ñÊ½: na <±øÆ÷Ãû³Æ> from jia \n");
+ç­‰æ­¦å™¨æŠ¤å…·ã€‚\n
+å‘½ä»¤æ ¼å¼: na <å…µå™¨åç§°> from jia \n");
         set("material","wood");
         set("no_get",1);
         }
@@ -35,13 +35,13 @@ int do_get(string arg)
        string arg1,arg2;
        me=this_player();
        if(!arg || sscanf(arg, "%s from %s", arg1, arg2)!=2)
-            return notify_fail("ÃüÁî¸ñÊ½: na <±øÆ÷Ãû³Æ> from jia¡£\n");
+            return notify_fail("å‘½ä»¤æ ¼å¼: na <å…µå™¨åç§°> from jiaã€‚\n");
        if (arg2!="jia")
-            return notify_fail("ÃüÁî¸ñÊ½: na <±øÆ÷Ãû³Æ> from jia¡£\n");
-       if(me->query_temp("marks/ÄÃ"))
-            return notify_fail("ÄãÒÑ¾­ÄÃ¹ıÁË¡£\n");
+            return notify_fail("å‘½ä»¤æ ¼å¼: na <å…µå™¨åç§°> from jiaã€‚\n");
+       if(me->query_temp("marks/æ‹¿"))
+            return notify_fail("ä½ å·²ç»æ‹¿è¿‡äº†ã€‚\n");
 //     if(present(arg1, me) || present(arg1, environment()))
-//          return notify_fail("ÒÑ¾­ÓĞÕâÑù¶«Î÷ÁË¡£\n");
+//          return notify_fail("å·²ç»æœ‰è¿™æ ·ä¸œè¥¿äº†ã€‚\n");
        switch (arg1){
           case "jian": ob=new("/clone/weapon/changjian"); break;             
           case "dao": ob=new("/clone/weapon/blade"); break;   
@@ -52,13 +52,13 @@ int do_get(string arg)
           case "chui": ob=new("clone/weapon/tiechui"); break;
           case "bang": ob=new("clone/weapon/zhubang"); break; 
           default :
-                 return notify_fail("Ã»ÓĞÕâÖÖ±øÆ÷¡£\n");
+                 return notify_fail("æ²¡æœ‰è¿™ç§å…µå™¨ã€‚\n");
        }
        if(ob){
        	 ob->set("value", 10);
        	 ob->move(me);
        }
-       message_vision("$N´Ó±øÆ÷¼ÜÉÏÄÃ³öÒ»¼ş$n¡£\n",me, ob); 
-       me->set_temp("marks/ÄÃ",1);
+       message_vision("$Nä»å…µå™¨æ¶ä¸Šæ‹¿å‡ºä¸€ä»¶$nã€‚\n",me, ob); 
+       me->set_temp("marks/æ‹¿",1);
        return 1;
 }

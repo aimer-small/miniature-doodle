@@ -1,4 +1,4 @@
-// huolang.c »õÀÉ
+// huolang.c è´§éƒ
 // By River@SJ
 
 inherit NPC;
@@ -9,11 +9,11 @@ string ask_he();
 
 void create()
 {
-	set_name("»õÀÉ", ({ "huo lang", "lang", "huo" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("è´§éƒ", ({ "huo lang", "lang", "huo" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 50+random(15));
-	set("long",  "Ò»¸ö°×·¢²Ô²ÔµÄÀÏÎÌ£¬Ìô×Å»õ¼Ü×ß½Ö´®Ïï£¬×¨ÃÅÂôĞ©ÓĞÇéÈËµÄÎïÊ²£¬\n"+
-		"ÓĞ×ÅÒ»¸±ÈÃÈËÒ»¿´¾Í¸Ğµ½Ç×½üµÄºÍÉÆµÄĞ¦Èİ¡£\n");
+	set("long",  "ä¸€ä¸ªç™½å‘è‹è‹çš„è€ç¿ï¼ŒæŒ‘ç€è´§æ¶èµ°è¡—ä¸²å··ï¼Œä¸“é—¨å–äº›æœ‰æƒ…äººçš„ç‰©ä»€ï¼Œ\n"+
+		"æœ‰ç€ä¸€å‰¯è®©äººä¸€çœ‹å°±æ„Ÿåˆ°äº²è¿‘çš„å’Œå–„çš„ç¬‘å®¹ã€‚\n");
 	set("combat_exp", 30000);
 	set("no_quest", 1);
 	set("per", 20);
@@ -23,7 +23,7 @@ void create()
 	set("location", 1);
 
 	set("inquiry", ([
-		"Ö½º×" : (: ask_he :),
+		"çº¸é¹¤" : (: ask_he :),
 	]));
 
 	set("chat_chance", 10);
@@ -52,15 +52,15 @@ string ask_he()
 	object me = this_player();
 	if (objectp(present("jin zhihe", me))) {
 		command("pat "+ me->query("id"));
-		return "×ĞÏ¸¶à¿´¿´½ğÖ½º×µÄÕÛµş·½·¨°É¡£";
+		return "ä»”ç»†å¤šçœ‹çœ‹é‡‘çº¸é¹¤çš„æŠ˜å æ–¹æ³•å§ã€‚";
 	}
 	if ( me->query_temp("make_zhihe/done")) {
 		command("congra "+ me->query("id"));
-		return "ÕâÎ»"+RANK_D->query_respect(me)+"£¬¿ÉÕæÓĞÒãÁ¦£¬ÒÑ¾­ÓĞÒ»Ç§Ö»Ö½º×ÁË¡£";
+		return "è¿™ä½"+RANK_D->query_respect(me)+"ï¼Œå¯çœŸæœ‰æ¯…åŠ›ï¼Œå·²ç»æœ‰ä¸€åƒåªçº¸é¹¤äº†ã€‚";
 	}
-	message_vision(CYN"»õÀÉÉñÃØµØĞ¦µÀ£º¡¸ÕâÎ»"+RANK_D->query_respect(me)+"¿ÉÊÇÒª¸ø×Ô¼ºµÄÈË¶ùµşº×Ã´¡£¡¹\n"NOR,me);
+	message_vision(CYN"è´§éƒç¥ç§˜åœ°ç¬‘é“ï¼šã€Œè¿™ä½"+RANK_D->query_respect(me)+"å¯æ˜¯è¦ç»™è‡ªå·±çš„äººå„¿å é¹¤ä¹ˆã€‚ã€\n"NOR,me);
 	me->set_temp("make_zhihe/ask", 1);
-	return "²»¹ı£¬Õâ¸öÕâ¸ö.....";
+	return "ä¸è¿‡ï¼Œè¿™ä¸ªè¿™ä¸ª.....";
 }
 
 int accept_object(object me, object obj)
@@ -70,33 +70,33 @@ int accept_object(object me, object obj)
 		if( me->query_temp("make_zhihe/ask")){
 			if( obj->value() >= 10000 ) {
 				command("haha " + me->query("id"));
-				command("say ÕâÎ»"+RANK_D->query_respect(me)+"¿ÉÕæÊÇÓĞĞÄÈË,¼ÈÊÇÈç´Ë,Õâµşº×µÄ·½¶ùÎÒ¾Í´«ÁËÄã°É¡£");
+				command("say è¿™ä½"+RANK_D->query_respect(me)+"å¯çœŸæ˜¯æœ‰å¿ƒäºº,æ—¢æ˜¯å¦‚æ­¤,è¿™å é¹¤çš„æ–¹å„¿æˆ‘å°±ä¼ äº†ä½ å§ã€‚");
 				he=new(MISC_D("jinhe"));
 				he->set("owner", me->query("id"));
 				he->move(me);
-				message_vision("»õÀÉ¸øÁË$NÒ»Ö»"HIY"½ğÖ½º×"NOR"¡£\n", me);
+				message_vision("è´§éƒç»™äº†$Nä¸€åª"HIY"é‡‘çº¸é¹¤"NOR"ã€‚\n", me);
 				me->delete_temp("make_zhihe/ask");
 				return 1;
 			}
 			else {
-				command("say ²ÅÕâÃ´µãÇ®ÄÜ¸ÉÊ²Ã´£¿");
+				command("say æ‰è¿™ä¹ˆç‚¹é’±èƒ½å¹²ä»€ä¹ˆï¼Ÿ");
 				return 1;
 			}
 		}
 		else {
 			command("wah");
-			command("say ÄÇ¾Í¶àĞ»ÁË£¡");
+			command("say é‚£å°±å¤šè°¢äº†ï¼");
 			return 1;
 		}
 	}
 	command("? " + me->query("id"));
-	command("say ÎÒ¶Ô"+obj->name()+"²»Ï¡º±¡£");
+	command("say æˆ‘å¯¹"+obj->name()+"ä¸ç¨€ç½•ã€‚");
 	return 0;
 }
 
 void unconcious()
 {
-	say("\n»õÀÉÉìÊÖÔÚ»³ÀïÃş³öÒ»Á£Ò©ÍèÀ´ÈûÔÚ×ìÀï£¬Æ¬¿ÌÖ®¼ä¾ÍÓÖ»Ö¸´ÁË¾«Éñ¡£\n");
+	say("\nè´§éƒä¼¸æ‰‹åœ¨æ€€é‡Œæ‘¸å‡ºä¸€ç²’è¯ä¸¸æ¥å¡åœ¨å˜´é‡Œï¼Œç‰‡åˆ»ä¹‹é—´å°±åˆæ¢å¤äº†ç²¾ç¥ã€‚\n");
 	reincarnate();
 	set("eff_qi", query("max_qi"));
 	set("qi", query("max_qi"));

@@ -1,4 +1,4 @@
-// guzheng.c ¹ÅóÝ
+// guzheng.c å¤ç­
 
 #include <weapon.h>
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit SWORD;
 
 void create()
 {
-	set_name(HIG"¹ÅóÝ"NOR, ({ "gu zheng", "zheng", "qin" }));
+	set_name(HIG"å¤ç­"NOR, ({ "gu zheng", "zheng", "qin" }));
 	set_weight(5000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "ÕÅ");
-		set("long", HIG"ÕâÊÇÒ»ÕÅ×ö¹¤Ê®·Ö¿¼¾¿µÄ¹ÅóÝ£¬¹ÅÏã¹ÅÉ«£¬ÒôÖÊ¼«ºÃ¡£\n"NOR);
+		set("unit", "å¼ ");
+		set("long", HIG"è¿™æ˜¯ä¸€å¼ åšå·¥ååˆ†è€ƒç©¶çš„å¤ç­ï¼Œå¤é¦™å¤è‰²ï¼ŒéŸ³è´¨æžå¥½ã€‚\n"NOR);
 		set("value", 5000);
 		set("no_sell", 1);
 		set("material", "wood");
@@ -34,28 +34,28 @@ int do_play(string arg)
 	object env;
 
 	if (!arg || !id(arg))
-		return notify_fail("ÄãÏë×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ æƒ³åšä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	env = environment(me);
 	if (env->query("sleep_room"))
-		return notify_fail("ÎÔÊÒ²»ÄÜÐÞÁ·£¬»áÓ°Ïì±ðÈËÐÝÏ¢¡£\n");
+		return notify_fail("å§å®¤ä¸èƒ½ä¿®ç»ƒï¼Œä¼šå½±å“åˆ«äººä¼‘æ¯ã€‚\n");
 
 	if (env->query("pigging"))
-		return notify_fail("Äã»¹ÊÇ×¨ÐÄ¹°Öí°É£¡\n");
+		return notify_fail("ä½ è¿˜æ˜¯ä¸“å¿ƒæ‹±çŒªå§ï¼\n");
 
 	if (env->query("pending"))
-		return notify_fail("´ËµØ²»ÒËÐÞÁ·£¡\n");
+		return notify_fail("æ­¤åœ°ä¸å®œä¿®ç»ƒï¼\n");
 
 	if (env->query("no_fight"))
-		return notify_fail("ÕâÀï²»×¼Õ½¶·£¬Ò²²»×¼ÐÞÁ·¡£\n");
+		return notify_fail("è¿™é‡Œä¸å‡†æˆ˜æ–—ï¼Œä¹Ÿä¸å‡†ä¿®ç»ƒã€‚\n");
 
 	if (me->query("qi") < 20 || me->query("jing") < 30)
-		return notify_fail("ÄãÌ«ÀÛÁË£¬»¹ÊÇÏÈÐÝÏ¢»á°Ñ¡£\n");
+		return notify_fail("ä½ å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¼šæŠŠã€‚\n");
 	if (random(10) > 7) {
-		message_vision("$N°Ú³öÒ»ÕÅ¹ÅóÝ£¬ï£ï£çýçýµ¯ÁË¼¸ÉùÖ»ÌýµÃÇúµ÷ÔÓÂÒÎÞÕÂ£¬ÍðÈç¹í¿ÞÀÇºÅ¡£\n", me);
+		message_vision("$Næ‘†å‡ºä¸€å¼ å¤ç­ï¼Œé“®é“®ç®ç®å¼¹äº†å‡ å£°åªå¬å¾—æ›²è°ƒæ‚ä¹±æ— ç« ï¼Œå®›å¦‚é¬¼å“­ç‹¼å·ã€‚\n", me);
 		me->receive_damage("jing", random(10));
 		me->receive_damage("qi", random(10));
 		return 1;
@@ -65,9 +65,9 @@ int do_play(string arg)
 //        me->add_busy(!random(3));^M
 	if (me->query_skill("art",1) < 120)
 		me->improve_skill("art", me->query_int()/4 + me->query_skill("art", 1)/10);
-	write("Äã°Ú³öÒ»ÕÅ¹ÅóÝ£¬µ÷ÁËµ÷ÏÒ£¬µ¯ÁËÆðÀ´£¬ÄãÖ»¾õµÃÁ¬ÈÕÀ´·³ÔïµÄÐÄÇéºÃÁËÐí¶à¡£\n");
-	tell_room(env, "Ö»¼û" + me->name() + "ÑÅÐË´ó·¢£¬¾¹µ¯ÆðÇú×ÓÀ´£¬ÄãÖ»¾õµÃÊ±¶ø½ð¸êÌúÂí¡¢´óÄ®Æ½É³¡­¡­\n"
-		"Ê±¶øÐ¡ÇÅÁ÷Ë®¡¢¼¸»§ÈË¼Ò¡­¡­Íò°ãÆøÏó£¬ÄãÐÄÇé¶ÙÊ±Äþ¾²ÁËÐí¶à¡£\n", me
+	write("ä½ æ‘†å‡ºä¸€å¼ å¤ç­ï¼Œè°ƒäº†è°ƒå¼¦ï¼Œå¼¹äº†èµ·æ¥ï¼Œä½ åªè§‰å¾—è¿žæ—¥æ¥çƒ¦ç‡¥çš„å¿ƒæƒ…å¥½äº†è®¸å¤šã€‚\n");
+	tell_room(env, "åªè§" + me->name() + "é›…å…´å¤§å‘ï¼Œç«Ÿå¼¹èµ·æ›²å­æ¥ï¼Œä½ åªè§‰å¾—æ—¶è€Œé‡‘æˆˆé“é©¬ã€å¤§æ¼ å¹³æ²™â€¦â€¦\n"
+		"æ—¶è€Œå°æ¡¥æµæ°´ã€å‡ æˆ·äººå®¶â€¦â€¦ä¸‡èˆ¬æ°”è±¡ï¼Œä½ å¿ƒæƒ…é¡¿æ—¶å®é™äº†è®¸å¤šã€‚\n", me
 	);
 	return 1;
 }

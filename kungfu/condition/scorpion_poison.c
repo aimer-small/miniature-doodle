@@ -7,7 +7,7 @@ int update_condition(object me, int duration)
     me->receive_wound("jing", 10);
     me->receive_damage("qi", 10);
     me->apply_condition("scorpion_poison", duration - 1);
-    tell_object(me, HIG "你感到呼吸困难，四肢渐渐肿了起来。\n" NOR );
+    tell_object(me, HIG "浣犳劅鍒板懠鍚稿洶闅撅紝鍥涜偄娓愭笎鑲夸簡璧锋潵銆俓n" NOR );
         if( duration < 1 ) return 0;
         return 1;
 }

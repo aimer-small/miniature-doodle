@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÇàÔÆ", ({ "qingyun", "shizhe" }));
+	set_name("é’äº‘", ({ "qingyun", "shizhe" }));
 	set("long", 
-		"ËûÊÇÕÆÃÅÈËµÄµÃÒâÃÅÉú£¬Ò»¸öÊ®·ÖÀ÷º¦µÄÉñÃØÈËÎï¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä»–æ˜¯æŒé—¨äººçš„å¾—æ„é—¨ç”Ÿï¼Œä¸€ä¸ªååˆ†å‰å®³çš„ç¥ç§˜äººç‰©ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 50);
 	set("attitude", "peaceful");
 	set("class", "fighter");
@@ -44,9 +44,9 @@ void create()
 	map_skill("force", "beiming-shengong");
 	map_skill("blade", "ruyi-dao");
 
-	create_family("åĞÒ£ÅÉ", 2, "µÜ×Ó");
-	set("title","åĞÒ£ÅÉ»¤·¨Ê¹Õß");
-	set("nickname","ÌìÊ¹Ö®ÂÂ");
+	create_family("é€é¥æ´¾", 2, "å¼Ÿå­");
+	set("title","é€é¥æ´¾æŠ¤æ³•ä½¿è€…");
+	set("nickname","å¤©ä½¿ä¹‹ä¾£");
 	setup();
 	carry_object(__DIR__"obj/cloth")->wear();
 	carry_object(__DIR__"obj/blade")->wield();
@@ -61,10 +61,10 @@ void init()
 
 	ob = this_player();
 
-	if (interactive(ob) && (!ob->query("family") || ob->query("family")["master_name"]!="åĞÒ£×Ó"))
+	if (interactive(ob) && (!ob->query("family") || ob->query("family")["master_name"]!="é€é¥å­"))
 	{
 		command("hehe");
-		command("say ÄãºÃ´óµÄµ¨×Ó£¬±¾ÅÉµÄÃÜÊÒÒ²¸Ò´³½øÀ´ £¿£¡\n");
+		command("say ä½ å¥½å¤§çš„èƒ†å­ï¼Œæœ¬æ´¾çš„å¯†å®¤ä¹Ÿæ•¢é—¯è¿›æ¥ ï¼Ÿï¼\n");
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob); 
 	}

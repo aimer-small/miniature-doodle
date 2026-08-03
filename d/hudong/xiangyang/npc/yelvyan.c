@@ -2,10 +2,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ò®ÂÉÑà", ({ "yelv yan","yelv","yan" }) );
-        set("gender", "Å®ĞÔ" );
+        set_name("è€¶å¾‹ç‡•", ({ "yelv yan","yelv","yan" }) );
+        set("gender", "å¥³æ€§" );
         set("age", 25);
-        set("long", "ËıÊÇÒ®ÂÉÆëµÄÊ¦ÃÃ£¬¹¦·ò×ßÁéÇÉµÄÂ·×Ó¡£\n");
+        set("long", "å¥¹æ˜¯è€¶å¾‹é½çš„å¸ˆå¦¹ï¼ŒåŠŸå¤«èµ°çµå·§çš„è·¯å­ã€‚\n");
         set("attitude", "friendly");
         set("str", 35);
         set("con", 30);
@@ -39,7 +39,7 @@ void create()
         map_skill("sword","liangyi-jian");
         prepare_skill("strike", "kunlun-zhang");
 
-        create_family("Ø¤°ï", 20, "µÜ×Ó");
+        create_family("ä¸å¸®", 20, "å¼Ÿå­");
 
         setup();
         carry_object("/d/city/obj/cloth")->wear();

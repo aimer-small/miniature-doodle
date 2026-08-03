@@ -12,13 +12,13 @@ string *number = ({
 
 void create()
 {
-        set_name("³éÇ©ºĞ", ({ "box"}) );         
+        set_name("æŠ½ç­¾ç›’", ({ "box"}) );         
         set_weight(30000000);
         if( clonep() )
                 set_default_object(__FILE__);
         else{
-        set("unit", "¸ö");
-        set("long", "ÕâÊÇÒ»¸ö×¨ÃÅÓÃÀ´³éÇ©µÄºĞ×Ó¡£ ĞèÒªÎ×Ê¦À´ setup ¡£\n");
+        set("unit", "ä¸ª");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªä¸“é—¨ç”¨æ¥æŠ½ç­¾çš„ç›’å­ã€‚ éœ€è¦å·«å¸ˆæ¥ setup ã€‚\n");
         set("material","wood");
         set("no_get",1);
         set("value", 100000000);
@@ -30,7 +30,7 @@ void create()
 }
 void init()
 {
-    	add_action("do_get",({"³é","chou"}));
+    	add_action("do_get",({"æŠ½","chou"}));
     	add_action("do_set", "setup");
 }
 
@@ -45,17 +45,17 @@ int do_set(string arg)
   	ob = this_object();
   
   	if(!wizardp(me)) 
-  		return notify_fail("ÄãÎŞÈ¨ÕâÃ´×ö¡£\n");
+  		return notify_fail("ä½ æ— æƒè¿™ä¹ˆåšã€‚\n");
   	if (!arg || sscanf(arg,"%d", j) != 1)
-		return notify_fail ("setup <Êı×Ö>\n");
+		return notify_fail ("setup <æ•°å­—>\n");
   	j--;
-  	if( j < 1) return notify_fail("ÊıÁ¿±ØĞë´óÓÚ 1 ¡£\n");
+  	if( j < 1) return notify_fail("æ•°é‡å¿…é¡»å¤§äº 1 ã€‚\n");
   	if( j > i) j = i;
   	ob->set("size", j);
   	ob->set("arg", number[0..j]);
-  	ob->set("long","ÕâÊÇÒ»¸ö×¨ÃÅÓÃÀ´³éÇ©µÄºĞ×Ó¡£ ĞèÒªÎ×Ê¦À´ setup ¡£\n");
+  	ob->set("long","è¿™æ˜¯ä¸€ä¸ªä¸“é—¨ç”¨æ¥æŠ½ç­¾çš„ç›’å­ã€‚ éœ€è¦å·«å¸ˆæ¥ setup ã€‚\n");
   	nu = this_object()->query("arg");
-  	message_vision("$N½«³éÇ©Êı¶¨Îª´Ó A µ½ "+nu[j]+" ¡£\n",me);  
+  	message_vision("$Nå°†æŠ½ç­¾æ•°å®šä¸ºä» A åˆ° "+nu[j]+" ã€‚\n",me);  
   	return 1;
 }
 int do_get()
@@ -67,24 +67,24 @@ int do_get()
   	me=this_player();
   
   	if(me->is_fighting() || me->is_busy()) 
-  		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+  		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
   	if(!arrayp(arg = this_object()->query("arg"))) 
-  		return notify_fail("Õâ³éÇ©ºĞ»¹Ã» setup ¡£\n");
+  		return notify_fail("è¿™æŠ½ç­¾ç›’è¿˜æ²¡ setup ã€‚\n");
   	if(i > sizeof(arg)) i = sizeof(arg);
   	if(i <= 0) 
-  		return notify_fail("Ç©ÒÑ¾­³éÍêÁË¡£\n");
+  		return notify_fail("ç­¾å·²ç»æŠ½å®Œäº†ã€‚\n");
   
   	msg = arg[random(sizeof(arg))];  
 
   	this_object()->set("arg", arg - ({ msg }));
   	ob = unew(BINGQI_D("tieling"));
-  	ob->set_name(GRN+msg+" Ç©"NOR, ({ "qian"}) ); 
-  	ob->set("long", "ÕâÊÇÒ»Ö§³é³öÀ´µÄÁîÇ©£¬ÉÏÃæĞ´×Å "GRN+msg+NOR" ¡£\n");
-  	ob->set("unit", "Ö§");
+  	ob->set_name(GRN+msg+" ç­¾"NOR, ({ "qian"}) ); 
+  	ob->set("long", "è¿™æ˜¯ä¸€æ”¯æŠ½å‡ºæ¥çš„ä»¤ç­¾ï¼Œä¸Šé¢å†™ç€ "GRN+msg+NOR" ã€‚\n");
+  	ob->set("unit", "æ”¯");
   	ob->delete("value");
   	ob->move(me);
-  	message_vision("$NÉìÊÖ´Ó³éÇ©ºĞÖĞÃş³öÒ»Ö§$nÀ´¡£\n",me, ob); 
-  	this_object()->set("long", this_object()->query("long")+ob->name()+" £º "+me->name()+" \n");
+  	message_vision("$Nä¼¸æ‰‹ä»æŠ½ç­¾ç›’ä¸­æ‘¸å‡ºä¸€æ”¯$næ¥ã€‚\n",me, ob); 
+  	this_object()->set("long", this_object()->query("long")+ob->name()+" ï¼š "+me->name()+" \n");
   	me->start_busy(2);
   	return 1;
 }

@@ -1,4 +1,4 @@
-// by ÎŞÃûÓ¢ĞÛ
+// by æ— åè‹±é›„
 
 #include <ansi.h>
 #include <dbase.h>
@@ -8,23 +8,23 @@ void create()
 {
 	string name="", id="";
 
-	name = YEL"É½ÆÂÑò"NOR;
+	name = YEL"å±±å¡ç¾Š"NOR;
 	id = "shanpo";
 
-	set_name(HIW"¡º"+name+HIW"¡»ÀÖÆ×"NOR, ({ id+"'s yuepu", id, "yue pu", "yuepu" }));
+	set_name(HIW"ã€"+name+HIW"ã€ä¹è°±"NOR, ({ id+"'s yuepu", id, "yue pu", "yuepu" }));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
+		set("unit", "æœ¬");
 		set("value", 2500);
 		set("material", "paper");
 		set("check", 1);
 		set("music_name", name);
 		set("music_id", id);
 		set("music_add", 5);
-		set("long", HIY"Ò»±¾ÀÖÆ×£¬¼ÇÔØÁË¡º"+name+HIY"¡»µÄµ¯×à·½·¨£¬ÄÜÌá¸ßĞ©ĞíÊìÁ·¶È¡£\n"+
-			"Äã¿ÉÒÔÑĞ¶Á£¨Read£©ËüÀ´Ôö¼ÓÀÖÇúµÄÊìÁ·¶È¡£\n"NOR);
+		set("long", HIY"ä¸€æœ¬ä¹è°±ï¼Œè®°è½½äº†ã€"+name+HIY"ã€çš„å¼¹å¥æ–¹æ³•ï¼Œèƒ½æé«˜äº›è®¸ç†Ÿç»ƒåº¦ã€‚\n"+
+			"ä½ å¯ä»¥ç ”è¯»ï¼ˆReadï¼‰å®ƒæ¥å¢åŠ ä¹æ›²çš„ç†Ÿç»ƒåº¦ã€‚\n"NOR);
 	}
 }
 
@@ -37,16 +37,16 @@ void init()
 		add_action("do_du", "read");
 		if( query("check") > 0 ) {
 			switch( random(4) ) {
-				case  0: { i = random(3) + 2;str = HIW"Ğ©Ğí"NOR;break; }
-				case  1: { i = random(3) + 4;str = HIG"Ò»Ğ©"NOR;break; }
-				case  2: { i = random(3) + 6;str = HIR"Ğí¶à"NOR;break; }
-				case  3: { i = random(3) + 8;str = RED"Âú¶î"NOR;break; }
-				default: { i = random(4) + 4;str = HIG"Ò»Ğ©"NOR;       }
+				case  0: { i = random(3) + 2;str = HIW"äº›è®¸"NOR;break; }
+				case  1: { i = random(3) + 4;str = HIG"ä¸€äº›"NOR;break; }
+				case  2: { i = random(3) + 6;str = HIR"è®¸å¤š"NOR;break; }
+				case  3: { i = random(3) + 8;str = RED"æ»¡é¢"NOR;break; }
+				default: { i = random(4) + 4;str = HIG"ä¸€äº›"NOR;       }
 			}
 			delete("check");
 			set("music_add", i);
-			set("long", HIY"Ò»±¾ÀÖÆ×£¬¼ÇÔØÁË¡º"+query("music_name")+HIY"¡»µÄµ¯×à·½·¨£¬ÄÜÌá¸ß"+str+HIY"ÊìÁ·¶È¡£\n"+
-				"Äã¿ÉÒÔÑĞ¶Á£¨Read£©ËüÀ´Ôö¼ÓÀÖÇúµÄÊìÁ·¶È¡£\n"NOR);
+			set("long", HIY"ä¸€æœ¬ä¹è°±ï¼Œè®°è½½äº†ã€"+query("music_name")+HIY"ã€çš„å¼¹å¥æ–¹æ³•ï¼Œèƒ½æé«˜"+str+HIY"ç†Ÿç»ƒåº¦ã€‚\n"+
+				"ä½ å¯ä»¥ç ”è¯»ï¼ˆReadï¼‰å®ƒæ¥å¢åŠ ä¹æ›²çš„ç†Ÿç»ƒåº¦ã€‚\n"NOR);
 		}
 	}
 }
@@ -65,36 +65,36 @@ int do_du(string arg)
 	if( !(arg == ob->query("id") || arg == "yuepu") ) return 0;
 
 	if( !me->query_skill("literate", 1) )
-		return notify_fail("ÄãÊÇ¸öÎÄÃ¤£¬ÏÈÑ§µãÎÄ»¯(literate)°É¡£\n");	   
+		return notify_fail("ä½ æ˜¯ä¸ªæ–‡ç›²ï¼Œå…ˆå­¦ç‚¹æ–‡åŒ–(literate)å§ã€‚\n");	   
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( me->is_fighting() ) 
-		return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞ×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª£¡\n");
+		return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ï¼\n");
 
 	if( !id(arg) )
-		return notify_fail("ÄãÒª¶ÁÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦è¯»ä»€ä¹ˆï¼Ÿ\n");
 
 	if( me->query_skill("literate", 1) < 100 )
-		return notify_fail("ÄãµÄ¶ÁÊéĞ´×ÖµÈ¼¶²»¹»£¬ÎŞ·¨Àí½âÀÖÆ×ÖĞ¼ÇÔØµÄÄÚÈİ¡£\n"); 
+		return notify_fail("ä½ çš„è¯»ä¹¦å†™å­—ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•ç†è§£ä¹è°±ä¸­è®°è½½çš„å†…å®¹ã€‚\n"); 
 
 	if( i < ( j = call_other("/d/music/book/" + ob->query("music_id") + ".c", "query_level") ) )
-		return notify_fail("ÒÔÄãµÄÀÖÀíĞŞÎª£¬È¥ÑĞ¶ÁÕâÑùµÄÀÖÆ×£¬ÊµÔÚÊÇÃãÎªÆäÄÑÁË¡£\n");
+		return notify_fail("ä»¥ä½ çš„ä¹ç†ä¿®ä¸ºï¼Œå»ç ”è¯»è¿™æ ·çš„ä¹è°±ï¼Œå®åœ¨æ˜¯å‹‰ä¸ºå…¶éš¾äº†ã€‚\n");
 
 	if( i < ob->query("music_add")*10 )
-		return notify_fail("ÄãÑĞ¶ÁÁËÒ»»á¶ù£¬µ«ÊÇ·¢ÏÖÉÏÃæËùËµµÄ¶ÔÄã¶øÑÔ¶¼Ì«ÉîÁË£¬Ã»ÓĞÑ§µ½ÈÎºÎ¶«Î÷¡£\n");
+		return notify_fail("ä½ ç ”è¯»äº†ä¸€ä¼šå„¿ï¼Œä½†æ˜¯å‘ç°ä¸Šé¢æ‰€è¯´çš„å¯¹ä½ è€Œè¨€éƒ½å¤ªæ·±äº†ï¼Œæ²¡æœ‰å­¦åˆ°ä»»ä½•ä¸œè¥¿ã€‚\n");
 
-// ¼ÓÊìÁ·¶È
+// åŠ ç†Ÿç»ƒåº¦
 	me->add("music/"+ob->query("music_id"), ob->query("music_add")); 
-// Í³¼ÆÊ±¼ä
+// ç»Ÿè®¡æ—¶é—´
 	me->set("music_time/"+ob->query("music_id"), time() );
 
-	message("vision", me->name() + "ÄÃ³öÒ»±¾" + ob->name() + "ÈÏÕæµÄÑĞ¶Á×Å¡£\n", environment(me), me);
-	write(HIC"ÄãÑĞ¶Á×Å" + ob->name() + HIC"£¬¾õµÃ×Ô¼º¶ÔÕâÒ»ÀÖÕÂµÄÁìÎòÊìÁ·ÁËÒ»²ã¡£\n"YEL+ob->name()+YEL
-		"»¯Îª³¤¿ÕÖĞµÄ¼¸ÂÆÃìÒôÏûÊÅÁË¡£\n");
+	message("vision", me->name() + "æ‹¿å‡ºä¸€æœ¬" + ob->name() + "è®¤çœŸçš„ç ”è¯»ç€ã€‚\n", environment(me), me);
+	write(HIC"ä½ ç ”è¯»ç€" + ob->name() + HIC"ï¼Œè§‰å¾—è‡ªå·±å¯¹è¿™ä¸€ä¹ç« çš„é¢†æ‚Ÿç†Ÿç»ƒäº†ä¸€å±‚ã€‚\n"YEL+ob->name()+YEL
+		"åŒ–ä¸ºé•¿ç©ºä¸­çš„å‡ ç¼•æ¸ºéŸ³æ¶ˆé€äº†ã€‚\n");
 
-	if( wizardp(me) ) tell_object(me, "ÀÖÆ×"+ob->query("music_id")+"Ôö¼Ó£º"+ob->query("music_add")+"\n");
+	if( wizardp(me) ) tell_object(me, "ä¹è°±"+ob->query("music_id")+"å¢åŠ ï¼š"+ob->query("music_add")+"\n");
    	destruct(ob);
 	return 1;
 }

@@ -3,78 +3,78 @@
 mapping get_poison(string poison);
 void destruct_poison(object me);
 mapping *poi_list = ({
-	(["id":	 "snake_poison", // ËùÖÐ¶¾µÄEÎÄÃû³Æ
-	  "name":       "Éß¶¾", // ËùÖÐ¶¾µÄÖÐÎÄÃû³Æ
-	  "col":	""BLU"", // ÖÐ¶¾·¢×÷µÄÑÕÉ«
-	  "con":	"Õ¿À¶Ö®Æø",]), // ÖÐ¶¾·¢×÷µÄ×´Ì¬
+	(["id":	 "snake_poison", // æ‰€ä¸­æ¯’çš„Eæ–‡åç§°
+	  "name":       "è›‡æ¯’", // æ‰€ä¸­æ¯’çš„ä¸­æ–‡åç§°
+	  "col":	""BLU"", // ä¸­æ¯’å‘ä½œçš„é¢œè‰²
+	  "con":	"æ¹›è“ä¹‹æ°”",]), // ä¸­æ¯’å‘ä½œçš„çŠ¶æ€
 	(["id":	 "xx_poison",
-	  "name":       "ÐÇËÞÕÆ¶¾",
+	  "name":       "æ˜Ÿå®¿æŽŒæ¯’",
 	  "col":	""BLU"",
-	  "con":	"Õ¿À¶Ö®Æø",]),
+	  "con":	"æ¹›è“ä¹‹æ°”",]),
 	(["id":	 "xuanmin_poison",
-	  "name":       "ÐþÚ¤ÕÆ¶¾",
+	  "name":       "çŽ„å†¥æŽŒæ¯’",
 	  "col":	""HIW"",
-	  "con":	"Ëª°×Ö®Æø",]),
+	  "con":	"éœœç™½ä¹‹æ°”",]),
 	(["id":	 "dsy_poison",
-	  "name":       "ÃÜ×Ú´óÊÖÓ¡ÕÆ¶¾",
+	  "name":       "å¯†å®—å¤§æ‰‹å°æŽŒæ¯’",
 	  "col":	""CYN"",
-	  "con":	"ÇàÆø",]),
+	  "con":	"é’æ°”",]),
 	(["id":	 "fs_poison",
-	  "name":       "¸¯Ê¬¶¾",
+	  "name":       "è…å°¸æ¯’",
 	  "col":	""HIG"",
-	  "con":	"ÂÌÆø",]),
+	  "con":	"ç»¿æ°”",]),
 	(["id":	 "huagu_poison",
-	  "name":       "»¯¹ÇÃàÕÆ¾ç¶¾",
+	  "name":       "åŒ–éª¨ç»µæŽŒå‰§æ¯’",
 	  "col":	""BLU"",
-	  "con":	"Õ¿À¶Ö®Æø",]),
+	  "con":	"æ¹›è“ä¹‹æ°”",]),
 	(["id":	 "man_poison",
-	  "name":       "ÂûÍÓÂÜ»¨¶¾",
+	  "name":       "è”“é™€èèŠ±æ¯’",
 	  "col":	""HIB"",
-	  "con":	"ºÚÆø",]),
+	  "con":	"é»‘æ°”",]),
 	(["id":	 "qinghua_poison",
-	  "name":       "Çé»¨¶¾",
+	  "name":       "æƒ…èŠ±æ¯’",
 	  "col":	""MAG"",
-	  "con":	"×ÏÆø",]),
+	  "con":	"ç´«æ°”",]),
 	(["id":	 "qishang_poison",
-	  "name":       "ÆßÉËÈ­¶¾",
+	  "name":       "ä¸ƒä¼¤æ‹³æ¯’",
 	  "col":	""HIR"",
-	  "con":	"³±ºìÖ®Æø",]),
+	  "con":	"æ½®çº¢ä¹‹æ°”",]),
 	(["id":	 "qzhu_poison",
-	  "name":       "Ç§ÖëÍò¶¾ÊÖ¶¾",
+	  "name":       "åƒè››ä¸‡æ¯’æ‰‹æ¯’",
 	  "col":	""HIR"",
-	  "con":	"³±ºìÖ®Æø",]),
+	  "con":	"æ½®çº¢ä¹‹æ°”",]),
 	(["id":	 "sl_poison",
-	  "name":       "ÉñÁú¶¾",
+	  "name":       "ç¥žé¾™æ¯’",
 	  "col":	""BLU"",
-	  "con":	"Õ¿À¶Ö®Æø",]),
+	  "con":	"æ¹›è“ä¹‹æ°”",]),
 	(["id":	 "sy_poison",
-	  "name":       "´óÊÖÓ¡ÕÆ¶¾",
+	  "name":       "å¤§æ‰‹å°æŽŒæ¯’",
 	  "col":	""HIR"",
-	  "con":	"³±ºìÖ®Æø",]),
+	  "con":	"æ½®çº¢ä¹‹æ°”",]),
 	(["id":	 "warm_poison",
-	  "name":       "ÈÈ¶¾",
+	  "name":       "çƒ­æ¯’",
 	  "col":	""RED"",
-	  "con":	"ÒóºìÖ®Æø",]),
+	  "con":	"æ®·çº¢ä¹‹æ°”",]),
 	(["id":	 "hot_poison",
-	  "name":       "»ð¶¾",
+	  "name":       "ç«æ¯’",
 	  "col":	""HIR"",
-	  "con":	"³±ºìÖ®Æø",]),
+	  "con":	"æ½®çº¢ä¹‹æ°”",]),
 	(["id":	 "cold_poison",
-	  "name":       "º®¶¾",
+	  "name":       "å¯’æ¯’",
 	  "col":	""HIC"",
-	  "con":	"ÂÌÇàÖ®Æø",]),
+	  "con":	"ç»¿é’ä¹‹æ°”",]),
 	(["id":	 "bing_poison",
-	  "name":       "±ùÆÇÒøÕë¶¾",
+	  "name":       "å†°é­„é“¶é’ˆæ¯’",
 	  "col":	""HIB"",
-	  "con":	"Õ¿À¶Ö®Æø",]),
+	  "con":	"æ¹›è“ä¹‹æ°”",]),
 	(["id":	 "bt_poison",
-	  "name":       "¹ÖÉß¶¾",
+	  "name":       "æ€ªè›‡æ¯’",
 	  "col":	""YEL"",
-	  "con":	"·º»ÆÖ®Æø",]),
+	  "con":	"æ³›é»„ä¹‹æ°”",]),
 	(["id":	 "hb_poison",
-	  "name":       "º®±ùÃàÕÆ¶¾",
+	  "name":       "å¯’å†°ç»µæŽŒæ¯’",
 	  "col":	""HIB"",
-	  "con":	"Õ¿À¶Ö®Æø",]),
+	  "con":	"æ¹›è“ä¹‹æ°”",]),
 });
 mapping get_poison(string poison)
 {
@@ -85,9 +85,9 @@ mapping get_poison(string poison)
 	      		return poi_list[i];
 	}
 	return (["id":	 poison,
-	  	"name":       "¾ç¶¾",
+	  	"name":       "å‰§æ¯’",
 	  	"col":	""GRN"",
-	  	"con":	"ÂÌÆø",]);
+	  	"con":	"ç»¿æ°”",]);
 }
 void destruct_poison(object me)
 {
@@ -105,10 +105,10 @@ void destruct_poison(object me)
 			name  = names[i];
 			my_poison = get_poison(name);
 			my_poison["lvl"] = lvl;
-			if(random(2)) message_vision(HIW"\nÍ»È»Ò»µÀÉñ¹âÁýÕÖ×Å$N£¬$NÉíÊÜÖ®"NOR+my_poison["col"]+my_poison["name"]+HIW"¾¹È»ÍêÈ«ÏûÊ§ÁË£¡\n"NOR, me);
-			else message_vision(HIW"\n$NÃæÉ«ÓÐÐ©"+my_poison["con"]+"£¬ËÆºõÉíÊÜ"NOR+my_poison["col"]+my_poison["name"]+HIW"£¡Ò»µÀÉñ¹âÁýÕÖ£¬$NÈ«²¿»Ö¸´ÁË£¡\n"NOR, me);
+			if(random(2)) message_vision(HIW"\nçªç„¶ä¸€é“ç¥žå…‰ç¬¼ç½©ç€$Nï¼Œ$Nèº«å—ä¹‹"NOR+my_poison["col"]+my_poison["name"]+HIW"ç«Ÿç„¶å®Œå…¨æ¶ˆå¤±äº†ï¼\n"NOR, me);
+			else message_vision(HIW"\n$Né¢è‰²æœ‰äº›"+my_poison["con"]+"ï¼Œä¼¼ä¹Žèº«å—"NOR+my_poison["col"]+my_poison["name"]+HIW"ï¼ä¸€é“ç¥žå…‰ç¬¼ç½©ï¼Œ$Nå…¨éƒ¨æ¢å¤äº†ï¼\n"NOR, me);
 			me->apply_condition(my_poison["id"], -1);
 		}
 	}
-	me->clear_condition();//ÆäÊµÕâ¸ö¾ÍÈ«²¿È¥µôduÁË
+	me->clear_condition();//å…¶å®žè¿™ä¸ªå°±å…¨éƒ¨åŽ»æŽ‰duäº†
 }

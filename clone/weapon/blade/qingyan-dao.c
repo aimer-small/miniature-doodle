@@ -5,14 +5,14 @@ inherit BLADE;
 
 void create()
 {
-        set_name(HIC"ÇàÑæµ¶"NOR, ({ "qingyan dao", "dao", "blade" }) );
+        set_name(HIC"é’ç„°åˆ€"NOR, ({ "qingyan dao", "dao", "blade" }) );
           set_weight(20000);
         if( clonep() )
               set_default_object(__FILE__);
         else {
            set("value", 1000);
            set("rigidity", 3);
-        set("long",HIC"Õâ±úµ¶ÖØÔ¼ËÄÊ®Óà½ï£¬µ«¼ûÇà¹âÉÁË¸£¬±³ºñÈĞ±¡£¬ÈĞ·æÉÏ¿ÌÓĞ¹ÅÆÓ»¨ÎÆ£¬ÏÔÊÇÒ»¼şÀúÊ±ÒÑ¾ÃµÄÕäÆ·¡£\n"NOR);
+        set("long",HIC"è¿™æŸ„åˆ€é‡çº¦å››åä½™æ–¤ï¼Œä½†è§é’å…‰é—ªçƒï¼ŒèƒŒåšåˆƒè–„ï¼Œåˆƒé”‹ä¸Šåˆ»æœ‰å¤æœ´èŠ±çº¹ï¼Œæ˜¾æ˜¯ä¸€ä»¶å†æ—¶å·²ä¹…çš„çå“ã€‚\n"NOR);
            set("sharpness", 3);
            set("unique", 1);
            set("treasure",1);
@@ -20,9 +20,9 @@ void create()
            set("wield_neili", 500);
            set("wield_maxneili", 900);
            set("wield_str", 22);
-           set("unit", "°Ñ");
-        set("wield_msg", HIB"$NÓÉ±³ºóÈ¡ÏÂ±¦µ¶£¬Ë«ÊÖÒ»·Ö£¬½«ÇàÑæµ¶³é³öµ¶ÇÊ£¬ËÄÖÜ¶ÙÊ±²¼ÂúÁèÀ÷µÄÉ±Æø¡£\n"NOR);
-        set("unwield_msg",HIB" Ö»Ìı¼û²Öà¥Ò»ÉùÏì£¬$N½«³ÁÖØµÄÇàÑæµ¶²å½øµ¶ÇÊ£¬±³ÔÚ±³ÉÏ¡£\n"NOR);
+           set("unit", "æŠŠ");
+        set("wield_msg", HIB"$Nç”±èƒŒåå–ä¸‹å®åˆ€ï¼ŒåŒæ‰‹ä¸€åˆ†ï¼Œå°†é’ç„°åˆ€æŠ½å‡ºåˆ€é˜ï¼Œå››å‘¨é¡¿æ—¶å¸ƒæ»¡å‡Œå‰çš„æ€æ°”ã€‚\n"NOR);
+        set("unwield_msg",HIB" åªå¬è§ä»“å•·ä¸€å£°å“ï¼Œ$Nå°†æ²‰é‡çš„é’ç„°åˆ€æ’è¿›åˆ€é˜ï¼ŒèƒŒåœ¨èƒŒä¸Šã€‚\n"NOR);
         }
         init_blade(48);
         setup();

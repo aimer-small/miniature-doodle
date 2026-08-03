@@ -55,7 +55,7 @@ void reset()
 	if (!env || !userp(env) || use_flag--)
 		return;
 	if (query("unique")) {
-		message_vision("$N一时想不起"+query("name")+"有什么用处，就随手把它丢掉了。\n", env);
+		message_vision("$N涓�鏃舵兂涓嶈捣"+query("name")+"鏈変粈涔堢敤澶勶紝灏遍殢鎵嬫妸瀹冧涪鎺変簡銆俓n", env);
 		destruct(this_object());
 	}
 }

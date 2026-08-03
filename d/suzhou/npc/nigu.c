@@ -1,17 +1,17 @@
-// nigu.c  Äá¹Ã
+// nigu.c  å°¼å§‘
 
 inherit NPC;
 inherit F_DEALER;
 
 void create()
 {
-	set_name("Äá¹Ã", ({ "ni gu", "ni", "gu" }) );
-	set("gender", "Å®ĞÔ" );
+	set_name("å°¼å§‘", ({ "ni gu", "ni", "gu" }) );
+	set("gender", "å¥³æ€§" );
 	set("age", 34);
-	set("long", "ÕâÎ»Äá¹ÃÕı×øÔÚÆÌµæÉÏ£¬Ë«ÊÖÄí×ÅÖéÁ´£¬×ìÖĞÄîÄîÓĞ´Ê¡£\n");
+	set("long", "è¿™ä½å°¼å§‘æ­£ååœ¨é“ºå«ä¸Šï¼ŒåŒæ‰‹æ»ç€ç é“¾ï¼Œå˜´ä¸­å¿µå¿µæœ‰è¯ã€‚\n");
 	set("combat_exp", 700);
 	set("attitude", "peaceful");
-	set("rank_info/respect", "Äá¹Ã");
+	set("rank_info/respect", "å°¼å§‘");
 	setup();
 	carry_object("/d/emei/obj/cloth")->wear();
 }
@@ -32,10 +32,10 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	switch( random(2) ) {
 		case 0:
-			say( "Äá¹ÃÊ©ÁËÒ»ÀñËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬·ğ¼ÒÈË´ÈÉÆÎª±¾£¬¾èÒ»µãÒøÁ½°É¡£\n");
+			say( "å°¼å§‘æ–½äº†ä¸€ç¤¼è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œä½›å®¶äººæ…ˆå–„ä¸ºæœ¬ï¼Œæä¸€ç‚¹é“¶ä¸¤å§ã€‚\n");
 			break;
 		case 1:
-			say( "Äá¹ÃËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob) + "£¬¶àĞ»¾èÔù£¬Ô¸·ğ×æ±£ÓÓ¡£\n");
+			say( "å°¼å§‘è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œå¤šè°¢æèµ ï¼Œæ„¿ä½›ç¥–ä¿ä½‘ã€‚\n");
 			break;
 	}
 }

@@ -9,29 +9,29 @@ int main(object me, string arg)
 {
     object obj;
     
-    if (me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+    if (me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
     if(!arg)
-    	     return notify_fail("ÄãÒªÔÚÊ²Ã´¶«Î÷Àï×°Ë®£¿\n");
+    	     return notify_fail("ä½ è¦åœ¨ä»€ä¹ˆä¸œè¥¿é‡Œè£…æ°´ï¼Ÿ\n");
     	     
     if(!objectp(obj = present(arg, me)) )
-    	     return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+    	     return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
     
     if(!obj->query("max_liquid"))	
-             return notify_fail(obj->name()+"Õâ¶«Î÷¿É×°²»ÁËË®¡£\n");
+             return notify_fail(obj->name()+"è¿™ä¸œè¥¿å¯è£…ä¸äº†æ°´ã€‚\n");
                   
     if(!environment(me)->query("resource/water"))
-             return notify_fail("ÕâÀïÃ»ÓĞµØ·½¿ÉÒÔ×°Ë®¡£\n");
+             return notify_fail("è¿™é‡Œæ²¡æœ‰åœ°æ–¹å¯ä»¥è£…æ°´ã€‚\n");
              
     if( obj->query("liquid/remaining") )
-		message_vision("$N½«$nÀïÊ£ÏÂµÄ" + obj->query("liquid/name") + "µ¹µô¡£\n", me, obj);
+		message_vision("$Nå°†$né‡Œå‰©ä¸‹çš„" + obj->query("liquid/name") + "å€’æ‰ã€‚\n", me, obj);
  
     if((string)environment(me)->query("resource/fill_msg"))
 	            message_vision(environment(me)->query("resource/fill_msg"), me, obj);
-    else message_vision("$N½«$n×°Âú¡£\n", me, obj);
+    else message_vision("$Nå°†$nè£…æ»¡ã€‚\n", me, obj);
 
     obj->set("liquid/type", (string)environment(me)->query("resource/water_type")?environment(me)->query("resource/water_type"):"water");
-    obj->set("liquid/name", (string)environment(me)->query("resource/water_name")?environment(me)->query("resource/water_name"):"ÇåË®");
+    obj->set("liquid/name", (string)environment(me)->query("resource/water_name")?environment(me)->query("resource/water_name"):"æ¸…æ°´");
     obj->set("liquid/remaining", obj->query("max_liquid"));
     obj->set("liquid/drink_func", 0);
     obj->set("liquid/drunk_apply", (int)environment(me)->query("resource/water_apply")?environment(me)->query("resource/water_apply"):20);
@@ -45,9 +45,9 @@ int main(object me, string arg)
 int help(object me)
 {
     write(@HELP
-Ö¸Áî¸ñÊ½ : fill <ÎïÆ·Ãû³Æ>
+æŒ‡ä»¤æ ¼å¼ : fill <ç‰©å“åç§°>
  
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã½«¿ÕµÄÈİÆ÷×°ÂúË®¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ å°†ç©ºçš„å®¹å™¨è£…æ»¡æ°´ã€‚
  
 HELP
     );

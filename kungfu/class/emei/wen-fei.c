@@ -5,9 +5,9 @@ inherit NPC;
 int ask_for_saomu();
 void create()
 {
-        set_name("ÎÄ·ÆĞ¡Ê¦Ì«", ({ "wen fei", "wenfei", "shitai" }));
-        set("long","ÕâÊÇ¸öÄêÁä²»´ó£¬Ã¼ÇåÄ¿ĞãµÄĞ¡Ê¦Ì«¡£ËıÊÇ×¨ÃÅ¿´ÊØ¹ùÏåÄ¹µÄµÜ×Ó¡£\n");
-        set("gender", "Å®ĞÔ");
+        set_name("æ–‡è²å°å¸ˆå¤ª", ({ "wen fei", "wenfei", "shitai" }));
+        set("long","è¿™æ˜¯ä¸ªå¹´é¾„ä¸å¤§ï¼Œçœ‰æ¸…ç›®ç§€çš„å°å¸ˆå¤ªã€‚å¥¹æ˜¯ä¸“é—¨çœ‹å®ˆéƒ­è¥„å¢“çš„å¼Ÿå­ã€‚\n");
+        set("gender", "å¥³æ€§");
         set("attitude", "friendly");
 	set("unique", 1);
         set("no_quest",1);
@@ -36,14 +36,14 @@ void create()
 	set_skill("force", 60);
 	set_skill("anying-fuxiang", 60);
         set("inquiry",([
-                "É¨Ä¹"  : (: ask_for_saomu :),
+                "æ‰«å¢“"  : (: ask_for_saomu :),
         ]));
 
 	map_skill("force", "linji-zhuang");
 	map_skill("sword", "huifeng-jian");
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
-        create_family("¶ëáÒÅÉ", 5, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 5, "å¼Ÿå­");
 
         setup();
 	carry_object("/d/emei/obj/changjian")->wield();
@@ -55,7 +55,7 @@ void create()
 int ask_for_saomu()
 {
 	object me = this_player();
-	command("say °¡£¬Ì«ºÃÁË£¬Äã¿ÉÒÔ°ïÎÒ°ÑÄ¹ÅÔµÄ²İÇåÀíÒ»ÏÂ¡£");
+	command("say å•Šï¼Œå¤ªå¥½äº†ï¼Œä½ å¯ä»¥å¸®æˆ‘æŠŠå¢“æ—çš„è‰æ¸…ç†ä¸€ä¸‹ã€‚");
 	me->set_temp("sao_mu", 1);
 	return 1;
 }

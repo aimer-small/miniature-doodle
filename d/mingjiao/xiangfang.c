@@ -1,14 +1,14 @@
-// xiangfang.c Ïá·¿
+// xiangfang.c å¢æˆ¿
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 {
-        set("short",HIW"Ïá·¿"NOR);
+        set("short",HIW"å¢æˆ¿"NOR);
         set("long", @LONG
-ÕâÀïÊÇ×¨ÃÅ¹©ÍâÀ´µÄ±ö¿ÍĞİÏ¢µÄµØ·½£¬ÀïÃæÓĞ¼¸ÕÅ´²ºÍÒ»Ğ©Éú»îÓÃÆ·£¬Ê®
-·Ö¸É¾»ÊæÊÊ¡£
+è¿™é‡Œæ˜¯ä¸“é—¨ä¾›å¤–æ¥çš„å®¾å®¢ä¼‘æ¯çš„åœ°æ–¹ï¼Œé‡Œé¢æœ‰å‡ å¼ åºŠå’Œä¸€äº›ç”Ÿæ´»ç”¨å“ï¼Œå
+åˆ†å¹²å‡€èˆ’é€‚ã€‚
 LONG);
         set("exits", ([
                 "west" : __DIR__"tingtang",

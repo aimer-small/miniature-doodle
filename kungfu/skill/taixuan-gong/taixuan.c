@@ -5,29 +5,29 @@ int exert(object me, object target)
 {
         int skill;
         if( target != me ) return
-            notify_fail("ÄãÖ»ÄÜ¶Ô×Ô¼ºÓÃ["+HIW+"°×Ê×Ì«Ðþ"+NOR+"]\n"NOR,);
+            notify_fail("ä½ åªèƒ½å¯¹è‡ªå·±ç”¨["+HIW+"ç™½é¦–å¤ªçŽ„"+NOR+"]\n"NOR,);
         if ((int)me->query_skill("taixuan-gong", 1) < 100)
-                return notify_fail("ÄãµÄÌ«ÐþÉñ¹¦Ì«²îÁË¡£\n");
+                return notify_fail("ä½ çš„å¤ªçŽ„ç¥žåŠŸå¤ªå·®äº†ã€‚\n");
         if( (int)me->query("neili") < 100 ) return
-            notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+            notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
         if( (int)me->query_temp("powerup") ) return
-            notify_fail("ÄãÒÑ¾­ÔÚÔË¹¦ÖÐÁË¡£\n");
+            notify_fail("ä½ å·²ç»åœ¨è¿åŠŸä¸­äº†ã€‚\n");
         if( (int)me->query_temp("powerupxtg") ) return
-            notify_fail("ÄãÒÑ¾­ÔÚÏÈÌì´ó·¨ÁË¡£\n");
+            notify_fail("ä½ å·²ç»åœ¨å…ˆå¤©å¤§æ³•äº†ã€‚\n");
         if( (int)me->query_temp("poweruptxg") ) return
-            notify_fail("ÄãÒÑ¾­ÔÚÔËÌ«Ðþ¹¦ÁË¡£\n");
+            notify_fail("ä½ å·²ç»åœ¨è¿å¤ªçŽ„åŠŸäº†ã€‚\n");
         if( (int)me->query_temp("powerupkh") ) return
-            notify_fail("ÄãÒÑ¾­ÔÚÔË¿û»¨ÎÞµÐ¹¦ÁË¡£\n");
+            notify_fail("ä½ å·²ç»åœ¨è¿è‘µèŠ±æ— æ•ŒåŠŸäº†ã€‚\n");
         if( (int)me->query_temp("jiuyin/powerup") )
-                return notify_fail("ÄãÒÑ¾­ÔÚÔË¾ÅÒõÕæ¹¦ÖÐÁË¡£\n");
+                return notify_fail("ä½ å·²ç»åœ¨è¿ä¹é˜´çœŸåŠŸä¸­äº†ã€‚\n");
         if( (int)me->query_temp("hslj/powerup") )
-                return notify_fail("ÄãÒÑ¾­ÔÚÔËÍò·¨¹é×ÚÖÐÁË¡£\n");
+                return notify_fail("ä½ å·²ç»åœ¨è¿ä¸‡æ³•å½’å®—ä¸­äº†ã€‚\n");
         skill = me->query_skill("force");
 
         me->add("neili", -100);
         me->receive_damage("qi",0);
 
-message_vision(HIW"\n$NÍ»È»Ò»Éù³¤ßÊ£¬¼«¿ìµÄÄî³öÁËÒ»Ê×Ê«À´£¬×ÐÏ¸ÌýÀ´²»ÓÉ´ó¾ª£¬ÕâÕýÊÇÃû´«ÌìÏÂµÄÆæ¹¦[Ì«Ðþ¾­]\n" NOR, me);
+message_vision(HIW"\n$Nçªç„¶ä¸€å£°é•¿å‘¤ï¼Œæžå¿«çš„å¿µå‡ºäº†ä¸€é¦–è¯—æ¥ï¼Œä»”ç»†å¬æ¥ä¸ç”±å¤§æƒŠï¼Œè¿™æ­£æ˜¯åä¼ å¤©ä¸‹çš„å¥‡åŠŸ[å¤ªçŽ„ç»]\n" NOR, me);
         me->add_temp("apply/attack", skill/3);
         me->add_temp("apply/dodge", skill/3);
         me->set_temp("powerup", 1);
@@ -54,7 +54,7 @@ void remove_effect(object me, int amount)
         me->add_temp("apply/constitution",- skill/20);
         me->add_temp("apply/dexerity" , - skill/20);
 
-        tell_object(me, "ÄãµÄ["+HIW+"°×Ê×Ì«Ðþ"+NOR+"]ÔËÐÐÍê±Ï£¬½«ÄÚÁ¦ÊÕ»Øµ¤Ìï¡£\n");
+        tell_object(me, "ä½ çš„["+HIW+"ç™½é¦–å¤ªçŽ„"+NOR+"]è¿è¡Œå®Œæ¯•ï¼Œå°†å†…åŠ›æ”¶å›žä¸¹ç”°ã€‚\n");
 }
 
 

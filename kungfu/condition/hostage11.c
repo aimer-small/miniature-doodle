@@ -11,8 +11,8 @@ int update_condition(object me, int duration)
         if (duration < 1 ) {
                 if((int)me->query_temp("hostage/passed_l")
                 && objectp(ob = present("ling huchong",me))) {
-                        tell_room(environment(me),"Áîºü³å²»ÄÍ·³µØ¶Ô"+me->name()+"ºßß´£¬ÄãÔõÃ´±ÈÖí»¹Âý°¡£¿ÒªÃ´´ó»ï¹°ÄãËãÁË£¡\n");
-                        tell_room(environment(me),"Áîºü³å¿ì²½Àë¿ªÁË¡£\n");
+                        tell_room(environment(me),"ä»¤ç‹å†²ä¸è€çƒ¦åœ°å¯¹"+me->name()+"å“¼å½ï¼Œä½ æ€Žä¹ˆæ¯”çŒªè¿˜æ…¢å•Šï¼Ÿè¦ä¹ˆå¤§ä¼™æ‹±ä½ ç®—äº†ï¼\n");
+                        tell_room(environment(me),"ä»¤ç‹å†²å¿«æ­¥ç¦»å¼€äº†ã€‚\n");
                         me->delete_temp("hostage/passed_l");
                         if (me->query_temp("hostage/failed_l"))
                                 me->add_temp("hostage/failed_l",1);
@@ -32,7 +32,7 @@ int update_condition(object me, int duration)
 //          && me->query_temp("hostage/passed_l")
           && !present("mojiao shashou",environment(me))
           && duration%4 == 1) {
-               tell_object(me, HIY "Äã¾õµÄÓÐÐ©²»Ãî£¬ËÆºõ±»ÈË¸ú×ÙÉÏÁË£¡\n" NOR);
+               tell_object(me, HIY "ä½ è§‰çš„æœ‰äº›ä¸å¦™ï¼Œä¼¼ä¹Žè¢«äººè·Ÿè¸ªä¸Šäº†ï¼\n" NOR);
 		me->add_busy(2+random(4));
                call_out("zuji",1, me);
         }
@@ -45,7 +45,7 @@ void zuji(object me)
 {
         object npc; 
         
-        tell_object(me, RED "Ôã¸â£¡Ä§½ÌÉ±ÊÖ×·ÁË¹ýÀ´£¬ËÆºõÊÇÒªÀ´×èÀ¹Äã!\n" NOR);
+        tell_object(me, RED "ç³Ÿç³•ï¼é­”æ•™æ€æ‰‹è¿½äº†è¿‡æ¥ï¼Œä¼¼ä¹Žæ˜¯è¦æ¥é˜»æ‹¦ä½ !\n" NOR);
         npc = new("/d/hmy/npc/killer2");
         npc->set_temp("target",me->query("id"));
         npc->move(environment(me));

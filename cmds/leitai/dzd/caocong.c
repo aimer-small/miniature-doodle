@@ -10,14 +10,14 @@ string look_out();
 
 void create()
 {
-	set("short","²İ´Ô");
+	set("short","è‰ä¸›");
 	set("long",@LONG
-´óÆ¬µÄ»Ä²İÑÚÃ»ÁËÄãµÄÉíÓ°£¬´Ó²İ´ÔµÄ·ìÏ¶(out)¿ÉÒÔÍêÈ«¿´µ½òêÑÑÓÚ²İµØÖĞĞ¡Â·ÉÏµÄ¶¯¾²¡£
-Ò»ÕóÎ¢·ç´µ¹ı£¬ÄãÖ»¾õÓĞÒşÒşµÄĞÈÆøÆ®À´¡£ÊÖÅöµ½Ò»¸öÓ²Ó²µÄ¶«Î÷£¬Ò»¿´²îµã¾ªºô³öÀ´£ºÔ­
-À´ÊÇÒ»¸ùÈËµÄÍÈ¹Ç¡£
+å¤§ç‰‡çš„è’è‰æ©æ²¡äº†ä½ çš„èº«å½±ï¼Œä»è‰ä¸›çš„ç¼éš™(out)å¯ä»¥å®Œå…¨çœ‹åˆ°èœ¿èœ’äºè‰åœ°ä¸­å°è·¯ä¸Šçš„åŠ¨é™ã€‚
+ä¸€é˜µå¾®é£å¹è¿‡ï¼Œä½ åªè§‰æœ‰éšéšçš„è…¥æ°”é£˜æ¥ã€‚æ‰‹ç¢°åˆ°ä¸€ä¸ªç¡¬ç¡¬çš„ä¸œè¥¿ï¼Œä¸€çœ‹å·®ç‚¹æƒŠå‘¼å‡ºæ¥ï¼šåŸ
+æ¥æ˜¯ä¸€æ ¹äººçš„è…¿éª¨ã€‚
 LONG
 	);
-	set("outdoors","´óÖÇµº");
+	set("outdoors","å¤§æ™ºå²›");
 	set("item_desc",([
 		"out" : (: look_out :),
 	]));
@@ -43,8 +43,8 @@ void init()
 		ob = all_inventory(here);
 		for(i=0;i < sizeof(ob);i++) {
 			if(userp(ob[i]) && !wizardp(ob[i]) && ob[i] != me) {
-				tell_object(me,HIW"ÄãÍ»È»·¢ÏÖ"+ob[i]->name()+"Ò²ÔÚ²İ´ÔÖĞ,²»½û´ó³ÔÒ»¾ª£¡\n"NOR);
-				message_vision(HIW"$n¿´µ½$N·¢ÏÖÁË$n£¬´óºğÒ»Éù£¬Ïò$NÆËÁË¹ıÀ´!\n"NOR,me,ob[i]);
+				tell_object(me,HIW"ä½ çªç„¶å‘ç°"+ob[i]->name()+"ä¹Ÿåœ¨è‰ä¸›ä¸­,ä¸ç¦å¤§åƒä¸€æƒŠï¼\n"NOR);
+				message_vision(HIW"$nçœ‹åˆ°$Nå‘ç°äº†$nï¼Œå¤§å¼ä¸€å£°ï¼Œå‘$Næ‰‘äº†è¿‡æ¥!\n"NOR,me,ob[i]);
 				me->kill_ob(ob[i]);
 				ob[i]->kill_ob(me);
 				return;
@@ -58,12 +58,12 @@ int do_zuan(string arg)
 {
 	object me = this_player();
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(!arg || arg != "out")
-		return notify_fail("ÄãÒª×êµ½ÄÄ¶ù£¿\n");
-	message_vision(HIY"$NË«ÊÖÒ»³ÅµØ£¬Éí×ÓÒÑ¼ıÒ»°ãµÄ´ÜÁË³öÈ¥¡£\n"NOR,me);
+		return notify_fail("ä½ è¦é’»åˆ°å“ªå„¿ï¼Ÿ\n");
+	message_vision(HIY"$NåŒæ‰‹ä¸€æ’‘åœ°ï¼Œèº«å­å·²ç®­ä¸€èˆ¬çš„çªœäº†å‡ºå»ã€‚\n"NOR,me);
 	me->move(OUT_DOWN);
-	message("vision",HIY""+me->name()+"´Ó²İ´ÔÖĞ×êÁË³öÀ´¡£\n"NOR,OUT_DOWN,me);
+	message("vision",HIY""+me->name()+"ä»è‰ä¸›ä¸­é’»äº†å‡ºæ¥ã€‚\n"NOR,OUT_DOWN,me);
 	return 1;
 }
 
@@ -81,27 +81,27 @@ int do_kill(string arg)
 	object ob,room;
 	object me = this_player();
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(!arg || !(room = find_object(OUT_DOWN)))
-		return notify_fail("ÄãÒªÍµÏ®Ë­£¿\n");
+		return notify_fail("ä½ è¦å·è¢­è°ï¼Ÿ\n");
 	if(!(ob = present(arg,room)))
-		return notify_fail("ÄãÒªÍµÏ®Ë­£¿\n");
+		return notify_fail("ä½ è¦å·è¢­è°ï¼Ÿ\n");
 	if(!ob->is_character() || ob->is_corpse())
-		return notify_fail("¿´Çå³şÒ»µã£¡\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼\n");
 	if(!userp(ob))
-		return notify_fail("ÍµÏ®npc? ¡­¡­\n");
+		return notify_fail("å·è¢­npc? â€¦â€¦\n");
 	if(wiz_level(me) < wiz_level(ob))
-		return notify_fail("Äã²»ÄÜÍµÏ®Î×Ê¦µÈ¼¶±ÈÄã¸ßµÄ¶ÔÊÖ¡£\n");
-	message_vision(HIW"$N´Ó²İ´ÔÖĞÒ»Ô¾¶ø³ö£¬ÆøÊÆÈçºç£¬Ö±È¡"+ob->name()+"£¡\n"NOR,me);
-	message_vision(HIW"ºöÈ»Ò»¹ÉÉ±ÆøÏ®À´£¬$NÌ§Í·ÍûÈ¥£¬Ö»¼ûÒ»¸öÈËÓ°Ğ®×Å½£Æø·ÉÂÓ¶ø³ö£¡£¡\n"NOR,ob);
+		return notify_fail("ä½ ä¸èƒ½å·è¢­å·«å¸ˆç­‰çº§æ¯”ä½ é«˜çš„å¯¹æ‰‹ã€‚\n");
+	message_vision(HIW"$Nä»è‰ä¸›ä¸­ä¸€è·ƒè€Œå‡ºï¼Œæ°”åŠ¿å¦‚è™¹ï¼Œç›´å–"+ob->name()+"ï¼\n"NOR,me);
+	message_vision(HIW"å¿½ç„¶ä¸€è‚¡æ€æ°”è¢­æ¥ï¼Œ$NæŠ¬å¤´æœ›å»ï¼Œåªè§ä¸€ä¸ªäººå½±æŒŸç€å‰‘æ°”é£æ è€Œå‡ºï¼ï¼\n"NOR,ob);
 	me->move(room);
 	if(!random(10)) {
-		message_vision(HIY"È´¼û$NÔçÓĞ×¼±¸£¬Éí×ÓÇáÇáÒ»²àÈÃ¹ıÀ´ÊÆ£¬³Ã»ú¶Ô$n·¢¶¯¹¥»÷¡£\n"NOR,ob,me);
+		message_vision(HIY"å´è§$Næ—©æœ‰å‡†å¤‡ï¼Œèº«å­è½»è½»ä¸€ä¾§è®©è¿‡æ¥åŠ¿ï¼Œè¶æœºå¯¹$nå‘åŠ¨æ”»å‡»ã€‚\n"NOR,ob,me);
 		me->start_busy(3);
 	} else if(!random(5)) {
-			message_vision(HIW"$N´ó³ÔÒ»¾ª£¬´ÒÃ¦½«Éí×ÓÏòºóÒ»Ñö£¬$n¿°¿°²Á×Å$NµÄ±Ç¼âÂÓ¹ı£¡\n"NOR,ob,me);
+			message_vision(HIW"$Nå¤§åƒä¸€æƒŠï¼ŒåŒ†å¿™å°†èº«å­å‘åä¸€ä»°ï¼Œ$nå ªå ªæ“¦ç€$Nçš„é¼»å°–æ è¿‡ï¼\n"NOR,ob,me);
 		} else {
-			message_vision(HIR"$NÖ»¾õÒ»¹ÉÁèÀ÷´Ì¹ÇµÄÉ±ÆøÏ®À´£¬²»¼°»Ø±Ü£¬ÒÑ±»$nÒ»»÷¶øÖĞ£¡£¡\n"NOR,ob,me);
+			message_vision(HIR"$Nåªè§‰ä¸€è‚¡å‡Œå‰åˆºéª¨çš„æ€æ°”è¢­æ¥ï¼Œä¸åŠå›é¿ï¼Œå·²è¢«$nä¸€å‡»è€Œä¸­ï¼ï¼\n"NOR,ob,me);
 			ob->start_busy(3);
 			}
 	me->kill_ob(ob);
@@ -110,7 +110,7 @@ int do_kill(string arg)
 	else {	
 		ob->fight_ob(me);
 		if(userp(me))
-			tell_object(ob,HIR"Èç¹ûÄãÒªºÍ" + me->name() + "ĞÔÃüÏà²«£¬ÇëÄãÒ²¶ÔÕâ¸öÈËÏÂÒ»´ÎkillÖ¸Áî¡£\n"NOR);
+			tell_object(ob,HIR"å¦‚æœä½ è¦å’Œ" + me->name() + "æ€§å‘½ç›¸æï¼Œè¯·ä½ ä¹Ÿå¯¹è¿™ä¸ªäººä¸‹ä¸€æ¬¡killæŒ‡ä»¤ã€‚\n"NOR);
 		}
 
 	return 1;	 

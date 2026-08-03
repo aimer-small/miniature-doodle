@@ -6,14 +6,14 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "��԰");
+        set("short", "后花园");
         set("long", @LONG
-һ��С��԰����Ȼ�Ȳ��ϸ�����Ժ�������ǧ�죬��Ҳ���õþ��¿��ˡ�
-����������Ȼ��������֮ʿ���������һ�ʢ�������ճ�����ɻ����������
-�ջ����ޣ���������һƬ��ѩ����
+一个小花园，虽然比不上富豪大院里的万紫千红，但也布置得精致可人。
+将军府里显然不乏高雅之士。春天里桃花盛开，夏日池塘里荷花田田，秋天里
+菊花争艳，冬天则是一片香雪海。
 LONG
         );
-        set("outdoors", "����");
+        set("outdoors", "长安");
         set("exits", ([
                 "west"   : __DIR__"jjflt",
                 "north"  : __DIR__"jjfhm",
@@ -21,6 +21,6 @@ LONG
 
         set("incity",1);
 	setup();
-        create_door("north","����","south",DOOR_CLOSED);
+        create_door("north","铁门","south",DOOR_CLOSED);
        
 }

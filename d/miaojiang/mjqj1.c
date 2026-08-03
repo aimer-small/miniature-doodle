@@ -5,15 +5,15 @@ inherit ROOM;
 
 void create()
 {
-        set("short",HIY+"Ãç½®Ææ¾³"+NOR);
+        set("short",HIY+"è‹—ç–†å¥‡å¢ƒ"+NOR);
         set("long", @LONG
-ÕâÀïÊÇÉ½¶¥µÄ±ßÔµ£¬µ«·ç¹â¸üÎªĞãÃÀ¡£ÇÍ±ÚÉÏÅÌÑÑ×Å¹ÅÊ÷£¬µØÉÏÒÑ¾­Ã»ÓĞ
-ÈËµÄ×ã¼£ÁË£¬Ğí¶à²»ÖªÃûµÄĞ¡¶¯Îï´ÓÊ÷´ÔÀï´ÚÀ´´ÚÈ¥¡£
+è¿™é‡Œæ˜¯å±±é¡¶çš„è¾¹ç¼˜ï¼Œä½†é£å…‰æ›´ä¸ºç§€ç¾ã€‚å³­å£ä¸Šç›˜èœ’ç€å¤æ ‘ï¼Œåœ°ä¸Šå·²ç»æ²¡æœ‰
+äººçš„è¶³è¿¹äº†ï¼Œè®¸å¤šä¸çŸ¥åçš„å°åŠ¨ç‰©ä»æ ‘ä¸›é‡Œè¹¿æ¥è¹¿å»ã€‚
 LONG                           
         );
         set("wu_count",3);
 
-	set("outdoors", "Ãç½®");
+	set("outdoors", "è‹—ç–†");
 
         set("exits", ([
                  "southwest" : __DIR__"mjqj",
@@ -38,37 +38,37 @@ int do_wa(string arg)
         i = sizeof(inv);
 
         if (!( present("xiao tiechan", this_player())))
-		return notify_fail("ÄãÔÚµØÉÏÅÙÁËÅÙ £¬¾ªÆğĞí¶àĞ¡¶¯Îï£¡\n");
+		return notify_fail("ä½ åœ¨åœ°ä¸Šåˆ¨äº†åˆ¨ ï¼ŒæƒŠèµ·è®¸å¤šå°åŠ¨ç‰©ï¼\n");
 
         if ( !arg || arg != "he shouwu" )
-		return notify_fail("ÄãÏë×öÊ²÷á£¿\n");       
+		return notify_fail("ä½ æƒ³åšä»€éº½ï¼Ÿ\n");       
 
         if ((int)me->query("jingli")<200) 
-		return notify_fail ("ÄãÌ«ÀÛÁË£¡\n");
+		return notify_fail ("ä½ å¤ªç´¯äº†ï¼\n");
 
         if(objectp(present("heshou wu", me)))        
-		return notify_fail("ÄãÒÑ¾­µÃµ½ºÎÊ×ÎÚÁË£¬ÔõÃ´ÕâÃ´Ì°ĞÄ£¿\n");
+		return notify_fail("ä½ å·²ç»å¾—åˆ°ä½•é¦–ä¹Œäº†ï¼Œæ€ä¹ˆè¿™ä¹ˆè´ªå¿ƒï¼Ÿ\n");
 
         if(random(15)!=3) {
 		me->add("jingli",-120);
-		return notify_fail("ÄãÍÚÁË°ëÌì£¬Ö»¿´µ½Ò»Ğ©Ò°²İ¡£\n"); 
+		return notify_fail("ä½ æŒ–äº†åŠå¤©ï¼Œåªçœ‹åˆ°ä¸€äº›é‡è‰ã€‚\n"); 
         }
 
         while (i--)
         if( inv[i]->query("drug"))
-		return notify_fail("ÄãÍÚÁË°ëÌì£¬Ö»¿´µ½Ò»Ğ©Ò°²İ¡£\n");  
+		return notify_fail("ä½ æŒ–äº†åŠå¤©ï¼Œåªçœ‹åˆ°ä¸€äº›é‡è‰ã€‚\n");  
  
         if (query("wu_count") > 0){
-		message_vision("$NºöÈ»¿´µ½Ò»ÖêºÎÊ×ÎÚ£¬¸Ï¿ì¼ñÁËÆğÀ´¡£\n",me);
+		message_vision("$Nå¿½ç„¶çœ‹åˆ°ä¸€æ ªä½•é¦–ä¹Œï¼Œèµ¶å¿«æ¡äº†èµ·æ¥ã€‚\n",me);
 		add("wu_count", -1);
 		wu=new("/clone/medicine/neili/shouwu");
 		wu->set("owner", me->query("id"));
 		wu->move(me);
-		log_file("quest/neili",sprintf("%-18sÔÚÃç½®µÃµ½%s¡£\n",
+		log_file("quest/neili",sprintf("%-18såœ¨è‹—ç–†å¾—åˆ°%sã€‚\n",
 			me->name(1)+"("+capitalize(me->query("id"))+")",wu->name()), me);
 		me->add("jingli", -200);      
         }
 	else
-		message_vision("$NÍÚÁË°ëÌì£¬Ò»ÎŞËù»ñ¡£\n", me);
+		message_vision("$NæŒ–äº†åŠå¤©ï¼Œä¸€æ— æ‰€è·ã€‚\n", me);
 	return 1;
 }

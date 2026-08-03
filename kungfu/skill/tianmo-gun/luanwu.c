@@ -1,4 +1,4 @@
-//Éñ¹íÂÒÎè
+//ç¥žé¬¼ä¹±èˆž
 //xjqx 2008/12/30
 
 #include <ansi.h>
@@ -6,7 +6,7 @@
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h";
 
-string perform_name(){ return HIW"Éñ¹íÂÒÎè"NOR; }
+string perform_name(){ return HIW"ç¥žé¬¼ä¹±èˆž"NOR; }
 
 int perform(object me,object target)
 {
@@ -17,33 +17,33 @@ int perform(object me,object target)
      
     if( !objectp (target) || !me->is_fighting(target) || !living(target)
         || environment(target)!=environment(me))
-                return notify_fail("Éñ¹íÂÒÎèÖ»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ç¥žé¬¼ä¹±èˆžåªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if (me->query_skill_mapped("force") != "tianmo-gong" )
           if(me->query_skill_mapped("force") != "xixing-dafa")
-                return notify_fail("ÄãËùÊ¹ÓÃµÄÌØÊâÄÚ¹¦²»¶Ô¡£\n");  
+                return notify_fail("ä½ æ‰€ä½¿ç”¨çš„ç‰¹æ®Šå†…åŠŸä¸å¯¹ã€‚\n");  
         if(!me->query_skill("xixing-dafa", 1))
           if(me->query_skill("tianmo-gong", 1) < 100)
-                return notify_fail("ÒÔÄãÏÖÔÚµÄÄÚ¹¦ÐÞÎª»¹Ê¹²»³ö¡¸Éñ¹íÂÒÎè¡¹¡£\n");   
+                return notify_fail("ä»¥ä½ çŽ°åœ¨çš„å†…åŠŸä¿®ä¸ºè¿˜ä½¿ä¸å‡ºã€Œç¥žé¬¼ä¹±èˆžã€ã€‚\n");   
     if( (int)me->query_skill("tianmo-gun", 1) < 100 ) 
-                return notify_fail("ÄãµÄÈÕÔÂÌìÄ§¹÷»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃÉñ¹íÂÒÎè£¡\n");
+                return notify_fail("ä½ çš„æ—¥æœˆå¤©é­”æ£è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨ç¥žé¬¼ä¹±èˆžï¼\n");
     if((int)me->query_skill("club", 1) < 100 )
-                return notify_fail("ÄãµÄ»ù±¾¹÷·¨²»¹»æµÊì£¬²»ÄÜÔÚÊ¹ÓÃÉñ¹íÂÒÎè¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬æ£æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨ä½¿ç”¨ç¥žé¬¼ä¹±èˆžã€‚\n");
     if((int)me->query_dex(1) < 35 )
-                return notify_fail("ÄãµÄÉí·¨»¹²»¹»£¬»¹²»ÄÜÊ¹ÓÃÉñ¹íÂÒÎè¡£\n");
+                return notify_fail("ä½ çš„èº«æ³•è¿˜ä¸å¤Ÿï¼Œè¿˜ä¸èƒ½ä½¿ç”¨ç¥žé¬¼ä¹±èˆžã€‚\n");
     if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "club"
         || me->query_skill_mapped("club") != "tianmo-gun"
         || me->query_skill_mapped("parry") != "tianmo-gun")
-                return notify_fail("ÄãÏÖÔÚÊ¹µÃÁËÉñ¹íÂÒÎèÃ´£¿\n");
+                return notify_fail("ä½ çŽ°åœ¨ä½¿å¾—äº†ç¥žé¬¼ä¹±èˆžä¹ˆï¼Ÿ\n");
                 
     if((int)me->query("max_neili") < 1200 )
-                return notify_fail("ÄãµÄÄÚÁ¦ÐÞÎª²»¹»£¬²»ÄÜÊ¹ÓÃÉñ¹íÂÒÎè£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ç¥žé¬¼ä¹±èˆžï¼\n");
     if((int)me->query("neili") < 800 )
-                return notify_fail("ÄãÏÖÔÚÕæÆø²»×ã£¬²»ÄÜÊ¹ÓÃÉñ¹íÂÒÎè£¡\n");
+                return notify_fail("ä½ çŽ°åœ¨çœŸæ°”ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨ç¥žé¬¼ä¹±èˆžï¼\n");
 
-        message_vision(HIW"\n$N½«ÊÖÖÐ"+weapon->name()+HIW+"Ò»ÕóÂÒÎè£¬½«$nÕÖÔÚ$NµÄÂÒ¹÷Ö®ÖÐ£¬²»ÄÜ¶¯µ¯¡£\n"NOR, me, target);
+        message_vision(HIW"\n$Nå°†æ‰‹ä¸­"+weapon->name()+HIW+"ä¸€é˜µä¹±èˆžï¼Œå°†$nç½©åœ¨$Nçš„ä¹±æ£ä¹‹ä¸­ï¼Œä¸èƒ½åŠ¨å¼¹ã€‚\n"NOR, me, target);
 
-    me->start_perform(3+random(2),"¡¸Éñ¹íÂÒÎè¡¹");
+    me->start_perform(3+random(2),"ã€Œç¥žé¬¼ä¹±èˆžã€");
     i = (int)me->query_skill("tianmo-gun",1);
         me->add("neili", -200);
         me->add_temp("apply/attack",  i/2);
@@ -63,15 +63,15 @@ if(i>450 ) target->add_busy(2);
 
 int help(object me)
 {
-   write(WHT"\nÈÕÔÂÌìÄ§¹÷¡¸"HIW"ÈºÄ§ÂÒÎè"WHT"¡¹£º"NOR"\n");
+   write(WHT"\næ—¥æœˆå¤©é­”æ£ã€Œ"HIW"ç¾¤é­”ä¹±èˆž"WHT"ã€ï¼š"NOR"\n");
    write(@HELP
 
-   ÒªÇó£º  ×î´óÄÚÁ¦ 1200 ÒÔÉÏ£»
-           µ±Ç°ÄÚÁ¦ 800 ÒÔÉÏ£»
-           ÈÕÔÂÌìÄ§¹÷µÈ¼¶ 100 ÒÔÉÏ£»
-           ÎüÐÇ´ó·¨µÈ¼¶ 100 ÒÔÉÏ£»
-           ºóÌìÉí·¨ 35 ÒÔÉÏ£»
-           ¼¤·¢ÕÐ¼ÜÎªÈÕÔÂÌìÄ§¹÷¡£
+   è¦æ±‚ï¼š  æœ€å¤§å†…åŠ› 1200 ä»¥ä¸Šï¼›
+           å½“å‰å†…åŠ› 800 ä»¥ä¸Šï¼›
+           æ—¥æœˆå¤©é­”æ£ç­‰çº§ 100 ä»¥ä¸Šï¼›
+           å¸æ˜Ÿå¤§æ³•ç­‰çº§ 100 ä»¥ä¸Šï¼›
+           åŽå¤©èº«æ³• 35 ä»¥ä¸Šï¼›
+           æ¿€å‘æ‹›æž¶ä¸ºæ—¥æœˆå¤©é­”æ£ã€‚
 
 HELP
    );

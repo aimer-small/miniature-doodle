@@ -1,4 +1,4 @@
-// Skill: Emei-JiuYang.c ¶ëÃ¼¾ÅÑô¹¦
+// Skill: Emei-JiuYang.c å³¨çœ‰ä¹é˜³åŠŸ
 // Date : AHA 97/06/22
 
 inherit FORCE;
@@ -13,25 +13,25 @@ int valid_learn(object me)
   int t = 1, j;
   for (j = 1; j < level / 10; j++) t *= 2;
 
-  if ( me->query("gender") == "ÎŞĞÔ" )
-     return notify_fail("¶ëÃ¼¾ÅÑô¹¦Á·µÄÊÇºÆÈ»ÕıÆø£¬ÒÔ¹«¹«ÎŞ¸ùÎŞĞÔÖ®Éí£¬
-                         ÈçºÎĞŞµÃ£¡\n");
+  if ( me->query("gender") == "æ— æ€§" )
+     return notify_fail("å³¨çœ‰ä¹é˜³åŠŸç»ƒçš„æ˜¯æµ©ç„¶æ­£æ°”ï¼Œä»¥å…¬å…¬æ— æ ¹æ— æ€§ä¹‹èº«ï¼Œ
+                         å¦‚ä½•ä¿®å¾—ï¼\n");
 
   if ((int)me->query_skill("force", 1) < 10)
-     return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò»¹²»¹»¡£\n");
+     return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿã€‚\n");
 
   if ( changquan < 20 ) 
-     return notify_fail("ÄãµÄ¶ëÃ¼³¤È­ĞŞÎªÌ«µÍ£¬ÎŞ·¨ÁìÎò¶ëÃ¼¾ÅÑô¹¦¡£\n");  
+     return notify_fail("ä½ çš„å³¨çœ‰é•¿æ‹³ä¿®ä¸ºå¤ªä½ï¼Œæ— æ³•é¢†æ‚Ÿå³¨çœ‰ä¹é˜³åŠŸã€‚\n");  
 
   if (level > 10 && (int)me->query("shen") < t * 100) 
-     return notify_fail("ÄãµÄÏÀÒåÕıÆøÌ«µÍÁË¡£\n");
+     return notify_fail("ä½ çš„ä¾ ä¹‰æ­£æ°”å¤ªä½äº†ã€‚\n");
 
   return 1;
 }
 
 int practice_skill(object me)
 {
-  return notify_fail("¶ëÃ¼¾ÅÑô¹¦Ö»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+  return notify_fail("å³¨çœ‰ä¹é˜³åŠŸåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -39,4 +39,4 @@ string exert_function_file(string func)
   return __DIR__"emei-jiuyang/" + func;
 }
 
-ÿ
+ï¿½

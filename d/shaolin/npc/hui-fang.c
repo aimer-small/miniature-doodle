@@ -6,17 +6,17 @@ string ask_me();
 
 void create()
 {
-	set_name("»Û·½×ğÕß", ({
+	set_name("æ…§æ–¹å°Šè€…", ({
 		"huifang zunzhe",
 		"huifang",
 		"zunzhe",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Á½÷Ş°ß°×µÄÀÏÉ®£¬Éí´©Ò»Ï®Çà²¼Ïâ±ßôÂôÄ¡£ËûÉí²ÄÂÔ¸ß£¬\n"
-		"Ì«ÑôÑ¨Î¢Í¹£¬Ë«Ä¿¾¼¾¼ÓĞÉñ¡£\n"
+		"ä»–æ˜¯ä¸€ä½ä¸¤é¬“æ–‘ç™½çš„è€åƒ§ï¼Œèº«ç©¿ä¸€è¢­é’å¸ƒé•¶è¾¹è¢ˆè£Ÿã€‚ä»–èº«æç•¥é«˜ï¼Œ\n"
+		"å¤ªé˜³ç©´å¾®å‡¸ï¼ŒåŒç›®ç‚¯ç‚¯æœ‰ç¥ã€‚\n"
 	);
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -49,7 +49,7 @@ void create()
 	map_skill("blade", "xiuluo-dao");
 	map_skill("parry", "xiuluo-dao");
 
-	create_family("ÉÙÁÖÅÉ", 38, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 38, "å¼Ÿå­");
 	setup();
 
         carry_object("/d/shaolin/obj/jiedao")->wield();
@@ -61,17 +61,17 @@ int accept_object(object who, object ob,object me)
         mapping fam; 
         me=this_object();
         if (!(fam = this_player()->query("family")) 
-           || fam["family_name"] != "ÉÙÁÖÅÉ"){
+           || fam["family_name"] != "å°‘æ—æ´¾"){
                 command("hehe "+who->query("id"));
-                command("say Äã¸øÎÒ¶«Î÷ÓĞÊ²Ã´ÆóÍ¼£¿£¡");
+                command("say ä½ ç»™æˆ‘ä¸œè¥¿æœ‰ä»€ä¹ˆä¼å›¾ï¼Ÿï¼");
         return 0;
         }
 	if(!who->query_temp("lunzhi")){
-		command("say ÄãµÄÁîÅÆÊÇÄÇÀ´µÄ£¬ÂÖÖµ±ØĞëµÃµ½»ÛĞŞ´óÊ¦µÄÔÊĞí£¡");
+		command("say ä½ çš„ä»¤ç‰Œæ˜¯é‚£æ¥çš„ï¼Œè½®å€¼å¿…é¡»å¾—åˆ°æ…§ä¿®å¤§å¸ˆçš„å…è®¸ï¼");
 		return 0;
 	}
-	if(ob->query("name")=="ÂÖÖµÁî"){
-	       	command("say ºÃ°É£¬Äã¼ÈÈ»ÓĞ»ÛĞŞ´óÊ¦µÄÁîÅÆ£¬Äã¾ÍÔÚÕâºÍĞéÍ¨ËûÃÇÒ»ÆğÊØÎÀ°É¡£");
+	if(ob->query("name")=="è½®å€¼ä»¤"){
+	       	command("say å¥½å§ï¼Œä½ æ—¢ç„¶æœ‰æ…§ä¿®å¤§å¸ˆçš„ä»¤ç‰Œï¼Œä½ å°±åœ¨è¿™å’Œè™šé€šä»–ä»¬ä¸€èµ·å®ˆå«å§ã€‚");
 		who->apply_condition("sl_lunzhi",30);
 		who->set_temp("lunzhied",1);
 		return 1;

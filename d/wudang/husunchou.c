@@ -1,24 +1,24 @@
-// /d/wudang/husunchou.c  â©áø³î
+// /d/wudang/husunchou.c  çŒ¢ç‹²æ„
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short","â©áø³î");
+        set("short","çŒ¢ç‹²æ„");
         set("long", @LONG
-ÄãºÃ²»ĞÁ¿à²ÅÅÀµ½ÁËÉ½¶¥£¬ÕâÀï¹ÖÊ¯²Î²î£¬É½·ç´Ì¹Ç£¬ÈıÃæ¶¼ÊÇÍòÕÉĞüÑÂ£¬
-ÑÂ±ÚÆ½»¬£¬Á¬ºï×ÓÒ²ÄÑÒÔÅÊµÇ¡£ËÄÖÜ´ç²İ²»Éú£¬ÓĞÒ»¿ÃÓ­¿ÍËÉ(song)¹Âµ¥µØÁ¢
-ÓÚÑÂ±ß¡£
+ä½ å¥½ä¸è¾›è‹¦æ‰çˆ¬åˆ°äº†å±±é¡¶ï¼Œè¿™é‡Œæ€ªçŸ³å‚å·®ï¼Œå±±é£åˆºéª¨ï¼Œä¸‰é¢éƒ½æ˜¯ä¸‡ä¸ˆæ‚¬å´–ï¼Œ
+å´–å£å¹³æ»‘ï¼Œè¿çŒ´å­ä¹Ÿéš¾ä»¥æ”€ç™»ã€‚å››å‘¨å¯¸è‰ä¸ç”Ÿï¼Œæœ‰ä¸€æ£µè¿å®¢æ¾(song)å­¤å•åœ°ç«‹
+äºå´–è¾¹ã€‚
 LONG                           
         );
-	set("outdoors", "Îäµ±");
+	set("outdoors", "æ­¦å½“");
         set("exits", ([
                 "northdown":__DIR__"gudao2",
         ]));
         set("item_desc", ([
                 "song" :
-"ÕâÊÇ¿ÃÇ§ÄêÓ­¿ÍËÉ£¬ÏòÑÂÍâÉú³¤£¬Ê÷¸É±ÈÍë¿Ú»¹´Ö£¬ÕıÊÇÒ»¸ö¾øºÃµÄ½èÁ¦Ö§³Åµã¡£\n",
+"è¿™æ˜¯æ£µåƒå¹´è¿å®¢æ¾ï¼Œå‘å´–å¤–ç”Ÿé•¿ï¼Œæ ‘å¹²æ¯”ç¢—å£è¿˜ç²—ï¼Œæ­£æ˜¯ä¸€ä¸ªç»å¥½çš„å€ŸåŠ›æ”¯æ’‘ç‚¹ã€‚\n",
         ]));
 
         set("objects",([
@@ -41,22 +41,22 @@ int do_pa(string arg)
 
         me=this_player();
         if ( !arg || arg != "down" )
-            return notify_fail("ÄãÒªÍùÄÄÅÀ£¿\n");
+            return notify_fail("ä½ è¦å¾€å“ªçˆ¬ï¼Ÿ\n");
         if (!( present("sheng zi", this_player())))
-              return notify_fail("Ã»ÓĞÖ§³Åµã£¬ÄãÔõÃ´ÏÂÅÀ£¿\n");
+              return notify_fail("æ²¡æœ‰æ”¯æ’‘ç‚¹ï¼Œä½ æ€ä¹ˆä¸‹çˆ¬ï¼Ÿ\n");
 	if (!me->query_temp("mark/bang"))
-              return notify_fail("Ã»ÓĞÖ§³Åµã£¬ÄãÏëÌøÑÂ×ÔÉ±Ñ½£¿£¡\n");
+              return notify_fail("æ²¡æœ‰æ”¯æ’‘ç‚¹ï¼Œä½ æƒ³è·³å´–è‡ªæ€å‘€ï¼Ÿï¼\n");
 
-        message_vision("$N²ü²üàäàäµØÅÀÁËÏÂÈ¥¡£\n", me);
+        message_vision("$Né¢¤é¢¤å™¤å™¤åœ°çˆ¬äº†ä¸‹å»ã€‚\n", me);
         if ((int)me->query_skill("force", 1) < 20) 
            {
-           message_vision(RED"É½·çÍ»È»×ªÇ¿£¬$N¹¦Á¦²»¹»£¬ÎŞ·¨ÎÈ×¡ÉíÌå£¬Ò»ÕóÒ¡»Î£¬ÓÖ±»´µÁË»ØÈ¥¡£\n"NOR, me);
-            message_vision(HIR"$NĞÄÀïÒ»¼±£¬Ò»¿ÚÆø×ª²»¹ıÀ´¶ÙÊ±»èÁË¹ıÈ¥¡£\n"NOR, me);
+           message_vision(RED"å±±é£çªç„¶è½¬å¼ºï¼Œ$NåŠŸåŠ›ä¸å¤Ÿï¼Œæ— æ³•ç¨³ä½èº«ä½“ï¼Œä¸€é˜µæ‘‡æ™ƒï¼Œåˆè¢«å¹äº†å›å»ã€‚\n"NOR, me);
+            message_vision(HIR"$Nå¿ƒé‡Œä¸€æ€¥ï¼Œä¸€å£æ°”è½¬ä¸è¿‡æ¥é¡¿æ—¶æ˜äº†è¿‡å»ã€‚\n"NOR, me);
             me->unconcious();
             return 1;
            }
         me->move(__DIR__"shanya1");
-	tell_room(environment(me), me->name() + "´ÓÉÏÃæÅÀÁËÏÂÀ´¡£\n", ({ me }));
+	tell_room(environment(me), me->name() + "ä»ä¸Šé¢çˆ¬äº†ä¸‹æ¥ã€‚\n", ({ me }));
         me->delete_temp("mark/bang");
      	return 1;
 }
@@ -66,13 +66,13 @@ int do_bang(string arg)
         object me;
         me = this_player();
         if (!( present("sheng zi", this_player())))
-            return notify_fail("ÄãÒªÓÃÊ²Ã´°ó£¿\n");
+            return notify_fail("ä½ è¦ç”¨ä»€ä¹ˆç»‘ï¼Ÿ\n");
 
         if ( !arg || arg != "song" )
-            return notify_fail("ÄãÒª°óÊ²Ã´£¿\n");
+            return notify_fail("ä½ è¦ç»‘ä»€ä¹ˆï¼Ÿ\n");
 	if (me->query_temp("mark/bang"))
-		return notify_fail("Éş×ÓÒÑ¾­°óºÃÁË¡£\n");
-        message_vision("$N×Ğ×ĞÏ¸Ï¸µØ°ÑÉş×ÓÒ»¶Ë°óÔÚËÉÊ÷¸ÉÉÏ¡£\n", me);
+		return notify_fail("ç»³å­å·²ç»ç»‘å¥½äº†ã€‚\n");
+        message_vision("$Nä»”ä»”ç»†ç»†åœ°æŠŠç»³å­ä¸€ç«¯ç»‘åœ¨æ¾æ ‘å¹²ä¸Šã€‚\n", me);
         me->set_temp("mark/bang",1);
         return 1;
 }

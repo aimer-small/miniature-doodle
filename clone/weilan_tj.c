@@ -19,7 +19,7 @@ void back_player(object obj)
 	if(!objectp(me = query_temp("dazao_target")))
 	{
 		destruct(obj);
-		command("say Õâµ¹ÆæÁË£¬½ĞÎÒ´òÔì£¬ÈËÈ´ÓÖ²»¼ûÁË¡£");
+		command("say è¿™å€’å¥‡äº†ï¼Œå«æˆ‘æ‰“é€ ï¼Œäººå´åˆä¸è§äº†ã€‚");
 		command("consider");
 		delete_temp("dazao_target");
 		call_out("ddd",1);
@@ -28,16 +28,16 @@ void back_player(object obj)
 	if(!present(me,environment()))
 	{
 		obj->move(me);
-		message_vision("Ò»¸ö±øÆ÷ÆÌµÄ»ï¼Æ³åµ½$NÃæÇ°£¬¸øÁË$NÒ»"+obj->query("unit")+obj->name()+"£¬Ëæ¼´ËµµÀ£ºÕâÊÇÀÏ°å½»´ú¸øÄãµÄ¡£\n",me);
+		message_vision("ä¸€ä¸ªå…µå™¨é“ºçš„ä¼™è®¡å†²åˆ°$Né¢å‰ï¼Œç»™äº†$Nä¸€"+obj->query("unit")+obj->name()+"ï¼Œéšå³è¯´é“ï¼šè¿™æ˜¯è€æ¿äº¤ä»£ç»™ä½ çš„ã€‚\n",me);
 		//tell_object(me,
-		//"Ò»¸ö±øÆ÷ÆÌµÄ»ï¼Æ³åµ½ÄãÃæÇ°£¬¸øÁËÄãÒ»"+obj->query("unit")+obj->name()+"£¬Ëæ¼´ËµµÀ£ºÕâÊÇÀÏ°å½»´ú¸øÄãµÄ¡£\n"
+		//"ä¸€ä¸ªå…µå™¨é“ºçš„ä¼™è®¡å†²åˆ°ä½ é¢å‰ï¼Œç»™äº†ä½ ä¸€"+obj->query("unit")+obj->name()+"ï¼Œéšå³è¯´é“ï¼šè¿™æ˜¯è€æ¿äº¤ä»£ç»™ä½ çš„ã€‚\n"
 		//);
 		delete_temp("dazao_target");
 		call_out("ddd",1);
 		return;
 	}
 	command("give 1 to "+getuid(me));
-	command("say µÈµÃĞÁ¿àÁË°É£¬ºÇºÇ¡£");
+	command("say ç­‰å¾—è¾›è‹¦äº†å§ï¼Œå‘µå‘µã€‚");
 	
 	call_out("ddd",1);
 }
@@ -45,7 +45,7 @@ void back_player(object obj)
 void ddd()
 {
 	object npc;
-	command("say Î¤¾ôÒ¯³Ù»á»¹ÒªÎÒ´òÔì±øÆ÷¡£");
+	command("say éŸ¦çˆµçˆ·è¿Ÿä¼šè¿˜è¦æˆ‘æ‰“é€ å…µå™¨ã€‚");
 	command("wave");
 	delete_temp("dazao_target");
 	
@@ -57,12 +57,12 @@ void ddd()
 
 void create()
 {
-        set_name("Î¤À¼Ìú½³", ({ "weilan tiejiang", "weilan", "tiejiang" }));
-        set("nickname", HIY"ÇÉ¶áÌì¹¤"NOR);
-        set("gender", "ÄĞĞÔ");
+        set_name("éŸ¦å…°é“åŒ ", ({ "weilan tiejiang", "weilan", "tiejiang" }));
+        set("nickname", HIY"å·§å¤ºå¤©å·¥"NOR);
+        set("gender", "ç”·æ€§");
         set("long", "
-ÕâÃûÌú½³±ãÊÇÎª²éÀí´óµÛ´òÔìÄÇ°Ñ´«ÆæÊ½µÄ½£¡°ÇÇÒÀÎÚË¹¡±µÄ°ëÈË°ëÉñ£¡
-Äã¿ÉÒÔÏòËû´òÌıËûµÄÊÂ¼£(name)¡£\n\n");
+è¿™åé“åŒ ä¾¿æ˜¯ä¸ºæŸ¥ç†å¤§å¸æ‰“é€ é‚£æŠŠä¼ å¥‡å¼çš„å‰‘â€œä¹”ä¾ä¹Œæ–¯â€çš„åŠäººåŠç¥ï¼
+ä½ å¯ä»¥å‘ä»–æ‰“å¬ä»–çš„äº‹è¿¹(name)ã€‚\n\n");
         set("age", 41);
         set("attitude", "heroism");
         set("unique", 1);
@@ -82,12 +82,12 @@ void create()
         set("inquiry", ([
                 "dazao": (: ask_imbue() :),
                 "money": (: ask_money :),
-                "name": "ÎÒÏÖÔÚ¸ºÔğ°ïÖúÍæ¼Ò´òÔì(dazao)ÎäÆ÷£¬ÄÜ´ò³ö×îºÃµÄÀ´£¡»úÂÊÂğ.....ºÙºÙ¡£
+                "name": "æˆ‘ç°åœ¨è´Ÿè´£å¸®åŠ©ç©å®¶æ‰“é€ (dazao)æ­¦å™¨ï¼Œèƒ½æ‰“å‡ºæœ€å¥½çš„æ¥ï¼æœºç‡å—.....å˜¿å˜¿ã€‚
 
-ÒªÇó£º Ò»°Ñ"HIC"ËæÒâ"CYN"µÄÎäÆ÷(ÁîºÍ°µÆ÷²»ĞĞ)¡£
-ÀíÂÛÉÏ×î¸ßÍşÁ¦¿ÉÒÔ´ïµ½ÒĞÌì½£ÍÀÁúµ¶µÄÁ½±¶£¬»¹ÓĞºÜ¶à¸½¼ÓÊôĞÔ¡£
+è¦æ±‚ï¼š ä¸€æŠŠ"HIC"éšæ„"CYN"çš„æ­¦å™¨(ä»¤å’Œæš—å™¨ä¸è¡Œ)ã€‚
+ç†è®ºä¸Šæœ€é«˜å¨åŠ›å¯ä»¥è¾¾åˆ°å€šå¤©å‰‘å± é¾™åˆ€çš„ä¸¤å€ï¼Œè¿˜æœ‰å¾ˆå¤šé™„åŠ å±æ€§ã€‚
 
-ÏŞÖÆ£º  Ã¿ÈË¾­Ñé500KÊ±¿ÉÒÔ´òÔì£¬ÒÔºóÃ¿Ò»°ÙÍò¾­ÑéÔö¼ÓÒ»´Î´òÔì»ú»á£¬ºÃºÃ°ÑÎÕÅ¶£¡
+é™åˆ¶ï¼š  æ¯äººç»éªŒ500Kæ—¶å¯ä»¥æ‰“é€ ï¼Œä»¥åæ¯ä¸€ç™¾ä¸‡ç»éªŒå¢åŠ ä¸€æ¬¡æ‰“é€ æœºä¼šï¼Œå¥½å¥½æŠŠæ¡å“¦ï¼
 
 \n",
         ]) );;
@@ -131,14 +131,14 @@ int go_dazao(object lu,object me,string cmds)
 
 void die()
 {
-	message_vision("$NÉîÉîÎüÁË¼¸¿ÚÆø£¬Á³É«¿´ÆğÀ´ºÃ¶àÁË¡£\n",this_object());
+	message_vision("$Næ·±æ·±å¸äº†å‡ å£æ°”ï¼Œè„¸è‰²çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n",this_object());
 	return;
 }
 
 
 string ask_money()
 {
-	return "ÎÒÏÖÔÚÒÑ¾­×¬ÁË" + MONEY_D->money_str(this_object()->query("balance")) + "£¡";
+	return "æˆ‘ç°åœ¨å·²ç»èµšäº†" + MONEY_D->money_str(this_object()->query("balance")) + "ï¼";
 }
 
 string ask_imbue()
@@ -148,7 +148,7 @@ string ask_imbue()
 	int i = me->query("get_imbue_weapon");
 	
 	if( i && i > time() )
-		return "»¹Ã»´òÔìºÃÄØ£¬ÄãÔÙµÈµÈ°É£¡\n";
+		return "è¿˜æ²¡æ‰“é€ å¥½å‘¢ï¼Œä½ å†ç­‰ç­‰å§ï¼\n";
 	if( i && i <= time() ){
 		me->delete("get_imbue_weapon");
 		if( !mapp(im = me->query("imbue_weapon")) )
@@ -157,11 +157,11 @@ string ask_imbue()
 		me->delete("imbue_weapon");
 		if( wp )
         		wp->move(me);
-        	else return "ÎäÆ÷Éú³É³ö´í£¬ÇëÍ¨Öªsnowman! \n";
+        	else return "æ­¦å™¨ç”Ÿæˆå‡ºé”™ï¼Œè¯·é€šçŸ¥snowman! \n";
         	
-        	message_vision("$N½«´òÔìºÃµÄ"+wp->name()+"½»¸ø$n¡£\n\n", this_object(), me);
-        	write(HIW"ÏêÏ¸Ê¹ÓÃÇë¿´ uweapon ÃüÁî¡£\n"NOR);
-        	return "±ğÅª¶ªÁË£¡\n";
+        	message_vision("$Nå°†æ‰“é€ å¥½çš„"+wp->name()+"äº¤ç»™$nã€‚\n\n", this_object(), me);
+        	write(HIW"è¯¦ç»†ä½¿ç”¨è¯·çœ‹ uweapon å‘½ä»¤ã€‚\n"NOR);
+        	return "åˆ«å¼„ä¸¢äº†ï¼\n";
         }
         
 	return USER_WEAPOND->ask_imbue();
@@ -176,40 +176,40 @@ int do_imbue(string arg)
         if( !living(this_object()) ) return 0;
         
         if( !arg )
-                return notify_fail("¸ñÊ½£º dazao <ÄãÉíÉÏÒª´òÔìµÄÎäÆ÷>\n");
+                return notify_fail("æ ¼å¼ï¼š dazao <ä½ èº«ä¸Šè¦æ‰“é€ çš„æ­¦å™¨>\n");
         
         me = this_player();
         
         if( (int)me->query("get_imbue_weapon") )
-        	return notify_fail("ÄãÏÈ°Ñ´òÔìµÄÎäÆ÷È¡ÁËÔÙËµ°É(ask weilan about dazao)¡£\n");        
+        	return notify_fail("ä½ å…ˆæŠŠæ‰“é€ çš„æ­¦å™¨å–äº†å†è¯´å§(ask weilan about dazao)ã€‚\n");        
         if( wizardp(me) || SECURITY_D->get_status(me)!="(player)" )
-                return notify_fail("Î×Ê¦Ã»ÓĞ´òÔìµÄÈ¨Àû£¡\n");
+                return notify_fail("å·«å¸ˆæ²¡æœ‰æ‰“é€ çš„æƒåˆ©ï¼\n");
 
         if( !objectp(wp = present(arg, me)) )
-                return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+                return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
         
         if( !wp->query("weapon_prop") )
-                return notify_fail("ÕâÀïÄ¿Ç°Ö»ÄÜ´òÔìÎäÆ÷¡£\n");
+                return notify_fail("è¿™é‡Œç›®å‰åªèƒ½æ‰“é€ æ­¦å™¨ã€‚\n");
         
         if( me->is_busy() || me->is_fighting() )
-                return notify_fail("ÄãÏÈÃ¦ÍêÔÙËµ°É¡£\n");
+                return notify_fail("ä½ å…ˆå¿™å®Œå†è¯´å§ã€‚\n");
                 
         if( wp->query("equipped") )
-                return notify_fail("Òª´òÔì£¬ÄãÏÈ·ÅÏÂÎäÆ÷°É¡£\n");
+                return notify_fail("è¦æ‰“é€ ï¼Œä½ å…ˆæ”¾ä¸‹æ­¦å™¨å§ã€‚\n");
         if( wp->query("imbued") || strsrch(file_name(wp),USER_WEAPOND->query_uwname())==0  )
-                return notify_fail("ÄãÕâÎäÆ÷ÒÑ¾­´òÔì¹ıÁË¡£\n");
+                return notify_fail("ä½ è¿™æ­¦å™¨å·²ç»æ‰“é€ è¿‡äº†ã€‚\n");
                 
         if( !stringp(type = wp->query("skill_type")) )
-                return notify_fail("ÕâÀïÖ»ÄÜ´òÔì¸÷Ê½ÎäÆ÷¡£\n");
+                return notify_fail("è¿™é‡Œåªèƒ½æ‰“é€ å„å¼æ­¦å™¨ã€‚\n");
                
         if( this_object()->is_busy() )
-                return notify_fail("ÎÒÕıÃ¦×ÅÄØ£¬µÈµÈ¡£\n");
+                return notify_fail("æˆ‘æ­£å¿™ç€å‘¢ï¼Œç­‰ç­‰ã€‚\n");
                 
 	if( wp->is_corpse() ){
 		me->start_busy(5);
-		message_vision("$N±»ÏÅµÃÔÎÁË¹ıÈ¥£¡\n", this_object());
+		message_vision("$Nè¢«å“å¾—æ™•äº†è¿‡å»ï¼\n", this_object());
 		this_object()->unconcious();
-		return notify_fail("Ôã¸â£¡\n");
+		return notify_fail("ç³Ÿç³•ï¼\n");
 	}
 
         switch(type){
@@ -227,20 +227,20 @@ int do_imbue(string arg)
                 case "stick":
                 case "whip": break;
                 default:
-                        return notify_fail("ÕâÀï²»ÄÜ´òÔìÕâÖÖÎäÆ÷¡£\n");
+                        return notify_fail("è¿™é‡Œä¸èƒ½æ‰“é€ è¿™ç§æ­¦å™¨ã€‚\n");
         }
         
         if( wp->id("xiao") ) type = "xiao";
         
-        message_vision("$NÄÃ³ö"+wp->name()+"ÏëÒª$n°ïÃ¦´òÔì¡£\n\n",me,  this_object());
+        message_vision("$Næ‹¿å‡º"+wp->name()+"æƒ³è¦$nå¸®å¿™æ‰“é€ ã€‚\n\n",me,  this_object());
 	this_object()->start_busy(2);
 	
 	if( !me->query("imbue_reward")){
 		if( me->query("combat_exp") < 500000 )
-                	return notify_fail("ÒÀÄúÄ¿Ç°µÄË®Æ½£¬ÎÒ¿´ÊÇÓÃ²»ÁËÊ²Ã´ºÃÎäÆ÷µÄ£¬ÄãÒÔºóÔÙÀ´°É¡£\n");
+                	return notify_fail("ä¾æ‚¨ç›®å‰çš„æ°´å¹³ï¼Œæˆ‘çœ‹æ˜¯ç”¨ä¸äº†ä»€ä¹ˆå¥½æ­¦å™¨çš„ï¼Œä½ ä»¥åå†æ¥å§ã€‚\n");
         
         	if( me->query("combat_exp")/1000000 < (int)me->query("user_weapon_imbued") ){
-                	return notify_fail("ÒÀÄúÄ¿Ç°µÄ¾­ÑéÀ´Ëµ£¬ÕâºÃÎäÆ÷»¹ÊÇÒÔºóÔÙÀ´´ò°É¡£\n");        	
+                	return notify_fail("ä¾æ‚¨ç›®å‰çš„ç»éªŒæ¥è¯´ï¼Œè¿™å¥½æ­¦å™¨è¿˜æ˜¯ä»¥åå†æ¥æ‰“å§ã€‚\n");        	
         	}
         	me->add("user_weapon_imbued", 1);
         }
@@ -273,10 +273,10 @@ int do_imbue(string arg)
                  	
  	if( !wizardp(me) ){
  		me->set("get_imbue_weapon", time() + 18000);
-        	message_vision("$NµãµãÍ·µÀ£ºÄãÁ½¸ö°ëÊ±³½ºóÀ´È¡°É¡£\n\n", this_object());
+        	message_vision("$Nç‚¹ç‚¹å¤´é“ï¼šä½ ä¸¤ä¸ªåŠæ—¶è¾°åæ¥å–å§ã€‚\n\n", this_object());
 	}
 	else {
-		message_vision("$NµãµãÍ·µÀ£º´òÔìºÃÁË¡£\n\n", this_object());
+		message_vision("$Nç‚¹ç‚¹å¤´é“ï¼šæ‰“é€ å¥½äº†ã€‚\n\n", this_object());
 		me->set("get_imbue_weapon", 10000);
 	}
         return 1;

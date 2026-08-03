@@ -1,13 +1,13 @@
-//juebi-4.c ¾ø±Ú
+//juebi-4.c ç»å£
 
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "¾ø±Ú");
+	set("short", "ç»å£");
 	set("long", @LONG
-¹âÍ»Í»µÄÊ¯±Ú¡£ÄãÖ»Ìı¼û¶úÅÔºöºöµÄ·çÉù¡£
+å…‰çªçªçš„çŸ³å£ã€‚ä½ åªå¬è§è€³æ—å¿½å¿½çš„é£å£°ã€‚
 LONG
 	);
 
@@ -27,28 +27,28 @@ int do_climb(string arg)
 
 /*        me->receive_damage("jing", 25);
         if ((int)me->query_skill("dodge",1)>100)
-        write("Äã¾õµÃºÜÄÑ´ÓÖĞÁìÎòµ½Çá¹¦Éí·¨¡£\n");
+        write("ä½ è§‰å¾—å¾ˆéš¾ä»ä¸­é¢†æ‚Ÿåˆ°è½»åŠŸèº«æ³•ã€‚\n");
 
         if ((int)me->query_skill("dodge",1)<100)
         me->improve_skill("dodge",me->query("int"));*/
         if ( (arg !="up") && (arg !="down") ) 
-        return notify_fail("ÄãÒªÍùÄÄ¶ùÅÀ£¿\n");
+        return notify_fail("ä½ è¦å¾€å“ªå„¿çˆ¬ï¼Ÿ\n");
         if (arg =="up")  
         {
-        write("ÄãÎüÁË¿ÚÆø£¬Ğ¡ĞÄµÄÏòÉÏÅÀÈ¥¡£\n");
-        message("vision",me->name() + "ÏòÉÏÒ»×İÍ»È»²»¼ûÁË¡£\n",environment(me), ({me}) );
+        write("ä½ å¸äº†å£æ°”ï¼Œå°å¿ƒçš„å‘ä¸Šçˆ¬å»ã€‚\n");
+        message("vision",me->name() + "å‘ä¸Šä¸€çºµçªç„¶ä¸è§äº†ã€‚\n",environment(me), ({me}) );
         me->move(__DIR__"juebi-5");
         me->receive_damage("jingli",30);
-        message("vision",me->name() + "ÅÀÁËÉÏÀ´¡£\n", environment(me), ({me}) );
+        message("vision",me->name() + "çˆ¬äº†ä¸Šæ¥ã€‚\n", environment(me), ({me}) );
         return 1;
         }
         if (arg =="down")
         {
-        write("ÄãÅÊÔµ×ÅÊ¯±Ú£¬»º»ºÏòÏÂÅÀÈ¥¡£\n");
-        message("vision",me->name() + "ÏòÏÂÅÀÈ¥¡£\n", environment(me), ({me}) );
+        write("ä½ æ”€ç¼˜ç€çŸ³å£ï¼Œç¼“ç¼“å‘ä¸‹çˆ¬å»ã€‚\n");
+        message("vision",me->name() + "å‘ä¸‹çˆ¬å»ã€‚\n", environment(me), ({me}) );
         me->move(__DIR__"juebi-3");
         me->receive_damage("jingli",10);
-        message("vision",me->name() + "ÅÀÁËÏÂÀ´¡£\n", environment(me), ({me}) );
+        message("vision",me->name() + "çˆ¬äº†ä¸‹æ¥ã€‚\n", environment(me), ({me}) );
         }
         return 1;
 }

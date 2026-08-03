@@ -1,18 +1,18 @@
 // zhihuan.c
-// Ö¸»·
+// æŒ‡ç¯
 #include <ansi.h>
 #include <armor.h>
 inherit FINGER;
 inherit F_UNIQUE;
 void create()
 {
-       set_name(HIW"ÌúÖ¸»·"NOR, ({ "zhi huan" }) );
+       set_name(HIW"é“æŒ‡ç¯"NOR, ({ "zhi huan" }) );
        set_weight(100);
        if( clonep() )
                set_default_object(__FILE__);
       else {
-               set("unit", "Ö§");
-               set("long", "ÕâÊÇÒ»Ö§ÌúÖ¸»·£¬ÊÇ¶ëáÒÅÉÕÆÃÅµÄĞÅÎï¡£\n");
+               set("unit", "æ”¯");
+               set("long", "è¿™æ˜¯ä¸€æ”¯é“æŒ‡ç¯ï¼Œæ˜¯å³¨åµ‹æ´¾æŒé—¨çš„ä¿¡ç‰©ã€‚\n");
                set("value", 100000);
                set("unique", 1);
                set("material", "steel");
@@ -31,14 +31,14 @@ int do_stop(string arg)
 {
         object me = this_player();
         object ob;
-        if (!arg) return notify_fail("ÄãÒªÈ°½âË­£¿\n");
+        if (!arg) return notify_fail("ä½ è¦åŠè§£è°ï¼Ÿ\n");
         ob = present(arg, environment(me));
-        if (!ob) return notify_fail("ÄãÒªÈ°½âË­£¿\n");
-        if(ob==me) return notify_fail("¡£¡£¡£Ö±½ÓÓÃ halt Ö¸Áî²»¾ÍºÃÁË£¿\n");
-        if(!userp(ob) || !ob->is_fighting(me)) return notify_fail("Äã¾Í±ğ¶à¹ÜÏĞÊÂÁË¡£\n");
-        if (!ob) return notify_fail("ÕÒ²»µ½Õâ¸öÈË¡£\n");
-message_vision(HIY"$NÁÁ³ö¶ëáÒÕÆÃÅÌúÖ¸»·£¬Ïò$nµÀ£º¡°ÎÒÊÖÏÂÁôÇé£¬ÄÑµÀÄã²»ÖªµÀ÷á£¿¡±\n",me,ob);
-        message_vision(HIW"$NËµÍê±ãÏòááÍË¿ª£¬ÁôÏÂ$nã¶ÔÚÄÇ±ß¡£\n"NOR,me,ob);
+        if (!ob) return notify_fail("ä½ è¦åŠè§£è°ï¼Ÿ\n");
+        if(ob==me) return notify_fail("ã€‚ã€‚ã€‚ç›´æ¥ç”¨ halt æŒ‡ä»¤ä¸å°±å¥½äº†ï¼Ÿ\n");
+        if(!userp(ob) || !ob->is_fighting(me)) return notify_fail("ä½ å°±åˆ«å¤šç®¡é—²äº‹äº†ã€‚\n");
+        if (!ob) return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªäººã€‚\n");
+message_vision(HIY"$Näº®å‡ºå³¨åµ‹æŒé—¨é“æŒ‡ç¯ï¼Œå‘$né“ï¼šâ€œæˆ‘æ‰‹ä¸‹ç•™æƒ…ï¼Œéš¾é“ä½ ä¸çŸ¥é“éº½ï¼Ÿâ€\n",me,ob);
+        message_vision(HIW"$Nè¯´å®Œä¾¿å‘å¾Œé€€å¼€ï¼Œç•™ä¸‹$næ„£åœ¨é‚£è¾¹ã€‚\n"NOR,me,ob);
         me->remove_all_enemy();
         ob->remove_all_enemy();
         return 1;

@@ -6,13 +6,13 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HIW"�쾦���"NOR, ({ "bingchan"}));
-	set("long",""HIW"һֻ�����������ܣ�ͨ����ѩ��Ө���ף�����ȴѪ
-Ҳ��죬ģ�����ǿɰ���ȴҲ�����к�����֮����"NOR"
+	set_name (HIW"朱睛冰蟾"NOR, ({ "bingchan"}));
+	set("long",""HIW"一只来自西域的蟾蜍，通体如雪晶莹亮白，眼珠却血
+也般红，模样甚是可爱，却也不见有何珍异之处。"NOR"
 
-���������������("HIY"xidu"NOR")��\n");
+你可以用它来吸毒("HIY"xidu"NOR")。\n");
 
-	set("unit","ֻ");
+	set("unit","只");
 	set_weight(100);
 	set("value",3000000);
         set("no_give",1);
@@ -20,7 +20,7 @@ void create()
         set("no_get",1);	
 	set("degree",1);
 	set("flag","spec/bingchan");
-	set("desc","�ɽ�ٶ���");
+	set("desc","可解百毒。");
         set("credit",200);       
 	setup();
 }
@@ -36,16 +36,16 @@ int do_xidu()
 	object me=this_player();
       	
       		
-	if (!restrict()&& !me->query("buyvip")) {return notify_fail("�������Ѿ�����ʹ��"+this_object()->query("name")+"�ˡ�\n");}
+	if (!restrict()&& !me->query("buyvip")) {return notify_fail("本周你已经不能使用"+this_object()->query("name")+"了。\n");}
 	
-	if (me->is_busy()) {return notify_fail("����æ���ء�\n");}
+	if (me->is_busy()) {return notify_fail("你正忙着呢。\n");}
 			
 	if(!mapp(me->query_conditions_by_type("poison")))
-		{return notify_fail("�����û���ж��ɡ�\n");}
+		{return notify_fail("你好象没有中毒吧。\n");}
 	
 	me->clear_conditions_by_type("poison");
 		
-	write(HIW"���ȥ������쾦�������ؿڣ�Ƭ��֮�����ת�ɺ�ɫ���������Ҳ������һЩ��\n"NOR);
+	write(HIW"你除去衣物把朱睛冰蟾放在胸口，片刻之间冰蟾就转成黑色，你的脸气也红润了一些。\n"NOR);
 	degree();
 	return 1;
 }	 

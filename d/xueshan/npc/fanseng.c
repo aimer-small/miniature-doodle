@@ -1,4 +1,4 @@
-// fanseng.c »¤·¨À®Âï
+// fanseng.c æŠ¤æ³•å–‡å˜›
 // by iceland
 
 #include <ansi.h>
@@ -29,13 +29,13 @@ switch (random(3)){
 
       set_name(name, ({"hufa lama","lama"}));
 	set("long",@LONG
-ËûÊÇ´óÂÖËÂµÄ»¤·¨À®Âï£¬Éí²ÄË¶×³£¬ÉñÇéËàÄÂ£¬Á½ÑÛ¾¯ÌèµÄÑ²ÊÓ×ÅËÄÖÜ¡£
+ä»–æ˜¯å¤§è½®å¯ºçš„æŠ¤æ³•å–‡å˜›ï¼Œèº«æç¡•å£®ï¼Œç¥æƒ…è‚ƒç©†ï¼Œä¸¤çœ¼è­¦æƒ•çš„å·¡è§†ç€å››å‘¨ã€‚
 LONG
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "heroism");
-	set("title" , HIW"´óÂÖËÂ»¤·¨À®Âï"NOR);
+	set("title" , HIW"å¤§è½®å¯ºæŠ¤æ³•å–‡å˜›"NOR);
 	set("age", random(20)+20);
 	set("shen_type", -1);
 	set("str", random(20)+25);
@@ -62,8 +62,8 @@ LONG
         set("chat_chance", 1);
 
         set("chat_msg", ({
-		name+"ÉÏÏÂ´òÁ¿ÁËÄãÒ»ÑÛ¡£\n",
-                name+"ÉìÁË¸öÀÁÑü£¬Â¶³ö¼¡Èâ·¢´ïµÄË«±Û¡£\n",
+		name+"ä¸Šä¸‹æ‰“é‡äº†ä½ ä¸€çœ¼ã€‚\n",
+                name+"ä¼¸äº†ä¸ªæ‡’è…°ï¼Œéœ²å‡ºè‚Œè‚‰å‘è¾¾çš„åŒè‡‚ã€‚\n",
         }) );
         switch(random(4)){
               case 0:

@@ -2,19 +2,19 @@
 
 #include <ansi.h>
 inherit ROOM;
-#define QUESTDIR3 "quest/�����˲�/��������ƪ/"
+#define QUESTDIR3 "quest/天龙八部/萧峰身世篇/"
 
 void create()
 {
-	set("short", "����");
+	set("short", "断崖");
 	set("long", @LONG
-ǰ����һ��ʮ�ֶ��͵Ķ��£��վ��쳣��������Խ��������ƺӲ�Զ����
-�����ʵ�����Ӵ���������ɫ�ĺ�ˮ�ھ���������ȥ��ʹ����������
-��ˮʱ�Ŀ�����
+前面是一处十分陡峭的断崖，险峻异常，难以爬越。这里离黄河不远，黄
+河流淌到这里，河床宽阔。黄色的河水在静静地向东流去，使人忘记它发
+洪水时的狂威。
 LONG
 	);
            set("quest",1);
-	set("outdoors", "�ƺ�");
+	set("outdoors", "黄河");
 	set("exits", ([
 		"north" : __DIR__"yidao4",
 	]));
@@ -49,10 +49,10 @@ int valid_leave(object me, string dir)
    object obj;
    if(obj=present("xiao feng", environment(me)))
    {
-	   message_vision(HIY"\n$N���˵�ͷ������$n��ȻҪ���ˣ���Ҳ�뿪�����ˣ�������һ���ط�������˵����\n" NOR, obj,me); 
-       message_vision(HIY"\n$N΢һ�����������������ȫ���ǽڷ���һ�󱬶�������죡\n" NOR, obj); 
-	   message_vision(HIY"\n$N��$n�������֣���������������Ȭ�����Ҿͻ�ȥ����ġ���\n" NOR, obj,me); 
-	   message_vision(HIY"\n$N���¶��£�һת�۲�����Ӱ�ˡ�\n" NOR, obj); 
+	   message_vision(HIY"\n$N点了点头道：“$n既然要走了，我也离开这里了，我先找一个地方疗伤再说。”\n" NOR, obj,me); 
+       message_vision(HIY"\n$N微一凝神，运起混天气功，全身骨节发出一阵爆豆般的声响！\n" NOR, obj); 
+	   message_vision(HIY"\n$N向$n招了招手，道：“等我伤势痊愈，我就会去找你的。”\n" NOR, obj,me); 
+	   message_vision(HIY"\n$N跳下断崖，一转眼不见踪影了。\n" NOR, obj); 
        destruct(obj);
    }
    return ::valid_leave(me, dir);

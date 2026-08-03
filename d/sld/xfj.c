@@ -1,11 +1,11 @@
 // xfj.c
-// �ɸ���
+// 仙福居
 inherit ROOM;
 void create()
 {
-	set("short","�ɸ���");
+	set("short","仙福居");
 	set("long",@long
-�����ǽ�������Ͼʱ��Ϣ����֮������ʱҲ�������޿��ˡ�
+这里是教主夫妇闲暇时休息怡乐之处，有时也用于留宿客人。
 long);
 	set("no_fight", 1);
 	set("exits",([

@@ -1,16 +1,16 @@
-// yang.c ÑîÀÏ°å 
+// yang.c æ¨è€æ¿ 
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-        set_name("ÉÌÈË", ({ "shang ren", "ren" }));
+        set_name("å•†äºº", ({ "shang ren", "ren" }));
         set("shen_type", 1);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 45);
         set("long",
-                "Ëû´©µÄºÜÆÓËØ£¬ÔÚÕâ¸½½ü×öÁË¼¸ÄêµÄÉúÒâ£¬Ò²Ã»×¬µ½¶àÉÙÇ®¡£\n");
+                "ä»–ç©¿çš„å¾ˆæœ´ç´ ï¼Œåœ¨è¿™é™„è¿‘åšäº†å‡ å¹´çš„ç”Ÿæ„ï¼Œä¹Ÿæ²¡èµšåˆ°å¤šå°‘é’±ã€‚\n");
         set_skill("unarmed", 50);
         set_skill("dodge", 50);
         set_temp("apply/damage", 15);

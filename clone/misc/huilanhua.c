@@ -1,4 +1,4 @@
-// huilanhua.c Ş¥À¼»¨
+// huilanhua.c è•™å…°èŠ±
 
 #include <ansi.h>;
 #include <armor.h>;
@@ -6,19 +6,19 @@ inherit HEAD;
 
 void create()
 {
-	set_name(HIB"Ş¥À¼»¨"NOR, ({"huilan hua", "flower", "hua"}));
+	set_name(HIB"è•™å…°èŠ±"NOR, ({"huilan hua", "flower", "hua"}));
 	set_weight(110);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
-                set("long", "ÕâÊÇÒ»¶äÃÀÀöµÄŞ¥À¼»¨£¬ÏãÆøÇåĞÂ¡£\n");
+                set("unit", "æœµ");
+                set("long", "è¿™æ˜¯ä¸€æœµç¾ä¸½çš„è•™å…°èŠ±ï¼Œé¦™æ°”æ¸…æ–°ã€‚\n");
                 set("value", 210);
                 set("material", "plant");
                 set("armor_prop/armor", 1);
                 set("armor_prop/personality", 1);
-                set("wear_msg", "$NÇáÇáµØ°ÑÒ»¶ä$n´÷ÔÚÍ·ÉÏ¡£\n");
-                set("unequip_msg", "$NÇáÇáµØ°Ñ$n´ÓÍ·ÉÏÕªÁËÏÂÀ´¡£\n");
+                set("wear_msg", "$Nè½»è½»åœ°æŠŠä¸€æœµ$næˆ´åœ¨å¤´ä¸Šã€‚\n");
+                set("unequip_msg", "$Nè½»è½»åœ°æŠŠ$nä»å¤´ä¸Šæ‘˜äº†ä¸‹æ¥ã€‚\n");
         }
         setup();
 }

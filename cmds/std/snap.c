@@ -10,30 +10,30 @@ int main(object me, string arg)
 	string s1,s2;
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( !arg || sscanf(arg,"%s to %s",s1,s2)<2 )
-		return notify_fail("ÄãÒªÄãµÄ³èÎï¹¥»÷Ë­£¿\n");
+		return notify_fail("ä½ è¦ä½ çš„å® ç‰©æ”»å‡»è°ï¼Ÿ\n");
 
 	if( !(target=present(s1,environment(me))) )
-		return notify_fail("ÄãÒªÖ¸»ÓÊ²Ã´¶¯Îï°¡£¿\n");
+		return notify_fail("ä½ è¦æŒ‡æŒ¥ä»€ä¹ˆåŠ¨ç‰©å•Šï¼Ÿ\n");
 
 	if( !(obj=present(s2,environment(me))) )
-		return notify_fail("ÄãÒªÄãµÄ³èÎï¹¥»÷Ë­£¿\n");
+		return notify_fail("ä½ è¦ä½ çš„å® ç‰©æ”»å‡»è°ï¼Ÿ\n");
 
 	if( !living(target) || !living(obj) )
-		return notify_fail("ÄÇ²»ÊÇ»îÎï¡£\n");
+		return notify_fail("é‚£ä¸æ˜¯æ´»ç‰©ã€‚\n");
 
 	if( target->query("master") != me->query("id") )
-		return notify_fail("Äã»¹Ã»ÓĞ½µ·üËüÄØ¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰é™ä¼å®ƒå‘¢ã€‚\n");
 
 	if( userp(obj) )
-		return notify_fail("²âÊÔÆÚ¼ä£¬½ûÖ¹¹¥»÷Íæ¼Ò¡£\n");
+		return notify_fail("æµ‹è¯•æœŸé—´ï¼Œç¦æ­¢æ”»å‡»ç©å®¶ã€‚\n");
 
 	if( target->is_busy() || target->is_fighting() )
-		return notify_fail("ÄãµÄ³èÎïÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ çš„å® ç‰©æ­£å¿™ç€å‘¢ã€‚\n");
 
-	message_vision(CYN"$NÅÄÁËÅÄ"+target->name()+CYN"µÄÍ·£¬Ö¸Ö¸$n......\n"NOR,me,obj);
+	message_vision(CYN"$Næ‹äº†æ‹"+target->name()+CYN"çš„å¤´ï¼ŒæŒ‡æŒ‡$n......\n"NOR,me,obj);
 
 	target->kill_ob(obj);
 	return 1;
@@ -42,9 +42,9 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : snap <³èÎï> to <¹¥»÷¶ÔÏó>
+æŒ‡ä»¤æ ¼å¼ : snap <å® ç‰©> to <æ”»å‡»å¯¹è±¡>
 
-Õâ¸öÃüÁîÓÃÀ´Ö¸»ÓÄãµÄ³èÎï¹¥»÷µĞÈË¡£
+è¿™ä¸ªå‘½ä»¤ç”¨æ¥æŒ‡æŒ¥ä½ çš„å® ç‰©æ”»å‡»æ•Œäººã€‚
 HELP
 );
 	return 1;

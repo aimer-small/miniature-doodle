@@ -1,6 +1,6 @@
 // /d/xiangyang/npc/lvwende.c
 // by looklove 2000/8/23
-// add ½ğÅèÏ´ÊÖÏŞÖÆ cigarman 16/02/2008
+// add é‡‘ç›†æ´—æ‰‹é™åˆ¶ cigarman 16/02/2008
 #include <ansi.h>
 inherit NPC;
 #define HDJOB "/adm/daemons/hdjob.c"
@@ -15,15 +15,15 @@ void destroy(object ob)
 }
 void create()
 {
-        set_name("ÂÀÎÄµÂ", ({ "lv wende", "lv" }));
-        set("title", "ÏåÑôÖª¸®");
-        set("gender", "ÄĞĞÔ");
+        set_name("å•æ–‡å¾·", ({ "lv wende", "lv" }));
+        set("title", "è¥„é˜³çŸ¥åºœ");
+        set("gender", "ç”·æ€§");
         set("age", 40);
         set("str", 20);
         set("int", 20);
         set("con", 20);
         set("dex", 20);
-        set("long", "ËûÊÇÏåÑôµÄÏÖÈÎÖª¸®£¬ÔÚÏåÑôÂÊÁì´óËÎ¾üÃñÓëÃÉ¹Å÷²×Ó¶Ô¿¹¡£\n");
+        set("long", "ä»–æ˜¯è¥„é˜³çš„ç°ä»»çŸ¥åºœï¼Œåœ¨è¥„é˜³ç‡é¢†å¤§å®‹å†›æ°‘ä¸è’™å¤é‘å­å¯¹æŠ—ã€‚\n");
         set("combat_exp", 350000);
         set("attitude", "peaceful");
         set("max_qi", 1200);
@@ -40,8 +40,8 @@ void create()
         map_skill("parry", "qingmang-jian");
         map_skill("parry", "qingmang-jian");
         set("inquiry", ([
-                "Æú°µÍ¶Ã÷" : (: ask_me :),
-                "Ğ­·ÀÏåÑô" : (: ask_me1 :),
+                "å¼ƒæš—æŠ•æ˜" : (: ask_me :),
+                "åé˜²è¥„é˜³" : (: ask_me1 :),
         ]));
         setup();
         carry_object(ARMOR_D("guanxue"))->wear();
@@ -50,7 +50,7 @@ void create()
 
 void kill_ob(object ob)
 {
-        command("say ´óµ¨£¬¾¹¸ÒÉ±³¯Í¢Ãü¹Ù£¡");
+        command("say å¤§èƒ†ï¼Œç«Ÿæ•¢æ€æœå»·å‘½å®˜ï¼");
         return ;
 }
 int ask_me1()
@@ -61,32 +61,32 @@ object *obj;
       object me = this_player();
 
           if(!ob->query("hd_start")){
-                command("say ¾İÌ½×ÓÀ´±¨£¬Ä¿Ç°ÃÉ¹Å´ó¾ü»¹Ã»À´·¸ÎÒ´óËÎ±ß¹Ø£¡");
+                command("say æ®æ¢å­æ¥æŠ¥ï¼Œç›®å‰è’™å¤å¤§å†›è¿˜æ²¡æ¥çŠ¯æˆ‘å¤§å®‹è¾¹å…³ï¼");
                 return 1; } 
           if(me->query_condition("killer")){
-                command("say ³¯Í¢ÕıÔÚÍ¨¼©ÄãÄØ£¬ËäÈ»ÎÒ»¤³ÇĞÄÇĞ£¬µ«Ò²²»¸ÒµÃ×ï³¯Í¢£¡");
+                command("say æœå»·æ­£åœ¨é€šç¼‰ä½ å‘¢ï¼Œè™½ç„¶æˆ‘æŠ¤åŸå¿ƒåˆ‡ï¼Œä½†ä¹Ÿä¸æ•¢å¾—ç½ªæœå»·ï¼");
                 return 1; } 
                 if(base_name(environment(ob))!="/d/hudong/xiangyang/defend") {
-                command("say ÎÒ³öÃÅÔÚÍâ£¬²»Çå³ş£¡");
+                command("say æˆ‘å‡ºé—¨åœ¨å¤–ï¼Œä¸æ¸…æ¥šï¼");
                 return 1; }             if(me->query("combat_exp") < 100000){
-                message_vision("$N¶Ô$nËµµÀ£ºÕâÎ»"+RANK_D->query_respect(me)+"£¬Õ½³¡ÏÕ¶ñ£¬Äã»¹ÊÇ»ØÈ¥ºÃºÃ¶ÍÁ¶°É£¡\n",ob,me);
+                message_vision("$Nå¯¹$nè¯´é“ï¼šè¿™ä½"+RANK_D->query_respect(me)+"ï¼Œæˆ˜åœºé™©æ¶ï¼Œä½ è¿˜æ˜¯å›å»å¥½å¥½é”»ç‚¼å§ï¼\n",ob,me);
                 return 1; } 
-                if(me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ask_ok")==1){
-                command("say ÄãÒÑ¾­ÔÚĞ­ÖúÎÒ¾ü·ÀÊØÏåÑôÁË£¬¿ìÈ¥×öºÃ×¼±¸°É£¡");
+                if(me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/ask_ok")==1){
+                command("say ä½ å·²ç»åœ¨ååŠ©æˆ‘å†›é˜²å®ˆè¥„é˜³äº†ï¼Œå¿«å»åšå¥½å‡†å¤‡å§ï¼");
                 return 1; } 
-                if(me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ask_ok")==2){
-                command("say ¿´Äã¹í¹í³ç³çµÄÄ£Ñù£¬Äª²»ÊÇÃÉ¹Å÷²×ÓµÄ¼éÏ¸£¿");
+                if(me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/ask_ok")==2){
+                command("say çœ‹ä½ é¬¼é¬¼å´‡å´‡çš„æ¨¡æ ·ï¼Œè«ä¸æ˜¯è’™å¤é‘å­çš„å¥¸ç»†ï¼Ÿ");
                 return 1; } 
                               
 
 
 
-                 message_vision(CYN"\n$N¹ş¹ş´óĞ¦µÀ£º"+RANK_D->query_respect(me)+"¿Ï´óÒåÔ®ÊÖ£¬ÃÉ¹Å÷²×ÓÍıÏë¶áÈ¡ÏåÑôµÄÃÀÃÎÒªÂä¿ÕÁË¡£\n"NOR, ob, me);
-                 message_vision(CYN"\n$N¶Ô$nËµµÀ£º¼ÈÈ»Èç´Ë£¬"+RANK_D->query_respect(me)+"¾Í¸Ï¿ìÏÂÈ¥×¼±¸×¼±¸°É£¬ÃÉ¹Å÷²×ÓËæÊ±¶¼»á¹¥³ÇÁË¡£\n"NOR, ob, me);                 me->set_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ask_ok",1);
-                 me->set_temp("»¥¶¯ÈÎÎñ/hdflag","ÏåÑô´óÕ½");
-me->set_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/defend",1);
+                 message_vision(CYN"\n$Nå“ˆå“ˆå¤§ç¬‘é“ï¼š"+RANK_D->query_respect(me)+"è‚¯å¤§ä¹‰æ´æ‰‹ï¼Œè’™å¤é‘å­å¦„æƒ³å¤ºå–è¥„é˜³çš„ç¾æ¢¦è¦è½ç©ºäº†ã€‚\n"NOR, ob, me);
+                 message_vision(CYN"\n$Nå¯¹$nè¯´é“ï¼šæ—¢ç„¶å¦‚æ­¤ï¼Œ"+RANK_D->query_respect(me)+"å°±èµ¶å¿«ä¸‹å»å‡†å¤‡å‡†å¤‡å§ï¼Œè’™å¤é‘å­éšæ—¶éƒ½ä¼šæ”»åŸäº†ã€‚\n"NOR, ob, me);                 me->set_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/ask_ok",1);
+                 me->set_temp("äº’åŠ¨ä»»åŠ¡/hdflag","è¥„é˜³å¤§æˆ˜");
+me->set_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/defend",1);
 
-                 me->set_temp("title",HIY"´óËÎÒåÊ¿"NOR);
+                 me->set_temp("title",HIY"å¤§å®‹ä¹‰å£«"NOR);
                                 return 1;
 }
 int check_player(object me,string arg)

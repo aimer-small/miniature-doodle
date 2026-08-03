@@ -1,4 +1,4 @@
-// CLASS_D gaibang/qnqigai.c ÇàÄêÆòØ¤
+// CLASS_D gaibang/qnqigai.c é’å¹´ä¹ä¸
 // Lklv 2001.9.27
 
 inherit NPC;
@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÇàÄêÆòØ¤", ({ "qi gai", "qigai" }));
-	set("title", "Ø¤°ï°ïÖÚ");
+	set_name("é’å¹´ä¹ä¸", ({ "qi gai", "qigai" }));
+	set("title", "ä¸å¸®å¸®ä¼—");
 	set("gb/bags", 1);
-	set("long","ÕâÊÇÒ»¸öÇàÄêÆòØ¤£¬Ä¿¹â¾¼¾¼ÓĞÉñ¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set("long","è¿™æ˜¯ä¸€ä¸ªé’å¹´ä¹ä¸ï¼Œç›®å…‰ç‚¯ç‚¯æœ‰ç¥ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 23);
 	set("attitude", "peaceful");
 	set("shen_type", 0);
@@ -41,7 +41,7 @@ void create()
 	map_skill("parry", "lianhua-zhang");
 	prepare_skill("strike", "lianhua-zhang");
 
-	create_family("Ø¤°ï", 20, "Ò»´üµÜ×Ó");
+	create_family("ä¸å¸®", 20, "ä¸€è¢‹å¼Ÿå­");
 
 	setup();
 

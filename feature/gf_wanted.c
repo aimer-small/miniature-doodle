@@ -8,13 +8,13 @@ mapping wanted;
 mapping query_wanted() { return wanted; }
 string *query_wanted_list() { return keys(wanted); }
 int query_wanted_size() { return sizeof(wanted); }
-string wanted_list = "\nÄ¿Ç°ÖÎ°²Á¼ºÃ£¬¹Ù¸®ÎŞÈÎºÎÍ¨¼©ÎÄÊéÌù³ö¡£\n\n";
+string wanted_list = "\nç›®å‰æ²»å®‰è‰¯å¥½ï¼Œå®˜åºœæ— ä»»ä½•é€šç¼‰æ–‡ä¹¦è´´å‡ºã€‚\n\n";
 private int do_wanted(object ob, mixed info);
 
 int clear_wanted_list()
 {
 	wanted = ([]);
-	wanted_list = "\nÄ¿Ç°ÖÎ°²Á¼ºÃ£¬¹Ù¸®ÎŞÈÎºÎÍ¨¼©ÎÄÊéÌù³ö¡£\n\n";
+	wanted_list = "\nç›®å‰æ²»å®‰è‰¯å¥½ï¼Œå®˜åºœæ— ä»»ä½•é€šç¼‰æ–‡ä¹¦è´´å‡ºã€‚\n\n";
 	return 1;
 }
 
@@ -42,15 +42,15 @@ void modify_list(int search)
       	key = query_wanted_list();
       	size = query_wanted_size();
       	if ( !size ){
-      		wanted_list = "\nÄ¿Ç°ÖÎ°²Á¼ºÃ£¬¹Ù¸®ÎŞÈÎºÎÍ¨¼©ÎÄÊéÌù³ö¡£\n\n";
+      		wanted_list = "\nç›®å‰æ²»å®‰è‰¯å¥½ï¼Œå®˜åºœæ— ä»»ä½•é€šç¼‰æ–‡ä¹¦è´´å‡ºã€‚\n\n";
 		return;
 	}
 	
       	for( i = 0; i < size; i++ ){
-                str += sprintf("    %-30s£¬Îä¹¦%-8s£¬ÉÍ½ğ%s\n", wanted[key[i]]["name"]+"("+capitalize(key[i])+")", wanted[key[i]]["level"], MONEY_D->money_str(wanted[key[i]]["reward"]*10));
+                str += sprintf("    %-30sï¼Œæ­¦åŠŸ%-8sï¼Œèµé‡‘%s\n", wanted[key[i]]["name"]+"("+capitalize(key[i])+")", wanted[key[i]]["level"], MONEY_D->money_str(wanted[key[i]]["reward"]*10));
       	}
-      	str += "\n½Ò°ñÇëÓÃ jie <Í¨¼©·¸id> µÄ¸ñÊ½¡£\n";
-    	wanted_list = "±¾¸®ÏÖÍ¨¼©ÒÔÏÂ×ï·¸£º"+str+"\n\n";
+      	str += "\næ­æ¦œè¯·ç”¨ jie <é€šç¼‰çŠ¯id> çš„æ ¼å¼ã€‚\n";
+    	wanted_list = "æœ¬åºœç°é€šç¼‰ä»¥ä¸‹ç½ªçŠ¯ï¼š"+str+"\n\n";
     	return;
 }
 
@@ -74,15 +74,15 @@ void do_give_reward(string id, mapping target, object me, int dead)
 		}
 		else i = 1;
 		exp /= i;
-		if ( dead && target["action"] != "¾ÍµØ¸ñÉ±" ){
+		if ( dead && target["action"] != "å°±åœ°æ ¼æ€" ){
 			exp /= 2+random(3);
 			pot = exp/4;
 		}
 		
 		else {
-			me->add("job_time/¹Ù¸®", 1);
+			me->add("job_time/å®˜åºœ", 1);
 			pot = exp/3;
-			tell_object(me, "ÄãÎª¹Ù¸®Ğ§ÃüµÄ´ÎÊıÔö¼ÓÁË£¬Ä¿Ç°ÒÑ´ïµ½"+chinese_number(me->query("job_time/¹Ù¸®"))+"´Î¡£\n");
+			tell_object(me, "ä½ ä¸ºå®˜åºœæ•ˆå‘½çš„æ¬¡æ•°å¢åŠ äº†ï¼Œç›®å‰å·²è¾¾åˆ°"+chinese_number(me->query("job_time/å®˜åºœ"))+"æ¬¡ã€‚\n");
 		}
 		
 		me->add("combat_exp", exp);
@@ -92,17 +92,17 @@ void do_give_reward(string id, mapping target, object me, int dead)
 		me->add("shen", exp * 2);
                 me->add("balance", exp * 10);
 		me->start_busy(3);
-                tell_object(me, "\nÄãµÃµ½ÁËÉÍ½ğ"+MONEY_D->money_str(exp*10)+"£¬"+chinese_number(pot)+"µãÇ±ÄÜºÍ"+chinese_number(exp)+"µã¾­Ñé£¡\n");
-		tell_object(me, "ÄãµÄÉÍ½ğ¿ÉÈ¥Ç®×¯ÌáÈ¡¡£\n");
-		me->set("job_name","¹Ù¸®²¶¿ì");
-		log_file("job/guanfu", sprintf("%-18s Í¨¼©ÈÎÎñ£¬µÃ %4d Exp£¬%4d Pot£¬Ä¿Ç°Exp£º%d\n",
+                tell_object(me, "\nä½ å¾—åˆ°äº†èµé‡‘"+MONEY_D->money_str(exp*10)+"ï¼Œ"+chinese_number(pot)+"ç‚¹æ½œèƒ½å’Œ"+chinese_number(exp)+"ç‚¹ç»éªŒï¼\n");
+		tell_object(me, "ä½ çš„èµé‡‘å¯å»é’±åº„æå–ã€‚\n");
+		me->set("job_name","å®˜åºœæ•å¿«");
+		log_file("job/guanfu", sprintf("%-18s é€šç¼‰ä»»åŠ¡ï¼Œå¾— %4d Expï¼Œ%4d Potï¼Œç›®å‰Expï¼š%d\n",
           		me->name()+"("+me->query("id")+")", exp, pot, me->query("combat_exp")),me);
 		del_wanted(id);	
 	}
-	else tell_object(me, "Error! ÇëÍ¨ÖªÎ×Ê¦¡£\n");
+	else tell_object(me, "Error! è¯·é€šçŸ¥å·«å¸ˆã€‚\n");
 }
 
-string *act = ({ "É±ÈËÇÀ½Ù", "ÍµÃş¹ÕÆ­", "À¹Â·ÇÀ½Ù", "ÈëÊÒÉ±ÈË", "É±ÈË¾Ü²¶", "½ÙÓüÇ±ÌÓ", "Ô½ÓüÇ±ÌÓ", "Ä±²Æº¦Ãü" });
+string *act = ({ "æ€äººæŠ¢åŠ«", "å·æ‘¸æ‹éª—", "æ‹¦è·¯æŠ¢åŠ«", "å…¥å®¤æ€äºº", "æ€äººæ‹’æ•", "åŠ«ç‹±æ½œé€ƒ", "è¶Šç‹±æ½œé€ƒ", "è°‹è´¢å®³å‘½" });
 
 private int do_wanted(object ob, mixed info)
 {	
@@ -118,7 +118,7 @@ private int do_wanted(object ob, mixed info)
         	if ( exp > 1800 ) exp = 1800;
                 exp = exp/4 + random(exp*3/4);
         	if (!stringp(place = base_name(environment(ob))) )
-        		place = "ÖĞÔ­ÉñÖİ";
+        		place = "ä¸­åŸç¥å·";
         	else place = TASK_D->get_regions(base_name(environment(ob)))+environment(ob)->query("short");
         	info = ([
         		"name" 	: ob->name(1),
@@ -128,7 +128,7 @@ private int do_wanted(object ob, mixed info)
         		"level"	: "/cmds/std/look"->gettof(ob, 2),
         		"age"	: ob->query("age"),
         		"act"	: act[random(sizeof(act))],
-        		"action": random(2)?"¾ÍµØ¸ñÉ±":"¼©ÄÃ¹é°¸",
+        		"action": random(2)?"å°±åœ°æ ¼æ€":"ç¼‰æ‹¿å½’æ¡ˆ",
         		"place" : place,
         		"base"	: ob,
         		"wenshu": 2+random(5),
@@ -149,61 +149,61 @@ int do_jie(string arg)
 	
 	me = this_player();
 	if (me->is_busy() || me->is_fighting() ) 
-		return notify_fail("ÄãÏÈÃ¦ÍêÁËÔÙËµ°É¡£\n");
+		return notify_fail("ä½ å…ˆå¿™å®Œäº†å†è¯´å§ã€‚\n");
 	
 	me->start_busy(2);
 	
         if (!arg)
-        	return notify_fail("Äã½Ò¿ªµØÉÏÒ»Æ¬ÍßÆ¬¿´ÁË¿´¡£\n");
+        	return notify_fail("ä½ æ­å¼€åœ°ä¸Šä¸€ç‰‡ç“¦ç‰‡çœ‹äº†çœ‹ã€‚\n");
 
 	if ( !query_wanted_size() ) 
-		return notify_fail("Ä¿Ç°Í¨¼©°ñÉÏ»¹Ã»³öÊ²Ã´¹Ù¸®ÎÄÊé£¬¿´À´ÖÎ°²»¹²»´í£¿£¡\n");
+		return notify_fail("ç›®å‰é€šç¼‰æ¦œä¸Šè¿˜æ²¡å‡ºä»€ä¹ˆå®˜åºœæ–‡ä¹¦ï¼Œçœ‹æ¥æ²»å®‰è¿˜ä¸é”™ï¼Ÿï¼\n");
 	
 	if (me->query_condition("job_busy"))
-                return notify_fail("ÄãÏÖÔÚÈÎÎñ²øÉí£¬Ã¦²»¹ıÀ´ÄØ£¡\n");
+                return notify_fail("ä½ ç°åœ¨ä»»åŠ¡ç¼ èº«ï¼Œå¿™ä¸è¿‡æ¥å‘¢ï¼\n");
                 
         if ( objectp(wenshu = present("tiebu wenshu", me)) )
-                return notify_fail("ÄãÉíÉÏ»¹´§×Å°ñÄØ£¬¿ÉÒÔÍ¨¹ı(look wenshu)À´²éÑ¯£¡\n");
+                return notify_fail("ä½ èº«ä¸Šè¿˜æ£ç€æ¦œå‘¢ï¼Œå¯ä»¥é€šè¿‡(look wenshu)æ¥æŸ¥è¯¢ï¼\n");
                 
         if (!mapp(target = wanted[arg]) ) {
-        	message_vision("$N½Ò¿ªµØÉÏÒ»¿é¿ÌÁË¡¸"+arg+"¡¹µÄ·½×©¿´ÁË¿´£¬ÈÇµÃÅÔÈË¶¼ÇÄÇÄÒéÂÛ£º¡°ÕâÈËÊÇÔÚÕÒ"+(random(2)?"ÂìÒÏ":"òĞòĞ")+"°É£¿¡±\n", me);
+        	message_vision("$Næ­å¼€åœ°ä¸Šä¸€å—åˆ»äº†ã€Œ"+arg+"ã€çš„æ–¹ç –çœ‹äº†çœ‹ï¼Œæƒ¹å¾—æ—äººéƒ½æ‚„æ‚„è®®è®ºï¼šâ€œè¿™äººæ˜¯åœ¨æ‰¾"+(random(2)?"èš‚èš":"è›è›")+"å§ï¼Ÿâ€\n", me);
         	return 1;
         }
         
-// Ã»¶¨ÒåwenshuÊıÁ¿µÄ£¬°´5ÕÅËã¡£
+// æ²¡å®šä¹‰wenshuæ•°é‡çš„ï¼ŒæŒ‰5å¼ ç®—ã€‚
         if ( !intp(i = target["wenshu"]) )
-        	return notify_fail("´Ë·¸µÄÌú²¶ÎÄÊéÒÑ¾­È«²¿±»½Ò×ßÁË£¡\n");
+        	return notify_fail("æ­¤çŠ¯çš„é“æ•æ–‡ä¹¦å·²ç»å…¨éƒ¨è¢«æ­èµ°äº†ï¼\n");
         	
         str = (string)target["name"];
         exp = (int)me->query("combat_exp"); 
         
         if( exp < 100000 ){
-        	message_vision("$N¼·ÉÏÇ°È¥¸ÕÏëÉìÊÖ£¬ºöÈ»¿´µ½ÉÏÃæĞ×Éñ¶ñÉ·µÄ»­Ïñ£¬ÏÅµÃÒ»ÏÂ°ÑÊÖËõÁË»ØÀ´¡£\n", me);
-                return notify_fail("ÄãÏëÁËÏë£¬¾õµÃ×Ô¼ºµÄÕâµã¹¦·ò£¬»¹ÊÇËãÁË°É¡£\n"); 
+        	message_vision("$NæŒ¤ä¸Šå‰å»åˆšæƒ³ä¼¸æ‰‹ï¼Œå¿½ç„¶çœ‹åˆ°ä¸Šé¢å‡¶ç¥æ¶ç…çš„ç”»åƒï¼Œå“å¾—ä¸€ä¸‹æŠŠæ‰‹ç¼©äº†å›æ¥ã€‚\n", me);
+                return notify_fail("ä½ æƒ³äº†æƒ³ï¼Œè§‰å¾—è‡ªå·±çš„è¿™ç‚¹åŠŸå¤«ï¼Œè¿˜æ˜¯ç®—äº†å§ã€‚\n"); 
         }
         
         else if( exp > 1500000 )
-        	message_vision(HIY"\n$N·Ö¿ªĞĞÈËÀ´µ½½üÇ°£¬Ä¿¹âµ­µ­µÄÉ¨ÊÓÁË¼¸ÑÛ¸æÊ¾£¬×ì½ÇÎ¢Î¢Ò»ÇÌ£¬ÉñÌ¬×ÔÈçµÄ°ÑÍ¨¼©"+str+"µÄÎÄÊé½ÒÁËÏÂÀ´¡£\n"NOR, me);
+        	message_vision(HIY"\n$Nåˆ†å¼€è¡Œäººæ¥åˆ°è¿‘å‰ï¼Œç›®å…‰æ·¡æ·¡çš„æ‰«è§†äº†å‡ çœ¼å‘Šç¤ºï¼Œå˜´è§’å¾®å¾®ä¸€ç¿˜ï¼Œç¥æ€è‡ªå¦‚çš„æŠŠé€šç¼‰"+str+"çš„æ–‡ä¹¦æ­äº†ä¸‹æ¥ã€‚\n"NOR, me);
         
         else if( exp > 900000 )
-        	message_vision(HIY"\n$NÍÆ¿ªÎ§¹ÛµÄĞĞÈË£¬×ßµ½½üÇ°£¬Î¢Î¢Õö¿ªÑÛ¾¦£¬ÀäÀäÆ³ÁËÒ»ÑÛ¸æÊ¾£¬ËæÊÖ½ÒÁËÍ¨¼©"+str+"µÄÎÄÊéÏÂÀ´´§½øÁË»³ÖĞ¡£\n"NOR, me);
+        	message_vision(HIY"\n$Næ¨å¼€å›´è§‚çš„è¡Œäººï¼Œèµ°åˆ°è¿‘å‰ï¼Œå¾®å¾®çå¼€çœ¼ç›ï¼Œå†·å†·ç¥äº†ä¸€çœ¼å‘Šç¤ºï¼Œéšæ‰‹æ­äº†é€šç¼‰"+str+"çš„æ–‡ä¹¦ä¸‹æ¥æ£è¿›äº†æ€€ä¸­ã€‚\n"NOR, me);
         
         else if( exp > 300000 )
-        	message_vision(HIY"\n$N×ßÉÏÇ°È¥¿´ÁË¿´£¬¡°à§¡±µØÒ»ÏÂ°ÑÍ¨¼©"+str+"µÄÎÄÊé½ÒÁËÏÂÀ´£¬×ªÉí×ß³öÈËÈº¡£\n"NOR, me);
+        	message_vision(HIY"\n$Nèµ°ä¸Šå‰å»çœ‹äº†çœ‹ï¼Œâ€œå”°â€åœ°ä¸€ä¸‹æŠŠé€šç¼‰"+str+"çš„æ–‡ä¹¦æ­äº†ä¸‹æ¥ï¼Œè½¬èº«èµ°å‡ºäººç¾¤ã€‚\n"NOR, me);
         
-        else 	message_vision(HIY"\n$N×³ÁË×³µ¨£¬·ÑÁ¦°Î¿ªĞĞÈË£¬À´µ½½üÇ°ÉîÉîÎüÁË¿ÚÆø£¬½ßÁ¦Õò¶¨Ò»ÏÂ½ôÕÅµÄĞÄÇé£¬ËÄÏÂ¿´ÁË¿´£¬ÇÄÇÄ°ÑÎÄÊé½ÒÁËÏÂÀ´¡£\n"NOR, me);
+        else 	message_vision(HIY"\n$Nå£®äº†å£®èƒ†ï¼Œè´¹åŠ›æ‹”å¼€è¡Œäººï¼Œæ¥åˆ°è¿‘å‰æ·±æ·±å¸äº†å£æ°”ï¼Œç«­åŠ›é•‡å®šä¸€ä¸‹ç´§å¼ çš„å¿ƒæƒ…ï¼Œå››ä¸‹çœ‹äº†çœ‹ï¼Œæ‚„æ‚„æŠŠæ–‡ä¹¦æ­äº†ä¸‹æ¥ã€‚\n"NOR, me);
         
         str = "\t"+str+"("+capitalize(arg)+")\n";
-        str += "\t"+chinese_number(target["age"])+"Ëê"+target["gender"]+"£¬Îä¹¦"+target["level"]+"\n";
-        str += "\t´ËÈË"+target["act"]+"ºó£¬×îºóÒ»´Î³öÏÖÔÚ"+target["place"]+"¸½½ü¡£\n";
-        str += "\t"+target["action"]+"µÄÉÍ½ğ£º"+MONEY_D->money_str(target["reward"]*10)+"¡£\n\n";
-        str += "\t\t\tÖª¸®ÑÃÃÅ\n\n";
+        str += "\t"+chinese_number(target["age"])+"å²"+target["gender"]+"ï¼Œæ­¦åŠŸ"+target["level"]+"\n";
+        str += "\tæ­¤äºº"+target["act"]+"åï¼Œæœ€åä¸€æ¬¡å‡ºç°åœ¨"+target["place"]+"é™„è¿‘ã€‚\n";
+        str += "\t"+target["action"]+"çš„èµé‡‘ï¼š"+MONEY_D->money_str(target["reward"]*10)+"ã€‚\n\n";
+        str += "\t\t\tçŸ¥åºœè¡™é—¨\n\n";
         
         wenshu = new(MISC_D("gf_wenshu"));
         if (!wenshu || !clonep(wenshu) )
-        	return notify_fail("´íÎó£¡ÇëÍ¨ÖªÎ×Ê¦£ºGF_job -> wenshu doest not exist! \n");
+        	return notify_fail("é”™è¯¯ï¼è¯·é€šçŸ¥å·«å¸ˆï¼šGF_job -> wenshu doest not exist! \n");
         i--;
-        wenshu->set("long", WHT"ÕâÊÇÒ»ÕÅÌú²¶ÎÄÊé£¬¿ÉÒÔ¾Ğ²¶(jubu)·¸ÈË£¬ÉÏÃæÓĞÒ»¸ö»­Ïñ£¬µ×ÏÂÓĞÒ»ĞĞĞ¡×Ö£º\n\n"NOR+str);
+        wenshu->set("long", WHT"è¿™æ˜¯ä¸€å¼ é“æ•æ–‡ä¹¦ï¼Œå¯ä»¥æ‹˜æ•(jubu)çŠ¯äººï¼Œä¸Šé¢æœ‰ä¸€ä¸ªç”»åƒï¼Œåº•ä¸‹æœ‰ä¸€è¡Œå°å­—ï¼š\n\n"NOR+str);
         wenshu->set("target", target);
         wenshu->set("target/id", arg);
         wenshu->move(me);
@@ -247,19 +247,19 @@ private int random_goto(object ob)
 	if( !objectp(room= find_object(wheres[i])) ){
 		if( !objectp(room= load_object(wheres[i])) ){
 			destruct(ob);
-			log_file("job/gfbug",sprintf("GF_wanted.c loading "+wheres[i]+" Ê§°Ü¡£\n"));
+			log_file("job/gfbug",sprintf("GF_wanted.c loading "+wheres[i]+" å¤±è´¥ã€‚\n"));
 			return 0;
 		}
 		if( ob->move(room) ) return 1;
 		else {
 			destruct(ob);
-			log_file("job/gfbug", sprintf("GF_wanted.c NPC goto "+wheres[i]+" Ê§°Ü¡£\n"));
+			log_file("job/gfbug", sprintf("GF_wanted.c NPC goto "+wheres[i]+" å¤±è´¥ã€‚\n"));
 		}
 	}
 	if( ob->move(room) ) return 1;
 	else {
 		destruct(ob);
-		log_file("job/gfbug",sprintf("GF_wanted.c NPC goto "+wheres[i]+" Ê§°Ü¡£\n"));
+		log_file("job/gfbug",sprintf("GF_wanted.c NPC goto "+wheres[i]+" å¤±è´¥ã€‚\n"));
 		return 0;
 	}
 }
@@ -293,7 +293,7 @@ private void creat_npc(object *obs)
 	
 		else if( !ob->move(room) ){
 			destruct(ob);
-			log_file("job/gfbug", sprintf("GF_wanted.c -> creat_wanted() -> NPC goto Ê§°Ü¡£\n"));
+			log_file("job/gfbug", sprintf("GF_wanted.c -> creat_wanted() -> NPC goto å¤±è´¥ã€‚\n"));
 			return;
 		}
 	}
@@ -330,6 +330,6 @@ void create()
 	creat_npc(obs);
 	creat_npc(obs);
   creat_npc(obs);
-	tell_room(WANTED_ROOM, "\n´ÓÑÃÃÅÄÚ×ßÀ´¼¸ÃûÑÃÒÛ£¬ÔÚ¸æÊ¾Ç°Ã¦»îÁËÒ»Õó¡£\n\n");
- message("system",HIR"\n¡¾ÑïÖİÖª¸®Í¨¸æ¡¿½üÈÕÓĞ¶ñÔôĞĞĞ××÷ÂÒ£¬Çë¸÷Î»½­ºşºÀ½ÜËÙÀ´¹Ù¸®ÁìÈ¡Ìú²¶ÎÄÊé£¬Ğ­Öú½«±ËµÈ¼©ÄÃ¹é°¸¡£\n\n"NOR, users());
+	tell_room(WANTED_ROOM, "\nä»è¡™é—¨å†…èµ°æ¥å‡ åè¡™å½¹ï¼Œåœ¨å‘Šç¤ºå‰å¿™æ´»äº†ä¸€é˜µã€‚\n\n");
+ message("system",HIR"\nã€æ‰¬å·çŸ¥åºœé€šå‘Šã€‘è¿‘æ—¥æœ‰æ¶è´¼è¡Œå‡¶ä½œä¹±ï¼Œè¯·å„ä½æ±Ÿæ¹–è±ªæ°é€Ÿæ¥å®˜åºœé¢†å–é“æ•æ–‡ä¹¦ï¼ŒååŠ©å°†å½¼ç­‰ç¼‰æ‹¿å½’æ¡ˆã€‚\n\n"NOR, users());
 }

@@ -6,20 +6,20 @@ inherit ITEM;
 void create()
 {
   if(!random(2)){
-    set_name(HIW "ÏåÑôÃØº¯" NOR, ({"xiangyang mihan","mihan","letter"}));
+    set_name(HIW "è¥„é˜³ç§˜å‡½" NOR, ({"xiangyang mihan","mihan","letter"}));
     set("long",
-    WHT"ÕâÊÇÒ»·âÃÜ·âµØ½ô¼±ÏåÑôÃØº¯£¬Äã¾õµÃÓĞ±ØÒªÁ¢¼´½»¸øÄ³Î»ÏåÑôÖØÒªÈËÎï£¡\n"NOR);
+    WHT"è¿™æ˜¯ä¸€å°å¯†å°åœ°ç´§æ€¥è¥„é˜³ç§˜å‡½ï¼Œä½ è§‰å¾—æœ‰å¿…è¦ç«‹å³äº¤ç»™æŸä½è¥„é˜³é‡è¦äººç‰©ï¼\n"NOR);
   }
   else{
-    set_name(HIR "ÃÉ¹ÅÃØº¯" NOR, ({"menggu mihan","mihan","letter"}));
+    set_name(HIR "è’™å¤ç§˜å‡½" NOR, ({"menggu mihan","mihan","letter"}));
     set("long",
-    RED"ÕâÊÇÒ»·âÃÜ·âµØ½ô¼±ÃÉ¹ÅÃØº¯£¬Äã¾õµÃÓĞ±ØÒªÁ¢¼´½»¸øÄ³Î»ÃÉ¹Å´óÈËÎï£¡\n"NOR);
+    RED"è¿™æ˜¯ä¸€å°å¯†å°åœ°ç´§æ€¥è’™å¤ç§˜å‡½ï¼Œä½ è§‰å¾—æœ‰å¿…è¦ç«‹å³äº¤ç»™æŸä½è’™å¤å¤§äººç‰©ï¼\n"NOR);
   }
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
             set("value", 50000);
-            set("unit", "·â");
+            set("unit", "å°");
 		set("no_drop", 1);
         	set("unique", 1);
         	set("treasure", 1);

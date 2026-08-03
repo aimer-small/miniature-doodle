@@ -1,5 +1,5 @@
-//Ô¶³ÌÉÏ´«¹¤¾ß
-//³£ÓÃÓÚbbs
+//è¿œç¨‹ä¸Šä¼ å·¥å…·
+//å¸¸ç”¨äºbbs
 // Ciwei@SJ 31/3/04
 // add ErRoR msg 28/4/04
 // add bbs_post to post in bbs by Ciwei@SJ 5/8/2004
@@ -58,13 +58,13 @@ int debug()
 	if(test_debug>=2) test_debug = 0;
 	return test_debug;
 }
-//²Ù×÷Íê±Ï°Ñretµ±×ö²ÎÊı´«Èëob->func(mixed ret)
-//void test(mixed ret) Îª·¶Àı³ÌĞò
+//æ“ä½œå®Œæ¯•æŠŠretå½“åšå‚æ•°ä¼ å…¥ob->func(mixed ret)
+//void test(mixed ret) ä¸ºèŒƒä¾‹ç¨‹åº
 int add_Bbs_Up_Map(string db,string sql,object ob,string fun,int forbid)
 {
 	int fd,result;
 	
-	//×Ô¼ººô½Ğ	
+	//è‡ªå·±å‘¼å«	
     if(!test_debug && INTERMUD_MUD_NAME=="SJTX" 
 	&& previous_object()
 	&& previous_object()!=find_object("/adm/daemons/bbsd.c")
@@ -82,7 +82,7 @@ int add_Bbs_Up_Map(string db,string sql,object ob,string fun,int forbid)
 
 	if(previous_object() && previous_object()->query_version(this_object())!=NEW_VERSION)
 	{
-		//message("wizard",sprintf("Çë×¢Òâ£ºBBSD ÏòÄã±¨¸æ %s ¿ÉÄÜĞèÒª¸üĞÂ°æ±¾¡£\n",base_name(previous_object())) ,users());
+		//message("wizard",sprintf("è¯·æ³¨æ„ï¼šBBSD å‘ä½ æŠ¥å‘Š %s å¯èƒ½éœ€è¦æ›´æ–°ç‰ˆæœ¬ã€‚\n",base_name(previous_object())) ,users());
 	}
 	
 	sql = replace_string(sql,REPLACE_STR,"");
@@ -105,7 +105,7 @@ int add_Bbs_Up_Map(string db,string sql,object ob,string fun,int forbid)
 		log_file("nosave/bbs", sprintf("error   :%15s:%5d:\n","socket_connect",result), 0);
 		return 0;
 	}	
-	return fd;//·µ»Øsocket
+	return fd;//è¿”å›socket
 }
 /*
 void write_callback2(int fd)
@@ -134,7 +134,7 @@ void write_callback2(int fd)
 	Bbs_Up_Map[fd]["ok"] = 1;
 	result = socket_write(fd,str);	
 	if ( result != EESUCCESS ) {
-		log_file("nosave/bbs", sprintf("%-15serror: Ä¿±êÊı¾İ¿â:%-8sÌá½»Ê±¼ä£º%sSQL²Ù×÷:%s","socket_write",Bbs_Up_Map[fd]["database"],ctime(Bbs_Up_Map[fd]["time"]),Bbs_Up_Map[fd]["sql"]),0);
+		log_file("nosave/bbs", sprintf("%-15serror: ç›®æ ‡æ•°æ®åº“:%-8sæäº¤æ—¶é—´ï¼š%sSQLæ“ä½œ:%s","socket_write",Bbs_Up_Map[fd]["database"],ctime(Bbs_Up_Map[fd]["time"]),Bbs_Up_Map[fd]["sql"]),0);
 		over_set(fd);
 		return;
 	}
@@ -155,9 +155,9 @@ void read_callback2(int fd, mixed message)
 	str = get_read_data(message);
 	if(debug) me = find_player("linux");
 	if(me) tell_object(me,sprintf("read(%d): %s\n",fd,str));
-	//´íÎó±¨¸æ ÂÔ..
+	//é”™è¯¯æŠ¥å‘Š ç•¥..
 	if(sscanf(str,"OK%s",str)==1){
-	//·µ»Ø³É¹¦Ê±call_out
+	//è¿”å›æˆåŠŸæ—¶call_out
 		if(str!=""){
 			string* temp = explode(str,EXPLODE_F);
 			ret = allocate(100);
@@ -166,14 +166,14 @@ void read_callback2(int fd, mixed message)
 		}
 		else ret = allocate(1);
 		ret = filter_array(ret,(:clear_zero:));
-		if(me) tell_object(me,sprintf("Str£º%s\n",str));
-		if(me) tell_object(me,sprintf("Ret£º%O\n",ret));
+		if(me) tell_object(me,sprintf("Strï¼š%s\n",str));
+		if(me) tell_object(me,sprintf("Retï¼š%O\n",ret));
 		if(!undefinedp(Bbs_Up_Map[fd]["object"])&&!undefinedp(Bbs_Up_Map[fd]["fun"]))
 		call_other(copy(Bbs_Up_Map[fd]["object"]),copy(Bbs_Up_Map[fd]["fun"]),ret);
 	}
 	else if(sscanf(str,"%sErRoR",str)==1)
 	{
-		message("wizard",sprintf("Ô¶³ÌÊı¾İ¿â²Ù×÷Ê§°Ü ÒòÎª£º%s¡£\n",str),users());
+		message("wizard",sprintf("è¿œç¨‹æ•°æ®åº“æ“ä½œå¤±è´¥ å› ä¸ºï¼š%sã€‚\n",str),users());
 		//over_set(fd);
 		//destruct(this_object());
 		//return;
@@ -181,11 +181,11 @@ void read_callback2(int fd, mixed message)
 	over_set(fd);
 }
 
-//·¶Àıº¯Êı
+//èŒƒä¾‹å‡½æ•°
 void test(mixed ret)
 {
 	if(!ret) ret ="a?";
-	CHANNEL_D->do_channel(this_object(),"rumor",sprintf("µÃµ½µÄret£º%O", ret));
+	CHANNEL_D->do_channel(this_object(),"rumor",sprintf("å¾—åˆ°çš„retï¼š%O", ret));
 }
 
 void over_set(int fb)
@@ -300,7 +300,7 @@ void post_ok(mixed ret)
 	remove_call_out("failed");
 	bbs_info[0]["part"]++;
 	in_work=0;
-	if(get_data(bbs_info[0]["message"],bbs_info[0]["part"])) return;//Èç¹û»¹Ã»´«ËÍÍê±Ï ÄÇ¼ÌĞø	
+	if(get_data(bbs_info[0]["message"],bbs_info[0]["part"])) return;//å¦‚æœè¿˜æ²¡ä¼ é€å®Œæ¯• é‚£ç»§ç»­	
 	sql = sprintf("UPDATE %s SET lastpost='%s', posts=posts+'1'",
 		BBS_FORUMS,bbs_info[0]["subject"]+"\t"+bbs_info[0]["time"]+"\t"+bbs_info[0]["author"] );
 	if(this_post_is_not_reaply) sql += ",threads=threads+'1'";	

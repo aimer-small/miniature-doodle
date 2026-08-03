@@ -11,13 +11,13 @@ string arg;
         me->start_busy(999);
         if(random(10)==1)
 	{
-    tell_room(environment(me), HIG + me->name() + "ÉñÓÎÎïÍâ£¬ºè·ÉÃìÃì£¬ÕýÔÚ±Õ¹ØÇ±ÐÞ¡£\n", ({ me }));
+    tell_room(environment(me), HIG + me->name() + "ç¥žæ¸¸ç‰©å¤–ï¼Œé¸¿é£žæ¸ºæ¸ºï¼Œæ­£åœ¨é—­å…³æ½œä¿®ã€‚\n", ({ me }));
 	    	}
 
         if( me->query("on_hook/time")-time()<=0 ) 
         {
         me->delete("block_msg");
-        	tell_object(me, HIR"Äã±¾´Î±Õ¹ØÇ±ÐÞÊ±¼äÒÑµ½¡£\n"NOR);
+        	tell_object(me, HIR"ä½ æœ¬æ¬¡é—­å…³æ½œä¿®æ—¶é—´å·²åˆ°ã€‚\n"NOR);
        arg = "over";
       "/cmds/usr/onhook"->main(me,arg);
       me->start_busy(-1);

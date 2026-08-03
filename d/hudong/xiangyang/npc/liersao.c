@@ -1,14 +1,14 @@
-// liersao.c Àî¶şÉ©
+// liersao.c æäºŒå«‚
 // Lklv 2001.9.24
 
 inherit NPC;
 inherit F_VENDOR;
 void create()
 {
-        set_name("Àî¶şÉ©", ({"li ersao", "li", "ersao" }) );
-        set("gender", "Å®ĞÔ" );
+        set_name("æäºŒå«‚", ({"li ersao", "li", "ersao" }) );
+        set("gender", "å¥³æ€§" );
         set("age", 34);
-        set("long", "ËıµÄÁ³ÉÏÊ¼ÖÕ´ø×ÅÒ»Ë¿Ğ¦Èİ¡£\n");
+        set("long", "å¥¹çš„è„¸ä¸Šå§‹ç»ˆå¸¦ç€ä¸€ä¸ç¬‘å®¹ã€‚\n");
         set("attitude","heroism");
         set("combat_exp", 110000 + random(50000) );
         set("shen_type", 0);
@@ -34,8 +34,8 @@ void create()
 
         set("chat_chance", 2);
         set("chat_msg", ({
-                "Àî¶şÉ©Õ£ÁËÕ£ÑÛ¾¦£¬ËÆºõÏëËµÊ²Ã´¡£\n",
-                "Àî¶şÉ©·öÁË·öÍ·ÉÏµÄË¿½í£¬×ªÉíÀíÁËÏÂÍ··¢¡£\n",
+                "æäºŒå«‚çœ¨äº†çœ¨çœ¼ç›ï¼Œä¼¼ä¹æƒ³è¯´ä»€ä¹ˆã€‚\n",
+                "æäºŒå«‚æ‰¶äº†æ‰¶å¤´ä¸Šçš„ä¸å·¾ï¼Œè½¬èº«ç†äº†ä¸‹å¤´å‘ã€‚\n",
         }) );
         setup();
         carry_object(ARMOR_D("cloth"))->wear();

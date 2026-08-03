@@ -25,15 +25,15 @@ void create()
 	name = RNAME_D->get_random_name(random(3));
 	set_name(name["name"], name["id"]);
 	set_name(query("name"), ({ query("id"),"mengdie npc"}));
-	set("gender", (sex?"����":"Ů��"));
-	set("long", "�����ˣ��㾡����ȥȥ���壬ȴ����һƬģ����\n");
+	set("gender", (sex?"男性":"女性"));
+	set("long", "神秘人，你尽力地去去看清，却还是一片模糊。\n");
 	set("age", 25+random(100));
 	set("attitude", "peaceful");
-	set("rank_info/rank","������");
-	set("rank_info/self_rude","������");
-	set("rank_info/self","С��");
-	set("rank_info/rude","������");
-	set("rank_info/respect","������");
+	set("rank_info/rank","神秘人");
+	set("rank_info/self_rude","神秘人");
+	set("rank_info/self","小生");
+	set("rank_info/rude","神秘人");
+	set("rank_info/respect","神秘人");
 	set("rank_info/color","HIW");
 
 	set("str", 30);
@@ -48,8 +48,8 @@ void create()
 	set("max_neili", 100);
 	set("jiali", 20);
 	set("combat_exp", 8000+random(500));
-//һЩ�书�������趨��Ϊquestȡ�����������Ӹñ���
-//Ŀǰ�趨������ʹ�õ���tanzhi-shentong��pfm qiankun
+//一些武功绝技被设定因为quest取消，特意增加该变量
+//目前设定不允许使用的是tanzhi-shentong的pfm qiankun
     set("quest_cancel",1);
 	set("no_quest",1);//
 
@@ -60,9 +60,9 @@ void create()
 	set_skill("sword", 80);
 	set_skill("cuff", 80);
 	set("inquiry", ([
-		"name" : random(2)?"ʲô�����֣�":"�Ǻǣ��������Σ�������������ˡ�",
-		"����" : random(2)?"ʲô�����֣�":"�Ǻǣ��������Σ�������������ˡ�",
-		"��ʦ" : "��....��С��ע��һ��Ư�����������˰ɡ�",
+		"name" : random(2)?"什么叫名字？":"呵呵，人生如梦，名字早就忘记了。",
+		"名字" : random(2)?"什么叫名字？":"呵呵，人生如梦，名字早就忘记了。",
+		"拜师" : "嗯....，小生注定一声漂泊，还是算了吧。",
     ]));
 	set("chat_chance_combat", 100);
 	setup();
@@ -98,51 +98,51 @@ void init()
 	my_party = get_party_string(ob->query("party"));
 	if(ob->query("teamleader"))
 	{
-		if(my_party["shen"]=="а")
+		if(my_party["shen"]=="邪")
 		{
 			if(random(2)) command("nomatch");
 			else command("u&me");
-			message_vision(HIC"$N��$n����һ��������������"+query("title")+query("name")+HIC"��������ᡣ\n" NOR, ob,me);
-			message_vision(HIC"$N��Ц����"+my_party["col"]+my_party["party-name"]+my_party["lineup-name"]+HIC"��ʮ����֮�ھ�Ҫ������$n��������׼���ĺá�\n" NOR, ob,me);
+			message_vision(HIC"$N对$n哼了一声道：老子正是"+query("title")+query("name")+HIC"，特来会会。\n" NOR, ob,me);
+			message_vision(HIC"$N狂笑道："+my_party["col"]+my_party["party-name"]+my_party["lineup-name"]+HIC"二十秒钟之内就要启动，$n还是早做准备的好。\n" NOR, ob,me);
 		}
-		else if(my_party["shen"]=="��")
+		else if(my_party["shen"]=="正")
 		{
 			if(random(2)) command("sorry2");
 			else command("welcome "+ob->query("id"));
-			message_vision(HIC"$N��$n���˵�ͷ������������"+query("title")+query("name")+HIC"����������������顣\n" NOR, ob,me);
-			message_vision(HIC"$N΢Ц����"+my_party["col"]+my_party["party-name"]+my_party["lineup-name"]+HIC"��ʮ����֮�ھ�Ҫ������$n��������׼���ĺá�\n" NOR, ob,me);
+			message_vision(HIC"$N对$n点了点头道：在下正是"+query("title")+query("name")+HIC"，还请阁下手下留情。\n" NOR, ob,me);
+			message_vision(HIC"$N微笑道："+my_party["col"]+my_party["party-name"]+my_party["lineup-name"]+HIC"二十秒钟之内就要启动，$n还是早做准备的好。\n" NOR, ob,me);
 		}
 		else
 		{
 			if(random(2)) command("sneer "+me->query("id"));
 			else command("grpfight "+ob->query("id"));
-			message_vision(HIC"$NƳ��$nһ�۵�����������"+query("title")+query("name")+HIC"��������������\n" NOR, ob,me);
-			message_vision(HIC"$N��Ц����"+my_party["col"]+my_party["party-name"]+my_party["lineup-name"]+HIC"��ʮ����֮�ھ�Ҫ������$n��������׼���ĺá�\n" NOR, ob,me);
+			message_vision(HIC"$N瞥了$n一眼道：在下正是"+query("title")+query("name")+HIC"，还望多多包涵。\n" NOR, ob,me);
+			message_vision(HIC"$N奸笑道："+my_party["col"]+my_party["party-name"]+my_party["lineup-name"]+HIC"二十秒钟之内就要启动，$n还是早做准备的好。\n" NOR, ob,me);
 		}
 	}
 	if(my_party["party"]=="pxj" && objectp(ob->query_temp("weapon"))) 
 	{
-		ob->set_temp("double_attack",1);//pxj ����hubo
+		ob->set_temp("double_attack",1);//pxj 兵器hubo
 		ob->add_temp("apply/attack", ob->query_skill("force")/5);
 		ob->add_temp("apply/damage", ob->query_skill("force")/5);	
 	}
 	if(my_party["party"]=="jsj") 
 	{
-		ob->set("double_attack",1);//jsj ����hubo
+		ob->set("double_attack",1);//jsj 空手hubo
 		ob->add_temp("apply/attack", ob->query_skill("force")/5);
 		ob->add_temp("apply/damage", ob->query_skill("force")/5);	
 		ob->add_temp("apply/parry", ob->query_skill("force")/4);
 	}
-	if(!objectp(ob->query_temp("weapon")) && random(3))//���������˺��ͷ���
+	if(!objectp(ob->query_temp("weapon")) && random(3))//空手增加伤害和防御
 	{
 		ob->add_temp("apply/damage", ob->query_skill("force")/6);
 		ob->add_temp("apply/parry", ob->query_skill("force")/6);
 	}
-	if(!random(5)) //������ӹ���
+	if(!random(5)) //随机增加攻击
 	{
-		if(my_party["shen"]=="а")
+		if(my_party["shen"]=="邪")
 			command("killair "+me->query("id"));
-		else if(my_party["shen"]=="��")
+		else if(my_party["shen"]=="正")
 			command("buddha");
 		else
 			command("piggy");
@@ -221,15 +221,15 @@ void die()
 	else if(random(2)) command("poem");
 	else command("killair");
 	if(random(2)) command("wait "+me->query("id"));
-	else if(random(2)) message_vision(HIG"$N����һ����������ʧ�ڽ����\n" NOR, ob);
-	else message_vision(HIG"$N���������˳�ȥ��\n" NOR, ob);
+	else if(random(2)) message_vision(HIG"$N哼了一声，缓缓消失在角落里。\n" NOR, ob);
+	else message_vision(HIG"$N慢慢地退了出去。\n" NOR, ob);
 	obs = deep_inventory(ob);       
 	obs = filter_array(obs,(:$1->query("imbued"):));
 	i = sizeof(obs);
 	while(i--)
 	{
 		obs[i]->move(environment(ob));
-		message_vision(YEL"$N˳�ֶ���һ"+obs[i]->query("unit")+obs[i]->name()+NOR+YEL"��\n"NOR,ob);
+		message_vision(YEL"$N顺手丢下一"+obs[i]->query("unit")+obs[i]->name()+NOR+YEL"。\n"NOR,ob);
 	}
 	if(me && present(me,environment(ob)))
 	{
@@ -239,11 +239,11 @@ void die()
 		me->add("quest/special/score",i);
            if(!random(5)){
                me->add("SJ_Credit",2);
-               tell_object(me,HIR"\n��ɹ��Ļ���"+ob->short(1)+HIR"����ý�������"+i+"��"+HIW+"���Ҷ�����������ͨ����\n"NOR);
+               tell_object(me,HIR"\n你成功的击退"+ob->short(1)+HIR"，获得奖励分数"+i+"，"+HIW+"并且额外获得了两个通宝！\n"NOR);
            }
            else
-		tell_object(me,HIR"\n��ɹ��Ļ���"+ob->short(1)+HIR"����ý�������"+i+"��\n"NOR);
-		log_file("quest/SPECIAL", sprintf("%s(%s)��¥����÷֣�%d�����飺%d��\n", me->name(1),me->query("id"),i,me->query("combat_exp")) );
+		tell_object(me,HIR"\n你成功的击退"+ob->short(1)+HIR"，获得奖励分数"+i+"。\n"NOR);
+		log_file("quest/SPECIAL", sprintf("%s(%s)二楼比武得分：%d。经验：%d。\n", me->name(1),me->query("id"),i,me->query("combat_exp")) );
 	}
 	destruct(this_object());
 }
@@ -270,15 +270,15 @@ void dest()
 	{
 		if(me) 
 		{
-			tell_object(me,HIY"ͻȻ������������ƺ����˵�ʲô����ͷһ����Ȼ�Ǹղ�ʧȥ����һ"+obs[i]->query("unit")+obs[i]->name()+HIY"��\n"NOR);
+			tell_object(me,HIY"突然你觉得行囊里似乎多了点什么，低头一看竟然是刚才失去的那一"+obs[i]->query("unit")+obs[i]->name()+HIY"。\n"NOR);
 			obs[i]->move(me);
 		}
 		else 
 		{
-			message_vision(YEL"$N����һ"+obs[i]->query("unit")+obs[i]->name()+NOR+YEL"��\n"NOR,ob);
+			message_vision(YEL"$N丢下一"+obs[i]->query("unit")+obs[i]->name()+NOR+YEL"。\n"NOR,ob);
 			obs[i]->move(environment(ob));
 		}
 	}
-	message_vision(HIR"\nͻȻһ���ɢ��$Nԭ��վ�ŵĵط���Ȼһ��ۼ�Ҳû�����¡�"HIM"�ղŵ�һ�����λð㣬ȫȻ�����ڷ��С�\n"NOR,this_object());
+	message_vision(HIR"\n突然一阵风散，$N原来站着的地方竟然一点痕迹也没有留下。"HIM"刚才的一切如梦幻般，全然消逝在风中。\n"NOR,this_object());
 	destruct(this_object());
 }

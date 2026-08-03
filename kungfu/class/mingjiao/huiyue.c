@@ -1,4 +1,4 @@
-// huiyue.c »ÔÔÂÊ¹
+// huiyue.c è¾‰æœˆä½¿
 // Modify By River@sj 99.06
 // Modified by caiji@SJ 5/17/2001
 #include <ansi.h>
@@ -7,13 +7,13 @@ int p();
 void create()
 {
         object ob;
-        set_name("»ÔÔÂÊ¹", ({ "huiyue shi", "huiyue", "shi"}) );
-        set("title", "Ã÷½Ì²¨Ë¹ÈýÊ¹");
-        set("gender", "Å®ÐÔ");
+        set_name("è¾‰æœˆä½¿", ({ "huiyue shi", "huiyue", "shi"}) );
+        set("title", "æ˜Žæ•™æ³¢æ–¯ä¸‰ä½¿");
+        set("gender", "å¥³æ€§");
         set("attitude", "friendly");
         set("age",38);
-        set("long","ËýÒ»Í·ºÚ·¢£¬ºÍ»ªÈËÎÞÒì£¬µ«íø×Ó¼«µ­£¬¼¸ºõÎÞÉ«£¬¹Ï×ÓÁ³ÐÍ¡£\n");
-        set("rank_info/respect","Ê¹Õß");
+        set("long","å¥¹ä¸€å¤´é»‘å‘ï¼Œå’ŒåŽäººæ— å¼‚ï¼Œä½†çœ¸å­æžæ·¡ï¼Œå‡ ä¹Žæ— è‰²ï¼Œç“œå­è„¸åž‹ã€‚\n");
+        set("rank_info/respect","ä½¿è€…");
         set("str", 23);
         set("int", 24);
         set("con", 23);
@@ -63,12 +63,12 @@ void kill_ob(object me)
           command("sneer");     
           if(objectp(ob = present("liuyun shi", environment(this_object())))
            && !ob->is_killing(me->query("id"))){
-             message_vision(HIY"³¤Ð¦ÉùÖÐ$nÉíÐÎ»Î¶¯£¬Ô½¹ý»ÔÔÂÊ¹Õ¾µ½$N×ó±ß£¬½«$N¼ÐÔÚÖÐ¼ä£¡\n", me, ob);
+             message_vision(HIY"é•¿ç¬‘å£°ä¸­$nèº«å½¢æ™ƒåŠ¨ï¼Œè¶Šè¿‡è¾‰æœˆä½¿ç«™åˆ°$Nå·¦è¾¹ï¼Œå°†$Nå¤¹åœ¨ä¸­é—´ï¼\n", me, ob);
              ob->kill_ob(me); 
           }
           if(objectp(ob = present("miaofeng shi", environment(this_object())))
            && !ob->is_killing(me->query("id"))){
-             message_vision(HIY"³¤Ð¦ÉùÖÐ$nÉíÐÎ»Î¶¯£¬Ô½¹ý»ÔÔÂÊ¹Õ¾µ½$N×ó±ß£¬½«$N¼ÐÔÚÖÐ¼ä£¡\n", me, ob);
+             message_vision(HIY"é•¿ç¬‘å£°ä¸­$nèº«å½¢æ™ƒåŠ¨ï¼Œè¶Šè¿‡è¾‰æœˆä½¿ç«™åˆ°$Nå·¦è¾¹ï¼Œå°†$Nå¤¹åœ¨ä¸­é—´ï¼\n", me, ob);
              if(!ob->is_killing(me->query("id"))) ob->kill_ob(me);  
           }
        }

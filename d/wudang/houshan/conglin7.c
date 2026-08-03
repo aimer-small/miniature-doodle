@@ -1,4 +1,4 @@
-// Room : /d/wudang/conglin7.c ´ÔÁÖ
+// Room : /d/wudang/conglin7.c ä¸›æ—
 // By lius 99/8
 
 #include <ansi.h>
@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short",YEL"ÂäÒ¶´ÔÁÖ"NOR);
+	set("short",YEL"è½å¶ä¸›æ—"NOR);
 	set("long", @LONG
-ÕâÊÇÒ»Æ¬ÂäÒ¶´ÔÁÖ£¬·ç´µÒ¶Âä£¬Äã×ßÔÚÕâÓÖºñÓÖÈíµÄÂäÒ¶ÉÏ£¬²»»áÁôÏÂÒ»
-Ë¿×ã¼££¬ºÜ¿ìµÄÄã¾Í·¢ÏÖÃÔÊ§ÁË×Ô¼ºµÄ·½Ïò¡£
+è¿™æ˜¯ä¸€ç‰‡è½å¶ä¸›æ—ï¼Œé£å¹å¶è½ï¼Œä½ èµ°åœ¨è¿™åˆåšåˆè½¯çš„è½å¶ä¸Šï¼Œä¸ä¼šç•™ä¸‹ä¸€
+ä¸è¶³è¿¹ï¼Œå¾ˆå¿«çš„ä½ å°±å‘ç°è¿·å¤±äº†è‡ªå·±çš„æ–¹å‘ã€‚
 LONG                           
         );
 
@@ -24,7 +24,7 @@ LONG
 		"southeast" : __DIR__"conglin"+(random(12)+1),
 		"southwest" : __DIR__"conglin8",
 	]));
-	set("outdoors", "Îäµ±");
+	set("outdoors", "æ­¦å½“");
 
 	set("objects", ([
 		__DIR__"../npc/yezhu" : 1, 

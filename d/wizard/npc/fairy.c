@@ -3,7 +3,7 @@ inherit NPC;
 #include <ansi.h>
 #include <mudlib.h>
 #define DJTIME "dj_buchang2009215"
-#define DJTIMES "2009Äê2ÔÂ15ÈÕ"
+#define DJTIMES "2009å¹´2æœˆ15æ—¥"
 
 int ask_clear_divorce();
 int ask_gender();
@@ -15,11 +15,11 @@ mixed change_gift(string gift);
 
 void create()
 {
-        set_name("Ğ¡¾«Áé", ({"fairy"}));
-        set("title",HBGRN"¡¸À¶ÃÃÃÃ¡¹"NOR);
-        set("long","Ò»¸ö¿É°®µÄĞ¡¾«Áé£¬´«ËµÓöµ½ËıµÄÈË¿ÉÒÔÊµÏÖÄÚĞÄµÄÒ»Ğ©Ô¸Íû¡£\n");
+        set_name("å°ç²¾çµ", ({"fairy"}));
+        set("title",HBGRN"ã€Œè“å¦¹å¦¹ã€"NOR);
+        set("long","ä¸€ä¸ªå¯çˆ±çš„å°ç²¾çµï¼Œä¼ è¯´é‡åˆ°å¥¹çš„äººå¯ä»¥å®ç°å†…å¿ƒçš„ä¸€äº›æ„¿æœ›ã€‚\n");
 
-        set("gender", "Å®ĞÔ");
+        set("gender", "å¥³æ€§");
         set("attitude", "friendly");
         set("age", 18);
         set("str", 20);
@@ -32,12 +32,12 @@ void create()
         set("inquiry", ([
 
 
-                    "¸ü¸ÄÒöÔµ" : (: ask_clear_divorce :),
-                    "»Ö¸´ĞÔ±ğ" : (: ask_gender :),
-                    "Àë»é"     : (: ask_divorce :),
-                    "Ê®¶ñ²»Éâ" : (: ask_new_pks :),
-                    "¶Ò»»Í¨±¦" : (: ask_gold_tb :),
-                    "¶Ò»»»Æ½ğ" : (: ask_tb_gold :),
+                    "æ›´æ”¹å§»ç¼˜" : (: ask_clear_divorce :),
+                    "æ¢å¤æ€§åˆ«" : (: ask_gender :),
+                    "ç¦»å©š"     : (: ask_divorce :),
+                    "åæ¶ä¸èµ¦" : (: ask_new_pks :),
+                    "å…‘æ¢é€šå®" : (: ask_gold_tb :),
+                    "å…‘æ¢é»„é‡‘" : (: ask_tb_gold :),
         ]));
         carry_object("/clone/misc/cloth")->wear();
         setup();
@@ -50,14 +50,14 @@ int ask_clear_divorce()
         object me = this_player();
         if (!me->query("divorce"))
         {
-                command("say ÄãºÃÏñ²¢Ã»ÓĞÀë»é¹ı°É£¿\n");
+                command("say ä½ å¥½åƒå¹¶æ²¡æœ‰ç¦»å©šè¿‡å§ï¼Ÿ\n");
                 return 1;
         }
         exp = me->query("combat_exp") * me->query("divorce") * 5 / 1000;
         if (exp > 300000)
             exp = 300000;
-        command("say Èç¹ûÏëÇå³ıÀë»é¼ÇÂ¼£¬Äã½«Òª±»³Í·£" + chinese_number(exp) + "µã¾­Ñé¡£\n");
-        command("say ÄãÈ·¶¨ÒªÇå³ıÀë»é¼ÇÂ¼Âğ(yes or no)?");
+        command("say å¦‚æœæƒ³æ¸…é™¤ç¦»å©šè®°å½•ï¼Œä½ å°†è¦è¢«æƒ©ç½š" + chinese_number(exp) + "ç‚¹ç»éªŒã€‚\n");
+        command("say ä½ ç¡®å®šè¦æ¸…é™¤ç¦»å©šè®°å½•å—(yes or no)?");
         input_to("confirm_clear_divorce", 1, me, exp);
         return 1;
 }
@@ -66,18 +66,18 @@ int confirm_clear_divorce(string arg, object me, int exp)
 {
         if (arg != "yes")
         {
-                write("Äã·ÅÆúÁËÇå³ıÀë»é¼ÇÂ¼µÄÏë·¨¡£\n");
+                write("ä½ æ”¾å¼ƒäº†æ¸…é™¤ç¦»å©šè®°å½•çš„æƒ³æ³•ã€‚\n");
                 return 1;
         }
-        command("say ºÃ°É£¬¼ÈÈ»Äã¾ö¶¨ÁË£¬ÎÒ¾Í°ïÄãÇå³ıµô°É£¬ÒÔºó¼ÇµÃÒª×¨Ò»°¡¡£\n");
+        command("say å¥½å§ï¼Œæ—¢ç„¶ä½ å†³å®šäº†ï¼Œæˆ‘å°±å¸®ä½ æ¸…é™¤æ‰å§ï¼Œä»¥åè®°å¾—è¦ä¸“ä¸€å•Šã€‚\n");
         command("sigh " + me->query("id"));
         command("lover fairy");
-        log_file("quest/clear_divorce", sprintf("[%s] %sÇå³ıÀë»é¼ÇÂ¼%d´Î£¬¼õÉÙ¾­Ñé%dµã.\n",
+        log_file("quest/clear_divorce", sprintf("[%s] %sæ¸…é™¤ç¦»å©šè®°å½•%dæ¬¡ï¼Œå‡å°‘ç»éªŒ%dç‚¹.\n",
                 ctime(time())[0..15], geteuid(this_player(1)), me->query("divorce"), exp));
         me->delete("divorce");
         me->add("combat_exp", -exp);
         me->setup();
-        write(HIR"Àë»é¼ÇÂ¼Çå³ıÍê±Ï£¡¹²¼õÉÙ¾­Ñé" + chinese_number(exp) + "µã¡£\n"NOR);
+        write(HIR"ç¦»å©šè®°å½•æ¸…é™¤å®Œæ¯•ï¼å…±å‡å°‘ç»éªŒ" + chinese_number(exp) + "ç‚¹ã€‚\n"NOR);
         return 1;
 }
 
@@ -85,22 +85,22 @@ int ask_gender()
 {
         int exp;
         object me = this_player();
-        if (me->query("gender") != "ÎŞĞÔ")
+        if (me->query("gender") != "æ— æ€§")
         {
-                command("say ÄãÉíÌåÊ®·Ö½¡È«£¬ÄÑµÀÊÇÄÔ×Ó³öÁËÎÊÌâ£¿\n");
+                command("say ä½ èº«ä½“ååˆ†å¥å…¨ï¼Œéš¾é“æ˜¯è„‘å­å‡ºäº†é—®é¢˜ï¼Ÿ\n");
                 return 1;
         }
         exp = me->query("combat_exp");
         if (exp < 100000)
         {
-                command("say Äã¾­ÑéÌ«ÉÙÁË£¬¸ßµãÔÙÀ´°É¡£\n");
+                command("say ä½ ç»éªŒå¤ªå°‘äº†ï¼Œé«˜ç‚¹å†æ¥å§ã€‚\n");
                 return 1;
         }
         exp = exp * 5 / 100;
         if (exp > 300000)
                 exp = 300000;
-        command("say Èç¹ûÏë»Ö¸´ĞÔ±ğ£¬Äã½«Òª±»³Í·£" + chinese_number(exp) + "µã¾­Ñé¡£\n");
-        command("say ÄãÈ·¶¨Òª»Ö¸´ĞÔ±ğÂğ(yes or no)?");
+        command("say å¦‚æœæƒ³æ¢å¤æ€§åˆ«ï¼Œä½ å°†è¦è¢«æƒ©ç½š" + chinese_number(exp) + "ç‚¹ç»éªŒã€‚\n");
+        command("say ä½ ç¡®å®šè¦æ¢å¤æ€§åˆ«å—(yes or no)?");
         input_to("confirm_gender", 1, me, exp);
         return 1;
 }
@@ -109,20 +109,20 @@ int confirm_gender(string arg, object me, int exp)
 {
         if (arg != "yes")
         {
-                write("Äã·ÅÆúÁË»Ö¸´ĞÔ±ğµÄÏë·¨¡£\n");
+                write("ä½ æ”¾å¼ƒäº†æ¢å¤æ€§åˆ«çš„æƒ³æ³•ã€‚\n");
                 return 1;
         }
-        command("say ºÃ°É£¬¼ÈÈ»Äã¾ö¶¨ÁË£¬ÎÒ¾Í°ïÄã»Ö¸´°É£¬ÕâÖÖ·¨ÊõÄÑ¶ÈÊÇ·Ç³£´óµÄ£¬°¦¡£\n");
+        command("say å¥½å§ï¼Œæ—¢ç„¶ä½ å†³å®šäº†ï¼Œæˆ‘å°±å¸®ä½ æ¢å¤å§ï¼Œè¿™ç§æ³•æœ¯éš¾åº¦æ˜¯éå¸¸å¤§çš„ï¼Œå”‰ã€‚\n");
         command("poor fairy");
         command("sweat fairy");
         me->delete_skill("pixie-jian");
         me->set("class", me->query("class_old"));
-        me->set("gender", "ÄĞĞÔ");
+        me->set("gender", "ç”·æ€§");
         me->add("combat_exp", -exp);
         me->setup();
-        log_file("quest/clear_divorce", sprintf("[%s] %s»Ö¸´ĞÔ±ğÎªÄĞĞÔ£¬¼õÉÙ¾­Ñé%dµã.\n",
+        log_file("quest/clear_divorce", sprintf("[%s] %sæ¢å¤æ€§åˆ«ä¸ºç”·æ€§ï¼Œå‡å°‘ç»éªŒ%dç‚¹.\n",
                 ctime(time())[0..15], geteuid(this_player(1)), exp));
-        write(HIR"ĞÔ±ğ»Ö¸´Íê±Ï£¡¹²¼õÉÙ¾­Ñé" + chinese_number(exp) + "µã¡£\n"NOR);
+        write(HIR"æ€§åˆ«æ¢å¤å®Œæ¯•ï¼å…±å‡å°‘ç»éªŒ" + chinese_number(exp) + "ç‚¹ã€‚\n"NOR);
         return 1;
 }
 
@@ -134,20 +134,20 @@ int ask_divorce()
 
         if (!me->query("marry"))
         {
-                command("say ÄãÃ»ÓĞ½á»é£¬À´ÎÊÊ²Ã´£¿\n");
+                command("say ä½ æ²¡æœ‰ç»“å©šï¼Œæ¥é—®ä»€ä¹ˆï¼Ÿ\n");
                 return 1;
         }
         if (!last_on)
         {
-                command("say ÄãµÄ" + (me->query("gender") == "ÄĞĞÔ"?"½¿ÆŞ":"·ò¾ı") + "ÄØ£¿\n");
+                command("say ä½ çš„" + (me->query("gender") == "ç”·æ€§"?"å¨‡å¦»":"å¤«å›") + "å‘¢ï¼Ÿ\n");
                 return 1;
         }
         if ((time() - last_on) / 86400 < 30)
         {
-                command("say ÄãµÄ" + (me->query("gender") == "ÄĞĞÔ"?"½¿ÆŞ":"·ò¾ı") + "×î½ü²ÅµÇÂ½¹ı£¬ÕâÑù²»ºÃ°É£¿\n");
+                command("say ä½ çš„" + (me->query("gender") == "ç”·æ€§"?"å¨‡å¦»":"å¤«å›") + "æœ€è¿‘æ‰ç™»é™†è¿‡ï¼Œè¿™æ ·ä¸å¥½å§ï¼Ÿ\n");
                 return 1;
         }
-        command("say ÄãÕæµÄÏëÀë»éÂğ(yes or no)?");
+        command("say ä½ çœŸçš„æƒ³ç¦»å©šå—(yes or no)?");
         input_to("confirm_divorce", 1, me);
         return 1;
 }
@@ -156,10 +156,10 @@ int confirm_divorce(string arg, object me)
 {
         if (arg != "yes")
         {
-                write("Äã·ÅÆúÁËÀë»éµÄÏë·¨¡£\n");
+                write("ä½ æ”¾å¼ƒäº†ç¦»å©šçš„æƒ³æ³•ã€‚\n");
                 return 1;
         }
-        command("say ºÃ°É£¬¼ÈÈ»Äã¾ö¶¨ÁË£¬ÎÒ¾Í³ÉÈ«Äã°É¡£\n");
+        command("say å¥½å§ï¼Œæ—¢ç„¶ä½ å†³å®šäº†ï¼Œæˆ‘å°±æˆå…¨ä½ å§ã€‚\n");
         command("sigh " + me->query("id"));
         command("lover fairy");
         me->delete("marry");
@@ -174,12 +174,12 @@ int ask_new_pks()
 
         if (me->query("PKS") >= 50 )
         {
-                command("say Äã²»ÒÑ¾­ÊÇ¶ñÈËÁËÃ´£¿\n");
+                command("say ä½ ä¸å·²ç»æ˜¯æ¶äººäº†ä¹ˆï¼Ÿ\n");
                 return 1;
         }
             if ((int)me->query_skill("jiuyin-baiguzhua",1) < 1)
         {
-                command("say Äã»¹Ã»ÑĞ¾¿¾ÅÒõÕæ¾­ÎäÑ§¡£\n");
+                command("say ä½ è¿˜æ²¡ç ”ç©¶ä¹é˜´çœŸç»æ­¦å­¦ã€‚\n");
                 command("addoil " + me->query("id"));
                 return 1;
         }
@@ -188,7 +188,7 @@ int ask_new_pks()
         {
                 me->add("PKS", 50);
         }
-        command("say ºÃ°É£¬ÄãÈ¥×ö¶ñÈËÈ¥°É¡£\n");
+        command("say å¥½å§ï¼Œä½ å»åšæ¶äººå»å§ã€‚\n");
         command("sigh " + me->query("id"));
         return 1;
 }
@@ -200,13 +200,13 @@ int ask_gold_tb()
         
         	if (!userp(me))
         {
-                command("say ×÷ÎªÊé½£Î×Ê¦Ã»ÓĞ±ØÒªÕâÑù°É\n");
+                command("say ä½œä¸ºä¹¦å‰‘å·«å¸ˆæ²¡æœ‰å¿…è¦è¿™æ ·å§\n");
                 return 1;
         } 
         
         if ( me->query("balance") < 100000000 )
         {
-                      command("say ÄãµÄ"HIY"»Æ½ğ´æ¿î"NOR"²»×ãÒ»ÍòÁ½£¬»¹ÊÇ´æ×Å±¸ÓÃ°É¡£\n");
+                      command("say ä½ çš„"HIY"é»„é‡‘å­˜æ¬¾"NOR"ä¸è¶³ä¸€ä¸‡ä¸¤ï¼Œè¿˜æ˜¯å­˜ç€å¤‡ç”¨å§ã€‚\n");
 
                 return 1;
         	
@@ -217,7 +217,7 @@ int ask_gold_tb()
                 me->add("balance",-100000000);
                 me->add("SJ_Credit",100);
         }        
-        tell_object(me,HIC"\nÄã³É¹¦½«"HIY"Ò»Íò¶§»Æ½ğ"HIC"´æ¿î×ª»»ÎªÒ»°Ù¸ö"HBGRN+HIG"Êé½£Í¨±¦"NOR+HIC"£¡\n"NOR);
+        tell_object(me,HIC"\nä½ æˆåŠŸå°†"HIY"ä¸€ä¸‡é”­é»„é‡‘"HIC"å­˜æ¬¾è½¬æ¢ä¸ºä¸€ç™¾ä¸ª"HBGRN+HIG"ä¹¦å‰‘é€šå®"NOR+HIC"ï¼\n"NOR);
       return 1;
 }
 
@@ -227,24 +227,24 @@ int ask_tb_gold()
         
         	if (!userp(me))
         {
-                command("say ×÷ÎªÊé½£Î×Ê¦Ã»ÓĞ±ØÒªÕâÑù°É\n");
+                command("say ä½œä¸ºä¹¦å‰‘å·«å¸ˆæ²¡æœ‰å¿…è¦è¿™æ ·å§\n");
                 return 1;
         } 
         if ( me->query("combat_exp") < 10000000 )
         {
-                      command("say ¶Ô²»Æğ£¬ÄãµÄÊµÕ½¾­Ñé²»×ã10M£¬²»ÄÜÊ¹ÓÃÕâÏî·şÎñ¡£\n");
+                      command("say å¯¹ä¸èµ·ï¼Œä½ çš„å®æˆ˜ç»éªŒä¸è¶³10Mï¼Œä¸èƒ½ä½¿ç”¨è¿™é¡¹æœåŠ¡ã€‚\n");
                 return 1;        	
         }
 
         
         if ( me->query("SJ_Credit") < 100 )
         {
-                      command("say ÄãµÄ"HBGRN+HIG"Êé½£Í¨±¦"NOR"Ì«ÉÙÁË£¬ÎŞ·¨¶Ò»»"HIY"»Æ½ğ´æ¿î"NOR"¡£\n");
+                      command("say ä½ çš„"HBGRN+HIG"ä¹¦å‰‘é€šå®"NOR"å¤ªå°‘äº†ï¼Œæ— æ³•å…‘æ¢"HIY"é»„é‡‘å­˜æ¬¾"NOR"ã€‚\n");
                 return 1;        	
         }
          if ( me->query("balance") >= 600000000 )
 {
-                       command("say ÄãµÄ"HIY"»Æ½ğ´æ¿î"NOR"Ì«¶àÁË£¬Äã¾Í²»ÅÂÒç³ö°¡£¿\n");
+                       command("say ä½ çš„"HIY"é»„é‡‘å­˜æ¬¾"NOR"å¤ªå¤šäº†ï¼Œä½ å°±ä¸æ€•æº¢å‡ºå•Šï¼Ÿ\n");
                  return 1;          
 }
 
@@ -253,6 +253,6 @@ int ask_tb_gold()
                 me->add("balance",100000000);
                 me->add("SJ_Credit",-100);
         }        
-        tell_object(me,HIC"\nÄã³É¹¦½«Ò»°Ù¸ö"HBGRN+HIG"Êé½£Í¨±¦"NOR+HIC"×ª»»Îª"HIY"Ò»Íò¶§»Æ½ğ"HIC"´æ¿î£¡\n"NOR);
+        tell_object(me,HIC"\nä½ æˆåŠŸå°†ä¸€ç™¾ä¸ª"HBGRN+HIG"ä¹¦å‰‘é€šå®"NOR+HIC"è½¬æ¢ä¸º"HIY"ä¸€ä¸‡é”­é»„é‡‘"HIC"å­˜æ¬¾ï¼\n"NOR);
       return 1;
 }

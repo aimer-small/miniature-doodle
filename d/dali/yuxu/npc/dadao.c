@@ -3,9 +3,9 @@ inherit NPC;
 
 void create()
 {
-       set_name("ÁëÄÏ´óµÁ", ({"lingnan dadao", "dadao", "dao"}));
-       set("long", "ÕâÊÇÒ»¸öÉí²Ä¿ıÎàµÄ´óµÁ£¬ÉíÉÏÍ¸³öÒ»¹ÉÒõÀäµÄÉ±Æø¡£\n");
-       set("gender", "ÄĞĞÔ");
+       set_name("å²­å—å¤§ç›—", ({"lingnan dadao", "dadao", "dao"}));
+       set("long", "è¿™æ˜¯ä¸€ä¸ªèº«æé­æ¢§çš„å¤§ç›—ï¼Œèº«ä¸Šé€å‡ºä¸€è‚¡é˜´å†·çš„æ€æ°”ã€‚\n");
+       set("gender", "ç”·æ€§");
        set("attitude", "heroism");
        set("age", 40+random(20));
        set("shen_type", -1);

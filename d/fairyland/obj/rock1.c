@@ -5,15 +5,15 @@ inherit ITEM;
 
 void create()
 {
-        set_name("ÑÒÊ¯", ({ "yan shi", "rock", "yanshi", "shi" }));
+        set_name("å²©çŸ³", ({ "yan shi", "rock", "yanshi", "shi" }));
 	set_weight(8000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿é");
-		set("long", "ÕâÊÇÒ»¿éºÜ²»ÎÈ¹ÌµÄÑÒÊ¯¡£\n");
+		set("unit", "å—");
+		set("long", "è¿™æ˜¯ä¸€å—å¾ˆä¸ç¨³å›ºçš„å²©çŸ³ã€‚\n");
 		set("value", 0);
-		set("no_get", "Õâ¿éÑÒÊ¯ÓÖÖØÓÖÃ»ÓÃ£¬ÄãÄÃËü×öÉõ£¿");
+		set("no_get", "è¿™å—å²©çŸ³åˆé‡åˆæ²¡ç”¨ï¼Œä½ æ‹¿å®ƒåšç”šï¼Ÿ");
 		set("material", "rock");
 	}
 	setup();
@@ -30,10 +30,10 @@ int do_move(string arg)
 	object monkey;
 
 	if (!id(arg))
-		return notify_fail("ÄãÏë°áÊ²Ã´£¿\n");
+		return notify_fail("ä½ æƒ³æ¬ä»€ä¹ˆï¼Ÿ\n");
 
 	if ((monkey = present("xiao hou", environment())) && monkey->query("get_wound")) {
-		message_vision("$N½«Ñ¹ÔÚĞ¡ºïÉíÉÏµÄÑÒÊ¯°á¿ª£¬°ÑĞ¡ºïÀ­Æğ¡£\n", me);
+		message_vision("$Nå°†å‹åœ¨å°çŒ´èº«ä¸Šçš„å²©çŸ³æ¬å¼€ï¼ŒæŠŠå°çŒ´æ‹‰èµ·ã€‚\n", me);
 		monkey->set("rock_moved", 1);
 		return 1;
 	}

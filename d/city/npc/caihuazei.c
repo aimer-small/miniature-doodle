@@ -1,14 +1,14 @@
-// /d/city/npc/caihuazei.c ²É»¨Ôô
-// Lklv modify at 2001.9.27 hehe ÃÀÅ®Áô²½
+// /d/city/npc/caihuazei.c é‡‡èŠ±è´¼
+// Lklv modify at 2001.9.27 hehe ç¾å¥³ç•™æ­¥
 
 inherit NPC;
 
 void create()
 {
-	set_name("²É»¨Ôô", ({"caihua zei", "caihua", "zei"}));
-	set("long", "ËûÊÇÒ»¸ö×¨ÃÅ¼éÒùÁ¼¼ÒÅ®×ÓµÄ²É»¨Ôô¡£\n");
+	set_name("é‡‡èŠ±è´¼", ({"caihua zei", "caihua", "zei"}));
+	set("long", "ä»–æ˜¯ä¸€ä¸ªä¸“é—¨å¥¸æ·«è‰¯å®¶å¥³å­çš„é‡‡èŠ±è´¼ã€‚\n");
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "heroism");
 
 	set("age", 35);
@@ -40,7 +40,7 @@ void init()
 {
 	object ob = this_player();
 
-	if (ob->query("gender") == "Å®ĞÔ" && random(ob->query_per()) > 20) {
+	if (ob->query("gender") == "å¥³æ€§" && random(ob->query_per()) > 20) {
 		remove_call_out("do_greet");
 		call_out("do_greet", 0, ob);
 	}
@@ -50,5 +50,5 @@ void do_greet(object ob)
 {
 	if (!ob || !present(ob)) return;
 	command("look " + ob->query("id"));
-	tell_object(ob, "²É»¨Ôô³¯ÄãÒùĞ¦µÀ£º¡°" + RANK_D->query_respect(ob) + "£¬ÊÇ²»ÊÇºÜ¼ÅÄ¯Ñ½£¿¡±\n");
+	tell_object(ob, "é‡‡èŠ±è´¼æœä½ æ·«ç¬‘é“ï¼šâ€œ" + RANK_D->query_respect(ob) + "ï¼Œæ˜¯ä¸æ˜¯å¾ˆå¯‚å¯å‘€ï¼Ÿâ€\n");
 }

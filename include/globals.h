@@ -76,7 +76,7 @@
 #define QUEST_D     "/adm/daemons/questd"
 #define TASKREWARD_D "/adm/daemons/jobrewardd"
 
-//ֻ��Ϊ��������ϵͳ
+//只锟斤拷为锟斤拷锟斤拷锟斤拷锟斤拷系统
 #define JOB_SERVER 	"/clone/obj/job_server"
 #define TRAVERSER  	"/clone/obj/traverser"
 #define MAPDB 	   	"/clone/obj/mapdb"

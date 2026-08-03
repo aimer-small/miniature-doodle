@@ -1,13 +1,13 @@
 // bankong.c
-// °ë¿ÕÖĞ
+// åŠç©ºä¸­
 
 inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", "°ë¿ÕÖĞ");
+	set("short", "åŠç©ºä¸­");
 	set("long", 
-HIW"Äã´ÓÒ»ÍÅÍÅÔÆÎíÖĞ´©¹ı£¬¼±ËÙÏòÏÂ×¹Âä¡£\n"NOR
+HIW"ä½ ä»ä¸€å›¢å›¢äº‘é›¾ä¸­ç©¿è¿‡ï¼Œæ€¥é€Ÿå‘ä¸‹å è½ã€‚\n"NOR
 );
 	setup();
 }
@@ -29,7 +29,7 @@ int do_action(string arg)
 	       case "l" :
 	       case "dazuo" : 
                case "practice":
-               write(HIW"Äã´ÓÒ»ÍÅÍÅÔÆÎíÖĞ´©¹ı£¬¼±ËÙÏòÏÂ×¹Âä¡£\n\n"NOR);
+               write(HIW"ä½ ä»ä¸€å›¢å›¢äº‘é›¾ä¸­ç©¿è¿‡ï¼Œæ€¥é€Ÿå‘ä¸‹å è½ã€‚\n\n"NOR);
                        return 1;
        }
        return 0;

@@ -7,10 +7,10 @@ inherit NPC;
 void create()
 {
 	object ob;
-	set_name("×¿²»·²", ({ "zhuo bufan", "zhuo", "bufan"}));
-	set("long",  "ÕâÈËÉí´©ÇàÉÀ£¬³¤ĞëÆ®Æ®£¬ÃæÄ¿ÇåĞã£¬Ëû¾ÍÊÇ¡°½£Éñ¡±×¿²»·²¡£\n");
-	set("gender", "ÄĞĞÔ");
-	set("title","Ò»×Ö»Û½£ÃÅ");
+	set_name("å“ä¸å‡¡", ({ "zhuo bufan", "zhuo", "bufan"}));
+	set("long",  "è¿™äººèº«ç©¿é’è¡«ï¼Œé•¿é¡»é£˜é£˜ï¼Œé¢ç›®æ¸…ç§€ï¼Œä»–å°±æ˜¯â€œå‰‘ç¥â€å“ä¸å‡¡ã€‚\n");
+	set("gender", "ç”·æ€§");
+	set("title","ä¸€å­—æ…§å‰‘é—¨");
 	set("per",25);
         set("age", 56);
         set("shen_type",0);
@@ -39,11 +39,11 @@ void create()
         set_skill("strike",280);
         set_skill("sword",280);
 
-        set_skill("zhemei-shou",28);          //åĞÒ£ÕÛÃ·ÊÖ(hand)
-        set_skill("liuyang-zhang",280);        //ÌìÉ½ÁùÑôÕÆ(strike)(unarmed)
-        set_skill("yueying-wubu",280);       //Æ¾ĞéÁÙ·ç(dodge)
-        set_skill("bahuang-gong",280);        //°Ë»ÄÁùºÏÎ¨ÎÒ¶À×ğ¹¦(force)
-	set_skill("tianyu-qijian",280);     //ÌìÉ½½£·¨(sword)
+        set_skill("zhemei-shou",28);          //é€é¥æŠ˜æ¢…æ‰‹(hand)
+        set_skill("liuyang-zhang",280);        //å¤©å±±å…­é˜³æŒ(strike)(unarmed)
+        set_skill("yueying-wubu",280);       //å‡­è™šä¸´é£(dodge)
+        set_skill("bahuang-gong",280);        //å…«è’å…­åˆå”¯æˆ‘ç‹¬å°ŠåŠŸ(force)
+	set_skill("tianyu-qijian",280);     //å¤©å±±å‰‘æ³•(sword)
 	set_skill("literate", 150);
 
         map_skill("force", "bahuang-gong");
@@ -72,7 +72,7 @@ void create()
 int remove_ob(object ob)
 {
 	if(!ob) return 1;
-	tell_room(environment(ob), "\n"+HIR+ ob->query("name")+"ËµµÀ£º¿´À´²»ÄÜ¾ÃÕ½£¬ÎÒ¸æ´ÇÁË£¡\n" NOR,({  }));
+	tell_room(environment(ob), "\n"+HIR+ ob->query("name")+"è¯´é“ï¼šçœ‹æ¥ä¸èƒ½ä¹…æˆ˜ï¼Œæˆ‘å‘Šè¾äº†ï¼\n" NOR,({  }));
 	destruct(ob);
 	return 1;
 }

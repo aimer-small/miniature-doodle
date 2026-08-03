@@ -4,13 +4,13 @@ inherit BOOTS;
 
 void create()
 {
-       set_name("ºÚµ×±ãÑ¥", ({ "heidi bianxue", "bianxue", "shoe" }) );
+       set_name("é»‘åº•ä¾¿é´", ({ "heidi bianxue", "bianxue", "shoe" }) );
        set_weight(1000);
        if( clonep() )
                set_default_object(__FILE__);
        else {
-               set("unit", "Ë«");
-               set("long", "Ò»Ë«±¡µ×ºÚÉ«±ãÑ¥£¬Ò»°ã¹Ü»ÂÈË¼Ò¾­³£´©×Å¡£\n");               
+               set("unit", "åŒ");
+               set("long", "ä¸€åŒè–„åº•é»‘è‰²ä¾¿é´ï¼Œä¸€èˆ¬ç®¡å®¦äººå®¶ç»å¸¸ç©¿ç€ã€‚\n");               
                set("material", "boots");
                set("armor_prop/dodge", 1);
        }

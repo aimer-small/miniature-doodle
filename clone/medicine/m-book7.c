@@ -3,15 +3,15 @@ inherit ITEM;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(GRN"±¾²İ¸ÙÄ¿"NOR, ({ "bencao gangmu", "medicine book"}));
+        set_name(GRN"æœ¬è‰çº²ç›®"NOR, ({ "bencao gangmu", "medicine book"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
+                set("unit", "æœ¬");
                 set("treasure",1);
                 set("unique", 1);
-                set("long", "ÕâÊÇÒ»±¾Ã÷´úÀîÊ±ÕäËùÖøµÄÓĞ¹Ø±¾²İÊõÀíµÄÊé¡£¼¯ÌìÏÂÒ©ÀíÖ®´ó³É¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æœ¬æ˜ä»£ææ—¶çæ‰€è‘—çš„æœ‰å…³æœ¬è‰æœ¯ç†çš„ä¹¦ã€‚é›†å¤©ä¸‹è¯ç†ä¹‹å¤§æˆã€‚\n");
                 set("value", 300000);
                 set("material", "paper");
                 set("exp_required", 100000);

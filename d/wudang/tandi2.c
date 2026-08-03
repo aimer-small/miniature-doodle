@@ -1,19 +1,19 @@
-// /d/wudang/tandi2.c  Ë®Ì¶µ×
+// /d/wudang/tandi2.c  æ°´æ½­åº•
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short",HIB"Ë®Ì¶µ×"NOR);
+        set("short",HIB"æ°´æ½­åº•"NOR);
         set("long", @LONG
-ÄãÉí´¦Ë®Ì¶Ì¶µ×£¬Ì¶µ×Ï¸É³ÈçÑ©£¬Ì¶Ë®Ä«À¶£¬Ë®º®´Ì¹Ç£¬¼Å¾²Ò»Æ¬£¬ÒõÉî¿Ö²À¡£
+ä½ èº«å¤„æ°´æ½­æ½­åº•ï¼Œæ½­åº•ç»†æ²™å¦‚é›ªï¼Œæ½­æ°´å¢¨è“ï¼Œæ°´å¯’åˆºéª¨ï¼Œå¯‚é™ä¸€ç‰‡ï¼Œé˜´æ·±ææ€–ã€‚
 LONG                           
         );
         set("objects",([        
                  __DIR__"npc/eyu" : 1,
              ]));
-        set("outdoors", "Îäµ±");
+        set("outdoors", "æ­¦å½“");
         setup();
 
 }
@@ -27,16 +27,16 @@ int do_qian(string arg)
 
         me=this_player();
         if ( !arg || (arg != "down" && arg != "up" ))
-            return notify_fail("ÄãÏóÌõÓã°ãÔÚË®ÀïÓÎÀ´ÓÎÈ¥!\n");
+            return notify_fail("ä½ è±¡æ¡é±¼èˆ¬åœ¨æ°´é‡Œæ¸¸æ¥æ¸¸åŽ»!\n");
 
         if (arg =="down") {
-           return notify_fail("ÄãÏëµ±ÄàöúÍùµØÏÂ×êÑ½!\n");
+           return notify_fail("ä½ æƒ³å½“æ³¥é³…å¾€åœ°ä¸‹é’»å‘€!\n");
           }
         else
-          {message_vision("$NÒ»µÅÍÈ£¬ÍùÉÏÓÎÈ¥¡£\n", me);
+          {message_vision("$Nä¸€è¹¬è…¿ï¼Œå¾€ä¸Šæ¸¸åŽ»ã€‚\n", me);
            me->receive_damage("jingli", 50-(int)me->query_skill("dodge", 1)/20);
            me->move(__DIR__"tandi1");
-           tell_room(environment(me), me->name() + "´ÓË®ÏÂÃ°ÁËÉÏÀ´¡£\n", ({ me }));
+           tell_room(environment(me), me->name() + "ä»Žæ°´ä¸‹å†’äº†ä¸Šæ¥ã€‚\n", ({ me }));
            return 1;
           }
 
@@ -46,7 +46,7 @@ int do_qian(string arg)
 {    
      ::drop_ob(obj);
    if objectp(present(obj, environment(me)))
-    { message_vision(HIY"$N³Áµ½Ì¶µ×Ò»»á¾Í±»ÄàÉ³ÑÚÂñÁË¡£\n"NOR, obj);
+    { message_vision(HIY"$Næ²‰åˆ°æ½­åº•ä¸€ä¼šå°±è¢«æ³¥æ²™æŽ©åŸ‹äº†ã€‚\n"NOR, obj);
       destruct(obj);
      }
 }
@@ -59,7 +59,7 @@ void get_ob(object obj)
    me->start_busy(2);
    if objectp(present("eyu", environment(me)))
     {if (random(3)>2)
-      message_vision(HIW"ÄàÉ³Í»È»Ò»Õó·­¶¯£¬Ò»ÌõÐ×²ÐµÄöùÓã±»¾ªÐÑÁË¡£\n"NOR);
+      message_vision(HIW"æ³¥æ²™çªç„¶ä¸€é˜µç¿»åŠ¨ï¼Œä¸€æ¡å‡¶æ®‹çš„é³„é±¼è¢«æƒŠé†’äº†ã€‚\n"NOR);
       ob=new(__DIR__"eyu");
       ob->kill_ob(me);
      }

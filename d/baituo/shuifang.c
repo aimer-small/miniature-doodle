@@ -2,11 +2,11 @@
 inherit ROOM;
 void create()
 {
-        set("short", "Ë¯·¿");
+        set("short", "ç¡æˆ¿");
         set("long", @LONG
-Õâ¼äË¯·¿¿í³¨Ã÷ÁÁ£¬ÏëÀ´±ãÊÇ×¯Ö÷µÄÎÔÊÒÁË¡£ÓĞÒ»ÕÅÊé×À£¬×À×ÓÉÏ
-·ÅÓĞ¼¸±¾Êé£¬È´ÊÇ¡¶Ò×¾­¡·Ö®Àà¡£Ç½±ßÓĞÒ»´óÏä×Ó¡£Õû¸ö·¿¼ä¿´ÉÏÈ¥¼«
-Îªµ¥µ÷¡£
+è¿™é—´ç¡æˆ¿å®½æ•æ˜äº®ï¼Œæƒ³æ¥ä¾¿æ˜¯åº„ä¸»çš„å§å®¤äº†ã€‚æœ‰ä¸€å¼ ä¹¦æ¡Œï¼Œæ¡Œå­ä¸Š
+æ”¾æœ‰å‡ æœ¬ä¹¦ï¼Œå´æ˜¯ã€Šæ˜“ç»ã€‹ä¹‹ç±»ã€‚å¢™è¾¹æœ‰ä¸€å¤§ç®±å­ã€‚æ•´ä¸ªæˆ¿é—´çœ‹ä¸Šå»æ
+ä¸ºå•è°ƒã€‚
 LONG);
         set("no_fight", "1");
         set("objects", ([
@@ -29,11 +29,11 @@ int do_shui(string arg)
         object me = this_player();
         object where = environment(me);  
         if (me->is_busy() || me->is_fighting() )
-        	return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");      
-        message_vision("\n$NÒ»ÍáÉí£¬µ¹ÔÚ´²ÉÏ£¬²»Ò»»á±ã÷ıÉù´ó×÷£¬½øÈëÁËÃÎÏç¡£\n",me); 
+        	return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");      
+        message_vision("\n$Nä¸€æ­ªèº«ï¼Œå€’åœ¨åºŠä¸Šï¼Œä¸ä¸€ä¼šä¾¿é¼¾å£°å¤§ä½œï¼Œè¿›å…¥äº†æ¢¦ä¹¡ã€‚\n",me); 
         me->start_busy(3);       
         me->set_temp("block_msg/all",1);
-        me->disable_player("<Ë¯ÃÎÖĞ>");
+        me->disable_player("<ç¡æ¢¦ä¸­>");
         call_out("wakeup", 40, me, where);
         return 1;
 }
@@ -54,19 +54,19 @@ void wakeup(object me)
         me->add("neili", (me->query("max_neili") - me->query("neili"))/2/cost);
         me->add("jingli", (me->query("eff_jingli") - me->query("jingli"))/2/cost);
         me->enable_player();
-        message_vision("$NÒ»¾õĞÑÀ´£¬¾«Á¦³äÅæµØ»î¶¯ÁËÒ»ÏÂ½î¹Ç¡£\n",me);
+        message_vision("$Nä¸€è§‰é†’æ¥ï¼Œç²¾åŠ›å……æ²›åœ°æ´»åŠ¨äº†ä¸€ä¸‹ç­‹éª¨ã€‚\n",me);
         me->delete_temp("block_msg/all");       
-        write("ÄãÒ»¾õĞÑÀ´£¬¾õµÃ¾«Á¦³äÅæ£¬¸Ã»î¶¯Ò»ÏÂÁË¡£\n");
+        write("ä½ ä¸€è§‰é†’æ¥ï¼Œè§‰å¾—ç²¾åŠ›å……æ²›ï¼Œè¯¥æ´»åŠ¨ä¸€ä¸‹äº†ã€‚\n");
         if (random(me->query("kar")) > 15 
         && me->query("oyf_son")
         && me->query_skill("hamagong", 1)
         && query("book_count") >= 1){ 
-             	write("ÄãËæÊÖÔÚ´²±ßÒ»³Å£¬ºöÈ»·¢ÏÖ´²µ¥ÏÂ¸Ç×ÅÊ²Ã´¶«Î÷¡£\n");
-             	write("ÏÆ¿ª´²µ¥Ò»¿´£¬Ô­À´ÊÇÒ»±¾±¡±¡µÄÏß×°Êé¡£\n");
+             	write("ä½ éšæ‰‹åœ¨åºŠè¾¹ä¸€æ’‘ï¼Œå¿½ç„¶å‘ç°åºŠå•ä¸‹ç›–ç€ä»€ä¹ˆä¸œè¥¿ã€‚\n");
+             	write("æ€å¼€åºŠå•ä¸€çœ‹ï¼ŒåŸæ¥æ˜¯ä¸€æœ¬è–„è–„çš„çº¿è£…ä¹¦ã€‚\n");
              	new_ob(__DIR__"obj/book")->move(me);
              	if(!wizardp(me))
              		log_file("quest/hmg_book", me->query("name")+"("+me->query("id")+
-             		") got hamagong book on " + ctime(time()) + "¡£\n" );
+             		") got hamagong book on " + ctime(time()) + "ã€‚\n" );
              	add("book_count", -1);
         }
         me->start_busy(2);

@@ -10,12 +10,12 @@ int update_condition(object me, int duration)
         
         if(random(10)==1)
 	{
-		tell_room(environment(me), me->name() + "身形似乎显得异常高大。\n", ({ me }));		
+		tell_room(environment(me), me->name() + "韬舰浼间箮鏄惧緱寮傚父楂樺ぇ銆俓n", ({ me }));		
 	}
 
         if( ! me->query_temp("fofa_long") ) 
         {
-		tell_object(me, HIY"你长长的舒了口气，身形似乎也缩小了一些。\n"NOR);		
+		tell_object(me, HIY"浣犻暱闀跨殑鑸掍簡鍙ｆ皵锛岃韩褰技涔庝篃缂╁皬浜嗕竴浜涖�俓n"NOR);		
 		me->clear_condition("fofa_lw");
 		return 0;
         }

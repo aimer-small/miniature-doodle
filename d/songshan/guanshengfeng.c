@@ -1,4 +1,4 @@
-//Room: songshan/guanshengfeng.c ¹ÛÊ¤·å
+//Room: songshan/guanshengfeng.c è§‚èƒœå³°
 //Modify by baimo for ss newbie job
 
 #include <ansi.h>
@@ -12,19 +12,19 @@ string look_sl()
 	if (!(room = find_object("/d/shaolin/guangchang")))
 		room = load_object("/d/shaolin/guangchang");
 	if (!room || random(me->query_kar())<0)
-		return "ÄãÅ¬Á¦ÏòÄÏ±ßµÄÉÙÊÒÉ½ÍûÈ¥£¬È´±»Ã£Ã£ÔÆº£ËùÕÚ£¬¿´²»Çå³þ¡£\n";
-	message_vision("$NÕ¾ÔÚ·åÉÏ£¬»ØÊ×ÏòÄÏÃæµÄÉÙÊÒÉ½ÍûÈ¥¡£\n", me);
+		return "ä½ åŠªåŠ›å‘å—è¾¹çš„å°‘å®¤å±±æœ›åŽ»ï¼Œå´è¢«èŒ«èŒ«äº‘æµ·æ‰€é®ï¼Œçœ‹ä¸æ¸…æ¥šã€‚\n";
+	message_vision("$Nç«™åœ¨å³°ä¸Šï¼Œå›žé¦–å‘å—é¢çš„å°‘å®¤å±±æœ›åŽ»ã€‚\n", me);
 	"/cmds/std/look.c"->look_room(this_player(), room);
 	return "";
 }
 
 void create()
 {
-        set("short", "¹ÛÊ¤·å");
+        set("short", "è§‚èƒœå³°");
         set("long", @LONG
-Õ¾ÔÚÕâÀï£¬ÁèÓÚÆÙ²¼Ö®ÉÏ£¬¾°É«ÓÖÊÇÒ»·¬²»Í¬£¬´¦ÔÚÒ»Æ¬É½´ÓÖ®ÖÐ£¬Î÷±±
-ÊÇ¾ø¶¥£¬Î÷ÃæÊÇáÔÉ½µÄ¸÷¸öÉ½·å£¬ÄÏÃæÒ£Ò£ÏàÍûµÄ±ãÊÇµØ´¦ÉÙÊÒÉ½µÄáÔÉ½ÉÙÁÖ
-ËÂ(shaolin)£¬Éí´¦É½ÖÐ¶ø²»¼û¹éÂ·¡£Â·±ßµ½´¦¿É¼ûÒ»¶Ñ¶ÑµÄÂÒÊ¯¡£
+ç«™åœ¨è¿™é‡Œï¼Œå‡ŒäºŽç€‘å¸ƒä¹‹ä¸Šï¼Œæ™¯è‰²åˆæ˜¯ä¸€ç•ªä¸åŒï¼Œå¤„åœ¨ä¸€ç‰‡å±±ä»Žä¹‹ä¸­ï¼Œè¥¿åŒ—
+æ˜¯ç»é¡¶ï¼Œè¥¿é¢æ˜¯åµ©å±±çš„å„ä¸ªå±±å³°ï¼Œå—é¢é¥é¥ç›¸æœ›çš„ä¾¿æ˜¯åœ°å¤„å°‘å®¤å±±çš„åµ©å±±å°‘æž—
+å¯º(shaolin)ï¼Œèº«å¤„å±±ä¸­è€Œä¸è§å½’è·¯ã€‚è·¯è¾¹åˆ°å¤„å¯è§ä¸€å †å †çš„ä¹±çŸ³ã€‚
 LONG);
 	set("exits", ([
 		"northdown" : __DIR__"shanlu3",
@@ -36,7 +36,7 @@ LONG);
 	set("objects", ([
 		CLASS_D("songshan") + "/sha" : 1,
 	]));
-	set("outdoors", "áÔÉ½");
+	set("outdoors", "åµ©å±±");
 	setup();
 }
 
@@ -51,18 +51,18 @@ int do_caishi(string arg)
 
 	me = this_player();
 
-	if (!me->query_temp("ss_qs/asked")) return notify_fail ("ÄãÒª¸ÉÂï£¿\n");
+	if (!me->query_temp("ss_qs/asked")) return notify_fail ("ä½ è¦å¹²å˜›ï¼Ÿ\n");
 
-	if (me->is_busy()) return notify_fail ("ÄãÏÖÔÚÕýÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy()) return notify_fail ("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢ï¼\n");
 
-	if (me->is_fighting()) return notify_fail("ÄãÕýÔÚÕ½¶·ÖÐ£¬ÎÞ·¨×¨ÐÄ¸É»î£¡\n");
+	if (me->is_fighting()) return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œæ— æ³•ä¸“å¿ƒå¹²æ´»ï¼\n");
 
-	if (!arg || arg!= "shikuai" ) return notify_fail ("ÄãÒª¸ÉÊ²Ã´£¿\n");
+	if (!arg || arg!= "shikuai" ) return notify_fail ("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->query_temp("ss_qs/taked")
 	 || (int)me->query("jingli") < 40
 	 || (int)me->query("qi") < 30){
-		message_vision("$NÓÃÁ¦¹ýÃÍ£¬Ò»Í·×²µ½Ê¯Í·ÉÏ¡£\n",me);
+		message_vision("$Nç”¨åŠ›è¿‡çŒ›ï¼Œä¸€å¤´æ’žåˆ°çŸ³å¤´ä¸Šã€‚\n",me);
 		me->unconcious();
 		return 1;
 	}
@@ -70,24 +70,24 @@ int do_caishi(string arg)
 	if (random(10) < 7 ){
 		me->receive_damage("jingli",random(me->query("con"))/2);
 		me->receive_damage("qi", random(me->query("str"))/2);
-		message_vision("$NÊ¹³ö³ÔÄÌµÄ¾¢Ïë°áÆðÒ»¿éÊ¯Í·£¬½á¹ûÁ¦Æø²»¹»Ò»Æ¨¹É×øÔÚµØÉÏ¡£\n",me);
+		message_vision("$Nä½¿å‡ºåƒå¥¶çš„åŠ²æƒ³æ¬èµ·ä¸€å—çŸ³å¤´ï¼Œç»“æžœåŠ›æ°”ä¸å¤Ÿä¸€å±è‚¡ååœ¨åœ°ä¸Šã€‚\n",me);
 		return 1;
 	}
 
 	me->receive_damage("jingli",me->query("con")/2);
 	me->receive_damage("qi",me->query("str")/2);
 
-	message_vision("$N³ÔÁ¦µØ°áÆðÒ»¿é´óÊ¯Í·¡£\n",me);
+	message_vision("$NåƒåŠ›åœ°æ¬èµ·ä¸€å—å¤§çŸ³å¤´ã€‚\n",me);
 	ob = new("/d/huanghe/npc/obj/shikuai");
 	ob->move(me);
 	me->set_temp("ss_qs/taked",1);
 
 	if ((int)me->query_skill("hand", 1)< 51){
-		write(HIY"ÄãÔÚ°áÊ¯Í·µÄ±¼×ßÖ®ÖÐ£¬ËÆºõ¶Ô»ù±¾ÊÖ·¨ÓÐÐ©ÁìÎò¡£\n"NOR);
+		write(HIY"ä½ åœ¨æ¬çŸ³å¤´çš„å¥”èµ°ä¹‹ä¸­ï¼Œä¼¼ä¹Žå¯¹åŸºæœ¬æ‰‹æ³•æœ‰äº›é¢†æ‚Ÿã€‚\n"NOR);
 		me->improve_skill("hand", (int)(me->query("int")/2));
 	}
 	if ((int)me->query_skill("dodge", 1)< 31){
-		write(HIY"ÄãÔÚ°áÊ¯Í·µÄ±¼×ßÖÐ£¬ËÆºõ¶Ô»ù±¾Çá¹¦ÓÐÐ©ÁìÎò¡£\n"NOR);
+		write(HIY"ä½ åœ¨æ¬çŸ³å¤´çš„å¥”èµ°ä¸­ï¼Œä¼¼ä¹Žå¯¹åŸºæœ¬è½»åŠŸæœ‰äº›é¢†æ‚Ÿã€‚\n"NOR);
 		me->improve_skill("dodge", (int)(me->query("int")/2));
 	}
 	return 1;

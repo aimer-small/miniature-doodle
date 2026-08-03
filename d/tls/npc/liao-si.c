@@ -3,11 +3,11 @@ inherit NPC;
 string ask_me();
 void create()
 {
-        set_name("ÁËË¼ìøÊ¦", ({ "liaosi chanshi","liaosi","chanshi"}) );
-        set("nickname", "ËŞÃü×ğÕß");
-        set("long", "ÁËË¼ìøÊ¦ÊÇ±¾¹Û´óÊ¦µÄµÜ×Ó£¬ËûÔÚÍ¬±²µÜ×Ó\n"+
-		"ÖĞ×îÉÃ·ğÑ§¡£ÏÖË¾Ö°Óê»¨Ôº¾­Â¥¡£\n");
-        set("gender", "ÄĞĞÔ" );
+        set_name("äº†æ€ç¦…å¸ˆ", ({ "liaosi chanshi","liaosi","chanshi"}) );
+        set("nickname", "å®¿å‘½å°Šè€…");
+        set("long", "äº†æ€ç¦…å¸ˆæ˜¯æœ¬è§‚å¤§å¸ˆçš„å¼Ÿå­ï¼Œä»–åœ¨åŒè¾ˆå¼Ÿå­\n"+
+		"ä¸­æœ€æ“…ä½›å­¦ã€‚ç°å¸èŒé›¨èŠ±é™¢ç»æ¥¼ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("attitude", "friendly");
         set("class", "bonze");
         set("age", 53);
@@ -16,7 +16,7 @@ void create()
         set("int", 24);
         set("con", 24);
         set("dex", 22);
-        create_family("ÌìÁúËÂ", 14, "µÜ×Ó");
+        create_family("å¤©é¾™å¯º", 14, "å¼Ÿå­");
 
         set("qi", 1300);
         set("max_qi", 1300);
@@ -46,8 +46,8 @@ void create()
 	prepare_skill("finger","yiyang-zhi");           
 	set("book_count", 5);
 	set("inquiry",([
-		"·ğ¾­" : (: ask_me :),    
-		"¾­Êé" : (: ask_me :),
+		"ä½›ç»" : (: ask_me :),    
+		"ç»ä¹¦" : (: ask_me :),
 	]));
         setup();    
         carry_object(BINGQI_D("staff"))->wield();
@@ -59,18 +59,18 @@ string ask_me()
 	mapping fam; 
 	object ob;
 	
-	if (!(fam = this_player()->query("family")) || fam["family_name"] != "ÌìÁúËÂ")
+	if (!(fam = this_player()->query("family")) || fam["family_name"] != "å¤©é¾™å¯º")
 		return RANK_D->query_respect(this_player()) + 
-		"Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+		"ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 	
 	if (this_player()->query_temp("tl_book"))
-		return "Äã²»ÊÇÁì¹ıÁËÂğ£¿¶Á¾­Êé¹ó¾«²»ÔÚ¶à£¬ÄãÏÈ°ÑÄÇ±¾¿´Íê°É";
+		return "ä½ ä¸æ˜¯é¢†è¿‡äº†å—ï¼Ÿè¯»ç»ä¹¦è´µç²¾ä¸åœ¨å¤šï¼Œä½ å…ˆæŠŠé‚£æœ¬çœ‹å®Œå§";
 	if (query("book_count") < 1)
-        return "ÄãÀ´ÍíÁË£¬·ğ¾­·¢ÍêÁË¡£";
+        return "ä½ æ¥æ™šäº†ï¼Œä½›ç»å‘å®Œäº†ã€‚";
 	add("book_count", -1);
 	this_player()->set_temp("tl_book",1);
     ob = new("/d/tls/obj/fojing2"+random(2));
 	ob->move(this_player());
-	return "ºÃ°É£¬Õâ±¾¾­ÊéÄãÄÃ»ØÈ¥ºÃºÃ×êÑĞ¡£";
+	return "å¥½å§ï¼Œè¿™æœ¬ç»ä¹¦ä½ æ‹¿å›å»å¥½å¥½é’»ç ”ã€‚";
 }
 #include "liao.h";

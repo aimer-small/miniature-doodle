@@ -4,30 +4,30 @@
 #include <ansi.h>
 inherit F_CLEAN_UP;
 
-string exert_name() {return HIW"½â¶¾"NOR;}
+string exert_name() {return HIW"è§£æ¯’"NOR;}
 
 int exert(object me, object target)
 {
         int skill;
 
         if(target != me && !present(target,environment(me)))
-                return notify_fail("ÕâÀïºÃÏóÃ»ÓÐÕâ¸öÈË£¿\n");
+                return notify_fail("è¿™é‡Œå¥½è±¡æ²¡æœ‰è¿™ä¸ªäººï¼Ÿ\n");
 
         if((int)target->query("huagu") < 200 && target != me)
-                return notify_fail(target->name()+"Ã»ÓÐÖÐ»¯¹ÇÃàÕÆ¶¾¡£\n");
+                return notify_fail(target->name()+"æ²¡æœ‰ä¸­åŒ–éª¨ç»µæŽŒæ¯’ã€‚\n");
 
         if((int)target->query("huagu") < 200)
-                return notify_fail("ÄãÃ»ÓÐÖÐ»¯¹ÇÃàÕÆ¶¾¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰ä¸­åŒ–éª¨ç»µæŽŒæ¯’ã€‚\n");
 
         if((int)me->query_skill("dulong-dafa",1) < 150  )
-                return notify_fail("ÄãµÄ¶¾Áú´ó·¨¹¦Á¦²»¹»£¬ÎÞ·¨½â»¯¹ÇÃàÕÆ¶¾¡£\n");
+                return notify_fail("ä½ çš„æ¯’é¾™å¤§æ³•åŠŸåŠ›ä¸å¤Ÿï¼Œæ— æ³•è§£åŒ–éª¨ç»µæŽŒæ¯’ã€‚\n");
 
         if((int)me->query_skill("shenlong-yaoli",1) < 150  )
-                return notify_fail("Äã¶ÔÉñÁúÒ©ÀíÑ§µÄÁìÎòÉÐÈ±£¬ÎÞ·¨½â»¯¹ÇÃàÕÆ¶¾¡£\n");
+                return notify_fail("ä½ å¯¹ç¥žé¾™è¯ç†å­¦çš„é¢†æ‚Ÿå°šç¼ºï¼Œæ— æ³•è§£åŒ–éª¨ç»µæŽŒæ¯’ã€‚\n");
 
         if((int)me->query("neili") < 500
          || (int)me->query("max_neili")< 100  )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
         skill= (me->query_skill("dulong-dafa",1)/2 + me->query_skill("shenlong-yaoli",1))*14;
         if((int)target->query("huagu") > skill)
@@ -35,9 +35,9 @@ int exert(object me, object target)
         else
             target->delete("huagu");
         if( target != me)
-          message_vision(HIW"\n$NÉìÊÖµÖ×¡$nµÄË«ÕÆ£¬ÂýÂý½«$nÉíÉÏµÄ¶¾ËØ±Æ³öÌåÍâ¡£\n\n"NOR,me,target);
+          message_vision(HIW"\n$Nä¼¸æ‰‹æŠµä½$nçš„åŒæŽŒï¼Œæ…¢æ…¢å°†$nèº«ä¸Šçš„æ¯’ç´ é€¼å‡ºä½“å¤–ã€‚\n\n"NOR,me,target);
         else 
-          message_vision(HIW"\n$NÂúÍ·´óº¹£¬ÓÃ¾¢½«ÉíÌåÄÚµÄ¶¾ËØ±Æ³öÌåÍâ¡£\n\n"NOR, me);
+          message_vision(HIW"\n$Næ»¡å¤´å¤§æ±—ï¼Œç”¨åŠ²å°†èº«ä½“å†…çš„æ¯’ç´ é€¼å‡ºä½“å¤–ã€‚\n\n"NOR, me);
         target->clear_condition("huagu_poison");
         me->add("max_neili",-10);
         me->start_busy(5);

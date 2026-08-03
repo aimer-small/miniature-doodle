@@ -4,23 +4,23 @@ inherit NPC;
 
 void create()
 {
-        set_name("¶ñÈ®", ({ "e quan", "dog" }) );
-        set("race", "Ò°ÊÞ");
+        set_name("æ¶çŠ¬", ({ "e quan", "dog" }) );
+        set("race", "é‡Žå…½");
         set("age", 4);
-        set("long", "Ò»Ö»ÍÂ×Å³¤ÉàÍ·µÄ¶ñÈ®¡£\n");
+        set("long", "ä¸€åªåç€é•¿èˆŒå¤´çš„æ¶çŠ¬ã€‚\n");
         set("attitude", "aggressive");
         
         set("str", 26);
         set("cor", 30);
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°½Å", "ºó½Å", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰è„š", "åŽè„š", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
 
         set("combat_exp", 1000);
         set("chat_msg_combat", ({
                 (: this_object(), "random_move" :),
-                "¶ñÈ®´óÉù·Í½Ð£ºÍô£¡Íô£¡Íô£¡Íô£¡Íô£¡Íô£¡\n",
-                "¶ñÈ®Í»È»ÌøÁËÆðÀ´£¬¿ÚÖÐÂÒÒ§£¬È´²»ÖªµÀÊÇÔÚÒ§Ë­¡£\n"
+                "æ¶çŠ¬å¤§å£°å å«ï¼šæ±ªï¼æ±ªï¼æ±ªï¼æ±ªï¼æ±ªï¼æ±ªï¼\n",
+                "æ¶çŠ¬çªç„¶è·³äº†èµ·æ¥ï¼Œå£ä¸­ä¹±å’¬ï¼Œå´ä¸çŸ¥é“æ˜¯åœ¨å’¬è°ã€‚\n"
         }) );
                 
         set_temp("apply/attack", 15);
@@ -33,7 +33,7 @@ void create()
 void die()
 {
         object ob;
-        message_vision("$N²Òº¿Ò»Éù£¬ËÀÁË£¡\n", this_object());
+        message_vision("$Næƒ¨åšŽä¸€å£°ï¼Œæ­»äº†ï¼\n", this_object());
         ob = new(__DIR__"obj/goupi");
         ob->move(environment(this_object()));
         destruct(this_object());

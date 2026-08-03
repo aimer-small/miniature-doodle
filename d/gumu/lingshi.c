@@ -4,11 +4,11 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-      set("short", HIC"ÁéÊÒ"NOR);
+      set("short", HIC"çµå®¤"NOR);
       set("long", @LONG
-Ö»¼û¿Õ¿Õ¿õ¿õµÄÒ»×ù´óÌüÉÏ²¢ÁĞ·ÅÖøÎå¾ßÊ¯¹×¡£ÄıÉñÏ¸¿´£¬¼ûÁ½¾ßÊ¯¹×¹×
-¸ÇÒÑÃÜÃÜ¸ÇÖø£¬Ô­À´ÊÇ¹ÅÄ¹ÅÉ×æÊ¦ÁÖ³¯Ó¢ºÍĞ¡ÁúÅ®Ê¦¸µµÄ°²ÉíÖ®´¦¡£ÁíÍâ¶ş¾ß
-µÄ¹×¸Ç(guangai)È´Ö»ÍÆÉÏÒ»°ë£¬Ò²²»ÖªÆäÖĞÓĞÎŞÊ¬Ìå¡£
+åªè§ç©ºç©ºæ—·æ—·çš„ä¸€åº§å¤§å…ä¸Šå¹¶åˆ—æ”¾è‘—äº”å…·çŸ³æ£ºã€‚å‡ç¥ç»†çœ‹ï¼Œè§ä¸¤å…·çŸ³æ£ºæ£º
+ç›–å·²å¯†å¯†ç›–è‘—ï¼ŒåŸæ¥æ˜¯å¤å¢“æ´¾ç¥–å¸ˆæ—æœè‹±å’Œå°é¾™å¥³å¸ˆå‚…çš„å®‰èº«ä¹‹å¤„ã€‚å¦å¤–äºŒå…·
+çš„æ£ºç›–(guangai)å´åªæ¨ä¸Šä¸€åŠï¼Œä¹Ÿä¸çŸ¥å…¶ä¸­æœ‰æ— å°¸ä½“ã€‚
 LONG
         );
 
@@ -32,27 +32,27 @@ int do_tui(string arg)
 {
       object me=this_player();
       if (me->is_busy() || me->is_fighting())
-            return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+            return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
       if( arg =="guangai"){
-         message_vision(YEL"$NÊ¹¾¢ÍÆ¿ªÁË¹×¸Ç¡£\n"NOR,me);
-         me->set_temp("marks/Ê¯¹×", 1);
+         message_vision(YEL"$Nä½¿åŠ²æ¨å¼€äº†æ£ºç›–ã€‚\n"NOR,me);
+         me->set_temp("marks/çŸ³æ£º", 1);
          return 1;
       }
-      return notify_fail("ÄãÒªÍÆÊ²Ã´£¿\n");
+      return notify_fail("ä½ è¦æ¨ä»€ä¹ˆï¼Ÿ\n");
 }
 
 int do_tang(string arg)
 {
       object me=this_player();       
-      if (!me->query_temp("marks/Ê¯¹×")) return 0;
+      if (!me->query_temp("marks/çŸ³æ£º")) return 0;
       if (me->is_busy() || me->is_fighting())
-            return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+            return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
       if ( arg =="guan"){        
-         me->delete_temp("marks/Ê¯¹×");
-         tell_room(environment(me), me->name() +"´ò¿ª¹×¸Çºó£¬ÌÉÁË½øÈ¥¡£\n", ({ me }));
+         me->delete_temp("marks/çŸ³æ£º");
+         tell_room(environment(me), me->name() +"æ‰“å¼€æ£ºç›–åï¼Œèººäº†è¿›å»ã€‚\n", ({ me }));
          me->move(__DIR__"shiguan");
-         message_vision(HIY"$NÌÉ½øÁËÊ¯¹×£¬¹×ÄÚÒÑÎŞ×ª²àâÅµØ¡£\n"NOR,me);
+         message_vision(HIY"$Nèººè¿›äº†çŸ³æ£ºï¼Œæ£ºå†…å·²æ— è½¬ä¾§é¦€åœ°ã€‚\n"NOR,me);
          return 1;
       }
-      return notify_fail("ÄãÏëÌÉÔÚÄÄÀï£¿\n");
+      return notify_fail("ä½ æƒ³èººåœ¨å“ªé‡Œï¼Ÿ\n");
 }

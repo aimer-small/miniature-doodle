@@ -4,13 +4,13 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short",HIC "Ê®¶şÅÌ" NOR);
+	set("short",HIC "åäºŒç›˜" NOR);
 	set("long", @LONG
-ÕâÀïÊ¯½×¶¸ÕÛ¶àÍä£¬ºÅ³Æ¡¸Ê®¶şÅÌ¡¹¡£ÓÉ´ËÎ÷ÉÏ¿É´ï»ªÑÏ¶¥£¬¶«ÏÂÔòµ½Íò
-ÄêâÖ¡£
+è¿™é‡ŒçŸ³é˜¶é™¡æŠ˜å¤šå¼¯ï¼Œå·ç§°ã€ŒåäºŒç›˜ã€ã€‚ç”±æ­¤è¥¿ä¸Šå¯è¾¾åä¸¥é¡¶ï¼Œä¸œä¸‹åˆ™åˆ°ä¸‡
+å¹´åºµã€‚
 LONG
 	);
-	set("outdoors", "¶ëÃ¼É½");
+	set("outdoors", "å³¨çœ‰å±±");
 	set("exits", ([
   "westup" : __DIR__"shierpan3",
   "northeast" : __DIR__"shierpan",

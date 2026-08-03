@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIW"Ğ¡Îİ"NOR);
+	set("short", HIW"å°å±‹"NOR);
 	set("long",@LONG
-ÕâÊÇÒ»¼äºÜ¼òµ¥´ó·¿Îİ£¬Ö»ÓĞÒ»×ÀÒ»ÒÎ£¬×À×ÓÉÏÃæ·Å×Å¼¸±¾¾­Êé£¬ÅÔ±ßµÄÒ»
-ÕµÓÍµÆÉ¢·¢×Å»è°µµÄ¹âÁÁ¡£ÒÎ×ÓÉÏ×ø×ÅÒ»¸öÀÏÕßÕıÔÚÈÏÕæµÄ¹Û¿´¾­Êé¡£
+è¿™æ˜¯ä¸€é—´å¾ˆç®€å•å¤§æˆ¿å±‹ï¼Œåªæœ‰ä¸€æ¡Œä¸€æ¤…ï¼Œæ¡Œå­ä¸Šé¢æ”¾ç€å‡ æœ¬ç»ä¹¦ï¼Œæ—è¾¹çš„ä¸€
+ç›æ²¹ç¯æ•£å‘ç€æ˜æš—çš„å…‰äº®ã€‚æ¤…å­ä¸Šåç€ä¸€ä¸ªè€è€…æ­£åœ¨è®¤çœŸçš„è§‚çœ‹ç»ä¹¦ã€‚
 LONG
     );
 	set("exits",([
@@ -29,9 +29,9 @@ int valid_leave(object me, string dir)
         mapping myfam;
         myfam = (mapping)me->query("family");
 
-        if ((!myfam || myfam["family_name"] != "ÉÙÁÖÅÉ" || myfam["generation"] != 35 ) && dir != "north" 
+        if ((!myfam || myfam["family_name"] != "å°‘æ—æ´¾" || myfam["generation"] != 35 ) && dir != "north" 
                &&!present("jiaxin", me)&&objectp(present("murong bo", environment(me))))
-        return notify_fail("Ä½Èİ²©À¹×¡ÄãËµµ½£¬ÎÒÊ¦¸µÕıÔÚÀïÃæ¾²ĞŞ£¬²»ÒªÈ¥´òÈÅËûÀÏÈË¼Ò¡£\n");
+        return notify_fail("æ…•å®¹åšæ‹¦ä½ä½ è¯´åˆ°ï¼Œæˆ‘å¸ˆå‚…æ­£åœ¨é‡Œé¢é™ä¿®ï¼Œä¸è¦å»æ‰“æ‰°ä»–è€äººå®¶ã€‚\n");
                 
         return ::valid_leave(me, dir);
 }

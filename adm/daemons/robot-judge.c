@@ -16,7 +16,7 @@ inherit NPC;
 #define FROMID 42
 
 #define MAX_SIZE 1300
-/*Õâ¸ö×îºÃ²»Òª¶¯*/
+/*è¿™ä¸ªæœ€å¥½ä¸è¦åŠ¨*/
 
 void failed();
 void CheckDbstep();
@@ -99,12 +99,12 @@ void create()
 {
         int t = time();
         seteuid(ROOT_UID);
-        set_name("Î×Ê¦ÔçÉÏºÃ", ({ "jiqiren faguan", "jiqiren", "faguan", "robot judge", "robot", "judge" }));
+        set_name("å·«å¸ˆæ—©ä¸Šå¥½", ({ "jiqiren faguan", "jiqiren", "faguan", "robot judge", "robot", "judge" }));
         set("shen_type", 0);
 
-        set("gender", "»úÆ÷");
+        set("gender", "æœºå™¨");
         set("age", 20);
-        set("long", "ÕâÊÇÒ»¸ö×¨ÃÅÉóÅĞ»úÆ÷ÈËµÄ·¨¹Ù¡£\n");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªä¸“é—¨å®¡åˆ¤æœºå™¨äººçš„æ³•å®˜ã€‚\n");
         set_skill("dodge", 1000);
         set("max_qi", 10000);
         set("qi", 10000);
@@ -115,8 +115,8 @@ void create()
         set("attitude", "friendly");
         set("env/invisibility",10);
         set("inquiry", ([
-                "name": "Äã»¹ÓĞÕâÏĞ¹¦·ò°¡£¿",
-                "rumors": "ÌıËµÄãÊÇ¸ö»úÆ÷ÈË£¬ºÙºÙ£¬ÎÒÕâ¹Ø¿ÉÊÇÌúÃæÎŞÇéÑ½¡£",                
+                "name": "ä½ è¿˜æœ‰è¿™é—²åŠŸå¤«å•Šï¼Ÿ",
+                "rumors": "å¬è¯´ä½ æ˜¯ä¸ªæœºå™¨äººï¼Œå˜¿å˜¿ï¼Œæˆ‘è¿™å…³å¯æ˜¯é“é¢æ— æƒ…å‘€ã€‚",                
         ]) );
         
         set("no_clean_up",1);
@@ -150,7 +150,7 @@ void Check_Log_Channel_CallOut()
         	set("next_day",1);
         	for(i=0;i<sizeof(chs);i++)
         	write_file(LogChannelFileDir+chs[i]+"."+query("log_channel_file"),
-               	sprintf(HIY"ÒÔÏÂÎª%s\n",
+               	sprintf(HIY"ä»¥ä¸‹ä¸º%s\n",
                        	 TimeDate(t)));
         }*/
       /*  
@@ -215,7 +215,7 @@ string TimeDate(int t)
         string tm;
        // int tt;
         tm = ts[11..18];
-        ts = ts[20..23]+"Äê"+ts[4..6]+"ÔÂ"+ts[8..9]+"ÈÕ";
+        ts = ts[20..23]+"å¹´"+ts[4..6]+"æœˆ"+ts[8..9]+"æ—¥";
         
         ts = replace_string(ts, " 1", "01");
         ts = replace_string(ts, " 2", "02");
@@ -240,8 +240,8 @@ string TimeDate(int t)
         ts = replace_string(ts, "Dec", "12");
         
         sscanf(tm,"%d:%*d:%*d",t);
-        if(t<12) ts +="ÕıÎçÇ°";
-        if(t>=12) ts +="ÕıÎçºó";
+        if(t<12) ts +="æ­£åˆå‰";
+        if(t>=12) ts +="æ­£åˆå";
                         
         return ts;
 }
@@ -292,24 +292,24 @@ int ExecuteDbInsert(string msg, string filename, int LineBegin, int LineEnd, str
         
         dl = explode(filename, ".");
         if (dl[0]=="sj")
-        	dl[1] = CHINESE_MUD_NAME + dl[1] + "¡¾Êé½£¡¿ÆµµÀÁÄÌì¼ÇÂ¼";
+        	dl[1] = CHINESE_MUD_NAME + dl[1] + "ã€ä¹¦å‰‘ã€‘é¢‘é“èŠå¤©è®°å½•";
         else if (dl[0]=="party")
-        	dl[1] = CHINESE_MUD_NAME + dl[1] + "¡¾ÃÅÅÉ¡¿ÆµµÀÁÄÌì¼ÇÂ¼";
+        	dl[1] = CHINESE_MUD_NAME + dl[1] + "ã€é—¨æ´¾ã€‘é¢‘é“èŠå¤©è®°å½•";
         else if (dl[0]=="chat")
-        	dl[1] = CHINESE_MUD_NAME + dl[1] + "¡¾ÏĞÁÄ¡¿ÆµµÀÁÄÌì¼ÇÂ¼";
+        	dl[1] = CHINESE_MUD_NAME + dl[1] + "ã€é—²èŠã€‘é¢‘é“èŠå¤©è®°å½•";
         else if (dl[0]=="rumor")
-        	dl[1] = CHINESE_MUD_NAME + dl[1] + "¡¾Ò¥ÑÔ¡¿ÆµµÀÁÄÌì¼ÇÂ¼";
+        	dl[1] = CHINESE_MUD_NAME + dl[1] + "ã€è°£è¨€ã€‘é¢‘é“èŠå¤©è®°å½•";
         else if (dl[0]=="master")
-        	dl[1] = CHINESE_MUD_NAME + dl[1] + "¡¾¹ÜÀíÔ±²Ù×÷¼ÇÂ¼¡¿";
+        	dl[1] = CHINESE_MUD_NAME + dl[1] + "ã€ç®¡ç†å‘˜æ“ä½œè®°å½•ã€‘";
 
         //msg = "[bgcolor="+ChannelColorBG+"]"+"[color="+ChannelColor[dl[0]]+"]"+msg+"[/color][/bgcolor]";
-        // »¹ÊÇÖ±½Óµ½PHP´¦Àí±È½Ï·½±ãĞ© 
+        // è¿˜æ˜¯ç›´æ¥åˆ°PHPå¤„ç†æ¯”è¾ƒæ–¹ä¾¿äº› 
         
-        //ÆÁ±ÎÌØÊâ×Ö·û
-        msg = replace_string(msg,"'","¡®");
-        msg = replace_string(msg,"&","¡ª");
-        msg = replace_string(msg,"?","£¿");
-        //¼¯ÖĞµ½ÕâÀïÀ´´¦Àí LogÖĞ±£³Öansi×Ö·û
+        //å±è”½ç‰¹æ®Šå­—ç¬¦
+        msg = replace_string(msg,"'","â€˜");
+        msg = replace_string(msg,"&","â€”");
+        msg = replace_string(msg,"?","ï¼Ÿ");
+        //é›†ä¸­åˆ°è¿™é‡Œæ¥å¤„ç† Logä¸­ä¿æŒansiå­—ç¬¦
         msg = ReplaceMudColors(msg,dl[0]);
 	msg = replace_string(msg,"[0m","");
 	
@@ -376,7 +376,7 @@ void failed()
 		write_file("/u/ciwei/channelerror",msg);
 	}
 	log_file("channel/LOG", "File : "+keys(ChannelColor)[st_channel]+"."+st_data+" Insert Error ("+st_line+" Execute, ), file not deleted.\n");
-	st_line+=2;//Ìø¹ıÈ¥
+	st_line+=2;//è·³è¿‡å»
 	CheckDbstep();
 }
 
@@ -385,7 +385,7 @@ string get_data(string name,int part)
 	string* parts;
 	string data;
 	
-	part= part+1;//heheÔ­À´ÊÇÒÔ1¿ªÊ¼µÄ
+	part= part+1;//heheåŸæ¥æ˜¯ä»¥1å¼€å§‹çš„
 	data = read_file(name);
 	if(!data) return 0;
 	do
@@ -416,14 +416,14 @@ void CheckDbstep()
 	ChannelNames = keys(ChannelColor);
 	if(st_channel>=sizeof(ChannelNames))
 	{
-		message("wizard","ËùÓĞÎÄ¼ş´«ËÍÍê±Ï\n",users() );
+		message("wizard","æ‰€æœ‰æ–‡ä»¶ä¼ é€å®Œæ¯•\n",users() );
 		return;//all in web db then stop 
 	}
 	fn = ChannelNames[st_channel]+"."+st_data;
 	if(!(msg = get_data(LogChannelFileDir+fn,st_line)))
 	//if(!(msg = read_file(LogChannelFileDir+fn, st_line*InsertLines, st_line*InsertLines+InsertLines-1)))
 	{
-		message("wizard","Ò»¸öÆµµÀOK\n",users() );
+		message("wizard","ä¸€ä¸ªé¢‘é“OK\n",users() );
 		if(!end_flag)
 		{
 			ExecuteDbInsert("[/color][/bgcolor]", fn, st_line*InsertLines, st_line*InsertLines+InsertLines-1,0,0);
@@ -445,18 +445,18 @@ void CheckDbstep()
 	st_line++;
 }
 
-²âÊÔÓÃ
+æµ‹è¯•ç”¨
 void dddddd()
 {
 	string msg;
 	if(!(msg = get_data(fffff,st_line)))
 	//if(!(msg = read_file(LogChannelFileDir+fn, st_line*InsertLines, st_line*InsertLines+InsertLines-1)))
 	{
-		message("wizard","Ò»¸öÆµµÀOK\n",users() );		
+		message("wizard","ä¸€ä¸ªé¢‘é“OK\n",users() );		
 		return;
 	}//this channel is send over
 	
-	ExecuteDbInsert(msg, "sj.2004Äê05ÔÂ23ÈÕÕıÎçºó", st_line*InsertLines, st_line*InsertLines+InsertLines-1, ChannelCatMain,0 );
+	ExecuteDbInsert(msg, "sj.2004å¹´05æœˆ23æ—¥æ­£åˆå", st_line*InsertLines, st_line*InsertLines+InsertLines-1, ChannelCatMain,0 );
 	st_line++;
 }
 
@@ -483,20 +483,20 @@ void Log_Channel(object ob, string channel, string msg,int emote)
         string tmpname, tmp;
         
         /*if (wizardp(ob))
-                tmpname = "Ä³ÈË";
+                tmpname = "æŸäºº";
         else
         */
 	tmpname = ob->query("name")+"("+ob->query("id")+")";
 	if(channel == "sj" && ob->query_id())
 		tmpname = ob->query_name()+"("+ob->query_id()+")";
         if (channel == "chat")
-                tmp = "ÏĞÁÄ";
+                tmp = "é—²èŠ";
         else if (channel == "sj")
-                tmp = "Êé½£";
+                tmp = "ä¹¦å‰‘";
         else if (channel == "rumor") {
                 if (uptime() >= ob->query_temp("rumor_show"))
-                        tmpname = "Ä³ÈË";
-                tmp = "Ò¥ÑÔ";
+                        tmpname = "æŸäºº";
+                tmp = "è°£è¨€";
         }
         else
                 tmp = ob->query("family/family_name");
@@ -504,7 +504,7 @@ void Log_Channel(object ob, string channel, string msg,int emote)
 	//msg = ReplaceMudColors(msg,channel);
 	//msg = replace_string(msg,"[0m","");
        	write_file(LogChannelFileDir+channel+"."+query("log_channel_file"),
-               	sprintf("¡¾%s¡¿%s (%s)\n",
+               	sprintf("ã€%sã€‘%s (%s)\n",
                        	tmp, (emote)?(msg):(tmpname+":"+msg), TimeHMS(time())));        
 }
 // End       
@@ -515,10 +515,10 @@ void relay_channel(object ob, string channel, string msg,int emote)
         if(!userp(ob)
         && channel=="rumor"
         &&(
-        sscanf(msg,"%s´ø×Å%*sÔÚ%*sÒ»´ø³öÏÖ£¡",who)==3
-        || sscanf(msg,"¾İËµ%sºÃÏó²ØÔÚ%*s¸½½ü£¡",who)==2
+        sscanf(msg,"%så¸¦ç€%*såœ¨%*sä¸€å¸¦å‡ºç°ï¼",who)==3
+        || sscanf(msg,"æ®è¯´%så¥½è±¡è—åœ¨%*sé™„è¿‘ï¼",who)==2
         ) ) return;
-        ///»¹ÓĞÆäËûĞèÒªÆÁ±ÎLogµÄĞÅÏ¢.....                       
+        ///è¿˜æœ‰å…¶ä»–éœ€è¦å±è”½Logçš„ä¿¡æ¯.....                       
         msg = replace_string(msg,"]","");//fear by Ciwei@SJ
         Log_Channel(ob, channel, msg, emote);
         // Added By Numa 20040201 22:50

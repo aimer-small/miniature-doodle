@@ -1,13 +1,13 @@
-// tiao-fu.c Ìô·ò ±ê×¼À¬»ønpc, ÎÒ×ªÒÆµ½NPC_D Ä¿Â¼ÁË, lklv
+// tiao-fu.c æŒ‘å¤« æ ‡å‡†åƒåœ¾npc, æˆ‘è½¬ç§»åˆ°NPC_D ç›®å½•äº†, lklv
 
 inherit NPC;
 
 void create()
 {
-	set_name("Ìô·ò", ({ "tiao fu", "tiaofu", "tiao", "fu", "porter" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æŒ‘å¤«", ({ "tiao fu", "tiaofu", "tiao", "fu", "porter" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 20+random(15));
-	set("long", "ÕâÊÇ¸öÀÏÊµ°Í½»µÄÇîÌô·ò£¬³¤µÃ°òÀ«ÑüÔ²£¬Ò»Éí¼¡Èâ¡£\n");
+	set("long", "è¿™æ˜¯ä¸ªè€å®å·´äº¤çš„ç©·æŒ‘å¤«ï¼Œé•¿å¾—è†€é˜”è…°åœ†ï¼Œä¸€èº«è‚Œè‚‰ã€‚\n");
 	set("combat_exp", 20000 + random(400));
         set("str", 25);
         set("dex", 22);

@@ -7,10 +7,10 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HIW"¸ºÉñÍè"NOR, ({ "fushen wan","wan"}));
-	set("long","ÕâÊÇÒ»¿Å"HIW"¸ºÉñÍè"NOR"£¬Äã¿ÉÒÔ·þ(fu)ÏÂËüÌá¸ßÄãµÄ¸ºÉñÖµ¡£\n");
+	set_name (HIW"è´Ÿç¥žä¸¸"NOR, ({ "fushen wan","wan"}));
+	set("long","è¿™æ˜¯ä¸€é¢—"HIW"è´Ÿç¥žä¸¸"NOR"ï¼Œä½ å¯ä»¥æœ(fu)ä¸‹å®ƒæé«˜ä½ çš„è´Ÿç¥žå€¼ã€‚\n");
 
-	set("unit","¿Å");
+	set("unit","é¢—");
 	set_weight(100);
 	set("value",3000000);
   set("no_give",1);
@@ -19,7 +19,7 @@ void create()
 	set("degree",1);
 	set("flag","spec/cutshen");
 	set("rest",50);
-        set("desc","Ìá¸ß2M¸ºÉñ¡£");
+        set("desc","æé«˜2Mè´Ÿç¥žã€‚");
   set("credit",50);                  
 	setup();
 }
@@ -35,17 +35,17 @@ int do_eat(string arg)
 	object me=this_player();
 	
 	if (!arg)
-		return notify_fail("ÄãÒª·þÓÃÊ²Ã´?\n");
+		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
 	    
 	if (arg!="fushen wan" && arg!="wan")
-		return notify_fail("ÄãÒª·þÓÃÊ²Ã´?\n");
+		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
       	
-	if (!restrict()&& !me->query("buyvip")) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
+	if (!restrict()&& !me->query("buyvip")) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
     
         me->add("shen", -2000000);
 
  
-        write(HIY"Äã·þÏÂÒ»¿Å"HIW"¸ºÉñÍè"HIY"Ö»¾õÒ»¹ÉÐ°¶ñÖ®Æø³äÅæµÄÄãÄÇÓ×Ð¡µÄÐÄÁé£¡\n"NOR);
+        write(HIY"ä½ æœä¸‹ä¸€é¢—"HIW"è´Ÿç¥žä¸¸"HIY"åªè§‰ä¸€è‚¡é‚ªæ¶ä¹‹æ°”å……æ²›çš„ä½ é‚£å¹¼å°çš„å¿ƒçµï¼\n"NOR);
         degree(); 
 	return 1;
 }	 

@@ -1,4 +1,4 @@
-// cyn-cloth.c thd Èı´úÅ®µÜ×Ó´©
+// cyn-cloth.c thd ä¸‰ä»£å¥³å¼Ÿå­ç©¿
 
 #include <armor.h>
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(CYN"À¶ÂÌ³ñÉÀ"NOR, ({ "cloth" }) );
+        set_name(CYN"è“ç»¿ç»¸è¡«"NOR, ({ "cloth" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long","ÕâÊÇÒ»¼şÀ¶ÂÌÉ«µÄ³ñÉÀ¡£\n");
-                set("unit", "¼ş");
+                set("long","è¿™æ˜¯ä¸€ä»¶è“ç»¿è‰²çš„ç»¸è¡«ã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 20);
         }

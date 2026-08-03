@@ -15,13 +15,13 @@ void recover_self();
 void destruct_self();
 void create()
 {
-		set_name("Ç¿µÁ", ({ "qiang dao", "qiang", "dao" }) );
-	    set("long", "´ËÈË°×²¼¹ü·¢£¬ÂúÁ³ºáÈâ£¬ÑÛÈçÍ­»·£¬Ò»¸±Ğ×ºİÄ£Ñù¡£\n"
-			"ËûÉíĞÎ¸ß´ó£¬³àÉíÂ¶±Û£¬ĞØÃ«ÍâÕÅ£¬»ÒÉ«²¼´ø½ôÏµÑü¼ä¡£Õ¾ÔÚ´Ë´¦£¬É¢·¢³öÒ»¹É\n"
-			"±ÆÈËµÄÉ±Æø¡£\n");
+		set_name("å¼ºç›—", ({ "qiang dao", "qiang", "dao" }) );
+	    set("long", "æ­¤äººç™½å¸ƒè£¹å‘ï¼Œæ»¡è„¸æ¨ªè‚‰ï¼Œçœ¼å¦‚é“œç¯ï¼Œä¸€å‰¯å‡¶ç‹ æ¨¡æ ·ã€‚\n"
+			"ä»–èº«å½¢é«˜å¤§ï¼Œèµ¤èº«éœ²è‡‚ï¼Œèƒ¸æ¯›å¤–å¼ ï¼Œç°è‰²å¸ƒå¸¦ç´§ç³»è…°é—´ã€‚ç«™åœ¨æ­¤å¤„ï¼Œæ•£å‘å‡ºä¸€è‚¡\n"
+			"é€¼äººçš„æ€æ°”ã€‚\n");
 
        
-        set("gender", "ÄĞĞÔ" );
+        set("gender", "ç”·æ€§" );
         
         set("no_refresh", 1);
 
@@ -39,8 +39,8 @@ void init()
 }
 void destruct_self()
 {
-	command("say Ê±¼ä²î²»¶àÁË£¬ÎÒµÃÀë¿ªÕâÀïÁË¡£");
-tell_room(environment(this_object()), query("name")+"¼±¼±Ã¦Ã¦Àë¿ªÁË¡£\n", ({this_object()}));
+	command("say æ—¶é—´å·®ä¸å¤šäº†ï¼Œæˆ‘å¾—ç¦»å¼€è¿™é‡Œäº†ã€‚");
+tell_room(environment(this_object()), query("name")+"æ€¥æ€¥å¿™å¿™ç¦»å¼€äº†ã€‚\n", ({this_object()}));
 	destruct(this_object());
 
 }
@@ -60,9 +60,9 @@ void recover_self()
 				player->delete_temp("job_system/kill_killer");
 
 				if(!living (ob))
-					tell_room(environment(ob), "Ò»¸öÃÉÃæÈË×ßÁË¹ıÀ´£¬±§Æğ»èµ¹µÄ"+ob->query("name")+"£¬Ò»¸ö·­Éí£¬²»ÖªµÀÈ¥ÁËÄÇÀï¡£\n", ({ob}));
+					tell_room(environment(ob), "ä¸€ä¸ªè’™é¢äººèµ°äº†è¿‡æ¥ï¼ŒæŠ±èµ·æ˜å€’çš„"+ob->query("name")+"ï¼Œä¸€ä¸ªç¿»èº«ï¼Œä¸çŸ¥é“å»äº†é‚£é‡Œã€‚\n", ({ob}));
 				else
-					tell_room(environment(ob), ob->query("name")+"ºßµÄÒ»ÉùËµµ½£º¡°ÅÜµÄµ½Í¦¿ì¡£¡±Ëµ°ÕÒ»¸ö·­Éí£¬²»ÖªµÀÈ¥ÁËÄÇÀï¡£\n", ({ob}));
+					tell_room(environment(ob), ob->query("name")+"å“¼çš„ä¸€å£°è¯´åˆ°ï¼šâ€œè·‘çš„åˆ°æŒºå¿«ã€‚â€è¯´ç½¢ä¸€ä¸ªç¿»èº«ï¼Œä¸çŸ¥é“å»äº†é‚£é‡Œã€‚\n", ({ob}));
 	
 				destruct(this_object());
 				return;
@@ -84,9 +84,9 @@ void kill_ob(object me)
 	{
 		if(me->query("combat_exp")>query("combat_exp")/2)
 		{
-			command("say ½ñÌìµã×Ó²»¶Ô£¬²»ÄÜÅãÄãÍæÁË¡£");
+			command("say ä»Šå¤©ç‚¹å­ä¸å¯¹ï¼Œä¸èƒ½é™ªä½ ç©äº†ã€‚");
 			command("hehe "+me->query("id"));
-			tell_room(environment(this_object()), query("name")+"Ëµ°ÕÒ»¸ö·­Éí£¬²»ÖªµÀÈ¥ÁËÄÇÀï¡£\n", ({this_object()}));
+			tell_room(environment(this_object()), query("name")+"è¯´ç½¢ä¸€ä¸ªç¿»èº«ï¼Œä¸çŸ¥é“å»äº†é‚£é‡Œã€‚\n", ({this_object()}));
 			if(objectp(player))
 			{
 			player->delete_temp("job_system/start_prompt");
@@ -98,7 +98,7 @@ void kill_ob(object me)
 			}
 		else
 		{
-			command("say ¼ÈÈ»Äã×Ô¼ºÕÒËÀ£¬Ò²Ô¹²»µÃÎÒ¡£");
+			command("say æ—¢ç„¶ä½ è‡ªå·±æ‰¾æ­»ï¼Œä¹Ÿæ€¨ä¸å¾—æˆ‘ã€‚");
 			set("neili",query("max_neli")*2);
 			set("jingli",query("max_jingli")*2);
 			set("qi",query("max_qi")*2);
@@ -191,6 +191,6 @@ void die()
 }
 void unconcious()
 {
-      command("say ºÃ£¬ºÃÀ÷º¦......Ã»Ïëµ½......ÎÒ»áÃüÉ¥ÓÚ´Ë......");
+      command("say å¥½ï¼Œå¥½å‰å®³......æ²¡æƒ³åˆ°......æˆ‘ä¼šå‘½ä¸§äºæ­¤......");
         ::unconcious();
 }

@@ -5,14 +5,14 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("¶¹¸¯Î÷Ê©", ({ "doufu xishi", "xishi" }));
-	set("title", "¶¹¸¯·»ÀÏ°åÄï");
+	set_name("è±†è…è¥¿æ–½", ({ "doufu xishi", "xishi" }));
+	set("title", "è±†è…åŠè€æ¿å¨˜");
 	set("shen_type", 1);
         set("per", 26);
         set("unique", 1);
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("age", 25);
-	set("long", "ÕâÎ»ÀÏ°åÄï·çÇéÍòÖÖ£¬ÆÄÓĞ¼¸·Ö×ËÉ«¡£\n");
+	set("long", "è¿™ä½è€æ¿å¨˜é£æƒ…ä¸‡ç§ï¼Œé¢‡æœ‰å‡ åˆ†å§¿è‰²ã€‚\n");
 
 	set_skill("unarmed", 40);
 	set_skill("dodge", 40);

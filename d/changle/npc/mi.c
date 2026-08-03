@@ -1,13 +1,13 @@
-// mi.c Ã×ºáÒ°
+// mi.c ç±³æ¨ªé‡
 // By River 2003.2.26
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("Ã×ºáÒ°",({"mi hengye", "mi", "hengye"}));
-	set("title", "³¤ÀÖ°ïÁúÁéÌÃÏãÖ÷");
-	set("long", "Ëû¾ÍÊÇ³¤ÀÖ°ïÁúÁéÌÃÏãÖ÷Ã×ºáÒ°¡£\n");
+	set_name("ç±³æ¨ªé‡",({"mi hengye", "mi", "hengye"}));
+	set("title", "é•¿ä¹å¸®é¾™çµå ‚é¦™ä¸»");
+	set("long", "ä»–å°±æ˜¯é•¿ä¹å¸®é¾™çµå ‚é¦™ä¸»ç±³æ¨ªé‡ã€‚\n");
 	set("age", 55);
 	set("attitude", "peaceful");
 	set("shen", -1000);

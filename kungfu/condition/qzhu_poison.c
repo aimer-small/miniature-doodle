@@ -6,21 +6,21 @@ int update_condition(object me, int duration)
 {
 	int i;
 
-	tell_object(me, HIR "你只觉得气血翻涌，浑身犹如千万支毒蛛在咬嗤，痛苦难忍！\n" NOR );
-	tell_room(environment(me), HIR + me->name()+"面孔扭曲，弯下腰不住低哼，浑身不停的颤抖！\n" NOR, ({ me }));
+	tell_object(me, HIR "浣犲彧瑙夊緱姘旇缈绘秾锛屾祽韬姽濡傚崈涓囨敮姣掕洓鍦ㄥ挰鍡わ紝鐥涜嫤闅惧繊锛乗n" NOR );
+	tell_room(environment(me), HIR + me->name()+"闈㈠瓟鎵洸锛屽集涓嬭叞涓嶄綇浣庡摷锛屾祽韬笉鍋滅殑棰ゆ姈锛乗n" NOR, ({ me }));
 
 	i = 200 + random(150);
 	if ( !userp(me)) i *= 2;
 	i -= me->query_con();
 
 	if ( me->query_temp("qianzhu")){
-		me->receive_wound("qi", i , "中千蛛万毒功");
-		me->receive_wound("jing", i , "中千蛛万毒功");
+		me->receive_wound("qi", i , "涓崈铔涗竾姣掑姛");
+		me->receive_wound("jing", i , "涓崈铔涗竾姣掑姛");
 		me->add_busy(1 + random(3));
 	}
 	else {
-		me->receive_damage("qi", 15, "中千蛛万毒功");
-		me->receive_wound("jing", 15, "中千蛛万毒功");
+		me->receive_damage("qi", 15, "涓崈铔涗竾姣掑姛");
+		me->receive_wound("jing", 15, "涓崈铔涗竾姣掑姛");
 	}
 
 	if( duration < 2 ) {

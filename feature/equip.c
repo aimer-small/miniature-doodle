@@ -23,19 +23,19 @@ int wear()
 	// Check if we have "armor_prop" defined.
 	type = query("armor_type");
 	if (!type || !mapp(armor_prop = query("armor_prop")))
-		return notify_fail("ÄãÖ»ÄÜ´©´÷¿Éµ±×÷»¤¾ßµÄ¶«Î÷¡£\n");
+		return notify_fail("ä½ åªèƒ½ç©¿æˆ´å¯å½“ä½œæŠ¤å…·çš„ä¸œè¥¿ã€‚\n");
 
 	if( owner->query_temp("armor/" + type) )
-		return notify_fail("ÄãÒÑ¾­´©´÷ÁËÍ¬ÀàĞÍµÄ»¤¾ßÁË¡£\n");
+		return notify_fail("ä½ å·²ç»ç©¿æˆ´äº†åŒç±»å‹çš„æŠ¤å…·äº†ã€‚\n");
 
 	if(objectp(owner->query_temp("weapon")) && type =="hands")
-		return notify_fail("ÄãÊÖÖĞÄÃ×ÅÎäÆ÷ÈçºÎ´÷ÊÖÌ×£¿\n");//by Ciwei@SJ
+		return notify_fail("ä½ æ‰‹ä¸­æ‹¿ç€æ­¦å™¨å¦‚ä½•æˆ´æ‰‹å¥—ï¼Ÿ\n");//by Ciwei@SJ
 		
-	if( query("broken") ) return notify_fail("Õâ¼ş·À¾ßÒÑ¾­Ëğ»µÁË¡£\n");
+	if( query("broken") ) return notify_fail("è¿™ä»¶é˜²å…·å·²ç»æŸåäº†ã€‚\n");
 
                canwear = query("armor_mp/armor_prop/canwear");
         if ( canwear && owner->query("family/family_name") != canwear)
-               return notify_fail("ÄãºÍÈË¼Ò"+canwear+"ËØÎŞÔ¨Ô´£¬ÔõÃ´Ëæ±ã´©ÈË¼Ò·şÊÎ£¿\n");
+               return notify_fail("ä½ å’Œäººå®¶"+canwear+"ç´ æ— æ¸Šæºï¼Œæ€ä¹ˆéšä¾¿ç©¿äººå®¶æœé¥°ï¼Ÿ\n");
 
 	owner->set_temp("armor/" + type, this_object());
 	apply = keys(armor_prop);
@@ -53,8 +53,8 @@ int wear()
                   }
          }
 	owner->set_temp("apply", applied_prop);
-if (query("armor_mp/armor_prop/skills"))  // ÅĞ¶ÏÌ××°
-owner->add_temp("skills"+"/"+ query("armor_mp/armor_prop/skills"),1);  // Íæ¼ÒÉíÉÏ¼Ó±ê¼Ç
+if (query("armor_mp/armor_prop/skills"))  // åˆ¤æ–­å¥—è£…
+owner->add_temp("skills"+"/"+ query("armor_mp/armor_prop/skills"),1);  // ç©å®¶èº«ä¸ŠåŠ æ ‡è®°
 	set("equipped", "worn");
 	return 1;
 }
@@ -75,17 +75,17 @@ int wield()
 
 	// Check if we have "weapon_prop" defined.
 	if (!query("skill_type") || !mapp(weapon_prop = query("weapon_prop")) )
-		return notify_fail("ÄãÖ»ÄÜ×°±¸¿Éµ±×÷ÎäÆ÷µÄ¶«Î÷¡£\n");
+		return notify_fail("ä½ åªèƒ½è£…å¤‡å¯å½“ä½œæ­¦å™¨çš„ä¸œè¥¿ã€‚\n");
 	if( owner->query_temp("armor/hands") )
-		return notify_fail("Äã´©´÷×ÅÊÖÌ×ÄÃ²»ÁËÆäËûÎäÆ÷ÁË¡£\n"); //by Ciwei@SJ
-	if( query("broken") ) return notify_fail("Õâ¼şÎäÆ÷ÒÑ¾­Ëğ»µÁË¡£\n");
+		return notify_fail("ä½ ç©¿æˆ´ç€æ‰‹å¥—æ‹¿ä¸äº†å…¶ä»–æ­¦å™¨äº†ã€‚\n"); //by Ciwei@SJ
+	if( query("broken") ) return notify_fail("è¿™ä»¶æ­¦å™¨å·²ç»æŸåäº†ã€‚\n");
 	flag = query("flag");
 
 	if( flag & TWO_HANDED ) {
 		if( owner->query_temp("weapon")
 		 || owner->query_temp("secondary_weapon")
 		 || owner->query_temp("armor/shield") )
-			return notify_fail("Äã±ØĞë¿Õ³öË«ÊÖ²ÅÄÜ×°±¸Ë«ÊÖÎäÆ÷¡£\n");
+			return notify_fail("ä½ å¿…é¡»ç©ºå‡ºåŒæ‰‹æ‰èƒ½è£…å¤‡åŒæ‰‹æ­¦å™¨ã€‚\n");
 		owner->set_temp("weapon", this_object());
 	} 
 	else {
@@ -107,11 +107,11 @@ int wield()
 				old_weapon->wield();
 			// We need unwield our old weapon before we can use this one.
 			} else
-				return notify_fail("Äã±ØĞëÏÈ·ÅÏÂÄãÄ¿Ç°×°±¸µÄÎäÆ÷¡£\n");
+				return notify_fail("ä½ å¿…é¡»å…ˆæ”¾ä¸‹ä½ ç›®å‰è£…å¤‡çš„æ­¦å™¨ã€‚\n");
 
 		// We have both hands wearing something.
 		} else
-			return notify_fail("Äã±ØĞë¿Õ³öÒ»Ö»ÊÖÀ´Ê¹ÓÃÎäÆ÷¡£\n");
+			return notify_fail("ä½ å¿…é¡»ç©ºå‡ºä¸€åªæ‰‹æ¥ä½¿ç”¨æ­¦å™¨ã€‚\n");
 	}
 
 	apply = keys(weapon_prop);
@@ -131,7 +131,7 @@ int unequip()
 
 	if( !(owner = environment()) ) return 0;
 	if( !stringp(equipped = query("equipped")) )
-		//return notify_fail("ÄãÄ¿Ç°²¢Ã»ÓĞ×°±¸ÕâÑù¶«Î÷¡£\n");
+		//return notify_fail("ä½ ç›®å‰å¹¶æ²¡æœ‰è£…å¤‡è¿™æ ·ä¸œè¥¿ã€‚\n");
 		return 1;//unequip success so return 1! for move()  by Ciwei@SJ
 
 	if( equipped=="wielded" ) {
@@ -145,8 +145,8 @@ int unequip()
  
 		owner->delete_temp("armor/" + query("armor_type") );  
 		prop = query("armor_prop");
-if (query("armor_mp/armor_prop/skills"))  // ÅĞ¶ÏÌ××°
-owner->add_temp("skills"+"/"+ query("armor_mp/armor_prop/skills"),-1);  // Íæ¼ÒÉíÉÏ¼õ±ê¼Ç
+if (query("armor_mp/armor_prop/skills"))  // åˆ¤æ–­å¥—è£…
+owner->add_temp("skills"+"/"+ query("armor_mp/armor_prop/skills"),-1);  // ç©å®¶èº«ä¸Šå‡æ ‡è®°
 	}
 
 	apply = keys(prop);
@@ -157,7 +157,7 @@ owner->add_temp("skills"+"/"+ query("armor_mp/armor_prop/skills"),-1);  // Íæ¼ÒÉ
               if(apply[i]!="canwear" && apply[i]!="skills")
 		applied_prop[apply[i]] -= prop[apply[i]];
               }
-	// ¼õÈ¥±ê¼Ç
+	// å‡å»æ ‡è®°
 
 	delete("equipped");
 	return 1;
@@ -189,7 +189,7 @@ int broken(string str)
 		return 1;
 	}
 		
-	if( !str ) str = "Ëğ»µµÄ";
+	if( !str ) str = "æŸåçš„";
 
 	delete_temp("apply");
 	delete("weapon_mp/owner");
@@ -208,7 +208,7 @@ int broken(string str)
 	set("weapon_prop", 0);
 	set("armor_prop", 0);
 	set("treasure", 0);
-	set("long", (string)query("long")+"\nµ«ÊÇËüÒÑ¾­Ëğ»µ£¬ÔÙÒ²ÎŞ·¨Ê¹ÓÃÁË¡£\n");
+	set("long", (string)query("long")+"\nä½†æ˜¯å®ƒå·²ç»æŸåï¼Œå†ä¹Ÿæ— æ³•ä½¿ç”¨äº†ã€‚\n");
 	
 	delete("owner");
 	delete("weapon_mp");
@@ -233,10 +233,10 @@ int do_embed(object me)
 		return 0;
 	}
 
-	me->receive_wound("qi", ob->query("damage")*2, "ÉíÖĞ"+ob->name()+"¶ø");
-	me->receive_damage("qi", ob->query("damage")*4, "ÉíÖĞ"+ob->name()+"¶ø");
-	tell_object(me, HIR "ÏÊÑªÕıË³×ÅÄãÉíÉÏµÄ"+ob->name()+HIR"àÖàªàÖàªµØÖ±ÍùÏÂÁ÷£¡\n" NOR );
-	tell_room(environment(me), HIR + "ÏÊÑªË³×Å"+me->name()+HIR"ÉíÉÏµÄ"+ob->name()+HIR"Ö±ÍùÏÂÁ÷£¡\n" NOR, ({ me }));  
+	me->receive_wound("qi", ob->query("damage")*2, "èº«ä¸­"+ob->name()+"è€Œ");
+	me->receive_damage("qi", ob->query("damage")*4, "èº«ä¸­"+ob->name()+"è€Œ");
+	tell_object(me, HIR "é²œè¡€æ­£é¡ºç€ä½ èº«ä¸Šçš„"+ob->name()+HIR"å˜€å—’å˜€å—’åœ°ç›´å¾€ä¸‹æµï¼\n" NOR );
+	tell_room(environment(me), HIR + "é²œè¡€é¡ºç€"+me->name()+HIR"èº«ä¸Šçš„"+ob->name()+HIR"ç›´å¾€ä¸‹æµï¼\n" NOR, ({ me }));  
 	call_out("do_embed", 15+random(10), me);
 
 	return 1;

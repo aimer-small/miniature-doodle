@@ -9,7 +9,7 @@ void create()
 {
 	set_name("", ({ "huanjue"}) );
 	set("long","");
-	set("unit", "Ö»");
+	set("unit", "åª");
 	set("weight", 0);
 	set("no_sell",1);
 	set("no_get",1);
@@ -42,26 +42,26 @@ int do_dummy(string arg)
 int do_go(string arg)
 {
 	mapping dirs = ([
-	"north":		"±±Ãæ",
-	"south":		"ÄÏÃæ",
-	"east":			"¶«Ãæ",
-	"west":			"Î÷Ãæ",
-	"northup":		"±±±ß",
-	"southup":		"ÄÏ±ß",
-	"eastup":		"¶«±ß",
-	"westup":		"Î÷±ß",
-	"northdown":	"±±±ß",
-	"southdown":	"ÄÏ±ß",
-	"eastdown":		"¶«±ß",
-	"westdown":		"Î÷±ß",
-	"northeast":	"¶«±±",
-	"northwest":	"Î÷±±",
-	"southeast":	"¶«ÄÏ",
-	"southwest":	"Î÷ÄÏ",
-	"up":			"ÉÏÃæ",
-	"down":			"ÏÂÃæ",
-	"enter":		"ÀïÃæ",
-	"out":			"ÍâÃæ",
+	"north":		"åŒ—é¢",
+	"south":		"å—é¢",
+	"east":			"ä¸œé¢",
+	"west":			"è¥¿é¢",
+	"northup":		"åŒ—è¾¹",
+	"southup":		"å—è¾¹",
+	"eastup":		"ä¸œè¾¹",
+	"westup":		"è¥¿è¾¹",
+	"northdown":	"åŒ—è¾¹",
+	"southdown":	"å—è¾¹",
+	"eastdown":		"ä¸œè¾¹",
+	"westdown":		"è¥¿è¾¹",
+	"northeast":	"ä¸œåŒ—",
+	"northwest":	"è¥¿åŒ—",
+	"southeast":	"ä¸œå—",
+	"southwest":	"è¥¿å—",
+	"up":			"ä¸Šé¢",
+	"down":			"ä¸‹é¢",
+	"enter":		"é‡Œé¢",
+	"out":			"å¤–é¢",
 	]);
 	string dest, mout, min, dir;
 	object env, obj;
@@ -69,29 +69,29 @@ int do_go(string arg)
 	object *f_obs;
 	object me=this_player();
 
-	if( !arg ) return notify_fail("ÄãÒªÍùÄÄ¸ö·½Ïò×ß£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦å¾€å“ªä¸ªæ–¹å‘èµ°ï¼Ÿ\n");
 
 	if( me->over_encumbranced() )
-		return notify_fail("ÄãµÄ¸ººÉ¹ıÖØ£¬¶¯µ¯²»µÃ¡£\n");
+		return notify_fail("ä½ çš„è´Ÿè·è¿‡é‡ï¼ŒåŠ¨å¼¹ä¸å¾—ã€‚\n");
 
 	if( me->is_busy() )
-		return notify_fail("ÄãµÄ¶¯×÷»¹Ã»ÓĞÍê³É£¬²»ÄÜÒÆ¶¯¡£\n");
+		return notify_fail("ä½ çš„åŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œä¸èƒ½ç§»åŠ¨ã€‚\n");
 	if (me->is_fighting()) {
 		f_obs = me->query_enemy();
 		if (objectp(f_obs[0]))
 		if (2 + random((int)me->query_dex()) <= 
 			random((int)f_obs[0]->query_dex())) {
 			me->start_busy(1);
-			return notify_fail("ÄãÌÓÅÜÊ§°Ü¡£\n");
+			return notify_fail("ä½ é€ƒè·‘å¤±è´¥ã€‚\n");
 		}
 	}
 
 	env = environment(me);
-	if(!env) return notify_fail("ÄãÄÄÀïÒ²È¥²»ÁË¡£\n");
+	if(!env) return notify_fail("ä½ å“ªé‡Œä¹Ÿå»ä¸äº†ã€‚\n");
 
 	if( !mapp(exit = env->query("exits")) || undefinedp(exit[arg]) ) {
 		if( query_verb()=="go")
-			return notify_fail("Õâ¸ö·½ÏòÃ»ÓĞ³öÂ·¡£\n");
+			return notify_fail("è¿™ä¸ªæ–¹å‘æ²¡æœ‰å‡ºè·¯ã€‚\n");
 		else
 			return 0;
 	}
@@ -101,7 +101,7 @@ int do_go(string arg)
 	if( !(obj = find_object(dest)) )
 		call_other(dest, "???");
 	if( !(obj = find_object(dest)) )
-		return notify_fail("ÎŞ·¨ÒÆ¶¯¡£\n");
+		return notify_fail("æ— æ³•ç§»åŠ¨ã€‚\n");
 
 	if( !env->valid_leave(me, arg) ) {
 		if (this_player() == me)
@@ -111,27 +111,27 @@ int do_go(string arg)
 
 	if (env->query("outdoors")
 	&& userp(me) && !wizardp(me) && me->query("jingli") < 1)
-		return notify_fail("ÄãÌ«ÀÛÁË£¬ĞİÏ¢Ò»ÏÂÔÙ×ß°É¡£\n");
+		return notify_fail("ä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¸‹å†èµ°å§ã€‚\n");
 
 	dir = obj->query("short");
 	if (!undefinedp(dirs[arg]))
-		dir = dirs[arg] + "µÄ" + dir;
+		dir = dirs[arg] + "çš„" + dir;
 
 	mout = "";
 	min = "";
 	if( me->is_fighting() ) {
-		mout += "Íù" + dir + "Âä»Ä¶øÌÓÁË¡£\n";
-		min += "´Ó" + env->query("short") + "µøµø×²×²µØÅÜÁË¹ıÀ´£¬Ä£ÑùÓĞĞ©ÀÇ±·¡£\n";
+		mout += "å¾€" + dir + "è½è’è€Œé€ƒäº†ã€‚\n";
+		min += "ä»" + env->query("short") + "è·Œè·Œæ’æ’åœ°è·‘äº†è¿‡æ¥ï¼Œæ¨¡æ ·æœ‰äº›ç‹¼ç‹ˆã€‚\n";
 	} else {
 		mout += me->query_condition("killer")?
-			"ÉñÉ«»ÅÕÅµØ":"";
-		mout += "Íù" + dir;
-		mout += env->query("outdoors")?"¿ì²½":"";
-		mout += "Àë¿ª¡£\n";
-		min += me->query_condition("killer")?"ÉñÉ«»ÅÕÅµØ":"";
-		min += "´Ó" + env->query("short");
-		min += env->query("outdoors")?"¿ì²½":"";
-		min += "×ßÁË¹ıÀ´¡£\n";
+			"ç¥è‰²æ…Œå¼ åœ°":"";
+		mout += "å¾€" + dir;
+		mout += env->query("outdoors")?"å¿«æ­¥":"";
+		mout += "ç¦»å¼€ã€‚\n";
+		min += me->query_condition("killer")?"ç¥è‰²æ…Œå¼ åœ°":"";
+		min += "ä»" + env->query("short");
+		min += env->query("outdoors")?"å¿«æ­¥":"";
+		min += "èµ°äº†è¿‡æ¥ã€‚\n";
 	}
 
 	if (!wizardp(me) || !me->query("env/invisibility"))
@@ -230,9 +230,9 @@ int do_look(string arg)
 string inventory_desc(object ob)
 {
 	if(ob->query("id")=="huanjue")
-		return "  ²¼ÒÂ(cloth)";
+		return "  å¸ƒè¡£(cloth)";
 	return sprintf("%s%s",
-		ob->query("equipped")? HIC "¡õ" NOR:"  ",
+		ob->query("equipped")? HIC "â–¡" NOR:"  ",
 		ob->short()
 	);
 }
@@ -260,11 +260,11 @@ int do_i(string arg)
 
 	inv = all_inventory(ob);
 	if( !sizeof(inv) || ((sizeof(inv)==1) && (inv[0]->query("id")=="huanjue"))){
-		write("Ä¿Ç°ÄãÉíÉÏÃ»ÓĞÈÎºÎ¶«Î÷¡£\n");
+		write("ç›®å‰ä½ èº«ä¸Šæ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n");
 		return 1;
 	}
-	printf("%sÉíÉÏ´ø×ÅÏÂÁĞÕâĞ©¶«Î÷(¸ºÖØ %d%%)£º\n%s\n",
-		"Äã",(int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance(),
+	printf("%sèº«ä¸Šå¸¦ç€ä¸‹åˆ—è¿™äº›ä¸œè¥¿(è´Ÿé‡ %d%%)ï¼š\n%s\n",
+		"ä½ ",(int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance(),
 		implode(map_array(inv, "inventory_desc", this_object()), "\n") );
 
 	return 1;
@@ -293,8 +293,8 @@ int do_id(string arg)
 	if( !arg ) {
 		inv = all_inventory(ran);
 		if( !sizeof(inv) )
-			return notify_fail("ÄãÉíÉÏÃ»ÓĞÈÎºÎ¶«Î÷¡£\n");
-        write( "ÄãÉíÉÏĞ¯´øÎïÆ·µÄ±ğ³ÆÈçÏÂ(ÓÒ·½) :\n");
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n");
+        write( "ä½ èº«ä¸Šæºå¸¦ç‰©å“çš„åˆ«ç§°å¦‚ä¸‹(å³æ–¹) :\n");
 		for(i=0; i<sizeof(inv); i++) {
 			if( !me->visible(inv[i]) ) continue;
 			printf("%s = %s\n", inv[i]->name(),
@@ -305,7 +305,7 @@ int do_id(string arg)
 
 	if( arg=="here" ) {
 		inv = all_inventory(environment(ran));
-        	write( "ÔÚÕâ¸ö·¿¼äÖĞ, ÉúÎï¼°ÎïÆ·µÄ(Ó¢ÎÄ)Ãû³ÆÈçÏÂ :\n");
+        	write( "åœ¨è¿™ä¸ªæˆ¿é—´ä¸­, ç”Ÿç‰©åŠç‰©å“çš„(è‹±æ–‡)åç§°å¦‚ä¸‹ :\n");
 		if(sizeof(inv))
 		{
 			for(i=0; i<sizeof(inv); i++) {

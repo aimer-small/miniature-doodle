@@ -9,20 +9,20 @@ int update_condition(object me, int duration)
         where = environment(me);
         if ((duration > 220) && (file_name(where) != JAIL_ROOM))
         {
-                message_vision(HIW"\n$NÉ±ÈËÎŞÊı£¬ÑªÕ®ÄÑ³¥£¬¹Ù¸®Í¨¼©ÄãºÜ³¤Ê±¼äÁË£¬Õâ»ØÅÜ\n²»ÁËÁË£¬ÀÏÀÏÊµÊµ¸úÎÒ×ß°É¡£\n\n"NOR, me);
+                message_vision(HIW"\n$Næ€äººæ— æ•°ï¼Œè¡€å€ºéš¾å¿ï¼Œå®˜åºœé€šç¼‰ä½ å¾ˆé•¿æ—¶é—´äº†ï¼Œè¿™å›è·‘\nä¸äº†äº†ï¼Œè€è€å®å®è·Ÿæˆ‘èµ°å§ã€‚\n\n"NOR, me);
                 me->move(JAIL_ROOM);
                 me->set("jail_timeout_room",(string)file_name(where));
                 me->set("startroom", JAIL_ROOM);
-                message("channel:chat", HIC "\n¡¾¹Ù¸®ÏûÏ¢¡¿£º"+(string)me->query("name")+"ÒòÎªÉ±ÈËÈçÂé¡¢×ï´ó¶ñ¼«£¬±»²¶¿ì×¥µ½¼àÓü¹ØÑº¡£\n\n" NOR, users());
+                message("channel:chat", HIC "\nã€å®˜åºœæ¶ˆæ¯ã€‘ï¼š"+(string)me->query("name")+"å› ä¸ºæ€äººå¦‚éº»ã€ç½ªå¤§æ¶æï¼Œè¢«æ•å¿«æŠ“åˆ°ç›‘ç‹±å…³æŠ¼ã€‚\n\n" NOR, users());
                 return 1;
         }
         if (duration < 1) {
-                tell_object(me, "¹Ù¸®²»ÔÙÍ¨¼©ÄãÁË£¡\n");
+                tell_object(me, "å®˜åºœä¸å†é€šç¼‰ä½ äº†ï¼\n");
                 return 0;
         }
         if ((duration < 100) && (file_name(where) == JAIL_ROOM))
         {
-                message_vision(HIW"\n±¾¸®¿´$NÉĞÓĞ»Ú¹ıÖ®Òâ£¬ÏÈ×¼$N³öÈ¥£¬ÇĞ¼Ç²»¿ÉÔÙÎª·Ç×÷´õ£¬·ñÔò¶¨²»ÇáÈÄ£¡\n\n"NOR, me);
+                message_vision(HIW"\næœ¬åºœçœ‹$Nå°šæœ‰æ‚”è¿‡ä¹‹æ„ï¼Œå…ˆå‡†$Nå‡ºå»ï¼Œåˆ‡è®°ä¸å¯å†ä¸ºéä½œæ­¹ï¼Œå¦åˆ™å®šä¸è½»é¥¶ï¼\n\n"NOR, me);
                 me->move((string)me->query("jail_timeout_room"));
                 return 1;
         }

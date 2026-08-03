@@ -6,9 +6,9 @@ void init()
 
 	if (!userp(me)) return;
 	if (!wizardp(me) && !me->query_temp("leitai")) {
-		message_vision("Í»È»·É³öÒ»Ö»´ó½Å£¬½«$N´ÓÀŞÌ¨¸øÌßÁË³öÈ¥£¡\n", me);
+		message_vision("çªç„¶é£å‡ºä¸€åªå¤§è„šï¼Œå°†$Nä»æ“‚å°ç»™è¸¢äº†å‡ºå»ï¼\n", me);
 		me->move(query("dest_room"));
-		message_vision("¡°°¡¡­¡­¡±µÄÒ»Éù£¬$N±»ÈË´ÓÀŞÌ¨¸øÌßÁË³öÀ´¡£\n", me);
+		message_vision("â€œå•Šâ€¦â€¦â€çš„ä¸€å£°ï¼Œ$Nè¢«äººä»æ“‚å°ç»™è¸¢äº†å‡ºæ¥ã€‚\n", me);
 	}
 
 	if (!query_temp("leitai")
@@ -17,7 +17,7 @@ void init()
 		return;
 	}
 
-	if (!wizardp(me)) message_vision("$N¼±¼±Ã¦Ã¦µØ×ß½øÁËÀŞÌ¨¡£\n", me);
+	if (!wizardp(me)) message_vision("$Næ€¥æ€¥å¿™å¿™åœ°èµ°è¿›äº†æ“‚å°ã€‚\n", me);
 	else {
 		add_action("do_load", "login");
            add_action("do_open", "xinxi");
@@ -44,7 +44,7 @@ int do_set(string arg)
 int do_action(string arg)
 {
 	if(!wizardp(this_player())){
-		write("ÀŞÌ¨ÉÏÖ»ÄÜ±ÈÎä£¬Çë²»Òª×ö²»Ïà¹ØµÄÊÂ£¡\n");
+		write("æ“‚å°ä¸Šåªèƒ½æ¯”æ­¦ï¼Œè¯·ä¸è¦åšä¸ç›¸å…³çš„äº‹ï¼\n");
 		return 1;
 	}
 	return 0;
@@ -58,22 +58,22 @@ int do_open(string arg)
 	object me = this_player();
 
 	if( wiz_level(me) < 3 )
-		return notify_fail("Ö»ÓĞ (wizard) ÒÔÉÏµÄÎ×Ê¦²ÅÄÜ´ò¿ªÀŞÌ¨ĞÅÏ¢¡£\n");
+		return notify_fail("åªæœ‰ (wizard) ä»¥ä¸Šçš„å·«å¸ˆæ‰èƒ½æ‰“å¼€æ“‚å°ä¿¡æ¯ã€‚\n");
    if( !arg && arg != "close" && arg != "open")
-		return notify_fail("Ä¿Ç°µÄÀŞÌ¨ĞÅÏ¢×´¿öÊÇ£º"+(open == 0?"close":"open")+"\n");
+		return notify_fail("ç›®å‰çš„æ“‚å°ä¿¡æ¯çŠ¶å†µæ˜¯ï¼š"+(open == 0?"close":"open")+"\n");
 
 	if( arg == "open" ){
 		open = 1;
-		message("leitai", HIY +"\n¡¾"+environment(me)->query("short")+"ÀŞÌ¨¡¿£º¿ª·Å´ËÀŞÌ¨½á¹ûĞÅÏ¢£¬²»Ï£Íû¿´¼ûµÄÍæ¼ÒÇë set block_leitai ¡£\n\n"NOR, users());
-		return notify_fail("Äã´ò¿ªÁËÀŞÌ¨µÄĞÅÏ¢×´¿ö¡£\n");
+		message("leitai", HIY +"\nã€"+environment(me)->query("short")+"æ“‚å°ã€‘ï¼šå¼€æ”¾æ­¤æ“‚å°ç»“æœä¿¡æ¯ï¼Œä¸å¸Œæœ›çœ‹è§çš„ç©å®¶è¯· set block_leitai ã€‚\n\n"NOR, users());
+		return notify_fail("ä½ æ‰“å¼€äº†æ“‚å°çš„ä¿¡æ¯çŠ¶å†µã€‚\n");
 	}
 
 	if( arg == "close" ){
 		open = 0;
-		message("leitai", HIY +"\n¡¾"+environment(me)->query("short")+"ÀŞÌ¨¡¿£º¹Ø±Õ´ËÀŞÌ¨½á¹ûĞÅÏ¢¡£\n\n"NOR, users());
-		return notify_fail("Äã¹Ø±ÕÁËÀŞÌ¨µÄĞÅÏ¢×´¿ö¡£\n");
+		message("leitai", HIY +"\nã€"+environment(me)->query("short")+"æ“‚å°ã€‘ï¼šå…³é—­æ­¤æ“‚å°ç»“æœä¿¡æ¯ã€‚\n\n"NOR, users());
+		return notify_fail("ä½ å…³é—­äº†æ“‚å°çš„ä¿¡æ¯çŠ¶å†µã€‚\n");
 	}
-	return notify_fail("Äã¿ÉÒÔÉè¶¨ÀŞÌ¨ĞÅÏ¢×´¿öÊÇ open (ËùÓĞÈË¶¼ÄÜ¿´¼û½á¹û) »¹ÊÇ close (Ö»ÓĞ¿´Ì¨µÄÈË²Å¿´¼û½á¹û)\n");
+	return notify_fail("ä½ å¯ä»¥è®¾å®šæ“‚å°ä¿¡æ¯çŠ¶å†µæ˜¯ open (æ‰€æœ‰äººéƒ½èƒ½çœ‹è§ç»“æœ) è¿˜æ˜¯ close (åªæœ‰çœ‹å°çš„äººæ‰çœ‹è§ç»“æœ)\n");
 }
 
 
@@ -81,15 +81,15 @@ void end_fight(object me, object ob, string fam)
 {
 	string fam2, color;
 
-	fam2 = ob->query("family/family_name")?ob->query("family/family_name"):"ÆÕÍ¨°ÙĞÕ";
+	fam2 = ob->query("family/family_name")?ob->query("family/family_name"):"æ™®é€šç™¾å§“";
 	color = ob->query("color")?" "+ob->query("color"):" ";
 	fam2 = fam2 + color + ob->query("name") + NOR + "(" + capitalize(ob->query("id")) + ")";
-	message_vision("\n"+fam+" ±» "+fam2+" »÷°Ü¡£\n", me, ob);
+	message_vision("\n"+fam+" è¢« "+fam2+" å‡»è´¥ã€‚\n", me, ob);
 	if( open > 0 )
-		message("leitai", HIY +"\n¡¾"+environment(me)->query("short")+"ÀŞÌ¨¡¿±ÈÎäÒÑ¾­¾ö³öÊ¤¸º£º"+ fam+HIY" ±» "+fam2+HIY" »÷°Ü£¡\n\n"NOR,
+		message("leitai", HIY +"\nã€"+environment(me)->query("short")+"æ“‚å°ã€‘æ¯”æ­¦å·²ç»å†³å‡ºèƒœè´Ÿï¼š"+ fam+HIY" è¢« "+fam2+HIY" å‡»è´¥ï¼\n\n"NOR,
 		filter_array(users(), (:  !$1->query("env/block_leitai") :)));
 	//Log.
-	log_file("leitai", sprintf("%s(%s) ÔÚÀŞÌ¨ÉÏ»÷°Ü %s(%s)¡£\n", ob->name(1), ob->query("id"), me->name(1), me->query("id")	), ob->query("id"), ({ me->query("id") }) );
+	log_file("leitai", sprintf("%s(%s) åœ¨æ“‚å°ä¸Šå‡»è´¥ %s(%s)ã€‚\n", ob->name(1), ob->query("id"), me->name(1), me->query("id")	), ob->query("id"), ({ me->query("id") }) );
 }
 
 int start_biwu(object fighter, object fighter2, int num)
@@ -99,13 +99,13 @@ int start_biwu(object fighter, object fighter2, int num)
 
 	if (!fighter || environment(fighter) != this_object()) {
 		if(fighter2) fighter2->quit(fighter2);
-		tell_room(this_object(), "\n"+query("short")+"±ÈÈüÖĞÖ¹£¡\n");
+		tell_room(this_object(), "\n"+query("short")+"æ¯”èµ›ä¸­æ­¢ï¼\n");
 		return 1;
 	}
 
 	if (!fighter2 || environment(fighter2) != this_object()) {
 		if(fighter) fighter->quit(fighter);
-		tell_room(this_object(), "\n"+query("short")+"±ÈÈüÖĞÖ¹£¡\n");
+		tell_room(this_object(), "\n"+query("short")+"æ¯”èµ›ä¸­æ­¢ï¼\n");
 		return 1;
 	}
 
@@ -121,16 +121,16 @@ int start_biwu(object fighter, object fighter2, int num)
 			if(!userp(ob[i]) && !ob[i]->query_temp("leitai"))
 				destruct(ob[i]);
 		}
-		tell_room(this_object(), HIR+"\n\t"+query("short")+HIR"ÉÏ´«À´µÚÒ»ÉùÂàÏì£¡\n\n"NOR);
+		tell_room(this_object(), HIR+"\n\t"+query("short")+HIR"ä¸Šä¼ æ¥ç¬¬ä¸€å£°é”£å“ï¼\n\n"NOR);
 	}
 	else if( num >= 3 ){
-		message_vision(HIR"Ö»ÌıµÚÈıÉùÂàÏì£¬$NºÍ$n±ÈÎäÕıÊ½¿ªÊ¼£¡\n"NOR, fighter, fighter2);
+		message_vision(HIR"åªå¬ç¬¬ä¸‰å£°é”£å“ï¼Œ$Nå’Œ$næ¯”æ­¦æ­£å¼å¼€å§‹ï¼\n"NOR, fighter, fighter2);
 		if( open > 0 )
-			message("leitai", HIY +"\n¡¾"+query("short")+"ÀŞÌ¨¡¿£º¸÷Î»½­ºşÍ¬µÀ£¬\n\t\t"
-			NOR+fighter->short(1)+HIY" Óë\n\t\t"NOR+fighter2->short(1)+HIY" ±ÈÎäÕıÊ½¿ªÊ¼£¡\n\n"NOR,
+			message("leitai", HIY +"\nã€"+query("short")+"æ“‚å°ã€‘ï¼šå„ä½æ±Ÿæ¹–åŒé“ï¼Œ\n\t\t"
+			NOR+fighter->short(1)+HIY" ä¸\n\t\t"NOR+fighter2->short(1)+HIY" æ¯”æ­¦æ­£å¼å¼€å§‹ï¼\n\n"NOR,
 			filter_array(users(), (:  !$1->query("env/block_leitai") :)));
-		else message_vision(HIY +"\n¡¾"+query("short")+"ÀŞÌ¨¡¿"
-			+fighter->short(1)+HIY" Óë "+fighter2->short(1)+HIY" ±ÈÎäÕıÊ½¿ªÊ¼£¡\n"NOR,
+		else message_vision(HIY +"\nã€"+query("short")+"æ“‚å°ã€‘"
+			+fighter->short(1)+HIY" ä¸ "+fighter2->short(1)+HIY" æ¯”æ­¦æ­£å¼å¼€å§‹ï¼\n"NOR,
 			fighter, fighter2);
 
 		fighter->delete("last_death_time");
@@ -139,7 +139,7 @@ int start_biwu(object fighter, object fighter2, int num)
 		fighter->kill_ob(fighter2);
 		return 1;
 	} else
-		tell_room(this_object(), HIR+"\n\t"+this_object()->query("short")+HIR"ÉÏ´«À´µÚ"+chinese_number(num)+"ÉùÂàÏì£¡\n\n"NOR);
+		tell_room(this_object(), HIR+"\n\t"+this_object()->query("short")+HIR"ä¸Šä¼ æ¥ç¬¬"+chinese_number(num)+"å£°é”£å“ï¼\n\n"NOR);
 
 	remove_call_out("start_biwu");
 	call_out("start_biwu", 2, fighter, fighter2, num);
@@ -151,22 +151,22 @@ int do_ok()
 	object ob, me = this_player();
 
 	if (!me->query_temp("leitai") || base_name(me) != "/cmds/leitai/leitaiuser")
-		return notify_fail("´ËÃüÁîÖ»ÓĞÉÏÌ¨±ÈÎäµÄÑ¡ÊÖ¿ÉÓÃ¡£\n");
+		return notify_fail("æ­¤å‘½ä»¤åªæœ‰ä¸Šå°æ¯”æ­¦çš„é€‰æ‰‹å¯ç”¨ã€‚\n");
 	if(me->query_temp("leitai") == 2)
-		return notify_fail("ÄãÒÑ¾­³öÑÔÌôÕ½ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»å‡ºè¨€æŒ‘æˆ˜äº†ã€‚\n");
 
 	me->set_temp("leitai", 2);
 	if (!objectp(ob = this_object()->query_temp("fighter"))){
 		set_temp("fighter", me);
-		message_vision("\n$N×÷ÁË¸öÒ¾£º"+RANK_D->query_self(me)+"ÒÑ¾­×¼±¸ºÃÁË£¬Ô¸½ÓÊÜÌôÕ½£¡\n", me);
+		message_vision("\n$Nä½œäº†ä¸ªæ–ï¼š"+RANK_D->query_self(me)+"å·²ç»å‡†å¤‡å¥½äº†ï¼Œæ„¿æ¥å—æŒ‘æˆ˜ï¼\n", me);
 	}
 	else if (environment(ob) != this_object()) {
 		ob->quit();
 		set_temp("fighter", me);
-		message_vision("\n$N×÷ÁË¸öÒ¾£º"+RANK_D->query_self(me)+"ÒÑ¾­×¼±¸ºÃÁË£¬Ô¸½ÓÊÜÈÎºÎÌôÕ½£¡\n", me);
+		message_vision("\n$Nä½œäº†ä¸ªæ–ï¼š"+RANK_D->query_self(me)+"å·²ç»å‡†å¤‡å¥½äº†ï¼Œæ„¿æ¥å—ä»»ä½•æŒ‘æˆ˜ï¼\n", me);
 	} else {
 		delete_temp("fighter");
-		message_vision("\n$N¶Ô$n×÷ÁË¸öÒ¾£º"+RANK_D->query_self(me)+"Ã°ÃÁ£¬ÌôÕ½"+RANK_D->query_respect(ob)+"£¡\n", me, ob);
+		message_vision("\n$Nå¯¹$nä½œäº†ä¸ªæ–ï¼š"+RANK_D->query_self(me)+"å†’æ˜§ï¼ŒæŒ‘æˆ˜"+RANK_D->query_respect(ob)+"ï¼\n", me, ob);
 		start_biwu(me, ob, 0);
 	}
 
@@ -178,7 +178,7 @@ void leaving(object me)
 	if (!me || me->is_fighting() ) return;
 	if (!me->query_temp("leitai"))
 		return;
-	message_vision(HIW"\n$NÒ»Á³¸ß°ÁµÄÉñÌ¬£º¾¹È»Ã»ÈË¸ÒÀ´ÌôÕ½£¬¿´À´"+RANK_D->query_self(me)+"ÕæÊÇÌìÏÂÎŞµĞÁË£¡\n"NOR, me);
+	message_vision(HIW"\n$Nä¸€è„¸é«˜å‚²çš„ç¥æ€ï¼šç«Ÿç„¶æ²¡äººæ•¢æ¥æŒ‘æˆ˜ï¼Œçœ‹æ¥"+RANK_D->query_self(me)+"çœŸæ˜¯å¤©ä¸‹æ— æ•Œäº†ï¼\n"NOR, me);
 	me->die();
 }
 
@@ -187,9 +187,9 @@ int do_leave()
 	object me = this_player();
 
 	if (!me->query_temp("leitai") || base_name(me) != "/cmds/leitai/leitaiuser")
-		return notify_fail("´ËÃüÁîÖ»ÓĞÉÏÌ¨±ÈÎäµÄÑ¡ÊÖ¿ÉÓÃ¡£\n");
+		return notify_fail("æ­¤å‘½ä»¤åªæœ‰ä¸Šå°æ¯”æ­¦çš„é€‰æ‰‹å¯ç”¨ã€‚\n");
 
-	message_vision(HIW"\n$NÉîÌ¾ÁËÒ»¿ÚÆø£º"+RANK_D->query_self(me)+"¼¼²»ÈçÈË£¬ÇéÔ¸ÈÏÊä£¡\n"NOR, me);
+	message_vision(HIW"\n$Næ·±å¹äº†ä¸€å£æ°”ï¼š"+RANK_D->query_self(me)+"æŠ€ä¸å¦‚äººï¼Œæƒ…æ„¿è®¤è¾“ï¼\n"NOR, me);
 	me->die();
 	return 1;
 }
@@ -199,20 +199,20 @@ int do_tui(string arg)
 	object ob;
 
 	if (wiz_level(this_player()) < 3)
-		return notify_fail("Ö»ÓĞ (wizard) ÒÔÉÏµÄÎ×Ê¦²ÅÄÜ½«ÈËÍÆ³öÀŞÌ¨£¡\n");
+		return notify_fail("åªæœ‰ (wizard) ä»¥ä¸Šçš„å·«å¸ˆæ‰èƒ½å°†äººæ¨å‡ºæ“‚å°ï¼\n");
 
-	if (!arg) return notify_fail("ÄãÒªÍÆË­£¿\n");
+	if (!arg) return notify_fail("ä½ è¦æ¨è°ï¼Ÿ\n");
 
 	if (!ob = present(arg,this_object()))
-		return notify_fail("ÕÒ²»µ½ "+arg+" Õâ¸öÍæ¼Ò¡£\n");
+		return notify_fail("æ‰¾ä¸åˆ° "+arg+" è¿™ä¸ªç©å®¶ã€‚\n");
 
 	if (!userp(ob))
-		return notify_fail("ÕÒ²»µ½ "+arg+" Õâ¸öÍæ¼Ò¡£\n");
+		return notify_fail("æ‰¾ä¸åˆ° "+arg+" è¿™ä¸ªç©å®¶ã€‚\n");
 
 	if (!ob->query_temp("leitai") || base_name(ob) != "/cmds/leitai/leitaiuser")
-		return notify_fail(ob->name()+"²»ÊÇÍ¨¹ıÕıµ±Í¾¾¶½øÈëÀŞÌ¨£¬²»ÄÜ±»ÍÆ³öÀŞÌ¨¡£\n");
+		return notify_fail(ob->name()+"ä¸æ˜¯é€šè¿‡æ­£å½“é€”å¾„è¿›å…¥æ“‚å°ï¼Œä¸èƒ½è¢«æ¨å‡ºæ“‚å°ã€‚\n");
 
-	message_vision("$NË£ÁË¸öÌ«¼«£¬½«$nÒ»°ÑÍÆ³öÁËÀŞÌ¨¡£\n", this_player(), ob);
+	message_vision("$Nè€äº†ä¸ªå¤ªæï¼Œå°†$nä¸€æŠŠæ¨å‡ºäº†æ“‚å°ã€‚\n", this_player(), ob);
 	ob->quit();
 	return 1;
 }
@@ -230,11 +230,11 @@ int load_user(object player)
 		return 0;
 
 	seteuid(arg);
-	user = new("/cmds/leitai/leitaiuser", arg);   // È¥µôÁËsave()£¬ÀŞÌ¨ÖĞµÄÒ»ÇĞºÍ±¾ÉíÎŞ¹Ø¡£
+	user = new("/cmds/leitai/leitaiuser", arg);   // å»æ‰äº†save()ï¼Œæ“‚å°ä¸­çš„ä¸€åˆ‡å’Œæœ¬èº«æ— å…³ã€‚
 	player->save();
 	if (!user->restore()) {
 		destruct(user);
-		write("User Restore Error£¬ÇëÍ¨ÖªÎ×Ê¦¡£\n");
+		write("User Restore Errorï¼Œè¯·é€šçŸ¥å·«å¸ˆã€‚\n");
 		return 0;
 	}
 
@@ -250,16 +250,16 @@ int load_user(object player)
 	user->reincarnate();
 	user->delete_temp("combat_yield");
 	user->set("channels", ({ "rumor", "err" }) );
-	tell_object(user, YEL"Äã½øÈë±ÈÎäÀŞÌ¨£¬Ä¿Ç°´¦ÓÚ×î¼Ñ×´Ì¬ÖĞ¡£\n"NOR"
-ĞèÒª±øÆ÷Çë´ÓÎïÆ·¼ÜÉÏÄÃ"YEL" na"NOR" ¡£
-Èç¹ûÄã×¼±¸ºÃÁËÇë´ò"YEL" ok"NOR"¡£
-Èç¹ûÄãÒª·ÅÆú±ÈÈü£¬Çë´ò"YEL" leave"NOR"¡£\n");
+	tell_object(user, YEL"ä½ è¿›å…¥æ¯”æ­¦æ“‚å°ï¼Œç›®å‰å¤„äºæœ€ä½³çŠ¶æ€ä¸­ã€‚\n"NOR"
+éœ€è¦å…µå™¨è¯·ä»ç‰©å“æ¶ä¸Šæ‹¿"YEL" na"NOR" ã€‚
+å¦‚æœä½ å‡†å¤‡å¥½äº†è¯·æ‰“"YEL" ok"NOR"ã€‚
+å¦‚æœä½ è¦æ”¾å¼ƒæ¯”èµ›ï¼Œè¯·æ‰“"YEL" leave"NOR"ã€‚\n");
 
-	arg = user->query("family/family_name")?user->query("family/family_name"):"ÆÕÍ¨°ÙĞÕ";
+	arg = user->query("family/family_name")?user->query("family/family_name"):"æ™®é€šç™¾å§“";
 	color = user->query("color")?" "+user->query("color"):" ";
 	arg += color + user->query("name") + NOR "(" + capitalize(user->query("id")) + ")";
-	tell_room(this_object(), arg + YEL"½øÈë±ÈÎäÀŞÌ¨¡£\n"NOR, ({ user }));
-	player->set_temp("apply/short", ({player->name()+"("+player->query("id")+")"YEL" <´òÀŞÖĞ>"NOR}));
+	tell_room(this_object(), arg + YEL"è¿›å…¥æ¯”æ­¦æ“‚å°ã€‚\n"NOR, ({ user }));
+	player->set_temp("apply/short", ({player->name()+"("+player->query("id")+")"YEL" <æ‰“æ“‚ä¸­>"NOR}));
 	player->set_leader(0);
 	call_out("leaving", 90, user);
 	return 1;
@@ -273,40 +273,40 @@ int do_load(string arg)
 	if (!arg) return 0;
 	if(sscanf(arg, "%s with %s", arg1, arg2)!=2){
 		if(!me = find_player(arg))
-			return notify_fail("ÃüÁî¸ñÊ½: login <player name1> with <player name2>¡£\n");
+			return notify_fail("å‘½ä»¤æ ¼å¼: login <player name1> with <player name2>ã€‚\n");
 		else return load_user(me);
 	}
 
 	me = this_player();
 
 	if (query_temp("leitai") > 1)
-		return notify_fail("ÕâÀïÕıÔÚ±ÈÎäÄØ£¬ÄãÏÈµÈËûÃÇ·Ö³öÊ¤¸ºÔÙËµ°É¡£\n");
+		return notify_fail("è¿™é‡Œæ­£åœ¨æ¯”æ­¦å‘¢ï¼Œä½ å…ˆç­‰ä»–ä»¬åˆ†å‡ºèƒœè´Ÿå†è¯´å§ã€‚\n");
 
 	if (wiz_level(me) < 3)
-		return notify_fail("Ö»ÓĞ (wizard) ÒÔÉÏµÄÎ×Ê¦²ÅÄÜÔÚÀŞÌ¨loginÆäËûplayer¡£\n");
+		return notify_fail("åªæœ‰ (wizard) ä»¥ä¸Šçš„å·«å¸ˆæ‰èƒ½åœ¨æ“‚å°loginå…¶ä»–playerã€‚\n");
 
 	if (wiz_level(me) < wiz_level(arg1))
-		return notify_fail("Äã²»ÄÜ×°ÔØÎ×Ê¦¼¶±ğ±ÈÄã¸ßµÄÍæ¼Ò¡£\n");
+		return notify_fail("ä½ ä¸èƒ½è£…è½½å·«å¸ˆçº§åˆ«æ¯”ä½ é«˜çš„ç©å®¶ã€‚\n");
 
 	ob = find_player(arg2);
-	if (!ob) return notify_fail("ÈÃË­Îª´ú±í½øÈëÀŞÌ¨£¿\n");
+	if (!ob) return notify_fail("è®©è°ä¸ºä»£è¡¨è¿›å…¥æ“‚å°ï¼Ÿ\n");
 	if (ob->query_temp("leitai")
 	|| base_name(ob) == "/cmds/leitai/leitaiuser")
-		return notify_fail(ob->name()+"ÕıÔÚ±ğµÄÀŞÌ¨±ÈÎäÖĞ¡£\n");
+		return notify_fail(ob->name()+"æ­£åœ¨åˆ«çš„æ“‚å°æ¯”æ­¦ä¸­ã€‚\n");
 
 	seteuid(arg1);
-	user = new("/cmds/leitai/leitaiuser", arg1);   // È¥µôÁËsave()£¬ÀŞÌ¨ÖĞµÄÒ»ÇĞºÍ±¾ÉíÎŞ¹Ø¡£
+	user = new("/cmds/leitai/leitaiuser", arg1);   // å»æ‰äº†save()ï¼Œæ“‚å°ä¸­çš„ä¸€åˆ‡å’Œæœ¬èº«æ— å…³ã€‚
 	if(!user->restore()) {
 		destruct(user);
-		return notify_fail("ÄãÏëÈÃÄÄ¸öÍæ¼ÒµÄ¿½±´½øÈëÀŞÌ¨£¿\n");;
+		return notify_fail("ä½ æƒ³è®©å“ªä¸ªç©å®¶çš„æ‹·è´è¿›å…¥æ“‚å°ï¼Ÿ\n");;
 	}
 	if(!environment(ob)->query("no_fight"))
-		ob->move("/d/city/chmiao");  // ·ÀÖ¹±ÈÎäÊ±±¾Éí±»É±
+		ob->move("/d/city/chmiao");  // é˜²æ­¢æ¯”æ­¦æ—¶æœ¬èº«è¢«æ€
 	user->delete("worker");
 	user->setup();
 	if (wiz_level(user) > wiz_level(me)){
 		user->quit();
-		return notify_fail("Äã²»ÄÜ×°ÔØÎ×Ê¦¼¶±ğ±ÈÄã¸ßµÄÍæ¼Ò¡£\n");
+		return notify_fail("ä½ ä¸èƒ½è£…è½½å·«å¸ˆçº§åˆ«æ¯”ä½ é«˜çš„ç©å®¶ã€‚\n");
 	}
 
 	user->set_temp("leitai", 1);
@@ -319,11 +319,11 @@ int do_load(string arg)
 	user->reincarnate();
 	user->delete_temp("combat_yield");
 	user->set("channels", ({ "rumor" , "err"}) );
-	tell_object(user, YEL"Äã´ú±í"+user->query("name")+"½øÈëÀŞÌ¨£¬Ä¿Ç°´¦ÓÚ×î¼Ñ×´Ì¬ÖĞ¡£\n"NOR"
-ĞèÒª±øÆ÷Çë´Ó±øÆ÷¼ÜÉÏÄÃ"YEL" na"NOR" ¡£
-Èç¹ûÄã×¼±¸ºÃÁËÇë´ò"YEL" ok"NOR"¡£
-Èç¹ûÄãÒª·ÅÆú±ÈÈü£¬Çë´ò"YEL" leave"NOR"¡£\n");
-	tell_room(environment(user),YEL+ob->query("name")+"´ú±í"+user->name()+"½øÈë±ÈÎäÀŞÌ¨¡£\n\n"NOR, ({ user }));
-	ob->set_temp("apply/short", ({ob->name()+"("+ob->query("id")+")"YEL" <´òÀŞÖĞ>"NOR}));
+	tell_object(user, YEL"ä½ ä»£è¡¨"+user->query("name")+"è¿›å…¥æ“‚å°ï¼Œç›®å‰å¤„äºæœ€ä½³çŠ¶æ€ä¸­ã€‚\n"NOR"
+éœ€è¦å…µå™¨è¯·ä»å…µå™¨æ¶ä¸Šæ‹¿"YEL" na"NOR" ã€‚
+å¦‚æœä½ å‡†å¤‡å¥½äº†è¯·æ‰“"YEL" ok"NOR"ã€‚
+å¦‚æœä½ è¦æ”¾å¼ƒæ¯”èµ›ï¼Œè¯·æ‰“"YEL" leave"NOR"ã€‚\n");
+	tell_room(environment(user),YEL+ob->query("name")+"ä»£è¡¨"+user->name()+"è¿›å…¥æ¯”æ­¦æ“‚å°ã€‚\n\n"NOR, ({ user }));
+	ob->set_temp("apply/short", ({ob->name()+"("+ob->query("id")+")"YEL" <æ‰“æ“‚ä¸­>"NOR}));
 	return 1;
 }

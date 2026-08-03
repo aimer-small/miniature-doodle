@@ -9,10 +9,10 @@ int do_save();
 
 void create()
 {
-	set("short", "ÉÙÒõ");
+	set("short", "å°‘é˜´");
 	set("long", @LONG
-ÕâÀïÊÇËÄÏó²ãµÄÉÙÒõ¡£ÉÙÒõÊÇÑôÖÐÖ®Òõ¡£¶«·½¶ÔÓ¦ËÄÁéÊÞÖÐµÄÇàÁú£¬ÇàÁú
-Ö®ÐÎ£¬ÉÐÇà¡£ÒÔ·½Î»ÈëÎåÐÐ£¬ÓÐÒ»µÀÌúÌÝÖ±Í¨ÏÂ·½µÄ¶«·½¼×ÒÒÄ¾¡£
+è¿™é‡Œæ˜¯å››è±¡å±‚çš„å°‘é˜´ã€‚å°‘é˜´æ˜¯é˜³ä¸­ä¹‹é˜´ã€‚ä¸œæ–¹å¯¹åº”å››çµå…½ä¸­çš„é’é¾™ï¼Œé’é¾™
+ä¹‹å½¢ï¼Œå°šé’ã€‚ä»¥æ–¹ä½å…¥äº”è¡Œï¼Œæœ‰ä¸€é“é“æ¢¯ç›´é€šä¸‹æ–¹çš„ä¸œæ–¹ç”²ä¹™æœ¨ã€‚
 LONG
 	);
 	set("exits", ([ 
@@ -42,13 +42,13 @@ void init()
 
 int do_save()
 {
-	write("ÕâÀï²»×¼´æÅÌ£¡\n");
+	write("è¿™é‡Œä¸å‡†å­˜ç›˜ï¼\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("ÕâÀï²»×¼ÍË³ö£¡\n");
+	write("è¿™é‡Œä¸å‡†é€€å‡ºï¼\n");
 	return 1;
 }
 

@@ -6,10 +6,10 @@
 inherit ROOM;
 void create()
 {
-	set("short",HIW"ÄïçÙÓñ¶´-Ìì¸³²¿"NOR);
+	set("short",HIW"å¨˜ç¼³çŽ‰æ´ž-å¤©èµ‹éƒ¨"NOR);
 	set ("long",@long
-ÕâÊÇÂüÙ¢ÂÞÉ½×¯´æ·ÅÎä¹¦ÃØ¼®µÄµØ·½£¬Ò»ÅÅÅÅÊé¼ÜÉÏÕûÆëµÄ°Ú·Å×Å¸÷ÖÖÊé
-¼®£¬ËÆºõ¶¼ÓëÈçºÎ¶ÍÁ¶Ìì¸³½î¹Ç(gift)ÓÐ¹Ø¡£
+è¿™æ˜¯æ›¼ä½—ç½—å±±åº„å­˜æ”¾æ­¦åŠŸç§˜ç±çš„åœ°æ–¹ï¼Œä¸€æŽ’æŽ’ä¹¦æž¶ä¸Šæ•´é½çš„æ‘†æ”¾ç€å„ç§ä¹¦
+ç±ï¼Œä¼¼ä¹Žéƒ½ä¸Žå¦‚ä½•é”»ç‚¼å¤©èµ‹ç­‹éª¨(gift)æœ‰å…³ã€‚
 long);
 	set("exits",([
 		"out" : __DIR__"huandong",
@@ -36,24 +36,24 @@ int do_canwu(string arg)
      object me = this_player();
 
      if(arg != "gift" )
-           return notify_fail("ÕâÀïÖ»ÄÜ²ÎÎòÌì¸³(gift)²¿·Ö!\n");
+           return notify_fail("è¿™é‡Œåªèƒ½å‚æ‚Ÿå¤©èµ‹(gift)éƒ¨åˆ†!\n");
 
      if (me->is_busy() || me->is_fighting()|| me->query_temp("con_gift") )
-                  return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                  return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 if (me->query_temp("canwu_now") )
-       return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+       return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if (query_temp("canwu") )
-        return notify_fail("ÓÐÈËÕýÔÚ²ÎÎòÄØ£¬ÄãµÈÒ»»á°Ñ¡£\n");
+        return notify_fail("æœ‰äººæ­£åœ¨å‚æ‚Ÿå‘¢ï¼Œä½ ç­‰ä¸€ä¼šæŠŠã€‚\n");
 
 
      if( me->query("combat_exp",1)<20000000)
-                 return notify_fail("ÄãºúÂÒµÄ·­ÁË·­Êé¼ÜÉÏµÄ²ØÊé£¬·¢ÏÖÀïÃæµÄÄÚÈÝ¸ßÉîÄª²â£¬ÎÞ·¨Àí½â£¬²»ÓÉµÃÒ¡ÁËÒ¡Í·¡£\n");
+                 return notify_fail("ä½ èƒ¡ä¹±çš„ç¿»äº†ç¿»ä¹¦æž¶ä¸Šçš„è—ä¹¦ï¼Œå‘çŽ°é‡Œé¢çš„å†…å®¹é«˜æ·±èŽ«æµ‹ï¼Œæ— æ³•ç†è§£ï¼Œä¸ç”±å¾—æ‘‡äº†æ‘‡å¤´ã€‚\n");
        
 
-       message_vision( HIW"$N×ÐÏ¸µÄ·­¿´×ÅÊé¼ÜÉÏµÄ²ØÊé£¬¶ÔÀïÃæÈçºÎ½øÐÐÇ¿»¯Ìì¸³¸ù¹ÇµÄÄÚÈÝºÜ¸ÐÐËÈ¤¡£\n"NOR,me);
-        message_vision( HIW"$NÒ»Í·Ôú½øÊé¶ÑÀï.²»Í£µÄ·­¿´×Å¡£¡£ \n"NOR, me);
+       message_vision( HIW"$Nä»”ç»†çš„ç¿»çœ‹ç€ä¹¦æž¶ä¸Šçš„è—ä¹¦ï¼Œå¯¹é‡Œé¢å¦‚ä½•è¿›è¡Œå¼ºåŒ–å¤©èµ‹æ ¹éª¨çš„å†…å®¹å¾ˆæ„Ÿå…´è¶£ã€‚\n"NOR,me);
+        message_vision( HIW"$Nä¸€å¤´æ‰Žè¿›ä¹¦å †é‡Œ.ä¸åœçš„ç¿»çœ‹ç€ã€‚ã€‚ \n"NOR, me);
        me->start_busy(100);               
        me->set_temp("canwu_now",1); 
        set_temp("canwu",1);            
@@ -72,10 +72,10 @@ int thinking(object me)
 total = me->query("relife/gifts/total");
  if(me->query_temp("con_gift")<(3+random(3)))
        {  me->add_temp("con_gift",1);
-          if(random(2)) tell_object(me,HIG"\nÄã×ÐÏ¸µÄÑÐ¶Á×ÅÊéÀïÃæµÄÄÚÈÝ£¬Ö»¾õµÃ¶úÄ¿Ò»ÐÂ...\n"NOR);
-                   else tell_object(me,HIY"\nÄãÑÐ¶Á×ÅÊéÀïÓÐ¹ØÇ¿»¯Ìì¸³¸ù¹ÇµÄ·¨ÃÅ£¬ÐÄÀïÓÐËùÁìÎò...\n"NOR);  
+          if(random(2)) tell_object(me,HIG"\nä½ ä»”ç»†çš„ç ”è¯»ç€ä¹¦é‡Œé¢çš„å†…å®¹ï¼Œåªè§‰å¾—è€³ç›®ä¸€æ–°...\n"NOR);
+                   else tell_object(me,HIY"\nä½ ç ”è¯»ç€ä¹¦é‡Œæœ‰å…³å¼ºåŒ–å¤©èµ‹æ ¹éª¨çš„æ³•é—¨ï¼Œå¿ƒé‡Œæœ‰æ‰€é¢†æ‚Ÿ...\n"NOR);  
 
-	  tell_room(environment(me),HIC""+me->query("name")+"Ã¼Í·½ôÖå£¬ËÆºõÔÚË¼Ë÷×ÅÊ²Ã´...\n"NOR, ({}));
+	  tell_room(environment(me),HIC""+me->query("name")+"çœ‰å¤´ç´§çš±ï¼Œä¼¼ä¹Žåœ¨æ€ç´¢ç€ä»€ä¹ˆ...\n"NOR, ({}));
 
 	  remove_call_out("thinking");
 	  call_out("thinking",3+random(3), me);
@@ -85,12 +85,12 @@ total = me->query("relife/gifts/total");
  else { 
          me->delete_temp("con_gift");
          me->start_busy(1);     
-  message_vision(HIC"\n$N¡¸¹þ¹þ¹þ¡¹´óÐ¦¼¸Éù£¬ËµµÀ£º¡°Ô­À´Èç´Ë£¬Ô­À´Èç´Ë¡£¡±\n"NOR,me); 
-  tell_object(me,HIR"\nÄãÍ¨¹ý±¾´ÎÑÐ¶Á£¬³É¹¦µÄ»ñµÃÒ»µã¶îÍâµÄÌì¸³µãÊý£¡\n"NOR);
+  message_vision(HIC"\n$Nã€Œå“ˆå“ˆå“ˆã€å¤§ç¬‘å‡ å£°ï¼Œè¯´é“ï¼šâ€œåŽŸæ¥å¦‚æ­¤ï¼ŒåŽŸæ¥å¦‚æ­¤ã€‚â€\n"NOR,me); 
+  tell_object(me,HIR"\nä½ é€šè¿‡æœ¬æ¬¡ç ”è¯»ï¼ŒæˆåŠŸçš„èŽ·å¾—ä¸€ç‚¹é¢å¤–çš„å¤©èµ‹ç‚¹æ•°ï¼\n"NOR);
 
 if(me->query("relife/relifed")) total = total -10;
 
- CHANNEL_D->do_channel(this_object(), "rumor", HIC"ÌýËµ" + me->name(1) + "ÔÚ"HIM"ÀÅ‹ÖÓñ¶´"HIC"½øÐÐÁËµÚ"HIR + chinese_number(total+1)+ HIC"´ÎÌì¸³Ç¿»¯£¡\n"NOR);
+ CHANNEL_D->do_channel(this_object(), "rumor", HIC"å¬è¯´" + me->name(1) + "åœ¨"HIM"ç…å¬›çŽ‰æ´ž"HIC"è¿›è¡Œäº†ç¬¬"HIR + chinese_number(total+1)+ HIC"æ¬¡å¤©èµ‹å¼ºåŒ–ï¼\n"NOR);
        me->add("relife/gifts/total",1);
        me->add("relife/gifts/now",  1);        
 
@@ -104,10 +104,10 @@ if(me->query("relife/relifed")) total = total -10;
        i = me->query("relife/gifts/now",1); 
        j = me->query("relife/gifts/total",1);
    
-    tell_object(me,HBYEL"\nÄã±¾´Î²ÎÎò¹²ºÄ·ÑÁË" + HIW + chinese_number( exp ) + HIR + "ÊµÕ½¾­Ñé£¬ÄãÏÖÔÚ×Ü¹²ÓÐ" + HIW + chinese_number( i ) + HIR + "µÄ¶îÍâµÄÌì¸³£¡\n"NOR);
-    tell_object(me,HBRED"\nÇëÁ¢¼´Ê¹ÓÃ(addgift)½øÐÐ·ÖÅä£¡\n"NOR);
+    tell_object(me,HBYEL"\nä½ æœ¬æ¬¡å‚æ‚Ÿå…±è€—è´¹äº†" + HIW + chinese_number( exp ) + HIR + "å®žæˆ˜ç»éªŒï¼Œä½ çŽ°åœ¨æ€»å…±æœ‰" + HIW + chinese_number( i ) + HIR + "çš„é¢å¤–çš„å¤©èµ‹ï¼\n"NOR);
+    tell_object(me,HBRED"\nè¯·ç«‹å³ä½¿ç”¨(addgift)è¿›è¡Œåˆ†é…ï¼\n"NOR);
 
-      log_file("canwu/getexp", sprintf("%s(%s) µÚ%d´Î²ÎÎòÌì¸³²¿·Ö£¬µ±Ç°¾­Ñé£º%d¡£\n", 
+      log_file("canwu/getexp", sprintf("%s(%s) ç¬¬%dæ¬¡å‚æ‚Ÿå¤©èµ‹éƒ¨åˆ†ï¼Œå½“å‰ç»éªŒï¼š%dã€‚\n", 
        me->name(1),
        me->query("id"),
        me->query("relife/gifts/total",1),
@@ -118,7 +118,7 @@ if(me->query("relife/relifed")) total = total -10;
 
 if(total < 0)
 {
- CHANNEL_D->do_channel(this_object(), "rumor", HIM"ÌýËµ" + me->name(1) + "ÒòÎª"HIR"Ìì¸³Òì³£"NOR"µÄÎÊÌâ£¬±»Çëµ½Ð¡ºÚÎÝºÈ²è£¡\n"NOR);
+ CHANNEL_D->do_channel(this_object(), "rumor", HIM"å¬è¯´" + me->name(1) + "å› ä¸º"HIR"å¤©èµ‹å¼‚å¸¸"NOR"çš„é—®é¢˜ï¼Œè¢«è¯·åˆ°å°é»‘å±‹å–èŒ¶ï¼\n"NOR);
  me->move("d/wizard/xhw");
 }
 

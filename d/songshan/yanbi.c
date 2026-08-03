@@ -1,20 +1,20 @@
-// Room: yanbi.c ÑÒ±Ú
+// Room: yanbi.c å²©å£
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "ÑÒ±Ú");
+	set("short", "å²©å£");
 	set("long", @LONG
-ÄãµÄÉí×Ó½ô½ôµÄÌùÔÚÑÒ±ÚÉÏ£¬Ë¿ºÁ²»¸ÒÀë¿ª°ë·Ö£¬¹ÈÖÐµÄº®·ç²»¶Ï
-ÇÖÏ®¶øÀ´£¬Äã²»½û´òÁË¸ö¶ßàÂ¡£
+ä½ çš„èº«å­ç´§ç´§çš„è´´åœ¨å²©å£ä¸Šï¼Œä¸æ¯«ä¸æ•¢ç¦»å¼€åŠåˆ†ï¼Œè°·ä¸­çš„å¯’é£Žä¸æ–­
+ä¾µè¢­è€Œæ¥ï¼Œä½ ä¸ç¦æ‰“äº†ä¸ªå“†å—¦ã€‚
 LONG);
 /*
         set("objects", ([ 
 	    __DIR__"obj/shizi" : 1,
         ]));
 */
-	set("outdoors", "áÔÉ½");
+	set("outdoors", "åµ©å±±");
 	setup();
 }
 
@@ -31,8 +31,8 @@ int do_down(string arg)
 	if (!present("song sheng",me))
 		return 0;
 	if (!arg && arg != "down")
-		return notify_fail("ÄãÒªÍùÄÄÀïÅÀ£¿\n");
-	message_vision("$NË³×ÅÉþ×Ó¼ÌÐøÏòÏÂÅÀÈ¥¡£\n",me);
+		return notify_fail("ä½ è¦å¾€å“ªé‡Œçˆ¬ï¼Ÿ\n");
+	message_vision("$Né¡ºç€ç»³å­ç»§ç»­å‘ä¸‹çˆ¬åŽ»ã€‚\n",me);
     me->move(__DIR__"gudi");
 	return 1;
 }

@@ -1,49 +1,49 @@
-// bingcan-duzhang.c  ±ù²Ï¶¾ÕÆ
+// bingcan-duzhang.c  å†°èš•æ¯’æŽŒ
 
 #include <ansi.h>
 
 inherit SKILL;
 
 mapping *action = ({
-([      "action": "$NÁ³ÉÏÂ¶³ö¹îÒìµÄÐ¦ÈÝ£¬Ë«ÕÆÐ¯Âúº®Ëª£¬ºáÉ¨$n",
+([      "action": "$Nè„¸ä¸Šéœ²å‡ºè¯¡å¼‚çš„ç¬‘å®¹ï¼ŒåŒæŽŒæºæ»¡å¯’éœœï¼Œæ¨ªæ‰«$n",
         "dodge" : 21,
         "attack": 79,
         "parry" : 37,
         "dmage" : 52,
         "force" : 430,
-        "damage_type": "ðöÉË"
+        "damage_type": "ç˜€ä¼¤"
 ]),
-([      "action": "$NÍ»È»ÉíÐÎÐý×ªÆðÀ´ÆËÏò$n£¬Ë«ÕÆ·ÉÎè×ÅÅÄÏò$nµÄ$l",
+([      "action": "$Nçªç„¶èº«å½¢æ—‹è½¬èµ·æ¥æ‰‘å‘$nï¼ŒåŒæŽŒé£žèˆžç€æ‹å‘$nçš„$l",
         "dodge" : 22,
         "attack": 96,
         "parry" : 34,
         "dmage" : 67,
         "force" : 490,
-        "damage_type": "ðöÉË"
+        "damage_type": "ç˜€ä¼¤"
 ]),
-([      "action": "$N½«±ù²Ïº®¶¾ÔËÖÁÓÒÊÖ£¬Òõ¶¾ÎÞ±ÈµØÅÄÏò$nµÄ$l",
+([      "action": "$Nå°†å†°èš•å¯’æ¯’è¿è‡³å³æ‰‹ï¼Œé˜´æ¯’æ— æ¯”åœ°æ‹å‘$nçš„$l",
         "dodge" : 24,
         "attack": 113,
         "parry" : 10,
         "dmage" : 82,
         "force" : 530,
-        "damage_type": "ðöÉË"
+        "damage_type": "ç˜€ä¼¤"
 ]),
-([      "action": "$N¹îÒìµÄÒ»Ð¦£¬Ë«ÕÆ´ø×ÅÁèÀ÷µÄº®ÆøÅÄÏò$nµÄ$l",
+([      "action": "$Nè¯¡å¼‚çš„ä¸€ç¬‘ï¼ŒåŒæŽŒå¸¦ç€å‡ŒåŽ‰çš„å¯’æ°”æ‹å‘$nçš„$l",
         "dodge" : 28,
         "attack": 139,
         "parry" : 36,
         "dmage" : 95,
         "force" : 580,
-        "damage_type": "ðöÉË"
+        "damage_type": "ç˜€ä¼¤"
 ]),
-([      "action": "$NÑöÌìÒ»Éù³¤Ð¥£¬¾Û¼¯È«ÉíµÄÁ¦Á¿»÷Ïò$n",
+([      "action": "$Nä»°å¤©ä¸€å£°é•¿å•¸ï¼Œèšé›†å…¨èº«çš„åŠ›é‡å‡»å‘$n",
         "dodge" : 27,
         "attack": 161,
         "parry" : 21,
         "dmage" : 105,
         "force" : 640,
-        "damage_type": "ðöÉË"
+        "damage_type": "ç˜€ä¼¤"
 ]),
 });
 
@@ -57,19 +57,19 @@ if ( this_player()->query("quest/bingcan/pass") )
 int valid_learn(object me)
 {
         if ((int)me->query_skill("yijinjing", 1) < 0)
-                return notify_fail("ÄãËùÐÞµÄÄÚ¹¦ÎÞ·¨Á·±ù²Ï¶¾ÕÆ¡£\n");
+                return notify_fail("ä½ æ‰€ä¿®çš„å†…åŠŸæ— æ³•ç»ƒå†°èš•æ¯’æŽŒã€‚\n");
 
         if ((int)me->query_skill("force") < 200)
-                return notify_fail("ÄãµÄÄÚ¹¦»ðºò²»¹»£¬ÎÞ·¨Á·±ù²Ï¶¾ÕÆ¡£\n");
+                return notify_fail("ä½ çš„å†…åŠŸç«å€™ä¸å¤Ÿï¼Œæ— æ³•ç»ƒå†°èš•æ¯’æŽŒã€‚\n");
 
         if ((int)me->query("max_neili") < 3000)
-                return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬ÎÞ·¨Á·±ù²Ï¶¾ÕÆ¡£");
+                return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œæ— æ³•ç»ƒå†°èš•æ¯’æŽŒã€‚");
 
         if ((int)me->query_skill("strike", 1) < (int)me->query_skill("bingcan-duzhang", 1))
-                return notify_fail("ÄãµÄ»ù±¾ÕÆ·¨Ë®Æ½ÓÐÏÞ£¬ÎÞ·¨Áì»á¸ü¸ßÉîµÄ±ù²Ï¶¾ÕÆ¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬æŽŒæ³•æ°´å¹³æœ‰é™ï¼Œæ— æ³•é¢†ä¼šæ›´é«˜æ·±çš„å†°èš•æ¯’æŽŒã€‚\n");
 
         if ((int)me->query_skill("yijinjing", 1) < (int)me->query_skill("bingcan-duzhang", 1))
-return notify_fail("ÄãµÄÉñ×ã¾­Éñ¹¦Ë®Æ½ÓÐÏÞ£¬ÎÞ·¨Áì»á¸ü¸ßÉîµÄ±ù²Ï¶¾ÕÆ¡£\n");
+return notify_fail("ä½ çš„ç¥žè¶³ç»ç¥žåŠŸæ°´å¹³æœ‰é™ï¼Œæ— æ³•é¢†ä¼šæ›´é«˜æ·±çš„å†°èš•æ¯’æŽŒã€‚\n");
 
         return 1;
 }
@@ -120,10 +120,10 @@ mapping query_action(object me)
 int practice_skill(object me)
 {
         if ((int)me->query("qi") < 40)
-                return notify_fail("ÄãµÄÌåÁ¦Ì«µÍÁË¡£\n");
+                return notify_fail("ä½ çš„ä½“åŠ›å¤ªä½Žäº†ã€‚\n");
 
         if ((int)me->query("neili") < 30)
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·±ù²Ï¶¾ÕÆ¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒå†°èš•æ¯’æŽŒã€‚\n");
 
         if (me->query_skill("bingcan-duzhang", 1) < 50){
                 me->receive_damage("jingli", 40);
@@ -137,7 +137,7 @@ int practice_skill(object me)
         return 1;
 }
 
-mixed hit_ob(object me, object victim, int damage)  // Ôö¼Óauto
+mixed hit_ob(object me, object victim, int damage)  // å¢žåŠ auto
 {
   
 
@@ -154,8 +154,8 @@ mixed hit_ob(object me, object victim, int damage)  // Ôö¼Óauto
               
                         if ( random(lvl) > 50 && random(me->query_dex()) > victim->query_dex()/4) 
           {
-                message_vision(BLU+BWHT "ÑÛ¼û$nÔ½Õ½Ô½ÓÂ£¬$NÈ´Ë¿ºÁ²»·ÅÔÚÐÄÉÏ£¬³é¿ÕÖ®¼äÆ½Æ½»Ó³öÒ»ÕÐ£¬\n"
-                                   "$n¼ûÀ´ÊÆ¹ÖÒì£¬ÕÆ·çÖÐ¾¹¼ÐÔÓ×ÅÆË±ÇµÄÐÈÆø£¬²»½û´òÁË¸öÀäÕ½¡£ \n"NOR,me,victim);
+                message_vision(BLU+BWHT "çœ¼è§$nè¶Šæˆ˜è¶Šå‹‡ï¼Œ$Nå´ä¸æ¯«ä¸æ”¾åœ¨å¿ƒä¸Šï¼ŒæŠ½ç©ºä¹‹é—´å¹³å¹³æŒ¥å‡ºä¸€æ‹›ï¼Œ\n"
+                                   "$nè§æ¥åŠ¿æ€ªå¼‚ï¼ŒæŽŒé£Žä¸­ç«Ÿå¤¹æ‚ç€æ‰‘é¼»çš„è…¥æ°”ï¼Œä¸ç¦æ‰“äº†ä¸ªå†·æˆ˜ã€‚ \n"NOR,me,victim);
                 if(userp(victim))
 {
 victim->start_busy(random(3));
@@ -174,8 +174,8 @@ victim->add_condition("cold_poison", 15);
 }
 else if (random(lvl) > 150 && random(me->query_str()) > victim->query_str())
 {
-                        message_vision(HIW "$N³Ã»úÌ¤²½ÉÏÇ°£¬Ïò$nÃæÃÅÇ°Ðé»ÎÒ»ÕÐ£¬$n»¹Î´µÖµ²£¬²»ÁÏºóÕÐÓÖÖÁ£¬ÕýÖÐ$nÐ¡¸¹¡£\n" NOR,me,victim);
-                        message_vision(WHT "$nÖ»¾õµ¤ÌïÖÐÕæÆøËÆ±»¶³½áÒ»°ã£¬ÎÞ·¨Äý¾Û£¬¶ÙÊ±³öÁËÒ»ÉíÀäº¹¡£\n" NOR,me,victim);
+                        message_vision(HIW "$Nè¶æœºè¸æ­¥ä¸Šå‰ï¼Œå‘$né¢é—¨å‰è™šæ™ƒä¸€æ‹›ï¼Œ$nè¿˜æœªæŠµæŒ¡ï¼Œä¸æ–™åŽæ‹›åˆè‡³ï¼Œæ­£ä¸­$nå°è…¹ã€‚\n" NOR,me,victim);
+                        message_vision(WHT "$nåªè§‰ä¸¹ç”°ä¸­çœŸæ°”ä¼¼è¢«å†»ç»“ä¸€èˆ¬ï¼Œæ— æ³•å‡èšï¼Œé¡¿æ—¶å‡ºäº†ä¸€èº«å†·æ±—ã€‚\n" NOR,me,victim);
  me->set_temp("bcdzauto", 1);
 if(userp(victim))
 {

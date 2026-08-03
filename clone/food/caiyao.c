@@ -5,49 +5,49 @@ inherit F_FOOD;
 #include <ansi.h>
 
 string *names = ({
-                HIY"ÂéÀ±¶ÇË¿"NOR,
-                HIY"ËÉÈÊÓñÃ×"NOR,
-                RED"Ã·²Ë¿ÛÈâ"NOR,
-                HIR"ÎåÏãÀ°³¦"NOR,
-                HIM"ÓãÏãÈâË¿"NOR,
-                HIY"ºìÓÍ¼¦Æ¬"NOR,
-                HIW"Çå³´ÏºÈÊ"NOR,
-                RED"Îå»¨ìËÈâ"NOR,
-                CYN"ÇàË¿Ñ¬Óã"NOR,
-                RED"ÌÇ´×ÅÅ¹Ç"NOR,
-                RED"¾©½´ÈâË¿"NOR,
-                YEL"ÓÍìÁ´óÏº"NOR,
-                HIY"´àÆ¤¿¾Ñ¼"NOR,
-                HIY"ºìÉÕËØ¶ì"NOR,
-                HIW"¹¬±£¼¦¶¡"NOR,
-                HIR"ºìÓÍ·ÎÆ¬"NOR,
-                MAG"ÄÛÙàÖí¸Î"NOR,
-                YEL"×ßÓÍ´à³¦"NOR,
-                RED"±¬³´Ñü»¨"NOR,
-                HIG"÷êÏã¶¬Ëñ"NOR,
-                HIW"ôä´ä¶¹¸¯"NOR,
-                HIW"ÂéÆÅ¶¹¸¯"NOR,
-                YEL"ÈýÏÊ¸¯Öñ"NOR,
-                RED"·¬ÇÑÑüÁø"NOR,
-                HIR"×¥³´Àï¼¹"NOR,
-                HIY"Æ¬Æ¤ÈéÖí"NOR,
-                HIY"¹ø°ÍÈâÆ¬"NOR,
-                HIC"ÁºÏª´à÷­"NOR,
-                HIR"¸ÉìÔÓÈÓã"NOR,
-                HIR"ÖØÇì»ð¹ø"NOR,
-                HIG"±ÌÂÝ´º¾í"NOR,
+                HIY"éº»è¾£è‚šä¸"NOR,
+                HIY"æ¾ä»çŽ‰ç±³"NOR,
+                RED"æ¢…èœæ‰£è‚‰"NOR,
+                HIR"äº”é¦™è…Šè‚ "NOR,
+                HIM"é±¼é¦™è‚‰ä¸"NOR,
+                HIY"çº¢æ²¹é¸¡ç‰‡"NOR,
+                HIW"æ¸…ç‚’è™¾ä»"NOR,
+                RED"äº”èŠ±ç„–è‚‰"NOR,
+                CYN"é’ä¸ç†é±¼"NOR,
+                RED"ç³–é†‹æŽ’éª¨"NOR,
+                RED"äº¬é…±è‚‰ä¸"NOR,
+                YEL"æ²¹ç‚å¤§è™¾"NOR,
+                HIY"è„†çš®çƒ¤é¸­"NOR,
+                HIY"çº¢çƒ§ç´ é¹…"NOR,
+                HIW"å®«ä¿é¸¡ä¸"NOR,
+                HIR"çº¢æ²¹è‚ºç‰‡"NOR,
+                MAG"å«©æ±†çŒªè‚"NOR,
+                YEL"èµ°æ²¹è„†è‚ "NOR,
+                RED"çˆ†ç‚’è…°èŠ±"NOR,
+                HIG"éºé¦™å†¬ç¬‹"NOR,
+                HIW"ç¿¡ç¿ è±†è…"NOR,
+                HIW"éº»å©†è±†è…"NOR,
+                YEL"ä¸‰é²œè…ç«¹"NOR,
+                RED"ç•ªèŒ„è…°æŸ³"NOR,
+                HIR"æŠ“ç‚’é‡Œè„Š"NOR,
+                HIY"ç‰‡çš®ä¹³çŒª"NOR,
+                HIY"é”…å·´è‚‰ç‰‡"NOR,
+                HIC"æ¢æºªè„†é³"NOR,
+                HIR"å¹²ç…¸å°¤é±¼"NOR,
+                HIR"é‡åº†ç«é”…"NOR,
+                HIG"ç¢§èžºæ˜¥å·"NOR,
 });
                 
 
 void create()
 {
-  set_name("¸÷Àà²ËëÈ", ({"cai yao", "cai", "food"}));
+  set_name("å„ç±»èœè‚´", ({"cai yao", "cai", "food"}));
   set_weight(100);
   if (clonep())
     set_default_object(__FILE__);
   else {
-    set("long", "Ò»ÅÌÁîÈË´¹ÏÑµÄ²ËëÈ¡£\n");
-    set("unit", "ÅÌ");
+    set("long", "ä¸€ç›˜ä»¤äººåž‚æ¶Žçš„èœè‚´ã€‚\n");
+    set("unit", "ç›˜");
     set("value", 200);
     set("food_remaining", 5);
     set("food_supply", 35);
@@ -56,7 +56,7 @@ void create()
 
 void init()
 {
-  if (query("name")=="¸÷Àà²ËëÈ")
+  if (query("name")=="å„ç±»èœè‚´")
     set_name(names[random(sizeof(names))], ({"cai yao","cai","food"}));
   ::init();
 }

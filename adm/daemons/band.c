@@ -62,11 +62,11 @@ void print()
 void add(string site)
 {
 	if (member_array(site, Sites) >= 0) {
-		write(site + " ÒÑ¾­±» ban ÁË¡£\n");
+		write(site + " å·²ç»è¢« ban äº†ã€‚\n");
 		return;
 	}
 	Sites += ({site});
-	write(site + " ±» ban ÁË¡£\n");
+	write(site + " è¢« ban äº†ã€‚\n");
 	write_file(BANNED_SITES, Sites[<1] + "\n");
 }
 
@@ -77,13 +77,13 @@ void del(string site)
         int i, tt = 0;
 
         if (file_size(BANNED_SITES) < 0) {
-                write(BANNED_SITES+"²»´æÔÚ,Ä¿Ç°Ã»ÓĞÕ¾µã±»½ûÖ¹.\n");
+                write(BANNED_SITES+"ä¸å­˜åœ¨,ç›®å‰æ²¡æœ‰ç«™ç‚¹è¢«ç¦æ­¢.\n");
                 return;
         }
         file = read_file(BANNED_SITES);
         file_info = explode(file,"\n");
         if (sizeof(file_info) < 1) {
-                write(BANNED_SITES+"²»´æÔÚ,Ä¿Ç°Ã»ÓĞÕ¾µã±»½ûÖ¹.\n");
+                write(BANNED_SITES+"ä¸å­˜åœ¨,ç›®å‰æ²¡æœ‰ç«™ç‚¹è¢«ç¦æ­¢.\n");
                 return;
         }
         for (i=0;i<sizeof(file_info);i++) {
@@ -94,13 +94,13 @@ void del(string site)
                 }
         }
         if (tt == 0) {
-                write(site + "²¢Ã»ÓĞ±»½ûÖ¹¡£\n");
+                write(site + "å¹¶æ²¡æœ‰è¢«ç¦æ­¢ã€‚\n");
                 return;
         }
 	Sites -= ({ site });
         rm(BANNED_SITES);
         for(i=0;i<sizeof(file_info);i++)
                 write_file(BANNED_SITES,file_info[i]+"\n");
-        write("Õ¾µã "+site+" ÒÑ¾­½â½û¡£\n");
+        write("ç«™ç‚¹ "+site+" å·²ç»è§£ç¦ã€‚\n");
         return;
 }

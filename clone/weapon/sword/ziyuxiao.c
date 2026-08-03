@@ -1,4 +1,4 @@
-// ziyuxiao.c ×ÏÓñóï
+// ziyuxiao.c ç´«ç‰ç®«
 #include <weapon.h>
 #include <ansi.h>
 
@@ -6,12 +6,12 @@ inherit SWORD;
 
 void create()
 {
-        set_name(MAG"×ÏÓñóï"NOR,({"ziyu xiao","xiao"}));
+        set_name(MAG"ç´«ç‰ç®«"NOR,({"ziyu xiao","xiao"}));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else{
-                set("unit","Ö§");
+                set("unit","æ”¯");
                 set("value",6000);
                 set("material","gem");
                 set("unique", 3);
@@ -20,9 +20,9 @@ void create()
                 set("wield_neili", 500);
                 set("wield_maxneili", 900);
                 set("weapon_prop/parry", 2);
-                set("long","ÕâÊÇÒ»Ö§¾§Ó¨ÌŞÍ¸µÄÓÃº±¼ûµÄ"MAG"×ÏÓñ"NOR"×öµÄóï£¬¿´ÆğÀ´Ê®·ÖÕä¹ó¡£\n");
-                set("wield_msg","$NÉìÊÖÇáÇáÒ»ÕĞ£¬Ò»Ö§$nÒÑ³öÏÖÔÚ$NÊÖÖĞ¡£\n");
-                set("unwield_msg","$NÒ»ÉùÇåĞ¥£¬½«$n²å»ØÑü¼ä¡£\n");
+                set("long","è¿™æ˜¯ä¸€æ”¯æ™¶è¹å‰”é€çš„ç”¨ç½•è§çš„"MAG"ç´«ç‰"NOR"åšçš„ç®«ï¼Œçœ‹èµ·æ¥ååˆ†çè´µã€‚\n");
+                set("wield_msg","$Nä¼¸æ‰‹è½»è½»ä¸€æ‹›ï¼Œä¸€æ”¯$nå·²å‡ºç°åœ¨$Næ‰‹ä¸­ã€‚\n");
+                set("unwield_msg","$Nä¸€å£°æ¸…å•¸ï¼Œå°†$næ’å›è…°é—´ã€‚\n");
         }
         init_sword(55);
         setup();
@@ -31,7 +31,7 @@ int wield()
 {
         object me = environment();
         if (living(me) && me->query_skill("yuxiao-jian", 1) < 100){
-            message_vision("$NÄÃÆğ"+name()+"£¬µ«ÊÇ²»»áÊ¹ÓÃ¡£\n", me);
+            message_vision("$Næ‹¿èµ·"+name()+"ï¼Œä½†æ˜¯ä¸ä¼šä½¿ç”¨ã€‚\n", me);
             return 0;
         }           
         if(!query("weapon_prop/damage")) return 0;

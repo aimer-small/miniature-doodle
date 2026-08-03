@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "Çå¶¼ÑşÌ¨");
+        set("short", "æ¸…éƒ½ç‘¶å°");
         set("long",@LONG
-ÓÉ´Ë¹ıÈ¥Ò»Â·¶¼ÊÇËéÊ¯Â·ÁË£¬ÕâÒ»´øÖ»×¼ËÂÄÚÉ®ÂÂ½øÈë£¬ÆäËüÈË
-µÈÈç¹ûÃ»ÓĞ·½ÕÉĞí¿ÉÊÇ²»¿ÉÒÔÀ´´ËµÄ¡£Ïò±±¿Éµ½ÎŞÎŞ¾³¡¢Óê»¨ÔºÔÄ¶Á
-¾­ÊéÎÄÏ×£¬Ïò¶«¿ÉÖÁ°ãÈôÌ¨Á·Ï°Îä¹¦£¬ÄÏÃæÊÇËÂÄÚµÄÒ©·¿¡£
+ç”±æ­¤è¿‡å»ä¸€è·¯éƒ½æ˜¯ç¢çŸ³è·¯äº†ï¼Œè¿™ä¸€å¸¦åªå‡†å¯ºå†…åƒ§ä¾£è¿›å…¥ï¼Œå…¶å®ƒäºº
+ç­‰å¦‚æœæ²¡æœ‰æ–¹ä¸ˆè®¸å¯æ˜¯ä¸å¯ä»¥æ¥æ­¤çš„ã€‚å‘åŒ—å¯åˆ°æ— æ— å¢ƒã€é›¨èŠ±é™¢é˜…è¯»
+ç»ä¹¦æ–‡çŒ®ï¼Œå‘ä¸œå¯è‡³èˆ¬è‹¥å°ç»ƒä¹ æ­¦åŠŸï¼Œå—é¢æ˜¯å¯ºå†…çš„è¯æˆ¿ã€‚
 LONG);
-        set("outdoors","ÌìÁúËÂ");
+        set("outdoors","å¤©é¾™å¯º");
         set("exits", ([
                 "northup": __DIR__"road2",
                 "eastup": __DIR__"banruo",
@@ -25,7 +25,7 @@ LONG);
    set("coor/z",30);
    setup();
 
-        create_door("west", "Ä¾ÃÅ", "east", DOOR_CLOSED);
+        create_door("west", "æœ¨é—¨", "east", DOOR_CLOSED);
 
 }
 int valid_leave(object me, string dir)
@@ -33,15 +33,15 @@ int valid_leave(object me, string dir)
 	mapping myfam;
         myfam = (mapping)me->query("family");
                      
-   if ((!myfam || myfam["family_name"] != "ÌìÁúËÂ") && objectp(present("liaoqing chanshi", environment(me)))
+   if ((!myfam || myfam["family_name"] != "å¤©é¾™å¯º") && objectp(present("liaoqing chanshi", environment(me)))
       &&(dir == "northup"||dir == "eastup"))
-            return notify_fail("ÁËÇåìøÊ¦°ÑÊÖÒ»Éì£¬À¹×¡ÁËÄãµÄÈ¥Â·£¬\n"+
-           "ËµµÀ£º°¢ÃÖÍÓ·ğ£¬Äã²»ÊÇÌìÁúËÂµÜ×Ó£¬²»µÃÈëºóËÂÈÅÂÒÇåĞŞ¡£\n");
+            return notify_fail("äº†æ¸…ç¦…å¸ˆæŠŠæ‰‹ä¸€ä¼¸ï¼Œæ‹¦ä½äº†ä½ çš„å»è·¯ï¼Œ\n"+
+           "è¯´é“ï¼šé˜¿å¼¥é™€ä½›ï¼Œä½ ä¸æ˜¯å¤©é¾™å¯ºå¼Ÿå­ï¼Œä¸å¾—å…¥åå¯ºæ‰°ä¹±æ¸…ä¿®ã€‚\n");
 
 if ( !me->query("tls") && objectp(present("liaoqing chanshi", environment(me)))
       &&(dir == "northup"||dir == "eastup"))
-            return notify_fail("ÁËÇåìøÊ¦°ÑÊÖÒ»Éì£¬À¹×¡ÁËÄãµÄÈ¥Â·£¬\n"+
-           "ËµµÀ£º°¢ÃÖÍÓ·ğ£¬Äã²»ÊÇÌìÁúËÂ³ö¼ÒµÜ×Ó£¬²»µÃÈëºóËÂÈÅÂÒÇåĞŞ¡£\n");
+            return notify_fail("äº†æ¸…ç¦…å¸ˆæŠŠæ‰‹ä¸€ä¼¸ï¼Œæ‹¦ä½äº†ä½ çš„å»è·¯ï¼Œ\n"+
+           "è¯´é“ï¼šé˜¿å¼¥é™€ä½›ï¼Œä½ ä¸æ˜¯å¤©é¾™å¯ºå‡ºå®¶å¼Ÿå­ï¼Œä¸å¾—å…¥åå¯ºæ‰°ä¹±æ¸…ä¿®ã€‚\n");
                         
         return ::valid_leave(me, dir);
 }

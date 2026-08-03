@@ -1,4 +1,4 @@
-//ºÚ·çÕ¯Ğ¡Â·
+//é»‘é£å¯¨å°è·¯
 
 #include <room.h>
 #include <ansi.h>
@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 {
-      set("short", "Ğ¡Â·"NOR);
+      set("short", "å°è·¯"NOR);
       set("long", @LONG
-ÕâÀï¾ÍÊÇÇ°Õ¯Í¨ÍùºóÕ¯µÄĞ¡Â·£¬Ò»¶Ó¶ÓµÄÑ²É½à¶†ª²àÉí×ß¹ı£¬¾¯ÌèµÄ´òÁ¿×ÅÖÜÎ§¡£
+è¿™é‡Œå°±æ˜¯å‰å¯¨é€šå¾€åå¯¨çš„å°è·¯ï¼Œä¸€é˜Ÿé˜Ÿçš„å·¡å±±å–½å•°ä¾§èº«èµ°è¿‡ï¼Œè­¦æƒ•çš„æ‰“é‡ç€å‘¨å›´ã€‚
 LONG);
-      set("outdoors","ºÚ·çÕ¯");
+      set("outdoors","é»‘é£å¯¨");
       set("exits", ([
             "westdown" : "/quest/hfz/qianzhai",
             "east" : "/quest/hfz/xiaolu2",
@@ -20,5 +20,5 @@ LONG);
       setup();
 //  replace_program(ROOM);
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

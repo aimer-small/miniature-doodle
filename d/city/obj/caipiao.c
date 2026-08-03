@@ -8,11 +8,11 @@ void mapping_sn(object);
 
 void create(object me,string arg)
 {
-        set_name(HIY "²ÊÆ±Áª" NOR, ({"cai piao","caipiao"}));
-        set("unit", "ÕÅ");
-        set("long", "ÕâÊÇÒ»Äú¹ºÂòµÄÃş²ÊÆ¾Ö¤£¬Äã¿ÉÒÔÔÚÉÏÃæ²é¿´(read)µ½ÄúËùÓĞ¹ºÂòµÄÅÅÁĞĞòºÅ¡£\n");
+        set_name(HIY "å½©ç¥¨è”" NOR, ({"cai piao","caipiao"}));
+        set("unit", "å¼ ");
+        set("long", "è¿™æ˜¯ä¸€æ‚¨è´­ä¹°çš„æ‘¸å½©å‡­è¯ï¼Œä½ å¯ä»¥åœ¨ä¸Šé¢æŸ¥çœ‹(read)åˆ°æ‚¨æ‰€æœ‰è´­ä¹°çš„æ’åˆ—åºå·ã€‚\n");
         set("value", 0);
-        set("no_drop","ÇëÓÃdrop [caipiao|cai piao]À´¶ªÆú!");
+        set("no_drop","è¯·ç”¨drop [caipiao|cai piao]æ¥ä¸¢å¼ƒ!");
         set("no_give",1);
         setup();
 }
@@ -31,13 +31,13 @@ int do_drop(string arg)
 {
      object me = this_player();
 
-     if(!arg) return notify_fail("ÄãÒªÈÔÊ²Ã´?\n");
+     if(!arg) return notify_fail("ä½ è¦ä»ä»€ä¹ˆ?\n");
 
      if(arg!="caipiao" && arg!="cai piao") return 0;
 
      me->delete("caipiao");
      me->delete("caipiao_id");
-     message_vision(HIC"$NËæÊÖÈÔµôÁËÒ»ÕÅ"+HIY+"²ÊÆ±Áª"+HIC+"!\n"NOR,me);
+     message_vision(HIC"$Néšæ‰‹ä»æ‰äº†ä¸€å¼ "+HIY+"å½©ç¥¨è”"+HIC+"!\n"NOR,me);
      destruct(present("cai piao", me));
 
     return 1;
@@ -51,10 +51,10 @@ void mapping_sn(object me)
 
     my_caipiao = me->query("caipiao");
     i = sizeof(me->query("caipiao"));
-    strSN = "Äú¹ºÂòÁËÒÔÏÂÅÅÁĞĞòºÅµÄ²ÊÆ±£º\n";
+    strSN = "æ‚¨è´­ä¹°äº†ä»¥ä¸‹æ’åˆ—åºå·çš„å½©ç¥¨ï¼š\n";
 
     for(k = 0;k<i;k++){
-        strSN += "µÚ"+chinese_number(k+1)+"ÕÅ£¬ĞòºÅ£º"+HIC+me->query("caipiao/µÚ"+chinese_number(k+1)+"ÕÅ/my_caipiao")+NOR+"  ¹ºÂò»õ±Ò£º"+HIY+me->query("caipiao/µÚ"+chinese_number(k+1)+"ÕÅ/huobi")+"\n"NOR;
+        strSN += "ç¬¬"+chinese_number(k+1)+"å¼ ï¼Œåºå·ï¼š"+HIC+me->query("caipiao/ç¬¬"+chinese_number(k+1)+"å¼ /my_caipiao")+NOR+"  è´­ä¹°è´§å¸ï¼š"+HIY+me->query("caipiao/ç¬¬"+chinese_number(k+1)+"å¼ /huobi")+"\n"NOR;
     }
 }
 
@@ -62,12 +62,12 @@ int do_check(string arg)
 {
     object me = this_player();
 
-    if(!arg) return notify_fail("ÄãÒª¿´Ê²Ã´?\n");
+    if(!arg) return notify_fail("ä½ è¦çœ‹ä»€ä¹ˆ?\n");
 
-    if(arg!="caipiao" && arg!="cai piao") return notify_fail("ÄãÒª¿´Ê²Ã´?\n");
+    if(arg!="caipiao" && arg!="cai piao") return notify_fail("ä½ è¦çœ‹ä»€ä¹ˆ?\n");
 
     if(!me->query("caipiao")){
-        message_vision("$N¿´ÁË¿´ÕâÕÅ²ÊÆ±£¬·¢ÏÖ²»ÊÇ×Ô¼ºÂòµÄ£¬ËæÊÖ¾ÍÈÔÔÚÁË½Ö±ß¡£\n",me);
+        message_vision("$Nçœ‹äº†çœ‹è¿™å¼ å½©ç¥¨ï¼Œå‘ç°ä¸æ˜¯è‡ªå·±ä¹°çš„ï¼Œéšæ‰‹å°±ä»åœ¨äº†è¡—è¾¹ã€‚\n",me);
         destruct(this_object());
         return 1;
     }

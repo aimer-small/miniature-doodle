@@ -4,12 +4,12 @@ void choose_mode(string arg, object me)
 	if( arg == "Q" || arg == "q" )    
 	{
 		command("shrug");
-		command("say Ö»ÊÇÈç´ËĞßÉ¬£¬ÄÄÀïÓĞ½­ºş¶ùÅ®µÄÈ÷ÍÑ¡£Ò²°Õ£¬ÎÒ½«ÕâÆìÉÏµÄÃû×Ö²ÁÈ¥¡£");
-		message_vision(HIY"\n$N×ßÉÏÇ°È¥£¬½«½õÆìÉÏÊéĞ´µÄÃû×Ö²ÁÈ¥¡£\n"NOR,this_object());
+		command("say åªæ˜¯å¦‚æ­¤ç¾æ¶©ï¼Œå“ªé‡Œæœ‰æ±Ÿæ¹–å„¿å¥³çš„æ´’è„±ã€‚ä¹Ÿç½¢ï¼Œæˆ‘å°†è¿™æ——ä¸Šçš„åå­—æ“¦å»ã€‚");
+		message_vision(HIY"\n$Nèµ°ä¸Šå‰å»ï¼Œå°†é”¦æ——ä¸Šä¹¦å†™çš„åå­—æ“¦å»ã€‚\n"NOR,this_object());
 		command("nod "+me->query("id"));
 		me->delete_temp("quest/bwzh");
 		init_over();
-		log_file("quest/zhaoqin",sprintf("%-8s%-10s È¡Ïû±ÈÎäÕĞÇ×choose_mode",me->query("name"),me->query("id")),me);
+		log_file("quest/zhaoqin",sprintf("%-8s%-10s å–æ¶ˆæ¯”æ­¦æ‹›äº²choose_mode",me->query("name"),me->query("id")),me);
 		return;
 	}
 	if(query("bwzh/exp")
@@ -21,23 +21,23 @@ void choose_mode(string arg, object me)
 		p=me->query("age")+query("bwzh/age");
 		if(p>80) p=80;
 		command("addoil "+me->query("id"));
-	   tell_object(me,HIW"ÄãÏÖÔÚĞÄÄ¿ÖĞµÄ·ò¾ıµÄÒªÇóÉèÖÃÈçÏÂ£º\n\n"NOR);
-	   tell_object(me,HIR"  1¡¢¡¾¾­Ñé¡¿×îµÍ¾­Ñé"+chinese_number(query("bwzh/exp"))+"Õ×¡£\n"NOR);
-	   tell_object(me,HIR"  2¡¢¡¾ÏàÃ²¡¿×îµÍÏàÃ²"+chinese_number(query("bwzh/per"))+"¡£\n"NOR);
-	   tell_object(me,HIR"  3¡¢¡¾ÄêÁä¡¿ÔÚ"+chinese_number(i)+"ËêºÍ"+chinese_number(p)+"ËêÖ®¼ä¡£\n"NOR); 
-	   tell_object(me,HIW"\nÈç¹ûÄãÍ¬Òâ£¬¿ÉÒÔÑ¡Ôñ£º\n"NOR);
-	   tell_object(me,WHT"£¨Y£©Í¬Òâ £¨R£©ÖØÑ¡ £¨Q£©È¡Ïû\n"NOR);
+	   tell_object(me,HIW"ä½ ç°åœ¨å¿ƒç›®ä¸­çš„å¤«å›çš„è¦æ±‚è®¾ç½®å¦‚ä¸‹ï¼š\n\n"NOR);
+	   tell_object(me,HIR"  1ã€ã€ç»éªŒã€‘æœ€ä½ç»éªŒ"+chinese_number(query("bwzh/exp"))+"å…†ã€‚\n"NOR);
+	   tell_object(me,HIR"  2ã€ã€ç›¸è²Œã€‘æœ€ä½ç›¸è²Œ"+chinese_number(query("bwzh/per"))+"ã€‚\n"NOR);
+	   tell_object(me,HIR"  3ã€ã€å¹´é¾„ã€‘åœ¨"+chinese_number(i)+"å²å’Œ"+chinese_number(p)+"å²ä¹‹é—´ã€‚\n"NOR); 
+	   tell_object(me,HIW"\nå¦‚æœä½ åŒæ„ï¼Œå¯ä»¥é€‰æ‹©ï¼š\n"NOR);
+	   tell_object(me,WHT"ï¼ˆYï¼‰åŒæ„ ï¼ˆRï¼‰é‡é€‰ ï¼ˆQï¼‰å–æ¶ˆ\n"NOR);
 	   input_to( (: choose_ok :), me );
 	   return;
 	}
 	if(arg != "1"  && arg != "2" && arg != "3") 
 	{
 	   command("? "+me->query("id"));
-	   tell_object(me,HIW"Äã¿ÉÒÔÔÚÅÔ±ß×¢Ã÷ÄãĞÄÄ¿ÖĞµÄ·ò¾ıµÄ²¿·ÖÒªÇó£º\n\n"NOR);
-	   if(!query("bwzh/exp")) tell_object(me,WHT"  1¡¢¡¾¾­Ñé¡¿"NOR);
-	   if(!query("bwzh/per")) tell_object(me,WHT"  2¡¢¡¾ÏàÃ²¡¿"NOR);
-	   if(!query("bwzh/age")) tell_object(me,WHT"  3¡¢¡¾ÄêÁä¡¿"NOR); 
-	   tell_object(me,HIW"\n\nÄã¿ÉÒÔÑ¡ÔñÊı×Ö£¬ÄãÒ²¿ÉÒÔQ¼üÈ¡Ïû¡£\n"NOR);
+	   tell_object(me,HIW"ä½ å¯ä»¥åœ¨æ—è¾¹æ³¨æ˜ä½ å¿ƒç›®ä¸­çš„å¤«å›çš„éƒ¨åˆ†è¦æ±‚ï¼š\n\n"NOR);
+	   if(!query("bwzh/exp")) tell_object(me,WHT"  1ã€ã€ç»éªŒã€‘"NOR);
+	   if(!query("bwzh/per")) tell_object(me,WHT"  2ã€ã€ç›¸è²Œã€‘"NOR);
+	   if(!query("bwzh/age")) tell_object(me,WHT"  3ã€ã€å¹´é¾„ã€‘"NOR); 
+	   tell_object(me,HIW"\n\nä½ å¯ä»¥é€‰æ‹©æ•°å­—ï¼Œä½ ä¹Ÿå¯ä»¥Qé”®å–æ¶ˆã€‚\n"NOR);
 	   input_to( (: choose_mode :), me );
 	   return;
 	}  
@@ -45,46 +45,46 @@ void choose_mode(string arg, object me)
 		|| (arg == "2" && query("bwzh/per"))
 		|| (arg == "3" && query("bwzh/age"))) 
 	{
-	   command("say ÕâÒ»Ïî£¬ÄãÒÑ¾­ÉèÖÃ½áÊø£¬Äã»¹ĞèÒªÉèÖÃÆäËû¼¸Ïî¡£");
+	   command("say è¿™ä¸€é¡¹ï¼Œä½ å·²ç»è®¾ç½®ç»“æŸï¼Œä½ è¿˜éœ€è¦è®¾ç½®å…¶ä»–å‡ é¡¹ã€‚");
 	   tell_object(me,"\n");
-	   if(!query("bwzh/exp")) tell_object(me,WHT"  1¡¢¡¾¾­Ñé¡¿"NOR);
-	   if(!query("bwzh/per")) tell_object(me,HIW"  2¡¢¡¾ÏàÃ²¡¿"NOR);
-	   if(!query("bwzh/age")) tell_object(me,HIW"  3¡¢¡¾ÄêÁä¡¿"NOR); 
-	   tell_object(me,HIW"\n\nÄã¿ÉÒÔÑ¡ÔñÊı×Ö£¬ÄãÒ²¿ÉÒÔQ¼üÈ¡Ïû¡£\n"NOR);
+	   if(!query("bwzh/exp")) tell_object(me,WHT"  1ã€ã€ç»éªŒã€‘"NOR);
+	   if(!query("bwzh/per")) tell_object(me,HIW"  2ã€ã€ç›¸è²Œã€‘"NOR);
+	   if(!query("bwzh/age")) tell_object(me,HIW"  3ã€ã€å¹´é¾„ã€‘"NOR); 
+	   tell_object(me,HIW"\n\nä½ å¯ä»¥é€‰æ‹©æ•°å­—ï¼Œä½ ä¹Ÿå¯ä»¥Qé”®å–æ¶ˆã€‚\n"NOR);
 	   input_to( (: choose_mode :), me );
 	   return;
 	}  
  	if(arg=="1")
 	{
 		if(me->query("combat_exp")>=1000000 )
-			command("say "HIC"Äã×Ô¼ºµÄ¾­ÑéÏÖÔÚ´óÔ¼"+chinese_number(me->query("combat_exp")/1000000)+"Õ×¡£");
-		else command("say "HIC"Äã×Ô¼ºµÄ¾­ÑéÏÖÔÚ»¹²»µ½Ò»Õ×¡£");
-		command("say "HIC"Äã½«ÊäÈëµÄÊıÖµ´ú±íÄãÒªÇóÄãµÄ·ò¾ıµÄ×îĞ¡¾­ÑéÖµ¡£");
-		command("say "HIC"×¢Òâµ¥Î»ÊÇM£¨1M=1000000£©£¬ÄãÒ²¿ÉÒÔQ¼üÈ¡Ïû¡£"NOR);
+			command("say "HIC"ä½ è‡ªå·±çš„ç»éªŒç°åœ¨å¤§çº¦"+chinese_number(me->query("combat_exp")/1000000)+"å…†ã€‚");
+		else command("say "HIC"ä½ è‡ªå·±çš„ç»éªŒç°åœ¨è¿˜ä¸åˆ°ä¸€å…†ã€‚");
+		command("say "HIC"ä½ å°†è¾“å…¥çš„æ•°å€¼ä»£è¡¨ä½ è¦æ±‚ä½ çš„å¤«å›çš„æœ€å°ç»éªŒå€¼ã€‚");
+		command("say "HIC"æ³¨æ„å•ä½æ˜¯Mï¼ˆ1M=1000000ï¼‰ï¼Œä½ ä¹Ÿå¯ä»¥Qé”®å–æ¶ˆã€‚"NOR);
 		input_to( (: choose_exp :), me );
 	}
 	else if(arg=="2")
 	{
-		command("say "HIC"Äã½«ÊäÈëµÄÊıÖµ´ú±íÄãÒªÇóÄãµÄ·ò¾ıµÄ×îĞ¡ÏàÃ²Öµ¡£");
-		command("say Ò»°ãÀ´ËµÏàÃ²ÈıÊ®µÄ£¬ÓñÊ÷ÁÙ·ç£¬·çÁ÷ÙÃÙÎ£¬¿°³Æ¾øÊÀÃÀÄĞ£¡");
-		command("say ÏàÃ²¶şÊ®×óÓÒ£¬ÊôÓÚÎå¹Ù¶ËÕı£¬ÏàÃ²Æ½Æ½¡£");
-		command("say ¶øÊ®ËÄ×óÓÒ£¬¾ÍÓĞµãÅ£ÑÛÂ¿´½£¬ÃæÄ¿ÕøÄü¡£");
+		command("say "HIC"ä½ å°†è¾“å…¥çš„æ•°å€¼ä»£è¡¨ä½ è¦æ±‚ä½ çš„å¤«å›çš„æœ€å°ç›¸è²Œå€¼ã€‚");
+		command("say ä¸€èˆ¬æ¥è¯´ç›¸è²Œä¸‰åçš„ï¼Œç‰æ ‘ä¸´é£ï¼Œé£æµå€œå‚¥ï¼Œå ªç§°ç»ä¸–ç¾ç”·ï¼");
+		command("say ç›¸è²ŒäºŒåå·¦å³ï¼Œå±äºäº”å®˜ç«¯æ­£ï¼Œç›¸è²Œå¹³å¹³ã€‚");
+		command("say è€Œåå››å·¦å³ï¼Œå°±æœ‰ç‚¹ç‰›çœ¼é©´å”‡ï¼Œé¢ç›®ç‹°ç‹ã€‚");
 		if(me->query("per")>=10)
-			command("say Äã×Ô¼ºµÄÏàÃ²Ó¦¸ÃÔÚ"+chinese_number((me->query("per")/10)*10)+"ÒÔÉÏ¡£");
-		else command("say Äã×Ô¼ºµÄÏàÃ²È·ÊµÒ»°ãÅ¶£¬ºÙºÙ¡£");
-		command("say "HIC"Äã×Ô¼º×ÃÇéÑ¡Ôñ£¬ÄãÒ²¿ÉÒÔQ¼üÈ¡Ïû¡£"NOR);
+			command("say ä½ è‡ªå·±çš„ç›¸è²Œåº”è¯¥åœ¨"+chinese_number((me->query("per")/10)*10)+"ä»¥ä¸Šã€‚");
+		else command("say ä½ è‡ªå·±çš„ç›¸è²Œç¡®å®ä¸€èˆ¬å“¦ï¼Œå˜¿å˜¿ã€‚");
+		command("say "HIC"ä½ è‡ªå·±é…Œæƒ…é€‰æ‹©ï¼Œä½ ä¹Ÿå¯ä»¥Qé”®å–æ¶ˆã€‚"NOR);
 		input_to( (: choose_per :), me );
 	}
 	else
 	{
-		command("say "HIC"Äã½«ÊäÈëµÄÊıÖµ´ú±íÄãÒªÇóÄãµÄ·ò¾ıµÄÄêÁäÓëÄãµÄÄêÁä²î¡£");
-		command("say "HIC"±ÈÈçÄãÊäÈëÊıÖµÎª¶şÊ®£¬¶øÄãÒÑ¾­"+chinese_number(me->query("age"))+"Ëê¡£"NOR);
-		command("say "HIC"Í¬Ê±×¢Òâ£¬ÕâÀïÒªÇó£ºÄêÁä×îµÍ²»µÃÊ®°ËËê£¬×î¸ß²»µÃ°ËÊ®Ëê¡£"NOR);
+		command("say "HIC"ä½ å°†è¾“å…¥çš„æ•°å€¼ä»£è¡¨ä½ è¦æ±‚ä½ çš„å¤«å›çš„å¹´é¾„ä¸ä½ çš„å¹´é¾„å·®ã€‚");
+		command("say "HIC"æ¯”å¦‚ä½ è¾“å…¥æ•°å€¼ä¸ºäºŒåï¼Œè€Œä½ å·²ç»"+chinese_number(me->query("age"))+"å²ã€‚"NOR);
+		command("say "HIC"åŒæ—¶æ³¨æ„ï¼Œè¿™é‡Œè¦æ±‚ï¼šå¹´é¾„æœ€ä½ä¸å¾—åå…«å²ï¼Œæœ€é«˜ä¸å¾—å…«åå²ã€‚"NOR);
 		i=me->query("age")-20;
 		if(i<18) i=18;
 		p=me->query("age")+20;
 		if(p>80) p=80;
-		command("say "HIC"ËùÒÔ£¬ÄãÊµ¼ÊÒªÇóÄã·ò¾ıÄêÁä¶Î£º"+chinese_number(i)+"Ëêµ½"+chinese_number(p)+"Ëê¡£"NOR);
+		command("say "HIC"æ‰€ä»¥ï¼Œä½ å®é™…è¦æ±‚ä½ å¤«å›å¹´é¾„æ®µï¼š"+chinese_number(i)+"å²åˆ°"+chinese_number(p)+"å²ã€‚"NOR);
 		command("hehe");
 		input_to( (: choose_age :), me );
 	}

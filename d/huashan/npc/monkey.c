@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("猴子", ({ "hou zi" , "monkey", "hou" }));
-	set("long","一个机灵的小猴子。\n");
+        set_name("鐚村瓙", ({ "hou zi" , "monkey", "hou" }));
+	set("long","涓�涓満鐏电殑灏忕尨瀛愩�俓n");
 
-	set("race", "野兽");
+	set("race", "閲庡吔");
 	set("age", 3);
 	set("attitude", "friendly");
 
@@ -18,7 +18,7 @@ void create()
 	set("str", 10);
 	set("cor", 50);
 
-	set("limbs", ({ "头部", "身体", "尾巴" }) );
+	set("limbs", ({ "澶撮儴", "韬綋", "灏惧反" }) );
 	set("verbs", ({ "bite" }) );
 
 	set_temp("apply/attack", 10);

@@ -26,7 +26,7 @@ private void more(string cmd, int line)
 			}
 			if (line > size) return;
 	}
-	write(sprintf(SAVEC+"== »¹Ê£ "HIY"%*d"NOR" ĞĞ == (ENTER ¼ÌĞøÏÂÒ»Ò³£¬q Àë¿ª£¬b Ç°Ò»Ò³)"+ESC+"[A",
+	write(sprintf(SAVEC+"== è¿˜å‰© "HIY"%*d"NOR" è¡Œ == (ENTER ç»§ç»­ä¸‹ä¸€é¡µï¼Œq ç¦»å¼€ï¼Œb å‰ä¸€é¡µ)"+ESC+"[A",
 		width, size - line + 1)
 	);
 	input_to((:more:), 3, line);

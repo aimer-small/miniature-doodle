@@ -1,4 +1,4 @@
-// r_jiasha.c ºìÉ«ôÂôÄ
+// r_jiasha.c çº¢è‰²è¢ˆè£Ÿ
 
 #include <armor.h>
  
@@ -7,12 +7,12 @@ inherit CLOTH;
 
 void create()
 {
-        set_name("ÇàÉ«ôÂôÄ",({"jiasha", "jia sha","cloth"}));
+        set_name("é’è‰²è¢ˆè£Ÿ",({"jiasha", "jia sha","cloth"}));
         set_weight(5000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 30);
                 set("value",100);

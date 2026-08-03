@@ -6,11 +6,11 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
    
-      tell_object(me, HIR "ÄãÖ»¾õµ¤ÌïÈç±»»ğÖË£¬ÄÚÁ¦ÂÒÁ÷£¬ÉÕµÃÄãÕû¸öÉí×Ó·¢ÌÌ£¡\n" NOR );
-      tell_room(environment(me), HIR + me->name()+"Í»È»´ó½ĞÒ»Éù£¬Á½ÑÛ·­°×£¬Ë¤µ¹ÔÚµØ²»×¡µØ°§ºÅ£¡\n" NOR,
+      tell_object(me, HIR "ä½ åªè§‰ä¸¹ç”°å¦‚è¢«ç«ç‚™ï¼Œå†…åŠ›ä¹±æµï¼Œçƒ§å¾—ä½ æ•´ä¸ªèº«å­å‘çƒ«ï¼\n" NOR );
+      tell_room(environment(me), HIR + me->name()+"çªç„¶å¤§å«ä¸€å£°ï¼Œä¸¤çœ¼ç¿»ç™½ï¼Œæ‘”å€’åœ¨åœ°ä¸ä½åœ°å“€å·ï¼\n" NOR,
                 ({ me }));     
       if( me->query("max_neili", 1) < 1 ) {
-                me->set_temp("last_damage_from", "±»»¯¹¦´ó·¨»¯¾¡µ¤Ôª");
+                me->set_temp("last_damage_from", "è¢«åŒ–åŠŸå¤§æ³•åŒ–å°½ä¸¹å…ƒ");
                 me->die();
                 return 0;
         }

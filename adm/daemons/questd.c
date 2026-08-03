@@ -1,47 +1,47 @@
 //Create by lsxk@hsbbs 2007/8/20
-//·½±ãQuestµ÷ÓÃÅĞ¶Ï,Áô¸öºóÃÅ¡£grin
-//Update by lsxk Ôö¼ÓÌì¸³Ó°ÏìĞ§¹û£º  2008/4/16
+//æ–¹ä¾¿Questè°ƒç”¨åˆ¤æ–­,ç•™ä¸ªåé—¨ã€‚grin
+//Update by lsxk å¢åŠ å¤©èµ‹å½±å“æ•ˆæœï¼š  2008/4/16
 /*
-Ê¹ÓÃ·½·¨½éÉÜ£º
-1¡¢Ö÷³ÌĞòµ÷ÓÃ¡£·ûºÏÌõ¼şÔò·µ»Ø1£¬·ñÔò·µ»Ø0.
-QUEST_D->questing(ÈËÎï,ÄÑ¶ÈÏµÊı,vipÄÑ¶Èµ÷ÕûÏµÊı,¼ÆËãÔ´)
-¼ÆËãÔ´£ºÈÃ³ÌĞòÓÃÄÄ¸öÊıÖµÈ¥½øĞĞ¼ÆËã¡£ÓĞ4ÖÖÑ¡Ôñ£º
-"KAR"-----Ö»Ñ¡Ôñµ±Ç°ÈËÎïµÄ¸£ÔµÈ¥¼ÆËã¡£
-"PUR"-----Ö»Ñ¡Ôñµ±Ç°ÈËÎïµÄ´¾ÆËÈ¥¼ÆËã¡£
-"BOTH"----Ñ¡Ôñµ±Ç°ÈÎÎñµÄ¸£ÔµÓë´¾ÆÓµÄºÍÈ¥¼ÆËã¡£
-  1  -----Ñ¡ÔñÖ±½ÓÓÃ²ÎÊıÖĞµÄ¡°ÄÑ¶ÈÏµÊı¡±È¥¼ÆËã¡£
-Èç¹ûÑ¡Ôñ"KAR","PUR","BOTH",¼ÆËã¹«Ê½Îª£º
-random(¼ÆËãÔ´)>ÄÑ¶ÈÏµÊı?:1:0
-ÌØÊâÍæ¼Ò£¬Ôò:random(¼ÆËãÔ´)>(ÄÑ¶ÈÏµÊı-vipÄÑ¶Èµ÷ÕûÏµÊı)?:1:0
-Èç¹û¼ÆËãÔ´´«µİµÄÊÇÊıÖµ1£¬Ôò¼ÆËã¹«Ê½Îª£º
-ÌØÊâÍæ¼Ò£¬Ôò!random(ÄÑ¶ÈÏµÊı-vipÄÑ¶Èµ÷ÕûÏµÊı)?:1:0
-2¡¢ÌØÊâÍæ¼ÒÉè¶¨:
-×Ü¹²Á½ÖÖÌØÊâÍæ¼Ò£º
-deny_quest_player----Ö»ÒªÔÚÕâ¸ö×éÀïµÄid,·µ»ØµÄÖµ¾ÍÊÇ0,²»½øĞĞÈÎ
-ºÎÅĞ¶Ï¡£
-vip_quest_player-----ÔÚÕâ¸ö×éÀïµÄÈË£¬²Å»áÓÃ¡°vipÄÑ¶Èµ÷ÕûÏµÊı¡±
-È¥×öÄÑ¶Èµ÷½Ú¡£
-Á½ÖÖ·½Ê½Éè¶¨£º
-A:ÔÚ/adm/daemons/questd.cÀï£¬µÄvip_quest_playerÊı×éÀï¼ÓÉÏplayer
-µÄid, »òÕßdeny_quest_playerÊı×éÀï¼ÓÉÏid. update¸üĞÂ¼´¿ÉÓÀ¾ÃÉúĞ§.
-B:ÓÃº¯Êıµ÷ÓÃÌí¼Ó£º
-QUEST_D->add_quest_player(ÈËÎï£¬"DENY")--½«ÈËÎïÁÙÊ±Ìí¼Óµ½deny×éÀï
-QUEST_D->add_quest_player(ÈËÎï£¬"VIP")---½«ÈËÎïÁÙÊ±Ìí¼Óµ½vip×éÀï
-QUEST_D->delete_quest_player(ÈËÎï£¬"DENY")--½«ÈËÎïÁÙÊ±´Ódeny×éÀïÉ¾³ı
-QUEST_D->delete_quest_player(ÈËÎï£¬"VIP")--½«ÈËÎïÁÙÊ±´Óvip×éÀïÉ¾³ı
+ä½¿ç”¨æ–¹æ³•ä»‹ç»ï¼š
+1ã€ä¸»ç¨‹åºè°ƒç”¨ã€‚ç¬¦åˆæ¡ä»¶åˆ™è¿”å›1ï¼Œå¦åˆ™è¿”å›0.
+QUEST_D->questing(äººç‰©,éš¾åº¦ç³»æ•°,vipéš¾åº¦è°ƒæ•´ç³»æ•°,è®¡ç®—æº)
+è®¡ç®—æºï¼šè®©ç¨‹åºç”¨å“ªä¸ªæ•°å€¼å»è¿›è¡Œè®¡ç®—ã€‚æœ‰4ç§é€‰æ‹©ï¼š
+"KAR"-----åªé€‰æ‹©å½“å‰äººç‰©çš„ç¦ç¼˜å»è®¡ç®—ã€‚
+"PUR"-----åªé€‰æ‹©å½“å‰äººç‰©çš„æ·³æ‰‘å»è®¡ç®—ã€‚
+"BOTH"----é€‰æ‹©å½“å‰ä»»åŠ¡çš„ç¦ç¼˜ä¸æ·³æœ´çš„å’Œå»è®¡ç®—ã€‚
+  1  -----é€‰æ‹©ç›´æ¥ç”¨å‚æ•°ä¸­çš„â€œéš¾åº¦ç³»æ•°â€å»è®¡ç®—ã€‚
+å¦‚æœé€‰æ‹©"KAR","PUR","BOTH",è®¡ç®—å…¬å¼ä¸ºï¼š
+random(è®¡ç®—æº)>éš¾åº¦ç³»æ•°?:1:0
+ç‰¹æ®Šç©å®¶ï¼Œåˆ™:random(è®¡ç®—æº)>(éš¾åº¦ç³»æ•°-vipéš¾åº¦è°ƒæ•´ç³»æ•°)?:1:0
+å¦‚æœè®¡ç®—æºä¼ é€’çš„æ˜¯æ•°å€¼1ï¼Œåˆ™è®¡ç®—å…¬å¼ä¸ºï¼š
+ç‰¹æ®Šç©å®¶ï¼Œåˆ™!random(éš¾åº¦ç³»æ•°-vipéš¾åº¦è°ƒæ•´ç³»æ•°)?:1:0
+2ã€ç‰¹æ®Šç©å®¶è®¾å®š:
+æ€»å…±ä¸¤ç§ç‰¹æ®Šç©å®¶ï¼š
+deny_quest_player----åªè¦åœ¨è¿™ä¸ªç»„é‡Œçš„id,è¿”å›çš„å€¼å°±æ˜¯0,ä¸è¿›è¡Œä»»
+ä½•åˆ¤æ–­ã€‚
+vip_quest_player-----åœ¨è¿™ä¸ªç»„é‡Œçš„äººï¼Œæ‰ä¼šç”¨â€œvipéš¾åº¦è°ƒæ•´ç³»æ•°â€
+å»åšéš¾åº¦è°ƒèŠ‚ã€‚
+ä¸¤ç§æ–¹å¼è®¾å®šï¼š
+A:åœ¨/adm/daemons/questd.cé‡Œï¼Œçš„vip_quest_playeræ•°ç»„é‡ŒåŠ ä¸Šplayer
+çš„id, æˆ–è€…deny_quest_playeræ•°ç»„é‡ŒåŠ ä¸Šid. updateæ›´æ–°å³å¯æ°¸ä¹…ç”Ÿæ•ˆ.
+B:ç”¨å‡½æ•°è°ƒç”¨æ·»åŠ ï¼š
+QUEST_D->add_quest_player(äººç‰©ï¼Œ"DENY")--å°†äººç‰©ä¸´æ—¶æ·»åŠ åˆ°denyç»„é‡Œ
+QUEST_D->add_quest_player(äººç‰©ï¼Œ"VIP")---å°†äººç‰©ä¸´æ—¶æ·»åŠ åˆ°vipç»„é‡Œ
+QUEST_D->delete_quest_player(äººç‰©ï¼Œ"DENY")--å°†äººç‰©ä¸´æ—¶ä»denyç»„é‡Œåˆ é™¤
+QUEST_D->delete_quest_player(äººç‰©ï¼Œ"VIP")--å°†äººç‰©ä¸´æ—¶ä»vipç»„é‡Œåˆ é™¤
 */
 
 private int calc_quest(object, int, int, int);
 
-//¾Ü¾ø½âquestÍæ¼ÒÁĞ±í£¬³Í·£¶ñÒâµ·ÂÒµÄÈË¡£grin
+//æ‹’ç»è§£questç©å®¶åˆ—è¡¨ï¼Œæƒ©ç½šæ¶æ„æ£ä¹±çš„äººã€‚grin
 string *deny_quest_player = ({ });
 
 //string *deny_quest_player = ({"zmud",});
 
-//ÒÔÏÂÁĞ±íÖĞµÄplayer½«Ìá¸ßÒ»¶¨½âquest³É¹¦ÂÊ£¬¼¸ÂÊÓÉ´«µİµÄ²ÎÊı¾ö¶¨¡£
+//ä»¥ä¸‹åˆ—è¡¨ä¸­çš„playerå°†æé«˜ä¸€å®šè§£questæˆåŠŸç‡ï¼Œå‡ ç‡ç”±ä¼ é€’çš„å‚æ•°å†³å®šã€‚
 string *vip_quest_player = ({"zmud", });
 
-//Ìí¼Ó¸Ãplayerµ½ÏàÓ¦µÄÊı×éÖĞ¡£ÓÉarg¿ØÖÆµ½deny»¹ÊÇvip.
+//æ·»åŠ è¯¥playeråˆ°ç›¸åº”çš„æ•°ç»„ä¸­ã€‚ç”±argæ§åˆ¶åˆ°denyè¿˜æ˜¯vip.
 void add_quest_player(object ob, string arg)
 {
     int i;
@@ -62,7 +62,7 @@ void add_quest_player(object ob, string arg)
     return;
 }
 
-//´ÓÊı×éÖĞÉ¾³ı¸Ãplayer¡£ÓÉarg¿ØÖÆµ½deny»¹ÊÇvip.
+//ä»æ•°ç»„ä¸­åˆ é™¤è¯¥playerã€‚ç”±argæ§åˆ¶åˆ°denyè¿˜æ˜¯vip.
 void delete_quest_player(object ob, string arg)
 {
     if(arg=="DENY"){
@@ -74,7 +74,7 @@ void delete_quest_player(object ob, string arg)
     return;
 }
 
-//Íâ²¿µ÷ÓÃ½Ó¿Ú
+//å¤–éƒ¨è°ƒç”¨æ¥å£
 int questing(object me, int level, int rlvl, string arg)
 {
     int i, mboth;
@@ -83,14 +83,14 @@ int questing(object me, int level, int rlvl, string arg)
             if(me->query("id")==deny_quest_player[i])
                 return 0;
 
-  /*ÆäÖĞlevelÊÇÄÑ¶Èµ÷½Ú,rlvlÊÇÕë¶ÔvipµÄÄÑ¶ÈÎ¢µ÷,levelÎª0Ôò·µ»Ø¼ÙÖµ,Îª
-    1Ôò·µ»ØÕæÖµ,ÆäËûÊı×ÖÔò·µ»Ø¡°1/Êı×Ö¡±µÄ¸ÅÂÊÎªÕæÖµ,Èô·ÇÊı×Ö,Ôò·µ»Ø¼Ù.*/
+  /*å…¶ä¸­levelæ˜¯éš¾åº¦è°ƒèŠ‚,rlvlæ˜¯é’ˆå¯¹vipçš„éš¾åº¦å¾®è°ƒ,levelä¸º0åˆ™è¿”å›å‡å€¼,ä¸º
+    1åˆ™è¿”å›çœŸå€¼,å…¶ä»–æ•°å­—åˆ™è¿”å›â€œ1/æ•°å­—â€çš„æ¦‚ç‡ä¸ºçœŸå€¼,è‹¥éæ•°å­—,åˆ™è¿”å›å‡.*/
     if(level<=0) return 0;
     if(level==1) return 1;
 //    if(typeof(level)!=2) return 0;
     if(!objectp(me)) return 0;
 
-       //tagÎªÓÃÄÄÖÖ²ÎÊı½øĞĞ¼ÆËãµÄ±êÖ¾¡£
+       //tagä¸ºç”¨å“ªç§å‚æ•°è¿›è¡Œè®¡ç®—çš„æ ‡å¿—ã€‚
         if(arg=="KAR")
             return calc_quest(me,me->query("kar"),level,rlvl);
         else if (arg=="PUR")
@@ -109,9 +109,9 @@ private int calc_quest(object me, int i, int level, int rlvl)
 {
     int j;
 
-  //Èç¹ûiÊÇ0£¬ÔòÖ»¶Ôlevel½øĞĞÅĞ¶Ï¡£
+  //å¦‚æœiæ˜¯0ï¼Œåˆ™åªå¯¹levelè¿›è¡Œåˆ¤æ–­ã€‚
     if(!i){
-        //Ìì¸³¡°Ì½ÏÕÆæÈË¡±Ó°ÏìĞ§¹û£º  by lsxk@hsbbs 2008/3/16
+        //å¤©èµ‹â€œæ¢é™©å¥‡äººâ€å½±å“æ•ˆæœï¼š  by lsxk@hsbbs 2008/3/16
         if(me->query("relife/quest/txqr"))
             level -= level * (int)me->query("relife/quest/txqr",1) / 100;
         
@@ -120,7 +120,7 @@ private int calc_quest(object me, int i, int level, int rlvl)
         for(j=0;j<sizeof(vip_quest_player);j++)
             if(me->query("id")==vip_quest_player[j])
             {
-                //Ìì¸³¡°Ì½ÏÕ×¨¼Ò¡±Ó°ÏìĞ§¹û£º  by lsxk@hsbbs 2008/3/16
+                //å¤©èµ‹â€œæ¢é™©ä¸“å®¶â€å½±å“æ•ˆæœï¼š  by lsxk@hsbbs 2008/3/16
                 if(me->query("relife/quest/txzj") && (random(100) < (int)me->query("relife/quest/txzj",1) * 2)){
                     if(!(!random(level-rlvl)?1:0))
                         return !random(level-rlvl)?1:0;
@@ -128,7 +128,7 @@ private int calc_quest(object me, int i, int level, int rlvl)
                     }
                 return !random(level-rlvl)?1:0;
             }
-        //Ìì¸³¡°Ì½ÏÕ×¨¼Ò¡±Ó°ÏìĞ§¹û£º  by lsxk@hsbbs 2008/3/16
+        //å¤©èµ‹â€œæ¢é™©ä¸“å®¶â€å½±å“æ•ˆæœï¼š  by lsxk@hsbbs 2008/3/16
         if(me->query("relife/quest/txzj") && (random(100) < (int)me->query("relife/quest/txzj",1) * 2)){
             if(!(!random(level)?1:0))
                 return !random(level)?1:0;
@@ -136,9 +136,9 @@ private int calc_quest(object me, int i, int level, int rlvl)
             }
         return !random(level)?1:0;
     }
-  //Èç¹ûi²»Îª0,ÔòÅĞ¶Ïrandom(i)>level£¬²Å·µ»Ø1
+  //å¦‚æœiä¸ä¸º0,åˆ™åˆ¤æ–­random(i)>levelï¼Œæ‰è¿”å›1
     else{
-        //Ìì¸³¡°Ì½ÏÕÆæÈË¡±Ó°ÏìĞ§¹û£º  by lsxk@hsbbs 2008/3/16
+        //å¤©èµ‹â€œæ¢é™©å¥‡äººâ€å½±å“æ•ˆæœï¼š  by lsxk@hsbbs 2008/3/16
         if(me->query("relife/quest/txqr"))
             level -= i * (int)me->query("relife/quest/txqr",1) / 100;
 
@@ -147,7 +147,7 @@ private int calc_quest(object me, int i, int level, int rlvl)
         for(j=0;j<sizeof(vip_quest_player);j++)
             if(me->query("id")==vip_quest_player[j])
             {
-                //Ìì¸³¡°Ì½ÏÕ×¨¼Ò¡±Ó°ÏìĞ§¹û£º  by lsxk@hsbbs 2008/3/16
+                //å¤©èµ‹â€œæ¢é™©ä¸“å®¶â€å½±å“æ•ˆæœï¼š  by lsxk@hsbbs 2008/3/16
                 if(me->query("relife/quest/txzj") && (random(100) < (int)me->query("relife/quest/txzj",1) * 2)){
                 if(!((random(i)>(level-rlvl))?1:0))
                     return (random(i)>(level-rlvl))?1:0;
@@ -155,7 +155,7 @@ private int calc_quest(object me, int i, int level, int rlvl)
                 }
                 return (random(i)>(level-rlvl))?1:0;
             }
-            //Ìì¸³¡°Ì½ÏÕ×¨¼Ò¡±Ó°ÏìĞ§¹û£º  by lsxk@hsbbs 2008/3/16
+            //å¤©èµ‹â€œæ¢é™©ä¸“å®¶â€å½±å“æ•ˆæœï¼š  by lsxk@hsbbs 2008/3/16
             if(me->query("relife/quest/txzj") && (random(100) < (int)me->query("relife/quest/txzj",1) * 2)){
                 if(!((random(i)>level)?1:0))
                     return (random(i)>level)?1:0;

@@ -3,17 +3,17 @@
 
 #include <ansi.h>
 inherit ROOM;
-#define QUESTDIR3 "quest/ÌìÁú°Ë²¿/Ïô·åÉíÊÀÆª/"
-#define QUESTDIR5 "quest/ÌìÁú°Ë²¿/¸´ĞËÌìÏÂÆª/"
+#define QUESTDIR3 "quest/å¤©é¾™å…«éƒ¨/è§å³°èº«ä¸–ç¯‡/"
+#define QUESTDIR5 "quest/å¤©é¾™å…«éƒ¨/å¤å…´å¤©ä¸‹ç¯‡/"
 void create()
 {
-    set("short", BLU"Ê¯·»"NOR);
+    set("short", BLU"çŸ³åŠ"NOR);
     set("long", 
-"Ò»¸ö¾Ş´óµÄÅÆ·»ºá¼ÜÔÚÁ½Æ¬É½±ÚÖ®¼ä£¬ÅÆ·»ÕıÉÏ·½¿Ì×ÅÁù¸ö¶·´óµÄ½ğ×Ö£º\n"
-"\n\t\t\t¡º"HIY"ÌìÏÂµÚÒ»ÃûÉ²"NOR"¡»\n\n"+
-"×Ö¼£ÓĞĞ©°şÂä£¬¿´ÉÏÈ¥Äê´úÆÄÎª¾ÃÔ¶ÁË¡£Ç°·½ÊÇÒ»Æ«ºÜ´óµÄ¹ã³¡£¬Õ¾ÂúÁËÇ°À´\n"+
-"½øÏãµÄÏã¿ÍºÍÒ»Ğ©½­ºşÉÏµÄºÀÊ¿¡£ÏóÕ÷×ÅÉÙÁÖËÂµÄÉ½ÃÅµî£¬¾Í´£Á¢ÔÚ¹ã³¡µÄÁí\n"+
-"Ò»²à¡£\n"
+"ä¸€ä¸ªå·¨å¤§çš„ç‰ŒåŠæ¨ªæ¶åœ¨ä¸¤ç‰‡å±±å£ä¹‹é—´ï¼Œç‰ŒåŠæ­£ä¸Šæ–¹åˆ»ç€å…­ä¸ªæ–—å¤§çš„é‡‘å­—ï¼š\n"
+"\n\t\t\tã€"HIY"å¤©ä¸‹ç¬¬ä¸€ååˆ¹"NOR"ã€\n\n"+
+"å­—è¿¹æœ‰äº›å‰¥è½ï¼Œçœ‹ä¸Šå»å¹´ä»£é¢‡ä¸ºä¹…è¿œäº†ã€‚å‰æ–¹æ˜¯ä¸€åå¾ˆå¤§çš„å¹¿åœºï¼Œç«™æ»¡äº†å‰æ¥\n"+
+"è¿›é¦™çš„é¦™å®¢å’Œä¸€äº›æ±Ÿæ¹–ä¸Šçš„è±ªå£«ã€‚è±¡å¾ç€å°‘æ—å¯ºçš„å±±é—¨æ®¿ï¼Œå°±çŸ—ç«‹åœ¨å¹¿åœºçš„å¦\n"+
+"ä¸€ä¾§ã€‚\n"
     );
 
 	set("exits", ([
@@ -30,7 +30,7 @@ void init()
 	object me = this_player();
 	
 	if ( me->query("sl_job")){
-		me->add("job_time/ÉÙÁÖ", me->query("sl_job"));
+		me->add("job_time/å°‘æ—", me->query("sl_job"));
 		me->delete("sl_job");
 	}
 }
@@ -38,10 +38,10 @@ int valid_leave(object me, string dir)
 {
   if(dir == "south" && me->query(QUESTDIR3+"bad") && me->query_temp(QUESTDIR5+"zhangxing") && !me->query_temp(QUESTDIR5+"zhenfa"))
   {
-   tell_object(me,HIC"\nÄã¸ÕÒª×¼±¸Àë¿ªÉÙÁÖËÂ¡£Í»È»Ò»ÄÏÒ»±±Á½¸öÈËÓ°·É±¼¶øÀ´£¬¾¹È»ÊÇÉÙÁÖÎŞÃûÉ®ºÍÔø¾­Ò»Õ½µÄØ¤°ïÏô·å¡£\n"NOR); 
+   tell_object(me,HIC"\nä½ åˆšè¦å‡†å¤‡ç¦»å¼€å°‘æ—å¯ºã€‚çªç„¶ä¸€å—ä¸€åŒ—ä¸¤ä¸ªäººå½±é£å¥”è€Œæ¥ï¼Œç«Ÿç„¶æ˜¯å°‘æ—æ— ååƒ§å’Œæ›¾ç»ä¸€æˆ˜çš„ä¸å¸®è§å³°ã€‚\n"NOR); 
    me->move("/d/shaolin/shifang_copy");
-   log_file("quest/TLBB", sprintf("%s(%s)¸´ĞËÌìÏÂ×îºóÒ»Õ½¿ªÊ¼¡£¾­Ñé£º%d¡£\n", me->name(1),me->query("id"), me->query("combat_exp")) );
-   return notify_fail(HIR"¿´À´ÕâÒ»Õ½£¬ÊµÔÚÄÑÃâÁË¡£\n"NOR);
+   log_file("quest/TLBB", sprintf("%s(%s)å¤å…´å¤©ä¸‹æœ€åä¸€æˆ˜å¼€å§‹ã€‚ç»éªŒï¼š%dã€‚\n", me->name(1),me->query("id"), me->query("combat_exp")) );
+   return notify_fail(HIR"çœ‹æ¥è¿™ä¸€æˆ˜ï¼Œå®åœ¨éš¾å…äº†ã€‚\n"NOR);
   }
 	return ::valid_leave(me, dir);
 }

@@ -1,4 +1,4 @@
-// OBJ : /d/wudang/obj/cloth.c Çà²¼»¨È¹
+// OBJ : /d/wudang/obj/cloth.c é’å¸ƒèŠ±è£™
 // By lius 99/8
 #include <armor.h>
 
@@ -6,13 +6,13 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("Çà²¼»¨È¹", ({"cloth", "huaqun"}) );
+	set_name("é’å¸ƒèŠ±è£™", ({"cloth", "huaqun"}) );
     set_weight(3000);
     if( clonep() )
        set_default_object(__FILE__);
     else {
-        set("unit", "¼ş");
-		set("long", "Ò»¼şÆÕÍ¨µÄÇà²¼Ëù×ö»¨È¹¡£\n");
+        set("unit", "ä»¶");
+		set("long", "ä¸€ä»¶æ™®é€šçš„é’å¸ƒæ‰€åšèŠ±è£™ã€‚\n");
         set("material", "cloth");
         set("armor_prop/armor", 2);
     }

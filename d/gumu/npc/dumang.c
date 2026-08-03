@@ -5,15 +5,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("¶¾òþ", ({ "du mang", "mang" }));
-	set("race", "Ò°ÊÞ");
+	set_name("æ¯’èŸ’", ({ "du mang", "mang" }));
+	set("race", "é‡Žå…½");
 	set("age", 20);
-        set("long", "Ò»ÌõÅÓ´óÎÞ±È, É«²Ê°ßìµµÄ¾Þòþ¡£»ëÉí·¢³öÕóÕóÇ¿ÁÒµÄÐÈ³ôÎ¶¡£\n");
+        set("long", "ä¸€æ¡åºžå¤§æ— æ¯”, è‰²å½©æ–‘æ–“çš„å·¨èŸ’ã€‚æµ‘èº«å‘å‡ºé˜µé˜µå¼ºçƒˆçš„è…¥è‡­å‘³ã€‚\n");
 	set("attitude", "aggressive");
 	set("str", 70);
 	set("con", 50);
 	set("max_qi", 800);
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å°¾å·´" }) );
 	set("verbs", ({ "bite" }) );
 	set("combat_exp", 200000);
 
@@ -35,7 +35,7 @@ if(!objectp(me))         {       destruct(this_object());
 
 	inv = deep_inventory(me);
 	i = sizeof(inv);
-	message_vision("\n$N³é´¤ÁË¼¸ÏÂ£¬ÉíÌåËõÔÚÒ»Æð£¬ËÀÁË¡£\n", this_object());
+	message_vision("\n$NæŠ½æäº†å‡ ä¸‹ï¼Œèº«ä½“ç¼©åœ¨ä¸€èµ·ï¼Œæ­»äº†ã€‚\n", this_object());
 	while (i--)
 	if( inv[i]->query("drug") || !userp(me)){
 		destruct(this_object());
@@ -43,8 +43,8 @@ if(!objectp(me))         {       destruct(this_object());
 	}
 	ob = new(MEDICINE_D("neili/gshedan"));
 	ob->set("owner", me->query("id"));
-	message_vision("\n$NÍäÑüÊ°ÆðÁËÒ»¿Å$n¡£\n",me, ob);
-	log_file("quest/neili",sprintf("%-18sÉ±ËÀ¶¾òþ£¬µÃµ½%s¡£\n",
+	message_vision("\n$Nå¼¯è…°æ‹¾èµ·äº†ä¸€é¢—$nã€‚\n",me, ob);
+	log_file("quest/neili",sprintf("%-18sæ€æ­»æ¯’èŸ’ï¼Œå¾—åˆ°%sã€‚\n",
 		me->name(1)+"("+capitalize(me->query("id"))+")",ob->name()), me);
 	ob->move(me);
 	destruct(this_object());

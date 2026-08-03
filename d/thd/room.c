@@ -5,8 +5,8 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIB "箫房" NOR);
-	set("long", "这里是桃花岛的一个小房间，放着一些乐器和兵器。\n");
+	set("short", HIB "绠埧" NOR);
+	set("long", "杩欓噷鏄鑺卞矝鐨勪竴涓皬鎴块棿锛屾斁鐫�涓�浜涗箰鍣ㄥ拰鍏靛櫒銆俓n");
 	set("sleep_room",1);
 	set("exits", ([
 		"out" : __DIR__"jicui.c",

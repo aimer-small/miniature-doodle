@@ -1,4 +1,4 @@
-// danlu.c µ¤Â¯
+// danlu.c ä¸¹ç‚‰
 
 inherit ITEM;
 inherit F_LIQUID;
@@ -18,17 +18,17 @@ int do_haha(object ob, object obj);
 
 void create()
 {
-       set_name("µ¤Â¯", ({ "dan lu", "lu", "yao lu" }) );
+       set_name("ä¸¹ç‚‰", ({ "dan lu", "lu", "yao lu" }) );
        set_weight(3000000);
        set_max_encumbrance(2000);
 
        if( clonep() )
                set_default_object(__FILE__);
       else {
-               set("unit", "¸ö");
-               set("no_get", "µ¤Â¯¶ÔÄãÀ´ËµÌ«ÖØÁË¡£\n");
+               set("unit", "ä¸ª");
+               set("no_get", "ä¸¹ç‚‰å¯¹ä½ æ¥è¯´å¤ªé‡äº†ã€‚\n");
                set("no_get_from", 1);
-               set("long", "ÕâÊÇÒ»¸öÓÃÀ´Á¶µ¤ÖÆÒ©µÄµ¤Â¯¡£\n"NOR);
+               set("long", "è¿™æ˜¯ä¸€ä¸ªç”¨æ¥ç‚¼ä¸¹åˆ¶è¯çš„ä¸¹ç‚‰ã€‚\n"NOR);
                set("value", 100000000);
                set("no_get",1);                 
                set("no_give",1);
@@ -59,7 +59,7 @@ void init()
 
 int do_action(string arg)
 {
-        write("ÇëÓÃ(add Ò©²ÄÃû in lu)ÃüÁîÏòµ¤Â¯ÄÚÌí¼ÓÒ©²Ä¡£\n");
-        write("ÇëÓÃ(qu Ò©²ÄÃû from lu)ÃüÁî´Óµ¤Â¯ÄÚÄÃ³öÒ©²Ä¡£\n");
+        write("è¯·ç”¨(add è¯æå in lu)å‘½ä»¤å‘ä¸¹ç‚‰å†…æ·»åŠ è¯æã€‚\n");
+        write("è¯·ç”¨(qu è¯æå from lu)å‘½ä»¤ä»ä¸¹ç‚‰å†…æ‹¿å‡ºè¯æã€‚\n");
         return 1;
 }

@@ -8,7 +8,7 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ÁôÑÔ°å", ({ "board", }));
+	set_name("ç•™è¨€æ¿", ({ "board", }));
 	set_weight(5000);
 
 	if (clonep())
@@ -17,8 +17,8 @@ void create()
 	}
 	else 
 	{
-		set("unit", "¸ö");
-		set("long", "ÕâÊÇÒ»¸öÁôÑÔ°å¡£Äã¿ÉÒÔ°ÑËü·ÅÔÚ°ïÅÉÇøÓò£¬¹©´ó¼ÒÁôÑÔ¡£\n");
+		set("unit", "ä¸ª");
+		set("long", "è¿™æ˜¯ä¸€ä¸ªç•™è¨€æ¿ã€‚ä½ å¯ä»¥æŠŠå®ƒæ”¾åœ¨å¸®æ´¾åŒºåŸŸï¼Œä¾›å¤§å®¶ç•™è¨€ã€‚\n");
 		set("value", 20000000);
 		set("no_give", 1);
 		set("no_drop", 1);
@@ -32,7 +32,7 @@ void create()
 
 void init()
 {
-	add_action("do_drop", ({"drop","fangzhi","·ÅÖÃ"}));
+	add_action("do_drop", ({"drop","fangzhi","æ”¾ç½®"}));
 }
 
 int do_drop(string arg)
@@ -48,8 +48,8 @@ int do_drop(string arg)
 
 	if( !me->query("group/id") ) 
 	{
-		tell_object(me, "Äã²¢Ã»ÓĞ¿ª°ïÁ¢ÅÉ£¬Òª" 
-			+ name() + "ºÎÓÃ£¿\n");
+		tell_object(me, "ä½ å¹¶æ²¡æœ‰å¼€å¸®ç«‹æ´¾ï¼Œè¦" 
+			+ name() + "ä½•ç”¨ï¼Ÿ\n");
 		return 1;
 	}
 
@@ -59,8 +59,8 @@ int do_drop(string arg)
 		return 1;
 	}
 
-	GROUP_D->drop_board(this_object(), me, env,"$N¿ªÊ¼Ğ¡ĞÄµØ°Ú·Å" 
-		+ name() + "¡­¡­\n", "ÄãÃ¦ÂµÁË°ëÌì£¬×ÜËã°Ñ" + name() + "·ÅÖÃºÃ¡£\n");
+	GROUP_D->drop_board(this_object(), me, env,"$Nå¼€å§‹å°å¿ƒåœ°æ‘†æ”¾" 
+		+ name() + "â€¦â€¦\n", "ä½ å¿™ç¢Œäº†åŠå¤©ï¼Œæ€»ç®—æŠŠ" + name() + "æ”¾ç½®å¥½ã€‚\n");
 	return 1;
 }
 

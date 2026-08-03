@@ -11,10 +11,10 @@ object ob = this_object();
 
 void create()
 {
-        set_name("³ÌÑşåÈ", ({"cheng yaojia", "cheng", "yaojia"}) );
-        set("long", "Ëı¶Ë¶ËÕıÕıµÄ×ø×Å£¬Á³ÉÏÔÎºì£¬×ì½Çº¬Ğ¦£¬È´²»ÖªĞÄÖĞÔÚÏëĞ©ÉõÃ´¡£\n");
-        set("gender", "Å®ĞÔ" );
-        set("title", "ÉÙ×¯Ö÷·òÈË");
+        set_name("ç¨‹ç‘¶è¿¦", ({"cheng yaojia", "cheng", "yaojia"}) );
+        set("long", "å¥¹ç«¯ç«¯æ­£æ­£çš„åç€ï¼Œè„¸ä¸Šæ™•çº¢ï¼Œå˜´è§’å«ç¬‘ï¼Œå´ä¸çŸ¥å¿ƒä¸­åœ¨æƒ³äº›ç”šä¹ˆã€‚\n");
+        set("gender", "å¥³æ€§" );
+        set("title", "å°‘åº„ä¸»å¤«äºº");
         set("age", 24);
         set("attitude", "peaceful");
         set("str",25);
@@ -61,8 +61,8 @@ void create()
         set("dan", 5);
 
         set("inquiry", ([
-                "ÌïÆßöèµ¨É¢": (: ask_san :),
-                "ÎŞ³£µ¤": (: ask_dan :),
+                "ç”°ä¸ƒé²¨èƒ†æ•£": (: ask_san :),
+                "æ— å¸¸ä¸¹": (: ask_dan :),
         ]) );
 
         setup();
@@ -73,56 +73,56 @@ string ask_san()
 {
         object ob = this_player(),obj;
 
-        if (ob->query("family/family_name") != "ÌÒ»¨µº")
-                return RANK_D->query_respect(ob) + "Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+        if (ob->query("family/family_name") != "æ¡ƒèŠ±å²›")
+                return RANK_D->query_respect(ob) + "ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 
         if (ob->query("combat_exp") < 500000)
-                return RANK_D->query_respect(ob) + "¹¦·òÌ«Ç³£¬³ÔÁË²»»áÓĞÊ²Ã´°ïÖúµÄ¡£";
+                return RANK_D->query_respect(ob) + "åŠŸå¤«å¤ªæµ…ï¼Œåƒäº†ä¸ä¼šæœ‰ä»€ä¹ˆå¸®åŠ©çš„ã€‚";
 
         if (this_player()->query("max_neili") < 1000)
-                return RANK_D->query_respect(ob) + "¹¦Á¦²»¹»£¬ÁéÒ©¶à³ÔÓĞº¦ÎŞÒË£¬¹ı¶ÎÊ±¼äÔÙÀ´°É¡£";
+                return RANK_D->query_respect(ob) + "åŠŸåŠ›ä¸å¤Ÿï¼Œçµè¯å¤šåƒæœ‰å®³æ— å®œï¼Œè¿‡æ®µæ—¶é—´å†æ¥å§ã€‚";
 
         if (present("tianqi san", ob))
-                return RANK_D->query_respect(ob) + "ÄãÏÖÔÚÉíÉÏ²»ÊÇÓĞÂğ£¬ÔõÃ´ÓÖÀ´ÒªÁË£¿ÕæÊÇÌ°µÃÎŞÑá£¡";
+                return RANK_D->query_respect(ob) + "ä½ ç°åœ¨èº«ä¸Šä¸æ˜¯æœ‰å—ï¼Œæ€ä¹ˆåˆæ¥è¦äº†ï¼ŸçœŸæ˜¯è´ªå¾—æ— åŒï¼";
         if (ob->query_temp("thd/get_tianqi")>0)
-                return RANK_D->query_respect(ob) + "Äã¸Õ²ÅÒª¹ı£¬ÔõÃ´ÓÖÀ´ÒªÁË£¿ÕæÊÇÌ°µÃÎŞÑá£¡";
+                return RANK_D->query_respect(ob) + "ä½ åˆšæ‰è¦è¿‡ï¼Œæ€ä¹ˆåˆæ¥è¦äº†ï¼ŸçœŸæ˜¯è´ªå¾—æ— åŒï¼";
 
-        if (query("san") < 1) return "¶Ô²»Æğ£¬Ò©ÒÑ¾­·¢ÍêÁË£¬ĞÂµÄ»¹Î´Á¶³ö¡£";
+        if (query("san") < 1) return "å¯¹ä¸èµ·ï¼Œè¯å·²ç»å‘å®Œäº†ï¼Œæ–°çš„è¿˜æœªç‚¼å‡ºã€‚";
 
         obj = unew(__GUI__"obj/tianqi-san");
-        if (!obj) return "¶Ô²»Æğ£¬Ò©ÒÑ¾­·¢ÍêÁË£¬ĞÂµÄ»¹Î´Á¶³ö¡£";
+        if (!obj) return "å¯¹ä¸èµ·ï¼Œè¯å·²ç»å‘å®Œäº†ï¼Œæ–°çš„è¿˜æœªç‚¼å‡ºã€‚";
         
         obj->move(ob);
         ob->set_temp("thd/get_tianqi",1);
 
         add("san", -1);
 
-        message_vision("$N»ñµÃÒ»°üÌïÆßöèµ¨É¢¡£\n", ob);
-        return "ºÃ°É£¬´ËÒ©Á·Ö®²»Ò×£¬ÄãÒªĞ¡ĞÄÊÕ²ØºÃÁË¡£";
+        message_vision("$Nè·å¾—ä¸€åŒ…ç”°ä¸ƒé²¨èƒ†æ•£ã€‚\n", ob);
+        return "å¥½å§ï¼Œæ­¤è¯ç»ƒä¹‹ä¸æ˜“ï¼Œä½ è¦å°å¿ƒæ”¶è—å¥½äº†ã€‚";
 }
 
 string ask_dan()
 {
         object ob = this_player();
 
-        if (ob->query("family/family_name") != "ÌÒ»¨µº")
-                return RANK_D->query_respect(ob) + "Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+        if (ob->query("family/family_name") != "æ¡ƒèŠ±å²›")
+                return RANK_D->query_respect(ob) + "ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 
         if (ob->query("combat_exp") < 500000)
-                return RANK_D->query_respect(ob) + "¹¦·òÌ«Ç³£¬³ÔÁË²»»áÓĞÊ²Ã´°ïÖúµÄ¡£";
+                return RANK_D->query_respect(ob) + "åŠŸå¤«å¤ªæµ…ï¼Œåƒäº†ä¸ä¼šæœ‰ä»€ä¹ˆå¸®åŠ©çš„ã€‚";
 
         if (this_player()->query("max_neili") < 400)
-                return RANK_D->query_respect(ob) + "¹¦Á¦²»¹»£¬ÁéÒ©¶à³ÔÓĞº¦ÎŞÒË£¬¹ı¶ÎÊ±¼äÔÙÀ´°É¡£";
+                return RANK_D->query_respect(ob) + "åŠŸåŠ›ä¸å¤Ÿï¼Œçµè¯å¤šåƒæœ‰å®³æ— å®œï¼Œè¿‡æ®µæ—¶é—´å†æ¥å§ã€‚";
 
         if (present("wuchang dan", ob))
-                return RANK_D->query_respect(ob) + "ÄãÏÖÔÚÉíÉÏ²»ÊÇÓĞ¿ÅÒ©ÍèÂğ£¬ÔõÃ´ÓÖÀ´ÒªÁË£¿ÕæÊÇÌ°µÃÎŞÑá£¡";
+                return RANK_D->query_respect(ob) + "ä½ ç°åœ¨èº«ä¸Šä¸æ˜¯æœ‰é¢—è¯ä¸¸å—ï¼Œæ€ä¹ˆåˆæ¥è¦äº†ï¼ŸçœŸæ˜¯è´ªå¾—æ— åŒï¼";
 
-        if (query("dan") < 1) return "¶Ô²»Æğ£¬Ò©ÒÑ¾­·¢ÍêÁË£¬ĞÂµÄ»¹Î´Á¶³ö¡£";
+        if (query("dan") < 1) return "å¯¹ä¸èµ·ï¼Œè¯å·²ç»å‘å®Œäº†ï¼Œæ–°çš„è¿˜æœªç‚¼å‡ºã€‚";
 
         new("/d/thd/guiyun/obj/wuchang-dan")->move(ob);
 
         add("dan", -1);
 
-        message_vision("$N»ñµÃÒ»¿ÅÎŞ³£µ¤¡£\n", ob);
-        return "ºÃ°É£¬´ËÒ©Á·Ö®²»Ò×£¬ÄãÒªĞ¡ĞÄÊÕ²ØºÃÁË¡£";
+        message_vision("$Nè·å¾—ä¸€é¢—æ— å¸¸ä¸¹ã€‚\n", ob);
+        return "å¥½å§ï¼Œæ­¤è¯ç»ƒä¹‹ä¸æ˜“ï¼Œä½ è¦å°å¿ƒæ”¶è—å¥½äº†ã€‚";
 }

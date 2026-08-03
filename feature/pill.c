@@ -1,25 +1,25 @@
 // pill.c
 // snowman 15.12.98
 /*
-ÔÚÎÄ¼şÎ²¼ÓÉÏ inherit F_PILL
+åœ¨æ–‡ä»¶å°¾åŠ ä¸Š inherit F_PILL
 
- Ò©ÎïÀï¼ÓÉÏset("healup", "...") ÊÇÒ©ÎïµÄ×÷ÓÃ¡£±ÈÈç£º
+ è¯ç‰©é‡ŒåŠ ä¸Šset("healup", "...") æ˜¯è¯ç‰©çš„ä½œç”¨ã€‚æ¯”å¦‚ï¼š
     set("healup", ([
 	"add_neili": 2000,
 	"add_jingli": 2000,	
 	]));
 
- ¼Ó set("drug_msg", ([
-	   "start_eat": "$N·şÏÂÒ»·İÓñÕæÉ¢¡£\n",
-           "finish_eat": "$NµÄÁ³É«½¥½¥¿ªÊ¼ºÃ×ªÁË¡£\n",
+ åŠ  set("drug_msg", ([
+	   "start_eat": "$Næœä¸‹ä¸€ä»½ç‰çœŸæ•£ã€‚\n",
+           "finish_eat": "$Nçš„è„¸è‰²æ¸æ¸å¼€å§‹å¥½è½¬äº†ã€‚\n",
       ]));
 
- ÆäËû»¹ÓĞ£ºheal_eff_qi£¬heal_eff_jing£¬µÈµÈ¡£
- ¼ÓÉÏno_fight£¬±íÊ¾fightÊ±²»ÄÜ³ÔÕâÖÖÒ©
- CONDITION_EAT ÊÇÁ¬Ğø³ÔÒ©ËùÔì³ÉµÄºó¹û£¬·½±ãÆğ¼û£¬ÓÃ #define :), ±ÈÈç£º
+ å…¶ä»–è¿˜æœ‰ï¼šheal_eff_qiï¼Œheal_eff_jingï¼Œç­‰ç­‰ã€‚
+ åŠ ä¸Šno_fightï¼Œè¡¨ç¤ºfightæ—¶ä¸èƒ½åƒè¿™ç§è¯
+ CONDITION_EAT æ˜¯è¿ç»­åƒè¯æ‰€é€ æˆçš„åæœï¼Œæ–¹ä¾¿èµ·è§ï¼Œç”¨ #define :), æ¯”å¦‚ï¼š
       #define CONDITION_EAT me->add("neili", -100)
 
-²»ºÃµÄÊÇ£¬Õâ¸ö inherit F_PILL;  ±ØĞë·ÅÔÚÎÄ¼şÎ²£¬¶ø²»ÊÇÎÄ¼şÍ·¡£
+ä¸å¥½çš„æ˜¯ï¼Œè¿™ä¸ª inherit F_PILL;  å¿…é¡»æ”¾åœ¨æ–‡ä»¶å°¾ï¼Œè€Œä¸æ˜¯æ–‡ä»¶å¤´ã€‚
 
 */
 
@@ -74,22 +74,22 @@ int do_eat(string arg)
 
         if(!this_object()->id(arg) || !living(this_player())) return 0;
 	if(me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if(!mapp(healup = ob->query("healup")) )
-		return notify_fail("ÕâÑù¶«Î÷²»ÄÜ·şÓÃ¡£\n");
+		return notify_fail("è¿™æ ·ä¸œè¥¿ä¸èƒ½æœç”¨ã€‚\n");
         if(query("no_fight") )
-                return notify_fail("ÄãÕ½¶·ÖĞ³ÔÒ©ÓĞº¦ÎåÒæ£¡\n");	
+                return notify_fail("ä½ æˆ˜æ–—ä¸­åƒè¯æœ‰å®³äº”ç›Šï¼\n");	
         
         msg = ob->query("drug_msg");
 
 	if (!msg || undefinedp(msg["start_eat"]))
-                message_vision("$N³ÔÏÂÒ»"+ob->query("unit")+"$n¡£\n", me, ob);
+                message_vision("$Nåƒä¸‹ä¸€"+ob->query("unit")+"$nã€‚\n", me, ob);
         else
                 message_vision(msg["start_eat"], me, ob);
 
         if((int)query("condition") && me->query_condition("medicine") > 0){
                 if (!msg || undefinedp(msg["condition_eat"]))
-                       message_vision(HIR"$N¿´ÆğÀ´Ò¡Ò¡Óû×¹£¬Ô­À´ÊÇÁ¬Ğø·şÒ©µ¼ÖÂÒ©ĞÔ¹ıÃÍ£¡\n"NOR, me, ob);
+                       message_vision(HIR"$Nçœ‹èµ·æ¥æ‘‡æ‘‡æ¬²å ï¼ŒåŸæ¥æ˜¯è¿ç»­æœè¯å¯¼è‡´è¯æ€§è¿‡çŒ›ï¼\n"NOR, me, ob);
                 else   message_vision(msg["condition_eat"], me, ob);
                 CONDITION_EAT;
                 return 1;

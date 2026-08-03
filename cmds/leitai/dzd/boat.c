@@ -12,10 +12,10 @@ int nokill()
 
 void create()
 {
-	set("short","С��");
+	set("short","小船");
 	set("long",@LONG
-һֻľ�Ƶ�С��������û���������������ͣ�ں����ϣ��ƺ�һ�����˾�
-������򷭡�
+一只木制的小船，船上没有艄公，孤零零得停在海面上，似乎一个波浪就
+会把它打翻。
 LONG
 	);
 	set("objects",([
@@ -26,10 +26,10 @@ LONG
 
 void run_sea()
 {
-	tell_room(this_object(),"ͻȻһλ����Ծ��С�������־�Ȼʮ�ֽý������ֱ�����ê����������֮���㿪�˳�ȥ��\n");
-	tell_room(this_object(),"��ֻ����һ����ͷת��\n");
+	tell_room(this_object(),"突然一位艄公跃上小船，身手竟然十分矫健，单手便拉起锚，船如离弦之箭般开了出去。\n");
+	tell_room(this_object(),"你只觉得一阵晕头转向。\n");
 	set("long",@LONG
-һֻľ�Ƶ�С�����������������ȥ��
+一只木制的小船，正急速向东南向冲去。
 LONG
 	);	
 }
@@ -43,13 +43,13 @@ void move_to_iland()
 void goiland(object me)
 {
 	me->move(__DIR__"matou");
-	tell_room(me,"������ֻ��ֻ�������������İ������ͷ��\n��ͷһ����С���Ѿ���û��\n");
+	tell_room(me,"你无奈只下只得弃船来到这个陌生的码头。\n回头一看，小船已经沉没。\n");
 }
 void to_iland()
 {
 	object* obs;
 	int t;
-	tell_room(this_object(),"�����Ѿ�ײ������ͷ������бб������˲ʱ��Ҫ���ˡ�\n");
+	tell_room(this_object(),"船身已经撞上了码头，歪歪斜斜，估计瞬时就要沉了。\n");
 	obs = all_inventory(this_object());
 	obs = filter_array(obs,(:userp:));
 	t = sizeof(obs);

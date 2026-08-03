@@ -1,15 +1,15 @@
-// dagger-book.c Ø°·¨¸ÅÂÛ
+// dagger-book.c åŒ•æ³•æ¦‚è®º
 inherit ITEM;
 
 void create()
 {
-        set_name("Ø°·¨¸ÅÂÛ", ({ "bifa gaiyao", "book","shu"}));
+        set_name("åŒ•æ³•æ¦‚è®º", ({ "bifa gaiyao", "book","shu"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
-                set("long", "ÕâÊÇÒ»±¾Ñ§Ï°»ù±¾Ø°·¨µÄÊé¡£\n");
+                set("unit", "æœ¬");
+                set("long", "è¿™æ˜¯ä¸€æœ¬å­¦ä¹ åŸºæœ¬åŒ•æ³•çš„ä¹¦ã€‚\n");
                 set("unique", 1);
                 set("newbie", 1);
                 set("treasure",1);                              

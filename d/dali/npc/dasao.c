@@ -5,13 +5,13 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("´ö×å´óÉ©", ({ "daizu dasao", "dasao" }));
-	set("title", "ÀÏ°åÄï");
+	set_name("å‚£æ—å¤§å«‚", ({ "daizu dasao", "dasao" }));
+	set("title", "è€æ¿å¨˜");
 	set("shen_type", 1);
 
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("age", 45);
-	set("long","ÕâÎ»´óÉ©×öÁË¼¸Ê®ÄêµÄÖÆÒÂ,ÊÖÒÕ²»´í¡£\n");
+	set("long","è¿™ä½å¤§å«‚åšäº†å‡ åå¹´çš„åˆ¶è¡£,æ‰‹è‰ºä¸é”™ã€‚\n");
 	set_skill("unarmed", 20);
 	set_skill("dodge", 20);
 	set_temp("apply/damage", 15);

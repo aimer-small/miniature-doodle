@@ -6,10 +6,10 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("²ÉÒ©ÈË",({ "caiyao ren", "ren" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("é‡‡è¯äºº",({ "caiyao ren", "ren" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 56);
-	set("long", "ÕâÊÇÎ»ÂúÁ³·çËªµÄÀÏ²ÉÒ©ÈË£¬Ò»Éú¶¼ÒÔ²ÉÒ©ÎªÉú¡£\n");
+	set("long", "è¿™æ˜¯ä½æ»¡è„¸é£éœœçš„è€é‡‡è¯äººï¼Œä¸€ç”Ÿéƒ½ä»¥é‡‡è¯ä¸ºç”Ÿã€‚\n");
 
 	set("str", 25);
 	set("dex", 55);
@@ -43,8 +43,8 @@ void create()
 	
 	set("chat_chance", 3);
  	set("chat_msg", ({
- 		"²ÉÒ©ÈËËµµÀ£º¡°ÓĞÈËÒªÂò²ÉÒ©¹¤¾ßÂğ£¿¡±\n",
- 		"²ÉÒ©ÈËËµµÀ£º¡°ÎÒµÄ²ÉÒ©¼¼Êõ×îºÃÁË£¬Ë­Ò²±È²»¹ı¡£¡±\n",
+ 		"é‡‡è¯äººè¯´é“ï¼šâ€œæœ‰äººè¦ä¹°é‡‡è¯å·¥å…·å—ï¼Ÿâ€\n",
+ 		"é‡‡è¯äººè¯´é“ï¼šâ€œæˆ‘çš„é‡‡è¯æŠ€æœ¯æœ€å¥½äº†ï¼Œè°ä¹Ÿæ¯”ä¸è¿‡ã€‚â€\n",
  	}) );
 	
 	set("vendor_goods", ({
@@ -67,7 +67,7 @@ void kill_ob(object ob)
 {
 	object me = this_object();
 	command("!!!");
-	command("say ÎÒºÍÄãÎŞÔ¹ÎŞ³ğ£¬ÎªºÎÒªº¦ÎÒ£¡");
+	command("say æˆ‘å’Œä½ æ— æ€¨æ— ä»‡ï¼Œä¸ºä½•è¦å®³æˆ‘ï¼");
 	me->remove_enemy(ob);
 	ob->remove_killer(me);
 	return;
@@ -75,7 +75,7 @@ void kill_ob(object ob)
 
 int accept_fight(object ob)
 {
-	command("say ÎÒºÍÄãÎŞÔ¹ÎŞ³ğ£¬ÎªºÎÒªº¦ÎÒ£¡");
+	command("say æˆ‘å’Œä½ æ— æ€¨æ— ä»‡ï¼Œä¸ºä½•è¦å®³æˆ‘ï¼");
 	return 0;
 }
 
@@ -108,7 +108,7 @@ int recognize_apprentice(object ob)
 	
 	switch (MONEY_D->player_pay(ob, money)) {
 		case 0:
-		case 2: tell_object(ob,"ÄãÏÖÔÚµÄÑ§·ÑÊÇÃ¿´Î"+MONEY_D->money_str(money)+"¡£ÄãµÄÇ®²»¹»£¡\n" ); return 0;
+		case 2: tell_object(ob,"ä½ ç°åœ¨çš„å­¦è´¹æ˜¯æ¯æ¬¡"+MONEY_D->money_str(money)+"ã€‚ä½ çš„é’±ä¸å¤Ÿï¼\n" ); return 0;
 	}
 	return 1;
 }

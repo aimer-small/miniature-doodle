@@ -5,10 +5,10 @@ int do_chang(string);
 
 void create()
 {
-	set_name(HIY "ËÄ³æ¸à" NOR,({"sichong gao","gao"}));
-	set("long","Ò»°ü»¨»¨ÂÌÂÌµÄ"+this_object()->query("name")+"£¬À´³¢³¢(chang)Î¶µÀ£¿\n");
+	set_name(HIY "å››è™«è†" NOR,({"sichong gao","gao"}));
+	set("long","ä¸€åŒ…èŠ±èŠ±ç»¿ç»¿çš„"+this_object()->query("name")+"ï¼Œæ¥å°å°(chang)å‘³é“ï¼Ÿ\n");
 	set_weight(50);
-	set("unit","°ü");
+	set("unit","åŒ…");
 	setup();
 }
 
@@ -23,32 +23,32 @@ int do_chang(string arg)
 	object who=this_player();
 	mapping fam=who->query("family");
 
-	if( !me->id(arg) ) return notify_fail("ÄãÏë³¢É¶£¿\n");
-	if (!fam || fam["family_name"] !="ÐÇËÞÅÉ"){
-		return notify_fail("Äã²»ÊÇÐÇËÞµÜ×Ó£¬³ÔÁËÕâ"+me->name()+"»áÖÐ¶¾µÄ¡£\n");
+	if( !me->id(arg) ) return notify_fail("ä½ æƒ³å°å•¥ï¼Ÿ\n");
+	if (!fam || fam["family_name"] !="æ˜Ÿå®¿æ´¾"){
+		return notify_fail("ä½ ä¸æ˜¯æ˜Ÿå®¿å¼Ÿå­ï¼Œåƒäº†è¿™"+me->name()+"ä¼šä¸­æ¯’çš„ã€‚\n");
 	}
-	message_vision("$N¶ËÆð"+me->query("name")+"°¡ÎØÒ»¿ÚµÄ³ÔÁËÏÂÈ¥¡£\n", who);
+	message_vision("$Nç«¯èµ·"+me->query("name")+"å•Šå‘œä¸€å£çš„åƒäº†ä¸‹åŽ»ã€‚\n", who);
 
 	if ( me->query("prices")<= 0 || me->query("xx/owner")!=who)
-		message_vision("µ«Ê²Ã´×ÌÎ¶Ò²Ã»³¢³öÀ´¡£\n", who);
+		message_vision("ä½†ä»€ä¹ˆæ»‹å‘³ä¹Ÿæ²¡å°å‡ºæ¥ã€‚\n", who);
 	else if ((int)who->query_skill("huagong-dafa", 1) < 10 ) {
-		message_vision("$NÖ»¸Ðµ½Ò»Õó¶ñÐÄ£¬ÌìÐüµØ×ª¡£\n", who);
+		message_vision("$Nåªæ„Ÿåˆ°ä¸€é˜µæ¶å¿ƒï¼Œå¤©æ‚¬åœ°è½¬ã€‚\n", who);
 		who->unconcious();
 	}
 	else
 	{
-	message_vision("$N¿àµÃÌéÀáºáÁ÷£¬Ç¿ÈÌ×ÅÃ»ÍÂ³öÀ´¡£\n", who);
+	message_vision("$Nè‹¦å¾—æ¶•æ³ªæ¨ªæµï¼Œå¼ºå¿ç€æ²¡åå‡ºæ¥ã€‚\n", who);
 	who->improve_skill("force", me->query("prices"));
-	tell_object(who,"ÄãÖ»¸Ðµ½¸¹ÄÚÈçÓÐÊýÊ®°ÑÐ¡µ¶ÔÚÂÒÔÜÂÒ´Ì£¬ÄãÊ¹¾¡ÁËÁ¦Æø£¬"
-		+"²Å½«¶¾Ò©µÄÒ©Á¦ÍêÈ«»¯½â¡£\n");
+	tell_object(who,"ä½ åªæ„Ÿåˆ°è…¹å†…å¦‚æœ‰æ•°åæŠŠå°åˆ€åœ¨ä¹±æ”’ä¹±åˆºï¼Œä½ ä½¿å°½äº†åŠ›æ°”ï¼Œ"
+		+"æ‰å°†æ¯’è¯çš„è¯åŠ›å®Œå…¨åŒ–è§£ã€‚\n");
 	who->add("combat_exp",me->query("prices"));
 	who->add("potential",me->query("prices"));
 	who->add("xx_job4",4);
 	if(who->query("potential") > who->query("max_pot"))
 		who->set("potential",who->query("max_pot"));
-	tell_object(who, YEL "ÄãµÄ»ù±¾ÄÚ¹¦£¬¾­ÑéºÍÇ±ÄÜ¸÷Ôö¼ÓÁË"
-		+chinese_number(me->query("prices"))+"µã£¡\n" NOR);
-	log_file( "job/xx_job4",sprintf("%s %s(%s)µÚ%d´ÎÈÎÎñ½áÊø£¬µÃµ½Ç±ÄÜºÍ¾­Ñé£º%d¡£\n",
+	tell_object(who, YEL "ä½ çš„åŸºæœ¬å†…åŠŸï¼Œç»éªŒå’Œæ½œèƒ½å„å¢žåŠ äº†"
+		+chinese_number(me->query("prices"))+"ç‚¹ï¼\n" NOR);
+	log_file( "job/xx_job4",sprintf("%s %s(%s)ç¬¬%dæ¬¡ä»»åŠ¡ç»“æŸï¼Œå¾—åˆ°æ½œèƒ½å’Œç»éªŒï¼š%dã€‚\n",
 		ctime(time())[4..19],who->name(),who->query("id"),who->query("xx_job4"),me->query("prices")) );
 	}
 	destruct(me);

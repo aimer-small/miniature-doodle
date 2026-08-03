@@ -26,7 +26,7 @@ void init()
 		}
 	}
 
-	tell_room(this_object(),CYN+me->name()+CYN"急匆匆的走了回去。\n"NOR);
+	tell_room(this_object(),CYN+me->name()+CYN"鎬ュ寙鍖嗙殑璧颁簡鍥炲幓銆俓n"NOR);
 	me->move(room);
-	tell_room(room,CYN+me->name()+CYN"急匆匆的走了过来。\n"NOR);
+	tell_room(room,CYN+me->name()+CYN"鎬ュ寙鍖嗙殑璧颁簡杩囨潵銆俓n"NOR);
 }

@@ -5,12 +5,12 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "É½½§");
+        set("short", "å±±æ¶§");
         set("long", @LONG
-ÕâÀïÖÜÎ§¶¼ÊÇ¹àÄ¾(guanmu)£¬¶«ÄÏµÄ·½ÏòºÍ¶«±±ÃæµÄ·½ÏòËÆºõÄÜ×ß¹ýÈ¥¡£
+è¿™é‡Œå‘¨å›´éƒ½æ˜¯çŒæœ¨(guanmu)ï¼Œä¸œå—çš„æ–¹å‘å’Œä¸œåŒ—é¢çš„æ–¹å‘ä¼¼ä¹Žèƒ½èµ°è¿‡åŽ»ã€‚
 LONG);
 	set("item_desc",([
-	"guanmu" : "¹àÄ¾´ÔºóÃæÒþÔ¼ÓÐÊ²Ã´¶«Î÷¡£\n",
+	"guanmu" : "çŒæœ¨ä¸›åŽé¢éšçº¦æœ‰ä»€ä¹ˆä¸œè¥¿ã€‚\n",
 ]));
         set("exits", ([ 
                 "northeast"     : __DIR__"v-road-2",
@@ -24,7 +24,7 @@ LONG);
                 __DIR__"npc/sword/fengbuping" : 1,
         ]));
 */
-        set("outdoors", "»ªÉ½");
+        set("outdoors", "åŽå±±");
         set("coor/x",40);
   set("coor/y",80);
    set("coor/z",-10);
@@ -43,13 +43,13 @@ int do_bo(string arg)
 	if(!living(me) ) return 0;
 
         if (me->is_busy() || me->is_fighting())
-	return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+	return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
 	if ( arg=="" || arg!="guanmu"|| !arg) 
-	return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 
 	if ( arg == "guanmu") {
-	write("Äã²¦¿ªÒ»Æ¬Æ¬¹àÄ¾´Ô£¬Í»È»ÑÛÇ°Ò»ÁÁ¡£\n", me);
+	write("ä½ æ‹¨å¼€ä¸€ç‰‡ç‰‡çŒæœ¨ä¸›ï¼Œçªç„¶çœ¼å‰ä¸€äº®ã€‚\n", me);
 	me->move(__DIR__"maowu");
 	return 1;
 	}

@@ -1,4 +1,4 @@
-//guanjia3.c Âí·¿¹ÜÊÂ
+//guanjia3.c é©¬æˆ¿ç®¡äº‹
 // Modify By River@SJ
 
 inherit NPC;
@@ -6,15 +6,15 @@ inherit NPC;
 
 void create()
 {
-       set_name("Âí·¿¹ÜÊÂ", ({ "mafang guanshi", "guanshi" }) );
-       set("gender", "ÄÐÐÔ" );
+       set_name("é©¬æˆ¿ç®¡äº‹", ({ "mafang guanshi", "guanshi" }) );
+       set("gender", "ç”·æ€§" );
        set("age", 30);
-       set("long","ËûÊÇÏåÑôÎä¹ÝµÄÒ»¸ö¹Ü¼Ò£¬×¨¹ÜÂí·¿ÀïµÄ´óÐ¡ÔÓÊÂ£¡\n");
+       set("long","ä»–æ˜¯è¥„é˜³æ­¦é¦†çš„ä¸€ä¸ªç®¡å®¶ï¼Œä¸“ç®¡é©¬æˆ¿é‡Œçš„å¤§å°æ‚äº‹ï¼\n");
        set("combat_exp", 2500);
        set("attitude", "friendly");
        set("inquiry", ([
-             "´òÉ¨Âí·¿" : "Äã¾ÍÔÚÕâÀÏÀÏÊµÊµ¸øÎÒ´òÉ¨Âí·¿£¬Ã»ÓÐÎÒµÄÂúÒâ£¬Äã±ðÏë»ØÈ¥¸²Ãü£¡",
-             "´òÉ¨" : "Äã¾ÍÔÚÕâÀÏÀÏÊµÊµ¸øÎÒ´òÉ¨Âí·¿£¬Ã»ÓÐÎÒµÄÂúÒâ£¬Äã±ðÏë»ØÈ¥¸²Ãü£¡",
+             "æ‰“æ‰«é©¬æˆ¿" : "ä½ å°±åœ¨è¿™è€è€å®žå®žç»™æˆ‘æ‰“æ‰«é©¬æˆ¿ï¼Œæ²¡æœ‰æˆ‘çš„æ»¡æ„ï¼Œä½ åˆ«æƒ³å›žåŽ»è¦†å‘½ï¼",
+             "æ‰“æ‰«" : "ä½ å°±åœ¨è¿™è€è€å®žå®žç»™æˆ‘æ‰“æ‰«é©¬æˆ¿ï¼Œæ²¡æœ‰æˆ‘çš„æ»¡æ„ï¼Œä½ åˆ«æƒ³å›žåŽ»è¦†å‘½ï¼",
        ]) );
 
        setup();
@@ -34,14 +34,14 @@ void init()
 void greeting(object ob)
 {
        if( !ob || environment(ob) != environment() ) return;
-       if(ob->query_temp("job_name") != "´òÉ¨Âí·¿") return; 
+       if(ob->query_temp("job_name") != "æ‰“æ‰«é©¬æˆ¿") return; 
        if (!( present("sao zhou", ob))){
            command("hmm "+ob->query("id"));
-           command("say Äã»¹Ã»Áì¹¤¾ß°É£¬È¥ÎïÆ··¿ÕÒÁùÊ¦ÐÖÒª¡£");
+           command("say ä½ è¿˜æ²¡é¢†å·¥å…·å§ï¼ŒåŽ»ç‰©å“æˆ¿æ‰¾å…­å¸ˆå…„è¦ã€‚");
            return;
        }
-       if(!(ob->query_temp("job_name")!="´òÉ¨Âí·¿")){
+       if(!(ob->query_temp("job_name")!="æ‰“æ‰«é©¬æˆ¿")){
            command("nod "+ob->query("id"));
-           command("say " + RANK_D->query_respect(ob)+"£¬Äã¾ÍÔÚÕâ´òÉ¨ "HIY HBCYN"sao Âí·¿"CYN" °É¡£"NOR);
+           command("say " + RANK_D->query_respect(ob)+"ï¼Œä½ å°±åœ¨è¿™æ‰“æ‰« "HIY HBCYN"sao é©¬æˆ¿"CYN" å§ã€‚"NOR);
        }
 }

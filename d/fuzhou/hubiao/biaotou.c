@@ -12,8 +12,8 @@ void create()
 
 	name = RNAME_D->get_random_name(i);
 	set_name(name["name"], name["id"]);
-	set("title", HIW"¸£ÍşïÚ¾Ö×ÜïÚÍ·"NOR);
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+	set("title", HIW"ç¦å¨é•–å±€æ€»é•–å¤´"NOR);
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 35 +random(30));
 	set("combat_exp", 100000);
 	set("attitude", "friendly");
@@ -26,8 +26,8 @@ void create()
 
 	set("chat_chance", 2);
         set("chat_msg",({
-		CYN+query("name")+"ºÈµÀ£º¡°ÏĞÔÓÈËµÈÉÁ¿ªÁË¡£¡±\n"NOR,
-		CYN+query("name")+"ºÈµÀ£º¡°¿ì×ß¿ì×ß£¬±ğÍµÀÁ£¡¡±\n"NOR,
+		CYN+query("name")+"å–é“ï¼šâ€œé—²æ‚äººç­‰é—ªå¼€äº†ã€‚â€\n"NOR,
+		CYN+query("name")+"å–é“ï¼šâ€œå¿«èµ°å¿«èµ°ï¼Œåˆ«å·æ‡’ï¼â€\n"NOR,
 	}));
 
 	set_skill("literate", query("int") * 10);
@@ -116,7 +116,7 @@ void heart_beat()
 
 void dest()
 {
-    command("emote ¼±¼±Ã¦Ã¦µØÀë¿ªÁË¡£");
+    command("emote æ€¥æ€¥å¿™å¿™åœ°ç¦»å¼€äº†ã€‚");
     destruct(this_object());
 } 
 

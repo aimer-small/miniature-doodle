@@ -1,14 +1,14 @@
-//xtong2.c Ğ¡Í¯
+//xtong2.c å°ç«¥
 
 inherit NPC;
 
 void create()
 {
-	set_name("Ğ¡Í¯", ({ "xiao tong", "xiao","tong"}) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("å°ç«¥", ({ "xiao tong", "xiao","tong"}) );
+	set("gender", "ç”·æ€§" );
 	set("age", 16);
 	set("long",
-		"ÕâÊÇÒ»¸öÇàÒÂĞ¡Í¯£¬ÕıÄÃ×ÅÉÈ×Ó¶Ô×ÅÂ¯×ÓÉ¿×Å¡£\n");
+		"è¿™æ˜¯ä¸€ä¸ªé’è¡£å°ç«¥ï¼Œæ­£æ‹¿ç€æ‰‡å­å¯¹ç€ç‚‰å­ç…½ç€ã€‚\n");
 	set("combat_exp", 50000);
 	set("attitude", "friendly");
 	setup();

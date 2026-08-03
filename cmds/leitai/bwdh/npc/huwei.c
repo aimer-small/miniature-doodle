@@ -17,10 +17,10 @@ void create()
 	name = RNAME_D->get_random_name(i);
 	skills = npc_skills[random(sizeof(npc_skills))];
 	set_name(name["name"], name["id"] + ({ "zhanglao" }));
-	set("title", HIR"ÊÔ½£É½×¯»¤Ôº"NOR);
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+	set("title", HIR"è¯•å‰‘å±±åº„æŠ¤é™¢"NOR);
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 30 + random(40));
-	set("long", "ÕâÊÇÊÔ½£É½×¯»¤ÎÀ£¬¿´ÆğÀ´Îä¹¦²»´í¡£\n");
+	set("long", "è¿™æ˜¯è¯•å‰‘å±±åº„æŠ¤å«ï¼Œçœ‹èµ·æ¥æ­¦åŠŸä¸é”™ã€‚\n");
 	set("combat_exp", 8000000);
 	set("meitude", "peaceful");
 	set("str", 25);
@@ -138,7 +138,7 @@ void heart_beat()
 	if (target && !present(target) && (env = environment(target))
 	&& !is_fighting() && !target->is_ghost() && living(this_object())) {
 		move(env);
-		tell_room(environment(ob), ob->name()+ "Âõ×Å´ó²½³åÁË¹ıÀ´¡£\n", ({ ob }) );
+		tell_room(environment(ob), ob->name()+ "è¿ˆç€å¤§æ­¥å†²äº†è¿‡æ¥ã€‚\n", ({ ob }) );
 		if ( !environment(ob)->query("no_fight"))
 			::kill_ob(target);
 	}
@@ -151,7 +151,7 @@ void heart_beat()
 		add("qi", query("max_qi")/5);
 		add("cure", 1);
 		if (! ob->is_busy())
-			tell_room(environment(ob), ob->name()+"ÉîÉîµÄÎüÁË¿ÚÆø£¬Á³É«¶ÙÊ±ºÃÁËĞí¶à¡£\n", ({ ob }) ); 
+			tell_room(environment(ob), ob->name()+"æ·±æ·±çš„å¸äº†å£æ°”ï¼Œè„¸è‰²é¡¿æ—¶å¥½äº†è®¸å¤šã€‚\n", ({ ob }) ); 
 	}
 }
 
@@ -202,7 +202,7 @@ int do_kill(object ob)
 			skills[sk[i]] = lv;
 	}
 	set_temp("skill_set", 1);
-	message_vision(HIR"\n$n¶Ô×Å$N´óºÈÒ»Éù£º´óµ¨"+ RANK_D->query_rude(ob)+"¾¹¸ÒÀ´ÎÒÊÔ½£É½×¯µ·ÂÒ£¡£¡\n\n"NOR,ob,me);
+	message_vision(HIR"\n$nå¯¹ç€$Nå¤§å–ä¸€å£°ï¼šå¤§èƒ†"+ RANK_D->query_rude(ob)+"ç«Ÿæ•¢æ¥æˆ‘è¯•å‰‘å±±åº„æ£ä¹±ï¼ï¼\n\n"NOR,ob,me);
 	::kill_ob(ob);
 }
 
@@ -223,7 +223,7 @@ void do_lost()
 {
 	object me;
 	me = this_object();
-	tell_room(environment(me), CYN+"\n"+name()+"´óº°Ò»Éù£º¡¸ÀÏ×Ó²»·îÅãÁË£¡¡¹×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n"NOR);
+	tell_room(environment(me), CYN+"\n"+name()+"å¤§å–Šä¸€å£°ï¼šã€Œè€å­ä¸å¥‰é™ªäº†ï¼ã€è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n"NOR);
 	dest(me);
 }
 
@@ -232,6 +232,6 @@ void unconcious()
 	object me;
 	me = this_object();
 
-	tell_room(environment(me), CYN+"\n"+name()+"´óº°Ò»Éù£º¡¸²»ºÃ£¡£¡¡¹×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n"NOR);
+	tell_room(environment(me), CYN+"\n"+name()+"å¤§å–Šä¸€å£°ï¼šã€Œä¸å¥½ï¼ï¼ã€è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n"NOR);
 	dest(me);
 }

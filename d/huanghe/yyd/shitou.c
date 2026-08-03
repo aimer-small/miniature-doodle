@@ -1,4 +1,4 @@
-// shitou.c Ê¯Í·
+// shitou.c çŸ³å¤´
 // zly 1999.07.27
  
 inherit ROOM;
@@ -11,10 +11,10 @@ int do_tao(string arg);
  
 void create() 
 { 
-        set("short", "Ê¯Í·");
+        set("short", "çŸ³å¤´");
         set("long", @LONG
-ÕâÊÇÒ»¿éÕ­Ð¡µÄÂä½Å´¦£¬½öÈÝµÃ¼¸¸öÈËÂä½Å¡£ÓÒÉÏ·½ºÃÏóÓÐ¸öÐ¡¶´(dong)£¬
-¿´ÆðÀ´¿ÉÒÔÉìÊÖ½øÈ¥¡£
+è¿™æ˜¯ä¸€å—çª„å°çš„è½è„šå¤„ï¼Œä»…å®¹å¾—å‡ ä¸ªäººè½è„šã€‚å³ä¸Šæ–¹å¥½è±¡æœ‰ä¸ªå°æ´ž(dong)ï¼Œ
+çœ‹èµ·æ¥å¯ä»¥ä¼¸æ‰‹è¿›åŽ»ã€‚
 LONG
         );
 
@@ -35,19 +35,19 @@ int do_jump(string arg)
         object me = this_player();
         if (arg == "chi") {
                 if (me->query_skill("dodge", 1) >= 120) {
-                        message("vision", me->name() + "ÎüÁË¿ÚÆø£¬×ÝÉíÏò¶ÔÃæÔ¾È¥¡£\n",
+                        message("vision", me->name() + "å¸äº†å£æ°”ï¼Œçºµèº«å‘å¯¹é¢è·ƒåŽ»ã€‚\n",
                                 environment(me), ({me}) );
-                        write("ÄãÎüÁË¿ÚÆø£¬×ÝÉíÏò¶ÔÃæÔ¾È¥¡£\n");
+                        write("ä½ å¸äº†å£æ°”ï¼Œçºµèº«å‘å¯¹é¢è·ƒåŽ»ã€‚\n");
                         me->move(__DIR__"houyuan");
-                        message("vision", "Ö»¼ûÈËÓ°Ò»ÉÁ£¬" + me->name() +  "×ÝÉíÔ¾ÁË¹ýÀ´¡£\n",
+                        message("vision", "åªè§äººå½±ä¸€é—ªï¼Œ" + me->name() +  "çºµèº«è·ƒäº†è¿‡æ¥ã€‚\n",
                                 environment(me), ({me}) );
                         
                         return 1;
                 }
                 else {
-                        message("vision", me->name() + "×ÝÉíÏò¶ÔÃæÔ¾È¥£¬Ö»Ìý¡°ÆËÍ¨¡±Ò»Éù£¬" + me->name() + "Ë¤Èë³ØÖÐ£¬ÀÇ±·µÄÅÀÁË»ØÀ´¡£\n",
+                        message("vision", me->name() + "çºµèº«å‘å¯¹é¢è·ƒåŽ»ï¼Œåªå¬â€œæ‰‘é€šâ€ä¸€å£°ï¼Œ" + me->name() + "æ‘”å…¥æ± ä¸­ï¼Œç‹¼ç‹ˆçš„çˆ¬äº†å›žæ¥ã€‚\n",
                                 environment(me), ({me}) );
-                        write("Äã×ÝÉíÏò¶ÔÃæÔ¾È¥£¬Ö»Ìý¡°ÆËÍ¨¡±Ò»Éù£¬ÄãË¤Èë³ØÖÐ£¬ÀÇ±·µÄÅÀÁË»ØÀ´¡£\n");
+                        write("ä½ çºµèº«å‘å¯¹é¢è·ƒåŽ»ï¼Œåªå¬â€œæ‰‘é€šâ€ä¸€å£°ï¼Œä½ æ‘”å…¥æ± ä¸­ï¼Œç‹¼ç‹ˆçš„çˆ¬äº†å›žæ¥ã€‚\n");
                         me->receive_damage("qi",80);
                         return 1;
                 }
@@ -62,21 +62,21 @@ int do_tao(string arg)
         if (arg == "dong") {
                 if ( me->query_temp("tao_times") < 15 )
         {
-                message_vision("$NÉí×ÓÒ»»¬²îÒ»µã´ÓÊ¯Í·ÉÏµøÁËÏÂÀ´¡£\n", me);
+                message_vision("$Nèº«å­ä¸€æ»‘å·®ä¸€ç‚¹ä»ŽçŸ³å¤´ä¸Šè·Œäº†ä¸‹æ¥ã€‚\n", me);
                 me->set_temp("tao_times", random(35));
                 me->unconcious();
                 return 1;
         }
                 if ( !me->query_temp("tao") )
         {
-                message_vision("$NÔÚ¶´ÀïÃþÁË°ëÌì£¬Ê²Ã´Ò²Ã»ÓÐÃþµ½¡£\n", me);
+                message_vision("$Nåœ¨æ´žé‡Œæ‘¸äº†åŠå¤©ï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰æ‘¸åˆ°ã€‚\n", me);
                 return 1;
         }
         else {
-                message_vision("$NÔÚ¶´Àï×ÐÏ¸µØÃþË÷×Å¡£\n", me);
+                message_vision("$Nåœ¨æ´žé‡Œä»”ç»†åœ°æ‘¸ç´¢ç€ã€‚\n", me);
                 ob=new(__DIR__"obj/yaoshi");
                 ob->move(this_player());
-                tell_object(me, RED"ÄãÖ»¾õÊÖ¼âÒ»Á¹£¬Ãþµ½Ò»¿é±ùÀäµÄ¶«Î÷£¬Äã¸Ï½ô°ÑËüÄÃÁË³öÀ´¡£\n"NOR);
+                tell_object(me, RED"ä½ åªè§‰æ‰‹å°–ä¸€å‡‰ï¼Œæ‘¸åˆ°ä¸€å—å†°å†·çš„ä¸œè¥¿ï¼Œä½ èµ¶ç´§æŠŠå®ƒæ‹¿äº†å‡ºæ¥ã€‚\n"NOR);
                 me->set_temp("tao_times", 1);
                 me->delete_temp("tao");
                 return 1;

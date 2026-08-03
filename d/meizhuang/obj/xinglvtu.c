@@ -2,13 +2,13 @@ inherit ITEM;
 #include <ansi.h>
 void create()
 {
-       set_name(HIG"ÏªÉ½ĞĞÂÃÍ¼"NOR, ({ "xinglv tu", "tu", "xinglv" }) );
+       set_name(HIG"æºªå±±è¡Œæ—…å›¾"NOR, ({ "xinglv tu", "tu", "xinglv" }) );
        set_weight(100);
        if( clonep() )
                set_default_object(__FILE__);
       else {
-               set("unit", "±¾");
-                set("long", "ÕâÊÇÒ»±¾ÏªÉ½ĞĞÂÃÍ¼£¬ÊÇÃ·×¯µ¤ÇàÉú×îÏëµÃµ½µÄ¶«Î÷¡£\n");
+               set("unit", "æœ¬");
+                set("long", "è¿™æ˜¯ä¸€æœ¬æºªå±±è¡Œæ—…å›¾ï¼Œæ˜¯æ¢…åº„ä¸¹é’ç”Ÿæœ€æƒ³å¾—åˆ°çš„ä¸œè¥¿ã€‚\n");
                set("value", 100000);
                set("no_give",1);
                set("treasure",1);

@@ -10,11 +10,11 @@ string ask_me();
 
 void create()
 {
-	set_name("¿µ¹ãÁê", ({ "kang guangling", "kang" }));
+	set_name("åº·å¹¿é™µ", ({ "kang guangling", "kang" }));
 	set("long", 
-		"Ö»¼ûËû¸ß¶îÍ¹òª£¬ÈİÃ²Ææ¹Å£¬Ğ¦ÃĞÃĞµÄÁ³É«\n"
-		"¼«ÎªºÍÚÓ£¬ÊÖÖĞ±§×ÅÒ»¾ßÑşÇÙ¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"åªè§ä»–é«˜é¢å‡¸é¢¡ï¼Œå®¹è²Œå¥‡å¤ï¼Œç¬‘çœ¯çœ¯çš„è„¸è‰²\n"
+		"æä¸ºå’Œè°Ÿï¼Œæ‰‹ä¸­æŠ±ç€ä¸€å…·ç‘¶ç´ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 50);
 	set("attitude", "friendly");
 	set("class", "scholar");
@@ -25,7 +25,7 @@ void create()
 	set("dex", 38);
 
 	set("inquiry", ([
-//                "ÆåÆ×":(:ask_me:),
+//                "æ£‹è°±":(:ask_me:),
 	]) );
 	
 	set("max_qi", 1000);
@@ -55,9 +55,9 @@ void create()
 
 	set("book_count", 1);
 
-	create_family("åĞÒ£ÅÉ", 3, "µÜ×Ó");
-	set("title","åĞÒ£ÅÉ¡°º¯¹È°ËÓÑ¡±");
-	set("nickname","ÇÙµß");
+	create_family("é€é¥æ´¾", 3, "å¼Ÿå­");
+	set("title","é€é¥æ´¾â€œå‡½è°·å…«å‹â€");
+	set("nickname","ç´é¢ ");
 	setup();
 	carry_object(__DIR__"obj/cloth")->wear();
 	carry_object(__DIR__"obj/blade")->wield();
@@ -70,12 +70,12 @@ string ask_me()
 	object me,ob;
 	ob=this_player(); 
 	if (query("book_count") < 1)
-		return "ÄãÀ´ÍíÁË£¬ÆåÆ×ÎÒÒÑ¾­ÔùËÍ¸ø±ğÈëÁË¡£";   
+		return "ä½ æ¥æ™šäº†ï¼Œæ£‹è°±æˆ‘å·²ç»èµ é€ç»™åˆ«å…¥äº†ã€‚";   
 
 	add("book_count", -1);                  
-	command("say ºÃ°É£¬ÄÇÎÒ¾Í°ÑËüËÍ¸øÄãÁË¡£\n");
-	message_vision(HIY"¿µ¹ãÁêÎ¢Ğ¦×Å´Ó»³ÖĞÄÃ³öÁËÒ»±¾Êé£¬½»ÁË¸ø$N\n\n"NOR,ob);
+	command("say å¥½å§ï¼Œé‚£æˆ‘å°±æŠŠå®ƒé€ç»™ä½ äº†ã€‚\n");
+	message_vision(HIY"åº·å¹¿é™µå¾®ç¬‘ç€ä»æ€€ä¸­æ‹¿å‡ºäº†ä¸€æœ¬ä¹¦ï¼Œäº¤äº†ç»™$N\n\n"NOR,ob);
 	me=new("/clone/book/hand_book");
 	me->move(ob);
-	return "Õâ±¾ÆåÆ×¿ÉÇ§Íò²»ÒªËæ±ã¸ø±ğÈË¡£\n";
+	return "è¿™æœ¬æ£‹è°±å¯åƒä¸‡ä¸è¦éšä¾¿ç»™åˆ«äººã€‚\n";
 }

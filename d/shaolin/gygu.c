@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 { 
-         set("short","¹éÔª¹È");
+         set("short","å½’å…ƒè°·");
        set("long", @LONG
-×ß³öÊ¯ÊÒ£¬Ö»¼ûÔÚÒ»Éî¹ÈÖ®ÄÚ¡£Ç°ÃæÒ»×ù¸ß·å×èÂ·£¬°ÎµØ¶øÆð,
-Ö±´£Ìì°ë¡£ËÄÖÜ·åÂÍ¶¼ËÆÏòËü¹ªÒ¾£¬¹ÈÃæÄÚ²»¹ýÊ®Ä¶·½Ô²µØÃæ£¬¹Ö
-ËÉÆæÊ¯£¬ÖêÖê²»Í¬¡£²ÔÆ¤ÌúÁ×£¬ò°¸ÉÁúÖ¦£¬ËÆÓûÁÙ·ç·ÉÈ¥¡£
+èµ°å‡ºçŸ³å®¤ï¼Œåªè§åœ¨ä¸€æ·±è°·ä¹‹å†…ã€‚å‰é¢ä¸€åº§é«˜å³°é˜»è·¯ï¼Œæ‹”åœ°è€Œèµ·,
+ç›´çŸ—å¤©åŠã€‚å››å‘¨å³°å³¦éƒ½ä¼¼å‘å®ƒèº¬æ–ï¼Œè°·é¢å†…ä¸è¿‡åäº©æ–¹åœ†åœ°é¢ï¼Œæ€ª
+æ¾å¥‡çŸ³ï¼Œæ ªæ ªä¸åŒã€‚è‹çš®é“ç£·ï¼Œè™¬å¹²é¾™æžï¼Œä¼¼æ¬²ä¸´é£Žé£žåŽ»ã€‚
 LONG
      );
 	set("exits", ([
@@ -36,17 +36,17 @@ LONG
        if (arg!="tree") return 0;
        if (!(me->query("pass_xin"))) return 0;
        if (!weapon || weapon->query("id")!="chai dao")
-        return notify_fail("ÄãÒªÓÃ²ñµ¶ÅüÊ÷¡£\n");
-    if (me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+        return notify_fail("ä½ è¦ç”¨æŸ´åˆ€åŠˆæ ‘ã€‚\n");
+    if (me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
        if ((int)me->query("jingli",1)<50)
-          return notify_fail("ÄãµÄ¾«Á¦²»¹»¡£\n");
+          return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿã€‚\n");
        if ((int)me->query("neili",1)<100)
-          return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n"); 
+          return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n"); 
 if( me->query_skill("weituo-chu",1)>0 || me->query_skill("riyue-bian",1)>0)
-return notify_fail("³ý·ÇÄãÓÐ´ïÄ¦ÀÏ×æµÄÐÞÎª£¬·½ÄÜÍ¬Ê±ÐÞÏ°ÉÙÁÖÈý¾ø¼¼¡£\n");
-      message_vision(RED"$NÊ¹¿ª²ñµ¶¶Ô×¼ÑÂ±ß¹ÖËÉ£¬Ò»µ¶µ¶ÅüÈ¥£¬\n"
-                         "ËÉÄ¾¼áÈÍ£¬µ¶¹âÁýÕÖÖ®ÏÂ£¬»ðÐÇËÄ½¦£¬·¢³ö\n"
-                         "±Ù°ÇÈ¼ÉÕÖ®Éù¡£\n" NOR,me);
+return notify_fail("é™¤éžä½ æœ‰è¾¾æ‘©è€ç¥–çš„ä¿®ä¸ºï¼Œæ–¹èƒ½åŒæ—¶ä¿®ä¹ å°‘æž—ä¸‰ç»æŠ€ã€‚\n");
+      message_vision(RED"$Nä½¿å¼€æŸ´åˆ€å¯¹å‡†å´–è¾¹æ€ªæ¾ï¼Œä¸€åˆ€åˆ€åŠˆåŽ»ï¼Œ\n"
+                         "æ¾æœ¨åšéŸ§ï¼Œåˆ€å…‰ç¬¼ç½©ä¹‹ä¸‹ï¼Œç«æ˜Ÿå››æº…ï¼Œå‘å‡º\n"
+                         "è¾Ÿæ‰’ç‡ƒçƒ§ä¹‹å£°ã€‚\n" NOR,me);
  me->receive_damage("jingli",30);
   me->receive_damage("neili",30);          
            me->improve_skill("ranmu-daofa", ((int)me->query_skill("blade",1))/4);

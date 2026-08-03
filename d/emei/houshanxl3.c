@@ -1,5 +1,5 @@
 // houshanxl3.c
-// ºóÉ½Ğ¡Â·
+// åå±±å°è·¯
 inherit ROOM;
 #include <ansi.h>
 
@@ -7,12 +7,12 @@ int do_kan(string arg);
 
 void create()
 {
-        set("short", HIG "ºóÉ½Ğ¡Â·" NOR);
+        set("short", HIG "åå±±å°è·¯" NOR);
         set("long", @long
-ÕâÀïËäËµÊÇĞ¡Â·£¬µ«ÖÜÎ§³ıÁË²»¸ßµÄĞ¡Ê÷£¬¾ÍÊÇ°í½ÅµÄ¹àÄ¾£¬ºÜÄÑÔÙÕÒµ½
-ÏÂÉ½µÄÂ·ÁË¡£
+è¿™é‡Œè™½è¯´æ˜¯å°è·¯ï¼Œä½†å‘¨å›´é™¤äº†ä¸é«˜çš„å°æ ‘ï¼Œå°±æ˜¯ç»Šè„šçš„çŒæœ¨ï¼Œå¾ˆéš¾å†æ‰¾åˆ°
+ä¸‹å±±çš„è·¯äº†ã€‚
 long);
-	set("outdoors", "¶ëÃ¼É½");
+	set("outdoors", "å³¨çœ‰å±±");
 	set("exits",([
 		"southup":__DIR__"houshansl",
 		"northdown":__DIR__"houshanxl4",
@@ -31,13 +31,13 @@ void init()
 int do_kan(string arg)
 {
 	object weapon, me=this_player();
-	if (!arg && arg != "¹àÄ¾´Ô" && arg != "¹àÄ¾" && arg != "guanmu" && arg != "cong")
-		return notify_fail("ÄãÒª¿³Ê²Ã´£¿\n");
+	if (!arg && arg != "çŒæœ¨ä¸›" && arg != "çŒæœ¨" && arg != "guanmu" && arg != "cong")
+		return notify_fail("ä½ è¦ç ä»€ä¹ˆï¼Ÿ\n");
 	if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("flag") != 4 )
-		return notify_fail("ÄãÄÃÊ²Ã´¿³£¿\n");
-	message_vision("$NÄÃÆğ"+weapon->name()+"¶Ô×Å¹àÄ¾´Ô¿³ÁËÆğÀ´£¬Ò»×ªÑÛ¾Í×êÁË½øÈ¥¡£\n", me);
+		return notify_fail("ä½ æ‹¿ä»€ä¹ˆç ï¼Ÿ\n");
+	message_vision("$Næ‹¿èµ·"+weapon->name()+"å¯¹ç€çŒæœ¨ä¸›ç äº†èµ·æ¥ï¼Œä¸€è½¬çœ¼å°±é’»äº†è¿›å»ã€‚\n", me);
 	me->receive_damage("jingli", random(200) );
-	me->set_temp("last_damage_from", "ÔÚ¹àÄ¾´ÔÀï½îÆ£Á¦¾¡ÀÛ");
+	me->set_temp("last_damage_from", "åœ¨çŒæœ¨ä¸›é‡Œç­‹ç–²åŠ›å°½ç´¯");
 	me->move(__DIR__"houshangm");
 	return 1;
 }

@@ -1,19 +1,19 @@
-// NPC :gan_guanghao.c ¸É¹âºÀ
+// NPC :gan_guanghao.c å¹²å…‰è±ª
 // By River 98/12
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name("¸É¹âºÀ", ({ "gan guanghao", "gan", "guanghao"}));
-        set("title","ÎŞÁ¿½£¶«×ÚµÜ×Ó");              
-        set("gender", "ÄĞĞÔ" );
+        set_name("å¹²å…‰è±ª", ({ "gan guanghao", "gan", "guanghao"}));
+        set("title","æ— é‡å‰‘ä¸œå®—å¼Ÿå­");              
+        set("gender", "ç”·æ€§" );
         set("age", 36);
         set("str", 27);
         set("con", 23);
         set("dex", 26);
         set("int", 25);
         set("per", 15);
-        set("no_get","¸É¹âºÀ¶ÔÄãÀ´ËµÌ«ÖØÁË¡£\n");
+        set("no_get","å¹²å…‰è±ªå¯¹ä½ æ¥è¯´å¤ªé‡äº†ã€‚\n");
    	set("attitude", "aggressive");
 
         set("max_qi", 1000);
@@ -24,7 +24,7 @@ void create()
         set("max_neili", 1000);      
         set("unique", 1);
         
-        set("long","ËûÊÇÎŞÁ¿½£¶«×ÚµÄµÜ×Ó¡£\n");
+        set("long","ä»–æ˜¯æ— é‡å‰‘ä¸œå®—çš„å¼Ÿå­ã€‚\n");
         set("combat_exp", 200000);
         set("shen", -800); 
 
@@ -58,5 +58,5 @@ void init()
 
 void greeting(object ob)
 {        
-        command("say "+RANK_D->query_rude(ob)+"£¬¾¹¸Ò»µÎÒºÃÊÂ£¬ÄÃÃüÀ´°É£¡");
+        command("say "+RANK_D->query_rude(ob)+"ï¼Œç«Ÿæ•¢åæˆ‘å¥½äº‹ï¼Œæ‹¿å‘½æ¥å§ï¼");
 }

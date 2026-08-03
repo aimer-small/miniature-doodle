@@ -9,12 +9,12 @@ int update_condition(object me,int duration)
 	me->receive_wound("qi",100);
 	me->receive_wound("jing",100);
 	me->add_busy(2);
-	me->set_temp("last_damage_from","±ù²Ï¶¾·¢×÷");
-	if( !living(me) ) message("vision", HIW+me->name() + HIW"µÄÍ·ÉÏ¡¢ÒÂ·şÉÏ¡¢ÊÖ½ÅÉÏ£¬¶¼ÉÏÒ»²ã±¡±¡µÄ°×Ëª¡£\n"NOR, environment(me), me);
+	me->set_temp("last_damage_from","å†°èš•æ¯’å‘ä½œ");
+	if( !living(me) ) message("vision", HIW+me->name() + HIW"çš„å¤´ä¸Šã€è¡£æœä¸Šã€æ‰‹è„šä¸Šï¼Œéƒ½ä¸Šä¸€å±‚è–„è–„çš„ç™½éœœã€‚\n"NOR, environment(me), me);
 	else {
-		tell_object(me,HIB"ÄãÍ»È»¾õµÃÊ³Ö¸¼âÉÏÎ¢Î¢Ò»Ñ÷£¬Ò»¹Éº®ÆøÓÅËÆ±ù¼ı£¬Ñ­×ÅÊÖ±Û£¬Ñ¸ËÙÎŞÂ×µÄÉäÈëĞØÌÅ¡£\n"NOR);
-		tell_room(environment(me),HIW+me->name() + HIW"µÄÍ·ÉÏ¡¢ÒÂ·şÉÏ¡¢ÊÖ½ÅÉÏ£¬¶¼ÉÏÒ»²ã±¡±¡µÄ°×Ëª,¶³µÃÈ«Éí²»Í£µÄ¶ßàÂ£¡\n"NOR,({me}));
-		//message("vision", me->name() + "µÄÍ·ÉÏ¡¢ÒÂ·şÉÏ¡¢ÊÖ½ÅÉÏ£¬¶¼ÉÏÒ»²ã±¡±¡µÄ°×Ëª,¶³µÃÈ«Éí²»Í£µÄ¶ßàÂ£¡\n", environment(me), me);
+		tell_object(me,HIB"ä½ çªç„¶è§‰å¾—é£ŸæŒ‡å°–ä¸Šå¾®å¾®ä¸€ç—’ï¼Œä¸€è‚¡å¯’æ°”ä¼˜ä¼¼å†°ç®­ï¼Œå¾ªç€æ‰‹è‡‚ï¼Œè¿…é€Ÿæ— ä¼¦çš„å°„å…¥èƒ¸è†›ã€‚\n"NOR);
+		tell_room(environment(me),HIW+me->name() + HIW"çš„å¤´ä¸Šã€è¡£æœä¸Šã€æ‰‹è„šä¸Šï¼Œéƒ½ä¸Šä¸€å±‚è–„è–„çš„ç™½éœœ,å†»å¾—å…¨èº«ä¸åœçš„å“†å—¦ï¼\n"NOR,({me}));
+		//message("vision", me->name() + "çš„å¤´ä¸Šã€è¡£æœä¸Šã€æ‰‹è„šä¸Šï¼Œéƒ½ä¸Šä¸€å±‚è–„è–„çš„ç™½éœœ,å†»å¾—å…¨èº«ä¸åœçš„å“†å—¦ï¼\n", environment(me), me);
 	}
 	if(duration < 1) return 0;
 	me->apply_condition("bingcan_poison",duration - 1);

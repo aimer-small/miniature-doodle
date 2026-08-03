@@ -14,14 +14,14 @@ void init()
 
 void create()
 {
-        set_name(HIG "±ªÌ¥Ò×½îÍè" NOR, ({"baotaiyijinwan","wan","yao"}));
+        set_name(HIG "è±¹èƒŽæ˜“ç­‹ä¸¸" NOR, ({"baotaiyijinwan","wan","yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("long",
-                "Ò»¿ÅÓÃÐí¶àÃû¹óÒ©²ÄÁ¶ÖÆ¶ø³ÉµÄÒ©Íè£¬¾ÝËµÁ·ÎäÖ®ÈË³ÔÁË¿ÉÒÔ¹¦Á¦´óÔö£¬µ«¶à³Ô
-		 ¿ÖÒ²Î´±ØÓÐÒæ¡£\n");
-		set("unit", "¿Å");
+                "ä¸€é¢—ç”¨è®¸å¤šåè´µè¯æç‚¼åˆ¶è€Œæˆçš„è¯ä¸¸ï¼Œæ®è¯´ç»ƒæ­¦ä¹‹äººåƒäº†å¯ä»¥åŠŸåŠ›å¤§å¢žï¼Œä½†å¤šåƒ
+		 æä¹Ÿæœªå¿…æœ‰ç›Šã€‚\n");
+		set("unit", "é¢—");
 		set("no_sell",1);
 		set("medicine", "drug");
 		//set("no_get", 1);
@@ -33,13 +33,13 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if (!living(me)) return notify_fail("Ïëµ±»úÂð£¿\n");
+	if (!living(me)) return notify_fail("æƒ³å½“æœºå—ï¼Ÿ\n");
 	if (!id(arg)) return 0;
 	if(!me->query("quest_kill/btyao"))
 	{
-            message_vision(HIG "$N³ÔÏÂÒ»¿Å"
+            message_vision(HIG "$Nåƒä¸‹ä¸€é¢—"
 	    +this_object()->query("name")+
-	    HIG "£¬¶ÙÊ±¾õµÃÈ«Éí·¢ÈÈ£¬Ò»¹ÉÕæÆøÖ±³åÍ·¶¥£¬ËÆÓû³å¶¥¶ø³ö¡£\n"
+	    HIG "ï¼Œé¡¿æ—¶è§‰å¾—å…¨èº«å‘çƒ­ï¼Œä¸€è‚¡çœŸæ°”ç›´å†²å¤´é¡¶ï¼Œä¼¼æ¬²å†²é¡¶è€Œå‡ºã€‚\n"
 	    NOR,me);
 	    me->add("max_jingli", 20);
 	    me->add("eff_jingli", 20);
@@ -53,9 +53,9 @@ int do_eat(string arg)
 	}
         else
         {
-	    message_vision(HIG "$N³ÔÏÂÒ»¿Å"
+	    message_vision(HIG "$Nåƒä¸‹ä¸€é¢—"
 	    +this_object()->query("name")+
-	    HIG "£¬¶ÙÊ±¾õµÃ¸¹Í´Èç½Ê£¬½û²»×¡²Ò½ÐÒ»Éù£¬»èµ¹ÔÚµØ¡£\n"
+	    HIG "ï¼Œé¡¿æ—¶è§‰å¾—è…¹ç—›å¦‚ç»žï¼Œç¦ä¸ä½æƒ¨å«ä¸€å£°ï¼Œæ˜å€’åœ¨åœ°ã€‚\n"
 	    NOR,me); 
 	    me->add("eff_jingli", -me->query("eff_jingli")/10);
 	    if(me->query("max_neili")>=2)

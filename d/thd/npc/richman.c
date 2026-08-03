@@ -4,8 +4,8 @@ inherit NPC;
 
 string ask_laozu();
 
-string * name1 = ({ "ÕÔ","Ç®","Àî","Ëï","ÖÜ","Îä","Ö£","Íõ","ÓÎ","»Æ"}); 
-string * name2 = ({ "Ìì","Çà","·ç","¸´","É½","Æ½","¿Õ","Ê¿","ÔŞ","±ê"}); 
+string * name1 = ({ "èµµ","é’±","æ","å­™","å‘¨","æ­¦","éƒ‘","ç‹","æ¸¸","é»„"}); 
+string * name2 = ({ "å¤©","é’","é£","å¤","å±±","å¹³","ç©º","å£«","èµ","æ ‡"}); 
 string * id = ({ "gon zi", "nan zi", "qing nian", "young man"});
 
 void create()
@@ -13,9 +13,9 @@ void create()
         string name = name1[random(sizeof(name1))] + name2[random(sizeof(name2))];
         string id = id[random(sizeof(id))];
         set_name(name, ({ id }));
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 15 + random(5));
-        set("long", "ÕâÊÇ¸öÄêÇáÄĞ×Ó£¬ÉíÉÏÒÂÉÀÉõÊÇ»ªÀö¡£\n");
+        set("long", "è¿™æ˜¯ä¸ªå¹´è½»ç”·å­ï¼Œèº«ä¸Šè¡£è¡«ç”šæ˜¯åä¸½ã€‚\n");
         set("combat_exp", 10000);
         set("meitude", "peaceful");
         set("max_qi", 1000);

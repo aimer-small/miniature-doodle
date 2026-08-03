@@ -6,9 +6,9 @@ inherit NPC;
 int ask_chuhai();
 void create()
 {
-	set_name("´¬·ò",({ "chuan fu","chuan","fu"}));
-	set("long", "ËûÊÇÒ»ÃûÀÏ´¬·ò£¬×¨ÃÅ¸ºÔð·¢ÅÉÉñÁúµºÈ¥ÖÐÔ­µÄ´¬Ö»¡£\n");
-	set("gender", "ÄÐÐÔ");
+	set_name("èˆ¹å¤«",({ "chuan fu","chuan","fu"}));
+	set("long", "ä»–æ˜¯ä¸€åè€èˆ¹å¤«ï¼Œä¸“é—¨è´Ÿè´£å‘æ´¾ç¥žé¾™å²›åŽ»ä¸­åŽŸçš„èˆ¹åªã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("no_get_from", 1);
 	set("unique", 1);
@@ -32,11 +32,11 @@ void create()
         set_skill("dodge", 40);
         
 	set("combat_exp", 50000);
-	create_family("ÉñÁú½Ì",3, "µÜ×Ó");
+	create_family("ç¥žé¾™æ•™",3, "å¼Ÿå­");
 
         set("inquiry", ([
 		"chuhai" : (: ask_chuhai :),
-		"³öº£" : (: ask_chuhai :),
+		"å‡ºæµ·" : (: ask_chuhai :),
 	]));
         
 	setup();
@@ -52,7 +52,7 @@ void init()
 
 int ask_chuhai()
 {
-	command("say µºÖ÷ÓÐÁî£¬±ØÐëÓÐÍ¨ÐÐÁîÅÆÎÒ²ÅÄÜ·¢ÅÉ´¬Ö»,²»È»ÈÎºÎÈË²»µÃÉÃ×ÔÀëµº£¡£¡£¡");
+	command("say å²›ä¸»æœ‰ä»¤ï¼Œå¿…é¡»æœ‰é€šè¡Œä»¤ç‰Œæˆ‘æ‰èƒ½å‘æ´¾èˆ¹åª,ä¸ç„¶ä»»ä½•äººä¸å¾—æ“…è‡ªç¦»å²›ï¼ï¼ï¼");
 	return 1;
 }
 
@@ -62,7 +62,7 @@ int accept_object(object who, object ob)
 		return 0;
 
 	if ( file_name(environment(this_object())) != this_object()->query("startroom")) 
-		return notify_fail(CYN"´¬·ò¶ÔÄãËµµÀ£º¡¸»¹ÊÇµÈÎÒ»Øµ½ÉñÁúµºÔÙËµ°É¡£¡¹\n"NOR);
+		return notify_fail(CYN"èˆ¹å¤«å¯¹ä½ è¯´é“ï¼šã€Œè¿˜æ˜¯ç­‰æˆ‘å›žåˆ°ç¥žé¾™å²›å†è¯´å§ã€‚ã€\n"NOR);
 
         this_player()->start_busy(5);
 	remove_call_out("go_chuan");
@@ -109,20 +109,20 @@ __DIR__"obj/fc20" });
 		break;
 	}
 	if(i>=sizeof(fcname)){
-		command("say ÏÖÔÚÃ»´¬£¬ÇëµÈÒ»»á°É¡£\n");
+		command("say çŽ°åœ¨æ²¡èˆ¹ï¼Œè¯·ç­‰ä¸€ä¼šå§ã€‚\n");
 		remove_call_out("go_chuan");
 		call_out("go_chuan", 2,me); 
 		return;
 	}
-	command("say ¼ÈÈ»ÓÐÉñÁú½ÌÍ¨ÐÐÁîÅÆ£¬ÎÒÕâ¾Í´øÄãÉÏ´¬£¡");
+	command("say æ—¢ç„¶æœ‰ç¥žé¾™æ•™é€šè¡Œä»¤ç‰Œï¼Œæˆ‘è¿™å°±å¸¦ä½ ä¸Šèˆ¹ï¼");
 	if(fchuan->query_temp("curstatus",1) == "ready") {
-		message_vision("\nÖ»¼û$NÏòº£ÉÏ´òÁË¸öÊÖÊÆ£¬ËÆºõÊÇÊ²Ã´°µºÅ¡£\n",this_object());
-		message_vision("²»Ò»»á¶ù£¬Ò»ËÒÐ¡·«´¬´Óº£ÉÏ»º»ºÊ»À´¡£\n\n", this_object());
-		message_vision(CYN"$N¶Ô$nËµµÀ£º¡¸º£ÉÏ·ç´ó£¬Ò»ÇÐÐ¡ÐÄ£¡¡¹\n"NOR, this_object(),me);
+		message_vision("\nåªè§$Nå‘æµ·ä¸Šæ‰“äº†ä¸ªæ‰‹åŠ¿ï¼Œä¼¼ä¹Žæ˜¯ä»€ä¹ˆæš—å·ã€‚\n",this_object());
+		message_vision("ä¸ä¸€ä¼šå„¿ï¼Œä¸€è‰˜å°å¸†èˆ¹ä»Žæµ·ä¸Šç¼“ç¼“é©¶æ¥ã€‚\n\n", this_object());
+		message_vision(CYN"$Nå¯¹$nè¯´é“ï¼šã€Œæµ·ä¸Šé£Žå¤§ï¼Œä¸€åˆ‡å°å¿ƒï¼ã€\n"NOR, this_object(),me);
 		fchuan->set_temp("curstatus","ready2");
 	}
-	message_vision("$NÇáÇáÒ»Ô¾£¬ÉÏÁËÐ¡´¬¡£\n",me);
+	message_vision("$Nè½»è½»ä¸€è·ƒï¼Œä¸Šäº†å°èˆ¹ã€‚\n",me);
         me->move(fcname[i]);
         me->start_busy(-1);
-	tell_room(environment(me), me->name() + "Ô¾ÉÏ´¬À´¡£\n", ({ me }));
+	tell_room(environment(me), me->name() + "è·ƒä¸Šèˆ¹æ¥ã€‚\n", ({ me }));
 }

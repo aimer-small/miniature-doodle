@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-	set_name("¹ÜÀíÔ±´¦ÀíÍæ¼ÒÊÂÎñ¹«¸æ°å", ({ "board" }) );
+	set_name("ç®¡ç†å‘˜å¤„ç†çŽ©å®¶äº‹åŠ¡å…¬å‘Šæ¿", ({ "board" }) );
         set("location", "/d/city/chmiao");
 	set("board_id", "wizto_b");
-	set("long", "ÕâÊÇÒ»¸ö¹ÜÀíÔ±´¦ÀíÍæ¼ÒÊÂÎñµÄ¹«¸æÁôÑÔ°å£¬Íæ¼Ò²»ÄÜÁôÑÔ¡£\n" );
+	set("long", "è¿™æ˜¯ä¸€ä¸ªç®¡ç†å‘˜å¤„ç†çŽ©å®¶äº‹åŠ¡çš„å…¬å‘Šç•™è¨€æ¿ï¼ŒçŽ©å®¶ä¸èƒ½ç•™è¨€ã€‚\n" );
 	setup();
 	set("capacity", 500);
 }
@@ -15,7 +15,7 @@ void create()
 int do_post(string arg)
 {
 	if (!wizardp(this_player()))
-		return notify_fail("Ö»ÓÐÎ×Ê¦²Å¿ÉÒÔÔÚÕâÀïÁôÑÔ¡£\n");
+		return notify_fail("åªæœ‰å·«å¸ˆæ‰å¯ä»¥åœ¨è¿™é‡Œç•™è¨€ã€‚\n");
 
 	return ::do_post(arg);
 }
@@ -51,7 +51,7 @@ void auto_post(string title,string text) {
         set("notes", notes);
         save();
         note = copy(note);
-        note["msg"] = "À´×Ô " + ::short() + "\n" + text;
+        note["msg"] = "æ¥è‡ª " + ::short() + "\n" + text;
         "/clone/board/post_b"->done_post(me, note);
-        tell_object(me,"´¦·£¼ÇÂ¼ÒÑ¾­·¢²¼µ½¹ÜÀíÔ±´¦ÀíÍæ¼ÒÊÂÎñ¹«¸æ°å¡£\n");
+        tell_object(me,"å¤„ç½šè®°å½•å·²ç»å‘å¸ƒåˆ°ç®¡ç†å‘˜å¤„ç†çŽ©å®¶äº‹åŠ¡å…¬å‘Šæ¿ã€‚\n");
 }

@@ -7,163 +7,163 @@
 #define __ITEM__
 
 /*****************
-   Íâ²¿½Ó¿Úº¯Êı£º
+   å¤–éƒ¨æ¥å£å‡½æ•°ï¼š
 *****************/
-// Ëæ»ú´´ÔìÒ»¸öÌ××°²¿¼ş£¬²»¹æ¶¨Ì××°µÈ¼¶ÎªËæ»úÌ××°µÈ¼¶£¬²»¹æ¶¨ÃÅÅÉÎªËæ»úÃÅÅÉ
+// éšæœºåˆ›é€ ä¸€ä¸ªå¥—è£…éƒ¨ä»¶ï¼Œä¸è§„å®šå¥—è£…ç­‰çº§ä¸ºéšæœºå¥—è£…ç­‰çº§ï¼Œä¸è§„å®šé—¨æ´¾ä¸ºéšæœºé—¨æ´¾
 public varargs object create_mod_random(int level, string family);
-// ´´ÔìÒ»¸öÌ××°²¿¼ş£¬¸ù¾İĞòºÅ
+// åˆ›é€ ä¸€ä¸ªå¥—è£…éƒ¨ä»¶ï¼Œæ ¹æ®åºå·
 public object create_mod(string num);
-// ´´ÔìÒ»¸ö¾«Æ··À¾ß£¬¸ù¾İĞòºÅ
+// åˆ›é€ ä¸€ä¸ªç²¾å“é˜²å…·ï¼Œæ ¹æ®åºå·
 public object create_obj_prime_armor(string num);
-// ´´ÔìÒ»¸ö¾«Æ·ÎäÆ÷£¬¸ù¾İĞòºÅ
+// åˆ›é€ ä¸€ä¸ªç²¾å“æ­¦å™¨ï¼Œæ ¹æ®åºå·
 public object create_obj_prime_weapon(string num);
-// ´´ÔìÒ»¸öÎïÆ·£¬¸ù¾İµÈ¼¶£¬³öÏÖÎäÆ÷µÄ°Ù·Ö±È
+// åˆ›é€ ä¸€ä¸ªç‰©å“ï¼Œæ ¹æ®ç­‰çº§ï¼Œå‡ºç°æ­¦å™¨çš„ç™¾åˆ†æ¯”
 public varargs object create_obj(int level, int percent);
-// ´´ÔìÒ»¸öÎïÆ·£¬¸ù¾İÈÎÎñºÍµÈ¼¶
+// åˆ›é€ ä¸€ä¸ªç‰©å“ï¼Œæ ¹æ®ä»»åŠ¡å’Œç­‰çº§
 public varargs object create_task_obj(string task, int level, string family);
-// ´´ÔìÒ»¸öÎïÆ·£¬¸ù¾İÀàĞÍºÍµÈ¼¶
+// åˆ›é€ ä¸€ä¸ªç‰©å“ï¼Œæ ¹æ®ç±»å‹å’Œç­‰çº§
 public object create_type_obj(string type, int level);
-// ´´ÔìÒ»¸öÎäÆ÷£¬¸ù¾İÀàĞÍºÍµÈ¼¶
+// åˆ›é€ ä¸€ä¸ªæ­¦å™¨ï¼Œæ ¹æ®ç±»å‹å’Œç­‰çº§
 public object create_weapon(string type, int level);
-// ´´ÔìÒ»¸ö·À¾ß£¬¸ù¾İÀàĞÍºÍµÈ¼¶
+// åˆ›é€ ä¸€ä¸ªé˜²å…·ï¼Œæ ¹æ®ç±»å‹å’Œç­‰çº§
 public object create_armor(string type, int level);
-// °ÑÒ»¸ö×°±¸ÊôĞÔ×ª»¯ÎªÌØÕ÷×Ö·û´®
+// æŠŠä¸€ä¸ªè£…å¤‡å±æ€§è½¬åŒ–ä¸ºç‰¹å¾å­—ç¬¦ä¸²
 public string trans_eq_to_mark(object ob);
-// ´´ÔìÒ»¸ö±¦Ê¯£¬¸ù¾İĞòºÅ
+// åˆ›é€ ä¸€ä¸ªå®çŸ³ï¼Œæ ¹æ®åºå·
 public object create_gem(string num);
-// Ëæ»ú´´ÔìÒ»¸öÑ°±¦ÈÎÎñÎïÆ·
+// éšæœºåˆ›é€ ä¸€ä¸ªå¯»å®ä»»åŠ¡ç‰©å“
 public varargs object create_XB_task_ob();
-// ´´ÔìÒ»¸öBOSSÎïÆ·£¬¸ù¾İÆ·ÖÊ
+// åˆ›é€ ä¸€ä¸ªBOSSç‰©å“ï¼Œæ ¹æ®å“è´¨
 public varargs object create_boss_obj(string quality);
-// ´´ÔìÒ»¸öBOSSµôÂäÎïÆ·ÕóÁĞ£¬¸ù¾İ´«ÈëµÄµôÂä¼¸ÂÊÓ³Éä¡£
+// åˆ›é€ ä¸€ä¸ªBOSSæ‰è½ç‰©å“é˜µåˆ—ï¼Œæ ¹æ®ä¼ å…¥çš„æ‰è½å‡ ç‡æ˜ å°„ã€‚
 public varargs object *create_boss_award(mapping award_rate);
-// ´´ÔìÒ»¸öBOSSµôÂä¡£
+// åˆ›é€ ä¸€ä¸ªBOSSæ‰è½ã€‚
 public void create_boss_drop(object me, mapping award_rate);
-// ´´ÔìÒ»¸ö¾«Æ··À¾ß£¬¸ù¾İĞòºÅ
+// åˆ›é€ ä¸€ä¸ªç²¾å“é˜²å…·ï¼Œæ ¹æ®åºå·
 public object create_obj_prime_armor(string num);
-// ´´ÔìÒ»¸ö¾«Æ·ÎäÆ÷£¬¸ù¾İĞòºÅ
+// åˆ›é€ ä¸€ä¸ªç²¾å“æ­¦å™¨ï¼Œæ ¹æ®åºå·
 public object create_obj_prime_weapon(string num);
-// Ëæ»ú´´ÔìÒ»¸ö¾«Æ·ÎäÆ÷£¬²»¹æ¶¨µÈ¼¶ÎªËæ»úµÈ¼¶
+// éšæœºåˆ›é€ ä¸€ä¸ªç²¾å“æ­¦å™¨ï¼Œä¸è§„å®šç­‰çº§ä¸ºéšæœºç­‰çº§
 public varargs object create_random_pri_weapon(int level);
-// Ëæ»ú´´ÔìÒ»¸ö¾«Æ··À¾ß£¬²»¹æ¶¨µÈ¼¶ÎªËæ»úµÈ¼¶
+// éšæœºåˆ›é€ ä¸€ä¸ªç²¾å“é˜²å…·ï¼Œä¸è§„å®šç­‰çº§ä¸ºéšæœºç­‰çº§
 public varargs object create_random_pri_armor(int level);
 
 /*****************
-    ÄÚ²¿º¯Êı£º
+    å†…éƒ¨å‡½æ•°ï¼š
 *****************/
-// ¸³ÓèÎäÆ÷Ãû×Ö
+// èµ‹äºˆæ­¦å™¨åå­—
 private void set_weapon_name(object ob, string type, int level);
-// ¸³Óè·À¾ßÃû×Ö
+// èµ‹äºˆé˜²å…·åå­—
 private void set_armor_name(object ob, string type, int level);
-// ¸³ÓèÎäÆ÷ÊôĞÔ
+// èµ‹äºˆæ­¦å™¨å±æ€§
 private void set_weapon_stats(object ob, int level);
-// ¸³Óè·À¾ßÊôĞÔ
+// èµ‹äºˆé˜²å…·å±æ€§
 private void set_armor_stats(object ob, int level);
-// ¼ì²étypeºÍlevelºÏ·¨ĞÔ woa->ÎäÆ÷»¹ÊÇ·À¾ß
-// type´íÎó·µ»Ø1 level´íÎó·µ»Ø2
+// æ£€æŸ¥typeå’Œlevelåˆæ³•æ€§ woa->æ­¦å™¨è¿˜æ˜¯é˜²å…·
+// typeé”™è¯¯è¿”å›1 levelé”™è¯¯è¿”å›2
 private int do_legal(string type, int level, string woa);
-// Ôö¼ÓÒ»¸öÊıÁ¿¼¶±ğµÄÊôĞÔ
+// å¢åŠ ä¸€ä¸ªæ•°é‡çº§åˆ«çš„å±æ€§
 private void set_one_stats(string woa);
-// Ôö¼ÓÊôĞÔµ½È«¾Ö¼ÇÂ¼
+// å¢åŠ å±æ€§åˆ°å…¨å±€è®°å½•
 private void save_to_stats(string type, int val);
-// Ôö¼Ó¼¼ÄÜµ½È«¾Ö¼ÇÂ¼
+// å¢åŠ æŠ€èƒ½åˆ°å…¨å±€è®°å½•
 private void save_to_skill_stats(string type, int val);
-// °ÑÒ»¸öÌØÕ÷×Ö·û´®×ª»¯Îª×°±¸ÊôĞÔ
+// æŠŠä¸€ä¸ªç‰¹å¾å­—ç¬¦ä¸²è½¬åŒ–ä¸ºè£…å¤‡å±æ€§
 private mapping trans_mark_to_eq(string mark);
-// °ÑÒ»¸öÌØÕ÷×Ö·û´®×ª»¯Îª±¦Ê¯ÊôĞÔ
+// æŠŠä¸€ä¸ªç‰¹å¾å­—ç¬¦ä¸²è½¬åŒ–ä¸ºå®çŸ³å±æ€§
 private mapping trans_mark_to_gem(string mark);
 
-// Ô­ĞÍÎÄ¼ş
+// åŸå‹æ–‡ä»¶
 mapping armor_dir = ([
-	"CLOTH"		:	ARCHETYEP_DIR"armor/cloth",		//ÒÂ·ş
-	"SKIRT"		:	ARCHETYEP_DIR"armor/skirt",		//³¤È¹
-	"HEAD"		:	ARCHETYEP_DIR"armor/head",		//Í·¿ø
-	"NECK"		:	ARCHETYEP_DIR"armor/neck",		//ÏîÁ´
-	"ARMOR"		:	ARCHETYEP_DIR"armor/armor",		//»¤¼×
-	"SURCOAT"	:	ARCHETYEP_DIR"armor/surcoat",		//Åû·ç
-	"WAIST"		:	ARCHETYEP_DIR"armor/waist",		//»¤Ñü
-	"WRISTS"	:	ARCHETYEP_DIR"armor/wrists",		//»¤Íó
-	"SHIELD"	:	ARCHETYEP_DIR"armor/shield",		//¶ÜÅÆ
-	"FINGER"	:	ARCHETYEP_DIR"armor/finger",		//½äÖ¸
-	"HANDS"		:	ARCHETYEP_DIR"armor/hands",		//ÊÖÌ×
-	"BOOTS"		:	ARCHETYEP_DIR"armor/boots",		//Ğ¬×Ó
+	"CLOTH"		:	ARCHETYEP_DIR"armor/cloth",		//è¡£æœ
+	"SKIRT"		:	ARCHETYEP_DIR"armor/skirt",		//é•¿è£™
+	"HEAD"		:	ARCHETYEP_DIR"armor/head",		//å¤´ç›”
+	"NECK"		:	ARCHETYEP_DIR"armor/neck",		//é¡¹é“¾
+	"ARMOR"		:	ARCHETYEP_DIR"armor/armor",		//æŠ¤ç”²
+	"SURCOAT"	:	ARCHETYEP_DIR"armor/surcoat",		//æŠ«é£
+	"WAIST"		:	ARCHETYEP_DIR"armor/waist",		//æŠ¤è…°
+	"WRISTS"	:	ARCHETYEP_DIR"armor/wrists",		//æŠ¤è…•
+	"SHIELD"	:	ARCHETYEP_DIR"armor/shield",		//ç›¾ç‰Œ
+	"FINGER"	:	ARCHETYEP_DIR"armor/finger",		//æˆ’æŒ‡
+	"HANDS"		:	ARCHETYEP_DIR"armor/hands",		//æ‰‹å¥—
+	"BOOTS"		:	ARCHETYEP_DIR"armor/boots",		//é‹å­
 ]);
 mapping weapon_dir = ([
-	"AXE"		:	ARCHETYEP_DIR"weapon/axe",		//¸«Àà
-	"BLADE"		:	ARCHETYEP_DIR"weapon/blade",		//µ¶Àà
-	"FORK"		:	ARCHETYEP_DIR"weapon/fork",		//²æÀà
-	"HAMMER"	:	ARCHETYEP_DIR"weapon/hammer",		//´¸Àà
-	"MACE"		:	ARCHETYEP_DIR"weapon/mace",		//ïµÀà
-	"RAKE"		:	ARCHETYEP_DIR"weapon/rake",		//°ÒÀà
-	"SWORD"		:	ARCHETYEP_DIR"weapon/sword",		//½£Àà
-	"STAFF"		:	ARCHETYEP_DIR"weapon/staff",		//ÕÈÀà
-	"STICK"		:	ARCHETYEP_DIR"weapon/stick",		//¹÷Àà
-	"WHIP"		:	ARCHETYEP_DIR"weapon/whip",		//±ŞÀà
-	"SPEAR"		:	ARCHETYEP_DIR"weapon/spear",		//Ç¹Àà
-        "ARROW"		:	ARCHETYEP_DIR"weapon/arrow",		//¹­Àà
+	"AXE"		:	ARCHETYEP_DIR"weapon/axe",		//æ–§ç±»
+	"BLADE"		:	ARCHETYEP_DIR"weapon/blade",		//åˆ€ç±»
+	"FORK"		:	ARCHETYEP_DIR"weapon/fork",		//å‰ç±»
+	"HAMMER"	:	ARCHETYEP_DIR"weapon/hammer",		//é”¤ç±»
+	"MACE"		:	ARCHETYEP_DIR"weapon/mace",		//é”ç±»
+	"RAKE"		:	ARCHETYEP_DIR"weapon/rake",		//è€™ç±»
+	"SWORD"		:	ARCHETYEP_DIR"weapon/sword",		//å‰‘ç±»
+	"STAFF"		:	ARCHETYEP_DIR"weapon/staff",		//æ–ç±»
+	"STICK"		:	ARCHETYEP_DIR"weapon/stick",		//æ£ç±»
+	"WHIP"		:	ARCHETYEP_DIR"weapon/whip",		//é­ç±»
+	"SPEAR"		:	ARCHETYEP_DIR"weapon/spear",		//æªç±»
+        "ARROW"		:	ARCHETYEP_DIR"weapon/arrow",		//å¼“ç±»
 ]);
-// »ù´¡·ÀÓù
+// åŸºç¡€é˜²å¾¡
 mapping armor_df_bas = ([
-	"CLOTH"		:	PROP_CLOTH,		//ÒÂ·ş
-	"SKIRT"		:	PROP_SKIRT,		//³¤È¹
-	"HEAD"		:	PROP_HEAD,		//Í·¿ø
-	"NECK"		:	PROP_NECK,		//ÏîÁ´
-	"ARMOR"		:	PROP_ARMOR,		//»¤¼×
-	"SURCOAT"	:	PROP_SURCOAT,		//Åû·ç
-	"WAIST"		:	PROP_WAIST,		//»¤Ñü
-	"WRISTS"	:	PROP_WRISTS,		//»¤Íó
-	"SHIELD"	:	PROP_SHIELD,		//¶ÜÅÆ
-	"FINGER"	:	PROP_FINGER,		//½äÖ¸
-	"HANDS"		:	PROP_HANDS,		//ÊÖÌ×
-	"BOOTS"		:	PROP_BOOTS,		//Ğ¬×Ó
+	"CLOTH"		:	PROP_CLOTH,		//è¡£æœ
+	"SKIRT"		:	PROP_SKIRT,		//é•¿è£™
+	"HEAD"		:	PROP_HEAD,		//å¤´ç›”
+	"NECK"		:	PROP_NECK,		//é¡¹é“¾
+	"ARMOR"		:	PROP_ARMOR,		//æŠ¤ç”²
+	"SURCOAT"	:	PROP_SURCOAT,		//æŠ«é£
+	"WAIST"		:	PROP_WAIST,		//æŠ¤è…°
+	"WRISTS"	:	PROP_WRISTS,		//æŠ¤è…•
+	"SHIELD"	:	PROP_SHIELD,		//ç›¾ç‰Œ
+	"FINGER"	:	PROP_FINGER,		//æˆ’æŒ‡
+	"HANDS"		:	PROP_HANDS,		//æ‰‹å¥—
+	"BOOTS"		:	PROP_BOOTS,		//é‹å­
 ]);
-// »ù´¡ÉËº¦
+// åŸºç¡€ä¼¤å®³
 mapping weapon_dam_bas = ([
-	"AXE"		:	DEFAULT_DAMAGE,		//¸«Àà
-	"BLADE"		:	DEFAULT_DAMAGE,		//µ¶Àà
-	"FORK"		:	DEFAULT_DAMAGE,		//²æÀà
-	"HAMMER"	:	DEFAULT_DAMAGE,		//´¸Àà
-	"MACE"		:	DEFAULT_DAMAGE,		//ïµÀà
-	"RAKE"		:	DEFAULT_DAMAGE,		//°ÒÀà
-	"SWORD"		:	DEFAULT_DAMAGE,		//½£Àà
-	"STAFF"		:	DEFAULT_DAMAGE,		//ÕÈÀà
-	"STICK"		:	DEFAULT_DAMAGE,		//¹÷Àà
-	"WHIP"		:	DEFAULT_DAMAGE,		//±ŞÀà
-	"SPEAR"		:	DEFAULT_DAMAGE,		//Ç¹Àà
-	"ARROW"		:	DEFAULT_DAMAGE,		//¹­Àà
+	"AXE"		:	DEFAULT_DAMAGE,		//æ–§ç±»
+	"BLADE"		:	DEFAULT_DAMAGE,		//åˆ€ç±»
+	"FORK"		:	DEFAULT_DAMAGE,		//å‰ç±»
+	"HAMMER"	:	DEFAULT_DAMAGE,		//é”¤ç±»
+	"MACE"		:	DEFAULT_DAMAGE,		//é”ç±»
+	"RAKE"		:	DEFAULT_DAMAGE,		//è€™ç±»
+	"SWORD"		:	DEFAULT_DAMAGE,		//å‰‘ç±»
+	"STAFF"		:	DEFAULT_DAMAGE,		//æ–ç±»
+	"STICK"		:	DEFAULT_DAMAGE,		//æ£ç±»
+	"WHIP"		:	DEFAULT_DAMAGE,		//é­ç±»
+	"SPEAR"		:	DEFAULT_DAMAGE,		//æªç±»
+	"ARROW"		:	DEFAULT_DAMAGE,		//å¼“ç±»
 ]);
-// ÎäÆ÷°´ÀàĞÍµÄ¼òÂÔID
+// æ­¦å™¨æŒ‰ç±»å‹çš„ç®€ç•¥ID
 mapping short_id_weapon = ([
-	"AXE"		:	"fu",		//¸«Àà
-	"BLADE"		:	"dao",		//µ¶Àà
-	"FORK"		:	"cha",		//²æÀà
-	"HAMMER"	:	"chui",		//´¸Àà
-	"MACE"		:	"jian",		//ïµÀà
-	"RAKE"		:	"pa",		//°ÒÀà
-	"SWORD"		:	"jian",		//½£Àà
-	"STAFF"		:	"zhang",	//ÕÈÀà
-	"STICK"		:	"gun",		//¹÷Àà
-	"WHIP"		:	"bian",		//±ŞÀà
-	"SPEAR"		:	"qiang",	//Ç¹Àà
-   "ARROW"		:	"gong",	//¹­Àà
+	"AXE"		:	"fu",		//æ–§ç±»
+	"BLADE"		:	"dao",		//åˆ€ç±»
+	"FORK"		:	"cha",		//å‰ç±»
+	"HAMMER"	:	"chui",		//é”¤ç±»
+	"MACE"		:	"jian",		//é”ç±»
+	"RAKE"		:	"pa",		//è€™ç±»
+	"SWORD"		:	"jian",		//å‰‘ç±»
+	"STAFF"		:	"zhang",	//æ–ç±»
+	"STICK"		:	"gun",		//æ£ç±»
+	"WHIP"		:	"bian",		//é­ç±»
+	"SPEAR"		:	"qiang",	//æªç±»
+   "ARROW"		:	"gong",	//å¼“ç±»
 ]);
-// ·À¾ß°´ÀàĞÍµÄ¼òÂÔID
+// é˜²å…·æŒ‰ç±»å‹çš„ç®€ç•¥ID
 mapping short_id_armor = ([
-	"CLOTH"		:	"yi",		//ÒÂ·ş
-	"SKIRT"		:	"qun",		//³¤È¹
-	"HEAD"		:	"kui",		//Í·¿ø
-	"NECK"		:	"xiangliang",	//ÏîÁ´
-	"ARMOR"		:	"jia",		//»¤¼×
-	"SURCOAT"	:	"pifeng",	//Åû·ç
-	"WAIST"		:	"yaodai",	//»¤Ñü
-	"WRISTS"	:	"huwan",	//»¤Íó
-	"SHIELD"	:	"dun",		//¶ÜÅÆ
-	"FINGER"	:	"ring",		//½äÖ¸
-	"HANDS"		:	"glove",	//ÊÖÌ×
-	"BOOTS"		:	"xue",		//Ğ¬×Ó
+	"CLOTH"		:	"yi",		//è¡£æœ
+	"SKIRT"		:	"qun",		//é•¿è£™
+	"HEAD"		:	"kui",		//å¤´ç›”
+	"NECK"		:	"xiangliang",	//é¡¹é“¾
+	"ARMOR"		:	"jia",		//æŠ¤ç”²
+	"SURCOAT"	:	"pifeng",	//æŠ«é£
+	"WAIST"		:	"yaodai",	//æŠ¤è…°
+	"WRISTS"	:	"huwan",	//æŠ¤è…•
+	"SHIELD"	:	"dun",		//ç›¾ç‰Œ
+	"FINGER"	:	"ring",		//æˆ’æŒ‡
+	"HANDS"		:	"glove",	//æ‰‹å¥—
+	"BOOTS"		:	"xue",		//é‹å­
 ]);
 
-// ¹«¹²ÊôĞÔ´úºÅÁĞ±í
+// å…¬å…±å±æ€§ä»£å·åˆ—è¡¨
 string *public_stats_list = ({
 	"str", 
 	"dex", 
@@ -186,16 +186,16 @@ string *public_stats_list = ({
 	"RE_force", 
 	"RE_spells", 
 });
-// ÎäÆ÷ÊôĞÔ´úºÅÁĞ±í
+// æ­¦å™¨å±æ€§ä»£å·åˆ—è¡¨
 string *weapon_stats_list = ({
 	"damage", 
 	"min_damage", 
 });
-// ·À¾ßÊôĞÔ´úºÅÁĞ±í
+// é˜²å…·å±æ€§ä»£å·åˆ—è¡¨
 string *armor_stats_list = ({
 	"armor",
 });
-// È«²¿ÊôĞÔ´úºÅ¶ÔÓ¦×°±¸Ã¿Ìá¸ßÒ»¸öµÈ¼¶ËùÄÜÔö¼ÓµÄÊôĞÔ
+// å…¨éƒ¨å±æ€§ä»£å·å¯¹åº”è£…å¤‡æ¯æé«˜ä¸€ä¸ªç­‰çº§æ‰€èƒ½å¢åŠ çš„å±æ€§
 mapping stats_list = ([
 	"damage"	:	8,
 	"min_damage"	:	2, 
@@ -225,7 +225,7 @@ mapping stats_list = ([
 	"gain_pot"	:	2, 
 	"gain_eq"	:	1, 
 ]);
-// ¼¼ÄÜ´úºÅÁĞ±í
+// æŠ€èƒ½ä»£å·åˆ—è¡¨
 string *skill_list = ({
 	"force",	"dodge",	"parry",	"spells",	"unarmed",
 	"axe",		"blade",	"fork",		"hammer",	"mace",
@@ -247,426 +247,426 @@ string *skill_list = ({
 	"yinfeng-zhua",	"lingfu-steps",	"yaofa",	"huntian-qigong",	
 	"qixiu-jian",	"kugu-blade",
 });
-// ×°±¸Ãû×Ö
+// è£…å¤‡åå­—
 mapping name_list = ([
 	"AXE"		:	
 		([
-			"³µÂÖ°å¸«"	:	"chelun axe",
-			"½ğÈ¸¿ªÉ½¸«"	:	"jinque axe",
-			"Ğû»¯°å¸«"	:	"xuanhua axe",
-			"ÔÂÑÀ¸«"	:	"yueya axe",
-			"°ËØÔĞû»¯¸«"	:	"bagua axe",
-			"·ïÍ·¸«"	:	"fengtou axe",
-			"½ğÕº¸«"	:	"jinzhan axe",
-			"¼Ó¸Ö°å¸«"	:	"jiagang axe",
-			"ÔÂÑÀ¿ªÉ½¸«"	:	"yueyakaishan axe",
-			"ÇàÍ­¸«"	:	"qingtong axe",
-			"±¦»¨°å¸«"	:	"baohua axe",
-			"Éø½ğ¸«"	:	"shenjin axe",
-			"ÈÕÔÂ¼Ó¸Ö¸«"	:	"riyu axe",
-			"¶şÁúĞû»¯¸«"	:	"erlong axe",
-			"°ËØÔ¿ªÌì¸«"	:	"kaitian axe",
-			"·ïÍ·½ğß¬¸«"	:	"fengtou axe",
-			"¶Ì°ÑÇàÍ­¸«"	:	"duanba axe",
-			"¶Ì°ÑïÙÌú¸«"	:	"bingtie axe",
+			"è½¦è½®æ¿æ–§"	:	"chelun axe",
+			"é‡‘é›€å¼€å±±æ–§"	:	"jinque axe",
+			"å®£åŒ–æ¿æ–§"	:	"xuanhua axe",
+			"æœˆç‰™æ–§"	:	"yueya axe",
+			"å…«å¦å®£åŒ–æ–§"	:	"bagua axe",
+			"å‡¤å¤´æ–§"	:	"fengtou axe",
+			"é‡‘è˜¸æ–§"	:	"jinzhan axe",
+			"åŠ é’¢æ¿æ–§"	:	"jiagang axe",
+			"æœˆç‰™å¼€å±±æ–§"	:	"yueyakaishan axe",
+			"é’é“œæ–§"	:	"qingtong axe",
+			"å®èŠ±æ¿æ–§"	:	"baohua axe",
+			"æ¸—é‡‘æ–§"	:	"shenjin axe",
+			"æ—¥æœˆåŠ é’¢æ–§"	:	"riyu axe",
+			"äºŒé¾™å®£åŒ–æ–§"	:	"erlong axe",
+			"å…«å¦å¼€å¤©æ–§"	:	"kaitian axe",
+			"å‡¤å¤´é‡‘æ”¥æ–§"	:	"fengtou axe",
+			"çŸ­æŠŠé’é“œæ–§"	:	"duanba axe",
+			"çŸ­æŠŠé•”é“æ–§"	:	"bingtie axe",
 		]),
 	"BLADE"		:	
 		([
-			"½ğ±³´ó¿³µ¶"	:	"jinbei blade", 
-			"ÃÅÉÈ´óµ¶"	:	"menshan blade", 
-			"Æë·ï³¯Ñôµ¶"	:	"chaoyang blade",  
-			"Ïó±Ç¹ÅÔÂµ¶"	:	"guyue blade",  
-			"¿³É½µ¶"	:	"kanshan blade",  
-			"Èı¼âÁ½ÈĞµ¶"	:	"sanjian blade",  
-			"ºÏÉÈ°åÃÅµ¶"	:	"heshan blade", 
-			"½ğ±³¿³É½µ¶"	:	"kanshan blade",  
-			"Ñãôáµ¶"	:	"yanling blade",  
-			"ÇàÍ­µ¶"	:	"qingtong blade",  
-			"µ¤·ïµ¶"	:	"danfeng blade",  
-			"°åÃÅºìÓ§µ¶"	:	"hongying blade",  
-			"ĞâÈŞµ¶"	:	"xiurong blade",  
-			"ÆßĞÇß¡»¨µ¶"	:	"qixing blade",  
-			"»¢ÑÀµ¶"	:	"huya blade", 
-			"¾Å¶ú°Ë»·µ¶"	:	"bahuan blade",  
-			"ÓãÁÛ×Ï½ğµ¶"	:	"yulin blade",  
-			"Èı²æ¹íÍ·µ¶"	:	"guitou blade",  
-			"ÁÁÒøµ¶"	:	"liangyin blade",  
-			"µç¹âµ¶"	:	"dianguang blade",  
-			"Æß±¦´ë½ğµ¶"	:	"cuojin blade",  
-			"³àÍ­µ¶"	:	"chitong blade",  
-			"ÅüË®µ¶"	:	"pishui blade",  
-			"Çà¸Öµ¶"	:	"qinggang blade", 
+			"é‡‘èƒŒå¤§ç åˆ€"	:	"jinbei blade", 
+			"é—¨æ‰‡å¤§åˆ€"	:	"menshan blade", 
+			"é½å‡¤æœé˜³åˆ€"	:	"chaoyang blade",  
+			"è±¡é¼»å¤æœˆåˆ€"	:	"guyue blade",  
+			"ç å±±åˆ€"	:	"kanshan blade",  
+			"ä¸‰å°–ä¸¤åˆƒåˆ€"	:	"sanjian blade",  
+			"åˆæ‰‡æ¿é—¨åˆ€"	:	"heshan blade", 
+			"é‡‘èƒŒç å±±åˆ€"	:	"kanshan blade",  
+			"é›ç¿åˆ€"	:	"yanling blade",  
+			"é’é“œåˆ€"	:	"qingtong blade",  
+			"ä¸¹å‡¤åˆ€"	:	"danfeng blade",  
+			"æ¿é—¨çº¢ç¼¨åˆ€"	:	"hongying blade",  
+			"é”ˆç»’åˆ€"	:	"xiurong blade",  
+			"ä¸ƒæ˜Ÿæ‘ºèŠ±åˆ€"	:	"qixing blade",  
+			"è™ç‰™åˆ€"	:	"huya blade", 
+			"ä¹è€³å…«ç¯åˆ€"	:	"bahuan blade",  
+			"é±¼é³ç´«é‡‘åˆ€"	:	"yulin blade",  
+			"ä¸‰å‰é¬¼å¤´åˆ€"	:	"guitou blade",  
+			"äº®é“¶åˆ€"	:	"liangyin blade",  
+			"ç”µå…‰åˆ€"	:	"dianguang blade",  
+			"ä¸ƒå®æªé‡‘åˆ€"	:	"cuojin blade",  
+			"èµ¤é“œåˆ€"	:	"chitong blade",  
+			"åŠˆæ°´åˆ€"	:	"pishui blade",  
+			"é’é’¢åˆ€"	:	"qinggang blade", 
 		]),
 	"FORK"		:	
 		([
-			"Îå¹ÉÁÒÑæ²æ"	:	"lieyan fork",  
-			"¾Å¹ÉÍĞÌì²æ"	:	"tuotian fork",   
-			"Èı¹ÉÁÁÒø²æ"	:	"liangyin fork",   
-			"Èı¹ÉÍĞÌì²æ"	:	"tuotian fork",   
-			"Îå¹É¸Ö²æ"	:	"gang fork",   
-			"Îå¹ÉÍĞÌì²æ"	:	"tuotian fork",   
-			"Èı¹É¸Ö²æ"	:	"gang fork",   
-			"Îå¹ÉÁÒÑæ²æ"	:	"lieyan fork",   
-			"Èı¹ÉÁÒÑæ²æ"	:	"lieyan fork",   
-			"Èı¹ÉÁÒÑæ²æ"	:	"lieyan fork",   
-			"ÇàÍ­²æ"	:	"qingtong fork",   
-			"¾Å¹ÉÁÒÑæ²æ"	:	"lieyan fork",   
-			"Îå¹³Éñ·É²æ"	:	"shenfei fork",   
-			"Îå¹ÉÇàÍ­²æ"	:	"qingtong fork",   
+			"äº”è‚¡çƒˆç„°å‰"	:	"lieyan fork",  
+			"ä¹è‚¡æ‰˜å¤©å‰"	:	"tuotian fork",   
+			"ä¸‰è‚¡äº®é“¶å‰"	:	"liangyin fork",   
+			"ä¸‰è‚¡æ‰˜å¤©å‰"	:	"tuotian fork",   
+			"äº”è‚¡é’¢å‰"	:	"gang fork",   
+			"äº”è‚¡æ‰˜å¤©å‰"	:	"tuotian fork",   
+			"ä¸‰è‚¡é’¢å‰"	:	"gang fork",   
+			"äº”è‚¡çƒˆç„°å‰"	:	"lieyan fork",   
+			"ä¸‰è‚¡çƒˆç„°å‰"	:	"lieyan fork",   
+			"ä¸‰è‚¡çƒˆç„°å‰"	:	"lieyan fork",   
+			"é’é“œå‰"	:	"qingtong fork",   
+			"ä¹è‚¡çƒˆç„°å‰"	:	"lieyan fork",   
+			"äº”é’©ç¥é£å‰"	:	"shenfei fork",   
+			"äº”è‚¡é’é“œå‰"	:	"qingtong fork",   
 		]),
 	"HAMMER"	:	
 		([
-			"°ËÀã×Ï½ğ´¸"	:	"zijin hammer",   
-			"°ËÀã»Æ½ğ´¸"	:	"huangjin hammer",    
-			"°ËØÔÉúÍ­´¸"	:	"shengtong hammer",    
-			"°ËÀãÁÁÒø´¸"	:	"liangyin hammer",    
-			"ïÙÌúÔşÓÍ´¸"	:	"bingtie hammer",    
-			"°ËØÔÁÁÒø´¸"	:	"bagua hammer",    
-			"ÀŞ¹ÄÎÍ½ğ´¸"	:	"leigu hammer",    
-			"ÁúÍ·Á´×Ó´¸"	:	"longtou hammer",   
-			"°ËÀãÉúÌú´¸"	:	"baleng hammer",    
-			"°ËØÔïÙÌú´¸"	:	"bagua hammer",    
-			"ºÚ»¢Í­´¸"	:	"heihu hammer",    
-			"ÎÚ½ğ´¸"	:	"wujin hammer",    
-			"Ñ¹°ÑÀÁÁú´¸"	:	"lanlong hammer",    
-			"ÈËÃæ³àÍ­´¸"	:	"chitong hammer",    
-			"¹ÏËó´¸"	:	"guasuo hammer",    
-			"°Ë±¦µç¹â´¸"	:	"dianguang hammer",    
-			"ÇàÍ­Á´×Ó´¸"	:	"lianzi hammer",    
-			"µç¹â×Ï½ğ´¸"	:	"zijin hammer",    
-			"°ËÀâÍ­´¸"	:	"baleng hammer",    
-			"»ëÔ²´¸"	:	"hunyuan hammer",    
-			"ÇàÍ­ÎÑ¹Ï´¸"	:	"wogua hammer",   
-			"×ÓÄ¸Ô§Ñì´¸"	:	"zimu hammer",    
-			"ÁÁÒøÁ´×Ó´¸"	:	"lianzi hammer",    
-			"°Ë½Ç×Ï½ğ´¸"	:	"bajiao hammer",    
-			"ºìÍ­´¸"	:	"hongtong hammer",    
-			"°Ë±¦ÁÁÒø´¸"	:	"babao hammer",    
+			"å…«æ¥ç´«é‡‘é”¤"	:	"zijin hammer",   
+			"å…«æ¥é»„é‡‘é”¤"	:	"huangjin hammer",    
+			"å…«å¦ç”Ÿé“œé”¤"	:	"shengtong hammer",    
+			"å…«æ¥äº®é“¶é”¤"	:	"liangyin hammer",    
+			"é•”é“è½§æ²¹é”¤"	:	"bingtie hammer",    
+			"å…«å¦äº®é“¶é”¤"	:	"bagua hammer",    
+			"æ“‚é¼“ç“®é‡‘é”¤"	:	"leigu hammer",    
+			"é¾™å¤´é“¾å­é”¤"	:	"longtou hammer",   
+			"å…«æ¥ç”Ÿé“é”¤"	:	"baleng hammer",    
+			"å…«å¦é•”é“é”¤"	:	"bagua hammer",    
+			"é»‘è™é“œé”¤"	:	"heihu hammer",    
+			"ä¹Œé‡‘é”¤"	:	"wujin hammer",    
+			"å‹æŠŠæ‡’é¾™é”¤"	:	"lanlong hammer",    
+			"äººé¢èµ¤é“œé”¤"	:	"chitong hammer",    
+			"ç“œæ¢­é”¤"	:	"guasuo hammer",    
+			"å…«å®ç”µå…‰é”¤"	:	"dianguang hammer",    
+			"é’é“œé“¾å­é”¤"	:	"lianzi hammer",    
+			"ç”µå…‰ç´«é‡‘é”¤"	:	"zijin hammer",    
+			"å…«æ£±é“œé”¤"	:	"baleng hammer",    
+			"æµ‘åœ†é”¤"	:	"hunyuan hammer",    
+			"é’é“œçªç“œé”¤"	:	"wogua hammer",   
+			"å­æ¯é¸³é¸¯é”¤"	:	"zimu hammer",    
+			"äº®é“¶é“¾å­é”¤"	:	"lianzi hammer",    
+			"å…«è§’ç´«é‡‘é”¤"	:	"bajiao hammer",    
+			"çº¢é“œé”¤"	:	"hongtong hammer",    
+			"å…«å®äº®é“¶é”¤"	:	"babao hammer",    
 		]),
 	"MACE"		:	
 		([
-			"°¼Ãæ½ğ×°ïµ"	:	"wamian mace",   
-			"ËÄÀâïÙÌúïµ"	:	"bingtie mace", 
-			"°¼Ãæ°ËÀãïµ"	:	"baleng mace", 
-			"ËÄÀâïµ"	:	"sileng mace", 
-			"ÊìÍ­ïµ"	:	"shutong mace", 
-			"½ğ×°ïµ"	:	"jinzhuang mace", 
-			"ó´ÁúÒøïµ"	:	"pantong mace", 
-			"ËÄ·½ïÙÌúïµ"	:	"bingtie mace", 
-			"ÇàÍ­°¼Ãæïµ"	:	"qingtong mace", 
-			"Òø×°ïµ"	:	"yinzhuang mace",
+			"å‡¹é¢é‡‘è£…é”"	:	"wamian mace",   
+			"å››æ£±é•”é“é”"	:	"bingtie mace", 
+			"å‡¹é¢å…«æ¥é”"	:	"baleng mace", 
+			"å››æ£±é”"	:	"sileng mace", 
+			"ç†Ÿé“œé”"	:	"shutong mace", 
+			"é‡‘è£…é”"	:	"jinzhuang mace", 
+			"èŸ é¾™é“¶é”"	:	"pantong mace", 
+			"å››æ–¹é•”é“é”"	:	"bingtie mace", 
+			"é’é“œå‡¹é¢é”"	:	"qingtong mace", 
+			"é“¶è£…é”"	:	"yinzhuang mace",
 		]),
 	"RAKE"		:	
 		([
-			"¶Ì°ÑïÙÌú°Ò"	:	"duanba rake",   
-			"»­¸ËÃè½ğ°Ò"	:	"huagan rake",   
-			"Èı²æ°Ò"	:	"sancha rake",   
-			"ÒøÁú°Ò"	:	"yinlong rake",   
-			"±ªÎ²°Ò"	:	"baowei rake",   
-			"»Æá¦°Ò"	:	"huangpo rake",   
-			"Ãè½ğ°Ò"	:	"miaojin rake",   
-			"Ë«¶úÁÁÒø°Ò"	:	"shuanger rake",  
-			"ÇàÍ­°Ò"	:	"qingtong rake",  
+			"çŸ­æŠŠé•”é“è€™"	:	"duanba rake",   
+			"ç”»æ†æé‡‘è€™"	:	"huagan rake",   
+			"ä¸‰å‰è€™"	:	"sancha rake",   
+			"é“¶é¾™è€™"	:	"yinlong rake",   
+			"è±¹å°¾è€™"	:	"baowei rake",   
+			"é»„å¹¡è€™"	:	"huangpo rake",   
+			"æé‡‘è€™"	:	"miaojin rake",   
+			"åŒè€³äº®é“¶è€™"	:	"shuanger rake",  
+			"é’é“œè€™"	:	"qingtong rake",  
 		]),
 	"SWORD"		:	
 		([
-			"ËÉÎÆ¹Å¶¨½£"	:	"guding sword",   
-			"ÆßĞÇöÌºç½£"	:	"liuhong sword",    
-			"ÁÒÑæÇà·æ½£"	:	"qingfeng sword",    
-			"Í¸Áú½£"	:	"toulong sword",    
-			"É¥ÃÅ±¦½£"	:	"sanmeng sword",    
-			"×ÏµçÇàËª½£"	:	"zidian sword",    
-			"×ÏËª½£"	:	"zishuang sword",    
-			"±ÌÁé½£"	:	"biling sword",    
-			"ÅÌÉß±¦½£"	:	"panshe sword",    
-			"ÅÌÁú±¦½£"	:	"panlong sword",    
-			"ÌìÀÇ½£"	:	"tianlang sword",    
-			"ÎÚ¹³½£"	:	"wugou sword",    
-			"Çà¸Ö½£"	:	"qinggang sword",    
-			"Ô§Ñì½£"	:	"yanyang sword",    
-			"ÇàÆ¼½£"	:	"qingping sword",    
-			"Ì«ºÏ½£"	:	"taihe sword",    
-			"ÈÕÔÂ»ğÁú½£"	:	"huolong sword",    
-			"ÇàÁú½£"	:	"qinglong sword",    
-			"ÖïÁú½£"	:	"zhulong sword",    
-			"À§Áú½£"	:	"kunlong sword",    
-			"º®¹â½£"	:	"hanguang sword",    
-			"ÁøÒ¶½£"	:	"liuye sword",    
-			"·ÖÌì½£"	:	"fentian sword",    
-			"ÂäÒ¶Çà·æ½£"	:	"luoye sword",   
-			"¶şÈĞÇà¸Ö½£"	:	"qinggang sword",    
-			"³¤ºç½£"	:	"changhong sword",   
-			"Õ¶ÏÉ½£"	:	"zhanxian sword",    
-			"ÎÚÁú½£"	:	"wulong sword",    
-			"ÇàÔÆ½£"	:	"qingyun sword",    
-			"Àæ»¨±¦½£"	:	"lihua sword",    
-			"°×¹â½£"	:	"baiguang sword",    
-			"²ÃÔÆ±¦½£"	:	"caiyun sword",    
+			"æ¾çº¹å¤å®šå‰‘"	:	"guding sword",   
+			"ä¸ƒæ˜Ÿéè™¹å‰‘"	:	"liuhong sword",    
+			"çƒˆç„°é’é”‹å‰‘"	:	"qingfeng sword",    
+			"é€é¾™å‰‘"	:	"toulong sword",    
+			"ä¸§é—¨å®å‰‘"	:	"sanmeng sword",    
+			"ç´«ç”µé’éœœå‰‘"	:	"zidian sword",    
+			"ç´«éœœå‰‘"	:	"zishuang sword",    
+			"ç¢§çµå‰‘"	:	"biling sword",    
+			"ç›˜è›‡å®å‰‘"	:	"panshe sword",    
+			"ç›˜é¾™å®å‰‘"	:	"panlong sword",    
+			"å¤©ç‹¼å‰‘"	:	"tianlang sword",    
+			"ä¹Œé’©å‰‘"	:	"wugou sword",    
+			"é’é’¢å‰‘"	:	"qinggang sword",    
+			"é¸³é¸¯å‰‘"	:	"yanyang sword",    
+			"é’èå‰‘"	:	"qingping sword",    
+			"å¤ªåˆå‰‘"	:	"taihe sword",    
+			"æ—¥æœˆç«é¾™å‰‘"	:	"huolong sword",    
+			"é’é¾™å‰‘"	:	"qinglong sword",    
+			"è¯›é¾™å‰‘"	:	"zhulong sword",    
+			"å›°é¾™å‰‘"	:	"kunlong sword",    
+			"å¯’å…‰å‰‘"	:	"hanguang sword",    
+			"æŸ³å¶å‰‘"	:	"liuye sword",    
+			"åˆ†å¤©å‰‘"	:	"fentian sword",    
+			"è½å¶é’é”‹å‰‘"	:	"luoye sword",   
+			"äºŒåˆƒé’é’¢å‰‘"	:	"qinggang sword",    
+			"é•¿è™¹å‰‘"	:	"changhong sword",   
+			"æ–©ä»™å‰‘"	:	"zhanxian sword",    
+			"ä¹Œé¾™å‰‘"	:	"wulong sword",    
+			"é’äº‘å‰‘"	:	"qingyun sword",    
+			"æ¢¨èŠ±å®å‰‘"	:	"lihua sword",    
+			"ç™½å…‰å‰‘"	:	"baiguang sword",    
+			"è£äº‘å®å‰‘"	:	"caiyun sword",    
 		]),
 	"STAFF"		:	
 		([
-			"ÒõÑôÕÈ"	:	"yinyang staff",   
-			"óXäşÕÈ"	:	"lilai staff",  
-			"Ä«½ÇÕÈ"	:	"mojiao staff",  
-			"Å£½ÇÕÈ"	:	"niujiao staff",  
-			"¶ÀÁúÕÈ"	:	"dulong staff",  
-			"ÆßĞÇÎÔÓãÕÈ"	:	"woyu staff",  
-			"ïÙÌú¶¡×ÖÕÈ"	:	"dingzi staff",  
-			"ïÙÌú»³±§ÕÈ"	:	"huaibao staff",  
-			"ÁúÍ·ÕÈ"	:	"longtou staff",  
-			"»¢Í·ÕÈ"	:	"hutou staff", 
-			"ÆßĞÇÕÈ"	:	"qixing staff",  
-			"»¤ÊÖË«ÌúÕÈ"	:	"hushou staff",  
-			"Ô§ÑìÕÈ"	:	"yanyang staff",  
-			"µ¥µ¶ÎÔÓãÕÈ"	:	"woyu staff",  
-			"³ÁÏãÕÈ"	:	"chenxiang staff",  
-			"¹´Â§»¢Í·ÕÈ"	:	"goulou staff",  
-			"ïÙÌúÔ§ÑìÕÈ"	:	"yanyang staff", 
+			"é˜´é˜³æ–"	:	"yinyang staff",   
+			"éª•æ¿‘æ–"	:	"lilai staff",  
+			"å¢¨è§’æ–"	:	"mojiao staff",  
+			"ç‰›è§’æ–"	:	"niujiao staff",  
+			"ç‹¬é¾™æ–"	:	"dulong staff",  
+			"ä¸ƒæ˜Ÿå§é±¼æ–"	:	"woyu staff",  
+			"é•”é“ä¸å­—æ–"	:	"dingzi staff",  
+			"é•”é“æ€€æŠ±æ–"	:	"huaibao staff",  
+			"é¾™å¤´æ–"	:	"longtou staff",  
+			"è™å¤´æ–"	:	"hutou staff", 
+			"ä¸ƒæ˜Ÿæ–"	:	"qixing staff",  
+			"æŠ¤æ‰‹åŒé“æ–"	:	"hushou staff",  
+			"é¸³é¸¯æ–"	:	"yanyang staff",  
+			"å•åˆ€å§é±¼æ–"	:	"woyu staff",  
+			"æ²‰é¦™æ–"	:	"chenxiang staff",  
+			"å‹¾æ‚è™å¤´æ–"	:	"goulou staff",  
+			"é•”é“é¸³é¸¯æ–"	:	"yanyang staff", 
 		]),
 	"STICK"		:	
 		([
-			"Ë®»ğÇôÁú°ô"	:	"qiulong stick",   
-			"¿ªÉ½°ô"	:	"kaishan stick", 
-			"¶¤¶¤ÀÇÑÀ°ô"	:	"dingding stick", 
-			"Éø½ğİğŞ¼°ô"	:	"shenjin stick", 
-			"×Ï½ğò°Áú°ô"	:	"zijin stick", 
-			"ÎÚÓÍ°ô"	:	"wuyou stick", 
-			"°ËÀâ°ô"	:	"baleng stick", 
-			"ÁúÍ·Èí°ô"	:	"longtou stick", 
-			"»ëÌú°ô"	:	"huntie stick", 
-			"Ììî¸°ô"	:	"tiangang stick", 
-			"¶ÀÁúÉø½ğ°ô"	:	"dulong stick", 
-			"ĞĞÕß°ô"	:	"xingzhe stick", 
-			"ÁÁÒøÀÇÑÀ°ô"	:	"langya stick", 
-			"ÇàÍ­İğŞ¼°ô"	:	"qingtong stick", 
-			"ïÙÌúÂİË¿°ô"	:	"luosi stick", 
-			"½ğË¿ÌÙÉß°ô"	:	"tengshe stick", 
-			"½ğ¹âÀÇÑÀ°ô"	:	"jinguang stick", 
-			"°Ù¶¤ÀÇÑÀ°ô"	:	"baiding stick", 
-			"×ÏÌÙÈí°ô"	:	"ziteng stick", 
-			"ÇàÍ­°ôé³"	:	"qingtong stick", 
-			"½ğË¿°ôé³"	:	"jinsi stick",
+			"æ°´ç«å›šé¾™æ£’"	:	"qiulong stick",   
+			"å¼€å±±æ£’"	:	"kaishan stick", 
+			"é’‰é’‰ç‹¼ç‰™æ£’"	:	"dingding stick", 
+			"æ¸—é‡‘è’ºè—œæ£’"	:	"shenjin stick", 
+			"ç´«é‡‘è™¬é¾™æ£’"	:	"zijin stick", 
+			"ä¹Œæ²¹æ£’"	:	"wuyou stick", 
+			"å…«æ£±æ£’"	:	"baleng stick", 
+			"é¾™å¤´è½¯æ£’"	:	"longtou stick", 
+			"æµ‘é“æ£’"	:	"huntie stick", 
+			"å¤©ç½¡æ£’"	:	"tiangang stick", 
+			"ç‹¬é¾™æ¸—é‡‘æ£’"	:	"dulong stick", 
+			"è¡Œè€…æ£’"	:	"xingzhe stick", 
+			"äº®é“¶ç‹¼ç‰™æ£’"	:	"langya stick", 
+			"é’é“œè’ºè—œæ£’"	:	"qingtong stick", 
+			"é•”é“èºä¸æ£’"	:	"luosi stick", 
+			"é‡‘ä¸è—¤è›‡æ£’"	:	"tengshe stick", 
+			"é‡‘å…‰ç‹¼ç‰™æ£’"	:	"jinguang stick", 
+			"ç™¾é’‰ç‹¼ç‰™æ£’"	:	"baiding stick", 
+			"ç´«è—¤è½¯æ£’"	:	"ziteng stick", 
+			"é’é“œæ£’æ§Œ"	:	"qingtong stick", 
+			"é‡‘ä¸æ£’æ§Œ"	:	"jinsi stick",
 		]),
 	"WHIP"		:	
 		([
-			"ÁÁÒø±Ş"	:	"liangyin whip",
-			"Öñ½Ú¸Ö±Ş"	:	"zhujie whip",
-			"±ªÎ²±Ş"	:	"baowei whip", 
-			"´ò½«±Ş"	:	"dajiang whip", 
-			"ÍÕ¹ÇÒõ·ç±Ş"	:	"tuogu whip", 
-			"½ğÁú±Ş"	:	"jinlong whip", 
-			"»¢Î²¸Ö±Ş"	:	"huwei whip", 
-			"ïÙÌú±Ş"	:	"bingtie whip", 
-			"ÁúÍ··ïÎ²±Ş"	:	"longtou whip", 
-			"»¢ÑÛ¸Ö±Ş"	:	"huyan whip", 
-			"½ğË¿Èí±Ş"	:	"jinsi whip", 
-			"ºùÂ«±Ş"	:	"hulu whip", 
-			"¹ê¹Ç±Ş"	:	"guigu whip", 
-			"ÓãÎ²±Ş"	:	"yugu whip", 
-			"Éß¹Ç±Ş"	:	"shegu whip", 
-			"ÒøË¿Èí±Ş"	:	"yinsi whip", 
-			"ÕÚÔÆÉ¨Áú±Ş"	:	"zheyun whip", 
+			"äº®é“¶é­"	:	"liangyin whip",
+			"ç«¹èŠ‚é’¢é­"	:	"zhujie whip",
+			"è±¹å°¾é­"	:	"baowei whip", 
+			"æ‰“å°†é­"	:	"dajiang whip", 
+			"é©¼éª¨é˜´é£é­"	:	"tuogu whip", 
+			"é‡‘é¾™é­"	:	"jinlong whip", 
+			"è™å°¾é’¢é­"	:	"huwei whip", 
+			"é•”é“é­"	:	"bingtie whip", 
+			"é¾™å¤´å‡¤å°¾é­"	:	"longtou whip", 
+			"è™çœ¼é’¢é­"	:	"huyan whip", 
+			"é‡‘ä¸è½¯é­"	:	"jinsi whip", 
+			"è‘«èŠ¦é­"	:	"hulu whip", 
+			"é¾Ÿéª¨é­"	:	"guigu whip", 
+			"é±¼å°¾é­"	:	"yugu whip", 
+			"è›‡éª¨é­"	:	"shegu whip", 
+			"é“¶ä¸è½¯é­"	:	"yinsi whip", 
+			"é®äº‘æ‰«é¾™é­"	:	"zheyun whip", 
 		]),
 	"SPEAR"		:	
 		([
-			"ÈçÒâ½ğÇ¹"	:	"ruyi spear",   
-			"ïÙÌúµã¸ÖÇ¹"	:	"diangang spear",    
-			"Ã·»¨ÁÁÒøÇ¹"	:	"meihua spear",    
-			"ÅÌÖñÇ¹"	:	"panzhu spear",    
-			"ËØÓ§Ç¹"	:	"suying spear",    
-			"Îå¹³Éñ·ÉÇ¹"	:	"shenfei spear",    
-			"ÎüË®ÌáÂ¬Ç¹"	:	"tilu spear",    
-			"¹³Á­Ç¹"	:	"goulian spear",    
-			"ÉßÁ­Ç¹"	:	"shelian spear",    
-			"»¢ÑÀÇ¹"	:	"huya spear",    
-			"ÎÚ½ğÇ¹"	:	"wujin spear",    
-			"»ëÌúÇ¹"	:	"huntie spear",    
-			"»¢Í·×ê½ğÇ¹"	:	"zuanjin spear",    
-			"÷è÷ëË«Ç¹"	:	"qilin spear",    
-			"Â¹½îÈíÌÙÇ¹"	:	"ruanteng spear",    
-			"µã¸ÖÇ¹"	:	"diangang spear",    
-			"ÕÉ°ËÉßÃ¬Ç¹"	:	"shemao spear",    
-			"ÁùºÏÇ¹"	:	"liuhe spear",    
-			"ó´Áú½ğÇ¹"	:	"panlong spear",    
-			"½ğ·æÇ¹"	:	"jinfeng spear",   
-			"Àæ»¨Ç¹"	:	"lihua spear",    
-			"ÕÉ°Ë¹öÔÆÇ¹"	:	"gunyun spear",    
-			"ÌáÂ¬Ç¹"	:	"tilu spear",    
-			"»ğ¼âÇ¹"	:	"huojian spear",   
+			"å¦‚æ„é‡‘æª"	:	"ruyi spear",   
+			"é•”é“ç‚¹é’¢æª"	:	"diangang spear",    
+			"æ¢…èŠ±äº®é“¶æª"	:	"meihua spear",    
+			"ç›˜ç«¹æª"	:	"panzhu spear",    
+			"ç´ ç¼¨æª"	:	"suying spear",    
+			"äº”é’©ç¥é£æª"	:	"shenfei spear",    
+			"å¸æ°´æå¢æª"	:	"tilu spear",    
+			"é’©é•°æª"	:	"goulian spear",    
+			"è›‡é•°æª"	:	"shelian spear",    
+			"è™ç‰™æª"	:	"huya spear",    
+			"ä¹Œé‡‘æª"	:	"wujin spear",    
+			"æµ‘é“æª"	:	"huntie spear",    
+			"è™å¤´é’»é‡‘æª"	:	"zuanjin spear",    
+			"éº’éºŸåŒæª"	:	"qilin spear",    
+			"é¹¿ç­‹è½¯è—¤æª"	:	"ruanteng spear",    
+			"ç‚¹é’¢æª"	:	"diangang spear",    
+			"ä¸ˆå…«è›‡çŸ›æª"	:	"shemao spear",    
+			"å…­åˆæª"	:	"liuhe spear",    
+			"èŸ é¾™é‡‘æª"	:	"panlong spear",    
+			"é‡‘é”‹æª"	:	"jinfeng spear",   
+			"æ¢¨èŠ±æª"	:	"lihua spear",    
+			"ä¸ˆå…«æ»šäº‘æª"	:	"gunyun spear",    
+			"æå¢æª"	:	"tilu spear",    
+			"ç«å°–æª"	:	"huojian spear",   
 		]),
 	"CLOTH"		:	
 		([
-			"Âé²¼ÒÂ"	:	"mabu cloth",
-			"ÃŞ²¼ÒÂ"	:	"mianbu cloth",
-			"³ñ²¼ÒÂ"	:	"choubu cloth",
-			"·ÉÑ©ÒÂ"	:	"feixue cloth",
-			"Ò¹Ä§ÒÂ"	:	"yemo cloth",
-			"ÇàË¿ÒÂ"	:	"qingsi cloth",
-			"¾ÅÌìÅÛ"	:	"jiutian cloth",
-			"ĞéÎŞÅÛ"	:	"xuwu cloth",
-			"ÇàÚ¤ÅÛ"	:	"qingming cloth",
-			"ÔÆÂŞÒÂ"	:	"yunluo cloth",
-			"Ë¿³ñ³¤ÅÛ"	:	"silk cloth",
+			"éº»å¸ƒè¡£"	:	"mabu cloth",
+			"æ£‰å¸ƒè¡£"	:	"mianbu cloth",
+			"ç»¸å¸ƒè¡£"	:	"choubu cloth",
+			"é£é›ªè¡£"	:	"feixue cloth",
+			"å¤œé­”è¡£"	:	"yemo cloth",
+			"é’ä¸è¡£"	:	"qingsi cloth",
+			"ä¹å¤©è¢"	:	"jiutian cloth",
+			"è™šæ— è¢"	:	"xuwu cloth",
+			"é’å†¥è¢"	:	"qingming cloth",
+			"äº‘ç½—è¡£"	:	"yunluo cloth",
+			"ä¸ç»¸é•¿è¢"	:	"silk cloth",
 		]),
 	"SKIRT"		:	
 		([
-			"Ç§ñŞÈ¹"	:	"qianze skirt",
-			"½ğË¿°Ë±¦È¹"	:	"babao skirt",
-			"³¯ÑôÎå·ïÈ¹"	:	"wufeng skirt",
-			"¶¹ÂÌ¹¬È¹"	:	"gong skirt",
-			"Ë«Óã±ÈÄ¿È¹"	:	"bimu skirt",
-			"ÂÆ½ğÈ¹"	:	"lvjin skirt",
-			"°ÙµûÈ¹"	:	"baidie skirt",
-			"´©»¨È¹"	:	"chuanhua skirt",
-			"Îå²Êç§È¹"	:	"wucai skirt",
-			"ôä´äç§È¹"	:	"feicui skirt",
-			"Èö»¨ç§È¹"	:	"sahua skirt",
+			"åƒè¤¶è£™"	:	"qianze skirt",
+			"é‡‘ä¸å…«å®è£™"	:	"babao skirt",
+			"æœé˜³äº”å‡¤è£™"	:	"wufeng skirt",
+			"è±†ç»¿å®«è£™"	:	"gong skirt",
+			"åŒé±¼æ¯”ç›®è£™"	:	"bimu skirt",
+			"ç¼•é‡‘è£™"	:	"lvjin skirt",
+			"ç™¾è¶è£™"	:	"baidie skirt",
+			"ç©¿èŠ±è£™"	:	"chuanhua skirt",
+			"äº”å½©ç»‰è£™"	:	"wucai skirt",
+			"ç¿¡ç¿ ç»‰è£™"	:	"feicui skirt",
+			"æ’’èŠ±ç»‰è£™"	:	"sahua skirt",
 		]),
 	"HEAD"		:	
 		([
-			"ÄÖÁú´¹Í·"	:	"naolong kui",
-			"Ò¹Ã÷¿ø"	:	"yeming kui",
-			"·ï³á½ğ¿ø"	:	"fengchi kui",
-			"Í­ºÉÒ¶¿ø"	:	"heye kui",
-			"»Æ½ğË§×Ö¿ø"	:	"huangjin kui", 
-			"ÒøÁ·¿ø"	:	"yinlian kui",
-			"·ÖË®¿ø"	:	"fenshui kui",
-			"Îå·ï³¯Ñô¿ø"	:	"chaoyang kui", 
-			"·ï³áÔÂÃ÷¿ø"	:	"fengchi kui", 
-			"ÀÇÑÀ¿ø"	:	"langya kui", 
-			"Îå·ï»¨¿ø"	:	"wufeng kui", 
-			"Ì«Ëê¿ø"	:	"taisui kui", 
-			"×êÌì¿ø"	:	"zuantian kui",
-			"ÁÁÒø»¢Í·¿ø"	:	"hutou kui", 
-			"±ª×Ó¿ø"	:	"baozi kui", 
-			"ºûµû½ğ¿ø"	:	"hudie kui", 
-			"Ë«·ï¹Ú"	:	"shuangfeng guan", 
-			"½ğ·ï¹Ú"	:	"jinfeng guan",  
-			"³à½ğ¹Ú"	:	"chijin guan",  
-			"½ğÏ¼¹Ú"	:	"jinxia guan", 
-			"×Ï½ğ¹Ú"	:	"zijin guan",  
-			"Êø·¢½ğ¹Ú"	:	"shufa guan",  
-			"¾ÅÔÆÁÒÑæ¹Ú"	:	"lieyan guan", 
+			"é—¹é¾™å‚å¤´"	:	"naolong kui",
+			"å¤œæ˜ç›”"	:	"yeming kui",
+			"å‡¤ç¿…é‡‘ç›”"	:	"fengchi kui",
+			"é“œè·å¶ç›”"	:	"heye kui",
+			"é»„é‡‘å¸…å­—ç›”"	:	"huangjin kui", 
+			"é“¶ç»ƒç›”"	:	"yinlian kui",
+			"åˆ†æ°´ç›”"	:	"fenshui kui",
+			"äº”å‡¤æœé˜³ç›”"	:	"chaoyang kui", 
+			"å‡¤ç¿…æœˆæ˜ç›”"	:	"fengchi kui", 
+			"ç‹¼ç‰™ç›”"	:	"langya kui", 
+			"äº”å‡¤èŠ±ç›”"	:	"wufeng kui", 
+			"å¤ªå²ç›”"	:	"taisui kui", 
+			"é’»å¤©ç›”"	:	"zuantian kui",
+			"äº®é“¶è™å¤´ç›”"	:	"hutou kui", 
+			"è±¹å­ç›”"	:	"baozi kui", 
+			"è´è¶é‡‘ç›”"	:	"hudie kui", 
+			"åŒå‡¤å† "	:	"shuangfeng guan", 
+			"é‡‘å‡¤å† "	:	"jinfeng guan",  
+			"èµ¤é‡‘å† "	:	"chijin guan",  
+			"é‡‘éœå† "	:	"jinxia guan", 
+			"ç´«é‡‘å† "	:	"zijin guan",  
+			"æŸå‘é‡‘å† "	:	"shufa guan",  
+			"ä¹äº‘çƒˆç„°å† "	:	"lieyan guan", 
 		]),
 	"NECK"		:	
 		([
-			"ºÚºü¾±Á´"	:	"heihu necklace",
-			"Å®Éñ¾±Á´"	:	"nvshen necklace",
-			"ÒøÏîÁ´"	:	"yin necklace",
-			"Í­ÏîÁ´"	:	"tong necklace",
-			"½ğÏîÁ´"	:	"jin necklace",
-			"À¶ÓñÏîÁ´"	:	"lanyu necklace",
-			"»ÆË®¾§ÏîÁ´"	:	"shuijing necklace",
-			"ÇàÍ­ÏîÁ´"	:	"qingtong necklace",
-			"´ĞÍ·ÏîÁ´"	:	"congtou necklace",
-			"÷¼÷ÃÏîÁ´"	:	"kulou necklace",
-			"¹ÅÊ÷ÏîÁ´"	:	"gushu necklace",
-			"ôä´äÏîÁ´"	:	"feicui necklace",
-			"±ùÁÛÏîÁ´"	:	"binglin necklace",
+			"é»‘ç‹é¢ˆé“¾"	:	"heihu necklace",
+			"å¥³ç¥é¢ˆé“¾"	:	"nvshen necklace",
+			"é“¶é¡¹é“¾"	:	"yin necklace",
+			"é“œé¡¹é“¾"	:	"tong necklace",
+			"é‡‘é¡¹é“¾"	:	"jin necklace",
+			"è“ç‰é¡¹é“¾"	:	"lanyu necklace",
+			"é»„æ°´æ™¶é¡¹é“¾"	:	"shuijing necklace",
+			"é’é“œé¡¹é“¾"	:	"qingtong necklace",
+			"è‘±å¤´é¡¹é“¾"	:	"congtou necklace",
+			"éª·é«…é¡¹é“¾"	:	"kulou necklace",
+			"å¤æ ‘é¡¹é“¾"	:	"gushu necklace",
+			"ç¿¡ç¿ é¡¹é“¾"	:	"feicui necklace",
+			"å†°é³é¡¹é“¾"	:	"binglin necklace",
 		]),
 	"ARMOR"		:
 		([
-			"ÁøÒ¶ÃàÖñîø"	:	"liuye armor",
-			"´óÒ¶ÓãÁÛ¼×"	:	"yulin armor",
-			"´óÒ¶ÁúÁÛ¼×"	:	"longlin armor",
-			"ïÙÌú¼×"	:	"bingtie armor", 
-			"³à½ğîø¼×"	:	"chijin armor", 
-			"»Æ½ğ¼×"	:	"huangjin armor",
-			"¹ê±³¼×"	:	"guibei armor",
-			"Ä«Óã¼×"	:	"moyu armor",
-			"³àÍ­´óÒ¶¼×"	:	"chitong armor",
-			"Òø×°¼×"	:	"yinzhuang armor", 
-			"Á¬»·ïÙÌúîø"	:	"lianhuan armor",
-			"ÔÂÂäºìÔÆ¼×"	:	"yueluo armor",
-			"½ğË¿Èí¼×"	:	"jinsi armor",
-			"×ÏÌÙ¼×"	:	"ziteng armor",
-			"×Ï½ğ»¤ĞÄ¼×"	:	"huxin armor", 
-			"ºÉÒ¶Á¬»·¼×"	:	"heye armor", 
+			"æŸ³å¶ç»µç«¹é“ "	:	"liuye armor",
+			"å¤§å¶é±¼é³ç”²"	:	"yulin armor",
+			"å¤§å¶é¾™é³ç”²"	:	"longlin armor",
+			"é•”é“ç”²"	:	"bingtie armor", 
+			"èµ¤é‡‘é“ ç”²"	:	"chijin armor", 
+			"é»„é‡‘ç”²"	:	"huangjin armor",
+			"é¾ŸèƒŒç”²"	:	"guibei armor",
+			"å¢¨é±¼ç”²"	:	"moyu armor",
+			"èµ¤é“œå¤§å¶ç”²"	:	"chitong armor",
+			"é“¶è£…ç”²"	:	"yinzhuang armor", 
+			"è¿ç¯é•”é“é“ "	:	"lianhuan armor",
+			"æœˆè½çº¢äº‘ç”²"	:	"yueluo armor",
+			"é‡‘ä¸è½¯ç”²"	:	"jinsi armor",
+			"ç´«è—¤ç”²"	:	"ziteng armor",
+			"ç´«é‡‘æŠ¤å¿ƒç”²"	:	"huxin armor", 
+			"è·å¶è¿ç¯ç”²"	:	"heye armor", 
 		]),
 	"SURCOAT"	:	
 		([
-			"Ò¹¹âÅû·ç"	:	"yeguang pifeng",
-			"»Æ½ğÅû·ç"	:	"huangjin pifeng",
-			"Ãà²¼¶·Åñ"	:	"mianbu pifeng",
-			"ÑòÆ¤¶·Åñ"	:	"yangpi pifeng",
-			"³ñ¶Ğ¶·Åñ"	:	"chouduan pifeng",
-			"³àºì¶·Åñ"	:	"chihong pifeng",
-			"Áé½ÇÅû·ç"	:	"lingjiao pifeng",
-			"Õ½ÔÂÅû·ç"	:	"zhanyue pifeng",
-			"ÒìÊŞÅû·ç"	:	"yishou pifeng",
+			"å¤œå…‰æŠ«é£"	:	"yeguang pifeng",
+			"é»„é‡‘æŠ«é£"	:	"huangjin pifeng",
+			"ç»µå¸ƒæ–—ç¯·"	:	"mianbu pifeng",
+			"ç¾Šçš®æ–—ç¯·"	:	"yangpi pifeng",
+			"ç»¸ç¼æ–—ç¯·"	:	"chouduan pifeng",
+			"èµ¤çº¢æ–—ç¯·"	:	"chihong pifeng",
+			"çµè§’æŠ«é£"	:	"lingjiao pifeng",
+			"æˆ˜æœˆæŠ«é£"	:	"zhanyue pifeng",
+			"å¼‚å…½æŠ«é£"	:	"yishou pifeng",
 		]),
 	"WAIST"		:	
 		([
-			"·«²¼Ñü´ø"	:	"fanbu waist",
-			"ÕæÆ¤Ñü´ø"	:	"zhenpi waist",
-			"±àÖ¯Ñü´ø"	:	"bianzhi waist",
-			"´Ö²¼Ñü´ø"	:	"cubu waist",
-			"ÉúÌúÑü´ø"	:	"shengtie waist",
-			"çúçêÑü´ø"	:	"hupo waist",
-			"±ùÁÛÑü´ø"	:	"binglin waist",
-			"°×ÒøÑü´ø"	:	"baiying waist",
-			"ôä´äÑü´ø"	:	"feicui waist",
+			"å¸†å¸ƒè…°å¸¦"	:	"fanbu waist",
+			"çœŸçš®è…°å¸¦"	:	"zhenpi waist",
+			"ç¼–ç»‡è…°å¸¦"	:	"bianzhi waist",
+			"ç²—å¸ƒè…°å¸¦"	:	"cubu waist",
+			"ç”Ÿé“è…°å¸¦"	:	"shengtie waist",
+			"ç¥ç€è…°å¸¦"	:	"hupo waist",
+			"å†°é³è…°å¸¦"	:	"binglin waist",
+			"ç™½é“¶è…°å¸¦"	:	"baiying waist",
+			"ç¿¡ç¿ è…°å¸¦"	:	"feicui waist",
 		]),
 	"WRISTS"	:	
 		([
-			"´Ö²¼»¤Íó"	:	"cubu wrists",
-			"×ÏÖñ»¤Íó"	:	"zizhu wrists",
-			"¹ÅÄ¾»¤Íó"	:	"gumu wrists",
-			"ÇàÍ­»¤Íó"	:	"qingtong wrists",
-			"¾«Ìú»¤Íó"	:	"jingtie wrists",
-			"ôä´ä»¤Íó"	:	"feicui wrists",
-			"»Æ½ğ»¤Íó"	:	"huangjin wrists",
-			"±ùÁÛ»¤Íó"	:	"bingling wrists",
+			"ç²—å¸ƒæŠ¤è…•"	:	"cubu wrists",
+			"ç´«ç«¹æŠ¤è…•"	:	"zizhu wrists",
+			"å¤æœ¨æŠ¤è…•"	:	"gumu wrists",
+			"é’é“œæŠ¤è…•"	:	"qingtong wrists",
+			"ç²¾é“æŠ¤è…•"	:	"jingtie wrists",
+			"ç¿¡ç¿ æŠ¤è…•"	:	"feicui wrists",
+			"é»„é‡‘æŠ¤è…•"	:	"huangjin wrists",
+			"å†°é³æŠ¤è…•"	:	"bingling wrists",
 		]),
 	"SHIELD"	:	
 		([
-			"»·ĞÎÔ²¶Ü"	:	"yuan shield",
-			"ÌÕ´É¶Ü"	:	"ci shield",
-			"»ğÁúÖ®¶Ü"	:	"huolong shield",
-			"Ê¨×Ó¶Ü"	:	"shizi shield",
-			"»¢Í·Õº½ğ¶Ü"	:	"hutou shield",
-			"»¢Æ¤ÔÆÆ¬¶Ü"	:	"hupi shield",
-			"ÌÙÄ¾¶Ü"	:	"tengmu shield",
-			"¾«¸Ö¶ÜÅÆ"	:	"jinggang shield",
+			"ç¯å½¢åœ†ç›¾"	:	"yuan shield",
+			"é™¶ç“·ç›¾"	:	"ci shield",
+			"ç«é¾™ä¹‹ç›¾"	:	"huolong shield",
+			"ç‹®å­ç›¾"	:	"shizi shield",
+			"è™å¤´è˜¸é‡‘ç›¾"	:	"hutou shield",
+			"è™çš®äº‘ç‰‡ç›¾"	:	"hupi shield",
+			"è—¤æœ¨ç›¾"	:	"tengmu shield",
+			"ç²¾é’¢ç›¾ç‰Œ"	:	"jinggang shield",
 		]),
 	"FINGER"	:
 		([
-			"ÓÀºã½äÖ¸"	:	"yongheng ring",
-			"»¨½äÖ¸"	:	"hua ring",
-			"Òø½äÖ¸"	:	"yin ring",
-			"ÍşÑÏ½äÖ¸"	:	"weiyan ring",
-			"Ê×Áì½äÖ¸"	:	"shouling ring",
-			"¹ÅÊ÷½äÖ¸"	:	"gushu ring",
-			"ÒşÊ¿½äÖ¸"	:	"yinshi ring",
-			"Ê®×Ö¹Ç½ä"	:	"shizi ring",
-			"Ë®¾§½äÖ¸"	:	"shuijing ring",
-			"±ùÁÛ½äÖ¸"	:	"bingling ring",
-			"ôä´ä½äÖ¸"	:	"feicui ring",
-			"·ÉÑ©½äÖ¸"	:	"feixue ring",
-			"×ÏÖñ½äÖ¸"	:	"zizhu ring",
-			"ÊŞ¹Ç½äÖ¸"	:	"shougu ring",
+			"æ°¸æ’æˆ’æŒ‡"	:	"yongheng ring",
+			"èŠ±æˆ’æŒ‡"	:	"hua ring",
+			"é“¶æˆ’æŒ‡"	:	"yin ring",
+			"å¨ä¸¥æˆ’æŒ‡"	:	"weiyan ring",
+			"é¦–é¢†æˆ’æŒ‡"	:	"shouling ring",
+			"å¤æ ‘æˆ’æŒ‡"	:	"gushu ring",
+			"éšå£«æˆ’æŒ‡"	:	"yinshi ring",
+			"åå­—éª¨æˆ’"	:	"shizi ring",
+			"æ°´æ™¶æˆ’æŒ‡"	:	"shuijing ring",
+			"å†°é³æˆ’æŒ‡"	:	"bingling ring",
+			"ç¿¡ç¿ æˆ’æŒ‡"	:	"feicui ring",
+			"é£é›ªæˆ’æŒ‡"	:	"feixue ring",
+			"ç´«ç«¹æˆ’æŒ‡"	:	"zizhu ring",
+			"å…½éª¨æˆ’æŒ‡"	:	"shougu ring",
 		]),
 	"HANDS"		:	
 		([
-			"Á÷ÔÆÊÖÌ×"	:	"liuyun glove",
-			"³àÁ¶ÊÖÌ×"	:	"chilian glove",
-			"ĞéÎŞÊÖÌ×"	:	"xuwu glove",
-			"ïÖ½ğÊÖÌ×"	:	"liujin glove",
-			"ïÙÌúÊÖÌ×"	:	"bingtie glove",
+			"æµäº‘æ‰‹å¥—"	:	"liuyun glove",
+			"èµ¤ç‚¼æ‰‹å¥—"	:	"chilian glove",
+			"è™šæ— æ‰‹å¥—"	:	"xuwu glove",
+			"é•é‡‘æ‰‹å¥—"	:	"liujin glove",
+			"é•”é“æ‰‹å¥—"	:	"bingtie glove",
 		]),
 	"BOOTS"		:	
 		([
-			"Á÷ÔÆÑ¥"	:	"liuyun shoes",
-			"³àÁ¶Ñ¥"	:	"chilian shoes",
-			"ĞéÎŞÑ¥"	:	"xuwu shoes",
-			"ïÖ½ğÑ¥"	:	"liujin shoes",
-			"»ğÁúÑ¥"	:	"huolong shoes",
-			"ÊŞÆ¤Ñ¥"	:	"shoupi shoes",
-			"Í­ÑÀÑ¥"	:	"tongya shoes",
-			"¾«ÌúÑ¥"	:	"jingtie shoes",
-			"³Ë·çÑ¥"	:	"chengfeng shoes",
-			"»¢ÎÆÑ¥"	:	"huwen shoes",
-			"ÆÆÀËÑ¥"	:	"polang shoes",
+			"æµäº‘é´"	:	"liuyun shoes",
+			"èµ¤ç‚¼é´"	:	"chilian shoes",
+			"è™šæ— é´"	:	"xuwu shoes",
+			"é•é‡‘é´"	:	"liujin shoes",
+			"ç«é¾™é´"	:	"huolong shoes",
+			"å…½çš®é´"	:	"shoupi shoes",
+			"é“œç‰™é´"	:	"tongya shoes",
+			"ç²¾é“é´"	:	"jingtie shoes",
+			"ä¹˜é£é´"	:	"chengfeng shoes",
+			"è™çº¹é´"	:	"huwen shoes",
+			"ç ´æµªé´"	:	"polang shoes",
 		]),
 ]);
 

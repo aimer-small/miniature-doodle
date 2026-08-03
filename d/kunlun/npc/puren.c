@@ -7,12 +7,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÆÍÈË", ({"pu ren", "puren", "pu"}) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("ä»†äºº", ({"pu ren", "puren", "pu"}) );
+	set("gender", "ç”·æ€§" );
 	set("age", 50);
 	set("long",
-	  "ÕâÊÇ¸öÀÏÊµ°Í½»µÄÀÏÆÍÈË£¬ËäÈ»ÒÂ·şÉÏ´òÁËºÜ¶à²¹¶¡£¬È´ÊÇÊ®·ÖµÄÕû½à¡£\n"
-	  "ÒòÎª³¤ÆÚ´ıÔÚ³ø·¿Àï£¬ÑÛ¾¦±»ÑÌÑ¬³ÉÁËÒ»Ìõ·ì¡£\n");
+	  "è¿™æ˜¯ä¸ªè€å®å·´äº¤çš„è€ä»†äººï¼Œè™½ç„¶è¡£æœä¸Šæ‰“äº†å¾ˆå¤šè¡¥ä¸ï¼Œå´æ˜¯ååˆ†çš„æ•´æ´ã€‚\n"
+	  "å› ä¸ºé•¿æœŸå¾…åœ¨å¨æˆ¿é‡Œï¼Œçœ¼ç›è¢«çƒŸç†æˆäº†ä¸€æ¡ç¼ã€‚\n");
 	set("attitude", "friendly");
 	set("shen_type", 1);
 
@@ -55,8 +55,8 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say(CYN"ÆÍÈËĞ¦Ò÷Ò÷µØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-		  + "ÇëÏÈÈë×ù£¬" + "ÎÒÕâ¾Í¸øÄúÉÏ²è¡£\n"NOR);
+	say(CYN"ä»†äººç¬‘åŸåŸåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+		  + "è¯·å…ˆå…¥åº§ï¼Œ" + "æˆ‘è¿™å°±ç»™æ‚¨ä¸ŠèŒ¶ã€‚\n"NOR);
 }
 
 void serve_tea(object who)
@@ -73,16 +73,16 @@ void serve_tea(object who)
 	if ( (int)who->query_temp("tea_cup") <= 0 ){
 		obn = new(FOOD_D("dawancha"));
 		obn->move(room);
-		message_vision("ÆÍÈË°á³ö¸ö´ó²èºøÀ´£¬½«×ÀÉÏµÄ´óÍë²èµ¹Âú¡£\n",who);
+		message_vision("ä»†äººæ¬å‡ºä¸ªå¤§èŒ¶å£¶æ¥ï¼Œå°†æ¡Œä¸Šçš„å¤§ç¢—èŒ¶å€’æ»¡ã€‚\n",who);
 	}
 	else {
 		who->add_temp("tea_cup", -1);
 		obn = new(FOOD_D("cha"));
 		obn->move(room);
-		message_vision("ÆÍÈËÄÃ³ö¸öÉÜĞËĞ¡²èºø£¬ÆãÁË±­Ïã²è£¬·ÅÔÚ×ÀÉÏ¡£\n", who);
+		message_vision("ä»†äººæ‹¿å‡ºä¸ªç»å…´å°èŒ¶å£¶ï¼Œæ²äº†æ¯é¦™èŒ¶ï¼Œæ”¾åœ¨æ¡Œä¸Šã€‚\n", who);
 	}
 	obn = new(FOOD_D("rice"));
 	obn->move(room);
-	message_vision("ÆÍÈËÊ¢ÁËÒ»Íë¸ÕÕôºÃµÄ´óÃ×·¹£¬·ÅÔÚ×ÀÉÏ¡£\n", who);
+	message_vision("ä»†äººç››äº†ä¸€ç¢—åˆšè’¸å¥½çš„å¤§ç±³é¥­ï¼Œæ”¾åœ¨æ¡Œä¸Šã€‚\n", who);
 	return;
 }

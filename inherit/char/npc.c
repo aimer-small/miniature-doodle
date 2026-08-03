@@ -35,37 +35,37 @@ int accept_fight(object who)
 	att = query("attitude");
 
 	if (is_killing(who->query("id"))) {
-		command("say ∫ﬂ£°" + RANK_D->query_rude(who)+"ƒ„æ°π‹∑≈¬Ìπ˝¿¥∞…£°");
+		command("say ÂìºÔºÅ" + RANK_D->query_rude(who)+"‰Ω†Â∞ΩÁÆ°ÊîæÈ©¨ËøáÊù•ÂêßÔºÅ");
 		return 1;
 	}
 	if (is_fighting())
 		switch(att) {
 			case "heroism":
-				command("say ∫ﬂ£°" + RANK_D->query_rude(who)+"ƒ„æ°π‹Ω¯’–∞…£°");
+				command("say ÂìºÔºÅ" + RANK_D->query_rude(who)+"‰Ω†Â∞ΩÁÆ°ËøõÊãõÂêßÔºÅ");
 				return 1;
 			default:
-				command("say " + RANK_D->query_respect(who)+"œÎ“–∂‡Œ™ §£¨’‚≤ª «∆€»ÀÃ´…ı¬£°");
+				command("say " + RANK_D->query_respect(who)+"ÊÉ≥ÂÄöÂ§ö‰∏∫ËÉúÔºåËøô‰∏çÊòØÊ¨∫‰∫∫Â§™ÁîöÂêóÔºÅ");
 				return 0;
 		}
 
 	switch(att) {
 		case "friendly":
 			command("say " + RANK_D->query_self(this_object())
-				+ "‘ı√¥ø…ƒ‹ «" + RANK_D->query_respect(who)
-				+ "µƒ∂‘ ÷£øƒ˙æÕ±ø™ÕÊ–¶¡À£°");
+				+ "ÊÄé‰πàÂèØËÉΩÊòØ" + RANK_D->query_respect(who)
+				+ "ÁöÑÂØπÊâãÔºüÊÇ®Â∞±Âà´ÂºÄÁé©Á¨ë‰∫ÜÔºÅ");
 			break;
 		case "aggressive":
 		case "killer":
-			command("say ∫ﬂ£°" + RANK_D->query_rude(who)+"ƒ„æ°π‹∑≈¬Ìπ˝¿¥∞…£°");
+			command("say ÂìºÔºÅ" + RANK_D->query_rude(who)+"‰Ω†Â∞ΩÁÆ°ÊîæÈ©¨ËøáÊù•ÂêßÔºÅ");
 			return 1;
 		default:
 			if (query("jing") * 100 / query("max_jing") >= 90
 			&& query("qi") * 100 / query("max_qi") >= 90
 			&& query("jingli") * 100 / query("eff_jingli") >= 80
 			&& query("neili") * 100 / query("max_neili") >= 80 ) {
-				command("say º»»ª" + RANK_D->query_respect(who)
-					+ "¥ÕΩÃ£¨" + RANK_D->query_self(this_object())
-					+ "÷ª∫√∑Ó≈„£¨Œ“√«µ„µΩŒ™÷π°£");
+				command("say Êó¢ÁÑ∂" + RANK_D->query_respect(who)
+					+ "ËµêÊïôÔºå" + RANK_D->query_self(this_object())
+					+ "Âè™Â•ΩÂ•âÈô™ÔºåÊàë‰ª¨ÁÇπÂà∞‰∏∫Ê≠¢„ÄÇ");
 				return 1;
 			}
 	}
@@ -97,10 +97,10 @@ int return_home(object home)
 		return 0;
 
 	// Leave for home now.
-	message("vision", name() + "º±º±√¶√¶µÿ¿Îø™¡À°£\n",
+	message("vision", name() + "ÊÄ•ÊÄ•ÂøôÂøôÂú∞Á¶ªÂºÄ‰∫Ü„ÄÇ\n",
 		environment(), this_object());
 	if (move(home)) {
-		message("vision", name() + "º±º±√¶√¶µÿ◊ﬂ¡Àπ˝¿¥°£\n",
+		message("vision", name() + "ÊÄ•ÊÄ•ÂøôÂøôÂú∞Ëµ∞‰∫ÜËøáÊù•„ÄÇ\n",
 			environment(), this_object());
 		delete_temp("random_move");
 		return 1;
@@ -120,7 +120,7 @@ int chat()
 	if( !environment() || !living(this_object()) ) return 0;
 
 	if (query("neili")>100 && query("max_neili") > 200
-	&& query("race") == "»À¿‡" && !is_busy()) {
+	&& query("race") == "‰∫∫Á±ª" && !is_busy()) {
 		if (!is_fighting()) {
 			if (query("eff_jing")
 			&& query("jing")*100/query("eff_jing") <= 80)

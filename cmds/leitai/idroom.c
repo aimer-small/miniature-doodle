@@ -41,12 +41,12 @@ private int check_legal_id(string id)
 	int i;
 	i = strlen(id);
 	if( i < 3 || i > 8 ) {
-		write("ĞÂ ID ±ØĞëÊÇ 3 µ½ 8 ¸öÓ¢ÎÄ×ÖÄ¸¡£\n");
+		write("æ–° ID å¿…é¡»æ˜¯ 3 åˆ° 8 ä¸ªè‹±æ–‡å­—æ¯ã€‚\n");
 		return 0;
 	}
 	while(i--)
 		if( id[i] < 'a' || id[i] > 'z' ) {
-			write("ĞÂ ID Ö»ÄÜÓÃĞ¡Ğ´Ó¢ÎÄ×ÖÄ¸¡£\n");
+			write("æ–° ID åªèƒ½ç”¨å°å†™è‹±æ–‡å­—æ¯ã€‚\n");
 			return 0;
 		}
 	return 1;
@@ -56,53 +56,53 @@ void do_change(string id, string nid, string passwd)
 {
 	if (wiz_level(id) || wiz_level(nid))
 	{
-		write("¸Á¹ş¡­¡­ÄãÏë¸Á¹ş£¡\n");
+		write("å™¶å“ˆâ€¦â€¦ä½ æƒ³å™¶å“ˆï¼\n");
 		return;
 	}
 	if (file_size(NID_PATH +"login/"+ id[0..0] +"/"+ id + SAVE_EXTENSION) <0) {
-		write(capitalize(id) +" µÇÂ¼µµ°¸²»´æÔÚ£¬ÎŞ·¨¸ü»» ID¡£\n");
+		write(capitalize(id) +" ç™»å½•æ¡£æ¡ˆä¸å­˜åœ¨ï¼Œæ— æ³•æ›´æ¢ IDã€‚\n");
 		return;
 	}
 	if (file_size(NID_PATH +"user/"+ id[0..0] +"/"+ id + SAVE_EXTENSION) <0) {
-		write(capitalize(id) +" Êı¾İµµ°¸²»´æÔÚ£¬ÎŞ·¨¸ü»» ID¡£\n");
+		write(capitalize(id) +" æ•°æ®æ¡£æ¡ˆä¸å­˜åœ¨ï¼Œæ— æ³•æ›´æ¢ IDã€‚\n");
 		return;
 	}
 	if (!check_passwd(id, passwd))
 	{
-		write("ÃÜÂë²»¶Ô¡£\n");
+		write("å¯†ç ä¸å¯¹ã€‚\n");
 		return;
 	}
-	// Èç¹ûÃ»ÓĞ´ËÍæ¼Ò£¬²»×¼»» id
+	// å¦‚æœæ²¡æœ‰æ­¤ç©å®¶ï¼Œä¸å‡†æ¢ id
 	if (file_size(ID_PATH +"login/"+ id[0..0] +"/"+ id + SAVE_EXTENSION) <0 ||
 	file_size(ID_PATH +"user/"+ id[0..0] +"/"+ id + SAVE_EXTENSION) <0)
 	{
-		if (id != nid) write(capitalize(id) + " ÎŞÈËÕ¼ÓÃ£¬ºöÂÔ¸ü»» ID µÄÇëÇó£¬¼ÌĞøÊ¹ÓÃÔ­ ID¡£\n");
+		if (id != nid) write(capitalize(id) + " æ— äººå ç”¨ï¼Œå¿½ç•¥æ›´æ¢ ID çš„è¯·æ±‚ï¼Œç»§ç»­ä½¿ç”¨åŸ IDã€‚\n");
 		nid = id;
 	}
 	else if (file_size(ID_PATH +"login/"+ nid[0..0] +"/"+ nid + SAVE_EXTENSION) >0
 	&& file_size(ID_PATH +"user/"+ nid[0..0] +"/"+ nid + SAVE_EXTENSION) > 0)
 	{
-		write(capitalize(nid) +" ÒÑ¾­´æÔÚ£¬ÇëÑ¡ÔñĞÂ ID ÖØĞÂ×ª»»¡£\n");
+		write(capitalize(nid) +" å·²ç»å­˜åœ¨ï¼Œè¯·é€‰æ‹©æ–° ID é‡æ–°è½¬æ¢ã€‚\n");
 		return;
 	}
 	if (!check_legal_id(nid)) return;
 
-	write("ÕıÔÚ×ª»» "+id+" -> "+nid+" ... ");
+	write("æ­£åœ¨è½¬æ¢ "+id+" -> "+nid+" ... ");
 	if (!copy_file(id, nid))
 	{
-		write(" Ê§°Ü\n");
-		log_file("CHANGE", sprintf("%s %s -> %s ¿½±´Ê§°Ü\n", ctime(time())[4..19], id, nid));
+		write(" å¤±è´¥\n");
+		log_file("CHANGE", sprintf("%s %s -> %s æ‹·è´å¤±è´¥\n", ctime(time())[4..19], id, nid));
 		return;
 	}
-	write(" ³É¹¦\nÉ¾³ıÔ­Ê¼Êı¾İ ... ");
+	write(" æˆåŠŸ\nåˆ é™¤åŸå§‹æ•°æ® ... ");
 	if (!del_file(id))
 	{
-		write(" Ê§°Ü\n");
-		log_file("CHANGE", sprintf("%s %s -> %s É¾³ıÊ§°Ü\n", ctime(time())[4..19], id, nid));
+		write(" å¤±è´¥\n");
+		log_file("CHANGE", sprintf("%s %s -> %s åˆ é™¤å¤±è´¥\n", ctime(time())[4..19], id, nid));
 		return;
 	}
-	write(" ³É¹¦\n×ª»»Íê±Ï\n");
-	log_file("CHANGE", sprintf("%s %s -> %s ³É¹¦\n", ctime(time())[4..19], id, nid));
+	write(" æˆåŠŸ\nè½¬æ¢å®Œæ¯•\n");
+	log_file("CHANGE", sprintf("%s %s -> %s æˆåŠŸ\n", ctime(time())[4..19], id, nid));
 }
 
 private void create()

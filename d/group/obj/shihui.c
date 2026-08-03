@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW"Ê¯»Ò"NOR, ({ "shi hui","hui" }));
+	set_name(HIW"çŸ³ç°"NOR, ({ "shi hui","hui" }));
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿é");
-		set("long", "ÕâÊÇÒ»¿éÓÃÀ´·ÛË¢·¿¼äµÄÊ¯»Ò¡£\n");
+		set("unit", "å—");
+		set("long", "è¿™æ˜¯ä¸€å—ç”¨æ¥ç²‰åˆ·æˆ¿é—´çš„çŸ³ç°ã€‚\n");
 		set("value", 1500000);
 		set("no_sell", 1);
 		set("group", 1);

@@ -5,14 +5,14 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ÁËÃ÷ìøÊ¦", ({	"liaoming chanshi", "liaoming", "chanshi"}));
+	set_name("äº†æ˜ç¦…å¸ˆ", ({	"liaoming chanshi", "liaoming", "chanshi"}));
 	set("long",
-		"ËûÊÇÒ»Î»Éí²ÄÏ÷ÊİµÄÖĞÄêÉ®ÈË£¬Á½±Û²»Éõ´Ö×³¡£Éí´© \n"
-              "Ò»Ï®»Ò²¼Ïâ±ßôÂôÄ£¬Á½ÑÛÕ¿Õ¿ÓĞÉñ£¬ËÆºõÓĞÒ»ÉíÎäÒÕ¡£\n"
+		"ä»–æ˜¯ä¸€ä½èº«æå‰Šç˜¦çš„ä¸­å¹´åƒ§äººï¼Œä¸¤è‡‚ä¸ç”šç²—å£®ã€‚èº«ç©¿ \n"
+              "ä¸€è¢­ç°å¸ƒé•¶è¾¹è¢ˆè£Ÿï¼Œä¸¤çœ¼æ¹›æ¹›æœ‰ç¥ï¼Œä¼¼ä¹æœ‰ä¸€èº«æ­¦è‰ºã€‚\n"
 	);
 
-	set("nickname", "ËûĞÄ×ğÕß");
-	set("gender", "ÄĞĞÔ");
+	set("nickname", "ä»–å¿ƒå°Šè€…");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -49,10 +49,10 @@ void create()
 	map_skill("parry", "yiyang-zhi");
 	map_skill("finger",  "yiyang-zhi");
 	prepare_skill("finger", "yiyang-zhi");
-	create_family("ÌìÁúËÂ", 14, "µÜ×Ó");    
+	create_family("å¤©é¾™å¯º", 14, "å¼Ÿå­");    
 
 	set("inquiry", ([
-		"Ò©" :  "±¾ËÂÁéµ¤ÃîÒ©²»ÉÙ£¬×îÓĞÃûµÄ¾ÍÊÇÌìÁúµ¤ºÍÑ©Â¶Íè",
+		"è¯" :  "æœ¬å¯ºçµä¸¹å¦™è¯ä¸å°‘ï¼Œæœ€æœ‰åçš„å°±æ˜¯å¤©é¾™ä¸¹å’Œé›ªéœ²ä¸¸",
 	]));
 	setup();
         carry_object("/d/tls/obj/jiasha1")->wear();

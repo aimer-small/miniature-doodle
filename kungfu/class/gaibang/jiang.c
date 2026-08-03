@@ -1,4 +1,4 @@
-// jiang.c ½¯¶æÖ÷
+// jiang.c è’‹èˆµä¸»
 // update by looklove 2000,7,3
 // Modify By Looklove 2000/10/21
 // Modified by looklove 2001/5/24 for xlz quest
@@ -11,12 +11,12 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("½¯¶æÖ÷", ({"jiang duozhu", "jiang" }));
-        set("title", YEL"Ø¤°ï´óÒå·Ö¶æ¶æÖ÷"NOR);
+        set_name("è’‹èˆµä¸»", ({"jiang duozhu", "jiang" }));
+        set("title", YEL"ä¸å¸®å¤§ä¹‰åˆ†èˆµèˆµä¸»"NOR);
         set("gb/bags",8);
-        set("gender", "ÄÐÐÔ");
+        set("gender", "ç”·æ€§");
         set("age", 47);
-        set("long", "ËûÊÇ°Ë´ü¶æÖ÷£¬ÕÆ¹Ü´óÒå·Ö¶æ¡£\n");
+        set("long", "ä»–æ˜¯å…«è¢‹èˆµä¸»ï¼ŒæŽŒç®¡å¤§ä¹‰åˆ†èˆµã€‚\n");
         set("attitude", "peaceful");
         set("shen_type", 1);
         set("str", 25);
@@ -36,14 +36,14 @@ void create()
 
         set("combat_exp", 320000);
 
-        set_skill("force", 100); // »ù±¾ÄÚ¹¦
-        set_skill("huntian-qigong", 100); // »ìÌìÆø¹¦
-        set_skill("strike", 100); // »ù±¾È­½Å
+        set_skill("force", 100); // åŸºæœ¬å†…åŠŸ
+        set_skill("huntian-qigong", 100); // æ··å¤©æ°”åŠŸ
+        set_skill("strike", 100); // åŸºæœ¬æ‹³è„š
         set_skill("blade",90);
         set_skill("liuhe-daofa",90);
-        set_skill("dodge", 90); // »ù±¾¶ãÉÁ
-        set_skill("xiaoyaoyou", 90); // Ç§ÀïÐÐÆò
-        set_skill("parry", 90); // »ù±¾ÕÐ¼Ü
+        set_skill("dodge", 90); // åŸºæœ¬èº²é—ª
+        set_skill("xiaoyaoyou", 90); // åƒé‡Œè¡Œä¹ž
+        set_skill("parry", 90); // åŸºæœ¬æ‹›æž¶
         set_skill("xianglong-zhang",90);
         map_skill("parry","liuhe-daofa");
         map_skill("strike","xianglong-zhang");
@@ -51,17 +51,17 @@ void create()
         map_skill("force", "huntian-qigong");
         map_skill("dodge", "xiaoyaoyou");
 
-        create_family("Ø¤°ï", 19, "°Ë´üµÜ×Ó");
+        create_family("ä¸å¸®", 19, "å…«è¢‹å¼Ÿå­");
         set("chat_chance", 1);
         set("chat_msg", ({
-                "½¯¶æÖ÷Ì¾µÀ:Õæ»³ÄîÒÔÇ°ºÍÇÇ°ïÖ÷Ò»ÆðÒû¾ÆµÄÈÕ×Ó°¡¡£\n",
+                "è’‹èˆµä¸»å¹é“:çœŸæ€€å¿µä»¥å‰å’Œä¹”å¸®ä¸»ä¸€èµ·é¥®é…’çš„æ—¥å­å•Šã€‚\n",
         }) );
         set("inquiry", ([
-                "Ø¤°ï" : "ÎÒÃÇØ¤°ïÊÇÌìÏÂµÚÒ»´ó°ï£¡\n",
-                "ÇÇ°ïÖ÷" : "²»¹ÜÔõÑù£¬ËûÓÀÔ¶ÊÇÎÒµÄÇÇ°ïÖ÷¡£\n",
-                "ºÈ¾Æ" : "ÄãÒ²Ï²»¶ºÈ¾Æ£¬ÄÇÌ«ºÃÁË£¡\n",
-                "Ð¡µº" : "ÔÚ¶«ÃÅÍâ£¬º£¸Û¶«ÄÏ·½Ïò£¬¿ÉÒÔÓÎ¹ýÈ¥¡£\n",
-                "Ïô·å" : "²»¹ÜÔõÑù£¬ËûÓÀÔ¶ÊÇÎÒµÄÇÇ°ïÖ÷¡£\n",
+                "ä¸å¸®" : "æˆ‘ä»¬ä¸å¸®æ˜¯å¤©ä¸‹ç¬¬ä¸€å¤§å¸®ï¼\n",
+                "ä¹”å¸®ä¸»" : "ä¸ç®¡æ€Žæ ·ï¼Œä»–æ°¸è¿œæ˜¯æˆ‘çš„ä¹”å¸®ä¸»ã€‚\n",
+                "å–é…’" : "ä½ ä¹Ÿå–œæ¬¢å–é…’ï¼Œé‚£å¤ªå¥½äº†ï¼\n",
+                "å°å²›" : "åœ¨ä¸œé—¨å¤–ï¼Œæµ·æ¸¯ä¸œå—æ–¹å‘ï¼Œå¯ä»¥æ¸¸è¿‡åŽ»ã€‚\n",
+                "è§å³°" : "ä¸ç®¡æ€Žæ ·ï¼Œä»–æ°¸è¿œæ˜¯æˆ‘çš„ä¹”å¸®ä¸»ã€‚\n",
         ]));
         setup();
         carry_object(__DIR__"obj/gb_budai8")->wear();
@@ -74,18 +74,18 @@ void attempt_apprentice(object ob)
 {
         if( ob->query("shen") < 1000 ) return;
         if ((int)ob->query("gb/bags") >= 2
-        && ob->query("family/family_name") != "Ø¤°ï" ) {
-                command("say Ø¤°ï¿ÉÈÝ²»ÏÂÄãÕâÖÖ±³ÐÅÆúÒåµÄÐ¡ÈË£¡");
+        && ob->query("family/family_name") != "ä¸å¸®" ) {
+                command("say ä¸å¸®å¯å®¹ä¸ä¸‹ä½ è¿™ç§èƒŒä¿¡å¼ƒä¹‰çš„å°äººï¼");
                 command("kill "+ob->query("id"));
                 return;
         }
 
-        command("say ºÃ°É£¬Ï£Íû" + RANK_D->query_respect(ob) +
-        "ÄÜºÃºÃÑ§Ï°±¾ÃÅÎä¹¦£¬½«À´ÔÚ½­ºþÖÐ´³³öÒ»·¬×÷Îª¡£");
+        command("say å¥½å§ï¼Œå¸Œæœ›" + RANK_D->query_respect(ob) +
+        "èƒ½å¥½å¥½å­¦ä¹ æœ¬é—¨æ­¦åŠŸï¼Œå°†æ¥åœ¨æ±Ÿæ¹–ä¸­é—¯å‡ºä¸€ç•ªä½œä¸ºã€‚");
         command("recruit " + ob->query("id"));
         if (!ob->query("gb/bags")) ob->set("gb/bags", 1);
-        ob->set("title",sprintf("Ø¤°ï´óÒå·Ö¶æ%s´üµÜ×Ó",
+        ob->set("title",sprintf("ä¸å¸®å¤§ä¹‰åˆ†èˆµ%sè¢‹å¼Ÿå­",
                 chinese_number(ob->query("gb/bags"))) );
-        ob->set("gb/fenduo","´óÒå·Ö¶æ");
+        ob->set("gb/fenduo","å¤§ä¹‰åˆ†èˆµ");
         ob->set("class","beggar");
 }

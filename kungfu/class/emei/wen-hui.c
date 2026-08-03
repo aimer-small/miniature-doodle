@@ -1,14 +1,14 @@
 // /kungfu/class/emei/wen-hui.c
-// Lklv 2001.10.18 update Ò»¸öÐ¡æ¤ :)
+// Lklv 2001.10.18 update ä¸€ä¸ªå°å¦ž :)
 
 inherit NPC;
 
 void create()
 {
-        set_name("ÎÄêÍÐ¡Ê¦Ì«", ({ "wen hui", "wenhui", "shitai" }));
-        set("long","ÕâÊÇ¸öÄêÁä²»´ó£¬Ã¼ÇåÄ¿ÐãµÄÐ¡Ê¦Ì«¡£ËýÒ»¼ûÓÐÈËÂä×ù£¬±ãÐ¦×Å¹ýÈ¥ÕÐ´ý¡£\n");
+        set_name("æ–‡æ™–å°å¸ˆå¤ª", ({ "wen hui", "wenhui", "shitai" }));
+        set("long","è¿™æ˜¯ä¸ªå¹´é¾„ä¸å¤§ï¼Œçœ‰æ¸…ç›®ç§€çš„å°å¸ˆå¤ªã€‚å¥¹ä¸€è§æœ‰äººè½åº§ï¼Œä¾¿ç¬‘ç€è¿‡åŽ»æ‹›å¾…ã€‚\n");
 
-        set("gender", "Å®ÐÔ");
+        set("gender", "å¥³æ€§");
         set("attitude", "friendly");
 	set("unique", 1);
         set("class", "bonze");
@@ -40,7 +40,7 @@ void create()
 	map_skill("sword", "huifeng-jian");
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
-        create_family("¶ëáÒÅÉ", 5, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 5, "å¼Ÿå­");
 
         setup();
 	carry_object("/d/emei/obj/changjian")->wield();

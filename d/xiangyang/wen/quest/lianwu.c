@@ -2,13 +2,13 @@
 
 inherit ROOM;
 #include <ansi.h>
-#define QUESTJINSHE "quest/½ðÉß½£·¨/"
+#define QUESTJINSHE "quest/é‡‘è›‡å‰‘æ³•/"
 
 void create()
 {
-        set("short",HIG "Á·Îä³¡" NOR);
+        set("short",HIG "ç»ƒæ­¦åœº" NOR);
         set("long", @LONG
-ÕâÊÇÎÂ¼Ò±¤µÄÁ·Îä³¡£¬Ò»¿é¿Õµ´µ´µÄ³¡µØ¡£
+è¿™æ˜¯æ¸©å®¶å ¡çš„ç»ƒæ­¦åœºï¼Œä¸€å—ç©ºè¡è¡çš„åœºåœ°ã€‚
 LONG);
         set("exits", ([ 
           "out" : "/d/xiangyang/wen/damen",
@@ -52,7 +52,7 @@ void killme(object me)
 
   if (me->query_temp(QUESTJINSHE+"start_kill")
                  &&!me->query_condition("killer")
-                  &&!me->query_temp(QUESTJINSHE+"over") )//Ôö¼ÓÒ»¸ö±ê¼Ç£¨Ô­À´µÄÓÐµãÂÒÁË£©
+                  &&!me->query_temp(QUESTJINSHE+"over") )//å¢žåŠ ä¸€ä¸ªæ ‡è®°ï¼ˆåŽŸæ¥çš„æœ‰ç‚¹ä¹±äº†ï¼‰
    
   {
 
@@ -61,11 +61,11 @@ void killme(object me)
 int valid_leave(object me, string dir)
 {
        if (me->is_fighting())
-                return notify_fail(RED"\nÎÂ¼ÒÎåÀÏ´óÉùºÈµÀ£ºÄÄÀï×ß¡£Ò»°ÑÀ¹×¡Äã£¬Äã¾¹È»ÎÞ·¨Àë¿ª¡£\n"NOR);
+                return notify_fail(RED"\næ¸©å®¶äº”è€å¤§å£°å–é“ï¼šå“ªé‡Œèµ°ã€‚ä¸€æŠŠæ‹¦ä½ä½ ï¼Œä½ ç«Ÿç„¶æ— æ³•ç¦»å¼€ã€‚\n"NOR);
        if (present("heiyi ren",this_object()))
-                return notify_fail(RED"\nÎÂ¼ÒÎåÀÏ´óÉùºÈµÀ£ºÄÄÀï×ß¡£Ò»°ÑÀ¹×¡Äã£¬Äã¾¹È»ÎÞ·¨Àë¿ª¡£\n"NOR);
+                return notify_fail(RED"\næ¸©å®¶äº”è€å¤§å£°å–é“ï¼šå“ªé‡Œèµ°ã€‚ä¸€æŠŠæ‹¦ä½ä½ ï¼Œä½ ç«Ÿç„¶æ— æ³•ç¦»å¼€ã€‚\n"NOR);
                 if(me->query_condition("killer")) 
-                          return notify_fail(RED"\nÔõÃ´½øÀ´µÄ£¿£¿ÕâÀïµÈwiz°É¡£\n"NOR);
+                          return notify_fail(RED"\næ€Žä¹ˆè¿›æ¥çš„ï¼Ÿï¼Ÿè¿™é‡Œç­‰wizå§ã€‚\n"NOR);
            if ( me->query_temp(QUESTJINSHE+"kill")
                && me->query_temp(QUESTJINSHE+"have_kill")){
               me->delete_temp(QUESTJINSHE+"start_kill");

@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-	set_name("慕容世袭图谱", ({ "board" }) );
+	set_name("鎱曞涓栬鍥捐氨", ({ "board" }) );
 	set("location", "/d/mr/yanziwu/yanziwu");
 	set("board_id", "murong_b");
-	set("long", "这是一张姑苏慕容门下世袭相传的图谱。\n" );
+	set("long", "杩欐槸涓�寮犲鑻忔厱瀹归棬涓嬩笘琚浉浼犵殑鍥捐氨銆俓n" );
 	setup();
 	set("capacity", 60);
 }

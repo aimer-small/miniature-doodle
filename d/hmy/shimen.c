@@ -1,18 +1,18 @@
 // /d/hmy/shimen.c
-// By Spiderii@ty ¼ÓÈëÏŞÖÆ,srf²»¿ÉÉÏÑÂ½è´Ë¶ã±ÜÍ¨¼©
+// By Spiderii@ty åŠ å…¥é™åˆ¶,srfä¸å¯ä¸Šå´–å€Ÿæ­¤èº²é¿é€šç¼‰
 #include <ansi.h>
 #include <wanted.h>
 inherit ROOM;
 
 string *ps = ({
-	"½ÌÖ÷ÎÄ³ÉÎäµÂ£¬Ò»Í³½­ºş",
-	"½ÌÖ÷Ç§ÇïÍòÔØ£¬Ò»Í³½­ºş",
-	"ÊôÏÂÖÒĞÄÎªÖ÷£¬ÍòËÀ²»´Ç",
-	"½ÌÖ÷ÁîÖ¼Ó¢Ã÷£¬ËãÎŞÒÅ²ß",
-	"½ÌÖ÷ÖòÕÕÌìÏÂ£¬Ôì¸£ÍòÃñ",
-	"½ÌÖ÷Õ½ÎŞ²»Ê¤£¬¹¥ÎŞ²»¿Ë",
-	"ÈÕÔÂÉñ½ÌÎÄ³ÉÎäµÂ¡¢ÈÊÒåÓ¢Ã÷",
-	"½ÌÖ÷ÖĞĞËÊ¥½Ì£¬Ôó±»²ÔÉú",
+	"æ•™ä¸»æ–‡æˆæ­¦å¾·ï¼Œä¸€ç»Ÿæ±Ÿæ¹–",
+	"æ•™ä¸»åƒç§‹ä¸‡è½½ï¼Œä¸€ç»Ÿæ±Ÿæ¹–",
+	"å±ä¸‹å¿ å¿ƒä¸ºä¸»ï¼Œä¸‡æ­»ä¸è¾",
+	"æ•™ä¸»ä»¤æ—¨è‹±æ˜ï¼Œç®—æ— é—ç­–",
+	"æ•™ä¸»çƒ›ç…§å¤©ä¸‹ï¼Œé€ ç¦ä¸‡æ°‘",
+	"æ•™ä¸»æˆ˜æ— ä¸èƒœï¼Œæ”»æ— ä¸å…‹",
+	"æ—¥æœˆç¥æ•™æ–‡æˆæ­¦å¾·ã€ä»ä¹‰è‹±æ˜",
+	"æ•™ä¸»ä¸­å…´åœ£æ•™ï¼Œæ³½è¢«è‹ç”Ÿ",
 });
 
 void set_pass()
@@ -27,15 +27,15 @@ string get_pass()
 
 void create()
 {
-	set("short", "Ê¯ÃÅ");
+	set("short", "çŸ³é—¨");
         set("long", "
-    ×ßµ½Ò»µÀ´óÊ¯ÃÅÇ°£¬Ö»¼ûÁ½ÅÔ¿Ì×ÅÁ½ĞĞ´ó×Ö£¬ÓÒÊ×ÊÇ¡°ÎÄ³ÉÎäµÂ¡±£¬×óÊ×
-ÊÇ¡°ÈÊÒåÓ¢Ã÷¡±£¬ºá¶îÉÏ¿Ì×Å
+    èµ°åˆ°ä¸€é“å¤§çŸ³é—¨å‰ï¼Œåªè§ä¸¤æ—åˆ»ç€ä¸¤è¡Œå¤§å­—ï¼Œå³é¦–æ˜¯â€œæ–‡æˆæ­¦å¾·â€ï¼Œå·¦é¦–
+æ˜¯â€œä»ä¹‰è‹±æ˜â€ï¼Œæ¨ªé¢ä¸Šåˆ»ç€
 
-                     "HIR"ÈÕ   ÔÂ   ¹â   Ã÷"NOR"
+                     "HIR"æ—¥   æœˆ   å…‰   æ˜"NOR"
 
-ËÄ¸ö´óºì×Ö¡£\n");
-	set("outdoors", "ºÚÄ¾ÑÂ");
+å››ä¸ªå¤§çº¢å­—ã€‚\n");
+	set("outdoors", "é»‘æœ¨å´–");
 	set("exits", ([
 	"eastdown" : __DIR__"shijie2",
 ]));
@@ -65,51 +65,51 @@ int do_say(string arg)
 	string dest, msg;
 
 	if (!arg || sscanf(arg, "%s %s", dest, msg)!=2 )
-		return notify_fail("ÄãÒª¶ÔË­¶úÓïĞ©Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦å¯¹è°è€³è¯­äº›ä»€ä¹ˆï¼Ÿ\n");
 
         dest = lower_case(dest);
 	ob = present(dest, environment(me));
 
 	if (!ob || !ob->is_character() )
-		return notify_fail("ÄãÒª¶ÔË­¶úÓï£¿\n");
+		return notify_fail("ä½ è¦å¯¹è°è€³è¯­ï¼Ÿ\n");
 	if (ob->query("id") == "jia bu") {
-		write( GRN "ÄãÏò" + ob->name() + "±ÈÁË¸öÊÖÊÆ£¬¹ªÉíµÀ£º" + msg + "¡£\n" NOR);
-		tell_room( environment(me), me->name() + "ÊÖÖ¸ÂÔ¶¯£¬¹ªÉíÔÚ" + ob->name()
-			+ "¶ú±ßËµÁËĞ©»°¡£\n", ({ me, ob }) );
+		write( GRN "ä½ å‘" + ob->name() + "æ¯”äº†ä¸ªæ‰‹åŠ¿ï¼Œèº¬èº«é“ï¼š" + msg + "ã€‚\n" NOR);
+		tell_room( environment(me), me->name() + "æ‰‹æŒ‡ç•¥åŠ¨ï¼Œèº¬èº«åœ¨" + ob->name()
+			+ "è€³è¾¹è¯´äº†äº›è¯ã€‚\n", ({ me, ob }) );
 		if(is_wanted(me)){
 
-        	        write("¼Ö²¼ÖåÖåÃ¼£¬¿´ÁË¿´ÄãºóÃæµÄÀ´Â·µÀ£ºĞÖµÜ£¬Äã»¹ÊÇ°Ñ¹Ù¸®µÄÊÂÇéÁË½áÁËµÄ°É¡£\n");
+        	        write("è´¾å¸ƒçš±çš±çœ‰ï¼Œçœ‹äº†çœ‹ä½ åé¢çš„æ¥è·¯é“ï¼šå…„å¼Ÿï¼Œä½ è¿˜æ˜¯æŠŠå®˜åºœçš„äº‹æƒ…äº†ç»“äº†çš„å§ã€‚\n");
         	        return 1;
 		}
 	        if( msg == get_pass()) {
-        	        write("Ö»Ìı¼Ö²¼ËµÁËÉù£ºàÅ¡£¡£ÊÇ±¾½ÌĞÖµÜ°É£¿Çë½øÀ´°É¡£\n");
-                	message("vision", "ÄÇµÀ´óÊ¯ÃÅ»º»ºÒÆÁË¿ªÀ´£¬Ò»¸öÈÕÔÂ½ÌÍ½ËµµÀ£º¡°Çë½ø¡£¡±\n", this_player());
+        	        write("åªå¬è´¾å¸ƒè¯´äº†å£°ï¼šå—¯ã€‚ã€‚æ˜¯æœ¬æ•™å…„å¼Ÿå§ï¼Ÿè¯·è¿›æ¥å§ã€‚\n");
+                	message("vision", "é‚£é“å¤§çŸ³é—¨ç¼“ç¼“ç§»äº†å¼€æ¥ï¼Œä¸€ä¸ªæ—¥æœˆæ•™å¾’è¯´é“ï¼šâ€œè¯·è¿›ã€‚â€\n", this_player());
 	                set("exits/westup", __DIR__"ryping");
 
         	        remove_call_out("close");
                 	call_out("close", 5, this_object());
         	}
         	else
-        		write("¼Ö²¼Ìıºó£¬Ã¼Í·½ôËõ£¬Ã»ÓĞËµ»°¡£\n");
+        		write("è´¾å¸ƒå¬åï¼Œçœ‰å¤´ç´§ç¼©ï¼Œæ²¡æœ‰è¯´è¯ã€‚\n");
       		return 1;
 	}
-	write( GRN "ÄãÔÚ" + ob->name() + "µÄ¶ú±ßÇÄÉùËµµÀ£º" + msg + "\n" NOR);
-	tell_room( environment(me), me->name() + "ÔÚ" + ob->name()
-		+ "¶ú±ßĞ¡ÉùµØËµÁËĞ©»°¡£\n", ({ me, ob }) );
+	write( GRN "ä½ åœ¨" + ob->name() + "çš„è€³è¾¹æ‚„å£°è¯´é“ï¼š" + msg + "\n" NOR);
+	tell_room( environment(me), me->name() + "åœ¨" + ob->name()
+		+ "è€³è¾¹å°å£°åœ°è¯´äº†äº›è¯ã€‚\n", ({ me, ob }) );
 	if( !userp(ob) ) ob->relay_whisper(me, msg);
 	else
-		tell_object( ob, GRN + me->name() + "ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º" + msg + "\n" NOR);
+		tell_object( ob, GRN + me->name() + "åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼š" + msg + "\n" NOR);
 	return 1;
 }
 
 void close(object room)
 {
-        message("vision","Ö»¼ûÄÇ´óÊ¯ÃÅÆ¹µØ¹ØÉÏÁË¡£\n", room);
+        message("vision","åªè§é‚£å¤§çŸ³é—¨ä¹’åœ°å…³ä¸Šäº†ã€‚\n", room);
         room->delete("exits/westup");
 }
 int valid_leave(object me, string dir)
 {
        if (dir != "eastdown" && me->query_condition("killer"))
-          return notify_fail(YEL"ÄãÕı±»¹Ù¸®Í¨¼©,ÄªÒª°Ñ×·±øÒıÀ´£¡\n"NOR);	
+          return notify_fail(YEL"ä½ æ­£è¢«å®˜åºœé€šç¼‰,è«è¦æŠŠè¿½å…µå¼•æ¥ï¼\n"NOR);	
        return ::valid_leave(me, dir);
 }

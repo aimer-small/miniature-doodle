@@ -5,12 +5,12 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("¾Õ½£", ({ "ju jian", "ju"}));
+	set_name("èŠå‰‘", ({ "ju jian", "ju"}));
 	set("long",
-	    "ÕâÊÇ¸öÈİÃ²æ¯ºÃµÄÅ®×Ó, ¹Ï×ÓÁ³µ°,\n"+
-	    "ÑÛÈçµãÆá, ÇåĞã¾øË×.\n"+
-	    "Äã×Ü¾õµÃÔÚÄÄ¼û¹ıËı.\n");
-	set("gender", "Å®ĞÔ");
+	    "è¿™æ˜¯ä¸ªå®¹è²Œå§£å¥½çš„å¥³å­, ç“œå­è„¸è›‹,\n"+
+	    "çœ¼å¦‚ç‚¹æ¼†, æ¸…ç§€ç»ä¿—.\n"+
+	    "ä½ æ€»è§‰å¾—åœ¨å“ªè§è¿‡å¥¹.\n");
+	set("gender", "å¥³æ€§");
 	set("age", 18);
 	set("per",27);
         set("shen_type",1);
@@ -59,7 +59,7 @@ void create()
 	prepare_skill("hand", "zhemei-shou");
 	prepare_skill("strike", "liuyang-zhang");
 
-        create_family("ÁéğÕ¹¬",3,"µÜ×Ó");
+        create_family("çµé¹«å®«",3,"å¼Ÿå­");
 
         setup();
         carry_object(__DIR__"obj/qingyi")->wear();

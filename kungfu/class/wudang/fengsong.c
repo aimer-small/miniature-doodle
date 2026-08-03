@@ -1,4 +1,4 @@
-// fengsong.c ·çËÉµÀ³¤
+// fengsong.c é£Žæ¾é“é•¿
 
 inherit NPC;
 
@@ -6,10 +6,10 @@ string ask_me();
 
 void create()
 {
-	set_name("·çËÉµÀ³¤", ({ "fengsong daozhang", "daozhang" }));
+	set_name("é£Žæ¾é“é•¿", ({ "fengsong daozhang", "daozhang" }));
 	set("long", 
-		"ËûÊÇÎäµ±É½µÄ·çËÉµÀ³¤¡£Ëû¸ºÔðÉ½ÉÏÈÕ³£ÓÃÆ·µÄ±£¹Ü\n");
-	set("gender", "ÄÐÐÔ");
+		"ä»–æ˜¯æ­¦å½“å±±çš„é£Žæ¾é“é•¿ã€‚ä»–è´Ÿè´£å±±ä¸Šæ—¥å¸¸ç”¨å“çš„ä¿ç®¡\n");
+	set("gender", "ç”·æ€§");
 	set("age", 36);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -46,10 +46,10 @@ void create()
         map_skill("cuff", "taiji-quan");
         prepare_skill("cuff", "taiji-quan");
 
-	create_family("Îäµ±ÅÉ", 4, "µÜ×Ó");
+	create_family("æ­¦å½“æ´¾", 4, "å¼Ÿå­");
        
         set("inquiry", ([
-		"µÀÅÛ" : (: ask_me :),
+		"é“è¢" : (: ask_me :),
         ]));
 
         set("robe_count", 1);
@@ -66,13 +66,13 @@ string ask_me()
 	mapping fam; 
 	object ob;
 	
-	if (!(fam = this_player()->query("family")) || fam["family_name"] != "Îäµ±ÅÉ")
+	if (!(fam = this_player()->query("family")) || fam["family_name"] != "æ­¦å½“æ´¾")
 		return RANK_D->query_respect(this_player()) + 
-		"Óë±¾ÅÉËØÎÞÀ´Íù£¬ÒªµÀÅÛºÎÓÃ£¿";
+		"ä¸Žæœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œè¦é“è¢ä½•ç”¨ï¼Ÿ";
 	if (query("robe_count") < 1)
-		return "ÐÂµÄµÀÅÛ»¹Ã»ÓÐËÍÀ´£¬Äã¹ý¼¸ÌìÔÙÀ´°É¡£";
+		return "æ–°çš„é“è¢è¿˜æ²¡æœ‰é€æ¥ï¼Œä½ è¿‡å‡ å¤©å†æ¥å§ã€‚";
         add("robe_count", -1);
         ob = new("/d/wudang/obj/white-robe");
 	ob->move(this_player());
-	return "ºÃ°É£¬Äã°ÑÕâ¼þµÀÅÛÄÃÈ¥°É¡£Îäµ±ÅÉËØÀ´ÇÚ¼ó£¬ÇëÄãºÃºÃ°®»¤Ëü¡£";
+	return "å¥½å§ï¼Œä½ æŠŠè¿™ä»¶é“è¢æ‹¿åŽ»å§ã€‚æ­¦å½“æ´¾ç´ æ¥å‹¤ä¿­ï¼Œè¯·ä½ å¥½å¥½çˆ±æŠ¤å®ƒã€‚";
 }

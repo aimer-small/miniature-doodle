@@ -16,18 +16,18 @@ int vote(object me, object victim)
 	string channel, *juror, my_id, my_name, v_name;
 
 	if (victim->query_condition("vote_chblk") > 26)
-		return notify_fail("ÆµµÀ¸Õ¹Ø±Õ£¬²»ÄÜÂíÉÏ±í¾ö¡£\n");
+		return notify_fail("é¢‘é“åˆšå…³é—­ï¼Œä¸èƒ½é©¬ä¸Šè¡¨å†³ã€‚\n");
 	if ((reason = (int)victim->query("vote/reason"))>0 && (reason!=V_UNCHBLK))
-		return notify_fail("Òª°Ñµ±Ç°µÄ±í¾öÍê³ÉÒÔºó²Å¿ÉÒÔÌáĞÂµÄ¶¯Òé¡£\n");
+		return notify_fail("è¦æŠŠå½“å‰çš„è¡¨å†³å®Œæˆä»¥åæ‰å¯ä»¥ææ–°çš„åŠ¨è®®ã€‚\n");
 
-	if(victim->query("chblk_on"))		channel = "½»Ì¸";
-	else if(victim->query("chblk_party"))	channel = "ÃÅÅÉ(Party)";
-	else if(victim->query("chblk_chat"))	channel = "ÁÄÌì(Chat)";
-	else if (victim->query("chblk_rumor")) 	channel = "Ò¥ÑÔ(Rumor)";
-	else if (victim->query("chblk_sj")) 	channel = "Êé½£(Sj)";
-	else if (victim->query("chblk_group")) 	channel = "°ïÅÉ(Group)";
-	else if (victim->query("chblk_irc")) 	channel = "ÁÄÌìÊÒ(Irc)";
-	else return notify_fail(victim->name(1)+"µÄÆµµÀÒÑ¾­ÊÇ´ò¿ªµÄÁË¡£\n");
+	if(victim->query("chblk_on"))		channel = "äº¤è°ˆ";
+	else if(victim->query("chblk_party"))	channel = "é—¨æ´¾(Party)";
+	else if(victim->query("chblk_chat"))	channel = "èŠå¤©(Chat)";
+	else if (victim->query("chblk_rumor")) 	channel = "è°£è¨€(Rumor)";
+	else if (victim->query("chblk_sj")) 	channel = "ä¹¦å‰‘(Sj)";
+	else if (victim->query("chblk_group")) 	channel = "å¸®æ´¾(Group)";
+	else if (victim->query("chblk_irc")) 	channel = "èŠå¤©å®¤(Irc)";
+	else return notify_fail(victim->name(1)+"çš„é¢‘é“å·²ç»æ˜¯æ‰“å¼€çš„äº†ã€‚\n");
 
 	if (reason <= 0)
 		victim->set("vote/reason", (int)V_UNCHBLK);
@@ -43,7 +43,7 @@ int vote(object me, object victim)
 		victim->set("vote/juror", juror+({ my_id }) );
 	else{
 		me->add("vote/abuse", 5);
-		return notify_fail("Ò»ÈËÒ»Æ±£¡ÀÄÓÃ±í¾öÈ¨ÊÇÒªÊÜ³Í·£µÄ£¡\n");
+		return notify_fail("ä¸€äººä¸€ç¥¨ï¼æ»¥ç”¨è¡¨å†³æƒæ˜¯è¦å—æƒ©ç½šçš„ï¼\n");
 	}
 
 	vv = (int) ("/cmds/std/vote")->valid_voters(me)/8;
@@ -53,26 +53,26 @@ int vote(object me, object victim)
 	if (vv < 4) df = 4 - vc;
 
 	my_name = me->query("name");
-	if (me == victim) v_name = "×Ô¼º";
+	if (me == victim) v_name = "è‡ªå·±";
 	else v_name = victim->query("name");
 	v_name += "("+capitalize(victim->query("id"))+")";
 
 	if (df > 0){
 		if (me == victim)
-			message("vote", HIW "¡¾±í¾ö¡¿"+my_name+"Í¶Æ±´ò¿ª" +v_name +"µÄ"+channel+"ÆµµÀ£¬»¹²î"
-				+chinese_number(df)+"Æ±¡£\n" NOR, users());
+			message("vote", HIW "ã€è¡¨å†³ã€‘"+my_name+"æŠ•ç¥¨æ‰“å¼€" +v_name +"çš„"+channel+"é¢‘é“ï¼Œè¿˜å·®"
+				+chinese_number(df)+"ç¥¨ã€‚\n" NOR, users());
 		else
-			message("vote", HIW "¡¾±í¾ö¡¿"+my_name+"Í¶Æ±´ò¿ª" +v_name +"µÄ"+channel+"ÆµµÀ£¬»¹²î"
-				+chinese_number(df)+"Æ±¡£\n" NOR, ({me, victim}));
+			message("vote", HIW "ã€è¡¨å†³ã€‘"+my_name+"æŠ•ç¥¨æ‰“å¼€" +v_name +"çš„"+channel+"é¢‘é“ï¼Œè¿˜å·®"
+				+chinese_number(df)+"ç¥¨ã€‚\n" NOR, ({me, victim}));
 
 		victim->apply_condition("vote_clear", 10);
 	} else {
 		if (me == victim)
-			message("vote", HIW "¡¾±í¾ö¡¿"+my_name+"Í¶Æ±´ò¿ª"+v_name+"µÄ"+channel+"ÆµµÀ¡£"
-				+my_name+"µÄ"+channel+"ÆµµÀ±»´ò¿ªÁË£¡\n" NOR, users());
+			message("vote", HIW "ã€è¡¨å†³ã€‘"+my_name+"æŠ•ç¥¨æ‰“å¼€"+v_name+"çš„"+channel+"é¢‘é“ã€‚"
+				+my_name+"çš„"+channel+"é¢‘é“è¢«æ‰“å¼€äº†ï¼\n" NOR, users());
 		else
-			message("vote", HIW "¡¾±í¾ö¡¿"+my_name+"Í¶Æ±´ò¿ª"+v_name+"µÄ"+channel+"ÆµµÀ¡£"
-				+v_name+"µÄ"+channel+"ÆµµÀ±»´ò¿ªÁË£¡\n" NOR, users());
+			message("vote", HIW "ã€è¡¨å†³ã€‘"+my_name+"æŠ•ç¥¨æ‰“å¼€"+v_name+"çš„"+channel+"é¢‘é“ã€‚"
+				+v_name+"çš„"+channel+"é¢‘é“è¢«æ‰“å¼€äº†ï¼\n" NOR, users());
 
 		victim->clear_condition("vote_clear");
 		victim->clear_condition("vote_chblk");

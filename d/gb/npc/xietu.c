@@ -2,8 +2,8 @@
 #include <ansi.h>
 inherit NPC;
 mapping *names =({
-              ({"º£É°°ï³¤ÀÏ","¾Ş¾¨°ï³¤ÀÏ","Èı½­°ï³¤ÀÏ",
-                "ÉñÈ­ÃÅ³¤ÀÏ","ÈÕÔÂ½Ì³¤ÀÏ",
+              ({"æµ·ç ‚å¸®é•¿è€","å·¨é²¸å¸®é•¿è€","ä¸‰æ±Ÿå¸®é•¿è€",
+                "ç¥æ‹³é—¨é•¿è€","æ—¥æœˆæ•™é•¿è€",
                }),
                });
 
@@ -12,13 +12,13 @@ void create()
       string weapon,t_name;
         t_name=names[0][random(sizeof(names[0]))];
         set_name(t_name, ({ "zhanglao"}));
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", random(10) + 45);
         set("str", 28);
         set("con", 23);
         set("int", 15);
         set("dex", 20);
-        set("long", "Ğ°½ÌµÄ³¤ÀÏ¡£\n");
+        set("long", "é‚ªæ•™çš„é•¿è€ã€‚\n");
         set("combat_exp", 60000 + random(25000));
         set("attitude", "friendly");
 
@@ -57,7 +57,7 @@ void init()
       if(me->query_temp("gb_rob")){
         a = me->query_temp("j")-1;
         if(a < 2) a=2;
-        message_vision(HIR"Í»È»´ÓÂ·±ß´Ü³öÒ»¸ö$N£¬Å­ºÈÒ»Éù¾ÍÆËÁËÉÏÀ´£¡\n"NOR, ob, me);
+        message_vision(HIR"çªç„¶ä»è·¯è¾¹çªœå‡ºä¸€ä¸ª$Nï¼Œæ€’å–ä¸€å£°å°±æ‰‘äº†ä¸Šæ¥ï¼\n"NOR, ob, me);
         me->add_temp("xietu", 1);
         ob->set("combat_exp", ob->query("combat_exp")*a);
         ob->set_skill("force", 40+(10*a));
@@ -94,7 +94,7 @@ int checking(object me)
 }
 void do_back(object me)
 {
-  tell_room(environment(me), me->query("name")+"×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n", ({me}));
+  tell_room(environment(me), me->query("name")+"è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n", ({me}));
   destruct(me);
   return;
 }

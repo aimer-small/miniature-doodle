@@ -10,13 +10,13 @@ int update_condition(object me, int duration)
 	me->receive_damage("qi", 100);
 me->receive_damage("jingli",100);
 me->receive_wound("jing",100);
-	me->set_temp("last_damage_from", "ÉñÁú¶¾·¢×÷");
+	me->set_temp("last_damage_from", "ç¥é¾™æ¯’å‘ä½œ");
 	me->apply_condition("sl_poison", duration - 1);
 	if (living(me))
-		message_vision(BLU "$NÁ½ÑÛ·¢Ö±£¬Éí×ÓÉªÉª¶¶ÁËÆğÀ´£¡\n" NOR, me);
+		message_vision(BLU "$Nä¸¤çœ¼å‘ç›´ï¼Œèº«å­ç‘Ÿç‘ŸæŠ–äº†èµ·æ¥ï¼\n" NOR, me);
 	else
        {
-		message_vision(BLU "$NÍ´¿àµØÉëßÌÁËÒ»Éù£¡\n" NOR, me);
+		message_vision(BLU "$Nç—›è‹¦åœ°å‘»å’›äº†ä¸€å£°ï¼\n" NOR, me);
               return 0;
              }
 	if( duration < 1 ) return 0;

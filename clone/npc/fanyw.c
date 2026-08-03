@@ -1,4 +1,4 @@
-// yiweng.c ·®Ò»ÎÌ
+// yiweng.c æ¨Šä¸€ç¿
 
 inherit NPC;
 
@@ -7,12 +7,12 @@ void consider();
 
 void create()
 {
-	set_name("·®Ò»ÎÌ", ({ "fan yiweng","fan","yiweng" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æ¨Šä¸€ç¿", ({ "fan yiweng","fan","yiweng" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 68);
-	set("long", "¶îÏÂ³¤ĞëÆ®È÷£¬Éí²ÄÉÔÎ¢°«Ğ¡¡£\n");
+	set("long", "é¢ä¸‹é•¿é¡»é£˜æ´’ï¼Œèº«æç¨å¾®çŸ®å°ã€‚\n");
 	set("attitude", "peaceful");
-        set("nickname", "³¤Ğë¹í");
+        set("nickname", "é•¿é¡»é¬¼");
         set("str", 28);
 	set("con", 21);
 	set("int", 20);
@@ -51,7 +51,7 @@ void create()
 
         set("chat_chance", 20);
 	set("chat_msg", ({
-	"³¤ĞëÀÏÎÌÀäĞ¦µÀ:¡°Î÷É½Ò»¿ß¹í¶¼ÊÇÌì²»ÅÂµØ²»ÅÂµÄÈËÎï£¬ÃûÍ·ÔÙÏì£¬Ò²ÏÅ²»µ½ÔÛÃÇ \n",
+	"é•¿é¡»è€ç¿å†·ç¬‘é“:â€œè¥¿å±±ä¸€çªŸé¬¼éƒ½æ˜¯å¤©ä¸æ€•åœ°ä¸æ€•çš„äººç‰©ï¼Œåå¤´å†å“ï¼Œä¹Ÿå“ä¸åˆ°å’±ä»¬ \n",
          (: random_move :)
 	}) );
 

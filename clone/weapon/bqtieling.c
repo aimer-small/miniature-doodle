@@ -1,5 +1,5 @@
 /*
- tie-ling.c ÌúÁî
+ tie-ling.c é“ä»¤
  by snowman@SJ 18/02/2000
 
 */
@@ -29,21 +29,21 @@ void add_amount(int v) { set_amount((int)query_amount()+v); }
 
 void create()
 {
-        set_name( HIB"Òõ"HIR"Ñô"HIC"¾ÅÁúÁî"NOR, ({ "jiulong ling","ling" }));
+        set_name( HIB"é˜´"HIR"é˜³"HIC"ä¹é¾™ä»¤"NOR, ({ "jiulong ling","ling" }));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("base_unit", "¿é");
+                set("unit", "æŸ„");
+                set("base_unit", "å—");
                 set("base_weight", 1000);
-                set("long", "ÕâÊÇÒ»±úÁ½³ßÀ´³¤µÄÁîÅÆ£¬º®¹âËÄÉä£¬ÁîÅÆÉÏÃæ¿Ì×Å¾ÅÌõÎå×¦½ðÁú£¬Å­¾¦Ì½×¦£¬ÉñÔÏÊ®×ã¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æŸ„ä¸¤å°ºæ¥é•¿çš„ä»¤ç‰Œï¼Œå¯’å…‰å››å°„ï¼Œä»¤ç‰Œä¸Šé¢åˆ»ç€ä¹æ¡äº”çˆªé‡‘é¾™ï¼Œæ€’ç›æŽ¢çˆªï¼Œç¥žéŸµåè¶³ã€‚\n");
                 set("value", 36000);
                 set("material", "steel"); 
                 set("base_damage", 100);
                 set("rigidity", 1);
                 set("base_rigidity", 4);
-                set("wield_msg", "$N»º»º³é³öÒ»±ú$n£¬Ö»¼ûº®Ã¢ÍÌÍÂ£¬ÒþÒþÓÐÁúÒ÷Ö®Éù¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖÐµÄ$n²å»ØÑü¼ä¡£\n");
+                set("wield_msg", "$Nç¼“ç¼“æŠ½å‡ºä¸€æŸ„$nï¼Œåªè§å¯’èŠ’åžåï¼Œéšéšæœ‰é¾™åŸä¹‹å£°ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›žè…°é—´ã€‚\n");
         }
         set_amount(1);
         init_dagger(45);
@@ -56,16 +56,16 @@ int wield()
 
         if (!userp(me)) return ::wield();
         if (living(me) && !me->query_skill("shenghuo-lingfa", 1)){
-                message_vision("$NÄÃ³ö"+name()+"¿´ÁË¿´£¬È´¸ã²»¶®ÔõÃ´Ê¹ÓÃÕâ¸ö¶«Î÷¡£\n", me);
+                message_vision("$Næ‹¿å‡º"+name()+"çœ‹äº†çœ‹ï¼Œå´æžä¸æ‡‚æ€Žä¹ˆä½¿ç”¨è¿™ä¸ªä¸œè¥¿ã€‚\n", me);
                 return 0;
         }           
         if( query_amount() > 2 ){
-                message_vision("$NÄÃ³ö"+name()+"¿´ÁË¿´£¬È´¸ã²»¶®ÔõÃ´Í¬Ê±Ê¹ÓÃËü¡£\n", me);
+                message_vision("$Næ‹¿å‡º"+name()+"çœ‹äº†çœ‹ï¼Œå´æžä¸æ‡‚æ€Žä¹ˆåŒæ—¶ä½¿ç”¨å®ƒã€‚\n", me);
                 return 0;
         }    
         if (query_amount() > 1){
                 if (me->query_skill("shenghuo-lingfa", 1) < 80 || me->query_int() < 30){
-                        message_vision("$NÄÃ³ö"+name()+"¿´ÁË¿´£¬È´¸ã²»¶®ÔõÃ´ÓÃËü¡£\n", me);
+                        message_vision("$Næ‹¿å‡º"+name()+"çœ‹äº†çœ‹ï¼Œå´æžä¸æ‡‚æ€Žä¹ˆç”¨å®ƒã€‚\n", me);
                         return 0;
                 }
         }

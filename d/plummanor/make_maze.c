@@ -1,4 +1,4 @@
-// Included Lib: /d/plummanor/make_maze.c //制造单路径迷宫
+// Included Lib: /d/plummanor/make_maze.c //鍒堕�犲崟璺緞杩峰
 // By Jpei
 
 #include "plum_maze.h"

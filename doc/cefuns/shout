@@ -1,16 +1,16 @@
 
 	shout(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		shout() - ¶ÔËùÓĞ»îÖøµÄ (living) Îï¼şËÍ³öÑ¶Ï¢.
-	Óï·¨:
+	åç§°:
+		shout() - å¯¹æ‰€æœ‰æ´»è‘—çš„ (living) ç‰©ä»¶é€å‡ºè®¯æ¯.
+	è¯­æ³•:
 		void shout( string str );
 
-		ÎŞ´«»ØÖµ shout( ×Ö´® str );
-	ÓÃ·¨:
-		³ıÁË this_player() ÒÔÍâ, ¶ÔËùÓĞ»îÖøµÄÎï¼şËÍ³ö×Ö´® str.
-	²Î¿¼:
+		æ— ä¼ å›å€¼ shout( å­—ä¸² str );
+	ç”¨æ³•:
+		é™¤äº† this_player() ä»¥å¤–, å¯¹æ‰€æœ‰æ´»è‘—çš„ç‰©ä»¶é€å‡ºå­—ä¸² str.
+	å‚è€ƒ:
 		message(3), write(3), tell_object(3), tell_room(3), 
 		say(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Jul.23.		(printed 3/16/95)

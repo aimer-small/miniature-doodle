@@ -1,4 +1,4 @@
-//bi.c ÅĞ¹Ù±Ê
+//bi.c åˆ¤å®˜ç¬”
 #include <weapon.h>
 #include <ansi.h>
 
@@ -7,18 +7,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("Ìú±Ê",({ "tie bi", "bi","brush" }) );
+        set_name("é“ç¬”",({ "tie bi", "bi","brush" }) );
         set_weight(20000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ö»");
+                set("unit", "åª");
             set("value", 1500);
                 set("material", "steel");
                 set("weapon_prop/parry", 5);
-                set("wield_msg", "$N´Ó»³ÖĞÌÍ³öÒ»Ö»Ìú±Ê¡£\n");
-                set("long", "ÕâÊÇÒ»Ö»ÉÏºÃÌú´òÖÆ¶ø³ÉµÄÌú±Ê¡£\n");                
-                set("unwield_msg", "$N°ÑÌú±Ê·ÅÈë»³ÖĞ¡£\n");                
+                set("wield_msg", "$Nä»æ€€ä¸­æå‡ºä¸€åªé“ç¬”ã€‚\n");
+                set("long", "è¿™æ˜¯ä¸€åªä¸Šå¥½é“æ‰“åˆ¶è€Œæˆçš„é“ç¬”ã€‚\n");                
+                set("unwield_msg", "$NæŠŠé“ç¬”æ”¾å…¥æ€€ä¸­ã€‚\n");                
         }
         init_brush(25);
         setup();

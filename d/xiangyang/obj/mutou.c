@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Ä¾Í·", ({ "mutou" }));
+	set_name("æœ¨å¤´", ({ "mutou" }));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¶Ñ");
-		set("long", "ÕâÊÇÒ»¶ÑÓÉÄ¾ÈËÉíÉÏµôÏÂÀ´µÄÄ¾Í·£¬´ó¸Å¿ÉÒÔËÍ»¹¸øÄ¾½³°É¡£\n");
+		set("unit", "å †");
+		set("long", "è¿™æ˜¯ä¸€å †ç”±æœ¨äººèº«ä¸Šæ‰ä¸‹æ¥çš„æœ¨å¤´ï¼Œå¤§æ¦‚å¯ä»¥é€è¿˜ç»™æœ¨åŒ å§ã€‚\n");
 		set("value", 1);
 		set("material", "wood");
 	}

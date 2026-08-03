@@ -1,4 +1,4 @@
-// qiannianshouwu.c Ç§ÄêºÎÊ×ÎÚ
+// qiannianshouwu.c åƒå¹´ä½•é¦–ä¹Œ
 #include <ansi.h>
 inherit ITEM;
 
@@ -12,12 +12,12 @@ void init()
 
 void create()
 {
-	set_name(YEL"Ç§ÄêÊ×ÎÚ"NOR, ({"qiannian shouwu", "shouwu"}));
+	set_name(YEL"åƒå¹´é¦–ä¹Œ"NOR, ({"qiannian shouwu", "shouwu"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Ã");
-		set("long", "ÕâÊÇÒ»¿ÃÇ§ÄêÊ×ÎÚ£¬ĞÎ×´ÍğÈçÈËÌå£¬´«ËµÇ§Äê·½³öÒ»¿Ã¡£\n");
+		set("unit", "æ£µ");
+		set("long", "è¿™æ˜¯ä¸€æ£µåƒå¹´é¦–ä¹Œï¼Œå½¢çŠ¶å®›å¦‚äººä½“ï¼Œä¼ è¯´åƒå¹´æ–¹å‡ºä¸€æ£µã€‚\n");
 		set("value", 10000);
 	}
 	setup();
@@ -29,16 +29,16 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->query_condition("medicine")) {
         me->add("max_neili", -20);
 		message_vision(
-			HIR "$N³ÔÏÂÒ»ÖêÇ§ÄêÊ×ÎÚ£¬Ö»¾õ¿Ú¸ÉÉàÔï£¬ÑÛÇ°·¢ºÚ¡£\n"
-			"Ô­À´·şÊ³Ì«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, this_player());
+			HIR "$Nåƒä¸‹ä¸€æ ªåƒå¹´é¦–ä¹Œï¼Œåªè§‰å£å¹²èˆŒç‡¥ï¼Œçœ¼å‰å‘é»‘ã€‚\n"
+			"åŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, this_player());
 	} else {
 	     message_vision(
-	   HIG "$N³ÔÏÂÒ»¿ÃÇ§ÄêÊ×ÎÚ£¬Ò»¹ÉÈÈÁ÷×Ôµ¤ÌïÓ¿ÈëÆß¾­°ËÂç£¬¹¦Á¦´óÔö!\n" NOR, me);
+	   HIG "$Nåƒä¸‹ä¸€æ£µåƒå¹´é¦–ä¹Œï¼Œä¸€è‚¡çƒ­æµè‡ªä¸¹ç”°æ¶Œå…¥ä¸ƒç»å…«ç»œï¼ŒåŠŸåŠ›å¤§å¢!\n" NOR, me);
 	me->apply_condition("medicine", 180);
         me->reincarnate();
         me->set("qi", me->query("max_qi"));

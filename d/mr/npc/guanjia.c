@@ -1,12 +1,12 @@
-// /u/beyond/mr/npc/guanjia.c ×Ü¹Ü¼Ò
+// /u/beyond/mr/npc/guanjia.c æ€»ç®¡å®¶
 // this is made by beyond
 // update 1997.6.23
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name(HIC"×Ü¹Ü¼Ò"NOR, ({ "zong guanjia", "guanjia", "jia"}));
-        set("gender", "ÄÐÐÔ");
+        set_name(HIC"æ€»ç®¡å®¶"NOR, ({ "zong guanjia", "guanjia", "jia"}));
+        set("gender", "ç”·æ€§");
         set("age", 50);  
 	set("str", 25);
         set("int", 25);

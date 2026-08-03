@@ -1,4 +1,4 @@
-// key.c ¼àÓüÔ¿³×
+// key.c ç›‘ç‹±é’¥åŒ™
 // Created by Numa 19991023
 
 #include <ansi.h>
@@ -8,14 +8,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIB"ºÚÔ¿³×"NOR,({"hei yaoshi", "yaoshi", "key"}));
+	set_name(HIB"é»‘é’¥åŒ™"NOR,({"hei yaoshi", "yaoshi", "key"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","ÕâÊÇÒ»°ÑÇàÍ­ÖÆ³ÉµÄºÚÉ«Ô¿³×¡£\n");
+		set("long","è¿™æ˜¯ä¸€æŠŠé’é“œåˆ¶æˆçš„é»‘è‰²é’¥åŒ™ã€‚\n");
 		set("material", "steel");
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("value", 2000);
 		set("unique", 1);
 		set("treasure", 1);
@@ -43,44 +43,44 @@ int do_unlock(string arg)
 	object room,here,obj,another,npc1;
 
 	if (!arg)
-		return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
-	if (arg != "men" && arg != "ÃÅ")
-		return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
+	if (arg != "men" && arg != "é—¨")
+		return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 
 	here = environment(ob);
 	room = load_object(__HMY__"jail");
 	if (base_name(here) != JAIL_GATE)
-		return notify_fail("ÕâÀïºÃÏóÃ»ÓĞÃÅÑ½£¿\n");
+		return notify_fail("è¿™é‡Œå¥½è±¡æ²¡æœ‰é—¨å‘€ï¼Ÿ\n");
 	another = present(ob->query_temp("hostage/partner"),here);
 	if (!another)
-		return notify_fail("ÄãµÄÍ¬°é»¹Ã»ÓĞÀ´£¬µÈÒ»ÏÂËû°É¡£\n");
+		return notify_fail("ä½ çš„åŒä¼´è¿˜æ²¡æœ‰æ¥ï¼Œç­‰ä¸€ä¸‹ä»–å§ã€‚\n");
 	if (!(ob->query_temp("hostage/ready_3")
 	  || another->query_temp("hostage/ready_3")))
-	  	return notify_fail("ÄãÃÇµÄÈÎÎñºÃÏó»¹Ã»ÓĞÍê³ÉÄØ£¡\n");
-	message_vision(HIG"\n$N´ÓÈİµÄÄÃ³öÔ¿³×£¬Ö»Ìı¡¸Å¾¡¹µÄÒ»Éù£¬ÃÅËø´ò¿ªÁË¡£\n"NOR, ob);
+	  	return notify_fail("ä½ ä»¬çš„ä»»åŠ¡å¥½è±¡è¿˜æ²¡æœ‰å®Œæˆå‘¢ï¼\n");
+	message_vision(HIG"\n$Nä»å®¹çš„æ‹¿å‡ºé’¥åŒ™ï¼Œåªå¬ã€Œå•ªã€çš„ä¸€å£°ï¼Œé—¨é”æ‰“å¼€äº†ã€‚\n"NOR, ob);
 	
 	obj = present(ob->query_temp("hostage/hostage_i"),room);
 	if (!obj)
-		return notify_fail("ß×£¿ÈËÖÊÄØ£¿\n");
+		return notify_fail("å’¦ï¼Ÿäººè´¨å‘¢ï¼Ÿ\n");
 	if (userp(obj)) {
-		tell_object(obj,HIB"\nÄãÕıÔÚÄÉÃÆÈçºÎ³öÈ¥Ê±£¬´óÃÅ¡¸ßÑîõ¡¹Ò»Éù´ò¿ªÁË¡£\n"NOR);
+		tell_object(obj,HIB"\nä½ æ­£åœ¨çº³é—·å¦‚ä½•å‡ºå»æ—¶ï¼Œå¤§é—¨ã€Œå“é“›ã€ä¸€å£°æ‰“å¼€äº†ã€‚\n"NOR);
 		obj->move(here);
-		tell_room(here,obj->name() + "´Ó"HIB"¼àÓü"NOR"Àï×ßÁË³öÀ´¡£\n",({obj}));
-		tell_object(obj,"Äã¼±Ã¦×ßÁË³öÈ¥£¬Äã·¢ÏÖÔ­À´ÊÇ"+ ob->name() +"ºÍ"+ another->name() +"Ò»Æğ¾ÈÄã³öÀ´µÄ¡£\n");
-		tell_object(obj,"Äã±»"+ another->name() +"ËÍÁË³öÈ¥¡£\n");
+		tell_room(here,obj->name() + "ä»"HIB"ç›‘ç‹±"NOR"é‡Œèµ°äº†å‡ºæ¥ã€‚\n",({obj}));
+		tell_object(obj,"ä½ æ€¥å¿™èµ°äº†å‡ºå»ï¼Œä½ å‘ç°åŸæ¥æ˜¯"+ ob->name() +"å’Œ"+ another->name() +"ä¸€èµ·æ•‘ä½ å‡ºæ¥çš„ã€‚\n");
+		tell_object(obj,"ä½ è¢«"+ another->name() +"é€äº†å‡ºå»ã€‚\n");
 		obj->move(obj->query_temp("hostage/where"));
 		obj->delete_temp("hostage/where");
 	}
 	else {
 		obj->move(here);
-		tell_room(here,obj->name() + "´Ó"HIB"¼àÓü"NOR"Àï×ßÁË³öÀ´¡£\n",({obj}));
-		message_vision("$nÒ»³ö¼àÓü£¬Ò»¸ö¼ı²½¾ÍÅÜµÄ²»¼ûÁËÓ°¶ù¡£",obj);
+		tell_room(here,obj->name() + "ä»"HIB"ç›‘ç‹±"NOR"é‡Œèµ°äº†å‡ºæ¥ã€‚\n",({obj}));
+		message_vision("$nä¸€å‡ºç›‘ç‹±ï¼Œä¸€ä¸ªç®­æ­¥å°±è·‘çš„ä¸è§äº†å½±å„¿ã€‚",obj);
 		obj->move(obj->query_temp("hostage/where"));
 		obj->delete_temp("hostage/where");
 		obj->reincarnate();
 	}
-	tell_room(here,HIR"\n¾ÍÔÚÕâÊ±£¬ÈÕÔÂÉñ½Ì×Ü¹ÜÑîÁ«Í¤³åÁË¹ıÀ´£¬¿´¼ûÁËÄãÃÇÖ®ºó£¬Å¤Í·¾ÍÅÜ£¡\n"NOR);
-	message_vision(HIY"\n$N»ØÍ·ËµµÀ£º¡°ÎÒÈ¥×·Ëû£¬ÔÛÃÇ¿ÍÕ»»ØºÏ¡£¡±ËµÍê¾Í´Ò´ÒÃ¦Ã¦µÄÈ¥×·¸ÏÌÓÅÜµÄÑîÁ«Í¤¡£\n"NOR,ob);
+	tell_room(here,HIR"\nå°±åœ¨è¿™æ—¶ï¼Œæ—¥æœˆç¥æ•™æ€»ç®¡æ¨è²äº­å†²äº†è¿‡æ¥ï¼Œçœ‹è§äº†ä½ ä»¬ä¹‹åï¼Œæ‰­å¤´å°±è·‘ï¼\n"NOR);
+	message_vision(HIY"\n$Nå›å¤´è¯´é“ï¼šâ€œæˆ‘å»è¿½ä»–ï¼Œå’±ä»¬å®¢æ ˆå›åˆã€‚â€è¯´å®Œå°±åŒ†åŒ†å¿™å¿™çš„å»è¿½èµ¶é€ƒè·‘çš„æ¨è²äº­ã€‚\n"NOR,ob);
 	ob->delete_temp("hostage/ready_3");
 	ob->set_temp("hostage/job_3",1);
 	ob->apply_condition("hostage3",60 + random(20));
@@ -88,10 +88,10 @@ int do_unlock(string arg)
 	npc1->set_temp("target2",ob->query("id"));
 	npc1->move(__HMY__"xiaohuayuan");
 	ob->move(__HMY__"xiaohuayuan");
-	message_vision(HIY"\n$N¶Ô×Å$n´ó½ĞµÀ£º¡°"+ RANK_D->query_rude(npc1) +"£¬ÄÄÀïÅÜ£¬Õ¾×¡£¡¡±\n"NOR, ob, npc1);
-	message_vision(HIR"$n¼±Ã¦ÊÕ²½£¬¶Ô×Å$NÄüĞ¦µÀ£º¡°¼ÈÈ»Äã²»¿Ï·Å¹ıÎÒ£¬Ò²Ğİ¹ÖÎÒÎŞÇé£¡¡±\n"NOR, ob, npc1);
-	message_vision(HIY"\n$NÁ¢¿Ì×¼±¸¶¯ÉíÀë¿ªÕâÀï£¬¸Õ×ßÁËÁ½²½£¬Ô¶Ô¶¿´¼ûÀ´ÁË¼¸¸öÈË£¡\n"NOR, another);
-	message_vision(HIR"Ô­À´ÊÇÄ§½ÌÈı³¤ÀÏ¸Ïµ½ÁË¡£\n"NOR, another);
+	message_vision(HIY"\n$Nå¯¹ç€$nå¤§å«é“ï¼šâ€œ"+ RANK_D->query_rude(npc1) +"ï¼Œå“ªé‡Œè·‘ï¼Œç«™ä½ï¼â€\n"NOR, ob, npc1);
+	message_vision(HIR"$næ€¥å¿™æ”¶æ­¥ï¼Œå¯¹ç€$Nç‹ç¬‘é“ï¼šâ€œæ—¢ç„¶ä½ ä¸è‚¯æ”¾è¿‡æˆ‘ï¼Œä¹Ÿä¼‘æ€ªæˆ‘æ— æƒ…ï¼â€\n"NOR, ob, npc1);
+	message_vision(HIY"\n$Nç«‹åˆ»å‡†å¤‡åŠ¨èº«ç¦»å¼€è¿™é‡Œï¼Œåˆšèµ°äº†ä¸¤æ­¥ï¼Œè¿œè¿œçœ‹è§æ¥äº†å‡ ä¸ªäººï¼\n"NOR, another);
+	message_vision(HIR"åŸæ¥æ˜¯é­”æ•™ä¸‰é•¿è€èµ¶åˆ°äº†ã€‚\n"NOR, another);
 	another->delete_temp("hostage/ready_3",);
 	another->set_temp("hostage/job_3", 2);
 	

@@ -1,18 +1,18 @@
-// chungongtu.c ´º¹¬Í¼
+// chungongtu.c æ˜¥å®«å›¾
 // By iceland
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(HIM"´º¹¬Í¼"NOR, ({ "chungong tu", "tu" }));
+	set_name(HIM"æ˜¥å®«å›¾"NOR, ({ "chungong tu", "tu" }));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
+		set("unit", "æœ¬");
                 set("treasure",1);
-		set("long", HIM"ÕâÊÇÒ»±¾±¡±¡µÄ¾îÊé£¬ÉÏÃæ»æÖÆÁËÒ»Ğ©Ğ¡ÈË£¬ÕıÔÚ¸É×ÅÒ»Ğ©ÊÂÇé¡£\n"NOR);
+		set("long", HIM"è¿™æ˜¯ä¸€æœ¬è–„è–„çš„ç»¢ä¹¦ï¼Œä¸Šé¢ç»˜åˆ¶äº†ä¸€äº›å°äººï¼Œæ­£åœ¨å¹²ç€ä¸€äº›äº‹æƒ…ã€‚\n"NOR);
 		set("value", 15000);
 		set("material", "silk");
 	}
@@ -29,10 +29,10 @@ int do_kan(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÏë¿´Ê²Ã´£¿\n");
+		return notify_fail("ä½ æƒ³çœ‹ä»€ä¹ˆï¼Ÿ\n");
 
 	else {
-		message_vision(HIM"$N·­¿ª´º¹¬Í¼×¨×¢µÄ¿´×Å£¬²»Ò»»áÖ»¾õºôÎü¼±´Ù£¬»ëÉíÔêÈÈÆğÀ´¡£\n"NOR, me);
+		message_vision(HIM"$Nç¿»å¼€æ˜¥å®«å›¾ä¸“æ³¨çš„çœ‹ç€ï¼Œä¸ä¸€ä¼šåªè§‰å‘¼å¸æ€¥ä¿ƒï¼Œæµ‘èº«èºçƒ­èµ·æ¥ã€‚\n"NOR, me);
 		return 1;
 	}
 }

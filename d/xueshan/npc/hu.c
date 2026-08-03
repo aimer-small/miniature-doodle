@@ -1,18 +1,18 @@
-// hu.c ºú¹ó
+// hu.c èƒ¡è´µ
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("ºú¹ó", ({ "hu gui", "hu" ,"hugui","gui"}));
-        set("title", "ÉÕ¾Æºú");
+	set_name("èƒ¡è´µ", ({ "hu gui", "hu" ,"hugui","gui"}));
+        set("title", "çƒ§é…’èƒ¡");
 	set("shen_type", 1);
 
 	set("str", 20);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
-        set("long", "ËûÊÇÒçÏãÂ¥µÄÀÏ°å£¬ÒòÎªÄğ¾ÆÊÖÒÕºÃ£¬µÃÁËÏÖÔÚÕâ¸ö´ÂºÅ¡£\n");
+        set("long", "ä»–æ˜¯æº¢é¦™æ¥¼çš„è€æ¿ï¼Œå› ä¸ºé…¿é…’æ‰‹è‰ºå¥½ï¼Œå¾—äº†ç°åœ¨è¿™ä¸ªç»°å·ã€‚\n");
         set("combat_exp", 2000);
         set("qi", 300);
         set("max_qi", 300);

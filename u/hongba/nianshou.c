@@ -2,11 +2,11 @@
 inherit NPC;
 void create()
 {
-        set_name(HIR"ÄêÊÞ"NOR, ({ "nian shou", "nian", "shou" }) );
-        set("race", "Ò°ÊÞ");
+        set_name(HIR"å¹´å…½"NOR, ({ "nian shou", "nian", "shou" }) );
+        set("race", "é‡Žå…½");
         set("age", 4);
        set("unique", 4);
-        set("long", "ÐÎÈôÊ¨×Ó¶ø¶À½Ç£¬¶¨Ê±³öÏÖÉËº¦ÈËÐó£¬ÈËÃÇ¿àÎÞÖÆ·þÖ®·¨¡£\n");
+        set("long", "å½¢è‹¥ç‹®å­è€Œç‹¬è§’ï¼Œå®šæ—¶å‡ºçŽ°ä¼¤å®³äººç•œï¼Œäººä»¬è‹¦æ— åˆ¶æœä¹‹æ³•ã€‚\n");
         set("attitude", "peace");
         set("shen_type", -1);
         
@@ -22,7 +22,7 @@ set("max_qi",500000);
     set("max_jing", 500000);
     set("eff_jingli", 600000);
     set("jiali", 190);
-        set("limbs", ({ "ÄêÊÞÍ·", "ÄêÊÞÉí", "Ç°×¦", "ºó×¦", "Î²°Í" }) );
+        set("limbs", ({ "å¹´å…½å¤´", "å¹´å…½èº«", "å‰çˆª", "åŽçˆª", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
         set("combat_exp", 10000);
 
@@ -39,15 +39,15 @@ set_skill("cuff", 40 + random(50));
 
         set("chat_chance", 30);
         set("chat_msg", ({
-                "ÄêÊÞÒ¡Í·°ÚÎ²ÕÅ¿ª´ó¿Ú£¬ËÆÊÇÒª³ÔÈË¡£\n",
-                "ÄêÊÞµÉ×ÅÍ­Áå°ãµÄ´óÑÛÉÏÏÂ´òÁ¿×ÅÄã¹»²»¹»Ò»¶Ù·¹µÄ¡£\n",
+                "å¹´å…½æ‘‡å¤´æ‘†å°¾å¼ å¼€å¤§å£ï¼Œä¼¼æ˜¯è¦åƒäººã€‚\n",
+                "å¹´å…½çžªç€é“œé“ƒèˆ¬çš„å¤§çœ¼ä¸Šä¸‹æ‰“é‡ç€ä½ å¤Ÿä¸å¤Ÿä¸€é¡¿é¥­çš„ã€‚\n",
 (: random_move :)
         }) );
 }
 
 int accept_fight(object ob)
 {
-        command("say à»à»à»£¬ÄãÒªÉ±¾ÍÉ±£¬ÎÒ²»»á¸úÄãfight£¡");
+        command("say å—·å—·å—·ï¼Œä½ è¦æ€å°±æ€ï¼Œæˆ‘ä¸ä¼šè·Ÿä½ fightï¼");
         return 0;
 }
 void unconcious()
@@ -59,21 +59,21 @@ me = query_temp("last_damage_from");
           {
   ob = new("clone/spec/yuji");
             ob->move(me);
-           command("rumor ÌýËµ"+ me->name(1)+ "ÔÚ·ÜÁ¦É±ÄêÊÞ»î¶¯Ê±ÒâÍâµÃµ½"+ ob->name(1)+ "¡£");  
+           command("rumor å¬è¯´"+ me->name(1)+ "åœ¨å¥‹åŠ›æ€å¹´å…½æ´»åŠ¨æ—¶æ„å¤–å¾—åˆ°"+ ob->name(1)+ "ã€‚");  
           die();
        } 
  if ( random(100) > 85 && random(100) < 90 )
           {
   ob = new("clone/spec/dahuandan");
             ob->move(me);
-           command("rumor ÌýËµ"+ me->name(1)+ "ÔÚ·ÜÁ¦É±ÄêÊÞ»î¶¯Ê±ÒâÍâµÃµ½"+ ob->name(1)+ "¡£");  
+           command("rumor å¬è¯´"+ me->name(1)+ "åœ¨å¥‹åŠ›æ€å¹´å…½æ´»åŠ¨æ—¶æ„å¤–å¾—åˆ°"+ ob->name(1)+ "ã€‚");  
           die();
        } 
    else 
 {
 ob = new("u/hongba/dengmi");
    ob->move(me); 
-command("rumor ÌýËµ"+ me->name(1)+ "ÔÚ·ÜÁ¦É±ÄêÊÞ»î¶¯Ê±ÒâÍâµÃµ½"+ ob->name(1)+ "¡£");  
+command("rumor å¬è¯´"+ me->name(1)+ "åœ¨å¥‹åŠ›æ€å¹´å…½æ´»åŠ¨æ—¶æ„å¤–å¾—åˆ°"+ ob->name(1)+ "ã€‚");  
           die();
        } 
 }

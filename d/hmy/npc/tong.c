@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("Í¯°ÙĞÜ", ({ "tong baixiong", "tong", "baixiong"}));
-        set("long", "Ò»ÃûĞë·¨¾ã°×µÄÀÏÕß£¬Éí²Ä¿ıÎà£¬Ë«Ä¿¾¼¾¼ÓĞÉñ£¬\n"+
-        	"ËûÕÆ¹Ü×ÅÈÕÔÂ½Ì·çÀ×ÌÃ£¬¸ºÔğ×Å½ÌÖĞËùÓĞ¶ÔÍâµÄÊÂÎñ¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì "HIC"·çÀ×ÌÃÖ÷"NOR);
-        set("gender", "ÄĞĞÔ");
+        set_name("ç«¥ç™¾ç†Š", ({ "tong baixiong", "tong", "baixiong"}));
+        set("long", "ä¸€åé¡»æ³•ä¿±ç™½çš„è€è€…ï¼Œèº«æé­æ¢§ï¼ŒåŒç›®ç‚¯ç‚¯æœ‰ç¥ï¼Œ\n"+
+        	"ä»–æŒç®¡ç€æ—¥æœˆæ•™é£é›·å ‚ï¼Œè´Ÿè´£ç€æ•™ä¸­æ‰€æœ‰å¯¹å¤–çš„äº‹åŠ¡ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™ "HIC"é£é›·å ‚ä¸»"NOR);
+        set("gender", "ç”·æ€§");
         set("age", 50);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -41,7 +41,7 @@ void create()
         map_skill("parry", "luoying-zhang");
         map_skill("strike", "luoying-zhang");
         prepare_skill("strike", "luoying-zhang");
-        create_family("ÈÕÔÂÉñ½Ì",8,"µÜ×Ó");
+        create_family("æ—¥æœˆç¥æ•™",8,"å¼Ÿå­");
 
         
         set("inquiry", ([

@@ -6,10 +6,10 @@
 inherit ROOM;
 void create()
 {
-         set("short", HIY"Ğ¡Éá"NOR);
+         set("short", HIY"å°èˆ"NOR);
          set("long",
-"Õâ¼ä·¿ÉáĞ¡ÇÉÁáçç, ÆÄÎª¾«ÑÅ¡£Ğ¡ÉáØÒ¶îÉÏĞ´×Å¡¸"HIY"ÇÙÔÏ"NOR"¡¹Á½×Ö£¬±ÊÖÂÆÄÎª\n"
-"äìÈ÷¡£Ô¶´¦µÄĞ¡ÎİÂ¶³öÒ»éÜÎİ½Ç¡£¶«Î÷Á½±ß¸÷ÓĞÒ»ÌõĞ¡¾¶²»ÖªÍ¨ÏòÄÄÀï¡£\n"
+"è¿™é—´æˆ¿èˆå°å·§ç²ç‘, é¢‡ä¸ºç²¾é›…ã€‚å°èˆåŒ¾é¢ä¸Šå†™ç€ã€Œ"HIY"ç´éŸµ"NOR"ã€ä¸¤å­—ï¼Œç¬”è‡´é¢‡ä¸º\n"
+"æ½‡æ´’ã€‚è¿œå¤„çš„å°å±‹éœ²å‡ºä¸€æªå±‹è§’ã€‚ä¸œè¥¿ä¸¤è¾¹å„æœ‰ä¸€æ¡å°å¾„ä¸çŸ¥é€šå‘å“ªé‡Œã€‚\n"
 );
 	set("exits", ([
 		"east" : __DIR__"xiaojing3",
@@ -30,13 +30,13 @@ int valid_leave(object me, string dir)
                
 	myfam = (mapping)me->query("family");
 
-	if ((!myfam || myfam["family_name"] != "¹ÃËÕÄ½Èİ" ) && dir == "west") {
+	if ((!myfam || myfam["family_name"] != "å§‘è‹æ…•å®¹" ) && dir == "west") {
 	inv = all_inventory(me);
 	for(i=sizeof(inv)-1; i>=0; i--)
 		if(inv[i]->query("weapon_prop") && (inv[i]->query("equipped")))
 		if(objectp(present("bao butong", environment(me))))
-			return notify_fail("°ü²»Í¬À¹×¡ÄãËµµÀ£ºÕâÎ»" +RANK_D->query_respect(me) + "Çë·ÅÏÂ±øÈĞ¡£ÎªÁË±íÊ¾"
-                        "¶Ô¹ÃËÕÄ½ÈİµÄ¾°Ñö£¬Çë·ÅÏÂ±øÈĞ½øÈë¹ÃËÕÄ½Èİ¡£\n");
+			return notify_fail("åŒ…ä¸åŒæ‹¦ä½ä½ è¯´é“ï¼šè¿™ä½" +RANK_D->query_respect(me) + "è¯·æ”¾ä¸‹å…µåˆƒã€‚ä¸ºäº†è¡¨ç¤º"
+                        "å¯¹å§‘è‹æ…•å®¹çš„æ™¯ä»°ï¼Œè¯·æ”¾ä¸‹å…µåˆƒè¿›å…¥å§‘è‹æ…•å®¹ã€‚\n");
 	}
 	return ::valid_leave(me, dir);
 }

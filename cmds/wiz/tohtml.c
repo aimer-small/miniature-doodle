@@ -30,12 +30,12 @@ nosave int ppl_cnt;
 void create()
 {
 	seteuid(getuid());
-	set("channel_id", "´«ËÍ¾«Áé");
+	set("channel_id", "ä¼ é€ç²¾çµ");
 }
 
 int main(object me, string arg)
 {
-	CHANNEL_D->do_channel( this_object(), "sys","ÔÚÏßÍæ¼ÒÊı¾İ¸üĞÂµ½WEBÆô¶¯¡£");
+	CHANNEL_D->do_channel( this_object(), "sys","åœ¨çº¿ç©å®¶æ•°æ®æ›´æ–°åˆ°WEBå¯åŠ¨ã€‚");
 	remove_call_out("writefile");
 	call_out("writefile", 0);
         return 1;
@@ -66,16 +66,16 @@ int writefile()
         top10 += "<table width='97%' border='0' align='center' bgcolor='#000000'>
   <tr>
     <td height='317'><div align='center'><BR>
-        <strong><font color='#FFFF00' face='Fixedsys'>" + CHINESE_MUD_NAME + "ÔÚÏßÊ®´ó¸ßÊÖ("+CHINESE_D->chinese_date(time(),1)+")</font></strong><font face='Fixedsys'><br>
+        <strong><font color='#FFFF00' face='Fixedsys'>" + CHINESE_MUD_NAME + "åœ¨çº¿åå¤§é«˜æ‰‹("+CHINESE_D->chinese_date(time(),1)+")</font></strong><font face='Fixedsys'><br>
         </font></div>
       <table width='70%' border='0' align='center' cellpadding='4' cellspacing='3' bgcolor='#000000'>
         <tr align=center> 
-          <td width='10%' height='30'><font color='#00FF00' face='Fixedsys'><strong>Ãû´Î 
+          <td width='10%' height='30'><font color='#00FF00' face='Fixedsys'><strong>åæ¬¡ 
             </strong></font></td>
-          <td width='50%' height='30'><font color='#00FF00' face='Fixedsys'><strong>êÇ³Æ</strong></font></td>
+          <td width='50%' height='30'><font color='#00FF00' face='Fixedsys'><strong>æ˜µç§°</strong></font></td>
           <td width='25%' height='30'><font color='#00FF00' face='Fixedsys'><strong> 
-            ĞÕÃû</strong></font></td>
-          <td width='15%' height='30'><font color='#00FF00' face='Fixedsys'><strong>ÃÅÅÉ</strong></font></td>
+            å§“å</strong></font></td>
+          <td width='15%' height='30'><font color='#00FF00' face='Fixedsys'><strong>é—¨æ´¾</strong></font></td>
         </tr>";
         for (i=0;i<max;i++)
           {
@@ -83,11 +83,11 @@ int writefile()
             show = obj1->query("name")+"("+capitalize(obj1->query("id"))+")";
             top10 += sprintf("<tr align=center> 
           <td><font color='#008000' face='Fixedsys'>No.%d</font></td>
-          <td><font color='#008000' face='Fixedsys'>¡¸%s¡¹</font></td>
+          <td><font color='#008000' face='Fixedsys'>ã€Œ%sã€</font></td>
           <td><font color='#008000' face='Fixedsys'>%s</font></td>
           <td><font color='#008000' face='Fixedsys'>%s</font></td>
           </tr>",
-          i+1,obj1->query("nickname")?obj1->query("nickname"):"ÔİÎŞ",show,
+          i+1,obj1->query("nickname")?obj1->query("nickname"):"æš‚æ— ",show,
           obj1->query("family/family_name"));
           }
         top10 += "</table>
@@ -96,27 +96,27 @@ int writefile()
   </tr>
 </table>";
  
-//ÔÚÏßÍæ¼Ò¼°ÃÅÅÉÊµÁ¦ÎÄ¼şÉú³É
+//åœ¨çº¿ç©å®¶åŠé—¨æ´¾å®åŠ›æ–‡ä»¶ç”Ÿæˆ
         onlineuser += "<table width='97%' border='0' align='center' bgcolor='#000000'>
   <tr>
     <td height='317'><div align='center'><BR>
-        <strong><font color='#FFFF00' face='Fixedsys'>" + CHINESE_MUD_NAME + "ÔÚÏßÍæ¼ÒÇåµ¥("+CHINESE_D->chinese_date(time(),1)+")</font></strong><font face='Fixedsys'><br>
+        <strong><font color='#FFFF00' face='Fixedsys'>" + CHINESE_MUD_NAME + "åœ¨çº¿ç©å®¶æ¸…å•("+CHINESE_D->chinese_date(time(),1)+")</font></strong><font face='Fixedsys'><br>
         </font></div>
       <table border=0 cellpadding=0 cellspacing=5 width='97%'>
         <tr align=center> 
-          <td width='12%' ><font color='#FFFF00' face='Fixedsys'>ÃÅÅÉ</font></td>
-          <td colspan=4 ><font color='#FFFF00' face='Fixedsys'>ÖĞÎÄĞÕÃû(ID)</font></td>
+          <td width='12%' ><font color='#FFFF00' face='Fixedsys'>é—¨æ´¾</font></td>
+          <td colspan=4 ><font color='#FFFF00' face='Fixedsys'>ä¸­æ–‡å§“å(ID)</font></td>
         </tr>";
 
 	party += "<table width='97%' border='0' align='center' bgcolor='#000000'>
   <tr>
     <td height='317'><div align='center'><BR>
-        <strong><font color='#FFFF00' face='Fixedsys'>" + CHINESE_MUD_NAME + "ÔÚÏßÍæ¼ÒÃÅÅÉÊµÁ¦Í¼Ê¾("+CHINESE_D->chinese_date(time(),1)+")</font></strong><font face='Fixedsys'><br>
+        <strong><font color='#FFFF00' face='Fixedsys'>" + CHINESE_MUD_NAME + "åœ¨çº¿ç©å®¶é—¨æ´¾å®åŠ›å›¾ç¤º("+CHINESE_D->chinese_date(time(),1)+")</font></strong><font face='Fixedsys'><br>
         </font></div>
       <table border=0 cellpadding=0 cellspacing=0 width='97%'>
         <tr align=center> 
-          <td width='12%'><font color='#00FF00' face='Fixedsys'>ÃÅÅÉ</font></td>
-          <td width='88%'><font color='#00FF00' face='Fixedsys'>×ÛºÏÊµÁ¦</font></td>
+          <td width='12%'><font color='#00FF00' face='Fixedsys'>é—¨æ´¾</font></td>
+          <td width='88%'><font color='#00FF00' face='Fixedsys'>ç»¼åˆå®åŠ›</font></td>
         </tr>";
 
         ob = filter_array(objects(), (: userp :));
@@ -153,7 +153,7 @@ int writefile()
    	party += sprintf("%s%d%s\n","<hr align=left noshade size='10' color='#0000FF' width='",(totalexp/70000)/j,"%'></td></tr>");
         party += "</table>
       <div align='center'> 
-        <p><font color=#FF0000 face='Fixedsys'>ºìÉ«</font><font color=#008000 face='Fixedsys'>±íÊ¾ÃÅÅÉEXP×ÜºÍ£¬<font color='#0000FF'>À¶É«</font>±íÊ¾EXPÆ½¾ùÖµ¡£</font><br>
+        <p><font color=#FF0000 face='Fixedsys'>çº¢è‰²</font><font color=#008000 face='Fixedsys'>è¡¨ç¤ºé—¨æ´¾EXPæ€»å’Œï¼Œ<font color='#0000FF'>è“è‰²</font>è¡¨ç¤ºEXPå¹³å‡å€¼ã€‚</font><br>
         </p>
       </div></td>
   </tr>
@@ -162,50 +162,50 @@ int writefile()
         title += "<table width='97%' border='0' align='center' bgcolor='#000000'>
   <tr>
     <td height='317'><div align='center'><BR>
-        <strong><font color='#FFFF00' face='Fixedsys'>" + CHINESE_MUD_NAME + "ÔÚÏßÍæ¼ÒÏêÏ¸×ÊÁÏ("+CHINESE_D->chinese_date(time(),1)+")</font></strong><font face='Fixedsys'><br>
+        <strong><font color='#FFFF00' face='Fixedsys'>" + CHINESE_MUD_NAME + "åœ¨çº¿ç©å®¶è¯¦ç»†èµ„æ–™("+CHINESE_D->chinese_date(time(),1)+")</font></strong><font face='Fixedsys'><br>
         </font></div>
       <table border=0 cellpadding=0 cellspacing=5 width='97%'>
         <tr align=left> 
-          <td width='12%' ><font color='#FFFF00' face='Fixedsys'>ÃÅÅÉ</font></td>          
+          <td width='12%' ><font color='#FFFF00' face='Fixedsys'>é—¨æ´¾</font></td>          
         </tr>";
         
 	top10 = replace_string(top10,"'","\"");
 	onlineuser = replace_string(onlineuser,"'","\"");
 	party = replace_string(party,"'","\"");	
 	title = replace_string(title,"'","\"");
-//ÎÄ¼şÉú³É½áÊø
+//æ–‡ä»¶ç”Ÿæˆç»“æŸ
 	now_num = 0;
 	fnamea ="";
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "REPLACE INTO mud_info (subject, utime, content, type, site)
-			VALUES ('"+CHINESE_MUD_NAME+"ÔÚÏßÍæ¼ÒÏêÏ¸×ÊÁÏ"+"', '"+time()+"', 
+			VALUES ('"+CHINESE_MUD_NAME+"åœ¨çº¿ç©å®¶è¯¦ç»†èµ„æ–™"+"', '"+time()+"', 
 			'"+title+"', 'title', '"+lower_case(INTERMUD_MUD_NAME)+"')",this_object(),"upload_title"))
-				CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÏêÏ¸×ÊÁÏ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........¿ªÊ¼¸üĞÂ...¡£");
+				CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶è¯¦ç»†èµ„æ–™è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........å¼€å§‹æ›´æ–°...ã€‚");
 			else
-				CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÏêÏ¸×ÊÁÏ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........Ê§°Ü¡£");
+				CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶è¯¦ç»†èµ„æ–™è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........å¤±è´¥ã€‚");
 				
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "REPLACE INTO mud_info (subject, utime, content, type, site)
-			VALUES ('"+CHINESE_MUD_NAME+"ÔÚÏßÊ®´ó¸ßÊÖ"+"', '"+time()+"', 
+			VALUES ('"+CHINESE_MUD_NAME+"åœ¨çº¿åå¤§é«˜æ‰‹"+"', '"+time()+"', 
 			'"+top10+"', 'top', '"+lower_case(INTERMUD_MUD_NAME)+"')"))
-				CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÊ®´ó¸ßÊÖÊı¾İ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........³É¹¦¡£");
+				CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿åå¤§é«˜æ‰‹æ•°æ®è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........æˆåŠŸã€‚");
 			else
-				CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÊ®´ó¸ßÊÖÊı¾İ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........Ê§°Ü¡£");
+				CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿åå¤§é«˜æ‰‹æ•°æ®è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........å¤±è´¥ã€‚");
 
 	user_num = 0;
 	count_user =0;
 	fnameb ="";
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "REPLACE INTO mud_info (subject, utime, content, type, site)
-			VALUES ('"+CHINESE_MUD_NAME+"ÔÚÏßÍæ¼Ò"+"', '"+time()+"', 
+			VALUES ('"+CHINESE_MUD_NAME+"åœ¨çº¿ç©å®¶"+"', '"+time()+"', 
 			'"+onlineuser+"', 'online', '"+lower_case(INTERMUD_MUD_NAME)+"')",this_object(),"upload_user"))
-				CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÊı¾İ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........¿ªÊ¼¸üĞÂ...¡£");
+				CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶æ•°æ®è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........å¼€å§‹æ›´æ–°...ã€‚");
 			else
-				CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÊı¾İ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........Ê§°Ü¡£");
+				CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶æ•°æ®è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........å¤±è´¥ã€‚");
 	
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "REPLACE INTO mud_info (subject, utime, content, type, site)
-			VALUES ('"+CHINESE_MUD_NAME+"ÔÚÏßÍæ¼ÒÃÅÅÉÊµÁ¦Í¼Ê¾"+"', '"+time()+"', 
+			VALUES ('"+CHINESE_MUD_NAME+"åœ¨çº¿ç©å®¶é—¨æ´¾å®åŠ›å›¾ç¤º"+"', '"+time()+"', 
 			'"+party+"', 'party', '"+lower_case(INTERMUD_MUD_NAME)+"')"))			
-				CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÃÅÅÉÊµÁ¦Í¼Ê¾Êı¾İ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........³É¹¦¡£");
+				CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶é—¨æ´¾å®åŠ›å›¾ç¤ºæ•°æ®è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........æˆåŠŸã€‚");
 			else
-				CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÃÅÅÉÊµÁ¦Í¼Ê¾Êı¾İ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........Ê§°Ü¡£");
+				CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶é—¨æ´¾å®åŠ›å›¾ç¤ºæ•°æ®è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........å¤±è´¥ã€‚");
 				
 	remove_call_out("writefile");
 	call_out("writefile", 3600);
@@ -247,17 +247,17 @@ void upload_title(mixed ret)
 	if(title!="") 
 	{
 	sql = sprintf("UPDATE mud_info SET content = CONCAT(content,'%s') WHERE subject='%s' AND site = '%s'",
-	title,CHINESE_MUD_NAME+"ÔÚÏßÍæ¼ÒÏêÏ¸×ÊÁÏ",lower_case(INTERMUD_MUD_NAME));
+	title,CHINESE_MUD_NAME+"åœ¨çº¿ç©å®¶è¯¦ç»†èµ„æ–™",lower_case(INTERMUD_MUD_NAME));
 	BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,sql,this_object(),"upload_title");	
 	//message("wizard", sql,users());
-	CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÏêÏ¸×ÊÁÏ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........¼ÌĞø¸üĞÂ...¡£");
+	CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶è¯¦ç»†èµ„æ–™è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........ç»§ç»­æ›´æ–°...ã€‚");
 	}
 	else
 	{
 		title = "</table>
       			<div align='center'>
         		<p><font color='#008000' face='Fixedsys'>\n";
-        	title += sprintf("ÓĞ <font color=yellow>%d</font> Î»Íæ¼ÒÁ¬ÏßÖĞ¡£</font></p>
+        	title += sprintf("æœ‰ <font color=yellow>%d</font> ä½ç©å®¶è¿çº¿ä¸­ã€‚</font></p>
         			<p><br>
         			</p>
       				</div></td>
@@ -265,9 +265,9 @@ void upload_title(mixed ret)
 				</table>", ppl_cnt);
 		title = replace_string(title,"'","\"");
 		sql = sprintf("UPDATE mud_info SET content = CONCAT(content,'%s') WHERE subject='%s' AND site = '%s'",
-		title,CHINESE_MUD_NAME+"ÔÚÏßÍæ¼ÒÏêÏ¸×ÊÁÏ",lower_case(INTERMUD_MUD_NAME));
+		title,CHINESE_MUD_NAME+"åœ¨çº¿ç©å®¶è¯¦ç»†èµ„æ–™",lower_case(INTERMUD_MUD_NAME));
 		BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,sql);	
-		CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÏêÏ¸×ÊÁÏ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........³É¹¦¡£");
+		CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶è¯¦ç»†èµ„æ–™è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........æˆåŠŸã€‚");
 	}
 }
 void upload_user(mixed ret)
@@ -290,7 +290,7 @@ void upload_user(mixed ret)
                 }
 		if (!(count_user % 5)) {
                 	count_user++;
-                  	str += "<td>¡¡</td>";
+                  	str += "<td>ã€€</td>";
                 }
                 str += sprintf("%s%s%s",
                       "<td width='22%'><font color='#008000' face='Fixedsys'>"+
@@ -303,16 +303,16 @@ void upload_user(mixed ret)
 	if(str!="") 
 	{
 	sql = sprintf("UPDATE mud_info SET content = CONCAT(content,'%s') WHERE subject='%s' AND site = '%s'",
-	str,CHINESE_MUD_NAME+"ÔÚÏßÍæ¼Ò",lower_case(INTERMUD_MUD_NAME));
+	str,CHINESE_MUD_NAME+"åœ¨çº¿ç©å®¶",lower_case(INTERMUD_MUD_NAME));
 	BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,sql,this_object(),"upload_user");
-	CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÊı¾İ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........¼ÌĞø¸üĞÂ...¡£");
+	CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶æ•°æ®è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........ç»§ç»­æ›´æ–°...ã€‚");
 	//message("wizard", sql,users());
 	}
 	else {
 		str = "</table>
       			<div align='center'>
         		<p><font color='#008000' face='Fixedsys'>\n";
-        	str += sprintf("ÓĞ <font color=yellow>%d</font> Î»Íæ¼ÒÁ¬ÏßÖĞ£¬<font color='#FF0000'>ºìÉ«</font>±íÊ¾¶ÏÏß£¬<font color=BLUE>À¶É«</font>±íÊ¾·¢´ô¡£</font></p>
+        	str += sprintf("æœ‰ <font color=yellow>%d</font> ä½ç©å®¶è¿çº¿ä¸­ï¼Œ<font color='#FF0000'>çº¢è‰²</font>è¡¨ç¤ºæ–­çº¿ï¼Œ<font color=BLUE>è“è‰²</font>è¡¨ç¤ºå‘å‘†ã€‚</font></p>
         			<p><br>
         			</p>
       				</div></td>
@@ -320,15 +320,15 @@ void upload_user(mixed ret)
 				</table>", ppl_cnt);
 		str = replace_string(str,"'","\"");
 		sql = sprintf("UPDATE mud_info SET content = CONCAT(content,'%s') WHERE subject='%s' AND site = '%s'",
-		str,CHINESE_MUD_NAME+"ÔÚÏßÍæ¼Ò",lower_case(INTERMUD_MUD_NAME));
+		str,CHINESE_MUD_NAME+"åœ¨çº¿ç©å®¶",lower_case(INTERMUD_MUD_NAME));
 		BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,sql);
-		CHANNEL_D->do_channel( this_object(), "sys", "ÔÚÏßÍæ¼ÒÊı¾İ×Ô¶¯¸üĞÂµ½Ö÷Ò³.........³É¹¦¡£");
+		CHANNEL_D->do_channel( this_object(), "sys", "åœ¨çº¿ç©å®¶æ•°æ®è‡ªåŠ¨æ›´æ–°åˆ°ä¸»é¡µ.........æˆåŠŸã€‚");
 	}
 }
 string get_frame(object ob)
 {
-	if(wiz_level(ob)) return "ÓÎÏ·¹ÜÀíÔ±";
-	if(!mapp(ob->query("family"))) return "ÆÕÍ¨°ÙĞÕ";
+	if(wiz_level(ob)) return "æ¸¸æˆç®¡ç†å‘˜";
+	if(!mapp(ob->query("family"))) return "æ™®é€šç™¾å§“";
 	return ob->query("family/family_name");	
 }
 

@@ -12,39 +12,39 @@ int main(object me, string arg)
 	object obj, who, *inv, obj2;
 	int i, amount;
 
-	if(!arg) return notify_fail("ÄãÒª¸øË­Ê²Ã´¶«Î÷£¿\n");
+	if(!arg) return notify_fail("ä½ è¦ç»™è°ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 
 	if( sscanf(arg, "%s to %s", item, target)==2
 	|| sscanf(arg, "%s %s", target, item)==2 );
-	else return notify_fail("ÄãÒª¸øË­Ê²Ã´¶«Î÷£¿\n");
+	else return notify_fail("ä½ è¦ç»™è°ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 
 	if(!objectp(who = present(target, environment(me))) || !living(who))
-		return notify_fail("ÕâÀïÃ»ÓĞÕâ¸öÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 
-	if( who == me) return notify_fail("¸ø×Ô¼º£¿\n");
-	if (userp(me) && me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if( who == me) return notify_fail("ç»™è‡ªå·±ï¼Ÿ\n");
+	if (userp(me) && me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if (userp(me) && !wizardp(me) && who->query("env/no_accept"))
-		return notify_fail("¶Ô·½ÏÖÔÚ²»½ÓÊÜÈÎºÎ¶«Î÷¡£\n");
+		return notify_fail("å¯¹æ–¹ç°åœ¨ä¸æ¥å—ä»»ä½•ä¸œè¥¿ã€‚\n");
 	if(sscanf(item, "%d %s", amount, item)==2) {
 		if( !objectp(obj = present(item, me)) )
-			return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 		if( !wizardp(me) && userp(who) && (obj->query("no_drop")
 		|| (userp(me) && obj->query("unique") && !mapp(obj->query("skill")))))
-			return notify_fail("ÕâÑù¶«Î÷²»ÄÜËæ±ã¸øÈË¡£\n");
+			return notify_fail("è¿™æ ·ä¸œè¥¿ä¸èƒ½éšä¾¿ç»™äººã€‚\n");
 		if (!wizardp(me) && userp(who) && userp(me) && obj->query("no_give"))
-			return notify_fail("ÕâÑù¶«Î÷²»ÄÜËæ±ã¸øÈË¡£\n");
+			return notify_fail("è¿™æ ·ä¸œè¥¿ä¸èƒ½éšä¾¿ç»™äººã€‚\n");
 		if( !obj->query_amount() )
-			return notify_fail( obj->name() + "²»ÄÜ±»·Ö¿ª¸øÈË¡£\n");
+			return notify_fail( obj->name() + "ä¸èƒ½è¢«åˆ†å¼€ç»™äººã€‚\n");
 		if( amount < 1 )
-			return notify_fail("¶«Î÷µÄÊıÁ¿ÖÁÉÙÊÇÒ»¸ö¡£\n");
+			return notify_fail("ä¸œè¥¿çš„æ•°é‡è‡³å°‘æ˜¯ä¸€ä¸ªã€‚\n");
 		if( amount > obj->query_amount() )
-			return notify_fail("ÄãÃ»ÓĞÄÇÃ´¶àµÄ" + obj->name() + "¡£\n");
+			return notify_fail("ä½ æ²¡æœ‰é‚£ä¹ˆå¤šçš„" + obj->name() + "ã€‚\n");
 		if( obj->query("weapon_prop") && me->is_exert() &&
 			obj == me->query_temp("weapon"))
-			       return notify_fail("ÄãÕıÔÚÊ¹ÓÃ"+me->query_exert()+"£¬ÎŞ·¨¸ø³ö"+obj->name()+"¡£\n");
+			       return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨"+me->query_exert()+"ï¼Œæ— æ³•ç»™å‡º"+obj->name()+"ã€‚\n");
 		if( obj->query("weapon_prop") && me->is_perform() &&
 			obj == me->query_temp("weapon"))
-			       return notify_fail("ÄãÕıÔÚÊ¹ÓÃ"+me->query_perform()+"£¬ÎŞ·¨¸ø³ö"+obj->name()+"¡£\n");
+			       return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨"+me->query_perform()+"ï¼Œæ— æ³•ç»™å‡º"+obj->name()+"ã€‚\n");
 
 		else if( amount == (int)obj->query_amount() )
 			return do_give(me, obj, who);
@@ -72,13 +72,13 @@ int main(object me, string arg)
 	}
 
 	if( !objectp(obj = present(item, me)) )
-			return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 	if( obj->query("weapon_prop") && me->is_exert() &&
 	    obj == me->query_temp("weapon"))
-		 return notify_fail("ÄãÕıÔÚÊ¹ÓÃ"+me->query_exert()+"£¬ÎŞ·¨¸ø³ö"+obj->name()+"¡£\n");
+		 return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨"+me->query_exert()+"ï¼Œæ— æ³•ç»™å‡º"+obj->name()+"ã€‚\n");
 	if( obj->query("weapon_prop") && me->is_perform() &&
 	    obj == me->query_temp("weapon"))
-		 return notify_fail("ÄãÕıÔÚÊ¹ÓÃ"+me->query_perform()+"£¬ÎŞ·¨¸ø³ö"+obj->name()+"¡£\n");
+		 return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨"+me->query_perform()+"ï¼Œæ— æ³•ç»™å‡º"+obj->name()+"ã€‚\n");
 
 	return do_give(me, obj, who);
 }
@@ -89,35 +89,35 @@ int do_give(object me, object obj, object who)
 
 	if( !wizardp(me) && userp(who) && (obj->query("no_drop")
 	|| (userp(me) && obj->query("unique") && !mapp(obj->query("skill")))))
-		return notify_fail("ÕâÑù¶«Î÷²»ÄÜËæ±ã¸øÈË¡£\n");
+		return notify_fail("è¿™æ ·ä¸œè¥¿ä¸èƒ½éšä¾¿ç»™äººã€‚\n");
 
 	if (!wizardp(me) && userp(who) && userp(me) && obj->query("no_give"))
-		return notify_fail("ÕâÑù¶«Î÷²»ÄÜËæ±ã¸øÈË¡£\n");
+		return notify_fail("è¿™æ ·ä¸œè¥¿ä¸èƒ½éšä¾¿ç»™äººã€‚\n");
 
 	if (!wizardp(me) && obj->query("embedded"))
 		if (!stringp(obj->query("embedded")))
-			return notify_fail("¿´Çå³ş£¬ÔÚÈâÀïµÄ¶«Î÷Ò²ÄÜ¸øÈË£¿ÏÈÆğ³öÀ´ÔÙËµ°É¡£\n");
+			return notify_fail("çœ‹æ¸…æ¥šï¼Œåœ¨è‚‰é‡Œçš„ä¸œè¥¿ä¹Ÿèƒ½ç»™äººï¼Ÿå…ˆèµ·å‡ºæ¥å†è¯´å§ã€‚\n");
 		else return notify_fail(obj->query("embedded"));
 
-	notify_fail("¶Ô·½²»½ÓÊÜÕâÑù¶«Î÷¡£\n");
+	notify_fail("å¯¹æ–¹ä¸æ¥å—è¿™æ ·ä¸œè¥¿ã€‚\n");
 	if( !interactive(who) && !who->accept_object(me, obj) )
 		return 0;
 
 	if (!obj) return 0;
 	if (obj->query("invisible") && !wizardp(me)) return 0;
 	if ( !userp(who) && obj->value() ) {
-		message_vision("$NÄÃ³ö" + obj->short() + "¸ø$n¡£\n", me, who);
+		message_vision("$Næ‹¿å‡º" + obj->short() + "ç»™$nã€‚\n", me, who);
 		destruct(obj);
 		return 1;
 	}
 	if (obj->query_amount()) unit = chinese_number(obj->query_amount()) + obj->query("base_unit");
-	else unit = "Ò»" + obj->query("unit");
+	else unit = "ä¸€" + obj->query("unit");
 	if( obj->move(who) ) {
-		write(sprintf("Äã¸ø%s%s%s¡£\n", who->name(), unit,
+		write(sprintf("ä½ ç»™%s%s%sã€‚\n", who->name(), unit,
 			obj->name()));
-		message("vision", sprintf("%s¸øÄã%s%s¡£\n", me->name(),
+		message("vision", sprintf("%sç»™ä½ %s%sã€‚\n", me->name(),
 			unit, obj->name()), who );
-		message("vision", sprintf("%s¸ø%sÒ»%s%s¡£\n", me->name(), who->name(),
+		message("vision", sprintf("%sç»™%sä¸€%s%sã€‚\n", me->name(), who->name(),
 			obj->query("unit"), obj->name()), environment(me), ({me, who}) );
 		return 1;
 	}
@@ -127,10 +127,10 @@ int do_give(object me, object obj, object who)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : give <ÎïÆ·Ãû³Æ> to <Ä³ÈË>
-      »ò : give <Ä³ÈË> <ÎïÆ·Ãû³Æ>
+æŒ‡ä»¤æ ¼å¼ : give <ç‰©å“åç§°> to <æŸäºº>
+      æˆ– : give <æŸäºº> <ç‰©å“åç§°>
 
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã½«Ä³ÑùÎïÆ·¸ø±ğÈË, µ±È», Ê×ÏÈÄãÒªÓµÓĞÕâÑùÎïÆ·.
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ å°†æŸæ ·ç‰©å“ç»™åˆ«äºº, å½“ç„¶, é¦–å…ˆä½ è¦æ‹¥æœ‰è¿™æ ·ç‰©å“.
 
 HELP
     );

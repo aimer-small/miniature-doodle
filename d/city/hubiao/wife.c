@@ -6,12 +6,12 @@ inherit NPC;
 string ask_me();
 void create()
 {
-        set_name("Å®¾ì", ({ "nv juan", "wife" }));
-        set("nickname", "ºÀÃÅ¹ëĞã");
+        set_name("å¥³çœ·", ({ "nv juan", "wife" }));
+        set("nickname", "è±ªé—¨é—ºç§€");
         set("long", 
-"ÕâÊÇÒ»¸ö½­ºşÏÀ¿ÍµÄ¼Ò¾ì£¬Òò¼ÒÖ÷Æ¯ÒÆ²»¶¨£¬ËùÒÔÁ÷ÂäÔÚÍâ¡£\n"
-"Á³ÉÏÒşÔ¼Á÷Â¶³öÎŞÄÎµÄÉñÉ«¡£\n");
-        set("gender", "Å®ĞÔ");
+"è¿™æ˜¯ä¸€ä¸ªæ±Ÿæ¹–ä¾ å®¢çš„å®¶çœ·ï¼Œå› å®¶ä¸»æ¼‚ç§»ä¸å®šï¼Œæ‰€ä»¥æµè½åœ¨å¤–ã€‚\n"
+"è„¸ä¸Šéšçº¦æµéœ²å‡ºæ— å¥ˆçš„ç¥è‰²ã€‚\n");
+        set("gender", "å¥³æ€§");
         set("age", 32);
         set("attitude", "friendly");
         set("shen_type", 1);
@@ -36,7 +36,7 @@ void create()
         set_skill("strike", 20);
 
         set("inquiry", ([
-                "Ä¿µÄ" : (: ask_me :),
+                "ç›®çš„" : (: ask_me :),
         ]));
 
         setup();
@@ -47,8 +47,8 @@ void create()
 string ask_me()
 {
         if (this_player()->query_temp("mubiao") == this_object()->query_temp("mubiao"))
-                return "ÕâÎ»"+RANK_D->query_respect(this_player())+"ÔõÃ´Èç´Ë½¡Íü£¬ÔÛÃÇÊÇÈ¥ÕÒ"+this_player()->query_temp("mubiao")+"µÄ°¡£¡";
-        return "ÄãÎÒËØ²»ÏàÊ¶£¬ÎÒµÄÄ¿µÄÔõÃ´»á¸æËßÄã£¿";
+                return "è¿™ä½"+RANK_D->query_respect(this_player())+"æ€ä¹ˆå¦‚æ­¤å¥å¿˜ï¼Œå’±ä»¬æ˜¯å»æ‰¾"+this_player()->query_temp("mubiao")+"çš„å•Šï¼";
+        return "ä½ æˆ‘ç´ ä¸ç›¸è¯†ï¼Œæˆ‘çš„ç›®çš„æ€ä¹ˆä¼šå‘Šè¯‰ä½ ï¼Ÿ";
 }
 
 void unconcious()

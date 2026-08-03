@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Óü×ä", ({ "yu zu", "yuzu",}));
-        set("long", "Éí´©Ò»ÉíºÚÅÛ£¬ÀäÀäµÄĞ¦×Å¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "HIR"¼àÓü"NOR);
-        set("gender", "ÄĞĞÔ");
+        set_name("ç‹±å’", ({ "yu zu", "yuzu",}));
+        set("long", "èº«ç©¿ä¸€èº«é»‘è¢ï¼Œå†·å†·çš„ç¬‘ç€ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™  "HIR"ç›‘ç‹±"NOR);
+        set("gender", "ç”·æ€§");
         set("age", 40);
         set("attitude", "peaceful");
         set("no_quest",1);

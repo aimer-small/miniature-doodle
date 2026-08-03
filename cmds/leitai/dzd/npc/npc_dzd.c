@@ -3,10 +3,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("±øÆ÷¼Ü", ({ "bingqi jia" }) );
-        set("gender", "ÄĞĞÔ" );
-        set_temp("apply/long", ({"ÕâÊÇÒ»¸ö×¨ÃÅÓÃÀ´·Å¸÷ÖÖÎïÆ·µÄ¼Ü×Ó¡£
-Äã¿ÉÄÃ×Ô¼ºÏ²»¶µÄÎïÆ· ( na <ÎïÆ·Ãû³Æ> )¡£\n"}));
+        set_name("å…µå™¨æ¶", ({ "bingqi jia" }) );
+        set("gender", "ç”·æ€§" );
+        set_temp("apply/long", ({"è¿™æ˜¯ä¸€ä¸ªä¸“é—¨ç”¨æ¥æ”¾å„ç§ç‰©å“çš„æ¶å­ã€‚
+ä½ å¯æ‹¿è‡ªå·±å–œæ¬¢çš„ç‰©å“ ( na <ç‰©å“åç§°> )ã€‚\n"}));
           set("age", 14);       
         set("str", 30);
         set("dex", 25);
@@ -14,13 +14,13 @@ void create()
         set("int", 30);            
         set("attitude", "friendly");
         set_temp("apply/id", ({ "jia" }));
-        set_temp("apply/short", ({HIW"±øÆ÷¼Ü"NOR"(Jia)"}));
+        set_temp("apply/short", ({HIW"å…µå™¨æ¶"NOR"(Jia)"}));
         setup();
 }
 
 void init()
 {
-	add_action("do_get",({"ÄÃ","na"}));
+	add_action("do_get",({"æ‹¿","na"}));
 }
 
 int do_get(string arg)
@@ -28,7 +28,7 @@ int do_get(string arg)
   	object me,ob;
   	me=this_player();
   	
-  	if( !arg )return notify_fail("ÃüÁî¸ñÊ½: na <ÎïÆ·Ãû³Æ> ¡£\n");
+  	if( !arg )return notify_fail("å‘½ä»¤æ ¼å¼: na <ç‰©å“åç§°> ã€‚\n");
 
     	switch (arg){
           	case "sword":                
@@ -69,7 +69,7 @@ int do_get(string arg)
           	case "fire": 
           	case "huo":     ob=new(MISC_D("fire")); break;
               case "fen":     ob=new("/d/xingxiu/obj/yao3"); break;
-          	default :	return notify_fail("Ã»ÓĞÕâÖÖ¶«Î÷¡£\n");
+          	default :	return notify_fail("æ²¡æœ‰è¿™ç§ä¸œè¥¿ã€‚\n");
         }
         
        	if(!ob) return 0;
@@ -80,7 +80,7 @@ int do_get(string arg)
           	ob->set("armor_prop/armor", 70);
        	ob->move(me);
        	ob->set("dzd_obj",1);
-       	message_vision("$N´ÓÎïÆ·¼ÜÉÏÄÃ³öÒ»"+ob->query("unit")+"$n¡£\n",me, ob);  
+       	message_vision("$Nä»ç‰©å“æ¶ä¸Šæ‹¿å‡ºä¸€"+ob->query("unit")+"$nã€‚\n",me, ob);  
        	return 1;
 }
 

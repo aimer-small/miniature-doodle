@@ -7,10 +7,10 @@ inherit F_SAVE;
 #include "gfbing.h"
 void create()
 {
-        set_name("¹Ù¸®Ê¿±ø", ({ "guanfu shibing", "guanfu", "shibing" }) );
-        set("gender", "ÄĞĞÔ");
+        set_name("å®˜åºœå£«å…µ", ({ "guanfu shibing", "guanfu", "shibing" }) );
+        set("gender", "ç”·æ€§");
         set("age", 25 +random(20));
-        set("long", "ÕâÊÇÒ»¸ö¹Ù¸®ÅÉÀ´Î§½ËÌúÕÆ°ïµÄÊ¿±ø¡£\n");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªå®˜åºœæ´¾æ¥å›´å‰¿é“æŒå¸®çš„å£«å…µã€‚\n");
         set("combat_exp", 10000);
         set("shen", -1500);
         set("attitude", "firendly");

@@ -5,19 +5,19 @@ inherit HEAD;
 
 void create()
 {
-    set_name(WHT"°×Ãµ¹å"NOR,({ "rose", "meigui" }) );
+    set_name(WHT"ç™½ç«ç‘°"NOR,({ "rose", "meigui" }) );
         set_weight(500);
         if( clonep() )
         	set_default_object(__FILE__);
         else {                            
-        	set("unit","¶ä");
+        	set("unit","æœµ");
                 set("material", "cloth");
           set("value",150);
               set("female_only", 1);
         	set("armor_prop/armor", 1);
-            set("long", "ÕâÊÇÒ»Êø°×Ãµ¹å,½à°×·Ò·¼,ÏóÕ÷×Å´¿½àµÄ°®Çé¡£\n");
-            set("wear_msg", "$NÇáÇáÕªÏÂÒ»¶ä²åÔÚ·¢÷Ş±ß£¬"WHT"°×Ãµ¹å"NOR"·ÖÍâµÄ´¿¾»Í¸Ã÷,Ó³ÕÕ³öÒ»ÕÅĞãÃÀ¾øÂ×µÄÁ³£¡\n");
-            set("remove_msg", "$NÕªÏÂ·¢±ßµÄ"WHT"Ë®¾§Ãµ¹å,Ğ¡ĞÄÒíÒíµÄ°ÑËüÊÕºÃ.\n"NOR);
+            set("long", "è¿™æ˜¯ä¸€æŸç™½ç«ç‘°,æ´ç™½èŠ¬èŠ³,è±¡å¾ç€çº¯æ´çš„çˆ±æƒ…ã€‚\n");
+            set("wear_msg", "$Nè½»è½»æ‘˜ä¸‹ä¸€æœµæ’åœ¨å‘é¬“è¾¹ï¼Œ"WHT"ç™½ç«ç‘°"NOR"åˆ†å¤–çš„çº¯å‡€é€æ˜,æ˜ ç…§å‡ºä¸€å¼ ç§€ç¾ç»ä¼¦çš„è„¸ï¼\n");
+            set("remove_msg", "$Næ‘˜ä¸‹å‘è¾¹çš„"WHT"æ°´æ™¶ç«ç‘°,å°å¿ƒç¿¼ç¿¼çš„æŠŠå®ƒæ”¶å¥½.\n"NOR);
 	}
         setup();
 }

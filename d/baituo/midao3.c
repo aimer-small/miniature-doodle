@@ -2,10 +2,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", HIR"ÃØµÀ"NOR);
+        set("short", HIR"ç§˜é“"NOR);
         set("long", @LONG
-ÕâÌõÒõ°µµÄÃØµÀÔÚÉ½¸¹ÖĞÇúÕÛÑÓÉì£¬²»ÖªÍ¨ÍùºÎ´¦¡£ÕâÀïµÄÊ¯±Ú·Ç³£
-³±Êª£¬¿´À´¸½½üÓĞË®Ô´¡£
+è¿™æ¡é˜´æš—çš„ç§˜é“åœ¨å±±è…¹ä¸­æ›²æŠ˜å»¶ä¼¸ï¼Œä¸çŸ¥é€šå¾€ä½•å¤„ã€‚è¿™é‡Œçš„çŸ³å£éå¸¸
+æ½®æ¹¿ï¼Œçœ‹æ¥é™„è¿‘æœ‰æ°´æºã€‚
 LONG);        
         set("exits", ([
               "westdown" : __FILE__,
@@ -20,8 +20,8 @@ void init()
 {    
   	object me = this_player();
      	if (random(me->query("kar")) <10 && me->query_con() < 35){ 
-        	tell_object(me, HIB "ÄãºöÈ»¸Ğµ½ºôÎüÒ»½ô£¬Ô­À´ÊÇÕâÀïµÄ¿ÕÆøÎÛ×Ç¡¢Á÷Í¨²»³©¡£\n" NOR );      
-             	tell_room(environment(me), me->name()+"Í»È»Á³É«±äµÃ¼«ÎªÄÑ¿´£¬²¢ÉîÉîµØÎüÁË¿ÚÆø¡£\n" NOR,({ me }));
+        	tell_object(me, HIB "ä½ å¿½ç„¶æ„Ÿåˆ°å‘¼å¸ä¸€ç´§ï¼ŒåŸæ¥æ˜¯è¿™é‡Œçš„ç©ºæ°”æ±¡æµŠã€æµé€šä¸ç•…ã€‚\n" NOR );      
+             	tell_room(environment(me), me->name()+"çªç„¶è„¸è‰²å˜å¾—æä¸ºéš¾çœ‹ï¼Œå¹¶æ·±æ·±åœ°å¸äº†å£æ°”ã€‚\n" NOR,({ me }));
              	me->receive_damage("neili", 50);
              	me->receive_damage("jingli", 50);
              	me->receive_wound("jing", 20);
@@ -40,14 +40,14 @@ int valid_leave(object me, string dir)
             	me->move(__DIR__"tianjing");
             	me->delete_temp("mark/steps");
             	me->delete_temp("mark/step");
-            	return notify_fail("ÄãÕı×ß×Å£¬Í»È»·¢ÏÖÇ°ÃæºÃÏóÓĞÁËÒ»Ğ©¹âÁÁ¡£\n");
+            	return notify_fail("ä½ æ­£èµ°ç€ï¼Œçªç„¶å‘ç°å‰é¢å¥½è±¡æœ‰äº†ä¸€äº›å…‰äº®ã€‚\n");
             	}  
      	if ((me->query_temp("mark/steps") <= -3) &&
         (me->query_temp("mark/step") <=-4)){  
                 me->move(__DIR__"midao2");
            	me->delete_temp("mark/steps");
            	me->delete_temp("mark/step");
-           	return notify_fail("ÄãÕı×ß×Å£¬Í»È»·¢ÏÖÇ°ÃæµÄµÀÂ·ÓĞĞ©±ä»¯¡£\n");
+           	return notify_fail("ä½ æ­£èµ°ç€ï¼Œçªç„¶å‘ç°å‰é¢çš„é“è·¯æœ‰äº›å˜åŒ–ã€‚\n");
         	}
     	if ((me->query_temp("mark/steps") >= 10) ||
          (me->query_temp("mark/step") >= 10) ||
@@ -56,7 +56,7 @@ int valid_leave(object me, string dir)
                 me->move(__DIR__"midao7");
            	me->delete_temp("mark/steps");
            	me->delete_temp("mark/step");
-           	return notify_fail("ÄãÕı×ß×Å£¬Í»È»·¢ÏÖÇ°ÃæµÄµÀÂ·ÓĞĞ©±ä»¯¡£\n");
+           	return notify_fail("ä½ æ­£èµ°ç€ï¼Œçªç„¶å‘ç°å‰é¢çš„é“è·¯æœ‰äº›å˜åŒ–ã€‚\n");
         	}
         return ::valid_leave(me,dir);
 }

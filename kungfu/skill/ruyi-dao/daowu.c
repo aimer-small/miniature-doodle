@@ -23,44 +23,44 @@ int perform(object me, object target)
 	if( !target ) target = offensive_target(me);
 
     if( !me->query("/quest/xiaoyao/pass") )
-		return notify_fail("ÄãÉĞÎ´ÓĞ»úÔµ±éÀÀåĞÒ£¾øÑ§£¡\n");
+		return notify_fail("ä½ å°šæœªæœ‰æœºç¼˜éè§ˆé€é¥ç»å­¦ï¼\n");
 
         if( !target 
          || !me->is_fighting(target)
          || !objectp(target)
          || environment(target)!= environment(me))
-		return notify_fail("ÓğÒâ½£ÎèÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ç¾½æ„å‰‘èˆåªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 
 
        if( me->query_skill_mapped("sword") != "tianyu-qijian" || me->query_skill_mapped("blade") != "ruyi-dao")
-		return notify_fail("±ØĞëÍ¨Ïş²¢±¸ÓĞÌìÓğÆæ½£ÓëÈçÒâµ¶·¨²ÅÄÜÊ¹ÓÃÓğÒâ½£Îè£¡\n");
+		return notify_fail("å¿…é¡»é€šæ™“å¹¶å¤‡æœ‰å¤©ç¾½å¥‡å‰‘ä¸å¦‚æ„åˆ€æ³•æ‰èƒ½ä½¿ç”¨ç¾½æ„å‰‘èˆï¼\n");
 
 
       if(me->query_skill_prepared("hand") != "zhemei-shou" || me->query_skill_prepared("strike") != "liuyang-zhang" )
-		return notify_fail("Äã±ØĞëÍ¬Ê±±¸ÓĞÕÛÃ·ÊÖºÍÁùÑôÕÆ£¡\n");
+		return notify_fail("ä½ å¿…é¡»åŒæ—¶å¤‡æœ‰æŠ˜æ¢…æ‰‹å’Œå…­é˜³æŒï¼\n");
 	
       if(me->query_skill("tianyu-qijian",1) <120)
-		return notify_fail("ÄãµÄÌìÓğÆæ½£²»¹»ÊìÁ·£¬²»ÄÜÊ¹ÓÃÓğÒâ½£Îè£¡\n");
+		return notify_fail("ä½ çš„å¤©ç¾½å¥‡å‰‘ä¸å¤Ÿç†Ÿç»ƒï¼Œä¸èƒ½ä½¿ç”¨ç¾½æ„å‰‘èˆï¼\n");
 
 	if(me->query_skill("ruyi-dao",1) <120)
-		return notify_fail("ÄãµÄÈçÒâµ¶·¨²»¹»ÊìÁ·£¬²»ÄÜÊ¹ÓÃÓğÒâ½£Îè£¡\n");
+		return notify_fail("ä½ çš„å¦‚æ„åˆ€æ³•ä¸å¤Ÿç†Ÿç»ƒï¼Œä¸èƒ½ä½¿ç”¨ç¾½æ„å‰‘èˆï¼\n");
 
 	if( me->query_skill_mapped("force") != "bahuang-gong" &&
 		me->query_skill_mapped("force") != "beiming-shengong"
 		)
-		return notify_fail("ÄãËùÓÃµÄ²¢·ÇåĞÒ£ĞÄ·¨£¬ÎŞ·¨Ê©Õ¹ÓğÒâ½£Îè£¡\n");
+		return notify_fail("ä½ æ‰€ç”¨çš„å¹¶éé€é¥å¿ƒæ³•ï¼Œæ— æ³•æ–½å±•ç¾½æ„å‰‘èˆï¼\n");
 
 	if( me->query_skill("bahuang-gong", 1) < 120 &&
 		me->query_skill("beiming-shengong", 1) < 120
 		)
-		return notify_fail("ÄãµÄåĞÒ£ĞÄ·¨»ğºòÎ´µ½£¬ÎŞ·¨Ê©Õ¹ÓğÒâ½£Îè£¡\n");
+		return notify_fail("ä½ çš„é€é¥å¿ƒæ³•ç«å€™æœªåˆ°ï¼Œæ— æ³•æ–½å±•ç¾½æ„å‰‘èˆï¼\n");
 	
 
 		
 	if( !objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade" )
-		return notify_fail("±ØĞë³ÖÓĞµ¶½£²ÅÄÜÊ¹ÓÃÓğÒâ½£Îè£¡\n");
+		return notify_fail("å¿…é¡»æŒæœ‰åˆ€å‰‘æ‰èƒ½ä½¿ç”¨ç¾½æ„å‰‘èˆï¼\n");
 
      inv = all_inventory(me);
      for(count=0, i=0; i<sizeof(inv); i++) {
@@ -73,21 +73,21 @@ int perform(object me, object target)
      }
 
 	if( !objectp(weapon2) )
-		return notify_fail("±ØĞë³ÖÓĞµ¶½£²ÅÄÜÊ¹ÓÃÓğÒâ½£Îè£¡\n");
+		return notify_fail("å¿…é¡»æŒæœ‰åˆ€å‰‘æ‰èƒ½ä½¿ç”¨ç¾½æ„å‰‘èˆï¼\n");
 
 	if( me->query("neili") <= 400 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Ê¹ÓÃÓğÒâ½£Îè£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿä½¿ç”¨ç¾½æ„å‰‘èˆï¼\n");
 	if( me->query("jingli") <= 200 )
-		return notify_fail("ÄãµÄ¾«Á¦²»¹»Ê¹ÓÃÓğÒâ½£Îè£¡\n");
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿä½¿ç”¨ç¾½æ„å‰‘èˆï¼\n");
 	if( me->query("jing") <= 120 )
-		return notify_fail("ÄãµÄ¾«²»¹»Ê¹ÓÃÓğÒâ½£Îè£¡\n");
+		return notify_fail("ä½ çš„ç²¾ä¸å¤Ÿä½¿ç”¨ç¾½æ„å‰‘èˆï¼\n");
 
 	skill =  ( me->query_skill("sword",1) + me->query_skill("tianyu-qijian",1)
 		+ me->query_skill("ruyi-dao",1) +me->query_skill("blade",1) 
                 + me->query_skill("force",1)) / 3; 
 
 
-	message_vision(HIC"$NÔçÒÑ±éÀÀåĞÒ£Îä¼¼£¬ÓÚåĞÒ£¾øÑ§"HIG"ÌìÓğ½£"HIR"ÈçÒâµ¶"HIC"£¬"HIY"ÁùÑôÕÆ"HIM"ÕÛÃ·ÊÖ"HIC"£¬ÎŞÒ»²»¾«£¬ĞÅÊÖÄéÀ´ĞÅÊÖÊ¹³ö£¬ÉíĞÎÆ®ÒİÈ÷ÍÑ£¬ÕıºÏÊÊ¡°åĞÒ£¡±Ö®Òâ¡£\n" NOR, me);
+	message_vision(HIC"$Næ—©å·²éè§ˆé€é¥æ­¦æŠ€ï¼Œäºé€é¥ç»å­¦"HIG"å¤©ç¾½å‰‘"HIR"å¦‚æ„åˆ€"HIC"ï¼Œ"HIY"å…­é˜³æŒ"HIM"æŠ˜æ¢…æ‰‹"HIC"ï¼Œæ— ä¸€ä¸ç²¾ï¼Œä¿¡æ‰‹æ‹ˆæ¥ä¿¡æ‰‹ä½¿å‡ºï¼Œèº«å½¢é£˜é€¸æ´’è„±ï¼Œæ­£åˆé€‚â€œé€é¥â€ä¹‹æ„ã€‚\n" NOR, me);
      me->set_temp("xiaoyao_jianwu", 1);
 target->add_busy(2);
 	me->add_temp("apply/attack", skill/3);
@@ -106,14 +106,14 @@ if (skill>=351 && !userp(target) ) target->set_temp("must_be_hit",1);
 	weapon->unequip();
 	weapon2->unequip();
    me->prepare_skill("hand");
-	COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);   //Ò»ÕÆ¶¨ÉúËÀ
+	COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);   //ä¸€æŒå®šç”Ÿæ­»
 
 
  if(me->is_fighting(target)) {
 
     me->map_skill("blade", "ruyi-dao");
 	weapon->wield();
-	COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);  //ÈçÒâµ¶
+	COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);  //å¦‚æ„åˆ€
 	
                                        }                               
 
@@ -121,18 +121,18 @@ if (skill>=351 && !userp(target) ) target->set_temp("must_be_hit",1);
        weapon->unequip();
 	me->prepare_skill("strike");
        me->prepare_skill("hand","zhemei-shou");             
-COMBAT_D->do_attack(me, target, me->query_temp("weapon"),3);         //ÕÛÃ·ÊÖ
+COMBAT_D->do_attack(me, target, me->query_temp("weapon"),3);         //æŠ˜æ¢…æ‰‹
 	                          }
 
  if(me->is_fighting(target)) {
 	weapon2->wield();
     me->map_skill("sword", "tianyu-qijian");
-	COMBAT_D->do_attack(me, target, me->query_temp("weapon"),3);   //ÌìÓğ½£
+	COMBAT_D->do_attack(me, target, me->query_temp("weapon"),3);   //å¤©ç¾½å‰‘
 	weapon2->unequip();
 	weapon->wield();
                                    }
 
-//-------------------450·É------------------//
+//-------------------450é£------------------//
 if(me->query_skill("beiming-shengong",1) >= 450){
 
         if(me->is_fighting(target)) {
@@ -172,9 +172,9 @@ if(me->query_skill("beiming-shengong",1) >= 450){
 	me->add_temp("apply/strike",  -skill/4);
 	me->add_temp("apply/strength",  -skill/10);
 me->delete_temp("xiaoyao_jianwu", 1);
-    me->start_perform(2+random(3), "¡¸ÓğÒâ½£Îè¡¹");
+    me->start_perform(2+random(3), "ã€Œç¾½æ„å‰‘èˆã€");
 
-//	message_vision(HIY "\n$NÓğÒâ½£ÎèÊÕÕĞ£¡\n\n" NOR, me,weapon);
+//	message_vision(HIY "\n$Nç¾½æ„å‰‘èˆæ”¶æ‹›ï¼\n\n" NOR, me,weapon);
 
 	return 1;
 }

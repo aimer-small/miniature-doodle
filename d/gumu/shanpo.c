@@ -5,14 +5,14 @@ inherit ROOM;
 
 void create()
 {
-        set("short", HIC"É½ÆÂ"NOR);
+        set("short", HIC"å±±å¡"NOR);
         set("long",@long
-´Ë´¦µÄÉ½Â·ÏÔµÃÉÔÓÐ¶¸ÇÍ£¬ËÄÖÜÔÓ²Ý´ÔÉú£¬¿´ÉÏÈ¥Î£»úËÄ·ü¡£ÓÉÓÚ½­ºþÉÏ
-´«ÎÅ¹ÅÄ¹ÒÔÇ°ÅÑÄæÍýÏëÇ°À´ÍµÈ¡¹ÅÄ¹ÃØ¼®£¬ËùÒÔ¹ÅÄ¹µÜ×Ó¼ÓÇ¿ÁËÑ²·À¡£Ò»Ð©¹Å
-Ä¹µÜ×ÓÕýÔÚÉ½ÆÂ¸½½üÑ²Âß¡£
+æ­¤å¤„çš„å±±è·¯æ˜¾å¾—ç¨æœ‰é™¡å³­ï¼Œå››å‘¨æ‚è‰ä¸›ç”Ÿï¼Œçœ‹ä¸ŠåŽ»å±æœºå››ä¼ã€‚ç”±äºŽæ±Ÿæ¹–ä¸Š
+ä¼ é—»å¤å¢“ä»¥å‰å›é€†å¦„æƒ³å‰æ¥å·å–å¤å¢“ç§˜ç±ï¼Œæ‰€ä»¥å¤å¢“å¼Ÿå­åŠ å¼ºäº†å·¡é˜²ã€‚ä¸€äº›å¤
+å¢“å¼Ÿå­æ­£åœ¨å±±å¡é™„è¿‘å·¡é€»ã€‚
 long);
 
-        set("outdoors","¹ÅÄ¹");
+        set("outdoors","å¤å¢“");
 
         set("exits",([
           "westdown" : __DIR__"guoyuan",
@@ -33,19 +33,19 @@ int do_xunluo()
         mapping fam;
         object me=this_player();
         if (!living(me)) return 0;
-        if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-           return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÈçºÎÄÜÔÚ¹ÅÄ¹Ñ²Âß£¿\n");
+        if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+           return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œå¦‚ä½•èƒ½åœ¨å¤å¢“å·¡é€»ï¼Ÿ\n");
         if (me->is_busy() || me->is_fighting())
-           return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+           return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if (me->query_temp("gm/job"))
-           return notify_fail("Äã²»ÊÇÒÑ¾­ÔÚÑ²ÂßÁËÃ´£¿\n");
+           return notify_fail("ä½ ä¸æ˜¯å·²ç»åœ¨å·¡é€»äº†ä¹ˆï¼Ÿ\n");
         if ( me->query_condition("gm_job" ) > 0 )
-           return notify_fail("ÄãÌôÑÛËÄÍû£¬·¢ÏÖÖÜÎ§Ò»Æ¬°²¾²£¬ºÃÏóÃ»ÓÐÊ²Ã´Î£ÏÕ¡£\n");
+           return notify_fail("ä½ æŒ‘çœ¼å››æœ›ï¼Œå‘çŽ°å‘¨å›´ä¸€ç‰‡å®‰é™ï¼Œå¥½è±¡æ²¡æœ‰ä»€ä¹ˆå±é™©ã€‚\n");
         if ( me->query("combat_exp") < 30000)
-           return notify_fail("ÄãµÄ¾­Ñé²»¹»£¬»¹²»ÄÜµ£µ±Ñ²ÂßµÄÖØÈÎ¡£\n");
+           return notify_fail("ä½ çš„ç»éªŒä¸å¤Ÿï¼Œè¿˜ä¸èƒ½æ‹…å½“å·¡é€»çš„é‡ä»»ã€‚\n");
         if (me->query("combat_exp") > 120000 )
-           return notify_fail("ÄãÎä¹¦ÒÑ¾­¹»¸ß£¬Ñ²ÂßµÄÊÂ¾ÍÓÐÐ¡µÜ×ÓÃÇÈ¥²Ù°ì°É¡£\n");
-        message_vision(HIY"$N¾¯ÌèµØËÄÖÜ´òÁ¿×Å£¬Í»È»·¢ÏÖ¶«ÄÏ·½ÏòÓÐÒ»Ð©¶¯¾²¡£\n"NOR,me);
+           return notify_fail("ä½ æ­¦åŠŸå·²ç»å¤Ÿé«˜ï¼Œå·¡é€»çš„äº‹å°±æœ‰å°å¼Ÿå­ä»¬åŽ»æ“åŠžå§ã€‚\n");
+        message_vision(HIY"$Nè­¦æƒ•åœ°å››å‘¨æ‰“é‡ç€ï¼Œçªç„¶å‘çŽ°ä¸œå—æ–¹å‘æœ‰ä¸€äº›åŠ¨é™ã€‚\n"NOR,me);
         me->apply_condition("gm_job", 5+random(5)); 
         me->set_temp("gm/job", 1);
         return 1;

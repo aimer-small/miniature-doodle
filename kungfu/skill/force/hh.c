@@ -1,7 +1,7 @@
 //1999.2.26 by Snowman
-// modify by athoi@sj 2004.06.11 for ÒòÎª¾«Ñª±íÊ¾ÄÚÉË ËùÒÔ¸ÄÎª»Ö¸´¾«Ñª¶ø·ÇÆøÑª
-// modify by server Ôö¼Óset Ğ§¹û£¬Ñ¡ÔñĞÔ»Ö¸´,recover jing ÏûºÄÄÚÁ¦ÊÇrecover qi µÄ5 ±¶
-// By Spiderii@ty Ôö¼ÓÏÈÌìÌì¸³¼¼ÄÜĞ§¹û
+// modify by athoi@sj 2004.06.11 for å› ä¸ºç²¾è¡€è¡¨ç¤ºå†…ä¼¤ æ‰€ä»¥æ”¹ä¸ºæ¢å¤ç²¾è¡€è€Œéæ°”è¡€
+// modify by server å¢åŠ set æ•ˆæœï¼Œé€‰æ‹©æ€§æ¢å¤,recover jing æ¶ˆè€—å†…åŠ›æ˜¯recover qi çš„5 å€
+// By Spiderii@ty å¢åŠ å…ˆå¤©å¤©èµ‹æŠ€èƒ½æ•ˆæœ
 #include <ansi.h>
 
 int exercising(object me);
@@ -13,29 +13,29 @@ int exert(object me)
 	mapping msg;
 	
 	if( me->is_fighting() )
-		return notify_fail("Õ½¶·ÖĞÔË¹¦ÁÆÉË£¿ÕÒËÀÂğ£¿\n");
+		return notify_fail("æˆ˜æ–—ä¸­è¿åŠŸç–—ä¼¤ï¼Ÿæ‰¾æ­»å—ï¼Ÿ\n");
 	if (userp(me) && me->query_skill("medicine", 1) < 30)
-		return notify_fail("Äã¶Ô±¾²İÊõÀíµÄÑĞ¾¿»¹²»¹»£¬²»ÄÜÁÆÉË¡£\n");   
+		return notify_fail("ä½ å¯¹æœ¬è‰æœ¯ç†çš„ç ”ç©¶è¿˜ä¸å¤Ÿï¼Œä¸èƒ½ç–—ä¼¤ã€‚\n");   
 	if(!(force = me->query_skill_mapped("force")))
-		return notify_fail("Äã»¹Ã»ÓĞÑ¡ÔñÄãÒªÊ¹ÓÃµÄÄÚ¹¦¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰é€‰æ‹©ä½ è¦ä½¿ç”¨çš„å†…åŠŸã€‚\n");
 	if(me->query_skill("force") < 50)
-		return notify_fail("ÄãµÄÄÚ¹¦µÈ¼¶»¹Ì«µÍ£¬²»ÄÜÔË¹¦ÁÆÉË¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸç­‰çº§è¿˜å¤ªä½ï¼Œä¸èƒ½è¿åŠŸç–—ä¼¤ã€‚\n");
 	if(me->query("env/heal") && me->query("env/heal") != "jing")
-		return notify_fail("Äã»¹Ã»ÓĞÑ¡ÔñÄãÒª»Ö¸´µÄÉè¶¨¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰é€‰æ‹©ä½ è¦æ¢å¤çš„è®¾å®šã€‚\n");
 	if (me->query("max_neili") < 200)
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿã€‚\n");
 	if (me->query("neili") < 50)
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 	if (!me->query("env/heal") && me->query("eff_qi") >= me->query("max_qi"))
-		return notify_fail("Äã²¢Ã»ÓĞÊÜÉË£¡\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰å—ä¼¤ï¼\n");
 	if (me->query("env/heal") == "jing" && me->query("eff_jing") >= me->query("max_jing"))
-		return notify_fail("Äã²¢Ã»ÓĞÊÜÉË£¡\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰å—ä¼¤ï¼\n");
 	if (!me->query("env/heal") && me->query("eff_qi") < me->query("max_qi") / 4 || me->query("env/heal") == "jing"&& me->query("eff_jing") < me->query("max_jing") / 4)
-		return notify_fail("ÄãÒÑ¾­ÊÜÉË¹ıÖØ£¬¾­ÊÜ²»ÆğÕæÆøÕğµ´£¡\n");
+		return notify_fail("ä½ å·²ç»å—ä¼¤è¿‡é‡ï¼Œç»å—ä¸èµ·çœŸæ°”éœ‡è¡ï¼\n");
 	
       	msg = SKILL_D(force)->exercise_msg(me);
       	if (!msg || undefinedp(msg["heal_msg"]))
-	   	message_vision(HIW"$NÅÌÏ¥×øÏÂ£¬¿ªÊ¼ÔË¹¦ÁÆÉË¡£\n"NOR,me);
+	   	message_vision(HIW"$Nç›˜è†åä¸‹ï¼Œå¼€å§‹è¿åŠŸç–—ä¼¤ã€‚\n"NOR,me);
       	else 
       		message_vision(msg["heal_msg"],me);
      
@@ -68,9 +68,9 @@ int exercising(object me)
 	
 	if( !me->query("env/heal") && me->query("eff_qi") >= me->query("max_qi"))
 	{
-		tell_object(me, "Á¼¾Ã£¬Äã¸Ğ¾õÍ¨¹ı×Ô¼ºµÄÄÚÏ¢ÔËĞĞ£¬ÉíÉÏµÄÉËÊÆÒÑ¾­È«ºÃÁË¡£\n");
+		tell_object(me, "è‰¯ä¹…ï¼Œä½ æ„Ÿè§‰é€šè¿‡è‡ªå·±çš„å†…æ¯è¿è¡Œï¼Œèº«ä¸Šçš„ä¼¤åŠ¿å·²ç»å…¨å¥½äº†ã€‚\n");
 		if (!msg || undefinedp(msg["heal_finish_msg"]))
-			message_vision(HIW"$NÔË¹¦Íê±Ï£¬Õ¾ÆğÉíÀ´£¬¿´ÉÏÈ¥ÆøÉ«±¥Âú£¬¾«Éñ¶¶ËÓ¡£\n"NOR,me);
+			message_vision(HIW"$Nè¿åŠŸå®Œæ¯•ï¼Œç«™èµ·èº«æ¥ï¼Œçœ‹ä¸Šå»æ°”è‰²é¥±æ»¡ï¼Œç²¾ç¥æŠ–æ“ã€‚\n"NOR,me);
 		else 
 			message_vision(msg["heal_finish_msg"],me);
 		me->delete_temp("pending/heal");
@@ -79,9 +79,9 @@ int exercising(object me)
 	}
 		if( me->query("env/heal") == "jing"&& me->query("eff_jing") >= me->query("max_jing"))
 	{
-		tell_object(me, "Á¼¾Ã£¬Äã¸Ğ¾õÍ¨¹ı×Ô¼ºµÄÄÚÏ¢ÔËĞĞ£¬ÉíÉÏµÄÉËÊÆÒÑ¾­È«ºÃÁË¡£\n");
+		tell_object(me, "è‰¯ä¹…ï¼Œä½ æ„Ÿè§‰é€šè¿‡è‡ªå·±çš„å†…æ¯è¿è¡Œï¼Œèº«ä¸Šçš„ä¼¤åŠ¿å·²ç»å…¨å¥½äº†ã€‚\n");
 		if (!msg || undefinedp(msg["heal_finish_msg"]))
-			message_vision(HIW"$NÔË¹¦Íê±Ï£¬Õ¾ÆğÉíÀ´£¬¿´ÉÏÈ¥ÆøÉ«±¥Âú£¬¾«Éñ¶¶ËÓ¡£\n"NOR,me);
+			message_vision(HIW"$Nè¿åŠŸå®Œæ¯•ï¼Œç«™èµ·èº«æ¥ï¼Œçœ‹ä¸Šå»æ°”è‰²é¥±æ»¡ï¼Œç²¾ç¥æŠ–æ“ã€‚\n"NOR,me);
 		else 
 			message_vision(msg["heal_finish_msg"],me);
 		me->delete_temp("pending/heal");
@@ -90,11 +90,11 @@ int exercising(object me)
 	}
 	if( me->query("neili") < 50 )
 	{
-		tell_object(me, "ÄãÕıÔÚÔË¹¦ÁÆÉË£¬È´·¢ÏÖ×Ô¼ºËùÊ£µÄÄÚÁ¦²»¹»ÁË¡£\n");
+		tell_object(me, "ä½ æ­£åœ¨è¿åŠŸç–—ä¼¤ï¼Œå´å‘ç°è‡ªå·±æ‰€å‰©çš„å†…åŠ›ä¸å¤Ÿäº†ã€‚\n");
 		if(me->query("eff_qi") < me->query("max_qi") || me->query("eff_jing") < me->query("max_jing"))
-			tell_object(me, HIY"Äãºô³öÒ»¿ÚÆøÕ¾ÁËÆğÀ´£¬¿ÉÏ§ÉËÊÆ»¹Ã»ÓĞÍêÈ«»Ö¸´¡£\n"NOR);
+			tell_object(me, HIY"ä½ å‘¼å‡ºä¸€å£æ°”ç«™äº†èµ·æ¥ï¼Œå¯æƒœä¼¤åŠ¿è¿˜æ²¡æœ‰å®Œå…¨æ¢å¤ã€‚\n"NOR);
 		if (!msg || undefinedp(msg["heal_unfinish_msg"]))
-			message_vision(HIY"$NÔË¹¦Íê±Ï£¬»º»ºÕ¾ÁËÆğÀ´£¬Á³É«¿´ÆğÀ´ºÃÁËĞí¶à¡£\n"NOR,me);
+			message_vision(HIY"$Nè¿åŠŸå®Œæ¯•ï¼Œç¼“ç¼“ç«™äº†èµ·æ¥ï¼Œè„¸è‰²çœ‹èµ·æ¥å¥½äº†è®¸å¤šã€‚\n"NOR,me);
 		else 
 			message_vision(msg["heal_unfinish_msg"],me);
 		me->delete_temp("pending/heal");
@@ -102,14 +102,14 @@ int exercising(object me)
 		return 0;
 	}
                   
-       //Ìì¸³¡°¾øÊÀ½î¹Ç¡±Ó°ÏìĞ§¹û£º  by spiderii@ty
+       //å¤©èµ‹â€œç»ä¸–ç­‹éª¨â€å½±å“æ•ˆæœï¼š  by spiderii@ty
                    if((int)me->query("relife/recover/jsjg",1) > 0){
                        skill += (int)me->query("relife/recover/jsjg",1) * skill * 8 / 100;
-                       tell_object(me,HIC"ÄãÒòÎª×ªÊÀÖØĞŞ£¬ÖÜÉí¾­Âö±ÈÒÔÍùÍØ¿íÁËÊı±¶£¬Òò´Ë»Ö¸´ÆğÀ´Ñ¸½İ·Ç³££¡\n"NOR);
+                       tell_object(me,HIC"ä½ å› ä¸ºè½¬ä¸–é‡ä¿®ï¼Œå‘¨èº«ç»è„‰æ¯”ä»¥å¾€æ‹“å®½äº†æ•°å€ï¼Œå› æ­¤æ¢å¤èµ·æ¥è¿…æ·éå¸¸ï¼\n"NOR);
                        me->receive_curing("qi",skill);
                    }
         if (me->query("env/heal") == "jing" && me->receive_curing("jing", skill))
-        me->receive_damage("neili", 50 * 5);//»Ö¸´¾«×¢ÖØÄÚÁ¦ĞŞÎª,Ìá¸ßÄÚÁ¦ÏûºÄ
+        me->receive_damage("neili", 50 * 5);//æ¢å¤ç²¾æ³¨é‡å†…åŠ›ä¿®ä¸º,æé«˜å†…åŠ›æ¶ˆè€—
         if (!me->query("env/heal") && me->receive_curing("qi", skill))
         me->receive_damage("neili", 50);
 
@@ -118,37 +118,37 @@ int exercising(object me)
 		case 5:
 		case 100:
 		case 150:
-			tell_object(me, "ÄãË«ÊÖ»¥ÎÕ£¬ÆøÄıµ¤Ìï£¬²»Í£µØ´ß¶¯ÄÚÏ¢ÁÆÉË¡£\n");
+			tell_object(me, "ä½ åŒæ‰‹äº’æ¡ï¼Œæ°”å‡ä¸¹ç”°ï¼Œä¸åœåœ°å‚¬åŠ¨å†…æ¯ç–—ä¼¤ã€‚\n");
 			break;
 		case 10:
 		case 40:
 		case 80:
 		case 110:
 		case 160:
-			message_vision("$N¿ª¿ÚÍÂ³öÒ»¿ÚğöÑª£¬Á³É«¿´ÆğÀ´ºÃÁËÒ»µã¡£\n",me);
+			message_vision("$Nå¼€å£åå‡ºä¸€å£ç˜€è¡€ï¼Œè„¸è‰²çœ‹èµ·æ¥å¥½äº†ä¸€ç‚¹ã€‚\n",me);
 			break;
 		case 20:
 		case 120:
 		case 170:
-			tell_object(me, "Äã½«Ë«ÕÆÕÆĞÄÏà¶Ô£¬ÄÚÏ¢Ë³ÊÆ»º»ºÔË×ª£¬Í¨ĞĞÓÚÈ«ÉíÉËÂö¡£\n");
+			tell_object(me, "ä½ å°†åŒæŒæŒå¿ƒç›¸å¯¹ï¼Œå†…æ¯é¡ºåŠ¿ç¼“ç¼“è¿è½¬ï¼Œé€šè¡Œäºå…¨èº«ä¼¤è„‰ã€‚\n");
 			me->improve_skill("jingmai-xue", 1);
 			break;
 		case 30:
 		case 130:
 		case 180:
-			tell_object(me, "ÄãÕæÆøÔÚÌåÄÚ×ªÈı×ª£¬Å»³öÁ½¿ÚğöÑª£¬ÉÔÈ¥ÁËµãĞØ¿Ú±ÕÈûÖ®Æø¡£\n");
+			tell_object(me, "ä½ çœŸæ°”åœ¨ä½“å†…è½¬ä¸‰è½¬ï¼Œå‘•å‡ºä¸¤å£ç˜€è¡€ï¼Œç¨å»äº†ç‚¹èƒ¸å£é—­å¡ä¹‹æ°”ã€‚\n");
 			me->improve_skill("force", 1);
 			break;
 		case 60:
 		case 90:
 		case 140:
 		case 190:
-			message_vision("$N´ò×øÔËÆø£¬µ÷Ï¢ÁË´ó°ë¸öÊ±³½£¬¾«ÉñÎªÖ®Ò»Õñ¡£\n", me);
+			message_vision("$Næ‰“åè¿æ°”ï¼Œè°ƒæ¯äº†å¤§åŠä¸ªæ—¶è¾°ï¼Œç²¾ç¥ä¸ºä¹‹ä¸€æŒ¯ã€‚\n", me);
 			break;
 		case 50:
 		case 70:
 		case 200:
-			tell_object(me, "ÄãÌåÄÚÕæÆøÖğ²½¹áÍ¨£¬ËÄÖ«½¥½¥¿ªÊ¼¸´ÓĞÁ¦ÆøÁË¡£\n\n");
+			tell_object(me, "ä½ ä½“å†…çœŸæ°”é€æ­¥è´¯é€šï¼Œå››è‚¢æ¸æ¸å¼€å§‹å¤æœ‰åŠ›æ°”äº†ã€‚\n\n");
 			me->improve_skill("medicine", 1);
 			break;
 	}
@@ -168,9 +168,9 @@ int halt_exercise(object me)
 	me->delete_temp("period");
 	me->receive_damage("jing", 50);
 	me->receive_damage("jingli", 50);
-	tell_object(me, "ÄãĞÄÍ·Ò»¶¯£¬¼±Ã¦ÍÂÆøÄÉÏ¢£¬Ó²ÉúÉú½«ÄÚÏ¢Ñ¹ÁËÏÂÈ¥¡£\n");
+	tell_object(me, "ä½ å¿ƒå¤´ä¸€åŠ¨ï¼Œæ€¥å¿™åæ°”çº³æ¯ï¼Œç¡¬ç”Ÿç”Ÿå°†å†…æ¯å‹äº†ä¸‹å»ã€‚\n");
 	if (!msg || undefinedp(msg["heal_halt_msg"]))
-		message_vision("$NÒ»Õğ£¬ÍÂ³öÒ»¿ÚğöÑª£¬»º»ºÕ¾ÁËÆğÀ´¡£\n", me);
+		message_vision("$Nä¸€éœ‡ï¼Œåå‡ºä¸€å£ç˜€è¡€ï¼Œç¼“ç¼“ç«™äº†èµ·æ¥ã€‚\n", me);
 	else    
 		message_vision(msg["heal_halt_msg"], me);    
 	me->start_busy(1+random(5));

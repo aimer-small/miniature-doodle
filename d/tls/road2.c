@@ -3,13 +3,13 @@ inherit ROOM;
 
 void create()
 {
-        set("short", HIW"��ʯ·"NOR);
+        set("short", HIW"白石路"NOR);
         set("long", @LONG
-��������һ�ΰ�ʯ·��ʯ��ƽ������ɨ�øɸɾ�����·�����и�
-ʽ���ݣ����������������������ߡ����������޾��������ǰ���̨��
-�嶼��̨�ȵء�
+这里又是一段白石路，石面平滑，打扫得干干净净。路旁种有各
+式花草，两株参天大树分立左右两边。北面是无无境，往南是般若台、
+清都瑶台等地。
 LONG);
-        set("outdoors", "������");
+        set("outdoors", "天龙寺");
         set("exits", ([             
                "north" : __DIR__"wwj",
                "southdown" : __DIR__"yaotai",

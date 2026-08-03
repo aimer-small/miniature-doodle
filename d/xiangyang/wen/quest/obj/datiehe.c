@@ -7,14 +7,14 @@ inherit ITEM;
 
 void create()
 {
-        set_name("´óÌúºĞ" , ({ "tie he", "box" }) );
+        set_name("å¤§é“ç›’" , ({ "tie he", "box" }) );
         set_weight(3000);
         set_max_encumbrance(5000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
-                set("long", "ÕâÊÇÒ»¸öÁ½³ßÀ´¸ßµÄÌúºĞ×Ó£¬ÉÏÃæÂúÊÇÁËÄàÍÁ¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªä¸¤å°ºæ¥é«˜çš„é“ç›’å­ï¼Œä¸Šé¢æ»¡æ˜¯äº†æ³¥åœŸã€‚\n");
                 set("value", 1000);
                 set("material", "steel");
                 set("no_get",1);
@@ -38,10 +38,10 @@ int do_open(string arg)
         object ob;
 
     if (me->query_temp("open") && geteuid(me) != "yueying")
-          return notify_fail("ÄãÒÑ¾­´ò¿ªºĞ×ÓÁË\n");   
+          return notify_fail("ä½ å·²ç»æ‰“å¼€ç›’å­äº†\n");   
     if (!arg || (arg != "box" && arg != "tie he"))
        {
-        return notify_fail("ÄãÏë´ò¿ªÊ²Ã´£¿\n");
+        return notify_fail("ä½ æƒ³æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
         return 1;
        }
     else
@@ -50,26 +50,26 @@ int do_open(string arg)
     {
           ob=unew(__DIR__"jiaxin");
           if (random(20)< 15 || random (5)< 3){
-                        write("Äã´ò¿ªÌúºĞ£¬·¢ÏÖÀïÃæ¿Õ¿ÕµÄÊ²Ã´Ò²Ã»ÓĞ¡£\n");
-                        write(HIG"¿´À´ÓĞÈËÒÑ¾­È¡×ßÁËÀïÃæµÄ¶«Î÷,Äã»¹ÊÇ¸ÄÌìÔÙÀ´°É.\n"NOR);
+                        write("ä½ æ‰“å¼€é“ç›’ï¼Œå‘ç°é‡Œé¢ç©ºç©ºçš„ä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
+                        write(HIG"çœ‹æ¥æœ‰äººå·²ç»å–èµ°äº†é‡Œé¢çš„ä¸œè¥¿,ä½ è¿˜æ˜¯æ”¹å¤©å†æ¥å§.\n"NOR);
                   return 1;
                  }
         ob->move(me);
-        write(HIC"ÄãÇá¿ªÌúÏ»£¬·¢ÏÖÀïÃæÆ½Æ½ÕûÕû·Å×ÅÒ»·âÊéĞÅ,ÄãÁ¬Ã¦¼ğÁËÆğÀ´¡£\n"NOR);
+        write(HIC"ä½ è½»å¼€é“åŒ£ï¼Œå‘ç°é‡Œé¢å¹³å¹³æ•´æ•´æ”¾ç€ä¸€å°ä¹¦ä¿¡,ä½ è¿å¿™æ‹£äº†èµ·æ¥ã€‚\n"NOR);
         
         me->set_temp("open",1);
         return 1;       
       }
     if (!present("xin jian",me))
        {
-        write("ÄãÇá¿ªÌúÏ»£¬Í»È»µôÂäÁËÒ»ÕÅĞÅ¼ã£¬Äã¼±Ã¦°ÑËü¼ñÆğ¡£\n");
+        write("ä½ è½»å¼€é“åŒ£ï¼Œçªç„¶æ‰è½äº†ä¸€å¼ ä¿¡ç¬ºï¼Œä½ æ€¥å¿™æŠŠå®ƒæ¡èµ·ã€‚\n");
         ob=new(__DIR__"xinjian1");
         me->set_temp("mark/open",1);
         me->set_temp("open",1);
         ob->move(me);
         return 1;
        }
-        write("Äã´ò¿ªÌúºĞ£¬·¢ÏÖÀïÃæ¿Õ¿ÕµÄÊ²Ã´Ò²Ã»ÓĞ¡£\n");
+        write("ä½ æ‰“å¼€é“ç›’ï¼Œå‘ç°é‡Œé¢ç©ºç©ºçš„ä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
         return 1;
     }
 }
@@ -78,25 +78,25 @@ int do_move(string arg)
         object me = this_player();
         object ob;
         if ( !arg || arg != "anceng" )
-        return notify_fail("ÄãÒª¸ÉÊ²÷á£¿\n");
+        return notify_fail("ä½ è¦å¹²ä»€éº½ï¼Ÿ\n");
         if (!(int)me->query_temp("mark/open") && !(int)me->query_temp("mark/xin"))
-         return notify_fail("ÄãÒª×öÊ²÷á£¿\n");
+         return notify_fail("ä½ è¦åšä»€éº½ï¼Ÿ\n");
         
-                write("ÄãĞ¡ĞÄÒíÒí´ò¿ª°µ²ã.......\n");
+                write("ä½ å°å¿ƒç¿¼ç¿¼æ‰“å¼€æš—å±‚.......\n");
                 if (random(10) > 8 || me->query("env/debug")){
                                           ob=unew(__DIR__"jinshezhui");
                                           if ( ob ){
                                                          ob->move(me);
                                                          me->delete_temp("mark/open");
                                                          me->delete_temp("mark/xin");
-                                                         write(HIY"ºÕÈ»·¢ÏÖ,Ò»±ú½ğ¹âÉÁÉÁµÄÉßĞÍ×¶·ÅÔÚÀïÃæ,¿´ÆğÀ´ºÜÖµÇ®µÄÑù×Ó,Äã¿ªĞÄ¼«ÁË,Á¬Ã¦°ÑËü´§½ø»³Àï\n"NOR);
+                                                         write(HIY"èµ«ç„¶å‘ç°,ä¸€æŸ„é‡‘å…‰é—ªé—ªçš„è›‡å‹é”¥æ”¾åœ¨é‡Œé¢,çœ‹èµ·æ¥å¾ˆå€¼é’±çš„æ ·å­,ä½ å¼€å¿ƒæäº†,è¿å¿™æŠŠå®ƒæ£è¿›æ€€é‡Œ\n"NOR);
                                           
                                                      return 1;
                                                     }
                                           else return 1;
                                           }          
                           
-        message_vision(RED"$NÍ»È»¿´¼û¼¸µÀº®¹âÆËÃæ£¬´ó½ĞÒ»Éù£¬Ò»Õó³é´¤¡£\n"NOR, me);
+        message_vision(RED"$Nçªç„¶çœ‹è§å‡ é“å¯’å…‰æ‰‘é¢ï¼Œå¤§å«ä¸€å£°ï¼Œä¸€é˜µæŠ½æã€‚\n"NOR, me);
         me->delete_temp("mark/open"); 
         me->unconcious();
         return 1;

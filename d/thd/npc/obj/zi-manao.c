@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(MAG"×ÏÂêè§"NOR,({ "zi manao","manao" }));
+	set_name(MAG"ç´«ç›ç‘™"NOR,({ "zi manao","manao" }));
 	set_weight(100);
 	if( clonep() )
                 set_default_object(__FILE__);
         else
         {
-        	set("unit","¸ö");
-        	set("long","ÕâÊÇÒ»¸öÒ«ÈËÑÛ¾¦µÄ×ÏÂêè§£¬Ò»¿´¾ÍÖªµÀÊÇÎŞ¼ÛÖ®±¦¡£");
+        	set("unit","ä¸ª");
+        	set("long","è¿™æ˜¯ä¸€ä¸ªè€€äººçœ¼ç›çš„ç´«ç›ç‘™ï¼Œä¸€çœ‹å°±çŸ¥é“æ˜¯æ— ä»·ä¹‹å®ã€‚");
         	set("value",0);
         }
 	setup();

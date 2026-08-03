@@ -9,8 +9,8 @@ int main()
         int i,a;
         string msg,where,who,out;
         
-        msg=HIC"\n¡¾"+MUD_NAME+"±¦ÎïÁÐ±í¡¿\n"NOR;
-        msg+=HIB"¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y\n"NOR;
+        msg=HIC"\nã€"+MUD_NAME+"å®ç‰©åˆ—è¡¨ã€‘\n"NOR;
+        msg+=HIB"â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚\n"NOR;
         
            obj=objects((: !living($1) && environment($1) :));
           obj=filter_array(obj,(: ($1->query("treasure") || $1->query("unique") ):));
@@ -18,11 +18,11 @@ int main()
         
         while (i--) {
                  if( living(environment(obj[i]) ) ) {
-                                        who=environment(obj[i])->query("name")+"("+environment(obj[i])->query("id")+")"+NOR"ÊÖÖÐ" ;
+                                        who=environment(obj[i])->query("name")+"("+environment(obj[i])->query("id")+")"+NOR"æ‰‹ä¸­" ;
                                         a=1;
                                 }
                                 else {
-                                        where=environment(obj[i])->query("short")+NOR"£º"+file_name(environment(obj[i]));                      
+                                        where=environment(obj[i])->query("short")+NOR"ï¼š"+file_name(environment(obj[i]));                      
                                         a=2;
                                 }
                                 a==1?out=who:out=where;
@@ -30,7 +30,7 @@ int main()
                                 
       
                                 
-                                msg+=sprintf("%-20s"+HIW+"    ´ËÎïÕýÔÚ"+HIY"%10s \n"NOR,
+                                msg+=sprintf("%-20s"+HIW+"    æ­¤ç‰©æ­£åœ¨"+HIY"%10s \n"NOR,
                                                         obj[i]->query("name")+"("+obj[i]->query("id")+")",
                                                         out,
                                                         
@@ -38,7 +38,7 @@ int main()
                                 }
                                 
                 
-                msg+=HIB"¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y\n"NOR;
+                msg+=HIB"â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚\n"NOR;
                 
         this_player()->start_more(msg);
       msg="";

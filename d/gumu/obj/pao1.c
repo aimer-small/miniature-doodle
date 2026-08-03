@@ -6,13 +6,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIW"°×Ë¿³¤ÅÛ"NOR, ({ "baisi changpao","pao","cloth" }) );
+        set_name(HIW"ç™½ä¸é•¿è¢"NOR, ({ "baisi changpao","pao","cloth" }) );
         set_weight(2000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long","Ò»¼şÖÊµØÇáÈáµÄ°×Ë¿³¤ÅÛ¡£\n");
-                set("unit", "¼ş");
+                set("long","ä¸€ä»¶è´¨åœ°è½»æŸ”çš„ç™½ä¸é•¿è¢ã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");                
                 set("armor_prop/armor", 40);
         }

@@ -6,18 +6,18 @@ inherit CLOTH;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(HIY"ÎÚ²ÏÒÂ"NOR, ({ "wucan yi", "wucan", "yi" }));
+        set_name(HIY"ä¹Œèš•è¡£"NOR, ({ "wucan yi", "wucan", "yi" }));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÒ»¼şµ¶Ç¹²»ÈëµÄ±¦ÒÂ£¬ÊÇÓÃ´óÑ©É½ÉÏµÄÎÚ²Ï²ÏË¿Ö¯³ÉµÄ¡£\n");
+                set("long", "è¿™ä¸€ä»¶åˆ€æªä¸å…¥çš„å®è¡£ï¼Œæ˜¯ç”¨å¤§é›ªå±±ä¸Šçš„ä¹Œèš•èš•ä¸ç»‡æˆçš„ã€‚\n");
                 set("material", "silk");
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
                 set("unique", 1);
                 set("value", 10000);
                 set("treasure", 1);
-                set("wear_msg", HIY"Ö»¼û$N½«Á½¿éÁÏ×Ó£¬Ç°Ò»¿é¡¢ºóÒ»¿éµÄ¿ÛÔÚÒ»Æğ´©ÔÚÁËÉíÉÏ¡£\n" NOR);
+                set("wear_msg", HIY"åªè§$Nå°†ä¸¤å—æ–™å­ï¼Œå‰ä¸€å—ã€åä¸€å—çš„æ‰£åœ¨ä¸€èµ·ç©¿åœ¨äº†èº«ä¸Šã€‚\n" NOR);
                 set("armor_prop/armor", 90);
         }
         setup();

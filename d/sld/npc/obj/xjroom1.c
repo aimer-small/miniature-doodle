@@ -1,13 +1,13 @@
 // xjroom1.c
-// ÏİÚå1
+// é™·é˜±1
 inherit ROOM;
 void create()
 {
-	set("short","ÏİÚå");
+	set("short","é™·é˜±");
 	set("long",@long
-ÕâÊÇÒ»¸öÉñÁú½Ì×¨ÃÅÓÃÀ´¶Ô¸¶ÍâÈËµÄÏİÚå£¬ÕâÀïÒõ°µ³±Êª¡¢ĞÈ³ôÆË±Ç£¬
-ºÚ°µÖĞ²»Ê±µØ»¹ÓĞÊ²Ã´¶«Î÷´ÓÄã½Å±ß¡¢½ÅÉÏÅÀ¹ı¡£ÕâÀïµÄÁ½±Ú¶¼·Ç³£¹â»¬£¬
-Ã»ÓĞÊ²Ã´¿ÉÒÔ´îÊÖµÄµØ·½£¬¿´À´Òª³öÈ¥²¢·ÇÒ×ÊÂ£¬Äã¿ÉÒÔ(climb)ÊÔÊÔ¡£
+è¿™æ˜¯ä¸€ä¸ªç¥é¾™æ•™ä¸“é—¨ç”¨æ¥å¯¹ä»˜å¤–äººçš„é™·é˜±ï¼Œè¿™é‡Œé˜´æš—æ½®æ¹¿ã€è…¥è‡­æ‰‘é¼»ï¼Œ
+é»‘æš—ä¸­ä¸æ—¶åœ°è¿˜æœ‰ä»€ä¹ˆä¸œè¥¿ä»ä½ è„šè¾¹ã€è„šä¸Šçˆ¬è¿‡ã€‚è¿™é‡Œçš„ä¸¤å£éƒ½éå¸¸å…‰æ»‘ï¼Œ
+æ²¡æœ‰ä»€ä¹ˆå¯ä»¥æ­æ‰‹çš„åœ°æ–¹ï¼Œçœ‹æ¥è¦å‡ºå»å¹¶éæ˜“äº‹ï¼Œä½ å¯ä»¥(climb)è¯•è¯•ã€‚
 long);
       setup();
 }
@@ -32,14 +32,14 @@ int do_climb(string arg)
         if(qi>random(100))
         {
             me->apply_condition("snake_poison",0);
-            message_vision("$NÊÔ×ÅÂıÂıµØÏòÉÏÅÀÈ¥¡£\n",me);
+            message_vision("$Nè¯•ç€æ…¢æ…¢åœ°å‘ä¸Šçˆ¬å»ã€‚\n",me);
 	    room=find_object(me->query("uproom"));
 	    if(!objectp(room))
 		me->move("/d/sld/dukou");
 	    else
             	me->move(room);
            
-            message_vision("$NÂıÂıµØ´ÓÏİÚåÀïÅÀÁËÉÏÀ´! \n",me);
+            message_vision("$Næ…¢æ…¢åœ°ä»é™·é˜±é‡Œçˆ¬äº†ä¸Šæ¥! \n",me);
             /*ob->set_temp("number",(int)ob->query_temp("number",1)-1);
             if((int)ob->query_temp("number",1)==0)
                 destruct(ob);*/
@@ -47,14 +47,14 @@ int do_climb(string arg)
         }
         else
         {
-            message_vision("$NÊÔ×ÅÂıÂıµØÏòÉÏÅÀÈ¥£¬²»ºÃ£¡$NÒ»Ê§ÊÖµôÁËÏÂÈ¥¡£\n",me);
+            message_vision("$Nè¯•ç€æ…¢æ…¢åœ°å‘ä¸Šçˆ¬å»ï¼Œä¸å¥½ï¼$Nä¸€å¤±æ‰‹æ‰äº†ä¸‹å»ã€‚\n",me);
             me->receive_wound("qi", 50);
 	      me->receive_damage("qi", 50);
             //return 1;
         }
     }
     else
-        return notify_fail("ÄãÏëÍùÄÄÀïÅÀ£¿\n");
+        return notify_fail("ä½ æƒ³å¾€å“ªé‡Œçˆ¬ï¼Ÿ\n");
     return 1;
 }
 	    	

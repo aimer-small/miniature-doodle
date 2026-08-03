@@ -9,25 +9,25 @@ int main(object me,string arg)
 		+ save_variable(arg));	
 	write(arg+"\n");
 	if(!ret){
-		return notify_fail("¶ÁÈ¡Êý¾Ý¿âÊ§°Ü¡£\n");
+		return notify_fail("è¯»å–æ•°æ®åº“å¤±è´¥ã€‚\n");
 	}
 	if(sizeof(ret)>0)
 	{
 		for(int i =0;i<sizeof(ret);i++){
 			if(bufferp(ret[0][0])) arg = read_buffer(ret[0][0]);
 			else arg = ret[0][0];
-			write(sprintf("×ÊÁÏ%d£º%s\n",i,arg));
+			write(sprintf("èµ„æ–™%dï¼š%s\n",i,arg));
 		}
 		return 1;
 	}
-	write("Ã»ÓÐ¶ÁÈ¡µ½ÈÎºÎ×ÊÁÏ¡£\n");
+	write("æ²¡æœ‰è¯»å–åˆ°ä»»ä½•èµ„æ–™ã€‚\n");
 	return 1;
 }
 int help(object me)
 {
 write(@HELP
 	getdata [string]
-	ÀýÈç£º
+	ä¾‹å¦‚ï¼š
 	getdata /data/login/c/ciwei.o
 HELP
 );

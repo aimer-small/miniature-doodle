@@ -7,11 +7,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÑîÁ«Í¤", ({ "yang lianting", "yang",}));
-        set("long", "´ËÈËÉíÐÎ¿ýÎà£¬ÂúÁ³ºúÐë£¬ÐÎÃ²¼«ÎªÐÛ½¡
-ÍþÎä£¬¿ÉÏÂÅÌÐé¸¡£¬¿´À´ÎÞÉõÄÚ¹¦¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  ×Ü¹Ü"NOR);
-        set("gender", "ÄÐÐÔ");
+        set_name("æ¨èŽ²äº­", ({ "yang lianting", "yang",}));
+        set("long", "æ­¤äººèº«å½¢é­æ¢§ï¼Œæ»¡è„¸èƒ¡é¡»ï¼Œå½¢è²Œæžä¸ºé›„å¥
+å¨æ­¦ï¼Œå¯ä¸‹ç›˜è™šæµ®ï¼Œçœ‹æ¥æ— ç”šå†…åŠŸã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥žæ•™  æ€»ç®¡"NOR);
+        set("gender", "ç”·æ€§");
         set("age", 20);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -75,10 +75,10 @@ void greeting(object ob)
         object me = this_object();
         
         if (!ob || !present(ob, environment())) return;
-// ÅÐ¶Ï player        
+// åˆ¤æ–­ player        
         if (ob->query_temp("hostage/job_2") == 2
         &&  me->query_temp("target") == ob->query("id")) {
-                message_vision(CYN"$n¶Ô×Å$N´óº°£º¡°"+ RANK_D->query_rude(ob) +"£¬ÄãÔÚÕâÀï¸ÉÊ²Ã´£¿¡±\n"NOR,ob,me);
+                message_vision(CYN"$nå¯¹ç€$Nå¤§å–Šï¼šâ€œ"+ RANK_D->query_rude(ob) +"ï¼Œä½ åœ¨è¿™é‡Œå¹²ä»€ä¹ˆï¼Ÿâ€\n"NOR,ob,me);
                 command("look " + ob->query("id"));
                 ob->start_busy(random(2));
                 remove_call_out("do_kill");
@@ -127,8 +127,8 @@ int checking(object me, object ob)
         	return 1; 
         if (( (int)me->query("qi")*100 / my_max_qi) <= 90 )
         {
-		tell_room(environment(me),"ÑîÁ«Í¤Ò»¿´ÊÆÍ·²»¶Ô£¬×ªÉíÏò×ÅÎ÷±ßµÄÐ¡Éá¶áÂ·ÌÓÈ¥¡£\n");
-		message_vision("$NÒ²Á¢¿Ì×·¸ÏÉÏÈ¥¡£\n",ob);
+		tell_room(environment(me),"æ¨èŽ²äº­ä¸€çœ‹åŠ¿å¤´ä¸å¯¹ï¼Œè½¬èº«å‘ç€è¥¿è¾¹çš„å°èˆå¤ºè·¯é€ƒåŽ»ã€‚\n");
+		message_vision("$Nä¹Ÿç«‹åˆ»è¿½èµ¶ä¸ŠåŽ»ã€‚\n",ob);
             	if (me->query_temp("block_msg/all")>0)
             	{
             		me->remove_call_out("revive");
@@ -143,11 +143,11 @@ int checking(object me, object ob)
          	}
          	me->move(room);
          	ob->move(room);
-         	tell_room(room,CYN"¶«·½²»°Ü¼âÉùµÀ£º¡°Á«µÜ£¬Äã¡­¡­Äã¡­¡­ÔõÃ´ÁË£¿ÊÇËû°ÑÄã´òÉËÁËÂð£¿¡±\n"NOR);
-         	tell_room(room,"¶«·½²»°Ü´ÓÉí±ßÃþ³öÒ»¿éÂÌ³ñÊÖÅÁ£¬»º»ºÌæÑîÁ«Í¤ÊÃÈ¥¶îÍ·µÄº¹Ë®ºÍÄàÎÛ¡£\n");
-         	tell_room(room,CYN"ÑîÁ«Í¤Å­µÀ£º¡°´óµÐµ±Ç°£¬Äã¸úÎÒÕâ°ãÆÅÆÅÂèÂè¸ÉÉõÃ´£¿ÄãÄÜ´ò·¢µÃÁËµÐÈË£¬ÔÙ¸úÎÒÇ×ÈÈ²»³Ù¡£¡±\n"NOR);
-         	tell_room(room,CYN"¶«·½²»°ÜÎ¢Ð¦µÀ£º¡°ÊÇ£¬ÊÇ£¡Äã±ðÉúÆø£¬ÍÈÉÏÍ´µÃÀ÷º¦£¬ÊÇ²»ÊÇ£¿Õæ½ÐÈËÐÄÌÛ¡£¡±\n"NOR);
-         	tell_room(room,CYN"ÑîÁ«Í¤Ò»×ªÉí£¬¶ãÁËÆðÀ´¡£\n");
+         	tell_room(room,CYN"ä¸œæ–¹ä¸è´¥å°–å£°é“ï¼šâ€œèŽ²å¼Ÿï¼Œä½ â€¦â€¦ä½ â€¦â€¦æ€Žä¹ˆäº†ï¼Ÿæ˜¯ä»–æŠŠä½ æ‰“ä¼¤äº†å—ï¼Ÿâ€\n"NOR);
+         	tell_room(room,"ä¸œæ–¹ä¸è´¥ä»Žèº«è¾¹æ‘¸å‡ºä¸€å—ç»¿ç»¸æ‰‹å¸•ï¼Œç¼“ç¼“æ›¿æ¨èŽ²äº­æ‹­åŽ»é¢å¤´çš„æ±—æ°´å’Œæ³¥æ±¡ã€‚\n");
+         	tell_room(room,CYN"æ¨èŽ²äº­æ€’é“ï¼šâ€œå¤§æ•Œå½“å‰ï¼Œä½ è·Ÿæˆ‘è¿™èˆ¬å©†å©†å¦ˆå¦ˆå¹²ç”šä¹ˆï¼Ÿä½ èƒ½æ‰“å‘å¾—äº†æ•Œäººï¼Œå†è·Ÿæˆ‘äº²çƒ­ä¸è¿Ÿã€‚â€\n"NOR);
+         	tell_room(room,CYN"ä¸œæ–¹ä¸è´¥å¾®ç¬‘é“ï¼šâ€œæ˜¯ï¼Œæ˜¯ï¼ä½ åˆ«ç”Ÿæ°”ï¼Œè…¿ä¸Šç—›å¾—åŽ‰å®³ï¼Œæ˜¯ä¸æ˜¯ï¼ŸçœŸå«äººå¿ƒç–¼ã€‚â€\n"NOR);
+         	tell_room(room,CYN"æ¨èŽ²äº­ä¸€è½¬èº«ï¼Œèº²äº†èµ·æ¥ã€‚\n");
          	destruct(me);
          	ob->apply_condition("hostage_3",60);
          	npc->do_kill(ob);
@@ -155,7 +155,7 @@ int checking(object me, object ob)
         }
         if (( (int)ob->query("qi")*100 / his_max_qi) < 50 )
         {
-                message_vision(CYN"$N¿´ÁË¿´$n£¬ËµµÀ£ºÄãµÄ¹¦·òÏ¡ËÉÆ½³££¬¾ÓÈ»»¹¸Òµ½ºÚÄ¾ÑÂÀ´ÈöÒ°£¿\n"NOR, me,ob);
+                message_vision(CYN"$Nçœ‹äº†çœ‹$nï¼Œè¯´é“ï¼šä½ çš„åŠŸå¤«ç¨€æ¾å¹³å¸¸ï¼Œå±…ç„¶è¿˜æ•¢åˆ°é»‘æœ¨å´–æ¥æ’’é‡Žï¼Ÿ\n"NOR, me,ob);
                 return 1;
         }
         return 1;
@@ -163,7 +163,7 @@ int checking(object me, object ob)
 
 int accept_fight(object ob)
 {
-        command("say " + RANK_D->query_rude(ob) + "£¬Äã±ð·Á°­ÎÒ°ìÊÂ¡£");
+        command("say " + RANK_D->query_rude(ob) + "ï¼Œä½ åˆ«å¦¨ç¢æˆ‘åŠžäº‹ã€‚");
         return 0;
 }
 
@@ -177,13 +177,13 @@ void die()
 
         if (me->query("id") != ob->query_temp("target")) {
                 ob->revive(1);
-                command("say ºÃ£¬¾ÓÈ»»¹ÓÐ" + me->name(1) + "°ïÄã£¬É±ÁËÎÒ£¬ÄãÒ²ÄÃ²»µ½Ô¿³×ÁË£¡");
+                command("say å¥½ï¼Œå±…ç„¶è¿˜æœ‰" + me->name(1) + "å¸®ä½ ï¼Œæ€äº†æˆ‘ï¼Œä½ ä¹Ÿæ‹¿ä¸åˆ°é’¥åŒ™äº†ï¼");
                 destruct(ob);
                 return;
         }
         else {
         	ob->revive(1);
-        	command("say Äã²»É±ÎÒ£¬ÎÒÕâ°ÑÔ¿³×¿ÉÒÔ¸øÄã£¬ËãÊÇ½»»»¡£");
+        	command("say ä½ ä¸æ€æˆ‘ï¼Œæˆ‘è¿™æŠŠé’¥åŒ™å¯ä»¥ç»™ä½ ï¼Œç®—æ˜¯äº¤æ¢ã€‚");
 		obj = new(__HMY__"obj/key");
 		obj->set_temp("owner",me->query("id"));
 		obj->move(ob);

@@ -28,69 +28,69 @@ int main(object me, string arg)
 	author=me;
 	
 	if( !arg || sscanf(arg, "%s %d", arg, vip_day)!=2 )
-		return notify_fail("Ö¸Áî¸ñÊ½£ºregvip <ÓÃ»§ID> <ÌìÊı>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šregvip <ç”¨æˆ·ID> <å¤©æ•°>\n");
 
     	if (!objectp(ob = LOGIN_D->find_body(arg))){
     		flag = 1;
-		if(!objectp(ob = get_player(arg))) return notify_fail("Ã»ÓĞÕâ¸öÈË°É?\n");
+		if(!objectp(ob = get_player(arg))) return notify_fail("æ²¡æœ‰è¿™ä¸ªäººå§?\n");
 	}
         
         //if(!objectp(environment(ob)))
-                  //return notify_fail("Õâ¸öÈË²»ÖªµÀ¶ãÔÚÄÄÀïÒ®... :-( \n");//ÓĞÕâ¸ö±ØÒª£¿
+                  //return notify_fail("è¿™ä¸ªäººä¸çŸ¥é“èº²åœ¨å“ªé‡Œè€¶... :-( \n");//æœ‰è¿™ä¸ªå¿…è¦ï¼Ÿ
 
 	/*if(ob->query("registered")!=3)
-		return notify_fail("¶Ô·½²»ÊÇ¹ó±öÓÃ»§£¬²»ÄÜÉè¶¨¹ó±öÌìÊı¡£\n");*/
+		return notify_fail("å¯¹æ–¹ä¸æ˜¯è´µå®¾ç”¨æˆ·ï¼Œä¸èƒ½è®¾å®šè´µå®¾å¤©æ•°ã€‚\n");*/
 	
 	
 	if((int)ob->query("vip/vip_time")!=0 && (int)ob->query("vip/vip_time") < now_time)
 	{
 		ob->delete("vip/vip_time");
 		ob->delete("vip/vip_start_time");
-		return notify_fail("¶Ô·½µÄ¹ó±öÒÑ¾­¹ıÆÚ£¬±ê¼Ç½«±»É¾³ı£¬ÇëÖØĞÂ³äÖµ¡£\n");
+		return notify_fail("å¯¹æ–¹çš„è´µå®¾å·²ç»è¿‡æœŸï¼Œæ ‡è®°å°†è¢«åˆ é™¤ï¼Œè¯·é‡æ–°å……å€¼ã€‚\n");
 	}
 	
 	vip_time = vip_day * 24 * 3600;
 	
-	if(vip_time==0) return notify_fail("Äã¿æÆğÁ½Ö»½ÅÃÍ³é×Ô¼ºµÄÁ³£¬¸ßÄÑ¶ÈÅ¶¡£\n");
+	if(vip_time==0) return notify_fail("ä½ æŒèµ·ä¸¤åªè„šçŒ›æŠ½è‡ªå·±çš„è„¸ï¼Œé«˜éš¾åº¦å“¦ã€‚\n");
 		
 	if (!(int)ob->query("vip/vip_start_time"))
 	{
 		if(vip_time<0)
 		{
-			return notify_fail("¶Ô·½²¢·ÇVIPÓÃ»§£¬²»ĞèÒª½øĞĞ¼õÉÙVIPÓĞĞ§ÆÚµÄ²Ù×÷¡£\n");
+			return notify_fail("å¯¹æ–¹å¹¶éVIPç”¨æˆ·ï¼Œä¸éœ€è¦è¿›è¡Œå‡å°‘VIPæœ‰æ•ˆæœŸçš„æ“ä½œã€‚\n");
 		}
 		ob->set("vip/vip_time",vip_time + now_time);
 		ob->set("vip/vip_start_time",now_time);	
-		if(!ob->save()) return notify_fail("Íæ¼ÒÊı¾İ±£´æÊ§°Ü£¬×¢²áÎŞĞ§\n");
-		//save Ê§°Ü ÎŞĞëlog
-		//message_vision("$NÎª$n¿ªÍ¨ÁË " +HIY+ vip_day +NOR+ " ÌìµÄ¹ó±ö£¬ÇëÊ¹ÓÃ time ÃüÁî½øĞĞ²é¿´¡£\n", me, );
-		tell_object(me,"ÄãÎª"+ob->name()+"¿ªÍ¨ÁË " +HIY+ vip_day +NOR+ " ÌìµÄ¹ó±ö¡£\n");
-		tell_object(ob,me->name()+"ÎªÄã¿ªÍ¨ÁË " +HIY+ vip_day +NOR+ " ÌìµÄ¹ó±ö£¬ÇëÊ¹ÓÃ time ÃüÁî½øĞĞ²é¿´¡£\n");
-		log_file( "nosave/VIP", me->query("name")+"("+me->query("id")+") ¸ø " +
-			ob->query("name") + "(" + ob->query("id") + ") ¿ªÍ¨ÁË " + vip_day + " Ìì¹ó±ö¡£\n" );
+		if(!ob->save()) return notify_fail("ç©å®¶æ•°æ®ä¿å­˜å¤±è´¥ï¼Œæ³¨å†Œæ— æ•ˆ\n");
+		//save å¤±è´¥ æ— é¡»log
+		//message_vision("$Nä¸º$nå¼€é€šäº† " +HIY+ vip_day +NOR+ " å¤©çš„è´µå®¾ï¼Œè¯·ä½¿ç”¨ time å‘½ä»¤è¿›è¡ŒæŸ¥çœ‹ã€‚\n", me, );
+		tell_object(me,"ä½ ä¸º"+ob->name()+"å¼€é€šäº† " +HIY+ vip_day +NOR+ " å¤©çš„è´µå®¾ã€‚\n");
+		tell_object(ob,me->name()+"ä¸ºä½ å¼€é€šäº† " +HIY+ vip_day +NOR+ " å¤©çš„è´µå®¾ï¼Œè¯·ä½¿ç”¨ time å‘½ä»¤è¿›è¡ŒæŸ¥çœ‹ã€‚\n");
+		log_file( "nosave/VIP", me->query("name")+"("+me->query("id")+") ç»™ " +
+			ob->query("name") + "(" + ob->query("id") + ") å¼€é€šäº† " + vip_day + " å¤©è´µå®¾ã€‚\n" );
 	}
 	else
 	{
 		//vipid  username  regemail  regtimelimit  updatetime  
 		//    1 aboy@ln2 xhy009@shujian.com 1087012108 1081396108 
-		string dex="Ôö¼Ó";
-		if(vip_time<0) dex="¼õÉÙ";
+		string dex="å¢åŠ ";
+		if(vip_time<0) dex="å‡å°‘";
 				
-		//if(vip_time>0) return notify_fail("ÔİÊ±½ûÖ¹Ôö¼ÓVip TimeµÄ²Ù×÷¡£\n");
+		//if(vip_time>0) return notify_fail("æš‚æ—¶ç¦æ­¢å¢åŠ Vip Timeçš„æ“ä½œã€‚\n");
 						
 		ob->add("vip/vip_time",vip_time);
 		ob->set("vip/vip_start_time",now_time);
-		if(!ob->save()) return notify_fail("Íæ¼ÒÊı¾İ±£´æÊ§°Ü£¬×¢²áÎŞĞ§\n");
-		//message_vision("$NÎª$nÔö¼ÓÁË " + HIY + vip_day + NOR + " ÌìµÄ¹ó±ö£¬ÇëÊ¹ÓÃ time ÃüÁî½øĞĞ²é¿´¡£\n", me, ob);
+		if(!ob->save()) return notify_fail("ç©å®¶æ•°æ®ä¿å­˜å¤±è´¥ï¼Œæ³¨å†Œæ— æ•ˆ\n");
+		//message_vision("$Nä¸º$nå¢åŠ äº† " + HIY + vip_day + NOR + " å¤©çš„è´µå®¾ï¼Œè¯·ä½¿ç”¨ time å‘½ä»¤è¿›è¡ŒæŸ¥çœ‹ã€‚\n", me, ob);
 		
 		if(!BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,
 		"UPDATE mudvips SET regtimelimit = regtimelimit+'"+vip_time+"' WHERE username = '"+getuid(ob)+"@"+lower_case(INTERMUD_MUD_NAME)+"' limit 1",
 		this_object(),"back"));
 		
-		tell_object(me,"ÄãÎª"+ob->name()+dex+"ÁË " +HIY+ ABS(vip_day) +NOR+ " ÌìµÄ¹ó±ö¡£\n");
-		//tell_object(ob,me->name()+"ÎªÄãÔö¼ÓÁË " +HIY+ ABS(vip_day) +NOR+ " ÌìµÄ¹ó±ö£¬ÇëÊ¹ÓÃ time ÃüÁî½øĞĞ²é¿´¡£\n");
-		log_file( "nosave/VIP", me->query("name")+"("+me->query("id")+") ¸ø " +
-			ob->query("name") + "(" + ob->query("id") + ") "+dex+"ÁË " + ABS(vip_day) + " Ìì¹ó±ö¡£\n" );
+		tell_object(me,"ä½ ä¸º"+ob->name()+dex+"äº† " +HIY+ ABS(vip_day) +NOR+ " å¤©çš„è´µå®¾ã€‚\n");
+		//tell_object(ob,me->name()+"ä¸ºä½ å¢åŠ äº† " +HIY+ ABS(vip_day) +NOR+ " å¤©çš„è´µå®¾ï¼Œè¯·ä½¿ç”¨ time å‘½ä»¤è¿›è¡ŒæŸ¥çœ‹ã€‚\n");
+		log_file( "nosave/VIP", me->query("name")+"("+me->query("id")+") ç»™ " +
+			ob->query("name") + "(" + ob->query("id") + ") "+dex+"äº† " + ABS(vip_day) + " å¤©è´µå®¾ã€‚\n" );
 	}
 	if(flag==1) destruct(ob);
 	flag = 0;
@@ -99,7 +99,7 @@ int main(object me, string arg)
 
 void back()
 {
-	tell_object(author,"WebÊı¾İ¿â²Ù×÷Íê³É¡£\n");
+	tell_object(author,"Webæ•°æ®åº“æ“ä½œå®Œæˆã€‚\n");
 }
 
 object get_player(string arg)
@@ -108,7 +108,7 @@ object get_player(string arg)
 	
 	user = new(USER_OB);
 	if (!user) {
-		write("ÏÖÔÚ¿ÉÄÜÓĞÈËÕıÔÚĞŞ¸ÄÊ¹ÓÃÕßÎï¼şµÄ³ÌĞò£¬ÎŞ·¨½øĞĞ¸´ÖÆ¡£\n\n");
+		write("ç°åœ¨å¯èƒ½æœ‰äººæ­£åœ¨ä¿®æ”¹ä½¿ç”¨è€…ç‰©ä»¶çš„ç¨‹åºï¼Œæ— æ³•è¿›è¡Œå¤åˆ¶ã€‚\n\n");
 		return 0;
 	}
 	seteuid(arg);
@@ -124,9 +124,9 @@ object get_player(string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£º regvip ÈËÎï<id> ÌìÊı<day>
+æŒ‡ä»¤æ ¼å¼ï¼š regvip äººç‰©<id> å¤©æ•°<day>
 
-ÓÃÀ´¸øÍæ¼ÒÉè¶¨vipÌìÊı¡£
+ç”¨æ¥ç»™ç©å®¶è®¾å®švipå¤©æ•°ã€‚
 HELP );
     return 1;
 }

@@ -2,13 +2,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "³¤½­¶É´¬");
+	set("short", "é•¿æ±Ÿæ¸¡èˆ¹");
 	set("long", @LONG
-Ò»Ò¶Ğ¡ÖÛ£¬×î¶àÒ²¾ÍÄÜÔØÆß¡¢°Ë¸öÈË¡£Ò»ÃûÁùÊ®¶àËêµÄÀÏô¹¹«ÊÖ³ÖÒ»¸ù³¤
-Öñ¸İ£¬ÕıÔÚ´¬Î²³ÔÁ¦µØ³Å×Å´¬¡£
+ä¸€å¶å°èˆŸï¼Œæœ€å¤šä¹Ÿå°±èƒ½è½½ä¸ƒã€å…«ä¸ªäººã€‚ä¸€åå…­åå¤šå²çš„è€è‰„å…¬æ‰‹æŒä¸€æ ¹é•¿
+ç«¹ç¯™ï¼Œæ­£åœ¨èˆ¹å°¾åƒåŠ›åœ°æ’‘ç€èˆ¹ã€‚
 LONG);
 	set("no_fight", 1);
-	set("outdoors", "ÑïÖİ");
+	set("outdoors", "æ‰¬å·");
 	set("no_sleep_room", 1);
 	setup();
 }
@@ -20,11 +20,11 @@ int arrive(string arg)
 	set("start", 1);
 	if (stringp(arg)) set("side", arg);
 	if (room = load_object(__DIR__ + query("side"))) {
-		tell_room(ob, "\n¶É´¬ÃÍµØÒ»Õğ£¬ÒÑ¾­¿¿°¶£¬´¬·òËµµÀ£º¡°Çë´ó»ï¶ùÏÂ´¬°É£¡¡±\n");
+		tell_room(ob, "\næ¸¡èˆ¹çŒ›åœ°ä¸€éœ‡ï¼Œå·²ç»é å²¸ï¼Œèˆ¹å¤«è¯´é“ï¼šâ€œè¯·å¤§ä¼™å„¿ä¸‹èˆ¹å§ï¼â€\n");
 		set("exits/out", __DIR__+ob->query("side"));
-		tell_room(ob, "Ëµ×Å½«Ò»¿éÌ¤½Å°å´îÉÏµÌ°¶£¬ĞÎ³ÉÒ»¸ö³öÈ¥(out)µÄ½×Ìİ¡£\n");
+		tell_room(ob, "è¯´ç€å°†ä¸€å—è¸è„šæ¿æ­ä¸Šå ¤å²¸ï¼Œå½¢æˆä¸€ä¸ªå‡ºå»(out)çš„é˜¶æ¢¯ã€‚\n");
 		room->set("exits/enter", __FILE__);
-		tell_room(room, "\nÒ»ËÒ¶É´¬»º»ºµØÊ»ÁË¹ıÀ´£¬ô¹¹«½«Ò»¿éÌ¤½Å°å´îÉÏµÌ°¶£¬ÒÔ±ã³Ë¿ÍÉÏÏÂ(enter)¡£\n");
+		tell_room(room, "\nä¸€è‰˜æ¸¡èˆ¹ç¼“ç¼“åœ°é©¶äº†è¿‡æ¥ï¼Œè‰„å…¬å°†ä¸€å—è¸è„šæ¿æ­ä¸Šå ¤å²¸ï¼Œä»¥ä¾¿ä¹˜å®¢ä¸Šä¸‹(enter)ã€‚\n");
 		remove_call_out("on_board");
 	  	call_out("on_board", 25);
 	}
@@ -42,19 +42,19 @@ void on_board()
 		obj = all_inventory(ob);
 		for(i = 0; i < sizeof(obj); i++) {
 			if (userp(obj[i]) && obj[i]->query_temp("side") != ob->query("side")) {
-				if (!living(obj[i])) tell_room(ob, "ô¹¹«°Ñ"+obj[i]->name()+"Ì§ÏÂÁË´¬¡£\n");
-				else tell_room(ob, obj[i]->name()+"ÌıÁËô¹¹«µÄ»°£¬¹Ô¹ÔµØÏÂÁË´¬¡£\n", obj[i]);
+				if (!living(obj[i])) tell_room(ob, "è‰„å…¬æŠŠ"+obj[i]->name()+"æŠ¬ä¸‹äº†èˆ¹ã€‚\n");
+				else tell_room(ob, obj[i]->name()+"å¬äº†è‰„å…¬çš„è¯ï¼Œä¹–ä¹–åœ°ä¸‹äº†èˆ¹ã€‚\n", obj[i]);
 				obj[i]->move(room);
 				obj[i]->delete_temp("side");
-				if (!living(obj[i])) tell_room(room, obj[i]->name() + "±»Ì§ÏÂÁË´¬¡£\n", obj[i]);
-				else tell_room(room, obj[i]->name() + "×ßÏÂÁË´¬¡£\n", obj[i]);
+				if (!living(obj[i])) tell_room(room, obj[i]->name() + "è¢«æŠ¬ä¸‹äº†èˆ¹ã€‚\n", obj[i]);
+				else tell_room(room, obj[i]->name() + "èµ°ä¸‹äº†èˆ¹ã€‚\n", obj[i]);
 			}
 		}
 		room->delete("exits/enter");
-		tell_room(room, "\nô¹¹«ÃÇ°ÑÌ¤½Å°åÊÕÁËÆğÀ´£¬³¤¸İÒ»µã£¬¶É´¬Ïò½­ĞÄÊ»È¥¡£\n");
+		tell_room(room, "\nè‰„å…¬ä»¬æŠŠè¸è„šæ¿æ”¶äº†èµ·æ¥ï¼Œé•¿ç¯™ä¸€ç‚¹ï¼Œæ¸¡èˆ¹å‘æ±Ÿå¿ƒé©¶å»ã€‚\n");
 	}
 	delete("exits/out");
-	tell_room(ob, "\nô¹¹«ÃÇ°ÑÌ¤½Å°åÊÕÆğÀ´£¬ËµÁËÒ»Éù¡°×øÎÈà¶¡±£¬³¤¸İÒ»µã£¬¶É´¬Ïò½­ĞÄÊ»È¥¡£\n");
+	tell_room(ob, "\nè‰„å…¬ä»¬æŠŠè¸è„šæ¿æ”¶èµ·æ¥ï¼Œè¯´äº†ä¸€å£°â€œåç¨³å–½â€ï¼Œé•¿ç¯™ä¸€ç‚¹ï¼Œæ¸¡èˆ¹å‘æ±Ÿå¿ƒé©¶å»ã€‚\n");
 	set("start", 2);
 	if (query("side") == "jiangbei") set("side", "jiangnan");
 	else set("side", "jiangbei");

@@ -12,22 +12,22 @@ void do_wiz_motd(object me,string path, string text);
 void create() 
 {
         seteuid(getuid());
-        set("channel_id", "¼Æ»®¾«Áé");
+        set("channel_id", "è®¡åˆ’ç²¾çµ");
 }
 
 int main(object me,string arg)
 {
         string target,path;
         if(!user_path(geteuid(me)))
-                return notify_fail("Äã²¢Ã»ÓĞ¼ÒÄ¿Â¼\n");
+                return notify_fail("ä½ å¹¶æ²¡æœ‰å®¶ç›®å½•\n");
         if(!arg){
                 path = user_path(geteuid(me)) + "wiz_plan";
                 write(CLR"");
                 if( file_size(path) > 0 ){       
-                 write(HIW"Ä¿Ç°µÄ¼Æ»®µµ:\n"NOR);
+                 write(HIW"ç›®å‰çš„è®¡åˆ’æ¡£:\n"NOR);
                  write(read_file(path));
                  }
-                write(HIY"\n\n±à¼­×Ô¼ºµÄ¼Æ»®µµ\n"NOR);
+                write(HIY"\n\nç¼–è¾‘è‡ªå·±çš„è®¡åˆ’æ¡£\n"NOR);
                 me->edit((: do_plan, geteuid(me),path :));
                 return 1;
                 }
@@ -35,22 +35,22 @@ int main(object me,string arg)
         {
                 path = user_path(geteuid(me)) + "wiz_plan";
                 if( file_size(path) <= 0 )
-                 return notify_fail("ÄãÃ»ÓĞ¼Æ»®µµ°¡¡£\n");
+                 return notify_fail("ä½ æ²¡æœ‰è®¡åˆ’æ¡£å•Šã€‚\n");
                 rm(path);
-                write("Çå³ı¼Æ»®µµ¡£\n");
+                write("æ¸…é™¤è®¡åˆ’æ¡£ã€‚\n");
                 CHANNEL_D->do_channel( this_object(), "sys",
-                sprintf("%s(%s)Çå³ı¼Æ»®µµÔÚ%s¡£", me->query("name"),me->query("id"), ctime(time()) ) );
+                sprintf("%s(%s)æ¸…é™¤è®¡åˆ’æ¡£åœ¨%sã€‚", me->query("name"),me->query("id"), ctime(time()) ) );
                 log_file("wiz_log/wiz_plan",
-                        sprintf("%s(%s)Çå³ı¼Æ»®µµÓÚ%s\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
+                        sprintf("%s(%s)æ¸…é™¤è®¡åˆ’æ¡£äº%s\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
                 return 1;
         }
         if(arg == "note none")
         {
                 path = user_path(geteuid(me)) + "wiz_note";
                 if( file_size(path) <= 0 )
-                 return notify_fail("ÄãÃ»ÓĞÁôÑÔ¼ÇÂ¼à¸¡£\n");
+                 return notify_fail("ä½ æ²¡æœ‰ç•™è¨€è®°å½•å–”ã€‚\n");
                 rm(path);
-                write("Çå³ıÁôÑÔ¼ÇÂ¼¡£\n");
+                write("æ¸…é™¤ç•™è¨€è®°å½•ã€‚\n");
                 return 1;
         }
         if(arg == "user none")
@@ -58,81 +58,81 @@ int main(object me,string arg)
            path = "/adm/etc/motd";
 
            if(wizhood(me) != "(admin)" && wizhood(me) != "(arch)" )
-              return notify_fail("Ö»ÓĞ´óÎ×Ê¦ÒÔÉÏ²ÅÄÜÉ¾³ıÃ¿ÈÕÑ¶Ï¢\n");
+              return notify_fail("åªæœ‰å¤§å·«å¸ˆä»¥ä¸Šæ‰èƒ½åˆ é™¤æ¯æ—¥è®¯æ¯\n");
            if( file_size(path) <= 0)
-             return notify_fail("Ã»ÓĞÊ¹ÓÃÕß¹«¸æ!\n");
+             return notify_fail("æ²¡æœ‰ä½¿ç”¨è€…å…¬å‘Š!\n");
            rm(path);
-           write("Çå³ıÊ¹ÓÃÕß¹«¸æ\n");
+           write("æ¸…é™¤ä½¿ç”¨è€…å…¬å‘Š\n");
            CHANNEL_D->do_channel( this_object(), "sys",
-                sprintf("%s(%s)Çå³ıÊ¹ÓÃÕß¹«¸æÔÚ%s¡£", me->query("name"),me->query("id"), ctime(time()) ) );
+                sprintf("%s(%s)æ¸…é™¤ä½¿ç”¨è€…å…¬å‘Šåœ¨%sã€‚", me->query("name"),me->query("id"), ctime(time()) ) );
            log_file("wiz_log/user_motd",
-                sprintf(HIC"%s(%s)Çå³ıÊ¹ÓÃÕß¹«¸æÓÚ%s\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
+                sprintf(HIC"%s(%s)æ¸…é™¤ä½¿ç”¨è€…å…¬å‘Šäº%s\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
            return 1;
         }
 if(arg == "wiz none")
         {
           path = "/adm/etc/wiz_motd";
           if(wizhood(me) != "(admin)")
-            return notify_fail("Ö»ÓĞÌìÉñ²ÅÄÜÉ¾³ıÎ×Ê¦Ã¿ÈÕÑ¶Ï¢\n");
+            return notify_fail("åªæœ‰å¤©ç¥æ‰èƒ½åˆ é™¤å·«å¸ˆæ¯æ—¥è®¯æ¯\n");
           if( file_size(path) <= 0)
-            return notify_fail("Ã»ÓĞÎ×Ê¦¹«¸æ!\n");
+            return notify_fail("æ²¡æœ‰å·«å¸ˆå…¬å‘Š!\n");
            rm(path);
-           write("Çå³ıÎ×Ê¦¹«¸æ\n");
+           write("æ¸…é™¤å·«å¸ˆå…¬å‘Š\n");
            CHANNEL_D->do_channel( this_object(), "sys",
-                sprintf("%s(%s)Çå³ıÎ×Ê¦¹«¸æÔÚ%s¡£", me->query("name"),me->query("id"), ctime(time()) ) );
+                sprintf("%s(%s)æ¸…é™¤å·«å¸ˆå…¬å‘Šåœ¨%sã€‚", me->query("name"),me->query("id"), ctime(time()) ) );
            log_file("wiz_log/wiz_motd",
-                        sprintf(HIC"%s(%s)Çå³ıÎ×Ê¦¹«¸æÓÚ%s\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
+                        sprintf(HIC"%s(%s)æ¸…é™¤å·«å¸ˆå…¬å‘Šäº%s\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
            return 1;
         }
         if(arg == "user motd"){
          path = "/adm/etc/motd";
          if( file_size(path) > 0){
-                write(CLR""+HIW"Ä¿Ç°µÄÊ¹ÓÃÕß¹«¸æ\n"NOR);
+                write(CLR""+HIW"ç›®å‰çš„ä½¿ç”¨è€…å…¬å‘Š\n"NOR);
                 write(read_file(path));
 }else
-                write(CLR""+HIR"Ä¿Ç°Ã»ÓĞÊ¹ÓÃÕß¹«¸æ\n"NOR);
+                write(CLR""+HIR"ç›®å‰æ²¡æœ‰ä½¿ç”¨è€…å…¬å‘Š\n"NOR);
                 
         if(wizhood(me) == "(admin)" || wizhood(me) == "(arch)" ){ 
-         write(HIY"\n±à¼­Ê¹ÓÃÕß¹«¸æ\n\n"NOR);
+         write(HIY"\nç¼–è¾‘ä½¿ç”¨è€…å…¬å‘Š\n\n"NOR);
          me->edit((: do_user_motd ,me ,path :));
          }
          return 1;
         }
         if(arg == "wiz motd"){
           if(wizhood(me) != "(admin)")
-            return notify_fail("Ö»ÓĞÌìÉñ²ÅÄÜ¹«²¼Î×Ê¦Ã¿ÈÕÑ¶Ï¢\n");
-          else path = "/adm/etc/wiz_motd"; //Ìõ¼şÍ¨¹ıÔÙÖ¸¶¨±äÊı
+            return notify_fail("åªæœ‰å¤©ç¥æ‰èƒ½å…¬å¸ƒå·«å¸ˆæ¯æ—¥è®¯æ¯\n");
+          else path = "/adm/etc/wiz_motd"; //æ¡ä»¶é€šè¿‡å†æŒ‡å®šå˜æ•°
 
-         write("±à¼­Î×Ê¦¹«¸æ\n");
+         write("ç¼–è¾‘å·«å¸ˆå…¬å‘Š\n");
             if( file_size(path) > 0){
-             write(CLR""+HIW"Ä¿Ç°µÄÎ×Ê¦¹«¸æ\n"NOR);
+             write(CLR""+HIW"ç›®å‰çš„å·«å¸ˆå…¬å‘Š\n"NOR);
              write(read_file(path));
                                             }
-           write(HIY"\n±à¼­Î×Ê¦Ã¿ÈÕ¹«¸æ\n\n"NOR);
+           write(HIY"\nç¼–è¾‘å·«å¸ˆæ¯æ—¥å…¬å‘Š\n\n"NOR);
       me->edit((: do_wiz_motd , me ,path:));
             return 1;
             }
        if(sscanf(arg,"-w %s",target) == 1){
            target = replace_string(arg,"-w ","");
            if( wiz_level(target) == 0){
-             write("Ëû²»ÊÇÎ×Ê¦,²»ĞèÒªÊ¹ÓÃ¡¾¼Æ»®¡¿½»´ıÁôÑÔ!\n");
+             write("ä»–ä¸æ˜¯å·«å¸ˆ,ä¸éœ€è¦ä½¿ç”¨ã€è®¡åˆ’ã€‘äº¤å¾…ç•™è¨€!\n");
              return 1;
            }else path = user_path(target) + "wiz_plan";
            if(file_size(path) > 0){
-            write(HIY+target+"µÄ¼Æ»®µµ :\n"NOR);
+            write(HIY+target+"çš„è®¡åˆ’æ¡£ :\n"NOR);
             me->start_more(read_file(path));
-           }else write(target+"²¢Ã»ÓĞ¼Æ»®µµ!!\n"); 
+           }else write(target+"å¹¶æ²¡æœ‰è®¡åˆ’æ¡£!!\n"); 
            return 1;
         }    
         if(sscanf(arg,"-n %s",target) == 1){
            target = replace_string(arg,"-n ","");
            if( wiz_level(target) == 0)
             {
-               write("Ëû²»ÊÇÎ×Ê¦,²»ĞèÒªÊ¹ÓÃ¡¾¼Æ»®¡¿½»´ıÁôÑÔ!\n");
+               write("ä»–ä¸æ˜¯å·«å¸ˆ,ä¸éœ€è¦ä½¿ç”¨ã€è®¡åˆ’ã€‘äº¤å¾…ç•™è¨€!\n");
        return 1;
              }else path = user_path(target) + "wiz_note";
 
-           write("¸ø"+target+"Õâ¸öÎ×Ê¦ÁôÑÔ\n");
+           write("ç»™"+target+"è¿™ä¸ªå·«å¸ˆç•™è¨€\n");
             me->edit((: do_note , target ,path: ));
             return 1;
                          }
@@ -140,9 +140,9 @@ if(arg == "wiz none")
                 
                 if(SECURITY_D->get_status(me) != "(arch)"
                         && SECURITY_D->get_status(me) != "(admin)" )
-                                return notify_fail("Ö»ÓĞ (arch) ÒÔÉÏµÄÎ×Ê¦²ÅÄÜÖ¸ÅÉÈÎÎñ\n");
+                                return notify_fail("åªæœ‰ (arch) ä»¥ä¸Šçš„å·«å¸ˆæ‰èƒ½æŒ‡æ´¾ä»»åŠ¡\n");
                 if( wizhood(arg) == "(player)"){
-                        write("Ëû²»ÊÇÎ×Ê¦,²»ĞèÒªÊ¹ÓÃ¡¾¼Æ»®¡¿½»´ıÁôÑÔ!\n");
+                        write("ä»–ä¸æ˜¯å·«å¸ˆ,ä¸éœ€è¦ä½¿ç”¨ã€è®¡åˆ’ã€‘äº¤å¾…ç•™è¨€!\n");
                         return 1;
                 }else path = user_path(arg) + "wiz_plan";
                 me->edit((: do_plan, arg ,path:));
@@ -156,22 +156,22 @@ if(arg == "wiz none")
 void do_plan(string planer,string path, string text)
 {
         string msg;
-        msg = "Ìá°¸ÈË ("+this_player()->query("id")+") "+ctime(time()) +"\n"+text;
+        msg = "ææ¡ˆäºº ("+this_player()->query("id")+") "+ctime(time()) +"\n"+text;
         if (planer)
         {
            write_file(path,msg,1);
-           write(HIW"¼Æ»®µµÉè¶¨Íê³É¡£\n"NOR);
+           write(HIW"è®¡åˆ’æ¡£è®¾å®šå®Œæˆã€‚\n"NOR);
            CHANNEL_D->do_channel( this_object(), "sys",
-                sprintf("%s(%s)¼Æ»®µµÉè¶¨Íê³ÉÔÚ%s¡£", this_player()->query("name"),geteuid(this_player()), ctime(time()) ) );
+                sprintf("%s(%s)è®¡åˆ’æ¡£è®¾å®šå®Œæˆåœ¨%sã€‚", this_player()->query("name"),geteuid(this_player()), ctime(time()) ) );
            log_file("wiz_log/wiz_plan",
-                        sprintf(HIC"%s(%s)¼Æ»®µµÉè¶¨Íê³ÉÓÚ%s\n"NOR,this_player()->query("name"),geteuid(this_player()), ctime(time()) ));
+                        sprintf(HIC"%s(%s)è®¡åˆ’æ¡£è®¾å®šå®Œæˆäº%s\n"NOR,this_player()->query("name"),geteuid(this_player()), ctime(time()) ));
         }
         else{
-           write(HIR"¼Æ»®µµÉè¶¨Ê§°Ü¡£\n"NOR);
+           write(HIR"è®¡åˆ’æ¡£è®¾å®šå¤±è´¥ã€‚\n"NOR);
            CHANNEL_D->do_channel( this_object(), "sys",
-sprintf(HIR"%s(%s)¼Æ»®µµÉè¶¨Ê§°ÜÔÚ%s¡£"NOR, this_player()->query("name"),geteuid(this_player()), ctime(time()) ) );
+sprintf(HIR"%s(%s)è®¡åˆ’æ¡£è®¾å®šå¤±è´¥åœ¨%sã€‚"NOR, this_player()->query("name"),geteuid(this_player()), ctime(time()) ) );
            log_file("wiz_log/wiz_plan",
-                        sprintf(HIR"%s(%s)¼Æ»®µµÉè¶¨Ê§°ÜÓÚ%s\n"NOR,this_player()->query("name"),geteuid(this_player()), ctime(time()) ));
+                        sprintf(HIR"%s(%s)è®¡åˆ’æ¡£è®¾å®šå¤±è´¥äº%s\n"NOR,this_player()->query("name"),geteuid(this_player()), ctime(time()) ));
        }
 }
 
@@ -179,93 +179,93 @@ void do_note(string planer,string path, string text)
 {
         object me = this_player();
         string msg;
-        msg = "ÁôÑÔÕß:("+me->query("id")+") "+ctime(time())+"\n"NOR+ text;
+        msg = "ç•™è¨€è€…:("+me->query("id")+") "+ctime(time())+"\n"NOR+ text;
 
         if (planer)
         {
                 write_file(path,msg);
-                write(HIW"ÁôÑÔÍê±Ï¡£\n"NOR);
+                write(HIW"ç•™è¨€å®Œæ¯•ã€‚\n"NOR);
                 CHANNEL_D->do_channel( this_object(), "cic",
-                sprintf("%s(%s)ÁôÑÔ¸ø%sÔÚ%s¡£", me->query("name"),me->query("id"),planer,ctime(time()) ) );
+                sprintf("%s(%s)ç•™è¨€ç»™%såœ¨%sã€‚", me->query("name"),me->query("id"),planer,ctime(time()) ) );
                 log_file("wiz_log/note_message",
-                        sprintf("%s(%s)ÁôÑÔ¸ø%sÓÚ%s\n",me->query("name"),me->query("id"),planer, ctime(time()) ));
+                        sprintf("%s(%s)ç•™è¨€ç»™%säº%s\n",me->query("name"),me->query("id"),planer, ctime(time()) ));
 }
         else{
-            write(HIR"ÁôÑÔÊ§°Ü¡£\n"NOR);
+            write(HIR"ç•™è¨€å¤±è´¥ã€‚\n"NOR);
             CHANNEL_D->do_channel( this_object(), "cic",
-                sprintf(HIR"%s(%s)ÁôÑÔ¸ø%sÊ§°ÜÔÚ%s¡£"NOR, me->query("name"),me->query("id"),planer,ctime(time()) ) );
+                sprintf(HIR"%s(%s)ç•™è¨€ç»™%så¤±è´¥åœ¨%sã€‚"NOR, me->query("name"),me->query("id"),planer,ctime(time()) ) );
              log_file("wiz_log/note_message",
-                     sprintf(HIR"%s(%s)ÁôÑÔ¸ø%sÊ§°ÜÓÚ%s\n"NOR,me->query("name"),me->query("id"),planer, ctime(time()) ));
+                     sprintf(HIR"%s(%s)ç•™è¨€ç»™%så¤±è´¥äº%s\n"NOR,me->query("name"),me->query("id"),planer, ctime(time()) ));
         }
 }
 
 void do_user_motd(object me,string path,string text)
 {
         string msg;
-        msg = HIW"¹«²¼Õß:("+me->query("id")+") "NOR+ctime(time())+"\n"+text;      
+        msg = HIW"å…¬å¸ƒè€…:("+me->query("id")+") "NOR+ctime(time())+"\n"+text;      
  
         if(me)
         {
           write_file(path,msg);
-          write("Ê¹ÓÃÕß¹«¸æÍê±Ï\n");
+          write("ä½¿ç”¨è€…å…¬å‘Šå®Œæ¯•\n");
           CHANNEL_D->do_channel( this_object(), "sys",
-          sprintf("%s(%s)ÔÚ%s·¢²¼Ê¹ÓÃÕß¹«¸æ¡£", me->query("name"),me->query("id"),ctime(time()) ) );
+          sprintf("%s(%s)åœ¨%så‘å¸ƒä½¿ç”¨è€…å…¬å‘Šã€‚", me->query("name"),me->query("id"),ctime(time()) ) );
           log_file("wiz_log/user_motd",
-                        sprintf("%s(%s)ÓÚ%s·¢²¼Ê¹ÓÃÕß¹«¸æ\n",me->query("name"),me->query("id"), ctime(time()) ));
+                        sprintf("%s(%s)äº%så‘å¸ƒä½¿ç”¨è€…å…¬å‘Š\n",me->query("name"),me->query("id"), ctime(time()) ));
 
         }else{
-            write("¹«¸æÊ§°Ü\n");
+            write("å…¬å‘Šå¤±è´¥\n");
           CHANNEL_D->do_channel( this_object(), "sys",
-                sprintf("%s(%s)ÔÚ%s·¢²¼Ê¹ÓÃÕß¹«¸æÊ§°Ü¡£", me->query("name"),me->query("id"),ctime(time()) ) );
+                sprintf("%s(%s)åœ¨%så‘å¸ƒä½¿ç”¨è€…å…¬å‘Šå¤±è´¥ã€‚", me->query("name"),me->query("id"),ctime(time()) ) );
           log_file("wiz_log/user_motd",
-                        sprintf(HIR"%s(%s)ÓÚ%s·¢²¼Ê¹ÓÃÕß¹«¸æÊ§°Ü\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
+                        sprintf(HIR"%s(%s)äº%så‘å¸ƒä½¿ç”¨è€…å…¬å‘Šå¤±è´¥\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
          }
 }
 void do_wiz_motd(object me,string path,string text)
 {
        string msg;
-       msg = HIW"¹«²¼Õß:("+me->query("id")+") "NOR+ctime(time())+"\n"+text;
+       msg = HIW"å…¬å¸ƒè€…:("+me->query("id")+") "NOR+ctime(time())+"\n"+text;
 
        if(me)
        {
         write_file(path,msg);
-        write("Î×Ê¦¹«¸æÍê±Ï\n");
+        write("å·«å¸ˆå…¬å‘Šå®Œæ¯•\n");
         CHANNEL_D->do_channel( this_object(), "sys",
-                sprintf("%s(%s)ÔÚ%s·¢²¼Î×Ê¦¹«¸æ¡£", me->query("name"),me->query("id"),ctime(time()) ) );
+                sprintf("%s(%s)åœ¨%så‘å¸ƒå·«å¸ˆå…¬å‘Šã€‚", me->query("name"),me->query("id"),ctime(time()) ) );
         log_file("wiz_log/wiz_motd",
-                        sprintf("%s(%s)ÓÚ%s·¢²¼Î×Ê¦¹«¸æ\n",me->query("name"),me->query("id"), ctime(time()) ));
+                        sprintf("%s(%s)äº%så‘å¸ƒå·«å¸ˆå…¬å‘Š\n",me->query("name"),me->query("id"), ctime(time()) ));
         }else{
-           write("¹«¸æÊ§°Ü\n");
+           write("å…¬å‘Šå¤±è´¥\n");
            CHANNEL_D->do_channel( this_object(), "sys",
-                sprintf("%s(%s)ÔÚ%s·¢²¼Î×Ê¦¹«¸æÊ§°Ü¡£", me->query("name"),me->query("id"),ctime(time()) ) );
+                sprintf("%s(%s)åœ¨%så‘å¸ƒå·«å¸ˆå…¬å‘Šå¤±è´¥ã€‚", me->query("name"),me->query("id"),ctime(time()) ) );
            log_file("wiz_log/wiz_motd",
-                        sprintf(HIR"%s(%s)ÓÚ%s·¢²¼Î×Ê¦¹«¸æÊ§°Ü\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
+                        sprintf(HIR"%s(%s)äº%så‘å¸ƒå·«å¸ˆå…¬å‘Šå¤±è´¥\n"NOR,me->query("name"),me->query("id"), ctime(time()) ));
           }
 }
 
 int help(object me)
 {
  write(@HELP
-Ö¸Áî¸ñÊ½ : plan           =>²»¼Ó²ÎÊıÊ±ÊÇ±à¼­×Ô¼ºµÄ¼Æ»­µµ
-           plan    [none] => Çå³ı×Ô¼ºµÄ¼Æ»®µµ
-           plan    [note none] => Çå³ıÁôÑÔ
-           plan -n [Ïë½»´ıÁôÑÔµÄÎ×Ê¦µÄid] => ÁôÑÔ¸øÆäËüÎ×Ê¦
-           plan    [user motd] => ÔÄ¶ÁÊ¹ÓÃÕßÃ¿ÈÕ¹«¸æ
-           plan -w [WIZ id] =>¹Û¿´Î×Ê¦¼Æ»®
+æŒ‡ä»¤æ ¼å¼ : plan           =>ä¸åŠ å‚æ•°æ—¶æ˜¯ç¼–è¾‘è‡ªå·±çš„è®¡ç”»æ¡£
+           plan    [none] => æ¸…é™¤è‡ªå·±çš„è®¡åˆ’æ¡£
+           plan    [note none] => æ¸…é™¤ç•™è¨€
+           plan -n [æƒ³äº¤å¾…ç•™è¨€çš„å·«å¸ˆçš„id] => ç•™è¨€ç»™å…¶å®ƒå·«å¸ˆ
+           plan    [user motd] => é˜…è¯»ä½¿ç”¨è€…æ¯æ—¥å…¬å‘Š
+           plan -w [WIZ id] =>è§‚çœ‹å·«å¸ˆè®¡åˆ’
 
-ÒÔÏÂÊÇ´óÎ×Ê¦ÒÔÉÏ²Å¿ÉÒÔÊ¹ÓÃµÄ²ÎÊı:
-           plan    [Ïë½»´ıÈÎÎñ¸øÎ×Ê¦µÄid] => ½»´ıÈÎÎñ¸øÖ¸¶¨µÄÎ×Ê¦
-           plan    [user motd] => ¹«²¼Ê¹ÓÃÕßÃ¿ÈÕ¹«¸æ
-           plan    [user none] => Çå³ıÊ¹ÓÃÕß¹«¸æ
-           plan    [wiz motd]  => Î×Ê¦¹«¸æ
-           plan    [wiz none]  => Çå³ıÎ×Ê¦¹«¸æ
-ÓÃÍ¾:
-ÌáÊ¾×Ô¼ºÉÏÏß¸Ã×öµÄÊÂ,´óÎ×Ê¦ÒÔÉÏ»áÊ¹ÓÃÕâ¸öÖ¸ÁîÖ¸ÅÉÈÎÎñ¸øÎ×Ê¦
-ÈÃÄãÔÚÉÏÏßÊ±¾Í¿´µ½×îĞÂ½»¸¶ÈÎÎñÒÔ¼°¸Ã×öµÄÊÂ,´óÎ×Ê¦ÒÔÉÏ¹«²¼ÊÂ
-Ïî»áÁ¬Í¬Ö®Ç°µÄ¹«¸æÒ»Æğ³öÏÖ,Ö»ÓĞÊ¹ÓÃnoneÖ¸Áî²Å»á½«µµ°¸Çå³ı,±à
-¼­¼Æ»®µµÒ²ÊÇ,ËùÒÔÇëĞ¡ĞÄÊ¹ÓÃnone²ÎÊı,±ğÎóÉ¾ÁËÖØÒª¼ÇÂ¼!
+ä»¥ä¸‹æ˜¯å¤§å·«å¸ˆä»¥ä¸Šæ‰å¯ä»¥ä½¿ç”¨çš„å‚æ•°:
+           plan    [æƒ³äº¤å¾…ä»»åŠ¡ç»™å·«å¸ˆçš„id] => äº¤å¾…ä»»åŠ¡ç»™æŒ‡å®šçš„å·«å¸ˆ
+           plan    [user motd] => å…¬å¸ƒä½¿ç”¨è€…æ¯æ—¥å…¬å‘Š
+           plan    [user none] => æ¸…é™¤ä½¿ç”¨è€…å…¬å‘Š
+           plan    [wiz motd]  => å·«å¸ˆå…¬å‘Š
+           plan    [wiz none]  => æ¸…é™¤å·«å¸ˆå…¬å‘Š
+ç”¨é€”:
+æç¤ºè‡ªå·±ä¸Šçº¿è¯¥åšçš„äº‹,å¤§å·«å¸ˆä»¥ä¸Šä¼šä½¿ç”¨è¿™ä¸ªæŒ‡ä»¤æŒ‡æ´¾ä»»åŠ¡ç»™å·«å¸ˆ
+è®©ä½ åœ¨ä¸Šçº¿æ—¶å°±çœ‹åˆ°æœ€æ–°äº¤ä»˜ä»»åŠ¡ä»¥åŠè¯¥åšçš„äº‹,å¤§å·«å¸ˆä»¥ä¸Šå…¬å¸ƒäº‹
+é¡¹ä¼šè¿åŒä¹‹å‰çš„å…¬å‘Šä¸€èµ·å‡ºç°,åªæœ‰ä½¿ç”¨noneæŒ‡ä»¤æ‰ä¼šå°†æ¡£æ¡ˆæ¸…é™¤,ç¼–
+è¾‘è®¡åˆ’æ¡£ä¹Ÿæ˜¯,æ‰€ä»¥è¯·å°å¿ƒä½¿ç”¨noneå‚æ•°,åˆ«è¯¯åˆ äº†é‡è¦è®°å½•!
 
-Õâ¸öÖ¸Áî¿ÉÒÔ±à¼­×Ô¼ºµÄ¼Æ»®£¬plan none ¿ÉÒÔÇå³ıÉè¶¨¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥ç¼–è¾‘è‡ªå·±çš„è®¡åˆ’ï¼Œplan none å¯ä»¥æ¸…é™¤è®¾å®šã€‚
 
 HELP
     );

@@ -2,9 +2,9 @@ inherit NPC;
 string ask_me();
 void create()
 {
-	set_name("ĞÄÇå±ÈÇğ", ({ "xinqing biqiu","xingqing","biqiu"}) );
-	set("long","ÕâÊÇ¸öÄêÇáĞ¡»ï×Ó£¬¿´ÆğÀ´º©ºñÀÏÊµ£¬ÀÏÊÇÎ¢Ğ¦×Å¡£\n");
-	set("gender", "ÄĞĞÔ" );
+	set_name("å¿ƒæ¸…æ¯”ä¸˜", ({ "xinqing biqiu","xingqing","biqiu"}) );
+	set("long","è¿™æ˜¯ä¸ªå¹´è½»å°ä¼™å­ï¼Œçœ‹èµ·æ¥æ†¨åšè€å®ï¼Œè€æ˜¯å¾®ç¬‘ç€ã€‚\n");
+	set("gender", "ç”·æ€§" );
 	set("attitude", "friendly");
 	set("class", "bonze");
 	set("age", 25);
@@ -14,10 +14,10 @@ void create()
 	set("int", 22);
 	set("con", 24);
 	set("dex", 24);
-	create_family("ÌìÁúËÂ", 15, "µÜ×Ó");
+	create_family("å¤©é¾™å¯º", 15, "å¼Ÿå­");
 	set("inquiry",([
-                "ÇÃÖÓ" : (: ask_me :),
-                "Ğ¡Ğ¡ÅÖ" : "Ğ¡Ğ¡ÅÖÕæÅÖ£¡",
+                "æ•²é’Ÿ" : (: ask_me :),
+                "å°å°èƒ–" : "å°å°èƒ–çœŸèƒ–ï¼",
         ]));
 
         set("qi", 600);
@@ -49,7 +49,7 @@ void create()
         set("hammer_count", 1);  
         set("chat_chance", 3);
 	set("chat_msg", ({
-		"ĞÄÇåµÀ£ºÓÖÒªÇÃÖÓÁË£¬ºÇºÇ£¡\n",
+		"å¿ƒæ¸…é“ï¼šåˆè¦æ•²é’Ÿäº†ï¼Œå‘µå‘µï¼\n",
 	})); 
 	setup();
 	carry_object("/d/tls/obj/jiasha1")->wear();
@@ -63,22 +63,22 @@ string ask_me()
 	object ob;
 	local = localtime(time() * 60);
 
-	if(!fam || fam["family_name"] != "ÌìÁúËÂ")
-		return RANK_D->query_respect(this_player())+"Óë±¾ËÂËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+	if(!fam || fam["family_name"] != "å¤©é¾™å¯º")
+		return RANK_D->query_respect(this_player())+"ä¸æœ¬å¯ºç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 
 	if(this_player()->query_skill("force",1) < 30)
-		return "ÄãµÄÄÚ¹¦ĞŞÎªÌ«²î£¬ÇÃÖÓ¶ÔÄã¶øÑÔ»áÉËº¦ÉíÌå";
+		return "ä½ çš„å†…åŠŸä¿®ä¸ºå¤ªå·®ï¼Œæ•²é’Ÿå¯¹ä½ è€Œè¨€ä¼šä¼¤å®³èº«ä½“";
 
 	if (local[2] < 6 || local[2] >= 21) 
-		return "ÏÖÔÚÊÇĞİÏ¢Ê±¼äÁË£¬ÄãÏë³³ËÀ´ó¼ÒÂğ£¿";
+		return "ç°åœ¨æ˜¯ä¼‘æ¯æ—¶é—´äº†ï¼Œä½ æƒ³åµæ­»å¤§å®¶å—ï¼Ÿ";
 
 	if(query("hammer_count") < 1)
-		return "ÄãÀ´ÍíÁË£¬ÒÑ¾­ÓĞÈËÔÚÇÃÖÓÁË¡£";
+		return "ä½ æ¥æ™šäº†ï¼Œå·²ç»æœ‰äººåœ¨æ•²é’Ÿäº†ã€‚";
 
 	add("hammer_count", -1);
 	ob = new("/d/tls/obj/zhongchui");
 	ob->move(this_player());
-	return "ºÃ°É£¬ÄãÄÃ×ÅÕâ¸öÖÓé³È¥ÇÃÖÓ°É¡£";
+	return "å¥½å§ï¼Œä½ æ‹¿ç€è¿™ä¸ªé’Ÿæ§Œå»æ•²é’Ÿå§ã€‚";
 }
 
 void reset()

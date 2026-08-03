@@ -1,4 +1,4 @@
-// xiaoshan.c µ¥Ğ¡É½
+// xiaoshan.c å•å°å±±
 // by pishou
 
 #include <ansi.h>
@@ -7,12 +7,12 @@ inherit NPC;
 
 void create()
 {
-    set_name("µ¥Ğ¡É½", ({ "shan xiaoshan", "shan", "xiaoshan" }) );
-	set("gender", "ÄĞĞÔ");
+    set_name("å•å°å±±", ({ "shan xiaoshan", "shan", "xiaoshan" }) );
+	set("gender", "ç”·æ€§");
         set("age", 25);
 	set("long",
-        "ËûÊÇÌ©É½¡°ÌúÃæÅĞ¹Ù¡±µ¥ÕıµÄĞ¡¶ù×Óµ¥Ğ¡É½¡£\n"
-        "Å¨Ã¼´óºº, ÓëÖÚĞÖµÜÈİÃ²ÉõÎªÏàËÆ¡£\n");
+        "ä»–æ˜¯æ³°å±±â€œé“é¢åˆ¤å®˜â€å•æ­£çš„å°å„¿å­å•å°å±±ã€‚\n"
+        "æµ“çœ‰å¤§æ±‰, ä¸ä¼—å…„å¼Ÿå®¹è²Œç”šä¸ºç›¸ä¼¼ã€‚\n");
         set("combat_exp", 30000);
         set("shen_type", 1);
 	set("attitude", "heroism");

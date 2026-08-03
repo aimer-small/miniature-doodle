@@ -5,12 +5,12 @@ inherit SWORD;
 
 void create()
 {
-        set_name(HIW"¶´óï"NOR,({"dongxiao",  "xiao"}));
+        set_name(HIW"æ´žç®«"NOR,({"dongxiao",  "xiao"}));
         set_weight(10000);
         if (clonep())
                 set_default_object(__FILE__);
         else{
-                set("unit", "Ö§");
+                set("unit", "æ”¯");
                 set("value", 9000);
                 set("rigidity", 9);
                 set("sharpness", 5);
@@ -20,8 +20,8 @@ void create()
                 set("wield_neili", 500);
                 set("wield_maxneili", 900);
                 set("weapon_prop/parry", 2);
-                set("wield_msg",HIY"$NÉìÊÖÇáÇáÒ»ÕÐ£¬Ò»Ö§$n" + HIY"ÒÑ³öÏÖÔÚ$NÊÖÖÐ¡£\n"NOR);
-                set("unwield_msg",HIY"$NÒ»ÉùÇåÐ¥£¬½«$n" + HIY"²å»ØÑü¼ä¡£\n"NOR);
+                set("wield_msg",HIY"$Nä¼¸æ‰‹è½»è½»ä¸€æ‹›ï¼Œä¸€æ”¯$n" + HIY"å·²å‡ºçŽ°åœ¨$Næ‰‹ä¸­ã€‚\n"NOR);
+                set("unwield_msg",HIY"$Nä¸€å£°æ¸…å•¸ï¼Œå°†$n" + HIY"æ’å›žè…°é—´ã€‚\n"NOR);
         }
         init_sword(45);
         setup();
@@ -30,7 +30,7 @@ int wield()
 {
         object me = environment();
         if (living(me) && me->query_skill("yuxiao-jian", 1) < 200){
-            message_vision("$NÄÃÆð"+name()+"£¬µ«ÊÇ²»»áÊ¹ÓÃ¡£\n", me);
+            message_vision("$Næ‹¿èµ·"+name()+"ï¼Œä½†æ˜¯ä¸ä¼šä½¿ç”¨ã€‚\n", me);
             return 0;
         }           
         if(!query("weapon_prop/damage")) return 0;

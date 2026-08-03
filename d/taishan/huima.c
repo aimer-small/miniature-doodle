@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "»ØÂíÁë");
+        set("short", "å›é©¬å²­");
         set("long", @LONG
-´Ë´¦ÓÖÃûÌì¹Ø£¬µ½ÁËÕâÀï£¬ÂíÆ¥ÒÑ²»ÄÜÔÙÇ°½ø¡£¾İËµµ±ÄêÌÆĞş×ÚÉÏÌ©É½·â
-ìø£¬À´µ½ÕâÀï£¬Òò¶¸ÇÍÄÑÅÊ£¬ÀÛËÀÁË°×Âí£¬Òª¸Ä³ËĞ¡½ÎÉÏÉ½¡£
+æ­¤å¤„åˆåå¤©å…³ï¼Œåˆ°äº†è¿™é‡Œï¼Œé©¬åŒ¹å·²ä¸èƒ½å†å‰è¿›ã€‚æ®è¯´å½“å¹´å”ç„å®—ä¸Šæ³°å±±å°
+ç¦…ï¼Œæ¥åˆ°è¿™é‡Œï¼Œå› é™¡å³­éš¾æ”€ï¼Œç´¯æ­»äº†ç™½é©¬ï¼Œè¦æ”¹ä¹˜å°è½¿ä¸Šå±±ã€‚
 LONG
         );
 
@@ -19,7 +19,7 @@ LONG
         set("objects",([
 		__DIR__"npc/jian-ke2" : 1,
         ]));
-        set("outdoors", "Ì©É½");
+        set("outdoors", "æ³°å±±");
 	setup();
 }
 
@@ -29,7 +29,7 @@ int valid_leave(object me, string dir)
 		if(me->query("can_ride"))
 			return 0;
 	        if(me->query_temp("ride_horse"))
-			return notify_fail("ÕâÎ»" + RANK_D->query_respect(me) + "»¹ÊÇÇëÏÈÏÂÂí£¬ÔÙÉÏÉ½°É£¡\n");
+			return notify_fail("è¿™ä½" + RANK_D->query_respect(me) + "è¿˜æ˜¯è¯·å…ˆä¸‹é©¬ï¼Œå†ä¸Šå±±å§ï¼\n");
         }
         return ::valid_leave(me, dir);
 }

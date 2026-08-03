@@ -4,13 +4,13 @@
 inherit FIRE_ITEM;
 void create()
 {
-        set_name(HIR"´ó»¨µÆÁı"NOR, ({"dahua denglong", "dahua" "denglong", "light"}));
+        set_name(HIR"å¤§èŠ±ç¯ç¬¼"NOR, ({"dahua denglong", "dahua" "denglong", "light"}));
         set_weight(1400);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÊÇÒ»ÕµÖ½·óµÄ´ó»¨µÆÁı£¬µ½ÁËºÚ°µµÄµØ·½¾ÍÓÃ(light)µÃ×ÅÁË¡£\n");
-                set("unit", "Õµ");
+                set("long", "è¿™æ˜¯ä¸€ç›çº¸æ•·çš„å¤§èŠ±ç¯ç¬¼ï¼Œåˆ°äº†é»‘æš—çš„åœ°æ–¹å°±ç”¨(light)å¾—ç€äº†ã€‚\n");
+                set("unit", "ç›");
                 set("value", 1500);
                 set("light/time", 360);
         }

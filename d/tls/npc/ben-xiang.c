@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("±¾Ïà´óÊ¦", ({ "benxiang dashi","benxiang","dashi"}) );
-        set("nickname", "Ä²ÄáÌÃÀÏÉ®");
-        set("long", "ÕâÎ»°×Ğë°×Ã¼£¬¿İ»Æ¾«Êİ£¬Éí´©Ò»Ï®½ğË¿Ä¾
-ÃŞôÂôÄµÄÀÏÉ®±ãÊÇ±¾Òò·½ÕÉµÄÊ¦ĞÖ±¾Ïà´óÊ¦¡£\n");
-	set("gender", "ÄĞĞÔ" );
+	set_name("æœ¬ç›¸å¤§å¸ˆ", ({ "benxiang dashi","benxiang","dashi"}) );
+        set("nickname", "ç‰Ÿå°¼å ‚è€åƒ§");
+        set("long", "è¿™ä½ç™½é¡»ç™½çœ‰ï¼Œæ¯é»„ç²¾ç˜¦ï¼Œèº«ç©¿ä¸€è¢­é‡‘ä¸æœ¨
+æ£‰è¢ˆè£Ÿçš„è€åƒ§ä¾¿æ˜¯æœ¬å› æ–¹ä¸ˆçš„å¸ˆå…„æœ¬ç›¸å¤§å¸ˆã€‚\n");
+	set("gender", "ç”·æ€§" );
         set("attitude", "friendly");
 	set("class", "bonze");
 	set("age", 72);
@@ -17,7 +17,7 @@ void create()
 	set("int", 30);
 	set("con", 25);
 	set("dex", 25);
-        create_family("ÌìÁúËÂ", 13, "µÜ×Ó");
+        create_family("å¤©é¾™å¯º", 13, "å¼Ÿå­");
         set("unique", 1);
 	set("qi", 3500);
 	set("max_qi", 3500);

@@ -1,5 +1,5 @@
 
-// nizhuan.c Äæ×ª¾ÅÒõ
+// nizhuan.c é€†è½¬ä¹é˜´
 // by snowman@SJ
 
 #include <ansi.h>
@@ -10,7 +10,7 @@ void remove_effect(object me);
 
 string exert_name()
 {
-        return HIW"Äæ×ª¾ÅÒõ"NOR;
+        return HIW"é€†è½¬ä¹é˜´"NOR;
 }
 
 int exert(object me, object target)
@@ -23,13 +23,13 @@ int exert(object me, object target)
         if(!(int)me->query_skill("hamagong", 1) )
                 return 0;
         if( me->query("oyf/hamagong") < 2 )
-                return notify_fail("ÄæÔË¸òó¡¹¦Ê¹¾­Âöµ¹×ª£¿ÕÒËÀ°¡£¿\n");
+                return notify_fail("é€†è¿è›¤èŸ†åŠŸä½¿ç»è„‰å€’è½¬ï¼Ÿæ‰¾æ­»å•Šï¼Ÿ\n");
         if((int)me->query("neili") < 300  )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
         if((int)me->query("jingli") < 200  )
-                return notify_fail("ÄãµÄ¾«Á¦²»¹»¡£\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿã€‚\n");
         if((int)me->query_temp("hmg_nizhuan") )
-                return notify_fail("ÄãÒÑ¾­ÄæÔËÁË¾ÅÒõ¡£\n");
+                return notify_fail("ä½ å·²ç»é€†è¿äº†ä¹é˜´ã€‚\n");
 
        sk = me->query_skill("force",1)/2 + me->query_skill("hamagong", 1);
        sk /= 2;
@@ -38,8 +38,8 @@ int exert(object me, object target)
        me->add("jingli", -20);
 
 
-      message_vision(HIW "\n$NË«ÊÖ³ÅµØ£¬¿ÚÖÐ·¢³öÒ»Á¬´ÜµÍºíÉù£¬Ò»¹É¹ÉÄÚ¾¢²ª·¢Ê¹$NË«×ãÀëµØ£¬³ÊÍ·ÏÂ×ãÉÏÖ®ÊÆ¡£\n" NOR, me);
-      tell_object(me, HIW "ÄãÌåÄÚ¸òó¡¹¦¾¢Á¦Äæ×ª£¬ºÃÏñÓÐ¹É¾Þ´óµÄÁ¦Á¿Òª±À·¢³öÀ´Ò»Ñù¡£\n" NOR);
+      message_vision(HIW "\n$NåŒæ‰‹æ’‘åœ°ï¼Œå£ä¸­å‘å‡ºä¸€è¿žçªœä½Žå–‰å£°ï¼Œä¸€è‚¡è‚¡å†…åŠ²å‹ƒå‘ä½¿$NåŒè¶³ç¦»åœ°ï¼Œå‘ˆå¤´ä¸‹è¶³ä¸Šä¹‹åŠ¿ã€‚\n" NOR, me);
+      tell_object(me, HIW "ä½ ä½“å†…è›¤èŸ†åŠŸåŠ²åŠ›é€†è½¬ï¼Œå¥½åƒæœ‰è‚¡å·¨å¤§çš„åŠ›é‡è¦å´©å‘å‡ºæ¥ä¸€æ ·ã€‚\n" NOR);
 
    me->start_call_out( (: call_other, this_object(), "remove_effect", me :), skill);
 
@@ -82,22 +82,22 @@ void remove_effect(object me)
 if(me->query("oyf/hamagong")==3 ) me->add_temp("apply/armor",-amount);
 
         me->delete_temp("hmg_nizhuan");
-  tell_object(me, HIW "Äã¸òó¡¹¦ÄæÔË¹ý¾Ã£¬ÉñÖÇ½¥½¥²»Çå£¬Ö»ºÃÖÐÖ¹ÁËÄæ×ª¡£\n" NOR);      
+  tell_object(me, HIW "ä½ è›¤èŸ†åŠŸé€†è¿è¿‡ä¹…ï¼Œç¥žæ™ºæ¸æ¸ä¸æ¸…ï¼Œåªå¥½ä¸­æ­¢äº†é€†è½¬ã€‚\n" NOR);      
 }
 
 int help(object me)
 {
-write(WHT"\n¸òó¡¹¦¡¸Äæ×ª¾ÅÒõ¡¹£º"NOR"\n");
+write(WHT"\nè›¤èŸ†åŠŸã€Œé€†è½¬ä¹é˜´ã€ï¼š"NOR"\n");
 write(@HELP
-Å·Ñô·æµÄ¶ÀÃÅ¾ø¼¼¸òó¡¹¦ÄËÊÇÌìÏÂÎäÑ§ÖÐµÄ¾ø¶¥¹¦·ò¡£×Ô´ÓËûÄæÁ·¾ÅÒõ³É·è
-¶øÓÖ¶áµÃÌìÏÂµÚÒ»µÄ³ÆºÅºó£¬Õâ¸òó¡¹¦¸ü´óÄæÑ°³£Îä¹¦£¬¸ü¼Ó¹ÖÒìÎÞÂ×¡£Õâ
-Äæ×ª¾ÅÒõÖ®·¨£¬±ãÊÇµ±ÄêËû´«ÓëÑî¹ýµÄ¾ø¼¼£¡
+æ¬§é˜³é”‹çš„ç‹¬é—¨ç»æŠ€è›¤èŸ†åŠŸä¹ƒæ˜¯å¤©ä¸‹æ­¦å­¦ä¸­çš„ç»é¡¶åŠŸå¤«ã€‚è‡ªä»Žä»–é€†ç»ƒä¹é˜´æˆç–¯
+è€Œåˆå¤ºå¾—å¤©ä¸‹ç¬¬ä¸€çš„ç§°å·åŽï¼Œè¿™è›¤èŸ†åŠŸæ›´å¤§é€†å¯»å¸¸æ­¦åŠŸï¼Œæ›´åŠ æ€ªå¼‚æ— ä¼¦ã€‚è¿™
+é€†è½¬ä¹é˜´ä¹‹æ³•ï¼Œä¾¿æ˜¯å½“å¹´ä»–ä¼ ä¸Žæ¨è¿‡çš„ç»æŠ€ï¼
 
-      ÒªÇó£ºÄÚÁ¦ 300 ÒÔÉÏ£»
-            ½â¿ª¸òó¡¹¦ÃØÌâ¶þ£»
-            ¿ÉÒÔÊ©Õ¹Äæ×ª¾ÅÒõ£»
-            ½â¿ª¸òó¡¹¦ÃØÌâÈý£»
-            ¿ÉÒÔÊÍ·ÅÄæ×ª¾ÅÒõÕæÕýÍþÁ¦¡£
+      è¦æ±‚ï¼šå†…åŠ› 300 ä»¥ä¸Šï¼›
+            è§£å¼€è›¤èŸ†åŠŸç§˜é¢˜äºŒï¼›
+            å¯ä»¥æ–½å±•é€†è½¬ä¹é˜´ï¼›
+            è§£å¼€è›¤èŸ†åŠŸç§˜é¢˜ä¸‰ï¼›
+            å¯ä»¥é‡Šæ”¾é€†è½¬ä¹é˜´çœŸæ­£å¨åŠ›ã€‚
 HELP
 );
 return 1;

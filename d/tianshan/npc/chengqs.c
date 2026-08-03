@@ -5,11 +5,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("³ÌÇàËª", ({ "cheng qingshuang", "cheng"}));
+        set_name("ç¨‹é’éœœ", ({ "cheng qingshuang", "cheng"}));
         set("long",
-	    "ËıÊÇ¡¸ÁéğÕ¹¬¡¹¾ÅÌì¾Å²¿ÖĞ¾ûÌì²¿µÄ¸±Ê×Áì.\n");
-	set("title", "¾ûÌì²¿¸±Ê×Áì");
-	set("gender", "Å®ĞÔ");
+	    "å¥¹æ˜¯ã€Œçµé¹«å®«ã€ä¹å¤©ä¹éƒ¨ä¸­é’§å¤©éƒ¨çš„å‰¯é¦–é¢†.\n");
+	set("title", "é’§å¤©éƒ¨å‰¯é¦–é¢†");
+	set("gender", "å¥³æ€§");
 	set("per",25);
         set("age", 30);
         set("shen_type",1);
@@ -51,7 +51,7 @@ void create()
         prepare_skill("hand", "zhemei-shou");
         prepare_skill("strike", "liuyang-zhang");
 
-        create_family("ÁéğÕ¹¬",3,"µÜ×Ó");
+        create_family("çµé¹«å®«",3,"å¼Ÿå­");
         setup();
         carry_object(__DIR__"obj/qingyi")->wear();
 	if(!random(3))

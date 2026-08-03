@@ -5,17 +5,17 @@ inherit NPC;
 
 void create()
 {
-	set_name("µÀ¾õìøÊ¦", ({
+	set_name("é“è§‰ç¦…å¸ˆ", ({
 		"daojue chanshi",
 		"daojue",
 		"chanshi",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Éí²Ä¸ß´óµÄÖĞÄêÉ®ÈË£¬Á½±Û´Ö×³£¬°òÀ«ÑüÔ²¡£ËûÊÖ³Ö±ø\n"
-		"ÈĞ£¬Éí´©Ò»Ï®»Ò²¼Ïâ±ßôÂôÄ£¬ËÆºõÓĞÒ»ÉíÎäÒÕ¡£\n"
+		"ä»–æ˜¯ä¸€ä½èº«æé«˜å¤§çš„ä¸­å¹´åƒ§äººï¼Œä¸¤è‡‚ç²—å£®ï¼Œè†€é˜”è…°åœ†ã€‚ä»–æ‰‹æŒå…µ\n"
+		"åˆƒï¼Œèº«ç©¿ä¸€è¢­ç°å¸ƒé•¶è¾¹è¢ˆè£Ÿï¼Œä¼¼ä¹æœ‰ä¸€èº«æ­¦è‰ºã€‚\n"
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -57,7 +57,7 @@ void create()
 	prepare_skill("hand", "fengyun-shou");
         prepare_skill("leg", "shaolin-tantui");
 
-	create_family("ÉÙÁÖÅÉ", 39, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 39, "å¼Ÿå­");
 
 	setup();
 

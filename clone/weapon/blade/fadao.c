@@ -1,4 +1,4 @@
-// fadao.c ·¨µ¶
+// fadao.c æ³•åˆ€
 // By Looklove@SJ 2000/10/06
 
 #include <ansi.h>
@@ -9,19 +9,19 @@ inherit BLADE;
 
 void create()
 {
-	set_name(HIW "·¨µ¶" NOR, ({ "fa dao", "dao", "knife"}));
+	set_name(HIW "æ³•åˆ€" NOR, ({ "fa dao", "dao", "knife"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("damage", 15);
 		set("embed", 1);
-		set("unit", "±ú");
-		set("throw_msg", HIW"$NÊÖÍóÒ»·­£¬Ò»±úĞ¡µ¶×ÔÊÖĞÄ·É³öÖ±Ïò$n¼±Éä¶øÈ¥£¡\n"NOR);
-		set("long", "Ò»Ã¶´¿¸ÖµÄĞ¡µ¶£¬µ¶ÉíÑ©ÁÁ£¬´òÔìµÃ¼«ÊÇ¾«ÖÂ¡£·æÀûÎŞ±È¡£\n");
+		set("unit", "æŸ„");
+		set("throw_msg", HIW"$Næ‰‹è…•ä¸€ç¿»ï¼Œä¸€æŸ„å°åˆ€è‡ªæ‰‹å¿ƒé£å‡ºç›´å‘$næ€¥å°„è€Œå»ï¼\n"NOR);
+		set("long", "ä¸€æšçº¯é’¢çš„å°åˆ€ï¼Œåˆ€èº«é›ªäº®ï¼Œæ‰“é€ å¾—ææ˜¯ç²¾è‡´ã€‚é”‹åˆ©æ— æ¯”ã€‚\n");
 		set("value", 300);
-		set("wield_msg", "$NÊÖÖ¸Ò»¶¯£¬²»ÖªÊ²Ã´Ê±ºòÊÖÀïÒÑ¾­¶àÁËÒ»±úĞ¡µ¶¡£\n");
-		set("unwield_msg", "$NÊÖÕÆÒ»ÊÕ£¬$nÍ»È»ÏûÊ§ÔÚÊÖÖĞ¡£\n");
+		set("wield_msg", "$Næ‰‹æŒ‡ä¸€åŠ¨ï¼Œä¸çŸ¥ä»€ä¹ˆæ—¶å€™æ‰‹é‡Œå·²ç»å¤šäº†ä¸€æŸ„å°åˆ€ã€‚\n");
+		set("unwield_msg", "$Næ‰‹æŒä¸€æ”¶ï¼Œ$nçªç„¶æ¶ˆå¤±åœ¨æ‰‹ä¸­ã€‚\n");
 	}
         init_blade(160);
 	setup();

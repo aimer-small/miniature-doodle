@@ -1,13 +1,13 @@
-// mg3.c ÃÔ¹¬
+// mg3.c è¿·å®«
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 {
-        set("short", CYN "¸ß²ıÃÔ¹¬" NOR);
+        set("short", CYN "é«˜æ˜Œè¿·å®«" NOR);
         set("long", @LONG
-ÄãÔ½×ßÔ½º¦ÅÂ£¬²»ÖªµÀÇ°Ãæ»á³öÏÖÊ²Ã´¶«Î÷£¬ÄãÊÖÉÏÌá×ÅÎäÆ÷£¬ÂıÂıµÄÃş
-Ë÷×ÅÇ°½ø¡£
+ä½ è¶Šèµ°è¶Šå®³æ€•ï¼Œä¸çŸ¥é“å‰é¢ä¼šå‡ºç°ä»€ä¹ˆä¸œè¥¿ï¼Œä½ æ‰‹ä¸Šæç€æ­¦å™¨ï¼Œæ…¢æ…¢çš„æ‘¸
+ç´¢ç€å‰è¿›ã€‚
 LONG);
         set("no_sleep_room", 1);
         set("exits", ([
@@ -29,12 +29,12 @@ int valid_leave(object me, string dir)
        if (me->query_temp("mark/steps") == 5){
             me->move(__DIR__"mg-indoor");
             me->delete_temp("mark/steps");
-             return notify_fail("ÄãÕı×ß×Å£¬Í»È»·¢ÏÖÇ°ÃæºÃÏóÓĞÁËÒ»Ğ©¹âÁÁ¡£\n");
+             return notify_fail("ä½ æ­£èµ°ç€ï¼Œçªç„¶å‘ç°å‰é¢å¥½è±¡æœ‰äº†ä¸€äº›å…‰äº®ã€‚\n");
        }  
        if (me->query_temp("mark/steps") == -5){  
            me->move(__DIR__"mg2");
            me->delete_temp("mark/steps");
-             return notify_fail("ÄãÕı×ß×Å£¬Í»È»·¢ÏÖÇ°ÃæºÃÏóÓĞÁËÒ»Ğ©¹âÁÁ¡£\n");
+             return notify_fail("ä½ æ­£èµ°ç€ï¼Œçªç„¶å‘ç°å‰é¢å¥½è±¡æœ‰äº†ä¸€äº›å…‰äº®ã€‚\n");
        }           
        return ::valid_leave(me, dir);
 }

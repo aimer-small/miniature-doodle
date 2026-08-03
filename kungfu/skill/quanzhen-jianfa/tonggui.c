@@ -1,4 +1,4 @@
-// jianjue.c È«Õæ½£·¨ Í¬¹é½£¾÷
+// jianjue.c å…¨çœŸå‰‘æ³• åŒå½’å‰‘è¯€
 // modified by xjqx@SJ 2009/01/01
 #include <ansi.h>
 
@@ -14,38 +14,38 @@ int perform(object me, object target)
         if( !target
          || !target->is_character()
          || !me->is_fighting(target) )
-                return notify_fail("¡¸Í¬¹é½£¾÷¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€ŒåŒå½’å‰‘è¯€ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if( !objectp(weapon = me->query_temp("weapon"))
          || weapon->query("skill_type") != "sword" )
-                return notify_fail("ÄãÊÖÖĞÎŞ½££¬ÈçºÎÄÜ¹»Ê¹³ö¡¸Í¬¹é½£¾÷¡¹£¿£¡\n");
+                return notify_fail("ä½ æ‰‹ä¸­æ— å‰‘ï¼Œå¦‚ä½•èƒ½å¤Ÿä½¿å‡ºã€ŒåŒå½’å‰‘è¯€ã€ï¼Ÿï¼\n");
 
         if( (int)me->query_skill("quanzhen-jianfa", 1) < 150 )
-                return notify_fail("ÄãµÄÈ«Õæ½£·¨²»¹»æµÊì£¬ÎŞ·¨Ê¹³ö¡¸Í¬¹é½£¾÷¡¹¡£\n");
+                return notify_fail("ä½ çš„å…¨çœŸå‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œæ— æ³•ä½¿å‡ºã€ŒåŒå½’å‰‘è¯€ã€ã€‚\n");
                 
         if( me->query_temp("qzjf/jianjue"))
-                return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸Í¬¹é½£¾÷¡¹£¡\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€ŒåŒå½’å‰‘è¯€ã€ï¼\n");
 
         if( (int)me->query_skill("xiantian-gong", 1) < 150 )
-         return notify_fail("ÄãµÄÌØÊâÄÚ¹¦»ğºò²»¹»£¬ÎŞ·¨Ê¹³ö¡¸Í¬¹é½£¾÷¡¹£¡\n");
+         return notify_fail("ä½ çš„ç‰¹æ®Šå†…åŠŸç«å€™ä¸å¤Ÿï¼Œæ— æ³•ä½¿å‡ºã€ŒåŒå½’å‰‘è¯€ã€ï¼\n");
 
         if( me->query_skill_mapped("force") != "xiantian-gong")
-        return notify_fail("ÄãµÄÏÖÔÚÊ¹ÓÃµÄÄÚ¹¦²»¶Ô£¬ÎŞ·¨Ê¹³ö¡¸Í¬¹é½£¾÷¡¹£¡\n");    
+        return notify_fail("ä½ çš„ç°åœ¨ä½¿ç”¨çš„å†…åŠŸä¸å¯¹ï¼Œæ— æ³•ä½¿å‡ºã€ŒåŒå½’å‰‘è¯€ã€ï¼\n");    
 
         if (me->query_skill_mapped("sword") != "quanzhen-jianfa"
          || me->query_skill_mapped("parry") != "quanzhen-jianfa")
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸Í¬¹é½£¾÷¡¹½øĞĞ¹¥»÷¡£\n");
+                return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€ŒåŒå½’å‰‘è¯€ã€è¿›è¡Œæ”»å‡»ã€‚\n");
 
         if( me->query("max_neili") <= 2500 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»×ã£¬¾¢Á¦²»×ãÒÔÊ©Õ¹¡¸Í¬¹é½£¾÷¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸è¶³ï¼ŒåŠ²åŠ›ä¸è¶³ä»¥æ–½å±•ã€ŒåŒå½’å‰‘è¯€ã€ï¼\n");
 
         if( me->query("neili") <= 1500 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬¾¢Á¦²»×ãÒÔÊ©Õ¹¡¸Í¬¹é½£¾÷¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼ŒåŠ²åŠ›ä¸è¶³ä»¥æ–½å±•ã€ŒåŒå½’å‰‘è¯€ã€ï¼\n");
 
         if( me->query("jingli") <= 1000 )
-                return notify_fail("ÄãµÄ¾«Á¦ÓĞÏŞ£¬²»×ãÒÔÊ©Õ¹¡¸Í¬¹é½£¾÷¡¹£¡\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›æœ‰é™ï¼Œä¸è¶³ä»¥æ–½å±•ã€ŒåŒå½’å‰‘è¯€ã€ï¼\n");
 
-        message_vision(HIC+me->name()+HIC"×óÊÖÄóÒ»¸ö½£¾÷£¬ÓÒÊÖÎÕÆğ" + weapon->name() + ""HIC"£¬Æ´×Å×îºóµÄÁ¦Æø£¬Ò»Ê½¡¸"HIR"Í¬¹é½£¾÷"NOR"¡¹"HIC"£¬\n"HIC"Ô¦½£ÃÍÁÒ¾øÂ×µØ³åÏò"+target->name()+HIC",ÒâÍ¼Óë"+target->name()+HIR"Í¬¹éÒ»¾¡"NOR+HIC"£¡\n"NOR, me);
+        message_vision(HIC+me->name()+HIC"å·¦æ‰‹æä¸€ä¸ªå‰‘è¯€ï¼Œå³æ‰‹æ¡èµ·" + weapon->name() + ""HIC"ï¼Œæ‹¼ç€æœ€åçš„åŠ›æ°”ï¼Œä¸€å¼ã€Œ"HIR"åŒå½’å‰‘è¯€"NOR"ã€"HIC"ï¼Œ\n"HIC"é©­å‰‘çŒ›çƒˆç»ä¼¦åœ°å†²å‘"+target->name()+HIC",æ„å›¾ä¸"+target->name()+HIR"åŒå½’ä¸€å°½"NOR+HIC"ï¼\n"NOR, me);
  if(userp(me)){
            me->add("neili", -300);
            me->add("jingli", -50);
@@ -59,7 +59,7 @@ int perform(object me, object target)
         me->add_temp("apply/sword", improve);//
         me->add_temp("apply/strength", improve);//
         call_out("remove_effect", 1,  me, weapon, skill);
-        me->start_perform(5, "¡¸Í¬¹é½£¾÷¡¹");
+        me->start_perform(5, "ã€ŒåŒå½’å‰‘è¯€ã€");
         return 1;
 }
 
@@ -78,12 +78,12 @@ void remove_effect(object me,object weapon,int count)
           me->add_temp("apply/strength", -i);
           me->delete_temp("qzjf/jianjue");
 	if (weapon)
-                message_vision(HIW"$NÊ¹Íê"NOR"¡¸"HIR"Í¬¹é½£¾÷"NOR+HIW"¡¹£¬"NOR+weapon->name()+HIW"µÄÈ«Õæ½£ÆøÖğ½¥ÏûÊ§£¬ÍşÁ¦´ó¼õ¡£\n"NOR, me);
+                message_vision(HIW"$Nä½¿å®Œ"NOR"ã€Œ"HIR"åŒå½’å‰‘è¯€"NOR+HIW"ã€ï¼Œ"NOR+weapon->name()+HIW"çš„å…¨çœŸå‰‘æ°”é€æ¸æ¶ˆå¤±ï¼Œå¨åŠ›å¤§å‡ã€‚\n"NOR, me);
           return;
         }
         else {
-          me->start_perform(1,"¡¸Í¬¹é½£¾÷¡¹");
+          me->start_perform(1,"ã€ŒåŒå½’å‰‘è¯€ã€");
           call_out("remove_effect", 1, me, weapon, count -1);
         }
 }               
-string perform_name(){ return HIC"Í¬¹é½£¾÷"NOR; }
+string perform_name(){ return HIC"åŒå½’å‰‘è¯€"NOR; }

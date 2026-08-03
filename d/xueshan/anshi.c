@@ -5,13 +5,13 @@
 #include <room.h>
 
 inherit ROOM;
-#define QUESTDIR2 "quest/ÌìÁú°Ë²¿/ÌìÁúÓª¾ÈÆª/"
+#define QUESTDIR2 "quest/å¤©é¾™å…«éƒ¨/å¤©é¾™è¥æ•‘ç¯‡/"
 
 void create()
 {
-	set("short", "°µÊÒ");
+	set("short", "æš—å®¤");
 	set("long", @LONG
-Ë­ÄÜÁÏµ½´óÂÖËÂÕÆÃÅ¾ÓËù±³ºóÓĞÕâµÈÒ»¸ö°µÊÒ£¬²»ÖªµÀÆ½Ê±×öºÎÓÃ´¦¡£
+è°èƒ½æ–™åˆ°å¤§è½®å¯ºæŒé—¨å±…æ‰€èƒŒåæœ‰è¿™ç­‰ä¸€ä¸ªæš—å®¤ï¼Œä¸çŸ¥é“å¹³æ—¶åšä½•ç”¨å¤„ã€‚
 LONG
 	);
 	//set("exits", (["south" : __DIR__"fatang2",]));
@@ -38,9 +38,9 @@ void init()
 
 int do_push(string arg)
 {
-        if( arg == "wall" || arg == "Ç½" || arg == "Ç½±ß")
+        if( arg == "wall" || arg == "å¢™" || arg == "å¢™è¾¹")
         {
-        message_vision("$NÍÆ¿ªÕâ¶ÂÇ½£¬´ò¿ª³ö¿Ú¡£\n", this_player());
+        message_vision("$Næ¨å¼€è¿™å µå¢™ï¼Œæ‰“å¼€å‡ºå£ã€‚\n", this_player());
         if( !query("exits/south") ) {
         set("exits/south", __DIR__"fatang2");
         remove_call_out("close_path");
@@ -52,6 +52,6 @@ int do_push(string arg)
 void close_path()
 {
         if( !query("exits/south") ) return;
-        message("vision","Ò»»á»á£¬àÌµÄÒ»Éù£¬Ç½ÓÖ»Ö¸´Ô­Ñù¡£\n", this_object() );
+        message("vision","ä¸€ä¼šä¼šï¼Œå—µçš„ä¸€å£°ï¼Œå¢™åˆæ¢å¤åŸæ ·ã€‚\n", this_object() );
         delete("exits/south");
 }

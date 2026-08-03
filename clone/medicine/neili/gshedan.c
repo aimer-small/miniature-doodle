@@ -1,4 +1,4 @@
-// gshedan.c ¶¾òşµ¨
+// gshedan.c æ¯’èŸ’èƒ†
 
 #include <ansi.h>
 inherit ITEM;
@@ -13,13 +13,13 @@ void init()
 
 void create()
 {
-        set_name(MAG"¶¾òşµ¨"NOR, ({"dumang dan", "mangdan", "dan" }));
+        set_name(MAG"æ¯’èŸ’èƒ†"NOR, ({"dumang dan", "mangdan", "dan" }));
         set_weight(100);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", "Ò»¿ÅÉî×ÏÉ«ĞÈ³ôÔ²Çò¡£\n");
+                set("unit", "é¢—");
+                set("long", "ä¸€é¢—æ·±ç´«è‰²è…¥è‡­åœ†çƒã€‚\n");
                 set("no_drop", 1);                
                 set("no_give", 1);
                 set("no_sell", 1);
@@ -37,22 +37,22 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 	i = (me->query("str") + 10) * 10; 
 
-	if (!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if (!id(arg)) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if(this_object()->query("owner") != me->query("id"))       
-		return notify_fail("Õâ¿Å¶¾òşµ¨ºÃÏó²»ÊÇÄãµÃµ½µÄ°É£¿\n");
+		return notify_fail("è¿™é¢—æ¯’èŸ’èƒ†å¥½è±¡ä¸æ˜¯ä½ å¾—åˆ°çš„å§ï¼Ÿ\n");
 
 	if ( me->query("max_neili") < 400 
           && me->query("max_neili") > 2){
 		me->add("max_neili", -3);
-		message_vision(HIR "$NÇáÇáÒ§µÃÒ»¿ÚÔ²Çò£¬Ö»¾õÖ­ÒºĞÈ¼«¿à¼«£¬ÄÑ³ÔÎŞ±È£¬Ô­À´¹¦Á¦»¹²»×ãÒÔµÖµ²Ò©Ğ§¡£\n" NOR, me);
-		log_file("quest/neili",sprintf("%-18sÎóÊ³%s¼õÈ¥ÄÚÁ¦Èıµã¡£\n",
+		message_vision(HIR "$Nè½»è½»å’¬å¾—ä¸€å£åœ†çƒï¼Œåªè§‰æ±æ¶²è…¥æè‹¦æï¼Œéš¾åƒæ— æ¯”ï¼ŒåŸæ¥åŠŸåŠ›è¿˜ä¸è¶³ä»¥æŠµæŒ¡è¯æ•ˆã€‚\n" NOR, me);
+		log_file("quest/neili",sprintf("%-18sè¯¯é£Ÿ%så‡å»å†…åŠ›ä¸‰ç‚¹ã€‚\n",
 			me->name(1)+"("+capitalize(me->query("id"))+")",this_object()->name()), me);
 	}
 	else if ((int)me->query_condition("medicine" )){
 		me->add("max_neili", -10);
-		message_vision(HIR "$NÇáÇáÒ§µÃÒ»¿ÚÔ²Çò£¬Ö»¾õÖ­ÒºĞÈ¼«¿à¼«£¬ÄÑ³ÔÎŞ±È£¬Ô­À´Æµ·±³ÔÒ©Ôİ²»ÄÜµÖµ²Ò©Ğ§¡£\n" NOR, me);
-		log_file("quest/neili",sprintf("%-18sÎóÊ³%s¼õÈ¥ÄÚÁ¦Ê®µã¡£\n",
+		message_vision(HIR "$Nè½»è½»å’¬å¾—ä¸€å£åœ†çƒï¼Œåªè§‰æ±æ¶²è…¥æè‹¦æï¼Œéš¾åƒæ— æ¯”ï¼ŒåŸæ¥é¢‘ç¹åƒè¯æš‚ä¸èƒ½æŠµæŒ¡è¯æ•ˆã€‚\n" NOR, me);
+		log_file("quest/neili",sprintf("%-18sè¯¯é£Ÿ%så‡å»å†…åŠ›åç‚¹ã€‚\n",
 			me->name(1)+"("+capitalize(me->query("id"))+")",this_object()->name()), me);
 	}
 	else {
@@ -60,16 +60,16 @@ int do_eat(string arg)
 			improve = random(2);
 			me->add("max_neili", improve);
 			me->apply_condition("medicine", me->query_condition("medicine")+ 60);                
-			message_vision(HIG"$NÇáÇáÒ§µÃÒ»ÏÂ£¬Ô²ÇòÍâÆ¤±ã¼´ÆÆÁÑ£¬µÇÊ±Âú¿Ú¿àÖ­¡£\n"+
-				"µ«¹ıÁËÒ»»á£¬ÂÔĞĞÔËÆø£¬±ã¾õºôÎüË³³©£¬¾«Éñ´óÍú£¬ÓÈÊ¤Æ½Ê±¡£ \n" NOR, me);
-			log_file("quest/neili",sprintf("%-18s³ÔÁË%sÌáÉıÄÚÁ¦%sµã¡£\n",
+			message_vision(HIG"$Nè½»è½»å’¬å¾—ä¸€ä¸‹ï¼Œåœ†çƒå¤–çš®ä¾¿å³ç ´è£‚ï¼Œç™»æ—¶æ»¡å£è‹¦æ±ã€‚\n"+
+				"ä½†è¿‡äº†ä¸€ä¼šï¼Œç•¥è¡Œè¿æ°”ï¼Œä¾¿è§‰å‘¼å¸é¡ºç•…ï¼Œç²¾ç¥å¤§æ—ºï¼Œå°¤èƒœå¹³æ—¶ã€‚ \n" NOR, me);
+			log_file("quest/neili",sprintf("%-18såƒäº†%sæå‡å†…åŠ›%sç‚¹ã€‚\n",
 				me->name(1)+"("+capitalize(me->query("id"))+")",this_object()->name(),chinese_number(improve)), me);
 		}
 		else {
 			me->add("food", 200);
 			if( me->query("food") >= i)
 			me->set("food", i + 50);
-			message_vision(HIG"$NÇáÇáÒ§µÃÒ»ÏÂ£¬Ô²ÇòÍâÆ¤±ã¼´ÆÆÁÑ£¬µÇÊ±Âú¿Ú¿àÖ­¡£\n"NOR,me);
+			message_vision(HIG"$Nè½»è½»å’¬å¾—ä¸€ä¸‹ï¼Œåœ†çƒå¤–çš®ä¾¿å³ç ´è£‚ï¼Œç™»æ—¶æ»¡å£è‹¦æ±ã€‚\n"NOR,me);
 		}
 	}
 	destruct(this_object());

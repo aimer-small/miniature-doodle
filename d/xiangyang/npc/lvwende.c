@@ -4,15 +4,15 @@ inherit NPC;
 string ask_me();
 void create()
 {
-        set_name("ÂÀÎÄµÂ", ({ "lv wende", "lv" }));
-        set("title", "ÏåÑôÖª¸®");
-        set("gender", "ÄĞĞÔ");
+        set_name("å•æ–‡å¾·", ({ "lv wende", "lv" }));
+        set("title", "è¥„é˜³çŸ¥åºœ");
+        set("gender", "ç”·æ€§");
         set("age", 40);
         set("str", 20);
         set("int", 20);
         set("con", 20);
         set("dex", 20);
-        set("long", "ËûÊÇÏåÑôµÄÏÖÈÎÖª¸®£¬ÔÚÏåÑôÂÊÁì´óËÎ¾üÃñÓëÃÉ¹Å÷²×Ó¶Ô¿¹¡£\n");
+        set("long", "ä»–æ˜¯è¥„é˜³çš„ç°ä»»çŸ¥åºœï¼Œåœ¨è¥„é˜³ç‡é¢†å¤§å®‹å†›æ°‘ä¸è’™å¤é‘å­å¯¹æŠ—ã€‚\n");
         set("combat_exp", 350000);
         set("attitude", "peaceful");
        set("max_qi", 1200);
@@ -30,8 +30,8 @@ void create()
        map_skill("parry", "qingmang-jianfa");
        map_skill("parry", "qingmang-jianfa");
        set("inquiry", ([              
-                "Æú°µÍ¶Ã÷" : (: ask_me :),
-                "Í¶³Ï" : (: ask_me :),
+                "å¼ƒæš—æŠ•æ˜" : (: ask_me :),
+                "æŠ•è¯š" : (: ask_me :),
        ]));
         setup();
         carry_object(ARMOR_D("cloth"))->wear();
@@ -41,7 +41,7 @@ void kill_ob(object ob)
 {
 //        ob->remove_killer(this_object());
 //        remove_killer(ob);
-        command("say É±ÈËÀ²£¡¾ÈÃü°¡£¡");
+        command("say æ€äººå•¦ï¼æ•‘å‘½å•Šï¼");
         ob->add_condition("killer", 5);
         ::kill_ob(ob);
 }
@@ -58,30 +58,30 @@ if(obj->query("money_id")){
  if(me->query("menggu") && me->query_temp("money_ask")){
   if(obj->value() >= i){
               command("haha " + me->query("id"));
-              command("whisper "+me->query("id")+" Äã¾Í·ÅĞÄ°É£¬Õâ¼şÊÂ°üÔÚÎÒÉíÉÏ£¡");
+              command("whisper "+me->query("id")+" ä½ å°±æ”¾å¿ƒå§ï¼Œè¿™ä»¶äº‹åŒ…åœ¨æˆ‘èº«ä¸Šï¼");
                 me->delete("menggu");
                 me->delete_temp("money_ask");
               return 1;
               }
           else {
-              command("say ²ÅÕâÃ´µãÇ®ÄÜ¸ÉÊ²Ã´£¿");
+              command("say æ‰è¿™ä¹ˆç‚¹é’±èƒ½å¹²ä»€ä¹ˆï¼Ÿ");
               return 1;
               }
           }
         else {
-             command("say ²ÅÕâÃ´µãÇ®ÄÜ¸ÉÊ²Ã´£¿");
+             command("say æ‰è¿™ä¹ˆç‚¹é’±èƒ½å¹²ä»€ä¹ˆï¼Ÿ");
              return 1;
              }
 }
     
 if(userp(obj))
         return 0;
-        if(obj->query("id") == "renshen guoo") return 0;//ÆÁ±Îrsg
+        if(obj->query("id") == "renshen guoo") return 0;//å±è”½rsg
         if(obj->query("treasure"))
         {
            command("thumb " + me->query("id"));
            command("touch " + me->query("id"));
-           tell_object(me,"ÂÀÎÄµÂ¶ÔÄãÔŞµÀ£ºÖµ´ËÏåÑôÎ£ÄÑÖ®¼Ê"+RANK_D->query_respect(me)+"Ï×´ËÆæÕä£¬ÕæÄËÖÒÒåÖ®Ê¿Ò²£¡\n");
+           tell_object(me,"å•æ–‡å¾·å¯¹ä½ èµé“ï¼šå€¼æ­¤è¥„é˜³å±éš¾ä¹‹é™…"+RANK_D->query_respect(me)+"çŒ®æ­¤å¥‡çï¼ŒçœŸä¹ƒå¿ ä¹‰ä¹‹å£«ä¹Ÿï¼\n");
             if (obj->query("value")>2000)
             {
             me->add("shen", (obj->query("value")/20));
@@ -94,7 +94,7 @@ if(userp(obj))
         else
         {
         command("hmm " + me->query("id"));
-command("say ÎÒ¶Ô"+obj->name()+"²»Ï¡º±¡£");
+command("say æˆ‘å¯¹"+obj->name()+"ä¸ç¨€ç½•ã€‚");
 //             call_out("destroy", 1, obj);
 }
 return 1;
@@ -105,12 +105,12 @@ string ask_me()
 object me = this_player();
         int i = me->query("combat_exp")/20000;
     
-    if(!me->query("menggu")) return "ÄÄ¶ù¸úÄÄ°¡£¿±ğ·³ÎÒ£¡";
+    if(!me->query("menggu")) return "å“ªå„¿è·Ÿå“ªå•Šï¼Ÿåˆ«çƒ¦æˆ‘ï¼";
         if (i < 20) i = 20;
     me->set_temp("money_ask", 1);
-    message_vision("\n$N¶Ô×Å$n¹ş¹ş´óĞ¦£ºÏëÍ¶½µÎÒ´óËÎÁËÊÇ°É£¿\n", this_object(), me);
-    command("whisper "+me->query("id")+" "+chinese_number(i)+"Á½»Æ½ğ¡£");
-    return "ÄãÖªµÀ£¬ÉÏÍ·¶ÔÃÉ¹ÅÈËµÄÌ¬¶È¡­£¬ÄãÒ²²»ÄÜÈÃÎÒÄÑ×ö°É£¿\n";
+    message_vision("\n$Nå¯¹ç€$nå“ˆå“ˆå¤§ç¬‘ï¼šæƒ³æŠ•é™æˆ‘å¤§å®‹äº†æ˜¯å§ï¼Ÿ\n", this_object(), me);
+    command("whisper "+me->query("id")+" "+chinese_number(i)+"ä¸¤é»„é‡‘ã€‚");
+    return "ä½ çŸ¥é“ï¼Œä¸Šå¤´å¯¹è’™å¤äººçš„æ€åº¦â€¦ï¼Œä½ ä¹Ÿä¸èƒ½è®©æˆ‘éš¾åšå§ï¼Ÿ\n";
 }
 
 void destroy(object obj)

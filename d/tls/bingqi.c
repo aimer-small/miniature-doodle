@@ -2,23 +2,23 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "±øÆ÷·¿");
+        set("short", "å…µå™¨æˆ¿");
         set("long", @LONG
-ÕâÀïÊÇÌìÁúËÂµÄ±øÆ÷·¿£¬ÌìÁúËÂµÄÎä¹¦Ò»ÏòÊÇÒÔ¿ÕÊÖÎªÖ÷£¬µ«ÊÇ
-·¿ÖĞÈÔÈ»×¼±¸ÓĞÒ»Ğ©±øÆ÷¹©¸ÕÈëÃÅµÄµÜ×ÓÊ¹ÓÃ¡£Ç½±ßµÄ±øÆ÷¼Ü(jia)ÉÏ·Å×Å
-¸÷Ê½¸÷ÑùµÄ±øÆ÷£¬¿ÉÒÔ¸ù¾İ×Ô¼ºÏ²ºÃ£¬Ñ¡³ÃÊÖµÄ¡£
+è¿™é‡Œæ˜¯å¤©é¾™å¯ºçš„å…µå™¨æˆ¿ï¼Œå¤©é¾™å¯ºçš„æ­¦åŠŸä¸€å‘æ˜¯ä»¥ç©ºæ‰‹ä¸ºä¸»ï¼Œä½†æ˜¯
+æˆ¿ä¸­ä»ç„¶å‡†å¤‡æœ‰ä¸€äº›å…µå™¨ä¾›åˆšå…¥é—¨çš„å¼Ÿå­ä½¿ç”¨ã€‚å¢™è¾¹çš„å…µå™¨æ¶(jia)ä¸Šæ”¾ç€
+å„å¼å„æ ·çš„å…µå™¨ï¼Œå¯ä»¥æ ¹æ®è‡ªå·±å–œå¥½ï¼Œé€‰è¶æ‰‹çš„ã€‚
 LONG);
         set("exits", ([
            "west" : __DIR__"cby",
         ]));
  set("item_desc", ([ 
-"jia" : "±øÆ÷¼Ü·Å×Å¸÷Ê½¸÷ÑùµÄ±øÆ÷£º
-Ò»´ÎÖ»ÄÜÄÃÒ»¼ş¡£
-        ¸Ö½£(jian)           Ìú¼×(armor)        ³¤½£(changjian)
-        ³¤±Ş(changbian)     Öñ½£(zhujian)        ¶Ì½£(duanjian)
-        Öñ½£(zhujian)      
+"jia" : "å…µå™¨æ¶æ”¾ç€å„å¼å„æ ·çš„å…µå™¨ï¼š
+ä¸€æ¬¡åªèƒ½æ‹¿ä¸€ä»¶ã€‚
+        é’¢å‰‘(jian)           é“ç”²(armor)        é•¿å‰‘(changjian)
+        é•¿é­(changbian)     ç«¹å‰‘(zhujian)        çŸ­å‰‘(duanjian)
+        ç«¹å‰‘(zhujian)      
 
-Äã¿ÉÒÔÄÃ(na)Ò»Ñù×öÄãÎäÆ÷¡£
+ä½ å¯ä»¥æ‹¿(na)ä¸€æ ·åšä½ æ­¦å™¨ã€‚
 \n"
 ]));
 	set("coor/x",-330);
@@ -39,48 +39,48 @@ int do_na(string arg)
 	object me;
        	me=this_player();
         if (!(fam = this_player()->query("family")) 
-            || fam["family_name"] != "ÌìÁúËÂ")
-		return notify_fail("Äã²»ÊÇÌìÁúËÂµÜ×Ó£¬²»ÄÜÔÚÕâÈ¡±øÆ÷µÄ£¡£¡\n");
+            || fam["family_name"] != "å¤©é¾™å¯º")
+		return notify_fail("ä½ ä¸æ˜¯å¤©é¾™å¯ºå¼Ÿå­ï¼Œä¸èƒ½åœ¨è¿™å–å…µå™¨çš„ï¼ï¼\n");
 
-	if (me->query_temp("marks/ÄÃ1") )
-		return notify_fail("ÄãÒÑÄÃÁË±øÆ÷£¬»¹ÒªÄÃÂğ£¿£¡\n");
+	if (me->query_temp("marks/æ‹¿1") )
+		return notify_fail("ä½ å·²æ‹¿äº†å…µå™¨ï¼Œè¿˜è¦æ‹¿å—ï¼Ÿï¼\n");
 
 	if (arg=="all from jia") 
-		return notify_fail("ÄãÔõÃ´ÒªÄÃÃ´¶à±øÆ÷Ñ½£¬ÄÃÈ¥±äÂô£¿£¡\n");
+		return notify_fail("ä½ æ€ä¹ˆè¦æ‹¿ä¹ˆå¤šå…µå™¨å‘€ï¼Œæ‹¿å»å˜å–ï¼Ÿï¼\n");
 
-	if (!arg) return notify_fail("ÄãÒªÄÃÊ²Ã´±øÆ÷£¿\n");
+	if (!arg) return notify_fail("ä½ è¦æ‹¿ä»€ä¹ˆå…µå™¨ï¼Ÿ\n");
 
 	if (!"jian from jia"||!"changjian from jia"||!"duanjian from jia"
 ||!"zhujian from jia"||!"changbian from jian"
 ||!"armor from jia") return 0;
 
 	if (arg=="jian from jia"){
-       	message_vision("$N´Ó±øÆ÷¼ÜÀïÄÃ³öÒ»°Ñ¸Ö½£¡£\n",me);
-	this_player()->set_temp("marks/ÄÃ1", 1);
+       	message_vision("$Nä»å…µå™¨æ¶é‡Œæ‹¿å‡ºä¸€æŠŠé’¢å‰‘ã€‚\n",me);
+	this_player()->set_temp("marks/æ‹¿1", 1);
 	me = new("/d/city/obj/gangjian");
         me->move(this_player());
 	return 1;
 	}
 	
 	if (arg=="changjian from jia"){
-       	message_vision("$N´Ó±øÆ÷¼ÜÀïÄÃ³öÒ»°Ñ³¤½£¡£\n",me);
-	this_player()->set_temp("marks/ÄÃ1", 1);
+       	message_vision("$Nä»å…µå™¨æ¶é‡Œæ‹¿å‡ºä¸€æŠŠé•¿å‰‘ã€‚\n",me);
+	this_player()->set_temp("marks/æ‹¿1", 1);
 	me = new("/d/city/obj/changjian");
         me->move(this_player());
 	return 1;
 	}
 
 	if (arg=="duanjian from jia"){
-       	message_vision("$N´Ó±øÆ÷¼ÜÀïÄÃ³öÒ»°Ñ¶Ì½£¡£\n",me);
-	this_player()->set_temp("marks/ÄÃ1", 1);
+       	message_vision("$Nä»å…µå™¨æ¶é‡Œæ‹¿å‡ºä¸€æŠŠçŸ­å‰‘ã€‚\n",me);
+	this_player()->set_temp("marks/æ‹¿1", 1);
 	me = new("/d/city/obj/duanjian");
         me->move(this_player());
 	return 1;
 	}
 
 	if (arg=="zhujian from jia"){
-       	message_vision("$N´Ó±øÆ÷¼ÜÀïÄÃ³öÒ»°ÑÖñ½£¡£\n",me);
-	this_player()->set_temp("marks/ÄÃ1", 1);
+       	message_vision("$Nä»å…µå™¨æ¶é‡Œæ‹¿å‡ºä¸€æŠŠç«¹å‰‘ã€‚\n",me);
+	this_player()->set_temp("marks/æ‹¿1", 1);
 	me = new("/d/village/obj/zhujian");
         me->move(this_player());
 	return 1;
@@ -88,31 +88,31 @@ int do_na(string arg)
 	
 
 	if (arg=="changbian from jia"){
-       	message_vision("$N´Ó±øÆ÷¼ÜÀïÄÃ³öÒ»Ìõ³¤±Ş¡£\n",me);
-	this_player()->set_temp("marks/ÄÃ1", 1);
+       	message_vision("$Nä»å…µå™¨æ¶é‡Œæ‹¿å‡ºä¸€æ¡é•¿é­ã€‚\n",me);
+	this_player()->set_temp("marks/æ‹¿1", 1);
      me = new("/clone/weapon/changbian");
         me->move(this_player());
 	return 1;
 	}
 	if (arg=="armor from jia"){
-       	message_vision("$N´Ó±øÆ÷¼ÜÀïÄÃ³öÒ»¼şÌú¼×¡£\n",me);
-	this_player()->set_temp("marks/ÄÃ1", 1);
+       	message_vision("$Nä»å…µå™¨æ¶é‡Œæ‹¿å‡ºä¸€ä»¶é“ç”²ã€‚\n",me);
+	this_player()->set_temp("marks/æ‹¿1", 1);
 	me = new("/d/city/obj/tiejia");
         me->move(this_player());
 	return 1;
 	}
       
         if (arg=="zhubang from jia"){
-       	message_vision("$N´Ó±øÆ÷¼ÜÀïÄÃ³öÒ»¼şÖñ°ô¡£\n",me);
-	this_player()->set_temp("marks/ÄÃ1", 1);
+       	message_vision("$Nä»å…µå™¨æ¶é‡Œæ‹¿å‡ºä¸€ä»¶ç«¹æ£’ã€‚\n",me);
+	this_player()->set_temp("marks/æ‹¿1", 1);
 	me = new("/d/city/obj/zhubang");
         me->move(this_player());
 	return 1;
 	}
 
         if (arg=="gangzhang from jia"){
-       	message_vision("$N´Ó±øÆ÷¼ÜÀïÄÃ³öÒ»¼ş¸ÖÕÈ¡£\n",me);
-	this_player()->set_temp("marks/ÄÃ1", 1);
+       	message_vision("$Nä»å…µå™¨æ¶é‡Œæ‹¿å‡ºä¸€ä»¶é’¢æ–ã€‚\n",me);
+	this_player()->set_temp("marks/æ‹¿1", 1);
 	me = new("/d/city/obj/gangzhang");
         me->move(this_player());
 	return 1;

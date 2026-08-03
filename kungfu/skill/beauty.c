@@ -4,8 +4,8 @@ inherit SKILL;
 
 int valid_learn(object me)
 {
-	if (me->query("gender") == "ÄÐÐÔ" && me->query("age") < 50)
-		return notify_fail("ÄãÒ»¸ö´óÀÏÒ¯ÃÇÑ§ÕâÍæÒâ¸ÉÂï£¿\n");
+	if (me->query("gender") == "ç”·æ€§" && me->query("age") < 50)
+		return notify_fail("ä½ ä¸€ä¸ªå¤§è€çˆ·ä»¬å­¦è¿™çŽ©æ„å¹²å˜›ï¼Ÿ\n");
 	return 1;
 }
 

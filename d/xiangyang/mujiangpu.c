@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ľ����");
+	set("short", "木匠铺");
 	set("long", @LONG
-����һ�Ҽ�ª��ľ���̣�һ������ľ�������ڵ��϶�������
+这是一家简陋的木匠铺，一个中年木匠正蹲在地上钉东西。
 LONG
 	);
         set("xyjob", 1);

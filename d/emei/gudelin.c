@@ -4,13 +4,13 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short",HIC "�ŵ���" NOR);
+	set("short",HIC "古德林" NOR);
 	set("long", @LONG
-����һƬ���ܵ��ľ�֣�������ͦ���Σ�֦Ҷ����������������ӵ�𣬾�
-˵��������֮�࣬Ҫ�ǲ���Ϥ���κ�������·��
+这是一片密密的楠木林，株株秀挺俊拔，枝叶分披上捧，如两手拥佛，据
+说有七万株之多，要是不熟悉地形很容易迷路。
 LONG
 	);
-	set("outdoors", "��üɽ");
+	set("outdoors", "峨眉山");
 	set("exits", ([
  	 "east" : __FILE__,
 	 "west" : __FILE__,

@@ -9,13 +9,13 @@ void init()
 
 void create()
 {
-        set_name(HIC"ÌïÆßöèµ¨É¢"NOR, ({"tianqi san", "san"}));
+        set_name(HIC"ç”°ä¸ƒé²¨èƒ†æ•£"NOR, ({"tianqi san", "san"}));
         set_weight(100);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°ü");
-                set("long", "ÕâÊÇÒ»°üÌÒ»¨µºµÄÌïÆßöèµ¨É¢£¬ÓĞ½â°Ù¶¾µÄÆæĞ§¡£\n");
+                set("unit", "åŒ…");
+                set("long", "è¿™æ˜¯ä¸€åŒ…æ¡ƒèŠ±å²›çš„ç”°ä¸ƒé²¨èƒ†æ•£ï¼Œæœ‰è§£ç™¾æ¯’çš„å¥‡æ•ˆã€‚\n");
                 set("value", 10);
 		set("unique", 3);
 		set("no_give",1);
@@ -27,9 +27,9 @@ int do_eat(string arg)
 {
         object me = this_player();
         if (!id(arg))
-              return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+              return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         me->clear_conditions_by_type("poison");
-        message_vision(HIR"$N·şÏÂÒ»°üÌïÆßöèµ¨É¢£¬Ò»¹ÉÇåÁ¹µÄÆøÏ¢×Ôµ¤ÌïÓ¿ÉÏÀ´¡£\n"NOR, this_player());
+        message_vision(HIR"$Næœä¸‹ä¸€åŒ…ç”°ä¸ƒé²¨èƒ†æ•£ï¼Œä¸€è‚¡æ¸…å‡‰çš„æ°”æ¯è‡ªä¸¹ç”°æ¶Œä¸Šæ¥ã€‚\n"NOR, this_player());
         destruct(this_object());
         return 1;
 }

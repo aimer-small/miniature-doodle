@@ -4,15 +4,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ò°Öí", ({ "ye zhu" ,"zhu", "pig"}) );
-	set("race", "Ò°ÊÞ");
+	set_name("é‡ŽçŒª", ({ "ye zhu" ,"zhu", "pig"}) );
+	set("race", "é‡Žå…½");
 	set("age", 5);
-	set("long", "Ò»Ö»±ì·ÊÌå×³£¬·ÊÍ·´ó¶úµÄÒ°Öí¡£\n");
+	set("long", "ä¸€åªè†˜è‚¥ä½“å£®ï¼Œè‚¥å¤´å¤§è€³çš„é‡ŽçŒªã€‚\n");
 	set("attitude", "aggressive");
 
 	set("str", 26);
 	set("cor", 30);
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "ÍÈ²¿", "Î²°Í",}) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "è…¿éƒ¨", "å°¾å·´",}) );
 	set("verbs", ({ "bite" }) );
 
 	set("combat_exp", 6000);
@@ -34,7 +34,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$NÆà²ÒµÄº¿ÁË¼¸Éù, ÔÚµØÉÏ´òÁË¼¸¸ö¹ö£¬ÑöÌìËÀÁË¡£\n", this_object());
+	message_vision("$Nå‡„æƒ¨çš„åšŽäº†å‡ å£°, åœ¨åœ°ä¸Šæ‰“äº†å‡ ä¸ªæ»šï¼Œä»°å¤©æ­»äº†ã€‚\n", this_object());
 	ob = new(__DIR__"obj/zhurou");
 	ob->move(environment(this_object()));
 	destruct(this_object());

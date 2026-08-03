@@ -5,13 +5,13 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
 	if( !living(me))
-		message("vision", HIB+ me->name() + "Í´¿àµØºßÁËÒ»Éù¡£\n", environment(me), me);
+		message("vision", HIB+ me->name() + "ç—›è‹¦åœ°å“¼äº†ä¸€å£°ã€‚\n", environment(me), me);
 	else {
-		tell_object(me, HIB "ÄãÍ»È»¾õµÃÒ»¹É¶ñ³ô´Ó¸¹ÖÐÉýÆð£¬²»½û´óÅ»ÆðÀ´£¡\n" NOR );
-		tell_room(environment(me), HIB + me->name()+"Á³ÉÏ¸¡×ÅÒ»²ãºÚÆø£¬½Å²½õçõÇ£¬Í»È»ÍÂ³öÒ»¶Ñ»àÎï£¡\n" NOR, ({ me }));
+		tell_object(me, HIB "ä½ çªç„¶è§‰å¾—ä¸€è‚¡æ¶è‡­ä»Žè…¹ä¸­å‡èµ·ï¼Œä¸ç¦å¤§å‘•èµ·æ¥ï¼\n" NOR );
+		tell_room(environment(me), HIB + me->name()+"è„¸ä¸Šæµ®ç€ä¸€å±‚é»‘æ°”ï¼Œè„šæ­¥è¹’è·šï¼Œçªç„¶åå‡ºä¸€å †ç§½ç‰©ï¼\n" NOR, ({ me }));
 	}
-	me->receive_wound("qi", 200, "¸¯Ê¬¶¾·¢×÷");
-	me->receive_wound("jing", 150, "¸¯Ê¬¶¾·¢×÷");
+	me->receive_wound("qi", 200, "è…å°¸æ¯’å‘ä½œ");
+	me->receive_wound("jing", 150, "è…å°¸æ¯’å‘ä½œ");
 	me->add_busy(2);
 	if( duration < 1 ) return 0;
 	me->apply_condition("fs_poison", duration - 1); 

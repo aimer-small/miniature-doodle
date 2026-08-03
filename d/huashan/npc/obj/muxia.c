@@ -1,5 +1,5 @@
 //by daidai
-//Ä¾Ï»
+//æœ¨åŒ£
 
 #include <ansi.h>
 
@@ -7,13 +7,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIW "Ä¾Ï»" NOR, ({"muxia", "mu xia", "xie"}));
+        set_name(HIW "æœ¨åŒ£" NOR, ({"muxia", "mu xia", "xie"}));
         set_weight(50);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-              set("unit", "¸ö");
-              set("long", HIG "ÕâÊÇÒ»¸öÌ´Ä¾ÖÆ³ÉµÄĞ¡ºĞ×Ó£¬ÓÃÀ´±£´æÕä¹óÊé¼®¡£\n");
+              set("unit", "ä¸ª");
+              set("long", HIG "è¿™æ˜¯ä¸€ä¸ªæª€æœ¨åˆ¶æˆçš„å°ç›’å­ï¼Œç”¨æ¥ä¿å­˜çè´µä¹¦ç±ã€‚\n");
               set("value", 10000);
               set("unique", 1);
               set("treasure",1);

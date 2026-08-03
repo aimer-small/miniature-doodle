@@ -1,18 +1,18 @@
-// by ÎŞÃûÓ¢ĞÛ
+// by æ— åè‹±é›„
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(GRN"¡ºÇÙ¼¼ÈëÃÅ¡»"NOR, ({ "art's book", "book" }));
+	set_name(GRN"ã€ç´æŠ€å…¥é—¨ã€"NOR, ({ "art's book", "book" }));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
-		set("long", HIY"Ò»±¾Ïß×°Í¼Æ×£¬ÉÏ»æáç¡¢¹¬¡¢Óğ¡¢ÉÌ¡¢½ÇÎåÒôÖ®ÈëÃÅ»ù´¡¡£\n"+
-			"Äã¿ÉÒÔÑĞ¶Á£¨Read£©ËüÀ´ĞŞÁ¶»ù±¾µÄÇÙ¼¼¡£\n"NOR);
+		set("unit", "æœ¬");
+		set("long", HIY"ä¸€æœ¬çº¿è£…å›¾è°±ï¼Œä¸Šç»˜å¾µã€å®«ã€ç¾½ã€å•†ã€è§’äº”éŸ³ä¹‹å…¥é—¨åŸºç¡€ã€‚\n"+
+			"ä½ å¯ä»¥ç ”è¯»ï¼ˆReadï¼‰å®ƒæ¥ä¿®ç‚¼åŸºæœ¬çš„ç´æŠ€ã€‚\n"NOR);
 		set("value", 500);
 		set("material", "paper");
 		set("exp_required",100000);
@@ -42,43 +42,43 @@ int do_du(string arg)
 	if( !(arg == ob->query("id") || arg == "book") ) return 0;
 
 	if( !me->query_skill("literate", 1) )
-		return notify_fail("ÄãÊÇ¸öÎÄÃ¤£¬ÏÈÑ§µãÎÄ»¯(literate)°É¡£\n");	   
+		return notify_fail("ä½ æ˜¯ä¸ªæ–‡ç›²ï¼Œå…ˆå­¦ç‚¹æ–‡åŒ–(literate)å§ã€‚\n");	   
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( me->is_fighting() ) 
-		return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞ×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª£¡\n");
+		return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ï¼\n");
 
 	if( !id(arg) )
-		return notify_fail("ÄãÒª¶ÁÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦è¯»ä»€ä¹ˆï¼Ÿ\n");
 
 	if( j < 100 )
-		return notify_fail("ÄãµÄ¶ÁÊéĞ´×ÖµÈ¼¶²»¹»£¬ÎŞ·¨Àí½âÊéÖĞ¼ÇÔØµÄ¡¸ÀÖÀíÇÙ¼¼¡¹¡£\n"); 
+		return notify_fail("ä½ çš„è¯»ä¹¦å†™å­—ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•ç†è§£ä¹¦ä¸­è®°è½½çš„ã€Œä¹ç†ç´æŠ€ã€ã€‚\n"); 
 
 	if( !random(5) )
-		message("vision", me->name() + "Õı×¨ĞÄµØÑĞ¶Á" + this_object()->name()+"¡£\n", environment(me), me);
+		message("vision", me->name() + "æ­£ä¸“å¿ƒåœ°ç ”è¯»" + this_object()->name()+"ã€‚\n", environment(me), me);
 
 	if( (int)me->query("jing") < ob->query("jing_cost") )
-		return notify_fail("ÄãÏÖÔÚ¹ıÓÚÆ£¾ë£¬ÎŞ·¨×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª¡£\n");
+		return notify_fail("ä½ ç°åœ¨è¿‡äºç–²å€¦ï¼Œæ— æ³•ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ã€‚\n");
 
 	if( (int)me->query("combat_exp") < ob->query("exp_required"))
-		return notify_fail("ÄãµÄÊµÕ½¾­Ñé²»×ã×êÑĞ¸ü¸ßÉîµÄ¡¸ÀÖÀíÇÙ¼¼¡¹¡£\n");	
+		return notify_fail("ä½ çš„å®æˆ˜ç»éªŒä¸è¶³é’»ç ”æ›´é«˜æ·±çš„ã€Œä¹ç†ç´æŠ€ã€ã€‚\n");	
 
 	if( (int)me->query("combat_exp") < i*i*i/10 )
-		return notify_fail("ÄãµÄÊµÕ½¾­Ñé²»×ã£¬ÔÙÔõÃ´¶ÁÒ²Ã»ÓÃ¡£\n");
+		return notify_fail("ä½ çš„å®æˆ˜ç»éªŒä¸è¶³ï¼Œå†æ€ä¹ˆè¯»ä¹Ÿæ²¡ç”¨ã€‚\n");
 
 	if( me->query_int() < ob->query("difficulty") )
-		return notify_fail("ÄãÑĞ¶ÁÁËÒ»»á¶ù£¬·¢ÏÖ¸ù±¾²»ÄÜÁìÎòµ½ÉÏÃæĞ´Ğ©Ê²Ã´¡£\n");
+		return notify_fail("ä½ ç ”è¯»äº†ä¸€ä¼šå„¿ï¼Œå‘ç°æ ¹æœ¬ä¸èƒ½é¢†æ‚Ÿåˆ°ä¸Šé¢å†™äº›ä»€ä¹ˆã€‚\n");
 
 	if( i < ob->query("min_skill") )
-		return notify_fail("ÄãÑĞ¶ÁÁËÒ»»á¶ù£¬µ«ÊÇ·¢ÏÖÉÏÃæËùËµµÄ¶ÔÄã¶øÑÔ¶¼Ì«ÉîÁË£¬Ã»ÓĞÑ§µ½ÈÎºÎ¶«Î÷¡£\n");
+		return notify_fail("ä½ ç ”è¯»äº†ä¸€ä¼šå„¿ï¼Œä½†æ˜¯å‘ç°ä¸Šé¢æ‰€è¯´çš„å¯¹ä½ è€Œè¨€éƒ½å¤ªæ·±äº†ï¼Œæ²¡æœ‰å­¦åˆ°ä»»ä½•ä¸œè¥¿ã€‚\n");
 
 	if( i > ob->query("max_skill") )
-		return notify_fail("ÄãÑĞ¶ÁÁËÒ»»á¶ù£¬µ«ÊÇ·¢ÏÖÉÏÃæËùËµµÄ¶ÔÄã¶øÑÔ¶¼Ì«Ç³ÁË£¬Ã»ÓĞÑ§µ½ÈÎºÎ¶«Î÷¡£\n");
+		return notify_fail("ä½ ç ”è¯»äº†ä¸€ä¼šå„¿ï¼Œä½†æ˜¯å‘ç°ä¸Šé¢æ‰€è¯´çš„å¯¹ä½ è€Œè¨€éƒ½å¤ªæµ…äº†ï¼Œæ²¡æœ‰å­¦åˆ°ä»»ä½•ä¸œè¥¿ã€‚\n");
 
 	me->receive_damage("jing", ob->query("jing_cost")); 
 	me->improve_skill("art", me->query_int()/3 + 3);
-	write("Äã×ĞÏ¸ÑĞ¶Á×Å"+ob->name()+"£¬¾õµÃ×Ô¼º¶ÔÒôÂÉÖ®µÀÓĞËùÊÕÒæ¡£\n");
+	write("ä½ ä»”ç»†ç ”è¯»ç€"+ob->name()+"ï¼Œè§‰å¾—è‡ªå·±å¯¹éŸ³å¾‹ä¹‹é“æœ‰æ‰€æ”¶ç›Šã€‚\n");
 	return 1;
 }

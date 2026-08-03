@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "����");
+        set("short", "江畔");
 	set("long", @LONG
-���ŭ����ӿ��ˮ���ļ�������ɽʯ���������Ρ�룬�������ƣ����ǵ�
-�����ֽ��ߣ��������뽲����ʮ���ɸߣ���ˮ��Ȼ���ǣ�Ҳ�����͵��˴�����
-ȫ��ɽʯ��
+外边怒涛汹涌，水流湍急，江岸山石壁立，嶙峋巍峨，看这情势，已是到
+了澜仓江边，容身处离讲面有十来丈高，江水纵然大涨，也不会淹到此处江岸
+全是山石。
 LONG
 	);
 
@@ -17,6 +17,6 @@ LONG
            "enter" : __DIR__"taijie",
            "down" : __DIR__"anbian1",
 	]));
-        set("outdoors", "����");
+        set("outdoors", "大理");
 	setup();
 }

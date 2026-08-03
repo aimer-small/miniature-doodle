@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "É½½Å");
+        set("short", "å±±è„š");
         set("long", @LONG
-ÕâÀïÊÇÉ½½ÅÏÂµÄÒ»¿é¿ÕµØ£¬ÅÔ±ßÊúÁ¢×ÅÒ»¿éÅÆ×Ó(paizi)¡£ÓĞÁ½ÃûÎå¶¾½ÌµÄ½Ì
-ÖÚÔÚÕâÀï¿´ÊØ¡£±±ÃæµÄ¸ßÆÂ¾ÍÊÇÎå¶¾½ÌµÄ½ûµØ£¬ÈÎºÎÈË¶¼²»¸Ò½øÈ¥¡£
+è¿™é‡Œæ˜¯å±±è„šä¸‹çš„ä¸€å—ç©ºåœ°ï¼Œæ—è¾¹ç«–ç«‹ç€ä¸€å—ç‰Œå­(paizi)ã€‚æœ‰ä¸¤åäº”æ¯’æ•™çš„æ•™
+ä¼—åœ¨è¿™é‡Œçœ‹å®ˆã€‚åŒ—é¢çš„é«˜å¡å°±æ˜¯äº”æ¯’æ•™çš„ç¦åœ°ï¼Œä»»ä½•äººéƒ½ä¸æ•¢è¿›å»ã€‚
 LONG
         );
 	set("exits", ([
@@ -18,13 +18,13 @@ LONG
 		"northwest" : __DIR__"shanlu",
 	]));
 	set("item_desc", ([
-		"paizi" : HIR "Îå¶¾½Ì½ûµØ£¬ÉÃ´³Õß£¬ËÀ£¡\n"NOR,
+		"paizi" : HIR "äº”æ¯’æ•™ç¦åœ°ï¼Œæ“…é—¯è€…ï¼Œæ­»ï¼\n"NOR,
 	]));
 	set("objects",([
 		__DIR__"npc/jiaozhong1" : 2,
 		__DIR__"npc/qiyunao" : 1,
 	]));
-	set("outdoors", "Ãç½®");
+	set("outdoors", "è‹—ç–†");
 	setup();
 }
 
@@ -32,9 +32,9 @@ int valid_leave(object me, string dir)
 {
 	if (dir == "northup" && is_wanted(me))
 		return 0;
-	if (me->query("family/family_name") != "Îå¶¾½Ì"
+	if (me->query("family/family_name") != "äº”æ¯’æ•™"
 	&& present("wudujiao dizi", environment(me))
 	&& dir =="northup")
-		return notify_fail("Îå¶¾½ÌÖÚÀ÷ÉùºÈµ½£¬Îå¶¾½ûµØ£¬ÉÃ´³ÕßËÀ¡£\n");
+		return notify_fail("äº”æ¯’æ•™ä¼—å‰å£°å–åˆ°ï¼Œäº”æ¯’ç¦åœ°ï¼Œæ“…é—¯è€…æ­»ã€‚\n");
 	return ::valid_leave(me, dir);
 }

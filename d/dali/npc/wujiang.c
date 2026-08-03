@@ -1,15 +1,15 @@
-// wujiang.c Îä½«
+// wujiang.c æ­¦å°†
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("´óÀíÎä½«", ({ "dali wujiang", "wujiang", "jiang" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("å¤§ç†æ­¦å°†", ({ "dali wujiang", "wujiang", "jiang" }));
+	set("gender", "ç”·æ€§");
 	set("age", random(10) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "ËûÕ¾ÔÚÄÇÀï£¬µÄÈ·ÓĞËµ²»³öµÄÍş·ç¡£\n");
+	set("long", "ä»–ç«™åœ¨é‚£é‡Œï¼Œçš„ç¡®æœ‰è¯´ä¸å‡ºçš„å¨é£ã€‚\n");
 	set("combat_exp", 75000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -42,7 +42,7 @@ void init()
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);
 	}else if(ob->query("qinwang")) {
-         message_vision(HIY"Îä½«´óÉùËµµÀ£º¡°¹§¾´"+(string)ob->query("qinwang")+"´ó¼İ!¡±\n"NOR, ob); 
+         message_vision(HIY"æ­¦å°†å¤§å£°è¯´é“ï¼šâ€œæ­æ•¬"+(string)ob->query("qinwang")+"å¤§é©¾!â€\n"NOR, ob); 
       }
 	
 }

@@ -1,5 +1,5 @@
 //cijian.c
-//by spiderii@ty����SJ��д
+//by spiderii@ty参照SJ编写
 
 #include <ansi.h>
 
@@ -16,29 +16,29 @@ int perform(object me, object target)
 	 || !target->is_character()
 	 || !me->is_fighting(target)
 	 || !living(target) )
-		return notify_fail("���̼�ʽ��ֻ�ܶ�ս���еĶ���ʹ�á�\n");
+		return notify_fail("「刺肩式」只能对战斗中的对手使用。\n");
 
 	
     if( (int)me->query_skill("tangshi-jianfa", 1) < 180 ) 
-                return notify_fail("�����ʬ������δ���ɣ��޷�ʹ�á��̼硹�־���\n");
+                return notify_fail("你的躺尸剑法还未练成，无法使用「刺肩」字诀！\n");
 
     if((int)me->query_skill("sword", 1) < 180 )
-                return notify_fail("��Ļ�������������죬����ʹ�á��̼硹�־���\n");
+                return notify_fail("你的基本剑法不够娴熟，不能使用「刺肩」字诀！\n");
 
     if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "tangshi-jianfa")
-                return notify_fail("�����ʹ�ý���������ʹ�����̼硹�־�!\n");
+                return notify_fail("你必须使用剑法，才能使出「刺肩」字诀!\n");
 
    if(me->query_skill_mapped("parry") != "tangshi-jianfa")
-           return notify_fail("���̼硹�־���Ҫʹ����ʬ�����м�һ�ез�������\n"); 
+           return notify_fail("「刺肩」字诀需要使用躺尸剑法招架一切敌方攻击。\n"); 
 
    if((int)me->query("max_neili") < 3000 )
-           return notify_fail("��������Ϊ��ǳ��ʹ�������̼硹�־���\n");  
+           return notify_fail("你内力修为尚浅，使不出「刺肩」字诀。\n");  
 
    if( (int)me->query("neili") < 1000 )
-           return notify_fail("����������̫����ʹ�������̼硹�־���\n");
+           return notify_fail("你现在真气太弱，使不出「刺肩」字诀。\n");
 	
-   message_vision(HIY"\n$N"HIY"������������º躣���������겻�ҹˡ���$N��ʱ֮���绻��һ�㣬���γ��ȣ�����Ʈ�ݣ�"MAG"��\n"NOR, me,target);
+   message_vision(HIY"\n$N"HIY"轻轻念道：“孤鸿海上来，池潢不敢顾。”$N霎时之间如换人一般，身形沉稳，剑势飘逸！"MAG"！\n"NOR, me,target);
 
 
 	j = lvl/2;
@@ -56,23 +56,23 @@ int perform(object me, object target)
 	me->start_busy(random(2));
 	me->add("neili", -300);
 	me->add("jingli", -100);
-	me->start_perform(4, "���̼�ʽ��");
+	me->start_perform(4, "「刺肩式」");
 	return 1;
 }
 
-string perform_name(){ return HIW"�̼�ʽ"NOR; }
+string perform_name(){ return HIW"刺肩式"NOR; }
 
 int help(object me)
 {
-        write(HIW"\n��ʬ����֮���̼�ʽ����"NOR"\n\n");
+        write(HIW"\n躺尸剑法之「刺肩式」："NOR"\n\n");
         write(@HELP
-       ��ʬ�������侫���һ�С�
+       躺尸剑法极其精妙的一招。
 
-��������Ҫ�󣺡���ǰ���� 3000 ���ϣ�
-������������    ������� 1000 ���ϣ�
-������������������ʬ�����ȼ� 180 ���ϣ�
-�������������������������ȼ� 180 ���ϣ�
-���������������������м�Ϊ��ʬ������
+　　　　要求：　当前内力 3000 以上；
+　　　　　　    最大内力 1000 以上；
+　　　　　　　　躺尸剑法等级 180 以上；
+　　　　　　　　基本剑法等级 180 以上；
+　　　　　　　　激发招架为躺尸剑法。
 
 HELP
         );

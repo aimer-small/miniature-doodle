@@ -1,4 +1,4 @@
-// greenrobe.c °×É«µÀÅÛ
+// greenrobe.c ç™½è‰²é“è¢
 // By Ciwei
 
 #include <armor.h>
@@ -8,14 +8,14 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIW"°×É«µÀÅÛ"NOR, ({"pao", "cloth", "dao pao"}) );
+	set_name(HIW"ç™½è‰²é“è¢"NOR, ({"pao", "cloth", "dao pao"}) );
 	set_weight(1500);
 	if( clonep()) set_default_object(__FILE__);
 	else
 	{
 		set("female_only", 1);
-    		set("unit", "¼ş");
-    		set("long", "ÕâÊÇ¼şÖÊµØÇáÈíµÄÇàÉ«µÀÅÛ£¬±ßÉÏ»¹ïÎ×Å»¨ÄØ¡£\n");
+    		set("unit", "ä»¶");
+    		set("long", "è¿™æ˜¯ä»¶è´¨åœ°è½»è½¯çš„é’è‰²é“è¢ï¼Œè¾¹ä¸Šè¿˜é•‚ç€èŠ±å‘¢ã€‚\n");
     		set("material", "cloth");
     		set("armor_prop/armor", 5);
 	}

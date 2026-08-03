@@ -5,13 +5,13 @@ inherit STAFF;
 
 void create()
 {
-        set_name( "±ù¸ä", ({ "bing gao", "binggao","gao"}));
+        set_name( "å†°é•", ({ "bing gao", "binggao","gao"}));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long", "ÅÊµÇÓÃµÄ¹¤¾ß£¬ÓÈÆäÊÊÓÃÓÚ±ùÑ©µØĞÎ¡£\n");
+                set("unit", "æŠŠ");
+                set("long", "æ”€ç™»ç”¨çš„å·¥å…·ï¼Œå°¤å…¶é€‚ç”¨äºå†°é›ªåœ°å½¢ã€‚\n");
                 set("value", 100);
                 set("material", "steel");
         }

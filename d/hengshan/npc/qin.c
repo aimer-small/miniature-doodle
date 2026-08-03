@@ -4,8 +4,8 @@ inherit NPC;
 #include <ansi.h>;
 void create()
 {
-        set_name("ÇØ¾î", ({ "qin juan", "qin", "juan" }) );
-        set("gender", "Å®ÐÔ");
+        set_name("ç§¦ç»¢", ({ "qin juan", "qin", "juan" }) );
+        set("gender", "å¥³æ€§");
         set("class", "swordsman");
         set("age", 16);
         set("attitude", "peaceful");
@@ -40,7 +40,7 @@ void create()
         map_skill("dodge", "qingmang-jianfa");
         prepare_skill("strike", "sixiang-zhang");
 
-        create_family("ºãÉ½ÅÉ", 14, "µÜ×Ó");
+        create_family("æ’å±±æ´¾", 14, "å¼Ÿå­");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();

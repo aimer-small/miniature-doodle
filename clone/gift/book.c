@@ -1,38 +1,38 @@
-//½±ÀøÏµÍ³Ö®Êé¼®Æª
-//ĞŞ¸´ÁËÊı×éÒç³ö By Jpei@2013
+//å¥–åŠ±ç³»ç»Ÿä¹‹ä¹¦ç±ç¯‡
+//ä¿®å¤äº†æ•°ç»„æº¢å‡º By Jpei@2013
 #include <ansi.h>
 inherit ITEM;
 
 string long();
 string *clr = ({RED"",GRN"",YEL"",BLU"",MAG"",CYN"",WHT"",HIR"",HIG"",HIY"",HIB"",HIM"",HIC"",HIW""});
-string *str_skill_other = ({"taoism",                                           //Îäµ±£ºµÀÑ§ĞÄ·¨
-                            "begging",                                          //Ø¤°ï£º½Ğ»¯¾ø»î
-                            "bangjue",                                          //Ø¤°ï£º´ò¹·°ô¿Ú¾÷
-                            "stealing",                                         //Ø¤°ï£ºÃîÊÖ¿Õ¿Õ
-                            "checking",                                         //Ø¤°ï£º
-                            "zhenqijue",                                        //»ªÉ½£ºÕıÆø¾÷
-                            "tiezhang-xinfa",                                   //ÌúÕÆ£ºÌúÕÆĞÄ·¨
-                            "huanxi-chan",                                      //´óÂÖËÂ£º»¶Ï²ìø
-                            "shenlong-yaoli",                                   //ÉñÁúµº£ºÉñÁúÒ©Àí
-                            "dacheng-fofa",                                     //¶ëáÒ£º´ó³Ë·ğ·¨
-                            "qimen-bagua",                                      //ÌÒ»¨µº£ºÆæÃÅ°ËØÔ
-                            "buddhism",                                         //ÌìÁúËÂ£¬ÉÙÁÖ£ºìø×ÚĞÄ·¨
-                            "art",                                              //À¥ÂØ£ºÇÙÆåÊé»­
-                            "daode-jing",                                       //¾ÅÒõ£ºµÀµÂ¾­
-                            "poison",						//»ù±¾¶¾¼Æ
-                            "medicine",						//±¾²İÊõÀí
-                            "betting",						//¶ÄÊõ					
-                            "sailing",						//º½º£Êõ
-                            "gunnery",						//ÅÚµ¯Êõ
-                            "trade",						//ÌÖ¼Û»¹¼Û
-                            "wuxing-zhen",					//¹«¹²Õó·¨£ºÎåĞĞÕó
-                            "zhenwu-qijiezhen",					//Îäµ±Õó·¨
-                            "dagou-zhen",					//Ø¤°ï´ò¹·Õó
-                            "linji-jianzhen",					//¶ğÃ¼½£Õó
-                            "shenghuo-fumozhen",				//Ã÷½ÌÊ¥»ğ·üÄ§Õó
-                            "fumoquan-zhen",					//ÉÙÁÖ·üÄ§È¦Õó
-                            "shenlong-wudizhen",				//ÉñÁúÎŞµĞÕó
-                            "qimen-baguazhen",					//ÆæÃÅ°ËØÔÕó
+string *str_skill_other = ({"taoism",                                           //æ­¦å½“ï¼šé“å­¦å¿ƒæ³•
+                            "begging",                                          //ä¸å¸®ï¼šå«åŒ–ç»æ´»
+                            "bangjue",                                          //ä¸å¸®ï¼šæ‰“ç‹—æ£’å£è¯€
+                            "stealing",                                         //ä¸å¸®ï¼šå¦™æ‰‹ç©ºç©º
+                            "checking",                                         //ä¸å¸®ï¼š
+                            "zhenqijue",                                        //åå±±ï¼šæ­£æ°”è¯€
+                            "tiezhang-xinfa",                                   //é“æŒï¼šé“æŒå¿ƒæ³•
+                            "huanxi-chan",                                      //å¤§è½®å¯ºï¼šæ¬¢å–œç¦…
+                            "shenlong-yaoli",                                   //ç¥é¾™å²›ï¼šç¥é¾™è¯ç†
+                            "dacheng-fofa",                                     //å³¨åµ‹ï¼šå¤§ä¹˜ä½›æ³•
+                            "qimen-bagua",                                      //æ¡ƒèŠ±å²›ï¼šå¥‡é—¨å…«å¦
+                            "buddhism",                                         //å¤©é¾™å¯ºï¼Œå°‘æ—ï¼šç¦…å®—å¿ƒæ³•
+                            "art",                                              //æ˜†ä»‘ï¼šç´æ£‹ä¹¦ç”»
+                            "daode-jing",                                       //ä¹é˜´ï¼šé“å¾·ç»
+                            "poison",						//åŸºæœ¬æ¯’è®¡
+                            "medicine",						//æœ¬è‰æœ¯ç†
+                            "betting",						//èµŒæœ¯					
+                            "sailing",						//èˆªæµ·æœ¯
+                            "gunnery",						//ç‚®å¼¹æœ¯
+                            "trade",						//è®¨ä»·è¿˜ä»·
+                            "wuxing-zhen",					//å…¬å…±é˜µæ³•ï¼šäº”è¡Œé˜µ
+                            "zhenwu-qijiezhen",					//æ­¦å½“é˜µæ³•
+                            "dagou-zhen",					//ä¸å¸®æ‰“ç‹—é˜µ
+                            "linji-jianzhen",					//å¨¥çœ‰å‰‘é˜µ
+                            "shenghuo-fumozhen",				//æ˜æ•™åœ£ç«ä¼é­”é˜µ
+                            "fumoquan-zhen",					//å°‘æ—ä¼é­”åœˆé˜µ
+                            "shenlong-wudizhen",				//ç¥é¾™æ— æ•Œé˜µ
+                            "qimen-baguazhen",					//å¥‡é—¨å…«å¦é˜µ
                             //Quest Skill
                             "jiuyin-zhengong",
                             "hamagong",
@@ -47,23 +47,23 @@ string *str_skill_other = ({"taoism",                                           
 void create()
 {
         
-        set_name(NOR + WHT "½£µä²ĞÆª" NOR, ({ "jiandian book","book" }));
+        set_name(NOR + WHT "å‰‘å…¸æ®‹ç¯‡" NOR, ({ "jiandian book","book" }));
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set_weight(300);
-                set("unit", "±¾");
-                set("long", "ÕâÊÇÒ»ÕÅ²ĞÈ±²»È«µÄÊéÒ³¡£\n" NOR);
+                set("unit", "æœ¬");
+                set("long", "è¿™æ˜¯ä¸€å¼ æ®‹ç¼ºä¸å…¨çš„ä¹¦é¡µã€‚\n" NOR);
                 set("value", 30);
-                set("no_sell", "Ê²Ã´ÊÀµÀ£¬¾ÍÒ»ÕÅÆÆÖ½Í·Ò²ÄÃÀ´ÂôÇ®£¿");
+                set("no_sell", "ä»€ä¹ˆä¸–é“ï¼Œå°±ä¸€å¼ ç ´çº¸å¤´ä¹Ÿæ‹¿æ¥å–é’±ï¼Ÿ");
                 set("material", "paper");
                 set("cloned",0);
-                set("skill_name", "»ù±¾½£·¨");      // ÑĞ¾¿¼¼ÄÜµÄÃû³Æ
-                set("skill_type", "sword");         // ÑĞ¾¿¼¼ÄÜµÄÖÖÀà
-                set("power_point", 30000);          // Ôö¼Ó¼¼ÄÜµÄµãÊı
-                set("need_exp", 300000);            // ÑĞ¾¿ËùĞèµÄ×îµÍ¾­Ñé
-                set("min_lvl", 100);                // ÑĞ¾¿ËùĞèµÄ×îµÍµÈ¼¶
-                set("max_lvl", 800);                // ÄÜ¹»ÑĞ¾¿µÄ×î¸ßµÈ¼¶
+                set("skill_name", "åŸºæœ¬å‰‘æ³•");      // ç ”ç©¶æŠ€èƒ½çš„åç§°
+                set("skill_type", "sword");         // ç ”ç©¶æŠ€èƒ½çš„ç§ç±»
+                set("power_point", 30000);          // å¢åŠ æŠ€èƒ½çš„ç‚¹æ•°
+                set("need_exp", 300000);            // ç ”ç©¶æ‰€éœ€çš„æœ€ä½ç»éªŒ
+                set("min_lvl", 100);                // ç ”ç©¶æ‰€éœ€çš„æœ€ä½ç­‰çº§
+                set("max_lvl", 800);                // èƒ½å¤Ÿç ”ç©¶çš„æœ€é«˜ç­‰çº§
         }
         setup();
 }
@@ -93,11 +93,11 @@ if(i<1) return;
                 set("skill_type", sname[i]);
                 set("skill_name", to_chinese(sname[i]));
                 if (me->query("combat_exp") < 10000)
-                	set_name(clr[random(sizeof(clr))]+query("skill_name")+"ÈëÃÅÖ¸ÄÏ"NOR,({query("skill_type")+"'s book","book"}));
+                	set_name(clr[random(sizeof(clr))]+query("skill_name")+"å…¥é—¨æŒ‡å—"NOR,({query("skill_type")+"'s book","book"}));
                 else if (me->query("combat_exp") > 10000000)
-                	set_name(clr[random(sizeof(clr))]+query("skill_name")+"¾«Òª"NOR,({query("skill_type")+"'s book","book"}));
+                	set_name(clr[random(sizeof(clr))]+query("skill_name")+"ç²¾è¦"NOR,({query("skill_type")+"'s book","book"}));
 		else
-                	set_name(clr[random(sizeof(clr))]+query("skill_name")+"²ĞÆª"NOR,({query("skill_type")+"'s book","book"}));
+                	set_name(clr[random(sizeof(clr))]+query("skill_name")+"æ®‹ç¯‡"NOR,({query("skill_type")+"'s book","book"}));
          
                 set("need_exp",me->query("combat_exp")/1000000*1000000);
                 if (me->query("combat_exp") < 10000){
@@ -126,16 +126,16 @@ string long()
 
         if (query("power_point"))
         {
-                msg = "ÕâÊÇÒ»±¾" + name() + NOR + "£¬¿´Ñù×Ó"
-                      "ÒÑ¾­ÆÄÓĞÄêÊ±ÁË¡£\nÒ³Æ¬ÉÏÓÃÁ¥ÌåÃÜÃÜÂéÂéĞ´ÂúÁËÓ¬"
-                      "Í·Ğ¡×Ö£¬ËÆºõ¶¼ºÍ" + clr[random(sizeof(clr))] + query("skill_name") + NOR +
-                      "ÓĞ¹Ø£¬\nÄã¿ÉÒÔÊÔ×Å¶Á¶Á(read)¿´£¬Ò²Ğí¶ÔÎäÑ§ÄÜ¹»"
-                      "ÓĞËù°ïÖú¡£\n";
-                msg += "ÔÚÖĞ¼äÓĞÒ»ÅÅÒÀÏ¡¿É±æµÄ¹Å×­×Ö£º\n¡¾ "HIG + chinese_number(query("need_exp")) + "¡¢"+
-                chinese_number(query("min_lvl")) +"¡¢" + chinese_number(query("max_lvl")) + "¡¢" +
-                chinese_number(query("power_point")) +NOR" ¡¿\n\n";
+                msg = "è¿™æ˜¯ä¸€æœ¬" + name() + NOR + "ï¼Œçœ‹æ ·å­"
+                      "å·²ç»é¢‡æœ‰å¹´æ—¶äº†ã€‚\né¡µç‰‡ä¸Šç”¨éš¶ä½“å¯†å¯†éº»éº»å†™æ»¡äº†è‡"
+                      "å¤´å°å­—ï¼Œä¼¼ä¹éƒ½å’Œ" + clr[random(sizeof(clr))] + query("skill_name") + NOR +
+                      "æœ‰å…³ï¼Œ\nä½ å¯ä»¥è¯•ç€è¯»è¯»(read)çœ‹ï¼Œä¹Ÿè®¸å¯¹æ­¦å­¦èƒ½å¤Ÿ"
+                      "æœ‰æ‰€å¸®åŠ©ã€‚\n";
+                msg += "åœ¨ä¸­é—´æœ‰ä¸€æ’ä¾ç¨€å¯è¾¨çš„å¤ç¯†å­—ï¼š\nã€ "HIG + chinese_number(query("need_exp")) + "ã€"+
+                chinese_number(query("min_lvl")) +"ã€" + chinese_number(query("max_lvl")) + "ã€" +
+                chinese_number(query("power_point")) +NOR" ã€‘\n\n";
         } else
-                msg = "ÕâÊÇÒ»ÕÅ²ĞÈ±²»È«µÄÊéÒ³£¬¿É×Ö¼£ÒÑÎŞ·¨±æÇåÁË¡£\n";
+                msg = "è¿™æ˜¯ä¸€å¼ æ®‹ç¼ºä¸å…¨çš„ä¹¦é¡µï¼Œå¯å­—è¿¹å·²æ— æ³•è¾¨æ¸…äº†ã€‚\n";
 
         return msg;
 }
@@ -148,41 +148,41 @@ int do_read(string arg)
         string booksk = this_object()->query("skill_type");
 
         if (me->is_busy())
-                return notify_fail("ÄãÏÖÔÚÕıÔÚÃ¦¡£\n");
+                return notify_fail("ä½ ç°åœ¨æ­£åœ¨å¿™ã€‚\n");
 
         if (me->is_fighting())
-                return notify_fail("Õ½¶·ÖĞÎŞ·¨ÑĞ¶ÁĞÂÖª¡£\n");
+                return notify_fail("æˆ˜æ–—ä¸­æ— æ³•ç ”è¯»æ–°çŸ¥ã€‚\n");
 
         if (arg && id(arg))
         {
                 if (me->query("combat_exp") < query("need_exp"))
-                        return notify_fail("Äã¾õµÃ²ĞÒ³ÉÏ¼ÇÔØµÄ¶«Î÷Ì«¹ıÉî°Â£¬Æ¾×Ô"
-                                           "¼ºµÄÎäÑ§ËÆºõÄÑÒÔ²ÎÏê¡£\n");
+                        return notify_fail("ä½ è§‰å¾—æ®‹é¡µä¸Šè®°è½½çš„ä¸œè¥¿å¤ªè¿‡æ·±å¥¥ï¼Œå‡­è‡ª"
+                                           "å·±çš„æ­¦å­¦ä¼¼ä¹éš¾ä»¥å‚è¯¦ã€‚\n");
                 
                 if (me->query_skill("literate",1) >= me->query("int")*10 && booksk=="literate")
-                        return notify_fail("ÄãÒòÏÈÌìËùÖÆ£¬ÒÑÎŞ·¨ÔÙ½øĞŞ¸ü¸ßÉîµÄÑ§ÎÊÁË¡£\n");
+                        return notify_fail("ä½ å› å…ˆå¤©æ‰€åˆ¶ï¼Œå·²æ— æ³•å†è¿›ä¿®æ›´é«˜æ·±çš„å­¦é—®äº†ã€‚\n");
                 
                 if (me->query_skill(booksk, 1) < query("min_lvl"))
-                        return notify_fail("Äã¾õµÃ×Ô¼º¶ÔÕâÏî¼¼ÄÜµÄÁË½âÉĞ¹ıÇ³±¡£¬"
-                                           "Ò»Ê±ÎŞ·¨²ÎÏêÍ¸³¹¡£\n");
+                        return notify_fail("ä½ è§‰å¾—è‡ªå·±å¯¹è¿™é¡¹æŠ€èƒ½çš„äº†è§£å°šè¿‡æµ…è–„ï¼Œ"
+                                           "ä¸€æ—¶æ— æ³•å‚è¯¦é€å½»ã€‚\n");
 
                 if (me->query_skill(booksk, 1) >= query("max_lvl"))
-                        return notify_fail("Äã¾õµÃ²ĞÒ³ÉÏ¼ÇÔØµÄ¶«Î÷Ì«¹ıÇ³ÏÔ£¬ÎŞ·¨"
-                                           "´ÓÖĞ»ñµÃÈÎºÎ°ïÖú¡£\n");
+                        return notify_fail("ä½ è§‰å¾—æ®‹é¡µä¸Šè®°è½½çš„ä¸œè¥¿å¤ªè¿‡æµ…æ˜¾ï¼Œæ— æ³•"
+                                           "ä»ä¸­è·å¾—ä»»ä½•å¸®åŠ©ã€‚\n");
 
-/*                if (! me->can_improve_skill(booksk))//´Ë´¦Ó¦¸Ã¼ÓÉÏ²»ÄÜÈÃskillsµÈ¼¶³¬¹ıexpËùÄÜÖ§³ÖµÄÉÏÏŞ
-                                                    //can_improve_skill()¶¨ÒåĞ´µ½/feature/skills.cÎÒ·¢ÏÖlinwu¾ÓÈ»Ò²Ã»ÏŞÖÆ£¿
-                        return notify_fail("Äã²ÎÏêÁË°ëÌì£¬·¢¾õËÆºõÊÇÓÉÓÚ×ÔÉí¾­Ñé"
-                                           "²»×ãµÄÔµ¹Ê£¬ºÜ¶à¶«Î÷ÎŞ·¨Àí½â¡£\n");
+/*                if (! me->can_improve_skill(booksk))//æ­¤å¤„åº”è¯¥åŠ ä¸Šä¸èƒ½è®©skillsç­‰çº§è¶…è¿‡expæ‰€èƒ½æ”¯æŒçš„ä¸Šé™
+                                                    //can_improve_skill()å®šä¹‰å†™åˆ°/feature/skills.cæˆ‘å‘ç°linwuå±…ç„¶ä¹Ÿæ²¡é™åˆ¶ï¼Ÿ
+                        return notify_fail("ä½ å‚è¯¦äº†åŠå¤©ï¼Œå‘è§‰ä¼¼ä¹æ˜¯ç”±äºè‡ªèº«ç»éªŒ"
+                                           "ä¸è¶³çš„ç¼˜æ•…ï¼Œå¾ˆå¤šä¸œè¥¿æ— æ³•ç†è§£ã€‚\n");
 */
-                message_vision(HIW "$N" HIW "¾Û¾«»áÉñµØÔÄ¶Á¡¸" NOR + na + HIW
-                               "¡¹ÉÏËù¼ÇÔØµÄ¶«Î÷£¬ËÆºõÓĞËùÊÕ»ñ¡£\n" NOR, me);
+                message_vision(HIW "$N" HIW "èšç²¾ä¼šç¥åœ°é˜…è¯»ã€Œ" NOR + na + HIW
+                               "ã€ä¸Šæ‰€è®°è½½çš„ä¸œè¥¿ï¼Œä¼¼ä¹æœ‰æ‰€æ”¶è·ã€‚\n" NOR, me);
 
 
                   me->improve_skill(lower_case(booksk), query("power_point"));
 
-                tell_object(me, HIY "ÄãÖ»¾õÒÔÇ°´æÔÚµÄÖî¶àÒÉÎÊ»íÈ»¿ªÀÊ£¬¶Ô¡¸" +
-                                query("skill_name") + "¡¹ÓĞÁËĞÂµÄ¸ĞÎò¡£\n" NOR);
+                tell_object(me, HIY "ä½ åªè§‰ä»¥å‰å­˜åœ¨çš„è¯¸å¤šç–‘é—®è±ç„¶å¼€æœ—ï¼Œå¯¹ã€Œ" +
+                                query("skill_name") + "ã€æœ‰äº†æ–°çš„æ„Ÿæ‚Ÿã€‚\n" NOR);
                 destruct(this_object());
                 return 1;
         }

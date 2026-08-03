@@ -9,47 +9,47 @@ int do_zhao(string arg)
 	name = me->query_temp("caiyao_name");
 
 	if (me->is_busy())
-		return notify_fail ("ÄãÏÖÔÚºÜÃ¦£¡\n");
+		return notify_fail ("ä½ çŽ°åœ¨å¾ˆå¿™ï¼\n");
 
 	if (me->is_fighting())
-		return notify_fail ("Äã»¹ÊÇ×¨ÐÄÕ½¶·°É¡££¡\n");
+		return notify_fail ("ä½ è¿˜æ˜¯ä¸“å¿ƒæˆ˜æ–—å§ã€‚ï¼\n");
 
 	if (!( present("yao chu", me)))
-		return notify_fail("ÄãÕýÔÚÕÒÑ°Ò©²Ä£¬Í»È»·¢ÏÖÍü´øÒ©³ú£¬²»½û°µ°µ°ÃÄÕ£¡£¡\n");
+		return notify_fail("ä½ æ­£åœ¨æ‰¾å¯»è¯æï¼Œçªç„¶å‘çŽ°å¿˜å¸¦è¯é”„ï¼Œä¸ç¦æš—æš—æ‡Šæ¼ï¼ï¼\n");
 
 	if ( !arg || arg != "yaocai" )
-		return notify_fail("ÄãÒªÕÒÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‰¾ä»€ä¹ˆï¼Ÿ\n");
 
 	if (! me->query_temp("caiyao_room"))
-		return notify_fail("ÏÖÏÂÕâÐ©Ò©²Ä¿ÉÊÇ½ôÈ±Òì³££¬Äã¾Í²»ÒªÔãÌ£ÁË°É£¡£¿\n");
+		return notify_fail("çŽ°ä¸‹è¿™äº›è¯æå¯æ˜¯ç´§ç¼ºå¼‚å¸¸ï¼Œä½ å°±ä¸è¦ç³Ÿè¹‹äº†å§ï¼ï¼Ÿ\n");
 
 	if ( me->query("jingli") < 200)
-		return notify_fail ("ÄãÒÑÊ®·ÖÆ£±¹£¬ÐèÒªºÃºÃÐÝÏ¢ÁË£¡\n");
+		return notify_fail ("ä½ å·²ååˆ†ç–²æƒ«ï¼Œéœ€è¦å¥½å¥½ä¼‘æ¯äº†ï¼\n");
 
 	me->add("jingli",-(60+random(20)));
-	message_vision("$NÑÛ¹âËÆµç£¬Ñ¸ËÙµÄÔÚ´ÔÁÖÖÐËÑÑ°×Å¡£\n", me);
+	message_vision("$Nçœ¼å…‰ä¼¼ç”µï¼Œè¿…é€Ÿçš„åœ¨ä¸›æž—ä¸­æœå¯»ç€ã€‚\n", me);
 
 	if( this_object()->query("caiyao_room") < 1 || random(10) < 8 )
-		return notify_fail("Äã¾ÙÄ¿ËÄ¹Ë£¬ÄÄÓÐ°ë·ÖÒ©²ÄµÄÓ°×Ó£¬»¹ÊÇµ½ÆäËûµØ·½¿´¿´°É£¡\n");
+		return notify_fail("ä½ ä¸¾ç›®å››é¡¾ï¼Œå“ªæœ‰åŠåˆ†è¯æçš„å½±å­ï¼Œè¿˜æ˜¯åˆ°å…¶ä»–åœ°æ–¹çœ‹çœ‹å§ï¼\n");
 
 	me->delete_temp("caiyao_room");
 	me->set_temp("caiyao_ok",1);
 	me->add("jingli", -30);
 	this_object()->add("caiyao_room", -1);
-	message_vision("$N²¦¿ª²Ý´Ô£¬Í»È»·¢ÏÖÒ»Öê"YEL+name+NOR",ÐÀÏ²Èç¿ñ£¬¸ÏÃ¦ÂÖÆðÒ©³úÍÚÁËÆðÀ´£¬·ÅÈë»³ÖÐ¡£\n",me);
+	message_vision("$Næ‹¨å¼€è‰ä¸›ï¼Œçªç„¶å‘çŽ°ä¸€æ ª"YEL+name+NOR",æ¬£å–œå¦‚ç‹‚ï¼Œèµ¶å¿™è½®èµ·è¯é”„æŒ–äº†èµ·æ¥ï¼Œæ”¾å…¥æ€€ä¸­ã€‚\n",me);
 	switch(name) {
-		case "ÉúµØ":	yaocai= new(MEDICINE_D("wudang/shengdi"));	break;
-		case "ÜòÜß":	yaocai=new(MEDICINE_D("wudang/fuling"));	break;
-		case "ºì»¨":	yaocai=new(MEDICINE_D("wudang/honghua"));	break;
-		case "ÁéÏÉ":	yaocai=new(MEDICINE_D("wudang/lingxian"));	break;
-		case "ÌÒÏÉ":	yaocai=new(MEDICINE_D("wudang/taoxian"));	break;
-		case "Ã»Ò©":	yaocai=new(MEDICINE_D("wudang/meiyao"));	break;
-		case "ÎåÁéÖ¬":	yaocai=new(MEDICINE_D("wudang/wulingzhi"));	break;
-		case "Ç§½ð×Ó":	yaocai=new(MEDICINE_D("wudang/qianjinzi"));	break;
-		case "µ±¹é":	yaocai=new(MEDICINE_D("wudang/danggui"));	break;
-		case "Ô¶Ö¾":	yaocai=new(MEDICINE_D("wudang/yuanzhi"));	break;
-		case "¶À»î":	yaocai=new(MEDICINE_D("wudang/duhuo"));		break;
-		case "·À·ç":	yaocai=new(MEDICINE_D("wudang/fangfeng"));	break;
+		case "ç”Ÿåœ°":	yaocai= new(MEDICINE_D("wudang/shengdi"));	break;
+		case "èŒ¯è‹“":	yaocai=new(MEDICINE_D("wudang/fuling"));	break;
+		case "çº¢èŠ±":	yaocai=new(MEDICINE_D("wudang/honghua"));	break;
+		case "çµä»™":	yaocai=new(MEDICINE_D("wudang/lingxian"));	break;
+		case "æ¡ƒä»™":	yaocai=new(MEDICINE_D("wudang/taoxian"));	break;
+		case "æ²¡è¯":	yaocai=new(MEDICINE_D("wudang/meiyao"));	break;
+		case "äº”çµè„‚":	yaocai=new(MEDICINE_D("wudang/wulingzhi"));	break;
+		case "åƒé‡‘å­":	yaocai=new(MEDICINE_D("wudang/qianjinzi"));	break;
+		case "å½“å½’":	yaocai=new(MEDICINE_D("wudang/danggui"));	break;
+		case "è¿œå¿—":	yaocai=new(MEDICINE_D("wudang/yuanzhi"));	break;
+		case "ç‹¬æ´»":	yaocai=new(MEDICINE_D("wudang/duhuo"));		break;
+		case "é˜²é£Ž":	yaocai=new(MEDICINE_D("wudang/fangfeng"));	break;
 	}
 	yaocai->move(me);
 	return 1;

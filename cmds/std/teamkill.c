@@ -13,54 +13,54 @@ int main(object me, string arg)
 	int i;
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("ÕâÀï²»×¼Õ½¶·¡£\n");
+		return notify_fail("è¿™é‡Œä¸å‡†æˆ˜æ–—ã€‚\n");
 
 	if( !arg )
-		return notify_fail("ÄãÏëÉ±Ë­£¿\n");
+		return notify_fail("ä½ æƒ³æ€è°ï¼Ÿ\n");
 
 	if(!objectp(obj = present(arg, environment(me))))
-		return notify_fail("ÕâÀïÃ»ÓĞÕâ¸öÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 
-//	if (userp(obj) && me->query("×ªÈÃid")) // add by Looklove for share id
-//		return notify_fail(HIR"ÄãµÄidÊôÓÚ½ÓÊÖ±ğÈËµÄid£¬Î´cut×ªÈÃÊ±µÄexp²»ÄÜÉ±º¦ÆäËûÍæ¼Ò£¡\n"NOR);
+//	if (userp(obj) && me->query("è½¬è®©id")) // add by Looklove for share id
+//		return notify_fail(HIR"ä½ çš„idå±äºæ¥æ‰‹åˆ«äººçš„idï¼Œæœªcutè½¬è®©æ—¶çš„expä¸èƒ½æ€å®³å…¶ä»–ç©å®¶ï¼\n"NOR);
 
 	if(strsrch(file_name(environment(me)),"/d/wuguan/") >= 0 && !obj->query_condition("killer"))
-		return notify_fail("Îä¹İÄÚ½ûÖ¹É±ÈË¡£\n");
+		return notify_fail("æ­¦é¦†å†…ç¦æ­¢æ€äººã€‚\n");
 
 	if( !obj->is_character() || obj->is_corpse() )
-		return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇ»îÎï¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯æ´»ç‰©ã€‚\n");
 
 	if (wiz_level(me) < wiz_level(obj))
-		return notify_fail("Äã²»ÄÜ¹¥»÷Î×Ê¦µÈ¼¶±ÈÄã¸ßµÄ¶ÔÊÖ¡£\n");
+		return notify_fail("ä½ ä¸èƒ½æ”»å‡»å·«å¸ˆç­‰çº§æ¯”ä½ é«˜çš„å¯¹æ‰‹ã€‚\n");
 
 	if( me->query_condition("killer") > 180 && userp(obj))
-		return notify_fail("ÄãÏëµ½×Ô¼º»¹±»Í¨¼©×Å£¬ÊÖ²»ÓÉÈíÁËÏÂÀ´¡£\n");
+		return notify_fail("ä½ æƒ³åˆ°è‡ªå·±è¿˜è¢«é€šç¼‰ç€ï¼Œæ‰‹ä¸ç”±è½¯äº†ä¸‹æ¥ã€‚\n");
 
 	if (obj == me)
-		return notify_fail("ÓÃ suicide Ö¸Áî»á±È½Ï¿ì:P¡£\n");
+		return notify_fail("ç”¨ suicide æŒ‡ä»¤ä¼šæ¯”è¾ƒå¿«:Pã€‚\n");
 
 	if (!me->is_team_leader())
-		return notify_fail("Ö»ÓĞ¶ÓÎéÁìĞä²ÅÄÜÃüÁî´ó¼Ò¡£\n");
+		return notify_fail("åªæœ‰é˜Ÿä¼é¢†è¢–æ‰èƒ½å‘½ä»¤å¤§å®¶ã€‚\n");
 
 	if ( obj->query("job_npc") || obj->query("no_ansuan"))
-		return notify_fail("ÒªÉ±¾ÍÉ±£¬²Î¼ÓÊ²Ã´¶ÓÎé°¡£¡\n");
+		return notify_fail("è¦æ€å°±æ€ï¼Œå‚åŠ ä»€ä¹ˆé˜Ÿä¼å•Šï¼\n");
 		
-	if (userp(obj) && me->query("combat_exp")<1000000) //¾­ÑéÉÙÓÚ10M²»ĞíPK£¬·ÀÖ¹´óÃ×¸ÉÈÅÈË¼ÒJOB£¡
+	if (userp(obj) && me->query("combat_exp")<1000000) //ç»éªŒå°‘äº10Mä¸è®¸PKï¼Œé˜²æ­¢å¤§ç±³å¹²æ‰°äººå®¶JOBï¼
 		me->set("qi", -1);
-		return notify_fail("¶Ô²»Æğ,Ö»ÓĞ´óÓÚ1M²Å¿ÉÒÔ×é¶ÓPK¡£\n");
+		return notify_fail("å¯¹ä¸èµ·,åªæœ‰å¤§äº1Mæ‰å¯ä»¥ç»„é˜ŸPKã€‚\n");
 
 
 
 
 if (userp(obj) && obj->query("combat_exp")<1000000) 
-                return notify_fail("¶Ô²»Æğ£¬Çë°®»¤Ğ¡ÅóÓÑ¡£\n");
+                return notify_fail("å¯¹ä¸èµ·ï¼Œè¯·çˆ±æŠ¤å°æœ‹å‹ã€‚\n");
 
 
 if (userp(obj) && me->query("combat_exp")<  obj->query("combat_exp") * 2 /3 &&  !obj->query_condition("killer") ) 
-                return notify_fail("ÈË¼Ò±ÈÄãÇ¿ÕâÃ´¶à£¬Äã¾Í²»ÅÂÈË¼Ò±¨¸´£¿\n");
+                return notify_fail("äººå®¶æ¯”ä½ å¼ºè¿™ä¹ˆå¤šï¼Œä½ å°±ä¸æ€•äººå®¶æŠ¥å¤ï¼Ÿ\n");
 		
 if (userp(obj) && me->query("combat_exp") > obj->query("combat_exp") * 3 / 2 &&  !obj->query_condition("killer")) 
-                return notify_fail("Äã±ÈÈË¼ÒÇ¿ÕâÃ´¶à£¬ÕâÖÖĞ¡ÏºÃ×Ò²ÖµµÃÄã¶¯ÊÖ£¿\n");
+                return notify_fail("ä½ æ¯”äººå®¶å¼ºè¿™ä¹ˆå¤šï¼Œè¿™ç§å°è™¾ç±³ä¹Ÿå€¼å¾—ä½ åŠ¨æ‰‹ï¼Ÿ\n");
 		
 
 
@@ -85,37 +85,37 @@ if (userp(obj) && me->query("combat_exp") > obj->query("combat_exp") * 3 / 2 && 
 
 	if(meisdummy(me,obj))
 	{
-		return notify_fail("ËÀ´óÃ×£¬Ò»±ßÁ¹¿ìÈ¥¡£\n");
+		return notify_fail("æ­»å¤§ç±³ï¼Œä¸€è¾¹å‡‰å¿«å»ã€‚\n");
 	}
 /*
 	if (userp(obj) && userp(me)
 	&& (!living(obj) && me->query("mud_age") < (time() - me->query("birthday"))/24
 	|| me->query("mud_age") < (time() - me->query("birthday"))/48))
-		return notify_fail("ËÀ´óÃ×£¬Ò»±ßÁ¹¿ìÈ¥¡£\n");
+		return notify_fail("æ­»å¤§ç±³ï¼Œä¸€è¾¹å‡‰å¿«å»ã€‚\n");
 */
 	if (me->query_temp("combat_yield"))
-		return notify_fail("ÄãÕı´ò²»»¹ÊÖÄØ£¬ÔõÃ´É±£¿\n");
+		return notify_fail("ä½ æ­£æ‰“ä¸è¿˜æ‰‹å‘¢ï¼Œæ€ä¹ˆæ€ï¼Ÿ\n");
 
 	t = me->query_team();
 	if (arrayp(t))
 		t -= ({ 0 });
 	if(sizeof(t) < 2)
-		return notify_fail("ÄãÏÖÔÚ²¢Ã»ÓĞ²Î¼ÓÈÎºÎ¶ÓÎé»ò¶ÓÎéÖ»ÄãÒ»¸öÈË¡£(use kill)\n");
+		return notify_fail("ä½ ç°åœ¨å¹¶æ²¡æœ‰å‚åŠ ä»»ä½•é˜Ÿä¼æˆ–é˜Ÿä¼åªä½ ä¸€ä¸ªäººã€‚(use kill)\n");
 
 	for(i=0;i<sizeof(t);i++){
 		if(environment(me) != environment(t[i]))
-			return notify_fail("¶ÓÔ±²»¶¼ÔÚ³¡¡£(use kill)\n");
+			return notify_fail("é˜Ÿå‘˜ä¸éƒ½åœ¨åœºã€‚(use kill)\n");
 
 		if (obj == t[i])
-			return notify_fail("ÏëÄÚÚ§Ã´£¿\n");
+			return notify_fail("æƒ³å†…è®§ä¹ˆï¼Ÿ\n");
 
 		if (t[i]->query("combat_exp") > obj->query("combat_exp")/2*sizeof(t) && userp(obj))
-			return notify_fail("°¦£¡Äã¿É²»¿ÉÒÔ¸ÄµôÒÔÖÚÆÛ¹ÑµÄ¶ñÏ°£¿\n");
+			return notify_fail("å”‰ï¼ä½ å¯ä¸å¯ä»¥æ”¹æ‰ä»¥ä¼—æ¬ºå¯¡çš„æ¶ä¹ ï¼Ÿ\n");
 	}
 
 	callname = RANK_D->query_rude(obj);
-	message_vision("\n$N¶Ô×Å$nºÈµÀ£º¡¸"
-		+ callname + "£¡½ñÈÕ²»ÊÇÄãËÀ¾ÍÊÇÎÒÃÇ»î£¡¡¹\n\n", me, obj);
+	message_vision("\n$Nå¯¹ç€$nå–é“ï¼šã€Œ"
+		+ callname + "ï¼ä»Šæ—¥ä¸æ˜¯ä½ æ­»å°±æ˜¯æˆ‘ä»¬æ´»ï¼ã€\n\n", me, obj);
 
 	for(i=0;i<sizeof(t);i++) {
 		if (userp(obj) && t[i]->query_condition("killer") > 180)
@@ -142,11 +142,11 @@ if (userp(obj) && me->query("combat_exp") > obj->query("combat_exp") * 3 / 2 && 
 int help(object me)
 {
   write(@HELP
-Ö¸Áî¸ñÊ½ : teamkill <ÈËÎï>
+æŒ‡ä»¤æ ¼å¼ : teamkill <äººç‰©>
  
-Õâ¸öÖ¸ÁîÈÃÄãµÄ¶ÓÎéÖ÷¶¯¹¥»÷Ò»¸öÈËÎï¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ çš„é˜Ÿä¼ä¸»åŠ¨æ”»å‡»ä¸€ä¸ªäººç‰©ã€‚
 
-ÆäËûÏà¹ØÖ¸Áî: team,fight,kill
+å…¶ä»–ç›¸å…³æŒ‡ä»¤: team,fight,kill
 
 HELP
     );

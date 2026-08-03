@@ -2,11 +2,11 @@
 // by augx@sj 3/5/2002
 
 nosave mapping DRUGS = ([
-"yangjing dan"	: ([	// Ñø¾«µ¤
-	"name":		"Ñø¾«µ¤",
+"yangjing dan"	: ([	// å…»ç²¾ä¸¹
+	"name":		"å…»ç²¾ä¸¹",
 	"id":		({ "yangjing dan","dan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿ÅÑø¾«µ¤£¬¶ÙÊ±¾õµÃ¾«Ñª³ä×ãÁË²»ÉÙ¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´»Ö¸´¾«ÑªµÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—å…»ç²¾ä¸¹ï¼Œé¡¿æ—¶è§‰å¾—ç²¾è¡€å……è¶³äº†ä¸å°‘ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æ¢å¤ç²¾è¡€çš„ä¸¹è¯ã€‚",
 	"busy":		5,
 	"worktime":	0,
 	"neili":	100,
@@ -16,11 +16,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	80,
 	"max_lvl":	160,
 	"drug_lvl":	6, ]),
-"buqi wan"	: ([	// ²¹ÆøÍè
-	"name":		"²¹ÆøÍè",
+"buqi wan"	: ([	// è¡¥æ°”ä¸¸
+	"name":		"è¡¥æ°”ä¸¸",
 	"id":		({ "buqi wan","wan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿Å²¹ÆøÍè£¬¶ÙÊ±¾õµÃÆøÑª³ä×ãÁË²»ÉÙ¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´»Ö¸´ÆøÑªµÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—è¡¥æ°”ä¸¸ï¼Œé¡¿æ—¶è§‰å¾—æ°”è¡€å……è¶³äº†ä¸å°‘ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æ¢å¤æ°”è¡€çš„ä¸¹è¯ã€‚",
 	"busy":		5,
 	"worktime":	0,
 	"neili":	100,
@@ -30,11 +30,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	80,
 	"max_lvl":	160,
 	"drug_lvl":	6, ]),
-"xujing dan"	: ([	// Ğø¾«µ¤	
-	"name":		"Ğø¾«µ¤",
+"xujing dan"	: ([	// ç»­ç²¾ä¸¹	
+	"name":		"ç»­ç²¾ä¸¹",
 	"id":		({ "xujing dan","dan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿ÅĞø¾«µ¤£¬¶ÙÊ±¾õµÃ¾«Á¦³äÅæÁË²»ÉÙ¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´»Ö¸´¾«Á¦µÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—ç»­ç²¾ä¸¹ï¼Œé¡¿æ—¶è§‰å¾—ç²¾åŠ›å……æ²›äº†ä¸å°‘ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æ¢å¤ç²¾åŠ›çš„ä¸¹è¯ã€‚",
 	"busy":		5,
 	"worktime":	0,
 	"neili":	100,
@@ -44,11 +44,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	80,
 	"max_lvl":	160,
 	"drug_lvl":	6, ]),
-"neixi wan"	: ([	// ÄÚÏ¢Íè
-	"name":		"ÄÚÏ¢Íè",
+"neixi wan"	: ([	// å†…æ¯ä¸¸
+	"name":		"å†…æ¯ä¸¸",
 	"id":		({ "neixi wan","wan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿ÅÄÚÏ¢Íè£¬¶ÙÊ±¾õµÃÄÚÁ¦³äÅæÁË²»ÉÙ¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´»Ö¸´ÄÚÁ¦µÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—å†…æ¯ä¸¸ï¼Œé¡¿æ—¶è§‰å¾—å†…åŠ›å……æ²›äº†ä¸å°‘ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æ¢å¤å†…åŠ›çš„ä¸¹è¯ã€‚",
 	"busy":		5,
 	"worktime":	0,
 	"neili":	100,
@@ -58,11 +58,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	80,
 	"max_lvl":	160,
 	"drug_lvl":	6, ]),
-"bushi dan"	: ([	// ²¹Ê³µ¤
-	"name":		"²¹Ê³µ¤",
+"bushi dan"	: ([	// è¡¥é£Ÿä¸¹
+	"name":		"è¡¥é£Ÿä¸¹",
 	"id":		({ "bushi dan","dan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿Å²¹Ê³µ¤£¬ÔÙÒ²²»¸Ğµ½¼¢¶ö¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´»Ö¸´Ê³ÎïµÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—è¡¥é£Ÿä¸¹ï¼Œå†ä¹Ÿä¸æ„Ÿåˆ°é¥¥é¥¿ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æ¢å¤é£Ÿç‰©çš„ä¸¹è¯ã€‚",
 	"busy":		5,
 	"worktime":	0,
 	"neili":	100,
@@ -72,11 +72,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	80,
 	"max_lvl":	160,
 	"drug_lvl":	6, ]),
-"bushui wan"	: ([	// ²¹Ë®Íè
-	"name":		"²¹Ë®Íè",
+"bushui wan"	: ([	// è¡¥æ°´ä¸¸
+	"name":		"è¡¥æ°´ä¸¸",
 	"id":		({ "bushui wan","wan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿Å²¹Ë®Íè£¬ÔÙÒ²²»¸Ğµ½¸É¿Ê¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´»Ö¸´Ë®·ÖµÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—è¡¥æ°´ä¸¸ï¼Œå†ä¹Ÿä¸æ„Ÿåˆ°å¹²æ¸´ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æ¢å¤æ°´åˆ†çš„ä¸¹è¯ã€‚",
 	"busy":		5,
 	"worktime":	0,
 	"neili":	100,
@@ -86,11 +86,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	80,
 	"max_lvl":	160,
 	"drug_lvl":	6, ]),
-"jinchuang yao"	: ([	// ½ğ´¯Ò©
-	"name":		"½ğ´¯Ò©",
+"jinchuang yao"	: ([	// é‡‘ç–®è¯
+	"name":		"é‡‘ç–®è¯",
 	"id":		({ "jinchuang yao","yao" }),
-	"eat_msg":	"$N·óÉÏÒ»¸±½ğ´¯Ò©£¬Ö¹×¡ÁË³öÑª¡£",
-	"long":		"ÕâÊÇÒ»¸±ÓÃÀ´ÁÆÉËµÄ½ğ´¯Ò©¡£",
+	"eat_msg":	"$Næ•·ä¸Šä¸€å‰¯é‡‘ç–®è¯ï¼Œæ­¢ä½äº†å‡ºè¡€ã€‚",
+	"long":		"è¿™æ˜¯ä¸€å‰¯ç”¨æ¥ç–—ä¼¤çš„é‡‘ç–®è¯ã€‚",
 	"busy":		102,
 	"worktime":	0,
 	"neili":	100,
@@ -100,11 +100,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	80,
 	"max_lvl":	160,
 	"drug_lvl":	6, ]),
-"liaojing dan"	: ([	// ÁÆ¾«µ¤
-	"name":		"ÁÆ¾«µ¤",
+"liaojing dan"	: ([	// ç–—ç²¾ä¸¹
+	"name":		"ç–—ç²¾ä¸¹",
 	"id":		({ "liaojing dan","dan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿ÅÁÆ¾«µ¤£¬»Ö¸´ÁË²»ÉÙµÄ¾«Ñª¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´ÁÆÉËµÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—ç–—ç²¾ä¸¹ï¼Œæ¢å¤äº†ä¸å°‘çš„ç²¾è¡€ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥ç–—ä¼¤çš„ä¸¹è¯ã€‚",
 	"busy":		102,
 	"worktime":	0,
 	"neili":	100,
@@ -115,11 +115,11 @@ nosave mapping DRUGS = ([
 	"max_lvl":	160,
 	"drug_lvl":	6, ]),
 			
-"zhengqi dan"	: ([	// ÕıÆøµ¤
-	"name":		"ÕıÆøµ¤",
+"zhengqi dan"	: ([	// æ­£æ°”ä¸¹
+	"name":		"æ­£æ°”ä¸¹",
 	"id":		({ "zhengqi dan","dan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿ÅÕıÆøµ¤£¬¶ÙÊ±¸Ğ¾õ»ëÉí³äÂúÕıÆø¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´Ôö¼ÓÕıÆøµÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—æ­£æ°”ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰æµ‘èº«å……æ»¡æ­£æ°”ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å¢åŠ æ­£æ°”çš„ä¸¹è¯ã€‚",
 	"busy":		5,
 	"worktime":	0,
 	"neili":	300,
@@ -129,11 +129,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	160,
 	"max_lvl":	220,
 	"drug_lvl":	5, ]),
-"xieqi wan"	: ([	// Ğ°ÆøÍè
-	"name":		"Ğ°ÆøÍè",
+"xieqi wan"	: ([	// é‚ªæ°”ä¸¸
+	"name":		"é‚ªæ°”ä¸¸",
 	"id":		({ "xieqi wan","wan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿ÅĞ°ÆøÍè£¬¶ÙÊ±¸Ğ¾õ»ëÉí³äÂúĞ°Æø¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´Ôö¼ÓĞ°ÆøµÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—é‚ªæ°”ä¸¸ï¼Œé¡¿æ—¶æ„Ÿè§‰æµ‘èº«å……æ»¡é‚ªæ°”ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å¢åŠ é‚ªæ°”çš„ä¸¹è¯ã€‚",
 	"busy":		5,
 	"worktime":	0,
 	"neili":	300,
@@ -143,11 +143,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	160,
 	"max_lvl":	220,
 	"drug_lvl":	5, ]),	
-"dali wan"	: ([	// ´óÁ¦Íè
-	"name":		"´óÁ¦Íè",
+"dali wan"	: ([	// å¤§åŠ›ä¸¸
+	"name":		"å¤§åŠ›ä¸¸",
 	"id":		({ "dali wan","wan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿Å´óÁ¦Íè£¬¶ÙÊ±¸Ğ¾õ»ëÉí³äÂúÁ¦Á¿¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´Ôö¼ÓÁ¦Á¿µÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—å¤§åŠ›ä¸¸ï¼Œé¡¿æ—¶æ„Ÿè§‰æµ‘èº«å……æ»¡åŠ›é‡ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å¢åŠ åŠ›é‡çš„ä¸¹è¯ã€‚",
 	"busy":		103,
 	"worktime":	9,
 	"neili":	500,
@@ -157,11 +157,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	160,
 	"max_lvl":	220,
 	"drug_lvl":	5, ]),	
-"lingxi dan"	: ([	// ÁéÏ¬µ¤
-	"name":		"ÁéÏ¬µ¤",
+"lingxi dan"	: ([	// çµçŠ€ä¸¹
+	"name":		"çµçŠ€ä¸¹",
 	"id":		({ "lingxi dan","dan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿ÅÁéÏ¬µ¤£¬¶ÙÊ±¸Ğ¾õÁé¹âÕ¹ÏÖ¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉıÖÇÁ¦µÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—çµçŠ€ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰çµå…‰å±•ç°ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡æ™ºåŠ›çš„ä¸¹è¯ã€‚",
 	"busy":		103,
 	"worktime":	9,
 	"neili":	500,
@@ -171,11 +171,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	160,
 	"max_lvl":	220,
 	"drug_lvl":	5, ]),	
-"huangu wan"	: ([	// »»¹ÇÍè
-	"name":		"»»¹ÇÍè",
+"huangu wan"	: ([	// æ¢éª¨ä¸¸
+	"name":		"æ¢éª¨ä¸¸",
 	"id":		({ "huangu wan","wan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿Å»»¹ÇÍè£¬¶ÙÊ±¸Ğ¾õ½î¹ÇÇ¿½¡ÁË²»ÉÙ¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉı¸ù¹ÇµÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—æ¢éª¨ä¸¸ï¼Œé¡¿æ—¶æ„Ÿè§‰ç­‹éª¨å¼ºå¥äº†ä¸å°‘ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡æ ¹éª¨çš„ä¸¹è¯ã€‚",
 	"busy":		103,
 	"worktime":	9,
 	"neili":	500,
@@ -185,11 +185,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	160,
 	"max_lvl":	220,
 	"drug_lvl":	5, ]),	
-"qingshen dan"	: ([	// ÇáÉíµ¤
-	"name":		"ÇáÉíµ¤",
+"qingshen dan"	: ([	// è½»èº«ä¸¹
+	"name":		"è½»èº«ä¸¹",
 	"id":		({ "qingshen dan","dan" }),
-	"eat_msg":	"$N·şÏÂÒ»¿ÅÇáÉíµ¤£¬¶ÙÊ±¸Ğ¾õÉíÌåÇáÁË²»ÉÙ¡£",
-	"long":		"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉıÇá¹¦µÄµ¤Ò©¡£",
+	"eat_msg":	"$Næœä¸‹ä¸€é¢—è½»èº«ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰èº«ä½“è½»äº†ä¸å°‘ã€‚",
+	"long":		"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡è½»åŠŸçš„ä¸¹è¯ã€‚",
 	"busy":		103,
 	"worktime":	9,
 	"neili":	500,
@@ -200,11 +200,11 @@ nosave mapping DRUGS = ([
 	"max_lvl":	220,
 	"drug_lvl":	5, ]),	
 
-"yannian dan"	: ([	// ÑÓÄêÑø¾«µ¤
-	"name":		CYN"ÑÓÄêÑø¾«µ¤"NOR,
+"yannian dan"	: ([	// å»¶å¹´å…»ç²¾ä¸¹
+	"name":		CYN"å»¶å¹´å…»ç²¾ä¸¹"NOR,
 	"id":		({ "yannian dan","dan" }),
-	"eat_msg":	CYN"$N·şÏÂÒ»¿ÅÑÓÄêÑø¾«µ¤£¬¶ÙÊ±¸Ğ¾õ¾«Ñª³ä×ã¡£"NOR,
-	"long":		CYN"ÕâÊÇÒ»¿ÅÓÃÀ´´óÁ¿»Ö¸´¾«ÑªµÄµ¤Ò©¡£"NOR,
+	"eat_msg":	CYN"$Næœä¸‹ä¸€é¢—å»¶å¹´å…»ç²¾ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰ç²¾è¡€å……è¶³ã€‚"NOR,
+	"long":		CYN"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å¤§é‡æ¢å¤ç²¾è¡€çš„ä¸¹è¯ã€‚"NOR,
 	"busy":		12,
 	"worktime":	0,
 	"neili":	1000,
@@ -214,11 +214,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	260,
 	"max_lvl":	300,
 	"drug_lvl":	4, ]),
-"fuling wan"	: ([	// ÜòÜß²¹ÆøÍè
-	"name":		GRN"ÜòÜß²¹ÆøÍè"NOR,
+"fuling wan"	: ([	// èŒ¯è‹“è¡¥æ°”ä¸¸
+	"name":		GRN"èŒ¯è‹“è¡¥æ°”ä¸¸"NOR,
 	"id":		({ "fuling wan","wan" }),
-	"eat_msg":	GRN"$N·şÏÂÒ»¿ÅÜòÜß²¹ÆøÍè£¬¶ÙÊ±¸Ğ¾õÆøÑª³ä×ã¡£"NOR,
-	"long":		GRN"ÕâÊÇÒ»¿ÅÓÃÀ´´óÁ¿»Ö¸´ÆøÑªµÄµ¤Ò©¡£"NOR,
+	"eat_msg":	GRN"$Næœä¸‹ä¸€é¢—èŒ¯è‹“è¡¥æ°”ä¸¸ï¼Œé¡¿æ—¶æ„Ÿè§‰æ°”è¡€å……è¶³ã€‚"NOR,
+	"long":		GRN"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å¤§é‡æ¢å¤æ°”è¡€çš„ä¸¹è¯ã€‚"NOR,
 	"busy":		12,
 	"worktime":	0,
 	"neili":	1000,
@@ -228,11 +228,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	260,
 	"max_lvl":	300,
 	"drug_lvl":	4, ]),
-"danggui dan"	: ([	// µ±¹éĞø¾«µ¤
-	"name":		HIC"µ±¹éĞø¾«µ¤"NOR,
+"danggui dan"	: ([	// å½“å½’ç»­ç²¾ä¸¹
+	"name":		HIC"å½“å½’ç»­ç²¾ä¸¹"NOR,
 	"id":		({ "danggui dan","danggui" }),
-	"eat_msg":	HIC"$N·şÏÂÒ»¿Åµ±¹éĞø¾«µ¤£¬¶ÙÊ±¸Ğ¾õ¾«Á¦³äÅæ¡£"NOR,
-	"long":		HIC"ÕâÊÇÒ»¿ÅÓÃÀ´´óÁ¿»Ö¸´¾«Á¦µÄµ¤Ò©¡£"NOR,
+	"eat_msg":	HIC"$Næœä¸‹ä¸€é¢—å½“å½’ç»­ç²¾ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰ç²¾åŠ›å……æ²›ã€‚"NOR,
+	"long":		HIC"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å¤§é‡æ¢å¤ç²¾åŠ›çš„ä¸¹è¯ã€‚"NOR,
 	"busy":		12,
 	"worktime":	0,
 	"neili":	1000,
@@ -242,11 +242,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	260,
 	"max_lvl":	300,
 	"drug_lvl":	4, ]),
-"chuanbei wan"	: ([	// ´¨±´ÄÚÏ¢Íè
-	"name":		HIG"´¨±´ÄÚÏ¢Íè"NOR,
+"chuanbei wan"	: ([	// å·è´å†…æ¯ä¸¸
+	"name":		HIG"å·è´å†…æ¯ä¸¸"NOR,
 	"id":		({ "chuanbei wan","wan" }),
-	"eat_msg":	HIG"$N·şÏÂÒ»¿Å´¨±´ÄÚÏ¢Íè£¬¶ÙÊ±¸Ğ¾õÄÚÁ¦³äÅæ¡£"NOR,
-	"long":		HIG"ÕâÊÇÒ»¿ÅÓÃÀ´´óÁ¿»Ö¸´ÄÚÁ¦µÄµ¤Ò©¡£"NOR,
+	"eat_msg":	HIG"$Næœä¸‹ä¸€é¢—å·è´å†…æ¯ä¸¸ï¼Œé¡¿æ—¶æ„Ÿè§‰å†…åŠ›å……æ²›ã€‚"NOR,
+	"long":		HIG"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å¤§é‡æ¢å¤å†…åŠ›çš„ä¸¹è¯ã€‚"NOR,
 	"busy":		12,
 	"worktime":	0,
 	"neili":	1000,
@@ -256,11 +256,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	260,
 	"max_lvl":	300,
 	"drug_lvl":	4, ]),
-"chantui yao"	: ([	// ²õÍÉ½ğ´¯Ò©
-	"name":		YEL"²õÍÉ½ğ´¯Ò©"NOR,
+"chantui yao"	: ([	// è‰èœ•é‡‘ç–®è¯
+	"name":		YEL"è‰èœ•é‡‘ç–®è¯"NOR,
 	"id":		({ "chantui yao","yao","chantui" }),
-	"eat_msg":	YEL"$N·óÉÏÒ»¸±²õÍÉ½ğ´¯Ò©£¬¶ÙÊ±¸Ğ¾õÉËÊÆºÃÁË²»ÉÙ¡£"NOR,
-	"long":		YEL"ÕâÊÇÒ»¸±ÓÃÀ´ÁÆÉËµÄÉñÒ©¡£"NOR,
+	"eat_msg":	YEL"$Næ•·ä¸Šä¸€å‰¯è‰èœ•é‡‘ç–®è¯ï¼Œé¡¿æ—¶æ„Ÿè§‰ä¼¤åŠ¿å¥½äº†ä¸å°‘ã€‚"NOR,
+	"long":		YEL"è¿™æ˜¯ä¸€å‰¯ç”¨æ¥ç–—ä¼¤çš„ç¥è¯ã€‚"NOR,
 	"busy":		102,
 	"worktime":	0,
 	"neili":	1000,
@@ -270,11 +270,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	260,
 	"max_lvl":	300,
 	"drug_lvl":	4, ]),
-"huoxue dan"	: ([	// »îÑªÁÆ¾«µ¤
-	"name":		HIY"»îÑªÁÆ¾«µ¤"NOR,
+"huoxue dan"	: ([	// æ´»è¡€ç–—ç²¾ä¸¹
+	"name":		HIY"æ´»è¡€ç–—ç²¾ä¸¹"NOR,
 	"id":		({ "huoxue dan","dan" }),
-	"eat_msg":	HIY"$N·şÏÂÒ»¿Å»îÑªÁÆ¾«µ¤£¬¶ÙÊ±¸Ğ¾õ¾«Ñª²»ÔÙÁ÷Ê§¡£"NOR,
-	"long":		HIY"ÕâÊÇÒ»¿ÅÓÃÀ´ÁÆÉËµÄµ¤Ò©¡£"NOR,
+	"eat_msg":	HIY"$Næœä¸‹ä¸€é¢—æ´»è¡€ç–—ç²¾ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰ç²¾è¡€ä¸å†æµå¤±ã€‚"NOR,
+	"long":		HIY"è¿™æ˜¯ä¸€é¢—ç”¨æ¥ç–—ä¼¤çš„ä¸¹è¯ã€‚"NOR,
 	"busy":		102,
 	"worktime":	0,
 	"neili":	1000,
@@ -284,11 +284,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	260,
 	"max_lvl":	300,
 	"drug_lvl":	4, ]),
-"jiedu wan"	: ([	// ½â¶¾Íè
-	"name":		BLU"½â¶¾Íè"NOR,
+"jiedu wan"	: ([	// è§£æ¯’ä¸¸
+	"name":		BLU"è§£æ¯’ä¸¸"NOR,
 	"id":		({ "jiedu wan","wan" }),
-	"eat_msg":	BLU"$N·şÏÂÒ»¿Å½â¶¾Íè£¬¸Ğ¾õ¶¾ĞÔ¼õÈõÁË²»ÉÙ¡£"NOR,
-	"long":		BLU"ÕâÊÇÒ»¿ÅÓÃÄÜ¼õÈõ´ó²¿·Ö¶¾ÎïµÄ¶¾ĞÔµÄµ¤Ò©¡£"NOR,
+	"eat_msg":	BLU"$Næœä¸‹ä¸€é¢—è§£æ¯’ä¸¸ï¼Œæ„Ÿè§‰æ¯’æ€§å‡å¼±äº†ä¸å°‘ã€‚"NOR,
+	"long":		BLU"è¿™æ˜¯ä¸€é¢—ç”¨èƒ½å‡å¼±å¤§éƒ¨åˆ†æ¯’ç‰©çš„æ¯’æ€§çš„ä¸¹è¯ã€‚"NOR,
 	"busy":		5,
 	"worktime":	0,
 	"neili":	1000,
@@ -299,11 +299,11 @@ nosave mapping DRUGS = ([
 	"max_lvl":	300,
 	"drug_lvl":	4, ]),
 	
-"huangqi dan"	: ([	// »ÆÜÎÄÚÏ¢µ¤
-	"name":		HIG"»ÆÜÎÄÚÏ¢µ¤"NOR,
+"huangqi dan"	: ([	// é»„èŠªå†…æ¯ä¸¹
+	"name":		HIG"é»„èŠªå†…æ¯ä¸¹"NOR,
 	"id":		({ "huangqi dan","dan" }),
-	"eat_msg":	HIG"$N·şÏÂÒ»¿Å»ÆÜÎÄÚÏ¢µ¤£¬¶ÙÊ±¸Ğ¾õÄÚÁ¦ËÆºõÍ»ÆÆÁË¼«ÏŞ¡£"NOR,
-	"long":		HIG"ÕâÊÇÒ»¿ÅÓÃÀ´Ôö¼Ó×î´óÄÚÁ¦µÄµ¤Ò©¡£"NOR,
+	"eat_msg":	HIG"$Næœä¸‹ä¸€é¢—é»„èŠªå†…æ¯ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰å†…åŠ›ä¼¼ä¹çªç ´äº†æé™ã€‚"NOR,
+	"long":		HIG"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å¢åŠ æœ€å¤§å†…åŠ›çš„ä¸¹è¯ã€‚"NOR,
 	"busy":		150,
 	"worktime":	0,
 	"neili":	2000,
@@ -313,11 +313,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	450,
 	"max_lvl":	380,
 	"drug_lvl":	3, ]),
-"jinyin dan"	: ([	// ½ğÒøĞø¾«µ¤
-	"name":		HIC"½ğÒøĞø¾«µ¤"NOR,
+"jinyin dan"	: ([	// é‡‘é“¶ç»­ç²¾ä¸¹
+	"name":		HIC"é‡‘é“¶ç»­ç²¾ä¸¹"NOR,
 	"id":		({ "jinyin dan","dan" }),
-	"eat_msg":	HIC"$N·şÏÂÒ»¿Å½ğÒøĞø¾«µ¤£¬¶ÙÊ±¸Ğ¾õ¾«Á¦ËÆºõÍ»ÆÆÁË¼«ÏŞ¡£"NOR,
-	"long":		HIC"ÕâÊÇÒ»¿ÅÓÃÀ´Ôö¼Ó×î´ó¾«Á¦µÄµ¤Ò©¡£"NOR,
+	"eat_msg":	HIC"$Næœä¸‹ä¸€é¢—é‡‘é“¶ç»­ç²¾ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰ç²¾åŠ›ä¼¼ä¹çªç ´äº†æé™ã€‚"NOR,
+	"long":		HIC"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å¢åŠ æœ€å¤§ç²¾åŠ›çš„ä¸¹è¯ã€‚"NOR,
 	"busy":		150,
 	"worktime":	0,
 	"neili":	2000,
@@ -327,11 +327,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	450,
 	"max_lvl":	380,
 	"drug_lvl":	3, ]),
-"niuhuang wan"	: ([	// Å£»Æ½â¶¾Íè
-	"name":		YEL"Å£»Æ½â¶¾Íè"NOR,
+"niuhuang wan"	: ([	// ç‰›é»„è§£æ¯’ä¸¸
+	"name":		YEL"ç‰›é»„è§£æ¯’ä¸¸"NOR,
 	"id":		({ "niuhuang wan","wan" }),
-	"eat_msg":	YEL"$N·şÏÂÒ»¿ÅÅ£»Æ½â¶¾Íè£¬¶ÙÊ±¸Ğ¾õÌåÄÚµÄ¶¾ËØ´ó´ó¼õÉÙ¡£"NOR,
-	"long":		YEL"ÕâÊÇÒ»¿ÅÓÃÀ´½â¶¾µÄÉñÒ©¡£"NOR,
+	"eat_msg":	YEL"$Næœä¸‹ä¸€é¢—ç‰›é»„è§£æ¯’ä¸¸ï¼Œé¡¿æ—¶æ„Ÿè§‰ä½“å†…çš„æ¯’ç´ å¤§å¤§å‡å°‘ã€‚"NOR,
+	"long":		YEL"è¿™æ˜¯ä¸€é¢—ç”¨æ¥è§£æ¯’çš„ç¥è¯ã€‚"NOR,
 	"busy":		103,
 	"worktime":	0,
 	"neili":	2000,
@@ -341,11 +341,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	420,
 	"max_lvl":	380,
 	"drug_lvl":	3, ]),
-"shentong dan"	: ([	// ÉñÍ¨µ¤
-	"name":		MAG"ÉñÍ¨µ¤"NOR,
+"shentong dan"	: ([	// ç¥é€šä¸¹
+	"name":		MAG"ç¥é€šä¸¹"NOR,
 	"id":		({ "shentong dan","dan" }),
-	"eat_msg":	MAG"$N·şÏÂÒ»¿ÅÉñÍ¨µ¤£¬¶ÙÊ±¸Ğ¾õÌåÄÚµÄÇ±ÄÜ±»¼¤·¢£¬Õ½¶·µÄÄÜÁ¦´ó´óÔöÇ¿ÁË¡£"NOR,
-	"long":		MAG"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉıÕ½¶·Á¦µÄÉñÒ©¡£"NOR,
+	"eat_msg":	MAG"$Næœä¸‹ä¸€é¢—ç¥é€šä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰ä½“å†…çš„æ½œèƒ½è¢«æ¿€å‘ï¼Œæˆ˜æ–—çš„èƒ½åŠ›å¤§å¤§å¢å¼ºäº†ã€‚"NOR,
+	"long":		MAG"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡æˆ˜æ–—åŠ›çš„ç¥è¯ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	2000,
@@ -355,11 +355,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	420,
 	"max_lvl":	380,
 	"drug_lvl":	3, ]),
-"huti wan"	: ([	// »¤ÌåÍè
-	"name":		HIM"»¤ÌåÍè"NOR,
+"huti wan"	: ([	// æŠ¤ä½“ä¸¸
+	"name":		HIM"æŠ¤ä½“ä¸¸"NOR,
 	"id":		({ "huti wan","wan" }),
-	"eat_msg":	HIM"$N·şÏÂÒ»¿Å»¤ÌåÍè£¬¶ÙÊ±¸Ğ¾õÌåÄÚµÄÇ±ÄÜ±»¼¤·¢£¬·ÀÓùµÄÄÜÁ¦´ó´óÔöÇ¿ÁË¡£"NOR,
-	"long":		HIM"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉı·ÀÓùÁ¦µÄÉñÒ©¡£"NOR,
+	"eat_msg":	HIM"$Næœä¸‹ä¸€é¢—æŠ¤ä½“ä¸¸ï¼Œé¡¿æ—¶æ„Ÿè§‰ä½“å†…çš„æ½œèƒ½è¢«æ¿€å‘ï¼Œé˜²å¾¡çš„èƒ½åŠ›å¤§å¤§å¢å¼ºäº†ã€‚"NOR,
+	"long":		HIM"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡é˜²å¾¡åŠ›çš„ç¥è¯ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	2000,
@@ -369,11 +369,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	420,
 	"max_lvl":	380,
 	"drug_lvl":	3, ]),
-"tianxin dan"	: ([	// ÌìĞÄÔö¾«µ¤
-	"name":		CYN"ÌìĞÄÔö¾«µ¤"NOR,
+"tianxin dan"	: ([	// å¤©å¿ƒå¢ç²¾ä¸¹
+	"name":		CYN"å¤©å¿ƒå¢ç²¾ä¸¹"NOR,
 	"id":		({ "tianxin dan","dan" }),
-	"eat_msg":	CYN"$N·şÏÂÒ»¿ÅÌìĞÄÔö¾«µ¤£¬¶ÙÊ±¸Ğ¾õ¾«ÑªÍ»ÆÆÁË¼«ÏŞ¡£"NOR,
-	"long":		CYN"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉı¾«ÑªµÄÉñÒ©¡£"NOR,
+	"eat_msg":	CYN"$Næœä¸‹ä¸€é¢—å¤©å¿ƒå¢ç²¾ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰ç²¾è¡€çªç ´äº†æé™ã€‚"NOR,
+	"long":		CYN"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡ç²¾è¡€çš„ç¥è¯ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	2000,
@@ -383,11 +383,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	420,
 	"max_lvl":	380,
 	"drug_lvl":	3, ]),
-"xiantian wan"	: ([	// ÏÈÌìÑøÆøÍè
-	"name":		GRN"ÏÈÌìÑøÆøÍè"NOR,
+"xiantian wan"	: ([	// å…ˆå¤©å…»æ°”ä¸¸
+	"name":		GRN"å…ˆå¤©å…»æ°”ä¸¸"NOR,
 	"id":		({ "xiantian wan","wan" }),
-	"eat_msg":	GRN"$N·şÏÂÒ»¿ÅÏÈÌìÑøÆøÍè£¬¶ÙÊ±¸Ğ¾õÆøÑªÍ»ÆÆÁË¼«ÏŞ¡£"NOR,
-	"long":		GRN"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉıÆøÑªµÄÉñÒ©¡£"NOR,
+	"eat_msg":	GRN"$Næœä¸‹ä¸€é¢—å…ˆå¤©å…»æ°”ä¸¸ï¼Œé¡¿æ—¶æ„Ÿè§‰æ°”è¡€çªç ´äº†æé™ã€‚"NOR,
+	"long":		GRN"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡æ°”è¡€çš„ç¥è¯ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	2000,
@@ -398,11 +398,11 @@ nosave mapping DRUGS = ([
 	"max_lvl":	380,
 	"drug_lvl":	3, ]),
 
-"shenli wan"	: ([	// Áú»¢ÉñÁ¦Íè
-	"name":		MAG"Áú»¢ÉñÁ¦Íè"NOR,
+"shenli wan"	: ([	// é¾™è™ç¥åŠ›ä¸¸
+	"name":		MAG"é¾™è™ç¥åŠ›ä¸¸"NOR,
 	"id":		({ "shenli wan","wan" }),
-	"eat_msg":	MAG"$N·şÏÂÒ»¿ÅÁú»¢ÉñÁ¦Íè£¬¶ÙÊ±¸Ğ¾õÈ«Éí³äÂúÁ¦Á¿¡£"NOR,
-	"long":		MAG"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉı±ÛÁ¦µÄÏÉµ¤¡£"NOR,
+	"eat_msg":	MAG"$Næœä¸‹ä¸€é¢—é¾™è™ç¥åŠ›ä¸¸ï¼Œé¡¿æ—¶æ„Ÿè§‰å…¨èº«å……æ»¡åŠ›é‡ã€‚"NOR,
+	"long":		MAG"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡è‡‚åŠ›çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	3000,
@@ -412,11 +412,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	520,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"kaitian dan"	: ([	// Ê×ÎÚ¿ªÌìµ¤
-	"name":		HIW"Ê×ÎÚ¿ªÌìµ¤"NOR,
+"kaitian dan"	: ([	// é¦–ä¹Œå¼€å¤©ä¸¹
+	"name":		HIW"é¦–ä¹Œå¼€å¤©ä¸¹"NOR,
 	"id":		({ "kaitian wan","wan" }),
-	"eat_msg":	HIW"$N·şÏÂÒ»¿ÅÊ×ÎÚ¿ªÌìµ¤£¬¶ÙÊ±¸Ğ¾õÈ«Éí³äÂúÖÇ»Û¡£"NOR,
-	"long":		HIW"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉıÖÇÁ¦µÄÏÉµ¤¡£"NOR,
+	"eat_msg":	HIW"$Næœä¸‹ä¸€é¢—é¦–ä¹Œå¼€å¤©ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰å…¨èº«å……æ»¡æ™ºæ…§ã€‚"NOR,
+	"long":		HIW"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡æ™ºåŠ›çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	3000,
@@ -426,11 +426,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	520,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"yijing dan"	: ([	// ±ªÌ¥Ò×½îµ¤
-	"name":		MAG"±ªÌ¥Ò×½îµ¤"NOR,
+"yijing dan"	: ([	// è±¹èƒæ˜“ç­‹ä¸¹
+	"name":		MAG"è±¹èƒæ˜“ç­‹ä¸¹"NOR,
 	"id":		({ "yijing dan","dan" }),
-	"eat_msg":	MAG"$N·şÏÂÒ»¿Å±ªÌ¥Ò×½îµ¤£¬¶ÙÊ±ÓĞÒ»ÖÖÍÑÌ¥»»¹ÇµÄ¸Ğ¾õ¡£"NOR,
-	"long":		MAG"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉı¸ù¹ÇµÄÏÉµ¤¡£"NOR,
+	"eat_msg":	MAG"$Næœä¸‹ä¸€é¢—è±¹èƒæ˜“ç­‹ä¸¹ï¼Œé¡¿æ—¶æœ‰ä¸€ç§è„±èƒæ¢éª¨çš„æ„Ÿè§‰ã€‚"NOR,
+	"long":		MAG"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡æ ¹éª¨çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	3000,
@@ -440,11 +440,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	520,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"feisheng dan"	: ([	// Ş½Ïã·ÉÉıµ¤
-	"name":		HIY"Ş½Ïã·ÉÉıµ¤"NOR,
+"feisheng dan"	: ([	// è—¿é¦™é£å‡ä¸¹
+	"name":		HIY"è—¿é¦™é£å‡ä¸¹"NOR,
 	"id":		({ "feisheng dan","dan" }),
-	"eat_msg":	HIY"$N·şÏÂÒ»¿ÅŞ½Ïã·ÉÉıµ¤£¬¶ÙÊ±ÓĞÒ»ÖÖÉíÇáÈëÑãµÄ¸Ğ¾õ¡£"NOR,
-	"long":		HIY"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉıÉí·¨µÄÏÉµ¤¡£"NOR,
+	"eat_msg":	HIY"$Næœä¸‹ä¸€é¢—è—¿é¦™é£å‡ä¸¹ï¼Œé¡¿æ—¶æœ‰ä¸€ç§èº«è½»å…¥é›çš„æ„Ÿè§‰ã€‚"NOR,
+	"long":		HIY"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡èº«æ³•çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	3000,
@@ -454,11 +454,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	520,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"fuyun dan"	: ([	// ÌìÏÉ¸£ÔËµ¤
-	"name":		HIM"ÌìÏÉ¸£ÔËµ¤"NOR,
+"fuyun dan"	: ([	// å¤©ä»™ç¦è¿ä¸¹
+	"name":		HIM"å¤©ä»™ç¦è¿ä¸¹"NOR,
 	"id":		({ "fuyun dan","dan" }),
-	"eat_msg":	HIM"$N·şÏÂÒ»¿ÅÌìÏÉ¸£ÔËµ¤£¬¶ÙÊ±ÓĞÒ»ÖÖĞÒ¸£µÄ¸Ğ¾õ¡£"NOR,
-	"long":		HIM"ÕâÊÇÒ»¿ÅÓÃÀ´ÌáÉı¸£ÔËµÄÏÉµ¤¡£"NOR,
+	"eat_msg":	HIM"$Næœä¸‹ä¸€é¢—å¤©ä»™ç¦è¿ä¸¹ï¼Œé¡¿æ—¶æœ‰ä¸€ç§å¹¸ç¦çš„æ„Ÿè§‰ã€‚"NOR,
+	"long":		HIM"è¿™æ˜¯ä¸€é¢—ç”¨æ¥æå‡ç¦è¿çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		109,
 	"worktime":	15,
 	"neili":	3000,
@@ -468,11 +468,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	520,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"yuling san"	: ([	// ÓñÁé²¹ÆøÉ¢
-	"name":		GRN"ÓñÁé²¹ÆøÉ¢"NOR,
+"yuling san"	: ([	// ç‰çµè¡¥æ°”æ•£
+	"name":		GRN"ç‰çµè¡¥æ°”æ•£"NOR,
 	"id":		({ "yuling san","san" }),
-	"eat_msg":	GRN"$N·şÏÂÒ»¿ÅÓñÁé²¹ÆøÉ¢£¬¶ÙÊ±¸Ğ¾õÆøÑªºÍÄÚÏ¢¶¼»Ö¸´µ½×îºÃµÄ×´Ì¬¡£"NOR,
-	"long":		GRN"ÕâÊÇÒ»¿ÅÓÃÀ´ÍêÈ«»Ö¸´ÆøÑªºÍÄÚÏ¢µÄÏÉµ¤¡£"NOR,
+	"eat_msg":	GRN"$Næœä¸‹ä¸€é¢—ç‰çµè¡¥æ°”æ•£ï¼Œé¡¿æ—¶æ„Ÿè§‰æ°”è¡€å’Œå†…æ¯éƒ½æ¢å¤åˆ°æœ€å¥½çš„çŠ¶æ€ã€‚"NOR,
+	"long":		GRN"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å®Œå…¨æ¢å¤æ°”è¡€å’Œå†…æ¯çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	0,
 	"neili":	3000,
@@ -482,11 +482,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	520,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"yuzheng dan"	: ([	// ÓñÕæÑø¾«µ¤
-	"name":		CYN"ÓñÕæÑø¾«µ¤"NOR,
+"yuzheng dan"	: ([	// ç‰çœŸå…»ç²¾ä¸¹
+	"name":		CYN"ç‰çœŸå…»ç²¾ä¸¹"NOR,
 	"id":		({ "yuzheng dan","dan" }),
-	"eat_msg":	CYN"$N·şÏÂÒ»¿ÅÓñÕæÑø¾«µ¤£¬¶ÙÊ±¸Ğ¾õ¾«ÑªºÍ¾«Á¦¶¼»Ö¸´µ½×îºÃµÄ×´Ì¬¡£"NOR,
-	"long":		CYN"ÕâÊÇÒ»¿ÅÓÃÀ´ÍêÈ«»Ö¸´¾«ÑªºÍ¾«Á¦µÄÏÉµ¤¡£"NOR,
+	"eat_msg":	CYN"$Næœä¸‹ä¸€é¢—ç‰çœŸå…»ç²¾ä¸¹ï¼Œé¡¿æ—¶æ„Ÿè§‰ç²¾è¡€å’Œç²¾åŠ›éƒ½æ¢å¤åˆ°æœ€å¥½çš„çŠ¶æ€ã€‚"NOR,
+	"long":		CYN"è¿™æ˜¯ä¸€é¢—ç”¨æ¥å®Œå…¨æ¢å¤ç²¾è¡€å’Œç²¾åŠ›çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	0,
 	"neili":	3000,
@@ -497,11 +497,11 @@ nosave mapping DRUGS = ([
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
 
-"honghua dan"	: ([	// ºì»¨ÉñÍ¨µ¤
-	"name":		MAG"ºì»¨ÉñÍ¨µ¤"NOR,
+"honghua dan"	: ([	// çº¢èŠ±ç¥é€šä¸¹
+	"name":		MAG"çº¢èŠ±ç¥é€šä¸¹"NOR,
 	"id":		({ "honghua dan","dan" }),
-	"eat_msg":	MAG"$N·şÏÂÒ»¿Åºì»¨ÉñÍ¨µ¤£¬¼¤·¢³öÉíÌåÀïËùÓĞµÄÇ±ÄÜ£¬¹¥»÷Á¦´ó´óÌá¸ß¡£"NOR,
-	"long":		MAG"ÕâÊÇÒ»¿ÅÄÜ¹»´óÁ¿ÌáÉı¹¥»÷Á¦µÄÏÉµ¤¡£"NOR,
+	"eat_msg":	MAG"$Næœä¸‹ä¸€é¢—çº¢èŠ±ç¥é€šä¸¹ï¼Œæ¿€å‘å‡ºèº«ä½“é‡Œæ‰€æœ‰çš„æ½œèƒ½ï¼Œæ”»å‡»åŠ›å¤§å¤§æé«˜ã€‚"NOR,
+	"long":		MAG"è¿™æ˜¯ä¸€é¢—èƒ½å¤Ÿå¤§é‡æå‡æ”»å‡»åŠ›çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	4000,
@@ -511,11 +511,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	600,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"renshen wan"	: ([	// ÈË²Î»¤ÌåÍè
-	"name":		HIM"ÈË²Î»¤ÌåÍè"NOR,
+"renshen wan"	: ([	// äººå‚æŠ¤ä½“ä¸¸
+	"name":		HIM"äººå‚æŠ¤ä½“ä¸¸"NOR,
 	"id":		({ "renshen wan","wan" }),
-	"eat_msg":	HIM"$N·şÏÂÒ»¿ÅÈË²Î»¤ÌåÍè£¬¼¤·¢³öÉíÌåÀïËùÓĞµÄÇ±ÄÜ£¬·ÀÓùÁ¦´ó´óÌá¸ß¡£"NOR,
-	"long":		HIM"ÕâÊÇÒ»¿ÅÄÜ¹»´óÁ¿ÌáÉı·ÀÓùÁ¦µÄÏÉµ¤¡£"NOR,
+	"eat_msg":	HIM"$Næœä¸‹ä¸€é¢—äººå‚æŠ¤ä½“ä¸¸ï¼Œæ¿€å‘å‡ºèº«ä½“é‡Œæ‰€æœ‰çš„æ½œèƒ½ï¼Œé˜²å¾¡åŠ›å¤§å¤§æé«˜ã€‚"NOR,
+	"long":		HIM"è¿™æ˜¯ä¸€é¢—èƒ½å¤Ÿå¤§é‡æå‡é˜²å¾¡åŠ›çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	4000,
@@ -525,11 +525,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	600,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"tijing dan"	: ([	// ºì»¨Ìá¾«µ¤
-	"name":		RED"ºì»¨Ìá¾«µ¤"NOR,
+"tijing dan"	: ([	// çº¢èŠ±æç²¾ä¸¹
+	"name":		RED"çº¢èŠ±æç²¾ä¸¹"NOR,
 	"id":		({ "tijing dan","dan" }),
-	"eat_msg":	RED"$N·şÏÂÒ»¿Åºì»¨Ìá¾«µ¤£¬¼¤·¢³öÉíÌåÀïËùÓĞµÄÇ±ÄÜ£¬¾«Ñª´óÁ¿ÌáÉı¡£"NOR,
-	"long":		RED"ÕâÊÇÒ»¿ÅÄÜ¹»´óÁ¿ÌáÉı¾«ÑªµÄÏÉµ¤¡£"NOR,
+	"eat_msg":	RED"$Næœä¸‹ä¸€é¢—çº¢èŠ±æç²¾ä¸¹ï¼Œæ¿€å‘å‡ºèº«ä½“é‡Œæ‰€æœ‰çš„æ½œèƒ½ï¼Œç²¾è¡€å¤§é‡æå‡ã€‚"NOR,
+	"long":		RED"è¿™æ˜¯ä¸€é¢—èƒ½å¤Ÿå¤§é‡æå‡ç²¾è¡€çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	4000,
@@ -539,11 +539,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	600,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"yangqi wan"	: ([	// ÈË²ÎÑøÆøÍè
-	"name":		YEL"ÈË²ÎÑøÆøÍè"NOR,
+"yangqi wan"	: ([	// äººå‚å…»æ°”ä¸¸
+	"name":		YEL"äººå‚å…»æ°”ä¸¸"NOR,
 	"id":		({ "yangqi dan","dan" }),
-	"eat_msg":	YEL"$N·şÏÂÒ»¿Åºì»¨Ìá¾«µ¤£¬¼¤·¢³öÉíÌåÀïËùÓĞµÄÇ±ÄÜ£¬ÆøÑª´óÁ¿ÌáÉı¡£"NOR,
-	"long":		YEL"ÕâÊÇÒ»¿ÅÄÜ¹»´óÁ¿ÌáÉıÆøÑªµÄÏÉµ¤¡£"NOR,
+	"eat_msg":	YEL"$Næœä¸‹ä¸€é¢—çº¢èŠ±æç²¾ä¸¹ï¼Œæ¿€å‘å‡ºèº«ä½“é‡Œæ‰€æœ‰çš„æ½œèƒ½ï¼Œæ°”è¡€å¤§é‡æå‡ã€‚"NOR,
+	"long":		YEL"è¿™æ˜¯ä¸€é¢—èƒ½å¤Ÿå¤§é‡æå‡æ°”è¡€çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	12,
 	"neili":	4000,
@@ -553,11 +553,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	600,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"qudu wan"	: ([	// ÌìĞÄÈ¥¶¾µ¤
-	"name":		HIB"ÌìĞÄÈ¥¶¾µ¤"NOR,
+"qudu wan"	: ([	// å¤©å¿ƒå»æ¯’ä¸¹
+	"name":		HIB"å¤©å¿ƒå»æ¯’ä¸¹"NOR,
 	"id":		({ "qudu wan","wan" }),
-	"eat_msg":	HIB"$N·şÏÂÒ»¿ÅÌìĞÄÈ¥¶¾µ¤£¬ÉíÌåÀïËùÓĞµÄ¶¾ËØ¶¼±»Çå³ıÁË¡£"NOR,
-	"long":		HIB"ÕâÊÇÒ»¿ÅÄÜ¹»È¥³ıËùÓĞ¶¾ËØµÄÏÉµ¤¡£"NOR,
+	"eat_msg":	HIB"$Næœä¸‹ä¸€é¢—å¤©å¿ƒå»æ¯’ä¸¹ï¼Œèº«ä½“é‡Œæ‰€æœ‰çš„æ¯’ç´ éƒ½è¢«æ¸…é™¤äº†ã€‚"NOR,
+	"long":		HIB"è¿™æ˜¯ä¸€é¢—èƒ½å¤Ÿå»é™¤æ‰€æœ‰æ¯’ç´ çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		130,
 	"worktime":	0,
 	"neili":	4000,
@@ -567,11 +567,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	550,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"xuming badan"	: ([	// ĞøÃü°Ëµ¤
-	"name":		HIR"ĞøÃü°Ëµ¤"NOR,
+"xuming badan"	: ([	// ç»­å‘½å…«ä¸¹
+	"name":		HIR"ç»­å‘½å…«ä¸¹"NOR,
 	"id":		({ "xuming badan","badan" }),
-	"eat_msg":	HIR"$N·şÏÂÒ»¿ÅĞøÃü°Ëµ¤£¬°ÑĞÔÃüµôÁË»ØÀ´¡£"NOR,
-	"long":		HIR"ÕâÊÇÒ»¿ÅÄÜ¹»»Ö¸´ÉíÌå×îºÃ×´Ì¬²¢´ó´ó½µµÍ¶¾ËØµÄÏÉµ¤¡£"NOR,
+	"eat_msg":	HIR"$Næœä¸‹ä¸€é¢—ç»­å‘½å…«ä¸¹ï¼ŒæŠŠæ€§å‘½æ‰äº†å›æ¥ã€‚"NOR,
+	"long":		HIR"è¿™æ˜¯ä¸€é¢—èƒ½å¤Ÿæ¢å¤èº«ä½“æœ€å¥½çŠ¶æ€å¹¶å¤§å¤§é™ä½æ¯’ç´ çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		150,
 	"worktime":	0,
 	"neili":	4000,
@@ -581,11 +581,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	650,
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
-"yulu san"	: ([	// ÓñÂ¶Ğø¾«É¢
-	"name":		HIC"ÓñÂ¶Ğø¾«É¢"NOR,
+"yulu san"	: ([	// ç‰éœ²ç»­ç²¾æ•£
+	"name":		HIC"ç‰éœ²ç»­ç²¾æ•£"NOR,
 	"id":		({ "yulu san","san" }),
-	"eat_msg":	HIC"$N·şÏÂÒ»¿ÅÓñÂ¶Ğø¾«É¢£¬¶ÙÊ±¸Ğ¾õ¾«Á¦³¬Ô½ÁË¼«ÏŞ¡£"NOR,
-	"long":		HIC"ÕâÊÇÒ»¿Å´óÁ¿ÌáÉı×î´ó¾«Á¦µÄÏÉµ¤¡£"NOR,
+	"eat_msg":	HIC"$Næœä¸‹ä¸€é¢—ç‰éœ²ç»­ç²¾æ•£ï¼Œé¡¿æ—¶æ„Ÿè§‰ç²¾åŠ›è¶…è¶Šäº†æé™ã€‚"NOR,
+	"long":		HIC"è¿™æ˜¯ä¸€é¢—å¤§é‡æå‡æœ€å¤§ç²¾åŠ›çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		190,
 	"worktime":	0,
 	"neili":	4000,
@@ -596,11 +596,11 @@ nosave mapping DRUGS = ([
 	"max_lvl":	450,
 	"drug_lvl":	2, ]),
 	
-"shadan san"	: ([	// öèµ¨ÌïÆßÉ¢
-	"name":		HIR"öèµ¨ÌïÆßÉ¢"NOR,
+"shadan san"	: ([	// é²¨èƒ†ç”°ä¸ƒæ•£
+	"name":		HIR"é²¨èƒ†ç”°ä¸ƒæ•£"NOR,
 	"id":		({ "shadan san","san" }),
-	"eat_msg":	HIR"$N·şÏÂÒ»¿Åöèµ¨ÌïÆßÉ¢£¬¸Ğ¾õÔ­À´µÄËùÓĞ·³ÄÕ¶¼²»¸´´æÔÚÁË¡£"NOR,
-	"long":		HIR"ÕâÊÇÒ»¸±ÄÜ¹»È¥³ıËùÓĞ¶¾ËØ£¬²¢»Ö¸´ÉíÌå×îºÃ×´Ì¬µÄÏÉÒ©¡£"NOR,
+	"eat_msg":	HIR"$Næœä¸‹ä¸€é¢—é²¨èƒ†ç”°ä¸ƒæ•£ï¼Œæ„Ÿè§‰åŸæ¥çš„æ‰€æœ‰çƒ¦æ¼éƒ½ä¸å¤å­˜åœ¨äº†ã€‚"NOR,
+	"long":		HIR"è¿™æ˜¯ä¸€å‰¯èƒ½å¤Ÿå»é™¤æ‰€æœ‰æ¯’ç´ ï¼Œå¹¶æ¢å¤èº«ä½“æœ€å¥½çŠ¶æ€çš„ä»™è¯ã€‚"NOR,
 	"busy":		160,
 	"worktime":	0,
 	"neili":	5000,
@@ -610,11 +610,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	750,
 	"max_lvl":	500,
 	"drug_lvl":	1, ]),
-"puti zi"	: ([	// ÆĞÌáÑ©Á«×Ó
-	"name":		HIW"ÆĞÌáÑ©Á«×Ó"NOR,
+"puti zi"	: ([	// è©æé›ªè²å­
+	"name":		HIW"è©æé›ªè²å­"NOR,
 	"id":		({ "puti zi","zi" }),
-	"eat_msg":	HIW"$N·şÏÂÒ»¿ÅÆĞÌáÑ©Á«×Ó£¬¶ÙÊ±¸Ğ¾õÄÚÁ¦³¬Ô½ÁË¼«ÏŞ¡£"NOR,
-	"long":		HIW"ÕâÊÇÒ»¿ÅÄÜ¹»´óÁ¿Ìá¸ß×î´óÄÚÁ¦µÄÏÉµ¤¡£"NOR,
+	"eat_msg":	HIW"$Næœä¸‹ä¸€é¢—è©æé›ªè²å­ï¼Œé¡¿æ—¶æ„Ÿè§‰å†…åŠ›è¶…è¶Šäº†æé™ã€‚"NOR,
+	"long":		HIW"è¿™æ˜¯ä¸€é¢—èƒ½å¤Ÿå¤§é‡æé«˜æœ€å¤§å†…åŠ›çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		190,
 	"worktime":	0,
 	"neili":	5000,
@@ -624,11 +624,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	800,
 	"max_lvl":	500,
 	"drug_lvl":	1, ]),
-"wudi dan"	: ([	// ÎŞµĞÉñÍ¨µ¤
-	"name":		MAG"ÎŞµĞÉñÍ¨µ¤"NOR,
+"wudi dan"	: ([	// æ— æ•Œç¥é€šä¸¹
+	"name":		MAG"æ— æ•Œç¥é€šä¸¹"NOR,
 	"id":		({ "wudi dan","dan" }),
-	"eat_msg":	MAG"$N·şÏÂÒ»¿ÅÎŞµĞÉñÍ¨µ¤£¬¶ÙÊ±¼¤·¢³öÈ«Éí³¬Ô½¼«ÏŞµÄÇ±ÄÜ£¬¹¥·À¶¼´ïµ½Ò»¸öĞÂµÄ¾³½ç¡£"NOR,
-	"long":		MAG"ÕâÊÇÒ»¿ÅÄÜ¹»¼«´óÌáÉı¹¥·ÀµÄÏÉµ¤¡£"NOR,
+	"eat_msg":	MAG"$Næœä¸‹ä¸€é¢—æ— æ•Œç¥é€šä¸¹ï¼Œé¡¿æ—¶æ¿€å‘å‡ºå…¨èº«è¶…è¶Šæé™çš„æ½œèƒ½ï¼Œæ”»é˜²éƒ½è¾¾åˆ°ä¸€ä¸ªæ–°çš„å¢ƒç•Œã€‚"NOR,
+	"long":		MAG"è¿™æ˜¯ä¸€é¢—èƒ½å¤Ÿæå¤§æå‡æ”»é˜²çš„ä»™ä¸¹ã€‚"NOR,
 	"busy":		103,
 	"worktime":	15,
 	"neili":	5000,
@@ -638,11 +638,11 @@ nosave mapping DRUGS = ([
 	"win_lvl":	800,
 	"max_lvl":	500,
 	"drug_lvl":	1, ]),
-"huanhun dan"	: ([	// ¾Å×ª»¹»êµ¤
-	"name":		BLU"¾Å×ª»¹»êµ¤"NOR,
+"huanhun dan"	: ([	// ä¹è½¬è¿˜é­‚ä¸¹
+	"name":		BLU"ä¹è½¬è¿˜é­‚ä¸¹"NOR,
 	"id":		({ "huanhun dan","dan" }),
-	"eat_msg":	BLU"$N·şÏÂÒ»¿Å¾Å×ª»¹»êµ¤£¬¶ÙÊ±ÓĞÒ»ÖÖÁé»ê¸½ÌåµÄ¸Ğ¾õ¡£"NOR,
-	"long":		BLU"ÕâÊÇÒ»¿Å´«ËµÖĞÉñÏÉ²ÅÄÜÁ¶ÖÆµÄµ¤Ò©£¬ÓĞ»Ø»ê×ªÊÀÖ®¹¦Ğ§¡£"NOR,
+	"eat_msg":	BLU"$Næœä¸‹ä¸€é¢—ä¹è½¬è¿˜é­‚ä¸¹ï¼Œé¡¿æ—¶æœ‰ä¸€ç§çµé­‚é™„ä½“çš„æ„Ÿè§‰ã€‚"NOR,
+	"long":		BLU"è¿™æ˜¯ä¸€é¢—ä¼ è¯´ä¸­ç¥ä»™æ‰èƒ½ç‚¼åˆ¶çš„ä¸¹è¯ï¼Œæœ‰å›é­‚è½¬ä¸–ä¹‹åŠŸæ•ˆã€‚"NOR,
 	"busy":		640,
 	"worktime":	0,
 	"neili":	5000,
@@ -695,77 +695,77 @@ int do_drug(object me,string yao,int lvl,int lower)
 	int * mpv;
 	
 	switch ( yao ) {
-		case "yangjing dan":	// Ñø¾«µ¤
+		case "yangjing dan":	// å…»ç²¾ä¸¹
 			me->add("jing", 600 * lvl/100);
 			break;
-		case "buqi wan":	// ²¹ÆøÍè
+		case "buqi wan":	// è¡¥æ°”ä¸¸
 			me->add("qi", 800 * lvl/100);
 			break;
-		case "xujing dan":	// Ğø¾«µ¤	
+		case "xujing dan":	// ç»­ç²¾ä¸¹	
 			me->add("jingli", 600 * lvl/100);
 			break;
-		case "neixi wan":	// ÄÚÏ¢Íè
+		case "neixi wan":	// å†…æ¯ä¸¸
 			me->add("neili", 800 * lvl/100);
 			break;
-		case "bushi dan":	// ²¹Ê³µ¤
+		case "bushi dan":	// è¡¥é£Ÿä¸¹
 			me->add("food", 100 * lvl/100);
 			break;
-		case "bushui wan":	// ²¹Ë®Íè
+		case "bushui wan":	// è¡¥æ°´ä¸¸
 			me->add("water", 100 * lvl/100);
 			break;
-		case "jinchuang yao":	// ½ğ´¯Ò©
+		case "jinchuang yao":	// é‡‘ç–®è¯
 			me->add("eff_qi", 500 * lvl/100);
 			break;
-		case "liaojing dan":	// ÁÆ¾«µ¤
+		case "liaojing dan":	// ç–—ç²¾ä¸¹
 			me->add("eff_jing", 300 * lvl/100);
 			break;
 			
-		case "zhengqi dan":	// ÕıÆøµ¤
+		case "zhengqi dan":	// æ­£æ°”ä¸¹
 			me->add("shen", 8000 * lvl/100);
 			break;
-		case "xieqi wan":	// Ğ°ÆøÍè
+		case "xieqi wan":	// é‚ªæ°”ä¸¸
 			me->add("shen", -8000 * lvl/100);
 			break;
-		case "dali wan":	// ´óÁ¦Íè
+		case "dali wan":	// å¤§åŠ›ä¸¸
 			i = 6 * lvl/100;
 			me->add_temp("apply/strength",i);
 			me->add_temp("drug_apply/strength",i);
 			break;
-		case "lingxi dan":	// ÁéÏ¬µ¤
+		case "lingxi dan":	// çµçŠ€ä¸¹
 			i = 6 * lvl/100;
 			me->add_temp("apply/intelligence",i);
 			me->add_temp("drug_apply/intelligence",i);
 			break;
-		case "huangu wan":	// »»¹ÇÍè
+		case "huangu wan":	// æ¢éª¨ä¸¸
 			i = 6 * lvl/100;
 			me->add_temp("apply/constitution",i);
 			me->add_temp("drug_apply/constitution",i);
 			break;
-		case "qingshen dan":	// ÇáÉíµ¤
+		case "qingshen dan":	// è½»èº«ä¸¹
 			i = 6 * lvl/100;
 			me->add_temp("apply/dexerity",i);
 			me->add_temp("drug_apply/dexerity",i);
 			break;
 			
-		case "yannian dan":	// ÑÓÄêÑø¾«µ¤
+		case "yannian dan":	// å»¶å¹´å…»ç²¾ä¸¹
 			me->add("jing", 1800 * lvl/100);
 			break;
-		case "fuling wan":	// ÜòÜß²¹ÆøÍè
+		case "fuling wan":	// èŒ¯è‹“è¡¥æ°”ä¸¸
 			me->add("qi", 3000 * lvl/100);
 			break;
-		case "danggui dan":	// µ±¹éĞø¾«µ¤
+		case "danggui dan":	// å½“å½’ç»­ç²¾ä¸¹
 			me->add("jingli", 1800 * lvl/100);
 			break;
-		case "chuanbei wan":	// ´¨±´ÄÚÏ¢Íè
+		case "chuanbei wan":	// å·è´å†…æ¯ä¸¸
 			me->add("neili", 3000 * lvl/100);
 			break;
-		case "chantui yao":	// ²õÍÉ½ğ´¯Ò©
+		case "chantui yao":	// è‰èœ•é‡‘ç–®è¯
 			me->add("eff_qi", 1200 * lvl/100);
 			break;
-		case "huoxue dan":	// »îÑªÁÆ¾«µ¤
+		case "huoxue dan":	// æ´»è¡€ç–—ç²¾ä¸¹
 			me->add("eff_jing", 800 * lvl/100);
 			break;
-		case "jiedu wan": 	// ½â¶¾Íè
+		case "jiedu wan": 	// è§£æ¯’ä¸¸
 			mp = me->query_conditions_by_type("poison");
 			if(!mapp(mp)) break;
 			mpk = keys(mp);
@@ -777,13 +777,13 @@ int do_drug(object me,string yao,int lvl,int lower)
 			}
 			break;
 
-		case "huangqi dan":	// »ÆÜÎÄÚÏ¢µ¤
+		case "huangqi dan":	// é»„èŠªå†…æ¯ä¸¹
 			me->add("max_neili", 2 * lvl/100);
 			break;
-		case "jinyin dan":	// ½ğÒøĞø¾«µ¤
+		case "jinyin dan":	// é‡‘é“¶ç»­ç²¾ä¸¹
 			me->add("eff_jingli", 2 * lvl/100);
 			break;
-		case "niuhuang wan":	// Å£»Æ½â¶¾Íè
+		case "niuhuang wan":	// ç‰›é»„è§£æ¯’ä¸¸
 			mp = me->query_conditions_by_type("poison");
 			if(!mapp(mp)) break;
 			mpk = keys(mp);
@@ -794,28 +794,28 @@ int do_drug(object me,string yao,int lvl,int lower)
 				me->add_condition(mpk[i],-(mpv[i]/3 * lvl/100));
 			}
 			break;
-		case "shentong dan": 	// ÉñÍ¨µ¤
+		case "shentong dan": 	// ç¥é€šä¸¹
 			i = me->query_skill("force",1)/4 * lvl/100;
 			me->add_temp("apply/attack",i);
 			me->add_temp("drug_apply/attack",i);
 			break;
-		case "huti wan":	// »¤ÌåÍè
+		case "huti wan":	// æŠ¤ä½“ä¸¸
 			i = me->query_skill("parry",1)/4 * lvl/100;
 			me->add_temp("apply/parry",i);
 			me->add_temp("drug_apply/parry",i);
 			break;
-		case "tianxin dan":	// ÌìĞÄÔö¾«µ¤
+		case "tianxin dan":	// å¤©å¿ƒå¢ç²¾ä¸¹
 			i = 500 * lvl/100;
 			me->add_temp("apply/jing",i);
 			me->add_temp("drug_apply/jing",i);
 			break;
-		case "xiantian wan":	// ÏÈÌìÑøÆøÍè
+		case "xiantian wan":	// å…ˆå¤©å…»æ°”ä¸¸
 			i = 800 * lvl/100;
 			me->add_temp("apply/qi",i);
 			me->add_temp("drug_apply/qi",i);
 			break;
 
-		case "shenli wan":	// Áú»¢ÉñÁ¦Íè
+		case "shenli wan":	// é¾™è™ç¥åŠ›ä¸¸
 			if(lower)
 				i = 8 * lvl/100;
 			else
@@ -823,7 +823,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/strength",i);
 			me->add_temp("drug_apply/strength",i);
 			break;		
-		case "kaitian dan":	// Ê×ÎÚ¿ªÌìµ¤
+		case "kaitian dan":	// é¦–ä¹Œå¼€å¤©ä¸¹
 			if(lower)
 				i = 8 * lvl/100;
 			else
@@ -831,7 +831,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/intelligence",i);
 			me->add_temp("drug_apply/intelligence",i);
 			break;
-		case "yijing dan":	// ±ªÌ¥Ò×½îµ¤
+		case "yijing dan":	// è±¹èƒæ˜“ç­‹ä¸¹
 			if(lower)
 				i = 8 * lvl/100;
 			else
@@ -839,7 +839,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/constitution",i);
 			me->add_temp("drug_apply/constitution",i);
 			break;
-		case "feisheng dan":	// Ş½Ïã·ÉÉıµ¤
+		case "feisheng dan":	// è—¿é¦™é£å‡ä¸¹
 			if(lower)
 				i = 8 * lvl/100;
 			else
@@ -847,7 +847,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/dexerity",i);
 			me->add_temp("drug_apply/dexerity",i);
 			break;
-		case "fuyun dan":	// ÌìÏÉ¸£ÔËµ¤
+		case "fuyun dan":	// å¤©ä»™ç¦è¿ä¸¹
 			if(lower)
 				i = 5 * lvl/100;
 			else
@@ -855,7 +855,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/karma",i);
 			me->add_temp("drug_apply/karma",i);
 			break;
-		case "yuling san":	// ÓñÁé²¹ÆøÉ¢
+		case "yuling san":	// ç‰çµè¡¥æ°”æ•£
 			if(lower || lvl<random(80)) {
 				me->add("eff_qi", 2000 * lvl/100);
 				me->add("qi",3000 * lvl/100);
@@ -871,7 +871,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			if( me->query("neili") < me->query("max_neili") )
 				me->set("neili",me->query("max_neili"));
 			break;
-		case "yuzheng dan":	// ÓñÕæÑø¾«µ¤
+		case "yuzheng dan":	// ç‰çœŸå…»ç²¾ä¸¹
 			if(lower || lvl<random(80)) {
 				me->add("eff_jing", 1500 * lvl/100);
 				me->add("jing",2500 * lvl/100);
@@ -888,7 +888,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 				me->set("jingli",me->query("eff_jingli"));
 			break;
 
-		case "honghua dan":	// ºì»¨ÉñÍ¨µ¤
+		case "honghua dan":	// çº¢èŠ±ç¥é€šä¸¹
 			if(lower)
 				i = me->query_skill("force",1)*2/7 * lvl/100;
 			else
@@ -896,7 +896,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/attack",i);
 			me->add_temp("drug_apply/attack",i);
 			break;
-		case "renshen wan":	// ÈË²Î»¤ÌåÍè
+		case "renshen wan":	// äººå‚æŠ¤ä½“ä¸¸
 			if(lower)
 				i = me->query_skill("parry",1)*2/7 * lvl/100;
 			else
@@ -904,7 +904,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/parry",i);
 			me->add_temp("drug_apply/parry",i);
 			break;
-		case "tijing dan":	// ºì»¨Ìá¾«µ¤
+		case "tijing dan":	// çº¢èŠ±æç²¾ä¸¹
 			if(lower)
 				i = 700 * lvl/100;
 			else
@@ -912,7 +912,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/jing",i);
 			me->add_temp("drug_apply/jing",i);
 			break;
-		case "yangqi wan": 	// ÈË²ÎÑøÆøÍè
+		case "yangqi wan": 	// äººå‚å…»æ°”ä¸¸
 			if(lower)
 				i = 1000 * lvl/100;
 			else
@@ -920,7 +920,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/qi",i);
 			me->add_temp("drug_apply/qi",i);
 			break;
-		case "qudu wan":	// ÌìĞÄÈ¥¶¾µ¤
+		case "qudu wan":	// å¤©å¿ƒå»æ¯’ä¸¹
 			if(lower || lvl<random(80)) {
 				mp = me->query_conditions_by_type("poison");
 				if(!mapp(mp)) break;
@@ -932,7 +932,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			}
 			mp = me->clear_conditions_by_type("poison");
 			break;
-		case "xuming badan": 	// ĞøÃü°Ëµ¤
+		case "xuming badan": 	// ç»­å‘½å…«ä¸¹
 			if(lower || lvl<random(80)) {
 				me->add("eff_qi", 2000 * lvl/100);
 				me->add("qi",3000 * lvl/100);
@@ -974,14 +974,14 @@ int do_drug(object me,string yao,int lvl,int lower)
 			for(i=0;i<sizeof(mp);i++)
 				me->add_condition(mpk[i],-(mpv[i]/2 * lvl/100));
 			break;
-		case "yulu san":	// ÓñÂ¶Ğø¾«É¢
+		case "yulu san":	// ç‰éœ²ç»­ç²¾æ•£
 			if(lower)
 				me->add("eff_jingli", 5 * lvl/100);
 			else
 				me->add("eff_jingli",20 * lvl/100);
 			break;
 	
-		case "shadan san":	// öèµ¨ÌïÆßÉ¢
+		case "shadan san":	// é²¨èƒ†ç”°ä¸ƒæ•£
 			if(lower || lvl<random(80)) {
 				me->add("eff_qi", 3000 * lvl/100);
 				me->add("qi",5000 * lvl/100);
@@ -1010,13 +1010,13 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add("jingli",99999);				
 			me->clear_conditions_by_type("poison");
 			break;
-		case "puti zi":		// ÆĞÌáÑ©Á«×Ó
+		case "puti zi":		// è©æé›ªè²å­
 			if(lower)
 				me->add("max_neili", 8 * lvl/100);
 			else
 				me->add("max_neili",30 * lvl/100);
 			break;
-		case "wudi dan":	// ÎŞµĞÉñÍ¨µ¤
+		case "wudi dan":	// æ— æ•Œç¥é€šä¸¹
 			if(lower)
 				i = me->query_skill("force",1)/3 * lvl/100;
 			else
@@ -1031,7 +1031,7 @@ int do_drug(object me,string yao,int lvl,int lower)
 			me->add_temp("apply/parry",i);
 			me->add_temp("drug_apply/parry",i);
 			break;
-		case "huanhun dan": 	// ¾Å×ª»¹»êµ¤
+		case "huanhun dan": 	// ä¹è½¬è¿˜é­‚ä¸¹
 			if(lower || lvl<random(90)) {
 				i = me->query("combat_exp")/120+1;
 				if (i > 30000) i = 30000;

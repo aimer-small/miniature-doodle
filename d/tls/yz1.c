@@ -3,12 +3,12 @@ inherit ROOM;
 
 void create()
 {
-        set("short", GRN"����Ժ"NOR);
+        set("short", GRN"松树院"NOR);
         set("long", @LONG
-������ʯ·�Ե�һ��СԺ�ӣ��������񣬵���������Ʈ������롣
-һ�԰��м�ֻʯ�ʣ���׼�����������Ъ���õġ�
+这里是石路旁的一座小院子，松树成荫，地上撒满了飘落的松针。
+一旁摆有几只石凳，是准备给进香客们歇脚用的。
 LONG);
-        set("outdoors", "������");
+        set("outdoors", "天龙寺");
         set("exits", ([                           
                "north" : __DIR__"zt1",
                "east" : __DIR__"road",

@@ -1,4 +1,4 @@
-// fish.c ´ó°×Óã
+// fish.c å¤§ç™½é±¼
 // By jpei
 
 inherit ITEM;
@@ -6,13 +6,13 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name("´ó°×Óã", ({ "da baiyu", "white fish", "baiyu", "fish", "yu" }) );
+        set_name("å¤§ç™½é±¼", ({ "da baiyu", "white fish", "baiyu", "fish", "yu" }) );
 	set_weight(7500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»Ìõ×ãÓĞÒ»³ß¶à³¤µÄ´ó°×Óã¡£\n");
-		set("unit", "Ìõ");
+		set("long", "ä¸€æ¡è¶³æœ‰ä¸€å°ºå¤šé•¿çš„å¤§ç™½é±¼ã€‚\n");
+		set("unit", "æ¡");
 		set("value", 500);
 		set("food_remaining", 5);
 		set("food_supply", 20);
@@ -23,10 +23,10 @@ void create()
 
 int finish_eat()
 {
-        set_name("Óã¹Ç", ({ "yu gu", "fish bone", "bone", "gu" }) );
+        set_name("é±¼éª¨", ({ "yu gu", "fish bone", "bone", "gu" }) );
 	set_weight(150);
-	set("long", "Ò»¸ù¿ĞµÃ¾«¹âµÄÓã¹ÇÍ·¡£\n");
-	set("unit", "¸ù");
+	set("long", "ä¸€æ ¹å•ƒå¾—ç²¾å…‰çš„é±¼éª¨å¤´ã€‚\n");
+	set("unit", "æ ¹");
 	set("value", 0);
 	set("material", "bone");
 	return 1;

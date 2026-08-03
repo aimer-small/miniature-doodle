@@ -6,8 +6,8 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
    
-      tell_object(me, HIB "Í»È»Äã¸Ð¾õËÄÖ«ÂéÂéµÄËÆºõ²»´óÁé±ã£¡\n" NOR );
-      tell_room(environment(me), HIB + me->name()+"Í»È»È«ÉíÒ»²ü£¬Á½ÕÅÊÖÕÆÐÄÒÑÈ«³ÉºÚÉ«£¬ºÚÆø¸üË³×ÅÊÖ±ÛÏòÉÏÅÊÉý£¡\n" NOR,
+      tell_object(me, HIB "çªç„¶ä½ æ„Ÿè§‰å››è‚¢éº»éº»çš„ä¼¼ä¹Žä¸å¤§çµä¾¿ï¼\n" NOR );
+      tell_room(environment(me), HIB + me->name()+"çªç„¶å…¨èº«ä¸€é¢¤ï¼Œä¸¤å¼ æ‰‹æŽŒå¿ƒå·²å…¨æˆé»‘è‰²ï¼Œé»‘æ°”æ›´é¡ºç€æ‰‹è‡‚å‘ä¸Šæ”€å‡ï¼\n" NOR,
                 ({ me }));     
   
       me->receive_damage("qi", 30);
@@ -15,7 +15,7 @@ int update_condition(object me, int duration)
           me->receive_wound("jing", 5);
       else me->receive_wound("jing", 5);
 	me->add_busy(2);
-      me->set_temp("last_damage_from", "ÖÐ±ùÆÇÒøÕë¶¾");
+      me->set_temp("last_damage_from", "ä¸­å†°é­„é“¶é’ˆæ¯’");
       if( duration < 2 ) return 0;
 	me->apply_condition("bing_poison", duration - 1);
       return CND_CONTINUE;

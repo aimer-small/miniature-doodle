@@ -1,4 +1,4 @@
-// Room: /d/plummanor/entrance.c ×¯Ôº´óÃÅ
+// Room: /d/plummanor/entrance.c åº„é™¢å¤§é—¨
 // By Jpei
 
 inherit ROOM;
@@ -9,17 +9,17 @@ int do_show(string arg);
 
 void create()
 {
-	set("short", "×¯Ôº´óÃÅ");
+	set("short", "åº„é™¢å¤§é—¨");
 	set("long", @LONG
-ĞĞµ½½ü´¦£¬Ö»¼û×¯Ôº´óÃÅ(gate)ÍâĞ´×Å¡°Ã·×¯¡±Á½¸ö´ó×Ö£¬ÅÔ±ßÊğ×Å¡°Óİ
-ÔÊÎÄÌâ¡±ËÄ×Ö¡£Õâ¼¸¸ö×ÖÈåÑÅÖ®ÖĞÍ¸×Å²ª²ªÉúÆø£¬²»À¢ÊÇ³ö×ÔÄÏËÎÆÆ½ğµÄ´ó¹¦
-³¼Ö®ÊÖ¡£
+è¡Œåˆ°è¿‘å¤„ï¼Œåªè§åº„é™¢å¤§é—¨(gate)å¤–å†™ç€â€œæ¢…åº„â€ä¸¤ä¸ªå¤§å­—ï¼Œæ—è¾¹ç½²ç€â€œè™
+å…æ–‡é¢˜â€å››å­—ã€‚è¿™å‡ ä¸ªå­—å„’é›…ä¹‹ä¸­é€ç€å‹ƒå‹ƒç”Ÿæ°”ï¼Œä¸æ„§æ˜¯å‡ºè‡ªå—å®‹ç ´é‡‘çš„å¤§åŠŸ
+è‡£ä¹‹æ‰‹ã€‚
 LONG
 	);
-	set("outdoors","Ã·×¯");
+	set("outdoors","æ¢…åº„");
 
 	set("item_desc", ([
-		"gate" : "´óÃÅ½ô±Õ×Å£¬ÃÅÉÏÓĞ¸ö²ÁµÃ¾«¹âÑ©ÁÁµÄ´óÍ­»·£¬¿´À´ÊÇÇÃ(knock)ÃÅÓÃµÄ¡£\n",
+		"gate" : "å¤§é—¨ç´§é—­ç€ï¼Œé—¨ä¸Šæœ‰ä¸ªæ“¦å¾—ç²¾å…‰é›ªäº®çš„å¤§é“œç¯ï¼Œçœ‹æ¥æ˜¯æ•²(knock)é—¨ç”¨çš„ã€‚\n",
 	]) );
 	set("exits", ([
 		"north" : __DIR__"road3",
@@ -44,20 +44,20 @@ int do_knock(string arg)
 	string times, gate;
 	int count, knockgate;
 
-	if (!arg) return notify_fail("ÄãÒªÇÃÊ²Ã´£¿\n");
+	if (!arg) return notify_fail("ä½ è¦æ•²ä»€ä¹ˆï¼Ÿ\n");
 	if (sscanf(arg, "%s %d %s", gate, count, times) != 3 || gate != "gate" || times != "times")
-		return notify_fail("ÄãÒªÇÃ¼¸´Î(knock gate ? times)£¿\n");
+		return notify_fail("ä½ è¦æ•²å‡ æ¬¡(knock gate ? times)ï¼Ÿ\n");
 	if (present("ding jian", env) && present("shi lingwei", env))
-		return notify_fail("Á½¸ö¼ÒÈËºÈµÀ£º¡°ÈË¶¼ÔÚÕâÁË£¬»¹ÇÃÊ²Ã´£¿£¡¡±\n");
+		return notify_fail("ä¸¤ä¸ªå®¶äººå–é“ï¼šâ€œäººéƒ½åœ¨è¿™äº†ï¼Œè¿˜æ•²ä»€ä¹ˆï¼Ÿï¼â€\n");
 	else if (present("ding jian", env)) {
 		new(__DIR__"npc/shilingwei")->move(env);
-		return notify_fail("Ò»¸ö¼ÒÈË×ß³öÀ´,¿´ÁË¼¸ÑÛ,ÉúÆøµØËµ£º¡°ÕâÀï²»ÊÇÓĞÈËÂğ£¬»¹ÇÃÊ²Ã´£¿£¡¡±\n");
+		return notify_fail("ä¸€ä¸ªå®¶äººèµ°å‡ºæ¥,çœ‹äº†å‡ çœ¼,ç”Ÿæ°”åœ°è¯´ï¼šâ€œè¿™é‡Œä¸æ˜¯æœ‰äººå—ï¼Œè¿˜æ•²ä»€ä¹ˆï¼Ÿï¼â€\n");
 	}
 	else if (present("shi lingwei", env)) {
 		new(__DIR__"npc/dingjian")->move(env);
-		return notify_fail("Ò»¸ö¼ÒÈË×ß³öÀ´,¿´ÁË¼¸ÑÛ,ÉúÆøµØËµ£º¡°ÕâÀï²»ÊÇÓĞÈËÂğ£¬»¹ÇÃÊ²Ã´£¿£¡¡±\n");
+		return notify_fail("ä¸€ä¸ªå®¶äººèµ°å‡ºæ¥,çœ‹äº†å‡ çœ¼,ç”Ÿæ°”åœ°è¯´ï¼šâ€œè¿™é‡Œä¸æ˜¯æœ‰äººå—ï¼Œè¿˜æ•²ä»€ä¹ˆï¼Ÿï¼â€\n");
 	}
-	message_vision("$N×¥×¡ÃÅÉÏµÄ´óÍ­»·£¬ÇÃÁË" + CHINESE_D->chinese_number(count) + "ÏÂ¡£\n", me);
+	message_vision("$NæŠ“ä½é—¨ä¸Šçš„å¤§é“œç¯ï¼Œæ•²äº†" + CHINESE_D->chinese_number(count) + "ä¸‹ã€‚\n", me);
 	knockgate = me->query_temp("plummanor/knock_gate");
 	if ((knockgate == 0 && count == 4) || (knockgate == 1 && count == 2) ||	(knockgate == 2 && count == 5))
 		me->add_temp("plummanor/knock_gate", 1);
@@ -84,14 +84,14 @@ void servant_out(object me)
 		ding = new(__DIR__"npc/dingjian");
 		ding->move(env);
 	}
-	tell_room(env, "¹ıÁË°ëÉÎ£¬´óÃÅ»º»º´ò¿ª£¬²¢¼ç×ß³öÁ½¸ö¼ÒÈË×°ÊøµÄÀÏÕß¡£\n", ({}));
+	tell_room(env, "è¿‡äº†åŠæ™Œï¼Œå¤§é—¨ç¼“ç¼“æ‰“å¼€ï¼Œå¹¶è‚©èµ°å‡ºä¸¤ä¸ªå®¶äººè£…æŸçš„è€è€…ã€‚\n", ({}));
 	if (!present(me, env)) {
-		tell_room(env, "Á½ÈË¿´ÁË°ëÌì£¬Ã»ÕÒµ½ÇÃÃÅÖ®ÈË£¬ÓÚÊÇ¾Í×ªÉí×ßÁË»ØÈ¥£¬°Ñ´óÃÅ¹ØÉÏÁË¡£\n", ({}));
+		tell_room(env, "ä¸¤äººçœ‹äº†åŠå¤©ï¼Œæ²¡æ‰¾åˆ°æ•²é—¨ä¹‹äººï¼Œäºæ˜¯å°±è½¬èº«èµ°äº†å›å»ï¼ŒæŠŠå¤§é—¨å…³ä¸Šäº†ã€‚\n", ({}));
 		destruct(shi);
 		destruct(ding);
 		return;
 	}
-	message_vision("×óÊ×µÄÄÇÈË¶Ô×Å$N¹ªÉíËµµÀ£º¡°ÕâÎ»" + RANK_D->query_respect(me) + "¼İÁÙ±Ö×¯£¬²»ÖªÓĞºÎ¹ó¸É£¿¡±\n", me);
+	message_vision("å·¦é¦–çš„é‚£äººå¯¹ç€$Nèº¬èº«è¯´é“ï¼šâ€œè¿™ä½" + RANK_D->query_respect(me) + "é©¾ä¸´æ•åº„ï¼Œä¸çŸ¥æœ‰ä½•è´µå¹²ï¼Ÿâ€\n", me);
 	me->set_temp("plummanor/flag", 1);
 	call_out("close_door", 180, me);
 }
@@ -102,7 +102,7 @@ void close_door(object me)
 
 	if (shi = present("shi lingwei", env)) destruct(shi);
 	if (ding = present("ding jian", env))  destruct(ding);
-	tell_room(env, "Á½¸ö¼ÒÈËµÈÁË°ëÌì£¬Ã»ÓĞµÃµ½Ã÷È·µÄ»Ø´ğ(answer)£¬ÓÚÊÇ¾Í×ªÉí×ßÁË»ØÈ¥£¬°Ñ´óÃÅ¹ØÉÏÁË¡£\n", ({}));
+	tell_room(env, "ä¸¤ä¸ªå®¶äººç­‰äº†åŠå¤©ï¼Œæ²¡æœ‰å¾—åˆ°æ˜ç¡®çš„å›ç­”(answer)ï¼Œäºæ˜¯å°±è½¬èº«èµ°äº†å›å»ï¼ŒæŠŠå¤§é—¨å…³ä¸Šäº†ã€‚\n", ({}));
 	if (objectp(me)) me->delete_temp("plummanor");
 	return;
 }
@@ -112,18 +112,18 @@ int do_answer(string arg)
 	object me = this_player();
 	object env = this_object();
 
-	if (!arg) return notify_fail("ÄãÒª»Ø´ğÊ²Ã´£¿\n");
+	if (!arg) return notify_fail("ä½ è¦å›ç­”ä»€ä¹ˆï¼Ÿ\n");
 	if (me->query_temp("plummanor/flag") != 1)
-		return notify_fail("ÓÖÃ»ÈËÎÊÄã£¬¸ú×ÅÏ¹²ôºÍÊ²Ã´£¿£¡\n");
-	if (arg[0..11] == "Çó¼û½­ÄÏËÄÓÑ" || arg[0..11] == "°İ¼û½­ÄÏËÄÓÑ" ||
-		arg[0..15] == "ÓĞÊÂÇó¼û½­ÄÏËÄÓÑ" || arg[0..15] == "ÓĞÊÂ°İ¼û½­ÄÏËÄÓÑ") {
+		return notify_fail("åˆæ²¡äººé—®ä½ ï¼Œè·Ÿç€çæºå’Œä»€ä¹ˆï¼Ÿï¼\n");
+	if (arg[0..11] == "æ±‚è§æ±Ÿå—å››å‹" || arg[0..11] == "æ‹œè§æ±Ÿå—å››å‹" ||
+		arg[0..15] == "æœ‰äº‹æ±‚è§æ±Ÿå—å››å‹" || arg[0..15] == "æœ‰äº‹æ‹œè§æ±Ÿå—å››å‹") {
 		if (!present("shi lingwei", env))
 			new(__DIR__"npc/shilingwei")->move(env);
 		if (!present("ding jian", env))
 			new(__DIR__"npc/dingjian")->move(env);
-		write("ÄãËµµÀ£º¡°ÓĞÊÂÇó¼û½­ÄÏËÄÓÑ(four-friends)£¬ËÄÎ»Ç°±²¡£¡±\n");
-		tell_room(env, me->name() + "¶Ô×ÅÁ½¸ö¼ÒÈËËµÁËĞ©Çó¼ûµÄ»°¡£\n", ({me}));
-		message_vision("×óÊ×µÄ¼ÒÈË¶Ô$NµÀ£º¡°ÎÒ¼ÒÖ÷ÈËÏò²»¼û¿Í¡£¡±Ëµ×Å±ãÓû¹ØÃÅ¡£\n", me);
+		write("ä½ è¯´é“ï¼šâ€œæœ‰äº‹æ±‚è§æ±Ÿå—å››å‹(four-friends)ï¼Œå››ä½å‰è¾ˆã€‚â€\n");
+		tell_room(env, me->name() + "å¯¹ç€ä¸¤ä¸ªå®¶äººè¯´äº†äº›æ±‚è§çš„è¯ã€‚\n", ({me}));
+		message_vision("å·¦é¦–çš„å®¶äººå¯¹$Né“ï¼šâ€œæˆ‘å®¶ä¸»äººå‘ä¸è§å®¢ã€‚â€è¯´ç€ä¾¿æ¬²å…³é—¨ã€‚\n", me);
 		me->set_temp("plummanor/flag", 2);
 	}
 }
@@ -136,11 +136,11 @@ int do_show(string arg)
 	string str;
 	int i, flag;
 
-	if (!arg) return notify_fail("ÄãÒªÕ¹Ê¾Ê²Ã´£¿\n");
+	if (!arg) return notify_fail("ä½ è¦å±•ç¤ºä»€ä¹ˆï¼Ÿ\n");
 	inv = all_inventory(me);
 	for (i = 0; i < sizeof(inv); i++)
 		if (inv[i]->id(arg)) break;
-	if (i == sizeof(inv)) return notify_fail("ÄãÒªÕ¹Ê¾Ê²Ã´£¿\n");
+	if (i == sizeof(inv)) return notify_fail("ä½ è¦å±•ç¤ºä»€ä¹ˆï¼Ÿ\n");
 	if (!(shi = present("shi lingwei", env))) {
 		shi = new(__DIR__"npc/shilingwei");
 		shi->move(env);
@@ -150,23 +150,23 @@ int do_show(string arg)
 		ding->move(env);
 	}
 	if (!me->query_temp("plummanor/flag"))
-		return notify_fail("ÄãÌÍ³öÒ»" + inv[i]->query("unit") + inv[i]->query("name") + "£¬Ïë¸ø´ó¼Ò¿´£¬²»¹ıÃ»ÈËÀíÄã¡£\n");
+		return notify_fail("ä½ æå‡ºä¸€" + inv[i]->query("unit") + inv[i]->query("name") + "ï¼Œæƒ³ç»™å¤§å®¶çœ‹ï¼Œä¸è¿‡æ²¡äººç†ä½ ã€‚\n");
 	flag = 0;
-	str = "$NÌÍ³öÒ»" + inv[i]->query("unit") + inv[i]->query("name") + "£¬";
+	str = "$Næå‡ºä¸€" + inv[i]->query("unit") + inv[i]->query("name") + "ï¼Œ";
 	if (inv[i]->id("wuse lingqi")) {
 		flag = 1;
-		str += "Õ¹ÁË¿ªÀ´¡£Ö»¼û±¦¹âËÄÒ«£¬ÉÏÃæÏâÂúÁËÕäÖé±¦Ê¯¡£\n";
+		str += "å±•äº†å¼€æ¥ã€‚åªè§å®å…‰å››è€€ï¼Œä¸Šé¢é•¶æ»¡äº†çç å®çŸ³ã€‚\n";
 	}
-	else str += "¶Ô×ÅÁ½¸ö¼ÒÈË»ÎÁËÁ½»Î¡£²»¹ıËûÃÇºÃÏó²»Ã÷°×$NµÄÒâË¼£¡\n";
+	else str += "å¯¹ç€ä¸¤ä¸ªå®¶äººæ™ƒäº†ä¸¤æ™ƒã€‚ä¸è¿‡ä»–ä»¬å¥½è±¡ä¸æ˜ç™½$Nçš„æ„æ€ï¼\n";
 	message_vision(str, me);
 	if (flag) {
 		if (me->query_temp("plummanor/flag") == 1) {
-			message_vision("Á½¸ö¼ÒÈË¶Ô$NºÈµÀ£º¡°ÔõÃ´£¬ÏëÄÃ×óÀäìøµÄÀÃÆì×ÓÀ´ÏÅ»£ÎÒÃÇ£¿ÏÈ»Ø´ğ(answer)À´¸ÉÊ²Ã´µÄÔÙËµ£¡\n", me);
+			message_vision("ä¸¤ä¸ªå®¶äººå¯¹$Nå–é“ï¼šâ€œæ€ä¹ˆï¼Œæƒ³æ‹¿å·¦å†·ç¦…çš„çƒ‚æ——å­æ¥å“å”¬æˆ‘ä»¬ï¼Ÿå…ˆå›ç­”(answer)æ¥å¹²ä»€ä¹ˆçš„å†è¯´ï¼\n", me);
 		}
 		else {
-			message_vision("Á½¸ö¼ÒÈËÆëÉùµÀ£º¡°áÔÉ½ÅÉ×óÃËÖ÷µÄÁîÆì£¿¡±\n$NµÀ£º¡°ÕıÊÇ¡£¡±\n", me);
-			message_vision("ÓÒÊ×µÄ¼ÒÈËµÀ£º¡°¼´Ê¹ÊÇáÔÉ½×óÃËÖ÷Ç×µ½£¬ÎÒ¼ÒÖ÷ÈËÒ²Î´±Ø...¡±\n", me);
-			message_vision("×óÊ×µÄ¼ÒÈË¶Ô$NµÀ£º¡°²»¹ı¼ÈÈ»ÓĞÁîÆìÔÚ£¬ÄãÇÒ½øÈ¥ÊÔÊÔÔËÆø¡£¡±\n", me);
+			message_vision("ä¸¤ä¸ªå®¶äººé½å£°é“ï¼šâ€œåµ©å±±æ´¾å·¦ç›Ÿä¸»çš„ä»¤æ——ï¼Ÿâ€\n$Né“ï¼šâ€œæ­£æ˜¯ã€‚â€\n", me);
+			message_vision("å³é¦–çš„å®¶äººé“ï¼šâ€œå³ä½¿æ˜¯åµ©å±±å·¦ç›Ÿä¸»äº²åˆ°ï¼Œæˆ‘å®¶ä¸»äººä¹Ÿæœªå¿…...â€\n", me);
+			message_vision("å·¦é¦–çš„å®¶äººå¯¹$Né“ï¼šâ€œä¸è¿‡æ—¢ç„¶æœ‰ä»¤æ——åœ¨ï¼Œä½ ä¸”è¿›å»è¯•è¯•è¿æ°”ã€‚â€\n", me);
 			if (!(dest = find_object(__DIR__"hall")))
 				dest = load_object(__DIR__"hall");
 			if (!present("shi lingwei", dest))

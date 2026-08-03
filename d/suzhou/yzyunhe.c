@@ -8,13 +8,13 @@ int do_go(string);
 
 mapping *sign=({
 
-	(["name":"²×Öİ",
+	(["name":"æ²§å·",
 		"id":"cz",
 		"file": "/d/cangzhou/",
 		"value":20000,
 		"time":50
 	]),
-	(["name":"ËÕÖİ",
+	(["name":"è‹å·",
 		"id":"sz",
 		"file":__DIR__"szyunhe",
 		"value":500,
@@ -24,12 +24,12 @@ mapping *sign=({
 
 void create()
 {
-	set("short", "ÂëÍ·");
+	set("short", "ç å¤´");
 	set("long",@LONG
-ÕâÀïÊÇÑïÖİ¶«ÃÅÍâ¹ÅÀÏµÄÔËºÓË®ÔËÂëÍ·£¬Ö»¼û´óÔËºÓË®òêÑÑÁ÷ÌÊ£¬´ÓÑïÖİ
-³ÇÖĞ´©¹ı¡£ÔËºÓµÄÁ½°¶ÖÖ×ÅÒ»ÅÅÅÅÇàÇàµÄ´¹ÑîÁø£¬Ò»ÕóÎ¢·ç´µÀ´£¬Ê÷Ö¦Ëæ·çÒ¡
-µ´¡£ÔÚÑïÖİ³ÇÀï³öÃÅ×îºÃµÄ½»Í¨¹¤¾ß¾ÍÊÇ´¬ÁË¡£Ô¶´¦µÄºÓÉÏ¿ÉÒÔÍû¼ûÒ»ËÒĞ¡´¬
-µÄÓ°×Ó£¬´¬Ê×ÒÀÏ¡ÓĞÒ»Î»ÀÏ´¬·ò¡£ºÓ±ßµÄµØÉÏÁ¢×ÅÒ»¸öÊ¯±®(shibei)¡£
+è¿™é‡Œæ˜¯æ‰¬å·ä¸œé—¨å¤–å¤è€çš„è¿æ²³æ°´è¿ç å¤´ï¼Œåªè§å¤§è¿æ²³æ°´èœ¿èœ’æµæ·Œï¼Œä»æ‰¬å·
+åŸä¸­ç©¿è¿‡ã€‚è¿æ²³çš„ä¸¤å²¸ç§ç€ä¸€æ’æ’é’é’çš„å‚æ¨æŸ³ï¼Œä¸€é˜µå¾®é£å¹æ¥ï¼Œæ ‘æéšé£æ‘‡
+è¡ã€‚åœ¨æ‰¬å·åŸé‡Œå‡ºé—¨æœ€å¥½çš„äº¤é€šå·¥å…·å°±æ˜¯èˆ¹äº†ã€‚è¿œå¤„çš„æ²³ä¸Šå¯ä»¥æœ›è§ä¸€è‰˜å°èˆ¹
+çš„å½±å­ï¼Œèˆ¹é¦–ä¾ç¨€æœ‰ä¸€ä½è€èˆ¹å¤«ã€‚æ²³è¾¹çš„åœ°ä¸Šç«‹ç€ä¸€ä¸ªçŸ³ç¢‘(shibei)ã€‚
 LONG);
 	set("exits", ([
 		"north" : "/d/city/dongmen",
@@ -40,7 +40,7 @@ LONG);
 		"bei" : (: look_sign :)
 	]));
 */
-	set("outdoor", "ÑïÖİ");
+	set("outdoor", "æ‰¬å·");
 	set("incity",1);
 	setup();
 }
@@ -69,9 +69,9 @@ void do_move(object ob, int i)
 {
 	ob->enable_player();
 	ob->delete_temp("block_msg/all");
-	write("´¬ÂıÂıµØÍ£ÁËÏÂÀ´£¬¿¿ÔÚÁË°¶±ß¡£\n");
+	write("èˆ¹æ…¢æ…¢åœ°åœäº†ä¸‹æ¥ï¼Œé åœ¨äº†å²¸è¾¹ã€‚\n");
 	ob->move(sign[i]["file"]);
-	tell_room(environment(ob), ob->name() + "´Ó´¬ÉÏ×ßÁËÏÂÀ´¡£\n", ({ob}));
+	tell_room(environment(ob), ob->name() + "ä»èˆ¹ä¸Šèµ°äº†ä¸‹æ¥ã€‚\n", ({ob}));
 }
 
 int do_go(string arg)
@@ -81,22 +81,22 @@ int do_go(string arg)
 
 	if (!arg) return 0;
 	if (ob->is_busy() || ob->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	while(i--) {
 		if (arg == sign[i]["id"]) {
 			switch (MONEY_D->player_pay(ob, sign[i]["value"])) {
 				case 0:
-					return notify_fail("Çî¹âµ°£¬Ò»±ß´ô×ÅÈ¥£¡\n");
+					return notify_fail("ç©·å…‰è›‹ï¼Œä¸€è¾¹å‘†ç€å»ï¼\n");
 				case 2:
-					return notify_fail("ÓĞÁãÇ®Âğ£¿\n");
+					return notify_fail("æœ‰é›¶é’±å—ï¼Ÿ\n");
 			}
-			message_vision("$NµÇÉÏÁËÈ¥" + sign[i]["name"] + "µÄ´¬¡£\n", ob);
-			ob->disable_player("<ÂÃÍ¾ÖĞ>");
+			message_vision("$Nç™»ä¸Šäº†å»" + sign[i]["name"] + "çš„èˆ¹ã€‚\n", ob);
+			ob->disable_player("<æ—…é€”ä¸­>");
 			ob->set_temp("block_msg/all", 1);
 			ob->move(__DIR__"onroad");
 			call_out("do_move", sign[i]["time"], ob, i);
 			return 1;
 		}
 	}
-	return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+	return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 }

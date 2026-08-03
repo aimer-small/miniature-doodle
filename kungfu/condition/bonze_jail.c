@@ -9,26 +9,26 @@ int update_condition(object me, int duration)
 	if (duration < 1) {
 		me->move("/d/shaolin/guangchang");
 		message("vision",
-			HIY "Ö»ÌýÆ¹µØÒ»Éù£¬ÄãÏÅÁËÒ»Ìø£¬¶¨¾¦Ò»¿´£¬\n"
-			"Ô­À´ÊÇÒ»¸ö»è»è³Á³ÁµÄ¼Ò»ï´Ó´óÃÅÀï±»ÈÓÁË³öÀ´£¡\n" NOR, environment(me), me);
-		tell_object(me, HIY "Ö»¾õÒ»ÕóÌÚÔÆ¼ÝÎí°ã£¬Äã»è»è³Á³ÁµØ±»ÈÓ³öÁËÉÙÁÖËÂ£¡\n" NOR);
+			HIY "åªå¬ä¹’åœ°ä¸€å£°ï¼Œä½ å“äº†ä¸€è·³ï¼Œå®šç›ä¸€çœ‹ï¼Œ\n"
+			"åŽŸæ¥æ˜¯ä¸€ä¸ªæ˜æ˜æ²‰æ²‰çš„å®¶ä¼™ä»Žå¤§é—¨é‡Œè¢«æ‰”äº†å‡ºæ¥ï¼\n" NOR, environment(me), me);
+		tell_object(me, HIY "åªè§‰ä¸€é˜µè…¾äº‘é©¾é›¾èˆ¬ï¼Œä½ æ˜æ˜æ²‰æ²‰åœ°è¢«æ‰”å‡ºäº†å°‘æž—å¯ºï¼\n" NOR);
 		me->set("startroom", START_ROOM);
 		return 0;
 	}
 	if (!duration) return 0;
         where = environment(me);
         if (duration >= 1 && base_name(where)!="/d/shaolin/jianyu") {		
-		message_vision(HIR "\nÍ»È»³å³öÀ´Ò»´óÈºÉ®±ø£¬Ö¸×Å$Nº°µÀ£º¡°¿´ÄãÕâÌÓ·¸»¹ÄÜÌÓµ½ÄÄ¶ùÈ¥£¡¡±
-½Ó×Å±ãÊÇÂÒ°ôÆëÏÂ£¬¶ÙÊ±½«$N´òµÃ»èËÀ¹ýÈ¥......\n" NOR, me);
+		message_vision(HIR "\nçªç„¶å†²å‡ºæ¥ä¸€å¤§ç¾¤åƒ§å…µï¼ŒæŒ‡ç€$Nå–Šé“ï¼šâ€œçœ‹ä½ è¿™é€ƒçŠ¯è¿˜èƒ½é€ƒåˆ°å“ªå„¿åŽ»ï¼â€
+æŽ¥ç€ä¾¿æ˜¯ä¹±æ£’é½ä¸‹ï¼Œé¡¿æ—¶å°†$Næ‰“å¾—æ˜æ­»è¿‡åŽ»......\n" NOR, me);
                 me->unconcious();
-                message_vision("É®±øÃÇ¿¸×ÅÔÎËÀ¹ýÈ¥µÄ$N£¬´òµÀ»ØÉÙÁÖËÂÈ¥ÁË¡£\n", me);
+                message_vision("åƒ§å…µä»¬æ‰›ç€æ™•æ­»è¿‡åŽ»çš„$Nï¼Œæ‰“é“å›žå°‘æž—å¯ºåŽ»äº†ã€‚\n", me);
                 me->set("eff_qi", 1);
                 me->set("qi", 1);
                 me->apply_condition("bonze_jail", 120);
                 me->move("/d/shaolin/jianyu");
                 message("vision",
-			HIY "Ö»ÌýÆ¹µØÒ»Éù£¬ÄãÏÅÁËÒ»Ìø£¬¶¨¾¦Ò»¿´£¬\n"
-			"Ô­À´ÊÇÒ»¸ö»è»è³Á³ÁµÄ¼Ò»ï±»ÈÓÁË½øÀ´£¡\n" NOR, environment(me), me);
+			HIY "åªå¬ä¹’åœ°ä¸€å£°ï¼Œä½ å“äº†ä¸€è·³ï¼Œå®šç›ä¸€çœ‹ï¼Œ\n"
+			"åŽŸæ¥æ˜¯ä¸€ä¸ªæ˜æ˜æ²‰æ²‰çš„å®¶ä¼™è¢«æ‰”äº†è¿›æ¥ï¼\n" NOR, environment(me), me);
 	}
 	me->apply_condition("bonze_jail", duration - 1);
 	return 1;

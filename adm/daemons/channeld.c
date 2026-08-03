@@ -1,6 +1,6 @@
 // channeld.c
-// Modify by Yu Jue 1997, Ìí¼ÓÁËÃÅÅÉÆµµÀ
-// Modify by Yu Jue 1998-3-5, ÓÅ»¯
+// Modify by Yu Jue 1997, æ·»åŠ äº†é—¨æ´¾é¢‘é“
+// Modify by Yu Jue 1998-3-5, ä¼˜åŒ–
 // add declare channel By bbb 2000-9-17
 // add irc channel by augx@sj 9/24/2001
 // add group channel by augx@sj 4/11/2002
@@ -17,115 +17,115 @@ string channel_filter(object me,string input);
 
 mapping channels = ([
 	"declare":([
-		"msg_speak": HIY "¡¾ĞÅÏ¢¡¿%s£º%s\n" NOR,
+		"msg_speak": HIY "ã€ä¿¡æ¯ã€‘%sï¼š%s\n" NOR,
 		"wiz_only": 7,
 		 "read_only": -1
 	]),
 	"debug":([
-		"msg_speak": HIR "¡¾µ÷ÊÔ¡¿%s£º%s\n" NOR,
-		"msg_emote": HIR "¡¾µ÷ÊÔ¡¿%s\n" NOR,
+		"msg_speak": HIR "ã€è°ƒè¯•ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIR "ã€è°ƒè¯•ã€‘%s\n" NOR,
 		"read_only": 6,
 		"wiz_only": 1
 	]),
 	"err": ([
-		"msg_speak": HIR "¡¾´íÎó¡¿%s£º%s\n" NOR,
-		"msg_emote": HIR "¡¾´íÎó¡¿%s\n" NOR,
+		"msg_speak": HIR "ã€é”™è¯¯ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIR "ã€é”™è¯¯ã€‘%s\n" NOR,
 		"read_only": 6,
 		"wiz_only": 1
 	]),
 	"sys": ([
-		"msg_speak": HIR "¡¾ÏµÍ³¡¿%s£º%s\n" NOR,
-		"msg_emote": HIR "¡¾ÏµÍ³¡¿%s\n" NOR,
+		"msg_speak": HIR "ã€ç³»ç»Ÿã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIR "ã€ç³»ç»Ÿã€‘%s\n" NOR,
 		"msg_color": HIR,
 		"read_only": 6,
 		"wiz_only": 1
 	]),
 	"imm": ([
-		"msg_speak": HIY "¡¾" HIM "¹ËÎÊ" HIY "¡¿%s£º%s\n" NOR,
-		"msg_emote": HIY "¡¾" HIM "¹ËÎÊ" HIY "¡¿%s\n" NOR,
+		"msg_speak": HIY "ã€" HIM "é¡¾é—®" HIY "ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIY "ã€" HIM "é¡¾é—®" HIY "ã€‘%s\n" NOR,
 		"msg_color": HIY,
 		"wiz_only": 1
 	]),
 	"app": ([
-		"msg_speak": HIY "¡¾" HIC "Î×Ê¦" HIY "¡¿%s£º%s\n" NOR,
-		"msg_emote": HIY "¡¾" HIC "Î×Ê¦" HIY "¡¿%s\n" NOR,
+		"msg_speak": HIY "ã€" HIC "å·«å¸ˆ" HIY "ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIY "ã€" HIC "å·«å¸ˆ" HIY "ã€‘%s\n" NOR,
 		"msg_color": HIY,
 		"wiz_only": 1
 	]),
 	"wiz": ([
-		"msg_speak": HIY "¡¾" HIG "ÏÉÈË" HIY "¡¿%s£º%s\n" NOR,
-		"msg_emote": HIY "¡¾" HIG "ÏÉÈË" HIY "¡¿%s\n" NOR,
+		"msg_speak": HIY "ã€" HIG "ä»™äºº" HIY "ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIY "ã€" HIG "ä»™äºº" HIY "ã€‘%s\n" NOR,
 		"msg_color": HIY,
 		"wiz_only": 1
 	]),
 	"arch": ([
-		"msg_speak": HIY "¡¾ÁúÉñ¡¿%s£º%s\n" NOR,
-		"msg_emote": HIY "¡¾ÁúÉñ¡¿%s\n" NOR,
+		"msg_speak": HIY "ã€é¾™ç¥ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIY "ã€é¾™ç¥ã€‘%s\n" NOR,
 		"msg_color": HIY,
 		"wiz_only": 4
 	]),
 	"ass": ([
-		"msg_speak": HIY "¡¾" HIR "Éñ¹Ù" HIY "¡¿%s£º%s\n" NOR,
-		"msg_emote": HIY "¡¾" HIR "Éñ¹Ù" HIY "¡¿%s\n" NOR,
+		"msg_speak": HIY "ã€" HIR "ç¥å®˜" HIY "ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIY "ã€" HIR "ç¥å®˜" HIY "ã€‘%s\n" NOR,
 		"msg_color": HIY,
 		"wiz_only": 5
 	]),
 	"adm": ([
-		"msg_speak": HIY "¡¾" HIW "ÌìÉñ" HIY "¡¿%s£º%s\n" NOR,
-		"msg_emote": HIY "¡¾" HIW "ÌìÉñ" HIY "¡¿%s\n" NOR,
+		"msg_speak": HIY "ã€" HIW "å¤©ç¥" HIY "ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIY "ã€" HIW "å¤©ç¥" HIY "ã€‘%s\n" NOR,
 		"msg_color": HIY,
 		"wiz_only": 6
 	]),
 	"chat": ([
-		"msg_speak": HIC "¡¾ÏĞÁÄ¡¿%s£º%s\n" NOR,
+		"msg_speak": HIC "ã€é—²èŠã€‘%sï¼š%s\n" NOR,
 		"msg_color": HIC,
-		"msg_emote": HIC "¡¾ÏĞÁÄ¡¿%s\n" NOR
+		"msg_emote": HIC "ã€é—²èŠã€‘%s\n" NOR
 	]),
 	"trade": ([
-		"msg_speak": HIY "¡¾½»Ò×¡¿%s£º%s\n" NOR,
+		"msg_speak": HIY "ã€äº¤æ˜“ã€‘%sï¼š%s\n" NOR,
 		"msg_color": HIY,
-		"msg_emote": HIY "¡¾½»Ò×¡¿%s\n" NOR
+		"msg_emote": HIY "ã€äº¤æ˜“ã€‘%s\n" NOR
 	]),
 	"sr": ([
 		"exp": 500000,
 		"forward": "chat"
 	]),
 	"rumor":([
-		"msg_speak": HIM "¡¾Ò¥ÑÔ¡¿%s£º%s\n" NOR,
-		"msg_emote": HIM "¡¾Ò¥ÑÔ¡¿%s\n" NOR,
+		"msg_speak": HIM "ã€è°£è¨€ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIM "ã€è°£è¨€ã€‘%s\n" NOR,
 		"msg_color": HIM,
-		"anonymous": "Ä³ÈË"
+		"anonymous": "æŸäºº"
 	]),
 	"party":([
-		"msg_speak": HIG "¡¾ÃÅÅÉ¡¿%s£º%s\n" NOR,
-		"msg_emote": HIG "¡¾ÃÅÅÉ¡¿%s\n" NOR,
+		"msg_speak": HIG "ã€é—¨æ´¾ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIG "ã€é—¨æ´¾ã€‘%s\n" NOR,
 		"msg_color": HIG,
 		"party_only": 1
 	]),
 	"sj": ([
 		"exp": 200000,
 		"intermud": 1,
-		"msg_speak": HIW "¡¾Êé½£¡¿%s£º%s\n" NOR,
-		"msg_emote": HIW "¡¾Êé½£¡¿%s\n" NOR,
+		"msg_speak": HIW "ã€ä¹¦å‰‘ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIW "ã€ä¹¦å‰‘ã€‘%s\n" NOR,
 		"msg_color": HIW
 	]),
 	"irc": ([
 		"exp": 10000,
-		"msg_speak": HIW "¡¾ÁÄÌìÊÒ¡¿%s£º%s\n" NOR,
-		"msg_emote": HIW "¡¾ÁÄÌìÊÒ¡¿%s\n" NOR,
+		"msg_speak": HIW "ã€èŠå¤©å®¤ã€‘%sï¼š%s\n" NOR,
+		"msg_emote": HIW "ã€èŠå¤©å®¤ã€‘%s\n" NOR,
 		"msg_color": HIW
 	]),
 	"group": ([
 		"exp": 100000,
-		"msg_speak": HIY "¡¾°ïÅÉ¡¿%s£º%s\n" HIY,
-		"msg_emote": HIY "¡¾°ïÅÉ¡¿%s\n" HIY,
+		"msg_speak": HIY "ã€å¸®æ´¾ã€‘%sï¼š%s\n" HIY,
+		"msg_emote": HIY "ã€å¸®æ´¾ã€‘%s\n" HIY,
 		"msg_color": HIY
 	]),//R -> Y
 ]);
 
 mapping ircs = ([
 	"irc_channel": ([
-		"room_name": "ÁÄÌìÊÒ",
+		"room_name": "èŠå¤©å®¤",
 		"creator": "irc",
 		"invite": 1,
 		"passwd": "nopasswd",
@@ -145,12 +145,12 @@ string party,group,groupid;
 
 string last_rumor, last_rumor_id;
 
-string query_last_rumor() { return last_rumor_id + "£º"+ last_rumor; }
+string query_last_rumor() { return last_rumor_id + "ï¼š"+ last_rumor; }
 
 string query(string arg)
 {
 	if (arg == "channel_id")
-		return "ÆµµÀ¾«Áé";
+		return "é¢‘é“ç²¾çµ";
 }
 
 void create()
@@ -171,7 +171,7 @@ void do_remote_channel(object me, string verb, string arg)
         msg = replace_string(msg,"\n","");
         msg += "\n";
         message("channel:" + verb, msg, obs);
-        // Ïò¸÷¸öÕ¾µã·¢ËÍEMOTEĞÅÏ¢
+        // å‘å„ä¸ªç«™ç‚¹å‘é€EMOTEä¿¡æ¯
         if (channels[verb]["intermud"] && find_object(DNS_MASTER))
         {
         	GWIZ->send_msg(verb,me->query("id"), me->name(1),arg, 1);
@@ -199,20 +199,20 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 		case "sj":
 		case "irc":
 		case "group":
-			return notify_fail("Ğê¡­¡­Ğ¡Éùµã£¡\n");
+			return notify_fail("å˜˜â€¦â€¦å°å£°ç‚¹ï¼\n");
 	}
 	if (undefinedp(channels[verb])) return 0;
 	if (userp(me) && !wizardp(me) && this_player() == this_player(1) && strlen(strip(arg)) > 100)
 		arg = arg[0..99];
 	if (userp(me) && !wizardp(me) && me->query("combat_exp") < channels[verb]["exp"])
-		return notify_fail("Äã»¹ÒªÔÙÅ¬Á¦Ò»¶ÎÊ±¼ä²ÅÄÜÊ¹ÓÃÕâ¸öÆµµÀ¡£\n");
+		return notify_fail("ä½ è¿˜è¦å†åŠªåŠ›ä¸€æ®µæ—¶é—´æ‰èƒ½ä½¿ç”¨è¿™ä¸ªé¢‘é“ã€‚\n");
 	if (userp(me) && wiz_level(me) < channels[verb]["wiz_only"])
 		return 0;
 
 	// check if one can write to channels
 	if (me->query("chblk_on")) {
 		if (!wizardp(me))
-			return notify_fail("ÄãµÄËùÓĞÆµµÀ¶¼±»¹Ø±ÕÁË£¡\n");
+			return notify_fail("ä½ çš„æ‰€æœ‰é¢‘é“éƒ½è¢«å…³é—­äº†ï¼\n");
 		//only block a wiz's rumor and chat...
 		me->set("chblk_rumor", 1);
 		me->set("chblk_chat", 1);
@@ -221,49 +221,49 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 	// check if rumor or chat is blocked
 	if (!userp(me) && !wizardp(me)) {
 		if (block_chat && verb == "chat" )
-			return notify_fail("ÏµÍ³µÄÏĞÁÄÆµµÀ±»¹Ø±ÕÁË£¡ÇëÊ¹ÓÃ sr ÆµµÀ¡£\n");
+			return notify_fail("ç³»ç»Ÿçš„é—²èŠé¢‘é“è¢«å…³é—­äº†ï¼è¯·ä½¿ç”¨ sr é¢‘é“ã€‚\n");
 		if (block_party && verb == "party" )
-			return notify_fail("ÏµÍ³µÄÃÅÅÉÆµµÀ±»¹Ø±ÕÁË£¡\n");
+			return notify_fail("ç³»ç»Ÿçš„é—¨æ´¾é¢‘é“è¢«å…³é—­äº†ï¼\n");
 		if (block_rumor && verb == "rumor" )
-			return notify_fail("ÏµÍ³µÄÒ¥ÑÔÆµµÀ±»¹Ø±ÕÁË£¡\n");
+			return notify_fail("ç³»ç»Ÿçš„è°£è¨€é¢‘é“è¢«å…³é—­äº†ï¼\n");
 		if (block_sj && verb == "sj" )
-			return notify_fail("ÏµÍ³µÄÊé½£ÆµµÀ±»¹Ø±ÕÁË£¡\n");
+			return notify_fail("ç³»ç»Ÿçš„ä¹¦å‰‘é¢‘é“è¢«å…³é—­äº†ï¼\n");
 		if (block_sr && verb == "sr" )
-			return notify_fail("ÏµÍ³µÄ¸ß¼¶ÏĞÁÄÆµµÀ±»¹Ø±ÕÁË£¡\n");
+			return notify_fail("ç³»ç»Ÿçš„é«˜çº§é—²èŠé¢‘é“è¢«å…³é—­äº†ï¼\n");
 		if (block_irc && verb == "irc" )
-			return notify_fail("ÏµÍ³µÄÁÄÌìÊÒÆµµÀ±»¹Ø±ÕÁË£¡\n");
+			return notify_fail("ç³»ç»Ÿçš„èŠå¤©å®¤é¢‘é“è¢«å…³é—­äº†ï¼\n");
 		if (block_group && verb == "group" )
-			return notify_fail("ÏµÍ³µÄ°ïÅÉÆµµÀ±»¹Ø±ÕÁË£¡\n");
+			return notify_fail("ç³»ç»Ÿçš„å¸®æ´¾é¢‘é“è¢«å…³é—­äº†ï¼\n");
 	}
 
 	if (channels[verb]["forward"])
 		verb = channels[verb]["forward"];
 
 	if (me->query("chblk_"+verb)) {
-		if (verb == "party") return notify_fail("ÄãµÄÃÅÅÉÆµµÀ±»¹Ø±ÕÁË£¡\n");
-		if (verb == "rumor") return notify_fail("ÄãµÄÒ¥ÑÔÆµµÀ±»¹Ø±ÕÁË£¡\n");
-		if (verb == "chat") return notify_fail("ÄãµÄÏĞÁÄÆµµÀ±»¹Ø±ÕÁË£¡\n");
-		if (verb == "sj") return notify_fail("ÄãµÄÊé½£ÆµµÀ±»¹Ø±ÕÁË£¡\n");
-		if (verb == "irc") return notify_fail("ÄãµÄÁÄÌìÊÒÆµµÀ±»¹Ø±ÕÁË£¡\n");
-		if (verb == "group") return notify_fail("ÄãµÄ°ïÅÉÆµµÀ±»¹Ø±ÕÁË£¡\n");
+		if (verb == "party") return notify_fail("ä½ çš„é—¨æ´¾é¢‘é“è¢«å…³é—­äº†ï¼\n");
+		if (verb == "rumor") return notify_fail("ä½ çš„è°£è¨€é¢‘é“è¢«å…³é—­äº†ï¼\n");
+		if (verb == "chat") return notify_fail("ä½ çš„é—²èŠé¢‘é“è¢«å…³é—­äº†ï¼\n");
+		if (verb == "sj") return notify_fail("ä½ çš„ä¹¦å‰‘é¢‘é“è¢«å…³é—­äº†ï¼\n");
+		if (verb == "irc") return notify_fail("ä½ çš„èŠå¤©å®¤é¢‘é“è¢«å…³é—­äº†ï¼\n");
+		if (verb == "group") return notify_fail("ä½ çš„å¸®æ´¾é¢‘é“è¢«å…³é—­äº†ï¼\n");
 	}
 
 	if (emote && !channels[verb]["msg_emote"])
-		return notify_fail("Õâ¸öÆµµÀ²»Ö§³Ö¶¯×÷¡£\n");
+		return notify_fail("è¿™ä¸ªé¢‘é“ä¸æ”¯æŒåŠ¨ä½œã€‚\n");
 	if (!stringp(arg) || arg == "") {
 		arg = "...";
-		if (emote) arg = "×ÔÑÔ×ÔÓïµØ²»ÖªµÀÔÚËµĞ©Ê²Ã´¡£";
+		if (emote) arg = "è‡ªè¨€è‡ªè¯­åœ°ä¸çŸ¥é“åœ¨è¯´äº›ä»€ä¹ˆã€‚";
 	}
 	
 	if (channels[verb]["party_only"] && !me->query("family/family_name"))
-		return notify_fail("Äã»¹ÊÇÏÈ¼ÓÈëÒ»¸öÃÅÅÉÔÙËµ°É¡£\n");
+		return notify_fail("ä½ è¿˜æ˜¯å…ˆåŠ å…¥ä¸€ä¸ªé—¨æ´¾å†è¯´å§ã€‚\n");
 
 	if (channels[verb]["party_only"]) {
 		if (wizardp(me) && stringp(me->query("env/party")) && strlen(me->query("env/party")) > 3)
 			party = me->query("env/party");
 		else party = me->query("family/family_name");
-		channels[verb]["msg_speak"] = HIG "¡¾"+party+"¡¿%s£º%s\n" NOR;
-		channels[verb]["msg_emote"] = HIG "¡¾"+party+"¡¿%s\n" NOR;
+		channels[verb]["msg_speak"] = HIG "ã€"+party+"ã€‘%sï¼š%s\n" NOR;
+		channels[verb]["msg_emote"] = HIG "ã€"+party+"ã€‘%s\n" NOR;
 	}
 
 	// Support of group channel
@@ -274,9 +274,9 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 			groupid = me->query("group/id");
 		group = GROUP_D->get_group_name(groupid);
 		if( group == "" )
-			return notify_fail("ÇëÏÈ¼ÓÈëÒ»¸ö°ïÅÉ¡£\n");
-		channels[verb]["msg_speak"] = HIY "¡¾"+group+HIY"¡¿%s£º%s\n" NOR;
-		channels[verb]["msg_emote"] = HIY "¡¾"+group+HIY"¡¿%s\n" NOR;
+			return notify_fail("è¯·å…ˆåŠ å…¥ä¸€ä¸ªå¸®æ´¾ã€‚\n");
+		channels[verb]["msg_speak"] = HIY "ã€"+group+HIY"ã€‘%sï¼š%s\n" NOR;
+		channels[verb]["msg_emote"] = HIY "ã€"+group+HIY"ã€‘%s\n" NOR;
 	}
 
 	// If we speaks something in this channel, then must tune it in.
@@ -285,7 +285,7 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 		if (!pointerp(tuned_ch)) me->set("channels", ({ verb }));
 		else if (member_array(verb, tuned_ch)==-1) me->set("channels", tuned_ch + ({ verb }));
 		if (wiz_level(me) < channels[verb]["read_only"])
-			return notify_fail(verb + "ÆµµÀÒÑ¾­´ò¿ªÁË¡£\n");
+			return notify_fail(verb + "é¢‘é“å·²ç»æ‰“å¼€äº†ã€‚\n");
 	}
 
 	if (verb == "rumor") {
@@ -317,10 +317,10 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 				while (--count)
 					cost += cost;
 				if (me->query("jingli") < cost)
-					return notify_fail("ÄãµÄ¾«Á¦²»×ãÁË¡£\n");
+					return notify_fail("ä½ çš„ç²¾åŠ›ä¸è¶³äº†ã€‚\n");
 				me->receive_damage("jingli", cost);                		
                                 SEV_REMOTE->send_remote_q(mud, verb, me->query("id"), emote_arg, vb);
-                                write("ÍøÂ·Ñ¶Ï¢ÒÑËÍ³ö£¬ÇëÉÔºò¡£\n");
+                                write("ç½‘è·¯è®¯æ¯å·²é€å‡ºï¼Œè¯·ç¨å€™ã€‚\n");
                                 return 1;
 		}
 		
@@ -329,12 +329,12 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 			arg = EMOTE_D->do_emote(me, vb, emote_arg, 1, who);
 		if (!arg) {
 			if (vb[0] < 128)
-				return notify_fail("ÄãÏë±í´ïÊ²Ã´£¿\n");
+				return notify_fail("ä½ æƒ³è¡¨è¾¾ä»€ä¹ˆï¼Ÿ\n");
 			if (userp(me) && !wizardp(me))
 				foreach (int item in vb) {
 					if (item == ' ') break;
 					if (item == '(')
-						return notify_fail("²»×¼Î±ÔìÆµµÀĞÅÏ¢£¡\n");
+						return notify_fail("ä¸å‡†ä¼ªé€ é¢‘é“ä¿¡æ¯ï¼\n");
 				}
 				
 			if(userp(me) && !wizardp(me)) vb = channel_filter(me,vb);
@@ -360,16 +360,16 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 	
 	if(verb=="group" || verb=="irc") pub = 0;
 
-	if (strsrch(arg, "\n¡¾ÏĞÁÄ¡¿") > 0)
-		return notify_fail("²»×¼Î±ÔìÏĞÁÄĞÅÏ¢£¡\n");
-	if (strsrch(arg, "\n¡¾Ò¥ÑÔ¡¿") > 0)
-		return notify_fail("²»×¼Î±ÔìÒ¥ÑÔĞÅÏ¢£¡\n");
-	if (strsrch(arg, "\n¡¾"+party+"¡¿") > 0)
-		return notify_fail("²»×¼Î±ÔìÃÅÅÉĞÅÏ¢£¡\n");
-	if (strsrch(arg, "\n¡¾"+group+"¡¿") > 0)
-		return notify_fail("²»×¼Î±Ôì°ïÅÉĞÅÏ¢£¡\n");
+	if (strsrch(arg, "\nã€é—²èŠã€‘") > 0)
+		return notify_fail("ä¸å‡†ä¼ªé€ é—²èŠä¿¡æ¯ï¼\n");
+	if (strsrch(arg, "\nã€è°£è¨€ã€‘") > 0)
+		return notify_fail("ä¸å‡†ä¼ªé€ è°£è¨€ä¿¡æ¯ï¼\n");
+	if (strsrch(arg, "\nã€"+party+"ã€‘") > 0)
+		return notify_fail("ä¸å‡†ä¼ªé€ é—¨æ´¾ä¿¡æ¯ï¼\n");
+	if (strsrch(arg, "\nã€"+group+"ã€‘") > 0)
+		return notify_fail("ä¸å‡†ä¼ªé€ å¸®æ´¾ä¿¡æ¯ï¼\n");
 	if (pub && arg == me->query_temp("last_channel_msg"))
-		return notify_fail("ÓÃ¹«¹²ÆµµÀËµ»°Çë²»ÒªÖØ¸´ÏàÍ¬µÄÑ¶Ï¢¡£\n");
+		return notify_fail("ç”¨å…¬å…±é¢‘é“è¯´è¯è¯·ä¸è¦é‡å¤ç›¸åŒçš„è®¯æ¯ã€‚\n");
 
 	if (who) {
 		if (userp(me) && !wizardp(me)) {
@@ -380,7 +380,7 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 			while (--count)
 				cost += cost;
 			if (me->query("jingli") < cost)
-				return notify_fail("ÄãÒÑ¾­Ã»ÓĞ×ã¹»µÄ¾«Á¦É¢²¼Ò¥ÑÔÁË¡£\n");
+				return notify_fail("ä½ å·²ç»æ²¡æœ‰è¶³å¤Ÿçš„ç²¾åŠ›æ•£å¸ƒè°£è¨€äº†ã€‚\n");
 			me->receive_damage("jingli", cost);
 		}
 	} else {
@@ -398,13 +398,13 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 		}
 		else {
 			rnow = (int)me->query_temp("irc/room");
-			if( rnow<1 || rnow>5 ) return notify_fail("ÇëÏÈÉè¶¨ÄúÒªËµ»°µÄÁÄÌìÊÒ£¡\n");
+			if( rnow<1 || rnow>5 ) return notify_fail("è¯·å…ˆè®¾å®šæ‚¨è¦è¯´è¯çš„èŠå¤©å®¤ï¼\n");
 			rname = me->query_temp(sprintf("irc/room%d",rnow));
 		}
-		if( !stringp(rname) || rname=="" || undefinedp(ircs[rname]) ) return notify_fail("ÄúÒªËµ»°µÄÁÄÌìÊÒ²»´æÔÚ£¡\n");
+		if( !stringp(rname) || rname=="" || undefinedp(ircs[rname]) ) return notify_fail("æ‚¨è¦è¯´è¯çš„èŠå¤©å®¤ä¸å­˜åœ¨ï¼\n");
 
-		channels[verb]["msg_speak"] = HIW "¡¾"+ircs[rname]["room_name"]+"¡¿%s£º%s\n" NOR;
-		channels[verb]["msg_emote"] = HIW "¡¾"+ircs[rname]["room_name"]+"¡¿%s\n" NOR;
+		channels[verb]["msg_speak"] = HIW "ã€"+ircs[rname]["room_name"]+"ã€‘%sï¼š%s\n" NOR;
+		channels[verb]["msg_emote"] = HIW "ã€"+ircs[rname]["room_name"]+"ã€‘%s\n" NOR;
 		rname += ":";
 	}
 	else rname = "";
@@ -456,34 +456,34 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 			me->set("chblk_"+verb, 1);
 			me->add_condition("vote_chblk", 30); // 10 min
 			switch (verb) {
-				case "chat": verb = "ÏĞÁÄ"; break;
-				case "rumor": verb = "Ò¥ÑÔ"; break;
-				case "party": verb = "ÃÅÅÉ"; break;
-				case "sj": verb = "Êé½£"; break;
-				case "irc": verb = "ÁÄÌìÊÒ"; break;
-				case "group": verb = "°ïÅÉ"; break;
-				default: verb = "½»Ì¸";
+				case "chat": verb = "é—²èŠ"; break;
+				case "rumor": verb = "è°£è¨€"; break;
+				case "party": verb = "é—¨æ´¾"; break;
+				case "sj": verb = "ä¹¦å‰‘"; break;
+				case "irc": verb = "èŠå¤©å®¤"; break;
+				case "group": verb = "å¸®æ´¾"; break;
+				default: verb = "äº¤è°ˆ";
 			}
 			do_channel(this_object(), "rumor",
-				"ÓÉÓÚ½²»°Ì«ÂŞàÂ£¬" + me->query("name")
-				+"("+capitalize(me->query("id"))+")µÄ" + verb + "ÆµµÀ±»Ò­ËÀÁË¡£");
+				"ç”±äºè®²è¯å¤ªç½—å—¦ï¼Œ" + me->query("name")
+				+"("+capitalize(me->query("id"))+")çš„" + verb + "é¢‘é“è¢«å™æ­»äº†ã€‚");
 		} else if (me->add_temp("channel_count", 1) > 1) {
 			me->delete_temp("channel_count");
 			if (me->query_temp("last_channel_time") == t) {
 				me->set("chblk_"+verb, 1);
 				me->add_condition("vote_chblk", 30); // 10 min
 				switch (verb) {
-					case "chat": verb = "ÏĞÁÄ"; break;
-					case "rumor": verb = "Ò¥ÑÔ"; break;
-					case "party": verb = "ÃÅÅÉ"; break;
-					case "sj": verb = "Êé½£"; break;
-					case "irc": verb = "ÁÄÌìÊÒ"; break;
-					case "group": verb = "°ïÅÉ"; break;
-					default: verb = "½»Ì¸";
+					case "chat": verb = "é—²èŠ"; break;
+					case "rumor": verb = "è°£è¨€"; break;
+					case "party": verb = "é—¨æ´¾"; break;
+					case "sj": verb = "ä¹¦å‰‘"; break;
+					case "irc": verb = "èŠå¤©å®¤"; break;
+					case "group": verb = "å¸®æ´¾"; break;
+					default: verb = "äº¤è°ˆ";
 				}
 				do_channel(this_object(), "rumor",
-					"ÓÉÓÚ½²»°Ì«¶àÌ«¿ì£¬" + me->query("name")
-					+"("+capitalize(me->query("id"))+")µÄ" + verb + "ÆµµÀ±»Ò­ËÀÁË¡£");
+					"ç”±äºè®²è¯å¤ªå¤šå¤ªå¿«ï¼Œ" + me->query("name")
+					+"("+capitalize(me->query("id"))+")çš„" + verb + "é¢‘é“è¢«å™æ­»äº†ã€‚");
 			}
 			me->set_temp("last_channel_time", t);
 		}
@@ -493,7 +493,7 @@ varargs int do_channel(object me, string verb, string arg, int emote)
 	if(pub && me->query_temp("bad_word") > 3 && !me->query_condition("vote_chblk") )
 	{
 		//call_out("shoutmsg",0,me->query("name"));
-		message("shout", HIC "¡¾Í¨¸æ¡¿" + me->query("name") + "ÔÚ¹«¿ªÆµµÀ½²»°ÖĞÁ¬Ğøº¬ÓĞ²»ÑÅÑÔ´Ê£¬ÔİÊ±¹Ø±ÕËùÓĞ½»Ì¸ÆµµÀ£¬²¢¼ÇÂ¼ÔÚ°¸£¬µÈºò´¦Àí¡£\n" NOR,users());
+		message("shout", HIC "ã€é€šå‘Šã€‘" + me->query("name") + "åœ¨å…¬å¼€é¢‘é“è®²è¯ä¸­è¿ç»­å«æœ‰ä¸é›…è¨€è¯ï¼Œæš‚æ—¶å…³é—­æ‰€æœ‰äº¤è°ˆé¢‘é“ï¼Œå¹¶è®°å½•åœ¨æ¡ˆï¼Œç­‰å€™å¤„ç†ã€‚\n" NOR,users());
 		me->delete_temp("bad_word");
 		me->apply_condition("vote_chblk", 40);
                	me->set("chblk_on", 1);
@@ -589,29 +589,29 @@ void irc_list(object me)
 	int i,j;
 
 	if( (j=sizeof(ircs)) < 2 ) {
-		tell_object(me, "Ä¿Ç°Ã»ÓĞÁÄÌìÊÒ±»´´½¨¡£\n");
+		tell_object(me, "ç›®å‰æ²¡æœ‰èŠå¤©å®¤è¢«åˆ›å»ºã€‚\n");
 		return;
 	}
 
 	k = keys(ircs);
 	v = values(ircs);
-	tell_object(me, "Ä¿Ç°µÄÁÄÌìÊÒÓĞ£º\n");
+	tell_object(me, "ç›®å‰çš„èŠå¤©å®¤æœ‰ï¼š\n");
 	for(i=0;i<j;i++) {
 		if( k[i] == "irc_channel" ) continue;
-		tell_object(me, sprintf("%-16s %-10s ´´½¨Õß£º%-10s ¼ÓÈë%-6sÃÜÂë ¼ÓÈë%-6sÑûÇë \n",
-			v[i]["room_name"], k[i], v[i]["creator"], v[i]["passwd"]=="nopasswd"?"²»ĞèÒª":"ĞèÒª", v[i]["invite"]==1?"ĞèÒª":"²»ĞèÒª") );
+		tell_object(me, sprintf("%-16s %-10s åˆ›å»ºè€…ï¼š%-10s åŠ å…¥%-6så¯†ç  åŠ å…¥%-6sé‚€è¯· \n",
+			v[i]["room_name"], k[i], v[i]["creator"], v[i]["passwd"]=="nopasswd"?"ä¸éœ€è¦":"éœ€è¦", v[i]["invite"]==1?"éœ€è¦":"ä¸éœ€è¦") );
 	}
 }
 
-//fuck array È«²¿Ê¹ÓÃĞ¡Ğ´Ó¢Óï
+//fuck array å…¨éƒ¨ä½¿ç”¨å°å†™è‹±è¯­
 string *fuck = ({
-      	"fuck","Æ¨ÑÛ","²ÙÄãÂè","¸ÉÄãÄï","ËûÂèµÄ",
-      	"·ÅÆ¨","¼¦°Í","ÒõµÀ","Éµb","Éµx","tmd","tnnd",
-      	"æ»×Ó","ÄãÑ¾","Ñ¾Í¦","ÄãÂè¸ö","È¥ÄãÂè","ÈÕÄãÂè","¼ËÅ®",
-      	"xÄãÂè","³àÀĞ","±ñÈı","Éµ±Æ","´Àµ°","cÄãÂè"
+      	"fuck","å±çœ¼","æ“ä½ å¦ˆ","å¹²ä½ å¨˜","ä»–å¦ˆçš„",
+      	"æ”¾å±","é¸¡å·´","é˜´é“","å‚»b","å‚»x","tmd","tnnd",
+      	"å©Šå­","ä½ ä¸«","ä¸«æŒº","ä½ å¦ˆä¸ª","å»ä½ å¦ˆ","æ—¥ä½ å¦ˆ","å¦“å¥³",
+      	"xä½ å¦ˆ","èµ¤ä½¬","ç˜ªä¸‰","å‚»é€¼","è ¢è›‹","cä½ å¦ˆ"
 	});
 
-//ÏÂÃæÕâÁ½¸öÊÇ¸øAdmin Call µÄ ÒÔ±ãËæÊ±¸üĞÂ ÔÙ×öÎÄ¼ş¸üĞÂµÄ×¼±¸
+//ä¸‹é¢è¿™ä¸¤ä¸ªæ˜¯ç»™Admin Call çš„ ä»¥ä¾¿éšæ—¶æ›´æ–° å†åšæ–‡ä»¶æ›´æ–°çš„å‡†å¤‡
 
 int add_fuck(string arg)
 {
@@ -626,7 +626,7 @@ int del_fuck(string arg)
 	return 1;
 }
 
-//¹ıÂË
+//è¿‡æ»¤
 string channel_filter(object me,string input)
 {
 	string output;
@@ -663,12 +663,12 @@ string channel_filter(object me,string input)
 		{
 			flag=1;
 			//break;
-			input = replace_string(input,fuck[i],"¡Á¡Á¡Á");
+			input = replace_string(input,fuck[i],"Ã—Ã—Ã—");
 		}
 	}
 	if(flag)
 	{
-		output = input+HIY" (º¬ÓĞ²»ÎÄÃ÷´ÊÓï£¬±»ÏµÍ³¹ıÂË£¬²¢¼ÇÂ¼ÔÚ°¸)"NOR;
+		output = input+HIY" (å«æœ‰ä¸æ–‡æ˜è¯è¯­ï¼Œè¢«ç³»ç»Ÿè¿‡æ»¤ï¼Œå¹¶è®°å½•åœ¨æ¡ˆ)"NOR;
 		me->add_temp("bad_word",1);
 		//		
 	}
@@ -678,5 +678,5 @@ string channel_filter(object me,string input)
 void shoutmsg(string arg)
 {
 	if(!arg) return;
-	message("shout", HIC "¡¾Í¨¸æ¡¿" + arg + "ÔÚ¹«¿ªÆµµÀ½²»°ÖĞº¬ÓĞ²»ÑÅÑÔ´Ê£¬ÔİÊ±¹Ø±ÕËùÓĞ½»Ì¸ÆµµÀ£¬²¢¼ÇÂ¼ÔÚ°¸£¬µÈºò´¦Àí¡£\n" NOR,users());
+	message("shout", HIC "ã€é€šå‘Šã€‘" + arg + "åœ¨å…¬å¼€é¢‘é“è®²è¯ä¸­å«æœ‰ä¸é›…è¨€è¯ï¼Œæš‚æ—¶å…³é—­æ‰€æœ‰äº¤è°ˆé¢‘é“ï¼Œå¹¶è®°å½•åœ¨æ¡ˆï¼Œç­‰å€™å¤„ç†ã€‚\n" NOR,users());
 }

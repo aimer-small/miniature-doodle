@@ -1,4 +1,4 @@
-// liyu.c ÌÇ´×ÀğÓã
+// liyu.c ç³–é†‹é²¤é±¼
 
 #include <ansi.h>
 
@@ -7,13 +7,13 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name(HIY "ÌÇ´×ÀğÓã" NOR, ({"tangcu liyu", "liyu"}));
+	set_name(HIY "ç³–é†‹é²¤é±¼" NOR, ({"tangcu liyu", "liyu"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÕâÊÇÒ»ÅÌÍâ½¹ÀïÄÛ£¬ËáÌğÊÊ¿ÚµÄÌÇ´×ÀğÓã¡£\n");
-		set("unit", "ÅÌ");
+		set("long", "è¿™æ˜¯ä¸€ç›˜å¤–ç„¦é‡Œå«©ï¼Œé…¸ç”œé€‚å£çš„ç³–é†‹é²¤é±¼ã€‚\n");
+		set("unit", "ç›˜");
 		set("value", 250);
 		set("food_remaining", 3);
 		set("food_supply", 30);

@@ -1,4 +1,4 @@
-// By Spiderii@ty ĞŞ¸ÄÅĞ¶Ï,·ÀÖ¹srfÀûÓÃ bug 
+// By Spiderii@ty ä¿®æ”¹åˆ¤æ–­,é˜²æ­¢srfåˆ©ç”¨ bug 
 #include <ansi.h>
 
 inherit ROOM;
@@ -8,17 +8,17 @@ int do_jump(string arg);
 
 void create()
 {
-        set("short", HIW"ÑÒÊ¯"NOR);
+        set("short", HIW"å²©çŸ³"NOR);
         set("long", @LONG
-ÕâÀïÊÇÈºÉ½»·ÈÆÖĞµÄÒ»¸öÉ½¹È£¬ÈË¼£º±ÖÁ¡£ÑöÃæÏòÉÏ¿´£¬ËÄÃæÉ½·å¸ßËÊÈëÔÆ£¬
-¸²¸Ç×Å±ùÑ©¡£ÕâÀïÕıÇÉÒ»¿é¾Ş´óµÄÑÒÊ¯£¬ÕÚ±ÎÁËĞí¶à·çÑ©¡£
+è¿™é‡Œæ˜¯ç¾¤å±±ç¯ç»•ä¸­çš„ä¸€ä¸ªå±±è°·ï¼Œäººè¿¹ç½•è‡³ã€‚ä»°é¢å‘ä¸Šçœ‹ï¼Œå››é¢å±±å³°é«˜è€¸å…¥äº‘ï¼Œ
+è¦†ç›–ç€å†°é›ªã€‚è¿™é‡Œæ­£å·§ä¸€å—å·¨å¤§çš„å²©çŸ³ï¼Œé®è”½äº†è®¸å¤šé£é›ªã€‚
 LONG
         );
 	set("objects", ([
 		__DIR__"npc/diyun" : 1,
 		//__DIR__"npc/shuisheng" : 1,
 	]));
-	set("outdoors", "Ñ©É½");
+	set("outdoors", "é›ªå±±");
 	setup();
 }
 
@@ -26,7 +26,7 @@ void init()
 {
 	object me = this_player();
 	if ( me->query("xs_job") > 0) {
-		me->add("job_time/Ñ©É½", me->query("xs_job"));
+		me->add("job_time/é›ªå±±", me->query("xs_job"));
 		me->delete("xs_job");
 	}
 	add_action("do_jump", ({"jump", "tiao","yue"}));
@@ -39,36 +39,36 @@ int do_jump(string arg)
     {
 		if(me->query_skill("dodge")<150) 
 		{
-			message_vision(HIC"\n$NÎüÁËÒ»¿ÚÆø£¬³¢ÊÔÌøÉÏÑ©¹È£¬È´Í»È»·¢ÏÖ·ç´óÉ½¸ß£¬È´ÍËÁË»ØÀ´¡£\n"NOR,me);
+			message_vision(HIC"\n$Nå¸äº†ä¸€å£æ°”ï¼Œå°è¯•è·³ä¸Šé›ªè°·ï¼Œå´çªç„¶å‘ç°é£å¤§å±±é«˜ï¼Œå´é€€äº†å›æ¥ã€‚\n"NOR,me);
 			return 1;
 		}
 		if (!(room = find_object(__DIR__"xuegu")))
 			room = load_object(__DIR__"xuegu");
 		if(!room)
 		{ 
-			tell_object(me,HIR"\nÄãÎŞÂÛÔõÃ´Ìø£¬·¢ÏÖ¶¼»¹ÔÚÔ­µØ!\n");
-			log_file("quest/LCHJ", sprintf("%s(%s)È±ÉÙxuegu.cÎÄ¼ş¡£\n", me->name(1),me->query("id")) );	
+			tell_object(me,HIR"\nä½ æ— è®ºæ€ä¹ˆè·³ï¼Œå‘ç°éƒ½è¿˜åœ¨åŸåœ°!\n");
+			log_file("quest/LCHJ", sprintf("%s(%s)ç¼ºå°‘xuegu.cæ–‡ä»¶ã€‚\n", me->name(1),me->query("id")) );	
 		}
 /*
 		else
 		{
-			message_vision(HIC"\n$N¿´×¼Ò»¿é°ë¿ÕÒ»¿éÑÒÊ¯£¬ÎüÁËÒ»¿ÚÆø£¬Í»È»¸ß¸ßÔ¾Æğ¡£\n"NOR, me);
+			message_vision(HIC"\n$Nçœ‹å‡†ä¸€å—åŠç©ºä¸€å—å²©çŸ³ï¼Œå¸äº†ä¸€å£æ°”ï¼Œçªç„¶é«˜é«˜è·ƒèµ·ã€‚\n"NOR, me);
 			obj=present("di yun",this_object());
 			if(!me->query_temp("quest/outxuegu")|| !obj) 
 			{
-				message_vision(HIC"$NÍ»È»¸Ğ¾õÕæÆø²»×ã£¬¼±Ã¦Ô¾µ½Ò»±ßµÄÑÒÊ¯ÉÏ¡£\n"NOR, me);
-				tell_object(me,HIY"ÄãÊÔÍ¼Àë¿ªÑ©¹È£¬µ«ÊÇÄÚÁ¦²»¼Ì£¬ÎŞ·¨³É¹¦¡£\n"NOR);                       
+				message_vision(HIC"$Nçªç„¶æ„Ÿè§‰çœŸæ°”ä¸è¶³ï¼Œæ€¥å¿™è·ƒåˆ°ä¸€è¾¹çš„å²©çŸ³ä¸Šã€‚\n"NOR, me);
+				tell_object(me,HIY"ä½ è¯•å›¾ç¦»å¼€é›ªè°·ï¼Œä½†æ˜¯å†…åŠ›ä¸ç»§ï¼Œæ— æ³•æˆåŠŸã€‚\n"NOR);                       
 			}
 */
 			else
 			{
-                          //message_vision(HIC"$NÕıÕæÆø²»×ã£¬±³ºó´«À´Ò»¹É´óÁ¦£¬$N½èÊÆÔ¾Æğ£¬Ô¾µ½°ë¿ÕµÄÑÒÊ¯£¬Ëæ¼´´ÜÉÏÑ©¹È¡£\n"NOR, me);
+                          //message_vision(HIC"$Næ­£çœŸæ°”ä¸è¶³ï¼ŒèƒŒåä¼ æ¥ä¸€è‚¡å¤§åŠ›ï¼Œ$Nå€ŸåŠ¿è·ƒèµ·ï¼Œè·ƒåˆ°åŠç©ºçš„å²©çŸ³ï¼Œéšå³çªœä¸Šé›ªè°·ã€‚\n"NOR, me);
 
-				message_vision(HIC"$N¿´×¼Ò»¿é°ë¿ÕÖĞÍ»ÆğµÄÑÒÊ¯£¬ÉîÎüÒ»¿ÚÆø£¬¸ß¸ßÔ¾Æğ£¬Ë³ÊÆÔÚÑÒÊ¯ÉÏÎ¢Ò»½èÁ¦£¬Ëæ¼´´ÜÉÏÑ©¹È¡£\n"NOR, me);
+				message_vision(HIC"$Nçœ‹å‡†ä¸€å—åŠç©ºä¸­çªèµ·çš„å²©çŸ³ï¼Œæ·±å¸ä¸€å£æ°”ï¼Œé«˜é«˜è·ƒèµ·ï¼Œé¡ºåŠ¿åœ¨å²©çŸ³ä¸Šå¾®ä¸€å€ŸåŠ›ï¼Œéšå³çªœä¸Šé›ªè°·ã€‚\n"NOR, me);
 				me->move(room);
 				me->delete_temp("quest/outxuegu");//
 				me->start_busy(1);
-                                tell_room(environment(me),HIC"\nÖ»¼ûÒ»¸öÉíÓ°·ÉÉí¶ø¹ı£¬Ô­À´ÊÇ"+me->name()+"´ÓÑ©¹ÈÏÂÌøÉÏÀ´¡£\n"NOR, ({me}));                       
+                                tell_room(environment(me),HIC"\nåªè§ä¸€ä¸ªèº«å½±é£èº«è€Œè¿‡ï¼ŒåŸæ¥æ˜¯"+me->name()+"ä»é›ªè°·ä¸‹è·³ä¸Šæ¥ã€‚\n"NOR, ({me}));                       
 			}
 	
 		return 1;
@@ -83,17 +83,17 @@ int do_chanhui(string arg)
 	obj=present("di yun",this_object());
     if(!obj) return 0;
 	
-	message_vision(HIY"\n$NÏëÁËÏë¹ıÈ¥Ëù×÷ËùÎª£¬²»½ûÎª×Ô¼ºÔø¾­µÄ¶ñĞĞ¶øĞßÀ¢¡£\n"NOR,me);
+	message_vision(HIY"\n$Næƒ³äº†æƒ³è¿‡å»æ‰€ä½œæ‰€ä¸ºï¼Œä¸ç¦ä¸ºè‡ªå·±æ›¾ç»çš„æ¶è¡Œè€Œç¾æ„§ã€‚\n"NOR,me);
 	if(me->query("shen")>0) 
 	{
-		message_vision(HIG"$NÅÄÁËÅÄ$nµÄÍ·µÀ£º¡°ÈËÔÚ½­ºş£¬Éí²»ÓÉ¼º£¬ÄãÒÑ¾­²»´íÁË¡£¡±\n"NOR,obj,me);
+		message_vision(HIG"$Næ‹äº†æ‹$nçš„å¤´é“ï¼šâ€œäººåœ¨æ±Ÿæ¹–ï¼Œèº«ä¸ç”±å·±ï¼Œä½ å·²ç»ä¸é”™äº†ã€‚â€\n"NOR,obj,me);
 		return 1;
 	}
-	if(random(2)) message_vision(HIG"$N»º»ºµÀ£º¡°$nÕæÓĞ»Ú¸Ä£¬Ò²Ëã¸Ä¹ı×ÔĞÂ¡£ÒÔºóĞËÏÀÕÌÒå£¬Ò²ÊÇ¹¦µÂÎŞÁ¿¡£¡±\n"NOR,obj,me);
-	else message_vision(HIG"$N¶Ô$nµãÁËµãÍ·¡£\n"NOR,obj,me);
+	if(random(2)) message_vision(HIG"$Nç¼“ç¼“é“ï¼šâ€œ$nçœŸæœ‰æ‚”æ”¹ï¼Œä¹Ÿç®—æ”¹è¿‡è‡ªæ–°ã€‚ä»¥åå…´ä¾ ä»—ä¹‰ï¼Œä¹Ÿæ˜¯åŠŸå¾·æ— é‡ã€‚â€\n"NOR,obj,me);
+	else message_vision(HIG"$Nå¯¹$nç‚¹äº†ç‚¹å¤´ã€‚\n"NOR,obj,me);
         me->start_busy(1+random(3));
-	message_vision(HIG"$NÅÄÁËÅÄ$nµÄÍ·£¬Ïò$nĞ¦ÁËÒ»ÏÂ¡£\n"NOR,obj,me);
-	tell_object(me,HIY"ÄãÄ¬Ä¬Îª×Ô¼ºµÄĞĞÎªâã»Ú£¬¸Ğ¾õĞÄÖĞÒ»¹ÉÏÀÒåÖ®ÆøÉıÆğ¡£\n"NOR);                       
+	message_vision(HIG"$Næ‹äº†æ‹$nçš„å¤´ï¼Œå‘$nç¬‘äº†ä¸€ä¸‹ã€‚\n"NOR,obj,me);
+	tell_object(me,HIY"ä½ é»˜é»˜ä¸ºè‡ªå·±çš„è¡Œä¸ºå¿æ‚”ï¼Œæ„Ÿè§‰å¿ƒä¸­ä¸€è‚¡ä¾ ä¹‰ä¹‹æ°”å‡èµ·ã€‚\n"NOR);                       
 	me->add("shen",60+random(140));
 	return 1;
 }

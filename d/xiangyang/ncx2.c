@@ -1,22 +1,22 @@
-// /d/xiangyang/ncx2.c �ϳ���
+// /d/xiangyang/ncx2.c 南城巷
 // Lklv 2001.9.25
 
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short", "�ϳ���");
+        set("short", "南城巷");
         set("long", @LONG
-����������ȸ��ͨ�������ŵ�һ��С��ش��������ϡ�������һֱ����
-�ߣ�����ͨ�������š�Զ��������м����������ɹ̫����·����һ�ҳ���
-�С��ſ��Ź�һ��ľ��(pai)��
+这里是由朱雀门通往青龙门的一条小巷，地处襄阳城南。从这里一直往东
+走，可以通往青龙门。远处的巷口有几个穷汉在躺着晒太阳，路北是一家车马
+行。门口着挂一个木牌(pai)。
 LONG
         );
-        set("outdoors", "����");
+        set("outdoors", "襄阳");
         set("xyjob", 1);
         set("item_desc", ([
-                "mupai" : HIY"ȫ�����أ���������\n"NOR,
-                "pai" : HIY"���ţ�ͨ�и���\n"NOR
+                "mupai" : HIY"全国各地，行李托运\n"NOR,
+                "pai" : HIY"拉脚：通行各地\n"NOR
         ]));
 
         set("exits", ([

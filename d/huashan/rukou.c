@@ -7,10 +7,10 @@ inherit ROOM;
 
 void create()
 { 
-	set("short","É½¶´");
+	set("short","å±±æ´");
 	set("long", @LONG
-ÕâÀïÊÇÉ½¶´µÄÈë¿Ú¡£É½¶´ÀïÃæÆáºÚÒ»ÍÅ£¬Äã¸ù±¾·Ö²»Çå¶«ÄÏÎ÷±±£¬Ö»ºÃºú
-ÂÒÏ¹´³ÁË¡£
+è¿™é‡Œæ˜¯å±±æ´çš„å…¥å£ã€‚å±±æ´é‡Œé¢æ¼†é»‘ä¸€å›¢ï¼Œä½ æ ¹æœ¬åˆ†ä¸æ¸…ä¸œå—è¥¿åŒ—ï¼Œåªå¥½èƒ¡
+ä¹±çé—¯äº†ã€‚
 LONG
         );
         setup();
@@ -29,22 +29,22 @@ int do_use(string arg)
 	if(!living(me) ) return 0;
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
 	if(!objectp(ob = present("fire", me)))
-		return notify_fail("ÄãÊÖÖĞÃ»ÓĞ»ğÕÛ£¬ÔõÃ´ÄÜÔÚÉ½¶´ÀïĞĞ¶¯£¿\n");
+		return notify_fail("ä½ æ‰‹ä¸­æ²¡æœ‰ç«æŠ˜ï¼Œæ€ä¹ˆèƒ½åœ¨å±±æ´é‡Œè¡ŒåŠ¨ï¼Ÿ\n");
 
 	if( !arg || arg=="" ) return 0;
 
 	if( arg == "fire" ) {
-		message_vision(HIC"$NµãÈ¼»ğÕÛ£¬°Ñ¶´ÄÚÕÕÁÁÁËÒ»Ğ©¡£¶´ÄÚÁÁÁËÒ»Ğ©£¬\n"+
-			"Î¢ÈõµÄ»ğ¹âÒ»ÉÁÒ»ÉÁµÄ¡£Äã·¢ÏÖ×ó±ß"HIG"(left)"HIC"ºÃÏóÓĞ¸öĞ¡¿Ú¿ÉÒÔ¹ıÈ¥¡£\n"NOR, me);
+		message_vision(HIC"$Nç‚¹ç‡ƒç«æŠ˜ï¼ŒæŠŠæ´å†…ç…§äº®äº†ä¸€äº›ã€‚æ´å†…äº®äº†ä¸€äº›ï¼Œ\n"+
+			"å¾®å¼±çš„ç«å…‰ä¸€é—ªä¸€é—ªçš„ã€‚ä½ å‘ç°å·¦è¾¹"HIG"(left)"HIC"å¥½è±¡æœ‰ä¸ªå°å£å¯ä»¥è¿‡å»ã€‚\n"NOR, me);
 		destruct(ob);
 		if(!(room = find_object(__DIR__"rukou")))
 			room = load_object(__DIR__"rukou");
 		set("exits/left", __DIR__"cave");
 		if (me->query_temp("mb")) {
-                   tell_object(me,HIR"ÄãËÆºõ·¢ÏÖÓÒ·½¶àÁËÒ»ÌõĞ¡Â·¡£(right)\n"NOR);
+                   tell_object(me,HIR"ä½ ä¼¼ä¹å‘ç°å³æ–¹å¤šäº†ä¸€æ¡å°è·¯ã€‚(right)\n"NOR);
 			set("exits/right",__DIR__"midao"); 
 		}
 		call_out("delete_exit", 4, room);   
@@ -54,7 +54,7 @@ int do_use(string arg)
 
 void delete_exit(object room)
 {       
-	message("vision",BLU"Ö»Ìı¼ûÆËµÄÒ»Éù£¬»ğÕÛÏ¨ÃğÁË¡£\n"NOR, room);
+	message("vision",BLU"åªå¬è§æ‰‘çš„ä¸€å£°ï¼Œç«æŠ˜ç†„ç­äº†ã€‚\n"NOR, room);
 	delete("exits/left");
 	delete("exits/right");
 }
@@ -70,11 +70,11 @@ int do_break(string arg)
 	room = find_object(__DIR__"hole");
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("ÄãÊÖÖĞÎŞ½££¬ÔõÄÜÆÆ±Ú£¿\n");
-	message_vision("$N×ßµ½Ê¯±ÚÇ°£¬°Î³öÑü¼äËùĞü³¤½££¬ÔË¾¢ÏòÊ¯±Ú´ÌÁË¹ıÈ¥¡£\n", me);
+		return notify_fail("ä½ æ‰‹ä¸­æ— å‰‘ï¼Œæ€èƒ½ç ´å£ï¼Ÿ\n");
+	message_vision("$Nèµ°åˆ°çŸ³å£å‰ï¼Œæ‹”å‡ºè…°é—´æ‰€æ‚¬é•¿å‰‘ï¼Œè¿åŠ²å‘çŸ³å£åˆºäº†è¿‡å»ã€‚\n", me);
 
 	if ( n >= 600 ){
-		message_vision("$NÖ»ÌıÒ»ÉùºäÏì£¬Ê¯±Ú±»Í±´©ÁË¡££¡\n", me);
+		message_vision("$Nåªå¬ä¸€å£°è½°å“ï¼ŒçŸ³å£è¢«æ…ç©¿äº†ã€‚ï¼\n", me);
 		set("exits/out",__DIR__"hole");
 		this_player()->add("neili", -200);
 		remove_call_out("close");
@@ -82,7 +82,7 @@ int do_break(string arg)
 		if(!(room = find_object(__DIR__"hole")))
 			room = load_object(__DIR__"hole");
 		if( room = find_object(__DIR__"hole") ) {
-			message("vision", "ÄãÖ»ÌıÍâÃæÒ»ÉùºäÏì£¬Ê¯¶´±»ÈË´ÓÀïÃæÍ±´©ÁË£¬Â¶³öÁËÒ»¸ö¶´¿Ú¡£\n", room);
+			message("vision", "ä½ åªå¬å¤–é¢ä¸€å£°è½°å“ï¼ŒçŸ³æ´è¢«äººä»é‡Œé¢æ…ç©¿äº†ï¼Œéœ²å‡ºäº†ä¸€ä¸ªæ´å£ã€‚\n", room);
 			room->set("exits/enter",__DIR__"rukou");
 			room->set("exits/out",__DIR__"siguoya");
 			remove_call_out("close1");
@@ -90,7 +90,7 @@ int do_break(string arg)
 		}
 	}
 	else {
-		message_vision("½á¹ûÖ»ÌıÒ»ÉùÃÆºß£¬$N±»Ê¯±ÚµÄ·´µ¯Á¦ÕğµÃÑÛÇ°Ò»ºÚ....\n", me);
+		message_vision("ç»“æœåªå¬ä¸€å£°é—·å“¼ï¼Œ$Nè¢«çŸ³å£çš„åå¼¹åŠ›éœ‡å¾—çœ¼å‰ä¸€é»‘....\n", me);
 		this_player()->unconcious();
 	}
 	return 1;
@@ -98,13 +98,13 @@ int do_break(string arg)
 
 void close(object ob)
 {
-	message("vision","ÑÂÉÏºöÈ»µôÏÂÀ´Ò»¿é¾ŞÊ¯£¬½«¶´¿Ú·âÁË¸öÑÏÑÏÊµÊµ¡£\n", ob);
+	message("vision","å´–ä¸Šå¿½ç„¶æ‰ä¸‹æ¥ä¸€å—å·¨çŸ³ï¼Œå°†æ´å£å°äº†ä¸ªä¸¥ä¸¥å®å®ã€‚\n", ob);
 	ob->delete("exits/out");
 }
 
 void close1(object room)
 {       
-	message("vision","ÑÂÉÏºöÈ»µôÏÂÀ´Ò»¿é¾ŞÊ¯£¬½«¶´¿Ú·âÁË¸öÑÏÑÏÊµÊµ¡£\n", room);
+	message("vision","å´–ä¸Šå¿½ç„¶æ‰ä¸‹æ¥ä¸€å—å·¨çŸ³ï¼Œå°†æ´å£å°äº†ä¸ªä¸¥ä¸¥å®å®ã€‚\n", room);
 	room->delete("exits/enter");
 	room->set("exits/out",__DIR__"siguoya");
 }
@@ -112,6 +112,6 @@ void close1(object room)
 int valid_leave(object me, string dir)
 {
 	if (!me->query_temp("mb") && dir == "right" )
-		return notify_fail("ÄÄÀïºÚºõºõµÄ²»ÖªµÀÊ²Ã´µØ·½£¬¿´ÆğÀ´±È½ÏÎ£ÏÕ£¡\n");
+		return notify_fail("å“ªé‡Œé»‘ä¹ä¹çš„ä¸çŸ¥é“ä»€ä¹ˆåœ°æ–¹ï¼Œçœ‹èµ·æ¥æ¯”è¾ƒå±é™©ï¼\n");
 	return ::valid_leave(me, dir);
 }

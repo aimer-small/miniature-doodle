@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "¿×µÀ");
+        set("short", "å­”é“");
         set("long", @LONG
-ÕâÊÇÒ»ÌõÕ­Õ­µÄ¿×µÀ£¬ºÚÆáÆáµÄÊ²Ã´Ò²¿´²»Çå³ş¡£
+è¿™æ˜¯ä¸€æ¡çª„çª„çš„å­”é“ï¼Œé»‘æ¼†æ¼†çš„ä»€ä¹ˆä¹Ÿçœ‹ä¸æ¸…æ¥šã€‚
 LONG);
-        set("indoors", "»ªÉ½" );
+        set("indoors", "åå±±" );
 
         setup();
 }
@@ -26,28 +26,28 @@ int do_break(string arg)
         object weapon;
 
         if (me->is_busy() || me->is_fighting())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if (arg != "wall")
-                return notify_fail("ÄãÒª´òÆÆÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦æ‰“ç ´ä»€ä¹ˆï¼Ÿ\n");
         if (query("exits/out"))
-                return notify_fail("Ç½±ÚÒÑ¾­±»´òÆÆÁË¡£\n");
+                return notify_fail("å¢™å£å·²ç»è¢«æ‰“ç ´äº†ã€‚\n");
 
         weapon = me->query_temp("weapon");
         if (!weapon || weapon->query("skill_type") != "sword")
-                return notify_fail("ÄãÊÖÖĞÎŞ½££¬ÈçºÎÆÆ±Ú£¿\n");
+                return notify_fail("ä½ æ‰‹ä¸­æ— å‰‘ï¼Œå¦‚ä½•ç ´å£ï¼Ÿ\n");
 
-        message_vision("$NÌáÆğ"+weapon->name()+"£¬ÔË×ãÄÚÁ¦´ÌÏòÊ¯±Ú¡£\n", me);
+        message_vision("$Næèµ·"+weapon->name()+"ï¼Œè¿è¶³å†…åŠ›åˆºå‘çŸ³å£ã€‚\n", me);
         if (me->query("neili") < 200) {
                 me->set("neili", 0);
-                message_vision("Ö»ÌıÅÄµÄÒ»Éù£¬"+weapon->name()+"¶ÏÎªÁ½½Ø£¬Ô­À´$NÄÚÁ¦²»×ã¡£\n", me);
+                message_vision("åªå¬æ‹çš„ä¸€å£°ï¼Œ"+weapon->name()+"æ–­ä¸ºä¸¤æˆªï¼ŒåŸæ¥$Nå†…åŠ›ä¸è¶³ã€‚\n", me);
                 weapon->move(environment(me));
-                weapon->set("name", "¶ÏµôµÄ" + weapon->name());
+                weapon->set("name", "æ–­æ‰çš„" + weapon->name());
                 weapon->set("value", 49);
                 weapon->set("weapon_prop", 0);
                 me->unconcious();
         } else {
                 me->add("neili", -200);
-                message_vision("²ÁµÄÒ»Éù£¬"+weapon->name()+"¾¹¶û²åÈëÊ¯±ÚÖ®ÖĞ£¬Ö±ÖÁÃ»±ú£¬Ê¯±ÚÉÏÂ¶³öÁËÒ»¸ö¶´¿Ú¡£\n", me);
+                message_vision("æ“¦çš„ä¸€å£°ï¼Œ"+weapon->name()+"ç«Ÿå°”æ’å…¥çŸ³å£ä¹‹ä¸­ï¼Œç›´è‡³æ²¡æŸ„ï¼ŒçŸ³å£ä¸Šéœ²å‡ºäº†ä¸€ä¸ªæ´å£ã€‚\n", me);
                 set("exits/out", __DIR__"shandong");
                 call_out("close", 2);
         }
@@ -56,7 +56,7 @@ int do_break(string arg)
 
 void close()
 {
-        tell_room(this_object(), "Ê¯¿éËúÂäÏÂÀ´£¬ÓÖ¶Â×¡ÁË¶´¿Ú¡£\n");
+        tell_room(this_object(), "çŸ³å—å¡Œè½ä¸‹æ¥ï¼Œåˆå µä½äº†æ´å£ã€‚\n");
         delete("exits/out");
 }
 
@@ -66,11 +66,11 @@ int do_use(string arg)
 
         
         if (me->is_busy() || me->is_fighting())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if (arg != "fire" || !present("fire", me) || userp(present("fire", me)))
-                return notify_fail("ÄãÒªÓÃÊ²Ã´£¿\n");
-        message_vision("$NµãÈ¼»ğÕÛ£¬Íù¶´µÄÉî´¦×ßÁË¹ıÈ¥¡£\n", me);
+                return notify_fail("ä½ è¦ç”¨ä»€ä¹ˆï¼Ÿ\n");
+        message_vision("$Nç‚¹ç‡ƒç«æŠ˜ï¼Œå¾€æ´çš„æ·±å¤„èµ°äº†è¿‡å»ã€‚\n", me);
 	 me->move(__DIR__"yongdao");
-        tell_room(environment(me), me->name()+"´ÓÍâÃæ×ßÁË¹ıÀ´¡£\n", ({ me }));
+        tell_room(environment(me), me->name()+"ä»å¤–é¢èµ°äº†è¿‡æ¥ã€‚\n", ({ me }));
         return 1;
 }

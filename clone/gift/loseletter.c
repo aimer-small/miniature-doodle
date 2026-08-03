@@ -31,7 +31,7 @@ string *bonus_items = ({
 
 void create()
 {
-	set_name(YEL"Ê§ÂäµÄĞÅ¼ã"NOR, ({ "letter", "xin", "lose letter" }));
+	set_name(YEL"å¤±è½çš„ä¿¡ç¬º"NOR, ({ "letter", "xin", "lose letter" }));
 
 	set_weight(10);
 
@@ -41,7 +41,7 @@ void create()
 	}
 	else
 	{
-		set("unit", "·â");
+		set("unit", "å°");
 		set("value", 0);
 		set("material", "paper");
 		set("no_drop",1);
@@ -60,7 +60,7 @@ void init()
 
 	if (!query("bearer"))
 	{
-		message_vision("$NµÃµ½ÁËÒ»·â" + name() + "¡£\n", me);
+		message_vision("$Nå¾—åˆ°äº†ä¸€å°" + name() + "ã€‚\n", me);
 		set("bearer", me->query("id"));
 	}
 
@@ -88,19 +88,19 @@ string do_look()
 {
 	object ob;
 
-	string str = "ÕâÊÇÒ»·â´óÀí¹úÕòÄÏÍõ¸®ËÍ³öµÄÊéĞÅ¡£\n"
-		"ĞÅ·âÖ½É«À¯»Æ£¬ĞÅÉàÓÃ»ğÆá·â×Å¡£\n";
+	string str = "è¿™æ˜¯ä¸€å°å¤§ç†å›½é•‡å—ç‹åºœé€å‡ºçš„ä¹¦ä¿¡ã€‚\n"
+		"ä¿¡å°çº¸è‰²èœ¡é»„ï¼Œä¿¡èˆŒç”¨ç«æ¼†å°ç€ã€‚\n";
 
 	string target = query("addressee");
 
 	if (target && objectp(ob = find_player(target)))
 	{
-		str += "ĞÅ·âÉÏĞ´×Å£º" + ob->short(1) 
-			+ "\n¿´À´ÊÇºÜÖØÒªµÄĞÅ¼ã£¬Òª×¥½ôÊ±¼ä°ÑËüËÍÈ¥¡£\n";
+		str += "ä¿¡å°ä¸Šå†™ç€ï¼š" + ob->short(1) 
+			+ "\nçœ‹æ¥æ˜¯å¾ˆé‡è¦çš„ä¿¡ç¬ºï¼Œè¦æŠ“ç´§æ—¶é—´æŠŠå®ƒé€å»ã€‚\n";
 	}
 	else
 	{
-		str += "ĞÅ·âÉÏµÄ×Ö¼£Ä£ºı²»Çå£¬²»ÖªºÎÈËÒÅÂäµ½´Ë´¦¡£\n";
+		str += "ä¿¡å°ä¸Šçš„å­—è¿¹æ¨¡ç³Šä¸æ¸…ï¼Œä¸çŸ¥ä½•äººé—è½åˆ°æ­¤å¤„ã€‚\n";
 	}
 
 	return str;
@@ -137,55 +137,55 @@ private int do_send(string arg)
 
 	if ( !arg || !objectp(ob = present(arg, environment(me))))
 	{
-		return notify_fail("ÄãÒªËÍ¸øË­£¿\n");
+		return notify_fail("ä½ è¦é€ç»™è°ï¼Ÿ\n");
 	}
 
 	if ( query("addressee") != arg )
 	{
-		return notify_fail("Õâ·âĞÅ²»ÊÇËÍ¸øÕâ¸öÈËµÄ¡£\n");
+		return notify_fail("è¿™å°ä¿¡ä¸æ˜¯é€ç»™è¿™ä¸ªäººçš„ã€‚\n");
 	}
 
 	if ( me->is_busy() || me->is_fighting() )
 	{
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	}
 
 
 	if ( !living(ob) )
 	{
-		return notify_fail("¿´Çå³şµã£¬ÄÇÊÇ»îÈËÂğ£¿£¡\n");
+		return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£æ˜¯æ´»äººå—ï¼Ÿï¼\n");
 	}
 
 	if ( !userp(ob) )
 	{
-		return notify_fail("ºÙºÙ£¬Ïë×÷±×£¿£¡\n");
+		return notify_fail("å˜¿å˜¿ï¼Œæƒ³ä½œå¼Šï¼Ÿï¼\n");
 	}
 
 	me->add_busy(random(2));
 
-	message_vision("$n½«" + name() + "½»¸øÁË$N¡£\n", ob, me);
+	message_vision("$nå°†" + name() + "äº¤ç»™äº†$Nã€‚\n", ob, me);
 
 	if (random(10)==0)
 	{
-		message_vision("$NºüÒÉµØ¿´×Å$n£º¡¸ÕâĞÅÔõÃ´Âäµ½ÄãµÄÊÖÉÏ£¿¡¹\n"
-			"$NÉÏÏÂ´òÁ¿ÁË$nÁ½ÑÛ£º¡¸Äãµ±ÕæÃ»ÓĞÍµ²ğÀ´¿´¹ı£¿" 
-			+ RANK_D->query_self(ob) + "¿ÉÊÇÓĞÒşË½È¨µÄ¡£¡¹\n", ob, me);
+		message_vision("$Nç‹ç–‘åœ°çœ‹ç€$nï¼šã€Œè¿™ä¿¡æ€ä¹ˆè½åˆ°ä½ çš„æ‰‹ä¸Šï¼Ÿã€\n"
+			"$Nä¸Šä¸‹æ‰“é‡äº†$nä¸¤çœ¼ï¼šã€Œä½ å½“çœŸæ²¡æœ‰å·æ‹†æ¥çœ‹è¿‡ï¼Ÿ" 
+			+ RANK_D->query_self(ob) + "å¯æ˜¯æœ‰éšç§æƒçš„ã€‚ã€\n", ob, me);
 		
 		EMOTE_D->do_emote(ob, "liar");
 
-		message_vision("$NÔ½ÏëÔ½ÉúÆø£¬±©´òÁË$nÒ»¶Ù£¬´òµÃ$n±éÌåÁÛÉË¡£\n", ob, me);
+		message_vision("$Nè¶Šæƒ³è¶Šç”Ÿæ°”ï¼Œæš´æ‰“äº†$nä¸€é¡¿ï¼Œæ‰“å¾—$néä½“é³ä¼¤ã€‚\n", ob, me);
 
 		GET_EXP(exp);
 
 		exp = random(exp/2);
 
-		tell_object(me, "Äã±»" + ob->name() + "´ò³ÉÖØÉË£¬¾­ÑéÏÂ½µÁË" 
-			+ chinese_number(exp) + "µã¡£\n");
+		tell_object(me, "ä½ è¢«" + ob->name() + "æ‰“æˆé‡ä¼¤ï¼Œç»éªŒä¸‹é™äº†" 
+			+ chinese_number(exp) + "ç‚¹ã€‚\n");
 
 		exp = -exp;
 
 		//me->add("combat_exp", exp);
-		me->add_exp_combat(exp, ob, "¶ªÊ§µÄĞÅ", 1);
+		me->add_exp_combat(exp, ob, "ä¸¢å¤±çš„ä¿¡", 1);
 
 		EMOTE_D->do_emote(me, "wuwu", me->query("id"));
 	}
@@ -195,16 +195,16 @@ private int do_send(string arg)
 
 		EMOTE_D->do_emote(ob, "touch", me->query("id"));
 
-		message_vision("¹ıÁËÒ»»á¶ù£¬$N²ÅËµµÀ£º¡¸ÎÒµÈºî¶ÎÍõÒ¯µÄÏûÏ¢¶àÊ±£¬"
-			"ÕıÔÚ³ì³ùÎªºÎÒôÑ¶È«ÎŞ£¬ÕæÊÇ¶àĞ»ÕâÎ»" 
-			+ RANK_D->query_respect(me) + "¡£¡¹\n", ob, me);
+		message_vision("è¿‡äº†ä¸€ä¼šå„¿ï¼Œ$Næ‰è¯´é“ï¼šã€Œæˆ‘ç­‰ä¾¯æ®µç‹çˆ·çš„æ¶ˆæ¯å¤šæ—¶ï¼Œ"
+			"æ­£åœ¨è¸Œèº‡ä¸ºä½•éŸ³è®¯å…¨æ— ï¼ŒçœŸæ˜¯å¤šè°¢è¿™ä½" 
+			+ RANK_D->query_respect(me) + "ã€‚ã€\n", ob, me);
 		
 		switch (random(100)%5)
 		{
 		case 0:
 			itemp = random(10) + 1;
-			message_vision("$N²ğ¿ªĞÅ¼ã¿´ÁË¿´£¬Ï²µÀ£º¡¸ÎÒÔÚ´óÀí¹ú¹ºÂòµÄ¸£Àû²ÊÆ±ÖĞÁË" 
-				+ chinese_number(itemp) + "µÈ½±À²£¡£¡£¡¡¹\n", ob, me);
+			message_vision("$Næ‹†å¼€ä¿¡ç¬ºçœ‹äº†çœ‹ï¼Œå–œé“ï¼šã€Œæˆ‘åœ¨å¤§ç†å›½è´­ä¹°çš„ç¦åˆ©å½©ç¥¨ä¸­äº†" 
+				+ chinese_number(itemp) + "ç­‰å¥–å•¦ï¼ï¼ï¼ã€\n", ob, me);
 			EMOTE_D->do_emote(ob, "yeah");
 
 			GET_MONEY(money);
@@ -217,19 +217,19 @@ private int do_send(string arg)
 			obmoney *= 10000;
 			ob->add("balance", obmoney);
 
-			tell_object(ob, "Äã»ñµÃÁË´óÀí¹ú¸£Àû²ÊÆ±¹ö¶¯½±½ğ" 
-				+ MONEY_D->money_str(obmoney) + "£¬½±½ğÒÑ»ãÈëÄãµÄÕË»§¡£\n");
+			tell_object(ob, "ä½ è·å¾—äº†å¤§ç†å›½ç¦åˆ©å½©ç¥¨æ»šåŠ¨å¥–é‡‘" 
+				+ MONEY_D->money_str(obmoney) + "ï¼Œå¥–é‡‘å·²æ±‡å…¥ä½ çš„è´¦æˆ·ã€‚\n");
 
-			tell_object(me, "ÎªÁË¸ĞĞ»ÄãµÄÊ°¡¸ĞÅ¡¹²»ÃÁ£¬" + ob->name() 
-				+ "¸øÄãµÄÕË»§»ãÈëÁË" + MONEY_D->money_str(money) + "¡£\n");
+			tell_object(me, "ä¸ºäº†æ„Ÿè°¢ä½ çš„æ‹¾ã€Œä¿¡ã€ä¸æ˜§ï¼Œ" + ob->name() 
+				+ "ç»™ä½ çš„è´¦æˆ·æ±‡å…¥äº†" + MONEY_D->money_str(money) + "ã€‚\n");
 			break;
 		case 1:
 			itemp = random(100) + 1;
-			message_vision("$N²ğ¿ªĞÅ¼ã£¬ÉÏÃæĞ´×Å£º¡¸ÄúËù¹ºÂòµÄ´óÀí¹úÌìÁú¹É·İ×î½üÏÂµøÁË" 
-				+ chinese_number(itemp) + "¸ö°Ù·Öµã£¡£¡£¡¡¹\n", ob);
+			message_vision("$Næ‹†å¼€ä¿¡ç¬ºï¼Œä¸Šé¢å†™ç€ï¼šã€Œæ‚¨æ‰€è´­ä¹°çš„å¤§ç†å›½å¤©é¾™è‚¡ä»½æœ€è¿‘ä¸‹è·Œäº†" 
+				+ chinese_number(itemp) + "ä¸ªç™¾åˆ†ç‚¹ï¼ï¼ï¼ã€\n", ob);
 			EMOTE_D->do_emote(ob, "xbc");
-			message_vision("$NËµµÀ£º¡¸¶àĞ»ÕâÎ»" + RANK_D->query_respect(me) 
-				+ "ËÍĞÅ¸øÎÒ£¬ÎÒÒª¸Ï½ôÈ¥²¹²ÖÁË¡£¡¹\n", ob);
+			message_vision("$Nè¯´é“ï¼šã€Œå¤šè°¢è¿™ä½" + RANK_D->query_respect(me) 
+				+ "é€ä¿¡ç»™æˆ‘ï¼Œæˆ‘è¦èµ¶ç´§å»è¡¥ä»“äº†ã€‚ã€\n", ob);
 
 			GET_POT(pot);
 			pot = pot*itemp/100;
@@ -239,71 +239,71 @@ private int do_send(string arg)
 			}
 			me->add("potential", pot);
 
-			tell_object(me, "Äã²ÁÁË²Á¶îÍ·ÉÏµÄº¹£¬ĞÄÏë£º¡¸ĞÒ¿÷ÎÒÃ»ÂòÄÇÆÆ¹ÉÆ±£¬"
-				"¿´ÕâĞ¡×ÓÅâµÃ±¾¶¼¿ìÃ»ÁË£¬»¹ÔÚÄÇ¶ùÇî×°¡£¡¹\n"
-				"Äã¾õµÃ×Ô¼ºÌØÓ¢Ã÷ÉñÎä£¬¶ÙÊ±ĞÄĞØÊæ³©£¬Ôö¼ÓÁË" 
-				+ chinese_number(pot) + "µãÇ±ÄÜ¡£\n");
+			tell_object(me, "ä½ æ“¦äº†æ“¦é¢å¤´ä¸Šçš„æ±—ï¼Œå¿ƒæƒ³ï¼šã€Œå¹¸äºæˆ‘æ²¡ä¹°é‚£ç ´è‚¡ç¥¨ï¼Œ"
+				"çœ‹è¿™å°å­èµ”å¾—æœ¬éƒ½å¿«æ²¡äº†ï¼Œè¿˜åœ¨é‚£å„¿ç©·è£…ã€‚ã€\n"
+				"ä½ è§‰å¾—è‡ªå·±ç‰¹è‹±æ˜ç¥æ­¦ï¼Œé¡¿æ—¶å¿ƒèƒ¸èˆ’ç•…ï¼Œå¢åŠ äº†" 
+				+ chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚\n");
 			break;
 		case 2:
-			message_vision("$N²ğ¿ªĞÅ¼ã¿´ÁË¿´£¬´óÏ²µÀ£º¡¸ÎÒÒòÎªËÍĞÅÇÚ¿Ò£¬"
-				"ÒÑ¾­±»ÆÀÑ¡Îª´óÀíÄê¶ÈÀÍ¶¯Ä£·¶ÁË£¡¡¹\n", ob);
+			message_vision("$Næ‹†å¼€ä¿¡ç¬ºçœ‹äº†çœ‹ï¼Œå¤§å–œé“ï¼šã€Œæˆ‘å› ä¸ºé€ä¿¡å‹¤æ³ï¼Œ"
+				"å·²ç»è¢«è¯„é€‰ä¸ºå¤§ç†å¹´åº¦åŠ³åŠ¨æ¨¡èŒƒäº†ï¼ã€\n", ob);
 
 			EMOTE_D->do_emote(ob, "touch");
 
-			message_vision("$NËµµÀ£º¡¸¶àĞ»ÕâÎ»" + RANK_D->query_respect(me) 
-				+ "ËÍĞÅ¸øÎÒ¡£¡¹\n", ob);
+			message_vision("$Nè¯´é“ï¼šã€Œå¤šè°¢è¿™ä½" + RANK_D->query_respect(me) 
+				+ "é€ä¿¡ç»™æˆ‘ã€‚ã€\n", ob);
 
 			GET_EXP(exp);
 			GET_POT(pot);
 				
 			//me->add("combat_exp", exp);
-			exp = me->add_exp_combat(exp, ob, "¶ªÊ§µÄĞÅ", 1);
+			exp = me->add_exp_combat(exp, ob, "ä¸¢å¤±çš„ä¿¡", 1);
 			
 			me->add("potential", pot);
 
 			GET_EXP(obexp);
 			GET_POT(obpot);
 			//ob->add("combat_exp", obexp);
-			obexp = ob->add_exp_combat(obexp, me, "¶ªÊ§µÄĞÅ", 1);
+			obexp = ob->add_exp_combat(obexp, me, "ä¸¢å¤±çš„ä¿¡", 1);
 			ob->add("potential", obpot);
 
-			tell_object(ob, "Äã±»ÆÀÑ¡Îª´óÀíÄê¶ÈÀÍ¶¯Ä£·¶£¬»ñµÃÁË" 
-				+ chinese_number(obexp) + "µã¾­Ñé£¬" + chinese_number(obpot) + "µãÇ±ÄÜ¡£\n");
+			tell_object(ob, "ä½ è¢«è¯„é€‰ä¸ºå¤§ç†å¹´åº¦åŠ³åŠ¨æ¨¡èŒƒï¼Œè·å¾—äº†" 
+				+ chinese_number(obexp) + "ç‚¹ç»éªŒï¼Œ" + chinese_number(obpot) + "ç‚¹æ½œèƒ½ã€‚\n");
 			
-			tell_object(me, "ÄãĞÄÏë×Ô¼ºÊ°¡¸ĞÅ¡¹²»ÃÁ£¬ÔÚ´Ë»ù´¡ÉÏÔÙ¼Ó°Ñ¾¢£¬"
-				"À´ÄêĞËĞíÒ²ÄÜÆÀÎª¹âÈÙµÄÀÍ¶¯Ä£·¶£¬²»ÓÉ¾«Éñ´óÎªÕñ·Ü¡£\n"
-				"Äã»ñµÃÁË" + chinese_number(exp) + "µã¾­Ñé£¬" 
-				+ chinese_number(pot) + "µãÇ±ÄÜ¡£\n");
+			tell_object(me, "ä½ å¿ƒæƒ³è‡ªå·±æ‹¾ã€Œä¿¡ã€ä¸æ˜§ï¼Œåœ¨æ­¤åŸºç¡€ä¸Šå†åŠ æŠŠåŠ²ï¼Œ"
+				"æ¥å¹´å…´è®¸ä¹Ÿèƒ½è¯„ä¸ºå…‰è£çš„åŠ³åŠ¨æ¨¡èŒƒï¼Œä¸ç”±ç²¾ç¥å¤§ä¸ºæŒ¯å¥‹ã€‚\n"
+				"ä½ è·å¾—äº†" + chinese_number(exp) + "ç‚¹ç»éªŒï¼Œ" 
+				+ chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚\n");
 			break;
 		case 3:
-			message_vision("$N²ğ¿ªĞÅ¼ã£¬ÖåÃ¼¶ÁµÀ£º¡¸Äú¸ø´óÀí¹úËùÍ¶¼òÀú£¬"
-				"ÒÑ¾­ÎÒ´óÀíÈËÊÂ¾ÖµÚÒ»´ÎÉ¸Ñ¡¶ø¾Ü¾ø£¡\n"
-				"ÄúÍıÍ¼ĞĞ»ß´óÀíÈËÊÂÁìµ¼µÄĞĞÎªÒÑ±»³¹²é£¬»ßÎïËÍ»Ø£¬"
-				"ÎÒ¹ú±£Áô×·¾¿·¨ÂÉÔğÈÎÈ¨Á¦¡­¡­¡¹\n", ob);
+			message_vision("$Næ‹†å¼€ä¿¡ç¬ºï¼Œçš±çœ‰è¯»é“ï¼šã€Œæ‚¨ç»™å¤§ç†å›½æ‰€æŠ•ç®€å†ï¼Œ"
+				"å·²ç»æˆ‘å¤§ç†äººäº‹å±€ç¬¬ä¸€æ¬¡ç­›é€‰è€Œæ‹’ç»ï¼\n"
+				"æ‚¨å¦„å›¾è¡Œè´¿å¤§ç†äººäº‹é¢†å¯¼çš„è¡Œä¸ºå·²è¢«å½»æŸ¥ï¼Œè´¿ç‰©é€å›ï¼Œ"
+				"æˆ‘å›½ä¿ç•™è¿½ç©¶æ³•å¾‹è´£ä»»æƒåŠ›â€¦â€¦ã€\n", ob);
 			
 			EMOTE_D->do_emote(ob, "wait");
 
 			GET_ITEM(obj);
 
-			message_vision("$N¶ñºİºİµÃµÉÁË$nÒ»ÑÛ£¬Æø¹Ä¹ÄµÄ°ÑĞÅ¼ãÄÚ·âµÄ»ßÂ¸ÓÃÆ·¡º" 
-				+ obj->name() + "¡»ÈÓÔÚµØÉÏ¡£\n", ob, me);
+			message_vision("$Næ¶ç‹ ç‹ å¾—çªäº†$nä¸€çœ¼ï¼Œæ°”é¼“é¼“çš„æŠŠä¿¡ç¬ºå†…å°çš„è´¿èµ‚ç”¨å“ã€" 
+				+ obj->name() + "ã€æ‰”åœ¨åœ°ä¸Šã€‚\n", ob, me);
 
 			GET_EXP(obexp);
 			GET_POT(obpot);
 			//ob->add("combat_exp", obexp);
-			obexp = ob->add_exp_combat(obexp, me, "¶ªÊ§µÄĞÅ", 1);
+			obexp = ob->add_exp_combat(obexp, me, "ä¸¢å¤±çš„ä¿¡", 1);
 			ob->add("potential", obpot);
 
-			tell_object(ob, "ÄãĞĞ»ßÇóÖ°Ê§°Ü£¬ÎÔĞ½³¢µ¨£¬ÖØÁ·ÎäÑ§£¬»ñµÃÁË" 
-				+ chinese_number(obexp) + "µã¾­Ñé£¬" + chinese_number(obpot) + "µãÇ±ÄÜ¡£\n");
+			tell_object(ob, "ä½ è¡Œè´¿æ±‚èŒå¤±è´¥ï¼Œå§è–ªå°èƒ†ï¼Œé‡ç»ƒæ­¦å­¦ï¼Œè·å¾—äº†" 
+				+ chinese_number(obexp) + "ç‚¹ç»éªŒï¼Œ" + chinese_number(obpot) + "ç‚¹æ½œèƒ½ã€‚\n");
 
-			tell_object(me, "Äã¼ñµ½ÁË" + ob->name() + "ÈÓµôµÄ¡º" + obj->name() + "¡»¡£\n");
+			tell_object(me, "ä½ æ¡åˆ°äº†" + ob->name() + "æ‰”æ‰çš„ã€" + obj->name() + "ã€ã€‚\n");
 
 			obj->move(me);
 			break;
 		case 4:
-			message_vision("$N²ğ¿ªĞÅ¼ã£¬È´¾ªÑÈµÄ·¢ÏÖ£¬ÀïÃæ»¹ÓĞÒ»·âĞÅ¼ã¡£\n"
-				"$N²»ÓÉÒ»Ğ¦£º¡¸Ò»¶¨ÊÇÄÄ¸ö´óÍ·Ïº°Ñ¸ø±ğÈËµÄĞÅ¼ã´í×°½ø¸øÎÒµÄĞÅ·âÀïÁË¡£¡¹\n", ob, me);
+			message_vision("$Næ‹†å¼€ä¿¡ç¬ºï¼Œå´æƒŠè®¶çš„å‘ç°ï¼Œé‡Œé¢è¿˜æœ‰ä¸€å°ä¿¡ç¬ºã€‚\n"
+				"$Nä¸ç”±ä¸€ç¬‘ï¼šã€Œä¸€å®šæ˜¯å“ªä¸ªå¤§å¤´è™¾æŠŠç»™åˆ«äººçš„ä¿¡ç¬ºé”™è£…è¿›ç»™æˆ‘çš„ä¿¡å°é‡Œäº†ã€‚ã€\n", ob, me);
 
 			new(__FILE__)->move(ob);
 
@@ -313,19 +313,19 @@ private int do_send(string arg)
 			GET_POT(pot);
 			
 			//me->add("combat_exp", exp);
-			exp = me->add_exp_combat(exp, ob, "¶ªÊ§µÄĞÅ", 1);
+			exp = me->add_exp_combat(exp, ob, "ä¸¢å¤±çš„ä¿¡", 1);
 			me->add("potential", pot);
 			
-			tell_object(me, "ÄãÒòÎª×Ô¼ºÊ°¡¸ĞÅ¡¹²»ÃÁ£¬»ñµÃÁË" 
-				+ chinese_number(exp) + "µã¾­Ñé£¬" + chinese_number(pot) + "µãÇ±ÄÜ¡£\n");
+			tell_object(me, "ä½ å› ä¸ºè‡ªå·±æ‹¾ã€Œä¿¡ã€ä¸æ˜§ï¼Œè·å¾—äº†" 
+				+ chinese_number(exp) + "ç‚¹ç»éªŒï¼Œ" + chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚\n");
 		default:
 			break;
 		}
 	}
 
 	log_file("job/loseletter",
-		strip(sprintf("%s(%s)ËÍ" + name() + "¸ø%s(%s)£¬"
-		"½±Àø%sµã¾­Ñé%sµãÇ±ÄÜ%s£¬ÎïÆ·£º%s¡£\n",
+		strip(sprintf("%s(%s)é€" + name() + "ç»™%s(%s)ï¼Œ"
+		"å¥–åŠ±%sç‚¹ç»éªŒ%sç‚¹æ½œèƒ½%sï¼Œç‰©å“ï¼š%sã€‚\n",
 		me->query("name"),
 		me->query("id"),
 		ob->query("name"),
@@ -333,15 +333,15 @@ private int do_send(string arg)
 		chinese_number(exp),
 		chinese_number(pot), 
 		MONEY_D->money_str(money), 
-		objectp(obj)?obj->name():"ÎŞ"
+		objectp(obj)?obj->name():"æ— "
 		)), 
 		me );
 	
 	if (obexp>0 || obpot>0 || obmoney>0 || objectp(obobj))
 	{
 		log_file("job/loseletter",
-			strip(sprintf("%s(%s)´Ó%s(%s)´¦ÊÕµ½" + name() + "£¬"
-			"½±Àø%sµã¾­Ñé%sµãÇ±ÄÜ%s£¬ÎïÆ·£º%s¡£\n",
+			strip(sprintf("%s(%s)ä»%s(%s)å¤„æ”¶åˆ°" + name() + "ï¼Œ"
+			"å¥–åŠ±%sç‚¹ç»éªŒ%sç‚¹æ½œèƒ½%sï¼Œç‰©å“ï¼š%sã€‚\n",
 			ob->query("name"),
 			ob->query("id"),
 			me->query("name"),
@@ -349,7 +349,7 @@ private int do_send(string arg)
 			chinese_number(obexp),
 			chinese_number(obpot), 
 			MONEY_D->money_str(obmoney), 
-			objectp(obobj)?obobj->name():"ÎŞ"
+			objectp(obobj)?obobj->name():"æ— "
 			)), 
 			me );
 	}
@@ -363,8 +363,8 @@ void dest()
 	object ob = environment(this_object());
 	if (userp(ob))
 	{
-		tell_object(ob, "ÄãÏëÀ´ÏëÈ¥£¬ÊÂ²»¹Ø¼º£¬¸ß¸ß¹ÒÆğ£¬ºÎ±ØÎªËûÈË¿à¿à±¼²¨¡£\n"
-			"Äã³ËÈË²»×¢Òâ£¬ÍµÍµ°Ñ" + this_object()->name() + "ÈÓ½øÁËÂ·±ßµÄ²İ´Ô¡£\n");
+		tell_object(ob, "ä½ æƒ³æ¥æƒ³å»ï¼Œäº‹ä¸å…³å·±ï¼Œé«˜é«˜æŒ‚èµ·ï¼Œä½•å¿…ä¸ºä»–äººè‹¦è‹¦å¥”æ³¢ã€‚\n"
+			"ä½ ä¹˜äººä¸æ³¨æ„ï¼Œå·å·æŠŠ" + this_object()->name() + "æ‰”è¿›äº†è·¯è¾¹çš„è‰ä¸›ã€‚\n");
 	}
 
 	destruct(this_object());

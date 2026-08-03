@@ -6,24 +6,24 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
    if( !living(me) ) {
-      message("vision", HIG+me->name() + "Ã¼ÑÛÍáĞ±£¬ÉàÍ·²»ÓÉ×ÔÖ÷µØÍÂÁË³öÀ´£¬Ò»´®´®ºÚÅİÄ­Ë³×ÅÉà¼âÍùÏÂÌÊ¡£\n"NOR, environment(me), me);
+      message("vision", HIG+me->name() + "çœ‰çœ¼æ­ªæ–œï¼ŒèˆŒå¤´ä¸ç”±è‡ªä¸»åœ°åäº†å‡ºæ¥ï¼Œä¸€ä¸²ä¸²é»‘æ³¡æ²«é¡ºç€èˆŒå°–å¾€ä¸‹æ·Œã€‚\n"NOR, environment(me), me);
    }
 
       if(me->query("eff_jing") > me->query("max_jing")/2) {
-      tell_object(me, CYN "Äã¸Ğ¾õÖĞÕÆÖ®´¦ÓÌÈç»ğ×Æ£¬È«Éí·¦Á¦£¬ÓÌÈçÉ¢¼Ü¡£\n" NOR );
+      tell_object(me, CYN "ä½ æ„Ÿè§‰ä¸­æŒä¹‹å¤„çŠ¹å¦‚ç«ç¼ï¼Œå…¨èº«ä¹åŠ›ï¼ŒçŠ¹å¦‚æ•£æ¶ã€‚\n" NOR );
       }
       else if(me->query("eff_jing") > me->query("max_jing")/4) {
-      tell_object(me, CYN "ÄãÖĞÕÆÖ®´¦¿ªÊ¼À£ÀÃ·¢³ô£¬ÕĞÀ´ÁË¼¸Ö»²ÔÓ¬£¬ËÄÖ«½¥½¥Ö×ÁËÆğÀ´¡£\n" NOR );
+      tell_object(me, CYN "ä½ ä¸­æŒä¹‹å¤„å¼€å§‹æºƒçƒ‚å‘è‡­ï¼Œæ‹›æ¥äº†å‡ åªè‹è‡ï¼Œå››è‚¢æ¸æ¸è‚¿äº†èµ·æ¥ã€‚\n" NOR );
       }
       else {
-      tell_object(me, CYN "ÕÆ¶¾ÒÑ¾­ÇÖÈëÎåÔàÁù¸­£¬ÄãÉñÖÇÖğ½¥ÃÔÊ§£¬¸Ğµ½¶ÔÕâ¸öÊÀ½çÎŞÏŞµØÁôÁµ¡£¡£¡£\n" NOR );
-      message("vision", HIG+me->name() + "Í»È»ÏóÀÃÄàËÆµØÌ±µ¹ÔÚµØ£¬È«ÉíÁ÷Å§£¬·¢³öÒ»ÕóÕóµÄ¶ñ³ô£¬Í··¢Ò»ÊøÊøµØÍÑÂä£¬Ëæ·çÆ®É¢¡£\n"NOR,
+      tell_object(me, CYN "æŒæ¯’å·²ç»ä¾µå…¥äº”è„å…­è…‘ï¼Œä½ ç¥æ™ºé€æ¸è¿·å¤±ï¼Œæ„Ÿåˆ°å¯¹è¿™ä¸ªä¸–ç•Œæ— é™åœ°ç•™æ‹ã€‚ã€‚ã€‚\n" NOR );
+      message("vision", HIG+me->name() + "çªç„¶è±¡çƒ‚æ³¥ä¼¼åœ°ç˜«å€’åœ¨åœ°ï¼Œå…¨èº«æµè„“ï¼Œå‘å‡ºä¸€é˜µé˜µçš„æ¶è‡­ï¼Œå¤´å‘ä¸€æŸæŸåœ°è„±è½ï¼Œéšé£é£˜æ•£ã€‚\n"NOR,
             environment(me), me);
       }
 
-        me->receive_damage("qi", 20, "¶¾·¢È«Éí¶ø");
+        me->receive_damage("qi", 20, "æ¯’å‘å…¨èº«è€Œ");
         me->apply_condition("dsy_poison", duration - 1);
-        me->receive_wound("jing", 25, "¶¾·¢È«Éí¶ø");
+        me->receive_wound("jing", 25, "æ¯’å‘å…¨èº«è€Œ");
 
      if( duration < 1) return 0;
    return CND_CONTINUE;

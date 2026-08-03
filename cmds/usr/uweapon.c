@@ -1,6 +1,6 @@
 /*
  * weapon.c
- * ËùÓÐ¹ØÓÚ×ÔÖÆ×°±¸µÄÃüÁî¡£
+ * æ‰€æœ‰å…³äºŽè‡ªåˆ¶è£…å¤‡çš„å‘½ä»¤ã€‚
  * Created by snowman@SJ 01/05/2001
  * Last modified by snowman@SJ 25/06/2001
  * Copyright 1997-2004 ShuJian MUD Wizard Group.
@@ -15,31 +15,31 @@ private void confirm_color(string yn, object me, object wp, string name,string i
 private void confirm_name(string yn, object me, object wp, string name,string id);
 
 nosave string *banned_name = ({
-// Mud ±£ÁôÃû×Ö
-"×Ô¼º","É±ÊÖ","ÉÁµç","Ñ©ÈË","åÐÒ£","ÎÒÃÇ","ÄãÃÇ","ËûÃÇ","ÔÛÃÇ","´ó¼Ò","Ä³ÈË","Ê¬Ìå",
-"ÌìÉñ","×Ü¹Ü","ÁúÉñ","ÏÉÈË","Î×Ê¦","ÃÅ¿Í","Íæ¼Ò","Êé","Êé½£","Ãû×Ö´ý¶¨","ÖÐÉñÍ¨","ÃÉÃæ",
-"ÃÉÃæÈË","´Ì¿Í","ÈÌÕß","ïÚÊ¦","¹í»ê","Í·Â­","É±ÈË·¸","ÆíÓê","´Ìâ¬","°®ÆÞÍè","Ð¡Éµ¹Ï",
-// Mud µØÃû£¬ÃÅÅÉÃû
-"ºâÉ½","»ªÉ½","áÔÉ½","ºãÉ½","Ì©É½","Ñ©É½","»ÆÉ½","ÌìÉ½","Î÷Óò","Ãç½®","¶«±±","ÖÐÔ­",
-"ÄÏ½®","³¤½­","»ÆºÓ","ÖÐ¹ú","ÖÐ»ª","À¥ÂØÉ½","³¤°×É½","°×ÍÕÉ½","Îäµ±É½","¶ëáÒÉ½",
-"±ù»ðµº","ÌÒ»¨µº","ºÚÄ¾ÑÂ",
-"ÉÙÁÖ","Ø¤°ï","Ã÷½Ì","ÃÜ×Ú","Ä½ÈÝ","¹ÅÄ¹","È«Õæ","ÌúÕÆ","´óÀí","°×ÍÕ","ÌÒ»¨","ÐÇËÞ",
-"ÌìÁúËÂ","´óÂÖËÂ","Îå¶¾½Ì","ÕýÒå","Ð°¶ñ","ÎåÔÀ½£ÅÉ","ÈÕÔÂÉñ½Ì","¹Ù¸®","ÎäÁÖ",
-"ÉÙÁÖËÂ","Îäµ±ÅÉ","ÌúÕÆ°ï","ÆÕÍ¨°ÙÐÕ","¶ëáÒÅÉ","¹ÃËÕÄ½ÈÝ","¹ÅÄ¹ÅÉ","»ªÉ½ÅÉ","áÔÉ½ÅÉ",
-"Ã÷½Ì","ÉñÁú½Ì","ÐÇËÞÅÉ",
-// ÖØÒªÈËÎïÃû×Ö
-"½ðÓ¹","µËÐ¡Æ½","½­ÔóÃñ","Ã«Ôó¶«","ÖìéÅ»ù","»ÊµÛ","×ÜÀí", "Ö÷Ï¯",
-// Ð¡ËµÈËÎï
-"ÕÅÈý·á","ÕÅÎÞ¼É","¹ù¾¸","Ñî¹ý","Áîºü³å","ºúì³","ÃçÈË·ï","Î¤Ð¡±¦","Ô¬³ÐÖ¾","ºúÒ»µ¶",
-"³Â¼ÒÂå","¶ÎÓþ","Ïô·æ","ÇÇ·æ","ÐéÖñ","¶«·½²»°Ü","Å·Ñô·æ","ºéÆß¹«","»ÆÒ©Ê¦","¶Î»ÊÒ¯",
-"Ò»µÆ´óÊ¦","ÍõÖØÑô","ÖÜ²®Í¨","»ÆÈØ","·çÇåÑï","¶À¹ÂÇó°Ü",
-// Ôà»°
-"Í³Ò»","·¨ÂÖ","·¨ÂÖÑÐ¾¿","·¨ÂÖ´ó","³ÔÈË","ËûÂèµÄ","È¥ÄãµÄ","²ÙÄãÂè","¸ÉÄãÄï","·ÏÎï",
-"»ìµ°","»µµ°","É±ÈË","ÇÀ½Ù","Ç¿¼é","¼ËÅ®","Ì¨¶À","Áìµ¼","ÖÐÑë","Æ¨ÑÛ","Æ¨¹É","ÂãÌå",
-"·ÅÆ¨","¼¦°Í","ÒõµÀ","æ»×Ó","ÄãÑ¾","ÈÕÄã","³àÀÐ","±ñÈý","Éµ±Æ","´Àµ°","²ÙËû","ÎÒ²Ù",
-"Ì«¼à","»Â¹Ù","ÑË¸î","ÑËÈË","¼¦", "¼éÒù", "Òùµ´", "ÂÖ¼é", "¼é", "Èý¼¶", "ÕþÖÎ",
-//ÌØÊâÃû×Ö
-"ÊçÅ®","¾ý×Ó",
+// Mud ä¿ç•™åå­—
+"è‡ªå·±","æ€æ‰‹","é—ªç”µ","é›ªäºº","é€é¥","æˆ‘ä»¬","ä½ ä»¬","ä»–ä»¬","å’±ä»¬","å¤§å®¶","æŸäºº","å°¸ä½“",
+"å¤©ç¥ž","æ€»ç®¡","é¾™ç¥ž","ä»™äºº","å·«å¸ˆ","é—¨å®¢","çŽ©å®¶","ä¹¦","ä¹¦å‰‘","åå­—å¾…å®š","ä¸­ç¥žé€š","è’™é¢",
+"è’™é¢äºº","åˆºå®¢","å¿è€…","é•–å¸ˆ","é¬¼é­‚","å¤´é¢…","æ€äººçŠ¯","ç¥ˆé›¨","åˆºçŒ¬","çˆ±å¦»ä¸¸","å°å‚»ç“œ",
+// Mud åœ°åï¼Œé—¨æ´¾å
+"è¡¡å±±","åŽå±±","åµ©å±±","æ’å±±","æ³°å±±","é›ªå±±","é»„å±±","å¤©å±±","è¥¿åŸŸ","è‹—ç–†","ä¸œåŒ—","ä¸­åŽŸ",
+"å—ç–†","é•¿æ±Ÿ","é»„æ²³","ä¸­å›½","ä¸­åŽ","æ˜†ä»‘å±±","é•¿ç™½å±±","ç™½é©¼å±±","æ­¦å½“å±±","å³¨åµ‹å±±",
+"å†°ç«å²›","æ¡ƒèŠ±å²›","é»‘æœ¨å´–",
+"å°‘æž—","ä¸å¸®","æ˜Žæ•™","å¯†å®—","æ…•å®¹","å¤å¢“","å…¨çœŸ","é“æŽŒ","å¤§ç†","ç™½é©¼","æ¡ƒèŠ±","æ˜Ÿå®¿",
+"å¤©é¾™å¯º","å¤§è½®å¯º","äº”æ¯’æ•™","æ­£ä¹‰","é‚ªæ¶","äº”å²³å‰‘æ´¾","æ—¥æœˆç¥žæ•™","å®˜åºœ","æ­¦æž—",
+"å°‘æž—å¯º","æ­¦å½“æ´¾","é“æŽŒå¸®","æ™®é€šç™¾å§“","å³¨åµ‹æ´¾","å§‘è‹æ…•å®¹","å¤å¢“æ´¾","åŽå±±æ´¾","åµ©å±±æ´¾",
+"æ˜Žæ•™","ç¥žé¾™æ•™","æ˜Ÿå®¿æ´¾",
+// é‡è¦äººç‰©åå­—
+"é‡‘åº¸","é‚“å°å¹³","æ±Ÿæ³½æ°‘","æ¯›æ³½ä¸œ","æœ±æ¦•åŸº","çš‡å¸","æ€»ç†", "ä¸»å¸­",
+// å°è¯´äººç‰©
+"å¼ ä¸‰ä¸°","å¼ æ— å¿Œ","éƒ­é–","æ¨è¿‡","ä»¤ç‹å†²","èƒ¡æ–","è‹—äººå‡¤","éŸ¦å°å®","è¢æ‰¿å¿—","èƒ¡ä¸€åˆ€",
+"é™ˆå®¶æ´›","æ®µèª‰","è§é”‹","ä¹”é”‹","è™šç«¹","ä¸œæ–¹ä¸è´¥","æ¬§é˜³é”‹","æ´ªä¸ƒå…¬","é»„è¯å¸ˆ","æ®µçš‡çˆ·",
+"ä¸€ç¯å¤§å¸ˆ","çŽ‹é‡é˜³","å‘¨ä¼¯é€š","é»„è“‰","é£Žæ¸…æ‰¬","ç‹¬å­¤æ±‚è´¥",
+// è„è¯
+"ç»Ÿä¸€","æ³•è½®","æ³•è½®ç ”ç©¶","æ³•è½®å¤§","åƒäºº","ä»–å¦ˆçš„","åŽ»ä½ çš„","æ“ä½ å¦ˆ","å¹²ä½ å¨˜","åºŸç‰©",
+"æ··è›‹","åè›‹","æ€äºº","æŠ¢åŠ«","å¼ºå¥¸","å¦“å¥³","å°ç‹¬","é¢†å¯¼","ä¸­å¤®","å±çœ¼","å±è‚¡","è£¸ä½“",
+"æ”¾å±","é¸¡å·´","é˜´é“","å©Šå­","ä½ ä¸«","æ—¥ä½ ","èµ¤ä½¬","ç˜ªä¸‰","å‚»é€¼","è ¢è›‹","æ“ä»–","æˆ‘æ“",
+"å¤ªç›‘","å®¦å®˜","é˜‰å‰²","é˜‰äºº","é¸¡", "å¥¸æ·«", "æ·«è¡", "è½®å¥¸", "å¥¸", "ä¸‰çº§", "æ”¿æ²»",
+//ç‰¹æ®Šåå­—
+"æ·‘å¥³","å›å­",
 });
 
 nosave string* weapon_list = ({ "sword","axe","blade","brush","club","dagger","fork","hammer","hook","spear","staff","stick","xiao","whip" });
@@ -58,8 +58,8 @@ mapping* get_var(object target)
 		ber = keys(worker);
 		for(int i=0;i<sizeof(ber);i++)
 		{
-//"var" : "armor,¼þ,20325,96800,10,32,1514,zhuma,¼«Æ·ÑàÎ²¼×ëÐ,2243,2250,,0,0,0,0,0,ëöÁ¦ÒªÇó¼õ´ó°ë¡¢¼«Æ··ÀÓù¡¢Ìá¸ßÄÚÁ¦»Ö¸´,¸ß¼¶²Ã·ì  Îäµ±¸òó¡(Macwd),,mactz",
-//"var" : "whip,8597,0,1,1,17,1947,123,104000,3350,3350,lushi,0,0,0,0,0,ÉÁµçÓñÖ¸±Þ,Ôö¼ÓÃüÖÐ¡¢¼ÓÇ¿ÍþÁ¦,¸ß¼¶Öý½£Ê¦  Îäµ±¸òó¡(Macwd),,mactz",
+//"var" : "armor,ä»¶,20325,96800,10,32,1514,zhuma,æžå“ç‡•å°¾ç”²èƒ„,2243,2250,,0,0,0,0,0,è†‚åŠ›è¦æ±‚å‡å¤§åŠã€æžå“é˜²å¾¡ã€æé«˜å†…åŠ›æ¢å¤,é«˜çº§è£ç¼  æ­¦å½“è›¤èŸ†(Macwd),,mactz",
+//"var" : "whip,8597,0,1,1,17,1947,123,104000,3350,3350,lushi,0,0,0,0,0,é—ªç”µçŽ‰æŒ‡éž­,å¢žåŠ å‘½ä¸­ã€åŠ å¼ºå¨åŠ›,é«˜çº§é“¸å‰‘å¸ˆ  æ­¦å½“è›¤èŸ†(Macwd),,mactz",
 			if(!mapp(worker[ber[i]])) continue;
 			var = worker[ber[i]]["var"];
 			if(!stringp(var)) continue;
@@ -72,7 +72,7 @@ mapping* get_var(object target)
 			
 			if( temp["name"] == "unnamed")
 			{
-				message("wizard:ciwei",sprintf("UweaponÏµÍ³BUGÏòÄú»ã±¨£ºWork:%O,this Var:%s¡£\n",worker,var),users() );
+				message("wizard:ciwei",sprintf("Uweaponç³»ç»ŸBUGå‘æ‚¨æ±‡æŠ¥ï¼šWork:%O,this Var:%sã€‚\n",worker,var),users() );
 				continue;
 			}
 									
@@ -87,22 +87,22 @@ mapping* get_var(object target)
 }
 
 nosave mapping can_name = ([
-	"sword":(["½£":"jian","ÈÐ":"ren",]),
-	"xiao":(["óï":"xiao",]),
-	"axe":(["¸«":"fu",]),
-	"blade":(["µ¶":"dao",]),
-	"brush":(["±Ê":"bi",]),
-	"club":(["¹÷":"gun",]),
-	"dagger":(["Ø°":"bi",]),
-	"fork":(["²æ":"cha",]),
-	"hammer":(["´¸":"chui",]),//±¾Ïë¼ÓÉÏ·¨ÂÖ ¡£¡£¡£ËãÁË xixi
-	"hook":(["¹³":"gou",]),
-	"spear":(["Ç¹":"qiang",]),
-	"staff":(["ÕÈ":"zhang",]),
-	"stick":(["°ô":"bang",]),
-	"whip":(["±Þ":"whip","Ë÷":"suo"]),
+	"sword":(["å‰‘":"jian","åˆƒ":"ren",]),
+	"xiao":(["ç®«":"xiao",]),
+	"axe":(["æ–§":"fu",]),
+	"blade":(["åˆ€":"dao",]),
+	"brush":(["ç¬”":"bi",]),
+	"club":(["æ£":"gun",]),
+	"dagger":(["åŒ•":"bi",]),
+	"fork":(["å‰":"cha",]),
+	"hammer":(["é”¤":"chui",]),//æœ¬æƒ³åŠ ä¸Šæ³•è½® ã€‚ã€‚ã€‚ç®—äº† xixi
+	"hook":(["é’©":"gou",]),
+	"spear":(["æžª":"qiang",]),
+	"staff":(["æ–":"zhang",]),
+	"stick":(["æ£’":"bang",]),
+	"whip":(["éž­":"whip","ç´¢":"suo"]),
 ]);
-	//¿ÉÃüÃûµÄÃû×Ö»¹ÓÐºÜ¶àË­ÓÐÐËÈ¤¾Í¶à¼Óµã xixi
+	//å¯å‘½åçš„åå­—è¿˜æœ‰å¾ˆå¤šè°æœ‰å…´è¶£å°±å¤šåŠ ç‚¹ xixi
 
 int main(object me, string arg)
 {
@@ -118,7 +118,7 @@ int main(object me, string arg)
 		string* names=({});
 		hehe=get_var(me);
 		if ((!hehe||!sizeof(hehe)))
-			return notify_fail("ÄãÄ¿Ç°Ã»ÓÐ×Ô¼ºµÄ×°±¸¡£\n");
+			return notify_fail("ä½ ç›®å‰æ²¡æœ‰è‡ªå·±çš„è£…å¤‡ã€‚\n");
 		//		
 		for(i=0;i<sizeof(hehe);i++)
 			if(hehe[i]["owner"]==getuid(me)){
@@ -126,25 +126,25 @@ int main(object me, string arg)
 				t+= ({ hehe[i]});
 			}
 		//t=filter_array(hehe, (:$1["owner"]==getuid(me):));
-		if(sizeof(t)) write("ÄãÄ¿Ç°ÒÑ¾­ÓµÓÐÁË"+chinese_number(sizeof(t))+"¼þË½ÓÐ×°±¸£º"+ implode(names,",")+"¡£\n");
-		else return notify_fail("ÄãÄ¿Ç°Ã»ÓÐ×Ô¼ºµÄË½ÓÐ×°±¸¡£\n");
+		if(sizeof(t)) write("ä½ ç›®å‰å·²ç»æ‹¥æœ‰äº†"+chinese_number(sizeof(t))+"ä»¶ç§æœ‰è£…å¤‡ï¼š"+ implode(names,",")+"ã€‚\n");
+		else return notify_fail("ä½ ç›®å‰æ²¡æœ‰è‡ªå·±çš„ç§æœ‰è£…å¤‡ã€‚\n");
 		return 1;
 	}
 	
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	
 	if (sscanf(arg, "delete %s", arg)) {
 		if (!objectp(wp = present(arg, me)))
-			return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù×°±¸¡£\n");		
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·è£…å¤‡ã€‚\n");		
 		if (!wp->query("imbued") || !stringp(id=wp->query("save_id")) )
-			return notify_fail("Õâ²»ÊÇÒ»¼þ´òÔìµÄ×°±¸¡£\n");
+			return notify_fail("è¿™ä¸æ˜¯ä¸€ä»¶æ‰“é€ çš„è£…å¤‡ã€‚\n");
 		hehe=get_var(me);
-		if(!hehe || !sizeof(hehe)) return notify_fail("Äã²¢Ã»ÓÐ×Ô¼ºµÄ×°±¸¡£\n");
+		if(!hehe || !sizeof(hehe)) return notify_fail("ä½ å¹¶æ²¡æœ‰è‡ªå·±çš„è£…å¤‡ã€‚\n");
 		for(i=0;i<sizeof(hehe);i++)
 			ids += ({ hehe[i]["id"] });
-		if(member_array(id,ids)==-1) return notify_fail("Õâ²¢²»ÊÇÄãµÄ×°±¸¡£\n");
-		if(wp->query("owner")!=getuid(me)) return notify_fail("Õâ²¢²»ÊÇÄãµÄË½ÓÐ×°±¸¡£\n");
+		if(member_array(id,ids)==-1) return notify_fail("è¿™å¹¶ä¸æ˜¯ä½ çš„è£…å¤‡ã€‚\n");
+		if(wp->query("owner")!=getuid(me)) return notify_fail("è¿™å¹¶ä¸æ˜¯ä½ çš„ç§æœ‰è£…å¤‡ã€‚\n");
 		
 		wp->delete("owner");
 		wp->delete("armor_mp/owner");
@@ -163,7 +163,7 @@ int main(object me, string arg)
 		wp->move(me);
 		if(mapp (wp->query("weapon_mp"))) WORKER_D->weapon_rank(wp);
 		if(mapp (wp->query("armor_mp"))) WORKER_D->armor_rank(wp);
-		write("ÄãÒÑ¾­É¾³ýÁËË½ÓÐ×°±¸£º"+wp->name()+"\n");
+		write("ä½ å·²ç»åˆ é™¤äº†ç§æœ‰è£…å¤‡ï¼š"+wp->name()+"\n");
 		log_file("quest/career/i_delete", sprintf("%s deleted user weapon %s(%d)\n",
 				geteuid(me), wp->name(),wp->query("weapon_prop/damage")));
 		me->start_busy(1);
@@ -173,19 +173,19 @@ int main(object me, string arg)
 		mapping worker;
 		string type;
 		if (!objectp(wp = present(arg, me)))
-			return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù×°±¸¡£\n");
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·è£…å¤‡ã€‚\n");
 		if (!wp->query("imbued") || !stringp(id=wp->query("save_id")) )
-			return notify_fail(wp->name()+"²»ÊÇÒ»¼þ´òÔìµÄ×°±¸¡£\n");
+			return notify_fail(wp->name()+"ä¸æ˜¯ä¸€ä»¶æ‰“é€ çš„è£…å¤‡ã€‚\n");
 		
-		if(strsrch(id,"weilan tiejiang")==-1) return notify_fail("ÄãÄ¿Ç°Ö»ÄÜ±£´æÎ¤À¼Ìú½³´òÔìµÄ×°±¸¡£\n");
+		if(strsrch(id,"weilan tiejiang")==-1) return notify_fail("ä½ ç›®å‰åªèƒ½ä¿å­˜éŸ¦å…°é“åŒ æ‰“é€ çš„è£…å¤‡ã€‚\n");
 		
 		hehe=get_var(me);
-		if(!hehe || !sizeof(hehe)) return notify_fail("Äã²¢Ã»ÓÐ×Ô¼ºµÄ×°±¸¡£\n");
+		if(!hehe || !sizeof(hehe)) return notify_fail("ä½ å¹¶æ²¡æœ‰è‡ªå·±çš„è£…å¤‡ã€‚\n");
 		
 		for(i=0;i<sizeof(hehe);i++)
 			ids += ({ hehe[i]["id"] });
 		
-		if(member_array(id,ids)==-1) return notify_fail("Õâ²¢²»ÊÇÄãµÄ×°±¸¡£\n");
+		if(member_array(id,ids)==-1) return notify_fail("è¿™å¹¶ä¸æ˜¯ä½ çš„è£…å¤‡ã€‚\n");
 		
 		type = wp->query("skill_type");
 		if(!type) type = wp->query("armor_type");
@@ -194,16 +194,16 @@ int main(object me, string arg)
 		for(i=0;i<sizeof(hehe);i++)
 			if(hehe[i]["owner"]==getuid(me))  ids += ({ hehe[i]["type"] });
 		
-		if(member_array(type,ids)!=-1) return notify_fail("ÄãÒÑ¾­±£´æÓÐÏàÍ¬ÀàÐÍµÄ×°±¸ÁË¡£\n");
+		if(member_array(type,ids)!=-1) return notify_fail("ä½ å·²ç»ä¿å­˜æœ‰ç›¸åŒç±»åž‹çš„è£…å¤‡äº†ã€‚\n");
 		
 		//if( wizardp(me) || SECURITY_D->get_status(me)!="(player)")
-                	//return notify_fail("ÓÉÎ×Ê¦Ã»ÓÐ´òÔìµÄÈ¨ÀûÍ¬Àí¿ÉµÃÎ×Ê¦Ã»ÓÐ±£´æ×°±¸µÄÈ¨Àû£¡\n");
+                	//return notify_fail("ç”±å·«å¸ˆæ²¡æœ‰æ‰“é€ çš„æƒåˆ©åŒç†å¯å¾—å·«å¸ˆæ²¡æœ‰ä¿å­˜è£…å¤‡çš„æƒåˆ©ï¼\n");
                 
                 if(mapp(wp->query("weapon_mp"))) type ="weapon";
 		else if(mapp(wp->query("armor_mp"))) type ="armor";
-		else notify_fail("ÒâÍâ´íÎó£¡£¡ÇëÍ¨ÖªÎ×Ê¦¡£\n");
+		else notify_fail("æ„å¤–é”™è¯¯ï¼ï¼è¯·é€šçŸ¥å·«å¸ˆã€‚\n");
 		
-		if(!mapp(worker = wp->query(type+"_mp"))) return notify_fail("ÒâÍâ´íÎó£¡£¡ÇëÍ¨ÖªÎ×Ê¦¡£\n");
+		if(!mapp(worker = wp->query(type+"_mp"))) return notify_fail("æ„å¤–é”™è¯¯ï¼ï¼è¯·é€šçŸ¥å·«å¸ˆã€‚\n");
 		
 		wp->move(environment(me));
 		worker["owner"] = getuid(me);
@@ -215,7 +215,7 @@ int main(object me, string arg)
 		wp->move(me);
 		if(type=="weapon") WORKER_D->weapon_rank(wp);
 		if(type=="armor") WORKER_D->armor_rank(wp);
-		write("\n"+wp->name()+"µÄÊôÐÔÒÑ¾­´¢´æÍê±Ï£¬³ÉÎªÄãÄ¿Ç°µÄË½ÓÐ×°±¸£¡\n");
+		write("\n"+wp->name()+"çš„å±žæ€§å·²ç»å‚¨å­˜å®Œæ¯•ï¼Œæˆä¸ºä½ ç›®å‰çš„ç§æœ‰è£…å¤‡ï¼\n");
 		log_file("quest/career/i_saved", sprintf("%-8s saved user weapon %s(%d).\n",
 			geteuid(me), wp->name(), wp->query("weapon_prop/damage") ));
 		me->start_busy(1);
@@ -226,52 +226,52 @@ int main(object me, string arg)
 		mapping mp;
 		string type;
 		if (!objectp(wp = present(arg, me)))
-			return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù×°±¸¡£\n");		
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·è£…å¤‡ã€‚\n");		
 		if (!wp->query("imbued") || !stringp(id=wp->query("save_id")) )
-			return notify_fail("Õâ²»ÊÇÒ»¼þ´òÔìµÄ×°±¸¡£\n");
+			return notify_fail("è¿™ä¸æ˜¯ä¸€ä»¶æ‰“é€ çš„è£…å¤‡ã€‚\n");
 		hehe=get_var(me);
-		if(!hehe || !sizeof(hehe)) return notify_fail("Äã²¢Ã»ÓÐ×Ô¼ºµÄ×°±¸¡£\n");
+		if(!hehe || !sizeof(hehe)) return notify_fail("ä½ å¹¶æ²¡æœ‰è‡ªå·±çš„è£…å¤‡ã€‚\n");
 		for(i=0;i<sizeof(hehe);i++)
 			ids += ({ hehe[i]["id"] });
-		if(member_array(id,ids)==-1) return notify_fail("Õâ²¢²»ÊÇÄãµÄ×°±¸¡£\n");
-		if(wp->query("owner")!=getuid(me)) return notify_fail("Õâ²¢²»ÊÇÄãµÄË½ÓÐ×°±¸¡£\n");
+		if(member_array(id,ids)==-1) return notify_fail("è¿™å¹¶ä¸æ˜¯ä½ çš„è£…å¤‡ã€‚\n");
+		if(wp->query("owner")!=getuid(me)) return notify_fail("è¿™å¹¶ä¸æ˜¯ä½ çš„ç§æœ‰è£…å¤‡ã€‚\n");
 		
 		if( wp->query("imbued") >= 5 )
-			return notify_fail("ÌØÊâ×°±¸²»ÔÊÐí¸ÄÃû¡£\n");
+			return notify_fail("ç‰¹æ®Šè£…å¤‡ä¸å…è®¸æ”¹åã€‚\n");
 		i = (me->query("user_imbue_modify") + 1) * 1000000;
 		if (me->query("balance") < i)
-			return notify_fail("Îª×°±¸¸ÄÃû£¬Äã´Ë´ÎÐèÒª"+chinese_number(i/10000)+"¶§»Æ½ð£¬µ«ÊÇÄãµÄÒøÐÐ´æ¿î²»¹»£¡\n");
+			return notify_fail("ä¸ºè£…å¤‡æ”¹åï¼Œä½ æ­¤æ¬¡éœ€è¦"+chinese_number(i/10000)+"é”­é»„é‡‘ï¼Œä½†æ˜¯ä½ çš„é“¶è¡Œå­˜æ¬¾ä¸å¤Ÿï¼\n");
 		
 		i = strlen(name);
-		if (i < 4 || i > 8 || i%2)
-			return notify_fail("¶Ô²»Æð£¬×°±¸Ãû×Ö±ØÐëÊÇ 2 µ½ 4 ¸öÖÐÎÄ×Ö¡£\n");
+		if (i < 2 || i > 4)
+			return notify_fail("å¯¹ä¸èµ·ï¼Œè£…å¤‡åå­—å¿…é¡»æ˜¯ 2 åˆ° 4 ä¸ªä¸­æ–‡å­—ã€‚\n");
 
 		while(i--) {
-			if (i%2==0 && !is_chinese(name[i..<1]))
-				return notify_fail("¶Ô²»Æð£¬ÇëÄúÓÃ¡¸ÖÐÎÄ¡¹È¡×°±¸Ãû×Ö¡£\n");
+			if (!is_chinese(name[i..i]))
+				return notify_fail("å¯¹ä¸èµ·ï¼Œè¯·æ‚¨ç”¨ã€Œä¸­æ–‡ã€å–è£…å¤‡åå­—ã€‚\n");
 		}
 		
 		mp = wp->query("weapon_mp");
 				
 		if( !mapp(mp) )	{
-			return notify_fail("Ö»ÓÐÎäÆ÷²Å¿ÉÒÔ¸ÄÃû£¡\n");
+			return notify_fail("åªæœ‰æ­¦å™¨æ‰å¯ä»¥æ”¹åï¼\n");
 		}
 		
 		type = mp["skill_type"];
 		if(wp->id("xiao")) type="xiao";
 		if( member_array(name[<4..<1],keys(can_name[type]))==-1 && member_array(name[<2..<1],keys(can_name[type]))==-1 )
-			return notify_fail(sprintf("Ãû×ÖµÄ×îºó¼¸×Ö±ØÐë±íÃ÷×°±¸ÀàÐÍ %s µÄ×îºó¼¸×Ö±ØÐëÎª£º%s £¡\n",type,implode(keys(can_name[type]),",") ));
+			return notify_fail(sprintf("åå­—çš„æœ€åŽå‡ å­—å¿…é¡»è¡¨æ˜Žè£…å¤‡ç±»åž‹ %s çš„æœ€åŽå‡ å­—å¿…é¡»ä¸ºï¼š%s ï¼\n",type,implode(keys(can_name[type]),",") ));
 		
 		if (member_array(name[0..(strlen(name) - 3)], banned_name)!=-1)
-			return notify_fail("ÕâÖÖ×°±¸Ãû×Ö»áÔì³ÉÆäËûÈËµÄÀ§ÈÅ£¬Ïë¸öÆäËüµÄ¡£\n");
+			return notify_fail("è¿™ç§è£…å¤‡åå­—ä¼šé€ æˆå…¶ä»–äººçš„å›°æ‰°ï¼Œæƒ³ä¸ªå…¶å®ƒçš„ã€‚\n");
 		
 		
 		write(
-			"\nÄã¼´½«°Ñ"+wp->name()+"¸ÄÃû£¡\n"
-			"ÐÂÃû×Ö£º"+name+"¡£\n"
-			"²¢ÇÒ×°±¸ID»á±ä³ÉÄãµÄ ID + ×°±¸ ID¡£\n"
-			"±¾´Î·ÑÓÃÎª" + chinese_number((me->query("user_imbue_modify") + 1)*100) + "¶§»Æ½ð£¬Ö±½Ó´ÓÒøÐÐ´æ¿î¿Û³ý£¬\n"
-			"È·¶¨Çë´ò "HIY"Y"NOR"£¬·ñÔòÈ¡Ïû¡£\n"
+			"\nä½ å³å°†æŠŠ"+wp->name()+"æ”¹åï¼\n"
+			"æ–°åå­—ï¼š"+name+"ã€‚\n"
+			"å¹¶ä¸”è£…å¤‡IDä¼šå˜æˆä½ çš„ ID + è£…å¤‡ IDã€‚\n"
+			"æœ¬æ¬¡è´¹ç”¨ä¸º" + chinese_number((me->query("user_imbue_modify") + 1)*100) + "é”­é»„é‡‘ï¼Œç›´æŽ¥ä»Žé“¶è¡Œå­˜æ¬¾æ‰£é™¤ï¼Œ\n"
+			"ç¡®å®šè¯·æ‰“ "HIY"Y"NOR"ï¼Œå¦åˆ™å–æ¶ˆã€‚\n"
 		);		
 		input_to((: confirm_name :), me, wp, name,undefinedp(can_name[type][name[<4..<1]])?can_name[type][name[<2..<1]]:can_name[type][name[<4..<1]] );		
 	}else if(arg == "list")
@@ -286,20 +286,20 @@ private void confirm_name(string yn, object me, object wp, string name,string id
 {
 	me->add_busy(1);
 	if( yn[0]!='y' && yn[0]!='Y' ) {
-		write("ÄãÈ¡ÏûÁË¸øË½ÓÐ×°±¸¸ÄÃûµÄ²Ù×÷¡£\n");
+		write("ä½ å–æ¶ˆäº†ç»™ç§æœ‰è£…å¤‡æ”¹åçš„æ“ä½œã€‚\n");
 	} else {
 		write("
-ÄúÒÑ¾­È·¶¨ÐÂÃû×ÖÊÇ¡¾"+name+"¡¿£¬ÏÖÔÚÇëÑ¡È¡ÑÕÉ«£º
+æ‚¨å·²ç»ç¡®å®šæ–°åå­—æ˜¯ã€"+name+"ã€‘ï¼ŒçŽ°åœ¨è¯·é€‰å–é¢œè‰²ï¼š
 
-RED - "RED"¡ö"NOR"ºìÉ«              HIR - "HIR"¡ö"NOR"ÁÁºìÉ«
-GRN - "GRN"¡ö"NOR"ÂÌÉ«              HIG - "HIG"¡ö"NOR"ÁÁÂÌÉ«
-YEL - "YEL"¡ö"NOR"ÍÁ»ÆÉ«            HIY - "HIY"¡ö"NOR"ÁÁ»ÆÉ«
-BLU - "BLU"¡ö"NOR"ÉîÀ¶É«            HIB - "HIB"¡ö"NOR"ÁÁÀ¶É«
-MAG - "MAG"¡ö"NOR"Ç³×ÏÉ«            HIM - "HIM"¡ö"NOR"·ÛºìÉ«
-CYN - "CYN"¡ö"NOR"À¶ÂÌÉ«            HIC - "HIC"¡ö"NOR"ÌìÇàÉ«
-WHT - "WHT"¡ö"NOR"°×É«              HIW - "HIW"¡ö"NOR"ÁÁ°×É«
+RED - "RED"â– "NOR"çº¢è‰²              HIR - "HIR"â– "NOR"äº®çº¢è‰²
+GRN - "GRN"â– "NOR"ç»¿è‰²              HIG - "HIG"â– "NOR"äº®ç»¿è‰²
+YEL - "YEL"â– "NOR"åœŸé»„è‰²            HIY - "HIY"â– "NOR"äº®é»„è‰²
+BLU - "BLU"â– "NOR"æ·±è“è‰²            HIB - "HIB"â– "NOR"äº®è“è‰²
+MAG - "MAG"â– "NOR"æµ…ç´«è‰²            HIM - "HIM"â– "NOR"ç²‰çº¢è‰²
+CYN - "CYN"â– "NOR"è“ç»¿è‰²            HIC - "HIC"â– "NOR"å¤©é’è‰²
+WHT - "WHT"â– "NOR"ç™½è‰²              HIW - "HIW"â– "NOR"äº®ç™½è‰²
 
-Èç¹û²»ÐèÒªÑÕÉ«£¬Çë´ò "HIY"Y"NOR"£¬·ñÔòÈ¡Ïû¡£\n");
+å¦‚æžœä¸éœ€è¦é¢œè‰²ï¼Œè¯·æ‰“ "HIY"Y"NOR"ï¼Œå¦åˆ™å–æ¶ˆã€‚\n");
 		input_to((: confirm_color :), me, wp, name,id);
 	}
 }
@@ -326,17 +326,17 @@ private void confirm_color(string yn, object me, object wp, string name,string i
 		case "HIC" : color = HIC; break;
 		case "HIW" : color = HIW; break;
 		case "y":
-		case "Y": write("ÇëÔÙ´ÎÈ·¶¨ÊÇ·ñ¸ø×°±¸¸ÄÃû£¬È·¶¨Çë´ò"WHT" Y"NOR"£¬·ñÔòÈÎÒâ¼üÈ¡Ïû¡£\n");
+		case "Y": write("è¯·å†æ¬¡ç¡®å®šæ˜¯å¦ç»™è£…å¤‡æ”¹åï¼Œç¡®å®šè¯·æ‰“"WHT" Y"NOR"ï¼Œå¦åˆ™ä»»æ„é”®å–æ¶ˆã€‚\n");
 			input_to( (: confirm_name_again :), me, wp, name,id );
 			return;
 		default :
-			write("\n²¢Ã»ÓÐÕâÖÖÑÕÉ«£¬ËùÒÔÈ¡ÏûÁË¸øË½ÓÐ×°±¸¸ÄÃûµÄ²Ù×÷¡£\n");
+			write("\nå¹¶æ²¡æœ‰è¿™ç§é¢œè‰²ï¼Œæ‰€ä»¥å–æ¶ˆäº†ç»™ç§æœ‰è£…å¤‡æ”¹åçš„æ“ä½œã€‚\n");
 			return;
 	}
 	name = color + name;
 	write(
-		"\nÄãÎª×°±¸Ñ¡ÔñÁË"+color+"¡ö"NOR"£¬ÊÇ·ñÈ·¶¨¸ÄÃû£¿\n"
-		"ÇëÑ¡Ôñ "HIY"Y"NOR"£¬»òÈÎÒâ¼üÈ¡Ïû¡£\n"
+		"\nä½ ä¸ºè£…å¤‡é€‰æ‹©äº†"+color+"â– "NOR"ï¼Œæ˜¯å¦ç¡®å®šæ”¹åï¼Ÿ\n"
+		"è¯·é€‰æ‹© "HIY"Y"NOR"ï¼Œæˆ–ä»»æ„é”®å–æ¶ˆã€‚\n"
 	);
 	input_to( (: confirm_name_again :), me, wp, name ,id);
 }
@@ -350,11 +350,11 @@ private void confirm_name_again(string yn, object me, object wp, string name,str
 	int need_add=0;
 
 	if( yn[0]!='y' && yn[0]!='Y' ) {
-		write("ÄãÈ¡ÏûÁË¸øË½ÓÐ×°±¸¸ÄÃûµÄ²Ù×÷¡£\n");
+		write("ä½ å–æ¶ˆäº†ç»™ç§æœ‰è£…å¤‡æ”¹åçš„æ“ä½œã€‚\n");
 	} else {
 		mp = wp->query("weapon_mp");				
 		if( !mapp(mp) )	{
-			write("Ö»ÓÐ×°±¸²Å¿ÉÒÔ¸ÄÃû£¡\n");
+			write("åªæœ‰è£…å¤‡æ‰å¯ä»¥æ”¹åï¼\n");
 			return;
 		}
 		name += NOR;
@@ -388,7 +388,7 @@ private void confirm_name_again(string yn, object me, object wp, string name,str
 		if(mapp (wp->query("weapon_mp"))) WORKER_D->weapon_rank(wp);
 		if(mapp (wp->query("armor_mp"))) WORKER_D->armor_rank(wp);
 				
-		write("Äã»¨ÁË" + chinese_number(i/10000) + "¶§»Æ½ð¸ü¸Ä×°±¸Ãû×Ö£¬ÐÂµÄ×°±¸Ãû×Ö£º" + name + " £¡\n");
+		write("ä½ èŠ±äº†" + chinese_number(i/10000) + "é”­é»„é‡‘æ›´æ”¹è£…å¤‡åå­—ï¼Œæ–°çš„è£…å¤‡åå­—ï¼š" + name + " ï¼\n");
 	}
 	me->add_busy(1);
 }
@@ -397,25 +397,25 @@ private void confirm_name_again(string yn, object me, object wp, string name,str
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : uweapon save|delete
+æŒ‡ä»¤æ ¼å¼ : uweapon save|delete
 
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã´¢´æ»òÉ¾³ý×Ô¼ºµÄË½ÓÐ×°±¸¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ å‚¨å­˜æˆ–åˆ é™¤è‡ªå·±çš„ç§æœ‰è£…å¤‡ã€‚
 
-ÀýÈç:  	´ò uweapon save <×°±¸>
-	È·ÈÏºó£¬´Ë×°±¸±ã³ÉÎªÄãË½ÈËËùÓÐ£¬¼´Ê¹¶ªÊ§ÏÂ´ÎµÇÂ½Ò²»á³öÏÖÔÚÄãµÄÉíÉÏ¡£
+ä¾‹å¦‚:  	æ‰“ uweapon save <è£…å¤‡>
+	ç¡®è®¤åŽï¼Œæ­¤è£…å¤‡ä¾¿æˆä¸ºä½ ç§äººæ‰€æœ‰ï¼Œå³ä½¿ä¸¢å¤±ä¸‹æ¬¡ç™»é™†ä¹Ÿä¼šå‡ºçŽ°åœ¨ä½ çš„èº«ä¸Šã€‚
 
-	´ò uweapon delete <×°±¸>
-	È·ÈÏºó£¬ÄãµÄË½ÓÐ×°±¸±êÖ¾±»Çå³ý¡£
+	æ‰“ uweapon delete <è£…å¤‡>
+	ç¡®è®¤åŽï¼Œä½ çš„ç§æœ‰è£…å¤‡æ ‡å¿—è¢«æ¸…é™¤ã€‚
 	
-	´ò uweapon rename <×°±¸> <Ãû×Ö>
-	Îª×Ô¼ºµÄ×°±¸¸ÄÃû¡£
+	æ‰“ uweapon rename <è£…å¤‡> <åå­—>
+	ä¸ºè‡ªå·±çš„è£…å¤‡æ”¹åã€‚
 
-        ´ò uweapon list <ÅÅÃû>
-        ²é¿´µ±Ç°×°±¸ÅÅÃû¡£
+        æ‰“ uweapon list <æŽ’å>
+        æŸ¥çœ‹å½“å‰è£…å¤‡æŽ’åã€‚
 	
 
-×¢Òâ£ºÈç¹ûÄ¿Ç°ÓÎÏ·ÀïÓÐÕâ¼þ×°±¸£¬µÇÂ¼Ê±±ã²»»á³öÏÖÔÚÄãÉíÉÏ¡£
-      Ä¿Ç°Ö»ÄÜ±£´æÎ¤À¼Ìú½³ÎªÄãÖÆ×÷µÄ±øÆ÷¡£
+æ³¨æ„ï¼šå¦‚æžœç›®å‰æ¸¸æˆé‡Œæœ‰è¿™ä»¶è£…å¤‡ï¼Œç™»å½•æ—¶ä¾¿ä¸ä¼šå‡ºçŽ°åœ¨ä½ èº«ä¸Šã€‚
+      ç›®å‰åªèƒ½ä¿å­˜éŸ¦å…°é“åŒ ä¸ºä½ åˆ¶ä½œçš„å…µå™¨ã€‚
 
    Copyright 1996-2004 ShuJian MUD Wizard Group.
    All rights reserved.

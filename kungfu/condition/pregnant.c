@@ -14,8 +14,8 @@ int update_condition ( object me, int duration )
 		if ( me->query_temp("pregnant") > 0 )
 			me->add_temp ("pregnant", -1);
 		else {
-			if ( me->query("gender") == "Å®ÐÔ" ) {
-				message_vision ("$NÖ»¾õÒ»Õó²»ÊÊ£¬ÍÂ³öÒ»Ð©ÇåË®£¬Ë«¼ÕºìÔÎÆðÀ´¡£\n", me);
+			if ( me->query("gender") == "å¥³æ€§" ) {
+				message_vision ("$Nåªè§‰ä¸€é˜µä¸é€‚ï¼Œåå‡ºä¸€äº›æ¸…æ°´ï¼ŒåŒé¢Šçº¢æ™•èµ·æ¥ã€‚\n", me);
 				if ( my["pur"] > 20 )
 					command ("blush");
 				if ( my["pur"] < 10 )
@@ -28,8 +28,8 @@ int update_condition ( object me, int duration )
 		if ( me->query_temp("pregnant") > 0 )
 			me->add_temp ("pregnant", -1);
 		else {
-			if ( me->query("gender") == "Å®ÐÔ" ) {
-				message_vision ("$N¸§Ãþ×Å×Ô¼ºÈÕÒæÂ¡ÆðµÄ¸¹²¿£¬Á³ÉÏÂ¶³öÒ»Ë¿ÌðÒâ¡£\n", me);
+			if ( me->query("gender") == "å¥³æ€§" ) {
+				message_vision ("$NæŠšæ‘¸ç€è‡ªå·±æ—¥ç›Šéš†èµ·çš„è…¹éƒ¨ï¼Œè„¸ä¸Šéœ²å‡ºä¸€ä¸ç”œæ„ã€‚\n", me);
 				me->set_temp("pregnant", 5);
 			}
 		}
@@ -38,16 +38,16 @@ int update_condition ( object me, int duration )
 		if ( me->query_temp("pregnant") > 0 )
 			me->add_temp ("pregnant", -1);
 		else {
-			if ( me->query("gender") == "Å®ÐÔ" ) {
+			if ( me->query("gender") == "å¥³æ€§" ) {
 				switch ( random (1) ) {
 				case 0 :
-					message_vision ("ÓÉÓÚ¸¹²¿µÄÈÕÒæÂ¡Æð£¬$NµÄÐÐ¶¯±äµÃ²»±ãÁËÆðÀ´¡£\n", me);
+					message_vision ("ç”±äºŽè…¹éƒ¨çš„æ—¥ç›Šéš†èµ·ï¼Œ$Nçš„è¡ŒåŠ¨å˜å¾—ä¸ä¾¿äº†èµ·æ¥ã€‚\n", me);
 					break;
 				case 1 :
-					message_vision ("Í»È»Ö®¼ä£¬$NÖ»¾õ¸¹ÖÐµÄº¢×ÓÔÚÁ·Ï°ÌßÍÈ¡£\n", me);
+					message_vision ("çªç„¶ä¹‹é—´ï¼Œ$Nåªè§‰è…¹ä¸­çš„å­©å­åœ¨ç»ƒä¹ è¸¢è…¿ã€‚\n", me);
 					break;
 				}
-				tell_object ( me, HIY"ÂíÉÏ¾ÍÒªÉúÁË£¬¿ìÈ¥ÕÒ¸ö´ó·ò°É¡£\n"NOR );
+				tell_object ( me, HIY"é©¬ä¸Šå°±è¦ç”Ÿäº†ï¼Œå¿«åŽ»æ‰¾ä¸ªå¤§å¤«å§ã€‚\n"NOR );
 				me->start_busy(1);
 				me->set_temp("pregnant", 5);
 			}
@@ -55,11 +55,11 @@ int update_condition ( object me, int duration )
 	}
 	me->apply_condition("pregnant", duration-1);
 	if ( duration <= 0 ) {
-		if ( me->query("gender") == "Å®ÐÔ" ) {
+		if ( me->query("gender") == "å¥³æ€§" ) {
 			me->delete_temp("pregnant");
-			message_vision ("$NÒ»Éù²Ò½Ð£¬Â¡ÆðµÄ¸¹²¿ÆæÍ´ÎÞ±È¡£µ¹ÔÚÁËµØÉÏ¡£\n", me);
-			tell_object ( me, HIR"ÄãÖ»¾õÆæÍ´ÎÞ±È£¬º¢×ÓºÃÏñ¾ÍÒª³öÀ´ÁË¡£\n"NOR );
-			me->set_temp("last_damage_from", "ÄÑ²ú");
+			message_vision ("$Nä¸€å£°æƒ¨å«ï¼Œéš†èµ·çš„è…¹éƒ¨å¥‡ç—›æ— æ¯”ã€‚å€’åœ¨äº†åœ°ä¸Šã€‚\n", me);
+			tell_object ( me, HIR"ä½ åªè§‰å¥‡ç—›æ— æ¯”ï¼Œå­©å­å¥½åƒå°±è¦å‡ºæ¥äº†ã€‚\n"NOR );
+			me->set_temp("last_damage_from", "éš¾äº§");
 			me->die();
 		}
 		return 0;

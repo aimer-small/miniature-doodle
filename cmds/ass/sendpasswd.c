@@ -1,8 +1,8 @@
 // Created by snowman@SJ 01/05/1999.
 // Modified by snowman@SJ 26/08/2000.
 // Modified by Looklove@SJ 28/08/2000
-// Modified by Looklove@SJ 05/07/2001 ÓÅ»¯½ø³Ì£¬Îª±£°²È«£¬¸ü¸ÄĞÅÏä²Ù×÷½«Í¬Ê±Í¨ÖªÔ­Ê¼ĞÅÏä¡£
-// ¸ü¸ÄĞÅÏä²Ù×÷µÄlogÎÄ¼ş£¬¸ÄÎª/log/static/change_mailbox
+// Modified by Looklove@SJ 05/07/2001 ä¼˜åŒ–è¿›ç¨‹ï¼Œä¸ºä¿å®‰å…¨ï¼Œæ›´æ”¹ä¿¡ç®±æ“ä½œå°†åŒæ—¶é€šçŸ¥åŸå§‹ä¿¡ç®±ã€‚
+// æ›´æ”¹ä¿¡ç®±æ“ä½œçš„logæ–‡ä»¶ï¼Œæ”¹ä¸º/log/static/change_mailbox
 
 inherit F_DBASE;
 
@@ -17,7 +17,7 @@ nosave string pass, msg, msg2;
 void create()
 {
 	seteuid(getuid());
-	set("channel_id", "ÃÜÂë¾«Áé");
+	set("channel_id", "å¯†ç ç²¾çµ");
 }
 
 string seed = "1AaBb2CcDd3EeFf4GgHh5IiJj6KkLl7MmNn8OoPp9QqRr0SsTtUuVvWwXxYyZz";
@@ -42,7 +42,7 @@ string change_passwd(object ob)
 		return 0;
 	if( ob->query("newpassword") )
 		ob->set("newpassword", crypt(pass,"$1$ShuJian"));
-	write(HIW"Íæ¼Ò"+ ob->query("name")+ "(" + ob->query("id") + ")µÄÃÜÂëÒÑ¾­¸ü¸Ä¡£\n"NOR);
+	write(HIW"ç©å®¶"+ ob->query("name")+ "(" + ob->query("id") + ")çš„å¯†ç å·²ç»æ›´æ”¹ã€‚\n"NOR);
 	return pass;
 }
 
@@ -54,7 +54,7 @@ int main(object me, string dest)
 	if( me != this_player(1) ) return 0;
 
 	if( wiz_level(me) < 4 )
-		return notify_fail("Ö»ÓĞ (admin) ºÍ (assist) ²ÅÄÜÕâÑù×ö¡£\n");
+		return notify_fail("åªæœ‰ (admin) å’Œ (assist) æ‰èƒ½è¿™æ ·åšã€‚\n");
 
 	if( !dest )
 		return help(me);
@@ -65,7 +65,7 @@ int main(object me, string dest)
 	if( sscanf(dest, "%s %s", id, mail) != 2 )
 		id = dest;
 	if ("/cmds/usr/blacklist"->is_black(id))
-		return notify_fail(id + " ÊÇºÚÃûµ¥ÖĞµÄÈËÎï£¬²»ÄÜ¸ü¸ÄÃÜÂë¡£\n");
+		return notify_fail(id + " æ˜¯é»‘åå•ä¸­çš„äººç‰©ï¼Œä¸èƒ½æ›´æ”¹å¯†ç ã€‚\n");
 	mail_ob = LOGIN_D->find_body(id);
 
 	if( !mail_ob || !interactive(mail_ob) ){
@@ -73,78 +73,78 @@ int main(object me, string dest)
 		linkob->set("id",id);
 		if( !linkob->restore() ) {
 			destruct(linkob);
-			return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
 		} else {
 			wiz_status = SECURITY_D->get_status(linkob);
 			if (wiz_status == "(admin)" && SECURITY_D->get_status(me) != "(admin)"){
 				destruct(linkob);
-				return notify_fail("Äã²»¿ÉÒÔ¸ü¸Ä Admin µÄÃÜÂë¡£\n");
+				return notify_fail("ä½ ä¸å¯ä»¥æ›´æ”¹ Admin çš„å¯†ç ã€‚\n");
 			}
 			if (!stringp(mail)) mail = linkob->query("email");
 			if (!stringp(mail) || sscanf(mail, "%*s@%*s.%*s") != 3) {
 				destruct(linkob);
-				return notify_fail("µç×ÓÓÊ¼şµØÖ·´íÎó£¬²»ÄÜ¸ü¸ÄÃÜÂë¡£\n");
+				return notify_fail("ç”µå­é‚®ä»¶åœ°å€é”™è¯¯ï¼Œä¸èƒ½æ›´æ”¹å¯†ç ã€‚\n");
 			}
 		}
 	} else {
 		wiz_status = SECURITY_D->get_status(mail_ob);
 		if (wiz_status == "(admin)" && SECURITY_D->get_status(me) != "(admin)")
-			return notify_fail("Äã²»¿ÉÒÔ¸ü¸Ä Admin µÄÃÜÂë¡£\n");
+			return notify_fail("ä½ ä¸å¯ä»¥æ›´æ”¹ Admin çš„å¯†ç ã€‚\n");
 		linkob = mail_ob->query_temp("link_ob");
-		if( !linkob ) return notify_fail("´ËÈËµÄLink_ob´íÎó¡£ÎŞ·¨½øĞĞĞŞ¸Ä¡£\n");
+		if( !linkob ) return notify_fail("æ­¤äººçš„Link_obé”™è¯¯ã€‚æ— æ³•è¿›è¡Œä¿®æ”¹ã€‚\n");
 		if( !stringp(mail) ){
 			mail = linkob->query("email");
 			if (!stringp(mail) || sscanf(mail, "%*s@%*s.%*s") != 3)
-				return notify_fail("µç×ÓÓÊ¼şµØÖ·´íÎó£¬²»ÄÜ¸ü¸ÄÃÜÂë¡£\n");
+				return notify_fail("ç”µå­é‚®ä»¶åœ°å€é”™è¯¯ï¼Œä¸èƒ½æ›´æ”¹å¯†ç ã€‚\n");
 		}
 		// Kick this player out afer changed his/her passwd.
 		Dest = 1;
 	}
 	if (!change_passwd(linkob))
-		return notify_fail("Êı¾İ¿â²Ù×÷³ö´í¡£\n");
+		return notify_fail("æ•°æ®åº“æ“ä½œå‡ºé”™ã€‚\n");
 
-	msg =   ""+linkob->query("name")+"("+linkob->query("id")+")" + "ÄúºÃ£º\n"+
-		"»¶Ó­¹âÁÙ"+CHINESE_MUD_NAME+"£¡\n"+
-		"Çë¹Ø±Õ×Ô¶¯µÇÂ¼¹¦ÄÜ£¬Ê¹ÓÃÏÂÃæÌá¹©µÄÃÜÂëµÇÂ¼¡£\n"+
+	msg =   ""+linkob->query("name")+"("+linkob->query("id")+")" + "æ‚¨å¥½ï¼š\n"+
+		"æ¬¢è¿å…‰ä¸´"+CHINESE_MUD_NAME+"ï¼\n"+
+		"è¯·å…³é—­è‡ªåŠ¨ç™»å½•åŠŸèƒ½ï¼Œä½¿ç”¨ä¸‹é¢æä¾›çš„å¯†ç ç™»å½•ã€‚\n"+
 		"\n"+
 		""+pass+ "\n"+
 		"\n"+
-		"ÓÃ´ËÃÜÂëµÇÂ¼³É¹¦ºó£¬½¨ÒéÄúÓÃ passwd Ö¸Áî¸ü»»ÄúµÄÃÜÂë¡£\n"+
-		"ÏêÇéÇëÔÚ½øÈëÓÎÏ·ºóºóÊ¹ÓÃ¡°help passwd¡±Ö¸Áî,»ñµÃÏà¹ØĞÅÏ¢¡£\n"+
+		"ç”¨æ­¤å¯†ç ç™»å½•æˆåŠŸåï¼Œå»ºè®®æ‚¨ç”¨ passwd æŒ‡ä»¤æ›´æ¢æ‚¨çš„å¯†ç ã€‚\n"+
+		"è¯¦æƒ…è¯·åœ¨è¿›å…¥æ¸¸æˆååä½¿ç”¨â€œhelp passwdâ€æŒ‡ä»¤,è·å¾—ç›¸å…³ä¿¡æ¯ã€‚\n"+
 		ctime(time());
 
-	msg2 =   ""+linkob->query("name")+"("+linkob->query("id")+")" + "ÄúºÃ£º\n"+
-		"»¶Ó­¹âÁÙ"+CHINESE_MUD_NAME+"£¡\n"+
-		"Ó¦ÄúÒªÇó£¬ÄúµÄ×¢²áĞÅÏäÒÑÓÉ "+linkob->query("email")+" ¸ü¸ÄÎª "+mail+"¡£\n"+
-		"Çë¹Ø±Õ×Ô¶¯µÇÂ¼¹¦ÄÜ£¬Ê¹ÓÃÏÂÃæÌá¹©µÄÃÜÂëµÇÂ¼¡£\n"+
+	msg2 =   ""+linkob->query("name")+"("+linkob->query("id")+")" + "æ‚¨å¥½ï¼š\n"+
+		"æ¬¢è¿å…‰ä¸´"+CHINESE_MUD_NAME+"ï¼\n"+
+		"åº”æ‚¨è¦æ±‚ï¼Œæ‚¨çš„æ³¨å†Œä¿¡ç®±å·²ç”± "+linkob->query("email")+" æ›´æ”¹ä¸º "+mail+"ã€‚\n"+
+		"è¯·å…³é—­è‡ªåŠ¨ç™»å½•åŠŸèƒ½ï¼Œä½¿ç”¨ä¸‹é¢æä¾›çš„å¯†ç ç™»å½•ã€‚\n"+
 		"\n"+
 		""+pass+ "\n"+
 		"\n"+
-		"ÓÃ´ËÃÜÂëµÇÂ¼³É¹¦ºó£¬½¨ÒéÄúÓÃ passwd Ö¸Áî¸ü»»ÄúµÄÃÜÂë¡£\n"+
-		"ÏêÇéÇëÔÚ½øÈëÓÎÏ·ºóÊ¹ÓÃ¡°help passwd¡±Ö¸Áî£¬»ñµÃÏà¹ØĞÅÏ¢¡£\n"+
+		"ç”¨æ­¤å¯†ç ç™»å½•æˆåŠŸåï¼Œå»ºè®®æ‚¨ç”¨ passwd æŒ‡ä»¤æ›´æ¢æ‚¨çš„å¯†ç ã€‚\n"+
+		"è¯¦æƒ…è¯·åœ¨è¿›å…¥æ¸¸æˆåä½¿ç”¨â€œhelp passwdâ€æŒ‡ä»¤ï¼Œè·å¾—ç›¸å…³ä¿¡æ¯ã€‚\n"+
 		ctime(time());
 
-	//ÉèÖÃÍæ¼ÒµÄ×¢²áĞÅÏ¢
+	//è®¾ç½®ç©å®¶çš„æ³¨å†Œä¿¡æ¯
 	if ( linkob->query("email") != mail ){
-		log_file("static/change_mailbox", sprintf("%s %s(%s)½«%s(%s)µÄ×¢²áĞÅÏäÓÉ %s ¸ÄÎª %s\n", ctime(time()),me->name(1),
+		log_file("static/change_mailbox", sprintf("%s %s(%s)å°†%s(%s)çš„æ³¨å†Œä¿¡ç®±ç”± %s æ”¹ä¸º %s\n", ctime(time()),me->name(1),
 			me->query("id"), linkob->query("name"), linkob->query("id"), linkob->query("email"), mail));
-		write("ÏµÍ³ÕıÔÚ·¢ËÍÍ¨ÖªĞÅ¼şµ½"+ linkob->query("name")+ "(" + linkob->query("id") + ")µÄÔ­Ê¼ĞÅÏä¡£\n");
-		SMTP_D->send_mail(me,linkob->query("email"),""+CHINESE_MUD_NAME+"ĞÅÏäĞŞ¸ÄÍ¨Öª",msg2);
+		write("ç³»ç»Ÿæ­£åœ¨å‘é€é€šçŸ¥ä¿¡ä»¶åˆ°"+ linkob->query("name")+ "(" + linkob->query("id") + ")çš„åŸå§‹ä¿¡ç®±ã€‚\n");
+		SMTP_D->send_mail(me,linkob->query("email"),""+CHINESE_MUD_NAME+"ä¿¡ç®±ä¿®æ”¹é€šçŸ¥",msg2);
 	}
 	else {
-		log_file("static/sendpasswd", sprintf("%s %s(%s)ĞŞ¸ÄÁË%s(%s)µÄÃÜÂë send to %s\n", ctime(time()),me->name(1),
+		log_file("static/sendpasswd", sprintf("%s %s(%s)ä¿®æ”¹äº†%s(%s)çš„å¯†ç  send to %s\n", ctime(time()),me->name(1),
 			me->query("id"), linkob->query("name"), linkob->query("id"), mail));
 	}
 
-	write("¿ªÊ¼·¢ËÍÍ¨ÖªĞÅ¼şµ½"+ linkob->query("name")+ "(" + linkob->query("id") + ")µ±Ç°ĞÅÏä¡£\n");
-	SMTP_D->send_mail(me,mail,""+CHINESE_MUD_NAME+"×¢²áĞÅ¼ş",msg);
+	write("å¼€å§‹å‘é€é€šçŸ¥ä¿¡ä»¶åˆ°"+ linkob->query("name")+ "(" + linkob->query("id") + ")å½“å‰ä¿¡ç®±ã€‚\n");
+	SMTP_D->send_mail(me,mail,""+CHINESE_MUD_NAME+"æ³¨å†Œä¿¡ä»¶",msg);
 
 	linkob->set("email", mail);
 	linkob->save();
 	if( Dest ){
 		mail_ob->save();
-		tell_object(mail_ob, HIW"Î×Ê¦ĞŞ¸ÄÁËÄúµÄ×¢²áÃÜÂë£¬ÇëÍË³öºóÖØĞÂµÇÂ¼¡£\n"NOR);
-		write("ÄãĞŞ¸ÄÁË´ËÈËµÄ×¢²áÃÜÂë£¬½«ËûÍËÀëÓÎÏ·¡£\n");
+		tell_object(mail_ob, HIW"å·«å¸ˆä¿®æ”¹äº†æ‚¨çš„æ³¨å†Œå¯†ç ï¼Œè¯·é€€å‡ºåé‡æ–°ç™»å½•ã€‚\n"NOR);
+		write("ä½ ä¿®æ”¹äº†æ­¤äººçš„æ³¨å†Œå¯†ç ï¼Œå°†ä»–é€€ç¦»æ¸¸æˆã€‚\n");
 		destruct(mail_ob);
 	}
 	destruct(linkob);
@@ -154,16 +154,16 @@ int main(object me, string dest)
 int help(object me)
 {
 	write(@HELP
-	Ö¸Áî¸ñÊ½ : sendpasswd ID [ĞÂemailµØÖ·]  -> ·¢µ½´ËĞÂµØÖ·£¬²¢×Ô¶¯¸Ä±ä×¢²ámailµØÖ·¡£
-	»ò 	: sendpasswd ID               -> ·¢µ½×¢²ámailµØÖ·¡£
+	æŒ‡ä»¤æ ¼å¼ : sendpasswd ID [æ–°emailåœ°å€]  -> å‘åˆ°æ­¤æ–°åœ°å€ï¼Œå¹¶è‡ªåŠ¨æ”¹å˜æ³¨å†Œmailåœ°å€ã€‚
+	æˆ– 	: sendpasswd ID               -> å‘åˆ°æ³¨å†Œmailåœ°å€ã€‚
 
-	Àı£º 	sendpasswd snowman snowman@mymud.com
+	ä¾‹ï¼š 	sendpasswd snowman snowman@mymud.com
 		sendpasswd snowman
 
-	Õâ¸öÖ¸Áî¿ÉÒÔĞŞ¸ÄÍæ¼ÒµÄÃÜÂë¡£
-	ĞŞ¸Ä×¢²áĞÅÏäµÄ²Ù×÷ÈİÒ×Ëğº¦Íæ¼ÒÀûÒæ£¬ÇëÈ·±£µ÷²éÎŞÎóºóÊ¹ÓÃ¡£
-	±¸×¢£º
-	¸ü¸ÄĞÅÏäµÄ²Ù×÷£¬½«Í¬Ê±ÏòÔ­Ê¼×¢²áĞÅÏäºÍ¸ü¸ÄºóµÄĞÅÏä·¢ËÍĞÅ¼ş¡£
+	è¿™ä¸ªæŒ‡ä»¤å¯ä»¥ä¿®æ”¹ç©å®¶çš„å¯†ç ã€‚
+	ä¿®æ”¹æ³¨å†Œä¿¡ç®±çš„æ“ä½œå®¹æ˜“æŸå®³ç©å®¶åˆ©ç›Šï¼Œè¯·ç¡®ä¿è°ƒæŸ¥æ— è¯¯åä½¿ç”¨ã€‚
+	å¤‡æ³¨ï¼š
+	æ›´æ”¹ä¿¡ç®±çš„æ“ä½œï¼Œå°†åŒæ—¶å‘åŸå§‹æ³¨å†Œä¿¡ç®±å’Œæ›´æ”¹åçš„ä¿¡ç®±å‘é€ä¿¡ä»¶ã€‚
 
 HELP
 	);

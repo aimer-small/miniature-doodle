@@ -6,17 +6,17 @@ inherit SWORD;
 
 void create()
 {
-       set_name(WHT"·ÖË®¶ëáÒ´Ì"NOR, ({ "emei ci","sword","ci","needle" }));
+       set_name(WHT"åˆ†æ°´å³¨åµ‹åˆº"NOR, ({ "emei ci","sword","ci","needle" }));
        set_weight(2000);
        if (clonep())
                set_default_object(__FILE__);
        else {
-               set("unit", "¸ù");
-               set("long", "ÕâÊÇÒ»¸ù´òÔì¾«ÖÂµÄ·ÖË®¶ëáÒ´Ì¡£\n");
+               set("unit", "æ ¹");
+               set("long", "è¿™æ˜¯ä¸€æ ¹æ‰“é€ ç²¾è‡´çš„åˆ†æ°´å³¨åµ‹åˆºã€‚\n");
                set("value", 2000);
                set("material", "steel");
-               set("wield_msg", "$N´Ó»³ÖĞÌÍ³öÒ»¸ù$n¡£\n");
-               set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·ÅÈë»³ÖĞ¡£\n");
+               set("wield_msg", "$Nä»æ€€ä¸­æå‡ºä¸€æ ¹$nã€‚\n");
+               set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¾å…¥æ€€ä¸­ã€‚\n");
        }
        init_sword(25);
        setup();

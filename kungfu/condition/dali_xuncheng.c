@@ -17,7 +17,7 @@ int update_condition(object me, int duration)
 &&me->query_temp("dali_xc/xs2")&&me->query_temp("dali_xc/sl")
 &&me->query_temp("dali_xc/yzh")&&me->query_temp("dali_xc/ydxxxxxx"))
              {   me->set_temp("xuncheng_ok");               
-                 tell_object(me, HIY "ÄãÑ²³ÇÍê±Ï£¬¿ÉÒÔ»ØÈ¥¸²Ãü£¨task ok)ÁË£¡\n" NOR);
+                 tell_object(me, HIY "ä½ å·¡åŸŽå®Œæ¯•ï¼Œå¯ä»¥å›žåŽ»è¦†å‘½ï¼ˆtask ok)äº†ï¼\n" NOR);
                   me->clear_condition("dali_xuncheng");
              } else {
                   me->apply_condition("dali_xuncheng", 5);

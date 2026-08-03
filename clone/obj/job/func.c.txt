@@ -1,14 +1,14 @@
 //Cracked by Kafei
-//º¯ÊıËµÃ÷ÎÄ¼ş
-ÎÄ¼şº¯Êı:
-ÎÄ¼şÃû³Æ:
-	job_family_master.h  //¶¨ÒåmasterµÄÃèÊöĞÅÏ¢.
-±äÁ¿:
-	static mapping family_master 			//	Ã¿¸öÃÅÅÉmasterµÄ³ÆºÅ
-	static mapping family_master_place		//    Ã¿¸öÃÅÅÉ masterµÄµØµã
+//å‡½æ•°è¯´æ˜æ–‡ä»¶
+æ–‡ä»¶å‡½æ•°:
+æ–‡ä»¶åç§°:
+	job_family_master.h  //å®šä¹‰masterçš„æè¿°ä¿¡æ¯.
+å˜é‡:
+	static mapping family_master 			//	æ¯ä¸ªé—¨æ´¾masterçš„ç§°å·
+	static mapping family_master_place		//    æ¯ä¸ªé—¨æ´¾ masterçš„åœ°ç‚¹
 	static mapping *wudang_message
 	static mapping *xingxiu_message
-	static mapping *huashan_message        //£¬Ã¿¸öÃÅÅÉmasterËµµÄ»°
+	static mapping *huashan_message        //ï¼Œæ¯ä¸ªé—¨æ´¾masterè¯´çš„è¯
 	static mapping *taohua_message
 	static mapping *gaibang_message
 	static mapping *emei_message
@@ -18,77 +18,77 @@
 	static mapping *dali_message
 	static mapping *shaolin_message
 
-ÎÄ¼şÃû³Æ:
-	job_area.h			//µØÓò¶¨ÒåÎÄ¼ş
-±äÁ¿:
-	string *zhongyuan	//Ã¿¸öµØÓòËù°üº¬µÄµØÇø
+æ–‡ä»¶åç§°:
+	job_area.h			//åœ°åŸŸå®šä¹‰æ–‡ä»¶
+å˜é‡:
+	string *zhongyuan	//æ¯ä¸ªåœ°åŸŸæ‰€åŒ…å«çš„åœ°åŒº
 	string *jiangnan
 	string *nanjiang
 	string *xiyu
 	string *dongbei
 
-	string *cant_go_room //²»ÄÜ½øÈëµÄ·¿¼äÁĞ±í
-º¯Êı:
-	string *get_arearoom(string area)//»ñÈ¡Ö¸¶¨ÇøÓòµÄ·¿¼äÎÄ¼şÃûÁĞ±í
-	int judge_room(string room_name)//¼ø¶¨ËùÑ¡È¡µÄ·¿¼äÊÇ·ñºÏºõÌõ¼ş(±ÈÈçÊÇ·ñÊÇnofight room...)
-	string get_room(string area)//´ÓÒ»¸öÇøÓòÖĞ»ñµÃ×öÈÎÎñµÄ·¿¼ä
+	string *cant_go_room //ä¸èƒ½è¿›å…¥çš„æˆ¿é—´åˆ—è¡¨
+å‡½æ•°:
+	string *get_arearoom(string area)//è·å–æŒ‡å®šåŒºåŸŸçš„æˆ¿é—´æ–‡ä»¶ååˆ—è¡¨
+	int judge_room(string room_name)//é‰´å®šæ‰€é€‰å–çš„æˆ¿é—´æ˜¯å¦åˆä¹æ¡ä»¶(æ¯”å¦‚æ˜¯å¦æ˜¯nofight room...)
+	string get_room(string area)//ä»ä¸€ä¸ªåŒºåŸŸä¸­è·å¾—åšä»»åŠ¡çš„æˆ¿é—´
 
 	
-ÎÄ¼şÃû³Æ:
-	oppose_pker.h				//²úÉúoppose_pkerÀàĞÍÈÎÎñµÄÎÄ¼ş
-º¯Êı:
-	int	oppose_pker(object master,object player,mapping job)//²úÉúoppose_pkerµÄÖ÷º¯Êı
-	void out_killer(object player,object place)//killer³öÏÖµÄº¯Êı
-	int job_oppsse_pker_start(object player)//µ½´ïµØµãºó¿ªÊ¼×¼±¸³öÏÖkiller
-	int award_oppose_pker(object player)//oppose_pkerµÄ½±Àøº¯Êı
+æ–‡ä»¶åç§°:
+	oppose_pker.h				//äº§ç”Ÿoppose_pkerç±»å‹ä»»åŠ¡çš„æ–‡ä»¶
+å‡½æ•°:
+	int	oppose_pker(object master,object player,mapping job)//äº§ç”Ÿoppose_pkerçš„ä¸»å‡½æ•°
+	void out_killer(object player,object place)//killerå‡ºç°çš„å‡½æ•°
+	int job_oppsse_pker_start(object player)//åˆ°è¾¾åœ°ç‚¹åå¼€å§‹å‡†å¤‡å‡ºç°killer
+	int award_oppose_pker(object player)//oppose_pkerçš„å¥–åŠ±å‡½æ•°
 
-ÎÄ¼şÃû³Æ:
-	job_produce.h   //ÈÎÎñ²úÉúÆ÷µÄ»ù±¾º¯Êı¶¨ÒåÎÄ¼ş
+æ–‡ä»¶åç§°:
+	job_produce.h   //ä»»åŠ¡äº§ç”Ÿå™¨çš„åŸºæœ¬å‡½æ•°å®šä¹‰æ–‡ä»¶
 
-º¯Êı:
+å‡½æ•°:
 	
-	int assign_job(object master,object player,mapping map) //¸ù¾İmapÖ¸ÅÉÈÎÎñ
-	int finish_job(object player)//ÈÎÎñÍê³ÉµÄº¯Êı
-	int master_tell_player(object player)//masterÏòplayerÏÂ´ïÈÎÎñµÄº¯Êı
+	int assign_job(object master,object player,mapping map) //æ ¹æ®mapæŒ‡æ´¾ä»»åŠ¡
+	int finish_job(object player)//ä»»åŠ¡å®Œæˆçš„å‡½æ•°
+	int master_tell_player(object player)//masterå‘playerä¸‹è¾¾ä»»åŠ¡çš„å‡½æ•°
 	int award_job(int exp_lim,int pot_lim,int time1,int time2,int luck,
 		int neili,int jingli,int skills_lim,object player,object master)
-	//½±Àøº¯Êı
-	void job_punish(object player,string job_kind)//³Í·£º¯Êı
-	int del_job(object player)//É¾³ıÈÎÎñ
+	//å¥–åŠ±å‡½æ•°
+	void job_punish(object player,string job_kind)//æƒ©ç½šå‡½æ•°
+	int del_job(object player)//åˆ é™¤ä»»åŠ¡
 
-ÎÄ¼şÃû³Æ:
-	produce.c //²úÉúÈÎÎñµÄÖ÷º¯Êı
-±äÁ¿:
-	string menpai_name;//²úÉúÈÎÎñµÄÃÅÅÉ 
-	string strategy_produce;//Ñ¡ÔñÃÅÅÉ²úÉúµÄ²ßÂÔÃû³Æ¡£
-	string menpai_area_power;//Ñ¡ÔñÃÅÅÉ²úÉúÈÎÎñµÄÇøÓò¡£
-	static object job_data;	//Õâ¸öÈÎÎñµÄÏà¹ØÊı¾İÎÄ¼ş
+æ–‡ä»¶åç§°:
+	produce.c //äº§ç”Ÿä»»åŠ¡çš„ä¸»å‡½æ•°
+å˜é‡:
+	string menpai_name;//äº§ç”Ÿä»»åŠ¡çš„é—¨æ´¾ 
+	string strategy_produce;//é€‰æ‹©é—¨æ´¾äº§ç”Ÿçš„ç­–ç•¥åç§°ã€‚
+	string menpai_area_power;//é€‰æ‹©é—¨æ´¾äº§ç”Ÿä»»åŠ¡çš„åŒºåŸŸã€‚
+	static object job_data;	//è¿™ä¸ªä»»åŠ¡çš„ç›¸å…³æ•°æ®æ–‡ä»¶
 	static mapping job_map;		
 
 	
 
-º¯Êı:
-	object choose_user(string menpai_name)//´ÓÔÚÏßµÄÓÃ»§ÖĞÑ¡ÔñÈÎÎñµÄÖ´ĞĞÕß
-	int do_check_user(object ob,string menpai_name)//ÅĞ¶ÏÓÃ»§ÊÇ·ñÂú×ãÌõ¼şµÄ×Óº¯Êı
-	int do_check_job_player(object ob,string *list)//ÅĞ¶Ïµ±Ç°ÓÃ»§ÊÇ·ñÊôÓÚÈÎÎñµÄÖ´ĞĞÕßµÄ×Óº¯Êı
-	int choose_job(object player)//Ñ¡ÔñÈÎÎñ
-	int check_finishjob_place()//ÅĞ¶ÏÍê³ÉÈÎÎñºóÊÇ·ñ»Øµ½master palce.
-	int check_askjob_place()//ÅĞ¶Ï½Óµ½ÏÂ´ïÃüÁîµÄÈËÊÇ·ñµ½´ï master place
-	int check_oppose_pker_place()//¼ì²éÖ´ĞĞÕßµÄËùÔÚµØ£¬ÊÇ·ñÎªoppose_pker place
-	int check_player_place()//Ò»¸ö¿ØÖÆÈ«ÃæjobÖ´ĞĞÕâµÄº¯Êı//¶¨Ê±¼ì²éËùÓĞµÄxkx online player£¬×ö³öÏàÓ¦µÄ´¦Àí¡£
-	int job_tell_player(object player)//ÈÎÎñ²úÉúºó£¬¸æËßÖ´ĞĞÈÎÎñµÄÍæ¼ÒÏà¹ØĞÅÏ¢
+å‡½æ•°:
+	object choose_user(string menpai_name)//ä»åœ¨çº¿çš„ç”¨æˆ·ä¸­é€‰æ‹©ä»»åŠ¡çš„æ‰§è¡Œè€…
+	int do_check_user(object ob,string menpai_name)//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦æ»¡è¶³æ¡ä»¶çš„å­å‡½æ•°
+	int do_check_job_player(object ob,string *list)//åˆ¤æ–­å½“å‰ç”¨æˆ·æ˜¯å¦å±äºä»»åŠ¡çš„æ‰§è¡Œè€…çš„å­å‡½æ•°
+	int choose_job(object player)//é€‰æ‹©ä»»åŠ¡
+	int check_finishjob_place()//åˆ¤æ–­å®Œæˆä»»åŠ¡åæ˜¯å¦å›åˆ°master palce.
+	int check_askjob_place()//åˆ¤æ–­æ¥åˆ°ä¸‹è¾¾å‘½ä»¤çš„äººæ˜¯å¦åˆ°è¾¾ master place
+	int check_oppose_pker_place()//æ£€æŸ¥æ‰§è¡Œè€…çš„æ‰€åœ¨åœ°ï¼Œæ˜¯å¦ä¸ºoppose_pker place
+	int check_player_place()//ä¸€ä¸ªæ§åˆ¶å…¨é¢jobæ‰§è¡Œè¿™çš„å‡½æ•°//å®šæ—¶æ£€æŸ¥æ‰€æœ‰çš„xkx online playerï¼Œåšå‡ºç›¸åº”çš„å¤„ç†ã€‚
+	int job_tell_player(object player)//ä»»åŠ¡äº§ç”Ÿåï¼Œå‘Šè¯‰æ‰§è¡Œä»»åŠ¡çš„ç©å®¶ç›¸å…³ä¿¡æ¯
 	void create()
 	string query_save_file()
-	int produce_job(string p_name)//²úÉúÈÎÎñµÄÖ÷º¯Êı
-	int choose_menpai()//Ñ¡ÔñÃÅÅÉ
-	int choose_strategy(string menpai)//Ñ¡ÔñÃÅÅÉÏÂ´ïÈÎÎñµÄ²ßÂÔ
-	int choose_area_power(string menpai)//Ñ¡ÔñÖ´ĞĞÈÎÎñµÄÇøÓò
+	int produce_job(string p_name)//äº§ç”Ÿä»»åŠ¡çš„ä¸»å‡½æ•°
+	int choose_menpai()//é€‰æ‹©é—¨æ´¾
+	int choose_strategy(string menpai)//é€‰æ‹©é—¨æ´¾ä¸‹è¾¾ä»»åŠ¡çš„ç­–ç•¥
+	int choose_area_power(string menpai)//é€‰æ‹©æ‰§è¡Œä»»åŠ¡çš„åŒºåŸŸ
 
 
 	message.h
-	int job_oppsse_pker_prompt(object player)//ÌáÊ¾Ö´ĞĞÕßÈ¥Íê³Éoppsse_pkerÈÎÎñ.
+	int job_oppsse_pker_prompt(object player)//æç¤ºæ‰§è¡Œè€…å»å®Œæˆoppsse_pkerä»»åŠ¡.
 	int master_msg(object master,object player,string state,string command_mode)
-	//´ÓÊı¾İ¿âÖĞ»ñµÃmassage²¢½øĞĞÃû³ÆÌæ»»
+	//ä»æ•°æ®åº“ä¸­è·å¾—massageå¹¶è¿›è¡Œåç§°æ›¿æ¢
 
 
 

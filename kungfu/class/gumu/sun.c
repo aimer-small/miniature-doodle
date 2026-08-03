@@ -1,4 +1,4 @@
-// sun.c ËïÆÅÆÅ
+// sun.c å­™å©†å©†
 // By River@SJ 2001.02.28
 
 #include <ansi.h>
@@ -6,9 +6,9 @@ inherit NPC;
 string ask_job();
 void create()
 {
-	set_name("ËïÆÅÆÅ", ({ "sun popo", "sun", "popo" }));
-	set("long","ÕâÎ»ÀÏ¸¾³¤×ÅÒ»ÕÅÉúÂú¼¦Æ¤¸í´ñµÄ³óÁ³£¬ÕıµÉÑÛÇÆ×ÅÄã¡£\n");
-	set("gender", "Å®ĞÔ");
+	set_name("å­™å©†å©†", ({ "sun popo", "sun", "popo" }));
+	set("long","è¿™ä½è€å¦‡é•¿ç€ä¸€å¼ ç”Ÿæ»¡é¸¡çš®ç–™ç˜©çš„ä¸‘è„¸ï¼Œæ­£çªçœ¼ç§ç€ä½ ã€‚\n");
+	set("gender", "å¥³æ€§");
 	set("age", 60);
 	set("attitude", "friendly");
 	set("no_bark",1);
@@ -51,7 +51,7 @@ void create()
 	prepare_skill("cuff", "meinu-quanfa");
 
 	set("inquiry", ([
-//		"Óñ·ä" : (: ask_job :),
+//		"ç‰èœ‚" : (: ask_job :),
 	]));
       
 	setup();

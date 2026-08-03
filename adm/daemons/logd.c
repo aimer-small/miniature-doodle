@@ -57,7 +57,7 @@ void log_file(string file, string text, mixed ob, mixed *obs, int db)
 //        {
 //                log_desc = log_desc[0..<2];
 //        }
-	//如果有DB标记就进入DB
+	//濡傛灉鏈塂B鏍囪灏辫繘鍏B
 	if(db)	
 	dbquery("INSERT DELAYED INTO log SET "
 		"log_time=" DB(log_time) ","
@@ -66,7 +66,7 @@ void log_file(string file, string text, mixed ob, mixed *obs, int db)
 		"user_id="  DB(user_id)  ","
 		"other_id=" DB(other_id) ","
 		"log_desc=" DB(log_desc) ","
-		"Site=" DB(INTERMUD_MUD_NAME)); //增加site by LinuX@SJ 2004/1/30
+		"Site=" DB(INTERMUD_MUD_NAME)); //澧炲姞site by LinuX@SJ 2004/1/30
 		
 	file = LOG_DIR + file;
 	assure_file(file);
@@ -118,7 +118,7 @@ void log_file(string file, string text, mixed ob, mixed *obs, int db)
 			"user_id="  DB(user_id)  ","
 			"other_id=" DB(other_id) ","
 			"log_desc=" DB(log_desc) ","
-			"Site=" DB(INTERMUD_MUD_NAME) //增加site by LinuX@SJ 2004/1/30
+			"Site=" DB(INTERMUD_MUD_NAME) //澧炲姞site by LinuX@SJ 2004/1/30
 		);
 		db_close(mysql);
 	}

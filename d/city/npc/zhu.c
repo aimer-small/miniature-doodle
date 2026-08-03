@@ -6,12 +6,12 @@ inherit F_VENDOR;
 int ask_lost();
 void create()
 {
-        set_name("ÖìÀÏ°å", ({ "zhu laoban", "zhu", "laoban" }));
+        set_name("æœ±è€æ¿", ({ "zhu laoban", "zhu", "laoban" }));
         set("shen_type", 1);
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 44);
-        set("long", "ÕâÎ»ÀÏ°åÏÔÈ»ºÜÓĞÇ®£¬ÊÖÉÏ´÷ÂúÁË½ğ½äÖ¸¡£\n");
+        set("long", "è¿™ä½è€æ¿æ˜¾ç„¶å¾ˆæœ‰é’±ï¼Œæ‰‹ä¸Šæˆ´æ»¡äº†é‡‘æˆ’æŒ‡ã€‚\n");
         set_skill("unarmed", 24);
         set_skill("dodge", 21);
         set_temp("apply/damage", 18);
@@ -25,7 +25,7 @@ void create()
            (["name":__DIR__"obj/goldring","number":25])
         }));
         set("inquiry", ([
-		"ÒÅÊ§" : (:ask_lost:),
+		"é—å¤±" : (:ask_lost:),
 		"lost" : (:ask_lost:),
 		]));
         setup();
@@ -42,13 +42,13 @@ void kill_ob(object ob)
 {
         ob->remove_killer(this_object());
         remove_killer(ob);
-        message_vision("$N¾ÚÉ¥µØ·¢ÏÖÖìÕÆ¹ñ¶ãÔÚ¸ß¸ßµÄ¹ñÌ¨ºóÃæ£¬¹»²»µ½¡£\n", ob);
+        message_vision("$Næ²®ä¸§åœ°å‘ç°æœ±æŒæŸœèº²åœ¨é«˜é«˜çš„æŸœå°åé¢ï¼Œå¤Ÿä¸åˆ°ã€‚\n", ob);
 }
 
 void unconcious()
 {
-        say( "ÖìÀÏ°åÔÚ»³ÀïÃşÁËÒ»Õó£¬Ãş³öÒ»¸öºĞ×ÓÀ´¡£Ëû´ò¿ªºĞ×Ó£¬Äó³öÒ»¸öÒ©ÍèÀ´ÈûÔÚ×ìÀï¡£\n");
-        say( "Æ¬¿ÌÖ®¼ä£¬ÖìÀÏ°åÓÖ»Ö¸´ÁË¾«Éñ£¬¡°ºÙºÙ¡±¼éĞ¦ÁËÁ½Éù¡£\n");
+        say( "æœ±è€æ¿åœ¨æ€€é‡Œæ‘¸äº†ä¸€é˜µï¼Œæ‘¸å‡ºä¸€ä¸ªç›’å­æ¥ã€‚ä»–æ‰“å¼€ç›’å­ï¼Œæå‡ºä¸€ä¸ªè¯ä¸¸æ¥å¡åœ¨å˜´é‡Œã€‚\n");
+        say( "ç‰‡åˆ»ä¹‹é—´ï¼Œæœ±è€æ¿åˆæ¢å¤äº†ç²¾ç¥ï¼Œâ€œå˜¿å˜¿â€å¥¸ç¬‘äº†ä¸¤å£°ã€‚\n");
         reincarnate();
         set("eff_qi", query("max_qi"));
         set("qi", query("max_qi"));
@@ -69,39 +69,39 @@ int ask_lost()
 	if ( (mapp(me->query("token/ring"))) && (!present("ring", me)) )
 	{
 		me->set_temp("token_lost","ring");
-		command("say Ç°Á½ÌìÎÒ»¨ÁË¶şÇ§Á½°×ÒøÊÕ¹ºÁËÒ»¸ö°×½ğ½äÖ¸,ÄÑµÀÊÇÄã¶ªµÄ£¿");
+		command("say å‰ä¸¤å¤©æˆ‘èŠ±äº†äºŒåƒä¸¤ç™½é“¶æ”¶è´­äº†ä¸€ä¸ªç™½é‡‘æˆ’æŒ‡,éš¾é“æ˜¯ä½ ä¸¢çš„ï¼Ÿ");
 		return 1;
 	}
 	
 	if ( (mapp(me->query("token/bangle"))) && (!present("bangle", me)) )
 	{
 		me->set_temp("token_lost","bangle");
-		command("say Ç°Á½ÌìÎÒ»¨ÁË¶şÇ§Á½°×ÒøÊÕ¹ºÁËÒ»Ö»ôä´äÓñïí,ÄÑµÀÊÇÄã¶ªµÄ£¿");
+		command("say å‰ä¸¤å¤©æˆ‘èŠ±äº†äºŒåƒä¸¤ç™½é“¶æ”¶è´­äº†ä¸€åªç¿¡ç¿ ç‰é•¯,éš¾é“æ˜¯ä½ ä¸¢çš„ï¼Ÿ");
 		return 1;
 	}
 	
 	if ( (mapp(me->query("token/jade"))) && (!present("jade", me)) )
 	{
 		me->set_temp("token_lost","jade");
-		command("say Ç°Á½ÌìÎÒ»¨ÁË¶şÇ§Á½°×ÒøÊÕ¹ºÁËÒ»¿éÁú·ïÓñÅå,ÄÑµÀÊÇÄã¶ªµÄ£¿");
+		command("say å‰ä¸¤å¤©æˆ‘èŠ±äº†äºŒåƒä¸¤ç™½é“¶æ”¶è´­äº†ä¸€å—é¾™å‡¤ç‰ä½©,éš¾é“æ˜¯ä½ ä¸¢çš„ï¼Ÿ");
 		return 1;
 	}
 	
 	if ( (mapp(me->query("token/necklace"))) && (!present("necklace", me)) )
 	{
 		me->set_temp("token_lost","necklace");
-		command("say Ç°Á½ÌìÎÒ»¨ÁË¶şÇ§Á½°×ÒøÊÕ¹ºÁËÒ»Ìõ×ÏË®¾§ÏîÁ´,ÄÑµÀÊÇÄã¶ªµÄ£¿");
+		command("say å‰ä¸¤å¤©æˆ‘èŠ±äº†äºŒåƒä¸¤ç™½é“¶æ”¶è´­äº†ä¸€æ¡ç´«æ°´æ™¶é¡¹é“¾,éš¾é“æ˜¯ä½ ä¸¢çš„ï¼Ÿ");
 		return 1;
 	}
 	
 	if ( (mapp(me->query("token/headgear"))) && (!present("headgear", me)) )
 	{
 		me->set_temp("token_lost","headgear");
-		command("say Ç°Á½ÌìÎÒ»¨ÁË¶şÇ§Á½°×ÒøÊÕ¹ºÒ»¸ö»Æ½ğÍ·ÊÎ,ÄÑµÀÊÇÄã¶ªµÄ£¿");
+		command("say å‰ä¸¤å¤©æˆ‘èŠ±äº†äºŒåƒä¸¤ç™½é“¶æ”¶è´­ä¸€ä¸ªé»„é‡‘å¤´é¥°,éš¾é“æ˜¯ä½ ä¸¢çš„ï¼Ÿ");
 		return 1;
 	}
 	
-	command("say ÄÑµÀÄãÏëÃ°ÁìÊ§Îï£¿");
+	command("say éš¾é“ä½ æƒ³å†’é¢†å¤±ç‰©ï¼Ÿ");
 	return 1;
 }
 
@@ -114,18 +114,18 @@ int accept_object(object me, object ob)
         
 
         if(!str=me->query_temp("token_lost"))
-                return notify_fail("ÖìÀÏ°åËµµÀ£ºÕâÎ»" + RANK_D->query_respect(me) + "£¬²»Öª¿´ÖĞ±¾µêµÄÊ²Ã´Öé±¦£¿\n");
+                return notify_fail("æœ±è€æ¿è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(me) + "ï¼Œä¸çŸ¥çœ‹ä¸­æœ¬åº—çš„ä»€ä¹ˆç å®ï¼Ÿ\n");
         if( ob->query("money_id") && nmoney >= 200000 ) 
         {
                 item=new("clone/spec/item/"+me->query_temp("token_lost")+".c");
-                command("say °ÕÁË,¾ı×Ó²»¶áÈËËù°®,Õâ"+item->query("name")+"¾Í»¹¸ø"+ RANK_D->query_respect(me) + "°É¡£\n");
+                command("say ç½¢äº†,å›å­ä¸å¤ºäººæ‰€çˆ±,è¿™"+item->query("name")+"å°±è¿˜ç»™"+ RANK_D->query_respect(me) + "å§ã€‚\n");
                 item->move(me);
                 me->delete_temp("token_lost");
                 return 1;
         }
         else
         {
-                message_vision("ÖìÀÏ°åĞ¦µÀ£ºÎÒ¿ÉÊÇ»¨ÁË¶şÇ§Á½°×ÒøÑ½¡£\n", me);
+                message_vision("æœ±è€æ¿ç¬‘é“ï¼šæˆ‘å¯æ˜¯èŠ±äº†äºŒåƒä¸¤ç™½é“¶å‘€ã€‚\n", me);
                   return 0;
         }
 }

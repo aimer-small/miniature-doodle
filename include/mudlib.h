@@ -8,7 +8,7 @@
 #define MUDLIB_VERSION		(MUDLIB_NAME + " " + MUDLIB_VERSION_NUMBER)
 
 #define INTERMUD_MUD_NAME   "New-SJ"
-#define CHINESE_MUD_NAME    "���齣���¼�Ԫ��"
+#define CHINESE_MUD_NAME    "「书剑·新纪元」"
 
 #endif
 

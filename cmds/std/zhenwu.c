@@ -10,28 +10,28 @@ inherit F_CLEAN_UP;
 
 inherit F_SSERVER;
 string *position = ({
-                                         "������","������","������","������","������","������","������"
+                                         "在阳方","在阴方","在阴方","在阴方","在阳方","在阳方","在阳方"
 });
 
 string *sword = ({
-        "�鲽������һ�С����ѵ�ˮ�������еĽ����������һ����������ֵ����֡�",
-        "�ҽŶ�����һ�С�����ǡ�������ǰ��󷴴̶��ֵ���š�",
-        "һ�С�̽��ʽ�����ҽŶ�������ϥ���𣬽���ǰ�������ֵ�������",
-        "һ�С�����ɨ����һ�С�����ɨ��������ƽָ��һ���ǳɺ�ɨ���ֵ��ֱۡ�",
-        "ʹ�����������¡�������������ԲȦ������ֱ�������಻�ϻ�����֡�",
-        "һת���������б����һ�С������Ҷ����������֡�",
-        "��ǰ����������һ�С�Ұ��������������ǰƽ�̶��ֵ��ز���",
-        "�����ǰ��һ�������ɺ�һ��Բ��ǰ����һ�С�ӭ�絧������������ֵ��ҽš�",
-        "���������ǰ��һ�������ֵĽ�һ�С�˳ˮ���ۡ������Һ󷽴�����ֵ��ұۡ�",
-        "�ҽ���ǰ�沽��һ�С��������¡������������һ���󻡣���ǰ������֡�",
-        "����δ��ʹ�ϣ���ȻȦת��ͻȻ֮�䣬������ǰ�����˼�����ɫ��Ȧ����ȦСȦ����ȦбȦ����˸���ѡ�"
+        "虚步提腰，一招「蜻蜓点水」，手中的剑轻轻颤动，一剑剑点向对手的左手。",
+        "右脚独立，一招「大魁星」，剑由前向后反刺对手的左脚。",
+        "一招「探海式」，右脚独立，左膝提起，剑向前抡劈对手的腰部。",
+        "一招「右拦扫」，一招「左拦扫」，剑锋平指，一气呵成横扫对手的手臂。",
+        "使出「三环套月」，剑划出三个圆圈，剑锋直出，绵绵不断划向对手。",
+        "一转身，剑向后斜带，一招「风卷荷叶」，砍向对手。",
+        "向前连跳两步，一招「野马跳涧」，剑向前平刺对手的胸部。",
+        "左脚向前进一步，剑由后划一整圆向前托起，一招「迎风掸尘」，刺向对手的右脚。",
+        "紧接着左脚前进一步，右手的剑一招「顺水推舟」，向右后方刺向对手的右臂。",
+        "右脚向前垫步，一招「海底捞月」，剑由上向后划一个大弧，向前撩向对手。",
+        "剑招未曾使老，已然圈转。突然之间，对手眼前出现了几个白色光圈，大圈小圈，正圈斜圈，闪烁不已。"
 });
 
 string *zhen =  ({
-        "�����ʱ���������˺ͣ���ʽ������תΪǿ�ƣ�����תΪ����",
-        "�����߽������������̾Ϊ��ֹ��������ʿ����������ߡ�",
-        "ֻ���������߽���ʹ��������������߾��磬���ֵ��书��ʱ�����κ����á�",
-        "ֻ�������߽��������������ϵ������޷죬�ۿ����ֵ������Ծ���"
+        "配合天时，地利，人和，阵式由弱势转为强势，由阴转为阳。",
+        "真武七截阵的阵势令人叹为观止，当场将士气提升到最高。",
+        "只见着真武七截阵使出借力打力的最高境界，对手的武功暂时不起任何作用。",
+        "只见真武七截阵里的所有人配合的天衣无缝，眼看对手的气数以尽。"
 });
 
 
@@ -56,10 +56,10 @@ int main(object me, string arg)
                   object ob1,ob2;
 
                                   if( !this_player()->query("canzhenwu") )
-                                          return notify_fail("�㻹����ʹ�������߽���\n");
+                                          return notify_fail("你还不能使出真武七截阵！\n");
                   if( this_player()->is_busy() )
                   {
-                                return notify_fail("����æ���أ�\n");
+                                return notify_fail("你正忙着呢！\n");
                   }
 
                   here = environment( this_player() );
@@ -69,28 +69,28 @@ int main(object me, string arg)
 
                   if( !(enemy = present(enemy_id, here) ) )
                   {
-                                return notify_fail(enemy_id+"�������\n");
+                                return notify_fail(enemy_id+"不在这里！\n");
                   }
 
-                  if( enemy->query("race") != "����" )
+                  if( enemy->query("race") != "人类" )
                   {
-                                return notify_fail("ɱ������ţ����\n");
+                                return notify_fail("杀鸡焉用牛刀？\n");
                   }
 
-                  if( enemy->query("family/family_name") == "�䵱��" )
+                  if( enemy->query("family/family_name") == "武当派" )
                   {
-                                return notify_fail("��Ҫ�����Ż���\n");
+                                return notify_fail("你要清理门户？\n");
                   }
 
 
                   if( !(ob1 = present(name1, here ) ) )
                   {
-                                return notify_fail(name1+"�������\n");
+                                return notify_fail(name1+"不在这里！\n");
                   }
 
                   if( ob1->is_busy() )
                   {
-                                return notify_fail(name1+"��æ���أ�\n");
+                                return notify_fail(name1+"正忙着呢！\n");
                   }
                   
                   i = check_ob(ob1,me);
@@ -98,12 +98,12 @@ int main(object me, string arg)
 
                   if( !(ob2 = present(name2, here) ) )
                   {
-                                return notify_fail(name2+"�������\n");
+                                return notify_fail(name2+"不在这里！\n");
                   }
 
                   if( ob2->is_busy() )
                   {
-                                return notify_fail(name2+"��æ���أ�\n");
+                                return notify_fail(name2+"正忙着呢！\n");
                   }
 
                   i = check_ob(ob2,me);
@@ -111,12 +111,12 @@ int main(object me, string arg)
 
                   if( name1 == me->query("id") ||   name2 == me->query("id")  )
                   {
-                                return notify_fail("��һ�����ã��㲻��������ɣ�\n");
+                                return notify_fail("想一身数用？你不会分身术吧？\n");
                   }
 
                   if( name1 == name2 )
                   {
-                                return notify_fail(name1 + "����������ɣ�\n");
+                                return notify_fail(name1 + "不会分身术吧？\n");
                   }
 
 
@@ -141,14 +141,14 @@ int main(object me, string arg)
                   here->set_temp("ob2",ob1->query("id"));
                   here->set_temp("ob3",ob2->query("id"));
 
-                  message_vision(HIR"\n$N��$n�ȵ���" + RANK_D->query_rude(enemy) + "��һ��Ϊ�������������䵱��Ҫ�����е�����������\n"NOR, me, enemy);
+                  message_vision(HIR"\n$N对$n喝道：" + RANK_D->query_rude(enemy) + "你一向为非作歹，今天武当派要替天行道，纳命来！\n"NOR, me, enemy);
                   me->kill_ob(enemy);
                   ob1->kill_ob(enemy);
                   ob2->kill_ob(enemy);
                   enemy->kill_ob(me);
                   enemy->kill_ob(ob1);
                   enemy->kill_ob(ob2);
-                  message_vision(HIY"$NͻȻ�����ƶ��������䵱���Ӿ�վս��λ�ã��ڳ���"+ HIW +"�������߽���"+ HIY + "�󷨡�\n\n"NOR, me);
+                  message_vision(HIY"$N突然身形移动，发动武当弟子就站战斗位置，摆出了"+ HIW +"「真武七截阵」"+ HIY + "阵法。\n\n"NOR, me);
                                   message_vision(HIG"
 
         MM.                M;                              ,. -M.                 MM
@@ -181,18 +181,18 @@ int check_ob(object ob,object me)
 
                           if( !objectp(ob) )
                           {
-                                         return notify_fail("��ϧû������ˡ�\n");
+                                         return notify_fail("可惜没有这个人。\n");
                           }
                                   ob_name = ob->query("name");
 
                                   if ( !present( ob->query("id"), environment(me) ) )
                                   {
-                                         return notify_fail("��ϧ"+ob_name+"�������\n");
+                                         return notify_fail("可惜"+ob_name+"不在这里。\n");
                                   }
 
-                                  if ( ob->query("family/family_name") != "�䵱��" )
+                                  if ( ob->query("family/family_name") != "武当派" )
                                   {
-                                         return notify_fail("��ϧ"+ob_name+"�����䵱���ӣ����ᡸ̫���񹦡���\n");
+                                         return notify_fail("可惜"+ob_name+"不是武当弟子，不会「太极神功」。\n");
                                   }
 
 
@@ -200,13 +200,13 @@ int check_ob(object ob,object me)
                                                 ob->query_skill("dodge") < 100
                                           )
                                   {
-                                         return notify_fail("��ϧ"+ob_name+"�书̫����ᡸ̫���񹦡���\n");
+                                         return notify_fail("可惜"+ob_name+"武功太差，不会「太极神功」。\n");
                                   }
 
                                   exp_diff = (float)( ob->query("combat_exp" ) - me->query("combat_exp") ) / (float)me->query("combat_exp");
 
                                   if( exp_diff > 0.3 || exp_diff < -0.3 )
-                                         return notify_fail("��ϧ"+ob_name+"�书������̫�󣬲��ܹ��ڡ������߽��󡹡�\n");
+                                         return notify_fail("可惜"+ob_name+"武功和你差距太大，不能共摆「真武七截阵」。\n");
 
                  return 1;
 }
@@ -238,7 +238,7 @@ void check_leaving(object me)
                  object enemy = offensive_target(me);
                  if( !objectp(enemy) && !me->is_busy() && !me->is_fighting() )
                  {
-                         message_vision(HIY"\n$N���˸�鮵���ʣ�����ľͽ������ǣ������ȸ����ˣ�\n"NOR, me);
+                         message_vision(HIY"\n$N作了个楫道：剩下来的就交给你们，在下先告退了！\n"NOR, me);
                          call_out("destruct_me",10,me);
                          return;
                   }
@@ -265,10 +265,10 @@ int zhenwu(object me)
 
                                                 || (string)weapon->query("skill_type") != "sword" )
                                                 {
-                                                        message_vision(HIW"\n$N�������һ�ݣ�ʹһ�С�������ǧ�����Χ�Ķ����������˳��ˡ������߽��󡹡�\n"NOR, me);
+                                                        message_vision(HIW"\n$N身子向后一纵，使一招『四两拨千斤』将周围的东西拨开，退出了「真武七截阵」。\n"NOR, me);
                                                 }
                                 else
-                                        message_vision(HIW"\n$N�������һ�ݣ�ʹһ�С�������ˮ�����ڿ��е���һ�£��˳��ˡ������߽��󡹡�\n"NOR, me);
+                                        message_vision(HIW"\n$N身子向后一纵，使一招『青龙出水』，在空中倒刺一下，退出了「真武七截阵」。\n"NOR, me);
 
                                 me->remove_all_enemy();
 
@@ -293,13 +293,13 @@ int zhenwu(object me)
 
                                                 || (string)weapon->query("skill_type") != "sword" )
                                                 {
-                                                        message_vision(HIG"\n$N�������һ�ݣ�ʹһ�С�������ǧ�����Χ�Ķ����������˳��ˡ������߽��󡹡�\n"NOR, me);
+                                                        message_vision(HIG"\n$N身子向后一纵，使一招『四两拨千斤』将周围的东西拨开，退出了「真武七截阵」。\n"NOR, me);
                                                 }
                                         else
-                                          message_vision(HIG"\n$N�������һ�ݣ�ʹһ�С�������ˮ�����ڿ��е���һ�£��˳��ˡ������߽��󡹡�\n"NOR, me);
+                                          message_vision(HIG"\n$N身子向后一纵，使一招『青龙出水』，在空中倒刺一下，退出了「真武七截阵」。\n"NOR, me);
 
 
-                                        message_vision(HIY"\n$N���������䵱��ɱ������֮�ˣ���λ"+RANK_D->query_respect(enemy)+HIY"���߰ɣ�\n"NOR, me);
+                                        message_vision(HIY"\n$N大声道：武当不杀不反手之人，这位"+RANK_D->query_respect(enemy)+HIY"请走吧！\n"NOR, me);
 
                                         me->remove_all_enemy();
 
@@ -321,10 +321,10 @@ int zhenwu(object me)
                                   if(!objectp(weapon = me->query_temp("weapon"))
                                                 || (string)weapon->query("skill_type") != "sword" )
                                                 {
-                                                        message_vision(HIR"\n$N������֧��ֻ���������һ�ݣ��˳��������߽��󡹡�\n"NOR, me);
+                                                        message_vision(HIR"\n$N体力不支，只好身子向后一纵，退出「真武七截阵」。\n"NOR, me);
                                                 }
                                   else
-                                                message_vision(HIR"\n$N������֧��ֻ���������һ�ݣ��˳��������߽��󡹡�\n"NOR, me);
+                                                message_vision(HIR"\n$N体力不支，只好身子向后一纵，退出「真武七截阵」。\n"NOR, me);
 
                                         me->remove_all_enemy();
                                         me->delete_temp("pending/zhenwu");
@@ -344,10 +344,10 @@ int zhenwu(object me)
                                   if(!objectp(weapon = me->query_temp("weapon"))
                                                 || (string)weapon->query("skill_type") != "sword" )
                                                 {
-                                                        message_vision(HIW"\n$N�������һ�ݣ�ʹһ�С�������ǧ�����Χ�Ķ����������˳��ˡ������߽��󡹡�\n"NOR, me);
+                                                        message_vision(HIW"\n$N身子向后一纵，使一招『四两拨千斤』将周围的东西拨开，退出了「真武七截阵」。\n"NOR, me);
                                                 }
                                         else
-                                          message_vision(HIW"\n$N�������һ�ݣ�ʹһ�С�������ˮ�����ڿ��е���һ�£��˳��ˡ������߽��󡹡�\n"NOR, me);
+                                          message_vision(HIW"\n$N身子向后一纵，使一招『青龙出水』，在空中倒刺一下，退出了「真武七截阵」。\n"NOR, me);
 
                                         me->remove_all_enemy();
                                         me->delete_temp("pending/zhenwu");
@@ -402,15 +402,15 @@ int zhenwu(object me)
                           if( random(2)==1 )
                           {
                                   if(random(2)==0)
-                                          message_vision("\n" + position[mypos] + "λ�ϵ�$N̤��Ǭ�ԣ�ʹ��������ǿ�����������صĹ������������۵Ĺ꽫�����ҡ�", me);
-                                  else message_vision("\n" + position[mypos] + "λ�ϵ�$N����ת������Ǭת�������������ḡ�����߽����������ң��������߳���һ�㣬�����������мܡ�", me);
+                                          message_vision("\n" + position[mypos] + "位上的$N踏上乾卦，使出此阵最强攻击力，凝重的攻势有如真武大帝的龟将临阵不乱。", me);
+                                  else message_vision("\n" + position[mypos] + "位上的$N由阳转阴，由乾转坤，出招身法轻浮犹如蛇将，似左似右，犹如灵蛇出洞一般，另敌人难以招架。", me);
 
                                   me->set_temp("apply/damage",me->query_temp("apply/damage",1)+power/2);
                                   me->set_temp("apply/attack",me->query_temp("apply/attack",1)+power/2);
                                   COMBAT_D->do_attack(me, enemy, me->query_temp("weapon"));
                                   me->set_temp("apply/damage",me->query_temp("apply/damage",1)-power/2);
                                   me->set_temp("apply/attack",me->query_temp("apply/attack",1)-power/2);
-                                  me->receive_damage("jingli", 15+random(15), "��ת�����߽���������");
+                                  me->receive_damage("jingli", 15+random(15), "运转真武七截阵累死了");
                                   me->add("neili", -20-random(20));
                           }
                           me->set_temp("apply/parry",me->query_temp("apply/parry",1)-power);
@@ -424,10 +424,10 @@ int zhenwu(object me)
                                         if( ( weapon = me->query_temp("weapon") )
                                                  && (string)weapon->query("skill_type") == "sword" )
                                         {
-                                                message_vision("\n" + position[mypos] + "λ�ϵ�$N"+ sword[random(10)]+"\n", me);
+                                                message_vision("\n" + position[mypos] + "位上的$N"+ sword[random(10)]+"\n", me);
                                         }
 
-                                        me->receive_damage("jingli", 15+random(10), "��ϰ�����߽���������");
+                                        me->receive_damage("jingli", 15+random(10), "练习真武七截阵累死了");
                                         me->add("neili", -20-random(15) );
                                 }
                   }
@@ -439,10 +439,10 @@ int zhenwu(object me)
           if(!objectp(weapon = me->query_temp("weapon"))
                         || (string)weapon->query("skill_type") != "sword" )
                         {
-                                message_vision(HIW"\n$N�������һ�ݣ�ʹһ�С�������ǧ�����Χ�Ķ����������˳��ˡ������߽��󡹡�\n"NOR, me);
+                                message_vision(HIW"\n$N身子向后一纵，使一招『四两拨千斤』将周围的东西拨开，退出了「真武七截阵」。\n"NOR, me);
                         }
                 else
-                        message_vision(HIW"\n$N�������һ�ݣ�ʹһ�С�������ˮ�����ڿ��е���һ�£��˳��ˡ������߽��󡹡�\n"NOR, me);
+                        message_vision(HIW"\n$N身子向后一纵，使一招『青龙出水』，在空中倒刺一下，退出了「真武七截阵」。\n"NOR, me);
 
 
          call_out("check_leaving",5,me);
@@ -464,9 +464,9 @@ int halt_zhenwu(object me)
 
                         if(random(2)==1)
                         {
-                                message_vision(HIY"\n$N�ܵ����ֳ��治���һ����$N�Ͻ�ʹ��������ǧ����ֱ����ˣ�$N���վ���ȡ�\n"NOR, me);
+                                message_vision(HIY"\n$N受到敌手出奇不意的一击，$N赶紧使出四两拨千斤，敌手被震开了，$N差点站不稳。\n"NOR, me);
                         }
-                        else message_vision(MAG"\n$N����Ļ��˼��Σ�$N�Ͻ�ʹ��������ǧ����ֱ����ˣ���վ���˲��ӡ�\n"NOR, me);
+                        else message_vision(MAG"\n$N被打的晃了几晃，$N赶紧使出四两拨千斤，敌手被震开了，又站稳了步子。\n"NOR, me);
                         call_out("restart",4,me);
                         return 1;
           }
@@ -474,10 +474,10 @@ int halt_zhenwu(object me)
           if(!objectp(weapon = me->query_temp("weapon"))
                         || (string)weapon->query("skill_type") != "sword" )
                 {
-                        message_vision(HIW"\n$N�������һ�ݣ�ʹһ�С�������ǧ�����Χ�Ķ����������˳��ˡ������߽��󡹡�\n"NOR, me);
+                        message_vision(HIW"\n$N身子向后一纵，使一招『四两拨千斤』将周围的东西拨开，退出了「真武七截阵」。\n"NOR, me);
                 }
                 else
-                        message_vision(HIW"\n$N�������һ�ݣ�ʹһ�С�������ˮ�����ڿ��е���һ�£��˳��ˡ������߽��󡹡�\n"NOR, me);
+                        message_vision(HIW"\n$N身子向后一纵，使一招『青龙出水』，在空中倒刺一下，退出了「真武七截阵」。\n"NOR, me);
 
           me->delete_temp("pending/zhenwu");
           me->delete_temp("zhenwu_time");
@@ -490,14 +490,14 @@ int stop_zhenwu()
 {
           object weapon,me=this_player();
           if(!me->query_temp("pending/zhenwu"))
-                                         return notify_fail("ͣʲô���㲻�����С�������󡹡�\n");
+                                         return notify_fail("停什么？你不在运行「天罡北斗阵」。\n");
           if(!objectp(weapon = me->query_temp("weapon"))
                 || (string)weapon->query("skill_type") != "sword" )
           {
-                message_vision(HIG"\n$N�������һ�ݣ�ʹһ�С�������ǧ�����Χ�Ķ����𿪣��˳��ˡ������߽���\n"NOR, me);
+                message_vision(HIG"\n$N身子向后一纵，使一招『四两拨千斤』将周围的东西震开，退出了「真武七截阵」\n"NOR, me);
                 }
          else
-                message_vision(HIG"\n$N�������һ�ݣ�ʹһ�С�������ˮ�����ڿ��е���һ�£��˳��ˡ������߽��󡹡�\n"NOR, me);
+                message_vision(HIG"\n$N身子向后一纵，使一招『青龙出水』，在空中倒刺一下，退出了「真武七截阵」。\n"NOR, me);
 
           me->remove_all_enemy();
           me->delete_temp("pending/zhenwu");
@@ -512,14 +512,14 @@ int stop_zhenwu()
 int help(object me)
 {
                   write(@HELP
-ָ���ʽ : zhenwu <enemy> <����1> <����2> <����3>
+指令格式 : zhenwu <enemy> <对象1> <对象2> <对象3>
 
-�������߽���Ϊ�������������䵱ɽһ�򹩷�����ۡ���������һ����Ѫ������\n
-��������������ǰ�Ĺ��߶��������𳤽��ͺ�ˮ֮�����ɽ����ɽ�����볤���鶯���ڹ����أ�\n
-����������һ��һ�ߣ����Ǽ����������ص��������ԣ��������һ�׾����޷����书������\n
-�����书���Ǵӹ��߶�ɽ�������磬��ɽ���ݻ��������书��ɭȻ���У����޼��㡣\n
-�����书�����ɫΪ������Ϊ���˺�ʹ������ͬ��ʮ���˸��ֺ�ʹһ�㣬������֮�ͣ�\n
-ʵ���޿ɱ��⡣
+「真武七截阵」为张三丰所创，武当山一向供奉「真武大帝」。张三丰一日心血来潮，\n
+见到真武神像座前的龟蛇二将，想起长江和汉水之会的蛇山、龟山，心想长蛇灵动，乌龟凝重，\n
+真武大帝左右一龟一蛇，正是兼收至灵至重的两件物性，因而创了一套精妙无方的武功出来。\n
+这套武功便是从龟蛇二山大气磅礴，从山势演化出来的武功，森然万有，包罗极广。\n
+这套武功最大特色为若是七为高人合使，便如同六十四人高手合使一般，其威力之猛，\n
+实是无可比拟。
 
 HELP
                   );

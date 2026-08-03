@@ -2,10 +2,10 @@
 inherit ROOM;
 void create()
 {
-       set("short", "·½ÕÉÊÒ");
+       set("short", "æ–¹ä¸ˆå®¤");
        set("long", @LONG
-·½ÕÉÊÒ³ÂÉè¼ò½à£¬ÕýÖÐÒ»¼¸£¬Ò»ÆÑÍÅ£¬Ò»°«´²¡£±±ÃæÇ½ÉÏÐ´×Å´ó´óµÄÒ»
-¸ö¡ºìø¡»×Ö¡£Ò»Î»´ÈÃ¼ÉÆÄ¿µÄ»ÒÒÂÀÏÉ®Õý¶Ë×øÓÚÆÑÍÅÉÏ´ò×ø¡£
+æ–¹ä¸ˆå®¤é™ˆè®¾ç®€æ´ï¼Œæ­£ä¸­ä¸€å‡ ï¼Œä¸€è’²å›¢ï¼Œä¸€çŸ®åºŠã€‚åŒ—é¢å¢™ä¸Šå†™ç€å¤§å¤§çš„ä¸€
+ä¸ªã€Žç¦…ã€å­—ã€‚ä¸€ä½æ…ˆçœ‰å–„ç›®çš„ç°è¡£è€åƒ§æ­£ç«¯åäºŽè’²å›¢ä¸Šæ‰“åã€‚
 LONG
        );
 
@@ -21,7 +21,7 @@ LONG
 void init()
 {
         add_action("do_massage", "massage");
-        add_action("do_massage", "°´Ä¦");
+        add_action("do_massage", "æŒ‰æ‘©");
 }
 int do_massage(string arg)
 {      
@@ -29,15 +29,15 @@ int do_massage(string arg)
     object me;
         int costj, costq,times;
         me = this_player();
-        if(me->query_temp("job_name")!="·þÊÌÐþ´È·½ÕÉ") 
-            return notify_fail("µ¹Ê²Ã´ÂÒ°ÑÕâµ±°´Ä¦Ôº°¡£¿! \n");
+        if(me->query_temp("job_name")!="æœä¾çŽ„æ…ˆæ–¹ä¸ˆ") 
+            return notify_fail("å€’ä»€ä¹ˆä¹±æŠŠè¿™å½“æŒ‰æ‘©é™¢å•Šï¼Ÿ! \n");
         if (me->is_busy())
-         {write("ÄãÏÖÔÚÕýÃ¦×ÅÄØ!\n");return 1;}
+         {write("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢!\n");return 1;}
         if (me->is_fighting())
-         {write("ÄãÕýÔÚÕ½¶·ÖÐ,ÎÞ·¨×¨ÐÄ¸É»î!\n");return 1;}
-        if ( !arg || arg != "·½ÕÉ" )
+         {write("ä½ æ­£åœ¨æˆ˜æ–—ä¸­,æ— æ³•ä¸“å¿ƒå¹²æ´»!\n");return 1;}
+        if ( !arg || arg != "æ–¹ä¸ˆ" )
             {   
-                 message_vision("$NÒª¸øË­°´Ä¦£¿\n",me);
+                 message_vision("$Nè¦ç»™è°æŒ‰æ‘©ï¼Ÿ\n",me);
                  return 1;
              }
         costj = random((int)me->query("con")/3);
@@ -45,23 +45,23 @@ int do_massage(string arg)
         times=20+random(50);
         if ((int)me->query("jingli") < costj || (int)me->query("qi") < costq)
        {
-        message_vision("$NÊÖÃ¦½ÅÂÒ£¬½ÅÏÂÒ»Èí£¬Ë¤µ¹ÔÚµØ¡£\n",me);
+        message_vision("$Næ‰‹å¿™è„šä¹±ï¼Œè„šä¸‹ä¸€è½¯ï¼Œæ‘”å€’åœ¨åœ°ã€‚\n",me);
         me->unconcious();
         return 1;
         }
         
         me->receive_damage("jingli", costj);
         me->add("qi", -costq);       
-        if (((int)me->query_temp("mark/°´Ä¦")>times)&&(present("xuanci", environment(me))))
+        if (((int)me->query_temp("mark/æŒ‰æ‘©")>times)&&(present("xuanci", environment(me))))
            {
-              me->set_temp("mark/°´Ä¦Íê",1);
-               return notify_fail(RED "Ðþ´È·½ÕÉËµµÀ£ºÐ»Ð»ÄãÀ´·þÊÌÎÒ£¬¿ì»ØÈ¥ÐÝÏ¢°É(task ok)!!!"NOR);
+              me->set_temp("mark/æŒ‰æ‘©å®Œ",1);
+               return notify_fail(RED "çŽ„æ…ˆæ–¹ä¸ˆè¯´é“ï¼šè°¢è°¢ä½ æ¥æœä¾æˆ‘ï¼Œå¿«å›žåŽ»ä¼‘æ¯å§(task ok)!!!"NOR);
             }  
-        message_vision("$NÅÌÏ¥×øÏÂ£¬ÓÃÁ¦°´Ä¦·½ÕÉÈ«Éí£¬°ÑÐþ´ÈÅªµÄË¬Ë¬µÄ¡£\n", me);
-        me->add_temp("mark/°´Ä¦",1);
+        message_vision("$Nç›˜è†åä¸‹ï¼Œç”¨åŠ›æŒ‰æ‘©æ–¹ä¸ˆå…¨èº«ï¼ŒæŠŠçŽ„æ…ˆå¼„çš„çˆ½çˆ½çš„ã€‚\n", me);
+        me->add_temp("mark/æŒ‰æ‘©",1);
         
        if ( (int)me->query_skill("buddhism", 1) < 50 && random(10)>6 )
-                {  write(HIM"Äã¾²×øÇãÌý·½ÕÉËÐ¾­£¬¶Ôìø×ÚÐÄ·¨ÓÐÐ©ÁìÎò!\n"NOR);
+                {  write(HIM"ä½ é™åå€¾å¬æ–¹ä¸ˆè¯µç»ï¼Œå¯¹ç¦…å®—å¿ƒæ³•æœ‰äº›é¢†æ‚Ÿ!\n"NOR);
                    me->improve_skill("buddhism", (int)(me->query_skill("force",1) / 5));
                   }
           return 1;

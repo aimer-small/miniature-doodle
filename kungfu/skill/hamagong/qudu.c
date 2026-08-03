@@ -8,43 +8,43 @@ int exert(object me)
 	mapping poison;
 
 	if( me->is_fighting() )
-		return notify_fail("Õ½¶·ÖĞÔË¹¦Çı¶¾£¿ÕÒËÀÂğ£¿\n");
+		return notify_fail("æˆ˜æ–—ä¸­è¿åŠŸé©±æ¯’ï¼Ÿæ‰¾æ­»å—ï¼Ÿ\n");
 
 	if ((int)me->query_skill("hamagong", 1) < 50)
-		return notify_fail("ÄãµÄ¸òó¡¹¦¹¦ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„è›¤èŸ†åŠŸåŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if ((int)me->query_skill("poison", 1) < 50)
-		return notify_fail("Äã¶Ô¡°¶¾¡±»¹²»ÊÇºÜ¾«Í¨¡£\n");
+		return notify_fail("ä½ å¯¹â€œæ¯’â€è¿˜ä¸æ˜¯å¾ˆç²¾é€šã€‚\n");
 
         if( me->query("oyf/hamagong") < 1 ) 
-                return notify_fail("ÄãµÄ¸òó¡¹¦¹¦ĞŞÎª»¹²»¹»¡£\n");
+                return notify_fail("ä½ çš„è›¤èŸ†åŠŸåŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	poison = me->query_conditions_by_type("poison");
 	if (!mapp(poison)) 
-		return notify_fail("ÄãÉîÉîÎüÁË¿ÚÆø£¬¿ÚÖĞ¡°¹¾¹¾¡£¡£¡£¡±µØ½ĞÁË¼¸Éù¡£\n");
+		return notify_fail("ä½ æ·±æ·±å¸äº†å£æ°”ï¼Œå£ä¸­â€œå’•å’•ã€‚ã€‚ã€‚â€åœ°å«äº†å‡ å£°ã€‚\n");
     		
-	write( HIW"\nÄãµ¹ÔËÆøÏ¢£¬Í·ÏÂ½ÅÉÏ£¬ÆøÑªÄæĞĞ£¬½«¶¾Æø´Ó½øÈëÉí×ÓÖ®´¦±ÆÁË³öÈ¥¡£\n" NOR);
-	message("vision", HIW+me->name()+"ÉíÉÏ°×ÆøÒ»ÏÖ¼´Ïû£¬ÕÅ¿ÚºßÁËÒ»Éù¡£\n"NOR, environment(me), me);
+	write( HIW"\nä½ å€’è¿æ°”æ¯ï¼Œå¤´ä¸‹è„šä¸Šï¼Œæ°”è¡€é€†è¡Œï¼Œå°†æ¯’æ°”ä»è¿›å…¥èº«å­ä¹‹å¤„é€¼äº†å‡ºå»ã€‚\n" NOR);
+	message("vision", HIW+me->name()+"èº«ä¸Šç™½æ°”ä¸€ç°å³æ¶ˆï¼Œå¼ å£å“¼äº†ä¸€å£°ã€‚\n"NOR, environment(me), me);
 	me->clear_conditions_by_type("poison");
 	me->add("neili", -500);
 	me->start_busy(6);
 	return 1;
 }
 
-string exert_name(){ return HIW"Çı¶¾"NOR; }
+string exert_name(){ return HIW"é©±æ¯’"NOR; }
 
 int help(object me)
 {
-	write(WHT"\n¸òó¡¹¦¡¸Çı¶¾¡¹£º"NOR"\n");
+	write(WHT"\nè›¤èŸ†åŠŸã€Œé©±æ¯’ã€ï¼š"NOR"\n");
 	write(@HELP
-	Å·Ñô·æµÄ¶ÀÃÅ¾ø¼¼¸òó¡¹¦ÄËÊÇÌìÏÂÎäÑ§ÖĞµÄ¾ø¶¥¹¦·ò¡£
+	æ¬§é˜³é”‹çš„ç‹¬é—¨ç»æŠ€è›¤èŸ†åŠŸä¹ƒæ˜¯å¤©ä¸‹æ­¦å­¦ä¸­çš„ç»é¡¶åŠŸå¤«ã€‚
 
-	ÒªÇó£º	ÄÚÁ¦ 500 ÒÔÉÏ£» 
-		»ù±¾¶¾¼¼ 50 ÒÔÉÏ£»
-		½â¿ª¸òó¡¹¦ÃØÌâ¶ş¡£    
+	è¦æ±‚ï¼š	å†…åŠ› 500 ä»¥ä¸Šï¼› 
+		åŸºæœ¬æ¯’æŠ€ 50 ä»¥ä¸Šï¼›
+		è§£å¼€è›¤èŸ†åŠŸç§˜é¢˜äºŒã€‚    
 HELP
 	);
 	return 1;

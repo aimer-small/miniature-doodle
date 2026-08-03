@@ -7,9 +7,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ËÕĞÇºÓ",({"su xinghe","su"}));
-	set("gender", "ÄĞĞÔ" );
-	set("nickname", "´Ï±çÀÏÈË");
+	set_name("è‹æ˜Ÿæ²³",({"su xinghe","su"}));
+	set("gender", "ç”·æ€§" );
+	set("nickname", "èªè¾©è€äºº");
 	set("shen_type", 0);
 	set("class", "scholar");
 	set("age",60);
@@ -22,8 +22,8 @@ void create()
 	set("no_clean_up",1);
 
 	set("long",
-"´ËÈË¾ÍÊÇºÅ³Æ´Ï±çÀÏÈËµÄËÕĞÇºÓ£¬¾İËµËûÄÜÑÔÉÆ±ç£¬ \n"
-"ÊÇÒ»¸öÎäÁÖÖĞµÄÖÇÕß£¬¶øËûµÄÎä¹¦Ò²ÊÇÎŞÈËÄÜÖª¡£\n");
+"æ­¤äººå°±æ˜¯å·ç§°èªè¾©è€äººçš„è‹æ˜Ÿæ²³ï¼Œæ®è¯´ä»–èƒ½è¨€å–„è¾©ï¼Œ \n"
+"æ˜¯ä¸€ä¸ªæ­¦æ—ä¸­çš„æ™ºè€…ï¼Œè€Œä»–çš„æ­¦åŠŸä¹Ÿæ˜¯æ— äººèƒ½çŸ¥ã€‚\n");
 
 	set("combat_exp", 30000000);
 	set("attitude", "peaceful");
@@ -66,8 +66,8 @@ void create()
            
 	}) );
 
-	create_family("åĞÒ£ÅÉ", 2, "µÜ×Ó");
-	set("title","åĞÒ£ÅÉµÚ¶ş´ú´óµÜ×Ó");
+	create_family("é€é¥æ´¾", 2, "å¼Ÿå­");
+	set("title","é€é¥æ´¾ç¬¬äºŒä»£å¤§å¼Ÿå­");
 	setup();
 	carry_object(__DIR__"obj/cloth")->wear();
 	carry_object(__DIR__"obj/blade")->wield();
@@ -77,20 +77,20 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if ((int)ob->query_skill("beiming-shengong", 1) < 100) {
-		command("say ÎÒåĞÒ£ÅÉÄÚ¹¦µÄÔ´ÈªÀ´×ÔÓÚ±±Ú¤Éñ¹¦µÄĞÄ·¨¡£"); 
+		command("say æˆ‘é€é¥æ´¾å†…åŠŸçš„æºæ³‰æ¥è‡ªäºåŒ—å†¥ç¥åŠŸçš„å¿ƒæ³•ã€‚"); 
 		command("say " + RANK_D->query_respect(ob) + 
-			"µÄ±±Ú¤Éñ¹¦ÊÇ·ñ»¹Ó¦¸ÃÓĞËùÌá¸ß°¡£¿");
+			"çš„åŒ—å†¥ç¥åŠŸæ˜¯å¦è¿˜åº”è¯¥æœ‰æ‰€æé«˜å•Šï¼Ÿ");
 		return;
 	}
-if ((string)ob->query("gender")=="ÄĞĞÔ")
+if ((string)ob->query("gender")=="ç”·æ€§")
    {
-		message_vision("ËÕĞÇºÓ´¹Ä¿³ÁË¼Æ¬¿Ì, ËµµÀ£º¡°ºÃ°É, ÎÒ¾ÍÊÕÏÂÄãÁË¡£¡±\n",ob);
+		message_vision("è‹æ˜Ÿæ²³å‚ç›®æ²‰æ€ç‰‡åˆ», è¯´é“ï¼šâ€œå¥½å§, æˆ‘å°±æ”¶ä¸‹ä½ äº†ã€‚â€\n",ob);
        command("recruit " + ob->query("id"));
-       ob->set("title", "åĞÒ£ÅÉµÚÈı´úµÜ×Ó");
+       ob->set("title", "é€é¥æ´¾ç¬¬ä¸‰ä»£å¼Ÿå­");
        return;}
    else
       {
-		message_vision("ÎÒåĞÒ£ÅÉ´Ó²»ÊÕÅ®Á÷Ö®±²?¡±\n",ob);
+		message_vision("æˆ‘é€é¥æ´¾ä»ä¸æ”¶å¥³æµä¹‹è¾ˆ?â€\n",ob);
        return;}
  }
 

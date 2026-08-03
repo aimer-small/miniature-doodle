@@ -6,17 +6,17 @@ inherit ARMOR;
 
 void create()
 {
-        set_name(YEL"»¢Í·¶·ÊŞ¼×"NOR, ({ "hutou jia" , "armor", "jia" }) );
+        set_name(YEL"è™å¤´æ–—å…½ç”²"NOR, ({ "hutou jia" , "armor", "jia" }) );
         set_weight(20000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
                 set("material", "bronze");
 		set("value", 8000);
 // cut armor river@
                 set("armor_prop/armor", 15);
-                set("long","Õâ¼şîø¼×ÒÔÕû¿éÍ­°å´òÔì£¬ĞØ¿Ú»¤ĞÄ´¦µñ×Å¸öÕøÄüµÄ»¢Í·¡£\n");
+                set("long","è¿™ä»¶é“ ç”²ä»¥æ•´å—é“œæ¿æ‰“é€ ï¼Œèƒ¸å£æŠ¤å¿ƒå¤„é›•ç€ä¸ªç‹°ç‹çš„è™å¤´ã€‚\n");
            }
         setup();
 }

@@ -1,17 +1,17 @@
-// mrkey.c ºÚÔ¿³×
+// mrkey.c é»‘é’¥åŒ™
 // by leontt 2000/10/18
 
 inherit ITEM;
 
 void create()
 {
-        set_name("ºÚÔ¿³×", ({"hei yaoshi","mrkey"}));
+        set_name("é»‘é’¥åŒ™", ({"hei yaoshi","mrkey"}));
         set("long",
-                "ÕâÊÇÒ»°ÑºÚÔ¿³×¡£\n");
-        set("unit", "°Ñ");
+                "è¿™æ˜¯ä¸€æŠŠé»‘é’¥åŒ™ã€‚\n");
+        set("unit", "æŠŠ");
         set("weight", 10);
         set("value", 10000);
-        set("no_give", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-//        set("no_get", "ÕâÑù¶«Î÷ÄÃ²»ÆğÀ´¡£\n");
-        set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+        set("no_give", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+//        set("no_get", "è¿™æ ·ä¸œè¥¿æ‹¿ä¸èµ·æ¥ã€‚\n");
+        set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
 }

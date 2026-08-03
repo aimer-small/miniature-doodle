@@ -5,12 +5,12 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIB"²õÍÉ"NOR, ({"chan tui"}));
+        set_name(HIB"è‰èœ•"NOR, ({"chan tui"}));
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ö§");
+                set("unit", "æ”¯");
                 set("value", 3500);
                 set("medicine", "drug");
 		set("make/drug", 1);

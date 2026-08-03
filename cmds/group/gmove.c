@@ -1,4 +1,4 @@
-// gmove.c  ×ªÒÆ°ïÅÉ
+// gmove.c  è½¬ç§»å¸®æ´¾
 // by augx@sj 4/15/2002
 
 #include <ansi.h>
@@ -7,11 +7,11 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
-gmove [Õ¾µãÓ¢ÎÄid]
-°Ñ°ïÅÉ¿ØÖÆÈ¨×ªÒÆµ½Ö¸¶¨Õ¾µã£¬×ªÒÆ²Ù×÷Ã¿ÌìÔç³¿ÏµÍ³½øĞĞ°ïÅÉ¼ì²éÓëÍ¬²½Ê±Ö´ĞĞ¡£
-Ö»ÓĞ°ïÖ÷ºÍ¸±°ïÖ÷ÓĞÈ¨ÀûÖ´ĞĞ´Ë²Ù×÷¡£Õ¾µãÓ¢ÎÄidÇëÓÃ¡°mudlist¡±ÃüÁî²é¿´£¬²¢×¢
-Òâ´óĞ¡Ğ´¡£
+æŒ‡ä»¤æ ¼å¼ :
+gmove [ç«™ç‚¹è‹±æ–‡id]
+æŠŠå¸®æ´¾æ§åˆ¶æƒè½¬ç§»åˆ°æŒ‡å®šç«™ç‚¹ï¼Œè½¬ç§»æ“ä½œæ¯å¤©æ—©æ™¨ç³»ç»Ÿè¿›è¡Œå¸®æ´¾æ£€æŸ¥ä¸åŒæ­¥æ—¶æ‰§è¡Œã€‚
+åªæœ‰å¸®ä¸»å’Œå‰¯å¸®ä¸»æœ‰æƒåˆ©æ‰§è¡Œæ­¤æ“ä½œã€‚ç«™ç‚¹è‹±æ–‡idè¯·ç”¨â€œmudlistâ€å‘½ä»¤æŸ¥çœ‹ï¼Œå¹¶æ³¨
+æ„å¤§å°å†™ã€‚
 
 HELP
 	);
@@ -25,15 +25,15 @@ int main(object me, string arg)
 
 	if( !arg ) return help(me);
 	if( !(gid=me->query("group/id")) )
-		return notify_fail("Äã»¹Ã»ÓĞ´´½¨×Ô¼ºµÄ°ïÅÉÄØ¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰åˆ›å»ºè‡ªå·±çš„å¸®æ´¾å‘¢ã€‚\n");
 	if( me->query("group/class") > 2 )
-		return notify_fail("ÄãµÄµÈ¼¶²»¹»¡£\n");
+		return notify_fail("ä½ çš„ç­‰çº§ä¸å¤Ÿã€‚\n");
 	if( !GROUP_D->site_now( gid ) )
 		return notify_fail( GROUP_D->get_last_error() );
 
 	if( !GROUP_D->set_site_next(gid,arg) )
 		return notify_fail( GROUP_D->get_last_error() );
 
-	write("Äã¾ö¶¨°Ñ"+GROUP_D->get_group_name(gid)+"µÄ¿ØÖÆÈ¨×ªÒÆµ½"+arg+"¡£\n");
+	write("ä½ å†³å®šæŠŠ"+GROUP_D->get_group_name(gid)+"çš„æ§åˆ¶æƒè½¬ç§»åˆ°"+arg+"ã€‚\n");
 	return 1;
 }

@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�᷿");
+	set("short", "厢房");
 	set("long", @LONG
-���ڲ��õ�ʮ�����ʣ��ֱ�ڷ��ż��Ŵ󴲣������½�ͽ����Ϣ֮�á�
+房内布置得十分舒适，分别摆放着几张大床，供日月教徒们休息之用。
 LONG
 	);
 	set("no_fight", "1");

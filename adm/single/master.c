@@ -10,7 +10,7 @@ object connect()
 	err = catch(login_ob = new(LOGIN_OB));
 
 	if (err) {
-		write("ÏÖÔÚÓĞÈËÕıÔÚĞŞ¸ÄÊ¹ÓÃÕßÁ¬Ïß²¿·İµÄ³ÌÊ½£¬Çë´ı»áÔÙÀ´¡£\n");
+		write("ç°åœ¨æœ‰äººæ­£åœ¨ä¿®æ”¹ä½¿ç”¨è€…è¿çº¿éƒ¨ä»½çš„ç¨‹å¼ï¼Œè¯·å¾…ä¼šå†æ¥ã€‚\n");
 		write(err);
 	}
 	return login_ob;
@@ -39,12 +39,12 @@ int valid_compile(string file)
 // master).
 void crash(string error, object command_giver, object current_object)
 {
-	efun::shout("ÏµÍ³ºËĞÄ·¢³öÒ»Éù²Ò½Ğ£ºÍÛ¡ªÁ¨¡ªßÖ¡ª\n");
-	efun::shout("ÏµÍ³ºËĞÄ¸æËßÄã£ºÒªµ±»úÁË£¬×Ô¼º±£ÖØ°É£¡\n");
+	efun::shout("ç³»ç»Ÿæ ¸å¿ƒå‘å‡ºä¸€å£°æƒ¨å«ï¼šå“‡â€”å“©â€”å’§â€”\n");
+	efun::shout("ç³»ç»Ÿæ ¸å¿ƒå‘Šè¯‰ä½ ï¼šè¦å½“æœºäº†ï¼Œè‡ªå·±ä¿é‡å§ï¼\n");
 	log_file("nosave/CRASHES", MUD_NAME + " crashed on: " + ctime(time()) +
 		", error: " + error + "\n");
-	write_file("/log/nosave/LASTCRASH", MUD_NAME + "ÉÏ´Îµ±»úÊÇÔÚ£º" + ctime(time()) +
-		"£¬Ô­Òò£º" + error + "\n", 1);
+	write_file("/log/nosave/LASTCRASH", MUD_NAME + "ä¸Šæ¬¡å½“æœºæ˜¯åœ¨ï¼š" + ctime(time()) +
+		"ï¼ŒåŸå› ï¼š" + error + "\n", 1);
 	if (command_giver) {
 		log_file("nosave/CRASHES",
 			sprintf( "this_player: %O %s\n",
@@ -126,16 +126,16 @@ void log_error(string file, string message)
         if (this_player(1))
         {
             if (wizardp(this_player(1)))
-                efun::write("±àÒëÊ±¶Î´íÎó£º" + message + "\n");
+                efun::write("ç¼–è¯‘æ—¶æ®µé”™è¯¯ï¼š" + message + "\n");
             else
                 ;// efun::write(get_config(__DEFAULT_ERROR_MESSAGE__) + "\n");
         }
-        // ¼ÇÂ¼´íÎóÈÕÖ¾
+        // è®°å½•é”™è¯¯æ—¥å¿—
         efun::write_file(LOG_DIR + "log_error", message);
     }
     else
     {
-        // ¼ÇÂ¼¾¯¸æÈÕÖ¾
+        // è®°å½•è­¦å‘Šæ—¥å¿—
         efun::write_file(LOG_DIR + "log", message);
     }
 }
@@ -175,7 +175,7 @@ void destruct_env_of(object ob)
 {
 	if (!interactive(ob))
 		return;
-	tell_object(ob, "ÄãËù´æÔÚµÄ¿Õ¼ä±»»ÙÃğÁË¡£\n");
+	tell_object(ob, "ä½ æ‰€å­˜åœ¨çš„ç©ºé—´è¢«æ¯ç­äº†ã€‚\n");
 	ob->move(VOID_OB);
 }
 
@@ -227,15 +227,15 @@ string standard_trace(mapping error, int caught)
 
     /* keep track of number of errors per object...if you're into that */
 
-    res = (caught) ? "´íÎóÑ¶Ï¢±»À¹½Ø: " : "´íÎó";
-    res = sprintf("%s\nÖ´ĞĞÊ±¶Î´íÎó£º%s\n³ÌÊ½£º%s µÚ %i ĞĞ\nÎï¼ş: %O\n¶ÔÏó£º%O\n",
+    res = (caught) ? "é”™è¯¯è®¯æ¯è¢«æ‹¦æˆª: " : "é”™è¯¯";
+    res = sprintf("%s\næ‰§è¡Œæ—¶æ®µé”™è¯¯ï¼š%s\nç¨‹å¼ï¼š%s ç¬¬ %i è¡Œ\nç‰©ä»¶: %O\nå¯¹è±¡ï¼š%O\n",
     	res, error["error"],
         error["program"], error["line"],
         error["object"],
 	this_player());
 
     for (i=0, s = sizeof(error["trace"]); i < s; i++) {
-		res = sprintf("%sºô½ĞÀ´×Ô£º%s µÄ %s() µÚ %i ĞĞ£¬Îï¼ş£º %O\n",
+		res = sprintf("%så‘¼å«æ¥è‡ªï¼š%s çš„ %s() ç¬¬ %i è¡Œï¼Œç‰©ä»¶ï¼š %O\n",
 			res,
 			error["trace"][i]["program"],
             error["trace"][i]["function"],
@@ -369,7 +369,7 @@ string object_name(object ob)
 
 mixed query(string arg)
 {
-	if (arg == "channel_id") return "ÏµÍ³ºËĞÄ";
+	if (arg == "channel_id") return "ç³»ç»Ÿæ ¸å¿ƒ";
 	return 0;
 }
 

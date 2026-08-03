@@ -1,18 +1,18 @@
 // zhihuan.c
-// Ö¸»·
+// æŒ‡ç¯
 #include <ansi.h>
 #include <armor.h>
 inherit HANDS;
 inherit F_UNIQUE;
 void create()
 {
-       set_name("ºÚÓñïí", ({ "yu zhuo", "zhuo" }) );
+       set_name("é»‘ç‰é•¯", ({ "yu zhuo", "zhuo" }) );
        set_weight(100);
        if( clonep() )
                set_default_object(__FILE__);
       else {
-               set("unit", "Ö§");
-               set("long", "ÕâÊÇÒ»Ö§ºÚÓñïí£¬Ïà´«ÊÇ´óÏÀÑî¹ıËÍ¸ø¹ùÏåµÄÉúÈÕÀñÎï¡£\n");
+               set("unit", "æ”¯");
+               set("long", "è¿™æ˜¯ä¸€æ”¯é»‘ç‰é•¯ï¼Œç›¸ä¼ æ˜¯å¤§ä¾ æ¨è¿‡é€ç»™éƒ­è¥„çš„ç”Ÿæ—¥ç¤¼ç‰©ã€‚\n");
                set("value", 100000);
                set("no_get",1);                 
                set("no_give",1);

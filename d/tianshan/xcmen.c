@@ -6,15 +6,15 @@ int do_drop(object me, object obj);
 
 void create()
 {
-	set("short", "ÏÉ³îÃÅ");
+	set("short", "ä»™æ„é—¨");
 	set("long", @LONG
-ÕâÀïÊÇÏÉ³îÃÅ£¬ÏÉ³îÃÅÈýÃæ»·º££¬ÔÆÌìÎÞ¼Ê£¬ÁÝÙý±±·çÂÓ¹ýÉí±ß£¬´µ
-µÃÈËÈçÌÚÔÆ¼ÝÎí£¬áÝ·ðÕâÀïÕæµÄÊÇÓëÌì½ÓÈÀÖ®´¦¡£
+è¿™é‡Œæ˜¯ä»™æ„é—¨ï¼Œä»™æ„é—¨ä¸‰é¢çŽ¯æµ·ï¼Œäº‘å¤©æ— é™…ï¼Œå‡›å†½åŒ—é£ŽæŽ è¿‡èº«è¾¹ï¼Œå¹
+å¾—äººå¦‚è…¾äº‘é©¾é›¾ï¼Œå½·ä½›è¿™é‡ŒçœŸçš„æ˜¯ä¸Žå¤©æŽ¥å£¤ä¹‹å¤„ã€‚
 LONG);
 	 set("exits", ([
                 "northup" : __DIR__"shanjin1",
         ]));         
-	set("outdoors", "ÌìÉ½");
+	set("outdoors", "å¤©å±±");
 	setup();
 }
 
@@ -29,30 +29,30 @@ int do_jump(string arg)
         object *inv;
         int i;
 
-        if (me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕýÃ¦×ÅÄØ£¡\n");
+        if (me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
         if (arg == "down") { 
-                message_vision( "$NÒ»¸ö×ÝÉí£¬ÌøÏÂÁËÐüÑÂ¡£\n",me);
+                message_vision( "$Nä¸€ä¸ªçºµèº«ï¼Œè·³ä¸‹äº†æ‚¬å´–ã€‚\n",me);
                 me->move(__DIR__"yadi");
-                me->set_temp("last_damage_from", "ÌøÏÂÐüÑÂË¤");
+                me->set_temp("last_damage_from", "è·³ä¸‹æ‚¬å´–æ‘”");
                 me->unconcious();
                 me->die();
                 return 1;
         }
-        if( (!arg) || !((arg == "duimian") || (arg == "¶ÔÃæ")))
-                return notify_fail("ÄãÒªÌøµ½ÄÄÀïÈ¥£¬É½ÏÂÂð£¿\n");
+        if( (!arg) || !((arg == "duimian") || (arg == "å¯¹é¢")))
+                return notify_fail("ä½ è¦è·³åˆ°å“ªé‡ŒåŽ»ï¼Œå±±ä¸‹å—ï¼Ÿ\n");
 
         inv = filter_array(deep_inventory(me), (: userp :));
         if (sizeof(inv)) {
-                message_vision("$NÒ»×ÝÉíÏëÌøµ½¶ÔÃæ°ÙÕÉ½§ÉÏ£¬²»ÁÏÒ»¸öÊ§×ã......\n", me);
+                message_vision("$Nä¸€çºµèº«æƒ³è·³åˆ°å¯¹é¢ç™¾ä¸ˆæ¶§ä¸Šï¼Œä¸æ–™ä¸€ä¸ªå¤±è¶³......\n", me);
                 me->unconcious();
                 return 1;
         }
 
         if( (int)me->query_skill("dodge", 1) < 30 )
-                return notify_fail("Äã¾õµÃ×Ô¼ºµÄÇá¹¦Ì«²î£¬Ìø¹ýÈ¥Æñ²»ÊÇËÍËÀ£¡\n");
+                return notify_fail("ä½ è§‰å¾—è‡ªå·±çš„è½»åŠŸå¤ªå·®ï¼Œè·³è¿‡åŽ»å²‚ä¸æ˜¯é€æ­»ï¼\n");
         
-        message_vision("\n$NÏòºóÍËÁË¼¸²½£¬ÍùÇ°¼±ËÙÔ½ÁË¼¸²½£¬½è×ÅÉÏÏÂÆÂµÄÖØÐÄÏÂÒÆ£¬ÈËÔÚ°ë¿Õ£¬Õæ\n"
-			"ÆøÒ»×Ç£¬ÉíÐÎ¼±ËÙÏÂ×¹,ÓÖÔÚ¿ÕÖÐÇáÇÉµÄÒ»¸öÅÌÐý£¬ÒÑ¾­ÂäÔÚ¶ÔÃæµÄ°ÙÕÉ½§ÉÏ¡£\n\n",me);
+        message_vision("\n$Nå‘åŽé€€äº†å‡ æ­¥ï¼Œå¾€å‰æ€¥é€Ÿè¶Šäº†å‡ æ­¥ï¼Œå€Ÿç€ä¸Šä¸‹å¡çš„é‡å¿ƒä¸‹ç§»ï¼Œäººåœ¨åŠç©ºï¼ŒçœŸ\n"
+			"æ°”ä¸€æµŠï¼Œèº«å½¢æ€¥é€Ÿä¸‹å ,åˆåœ¨ç©ºä¸­è½»å·§çš„ä¸€ä¸ªç›˜æ—‹ï¼Œå·²ç»è½åœ¨å¯¹é¢çš„ç™¾ä¸ˆæ¶§ä¸Šã€‚\n\n",me);
         inv = deep_inventory(me);
         i= random(sizeof(inv));
         if ((int)me->query_encumbrance() * 100 / (int)me->query_max_encumbrance() >= 80) {
@@ -60,7 +60,7 @@ int do_jump(string arg)
         }
 	me->add_busy(2);
         me->move(__DIR__"bzhanjian");
-        tell_room(environment(me), me->name() + "´Ó¶ÔÃæµÄ°ÙÕÉ½§µ´ÁË¹ýÀ´¡£\n",me);
+        tell_room(environment(me), me->name() + "ä»Žå¯¹é¢çš„ç™¾ä¸ˆæ¶§è¡äº†è¿‡æ¥ã€‚\n",me);
         return 1;
 }
 
@@ -71,7 +71,7 @@ int do_drop(object me, object obj)
         if( obj->is_character())
                 return 1;
         else {
-                message_vision( sprintf("µ«ÊÇ$NÓÉÓÚÓÃÁ¦¹ý¶È£¬ÉíÉÏµÄÒ»%s$n¶ªÏÂÁËÉ½½§£¬ÔÙÒ²ÕÒ²»»ØÀ´ÁË¡£\n", obj->query("unit")),me, obj );
+                message_vision( sprintf("ä½†æ˜¯$Nç”±äºŽç”¨åŠ›è¿‡åº¦ï¼Œèº«ä¸Šçš„ä¸€%s$nä¸¢ä¸‹äº†å±±æ¶§ï¼Œå†ä¹Ÿæ‰¾ä¸å›žæ¥äº†ã€‚\n", obj->query("unit")),me, obj );
                 destruct(obj);
         }
         return 1;

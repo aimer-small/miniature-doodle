@@ -1,4 +1,4 @@
-// chan.c ÈÕÔÂ±Ş·¨¡¸Ìì²øµØÈÆ¡¹¾÷
+// chan.c æ—¥æœˆé­æ³•ã€Œå¤©ç¼ åœ°ç»•ã€è¯€
 
 #include <ansi.h>
 
@@ -14,40 +14,40 @@ int perform(object me, object target)
         if( !objectp(target)
 	  ||!target->is_character()
 	  ||!me->is_fighting(target) )
-		return notify_fail("Ç£ÖÆ¹¥»÷Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ç‰µåˆ¶æ”»å‡»åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if( (int)me->query_skill("yijin-jing", 1) < 100 )
-		return notify_fail("ÄãµÄÒ×½î¾­ÄÚ¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸Ìì²øµØÈÆ¡¹¾÷¡£\n");
+		return notify_fail("ä½ çš„æ˜“ç­‹ç»å†…åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œå¤©ç¼ åœ°ç»•ã€è¯€ã€‚\n");
 
 	if( (int)me->query_skill("riyue-bian", 1) < 120 )
-		return notify_fail("ÄãµÄÈÕÔÂ±Ş·¨²»¹»æµÊì£¬²»»áÊ¹ÓÃ¡¸Ìì²øµØÈÆ¡¹¾÷¡£\n");
+		return notify_fail("ä½ çš„æ—¥æœˆé­æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ã€Œå¤©ç¼ åœ°ç»•ã€è¯€ã€‚\n");
 
 	if (!weapon
 	 || weapon->query("skill_type") != "whip"
 	 || me->query_skill_mapped("whip") != "riyue-bian"
 	 || me->query_skill_mapped("parry") != "riyue-bian")
-		return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃÇ£ÖÆ¹¥»÷¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ç‰µåˆ¶æ”»å‡»ã€‚\n");
 
 	if( (int)me->query("neili") < 500 )
-		return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃ¡¸Ìì²øµØÈÆ¡¹¾÷¡£\n");
+		return notify_fail("ä½ ç°åœ¨å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨ã€Œå¤©ç¼ åœ°ç»•ã€è¯€ã€‚\n");
 
 	if( target->is_busy())
-		return notify_fail(target->name() + "Ä¿Ç°Õı×Ô¹Ë²»Ï¾£¬·Åµ¨¹¥»÷°É£¡\n");
+		return notify_fail(target->name() + "ç›®å‰æ­£è‡ªé¡¾ä¸æš‡ï¼Œæ”¾èƒ†æ”»å‡»å§ï¼\n");
 
- me->start_perform(4, "¡¸Ìì²øµØÈÆ¡¹"); 
-//»¹ÊÇ¼ÓÉÏbusyµÄºÃÒòÎªÓĞÁËÈÕÔÂ
-	msg = HIY "$NÊ¹³öÈÕÔÂ±Ş·¨¡¸Ìì²øµØÈÆ¡¹¾÷£¬Á¬»ÓÊı±Ş£¬É¢ÏÂÂúÌì±ŞÍø£¬ÆóÍ¼°Ñ$nµÄÈ«Éí²øÈÆÆğÀ´¡£\n";
+ me->start_perform(4, "ã€Œå¤©ç¼ åœ°ç»•ã€"); 
+//è¿˜æ˜¯åŠ ä¸Šbusyçš„å¥½å› ä¸ºæœ‰äº†æ—¥æœˆ
+	msg = HIY "$Nä½¿å‡ºæ—¥æœˆé­æ³•ã€Œå¤©ç¼ åœ°ç»•ã€è¯€ï¼Œè¿æŒ¥æ•°é­ï¼Œæ•£ä¸‹æ»¡å¤©é­ç½‘ï¼Œä¼å›¾æŠŠ$nçš„å…¨èº«ç¼ ç»•èµ·æ¥ã€‚\n";
 
 	me->add("neili", -200);
 	me->add("jingli", -140);
 	busy = (int)me->query_skill("riyue-bian", 1)/30;
 	if(random(me->query("combat_exp")) >  target->query("combat_exp")*2/5){
-		msg += "½á¹û$n±»$N¹¥ÁË¸ö´ëÊÖ²»¼°£¡\n" NOR;
+		msg += "ç»“æœ$nè¢«$Næ”»äº†ä¸ªæªæ‰‹ä¸åŠï¼\n" NOR;
 		target->start_busy(4+random(4));
 		me->set_temp("sl/chanrao",1);
 		call_out("check_fight", 1, me, target, weapon, 7); 
 	} else {
-		msg += "¿ÉÊÇ$n¿´ÆÆÁË$NµÄÆóÍ¼£¬²¢Ã»ÓĞÉÏµ±¡£\n" NOR;
+		msg += "å¯æ˜¯$nçœ‹ç ´äº†$Nçš„ä¼å›¾ï¼Œå¹¶æ²¡æœ‰ä¸Šå½“ã€‚\n" NOR;
 		me->start_busy(2);
 	}
 	message_vision(msg, me, target);
@@ -64,10 +64,10 @@ void check_fight(object me,object target,object weapon,int count)
 	|| count < 1){
 		if (me) {
 			me->delete_temp("sl/chanrao");
-//			me->start_perform(3, "¡¸Ìì²øµØÈÆ¡¹");
+//			me->start_perform(3, "ã€Œå¤©ç¼ åœ°ç»•ã€");
 		}
 		return;
        }
        call_out("check_fight", 1, me,target,weapon,count -1);
 }
-string perform_name(){ return HIY"Ìì²øµØÈÆ¾÷"NOR; }
+string perform_name(){ return HIY"å¤©ç¼ åœ°ç»•è¯€"NOR; }

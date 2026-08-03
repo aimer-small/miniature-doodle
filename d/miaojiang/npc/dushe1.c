@@ -4,16 +4,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("ºÚÉ«¶¾Éß", ({ "heise dushe", "dushe" }) );
-        set("race", "Ò°ÊÞ");
+        set_name("é»‘è‰²æ¯’è›‡", ({ "heise dushe", "dushe" }) );
+        set("race", "é‡Žå…½");
         set("age", 15);
-        set("long", "Ò»Ö»»ëÉíÆáºÚµÄ¶¾Éß£¬Á½Ö»ÑÛ¾¦¾¯ÌèµÄ¿´×ÅËÄÖÜ¡£\n");
+        set("long", "ä¸€åªæµ‘èº«æ¼†é»‘çš„æ¯’è›‡ï¼Œä¸¤åªçœ¼ç›è­¦æƒ•çš„çœ‹ç€å››å‘¨ã€‚\n");
         set("attitude", "peaceful");
 
         set("str", 36);
         set("cor", 30);
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Æß´ç", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ä¸ƒå¯¸", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
 
         set("combat_exp", 220000);
@@ -39,7 +39,7 @@ void init()
 void die()
 {
 // object ob;
-        message_vision("$NÅ¾µÄÒ»Éù¶Ï³ÉÁ½½Ø£¡$NËÀÁË¡£\n", this_object());
+        message_vision("$Nå•ªçš„ä¸€å£°æ–­æˆä¸¤æˆªï¼$Næ­»äº†ã€‚\n", this_object());
 //        ob = new(__DIR__"obj/shedan");
 //        ob->move(environment(this_object()));
         destruct(this_object());

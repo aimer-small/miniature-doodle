@@ -3,15 +3,15 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-   set_name("ÆßÐÇº£ÌÄ", ({"qixing haitang", "qixing","yaowu"}));
+   set_name("ä¸ƒæ˜Ÿæµ·æ£ ", ({"qixing haitang", "qixing","yaowu"}));
    if (clonep())
       set_default_object(__FILE__);
    else {
       set("value", 5000);
-      set("unit", "Ð©");
-      set("long","ÕâÊÇÒ»ÖÖÆæÌØµÄ»¨²Ý£¬¾ç¶¾¡£\n");
+      set("unit", "äº›");
+      set("long","è¿™æ˜¯ä¸€ç§å¥‡ç‰¹çš„èŠ±è‰ï¼Œå‰§æ¯’ã€‚\n");
       set("base_value", 5000);
-      set("base_unit", "·Ý");
+      set("base_unit", "ä»½");
       set("base_weight", 30);
    }
 set("make/drug",1);
@@ -27,7 +27,7 @@ int do_eat(string arg)
 {
    object me = this_player();
    if(!id(arg))
-       return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+       return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
    me->apply_condition("xx_poison", 50);
  destruct(this_object());
  return 1;

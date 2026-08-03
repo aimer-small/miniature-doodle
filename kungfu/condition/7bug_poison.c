@@ -1,4 +1,4 @@
-// Æß³æÈí½îÉ¢.7bug_poison.c
+// ä¸ƒè™«è½¯ç­‹æ•£.7bug_poison.c
 // created by olives@SJ 5/1/2001
 #include <ansi.h>
 #include <condition.h>
@@ -9,7 +9,7 @@ int update_condition(object me, int duration)
 {
        if(duration>30)
 	   duration = 30;
-       message_vision(HIR"$N»ëÉíËáÂé£¬»ëÉí¶¶¸ö²»Í££¬ºÃÏóÒ»µãÓÃ²»ÉÏ¾¢¡£\n"NOR, me);
+       message_vision(HIR"$Næµ‘èº«é…¸éº»ï¼Œæµ‘èº«æŠ–ä¸ªä¸åœï¼Œå¥½è±¡ä¸€ç‚¹ç”¨ä¸ä¸ŠåŠ²ã€‚\n"NOR, me);
        if(random(me->query_skill("force")*2+me->query("neili"))>me->query("neili"))
        {
 				me->add("str",-1);

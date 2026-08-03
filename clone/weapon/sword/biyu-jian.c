@@ -5,12 +5,12 @@ inherit SWORD;
 
 void create()
 {
-	set_name(HIG "±ÌÓñ½£" NOR, ({ "biyu jian", "sword", "jian" }) );
+	set_name(HIG "ç¢§ç‰å‰‘" NOR, ({ "biyu jian", "sword", "jian" }) );
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("value", 1000);
 		set("treasure",1);
 		set("rigidity", 4);
@@ -21,9 +21,9 @@ void create()
 		set("wield_maxneili", 900);
 		set("wield_str", 23);
 		set("material", "jade");
-		set("long", "ÕâÊÇ°ÑÇ°¹ÅÉñ±ø£¬½£ÉíÉÏÒşÒşµÄÍ¸³ö±ÌÓñÖ®¹â£¬µ±Õæ·æÀûÎŞ±È¡£\n");
-		set("wield_msg", HIC "Ö»Ìı¼û¡¸ÎË¡¹µØÒ»Éù£¬±Ì¹âÉÁÏÖ£¬$N½«Ñü¼ä½âÏÂµÄ$n" HIC "¶¶µÃ±ÊÖ±¡£\n" NOR);
-		set("unwield_msg", HIC "$n" HIC "»Ã×÷Ò»µÀ±ÌÓñÖ®¹â£¬¡¸à§¡¹µØ·ÉÈë½£ÇÊ¡£\n" NOR);
+		set("long", "è¿™æ˜¯æŠŠå‰å¤ç¥å…µï¼Œå‰‘èº«ä¸Šéšéšçš„é€å‡ºç¢§ç‰ä¹‹å…‰ï¼Œå½“çœŸé”‹åˆ©æ— æ¯”ã€‚\n");
+		set("wield_msg", HIC "åªå¬è§ã€Œå—¡ã€åœ°ä¸€å£°ï¼Œç¢§å…‰é—ªç°ï¼Œ$Nå°†è…°é—´è§£ä¸‹çš„$n" HIC "æŠ–å¾—ç¬”ç›´ã€‚\n" NOR);
+		set("unwield_msg", HIC "$n" HIC "å¹»ä½œä¸€é“ç¢§ç‰ä¹‹å…‰ï¼Œã€Œå”°ã€åœ°é£å…¥å‰‘é˜ã€‚\n" NOR);
 	}
 	init_sword(50);
 	setup();

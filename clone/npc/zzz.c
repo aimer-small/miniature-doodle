@@ -4,11 +4,11 @@ inherit NPC;
 void create()
 
 {
-       set_name("ÕÅÕÑÖØ", ({ "zhang sanfeng", "zhang" }));
-	set("nickname", "Ìú²¶");
+       set_name("å¼ æ˜­é‡", ({ "zhang sanfeng", "zhang" }));
+	set("nickname", "é“æ•");
 	set("long", 
-		"Ëû¾ÍÊÇÕÅÕÑÖØ¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä»–å°±æ˜¯å¼ æ˜­é‡ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("attitude", "friendly");
 	set("shen_type", 1);

@@ -2,14 +2,14 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "ÃÉ¹Å¾üÓª");
+        set("short", "è’™å¤å†›è¥");
         set("long", @LONG
-ÕâÀïÊÇÃÉ¹Å¹¥»÷ÏåÑôµÄÁÙÊ±¾üÓª£¬Ê±Ê±ÓĞÊ¿±øÀ´»ØÑ²Âß¡£
-ÍùÎ÷ÄÏ±ãÄÜµ½´ïÏåÑô¡£
+è¿™é‡Œæ˜¯è’™å¤æ”»å‡»è¥„é˜³çš„ä¸´æ—¶å†›è¥ï¼Œæ—¶æ—¶æœ‰å£«å…µæ¥å›å·¡é€»ã€‚
+å¾€è¥¿å—ä¾¿èƒ½åˆ°è¾¾è¥„é˜³ã€‚
 LONG
         );
         set("xyjob", 1);
-        set("outdoors", "ÏåÑô");
+        set("outdoors", "è¥„é˜³");
         set("objects", ([
                 __DIR__"npc/weishi" : 3,
         ]));
@@ -26,6 +26,6 @@ int valid_leave(object me, string dir)
       if ((dir == "enter") 
       && (me->query_temp("xyjob/xy_defend")) 
       && (present("weishi", this_object())))
-      return notify_fail("Äã»¹ÊÇÏÈÉ±µôÃÅ¿ÚµÄÎÀÊ¿ÔÙËµ°É¡£\n");
+      return notify_fail("ä½ è¿˜æ˜¯å…ˆæ€æ‰é—¨å£çš„å«å£«å†è¯´å§ã€‚\n");
       return ::valid_leave(me, dir);
 }

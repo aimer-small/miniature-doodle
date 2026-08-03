@@ -37,7 +37,7 @@ void init()
 
 void kill(object ob)
 {
-	command("say ÏëÅÜ£¬´óÒ¯½ñÌì¾Í³¬¶ÉÄã£¡£¡£¡");
+	command("say æƒ³è·‘ï¼Œå¤§çˆ·ä»Šå¤©å°±è¶…æ¸¡ä½ ï¼ï¼ï¼");
 	kill_ob(ob);
 }
 
@@ -55,7 +55,7 @@ void copy_name(object ob)
 	set_name(name["name"], name["id"]);		
 	/*
 	if ( ob->query_temp("hs/power")) {		
-		message_vision(CYN"\n$NÉìÊÖÀ­µôÃæÕÖ£¬´óºÈÒ»Éù£ºÀÏ×Ó×ø²»¸ÄÃû£¬ĞĞ²»¸ÄĞÕ£¬"+name["name"]+"ÊÇÒ²¡£\n"NOR, this_object());
+		message_vision(CYN"\n$Nä¼¸æ‰‹æ‹‰æ‰é¢ç½©ï¼Œå¤§å–ä¸€å£°ï¼šè€å­åä¸æ”¹åï¼Œè¡Œä¸æ”¹å§“ï¼Œ"+name["name"]+"æ˜¯ä¹Ÿã€‚\n"NOR, this_object());
 	}
 	*/	
 }	
@@ -67,7 +67,7 @@ void kill_ob(object ob)
 		ob->remove_killer(this_object());
 		this_object()->remove_enemy(ob );
 		this_object()->remove_killer(ob );
-		tell_object(ob, "Õâ²»ÊÇÇÀ×ßÄãÁîÅÆµÄÈË¡£\n");
+		tell_object(ob, "è¿™ä¸æ˜¯æŠ¢èµ°ä½ ä»¤ç‰Œçš„äººã€‚\n");
 		return;
 	}
 	::kill_ob(ob);
@@ -99,8 +99,8 @@ int do_clone(object me, object ob)
 	me->set("con", ob->query("con")*6/5);
 	
 	if(done==0){
-		delete("max_cure");//²»»Ö¸´
-		me->delete("chat_msg");//²»ÒÆ¶¯
+		delete("max_cure");//ä¸æ¢å¤
+		me->delete("chat_msg");//ä¸ç§»åŠ¨
 		me->set("dex", ob->query("dex")*5/6);
 		me->set("str", ob->query("str")*5/6);
 		me->set("con", ob->query("con")*5/6);
@@ -108,7 +108,7 @@ int do_clone(object me, object ob)
 		me->set("max_jing", ob->query("max_jing")*5/6);
 		me->set("max_neili", ob->query("max_neili")*5/6);
 		number = number*5/6;
-		//ÄÑ¶È½µµÍ
+		//éš¾åº¦é™ä½
 	}
 	
 	
@@ -117,8 +117,8 @@ int do_clone(object me, object ob)
 	//      if (userp(ob) && (number > ((int)ob->query("max_pot")-100)))
 /*
 	if (number > ((int)ob->query("max_pot")-100))
-	log_file("job/huashan",sprintf("%8s%-10sµÚ%5d´ÎÈÎÎñÄ¿±êµÈ¼¶%3d£¬±¾ÈËµÈ¼¶%3d¡£\n",
-		ob->name(1),"("+ob->query("id")+")",ob->query("job_time/»ªÉ½"),number,ob->query("max_pot")-100),ob);
+	log_file("job/huashan",sprintf("%8s%-10sç¬¬%5dæ¬¡ä»»åŠ¡ç›®æ ‡ç­‰çº§%3dï¼Œæœ¬äººç­‰çº§%3dã€‚\n",
+		ob->name(1),"("+ob->query("id")+")",ob->query("job_time/åå±±"),number,ob->query("max_pot")-100),ob);
 */
 	/*set killer's skill*/
 
@@ -191,9 +191,9 @@ void dest()
 		call_out("dest", 10);
 		return;
 	}
-	if (count >= 5) command("say ´óÒ¯Ã»Ê±¼äÅãÄãÁï´ï£¡");
-	else command("say ËûÄÌÄÌµÄ£¬Õâ´ÎËãÄãÃü´ó£¬ÏÂ»Ø¿´ÀÏ×Ó»¹ÈÄµÃÁËÄã£¡");
-	say(name()+"´Ò´ÒÀë¿ª¡£\n");
+	if (count >= 5) command("say å¤§çˆ·æ²¡æ—¶é—´é™ªä½ æºœè¾¾ï¼");
+	else command("say ä»–å¥¶å¥¶çš„ï¼Œè¿™æ¬¡ç®—ä½ å‘½å¤§ï¼Œä¸‹å›çœ‹è€å­è¿˜é¥¶å¾—äº†ä½ ï¼");
+	say(name()+"åŒ†åŒ†ç¦»å¼€ã€‚\n");
 	destruct(this_object());
 }
 

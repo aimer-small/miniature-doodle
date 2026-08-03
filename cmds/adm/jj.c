@@ -38,7 +38,7 @@ int main(string str)
 			}
 
 			write(sprintf("%s(%s,%s) in %s(%s)\n",ob[i]->query("name"),ob[i]->query("id"),file_name(ob[i]),where->query("short"),file_name(where)));
-        		ob[i]->set_temp("last_damage_from", "½ÙºóÓàÉú");
+        		ob[i]->set_temp("last_damage_from", "åŠ«åä½™ç”Ÿ");
  
 			call_out("buchang", random(30), ob[i]);
         }

@@ -1,4 +1,4 @@
-// /u/beyond/mr/obj/liutiao.c ÁøÌõ
+// /u/beyond/mr/obj/liutiao.c æŸ³æ¡
 // this is made by beyond
 // update 1997.6.20
 #include <weapon.h>
@@ -6,17 +6,17 @@
 inherit WHIP;
 void create()
 {
-        set_name(GRN"ÁøÌõ"NOR,({ "liu tiao", "liutiao" }) );
+        set_name(GRN"æŸ³æ¡"NOR,({ "liu tiao", "liutiao" }) );
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ö¦");
+                set("unit", "æ");
                 set("value", 0);
                 set("material", "bamboo");
-                set("long", "ÕâÊÇÒ»Ö¦ÁøÊ÷Ìõ¡£\n");
-                set("wield_msg", "$N³é³öÒ»Ö¦$n£¬ÎÕÔÚÊÖÖĞ¡£\n");
-                set("unequip_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+                set("long", "è¿™æ˜¯ä¸€ææŸ³æ ‘æ¡ã€‚\n");
+                set("wield_msg", "$NæŠ½å‡ºä¸€æ$nï¼Œæ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unequip_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
         }
         init_whip(3);
         setup();

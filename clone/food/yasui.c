@@ -1,17 +1,17 @@
-// yasui.c Ñ¼Ëè
+// yasui.c é¸­é«“
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-    set_name("Ñ¼Èâ", ({"ya rou", "yarou","rou"}));
+    set_name("é¸­è‚‰", ({"ya rou", "yarou","rou"}));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»Ì²´ø×ÅĞ©ÑªË¿µÄÑ¼Ëè£¬ºÃÏó¿ÉÒÔÈëÒ©¡£\n");
-		set("unit", "Ì²");
+		set("long", "ä¸€æ»©å¸¦ç€äº›è¡€ä¸çš„é¸­é«“ï¼Œå¥½è±¡å¯ä»¥å…¥è¯ã€‚\n");
+		set("unit", "æ»©");
 		set("value", 200);
 		set("food_remaining", 1);
 		set("food_supply", 20);

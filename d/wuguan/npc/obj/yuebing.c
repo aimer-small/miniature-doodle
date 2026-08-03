@@ -1,4 +1,4 @@
-// yuebing.c ÔÂ±ı
+// yuebing.c æœˆé¥¼
 
 #include <ansi.h>
 
@@ -7,13 +7,13 @@ inherit F_FOOD;
 
 void create()
 {      
-	set_name(YEL"ÔÂ±ı"NOR, ({"yue bing", "bing"}));
+	set_name(YEL"æœˆé¥¼"NOR, ({"yue bing", "bing"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-	 	set("long", "ÕâÊÇ¸öÖĞ¹úÈËÔÚÖĞÇï½Ú³¤³ÔµÄÔÂ±ı£¬¿¾ÖÆ¾«Ï¸£¬Ìğ¶ø²»Äå¡£\n");
-		set("unit", "¸ö");
+	 	set("long", "è¿™æ˜¯ä¸ªä¸­å›½äººåœ¨ä¸­ç§‹èŠ‚é•¿åƒçš„æœˆé¥¼ï¼Œçƒ¤åˆ¶ç²¾ç»†ï¼Œç”œè€Œä¸è…»ã€‚\n");
+		set("unit", "ä¸ª");
 		set("value", 150);
 		set("food_remaining", 3);
 		set("food_supply", 60);

@@ -1,12 +1,12 @@
-//houtang.c ºóÌÃ
+//houtang.c åŽå ‚
 inherit ROOM;
 #include <ansi.h>
 void create()
 {
-            set("short", HIW"ºóÌÃ"NOR);
+            set("short", HIW"åŽå ‚"NOR);
             set("long",@LONG
-ÕâÊÇºóÌÃ£¬½è¿ÍÈËÔÚÕâÀïÐªÏ¢£¬ÄÏ·½Ò»ÅÅÆÁ·çÕÚ×¡ÁËÊÓÏß£¬ÈÆ¹ýÆÁ·ç¾ÍÊÇ
-Ò»ÌõÃÜµÀÖ±Í¨´óÌüÁË¡£±±ÃæÊÇÒ»Ìõ³¤ÀÈ£¬Ö±Í¨Íùºó»¨Ô°¡£
+è¿™æ˜¯åŽå ‚ï¼Œå€Ÿå®¢äººåœ¨è¿™é‡Œæ­‡æ¯ï¼Œå—æ–¹ä¸€æŽ’å±é£Žé®ä½äº†è§†çº¿ï¼Œç»•è¿‡å±é£Žå°±æ˜¯
+ä¸€æ¡å¯†é“ç›´é€šå¤§åŽ…äº†ã€‚åŒ—é¢æ˜¯ä¸€æ¡é•¿å»Šï¼Œç›´é€šå¾€åŽèŠ±å›­ã€‚
 LONG
     );
           

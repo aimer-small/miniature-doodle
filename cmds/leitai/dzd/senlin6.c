@@ -8,14 +8,14 @@ int do_tiao(string arg);
 
 void create()
 {
-	set("short","ºÚÉ­ÁÖ");
+	set("short","é»‘æ£®æž—");
 	set("long",@LONG
-ÕâÊÇÒ»Æ¬Ò»ÍûÎÞ¼Ê¡¢Òõôè±ÎÌìµÄÔ­Ê¼É­ÁÖ£¬ÊýÈËºÏ±§µÄ´óÊ÷ºÍÆæ»¨Òì²Ý¾ÙÄ¿½ÔÊÇ¡£
-Ê÷Ä¾·ÖÔÓ´ØÔÚÒ»¿é£¬ÃÜÊµµÄÖ¦Ò¶ÏóÒ»ÅîÅî¾ÞÉ¡°ãÉìÏòÌì¿Õ£¬°ÑÑô¹âÕÚµÃË¿ºÁÒ²ÎÞ¡£ÄãÒ»
-×ß½øÕâÀï±ã¾õµÃÒõÒõÉ­ÁÖµÄ£¬ËÆºõË­µÄÑÛ¾¦ÔÚ×¢ÊÓ×ÅÄã£¬ÄãµÄ¸Ð¾õ¸æËßÄã£¬µÃ¸Ï¿ìÀë¿ª¡£
+è¿™æ˜¯ä¸€ç‰‡ä¸€æœ›æ— é™…ã€é˜´ç¿³è”½å¤©çš„åŽŸå§‹æ£®æž—ï¼Œæ•°äººåˆæŠ±çš„å¤§æ ‘å’Œå¥‡èŠ±å¼‚è‰ä¸¾ç›®çš†æ˜¯ã€‚
+æ ‘æœ¨åˆ†æ‚ç°‡åœ¨ä¸€å—ï¼Œå¯†å®žçš„æžå¶è±¡ä¸€è“¬è“¬å·¨ä¼žèˆ¬ä¼¸å‘å¤©ç©ºï¼ŒæŠŠé˜³å…‰é®å¾—ä¸æ¯«ä¹Ÿæ— ã€‚ä½ ä¸€
+èµ°è¿›è¿™é‡Œä¾¿è§‰å¾—é˜´é˜´æ£®æž—çš„ï¼Œä¼¼ä¹Žè°çš„çœ¼ç›åœ¨æ³¨è§†ç€ä½ ï¼Œä½ çš„æ„Ÿè§‰å‘Šè¯‰ä½ ï¼Œå¾—èµ¶å¿«ç¦»å¼€ã€‚
 LONG
 	);
-	set("outdoors","´óÖÇµº");
+	set("outdoors","å¤§æ™ºå²›");
 	set("exits",([
 		"east" : __DIR__"senlin7",
 		"west" : __DIR__"pubu",
@@ -36,19 +36,19 @@ void init()
 	if(!room = find_object(__DIR__"shuding3"))
 		room = load_object(__DIR__"shuding3");
 	if(!wizardp(this_player()))
-		tell_room(room,"Í¸¹ýÊ÷Ò¶µÄ·ìÏ¶£¬Äã¿´¼û" + me->name() + "(" + me->parse_command_id_list()[0] + ")À´µ½ÁËÊ÷ÏÂ¡£\n");
+		tell_room(room,"é€è¿‡æ ‘å¶çš„ç¼éš™ï¼Œä½ çœ‹è§" + me->name() + "(" + me->parse_command_id_list()[0] + ")æ¥åˆ°äº†æ ‘ä¸‹ã€‚\n");
 }
 
 int do_tiao(string arg)
 {
 	object me = this_player();
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(!arg || arg != "tree")
-		return notify_fail("ÄãÒªÌøµ½ÄÄ¶ù£¿\n");
-	message_vision(HIY"$NÉîÎüÒ»¿ÚÆø£¬×ÝÉíÏòÊ÷ÉÏÌøÈ¥¡£\n"NOR,me);
+		return notify_fail("ä½ è¦è·³åˆ°å“ªå„¿ï¼Ÿ\n");
+	message_vision(HIY"$Næ·±å¸ä¸€å£æ°”ï¼Œçºµèº«å‘æ ‘ä¸Šè·³åŽ»ã€‚\n"NOR,me);
 	me->move(__DIR__"shuding3",1);
-	message_vision(HIY"$NÌåÄÚÕæÆøÁ÷×ª£¬ÒÑÇáÇáÂäÔÚÊ÷ÉÏ¡£\n"NOR,me);
+	message_vision(HIY"$Nä½“å†…çœŸæ°”æµè½¬ï¼Œå·²è½»è½»è½åœ¨æ ‘ä¸Šã€‚\n"NOR,me);
 	return 1;
 }
 
@@ -59,6 +59,6 @@ int valid_leave(object me,string dir)
 	
 	valid = ::valid_leave(me,dir);
 	if(valid && !wizardp(me) && room = find_object(__DIR__"shuding3"))
-		tell_room(room,"ÄãÍ¸¹ýÊ÷Ò¶µÄ·ìÏ¶£¬¿´µ½" + me->name() + "(" + me->parse_command_id_list()[0] + ")Àë¿ªÁËÊ÷ÏÂ¡£\n");
+		tell_room(room,"ä½ é€è¿‡æ ‘å¶çš„ç¼éš™ï¼Œçœ‹åˆ°" + me->name() + "(" + me->parse_command_id_list()[0] + ")ç¦»å¼€äº†æ ‘ä¸‹ã€‚\n");
 	return valid;
 }

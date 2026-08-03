@@ -9,16 +9,16 @@ inherit CLUB;
 
 void create()
 {
-        set_name(HIW "ÁÁÒøÇ¹" NOR, ({"silver spear", "qiang", "spear"}));
+        set_name(HIW "äº®é“¶æª" NOR, ({"silver spear", "qiang", "spear"}));
         set_weight(10000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long","ÕâÊÇ°Ñ³ÁÖØµÄ³¤Ç¹£¬Ç¹¼âÊÇ´¿Òø´òÖÆ£¬·æÀûÎŞ±È£®\n");
+                set("unit", "æŠŠ");
+                set("long","è¿™æ˜¯æŠŠæ²‰é‡çš„é•¿æªï¼Œæªå°–æ˜¯çº¯é“¶æ‰“åˆ¶ï¼Œé”‹åˆ©æ— æ¯”ï¼\n");
                 set("value", 18000);
-                set("wield_msg","$NÄÃ³öÒ»°Ñ$nÎÕÔÚÊÖÖĞ£¬ÑÛÇ°ÉÁ¹ıÒ»µÀº®¹â£®\n");
-                set("unwield_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+                set("wield_msg","$Næ‹¿å‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ï¼Œçœ¼å‰é—ªè¿‡ä¸€é“å¯’å…‰ï¼\n");
+                set("unwield_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
         }
 
         init_club(70);

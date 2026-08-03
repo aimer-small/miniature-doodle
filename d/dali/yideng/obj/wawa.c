@@ -7,13 +7,13 @@ void check_time(object me, int count);
 
 void create()
 {
-	set_name(HIY"½ðÍÞÍÞ"NOR, ({ "jin wawa", "jin", "wawa", "yu"}));
+	set_name(HIY"é‡‘å¨ƒå¨ƒ"NOR, ({ "jin wawa", "jin", "wawa", "yu"}));
 	set_weight(3000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Á½Î²½ðÍÞÍÞÔÚ·­ÌÚÕõÔú£¬ÍÛÍÛ¶ø½Ð£¬ÍðÈç¶ùÌä¡£\n");
-		set("unit", "¶Ô");
+		set("long", "ä¸¤å°¾é‡‘å¨ƒå¨ƒåœ¨ç¿»è…¾æŒ£æ‰Žï¼Œå“‡å“‡è€Œå«ï¼Œå®›å¦‚å„¿å•¼ã€‚\n");
+		set("unit", "å¯¹");
 		set("value", 2000);
 		set("no_sell", 1);
 		set("no_drop", 1);
@@ -31,7 +31,7 @@ void init()
 void dest(object ob, object me)
 {
 	if (!ob || ! me) return;
-	message_vision("$N³Ã$n²»×¢Òâ£¬Ò»Ë²¼äÁï×ßÁË¡£\n", ob, me);
+	message_vision("$Nè¶$nä¸æ³¨æ„ï¼Œä¸€çž¬é—´æºœèµ°äº†ã€‚\n", ob, me);
 	me->delete_temp("yideng/yuren_done");
 	destruct(ob);
 }

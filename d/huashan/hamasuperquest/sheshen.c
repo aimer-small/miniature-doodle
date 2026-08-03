@@ -6,10 +6,10 @@ inherit ROOM;
 int do_climb(string arg);
 void create()
 {
-        set("short", "ÉáÉíÑÂ");
+        set("short", "èˆèº«å´–");
          set("long", @LONG
-ÕâÊÇÒ»¶Î¼«Õ­¼«ÏÕµÄÉ½ÑÂ£¬ËÄÖÜÔÆÎí·ÉÈÆ£¬ÏÂÃæÔ¨ÉîÎÞµ×¡£Èç²»Ð¡ÐÄ£¬Ò»
-Ê§×ãµôÏÂÈ¥£¬Ö»ÅÂÁ¬¹ÇÍ·¶¼ÕÒ²»µ½¡£
+è¿™æ˜¯ä¸€æ®µæžçª„æžé™©çš„å±±å´–ï¼Œå››å‘¨äº‘é›¾é£žç»•ï¼Œä¸‹é¢æ¸Šæ·±æ— åº•ã€‚å¦‚ä¸å°å¿ƒï¼Œä¸€
+å¤±è¶³æŽ‰ä¸‹åŽ»ï¼Œåªæ€•è¿žéª¨å¤´éƒ½æ‰¾ä¸åˆ°ã€‚
 LONG
         );
         set("exits", ([ /* sizeof() == 1 */
@@ -18,7 +18,7 @@ LONG
         
         set("no_die", 1);
         set("no_clean_up", 0);
-        set("outdoors", "»ªÉ½" );
+        set("outdoors", "åŽå±±" );
 
         set("coor/x",60);
         set("coor/y",50);
@@ -36,29 +36,29 @@ int do_climb(string arg)
         object me = this_player();
 
         if (arg!="up") 
-        return notify_fail(HIG"Õâ¸ö·½ÏòÃ»°ì·¨ÅÀ¡£\n"NOR);
+        return notify_fail(HIG"è¿™ä¸ªæ–¹å‘æ²¡åŠžæ³•çˆ¬ã€‚\n"NOR);
                 
         if (me->query_skill("dodge",1) < 360)
-        return notify_fail(HIG"ÄãÅÀÁË°ëÌìºÁÎÞ½øÕ¹£¬»¹ÊÇ»ØÈ¥Á·Á·Çá¹¦ÔÚÀ´°É¡£\n"NOR);
+        return notify_fail(HIG"ä½ çˆ¬äº†åŠå¤©æ¯«æ— è¿›å±•ï¼Œè¿˜æ˜¯å›žåŽ»ç»ƒç»ƒè½»åŠŸåœ¨æ¥å§ã€‚\n"NOR);
         
         if (me->query_skill("hamagong",1) < 200)
-        return notify_fail(HIG"ÄãÅÀÁË°ëÌì¸Ð¾õÎÞÁÄµ½ËÀ¡£\n"NOR);
+        return notify_fail(HIG"ä½ çˆ¬äº†åŠå¤©æ„Ÿè§‰æ— èŠåˆ°æ­»ã€‚\n"NOR);
         
         if (me->query("oyf/hamagong") < 2)
-        return notify_fail(HIG"Äã»¹ÊÇËÀÁËÕâÌõÐÄ°É¡£\n"NOR);	
+        return notify_fail(HIG"ä½ è¿˜æ˜¯æ­»äº†è¿™æ¡å¿ƒå§ã€‚\n"NOR);	
 
         if (me->query("oyf/hamagong") == 3)
-        return notify_fail(HIG"ÄãÒÑ¾­¼û¹ýÄãÒå¸¸×îºóÒ»ÃæÁË¡£\n"NOR);     
+        return notify_fail(HIG"ä½ å·²ç»è§è¿‡ä½ ä¹‰çˆ¶æœ€åŽä¸€é¢äº†ã€‚\n"NOR);     
 
         if (me->query("quest/hama/super") > 3)
-        return notify_fail(HIG"ÄãÒå¸¸¶¼ËÀÁË¶àÄêÁË£¬²»ÒªÀ´ÕâÉËÐÄµØÁË¡£\n"NOR);	
+        return notify_fail(HIG"ä½ ä¹‰çˆ¶éƒ½æ­»äº†å¤šå¹´äº†ï¼Œä¸è¦æ¥è¿™ä¼¤å¿ƒåœ°äº†ã€‚\n"NOR);	
         
         if (me->query("jingli") < 1500)
-        return notify_fail(HIG"Äã¾«Éñ²»ºÃ£¬»¹ÊÇÐªÐªÔÙÅÀ°É£¬Ð¡ÐÄËÍÁËÐ¡Ãü£¡\n"NOR);
+        return notify_fail(HIG"ä½ ç²¾ç¥žä¸å¥½ï¼Œè¿˜æ˜¯æ­‡æ­‡å†çˆ¬å§ï¼Œå°å¿ƒé€äº†å°å‘½ï¼\n"NOR);
 
         me->add("jingli",-500);
 
-        message_vision(HIG"$NÊÖ½Å²¢ÓÃ£¬Ê¹³öÁË³ÔÄÌµÄÁ¦ÆøÖÕÓÚÅÀÁËÉÏÀ´¡£\n"NOR,me);
+        message_vision(HIG"$Næ‰‹è„šå¹¶ç”¨ï¼Œä½¿å‡ºäº†åƒå¥¶çš„åŠ›æ°”ç»ˆäºŽçˆ¬äº†ä¸Šæ¥ã€‚\n"NOR,me);
         me->move("/d/huashan/hamasuperquest/jueding1");
 }
                 

@@ -3,10 +3,10 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short",HIW "ÕýÌü" NOR);
+	set("short",HIW "æ­£åŽ…" NOR);
 	set("long", @LONG
- ÕâÀïÊÇÃç¼Ò×¯µÄÕýÌü,ÖÜÎ§µÄÇ½ÉÏ¹Ò×Å¼¸·ù×Ö»­,ËÆºõ³ö×ÔÃû¼ÒÊÖ±Ê£¬ÎÝ×Ó
-´òÉ¨µÄºÜ¸É¾»£¬µ«ÊÇÒ»×ÖÁ½ÅÅ°ËÏÉ×À£¬È´ÆÄÓÐÉ½Õ¯Ä£Ñù¡£
+ è¿™é‡Œæ˜¯è‹—å®¶åº„çš„æ­£åŽ…,å‘¨å›´çš„å¢™ä¸ŠæŒ‚ç€å‡ å¹…å­—ç”»,ä¼¼ä¹Žå‡ºè‡ªåå®¶æ‰‹ç¬”ï¼Œå±‹å­
+æ‰“æ‰«çš„å¾ˆå¹²å‡€ï¼Œä½†æ˜¯ä¸€å­—ä¸¤æŽ’å…«ä»™æ¡Œï¼Œå´é¢‡æœ‰å±±å¯¨æ¨¡æ ·ã€‚
 LONG);
 	set("outdoors", "lanzhou");
         set("no_get_from", 1); 
@@ -28,12 +28,12 @@ void init()
 	object me=this_player();
         if(me->query_condition("killer"))
 	{
-  	 message_vision(HIC"\nÍ»È»£¬²»ÖªµÀ´ÓÄÄÀï´«À´Ò»¸öÉùÒôµÀ£ºÕâÀï²»»¶Ó­$N¡£\n"NOR,me); 
-		 tell_object(me,HIR"¸ú×Å£¬²»ÖªµÀÄÄÀïÀ´µÄÒ»Ö»Éñ½Å·ÉÆðÒ»½Å£¬½«ÄãÒ»½ÅÌß·É³öÈ¥£¡\n"NOR);
-		 tell_room(environment(me),HIR"\n²»ÖªµÀÄÄÀïÀ´µÄÒ»Ö»Éñ½Å·ÉÆðÒ»½Å£¬½«"+ me->name()+ "Ìß·É³öÈ¥£¡\n"NOR, ({ me }));
+  	 message_vision(HIC"\nçªç„¶ï¼Œä¸çŸ¥é“ä»Žå“ªé‡Œä¼ æ¥ä¸€ä¸ªå£°éŸ³é“ï¼šè¿™é‡Œä¸æ¬¢è¿Ž$Nã€‚\n"NOR,me); 
+		 tell_object(me,HIR"è·Ÿç€ï¼Œä¸çŸ¥é“å“ªé‡Œæ¥çš„ä¸€åªç¥žè„šé£žèµ·ä¸€è„šï¼Œå°†ä½ ä¸€è„šè¸¢é£žå‡ºåŽ»ï¼\n"NOR);
+		 tell_room(environment(me),HIR"\nä¸çŸ¥é“å“ªé‡Œæ¥çš„ä¸€åªç¥žè„šé£žèµ·ä¸€è„šï¼Œå°†"+ me->name()+ "è¸¢é£žå‡ºåŽ»ï¼\n"NOR, ({ me }));
 		 if(random(2)) me->move("/d/lanzhou/lanzhou");
 		 else me->move("/d/lanzhou/zhengmen");
-		 tell_room(environment(me), HIR"\nÖ»¼û"+ me->name()+ "´ó½ÐÒ»Éù·É¹ýÀ´£¬Ë¤ÁË¸ö¹·³ÔÊº£¡ºÃË§Å¶~~~~~~~~\n"NOR, ({ me }));
+		 tell_room(environment(me), HIR"\nåªè§"+ me->name()+ "å¤§å«ä¸€å£°é£žè¿‡æ¥ï¼Œæ‘”äº†ä¸ªç‹—åƒå±Žï¼å¥½å¸…å“¦~~~~~~~~\n"NOR, ({ me }));
 		 me->start_busy(1);
 	   return;
 	}

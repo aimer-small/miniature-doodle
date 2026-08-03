@@ -4,15 +4,15 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-        set_name(HIY"Ü½ÈØ½ğÕë"NOR, ({ "furong jinzhen","furong","jinzhen", "zhen" }) );
+        set_name(HIY"èŠ™è“‰é‡‘é’ˆ"NOR, ({ "furong jinzhen","furong","jinzhen", "zhen" }) );
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-               set("long", "ÕâÊÇÒ»¸ùÏ¸ÈçÍ··¢µÄ½ğÕë£¬³ö×ÔÎäµ±ÅÉ¡£\n");
-               set("unit", "Ğ©");
+               set("long", "è¿™æ˜¯ä¸€æ ¹ç»†å¦‚å¤´å‘çš„é‡‘é’ˆï¼Œå‡ºè‡ªæ­¦å½“æ´¾ã€‚\n");
+               set("unit", "äº›");
                set("damage", 3);
                set("base_value", 2000);
-               set("base_unit", "Ã¶");
+               set("base_unit", "æš");
                set("base_weight", 100);
                set("material", "gold");
                set("embed", 1);

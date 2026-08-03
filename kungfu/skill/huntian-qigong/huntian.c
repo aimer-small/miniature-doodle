@@ -1,39 +1,39 @@
-// huntian.c »ìÌìÆø¹¦¼ÓÁ¦
+// huntian.c æ··å¤©æ°”åŠŸåŠ åŠ›
 // Change Powerup to huntian by Looklove 2001.5.3
 
 #include <ansi.h>
 inherit F_CLEAN_UP;
 
-string exert_name(){ return HIR"»ìÌì"NOR; }
+string exert_name(){ return HIR"æ··å¤©"NOR; }
 
 int exert(object me, object target)
 {
 	int skill;
 
 	if( me->query("neili") < 500 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
 	if( me->query_skill("huntian-qigong", 1) < 100 )
-		return notify_fail("ÄãµÄ»ìÌìÆø¹¦µÈ¼¶²»¹»¡£\n");
+		return notify_fail("ä½ çš„æ··å¤©æ°”åŠŸç­‰çº§ä¸å¤Ÿã€‚\n");
 
 	if( me->query_skill_mapped("force") != "huntian-qigong" )
-		return notify_fail("ÄãµÄÄÚ¹¦²»¶Ô¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸä¸å¯¹ã€‚\n");
 
 	if( me->query_temp("htqg/powerup") )
-		return notify_fail("ÄãÒÑ¾­ÔÚÔË¹¦ÖÐÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨è¿åŠŸä¸­äº†ã€‚\n");
 
 	skill = me->query_skill("force")/3;
 	if( skill > 150 ) skill = 150;
 
 	me->receive_damage("neili", -300);
-	message_vision(HIR "$NÎ¢Ò»ÄýÉñ£¬ÔËÆð¡¸»ìÌì¡¹Éñ¹¦£¬È«Éí¹Ç½Ú·¢³öÒ»Õó±¬¶¹°ãµÄÉùÏì¡£\n" NOR, me);
+	message_vision(HIR "$Nå¾®ä¸€å‡ç¥žï¼Œè¿èµ·ã€Œæ··å¤©ã€ç¥žåŠŸï¼Œå…¨èº«éª¨èŠ‚å‘å‡ºä¸€é˜µçˆ†è±†èˆ¬çš„å£°å“ã€‚\n" NOR, me);
 
 	me->add_temp("apply/dodge", skill/2);
 	me->set_temp("htqg/powerup", skill);
 	me->delete_temp("htqg/shougong");
 
 	call_out("remove_effect", 1, me, skill);
-	me->start_exert(1, "»ìÌìÆø¹¦");
+	me->start_exert(1, "æ··å¤©æ°”åŠŸ");
 	if( me->is_fighting() )
 		me->start_busy(random(2));
 	return 1;
@@ -53,19 +53,19 @@ void remove_effect(object me, int count)
 		me->add_temp("apply/dodge", - amount/2);
 		me->delete_temp("htqg/powerup");
 		me->delete_temp("htqg/shougong");
-		tell_object(me, HIR"ÄãµÄ»ìÌìÆø¹¦ÔËÐÐÍê±Ï£¬½«ÄÚÁ¦ÊÕ»Øµ¤Ìï¡£\n"NOR);
+		tell_object(me, HIR"ä½ çš„æ··å¤©æ°”åŠŸè¿è¡Œå®Œæ¯•ï¼Œå°†å†…åŠ›æ”¶å›žä¸¹ç”°ã€‚\n"NOR);
 	   return;
 	   }
 }
 
 int help(object me)
 {
-        write(HIR"\n»ìÌìÆø¹¦Ö®¡¸»ìÌì¡¹£º"NOR"\n");
+        write(HIR"\næ··å¤©æ°”åŠŸä¹‹ã€Œæ··å¤©ã€ï¼š"NOR"\n");
         write(@HELP
-        »ìÌìÎª»ìÌìÆø¹¦ÖØÒª¼¼ÄÜÖ®Ò»¡£Í¨¹ýÔË¹¦¿ÉÒÔ½«×ÔÉí·ÀÓù¼Ó±¶ÌáÉý¡£
-        ÒªÇó£º
-        	»ìÌìÆø¹¦µÈ¼¶¡¡100 ÒÔÉÏ£»
-                µ±Ç°ÄÚÁ¦  500 ÒÔÉÏ¡£
+        æ··å¤©ä¸ºæ··å¤©æ°”åŠŸé‡è¦æŠ€èƒ½ä¹‹ä¸€ã€‚é€šè¿‡è¿åŠŸå¯ä»¥å°†è‡ªèº«é˜²å¾¡åŠ å€æå‡ã€‚
+        è¦æ±‚ï¼š
+        	æ··å¤©æ°”åŠŸç­‰çº§ã€€100 ä»¥ä¸Šï¼›
+                å½“å‰å†…åŠ›  500 ä»¥ä¸Šã€‚
 HELP
         );
         return 1;

@@ -7,10 +7,10 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HIW"ÕýÉñÍè"NOR, ({ "zhengshen wan","wan"}));
-	set("long","ÕâÊÇÒ»¿Å"HIW"ÕýÉñÍè"NOR"£¬Äã¿ÉÒÔ·þ(fu)ÏÂËüÌá¸ßÄãµÄÕýÉñÖµ¡£\n");
+	set_name (HIW"æ­£ç¥žä¸¸"NOR, ({ "zhengshen wan","wan"}));
+	set("long","è¿™æ˜¯ä¸€é¢—"HIW"æ­£ç¥žä¸¸"NOR"ï¼Œä½ å¯ä»¥æœ(fu)ä¸‹å®ƒæé«˜ä½ çš„æ­£ç¥žå€¼ã€‚\n");
 
-	set("unit","¿Å");
+	set("unit","é¢—");
 	set_weight(100);
 	set("value",3000000);
   set("no_give",1);
@@ -19,7 +19,7 @@ void create()
 	set("degree",1);
 	set("flag","spec/addshen");
 	set("rest",1);
-        set("desc","Ìá¸ß2MÕýÉñ¡£");
+        set("desc","æé«˜2Mæ­£ç¥žã€‚");
   set("credit",50);                  
 	setup();
 }
@@ -35,17 +35,17 @@ int do_eat(string arg)
 	object me=this_player();
 	
 	if (!arg)
-		return notify_fail("ÄãÒª·þÓÃÊ²Ã´?\n");
+		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
 	    
 	if (arg!="zhengshen wan" && arg!="wan")
-		return notify_fail("ÄãÒª·þÓÃÊ²Ã´?\n");
+		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
       	
-	if (!restrict()&& !me->query("buyvip")) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
+	if (!restrict()&& !me->query("buyvip")) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
     
         me->add("shen", 2000000);
 
  
-        write(HIY"Äã·þÏÂÒ»¿Å"HIW"ÕýÉñÍè"HIY"¶Ù¾õÈ«ÉíÑóÒçÕâºÆÈ»ÕýÆø\n"NOR);
+        write(HIY"ä½ æœä¸‹ä¸€é¢—"HIW"æ­£ç¥žä¸¸"HIY"é¡¿è§‰å…¨èº«æ´‹æº¢è¿™æµ©ç„¶æ­£æ°”\n"NOR);
         degree(); 
 	return 1;
 }	 

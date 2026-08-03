@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short",HIB"ØÒºó"NOR);
+        set("short",HIB"åŒ¾åŽ"NOR);
         set("long", @LONG
-ÕâÀï¾ÍÊÇ¹ÅÄ¹ÖÐÌÃØÒ¶îÖ®ºó£¬ºÚÆáÆáµÄÊ²Ã´¶¼¿´²»Çå³þ¡£
+è¿™é‡Œå°±æ˜¯å¤å¢“ä¸­å ‚åŒ¾é¢ä¹‹åŽï¼Œé»‘æ¼†æ¼†çš„ä»€ä¹ˆéƒ½çœ‹ä¸æ¸…æ¥šã€‚
 LONG
     );
       
@@ -30,9 +30,9 @@ int do_jump(string arg)
         object me,room;
         me=this_player();  
         if (arg!="down") return 0;
-        message("vision",me->name()+"Ò»×ÝÉí£¬ÌøÁËÏÂÈ¥¡£\n",this_object());
+        message("vision",me->name()+"ä¸€çºµèº«ï¼Œè·³äº†ä¸‹åŽ»ã€‚\n",this_object());
         if(room=find_object(__DIR__"gmzt"))
-        message("vision",me->name()+"´ÓØÒ¶îÉÏÌøÁË¹ýÀ´¡£\n",room);
+        message("vision",me->name()+"ä»ŽåŒ¾é¢ä¸Šè·³äº†è¿‡æ¥ã€‚\n",room);
         me->move(__DIR__"gmzt");
         return 1;
 }
@@ -43,12 +43,12 @@ int do_search(string arg)
 	me = this_player();
 	if(arg) return 0;
 	key = unew(__DIR__"obj/silkey");
-        if(!clonep(key)) return notify_fail("ÄãÀ´ÍíÁË£¬·¢ÏÖØÒºóÊ²Ã´¶«Î÷Ò²Ã»ÓÐÕÒµ½¡£\n");
+        if(!clonep(key)) return notify_fail("ä½ æ¥æ™šäº†ï¼Œå‘çŽ°åŒ¾åŽä»€ä¹ˆä¸œè¥¿ä¹Ÿæ²¡æœ‰æ‰¾åˆ°ã€‚\n");
         if(clonep(key) && key->violate_unique()){
            destruct(key);
-           return notify_fail("ÄãÀ´ÍíÁË£¬·¢ÏÖØÒºóÊ²Ã´¶«Î÷Ò²Ã»ÓÐÕÒµ½¡£\n");
+           return notify_fail("ä½ æ¥æ™šäº†ï¼Œå‘çŽ°åŒ¾åŽä»€ä¹ˆä¸œè¥¿ä¹Ÿæ²¡æœ‰æ‰¾åˆ°ã€‚\n");
         }
-        message_vision(HIB"$Nµ±ÏÂ×ÐÏ¸ËÑË÷£¬ÓÚØÒºóºÚ°µ´¦·¢ÏÖÁË$n¡£\n"NOR, me, key);
+        message_vision(HIB"$Nå½“ä¸‹ä»”ç»†æœç´¢ï¼ŒäºŽåŒ¾åŽé»‘æš—å¤„å‘çŽ°äº†$nã€‚\n"NOR, me, key);
         key->move(me);
 	return 1;
 }

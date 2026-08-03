@@ -15,16 +15,16 @@ string *walkrooms = ({
 void create()
 {
         
-	set_name("ÁçÑò", ({ "ling yang", "yang" }) );
-        set("race", "Ò°ÊŞ");
+	set_name("ç¾šç¾Š", ({ "ling yang", "yang" }) );
+        set("race", "é‡å…½");
         set("age", 5);
-        set("long", "ÕâÊÇÒ»Í·ÁçÑò¡£\n");
+        set("long", "è¿™æ˜¯ä¸€å¤´ç¾šç¾Šã€‚\n");
         set("attitude", "peaceful");
  
         set("str", 30);
         set("cor", 26);
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "×¦×Ó", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "çˆªå­", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
  
         set("combat_exp", 3000);
@@ -47,7 +47,7 @@ int random_walk()
         string *dirs, dir;
 
         if( member_array(base_name(environment()), walkrooms) == -1 ) {
-                message_vision("$NÒ»ÁïÑÌÅÜµôÁË¡£\n", this_object());
+                message_vision("$Nä¸€æºœçƒŸè·‘æ‰äº†ã€‚\n", this_object());
                 destruct(this_object());
         }
 

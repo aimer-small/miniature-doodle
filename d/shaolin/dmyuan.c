@@ -25,13 +25,13 @@ int check(string arg)
 		switch (query_verb()) {
 			case "exercise":
 				if (me->query("neili") + i >= me->query("max_neili")*2) {
-					write("����ɲ���������������ĵط���\n");
+					write("这里可不是让你提高内力的地方。\n");
 					return 1;
 				}
 				break;
 			case "respirate":
 				if (me->query("jingli") + i >= me->query("eff_jingli")*2) {
-					write("����ɲ���������߾����ĵط���\n");
+					write("这里可不是让你提高精力的地方。\n");
 					return 1;
 				}
 				break;
@@ -47,12 +47,12 @@ void init()
 
 void create()
 {
-        set("short", HIY"��ĦԺ"NOR);
+        set("short", HIY"达摩院"NOR);
         set("long", @LONG
-����һ�����ӵĵ��á����׵�ǽ�Ϲ����˸����书ͼ�ף����ٰ����ü
-����ɮ����������ͼ�׻���֮ǰ���ƺ��ڿ��˼�����ϱ�ɽǽ�Ǹ߼��ݶ���
-����ܣ��߽�ϸ���������Ǹ��Ÿ��ɵ��书���ţ������а��ż��Ű���ڭ��
-�������ţ���λ��ɮ�����붨�С������и�С��ͨ���
+这是一座古朴的殿堂。西首的墙上挂满了各类武功图谱，不少白须白眉
+的老僧们正端坐在图谱画轴之前，似乎在苦苦思索。南北山墙是高及屋顶的
+大书架，走近细看，它们是各门各派的武功秘笈，屋正中摆着几张矮几诃和
+几个蒲团，几位老僧正在入定中。北面有个小门通向后殿。
 LONG
         );
 	set("no_fight", (: nokill :));
@@ -75,9 +75,9 @@ int valid_leave(object me, string dir)
 {
 	if( dir == "north" && !me->query("luohan_winner") && !wizardp(me))
 	if(objectp(present("xuanbei dashi", environment(me))))
-		return notify_fail("������ʦ�ȵ�����ĦԺ�˱����صأ��㲻�����ڡ�\n");
+		return notify_fail("玄悲大师喝道：达摩院乃本寺重地，你不能入内。\n");
 	else 
-		return notify_fail("һλ��ɮ��Ȼ�ӱ������˳�������ס����˵������ĦԺ�������صأ��㲻�����롣\n"+
-			"����ͣ�������ˣ���λ��ɮһ���֣����˻�����������\n");
+		return notify_fail("一位武僧忽然从边上钻了出来，拦住了你说道：达摩院是少林重地，你不可擅入。\n"+
+			"看你停步不动了，那位武僧一拱手，又退回了隐身处。\n");
 	return ::valid_leave(me, dir);
 }

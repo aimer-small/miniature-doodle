@@ -16,42 +16,42 @@ int perform(object me, object target)
      
       if( !objectp(target) || !me->is_fighting(target) || !living(target)
       || environment(target)!=environment(me))
-                return notify_fail("¡¸Ò»Ö¸Ç¬À¤¡¹Ö»ÄÜÔÚÕ½¶·ÖĞ¶Ô¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œä¸€æŒ‡ä¹¾å¤ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­å¯¹å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
              
       if( target->query("combat_exp") < 80000 )
-                return notify_fail("É±¼¦ÑÉÓÃÅ£µ¶£¿¶Ô"+target->name()+"ÄãÃ»±ØÒªÊ¹ÓÃÒ»Ö¸Ç¬À¤°É¡£\n");
+                return notify_fail("æ€é¸¡ç„‰ç”¨ç‰›åˆ€ï¼Ÿå¯¹"+target->name()+"ä½ æ²¡å¿…è¦ä½¿ç”¨ä¸€æŒ‡ä¹¾å¤å§ã€‚\n");
       if( me->query_temp("weapon") )
-                return notify_fail("Äã±ØĞë¿ÕÊÖÊ¹ÓÃ¡¸Ò»Ö¸Ç¬À¤¡¹£¡\n");
+                return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹ä½¿ç”¨ã€Œä¸€æŒ‡ä¹¾å¤ã€ï¼\n");
       
       if( (int)me->query_skill("yizhi-chan",1) < 180 )
-                return notify_fail("ÄãµÄÒ»Ö¸ìø²»¹»æµÊì£¬²»»áÊ¹ÓÃ¡¸Ò»Ö¸Ç¬À¤¡¹£¡\n");
+                return notify_fail("ä½ çš„ä¸€æŒ‡ç¦…ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ã€Œä¸€æŒ‡ä¹¾å¤ã€ï¼\n");
       
       if( (int)me->query_skill("yijin-jing",1) < 180 )
-                return notify_fail("¡¸Ò»Ö¸Ç¬À¤¡¹ĞèÒªĞÛºñµÄÒ×½î¾­ÄÚ¹¦Îª»ù´¡¡£\n");
+                return notify_fail("ã€Œä¸€æŒ‡ä¹¾å¤ã€éœ€è¦é›„åšçš„æ˜“ç­‹ç»å†…åŠŸä¸ºåŸºç¡€ã€‚\n");
                   
       if (me->query_skill_mapped("force") != "yijin-jing")
-                return notify_fail("ÄãËùÊ¹ÓÃµÄÄÚ¹¦²»¶Ô¡£\n");
+                return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å†…åŠŸä¸å¯¹ã€‚\n");
                 
       if( target->query_condition("yzc_qiankun"))
-                return notify_fail("¶Ô·½ÒÑ¾­ÉíÖĞ¡¸Ò»Ö¸Ç¬À¤¡¹£¬Äã²»ÓÃÔÙ·ÑÁ¦ÆøÁË¡£\n");
+                return notify_fail("å¯¹æ–¹å·²ç»èº«ä¸­ã€Œä¸€æŒ‡ä¹¾å¤ã€ï¼Œä½ ä¸ç”¨å†è´¹åŠ›æ°”äº†ã€‚\n");
       
       if( (int)me->query("max_neili") < 3000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎªÌ«´Î£¬²»ÄÜÊ¹ÓÃ¡¸Ò»Ö¸Ç¬À¤¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºå¤ªæ¬¡ï¼Œä¸èƒ½ä½¿ç”¨ã€Œä¸€æŒ‡ä¹¾å¤ã€ï¼\n");
       
       if( (int)me->query("neili") < 700 )
-                return notify_fail("ÄãµÄÄÚÁ¦Ì«ÉÙÁË£¬ÎŞ·¨Ê¹ÓÃ³ö¡¸Ò»Ö¸Ç¬À¤¡¹£¡\n");   
+                return notify_fail("ä½ çš„å†…åŠ›å¤ªå°‘äº†ï¼Œæ— æ³•ä½¿ç”¨å‡ºã€Œä¸€æŒ‡ä¹¾å¤ã€ï¼\n");   
             
       if( (int)me->query("jingli") < 500 )
-                return notify_fail("ÄãµÄ¾«Á¦Ì«ÉÙÁË£¬ÎŞ·¨Ê¹ÓÃ³ö¡¸Ò»Ö¸Ç¬À¤¡¹£¡\n");   
+                return notify_fail("ä½ çš„ç²¾åŠ›å¤ªå°‘äº†ï¼Œæ— æ³•ä½¿ç”¨å‡ºã€Œä¸€æŒ‡ä¹¾å¤ã€ï¼\n");   
                   
       if( (int)me->query_temp("yzc/qiankun"))
-                return notify_fail("Äã¸Õ¸ÕÓÃÁËÒ»´Î¡¸Ò»Ö¸Ç¬À¤¡¹£¬ÏÈµ÷Ï¢µ÷Ï¢Ò»ÏÂ°É£¡\n");   
+                return notify_fail("ä½ åˆšåˆšç”¨äº†ä¸€æ¬¡ã€Œä¸€æŒ‡ä¹¾å¤ã€ï¼Œå…ˆè°ƒæ¯è°ƒæ¯ä¸€ä¸‹å§ï¼\n");   
                                                                
       if (me->query_skill_prepared("finger") != "yizhi-chan"
           || me->query_skill_mapped("finger") != "yizhi-chan")
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸Ò»Ö¸Ç¬À¤¡¹½øĞĞ¹¥»÷¡£\n");                                                                                 
+                return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€Œä¸€æŒ‡ä¹¾å¤ã€è¿›è¡Œæ”»å‡»ã€‚\n");                                                                                 
        
-      msg = HIC"\n$NÃæÂ¶Î¢Ğ¦£¬ÇúÖ¸¶Ô×Å$nÇáÇáÒ»µ¯£¬Ö»ÌıàÍµÄÒ»ÉùÒ»¹É¾¢Æø´Ó$PÊÖÖ¸¼¤Éä¶ø³ö£¬´ÜÏò$pµ¤Ìï£¡\n" NOR;
+      msg = HIC"\n$Né¢éœ²å¾®ç¬‘ï¼Œæ›²æŒ‡å¯¹ç€$nè½»è½»ä¸€å¼¹ï¼Œåªå¬å—¤çš„ä¸€å£°ä¸€è‚¡åŠ²æ°”ä»$Pæ‰‹æŒ‡æ¿€å°„è€Œå‡ºï¼Œçªœå‘$pä¸¹ç”°ï¼\n" NOR;
                                            
       ap = me->query_skill("force") + me->query_skill("finger") + me->query_kar();
       dp = me->query_skill("force") + me->query_skill("dodge") + target->query_kar();   
@@ -59,17 +59,17 @@ int perform(object me, object target)
       dp *= target->query("combat_exp")/1000;       
                       
       me->receive_damage("neili", me->query_skill("force") + me->query_skill("finger"));
-//     me->start_perform(5,"Ò»Ö¸Ç¬À¤");
+//     me->start_perform(5,"ä¸€æŒ‡ä¹¾å¤");
       
       if( random(ap) > dp/3) {
-                msg += HIW"½á¹û$nÒ»¸ö²»Ğ¡ĞÄ£¬±»Ö¸¾¢µãÔÚµ¤ÌïÖ®ÉÏ£¬¶ÙÊ±µ¤Æø»ìÂÒ£¬Á³É«·¢°×£¡\n"NOR;
-                tell_object(target, "Äã¸Ğ¾õÕâÖ¸¾¢ÔÚµ¤ÌïÀïÂÒ´Ü£¬ÈÅµÃÄã»ëÉí·¢Èí£¬Éí²»ÓÉ¼º£¡\n");
+                msg += HIW"ç»“æœ$nä¸€ä¸ªä¸å°å¿ƒï¼Œè¢«æŒ‡åŠ²ç‚¹åœ¨ä¸¹ç”°ä¹‹ä¸Šï¼Œé¡¿æ—¶ä¸¹æ°”æ··ä¹±ï¼Œè„¸è‰²å‘ç™½ï¼\n"NOR;
+                tell_object(target, "ä½ æ„Ÿè§‰è¿™æŒ‡åŠ²åœ¨ä¸¹ç”°é‡Œä¹±çªœï¼Œæ‰°å¾—ä½ æµ‘èº«å‘è½¯ï¼Œèº«ä¸ç”±å·±ï¼\n");
                 target->receive_damage("qi", me->query_skill("finger"), me);
                 ap = (int)target->query("qi")*100/(int)target->query("max_qi");
-                msg += damage_msg(me->query_skill("finger"), "ÄÚÉË");
+                msg += damage_msg(me->query_skill("finger"), "å†…ä¼¤");
                 msg += "( $n"+eff_status_msg(ap)+" )\n";
-if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"Äã¶Ô"+ target->query("name") +"Ôì³ÉÁË"HIR+me->query_skill("finger")+ WHT"µã¹¥»÷ÉËº¦¡£\n"NOR); 
-if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"µÄ¹¥»÷¶ÔÄãÔì³ÉÁË"HIR+me->query_skill("finger")+ WHT"µãÉËº¦¡£\n"NOR);
+if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"ä½ å¯¹"+ target->query("name") +"é€ æˆäº†"HIR+me->query_skill("finger")+ WHT"ç‚¹æ”»å‡»ä¼¤å®³ã€‚\n"NOR); 
+if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"çš„æ”»å‡»å¯¹ä½ é€ æˆäº†"HIR+me->query_skill("finger")+ WHT"ç‚¹ä¼¤å®³ã€‚\n"NOR);
                 
                 target->apply_condition("yzc_qiankun", 2+me->query_kar()/5);                                                    
                 }
@@ -92,4 +92,4 @@ void remove_effect(object me)
         me->delete_temp("yzc/qiankun"); 
 }
 
-string perform_name(){ return HIC"Ò»Ö¸Ç¬À¤"NOR; }
+string perform_name(){ return HIC"ä¸€æŒ‡ä¹¾å¤"NOR; }

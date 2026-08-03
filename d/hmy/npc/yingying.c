@@ -6,11 +6,11 @@ inherit F_MASTER;
 void create()
 {
         
-        set_name("ÈÎÓ¯Ó¯", ({ "ren yingying","ren","yingying" }));
-        set("long", "ËıÈİÃ²ĞãÀö¾øÂ×£¬²»¹ıÊ®Æß°ËËêÄê¼Í£¬½¿ĞßÖ®Ì¬£¬½¿ÃÀ²»¿É·½Îï¡£\n");
-        set("nickname", HIR"Ğ¡Ä§Å®"NOR);
-        set("title", HIY"ÈÕÔÂÉñ½Ì  Ê¥¹Ã"NOR);
-        set("gender", "Å®ĞÔ");
+        set_name("ä»»ç›ˆç›ˆ", ({ "ren yingying","ren","yingying" }));
+        set("long", "å¥¹å®¹è²Œç§€ä¸½ç»ä¼¦ï¼Œä¸è¿‡åä¸ƒå…«å²å¹´çºªï¼Œå¨‡ç¾ä¹‹æ€ï¼Œå¨‡ç¾ä¸å¯æ–¹ç‰©ã€‚\n");
+        set("nickname", HIR"å°é­”å¥³"NOR);
+        set("title", HIY"æ—¥æœˆç¥æ•™  åœ£å§‘"NOR);
+        set("gender", "å¥³æ€§");
         set("attitude", "peaceful");
         set("age", 18);
         set("str", 30);
@@ -64,7 +64,7 @@ void create()
 
         ]));
 
-        create_family("ÈÕÔÂÉñ½Ì", 8, "³¤ÀÏ");
+        create_family("æ—¥æœˆç¥æ•™", 8, "é•¿è€");
         set("chat_chance_combat", 20);
         set("chat_msg_combat", ({
                 (: perform_action, "blade.jingshen" :),
@@ -81,11 +81,11 @@ void attempt_apprentice(object ob)
      if(ob->query_skill("tianmo-gong",1) < 160 ||
       ob->query_skill("tianmo-zhang",1) < 160 ||
         ob->query_skill("tianmo-shou",1) < 160){
-        command("say ÄãµÄÎä¹¦»¹²»¹»æµÊì£¬ÔÙ»ØÈ¥Á·Á·°É¡£");
+        command("say ä½ çš„æ­¦åŠŸè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œå†å›å»ç»ƒç»ƒå§ã€‚");
         return;
         }
-     command("say ºÃ£¬ÎÒÕıÏëÕĞ±øÂòÂí¾È½ÌÖ÷³öÀ´£¬¿´À´Äã»¹²»´íÂï£¬¾ÍÊÕÏÂÄãÁË¡£");
+     command("say å¥½ï¼Œæˆ‘æ­£æƒ³æ‹›å…µä¹°é©¬æ•‘æ•™ä¸»å‡ºæ¥ï¼Œçœ‹æ¥ä½ è¿˜ä¸é”™å˜›ï¼Œå°±æ”¶ä¸‹ä½ äº†ã€‚");
      command("recruit " + ob->query("id"));
-     ob->set("title",HIW"ÈÕÔÂÉñ½ÌÊ¥¹Ã×ùÏÂµÜ×Ó"NOR);
+     ob->set("title",HIW"æ—¥æœˆç¥æ•™åœ£å§‘åº§ä¸‹å¼Ÿå­"NOR);
 }
 

@@ -1,4 +1,4 @@
-// hubilie.c ºö±ØÁÒ
+// hubilie.c å¿½å¿…çƒˆ
 // by iceland
 
 #include <ansi.h>
@@ -7,14 +7,14 @@ inherit NPC;
 
 void create()
 {
-        set_name("ºö±ØÁÒ", ({ "hu bilie", "hubilie" ,"hu" }));
+        set_name("å¿½å¿…çƒˆ", ({ "hu bilie", "hubilie" ,"hu" }));
         set("long",@LONG
-Ëû³¤µÃÁ³É«°×ğª£¬ÏàÃ²ÈåÑÅ£¬¿ÆÍ·²¼·ş£¬ĞĞÖ¹¼«ËÆÊéÉú£¬Ã¼Ä¿Ö®¼äÈ´Í¸³öÒ»
-¹ÉÓ¢Æø¡£ºÜÄÑÏëµ½Ô­À´ËûÊÇÍşÕòÄ®±±µÄ³É¼ªË¼º¹Ö®Ëï£¬»Ê×ÓÍÏÀ×µÚËÄ×Ó¡£
+ä»–é•¿å¾—è„¸è‰²ç™½çš™ï¼Œç›¸è²Œå„’é›…ï¼Œç§‘å¤´å¸ƒæœï¼Œè¡Œæ­¢æä¼¼ä¹¦ç”Ÿï¼Œçœ‰ç›®ä¹‹é—´å´é€å‡ºä¸€
+è‚¡è‹±æ°”ã€‚å¾ˆéš¾æƒ³åˆ°åŸæ¥ä»–æ˜¯å¨é•‡æ¼ åŒ—çš„æˆå‰æ€æ±—ä¹‹å­™ï¼Œçš‡å­æ‹–é›·ç¬¬å››å­ã€‚
 LONG
         );
-        set("title", HIY "ÃÉ¹ÅÍõ×Ó" NOR);
-        set("gender", "ÄĞĞÔ");
+        set("title", HIY "è’™å¤ç‹å­" NOR);
+        set("gender", "ç”·æ€§");
         set("age", 26);
         set("attitude", "friendly");
         set("shen_type", 0);
@@ -39,13 +39,13 @@ LONG
 
 void unconcious()
 {
-        command("say ¸øÎÒ±¨³ğ£¡");
+        command("say ç»™æˆ‘æŠ¥ä»‡ï¼");
         ::unconcious();
 }
 
 void kill_ob(object me)
 {
-        command("chat ×¥´Ì¿Í£¡");
+        command("chat æŠ“åˆºå®¢ï¼");
         command("chat* sneer "+me->query("id"));
         me->set_temp("cike",1);
         ::kill_ob(me);
@@ -58,5 +58,5 @@ void init()
 	::init();
 	if (!ob || !visible(ob) || !present(ob, environment())) return;
         command("look " + ob->query("id"));
-	command("say ÕâÎ»" + RANK_D->query_respect(ob)+"·ç³¾ÆÍÆÍ£¬ÊÇ´ÓÄÄÀïÀ´Ñ½£¿\n");
+	command("say è¿™ä½" + RANK_D->query_respect(ob)+"é£å°˜ä»†ä»†ï¼Œæ˜¯ä»å“ªé‡Œæ¥å‘€ï¼Ÿ\n");
 }

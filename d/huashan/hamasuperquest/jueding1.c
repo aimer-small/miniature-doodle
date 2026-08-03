@@ -9,12 +9,12 @@ void create()
 {
 
                                         
-        set("short", HIW"»ªÉ½Ö®áÛ"NOR);
+        set("short", HIW"åå±±ä¹‹å·…"NOR);
         set("long", @LONG
-ÄãÕıÉí´¦»ªÉ½Ö®áÛ£¬ÌìºòÖèº®£¬Ç¦ÔÆµÍÑ¹£¬±±·ç½¥½ô£¬½Ó×ÅÌì¿Õ¾¹Æ®
-ÏÂÒ»Æ¬Æ¬µÄÑ©»¨,½¥½¥µÄÑ©ÏÂµÃÒ»·¢´óÁË£¬×ãµ×Áï»¬£¬µÀÂ·¸üÊÇÄÑÓÚ±æÈÏ£¬
-ÈôÊÇÌ¤Ò»¸ö¿Õ£¬ÊÆ±ØµôÔÚÍòØğÉî¹ÈÖĞµøµÃ·ÛÉíËé¹Ç¡£ÄãÖ»ÓĞĞ¡ĞÄÒíÒíµÄÅÀ
-ÅÀ(climb)¿´ÁË¡£
+ä½ æ­£èº«å¤„åå±±ä¹‹å·…ï¼Œå¤©å€™éª¤å¯’ï¼Œé“…äº‘ä½å‹ï¼ŒåŒ—é£æ¸ç´§ï¼Œæ¥ç€å¤©ç©ºç«Ÿé£˜
+ä¸‹ä¸€ç‰‡ç‰‡çš„é›ªèŠ±,æ¸æ¸çš„é›ªä¸‹å¾—ä¸€å‘å¤§äº†ï¼Œè¶³åº•æºœæ»‘ï¼Œé“è·¯æ›´æ˜¯éš¾äºè¾¨è®¤ï¼Œ
+è‹¥æ˜¯è¸ä¸€ä¸ªç©ºï¼ŒåŠ¿å¿…æ‰åœ¨ä¸‡ä»æ·±è°·ä¸­è·Œå¾—ç²‰èº«ç¢éª¨ã€‚ä½ åªæœ‰å°å¿ƒç¿¼ç¿¼çš„çˆ¬
+çˆ¬(climb)çœ‹äº†ã€‚
 LONG
         );
         set("outdoors", "huashan");
@@ -35,26 +35,26 @@ int do_next(string arg)
         cost = random(cost) + 100;
         
         if(me->is_busy())
-                return notify_fail("Äã»¹ÔÚÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ è¿˜åœ¨å¿™ç€å‘¢ã€‚\n");
 
         me->start_busy(2+random(2));
         
         if (!arg)
         {
-                tell_object(me,"ÄãÏëÏòÄÄ¸ö·½ÏòÅÀ£¿×ó(left),ÓÒ(right)£¬ÉÏ(up)¡£\n"NOR);
+                tell_object(me,"ä½ æƒ³å‘å“ªä¸ªæ–¹å‘çˆ¬ï¼Ÿå·¦(left),å³(right)ï¼Œä¸Š(up)ã€‚\n"NOR);
 
                 return 1;
 
         }
         if (me->query("jingli")<500)
         {
-                tell_object(me,HIY"ÄãµÄÌåÁ¦Í¸Ö§£¬»èÁË¹ıÈ¥¡£\n"NOR);
+                tell_object(me,HIY"ä½ çš„ä½“åŠ›é€æ”¯ï¼Œæ˜äº†è¿‡å»ã€‚\n"NOR);
                 me->add("jingli",-500);
                 return 1;
         }
         if (arg == dir[random(3)] )
         {
-                message_vision(HIG"$NÕÒµ½ÁËÒ»¸ö±Ü·çÖ®´¦£¬×¼±¸Ğª¿ÚÆøÔÙÅÀ¡£\n"NOR,me);
+                message_vision(HIG"$Næ‰¾åˆ°äº†ä¸€ä¸ªé¿é£ä¹‹å¤„ï¼Œå‡†å¤‡æ­‡å£æ°”å†çˆ¬ã€‚\n"NOR,me);
                 me->move("/d/huashan/hamasuperquest/jueding2");
                 me->add("jingli",-cost);
                 
@@ -62,21 +62,21 @@ int do_next(string arg)
         }
         else if (arg == "down")
         {
-                message_vision("$NĞ¡ĞÄÒíÒíµÄÅÀÁËÏÂÈ¥¡£\n"NOR,me);
+                message_vision("$Nå°å¿ƒç¿¼ç¿¼çš„çˆ¬äº†ä¸‹å»ã€‚\n"NOR,me);
                 me->move("/d/huashan/sheshen");
                 me->add("jingli",-cost);
         
         }
         else if (arg=="left" || arg=="right" || arg=="up" )
         {
-                tell_object(me,HIR"Äã·ÑÁËºÜ´óÁ¦ÆøÅÀÁË¹ıÈ¥£¬È´·¢ÏÖÅÀ´íÁË·½Ïò£¬Ö»ºÃÍË»ØÁËÔ­µØ¡£\n"NOR,me);
+                tell_object(me,HIR"ä½ è´¹äº†å¾ˆå¤§åŠ›æ°”çˆ¬äº†è¿‡å»ï¼Œå´å‘ç°çˆ¬é”™äº†æ–¹å‘ï¼Œåªå¥½é€€å›äº†åŸåœ°ã€‚\n"NOR,me);
                 me->add("jingli",-cost);
                 me->move("/d/huashan/hamasuperquest/jueding1");
 
         }
         else
         {
-                tell_object(me,"Õâ¸ö·½Ïò²»ÄÜÅÀ¡£\n");
+                tell_object(me,"è¿™ä¸ªæ–¹å‘ä¸èƒ½çˆ¬ã€‚\n");
                 
         }
         

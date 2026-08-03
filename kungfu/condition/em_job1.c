@@ -26,54 +26,54 @@ int update_condition(object me, int duration)
 				
 				exp = k*j;
 				pot = k*j/5+random(k*j/10);
-				exp = ob->add_exp_combat(exp,"Ãð¾øÊ¦Ì«","¶ëáÒÔª±ø",1);
+				exp = ob->add_exp_combat(exp,"ç­ç»å¸ˆå¤ª","å³¨åµ‹å…ƒå…µ",1);
 				//ob->add("combat_exp",exp );
 				
 				ob->add("potential",pot);
 				if ( me->query("potential") > me->query("max_pot"))
 					me->set("potential", me->query("max_pot"));  // added by snowman
-				log_file("job/emei",sprintf("%8s%-10s¶ëáÒÈÎÎñÉ±ËÀ%dÈË£¬µÃ¾­Ñé£º%d£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
+				log_file("job/emei",sprintf("%8s%-10så³¨åµ‹ä»»åŠ¡æ€æ­»%däººï¼Œå¾—ç»éªŒï¼š%dï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
 					ob->name(1),"("+ob->query("id")+")",j,k*j, ob->query("combat_exp")),ob);
 				if( me->query("job_ok")){
 					temp_number = 100+5*random(j);
 					exp = temp_number;
 					pot = temp_number/5+random(temp_number/10);
 															
-					exp = ob->add_exp_combat(exp,"Ãð¾øÊ¦Ì«","¶ëáÒÔª±ø");
+					exp = ob->add_exp_combat(exp,"ç­ç»å¸ˆå¤ª","å³¨åµ‹å…ƒå…µ");
 					//ob->add("combat_exp",exp );
-					//ob->add("job_time/¶ëáÒÔª±ø",1);
-					//GIFT_D->check_count(ob,"Ãð¾øÊ¦Ì«","¶ëáÒÔª±ø");
+					//ob->add("job_time/å³¨åµ‹å…ƒå…µ",1);
+					//GIFT_D->check_count(ob,"ç­ç»å¸ˆå¤ª","å³¨åµ‹å…ƒå…µ");
 										
 					ob->add("potential",pot);
 					if(me->query("potential") > me->query("max_pot"))
 						me->set("potential", me->query("max_pot"));  // added by snowman
 					ob->add("em_job1", 1 );
-					log_file("job/emei",sprintf("%8s%-10sµÚ%d´Î¶ëáÒÈÎÎñÉ±ËÀ%dÈË£¬µÃ¾­Ñé£º%d£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
+					log_file("job/emei",sprintf("%8s%-10sç¬¬%dæ¬¡å³¨åµ‹ä»»åŠ¡æ€æ­»%däººï¼Œå¾—ç»éªŒï¼š%dï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
 					 ob->name(1),"("+ob->query("id")+")",ob->query("em_job1"),j,temp_number,ob->query("combat_exp")),ob);
 				}
 			} 
 			ob->delete_temp("em_job1");
 		}
 		if( me->query("job_ok")){
-			CHANNEL_D->do_channel(me, "party", "¹§Ï²ÖîÎ»µÜ×Ó£¬Ôª±øÒÑ±»¸Ï×ßÁË£¡\n");
+			CHANNEL_D->do_channel(me, "party", "æ­å–œè¯¸ä½å¼Ÿå­ï¼Œå…ƒå…µå·²è¢«èµ¶èµ°äº†ï¼\n");
 			ob = me->query("pl");
 			if(ob) {
 				temp_number = random(100) + 150;
 				//ob->add("combat_exp", temp_number );
-				temp_number = ob->add_exp_combat(temp_number,"Ãð¾øÊ¦Ì«","¶ëáÒÔª±ø",1);
+				temp_number = ob->add_exp_combat(temp_number,"ç­ç»å¸ˆå¤ª","å³¨åµ‹å…ƒå…µ",1);
 												
 				ob->add("potential",temp_number/5+random(temp_number/10));
 				if(me->query("potential") > me->query("max_pot"))
 					me->set("potential", me->query("max_pot"));  // added by snowman
 				ob->add("em_job1", 1 );
-				log_file("job/emei",sprintf("%8s%-10sµÚ%d´Î¶ëáÒÈÎÎñÉ±ËÀ%dÈË£¬µÃ¾­Ñé£º%d£¬Ä¿Ç°¾­Ñé£º%d¡£\n",
+				log_file("job/emei",sprintf("%8s%-10sç¬¬%dæ¬¡å³¨åµ‹ä»»åŠ¡æ€æ­»%däººï¼Œå¾—ç»éªŒï¼š%dï¼Œç›®å‰ç»éªŒï¼š%dã€‚\n",
 				  ob->name(1),"("+ob->query("id")+")",ob->query("em_job1"),j, temp_number ,ob->query("combat_exp")),ob);
 				ob->delete_temp("em_job1");
 			}
 		}
 		else {
 			if ((ob = find_object("miejue shitai")) ) {
-				CHANNEL_D->do_channel(ob, "party", "Ôª±ø÷²×ÓÊµÁ¦Ç¿´ó£¬ÏÖÔÚÎÒÅÉÈËÉÙ±øÏ¡£¬Îª±£´æÊµÁ¦£¬´ó¼ÒÏÈ³·°É£¡\n");
+				CHANNEL_D->do_channel(ob, "party", "å…ƒå…µéž‘å­å®žåŠ›å¼ºå¤§ï¼ŒçŽ°åœ¨æˆ‘æ´¾äººå°‘å…µç¨€ï¼Œä¸ºä¿å­˜å®žåŠ›ï¼Œå¤§å®¶å…ˆæ’¤å§ï¼\n");
 			}
 		}
 		me->delay_dest();
@@ -93,13 +93,13 @@ int update_condition(object me, int duration)
 			ob->set_temp("em_job1/bing5", ob); 
 		} 
 		if ( environment( ob ) != where )
-			tell_object(ob, "ÄãÔõÃ´»¹²»µ½"+where->query("short")+"ÄÇÀïÈ¥¿¹»÷Ôª±ø£¬ÅÂËÀÂð£¿\n");
+			tell_object(ob, "ä½ æ€Žä¹ˆè¿˜ä¸åˆ°"+where->query("short")+"é‚£é‡ŒåŽ»æŠ—å‡»å…ƒå…µï¼Œæ€•æ­»å—ï¼Ÿ\n");
 		else {
 			if ( duration>21 && duration<29 && !ob->query_temp("em_job1/killing") ) {
 				bing = new("/d/emei/npc/yuanbing");
 				bing->move(where);
 				bing->setskill(ob, bing);
-                		tell_object(ob,"Ò»¸öÔª±ø¿ñ½Ð×ÅÏòÄãÆËÀ´¡£\n");
+                		tell_object(ob,"ä¸€ä¸ªå…ƒå…µç‹‚å«ç€å‘ä½ æ‰‘æ¥ã€‚\n");
                 		bing->set_leader(ob);
                 		bing->kill_ob(ob);
                			ob->set_temp("em_job1/bing1", bing); 
@@ -109,7 +109,7 @@ int update_condition(object me, int duration)
 				bing = new("/d/emei/npc/yuanbing");
 				bing->move(where);
 				bing->setskill(ob, bing);
-				tell_object(ob,"Ò»¸öÔª±ø¿ñ½Ð×ÅÏòÄãÆËÀ´¡£\n");
+				tell_object(ob,"ä¸€ä¸ªå…ƒå…µç‹‚å«ç€å‘ä½ æ‰‘æ¥ã€‚\n");
 				bing->set_leader(ob);
 				bing->kill_ob(ob);
 				ob->set_temp("em_job1/bing2", bing); 
@@ -120,7 +120,7 @@ int update_condition(object me, int duration)
 				bing->move(where);
 				bing->setskill(ob, bing);
 				bing->set_leader(ob);
-				tell_object(ob,"Ò»¸öÔª±ø¿ñ½Ð×ÅÏòÄãÆËÀ´¡£\n");
+				tell_object(ob,"ä¸€ä¸ªå…ƒå…µç‹‚å«ç€å‘ä½ æ‰‘æ¥ã€‚\n");
 				bing->kill_ob(ob);
 				ob->set_temp("em_job1/bing3", bing); 
 				ob->set_temp("em_job1/killing", 1); 
@@ -129,7 +129,7 @@ int update_condition(object me, int duration)
 				bing = new("/d/emei/npc/yuanbing");
 				bing->move(where);
 				bing->setskill(ob, bing);
-				tell_object(ob,"Ò»¸öÔª±ø¿ñ½Ð×ÅÏòÄãÆËÀ´¡£\n");
+				tell_object(ob,"ä¸€ä¸ªå…ƒå…µç‹‚å«ç€å‘ä½ æ‰‘æ¥ã€‚\n");
 				bing->set_leader(ob);
 				bing->kill_ob(ob);
 				ob->set_temp("em_job1/bing4", bing); 
@@ -139,7 +139,7 @@ int update_condition(object me, int duration)
 				bing = new("/d/emei/npc/yuanbing");
 				bing->move(where);
 				bing->setskill(ob, bing);
-				tell_object(ob,"Ò»¸öÔª±ø¿ñ½Ð×ÅÏòÄãÆËÀ´¡£\n");
+				tell_object(ob,"ä¸€ä¸ªå…ƒå…µç‹‚å«ç€å‘ä½ æ‰‘æ¥ã€‚\n");
 				bing->set_leader(ob);
 				bing->kill_ob(ob);
 				ob->set_temp("em_job1/bing5", bing); 

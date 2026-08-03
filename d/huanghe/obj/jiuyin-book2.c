@@ -6,15 +6,15 @@ int query_autoload(){return 1;}
 
 void create()
 {
-        set_name(HIB"¾ÅÒõÕæ¾­ÏÂ¾í"NOR, ({ "jiuyin zhenjing", "xiajuan", "book"}));
+        set_name(HIB"ä¹é˜´çœŸç»ä¸‹å·"NOR, ({ "jiuyin zhenjing", "xiajuan", "book"}));
         set_weight(5);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¾í");
+                set("unit", "å·");
                 set("long",
-"ÕâÊÇÃûÕð½­ºþÖ®¾ÅÒõÕæ¾­µÄÏÂ¾í¡£Äã¿ÉÒÔÑÐ¶ÁÒÔÏÂµÄ¼¼ÄÜ£º\n"
-"´ßÐÄÕÆ         (cuixin-zhang) \n""¾ÅÒõ°×¹Ç×¦ (jiuyin-baiguzhua) \n"
+"è¿™æ˜¯åéœ‡æ±Ÿæ¹–ä¹‹ä¹é˜´çœŸç»çš„ä¸‹å·ã€‚ä½ å¯ä»¥ç ”è¯»ä»¥ä¸‹çš„æŠ€èƒ½ï¼š\n"
+"å‚¬å¿ƒæŽŒ         (cuixin-zhang) \n""ä¹é˜´ç™½éª¨çˆª (jiuyin-baiguzhua) \n"
 );
                 set("treasure", 1);
                 set("unique", 1);
@@ -37,34 +37,34 @@ int do_study(string arg)
     int cost, my_skill;
     object me=this_player();
     object where = environment(me);
-    if (!arg) return notify_fail("ÄãÒª¶ÁÊ²Ã´£¿\n");
+    if (!arg) return notify_fail("ä½ è¦è¯»ä»€ä¹ˆï¼Ÿ\n");
     if (me->is_busy())
-        return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ¡£\n");
+        return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
     if (where->query("sleep_room"))
-        return notify_fail("ÎÔÊÒ²»ÄÜ¶ÁÊé£¬»áÓ°Ïì±ðÈËÐÝÏ¢¡£\n");
+        return notify_fail("å§å®¤ä¸èƒ½è¯»ä¹¦ï¼Œä¼šå½±å“åˆ«äººä¼‘æ¯ã€‚\n");
     if( me->is_fighting() )
-        return notify_fail("ÄãÎÞ·¨ÔÚÕ½¶·ÖÐ×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª£¡\n");
+        return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ï¼\n");
     if( !me->query_skill("literate", 1) )
-        return notify_fail("ÄãÊÇ¸öÎÄÃ¤£¬ÏÈÑ§µãÎÄ»¯(literate)°É¡£\n");
+        return notify_fail("ä½ æ˜¯ä¸ªæ–‡ç›²ï¼Œå…ˆå­¦ç‚¹æ–‡åŒ–(literate)å§ã€‚\n");
     if( (int)me->query("potential") < 1 )
-        return notify_fail("ÄãµÄÇ±ÄÜÒÑ¾­ÓÃÍêÁË£¬ÔÙÔõÃ´¶ÁÒ²Ã»ÓÃ¡£\n");
+        return notify_fail("ä½ çš„æ½œèƒ½å·²ç»ç”¨å®Œäº†ï¼Œå†æ€Žä¹ˆè¯»ä¹Ÿæ²¡ç”¨ã€‚\n");
     if( (int)me->query("combat_exp") < 1000000 )
-        return notify_fail("ÄãµÄÊµÕ½¾­Ñé²»×ã£¬ÔÙÔõÃ´¶ÁÒ²Ã»ÓÃ¡£\n");
+        return notify_fail("ä½ çš„å®žæˆ˜ç»éªŒä¸è¶³ï¼Œå†æ€Žä¹ˆè¯»ä¹Ÿæ²¡ç”¨ã€‚\n");
     if( me->query_int() < 35 )
-        return notify_fail("ÒÔÄãÄ¿Ç°µÄÁìÎòÄÜÁ¦£¬»¹Ã»ÓÐ°ì·¨Ñ§Õâ¸ö¼¼ÄÜ¡£\n");
+        return notify_fail("ä»¥ä½ ç›®å‰çš„é¢†æ‚Ÿèƒ½åŠ›ï¼Œè¿˜æ²¡æœ‰åŠžæ³•å­¦è¿™ä¸ªæŠ€èƒ½ã€‚\n");
 
     cost = 40 * ( 1 + ( 35 - (int)me->query("int"))/20 );
     if (cost < 20) cost = 20;
-    me->set_temp("last_damage_from", "ÑÐ¶Á¸ßÉîÎä¹¦£¬°¾¾¡ÐÄ»úÀÛ");
+    me->set_temp("last_damage_from", "ç ”è¯»é«˜æ·±æ­¦åŠŸï¼Œç†¬å°½å¿ƒæœºç´¯");
 
     switch (arg) {
          case "jiuyin-baiguzhua":
               my_skill = me->query_skill("jiuyin-baiguzhua", 1);
               if( my_skill >=150)
-                 write("Äã¾õµÃÕâ¾­ÊéÉÏËùÐ´µÄÒÑ¾­Ì«Ç³ÁË£¬²»ÄÜÑ§µ½Ê²Ã´¶«Î÷¡£\n");
+                 write("ä½ è§‰å¾—è¿™ç»ä¹¦ä¸Šæ‰€å†™çš„å·²ç»å¤ªæµ…äº†ï¼Œä¸èƒ½å­¦åˆ°ä»€ä¹ˆä¸œè¥¿ã€‚\n");
               if( my_skill * my_skill * my_skill / 10 > (int)me->query("combat_exp") ) 
-                 write("Ò²ÐíÊÇÈ±·¦ÊµÕ½¾­Ñé£¬Äã¶Ô¾­ÊéÉÏÃæËùËµµÄ¶«Î÷×ÜÊÇÎÞ·¨Áì»á¡£\n");
-              else write("ÄãÑÐ¶Á×ÅÓÐ¹Ø¾ÅÒõ°×¹Ç×¦µÄ¼¼ÇÉ£¬ËÆºõÓÐÐ©ÐÄµÃ¡£\n");
+                 write("ä¹Ÿè®¸æ˜¯ç¼ºä¹å®žæˆ˜ç»éªŒï¼Œä½ å¯¹ç»ä¹¦ä¸Šé¢æ‰€è¯´çš„ä¸œè¥¿æ€»æ˜¯æ— æ³•é¢†ä¼šã€‚\n");
+              else write("ä½ ç ”è¯»ç€æœ‰å…³ä¹é˜´ç™½éª¨çˆªçš„æŠ€å·§ï¼Œä¼¼ä¹Žæœ‰äº›å¿ƒå¾—ã€‚\n");
           me->improve_skill("jiuyin-baiguzhua", ((int)me->query_skill("literate", 1)/5+1) );
           me->receive_damage("jing", cost );
           if(me->query_skill("jiuyin-baiguzhua",1)<150)
@@ -73,10 +73,10 @@ int do_study(string arg)
          case "cuixin-zhang":
               my_skill = me->query_skill("cuixin-zhang", 1);
               if( my_skill >=150)
-                 write("Äã¾õµÃÕâ¾­ÊéÉÏËùÐ´µÄÒÑ¾­Ì«Ç³ÁË£¬²»ÄÜÑ§µ½Ê²Ã´¶«Î÷¡£\n");
+                 write("ä½ è§‰å¾—è¿™ç»ä¹¦ä¸Šæ‰€å†™çš„å·²ç»å¤ªæµ…äº†ï¼Œä¸èƒ½å­¦åˆ°ä»€ä¹ˆä¸œè¥¿ã€‚\n");
               if( my_skill * my_skill * my_skill / 10 > (int)me->query("combat_exp") ) 
-                 write("Ò²ÐíÊÇÈ±·¦ÊµÕ½¾­Ñé£¬Äã¶Ô¾­ÊéÉÏÃæËùËµµÄ¶«Î÷×ÜÊÇÎÞ·¨Áì»á¡£\n");
-              else write("ÄãÑÐ¶Á×ÅÓÐ¹Ø´ßÐÄÕÆµÄ¼¼ÇÉ£¬ËÆºõÓÐÐ©ÐÄµÃ¡£\n");
+                 write("ä¹Ÿè®¸æ˜¯ç¼ºä¹å®žæˆ˜ç»éªŒï¼Œä½ å¯¹ç»ä¹¦ä¸Šé¢æ‰€è¯´çš„ä¸œè¥¿æ€»æ˜¯æ— æ³•é¢†ä¼šã€‚\n");
+              else write("ä½ ç ”è¯»ç€æœ‰å…³å‚¬å¿ƒæŽŒçš„æŠ€å·§ï¼Œä¼¼ä¹Žæœ‰äº›å¿ƒå¾—ã€‚\n");
           me->improve_skill("cuixin-zhang", ((int)me->query_skill("literate", 1)/5+1) );
           me->receive_damage("jing", cost );
           if(me->query_skill("cuixin-zhang",1)<150)

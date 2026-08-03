@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name( HIC "¡ºÉÙÁÖÂÃÓÎÍ¼¡»" NOR, ({ "shaolin lvyoutu", "tu" }) );
+	set_name( HIC "ã€å°‘æ—æ—…æ¸¸å›¾ã€" NOR, ({ "shaolin lvyoutu", "tu" }) );
 	set_weight(2);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "ÕÅ");
-                set("long", "Ò»ÕÅÉÙÁÖÂÃÓÎÍ¼£¬¿ÉÒÔ²é¿´(show)ÉÙÁÖ¸ÅÃ²¡£\n");
+		set("unit", "å¼ ");
+                set("long", "ä¸€å¼ å°‘æ—æ—…æ¸¸å›¾ï¼Œå¯ä»¥æŸ¥çœ‹(show)å°‘æ—æ¦‚è²Œã€‚\n");
 		set("value", 50);
 		set("material", "paper");
 		set("map", "shaolin");
@@ -25,7 +25,7 @@ void init()
 int show_map(string arg)
 {
 	if (arg != "shaolin lvyoutu" && arg != "lvyoutu")
-		return notify_fail("ÄãÒª²é¿´Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦æŸ¥çœ‹ä»€ä¹ˆï¼Ÿ\n");
 	write(read_file("/help/map/shaolin"));
 	return 1;
 }

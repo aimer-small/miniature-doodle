@@ -8,24 +8,24 @@ int exert(object me)
 	int improve;
 
 	if( me->query("class") != "bonze" && me->query("family/generation") > 3)
-		return notify_fail("Äã²»ÊÇ³ö¼ÒÈË£¬ÎŞ·¨Áì»áÁÙ¼ÃÊ®¶ş×¯µÄ¡¸·çÔÆ¡¹×Ö¾ö£¡\n");
+		return notify_fail("ä½ ä¸æ˜¯å‡ºå®¶äººï¼Œæ— æ³•é¢†ä¼šä¸´æµåäºŒåº„çš„ã€Œé£äº‘ã€å­—å†³ï¼\n");
         
 	if( (int)me->query_skill("linji-zhuang", 1) < 90 )
-		return notify_fail("ÄãµÄÁÙ¼ÃÊ®¶ş×¯ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„ä¸´æµåäºŒåº„ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if((int)me->query("neili") < 400 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
         
 	if( me->query_temp("ljz/fengyun") )
-		return notify_fail("ÄãÕıÔÚÔËÓÃÁÙ¼ÃÊ®¶ş×¯µÄ¡¸·çÔÆ¡¹×Ö¾ö£¡\n");
+		return notify_fail("ä½ æ­£åœ¨è¿ç”¨ä¸´æµåäºŒåº„çš„ã€Œé£äº‘ã€å­—å†³ï¼\n");
 
-	tell_object(me,MAG"Äã°µÔË·çÔÆÁ½×¯£¬ĞÄË¼¸¡ÔÆÆ®¿ÕÖ®ÓÆÏĞ»ºÂı£¬Ä¬Ïë¿ñ·çµ´µØÖ®Ñ¸ËÙ½ô¼±Ò»¹Éµ¤ÌïÈÈÆø·Ö×¢ËÄÖ«°Ùº¡£¬µ«¾õÉíÊÖÃô½İÁËĞí¶à¡£\n"NOR, me);
-	tell_room(environment(me), MAG"Ö»¼û"+me->name()+"Î¢±ÕË«ÑÛ£¬ÉíÅÔÄıÆğÒ»È¦°×Îí£¬Ë²Ï¢¼äÒ»¹ÉĞı·ç¾í¹ı£¬ÉíĞÎÓÖ¸´ÇåÎú¡£\n"NOR,({ me }));
+	tell_object(me,MAG"ä½ æš—è¿é£äº‘ä¸¤åº„ï¼Œå¿ƒæ€æµ®äº‘é£˜ç©ºä¹‹æ‚ é—²ç¼“æ…¢ï¼Œé»˜æƒ³ç‹‚é£è¡åœ°ä¹‹è¿…é€Ÿç´§æ€¥ä¸€è‚¡ä¸¹ç”°çƒ­æ°”åˆ†æ³¨å››è‚¢ç™¾éª¸ï¼Œä½†è§‰èº«æ‰‹æ•æ·äº†è®¸å¤šã€‚\n"NOR, me);
+	tell_room(environment(me), MAG"åªè§"+me->name()+"å¾®é—­åŒçœ¼ï¼Œèº«æ—å‡èµ·ä¸€åœˆç™½é›¾ï¼Œç¬æ¯é—´ä¸€è‚¡æ—‹é£å·è¿‡ï¼Œèº«å½¢åˆå¤æ¸…æ™°ã€‚\n"NOR,({ me }));
 	improve = (int)me->query("dex") ;
 	me->add_temp("apply/dexerity", improve);
 	me->set_temp("ljz/fengyun", improve);  
 	me->add("neili", - 150);    
-	me->start_exert(1 , "¡¸·çÔÆ¡¹×Ö¾ö");
+	me->start_exert(1 , "ã€Œé£äº‘ã€å­—å†³");
 	call_out("remove_effect", 1, me, (int)me->query_skill("dodge")/3 );
 	return 1;
 }
@@ -39,21 +39,21 @@ void remove_effect(object me,int count)
 		me->add_temp("apply/dexerity", -i);
 		me->delete_temp("ljz/fengyun");
 		if ( living(me) && ! me->is_ghost()) 
-			tell_object(me, HIR"Äã·çÔÆĞĞ¹¦ÒÑ¾Ã£¬ÂÔ¾õ²½ÂÄ³ÁÖØÁËÒ»Ğ©¡£\n"NOR);
+			tell_object(me, HIR"ä½ é£äº‘è¡ŒåŠŸå·²ä¹…ï¼Œç•¥è§‰æ­¥å±¥æ²‰é‡äº†ä¸€äº›ã€‚\n"NOR);
 		return;
 	}
 	call_out("remove_effect", 1, me,count - 1);
 }
 
-string exert_name(){ return MAG"·çÔÆ×Ö¾ö"NOR; }
+string exert_name(){ return MAG"é£äº‘å­—å†³"NOR; }
 
 int help(object me)
 {
-        write(MAG"\nÁÙ¼ÃÊ®¶ş×¯¡¸·çÔÆ×Ö¾÷¡¹£º"NOR"\n\n");
+        write(MAG"\nä¸´æµåäºŒåº„ã€Œé£äº‘å­—è¯€ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 400 ÒÔÉÏ£»
-                ÁÙ¼ÃÊ®¶ş×¯µÈ¼¶ 90 ÒÔÉÏ£»
-                ³ö¼Ò»òË×¼ÒÈı´úµÜ×Ó¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 400 ä»¥ä¸Šï¼›
+                ä¸´æµåäºŒåº„ç­‰çº§ 90 ä»¥ä¸Šï¼›
+                å‡ºå®¶æˆ–ä¿—å®¶ä¸‰ä»£å¼Ÿå­ã€‚
 HELP
         );
         return 1;

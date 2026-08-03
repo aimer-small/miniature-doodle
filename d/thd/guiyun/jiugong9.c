@@ -13,8 +13,8 @@ int do_inv(string arg);
 
 void create()
 {
-	set("short", "¾Å¹¬ÌÒ»¨Õó");
-	set("outdoors","¹éÔÆ×¯");
+	set("short", "ä¹å®«æ¡ƒèŠ±é˜µ");
+	set("outdoors","å½’äº‘åº„");
 
 	set("exits", ([
 		"west" : __DIR__"jiugong8",

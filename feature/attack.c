@@ -56,12 +56,12 @@ void fight_ob(object ob)
       	 && (me->query("combat_exp")<2000000 || ob->query("combat_exp")<2000000)
         && (!me->query_temp("xyjob") || !ob->query_temp("xyjob"))
 	 && (!me->query("env/fight_player") || !ob->query("env/fight_player"))) {
-		message_vision("$NÒÑ¾­½ğÅèÏ´ÊÖ£¬ÍË³ö½­ºş£¬²»ÔÙÓëÈËÕù¶·ÁË¡£\n", (me->query("no_pk")?me:ob) );
+		message_vision("$Nå·²ç»é‡‘ç›†æ´—æ‰‹ï¼Œé€€å‡ºæ±Ÿæ¹–ï¼Œä¸å†ä¸äººäº‰æ–—äº†ã€‚\n", (me->query("no_pk")?me:ob) );
 		return;
 	}
 
 	if ( !me->query_condition("pk") && pktime_limit(me, ob)) {
-		tell_object(me, "½ñÌìÍæ¼ÒÖ»ÄÜÔÚ¹æ¶¨ÇøÓòÄÚ½øĞĞÕ½¶·ĞĞÎª¡£\n");
+		tell_object(me, "ä»Šå¤©ç©å®¶åªèƒ½åœ¨è§„å®šåŒºåŸŸå†…è¿›è¡Œæˆ˜æ–—è¡Œä¸ºã€‚\n");
 		return;
 	}//killer -> pk by Ciwei@SJ
 
@@ -83,7 +83,7 @@ void fight_ob(object ob)
 }
 
 // added by snowman@SJ 15/10/2000
-// ²»ÄÜÔÚÒ»ÌìÄÚÉ±Í¬Ò»¸öÈËÁ½´Î¡£
+// ä¸èƒ½åœ¨ä¸€å¤©å†…æ€åŒä¸€ä¸ªäººä¸¤æ¬¡ã€‚
 int can_kill_ob(object me, object ob)
 {
 	int i;
@@ -124,7 +124,7 @@ void kill_ob(object ob)
 
 	mid = query("id");
 	uid = ob->query("id");
-       //ÌØÊâËÀÍö
+       //ç‰¹æ®Šæ­»äº¡
        if (userp(me)
 	&& userp(ob)
    && (!me->query_temp("special_die") || !ob->query_temp("special_die")))
@@ -143,8 +143,8 @@ void kill_ob(object ob)
 		} else ob->set_temp("kill_other/"+mid, 1);
 
 		if( !can_kill_ob(me,ob) && !GROUP_D->is_group_fight(me,ob)
-		&& strsrch(file_name(environment(me)),"/cmds/leitai") != 0 ){//È¥µô /bwdh ºÙºÙ
-			message_vision("$NÏëÁËÏë£¬²ÅÉ±$n²»¾Ã£¬»¹ÊÇ·Å¹ı$p°É¡£\n", me, ob);
+		&& strsrch(file_name(environment(me)),"/cmds/leitai") != 0 ){//å»æ‰ /bwdh å˜¿å˜¿
+			message_vision("$Næƒ³äº†æƒ³ï¼Œæ‰æ€$nä¸ä¹…ï¼Œè¿˜æ˜¯æ”¾è¿‡$på§ã€‚\n", me, ob);
 			enemy -= ({ ob });
 			ob->remove_enemy(me);
 			return;
@@ -161,7 +161,7 @@ void kill_ob(object ob)
 					add("vendetta/" + uid, 1);
 					delete_temp("last_channel_msg");
 					CHANNEL_D->do_channel(inv[i], "party",
-						"´ó¼Ò×¢ÒâÀ²£¡"+me->name()+"Ïò"+ob->name()+"ÏÂÊÖÁË£¡");
+						"å¤§å®¶æ³¨æ„å•¦ï¼"+me->name()+"å‘"+ob->name()+"ä¸‹æ‰‹äº†ï¼");
 					break;
 				}
 
@@ -174,7 +174,7 @@ void kill_ob(object ob)
 	uid = ob->query("id");
 	if (member_array(uid, killer) == -1)
 		killer += ({ uid });
-	tell_object(ob, HIR "¿´ÆğÀ´" + me->name() + "ÏëÉ±ËÀÄã£¡\n" NOR);
+	tell_object(ob, HIR "çœ‹èµ·æ¥" + me->name() + "æƒ³æ€æ­»ä½ ï¼\n" NOR);
 if(userp(me) && userp(ob)) { me->apply_condition("no_quit",20);
                               ob->apply_condition("no_quit",20);}
 	fight_ob(ob);
@@ -244,9 +244,9 @@ void remove_all_enemy()
 {
 	object ob = this_object();
 
-	delete_temp("combat_time");//combat_time Íæ¼ÒÕ½¶·Ê±¼ä ÌåÏÖÄ³Ğ©Îä¹¦¼¼ÄÜÔ½Õ½Ô½Ç¿
+	delete_temp("combat_time");//combat_time ç©å®¶æˆ˜æ–—æ—¶é—´ ä½“ç°æŸäº›æ­¦åŠŸæŠ€èƒ½è¶Šæˆ˜è¶Šå¼º
 	delete_temp("combat_been_wound");
-	delete_temp("combat_been_damage");//been hit ÉËº¦
+	delete_temp("combat_been_damage");//been hit ä¼¤å®³
 	if (sizeof(enemy))
 		foreach (object item in enemy) {
 			// We ask our enemy to stop fight, but not nessessary to confirm

@@ -1,4 +1,4 @@
-// wudunru.cÎä¶ØÈå
+// wudunru.cæ­¦æ•¦å„’
 
 inherit NPC;
 
@@ -7,10 +7,10 @@ void consider();
 
 void create()
 {
-	set_name("Îä¶ØÈå", ({ "wu dunru","wu","dunru" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æ­¦æ•¦å„’", ({ "wu dunru","wu","dunru" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 28);
-	set("long", "Éí²Ä½¡×³£¬Å¨Å¨µÄÃ¼Ã«£¬Ò»¸±¾«Éñ±¥ÂúµÄÑù×Ó¡£\n");
+	set("long", "èº«æå¥å£®ï¼Œæµ“æµ“çš„çœ‰æ¯›ï¼Œä¸€å‰¯ç²¾ç¥é¥±æ»¡çš„æ ·å­ã€‚\n");
 	set("attitude", "peaceful");
 //      set("nickname", "");
         set("str", 30);
@@ -49,12 +49,12 @@ void create()
         map_skill("parry", "liuhe-daofa");
         prepare_skill("hand", "suohou-shou");
 
-	create_family("Ø¤°ï", 19, "¹ÒÃûµÜ×Ó");
+	create_family("ä¸å¸®", 19, "æŒ‚åå¼Ÿå­");
 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"Îä¶ØÈåËµµ½£º¡°´ò¹·°ôµÄ¾«ËèÌ«ÄÑÁìÎòÁË...°¥\n",
-		"Îä¶ØÈåËµµ½£º¡°¹ùÜ½ÊÇÏ²»¶ÎÒÄØ£¬»¹ÊÇÏ²»¶....£¿\n",
+		"æ­¦æ•¦å„’è¯´åˆ°ï¼šâ€œæ‰“ç‹—æ£’çš„ç²¾é«“å¤ªéš¾é¢†æ‚Ÿäº†...å“\n",
+		"æ­¦æ•¦å„’è¯´åˆ°ï¼šâ€œéƒ­èŠ™æ˜¯å–œæ¬¢æˆ‘å‘¢ï¼Œè¿˜æ˜¯å–œæ¬¢....ï¼Ÿ\n",
                  (: random_move :)
 	}) );
 

@@ -17,7 +17,7 @@ int degree()
         string this_flag = query("flag");
 	
 	this_player()->add(this_flag,1);
-	write("±¾ÖÜÄãÒÑ¾­Ê¹ÓÃ"+query("name")+chinese_number(this_player()->query(this_flag))+"´Î¡£\n");
+	write("æœ¬å‘¨ä½ å·²ç»ä½¿ç”¨"+query("name")+chinese_number(this_player()->query(this_flag))+"æ¬¡ã€‚\n");
         if (add("degree",-1)<1) 
-        	{write("ÄãµÄ"+query("name")+"ÒÑ¾­ÓÃÍêÁË!\n");destruct(this_object());}
+        	{write("ä½ çš„"+query("name")+"å·²ç»ç”¨å®Œäº†!\n");destruct(this_object());}
 }

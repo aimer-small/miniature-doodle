@@ -1,7 +1,7 @@
-// dizi6.c Îâ¿² ¹ÜÀíÎïÆ·
+// dizi6.c å´å ç®¡ç†ç‰©å“
 // Modify By River@SJ
 // Modified by snowman@SJ 22/11/2000
-// ¼õÉÙflood
+// å‡å°‘flood
 
 #include <ansi.h>
 inherit NPC;
@@ -9,11 +9,11 @@ int give_tools();
 int give_gaotou();
 void create()
 {
-	set_name("Îâ¿²",({ "wu kan", "wu","kan" }) );
-	set("title","ÏåÑôÎä¹İÁùµÜ×Ó");
-	set("gender", "ÄĞĞÔ" );
+	set_name("å´å",({ "wu kan", "wu","kan" }) );
+	set("title","è¥„é˜³æ­¦é¦†å…­å¼Ÿå­");
+	set("gender", "ç”·æ€§" );
 	set("age", 25);
-	set("long"," ËûÊÇÍòÕğÉ½µÄÁùµÜ×Ó£¬¾«Ã÷Ç¿¸É£¬Îä¹İµÄÎïÆ·¶¼ÊÇÓÉËû±£¹Ü¡£\n");
+	set("long"," ä»–æ˜¯ä¸‡éœ‡å±±çš„å…­å¼Ÿå­ï¼Œç²¾æ˜å¼ºå¹²ï¼Œæ­¦é¦†çš„ç‰©å“éƒ½æ˜¯ç”±ä»–ä¿ç®¡ã€‚\n");
 	set("combat_exp", 4000);
 	set("attitude", "friendly");
 
@@ -24,8 +24,8 @@ void create()
 	map_skill("force", "shenzhao-jing");
 
 	set("inquiry", ([
-		"¹¤¾ß" : (: give_tools :),
-		"¸äÍ·" : (: give_gaotou :),
+		"å·¥å…·" : (: give_tools :),
+		"é•å¤´" : (: give_gaotou :),
 		"tools" : (: give_tools :),
 	]) );
 	setup();
@@ -47,33 +47,33 @@ int give_tools()
 	object tools,ob,me;
 	me = this_object();
 	ob = this_player();
-	if(ob->query_temp("mark/¹¤¾ß")){
-		command("say ÄãÒÑ¾­ÁìÁË¹¤¾ßÁË£¬»¹Ã»»¹ÄØ£¬ÔõÃ´ÓÖÀ´ÁìÁË£¿");
+	if(ob->query_temp("mark/å·¥å…·")){
+		command("say ä½ å·²ç»é¢†äº†å·¥å…·äº†ï¼Œè¿˜æ²¡è¿˜å‘¢ï¼Œæ€ä¹ˆåˆæ¥é¢†äº†ï¼Ÿ");
 		return 1;
 	}
-	if(ob->query_temp("mark/»¹ÁË")){
-		command("say Äã»¹Ã»¸²ÃüÁìĞÂ»î°É£¬ÅÜÀ´ÒªÊ²Ã´¹¤¾ß¡£");
+	if(ob->query_temp("mark/è¿˜äº†")){
+		command("say ä½ è¿˜æ²¡è¦†å‘½é¢†æ–°æ´»å§ï¼Œè·‘æ¥è¦ä»€ä¹ˆå·¥å…·ã€‚");
 		return 1;
 	}
 	if(!ob->query_temp("job_name")){
-		command("say ÄãÃ»¸ú´óÊ¦ĞÖÁì»î°É£¬ÅÜÀ´ÒªÊ²Ã´¹¤¾ß¡£");
+		command("say ä½ æ²¡è·Ÿå¤§å¸ˆå…„é¢†æ´»å§ï¼Œè·‘æ¥è¦ä»€ä¹ˆå·¥å…·ã€‚");
 		return 1;
 	}
 	switch( ob->query_temp("job_name") ){
-		case "³ú²İ":	tools = new(__DIR__"obj/chutou"); break;
-		case "¹à¸È²ËµØ":tools = new(__DIR__"obj/piao"); break;
-		case "¾âÄ¾Í·":	tools = new(__DIR__"obj/juzi"); break;
-		case "Åü²ñ":	tools = new(__DIR__"obj/chaidao"); break;
-		case "ÌôË®":	tools = new(__DIR__"obj/shuitong"); break;
-		case "´òÉ¨Âí·¿":tools = new(__DIR__"obj/saozhou"); break;
-		default:  return notify_fail(CYN+me->name()+"ËµµÀ£º¡¸Äã¸ú´óÊ¦ĞÖÁìµÄÊ²Ã´»î£¿ÎÒÕâÀïÃ»ÕâÖÖ¹¤¾ß¡£¡¹\n"NOR);
+		case "é”„è‰":	tools = new(__DIR__"obj/chutou"); break;
+		case "çŒæº‰èœåœ°":tools = new(__DIR__"obj/piao"); break;
+		case "é”¯æœ¨å¤´":	tools = new(__DIR__"obj/juzi"); break;
+		case "åŠˆæŸ´":	tools = new(__DIR__"obj/chaidao"); break;
+		case "æŒ‘æ°´":	tools = new(__DIR__"obj/shuitong"); break;
+		case "æ‰“æ‰«é©¬æˆ¿":tools = new(__DIR__"obj/saozhou"); break;
+		default:  return notify_fail(CYN+me->name()+"è¯´é“ï¼šã€Œä½ è·Ÿå¤§å¸ˆå…„é¢†çš„ä»€ä¹ˆæ´»ï¼Ÿæˆ‘è¿™é‡Œæ²¡è¿™ç§å·¥å…·ã€‚ã€\n"NOR);
 	}
 	tools->set_temp("mark/name", ob->query("id"));
 	tools->move(ob);
 	ob->set_temp("tools_name", tools->query("id"));
-	tell_object(ob, CYN+me->name()+"ËµµÀ£º¡¸¼ÈÈ»ÄãÒÑ¾­ÁìÁË»î£¬ÎÒ¾Í¸øÄãÕâ°Ñ¹¤¾ß£¬Ğ¡ĞÄ±£¹Ü£¬±ğÅª¶ªÁË¡£¡¹\n"NOR);
-	message_vision("$N½»¸ø$nÒ»"+tools->query("unit") + tools->query("name")+"¡£\n", me, ob);
-	ob->set_temp("mark/¹¤¾ß",1);
+	tell_object(ob, CYN+me->name()+"è¯´é“ï¼šã€Œæ—¢ç„¶ä½ å·²ç»é¢†äº†æ´»ï¼Œæˆ‘å°±ç»™ä½ è¿™æŠŠå·¥å…·ï¼Œå°å¿ƒä¿ç®¡ï¼Œåˆ«å¼„ä¸¢äº†ã€‚ã€\n"NOR);
+	message_vision("$Näº¤ç»™$nä¸€"+tools->query("unit") + tools->query("name")+"ã€‚\n", me, ob);
+	ob->set_temp("mark/å·¥å…·",1);
 	return 1;
 }
 int give_gaotou()
@@ -82,15 +82,15 @@ int give_gaotou()
 	me = this_object();
 	ob = this_player();
 	if(present("gao tou",ob))
-		return notify_fail("ÄãÒÑ¾­ÓĞÁË°¡¡£");
+		return notify_fail("ä½ å·²ç»æœ‰äº†å•Šã€‚");
 	tools = new(__DIR__"obj/chutou");
 	tools->set("no_drop",1);
 	tools->set("no_get",1);
 	tools->set("no_give",1);
-	tools->set_name("¸äÍ·", ({ "gao tou", "tou", "staff" }));
+	tools->set_name("é•å¤´", ({ "gao tou", "tou", "staff" }));
 	tools->move(ob);
-	tell_object(ob, CYN+me->name()+"ËµµÀ£º¡¸ÎÒ¾Í¸øÄãÕâ°Ñ¹¤¾ß£¬Ğ¡ĞÄ±£¹Ü£¬±ğÅª¶ªÁË¡£¡¹\n"NOR);
-	message_vision("$N½»¸ø$nÒ»"+tools->query("unit") + tools->query("name")+"¡£\n", me, ob);
+	tell_object(ob, CYN+me->name()+"è¯´é“ï¼šã€Œæˆ‘å°±ç»™ä½ è¿™æŠŠå·¥å…·ï¼Œå°å¿ƒä¿ç®¡ï¼Œåˆ«å¼„ä¸¢äº†ã€‚ã€\n"NOR);
+	message_vision("$Näº¤ç»™$nä¸€"+tools->query("unit") + tools->query("name")+"ã€‚\n", me, ob);
 	return 1;
 }
 
@@ -99,18 +99,18 @@ int accept_object(object me, object obj)
        	object ob;
        	me = this_object();
        	ob = this_player();
-       	if(!ob->query_temp("mark/¹¤¾ß")){
+       	if(!ob->query_temp("mark/å·¥å…·")){
            	command("shake");
-           	tell_object(ob, CYN+me->name()+"ËµµÀ£º¡¸ÎÒÃ»ÓĞ·¢¸øÄã¹ı¶«Î÷£¬ÄãÊÇ²»ÊÇ»¹´íÁË£¿¡¹\n"NOR);
+           	tell_object(ob, CYN+me->name()+"è¯´é“ï¼šã€Œæˆ‘æ²¡æœ‰å‘ç»™ä½ è¿‡ä¸œè¥¿ï¼Œä½ æ˜¯ä¸æ˜¯è¿˜é”™äº†ï¼Ÿã€\n"NOR);
            	return 0;
        	}
-       	if(!(ob->query_temp("mark/ÍêÁË"))){
-           	tell_object(ob, CYN+me->name()+"ËµµÀ£º¡¸Äã»¹Ã»Íê³É¹¤×÷£¬ÔõÃ´¾Í»ØÀ´»¹¹¤¾ßÁË£¬ÍµÀÁÂğ£¿¡¹\n"NOR);
+       	if(!(ob->query_temp("mark/å®Œäº†"))){
+           	tell_object(ob, CYN+me->name()+"è¯´é“ï¼šã€Œä½ è¿˜æ²¡å®Œæˆå·¥ä½œï¼Œæ€ä¹ˆå°±å›æ¥è¿˜å·¥å…·äº†ï¼Œå·æ‡’å—ï¼Ÿã€\n"NOR);
            	return 0;
        	}
        	if( obj->query_temp("mark/name") != ob->query("id")){
            	command("? "+ob->query("id") );
-           	tell_object(ob, CYN+me->name()+"ËµµÀ£º¡¸ÎÒ¸øÄãµÄºÃÏó²»ÊÇÕâÑù¶«Î÷°É£¿¡¹\n"NOR);
+           	tell_object(ob, CYN+me->name()+"è¯´é“ï¼šã€Œæˆ‘ç»™ä½ çš„å¥½è±¡ä¸æ˜¯è¿™æ ·ä¸œè¥¿å§ï¼Ÿã€\n"NOR);
            	return 0;
        	}
        	if((obj->query("id")!= "ju zi")
@@ -119,13 +119,13 @@ int accept_object(object me, object obj)
         &&(obj->query("id")!="sao zhou")
         &&(obj->query("id") != "shui tong")
         &&(obj->query("id") != "chai dao")){
-           	tell_object(ob, CYN+me->name()+"ËµµÀ£º¡¸Äã»¹´í¶«Î÷ÁË°É£¬ÎÒ´ÓÃ»ÓĞ·¢¹ıÕâÑù¹¤¾ß¡£¡¹\n"NOR);
+           	tell_object(ob, CYN+me->name()+"è¯´é“ï¼šã€Œä½ è¿˜é”™ä¸œè¥¿äº†å§ï¼Œæˆ‘ä»æ²¡æœ‰å‘è¿‡è¿™æ ·å·¥å…·ã€‚ã€\n"NOR);
            	return 0;
        	}
        	else {
            	command("nod");
-           	tell_object(ob, CYN+me->name()+"ËµµÀ£º¡¸¼ÓÓÍ£¬¼ÓÓÍ£¬ÏÂ´ÎÔÙºÃºÃ¸É°¡£¡¡¹\n"NOR);
-           	ob->set_temp("mark/»¹ÁË",1);
+           	tell_object(ob, CYN+me->name()+"è¯´é“ï¼šã€ŒåŠ æ²¹ï¼ŒåŠ æ²¹ï¼Œä¸‹æ¬¡å†å¥½å¥½å¹²å•Šï¼ã€\n"NOR);
+           	ob->set_temp("mark/è¿˜äº†",1);
            	call_out("destroying", 1, me, obj);
            	return 1;
        }
@@ -140,14 +140,14 @@ void destroying(object me, object obj)
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	if( ob->query_temp("mark/ÍêÁË")){
+	if( ob->query_temp("mark/å®Œäº†")){
 		command("smile "+ob->query("id"));
-		tell_object(ob, CYN+this_object()->name()+"ËµµÀ£º¡¸¹¤×÷×öÍêÁË£¬¿ÉÒÔ»¹¹¤¾ß "HIY HBCYN"give wu "+ ob->query_temp("tools_name")+CYN" ¸øÎÒÁË£¡¡¹\n"NOR);
+		tell_object(ob, CYN+this_object()->name()+"è¯´é“ï¼šã€Œå·¥ä½œåšå®Œäº†ï¼Œå¯ä»¥è¿˜å·¥å…· "HIY HBCYN"give wu "+ ob->query_temp("tools_name")+CYN" ç»™æˆ‘äº†ï¼ã€\n"NOR);
 		return;
 	}
-	if( ob->query_temp("mark/¹¤¾ß")) return 0;
+	if( ob->query_temp("mark/å·¥å…·")) return 0;
 	if( ob->query_temp("job_name")){
 		command("bow "+ob->query("id"));
-		tell_object(ob, CYN+this_object()->name()+"ËµµÀ£º¡¸ÕâÎ»"+RANK_D->query_respect(ob)+ "£¬µ½ÎÒÕâÁì¹¤¾ß "HIY HBCYN"ask wu about ¹¤¾ß"CYN" °É¡£¡¹\n"NOR);
+		tell_object(ob, CYN+this_object()->name()+"è¯´é“ï¼šã€Œè¿™ä½"+RANK_D->query_respect(ob)+ "ï¼Œåˆ°æˆ‘è¿™é¢†å·¥å…· "HIY HBCYN"ask wu about å·¥å…·"CYN" å§ã€‚ã€\n"NOR);
 	}
 }

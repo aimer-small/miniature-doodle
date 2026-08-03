@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("¾²µÀÊ¦Ì«", ({ "jingdao shitai", "jingdao" , "shitai" }));
-	set("long","ËýÊÇÔÚ»ª²ØâÖÐÞÐÐµÄÊ¦Ì«£¬Æ½Ê±ÔÚ²Ø¾­¸óÀï´òµã¶ëáÒÅÉµÄ²ØÊé¡£\n");
-	set("gender", "Å®ÐÔ");
+	set_name("é™é“å¸ˆå¤ª", ({ "jingdao shitai", "jingdao" , "shitai" }));
+	set("long","å¥¹æ˜¯åœ¨åŽè—åºµä¿®è¡Œçš„å¸ˆå¤ªï¼Œå¹³æ—¶åœ¨è—ç»é˜é‡Œæ‰“ç‚¹å³¨åµ‹æ´¾çš„è—ä¹¦ã€‚\n");
+	set("gender", "å¥³æ€§");
         set("attitude", "friendly");
 	set("unique", 1);
         set("class", "bonze");
@@ -40,7 +40,7 @@ void create()
 	map_skill("sword", "huifeng-jian");
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
         setup();
 	carry_object("/d/emei/obj/changjian")->wield();

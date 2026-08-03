@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("小猴",({ "xiao hou","xiao" }) );
-        set("race", "野兽");
+	set_name("灏忕尨",({ "xiao hou","xiao" }) );
+        set("race", "閲庡吔");
 
         set("age", 4);
-        set("long", "这是一只调皮的小猴子，虽是畜牲，却喜欢模仿人样。\n");
+        set("long", "杩欐槸涓�鍙皟鐨殑灏忕尨瀛愶紝铏芥槸鐣滅壊锛屽嵈鍠滄妯′豢浜烘牱銆俓n");
         set("combat_exp", 1000+random(2000));
 	set("str", 11);
 	set("dex", 11);

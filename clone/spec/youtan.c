@@ -6,11 +6,11 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HIW"ÓÄê¼Ææ»¨"NOR, ({ "youtan","flower"}));
-	set("long","ÕâÊÇÒ»¶äÉú³¤ÔÚÇ§Äê±ù´¨ÀïµÄ"HIW"ÓÄê¼Ææ»¨"NOR"£¬¾ÝËµ¶ÔËüÄÜÈÃÈËÇà´ºÓÀ×¤?
-Äã¿ÉÒÔ·þÓÃ£¨"HIY"fu"NOR"£©ËüÀ´Ìá¸ßÈÝÃ²£\n");
+	set_name (HIW"å¹½æ˜™å¥‡èŠ±"NOR, ({ "youtan","flower"}));
+	set("long","è¿™æ˜¯ä¸€æœµç”Ÿé•¿åœ¨åƒå¹´å†°å·é‡Œçš„"HIW"å¹½æ˜™å¥‡èŠ±"NOR"ï¼Œæ®è¯´å¯¹å®ƒèƒ½è®©äººé’æ˜¥æ°¸é©»?
+ä½ å¯ä»¥æœç”¨ï¼ˆ"HIY"fu"NOR"ï¼‰å®ƒæ¥æé«˜å®¹è²Œï¿½\n");
 
-	set("unit","¶ä");
+	set("unit","æœµ");
 	set_weight(100);
 	set("value",3000000);
         set("no_give",1);
@@ -18,7 +18,7 @@ void create()
         set("no_get",1);
 	set("degree",1);
 	set("flag","spec/youtan");
-	set("desc","Ôö¼ÓÒ»µãÈÝÃ²¡£");
+	set("desc","å¢žåŠ ä¸€ç‚¹å®¹è²Œã€‚");
         set("credit",10);
 	
 	setup();
@@ -35,17 +35,17 @@ int do_eat(string arg)
 	object me=this_player();
 	    
 	if (!arg)
-      		return notify_fail("ÄãÒª·þÓÃÊ²Ã´?\n");
+      		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
       		
 	if (arg!="flower" && arg!="youtan")
-      		return notify_fail("ÄãÒª·þÓÃÊ²Ã´?\n");
+      		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
       	
       	if (me->query("per")>29)
-      		return notify_fail("ÄãÒÑ¾­ºÜÆ¯ÁÁÁË!\n");
-	if (!restrict()&& !me->query("buyvip")) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
+      		return notify_fail("ä½ å·²ç»å¾ˆæ¼‚äº®äº†!\n");
+	if (!restrict()&& !me->query("buyvip")) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
 
 	me->add("per",1);
-	write(HIW"Äã·þÏÂÒ»¶äÓÄê¼Ææ»¨¾õµÃÒ»¹ÉÇåÁ¹µØ¸Ð¾õÁ÷±éÁËÄãµÄÈ«Éí¡£\n"NOR);
+	write(HIW"ä½ æœä¸‹ä¸€æœµå¹½æ˜™å¥‡èŠ±è§‰å¾—ä¸€è‚¡æ¸…å‡‰åœ°æ„Ÿè§‰æµéäº†ä½ çš„å…¨èº«ã€‚\n"NOR);
 	degree();
 	return 1;
 }	 

@@ -1,14 +1,14 @@
-//xiao-tong2.c Ğ¡Ù×
+//xiao-tong2.c å°åƒ®
 inherit NPC;
 #include <ansi.h>
 string ask_tea();
 string ask_food();
 void create()
 {
-	set_name("Ğ¡É³ÃÖ", ({ "xiao shami", "xiao","shami" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("å°æ²™å¼¥", ({ "xiao shami", "xiao","shami" }));
+	set("gender", "ç”·æ€§");
 	set("age", 19);
-	set("long", "ËûÊÇÒ»¸öĞ¡É³ÃÖ¡£\n");
+	set("long", "ä»–æ˜¯ä¸€ä¸ªå°æ²™å¼¥ã€‚\n");
 	
 	set("combat_exp", 30000);
 	set("shen_type", 100);
@@ -21,8 +21,8 @@ void create()
 	set_temp("apply/defense", 10);
 
 	set("inquiry", ([
-		"²è" : (: ask_tea :),
-		"Ê³Îï" : (:ask_food:),
+		"èŒ¶" : (: ask_tea :),
+		"é£Ÿç‰©" : (:ask_food:),
 	]));
 
 	setup();
@@ -42,7 +42,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-	say(CYN"Ğ¡É³ÃÖ°¢ÃÖÍÓ·ğµÀ£ºÕâÎ»" + RANK_D->query_respect(ob) + "ÇëÁË£¬À´ÕâÀïÓÃÉÅ°É¡£\n"NOR);
+	say(CYN"å°æ²™å¼¥é˜¿å¼¥é™€ä½›é“ï¼šè¿™ä½" + RANK_D->query_respect(ob) + "è¯·äº†ï¼Œæ¥è¿™é‡Œç”¨è†³å§ã€‚\n"NOR);
 }
 
 string ask_tea()
@@ -50,14 +50,14 @@ string ask_tea()
 	object ob, me = this_player();
 
 	if ((me->query("water")*10/me->max_water_capacity())>8)
-		return "ÄãÔõÃ´ºÈ±¥ÁË»¹ÏëÒª£¿";
+		return "ä½ æ€ä¹ˆå–é¥±äº†è¿˜æƒ³è¦ï¼Ÿ";
 	if ( present("xiang cha", this_player()))
-		return "ÏÈºÈÍêÁËÎÒ¸øÄãµÄÔÙËµ°É¡£";
+		return "å…ˆå–å®Œäº†æˆ‘ç»™ä½ çš„å†è¯´å§ã€‚";
 	if ( present("xiang cha",  environment(me)) )
-		return "ÄÇ²»ÊÇÓĞÂğ£¿ÏÈºÈÍêÁËÔÙËµ¡£";
+		return "é‚£ä¸æ˜¯æœ‰å—ï¼Ÿå…ˆå–å®Œäº†å†è¯´ã€‚";
 	ob=new(FOOD_D("cha"));
 	ob->move(environment(this_object()));
-	return "Õâ±­Ïã²è¸øÄã°É£¬ÂıµãºÈÓ´¡£";
+	return "è¿™æ¯é¦™èŒ¶ç»™ä½ å§ï¼Œæ…¢ç‚¹å–å“Ÿã€‚";
 }
 
 string ask_food()
@@ -65,12 +65,12 @@ string ask_food()
 	object ob, me =this_player();
 
 	if ((me->query("food")*10/me->max_water_capacity())>8)
-		return "ÄãÔõÃ´³Ô±¥ÁË»¹ÏëÒª£¿";
+		return "ä½ æ€ä¹ˆåƒé¥±äº†è¿˜æƒ³è¦ï¼Ÿ";
 	if ( present("mi fan", this_player()))
-		return "ÏÈ³ÔÍêÁËÎÒ¸øÄãµÄÔÙËµ°É¡£";
+		return "å…ˆåƒå®Œäº†æˆ‘ç»™ä½ çš„å†è¯´å§ã€‚";
 	if ( present("mi fan",  environment(me)) )
-		return "ÄÇ²»ÊÇÓĞÂğ£¿ÏÈ³ÔÍêÁËÔÙËµ¡£";
+		return "é‚£ä¸æ˜¯æœ‰å—ï¼Ÿå…ˆåƒå®Œäº†å†è¯´ã€‚";
 	ob=new(FOOD_D("rice"));
 	ob->move(environment(this_object()));
-	return "ÕâÍëÃ×·¹¸øÄã°É£¬Âıµã³ÔÓ´¡£";
+	return "è¿™ç¢—ç±³é¥­ç»™ä½ å§ï¼Œæ…¢ç‚¹åƒå“Ÿã€‚";
 }

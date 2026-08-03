@@ -4,16 +4,16 @@ inherit NPC;
 #include "bee2.h"
 void create()
 {
-        set_name("Óñ·ä", ({ "yu feng", "bee","feng" }) );
-        set("race", "Ò°ÊŞ");
+        set_name("ç‰èœ‚", ({ "yu feng", "bee","feng" }) );
+        set("race", "é‡å…½");
         set("age", 4);
-        set("long", "Ò»Ö»¿É°®µÄÓñ·ä£¬¿ÉÄÜÊÇĞ¡ÁúÅ®ÒÔÇ°ËÇÑøµÄ¡£\n");
+        set("long", "ä¸€åªå¯çˆ±çš„ç‰èœ‚ï¼Œå¯èƒ½æ˜¯å°é¾™å¥³ä»¥å‰é¥²å…»çš„ã€‚\n");
         set("attitude", "peaceful");         
 
         set("str", 20);
         set("con", 30);
 
-        set("limbs", ({  "ÉíÌå",  "³á°ò" , "Í·²¿" }) );
+        set("limbs", ({  "èº«ä½“",  "ç¿…è†€" , "å¤´éƒ¨" }) );
         set("verbs", ({ "bite" }) );
 
         set("combat_exp", 5000);
@@ -29,8 +29,8 @@ void die()
 {        
 	object me = query_temp("last_damage_from");
 	if (objectp(me))
-		message_vision("\n$N±»$nÒ»ÏÂ»ÓÂä£¬»êÏûÑÌÉ¢£¬Ê¬¹ÇÈ«ÎŞ¡£\n", this_object(),me); 
+		message_vision("\n$Nè¢«$nä¸€ä¸‹æŒ¥è½ï¼Œé­‚æ¶ˆçƒŸæ•£ï¼Œå°¸éª¨å…¨æ— ã€‚\n", this_object(),me); 
 	else
-		message_vision("\n$N±»Ò»ÏÂ»ÓÂä£¬»êÏûÑÌÉ¢£¬Ê¬¹ÇÈ«ÎŞ¡£\n", this_object()); 
+		message_vision("\n$Nè¢«ä¸€ä¸‹æŒ¥è½ï¼Œé­‚æ¶ˆçƒŸæ•£ï¼Œå°¸éª¨å…¨æ— ã€‚\n", this_object()); 
         destruct(this_object());
 }

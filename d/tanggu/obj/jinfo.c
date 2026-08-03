@@ -3,13 +3,13 @@ inherit ITEM;
 #include <ansi.h>
 void create()
 {
-        set_name(HIY"½ð·ð"NOR, ({ "jin fo", "fo" }));
+        set_name(HIY"é‡‘ä½›"NOR, ({ "jin fo", "fo" }));
         set_weight(1500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "×ð");
-                set("long", "Ò»×ð½ð·ð£¬ÕýßÖ¿ªÁË×ì°ÍÐ¦¡£\n");
+		set("unit", "å°Š");
+                set("long", "ä¸€å°Šé‡‘ä½›ï¼Œæ­£å’§å¼€äº†å˜´å·´ç¬‘ã€‚\n");
                 set("value", 10000);
 		set("material", "gold");
 	}

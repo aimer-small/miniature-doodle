@@ -6,11 +6,11 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
    if( !living(me) ) {
-      message("vision", me->name() + "¶ÏÍó´¦ÏÊÑª²»¶ÏÁ÷³ö¡£\n", environment(me), me);
+      message("vision", me->name() + "æ–­è…•å¤„é²œè¡€ä¸æ–­æµå‡ºã€‚\n", environment(me), me);
    }
    else {
-      tell_object(me, HIR "Äã¶ÏÍó´¦ÏÊÑª²»¶ÏÁ÷³ö£¬Á¦Æø²»¶ÏµÄ¼õÉÙ¡£\n" NOR );
-      message("vision", me->name() + "¶ÏÍó´¦ÏÊÑª²»¶ÏÁ÷³ö¡£\n",
+      tell_object(me, HIR "ä½ æ–­è…•å¤„é²œè¡€ä¸æ–­æµå‡ºï¼ŒåŠ›æ°”ä¸æ–­çš„å‡å°‘ã€‚\n" NOR );
+      message("vision", me->name() + "æ–­è…•å¤„é²œè¡€ä¸æ–­æµå‡ºã€‚\n",
             environment(me), me);
    }
       me->receive_wound("qi", 50);

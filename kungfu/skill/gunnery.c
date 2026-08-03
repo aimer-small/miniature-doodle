@@ -1,4 +1,4 @@
-// gunnery.c 炮术
+// gunnery.c 鐐湳
 // 2/5/2002	by augx@sj
 
 inherit SKILL;
@@ -6,5 +6,5 @@ string type() { return "knowledge"; }
 void skill_improved(object me) { }
 int valid_learn(object me)
 {
-	return notify_fail("你只能在实践中学习这样技术。\n");
+	return notify_fail("浣犲彧鑳藉湪瀹炶返涓涔犺繖鏍锋妧鏈�俓n");
 }

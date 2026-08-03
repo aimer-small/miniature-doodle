@@ -1,18 +1,18 @@
-// tiejiang.c Ìú½³
+// tiejiang.c é“åŒ 
 
 inherit NPC;
 inherit F_VENDOR;
  
 void create()
 {
-        set_name("Ìú½³", ({ "tie jiang", "tie", "jiang" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("é“åŒ ", ({ "tie jiang", "tie", "jiang" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 34);
         set("long",
-                "ÕâÊÇÒ»Î»ÕıÔÚÂÕ×Å´óÌú´¸£¬¶£¶£µ±µ±µØ´òÌúµÄÌú½³¡£\n");
+                "è¿™æ˜¯ä¸€ä½æ­£åœ¨æŠ¡ç€å¤§é“é”¤ï¼Œå®å®å½“å½“åœ°æ‰“é“çš„é“åŒ ã€‚\n");
         set("combat_exp", 300);
         set("attitude", "peaceful");
-        set("rank_info/respect", "Ìú½³");
+        set("rank_info/respect", "é“åŒ ");
         set("vendor_goods", ({
            (["name":__DIR__"obj/changjian","number":25]),
            (["name":__DIR__"obj/gangjian","number":15]),
@@ -24,9 +24,9 @@ void create()
            (["name":__DIR__"obj/bishou","number":12])
         }));
         set("inquiry", ([
-                "name" : "±¾ÈËĞÕÍõ£¬´òĞ¡¾Í×¡ÔÚÕâÀï£¬ÄãÏëÎÊÉ¶£¿\n",
-                "rumors" : "ÎÒµù±»³¯Í¢À­È¥ĞŞÔËºÓ£¬ËûÀÏÈË¼ÒÉí×Ó¹Ç²»ºÃ£¬Ç°Ğ©Ìì²»ĞÒÊÅÈ¥ÁË¡£\n",
-                "here" : "ÕâÀïÊÇ³ÇÀïÎ¨Ò»µÄ´òÌúÆÌÁË£¬Ê²Ã´ÈË¶¼µ½ÎÒÕâÀïÀ´´ò¶«Î÷¡£\n",
+                "name" : "æœ¬äººå§“ç‹ï¼Œæ‰“å°å°±ä½åœ¨è¿™é‡Œï¼Œä½ æƒ³é—®å•¥ï¼Ÿ\n",
+                "rumors" : "æˆ‘çˆ¹è¢«æœå»·æ‹‰å»ä¿®è¿æ²³ï¼Œä»–è€äººå®¶èº«å­éª¨ä¸å¥½ï¼Œå‰äº›å¤©ä¸å¹¸é€å»äº†ã€‚\n",
+                "here" : "è¿™é‡Œæ˜¯åŸé‡Œå”¯ä¸€çš„æ‰“é“é“ºäº†ï¼Œä»€ä¹ˆäººéƒ½åˆ°æˆ‘è¿™é‡Œæ¥æ‰“ä¸œè¥¿ã€‚\n",
         ]) );
         setup();
 }
@@ -49,12 +49,12 @@ void greeting(object ob)
         if( !ob || wizardp(ob) || environment(ob) != environment() ) return;
         switch( random(2) ) {
                 case 0:
-                        say( "Ìú½³Ğ¦ßäßäµØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬ÕâÀïÖ»ÒªÊÇÌúµÄ¼Ò»ï£¬Ó¦ÓĞ¾¡ÓĞ¡£\n");
+                        say( "é“åŒ ç¬‘å’ªå’ªåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œè¿™é‡Œåªè¦æ˜¯é“çš„å®¶ä¼™ï¼Œåº”æœ‰å°½æœ‰ã€‚\n");
                         break;
                 case 1:
-                        say( "Ìú½³Ğ¦ºÇºÇµØËµ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬ÄúÏëÒªµãÊ²Ã´£¿\n");
+                        say( "é“åŒ ç¬‘å‘µå‘µåœ°è¯´ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œæ‚¨æƒ³è¦ç‚¹ä»€ä¹ˆï¼Ÿ\n");
                         break;
         }
 }

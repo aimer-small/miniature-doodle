@@ -1,4 +1,4 @@
-// xueputi.c ÑªÆĞÌá
+// xueputi.c è¡€è©æ
 
 #include <ansi.h>
 
@@ -14,14 +14,14 @@ void init()
 
 void create()
 {
-	set_name("ÑªÆĞÌá", ({"xue puti", "xueputi", "puti"}));
+	set_name("è¡€è©æ", ({"xue puti", "xueputi", "puti"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿Å´«ËµÖĞµÄÑªÆĞÌá£¬´ÓÑªÆĞÌáÊ÷ÉÏ²ÉÕªÏÂÀ´Ã»¶à¾Ã¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—ä¼ è¯´ä¸­çš„è¡€è©æï¼Œä»è¡€è©ææ ‘ä¸Šé‡‡æ‘˜ä¸‹æ¥æ²¡å¤šä¹…ã€‚\n");
 		set("value", 2000);
-		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
 	}
 
 	set("xueshan",1);
@@ -33,12 +33,12 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->query_skill_mapped("force") != "longxiang-boruo" )
 	{
 		me->add("max_neili", -10);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÑªÆĞÌá£¬Ö»¾õµÃÈç»ğÖĞÉÕ£¬ÆøÑª·­Ó¿£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËğÕæÔª£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—è¡€è©æï¼Œåªè§‰å¾—å¦‚ç«ä¸­çƒ§ï¼Œæ°”è¡€ç¿»æ¶Œï¼ŒåŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸçœŸå…ƒï¼\n" NOR, me);
 		me->unconcious();
 		destruct(this_object());
 		return 1;
@@ -47,12 +47,12 @@ int do_eat(string arg)
 	if ( (int)me->query_condition("neili_drug" ) > 0 )
 	{
 		me->add("max_neili", -1);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÑªÆĞÌá£¬Ö»¾õµÃÉà¸É´½ÁÑ£¬ÆøÑª·­Ó¿£¬Ô­À´·şÊ³Ì«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—è¡€è©æï¼Œåªè§‰å¾—èˆŒå¹²å”‡è£‚ï¼Œæ°”è¡€ç¿»æ¶Œï¼ŒåŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
 	else
 	{
 		me->add("max_neili", 1);
-		message_vision(HIG "$N³ÔÏÂÒ»¿ÅÑªÆĞÌá£¬Ö»¾õµÃÆøÑª³äÓ¯£¬ÕæÆø¹Äµ´£¬È«Éí¹¦Á¦¶ÙÈ»Ìá¸ß !\n" NOR, me);
+		message_vision(HIG "$Nåƒä¸‹ä¸€é¢—è¡€è©æï¼Œåªè§‰å¾—æ°”è¡€å……ç›ˆï¼ŒçœŸæ°”é¼“è¡ï¼Œå…¨èº«åŠŸåŠ›é¡¿ç„¶æé«˜ !\n" NOR, me);
 	}
 
 	me->apply_condition("neili_drug", 15);

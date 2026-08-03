@@ -7,17 +7,17 @@ inherit STAFF;
 
 void create()
 {
-        set_name("Ìú²ù",({ "tie chan", "chan", "tiechan", "staff"}) );
+        set_name("é“é“²",({ "tie chan", "chan", "tiechan", "staff"}) );
          set_weight(4000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
                 set("value", 0);
                 set("material", "bamboo");
-                set("long", "ÕâÊÇÒ»°Ñ´óÌú²ù¡£\n");
-                set("wield_msg", "$NÄÃ³öÒ»¸ö$n£¬ÎÕÔÚÊÖÖĞ¡£\n");
-                set("unequip_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æŠŠå¤§é“é“²ã€‚\n");
+                set("wield_msg", "$Næ‹¿å‡ºä¸€ä¸ª$nï¼Œæ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unequip_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
         }
         init_staff(20);
         setup();

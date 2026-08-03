@@ -1,4 +1,4 @@
-// hamagong.c ¸òó¡¹¦
+// hamagong.c è›¤èŸ†åŠŸ
 // reModified by fengyue
 
 
@@ -14,7 +14,7 @@ int valid_enable(string usage) { return usage == "force"; }
 int valid_learn(object me)
 {
 	if( me->query_skill("hamagong", 1) < 100 )
-		return notify_fail("¸òó¡¹¦²»ÊÇËæ±ãÊ²Ã´µØ·½¶¼¿ÉÒÔÁ·Ï°µÄ¡£\n");
+		return notify_fail("è›¤èŸ†åŠŸä¸æ˜¯éšä¾¿ä»€ä¹ˆåœ°æ–¹éƒ½å¯ä»¥ç»ƒä¹ çš„ã€‚\n");
 	return 1;
 }
 
@@ -28,9 +28,9 @@ int practice_skill(object me)
 			me->add("potential", -1*(1+random(3)));
 			return 1;
 		}
-		else return notify_fail("ÄãÏÖÔÚµÄĞŞÎª²»×ãÒÔÌá¸ß¸òó¡¹¦ÁË¡£\n");
+		else return notify_fail("ä½ ç°åœ¨çš„ä¿®ä¸ºä¸è¶³ä»¥æé«˜è›¤èŸ†åŠŸäº†ã€‚\n");
 	}
-	else return notify_fail("¸òó¡¹¦²»¿ÉËæ±ãÁ·Ï°¡£\n");
+	else return notify_fail("è›¤èŸ†åŠŸä¸å¯éšä¾¿ç»ƒä¹ ã€‚\n");
 }
 
 
@@ -42,22 +42,22 @@ string exert_function_file(string func)
 mapping exercise_msg(object me)
 {
 	return ([
-		"status_msg" : HIW + me->name()+"°ë¶×ÔÚµØÉÏ£¬ÉíÃ°°×Æø" NOR,
-		"heal_msg" : HIW"$NÈ«Éí·ÅËÉ£¬°ë¶×ÔÚµØÉÏ¿ªÊ¼ÔË¹¦ÁÆÉË¡£¡£\n"NOR,
-		"heal_finish_msg" : HIW"$N¡°ÍÛ£¡¡±µÄ´ó½ĞÒ»Éù£¬È«ÉíµÄ°×Æø½¥½¥ÏûÉ¢¡£\n"NOR,
-		"heal_unfinish_msg" : "$N¡°ÍÛ£¡¡±µÄ´ó½ĞÒ»Éù£¬Õ¾ÁËÆğÀ´£¬µ«Á³É«²Ô°×£¬¿´À´»¹ÓĞÉËÔÚÉí¡£\n",
-		"heal_halt_msg" : "$NÉíÃ°°×Æø£¬¡°ÍÛ£¡¡±µÄ´ó½ĞÒ»Éù£¬Õ¾ÆğÉíÀ´¡£\n",
+		"status_msg" : HIW + me->name()+"åŠè¹²åœ¨åœ°ä¸Šï¼Œèº«å†’ç™½æ°”" NOR,
+		"heal_msg" : HIW"$Nå…¨èº«æ”¾æ¾ï¼ŒåŠè¹²åœ¨åœ°ä¸Šå¼€å§‹è¿åŠŸç–—ä¼¤ã€‚ã€‚\n"NOR,
+		"heal_finish_msg" : HIW"$Nâ€œå“‡ï¼â€çš„å¤§å«ä¸€å£°ï¼Œå…¨èº«çš„ç™½æ°”æ¸æ¸æ¶ˆæ•£ã€‚\n"NOR,
+		"heal_unfinish_msg" : "$Nâ€œå“‡ï¼â€çš„å¤§å«ä¸€å£°ï¼Œç«™äº†èµ·æ¥ï¼Œä½†è„¸è‰²è‹ç™½ï¼Œçœ‹æ¥è¿˜æœ‰ä¼¤åœ¨èº«ã€‚\n",
+		"heal_halt_msg" : "$Nèº«å†’ç™½æ°”ï¼Œâ€œå“‡ï¼â€çš„å¤§å«ä¸€å£°ï¼Œç«™èµ·èº«æ¥ã€‚\n",
 	]);
 }
 
 
 string* msgs =
 ({
-        HBRED"$NÍ»È»ÉíĞÎÒ»ÈÃ£¬Î¢Î¢²àÍ·£¬Ò»¿ÚÍÙÄ­ÍÂ³ö£¬È¥ÊÆÃÍÁÒ£¡\n"NOR,
-        HBWHT"$N¶·È»ÕÅ¿Ú¼±Ò§£¬¿´À´ËÆºõ»¬»ü£¬µ«ÒòÕÅ¿Ú¿ì½İ£¬½ÌÈËÄÑÒÔ¶ãÉÁ£¡\n"NOR,
-        HBMAG"$NÓÖÊÇÒ»¿ÚÍÙÄ­¼±ÍÂ£¬¾¹½«ÌµÏÑÍÙÄ­Ò²µ±×÷ÁË¹¥µĞÀûÆ÷£¬¼ĞÔÚÈ­ÕĞÖ®ÖĞÊ¹ÓÃ£¡\n"NOR, 
-        HBWHT"$N¸òó¡¹¦Äæ×ªÔËÓÃ£¬ÉÏÕßÏÂÖ®£¬×óÕßÓÒÖ®£¬Ò»ÕÆÅÄ»Ø£¡\n"NOR,
-        HBCYN"$NÄæÔË¾­Âö£¬¸üÊÇÀ÷º¦£¬Ò»¼û¶Ô·½ÕĞÀ´£¬±ã¿ÚÍÂ°×Ä­£¬¾ÙÍ·ÃÍ×²£¡\n"NOR, 
+        HBRED"$Nçªç„¶èº«å½¢ä¸€è®©ï¼Œå¾®å¾®ä¾§å¤´ï¼Œä¸€å£å”¾æ²«åå‡ºï¼Œå»åŠ¿çŒ›çƒˆï¼\n"NOR,
+        HBWHT"$Næ–—ç„¶å¼ å£æ€¥å’¬ï¼Œçœ‹æ¥ä¼¼ä¹æ»‘ç¨½ï¼Œä½†å› å¼ å£å¿«æ·ï¼Œæ•™äººéš¾ä»¥èº²é—ªï¼\n"NOR,
+        HBMAG"$Nåˆæ˜¯ä¸€å£å”¾æ²«æ€¥åï¼Œç«Ÿå°†ç—°æ¶å”¾æ²«ä¹Ÿå½“ä½œäº†æ”»æ•Œåˆ©å™¨ï¼Œå¤¹åœ¨æ‹³æ‹›ä¹‹ä¸­ä½¿ç”¨ï¼\n"NOR, 
+        HBWHT"$Nè›¤èŸ†åŠŸé€†è½¬è¿ç”¨ï¼Œä¸Šè€…ä¸‹ä¹‹ï¼Œå·¦è€…å³ä¹‹ï¼Œä¸€æŒæ‹å›ï¼\n"NOR,
+        HBCYN"$Né€†è¿ç»è„‰ï¼Œæ›´æ˜¯å‰å®³ï¼Œä¸€è§å¯¹æ–¹æ‹›æ¥ï¼Œä¾¿å£åç™½æ²«ï¼Œä¸¾å¤´çŒ›æ’ï¼\n"NOR, 
 
 });
 
@@ -67,19 +67,19 @@ int ob_hit(object ob, object me, int damage)
                 t = random(10);
         
 	if(!environment(me)) return 0;
-	if( me->query("env/¸òó¡¹¦")=="Äæ×ª" && t> 6)
+	if( me->query("env/è›¤èŸ†åŠŸ")=="é€†è½¬" && t> 6)
 		
 		{
-			message_vision(msgs[random(sizeof(msgs))]+"$nÃÍÈ»¼ä±»$NÏÅÁËÒ»´óÌø£¬ÕâÕĞ²»ÓÉµÃÂıÁË¼¸·Ö£¡\n"NOR,me,ob);
+			message_vision(msgs[random(sizeof(msgs))]+"$nçŒ›ç„¶é—´è¢«$Nå“äº†ä¸€å¤§è·³ï¼Œè¿™æ‹›ä¸ç”±å¾—æ…¢äº†å‡ åˆ†ï¼\n"NOR,me,ob);
                               ob->set_temp("lost_attack",1+random(3));
 			return -get_bouns(damage,t,me->query_skill("hamagong",1),0);
 		}
 	
      if( (me->query("qi")-damage) >= 3000 ) return 0;
 	
-      if ( t >= 5 && me->query("env/¸òó¡¹¦")=="Äæ×ª" )
+      if ( t >= 5 && me->query("env/è›¤èŸ†åŠŸ")=="é€†è½¬" )
       {       
-	message_vision(HIY"$N"HIY"$NÑÛ¼ûÇéĞÎÎ£»ú£¬ÉìÊÖÔÚ×Ô¼ºÁ³ÉÏÃÍ×¥Ò»°Ñ£¬ÓÖ·´×ãÔÚ×Ô¼ºÉöÉÏºİÌßÒ»½Å£¬³öÕĞÍêÈ«²»°´³£Àí£¬È´¶ã¹ıÁËÕâÖÂÃüµÄÒ»»÷£¡\n" NOR, me);
+	message_vision(HIY"$N"HIY"$Nçœ¼è§æƒ…å½¢å±æœºï¼Œä¼¸æ‰‹åœ¨è‡ªå·±è„¸ä¸ŠçŒ›æŠ“ä¸€æŠŠï¼Œåˆåè¶³åœ¨è‡ªå·±è‚¾ä¸Šç‹ è¸¢ä¸€è„šï¼Œå‡ºæ‹›å®Œå…¨ä¸æŒ‰å¸¸ç†ï¼Œå´èº²è¿‡äº†è¿™è‡´å‘½çš„ä¸€å‡»ï¼\n" NOR, me);
 	return -damage;
       }
 }
@@ -88,7 +88,7 @@ int hit_ob(object me,object victim,int damage)
 {
 	if(!me) return 0;
 	if(!environment(me)) return 0;
-	if( me->query("env/¸òó¡¹¦")=="Äæ×ª" )
+	if( me->query("env/è›¤èŸ†åŠŸ")=="é€†è½¬" )
 
 	{
 		int t;

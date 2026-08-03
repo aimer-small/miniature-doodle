@@ -1,7 +1,7 @@
 // chard.c
 // From ES2
 // Modified by Xiang@XKX
-// By Spiderii@ty ¼ÓÈëÒ»¸öÃèÊö£¬¿´ÉÏÈ¥¸ü½­ºşĞ©¡£¡£
+// By Spiderii@ty åŠ å…¥ä¸€ä¸ªæè¿°ï¼Œçœ‹ä¸Šå»æ›´æ±Ÿæ¹–äº›ã€‚ã€‚
 #include <ansi.h>
 #include <worker.h>
 
@@ -28,18 +28,18 @@ void setup_char(object ob)
 
 	my = ob->query_entire_dbase();
 	if(!stringp(race = my["race"])) {
-		race = "ÈËÀà";
+		race = "äººç±»";
 		my["race"] = race;
 	}
 
 	switch (race) {
-		case "ÑıÄ§":
+		case "å¦–é­”":
 			MONSTER_RACE->setup_monster(ob);
 			break;
-		case "Ò°ÊŞ":
+		case "é‡å…½":
 			BEAST_RACE->setup_beast(ob);
 			break;
-		case "ÈËÀà":
+		case "äººç±»":
 		default:
 			HUMAN_RACE->setup_human(ob);
 	}
@@ -82,7 +82,7 @@ void setup_char(object ob)
 	if (my["qi"] > my["eff_qi"])
 	     	my["qi"] = my["eff_qi"];
 
-	if (!userp(ob) && race == "ÈËÀà") {
+	if (!userp(ob) && race == "äººç±»") {
 		if (undefinedp(my["max_neili"]))
 			my["max_neili"] = ob->query_skill("force") * 10 + my["age"]*20 + my["combat_exp"]/1000;
 		if(undefinedp(my["neili"]))
@@ -115,7 +115,7 @@ void setup_char(object ob)
 			weight = 0;
 		weight *= 2500;
 		weight += BASE_WEIGHT + (my["str"]-10)*2500 - (my["dex"]-15)*1000 - (my["con"]-15)*1000;
-		if (my["gender"] == "Å®ĞÔ")
+		if (my["gender"] == "å¥³æ€§")
 			weight = weight * 8 / 10;
 		if (weight < 500)
 			weight = 500;
@@ -139,7 +139,7 @@ private int get_wpar_qua(object me,object target)
 	if(i>80 && !random(5)) qua+=1;
 	if(i>90 && !random(6)) qua+=1;
 	/*
-	²»ÒªºÍ¸»Ô´¹Ò¹³ºÃĞ©
+	ä¸è¦å’Œå¯ŒæºæŒ‚é’©å¥½äº›
 	if(me->query_kar()>15 && !random(3)) qua+=1;
 	if(me->query_kar()>20 && !random(4)) qua+=1;
 	if(me->query_kar()>25 && !random(5)) qua+=1;
@@ -187,15 +187,15 @@ varargs object make_corpse(object victim, object killer)
        }
 
        if(!stringp(skill))
-       die_msg = "´ÓÊ¬ÌåÉÏµÄÀÛÀÛÉËºÛÀ´¿´£¬¾ßÌåµÄËÀÒò¡ª¡ª"+HIB"¡°²»Ïê¡±"NOR;
-       else die_msg = "´ÓÊ¬ÌåÉÏµÄÀÛÀÛÉËºÛÀ´¿´£¬·ÖÃ÷ÊÇ¾«Í¨¡°"+HIR
-                    +to_chinese(skill)+NOR"¡±¾ø¼¼µÄ½­ºş¸ßÊÖËùÎª";
+       die_msg = "ä»å°¸ä½“ä¸Šçš„ç´¯ç´¯ä¼¤ç—•æ¥çœ‹ï¼Œå…·ä½“çš„æ­»å› â€”â€”"+HIB"â€œä¸è¯¦â€"NOR;
+       else die_msg = "ä»å°¸ä½“ä¸Šçš„ç´¯ç´¯ä¼¤ç—•æ¥çœ‹ï¼Œåˆ†æ˜æ˜¯ç²¾é€šâ€œ"+HIR
+                    +to_chinese(skill)+NOR"â€ç»æŠ€çš„æ±Ÿæ¹–é«˜æ‰‹æ‰€ä¸º";
 
 	corpse = new(CORPSE_OB);
-	corpse->set_name( victim->query("name") + "µÄÊ¬Ìå", ({ "corpse", "shi ti" }));
+	corpse->set_name( victim->query("name") + "çš„å°¸ä½“", ({ "corpse", "shi ti" }));
        corpse->set("long", victim->long()
-                + "È»¶ø£¬" + gender_pronoun(victim->query("gender")) 
-                + "ÒÑ¾­ËÀÁË£¬Ö»Ê£ÏÂÒ»¾ßÊ¬Ìå¾²¾²µØÌÉÔÚÕâÀï¡£\n"+die_msg+"¡£\n");
+                + "ç„¶è€Œï¼Œ" + gender_pronoun(victim->query("gender")) 
+                + "å·²ç»æ­»äº†ï¼Œåªå‰©ä¸‹ä¸€å…·å°¸ä½“é™é™åœ°èººåœ¨è¿™é‡Œã€‚\n"+die_msg+"ã€‚\n");
 
 	corpse->set("age", victim->query("age"));
 	corpse->set("gender", victim->query("gender"));
@@ -310,8 +310,8 @@ varargs object make_corpse(object victim, object killer)
 			item->set("tmp_owner",getuid(killer));
 			item->delete_owner();
 			item->move(environment(corpse));
-			tell_object(killer,"ÄãÑÛÖĞÒ»ÁÁ¿´µ½" + victim->query("name")
-				+ "µÄÉí±ßµôÂäÒ»"+item->query("unit")+item->query("name")+"¡£\n");
+			tell_object(killer,"ä½ çœ¼ä¸­ä¸€äº®çœ‹åˆ°" + victim->query("name")
+				+ "çš„èº«è¾¹æ‰è½ä¸€"+item->query("unit")+item->query("name")+"ã€‚\n");
 		}
 		if(npc) destruct(npc);
 	}
@@ -332,8 +332,8 @@ varargs object make_corpse(object victim, object killer)
 			zhuanji->set("gift_target",killer->query("id"));
 			zhuanji->move(environment(corpse)); 
 
-			tell_object(killer,"Äã»Ğã±¿´µ½" + victim->query("name") 
-				+ "µÄĞĞÄÒÀïÂ¶³öÒ»ÕÅÖ½Æ¬£¬ËÆºõÓĞÒ»Ò³ÃÜÃÜÂéÂéµÄÎÄÕÂ¡£\n");
+			tell_object(killer,"ä½ ææƒšçœ‹åˆ°" + victim->query("name") 
+				+ "çš„è¡Œå›Šé‡Œéœ²å‡ºä¸€å¼ çº¸ç‰‡ï¼Œä¼¼ä¹æœ‰ä¸€é¡µå¯†å¯†éº»éº»çš„æ–‡ç« ã€‚\n");
 		}
 		//zhuanji end		
 		//career system
@@ -365,7 +365,7 @@ varargs object make_corpse(object victim, object killer)
         		switch(type){
 				case 1:zhuanji = new("/d/zhiye/obj/kuangshi");break;
 				case 2:zhuanji = new("/d/zhiye/obj/buliao");break;
-				//case 3:mater = new(OBJ_DIR+"othermaterial");break;//ÒÑ¾­ÏŞÖÆlevel hehe
+				//case 3:mater = new(OBJ_DIR+"othermaterial");break;//å·²ç»é™åˆ¶level hehe
 				//case 4:mater = new(OBJ_DIR+"zhongzi");break;
 				//case 5:mater = new(OBJ_DIR+"book");break;
 				default:break;
@@ -374,15 +374,15 @@ varargs object make_corpse(object victim, object killer)
 				if(zhuanji->set_level(level)){
 					zhuanji->set("owner",getuid(killer));
 					zhuanji->move(environment(corpse));
-					tell_room(environment(corpse),"ÄãÑÛÖĞÒ»ÁÁ¿´µ½" + victim->query("name") 
-					+ "µÄÉí±ßµôÂäÒ»¼şÊÂÎï¡£\n");
+					tell_room(environment(corpse),"ä½ çœ¼ä¸­ä¸€äº®çœ‹åˆ°" + victim->query("name") 
+					+ "çš„èº«è¾¹æ‰è½ä¸€ä»¶äº‹ç‰©ã€‚\n");
 				}
 				else destruct(zhuanji);
 			}		
 		}
 		//career end
 		// Added by mxzhao 2004/03/29
-		// ÔİÊ±¹Ø±Õ£¬¹ı¼¸Ìì¿ª
+		// æš‚æ—¶å…³é—­ï¼Œè¿‡å‡ å¤©å¼€
 		else if (killer->query("combat_exp") >= 100000 
 			&& victim->query("combat_exp") >= killer->query("combat_exp") 
                     && random(killer->query_kar()) >= 10 
@@ -393,12 +393,12 @@ varargs object make_corpse(object victim, object killer)
 			
 			if (objectp(obj))
 			{
-				tell_object(killer, "Ò»Õó·ç´µ¹ı£¬´Ó" + victim->name() 
-					+ "µÄĞĞÄÒÀï´µÆğÒ»Ñù¶«Î÷¡£\nÄãÑÛ¼²ÊÖ¿ì£¬·ÉÉí½«Ëü×¥×¡ÁË¡£\n");
+				tell_object(killer, "ä¸€é˜µé£å¹è¿‡ï¼Œä»" + victim->name() 
+					+ "çš„è¡Œå›Šé‡Œå¹èµ·ä¸€æ ·ä¸œè¥¿ã€‚\nä½ çœ¼ç–¾æ‰‹å¿«ï¼Œé£èº«å°†å®ƒæŠ“ä½äº†ã€‚\n");
 
-				tell_room(environment(corpse), "Ò»Õó·ç´µ¹ı£¬´Ó" 
-					+ victim->name() + "µÄĞĞÄÒÀï´µÆğÒ»Ñù¶«Î÷¡£\n" 
-					+ killer->name() + "ÑÛ¼²ÊÖ¿ì£¬·ÉÉí½«Ëü×¥×¡ÁË¡£\n", ({ killer }));
+				tell_room(environment(corpse), "ä¸€é˜µé£å¹è¿‡ï¼Œä»" 
+					+ victim->name() + "çš„è¡Œå›Šé‡Œå¹èµ·ä¸€æ ·ä¸œè¥¿ã€‚\n" 
+					+ killer->name() + "çœ¼ç–¾æ‰‹å¿«ï¼Œé£èº«å°†å®ƒæŠ“ä½äº†ã€‚\n", ({ killer }));
 
 				obj->move(killer);
 			}
@@ -408,8 +408,8 @@ varargs object make_corpse(object victim, object killer)
 //end
 /*
 	corpse->set("long", victim->long(1)
-		+ "È»¶ø£¬" + gender_pronoun(victim->query("gender"))
-		+ "ÒÑ¾­ËÀÁË£¬Ö»Ê£ÏÂÒ»¾ßÊ¬Ìå¾²¾²µØÌÉÔÚÄÇÀï¡£\n");
+		+ "ç„¶è€Œï¼Œ" + gender_pronoun(victim->query("gender"))
+		+ "å·²ç»æ­»äº†ï¼Œåªå‰©ä¸‹ä¸€å…·å°¸ä½“é™é™åœ°èººåœ¨é‚£é‡Œã€‚\n");
 */
 	return corpse;
 }

@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-    	set_name("ÌúÕÆ", ({ "iron strike" }));
+    	set_name("é“æŒ", ({ "iron strike" }));
 	set_weight(1);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ë«");
+		set("unit", "åŒ");
 		set("material", "iron");
 	}
 	set("rigidity", 10);

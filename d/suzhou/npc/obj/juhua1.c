@@ -1,4 +1,4 @@
- //ÂÌ¾Õ»¨
+ //ç»¿èŠèŠ±
 
 #include <armor.h>
 
@@ -6,15 +6,15 @@ inherit HEAD;
 
 void create()
 {
-         set_name("ÂÌ¾Õ»¨",({ "lu juhua", "flower", "hua" }) );
+         set_name("ç»¿èŠèŠ±",({ "lu juhua", "flower", "hua" }) );
          set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¶ä");
+                set("unit", "æœµ");
                 set("value", 0);
                 set("material", "plant");
-                set("long", "ÕâÊÇÒ»¶äÁèËª»ª×îÏ²°®µÄÂÌ¾Õ»¨¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æœµå‡Œéœœåæœ€å–œçˆ±çš„ç»¿èŠèŠ±ã€‚\n");
 
         }
            

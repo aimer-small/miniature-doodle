@@ -7,19 +7,19 @@ inherit WHIP;
 
 void create()
 {
-        set_name("ÈáË¿Ë÷", ({"rousi suo", "silk", "suo"}));
+        set_name("æŸ”ä¸ç´¢", ({"rousi suo", "silk", "suo"}));
         set_weight(60);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Þû");
+                set("unit", "æ‘ž");
                 set("rigidity", 1);
                 set("unique", 1);
-                set("long", "ÕâÊÇÒ»ÞûÎ¢Ï¸Í¸Ã÷, ¼¸·ÇÈâÑÛËùÄÜ²ì¼ûµÄË¿Ë÷¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æ‘žå¾®ç»†é€æ˜Ž, å‡ éžè‚‰çœ¼æ‰€èƒ½å¯Ÿè§çš„ä¸ç´¢ã€‚\n");
                 set("value", 10000);
                 set("material", "leather");
-                set("wield_msg", "$NÇáÇá³é³öÒ»Þû$nÌ×ÔÚÊÖÉÏ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖÐµÄ$n¾í³ÉÒ»ÍÅ£¬·ÅÈëÐäÖÐ¡£\n");
+                set("wield_msg", "$Nè½»è½»æŠ½å‡ºä¸€æ‘ž$nå¥—åœ¨æ‰‹ä¸Šã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nå·æˆä¸€å›¢ï¼Œæ”¾å…¥è¢–ä¸­ã€‚\n");
         }
         init_whip(20);
         setup();
@@ -36,46 +36,46 @@ int do_tao(string arg)
         string msg;
         int Suc;
 
-        if (!arg) return notify_fail("ÄãÒª¶ÔË­ÏÂÊÖ£¿\n");       
+        if (!arg) return notify_fail("ä½ è¦å¯¹è°ä¸‹æ‰‹ï¼Ÿ\n");       
         me = this_player();
         target = present(arg, environment(me));
 
         if( !target
          || !target->is_character()
          || !me->is_fighting(target) )
-                return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖÐµÄÍµÏ®¶ÔÊÖÓÃ¡£\n");
+                return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ä¸­çš„å·è¢­å¯¹æ‰‹ç”¨ã€‚\n");
 
         if (me->is_busy()) 
-                return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
                 
         if (me->query("neili")<100) 
-                return notify_fail("ÄãµÄÕæÆø²»¹»´ß¶¯ÈáË¿Ë÷¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿå‚¬åŠ¨æŸ”ä¸ç´¢ã€‚\n");
 
         if (me->query_skill_prepared("strike") != "chousui-zhang" ||
             me->query_skill_mapped("strike") != "chousui-zhang" ||
             me->query_skill_mapped("force") != "huagong-dafa")
-                return notify_fail("Äã±ØÐëÏÈ½«»¯¹¦´ó·¨¹¦ºÍ³éËèÕÆ·¨Ïà»¥ÅäºÏ£¬²ÅÄÜÊ¹ÓÃÈáË¿Ë÷£¡¡£\n"); 
+                return notify_fail("ä½ å¿…é¡»å…ˆå°†åŒ–åŠŸå¤§æ³•åŠŸå’ŒæŠ½é«“æŽŒæ³•ç›¸äº’é…åˆï¼Œæ‰èƒ½ä½¿ç”¨æŸ”ä¸ç´¢ï¼ã€‚\n"); 
        
         if( (int)me->query_skill("huagong-dafa",1) < 80 )
-                return notify_fail("ÄãµÄ»¯¹¦´ó·¨¹¦Á¦²»¹»£¬Ê¹ÓÃ²»ÁËÈáË¿Ë÷£¡\n");
+                return notify_fail("ä½ çš„åŒ–åŠŸå¤§æ³•åŠŸåŠ›ä¸å¤Ÿï¼Œä½¿ç”¨ä¸äº†æŸ”ä¸ç´¢ï¼\n");
         if( (int)me->query_skill("chousui-zhang",1) < 80 )
-                return notify_fail("ÄãµÄ³éËèÕÆ¹¦Á¦²»¹»£¬Ê¹ÓÃ²»ÁËÈáË¿Ë÷£¡\n");
+                return notify_fail("ä½ çš„æŠ½é«“æŽŒåŠŸåŠ›ä¸å¤Ÿï¼Œä½¿ç”¨ä¸äº†æŸ”ä¸ç´¢ï¼\n");
 
         if(me->query("combat_exp") < (int)target->query("combat_exp")/2 )
-                return notify_fail("ÄãÏëÍµÏ®×Ô¼º¸ù±¾´ò²»¹ýµÄÈË£¿ÕÒËÀ°¡£¿\n");
+                return notify_fail("ä½ æƒ³å·è¢­è‡ªå·±æ ¹æœ¬æ‰“ä¸è¿‡çš„äººï¼Ÿæ‰¾æ­»å•Šï¼Ÿ\n");
 
-        tell_object(me, HIW "\nÄãÇÄÇÄ·Å¿ªÈáË¿Ë÷£¬´ß¶¯ÄÚÁ¦ºÁ²»ÆðÑÛµØÒ»°Ú¡£\n\n" NOR);
+        tell_object(me, HIW "\nä½ æ‚„æ‚„æ”¾å¼€æŸ”ä¸ç´¢ï¼Œå‚¬åŠ¨å†…åŠ›æ¯«ä¸èµ·çœ¼åœ°ä¸€æ‘†ã€‚\n\n" NOR);
 
         if( random(me->query("combat_exp")) > (int)target->query("combat_exp")/2){
-                msg = HIR"$nºöÈ»¶¯×÷Ò»¶Ù£¬¾¹È»Ïó±»ÈË°ó×¡ÁËÒ»Ñù£¡\n" NOR;
-                tell_object(target, HIB "\nÄãÉí×ÓÍ»È»Ò»½ô£¬²Å·¢ÏÖ×Ô¼º²»Öª²»¾õ¼ä±»ÈËÓÃ¶«Î÷Ì××¡ÁË£¡\n\n" NOR);
+                msg = HIR"$nå¿½ç„¶åŠ¨ä½œä¸€é¡¿ï¼Œç«Ÿç„¶è±¡è¢«äººç»‘ä½äº†ä¸€æ ·ï¼\n" NOR;
+                tell_object(target, HIB "\nä½ èº«å­çªç„¶ä¸€ç´§ï¼Œæ‰å‘çŽ°è‡ªå·±ä¸çŸ¥ä¸è§‰é—´è¢«äººç”¨ä¸œè¥¿å¥—ä½äº†ï¼\n\n" NOR);
                 target->start_busy(random(2)+4);
                 Suc = 1;
          } 
          else {
-                msg = HIY"ºöÈ»Ñô¹âÒ»ÉÁ£¬ÕýºÃÕÕ¼û$NÅ×³öÁËÊ²Ã´¶«Î÷£¬½á¹û±»$n»úÁéµØ¶ãÁË¿ªÈ¥¡£\n" NOR;
-                tell_object(me, HIB "\nÄãÍ»È»¾õµÃÑô¹âÇ¿ÁËºÜ¶à£¬Ôã¸â£¡×Ô¼ºµÄÆóÍ¼±»·¢ÏÖÁË£¡\n\n" NOR);
-                tell_object(target, HIB "\nÄãÍ»È»¿´¼ûÁËÒ»ÌõÒø°×É«µÄ¶«Î÷ÔÚÑô¹âÏÂÒ»ÉÁ£¬ÂíÉÏÔ¾ÁË¿ªÈ¥£¡\n\n" NOR);
+                msg = HIY"å¿½ç„¶é˜³å…‰ä¸€é—ªï¼Œæ­£å¥½ç…§è§$NæŠ›å‡ºäº†ä»€ä¹ˆä¸œè¥¿ï¼Œç»“æžœè¢«$næœºçµåœ°èº²äº†å¼€åŽ»ã€‚\n" NOR;
+                tell_object(me, HIB "\nä½ çªç„¶è§‰å¾—é˜³å…‰å¼ºäº†å¾ˆå¤šï¼Œç³Ÿç³•ï¼è‡ªå·±çš„ä¼å›¾è¢«å‘çŽ°äº†ï¼\n\n" NOR);
+                tell_object(target, HIB "\nä½ çªç„¶çœ‹è§äº†ä¸€æ¡é“¶ç™½è‰²çš„ä¸œè¥¿åœ¨é˜³å…‰ä¸‹ä¸€é—ªï¼Œé©¬ä¸Šè·ƒäº†å¼€åŽ»ï¼\n\n" NOR);
          }
          message_vision(msg, me, target);
          me->start_busy(2-Suc);

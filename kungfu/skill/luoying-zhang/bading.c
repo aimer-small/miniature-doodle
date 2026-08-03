@@ -3,32 +3,32 @@
 inherit F_SSERVER;
 #include <ansi.h>
 
-string perform_name() { return HIG"¸½¹Ç¶¤¡¢°Î"NOR; }
+string perform_name() { return HIG"é™„éª¨é’‰ã€æ‹”"NOR; }
 
 int perform(object me, object target)
 {
         string msg;
         
         if(!objectp(target))
-                return notify_fail("ÕâÀïÃ»ÓÐÕâ¸öÈË¡£\n");
+                return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººã€‚\n");
         if(!target->query("thd/fugu"))
-                return notify_fail("Õâ¸öÈËÃ»ÓÐÖÐ¸½¹Ç¶¤¡£\n");
+                return notify_fail("è¿™ä¸ªäººæ²¡æœ‰ä¸­é™„éª¨é’‰ã€‚\n");
         if( (int)me->query_skill("bihai-chaosheng", 1) < 250 )
-                return notify_fail("ÄãµÄ±Ìº£³±Éú¹¦ÐÞÎªÎ´µ½£¬ÎÞ·¨Ê¹ÓÃ¸½¹Ç¶¤¡£\n");
+                return notify_fail("ä½ çš„ç¢§æµ·æ½®ç”ŸåŠŸä¿®ä¸ºæœªåˆ°ï¼Œæ— æ³•ä½¿ç”¨é™„éª¨é’‰ã€‚\n");
         if( (int)me->query_skill("luoying-zhang",1) < 250 )
-                return notify_fail("ÄãµÄÕÆ·¨ÐÞÎª²»×ã¡£\n");
+                return notify_fail("ä½ çš„æŽŒæ³•ä¿®ä¸ºä¸è¶³ã€‚\n");
         if( (int)me->query("neili") < 2000 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨å†…åŠ›å¤ªå¼±ã€‚\n");
 
         me->add("neili",-2000);
         me->add("max_neili",-30);
-        msg = HIY"$N×ßµ½$nÉíáá£¬Éì³öÊÖÀ´¡£\n"NOR;
-        msg+= HIW"$NÔËÆð±Ìº£³±Éú¹¦£¬»º»ºµÄ½«$nËùÖÐ¸½¹Ç¶¤°Î³ö¡£\n"NOR;
+        msg = HIY"$Nèµ°åˆ°$nèº«å¾Œï¼Œä¼¸å‡ºæ‰‹æ¥ã€‚\n"NOR;
+        msg+= HIW"$Nè¿èµ·ç¢§æµ·æ½®ç”ŸåŠŸï¼Œç¼“ç¼“çš„å°†$næ‰€ä¸­é™„éª¨é’‰æ‹”å‡ºã€‚\n"NOR;
         if( target->query_con() > 30) {
-                msg+= HIC"$n²Ò½ÐÒ»Éù£¬ÄÚ¹¦ÐÞÎª´ó´óÊÜËð¡£\n"NOR;
+                msg+= HIC"$næƒ¨å«ä¸€å£°ï¼Œå†…åŠŸä¿®ä¸ºå¤§å¤§å—æŸã€‚\n"NOR;
                 target->add("max_neili",-5);
         } else {
-                msg+= HIR"$n²Ò½ÐÒ»Éù£¬ÔÎÁË¹ýÈ¥¡£\n"NOR;
+                msg+= HIR"$næƒ¨å«ä¸€å£°ï¼Œæ™•äº†è¿‡åŽ»ã€‚\n"NOR;
                 target->unconcious();
                 target->add("max_neili",-5);
         }
@@ -39,16 +39,16 @@ int perform(object me, object target)
 
 int help(object me)
 {
-        write(HIG"\n¡¸¸½¹Ç¶¤¡¢°Î¡¹£º"NOR"\n");
+        write(HIG"\nã€Œé™„éª¨é’‰ã€æ‹”ã€ï¼š"NOR"\n");
         write(@HELP
 
-        ·´ÔË±Ìº£³±Éú¹¦£¬°ïÖúÊÜ¸½¹Ç¶¤Ö®º¦ÕßÆð³ö¸½¹Ç¶¤¡£ÈôÊÇ¸ù¹Ç²»×ã»òÊÇÄÚ¹¦
-        ²»¹»Éîºñ£¬¶à°ë»áËðÊ§ÐÞÁ¶µÄÄÚÁ¦¡£
+        åè¿ç¢§æµ·æ½®ç”ŸåŠŸï¼Œå¸®åŠ©å—é™„éª¨é’‰ä¹‹å®³è€…èµ·å‡ºé™„éª¨é’‰ã€‚è‹¥æ˜¯æ ¹éª¨ä¸è¶³æˆ–æ˜¯å†…åŠŸ
+        ä¸å¤Ÿæ·±åŽšï¼Œå¤šåŠä¼šæŸå¤±ä¿®ç‚¼çš„å†…åŠ›ã€‚
 
-        ÒªÇó£º  ±Ìº£³±Éú¹¦µÈ¼¶ 250 ÒÔÉÏ£»
-                ÂäÓ¢Éñ½£ÕÆµÈ¼¶ 250 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 2000 ÒÔÉÏ£»
-                ·ÇÕ½¶··½ÄÜÊ¹ÓÃ¡£
+        è¦æ±‚ï¼š  ç¢§æµ·æ½®ç”ŸåŠŸç­‰çº§ 250 ä»¥ä¸Šï¼›
+                è½è‹±ç¥žå‰‘æŽŒç­‰çº§ 250 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 2000 ä»¥ä¸Šï¼›
+                éžæˆ˜æ–—æ–¹èƒ½ä½¿ç”¨ã€‚
 HELP
         );
         return 1;

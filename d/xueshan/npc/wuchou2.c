@@ -1,4 +1,4 @@
-// wuchou-2.c ¶ş³ó
+// wuchou-2.c äºŒä¸‘
 // by iceland
 
 #include <ansi.h>
@@ -6,14 +6,14 @@ inherit NPC;
 
 void create()
 {
-	set_name("¶ş³ó", ({"er chou","erchou","chou","er"}));
+	set_name("äºŒä¸‘", ({"er chou","erchou","chou","er"}));
 	set("long",
-"ËûÊÇ²Ø±ßÎå³óÖĞµÄÀÏ¶ş£¬¹¦·ò²»¸ß£¬»µÊÂ×öÁË²»ÉÙ¡£\n"
-"ËûÊÇ´óÂÖËÂ´ï¶û°ÍµÄµÜ×Ó¡£\n"
+"ä»–æ˜¯è—è¾¹äº”ä¸‘ä¸­çš„è€äºŒï¼ŒåŠŸå¤«ä¸é«˜ï¼Œåäº‹åšäº†ä¸å°‘ã€‚\n"
+"ä»–æ˜¯å¤§è½®å¯ºè¾¾å°”å·´çš„å¼Ÿå­ã€‚\n"
 	);
 
-        set("title", HIY "´óÂÖËÂµÚÊ®ËÄ´úµÜ×Ó" NOR);
-	set("gender", "ÄĞĞÔ");
+        set("title", HIY "å¤§è½®å¯ºç¬¬åå››ä»£å¼Ÿå­" NOR);
+	set("gender", "ç”·æ€§");
 	set("attitude", "heroism");
 	set("class", "huanxi");
 
@@ -48,10 +48,10 @@ void create()
 	map_skill("blade", "xuedao-jing");
 	map_skill("parry", "xuedao-jing");
 
-	create_family("´óÂÖËÂ", 14, "µÜ×Ó");
+	create_family("å¤§è½®å¯º", 14, "å¼Ÿå­");
         set("chat_chance", 1);
         set("chat_msg", ({
-"¶ş³óÎŞÁÄµÄµÀ£º¡°°¦£¬ÄãÃÇËµµÄ¶¼¸É¹ıºÃ¶à´ÎÁË£¬ÏëµãĞÂÏÊµÄ³öÀ´°É¡£¡±\n",
+"äºŒä¸‘æ— èŠçš„é“ï¼šâ€œå”‰ï¼Œä½ ä»¬è¯´çš„éƒ½å¹²è¿‡å¥½å¤šæ¬¡äº†ï¼Œæƒ³ç‚¹æ–°é²œçš„å‡ºæ¥å§ã€‚â€\n",
         }) );
 
 	setup();

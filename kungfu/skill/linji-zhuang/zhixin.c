@@ -8,25 +8,25 @@ int exert(object me)
 	int improve;
 
 	if( (int)me->query_skill("linji-zhuang", 1) < 60 )
-		return notify_fail("ÄãµÄÁÙ¼ÃÊ®¶ş×¯ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„ä¸´æµåäºŒåº„ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 /*
 	if( me->query("class") != "bonze" && me->query("family/generation") > 3)
-		return notify_fail("Äã²»ÊÇ³ö¼ÒÈË£¬ÎŞ·¨Áì»áÁÙ¼ÃÊ®¶ş×¯µÄ¡¸Ö®ĞÄ¡¹×Ö¾ö£¡\n");
+		return notify_fail("ä½ ä¸æ˜¯å‡ºå®¶äººï¼Œæ— æ³•é¢†ä¼šä¸´æµåäºŒåº„çš„ã€Œä¹‹å¿ƒã€å­—å†³ï¼\n");
 */
 	if( (int)me->query("neili") < 300 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
-	if( me->query_temp("ljz/zhixin") )		// Í³Ò» ±ê¼Ç
-		return notify_fail("ÄãÕıÔÚÔËÓÃÁÙ¼ÃÊ®¶ş×¯µÄ¡¸Ö®ĞÄ¡¹×Ö¾ö£¡\n");
+	if( me->query_temp("ljz/zhixin") )		// ç»Ÿä¸€ æ ‡è®°
+		return notify_fail("ä½ æ­£åœ¨è¿ç”¨ä¸´æµåäºŒåº„çš„ã€Œä¹‹å¿ƒã€å­—å†³ï¼\n");
 
-	write(MAG"ÄãÎ¢Ò»ÄıÉñ£¬ÔË¶¯Ö®ĞÄÁ½×¯£¬È¥×ÇÆø³öÌåÍâ£¬ÊÕÇåÆøÈëĞÄÖĞ£¬Ö»¾õÁéÌ¨ÇåÃ÷£¬ÁìÎòÁ¦ÓĞËùÔö¼Ó¡£\n"NOR, me);
-	message_vision(MAG"Ö»¼û$NÎ¢Ò»ÄıÉñ£¬ÍÌÍÂ¼¸¿Ú³¤Æø£¬Ò»¶ÔÑÛíøÁé¶¯¾§ÁÁ£¬Éñ²ÉŞÄŞÄ¡£\n"NOR, me);
+	write(MAG"ä½ å¾®ä¸€å‡ç¥ï¼Œè¿åŠ¨ä¹‹å¿ƒä¸¤åº„ï¼Œå»æµŠæ°”å‡ºä½“å¤–ï¼Œæ”¶æ¸…æ°”å…¥å¿ƒä¸­ï¼Œåªè§‰çµå°æ¸…æ˜ï¼Œé¢†æ‚ŸåŠ›æœ‰æ‰€å¢åŠ ã€‚\n"NOR, me);
+	message_vision(MAG"åªè§$Nå¾®ä¸€å‡ç¥ï¼Œååå‡ å£é•¿æ°”ï¼Œä¸€å¯¹çœ¼çœ¸çµåŠ¨æ™¶äº®ï¼Œç¥é‡‡å¼ˆå¼ˆã€‚\n"NOR, me);
 
 	improve = me->query("int");
 
 	me->add_temp("apply/intelligence", improve);
-	me->set_temp("ljz/zhixin", improve);	// ĞŞ¸Ä±ê¼Ç
-	me->start_exert(1, "Ö®ĞÄ");
+	me->set_temp("ljz/zhixin", improve);	// ä¿®æ”¹æ ‡è®°
+	me->start_exert(1, "ä¹‹å¿ƒ");
 	me->add("neili", - 250);
 	me->start_call_out((: call_other, __FILE__, "remove_effect", me, improve :), me->query_skill("literate", 1)/2);
 	return 1;
@@ -34,21 +34,21 @@ int exert(object me)
 
 void remove_effect(object me, int improve)
 {
-	if( !me || !me->query_temp("ljz/zhixin") ) return;	// ĞŞ¸Ä±ê¼Ç
+	if( !me || !me->query_temp("ljz/zhixin") ) return;	// ä¿®æ”¹æ ‡è®°
 	me->add_temp("apply/intelligence", -improve);    
-	me->delete_temp("ljz/zhixin");	// ĞŞ¸Ä±ê¼Ç
-	tell_object(me, HIR"ÄãÌåÄÚÒÑ»ı¹ı¶à×ÇÆø£¬ËÆºõÁìÎòÁ¦ÓÖ¹éÓÚÑ°³£¡£\n"NOR);
+	me->delete_temp("ljz/zhixin");	// ä¿®æ”¹æ ‡è®°
+	tell_object(me, HIR"ä½ ä½“å†…å·²ç§¯è¿‡å¤šæµŠæ°”ï¼Œä¼¼ä¹é¢†æ‚ŸåŠ›åˆå½’äºå¯»å¸¸ã€‚\n"NOR);
 }
 
-string exert_name(){ return MAG"Ö®ĞÄ×Ö¾ö"NOR; }
+string exert_name(){ return MAG"ä¹‹å¿ƒå­—å†³"NOR; }
 
 int help(object me)
 {
-        write(MAG"\nÁÙ¼ÃÊ®¶ş×¯¡¸Ö®ĞÄ×Ö¾÷¡¹£º"NOR"\n\n");
+        write(MAG"\nä¸´æµåäºŒåº„ã€Œä¹‹å¿ƒå­—è¯€ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 300 ÒÔÉÏ£»
-                ÁÙ¼ÃÊ®¶ş×¯µÈ¼¶ 60 ÒÔÉÏ£»
-                ³ö¼Ò»òË×¼ÒÈı´úµÜ×Ó¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 300 ä»¥ä¸Šï¼›
+                ä¸´æµåäºŒåº„ç­‰çº§ 60 ä»¥ä¸Šï¼›
+                å‡ºå®¶æˆ–ä¿—å®¶ä¸‰ä»£å¼Ÿå­ã€‚
 HELP
         );
         return 1;

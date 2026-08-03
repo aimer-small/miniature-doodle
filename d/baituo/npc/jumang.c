@@ -1,12 +1,12 @@
 inherit NPC;
 void create()
 {
-    set_name("巨蟒", ({ "ju mang", "mang" }) );
-	set("race", "野兽");
+    set_name("宸ㄨ煉", ({ "ju mang", "mang" }) );
+	set("race", "閲庡吔");
 	set("age", 70);
-    	set("long", "一条五丈来长的蟒！！！\n");
+    	set("long", "涓�鏉′簲涓堟潵闀跨殑锜掞紒锛侊紒\n");
     	set("attitude", "aggressive");
-	set("limbs", ({ "头部", "身体", "尾巴", "躯干" }) );
+	set("limbs", ({ "澶撮儴", "韬綋", "灏惧反", "韬共" }) );
 	set("verbs", ({ "sweep", "twist", "bite" }) );
         set("str", 190);
         set("max_qi", 20000);
@@ -22,7 +22,7 @@ void create()
 void die()
 {
 	object ob;
-    	message_vision("$N垂死挣扎了几下就不动了。\n", this_object());
+    	message_vision("$N鍨傛鎸ｆ墡浜嗗嚑涓嬪氨涓嶅姩浜嗐�俓n", this_object());
 	ob = new("/d/baituo/obj/shepi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

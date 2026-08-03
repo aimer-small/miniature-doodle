@@ -1,4 +1,4 @@
-// zayilama1.c ÔÓÒÛÀ®Âï
+// zayilama1.c æ‚å½¹å–‡å˜›
 // by iceland
 
 #include <ansi.h>
@@ -31,13 +31,13 @@ switch (random(3)){
 
       set_name(name, ({"zayi lama","lama","zayi"}));
 	set("long",@LONG
-ËûÊÇ´óÂÖËÂµÄÔÓÒÛÀ®Âï£¬Ö»»áĞ©´ÖÇ³¹¦·ò£¬ÔÚËÂÀïÉí·İ×îµÍ£¬ÈÕ³£¸ÉĞ©´Ö»îÖØ»î¡£
+ä»–æ˜¯å¤§è½®å¯ºçš„æ‚å½¹å–‡å˜›ï¼Œåªä¼šäº›ç²—æµ…åŠŸå¤«ï¼Œåœ¨å¯ºé‡Œèº«ä»½æœ€ä½ï¼Œæ—¥å¸¸å¹²äº›ç²—æ´»é‡æ´»ã€‚
 LONG
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "heroism");
-	set("title" , HIW"´óÂÖËÂÔÓÒÛÀ®Âï"NOR);
+	set("title" , HIW"å¤§è½®å¯ºæ‚å½¹å–‡å˜›"NOR);
 	set("age", random(20)+20);
 	set("shen_type", 0);
 	set("str", random(10)+10);
@@ -58,7 +58,7 @@ LONG
 	set_skill("parry", 10);
         set("tea_count", 40);
         set("inquiry", ([ 
-	       "Ê³Îï" : (: give_food :),
+	       "é£Ÿç‰©" : (: give_food :),
        ]) );
 
 	setup();
@@ -84,17 +84,17 @@ int give_food()
        ob = this_player();
 
        if ( objectp(present("suyou cha", (ob))))  { 
-	  command("say ÄãÉíÉÏ²»ÊÇ»¹ÓĞÃ´£¿ÏÈ³ÔÍêÁËÔÙÏòÎÒÒª°É¡£¡±");
+	  command("say ä½ èº«ä¸Šä¸æ˜¯è¿˜æœ‰ä¹ˆï¼Ÿå…ˆåƒå®Œäº†å†å‘æˆ‘è¦å§ã€‚â€");
           return 1;  } 
 
         if (query("tea_count") < 1)  { 
-	  command("say ½ñÌìÅöµ½¸ö´ó¶Çºº£¬°ÑÊ³Îï¶¼³Ô¹âÁË£¬³ø·¿ÕıÔÚ¼Ó½ô×ö£¬ÇëÉÔµÈÒ»»á¡£¡±");
+	  command("say ä»Šå¤©ç¢°åˆ°ä¸ªå¤§è‚šæ±‰ï¼ŒæŠŠé£Ÿç‰©éƒ½åƒå…‰äº†ï¼Œå¨æˆ¿æ­£åœ¨åŠ ç´§åšï¼Œè¯·ç¨ç­‰ä¸€ä¼šã€‚â€");
           return 1;  } 
 
        food = new(FOOD_D("youcha"));
        food->move(ob);
 
-       message_vision("$N½»¸ø$nÒ»ÍëËÖÓÍ²è¡£\n", me, ob);
+       message_vision("$Näº¤ç»™$nä¸€ç¢—é…¥æ²¹èŒ¶ã€‚\n", me, ob);
 // 98         add("tea_count", -1);
        return 1;
 }
@@ -103,5 +103,5 @@ int give_food()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return; 
-        command("say "+ RANK_D->query_respect(ob) + "ÊÇ²»ÊÇ¶öÁË£¿Èç¹û¶öÁË¿ÉÒÔÏòÎÒÒªÊ³Îï(ask lama about Ê³Îï)¡£\n");
+        command("say "+ RANK_D->query_respect(ob) + "æ˜¯ä¸æ˜¯é¥¿äº†ï¼Ÿå¦‚æœé¥¿äº†å¯ä»¥å‘æˆ‘è¦é£Ÿç‰©(ask lama about é£Ÿç‰©)ã€‚\n");
  }

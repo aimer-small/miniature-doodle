@@ -9,10 +9,10 @@ int main(object me, string arg)
 	if( !arg || me != this_player(1)) return 0;
 	ob = present(arg, environment(me));
 	if( !ob || !living(ob) || userp(ob))
-		return notify_fail("ÕâÀïÃ»ÓĞÕâ¸öÉúÎï¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªç”Ÿç‰©ã€‚\n");
 	if( ob->query_temp("body_ob") )
-		return notify_fail( ob->name() + "ÒÑ¾­±»ÈË¸½Éí¹ıÁË¡£\n");
-	message_vision("$N»¯³ÉÒ»µÀ¹âÃ¢×ê½ø$nÌåÄÚ¡£\n", me, ob);
+		return notify_fail( ob->name() + "å·²ç»è¢«äººé™„èº«è¿‡äº†ã€‚\n");
+	message_vision("$NåŒ–æˆä¸€é“å…‰èŠ’é’»è¿›$nä½“å†…ã€‚\n", me, ob);
 	LOGIN_D->enter_world(me, ob, 1);
 
 	return 1;
@@ -21,10 +21,10 @@ int main(object me, string arg)
 int help()
 {
 	write(@TEXT
-Ö¸Áî¸ñÊ½£ºposssess <Ä¿±êÉúÎï>
+æŒ‡ä»¤æ ¼å¼ï¼šposssess <ç›®æ ‡ç”Ÿç‰©>
 
-¸½Éíµ½ÁíÒ»¸öÉúÎïÉÏ£¬Õâ¸öÉúÎï±ØĞëºÍÄãÓĞÏàÍ¬µÄ EUID¡£
-¸½ÉíááÓÃ quit Ö¸Áî»á»Øµ½Ô­À´µÄÉíÌå¡£
+é™„èº«åˆ°å¦ä¸€ä¸ªç”Ÿç‰©ä¸Šï¼Œè¿™ä¸ªç”Ÿç‰©å¿…é¡»å’Œä½ æœ‰ç›¸åŒçš„ EUIDã€‚
+é™„èº«å¾Œç”¨ quit æŒ‡ä»¤ä¼šå›åˆ°åŸæ¥çš„èº«ä½“ã€‚
 TEXT
 	);
 	return 1;

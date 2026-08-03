@@ -4,12 +4,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ñ©¼¦", ({"xue ji","ji"}));
-        set("race", "Ò°ÊÞ");
+        set_name("é›ªé¸¡", ({"xue ji","ji"}));
+        set("race", "é‡Žå…½");
         set("age", 2);
-        set("long", "Ò»Ö»·Ê·Ê°×°×µÄÑ©¼¦¡£\n");
+        set("long", "ä¸€åªè‚¥è‚¥ç™½ç™½çš„é›ªé¸¡ã€‚\n");
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°×¦", "ºó×¦", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰çˆª", "åŽçˆª", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
 
         set("combat_exp", 100);
@@ -24,7 +24,7 @@ void create()
 
 void die()
 {
-       message_vision("$N²Òº¿Ò»Éù£¬ÂýÂýµ¹ÏÂËÀÁË£¡\n", this_object());
+       message_vision("$Næƒ¨åšŽä¸€å£°ï¼Œæ…¢æ…¢å€’ä¸‹æ­»äº†ï¼\n", this_object());
        new_ob("../obj/xueji-rou")->move(environment());
        destruct(this_object());
 }

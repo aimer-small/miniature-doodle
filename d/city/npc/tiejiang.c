@@ -12,9 +12,9 @@ inherit NPC;
 string color,cname,weapon_type,info;
 
 string *banned_name = ({
-"×Ô¼º","ÌìÉñ","Êé½£","Ê¬Ìå","Ä³ÈË","ÎÒÃÇ","ÄãÃÇ","ËûÃÇ","´ó¼Ò","ËûÂèµÄ","Ã«Ôó¶«","µËĞ¡Æ½","½­ÔóÃñ","Î×Ê¦",
-"²ÙÄãÂè","ÈÕÄãÄï","ÄãÄÌÄÌµÄ","ÄãÂèµÄ","¸ÉÄãÂè","¸ÉÄãÄï","É±ÊÖ","Ñ©ÈË","ÉÁµç","åĞÒ£","·¨ÂÖ¹¦","·´¸ïÃü",
-"¹²²úµ³","²ÙÄãÂèµÄ","²ÙÄãÀÑÀÑ","²ÙÄã½ã½ã","²ÙÄãÃÃÃÃ","¼¦°Í","¼¦°É",
+"è‡ªå·±","å¤©ç¥","ä¹¦å‰‘","å°¸ä½“","æŸäºº","æˆ‘ä»¬","ä½ ä»¬","ä»–ä»¬","å¤§å®¶","ä»–å¦ˆçš„","æ¯›æ³½ä¸œ","é‚“å°å¹³","æ±Ÿæ³½æ°‘","å·«å¸ˆ",
+"æ“ä½ å¦ˆ","æ—¥ä½ å¨˜","ä½ å¥¶å¥¶çš„","ä½ å¦ˆçš„","å¹²ä½ å¦ˆ","å¹²ä½ å¨˜","æ€æ‰‹","é›ªäºº","é—ªç”µ","é€é¥","æ³•è½®åŠŸ","åé©å‘½",
+"å…±äº§å…š","æ“ä½ å¦ˆçš„","æ“ä½ å§¥å§¥","æ“ä½ å§å§","æ“ä½ å¦¹å¦¹","é¸¡å·´","é¸¡å§",
 });
 
 void create_weapon(object client);
@@ -23,11 +23,11 @@ int do_confirm(string str);
 int check_legal_name(string name);
 
 mapping weapon_map = ([
-        "sword" :    "½£Æ÷",
-        "blade" :    "µ¶",
-        "feibiao" :  "·ÉïÚ",
-        "staff" :    "ÕÈ",
-        "club" :     "¹÷",
+        "sword" :    "å‰‘å™¨",
+        "blade" :    "åˆ€",
+        "feibiao" :  "é£é•–",
+        "staff" :    "æ–",
+        "club" :     "æ£",
 ]);
 
 string ansi_convert(string str)
@@ -53,19 +53,19 @@ string ansi_convert(string str)
 int check_legal_name(string name)
 {
         int i = strlen(name);
-        if (i < 4 || i > 8 || i%2) {
-                write("¶Ô²»Æğ£¬ÄúÒªµÄ±øÆ÷Ãû³Æ±ØĞëÊÇ¶şµ½ËÄ¸öÖĞÎÄ×Ö¡£\n");
+        if (i < 2 || i > 4) {
+                write("å¯¹ä¸èµ·ï¼Œæ‚¨è¦çš„å…µå™¨åç§°å¿…é¡»æ˜¯äºŒåˆ°å››ä¸ªä¸­æ–‡å­—ã€‚\n");
                 return 0;
         }
 
         while(i--)
-        if( i%2==0 && !is_chinese(name[i..<0]) ) {
-                        write("¶Ô²»Æğ£¬ÇëÄúÓÃ¡¸ÖĞÎÄ¡¹È¡Ãû³Æ¡£\n");
+        if( !is_chinese(name[i..i]) ) {
+                        write("å¯¹ä¸èµ·ï¼Œè¯·æ‚¨ç”¨ã€Œä¸­æ–‡ã€å–åç§°ã€‚\n");
                         return 0;
         }
 
         if( member_array(name, banned_name)!=-1 ) {
-                write("¶Ô²»Æğ£¬ÕâÖÖÃû³Æ»áÔì³ÉÆäËûÈËµÄÀ§ÈÅ¡£\n");
+                write("å¯¹ä¸èµ·ï¼Œè¿™ç§åç§°ä¼šé€ æˆå…¶ä»–äººçš„å›°æ‰°ã€‚\n");
                 return 0;
         }
         return 1;
@@ -74,13 +74,13 @@ int check_legal_name(string name)
 
 void create()
 {
-        set_name("À¶Ìú½³", ({ "lan tiejiang", "lan", "tiejiang" }));
+        set_name("è“é“åŒ ", ({ "lan tiejiang", "lan", "tiejiang" }));
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age",42);
-	set("long", "ÕâÊÇÒ»Î»±¥¾­·çËªµÄÖĞÄê´óºº,¾İËµËûÄêÇáÊ±ÔÚÎ÷²Ø··ÂôÑ©Á«¡£\n"+
-		    "ºóÀ´²»Ğ¡ĞÄ²ÉÒ©Ê±µø¶ÏÁËÍÈ,±ãÁ÷ÂäËûÏçÒÔ´òÌúÎªÉú¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ä½é¥±ç»é£éœœçš„ä¸­å¹´å¤§æ±‰,æ®è¯´ä»–å¹´è½»æ—¶åœ¨è¥¿è—è´©å–é›ªè²ã€‚\n"+
+		    "åæ¥ä¸å°å¿ƒé‡‡è¯æ—¶è·Œæ–­äº†è…¿,ä¾¿æµè½ä»–ä¹¡ä»¥æ‰“é“ä¸ºç”Ÿã€‚\n");
 	set_skill("unarmed", 20);
 	set_skill("dodge", 20);
 	set_temp("apply/damage", 15);
@@ -100,7 +100,7 @@ void init()
 	::init();
 
 	 if( interactive(ob = this_player()) && visible(ob)) 
-          say(CYN"À¶Ìú½³Ğ¦ßäßäµØËµµÀ: ÕâÎ»" + RANK_D->query_respect(ob)+ "¿ÉÊÇÒª´òÔìÊ²Ã´±øÆ÷Ã´? \n"NOR);
+          say(CYN"è“é“åŒ ç¬‘å’ªå’ªåœ°è¯´é“: è¿™ä½" + RANK_D->query_respect(ob)+ "å¯æ˜¯è¦æ‰“é€ ä»€ä¹ˆå…µå™¨ä¹ˆ? \n"NOR);
 }
 
 void kill_ob(object ob)
@@ -111,7 +111,7 @@ void kill_ob(object ob)
 
 void unconcious()
 {
-        say("À¶Ìú½³´ó½ĞÒ»Éù: ÂèÑ½!¾ÈÃü¡£ÁïÁË¡£\n");
+        say("è“é“åŒ å¤§å«ä¸€å£°: å¦ˆå‘€!æ•‘å‘½ã€‚æºœäº†ã€‚\n");
 	destruct(this_object());
 }
 
@@ -128,29 +128,29 @@ int do_ding(string str)
 
 	// exp < 50k can't order weapon
         if (customer->query("combat_exp") <= 3000)
-		return notify_fail("ÎŞÃûĞ¡×ä,Ò²Åä´ò±øÆ÷Ã´!\n");
+		return notify_fail("æ— åå°å’,ä¹Ÿé…æ‰“å…µå™¨ä¹ˆ!\n");
 
 	//  reset 
 	customer->delete_temp("bqp/order");
 
 	if (!(str) 
 	 || sscanf(str, "%s %s %s", weapon_type,color,cname) != 3)
-        	return notify_fail("ÏÈ¿´Çå³şÅÆ×Ó<sign>ÔÙËµ°É.\n");
+        	return notify_fail("å…ˆçœ‹æ¸…æ¥šç‰Œå­<sign>å†è¯´å§.\n");
 	
     // check weapon's name is valid ?
         if (!check_legal_name(cname))
-        	return notify_fail("ÇëÁíÈ¡Ãû³Æ¡£\n");
+        	return notify_fail("è¯·å¦å–åç§°ã€‚\n");
 
 	// check if i am serving for someone else
 	if ( me->query_temp("serving") ) {
-		command("say ¶Ô²»ÆğÑ½,ÎÒÕıÃ¦×ÅÄØ!\n");
+		command("say å¯¹ä¸èµ·å‘€,æˆ‘æ­£å¿™ç€å‘¢!\n");
 		return 1;
 	}
 
 	// check if this kind of weapon is avialable
 	weapon_file = __DIR__"/bqp_obj/" + weapon_type + ".c";
 	if ( !file_exists(weapon_file) ) 
-		return notify_fail("¶Ô²»ÆğÑ½,¿Í¹Ù,ÄãÒªµÄ±øÆ÷ÎÒÃÇÃ»ÓĞ.\n");	
+		return notify_fail("å¯¹ä¸èµ·å‘€,å®¢å®˜,ä½ è¦çš„å…µå™¨æˆ‘ä»¬æ²¡æœ‰.\n");	
 
 	// not busy? good, accept new order
 	me->set_temp("serving",1);
@@ -160,10 +160,10 @@ int do_ding(string str)
 	cname = sprintf("%s%s",color,cname);
 	cname = ansi_convert(cname); 
 
-        info = sprintf("\n\t"GRN"±øÆ÷: %s\n\t"GRN"Ãû³Æ: %s\n"NOR,weapon_map[weapon_type]+"("+capitalize(weapon_type)+")",cname);
+        info = sprintf("\n\t"GRN"å…µå™¨: %s\n\t"GRN"åç§°: %s\n"NOR,weapon_map[weapon_type]+"("+capitalize(weapon_type)+")",cname);
 	
-	message("vision","¿´À´" + customer->query("name") + "Ïë´òÔì"+cname+ ".\n",environment(me),me);
-        command("say ¿Í¹ÙÒªµÄ¿ÉÊÇÕâĞ©? (È·¶¨Çë´ò<confirm yes|no>) ");
+	message("vision","çœ‹æ¥" + customer->query("name") + "æƒ³æ‰“é€ "+cname+ ".\n",environment(me),me);
+        command("say å®¢å®˜è¦çš„å¯æ˜¯è¿™äº›? (ç¡®å®šè¯·æ‰“<confirm yes|no>) ");
         tell_room(environment(me), info);
 	customer->set_temp("bqp/order",1);
 
@@ -175,7 +175,7 @@ int do_confirm(string str)
         object customer = this_player();
                 
         if ( !(str) )
-                return notify_fail("Çë´ò: confirm yes|no \n");
+                return notify_fail("è¯·æ‰“: confirm yes|no \n");
         
         if ( str == "yes" ) {   
                 if (customer->query_temp("bqp/order") ) {
@@ -186,7 +186,7 @@ int do_confirm(string str)
 				remove_call_out("remove_serving");
 				this_object()->delete_temp("serving");
 				customer->delete_temp("bqp/order");
-				return  notify_fail("ÄãÉíÉÏ´øµÄÇ®²»¹»ÁË!\n");
+				return  notify_fail("ä½ èº«ä¸Šå¸¦çš„é’±ä¸å¤Ÿäº†!\n");
 			}
 		}
                 return 1;
@@ -194,12 +194,12 @@ int do_confirm(string str)
         else {
                 if ( str == "no" ) {
                         this_object()->delete_temp("sreving");
-                        tell_object(customer,"¿Í¹ÙÒªµã±ğµÄÊ²Ã´Âğ?\n");
+                        tell_object(customer,"å®¢å®˜è¦ç‚¹åˆ«çš„ä»€ä¹ˆå—?\n");
 			remove_call_out("remove_serving");
 			customer->delete_temp("bqp/order");
                 }
                 else
-                        return notify_fail("ÇëÓÃ: confirm yes|no \n");
+                        return notify_fail("è¯·ç”¨: confirm yes|no \n");
         }
         return 1;
 }                             
@@ -225,7 +225,7 @@ void create_weapon(object client)
 	weapon = new(__DIR__"bqp_obj/"+ weapon_type);
 	weapon->set("name",cname + NOR);
 	
-	weapon_desc = sprintf("%s%s(%s)µÄ%s\n",weapon->query("long"),client->query("name"),client->query("id"),weapon->query("name")); 
+	weapon_desc = sprintf("%s%s(%s)çš„%s\n",weapon->query("long"),client->query("name"),client->query("id"),weapon->query("name")); 
 	weapon->set("long",weapon_desc);
 
 	// in order to avoid player selling it to dangpu, set value 0
@@ -243,10 +243,10 @@ void create_weapon(object client)
 
 	// move weapon to player
 	weapon->move(client);
-	command("say ¿Í¹Ù,ÄãµÄ±øÆ÷×öºÃÁË!\n");
-	message("vision","À¶Ìú½³½»¸ø" + client->query("name") 
-	+ "Ò»±ú´òÔìºÃµÄ" + weapon->query("name") +"\n",environment(me),({me,client})); 
-	tell_object(client,"À¶Ìú½³½»¸øÄãÒ»±ú´òºÃµÄ"+weapon->query("name") + "\n");
+	command("say å®¢å®˜,ä½ çš„å…µå™¨åšå¥½äº†!\n");
+	message("vision","è“é“åŒ äº¤ç»™" + client->query("name") 
+	+ "ä¸€æŸ„æ‰“é€ å¥½çš„" + weapon->query("name") +"\n",environment(me),({me,client})); 
+	tell_object(client,"è“é“åŒ äº¤ç»™ä½ ä¸€æŸ„æ‰“å¥½çš„"+weapon->query("name") + "\n");
 
 	// remove some temp flags
 	me->delete_temp("serving");

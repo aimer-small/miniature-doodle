@@ -1,8 +1,8 @@
-// xunlei.c Ñ¸À×½£
+// xunlei.c è¿…é›·å‰‘
 #include <ansi.h>
-//¸ÄÃû½Ğ±¼À×¿ì½£---by daidai 2007-06-26
+//æ”¹åå«å¥”é›·å¿«å‰‘---by daidai 2007-06-26
 inherit F_SSERVER;
-string perform_name(){ return HBMAG"±¼À×¿ì½£"NOR; }
+string perform_name(){ return HBMAG"å¥”é›·å¿«å‰‘"NOR; }
 int perform(object me, object target)
 {
         object weapon;
@@ -12,35 +12,35 @@ int perform(object me, object target)
         if( !target
         ||  !target->is_character()
         ||  !me->is_fighting(target) )
-                 return notify_fail("¡¸±¼À×¿ì½£¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                 return notify_fail("ã€Œå¥”é›·å¿«å‰‘ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
         if (!objectp(weapon = me->query_temp("weapon"))
          || (string)weapon->query("skill_type") != "sword")
-                return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+                return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
         if((int)me->query_skill("xunlei-jian",1) < 100 )
-            return notify_fail("ÄãµÄÑ¸À×½£·¨»¹²»¹»»ğºò£¬Ê¹²»³ö¡¸±¼À×¿ì½£¡¹¡£\n");
+            return notify_fail("ä½ çš„è¿…é›·å‰‘æ³•è¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºã€Œå¥”é›·å¿«å‰‘ã€ã€‚\n");
         if((int)me->query_skill("xuantian-wuji",1) < 100 )
-                return notify_fail("ÄãµÄĞşÌìÎŞ¼¶¹¦»¹²»¹»»ğºò£¬Ê¹²»³ö¡¸±¼À×¿ì½£¡¹¡£\n");
+                return notify_fail("ä½ çš„ç„å¤©æ— çº§åŠŸè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºã€Œå¥”é›·å¿«å‰‘ã€ã€‚\n");
         if((string)me->query_skill_mapped("sword") != "xunlei-jian" && userp(me))
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃÕâ¸ö¾øÕĞ£¡\n");
+                return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨è¿™ä¸ªç»æ‹›ï¼\n");
         if((string)me->query_skill_mapped("force") != "xuantian-wuji" && userp(me))
-                return notify_fail("Äã²»ÓÃĞşÌìÎŞ¼¶ÄÚ¹¦Ö§³ÖÊÇÎŞ·¨Ê¹ÓÃÕâ¸ö¾øÕĞµÄ£¡\n");
+                return notify_fail("ä½ ä¸ç”¨ç„å¤©æ— çº§å†…åŠŸæ”¯æŒæ˜¯æ— æ³•ä½¿ç”¨è¿™ä¸ªç»æ‹›çš„ï¼\n");
         if((string)me->query_skill_mapped("parry") != "xunlei-jian" && userp(me))
-                  return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃÕâ¸ö¾øÕĞ£¡\n");
+                  return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨è¿™ä¸ªç»æ‹›ï¼\n");
         if((int)me->query_temp("xunlei_jian") )
-               return notify_fail("ÄãÏÖÔÚÒÑ¾­ÔÚÏò¶ÔÊÖÊ¹ÓÃÁË¡£\n");
+               return notify_fail("ä½ ç°åœ¨å·²ç»åœ¨å‘å¯¹æ‰‹ä½¿ç”¨äº†ã€‚\n");
         if((int)me->query_temp("xunlei") )
-        return notify_fail("ÄãÏÖÔÚÒÑ¾­ÔÚÏò¶ÔÊÖÊ¹ÓÃ¡¸Ñ¸À×Ê®Áù½£¡¹ÁË¡£\n");
+        return notify_fail("ä½ ç°åœ¨å·²ç»åœ¨å‘å¯¹æ‰‹ä½¿ç”¨ã€Œè¿…é›·åå…­å‰‘ã€äº†ã€‚\n");
         if((int)me->query("max_neili", 1) < 1000 )
-               return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»Ê¹ÓÃ¡¸±¼À×¿ì½£¡¹£¡\n");
+               return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿä½¿ç”¨ã€Œå¥”é›·å¿«å‰‘ã€ï¼\n");
         if((int)me->query("max_jingli") < 500 )
-         return notify_fail("ÄãµÄ¾«Á¦ĞŞÎª²»¹»Ê¹ÓÃ¡¸±¼À×¿ì½£¡¹£¡\n");
+         return notify_fail("ä½ çš„ç²¾åŠ›ä¿®ä¸ºä¸å¤Ÿä½¿ç”¨ã€Œå¥”é›·å¿«å‰‘ã€ï¼\n");
         if((int)me->query("neili")<500)
-                return notify_fail("ÄãµÄÕæÆø²»¹»£¡\n"); 
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼\n"); 
         attack_time = random((int)me->query_skill("xunlei-jian",1) / 80)+1;
         if(attack_time < 2)
                attack_time = 2;
         if(attack_time > 5)  attack_time = 5;
-        msg = HBMAG "$NÊÖÖĞ"+weapon->name()+HBMAG"ÎØÎØ×öÏì£¬½£¼âÖ¸Ìì£¬Í»È»ÉíĞÎ°Î¸ß£¬²»´ı$n·´Ó¦¹ıÀ´ÓÖÁ¬ĞøÏò$n¹¥È¥£¡\n"NOR;
+        msg = HBMAG "$Næ‰‹ä¸­"+weapon->name()+HBMAG"å‘œå‘œåšå“ï¼Œå‰‘å°–æŒ‡å¤©ï¼Œçªç„¶èº«å½¢æ‹”é«˜ï¼Œä¸å¾…$nååº”è¿‡æ¥åˆè¿ç»­å‘$næ”»å»ï¼\n"NOR;
         message_vision(msg, me, target);
         lvl = ((me->query_skill("xunlei-jian", 1) + me->query_skill("xuantian-wuji", 1)))/ 6;
        me->set_temp("kl/xunlei", 1);
@@ -52,7 +52,7 @@ if(!userp(target)) target->start_busy(2);
                 COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);
        me->delete_temp("kl/xunlei");
 if(me->query_skill("xunlei-jian",1) <450)
-       me->start_perfrom(attack_time-1,"¡¸±¼À×¿ì½£¡¹");
+       me->start_perfrom(attack_time-1,"ã€Œå¥”é›·å¿«å‰‘ã€");
         me->add("neili", -300);
         me->add("jingli", -80);
         me->set_temp("xunlei_jian", 1);
@@ -69,5 +69,5 @@ void remove_effect(object me, object target)
         me->add_temp("apply/damage", -lvl);
        me->add_temp("apply/attack", -lvl);
         if (me->is_fighting(target) )
-       message_vision(MAG"$NµÄ¹¥ÊÆ½¥½¥ÂıÁËÏÂÀ´£¬$n»º¹ı¾¢À´ËÉÁË¿ÚÆø¡£\n"NOR,me,target);
+       message_vision(MAG"$Nçš„æ”»åŠ¿æ¸æ¸æ…¢äº†ä¸‹æ¥ï¼Œ$nç¼“è¿‡åŠ²æ¥æ¾äº†å£æ°”ã€‚\n"NOR,me,target);
 }

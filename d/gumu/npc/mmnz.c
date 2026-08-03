@@ -8,10 +8,10 @@ inherit F_SAVE;
 #include "mmnz.h"
 void create()
 {
-        set_name("ÃÉÃæÅ®×Ó", ({ "mengmian nuzi", "mengmian", "nuzi" }) );
-        set("gender", "Å®ĞÔ");
+        set_name("è’™é¢å¥³å­", ({ "mengmian nuzi", "mengmian", "nuzi" }) );
+        set("gender", "å¥³æ€§");
         set("age", 25 );
-        set("long", "Ò»¸ö·ç×ËĞãÒİµÄÅ®×Ó£¬ËäÈ»ÃÉ×ÅÃæ£¬µ«ÑÚÊÎ²»ÁËÆäßÍßÍµÄÉ±Æø¡£\n");
+        set("long", "ä¸€ä¸ªé£å§¿ç§€é€¸çš„å¥³å­ï¼Œè™½ç„¶è’™ç€é¢ï¼Œä½†æ©é¥°ä¸äº†å…¶å’„å’„çš„æ€æ°”ã€‚\n");
         set("combat_exp", 10000);
         set("shen", -1500);
         set("attitude", "firendly");

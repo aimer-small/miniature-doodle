@@ -2,13 +2,13 @@ inherit ROOM;
 
 void create()
 {
-  set("short","������");
+  set("short","松树林");
   set("long",@LONG
-������һƬï�ܵ������֣������ߴ�֦Ҷïʢ����һ�߽�����
-�����ʧ�˷��������ľ������·������ס�ˡ�
+这里是一片茂密的松树林，松树高大，枝叶茂盛，你一走进来差
+点便迷失了方向。这里灌木丛生，路都给挡住了。
 LONG);
 
-     set("outdoors", "������");
+     set("outdoors", "天龙寺");
      set("exits",([
            "east" : __DIR__"songlin-4",
            "west" : __DIR__"songlin-3",

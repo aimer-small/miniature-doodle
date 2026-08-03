@@ -4,11 +4,11 @@
 inherit NPC;
 void create()
 {
-	set_name("Ä§½Ì³¤ÀÏ", ({ "zhang lao", "zhanglao", "lao"}));
-        set("long", "´ËÈËÄËÈÕÔÂÉñ½ÌÊ®´ó³¤ÀÏÖ®Ò»£¬Îä¹¦Éî²»¿É²â¡£\n"+
-		    "¶øËû¸ü³ÕÃÔÓÚÇÙÇúÖ®µÀ£¬ÇÙÒÕ¿ÉÒÔ³ÆµÃÉÏÊÇµ±ÊÀµÚÒ»ÈË.\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì"NOR);
-        set("gender", "ÄĞĞÔ");
+	set_name("é­”æ•™é•¿è€", ({ "zhang lao", "zhanglao", "lao"}));
+        set("long", "æ­¤äººä¹ƒæ—¥æœˆç¥æ•™åå¤§é•¿è€ä¹‹ä¸€ï¼Œæ­¦åŠŸæ·±ä¸å¯æµ‹ã€‚\n"+
+		    "è€Œä»–æ›´ç—´è¿·äºç´æ›²ä¹‹é“ï¼Œç´è‰ºå¯ä»¥ç§°å¾—ä¸Šæ˜¯å½“ä¸–ç¬¬ä¸€äºº.\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™"NOR);
+        set("gender", "ç”·æ€§");
         set("age", 60);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -47,7 +47,7 @@ void create()
         map_skill("dodge", "ding-dodge");
         map_skill("strike", "tianmo-zhang");
         prepare_skill("strike", "tianmo-zhang");
-        create_family("ÈÕÔÂÉñ½Ì", 8, "³¤ÀÏ");
+        create_family("æ—¥æœˆç¥æ•™", 8, "é•¿è€");
         set("chat_chance_combat", 20);
         set("chat_msg_combat", ({
                 (: perform_action, "blade.jingshen" :),

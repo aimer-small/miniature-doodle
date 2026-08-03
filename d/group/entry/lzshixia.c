@@ -6,17 +6,17 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ʯϿ��");
+	set("short", "石峡子");
 	set("long", @LONG
-ʯϿ������ǰ�Ļƺӹʵ������ڱ���Ǵ��СС�Ķ���ʯ�����������ɸ�
-�ĸ��£�ǧ�����֣�������˵�����µĲ�ɣ��Ҫ�������õĻ�������������
-���ǳ�Ư�����ǳ������껨ʯ��
+石峡子是以前的黄河故道，现在遍地是大大小小的鹅卵石，两边是数丈高
+的高坡，千沟万壑，向你诉说着世事的沧桑。要是运气好的话你可以在这里拣
+到非常漂亮、非常珍贵的雨花石。
 LONG );
 	set("exits", ([
 		"southwest" : "/d/lanzhou/tumenzi",
 		"northeast" : "/d/lanzhou/bingcao",
 	]));
 	set("group", 1);
-	set("outdoors", "���ݳ�");
+	set("outdoors", "兰州城");
 	setup();
 }

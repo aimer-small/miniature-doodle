@@ -1,4 +1,4 @@
-// nimoxing.c ÄáÄ¦ĞÇ
+// nimoxing.c å°¼æ‘©æ˜Ÿ
 // by iceland
 
 #include <ansi.h>
@@ -7,14 +7,14 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÄáÄ¦ĞÇ", ({ "nimo xing", "nimoxing","nimo","xing" }));
+        set_name("å°¼æ‘©æ˜Ÿ", ({ "nimo xing", "nimoxing","nimo","xing" }));
         set("long",@LONG
-Ëû·ôÉ«÷îºÚ£¬ÓÌÈçÌú°åÒ»Ñù£¬Á½Ö»ÑÛ¾¦¾¼¾¼ÓĞÉñ¡£ËûÔ­ÊÇÎ÷ÓòÓâåÈ¸ßÊÖ£¬ÔøÔÚ±ÈÎäÖĞ
-°ÜÔÚ½ğÂÖ·¨ÍõÊÖÏÂ£¬Òò´Ë°İµ½´óÂÖËÂÃÅÏÂ¡£
+ä»–è‚¤è‰²é»é»‘ï¼ŒçŠ¹å¦‚é“æ¿ä¸€æ ·ï¼Œä¸¤åªçœ¼ç›ç‚¯ç‚¯æœ‰ç¥ã€‚ä»–åŸæ˜¯è¥¿åŸŸé€¾è¿¦é«˜æ‰‹ï¼Œæ›¾åœ¨æ¯”æ­¦ä¸­
+è´¥åœ¨é‡‘è½®æ³•ç‹æ‰‹ä¸‹ï¼Œå› æ­¤æ‹œåˆ°å¤§è½®å¯ºé—¨ä¸‹ã€‚
 LONG
         );
-        set("title", HIY "´óÂÖËÂµÚÊ®¶ş´úµÜ×Ó" NOR);
-        set("gender", "ÄĞĞÔ");
+        set("title", HIY "å¤§è½®å¯ºç¬¬åäºŒä»£å¼Ÿå­" NOR);
+        set("gender", "ç”·æ€§");
 	set("class", "huanxi");
         set("age", 36);
         set("attitude", "friendly");
@@ -53,7 +53,7 @@ LONG
 
         prepare_skill("claw","tianwang-zhua");
 
-        create_family("´óÂÖËÂ", 12, "µÜ×Ó");
+        create_family("å¤§è½®å¯º", 12, "å¼Ÿå­");
         set("class", "huanxi");
 
         setup();

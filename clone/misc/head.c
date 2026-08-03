@@ -1,12 +1,12 @@
 inherit ITEM;
 void create()
 {
-	set_name("ÎŞÃûÊ×¼¶", ({ "head"}));
+	set_name("æ— åé¦–çº§", ({ "head"}));
 	set_weight(7500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
+		set("unit", "é¢—");
 		set("material", "meat");
 	}
 	set("value", 1);
@@ -21,23 +21,23 @@ void decay(int phase)
 {
 	switch(phase) {
 		case 1:
-			say( query("name")+"¿ªÊ¼Öğ½¥¸¯ÀÃÁË£¬·¢³öÒ»¹ÉÄÑÎÅµÄ¶ñ³ô¡£\n");
+			say( query("name")+"å¼€å§‹é€æ¸è…çƒ‚äº†ï¼Œå‘å‡ºä¸€è‚¡éš¾é—»çš„æ¶è‡­ã€‚\n");
 			delete_temp("apply");
-			set_name("¸¯ÀÃµÄÈËÍ·", ({ "head" }));
-			set("long", "ÕâÊÇÒ»¿Å¸¯ÀÃÁËµÄÈËÍ·£¬ÕıÉ¢·¢×ÅÒ»¹É¸¯Ê¬µÄÎ¶µÀ¡£\n");
+			set_name("è…çƒ‚çš„äººå¤´", ({ "head" }));
+			set("long", "è¿™æ˜¯ä¸€é¢—è…çƒ‚äº†çš„äººå¤´ï¼Œæ­£æ•£å‘ç€ä¸€è‚¡è…å°¸çš„å‘³é“ã€‚\n");
 			delete("victim_user");  
 			delete("kill_by");
 			delete("value");
 			call_out("decay", 60, phase + 1);
 			break;
 		case 2:
-			say( query("name")+"±»·ç´µ¸ÉÁË£¬±ä³ÉÒ»¿Å÷¼÷Ã¡£\n" );
-			set_name("÷¼÷Ã", ({ "skull" }) );
-			set("long", "ÕâÊÇÒ»¿ÅÈËÀàµÄ÷¼÷Ã¡£\n");
+			say( query("name")+"è¢«é£å¹å¹²äº†ï¼Œå˜æˆä¸€é¢—éª·é«…ã€‚\n" );
+			set_name("éª·é«…", ({ "skull" }) );
+			set("long", "è¿™æ˜¯ä¸€é¢—äººç±»çš„éª·é«…ã€‚\n");
 			call_out("decay", 60, phase + 1);
 			break;
 		case 3:
-			say( "Ò»Õó·ç´µ¹ı£¬°Ñ"+query("name")+"»¯³É»Ò´µÉ¢ÁË¡£\n");		       
+			say( "ä¸€é˜µé£å¹è¿‡ï¼ŒæŠŠ"+query("name")+"åŒ–æˆç°å¹æ•£äº†ã€‚\n");		       
 			destruct(this_object());
 	}
 }

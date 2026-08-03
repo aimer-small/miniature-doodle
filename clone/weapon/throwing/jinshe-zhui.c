@@ -3,16 +3,16 @@ inherit COMBINED_ITEM;
 #include "/inherit/item/embed.h"
 void create()
 {
-        set_name("½ğÉß×¶", ({ "jinshe zhui","jinshe","zhui" }) );
+        set_name("é‡‘è›‡é”¥", ({ "jinshe zhui","jinshe","zhui" }) );
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-               set("long", "ÕâÊÇÒ»Ã¶Á½´çÀ´³¤£¬³ÉÉßĞÎµÄ°µÆ÷¡£\n");
-               set("unit", "Ğ©");
+               set("long", "è¿™æ˜¯ä¸€æšä¸¤å¯¸æ¥é•¿ï¼Œæˆè›‡å½¢çš„æš—å™¨ã€‚\n");
+               set("unit", "äº›");
                set("damage", 50);
                set("unique", 2);
                set("base_value", 30000);
-               set("base_unit", "Ã¶");
+               set("base_unit", "æš");
                set("base_weight", 1000);
                set("material", "steel");
                set("embed", 1);

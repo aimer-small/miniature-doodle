@@ -14,10 +14,10 @@ string type()
 
 int valid_learn(object me) 
 {
-	return notify_fail("�ɿ���ֻ�ܿ��ɿ�����ߡ�\n");
+	return notify_fail("采矿技能只能靠采矿来提高。\n");
 }
 
 int practice_skill(object me)
 {	
-	return notify_fail("�ɿ���ֻ�ܿ��ɿ�����ߡ�\n");
+	return notify_fail("采矿技能只能靠采矿来提高。\n");
 }

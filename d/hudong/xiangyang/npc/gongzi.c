@@ -1,12 +1,12 @@
-// gongzi.c ¹«×Ó¸ç
+// gongzi.c å…¬å­å“¥
 
 inherit NPC;
 void create()
 {
-        set_name("¸»¼Ò¹«×Ó", ({"gong zi", "gongzi", "zi"}) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("å¯Œå®¶å…¬å­", ({"gong zi", "gongzi", "zi"}) );
+        set("gender", "ç”·æ€§" );
         set("age", 20 + random(8));
-        set("long", "ÕâÊÇÒ»¸öÕûÌìÓÎÊÖºÃÏĞµÄ¹«×Ó¸ç¶ù¡£\n");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªæ•´å¤©æ¸¸æ‰‹å¥½é—²çš„å…¬å­å“¥å„¿ã€‚\n");
         set("shen_type", -1);
         set("attitude","heroism");
 

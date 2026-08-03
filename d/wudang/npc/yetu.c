@@ -1,16 +1,16 @@
-// NPC : /d/wudang/npc/yetu.c Ò°ÍÃ
+// NPC : /d/wudang/npc/yetu.c é‡Žå…”
 
 inherit NPC;
 
 void create()
 {
-	set_name("Ò°ÍÃ", ({ "ye tu", "ye", "hare" }) );
-	set("race", "Ò°ÊÞ");
+	set_name("é‡Žå…”", ({ "ye tu", "ye", "hare" }) );
+	set("race", "é‡Žå…½");
 	set("age", 5);
-	set("long", "Ò»Ö»ºÃ¿É°®µÄÐ¡Ò°ÍÃ¡£\n");
+	set("long", "ä¸€åªå¥½å¯çˆ±çš„å°é‡Žå…”ã€‚\n");
 	set("attitude", "peaceful");
 	
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°½Å", "ºó½Å", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰è„š", "åŽè„š", "å°¾å·´" }) );
 	set("verbs", ({ "bite", "claw" }) );
 
 	set("combat_exp", 500);
@@ -26,7 +26,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$NÆà²ÒµÄº¿ÁË¼¸Éù£¬ËÀÁË¡£\n", this_object());
+	message_vision("$Nå‡„æƒ¨çš„åšŽäº†å‡ å£°ï¼Œæ­»äº†ã€‚\n", this_object());
         ob = new(FOOD_D("turou"));
 	ob->move(environment(this_object()));
 	destruct(this_object());

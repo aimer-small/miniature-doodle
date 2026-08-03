@@ -3,10 +3,10 @@ inherit NPC;
 #include <job_skill.h>
 void create()
 {
-        set_name("Ôª±øÊØÎÀ", ({ "yuanbing shouwei", "shouwei"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("å…ƒå…µå®ˆå«", ({ "yuanbing shouwei", "shouwei"}));
+        set("gender", "ç”·æ€§");
         set("age", 20 + random(60));
-        set("long", "ÕâÊÇÒ»Ãû¿´ÊØÍò°²ËÂ±¦ËşµÄÔª±øÊØÎÀ¡£\n");
+        set("long", "è¿™æ˜¯ä¸€åçœ‹å®ˆä¸‡å®‰å¯ºå®å¡”çš„å…ƒå…µå®ˆå«ã€‚\n");
         if (random(20) < 5)
                 set("double_attack",1);
         set("attitude", "peaceful");
@@ -36,7 +36,7 @@ void init()
         if (!me->query_temp("was_job/asked"))
                 return;
 
-        command("say ¿ìÀ´ÈË£¡ÓĞÈË½ÙÓü£¡\n");
+        command("say å¿«æ¥äººï¼æœ‰äººåŠ«ç‹±ï¼\n");
         if (!this_object()->query_temp("do_clone"))
                 ob->do_clone(me, environment()->query_floor());
         if (!random(3))

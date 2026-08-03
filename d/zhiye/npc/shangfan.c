@@ -1,4 +1,4 @@
-// xiao shangfan ´óÀíĞ¡··
+// xiao shangfan å¤§ç†å°è´©
 // by augx@sj  9/7/2001
 
 // Modified by mxzhao 2004/03/06 
@@ -9,10 +9,10 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("´óÀíĞ¡··",({ "dali xiaofan", "xiaofan" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("å¤§ç†å°è´©",({ "dali xiaofan", "xiaofan" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 36);
-	set("long", "ÕâÎ»Ğ¡··×ÓÕıĞ¦ßäßäµØÀ´»ØÃ¦Öø£¬»¹²»Ê±ÕĞºô¹ıÍùµÄ¿ÍÈË¡£\n");
+	set("long", "è¿™ä½å°è´©å­æ­£ç¬‘å’ªå’ªåœ°æ¥å›å¿™è‘—ï¼Œè¿˜ä¸æ—¶æ‹›å‘¼è¿‡å¾€çš„å®¢äººã€‚\n");
 
 	set("str", 55);
 	set("dex", 55);
@@ -67,7 +67,7 @@ void kill_ob(object ob)
 {
 	object me = this_object();
 	command("!!!");
-	command("say ÎÒÖ»ÊÇÒ»¸ö¿ÉÁ¯µÄĞ¡ÉÌ··£¬ÎªÊ²Ã´ÒªÉ±ÎÒÄØ£¿");
+	command("say æˆ‘åªæ˜¯ä¸€ä¸ªå¯æ€œçš„å°å•†è´©ï¼Œä¸ºä»€ä¹ˆè¦æ€æˆ‘å‘¢ï¼Ÿ");
 	me->remove_enemy(ob);
 	ob->remove_killer(me);
 	return;
@@ -75,7 +75,7 @@ void kill_ob(object ob)
 
 int accept_fight(object ob)
 {
-	command("say ÎÒÖ»ÊÇÒ»¸ö¿ÉÁ¯µÄĞ¡ÉÌ··£¬ÎªÊ²Ã´ÒªÉ±ÎÒÄØ£¿");
+	command("say æˆ‘åªæ˜¯ä¸€ä¸ªå¯æ€œçš„å°å•†è´©ï¼Œä¸ºä»€ä¹ˆè¦æ€æˆ‘å‘¢ï¼Ÿ");
 	return 0;
 }
 

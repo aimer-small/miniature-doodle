@@ -6,17 +6,17 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-        set_name("Ò©²İ", ({ "yao cao", "yao", "cao" }));
+        set_name("è¯è‰", ({ "yao cao", "yao", "cao" }));
         set_weight(100);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ğ©");
-                set("long", "ÕâÊÇÒ»Ğ©Ò©²İ£¬´ó¸ÅÓĞÁÆÉËµÄ×÷ÓÃ°É¡£\n");
+                set("unit", "äº›");
+                set("long", "è¿™æ˜¯ä¸€äº›è¯è‰ï¼Œå¤§æ¦‚æœ‰ç–—ä¼¤çš„ä½œç”¨å§ã€‚\n");
                 set("value", 30);
                 set("material", "grass");
                 set("base_value", 30);
-                set("base_unit", "¿Ã");
+                set("base_unit", "æ£µ");
                 set("base_weight", 100);
         }
         set_amount(1);
@@ -32,13 +32,13 @@ int do_eat(string arg)
         object me = this_player();
 
         if (!id(arg))
-                return notify_fail("ÄãÏë³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ æƒ³åƒä»€ä¹ˆï¼Ÿ\n");
 
         if (me->query("eff_qi") ==  me->query("max_qi"))
-                return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃÒ©²İ¡£\n");
+                return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨è¯è‰ã€‚\n");
         else {
                 me->receive_curing("qi", 20);
-                message_vision("$N³ÔÏÂÒ»¿ÃÒ©²İ£¬ÆøÉ«¿´ÆğÀ´ºÃÁËÒ»Ğ©¡£\n", me);
+                message_vision("$Nåƒä¸‹ä¸€æ£µè¯è‰ï¼Œæ°”è‰²çœ‹èµ·æ¥å¥½äº†ä¸€äº›ã€‚\n", me);
                 add_amount(-1);
               if(random(9)==1) me->start_busy(1);
                 return 1;

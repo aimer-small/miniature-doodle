@@ -1,17 +1,17 @@
-// /d/wudang/tandi1.c  Ë®Ì¶µ×
+// /d/wudang/tandi1.c  æ°´æ½­åº•
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short",HIB"Ë®Ì¶µ×"NOR);
+        set("short",HIB"æ°´æ½­åº•"NOR);
         set("long", @LONG
-ÄãÉí´¦±ÌÂÌÌ¶Ë®ÖĞ£¬Ì¶Ë®Çå³º£¬Ë®º®´Ì¹Ç£¬ÖÜÎ§ÓãÏºº±¼û£¬Èç½øÁËËÀ³ÇÒ»
-°ã¡£
+ä½ èº«å¤„ç¢§ç»¿æ½­æ°´ä¸­ï¼Œæ½­æ°´æ¸…æ¾ˆï¼Œæ°´å¯’åˆºéª¨ï¼Œå‘¨å›´é±¼è™¾ç½•è§ï¼Œå¦‚è¿›äº†æ­»åŸä¸€
+èˆ¬ã€‚
 LONG                           
         );
-	set("outdoors", "Îäµ±");
+	set("outdoors", "æ­¦å½“");
 
         setup();
 
@@ -28,24 +28,24 @@ int do_qian(string arg)
         me = this_player();
 
         if ( !arg || (arg != "down" && arg != "up" ))
-            return notify_fail("ÄãÏóÌõÓã°ãÔÚË®ÀïÓÎÀ´ÓÎÈ¥!\n");
+            return notify_fail("ä½ è±¡æ¡é±¼èˆ¬åœ¨æ°´é‡Œæ¸¸æ¥æ¸¸å»!\n");
 
         if ( me->is_busy() || me->is_fighting())
-            return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+            return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if (arg =="down") {
-            message_vision("$NÒ»¸öÃÍÔÔ£¬Ç±ÁËÏÂÈ¥¡£\n", me);
+            message_vision("$Nä¸€ä¸ªçŒ›æ ½ï¼Œæ½œäº†ä¸‹å»ã€‚\n", me);
             me->receive_damage("jingli", 60-(int)me->query_skill("dodge", 1)/20);
             me->move(__DIR__"tandi2");
-            tell_room(environment(me), me->name() + "´ÓÉÏÃæÇ±ÁËÏÂÀ´¡£\n", ({ me }));
+            tell_room(environment(me), me->name() + "ä»ä¸Šé¢æ½œäº†ä¸‹æ¥ã€‚\n", ({ me }));
             return 1;
         }
         else {
-           message_vision("$NÒ»µÅÍÈ£¬ÍùÉÏÓÎÈ¥¡£\n", me);
+           message_vision("$Nä¸€è¹¬è…¿ï¼Œå¾€ä¸Šæ¸¸å»ã€‚\n", me);
            me->receive_damage("jingli", 50-(int)me->query_skill("dodge", 1)/20);
            me->move(__DIR__"shuitan");
            me->clear_condition("diving");
-           tell_room(environment(me), me->name() + "´ÓË®ÏÂÃ°ÁËÉÏÀ´¡£\n", ({ me }));
+           tell_room(environment(me), me->name() + "ä»æ°´ä¸‹å†’äº†ä¸Šæ¥ã€‚\n", ({ me }));
            return 1;
         }
         return 1;

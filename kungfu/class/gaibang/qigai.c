@@ -1,15 +1,15 @@
-// qigai.c ÆòØ¤
+// qigai.c ä¹ä¸
 
 inherit NPC;
 #include "begger.h";
 
 void create()
 {
-	set_name("ÖĞÄêÆòØ¤", ({ "qi gai", "qigai", "beggar" }) );
-	set("title", "Ø¤°ï°ïÖÚ");
+	set_name("ä¸­å¹´ä¹ä¸", ({ "qi gai", "qigai", "beggar" }) );
+	set("title", "ä¸å¸®å¸®ä¼—");
 	set("gb/bags", 1);
-	set("long","Ò»¸öÒ»Á³²ËÉ«µÄÆòØ¤£¬¿´ÆğÀ´ºÃÏó»¹¶ö×Å¶Ç×Ó¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set("long","ä¸€ä¸ªä¸€è„¸èœè‰²çš„ä¹ä¸ï¼Œçœ‹èµ·æ¥å¥½è±¡è¿˜é¥¿ç€è‚šå­ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 30+random(10));
 	set("attitude", "peaceful");
 	set("shen_type", 0+random(10));
@@ -41,12 +41,12 @@ void create()
 
 	set("chat_chance", 5);
 	set("chat_msg", ({
-		query("name")+"ÉìÁË¸öÀÁÑü£¬»î¶¯ÁËÏÂ½î¹Ç¡£\n",
-		query("name")+"ÎŞÁÄµØ¶«ÕÅÎ÷Íû£¬ËÆºõÏëÒªÑ°ÕÒÊ²Ã´¡£\n",
+		query("name")+"ä¼¸äº†ä¸ªæ‡’è…°ï¼Œæ´»åŠ¨äº†ä¸‹ç­‹éª¨ã€‚\n",
+		query("name")+"æ— èŠåœ°ä¸œå¼ è¥¿æœ›ï¼Œä¼¼ä¹æƒ³è¦å¯»æ‰¾ä»€ä¹ˆã€‚\n",
 		(: random_move :)
 	}) );
 
-	create_family("Ø¤°ï", 20, "Ò»´üµÜ×Ó");
+	create_family("ä¸å¸®", 20, "ä¸€è¢‹å¼Ÿå­");
 	setup();
 
 	carry_object(ARMOR_D("caoxie"))->wear();

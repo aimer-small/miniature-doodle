@@ -13,14 +13,14 @@ void init()
 
 void create()
 {
-	set("short", HIG"ÑÂ±Ú"NOR);
+	set("short", HIG"å´–å£"NOR);
 	set("long", @LONG
-ÄãÊÖÎÕÌÙÌõ£¬ÉíÌå½ô½ôÌù¸½ÔÚĞüÑÂÇÍ±ÚÖ®ÉÏ¡£ÏòËÄÖÜÍûÈ¥£¬Ö»¼ûµ½ÔÆÎíçÔ
-ÈÆµÄÒ»Æ¬ÃÔÃ£¡£ÕóÕóÇĞ¹ÇÉ½·ç´µµÃÄã±éÌå±ùÁ¹¡£É½±Ú¹â»¬Æ½¾³£¬ÒªÊÇÃ»ÓĞÖ§³Å
-µã£¬¾ÍÁ¬·ÉÄñÒ²ÄÑÒÔÁ¢×ã¡£
+ä½ æ‰‹æ¡è—¤æ¡ï¼Œèº«ä½“ç´§ç´§è´´é™„åœ¨æ‚¬å´–å³­å£ä¹‹ä¸Šã€‚å‘å››å‘¨æœ›å»ï¼Œåªè§åˆ°äº‘é›¾ç¼­
+ç»•çš„ä¸€ç‰‡è¿·èŒ«ã€‚é˜µé˜µåˆ‡éª¨å±±é£å¹å¾—ä½ éä½“å†°å‡‰ã€‚å±±å£å…‰æ»‘å¹³å¢ƒï¼Œè¦æ˜¯æ²¡æœ‰æ”¯æ’‘
+ç‚¹ï¼Œå°±è¿é£é¸Ÿä¹Ÿéš¾ä»¥ç«‹è¶³ã€‚
 LONG);	
 
-        set("outdoors", "¾øÇé¹È");
+        set("outdoors", "ç»æƒ…è°·");
 	
 	setup();
 	
@@ -32,24 +32,24 @@ int do_pa(string arg)
 
 	me=this_player();
 	if ( !arg || (arg != "down" && arg != "up"))
-       		return notify_fail("ÄãÒªÍùÄÄÅÀ£¿\n");
+       		return notify_fail("ä½ è¦å¾€å“ªçˆ¬ï¼Ÿ\n");
 	if (me->is_busy() || me->is_fighting())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if (arg =="down"){
 	    if ((int)me->query_temp("tengacc") <= 0)
-       	      return notify_fail(HIR"ÌÙÌõÒÑ¾­·Å¾¡£¬ÄãÎŞ·¨ÔÙÍùÏÂÃæÅÀÁË£¡\n"NOR);
-	    message_vision(HIG"$N²ü²üàäàäµØÅÀÁËÏÂÈ¥¡£\n"NOR, me);
+       	      return notify_fail(HIR"è—¤æ¡å·²ç»æ”¾å°½ï¼Œä½ æ— æ³•å†å¾€ä¸‹é¢çˆ¬äº†ï¼\n"NOR);
+	    message_vision(HIG"$Né¢¤é¢¤å™¤å™¤åœ°çˆ¬äº†ä¸‹å»ã€‚\n"NOR, me);
 	    me->move(__DIR__"yabi6");
 	    me->add_temp("tengacc",-1);
             me->start_busy(1);
-	    tell_room(environment(me), me->name() + "´ÓÉÏÃæ²ü²üàäàäµØÅÀÁËÏÂÀ´¡£\n", ({ me }));
+	    tell_room(environment(me), me->name() + "ä»ä¸Šé¢é¢¤é¢¤å™¤å™¤åœ°çˆ¬äº†ä¸‹æ¥ã€‚\n", ({ me }));
 	    }
 	if (arg =="up")	{	
-	   message_vision(YEL"$N²ü²üàäàäµØÅÀÁËÉÏÈ¥¡£\n"NOR, me);
+	   message_vision(YEL"$Né¢¤é¢¤å™¤å™¤åœ°çˆ¬äº†ä¸Šå»ã€‚\n"NOR, me);
 	   me->move(__DIR__"yabi4");
 	   me->add_temp("tengacc",1);
            me->start_busy(1);
-	   tell_room(environment(me), me->name() + "´ÓÏÂÃæ²ü²üàäàäµØÅÀÁËÉÏÀ´¡£\n", ({ me }));
+	   tell_room(environment(me), me->name() + "ä»ä¸‹é¢é¢¤é¢¤å™¤å™¤åœ°çˆ¬äº†ä¸Šæ¥ã€‚\n", ({ me }));
 	   }
      return 1;
 }

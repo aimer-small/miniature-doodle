@@ -1,14 +1,14 @@
-// eatroom.c ³ø·¿ 
+// eatroom.c å¨æˆ¿ 
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 { 
-       set("short",HIW"³ø·¿"NOR);
+       set("short",HIW"å¨æˆ¿"NOR);
        set("long", @LONG
-ÂúÎİµÄ¹ûÏãºÍÈâÏã£¬ÄãÒ»×ß½øÕâÀï£¬ÎÅµÃÕóÕóµÄÏãÆø£¬¾ÍÁ¢¼´²úÉú±¥²ÍÒ»
-¶ÙµÄÄîÍ·¡£ÓĞ¼¸¸ö³ø×ÓÕıÔÚÃ¦Ã¦Âµ×Å£¬ÓĞ¼¸¸öĞ¡Ù×ÔÚÅÔÊÌºî×Å¡£
+æ»¡å±‹çš„æœé¦™å’Œè‚‰é¦™ï¼Œä½ ä¸€èµ°è¿›è¿™é‡Œï¼Œé—»å¾—é˜µé˜µçš„é¦™æ°”ï¼Œå°±ç«‹å³äº§ç”Ÿé¥±é¤ä¸€
+é¡¿çš„å¿µå¤´ã€‚æœ‰å‡ ä¸ªå¨å­æ­£åœ¨å¿™å¿™ç¢Œç€ï¼Œæœ‰å‡ ä¸ªå°åƒ®åœ¨æ—ä¾ä¾¯ç€ã€‚
 LONG);
 	set("exits", ([		
 		"east" : __DIR__"xting",
@@ -42,7 +42,7 @@ int valid_leave(object me, string dir)
         if((dir == "east")){
           while (i--)
           if(ob[i]->id("suanmei tang") || ob[i]->id("zongzi"))
-             return notify_fail(CYN"Ğ¡Ù×ºßÁËÒ»Éù£º³Ô±¥ºÈ×ãÁË»¹Òª´ø×ßÑ½£¡\n"NOR);
+             return notify_fail(CYN"å°åƒ®å“¼äº†ä¸€å£°ï¼šåƒé¥±å–è¶³äº†è¿˜è¦å¸¦èµ°å‘€ï¼\n"NOR);
         }
         return ::valid_leave(me, dir);
 }

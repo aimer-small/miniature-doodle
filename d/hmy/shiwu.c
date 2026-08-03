@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ğ¡Ê¯Îİ");
+	set("short", "å°çŸ³å±‹");
 	set("long", @LONG
-Ò»¼ä²¢²»ÆğÑÛµÄĞ¡Ê¯Îİ£¬ÀïÃæÊÕÊ°µÄ¸É¸É¾»¾»£¬¿´À´Ò»Ö±»¹ÊÇ¾­³£ÓĞÈËÀ´
-´òÉ¨µÄ£¬Äã×ĞÏ¸Ò»¿´£¬·¢ÏÖ×óÊ×µÄÇ½±ÚÓĞĞ©ÓëÖÚ²»Í¬¡£
+ä¸€é—´å¹¶ä¸èµ·çœ¼çš„å°çŸ³å±‹ï¼Œé‡Œé¢æ”¶æ‹¾çš„å¹²å¹²å‡€å‡€ï¼Œçœ‹æ¥ä¸€ç›´è¿˜æ˜¯ç»å¸¸æœ‰äººæ¥
+æ‰“æ‰«çš„ï¼Œä½ ä»”ç»†ä¸€çœ‹ï¼Œå‘ç°å·¦é¦–çš„å¢™å£æœ‰äº›ä¸ä¼—ä¸åŒã€‚
 LONG
 	);
 	set("exits", ([
@@ -32,12 +32,12 @@ int do_move(string arg)
 	if ( ! ob) return 0;
 
 	if ( ! arg || arg != "qiang")
-		return notify_fail("ÄãÒªÍÆÊ²Ã´°¡£¿\n");
+		return notify_fail("ä½ è¦æ¨ä»€ä¹ˆå•Šï¼Ÿ\n");
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	message_vision(HIY"\n$NÉìÊÖÒ»ÍÆ£¬ÄÇÇ½Ô­À´ÊÇ»îµÄ£¬Â¶³öÒ»ÉÈÃÅÀ´£¬ÀïÃæÉĞÓĞÒ»µÀÌúÃÅ¡£\n\n"NOR, me);
+	message_vision(HIY"\n$Nä¼¸æ‰‹ä¸€æ¨ï¼Œé‚£å¢™åŸæ¥æ˜¯æ´»çš„ï¼Œéœ²å‡ºä¸€æ‰‡é—¨æ¥ï¼Œé‡Œé¢å°šæœ‰ä¸€é“é“é—¨ã€‚\n\n"NOR, me);
 	me->set_temp("shiwu/tui", 1);
 	return 1;
 }
@@ -50,15 +50,15 @@ int do_open(string arg)
 	if ( !me->query_temp("shiwu/tui")) return 0;
 
 	if ( ! ob) 
-		return notify_fail("ÄãÓÖÃ»ÓĞÔ¿³×£¬¿ªÊ²Ã´°¡£¿\n");
+		return notify_fail("ä½ åˆæ²¡æœ‰é’¥åŒ™ï¼Œå¼€ä»€ä¹ˆå•Šï¼Ÿ\n");
 
 	if ( ! arg || arg != "men")
-		return notify_fail("ÄãÒª¿ªÊ²Ã´°¡£¿\n");
+		return notify_fail("ä½ è¦å¼€ä»€ä¹ˆå•Šï¼Ÿ\n");
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	message_vision(HIY"\n$NÄÃ³öºÚÔ¿³×£¬Ö»Ìı¼û¡°ßÛµ±¡±Ò»Éù£¬ÌúÃÅÂıÂıµÄÓ¦Éù¶ø¿ªÁË¡£\n\n"NOR, me );
+	message_vision(HIY"\n$Næ‹¿å‡ºé»‘é’¥åŒ™ï¼Œåªå¬è§â€œå’£å½“â€ä¸€å£°ï¼Œé“é—¨æ…¢æ…¢çš„åº”å£°è€Œå¼€äº†ã€‚\n\n"NOR, me );
 	destruct(ob);
 	set("exits/down", __DIR__"dedao");
 	me->delete_temp("shiwu");
@@ -70,6 +70,6 @@ int do_open(string arg)
 void close_passage()
 {
 	if( !query("exits/down") ) return;
-	message("vision", "ÌúÃÅ¡°ßÇßÇ¡±¼¸ÉùÓÖ×Ô¶¯ºÏÉÏÁË¡£\n", this_object() );
+	message("vision", "é“é—¨â€œå’”å’”â€å‡ å£°åˆè‡ªåŠ¨åˆä¸Šäº†ã€‚\n", this_object() );
 	delete("exits/down");
 }

@@ -1,5 +1,5 @@
 // team.c
-// 2001-05-06 除非追杀，否则一律有 follow delay -YUJ@SJ
+// 2001-05-06 闄ら潪杩芥潃锛屽惁鍒欎竴寰嬫湁 follow delay -YUJ@SJ
 // Modified by Ciwei@SJ fix a big bug 2004 5 2
 #include <command.h>
 #include <dbase.h>

@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÍÁÂ·");
+	set("short", "åœŸè·¯");
 	set("long", @LONG
-Äã×ßÔÚ¶õÉÂÔ¥½»½çµÄÍÁÂ·ÉÏ£¬Å¼¶û»áÓĞÈËÆï×ÅÂí´Ò´Ò¶ø¹ı¡£ÍùÎ÷±±½øÈëÉÂ
-Î÷¾³ÄÚ£¬¶«±±½øÈëºÓÄÏ¾³ÄÚ¡£ÄÏ±ßÍ¨ÏòÏåÑô³Ç£¬Î÷±ßÔ¶´¦¾ÍÊÇÀÏºÓ¿ÚÁË¡£
+ä½ èµ°åœ¨é„‚é™•è±«äº¤ç•Œçš„åœŸè·¯ä¸Šï¼Œå¶å°”ä¼šæœ‰äººéª‘ç€é©¬åŒ†åŒ†è€Œè¿‡ã€‚å¾€è¥¿åŒ—è¿›å…¥é™•
+è¥¿å¢ƒå†…ï¼Œä¸œåŒ—è¿›å…¥æ²³å—å¢ƒå†…ã€‚å—è¾¹é€šå‘è¥„é˜³åŸï¼Œè¥¿è¾¹è¿œå¤„å°±æ˜¯è€æ²³å£äº†ã€‚
 LONG
 	);
-        set("outdoors", "ÏåÑô");
+        set("outdoors", "è¥„é˜³");
         set("xyjob", 1);
 	set("objects", ([
 		__DIR__"npc/heiyi-dadao" : 1,
@@ -29,6 +29,6 @@ int valid_leave(object me, string dir)
      mapping exits = query("exits");
      if (!load_object(exits[dir])->query("xyjob") 
      && me->query_temp("xyjob"))
-             return notify_fail("ÄãÏëÁÙÕóÍÑÌÓÃ´£¿\n");
+             return notify_fail("ä½ æƒ³ä¸´é˜µè„±é€ƒä¹ˆï¼Ÿ\n");
      return ::valid_leave(me, dir);
  }	

@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short","×ßÀÈ");
+	set("short","èµ°å»Š");
 	set("long",@LONG
-ÕâÊÇÁ¬½ÓÖĞÌüÓëºóÌüµÄ×ßÀÈ¡£×ßÀÈÇúÇúÕÛÕÛ£¬Á½ÅÔÖÖÂúÁË»¨Ê÷¡£
+è¿™æ˜¯è¿æ¥ä¸­å…ä¸åå…çš„èµ°å»Šã€‚èµ°å»Šæ›²æ›²æŠ˜æŠ˜ï¼Œä¸¤æ—ç§æ»¡äº†èŠ±æ ‘ã€‚
 LONG
 );
 	/*  set("object",([
@@ -17,6 +17,6 @@ LONG
 		"south" : __DIR__"zhongting",
 	]) );
 	set("no_clean_up",0);
-	set("outdoors", "¹éÔÆ×¯");
+	set("outdoors", "å½’äº‘åº„");
 	setup();
 }

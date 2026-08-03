@@ -6,13 +6,13 @@ inherit HOOK;
 
 void create()
 {
-    set_name("»¤ÊÖ¹³", ({ "hushou gou", "gou", "hushou", "hook" }));
+    set_name("æŠ¤æ‰‹é’©", ({ "hushou gou", "gou", "hushou", "hook" }));
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
-		set("long", "\nÕâÊÇÒ»°Ñ¾«¸ÕËùÖÆµÄ»¤ÊÖ¹³£¬ÈĞ¿Ú·º³öÕóÕóÇà¹â£¬·æÀûÎŞ±È£¡\n\n");
+		set("unit", "æŠŠ");
+		set("long", "\nè¿™æ˜¯ä¸€æŠŠç²¾åˆšæ‰€åˆ¶çš„æŠ¤æ‰‹é’©ï¼Œåˆƒå£æ³›å‡ºé˜µé˜µé’å…‰ï¼Œé”‹åˆ©æ— æ¯”ï¼\n\n");
 		set("value", 20000);
 		set("material", "steel");
                 set("rigidity", 1);

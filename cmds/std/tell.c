@@ -24,24 +24,24 @@ int main(object me, string arg)
 
 	if( sscanf(target, "%s@%s", target, mud)==2 ) {
 		if (me->query("combat_exp") < 500000)
-			return notify_fail("ÄãµÄ×ÊÀú»¹²»¹»£¬²»ÄÜÊ¹ÓÃÇ§Àï´«Òô¡£\n");
+			return notify_fail("ä½ çš„èµ„å†è¿˜ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨åƒé‡Œä¼ éŸ³ã€‚\n");
 		GTELL->send_gtell(mud, target, me, msg);
-		write("ÍøÂ·Ñ¶Ï¢ÒÑËÍ³ö£¬¿ÉÄÜÒªÉÔºò²ÅÄÜµÃµ½»ØÓ¦¡£\n");
+		write("ç½‘è·¯è®¯æ¯å·²é€å‡ºï¼Œå¯èƒ½è¦ç¨å€™æ‰èƒ½å¾—åˆ°å›åº”ã€‚\n");
 		return 1;
 	}
 
 	obj = LOGIN_D->find_body(target);
 	if (!obj || !me->visible(obj))
-		return notify_fail("Ã»ÓĞÕâ¸öÈË¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 
 	if( obj == me)
-		return notify_fail("¸æËß×Ô¼º£¿\n");
+		return notify_fail("å‘Šè¯‰è‡ªå·±ï¼Ÿ\n");
 
 	if( !interactive(obj))
-		return notify_fail("Õâ¸öÈË¶ÏÏßÁË¡£\n");
+		return notify_fail("è¿™ä¸ªäººæ–­çº¿äº†ã€‚\n");
 
 	//if (!wizardp(me) && userp(me) && me->query("id") == obj->query("env/block"))
-	//	return notify_fail(obj->query("name")+"²»ÏëÌıÄãÏ¹êş£¡\n");
+	//	return notify_fail(obj->query("name")+"ä¸æƒ³å¬ä½ çæ°ï¼\n");
 	
 	my_id = me->query("id");
 	no_tell = obj->query("env/block");
@@ -49,7 +49,7 @@ int main(object me, string arg)
 	    is_sub(my_id, no_tell))){
 	    	can_tell = obj->query("env/tell");
                 if (! is_sub(my_id, can_tell))
-		       	return notify_fail(obj->query("name")+"²»ÏëÌıÄãÏ¹êş£¡\n");
+		       	return notify_fail(obj->query("name")+"ä¸æƒ³å¬ä½ çæ°ï¼\n");
 	}
 
 	if (!wizardp(me) && (obj->query("env/tell") == me->query("id")))
@@ -63,18 +63,18 @@ int main(object me, string arg)
 			friend_list = ({ });
 		}
 		if (member_array(me->query("id"), friend_list) == -1)
-			return notify_fail(obj->query("name")+"ºÜÃ¦£¬ÓĞÊ²Ã´ÊÂ´ı»áÔÙËµ°É£¡\n");
+			return notify_fail(obj->query("name")+"å¾ˆå¿™ï¼Œæœ‰ä»€ä¹ˆäº‹å¾…ä¼šå†è¯´å§ï¼\n");
 	}
 
-	write(GRN "Äã¸æËß" + obj->query("name") + "£º" + msg + "\n" NOR);
-	message("channel", sprintf( GRN "%s¸æËßÄã£º%s\n" NOR,
+	write(GRN "ä½ å‘Šè¯‰" + obj->query("name") + "ï¼š" + msg + "\n" NOR);
+	message("channel", sprintf( GRN "%så‘Šè¯‰ä½ ï¼š%s\n" NOR,
 		obj->visible(me)?(me->query("name")+"("+capitalize(me->query("id"))+")"):me->name(), msg), obj);
 
-        //Ôö¼Ó·¢´ô·µ»Ø£¡
+        //å¢åŠ å‘å‘†è¿”å›ï¼
         if (query_idle(obj) >= 120)
-                write(HIM "¿ÉÊÇ" + obj->name(1) +
-                      HIM "ÒÑ¾­·¢´ôÓĞ" + chinese_number(query_idle(obj) / 60) +
-                      "·ÖÖÓÁË£¬¿ÖÅÂ²»ÄÜÁ¢¿Ì»Ø´ğÄã¡£\n"NOR);
+                write(HIM "å¯æ˜¯" + obj->name(1) +
+                      HIM "å·²ç»å‘å‘†æœ‰" + chinese_number(query_idle(obj) / 60) +
+                      "åˆ†é’Ÿäº†ï¼Œææ€•ä¸èƒ½ç«‹åˆ»å›ç­”ä½ ã€‚\n"NOR);
 
 	obj->set_temp("reply", me);
 	return 1;
@@ -92,16 +92,16 @@ string remote_tell(string cname, string from, string mud, string to, string msg)
 	&& wizardp(ob)
 	&& ob->query("env/invisibility")
 	&& wiz_level(from) < wiz_level(ob))
-		return "Ç§Àï´«Òô@"+INTERMUD_MUD_NAME+"¸æËßÄã£ºÃ»ÓĞ "+to+" Õâ¸öÍæ¼Ò¡£";
+		return "åƒé‡Œä¼ éŸ³@"+INTERMUD_MUD_NAME+"å‘Šè¯‰ä½ ï¼šæ²¡æœ‰ "+to+" è¿™ä¸ªç©å®¶ã€‚";
 
 //	if (from == ob->query("env/block")
 //	&& wiz_level(from) < wiz_level(ob))
-//		return "Ç§Àï´«Òô@"+INTERMUD_MUD_NAME+"¸æËßÄã£º"+ob->query("name")+"²»ÏëÌıÄãÏ¹êş£¡";
+//		return "åƒé‡Œä¼ éŸ³@"+INTERMUD_MUD_NAME+"å‘Šè¯‰ä½ ï¼š"+ob->query("name")+"ä¸æƒ³å¬ä½ çæ°ï¼";
 	
 	no_tell = ob->query("env/block");
 	if ( no_tell == "all" || no_tell == "ALL" ||
 	    is_sub(from, no_tell))
-		return "Ç§Àï´«Òô@"+INTERMUD_MUD_NAME+"¸æËßÄã£º"+ob->query("name")+"²»ÏëÌıÄãÏ¹êş£¡";
+		return "åƒé‡Œä¼ éŸ³@"+INTERMUD_MUD_NAME+"å‘Šè¯‰ä½ ï¼š"+ob->query("name")+"ä¸æƒ³å¬ä½ çæ°ï¼";
 
 	if (ob->query("env/tell") != from
 	&& wiz_level(from) < wiz_level(ob)
@@ -113,20 +113,20 @@ string remote_tell(string cname, string from, string mud, string to, string msg)
 			friend_list = ({ });
 		}
 		if (member_array(from, friend_list) == -1)
-			return "Ç§Àï´«Òô@"+INTERMUD_MUD_NAME+"¸æËßÄã£º"+ob->query("name")+"ºÜÃ¦£¬ÓĞÊ²Ã´ÊÂ´ı»áÔÙËµ°É£¡";
+			return "åƒé‡Œä¼ éŸ³@"+INTERMUD_MUD_NAME+"å‘Šè¯‰ä½ ï¼š"+ob->query("name")+"å¾ˆå¿™ï¼Œæœ‰ä»€ä¹ˆäº‹å¾…ä¼šå†è¯´å§ï¼";
 	}
 
 	if (!interactive(ob))
-		return "Ç§Àï´«Òô@"+INTERMUD_MUD_NAME+"¸æËßÄã£º"+"Õâ¸öÈË¶ÏÏßÁË¡£";
+		return "åƒé‡Œä¼ éŸ³@"+INTERMUD_MUD_NAME+"å‘Šè¯‰ä½ ï¼š"+"è¿™ä¸ªäººæ–­çº¿äº†ã€‚";
 
 	if (cname)
-		message("channel", sprintf(GRN "%s(%s@%s)¸æËßÄã£º%s\n" NOR,
+		message("channel", sprintf(GRN "%s(%s@%s)å‘Šè¯‰ä½ ï¼š%s\n" NOR,
 			cname, capitalize(from), mud, msg), ob);
 	else
-		message("channel", sprintf(GRN "%s@%s ¸æËßÄã£º%s\n" NOR,
+		message("channel", sprintf(GRN "%s@%s å‘Šè¯‰ä½ ï¼š%s\n" NOR,
 			capitalize(from), mud, msg), ob);
 	ob->set_temp("reply", from + "@" + mud);
-	return sprintf("Äã¸æËß%s(%s@%s)£º%s", ob->query("name"), capitalize(to), INTERMUD_MUD_NAME, msg);
+	return sprintf("ä½ å‘Šè¯‰%s(%s@%s)ï¼š%s", ob->query("name"), capitalize(to), INTERMUD_MUD_NAME, msg);
 }
 
 int is_sub(string s_str, string m_str)
@@ -138,17 +138,17 @@ int is_sub(string s_str, string m_str)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºtell <Ä³ÈË> <Ñ¶Ï¢>
+æŒ‡ä»¤æ ¼å¼ï¼štell <æŸäºº> <è®¯æ¯>
 
-Äã¿ÉÒÔÓÃÕâ¸öÖ¸ÁîºÍÆäËûµØ·½µÄÊ¹ÓÃÕßËµ»°¡£
-Ïà¹Ø»·¾³±äÁ¿ÉèÖÃ£º
-²»×¼ÈÎºÎÈË¸æËßÄã£ºset block all|ALL
-²»×¼Ä³¸öÈË¸æËßÄã£ºset block ´ËÈË id
-²»×¼Ä³ÅúÈË¸æËßÄã£ºset block id1,id2,id3.....
-ÔÊĞíÄ³¸öÈË¸æËßÄã£ºset tell ´ËÈË id
-ÔÊĞíÄ³ÅúÈË¸æËßÄã£ºset tell id1,id2,id3......
+ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤å’Œå…¶ä»–åœ°æ–¹çš„ä½¿ç”¨è€…è¯´è¯ã€‚
+ç›¸å…³ç¯å¢ƒå˜é‡è®¾ç½®ï¼š
+ä¸å‡†ä»»ä½•äººå‘Šè¯‰ä½ ï¼šset block all|ALL
+ä¸å‡†æŸä¸ªäººå‘Šè¯‰ä½ ï¼šset block æ­¤äºº id
+ä¸å‡†æŸæ‰¹äººå‘Šè¯‰ä½ ï¼šset block id1,id2,id3.....
+å…è®¸æŸä¸ªäººå‘Šè¯‰ä½ ï¼šset tell æ­¤äºº id
+å…è®¸æŸæ‰¹äººå‘Šè¯‰ä½ ï¼šset tell id1,id2,id3......
 
-ÆäËûÏà¹ØÖ¸Áî£ºreply
+å…¶ä»–ç›¸å…³æŒ‡ä»¤ï¼šreply
 HELP
 );
 	return 1;

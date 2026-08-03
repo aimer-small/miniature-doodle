@@ -1,16 +1,16 @@
 // Room: /d/huashan/fanting.c
 // Date: Look 99/03/25
-// By Spiderii@ty È¡ÏûÖ÷¶¯ËÍ·¹
+// By Spiderii@ty å–æ¶ˆä¸»åŠ¨é€é¥­
 inherit ROOM;
 
 #include <ansi.h>
 
 void create()
 {
-	set("short", "·¹Ìü");
+	set("short", "é¥­å…");
 	set("long", @LONG
-ÕâÀï±ãÊÇ»ªÉ½ÅÉµÜ×ÓÓÃ·¹µÄµØ·½¡£·¹Ìü²»ÊÇºÜ´ó£¬µ«´°Ã÷¼¸¾»¡£×ÀÉÏ°Ú×Å
-Ò»Ğ©Ê³Îï£¬ÈÃÈË´¹ÏÑÓûµÎ¡£²»Ê±ÓĞÒ»Ğ©»ªÉ½µÜ×Ó×ßÀ´×ßÈ¥£¬ÏëÊÇÔÚÃ¦Ğ©Ê²Ã´¡£
+è¿™é‡Œä¾¿æ˜¯åå±±æ´¾å¼Ÿå­ç”¨é¥­çš„åœ°æ–¹ã€‚é¥­å…ä¸æ˜¯å¾ˆå¤§ï¼Œä½†çª—æ˜å‡ å‡€ã€‚æ¡Œä¸Šæ‘†ç€
+ä¸€äº›é£Ÿç‰©ï¼Œè®©äººå‚æ¶æ¬²æ»´ã€‚ä¸æ—¶æœ‰ä¸€äº›åå±±å¼Ÿå­èµ°æ¥èµ°å»ï¼Œæƒ³æ˜¯åœ¨å¿™äº›ä»€ä¹ˆã€‚
 LONG
 	);
 
@@ -22,14 +22,14 @@ LONG
 			__DIR__"npc/puren" : 1,
         	__DIR__"obj/qingshui-hulu" : 1,
 	]));
-	set("indoors", "»ªÉ½" );
+	set("indoors", "åå±±" );
 	setup();
 }
 
 int not_at_all(string arg)
 {
 	if (arg == "all") {
-		write("ÆÍÈËËµµÀ£ºÕâÀïµØ·½±¾À´¾ÍĞ¡£¬¶¯×÷Çáµã¡£\n");
+		write("ä»†äººè¯´é“ï¼šè¿™é‡Œåœ°æ–¹æœ¬æ¥å°±å°ï¼ŒåŠ¨ä½œè½»ç‚¹ã€‚\n");
 		return 1;
 	}
 	return 0;
@@ -47,7 +47,7 @@ int valid_leave(object me, string dir)
 	  || present("liangxi cuishan", me) )
 	  && ( dir == "east" || dir == "north" ) )
 	{
-		return notify_fail("ÆÍÈËËµµÀ£º¾ÍÔÚÕâÀï³ÃÈÈ³Ô°É£¬´ø×ß¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä»†äººè¯´é“ï¼šå°±åœ¨è¿™é‡Œè¶çƒ­åƒå§ï¼Œå¸¦èµ°å¹²ä»€ä¹ˆï¼Ÿ\n");
 	}
 	return ::valid_leave(me, dir);
 }

@@ -6,16 +6,16 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("ÔªÅ­×ğÕß", ({
+        set_name("å…ƒæ€’å°Šè€…", ({
                 "yuannu zunzhe",
                 "yuannu",
                 "zunzhe",
         }));
         set("long",
-                "Ò»Î»ÉñÉ«ÍşÑÏµÄÖĞÄêÉ®ÈË£¬Á³ÉÏµÄÉñÇé²»Å­×ÔÍş¡£\n"
+                "ä¸€ä½ç¥è‰²å¨ä¸¥çš„ä¸­å¹´åƒ§äººï¼Œè„¸ä¸Šçš„ç¥æƒ…ä¸æ€’è‡ªå¨ã€‚\n"
         );
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
 
@@ -68,7 +68,7 @@ void create()
 		(: perform_action, "blade.fentian" :),
 	}));
 
-        create_family("ÄÏÉÙÁÖ", 23, "µÜ×Ó");
+        create_family("å—å°‘æ—", 23, "å¼Ÿå­");
 
         setup();
 

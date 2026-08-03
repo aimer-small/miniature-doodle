@@ -5,10 +5,10 @@ inherit __DIR__"dzd_room";
 
 void create()
 {
-	set("short","Ê¯¶´Èë¿Ú");
+	set("short","çŸ³æ´å…¥å£");
 	set("long",@LONG
-´ÓÆÙ²¼ÖĞÔ¾¹ı£¬µ½´ïÒ»¸öºÚ÷î÷îµÄÉ½¶´Èë¿Ú,½ÅÏÂµÄÊ¯Í·ÓÉÓÚ³£Äê±»Ë®³åË¢£¬ÅªµÃÊªäõäõ£¬
-»¬ÁïÁï¡£ÍùÀïÃæ¿´£¬ËÆºõÕâ¸öÉ½¶´ºÜ´ó£¬Ò»ÌõµØÏÂºÓÁ÷ÊÆÍÄ¼±,Ë®ÉùÕğ¶úÓûÁû¡£
+ä»ç€‘å¸ƒä¸­è·ƒè¿‡ï¼Œåˆ°è¾¾ä¸€ä¸ªé»‘é»é»çš„å±±æ´å…¥å£,è„šä¸‹çš„çŸ³å¤´ç”±äºå¸¸å¹´è¢«æ°´å†²åˆ·ï¼Œå¼„å¾—æ¹¿æ¼‰æ¼‰ï¼Œ
+æ»‘æºœæºœã€‚å¾€é‡Œé¢çœ‹ï¼Œä¼¼ä¹è¿™ä¸ªå±±æ´å¾ˆå¤§ï¼Œä¸€æ¡åœ°ä¸‹æ²³æµåŠ¿æ¹æ€¥,æ°´å£°éœ‡è€³æ¬²è‹ã€‚
 LONG
 	);
 	set("exits",([
@@ -25,7 +25,7 @@ void init()
 	add_action("do_tiao","tiao");
 	if(!this_player()->query_temp("dzd_quest/shidong") && interactive(this_player())) {
 		
-		message_vision(HIY"$NÍ»È»ÓÉ¹âÃ÷µ½ºÚ°µ£¬ÑÛ¾¦ÖèÈ»ÊÊÓ¦²»ÁË£¡\n"NOR,this_player());
+		message_vision(HIY"$Nçªç„¶ç”±å…‰æ˜åˆ°é»‘æš—ï¼Œçœ¼ç›éª¤ç„¶é€‚åº”ä¸äº†ï¼\n"NOR,this_player());
 		this_player()->start_busy(3);
 		this_player()->set_temp("dzd_quest/shidong","in");
 	}
@@ -35,13 +35,13 @@ int do_tiao(string arg)
 {
 	object me = this_player();
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(!arg || arg == "" || arg!="out")
-		return notify_fail("ÄãÏëÍùÄÄ¶ùÌø£¿\n");
+		return notify_fail("ä½ æƒ³å¾€å“ªå„¿è·³ï¼Ÿ\n");
 
-	message_vision(HIW"$N½Å¼âµãµØ£¬×İÉíÍùÍâ±ßÌøÈ¥!\n"NOR,me);
+	message_vision(HIW"$Nè„šå°–ç‚¹åœ°ï¼Œçºµèº«å¾€å¤–è¾¹è·³å»!\n"NOR,me);
 	me->delete_temp("dzd_quest/shidong");	
 	me->move(__DIR__"pubu");
-	message_vision(HIW"$NË³ÊÆ¶øÏÂ£¬ÇáÇáµÄÂäÔÚµØÉÏ!\n"NOR,me);
+	message_vision(HIW"$Né¡ºåŠ¿è€Œä¸‹ï¼Œè½»è½»çš„è½åœ¨åœ°ä¸Š!\n"NOR,me);
 	return 1;
 }

@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-        set_name("ÍûÔ¶¾µ", ({ "wangyuan jing", "jing" }) );
+        set_name("æœ›è¿œé•œ", ({ "wangyuan jing", "jing" }) );
         set_weight(400);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼Ü");
+                set("unit", "æž¶");
 		set("value", 0);
         }
         setup();

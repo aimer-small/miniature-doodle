@@ -24,29 +24,29 @@ int update_condition(object me, int duration)
         pk = me->query_condition("pk");
         
         if(duration > 90 && base_name(where) != JAIL_ROOM && me->query("no_pk") ) {
-        	message_vision(HIW"\nÒ»Èº²¶¿ìÎ§×¡$N£¬´øÍ·µÄÒ»¸ö´óºÈÒ»Éù¡°"+HIR+"ÄÃÏÂÁË£¡"+HIW+"¡±$NÕıÏë·´¿¹£¬Í»È»Ò»Ïëµ½×Ô¼ºÒÑ¾­½ğÅèÏ´ÊÖ£¬³¤Ì¾Ò»ÉùÈÎ±»²¶¿ì´ø×ßÁË¡£\n\n"NOR, me);
+        	message_vision(HIW"\nä¸€ç¾¤æ•å¿«å›´ä½$Nï¼Œå¸¦å¤´çš„ä¸€ä¸ªå¤§å–ä¸€å£°â€œ"+HIR+"æ‹¿ä¸‹äº†ï¼"+HIW+"â€$Næ­£æƒ³åæŠ—ï¼Œçªç„¶ä¸€æƒ³åˆ°è‡ªå·±å·²ç»é‡‘ç›†æ´—æ‰‹ï¼Œé•¿å¹ä¸€å£°ä»»è¢«æ•å¿«å¸¦èµ°äº†ã€‚\n\n"NOR, me);
         	me->unconcious();
         	me->move(JAIL_ROOM);
 		me->set("jail_timeout_room", base_name(where));
 		me->set("startroom", JAIL_ROOM);
-		message("channel:chat", HIC "\n¡¾¹Ù¸®ÏûÏ¢¡¿"+(string)me->query("name")+"ÒòÎª×÷¶ñ¶à¶Ë¡¢×ï´ó¶ñ¼«£¬±»²¶¿ì×¥µ½¼àÓü¹ØÑº¡£\n\n" NOR, users());
+		message("channel:chat", HIC "\nã€å®˜åºœæ¶ˆæ¯ã€‘"+(string)me->query("name")+"å› ä¸ºä½œæ¶å¤šç«¯ã€ç½ªå¤§æ¶æï¼Œè¢«æ•å¿«æŠ“åˆ°ç›‘ç‹±å…³æŠ¼ã€‚\n\n" NOR, users());
 		me->apply_condition("killer", 270);
 		return 1;
         }
 /*
 	if (duration > 270 && base_name(where) != JAIL_ROOM) {
-		message_vision(HIW"\n$N×÷¶ñ¶à¶Ë£¬ÑªÕ®ÄÑ³¥£¬¹Ù¸®Í¨¼©ÄãºÜ³¤Ê±¼äÁË£¬Õâ»ØÅÜ²»ÁËÁË£¬ÀÏÀÏÊµÊµ¸úÎÒ×ß°É¡£\n\n"NOR, me);
+		message_vision(HIW"\n$Nä½œæ¶å¤šç«¯ï¼Œè¡€å€ºéš¾å¿ï¼Œå®˜åºœé€šç¼‰ä½ å¾ˆé•¿æ—¶é—´äº†ï¼Œè¿™å›è·‘ä¸äº†äº†ï¼Œè€è€å®å®è·Ÿæˆ‘èµ°å§ã€‚\n\n"NOR, me);
 		me->move(JAIL_ROOM);
 		me->set("jail_timeout_room", base_name(where));
 		me->set("startroom", JAIL_ROOM);
-		message("channel:chat", HIC "\n¡¾¹Ù¸®ÏûÏ¢¡¿"+(string)me->query("name")+"ÒòÎª×÷¶ñ¶à¶Ë¡¢×ï´ó¶ñ¼«£¬±»²¶¿ì×¥µ½¼àÓü¹ØÑº¡£\n\n" NOR, users());
+		message("channel:chat", HIC "\nã€å®˜åºœæ¶ˆæ¯ã€‘"+(string)me->query("name")+"å› ä¸ºä½œæ¶å¤šç«¯ã€ç½ªå¤§æ¶æï¼Œè¢«æ•å¿«æŠ“åˆ°ç›‘ç‹±å…³æŠ¼ã€‚\n\n" NOR, users());
 		me->apply_condition("killer", 270);
 		return 1;
 	}
 */
 	if (!me->query("no_pk") && duration <= 150 && base_name(where) == JAIL_ROOM) {
-		message_vision(HIW"\n±¾¸®¿´$NÉĞÓĞ»Ú¹ıÖ®Òâ£¬ÏÈ×¼$N³öÈ¥£¬ÇĞ¼Ç²»¿ÉÔÙÎª·Ç×÷´õ£¬·ñÔò¶¨²»ÇáÈÄ£¡\n\n"NOR, me);
-		message("channel:chat", HIC "\n¡¾¹Ù¸®ÏûÏ¢¡¿"+me->query("name")+"ÉĞÓĞ»Ú¸ÄÖ®Òâ£¬±¾¸®ÏÈ×¼Ëû³öÈ¥£¬ÒÔ¹ÛºóĞ§¡£\n\n" NOR, users(), me);
+		message_vision(HIW"\næœ¬åºœçœ‹$Nå°šæœ‰æ‚”è¿‡ä¹‹æ„ï¼Œå…ˆå‡†$Nå‡ºå»ï¼Œåˆ‡è®°ä¸å¯å†ä¸ºéä½œæ­¹ï¼Œå¦åˆ™å®šä¸è½»é¥¶ï¼\n\n"NOR, me);
+		message("channel:chat", HIC "\nã€å®˜åºœæ¶ˆæ¯ã€‘"+me->query("name")+"å°šæœ‰æ‚”æ”¹ä¹‹æ„ï¼Œæœ¬åºœå…ˆå‡†ä»–å‡ºå»ï¼Œä»¥è§‚åæ•ˆã€‚\n\n" NOR, users(), me);
 		where = me->query("jail_timout_room");
 		if (where && (where = load_object(where)) && !where->is_character()) {
 			me->move(where);
@@ -56,7 +56,7 @@ int update_condition(object me, int duration)
 		return 1;
 	}
 			
-	if(me->query_condition("relax"))//¹Ø½û±Õ²»¼õÉÙ tj time
+	if(me->query_condition("relax"))//å…³ç¦é—­ä¸å‡å°‘ tj time
 		return 1;
 
 	if ( pk && (!living(me) || sizeof(filter_array(all_inventory(environment(me)) - ({ me }), (: clear_at_room :)))))
@@ -64,8 +64,8 @@ int update_condition(object me, int duration)
 	if (duration < 2) {
 		if(base_name(where)==JAIL_ROOM && me->query("no_pk"))
 		{
-			message_vision(HIW"\n±¾¸®¿´$NÉĞÓĞ»Ú¹ıÖ®Òâ£¬ÏÈ×¼$N³öÈ¥£¬ÇĞ¼Ç²»¿ÉÔÙÎª·Ç×÷´õ£¬·ñÔò¶¨²»ÇáÈÄ£¡\n\n"NOR, me);
-			message("channel:chat", HIC "\n¡¾¹Ù¸®ÏûÏ¢¡¿"+me->query("name")+"ÉĞÓĞ»Ú¸ÄÖ®Òâ£¬±¾¸®ÏÈ×¼Ëû³öÈ¥£¬ÒÔ¹ÛºóĞ§¡£\n\n" NOR, users(), me);
+			message_vision(HIW"\næœ¬åºœçœ‹$Nå°šæœ‰æ‚”è¿‡ä¹‹æ„ï¼Œå…ˆå‡†$Nå‡ºå»ï¼Œåˆ‡è®°ä¸å¯å†ä¸ºéä½œæ­¹ï¼Œå¦åˆ™å®šä¸è½»é¥¶ï¼\n\n"NOR, me);
+			message("channel:chat", HIC "\nã€å®˜åºœæ¶ˆæ¯ã€‘"+me->query("name")+"å°šæœ‰æ‚”æ”¹ä¹‹æ„ï¼Œæœ¬åºœå…ˆå‡†ä»–å‡ºå»ï¼Œä»¥è§‚åæ•ˆã€‚\n\n" NOR, users(), me);
 			where = me->query("jail_timout_room");
 			if (where && (where = load_object(where)) && !where->is_character()) {
 				me->move(where);
@@ -73,13 +73,13 @@ int update_condition(object me, int duration)
 			}
 			else me->move(REVIVE_ROOM);
 		}
-		else tell_object(me, "¹Ù¸®²»ÔÙÍ¨¼©ÄãÁË£¡\n");
+		else tell_object(me, "å®˜åºœä¸å†é€šç¼‰ä½ äº†ï¼\n");
 		return 0;
 	}
 	if (pk && (duration < 10 || !(duration % 10) && base_name(where) != JAIL_ROOM))
 		message("channel:rumor",
-			HIM "¡¾Ò¥ÑÔ¡¿Ä³ÈË£ºÓĞÈË¿´¼û"+me->query("name")+"ÔÚ"+TASK_D->get_regions(base_name(where))
-			+strip(where->query("short"))+"¸½½ü³öÏÖ£¡\n" NOR, users(), me
+			HIM "ã€è°£è¨€ã€‘æŸäººï¼šæœ‰äººçœ‹è§"+me->query("name")+"åœ¨"+TASK_D->get_regions(base_name(where))
+			+strip(where->query("short"))+"é™„è¿‘å‡ºç°ï¼\n" NOR, users(), me
 		);
 	if (!pk || duration % 10 || interactive(me) && query_idle(me) < 15)
 		me->apply_condition("killer", duration - 1);

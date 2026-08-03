@@ -5,20 +5,20 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name("Ñ©ÏÉ¶ù", ({ "xue xianer", "xianer", "xue" }) );
-        set("gender", "Å®ĞÔ" );
-        set("title", HIM"ÃæÈôÌÒ»¨"NOR);
+        set_name("é›ªä»™å„¿", ({ "xue xianer", "xianer", "xue" }) );
+        set("gender", "å¥³æ€§" );
+        set("title", HIM"é¢è‹¥æ¡ƒèŠ±"NOR);
         set("age", 36);
         set("long",
-            "ËıÔ­ÊÇÒ»¸öÇàÂ¥Ãû¼Ë£¬ºóÀ´±»µ±³¯Ò»Î»´ó¹Ù¿´ÖĞ£¬¾İËµÕâ¸ö¼ËÔºÒ²ÊÇÄÇ¸ö¹ÙÔ±\n"
-            "ÎªËı¿ªµÄ¡£Ñ©ÏÉ¶ùÒÑµ½ÖĞÄê£¬µ«ÈÔ·çÔÏÓÌ´æ¡£\n");
+            "å¥¹åŸæ˜¯ä¸€ä¸ªé’æ¥¼åå¦“ï¼Œåæ¥è¢«å½“æœä¸€ä½å¤§å®˜çœ‹ä¸­ï¼Œæ®è¯´è¿™ä¸ªå¦“é™¢ä¹Ÿæ˜¯é‚£ä¸ªå®˜å‘˜\n"
+            "ä¸ºå¥¹å¼€çš„ã€‚é›ªä»™å„¿å·²åˆ°ä¸­å¹´ï¼Œä½†ä»é£éŸµçŠ¹å­˜ã€‚\n");
         set("str", 25);
         set("dex", 25);
         set("con", 25);
         set("int", 25);
         set("per", 30);
         set("shen_type", 1);
-        set("no_get","Ñ©ÏÉ¶ùÄã¶øÑÔÌ«ÖØÁË¡£\n");
+        set("no_get","é›ªä»™å„¿ä½ è€Œè¨€å¤ªé‡äº†ã€‚\n");
 
 
         set("combat_exp", 2000);
@@ -53,23 +53,23 @@ void greeting(object me)
                 return;
         command("look " + me->query("id"));
 
-        if (me->query("gender")=="ÎŞĞÔ") {
+        if (me->query("gender")=="æ— æ€§") {
         command("@@ "+ me->query("id"));
-        command("say ÎÒµÄÌì°¡£¬¿ì³öÈ¥¿ì³öÈ¥£¬±ğÈËÒÔÎªÄãÊÇÎÒÃÇÕâ¶ùµÄ¹ÃÄïÄØ£¡¿´Äã³¤µÄ¡­¡­");
-        message("vision", me->name() +"±»ºå³öÁËÍòºìÂ¥¡£\n",
+        command("say æˆ‘çš„å¤©å•Šï¼Œå¿«å‡ºå»å¿«å‡ºå»ï¼Œåˆ«äººä»¥ä¸ºä½ æ˜¯æˆ‘ä»¬è¿™å„¿çš„å§‘å¨˜å‘¢ï¼çœ‹ä½ é•¿çš„â€¦â€¦");
+        message("vision", me->name() +"è¢«å“„å‡ºäº†ä¸‡çº¢æ¥¼ã€‚\n",
                 environment(me), ({me}));
         me->move("/d/changan/eastjie1");
-        message("vision", me->name() +"±»ÈË´ÓÍòºìÂ¥Àï¸ÏÁË³öÀ´¡£\n",
+        message("vision", me->name() +"è¢«äººä»ä¸‡çº¢æ¥¼é‡Œèµ¶äº†å‡ºæ¥ã€‚\n",
                 environment(me), ({me}));
 
         }
         else {
                 if (me->query("class") =="bonze") {
-                command("say ÎÒµÄÌì°¡£¬" + RANK_D->query_respect(me)
-                        +"Ò²À´¹â¹ËÎÒÃÇÍòºìÂ¥°¡£¬»¶Ó­»¶Ó­£¬²»¹ı¡­¡­¡£");
+                command("say æˆ‘çš„å¤©å•Šï¼Œ" + RANK_D->query_respect(me)
+                        +"ä¹Ÿæ¥å…‰é¡¾æˆ‘ä»¬ä¸‡çº¢æ¥¼å•Šï¼Œæ¬¢è¿æ¬¢è¿ï¼Œä¸è¿‡â€¦â€¦ã€‚");
                 }
-                if (me->query("gender")=="Å®ĞÔ") {
-                command("say ÎÒµÄÌì°¡£¬ÕâÄêÔÂ´ó¹ÃÄïÒ²¹äÒ¤×Ó£¿»¹ÊÇÏëÈëÎÒÃÇÍòºìÂ¥°¡£¿");
+                if (me->query("gender")=="å¥³æ€§") {
+                command("say æˆ‘çš„å¤©å•Šï¼Œè¿™å¹´æœˆå¤§å§‘å¨˜ä¹Ÿé€›çª‘å­ï¼Ÿè¿˜æ˜¯æƒ³å…¥æˆ‘ä»¬ä¸‡çº¢æ¥¼å•Šï¼Ÿ");
                 command("tsk");
                 }
         }

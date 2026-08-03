@@ -1,32 +1,32 @@
 
 // By fengyue
-// ¹úÇìÀñÎï
+// å›½åº†ç¤¼ç‰©
 
 #include <ansi.h>
 
-#define BOOK    "/clone/gift/book"      //Êé
-#define MIC     "/clone/gift/danwan"    //Ò©
-#define MON     "/clone/gift/money"     //Ç®
-#define JADE    "/d/zhiye/obj/othermaterial" //Óñ
-#define MIJI    "/d/zhiye/obj/othermaterial" //Óñ
+#define BOOK    "/clone/gift/book"      //ä¹¦
+#define MIC     "/clone/gift/danwan"    //è¯
+#define MON     "/clone/gift/money"     //é’±
+#define JADE    "/d/zhiye/obj/othermaterial" //çŽ‰
+#define MIJI    "/d/zhiye/obj/othermaterial" //çŽ‰
 
 inherit SPEC;
 void create()
 {
-        set_name(HIR"¡ï"HIG"¹ú"HIR"¡ï"HIG"Çì"HIR"¡ï"HIG"Àñ"HIR"¡ï"HIG"Îï"HIR"¡ï"NOR, ({ "gift","box" }) );
+        set_name(HIR"â˜…"HIG"å›½"HIR"â˜…"HIG"åº†"HIR"â˜…"HIG"ç¤¼"HIR"â˜…"HIG"ç‰©"HIR"â˜…"NOR, ({ "gift","box" }) );
         set_weight(10);
-                set("unit", "ºÐ");
-                set("long", "ÕâÊÇÒ»¸ö°ü×°¾«ÃÀµÄÐ¡ºÐ×Ó£¬ÉÏÃæÐ´×Å¡°¹úÇì¿ìÀÖ¡±ËÄ¸öÐ¡×Ö¡£ ¾ÝËµ²ð¿ª(chai)Ëü¿ÉÒÔµÃµ½Å®Éñ°Â÷ìÀ×ºÕµÄ×£¸£¡£\n");
+                set("unit", "ç›’");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªåŒ…è£…ç²¾ç¾Žçš„å°ç›’å­ï¼Œä¸Šé¢å†™ç€â€œå›½åº†å¿«ä¹â€å››ä¸ªå°å­—ã€‚ æ®è¯´æ‹†å¼€(chai)å®ƒå¯ä»¥å¾—åˆ°å¥³ç¥žå¥¥é»›é›·èµ«çš„ç¥ç¦ã€‚\n");
                 set("value", 0);
                 set("material", "xuantie");
-                set("no_drop", "ÕâÑù¹óÖØµÄ¶«Î÷ÔõÃ´ÄÜËæ±ãÂÒ¶ªÄØ¡£\n");
-                set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
+                set("no_drop", "è¿™æ ·è´µé‡çš„ä¸œè¥¿æ€Žä¹ˆèƒ½éšä¾¿ä¹±ä¸¢å‘¢ã€‚\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
                 set_weight(100);
                 set("value",3000000);
                 set("treasure",1);
                 set("degree",1);
                 set("flag","spec/gqlw");
-                set("desc","¡ï¹ú¡ïÇì¡ïÀñ¡ïÎï¡ï");
+                set("desc","â˜…å›½â˜…åº†â˜…ç¤¼â˜…ç‰©â˜…");
                 set("credit",150);    
 
        setup();
@@ -45,7 +45,7 @@ int do_chai(string arg)
        int j;
        int z;
        if(arg!="gift" && arg!="box")
-                    return notify_fail("ÄãÒª´ò¿ªÊ²Ã´?\n");
+                    return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆ?\n");
 
        switch(i) {
                         case 0:         
@@ -53,34 +53,34 @@ int do_chai(string arg)
                                 
                                         obj->set("secret_obj",1);
                                         obj->set_level(5);
-                                        str = "¼«Æ·";
+                                        str = "æžå“";
                                 
-                                str += "Óñ";  
+                                str += "çŽ‰";  
                                 break;    
                          case 1:         
                                 obj = new (JADE);
                                
                                         obj->set("secret_obj",1);
                                         obj->set_level(5);
-                                        str = "¼«Æ·";
+                                        str = "æžå“";
                                 
-                                str += "Óñ";  
+                                str += "çŽ‰";  
                                 break;      
                          case 2:         
                                 obj = new (JADE);
                                 
                                         obj->set("secret_obj",1);
                                         obj->set_level(5);
-                                        str = "¼«Æ·";
+                                        str = "æžå“";
                                 
-                                str += "Óñ";  
+                                str += "çŽ‰";  
                                 break;   
                                 break;                                      
                      
                         default:return 1;
                 }
         obj->move(this_player());
-        message_vision(HIW"$NÐ¡ÐÄÒíÒíµÄ´ò¿ªÀñÎï£¬ÄÃ³öÒ»"+obj->query("unit")+obj->name()+"¡£\n\n"NOR,me); 
+        message_vision(HIW"$Nå°å¿ƒç¿¼ç¿¼çš„æ‰“å¼€ç¤¼ç‰©ï¼Œæ‹¿å‡ºä¸€"+obj->query("unit")+obj->name()+"ã€‚\n\n"NOR,me); 
  
 
      if((int)me->query("combat_exp",1)> 30000000){
@@ -99,10 +99,10 @@ int do_chai(string arg)
       me->add("relife/gift/now",j);
       me->add("relife/gift/total",j);
       me->add("kar",z);
-      tell_object(me, HIG"ÄãµÃµ½ÁËÅ®Éñ°Â÷ìÀ×ºÕµÄ×£¸££¬»ñµÃ"+ HIR + chinese_number(j) + CYN +"µã¡¸"+HIG+"Ìì¸³¼¼ÄÜ"+CYN+"¡¹£¡\n"NOR);
-      tell_object(me, HIW"Èç¹ûÄãÒÑ¾­×ªÉú£¬ÄãÏÖÔÚ¾Í¿ÉÒÔ·ÖÅäÌì¸³µãÊý¡£\n"NOR);
-     tell_object(me, HIW"Èç¹ûÄã»¹Ã»ÓÐ×ªÉú£¬ÄÇÃ´¼ÓÓÍ£¡ËùµÃµ½µÄÌì¸³µãÊýÒÑ¾­ÀÛ¼ÆÔÚÄãµÄÈËÎïÊý¾ÝÖÐ£¬×ªÉú¼´¿É·ÖÅä¡£\n"NOR); 
-     tell_object(me, HIM"ÄãµÃµ½ÁËÅ®Éñ°Â÷ìÀ×ºÕµÄ×£¸££¬ÄãµÄÔËÆøÔö¼ÓÁË"+ HIR + chinese_number(z) + CYN +"µã£¡\n"NOR);
+      tell_object(me, HIG"ä½ å¾—åˆ°äº†å¥³ç¥žå¥¥é»›é›·èµ«çš„ç¥ç¦ï¼ŒèŽ·å¾—"+ HIR + chinese_number(j) + CYN +"ç‚¹ã€Œ"+HIG+"å¤©èµ‹æŠ€èƒ½"+CYN+"ã€ï¼\n"NOR);
+      tell_object(me, HIW"å¦‚æžœä½ å·²ç»è½¬ç”Ÿï¼Œä½ çŽ°åœ¨å°±å¯ä»¥åˆ†é…å¤©èµ‹ç‚¹æ•°ã€‚\n"NOR);
+     tell_object(me, HIW"å¦‚æžœä½ è¿˜æ²¡æœ‰è½¬ç”Ÿï¼Œé‚£ä¹ˆåŠ æ²¹ï¼æ‰€å¾—åˆ°çš„å¤©èµ‹ç‚¹æ•°å·²ç»ç´¯è®¡åœ¨ä½ çš„äººç‰©æ•°æ®ä¸­ï¼Œè½¬ç”Ÿå³å¯åˆ†é…ã€‚\n"NOR); 
+     tell_object(me, HIM"ä½ å¾—åˆ°äº†å¥³ç¥žå¥¥é»›é›·èµ«çš„ç¥ç¦ï¼Œä½ çš„è¿æ°”å¢žåŠ äº†"+ HIR + chinese_number(z) + CYN +"ç‚¹ï¼\n"NOR);
       destruct(this_object());
         return 1;
                 

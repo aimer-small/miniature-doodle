@@ -10,42 +10,42 @@ int main(object me, string arg)
 		ob = present(arg, environment(me));
 		if (!ob) ob = LOGIN_D->find_body(arg);
 		if (!ob) ob = find_living(arg);
-		if (!ob) return notify_fail("Ã»ÓĞÕâ¸öÉúÎï¡£\n");
+		if (!ob) return notify_fail("æ²¡æœ‰è¿™ä¸ªç”Ÿç‰©ã€‚\n");
 		if (ob->is_busy()) {
-			message_vision("\n$NÓÃÎ×Ê¦µÄÉñÁ¦½â³ıÁË$nµÄÃ¦ÂÒ¡£\n", me, ob);
+			message_vision("\n$Nç”¨å·«å¸ˆçš„ç¥åŠ›è§£é™¤äº†$nçš„å¿™ä¹±ã€‚\n", me, ob);
 			ob->interrupt_me();
 			ob->start_busy(-1);
 			ob->interrupt_me();
 			return 1;
 		}
-		if( !ob->is_fighting() ) return notify_fail(ob->name()+"ÏÖÔÚ²»Ã¦¡£\n");
+		if( !ob->is_fighting() ) return notify_fail(ob->name()+"ç°åœ¨ä¸å¿™ã€‚\n");
 		ob->remove_all_enemy();
-		message_vision("\n$NÓÃÎ×Ê¦µÄÉñÁ¦Í£Ö¹ÁË$nµÄÕ½¶·¡£\n", me, ob);
+		message_vision("\n$Nç”¨å·«å¸ˆçš„ç¥åŠ›åœæ­¢äº†$nçš„æˆ˜æ–—ã€‚\n", me, ob);
 		return 1;
 	}
 	if (!me->is_busy()) {
 		if (me->is_fighting()) {
 			if (me->is_nohalt()) 
-				return notify_fail("ÄãÕıÔÚÊ¹ÓÃ"+me->query_perform()+"£¬ÔİÊ±ÎŞ·¨Í£Ö¹Õ½¶·¡£\n");
+				return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨"+me->query_perform()+"ï¼Œæš‚æ—¶æ— æ³•åœæ­¢æˆ˜æ–—ã€‚\n");
 			if (strsrch(file_name(environment(me)), "/cmds/leitai/bwdh") >= 0 )
-				return notify_fail("ÔÚÊÔ½£É½×¯ÄÚ£¬ÎŞ·¨Í£Ö¹Õ½¶·ÁË¡£\n");
+				return notify_fail("åœ¨è¯•å‰‘å±±åº„å†…ï¼Œæ— æ³•åœæ­¢æˆ˜æ–—äº†ã€‚\n");
 			me->remove_all_enemy();
-			message_vision("\n$NÉíĞÎÏòºóÒ»Ô¾£¬Ìø³öÕ½È¦²»´òÁË¡£\n", me); 
+			message_vision("\n$Nèº«å½¢å‘åä¸€è·ƒï¼Œè·³å‡ºæˆ˜åœˆä¸æ‰“äº†ã€‚\n", me); 
 			return 1;
 		}
 		if (me->query_temp("on_baitan"))
 		{
-		message_vision(WHT "$N" WHT "ÌáÆğÌ¯²¼µÄËÄ¸ö½Ç£¬°Ñ»õÎïÒ»¹ÉÄÔµÄÊÕÁË"
-                       "ÆğÀ´£¬Õ¾ÆğÉíÀ´¡£\n" NOR, me);
+		message_vision(WHT "$N" WHT "æèµ·æ‘Šå¸ƒçš„å››ä¸ªè§’ï¼ŒæŠŠè´§ç‰©ä¸€è‚¡è„‘çš„æ”¶äº†"
+                       "èµ·æ¥ï¼Œç«™èµ·èº«æ¥ã€‚\n" NOR, me);
         	me->delete_temp("on_baitan");
         	me->delete_temp("vendor_goods");
         	me->delete("disable_type");
         	return 1;
 		}
-		return notify_fail("ÄãÏÖÔÚ²»Ã¦¡£\n");
+		return notify_fail("ä½ ç°åœ¨ä¸å¿™ã€‚\n");
 	}
 
-	notify_fail("ÄãÏÖÔÚºÜÃ¦£¬Í£²»ÏÂÀ´¡£\n");
+	notify_fail("ä½ ç°åœ¨å¾ˆå¿™ï¼Œåœä¸ä¸‹æ¥ã€‚\n");
 	me->interrupt_me();
 	if (me->is_busy()) return 0;
 	return 1;

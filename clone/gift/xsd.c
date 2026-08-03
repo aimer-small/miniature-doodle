@@ -1,26 +1,26 @@
 //Created by Zhuifeng@SJFY 2010/8/16
 
 #include <ansi.h>
-#define JADE    "/d/zhiye/obj/othermaterial" //Óñ
-#define KUANGSHI    "/d/zhiye/obj/kuangshi" //¿ó
-#define BULIAO    "/d/zhiye/obj/buliao" //²¼ÁÏ
+#define JADE    "/d/zhiye/obj/othermaterial" //ç‰
+#define KUANGSHI    "/d/zhiye/obj/kuangshi" //çŸ¿
+#define BULIAO    "/d/zhiye/obj/buliao" //å¸ƒæ–™
 inherit SPEC;
 void create()
 {
-        set_name(HIR"ÏàË¼¶¹"NOR, ({ "xiangsi dou","dou"}) );
+        set_name(HIR"ç›¸æ€è±†"NOR, ({ "xiangsi dou","dou"}) );
         set_weight(10);
-                set("unit", "¿Å");
-                set("long", "ÖÊ¼áÈç×ê¡¢É«ÑŞÈçÑª¡¢ĞÎËÆÌø¶¯µÄĞÄÔà£¬ºì¶ø·¢ÁÁ£¬²»Öû²»¸¯£¬É«Ôó¾§Ó¨¶øÓÀ²»ÍÊÉ«¡£ÆäÍâĞÎ¼°ÎÆÂ·£¬½ÔÎª¡°ĞÄ¡±×ÖĞÎ¡£\n"
-                            "ÕæµÄÊÇ´óĞÄÌ×Ğ¡ĞÄ£¬ĞÄĞÄÏàÓ¡¡£´«ËµÊÇĞÄÓĞÏàË¼Ö®¿àµÄÈË£¬ÂäÀáÊ÷ÏÂ£¬ÄÑÒÔ»¯½â£¬×îÖÕÄı½á¶ø³É£¬ÊÇÏàÁµÖ®ÈËÏàË¼Ö®Òâ¡£\n"
-                             "ÄãÈôÓĞĞÄÄã¾ÍÀ´Ë¼ÁµµÄÄãµÄ°®ÈË(Airen)°É£¡\n");
+                set("unit", "é¢—");
+                set("long", "è´¨åšå¦‚é’»ã€è‰²è‰³å¦‚è¡€ã€å½¢ä¼¼è·³åŠ¨çš„å¿ƒè„ï¼Œçº¢è€Œå‘äº®ï¼Œä¸è›€ä¸è…ï¼Œè‰²æ³½æ™¶è¹è€Œæ°¸ä¸è¤ªè‰²ã€‚å…¶å¤–å½¢åŠçº¹è·¯ï¼Œçš†ä¸ºâ€œå¿ƒâ€å­—å½¢ã€‚\n"
+                            "çœŸçš„æ˜¯å¤§å¿ƒå¥—å°å¿ƒï¼Œå¿ƒå¿ƒç›¸å°ã€‚ä¼ è¯´æ˜¯å¿ƒæœ‰ç›¸æ€ä¹‹è‹¦çš„äººï¼Œè½æ³ªæ ‘ä¸‹ï¼Œéš¾ä»¥åŒ–è§£ï¼Œæœ€ç»ˆå‡ç»“è€Œæˆï¼Œæ˜¯ç›¸æ‹ä¹‹äººç›¸æ€ä¹‹æ„ã€‚\n"
+                             "ä½ è‹¥æœ‰å¿ƒä½ å°±æ¥æ€æ‹çš„ä½ çš„çˆ±äºº(Airen)å§ï¼\n");
                 set("value", 10);
                 set("material", "wood");
-                set("no_drop", "ÄãÈçºÎÄÜ¶ªÆúÕâĞ©ĞíÄêÀ´µÄÏàË¼Ö®Çé¡£\n");
-                set("no_get", "ÄãÓÖÈçºÎÄÜ¹»¶®µÃ±ğÈËÏàË¼Ö®¿à£¬ÓÖºÎ±ØÏİ¼ºÈëÏàË¼Ö®¿àÄØ¡£\n");
+                set("no_drop", "ä½ å¦‚ä½•èƒ½ä¸¢å¼ƒè¿™äº›è®¸å¹´æ¥çš„ç›¸æ€ä¹‹æƒ…ã€‚\n");
+                set("no_get", "ä½ åˆå¦‚ä½•èƒ½å¤Ÿæ‡‚å¾—åˆ«äººç›¸æ€ä¹‹è‹¦ï¼Œåˆä½•å¿…é™·å·±å…¥ç›¸æ€ä¹‹è‹¦å‘¢ã€‚\n");
                 set_weight(50);
                 set("value",3000);
                 set("treasure",1);
-                set("desc","ºì¶¹ÉúÄÏ¹ú£¬´ºÀ´·¢¼¸Ö¦¡£Ô¸¾ı¶à²Éß¢£¬´ËÎï×îÏàË¼¡£");
+                set("desc","çº¢è±†ç”Ÿå—å›½ï¼Œæ˜¥æ¥å‘å‡ æã€‚æ„¿å›å¤šé‡‡æ’·ï¼Œæ­¤ç‰©æœ€ç›¸æ€ã€‚");
                 set("credit",1000);    
 
        setup();
@@ -38,7 +38,7 @@ int do_think(string arg)
        int i = random(1);
 
        if(arg!="airen")
-          return notify_fail(HIM"ÄãÏëË¼ÄîË­£¿\n"NOR);                    
+          return notify_fail(HIM"ä½ æƒ³æ€å¿µè°ï¼Ÿ\n"NOR);                    
 
        switch(i) {                          
                         case 1:         
@@ -51,16 +51,16 @@ int do_think(string arg)
                                 obj = new (JADE);
                                 obj->set("secret_obj",1);
                                 obj->set_level(5+random(1));
-                                str = "¼«Æ·";
-                                str += "Óñ"; 
+                                str = "æå“";
+                                str += "ç‰"; 
                                 break;        
                                 break;                                                           
                         default:return 1;
                 }
       	obj->move(this_player());
 
-        CHANNEL_D->do_channel( this_object(), "rumor",sprintf(HIM"ÌıËµ%s´Ó"HIY"ÏàË¼ºì¶¹"HIM"ÖĞ»ñµÃÁËÒ»"+obj->query("unit")+obj->name()+"£¡", me->name(1)));
-        message_vision("$N½¥½¥ÏİÈëÁË¾Ã¾ÃµÄ³ÁË¼.......\n",me); 
+        CHANNEL_D->do_channel( this_object(), "rumor",sprintf(HIM"å¬è¯´%sä»"HIY"ç›¸æ€çº¢è±†"HIM"ä¸­è·å¾—äº†ä¸€"+obj->query("unit")+obj->name()+"ï¼", me->name(1)));
+        message_vision("$Næ¸æ¸é™·å…¥äº†ä¹…ä¹…çš„æ²‰æ€.......\n",me); 
                
         destruct(this_object());
         return 1;               

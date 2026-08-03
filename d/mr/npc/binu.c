@@ -1,11 +1,11 @@
-// /u/beyond/mr/npc/binu.c �Ů
+// /u/beyond/mr/npc/binu.c 婢女
 // this is made by beyond
 // update 1997.6.23
 inherit NPC;
 void create()
 {
-        set_name("�Ů", ({ "bi nu", "bu" }));
-        set("gender", "Ů��");
+        set_name("婢女", ({ "bi nu", "bu" }));
+        set("gender", "女性");
         set("age", 24);
 	set("str", 18);
         set("int", 20);

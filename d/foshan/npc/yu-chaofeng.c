@@ -1,4 +1,4 @@
-// yu.c Óá³¯·î 
+// yu.c ä¿æœå¥‰ 
 
 #include <ansi.h>
 
@@ -7,15 +7,15 @@ inherit F_DEALER;
 
 void create()
 {
-        set_name("Óá³¯·î", ({ "yu chaofeng", "yu", "chaofeng" }));
+        set_name("ä¿æœå¥‰", ({ "yu chaofeng", "yu", "chaofeng" }));
 	set("long",
-		"Ò»Ë«ÔôÑÛ¹ÇÂµ¹ÇÂµµØ×ª×Å£¬¿´ÆğÀ´Ò»¸±¼âËá¿Ì±¡µÄÑù×Ó¡£\n");
+		"ä¸€åŒè´¼çœ¼éª¨ç¢Œéª¨ç¢Œåœ°è½¬ç€ï¼Œçœ‹èµ·æ¥ä¸€å‰¯å°–é…¸åˆ»è–„çš„æ ·å­ã€‚\n");
 	set("shen_type", 0);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
 	set_max_encumbrance(100000000);
 	set("age", 35);
 	set("long",
-		"µ±ÆÌÀÏ°åÕıÔÚ¶¢×ÅÄã¿´À´¿´È¥¡£\n");
+		"å½“é“ºè€æ¿æ­£åœ¨ç›¯ç€ä½ çœ‹æ¥çœ‹å»ã€‚\n");
 	set("no_get_from", 1);
 
         set("no_clean_up", 0);
@@ -48,7 +48,7 @@ void kill_ob(object ob)
 
 void unconcious()
 {
-	say( "Óá³¯·î´Ó»³ÖĞÈ¡³öÒ»Æ¿Ò©À´£¬ºÈÁËÁ½¿Ú£¬ÉñÉ«´óÎªºÃ×ª¡£\n");
+	say( "ä¿æœå¥‰ä»æ€€ä¸­å–å‡ºä¸€ç“¶è¯æ¥ï¼Œå–äº†ä¸¤å£ï¼Œç¥è‰²å¤§ä¸ºå¥½è½¬ã€‚\n");
 	reincarnate();
 	set("eff_qi", query("max_qi"));
 	set("qi", query("max_qi"));

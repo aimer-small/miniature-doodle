@@ -3,10 +3,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÀÖºñ", ({ "le hou", "le", "hou" }));
-        set("nickname", "´óÒõÑôÊÖ");
-        set("long", "ÕâÈË°«°«ÅÖÅÖ£¬ÃæÆ¤»ÆÖ×£¬ÎåÊ®À´ËêÄê¼Í£¬áÔÉ½ÅÉµÄÒ»ÃûºÃÊÖ¡£\n");
-        set("gender", "ÄÐÐÔ");
+        set_name("ä¹åŽš", ({ "le hou", "le", "hou" }));
+        set("nickname", "å¤§é˜´é˜³æ‰‹");
+        set("long", "è¿™äººçŸ®çŸ®èƒ–èƒ–ï¼Œé¢çš®é»„è‚¿ï¼Œäº”åæ¥å²å¹´çºªï¼Œåµ©å±±æ´¾çš„ä¸€åå¥½æ‰‹ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 46);
         set("per", 17);
         set("attitude", "heroism");
@@ -39,7 +39,7 @@ void create()
     map_skill("parry", "songshan-jian");
     map_skill("sword", "songshan-jian");
     prepare_skill("strike", "songyang-zhang");
-    create_family("áÔÉ½ÅÉ", 4, "µÜ×Ó");
+    create_family("åµ©å±±æ´¾", 4, "å¼Ÿå­");
         setup();
         carry_object(ARMOR_D("changpao1"))->wear();        
         add_money("gold", 1);
@@ -50,9 +50,9 @@ void attempt_apprentice(object ob)
      if(ob->query_skill("songshan-qigong",1) < 90 ||
         ob->query_skill("songshan-jian",1) < 90 ||
         ob->query_skill("songyang-zhang",1) < 90){
-        command("say ÄãµÄÎä¹¦»¹²»¹»æµÊì£¬ÔÙ»ØÈ¥Á·Á·°É¡£");
+        command("say ä½ çš„æ­¦åŠŸè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œå†å›žåŽ»ç»ƒç»ƒå§ã€‚");
         return;
         }
-     command("say ºÃ°É£¬¿´Ñù×ÓÄã»¹Ëã¸öÁ·ÎäµÄÁÏ¡£");
+     command("say å¥½å§ï¼Œçœ‹æ ·å­ä½ è¿˜ç®—ä¸ªç»ƒæ­¦çš„æ–™ã€‚");
      command("recruit " + ob->query("id"));
 }

@@ -1,4 +1,4 @@
-// cubu-cloth.c thd ËÄ´úµÜ×Ó´©
+// cubu-cloth.c thd å››ä»£å¼Ÿå­ç©¿
 
 #include <armor.h>
 
@@ -6,13 +6,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name("´Ö²¼³¤ÅÛ", ({ "cloth" }) );
+        set_name("ç²—å¸ƒé•¿è¢", ({ "cloth" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long","ÕâÊÇÒ»¼ş´Ö²¼³¤ÅÛ¡£\n");
-                set("unit", "¼ş");
+                set("long","è¿™æ˜¯ä¸€ä»¶ç²—å¸ƒé•¿è¢ã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 10);
         }

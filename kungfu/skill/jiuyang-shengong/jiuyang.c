@@ -1,4 +1,4 @@
-// jiuyang.c 九阳神功加力
+// jiuyang.c 涔濋槼绁炲姛鍔犲姏
 
 #include <ansi.h>
 
@@ -6,25 +6,25 @@ inherit F_CLEAN_UP;
 
 void remove_effect(object me, int amount);
 
-string exert_name(){ return HIR"九阳神功"NOR; }
+string exert_name(){ return HIR"涔濋槼绁炲姛"NOR; }
 
 int exert(object me)
 {
 	int skill, i;
 	if(!me->is_fighting() && me->query_skill("jiuyang-shengong", 1) < 300 ) 
-	     return notify_fail("你只能在战斗中用九阳神功来提升自己的战斗力。\n");
+	     return notify_fail("浣犲彧鑳藉湪鎴樻枟涓敤涔濋槼绁炲姛鏉ユ彁鍗囪嚜宸辩殑鎴樻枟鍔涖�俓n");
 
 	if( (int)me->query("neili") < 400  ) 
-		return notify_fail("你的内力不够。\n");
+		return notify_fail("浣犵殑鍐呭姏涓嶅銆俓n");
 		
 	if( (int)me->query_temp("jiuyang/powerup") ) 
-		return notify_fail("你已经在运功中了。\n");
+		return notify_fail("浣犲凡缁忓湪杩愬姛涓簡銆俓n");
 
     skill = ((int)me->query_skill("force",1) + (int)me->query_skill("jiuyang-shengong",1))/2;
-    i = skill/3 + random(skill/5); //以前是skill/6+random(skill/10) 略微增加上限 By lsxk
+    i = skill/3 + random(skill/5); //浠ュ墠鏄痵kill/6+random(skill/10) 鐣ュ井澧炲姞涓婇檺 By lsxk
 
 	me->add("neili", -200+random(200));
-	message_vision(HIR "$N微一凝神，运起九阳神功，只见$N的脸色变得红润多了。\n" NOR, me);
+	message_vision(HIR "$N寰竴鍑濈锛岃繍璧蜂節闃崇鍔燂紝鍙$N鐨勮劯鑹插彉寰楃孩娑﹀浜嗐�俓n" NOR, me);
 
 	me->add_temp("apply/attack", i);
 	me->add_temp("apply/dexerity", i/10);
@@ -34,7 +34,7 @@ int exert(object me)
 
 	call_out("remove_effect", 1, me, skill/3);
 	if( me->is_fighting() ) me->start_busy(random(2));
-	me->start_exert(1,"九阳神功");
+	me->start_exert(1,"涔濋槼绁炲姛");
 	return 1;
 }
 
@@ -54,7 +54,7 @@ void remove_effect(object me, int count)
          me->delete_temp("fanzhen",- amount/2);  
 	 me->delete_temp("jiuyang/powerup");
 
-     tell_object(me, HIW"\n你的"HIR"九阳神功"HIW"运行完毕，将内力收回丹田。\n"NOR);
+     tell_object(me, HIW"\n浣犵殑"HIR"涔濋槼绁炲姛"HIW"杩愯瀹屾瘯锛屽皢鍐呭姏鏀跺洖涓圭敯銆俓n"NOR);
        }
     
 }

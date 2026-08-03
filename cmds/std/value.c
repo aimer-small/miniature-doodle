@@ -10,7 +10,7 @@ int main(object me, string arg)
         object ob;
 
 	if (!arg || !(ob = present(arg, this_player())))
-		return notify_fail("ÄãÒª¹ÀÊ²Ã´¼Û£¿\n");
+		return notify_fail("ä½ è¦ä¼°ä»€ä¹ˆä»·ï¼Ÿ\n");
 
 	if(!clonep(ob)
 	||ob->query("unique")
@@ -21,7 +21,7 @@ int main(object me, string arg)
 	||ob->is_corpse()
 	||ob->query("food_remaining")
 	||ob->query("liquid")
-	||ob->query("material")=="meat"//Èâ£¿
+	||ob->query("material")=="meat"//è‚‰ï¼Ÿ
 	||ob->query("money_id")
 	||strsrch(file_name(ob),"/d/city/weapon/")==0
 	||ob->is_character()
@@ -29,19 +29,19 @@ int main(object me, string arg)
 	//||obj->query("")
 	//||obj->query("")
 	//||obj->query("")
-	) return notify_fail(ob->name()+"²»¿ÉÒÔ±»±£´æ£¬Ò²²»ºÃ¹À¼Û¡£\n");
+	) return notify_fail(ob->name()+"ä¸å¯ä»¥è¢«ä¿å­˜ï¼Œä¹Ÿä¸å¥½ä¼°ä»·ã€‚\n");
 	
 	value = ob->query("value");
 	if (value < 30)
-		return notify_fail(ob->name()+"Ò»ÎÄ²»Öµ£¡\n");
+		return notify_fail(ob->name()+"ä¸€æ–‡ä¸å€¼ï¼\n");
 	else
 	
 	if (me->query("registered") == 3)
-	tell_object(me,ob->name()+"Öµ"+ MONEY_D->price_str(value) + "£¬¸öÈË´¢ÎïÏä¿ÉÒÔ±£´æ£¬ÄãÊÇ¹ó±öÓÃ»§£¬´ó¸Å·ÑÓÃĞèÒª"
-		+MONEY_D->money_str("/inherit/room/miscroom.c"->get_value2(86400,to_float(value/2)))+"/Ìì¡£\n" );
+	tell_object(me,ob->name()+"å€¼"+ MONEY_D->price_str(value) + "ï¼Œä¸ªäººå‚¨ç‰©ç®±å¯ä»¥ä¿å­˜ï¼Œä½ æ˜¯è´µå®¾ç”¨æˆ·ï¼Œå¤§æ¦‚è´¹ç”¨éœ€è¦"
+		+MONEY_D->money_str("/inherit/room/miscroom.c"->get_value2(86400,to_float(value/2)))+"/å¤©ã€‚\n" );
 	else
-	tell_object(me,ob->name()+"Öµ"+ MONEY_D->price_str(value) + "£¬¸öÈË´¢ÎïÏä¿ÉÒÔ±£´æ£¬´ó¸Å·ÑÓÃĞèÒª"
-		+MONEY_D->money_str("/inherit/room/miscroom.c"->get_value2(86400,to_float(value)))+"/Ìì¡£\n" );
+	tell_object(me,ob->name()+"å€¼"+ MONEY_D->price_str(value) + "ï¼Œä¸ªäººå‚¨ç‰©ç®±å¯ä»¥ä¿å­˜ï¼Œå¤§æ¦‚è´¹ç”¨éœ€è¦"
+		+MONEY_D->money_str("/inherit/room/miscroom.c"->get_value2(86400,to_float(value)))+"/å¤©ã€‚\n" );
 
 	return 1;
 }
@@ -50,9 +50,9 @@ int main(object me, string arg)
 int help(object me)
 {
     write(@HELP
-Ö¸Áî¸ñÊ½ : value <ÎïÆ·Ãû³Æ>
+æŒ‡ä»¤æ ¼å¼ : value <ç‰©å“åç§°>
  
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã¶ÔÎïÆ·½øĞĞ¹À¼Û£¬²¢ÇÒÌáÊ¾¸öÈË´¢ÎïÏäµÄ±£¹Ü·ÑÓÃ¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ å¯¹ç‰©å“è¿›è¡Œä¼°ä»·ï¼Œå¹¶ä¸”æç¤ºä¸ªäººå‚¨ç‰©ç®±çš„ä¿ç®¡è´¹ç”¨ã€‚
  
 HELP
     );

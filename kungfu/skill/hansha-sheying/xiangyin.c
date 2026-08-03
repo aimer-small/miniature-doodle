@@ -1,10 +1,10 @@
-// xxxy.c º¬É³ÉäÓ° ĞÄĞÄÏàÓ¡
+// xxxy.c å«æ²™å°„å½± å¿ƒå¿ƒç›¸å°
 
 #include <ansi.h>
 
 inherit F_SSERVER;
 
-string perform_name() {return HIY"ĞÄĞÄÏàÓ¡"NOR;}
+string perform_name() {return HIY"å¿ƒå¿ƒç›¸å°"NOR;}
 
 int perform(object me, object target)
 {
@@ -18,32 +18,32 @@ int perform(object me, object target)
 	string* ldir=({ "east","west","north","south","northeast","northwest","southeast",
 			"southwest","up","down","eastup","westup","northup","southup", 
 		        "eastdown","westdown","northdown","southdown","out","enter" });
-	string* fdir=({ "¶«±ß","Î÷±ß","±±±ß","ÄÏ±ß","¶«±±·½","Î÷±±·½","¶«ÄÏ·½","Î÷ÄÏ·½",
-                        "ÉÏ·½","ÏÂ·½","¶«ÉÏ·½","Î÷ÉÏ·½","±±ÉÏ·½","ÄÏÉÏ·½","¶«ÏÂ·½","Î÷ÏÂ·½",
-			"±±ÏÂ·½","ÄÏÏÂ·½","Íâ±ß","ÀïÃæ" });
-	string* tdir=({ "Î÷±ß","¶«±ß","ÄÏ±ß","±±±ß","Î÷ÄÏ·½","¶«ÄÏ·½","Î÷±±·½","¶«±±·½",
-                        "ÏÂ·½","ÉÏ·½","Î÷ÏÂ·½","¶«ÏÂ·½","ÄÏÏÂ·½","±±ÏÂ·½","Î÷ÉÏ·½","¶«ÉÏ·½",
-			"ÄÏÉÏ·½","±±ÉÏ·½","ÀïÃæ","Íâ±ß" });
+	string* fdir=({ "ä¸œè¾¹","è¥¿è¾¹","åŒ—è¾¹","å—è¾¹","ä¸œåŒ—æ–¹","è¥¿åŒ—æ–¹","ä¸œå—æ–¹","è¥¿å—æ–¹",
+                        "ä¸Šæ–¹","ä¸‹æ–¹","ä¸œä¸Šæ–¹","è¥¿ä¸Šæ–¹","åŒ—ä¸Šæ–¹","å—ä¸Šæ–¹","ä¸œä¸‹æ–¹","è¥¿ä¸‹æ–¹",
+			"åŒ—ä¸‹æ–¹","å—ä¸‹æ–¹","å¤–è¾¹","é‡Œé¢" });
+	string* tdir=({ "è¥¿è¾¹","ä¸œè¾¹","å—è¾¹","åŒ—è¾¹","è¥¿å—æ–¹","ä¸œå—æ–¹","è¥¿åŒ—æ–¹","ä¸œåŒ—æ–¹",
+                        "ä¸‹æ–¹","ä¸Šæ–¹","è¥¿ä¸‹æ–¹","ä¸œä¸‹æ–¹","å—ä¸‹æ–¹","åŒ—ä¸‹æ–¹","è¥¿ä¸Šæ–¹","ä¸œä¸Šæ–¹",
+			"å—ä¸Šæ–¹","åŒ—ä¸Šæ–¹","é‡Œé¢","å¤–è¾¹" });
 	string lfx,ffx,tfx,* str;
 
 	if( (lvl=(int)me->query_skill("hansha-sheying", 1)) < 120 )
-                return notify_fail("ÄãµÄº¬É³ÉäÓ°²»¹»æµÊì£¬²»»áÊ¹ÓÃĞÄĞÄÏàÓ¡¡£\n");
+                return notify_fail("ä½ çš„å«æ²™å°„å½±ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨å¿ƒå¿ƒç›¸å°ã€‚\n");
         if( (int)me->query_skill("dulong-dafa", 1) < 120 )
-		return notify_fail("ÄãµÄ¶¾Áú´ó·¨¹¦Á¦²»×ã£¬²»ÄÜÓÃĞÄĞÄÏàÓ¡¡£\n");
+		return notify_fail("ä½ çš„æ¯’é¾™å¤§æ³•åŠŸåŠ›ä¸è¶³ï¼Œä¸èƒ½ç”¨å¿ƒå¿ƒç›¸å°ã€‚\n");
         if (!weapon || weapon->query("skill_type") != "throwing")
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃĞÄĞÄÏàÓ¡¡£\n");
+                return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨å¿ƒå¿ƒç›¸å°ã€‚\n");
         if( (int)me->query("neili") < 150 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬²»ÄÜÊ¹ÓÃĞÄĞÄÏàÓ¡¡£\n");
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›å¤ªå¼±ï¼Œä¸èƒ½ä½¿ç”¨å¿ƒå¿ƒç›¸å°ã€‚\n");
 	room=environment(me);
 	if (room->query("no_fight"))
-		return notify_fail("²»×¼ÔÚÕâÀïÕ½¶·¡£\n");
+		return notify_fail("ä¸å‡†åœ¨è¿™é‡Œæˆ˜æ–—ã€‚\n");
 	if (!me->query_temp("xydir",1)){
             if( !target ) target = offensive_target(me);
             if( !target
               || !objectp(target)
               ||  !target->is_character()
               ||  target->query("no_pk"))
-               	return notify_fail("ÄãÒªÉäË­£¿\n");
+               	return notify_fail("ä½ è¦å°„è°ï¼Ÿ\n");
     	    else
 		local=1;
 	}
@@ -76,7 +76,7 @@ int perform(object me, object target)
 		  }
 		}
 		if(i>=sizeof(ldir))
-			return notify_fail("ÄãÒªÉäË­£¿\n");
+			return notify_fail("ä½ è¦å°„è°ï¼Ÿ\n");
 		else{
 			target=obj[j];ffx=fdir[i];tfx=tdir[i];
 		}
@@ -84,7 +84,7 @@ int perform(object me, object target)
 	     else{
 		lfx=ldir[i];ffx=fdir[i];tfx=tdir[i];
 		if(!room->query("exits/"+lfx))
-		     return notify_fail("ÄãÒªÍùÄÄÀïÉä£¿\n");
+		     return notify_fail("ä½ è¦å¾€å“ªé‡Œå°„ï¼Ÿ\n");
 		newroomfile=room->query("exits/"+lfx);
 		if(!objectp(newroom=find_object(newroomfile))) 
 		newroom=load_object(newroomfile);
@@ -93,16 +93,16 @@ int perform(object me, object target)
 			if(me->is_killing(obj[i]->query("id")))	break;
 		}
 		if(i>=sizeof(obj))
-               		return notify_fail("ÄãÒªÉäË­£¿\n");
+               		return notify_fail("ä½ è¦å°„è°ï¼Ÿ\n");
 		target=obj[i];
 	     }
              if(newroom->query("no_fight"))
-		   return notify_fail("²»ÄÜÍù°²È«Çø·¢°µÆ÷¡£\n");
+		   return notify_fail("ä¸èƒ½å¾€å®‰å…¨åŒºå‘æš—å™¨ã€‚\n");
 	}
 	if(local == 1)	
-        	msg = HIY "$NÊ¹³öÒ»ÕĞ¡¸ĞÄĞÄÏàÓ¡¡¹£¬ÊıÊ®Ã¶"+weapon->query("name")+"±ø·ÖÁ½Â·£¬Ò»Â·ÉäÏò$nÇ°ĞØ£¬ÁíÒ»Â··Éµ½$nÉíºó»ØÍ·»÷ÏòÆäºóĞÄ¡£\n";
+        	msg = HIY "$Nä½¿å‡ºä¸€æ‹›ã€Œå¿ƒå¿ƒç›¸å°ã€ï¼Œæ•°åæš"+weapon->query("name")+"å…µåˆ†ä¸¤è·¯ï¼Œä¸€è·¯å°„å‘$nå‰èƒ¸ï¼Œå¦ä¸€è·¯é£åˆ°$nèº«åå›å¤´å‡»å‘å…¶åå¿ƒã€‚\n";
 	else
-		msg = HIY "$NÊ¹³öÒ»ÕĞ¡¸ĞÄĞÄÏàÓ¡¡¹£¬ÊıÊ®Ã¶"+weapon->query("name")+"±ø·ÖÁ½Â·£¬ÉäÏò"+ffx+"\n";
+		msg = HIY "$Nä½¿å‡ºä¸€æ‹›ã€Œå¿ƒå¿ƒç›¸å°ã€ï¼Œæ•°åæš"+weapon->query("name")+"å…µåˆ†ä¸¤è·¯ï¼Œå°„å‘"+ffx+"\n";
 
         message_vision(msg, me, target);
 	me->add("neili", -100);
@@ -115,7 +115,7 @@ int perform(object me, object target)
 
 	if(local==0){
 	    me->move(newroom);
-	    msg = HIY "ºöÈ»´Ó"+tfx+"ÓĞÊıÊ®Ã¶"+weapon->query("name")+"±ø·ÖÁ½Â·£¬ÉäÏò$n!\n";
+	    msg = HIY "å¿½ç„¶ä»"+tfx+"æœ‰æ•°åæš"+weapon->query("name")+"å…µåˆ†ä¸¤è·¯ï¼Œå°„å‘$n!\n";
 	    message_vision(msg, me, target);
 	}
 	else{
@@ -136,6 +136,6 @@ int perform(object me, object target)
 	    target->kill_ob(me);
 	}
       	me->delete_temp("xxxy");
-      	me->start_perform(4,"ĞÄĞÄÏàÓ¡");
+      	me->start_perform(4,"å¿ƒå¿ƒç›¸å°");
         return 1;
 }

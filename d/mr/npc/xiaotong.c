@@ -1,11 +1,11 @@
-// /u/beyond/mr/npc/xiaotong.c Сͯ
+// /u/beyond/mr/npc/xiaotong.c 小童
 // this is made by beyond
 // update 1997.6.23
 inherit NPC;
 void create()
 {
-        set_name("Сͯ", ({ "xiao tong", "tong" }));
-        set("gender", "����");
+        set_name("小童", ({ "xiao tong", "tong" }));
+        set("gender", "男性");
         set("age", 14);
 	set("str", 15);
         set("int", 26);

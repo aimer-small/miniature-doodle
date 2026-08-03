@@ -8,7 +8,7 @@ int update_condition(object me, int duration)
         string skill;
         if (duration < 1) {
                                              
-                tell_object(me, HIY"你正在执行的任务已经被取消了！\n"NOR);     
+                tell_object(me, HIY"浣犳鍦ㄦ墽琛岀殑浠诲姟宸茬粡琚彇娑堜簡锛乗n"NOR);     
                
                 if(stringp( skill = me->query("doing_job") )) {
                     me->delete_skill(skill);

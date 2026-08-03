@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-	set_name("ÎŞÉÏÕıµÈÕı¾õ±®", ({ "board" }) );
+	set_name("æ— ä¸Šæ­£ç­‰æ­£è§‰ç¢‘", ({ "board" }) );
 	set("location", "/d/shaolin/guangchang");
 	set("board_id", "shaolin_b");
-	set("long", "ÕâÊÇÒ»¿é¾Ş´óµÄÊ¯±®£¬ÓÉÁù×æ»ÛÄÜÇ×Á¢¡£\n" );
+	set("long", "è¿™æ˜¯ä¸€å—å·¨å¤§çš„çŸ³ç¢‘ï¼Œç”±å…­ç¥–æ…§èƒ½äº²ç«‹ã€‚\n" );
 	setup();
 	set("capacity", 60);
 }

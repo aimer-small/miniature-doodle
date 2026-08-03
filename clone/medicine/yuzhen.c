@@ -1,4 +1,4 @@
-// jinchuang.c ½ğ´´Ò©
+// jinchuang.c é‡‘åˆ›è¯
 inherit COMBINED_ITEM;
 
 void init()
@@ -9,16 +9,16 @@ void init()
 
 void create()
 {
-	set_name("ÓñÕæÉ¢", ({"yuzhen san", "yuzhen","san"}));
+	set_name("ç‰çœŸæ•£", ({"yuzhen san", "yuzhen","san"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ğ©");
+		set("unit", "äº›");
       set("value", 5000);
                 set("heal_up", 1);
-                set("base_unit", "°ü");
+                set("base_unit", "åŒ…");
                 set("base_weight", 100);
- 		set("long","ÕâÊÇÒ»·İ»ªÉ½ÅÉµÄÓñÕæÉ¢£¬ÊÇÁÆÉËµÄÒ©Îï¡£\n");
+ 		set("long","è¿™æ˜¯ä¸€ä»½åå±±æ´¾çš„ç‰çœŸæ•£ï¼Œæ˜¯ç–—ä¼¤çš„è¯ç‰©ã€‚\n");
 		set("base_value", 5000);
 	}
 	set_amount(1);
@@ -28,15 +28,15 @@ int do_eat(string arg)
 {
            
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´Ò©£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆè¯ï¼Ÿ\n");
      if (this_player()->is_busy() || this_player()->is_fighting())
-        return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+        return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if ((int)this_player()->query("eff_qi") == 
 	    (int)this_player()->query("max_qi"))
-		return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃÓñÕæÉ¢¡£\n");
+		return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨ç‰çœŸæ•£ã€‚\n");
 	else {
 		this_player()->receive_curing("qi", 90);
-		message_vision("$NµÄÁ³É«½¥½¥¿ªÊ¼ºÃ×ªÁË¡£\n", this_player());
+		message_vision("$Nçš„è„¸è‰²æ¸æ¸å¼€å§‹å¥½è½¬äº†ã€‚\n", this_player());
 		destruct(this_object());
                         this_player()->start_busy(1);
 		return 1;

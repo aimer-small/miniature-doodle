@@ -4,43 +4,43 @@
 int exert(object me)
 {
 if( !me->is_fighting() )
-return notify_fail("ÄãÏÖÔÚÕâÃ´ÏĞ£¬ÂıÂı´ò×øÁÆÉË°É¡£\n");
+return notify_fail("ä½ ç°åœ¨è¿™ä¹ˆé—²ï¼Œæ…¢æ…¢æ‰“åç–—ä¼¤å§ã€‚\n");
 
 if( (int)me->query_skill("linji-zhuang", 1) < 60 )
-return notify_fail("ÄãµÄÄÚ¹¦ĞŞÎª»¹²»¹»¡£\n");
+return notify_fail("ä½ çš„å†…åŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 if( (int)me->query_skill("medicine", 1) < 60 )
-return notify_fail("ÄãµÄ±¾²İÊõÀíĞŞÎª»¹²»¹»¡£\n");
+return notify_fail("ä½ çš„æœ¬è‰æœ¯ç†ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 if( (int)me->query("neili") < 200 )
-return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 if( (int)me->query("eff_qi") >= (int)me->query("max_qi") )
-return notify_fail("Ã»ÊÜÉË£¬ÁÆÊ²Ã´ÉË°¡£¿\n");
+return notify_fail("æ²¡å—ä¼¤ï¼Œç–—ä»€ä¹ˆä¼¤å•Šï¼Ÿ\n");
 
-if( (int)me->query("eff_qi") < (int)me->query("max_qi")*3/10 ) // ¸ÄÎª30%ÉÏÏŞ
-return notify_fail("ÄãÒÑ¾­ÊÜÉË¹ıÖØ£¬¾­ÊÜ²»ÆğÕæÆøÕğµ´£¡\n");
+if( (int)me->query("eff_qi") < (int)me->query("max_qi")*3/10 ) // æ”¹ä¸º30%ä¸Šé™
+return notify_fail("ä½ å·²ç»å—ä¼¤è¿‡é‡ï¼Œç»å—ä¸èµ·çœŸæ°”éœ‡è¡ï¼\n");
 
-if( me->query_temp("ljz/wuwo") )// ¸Ä³É ²»ÄÜºÍ wuwo Í¬Ê±Ê¹ÓÃ
-return notify_fail("ÄãÕıÔÚÔËÓÃÁÙ¼ÃÊ®¶ş×¯µÄ¡¸ÎŞÎÒ¡¹×Ö¾ö£¡\n");
+if( me->query_temp("ljz/wuwo") )// æ”¹æˆ ä¸èƒ½å’Œ wuwo åŒæ—¶ä½¿ç”¨
+return notify_fail("ä½ æ­£åœ¨è¿ç”¨ä¸´æµåäºŒåº„çš„ã€Œæ— æˆ‘ã€å­—å†³ï¼\n");
 
-message_vision(HIW"$NÉîÉîµÄÎüÁË¿ÚÆø£¬Á³É«¿´À´ºÃ¶àÁË¡£\n"NOR,me);
+message_vision(HIW"$Næ·±æ·±çš„å¸äº†å£æ°”ï¼Œè„¸è‰²çœ‹æ¥å¥½å¤šäº†ã€‚\n"NOR,me);
 me->receive_curing("qi", (int)me->query_skill("force")/3);
 me->add("neili", -100);
-me->start_exert(1,"ÌìµØ");
+me->start_exert(1,"å¤©åœ°");
 me->start_busy(random(2));
 return 1;
 }
-string exert_name(){ return HIW"ÌìµØ×Ö¾ö"NOR; }
+string exert_name(){ return HIW"å¤©åœ°å­—å†³"NOR; }
 
 int help(object me)
 {
-        write(HIW"\nÁÙ¼ÃÊ®¶ş×¯¡¸ÌìµØ×Ö¾÷¡¹£º"NOR"\n\n");
+        write(HIW"\nä¸´æµåäºŒåº„ã€Œå¤©åœ°å­—è¯€ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 200 ÒÔÉÏ£»
-                ÁÙ¼ÃÊ®¶ş×¯µÈ¼¶ 60 ÒÔÉÏ£»
-                ±¾²İÊõÀí 60 ÒÔÉÏ£»
-                ²»ÄÜºÍ¡¸ÎŞÎÒ¡¹×Ö¾÷Í¬Ê±Ê¹ÓÃ¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 200 ä»¥ä¸Šï¼›
+                ä¸´æµåäºŒåº„ç­‰çº§ 60 ä»¥ä¸Šï¼›
+                æœ¬è‰æœ¯ç† 60 ä»¥ä¸Šï¼›
+                ä¸èƒ½å’Œã€Œæ— æˆ‘ã€å­—è¯€åŒæ—¶ä½¿ç”¨ã€‚
 HELP
         );
         return 1;

@@ -1,17 +1,17 @@
-// yubanzhi.c °ßÖ¸
+// yubanzhi.c æ–‘æŒ‡
 
 #include <ansi.h>
 #include <armor.h>
 inherit FINGER;
 void create()
 {
-        set_name(HIG "Óñ°ßÖ¸" NOR, ({ "yu banzhi", "banzhi",}));
+        set_name(HIG "ç‰æ–‘æŒ‡" NOR, ({ "yu banzhi", "banzhi",}));
         set("weight", 100);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ö»");
-                set("long", HIG"ÕâÓñ°ßÖ¸ÂÌµÃ³öÆæ£¬Í¨Ìå±ÌÂÌ£¬¾§Ó¨¿É°®£¬ÄãÈÌ²»×¡ÏëÃş(mo)Ëü¡£\n" NOR);
+                set("unit", "åª");
+                set("long", HIG"è¿™ç‰æ–‘æŒ‡ç»¿å¾—å‡ºå¥‡ï¼Œé€šä½“ç¢§ç»¿ï¼Œæ™¶è¹å¯çˆ±ï¼Œä½ å¿ä¸ä½æƒ³æ‘¸(mo)å®ƒã€‚\n" NOR);
                 set("value", 50000);
                 set("no_get", 1);
                 set("no_drop", 1);
@@ -37,9 +37,9 @@ int task(string arg)
         int i;
         i = (int)me->query_temp("skill_lvl", 1);
         if( !me->query_temp("mr_job", 1) && !me->query_temp("mr_job_done"))
-                return notify_fail("ÏÖÔÚÄãÃ»ÓĞÈÎºÎÈÎÎñ¡£\n"); 
-        write("ÄãÇáÇáµØÃşÁËÃşÓñ°ßÖ¸£¬Í»È»¿´¼ûÓĞÒ»ĞĞĞ¡×ÖÏÔÏÖ³öÀ´£º\n\n");
-        write("\t\tÍµÑ§"HIR"[touxue]"NOR"Îä¹¦¡¸"+HIY+me->query_temp("skill_target")+NOR"¡¹"+to_chinese(i)+"¼¶£¬È»ºóÕ¹Ê¾"HIC"[show]"NOR"¸øÄ½Èİ¸´¡£\n\n");
+                return notify_fail("ç°åœ¨ä½ æ²¡æœ‰ä»»ä½•ä»»åŠ¡ã€‚\n"); 
+        write("ä½ è½»è½»åœ°æ‘¸äº†æ‘¸ç‰æ–‘æŒ‡ï¼Œçªç„¶çœ‹è§æœ‰ä¸€è¡Œå°å­—æ˜¾ç°å‡ºæ¥ï¼š\n\n");
+        write("\t\tå·å­¦"HIR"[touxue]"NOR"æ­¦åŠŸã€Œ"+HIY+me->query_temp("skill_target")+NOR"ã€"+to_chinese(i)+"çº§ï¼Œç„¶åå±•ç¤º"HIC"[show]"NOR"ç»™æ…•å®¹å¤ã€‚\n\n");
         return 1;
 }
 

@@ -25,13 +25,13 @@ int update_condition(object me, int duration)
            	me->delete("sld/huagu_mark");
           	if(qi)
           	{
-            		me->set_temp("last_damage_from", "»¯¹ÇÃàÕÆ¶¾·¢×÷");
+            		me->set_temp("last_damage_from", "åŒ–éª¨ç»µæŽŒæ¯’å‘ä½œ");
             		me->receive_damage("qi", qi);
             		me->receive_wound("qi", qi);
            		if (living(me))
-                    		msg = "$N¸Ðµ½Ò»Õó¾çÍ´£¬È«ÉíµÄ¹ÇÍ·¸ñ¸ñ×÷Ïì£¡\n";
+                    		msg = "$Næ„Ÿåˆ°ä¸€é˜µå‰§ç—›ï¼Œå…¨èº«çš„éª¨å¤´æ ¼æ ¼ä½œå“ï¼\n";
              		else
-                    		msg = "$NÒ»Éù²Ò½Ð£¬È«ÉíµÄ¹ÇÍ·Ò»¿é¿éµØ»¯×öÁË·ÛÄ©£¡\n";
+                    		msg = "$Nä¸€å£°æƒ¨å«ï¼Œå…¨èº«çš„éª¨å¤´ä¸€å—å—åœ°åŒ–åšäº†ç²‰æœ«ï¼\n";
                     	message_vision(BLU+msg+NOR,me);                    	
            		if(qi>me->query("max_qi"))
                 		me->die();
@@ -41,7 +41,7 @@ int update_condition(object me, int duration)
 	if(!random(me->query("sld/huagu_mark")))
         {
         	me->receive_damage("qi", 10);
-        	me->set_temp("last_damage_from", "»¯¹ÇÃàÕÆ¶¾·¢×÷");
+        	me->set_temp("last_damage_from", "åŒ–éª¨ç»µæŽŒæ¯’å‘ä½œ");
         	if(me->query("neili")>60)
         	{
                 	cs=me->query("neili")/60;
@@ -58,17 +58,17 @@ int update_condition(object me, int duration)
                 		duration--;
                 	//}
                 	if (living(me))
-                        	msg = "$N¸Ðµ½ÉíÉÏÒ»Õó¾çÍ´£¬Ã¦ÔË¹¦µÖÓù£¡\n";
+                        	msg = "$Næ„Ÿåˆ°èº«ä¸Šä¸€é˜µå‰§ç—›ï¼Œå¿™è¿åŠŸæŠµå¾¡ï¼\n";
                 	else
-                        	msg = "$NÍ´¿àµØÉëßÌÁËÒ»Éù£¬¸Ðµ½ÉíÉÏµÄÄÚÁ¦ÔÚÒ»µãµãµØÏûÊ§£¡\n";
+                        	msg = "$Nç—›è‹¦åœ°å‘»å’›äº†ä¸€å£°ï¼Œæ„Ÿåˆ°èº«ä¸Šçš„å†…åŠ›åœ¨ä¸€ç‚¹ç‚¹åœ°æ¶ˆå¤±ï¼\n";
         	}
         	else if(me->query_temp("nlcs",1)>=10)
         		{
                 		me->add_temp("nlcs",-10);
                 		if (living(me))
-                        		msg = "$N¸Ðµ½ÉíÉÏÒ»Õó¾çÍ´£¬Ã¦ÔË¹¦µÖÓù£¡\n";
+                        		msg = "$Næ„Ÿåˆ°èº«ä¸Šä¸€é˜µå‰§ç—›ï¼Œå¿™è¿åŠŸæŠµå¾¡ï¼\n";
                 		else
-                        		msg = "$NÍ´¿àµØÉëßÌÁËÒ»Éù£¬¸Ðµ½ÉíÉÏµÄÄÚÁ¦ÔÚÒ»µãµãµØÏûÊ§£¡\n";
+                        		msg = "$Nç—›è‹¦åœ°å‘»å’›äº†ä¸€å£°ï¼Œæ„Ÿåˆ°èº«ä¸Šçš„å†…åŠ›åœ¨ä¸€ç‚¹ç‚¹åœ°æ¶ˆå¤±ï¼\n";
         		}
         		else
         		{
@@ -78,18 +78,18 @@ int update_condition(object me, int duration)
         			else
                 			duration--;
         			if (living(me))
-                        		msg = "$N¸Ðµ½Ò»ÕóÌÛÍ´ÂÓÌå¶ø¹ý£¡\n";
+                        		msg = "$Næ„Ÿåˆ°ä¸€é˜µç–¼ç—›æŽ ä½“è€Œè¿‡ï¼\n";
                 		else	
-                        		msg = "$NÍ´¿àµØÉëßÌÁËÒ»Éù£¬¸Ðµ½Ò»ÕóÌÛÍ´ÂÓÌå¶ø¹ý£¡\n";
+                        		msg = "$Nç—›è‹¦åœ°å‘»å’›äº†ä¸€å£°ï¼Œæ„Ÿåˆ°ä¸€é˜µç–¼ç—›æŽ ä½“è€Œè¿‡ï¼\n";
         		}
         	if(wizardp(me))
         	{
         		if(me->query("huagu")>0)
-                		tell_object(me,sprintf("ÄãÖÐµÄ»¯¹ÇÃàÕÆ¶¾ÉÐÒª·¢×÷%d´Î£¬ÄãÏÖÔÚËùÖÐµÄ»¯¹ÇÃàÕÆ¶¾Á¦ÒÑ´ïµ½ÁË%d¡£\n",duration,me->query("huagu")));
+                		tell_object(me,sprintf("ä½ ä¸­çš„åŒ–éª¨ç»µæŽŒæ¯’å°šè¦å‘ä½œ%dæ¬¡ï¼Œä½ çŽ°åœ¨æ‰€ä¸­çš„åŒ–éª¨ç»µæŽŒæ¯’åŠ›å·²è¾¾åˆ°äº†%dã€‚\n",duration,me->query("huagu")));
         		else if(me->query("huagu")<0)
-                		    tell_object(me,sprintf("ÄãÖÐµÄ»¯¹ÇÃàÕÆ¶¾ÉÐÒª·¢×÷%d´Î£¬ÄãÏÖÔÚ¶Ô»¯¹ÇÃàÕÆ¶¾µÄµÖÓùÁ¦Îª%d¡£\n",duration,-me->query("huagu")));
+                		    tell_object(me,sprintf("ä½ ä¸­çš„åŒ–éª¨ç»µæŽŒæ¯’å°šè¦å‘ä½œ%dæ¬¡ï¼Œä½ çŽ°åœ¨å¯¹åŒ–éª¨ç»µæŽŒæ¯’çš„æŠµå¾¡åŠ›ä¸º%dã€‚\n",duration,-me->query("huagu")));
         	     	else
-                		  tell_object(me,sprintf("ÄãÖÐµÄ»¯¹ÇÃàÕÆ¶¾ÉÐÒª·¢×÷%d´Î¡£\n",duration));
+                		  tell_object(me,sprintf("ä½ ä¸­çš„åŒ–éª¨ç»µæŽŒæ¯’å°šè¦å‘ä½œ%dæ¬¡ã€‚\n",duration));
                 }
                 me->apply_condition("huagu_poison", duration);
                 message_vision(BLU+msg+NOR,me);

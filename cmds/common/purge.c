@@ -15,7 +15,7 @@ int main(object me, string arg)
 	int day;
 
 	if (me!=this_player(1) || wiz_level(me) < wiz_level("(arch)")||wiz_level(me) < wiz_level(name))
-		return notify_fail("ÄãÃ»ÓĞÈ¨Á¦Ê¹ÓÃÕâ¸öÖ¸Áî¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰æƒåŠ›ä½¿ç”¨è¿™ä¸ªæŒ‡ä»¤ã€‚\n");
 
 	if( !arg ) return help(me);
 
@@ -24,45 +24,45 @@ int main(object me, string arg)
 	if( sscanf(arg, "%s because %s", name, reason)==2 ){
 		seteuid(getuid());
 		if( file_size(DATA_DIR + "login/" + name[0..0] + "/" + name + SAVE_EXTENSION)<0 )
-			return notify_fail("Ã»ÓĞÕâÎ»Ê¹ÓÃÕß¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä½ä½¿ç”¨è€…ã€‚\n");
 		"/cmds/wiz/kickout"->main(me, name);
 
-		msg =   ""+name+ "£¬ÄúºÃ£º\n"+
-			"    ³öÓÚÉ÷ÖØ¿¼ÂÇ£¬ÎÒÃÇºÜÒÅº¶µÄÍ¨ÖªÄú£¬ÄúÔÚ"+CHINESE_MUD_NAME+"µÄIDÒÑ¾­±»ÏµÍ³É¾³ı¡£\n"+
-			"É¾³ıÔ­ÒòÊÇ¡°"+reason+"¡±¡£Èç¹ûÄú×¼±¸¼ÌĞøµÇÂ¼Êé½£ÓÎÏ·£¬ÇëÖØĞÂÉêÇëID¿ªÊ¼ÓÎÏ·£¬\n"+
-			"²¢ÌáÇëÄú×¢Òâ×ñÊØÊé½£ÓÎÏ·¹æÔò¡£ÏêÇéÇëÔÚ½øÈëÓÎÏ·ºó£¬ÓÃ¡°help rules¡±Ö¸Áî²é¿´¡£\n"+
+		msg =   ""+name+ "ï¼Œæ‚¨å¥½ï¼š\n"+
+			"    å‡ºäºæ…é‡è€ƒè™‘ï¼Œæˆ‘ä»¬å¾ˆé—æ†¾çš„é€šçŸ¥æ‚¨ï¼Œæ‚¨åœ¨"+CHINESE_MUD_NAME+"çš„IDå·²ç»è¢«ç³»ç»Ÿåˆ é™¤ã€‚\n"+
+			"åˆ é™¤åŸå› æ˜¯â€œ"+reason+"â€ã€‚å¦‚æœæ‚¨å‡†å¤‡ç»§ç»­ç™»å½•ä¹¦å‰‘æ¸¸æˆï¼Œè¯·é‡æ–°ç”³è¯·IDå¼€å§‹æ¸¸æˆï¼Œ\n"+
+			"å¹¶æè¯·æ‚¨æ³¨æ„éµå®ˆä¹¦å‰‘æ¸¸æˆè§„åˆ™ã€‚è¯¦æƒ…è¯·åœ¨è¿›å…¥æ¸¸æˆåï¼Œç”¨â€œhelp rulesâ€æŒ‡ä»¤æŸ¥çœ‹ã€‚\n"+
 			"\n"+
-			"´ËÖÂ\n"+
-			"				Êé½£Î×Ê¦×é\n"+
+			"æ­¤è‡´\n"+
+			"				ä¹¦å‰‘å·«å¸ˆç»„\n"+
 			"\n"+ctime(time());
 
-		SMTP_D->send_mail(me,name,"Í¨ÖªÓÊ¼ş",msg);
+		SMTP_D->send_mail(me,name,"é€šçŸ¥é‚®ä»¶",msg);
 
-                shout(HIR"¡¾Êé½£Í¨¸æ¡¿"+capitalize(name)+"ÒòÎª¡º "+reason+" ¡»£¬ÏûÊ§ÔÚÕâ¸öÊÀ½çÁË¡£\n"NOR);
-                write(HIR"¡¾Êé½£Í¨¸æ¡¿"+capitalize(name)+"ÒòÎª¡º "+reason+" ¡»£¬ÏûÊ§ÔÚÕâ¸öÊÀ½çÁË¡£\n"NOR);
+                shout(HIR"ã€ä¹¦å‰‘é€šå‘Šã€‘"+capitalize(name)+"å› ä¸ºã€ "+reason+" ã€ï¼Œæ¶ˆå¤±åœ¨è¿™ä¸ªä¸–ç•Œäº†ã€‚\n"NOR);
+                write(HIR"ã€ä¹¦å‰‘é€šå‘Šã€‘"+capitalize(name)+"å› ä¸ºã€ "+reason+" ã€ï¼Œæ¶ˆå¤±åœ¨è¿™ä¸ªä¸–ç•Œäº†ã€‚\n"NOR);
 
-		// rm s -f ±¸·İ£¬·ÀÖ¹ÎŞÒâÖĞ±»µ±×ö s -f µÄID¶ø recovers
+		// rm s -f å¤‡ä»½ï¼Œé˜²æ­¢æ— æ„ä¸­è¢«å½“åš s -f çš„IDè€Œ recovers
 		rm(DATA_DIR + "login/" + name[0..0] + "/" + name + ".ooo");
 		rm(DATA_DIR + "user/" + name[0..0] + "/" + name + ".ooo");
-		// Í¬Ê±É¾³ıÊı¾İ¿âÀïµÄ×ÊÁÏ
+		// åŒæ—¶åˆ é™¤æ•°æ®åº“é‡Œçš„èµ„æ–™
 		if (dbquery("DELETE FROM Users "
 			"where U_Username='" + name + "'"))
-			tell_object(me,HIY"Êı¾İ¿âUsers±íÀïµÄ×ÊÁÏÒÑ¾­³É¹¦É¾³ı£¡\n"NOR);	
+			tell_object(me,HIY"æ•°æ®åº“Usersè¡¨é‡Œçš„èµ„æ–™å·²ç»æˆåŠŸåˆ é™¤ï¼\n"NOR);	
 		else
 		{
-			tell_object(me,HIY"Êı¾İ¿âUserS±íÀïµÄ×ÊÁÏÉ¾³ıÊ§°Ü£¬ÇëÓëLinuXÁªÏµ£¡\n"NOR);
-			log_file("static/PURGE",sprintf("%s É¾³ı %s Users±íÀïµÄ×ÊÁÏÊ§°Ü!\n",
+			tell_object(me,HIY"æ•°æ®åº“UserSè¡¨é‡Œçš„èµ„æ–™åˆ é™¤å¤±è´¥ï¼Œè¯·ä¸LinuXè”ç³»ï¼\n"NOR);
+			log_file("static/PURGE",sprintf("%s åˆ é™¤ %s Usersè¡¨é‡Œçš„èµ„æ–™å¤±è´¥!\n",
 				geteuid(this_player(1)), name
 			), this_player(1), ({ name })
 		);	
 		}		
                 if (dbquery("DELETE FROM Data WHERE U_ID='" 
                         + DATA_DIR + "login/" + name[0..0] + "/" + name + ".o"+"'"))
-                	tell_object(me,HIY"Êı¾İ¿âData±íÀïµÄLogin×ÊÁÏÒÑ¾­³É¹¦É¾³ı£¡\n"NOR);	
+                	tell_object(me,HIY"æ•°æ®åº“Dataè¡¨é‡Œçš„Loginèµ„æ–™å·²ç»æˆåŠŸåˆ é™¤ï¼\n"NOR);	
 		else
 		{	
-			tell_object(me,HIY"Êı¾İ¿âData±íÀïµÄLogin×ÊÁÏÉ¾³ıÊ§°Ü£¬ÇëÓëLinuXÁªÏµ£¡\n"NOR);
-			log_file("static/PURGE",sprintf("%s É¾³ı %s Data±íÀïµÄLogin×ÊÁÏÊ§°Ü!\n",
+			tell_object(me,HIY"æ•°æ®åº“Dataè¡¨é‡Œçš„Loginèµ„æ–™åˆ é™¤å¤±è´¥ï¼Œè¯·ä¸LinuXè”ç³»ï¼\n"NOR);
+			log_file("static/PURGE",sprintf("%s åˆ é™¤ %s Dataè¡¨é‡Œçš„Loginèµ„æ–™å¤±è´¥!\n",
 				geteuid(this_player(1)), name
 			), this_player(1), ({ name })
 		);	
@@ -70,11 +70,11 @@ int main(object me, string arg)
                 
                 if (dbquery("DELETE FROM Data WHERE U_ID='" 
                         + DATA_DIR + "user/" + name[0..0] + "/" + name + ".o"+"'"))
-                	tell_object(me,HIY"Êı¾İ¿âData±íÀïµÄUser×ÊÁÏÒÑ¾­³É¹¦É¾³ı£¡\n"NOR);	
+                	tell_object(me,HIY"æ•°æ®åº“Dataè¡¨é‡Œçš„Userèµ„æ–™å·²ç»æˆåŠŸåˆ é™¤ï¼\n"NOR);	
 		else
 		{
-			tell_object(me,HIY"Êı¾İ¿âData±íÀïµÄUser×ÊÁÏÉ¾³ıÊ§°Ü£¬ÇëÓëLinuXÁªÏµ£¡\n"NOR);
-			log_file("static/PURGE",sprintf("%s É¾³ı %s Data±íÀïµÄUser×ÊÁÏÊ§°Ü!\n",
+			tell_object(me,HIY"æ•°æ®åº“Dataè¡¨é‡Œçš„Userèµ„æ–™åˆ é™¤å¤±è´¥ï¼Œè¯·ä¸LinuXè”ç³»ï¼\n"NOR);
+			log_file("static/PURGE",sprintf("%s åˆ é™¤ %s Dataè¡¨é‡Œçš„Userèµ„æ–™å¤±è´¥!\n",
 				geteuid(this_player(1)), name
 			), this_player(1), ({ name })
 		);	
@@ -103,8 +103,8 @@ private int do_purge_players(int day)
 	mixed *info;
 
 	seteuid(getuid());
-	message("system", "\n*** ÕûÀíÍæ¼Ò´¢´æµµÖĞ£¬ÇëÉÔºò.... ***\n", users());
-	write("´¦ÀíµÇÂ¼µµ°¸ÖĞ£º");
+	message("system", "\n*** æ•´ç†ç©å®¶å‚¨å­˜æ¡£ä¸­ï¼Œè¯·ç¨å€™.... ***\n", users());
+	write("å¤„ç†ç™»å½•æ¡£æ¡ˆä¸­ï¼š");
 	dir = get_dir(DATA_DIR + "login/");
 	for(i=0; i<sizeof(dir); i++) {
 		if (file_size(DATA_DIR + "login/" + dir[i]) != -2) continue;
@@ -132,7 +132,7 @@ private int do_purge_players(int day)
 			}
 		}
 	}
-	write("\n´¦ÀíÊı¾İµµ°¸ÖĞ£º");
+	write("\nå¤„ç†æ•°æ®æ¡£æ¡ˆä¸­ï¼š");
 	dir = get_dir(DATA_DIR + "user/");
 	for (i=0; i<sizeof(dir); i++) {
 		if (file_size(DATA_DIR + "user/" + dir[i]) != -2) continue;
@@ -158,11 +158,11 @@ private int do_purge_players(int day)
 			}
 		}
 	}
-	write("\n\nÔ­À´×Ü¹²ÓĞ " + ppl_cnt + " Î»Ê¹ÓÃÕß¡£\n");
-	write( count + " ¸ö³¬¹ı " + day + " ÌìÎ´ÉÏÏßµÄÊ¹ÓÃÕß±»Çå³ıµôÁË¡£\n");
-	write( login + " ¸ö¹ÂÁ¢µÄµÇÂ¼µµ°¸±»Çå³ıµôÁË¡£\n");
-	write( user + " ¸ö¹ÂÁ¢µÄÊı¾İµµ°¸±»Çå³ıµôÁË¡£\n");
-	write("ÏÖÔÚ×Ü¹²ÓĞ " + (ppl_cnt - count) + " Î»Ê¹ÓÃÕß¡£\n");
+	write("\n\nåŸæ¥æ€»å…±æœ‰ " + ppl_cnt + " ä½ä½¿ç”¨è€…ã€‚\n");
+	write( count + " ä¸ªè¶…è¿‡ " + day + " å¤©æœªä¸Šçº¿çš„ä½¿ç”¨è€…è¢«æ¸…é™¤æ‰äº†ã€‚\n");
+	write( login + " ä¸ªå­¤ç«‹çš„ç™»å½•æ¡£æ¡ˆè¢«æ¸…é™¤æ‰äº†ã€‚\n");
+	write( user + " ä¸ªå­¤ç«‹çš„æ•°æ®æ¡£æ¡ˆè¢«æ¸…é™¤æ‰äº†ã€‚\n");
+	write("ç°åœ¨æ€»å…±æœ‰ " + (ppl_cnt - count) + " ä½ä½¿ç”¨è€…ã€‚\n");
 	log_file("static/PURGE",
 		sprintf("%s cleaned up %d characters who didn't login for more than %d days\n"
 			"\t\tResulting statistics: %d characters remaining.\n",
@@ -176,10 +176,10 @@ private int do_purge_players(int day)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½£ºpurge [<Î´ÉÏÏßÌìÊı>] | <Ê¹ÓÃÕßĞÕÃû> because <Ô­Òò>
+æŒ‡ä»¤æ ¼å¼ï¼špurge [<æœªä¸Šçº¿å¤©æ•°>] | <ä½¿ç”¨è€…å§“å> because <åŸå› >
 
-Çå³ıÒ»¸öÊ¹ÓÃÕß»òÇå³ı³¬¹ıÒ»¶¨ÌìÊı²»ÔøÉÏÏßµØÊ¹ÓÃÕß¡£
-Çë×¢ÒâÉ¾³ıÔ­ÒòµÄ´ë´Ç£¬ÒòÎªÏµÍ³½«ÒÔ´ËÎªÉ¾³ıÀíÓÉ£¬×Ô¶¯Ïò¸ÃID·¢ËÍÍ¨ÖªÓÊ¼ş¡£
+æ¸…é™¤ä¸€ä¸ªä½¿ç”¨è€…æˆ–æ¸…é™¤è¶…è¿‡ä¸€å®šå¤©æ•°ä¸æ›¾ä¸Šçº¿åœ°ä½¿ç”¨è€…ã€‚
+è¯·æ³¨æ„åˆ é™¤åŸå› çš„æªè¾ï¼Œå› ä¸ºç³»ç»Ÿå°†ä»¥æ­¤ä¸ºåˆ é™¤ç†ç”±ï¼Œè‡ªåŠ¨å‘è¯¥IDå‘é€é€šçŸ¥é‚®ä»¶ã€‚
 HELP
 );
     return 1;

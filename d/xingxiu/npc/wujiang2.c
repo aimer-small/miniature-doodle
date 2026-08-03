@@ -1,4 +1,4 @@
-// wujiang.c Îä½«
+// wujiang.c æ­¦å°†
 
 #include <ansi.h>
 inherit NPC;
@@ -6,14 +6,14 @@ inherit NPC;
 string ask_me();
 void create()
 {
-        set_name("ºî¾ı¼¯", ({ "hou junji", "hou", "junji" }));
-        set("gender", "ÄĞĞÔ");
+        set_name("ä¾¯å›é›†", ({ "hou junji", "hou", "junji" }));
+        set("gender", "ç”·æ€§");
         set("age", 45);
         set("str", 35);
         set("int", 19);
         set("con", 30);
         set("dex", 20);
-        set("long", "ºî¾ı¼¯ÊÇÕâÀïµÄÊØ½«£¬ËûÔø¸úÀî¾¸Ñ§Ï°±ø·¨£¬ÉÆÄÜÓÃ±ø¡£\n");
+        set("long", "ä¾¯å›é›†æ˜¯è¿™é‡Œçš„å®ˆå°†ï¼Œä»–æ›¾è·Ÿæé–å­¦ä¹ å…µæ³•ï¼Œå–„èƒ½ç”¨å…µã€‚\n");
         set("combat_exp", 350000);
         set("attitude", "peaceful");
 	set("max_qi", 1200);
@@ -31,10 +31,10 @@ void create()
         map_skill("parry", "qingmang-jianfa");
         map_skill("parry", "qingmang-jianfa");
         set("inquiry", ([
-		"Í¨¼©" : (: ask_me :),
-		"°ïÃ¦" : (: ask_me :),
+		"é€šç¼‰" : (: ask_me :),
+		"å¸®å¿™" : (: ask_me :),
         ]));
-    set("no_get","ºî¾ı¼¯¶ÔÄãÀ´ËµÌ«ÖØÁË¡£\n");
+    set("no_get","ä¾¯å›é›†å¯¹ä½ æ¥è¯´å¤ªé‡äº†ã€‚\n");
         setup();
         carry_object(BINGQI_D("gangjian"))->wield();
         carry_object(ARMOR_D("armor"))->wear();
@@ -45,10 +45,10 @@ void kill_ob(object me)
 	int i;
 	object ob;
 	if(!this_object()->is_killing(me->query("id"))){
-		command("say ´óµ¨£¡");
-		command("say À´ÈË£¡½«"+me->name()+"¸øÎÒ×¥ÆğÀ´£¡\n");
+		command("say å¤§èƒ†ï¼");
+		command("say æ¥äººï¼å°†"+me->name()+"ç»™æˆ‘æŠ“èµ·æ¥ï¼\n");
 		me->add_condition("killer", 15);
-		message_vision("ËÄÖÜµÄÎä½«¿ªÊ¼¶Ô$N·¢¶¯¹¥»÷£¡\n", me);
+		message_vision("å››å‘¨çš„æ­¦å°†å¼€å§‹å¯¹$Nå‘åŠ¨æ”»å‡»ï¼\n", me);
 		for(i=0; i<2; i++) {
 			if(objectp(ob = present("wu jiang "+(i+1), environment(this_object()))))
 			ob->kill_ob(me);
@@ -67,25 +67,25 @@ int accept_object(object me, object obj)
         	if(me->query_condition("killer") && me->query_temp("hou_ask")){
           		if(obj->value() >= i) {
               			command("haha " + me->query("id"));
-              			command("whisper "+me->query("id")+" Äã¾Í·ÅĞÄ°É£¬Õâ¼şÊÂ°üÔÚÎÒÉíÉÏ£¡");
+              			command("whisper "+me->query("id")+" ä½ å°±æ”¾å¿ƒå§ï¼Œè¿™ä»¶äº‹åŒ…åœ¨æˆ‘èº«ä¸Šï¼");
               			me->clear_condition("killer");
               			me->delete_temp("hou_ask");
-          			log_file("quest/tongji",sprintf("%8s%-10s»¨·Ñ%5d Á½»Æ½ğ´Óºò¾ı¼¯´¦È¡ÏûÁËÍ¨¼©Ê±¼ä£¬ÊµĞè%d¡£\n",
+          			log_file("quest/tongji",sprintf("%8s%-10sèŠ±è´¹%5d ä¸¤é»„é‡‘ä»å€™å›é›†å¤„å–æ¶ˆäº†é€šç¼‰æ—¶é—´ï¼Œå®éœ€%dã€‚\n",
 					me->name(1),"("+capitalize(getuid(me))+")", obj->value()/10000, i/10000),me);
 				return 1;
               		}
 	          	else {
-				command("say ²ÅÕâÃ´µãÇ®ÄÜ¸ÉÊ²Ã´£¿");
+				command("say æ‰è¿™ä¹ˆç‚¹é’±èƒ½å¹²ä»€ä¹ˆï¼Ÿ");
 				return 1;
               		}
 		}
         	else {
-			command("say ºÙºÙ£¬ÄÇ¾Í¶àĞ»ÁË£¡");
+			command("say å˜¿å˜¿ï¼Œé‚£å°±å¤šè°¢äº†ï¼");
 			return 1;
              	}
       }
       command("hmm " + me->query("id"));
-      command("say ÎÒ¶Ô"+obj->name()+"²»Ï¡º±¡£");
+      command("say æˆ‘å¯¹"+obj->name()+"ä¸ç¨€ç½•ã€‚");
       return 0;
 }
 
@@ -94,10 +94,10 @@ string ask_me()
 	object me = this_player();
 	int i = me->query("combat_exp")/20000 + me->query_condition("killer") / 2 + me->query("PKS") * 10;
 
-	if(!me->query_condition("killer")) return "°ïÄãÊ²Ã´Ã¦£¿±ğ·³ÎÒ£¡";
+	if(!me->query_condition("killer")) return "å¸®ä½ ä»€ä¹ˆå¿™ï¼Ÿåˆ«çƒ¦æˆ‘ï¼";
 	if (i < 20) i = 20;
 	me->set_temp("hou_ask", 1);
-	message_vision(CYN"\n$N¶Ô×Å$nºÙºÙÒ»Ğ¦£ºÉ±ÁËÈË±»Í¨¼©ÁËÊÇ°É£¿\n"NOR, this_object(), me);
-	command("whisper "+me->query("id")+" "+chinese_number(i)+"Á½»Æ½ğ¡£");
-	return "°ì·¨ÊÇÓĞ£¬²»¹ı¡­¡­ºÙºÙ£¬ÄãÓ¦¸ÃÖªµÀ¸ÃÔõÃ´×ö°É£¿\n";
+	message_vision(CYN"\n$Nå¯¹ç€$nå˜¿å˜¿ä¸€ç¬‘ï¼šæ€äº†äººè¢«é€šç¼‰äº†æ˜¯å§ï¼Ÿ\n"NOR, this_object(), me);
+	command("whisper "+me->query("id")+" "+chinese_number(i)+"ä¸¤é»„é‡‘ã€‚");
+	return "åŠæ³•æ˜¯æœ‰ï¼Œä¸è¿‡â€¦â€¦å˜¿å˜¿ï¼Œä½ åº”è¯¥çŸ¥é“è¯¥æ€ä¹ˆåšå§ï¼Ÿ\n";
 }

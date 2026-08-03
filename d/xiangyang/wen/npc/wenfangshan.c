@@ -6,12 +6,12 @@ int qingjiao(string arg);
  
 void create()
 {
-	set_name("ÎÂ·½É½", ({ "wen fangshan", "wen", "fangshan" }));
-	set("title", "ÎÂ¼ÒÎåÀÏ");
+	set_name("æ¸©æ–¹å±±", ({ "wen fangshan", "wen", "fangshan" }));
+	set("title", "æ¸©å®¶äº”è€");
 	set("long", 
-	"Ëû¾ÍÊÇÎÂ¼ÒÎåÀÏµÄÀÏÈıÎÂ·½É½¡£\n"
-	"Ò»¸öÎåÊ®À´ËêµÄÀÏÕß£¬Ô²Ô²µÄÁ³ÉÏ£¬Á÷Â¶×ÅÒõÏÕµÄÉñÇé¡£\n");
-	set("gender", "ÄĞĞÔ");
+	"ä»–å°±æ˜¯æ¸©å®¶äº”è€çš„è€ä¸‰æ¸©æ–¹å±±ã€‚\n"
+	"ä¸€ä¸ªäº”åæ¥å²çš„è€è€…ï¼Œåœ†åœ†çš„è„¸ä¸Šï¼Œæµéœ²ç€é˜´é™©çš„ç¥æƒ…ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 52);
 	set("attitude", "friendly");
 	set("shen", -9000);
@@ -51,7 +51,7 @@ void create()
 	prepare_skill("cuff", "wenjia-quan"); 
  
 	set("inquiry", ([
-		"ÎåĞĞÕó" : (: qingjiao :),
+		"äº”è¡Œé˜µ" : (: qingjiao :),
 	]));
  
 	setup(); 
@@ -64,29 +64,29 @@ int qingjiao(string arg)
 	int lvl = me->query_skill("wuxing-zhen", 1);
 
 	if (!living(me)) return 0;
-	if (!living(this_object())) return notify_fail("ÄãÏÈ°ÑËûÅªĞÑÔÙËµ°É£¡\n");
+	if (!living(this_object())) return notify_fail("ä½ å…ˆæŠŠä»–å¼„é†’å†è¯´å§ï¼\n");
 	if( me->query("combat_exp") < 800000) {
-		command("say ÄãµÄ¾­ÑéÌ«²î£¬¿ÖÅÂÎŞ·¨Áì»áÎÒ¼Ò´«¾ø¼¼¡£\n");
+		command("say ä½ çš„ç»éªŒå¤ªå·®ï¼Œææ€•æ— æ³•é¢†ä¼šæˆ‘å®¶ä¼ ç»æŠ€ã€‚\n");
 		return 1;
 	}
 	if( me->query_skill("force",1) < 160) {
-		command("say ÄãµÄ»ù±¾ÄÚ¹¦¼¶±ğÌ«²î£¬¿ÖÅÂÎŞ·¨Áì»áÎÒ¼Ò´«¾ø¼¼¡£\n");
+		command("say ä½ çš„åŸºæœ¬å†…åŠŸçº§åˆ«å¤ªå·®ï¼Œææ€•æ— æ³•é¢†ä¼šæˆ‘å®¶ä¼ ç»æŠ€ã€‚\n");
 		return 1;
 	}
 	if( me->query("potential")<= 0) {
-		command("say ½ñÌìÎÒÒÑ¾­½ÌÄãºÜ¶àÁË£¬Äã»¹ÊÇ¸ÄÌìÔÙÀ´°É¡£\n");
+		command("say ä»Šå¤©æˆ‘å·²ç»æ•™ä½ å¾ˆå¤šäº†ï¼Œä½ è¿˜æ˜¯æ”¹å¤©å†æ¥å§ã€‚\n");
 		return 1;
 	}
 	if (lvl < 200) {
-		message_vision("$NÏò$nÇë½ÌÓĞ¹ØÎåĞĞÕóµÄ°ÂÃî¡£\n", me, this_object());
+		message_vision("$Nå‘$nè¯·æ•™æœ‰å…³äº”è¡Œé˜µçš„å¥¥å¦™ã€‚\n", me, this_object());
 		me->receive_damage("jing", 30);
-		write("ÄãÌıÁËÎÂ·½É½µÄÖ¸µã£¬¶ÔÎåĞĞÕó·¨µÄ°ÂÃîËÆºõÓĞĞ©ĞÄµÃ¡£\n");
+		write("ä½ å¬äº†æ¸©æ–¹å±±çš„æŒ‡ç‚¹ï¼Œå¯¹äº”è¡Œé˜µæ³•çš„å¥¥å¦™ä¼¼ä¹æœ‰äº›å¿ƒå¾—ã€‚\n");
 		me->add("potential",-(random(3)+2));
 		if( me->query("potential") < 0)
 			me->set("potential",0);
 		me->improve_skill("wuxing-zhen", 20+random(me->query_int()));
 		return 1;
 	}
-	command( "say ÎÒÒÑ¾­Ã»ÓĞÊ²Ã´¿ÉÒÔ½ÌÄãµÄÁË¡£");
+	command( "say æˆ‘å·²ç»æ²¡æœ‰ä»€ä¹ˆå¯ä»¥æ•™ä½ çš„äº†ã€‚");
 	return 1;
 }

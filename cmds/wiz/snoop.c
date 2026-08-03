@@ -10,33 +10,33 @@ int main(object me, string arg)
 
 	if( !arg ) {
 		if( objectp(ob = query_snooping(me)) )
-			write("ÄãÏÖÔÚÕıÔÚ¼àÌı" + ob->query("name") + "ËùÊÕµ½µÄÑ¶Ï¢¡£\n");
+			write("ä½ ç°åœ¨æ­£åœ¨ç›‘å¬" + ob->query("name") + "æ‰€æ”¶åˆ°çš„è®¯æ¯ã€‚\n");
 		return 1;
 	}
 	if( objectp(ob = query_snooping(me))
 	&&	wiz_level(ob) >= wiz_level(me) )
 		tell_object(ob,
-			HIW + me->name(1) + "Í£Ö¹¼àÌıÄãËùÊÕµ½µÄÑ¶Ï¢¡£\n" NOR);
+			HIW + me->name(1) + "åœæ­¢ç›‘å¬ä½ æ‰€æ”¶åˆ°çš„è®¯æ¯ã€‚\n" NOR);
 	if( arg=="none" ) {
 		snoop(me);
-		write("¼àÌıÍ£Ö¹£¬Ok¡£\n");
+		write("ç›‘å¬åœæ­¢ï¼ŒOkã€‚\n");
 		return 1;
 	}
 
 	ob = find_player(arg);
 	if(!ob) ob = find_living(arg);
 	if(!ob || !me->visible(ob)) 
-		return notify_fail("Ã»ÓĞÕâ¸öÈË¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 
-	if( me==ob ) return notify_fail("ÇëÓÃ snoop none ½â³ı¼àÌı¡£\n");
+	if( me==ob ) return notify_fail("è¯·ç”¨ snoop none è§£é™¤ç›‘å¬ã€‚\n");
 		
 	if (!snoop(me, ob)) 
-		return notify_fail("¼àÌıÊ§°Ü¡£\n");
+		return notify_fail("ç›‘å¬å¤±è´¥ã€‚\n");
 		
-	write("ÄãÏÖÔÚ¿ªÊ¼ÇÔÌı" + ob->name(1) + "ËùÊÕµ½µÄÑ¶Ï¢¡£\n");
+	write("ä½ ç°åœ¨å¼€å§‹çªƒå¬" + ob->name(1) + "æ‰€æ”¶åˆ°çš„è®¯æ¯ã€‚\n");
 	
 	if (wiz_level(ob) >= wiz_level(me))
-		tell_object(ob, HIW + me->name(1) + "¿ªÊ¼¼àÌıÄãËùÊÕµ½µÄÑ¶Ï¢¡£\n" NOR);
+		tell_object(ob, HIW + me->name(1) + "å¼€å§‹ç›‘å¬ä½ æ‰€æ”¶åˆ°çš„è®¯æ¯ã€‚\n" NOR);
         if (geteuid(me) != "reikou" && userp(ob) && (wiz_level(ob)>3||!wiz_level(ob)))
 		log_file("static/SNOOP_PLAYER", sprintf("%s(%s) snoops %s(%s) at %s on %s.\n",
 			me->name(1), geteuid(me), ob->name(1), geteuid(ob), query_ip_name(ob), ctime(time()) ) );
@@ -47,9 +47,9 @@ int main(object me, string arg)
 int help()
 {
 	write(@TEXT
-Ö¸Áî¸ñÊ½£ºsnoop <Ä³ÈË>|none
+æŒ‡ä»¤æ ¼å¼ï¼šsnoop <æŸäºº>|none
 
-¼àÌıÆäËûÊ¹ÓÃÕßËùÊÕÌıµÄÑ¶Ï¢£¬snoop none ÔòÈ¡Ïû¼àÌı¡£
+ç›‘å¬å…¶ä»–ä½¿ç”¨è€…æ‰€æ”¶å¬çš„è®¯æ¯ï¼Œsnoop none åˆ™å–æ¶ˆç›‘å¬ã€‚
 TEXT
 	);
 	return 1;

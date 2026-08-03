@@ -1,18 +1,18 @@
-// by ÎŞÃûÓ¢ĞÛ
+// by æ— åè‹±é›„
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(HIM"¡ºº£Õ½¶ÔÕóÅÚÊõÄ±ÂÔ¡»"NOR, ({ "gunnery's book", "book" }));
+	set_name(HIM"ã€æµ·æˆ˜å¯¹é˜µç‚®æœ¯è°‹ç•¥ã€"NOR, ({ "gunnery's book", "book" }));
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
-		set("long", HIY"ÕâÊÇÒ»±¾Ê©ÀÅ½«¾üÊÖÊéµÄº£Õ½¶ÔÕóÅÚÊõÄ±ÂÔ±Ê¼Ç£¬\n"+
-			"Äã¾õµÃ×Ô¼ºÓ¦¸Ã×ĞÏ¸ÑĞ¶Á£¨Read£©Ò»ÏÂ¡£\n"NOR);
+		set("unit", "æœ¬");
+		set("long", HIY"è¿™æ˜¯ä¸€æœ¬æ–½ç…å°†å†›æ‰‹ä¹¦çš„æµ·æˆ˜å¯¹é˜µç‚®æœ¯è°‹ç•¥ç¬”è®°ï¼Œ\n"+
+			"ä½ è§‰å¾—è‡ªå·±åº”è¯¥ä»”ç»†ç ”è¯»ï¼ˆReadï¼‰ä¸€ä¸‹ã€‚\n"NOR);
 		set("value", 1);
 		set("material", "paper");
                             set("treasure", 1);
@@ -46,31 +46,31 @@ int do_du(string arg)
 	if( !(arg == ob->query("id") || arg == "book") ) return 0;
 
 	if( !me->query_skill("literate", 50) )
-		return notify_fail("Äã¼¸ºõËãÊÇ¸öÎÄÃ¤£¬ÏÈÑ§µãÎÄ»¯(literate)°É¡£\n");	   
+		return notify_fail("ä½ å‡ ä¹ç®—æ˜¯ä¸ªæ–‡ç›²ï¼Œå…ˆå­¦ç‚¹æ–‡åŒ–(literate)å§ã€‚\n");	   
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( me->is_fighting() ) 
-		return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞ×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª£¡\n");
+		return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ï¼\n");
 
 	if( !id(arg) )
-		return notify_fail("ÄãÒª¶ÁÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦è¯»ä»€ä¹ˆï¼Ÿ\n");
 
 	if( !random(5) )
-		message("vision", me->name() + "Õı×¨ĞÄµØÑĞ¶Á" + this_object()->name()+"¡£\n", environment(me), me);
+		message("vision", me->name() + "æ­£ä¸“å¿ƒåœ°ç ”è¯»" + this_object()->name()+"ã€‚\n", environment(me), me);
 
 	if( (int)me->query("jing") < ob->query("jing_cost") )
-		return notify_fail("ÄãÏÖÔÚ¹ıÓÚÆ£¾ë£¬ÎŞ·¨×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª¡£\n");
+		return notify_fail("ä½ ç°åœ¨è¿‡äºç–²å€¦ï¼Œæ— æ³•ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ã€‚\n");
 
 	if( me->query_int() < ob->query("difficulty") )
-		return notify_fail("ÄãÑĞ¶ÁÁËÒ»»á¶ù£¬·¢ÏÖ¸ù±¾²»ÄÜÁìÎòµ½ÉÏÃæĞ´Ğ©Ê²Ã´¡£\n");
+		return notify_fail("ä½ ç ”è¯»äº†ä¸€ä¼šå„¿ï¼Œå‘ç°æ ¹æœ¬ä¸èƒ½é¢†æ‚Ÿåˆ°ä¸Šé¢å†™äº›ä»€ä¹ˆã€‚\n");
 
 	if( i > ob->query("max_skill") )
-		return notify_fail("ÄãÑĞ¶ÁÁËÒ»»á¶ù£¬µ«ÊÇ·¢ÏÖÉÏÃæËùËµµÄ¶ÔÄã¶øÑÔ¶¼Ì«Ç³ÁË£¬Ã»ÓĞÑ§µ½ÈÎºÎ¶«Î÷¡£\n");
+		return notify_fail("ä½ ç ”è¯»äº†ä¸€ä¼šå„¿ï¼Œä½†æ˜¯å‘ç°ä¸Šé¢æ‰€è¯´çš„å¯¹ä½ è€Œè¨€éƒ½å¤ªæµ…äº†ï¼Œæ²¡æœ‰å­¦åˆ°ä»»ä½•ä¸œè¥¿ã€‚\n");
 
 	me->receive_damage("jing", ob->query("jing_cost")); 
 	me->improve_skill("gunnery", me->query_int() + 30);
-	write("Äã×ĞÏ¸ÑĞ¶Á×Å"+ob->name()+"£¬¾õµÃ×Ô¼ºº£Õ½¶ÔµĞÅÚÊõÊÜÒæÁ¼¶à¡£\n");
+	write("ä½ ä»”ç»†ç ”è¯»ç€"+ob->name()+"ï¼Œè§‰å¾—è‡ªå·±æµ·æˆ˜å¯¹æ•Œç‚®æœ¯å—ç›Šè‰¯å¤šã€‚\n");
 	return 1;
 }

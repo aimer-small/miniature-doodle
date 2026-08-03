@@ -1,14 +1,14 @@
-// shaobingliu.c ÉÕ±ıÁõ
+// shaobingliu.c çƒ§é¥¼åˆ˜
 // Lklv 2001.9.26
 
 inherit NPC;
 inherit F_VENDOR;
 void create()
 {
-        set_name("ÉÕ±ıÁõ", ({"shaobing liu", "liu"}) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("çƒ§é¥¼åˆ˜", ({"shaobing liu", "liu"}) );
+        set("gender", "ç”·æ€§" );
         set("age", 44+random(10));
-        set("long", "ËûÉíÉÏµÄÒÂ·şÕ´µÄÒ»¿é¿éµÄÓÍÄå¡£\n");
+        set("long", "ä»–èº«ä¸Šçš„è¡£æœæ²¾çš„ä¸€å—å—çš„æ²¹è…»ã€‚\n");
         set("attitude","heroism");
         set("combat_exp", 120000 + random(50000) );
         set("shen_type", 0);

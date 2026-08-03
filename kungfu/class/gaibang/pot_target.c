@@ -13,7 +13,7 @@ void create()
 
 	name = RNAME_D->get_random_name(i);
 	set_name(name["name"], name["id"]);
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", random(20)+25);      
 	set("str", 20+random(5));
 	set("int", 20+random(5));  
@@ -35,11 +35,11 @@ void create()
 	set_skill("parry", 100);
 	set_skill("literate", query("int")* 10);
 	set("inquiry", ([
-		"Ñò¸á×øÍÎ" :	(: ask_food , "Ñò¸á×øÍÎ":),
-		"Ğ¡Öí¶ú¶ä" :	(: ask_food , "Ğ¡Öí¶ú¶ä":),
-		"Ğ¡Å£Ñü×Ó" :	(: ask_food , "Ğ¡Å£Ñü×Ó":),
-		"â¯ÍÈÈâ" :	(: ask_food , "â¯ÍÈÈâ":),
-		"ÍÃÈâ" :	(: ask_food , "ÍÃÈâ":),
+		"ç¾Šç¾”åè‡€" :	(: ask_food , "ç¾Šç¾”åè‡€":),
+		"å°çŒªè€³æœµ" :	(: ask_food , "å°çŒªè€³æœµ":),
+		"å°ç‰›è…°å­" :	(: ask_food , "å°ç‰›è…°å­":),
+		"çè…¿è‚‰" :	(: ask_food , "çè…¿è‚‰":),
+		"å…”è‚‰" :	(: ask_food , "å…”è‚‰":),
 	]));
 
 	setup();
@@ -51,7 +51,7 @@ void dest(object ob)
 {
 	if (!ob) return;
 	if (!environment(ob)) return;
-	message_vision("$NºÃÏóÍ»È»ÏëÆğÊ²Ã´ÊÂ£¬¼±¼±Ã¦Ã¦µÄ×ß¿ªÁË¡£\n", ob);
+	message_vision("$Nå¥½è±¡çªç„¶æƒ³èµ·ä»€ä¹ˆäº‹ï¼Œæ€¥æ€¥å¿™å¿™çš„èµ°å¼€äº†ã€‚\n", ob);
 	destruct(ob);
 }
 
@@ -68,7 +68,7 @@ int ask_food(string name)
 		return 0;
 
 	if ( me->query_temp("potjob/value/"+ query("id"))){
-		command("say ÂŞàÂÊ²Ã´°¡£¿Ò»¿Ú¼Û£¬ÎÒ¶¼ËµÁË£¬²»Òª¾ÍËãÁË¡£");
+		command("say ç½—å—¦ä»€ä¹ˆå•Šï¼Ÿä¸€å£ä»·ï¼Œæˆ‘éƒ½è¯´äº†ï¼Œä¸è¦å°±ç®—äº†ã€‚");
 		return 1;
 	}
 
@@ -84,22 +84,22 @@ int ask_food(string name)
 				ob->set_temp("job_id", me);
 				command("give "+ food_id +" to "+me->query("id"));
 				if ( ob->move(me)) {
-					command("say àÅ£¬ÄãÒªµÄ»°£¬¾ÍÄÃÈ¥°É¡£");
+					command("say å—¯ï¼Œä½ è¦çš„è¯ï¼Œå°±æ‹¿å»å§ã€‚");
 					me->set_temp("potjob/be_get/"+ob->name(), 1);
 					if ( me->query_temp("potjob/pot_job_place/"+query("name")))
 						me->delete_temp("potjob/pot_job_place/"+query("name"));
 					dest(this_object());
 				}
 				else {
-					command("say ÄãÉíÉÏ¶«Î÷Ì«¶àÁË°É£¿");
+					command("say ä½ èº«ä¸Šä¸œè¥¿å¤ªå¤šäº†å§ï¼Ÿ");
 					random_move();
 				}
 			}
-			else tell_object(me, "Òì³£ÎÊÌâ£¬ÇëÏòWiz±¨¸æ£¡\n");
+			else tell_object(me, "å¼‚å¸¸é—®é¢˜ï¼Œè¯·å‘WizæŠ¥å‘Šï¼\n");
 			break;
 		case 2: 
 			i = 10 + random(10);
-			command("say ºÙºÙ£¬Äã×ÜÒª±íÊ¾±íÊ¾°É£¿¾Í"+chinese_number(i)+"Á½Òø×Ó°É¡£");
+			command("say å˜¿å˜¿ï¼Œä½ æ€»è¦è¡¨ç¤ºè¡¨ç¤ºå§ï¼Ÿå°±"+chinese_number(i)+"ä¸¤é“¶å­å§ã€‚");
 			me->set_temp("potjob/value/"+ query("id"), i*100);
 			break;
 	}
@@ -118,7 +118,7 @@ int accept_object(object me, object obj)
 	food_id = query_temp("food_id");
 	
 	if (! obj->query("money_id")) {
-		command("say ³ıÁËÇ®£¬ÎÒÊ²Ã´¶«Î÷Ò²²»Òª¡£");
+		command("say é™¤äº†é’±ï¼Œæˆ‘ä»€ä¹ˆä¸œè¥¿ä¹Ÿä¸è¦ã€‚");
 		return 0;
 	}
 
@@ -127,7 +127,7 @@ int accept_object(object me, object obj)
 			ob->set_temp("job_id", me);
 			command("give "+ food_id +" to "+me->query("id"));
 			if ( ob->move(me)) {
-				command("say àÅ£¬ÄãÒª¾ÍÄÃÈ¥°É¡£");
+				command("say å—¯ï¼Œä½ è¦å°±æ‹¿å»å§ã€‚");
 				me->set_temp("potjob/be_get/"+ob->name(), 1);
 				if ( me->query_temp("potjob/pot_job_place/"+query("name")))
 					me->delete_temp("potjob/pot_job_place/"+query("name"));
@@ -135,15 +135,15 @@ int accept_object(object me, object obj)
 				return 1;
 			}
 			else {
-				command("say ÄãÉíÉÏ¶«Î÷Ì«¶àÁË°É£¿");
+				command("say ä½ èº«ä¸Šä¸œè¥¿å¤ªå¤šäº†å§ï¼Ÿ");
 				random_move();
 				return 0;
 			}
 		}
 		else 
-			return notify_fail("Òì³£ÎÊÌâ£¬ÇëÏòWiz±¨¸æ£¡\n");
+			return notify_fail("å¼‚å¸¸é—®é¢˜ï¼Œè¯·å‘WizæŠ¥å‘Šï¼\n");
 	}
-	command("say Äã´ò·¢½Ğ»¯×Ó°¡£¿");
+	command("say ä½ æ‰“å‘å«åŒ–å­å•Šï¼Ÿ");
 	return 0;
 }
 

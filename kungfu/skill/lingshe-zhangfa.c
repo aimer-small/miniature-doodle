@@ -1,49 +1,49 @@
-//lingshe_zhangfa.c ÁéÉßÕÈ·¨
+//lingshe_zhangfa.c çµè›‡æ–æ³•
 //updated by redhat@sjmud 2009/5/9
 
 #include "ansi.h"
 
 inherit SKILL;
 mapping *action = ({
-([  "action": HIB"$NÊ¹³öÒ»ÕÐ¡¸ÁéÉß³ö¶´¡¹£¬ÊÖÖÐ$w"HIB"´ó¿ª´óãØÉ¨Ïò$nµÄ$l"NOR,
+([  "action": HIB"$Nä½¿å‡ºä¸€æ‹›ã€Œçµè›‡å‡ºæ´žã€ï¼Œæ‰‹ä¸­$w"HIB"å¤§å¼€å¤§é˜–æ‰«å‘$nçš„$l"NOR,
     "lvl" : 0,
-    "skill_name" : RED "ÁéÉß³ö¶´" NOR,
-    "damage_type": "´ìÉË"
+    "skill_name" : RED "çµè›‡å‡ºæ´ž" NOR,
+    "damage_type": "æŒ«ä¼¤"
 ]),
-([  "action": HIY"$NÊÖÖÐ$w"HIY"ÕóÕó·çÏì£¬Ò»ÕÐ¡¸Ò¡Í·°ÚÎ²¡¹Ïò$nµÄ$l¹¥È¥"NOR,
+([  "action": HIY"$Næ‰‹ä¸­$w"HIY"é˜µé˜µé£Žå“ï¼Œä¸€æ‹›ã€Œæ‘‡å¤´æ‘†å°¾ã€å‘$nçš„$læ”»åŽ»"NOR,
     "lvl" : 20,
-    "skill_name" : MAG "Ò¡Í·°ÚÎ²" NOR,
-    "damage_type": "´ìÉË"
+    "skill_name" : MAG "æ‘‡å¤´æ‘†å°¾" NOR,
+    "damage_type": "æŒ«ä¼¤"
 ]),
-([  "action": HIG"$N¾ÙÆð$w"HIG"£¬¾Ó¸ßÁÙÏÂÊ¹Ò»ÕÐ¡¸ÁéÉßÏÂ½§¡¹ÔÒÏò$nµÄ$l"NOR,
+([  "action": HIG"$Nä¸¾èµ·$w"HIG"ï¼Œå±…é«˜ä¸´ä¸‹ä½¿ä¸€æ‹›ã€Œçµè›‡ä¸‹æ¶§ã€ç ¸å‘$nçš„$l"NOR,
     "lvl" : 30,
-    "skill_name" : HIW "ÁéÉßÏÂ½§" NOR,
-    "damage_type": "´ìÉË"
+    "skill_name" : HIW "çµè›‡ä¸‹æ¶§" NOR,
+    "damage_type": "æŒ«ä¼¤"
 ]),
-([  "action": HIM"$NÒ»ÕÐ¡¸ÁéÉßÍ¦Éí¡¹£¬ÊÖÖÐ$w"HIM"ÃÍÁÒÉ¨Ïò$nµÄ$l"NOR,
+([  "action": HIM"$Nä¸€æ‹›ã€Œçµè›‡æŒºèº«ã€ï¼Œæ‰‹ä¸­$w"HIM"çŒ›çƒˆæ‰«å‘$nçš„$l"NOR,
     "lvl" : 40,
-    "skill_name" : YEL "ÁéÉßÍ¦Éí" NOR,
-    "damage_type": "´ìÉË"
+    "skill_name" : YEL "çµè›‡æŒºèº«" NOR,
+    "damage_type": "æŒ«ä¼¤"
 ]),
-([  "action": HIR"$NÊ¹³öÒ»ÕÐ¡¸ÉßÓÎòþ×ß¡¹£¬$w"HIR"×óÓÒÓØ»ØÏò$nµÄ$lÉ¨È¥"NOR,
+([  "action": HIR"$Nä½¿å‡ºä¸€æ‹›ã€Œè›‡æ¸¸èŸ’èµ°ã€ï¼Œ$w"HIR"å·¦å³è¿‚å›žå‘$nçš„$læ‰«åŽ»"NOR,
     "lvl" : 50,
-    "skill_name" : YEL "ÉßÓÎòþ×ß" NOR,
-    "damage_type": "´ìÉË"
+    "skill_name" : YEL "è›‡æ¸¸èŸ’èµ°" NOR,
+    "damage_type": "æŒ«ä¼¤"
 ]),
-([  "action": HIY"$NÊÖÖÐ$w"HIY"Ò»»Ó£¬Ê¹³öÒ»ÕÐ¡¸Éß²ø×óÓÒ¡¹£¬ºö×óºöÓÒÉ¨Ïò$nµÄ$l"NOR,
+([  "action": HIY"$Næ‰‹ä¸­$w"HIY"ä¸€æŒ¥ï¼Œä½¿å‡ºä¸€æ‹›ã€Œè›‡ç¼ å·¦å³ã€ï¼Œå¿½å·¦å¿½å³æ‰«å‘$nçš„$l"NOR,
     "lvl" : 60,
-    "skill_name" : BLU "Éß²ø×óÓÒ" NOR,
-    "damage_type": "´ìÉË"
+    "skill_name" : BLU "è›‡ç¼ å·¦å³" NOR,
+    "damage_type": "æŒ«ä¼¤"
 ]),
-([  "action": HIM"$NÊ¹³öÒ»ÕÐ¡¸¾ÞòþÏÂÉ½¡¹£¬¸ß¾ÙÊÖÖÐ$w"HIM"£¬ÅüÍ·ÔÒÏò$nµÄ$l"NOR,
+([  "action": HIM"$Nä½¿å‡ºä¸€æ‹›ã€Œå·¨èŸ’ä¸‹å±±ã€ï¼Œé«˜ä¸¾æ‰‹ä¸­$w"HIM"ï¼ŒåŠˆå¤´ç ¸å‘$nçš„$l"NOR,
     "lvl" : 80,
-    "skill_name" : RED "¾ÞòþÏÂÉ½" NOR,
-    "damage_type": "´ìÉË"
+    "skill_name" : RED "å·¨èŸ’ä¸‹å±±" NOR,
+    "damage_type": "æŒ«ä¼¤"
 ]),
-([  "action": HIB"$NÊ¹³öÒ»ÕÐ¡¸ÁéÉß³ö¶´¡¹£¬ÊÖÖÐ$w"HIB"ÃÍÒ»Ì½£¬Ö±É¨$nµÄ$l"NOR,
+([  "action": HIB"$Nä½¿å‡ºä¸€æ‹›ã€Œçµè›‡å‡ºæ´žã€ï¼Œæ‰‹ä¸­$w"HIB"çŒ›ä¸€æŽ¢ï¼Œç›´æ‰«$nçš„$l"NOR,
     "lvl" : 100,
-    "skill_name" : RED "ÁéÉß³ö¶´" NOR,
-    "damage_type": "´ìÉË"
+    "skill_name" : RED "çµè›‡å‡ºæ´ž" NOR,
+    "damage_type": "æŒ«ä¼¤"
 ]),
 });
 
@@ -82,7 +82,7 @@ mapping query_action(object me, object weapon)
 		return ([
 			"action" : action[j]["action"],
 			"damage": 220 + random(100),
-			"damage_type": "´ÌÉË",
+			"damage_type": "åˆºä¼¤",
 			"dodge": random(30)-20,
 			"parry": random(30),
 			"force": 350 + random(250),
@@ -91,7 +91,7 @@ mapping query_action(object me, object weapon)
 		return ([
 			"action" : action[j]["action"],
 			"damage": 350 + random(250),
-			"damage_type": "´ÌÉË",
+			"damage_type": "åˆºä¼¤",
 			"dodge": random(30)-20,
 			"parry": random(30),
 			"force": 450 + random(250),
@@ -101,9 +101,9 @@ mapping query_action(object me, object weapon)
 int practice_skill(object me)
 {
 	if ((int)me->query("jingli") < 60)
-		return notify_fail("ÄãµÄÌåÁ¦²»¹»ÁË¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿäº†ã€‚\n");
 	if ((int)me->query("neili") < 30)
-		return notify_fail("ÄãµÄÌåÁ¦²»¹»ÁË¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿäº†ã€‚\n");
 	me->receive_damage("jingli", 50);
 	me->add("neili", -20);
 	return 1;
@@ -114,14 +114,14 @@ int valid_learn(object me)
 	object weapon;
 
 	if( (int)me->query("max_neili") < 500 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»×ã£¬Ã»ÓÐ°ì·¨Á·ÁéÉßÕÈ·¨, ¶àÁ·Ð©ÄÚÁ¦ÔÙÀ´°É¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸è¶³ï¼Œæ²¡æœ‰åŠžæ³•ç»ƒçµè›‡æ–æ³•, å¤šç»ƒäº›å†…åŠ›å†æ¥å§ã€‚\n");
 
 	if (!me->query_skill("hamagong", 1) || me->query_skill("hamagong", 1) < 50)
-		return notify_fail("ÄãµÄ¸òó¡¹¦»ðºòÌ«Ç³¡£\n");
+		return notify_fail("ä½ çš„è›¤èŸ†åŠŸç«å€™å¤ªæµ…ã€‚\n");
 
 	if ( !objectp(weapon = me->query_temp("weapon"))
 	|| ( string)weapon->query("skill_type") != "staff" )
-		return notify_fail("Äã±ØÐëÊ¹ÓÃÕÈÀ´Á·ÕÈ·¨¡£\n");
+		return notify_fail("ä½ å¿…é¡»ä½¿ç”¨æ–æ¥ç»ƒæ–æ³•ã€‚\n");
 	return 1;
 }
 
@@ -147,7 +147,7 @@ mixed hit_ob(object me, object victim, int damage_bonus)
                 if( me->query_skill_prepared("cuff") == "lingshe-zhangfa"
                  && me->query_skill_mapped("cuff") == "lingshe-zhangfa"
                  && me->query_skill("lingshe-quanfa", 1) >= 200 && random(3) ) {
-                 	message_vision(HIB"Ö»¼û$NÊÖÖÐ"+weapon->name()+HIB"ÉÏÈËÍ·µñµÃ¸üÊÇ¹îÆæ¿É²À£¬Ö»ÊÇÁ½Ìõ¹ÖÉßËäÈ»¶¾ÐÔÎÞÒì£¬Í»È»ÅçÉäÁ½ÐÐ¶¾Òº£¬Ïò$n¼¤Éä¶øÈ¥£¡\n"NOR, me);
+                 	message_vision(HIB"åªè§$Næ‰‹ä¸­"+weapon->name()+HIB"ä¸Šäººå¤´é›•å¾—æ›´æ˜¯è¯¡å¥‡å¯æ€–ï¼Œåªæ˜¯ä¸¤æ¡æ€ªè›‡è™½ç„¶æ¯’æ€§æ— å¼‚ï¼Œçªç„¶å–·å°„ä¸¤è¡Œæ¯’æ¶²ï¼Œå‘$næ¿€å°„è€ŒåŽ»ï¼\n"NOR, me);
                         
                         me->add_temp("apply/attack",  me->query_skill("lingshe-quanfa", 1)/2);
                         me->set_temp("lingshe");
@@ -156,7 +156,7 @@ mixed hit_ob(object me, object victim, int damage_bonus)
                         me->delete_temp("lingshe");
                         me->add_temp("apply/attack", -me->query_skill("lingshe-quanfa", 1)/2);
                 } else {
-                  message_vision(HIM"$NÈ«Éí¾­ÂöÄæ×ª£¬Æ¾×ÅÎäÑ§Ô¨Éî£¬ÄÚ¹¦»ëºñ£¬¾¹¶ûÒÑÓÐÐ¡³É£¬µ±ÏÂ"+weapon->name()+HIM"»Ó¶¯£¬ºö±ä¹ÖÕÐ£¬ÕÐÊ½¼«ÎªÁèÀ÷£¡"NOR, me);     
+                  message_vision(HIM"$Nå…¨èº«ç»è„‰é€†è½¬ï¼Œå‡­ç€æ­¦å­¦æ¸Šæ·±ï¼Œå†…åŠŸæµ‘åŽšï¼Œç«Ÿå°”å·²æœ‰å°æˆï¼Œå½“ä¸‹"+weapon->name()+HIM"æŒ¥åŠ¨ï¼Œå¿½å˜æ€ªæ‹›ï¼Œæ‹›å¼æžä¸ºå‡ŒåŽ‰ï¼"NOR, me);     
                         me->set_temp("lingshe", 1);
                         me->add_temp("apply/attack",  me->query_skill("lingshe-zhangfa", 1));
                         COMBAT_D->do_attack(me, victim, me->query_temp("weapon"),  3);
@@ -170,8 +170,8 @@ mixed hit_ob(object me, object victim, int damage_bonus)
          && random(me->query_con()) > victim->query_str()/3
          && !victim->query_temp("lost_attack")
          && !me->query_temp("wugou") ) {
-                message_vision(HIY"$NÓÒÊÖÎÕ"+weapon->name()+HIY"Ö±Í¦£¬Äý¾Û¹¦Á¦ÓÚ"+weapon->name()+HIY"ÉÏ£¬ÉíÐÐËæ·çÆ®°Ú£¬¶øÕÈ¼âÈÎËû¿ñ·ç±©ÓêÒ²²»ÒÆ¶¯£¬\n"+
-					                     HIY"µ¥µ¥Ö±Ö¸$nÐÄ¿Ú£¬ÕýÊÇ´ò¹·°ôµÚÈýÊ®ÁùÂ·°ô·¨¡¸"HIG"ÌìÏÂÎÞ¹·"NOR"¡¹"HIY"µÄµÚÁù±äµÄ°ôÐÄËùÔÚ£¡\n"NOR, me, victim);
+                message_vision(HIY"$Nå³æ‰‹æ¡"+weapon->name()+HIY"ç›´æŒºï¼Œå‡èšåŠŸåŠ›äºŽ"+weapon->name()+HIY"ä¸Šï¼Œèº«è¡Œéšé£Žé£˜æ‘†ï¼Œè€Œæ–å°–ä»»ä»–ç‹‚é£Žæš´é›¨ä¹Ÿä¸ç§»åŠ¨ï¼Œ\n"+
+					                     HIY"å•å•ç›´æŒ‡$nå¿ƒå£ï¼Œæ­£æ˜¯æ‰“ç‹—æ£’ç¬¬ä¸‰åå…­è·¯æ£’æ³•ã€Œ"HIG"å¤©ä¸‹æ— ç‹—"NOR"ã€"HIY"çš„ç¬¬å…­å˜çš„æ£’å¿ƒæ‰€åœ¨ï¼\n"NOR, me, victim);
 					                     me->set_temp("wugou");
                 victim->add_temp("lost_attack", 1+random(3));
                 return random(me->query_skill("staff"))/3;

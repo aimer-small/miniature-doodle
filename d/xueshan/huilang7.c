@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÕÚÓêÀÈ");
+	set("short", "é®é›¨å»Š");
 	set("long", @LONG
-Ò»µÀ²»ËãÌ«¿íµÄ³¤ÀÈ£¬Í¨Ïò¼¸×ùÖ÷ÒªµÄ´óµî£¬ÀÈ¶¥ºÍÀÈÖùÉÏÂú²¼±Ú»­£¬ÃèĞ´
-ÁËÀúÊ·ÈËÎïÊÂ¼£ºÍ·ğ½Ì¹ÊÊÂ£¬É«²ÊÑŞÀö£¬ĞÎÏó±ÆÕæ¡£
+ä¸€é“ä¸ç®—å¤ªå®½çš„é•¿å»Šï¼Œé€šå‘å‡ åº§ä¸»è¦çš„å¤§æ®¿ï¼Œå»Šé¡¶å’Œå»ŠæŸ±ä¸Šæ»¡å¸ƒå£ç”»ï¼Œæå†™
+äº†å†å²äººç‰©äº‹è¿¹å’Œä½›æ•™æ•…äº‹ï¼Œè‰²å½©è‰³ä¸½ï¼Œå½¢è±¡é€¼çœŸã€‚
 LONG
 	);
 
@@ -16,17 +16,17 @@ LONG
                 "west" : __DIR__"yushengdian",
                 "south" : __DIR__"huilang5",
 	]));
-        set("outdoors", "Ñ©É½");
+        set("outdoors", "é›ªå±±");
         set("objects", ([CLASS_D("xueshan") + "/hubayin" : 1,]));
 	setup();
 }
 int valid_leave(object me, string dir)
 {
-        if ((string)me->query("family/family_name") != "´óÂÖËÂ" 
+        if ((string)me->query("family/family_name") != "å¤§è½®å¯º" 
            && dir == "west"  
            && present("hu bayin", environment(me)))
 	return notify_fail(
-"ºô°ÍÒôÊÖÒ»Éì£¬µÀ£º¡°ÕâÎ»Ê©Ö÷£¬´Ë´¦Ö»ÓĞÍÂŞ¬Íõ×å²Å¿ÉÒÔ½øÈ¥£¬ÇëÈ¥±ğ´¦ËæÏ²°É¡£\n");
+"å‘¼å·´éŸ³æ‰‹ä¸€ä¼¸ï¼Œé“ï¼šâ€œè¿™ä½æ–½ä¸»ï¼Œæ­¤å¤„åªæœ‰åè•ƒç‹æ—æ‰å¯ä»¥è¿›å»ï¼Œè¯·å»åˆ«å¤„éšå–œå§ã€‚\n");
 
 	return ::valid_leave(me, dir);
 }

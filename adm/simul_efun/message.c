@@ -1,5 +1,10 @@
 // message.c
 
+varargs void message(mixed type, string msg, mixed target, mixed exclude)
+{
+    efun::message(type, msg, target, exclude || ({}));
+}
+
 varargs object snoop( object snooper, object snoopee )
 {
 	if (wiz_level(snooper) < wiz_level(snoopee))

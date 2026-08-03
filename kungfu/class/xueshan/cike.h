@@ -1,4 +1,4 @@
-// cike.h ´Ì¿Í
+// cike.h åˆºå®¢
 
 void init()
 {	
@@ -7,15 +7,15 @@ void init()
 	if (ob->query_temp("cike",1))
             	switch( random(3) ) {
 		case 0:
-			command("say Ôôµ¨°üÌìµÄ´Ì¿ÍÔÚÕâÀï£¡ÄÇÀïÅÜ£¡");
+			command("say è´¼èƒ†åŒ…å¤©çš„åˆºå®¢åœ¨è¿™é‡Œï¼é‚£é‡Œè·‘ï¼");
                                     command("kill "+ob->query("id"));
 			break;
 		case 1:
-			command("say ÎªÍõ×Ó±¨³ð£¡´ó¼ÒÉÏ°¡£¡");
+			command("say ä¸ºçŽ‹å­æŠ¥ä»‡ï¼å¤§å®¶ä¸Šå•Šï¼");
 			command("kill "+ob->query("id"));
 			break;
 		case 2:
-			command("say ¸Ò´ÌÉ±ÎÒ¼ÒÍõ×Ó£¬¸ñÉ±ÎðÂÛ£¡");
+			command("say æ•¢åˆºæ€æˆ‘å®¶çŽ‹å­ï¼Œæ ¼æ€å‹¿è®ºï¼");
 			command("kill "+ob->query("id"));
 			break;
 	}

@@ -4,11 +4,11 @@ inherit NPC;
  
 void create()
 {
-	set_name("����", ({ "wen yi", "wen" }));
+	set_name("温仪", ({ "wen yi", "wen" }));
 	set("long", 
-        "�����ǽ����ɾ����������ǡ�\n"
-        "һλ��ʮ�����Ů�ӣ���ò���㣬����һ�ֳ������ζ��\n");
-	set("gender", "Ů��");
+        "她就是金蛇郎君的妻子温仪。\n"
+        "一位三十来岁的女子，容貌清秀，有着一种成熟的韵味。\n");
+	set("gender", "女性");
 	set("age", 36);
 	set("attitude", "friendly");
 	set("shen", 1000);
@@ -64,6 +64,6 @@ void kill_ob(object ob)
 {
 	ob->remove_killer(this_object());
 	remove_killer(ob);
-	message_vision("���Ƕ�$N����һЦ����ת����ȥ��ü���û��˿���־塣��\n", ob);
-	message_vision("$N���к�Ȼ���ã����Լ����������޳ܣ���һ�����޴�������ҲҪ�´˶��֣���\n", ob);
+	message_vision("温仪对$N淡淡一笑，又转过身去，眉宇间没有丝毫恐惧。”\n", ob);
+	message_vision("$N心中忽然觉得：“自己怎麽这麽无耻，对一个手无寸铁的人也要下此毒手？”\n", ob);
 }

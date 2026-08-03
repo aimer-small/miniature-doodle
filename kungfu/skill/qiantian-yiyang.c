@@ -2,7 +2,7 @@
 inherit FORCE;
 
 int valid_enable(string usage) {
-	  if (this_player()->query("family/family_name")=="ÌìÁúËÂ" || this_player()->query("cw_mp/ÌìÁúËÂ")) return usage == "force"; }
+	  if (this_player()->query("family/family_name")=="å¤©é¾™å¯º" || this_player()->query("cw_mp/å¤©é¾™å¯º")) return usage == "force"; }
 
 #include "force.h"
 
@@ -16,22 +16,22 @@ int valid_learn(object me)
 	if ((i >= 10 && (int)me->query("shen") < i * 5)
 	 || (i >= 50 && (int)me->query("shen") < i * 8)
 	 || (i >= 100 && (int)me->query("shen") < i * 10))
-		return notify_fail("´óÀíÄËÊÇÃ÷ÃÅÕıÅÉ£¬¿´À´ÄãµÄÏÀÒåÕıÆø»¹²»¹»°¡£¡\n");
+		return notify_fail("å¤§ç†ä¹ƒæ˜¯æ˜é—¨æ­£æ´¾ï¼Œçœ‹æ¥ä½ çš„ä¾ ä¹‰æ­£æ°”è¿˜ä¸å¤Ÿå•Šï¼\n");
 
 	if ( me->query("tls") && i > 10 && i < 150 && l < i - 10)
-		return notify_fail("ÄãµÄ·ğÑ§ĞŞÎª¿´À´²»ÄÜÒÖÖ¹ÄãµÄĞÄÖĞµÄºÃÊ¤Ö®ĞÄÁË£¡\n");
+		return notify_fail("ä½ çš„ä½›å­¦ä¿®ä¸ºçœ‹æ¥ä¸èƒ½æŠ‘æ­¢ä½ çš„å¿ƒä¸­çš„å¥½èƒœä¹‹å¿ƒäº†ï¼\n");
 
 	if (me->query_skill("force", 1) < 20)
-		return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦»ğºò»¹²»¹»£¬ÎŞ·¨Áì»áÇ¬ÌìÒ»Ñô¹¦¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç«å€™è¿˜ä¸å¤Ÿï¼Œæ— æ³•é¢†ä¼šä¹¾å¤©ä¸€é˜³åŠŸã€‚\n");
 
-	if (i > 99 && (string)me->query("gender") != "ÄĞĞÔ")
-		return notify_fail("Äã²»ÊÇ´¿ÑôÖ®Éí£¬ÎŞ·¨Áì»á¸ü¸ß²ãµÄÇ¬ÌìÒ»Ñô¹¦¡£\n");
+	if (i > 99 && (string)me->query("gender") != "ç”·æ€§")
+		return notify_fail("ä½ ä¸æ˜¯çº¯é˜³ä¹‹èº«ï¼Œæ— æ³•é¢†ä¼šæ›´é«˜å±‚çš„ä¹¾å¤©ä¸€é˜³åŠŸã€‚\n");
 
 	if ( me->query("menggu"))
-		return notify_fail("Ç¬ÌìÒ»Ñô¹¦Ôõ¿ÉºÍĞ°ÅÉ¹¦·ò»ìÎªÒ»Ìå£¿\n");
+		return notify_fail("ä¹¾å¤©ä¸€é˜³åŠŸæ€å¯å’Œé‚ªæ´¾åŠŸå¤«æ··ä¸ºä¸€ä½“ï¼Ÿ\n");
 
 	if ( i > me->query_skill("force", 1) + 10 && i >= 200 )
-		return notify_fail("ÄãµÄ»ù±¾¹¦»ğºòÎ´µ½£¬±ØĞëÏÈ´òºÃ»ù´¡²ÅÄÜ¼ÌĞøÌá¸ß¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬åŠŸç«å€™æœªåˆ°ï¼Œå¿…é¡»å…ˆæ‰“å¥½åŸºç¡€æ‰èƒ½ç»§ç»­æé«˜ã€‚\n");
 
         return valid_public(me);
 }
@@ -45,9 +45,9 @@ int practice_skill(object me)
 			me->add("potential", -1*(1+random(3)));
 			return 1;
 		}
-		else return notify_fail("ÄãÏÖÔÚµÄĞŞÎª²»×ãÒÔÌá¸ßÇ¬ÌìÒ»Ñô¹¦ÁË¡£\n");
+		else return notify_fail("ä½ ç°åœ¨çš„ä¿®ä¸ºä¸è¶³ä»¥æé«˜ä¹¾å¤©ä¸€é˜³åŠŸäº†ã€‚\n");
 	}
-	else return notify_fail("ÄãÏÖÔÚµÄÇ¬ÌìÒ»Ñô¹¦ĞŞÎªÖ»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	else return notify_fail("ä½ ç°åœ¨çš„ä¹¾å¤©ä¸€é˜³åŠŸä¿®ä¸ºåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 string exert_function_file(string func)
@@ -58,12 +58,12 @@ string exert_function_file(string func)
 mapping exercise_msg(object me)
 {
 	return ([
-		"status_msg" : HIY + me->name()+"½áçì¶ø×ø£¬ÉñÌ¬°²Ïê"NOR,
-		"start_my_msg" : "ÄãÅÌÏ¥×øÏÂ£¬±ÕÄ¿ºÏÊ²£¬ÔËÆğÇ¬ÌìÒ»ÑôÉñ¹¦£¬Ò»¹É´¿ÑôÕæÆø¿ªÊ¼ÔÚÌåÄÚÔË×ª¡£\n",
-		"start_other_msg" : me->name()+"ÅÌÏ¥×øÏÂ£¬±ÕÄ¿ºÏÊ²,ÉñÌ¬°²Ïê£¬ÖÜÉíËÆºõÓĞÒ»²ã½ğ¹âÁıÕÖ¡£\n",
-		"halt_msg" : "$NË«ÕÆÒ»·Ö£¬Æ½Ì¯ÔÚĞØ£¬Ñ¸ËÙÊÕÆø£¬Í£Ö¹ÕæÆøµÄÁ÷¶¯¡£\n",
-		"end_my_msg" : "ÄãÕæÆøÔÚÌåÄÚÔËĞĞÁËÒ»¸öÖÜÌì£¬»º»ºÊÕÆøÓÚµ¤Ìï£¬ÂıÂıÕö¿ªÁËÑÛ¾¦¡£\n",
-		"end_other_msg" : "Ö»¼û"+me->name()+"ÂıÂıÕö¿ªÑÛ¾¦£¬ÖÜÉíÁıÕÖµÄ½ğ¹âÖğ½¥ÒşÈ¥¡£\n"
+		"status_msg" : HIY + me->name()+"ç»“çˆè€Œåï¼Œç¥æ€å®‰è¯¦"NOR,
+		"start_my_msg" : "ä½ ç›˜è†åä¸‹ï¼Œé—­ç›®åˆä»€ï¼Œè¿èµ·ä¹¾å¤©ä¸€é˜³ç¥åŠŸï¼Œä¸€è‚¡çº¯é˜³çœŸæ°”å¼€å§‹åœ¨ä½“å†…è¿è½¬ã€‚\n",
+		"start_other_msg" : me->name()+"ç›˜è†åä¸‹ï¼Œé—­ç›®åˆä»€,ç¥æ€å®‰è¯¦ï¼Œå‘¨èº«ä¼¼ä¹æœ‰ä¸€å±‚é‡‘å…‰ç¬¼ç½©ã€‚\n",
+		"halt_msg" : "$NåŒæŒä¸€åˆ†ï¼Œå¹³æ‘Šåœ¨èƒ¸ï¼Œè¿…é€Ÿæ”¶æ°”ï¼Œåœæ­¢çœŸæ°”çš„æµåŠ¨ã€‚\n",
+		"end_my_msg" : "ä½ çœŸæ°”åœ¨ä½“å†…è¿è¡Œäº†ä¸€ä¸ªå‘¨å¤©ï¼Œç¼“ç¼“æ”¶æ°”äºä¸¹ç”°ï¼Œæ…¢æ…¢çå¼€äº†çœ¼ç›ã€‚\n",
+		"end_other_msg" : "åªè§"+me->name()+"æ…¢æ…¢çå¼€çœ¼ç›ï¼Œå‘¨èº«ç¬¼ç½©çš„é‡‘å…‰é€æ¸éšå»ã€‚\n"
 	]);
 }
 
@@ -87,7 +87,7 @@ int ob_hit(object ob, object me, int damage)
 			me->add("neili",-neili);
 			if( wizardp(me) && me->query("env/test") )
 				tell_object(me,sprintf("dec: %d,%d\n",damage,neili));
-			message_vision(CYN"$NÒÔÒ»ÑôÖ¸Èá¾¢ÎüÊÕµô$nÈ«²¿µÄ¹¥»÷¡£\n"NOR, me, ob);
+			message_vision(CYN"$Nä»¥ä¸€é˜³æŒ‡æŸ”åŠ²å¸æ”¶æ‰$nå…¨éƒ¨çš„æ”»å‡»ã€‚\n"NOR, me, ob);
 			return -damage;
 		}
 	}
@@ -102,7 +102,7 @@ int ob_hit(object ob, object me, int damage)
 	me->add_temp("dali/jujing1", i*j);
 	if( wizardp(me) && me->query("env/test") )
 		tell_object(me,sprintf("dec: %d(%d) \n",i,damage));
-	message_vision(CYN"$NÒÔÒ»ÑôÖ¸Èá¾¢ÎüÊÕµô$n²¿·Ö¹¥»÷¡£\n"NOR, me,ob);
+	message_vision(CYN"$Nä»¥ä¸€é˜³æŒ‡æŸ”åŠ²å¸æ”¶æ‰$néƒ¨åˆ†æ”»å‡»ã€‚\n"NOR, me,ob);
 
 	return -i;
 }

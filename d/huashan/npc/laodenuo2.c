@@ -1,7 +1,7 @@
 // NPC: /d/huashan/npc/laodenuo.c
 // Date: Look 99/03/25
 // Lklv Modify at 2001.10.18
-// By Spiderii@ytĞŞ¸ÄÙºÂ»
+// By Spiderii@ytä¿®æ”¹ä¿¸ç¦„
 inherit NPC;
 
 #include <ansi.h>
@@ -11,12 +11,12 @@ string ask_me(object who);
 
 void create()
 {
-        set_name("ÀÍµÂÅµ", ({ "lao denuo", "lao", "denuo" }));
-        set("nickname", "ÀÏºÃÈË");
+        set_name("åŠ³å¾·è¯º", ({ "lao denuo", "lao", "denuo" }));
+        set("nickname", "è€å¥½äºº");
         set("long",
-"ÀÍµÂÅµÉí²Ä°«ÅÖ£¬ÂúÃæºì¹â£¬³ÉÌìĞ¦ÃĞÃĞµÄ£¬ËûÔÚ\n"
-"Í¬ÃÅÖĞÅÅĞĞµÚ¶ş£¬ÊÇ»ªÉ½ÅÉÄêÇáÒ»´úÖĞÎ¨Ò»´øÒÕÍ¶Ê¦µÄ¡£\n");
-        set("gender", "ÄĞĞÔ");
+"åŠ³å¾·è¯ºèº«æçŸ®èƒ–ï¼Œæ»¡é¢çº¢å…‰ï¼Œæˆå¤©ç¬‘çœ¯çœ¯çš„ï¼Œä»–åœ¨\n"
+"åŒé—¨ä¸­æ’è¡Œç¬¬äºŒï¼Œæ˜¯åå±±æ´¾å¹´è½»ä¸€ä»£ä¸­å”¯ä¸€å¸¦è‰ºæŠ•å¸ˆçš„ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 54);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -62,11 +62,11 @@ void create()
         prepare_skill("hand", "songyang-shou");
 
         set("inquiry", ([
-               // "×ÏÏ¼ÃØ¼®"   : (: ask_me :),
-                //"×óÕÆÃÅ" : (: ask_gold :),
+               // "ç´«éœç§˜ç±"   : (: ask_me :),
+                //"å·¦æŒé—¨" : (: ask_gold :),
         ]) );
 
-        create_family("»ªÉ½ÅÉ", 14, "µÜ×Ó");
+        create_family("åå±±æ´¾", 14, "å¼Ÿå­");
 
         setup();
         carry_object(BINGQI_D("sword/sword"))->wield();
@@ -79,7 +79,7 @@ string ask_me(object who)
         object *ob,book;
 
         if( (random(10) < 8) || is_fighting() )
-                return "¶Ô²»Æğ£¬Õâ¼şÊÂ£¬ÎÒ²»Çå³ş£¬Äã»¹ÊÇÎÊÎÒÊ¦¸µÈ¥°É£¡\n";
+                return "å¯¹ä¸èµ·ï¼Œè¿™ä»¶äº‹ï¼Œæˆ‘ä¸æ¸…æ¥šï¼Œä½ è¿˜æ˜¯é—®æˆ‘å¸ˆå‚…å»å§ï¼\n";
         set_temp("apply/attack",  500);
         set_temp("apply/defense", 500);
         set_temp("apply/damage",  500);
@@ -130,8 +130,8 @@ string ask_me(object who)
         }) );
 
         message("vision",
-                YEL "¿´À´Õâ¼şÊÂÄã¶¼ÖªµÀÁË£¿³ôÔô£¬È¥ËÀ°É£¡\n"
-                "ÀÍµÂÅµÊ¹¿ª³¤½££¬ÕĞÊı¾«Ææ£¬ºİÀ±ÎŞ±È£¬Ò»¸ÄÕûÈÕĞ¦ßäßäµÄÄ£Ñù¡£\n" NOR,
+                YEL "çœ‹æ¥è¿™ä»¶äº‹ä½ éƒ½çŸ¥é“äº†ï¼Ÿè‡­è´¼ï¼Œå»æ­»å§ï¼\n"
+                "åŠ³å¾·è¯ºä½¿å¼€é•¿å‰‘ï¼Œæ‹›æ•°ç²¾å¥‡ï¼Œç‹ è¾£æ— æ¯”ï¼Œä¸€æ”¹æ•´æ—¥ç¬‘å’ªå’ªçš„æ¨¡æ ·ã€‚\n" NOR,
                 environment(), this_object() );
 
 
@@ -150,5 +150,5 @@ string ask_me(object who)
                 ob[i]->fight(this_object());
         }
     
-        return "ÎÒ´øÒÕÍ¶Ê¦£¬ÈÌÈè¸ºÖØ£¬Äã¾¹¸Ò´òÎÒµÄÖ÷Òâ£¬È¥ËÀ°É£¡\n";
+        return "æˆ‘å¸¦è‰ºæŠ•å¸ˆï¼Œå¿è¾±è´Ÿé‡ï¼Œä½ ç«Ÿæ•¢æ‰“æˆ‘çš„ä¸»æ„ï¼Œå»æ­»å§ï¼\n";
 }

@@ -14,12 +14,12 @@ int check(object ob);
 
 void create()
 {
-        set("channel_id", "½­ºş´«ÎÅ");
-        CHANNEL_D->do_channel( this_object(), "sys", "Ì½ÏÕÏµÍ³ÒÑ¾­Æô¶¯¡£\n");
+        set("channel_id", "æ±Ÿæ¹–ä¼ é—»");
+        CHANNEL_D->do_channel( this_object(), "sys", "æ¢é™©ç³»ç»Ÿå·²ç»å¯åŠ¨ã€‚\n");
 //      Start_Job();
 }
 
-// ÉèÖÃÉ±ÊÖ¼¼ÄÜË®Æ½
+// è®¾ç½®æ€æ‰‹æŠ€èƒ½æ°´å¹³
 void Copy_Skill(object me, object ob)
 {
         return;
@@ -29,27 +29,27 @@ mapping *corpse_des = ({
 ([      "shen"      :     "-1",
         "content"   :     ({
         ([
-                 "name" : "ºÚ·çË«É·",
-                 "des"   : "\nÄã×ĞÏ¸¶ËÏêÁËÊ¬Ê×°ëÌì£¬ºöÈ»·¢ÏÖÊ¬ÌåµÄÍ·Â­ÉÏºÕÈ»ÓĞÎå¸öÑª¶´¡£\n",
-                 "tar" : "ÄãĞÄÖĞÒ»¾ª£ºÄª²»ÊÇºÚ·çË«É·ËùÎª£¿£¡¸Ï½ôÉÁºô£¡£¡",
+                 "name" : "é»‘é£åŒç…",
+                 "des"   : "\nä½ ä»”ç»†ç«¯è¯¦äº†å°¸é¦–åŠå¤©ï¼Œå¿½ç„¶å‘ç°å°¸ä½“çš„å¤´é¢…ä¸Šèµ«ç„¶æœ‰äº”ä¸ªè¡€æ´ã€‚\n",
+                 "tar" : "ä½ å¿ƒä¸­ä¸€æƒŠï¼šè«ä¸æ˜¯é»‘é£åŒç…æ‰€ä¸ºï¼Ÿï¼èµ¶ç´§é—ªå‘¼ï¼ï¼",
         ]),
         ([
-                 "name" : "ÏôÔ¶É½",
-                 "des"   : "\nÄã×ĞÏ¸¶ËÏêÁËÊ¬Ê×°ëÌì£¬Ö»¼ûËûÁ³ÉÏ¼¡Èâ½©Ó²²»¶¯£¬ÉíÊÖÈ¥ÃşËûÊÖÕÆ£¬µ«¾õÆÄÓĞÁ¹Òâ£¬ÔÙÌ½Ëû±ÇÏ¢£¬ÔçÒÑÆø¾ø¶àÊ±¡£ËûĞØ¼ä³ÔÁËÈËÒ»¼ÇÕÆÖØÊÖ£¬Àß¹ÇÆë¶Ï£¬ÎåÔàÆÆÁÑ¡£ºÜÏÔÈ»£¬´ËÈËÊÇÍ»ÔâÖØÊÖ£¬¶ÙÊ±±ĞÃü¡£\n",
-                 "tar"  : "ÄãĞÄÖĞÒ»¾ª£ºÄª²»ÊÇ½µÁúÕÆµÄÀ×öªÕÆÁ¦£¬ÄÄÒ»¸ö»¹ÓĞÈç´ËÖ®Íş£¿£¡",
+                 "name" : "è§è¿œå±±",
+                 "des"   : "\nä½ ä»”ç»†ç«¯è¯¦äº†å°¸é¦–åŠå¤©ï¼Œåªè§ä»–è„¸ä¸Šè‚Œè‚‰åƒµç¡¬ä¸åŠ¨ï¼Œèº«æ‰‹å»æ‘¸ä»–æ‰‹æŒï¼Œä½†è§‰é¢‡æœ‰å‡‰æ„ï¼Œå†æ¢ä»–é¼»æ¯ï¼Œæ—©å·²æ°”ç»å¤šæ—¶ã€‚ä»–èƒ¸é—´åƒäº†äººä¸€è®°æŒé‡æ‰‹ï¼Œè‚‹éª¨é½æ–­ï¼Œäº”è„ç ´è£‚ã€‚å¾ˆæ˜¾ç„¶ï¼Œæ­¤äººæ˜¯çªé­é‡æ‰‹ï¼Œé¡¿æ—¶æ¯™å‘½ã€‚\n",
+                 "tar"  : "ä½ å¿ƒä¸­ä¸€æƒŠï¼šè«ä¸æ˜¯é™é¾™æŒçš„é›·éœ†æŒåŠ›ï¼Œå“ªä¸€ä¸ªè¿˜æœ‰å¦‚æ­¤ä¹‹å¨ï¼Ÿï¼",
         ]),}),
 ]),
 ([      "shen"      :     "1",
         "content"   :     ({
         ([
-                "name"  : "ÕÔ°ëÉ½",
-                "des"   : "\nÄã×ĞÏ¸¶ËÏêÁËÊ¬Ê×°ëÌì£¬¿´À´·½ËÀ²»¹ı°ë¸öÊ±³½,¿´ÆğËÀÇ°À´½î¹ÇÍÑÁ¦,¾¹ËÆ±»»î»îÀÛËÀµÄÒ»°ã\n",
-                "tar"   : "ÄãĞÄÖĞÒ»¾ª£ºÄª²»ÊÇºÕºÕÓĞÃûµÄÎäµ±ÔÆÊÖËùÎª£¿£¡",
+                "name"  : "èµµåŠå±±",
+                "des"   : "\nä½ ä»”ç»†ç«¯è¯¦äº†å°¸é¦–åŠå¤©ï¼Œçœ‹æ¥æ–¹æ­»ä¸è¿‡åŠä¸ªæ—¶è¾°,çœ‹èµ·æ­»å‰æ¥ç­‹éª¨è„±åŠ›,ç«Ÿä¼¼è¢«æ´»æ´»ç´¯æ­»çš„ä¸€èˆ¬\n",
+                "tar"   : "ä½ å¿ƒä¸­ä¸€æƒŠï¼šè«ä¸æ˜¯èµ«èµ«æœ‰åçš„æ­¦å½“äº‘æ‰‹æ‰€ä¸ºï¼Ÿï¼",
         ]),
         ([
-                "name"  : "¸ßÀÏÕß",
-                "des"   : "\nÄã×ĞÏ¸¶ËÏêÁËÊ¬Ê×°ëÌì£¬ËÀÕßÁ³ÉÏºì°àµãµã£¬Á³É«²Ô°×µÃº§ÈË¡£ËÆÊÇ±»Ò»ÖÖÆæÌØÄÚ¹¦ËùÎª\n",
-                "tar"   : "ÄãĞÄÖĞÒ»¾ª£ºÄª²»ÊÇÃûÕòÌìÏÂµÄ×ÏÏ¼Éñ¹¦µÄ»ìÔªÎŞ¼«ÕÆÁ¦£¿£¡",
+                "name"  : "é«˜è€è€…",
+                "des"   : "\nä½ ä»”ç»†ç«¯è¯¦äº†å°¸é¦–åŠå¤©ï¼Œæ­»è€…è„¸ä¸Šçº¢ç­ç‚¹ç‚¹ï¼Œè„¸è‰²è‹ç™½å¾—éª‡äººã€‚ä¼¼æ˜¯è¢«ä¸€ç§å¥‡ç‰¹å†…åŠŸæ‰€ä¸º\n",
+                "tar"   : "ä½ å¿ƒä¸­ä¸€æƒŠï¼šè«ä¸æ˜¯åé•‡å¤©ä¸‹çš„ç´«éœç¥åŠŸçš„æ··å…ƒæ— ææŒåŠ›ï¼Ÿï¼",
         ]),
         }),
 ]),
@@ -59,9 +59,9 @@ int Check_Npc(object obj)
 {
         int i;
         string name;
-        string *banned_name= ({ "Ğ¡ºÍÉĞ","Ä¾ÈË","Öì´Ï","°×ÎŞ³£","ñÒÍòÀï","Æ½Íş",
-                           "Çà÷İ¹êÍ¯","ºÚÎŞ³£","°×÷×ÀÏÈË","Î×Ê¦","ÉòÀÏ°å",
-                           "ÃÏÆÅ","µ±ÆÌÀÏ°å","ÔÀ²»Èº","ËÎÔ¶ÇÅ","²éÀÏÑ§Ê¿"});
+        string *banned_name= ({ "å°å’Œå°š","æœ¨äºº","æœ±èª","ç™½æ— å¸¸","è¤šä¸‡é‡Œ","å¹³å¨",
+                           "é’é¬é¾Ÿç«¥","é»‘æ— å¸¸","ç™½é«¯è€äºº","å·«å¸ˆ","æ²ˆè€æ¿",
+                           "å­Ÿå©†","å½“é“ºè€æ¿","å²³ä¸ç¾¤","å®‹è¿œæ¡¥","æŸ¥è€å­¦å£«"});
 
         name = obj->query("name");
 
@@ -72,7 +72,7 @@ int Check_Npc(object obj)
  	write(sprintf("%d ",clonep(obj)));
         if( !obj->is_character()
         ||  userp(obj)
-        ||  obj->query("race")!="ÈËÀà" )
+        ||  obj->query("race")!="äººç±»" )
                 return 0;
 
 	return 1;
@@ -80,7 +80,7 @@ int Check_Npc(object obj)
 
 int Check_Illgeal_Target(object target)
 {
-        // ½ûÖ¹ËÀÍö¶ÔÏóµÄNAMEÏàÍ¬¡£
+        // ç¦æ­¢æ­»äº¡å¯¹è±¡çš„NAMEç›¸åŒã€‚
         if(target->query("name") == this_object()->query("last_target"))
                 return 0;
 
@@ -112,9 +112,9 @@ string Get_Npc()
 
 
         living=filter_array(livings(), (: Check_Npc :));
-	write(sprintf("×ÜNPC:%d ",sizeof(livings())));
+	write(sprintf("æ€»NPC:%d ",sizeof(livings())));
         size=sizeof(living);
-	write(sprintf("\n¹ıÂËºóNPC:%d\n",size));
+	write(sprintf("\nè¿‡æ»¤åNPC:%d\n",size));
         i=random(size);
 
         while(1) {
@@ -146,7 +146,7 @@ void get_corpse(string npc_file, string file_name, object me)
         corpse->move(file_name);
 //      corpse->set("dead_message","");
 //      corpse->die();        
-        corpse->set_name( victim->name(1) + "µÄÊ¬Ìå", ({ "corpse" }) );
+        corpse->set_name( victim->name(1) + "çš„å°¸ä½“", ({ "corpse" }) );
         corpse->set("age", victim->query("age"));
         corpse->set("gender", victim->query("gender"));
         corpse->set("victim_name", victim->name(1));
@@ -169,8 +169,8 @@ void get_corpse(string npc_file, string file_name, object me)
                 }
         }
         corpse->set("long", victim->long(1)
-                + "È»¶ø£¬" + gender_pronoun(victim->query("gender")) 
-                + "ÒÑ¾­ËÀÁË£¬Ö»Ê£ÏÂÒ»¾ßÊ¬Ìå¾²¾²µØÌÉÔÚÕâÀï¡£\n");        
+                + "ç„¶è€Œï¼Œ" + gender_pronoun(victim->query("gender")) 
+                + "å·²ç»æ­»äº†ï¼Œåªå‰©ä¸‹ä¸€å…·å°¸ä½“é™é™åœ°èººåœ¨è¿™é‡Œã€‚\n");        
         
         
 
@@ -195,11 +195,11 @@ int Start_Job(object me, object ob)
 
         seteuid(getuid());
 
-	//È¡µÃÒ»¸öÏµÍ³ÄÚµÄNPC
+	//å–å¾—ä¸€ä¸ªç³»ç»Ÿå†…çš„NPC
 
         living=filter_array(livings(), (: Check_Npc :));
-	write(sprintf("×ÜNPC:%d ",sizeof(livings())));
-	write(sprintf("\n¹ıÂËºóNPC:%d\n",sizeof(living)));
+	write(sprintf("æ€»NPC:%d ",sizeof(livings())));
+	write(sprintf("\nè¿‡æ»¤åNPC:%d\n",sizeof(living)));
         i=random(sizeof(living));
 
         while(1) {
@@ -218,7 +218,7 @@ int Start_Job(object me, object ob)
 //        dir_name = Get_Dir();
 //        file_name = Get_File(dir_name);
 //        chinese_name = Chinese_Dir(dir_name);
-	//È¡µÃÒ»¸öÏµÍ³ÄÚµÄµØµã               
+	//å–å¾—ä¸€ä¸ªç³»ç»Ÿå†…çš„åœ°ç‚¹               
 	living = livings();
 	for (i=0;i < sizeof(living);i++){
 		j = random(sizeof(living));
@@ -228,16 +228,16 @@ int Start_Job(object me, object ob)
 			objwhere = environment(target2);
 			str = objwhere->query("short");
 			if (!sizeof(objwhere->query("exits"))
-			|| str == "ÎäÉ®ÌÃ"
-			|| str == "É®Éá"
-			|| str == HIR"ĞÄìøÌÃ"NOR
-			|| str == "½ğ¸Õ·üÄ§È¦" ) continue;
+			|| str == "æ­¦åƒ§å ‚"
+			|| str == "åƒ§èˆ"
+			|| str == HIR"å¿ƒç¦…å ‚"NOR
+			|| str == "é‡‘åˆšä¼é­”åœˆ" ) continue;
 			if( get_place(base_name(environment(target2))) != "" ) break;
 		}
 	}
 
 	if( !target2 ){
-		write("ÔİÊ±Ã»ÓĞÈÎÎñĞèÒª×ö£¬Äã¹ıÒ»»á¶ùÔÙÀ´°É¡£");
+		write("æš‚æ—¶æ²¡æœ‰ä»»åŠ¡éœ€è¦åšï¼Œä½ è¿‡ä¸€ä¼šå„¿å†æ¥å§ã€‚");
 		return 1;
 	}
 		
@@ -247,21 +247,21 @@ int Start_Job(object me, object ob)
                 remove_call_out("Start_Job");
                 return 1;
         }
-        write("µØµã£º"+base_name(objwhere)+"\n");
+        write("åœ°ç‚¹ï¼š"+base_name(objwhere)+"\n");
         get_corpse(npcfile, base_name(objwhere), me);
         this_object()->set("last_target", npcfile->query("name"));
-        CHANNEL_D->do_channel( this_object(), "chat", sprintf(HIC"ÌıËµ "+HIW + "¨"+ HIY +"%sµÄ%s%s" + HIW + "¨ " + HIC + "Ç°Ğ©ÈÕ×ÓÔÚ " + HIW + "¨%sµÄ%s"+ HIW + "¨"+ HIC + " ¶ªÁËĞÔÃü£¬ÄÄÎ»Ó¢ĞÛÄÜÌ½µÃ¾¿¾¹£¬½«²»Ê¤¸Ğ¼¤£¡"NOR, 
+        CHANNEL_D->do_channel( this_object(), "chat", sprintf(HIC"å¬è¯´ "+HIW + "â—¤"+ HIY +"%sçš„%s%s" + HIW + "â—¢ " + HIC + "å‰äº›æ—¥å­åœ¨ " + HIW + "â—¤%sçš„%s"+ HIW + "â—¢"+ HIC + " ä¸¢äº†æ€§å‘½ï¼Œå“ªä½è‹±é›„èƒ½æ¢å¾—ç©¶ç«Ÿï¼Œå°†ä¸èƒœæ„Ÿæ¿€ï¼"NOR, 
         get_place(base_name(environment(target1))),family,target1->query("name"),get_place(base_name(objwhere)),name));
 //call_out("Start_Job", 150, this_object());
         return 1;
 
-//      if( exp > 20000 ) {  // exp ´óÓÚ 20k ¾Í¿ÉÒÔ×öJob
+//      if( exp > 20000 ) {  // exp å¤§äº 20k å°±å¯ä»¥åšJob
 
-              shashou = new("/d/city/npc/xiaoer"); // ³öÏÖÒ»¸öÉ±ÊÖ
+              shashou = new("/d/city/npc/xiaoer"); // å‡ºç°ä¸€ä¸ªæ€æ‰‹
 
-// ¿ªÊ¼ÉèÖÃshashou¼¼ÄÜË®Æ½
+// å¼€å§‹è®¾ç½®shashouæŠ€èƒ½æ°´å¹³
 //              Copy_Skill(me, ob);
-// ½áÊøÉèÖÃïÚÍ·»òÕßïÚÊ¦µÄ¼¼ÄÜË®Æ½
+// ç»“æŸè®¾ç½®é•–å¤´æˆ–è€…é•–å¸ˆçš„æŠ€èƒ½æ°´å¹³
 
               shashou->set("catch_user_id",me->query("id"));
               shashou->move(environment(me));
@@ -292,7 +292,7 @@ int check(object ob)
 	 || ob->query("have_master")
 	 || !objectp(room=environment(ob))
 	 || room->query("no_fight")
-	 || room->query("outdoors") == "À¥ÂØ´ä¹È"
+	 || room->query("outdoors") == "æ˜†ä»‘ç¿ è°·"
 	 || strsrch(room_name = file_name(room),"/d/") != 0
 	 || strsrch(room_name, "/d/wizard/") == 0
 	 || strsrch(room_name, "/d/wuguan/") == 0

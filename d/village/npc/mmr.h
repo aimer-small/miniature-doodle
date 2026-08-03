@@ -19,8 +19,8 @@ void init()
 
                 if (!me->query_temp("skillset")) {
 			command("look " + ob->query("id"));      
-	                command("say " + "ÕâÎ»" + RANK_D->query_respect(ob) + "£¬ÔÚÏÂ·îÈ°Ò»¾ä£¬¶à¹ÜÏĞÊÂ¶à³ÔÆ¨£¬ÔÛÃÇ¿ÉÊÇ¾®Ë®²»·¸ºÓË®£¡\n");
-	                command("say " + "Õâ¼şÊÂÄúÀÏ¾Íµ±Ã»¿´¼û£¬·ÅÔÚÏÂÒ»Âí£¬ÈÕºó¶¨ÓĞºñ±¨(yes/no)¡£\n");
+	                command("say " + "è¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œåœ¨ä¸‹å¥‰åŠä¸€å¥ï¼Œå¤šç®¡é—²äº‹å¤šåƒå±ï¼Œå’±ä»¬å¯æ˜¯äº•æ°´ä¸çŠ¯æ²³æ°´ï¼\n");
+	                command("say " + "è¿™ä»¶äº‹æ‚¨è€å°±å½“æ²¡çœ‹è§ï¼Œæ”¾åœ¨ä¸‹ä¸€é©¬ï¼Œæ—¥åå®šæœ‰åšæŠ¥(yes/no)ã€‚\n");
 	                ob->start_busy(2);
 	                remove_call_out("dest");
 	                call_out("dest",100);
@@ -29,8 +29,8 @@ void init()
                 }
                 else  {
 			command("look " + ob->query("id"));      
-			command("say " +"ÕâÎ»" + RANK_D->query_respect(ob) + "£¬ÔÚÏÂ·îÈ°Ò»¾ä£¬¶à¹ÜÏĞÊÂ¶à³ÔÆ¨£¬ÔÛÃÇ¿ÉÊÇ¾®Ë®²»·¸ºÓË®£¡\n");
-			command("say " + "Õâ¼şÊÂÄúÀÏ¾Íµ±Ã»¿´¼û£¬·ÅÔÚÏÂÒ»Âí£¬ÈÕºó¶¨ÓĞºñ±¨(yes/no)¡£\n");
+			command("say " +"è¿™ä½" + RANK_D->query_respect(ob) + "ï¼Œåœ¨ä¸‹å¥‰åŠä¸€å¥ï¼Œå¤šç®¡é—²äº‹å¤šåƒå±ï¼Œå’±ä»¬å¯æ˜¯äº•æ°´ä¸çŠ¯æ²³æ°´ï¼\n");
+			command("say " + "è¿™ä»¶äº‹æ‚¨è€å°±å½“æ²¡çœ‹è§ï¼Œæ”¾åœ¨ä¸‹ä¸€é©¬ï¼Œæ—¥åå®šæœ‰åšæŠ¥(yes/no)ã€‚\n");
 			ob->start_busy(2);
 			remove_call_out("dest");
 			call_out("dest",100);
@@ -56,7 +56,7 @@ int do_clone(object me, object ob)
 
 //add log to HS_JOB_LOG
 
-	log_file("job/caihua", sprintf("%8s%-10s²É»¨´óµÁÈÎÎñµÈ¼¶ÊÇ%3d£¬±¾ÈËµÈ¼¶ÊÇ %3d¡£\n",
+	log_file("job/caihua", sprintf("%8s%-10sé‡‡èŠ±å¤§ç›—ä»»åŠ¡ç­‰çº§æ˜¯%3dï¼Œæœ¬äººç­‰çº§æ˜¯ %3dã€‚\n",
 		ob->name(1),"("+ob->query("id")+")",number,(int)ob->query("max_pot")-100), ob);
 
 /*set killer's skill*/
@@ -95,8 +95,8 @@ void dest()
        object me,ob;
        me = this_player();
        ob = this_object();
-       write(ob->query("name")+"µÀ£ºËûÄÌÄÌµÄ£¬ÀÏ×ÓÃ»Ê±¼äÔÚÕâÀïºÍÄãÅİÄ¢¹½£¬È¥×·Ğ¡æ¤Òª½ô£¡\n",me); 
-       write(ob->query("name")+"Ò»¸öĞéÕĞ£¬ÉíĞÎÒ»»Î£¬Ïò±±Ãæ×·È¥¡£\n",me);
+       write(ob->query("name")+"é“ï¼šä»–å¥¶å¥¶çš„ï¼Œè€å­æ²¡æ—¶é—´åœ¨è¿™é‡Œå’Œä½ æ³¡è˜‘è‡ï¼Œå»è¿½å°å¦è¦ç´§ï¼\n",me); 
+       write(ob->query("name")+"ä¸€ä¸ªè™šæ‹›ï¼Œèº«å½¢ä¸€æ™ƒï¼Œå‘åŒ—é¢è¿½å»ã€‚\n",me);
        destruct(this_object());
 }
 
@@ -108,7 +108,7 @@ int do_no()
         me = this_player();
 
         if ((int)me->query("shen") < 1){
-		command("say ÕâÎ»"+RANK_D->query_respect(me)+"Ò»ÉíĞ°Æø£¬È´ÔÚÕâÀï×°Ê²Ã´ÏÀÒåÓ¢ĞÛÄØ£¡\n");
+		command("say è¿™ä½"+RANK_D->query_respect(me)+"ä¸€èº«é‚ªæ°”ï¼Œå´åœ¨è¿™é‡Œè£…ä»€ä¹ˆä¾ ä¹‰è‹±é›„å‘¢ï¼\n");
 		command("grpfight " + me->query("id"));
 		me->set_leader(ob);
 		ob->set("hsjob2",me);
@@ -116,7 +116,7 @@ int do_no()
 		call_out("kill_ob", 0, me);
 		return 1;
         }
-        command("say ÕâÎ»"+RANK_D->query_respect(me)+"£¬¿´À´ÕâÊÂÄãÊÇ¹Ü¶¨ÁË£¿ÄÃÃüÀ´°É¡£\n");
+        command("say è¿™ä½"+RANK_D->query_respect(me)+"ï¼Œçœ‹æ¥è¿™äº‹ä½ æ˜¯ç®¡å®šäº†ï¼Ÿæ‹¿å‘½æ¥å§ã€‚\n");
         command("grpfight " + me->query("id"));
         me->set_leader(ob);
 	ob->set("hsjob2",me);
@@ -130,9 +130,9 @@ int do_yes()
         object me, ob;
         ob = this_object();
         me = this_player();
-        command("say ×Ô¹ÅµÀ£¬Ê¶Ê±ÎñÕßÎª¿¡½Ü£¬ËÆ"+RANK_D->query_respect(me)+"ÕâµÈ´ÏÃ÷µÄÈËÏÖÔÚÊÇ²»¶à¼ûÁË¡£\n");
+        command("say è‡ªå¤é“ï¼Œè¯†æ—¶åŠ¡è€…ä¸ºä¿Šæ°ï¼Œä¼¼"+RANK_D->query_respect(me)+"è¿™ç­‰èªæ˜çš„äººç°åœ¨æ˜¯ä¸å¤šè§äº†ã€‚\n");
         command("bye " + me->query("id"));
-        tell_room(environment(me), ob->query("name")+"×İÉíÏò±±Ãæ×·È¥¡£\n", ({ob}));     
+        tell_room(environment(me), ob->query("name")+"çºµèº«å‘åŒ—é¢è¿½å»ã€‚\n", ({ob}));     
         destruct(ob);
         return 1;
 }
@@ -146,12 +146,12 @@ void die()
 	if ( me != 0 ) {
 		if (me->query_temp("hs/meetjob")) {
 			exp = 300+random(800);
-			message_vision(YEL "ÄãÉ±ÁË²É»¨´óµÁ£¬²»ÓÉµÃ´ÓĞÄµ×ÉıÆğÒ»¹ÉºÀÆø£¡\n",me);
-			message_vision(YEL "Äã×ĞÏ¸»ØÒä¸Õ²ÅºÍ²É»¨´óµÁµÄ´ò¶·¾­¹ı£¬·¢ÏÖ×Ô¼º¶ÔÎäÑ§µÄÁìÎòÓÖÉîÁËÒ»²ã£¡\n",me);
-			message_vision(NOR "Äã»ñµÃÁË"+CHINESE_D->chinese_number(exp)+"µã¾­Ñé¡£\n",me);
+			message_vision(YEL "ä½ æ€äº†é‡‡èŠ±å¤§ç›—ï¼Œä¸ç”±å¾—ä»å¿ƒåº•å‡èµ·ä¸€è‚¡è±ªæ°”ï¼\n",me);
+			message_vision(YEL "ä½ ä»”ç»†å›å¿†åˆšæ‰å’Œé‡‡èŠ±å¤§ç›—çš„æ‰“æ–—ç»è¿‡ï¼Œå‘ç°è‡ªå·±å¯¹æ­¦å­¦çš„é¢†æ‚Ÿåˆæ·±äº†ä¸€å±‚ï¼\n",me);
+			message_vision(NOR "ä½ è·å¾—äº†"+CHINESE_D->chinese_number(exp)+"ç‚¹ç»éªŒã€‚\n",me);
 			me->add("combat_exp", exp);
 //add log to HS_JOB_LOG
-			log_file("job/caihua",sprintf("%8s%-10s²É»¨´óµÁÈÎÎñ½±Àø¾­ÑéÖµ%4d¡£\n",
+			log_file("job/caihua",sprintf("%8s%-10sé‡‡èŠ±å¤§ç›—ä»»åŠ¡å¥–åŠ±ç»éªŒå€¼%4dã€‚\n",
 				me->name(1),"("+me->query("id")+")",exp), me);
 		}
 	}
@@ -160,6 +160,6 @@ void die()
 
 int accept_fight(object me)
 {
-        command("say ´óÒ¯ÎÒÕıÒªÈ¥×·ÄÇ¸öĞ¡æ¤£¬Ã»ĞÄË¼ºÍÄã¶¯ÊÖ¡£");
+        command("say å¤§çˆ·æˆ‘æ­£è¦å»è¿½é‚£ä¸ªå°å¦ï¼Œæ²¡å¿ƒæ€å’Œä½ åŠ¨æ‰‹ã€‚");
         return 0;
 }

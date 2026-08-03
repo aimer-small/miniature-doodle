@@ -17,12 +17,12 @@
 
 nosave string* listnens = ({
 	"127.0.0.1",
-	"202.100.222.243", //´ºÇï
-	"218.77.186.66",   //ÁÉÄş
-	"218.25.10.190",   //ÁÉÄş¶ş
-	"61.243.124.74",   //¿ª·¢
-	"61.129.77.241",   //ÉÏº£(telcom)
-	"221.11.134.1",	   //ÉÏº£¶ş(netcom)
+	"202.100.222.243", //æ˜¥ç§‹
+	"218.77.186.66",   //è¾½å®
+	"218.25.10.190",   //è¾½å®äºŒ
+	"61.243.124.74",   //å¼€å‘
+	"61.129.77.241",   //ä¸Šæµ·(telcom)
+	"221.11.134.1",	   //ä¸Šæµ·äºŒ(netcom)
 	});
 nosave string* sites = ({
 	"CQ","LN","SH","SH2",
@@ -41,7 +41,7 @@ mapping files;
 ([
 		"/u/ciwei/man.c":([
 				"wizard":"ciwei",
-				"code":  "Ï²»¶",
+				"code":  "å–œæ¬¢",
 				"flag":([
 					"NIT":0,
 				])
@@ -72,7 +72,7 @@ public int add_file(string file,string id,string re)
 
 string query(string arg)
 {	
-	if(arg=="channel_id") return "Í¬²½¸üĞÂ·şÎñ";
+	if(arg=="channel_id") return "åŒæ­¥æ›´æ–°æœåŠ¡";
 	return 0;
 }
 
@@ -87,7 +87,7 @@ void create()
 	resolve_pending = ([]);
 	files=([]);
 	log_info("Created when uptime = " + uptime() + "\n");
-	CHANNEL_D->do_channel(this_object(), "sys", "Æô¶¯ÖĞ¡­¡­");
+	CHANNEL_D->do_channel(this_object(), "sys", "å¯åŠ¨ä¸­â€¦â€¦");
 	if (member_array(INTERMUD_MUD_NAME, sites ) != -1)
 		call_out("connect",10,"check");
 	if (member_array(INTERMUD_MUD_NAME, sites ) == -1)
@@ -111,7 +111,7 @@ protected void setup()
 		socket_close(Sock);
 		log_info("setup: Failed to listen to socket.\n");
 	}
-	CHANNEL_D->do_channel(this_object(), "sys", "Æô¶¯³É¹¦¡£");
+	CHANNEL_D->do_channel(this_object(), "sys", "å¯åŠ¨æˆåŠŸã€‚");
 	call_out("clear_file",60);
 }
 
@@ -167,7 +167,7 @@ void read_callback(int fd, string str)
 			}
 			if(!(file=get_file(quest[1])))
 			{
-				write_data(fd,"EESUCCESS:nofile");//Ã»ÓĞĞèÒª¸üĞÂµÄÎÄ¼ş
+				write_data(fd,"EESUCCESS:nofile");//æ²¡æœ‰éœ€è¦æ›´æ–°çš„æ–‡ä»¶
 				return;
 			}
 			write_data(fd,sprintf("EESUCCESS:file:%s wizard:%s code:%s",file,files[file]["wizard"],files[file]["code"] ));
@@ -249,7 +249,7 @@ void write_data(int fb,string data)
 	if (rc < 0) {
 		log_info("setup: Failed to write to socket.\n");
 	}
-	DEBUG(sprintf("×¼±¸writeÁË re:%d",rc));
+	DEBUG(sprintf("å‡†å¤‡writeäº† re:%d",rc));
 	sockets[fb]["write_status"] = rc;
 	close_connection(fb);
 }
@@ -388,7 +388,7 @@ void read_callback2(int fd, string str)
 		{
 			file_data="";
 			file_part=1;
-			CHANNEL_D->do_channel(this_object(),"sys","×¼±¸ÏÂÔØ"+file_name+"¡£");
+			CHANNEL_D->do_channel(this_object(),"sys","å‡†å¤‡ä¸‹è½½"+file_name+"ã€‚");
 			call_out("connect",0,"getfile");
 			return;
 		}
@@ -398,8 +398,8 @@ void read_callback2(int fd, string str)
 			//jiami
 			JIAMI_C->main(this_object(),file_name);
 			//log
-			CHANNEL_D->do_channel(this_object(),"sys","ÏÂÔØ"+file_name+"Íê³É£¬ÇëÔÚÏß¹¤×÷ÈËÔ±¸üĞÂÏà¹ØÓ¦ÓÃ³ÌĞò¡£");
-			log_file("nosave/super_ftp",sprintf("ÓÉÓÚ%-30s,%-8s¸üĞÂ%s",code_code,code_wizard,file_name),this_object());
+			CHANNEL_D->do_channel(this_object(),"sys","ä¸‹è½½"+file_name+"å®Œæˆï¼Œè¯·åœ¨çº¿å·¥ä½œäººå‘˜æ›´æ–°ç›¸å…³åº”ç”¨ç¨‹åºã€‚");
+			log_file("nosave/super_ftp",sprintf("ç”±äº%-30s,%-8sæ›´æ–°%s",code_code,code_wizard,file_name),this_object());
 			call_out("connect",1,"check");
 			return;
 		}
@@ -407,7 +407,7 @@ void read_callback2(int fd, string str)
 		{
 			file_part++;
 			file_data += data;
-			CHANNEL_D->do_channel(this_object(),"sys","ÕıÔÚÏÂÔØ"+file_name+"¡£");
+			CHANNEL_D->do_channel(this_object(),"sys","æ­£åœ¨ä¸‹è½½"+file_name+"ã€‚");
 			call_out("connect",0,"getfile");
 			return;
 		}

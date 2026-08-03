@@ -1,6 +1,6 @@
 // top.c yuj@sj 2000-1-16
 // add pk beauty weapon armor 
-// score ¼ÆËã²¿·Ö¶à¶àÖ¸Õı Ciwei@SJ
+// score è®¡ç®—éƒ¨åˆ†å¤šå¤šæŒ‡æ­£ Ciwei@SJ
 
 inherit F_CLEAN_UP;
 inherit F_SAVE;
@@ -91,10 +91,10 @@ void put_in_db()
         </font></div>
       <table width='70%' border='0' align='center' cellpadding='4' cellspacing='3' bgcolor='#000000'>
         <tr align=center> 
-          <td width='10%' height='30'><font color='#00FF00' face='Fixedsys'><strong>Ãû´Î</strong></font></td>
-          <td width='30%' height='30'><font color='#00FF00' face='Fixedsys'><strong>ÃÅÅÉ</strong></font></td>
-          <td width='30%' height='30'><font color='#00FF00' face='Fixedsys'><strong>ĞÕÃû</strong></font></td>
-          <td width='30%' height='30'><font color='#00FF00' face='Fixedsys'><strong>×ÛºÏÆÀ¼Û</strong></font></td>
+          <td width='10%' height='30'><font color='#00FF00' face='Fixedsys'><strong>åæ¬¡</strong></font></td>
+          <td width='30%' height='30'><font color='#00FF00' face='Fixedsys'><strong>é—¨æ´¾</strong></font></td>
+          <td width='30%' height='30'><font color='#00FF00' face='Fixedsys'><strong>å§“å</strong></font></td>
+          <td width='30%' height='30'><font color='#00FF00' face='Fixedsys'><strong>ç»¼åˆè¯„ä»·</strong></font></td>
         </tr>";        
         content = replace_string(content,"'","\"");
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "REPLACE INTO mud_info (subject, utime, content, type, site) values ('"+subject+"', '"+time()+"','"+content+"', '"+type+"', '"+lower_case(INTERMUD_MUD_NAME)+"')",this_object(),"goon_upload"));
@@ -122,7 +122,7 @@ void goon_upload(mixed ret)
 	}
         if(max>sizeof(now_map)) max=sizeof(now_map);
         for(i=now_num;i<max;i++){
-        	//Ãû´Î Ãû×Ö ÃÅÅÉ ×ÛºÏÆÀ¼Û
+        	//åæ¬¡ åå­— é—¨æ´¾ ç»¼åˆè¯„ä»·
         	str += sprintf("<tr align=center> 
           <td><font color='#008000' face='Fixedsys'>No.%d</font></td>
           <td><font color='#008000' face='Fixedsys'>%s</font></td>
@@ -156,15 +156,15 @@ void add_rank_beauty(object ob)
 	mapping rank;
 	string party = ob->query("family/family_name");
 
-	// ÏÈÉ¾³ıÔ­ÏÈ¼ÇÂ¼	
+	// å…ˆåˆ é™¤åŸå…ˆè®°å½•	
 	for (i = 0; i < sizeof(beauty_ranks); i++)
 		if (wiz_level(beauty_ranks[i]["id"]) || beauty_ranks[i]["id"] == ob->query("id") || beauty_ranks[i]["score"] < 1) {
 			beauty_ranks = beauty_ranks[0..i-1] + beauty_ranks[i+1..beauty_total];
 			i--;
 		}
 	
-	if (ob->query("age") < 16) return; //¸Ä³É16Ëê
-	if (ob->query("gender")!="Å®ĞÔ") return;
+	if (ob->query("age") < 16) return; //æ”¹æˆ16å²
+	if (ob->query("gender")!="å¥³æ€§") return;
 	if (wiz_level(ob)) return;
 	score = ob->query_per()*30
 		-ob->query_skill("beauty",1)/3
@@ -173,7 +173,7 @@ void add_rank_beauty(object ob)
 		+20;
 	if(ob->query("age")<22){
 		score = score * ob->query("age");
-		score = score / 22;//º¬°ú´ı·Å ^_^
+		score = score / 22;//å«è‹å¾…æ”¾ ^_^
 	}
 	if( score < 1 ) return;
 
@@ -193,7 +193,7 @@ void add_rank_beauty(object ob)
 		if (score > beauty_ranks[i]["score"]) break;
 	if (i > beauty_total) return;
 
-	if (!stringp(party)) party = "ÆÕÍ¨°ÙĞÕ";
+	if (!stringp(party)) party = "æ™®é€šç™¾å§“";
 	rank =  ([      "id":           ob->query("id"),
 			"name":         ob->query("name"),
 			"family":       party,
@@ -212,7 +212,7 @@ void add_rank_pk(object ob)
 	mapping rank;
 	string party = ob->query("family/family_name");
 
-	// ÏÈÉ¾³ıÔ­ÏÈ¼ÇÂ¼	
+	// å…ˆåˆ é™¤åŸå…ˆè®°å½•	
 	for (i = 0; i < sizeof(pk_ranks); i++)
 		if (wiz_level(pk_ranks[i]["id"]) || pk_ranks[i]["id"] == ob->query("id") || pk_ranks[i]["score"] < 1) {
 			pk_ranks = pk_ranks[0..i-1] + pk_ranks[i+1..pk_total];
@@ -220,7 +220,7 @@ void add_rank_pk(object ob)
 		}
 
 	if (wiz_level(ob)) return;
-	if (exp <  100000 ) return;//100KÒÔÇ°»¹ÄÜ½ĞÉ±ÊÖÃ´£¿wink
+	if (exp <  100000 ) return;//100Kä»¥å‰è¿˜èƒ½å«æ€æ‰‹ä¹ˆï¼Ÿwink
 	score = ob->query("PKS")*40
 		+ob->query("FKS")*50
 		+((ob->query("PKS")+ob->query("FKS"))*5000-ob->query("MKS"))/150;
@@ -242,7 +242,7 @@ void add_rank_pk(object ob)
 		if (score > pk_ranks[i]["score"]) break;
 	if (i > pk_total) return;
 
-	if (!stringp(party)) party = "ÆÕÍ¨°ÙĞÕ";
+	if (!stringp(party)) party = "æ™®é€šç™¾å§“";
 	rank =  ([      "id":           ob->query("id"),
 			"name":         ob->query("name"),
 			"family":       party,			
@@ -262,7 +262,7 @@ void add_rank_rich(object ob)
 	mapping rank;
 	string party = ob->query("family/family_name");
 	
-	// ÏÈÉ¾³ıÔ­ÏÈ¼ÇÂ¼	
+	// å…ˆåˆ é™¤åŸå…ˆè®°å½•	
 	for (i = 0; i < sizeof(rich_ranks); i++)
 		if (wiz_level(rich_ranks[i]["id"]) || rich_ranks[i]["id"] == ob->query("id") || rich_ranks[i]["score"] < 1) {
 			rich_ranks = rich_ranks[0..i-1] + rich_ranks[i+1..rich_total];
@@ -291,7 +291,7 @@ void add_rank_rich(object ob)
 		if (score > rich_ranks[i]["score"]) break;
 	if (i > rich_total) return;
 
-	if (!stringp(party)) party = "ÆÕÍ¨°ÙĞÕ";
+	if (!stringp(party)) party = "æ™®é€šç™¾å§“";
 	rank =  ([      "id":           ob->query("id"),
 			"name":         ob->query("name"),
 			"family":       party,			
@@ -311,7 +311,7 @@ void add_rank_worker(object ob)
 	mapping rank;
 	string party = ob->query("family/family_name");
 	
-	// ÏÈÉ¾³ıÔ­ÏÈ¼ÇÂ¼	
+	// å…ˆåˆ é™¤åŸå…ˆè®°å½•	
 	for (i = 0; i < sizeof(worker_ranks); i++)
 		if (wiz_level(worker_ranks[i]["id"]) || worker_ranks[i]["id"] == ob->query("id") || worker_ranks[i]["score"] < 1) {
 			worker_ranks = worker_ranks[0..i-1] + worker_ranks[i+1..worker_total];
@@ -348,7 +348,7 @@ void add_rank_worker(object ob)
 		if (score > worker_ranks[i]["score"]) break;
 	if (i > worker_total) return;
 	
-	if (!stringp(party)) party = "ÆÕÍ¨°ÙĞÕ";
+	if (!stringp(party)) party = "æ™®é€šç™¾å§“";
 	rank =  ([      "id":           ob->query("id"),
 			"name":         ob->query("name"),
 			"family":       party,			
@@ -372,7 +372,7 @@ void add_rank(object ob)
 	add_rank_pk(ob);
 	add_rank_rich(ob);
 	add_rank_worker(ob);	
-	// ÏÈÉ¾³ıÔ­ÏÈ¼ÇÂ¼
+	// å…ˆåˆ é™¤åŸå…ˆè®°å½•
 	
 	for (i = 0; i < sizeof(score_ranks); i++)
 		if (wiz_level(score_ranks[i]["id"]) || score_ranks[i]["id"] == ob->query("id") || score_ranks[i]["score"] < 1) {
@@ -410,7 +410,7 @@ void add_rank(object ob)
 		if (score > score_ranks[i]["score"]) break;
 	if (i > score_total) return;
 
-	if (!stringp(party)) party = "ÆÕÍ¨°ÙĞÕ";
+	if (!stringp(party)) party = "æ™®é€šç™¾å§“";
 	rank =  ([      "id":           ob->query("id"),
 			"name":         ob->query("name"),
 			"family":       party,
@@ -438,14 +438,14 @@ void remove_busy(object me)
 int main(object me, string arg)
 {
 	int i, j;
-	string str = "\n              ©³ Êé½£¸ßÊÖÅÅĞĞ°ñ ©·\n";
+	string str = "\n              â” ä¹¦å‰‘é«˜æ‰‹æ’è¡Œæ¦œ â”“\n";
 	int flag = wizardp(me), t = time()-3600-119;
 	string type;
 	mapping *ranks = score_ranks;
 	int total = score_total;
 	
 	if (!wizardp(me) && me->query_temp("command_busy"))
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	me->set_temp("command_busy",1);
 	call_out("remove_busy", 3, me);
 	if(!arg || ( stringp(arg) && sscanf(arg, "%d", j)==1 ) ) ;
@@ -454,19 +454,19 @@ int main(object me, string arg)
 		if(type=="armor" || type=="weapon")
 			return show_worker_rank(me,type,j?j:10);
 		if(type=="beauty"){
-			str = "\n              ©³ Êé½£ÃÀÅ®ÅÅĞĞ°ñ ©·\n";
+			str = "\n              â” ä¹¦å‰‘ç¾å¥³æ’è¡Œæ¦œ â”“\n";
 			ranks = beauty_ranks;
 		}
 		if(type=="pk"){
-			str = "\n              ©³ Êé½£É±ÊÖÅÅĞĞ°ñ ©·\n";
+			str = "\n              â” ä¹¦å‰‘æ€æ‰‹æ’è¡Œæ¦œ â”“\n";
 			ranks = pk_ranks;
 		}
 		if(type=="rich"){
-			str = "\n              ©³ Êé½£¸»ÎÌÅÅĞĞ°ñ ©·\n";
+			str = "\n              â” ä¹¦å‰‘å¯Œç¿æ’è¡Œæ¦œ â”“\n";
 			ranks = rich_ranks;
 		}
 		if(type=="worker"){
-			str = "\n              ©³ Êé½£¹¤½³ÅÅĞĞ°ñ ©·\n";
+			str = "\n              â” ä¹¦å‰‘å·¥åŒ æ’è¡Œæ¦œ â”“\n";
 			ranks = worker_ranks;
 		}
 		///etc....
@@ -475,9 +475,9 @@ int main(object me, string arg)
 	if (me->query("combat_exp") > 100000 && !wiz_level(me))
 		add_rank(me);
 	
-	str += "©³©¥©¥©Ó©¥©¥©¥©ß©¥©¥©¥©¥©¥©Ó©¥©¥©ß©¥©Ó©¥©¥©¥©¥©·\n";
-	str += "©§Ãû´Î©¦     Ãû     ×Ö    ©¦ ÃÅ  ÅÉ ©¦×ÛºÏÆÀ¼Û©§\n";
-	str += "©Ä©¤©¤©Ø©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©Ø©¤©¤©¤©¤©Ì\n";	
+	str += "â”â”â”â”¯â”â”â”â”»â”â”â”â”â”â”¯â”â”â”»â”â”¯â”â”â”â”â”“\n";
+	str += "â”ƒåæ¬¡â”‚     å     å­—    â”‚ é—¨  æ´¾ â”‚ç»¼åˆè¯„ä»·â”ƒ\n";
+	str += "â” â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”´â”€â”€â”€â”€â”¨\n";	
 	if (j < 1)
 		j = 10;
 	if (j > total)
@@ -485,7 +485,7 @@ int main(object me, string arg)
 	if (j > sizeof(ranks))
 		j = sizeof(ranks);
 	for (i = 0; i < j; i++)
-		str += sprintf("©§%s%|4d  %8s%-10s  %|8s  %|8d" NOR "©§%s\n",
+		str += sprintf("â”ƒ%s%|4d  %8s%-10s  %|8s  %|8d" NOR "â”ƒ%s\n",
 			(ranks[i]["id"] == me->query("id"))?HIY BRED:"",
 			i+1,
 			ranks[i]["name"],
@@ -493,7 +493,7 @@ int main(object me, string arg)
 			ranks[i]["family"],
 			ranks[i]["score"],
 			flag?sprintf("%'.'-30s", repeat_string("o", (ranks[i]["time"]-t)/120)):"");
-	str += "©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n";
+	str += "â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n";
 	me->start_more(str);
 	return 1;
 }
@@ -508,15 +508,15 @@ int show_worker_rank(object me,string type,int j)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : 
-top [Êı×Ö] 		ÏÔÊ¾Êé½£¸ßÊÖÅÅĞĞ°ñ
-top weapon [Êı×Ö]	ÏÔÊ¾Êé½£±øÆ÷ÅÅĞĞ°ñ
-top armor  [Êı×Ö]	ÏÔÊ¾Êé½£·À¾ßÅÅĞĞ°ñ
-top pk     [Êı×Ö]	ÏÔÊ¾Êé½£É±ÊÖÅÅĞĞ°ñ
-top beauty [Êı×Ö]	ÏÔÊ¾Êé½£ÃÀÅ®ÅÅĞĞ°ñ
+æŒ‡ä»¤æ ¼å¼ : 
+top [æ•°å­—] 		æ˜¾ç¤ºä¹¦å‰‘é«˜æ‰‹æ’è¡Œæ¦œ
+top weapon [æ•°å­—]	æ˜¾ç¤ºä¹¦å‰‘å…µå™¨æ’è¡Œæ¦œ
+top armor  [æ•°å­—]	æ˜¾ç¤ºä¹¦å‰‘é˜²å…·æ’è¡Œæ¦œ
+top pk     [æ•°å­—]	æ˜¾ç¤ºä¹¦å‰‘æ€æ‰‹æ’è¡Œæ¦œ
+top beauty [æ•°å­—]	æ˜¾ç¤ºä¹¦å‰‘ç¾å¥³æ’è¡Œæ¦œ
 
-ÓÃÍ¾£º ÏÔÊ¾Êé½£¸ßÊÖ¡¢±øÆ÷¡¢·À¾ß¡¢É±ÊÖ¡¢ÃÀÅ®ÅÅĞĞ°ñ£¬Êı×Ö
-±íÊ¾ÏÔÊ¾ÊıÄ¿¡£
+ç”¨é€”ï¼š æ˜¾ç¤ºä¹¦å‰‘é«˜æ‰‹ã€å…µå™¨ã€é˜²å…·ã€æ€æ‰‹ã€ç¾å¥³æ’è¡Œæ¦œï¼Œæ•°å­—
+è¡¨ç¤ºæ˜¾ç¤ºæ•°ç›®ã€‚
 HELP
      );
      return 1;
@@ -536,7 +536,7 @@ void add_rank(object ob)
 	mapping rank;
 	string party = ob->query("family/family_name");
 
-	// ÏÈÉ¾³ıÔ­ÏÈ¼ÇÂ¼	
+	// å…ˆåˆ é™¤åŸå…ˆè®°å½•	
 	for (i = 0; i < sizeof(ranks); i++)
 		if (wiz_level(ranks[i]["id"]) || ranks[i]["id"] == ob->query("id") || ranks[i]["score"] < 1) {
 			ranks = ranks[0..i-1] + ranks[i+1..total];
@@ -574,7 +574,7 @@ void add_rank(object ob)
 		if (score > ranks[i]["score"]) break;
 	if (i > total) return;
 
-	if (!stringp(party)) party = "ÆÕÍ¨°ÙĞÕ";
+	if (!stringp(party)) party = "æ™®é€šç™¾å§“";
 	rank =  ([      "id":           ob->query("id"),
 			"name":         ob->query("name"),
 			"family":       party,

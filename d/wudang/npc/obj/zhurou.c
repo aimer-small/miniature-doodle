@@ -1,17 +1,17 @@
-// zhurou.c Ò°ÖíÈâ
+// zhurou.c é‡çŒªè‚‰
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-	set_name("Ò°ÖíÈâ", ({"zhu rou", "tu"}));
+	set_name("é‡çŒªè‚‰", ({"zhu rou", "tu"}));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»¿éÏÊÑªÁÜÀì·ÊµÄÒ°ÖíÈâ¡£\n");
-		set("unit", "¿é");
+		set("long", "ä¸€å—é²œè¡€æ·‹æ¼“è‚¥çš„é‡çŒªè‚‰ã€‚\n");
+		set("unit", "å—");
 		set("value", 200);
 		set("food_remaining", 4);
 		set("food_supply", 60);

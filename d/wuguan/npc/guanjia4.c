@@ -1,19 +1,19 @@
-// guanjia4.c Ë®·¿¹ÜÊÂ
+// guanjia4.c æ°´æˆ¿ç®¡äº‹
 // Modify By River@SJ
 
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-       set_name("Ë®·¿¹ÜÊÂ", ({ "shuifang guanshi", "guanshi" }) );
-       set("gender", "ÄĞĞÔ" );
+       set_name("æ°´æˆ¿ç®¡äº‹", ({ "shuifang guanshi", "guanshi" }) );
+       set("gender", "ç”·æ€§" );
        set("age", 30);
-       set("long", "ËûÊÇÏåÑôÎä¹İµÄÒ»¸ö¹Ü¼Ò£¬×¨¹ÜË®·¿ÀïµÄ´óĞ¡ÔÓÊÂ£¡\n");
+       set("long", "ä»–æ˜¯è¥„é˜³æ­¦é¦†çš„ä¸€ä¸ªç®¡å®¶ï¼Œä¸“ç®¡æ°´æˆ¿é‡Œçš„å¤§å°æ‚äº‹ï¼\n");
        set("combat_exp", 2500);
        set("attitude", "friendly");
 
        set("inquiry", ([
-             "ÌôË®" : "Äã¾ÍÔÚÕâÀÏÀÏÊµÊµ¸øÎÒÌôË®£¬Ã»ÓĞÎÒµÄÂúÒâ£¬Äã±ğÏë»ØÈ¥¸²Ãü£¡",
+             "æŒ‘æ°´" : "ä½ å°±åœ¨è¿™è€è€å®å®ç»™æˆ‘æŒ‘æ°´ï¼Œæ²¡æœ‰æˆ‘çš„æ»¡æ„ï¼Œä½ åˆ«æƒ³å›å»è¦†å‘½ï¼",
        ]) );
        setup();
        carry_object(ARMOR_D("cloth"))->wear();
@@ -32,14 +32,14 @@ void init()
 void greeting(object ob)
 {
        if( !ob || environment(ob) != environment() ) return;
-       if(ob->query_temp("job_name") != "ÌôË®") return; 
+       if(ob->query_temp("job_name") != "æŒ‘æ°´") return; 
        if (!( present("shui tong", ob))){
            command("hmm "+ob->query("id"));
-           command("say Äã»¹Ã»Áì¹¤¾ß°É£¬È¥ÎïÆ··¿ÕÒÁùÊ¦ĞÖÒª¡£");
+           command("say ä½ è¿˜æ²¡é¢†å·¥å…·å§ï¼Œå»ç‰©å“æˆ¿æ‰¾å…­å¸ˆå…„è¦ã€‚");
            return;
        }
-       if(!(ob->query_temp("job_name") != "ÌôË®")){
+       if(!(ob->query_temp("job_name") != "æŒ‘æ°´")){
            command("nod "+ob->query("id"));
-           command("say " + RANK_D->query_respect(ob)+ "£¬Äã¾ÍÔÚÕâÌôË® "HIY HBCYN"tiao Ë®"CYN" °É¡£"NOR);
+           command("say " + RANK_D->query_respect(ob)+ "ï¼Œä½ å°±åœ¨è¿™æŒ‘æ°´ "HIY HBCYN"tiao æ°´"CYN" å§ã€‚"NOR);
        }
 }

@@ -4,10 +4,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÖĞÄêÆòØ¤", ({ "qigai", "beggar" }) );
-        set("long","ÕâÊÇÒ»¸öÖĞÄêÆòØ¤£¬Á³ÉÏÒÑÓĞ²»ÉÙÖåÎÆ¡£\n");
+        set_name("ä¸­å¹´ä¹ä¸", ({ "qigai", "beggar" }) );
+        set("long","è¿™æ˜¯ä¸€ä¸ªä¸­å¹´ä¹ä¸ï¼Œè„¸ä¸Šå·²æœ‰ä¸å°‘çš±çº¹ã€‚\n");
 	
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 33);
         set("attitude", "peaceful");
         set("shen_type", 0);

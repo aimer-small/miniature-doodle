@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW"×íÏÉÁéÜ½"NOR,({"flower","zuixian lingfu"}));
+	set_name(HIW"é†‰ä»™çµèŠ™"NOR,({"flower","zuixian lingfu"}));
 	set_weight(10);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit","¶ä");
-		set("long",HIW"ÕâÊÇË®ÏÉÒ»°ãµÄ»¨»Ü£¬ËÆË®ÏÉ¶ø´ó£¬»¨×÷°×É«£¬ÏãÆøÓÄÑÅ¡£\n"NOR);
+		set("unit","æœµ");
+		set("long",HIW"è¿™æ˜¯æ°´ä»™ä¸€èˆ¬çš„èŠ±å‰ï¼Œä¼¼æ°´ä»™è€Œå¤§ï¼ŒèŠ±ä½œç™½è‰²ï¼Œé¦™æ°”å¹½é›…ã€‚\n"NOR);
 		set("value",100);
 		set("material","plant");
 		set("no_get",1);

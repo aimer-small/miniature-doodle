@@ -1,12 +1,12 @@
-//xshiwu.c Сʯ��
+//xshiwu.c 小石屋
 #include <room.h>
 inherit ROOM;
 void create()
 {
-         set("short","Сʯ��");
+         set("short","小石屋");
 	 set("long",@LONG
-����һ��Сʯ�ݣ���Χ���ô�ʯ���������ġ����Ϻ������ż��Ų�ϯ��ǽ
-�Ƿ���һ�����ӣ�����ȥ���ò��������Ϸ��ż�ֻ���롣
+这是一座小石屋，四围是用大石块砌起来的。地上胡乱铺着几张草席，墙
+角放着一张桌子，看上去破烂不堪，桌上放着几只破碗。
 LONG
 );
          set("sleep_room",1);

@@ -13,35 +13,35 @@ int do_jump(string arg)
 	if(!living(me) ) return 0;
 
         if (me->is_busy() || me->is_fighting())
-	return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+	return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 	
 if( (int)me->query_skill("dodge", 1) > 101 || (int)me->query_skill("anying-fuxiang", 1) > 120)
-	return notify_fail("ÕâÀïÒÑ¾­²»ÊÊºÏÄãÁ·Ï°Çá¹¦ÁË¡£\n");
+	return notify_fail("è¿™é‡Œå·²ç»ä¸é€‚åˆä½ ç»ƒä¹ è½»åŠŸäº†ã€‚\n");
 
 	if( arg == "right" || arg == "you" ) {
 	me->add_temp("marks/you", 1);
-	write("ÄãÌøµ½ÁËÓÒ±ßµÄÃ·»¨×®¡£\n", me);
+	write("ä½ è·³åˆ°äº†å³è¾¹çš„æ¢…èŠ±æ¡©ã€‚\n", me);
 	me->move(__DIR__"muzhuang"); 
 	me->receive_damage("jingli", ((int)me->query("dex")));  
 	 }
 
 	if( arg == "left" || arg == "zuo" ) {
 	me->add_temp("marks/zuo", 1);
-	write("ÄãÌøµ½ÁË×ó±ßµÄÃ·»¨×®¡£\n", me);
+	write("ä½ è·³åˆ°äº†å·¦è¾¹çš„æ¢…èŠ±æ¡©ã€‚\n", me);
 	me->move(__DIR__"muzhuang"); 
 	me->receive_damage("jingli", ((int)me->query("dex")));
 	 }
 
 	if( arg == "qian" ) {
 	me->add_temp("marks/qian", 1); 
-	write("ÄãÌøµ½ÁËÇ°±ßµÄÃ·»¨×®¡£\n", me);
+	write("ä½ è·³åˆ°äº†å‰è¾¹çš„æ¢…èŠ±æ¡©ã€‚\n", me);
 	me->move(__DIR__"muzhuang"); 
 	me->receive_damage("jingli", ((int)me->query("dex")));
 	 }
 
 	if( arg == "hou" ) {
 	me->add_temp("marks/hou", 1); 
-	write("ÄãÌøµ½ÁËºó±ßµÄÃ·»¨×®¡£\n", me);
+	write("ä½ è·³åˆ°äº†åŽè¾¹çš„æ¢…èŠ±æ¡©ã€‚\n", me);
 	me->move(__DIR__"muzhuang"); 
 	me->receive_damage("jingli", ((int)me->query("dex")));
 	 }
@@ -52,7 +52,7 @@ if( (int)me->query_skill("dodge", 1) > 101 || (int)me->query_skill("anying-fuxia
 	    me->query_temp("marks/hou") == 4 ) {		
 	me->improve_skill("dodge", (int)me->query("dex") * 10 );
 	me->improve_skill("anying-fuxiang", (int)me->query("dex") * 10 );
-	write("ÄãÔÚÃ·»¨×®ÉÏÌøÀ´ÌøÈ¥£¬¶ÔÄãµÄÇá¹¦´óÎªÓÐÒæ¡£\n", me);
+	write("ä½ åœ¨æ¢…èŠ±æ¡©ä¸Šè·³æ¥è·³åŽ»ï¼Œå¯¹ä½ çš„è½»åŠŸå¤§ä¸ºæœ‰ç›Šã€‚\n", me);
         me->delete_temp("marks/zuo");
         me->delete_temp("marks/you");
         me->delete_temp("marks/qian");

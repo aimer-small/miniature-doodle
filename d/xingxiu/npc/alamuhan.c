@@ -5,10 +5,10 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("°¢À­Ä¾º±", ({ "alamuhan", "ala", "muhan" }));
-	set("long", "ËıÉí¶Î²»·ÊÒ²²»Êİ¡£ËıµÄÃ¼Ã«ÏñÍäÔÂ£¬ËıµÄÑÛ¾¦ºÜ¶àÇé¡£\n");
-	set("title", "ÄÁÑò¹ÃÄï");
-	set("gender", "Å®ĞÔ");
+	set_name("é˜¿æ‹‰æœ¨ç½•", ({ "alamuhan", "ala", "muhan" }));
+	set("long", "å¥¹èº«æ®µä¸è‚¥ä¹Ÿä¸ç˜¦ã€‚å¥¹çš„çœ‰æ¯›åƒå¼¯æœˆï¼Œå¥¹çš„çœ¼ç›å¾ˆå¤šæƒ…ã€‚\n");
+	set("title", "ç‰§ç¾Šå§‘å¨˜");
+	set("gender", "å¥³æ€§");
 	set("age", 17);
 
 	set_skill("unarmed", 20);
@@ -50,10 +50,10 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() ) return;
 	switch( random(2) ) {
 		case 0:
-			say( "°¢À­Ä¾º±Ğ¦ÎûÎûµØËµµÀ£ºÉ«À¼Ä·°¢Àï¿Õ¡£\n");
+			say( "é˜¿æ‹‰æœ¨ç½•ç¬‘å˜»å˜»åœ°è¯´é“ï¼šè‰²å…°å§†é˜¿é‡Œç©ºã€‚\n");
 			break;
 		case 1:
-			say( "°¢À­Ä¾º±Ç³¾ÏÒ»¹ªËµµÀ£º°¢Àï¿ÕÉ«À¼Ä·¡£\n");
+			say( "é˜¿æ‹‰æœ¨ç½•æµ…é ä¸€èº¬è¯´é“ï¼šé˜¿é‡Œç©ºè‰²å…°å§†ã€‚\n");
 			break;
 	}
 }

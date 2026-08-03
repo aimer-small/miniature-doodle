@@ -2,13 +2,13 @@ inherit ITEM;
 #include <ansi.h>
 void create()
 {
-       set_name(HIW"¹ãÁêÉ¢"NOR, ({ "guangling san", "san", "guangling" }) );
+       set_name(HIW"å¹¿é™µæ•£"NOR, ({ "guangling san", "san", "guangling" }) );
        set_weight(100);
        if( clonep() )
                set_default_object(__FILE__);
       else {
-               set("unit", "±¾");
-                set("long", "ÕâÊÇÒ»±¾¹ãÁêÉ¢µÄÀÖÆ×£¬ÊÇÃ·×¯»ÆÖÒ¹«×îÏëµÃµ½µÄ¶«Î÷¡£\n");
+               set("unit", "æœ¬");
+                set("long", "è¿™æ˜¯ä¸€æœ¬å¹¿é™µæ•£çš„ä¹è°±ï¼Œæ˜¯æ¢…åº„é»„å¿ å…¬æœ€æƒ³å¾—åˆ°çš„ä¸œè¥¿ã€‚\n");
                set("value", 100000);
                set("no_give",1);
                set("treasure",1);

@@ -93,39 +93,39 @@ string worker_title(object me,string type)
 
 	if( type == "duanzao" )
 	{
-		if(level<60) str=GRN"Öı½£Ê¦Ñ§Í½"NOR;
-		else if(level<120) str=CYN"³õ¼¶Öı½£Ê¦"NOR;
-		else if(level<180) str=RED"Öı½£Ê¦"NOR;
-		else if(level<240) str=YEL"¸ß¼¶Öı½£Ê¦"NOR;
-		else if(level<300) str=HIG"ÓÅĞãÖı½£Ê¦"NOR;
-		else if(level<350) str=HIC"ÉñÆæÖı½£Ê¦"NOR;
-		else if(level<390) str=HIR"ÉñÊ¥Öı½£Ê¦"NOR;
-		else if(level<400) str=HIY"´«ÆæÖı½£Ê¦"NOR;
-		else str=HIW"´«ËµÖĞµÄÖı½£Ê¦"NOR;
+		if(level<60) str=GRN"é“¸å‰‘å¸ˆå­¦å¾’"NOR;
+		else if(level<120) str=CYN"åˆçº§é“¸å‰‘å¸ˆ"NOR;
+		else if(level<180) str=RED"é“¸å‰‘å¸ˆ"NOR;
+		else if(level<240) str=YEL"é«˜çº§é“¸å‰‘å¸ˆ"NOR;
+		else if(level<300) str=HIG"ä¼˜ç§€é“¸å‰‘å¸ˆ"NOR;
+		else if(level<350) str=HIC"ç¥å¥‡é“¸å‰‘å¸ˆ"NOR;
+		else if(level<390) str=HIR"ç¥åœ£é“¸å‰‘å¸ˆ"NOR;
+		else if(level<400) str=HIY"ä¼ å¥‡é“¸å‰‘å¸ˆ"NOR;
+		else str=HIW"ä¼ è¯´ä¸­çš„é“¸å‰‘å¸ˆ"NOR;
 	}
 	else if( type == "zhizao" )
 	{
-		if(level<60) str=GRN"²Ã·ìÑ§Í½"NOR;
-		else if(level<120) str=CYN"¼ûÏ°²Ã·ì"NOR;
-		else if(level<180) str=RED"²Ã·ì"NOR;
-		else if(level<240) str=YEL"¸ß¼¶²Ã·ì"NOR;
-		else if(level<300) str=HIG"ÓÅĞã²Ã·ì"NOR;
-		else if(level<350) str=HIC"Ö¯ÔìÊ¦"NOR;
-		else if(level<390) str=HIR"¸ß¼¶Ö¯ÔìÊ¦"NOR;
-		else if(level<400) str=HIY"Ö¯Ôì´óÊ¦"NOR;
-		else str=HIW"´«ËµÖĞµÄÖ¯Ôì´óÊ¦"NOR;
+		if(level<60) str=GRN"è£ç¼å­¦å¾’"NOR;
+		else if(level<120) str=CYN"è§ä¹ è£ç¼"NOR;
+		else if(level<180) str=RED"è£ç¼"NOR;
+		else if(level<240) str=YEL"é«˜çº§è£ç¼"NOR;
+		else if(level<300) str=HIG"ä¼˜ç§€è£ç¼"NOR;
+		else if(level<350) str=HIC"ç»‡é€ å¸ˆ"NOR;
+		else if(level<390) str=HIR"é«˜çº§ç»‡é€ å¸ˆ"NOR;
+		else if(level<400) str=HIY"ç»‡é€ å¤§å¸ˆ"NOR;
+		else str=HIW"ä¼ è¯´ä¸­çš„ç»‡é€ å¤§å¸ˆ"NOR;
 	}
 	else if( type == "liandan" )
 	{
-		if(level<60) str=GRN"Ò©Ê¦Ñ§Í½"NOR;
-		else if(level<120) str=CYN"Ò©Ê¦ÖúÊÖ"NOR;
-		else if(level<180) str=RED"Ò©Ê¦"NOR;
-		else if(level<240) str=YEL"ÎÅÃûÒ©Ê¦"NOR;
-		else if(level<300) str=HIG"ÖøÃûÒ©Ê¦"NOR;
-		else if(level<350) str=HIC"ÉñÆæÒ©Ê¦"NOR;
-		else if(level<390) str=HIR"ÉñÊ¥Ò©Ê¦"NOR;
-		else if(level<400) str=HIY"´«ÆæÒ©Ê¦"NOR;
-		else str=HIW"´«ËµÖĞµÄÒ©Ê¦"NOR;
+		if(level<60) str=GRN"è¯å¸ˆå­¦å¾’"NOR;
+		else if(level<120) str=CYN"è¯å¸ˆåŠ©æ‰‹"NOR;
+		else if(level<180) str=RED"è¯å¸ˆ"NOR;
+		else if(level<240) str=YEL"é—»åè¯å¸ˆ"NOR;
+		else if(level<300) str=HIG"è‘—åè¯å¸ˆ"NOR;
+		else if(level<350) str=HIC"ç¥å¥‡è¯å¸ˆ"NOR;
+		else if(level<390) str=HIR"ç¥åœ£è¯å¸ˆ"NOR;
+		else if(level<400) str=HIY"ä¼ å¥‡è¯å¸ˆ"NOR;
+		else str=HIW"ä¼ è¯´ä¸­çš„è¯å¸ˆ"NOR;
 	}
 
 	return str;
@@ -134,7 +134,7 @@ string worker_title(object me,string type)
 protected void delete_user_weapon(object me, string save_id, string text)
 {
 	if( !me ) return;
-	if( text ) write(HIW"ÄúµÄ±øÆ÷ÒòÎª£º" + text + "£¬±»ÏµÍ³È¡Ïû¡£\n"NOR);
+	if( text ) write(HIW"æ‚¨çš„å…µå™¨å› ä¸ºï¼š" + text + "ï¼Œè¢«ç³»ç»Ÿå–æ¶ˆã€‚\n"NOR);
 	me->delete("worker/"+save_id);
 	me->save();
 	log_file("career/worker", sprintf("delete  :%-8s:%-19s:%s\n",me->query("id"),save_id,text), me);
@@ -143,7 +143,7 @@ protected void delete_user_weapon(object me, string save_id, string text)
 protected void delete_user_armor(object me, string save_id, string text)
 {
 	if( !me ) return;
-	if( text ) write(HIW"ÄúµÄ·À¾ßÒòÎª£º" + text + "£¬±»ÏµÍ³È¡Ïû¡£\n"NOR);
+	if( text ) write(HIW"æ‚¨çš„é˜²å…·å› ä¸ºï¼š" + text + "ï¼Œè¢«ç³»ç»Ÿå–æ¶ˆã€‚\n"NOR);
 	me->delete("worker/"+save_id);
 	me->save();
 	log_file("career/worker", sprintf("delete  :%-8s:%-19s:%s\n",me->query("id"),save_id,text), me);
@@ -166,7 +166,7 @@ public void deleteweapon(string id,string str,string sid)
 		body = LOGIN_D->make_body(ob);
 		if( body->restore() ) {
 			body->delete( "worker/" + sid );
-			if(str) "/cmds/std/msg"->system_send(this_object(),({id}),"Ë½ÓĞÎïÆ·±»É¾", HIW+"ÔÚÄúÀëÏßÆÚ¼ä£º\n"+str+NOR );
+			if(str) "/cmds/std/msg"->system_send(this_object(),({id}),"ç§æœ‰ç‰©å“è¢«åˆ ", HIW+"åœ¨æ‚¨ç¦»çº¿æœŸé—´ï¼š\n"+str+NOR );
 			body->set_temp("db_quit",1);
 			body->save();
 		}
@@ -199,7 +199,7 @@ object load_user_object(object me,mapping u_map)
 				j = weapon->query("weapon_mp/utime");
 				/*
 				if( (time()-j) > 432000 && weapon->query("owner")!=getuid(me) ) { // 5 day
-					tell_object(me,"\nÓÉÓÚ³¤Ê±¼äÃ»ÓĞÉÏÏß£¬ÄãµÄ±øÆ÷"+weapon->query("name")+"ÏûÊ§ÁË£¡\n\n");
+					tell_object(me,"\nç”±äºé•¿æ—¶é—´æ²¡æœ‰ä¸Šçº¿ï¼Œä½ çš„å…µå™¨"+weapon->query("name")+"æ¶ˆå¤±äº†ï¼\n\n");
 					log_file("career/worker", sprintf("overtime:%-8s:%s:%s\n",me->query("id"),weapon->query("weapon_mp/save_id"),ctime(j)), me);
 					weapon->delete_weapon(me);
 					destruct(weapon);
@@ -231,7 +231,7 @@ object load_user_object(object me,mapping u_map)
 				j = armor->query("armor_mp/utime");
 				/*
 				if( (time()-j) > 432000 ) { // 5 day
-					tell_object(me,"\nÓÉÓÚ³¤Ê±¼äÃ»ÓĞÉÏÏß£¬ÄãµÄ·À¾ß"+armor->query("name")+"ÏûÊ§ÁË£¡\n\n");
+					tell_object(me,"\nç”±äºé•¿æ—¶é—´æ²¡æœ‰ä¸Šçº¿ï¼Œä½ çš„é˜²å…·"+armor->query("name")+"æ¶ˆå¤±äº†ï¼\n\n");
 					log_file("career/worker", sprintf("overtime:%-8s:%s:%s\n",me->query("id"),armor->query("armor_mp/save_id"),ctime(j)), me);
 					armor->delete_armor(me);
 					destruct(armor);
@@ -306,14 +306,14 @@ mapping convert_armor2user(mapping mp)
 	if( stringp(mp["name_st"]) )
 		st = mp["name_st"];
 	else if( sizeof(mp["name_st"]) > 0 )
-		st = implode(mp["name_st"][0..<1], "¡¢");
+		st = implode(mp["name_st"][0..<1], "ã€");
 
 	my_mp["imbued"] 	=	mp["imbued"];
 	my_mp["save_id"] 	=	mp["save_id"];
 	my_mp["id"] 		=	mp["id"];
 	my_mp["armor_prop"]	=	mp["armor_prop"];
-	my_mp["user"]		=	mp["user"];	// ³ÖÓĞÈË
-	my_mp["ltime"]		=	mp["ltime"];	// ÉÏ´ÎÎ¬»¤Ê±¼ä
+	my_mp["user"]		=	mp["user"];	// æŒæœ‰äºº
+	my_mp["ltime"]		=	mp["ltime"];	// ä¸Šæ¬¡ç»´æŠ¤æ—¶é—´
 
 	if (mp["armor_type"] == TYPE_CLOTH)
 		mp["armor_type"] = TYPE_COAT;
@@ -353,8 +353,8 @@ mapping convert_user2armor(mapping mp)
 	my_mp["save_id"] 	=	mp["save_id"];
 	my_mp["id"] 		=	mp["id"];
 	my_mp["armor_prop"]	=	mp["armor_prop"];
-	my_mp["user"]		=	mp["user"];	// ³ÖÓĞÈË
-	my_mp["ltime"]		=	mp["ltime"];	// ÉÏ´ÎÎ¬»¤Ê±¼ä
+	my_mp["user"]		=	mp["user"];	// æŒæœ‰äºº
+	my_mp["ltime"]		=	mp["ltime"];	// ä¸Šæ¬¡ç»´æŠ¤æ—¶é—´
 
 	sscanf(mp["var"] , "%s,%s,%d,%d,%d,%d,%d,%s,%s,%d,%d,%s,%d,%d,%d,%d,%d,%s,%s,%s,%s",
 		my_mp["armor_type"],
@@ -394,14 +394,14 @@ mapping convert_weapon2user(mapping mp)
 	if( stringp(mp["name_st"]) )
 		st = mp["name_st"];
 	else if( sizeof(mp["name_st"]) > 0 )
-		st = implode(mp["name_st"][0..<1], "¡¢");
+		st = implode(mp["name_st"][0..<1], "ã€");
 
 	my_mp["imbued"] 	=	mp["imbued"];
 	my_mp["save_id"] 	=	mp["save_id"];
 	my_mp["id"] 		=	mp["id"];
 	my_mp["weapon_prop"] 	=	mp["weapon_prop"];
-	my_mp["user"]		=	mp["user"];	// ³ÖÓĞÈË
-	my_mp["ltime"]		=	mp["ltime"];	// ÉÏ´ÎÎ¬»¤Ê±¼ä
+	my_mp["user"]		=	mp["user"];	// æŒæœ‰äºº
+	my_mp["ltime"]		=	mp["ltime"];	// ä¸Šæ¬¡ç»´æŠ¤æ—¶é—´
 
 	my_mp["var"] = sprintf("%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%s,%s,%d,%d,%d,%d,%s,%s,%s,%s,%s",
 			mp["skill_type"],
@@ -441,8 +441,8 @@ mapping convert_user2weapon(mapping mp)
 	my_mp["save_id"] 	=	mp["save_id"];
 	my_mp["id"] 		=	mp["id"];
 	my_mp["weapon_prop"]	=	mp["weapon_prop"];
-	my_mp["user"]		=	mp["user"];	// ³ÖÓĞÈË
-	my_mp["ltime"]		=	mp["ltime"];	// ÉÏ´ÎÎ¬»¤Ê±¼ä
+	my_mp["user"]		=	mp["user"];	// æŒæœ‰äºº
+	my_mp["ltime"]		=	mp["ltime"];	// ä¸Šæ¬¡ç»´æŠ¤æ—¶é—´
 
 	sscanf(mp["var"], "%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%s,%s,%d,%d,%d,%d,%s,%s,%s,%s,%s",
 		my_mp["skill_type"],
@@ -506,22 +506,22 @@ object make_weapon(object me, mixed type, int qua, string material,mapping shuxi
 	str = "";
 	if( stringp(w_mp["long2"]) && w_mp["long2"]!="" && w_mp["long2"]!="0")
 		str = w_mp["long2"];
-	str += "ÕâÊÇÒ»±úÓÉ" + s_good(w_mp["rigidity"]) + "¼áÓ²µÄ";
+	str += "è¿™æ˜¯ä¸€æŸ„ç”±" + s_good(w_mp["rigidity"]) + "åšç¡¬çš„";
 	switch(w_mp["material"]){
-		case "hantie":    str += HIC"ÍòÄêº®±ùÌú"NOR;break;
-		case "xuantie":	  str += WHT"ĞşÌú"NOR; break;
-		case "shentie":   str += RED"ÍòÄêÉñÌú"NOR; break;
-		case "jintie":    str += HIY"½ğÌú"NOR; break;
-		case "ruanying":  str += HIW"ÈíÒø"NOR; break;
-		case "liuhuashi": str += RED"Á÷»¨Ê¯"NOR; break;
-		case "lushi":     str += HIG"ÂÌÊ¯"NOR; break;
-		case "ruantie":   str += YEL"ÈíÌú"NOR; break;
-		case "shengtie":  str += YEL"ÉúÌú"NOR; break;
-		case "qingtong":  str += GRN"ÇàÍ­"NOR; break;
-		default: str +=	"¾«¸Ö";	break;
+		case "hantie":    str += HIC"ä¸‡å¹´å¯’å†°é“"NOR;break;
+		case "xuantie":	  str += WHT"ç„é“"NOR; break;
+		case "shentie":   str += RED"ä¸‡å¹´ç¥é“"NOR; break;
+		case "jintie":    str += HIY"é‡‘é“"NOR; break;
+		case "ruanying":  str += HIW"è½¯é“¶"NOR; break;
+		case "liuhuashi": str += RED"æµèŠ±çŸ³"NOR; break;
+		case "lushi":     str += HIG"ç»¿çŸ³"NOR; break;
+		case "ruantie":   str += YEL"è½¯é“"NOR; break;
+		case "shengtie":  str += YEL"ç”Ÿé“"NOR; break;
+		case "qingtong":  str += GRN"é’é“œ"NOR; break;
+		default: str +=	"ç²¾é’¢";	break;
 	}
 	w = w_mp["weight"];
-	str +=	"ÖÆ³É£¬ÖØ"+sprintf("%s", chinese_number(w/500)+"½ï"+chinese_number((w%500)/50)+"Á½"+chinese_number((w%50)/5)+"Ç®")+"µÄ"+w_mp["name"]+"¡£\n";
+	str +=	"åˆ¶æˆï¼Œé‡"+sprintf("%s", chinese_number(w/500)+"æ–¤"+chinese_number((w%500)/50)+"ä¸¤"+chinese_number((w%50)/5)+"é’±")+"çš„"+w_mp["name"]+"ã€‚\n";
 
 	if( new_w )
 		p = w_mp["weapon_prop"]["damage"];
@@ -530,34 +530,34 @@ object make_weapon(object me, mixed type, int qua, string material,mapping shuxi
 	else p = 0;
 
 	if( w_mp["imbued"] < 5 && p > 300 && !new_w ){
-		delete_user_weapon(me, w_mp["save_id"], "Ê¹ÓÃBugÖÂÊ¹ÍşÁ¦¹ı¸ß");
+		delete_user_weapon(me, w_mp["save_id"], "ä½¿ç”¨Bugè‡´ä½¿å¨åŠ›è¿‡é«˜");
 		return 0;
 	}
 	else if( p <= 0 && !new_w){
-		delete_user_weapon(me, w_mp["save_id"], "ÏµÍ³BugÖÂÊ¹ºÁÎŞÍşÁ¦");
+		delete_user_weapon(me, w_mp["save_id"], "ç³»ç»ŸBugè‡´ä½¿æ¯«æ— å¨åŠ›");
 		return 0;
 	}
 
-	str += "¿´ÆğÀ´"	+ ( w_mp["flag"]==4?s_good(w_mp["sharpness"])+"·æÀû£¬":"" ) + "¾ßÓĞ"+ s_power(p) + "µÄÍşÁ¦£¡\n";
-	str += "×°±¸ÒªÇó£º±ÛÁ¦¡¾" +chinese_number(w_mp["wield_str"])+ "¡¿£¬"
-		+ "×î´óÄÚÁ¦¡¾" +chinese_number(w_mp["wield_maxneili"])+ "¡¿£¬"
-		+ "ÄÚÁ¦¡¾" +chinese_number(w_mp["wield_neili"])+ "¡¿\n";
+	str += "çœ‹èµ·æ¥"	+ ( w_mp["flag"]==4?s_good(w_mp["sharpness"])+"é”‹åˆ©ï¼Œ":"" ) + "å…·æœ‰"+ s_power(p) + "çš„å¨åŠ›ï¼\n";
+	str += "è£…å¤‡è¦æ±‚ï¼šè‡‚åŠ›ã€" +chinese_number(w_mp["wield_str"])+ "ã€‘ï¼Œ"
+		+ "æœ€å¤§å†…åŠ›ã€" +chinese_number(w_mp["wield_maxneili"])+ "ã€‘ï¼Œ"
+		+ "å†…åŠ›ã€" +chinese_number(w_mp["wield_neili"])+ "ã€‘\n";
 
 	if( w_mp["name_st"] ) {
 		if( stringp(w_mp["name_st"]) && strlen(w_mp["name_st"])>3 )
-			str += "ÒÔ¼°Ò»ÅÅ¹Å×­×Ö¡¾ "HIG +	w_mp["name_st"]	+ NOR" ¡¿\n";
+			str += "ä»¥åŠä¸€æ’å¤ç¯†å­—ã€ "HIG +	w_mp["name_st"]	+ NOR" ã€‘\n";
 		else if( arrayp(w_mp["name_st"]) && sizeof(w_mp["name_st"]) > 0 ) {
-			st = implode(w_mp["name_st"][0..<1], "¡¢");
+			st = implode(w_mp["name_st"][0..<1], "ã€");
 			w_mp["name_st"] = st;
-			str += "ÒÔ¼°Ò»ÅÅ¹Å×­×Ö¡¾ "HIG +	st + NOR" ¡¿\n";
+			str += "ä»¥åŠä¸€æ’å¤ç¯†å­—ã€ "HIG +	st + NOR" ã€‘\n";
 		}
 	}
 
 	if( stringp(w_mp["maker"]) && strlen(w_mp["maker"])>3 )
-		str += "ÒşÔ¼ÄÜ¿´¼û±øÆ÷ÖÆÔìÕßµÄĞÕÃû£º" + w_mp["maker"] + "\n";
+		str += "éšçº¦èƒ½çœ‹è§å…µå™¨åˆ¶é€ è€…çš„å§“åï¼š" + w_mp["maker"] + "\n";
 	
 	if(stringp(w_mp["owner"]) && w_mp["owner"]!=""&& w_mp["owner"]!="0" && LOGIN_D->find_body(w_mp["owner"]) )
-		str += "\nÊÖ±úÉÏ¿ÌÁË¼¸¸öĞ¡×Ö£º"+LOGIN_D->find_body(w_mp["owner"])->query("name")+"("+capitalize(w_mp["owner"])+")\n";
+		str += "\næ‰‹æŸ„ä¸Šåˆ»äº†å‡ ä¸ªå°å­—ï¼š"+LOGIN_D->find_body(w_mp["owner"])->query("name")+"("+capitalize(w_mp["owner"])+")\n";
 		
 	wp = new(USER_WEAPON);	
 	wp->set("weapon_mp", copy(w_mp));
@@ -570,7 +570,7 @@ object make_weapon(object me, mixed type, int qua, string material,mapping shuxi
 		//
 		if (wizardp(me)) wp->set_temp("apply/long",({wp->short()+"\n"+wp->query("long")+WORKER_D->get_msg(wp->query("weapon_prop")) }));
 		if( new_w && w_mp["imbued"]>2 ){
-			// ¼ÇÂ¼¸ñÊ½£ºÓ¢ÎÄid£ºµÈ¼¶£ºÖĞÎÄÃû£ºÀàĞÍ£ºÍşÁ¦£ºÆÀ¼Û
+			// è®°å½•æ ¼å¼ï¼šè‹±æ–‡idï¼šç­‰çº§ï¼šä¸­æ–‡åï¼šç±»å‹ï¼šå¨åŠ›ï¼šè¯„ä»·
 			log_file("career/zhujian", sprintf("%-19s:%d:%-20s:%-6s:%-3d:%d\n",w_mp["save_id"],w_mp["imbued"],w_mp["name"],w_mp["skill_type"],w_mp["weapon_prop"]["damage"],weapon_rank(wp)), me);
 		}
 		return wp;
@@ -620,7 +620,7 @@ protected mapping make_user_weapon_random(object me,string type, int qua, string
 		mp += Special_Class[wp_name];
 		mp["id"] = ({ Special_Class[wp_name]["id"] + " " + type, Special_Class[wp_name]["id"], mp["b_id"], type });
 		*/ 
-		//ÔİÊ±·â´æÕâĞ©ÃèÊö xixi
+		//æš‚æ—¶å°å­˜è¿™äº›æè¿° xixi
 	}
 	else if( imbue == "super" || qua == 3 ){
 		qua = 4;
@@ -656,8 +656,8 @@ protected mapping make_user_weapon_random(object me,string type, int qua, string
 		wp_name	= mp["basic_name"];
 		mp["id"] = ({ "normal "+type, mp["b_id"], type });
 	}
-	////¶ÔÓÚËùÓĞdamage¼ÆËã ÊÇ·ñ¶Ôque=5ÆÁ±Î ÕâÀïÁô¸öÒâ
-	if(debug_mode) tell_object(me,sprintf("Ä¬ÈÏµÄ%d\n",mp["weapon_prop"]["damage"]));
+	////å¯¹äºæ‰€æœ‰damageè®¡ç®— æ˜¯å¦å¯¹que=5å±è”½ è¿™é‡Œç•™ä¸ªæ„
+	if(debug_mode) tell_object(me,sprintf("é»˜è®¤çš„%d\n",mp["weapon_prop"]["damage"]));
 	imbue =	"";
 	mp["basic_name"] = wp_name;
 	mp["material"] = material;
@@ -683,16 +683,16 @@ protected mapping make_user_weapon_random(object me,string type, int qua, string
 	else if(level<400) c= 0.5+0.002778*(level-220);
 	//if(level<600)
 	else c= 1 + 0.005*(level-400);
-	if(c>2) c = 2;//ÏŞÖÆµ½600 level xixi		
+	if(c>2) c = 2;//é™åˆ¶åˆ°600 level xixi		
 	
 	mp["weapon_prop"]["damage"] += to_int(15*c);
-	if(debug_mode) tell_object(me,sprintf("ÓÉÌú½³¼¼ÄÜ¸Ä±äµÄµÄ%d\n",mp["weapon_prop"]["damage"]));
+	if(debug_mode) tell_object(me,sprintf("ç”±é“åŒ æŠ€èƒ½æ”¹å˜çš„çš„%d\n",mp["weapon_prop"]["damage"]));
 	
 	if(mapp(shuxing)){
 		types = keys(shuxing);
 		if(sizeof(types)>0) {for(i=0;i<sizeof(types);i++) mp["weapon_prop"][types[i]] += to_int(shuxing[types[i]]*c*(random(me->query_kar())+91)/100) ;}
 	}
-	if(debug_mode) tell_object(me,sprintf("¼ÓÈëÓñµÄÓ°ÏìµÄ%d\n",mp["weapon_prop"]["damage"]));
+	if(debug_mode) tell_object(me,sprintf("åŠ å…¥ç‰çš„å½±å“çš„%d\n",mp["weapon_prop"]["damage"]));
 	
 	j = sizeof(status);	
 	while(j--)
@@ -745,10 +745,10 @@ protected mapping make_user_weapon_random(object me,string type, int qua, string
 				}	
 			}
 	}
-	if(debug_mode) tell_object(me,sprintf("¾­¹ı¸½¼ÓÊôĞÔĞŞ¸ÄµÄ%d\n",mp["weapon_prop"]["damage"]));
+	if(debug_mode) tell_object(me,sprintf("ç»è¿‡é™„åŠ å±æ€§ä¿®æ”¹çš„%d\n",mp["weapon_prop"]["damage"]));
 		
 	mp["weapon_prop"]["damage"] = to_int(mp["weapon_prop"]["damage"]*tick_count2*(80+random(41))/100);
-	if(debug_mode) tell_object(me,sprintf("ÓÉËæ»úÆ½ºâÒÔºóµÄ%d\n",mp["weapon_prop"]["damage"]));
+	if(debug_mode) tell_object(me,sprintf("ç”±éšæœºå¹³è¡¡ä»¥åçš„%d\n",mp["weapon_prop"]["damage"]));
 		
 	//if( imbue_sta >	0 ){
 		//special_weapon_status(imbue_sta,qua);
@@ -861,7 +861,7 @@ int weapon_rank(object wp)
 	if (!sizeof(weapon_ranks)) restore();
 	if (!sizeof(weapon_ranks)) weapon_ranks = ({ });
 	
-	//Ò»¸öÀñ°İ²»µÇÂ½¼´É¾³ı
+	//ä¸€ä¸ªç¤¼æ‹œä¸ç™»é™†å³åˆ é™¤
 	for (i = 0; i < sizeof(weapon_ranks); i++)
 		if(time()-weapon_ranks[i]["time"]>NO_LOGIN_D*86400)
 		{
@@ -871,7 +871,7 @@ int weapon_rank(object wp)
 		}
 	
 	for (i = 0; i < sizeof(weapon_ranks); i++)
-		//Èç¹ûÒÑ¾­ÔÚÁĞ±íÀï¼ì²éscoreÊÇ·ñÓĞ±ä¶¯
+		//å¦‚æœå·²ç»åœ¨åˆ—è¡¨é‡Œæ£€æŸ¥scoreæ˜¯å¦æœ‰å˜åŠ¨
                 if(wp->query("save_id")==weapon_ranks[i]["save_id"]){
                 	if(score==weapon_ranks[i]["score"]
                 	&& wp->query("owner")==weapon_ranks[i]["owner"]
@@ -897,7 +897,7 @@ int weapon_rank(object wp)
 			wp->query("weapon_mp/save_id")),0,"");
 			return score;
                 }
-	//weapon_ranks = sort_array(weapon_ranks, (: sort_rank :));//ÖØĞÂÅÅÁĞ
+	//weapon_ranks = sort_array(weapon_ranks, (: sort_rank :));//é‡æ–°æ’åˆ—
         for (i = 0; i < sizeof(weapon_ranks); i++)
                 if(score > weapon_ranks[i]["score"]) break;
         if (i > RANK_TOTAL) return score;
@@ -952,22 +952,22 @@ void show_rank(object me,string type,int j)
         else if(type=="armor") ranks = armor_ranks;
         else return;
         if(!arrayp(ranks) || sizeof(ranks)==0 ){
-        	if(type=="weapon") write("Ä¿Ç°½­ºşÖĞÃ»ÓĞÈÎºÎ¶ÍÔìµÄ±øÆ÷¡£\n");
-		if(type=="armor") write("Ä¿Ç°½­ºşÖĞÃ»ÓĞÈÎºÎÖ¯ÔìµÄ·À¾ß¡£\n");
+        	if(type=="weapon") write("ç›®å‰æ±Ÿæ¹–ä¸­æ²¡æœ‰ä»»ä½•é”»é€ çš„å…µå™¨ã€‚\n");
+		if(type=="armor") write("ç›®å‰æ±Ÿæ¹–ä¸­æ²¡æœ‰ä»»ä½•ç»‡é€ çš„é˜²å…·ã€‚\n");
         	return;
         }
         ranks = sort_array(ranks, (: sort_rank :));
         str = "\n";
-        if(type=="weapon") str += "                            ©³  Êé ½£ ±ø Æ÷ ÅÅ ĞĞ °ñ  ©·\n";
-        if(type=="armor")  str += "                            ©³  Êé ½£ ·À ¾ß ÅÅ ĞĞ °ñ  ©·\n";
-        str += "©³©¥©¥©Ó©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©ß©¥©¥©¥©¥©¥©¥©Ó©¥©¥©¥©¥©¥©ß©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ó©¥©¥©¥©·\n";
-        str += sprintf("©§%|4s%36s%32s%|6s©§\n",
-	"Ãû´Î©¦",
-	"       Ãû              ³Æ       ©¦",	
-	"      ÖÆ     Ôì     Õß      ©¦",
-	"ÆÀ¼Û"
+        if(type=="weapon") str += "                            â”  ä¹¦ å‰‘ å…µ å™¨ æ’ è¡Œ æ¦œ  â”“\n";
+        if(type=="armor")  str += "                            â”  ä¹¦ å‰‘ é˜² å…· æ’ è¡Œ æ¦œ  â”“\n";
+        str += "â”â”â”â”¯â”â”â”â”â”â”â”â”â”â”â”»â”â”â”â”â”â”â”¯â”â”â”â”â”â”»â”â”â”â”â”â”â”â”â”â”¯â”â”â”â”“\n";
+        str += sprintf("â”ƒ%|4s%36s%32s%|6sâ”ƒ\n",
+	"åæ¬¡â”‚",
+	"       å              ç§°       â”‚",	
+	"      åˆ¶     é€      è€…      â”‚",
+	"è¯„ä»·"
         );        
-        str += "©Ä©¤©¤©Ø©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©Ì\n";
+        str += "â” â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”¨\n";
         if (j < 1) j = 10;
         if (j > RANK_TOTAL) j = RANK_TOTAL;
         if (j > sizeof(ranks)) j = sizeof(ranks);        
@@ -976,9 +976,9 @@ void show_rank(object me,string type,int j)
                 else u = 1;
                 if (i == j-1) u = 1;
                 flag = (stringp(ranks[i]["owner"]) && ranks[i]["owner"]!="" && ranks[i]["owner"]!="0");
-                if(flag) msg = sprintf(HIG"Êô%-8sË½ÓĞ"NOR,capitalize(ranks[i]["owner"]));
-                //str += sprintf("©§%"+pattern[u]+"|4d%"+pattern[u]+"18s%"+pattern[u]+"-18s%"+pattern[u]+"|32s%"+pattern[u]+"|8d©§%s\n",
-                str += sprintf("©§%|4d%|36s%|32s%|8d©§%s\n",
+                if(flag) msg = sprintf(HIG"å±%-8sç§æœ‰"NOR,capitalize(ranks[i]["owner"]));
+                //str += sprintf("â”ƒ%"+pattern[u]+"|4d%"+pattern[u]+"18s%"+pattern[u]+"-18s%"+pattern[u]+"|32s%"+pattern[u]+"|8dâ”ƒ%s\n",
+                str += sprintf("â”ƒ%|4d%|36s%|32s%|8dâ”ƒ%s\n",
                                 i+1,
                                 ranks[i]["name"]+"("+capitalize(ranks[i]["id"])+")",
 //                                 ranks[i]["name"]+"("+ ranks[i]["id"] +")",
@@ -987,7 +987,7 @@ void show_rank(object me,string type,int j)
                                 flag?msg:"",
                                 );
         }             
-        str += "©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n";
+        str += "â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n";
         me->start_more(str);
 }
 
@@ -1027,22 +1027,22 @@ object make_armor(object me,mixed type,int qua,string material,mapping shuxing,s
 		
 	if( stringp(w_mp["long2"]) && w_mp["long2"]!="" && w_mp["long2"]!="0" )
 		str = w_mp["long2"];
-	str += "ÕâÊÇÓÉ";
+	str += "è¿™æ˜¯ç”±";
 	switch(w_mp["material"]){
-		case "longcansi": str += HIY"Áú¼ë²ÏË¿"NOR;break;		
-		case "tiancansi": str += WHT"Ìì²ÏË¿"NOR; break;
-		case "bingcansi": str += HIW"±ù²ÏË¿"NOR; break;
-		case "yucansi":   str += GRN"Óñ²ÏË¿"NOR; break;
-		case "mumianhua": str += HIY"Ä¾ÃŞ»¨"NOR; break;
-		case "cansi":     str += HIW"²ÏË¿"NOR; break;
-		case "zhuma":     str += HIY"ÜÑÂé"NOR; break;
-		case "dama":      str += YEL"´óÂé"NOR; break;
-		case "yama":      str += YEL"ÑÇÂé"NOR; break;
-		case "mianhua":   str += HIW"ÃŞ»¨"NOR; break;
-		default: str +=	"²¼ÁÏ";	break;
+		case "longcansi": str += HIY"é¾™èŒ§èš•ä¸"NOR;break;		
+		case "tiancansi": str += WHT"å¤©èš•ä¸"NOR; break;
+		case "bingcansi": str += HIW"å†°èš•ä¸"NOR; break;
+		case "yucansi":   str += GRN"ç‰èš•ä¸"NOR; break;
+		case "mumianhua": str += HIY"æœ¨æ£‰èŠ±"NOR; break;
+		case "cansi":     str += HIW"èš•ä¸"NOR; break;
+		case "zhuma":     str += HIY"è‹éº»"NOR; break;
+		case "dama":      str += YEL"å¤§éº»"NOR; break;
+		case "yama":      str += YEL"äºšéº»"NOR; break;
+		case "mianhua":   str += HIW"æ£‰èŠ±"NOR; break;
+		default: str +=	"å¸ƒæ–™";	break;
 	}
 	w = w_mp["weight"];
-	str +=	"ÖÆ³É£¬ÖØ"+sprintf("%s", chinese_number(w/500)+"½ï"+chinese_number((w%500)/50)+"Á½"+chinese_number((w%50)/5)+"Ç®")+"µÄ"+w_mp["name"]+"¡£\n";
+	str +=	"åˆ¶æˆï¼Œé‡"+sprintf("%s", chinese_number(w/500)+"æ–¤"+chinese_number((w%500)/50)+"ä¸¤"+chinese_number((w%50)/5)+"é’±")+"çš„"+w_mp["name"]+"ã€‚\n";
 
 	if( new_w )
 		p = w_mp["armor_prop"]["armor"];
@@ -1051,35 +1051,35 @@ object make_armor(object me,mixed type,int qua,string material,mapping shuxing,s
 	else p = 0;
 
 	if( w_mp["imbued"] < 5 && p > 350 && !new_w ){
-		delete_user_armor(me, w_mp["save_id"], "Ê¹ÓÃBugÖÂÊ¹ÍşÁ¦¹ı¸ß");
+		delete_user_armor(me, w_mp["save_id"], "ä½¿ç”¨Bugè‡´ä½¿å¨åŠ›è¿‡é«˜");
 		return 0;
 	}
 	//else if( p <= 0 && !new_w){
-	//	delete_user_armor(me, w_mp["save_id"], "ÏµÍ³BugÖÂÊ¹ºÁÎŞÍşÁ¦");
+	//	delete_user_armor(me, w_mp["save_id"], "ç³»ç»ŸBugè‡´ä½¿æ¯«æ— å¨åŠ›");
 	//	return 0;
 	//}
-	/////ÕâÀï×¢ÒâÏÂboot mantle
-	if(w_mp["armor_type"]==TYPE_BOOTS||w_mp["armor_type"]==TYPE_SURCOAT) str += "¿´ÆğÀ´¾ßÓĞ"+ armor_power(w_mp["armor_prop"],w_mp["armor_type"]) + "µÄÉÁ±ÜÁ¦£¡\n";
-	else str += "¿´ÆğÀ´¾ßÓĞ"+ armor_power(w_mp["armor_prop"],w_mp["armor_type"]) + "µÄ·ÀÓùÁ¦£¡\n";
-	str += "×°±¸ÒªÇó£º±ÛÁ¦¡¾" +chinese_number(w_mp["wear_str"])+ "¡¿£¬"
-		+ "¸ù¹Ç¡¾" +chinese_number(w_mp["wear_con"])+ "¡¿£¬"
-		+ "×î´óÄÚÁ¦¡¾" +chinese_number(w_mp["wear_maxneili"])+ "¡¿\n";
+	/////è¿™é‡Œæ³¨æ„ä¸‹boot mantle
+	if(w_mp["armor_type"]==TYPE_BOOTS||w_mp["armor_type"]==TYPE_SURCOAT) str += "çœ‹èµ·æ¥å…·æœ‰"+ armor_power(w_mp["armor_prop"],w_mp["armor_type"]) + "çš„é—ªé¿åŠ›ï¼\n";
+	else str += "çœ‹èµ·æ¥å…·æœ‰"+ armor_power(w_mp["armor_prop"],w_mp["armor_type"]) + "çš„é˜²å¾¡åŠ›ï¼\n";
+	str += "è£…å¤‡è¦æ±‚ï¼šè‡‚åŠ›ã€" +chinese_number(w_mp["wear_str"])+ "ã€‘ï¼Œ"
+		+ "æ ¹éª¨ã€" +chinese_number(w_mp["wear_con"])+ "ã€‘ï¼Œ"
+		+ "æœ€å¤§å†…åŠ›ã€" +chinese_number(w_mp["wear_maxneili"])+ "ã€‘\n";
 
 	if( w_mp["name_st"] ) {
 		if( stringp(w_mp["name_st"]) && strlen(w_mp["name_st"])>3 )
-			str += "ÒÔ¼°Ò»ÅÅ¹Å×­×Ö¡¾ "HIG +	w_mp["name_st"]	+ NOR" ¡¿\n";
+			str += "ä»¥åŠä¸€æ’å¤ç¯†å­—ã€ "HIG +	w_mp["name_st"]	+ NOR" ã€‘\n";
 		else if( arrayp(w_mp["name_st"]) && sizeof(w_mp["name_st"]) > 0 ) {
-			st = implode(w_mp["name_st"][0..<1], "¡¢");
+			st = implode(w_mp["name_st"][0..<1], "ã€");
 			w_mp["name_st"] = st;
-			str += "ÒÔ¼°Ò»ÅÅ¹Å×­×Ö¡¾ "HIG +	st + NOR" ¡¿\n";
+			str += "ä»¥åŠä¸€æ’å¤ç¯†å­—ã€ "HIG +	st + NOR" ã€‘\n";
 		}
 	}
 
 	if( stringp(w_mp["maker"]) )
-		str += "ÒşÔ¼ÄÜ¿´¼û·À¾ßÖÆÔìÕßµÄĞÕÃû£º" + w_mp["maker"] + "\n";
+		str += "éšçº¦èƒ½çœ‹è§é˜²å…·åˆ¶é€ è€…çš„å§“åï¼š" + w_mp["maker"] + "\n";
 	
 	if(stringp(w_mp["owner"]) && w_mp["owner"]!=""&& w_mp["owner"]!="0" && LOGIN_D->find_body(w_mp["owner"]) )
-		str += "\nÉÏÃæ¿ÌÁË¼¸¸öĞ¡×Ö£º"+LOGIN_D->find_body(w_mp["owner"])->query("name")+"("+capitalize(w_mp["owner"])+")\n";
+		str += "\nä¸Šé¢åˆ»äº†å‡ ä¸ªå°å­—ï¼š"+LOGIN_D->find_body(w_mp["owner"])->query("name")+"("+capitalize(w_mp["owner"])+")\n";
 
 	wp = new(USER_ARMOR);
 	wp->set("armor_mp", copy(w_mp));
@@ -1096,7 +1096,7 @@ object make_armor(object me,mixed type,int qua,string material,mapping shuxing,s
 		if (wizardp(me)) wp->set_temp("apply/long",({wp->short()+"\n"+wp->query("long")+WORKER_D->get_msg(wp->query("armor_prop")) }));
 
 		if( new_w && w_mp["imbued"]>2 ){
-			// ¼ÇÂ¼¸ñÊ½£ºÓ¢ÎÄid£ºµÈ¼¶£ºÖĞÎÄÃû£ºÀàĞÍ£º·ÀÓùÁ¦£ºÆÀ¼Û
+			// è®°å½•æ ¼å¼ï¼šè‹±æ–‡idï¼šç­‰çº§ï¼šä¸­æ–‡åï¼šç±»å‹ï¼šé˜²å¾¡åŠ›ï¼šè¯„ä»·
 			log_file("career/zhizao", sprintf("%-19s:%d:%-20s:%-6s:%-3d:%d\n",w_mp["save_id"],w_mp["imbued"],w_mp["name"],type,w_mp["armor_prop"]["armor"],armor_rank(wp)), me);
 		}
 		return wp;
@@ -1129,7 +1129,7 @@ protected mapping make_user_armor_random(object me,string type, int qua, string 
 	mp = ARMOR_DEFAULT_SETTINGS;
 	mp += copy(ARMOR_MAP[type]);
 	
-	if(debug_mode) tell_object(me,sprintf("×î³õµÄarmor£º%d dodge£º%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
+	if(debug_mode) tell_object(me,sprintf("æœ€åˆçš„armorï¼š%d dodgeï¼š%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
 		
 	switch (qua) {
 		case 5:
@@ -1177,7 +1177,7 @@ protected mapping make_user_armor_random(object me,string type, int qua, string 
 			mp["id"] = ({ "normal "+type , type});
 			break;
 	}
-	if(debug_mode) tell_object(me,sprintf("Ä¬ÈÏµÄarmor£º%d dodge£º%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
+	if(debug_mode) tell_object(me,sprintf("é»˜è®¤çš„armorï¼š%d dodgeï¼š%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
 	mp["basic_name"] = wp_name;
 	mp["material"] = material;
 	if( qua > 3 ) mp["utime"] = time();
@@ -1203,11 +1203,11 @@ protected mapping make_user_armor_random(object me,string type, int qua, string 
 	else if(level<400) c= 0.5+0.002778*(level-220);
 	//if(level<600)
 	else c= 1 + 0.005*(level-400);
-	if(c>2) c = 2;//ÏŞÖÆµ½600 level xixi
+	if(c>2) c = 2;//é™åˆ¶åˆ°600 level xixi
 		
 	if(type=="boot" || type=="mantle") mp["armor_prop"]["dodge"] += to_int(15*c);	
 	else mp["armor_prop"]["armor"] += to_int(15*c);
-	if(debug_mode) tell_object(me,sprintf("ÓÉÌú½³¼¼ÄÜ¸Ä±äµÄµÄarmor£º%d dodge£º%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
+	if(debug_mode) tell_object(me,sprintf("ç”±é“åŒ æŠ€èƒ½æ”¹å˜çš„çš„armorï¼š%d dodgeï¼š%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
 	
 	if(mapp(shuxing)){
 		types = keys(shuxing);
@@ -1218,7 +1218,7 @@ protected mapping make_user_armor_random(object me,string type, int qua, string 
 		mp["armor_prop"]["dodge"] += mp["armor_prop"]["armor"];		
 		map_delete(mp["armor_prop"],"armor");
 	}
-	if(debug_mode) tell_object(me,sprintf("¼ÓÈëÓñµÄÓ°ÏìµÄarmor£º%d dodge£º%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
+	if(debug_mode) tell_object(me,sprintf("åŠ å…¥ç‰çš„å½±å“çš„armorï¼š%d dodgeï¼š%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
 	
 	j = sizeof(status);
 	while(j--)
@@ -1271,12 +1271,12 @@ protected mapping make_user_armor_random(object me,string type, int qua, string 
 				}
 			}
 	}
-	if(debug_mode) tell_object(me,sprintf("¾­¹ı¸½¼ÓÊôĞÔµÄĞŞ¸ÄµÄarmor£º%d dodge£º%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));	
+	if(debug_mode) tell_object(me,sprintf("ç»è¿‡é™„åŠ å±æ€§çš„ä¿®æ”¹çš„armorï¼š%d dodgeï¼š%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));	
 			
 	mp["armor_prop"]["armor"] = to_int(mp["armor_prop"]["armor"]*tick_count2*(80+random(41))/100)*10/armor_modify[type];
 	if(type=="boot"||type=="mantle")
 		mp["armor_prop"]["dodge"] = to_int(mp["armor_prop"]["dodge"]*tick_count2*(80+random(41))/200)*10/armor_modify[type];
-	if(debug_mode) tell_object(me,sprintf("¾­¹ıËæ»úÆ½ºâÏµÊıµ÷ÕûµÄarmor£º%d dodge£º%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
+	if(debug_mode) tell_object(me,sprintf("ç»è¿‡éšæœºå¹³è¡¡ç³»æ•°è°ƒæ•´çš„armorï¼š%d dodgeï¼š%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
 	if( sizeof(special_st) > 0 ) {
 		name = special_st[random(sizeof(special_st))];
 	}
@@ -1318,7 +1318,7 @@ protected mapping make_user_armor_random(object me,string type, int qua, string 
 			mp["armor_prop"]["armor"] *= ((10+i)/10);
 		}
 	}
-	if(debug_mode) tell_object(me,sprintf("¾­¹ıÖÊµØÓ°Ïìµ÷ÕûµÄarmor£º%d dodge£º%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
+	if(debug_mode) tell_object(me,sprintf("ç»è¿‡è´¨åœ°å½±å“è°ƒæ•´çš„armorï¼š%d dodgeï¼š%d\n",mp["armor_prop"]["armor"],mp["armor_prop"]["dodge"]));
 	//if(type=="boot" || type=="mantle")
 	//{
 	//	mp["armor_prop"]["dodge"] += mp["armor_prop"]["armor"];		
@@ -1414,7 +1414,7 @@ int armor_rank(object wp)
 			wp->query("armor_mp/save_id") ),0,"");                	
                        	return score;
                 }
-	//armor_ranks = sort_array(armor_ranks, (: sort_rank :));//ÖØĞÂÅÅÁĞ
+	//armor_ranks = sort_array(armor_ranks, (: sort_rank :));//é‡æ–°æ’åˆ—
         for (i = 0; i < sizeof(armor_ranks); i++)
                 if(score > armor_ranks[i]["score"]) break;
         if (i > RANK_TOTAL) return score;
@@ -1480,7 +1480,7 @@ protected void clear_drug_work(object me)
 		me->add_temp("apply/"+mpk[i],-mpv[i]);
 	}
 
-	tell_object(me,"Äã·şÓÃµÄ"+mp["name"]+NOR"µÄÒ©Á¦ÏûÍËÁË¡£\n");
+	tell_object(me,"ä½ æœç”¨çš„"+mp["name"]+NOR"çš„è¯åŠ›æ¶ˆé€€äº†ã€‚\n");
 	me->delete_temp("drug_apply");
 }
 
@@ -1505,9 +1505,9 @@ int clean_all()
 /////////////////////////modify///////////////////////////
 object mater_random(object me,int type,int level)
 {
-//// type ÊÇ±íÊ¾ÄÄÖÖ²ÄÁÏ 1 ÊÇ ¿óÊ¯  2 ÊÇ²¼Æ¥ 3..... 3 ÓñÊ¯ 4 zongzi(²»¿ÉÄÜ´ÓÓÎÏ·ÖĞbuyµ½µÄ) 5book
-///// level ±íÊ¾µÈ¼¶ ...
-//ÕâÀïÔö¼ÓµÃµ½´òÔìÊéµÄ¿ÉÄÜ
+//// type æ˜¯è¡¨ç¤ºå“ªç§ææ–™ 1 æ˜¯ çŸ¿çŸ³  2 æ˜¯å¸ƒåŒ¹ 3..... 3 ç‰çŸ³ 4 zongzi(ä¸å¯èƒ½ä»æ¸¸æˆä¸­buyåˆ°çš„) 5book
+///// level è¡¨ç¤ºç­‰çº§ ...
+//è¿™é‡Œå¢åŠ å¾—åˆ°æ‰“é€ ä¹¦çš„å¯èƒ½
 	object mater;
 	int n,d,lvl,randnum;	
 	int i = 1;
@@ -1521,7 +1521,7 @@ object mater_random(object me,int type,int level)
 			if(random(100)<5){
 				type = 3;
 				if(random(100)<5) type = 5;
-			}//Ó¦¸Ã±È½Ï¸ßÁË ÏÈÊÔÊÔ
+			}//åº”è¯¥æ¯”è¾ƒé«˜äº† å…ˆè¯•è¯•
 		}
 	//setup some var about type
 	if(type==1) lvl = me->query_skill("caikuang",1);
@@ -1537,7 +1537,7 @@ object mater_random(object me,int type,int level)
 		while(forbit[n-1] > lvl)
 		{
 			n--;
-		}//ÏŞÖÆ
+		}//é™åˆ¶
         	randnum = random(sum(n,d));
         	if (sum(6,d) < randnum)
         	{ 
@@ -1567,7 +1567,7 @@ object mater_random(object me,int type,int level)
 	switch(type){
 		case 1:mater = new(OBJ_DIR+"kuangshi");break;
 		case 2:mater = new(OBJ_DIR+"buliao");break;
-		case 3:mater = new(OBJ_DIR+"othermaterial");break;//ÒÑ¾­ÏŞÖÆlevel hehe
+		case 3:mater = new(OBJ_DIR+"othermaterial");break;//å·²ç»é™åˆ¶level hehe
 		case 4:mater = new(OBJ_DIR+"zhongzi");break;
 		case 5:mater = new(OBJ_DIR+"book");break;
 		default:return 0;
@@ -1579,7 +1579,7 @@ object mater_random(object me,int type,int level)
 	}
 	if(mater) destruct(mater);
 	return 0;
-	//if(random_get==1) call_out("delay_channel", 1, "rumor", me->query("name")+"Åªµ½ÁËÒ»"+mater->query("unit")+mater->name());	
+	//if(random_get==1) call_out("delay_channel", 1, "rumor", me->query("name")+"å¼„åˆ°äº†ä¸€"+mater->query("unit")+mater->name());	
 }
 
 string get_msg(mapping rank)
@@ -1588,41 +1588,41 @@ string get_msg(mapping rank)
 	string use,use2;
 	
 	if(!mapp(rank) || sizeof(keys(rank))<=0) return str;
-	str += "ËüµÄ¹¦ÄÜÓĞ£º"+HIG"¡¾";
+	str += "å®ƒçš„åŠŸèƒ½æœ‰ï¼š"+HIG"ã€";
 	foreach (string item in keys(rank)) {
 		use = "";
 		use2 ="";
 		switch(item){		
-			case "damage":                use="ÉËº¦Á¦";break;
-			case "armor":                 use="·ÀÓùÁ¦";break;
-			case "strength":              use="Á¦Á¿";break;
-			case "constitution":          use="¸ù¹Ç";break;
-			case "dexerity":              use="Éí·¨";break;
-			case "intelligence":          use="ÎòĞÔ";break;
-			case "attack":		      use="ÃüÖĞ";break;
-			case "defense":               use="ÉÁ±Ü";break;
-			case "neili":                 use="ÄÚÁ¦";break;
-			case "jingli":                use="¾«Á¦";break;
-			case "jing":                  use="¾«Ñª";break;
-			case "qi":                    use="ÆøÑª";break;
-			case "re_qi":                 use="ÆøÑª»Ö¸´ËÙ¶È";use2="%";break;
-			case "re_neili":              use="ÄÚÁ¦»Ö¸´ËÙ¶È";use2="%";break;
-			case "re_jing":               use="¾«Ñª»Ö¸´ËÙ¶È";use2="%";break;
-			case "re_jingli":             use="¾«Á¦»Ö¸´ËÙ¶È";use2="%";break;
-			case "parry":                 use="ÕĞ¼Ü";break;
-			case "dodge":                 use="Çá¹¦";break;
-			case "force":                 use="ÄÚ¹¦";break;
-			case "armor_vs_force":        use="ÄÚ¹¦¿¹ĞÔ";break;
+			case "damage":                use="ä¼¤å®³åŠ›";break;
+			case "armor":                 use="é˜²å¾¡åŠ›";break;
+			case "strength":              use="åŠ›é‡";break;
+			case "constitution":          use="æ ¹éª¨";break;
+			case "dexerity":              use="èº«æ³•";break;
+			case "intelligence":          use="æ‚Ÿæ€§";break;
+			case "attack":		      use="å‘½ä¸­";break;
+			case "defense":               use="é—ªé¿";break;
+			case "neili":                 use="å†…åŠ›";break;
+			case "jingli":                use="ç²¾åŠ›";break;
+			case "jing":                  use="ç²¾è¡€";break;
+			case "qi":                    use="æ°”è¡€";break;
+			case "re_qi":                 use="æ°”è¡€æ¢å¤é€Ÿåº¦";use2="%";break;
+			case "re_neili":              use="å†…åŠ›æ¢å¤é€Ÿåº¦";use2="%";break;
+			case "re_jing":               use="ç²¾è¡€æ¢å¤é€Ÿåº¦";use2="%";break;
+			case "re_jingli":             use="ç²¾åŠ›æ¢å¤é€Ÿåº¦";use2="%";break;
+			case "parry":                 use="æ‹›æ¶";break;
+			case "dodge":                 use="è½»åŠŸ";break;
+			case "force":                 use="å†…åŠŸ";break;
+			case "armor_vs_force":        use="å†…åŠŸæŠ—æ€§";break;
 			default:use="";
 		}
 		if(stringp(use) &&use!="" && intp(rank[item]) && rank[item]!=0 )
-			str +="£¬"+use+"£«"+sprintf("%d",rank[item])+use2;
+			str +="ï¼Œ"+use+"ï¼‹"+sprintf("%d",rank[item])+use2;
 	}
-	str += "¡¿\n"NOR;
-	str = replace_string(str,"¡¾£¬","¡¾");
-	if(strsrch(str,"¡¾¡¿")!=-1) str ="";
-	if(rank["karma"]!=0)       str =HIG"¿´ÉÏÈ¥ÉÁÉÁ·¢ÁÁËÆºõÓĞÄ³ÖÖÉñÆæµÄÁ¦Á¿¡£\n"NOR+str;
-	if(rank["personality"]!=0) str =HIM"¾İËµ£¬ËÕÖİµÄÃÀÅ®×îÏ²»¶Õâ¶«Î÷ÁË¡£\n"NOR+str;
+	str += "ã€‘\n"NOR;
+	str = replace_string(str,"ã€ï¼Œ","ã€");
+	if(strsrch(str,"ã€ã€‘")!=-1) str ="";
+	if(rank["karma"]!=0)       str =HIG"çœ‹ä¸Šå»é—ªé—ªå‘äº®ä¼¼ä¹æœ‰æŸç§ç¥å¥‡çš„åŠ›é‡ã€‚\n"NOR+str;
+	if(rank["personality"]!=0) str =HIM"æ®è¯´ï¼Œè‹å·çš„ç¾å¥³æœ€å–œæ¬¢è¿™ä¸œè¥¿äº†ã€‚\n"NOR+str;
 	return str;
 }
 mapping map_add(mapping old,mixed rank)
@@ -1654,36 +1654,36 @@ float updown(object me,string type)
 {
 	float ud = 1.00;
 	string party;
-	//ÕâĞ©×îºÃÍæ¼Ò×Ô¼ºÌå»á Èç¹ûÌå»á²»³öÀ´¾ÍsmashËû	
+	//è¿™äº›æœ€å¥½ç©å®¶è‡ªå·±ä½“ä¼š å¦‚æœä½“ä¼šä¸å‡ºæ¥å°±smashä»–	
 	if(!me) return ud;
 	if(!stringp(type)) return ud;
         if(mapp(me->query("family")) && stringp(me->query("family/family_name"))) party = me->query("family/family_name");
         if(stringp(party)){
-        	if( ( party=="»ªÉ½ÅÉ" )  && type=="sword")    ud = 1.25;
-        	if( ( party=="»ªÉ½ÅÉ" )  && type=="caikuang")    ud = 0.70;
-        	if( ( party=="´óÂÖËÂ" )  && type=="hammer")   ud = 1.25;
-        	if( ( party=="Ø¤°ï" )    && type=="stick")    ud = 1.25;
-        	if( ( party=="Ã÷½Ì" )    && type=="dagger")   ud = 1.25;
-        	if( ( party=="ÌÒ»¨µº" )  && type=="xiao")     ud = 1.25;
-        	if( ( party=="áÔÉ½ÅÉ" )  && type=="sword") ud = 0.70;
-        	if( ( party=="áÔÉ½ÅÉ" )  && type=="caikuang") ud = 1.30;
-        	if( ( party=="ÉÙÁÖÅÉ" )  && type=="nongsang") ud = 1.30;
-        	if( ( party=="¶ëáÒÅÉ" )  && type=="coat")    ud = 1.25;
-        	if( ( party=="ÌúÕÆ°ï" )  && type=="armor")    ud = 1.25;        	
-        	if( ( party=="ÌìÁúËÂ" )  && type=="boot")     ud = 1.25;        	
-        	if( ( party=="À¥ÂØÅÉ" )  && type=="cap")      ud = 1.25;
-        	if( ( party=="¹ÅÄ¹ÅÉ" )  && type=="glove")    ud = 1.25;
-        	if( ( party=="¹ÃËÕÄ½Èİ" )&& type=="belt")     ud = 1.25;
-        	if( ( party=="¹ÃËÕÄ½Èİ" )&& type=="nongsang")     ud = 0.70;
-        	if( ( party=="ĞÇËŞÅÉ" )  && type=="mantle")   ud = 1.25;
+        	if( ( party=="åå±±æ´¾" )  && type=="sword")    ud = 1.25;
+        	if( ( party=="åå±±æ´¾" )  && type=="caikuang")    ud = 0.70;
+        	if( ( party=="å¤§è½®å¯º" )  && type=="hammer")   ud = 1.25;
+        	if( ( party=="ä¸å¸®" )    && type=="stick")    ud = 1.25;
+        	if( ( party=="æ˜æ•™" )    && type=="dagger")   ud = 1.25;
+        	if( ( party=="æ¡ƒèŠ±å²›" )  && type=="xiao")     ud = 1.25;
+        	if( ( party=="åµ©å±±æ´¾" )  && type=="sword") ud = 0.70;
+        	if( ( party=="åµ©å±±æ´¾" )  && type=="caikuang") ud = 1.30;
+        	if( ( party=="å°‘æ—æ´¾" )  && type=="nongsang") ud = 1.30;
+        	if( ( party=="å³¨åµ‹æ´¾" )  && type=="coat")    ud = 1.25;
+        	if( ( party=="é“æŒå¸®" )  && type=="armor")    ud = 1.25;        	
+        	if( ( party=="å¤©é¾™å¯º" )  && type=="boot")     ud = 1.25;        	
+        	if( ( party=="æ˜†ä»‘æ´¾" )  && type=="cap")      ud = 1.25;
+        	if( ( party=="å¤å¢“æ´¾" )  && type=="glove")    ud = 1.25;
+        	if( ( party=="å§‘è‹æ…•å®¹" )&& type=="belt")     ud = 1.25;
+        	if( ( party=="å§‘è‹æ…•å®¹" )&& type=="nongsang")     ud = 0.70;
+        	if( ( party=="æ˜Ÿå®¿æ´¾" )  && type=="mantle")   ud = 1.25;
         	//////////
-        	if( ( party=="ÉñÁú½Ì" )  && type=="caiyao")   ud = 1.30;
-        	if( ( party=="ÌìÁúËÂ" )  && type=="caiyao")     ud = 0.70;        	
-        	if( ( party=="Îäµ±ÅÉ" )  && type=="liandan")  ud = 1.30;        	
-        	if( ( party=="ÌúÕÆ°ï" )  && type=="liandan")    ud = 0.70;
+        	if( ( party=="ç¥é¾™æ•™" )  && type=="caiyao")   ud = 1.30;
+        	if( ( party=="å¤©é¾™å¯º" )  && type=="caiyao")     ud = 0.70;        	
+        	if( ( party=="æ­¦å½“æ´¾" )  && type=="liandan")  ud = 1.30;        	
+        	if( ( party=="é“æŒå¸®" )  && type=="liandan")    ud = 0.70;
         }
         return ud;
-        //PS: ¼ÈÈ»ÓĞUp µ±È»Ò²µÃÓĞdown ^_^
+        //PS: æ—¢ç„¶æœ‰Up å½“ç„¶ä¹Ÿå¾—æœ‰down ^_^
 }
 void get_status(object ob,int type,int level,int super,string use_type)
 {
@@ -1697,7 +1697,7 @@ void get_status(object ob,int type,int level,int super,string use_type)
 	
 	//status_types=({0,});
 	if(!ob ||!level ||!type ||type>3 ||type<1) return;
-	if(type==1 || type==2) return;///½ûÖ¹Ô­²ÄÁÏ»ñµÃ¸½¼ÓÊôĞÔ
+	if(type==1 || type==2) return;///ç¦æ­¢åŸææ–™è·å¾—é™„åŠ å±æ€§
 		
 	while(level--)
 	{
@@ -1723,7 +1723,7 @@ void get_status(object ob,int type,int level,int super,string use_type)
 		}
 		ob->set("material_props/"+level,temp);
 	}
-	//¿¼ÂÇing
+	//è€ƒè™‘ing
 	if(super==1){
 	if(type==3) level = level*2;
 	level = level*2000;
@@ -1743,15 +1743,15 @@ void get_status(object ob,int type,int level,int super,string use_type)
 		}
 	}}
 	if(spe_name!=" ") ob->set("name",spe_name+ob->query("name"));
-	ob->add("value",score);//¼ÛÖµÌåÏÖ	
+	ob->add("value",score);//ä»·å€¼ä½“ç°	
 	return;
 }
 /*
-±ê×¼¸ü»»
+æ ‡å‡†æ›´æ¢
 	me->improve_skill("caikuang", improve*6);
 	------------------>	
 	WORKER_D->check_impove(me,"caikuang",improve*6,2);
-modify ÕâÀïº¯Êı·µ»ØÊµ¼ÊÔö¼ÓµÄµãÊı
+modify è¿™é‡Œå‡½æ•°è¿”å›å®é™…å¢åŠ çš„ç‚¹æ•°
 */
 int check_impove(object me,string skill,int improve,int flag)
 {
@@ -1775,15 +1775,15 @@ int check_impove(object me,string skill,int improve,int flag)
 			break;		
 		default:return 0;
 	}	
-	// about ÆßÇÏÁáçç	
+	// about ä¸ƒçªç²ç‘	
         if(level>=220 && level%10==0 ){
 		mapping learned = me->query_learned();		
 		if(learned[skill]+improve>=(level+1)*(level+1))
 		{
 			improve = (level+1)*(level+1)-learned[skill];
 		}
-		//ÔÚÆßÇÏÁáççÏµÍ³ÖĞÖĞÓ¦µ±ÉèÖÃ¸Ãskills ÀëºìÖ»ÓĞ1µãÎ²ÊıÊ±¿ÉÒÔ½ø²½ :)
-		//¾ÍÊÇ µÈÓÚ(level+1)*(level+1)-1 Ê±  ¸Ãskills±ãÊÇ¿É½ø²½µÄ
+		//åœ¨ä¸ƒçªç²ç‘ç³»ç»Ÿä¸­ä¸­åº”å½“è®¾ç½®è¯¥skills ç¦»çº¢åªæœ‰1ç‚¹å°¾æ•°æ—¶å¯ä»¥è¿›æ­¥ :)
+		//å°±æ˜¯ ç­‰äº(level+1)*(level+1)-1 æ—¶  è¯¥skillsä¾¿æ˜¯å¯è¿›æ­¥çš„
 	}
 	if(improve>0) me->improve_skill(skill,improve);
 	return improve;
@@ -1812,48 +1812,48 @@ int check_item(object wp, object src, object dest)
 	int btime, ltime, t;
 
 	if (!wp || wp->query("broken") || src == dest) return 1;
-	if (wp->query("imbued") < 4) return 0;	// ¸ß¼¶×°±¸²ÅÓĞÕâ¸öÏŞÖÆ
+	if (wp->query("imbued") < 4) return 0;	// é«˜çº§è£…å¤‡æ‰æœ‰è¿™ä¸ªé™åˆ¶
 	
-	return 0;//È¥µôÏŞÖÆ
+	return 0;//å»æ‰é™åˆ¶
 			
 	t = time();
-	// Àë¿ªÉíÌå
+	// ç¦»å¼€èº«ä½“
 	if (!wp->query("ltime")) wp->set("ltime", t-39*86400);
-	user = wp->query("user");	// ×°±¸µÄ³ÖÓĞÈË
-	ltime = wp->query("ltime");	// ×°±¸µÄÉÏ´ÎÎ¬»¤Ê±¼ä
+	user = wp->query("user");	// è£…å¤‡çš„æŒæœ‰äºº
+	ltime = wp->query("ltime");	// è£…å¤‡çš„ä¸Šæ¬¡ç»´æŠ¤æ—¶é—´
 	if (src && userp(src)) {
 		if (sscanf(wp->query("save_id"), src->query("id")+"%d", btime)
-		 && btime > src->query("birthday")) {	// ÅĞ¶ÏÊÇ·ñÎªÖÆÔìÕß
+		 && btime > src->query("birthday")) {	// åˆ¤æ–­æ˜¯å¦ä¸ºåˆ¶é€ è€…
 			if (user && dest && t - ltime >= 30*86400)
-			if (!userp(dest) || dest->query("id") != user) {	// Àë¿ªÖÆÔìÕß£¬µ«ÊÇÃ»ÓĞ»¹¸ø³ÖÓĞÕß
+			if (!userp(dest) || dest->query("id") != user) {	// ç¦»å¼€åˆ¶é€ è€…ï¼Œä½†æ˜¯æ²¡æœ‰è¿˜ç»™æŒæœ‰è€…
 				src->skill_death_penalty();
-				message_vision("$NËùÓĞ¼¼ÄÜ±»½µÁË°ë¼¶¡£\n", src);
+				message_vision("$Næ‰€æœ‰æŠ€èƒ½è¢«é™äº†åŠçº§ã€‚\n", src);
 				log_file("career/maint", sprintf("src=%s,dest=%O,user=%s", src->query("id"), dest, user), src);//->query("id")
 			}
-		 	ltime = wp->set("ltime", t);	// ×°±¸Àë¿ªÖÆÔìÕßÖØĞÂ¿ªÊ¼¼ÆÊ±
+		 	ltime = wp->set("ltime", t);	// è£…å¤‡ç¦»å¼€åˆ¶é€ è€…é‡æ–°å¼€å§‹è®¡æ—¶
 		}
 	}
 	if (dest && userp(dest)) {
 		t -= ltime;
 		if (sscanf(wp->query("save_id"), dest->query("id")+"%d", btime)
-		 && btime > dest->query("birthday")) {	// ÅĞ¶ÏÊÇ·ñÎªÖÆÔìÕß
+		 && btime > dest->query("birthday")) {	// åˆ¤æ–­æ˜¯å¦ä¸ºåˆ¶é€ è€…
 			if (src && userp(src) && t >= 30*86400) {
 				wp->set("user", src->query("id"));
-				message_vision(wp->name()+"·¢³öÒ»ÖÖÏ¸²»¿ÉÎÅµÄÉùÒô¡£\n", src, dest);
+				message_vision(wp->name()+"å‘å‡ºä¸€ç§ç»†ä¸å¯é—»çš„å£°éŸ³ã€‚\n", src, dest);
 			}
 		} else {
 			wp->set("user", dest->query("id"));
-			if(strsrch(wp->query("save_id"),"weilan tiejiang")!=-1) return 0;//zhujian shi´òÔì²»ÊÜ´ËÏŞÖÆ
+			if(strsrch(wp->query("save_id"),"weilan tiejiang")!=-1) return 0;//zhujian shiæ‰“é€ ä¸å—æ­¤é™åˆ¶
 			if (!src) {
 				if (t >= 40*86400) {
-					call_out("delay_channel", 1, "rumor", dest->query("name")+"ÉíÉÏµÄ"+wp->name()+"ÒòÎªÌ«¾ÃÃ»ÓĞÎ¬»¤¶ø³¹µ×Ëğ»µÁË¡£");
-					call_out("delay_remind", 1, dest, "ÄãÉíÉÏµÄ"+wp->name()+"ÒòÎªÌ«¾ÃÃ»ÓĞÎ¬»¤¶ø³¹µ×Ëğ»µÁË¡£\n");
+					call_out("delay_channel", 1, "rumor", dest->query("name")+"èº«ä¸Šçš„"+wp->name()+"å› ä¸ºå¤ªä¹…æ²¡æœ‰ç»´æŠ¤è€Œå½»åº•æŸåäº†ã€‚");
+					call_out("delay_remind", 1, dest, "ä½ èº«ä¸Šçš„"+wp->name()+"å› ä¸ºå¤ªä¹…æ²¡æœ‰ç»´æŠ¤è€Œå½»åº•æŸåäº†ã€‚\n");
 					destruct(wp);
 					return 1;
 				}
 			}
 			if (t >= 30*86400) {
-				call_out("delay_remind", 1, dest, "ÄãÉíÉÏµÄ"+wp->name()+"ËÆºõÓĞĞ©ÒìÑù£¬¿ìÄÃÈ¥¸øÖÆÔìÕß¿´¿´°É¡£\n");
+				call_out("delay_remind", 1, dest, "ä½ èº«ä¸Šçš„"+wp->name()+"ä¼¼ä¹æœ‰äº›å¼‚æ ·ï¼Œå¿«æ‹¿å»ç»™åˆ¶é€ è€…çœ‹çœ‹å§ã€‚\n");
 			}
 		}
 	} else {

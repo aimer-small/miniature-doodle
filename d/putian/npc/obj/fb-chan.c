@@ -6,17 +6,17 @@ inherit STAFF;
 
 void create()
 {
-        set_name("·½±ã²ù", ({ "fangbian chan", "zhang", "chan" }));
+        set_name("æ–¹ä¾¿é“²", ({ "fangbian chan", "zhang", "chan" }));
         set_weight(5500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»¸ùºÚ÷î÷îµÄ·½±ã²ù£¬Ô¼ÈıÊ®½ï£¬ÊÇÉ®ÈËÃÇ³£ÓÃµÄ±øÆ÷¡£\n");
+                set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æ ¹é»‘é»é»çš„æ–¹ä¾¿é“²ï¼Œçº¦ä¸‰åæ–¤ï¼Œæ˜¯åƒ§äººä»¬å¸¸ç”¨çš„å…µå™¨ã€‚\n");
                 set("value", 200);
                 set("material", "steel");
-                set("wield_msg", "$NÄÃ³öÒ»¸ùºÚ÷î÷î$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$NÊÖ±ÛÒ»×ª£¬½«ÊÖÖĞµÄ$nÊÕÁËÆğÀ´¡£\n");
+                set("wield_msg", "$Næ‹¿å‡ºä¸€æ ¹é»‘é»é»$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Næ‰‹è‡‚ä¸€è½¬ï¼Œå°†æ‰‹ä¸­çš„$næ”¶äº†èµ·æ¥ã€‚\n");
                 set("shaolin",1);
         }
         init_staff(35);

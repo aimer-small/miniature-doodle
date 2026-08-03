@@ -6,13 +6,13 @@ inherit BOOTS;
 
 void create()
 {
-        set_name( HIC "Âé²¼Ğ¬" NOR, ({ "mabu xie", "xie", "shoes" }) );
+        set_name( HIC "éº»å¸ƒé‹" NOR, ({ "mabu xie", "xie", "shoes" }) );
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ë«");
-                set("long", "ÕâÊÇÒ»Ë«Âé²¼Ğ¬£¬²»Ò×´ó»¬£¬¹©ÓÎÈËµÇÉ½Ê¹ÓÃ¡£");
+                set("unit", "åŒ");
+                set("long", "è¿™æ˜¯ä¸€åŒéº»å¸ƒé‹ï¼Œä¸æ˜“å¤§æ»‘ï¼Œä¾›æ¸¸äººç™»å±±ä½¿ç”¨ã€‚");
                 set("value", 6000);
                 set("material", "boots");
                 set("armor_prop/dodge", 2);

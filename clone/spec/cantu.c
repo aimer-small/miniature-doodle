@@ -1,14 +1,14 @@
-// cantu.c Ãç¼Ò½£·¨²ĞÍ¼ For Ñ©É½·ÉºüÖ®Ãç¼Ò½£·¨ quest by lsxk@hsbbs /2007/7/20
+// cantu.c è‹—å®¶å‰‘æ³•æ®‹å›¾ For é›ªå±±é£ç‹ä¹‹è‹—å®¶å‰‘æ³• quest by lsxk@hsbbs /2007/7/20
 #include <ansi.h>
 
 inherit SPEC; 
 
 void create()
 {
-    set_name (HIY"Ãç¼Ò½£·¨²ĞÍ¼"NOR, ({"cantu","mjjf cantu"}));
-    set("long",YEL"ÕâÊÇÒ»¾í¼ÇÂ¼ÁËÃç¼Ò½£·¨µÄ²ĞÍ¼,Í¼ÉÏµÄ½£ÕĞÒÑ¾­Ïàµ±Ä£ºı,Äã»ù±¾ÎŞ·¨´ÓÖĞÑ§µ½ÈÎºÎÓĞÓÃ¶«Î÷¡£\n"NOR);
+    set_name (HIY"è‹—å®¶å‰‘æ³•æ®‹å›¾"NOR, ({"cantu","mjjf cantu"}));
+    set("long",YEL"è¿™æ˜¯ä¸€å·è®°å½•äº†è‹—å®¶å‰‘æ³•çš„æ®‹å›¾,å›¾ä¸Šçš„å‰‘æ‹›å·²ç»ç›¸å½“æ¨¡ç³Š,ä½ åŸºæœ¬æ— æ³•ä»ä¸­å­¦åˆ°ä»»ä½•æœ‰ç”¨ä¸œè¥¿ã€‚\n"NOR);
 
-    set("unit","¾í");
+    set("unit","å·");
 	set_weight(100);
 	set("value",3000000);
 	
@@ -19,7 +19,7 @@ void create()
     set("degree",1);
     set("flag","spec/cantu");
     set("rest",3);
-    set("desc","¼ÇÂ¼Ãç¼Ò½£·¨¾«ËèµÄÒ»¾íÍ¼½â!");
+    set("desc","è®°å½•è‹—å®¶å‰‘æ³•ç²¾é«“çš„ä¸€å·å›¾è§£!");
     set("credit",200);
 	setup();
 }
@@ -36,12 +36,12 @@ int do_fanyue(string arg)
 	
 	    
     if (arg!="mjjf cantu")
-                    return notify_fail("ÄãÒª·­ÔÄÊ²Ã´?\n");
+                    return notify_fail("ä½ è¦ç¿»é˜…ä»€ä¹ˆ?\n");
       	
-	if (!restrict()&& !me->query("buyvip")) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
+	if (!restrict()&& !me->query("buyvip")) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
 
     me->set_temp("sj_credit/quest/public/mjjf",1);
-    write(HIM"Äã·´¸´·­ÔÄÕâ¾í²ĞÍ¼,¾õµÃÈç¹ûÓĞÈËÄÜÂÔÎ¢Ö¸µ¼Ò»ÏÂ,ÄãÓ¦¸ÃÄÜ±È½ÏÇáËÉµØÑ§»á´ó¶àÊı¾«ÃîµÄ½£ÕĞ!\n"NOR);
+    write(HIM"ä½ åå¤ç¿»é˜…è¿™å·æ®‹å›¾,è§‰å¾—å¦‚æœæœ‰äººèƒ½ç•¥å¾®æŒ‡å¯¼ä¸€ä¸‹,ä½ åº”è¯¥èƒ½æ¯”è¾ƒè½»æ¾åœ°å­¦ä¼šå¤§å¤šæ•°ç²¾å¦™çš„å‰‘æ‹›!\n"NOR);
 	degree();
 	return 1;
 }	 

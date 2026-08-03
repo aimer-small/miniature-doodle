@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ǧ����");
+	set("short", "千步岭");
 	set("long", @LONG
-����ɽ��ƽ����ʰ�׶��ϲ���������ǰ��ɽ���˵��һǧ���Ϳ�Խ�������ǣ�
-    ǧ��ϳ���ɽ�ŵ������׸߳������á�
-    ���ľ��ã���ʱ�������ࡣ
+这里山势平缓，拾阶而上不甚费力，前面山岭据说走一千步就可越过。真是：
+    千里断肠关山古道，回首高城似天杳。
+    天涯倦旅，此时心事良苦。
 LONG
 	);
 
@@ -16,7 +16,7 @@ LONG
 		"westup" : __DIR__"shanlu3",
 		"southeast" : __DIR__"shanlu1",
 	]));
-        set("outdoors", "ѩɽ");
+        set("outdoors", "雪山");
 	set("coor/x",-270);
   set("coor/y",150);
    set("coor/z",0);

@@ -1,14 +1,14 @@
-// daopu.c �ƾɵ��� For ѩɽ�ɺ�֮���ҵ��� quest by lsxk@hsbbs /2007/7/20
+// daopu.c 破旧刀谱 For 雪山飞狐之胡家刀法 quest by lsxk@hsbbs /2007/7/20
 #include <ansi.h>
 
 inherit SPEC; 
 
 void create()
 {
-    set_name (HIB"�ƾɵ���"NOR, ({"pojiudaopu"}));
-    set("long",HIC"�⾹Ȼ��һ����¼�˺��ҵ����ĵ���,�⵶���Ѿ��ǳ��ƾɣ����������Ѿ����ѱ��ϡ�\n"NOR);
+    set_name (HIB"破旧刀谱"NOR, ({"pojiudaopu"}));
+    set("long",HIC"这竟然是一本记录了胡家刀法的刀谱,这刀谱已经非常破旧，谱上招试已经很难辨认。\n"NOR);
 
-    set("unit","��");
+    set("unit","本");
 	set_weight(100);
 	set("value",3000000);
 	
@@ -19,7 +19,7 @@ void create()
     set("degree",1);
     set("flag","spec/daopu");
     set("rest",3);
-    set("desc","��˵��¼���������������ĺ��ҵ���!");
+    set("desc","传说记录的正是响誉江湖的胡家刀法!");
     set("credit",200);
 	setup();
 }
@@ -36,12 +36,12 @@ int do_bianren(string arg)
 	
 	    
     if (arg!="pojiu daopu")
-                    return notify_fail("��Ҫ����ʲô?\n");
+                    return notify_fail("你要辨认什么?\n");
       	
-	if (!restrict()&& !me->query("buyvip")) {return notify_fail("�������Ѿ�����ʹ��"+this_object()->query("name")+"�ˡ�\n");}
+	if (!restrict()&& !me->query("buyvip")) {return notify_fail("本周你已经不能使用"+this_object()->query("name")+"了。\n");}
     me->set_temp("sj_credit/quest/public/hjdf",1);
-    write(HIW"���뼫��ȥ���ϵ����е����ԣ����ǵ���ʵ��̫���ˣ��㻹���޷�ѧ���κζ���!\n"+
-          "��������ã������������΢ָ����һ�£�����������������ž�����\n"NOR);
+    write(HIW"你想极力去辨认刀谱中的招试，但是刀谱实在太破了，你还是无法学到任何东西!\n"+
+          "但是你觉得，如果有人能略微指点你一下，或许你就能掌握这门绝技。\n"NOR);
 	degree();
 	return 1;
 }	 

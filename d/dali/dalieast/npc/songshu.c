@@ -4,16 +4,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("松鼠", ({ "song shu", "shu" }) );
-        set("race", "野兽");
+        set_name("鏉鹃紶", ({ "song shu", "shu" }) );
+        set("race", "閲庡吔");
         set("age", 2);
-        set("long", "一只可爱的松鼠。\n");
+        set("long", "涓�鍙彲鐖辩殑鏉鹃紶銆俓n");
         set("attitude", "peaceful");
  
         set("str", 15);
         set("cor", 16);
 
-        set("limbs", ({ "头部", "身体", "爪子", "尾巴" }) );
+        set("limbs", ({ "澶撮儴", "韬綋", "鐖瓙", "灏惧反" }) );
         set("verbs", ({ "bite" }) );
  
         set("combat_exp", 400);

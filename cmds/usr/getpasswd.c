@@ -1,5 +1,5 @@
 // getpasswd.c
-//�������ͨ���Լ��趨��������ʾ�����Լ�ԭע�������ַ�����µ�����
+//允许玩家通过自己设定的密码提示问题以及原注册邮箱地址设置新的密码
 
 inherit F_CLEAN_UP;
 inherit F_DBASE;
@@ -50,39 +50,39 @@ int main(object me, string arg)
                 
         if ("/cmds/usr/blacklist"->is_black(arg))
         {
-                write(arg + " �Ǻ������е�������ָܻ�����,��ȴ���ʦ���������\n");
+                write(arg + " 是黑名单中的人物，不能恢复密码,请等待巫师处理结果。\n");
                 return 1;
         }
         if (arg == me->query("id"))
         {
-                write(arg + " ���������Լ���\n");
+                write(arg + " 不就是你自己吗？\n");
                 return 1;
         }
         if (me->query_temp("getpasswd/mail") > 3)
         {
-                write("ϵͳ��⵽������������������ַ����ʱ��ֹʹ�ø����\n");
+                write("系统检测到您多次输入错误的邮箱地址，暂时禁止使用该命令。\n");
                 return 1;
                 
         }
         if (me->query_temp("getpasswd/answer") > 2)
         {
-                write("ϵͳ��⵽�����������������𰸣���ʱ��ֹʹ�ø����\n");
+                write("系统检测到您多次输入错误的问题答案，暂时禁止使用该命令。\n");
                 return 1;
         }
                 
         write(HIG"
-����Լ����������ʺŵ������ע�����䣬��ָ���һ�������Լ���ĳ���ʺ�
-���齣��Ϸ�е����룬����ȷ�����ʺ��ڳ�������û�е�½�������������ȷ
-�ش���ʺŵ�ע�����䣬��ôϵͳ�ᷢ�����뵽���ʺŵ�ע�����䡣
+玩家自己发送遗忘帐号的密码回注册信箱，是指玩家一旦遗忘自己的某个帐号
+在书剑游戏中的密码，并且确保该帐号在超过七天没有登陆，如果您可以正确
+回答该帐号的注册信箱，那么系统会发送密码到该帐号的注册信箱。
 
-������ʺ��Ѿ��������Ᵽ������ô��������ش���ȷ����ſ��Է������롣
+如果该帐号已经设置问题保护，那么，您必须回答正确问题才可以发送密码。
 \n\n"NOR);
 
         
         target_ob = LOGIN_D->find_body(arg);
         
         if(target_ob && !interactive(target_ob))
-        	return notify_fail(target_ob->query("name") +"("+target_ob->query("id")+")Ŀǰ������Ϸ�У������ʲô��\n"); 
+        	return notify_fail(target_ob->query("name") +"("+target_ob->query("id")+")目前正在游戏中，您想干什么？\n"); 
         
         if(!target_ob || !interactive(target_ob))
         {
@@ -91,33 +91,33 @@ int main(object me, string arg)
                 if( !link_ob->restore() ) 
                 {
                         destruct(link_ob);
-                        return notify_fail("û�������ҡ�\n");
+                        return notify_fail("没有这个玩家。\n");
                 }
                 if( wiz_level(link_ob->query("id")))
                 {
-                        write("��������������������\n");
+                        write("葛哈葛哈，你想葛哈？！！\n");
                         destruct(link_ob);
                         return 1;                       
                 }
                 if (!check_state(link_ob))
                 {
-                        write(link_ob->query("name") +"("+link_ob->query("id")+")����������ڵ�½����Ϸ����������ȡ���롣\n");
+                        write(link_ob->query("name") +"("+link_ob->query("id")+")在最近七天内登陆过游戏，您不能索取密码。\n");
                         destruct(link_ob);
                         return 1;
                 }
                 else
                 {
-                        write(link_ob->query("name") +"("+link_ob->query("id")+")�ĵ�ǰ�����������Լ��һ�����������\n");
-                        write("������"+link_ob->query("name") +"("+link_ob->query("id")+")�ĵ�ǰע�����䣺");
+                        write(link_ob->query("name") +"("+link_ob->query("id")+")的当前情况符合玩家自己找回密码条件！\n");
+                        write("请输入"+link_ob->query("name") +"("+link_ob->query("id")+")的当前注册信箱：");
                         input_to("check_mail", 1, link_ob);                     
                 }
                 return 1;
         }
         
         if( wiz_level(target_ob->query("id")))
-                return notify_fail("��������������������\n");
+                return notify_fail("葛哈葛哈，你想葛哈？！！\n");
         else
-                return notify_fail(target_ob->query("name") +"("+target_ob->query("id")+")Ŀǰ������Ϸ�У������ʲô��\n");
+                return notify_fail(target_ob->query("name") +"("+target_ob->query("id")+")目前正在游戏中，您想干什么？\n");
 }
 
 private void check_mail(string mail, object ob)
@@ -132,17 +132,17 @@ private void check_mail(string mail, object ob)
 	
 	if (!stringp(mail) || sscanf(mail, "%*s@%*s.%*s") != 3)
 	{
-		write("\n�����ԣ���������ʼ���ַ��ʽ���ԣ�\n");
+		write("\n很明显，您输入的邮件地址格式不对！\n");
 		destruct(ob);
 		return;
 	}
 	
 	if (right_mail != mail)
 	{
-		write("\n�Բ���������������ַ����"+ob->query("name")+"("+ob->query("id")+")��ע�������ַ��\n");
-		write("��ע�⣬ϵͳ�Ѿ���¼���ĳ�����Ϊ��\n");
+		write("\n对不起，您输入的邮箱地址不是"+ob->query("name")+"("+ob->query("id")+")的注册邮箱地址。\n");
+		write("请注意，系统已经记录您的尝试行为。\n");
 		me->add_temp("getpasswd/mail",1);
-		log_file("static/GETPASSWD", sprintf("%s %s ��ͼ���� %s ��ע�����䡣 \n", ctime(time()),this_player()->query("id"),ob->query("id")));             
+		log_file("static/GETPASSWD", sprintf("%s %s 试图尝试 %s 的注册信箱。 \n", ctime(time()),this_player()->query("id"),ob->query("id")));             
 		destruct(ob);   
 		return;
 	}
@@ -153,48 +153,48 @@ private void check_mail(string mail, object ob)
 
 	if (!ret)
 	{
-		write(HIY"���ݿ�����ʧ�ܡ�\n"NOR);
+		write(HIY"数据库连接失败。\n"NOR);
 		return;
 	}
 	
 	if (sizeof(ret) == 0 
 		|| ret[0][0] == "")
 	{
-		write("\n���Եȣ�ϵͳ׼������������ע������"+ mail +"��\n");    
+		write("\n请稍等，系统准备发送密码至注册邮箱"+ mail +"。\n");    
 		send_mail(mail ,ob);
 		return;
 	}
 
 	if (sizeof(ret) != 1)
 	{
-		write("���ݿ����������⣬���������Ա��ϵ��\n");
+		write("数据库数据有问题，请与管理人员联系。\n");
 		return;
 	}
 
-	write(HIG"\n���ʺ�����������ʹ𰸱�����"
-		"��ֻ�лش���ȷ��������𰸺�ſ��Է��ŵ�ע�����䡣\n");
-	write(HIW"\n��ش�"YEL + ret[0][0] + NOR);
-	write(HIW"\n��  ����"NOR);
+	write(HIG"\n该帐号设置了问题和答案保护，"
+		"您只有回答正确下面这个答案后才可以发信到注册信箱。\n");
+	write(HIW"\n请回答："YEL + ret[0][0] + NOR);
+	write(HIW"\n答  案："NOR);
 
 	input_to("get_answer", ob, ret[0][1], mail);
 
 	/*
 	if ( !intp(mysql = db_connect("localhost","mud","root")) ) 
 	{
-		write("\n�������ݿ�ʧ�ܡ����Ժ����ԡ�\n");
+		write("\n连接数据库失败。请稍候再试。\n");
 		return;
 	}
 	rows = db_exec(mysql, "select Question, Answer from " + INTERMUD_MUD_NAME + "_Users where U_Username=\""+ob->query("id")+"\"");
 	write ("select Question,Answer from " + INTERMUD_MUD_NAME + "Users where U_Username=\""+ob->query("id")+"\"");
 	if (!rows){
-		write("\n���Եȣ�ϵͳ׼������������ע������"+ mail +"��\n");
+		write("\n请稍等，系统准备发送密码至注册邮箱"+ mail +"。\n");
 		send_mail(mail ,ob);
 		return;	
 	}
 	if (stringp(rows)) 
 	{
-		write("\n��ѯ���ݿ�ʧ�ܡ�\n");
-		if (wizardp(ob)) write(HIR"���ݿ�ṹ�������⡣\n"HIR);
+		write("\n查询数据库失败。\n");
+		if (wizardp(ob)) write(HIR"数据库结构出现问题。\n"HIR);
 		db_close(mysql);
 		return;
 	}
@@ -203,14 +203,14 @@ private void check_mail(string mail, object ob)
 	if( res[0] != "")
 	{
 		write(HIG"\n
-			���ʺ�����������ʹ𰸱�������ֻ�лش���ȷ��������𰸺�ſ��Է��ŵ�ע�����䡣\n");
-			write(HIW"\n��ش�"YEL+res[0]+NOR);
-		write(HIW"\n��  ����"NOR);
+			该帐号设置了问题和答案保护，您只有回答正确下面这个答案后才可以发信到注册信箱。\n");
+			write(HIW"\n请回答："YEL+res[0]+NOR);
+		write(HIW"\n答  案："NOR);
 		input_to("get_answer", ob ,res [1], mail);
 	}
 	else
 	{
-		write("\n���Եȣ�ϵͳ׼������������ע������"+ mail +"��\n");    
+		write("\n请稍等，系统准备发送密码至注册邮箱"+ mail +"。\n");    
 		send_mail(mail ,ob);
 		return;
 	}
@@ -221,15 +221,15 @@ private void check_mail(string mail, object ob)
 private void get_answer(string answer, object ob,string e_answer, string mail)
 {
         if (answer != e_answer ) {
-                write("\n�Բ������ش�Ĵ𰸴�������ϸ���Ǻ����³��ԣ�\n");
-                write("��ע�⣬ϵͳ�Ѿ���¼���ĳ�����Ϊ��\n");
+                write("\n对不起，您回答的答案错误！请仔细考虑后重新尝试！\n");
+                write("请注意，系统已经记录您的尝试行为。\n");
                 this_player()->add_temp("getpasswd/answer",1);
-                log_file("static/GETPASSWD", sprintf("%s ��ͼ���� %s ������𰸡� \n", this_player()->query("id"),ob->query("id")));             
+                log_file("static/GETPASSWD", sprintf("%s 试图尝试 %s 的问题答案。 \n", this_player()->query("id"),ob->query("id")));             
                 destruct(ob);
                 return;
         }
-        write(HIG"\n����ȷ��\n");
-        write("���Եȣ�ϵͳ׼������������ע������"+mail+"��\n");    
+        write(HIG"\n答案正确！\n");
+        write("请稍等，系统准备发送密码至注册邮箱"+mail+"。\n");    
         send_mail(mail ,ob);
         return;
 }
@@ -242,9 +242,9 @@ private string change_passwd(object ob)
                 ob->set("newpassword", crypt(pass,"$1$ShuJian"));
         }
         if (PASSWD_D->set_passwd(ob->query("id"), crypt(pass, "$1$ShuJian"))) 
-        	write(HIW"���"+ ob->query("name")+ "(" + ob->query("id") + ")�������Ѿ����ġ�\n"NOR);
+        	write(HIW"玩家"+ ob->query("name")+ "(" + ob->query("id") + ")的密码已经更改。\n"NOR);
         else
-        	write(HIW"ϵͳ�Զ��޸����"+ ob->query("name")+ "(" + ob->query("id") + ")���޸�ʧ�ܣ��뱨�濪����Ա��"NOR);
+        	write(HIW"系统自动修改玩家"+ ob->query("name")+ "(" + ob->query("id") + ")的修改失败，请报告开发人员。"NOR);
         return pass;
 }
 private void send_mail(string mail, object ob)
@@ -253,21 +253,21 @@ private void send_mail(string mail, object ob)
         change_passwd(ob);
         ob->save();
         
-        msg =   ""+ob->query("name")+"("+ob->query("id")+")" + "���ã�\n"+
-                "��ӭ����"+CHINESE_MUD_NAME+"��\n"+
-                "Ӧ��Ҫ�����������Ѿ�����������ע�����䡣\n"+
-                "��ر��Զ���¼���ܣ�ʹ�������ṩ�������¼��\n"+
+        msg =   ""+ob->query("name")+"("+ob->query("id")+")" + "您好：\n"+
+                "欢迎光临"+CHINESE_MUD_NAME+"！\n"+
+                "应您要求，您的密码已经发送至您的注册信箱。\n"+
+                "请关闭自动登录功能，使用下面提供的密码登录。\n"+
                 "\n"+
                 ""+pass+ "\n"+
                 "\n"+
-                "�ô������¼�ɹ��󣬽������� passwd ָ������������롣\n"+
-                "�������ڽ�����Ϸ��ʹ�á�help passwd��ָ���������Ϣ��\n"+
+                "用此密码登录成功后，建议您用 passwd 指令更换您的密码。\n"+
+                "详情请在进入游戏后使用“help passwd”指令，获得相关信息。\n"+
                 ctime(time());  
         
-        write("��ʼ����֪ͨ�ż���"+ ob->query("name")+ "(" + ob->query("id") + ")��ǰ���䡣\n");
-        SMTP_D->send_mail(this_player(),mail,""+CHINESE_MUD_NAME+"����Զ��һ������ż�",msg);       
+        write("开始发送通知信件到"+ ob->query("name")+ "(" + ob->query("id") + ")当前信箱。\n");
+        SMTP_D->send_mail(this_player(),mail,""+CHINESE_MUD_NAME+"玩家自动找回密码信件",msg);       
         
-        log_file("static/GETPASSWD", sprintf("%s ���� %s ������ע�����䡣 \n", this_player()->query("id"),ob->query("id")));
+        log_file("static/GETPASSWD", sprintf("%s 发送 %s 密码至注册信箱。 \n", this_player()->query("id"),ob->query("id")));
         destruct(ob);          
 
 }
@@ -287,15 +287,15 @@ private int check_state(object ob)
 int help(object me)
 {
         write(@HELP
-ָ���ʽ : getpasswd [���ID�ʺ�]
+指令格式 : getpasswd [玩家ID帐号]
 
-���ָ�����ͨ��ע��������߸�������ʹ����·��͵�½���롣
+这个指令可以通过注册邮箱或者根据问题和答案重新发送登陆密码。
 
-����Լ����������ʺŵ������ע�����䣬��ָ���һ�������Լ���ĳ���ʺ�
-���齣��Ϸ�е����룬����ȷ�����ʺ��ڳ�������û�е�½�������������ȷ
-�ش���ʺŵ�ע�����䣬��ôϵͳ�ᷢ�����뵽���ʺŵ�ע�����䡣
+玩家自己发送遗忘帐号的密码回注册信箱，是指玩家一旦遗忘自己的某个帐号
+在书剑游戏中的密码，并且确保该帐号在超过七天没有登陆，如果您可以正确
+回答该帐号的注册信箱，那么系统会发送密码到该帐号的注册信箱。
 
-������ʺ��Ѿ��������Ᵽ������ô��������ش���ȷ����ſ��Է������롣
+如果该帐号已经设置问题保护，那么，您必须回答正确问题才可以发送密码。
 
 HELP
 );

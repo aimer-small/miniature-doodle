@@ -1,18 +1,18 @@
 
 	map_delete(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		map_delete() -  ÒÔ¹Ø¼ü×Ö´ÓÒ»¸öÓ³Éä±äÊıÖĞÉ¾³ıÒ»¶Ô
-				 (¹Ø¼ü×Ö, ÄÚÈİÖµ) ((key, value)).
-	Óï·¨:
+	åç§°:
+		map_delete() -  ä»¥å…³é”®å­—ä»ä¸€ä¸ªæ˜ å°„å˜æ•°ä¸­åˆ é™¤ä¸€å¯¹
+				 (å…³é”®å­—, å†…å®¹å€¼) ((key, value)).
+	è¯­æ³•:
 		void map_delete( mapping m, mixed element );
 
-		ÎŞ´«»ØÖµ map_delete( Ó³Éä m, »ìºÏ element );
-	ÓÃ·¨:
-		map_delete É¾³ıÓ³Éä±äÊıÖĞ¹Ø¼ü×Ö·ûºÏ element  µÄ
-		(¹Ø¼ü×Ö, ÄÚÈİÖµ) .
+		æ— ä¼ å›å€¼ map_delete( æ˜ å°„ m, æ··åˆ element );
+	ç”¨æ³•:
+		map_delete åˆ é™¤æ˜ å°„å˜æ•°ä¸­å…³é”®å­—ç¬¦åˆ element  çš„
+		(å…³é”®å­—, å†…å®¹å€¼) .
 
-		¡õÀı:
+		â–¡ä¾‹:
 
 		mapping names;
 
@@ -21,18 +21,18 @@
 		names["wayfarer"] = "erik";
 		names["jacques"] = "dwayne";
 
-		Ôò:
+		åˆ™:
 
 		map_delete(names,"truilkan");
 
-		»áÊ¹Ó³Éä±äÊı names ³ÉÎª:
+		ä¼šä½¿æ˜ å°„å˜æ•° names æˆä¸º:
 
 		(["wayfarer" : "erik", "jacques" : "dwayne"])
 
-		ÔÚ map_delete( names, "truilkan" ) Ö®áá, key(names)
-		¾Í²»»á°üº¬ truilkan (³ı·ÇááÀ´ÓÖÓÃ ("truilkan", *)
-		°Ñ truilkan ¼Ó»ØÓ³Éä±äÊıÀï)
-	²Î¿¼:
+		åœ¨ map_delete( names, "truilkan" ) ä¹‹å¾Œ, key(names)
+		å°±ä¸ä¼šåŒ…å« truilkan (é™¤éå¾Œæ¥åˆç”¨ ("truilkan", *)
+		æŠŠ truilkan åŠ å›æ˜ å°„å˜æ•°é‡Œ)
+	å‚è€ƒ:
 		allocate_mapping(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Feb.18.		(printed 3/16/95)

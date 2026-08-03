@@ -6,21 +6,21 @@ string yuzhuo();
 
 void create()
 {
-set_name("Õı¹¬»Êºó", ({ "zhenggong huanghou", "zhenggong" ,"huanghou"}));
-        set("title", "´óÀí¶ÎÊÏ");
-set("gender", "Å®ĞÔ");
+set_name("æ­£å®«çš‡å", ({ "zhenggong huanghou", "zhenggong" ,"huanghou"}));
+        set("title", "å¤§ç†æ®µæ°");
+set("gender", "å¥³æ€§");
 set("age", 35);
 set("per", 29);
         set("unique", 1);
 set("count", 1);
 set("combat_exp", 5000);
         set("attitude", "friendly");
-        set("rank_info/respect", "ÄïÄï");
+        set("rank_info/respect", "å¨˜å¨˜");
 set("long", 
-        "Ëı¾ÍÊÇ´óÀí¹úµÄ»Êºó£¬¿´ÉÏÈ¥Æø¶ÈÓºÈİ£¬¶ËÕıÏÍ»Û£¬Ò»¸±ºÍ°ª¿ÉÇ×µÄÑù×Ó¡£\n");
+        "å¥¹å°±æ˜¯å¤§ç†å›½çš„çš‡åï¼Œçœ‹ä¸Šå»æ°”åº¦é›å®¹ï¼Œç«¯æ­£è´¤æ…§ï¼Œä¸€å‰¯å’Œè”¼å¯äº²çš„æ ·å­ã€‚\n");
 set("inquiry", ([
-//"Ä¾ÍñÇå" : (: mu :), 
-//"Óñïí" : (: yuzhuo :),
+//"æœ¨å©‰æ¸…" : (: mu :), 
+//"ç‰é•¯" : (: yuzhuo :),
 ]) );
 setup();
 carry_object(__DIR__"obj/fengpao")->wear();
@@ -28,14 +28,14 @@ carry_object(__DIR__"obj/fengpao")->wear();
 
 void kill_ob(object ob)
 {
-        command("say Äã²»Òªºó»Ú£¬»ÊÉÏÒ»¶¨»áÎªÎÒ±¨³ğµÄ£¡£¡£¡");
+        command("say ä½ ä¸è¦åæ‚”ï¼Œçš‡ä¸Šä¸€å®šä¼šä¸ºæˆ‘æŠ¥ä»‡çš„ï¼ï¼ï¼");
         ob->set_temp("killqueen",1);
 }
 
 int mu()
 {
        command("ah");
-       command("say ÕâÎ»" + RANK_D->query_respect(this_player()) + "Ô­À´ÊÇÄ¾¹ÃÄïµÄÅóÓÑ£¬Ê§¾´£¬Ê§¾´¡£");
+       command("say è¿™ä½" + RANK_D->query_respect(this_player()) + "åŸæ¥æ˜¯æœ¨å§‘å¨˜çš„æœ‹å‹ï¼Œå¤±æ•¬ï¼Œå¤±æ•¬ã€‚");
 //       this_player()->set_temp("mu",1);
        return 1;
 }
@@ -45,11 +45,11 @@ string yuzhuo()
 object ob;
 ob = unew(__DIR__"obj/yuzhuo");
 if (!this_player()->query_temp("mu"))
-   return RANK_D->query_respect(this_player())+"Óë°§¼ÒËØÎ¶Æ½Éú£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+   return RANK_D->query_respect(this_player())+"ä¸å“€å®¶ç´ å‘³å¹³ç”Ÿï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
         if(!clonep(ob))
-           return "ÎÒÒÑ°ÑÓñïí¸øÁËÄ¾¹ÃÄïÁË¡£";
+           return "æˆ‘å·²æŠŠç‰é•¯ç»™äº†æœ¨å§‘å¨˜äº†ã€‚";
          ob->set_temp("give_player", this_player()->query("id"));
  ob->move(this_player());         
          this_player()->delete_temp("mu");
-           return "Çë" + RANK_D->query_respect(this_player()) + "°ÑÕâÖ»Óñïí´ø¸øÄ¾¹ÃÄï°É¡£";
+           return "è¯·" + RANK_D->query_respect(this_player()) + "æŠŠè¿™åªç‰é•¯å¸¦ç»™æœ¨å§‘å¨˜å§ã€‚";
 }

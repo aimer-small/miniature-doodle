@@ -5,19 +5,19 @@
 // npc list for gb 1-3 dai promotion
 mixed names = ({
         ({
-        "µÀµÂ¾­", "É³´ü", "·Ûºì³ñÉÀ","Å£Æ¤¾Æ´ü","Ìú¼×","Ö¸Ì×","Öñ½£","Óñóï",
+        "é“å¾·ç»", "æ²™è¢‹", "ç²‰çº¢ç»¸è¡«","ç‰›çš®é…’è¢‹","é“ç”²","æŒ‡å¥—","ç«¹å‰‘","ç‰ç®«",
         }),
         ({
-        "½ğ¸Õ¾­","ÆßÉËÈ­Æ×","Ì«¼«Ê®ÈıÊÆ","»¢Æ¤","Öâáá±¸¼±·½","ÀÇÆ¤","Áò»Ç",
+        "é‡‘åˆšç»","ä¸ƒä¼¤æ‹³è°±","å¤ªæåä¸‰åŠ¿","è™çš®","è‚˜å¾Œå¤‡æ€¥æ–¹","ç‹¼çš®","ç¡«ç£º",
         }),
         ({
-        "Âé²¼´ü","ºÚÁú±Ş","Î§Æå","»ÒÀÇÆ¤","ÒøÔ¿³×","ÓãÂ¨","Ğå»¨Õë",
+        "éº»å¸ƒè¢‹","é»‘é¾™é­","å›´æ£‹","ç°ç‹¼çš®","é“¶é’¥åŒ™","é±¼ç¯“","ç»£èŠ±é’ˆ",
         }),
         ({
-        "ÌúÂŞºº","µ¶·¨¸ÅÒª","Í¼»­","ÓñÕæÉ¢","»ØÑôÎåÁú¸à","Ô¢Òâ²İ",
+        "é“ç½—æ±‰","åˆ€æ³•æ¦‚è¦","å›¾ç”»","ç‰çœŸæ•£","å›é˜³äº”é¾™è†","å¯“æ„è‰",
         }),
        ({
-        "ÄÚ¹¦ĞÄ·¨","Ï´Ëè¾­","Ç§ÄêÑ©²Î","ÖñÉÚ","ĞÇËŞ¶¾¾­","ÇàÖñ½£",
+        "å†…åŠŸå¿ƒæ³•","æ´—é«“ç»","åƒå¹´é›ªå‚","ç«¹å“¨","æ˜Ÿå®¿æ¯’ç»","é’ç«¹å‰‘",
       }),
 });
 
@@ -36,59 +36,59 @@ string ask_me()
 
 // check if this player is gb dizi and meet the requirements for promotion
         if ( !mapp(fam = applicant->query("family"))
-        || fam["family_name"] != "Ø¤°ï" )
+        || fam["family_name"] != "ä¸å¸®" )
                 return RANK_D->query_respect(applicant) +
-                "²»ÊÇ±¾°ïµÜ×Ó£¬ºÎÓĞ´ËÎÊ£¿ \n";
+                "ä¸æ˜¯æœ¬å¸®å¼Ÿå­ï¼Œä½•æœ‰æ­¤é—®ï¼Ÿ \n";
         position = (int)applicant->query("gb/bags");          // num of bags
         if ( applicant->query_temp("sd_find_target") )
                 return RANK_D->query_respect(applicant) +
-                "¿ìÈ¥Íê³ÉÄãµÄÈÎÎñ£¬ºÃÔçÈÕÉı´ü£¡\n";
+                "å¿«å»å®Œæˆä½ çš„ä»»åŠ¡ï¼Œå¥½æ—©æ—¥å‡è¢‹ï¼\n";
         begging_level = (int)applicant->query_skill("begging",1);
         if ( begging_level < 30 )
                 return RANK_D->query_respect(applicant) +
-              "ÔÚ°ïÖĞ×ÊÀúÉĞÇ³£¬²»ÄÜÉı´ü¡£\n";
+              "åœ¨å¸®ä¸­èµ„å†å°šæµ…ï¼Œä¸èƒ½å‡è¢‹ã€‚\n";
         if ( ( begging_level < 60 ) && ( position == 2 ) )
                 return RANK_D->query_respect(applicant) +
-                "Òª¶à¶à¼ÓÓÍ£¡\n";
+                "è¦å¤šå¤šåŠ æ²¹ï¼\n";
         if ( ( begging_level < 80 ) && ( position == 3 ) )
                 return RANK_D->query_respect(applicant) +
-                "Òª¶à¼ÓÅ¬Á¦²ÅÄÜÔÚ°ïÖĞ³öÈËÍ·µØ¡£\n";
+                "è¦å¤šåŠ åŠªåŠ›æ‰èƒ½åœ¨å¸®ä¸­å‡ºäººå¤´åœ°ã€‚\n";
         if (( begging_level<100 )&&(position==4))
                 return RANK_D->query_respect(applicant) +
-                "»¹ÊÇ²»ÄÜÉı´ü¡£\n";
+                "è¿˜æ˜¯ä¸èƒ½å‡è¢‹ã€‚\n";
            exp=(int)applicant->query("combat_exp",1);
            htlvl=(int)applicant->query_skill("huntian-qigong",1);
             if (((exp<150000)||(htlvl<80))&&(position==5))
             return RANK_D->query_respect(applicant) +
-                "¶ÔÓÚÎä¹¦·½ÃæÊÇ·ñ¹ıÓÚºöÂÔÁË£¿\n";
+                "å¯¹äºæ­¦åŠŸæ–¹é¢æ˜¯å¦è¿‡äºå¿½ç•¥äº†ï¼Ÿ\n";
         if (position>5)
-         return RANK_D->query_respect(applicant)+"ÒÑ¾­¼¼Ñ¹ÈºĞÛÁË£¬ÕÒºé°ïÖ÷È¥°É¡£\n";
+         return RANK_D->query_respect(applicant)+"å·²ç»æŠ€å‹ç¾¤é›„äº†ï¼Œæ‰¾æ´ªå¸®ä¸»å»å§ã€‚\n";
 // the following will random choose a target and assign to this player
         if(applicant->set_temp("sd_find_target"))
-          return "»¹²»¿ìÈ¥£¿\n";
+          return "è¿˜ä¸å¿«å»ï¼Ÿ\n";
         target = names[position-1][random(sizeof(names[position-1]))];
         applicant->set_temp("sd_find_target", target);
         applicant->set_temp("assigned_by", me->query("name"));
-        return "ºÃ°É£¬ÄãÈôÒªÉı´ü£¬ĞèµÃÏÈÅªµã³É¼¨³öÀ´¡£\n" +
-        "ÄãÈ¥°Ñ" + target +"¸øÎÒÕÒÀ´¡£\n";
+        return "å¥½å§ï¼Œä½ è‹¥è¦å‡è¢‹ï¼Œéœ€å¾—å…ˆå¼„ç‚¹æˆç»©å‡ºæ¥ã€‚\n" +
+        "ä½ å»æŠŠ" + target +"ç»™æˆ‘æ‰¾æ¥ã€‚\n";
 }
 int promotion_checking(object who, object ob)
 {
         object me = this_object();
         int bag,exp;
 // check if accept corpse from player
-        if ( who->query("family/family_name") != "Ø¤°ï" )
+        if ( who->query("family/family_name") != "ä¸å¸®" )
                 return 0;
         if ( ob->query("name") != (string)who->query_temp("sd_find_target")) {
-                command("say Õâ¶«Î÷ÎÒÒªÀ´Ã»ÓÃ¡£");
+                command("say è¿™ä¸œè¥¿æˆ‘è¦æ¥æ²¡ç”¨ã€‚");
                 return 0;
         }
 /*        if ( !who->query_temp("sd_find_target") ) {
-                command("say ºÃ°¡£¡²»¹ıÄãµÃÏÈÉêÇëÉı´ü¡£");
+                command("say å¥½å•Šï¼ä¸è¿‡ä½ å¾—å…ˆç”³è¯·å‡è¢‹ã€‚");
                 return 0;
         }*/
         if ( who->query_temp("assigned_by") != me->query("name") ) {
-                command("say ºÃÑùµÄ£¡¿ìÄÃÈ¥¸ø¸øÄãÈÎÎñµÄ¶æÖ÷°É¡£");
+                command("say å¥½æ ·çš„ï¼å¿«æ‹¿å»ç»™ç»™ä½ ä»»åŠ¡çš„èˆµä¸»å§ã€‚");
                 return 0;
         }
 
@@ -98,28 +98,28 @@ int promotion_checking(object who, object ob)
 // although it's illegal.
 /*      if ( ob->query("victim_name")
         != who->query_temp("sd_find_target") ) {
-                command("say ºÙºÙ¡£¡£¡££¬ÄãÉ±´íÈËÁË¡£");
+                command("say å˜¿å˜¿ã€‚ã€‚ã€‚ï¼Œä½ æ€é”™äººäº†ã€‚");
                 return 0;
         }*/
         if (userp(ob)) {
                 command("say " + RANK_D->query_rude(who) +
-                        "£¬¾ÓÈ»¸ÒÆÛÆ­±¾¶æÖ÷£¬ÄÃÃüÀ´°Ñ£¡");
+                        "ï¼Œå±…ç„¶æ•¢æ¬ºéª—æœ¬èˆµä¸»ï¼Œæ‹¿å‘½æ¥æŠŠï¼");
                 call_out("killing_object",1,who);
                 return 0;
         }
         bag=(int)who->query("gb/bags",1);
         exp=(bag*bag*1000);
         who->add("gb/bags",1);
-// benifits from Éı´ü, 10 maxneili + 1 begging,sttealing level
+// benifits from å‡è¢‹, 10 maxneili + 1 begging,sttealing level
         who->add("max_neili",10);
         who->set_skill("begging",(int)who->query_skill("begging",1) + 1);
         who->set_skill("stealing",(int)who->query_skill("stealing",1) + 1);
         who->add("combat_exp",exp);
 command("applaud " + who->query("id"));
-        command("say ¸ÉµÃºÃ£¡´Ó½ñÌì¿ªÊ¼£¬Äã¾ÍÊÇØ¤°ï" +
+        command("say å¹²å¾—å¥½ï¼ä»ä»Šå¤©å¼€å§‹ï¼Œä½ å°±æ˜¯ä¸å¸®" +
                 chinese_number(who->query("gb/bags")) +
-                "´üµÜ×Ó£¬ºÃºÃ¸É£¡\n");
-        who->set("title",sprintf("Ø¤°ï%s´üµÜ×Ó",
+                "è¢‹å¼Ÿå­ï¼Œå¥½å¥½å¹²ï¼\n");
+        who->set("title",sprintf("ä¸å¸®%sè¢‹å¼Ÿå­",
                 chinese_number(who->query("gb/bags"))) );
         who->delete_temp("assigned_by");
         who->delete_temp("sd_find_target");
@@ -140,17 +140,17 @@ void gb_apprentice(object ob)
         string prev_family_name;
 
         if ( (int)ob->query("gb/bags") >= 2
-        && (prev_family_name = ob->query("family/family_name")) != "Ø¤°ï" ) {
-                command("say Ø¤°ï¿ÉÈİ²»ÏÂÄãÕâÖÖ±³ĞÅÆúÒåµÄĞ¡ÈË£¡");
+        && (prev_family_name = ob->query("family/family_name")) != "ä¸å¸®" ) {
+                command("say ä¸å¸®å¯å®¹ä¸ä¸‹ä½ è¿™ç§èƒŒä¿¡å¼ƒä¹‰çš„å°äººï¼");
                 return;
         }
 
-        command("say ºÃ°É£¬Ï£Íû" + RANK_D->query_respect(ob) +
-        "ÄÜºÃºÃÑ§Ï°±¾ÃÅÎä¹¦£¬½«À´ÔÚ½­ºşÖĞ´³³öÒ»·¬×÷Îª¡£");
+        command("say å¥½å§ï¼Œå¸Œæœ›" + RANK_D->query_respect(ob) +
+        "èƒ½å¥½å¥½å­¦ä¹ æœ¬é—¨æ­¦åŠŸï¼Œå°†æ¥åœ¨æ±Ÿæ¹–ä¸­é—¯å‡ºä¸€ç•ªä½œä¸ºã€‚");
         command("recruit " + ob->query("id"));
-        if ( prev_family_name != "Ø¤°ï")
+        if ( prev_family_name != "ä¸å¸®")
                 ob->set("gb/bags", 1);
-        ob->set("title",sprintf("Ø¤°ï%s´üµÜ×Ó",
+        ob->set("title",sprintf("ä¸å¸®%sè¢‹å¼Ÿå­",
                 chinese_number(ob->query("gb/bags"))) );
 }
 

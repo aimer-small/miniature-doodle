@@ -6,7 +6,7 @@
 inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
-	message_vision("$NÖ»¾õË«Ï¥ÎÞÁ¦£¬ÂúÍ·Ðéº¹£¬ºôÎü¼±´ÙÆðÀ´¡£\n", me);	
+	message_vision("$Nåªè§‰åŒè†æ— åŠ›ï¼Œæ»¡å¤´è™šæ±—ï¼Œå‘¼å¸æ€¥ä¿ƒèµ·æ¥ã€‚\n", me);	
 	me->receive_damage("jingli", 50);
 	me->apply_condition("xu_ruo", duration - 1);
 	if( duration < 1 ) return 0;

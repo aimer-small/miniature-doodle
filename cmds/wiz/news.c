@@ -1,5 +1,5 @@
 //BBB 09/25/1999
-//ÈÃÍæ¼Ò²»»áÂ©¹ıÈÎºÎÖØÒªĞÂÎÅ£¬Ò²²»Òª³¤Í¾°ÏÉæÈ¥¿´Î×Ê¦¹«¸æ°æ¡£
+//è®©ç©å®¶ä¸ä¼šæ¼è¿‡ä»»ä½•é‡è¦æ–°é—»ï¼Œä¹Ÿä¸è¦é•¿é€”è·‹æ¶‰å»çœ‹å·«å¸ˆå…¬å‘Šç‰ˆã€‚
 // Modify by snowman@SJ for new_list when login.
 // Modified By Numa@SJ 2000.3.31 For write all to player
 // Modified By bbb@SJ 2000.11.03 For Mysql
@@ -18,10 +18,10 @@ inherit F_SAVE;
 
 #define NEWS_DIR       "/data/"
 #define NEWS_FILENAME  "news"
-#define NEWS_TITLE  "\n©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ "HIY"Êé½£ÍøÂçÓÎÏ·ĞÂÎÅÁĞ±í"NOR" ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n"
-#define NEWS_END  "©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n"
-#define NEWS_P HIY"ĞÂÎÅÏµÍ³ÌáÊ¾£º"NOR
-#define BBS_URL(x) sprintf(CYN"¹ØÓÚ±¾ĞÂÎÅµÄÌÖÂÛÇëä¯ÀÀ£º%s/viewthread.php?tid=%d¡£\n"NOR,BBS_ADDR,x)
+#define NEWS_TITLE  "\nâ”â”â”â”â”â”â”â”â”â”â”â”â”â” "HIY"ä¹¦å‰‘ç½‘ç»œæ¸¸æˆæ–°é—»åˆ—è¡¨"NOR" â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"
+#define NEWS_END  "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"
+#define NEWS_P HIY"æ–°é—»ç³»ç»Ÿæç¤ºï¼š"NOR
+#define BBS_URL(x) sprintf(CYN"å…³äºæœ¬æ–°é—»çš„è®¨è®ºè¯·æµè§ˆï¼š%s/viewthread.php?tid=%dã€‚\n"NOR,BBS_ADDR,x)
 
 nosave object ob = 0;
 nosave int status=0;
@@ -43,7 +43,7 @@ void tell_me(string msg)
 {
 	if (objectp(ob)) tell_object(ob, msg);
 }
-//Õâ¸öº¯ÊıÓÃÔÚºÍĞÂÎÅÏµÍ³Á¬½ÓÄÇÀï£¬¸Ğ¾õºÜÂÒ
+//è¿™ä¸ªå‡½æ•°ç”¨åœ¨å’Œæ–°é—»ç³»ç»Ÿè¿æ¥é‚£é‡Œï¼Œæ„Ÿè§‰å¾ˆä¹±
 string Ctime(int t)
 {
         string ts = ctime(t);
@@ -99,8 +99,8 @@ void done_post(object me,mapping note, string text)
 	else
 		notes += ({ note });
 	note["time"] = time();
-	if(userp(me)) tell_object(me, NEWS_P + HIM "ĞÂÎÅ·¢²¼Íê±Ï¡£ÈçÓĞ±ØÒª£¬Çë·¢²¼µ½Ö÷Ò³£¬Ê¹ÓÃ·½·¨¿´ help news\n"NOR);
-         message("system",HIW"\n\n¡¾ĞÂÎÅ¡¿·¢²¼ÓÎÏ·ĞÂÎÅ£¬ÇëÓÃ news Ö¸Áî²é¿´£¬»ò·ÃÎÊÖ÷Ò³ www.SJzitan.com ¡£\n\n"NOR, users());
+	if(userp(me)) tell_object(me, NEWS_P + HIM "æ–°é—»å‘å¸ƒå®Œæ¯•ã€‚å¦‚æœ‰å¿…è¦ï¼Œè¯·å‘å¸ƒåˆ°ä¸»é¡µï¼Œä½¿ç”¨æ–¹æ³•çœ‹ help news\n"NOR);
+         message("system",HIW"\n\nã€æ–°é—»ã€‘å‘å¸ƒæ¸¸æˆæ–°é—»ï¼Œè¯·ç”¨ news æŒ‡ä»¤æŸ¥çœ‹ï¼Œæˆ–è®¿é—®ä¸»é¡µ www.SJzitan.com ã€‚\n\n"NOR, users());
 	save();
 	if(me&&userp(me))
 	{
@@ -108,17 +108,17 @@ void done_post(object me,mapping note, string text)
 		string msg = ( sprintf("[%d] %-=31s %18s (%s)\n" + NEWS_END,sizeof(notes),note["title"], " ",ctime(note["time"])[0..15]) + note["msg"] );
 		string subject = ( sprintf("%s",note["title"]) );
 		op = sizeof(notes)-1;
-		if(BBS_D->bbs_post(10,"system","¡¾•ø„¦ĞÂÂ„¡¿"+note["title"],text,0,0,0,this_object(),"post_ok" ) )
-			tell_object(me,NEWS_P +"news  ·¢ËÍµ½ÂÛÌ³Ìû×ÓÍê±Ï¡£\n");
-		else tell_object(me,NEWS_P +"news  ·¢ËÍµ½ÂÛÌ³Ìû×ÓÊ§°Ü¡£\n");
+		if(BBS_D->bbs_post(10,"system","ã€æ›¸åŠæ–°èã€‘"+note["title"],text,0,0,0,this_object(),"post_ok" ) )
+			tell_object(me,NEWS_P +"news  å‘é€åˆ°è®ºå›å¸–å­å®Œæ¯•ã€‚\n");
+		else tell_object(me,NEWS_P +"news  å‘é€åˆ°è®ºå›å¸–å­å¤±è´¥ã€‚\n");
 				
 		if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "INSERT INTO announcements (author, subject, starttime, endtime, message) VALUES ('master', '"+subject+"', '"+time()+"', '0', '"+msg+"')"))
-			tell_object(me,NEWS_P +"news  ·¢ËÍµ½ÂÛÌ³¹«¸æÍê±Ï¡£\n");
+			tell_object(me,NEWS_P +"news  å‘é€åˆ°è®ºå›å…¬å‘Šå®Œæ¯•ã€‚\n");
 		else
-			tell_object(me,NEWS_P +"news  ·¢ËÍµ½ÂÛÌ³¹«¸æÊ§°Ü¡£\n");
-		if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,"INSERT INTO izz_text_soft (soft_name, soft_keyword, soft_download_url, soft_is_commend,soft_grade, soft_type, soft_note, soft_author, soft_relation_url,soft_category_id, soft_class_id, soft_img, soft_byuser, soft_user_id,soft_size, soft_date, soft_hits_day, soft_display) VALUES ( '"+subject+"', 'ĞÂÎÅ', 'Wizard', '0', '3', 'Ô­´´', '"+msg+"', 'Êé½£¹Ù·½Õ¾', 'http://zmud.uu1001.com', '10','51', 'N/A', 'Action', '17', 'N/A', '"+Ctime(note["time"])+"', '20040127', '1' )"))
-			tell_object(me,NEWS_P +"news  ·¢ËÍµ½Ö÷Ò³Íê±Ï¡£\n");
-		else tell_object(me,NEWS_P +"news  ·¢ËÍµ½Ö÷Ò³Ê§°Ü¡£\n");		
+			tell_object(me,NEWS_P +"news  å‘é€åˆ°è®ºå›å…¬å‘Šå¤±è´¥ã€‚\n");
+		if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,"INSERT INTO izz_text_soft (soft_name, soft_keyword, soft_download_url, soft_is_commend,soft_grade, soft_type, soft_note, soft_author, soft_relation_url,soft_category_id, soft_class_id, soft_img, soft_byuser, soft_user_id,soft_size, soft_date, soft_hits_day, soft_display) VALUES ( '"+subject+"', 'æ–°é—»', 'Wizard', '0', '3', 'åŸåˆ›', '"+msg+"', 'ä¹¦å‰‘å®˜æ–¹ç«™', 'http://zmud.uu1001.com', '10','51', 'N/A', 'Action', '17', 'N/A', '"+Ctime(note["time"])+"', '20040127', '1' )"))
+			tell_object(me,NEWS_P +"news  å‘é€åˆ°ä¸»é¡µå®Œæ¯•ã€‚\n");
+		else tell_object(me,NEWS_P +"news  å‘é€åˆ°ä¸»é¡µå¤±è´¥ã€‚\n");		
 #endif
 		//send to others
 		"/adm/daemons/network/services/newsmsg"->send_msg(note["title"],note["author"],note["poster"],text);
@@ -132,7 +132,7 @@ void list_news(object me, int login)
 	string str;
 
 	if (sizeof(notes) < 1)
-		write("Ã»ÓĞÈÎºÎĞÂÎÅ¡£\n");
+		write("æ²¡æœ‰ä»»ä½•æ–°é—»ã€‚\n");
 	else {
 		ulogin = me->query("last_news");
 		str = NEWS_END;
@@ -148,14 +148,14 @@ void list_news(object me, int login)
 			}
 		}
 		if (!j)
-			write(NEWS_P+"Ä¿Ç°Ã»ÓĞĞÂ·¢²¼µÄĞÂÎÅ¡£\n");
+			write(NEWS_P+"ç›®å‰æ²¡æœ‰æ–°å‘å¸ƒçš„æ–°é—»ã€‚\n");
 		else {
 			if (login && j > 5)
 				;
 			else
 				write(NEWS_TITLE + str);
-			write(NEWS_P+"Ä¿Ç°¹²ÓĞ "+ i +" ÌõĞÂÎÅ¡¢"+ j +" ÌõÎ´¶Á¡£\n");
-			write("ÇëÓÃ news ÔÄ¶Á±êÌâ£¬»òÕß news new|next|±àºÅ ÔÄ¶ÁÏêÏ¸ÄÚÈİ¡£\n");
+			write(NEWS_P+"ç›®å‰å…±æœ‰ "+ i +" æ¡æ–°é—»ã€"+ j +" æ¡æœªè¯»ã€‚\n");
+			write("è¯·ç”¨ news é˜…è¯»æ ‡é¢˜ï¼Œæˆ–è€… news new|next|ç¼–å· é˜…è¯»è¯¦ç»†å†…å®¹ã€‚\n");
 		}
 	}
 }
@@ -167,7 +167,7 @@ void list_allnews(object me)
 
 	i = sizeof(notes);
 	if ( i < 1) {
-		write(NEWS_P +"Ã»ÓĞÈÎºÎĞÂÎÅ¡£\n");
+		write(NEWS_P +"æ²¡æœ‰ä»»ä½•æ–°é—»ã€‚\n");
 		return;
 	}
 	str = NEWS_TITLE;
@@ -185,17 +185,17 @@ void create()
 	restore();
 	call_out("create", 900);
 }
-/*ÕâÊÇ¹©Askµ÷ÓÃµÄ LinuX@SJ*/
+/*è¿™æ˜¯ä¾›Askè°ƒç”¨çš„ LinuX@SJ*/
 string read_last_news()
 {
 	int size = sizeof(notes);
 	int num;
 	string str;
-	if (size < 10) return "×î½üÃ»ÓĞÌıµ½¹ıÊ²Ã´ĞÂÎÅ¡£";
+	if (size < 10) return "æœ€è¿‘æ²¡æœ‰å¬åˆ°è¿‡ä»€ä¹ˆæ–°é—»ã€‚";
 	num = size - 1 - random(10);
-	if (strlen(notes[num]["msg"]) > 400) return "×î½üÃ»ÓĞÌıµ½¹ıÊ²Ã´´óĞÂÎÅ¡£";
-	str = "\n©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n"
-	+ HIY+notes[num]["title"] + NOR+"\n"+ notes[num]["msg"] + "©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n";			
+	if (strlen(notes[num]["msg"]) > 400) return "æœ€è¿‘æ²¡æœ‰å¬åˆ°è¿‡ä»€ä¹ˆå¤§æ–°é—»ã€‚";
+	str = "\nâ”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n"
+	+ HIY+notes[num]["title"] + NOR+"\n"+ notes[num]["msg"] + "â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n";			
 	return str;
 	
 }
@@ -223,21 +223,21 @@ int main(object me, string arg)
 		}
 		if ( s == "post" ){
 			if( wiz_level(me)<3 )
-				return notify_fail(NEWS_P +"Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔ·¢²¼ÏûÏ¢¡£ \n");
-			else 	return notify_fail("Ê¹ÓÃ·½·¨£º news post <Ö÷Ìâ> \n");
+				return notify_fail(NEWS_P +"åªæœ‰å·«å¸ˆæ‰å¯ä»¥å‘å¸ƒæ¶ˆæ¯ã€‚ \n");
+			else 	return notify_fail("ä½¿ç”¨æ–¹æ³•ï¼š news post <ä¸»é¢˜> \n");
 		}
 		if ( s == "delete" ){
 			if( wiz_level(me)<3 )
-				return notify_fail(NEWS_P +"Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÉ¾³ıÏûÏ¢¡£ \n");
-			else	return notify_fail("Ê¹ÓÃ·½·¨£º news delete <±àºÅ> \n");
+				return notify_fail(NEWS_P +"åªæœ‰å·«å¸ˆæ‰å¯ä»¥åˆ é™¤æ¶ˆæ¯ã€‚ \n");
+			else	return notify_fail("ä½¿ç”¨æ–¹æ³•ï¼š news delete <ç¼–å·> \n");
 		}
 	}
 
 	if (sscanf(arg, "post %s", arg1) == 1) {
 		if ( wiz_level(me)<3 )
-			return notify_fail(NEWS_P +"Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔ·¢²¼ÏûÏ¢¡£ \n");
+			return notify_fail(NEWS_P +"åªæœ‰å·«å¸ˆæ‰å¯ä»¥å‘å¸ƒæ¶ˆæ¯ã€‚ \n");
 		if ( strlen(arg1)< 8 || strlen(arg1)>100 )
-			return notify_fail(NEWS_P +"Çë¼òÃ÷¶óÒªµØËµÃ÷Ö÷Ìâ£¬Ö÷Ìâ×ÖÊı±ØĞëÔÚ4-20Ö®¼ä£¬½ûÖ¹Ê¹ÓÃ¿ÚÍ·ÓïÑÔ¡£ \n");
+			return notify_fail(NEWS_P +"è¯·ç®€æ˜æ‰¼è¦åœ°è¯´æ˜ä¸»é¢˜ï¼Œä¸»é¢˜å­—æ•°å¿…é¡»åœ¨4-20ä¹‹é—´ï¼Œç¦æ­¢ä½¿ç”¨å£å¤´è¯­è¨€ã€‚ \n");
 		else note = allocate_mapping(5);
 		note["title"] = arg1;
 		note["author"] = getuid(me);
@@ -248,13 +248,13 @@ int main(object me, string arg)
 
 	if (sscanf(arg, "delete %d", num)== 1) {
 		if ( wiz_level(me)<3 )
-			return notify_fail(NEWS_P +"Ö»ÓĞÎ×Ê¦²Å¿ÉÒÔÉ¾³ıÏûÏ¢¡£ \n");
+			return notify_fail(NEWS_P +"åªæœ‰å·«å¸ˆæ‰å¯ä»¥åˆ é™¤æ¶ˆæ¯ã€‚ \n");
 		if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
-			return notify_fail(NEWS_P +"Ã»ÓĞÕâ¸ö±àºÅµÄĞÂÎÅ¡£\n");
+			return notify_fail(NEWS_P +"æ²¡æœ‰è¿™ä¸ªç¼–å·çš„æ–°é—»ã€‚\n");
 		else num--;
 		notes = notes[0..num-1] + notes[num+1..<1];
 		save();
-		write(NEWS_P +"É¾³ıµÚ " + (num+1) + " ºÅĞÂÎÅ....Ok¡£Èç¹û´ËĞÂÎÅ±»·¢²¼¹ıÖ÷Ò³£¬ÇëÈ¥Ö÷Ò³É¾³ı¡£\n");
+		write(NEWS_P +"åˆ é™¤ç¬¬ " + (num+1) + " å·æ–°é—»....Okã€‚å¦‚æœæ­¤æ–°é—»è¢«å‘å¸ƒè¿‡ä¸»é¡µï¼Œè¯·å»ä¸»é¡µåˆ é™¤ã€‚\n");
 		return 1;
 	}
 
@@ -275,9 +275,9 @@ int main(object me, string arg)
 		
 				
 		if (!size)
-			return notify_fail(NEWS_P +"Ã»ÓĞÈÎºÎĞÂÎÅ¡£\n");
+			return notify_fail(NEWS_P +"æ²¡æœ‰ä»»ä½•æ–°é—»ã€‚\n");
 		if (num < 1 || num > size)
-			return notify_fail(NEWS_P +"Ã»ÓĞÕâ¸ö±àºÅµÄĞÂÎÅ¡£\n");
+			return notify_fail(NEWS_P +"æ²¡æœ‰è¿™ä¸ªç¼–å·çš„æ–°é—»ã€‚\n");
 		num--;
 		
 		if(notes[num]["tid"]) bbs_msg = BBS_URL(notes[num]["tid"]);
@@ -286,7 +286,7 @@ int main(object me, string arg)
 			num + 1, notes[num]["title"],
 			wizardp(me)?notes[num]["poster"]:"",
 			wizardp(me)?notes[num]["author"]:"News",
-			ctime(notes[num]["time"])[0..15]) + notes[num]["msg"] + bbs_msg +"©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥[ ±¾ Æª Íê ]"
+			ctime(notes[num]["time"])[0..15]) + notes[num]["msg"] + bbs_msg +"â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”[ æœ¬ ç¯‡ å®Œ ]"
 		);
 		if (me->query("last_news") < notes[num]["time"])
 			me->set("last_news", notes[num]["time"]);
@@ -295,9 +295,9 @@ int main(object me, string arg)
 
 	if ( arg == "write all" ) {
 		if (!wizardp(me))
-			return notify_fail("ÕâÊÇÎ×Ê¦ÃüÁî¡£\n");
+			return notify_fail("è¿™æ˜¯å·«å¸ˆå‘½ä»¤ã€‚\n");
 		if( !pointerp(notes) || !sizeof(notes) )
-			return notify_fail(NEWS_P +"Ã»ÓĞÈÎºÎĞÂÎÅ¡£\n");
+			return notify_fail(NEWS_P +"æ²¡æœ‰ä»»ä½•æ–°é—»ã€‚\n");
 		msg = NEWS_TITLE;
 		for (num=0;num<sizeof(notes);num++) {
 			msg += sprintf(HIW"%d"NOR") %-=43s %8s(%s)(%s)\n"+NEWS_END,num + 1, notes[num]["title"],
@@ -313,40 +313,40 @@ int help(object me)
 {
 	if (!wiz_level(me) )
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
-news		²é¿´×î½üÊ®ÎåÌõÎ´¶ÁµÄĞÂÎÅÁĞ±í¡£
-news all	²é¿´È«²¿ĞÂÎÅÁĞ±í¡£
-news new|next	²é¿´×î½üÒ»ÌõÎ´¶ÁĞÂÎÅµÄÏêÏ¸ÄÚÈİ¡£
-news <±àºÅ>	²é¿´´Ë±àºÅĞÂÎÅµÄÏêÏ¸ÄÚÈİ¡£
+æŒ‡ä»¤æ ¼å¼ :
+news		æŸ¥çœ‹æœ€è¿‘åäº”æ¡æœªè¯»çš„æ–°é—»åˆ—è¡¨ã€‚
+news all	æŸ¥çœ‹å…¨éƒ¨æ–°é—»åˆ—è¡¨ã€‚
+news new|next	æŸ¥çœ‹æœ€è¿‘ä¸€æ¡æœªè¯»æ–°é—»çš„è¯¦ç»†å†…å®¹ã€‚
+news <ç¼–å·>	æŸ¥çœ‹æ­¤ç¼–å·æ–°é—»çš„è¯¦ç»†å†…å®¹ã€‚
 
-·¢²¼ÄÚÈİÖ÷ÒªÎª£ºÏµÍ³¹«¸æ¡¢³ÌĞò¸Ä¶¯¡¢ÎäÁÖ´óÊÂ¡£
+å‘å¸ƒå†…å®¹ä¸»è¦ä¸ºï¼šç³»ç»Ÿå…¬å‘Šã€ç¨‹åºæ”¹åŠ¨ã€æ­¦æ—å¤§äº‹ã€‚
 HELP);
 
 	else
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
-news				²é¿´×î½üÊ®ÎåÌõÎ´¶ÁµÄĞÂÎÅÁĞ±í¡£
-news all			²é¿´È«²¿ĞÂÎÅÁĞ±í¡£
-news new|next			²é¿´×î½üÒ»ÌõÎ´¶ÁĞÂÎÅµÄÏêÏ¸ÄÚÈİ¡£
-news <±àºÅ>			²é¿´´Ë±àºÅĞÂÎÅµÄÏêÏ¸ÄÚÈİ¡£
-news post <Ö÷Ìâ>		·¢²¼ĞÂÎÅ£¬wizard ¼¶±ğÒÔÉÏÎ×Ê¦×¨ÓÃ
-news delete <±àºÅ>		É¾³ıĞÂÎÅ£¬wizard ¼¶±ğÒÔÉÏÎ×Ê¦×¨ÓÃ
-news write all			ÁĞ³öÈ«²¿ news µÄÏêÏ¸ÄÚÈİ
-news send <±àºÅ> <ÂÛÌ³ID>	·¢ËÍĞÂÎÅµ½Ö÷Ò³£¬¿ÉÒÔÑ¡Ôñ²»Í¬µÄÌÖÂÛÇø·¢ËÍ
+æŒ‡ä»¤æ ¼å¼ :
+news				æŸ¥çœ‹æœ€è¿‘åäº”æ¡æœªè¯»çš„æ–°é—»åˆ—è¡¨ã€‚
+news all			æŸ¥çœ‹å…¨éƒ¨æ–°é—»åˆ—è¡¨ã€‚
+news new|next			æŸ¥çœ‹æœ€è¿‘ä¸€æ¡æœªè¯»æ–°é—»çš„è¯¦ç»†å†…å®¹ã€‚
+news <ç¼–å·>			æŸ¥çœ‹æ­¤ç¼–å·æ–°é—»çš„è¯¦ç»†å†…å®¹ã€‚
+news post <ä¸»é¢˜>		å‘å¸ƒæ–°é—»ï¼Œwizard çº§åˆ«ä»¥ä¸Šå·«å¸ˆä¸“ç”¨
+news delete <ç¼–å·>		åˆ é™¤æ–°é—»ï¼Œwizard çº§åˆ«ä»¥ä¸Šå·«å¸ˆä¸“ç”¨
+news write all			åˆ—å‡ºå…¨éƒ¨ news çš„è¯¦ç»†å†…å®¹
+news send <ç¼–å·> <è®ºå›ID>	å‘é€æ–°é—»åˆ°ä¸»é¡µï¼Œå¯ä»¥é€‰æ‹©ä¸åŒçš„è®¨è®ºåŒºå‘é€
 
-ÂÛÌ³IDÈçÏÂ£ºÏµÍ³¹«¸æ(info) ÉÙÁÖ(shaolin)  Îäµ±(wudang)
-»ªÉ½(huashan) ÌÒ»¨(taohua) ÌúÕÆ(tiezhang) ÉñÁú(shenlong)
-ĞÇËŞ(xingxiu) ¶ëáÒ(emei)   áÔÉ½(songshan) Ñ©É½(xueshan)
-¹ÅÄ¹(gumu)    Ä½Èİ(murong) Ã÷½Ì(mingjiao) Ø¤°ï(gaibang) ÌìÁú(tianlong)
-·ÖÕ¾ÂÛÌ³·Ö±ğÎª£ºln sh qhd zj hb sd yt dd gz cdedu
+è®ºå›IDå¦‚ä¸‹ï¼šç³»ç»Ÿå…¬å‘Š(info) å°‘æ—(shaolin)  æ­¦å½“(wudang)
+åå±±(huashan) æ¡ƒèŠ±(taohua) é“æŒ(tiezhang) ç¥é¾™(shenlong)
+æ˜Ÿå®¿(xingxiu) å³¨åµ‹(emei)   åµ©å±±(songshan) é›ªå±±(xueshan)
+å¤å¢“(gumu)    æ…•å®¹(murong) æ˜æ•™(mingjiao) ä¸å¸®(gaibang) å¤©é¾™(tianlong)
+åˆ†ç«™è®ºå›åˆ†åˆ«ä¸ºï¼šln sh qhd zj hb sd yt dd gz cdedu
 
-·¢ËÍ¾ÙÀı£ºnews send 122 info
+å‘é€ä¸¾ä¾‹ï¼šnews send 122 info
 
-×¢Òâ£º  1¡¢·¢²¼ÄÚÈİÖ÷ÒªÎª£ºÏµÍ³¹«¸æ¡¢³ÌĞò¸Ä¶¯¡¢ÎäÁÖ´óÊÂ¡£
-	2¡¢Î´¾­È·ÊµµÄÏûÏ¢ÑÏ½û·¢²¼£¬Ğé¼ÙĞÂÎÅÁ¢¼´É¾³ı¡£
-	3¡¢ÖØ´ó³ÌĞò±ä¶¯£¬Èç¿ÉÄÜÉæ¼°Íæ¼Ò£¬±ØĞëÓÃ´Ë·¢²¼Í¨¸æ£¬ÇÒÒÔ´ËÎª×¼¡£
-	4¡¢ĞÂÎÅ·¢²¼Éæ¼°È«¾ÖµÄ£¬±ØĞë·¢²¼ÔÚinfo£¬Õë¶ÔÃÅÅÉµÄ·¢Á½´Îµ½infoºÍÃÅÅÉÇø,Õë¶Ô·ÖÕ¾µÄ·¢Á½´Îµ½infoºÍ·ÖÕ¾Çø
-	5¡¢×¢Òâ·¢²¼Ê±Ö÷ÌâÃ÷È·£¬²»Òªº¬ºı²»Çå£¬²»ÒªÊ¹ÓÃ¿ÚÍ·ÓïÑÔ¡£
+æ³¨æ„ï¼š  1ã€å‘å¸ƒå†…å®¹ä¸»è¦ä¸ºï¼šç³»ç»Ÿå…¬å‘Šã€ç¨‹åºæ”¹åŠ¨ã€æ­¦æ—å¤§äº‹ã€‚
+	2ã€æœªç»ç¡®å®çš„æ¶ˆæ¯ä¸¥ç¦å‘å¸ƒï¼Œè™šå‡æ–°é—»ç«‹å³åˆ é™¤ã€‚
+	3ã€é‡å¤§ç¨‹åºå˜åŠ¨ï¼Œå¦‚å¯èƒ½æ¶‰åŠç©å®¶ï¼Œå¿…é¡»ç”¨æ­¤å‘å¸ƒé€šå‘Šï¼Œä¸”ä»¥æ­¤ä¸ºå‡†ã€‚
+	4ã€æ–°é—»å‘å¸ƒæ¶‰åŠå…¨å±€çš„ï¼Œå¿…é¡»å‘å¸ƒåœ¨infoï¼Œé’ˆå¯¹é—¨æ´¾çš„å‘ä¸¤æ¬¡åˆ°infoå’Œé—¨æ´¾åŒº,é’ˆå¯¹åˆ†ç«™çš„å‘ä¸¤æ¬¡åˆ°infoå’Œåˆ†ç«™åŒº
+	5ã€æ³¨æ„å‘å¸ƒæ—¶ä¸»é¢˜æ˜ç¡®ï¼Œä¸è¦å«ç³Šä¸æ¸…ï¼Œä¸è¦ä½¿ç”¨å£å¤´è¯­è¨€ã€‚
 HELP);
 	return 1;
 }

@@ -11,15 +11,15 @@ int ask_job();
 void create()
 {
 
-        set_name("ÇÛ²Ë9Ã«", ({ "master nine", "master","nine" }));
-        set("title", "¶þÁ÷×Ó");
+        set_name("èŠ¹èœ9æ¯›", ({ "master nine", "master","nine" }));
+        set("title", "äºŒæµå­");
 
-        set("gender", "ÄÐÐÔ");
+        set("gender", "ç”·æ€§");
         set("age", 35);
-        set("long","ËûÊÇÒ»¸ö³¤Ïàâ«Ëö¡¢Òùµ´¡¢ÏÂÁ÷¡¢ÎÞ³ÜµÄ¼Ò»ï¡£\n");
+        set("long","ä»–æ˜¯ä¸€ä¸ªé•¿ç›¸çŒ¥çã€æ·«è¡ã€ä¸‹æµã€æ— è€»çš„å®¶ä¼™ã€‚\n");
 
 	set("inquiry", ([ 
-        	"½Ë·Ë" : (: ask_job :),
+        	"å‰¿åŒª" : (: ask_job :),
             ])); 
 
         setup();
@@ -36,26 +36,26 @@ td = time() / 86400;
 	me = this_player();
 	if(!me->is_team_leader())
 	{
-		tell_object(me,"Äã²»ÊÇÁì¶Ó¡£\n");
+		tell_object(me,"ä½ ä¸æ˜¯é¢†é˜Ÿã€‚\n");
 		return 1;
 	}
 	team = me->query_team();
 	if(!pointerp(team) || sizeof(team) < 2)
 	{
-		tell_object(me,"ÄãµÄÈËÊÖ²»¹»¡£\n");
+		tell_object(me,"ä½ çš„äººæ‰‹ä¸å¤Ÿã€‚\n");
 		return 1;
 	}
 for (i = 0;i < sizeof(team);i ++)
 {
 if (!team[i])
-command("say ÄãµÄ¶ÓÎé³öÏÖÁËÎÊÌâ£¬Çë½âÉ¢²¢ÖØÐÂ×é½¨¡£\n");
+command("say ä½ çš„é˜Ÿä¼å‡ºçŽ°äº†é—®é¢˜ï¼Œè¯·è§£æ•£å¹¶é‡æ–°ç»„å»ºã€‚\n");
 
                                        if (!present(team[i]))
-                        command("say ÔõÃ´ºÃÏóÈË²»È«°¡£¿" + team[i]->query("name") + "ÔõÃ´Ã»À´£¿\n");
+                        command("say æ€Žä¹ˆå¥½è±¡äººä¸å…¨å•Šï¼Ÿ" + team[i]->query("name") + "æ€Žä¹ˆæ²¡æ¥ï¼Ÿ\n");
 
 	if(MIRROR_SYS->query_room_amount() >= 20)
 	{
-		tell_object(me,"¾µÏñÒÑ¾­¿ªÆôÌ«¶à£¬»¶Ó­ÏÂ´Î²ÎÓë¡£\n");
+		tell_object(me,"é•œåƒå·²ç»å¼€å¯å¤ªå¤šï¼Œæ¬¢è¿Žä¸‹æ¬¡å‚ä¸Žã€‚\n");
 		return 1;
 	}
 
@@ -67,7 +67,7 @@ if (team[i]->query("hfz_ask/which_day2") != td)
 if (team[i]->query("hfz_ask/which_day2") == td &&
             team[i]->query("hfz_ask/times") >= 3) 
 {
-tell_object(me,"" + team[i]->query("name") + "½ñÌìÒÑ¾­´ïµ½½øÈë¸±±¾´ÎÊý¼«ÏÞÁË¡£\n");
+tell_object(me,"" + team[i]->query("name") + "ä»Šå¤©å·²ç»è¾¾åˆ°è¿›å…¥å‰¯æœ¬æ¬¡æ•°æžé™äº†ã€‚\n");
 
                 return 1;
 }
@@ -80,13 +80,13 @@ team[i]->set("hfz_ask/which_day2", td);
 }
 
 
-	//É¾³ý¾ÉµÄ¸±±¾
+	//åˆ é™¤æ—§çš„å‰¯æœ¬
 	memory = me->query_temp("mirror/mirror_memory");
 	if(objectp(memory))
 	{
 		memory->delete("user_id");
 	}
-	//´´½¨ÐÂµÄ¸±±¾
+	//åˆ›å»ºæ–°çš„å‰¯æœ¬
 	MIRROR_SYS->mirror(team,me);
 	return 1;
         team->move("quest/hfz/damen");

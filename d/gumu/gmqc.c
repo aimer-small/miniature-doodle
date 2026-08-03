@@ -7,11 +7,11 @@ void delete_qiecuo(object me, object arg);
 
 void create()
 {
-	set("short",HIR"ÇÐ´èÊÒ"NOR);
+	set("short",HIR"åˆ‡ç£‹å®¤"NOR);
 	set("long", @LONG
-ÕâÊÇ¹ÅÄ¹ÅÉµÜ×ÓÇÐ´èÎä¼¼µÄµØ·½£¬¿Õ¿õµÄÒ»¼äÊ¯ÊÒ£¬Ã»ÓÐÈÎºÎ°ÚÉè¡£ËÄÖÜ
-µãÁÁ²»ÉÙ»ð°Ñ£¬µ¹Ò²µÆ»ðÍ¨Ã÷£¬Ê¯±ÚÉÏÁôÓÐ¼¸¸öº§ÈËµÄÕÆÓ¡£¬ÈëÊ¯Êý·Ö£¬ÏÔ¼û
-ÊÇ¸ßÊÖÏà½»ËùÎª¡£
+è¿™æ˜¯å¤å¢“æ´¾å¼Ÿå­åˆ‡ç£‹æ­¦æŠ€çš„åœ°æ–¹ï¼Œç©ºæ—·çš„ä¸€é—´çŸ³å®¤ï¼Œæ²¡æœ‰ä»»ä½•æ‘†è®¾ã€‚å››å‘¨
+ç‚¹äº®ä¸å°‘ç«æŠŠï¼Œå€’ä¹Ÿç¯ç«é€šæ˜Žï¼ŒçŸ³å£ä¸Šç•™æœ‰å‡ ä¸ªéª‡äººçš„æŽŒå°ï¼Œå…¥çŸ³æ•°åˆ†ï¼Œæ˜¾è§
+æ˜¯é«˜æ‰‹ç›¸äº¤æ‰€ä¸ºã€‚
 LONG        );
 
 	set("no_fight", 1);
@@ -35,47 +35,47 @@ int do_qiecuo(object arg)
 	object ob;
 	mapping fam;
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if (!arg)
-		return notify_fail("ÄãÒªºÍË­ÇÐ´èÎäÒÕ£¿\n");
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹ÅÉ´«ÈË¡£\n");
+		return notify_fail("ä½ è¦å’Œè°åˆ‡ç£‹æ­¦è‰ºï¼Ÿ\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“æ´¾ä¼ äººã€‚\n");
 	if (me->query("combat_exp") > 2000000)
-		return notify_fail("È¥×öÒ»Ð©ÓÐÎ£ÏÕµÄÈÎÎñºÃÂð£¿\n");
+		return notify_fail("åŽ»åšä¸€äº›æœ‰å±é™©çš„ä»»åŠ¡å¥½å—ï¼Ÿ\n");
 	if (!(ob = present(arg, this_object())))
-		return notify_fail("ÕâÈËÏÖÔÚ²»ÔÚÕâÀï£¡\n");
+		return notify_fail("è¿™äººçŽ°åœ¨ä¸åœ¨è¿™é‡Œï¼\n");
 	if (me == ob)
-		return notify_fail("ÄãÏëÍæË«ÊÖ»¥²«Âð£¿\n");
+		return notify_fail("ä½ æƒ³çŽ©åŒæ‰‹äº’æå—ï¼Ÿ\n");
 	if (!living(ob))
-		return notify_fail("Äã±ØÐëÏÈ°Ñ" + arg->name() + "ÅªÐÑ¡£\n");
+		return notify_fail("ä½ å¿…é¡»å…ˆæŠŠ" + arg->name() + "å¼„é†’ã€‚\n");
 	if (!userp(ob))
-		return notify_fail("ÄãÖ»ÄÜºÍÍæ¼ÒÇÐ´èÎäÒÕ£¡\n");
+		return notify_fail("ä½ åªèƒ½å’ŒçŽ©å®¶åˆ‡ç£‹æ­¦è‰ºï¼\n");
 	if (ob->query("combat_exp") < me->query("combat_exp")/4*5 )
-		return notify_fail("ÕâÈË¹¦·òÓëÄãÏà²îÌ«Ô¶£¬ÎÞ·¨ÖúÄãÁ·¹¦£¡\n");
+		return notify_fail("è¿™äººåŠŸå¤«ä¸Žä½ ç›¸å·®å¤ªè¿œï¼Œæ— æ³•åŠ©ä½ ç»ƒåŠŸï¼\n");
 	if (me->query("jing") < 45 || me->query("qi") < 45)
-		return notify_fail("ÄãÌ«ÀÛÁË£¬»¹ÊÇÏÈÐÝÏ¢Ò»»á¶ù°É£¡\n");
+		return notify_fail("ä½ å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¼šå„¿å§ï¼\n");
 	if ( me->query("potential") < 1 )
-		return notify_fail("ÄãµÄÇ±ÄÜÏûºÄ¹âÁË£¬ÔÝÊ±ÎÞ·¨ÇÐ´èÎäÒÕ¡£\n");
+		return notify_fail("ä½ çš„æ½œèƒ½æ¶ˆè€—å…‰äº†ï¼Œæš‚æ—¶æ— æ³•åˆ‡ç£‹æ­¦è‰ºã€‚\n");
 	if( ob->query("potential") < 1)
-		return notify_fail( ob->name()+"µÄÇ±ÄÜÏûºÄ¹âÁË£¬ÔÝÊ±ÎÞ·¨ÇÐ´èÎäÒÕ¡£\n");
+		return notify_fail( ob->name()+"çš„æ½œèƒ½æ¶ˆè€—å…‰äº†ï¼Œæš‚æ—¶æ— æ³•åˆ‡ç£‹æ­¦è‰ºã€‚\n");
 	if (me->query_temp("gumu_qiecuo"))
-		return notify_fail("ÄãÏÖÔÚÕýÔÚºÍ±ðÈË²ðÕÐ£¡\n");
-	if (me->query("gender") == "ÎÞÐÔ" )
-		return notify_fail("ÎÞÐÔÖ®ÈË²»ÄÜ´ÓÇÐ´èÖÐµÃµ½°ïÖú£¡\n"); 
+		return notify_fail("ä½ çŽ°åœ¨æ­£åœ¨å’Œåˆ«äººæ‹†æ‹›ï¼\n");
+	if (me->query("gender") == "æ— æ€§" )
+		return notify_fail("æ— æ€§ä¹‹äººä¸èƒ½ä»Žåˆ‡ç£‹ä¸­å¾—åˆ°å¸®åŠ©ï¼\n"); 
 	if (me->query("gender") != ob->query("gender") )
-		return notify_fail("Í¬ÐÔÖ®ÈË²»ÄÜÔÚÇÐ´èÖÐµÃµ½°ïÖú£¡\n");
+		return notify_fail("åŒæ€§ä¹‹äººä¸èƒ½åœ¨åˆ‡ç£‹ä¸­å¾—åˆ°å¸®åŠ©ï¼\n");
 
 	me->set_temp("gumu_qiecuo", ob->query("id"));
 
-	tell_object(ob,me->name()+"¶Ë×øÓÚÄãÃæÇ°£¬ÓûÓëÄãÇÐ´èÎäÒÕ¡£\n");
-	tell_object(me,"Äã¶Ë×øÓÚ"+ob->name()+"ÃæÇ°£¬ÓûÓëÆäÇÐ´èÎäÒÕ¡£\n");
+	tell_object(ob,me->name()+"ç«¯åäºŽä½ é¢å‰ï¼Œæ¬²ä¸Žä½ åˆ‡ç£‹æ­¦è‰ºã€‚\n");
+	tell_object(me,"ä½ ç«¯åäºŽ"+ob->name()+"é¢å‰ï¼Œæ¬²ä¸Žå…¶åˆ‡ç£‹æ­¦è‰ºã€‚\n");
 
 	if ( ob->query_temp("gumu_qiecuo") 
 	 && ob->query_temp("gumu_qiecuo") != me->query("id"))
-		return notify_fail("¶Ô·½ËÆºõ²¢Ã»ÓÐÒªºÍÄãÇÐ´èÎäÒÕµÄÒâË¼£¡\n");
+		return notify_fail("å¯¹æ–¹ä¼¼ä¹Žå¹¶æ²¡æœ‰è¦å’Œä½ åˆ‡ç£‹æ­¦è‰ºçš„æ„æ€ï¼\n");
 
 	if (!ob->query_temp("gumu_qiecuo")) return 1;
-	message_vision("$NºÍ$nÀ­¿ª¼ÜÊ½£¬²ðÆðÕÐÀ´¡£\n", me, ob);
+	message_vision("$Nå’Œ$næ‹‰å¼€æž¶å¼ï¼Œæ‹†èµ·æ‹›æ¥ã€‚\n", me, ob);
 	me->start_busy((: delete_qiecuo :));
 	ob->start_busy((: delete_qiecuo :));
 	call_out("delete_qiecuo", 20 + random(20), me, ob);
@@ -91,8 +91,8 @@ void delete_qiecuo(object me, object ob)
 
 	me->delete_temp("gumu_qiecuo");
 	ob->delete_temp("gumu_qiecuo");
-	message_vision("$NºÍ$nÄã¹¥ÎÒÊØ£¬ÉíÐÎ±ä»Ã£¬×ªÑÛ±ãÒÑ²ðÁËÊ®ÓàÕÐ.....\n",me, ob);
-	message_vision("$NºÍ$nÖ»¾õµÃ´Ë·¬Á·Ï°£¬ÊÕ»ñÆÄ·á£¬¹¦·òÕÆÎÕµÄ¸ü¼ÓæµÊìÁË£¡\n",me,ob);
+	message_vision("$Nå’Œ$nä½ æ”»æˆ‘å®ˆï¼Œèº«å½¢å˜å¹»ï¼Œè½¬çœ¼ä¾¿å·²æ‹†äº†åä½™æ‹›.....\n",me, ob);
+	message_vision("$Nå’Œ$nåªè§‰å¾—æ­¤ç•ªç»ƒä¹ ï¼Œæ”¶èŽ·é¢‡ä¸°ï¼ŒåŠŸå¤«æŽŒæ¡çš„æ›´åŠ å¨´ç†Ÿäº†ï¼\n",me,ob);
 	me->add("potential", -1);
 	me->receive_damage("jing", 25 + random(20));
 	me->receive_damage("qi",  25 + random(20));
@@ -105,7 +105,7 @@ void delete_qiecuo(object me, object ob)
 	j = 5+random((ob->query("max_pot")-100)/3) ;
 	if ( j > 40 ) j = 20 + random(20);
 	ob->add("combat_exp", j); 
-	log_file("job/qiecuo", sprintf("%8s%-10sºÍ%8s%-10sÇÐ´è£¬·Ö±ðµÃµ½¾­Ñé£º%2d ºÍ %2d ¡£", 
+	log_file("job/qiecuo", sprintf("%8s%-10så’Œ%8s%-10såˆ‡ç£‹ï¼Œåˆ†åˆ«å¾—åˆ°ç»éªŒï¼š%2d å’Œ %2d ã€‚", 
 		me->name(), "("+me->query("id")+")", ob->name(), "("+ob->query("id")+")",
 		i , j ), me);
 	return;

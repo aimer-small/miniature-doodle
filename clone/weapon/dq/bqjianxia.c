@@ -1,20 +1,20 @@
-// jianxia.c ÓÎÁú½£Ï»
+// jianxia.c æ¸¸é¾™å‰‘åŒ£
 #include <ansi.h>
 
 inherit ITEM;
 
 void create()
 {
-        set_name("½£Ï»",({ "jian xia", "jianxia", "xia", "box" }) );
+        set_name("å‰‘åŒ£",({ "jian xia", "jianxia", "xia", "box" }) );
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
+                set("unit", "ä¸ª");
 		set("no_sell", 1);
                 set("value", 100000);
                 set("material", "wood");
-                set("long", "ÕâÊÇÒ»¸ö³ÁµéµéµÄ½£Ï»£¬ÃÖÂş×ÅÒ»¹ÉÁİÙı´Ì¹ÇµÄº®Òâ¡£\n");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªæ²‰ç”¸ç”¸çš„å‰‘åŒ£ï¼Œå¼¥æ¼«ç€ä¸€è‚¡å‡›å†½åˆºéª¨çš„å¯’æ„ã€‚\n");
                  }
         setup();
 }
@@ -36,17 +36,17 @@ int do_break(string arg)
 
 if( (int)me->query("max_neili") < 3000)
 		        {
-                       write("ÄãÄÚÁ¦Ì«µÍ,¸ù±¾ÎŞ·¨Çı¶¯Ï»ÄÚ±¦½£¡£\n");
+                       write("ä½ å†…åŠ›å¤ªä½,æ ¹æœ¬æ— æ³•é©±åŠ¨åŒ£å†…å®å‰‘ã€‚\n");
 			return 1;
 				}
        
         if( (int)me->query_skill("sword", 1) < 180)
 		        {
-              write("Äã½£·¨ÔìÒèÌ«µÍ£¬Éñ½£×ÔÓĞÁéĞÔ£¬ÎŞ·¨Çı¶¯¡£\n");
+              write("ä½ å‰‘æ³•é€ è¯£å¤ªä½ï¼Œç¥å‰‘è‡ªæœ‰çµæ€§ï¼Œæ— æ³•é©±åŠ¨ã€‚\n");
                  return 1;
 				}
       
-message_vision(HIY   "$NÎ¢Ò»ÓÃ¾¢£¬½£Ï»Ó¦¾¢ÆÆ¿ª£¡Ö»ÌıµÃ¡¸ÎË¡¹µÄÒ»Éù£¬Ò»µÀº®¹â³åÌì¶øÆğ£¬ÔÚ¿ÕÖĞ·ÉÎèÅÌĞı£¬´Ì»÷ÍùÀ´£¬ÍğÈôÓÎÁú¡£\n" NOR, me);
+message_vision(HIY   "$Nå¾®ä¸€ç”¨åŠ²ï¼Œå‰‘åŒ£åº”åŠ²ç ´å¼€ï¼åªå¬å¾—ã€Œå—¡ã€çš„ä¸€å£°ï¼Œä¸€é“å¯’å…‰å†²å¤©è€Œèµ·ï¼Œåœ¨ç©ºä¸­é£èˆç›˜æ—‹ï¼Œåˆºå‡»å¾€æ¥ï¼Œå®›è‹¥æ¸¸é¾™ã€‚\n" NOR, me);
             ob=new("/clone/weapon/youlong-jian");
             ob->move(me);
             ob->wield();

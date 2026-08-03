@@ -2,10 +2,10 @@
 inherit NPC;
 void create()
 {
-        set_name("º×±ÊÎÌ", ({ "he biweng", "he", "biweng" }) );
-        set("title", HBBLU"ĞşÚ¤¶şÀÏ"NOR);
-        set("long", "Ëû¾ÍÊÇĞşÚ¤¶şÀÏÖĞµÄº×±ÊÎÌ¡£\n");
-        set("gender", "ÄĞĞÔ" );
+        set_name("é¹¤ç¬”ç¿", ({ "he biweng", "he", "biweng" }) );
+        set("title", HBBLU"ç„å†¥äºŒè€"NOR);
+        set("long", "ä»–å°±æ˜¯ç„å†¥äºŒè€ä¸­çš„é¹¤ç¬”ç¿ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("age", 53);
         set("attitude", "peaceful");
         set("str",25);

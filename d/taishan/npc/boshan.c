@@ -1,4 +1,4 @@
-// boshan.c µ¥²®É½
+// boshan.c å•ä¼¯å±±
 
 #include <ansi.h>
 
@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-    set_name("µ¥²®É½", ({ "shan boshan", "shan", "boshan" }) );
-	set("gender", "ÄĞĞÔ");
+    set_name("å•ä¼¯å±±", ({ "shan boshan", "shan", "boshan" }) );
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set("long",
-        "ËûÊÇÌ©É½¡°ÌúÃæÅĞ¹Ù¡±µ¥ÕıµÄ´ó¶ù×Óµ¥²®É½¡£\n"
-        "Å¨Ã¼´óºº, ÓëÖÚĞÖµÜÈİÃ²ÉõÎªÏàËÆ¡£\n");
+        "ä»–æ˜¯æ³°å±±â€œé“é¢åˆ¤å®˜â€å•æ­£çš„å¤§å„¿å­å•ä¼¯å±±ã€‚\n"
+        "æµ“çœ‰å¤§æ±‰, ä¸ä¼—å…„å¼Ÿå®¹è²Œç”šä¸ºç›¸ä¼¼ã€‚\n");
         set("combat_exp", 50000);
         set("shen_type", 1);
 	set("attitude", "heroism");

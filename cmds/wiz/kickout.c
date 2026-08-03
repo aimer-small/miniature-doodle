@@ -9,25 +9,25 @@ int main(object me, string arg)
 	string name,q_name,q_id,q_ip;
 	object obj, link_ob;
 
-	if( !arg ) return notify_fail("Ö¸Áî¸ñÊ½ : kickout <Íæ¼ÒÃû>\n" );
+	if( !arg ) return notify_fail("æŒ‡ä»¤æ ¼å¼ : kickout <ç©å®¶å>\n" );
 
 	seteuid(ROOT_UID);
 
 	obj = LOGIN_D->find_body(arg);
-	if( !obj || !userp(obj) || !me->visible(obj)) return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò....¡£\n");
+	if( !obj || !userp(obj) || !me->visible(obj)) return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶....ã€‚\n");
 	name = obj->short(1);
 	q_name = obj->name(1);
 	q_id = obj->query("id");
 	q_ip = query_ip_name(obj);
 
 	if( me == obj )
-		return notify_fail("ÓÃ quit ÕâÌõÖ¸ÁîºÃĞ© :) \n");
+		return notify_fail("ç”¨ quit è¿™æ¡æŒ‡ä»¤å¥½äº› :) \n");
 
 	if (wiz_level(me) <= wiz_level(obj))
-		return notify_fail("Ïë¶Ô"+q_name+"ÏÂÊÖ£¿ºÜÒÅº¶¡£¡£¡£Äã²»ÄÜÕâÃ´×ö¡£\n");
+		return notify_fail("æƒ³å¯¹"+q_name+"ä¸‹æ‰‹ï¼Ÿå¾ˆé—æ†¾ã€‚ã€‚ã€‚ä½ ä¸èƒ½è¿™ä¹ˆåšã€‚\n");
 
-	message_vision("Ò»¸öºÚÓ°Í»È»³öÏÖÔÚ$NÃæÇ°£¬ËµµÀ£º¡°"+q_name +
-			"£¡ÄãÕâ¸ö" + RANK_D->query_rude(obj) + "£¬ÒòÎªÎ¥·´ÓÎÏ·¹æÔò£¬ÇëÍË³öÓÎÏ·°É£¡¡±\n", obj);
+	message_vision("ä¸€ä¸ªé»‘å½±çªç„¶å‡ºç°åœ¨$Né¢å‰ï¼Œè¯´é“ï¼šâ€œ"+q_name +
+			"ï¼ä½ è¿™ä¸ª" + RANK_D->query_rude(obj) + "ï¼Œå› ä¸ºè¿åæ¸¸æˆè§„åˆ™ï¼Œè¯·é€€å‡ºæ¸¸æˆå§ï¼â€\n", obj);
 	obj->dismiss_team();
 	//add by LinuX for DB_SAVE
 	if (!obj->query_temp("db_quit"))
@@ -40,17 +40,17 @@ int main(object me, string arg)
 	}
 	catch(destruct(obj));
 	
-	if( obj ) return notify_fail("ÄãÎŞ·¨ÈÃÕâ¸öÍæ¼ÒÀëÏß¡£\n");
+	if( obj ) return notify_fail("ä½ æ— æ³•è®©è¿™ä¸ªç©å®¶ç¦»çº¿ã€‚\n");
 	else {
 		//set("channel_id", me->name() );
-		CHANNEL_D->do_channel(this_object(), "rumor", q_name + "ÒòÎªÎ¥·´ÓÎÏ·¹æÔò£¬±»ÏµÍ³Ìß³öÁË"+MUD_NAME+"¡£");
-		CHANNEL_D->do_channel(me, "wiz", "ÎÒ½«"NOR + name + HIR"Ìß³öÁËÏµÍ³¡£");
+		CHANNEL_D->do_channel(this_object(), "rumor", q_name + "å› ä¸ºè¿åæ¸¸æˆè§„åˆ™ï¼Œè¢«ç³»ç»Ÿè¸¢å‡ºäº†"+MUD_NAME+"ã€‚");
+		CHANNEL_D->do_channel(me, "wiz", "æˆ‘å°†"NOR + name + HIR"è¸¢å‡ºäº†ç³»ç»Ÿã€‚");
 		log_file("static/kickout",
 			sprintf("%s(%s) kickout %s(%s) at %s\n",
 				me->name(1), me->query("id"), q_name, q_id, q_ip
 			), me, ({ q_id })
 		);
-		write("¹ş¹ş¹ş¹ş¹ş¹ş... ºÃË¬!\n");
+		write("å“ˆå“ˆå“ˆå“ˆå“ˆå“ˆ... å¥½çˆ½!\n");
 	}
 	return 1;
 }
@@ -58,9 +58,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : kickout <Íæ¼ÒÃû>
+æŒ‡ä»¤æ ¼å¼ : kickout <ç©å®¶å>
 
-´ËÃüÁî¿ÉÒÔÇ¿ÆÈ¶ñÒâµÄÍæ¼ÒÀëÏß¡£
+æ­¤å‘½ä»¤å¯ä»¥å¼ºè¿«æ¶æ„çš„ç©å®¶ç¦»çº¿ã€‚
 
 HELP );
 	return 1;

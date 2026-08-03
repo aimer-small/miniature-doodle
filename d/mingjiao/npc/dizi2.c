@@ -1,14 +1,14 @@
-// dizi2.c ºñÍÁÆì½ÌÖÚ
+// dizi2.c åšåœŸæ——æ•™ä¼—
 #include <ansi.h>
 inherit NPC;
 int hiting_ob(object ob);
 void moving_ob(object ob);
 void create()
 {
-       set_name("ºñÍÁÆì½ÌÖÚ", ({"jiao zhong","zhong"}));
-       set("long","ËûÊÇÉí²Ä°«Ğ¡£¬Á½±Û´Ö×³£¬°òÀ«ÑüÔ²¡£ËûÊÖ³Ö±øÈĞ£¬\n"+
-                  "Éí´©Ò»ºÚÉ«Ê¥ÒÂ£¬ËÆºõÓĞÒ»ÉíÎäÒÕ¡£\n");
-        set("gender", "ÄĞĞÔ");
+       set_name("åšåœŸæ——æ•™ä¼—", ({"jiao zhong","zhong"}));
+       set("long","ä»–æ˜¯èº«æçŸ®å°ï¼Œä¸¤è‡‚ç²—å£®ï¼Œè†€é˜”è…°åœ†ã€‚ä»–æ‰‹æŒå…µåˆƒï¼Œ\n"+
+                  "èº«ç©¿ä¸€é»‘è‰²åœ£è¡£ï¼Œä¼¼ä¹æœ‰ä¸€èº«æ­¦è‰ºã€‚\n");
+        set("gender", "ç”·æ€§");
         set("attitude", "peaceful");
         set("age", 35);
         set("shen_type", 0);
@@ -36,14 +36,14 @@ void create()
         map_skill("parry", "lieyan-dao");
         map_skill("blade", "lieyan-dao");
         setup();
-        create_family("Ã÷½Ì",39,"½ÌÖÚ");
+        create_family("æ˜æ•™",39,"æ•™ä¼—");
         carry_object(BINGQI_D("blade"))->wield();
         carry_object("/d/mingjiao/obj/black-cloth")->wear();
 }
 
 void attempt_apprentice(object ob)
 {     
-        command("say ºÇºÇ£¬ÎÒÎä¹¦µÍÎ¢£¬¿É²»¸ÒÊÕÍ½°¡¡£");
+        command("say å‘µå‘µï¼Œæˆ‘æ­¦åŠŸä½å¾®ï¼Œå¯ä¸æ•¢æ”¶å¾’å•Šã€‚");
         return;
 }
 

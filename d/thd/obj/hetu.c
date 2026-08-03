@@ -4,12 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIG"ºÓÍ¼"NOR, ({ "he tu","he","tu" }));
+	set_name(HIG"æ²³å›¾"NOR, ({ "he tu","he","tu" }));
 	set_weight(300);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±¾");
+		set("unit", "æœ¬");
 		set("value", 5000);
 		set("treasure",1);
 		set("unique",1);

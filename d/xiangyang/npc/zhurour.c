@@ -1,14 +1,14 @@
-// zhurour.c ÖíÈâÈÙ
+// zhurour.c çŒªè‚‰è£
 // Lklv 2001.9.24
 
 inherit NPC;
 inherit F_VENDOR;
 void create()
 {
-        set_name("ÖíÈâÈÙ", ({"zhurou rong", "rong", "a rong" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("çŒªè‚‰è£", ({"zhurou rong", "rong", "a rong" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 24+random(10));
-        set("long", "Ëû±¾À´½Ğ°¢ÈÙ£¬ÒòÎªÂôÖíÈâ£¬ËùÒÔÈËÃÇ¶¼½ĞËûÖíÈâÈÙ¡£\n");
+        set("long", "ä»–æœ¬æ¥å«é˜¿è£ï¼Œå› ä¸ºå–çŒªè‚‰ï¼Œæ‰€ä»¥äººä»¬éƒ½å«ä»–çŒªè‚‰è£ã€‚\n");
         set("attitude","heroism");
         set("combat_exp", 125000 );
         set("shen_type", 0);
@@ -33,8 +33,8 @@ void create()
 
         set("chat_chance", 2);
         set("chat_msg", ({
-                "ÖíÈâÈÙÄÃÆğÒ»¿éÓÍÄåÄåµÄÄ¨²¼£¬²ÁÁË²ÁÁ³¡£\n",
-                "ÖíÈâÈÙ×ìÀïà½à½àìàì£¬²»ÖªµÀÔÚËµĞ©Ê²Ã´¡£\n",
+                "çŒªè‚‰è£æ‹¿èµ·ä¸€å—æ²¹è…»è…»çš„æŠ¹å¸ƒï¼Œæ“¦äº†æ“¦è„¸ã€‚\n",
+                "çŒªè‚‰è£å˜´é‡Œå˜Ÿå˜Ÿå›”å›”ï¼Œä¸çŸ¥é“åœ¨è¯´äº›ä»€ä¹ˆã€‚\n",
         }) );
         setup();
         carry_object(ARMOR_D("cloth"))->wear();

@@ -11,79 +11,79 @@ string get_con_name(string coni)
 	
 	switch (coni)
 	{
-		// ¶¾Àà
-		case "7bug_poison"	: name = "Æß³æÈí½îÉ¢"; break;		
-		case "bee_poison"	: name = "Óñ·ä¶¾"; break;
-		case "bing_poison"	: name = "±ùÆÇÒøÕë¶¾"; break;
-		case "bt_poison"	: name = "¹ÖÉß¶¾"; break;		
-		case "cold_poison"	: name = "º®¶¾"; break;
-		case "fs_poison"	: name = "¸¯Ê¬¶¾"; break;
-		case "hb_poison"	: name = "º®±ùÃàÕÆ¶¾"; break;		
-		case "huagu_poison"	: name = "»¯¹ÇÃàÕÆ¶¾"; break;
-		case "hot_poison"	: name = "»ğ¶¾"; break;	
-		case "lvbo_poison"	: name = "ÂÌ²¨ÏãÂ¶Ææ¶¾"; break;						
-		case "man_poison"	: name = "ÂûÍÓÂÜ»¨¶¾"; break;
-		case "qianli_poison"	: name = "Ç§ÀïÏú»êÉ¢"; break;
-		case "qtlh_poi"		: name = "ÇàÍÓÂŞ»¨¶¾"; break;
-		case "qzhu_poison"	: name = "Ç§ÖëÍò¶¾ÊÖ¶¾"; break;
-		case "sanxiao"		: name = "ÈıĞ¦åĞÒ£É¢¶¾"; break;
-		case "sl_poison"	: name = "ÉñÁú¶¾"; break;
-		case "snake_poison"	: name = "Éß¶¾"; break;	
-		case "sxs_poison"	: name = "ÈıĞ¦É¢Ö®¶¾"; break;	
-		case "sy_poison"	: name = "´óÊÖÓ¡ÕÆ¶¾"; break;	
-		case "tz_poison"	: name = "ÌúÕÆ¶¾"; break;		
-		case "warm_poison"	: name = "ÈÈ¶¾"; break;
-		case "xx_poison"	: name = "ĞÇËŞÕÆ¶¾"; break;
-		case "wh_poison"	: name = "ÉñÁúÎåĞĞ¶¾"; break;	
+		// æ¯’ç±»
+		case "7bug_poison"	: name = "ä¸ƒè™«è½¯ç­‹æ•£"; break;		
+		case "bee_poison"	: name = "ç‰èœ‚æ¯’"; break;
+		case "bing_poison"	: name = "å†°é­„é“¶é’ˆæ¯’"; break;
+		case "bt_poison"	: name = "æ€ªè›‡æ¯’"; break;		
+		case "cold_poison"	: name = "å¯’æ¯’"; break;
+		case "fs_poison"	: name = "è…å°¸æ¯’"; break;
+		case "hb_poison"	: name = "å¯’å†°ç»µæŒæ¯’"; break;		
+		case "huagu_poison"	: name = "åŒ–éª¨ç»µæŒæ¯’"; break;
+		case "hot_poison"	: name = "ç«æ¯’"; break;	
+		case "lvbo_poison"	: name = "ç»¿æ³¢é¦™éœ²å¥‡æ¯’"; break;						
+		case "man_poison"	: name = "è”“é™€èèŠ±æ¯’"; break;
+		case "qianli_poison"	: name = "åƒé‡Œé”€é­‚æ•£"; break;
+		case "qtlh_poi"		: name = "é’é™€ç½—èŠ±æ¯’"; break;
+		case "qzhu_poison"	: name = "åƒè››ä¸‡æ¯’æ‰‹æ¯’"; break;
+		case "sanxiao"		: name = "ä¸‰ç¬‘é€é¥æ•£æ¯’"; break;
+		case "sl_poison"	: name = "ç¥é¾™æ¯’"; break;
+		case "snake_poison"	: name = "è›‡æ¯’"; break;	
+		case "sxs_poison"	: name = "ä¸‰ç¬‘æ•£ä¹‹æ¯’"; break;	
+		case "sy_poison"	: name = "å¤§æ‰‹å°æŒæ¯’"; break;	
+		case "tz_poison"	: name = "é“æŒæ¯’"; break;		
+		case "warm_poison"	: name = "çƒ­æ¯’"; break;
+		case "xx_poison"	: name = "æ˜Ÿå®¿æŒæ¯’"; break;
+		case "wh_poison"	: name = "ç¥é¾™äº”è¡Œæ¯’"; break;	
 			
-		case "xuanmin_poison"	: name = "ĞşÚ¤ÉñÕÆº®¶¾"; break;
-		case "xx_poison"	: name = "ĞÇËŞÕÆ¶¾"; break;
-		case "wh_poison"	: name = "ÉñÁúÎåĞĞ¶¾"; break;	
+		case "xuanmin_poison"	: name = "ç„å†¥ç¥æŒå¯’æ¯’"; break;
+		case "xx_poison"	: name = "æ˜Ÿå®¿æŒæ¯’"; break;
+		case "wh_poison"	: name = "ç¥é¾™äº”è¡Œæ¯’"; break;	
 		
-		// ÉËÀà
-		case "broken_arm"	: name = "¶ÏÊÖ"; break;
-		case "dgb_ban_wound"	: name = "´ò¹·°ô½ÅÉË"; break;
-		case "fugu_poison"	: name = "»¯Ñª¸¯¹Ç·Û"; break;
-		case "dsy_poison"	: name = "´óÊÖÓ¡ÄÚÉË"; break;		
-		case "huagong"		: name = "»¯¹¦´ó·¨ÄÚÉË"; break;		
-		case "hunyuan_hurt"	: name = "»ìÔªÕÆÄÚÉË"; break;
-		case "hyd_condition"    : name = "»ğÑæµ¶ÉÕÉË"; break;
-		case "juehu_hurt"	: name = "»¢×¦¾ø»§ÊÖÉË"; break;
-		case "neishang"		: name = "ÄÚÉË"; break;
-		case "nxsz_hurt"	: name = "ÄıÑªÉñ×¦ÄÚÉË"; break;
-		case "qiankun_wound"	: name = "µ¯Ö¸ÉñÍ¨ÄÚÉË"; break;
-		case "qishang_poison"	: name = "ÆßÉËÈ­ÄÚÉË"; break;
-		case "ruanjin_poison"	: name = "Èí½îÉ¢¶¾"; break;
-		case "yyz_hurt"		: name = "Ò»ÑôÖ¸ÄÚÉË"; break;
-		case "yzc_qiankun"	: name = "Ò»Ö¸ìøÄÚ¾¢"; break;		
-		// Ã¦Àà
-		case "no_exert"		: name = "±ÕÆø"; break;
-		case "no_perform"	: name = "·âÕĞ"; break;
-		case "no_force"		: name = "ÆøÏ¢²»ÔÈ";break;
-		//Éú²¡Àà
-		case "ill_fashao"	: name = "·¢ÉÕ"; break;
-		case "ill_kesou"	: name = "¿ÈËÔ"; break;
-		case "ill_shanghan"	: name = "ÉËº®"; break;
-		case "ill_zhongshu"	: name = "ÖĞÊî"; break;
-		case "ill_dongshang"	: name = "¶³ÉË"; break;		
-//		// Ò©Àà
-//		case "bonze_drug"	: name = "ÉÙÁÖµ¤Ò©"; break;
+		// ä¼¤ç±»
+		case "broken_arm"	: name = "æ–­æ‰‹"; break;
+		case "dgb_ban_wound"	: name = "æ‰“ç‹—æ£’è„šä¼¤"; break;
+		case "fugu_poison"	: name = "åŒ–è¡€è…éª¨ç²‰"; break;
+		case "dsy_poison"	: name = "å¤§æ‰‹å°å†…ä¼¤"; break;		
+		case "huagong"		: name = "åŒ–åŠŸå¤§æ³•å†…ä¼¤"; break;		
+		case "hunyuan_hurt"	: name = "æ··å…ƒæŒå†…ä¼¤"; break;
+		case "hyd_condition"    : name = "ç«ç„°åˆ€çƒ§ä¼¤"; break;
+		case "juehu_hurt"	: name = "è™çˆªç»æˆ·æ‰‹ä¼¤"; break;
+		case "neishang"		: name = "å†…ä¼¤"; break;
+		case "nxsz_hurt"	: name = "å‡è¡€ç¥çˆªå†…ä¼¤"; break;
+		case "qiankun_wound"	: name = "å¼¹æŒ‡ç¥é€šå†…ä¼¤"; break;
+		case "qishang_poison"	: name = "ä¸ƒä¼¤æ‹³å†…ä¼¤"; break;
+		case "ruanjin_poison"	: name = "è½¯ç­‹æ•£æ¯’"; break;
+		case "yyz_hurt"		: name = "ä¸€é˜³æŒ‡å†…ä¼¤"; break;
+		case "yzc_qiankun"	: name = "ä¸€æŒ‡ç¦…å†…åŠ²"; break;		
+		// å¿™ç±»
+		case "no_exert"		: name = "é—­æ°”"; break;
+		case "no_perform"	: name = "å°æ‹›"; break;
+		case "no_force"		: name = "æ°”æ¯ä¸åŒ€";break;
+		//ç”Ÿç—…ç±»
+		case "ill_fashao"	: name = "å‘çƒ§"; break;
+		case "ill_kesou"	: name = "å’³å—½"; break;
+		case "ill_shanghan"	: name = "ä¼¤å¯’"; break;
+		case "ill_zhongshu"	: name = "ä¸­æš‘"; break;
+		case "ill_dongshang"	: name = "å†»ä¼¤"; break;		
+//		// è¯ç±»
+//		case "bonze_drug"	: name = "å°‘æ—ä¸¹è¯"; break;
 //		
-//		// ÆäËü
-//		case "bonze_jail"	: name = "ÉÙÁÖ¼àÓü"; break;
-		case "job_busy"		: name = "ÈÎÎñ·±Ã¦×´Ì¬"; break;
-		case "gb_job_busy"		: name = "ËÌÄ¦ÑÂÈÎÎñµ¹¼ÆÊ±"; break;
-		case "qzkj_job_busy"		: name = "È«Õæ¿¹½ğµ¹¼ÆÊ±"; break;
-		case "xykm_job_busy"		: name = "ÏåÑô¿¹ÃÉµ¹¼ÆÊ±"; break;
-                case "hb_job_busy"           : name = "¸£ÖİïÚ¾Ö»¤ïÚµ¹¼ÆÊ±"; break;
-              case "lfta_job"               : name = "ÑıÆøÏ®Ìå"; break;
-              case "zwf_job_busy"               : name = "Ò¹Ì½ÕÔÍõ¸®"; break;
-               case "db_exp"               : name = "Ë«±¶¾­Ñé"; break;
-               case "xs_job"               : name = "Ñ©É½Ç¿ÇÀÃÀÅ®"; break;
-               case "gifts"               : name = "Ìì¸³"; break;
+//		// å…¶å®ƒ
+//		case "bonze_jail"	: name = "å°‘æ—ç›‘ç‹±"; break;
+		case "job_busy"		: name = "ä»»åŠ¡ç¹å¿™çŠ¶æ€"; break;
+		case "gb_job_busy"		: name = "é¢‚æ‘©å´–ä»»åŠ¡å€’è®¡æ—¶"; break;
+		case "qzkj_job_busy"		: name = "å…¨çœŸæŠ—é‡‘å€’è®¡æ—¶"; break;
+		case "xykm_job_busy"		: name = "è¥„é˜³æŠ—è’™å€’è®¡æ—¶"; break;
+                case "hb_job_busy"           : name = "ç¦å·é•–å±€æŠ¤é•–å€’è®¡æ—¶"; break;
+              case "lfta_job"               : name = "å¦–æ°”è¢­ä½“"; break;
+              case "zwf_job_busy"               : name = "å¤œæ¢èµµç‹åºœ"; break;
+               case "db_exp"               : name = "åŒå€ç»éªŒ"; break;
+               case "xs_job"               : name = "é›ªå±±å¼ºæŠ¢ç¾å¥³"; break;
+               case "gifts"               : name = "å¤©èµ‹"; break;
                	
-case "fuben"               : name = "¸±±¾"; break;
-                default                 : name = "²»Ïê"; break;
+case "fuben"               : name = "å‰¯æœ¬"; break;
+                default                 : name = "ä¸è¯¦"; break;
 	}
 	
 	return name;
@@ -106,28 +106,28 @@ int main(object me,string arg)
                 if (wizardp(me) ) {
                         if (!tar) tar = LOGIN_D->find_body(arg);
                         if (!tar) tar = find_living(arg);
-                        if (!tar) return notify_fail("ÄãÒª²ì¿´Ë­µÄÌØÊâ×´Ì¬£¿\n");
+                        if (!tar) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„ç‰¹æ®ŠçŠ¶æ€ï¼Ÿ\n");
                         if (wiz_level(me) < wiz_level(tar))
-                                return notify_fail("ÄãÒª²ì¿´Ë­µÄÌØÊâ×´Ì¬£¿\n");
+                                return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„ç‰¹æ®ŠçŠ¶æ€ï¼Ÿ\n");
                 }
         }
 
         if (!wizardp(me) && me!=tar)
-                return notify_fail("ÄãÒª²ì¿´Ë­µÄÌØÊâ×´Ì¬£¿\n");
+                return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„ç‰¹æ®ŠçŠ¶æ€ï¼Ÿ\n");
 
         if (tar->is_corpse() || !tar->is_character())
-                return notify_fail("ÄÇ²»ÊÇ»îÎïÒ®£¡\n");
+                return notify_fail("é‚£ä¸æ˜¯æ´»ç‰©è€¶ï¼\n");
 		
 //		if ( sizeof(tar->query_entire_conditions()) < 1 )
 //		{
-//			tell_object(me, (tar!=me?tar->name(1):"Äã")+"ÉíÉÏÃ»ÓĞ°üÀ¨ÈÎºÎÌØÊâ×´Ì¬¡£\n");
+//			tell_object(me, (tar!=me?tar->name(1):"ä½ ")+"èº«ä¸Šæ²¡æœ‰åŒ…æ‹¬ä»»ä½•ç‰¹æ®ŠçŠ¶æ€ã€‚\n");
 //			return 1;
 //		}
 
-		msg = (tar!=me?tar->name(1):"Äã")+"ÉíÉÏ°üº¬ÏÂÁĞÌØÊâ×´Ì¬£º\n";
-		msg += "©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´
-©¦×´Ì¬Ãû³Æ£ £ £ £ £ Ô¼Ê£ÓàÊ±¼ä£ £ £ £ £       Àà±ğ©¦
-©À©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©È\n";
+		msg = (tar!=me?tar->name(1):"ä½ ")+"èº«ä¸ŠåŒ…å«ä¸‹åˆ—ç‰¹æ®ŠçŠ¶æ€ï¼š\n";
+		msg += "â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚çŠ¶æ€åç§°ï¿½ç‰ç‰ç‰ç‰çŠœé™…ï¼³å—å¥”æ´Œç‰ç‰ç‰ç‰ï¿½      ç±»åˆ«â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤\n";
 
 		cons = tar->query_entire_conditions();
 		
@@ -141,16 +141,16 @@ int main(object me,string arg)
 		{
 			coni = keys(cons)[i];
 			conn = get_con_name(coni);
-                        if (conn == "²»Ïê")
+                        if (conn == "ä¸è¯¦")
 				continue;
 			if (values(cons)[i] < 0){
 				tar->clear_condition(coni);
 				continue;
 			}
 if (values(cons)[i] < 6)
-                                cont = chinese_number(values(cons)[i]*10)+"Ãë";
+                                cont = chinese_number(values(cons)[i]*10)+"ç§’";
 			else
-                                cont = chinese_number(values(cons)[i] / 6)+"·Ö";
+                                cont = chinese_number(values(cons)[i] / 6)+"åˆ†";
 			
 			
 
@@ -159,37 +159,37 @@ if (values(cons)[i] < 6)
 			
 			if ( !conob )
 			{
-				//msg += sprintf("©¦%-48s©¦\n", "×´Ì¬ÎÄ¼şÎŞ·¨¼ÓÔØ£º"+CON_DIR+coni+".c");
+				//msg += sprintf("â”‚%-48sâ”‚\n", "çŠ¶æ€æ–‡ä»¶æ— æ³•åŠ è½½ï¼š"+CON_DIR+coni+".c");
 				continue;
 			}
 
 			switch (conob->query_type(me))
 			{
-				case "poison" : contp = HIB"¶¾"NOR; p++; break;
-				case "hurt"   : contp = HIR"ÉË"NOR; h++; break;
-				case "wound"  : contp = HIR"ÉË"NOR; h++; break;
-				case "busy"   : contp = HIY"Ã¦"NOR; b++; break;
-				case "job"    : contp = HIY"Ã¦"NOR; b++; break;
-				case "drug"   : contp = HIG"Ò©"NOR; d++; break;
-				case "illness"   : contp = HIG"²¡"NOR; h++; break;
-				default       : contp = WHT"£¿"NOR; m++; break;
+				case "poison" : contp = HIB"æ¯’"NOR; p++; break;
+				case "hurt"   : contp = HIR"ä¼¤"NOR; h++; break;
+				case "wound"  : contp = HIR"ä¼¤"NOR; h++; break;
+				case "busy"   : contp = HIY"å¿™"NOR; b++; break;
+				case "job"    : contp = HIY"å¿™"NOR; b++; break;
+				case "drug"   : contp = HIG"è¯"NOR; d++; break;
+				case "illness"   : contp = HIG"ç—…"NOR; h++; break;
+				default       : contp = WHT"ï¼Ÿ"NOR; m++; break;
 			}
 			
 
-			msg += sprintf("©¦%-16s£ %-24s£ %|4s©¦%s\n", conn, cont, contp,wizardp(me)?(coni+".c"):"");
+			msg += sprintf("â”‚%-16sï¿½ï¿½%-24sï¿½ï¿½%|4sâ”‚%s\n", conn, cont, contp,wizardp(me)?(coni+".c"):"");
 		}
 
-		msg += "©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n";
-		if (wizardp(me)) msg += sprintf("%51s\n", sprintf("¶¾£º%d£ ÉË£º%d£ Ã¦£º%d£ Ò©£º%d£ ÆäËû£º%d£ £ ¹²£º%d",
+		msg += "â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n";
+		if (wizardp(me)) msg += sprintf("%51s\n", sprintf("æ¯’ï¼š%dï¿½çŠè€ï¿½%dï¿½çŠ†Î“ï¿½%dï¿½çŠšï¿½ï¼š%dï¿½çŠ‰æ¸Œï¿½ï¼š%dï¿½ç‰ç‰´ç»ï¿½%d",
 						 p, h, b, d, m, (p+b+h+d+m)));
 		if ( (p+b+h+d+m) < 1 )
-			tell_object(me, (tar!=me?tar->name(1):"Äã")+"ÉíÉÏÃ»ÓĞ°üÀ¨ÈÎºÎÌØÊâ×´Ì¬¡£\n");
+			tell_object(me, (tar!=me?tar->name(1):"ä½ ")+"èº«ä¸Šæ²¡æœ‰åŒ…æ‹¬ä»»ä½•ç‰¹æ®ŠçŠ¶æ€ã€‚\n");
 		else
 			tell_object(me, msg);
 		if (tar->is_robot())
-			tell_object(me, HIY+(tar!=me?tar->name(1):"Äã")+"±»ÅĞ¶ÏÎª»úÆ÷ÈË£¬¸Ï¿ìÓÃrobotÃüÁîÕÙ»½Ò»¸ö³öÀ´°É¡£\n"+NOR);
+			tell_object(me, HIY+(tar!=me?tar->name(1):"ä½ ")+"è¢«åˆ¤æ–­ä¸ºæœºå™¨äººï¼Œèµ¶å¿«ç”¨robotå‘½ä»¤å¬å”¤ä¸€ä¸ªå‡ºæ¥å§ã€‚\n"+NOR);
 		else
-			tell_object(me,"µ±Ç°"+ (tar!=me?tar->name(1):"Äã")+"Ã»ÓĞ±»ÅĞ¶ÏÎª»úÆ÷ÈË¡£\n");
+			tell_object(me,"å½“å‰"+ (tar!=me?tar->name(1):"ä½ ")+"æ²¡æœ‰è¢«åˆ¤æ–­ä¸ºæœºå™¨äººã€‚\n");
 	
 	
 	return 1;
@@ -199,10 +199,10 @@ if (values(cons)[i] < 6)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½£º cond
-           cond <¶ÔÏóÃû³Æ>             (Î×Ê¦×¨ÓÃ)
+æŒ‡ä»¤æ ¼å¼ï¼š cond
+           cond <å¯¹è±¡åç§°>             (å·«å¸ˆä¸“ç”¨)
 
-Õâ¸öÖ¸Áî¿ÉÒÔÏÔÊ¾ÄãµÄÖĞ¶¾Çé¿öºÍÊÜÉËÇé¿ö¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥æ˜¾ç¤ºä½ çš„ä¸­æ¯’æƒ…å†µå’Œå—ä¼¤æƒ…å†µã€‚
 
 HELP
         );

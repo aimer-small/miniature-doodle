@@ -1,4 +1,4 @@
-// yujiwan.c Óñ¼¡Íè
+// yujiwan.c ç‰è‚Œä¸¸
 #include <ansi.h>
 inherit ITEM;
 
@@ -12,14 +12,14 @@ void init()
 
 void create()
 {
-	set_name(HIW"Óñ¼¡Íè"NOR, ({"yuji wan", "yuji", "wan"}));
+	set_name(HIW"ç‰è‚Œä¸¸"NOR, ({"yuji wan", "yuji", "wan"}));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
+		set("unit", "é¢—");
 		set("no_give", 1);
-		set("long", "ÕâÊÇÒ»¿Å¾§Ó¨ÌŞÁÁµÄÓñ¼¡Íè£¬¿´À´¿ÉÒÔ·şÓÃ(eat)¡£\n");
+		set("long", "è¿™æ˜¯ä¸€é¢—æ™¶è¹å‰”äº®çš„ç‰è‚Œä¸¸ï¼Œçœ‹æ¥å¯ä»¥æœç”¨(eat)ã€‚\n");
 		set("value", 10000);
 		set("drug", 1);
 		set("no_sell", 1);
@@ -35,12 +35,12 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if (!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if (!id(arg)) return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if( query("owner") != me->query("id"))
-		return notify_fail("ÄãÊÇÔõÃ´µÃµ½Õâ¿ÅÓñ¼¡ÍèµÄ£¿\n");
+		return notify_fail("ä½ æ˜¯æ€ä¹ˆå¾—åˆ°è¿™é¢—ç‰è‚Œä¸¸çš„ï¼Ÿ\n");
 
-	message_vision(HIY"$N·şÏÂÒ»¿Å"+query("name")+HIY+"£¬¶ÙÊ±¾õµÃ¾«Á¦ºÍÄÚÁ¦´óÔö£¬»ëÉí¾«ÆøÊ®×ã¡£\n"NOR,me);
+	message_vision(HIY"$Næœä¸‹ä¸€é¢—"+query("name")+HIY+"ï¼Œé¡¿æ—¶è§‰å¾—ç²¾åŠ›å’Œå†…åŠ›å¤§å¢ï¼Œæµ‘èº«ç²¾æ°”åè¶³ã€‚\n"NOR,me);
 	me->add("max_neili", 100);
 	me->add("max_jingli", 100);
 	me->setup();

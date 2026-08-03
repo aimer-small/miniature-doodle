@@ -5,17 +5,17 @@ inherit STAFF;
 
 void create()
 {
-        set_name("Ìú²ù", ({ "tiechan" }));
+        set_name("é“é“²", ({ "tiechan" }));
         set_weight(9000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long", "ÕâÊÇÒ»°ÑºÚ÷î÷îµÄÌú²ù¡£\n");
+                set("unit", "æŠŠ");
+                set("long", "è¿™æ˜¯ä¸€æŠŠé»‘é»é»çš„é“é“²ã€‚\n");
                 set("value", 1000);
                 set("material", "steel");
-                set("wield_msg", "$N¡¸à§¡¹µÄÒ»ÉùÄÃ³öÒ»°Ñ$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n±³µ½±³ºó¡£\n");
+                set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æ‹¿å‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nèƒŒåˆ°èƒŒåã€‚\n");
         }
         init_staff(25);
         setup();

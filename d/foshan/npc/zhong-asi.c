@@ -1,4 +1,4 @@
-// zhong2.c ÖÓ°¢ËÄ 
+// zhong2.c é’Ÿé˜¿å›› 
 
 #include <ansi.h>
 
@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÖÓ°¢ËÄ", ({ "zhong asi", "zhong","asi" }));
+	set_name("é’Ÿé˜¿å››", ({ "zhong asi", "zhong","asi" }));
 	set("long",
-		"ËûÌúÇà×ÅÁ³£¬Ò»Éù²»¿ÔµÄÕ¾×Å¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä»–é“é’ç€è„¸ï¼Œä¸€å£°ä¸å­çš„ç«™ç€ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 38);
 
 	set("str", 23);
@@ -34,7 +34,7 @@ void create()
 
 void die()
 {
-	message_vision("\n$NËÀÁË¡£\n", this_object());
+	message_vision("\n$Næ­»äº†ã€‚\n", this_object());
 	destruct(this_object());
 }
 	

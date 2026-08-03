@@ -4,16 +4,16 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "º£´¬");
+        set("short", "æµ·èˆ¹");
         set("long", @LONG
-ÕâÊÇÉñÁú½Ì½ÙÀ´µÄÒ»ËÒº£´¬¡£
-²ÕÄÚ³ÂÉè¸»Àö£¬½ÅÏÂÆÌ×ÅºñºñµÄµØÕ±£¬×ÀÉÏ°ÚÂú²è¹ûÏ¸µã£¬±ãÈçÍõ¹«´ó¹ÙÖ®
-¼ÒµÄ»¨ÌüÒ»°ã¡£
+è¿™æ˜¯ç¥é¾™æ•™åŠ«æ¥çš„ä¸€è‰˜æµ·èˆ¹ã€‚
+èˆ±å†…é™ˆè®¾å¯Œä¸½ï¼Œè„šä¸‹é“ºç€åšåšçš„åœ°æ¯¡ï¼Œæ¡Œä¸Šæ‘†æ»¡èŒ¶æœç»†ç‚¹ï¼Œä¾¿å¦‚ç‹å…¬å¤§å®˜ä¹‹
+å®¶çš„èŠ±å…ä¸€èˆ¬ã€‚
 LONG
 );
         set("no_fight",1);
         //set("sleep_room",1);
-        //set("outdoors", "ÉñÁúµº");
+        //set("outdoors", "ç¥é¾™å²›");
         set_temp("curstatus","ready");
         setup();
 }
@@ -23,10 +23,10 @@ void init()
         object me = this_player();
         mapping myfam;
         myfam = (mapping)me->query("family");
-        if(!myfam || myfam["family_name"] != "ÉñÁú½Ì") {
-        	message_vision("Í»È»ÓĞ¸öÈË·ÉÆğÒ»½Å°Ñ$NÌßÁË³öÈ¥¡£\n",me);
+        if(!myfam || myfam["family_name"] != "ç¥é¾™æ•™") {
+        	message_vision("çªç„¶æœ‰ä¸ªäººé£èµ·ä¸€è„šæŠŠ$Nè¸¢äº†å‡ºå»ã€‚\n",me);
         	me->move(__DIR__"road2");
-        	tell_object(environment(me),me->name()+"±»ÈË´Óº£´¬ÉÏÌßÁËÏÂÀ´¡£\n",({me}));
+        	tell_object(environment(me),me->name()+"è¢«äººä»æµ·èˆ¹ä¸Šè¸¢äº†ä¸‹æ¥ã€‚\n",({me}));
         	return;
        	}  
         if(userp(me)) {
@@ -40,7 +40,7 @@ void run_mufa(object me)
         	destruct(this_object());
         	return;
         }
-        message_vision(HIC"\n\n$NÒĞÔÚÏÏ´°±ßÏòº£ÃæÉÏÍûÈ¥£¬ÑÛ¼û²¨ÌÎĞÚÓ¿£¬ÔÆµÍÕÚÈÕ£¬¼¸Ö»º£Å¸ÔÚÂÓ²¨»¬Ïè¡£\n"NOR,me);
+        message_vision(HIC"\n\n$Nå€šåœ¨èˆ·çª—è¾¹å‘æµ·é¢ä¸Šæœ›å»ï¼Œçœ¼è§æ³¢æ¶›æ±¹æ¶Œï¼Œäº‘ä½é®æ—¥ï¼Œå‡ åªæµ·é¸¥åœ¨æ æ³¢æ»‘ç¿”ã€‚\n"NOR,me);
         call_out("run_mufa1", 5+random(5), me);
 }
 
@@ -50,7 +50,7 @@ void run_mufa1(object me)
         	destruct(this_object());
         	return;
         }
-        message_vision(CYN"\n\n´Ë¿Ìº£·çÕı¼±£¬´ó´¬¼²ËÙĞĞÊ»£¬Æ¬¿Ì¹¦·òºó$N±ãÔÚº£Ãæ¶«±±·½¿´µ½ÓĞÒ»´¦Â½µØ¡£\n"NOR,me);
+        message_vision(CYN"\n\næ­¤åˆ»æµ·é£æ­£æ€¥ï¼Œå¤§èˆ¹ç–¾é€Ÿè¡Œé©¶ï¼Œç‰‡åˆ»åŠŸå¤«å$Nä¾¿åœ¨æµ·é¢ä¸œåŒ—æ–¹çœ‹åˆ°æœ‰ä¸€å¤„é™†åœ°ã€‚\n"NOR,me);
         call_out("run_mufa2", 5+random(5), me);
 }
 
@@ -60,7 +60,7 @@ void run_mufa2(object me)
         	destruct(this_object());
         	return;
         }
-        message_vision(WHT"\n\n×ªÑÛ¼ä´ó´¬ÒÑÈ»Ê»½üÂ½µØ£¬µ«¼û°¶ÉÏÊ÷Ä¾²Ô´ä£¬³¤³¤µÄº£Ì²Íû²»µ½¾¡Í·£¬¾¡ÊÇÑ©°×Ï¸É³¡£\n"NOR, me);
+        message_vision(WHT"\n\nè½¬çœ¼é—´å¤§èˆ¹å·²ç„¶é©¶è¿‘é™†åœ°ï¼Œä½†è§å²¸ä¸Šæ ‘æœ¨è‹ç¿ ï¼Œé•¿é•¿çš„æµ·æ»©æœ›ä¸åˆ°å°½å¤´ï¼Œå°½æ˜¯é›ªç™½ç»†æ²™ã€‚\n"NOR, me);
         call_out("run_mufa3", 4+random(5), me);
 }
 
@@ -71,12 +71,12 @@ void run_mufa3(object me)
         	destruct(this_object());
         	return;
         }
-        message_vision("´ó´¬ÂıÂı¿¿Ïòê‘µØ£¬$NÕûÀíÁËÏÂÒÂ¹Ú±ã»º»º×ßÁËÏÂÈ¥¡£\n",me);
+        message_vision("å¤§èˆ¹æ…¢æ…¢é å‘é™¸åœ°ï¼Œ$Næ•´ç†äº†ä¸‹è¡£å† ä¾¿ç¼“ç¼“èµ°äº†ä¸‹å»ã€‚\n",me);
         ob = all_inventory(this_object());
         for(int i=0; i<sizeof(ob); i++) {
                 if(!living(ob[i])) continue;
                 ob[i]->move("/d/sld/dukou");
-                tell_room(environment(me), ob[i]->name() + "´Óº£´¬ÉÏ×ßÁËÉÏÀ´¡£\n",({ ob[i] }));  
+                tell_room(environment(me), ob[i]->name() + "ä»æµ·èˆ¹ä¸Šèµ°äº†ä¸Šæ¥ã€‚\n",({ ob[i] }));  
         }
         destruct(this_object());
 }

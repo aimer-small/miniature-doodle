@@ -1,4 +1,4 @@
-//Âò²ÊÆ±×¨ÓÃ  by lsxk@hsbbs 2007/9/25
+//ä¹°å½©ç¥¨ä¸“ç”¨  by lsxk@hsbbs 2007/9/25
 string Random_Source(int);
 
 string *s_char = ({ "1","2","3","4","5","6","7","8","9","0",
@@ -18,7 +18,7 @@ string Random_Source(int i)
         delete("no_buy");
         str = obj->query("caipiao_id");
         destruct(obj);
-        message("system",HIY"\n\n¡¾Êé½£²«²Ê¡¿£º"+HIG+"±¾ÆÚÊé½£Ãş²Ê±¸Ñ¡ºÅÎª£º"+HIW+str+HIG+" Çë¸ù¾İÄúµÄÏ²ºÃÅÅÁĞºó£¬È¥Ãş²ÊÖĞĞÄ¹ºÂò£¡\n\n"NOR, users());
+        message("system",HIY"\n\nã€ä¹¦å‰‘æå½©ã€‘ï¼š"+HIG+"æœ¬æœŸä¹¦å‰‘æ‘¸å½©å¤‡é€‰å·ä¸ºï¼š"+HIW+str+HIG+" è¯·æ ¹æ®æ‚¨çš„å–œå¥½æ’åˆ—åï¼Œå»æ‘¸å½©ä¸­å¿ƒè´­ä¹°ï¼\n\n"NOR, users());
         return str;
     }
 
@@ -39,13 +39,13 @@ string Random_Source(int i)
     "~","!","@","#","$","%","^","&","*"});
 
     delete("no_buy");
-     message("system",HIY"\n\n¡¾Êé½£²«²Ê¡¿£º"+HIG+"±¾ÆÚÊé½£Ãş²Ê±¸Ñ¡ºÅÎª£º"+HIW+str+HIG+" Çë¸ù¾İÄúµÄÏ²ºÃÅÅÁĞºó£¬È¥Ãş²ÊÖĞĞÄ¹ºÂò£¡\n\n"NOR, users());
+     message("system",HIY"\n\nã€ä¹¦å‰‘æå½©ã€‘ï¼š"+HIG+"æœ¬æœŸä¹¦å‰‘æ‘¸å½©å¤‡é€‰å·ä¸ºï¼š"+HIW+str+HIG+" è¯·æ ¹æ®æ‚¨çš„å–œå¥½æ’åˆ—åï¼Œå»æ‘¸å½©ä¸­å¿ƒè´­ä¹°ï¼\n\n"NOR, users());
 
-    file_msg = sprintf("// ²«²Ê¿ª²ÊĞòºÅ±ê¼Ç±¸·İ! \n");
+    file_msg = sprintf("// æå½©å¼€å½©åºå·æ ‡è®°å¤‡ä»½! \n");
     file_msg += "inherit ROOM;\n";
     file_msg += "void create()\n";
     file_msg += "{\n";
-    file_msg += sprintf("\tset(\"short\", \"²«²Ê±ê¼Ç\");\n");
+    file_msg += sprintf("\tset(\"short\", \"æå½©æ ‡è®°\");\n");
     file_msg +=sprintf("\tset(\"caipiao_id\",\"%s\");\n",str);
     file_msg +="\tsetup();\n";
     file_msg +="}\n";
@@ -53,7 +53,7 @@ string Random_Source(int i)
     rm("/log/cpTag.c");
     assure_file("/log/cpTag.c");
     if( write_file( "/log/cpTag.c",file_msg,1) != 1 ){
-            write("ÎŞ·¨Ğ´ÈëÎÄ¼ş£¬ÇëÍ¨ÖªÔÚÏßÎ×Ê¦£¡\n");
+            write("æ— æ³•å†™å…¥æ–‡ä»¶ï¼Œè¯·é€šçŸ¥åœ¨çº¿å·«å¸ˆï¼\n");
     }
     return str;
 }
@@ -65,56 +65,56 @@ int buy_caipiao(string arg)
     object me = this_player();
     object cp;
 
-    if(!arg) return notify_fail("ÄãÒªÂòÊ²Ã´?\n"NOR);
+    if(!arg) return notify_fail("ä½ è¦ä¹°ä»€ä¹ˆ?\n"NOR);
 
     if(query("no_buy"))
-        return notify_fail("ÏÖÔÚÊÇ¶Ô½±Ê±¼ä£¬ÇëµÈ´ıÏµÍ³¹«²¼¿ª²ÊĞÅÏ¢ºó£¬ÔÙÀ´¹ºÂò£¡\n"NOR);
+        return notify_fail("ç°åœ¨æ˜¯å¯¹å¥–æ—¶é—´ï¼Œè¯·ç­‰å¾…ç³»ç»Ÿå…¬å¸ƒå¼€å½©ä¿¡æ¯åï¼Œå†æ¥è´­ä¹°ï¼\n"NOR);
 
     if(me->query("caipiao_id")!=This_Source){
         me->delete("caipiao");
         me->delete("caipiao_id");
         me->delete("caipiao_zhongjiang_list");
         me->delete("caipiao_shot");
-        tell_object(me, "ÏµÍ³·¢ÏÖÄãÉíÉÏÓĞÒÔÇ°Î´¶Ô½±µÄ²ÊÆ±£¬ÒÑ¾­×Ô¶¯Çå³ı£¡\n");
+        tell_object(me, "ç³»ç»Ÿå‘ç°ä½ èº«ä¸Šæœ‰ä»¥å‰æœªå¯¹å¥–çš„å½©ç¥¨ï¼Œå·²ç»è‡ªåŠ¨æ¸…é™¤ï¼\n");
     }
     if(sscanf(arg, "%s with %s", strMyCP, huobi)){
-        if( huobi != "Í¨±¦" && huobi != "»Æ½ğ")
-            return notify_fail(HIG"Çë¸ù¾İ¡°"+HIR+"buy ÄúÏëÒªµÄÃş²ÊĞòºÅ with [»Æ½ğ|Í¨±¦]"+HIG+"¡±µÄ¸ñÊ½À´½øĞĞÃş²Ê!\n"NOR);
+        if( huobi != "é€šå®" && huobi != "é»„é‡‘")
+            return notify_fail(HIG"è¯·æ ¹æ®â€œ"+HIR+"buy æ‚¨æƒ³è¦çš„æ‘¸å½©åºå· with [é»„é‡‘|é€šå®]"+HIG+"â€çš„æ ¼å¼æ¥è¿›è¡Œæ‘¸å½©!\n"NOR);
     }
-    else return notify_fail(HIG"¸ñÊ½´íÎó£¡Çë¸ù¾İ¡°"+HIR+"buy ÄúÏëÒªµÄÃş²ÊĞòºÅ with [»Æ½ğ]"+HIG+"¡±µÄ¸ñÊ½À´½øĞĞÃş²Ê!\n"NOR);
+    else return notify_fail(HIG"æ ¼å¼é”™è¯¯ï¼è¯·æ ¹æ®â€œ"+HIR+"buy æ‚¨æƒ³è¦çš„æ‘¸å½©åºå· with [é»„é‡‘]"+HIG+"â€çš„æ ¼å¼æ¥è¿›è¡Œæ‘¸å½©!\n"NOR);
 
     if(strMyCP!="random" && sizeof(strMyCP)!=(SIZE_OF_SOURCE*2-SIZE_OF_SOURCE/2-1))
-        return notify_fail("ÄúËù¹ºÂòµÄĞòºÅ³¤¶È²»¶Ô£¬ÇëÈ·¶¨ÄúÂòµÄÊÇ"+chinese_number(SIZE_OF_SOURCE)+"Î»³¤¶ÈµÄºÅÂë,²¢ÇÒÃ¿¸ôÁ½Î»ÓÃ¡°-¡±·ûºÅÁ¬½Ó£¡\n");
+        return notify_fail("æ‚¨æ‰€è´­ä¹°çš„åºå·é•¿åº¦ä¸å¯¹ï¼Œè¯·ç¡®å®šæ‚¨ä¹°çš„æ˜¯"+chinese_number(SIZE_OF_SOURCE)+"ä½é•¿åº¦çš„å·ç ,å¹¶ä¸”æ¯éš”ä¸¤ä½ç”¨â€œ-â€ç¬¦å·è¿æ¥ï¼\n");
 
     if(strMyCP=="random")
         strMyCP = cp_kaijiang(1);
 
     for(k=0;k<sizeof(me->query("caipiao"));k++)
-        if(strMyCP == me->query("caipiao/µÚ"+chinese_number(k+1)+"ÕÅ/my_caipiao"))
-            return notify_fail("ÄãÒÑ¾­Âò¹ıÕâÕÅĞòºÅÁË£¬²»ÄÜÖØ¸´¹ºÂò£¡\n");
+        if(strMyCP == me->query("caipiao/ç¬¬"+chinese_number(k+1)+"å¼ /my_caipiao"))
+            return notify_fail("ä½ å·²ç»ä¹°è¿‡è¿™å¼ åºå·äº†ï¼Œä¸èƒ½é‡å¤è´­ä¹°ï¼\n");
 
-    if(huobi=="Í¨±¦"){
+    if(huobi=="é€šå®"){
         if((int)me->query("SJ_Credit")<CREDIT_COST)
-            return notify_fail("ÄãµÄÍ¨±¦ÊıÁ¿²»¹»£¬ÎŞ·¨²ÎÓë£¡\n");
+            return notify_fail("ä½ çš„é€šå®æ•°é‡ä¸å¤Ÿï¼Œæ— æ³•å‚ä¸ï¼\n");
 
         me->add("SJ_Credit",-CREDIT_COST);
-        tell_object(me, HIY"Äú»¨ÁË"+chinese_number(CREDIT_COST)+"¸öÊé½£Í¨±¦£¬¹ºÂòÁËĞòºÅÎª£º"+strMyCP+" µÄ²ÊÆ±£¡\n"NOR);
-        tell_object(me, HIG"¹ºÂò³É¹¦£¡Çë¹Ø×¢ÏµÍ³¿ª²ÊĞÅÏ¢£¬×£ÄúºÃÔË£¡\n"NOR);
+        tell_object(me, HIY"æ‚¨èŠ±äº†"+chinese_number(CREDIT_COST)+"ä¸ªä¹¦å‰‘é€šå®ï¼Œè´­ä¹°äº†åºå·ä¸ºï¼š"+strMyCP+" çš„å½©ç¥¨ï¼\n"NOR);
+        tell_object(me, HIG"è´­ä¹°æˆåŠŸï¼è¯·å…³æ³¨ç³»ç»Ÿå¼€å½©ä¿¡æ¯ï¼Œç¥æ‚¨å¥½è¿ï¼\n"NOR);
     }
 
-    if(huobi=="»Æ½ğ"){
+    if(huobi=="é»„é‡‘"){
         if((int)me->query("balance")<GOLD_COST)
-            return notify_fail("ÄãµÄ»Æ½ğÊıÁ¿²»¹»£¬ÎŞ·¨²ÎÓë!\n");
+            return notify_fail("ä½ çš„é»„é‡‘æ•°é‡ä¸å¤Ÿï¼Œæ— æ³•å‚ä¸!\n");
 
         me->add("balance",-GOLD_COST);
-        tell_object(me, HIY"Äú»¨ÁË"+chinese_number(GOLD_COST/10000)+"¶§»Æ½ğ£¬¹ºÂòÁËĞòºÅÎª£º"+strMyCP+" µÄ²ÊÆ±£¡\n"NOR);
-        tell_object(me, HIG"¹ºÂò³É¹¦£¡Çë¹Ø×¢ÏµÍ³¿ª²ÊĞÅÏ¢£¬×£ÄúºÃÔË£¡\n"NOR);
+        tell_object(me, HIY"æ‚¨èŠ±äº†"+chinese_number(GOLD_COST/10000)+"é”­é»„é‡‘ï¼Œè´­ä¹°äº†åºå·ä¸ºï¼š"+strMyCP+" çš„å½©ç¥¨ï¼\n"NOR);
+        tell_object(me, HIG"è´­ä¹°æˆåŠŸï¼è¯·å…³æ³¨ç³»ç»Ÿå¼€å½©ä¿¡æ¯ï¼Œç¥æ‚¨å¥½è¿ï¼\n"NOR);
     }
 
     count = chinese_number(sizeof(me->query("caipiao"))+1);
-    me->set("caipiao/µÚ"+count+"ÕÅ/time",time());
-    me->set("caipiao/µÚ"+count+"ÕÅ/my_caipiao",strMyCP);
-    me->set("caipiao/µÚ"+count+"ÕÅ/huobi",huobi);
+    me->set("caipiao/ç¬¬"+count+"å¼ /time",time());
+    me->set("caipiao/ç¬¬"+count+"å¼ /my_caipiao",strMyCP);
+    me->set("caipiao/ç¬¬"+count+"å¼ /huobi",huobi);
     me->set("caipiao_id",This_Source);
 
     if(!present("cai piao",me)){

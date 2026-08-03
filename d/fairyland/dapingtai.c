@@ -7,16 +7,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIW"´óÆ½Ì¨"NOR);
+	set("short", HIW"å¤§å¹³å°"NOR);
 	set("long", @LONG
-ÕâÊÇÒ»¸öÈıÃæ½Ô¿ÕµÄ¼«¸ßµÄÆ½Ì¨£¬Æ½Ì¨ÓĞÊ®ÓàÕÉ·½Ô°£¬¿ÉÊÇ°ëÌìÁÙ¿Õ£¬ÉÏ
-¼È²»ĞĞ£¬ÏÂÒà²»ÄÜ£¬ÑÛÇ°Ö»ÓĞÃ£Ã£ÔÆº££¬¸üÎŞÈ¥Â·£¬Æ½Ì¨Ö®ÉÏÓĞµÄÊÇ°×°¨°¨µÄ
-±ùÑ©£¬¼ÈÎŞÊ÷Ä¾£¬¸üÎŞÒ°ÊŞ¡£Æ½Ì¨µÄ×ó²àÉ½±Ú´¦ÓĞÒ»¸öºÚ÷î÷îµÄÉ½¶´¡£
+è¿™æ˜¯ä¸€ä¸ªä¸‰é¢çš†ç©ºçš„æé«˜çš„å¹³å°ï¼Œå¹³å°æœ‰åä½™ä¸ˆæ–¹å›­ï¼Œå¯æ˜¯åŠå¤©ä¸´ç©ºï¼Œä¸Š
+æ—¢ä¸è¡Œï¼Œä¸‹äº¦ä¸èƒ½ï¼Œçœ¼å‰åªæœ‰èŒ«èŒ«äº‘æµ·ï¼Œæ›´æ— å»è·¯ï¼Œå¹³å°ä¹‹ä¸Šæœ‰çš„æ˜¯ç™½çš‘çš‘çš„
+å†°é›ªï¼Œæ—¢æ— æ ‘æœ¨ï¼Œæ›´æ— é‡å…½ã€‚å¹³å°çš„å·¦ä¾§å±±å£å¤„æœ‰ä¸€ä¸ªé»‘é»é»çš„å±±æ´ã€‚
 LONG	);
 	set("exits", ([
 		"west" : __DIR__"dashibi",
 	]));
-	set("outdoors", "À¥ÂØÉ½");
+	set("outdoors", "æ˜†ä»‘å±±");
 	setup();
 }
 
@@ -31,10 +31,10 @@ int do_zuan(string arg)
 	object me = this_player();
 
 	if (arg == "dong") {
-		message("vision", me->name() + "Ò»¸öÁïÉí£¬×ê½øÁËÉ½¶´¡£\n", environment(me), ({me}));
-		write("Äã¼±¼±Ã¦Ã¦µÄ×ê½øÁË¶´Àï£¬Í·×²ÉÏÁËÉ½Ê¯£¬Ö±Í´ÄãµÃÍÛÍÛ´ó½Ğ¡£\n");
+		message("vision", me->name() + "ä¸€ä¸ªæºœèº«ï¼Œé’»è¿›äº†å±±æ´ã€‚\n", environment(me), ({me}));
+		write("ä½ æ€¥æ€¥å¿™å¿™çš„é’»è¿›äº†æ´é‡Œï¼Œå¤´æ’ä¸Šäº†å±±çŸ³ï¼Œç›´ç—›ä½ å¾—å“‡å“‡å¤§å«ã€‚\n");
 		me->move(__DIR__"shandong");
-		message("vision", me->name() + "×êÁË½øÀ´£¬Í·²¿×²µ½ÁËÉ½Ê¯ÉÏ¡£\n", environment(me), ({me}));
+		message("vision", me->name() + "é’»äº†è¿›æ¥ï¼Œå¤´éƒ¨æ’åˆ°äº†å±±çŸ³ä¸Šã€‚\n", environment(me), ({me}));
 		return 1;
 	}
 	return 0;
@@ -45,15 +45,15 @@ int do_jump(string arg)
 	object me = this_player();
 
 	if (arg == "down"){
-		message("vision", me->name() + "Ò»×İÉí£¬ÏòÏÂÌøÈ¥¡£\n", environment(me), ({me}));
-		write(HIR"\nÄãÒ»Ò§ÑÀ£¬²»¹ËËÀ»îµØÏòÏÂÌøÈ¥¡£\n\n"NOR); 
+		message("vision", me->name() + "ä¸€çºµèº«ï¼Œå‘ä¸‹è·³å»ã€‚\n", environment(me), ({me}));
+		write(HIR"\nä½ ä¸€å’¬ç‰™ï¼Œä¸é¡¾æ­»æ´»åœ°å‘ä¸‹è·³å»ã€‚\n\n"NOR); 
 		me->move(__DIR__"xuedi");
-		write(HIR"\n°¡......Äã´ÓÉÏÃæË¤ÁËÏÂÀ´£¬Ë¤µÃ»ëÉíÊÇÍ´£¬»ëÉíÊÇÉË¡£\n\n"NOR);
+		write(HIR"\nå•Š......ä½ ä»ä¸Šé¢æ‘”äº†ä¸‹æ¥ï¼Œæ‘”å¾—æµ‘èº«æ˜¯ç—›ï¼Œæµ‘èº«æ˜¯ä¼¤ã€‚\n\n"NOR);
                 if( me->query_skill("jiuyang-shengong") < 200 ){ 
-                me->set_temp("last_damage_from", "ÌøÏÂĞüÑÂË¤");
+                me->set_temp("last_damage_from", "è·³ä¸‹æ‚¬å´–æ‘”");
                 me->receive_damage("qi", me->query("max_qi")/2);
                 me->receive_wound("qi", me->query("max_qi") / 2);}
-		message("vision", me->name() + "´ÓÉÏÃæË¤ÁËÏÂÀ´¡£\n", environment(me), ({me}));
+		message("vision", me->name() + "ä»ä¸Šé¢æ‘”äº†ä¸‹æ¥ã€‚\n", environment(me), ({me}));
 		return 1;
 	}
 	return 0;

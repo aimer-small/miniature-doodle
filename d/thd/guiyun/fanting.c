@@ -10,10 +10,10 @@ void delete_served(object me);
 
 void create()
 {
-	set("short", "·¹Ìü");
+	set("short", "é¥­å…");
 	set("long", @LONG
-ÕâÊÇ¹éÔÆ×¯µÜ×ÓÃÇÃ¿ÈÕ³Ô·¹µÄµØ·½£¬·¹²ËµÄÏãÎ¶³äÒç×ÅÕû¸ö·¿¼ä¡£ÎİÀï°Ú
-×ÅÒ»ÕÅ´ó×À×Ó(table)ºÍÒ»Ğ©ÒÎ×Ó(chair)¡£ÎİÖĞÕ¾×Å¼¸¸öÆÍÒÛ¡£
+è¿™æ˜¯å½’äº‘åº„å¼Ÿå­ä»¬æ¯æ—¥åƒé¥­çš„åœ°æ–¹ï¼Œé¥­èœçš„é¦™å‘³å……æº¢ç€æ•´ä¸ªæˆ¿é—´ã€‚å±‹é‡Œæ‘†
+ç€ä¸€å¼ å¤§æ¡Œå­(table)å’Œä¸€äº›æ¤…å­(chair)ã€‚å±‹ä¸­ç«™ç€å‡ ä¸ªä»†å½¹ã€‚
 LONG
 	);
 
@@ -24,8 +24,8 @@ LONG
 	]));
 	
 	set("item_desc", ([
-		"table" : "Ò»ÕÅ´ó°ËÏÉ×À£¬ÉÏÃæ·Å×ÅÒ»Ğ©Íë¡¢ÅÌ¡¢¿ê¡¢É×µÈÆ÷¾ß¡£\n",
-		"chair" : "ÖñÖÆµÄ×øÒÎ£¬¿´ÉÏÈ¥ÓĞĞ©Ò¡Ò¡»Î»Î¡£\n",
+		"table" : "ä¸€å¼ å¤§å…«ä»™æ¡Œï¼Œä¸Šé¢æ”¾ç€ä¸€äº›ç¢—ã€ç›˜ã€ç­·ã€å‹ºç­‰å™¨å…·ã€‚\n",
+		"chair" : "ç«¹åˆ¶çš„åæ¤…ï¼Œçœ‹ä¸Šå»æœ‰äº›æ‘‡æ‘‡æ™ƒæ™ƒã€‚\n",
 	]));
 	                                
 
@@ -45,7 +45,7 @@ void init()
 int serve_food(object me)
 {
 	if (!present(me, this_object())) return 0;
-	message_vision("ÆÍÒÛ×ß¹ıÀ´£¬¸ø$N¶ËÀ´ÁËÒ»ÍëÃ×·¹¡£\n", me);
+	message_vision("ä»†å½¹èµ°è¿‡æ¥ï¼Œç»™$Nç«¯æ¥äº†ä¸€ç¢—ç±³é¥­ã€‚\n", me);
 	
 	new(__DIR__"obj/mifan.c")->move(me);
 
@@ -64,41 +64,41 @@ int do_sit(string arg)
 	object me = this_player();
 	mixed *local;
 
-	if (me->is_busy() || me->is_fighting())	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy() || me->is_fighting())	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (arg == "table" || arg == "zhuozi")
-		return notify_fail("ÄãÒª×øÔÚ×À×ÓÉÏ£¿ÄÇÏÈ°ÑÄãÖóÊìÁËÔÙ¶ËÉÏÀ´°É¡£\n");	
+		return notify_fail("ä½ è¦ååœ¨æ¡Œå­ä¸Šï¼Ÿé‚£å…ˆæŠŠä½ ç…®ç†Ÿäº†å†ç«¯ä¸Šæ¥å§ã€‚\n");	
 
 	if ( !arg || (arg != "chair" && arg != "yizi") )
-		return notify_fail("ÄãÒª×øÔÚµØ°åÉÏ£¿ÓĞ¸öĞÔ£¡¿ÉÏ§µÄÊÇÕâ»áÓ°Ïì¹éÔÆ×¯µÄĞÎÏó¡£\n");	
+		return notify_fail("ä½ è¦ååœ¨åœ°æ¿ä¸Šï¼Ÿæœ‰ä¸ªæ€§ï¼å¯æƒœçš„æ˜¯è¿™ä¼šå½±å“å½’äº‘åº„çš„å½¢è±¡ã€‚\n");	
 	
 	if (me->query_temp("marks/sit"))
-		return notify_fail("ÄãÒÑ¾­×øÔÚ×ùÎ»ÉÏÁË¡£\n");	
+		return notify_fail("ä½ å·²ç»ååœ¨åº§ä½ä¸Šäº†ã€‚\n");	
 			
-	message_vision("$NÕÒÁË¸ö¿ÕÎ»×ùÏÂ£¬µÈ×Å³Ô·¹¡£\n", me);	
+	message_vision("$Næ‰¾äº†ä¸ªç©ºä½åº§ä¸‹ï¼Œç­‰ç€åƒé¥­ã€‚\n", me);	
 	local = localtime(time() * 60);
 	if (local[2] < 6) {
-		message_vision("ÆÍÒÛ×ß¹ıÀ´¶Ô$NËµ£º´ó°ëÒ¹µÄÄúÈÃĞ¡µÄÈ¥ÄÄÀïÅª³ÔµÄ°¡£¿\n", me);
-		message_vision("$NÎŞÄÎµØÓÖÕ¾ÁËÆğÀ´¡£\n", me);	
+		message_vision("ä»†å½¹èµ°è¿‡æ¥å¯¹$Nè¯´ï¼šå¤§åŠå¤œçš„æ‚¨è®©å°çš„å»å“ªé‡Œå¼„åƒçš„å•Šï¼Ÿ\n", me);
+		message_vision("$Næ— å¥ˆåœ°åˆç«™äº†èµ·æ¥ã€‚\n", me);	
 		return notify_fail("");
 	}
 	else if (local[2] > 8 && local[2] < 11) {
-		message_vision("ÆÍÒÛ×ß¹ıÀ´¶Ô$NËµ£º¹ıÁËÔç·¹Ê±¼äÀ²£¬ÖĞÎçÔÙÀ´°É¡£\n", me);
-		message_vision("$NÎŞÄÎµØÓÖÕ¾ÁËÆğÀ´¡£\n", me);	
+		message_vision("ä»†å½¹èµ°è¿‡æ¥å¯¹$Nè¯´ï¼šè¿‡äº†æ—©é¥­æ—¶é—´å•¦ï¼Œä¸­åˆå†æ¥å§ã€‚\n", me);
+		message_vision("$Næ— å¥ˆåœ°åˆç«™äº†èµ·æ¥ã€‚\n", me);	
 		return notify_fail("");
 	}
 	else if (local[2] > 13 && local[2] < 17) {
-		message_vision("ÆÍÒÛ×ß¹ıÀ´¶Ô$NËµ£º¹ıÁËÎç·¹Ê±¼äÀ²£¬ÍíÉÏÔÙÀ´°É¡£\n", me);
-		message_vision("$NÎŞÄÎµØÓÖÕ¾ÁËÆğÀ´¡£\n", me);	
+		message_vision("ä»†å½¹èµ°è¿‡æ¥å¯¹$Nè¯´ï¼šè¿‡äº†åˆé¥­æ—¶é—´å•¦ï¼Œæ™šä¸Šå†æ¥å§ã€‚\n", me);
+		message_vision("$Næ— å¥ˆåœ°åˆç«™äº†èµ·æ¥ã€‚\n", me);	
 		return notify_fail("");
 	}
 	else if (local[2] > 20) {
-		message_vision("ÆÍÒÛ×ß¹ıÀ´¶Ô$NËµ£º¹ıÁËÍí·¹Ê±¼äÀ²£¬Äú¾ÍÈÌÒ»ËŞ°É¡£\n", me);
-		message_vision("$NÎŞÄÎµØÓÖÕ¾ÁËÆğÀ´¡£\n", me);	
+		message_vision("ä»†å½¹èµ°è¿‡æ¥å¯¹$Nè¯´ï¼šè¿‡äº†æ™šé¥­æ—¶é—´å•¦ï¼Œæ‚¨å°±å¿ä¸€å®¿å§ã€‚\n", me);
+		message_vision("$Næ— å¥ˆåœ°åˆç«™äº†èµ·æ¥ã€‚\n", me);	
 		return notify_fail("");
 	}
 	if( me->query_temp("marks/food_served") ) {
-		message_vision("ÆÍÒÛ×ß¹ıÀ´¶Ô$NËµ£º³Ô±¥ÁËµÄ¾Í³öÈ¥°É£¬±ğÕ¼×ÅµØ·½£¡\n", me);
-		message_vision("$N·¢¾õÖÚÈËµÄÑÛ¹â¶¼ÔÚ¶¢×Å×Ô¼º£¬Ã¦Õ¾ÆğÉíÀ´£¬ŞÏŞÎµØËµ£ºÎÒÖ»ÊÇÊÔÊÔÕâÒÎ×Ó½áÊµ²»½áÊµ¡£\n", me);
+		message_vision("ä»†å½¹èµ°è¿‡æ¥å¯¹$Nè¯´ï¼šåƒé¥±äº†çš„å°±å‡ºå»å§ï¼Œåˆ«å ç€åœ°æ–¹ï¼\n", me);
+		message_vision("$Nå‘è§‰ä¼—äººçš„çœ¼å…‰éƒ½åœ¨ç›¯ç€è‡ªå·±ï¼Œå¿™ç«™èµ·èº«æ¥ï¼Œå°´å°¬åœ°è¯´ï¼šæˆ‘åªæ˜¯è¯•è¯•è¿™æ¤…å­ç»“å®ä¸ç»“å®ã€‚\n", me);
 		return notify_fail("");
 	}
 	me->set_temp("marks/sit", 1);
@@ -112,9 +112,9 @@ int do_stand()
 	object me = this_player();
 
 	if (!me->query_temp("marks/sit"))
-		return notify_fail("ÄãÒÑ¾­Õ¾×ÅÁË£¬ÊÇ²»ÊÇÕ¾¾ÃÁËÓĞµã·¢»è°¡£¿\n");	
+		return notify_fail("ä½ å·²ç»ç«™ç€äº†ï¼Œæ˜¯ä¸æ˜¯ç«™ä¹…äº†æœ‰ç‚¹å‘æ˜å•Šï¼Ÿ\n");	
 			
-	message_vision("$NÅÄÅÄÆ¨¹É£¬Õ¾ÁËÆğÀ´¡£\n", me);	
+	message_vision("$Næ‹æ‹å±è‚¡ï¼Œç«™äº†èµ·æ¥ã€‚\n", me);	
 	me->delete_temp("marks/sit");
 	return 1;
 }
@@ -122,11 +122,11 @@ int do_stand()
 int valid_leave(object me, string dir)
 {
 	if (me->query_temp("marks/sit"))
-		return notify_fail("Äã´òËãÁ¬ÒÎ×ÓÒ²°á³öÈ¥£¿\n");	
+		return notify_fail("ä½ æ‰“ç®—è¿æ¤…å­ä¹Ÿæ¬å‡ºå»ï¼Ÿ\n");	
 
 	if ((dir == "north") && present("dami fan", me))
 //	if (random(3)) 
-		return notify_fail("ÆÍÒÛÅÜ¹ıÀ´Ëµ£ºÃ»³ÔÍêµÄÒ²±ğ´ø×ß°¡£¬¿¼ÂÇÒ»ÏÂ±ğÈËÂï¡£\n");
+		return notify_fail("ä»†å½¹è·‘è¿‡æ¥è¯´ï¼šæ²¡åƒå®Œçš„ä¹Ÿåˆ«å¸¦èµ°å•Šï¼Œè€ƒè™‘ä¸€ä¸‹åˆ«äººå˜›ã€‚\n");
 	
 	return ::valid_leave(me, dir);
 }

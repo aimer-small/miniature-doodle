@@ -4,18 +4,18 @@ inherit NPC;
 
 void create()
 {
-        set_name("¹ù¾¸", ({"guo jing", "guo", "jing", "zhengfang"}));
-        set("nickname", HIY"±±ÏÀ"NOR);
-        set("gender", "ÄĞĞÔ");
+        set_name("éƒ­é–", ({"guo jing", "guo", "jing", "zhengfang"}));
+        set("nickname", HIY"åŒ—ä¾ "NOR);
+        set("gender", "ç”·æ€§");
         set("age", 40);
-        set("long", "Ëû¾ÍÊÇÍşÕñÌìÏÂµÄ´óÏÀ¹ù¾¸£¬µÚ¶ş´Î»ªÉ½ÂÛ½£ºóºÅ³Æ¡°±±ÏÀ¡±¡£\n");
+        set("long", "ä»–å°±æ˜¯å¨æŒ¯å¤©ä¸‹çš„å¤§ä¾ éƒ­é–ï¼Œç¬¬äºŒæ¬¡åå±±è®ºå‰‘åå·ç§°â€œåŒ—ä¾ â€ã€‚\n");
         set("attitude", "friendly");
         set("str", 50);
         set("int", 10);
         set("con", 50);
         set("dex", 25);
 
-        set("unique", 1);  //Î¨Ò»ĞÔ
+        set("unique", 1);  //å”¯ä¸€æ€§
      
         set("max_qi", 200000);
         set("max_jing", 20000);
@@ -57,7 +57,7 @@ void create()
 
         set("xlz/hang",1);
         set("max_cure",5);
-        set_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª",1);
+        set_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥",1);
 
         set_temp("apply/damage",500);
         set_temp("apply/damage_force",500);
@@ -72,7 +72,7 @@ void create()
                 (: perform_action, "strike.paiyun" :),
                 (: perform_action, "strike.kanglong" :),
         }));
-        create_family("Ø¤°ï", 18, "°ïÖ÷Ç×´«µÜ×Ó");
+        create_family("ä¸å¸®", 18, "å¸®ä¸»äº²ä¼ å¼Ÿå­");
         setup();
 
         if (clonep()) carry_object("/d/thd/obj/grn-cloth.c")->wear();

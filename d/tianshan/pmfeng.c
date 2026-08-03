@@ -5,17 +5,17 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "çÎç¿·å");
+	set("short", "ç¼¥ç¼ˆå³°");
 	set("long", @LONG
-ÕâÀïÊÇÌìÉ½¾ø·å£¬É½·åÖÕÄêÔÆ·âÎíËø£¬·ÇÌì¼´º££¬Ã£Ã£Ò»Æ¬£¬ÏÕ¾þÖ®¼«£¬
-Ô¶Ô¶ÍûÈ¥£¬ÈôÓÐÈôÎÞ£¬Òò´Ë½Ð×÷çÎç¿·å¡£
+è¿™é‡Œæ˜¯å¤©å±±ç»å³°ï¼Œå±±å³°ç»ˆå¹´äº‘å°é›¾é”ï¼Œéžå¤©å³æµ·ï¼ŒèŒ«èŒ«ä¸€ç‰‡ï¼Œé™©å³»ä¹‹æžï¼Œ
+è¿œè¿œæœ›åŽ»ï¼Œè‹¥æœ‰è‹¥æ— ï¼Œå› æ­¤å«ä½œç¼¥ç¼ˆå³°ã€‚
 LONG);
 	 set("exits", ([
                 "northdown" : __DIR__"dadao1",
 		"southdown" : __DIR__"shanjin6",
         ]));        
 
-	set("outdoors", "ÌìÉ½");
+	set("outdoors", "å¤©å±±");
 	setup();
 }
 
@@ -29,13 +29,13 @@ int do_push()
 {
           object me = this_player();
           if (me->is_busy() || me->is_fighting())
-                 return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
-if(me->query("family") && me->query("family/family_name")!="ÁéðÕ¹¬")
-                   return notify_fail("Ê²Ã´?\n");
-      message_vision("ÕâÆ®Ãì·åÏÕ¾þÎÞ±È£¬ÎÞÂ·¿ÉÅÊ£¬µ«$NÉíÔÚÁéðÕ¹¬£¬×ÔÈ»ÃþË÷³öÁËÒ»ÌõòêÑÑÐ¡Â·£¬¿ÉÒÔÖ±´ïÉ½ÏÂ¡£\n", me);
+                 return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+if(me->query("family") && me->query("family/family_name")!="çµé¹«å®«")
+                   return notify_fail("ä»€ä¹ˆ?\n");
+      message_vision("è¿™é£˜æ¸ºå³°é™©å³»æ— æ¯”ï¼Œæ— è·¯å¯æ”€ï¼Œä½†$Nèº«åœ¨çµé¹«å®«ï¼Œè‡ªç„¶æ‘¸ç´¢å‡ºäº†ä¸€æ¡èœ¿èœ’å°è·¯ï¼Œå¯ä»¥ç›´è¾¾å±±ä¸‹ã€‚\n", me);
           me->receive_damage("jing", 30);
           me->start_busy(random(2));
-        message_vision("$NÐÐÁË°ëÏì£¬ÒÑµ½É½½Å¡£µ«¼ûÊ÷Ä¾´ÐÜ×£¬·ÅÑÛÍûÈ¥£¬Á¼ÌïÎÖÒ°¡£\n", me);
+        message_vision("$Nè¡Œäº†åŠå“ï¼Œå·²åˆ°å±±è„šã€‚ä½†è§æ ‘æœ¨è‘±èŒï¼Œæ”¾çœ¼æœ›åŽ»ï¼Œè‰¯ç”°æ²ƒé‡Žã€‚\n", me);
  me->move("/d/gumu/xiaolu1");
           return 1;
 }

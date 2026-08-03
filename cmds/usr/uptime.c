@@ -9,11 +9,11 @@ inherit F_CLEAN_UP;
 
 int main(int i)
 {
-	write("\n"+CHINESE_MUD_NAME + "ÒÑ¾­Á¬ÐøÖ´ÐÐÁË" + CHINESE_D->chinese_time(uptime()) + "¡£\n");
+	write("\n"+CHINESE_MUD_NAME + "å·²ç»è¿žç»­æ‰§è¡Œäº†" + CHINESE_D->chinese_time(uptime()) + "ã€‚\n");
 	
 	if ( intp(i) || file_size("/log/static/LASTCRASH") <= 0) return 1;
 	
-	write("µ±»ú¼ÇÂ¼£º" + read_file("/log/static/LASTCRASH"));
+	write("å½“æœºè®°å½•ï¼š" + read_file("/log/static/LASTCRASH"));
         
         return 1;
 }
@@ -21,8 +21,8 @@ int main(int i)
 int help(object me)
 {
         write(
-"Ö¸Áî¸ñÊ½ : uptime\n\n"
-"Õâ¸öÖ¸Áî¸æËßÄú¡¸" MUD_NAME "¡¹Äà°ÍÓÎÏ·ÒÑ¾­Á¬ÐøÖ´ÐÐÁË¶à¾Ã¡£\n"
+"æŒ‡ä»¤æ ¼å¼ : uptime\n\n"
+"è¿™ä¸ªæŒ‡ä»¤å‘Šè¯‰æ‚¨ã€Œ" MUD_NAME "ã€æ³¥å·´æ¸¸æˆå·²ç»è¿žç»­æ‰§è¡Œäº†å¤šä¹…ã€‚\n"
     );
     return 1;
 }

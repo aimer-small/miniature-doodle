@@ -1,17 +1,17 @@
-// yuchuan3.c ؤ���洬
+// yuchuan3.c 丐帮渔船
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-	set("short","�洬");
+	set("short","渔船");
 	set("long", @LONG
-�洬������һ�룬���Ҷ�������һģһ���ģ�������ͷ���ۻ�����Ȼ
-һ������ӿ������һ�����ȣ����������������㼸�������˺�ȥ��
+渔船都连在一齐，而且都几乎是一模一样的，看得你头晕眼花。忽然
+一个暗浪涌来，你一个不稳，‘啊。。。’，你几乎掉下了海去。
 LONG
 	);
-	set("outdoors","����");
+	set("outdoors","福州");
 	set("exits", ([
 		"south" : __FILE__,
 		"east" : __DIR__"yuchuan4",

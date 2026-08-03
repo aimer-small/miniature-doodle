@@ -1,4 +1,4 @@
-// jinshen-jianfa.c ½ðÉß½£·¨
+// jinshen-jianfa.c é‡‘è›‡å‰‘æ³•
 // by snowman@SJ 2000
 
 #include <ansi.h>
@@ -6,34 +6,34 @@ inherit SKILL;
 
 mapping *action = ({
 ([
-	"action" : "$N½£Ê½Æ½×ß£¬Ò»ÕÐ¡¸Ë«Éß×êÒ¸¡¹£¬ÊÖÖÐ$wÉÁµç°ã´ÌÏò$nµÄ$l",
+	"action" : "$Nå‰‘å¼å¹³èµ°ï¼Œä¸€æ‹›ã€ŒåŒè›‡é’»è…‹ã€ï¼Œæ‰‹ä¸­$wé—ªç”µèˆ¬åˆºå‘$nçš„$l",
 	"lvl" : 0,
-	"damage_type" : "´ÌÉË"
+	"damage_type" : "åˆºä¼¤"
 ]),
 ([
-	"action" : "$NÃÍÌáÉíÐÐ£¬ÔÚ¿ÕÖÐÑüÉíÐ±Çã£¬ÊÖÖÐ$wÒ»Ê½¡¸½ðÉßÍûÔÂ¡¹Ö±´Ì$nµÄ$l",
+	"action" : "$NçŒ›æèº«è¡Œï¼Œåœ¨ç©ºä¸­è…°èº«æ–œå€¾ï¼Œæ‰‹ä¸­$wä¸€å¼ã€Œé‡‘è›‡æœ›æœˆã€ç›´åˆº$nçš„$l",
 	"lvl" : 20,
-	"damage_type" : "´ÌÉË"
+	"damage_type" : "åˆºä¼¤"
 ]),
 ([
-	"action" : "$NÊ¹³ö¡¸½ðÉß°ÚÎ²¡¹£¬ÓÒÏ¥Î¢Íä£¬$wÐ±´Ì,¹îÒìµÄ»®Ïò$nµÄ$l",
+	"action" : "$Nä½¿å‡ºã€Œé‡‘è›‡æ‘†å°¾ã€ï¼Œå³è†å¾®å¼¯ï¼Œ$wæ–œåˆº,è¯¡å¼‚çš„åˆ’å‘$nçš„$l",
 	"lvl" : 50,
-	"damage_type" : "´ÌÉË"
+	"damage_type" : "åˆºä¼¤"
 ]),
 ([
-	"action" : "$NÉíÌåÔ½ÓÎÔ½¼±£¬Ò»ÕÐ¡¸ÁéÉßÅÌÌÚ¡¹£¬ÓÒÊÖ$w´ø×ÅÒ»µÀº®¹â£¬ºá´©$nµÄ$l",
+	"action" : "$Nèº«ä½“è¶Šæ¸¸è¶Šæ€¥ï¼Œä¸€æ‹›ã€Œçµè›‡ç›˜è…¾ã€ï¼Œå³æ‰‹$wå¸¦ç€ä¸€é“å¯’å…‰ï¼Œæ¨ªç©¿$nçš„$l",
 	"lvl" : 60,
-	"damage_type" : "´ÌÉË"
+	"damage_type" : "åˆºä¼¤"
 ]),
 ([
-	"action" : "$NÓÒÊÖÎ¢×ª£¬×ÝÉíÌÚ¿Õ£¬Ò»ÕÐ¡¸·ÉÁúÏ·Éß¡¹£¬ÊÖÖÐµÄ$wÃàÃà¶¶¶¯£¬Ï®Ïò$nµÄ$l",
+	"action" : "$Nå³æ‰‹å¾®è½¬ï¼Œçºµèº«è…¾ç©ºï¼Œä¸€æ‹›ã€Œé£žé¾™æˆè›‡ã€ï¼Œæ‰‹ä¸­çš„$wç»µç»µæŠ–åŠ¨ï¼Œè¢­å‘$nçš„$l",
 	"lvl" : 80,
-	"damage_type" : "´ÌÉË"
+	"damage_type" : "åˆºä¼¤"
 ]),
 ([
-	"action" : "$NÒ»ÕÐ¡¸ÉßÓ°ÎÞ×Ù¡¹£¬Éí×ÓÉÔ²à£¬³¤±ÛÖ±Éì£¬×óÕÆÐé»Î£¬ÓÒÊÖÆæÕÐÍ»Æð£¬$w·´´Ì$nµÄ$l",
+	"action" : "$Nä¸€æ‹›ã€Œè›‡å½±æ— è¸ªã€ï¼Œèº«å­ç¨ä¾§ï¼Œé•¿è‡‚ç›´ä¼¸ï¼Œå·¦æŽŒè™šæ™ƒï¼Œå³æ‰‹å¥‡æ‹›çªèµ·ï¼Œ$wååˆº$nçš„$l",
 	"lvl" : 100,
-	"damage_type" : "´ÌÉË"
+	"damage_type" : "åˆºä¼¤"
 ]),
 });
 
@@ -45,14 +45,14 @@ int valid_learn(object me)
 	
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "sword")
-		return notify_fail("Äã±ØÐëÊ¹ÓÃ½ðÉß½£²ÅÄÜ½øÒ»²½Á·Ï°ÄãµÄ½ðÉß½£·¨¡£\n");
+		return notify_fail("ä½ å¿…é¡»ä½¿ç”¨é‡‘è›‡å‰‘æ‰èƒ½è¿›ä¸€æ­¥ç»ƒä¹ ä½ çš„é‡‘è›‡å‰‘æ³•ã€‚\n");
 
 	if ( me->query("max_neili") < 1000)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 	if ( me->query_skill("sword", 1) < 100)
-		return notify_fail("ÄãµÄ»ù±¾¹¦Ì«Ç³¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬åŠŸå¤ªæµ…ã€‚\n");
 	if ( !me->query("jinshe/jianfa"))
-		return notify_fail("ÄãÎÞ·¨ÐÞÏ°½ðÉß½£·¨¡£\n");
+		return notify_fail("ä½ æ— æ³•ä¿®ä¹ é‡‘è›‡å‰‘æ³•ã€‚\n");
 
 	return 1;
 }
@@ -72,7 +72,7 @@ mapping query_action(object me, object weapon)
 	for(i = sizeof(action); i > 0; i--) {
 		if(level > action[i-1]["lvl"]) {
 			j = NewRandom(i, 20, level/5);
-            if ( me->query("quest/½ðÉß½£·¨/pass")) {
+            if ( me->query("quest/é‡‘è›‡å‰‘æ³•/pass")) {
         if (me->query_temp("jsj")) 
                     return ([
                      "action" : YEL+replace_string(replace_string(action[j]["action"], "$w", "$W"), "$W", "$w"YEL)+NOR,
@@ -80,7 +80,7 @@ mapping query_action(object me, object weapon)
                          "dodge": 20+random(20),
                         "parry": 20+random(20),
                          "damage" : level/2 +random(level/2),
-                     "damage_type" : "´ÌÉË",
+                     "damage_type" : "åˆºä¼¤",
                     ]);
                   else
                   return ([
@@ -89,7 +89,7 @@ mapping query_action(object me, object weapon)
                         "dodge": 10+random(20),
                         "parry": 10+random(20),
                         "damage" : level/3+random(level/6),
-                     "damage_type" : "´ÌÉË",
+                     "damage_type" : "åˆºä¼¤",
                     ]); 
        }
 			return ([
@@ -108,9 +108,9 @@ mapping query_action(object me, object weapon)
 int practice_skill(object me)
 {
         if ((int)me->query("jingli") < 50)
-		return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·½ðÉß½£·¨¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒé‡‘è›‡å‰‘æ³•ã€‚\n");
 	if ( me->query("neili") < 20)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·½ðÉß½£·¨¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒé‡‘è›‡å‰‘æ³•ã€‚\n");
 	me->receive_damage("jingli", 40);
 	me->add("neili", -15);
 	return 1;

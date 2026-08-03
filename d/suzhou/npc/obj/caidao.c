@@ -1,21 +1,21 @@
-// caidao.c ²Ëµ¶
+// caidao.c èœåˆ€
 
 #include <weapon.h>
 inherit BLADE;
 
 void create()
 {
-	set_name("²Ëµ¶", ({ "cai dao", "dao" }));
+	set_name("èœåˆ€", ({ "cai dao", "dao" }));
 	set_weight(4000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±úÆÕÍ¨µÄ×ö·¹ÓÃµÄ²Ëµ¶¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„æ™®é€šçš„åšé¥­ç”¨çš„èœåˆ€ã€‚\n");
 		set("value", 1500);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù´ÓÑü¼ä³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n±ğÔÚÑüÖĞ¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°ä»è…°é—´æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nåˆ«åœ¨è…°ä¸­ã€‚\n");
 	}
 	init_blade(15);
 	setup();

@@ -9,18 +9,18 @@ string receive_mail();
 
 void create()
 {
-        set_name("ÓÎÌ¹Ö®", ({ "you tanzhi", "you" }) );
-        set("title", CYN"ÑïÖÝæäÕ¾¹ÜÊÂ"NOR);
-        set("gender", "ÄÐÐÔ" );
+        set_name("æ¸¸å¦ä¹‹", ({ "you tanzhi", "you" }) );
+        set("title", CYN"æ‰¬å·žé©¿ç«™ç®¡äº‹"NOR);
+        set("gender", "ç”·æ€§" );
         set("age", 18);
         set("long",
-                "±ð¿´ËûÄêÁä²»´ó£¬µ«¶ÔÊÕ·¢ÐÅ¼þµÄ¹¤×÷ºÜÈÏÕæ£¬´Ó²»»áÓÐÈÎºÎ²î´í¡£\n");
+                "åˆ«çœ‹ä»–å¹´é¾„ä¸å¤§ï¼Œä½†å¯¹æ”¶å‘ä¿¡ä»¶çš„å·¥ä½œå¾ˆè®¤çœŸï¼Œä»Žä¸ä¼šæœ‰ä»»ä½•å·®é”™ã€‚\n");
         set("combat_exp", 800);
         set("attitude", "friendly");
         set("inquiry", ([
-                "æäÕ¾" : "ÊÇ°¡... ÕâÀï¾ÍÊÇÑïÖÝæäÕ¾£¬ÄãÒª¼ÄÐÅÂð£¿",
-                "¼ÄÐÅ" : (: send_mail :),
-                "ÊÕÐÅ" : (: receive_mail :),
+                "é©¿ç«™" : "æ˜¯å•Š... è¿™é‡Œå°±æ˜¯æ‰¬å·žé©¿ç«™ï¼Œä½ è¦å¯„ä¿¡å—ï¼Ÿ",
+                "å¯„ä¿¡" : (: send_mail :),
+                "æ”¶ä¿¡" : (: receive_mail :),
                 "mail" : (: receive_mail :),
         ]) );
         set_skill("literate", 70);
@@ -35,14 +35,14 @@ string send_mail()
         object mbox;
 
         if( this_player()->query_temp("mbox_ob") )
-                return "ÄãµÄÐÅÏä»¹ÔÚ°É£¿ÓÃÐÅÏä¾Í¿ÉÒÔ¼ÄÐÅÁË¡£\n";
+                return "ä½ çš„ä¿¡ç®±è¿˜åœ¨å§ï¼Ÿç”¨ä¿¡ç®±å°±å¯ä»¥å¯„ä¿¡äº†ã€‚\n";
         if( !environment()
         ||      base_name(environment()) != query("startroom") )
-                return "ÕæÊÇ±§Ç¸£¬ÇëÄúµÈÒ»ÏÂµ½æäÕ¾À´ÕÒÎÒ°É¡£\n";
+                return "çœŸæ˜¯æŠ±æ­‰ï¼Œè¯·æ‚¨ç­‰ä¸€ä¸‹åˆ°é©¿ç«™æ¥æ‰¾æˆ‘å§ã€‚\n";
         seteuid(getuid());
         mbox = new(MAILBOX_OB);
         mbox->move(this_player());
-        return "Å¶... Òª¼ÄÐÅÊÇÂð£¿ÕâÊÇÄãµÄÐÅÏä£¬¼ÄÐÅµÄ·½·¨ÐÅÏäÉÏÓÐËµÃ÷¡£\n";
+        return "å“¦... è¦å¯„ä¿¡æ˜¯å—ï¼Ÿè¿™æ˜¯ä½ çš„ä¿¡ç®±ï¼Œå¯„ä¿¡çš„æ–¹æ³•ä¿¡ç®±ä¸Šæœ‰è¯´æ˜Žã€‚\n";
 }
 
 string receive_mail()
@@ -50,13 +50,13 @@ string receive_mail()
         object mbox;
 
         if( this_player()->query_temp("mbox_ob") )
-                return "ÄãµÄÐÅÏä»¹ÔÚ°É£¿ÄãËùÓÐµÄÐÅ¶¼ÔÚÀïÃæ¡£\n";
+                return "ä½ çš„ä¿¡ç®±è¿˜åœ¨å§ï¼Ÿä½ æ‰€æœ‰çš„ä¿¡éƒ½åœ¨é‡Œé¢ã€‚\n";
         if( !environment()
         ||      base_name(environment()) != query("startroom") )
-                return "ÕæÊÇ±§Ç¸£¬ÇëÄúµÈÒ»ÏÂµ½æäÕ¾À´ÕÒÎÒ°É¡£\n";
+                return "çœŸæ˜¯æŠ±æ­‰ï¼Œè¯·æ‚¨ç­‰ä¸€ä¸‹åˆ°é©¿ç«™æ¥æ‰¾æˆ‘å§ã€‚\n";
         seteuid(getuid());
         mbox = new(MAILBOX_OB);
         mbox->move(this_player());
-        return "ºÃ£¬´ýÎÒÕÒÕÒ....ÓÐÁË£¬ÄãµÄÐÅÏäÔÚÕâ£¬ÂýÂý¿´°É£¬²»´ò½ÁÄãÁË¡£\n";
+        return "å¥½ï¼Œå¾…æˆ‘æ‰¾æ‰¾....æœ‰äº†ï¼Œä½ çš„ä¿¡ç®±åœ¨è¿™ï¼Œæ…¢æ…¢çœ‹å§ï¼Œä¸æ‰“æ…ä½ äº†ã€‚\n";
 }
 

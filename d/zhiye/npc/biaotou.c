@@ -11,11 +11,11 @@ inherit NPC;
 
 void create()
 {	
-	set_name("×ÜïÚÍ·",({ "zong biaotou" , "biaotou" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æ€»é•–å¤´",({ "zong biaotou" , "biaotou" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 53);
-	set("long", "ÕâÎ»¾ÍÊÇÁúÃÅïÚ¾ÖµÄ×ÜïÚÍ·£¬¾İËµÄêÇáÊ±´ò±éÌìÏÂÉÙÓĞµĞÊÖ¡£\n"
-		"ÏÖÔÚËäÈ»ÀÏÁË£¬µ«ÊÇÍşÍûÓÈ´æ£¬Ëû¾ÍÒÔ´Ë¿ªÉèÁËÕâ¼ÒÁúÃÅïÚ¾Ö¡£\n");
+	set("long", "è¿™ä½å°±æ˜¯é¾™é—¨é•–å±€çš„æ€»é•–å¤´ï¼Œæ®è¯´å¹´è½»æ—¶æ‰“éå¤©ä¸‹å°‘æœ‰æ•Œæ‰‹ã€‚\n"
+		"ç°åœ¨è™½ç„¶è€äº†ï¼Œä½†æ˜¯å¨æœ›å°¤å­˜ï¼Œä»–å°±ä»¥æ­¤å¼€è®¾äº†è¿™å®¶é¾™é—¨é•–å±€ã€‚\n");
 		
 		set("str", 55);
 	set("dex", 55);
@@ -49,19 +49,19 @@ void create()
 	
 	set("chat_chance", 2);
 	set("chat_msg", ({
-		"×ÜïÚÍ·ËµµÀ£º¡°±¾ïÚ¾ÖÌØ±ğÉÃ³¤±£»¤Æ½Ãñ°ÙĞÕ......¡±\n",
+		"æ€»é•–å¤´è¯´é“ï¼šâ€œæœ¬é•–å±€ç‰¹åˆ«æ“…é•¿ä¿æŠ¤å¹³æ°‘ç™¾å§“......â€\n",
 	}) );
 	
 	// Modified by mxzhao 2004/03/06 
 	/* 	
 	set("inquiry", ([
-	"±£ïÚ"		: (: ask_guard :),
+	"ä¿é•–"		: (: ask_guard :),
 	"guard"		: (: ask_guard :),
-	"±£ïÚ1"		: (: ask_guard1 :),
+	"ä¿é•–1"		: (: ask_guard1 :),
 	"guard1"	: (: ask_guard1 :),
-	"±£ïÚ2"		: (: ask_guard2 :),
+	"ä¿é•–2"		: (: ask_guard2 :),
 	"guard2"	: (: ask_guard2 :),
-	"±£ïÚ3"		: (: ask_guard3 :),
+	"ä¿é•–3"		: (: ask_guard3 :),
 	"guard3"	: (: ask_guard3 :),
 	]));
 	*/
@@ -77,7 +77,7 @@ void kill_ob(object ob)
 {
 	object me = this_object();
 	command("!!!");
-	command("say ÀÏ·òÀÏÁË£¬´ò´òÉ±É±µÄÊÂÇé²»ÒªÀ´ÕÒÎÒ¡£");
+	command("say è€å¤«è€äº†ï¼Œæ‰“æ‰“æ€æ€çš„äº‹æƒ…ä¸è¦æ¥æ‰¾æˆ‘ã€‚");
 	me->remove_enemy(ob);
 	ob->remove_killer(me);
 	return;
@@ -85,7 +85,7 @@ void kill_ob(object ob)
 
 int accept_fight(object ob)
 {
-	command("say ÀÏ·òÀÏÁË£¬´ò´òÉ±É±µÄÊÂÇé²»ÒªÀ´ÕÒÎÒ¡£");
+	command("say è€å¤«è€äº†ï¼Œæ‰“æ‰“æ€æ€çš„äº‹æƒ…ä¸è¦æ¥æ‰¾æˆ‘ã€‚");
 	return 0;
 }
 

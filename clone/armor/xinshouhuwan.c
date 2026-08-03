@@ -1,4 +1,4 @@
-// huwan.c »¤Íó
+// huwan.c æŠ¤è…•
 
 #include <ansi.h>
 #include <armor.h>
@@ -7,13 +7,13 @@ inherit WRISTS;
 
 void create()
 {
-        set_name(HIR"ĞÂÈË»¤Íó"NOR, ({ "hu wan", "huwan",}) );
+        set_name(HIR"æ–°äººæŠ¤è…•"NOR, ({ "hu wan", "huwan",}) );
         set_weight(60);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ë«");
-                set("long", "ÕâÊÇÒ»¼şÆ¤ÖÊµÄĞÂÈË»¤Íó£¬¿ÉÒÔ´ó·ùÔö¼ÓÃüÖĞ¡¢¹¥»÷¡¢·ÀÓù¡£\n"); 
+                set("unit", "åŒ");
+                set("long", "è¿™æ˜¯ä¸€ä»¶çš®è´¨çš„æ–°äººæŠ¤è…•ï¼Œå¯ä»¥å¤§å¹…å¢åŠ å‘½ä¸­ã€æ”»å‡»ã€é˜²å¾¡ã€‚\n"); 
 
                 set("value", 100);
                 set("material", "cloth");
@@ -28,7 +28,7 @@ int wear()
 {
         object me = environment();
         if (living(me) && me->query("combat_exp") >1500000){
-            tell_object(me,"ÄãÒÑ¾­²»ÊÇĞÂÈËÁË¡£\n");
+            tell_object(me,"ä½ å·²ç»ä¸æ˜¯æ–°äººäº†ã€‚\n");
             return 0;
         }           
         if(!query("armor_prop/damage")) return 0;

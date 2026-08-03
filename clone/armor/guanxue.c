@@ -1,4 +1,4 @@
-// /clone/armor/guanxue.c   ¹ÙÑ¥
+// /clone/armor/guanxue.c   å®˜é´
 
 #include <armor.h>
 #include <ansi.h>
@@ -6,13 +6,13 @@
 inherit BOOTS;
 void create()
 {
-	set_name(HIW"¹ÙÑ¥"NOR, ({ "guan xue", "xue","shoes" }));
+	set_name(HIW"å®˜é´"NOR, ({ "guan xue", "xue","shoes" }));
 	set_weight(400);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","ÕâÊÇÒ»Ë«³¯Í¢¹ÙÔ±¹ßÓÃµÄ¹ÙÑ¥¡£\n");
-		set("unit", "Ë«");
+		set("long","è¿™æ˜¯ä¸€åŒæœå»·å®˜å‘˜æƒ¯ç”¨çš„å®˜é´ã€‚\n");
+		set("unit", "åŒ");
 		set("value", 200);
 		set("no_transfer",1);
 		set("material", "cloth");

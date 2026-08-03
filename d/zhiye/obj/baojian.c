@@ -1,4 +1,4 @@
-// baojian.c ¶¨ÖÆ±¦½£
+// baojian.c å®šåˆ¶å®å‰‘
 // by augx@sj  9/11/2001
 
 #include <weapon.h>
@@ -7,19 +7,19 @@ inherit SWORD;
 
 void create()
 {
-	set_name(HIY"¶¨ÖÆ±¦½£"NOR, ({ "dingzhi baojian","baojian","sword","jian" }));
+	set_name(HIY"å®šåˆ¶å®å‰‘"NOR, ({ "dingzhi baojian","baojian","sword","jian" }));
 	set_weight(9000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±úÓÉ¿ÍÈË¶¨ÖÆµÄ¾«¸Ö½£¡£ĞèÒªÈËËÍ(song)¸ø¿Í»§¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„ç”±å®¢äººå®šåˆ¶çš„ç²¾é’¢å‰‘ã€‚éœ€è¦äººé€(song)ç»™å®¢æˆ·ã€‚\n");
 		set("value", 1500);
 		set("no_give", 1);
 		set("no_get", 1);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»Ø½£ÇÊ¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›å‰‘é˜ã€‚\n");
 	}
 	init_sword(25);
 	setup();
@@ -40,23 +40,23 @@ int do_give(string arg)
 {
 	object me = this_player() , room , target;
 	
-	if(!arg) return notify_fail("ÄãÒª°Ñ±¦½£ËÍ¸øË­£¿\n");
+	if(!arg) return notify_fail("ä½ è¦æŠŠå®å‰‘é€ç»™è°ï¼Ÿ\n");
 	if(!(int)me->query("worker/job2"))
-		return notify_fail("ÄãÒª°Ñ±¦½£ËÍ¸øË­£¿\n");			
+		return notify_fail("ä½ è¦æŠŠå®å‰‘é€ç»™è°ï¼Ÿ\n");			
 	if( !objectp(room = environment(environment(this_object())) ))
-		return notify_fail("ÄãÒª°Ñ±¦½£ËÍ¸øË­£¿\n");
+		return notify_fail("ä½ è¦æŠŠå®å‰‘é€ç»™è°ï¼Ÿ\n");
 	if( !objectp(target = present(arg, room)) )
-		return notify_fail("ÄãÒª°Ñ±¦½£ËÍ¸øË­£¿\n");
+		return notify_fail("ä½ è¦æŠŠå®å‰‘é€ç»™è°ï¼Ÿ\n");
 	if( me->query("worker/job2_target")!=target->query("name") )
-		return notify_fail("Õâ²»ÊÇÄãÒªËÍ»õµÄ¶ÔÏó£¡\n");
+		return notify_fail("è¿™ä¸æ˜¯ä½ è¦é€è´§çš„å¯¹è±¡ï¼\n");
 	if( me->query("worker/job2_room")!=base_name(room) )
-		return notify_fail("Õâ²»ÊÇÄãÒªËÍ»õµÄ¶ÔÏó£¡\n");
+		return notify_fail("è¿™ä¸æ˜¯ä½ è¦é€è´§çš„å¯¹è±¡ï¼\n");
 	if((int)me->query("worker/job2_far")>0) {
 		if( target->query("player")!=me->query("id") )
-			return notify_fail("Õâ²»ÊÇÄãÒªËÍ»õµÄ¶ÔÏó£¡\n");
+			return notify_fail("è¿™ä¸æ˜¯ä½ è¦é€è´§çš„å¯¹è±¡ï¼\n");
 	}
 	
-	message_vision(HIY"$N°Ñ¸Õ¸Õ´òÔìºÃµÄ¶¨ÖÆ±¦½£ËÍ¸ø$n¡£\n"NOR, me,target);
+	message_vision(HIY"$NæŠŠåˆšåˆšæ‰“é€ å¥½çš„å®šåˆ¶å®å‰‘é€ç»™$nã€‚\n"NOR, me,target);
 	
 	me->set("worker/job2_finish",1);
 	if((int)me->query("worker/job2_far")>0) target->finish();

@@ -10,49 +10,49 @@ int perform(object me,object target)
         if( !target ) target = offensive_target(me);
 
         if( !target || !me->is_fighting(target) )
-                return notify_fail("È­µ¶ºÏÒ»Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");                
+                return notify_fail("æ‹³åˆ€åˆä¸€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");                
 
         if( (int)me->query_skill("yijin-jing", 1) < 100 )
-                return notify_fail("ÄãµÄÄÚ¹¦»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃÈ­µ¶ºÏÒ»£¡\n");    
+                return notify_fail("ä½ çš„å†…åŠŸè¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨æ‹³åˆ€åˆä¸€ï¼\n");    
 
         if( (int)me->query_skill("wenjia-daofa", 1) < 100 )
-                return notify_fail("ÄãµÄµ¶·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃÈ­µ¶ºÏÒ»£¡\n");        
+                return notify_fail("ä½ çš„åˆ€æ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨æ‹³åˆ€åˆä¸€ï¼\n");        
 
         if (!weapon
          || weapon->query("skill_type") != "blade"
          || me->query_skill_mapped("blade") != "wenjia-daofa")
-                return notify_fail("ÄãÊÖÀïÃ»ÓĞµ¶£¬ÎŞ·¨Ê¹ÓÃÈ­µ¶ºÏÒ»£¡\n");
+                return notify_fail("ä½ æ‰‹é‡Œæ²¡æœ‰åˆ€ï¼Œæ— æ³•ä½¿ç”¨æ‹³åˆ€åˆä¸€ï¼\n");
 
         if((int)me->query_skill("wenjia-quan", 1) < 100 )
-                return notify_fail("ÄãµÄÈ­·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃÈ­µ¶ºÏÒ»£¡\n");  
+                return notify_fail("ä½ çš„æ‹³æ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨æ‹³åˆ€åˆä¸€ï¼\n");  
 
         if(me->query_skill_mapped("force") != "yijin-jing")
-                return notify_fail("ÄãµÄÄÚ¹¦²»¶Ô£¬ÎŞ·¨Ê¹ÓÃÈ­µ¶ºÏÒ»£¡\n");      
+                return notify_fail("ä½ çš„å†…åŠŸä¸å¯¹ï¼Œæ— æ³•ä½¿ç”¨æ‹³åˆ€åˆä¸€ï¼\n");      
 
         if(me->query_skill_mapped("cuff") != "wenjia-quan" 
          || me->query_skill_prepared("cuff") != "wenjia-quan")
-                return notify_fail("ÄãÃ»ÓĞÓÃÕÆ£¬ÎŞ·¨Ê¹ÓÃÈ­µ¶ºÏÒ»£¡\n");
+                return notify_fail("ä½ æ²¡æœ‰ç”¨æŒï¼Œæ— æ³•ä½¿ç”¨æ‹³åˆ€åˆä¸€ï¼\n");
 
         if(me->query_skill_mapped("parry") != "wenjia-quan")
          if(me->query_skill_mapped("parry") != "wenjia-daofa")
-                return notify_fail("ÄãµÄÕĞ¼Ü¹¦·ò²»¶Ô£¬ÎŞ·¨Ê¹ÓÃÈ­µ¶ºÏÒ»£¡\n");
+                return notify_fail("ä½ çš„æ‹›æ¶åŠŸå¤«ä¸å¯¹ï¼Œæ— æ³•ä½¿ç”¨æ‹³åˆ€åˆä¸€ï¼\n");
 
         if((int)me->query("max_neili") < 1200 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦ĞŞÎª²»¹»£¬²»ÄÜÊ¹ÓÃÈ­µ¶ºÏÒ»£¡\n");      
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨æ‹³åˆ€åˆä¸€ï¼\n");      
 
         if((int)me->query("neili") < 600 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»×ã£¬²»ÄÜÊ¹ÓÃÈ­µ¶ºÏÒ»£¡\n");      
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨æ‹³åˆ€åˆä¸€ï¼\n");      
 
         if((int)me->query_skill("blade", 1) < 100 )
-                return notify_fail("ÄãµÄ»ù±¾µ¶·¨²»¹»æµÊì£¬²»ÄÜÔÚµ¶ÕĞÖĞ¼ĞÔÓÊ¹ÓÃÈ­µ¶ºÏÒ»¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬åˆ€æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨åˆ€æ‹›ä¸­å¤¹æ‚ä½¿ç”¨æ‹³åˆ€åˆä¸€ã€‚\n");
 
         if((int)me->query_skill("cuff", 1) < 100 )
-                return notify_fail("ÄãµÄ»ù±¾ÕÆ·¨²»¹»æµÊì£¬²»ÄÜÔÚµ¶ÕĞÖĞ¼ĞÔÓÊ¹ÓÃÈ­µ¶ºÏÒ»¡£\n");     
+                return notify_fail("ä½ çš„åŸºæœ¬æŒæ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨åˆ€æ‹›ä¸­å¤¹æ‚ä½¿ç”¨æ‹³åˆ€åˆä¸€ã€‚\n");     
 
-        message_vision(HIC"\n$N´óºğÒ»ÉùÊ¹³öÎÂ¼Ò¾ø¼¼¡¸È­µ¶ºÏÒ»¡¹£¬Ö»¼û$Pµ¶ÖĞ´øÈ¦,¿ñ·ç±©Óê°ã¹¥Ïò$n£¡\n"NOR, me,target);
+        message_vision(HIC"\n$Nå¤§å¼ä¸€å£°ä½¿å‡ºæ¸©å®¶ç»æŠ€ã€Œæ‹³åˆ€åˆä¸€ã€ï¼Œåªè§$Påˆ€ä¸­å¸¦åœˆ,ç‹‚é£æš´é›¨èˆ¬æ”»å‘$nï¼\n"NOR, me,target);
         me->add("neili", -200); 
         me->add("jingli", -50);
-        me->start_perform(4,"È­µ¶ºÏÒ»");  
+        me->start_perform(4,"æ‹³åˆ€åˆä¸€");  
         me->add_temp("apply/attack", j); 
         me->add_temp("apply/dodge",j);
         COMBAT_D->do_attack(me, target, me->query_temp("weapon"),1);
@@ -75,7 +75,7 @@ int perform(object me,object target)
         me->add_temp("apply/dodge",-j);
         me->add_temp("apply/attack", -j);
         me->start_busy(2+random(2));
-        me->start_perform(2+random(2),"È­µ¶ºÏÒ»");
+        me->start_perform(2+random(2),"æ‹³åˆ€åˆä¸€");
         return 1;
 }
 

@@ -3,12 +3,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ê¯É©", ({ "shi sao", "shi", "sao" }));
+        set_name("çŸ³å«‚", ({ "shi sao", "shi", "sao" }));
 	set("long",
-	    "ËýÊÇ¡¸ÁéðÕ¹¬¡¹¾ÅÌì¾Å²¿ÖÐÖìÌì²¿µÄÊ×Áì.\n"+
-	    "Ëý¸úËæÍ¯ÀÑ¶àÄê, ³öÉúÈëËÀ,±¥¾­·çËª.\n");
-	set("title", "ÖìÌì²¿Ê×Áì");
-	set("gender", "Å®ÐÔ");
+	    "å¥¹æ˜¯ã€Œçµé¹«å®«ã€ä¹å¤©ä¹éƒ¨ä¸­æœ±å¤©éƒ¨çš„é¦–é¢†.\n"+
+	    "å¥¹è·Ÿéšç«¥å§¥å¤šå¹´, å‡ºç”Ÿå…¥æ­»,é¥±ç»é£Žéœœ.\n");
+	set("title", "æœ±å¤©éƒ¨é¦–é¢†");
+	set("gender", "å¥³æ€§");
 	set("per",25);
         set("age", 30);
         set("shen_type",1);
@@ -55,7 +55,7 @@ void create()
         prepare_skill("hand", "zhemei-shou");
         prepare_skill("strike", "liuyang-zhang");
 
-        create_family("ÁéðÕ¹¬",3,"µÜ×Ó");
+        create_family("çµé¹«å®«",3,"å¼Ÿå­");
         setup();
         carry_object(__DIR__"obj/qingyi")->wear();
         carry_object(BINGQI_D("changjian"))->wield();

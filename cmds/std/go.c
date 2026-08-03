@@ -3,26 +3,26 @@
 inherit F_CLEAN_UP;
 
 mapping default_dirs = ([
-	"north":	"±±Ãæ",
-	"south":	"ÄÏÃæ",
-	"east":		"¶«Ãæ",
-	"west":		"Î÷Ãæ",
-	"northup":      "±±±ß",
-	"southup":      "ÄÏ±ß",
-	"eastup":       "¶«±ß",
-	"westup":       "Î÷±ß",
-	"northdown":    "±±±ß",
-	"southdown":    "ÄÏ±ß",
-	"eastdown":     "¶«±ß",
-	"westdown":     "Î÷±ß",
-	"northeast":    "¶«±±",
-	"northwest":    "Î÷±±",
-	"southeast":    "¶«ÄÏ",
-	"southwest":    "Î÷ÄÏ",
-	"up":	   "ÉÏÃæ",
-	"down":	 "ÏÂÃæ",
-	"enter":	"ÀïÃæ",
-	"out":	  "ÍâÃæ",
+	"north":	"åŒ—é¢",
+	"south":	"å—é¢",
+	"east":		"ä¸œé¢",
+	"west":		"è¥¿é¢",
+	"northup":      "åŒ—è¾¹",
+	"southup":      "å—è¾¹",
+	"eastup":       "ä¸œè¾¹",
+	"westup":       "è¥¿è¾¹",
+	"northdown":    "åŒ—è¾¹",
+	"southdown":    "å—è¾¹",
+	"eastdown":     "ä¸œè¾¹",
+	"westdown":     "è¥¿è¾¹",
+	"northeast":    "ä¸œåŒ—",
+	"northwest":    "è¥¿åŒ—",
+	"southeast":    "ä¸œå—",
+	"southwest":    "è¥¿å—",
+	"up":	   "ä¸Šé¢",
+	"down":	 "ä¸‹é¢",
+	"enter":	"é‡Œé¢",
+	"out":	  "å¤–é¢",
 ]);
 
 int night = 0;
@@ -46,22 +46,22 @@ int main(object me, string arg)
 	object *obl;
 	mapping dirs;
 
-	if (!arg ) return notify_fail("ÄãÒªÍùÄÄ¸ö·½Ïò×ß£¿\n");
+	if (!arg ) return notify_fail("ä½ è¦å¾€å“ªä¸ªæ–¹å‘èµ°ï¼Ÿ\n");
 	
 	if(arg=="away") {
-		if(!me->is_fighting()) return notify_fail("ÄãÓÖ²»ÔÚÕ½¶·ÖĞÅÜÊ²Ã´ÅÜ£¿\n");
+		if(!me->is_fighting()) return notify_fail("ä½ åˆä¸åœ¨æˆ˜æ–—ä¸­è·‘ä»€ä¹ˆè·‘ï¼Ÿ\n");
 		do_flee(me);
 		return 1;
 	}
 		
 	if (me->query_temp("on_baitan") )
-		return notify_fail("ÄãÕıÔÚ°ÚÌ¯£¬ÆğÉí²»µÃ¡£\n");
+		return notify_fail("ä½ æ­£åœ¨æ‘†æ‘Šï¼Œèµ·èº«ä¸å¾—ã€‚\n");
 		
         if (me->over_encumbranced() && userp(me) )
-		return notify_fail("ÄãµÄ¸ººÉ¹ıÖØ£¬¶¯µ¯²»µÃ¡£\n");
+		return notify_fail("ä½ çš„è´Ÿè·è¿‡é‡ï¼ŒåŠ¨å¼¹ä¸å¾—ã€‚\n");
 
 	if (me->is_busy() )
-		return notify_fail("ÄãµÄ¶¯×÷»¹Ã»ÓĞÍê³É£¬²»ÄÜÒÆ¶¯¡£\n");
+		return notify_fail("ä½ çš„åŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œä¸èƒ½ç§»åŠ¨ã€‚\n");
 	env = environment(me);
 	if (me->is_fighting()) {
 		f_obs = me->query_enemy();
@@ -69,28 +69,28 @@ int main(object me, string arg)
 		if (env == environment(f_obs[0]) && 2 + random((int)me->query_dex()) <= 
 			random((int)f_obs[0]->query_dex())) {
 			me->start_busy(1);
-			if(f_obs[0]->query("race") != "ÈËÀà")
-			       message_vision("$N×ªÉíÏëÅÜ£¬±»$nÃÍµØÒ»ÏÂÆËÉÏÀ´£¬À¹×¡È¥Â·£¡\n", me, f_obs[0]);
-			else message_vision("$N×ªÉí¾ÍÒª¿ªÁï£¬±»$nÒ»°ÑÀ¹×¡£¡\n", me, f_obs[0]);
-			return notify_fail("ÄãÌÓÅÜÊ§°Ü¡£\n");
+			if(f_obs[0]->query("race") != "äººç±»")
+			       message_vision("$Nè½¬èº«æƒ³è·‘ï¼Œè¢«$nçŒ›åœ°ä¸€ä¸‹æ‰‘ä¸Šæ¥ï¼Œæ‹¦ä½å»è·¯ï¼\n", me, f_obs[0]);
+			else message_vision("$Nè½¬èº«å°±è¦å¼€æºœï¼Œè¢«$nä¸€æŠŠæ‹¦ä½ï¼\n", me, f_obs[0]);
+			return notify_fail("ä½ é€ƒè·‘å¤±è´¥ã€‚\n");
 		}
 	}
 
-	if (!env) return notify_fail("ÄãÄÄÀïÒ²È¥²»ÁË¡£\n");
+	if (!env) return notify_fail("ä½ å“ªé‡Œä¹Ÿå»ä¸äº†ã€‚\n");
 
 	dest = env->query("exits/"+arg);
 	if (!dest) {
-		if (query_verb()=="go") notify_fail("Õâ¸ö·½ÏòÃ»ÓĞ³öÂ·¡£\n");
+		if (query_verb()=="go") notify_fail("è¿™ä¸ªæ–¹å‘æ²¡æœ‰å‡ºè·¯ã€‚\n");
 		return 0;
 	}
         dirs = env->query("exits");
         if (!mapp(dirs) || !(dest = dirs[arg])) {
-                if (query_verb()=="go") notify_fail("Õâ¸ö·½ÏòÃ»ÓĞ³öÂ·¡£\n");
+                if (query_verb()=="go") notify_fail("è¿™ä¸ªæ–¹å‘æ²¡æœ‰å‡ºè·¯ã€‚\n");
                 return 0;
         }
 
 	obj = load_object(dest);
-	if (!obj) return notify_fail("Õâ¸ö·½ÏòÎŞ·¨ÒÆ¶¯£¬Çë±¨¸æÎ×Ê¦¡£\n");
+	if (!obj) return notify_fail("è¿™ä¸ªæ–¹å‘æ— æ³•ç§»åŠ¨ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆã€‚\n");
 
 	if (!env->valid_leave(me, arg) ) {
 		if (this_player() == me) write(query_notify_fail());
@@ -101,37 +101,37 @@ int main(object me, string arg)
 	cost += env->query("jingli_cost/"+arg);
 	if (NATURE_D->is_night()) cost *= 2;
 	if (userp(me) && !wizardp(me) && me->query("jingli") < cost)
-		return notify_fail("ÄãÌ«ÀÛÁË£¬ĞİÏ¢Ò»ÏÂÔÙ×ß°É¡£\n");
+		return notify_fail("ä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¸‹å†èµ°å§ã€‚\n");
 
 	dir = obj->query("short");
 	
 	if (obj->query("daytime_only") && NATURE_D->is_night()){
 		if(stringp(min = obj->query("daytime_only"))) return notify_fail(min);
-		return notify_fail(dir+"ÒÑ¾­¹ØÃÅÁË£¬ÄãµÈÌìÁÁÁËÔÙÀ´°É£¡\n");
+		return notify_fail(dir+"å·²ç»å…³é—¨äº†ï¼Œä½ ç­‰å¤©äº®äº†å†æ¥å§ï¼\n");
 	}
 
 	if (!undefinedp(default_dirs[arg]))
-		dir = default_dirs[arg] + "µÄ" + dir;
+		dir = default_dirs[arg] + "çš„" + dir;
 
 	if (me->is_fighting() && !me->clean_up_enemy() && me->is_fighting()) {
-		mout = "Íù" + dir + "Âä»Ä¶øÌÓÁË¡£\n";
-		min = "´Ó" + env->query("short") + "µøµø×²×²µØÅÜÁË¹ıÀ´£¬Ä£ÑùÓĞĞ©ÀÇ±·¡£\n";
+		mout = "å¾€" + dir + "è½è’è€Œé€ƒäº†ã€‚\n";
+		min = "ä»" + env->query("short") + "è·Œè·Œæ’æ’åœ°è·‘äº†è¿‡æ¥ï¼Œæ¨¡æ ·æœ‰äº›ç‹¼ç‹ˆã€‚\n";
 	} else {
 		min = mout = me->query_condition("killer")?
-			"ÉñÉ«»ÅÕÅµØ":"";
-		mout += "Íù" + dir + "Àë¿ª¡£\n";
+			"ç¥è‰²æ…Œå¼ åœ°":"";
+		mout += "å¾€" + dir + "ç¦»å¼€ã€‚\n";
 		switch(me->query("race")) {
-			case "ÈËÀà":
-				min += "´Ó" + env->query("short") + "×ßÁË¹ıÀ´¡£\n";
+			case "äººç±»":
+				min += "ä»" + env->query("short") + "èµ°äº†è¿‡æ¥ã€‚\n";
 				break;
 			default:
-				min = "´Ó" + env->query("short") + "´ÚÁË¹ıÀ´¡£\n";
+				min = "ä»" + env->query("short") + "è¹¿äº†è¿‡æ¥ã€‚\n";
 		}
 	}
 
         if (me->query_condition("no_force")) me->start_busy(1);
 
-//--------´ÓÕâÀï¿ªÊ¼¡£ĞŞ¸ÄÒ»ÏÂ½øÈëºÍÀë¿ªµÄÃèÊö£¬¶Ô¶ÓÔ±£¬Ã»ÓĞÉèÖÃÆÁ±ÎµÄ£¬ÎÒ²»ÔÚÕ½¶·£¨Âä»Ä¶øÌÓÊÇÓ¦¸Ã¿´µÃ¼ûµÄ£©£¬ÎÒ²»ÊÇuserp(npcµÄ×ß¶¯Ó¦¸ÃÈÎºÎÈË¶¼¿ÉÒÔ¿´µÃ¼û¡£)------------------------
+//--------ä»è¿™é‡Œå¼€å§‹ã€‚ä¿®æ”¹ä¸€ä¸‹è¿›å…¥å’Œç¦»å¼€çš„æè¿°ï¼Œå¯¹é˜Ÿå‘˜ï¼Œæ²¡æœ‰è®¾ç½®å±è”½çš„ï¼Œæˆ‘ä¸åœ¨æˆ˜æ–—ï¼ˆè½è’è€Œé€ƒæ˜¯åº”è¯¥çœ‹å¾—è§çš„ï¼‰ï¼Œæˆ‘ä¸æ˜¯userp(npcçš„èµ°åŠ¨åº”è¯¥ä»»ä½•äººéƒ½å¯ä»¥çœ‹å¾—è§ã€‚)------------------------
 if (me->move(obj) ) {
 
 
@@ -141,8 +141,8 @@ obl = all_inventory(env);
   if(me->query_team()) { foreach (ob in obl )
 
          {                 
-                     if( member_array(ob,me->query_team())!=-1 //¶ÓÔ±£¨ÏÔÊ¾»òÕß²»ÏÔÊ¾£©
-                      || !ob->query("env/brf_go")           //ÉèÖÃÁËÏÔÊ¾
+                     if( member_array(ob,me->query_team())!=-1 //é˜Ÿå‘˜ï¼ˆæ˜¾ç¤ºæˆ–è€…ä¸æ˜¾ç¤ºï¼‰
+                      || !ob->query("env/brf_go")           //è®¾ç½®äº†æ˜¾ç¤º
                       || me->is_fighting() || !userp(me) && ob!=me  )    
          tell_object(ob, me->name() + mout);
           }
@@ -162,8 +162,8 @@ obl = all_inventory(obj);
   if(me->query_team()) { foreach (ob in obl )
 
          {                 
-                     if( (member_array(ob,me->query_team())!=-1 //¶ÓÔ±£¨ÏÔÊ¾»òÕß²»ÏÔÊ¾£©
-                      || !ob->query("env/brf_go")           //ÉèÖÃÁËÏÔÊ¾
+                     if( (member_array(ob,me->query_team())!=-1 //é˜Ÿå‘˜ï¼ˆæ˜¾ç¤ºæˆ–è€…ä¸æ˜¾ç¤ºï¼‰
+                      || !ob->query("env/brf_go")           //è®¾ç½®äº†æ˜¾ç¤º
                       || me->is_fighting() || !userp(me)) && ob!=me )    
          tell_object(ob, me->name() + min);
           }
@@ -199,16 +199,16 @@ void do_flee(object me)
 	exits = environment(me)->query("exits");
 	if (!mapp(exits) || !sizeof(exits) ) return;
 	directions = keys(exits);
-	tell_object(me, "¿´À´¸ÃÕÒ»ú»áÌÓÅÜÁË...\n");
+	tell_object(me, "çœ‹æ¥è¯¥æ‰¾æœºä¼šé€ƒè·‘äº†...\n");
 	main(me, directions[random(sizeof(directions))]);
 }
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : go <·½Ïò>
+æŒ‡ä»¤æ ¼å¼ : go <æ–¹å‘>
  
-ÈÃÄãÍùÖ¸¶¨µÄ·½ÏòÒÆ¶¯¡£
+è®©ä½ å¾€æŒ‡å®šçš„æ–¹å‘ç§»åŠ¨ã€‚
  
 HELP
     );

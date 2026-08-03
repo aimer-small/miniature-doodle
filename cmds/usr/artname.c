@@ -1,6 +1,6 @@
 // artname.c
 // by snowman@SJ 22/05/2000
-// bbb Ëµ¼Óµã·Ï»°£¬ÒÔ±ã¸üĞÂ£¡£¡£¡
+// bbb è¯´åŠ ç‚¹åºŸè¯ï¼Œä»¥ä¾¿æ›´æ–°ï¼ï¼ï¼
 
 inherit F_CLEAN_UP;
 inherit F_SAVE;
@@ -11,8 +11,8 @@ inherit F_SAVE;
 
 
 nosave string *banned_sword_name = ({
-"É±ÊÖ", "ÉÁµç","åĞÒ£","Ñ©ÈË", "Ä³ÈË","ËûÂèµÄ","È¥ÄãµÄ", "Ã«Ôó¶«", "µËĞ¡Æ½", "½­ÔóÃñ", "Î×Ê¦",
-"Êé½£", "²ÙÄãÂè", "¸ÉÄãÄï","½ğÓ¹", "ÎÒÃÇ","ÄãÃÇ", "ËûÃÇ", "´ó¼Ò", "´Ìâ¬","°®ÆŞÍè",
+"æ€æ‰‹", "é—ªç”µ","é€é¥","é›ªäºº", "æŸäºº","ä»–å¦ˆçš„","å»ä½ çš„", "æ¯›æ³½ä¸œ", "é‚“å°å¹³", "æ±Ÿæ³½æ°‘", "å·«å¸ˆ",
+"ä¹¦å‰‘", "æ“ä½ å¦ˆ", "å¹²ä½ å¨˜","é‡‘åº¸", "æˆ‘ä»¬","ä½ ä»¬", "ä»–ä»¬", "å¤§å®¶", "åˆºçŒ¬","çˆ±å¦»ä¸¸",
 });
 
 mapping artnames;
@@ -40,32 +40,33 @@ string clean_all()
 {
         artnames = ([ ]);
         remove();
-        return "ÌáÒéÈ«²¿Çå³şÍê±Ï¡£\n";
+        return "æè®®å…¨éƒ¨æ¸…æ¥šå®Œæ¯•ã€‚\n";
 }
 
 string clean_name(string name)
 {
 	map_delete(artnames, name);
         remove();
-        return name+"µÄÌáÒéÇå³şÍê±Ï¡£\n";
+        return name+"çš„æè®®æ¸…æ¥šå®Œæ¯•ã€‚\n";
 }
 
 int check_legal_name(string name)
 {
 	int i = strlen(name);
-	if (i < 4 || i > 10 || i%2) {
-		write("¶Ô²»Æğ£¬ÄúÒªÌáÒéµÄµÄÍâºÅ±ØĞëÊÇ¶şµ½Îå¸öÖĞÎÄ×Ö¡£\n");
+	// FluffOS: strlen returns EGC count, not byte count
+	if (i < 2 || i > 5) {
+		write("å¯¹ä¸èµ·ï¼Œæ‚¨è¦æè®®çš„çš„å¤–å·å¿…é¡»æ˜¯äºŒåˆ°äº”ä¸ªä¸­æ–‡å­—ã€‚\n");
 		return 0;
 	}
 
 	while(i--)
-		if( i%2==0 && !is_chinese(name[i..<0]) ) {
-			write("¶Ô²»Æğ£¬ÇëÄúÓÃ¡¸ÖĞÎÄ¡¹È¡ÍâºÅ¡£\n");
+		if( !is_chinese(name[i..i]) ) {
+			write("å¯¹ä¸èµ·ï¼Œè¯·æ‚¨ç”¨ã€Œä¸­æ–‡ã€å–å¤–å·ã€‚\n");
 			return 0;
 		}
 
 	if( member_array(name, banned_sword_name)!=-1 ) {
-		write("¶Ô²»Æğ£¬ÕâÖÖÍâºÅ»áÔì³ÉÆäËûÈËµÄÀ§ÈÅ¡£\n");
+		write("å¯¹ä¸èµ·ï¼Œè¿™ç§å¤–å·ä¼šé€ æˆå…¶ä»–äººçš„å›°æ‰°ã€‚\n");
 		return 0;
 	}
 	return 1;
@@ -79,16 +80,16 @@ int main(object me, string str)
 	int i;
 	
 	if ( me->is_busy() || me->is_fighting() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¬µÈÏĞÏÂÀ´ÔÙËµ°É¡£\n");	
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼Œç­‰é—²ä¸‹æ¥å†è¯´å§ã€‚\n");	
 	
 	if ( base_name(environment(me)) != "/d/city/jiulou2") 
-		return notify_fail("Äã±ØĞëµ½½­ºşÈË¾Û¼¯µÄµØ·½²ÅÄÜÌáÒé±ğÈËµÄÍâºÅ£¬±ÈÈç£ºÑïÖİÊİÎ÷ºşÑÅÂ¥¡£\n");
+		return notify_fail("ä½ å¿…é¡»åˆ°æ±Ÿæ¹–äººèšé›†çš„åœ°æ–¹æ‰èƒ½æè®®åˆ«äººçš„å¤–å·ï¼Œæ¯”å¦‚ï¼šæ‰¬å·ç˜¦è¥¿æ¹–é›…æ¥¼ã€‚\n");
 
 	if ( !str ) 
-		return notify_fail("ÏëºÃÁËÒªÎªË­ÌáÒé¸öÏìÁÁµÄÍâºÅÃ»ÓĞ£¿¸ñÊ½£º artname <id> <ÍâºÅ> \n");	
+		return notify_fail("æƒ³å¥½äº†è¦ä¸ºè°æè®®ä¸ªå“äº®çš„å¤–å·æ²¡æœ‰ï¼Ÿæ ¼å¼ï¼š artname <id> <å¤–å·> \n");	
 	
 	if (sscanf(str, "%s %s", str, art) != 2 )
-	 	return notify_fail("ÏëºÃÁËÒªÎªË­ÌáÒé¸öÏìÁÁµÄÍâºÅÃ»ÓĞ£¿¸ñÊ½£º artname <id> <ÍâºÅ> \n");
+	 	return notify_fail("æƒ³å¥½äº†è¦ä¸ºè°æè®®ä¸ªå“äº®çš„å¤–å·æ²¡æœ‰ï¼Ÿæ ¼å¼ï¼š artname <id> <å¤–å·> \n");
 	
 	if ( str == "-clear" && wizardp(me) ){
 		if( art == "all" )
@@ -98,30 +99,30 @@ int main(object me, string str)
 	
 		
 	if ( str == me->query("id") && !wizardp(me) )
-		return notify_fail("¸ø×Ô¼ºÆğ£¿½­ºş¿É²»ÊÇ°ì¼Ò¼Ò£¬µÃ±ğÈËÈÏÍ¬²ÅĞĞ£¡\n");	
+		return notify_fail("ç»™è‡ªå·±èµ·ï¼Ÿæ±Ÿæ¹–å¯ä¸æ˜¯åŠå®¶å®¶ï¼Œå¾—åˆ«äººè®¤åŒæ‰è¡Œï¼\n");	
 	
 	if ( me->query("combat_exp") < 100000 )
-		return notify_fail("ÄãÔÚ½­ºşÀïµÄÃûÉù»¹²»¹»ÏìÁÁ£¬ÅÂÃ»×Ê¸ñ¸ø±ğÈËÆğÍâºÅ°É£¿\n");	
+		return notify_fail("ä½ åœ¨æ±Ÿæ¹–é‡Œçš„åå£°è¿˜ä¸å¤Ÿå“äº®ï¼Œæ€•æ²¡èµ„æ ¼ç»™åˆ«äººèµ·å¤–å·å§ï¼Ÿ\n");	
 				
 	if( !check_legal_name(art) ) 
-		return notify_fail(HIW"Õâ¸öÌáÒé²»ºÃ£¬ÄãÔÙÏë¹ı¡£\n"NOR);
+		return notify_fail(HIW"è¿™ä¸ªæè®®ä¸å¥½ï¼Œä½ å†æƒ³è¿‡ã€‚\n"NOR);
 	
 	ob = LOGIN_D->find_body(str);
 	if ( !ob ) ob = find_living(str);
 	
 	if( !mapp(mp = artnames[str] ) ){
 		if(sizeof(keys(artnames)) >= LIMIT ) 
-			return notify_fail("¶Ô²»Æğ£¬Ä¿Ç°Ö»ÄÜÔÊĞíÍ¬Ê±ÌáÒéÊ®¸öÈËµÄĞÂÍâºÅ¡£\n"NOR);
+			return notify_fail("å¯¹ä¸èµ·ï¼Œç›®å‰åªèƒ½å…è®¸åŒæ—¶æè®®åä¸ªäººçš„æ–°å¤–å·ã€‚\n"NOR);
 		if ( !ob || !me->visible(ob)) 
-			return notify_fail(YEL"\nÄãÒªÌáÒéµÄÈËÄ¿Ç°²»ÔÚÓÎÏ·ÖĞ£¬µÈ´ËÈË½øÈëÓÎÏ·ÔÙËµ°É¡£\n\n"NOR);
+			return notify_fail(YEL"\nä½ è¦æè®®çš„äººç›®å‰ä¸åœ¨æ¸¸æˆä¸­ï¼Œç­‰æ­¤äººè¿›å…¥æ¸¸æˆå†è¯´å§ã€‚\n\n"NOR);
 		if ( stringp(artname = ob->query("artname")) 
 		&& artname != "" 
 		&& ob->query("artname_time")
-		&& time()*60 > ob->query("artname_time") ) // Ê®Äê²ÅÄÜ»»Ò»´Î¡£
-			return notify_fail("´ËÈËÒÑ¾­ÓĞÍâºÅÀ²£¬½Ğ×ö¡°"+artname+"¡±£¡ÒªÌáÒéĞÂÍâºÅ£¬µÃµÈÊ®ÄêÒ»´ÎµÄ»ú»á¡£\n");	
+		&& time()*60 > ob->query("artname_time") ) // åå¹´æ‰èƒ½æ¢ä¸€æ¬¡ã€‚
+			return notify_fail("æ­¤äººå·²ç»æœ‰å¤–å·å•¦ï¼Œå«åšâ€œ"+artname+"â€ï¼è¦æè®®æ–°å¤–å·ï¼Œå¾—ç­‰åå¹´ä¸€æ¬¡çš„æœºä¼šã€‚\n");	
 		
 		if ( art == ob->query("name") )
-			return notify_fail("Õâ¸öÍâºÅºÍ´ËÈËµÄÃû×ÖÏàÍ¬Ò®£¬Ïë¸ö±ğµÄ£¿\n");	
+			return notify_fail("è¿™ä¸ªå¤–å·å’Œæ­¤äººçš„åå­—ç›¸åŒè€¶ï¼Œæƒ³ä¸ªåˆ«çš„ï¼Ÿ\n");	
 
 		artnames[str] = ([ art : ({ me->query("id"),query_ip_number(me)  })  ]);
 		//artnames[str] = ([ art : ([ me->query("id"): ])  ]);
@@ -129,20 +130,20 @@ int main(object me, string str)
 	
 	else {
 		if ( sizeof(keys(artnames[str])) >= 9 )
-			return notify_fail(YEL"\n¶Ô²»Æğ£¬×î¶à¿ÉÌáÒé¾Å¸öÍâºÅ£¬ÇëÔÚÒÑÓĞµÄ¾Å¸öÀïÑ¡Ôñ¡£\n\n"NOR);
+			return notify_fail(YEL"\nå¯¹ä¸èµ·ï¼Œæœ€å¤šå¯æè®®ä¹ä¸ªå¤–å·ï¼Œè¯·åœ¨å·²æœ‰çš„ä¹ä¸ªé‡Œé€‰æ‹©ã€‚\n\n"NOR);
 		if( artnames[str][art] && member_array(me->query("id"), artnames[str][art] )!=-1 ) 
-			return notify_fail(YEL"\n¶Ô²»Æğ£¬×î¶à¿ÉÒÔ¸øÒ»¸öÍâºÅÍ¶Ò»´ÎÆ±¡£\n\n"NOR);
+			return notify_fail(YEL"\nå¯¹ä¸èµ·ï¼Œæœ€å¤šå¯ä»¥ç»™ä¸€ä¸ªå¤–å·æŠ•ä¸€æ¬¡ç¥¨ã€‚\n\n"NOR);
 		if( artnames[str][art] && member_array(query_ip_number(me), artnames[str][art] )!=-1 ) 
-			return notify_fail(YEL"\n¶Ô²»Æğ£¬Í¬Ò»Á¬ÏßµØÖ·×î¶à¿ÉÒÔ¸øÒ»¸öÍâºÅÍ¶Ò»´ÎÆ±¡£\n\n"NOR);
+			return notify_fail(YEL"\nå¯¹ä¸èµ·ï¼ŒåŒä¸€è¿çº¿åœ°å€æœ€å¤šå¯ä»¥ç»™ä¸€ä¸ªå¤–å·æŠ•ä¸€æ¬¡ç¥¨ã€‚\n\n"NOR);
 		if( !artnames[str][art] )
 			artnames[str] += ([ art : ({ me->query("id"),query_ip_number(me) }) ]);
 		else 	artnames[str][art] += ({ me->query("id"),query_ip_number(me) });
 	}
 	
 	i = sizeof(artnames[str][art]);
-	message_vision(MAG"\n$N×ßÉÏÇ°È¥£¬´ó±ÊÔÚ¾íÉÏÒ»»Ó£º¡¸ÎÒÔŞÍ¬°Ñ¡°"+art+"¡±Õâ¸öÍâºÅ¸ø "+capitalize(str)+"£¡¡¹\n"NOR, me);
+	message_vision(MAG"\n$Nèµ°ä¸Šå‰å»ï¼Œå¤§ç¬”åœ¨å·ä¸Šä¸€æŒ¥ï¼šã€Œæˆ‘èµåŒæŠŠâ€œ"+art+"â€è¿™ä¸ªå¤–å·ç»™ "+capitalize(str)+"ï¼ã€\n"NOR, me);
 	i /=2;	
-	write("\nÄãÔÚ¾í²¯ÉÏ¶à¼ÇÁËÒ»µÀ£¬Õâ¸öÍâºÅÄ¿Ç°¹²ÓĞ "+to_chinese(i)+" ÈËÔŞ³É¡£\n");
+	write("\nä½ åœ¨å·å¸›ä¸Šå¤šè®°äº†ä¸€é“ï¼Œè¿™ä¸ªå¤–å·ç›®å‰å…±æœ‰ "+to_chinese(i)+" äººèµæˆã€‚\n");
         if( (i > 30 && ob) || wizardp(me))
 	//if( i > 1 && ob )
 	{
@@ -157,9 +158,9 @@ void give_artname(object ob, string art)
 {
 	if ( !ob || !stringp(art) ) return;
 	//ob->set("artname", art);
-	//ob->set("artname_time", time()*60 + 31536000 );  // Ê®Äê¡£
+	//ob->set("artname_time", time()*60 + 31536000 );  // åå¹´ã€‚
 	//ob->save();
 	BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "UPDATE members SET title = '"+strip(art)+"' WHERE username = '"+ob->query("id")+"@"+lower_case(INTERMUD_MUD_NAME)+"'");
 	//message("wizard:linux", "UPDATE members SET title = '"+strip(art)+"' WHERE username = '"+ob->query("id")+"@"+lower_case(INTERMUD_MUD_NAME)+"'", users());
-	message("chat", HIY +"\n¡¾½­ºş´«ÑÔ¡¿£º¾­½­ºşÍ¬µÀÌáÒéÍ¨¹ı£¬"+ob->name(1)+"ÔÚÊé½£ÂÛÌ³("+HIW+U+"http://bbs.mymud.com"+NOR+HIY+")»ñµÃĞÂµÄÍâºÅ£º"+HIG+art+HIY+"£¡\n"NOR, users());
+	message("chat", HIY +"\nã€æ±Ÿæ¹–ä¼ è¨€ã€‘ï¼šç»æ±Ÿæ¹–åŒé“æè®®é€šè¿‡ï¼Œ"+ob->name(1)+"åœ¨ä¹¦å‰‘è®ºå›("+HIW+U+"http://bbs.mymud.com"+NOR+HIY+")è·å¾—æ–°çš„å¤–å·ï¼š"+HIG+art+HIY+"ï¼\n"NOR, users());
 }

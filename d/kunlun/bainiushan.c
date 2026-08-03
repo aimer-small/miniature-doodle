@@ -11,21 +11,21 @@ void delete_done(object me);
 
 void create()
 {
-	 set("short", "°×Å£É½");
+	 set("short", "ç™½ç‰›å±±");
 	 set("long",@long
-Õâ×ùÉ½ÒòÖÕÄê¸²¸Ç°×Ñ©£¬ÇÒÐÎ×´Ô¶ÍûÈçÒ»Í·ÕýÔÚ³Ô²ÝµÄÅ£¶øµÃÃû¡£ÕâÀïº®
-·çºôÐ¥£¬ÁÝÙý´Ì¹Ç£¬Äã²»½û´òÁË¸öº®²ü¡£É½¶¥ÓÐÒ»´¦Æ½µØ£¬·ÅÓÐÒ»¿éÇàÉ«µÄ¾Þ
-Ê¯(stone)¡£
+è¿™åº§å±±å› ç»ˆå¹´è¦†ç›–ç™½é›ªï¼Œä¸”å½¢çŠ¶è¿œæœ›å¦‚ä¸€å¤´æ­£åœ¨åƒè‰çš„ç‰›è€Œå¾—åã€‚è¿™é‡Œå¯’
+é£Žå‘¼å•¸ï¼Œå‡›å†½åˆºéª¨ï¼Œä½ ä¸ç¦æ‰“äº†ä¸ªå¯’é¢¤ã€‚å±±é¡¶æœ‰ä¸€å¤„å¹³åœ°ï¼Œæ”¾æœ‰ä¸€å—é’è‰²çš„å·¨
+çŸ³(stone)ã€‚
 long);
 	 set("exits",([
              "southwest" : __DIR__"fufengshan",
          ]));
 
          set("item_desc", ([
-	     "stone" : "Õâ¿é¾ÞÊ¯ºÜ´ó£¬¿ÉÒÔÌÉÏÂÒ»¸öÈË¡£±íÃæÊ®·ÖÆ½Õû¹â»¬£¬ËÆºõ³£ÓÐÈËÄ¦êý¡£\n",
+	     "stone" : "è¿™å—å·¨çŸ³å¾ˆå¤§ï¼Œå¯ä»¥èººä¸‹ä¸€ä¸ªäººã€‚è¡¨é¢ååˆ†å¹³æ•´å…‰æ»‘ï¼Œä¼¼ä¹Žå¸¸æœ‰äººæ‘©æŒ²ã€‚\n",
 	 ]));
 
-         set("outdoors", "À¥ÂØ");
+         set("outdoors", "æ˜†ä»‘");
          setup();
 }
 
@@ -38,16 +38,16 @@ void init()
 int do_wo(string arg)
 {
 	 if ( !arg || (arg != "stone") )
-		return notify_fail("ÄãÒªÎÔÔÚÊ²Ã´ÉÏÃæ£¿\n");
+		return notify_fail("ä½ è¦å§åœ¨ä»€ä¹ˆä¸Šé¢ï¼Ÿ\n");
 
 	 if (this_player()->is_busy())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	 if (this_player()->query_temp("marks/wo"))
-		return notify_fail("ÄãÒÑ¾­ÌÉÔÚÇàÊ¯ÉÏÁË¡£\n");
+		return notify_fail("ä½ å·²ç»èººåœ¨é’çŸ³ä¸Šäº†ã€‚\n");
 
 	 this_player()->set_temp("marks/wo", 1);
-	       return notify_fail("Äã²àÉíÌÉÓÚÇàÊ¯ÉÏ£¬ÒâÊØµ¤Ìï£¬¿ÚÑÛÇá±Õ£¬Ë«ÍÈ×ÔÈ»Î¢Çú£¬È«Éí·ÅËÉ¡£\n");
+	       return notify_fail("ä½ ä¾§èº«èººäºŽé’çŸ³ä¸Šï¼Œæ„å®ˆä¸¹ç”°ï¼Œå£çœ¼è½»é—­ï¼ŒåŒè…¿è‡ªç„¶å¾®æ›²ï¼Œå…¨èº«æ”¾æ¾ã€‚\n");
 }
 
 int do_breathe()
@@ -57,24 +57,24 @@ int do_breathe()
 	 string* quest_skill = ({ "jiuyin-zhengong","hamagong", "kuihua-xinfa" });
 	 	 	 
  	 if( !me->query_temp("marks/wo") )
-		return notify_fail("ÄãÉîÉîÎüÁË¼¸¿ÚÆø£¬Ö»¾õµÃº®Æø³å½øÎåÔàÁù¸­£¬ÌåÄÚµÄÕæÆø¼¸ºõÌá²»ÆðÀ´¡£\n");
+		return notify_fail("ä½ æ·±æ·±å¸äº†å‡ å£æ°”ï¼Œåªè§‰å¾—å¯’æ°”å†²è¿›äº”è„å…­è…‘ï¼Œä½“å†…çš„çœŸæ°”å‡ ä¹Žæä¸èµ·æ¥ã€‚\n");
 
 	 if (me->is_busy())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	 if( me->query_temp("marks/done") )
-		return notify_fail("º®·çÁÝÙý£¬Äã¸ÕÔË¹ý¹¦£¬Éí×ÓÕýÊ®·ÖÐéÈõ£¬ÏÈºÃºÃÐÝÏ¢Ò»ÏÂ°É¡£\n");
+		return notify_fail("å¯’é£Žå‡›å†½ï¼Œä½ åˆšè¿è¿‡åŠŸï¼Œèº«å­æ­£ååˆ†è™šå¼±ï¼Œå…ˆå¥½å¥½ä¼‘æ¯ä¸€ä¸‹å§ã€‚\n");
 
 	 if( me->query_skill("force", 1) < 51 )
-		return notify_fail("ÄãÄÚ¹¦»ùµ×Ì«Èõ£¬²»¿ÉÒÔËæÒâ¿ØÖÆÄÚÏ¢¡£\n");
+		return notify_fail("ä½ å†…åŠŸåŸºåº•å¤ªå¼±ï¼Œä¸å¯ä»¥éšæ„æŽ§åˆ¶å†…æ¯ã€‚\n");
 		
 	 if(me->query_skill("force", 1) > 100)
-	        return notify_fail("ÄãµÄÄÚ¹¦ÒÑ¾­ÓÐÒ»¶¨»ù´¡ÁË£¬ÔÚÕâÀïºôÎüÒÑ¾­Ã»Ê²Ã´×÷ÓÃÁË¡£\n");	
+	        return notify_fail("ä½ çš„å†…åŠŸå·²ç»æœ‰ä¸€å®šåŸºç¡€äº†ï¼Œåœ¨è¿™é‡Œå‘¼å¸å·²ç»æ²¡ä»€ä¹ˆä½œç”¨äº†ã€‚\n");	
 
 	if(!skill) skill="force";
 	if( member_array(skill,quest_skill)!= -1 ) skill="force";
 				
-	 message_vision("$N¼¯¾ÛÌåÄÚÕæÆø£¬ÉîÉîÎü½ø¼¸¿ÚÆø£¬»º»ººô³ö£¬Ö»¾õµÃÈ«ÉíÍ¸³¹ÇåÁ¹£¬ÐÄ¶¨ËÆË®£¬·Â·ðÒÑÎïÎÒ»ëÈ»Ò»Ìå¡£\n", me);
+	 message_vision("$Né›†èšä½“å†…çœŸæ°”ï¼Œæ·±æ·±å¸è¿›å‡ å£æ°”ï¼Œç¼“ç¼“å‘¼å‡ºï¼Œåªè§‰å¾—å…¨èº«é€å½»æ¸…å‡‰ï¼Œå¿ƒå®šä¼¼æ°´ï¼Œä»¿ä½›å·²ç‰©æˆ‘æµ‘ç„¶ä¸€ä½“ã€‚\n", me);
 	 me->receive_damage("jing", random(30));
  	 me->receive_damage("qi",   random(30));
 	 me->improve_skill(skill, (int)(me->query_int())/2 + (int)(me->query_skill("force"))/5);

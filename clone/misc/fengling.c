@@ -1,4 +1,4 @@
-// fengling.c ±´¿Ç·çÁå
+// fengling.c è´å£³é£é“ƒ
 // By River@SJ 
 
 inherit ITEM;
@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(MAG"±´¿Ç·çÁå"NOR, ({ "fengling", "ling" }));
+	set_name(MAG"è´å£³é£é“ƒ"NOR, ({ "fengling", "ling" }));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "´®");
-		set("long", "Ò»´®ÓÃ¸÷É«º£±´´®³ÉµÄ·çÁå,Îå¹âÊ®É«,·çÒ»´µ,·¢³öÔÃ¶úµÄ¶£îõµÄÀÖÒô¡£\n");
+		set("unit", "ä¸²");
+		set("long", "ä¸€ä¸²ç”¨å„è‰²æµ·è´ä¸²æˆçš„é£é“ƒ,äº”å…‰åè‰²,é£ä¸€å¹,å‘å‡ºæ‚¦è€³çš„å®é“›çš„ä¹éŸ³ã€‚\n");
 		set("value", 1300);
 		set("material", "shell");
 	}
@@ -33,11 +33,11 @@ int do_bo(string arg)
         if (!id(arg))  return 0;
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	
         color = colors[random(sizeof(colors))];
 
-        message_vision(color+"\n$NÓÃÊÖÖ¸ÇáÇáµØ¸§Åª×Å·çÁå,Ë¼Ğ÷Ò²·Â·ğËæ×ÅÁåÒôÆ®ÏòÔ¶·½¡£\n"NOR, me); 
+        message_vision(color+"\n$Nç”¨æ‰‹æŒ‡è½»è½»åœ°æŠšå¼„ç€é£é“ƒ,æ€ç»ªä¹Ÿä»¿ä½›éšç€é“ƒéŸ³é£˜å‘è¿œæ–¹ã€‚\n"NOR, me); 
         me->add_busy(1);
 	return 1;
 }

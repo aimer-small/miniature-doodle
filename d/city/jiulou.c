@@ -17,150 +17,150 @@ string look_table();
 void quarter_pass();
 
 mapping *food = ({
-([	"name" : "ÓÍÌõ",
-	"unit" : "¸ù",
+([	"name" : "æ²¹æ¡",
+	"unit" : "æ ¹",
 	"short" : "youtiao",
 	"value" : 10,
-	"time" : "Ôç",
+	"time" : "æ—©",
 	"remaining" : 1,
 	"supply" : 30
 ]),
-([	"name" : "Ğ¡Áı°ü",
-	"unit" : "ÅÌ",
+([	"name" : "å°ç¬¼åŒ…",
+	"unit" : "ç›˜",
 	"short" : "baozi",
 	"value" : 20,
-	"time" : "Ôç",
+	"time" : "æ—©",
 	"remaining" : 2,
 	"supply" : 30
 ]),
-([	"name" : "ÑïÖİ³´·¹",
-	"unit" : "Íë",
+([	"name" : "æ‰¬å·ç‚’é¥­",
+	"unit" : "ç¢—",
 	"short" : "chaofan",
 	"value" : 40,
-	"time" : "Îç",
+	"time" : "åˆ",
 	"remaining" : 4,
 	"supply" : 30
 ]),
-([	"name" : "ÓãÏãÈâË¿",
-	"unit" : "ÅÌ",
+([	"name" : "é±¼é¦™è‚‰ä¸",
+	"unit" : "ç›˜",
 	"short" : "rousi",
 	"value" : 120,
-	"time" : "Îç",
+	"time" : "åˆ",
 	"remaining" : 6,
 	"supply" : 50
 ]),
-([	"name" : "ÇåÕôÀğÓã",
-	"unit" : "ÅÌ",
+([	"name" : "æ¸…è’¸é²¤é±¼",
+	"unit" : "ç›˜",
 	"short" : "liyu",
 	"value" : 200,
-	"time" : "Îç",
+	"time" : "åˆ",
 	"remaining" : 9,
 	"supply" : 50
 ]),
-([	"name" : "ÑïÖİ³´·¹",
-	"unit" : "Íë",
+([	"name" : "æ‰¬å·ç‚’é¥­",
+	"unit" : "ç¢—",
 	"short" : "chaofan",
 	"value" : 40,
-	"time" : "Íí",
+	"time" : "æ™š",
 	"remaining" : 4,
 	"supply" : 30
 ]),
-([	"name" : "ÓãÏãÈâË¿",
-	"unit" : "ÅÌ",
+([	"name" : "é±¼é¦™è‚‰ä¸",
+	"unit" : "ç›˜",
 	"short" : "rousi",
 	"value" : 120,
-	"time" : "Íí",
+	"time" : "æ™š",
 	"remaining" : 6,
 	"supply" : 50
 ]),
-([	"name" : "ÇåÕôÀğÓã",
-	"unit" : "ÅÌ",
+([	"name" : "æ¸…è’¸é²¤é±¼",
+	"unit" : "ç›˜",
 	"short" : "liyu",
 	"value" : 200,
-	"time" : "Íí",
+	"time" : "æ™š",
 	"remaining" : 9,
 	"supply" : 50
 ]),
-([	"name" : "¶«ÆÂÖâ×Ó",
-	"unit" : "ÅÌ",
+([	"name" : "ä¸œå¡è‚˜å­",
+	"unit" : "ç›˜",
 	"short" : "zhouzi",
 	"value" : 250,
-	"time" : "Íí",
+	"time" : "æ™š",
 	"remaining" : 8,
 	"supply" : 60
 ])
 });
 
 mapping *liquid = ({
-([	"name" : "ÃæÌÀ",
-	"unit" : "Íë",
+([	"name" : "é¢æ±¤",
+	"unit" : "ç¢—",
 	"short" : "miantang",
 	"value" : 10,
-	"time" : "Ôç",
+	"time" : "æ—©",
 	"remaining" : 2,
 	"supply" : 12
 ]),
-([	"name" : "Ï¡Öà",
-	"unit" : "Íë",
+([	"name" : "ç¨€ç²¥",
+	"unit" : "ç¢—",
 	"short" : "xizhou",
 	"value" : 16,
-	"time" : "Ôç",
+	"time" : "æ—©",
 	"remaining" : 2,
 	"supply" : 18
 ]),
-([	"name" : "Ï¡Öà",
-	"unit" : "Íë",
+([	"name" : "ç¨€ç²¥",
+	"unit" : "ç¢—",
 	"short" : "xizhou",
 	"value" : 16,
-	"time" : "Îç",
+	"time" : "åˆ",
 	"remaining" : 2,
 	"supply" : 18
 ]),
-([	"name" : "Ã×¾Æ",
-	"unit" : "Ì³",
+([	"name" : "ç±³é…’",
+	"unit" : "å›",
 	"short" : "mijiu",
 	"value" : 130,
-	"time" : "Îç",
+	"time" : "åˆ",
 	"remaining" : 9,
 	"supply" : 40
 ]),
-([	"name" : "ÈıÏÊÌÀ",
-	"unit" : "Íë",
+([	"name" : "ä¸‰é²œæ±¤",
+	"unit" : "ç¢—",
 	"short" : "sanxiantang",
 	"value" : 70,
-	"time" : "Îç",
+	"time" : "åˆ",
 	"remaining" : 8,
 	"supply" : 24
 ]),
-([	"name" : "Ï¡Öà",
-	"unit" : "Íë",
+([	"name" : "ç¨€ç²¥",
+	"unit" : "ç¢—",
 	"short" : "xizhou",
 	"value" : 16,
-	"time" : "Íí",
+	"time" : "æ™š",
 	"remaining" : 2,
 	"supply" : 18
 ]),
-([	"name" : "Ã×¾Æ",
-	"unit" : "Ì³",
+([	"name" : "ç±³é…’",
+	"unit" : "å›",
 	"short" : "mijiu",
 	"value" : 130,
-	"time" : "Íí",
+	"time" : "æ™š",
 	"remaining" : 9,
 	"supply" : 40
 ]),
-([	"name" : "ÈıÏÊÌÀ",
-	"unit" : "Íë",
+([	"name" : "ä¸‰é²œæ±¤",
+	"unit" : "ç¢—",
 	"short" : "sanxiantang",
 	"value" : 70,
-	"time" : "Íí",
+	"time" : "æ™š",
 	"remaining" : 8,
 	"supply" : 24
 ]),
-([	"name" : "¶¬¹Ïº£ÂİÌÀ",
-	"unit" : "Íë",
+([	"name" : "å†¬ç“œæµ·èºæ±¤",
+	"unit" : "ç¢—",
 	"short" : "hailuotang",
 	"value" : 90,
-	"time" : "Íí",
+	"time" : "æ™š",
 	"remaining" : 8,
 	"supply" : 28
 ])
@@ -168,14 +168,14 @@ mapping *liquid = ({
 
 void create()
 {
-	set("short", "ÊİÎ÷ºş¾Æ¹İ");
+	set("short", "ç˜¦è¥¿æ¹–é…’é¦†");
 	set("long", @LONG
-·½Ô²Êı°ÙÀïÄÚÌáÆğÊİÎ÷ºş¾Æ¹İ¿ÉÒÔËµÊÇÎŞÈË²»Öª£¬ÎŞÈË²»Ïş¡£µ±ÄêÎÄÑ§Ì©
-¶·¹ËÑ×ÎäÔÆÓÎµ½´Ë£¬¶ÔÕâ¶ùµÄÑïÖİ³´·¹ÔŞ²»¾ø¿Ú£¬ĞÀÈ»ÎªÆäÌâØÒ£¬Á÷ÏÂÒ»¶Î´«
-±éº£ÄÚµÄ¼Ñ»°£¬´Ó´ËÊİÎ÷ºş¾Æ¹İÃûÉù´óÕğ¡£´óÌüÄÚÒ»Áï°Ú×Å¼¸ÅÅÌÒÄ¾×öµÄºìÆá
-×À×Ó(table)£¬×ÀÉÏÕûÆëµØ°Ú·Å×ÅÍë¿ê£¬ËÄÖÜ·Å×ÅĞ©ÒÎ×Ó(chair)¡£ÑïÖİ··Ë½ÑÎ
-µÄ¾­³£Ò²À´ÕâÀïºÈ¾ÆÄÖÊÂ£¬Äã±ğÈ¥ÕĞÈÇËûÃÇÎªÃî¡£Ò»¸ö¾Æ±£ÕıÔÚÃ¦¸ö²»Í£¡£¹ñ
-Ì¨ÉÏÁ¢×ÅÒ»¸ö¼ÛÄ¿±í(sign)¡£
+æ–¹åœ†æ•°ç™¾é‡Œå†…æèµ·ç˜¦è¥¿æ¹–é…’é¦†å¯ä»¥è¯´æ˜¯æ— äººä¸çŸ¥ï¼Œæ— äººä¸æ™“ã€‚å½“å¹´æ–‡å­¦æ³°
+æ–—é¡¾ç‚æ­¦äº‘æ¸¸åˆ°æ­¤ï¼Œå¯¹è¿™å„¿çš„æ‰¬å·ç‚’é¥­èµä¸ç»å£ï¼Œæ¬£ç„¶ä¸ºå…¶é¢˜åŒ¾ï¼Œæµä¸‹ä¸€æ®µä¼ 
+éæµ·å†…çš„ä½³è¯ï¼Œä»æ­¤ç˜¦è¥¿æ¹–é…’é¦†åå£°å¤§éœ‡ã€‚å¤§å…å†…ä¸€æºœæ‘†ç€å‡ æ’æ¡ƒæœ¨åšçš„çº¢æ¼†
+æ¡Œå­(table)ï¼Œæ¡Œä¸Šæ•´é½åœ°æ‘†æ”¾ç€ç¢—ç­·ï¼Œå››å‘¨æ”¾ç€äº›æ¤…å­(chair)ã€‚æ‰¬å·è´©ç§ç›
+çš„ç»å¸¸ä¹Ÿæ¥è¿™é‡Œå–é…’é—¹äº‹ï¼Œä½ åˆ«å»æ‹›æƒ¹ä»–ä»¬ä¸ºå¦™ã€‚ä¸€ä¸ªé…’ä¿æ­£åœ¨å¿™ä¸ªä¸åœã€‚æŸœ
+å°ä¸Šç«‹ç€ä¸€ä¸ªä»·ç›®è¡¨(sign)ã€‚
 LONG
 	);
 
@@ -187,7 +187,7 @@ LONG
 	set("item_desc", ([
 		"sign" : (: look_sign :),
 		"table" : (: look_table :),
-		"chair" : "Ä¾ÖÆµÄ×øÒÎ£¬¿´ÆğÀ´ºÃÏóºÜ½áÊµ¡£\n",
+		"chair" : "æœ¨åˆ¶çš„åæ¤…ï¼Œçœ‹èµ·æ¥å¥½è±¡å¾ˆç»“å®ã€‚\n",
 	]) );
 
 	set("objects", ([
@@ -231,23 +231,23 @@ void kick_all()
 	object *ob;
 	int i, pay;
 
-	set_temp("serve", "ÎŞ");
-	tell_room(this_object(), "¾Æ±£´óº°ÁËÒ»Éù£º¡°´òìÈÀ²£¡¡±\n", ({}));
+	set_temp("serve", "æ— ");
+	tell_room(this_object(), "é…’ä¿å¤§å–Šäº†ä¸€å£°ï¼šâ€œæ‰“çƒŠå•¦ï¼â€\n", ({}));
 	ob = all_inventory(this_object());
 	for(i = 0; i < sizeof(ob); i++) {
 		if (userp(ob[i])) {
 			if (pay = ob[i]->query_temp("total_pay")) {
-				message_vision("¾Æ±£¶Ô$NºÈµÀ£º¡°¸¶ÕÊ×ßÈË£¡¡±\n", ob[i]);
+				message_vision("é…’ä¿å¯¹$Nå–é“ï¼šâ€œä»˜å¸èµ°äººï¼â€\n", ob[i]);
 				if (!ob[i]->query_temp("to_pay")) {
-					message_vision("¾Æ±£°Ñ$N´Ó×ùÎ»ÉÏ×§ÁËÆğÀ´£¬À­µ½¹ñÌ¨Ç°¡£\n", ob[i]);
-					message_vision("ÕÆ¹ñ·­³ö²Ëµ¥£¬²¦´òÁËÒ»ÕóËãÅÌºó¸æËß$N£º¡°Ò»¹²" + chinese_number(pay) + "ÎÄÇ®¡£¡±\n", ob[i]);
+					message_vision("é…’ä¿æŠŠ$Nä»åº§ä½ä¸Šæ‹½äº†èµ·æ¥ï¼Œæ‹‰åˆ°æŸœå°å‰ã€‚\n", ob[i]);
+					message_vision("æŒæŸœç¿»å‡ºèœå•ï¼Œæ‹¨æ‰“äº†ä¸€é˜µç®—ç›˜åå‘Šè¯‰$Nï¼šâ€œä¸€å…±" + chinese_number(pay) + "æ–‡é’±ã€‚â€\n", ob[i]);
 					ob[i]->delete_temp("marks/sit");
 					ob[i]->set_temp("to_pay", 1);
 				}
 			}
 			else {
-				if (!living(ob[i])) message_vision("¾Æ±£°Ñ$NÈÓ³öÁË¾ÆÂ¥¡£\n", ob[i]);
-				else message_vision("¾Æ±£°Ñ$NÍÆ³öÁË¾ÆÂ¥¡£\n", ob[i]);
+				if (!living(ob[i])) message_vision("é…’ä¿æŠŠ$Næ‰”å‡ºäº†é…’æ¥¼ã€‚\n", ob[i]);
+				else message_vision("é…’ä¿æŠŠ$Næ¨å‡ºäº†é…’æ¥¼ã€‚\n", ob[i]);
 				ob[i]->delete_temp("marks/sit");
 				ob[i]->delete_temp("cai_count");
 				ob[i]->delete_temp("cai_1");
@@ -256,8 +256,8 @@ void kick_all()
 				ob[i]->delete_temp("cai_4");
 				ob[i]->delete_temp("cai_5");
 				ob[i]->move(KICK_TO);
-				if (!living(ob[i])) tell_room(KICK_TO, ob[i]->name() + "±»ÈÓ³öÁË¾ÆÂ¥¡£\n", ({ob[i]}));
-				else tell_room(KICK_TO, ob[i]->name() + "±»ÍÆ³öÁË¾ÆÂ¥¡£\n", ({ob[i]}));
+				if (!living(ob[i])) tell_room(KICK_TO, ob[i]->name() + "è¢«æ‰”å‡ºäº†é…’æ¥¼ã€‚\n", ({ob[i]}));
+				else tell_room(KICK_TO, ob[i]->name() + "è¢«æ¨å‡ºäº†é…’æ¥¼ã€‚\n", ({ob[i]}));
 			}
 		}
 	}
@@ -271,20 +271,20 @@ void quarter_pass()
 
 	local = localtime(time() * 60);
 	if (local[2] < 6) kick_all();
-	else if (local[2] < 9) set_temp("serve", "Ôç");
-	else if (local[2] < 11) set_temp("serve", "ÎŞ");
-	else if (local[2] < 14) set_temp("serve", "Îç");
-	else if (local[2] < 17) set_temp("serve", "ÎŞ");
-	else if (local[2] < 21) set_temp("serve", "Íí");
+	else if (local[2] < 9) set_temp("serve", "æ—©");
+	else if (local[2] < 11) set_temp("serve", "æ— ");
+	else if (local[2] < 14) set_temp("serve", "åˆ");
+	else if (local[2] < 17) set_temp("serve", "æ— ");
+	else if (local[2] < 21) set_temp("serve", "æ™š");
 	else kick_all();
 	ob = all_inventory(this_object());
 	for(i = 0; i < sizeof(ob); i++) {
 		if (paytime = ob[i]->query_temp("to_pay")) {
 			paytime++;
 			if (paytime == 6 && ob[i]->query_temp("total_pay")) {
-				message_vision("¾Æ±£¶Ô$N´óºÈÒ»Éù£º¡°ÔõÃ´»¹²»¸¶ÕÊ£¿£¡Ïë³Ô°ÔÍõ²Í°¡£¡¡±\n", ob[i]);
-				message_vision("¾Æ±£½ĞÀ´¼¸¸ö´óºº£¬Ö¸×Å$NËµ£º¡°¸øÎÒ´ò£¡¡±\n", ob[i]);
-				message_vision("´óººÃÇÎ§×¡$N£¬ÂÒÈ­ÆëÏÂ¡£\n", ob[i]);
+				message_vision("é…’ä¿å¯¹$Nå¤§å–ä¸€å£°ï¼šâ€œæ€ä¹ˆè¿˜ä¸ä»˜å¸ï¼Ÿï¼æƒ³åƒéœ¸ç‹é¤å•Šï¼â€\n", ob[i]);
+				message_vision("é…’ä¿å«æ¥å‡ ä¸ªå¤§æ±‰ï¼ŒæŒ‡ç€$Nè¯´ï¼šâ€œç»™æˆ‘æ‰“ï¼â€\n", ob[i]);
+				message_vision("å¤§æ±‰ä»¬å›´ä½$Nï¼Œä¹±æ‹³é½ä¸‹ã€‚\n", ob[i]);
 				ob[i]->delete_temp("total_pay");
 				ob[i]->delete_temp("to_pay");
 				ob[i]->delete_temp("cai_count");
@@ -294,10 +294,10 @@ void quarter_pass()
 				ob[i]->delete_temp("cai_4");
 				ob[i]->delete_temp("cai_5");
 				ob[i]->unconcious();
-				message_vision("¾Æ±£Æ²Æ²×ì£¬Ëµ£º¡°¶ª³öÈ¥£¡¡±\n", ob[i]);
-				message_vision("´óººÃÇÌ§Æğ$N£¬ÈÓ³öÁËµêÃÅ¡£\n", ob[i]);
+				message_vision("é…’ä¿æ’‡æ’‡å˜´ï¼Œè¯´ï¼šâ€œä¸¢å‡ºå»ï¼â€\n", ob[i]);
+				message_vision("å¤§æ±‰ä»¬æŠ¬èµ·$Nï¼Œæ‰”å‡ºäº†åº—é—¨ã€‚\n", ob[i]);
 				ob[i]->move(KICK_TO);
-				tell_room(KICK_TO, "Ö»¼û¾ÆÂ¥´óÃÅÒ»¿ª£¬¼¸¸ö´óºº½«Ò»¸ö»èÃÔ²»ĞÑµÄ¼Ò»ï¶ªÁË³öÀ´¡£\n", ({ob[i]}));
+				tell_room(KICK_TO, "åªè§é…’æ¥¼å¤§é—¨ä¸€å¼€ï¼Œå‡ ä¸ªå¤§æ±‰å°†ä¸€ä¸ªæ˜è¿·ä¸é†’çš„å®¶ä¼™ä¸¢äº†å‡ºæ¥ã€‚\n", ({ob[i]}));
 			}
 			else ob[i]->set_temp("to_pay", paytime);
 		}
@@ -309,24 +309,24 @@ int do_sit(string arg)
 {
 	object me = this_player();
 
-	if (me->is_busy() || me->is_fighting())	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if (me->is_busy() || me->is_fighting())	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (arg == "table" || arg == "zhuozi")
-		return notify_fail("ÄãÒª×øÔÚ×À×ÓÉÏ£¿ÄÇÏÈ°ÑÄãÖóÊìÁËÔÙ¶ËÉÏÀ´°É¡£\n");	
+		return notify_fail("ä½ è¦ååœ¨æ¡Œå­ä¸Šï¼Ÿé‚£å…ˆæŠŠä½ ç…®ç†Ÿäº†å†ç«¯ä¸Šæ¥å§ã€‚\n");	
 
 	if ( !arg || (arg != "chair" && arg != "yizi") )
-		return notify_fail("ÄãÒª×øÔÚµØ°åÉÏ£¿ÓĞ¸öĞÔ£¡²»¹ıÕâÑùµÄ»°¿ÖÅÂÄã»á±»ºä³ö¾ÆÂ¥ÁË¡£\n");	
+		return notify_fail("ä½ è¦ååœ¨åœ°æ¿ä¸Šï¼Ÿæœ‰ä¸ªæ€§ï¼ä¸è¿‡è¿™æ ·çš„è¯ææ€•ä½ ä¼šè¢«è½°å‡ºé…’æ¥¼äº†ã€‚\n");	
 	
 	if (me->query_temp("marks/sit"))
-		return notify_fail("ÄãÒÑ¾­×øÔÚ×ùÎ»ÉÏÁË¡£\n");	
+		return notify_fail("ä½ å·²ç»ååœ¨åº§ä½ä¸Šäº†ã€‚\n");	
 			
 	if (me->query_temp("total_pay"))
-		return notify_fail("ÏÈ°Ñ¾ÉÕÊ½áÇåÁË£¡\n");	
+		return notify_fail("å…ˆæŠŠæ—§å¸ç»“æ¸…äº†ï¼\n");	
 			
 	remove_call_out("check_payed");
-	message_vision("$NÕÒÁË¸ö¿ÕÎ»×ùÏÂ£¬×¼±¸³Ô·¹¡£\n", me);	
-	if (query_temp("serve") == "ÎŞ") {
-		message_vision("¾Æ±£×ß¹ıÀ´¶Ô$NËµ£º¡°¶Ô²»ÆğÄúÄÄ£¬ÏÖÔÚ²»ÊÇÓÃ²ÍÊ±¼ä¡£¡±\n", me);	
-		message_vision("$NÎŞÄÎµØÓÖÕ¾ÁËÆğÀ´¡£\n", me);	
+	message_vision("$Næ‰¾äº†ä¸ªç©ºä½åº§ä¸‹ï¼Œå‡†å¤‡åƒé¥­ã€‚\n", me);	
+	if (query_temp("serve") == "æ— ") {
+		message_vision("é…’ä¿èµ°è¿‡æ¥å¯¹$Nè¯´ï¼šâ€œå¯¹ä¸èµ·æ‚¨å“ªï¼Œç°åœ¨ä¸æ˜¯ç”¨é¤æ—¶é—´ã€‚â€\n", me);	
+		message_vision("$Næ— å¥ˆåœ°åˆç«™äº†èµ·æ¥ã€‚\n", me);	
 		return 1;
 	}
 	me->set_temp("marks/sit", 1);
@@ -338,11 +338,11 @@ int do_stand()
 	object me = this_player();
 
 	if (!me->query_temp("marks/sit"))
-		return notify_fail("ÄãÒÑ¾­Õ¾×ÅÁË£¬ÊÇ²»ÊÇÕ¾¾ÃÁËÓĞµã·¢»è°¡£¿\n");	
+		return notify_fail("ä½ å·²ç»ç«™ç€äº†ï¼Œæ˜¯ä¸æ˜¯ç«™ä¹…äº†æœ‰ç‚¹å‘æ˜å•Šï¼Ÿ\n");	
 	if (me->query_temp("total_pay"))
-		return notify_fail("Ã»¸¶Ç®(pay)¾ÍÏë×ßÂğ£¿\n");	
+		return notify_fail("æ²¡ä»˜é’±(pay)å°±æƒ³èµ°å—ï¼Ÿ\n");	
 			
-	message_vision("$NÅÄÅÄÆ¨¹É£¬Õ¾ÁËÆğÀ´¡£\n", me);	
+	message_vision("$Næ‹æ‹å±è‚¡ï¼Œç«™äº†èµ·æ¥ã€‚\n", me);	
 	me->delete_temp("marks/sit");
 	return 1;
 }
@@ -353,23 +353,23 @@ int do_order(string arg)
 	string serve;
 	int i, count;
 
-	if (me->is_busy() || me->is_fighting())	return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (!me->query_temp("marks/sit")) return notify_fail("¾Æ±£ÓÃºÃÏóÇÆ¼ûÒ»¸ö¹ÖÎïÒ»ÑùµÄÑÛÉñ´òÁ¿×ÅÄã£º¡°Õ¾×Å³ÔºÈ£¿ÓĞÎ»×Ó²»×ø£¬Äú²»ÏÓÀÛÑ½£¿¡±\n");
-	if (!arg) return notify_fail("¾Æ±£²»ÄÍ·³µØËµ£º¡°Äã¾¿¾¹ÒªÊ²Ã´°¡£¿¡±\n");
+	if (me->is_busy() || me->is_fighting())	return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (!me->query_temp("marks/sit")) return notify_fail("é…’ä¿ç”¨å¥½è±¡ç§è§ä¸€ä¸ªæ€ªç‰©ä¸€æ ·çš„çœ¼ç¥æ‰“é‡ç€ä½ ï¼šâ€œç«™ç€åƒå–ï¼Ÿæœ‰ä½å­ä¸åï¼Œæ‚¨ä¸å«Œç´¯å‘€ï¼Ÿâ€\n");
+	if (!arg) return notify_fail("é…’ä¿ä¸è€çƒ¦åœ°è¯´ï¼šâ€œä½ ç©¶ç«Ÿè¦ä»€ä¹ˆå•Šï¼Ÿâ€\n");
 			
 	serve = query_temp("serve");
-	if (serve == "ÎŞ") return notify_fail("¾Æ±£ÅâĞ¦µÀ£º¡°¿Í¹Ù¼ûÁÂ£¬³ø·¿ÒÑ¾­Í£»ğÁË£¡¡±\n");
+	if (serve == "æ— ") return notify_fail("é…’ä¿èµ”ç¬‘é“ï¼šâ€œå®¢å®˜è§è°…ï¼Œå¨æˆ¿å·²ç»åœç«äº†ï¼â€\n");
 	if (!me->query_temp("total_pay")) me->set_temp("total_pay", 0);
 	if (!(count = me->query_temp("cai_count"))) me->set_temp("cai_count", 0);
 	for (i = 0; i < sizeof(food); i++)
 		if ((arg == food[i]["name"] || arg == food[i]["short"]) 
 		&&  serve == food[i]["time"]) {
-			message_vision("$N³å¾Æ±£º°µÀ£º¡°À´" + food[i]["unit"] + food[i]["name"] +"¡£¡±\n", me);
+			message_vision("$Nå†²é…’ä¿å–Šé“ï¼šâ€œæ¥" + food[i]["unit"] + food[i]["name"] +"ã€‚â€\n", me);
 			if (me->query_temp("cai_count") >= 5) {
-				message_vision("¾Æ±£Ææ¹ÖµØÎÊ$N£º¡°Äú´òËã¿ªÑçÑ½£¿£¡ÏÈ°Ñ×ÀÉÏµÄ³ÔÍêÁËÔÙËµ£¡¡±\n", me);
+				message_vision("é…’ä¿å¥‡æ€ªåœ°é—®$Nï¼šâ€œæ‚¨æ‰“ç®—å¼€å®´å‘€ï¼Ÿï¼å…ˆæŠŠæ¡Œä¸Šçš„åƒå®Œäº†å†è¯´ï¼â€\n", me);
 				return notify_fail("");
 			}
-			message_vision("¾Æ±£º°×Å£º¡°À´¡«À²¡«¡±£¬¸ø$N¶ËÀ´ÁË" + food[i]["unit"] + food[i]["name"] +"¡£\n", me);
+			message_vision("é…’ä¿å–Šç€ï¼šâ€œæ¥ï½å•¦ï½â€ï¼Œç»™$Nç«¯æ¥äº†" + food[i]["unit"] + food[i]["name"] +"ã€‚\n", me);
 			me->add_temp("total_pay", food[i]["value"]);
 			me->add_temp("cai_count", 1);
 			me->set_temp("cai_" + count + "/name", food[i]["name"]);
@@ -383,12 +383,12 @@ int do_order(string arg)
 	for (i = 0; i < sizeof(liquid); i++)
 		if ((arg == liquid[i]["name"] || arg == liquid[i]["short"]) 
 		&&  serve == liquid[i]["time"]) {
-			message_vision("$N³å¾Æ±£º°µÀ£º¡°À´" + liquid[i]["unit"] + liquid[i]["name"] +"¡£¡±\n", me);
+			message_vision("$Nå†²é…’ä¿å–Šé“ï¼šâ€œæ¥" + liquid[i]["unit"] + liquid[i]["name"] +"ã€‚â€\n", me);
 			if (me->query_temp("cai_count") >= 5) {
-				message_vision("¾Æ±£Ææ¹ÖµØÎÊ$N£º¡°Äú´òËã¿ªÑçÑ½£¿£¡ÏÈ°Ñ×ÀÉÏµÄ³ÔÍêÁËÔÙËµ£¡¡±\n", me);
+				message_vision("é…’ä¿å¥‡æ€ªåœ°é—®$Nï¼šâ€œæ‚¨æ‰“ç®—å¼€å®´å‘€ï¼Ÿï¼å…ˆæŠŠæ¡Œä¸Šçš„åƒå®Œäº†å†è¯´ï¼â€\n", me);
 				return notify_fail("");
 			}
-			message_vision("¾Æ±£º°×Å£º¡°À´¡«À²¡«¡±£¬¸ø$N¶ËÀ´ÁË" + liquid[i]["unit"] + liquid[i]["name"] +"¡£\n", me);
+			message_vision("é…’ä¿å–Šç€ï¼šâ€œæ¥ï½å•¦ï½â€ï¼Œç»™$Nç«¯æ¥äº†" + liquid[i]["unit"] + liquid[i]["name"] +"ã€‚\n", me);
 			me->add_temp("total_pay", liquid[i]["value"]);
 			me->add_temp("cai_count", 1);
 			me->set_temp("cai_" + count + "/name", liquid[i]["name"]);
@@ -399,7 +399,7 @@ int do_order(string arg)
 			me->set_temp("cai_" + count + "/type", "liquid");
 			return 1;
 		}
-	return notify_fail("¾Æ±£²»ÄÍ·³µØËµ£º¡°Ã»ÕâÑù²Ë£¡¡±\n");
+	return notify_fail("é…’ä¿ä¸è€çƒ¦åœ°è¯´ï¼šâ€œæ²¡è¿™æ ·èœï¼â€\n");
 }
 
 int do_eat(string arg)
@@ -415,26 +415,26 @@ int do_eat(string arg)
 			break;
 	if (i == count) return 0;
 	if (!me->query_temp("marks/sit")) {
-		write("¾Æ±£ÓÃºÃÏóÇÆ¼ûÒ»¸ö¹ÖÎïÒ»ÑùµÄÑÛÉñ´òÁ¿×ÅÄã£º¡°Õ¾×Å³ÔºÈ£¿ÓĞÎ»×Ó²»×ø£¬Äú²»ÏÓÀÛÑ½£¿¡±\n");
+		write("é…’ä¿ç”¨å¥½è±¡ç§è§ä¸€ä¸ªæ€ªç‰©ä¸€æ ·çš„çœ¼ç¥æ‰“é‡ç€ä½ ï¼šâ€œç«™ç€åƒå–ï¼Ÿæœ‰ä½å­ä¸åï¼Œæ‚¨ä¸å«Œç´¯å‘€ï¼Ÿâ€\n");
 		return 1;
 	}
 	if (me->is_busy()) {
-		write("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É¡£\n");
+		write("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆã€‚\n");
 		return 1;
 	}
 	if (me->query("food") >= me->max_food_capacity()) {
-		write("ÄãÒÑ¾­³ÔÌ«±¥ÁË£¬ÔÙÒ²Èû²»ÏÂÈÎºÎ¶«Î÷ÁË¡£\n");
+		write("ä½ å·²ç»åƒå¤ªé¥±äº†ï¼Œå†ä¹Ÿå¡ä¸ä¸‹ä»»ä½•ä¸œè¥¿äº†ã€‚\n");
 		return 1;
 	}
 
 	me->add("food", me->query_temp("cai_" + i + "/supply"));
 	if (me->is_fighting()) me->start_busy(2);
 
-	message_vision("$N¶ËÆğÒ»" + me->query_temp("cai_" + i + "/unit") + me->query_temp("cai_" + i + "/name") +"£¬³ÔÁËÁ½¿Ú¡£\n", me);
+	message_vision("$Nç«¯èµ·ä¸€" + me->query_temp("cai_" + i + "/unit") + me->query_temp("cai_" + i + "/name") +"ï¼Œåƒäº†ä¸¤å£ã€‚\n", me);
 	remaining = me->query_temp("cai_" + i + "/remaining");
 	remaining--;
 	if (remaining == 0) {
-		message_vision("$N½«Ò»" + me->query_temp("cai_" + i + "/unit") + me->query_temp("cai_" + i + "/name") +"³ÔµÃÒ»¸É¶ş¾»¡£\n", me);
+		message_vision("$Nå°†ä¸€" + me->query_temp("cai_" + i + "/unit") + me->query_temp("cai_" + i + "/name") +"åƒå¾—ä¸€å¹²äºŒå‡€ã€‚\n", me);
 		for (; i < count - 1; i++)
 		{
 			me->set_temp("cai_" + i + "/name", me->query_temp("cai_" + (i + 1) + "/name"));
@@ -464,26 +464,26 @@ int do_drink(string arg)
 			break;
 	if (i == count) return 0;
 	if (!me->query_temp("marks/sit")) {
-		write("¾Æ±£ÓÃºÃÏóÇÆ¼ûÒ»¸ö¹ÖÎïÒ»ÑùµÄÑÛÉñ´òÁ¿×ÅÄã£º¡°Õ¾×Å³ÔºÈ£¿ÓĞÎ»×Ó²»×ø£¬Äú²»ÏÓÀÛÑ½£¿¡±\n");
+		write("é…’ä¿ç”¨å¥½è±¡ç§è§ä¸€ä¸ªæ€ªç‰©ä¸€æ ·çš„çœ¼ç¥æ‰“é‡ç€ä½ ï¼šâ€œç«™ç€åƒå–ï¼Ÿæœ‰ä½å­ä¸åï¼Œæ‚¨ä¸å«Œç´¯å‘€ï¼Ÿâ€\n");
 		return 1;
 	}
 	if (me->is_busy()) {
-		write("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É¡£\n");
+		write("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆã€‚\n");
 		return 1;
 	}
 	if (me->query("water") >= me->max_water_capacity()) {
-		write("ÄãÒÑ¾­ºÈÌ«±¥ÁË£¬ÔÙÒ²¹à²»ÏÂÈÎºÎ¶«Î÷ÁË¡£\n");
+		write("ä½ å·²ç»å–å¤ªé¥±äº†ï¼Œå†ä¹ŸçŒä¸ä¸‹ä»»ä½•ä¸œè¥¿äº†ã€‚\n");
 		return 1;
 	}
 
 	me->add("water", me->query_temp("cai_" + i + "/supply"));
 	if (me->is_fighting()) me->start_busy(2);
 
-	message_vision("$N¶ËÆğÒ»" + me->query_temp("cai_" + i + "/unit") + me->query_temp("cai_" + i + "/name") +"£¬ºÈÁËÁ½¿Ú¡£\n", me);
+	message_vision("$Nç«¯èµ·ä¸€" + me->query_temp("cai_" + i + "/unit") + me->query_temp("cai_" + i + "/name") +"ï¼Œå–äº†ä¸¤å£ã€‚\n", me);
 	remaining = me->query_temp("cai_" + i + "/remaining");
 	remaining--;
 	if (remaining == 0) {
-		message_vision("$N½«Ò»" + me->query_temp("cai_" + i + "/unit") + me->query_temp("cai_" + i + "/name") +"ºÈµÃÒ»¸É¶ş¾»¡£\n", me);
+		message_vision("$Nå°†ä¸€" + me->query_temp("cai_" + i + "/unit") + me->query_temp("cai_" + i + "/name") +"å–å¾—ä¸€å¹²äºŒå‡€ã€‚\n", me);
 		for (; i < count - 1; i++)
 		{
 			me->set_temp("cai_" + i + "/name", me->query_temp("cai_" + (i + 1) + "/name"));
@@ -506,15 +506,15 @@ int do_pay()
 	int pay;
 
 	if (!(pay = me->query_temp("total_pay")))		
-		return notify_fail("ÕÆ¹ñÅâĞ¦µÀ£º¡°ÄúÊÇÀ´×öÉÆÊÂÊÇÂğ£¿²»³ÔÒ²¸¶ÕÊ£¿¡±\n");
+		return notify_fail("æŒæŸœèµ”ç¬‘é“ï¼šâ€œæ‚¨æ˜¯æ¥åšå–„äº‹æ˜¯å—ï¼Ÿä¸åƒä¹Ÿä»˜å¸ï¼Ÿâ€\n");
 	if (me->query_temp("marks/sit")) {
-		message_vision("$NÕ¾ÆğÉíÀ´£¬×ßµ½¹ñÌ¨Ç°½áÕÊ¡£\n", me);
-		message_vision("ÕÆ¹ñ·­³ö²Ëµ¥£¬²¦´òÁËÒ»ÕóËãÅÌºó¸æËß$N£º¡°Ò»¹²" + MONEY_D->price_str(pay) + "¡£¡±\n", me);
-		message_vision("ÕÆ¹ñ³å×Å¾Æ±£ÈÂµÀ£º°ÑÕâÎ»¿Í¹Ù×À×ÓÉÏµÄÊ£²ËÊÕÊ°¸É¾»¡£\n", me);
+		message_vision("$Nç«™èµ·èº«æ¥ï¼Œèµ°åˆ°æŸœå°å‰ç»“å¸ã€‚\n", me);
+		message_vision("æŒæŸœç¿»å‡ºèœå•ï¼Œæ‹¨æ‰“äº†ä¸€é˜µç®—ç›˜åå‘Šè¯‰$Nï¼šâ€œä¸€å…±" + MONEY_D->price_str(pay) + "ã€‚â€\n", me);
+		message_vision("æŒæŸœå†²ç€é…’ä¿åš·é“ï¼šæŠŠè¿™ä½å®¢å®˜æ¡Œå­ä¸Šçš„å‰©èœæ”¶æ‹¾å¹²å‡€ã€‚\n", me);
 	}
 	else {
-		message_vision("$NÏòÕÆ¹ñÎÊµÀ£º¡°»¹²î¶àÉÙ£¿¡±\n", me);
-		message_vision("ÕÆ¹ñ·­ÁË·­°×ÑÛ£¬ËµµÀ£º¡°»¹²î" + MONEY_D->price_str(pay) + "¡£¡±\n", me);
+		message_vision("$Nå‘æŒæŸœé—®é“ï¼šâ€œè¿˜å·®å¤šå°‘ï¼Ÿâ€\n", me);
+		message_vision("æŒæŸœç¿»äº†ç¿»ç™½çœ¼ï¼Œè¯´é“ï¼šâ€œè¿˜å·®" + MONEY_D->price_str(pay) + "ã€‚â€\n", me);
 	}
 	me->delete_temp("marks/sit");
 	me->delete_temp("cai_count");
@@ -524,14 +524,14 @@ int do_pay()
 
 int do_buy()
 {
-	write("¾Æ±£ËµµÀ£º¡°±¾µê²»ÍâÂô£¬Çë×øÏÂÀ´(sit)µã²Ë(order)¡£¡±\n");
+	write("é…’ä¿è¯´é“ï¼šâ€œæœ¬åº—ä¸å¤–å–ï¼Œè¯·åä¸‹æ¥(sit)ç‚¹èœ(order)ã€‚â€\n");
 	return 1;
 }
 
 int do_quit()
 {
 	if (this_player()->query_temp("total_pay")) {
-		write("³Ô±¥ºÈ×ãÁË²»¸¶Ç®¾ÍÏëÍË³ö£¿£¡\n");
+		write("åƒé¥±å–è¶³äº†ä¸ä»˜é’±å°±æƒ³é€€å‡ºï¼Ÿï¼\n");
 		return 1;
 	}
 	return 0;
@@ -542,19 +542,19 @@ string look_sign()
 	string serve;
 	int i;
 
-	write("ÅÆ×ÓÉÏĞ´×Å£º\n");
+	write("ç‰Œå­ä¸Šå†™ç€ï¼š\n");
 	serve = query_temp("serve");
-	if (serve == "ÎŞ") {
-		write("    ·ÇÓÃ²ÍÊ±¼ä¡£\n");
+	if (serve == "æ— ") {
+		write("    éç”¨é¤æ—¶é—´ã€‚\n");
 		return "";
 	}
-	write("    " + serve + "²Í¹©Ó¦ÒÔÏÂ·¹Ê³£¬Ëæ±ãÄúµã(order)£º\n");
+	write("    " + serve + "é¤ä¾›åº”ä»¥ä¸‹é¥­é£Ÿï¼Œéšä¾¿æ‚¨ç‚¹(order)ï¼š\n");
 	for (i = 0; i < sizeof(food); i++)
 		if (serve == food[i]["time"]) 
-			printf("    %30s    Ã¿%sÎÄ¡£\n", food[i]["name"] + "(" + food[i]["short"] + ")", food[i]["unit"] + chinese_number(food[i]["value"]));
+			printf("    %30s    æ¯%sæ–‡ã€‚\n", food[i]["name"] + "(" + food[i]["short"] + ")", food[i]["unit"] + chinese_number(food[i]["value"]));
 	for (i = 0; i < sizeof(liquid); i++)
 		if (serve == liquid[i]["time"]) 
-			printf("    %30s    Ã¿%sÎÄ¡£\n", liquid[i]["name"] + "(" + liquid[i]["short"] + ")", liquid[i]["unit"] + chinese_number(liquid[i]["value"]));
+			printf("    %30s    æ¯%sæ–‡ã€‚\n", liquid[i]["name"] + "(" + liquid[i]["short"] + ")", liquid[i]["unit"] + chinese_number(liquid[i]["value"]));
 	return "";
 }
 
@@ -565,10 +565,10 @@ string look_table()
 	string name;
 
 	if (!(count = me->query_temp("cai_count"))) {
-		write("×À×ÓÉÏÊÇ¿ÕµÄ¡£\n");
+		write("æ¡Œå­ä¸Šæ˜¯ç©ºçš„ã€‚\n");
 		return "";
 	}
-	write("ÄãÃæÇ°µÄ×À×ÓÉÏ·Å×Å£º\n");
+	write("ä½ é¢å‰çš„æ¡Œå­ä¸Šæ”¾ç€ï¼š\n");
 	for (i = 0; i < count; i++)
 	{
 		name = me->query_temp("cai_" + i + "/name");
@@ -585,7 +585,7 @@ string look_table()
 			}
 		}
 		if (!num) continue;
-		write("    " + chinese_number(num) + me->query_temp("cai_" + i + "/unit") + name + "(" + me->query_temp("cai_" + i + "/short") +")¡£\n");
+		write("    " + chinese_number(num) + me->query_temp("cai_" + i + "/unit") + name + "(" + me->query_temp("cai_" + i + "/short") +")ã€‚\n");
 	}
 	return "";
 }
@@ -593,10 +593,10 @@ string look_table()
 int valid_leave(object me, string dir)
 {
 	if (me->query_temp("marks/sit"))
-		return notify_fail("Äã´òËãÁ¬ÒÎ×ÓÒ²°á³öÈ¥£¿\n");	
+		return notify_fail("ä½ æ‰“ç®—è¿æ¤…å­ä¹Ÿæ¬å‡ºå»ï¼Ÿ\n");	
 
 	if (me->query_temp("total_pay"))
-		return notify_fail("¾Æ±£À¹×¡ÄãËµ£º¡°²»¸¶Ç®¾ÍÏëÁï£¿ÕÒ±â°¡£¡¡±\n");	
+		return notify_fail("é…’ä¿æ‹¦ä½ä½ è¯´ï¼šâ€œä¸ä»˜é’±å°±æƒ³æºœï¼Ÿæ‰¾æ‰å•Šï¼â€\n");	
 
 	me->delete_temp("cai_count");
 	me->delete_temp("cai_1");

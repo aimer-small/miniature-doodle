@@ -7,19 +7,19 @@ mixed ask_redeem();
 
 void create()
 {
-	set_name("Ğ¡ºÍÉĞ", ({ "xiao heshang", "monk" }) );
+	set_name("å°å’Œå°š", ({ "xiao heshang", "monk" }) );
 	set("class", "bonze");
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 15);
 	set("long",
-		"ËûÊÇÑïÖİ³ÇÚòÃíĞÂÊÕµÄĞ¡Í½µÜ£¬ÕıÔÚÈÏÕæµØ´òÉ¨ÌüÔº¡£\n");
-	set("title", "³ÇÚòÃíĞ¡ºÍÉĞ");
+		"ä»–æ˜¯æ‰¬å·åŸéšåº™æ–°æ”¶çš„å°å¾’å¼Ÿï¼Œæ­£åœ¨è®¤çœŸåœ°æ‰“æ‰«å…é™¢ã€‚\n");
+	set("title", "åŸéšåº™å°å’Œå°š");
 	set("combat_exp", 9000);
 	set("shen_type", 1);
 	set("attitude", "friendly");
 	set("inquiry", ([
-		"mud" :"Õâ¶ùÊÇ¸Õ¸Õ¾­¹ıÁË¿ñ·ç±©Óê°ãµÄ·è¿ñ½¨ÉèºóÍê³ÉµÄÈ«ĞÂ£Í£Õ£Ä£¡",
-		//"²¹³¥" : (: ask_redeem :),
+		"mud" :"è¿™å„¿æ˜¯åˆšåˆšç»è¿‡äº†ç‹‚é£æš´é›¨èˆ¬çš„ç–¯ç‹‚å»ºè®¾åå®Œæˆçš„å…¨æ–°ï¼­ï¼µï¼¤ï¼",
+		//"è¡¥å¿" : (: ask_redeem :),
 	]) );
 
 	set_temp("apply/attack", 60);
@@ -47,22 +47,22 @@ mixed ask_redeem()
 	t = local[LT_YEAR] * 8784 + local[LT_MON] * 744 + local[LT_MDAY] * 24 + local[LT_HOUR];
 
 	if (!wizardp(me) && t < 2002 * 8784 + 6 * 744 + 8 * 24 + 9)	// 2002-07-08 09:00
-		return "²»Òª×Å¼±£¬ĞİÏ¢¡¢ĞİÏ¢Ò»»á¡£";
+		return "ä¸è¦ç€æ€¥ï¼Œä¼‘æ¯ã€ä¼‘æ¯ä¸€ä¼šã€‚";
 
 	if (t >= 2002 * 8784 + 6 * 744 + 9 * 24 + 9)	// 2002-07-09 09:00
-		return "¾Íµ½ÕâÀï£¬ÔÙ¼û°É£¡";
+		return "å°±åˆ°è¿™é‡Œï¼Œå†è§å§ï¼";
 
 	local = localtime(me->query("birthday"));
 	t = local[LT_YEAR] * 8784 + local[LT_MON] * 744 + local[LT_MDAY] * 24 + local[LT_HOUR];
 
 	if (t >= 2002 * 8784 + 6 * 744 + 7 * 24 + 1)	// 2002-07-07 01:00
-		return "°¢ÃÖÍÓ·ğ£¬Ê©Ö÷³öÉúµÃÌ«ÍíÁË¡£";
+		return "é˜¿å¼¥é™€ä½›ï¼Œæ–½ä¸»å‡ºç”Ÿå¾—å¤ªæ™šäº†ã€‚";
 
 	if (me->query("gift/count") >= 5)
-		return "Ê©Ö÷µÄ²¹³¥ÒÑ¾­ÁìÈ¡ÍêÁË¡£";
+		return "æ–½ä¸»çš„è¡¥å¿å·²ç»é¢†å–å®Œäº†ã€‚";
 
 	if (me->query("gift/time") + 120 > time())
-		return "Ê©Ö÷ÇëÏÈµ½ºóÃæÅÅ¶Ó¡£";
+		return "æ–½ä¸»è¯·å…ˆåˆ°åé¢æ’é˜Ÿã€‚";
 
 	me->set("gift/time", time());
 	t = me->add("gift/count", 1);
@@ -73,17 +73,17 @@ mixed ask_redeem()
 		string skill;
 
 		lvl = 666 + random(333);
-		message_vision("$N»ñµÃÁË"+chinese_number(lvl)+"µã¾­ÑéµÄ½±Àø¡£\n", me);
+		message_vision("$Nè·å¾—äº†"+chinese_number(lvl)+"ç‚¹ç»éªŒçš„å¥–åŠ±ã€‚\n", me);
 		me->add("combat_exp", lvl);
 		log_file("static/REDEEM",
-			sprintf("%s(%s)µÚ %d ´Î»ñµÃ²¹³¥ exp %d¡£\n",
+			sprintf("%s(%s)ç¬¬ %d æ¬¡è·å¾—è¡¥å¿ exp %dã€‚\n",
 				me->query("name"), me->query("id"), t, lvl
 			), me
 		);
 
 		skills = me->query_skills();
 		if (!(sn = sizeof(skills)))
-			return "Ê©Ö÷£¬ÄãÃ»ÓĞÑ§¹ıÈÎºÎ¼¼ÄÜ¡£";
+			return "æ–½ä¸»ï¼Œä½ æ²¡æœ‰å­¦è¿‡ä»»ä½•æŠ€èƒ½ã€‚";
 
 		lvl = 0;
 		foreach (skill, int val in skills) {
@@ -95,7 +95,7 @@ mixed ask_redeem()
 		}
 
 		if (!sn)
-			return "Ê©Ö÷£¬ÄãÃ»ÓĞÑ§¹ıÈÎºÎ¿ÉÒÔ²¹³¥µÄ¼¼ÄÜ¡£";
+			return "æ–½ä¸»ï¼Œä½ æ²¡æœ‰å­¦è¿‡ä»»ä½•å¯ä»¥è¡¥å¿çš„æŠ€èƒ½ã€‚";
 
 		lvl /= sn;
 		foreach (skill, int val in skls2) {
@@ -116,10 +116,10 @@ mixed ask_redeem()
 				lvl /= 2;
 		}
 
-		message_vision("$N»ñµÃÁË"+chinese_number(lvl)+"µã¡¸"+to_chinese(skill)+"¡¹µÄ½±Àø¡£\n", me);
+		message_vision("$Nè·å¾—äº†"+chinese_number(lvl)+"ç‚¹ã€Œ"+to_chinese(skill)+"ã€çš„å¥–åŠ±ã€‚\n", me);
 		me->improve_skill(skill, lvl, 1);
 		log_file("static/REDEEM",
-			sprintf("%s(%s)»ñµÃ²¹³¥ %s %d¡£\n",
+			sprintf("%s(%s)è·å¾—è¡¥å¿ %s %dã€‚\n",
 				me->query("name"), me->query("id"), skill, lvl
 			), me
 		);

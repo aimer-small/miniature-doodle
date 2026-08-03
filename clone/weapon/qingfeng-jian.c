@@ -1,4 +1,4 @@
-// yitian-jian ÒĞÌì½£
+// yitian-jian å€šå¤©å‰‘
 
 #include <weapon.h>
 #include <ansi.h>
@@ -8,12 +8,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("ĞşÕæ½£",({ "xuanzhen jian", "xuanzhen", "sword", "jian" }) );
+        set_name("ç„çœŸå‰‘",({ "xuanzhen jian", "xuanzhen", "sword", "jian" }) );
         set_weight(20000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
                 set("value", 1);
                 set("rigidity", 9);
                 set("sharpness", 9); 
@@ -24,9 +24,9 @@ void create()
                 set("wield_neili", 300);
                 set("wield_maxneili", 700);
                 set("wield_str", 22);
-                set("wield_msg", HIY"$N¡°à§¡±µÄÒ»Éù³é³öÒ»°ÑÇà·æ½£¡£\n"NOR);
-                set("long", "ÕâÊÇÒ»±úËÄ³ßÀ´³¤µÄ¹Å½£¡£\n");                
-                set("unwield_msg", HIY "Çà·æ½£»Ã×÷Ò»µÀ°×¹â£¬¡¸à§¡¹µØ·ÉÈë½£ÇÊ¡£\n" NOR);                
+                set("wield_msg", HIY"$Nâ€œå”°â€çš„ä¸€å£°æŠ½å‡ºä¸€æŠŠé’é”‹å‰‘ã€‚\n"NOR);
+                set("long", "è¿™æ˜¯ä¸€æŸ„å››å°ºæ¥é•¿çš„å¤å‰‘ã€‚\n");                
+                set("unwield_msg", HIY "é’é”‹å‰‘å¹»ä½œä¸€é“ç™½å…‰ï¼Œã€Œå”°ã€åœ°é£å…¥å‰‘é˜ã€‚\n" NOR);                
         }
         init_sword(230);
         setup();

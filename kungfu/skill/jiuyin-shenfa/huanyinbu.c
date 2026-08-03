@@ -10,36 +10,36 @@ int perform(object me)
 	int i;
 
 	if( me->query_skill("jiuyin-zhengong",1) < 130 )
-		return notify_fail("ÄãµÄ¾ÅÒõÕæ¹¦»¹²»¹»»ğºò£¬Ê¹²»³ö»ÃÒõ²½¡£\n");  
+		return notify_fail("ä½ çš„ä¹é˜´çœŸåŠŸè¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºå¹»é˜´æ­¥ã€‚\n");  
 
 	if( me->query_skill("jiuyin-shenfa",1) < 130 )
-		return notify_fail("ÄãµÄ¾ÅÒõÉí·¨»¹²»¹»»ğºò£¬Ê¹²»³ö»ÃÒõ²½¡£\n");  
+		return notify_fail("ä½ çš„ä¹é˜´èº«æ³•è¿˜ä¸å¤Ÿç«å€™ï¼Œä½¿ä¸å‡ºå¹»é˜´æ­¥ã€‚\n");  
 
 	if (me->query_skill_mapped("dodge") != "jiuyin-shenfa")
-		return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ»ÃÒõ²½¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨å¹»é˜´æ­¥ã€‚\n");
 
 	if( me->query("jingli", 1) < 200 )
-		return notify_fail("ÄãÏÖÔÚ¾«Á¦²»¹»¡£\n");
+		return notify_fail("ä½ ç°åœ¨ç²¾åŠ›ä¸å¤Ÿã€‚\n");
 
 	if( me->query("neili", 1) < 200 )
-		return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸å¤Ÿã€‚\n");
 
 	if (me->query_temp("jiuyin/fast"))
-		return notify_fail("ÄãÕıÔÚÊ¹ÓÃ»ÃÒõ²½¡£\n");
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨å¹»é˜´æ­¥ã€‚\n");
 
 	if ( me->query_skill_mapped("dodge") != "jiuyin-shenfa")
-		return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ»ÃÒõ²½¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨å¹»é˜´æ­¥ã€‚\n");
 
-	msg = HIW"\n$NÊ©Õ¹³ö»ÃÒõ²½£¬Éí·¨±äµÃÆ®ºöÒì³££¡\n"NOR; 
+	msg = HIW"\n$Næ–½å±•å‡ºå¹»é˜´æ­¥ï¼Œèº«æ³•å˜å¾—é£˜å¿½å¼‚å¸¸ï¼\n"NOR; 
 
 	me->add("neili", -100);
 	me->add("jingli", -100);
 	message_vision(msg, me);
         i = me->query_skill("jiuyin-shenfa", 1)/8;
 	me->add_temp("apply/dexerity", i);
-// Æô¶¯ auto perform
+// å¯åŠ¨ auto perform
 	me->set_temp("jiuyin/fast", i);
-	me->start_perform(2, "»ÃÒõ²½");
+	me->start_perform(2, "å¹»é˜´æ­¥");
 	if ( me->is_fighting())
 		me->start_busy(random(2));
 	call_out("remove_effect", 1, me, me->query_skill("jiuyin-zhengong", 1)/3);
@@ -55,23 +55,23 @@ void remove_effect(object me, int count)
 		i = me->query_temp("jiuyin/fast");
 		me->add_temp("apply/dexerity", - i);
 		me->delete_temp("jiuyin/fast");
-		message_vision(HIW"$NÍ£Ö¹ÁË»ÃÒõ²½£¬Éí·¨»Ö¸´ÁËÕı³£¡£\n"NOR, me);
+		message_vision(HIW"$Nåœæ­¢äº†å¹»é˜´æ­¥ï¼Œèº«æ³•æ¢å¤äº†æ­£å¸¸ã€‚\n"NOR, me);
 		return;
 	}
 	call_out("remove_effect", 1, me, count);
 }
 
-string perform_name(){ return HIW"»ÃÒõ²½"NOR; }
+string perform_name(){ return HIW"å¹»é˜´æ­¥"NOR; }
 
 int help(object me)
 {
-        write(HIW"\n¾ÅÒõÉí·¨Ö®¡¸»ÃÒõ²½¡¹£º"NOR"\n\n");
+        write(HIW"\nä¹é˜´èº«æ³•ä¹‹ã€Œå¹»é˜´æ­¥ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 200 ÒÔÉÏ£»
-                µ±Ç°¾«Á¦ 200 ÒÔÉÏ£»
-                ¾ÅÒõÕæ¹¦µÈ¼¶ 130 ÒÔÉÏ£»
-                ¾ÅÒõÉí·¨µÈ¼¶ 130 ÒÔÉÏ£»
-                ¼¤·¢Éí·¨Îª¾ÅÒõÉí·¨¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 200 ä»¥ä¸Šï¼›
+                å½“å‰ç²¾åŠ› 200 ä»¥ä¸Šï¼›
+                ä¹é˜´çœŸåŠŸç­‰çº§ 130 ä»¥ä¸Šï¼›
+                ä¹é˜´èº«æ³•ç­‰çº§ 130 ä»¥ä¸Šï¼›
+                æ¿€å‘èº«æ³•ä¸ºä¹é˜´èº«æ³•ã€‚
 
 HELP
         );

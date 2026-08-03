@@ -1,4 +1,4 @@
-//silver-falun.c Òø·¨ÂÖ
+//silver-falun.c é“¶æ³•è½®
 //by iceland
 
 #include <weapon.h>
@@ -7,13 +7,13 @@ inherit HAMMER;
 
 void create()
 {
-        set_name( HIW"Òø·¨ÂÖ"NOR,({ "silver falun" ,"lun" ,"falun","yin falun","yinfalun" }));
+        set_name( HIW"é“¶æ³•è½®"NOR,({ "silver falun" ,"lun" ,"falun","yin falun","yinfalun" }));
         set_weight(20000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ö»");
-                set("long","ÕâÊÇÒ»±úÒøÖı·¨ÂÖ£¬Ô¼ÓĞ³ß°ë´óĞ¡£¬ÉÏÃæÖıÓĞÃÜ×Ú·üÄ§ÕæÑÔ£¬ÄÚ²Ø¾Å¸öĞ¡Çò£¬ÊÇ¸ßÉ®×÷·¨ÊÂÓÃµÄÒ»ÖÖ·¨Æ÷¡£\n");
+		set("unit", "åª");
+                set("long","è¿™æ˜¯ä¸€æŸ„é“¶é“¸æ³•è½®ï¼Œçº¦æœ‰å°ºåŠå¤§å°ï¼Œä¸Šé¢é“¸æœ‰å¯†å®—ä¼é­”çœŸè¨€ï¼Œå†…è—ä¹ä¸ªå°çƒï¼Œæ˜¯é«˜åƒ§ä½œæ³•äº‹ç”¨çš„ä¸€ç§æ³•å™¨ã€‚\n");
                 set("value", 1500);
                 set("unique", 1);
                 set("rigidity", 5);
@@ -25,8 +25,8 @@ void create()
                 set("wield_maxneili", 1200);
                 set("wield_str", 30);
                 set("material", "silver");
-                set("wield_msg", "$N´Ó»³ÖĞÌÍ³öÒ»±ú$nµàÁËµà·ÖÁ¿£¬ÎÕÔÚÊÖÖĞ£¬µ±à¥à¥ÏìÉùÁ¼¾Ã¡£\n");
-                set("unwield_msg","$N½«ÊÖÖĞµÄ$n´§»Ø»³ÖĞ¡£\n");
+                set("wield_msg", "$Nä»æ€€ä¸­æå‡ºä¸€æŸ„$næ‚äº†æ‚åˆ†é‡ï¼Œæ¡åœ¨æ‰‹ä¸­ï¼Œå½“å•·å•·å“å£°è‰¯ä¹…ã€‚\n");
+                set("unwield_msg","$Nå°†æ‰‹ä¸­çš„$næ£å›æ€€ä¸­ã€‚\n");
 	}
         init_hammer(60);
 	setup();

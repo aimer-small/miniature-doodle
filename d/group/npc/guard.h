@@ -72,9 +72,9 @@ void create()
 	i = random(4);
 	name = RNAME_D->get_random_name(i);
 	set_name(name["name"], name["id"] + ({ "group guard" , "guard" }));
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 20 + random(30));
-	set("long", "ÕâÊÇÎ»Íş·çÁİÁİµÄ±£ïÚ£¬ÉíÌå×³Êµ£¬Ò»¿´¾ÍÊÇÎä¹¦¸ßÊÖ£¡\n");
+	set("long", "è¿™æ˜¯ä½å¨é£å‡›å‡›çš„ä¿é•–ï¼Œèº«ä½“å£®å®ï¼Œä¸€çœ‹å°±æ˜¯æ­¦åŠŸé«˜æ‰‹ï¼\n");
 	set("unique", 1);
 	set("location", 1);
 	set("no_get", 1);
@@ -99,7 +99,7 @@ void create()
 	/*
 	set("chat_chance", 3);
  	set("chat_msg", ({
- 		"±£ïÚËµµÀ£º¡°ÄãÃÇ¶¼¸øÎÒÀÏÊµµã£¬²»ÒªÈÇÊÇÉú·Ç£¡¡±\n",
+ 		"ä¿é•–è¯´é“ï¼šâ€œä½ ä»¬éƒ½ç»™æˆ‘è€å®ç‚¹ï¼Œä¸è¦æƒ¹æ˜¯ç”Ÿéï¼â€\n",
  	}) );
  	*/
 
@@ -127,7 +127,7 @@ void kill_ob(object ob)
 int accept_fight(object ob)
 {
 	if( ob->query("group/id") != query("group/id") ) {
-		command("say ÔÚÏÂÕıÔÚ¹¤×÷Ö®ÖĞ£¬Ë¡²»·îÅã¡£");
+		command("say åœ¨ä¸‹æ­£åœ¨å·¥ä½œä¹‹ä¸­ï¼Œæ•ä¸å¥‰é™ªã€‚");
 		return 0;
 	}
 	return 1;
@@ -192,7 +192,7 @@ void die()
 
 	if( !(room=find_object("/d/group/emptyroom")) )
 		room = load_object("/d/group/emptyroom");
-	tell_room(environment(this_object()),"\n"+name()+"²Ò½ĞÒ»Éù£¬ÌÓ×ßÁË£¡\n");
+	tell_room(environment(this_object()),"\n"+name()+"æƒ¨å«ä¸€å£°ï¼Œé€ƒèµ°äº†ï¼\n");
 	move(room);
 	call_out("do_renascence",RENASCENCE_TIME,room);
 }
@@ -205,7 +205,7 @@ void do_renascence(object room)
 		if( !(sroom=load_object(query("startroom"))) )
 			return;
 	move(sroom);
-	tell_room(sroom,CYN+name()+"¿ì²½×ßÁË¹ıÀ´¡£\n"NOR);
+	tell_room(sroom,CYN+name()+"å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n"NOR);
 }
 
 int skill_count()

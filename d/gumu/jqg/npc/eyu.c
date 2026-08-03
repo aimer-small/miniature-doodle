@@ -1,18 +1,18 @@
-// eyu.c öùÓã
+// eyu.c é³„é±¼
 // By River 99.5.25
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("öùÓã", ({ "e yu", "e", "yu" }));
-        set("race", "Ò°ÊÞ");
+        set_name("é³„é±¼", ({ "e yu", "e", "yu" }));
+        set("race", "é‡Žå…½");
         set("age", 200);
-        set("long", "Ò»ÌõÅÓ´óÎÞ±ÈöùÓã£¬»ëÉí³¤×ÅÏñÌú¼×°ãµÄÁÛÆ¬¡£\n");
+        set("long", "ä¸€æ¡åºžå¤§æ— æ¯”é³„é±¼ï¼Œæµ‘èº«é•¿ç€åƒé“ç”²èˆ¬çš„é³žç‰‡ã€‚\n");
         set("str", 70);
         set("con", 50);
         set("max_qi", 800);
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Î²°Í", "×ì°Í" }));
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å°¾å·´", "å˜´å·´" }));
         set("verbs", ({ "bite" }) );
         set("combat_exp", 300000);
         set_temp("apply/attack", 250);
@@ -26,7 +26,7 @@ void init()
     object ob;
     ::init();
     if (interactive(ob = this_player())){
-           tell_object(ob,HIR"öùÓãÒ»¼ûÄã´ÓË®ÖÐ¸¡³ö£¬¶¼ÕÅ¿ªÑªÅè´ó¿Ú£¬³¯ÄãÓÎÁË¹ýÀ´¡£\n"NOR);
+           tell_object(ob,HIR"é³„é±¼ä¸€è§ä½ ä»Žæ°´ä¸­æµ®å‡ºï¼Œéƒ½å¼ å¼€è¡€ç›†å¤§å£ï¼Œæœä½ æ¸¸äº†è¿‡æ¥ã€‚\n"NOR);
            remove_call_out("kill_ob");
            call_out("kill_ob", 1, ob); 
           }
@@ -34,12 +34,12 @@ void init()
 
 void die()
 {        
-        message_vision("\n×óÊ×Ò»ÌõöùÓã¹Öà»Ò»Éù£¬Ò»¸ö½î¶··­ÈëÔ¨ÖÐ¡£\n", this_object());
+        message_vision("\nå·¦é¦–ä¸€æ¡é³„é±¼æ€ªå—·ä¸€å£°ï¼Œä¸€ä¸ªç­‹æ–—ç¿»å…¥æ¸Šä¸­ã€‚\n", this_object());
         destruct(this_object());
 }
 
 void unconcious()
 {
-        message_vision("\n×óÊ×Ò»ÌõöùÓã¹Öà»Ò»Éù£¬Ò»¸ö½î¶··­ÈëÔ¨ÖÐ¡£\n", this_object());
+        message_vision("\nå·¦é¦–ä¸€æ¡é³„é±¼æ€ªå—·ä¸€å£°ï¼Œä¸€ä¸ªç­‹æ–—ç¿»å…¥æ¸Šä¸­ã€‚\n", this_object());
         destruct(this_object());
 }

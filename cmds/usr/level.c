@@ -3,23 +3,23 @@
 inherit F_CLEAN_UP;
 
 string *skill_level_desc = ({ 
-	BLU "²»¿°Ò»»÷" NOR,BLU "ºÁ²»×ãÂÇ" NOR,BLU "²»×ã¹Ò³Ý" NOR,BLU "³õÑ§Õ§Á·" NOR,BLU "ÃãÃãÇ¿Ç¿" NOR, 
-	HIB "³õ¿úÃÅ¾¶" NOR,HIB "³õ³öÃ©Â®" NOR,HIB "ÂÔÖªÒ»¶þ" NOR,HIB "ÆÕÆÕÍ¨Í¨" NOR,HIB "Æ½Æ½µ­µ­" NOR, 
-	MAG "Æ½µ­ÎÞÆæ" NOR,MAG "´ÖÍ¨Æ¤Ã«" NOR,MAG "°ëÉú²»Êì" NOR,MAG "ÂíÂí»¢»¢" NOR,MAG "ÂÔÓÐÐ¡³É" NOR, 
-	HIM "ÒÑÓÐÐ¡³É" NOR,HIM "º×Á¢¼¦Èº" NOR,HIM "¼ÝÇá¾ÍÊì" NOR,HIM "Çà³öÓÚÀ¶" NOR,HIM "ÈÚ»á¹áÍ¨" NOR, 
-	CYN "ÐÄÁìÉñ»á" NOR,CYN "Â¯»ð´¿Çà" NOR,CYN "ÁËÈ»ÓÚÐØ" NOR,CYN "ÂÔÓÐ´ó³É" NOR,CYN "ÒÑÓÐ´ó³É" NOR, 
-	YEL "»íÈ»¹áÍ¨" NOR,YEL "³öÀà°ÎÝÍ" NOR,YEL "ÎÞ¿ÉÆ¥µÐ" NOR,YEL "¼¼¹ÚÈºÐÛ" NOR,YEL "ÉñºõÆä¼¼" NOR, 
-	HIY "³öÉñÈë»¯" NOR,HIY "·ÇÍ¬·²Ïì" NOR,HIY "°ÁÊÓÈºÐÛ" NOR,HIY "µÇ·åÔì¼«" NOR,HIY "ÎÞÓëÂ×±È" NOR, 
-	HIG "ËùÏòÅûÃÒ" NOR,HIG "Ò»´ú×ÚÊ¦" NOR,HIG "¾«Éî°ÂÃî" NOR,HIG "Éñ¹¦¸ÇÊÀ" NOR,HIG "¾ÙÊÀÎÞË«" NOR, 
-	HIC "¾ªÊÀº§Ë×" NOR,HIC "º³Ìì¶¯µØ" NOR,HIC "Õð¹Åîå½ñ" NOR,HIC "³¬·²ÈëÊ¥" NOR,HIC "ÍþÕòå¾Óî" NOR, 
-	HIW "¿ÕÇ°¾øºó" NOR,HIW "ÌìÈËºÏÒ»" NOR,HIW "Éî²Ø²»Â¶" NOR,HIW "Éî²»¿É²â" NOR,HIR "·µè±¹éÕæ" NOR
+	BLU "ä¸å ªä¸€å‡»" NOR,BLU "æ¯«ä¸è¶³è™‘" NOR,BLU "ä¸è¶³æŒ‚é½¿" NOR,BLU "åˆå­¦ä¹ç»ƒ" NOR,BLU "å‹‰å‹‰å¼ºå¼º" NOR, 
+	HIB "åˆçª¥é—¨å¾„" NOR,HIB "åˆå‡ºèŒ…åº" NOR,HIB "ç•¥çŸ¥ä¸€äºŒ" NOR,HIB "æ™®æ™®é€šé€š" NOR,HIB "å¹³å¹³æ·¡æ·¡" NOR, 
+	MAG "å¹³æ·¡æ— å¥‡" NOR,MAG "ç²—é€šçš®æ¯›" NOR,MAG "åŠç”Ÿä¸ç†Ÿ" NOR,MAG "é©¬é©¬è™Žè™Ž" NOR,MAG "ç•¥æœ‰å°æˆ" NOR, 
+	HIM "å·²æœ‰å°æˆ" NOR,HIM "é¹¤ç«‹é¸¡ç¾¤" NOR,HIM "é©¾è½»å°±ç†Ÿ" NOR,HIM "é’å‡ºäºŽè“" NOR,HIM "èžä¼šè´¯é€š" NOR, 
+	CYN "å¿ƒé¢†ç¥žä¼š" NOR,CYN "ç‚‰ç«çº¯é’" NOR,CYN "äº†ç„¶äºŽèƒ¸" NOR,CYN "ç•¥æœ‰å¤§æˆ" NOR,CYN "å·²æœ‰å¤§æˆ" NOR, 
+	YEL "è±ç„¶è´¯é€š" NOR,YEL "å‡ºç±»æ‹”èƒ" NOR,YEL "æ— å¯åŒ¹æ•Œ" NOR,YEL "æŠ€å† ç¾¤é›„" NOR,YEL "ç¥žä¹Žå…¶æŠ€" NOR, 
+	HIY "å‡ºç¥žå…¥åŒ–" NOR,HIY "éžåŒå‡¡å“" NOR,HIY "å‚²è§†ç¾¤é›„" NOR,HIY "ç™»å³°é€ æž" NOR,HIY "æ— ä¸Žä¼¦æ¯”" NOR, 
+	HIG "æ‰€å‘æŠ«é¡" NOR,HIG "ä¸€ä»£å®—å¸ˆ" NOR,HIG "ç²¾æ·±å¥¥å¦™" NOR,HIG "ç¥žåŠŸç›–ä¸–" NOR,HIG "ä¸¾ä¸–æ— åŒ" NOR, 
+	HIC "æƒŠä¸–éª‡ä¿—" NOR,HIC "æ’¼å¤©åŠ¨åœ°" NOR,HIC "éœ‡å¤é“„ä»Š" NOR,HIC "è¶…å‡¡å…¥åœ£" NOR,HIC "å¨é•‡å¯°å®‡" NOR, 
+	HIW "ç©ºå‰ç»åŽ" NOR,HIW "å¤©äººåˆä¸€" NOR,HIW "æ·±è—ä¸éœ²" NOR,HIW "æ·±ä¸å¯æµ‹" NOR,HIR "è¿”ç’žå½’çœŸ" NOR
 });
 
 	string *knowledge_level_desc = ({
-        BLU "ÐÂÑ§Õ§ÓÃ" NOR,HIB "³õ¿úÃÅ¾¶" NOR,MAG "ÂÔÖªÒ»¶þ" NOR,HIM "°ëÉú²»Êì" NOR,
-        CYN "ÂíÂí»¢»¢" NOR,YEL "ÒÑÓÐÐ¡³É" NOR,YEL "ÈÚ»á¹áÍ¨" NOR,HIY "ÐÄÁìÉñ»á" NOR,
-        HIY "ÁËÈ»ì¶ÐØ" NOR,HIG "ÒÑÓÐ´ó³É" NOR,HIG "·ÇÍ¬·²Ïì" NOR,HIC "¾ÙÊÀÎÞË«" NOR,
-        HIC "Õð¹Åîå½ñ" NOR,HIW "ÎÞÓëÂ×±È" NOR,HIW "³¬·²ÈëÊ¥" NOR,HIR "¿ÕÇ°¾øºó" NOR
+        BLU "æ–°å­¦ä¹ç”¨" NOR,HIB "åˆçª¥é—¨å¾„" NOR,MAG "ç•¥çŸ¥ä¸€äºŒ" NOR,HIM "åŠç”Ÿä¸ç†Ÿ" NOR,
+        CYN "é©¬é©¬è™Žè™Ž" NOR,YEL "å·²æœ‰å°æˆ" NOR,YEL "èžä¼šè´¯é€š" NOR,HIY "å¿ƒé¢†ç¥žä¼š" NOR,
+        HIY "äº†ç„¶æ–¼èƒ¸" NOR,HIG "å·²æœ‰å¤§æˆ" NOR,HIG "éžåŒå‡¡å“" NOR,HIC "ä¸¾ä¸–æ— åŒ" NOR,
+        HIC "éœ‡å¤é“„ä»Š" NOR,HIW "æ— ä¸Žä¼¦æ¯”" NOR,HIW "è¶…å‡¡å…¥åœ£" NOR,HIR "ç©ºå‰ç»åŽ" NOR
 });
 int main(object me)
 {
@@ -32,13 +32,13 @@ int main(object me)
                         str = "    " + skill_level_desc[i] + str;
                         if (i % 5 == 0) str = "\n" + str;
                 }
-                str = "\n\n¼¼ÄÜµÄÃèÊöÓÉµÍµ½¸ßÒÀ´ÎÎª£º"+str;
+                str = "\n\næŠ€èƒ½çš„æè¿°ç”±ä½Žåˆ°é«˜ä¾æ¬¡ä¸ºï¼š"+str;
                 i = sizeof(knowledge_level_desc);
                 while(i--) {
                         str = "    " + knowledge_level_desc[i] + str;
                         if (i % 4 == 0) str = "\n" + str;
                 }
-                return notify_fail("ÖªÊ¶µÄÃèÊöÓÉµÍµ½¸ßÒÀ´ÎÎª£º"+str+"\n");
+                return notify_fail("çŸ¥è¯†çš„æè¿°ç”±ä½Žåˆ°é«˜ä¾æ¬¡ä¸ºï¼š"+str+"\n");
 }
 int help(object me)
 {
@@ -56,12 +56,12 @@ int help(object me)
                 if (j % 4 == 0) str2 = "\n" + str2;
         }
 write(@HELP
-Ö¸Áî¸ñÊ½ : level
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãÏÔÊ¾Ä¿Ç°µÄ¼¼ÄÜµÄÃèÊö¡£
-ÖªÊ¶µÄÃèÊöÓÉµÍµ½¸ßÒÀ´ÎÎª£º
+æŒ‡ä»¤æ ¼å¼ : level
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ æ˜¾ç¤ºç›®å‰çš„æŠ€èƒ½çš„æè¿°ã€‚
+çŸ¥è¯†çš„æè¿°ç”±ä½Žåˆ°é«˜ä¾æ¬¡ä¸ºï¼š
 HELP);
         write(str2);
-		write("\n¼¼ÄÜµÄÃèÊöÓÉµÍµ½¸ßÒÀ´ÎÎª£º\n");
+		write("\næŠ€èƒ½çš„æè¿°ç”±ä½Žåˆ°é«˜ä¾æ¬¡ä¸ºï¼š\n");
 		write(str);
 
     return 1;

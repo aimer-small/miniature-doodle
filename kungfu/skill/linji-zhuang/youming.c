@@ -15,32 +15,32 @@ int exert(object me, object target)
 	if( !objectp(target)
 	 || !target->is_character()
 	 || !me->is_fighting(target) )
-		return notify_fail("¡¸ÓÄÚ¤¡¹×Ö¾÷Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€Œå¹½å†¥ã€å­—è¯€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if( (int)me->query_skill("linji-zhuang", 1) < 180 )
-		return notify_fail("ÄãµÄÁÙ¼ÃÊ®¶ş×¯ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„ä¸´æµåäºŒåº„ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if( me->query("class") != "bonze" && me->query("family/generation") > 3 )
-		return notify_fail("Äã²»ÊÇ³ö¼ÒÈË£¬ÎŞ·¨Áì»áÁÙ¼ÃÊ®¶ş×¯µÄ¡¸ÓÄÚ¤¡¹×Ö¾ö£¡\n");
+		return notify_fail("ä½ ä¸æ˜¯å‡ºå®¶äººï¼Œæ— æ³•é¢†ä¼šä¸´æµåäºŒåº„çš„ã€Œå¹½å†¥ã€å­—å†³ï¼\n");
 
 	if( (int)me->query("neili") < 1500 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("max_neili") < 2000 )
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿã€‚\n");
 
-	if( me->query_temp("ljz/youming") )	// ĞŞ¸Ä±ê¼Ç£¨Ô­Îª£ºyun_youming£©
-		return notify_fail("ÄãÕıÔÚÔËÓÃÁÙ¼ÃÊ®¶ş×¯µÄ¡¸ÓÄÚ¤¡¹×Ö¾÷£¡\n");
+	if( me->query_temp("ljz/youming") )	// ä¿®æ”¹æ ‡è®°ï¼ˆåŸä¸ºï¼šyun_youmingï¼‰
+		return notify_fail("ä½ æ­£åœ¨è¿ç”¨ä¸´æµåäºŒåº„çš„ã€Œå¹½å†¥ã€å­—è¯€ï¼\n");
 
-	if( me->query_temp("ljz/wuwo") )	// ¸Ä³É ²»ÄÜºÍ wuwo Í¬Ê±Ê¹ÓÃ
-		return notify_fail("ÄãÕıÔÚÔËÓÃÁÙ¼ÃÊ®¶ş×¯µÄ¡¸ÎŞÎÒ¡¹×Ö¾ö£¡\n");
+	if( me->query_temp("ljz/wuwo") )	// æ”¹æˆ ä¸èƒ½å’Œ wuwo åŒæ—¶ä½¿ç”¨
+		return notify_fail("ä½ æ­£åœ¨è¿ç”¨ä¸´æµåäºŒåº„çš„ã€Œæ— æˆ‘ã€å­—å†³ï¼\n");
 
 
-	tell_object(me,MAG"ÄãÇ±ÔËÁÙ¼ÃÊ®¶ş×¯µÄ¡¸ÓÄÚ¤¡¹×Ö¾÷¡£¡£¡£\n"NOR);
+	tell_object(me,MAG"ä½ æ½œè¿ä¸´æµåäºŒåº„çš„ã€Œå¹½å†¥ã€å­—è¯€ã€‚ã€‚ã€‚\n"NOR);
 
 	if( nh > 150 ) nh = 150 + (nh - 150)/10;
 
-	me->set_temp("ljz/youming", nh);  	// ±ê¼ÇĞŞ¸Ä
+	me->set_temp("ljz/youming", nh);  	// æ ‡è®°ä¿®æ”¹
 	me->add("neili", - 250);
 	me->add_temp("apply/armor", nh);
 
@@ -49,18 +49,18 @@ int exert(object me, object target)
 
 	ap += ap/2;
 
-	me->start_perform(2,"¡¸ÓÄÚ¤¡¹×Ö¾÷");
-	me->start_exert(2,"¡¸ÓÄÚ¤¡¹×Ö¾÷");
+	me->start_perform(2,"ã€Œå¹½å†¥ã€å­—è¯€");
+	me->start_exert(2,"ã€Œå¹½å†¥ã€å­—è¯€");
 	me->start_busy(random(2));
 
 	if ( random(ap + dp) > dp ) {
-		message_vision(HIW"$NÁ³É«Í»È»±äµÃÒõÉ­¿É²À£¬$n¶¸È»Àäº¹Ö±Ã°£¡\n"NOR, me, target);
+		message_vision(HIW"$Nè„¸è‰²çªç„¶å˜å¾—é˜´æ£®å¯æ€–ï¼Œ$né™¡ç„¶å†·æ±—ç›´å†’ï¼\n"NOR, me, target);
 		me->add_condition("no_perform",nh/30);
 		me->add_condition("no_exert",nh/30);
 		target->add_condition("no_perform",nh/30);
 		target->add_condition("no_exert",nh/30);
-		me->start_perform(nh/30,"¡¸ÓÄÚ¤¡¹×Ö¾÷");
-		target->start_perform(nh/30, me->name()+"µÄ¡¸ÓÄÚ¤¡¹×Ö¾÷");
+		me->start_perform(nh/30,"ã€Œå¹½å†¥ã€å­—è¯€");
+		target->start_perform(nh/30, me->name()+"çš„ã€Œå¹½å†¥ã€å­—è¯€");
 	}
 	call_out("remove_effect", 1, me, target, nh);
 	return 1;
@@ -76,23 +76,23 @@ void remove_effect(object me,object target,int count)
 		i = me->query_temp("ljz/youming");
 		me->add_temp("apply/armor", -i);
 		me->delete_temp("ljz/youming");
-		message_vision(HIR"$NÉ¢È¥ÁË¡¸ÓÄÚ¤¡¹ĞÄ·¨£¬»Ö¸´ÁËÕı³£¡£\n"NOR, me);
+		message_vision(HIR"$Næ•£å»äº†ã€Œå¹½å†¥ã€å¿ƒæ³•ï¼Œæ¢å¤äº†æ­£å¸¸ã€‚\n"NOR, me);
 		return;
 	}
 	call_out("remove_effect", 1, me, count - 1);
 }
 
-string exert_name(){ return HIW"ÓÄÚ¤×Ö¾ö"NOR; }
+string exert_name(){ return HIW"å¹½å†¥å­—å†³"NOR; }
 
 int help(object me)
 {
-        write(HIW"\nÁÙ¼ÃÊ®¶ş×¯¡¸ÓÄÚ¤×Ö¾÷¡¹£º"NOR"\n\n");
+        write(HIW"\nä¸´æµåäºŒåº„ã€Œå¹½å†¥å­—è¯€ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1500 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 2000 ÒÔÉÏ£»
-                ÁÙ¼ÃÊ®¶ş×¯µÈ¼¶ 180 ÒÔÉÏ£»
-                ³ö¼Ò»òË×¼ÒÈı´úµÜ×Ó£»
-                ²»ÄÜºÍ¡¸ÎŞÎÒ¡¹×Ö¾÷Í¬Ê±Ê¹ÓÃ¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1500 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 2000 ä»¥ä¸Šï¼›
+                ä¸´æµåäºŒåº„ç­‰çº§ 180 ä»¥ä¸Šï¼›
+                å‡ºå®¶æˆ–ä¿—å®¶ä¸‰ä»£å¼Ÿå­ï¼›
+                ä¸èƒ½å’Œã€Œæ— æˆ‘ã€å­—è¯€åŒæ—¶ä½¿ç”¨ã€‚
 HELP
         );
         return 1;

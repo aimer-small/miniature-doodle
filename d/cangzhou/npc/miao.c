@@ -3,13 +3,13 @@ inherit NPC;
 #include <ansi.h>;
 void create()
 {
-	set_name("ÃçÈôÀ¼", ({ "miao ruolan", "ruolan", "miao" }));
-	set("gender", "Å®ĞÔ");
+	set_name("è‹—è‹¥å…°", ({ "miao ruolan", "ruolan", "miao" }));
+	set("gender", "å¥³æ€§");
 	set("age", 18);
 	set("str", 20);
 	set("dex", 20);
 	set("per", 27);
-	set("long", "Õâ¾ÍÊÇÃçÈË·ïµÄ¶ÀÉúÅ®¶ù¡£\n");
+	set("long", "è¿™å°±æ˜¯è‹—äººå‡¤çš„ç‹¬ç”Ÿå¥³å„¿ã€‚\n");
 	set("combat_exp", 330000);
 	set("shen_type", 1);
 	set("attitude", "friendly");

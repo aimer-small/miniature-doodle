@@ -1,5 +1,5 @@
 
-//add ²é¿´quest skill by tangfeng 2005
+//add æŸ¥çœ‹quest skill by tangfeng 2005
 
 #include <ansi.h>
 inherit F_CLEAN_UP;
@@ -11,117 +11,117 @@ int sort_user(object ob1, object ob2);
 int clear_user(object ob);
 int help(object me);
 
-//²é¿´skill
+//æŸ¥çœ‹skill
 int chakan_skill(object me,int k);
 
 mapping *quest_skill = ({
-([      "location" : "quest/ÌìÁú°Ë²¿/Îä¹¦/pass",
-        "name" : HIY"Áè²¨Î¢²½"NOR,
+([      "location" : "quest/å¤©é¾™å…«éƒ¨/æ­¦åŠŸ/pass",
+        "name" : HIY"å‡Œæ³¢å¾®æ­¥"NOR,
         "level" : 1,
 		"logfile":"/log/quest/TLBB",
-		"string":"½â¿ªÁè²¨Î¢²½",
+		"string":"è§£å¼€å‡Œæ³¢å¾®æ­¥",
 ]),
 ([      "location" : "oyf/hamagong3",
-        "name" : HIY"¸òó¡¹¦Èı"NOR,
+        "name" : HIY"è›¤èŸ†åŠŸä¸‰"NOR,
         "level" : 1,
 		"logfile":"/log/quest/hamagong",
-		"string":"¸òó¡¹¦",
+		"string":"è›¤èŸ†åŠŸ",
 ]),
-([      "location" : "quest/Á¬³Ç¾÷/Îä¹¦/shenzhao",
-        "name" : HIB"ÉñÕÕ¾­"NOR,
+([      "location" : "quest/è¿åŸè¯€/æ­¦åŠŸ/shenzhao",
+        "name" : HIB"ç¥ç…§ç»"NOR,
         "level" : 2,
 		"logfile":"/log/quest/LCHJ",
-		"string":"Ñ§µ½ÉñÕÕ¾­¾ø¼¼",
+		"string":"å­¦åˆ°ç¥ç…§ç»ç»æŠ€",
 ]),
-([      "location" : "quest/Á¬³Ç¾÷/Îä¹¦/sword",
-        "name" : HIC"ÌÉÊ¬½£·¨"NOR,
+([      "location" : "quest/è¿åŸè¯€/æ­¦åŠŸ/sword",
+        "name" : HIC"èººå°¸å‰‘æ³•"NOR,
         "level" : 3,
 		"logfile":"/log/quest/LCHJ",
-		"string":"Ñ§µ½ÌÉÊ¬½£·¨",
+		"string":"å­¦åˆ°èººå°¸å‰‘æ³•",
 ]),
-([      "location" : "quest/Ñ©É½·Éºü/Îä¹¦/hujiadaofa",
-        "name" : HIW"ºú¼Òµ¶·¨"NOR,
+([      "location" : "quest/é›ªå±±é£ç‹/æ­¦åŠŸ/hujiadaofa",
+        "name" : HIW"èƒ¡å®¶åˆ€æ³•"NOR,
         "level" : 2,
 		"logfile":"/log/quest/FEIHU",
-		"string":"½Ò¿ªºú¼Òµ¶·¨",
+		"string":"æ­å¼€èƒ¡å®¶åˆ€æ³•",
 ]),
-([      "location" : "quest/Ñ©É½·Éºü/Îä¹¦/miaojiajianfa",
-        "name" : HIM"Ãç¼Ò½£·¨"NOR,
+([      "location" : "quest/é›ªå±±é£ç‹/æ­¦åŠŸ/miaojiajianfa",
+        "name" : HIM"è‹—å®¶å‰‘æ³•"NOR,
         "level" : 2,
 		"logfile":"/log/quest/FEIHU",
-		"string":"½Ò¿ªÃç¼Ò½£·¨",
+		"string":"æ­å¼€è‹—å®¶å‰‘æ³•",
 ]),
-([      "location" : "quest/Ñ©É½·Éºü/Îä¹¦/lengquanshengong",
-        "name" : HIB"ÀäÈªÉñ¹¦"NOR,
+([      "location" : "quest/é›ªå±±é£ç‹/æ­¦åŠŸ/lengquanshengong",
+        "name" : HIB"å†·æ³‰ç¥åŠŸ"NOR,
         "level" : 2,
 		"logfile":"/log/quest/FEIHU",
-		"string":"½â¿ªÀäÈªÉñ¹¦",
+		"string":"è§£å¼€å†·æ³‰ç¥åŠŸ",
 ]),
 ([      "location" : "double_attack",
-        "name" : HIR"Ë«ÊÖ»¥²«"NOR,
+        "name" : HIR"åŒæ‰‹äº’æ"NOR,
         "level" : 1,
 		"logfile":"/log/quest/jiebai",
-		"string":"´ÓÖÜ²®Í¨´¦ÁìÎòµ½Ë«ÊÖ»¥²«",
+		"string":"ä»å‘¨ä¼¯é€šå¤„é¢†æ‚Ÿåˆ°åŒæ‰‹äº’æ",
 ]),
 ([      "location" : "quest/jiuyin2/pass",
-        "name" : HIY"¾ÅÒõÏÂÆª"NOR,
+        "name" : HIY"ä¹é˜´ä¸‹ç¯‡"NOR,
         "level" : 2,
 		"logfile":"/log/quest/jiuyin",
-		"string":"´Îºó£¬´Ó³ÂĞş·ç´¦µÃµ½¾ÅÒõÕæ¾­ÏÂ¾í",
+		"string":"æ¬¡åï¼Œä»é™ˆç„é£å¤„å¾—åˆ°ä¹é˜´çœŸç»ä¸‹å·",
 ]),
 ([      "location" : "quest/jiuyin1/pass",
-        "name" : HIR"¾ÅÒõÈ«Æª"NOR,
+        "name" : HIR"ä¹é˜´å…¨ç¯‡"NOR,
         "level" : 1,
 		"logfile":"/log/quest/jiuyin",
-		"string":"µÃµ½¾ÅÒõÕæ¾­ÉÏ²á",
+		"string":"å¾—åˆ°ä¹é˜´çœŸç»ä¸Šå†Œ",
 ]),
 ([      "location" : "mao18/pass",
-        "name" : HIY"Îå»¢¶ÏÃÅµ¶"NOR,
+        "name" : HIY"äº”è™æ–­é—¨åˆ€"NOR,
         "level" : 3,
 		"logfile":"/log/quest/wuhu",
-		"string":"´ÓÃ©Ê®°Ë´¦Ñ§µÃÎå»¢¶ÏÃÅµ¶",
+		"string":"ä»èŒ…åå…«å¤„å­¦å¾—äº”è™æ–­é—¨åˆ€",
 ]),
 ([      "location" : "oyf/hamagong",
-        "name" : HIR"¸òó¡¹¦"NOR,
+        "name" : HIR"è›¤èŸ†åŠŸ"NOR,
         "level" : 1,
 		"logfile":"/log/quest/hamagong",
-		"string":"³ÉÎªÅ·Ñô·åÒå×Ó",
+		"string":"æˆä¸ºæ¬§é˜³å³°ä¹‰å­",
 ]),
 ([      "location" : "quest/qianzhu/pass",
-        "name" : HIR"Ç§ÖéÍò¶¾ÊÖ"NOR,
+        "name" : HIR"åƒç ä¸‡æ¯’æ‰‹"NOR,
         "level" : 2,
 		"logfile":"/log/quest/qianzhu",
-		"string":"ºó£¬½â¿ªÇ§ÖëÍò¶¾ÊÖ",
+		"string":"åï¼Œè§£å¼€åƒè››ä¸‡æ¯’æ‰‹",
 ]),
 ([      "location" : "jinshe/jianfa",
-        "name" : HIY"½ğÉß½£·¨"NOR,
+        "name" : HIY"é‡‘è›‡å‰‘æ³•"NOR,
         "level" : 2,
 		"logfile":"",
 		"string":"",
 ]),
 ([      "location" : "jinshe/zhangfa",
-        "name" : HIY"½ğÉßÕÆ·¨"NOR,
+        "name" : HIY"é‡‘è›‡æŒæ³•"NOR,
         "level" : 3,
 		"logfile":"",
 		"string":"",
 ]),
 ([      "location" : "quest/pixie/pass",
-        "name" : HIW"±ÙĞ°½£·¨"NOR,
+        "name" : HIW"è¾Ÿé‚ªå‰‘æ³•"NOR,
         "level" : 2,
 		"logfile":"/log/quest/pixie",
-		"string":"ºó£¬»ñµÃ¡¸¿û»¨±¦µä¡¹",
+		"string":"åï¼Œè·å¾—ã€Œè‘µèŠ±å®å…¸ã€",
 ]),
 ([      "location" : "xmsz",
-        "name" : HIW"ĞşÚ¤ÉñÕÆ"NOR,
+        "name" : HIW"ç„å†¥ç¥æŒ"NOR,
         "level" : 2,
 		"logfile":"",
 		"string":"",
 ]),
 ([      "location" : "quest/jindaoheijian/pass",
-        "name" : HIW"½ğµ¶ºÚ½£"NOR,
+        "name" : HIW"é‡‘åˆ€é»‘å‰‘"NOR,
         "level" : 2,
 		"logfile":"/log/quest/jindaoheijian",
-		"string":"½ğµ¶ºÚ½£",
+		"string":"é‡‘åˆ€é»‘å‰‘",
 ]),
 });
 
@@ -132,7 +132,7 @@ int main(object me, string arg)
 
 	str="\n";
 	if (!wizardp(me))
-		return notify_fail("Ö»ÓĞÎ×Ê¦ÄÜ²ì¿´¡£\n");
+		return notify_fail("åªæœ‰å·«å¸ˆèƒ½å¯Ÿçœ‹ã€‚\n");
 	if (!arg)
 		chakan_skill(me,0);
 	else 
@@ -141,8 +141,8 @@ int main(object me, string arg)
 			ob = present(arg, environment(me));
 			if (!ob) ob = LOGIN_D->find_body(arg);
 			if (!ob) ob = find_living(arg);
-			if (!ob || !me->visible(ob)) return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
-			if(wizardp(ob)) return notify_fail("Äã²»¿ÉÒÔ²éÑ¯Î×Ê¦×´Ì¬\n");
+			if (!ob || !me->visible(ob)) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
+			if(wizardp(ob)) return notify_fail("ä½ ä¸å¯ä»¥æŸ¥è¯¢å·«å¸ˆçŠ¶æ€\n");
 			me->set_temp("quest/chakanobject",ob);
 			chakan_skill(me,1);
 	}
@@ -158,9 +158,9 @@ int chakan_skill(object me,int k)
 
     if(k==0)
 	{
-		str =  "\n      ©³ "+HIY"ÔÚÏß½âÃÜÎä¹¦²éÑ¯°ñ"NOR+" ©·\n";
-		str += "©³©¥©¥©ß©¥©¥©¥©¥©¥©¥©¥©Ó©¥©¥©¥©¥©¥©¥©ß©Ó©¥©¥©¥©¥©¥©¥©·\n";
-		str += "©§     Ãû     ×Ö      ©¦   ÃÅ  ÅÉ     ©¦  Îä¹¦Ãû³Æ  ©§\n";
+		str =  "\n      â” "+HIY"åœ¨çº¿è§£å¯†æ­¦åŠŸæŸ¥è¯¢æ¦œ"NOR+" â”“\n";
+		str += "â”â”â”â”»â”â”â”â”â”â”â”â”¯â”â”â”â”â”â”â”»â”¯â”â”â”â”â”â”â”“\n";
+		str += "â”ƒ     å     å­—      â”‚   é—¨  æ´¾     â”‚  æ­¦åŠŸåç§°  â”ƒ\n";
 		ob_list = filter_array(children(USER_OB), (: userp :));
 		ob_list = filter_array(ob_list, (: !wizardp($1) :));
 		ob_list = filter_array(ob_list, (: clear_user :));
@@ -169,7 +169,7 @@ int chakan_skill(object me,int k)
 		for(i=0; i <sizeof(ob_list); i++)
 		{
 
-			str += "©Ä©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©Ì\n";
+			str += "â” â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”¨\n";
 			for(j = sizeof(quest_skill)-1; j >= 0; j--)
 			{
 				if(ob_list[i]->query(quest_skill[j]["location"] ))
@@ -179,20 +179,20 @@ int chakan_skill(object me,int k)
 		}
 		if(!sizeof(ob_list)) 
 		{
-			str += "©Ä©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©Ì\n";
-			str+= "©Ä©¤©¤©¤©¤©¤©¤©¤©¤Ã»ÓĞ·¢ÏÖÈÎºÎ½âÃÜÎä¹¦µÄ´æÔÚ©¤©¤©¤©¤©Ì\n";
+			str += "â” â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”¨\n";
+			str+= "â” â”€â”€â”€â”€â”€â”€â”€â”€æ²¡æœ‰å‘ç°ä»»ä½•è§£å¯†æ­¦åŠŸçš„å­˜åœ¨â”€â”€â”€â”€â”¨\n";
 		}
-		str += "©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n";  
+		str += "â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n";  
 		tell_object(me,str);
 	}
 	else
 	{
         obj=me->query_temp("quest/chakanobject");
 		if(!obj) return 1;
-		str =  "\n"+HIY+obj->query("name")+"Îä¹¦²éÑ¯°ñ"NOR+"\n";
-		str += "©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n";
-		str += "ÃÅÅÉ£º"+obj->query("family/family_name");	
-		str += "\n©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+		str =  "\n"+HIY+obj->query("name")+"æ­¦åŠŸæŸ¥è¯¢æ¦œ"NOR+"\n";
+		str += "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n";
+		str += "é—¨æ´¾ï¼š"+obj->query("family/family_name");	
+		str += "\nâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
         x=0;
 		for(i = sizeof(quest_skill)-1; i >= 0; i--)
 		{
@@ -204,8 +204,8 @@ int chakan_skill(object me,int k)
 			
 		}
 		if(x==0)
-			str+= "Ã»ÓĞ·¢ÏÖÈÎºÎ½âÃÜÎä¹¦µÄ´æÔÚ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
-		str += "©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n"NOR;
+			str+= "æ²¡æœ‰å‘ç°ä»»ä½•è§£å¯†æ­¦åŠŸçš„å­˜åœ¨â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
+		str += "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"NOR;
 		tell_object(me,str);
 		if(x==1)
 		{
@@ -214,7 +214,7 @@ int chakan_skill(object me,int k)
 				if(obj->query(quest_skill[i]["location"] ))
 				{
 					if(quest_skill[i]["logfile"]=="")
-						tell_object(me,"¿ÉÏ§Ã»ÓĞ"+quest_skill[i]["name"]+"µÄLog¼ÍÂ¼¡£\n");
+						tell_object(me,"å¯æƒœæ²¡æœ‰"+quest_skill[i]["name"]+"çš„Logçºªå½•ã€‚\n");
 					else
 					{
 						seteuid(geteuid(me));
@@ -224,7 +224,7 @@ int chakan_skill(object me,int k)
 					}
 				}
 			}
-			str = NOR"©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n"NOR;
+			str = NOR"â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"NOR;
 			tell_object(me,str);
 		}
 		me->delete_temp("quest/chakanobject");
@@ -279,8 +279,8 @@ string sprint_list(object ob_list,string str)
 {
 	string msg="";
 	if(!str)
-		str="ÎŞÃûÉñ¹¦";
-	msg = sprintf("©§  %10s%-12s  %|10s  %|10s  " NOR "©§\n",
+		str="æ— åç¥åŠŸ";
+	msg = sprintf("â”ƒ  %10s%-12s  %|10s  %|10s  " NOR "â”ƒ\n",
 			ob_list->query("name") ,
 			"("+capitalize(ob_list->query("id"))+")",
 			ob_list->query("family/family_name"),
@@ -319,7 +319,7 @@ void searchstr(object me,string file,string str,int location,string buf)
 
 				if (count>20) {
                         count = 0;
-                        tell_object(me,"== Î´Íê¼ÌĞø == (ENTER ¼ÌĞøÏÂÒ»Ò³£¬q Àë¿ª)");
+                        tell_object(me,"== æœªå®Œç»§ç»­ == (ENTER ç»§ç»­ä¸‹ä¸€é¡µï¼Œq ç¦»å¼€)");
                         input_to("donext",me,file,str,location,buf);
                         return;
                 }
@@ -331,17 +331,17 @@ void donext(string arg,object me,string file,string str,int location,string buf)
         if( arg[0]!='q' )
                 searchstr(me,file,str,location,buf);
         else
-                tell_object(me,"²éÑ¯ÖÕÖ¹¡£\n");
+                tell_object(me,"æŸ¥è¯¢ç»ˆæ­¢ã€‚\n");
 }
 
 int help(object me)
 {
 	write("
-©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥
-          Ö¸Áî¸ñÊ½ : "+YEL"checkquestskill <......>"NOR"
-©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥"YEL"
-       checkquestskill  Î×Ê¦²é¿´ËùÓĞÍæ¼Òquest skillÇé¿ö
-checkquestskill <Íæ¼Ò>  Î×Ê¦²é¿´Ä³Íæ¼Òquest skill¼ÍÂ¼\n"NOR"
-©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥\n"NOR);
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+          æŒ‡ä»¤æ ¼å¼ : "+YEL"checkquestskill <......>"NOR"
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”"YEL"
+       checkquestskill  å·«å¸ˆæŸ¥çœ‹æ‰€æœ‰ç©å®¶quest skillæƒ…å†µ
+checkquestskill <ç©å®¶>  å·«å¸ˆæŸ¥çœ‹æŸç©å®¶quest skillçºªå½•\n"NOR"
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\n"NOR);
 return 1;
 }

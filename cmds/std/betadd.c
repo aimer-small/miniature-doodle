@@ -15,13 +15,13 @@ int check_legal_code(string valcode)
 	i = strlen(valcode);
 
 	if( i < 1 || i > 6 ) {
-		write("¶Ô²»Æğ£¬¶Ä¾Ö´úÂë±ØĞëÊÇ 1 µ½ 6 ¸öÓ¢ÎÄ×ÖÄ¸»òÊı×Ö¡£\n");
+		write("å¯¹ä¸èµ·ï¼ŒèµŒå±€ä»£ç å¿…é¡»æ˜¯ 1 åˆ° 6 ä¸ªè‹±æ–‡å­—æ¯æˆ–æ•°å­—ã€‚\n");
 		return 0;
 	}
 
 	while(i--)
 		if( (valcode[i] < 'a' || valcode[i] > 'z') && (valcode[i] < '0' || valcode[i] > '9') ) {
-			write("¶Ô²»Æğ£¬¶Ä¾Ö´úÂëÖ»ÄÜÓÃÓ¢ÎÄ×ÖÄ¸»òÊı×Ö¡£\n");
+			write("å¯¹ä¸èµ·ï¼ŒèµŒå±€ä»£ç åªèƒ½ç”¨è‹±æ–‡å­—æ¯æˆ–æ•°å­—ã€‚\n");
 			return 0;
 		}
 
@@ -61,9 +61,9 @@ int getsettime(string valstr)
 int main(object me, string arg)
 {
 	if ( !wizardp(me) && ( (!me->query("gamblers"))||(me->query("gamblers")!=1) ) )
-		return notify_fail("ÄãÃ»ÓĞÕâ¸öÈ¨ÏŞ?\n");
+		return notify_fail("ä½ æ²¡æœ‰è¿™ä¸ªæƒé™?\n");
 
-	write("ÇëÏÈÊäÈëÄúÎª±¾´Î¶Ä¾ÖÉèÖÃµÄ´úÂë£¬×¢ÒâÈç¹ûÓëÏµÍ³ÖĞÏÖ´æµÄÖØ¸´£¬½«»á¸²¸ÇÔ­ÉèÖÃ\n´úÂëÎª£º");
+	write("è¯·å…ˆè¾“å…¥æ‚¨ä¸ºæœ¬æ¬¡èµŒå±€è®¾ç½®çš„ä»£ç ï¼Œæ³¨æ„å¦‚æœä¸ç³»ç»Ÿä¸­ç°å­˜çš„é‡å¤ï¼Œå°†ä¼šè¦†ç›–åŸè®¾ç½®\nä»£ç ä¸ºï¼š");
 	input_to("get_code", 1, me);
 	return 1;
 }
@@ -74,17 +74,17 @@ private void get_code(string valcode, object ob)
 	
 	ret = DOBET_D->leasedb("select code,context,setup_id,flag,begin_time,stop_time,end_time,deposit,bet_result,remark,max_bet from "+DB_DOBET_NAME+" where U_Site='"+INTERMUD_MUD_NAME+"' AND code='"+valcode+"'");
 	if(check_legal_code(valcode)==0){
-		write("¶Ä¾Ö´úÂëÎª£º");
+		write("èµŒå±€ä»£ç ä¸ºï¼š");
 		input_to("get_code", 1, ob);
 	};
 	
 	if(!ret || sizeof(ret)<1){
-		write("ÇëÊäÈë¶Ä¾ÖµÄÄÚÈİ£¬»Ø³µ±íÊ¾·ÅÆú£º");
+		write("è¯·è¾“å…¥èµŒå±€çš„å†…å®¹ï¼Œå›è½¦è¡¨ç¤ºæ”¾å¼ƒï¼š");
 		input_to("get_context1", 1,valcode, ob );
 	}else{
-		write("´úÂëÎª:"HIW+valcode+NOR"ÒÑ¾­´æÔÚ¡£\nÔ­Éè¶¨µÄ¶Ä¾ÖµÄÄÚÈİ£º"HIW+ret[0][1]+NOR"\n");
-		write("Ô­¶Ä¾ÖµÄ×´Ì¬Îª£º"+DOBET_D->getflag(ret[0][3])+"\n");
-		write("ÇëÊäÈë¶Ä¾ÖµÄĞÂÄÚÈİ£¬»Ø³µ±íÊ¾²»ĞŞ¸Ä£º");
+		write("ä»£ç ä¸º:"HIW+valcode+NOR"å·²ç»å­˜åœ¨ã€‚\nåŸè®¾å®šçš„èµŒå±€çš„å†…å®¹ï¼š"HIW+ret[0][1]+NOR"\n");
+		write("åŸèµŒå±€çš„çŠ¶æ€ä¸ºï¼š"+DOBET_D->getflag(ret[0][3])+"\n");
+		write("è¯·è¾“å…¥èµŒå±€çš„æ–°å†…å®¹ï¼Œå›è½¦è¡¨ç¤ºä¸ä¿®æ”¹ï¼š");
 		input_to("get_context2", 1,valcode,ret[0][1],ret[0][10],
 			ret[0][4],ret[0][5],ret[0][6], ob );
 	}
@@ -93,10 +93,10 @@ private void get_code(string valcode, object ob)
 private void get_context1(string valcontext, string valcode, object ob)
 {
 	if( !stringp(valcontext)||(valcontext=="") ){
-		write("Äã·ÅÆúÁËÉèÖÃ\n");
+		write("ä½ æ”¾å¼ƒäº†è®¾ç½®\n");
 	}else{
-		write("ÇëÊäÈë¶Ä¾ÖµÄÔÊĞíÒ»¸öid×î´óÍ¶×¢½ğ¶î£¬ÒÔ¶§»Æ½ğÎªµ¥Î»\n");
-		write("»Ø³µ±íÊ¾·ÅÆú£º");
+		write("è¯·è¾“å…¥èµŒå±€çš„å…è®¸ä¸€ä¸ªidæœ€å¤§æŠ•æ³¨é‡‘é¢ï¼Œä»¥é”­é»„é‡‘ä¸ºå•ä½\n");
+		write("å›è½¦è¡¨ç¤ºæ”¾å¼ƒï¼š");
 		input_to("get_betmax1", 1,valcode, valcontext,ob );
 	}
 }
@@ -107,9 +107,9 @@ private void get_context2(string valcontext,string valcode, string oldvalcontext
 	if( !stringp(valcontext)||(valcontext=="") )
 		valcontext=oldvalcontext;
 
-	write(sprintf("Ô­¶Ä¾ÖµÄ×î´óÍ¶×¢½ğ¶îÊÇ£º"HIW"%d¶§»Æ½ğ\n"NOR,valbetmax));
-	write("ÇëÊäÈë¶Ä¾ÖµÄÔÊĞíÒ»¸öid×î´óÍ¶×¢½ğ¶î£¬ÒÔ¶§»Æ½ğÎªµ¥Î»\n");
-	write("»Ø³µ±íÊ¾²»ĞŞ¸Ä£º");
+	write(sprintf("åŸèµŒå±€çš„æœ€å¤§æŠ•æ³¨é‡‘é¢æ˜¯ï¼š"HIW"%dé”­é»„é‡‘\n"NOR,valbetmax));
+	write("è¯·è¾“å…¥èµŒå±€çš„å…è®¸ä¸€ä¸ªidæœ€å¤§æŠ•æ³¨é‡‘é¢ï¼Œä»¥é”­é»„é‡‘ä¸ºå•ä½\n");
+	write("å›è½¦è¡¨ç¤ºä¸ä¿®æ”¹ï¼š");
 	input_to("get_betmax2", 1,valcode,valcontext,valbetmax,
 			valbegin_time, valstop_time, valend_time , ob );
 }
@@ -119,18 +119,18 @@ private void get_betmax1(string valbetmax, string valcode, string valcontext,obj
 	int ibetmax;
 	
 	if( !stringp(valbetmax)||(valbetmax=="") ){
-		write("Äã·ÅÆúÁËÉèÖÃ\n");
+		write("ä½ æ”¾å¼ƒäº†è®¾ç½®\n");
 	}else{
 		sscanf( valbetmax, "%d",ibetmax);
 		if(ibetmax<=0){
-			write("×î´óÍ¶×¢½ğ¶î²»ÄÜĞ¡ÓÚÁã\n");
-			write("ÇëÊäÈë¶Ä¾ÖµÄÔÊĞíÒ»¸öid×î´óÍ¶×¢½ğ¶î£¬ÒÔ¶§»Æ½ğÎªµ¥Î»\n");
-			write("»Ø³µ±íÊ¾·ÅÆú£º");
+			write("æœ€å¤§æŠ•æ³¨é‡‘é¢ä¸èƒ½å°äºé›¶\n");
+			write("è¯·è¾“å…¥èµŒå±€çš„å…è®¸ä¸€ä¸ªidæœ€å¤§æŠ•æ³¨é‡‘é¢ï¼Œä»¥é”­é»„é‡‘ä¸ºå•ä½\n");
+			write("å›è½¦è¡¨ç¤ºæ”¾å¼ƒï¼š");
 			input_to("get_betmax1", 1,valcode, valcontext,ob );
 		};
-		write(sprintf("ÄãÊäÈëµÄ×î¸ßÍ¶×¢½ğ¶îÎª£º"HIW"%d¶§»Æ½ğ\n"NOR,ibetmax));
-		write("ÇëÊäÈë¶Ä¾ÖµÄÔÊĞí¿ªÊ¼Í¶×¢Ê±¼ä£¬ÊäÈëÊ¾ÀıÎª 4 12:00:00,±íÊ¾ËÄÌìºóµÄÖĞÎç12µãÕı\n");
-		write("»Ø³µ±íÊ¾·ÅÆú£º");
+		write(sprintf("ä½ è¾“å…¥çš„æœ€é«˜æŠ•æ³¨é‡‘é¢ä¸ºï¼š"HIW"%dé”­é»„é‡‘\n"NOR,ibetmax));
+		write("è¯·è¾“å…¥èµŒå±€çš„å…è®¸å¼€å§‹æŠ•æ³¨æ—¶é—´ï¼Œè¾“å…¥ç¤ºä¾‹ä¸º 4 12:00:00,è¡¨ç¤ºå››å¤©åçš„ä¸­åˆ12ç‚¹æ­£\n");
+		write("å›è½¦è¡¨ç¤ºæ”¾å¼ƒï¼š");
 		input_to("get_begintime1", 1,valcode, valcontext,ibetmax,ob );
 	}
 }
@@ -145,17 +145,17 @@ private void get_betmax2(string valbetmax, string valcode, string valcontext, in
 	else{
 		sscanf( valbetmax, "%d",ibetmax);
 		if(ibetmax<=0){
-			write("×î´óÍ¶×¢½ğ¶î²»ÄÜĞ¡ÓÚÁã\n");
-			write("ÇëÊäÈë¶Ä¾ÖµÄÔÊĞíÒ»¸öid×î´óÍ¶×¢½ğ¶î£¬ÒÔ¶§»Æ½ğÎªµ¥Î»\n");
-			write("»Ø³µ±íÊ¾·ÅÆú£º");
+			write("æœ€å¤§æŠ•æ³¨é‡‘é¢ä¸èƒ½å°äºé›¶\n");
+			write("è¯·è¾“å…¥èµŒå±€çš„å…è®¸ä¸€ä¸ªidæœ€å¤§æŠ•æ³¨é‡‘é¢ï¼Œä»¥é”­é»„é‡‘ä¸ºå•ä½\n");
+			write("å›è½¦è¡¨ç¤ºæ”¾å¼ƒï¼š");
 			input_to("get_betmax2", 1,valcode,valcontext,
 					valbegin_time, valstop_time, valend_time , ob );
 		};
 	};
-	write(sprintf("ÄãÊäÈëµÄ×î¸ßÍ¶×¢½ğ¶îÎª£º"HIW"%d¶§»Æ½ğ\n"NOR,ibetmax));
-	write("Ô­¶Ä¾ÖµÄ¿ªÊ¼Í¶×¢Ê±¼äÊÇ£º"HIW+DOBET_D->longtime(valbegin_time)+NOR"\n");
-	write("ÇëÊäÈë¶Ä¾ÖµÄÔÊĞí¿ªÊ¼Í¶×¢Ê±¼ä£¬ÊäÈëÊ¾ÀıÎª 4 12:00:00,±íÊ¾ËÄÌìºóµÄÖĞÎç12µãÕı\n");
-	write("»Ø³µ±íÊ¾²»ĞŞ¸Ä£º");
+	write(sprintf("ä½ è¾“å…¥çš„æœ€é«˜æŠ•æ³¨é‡‘é¢ä¸ºï¼š"HIW"%dé”­é»„é‡‘\n"NOR,ibetmax));
+	write("åŸèµŒå±€çš„å¼€å§‹æŠ•æ³¨æ—¶é—´æ˜¯ï¼š"HIW+DOBET_D->longtime(valbegin_time)+NOR"\n");
+	write("è¯·è¾“å…¥èµŒå±€çš„å…è®¸å¼€å§‹æŠ•æ³¨æ—¶é—´ï¼Œè¾“å…¥ç¤ºä¾‹ä¸º 4 12:00:00,è¡¨ç¤ºå››å¤©åçš„ä¸­åˆ12ç‚¹æ­£\n");
+	write("å›è½¦è¡¨ç¤ºä¸ä¿®æ”¹ï¼š");
 	input_to("get_begintime2", 1,valcode,valcontext,ibetmax,
 			valbegin_time, valstop_time, valend_time , ob );
 }
@@ -165,12 +165,12 @@ private void get_begintime1(string valbegin_time,string valcode, string valconte
 	int ibegin_time;
 	
 	if( !stringp(valbegin_time) ){
-		write("Äã·ÅÆúÁËÉèÖÃ\n");
+		write("ä½ æ”¾å¼ƒäº†è®¾ç½®\n");
 	}else{
 		ibegin_time=getsettime(valbegin_time);
-		write("ÄãÉèÖÃµÄ¿ªÊ¼Í¶×¢Ê±¼äÊÇ£º"HIW+DOBET_D->longtime(ibegin_time)+NOR"\n");
-		write("ÇëÊäÈë¶Ä¾ÖµÄÍ¶×¢½ØÖ¹Ê±¼ä£¬ÊäÈëÊ¾ÀıÎª 4 12:00:00,±íÊ¾ËÄÌìºóµÄÖĞÎç12µãÕı\n");
-		write("»Ø³µ±íÊ¾·ÅÆú£º");
+		write("ä½ è®¾ç½®çš„å¼€å§‹æŠ•æ³¨æ—¶é—´æ˜¯ï¼š"HIW+DOBET_D->longtime(ibegin_time)+NOR"\n");
+		write("è¯·è¾“å…¥èµŒå±€çš„æŠ•æ³¨æˆªæ­¢æ—¶é—´ï¼Œè¾“å…¥ç¤ºä¾‹ä¸º 4 12:00:00,è¡¨ç¤ºå››å¤©åçš„ä¸­åˆ12ç‚¹æ­£\n");
+		write("å›è½¦è¡¨ç¤ºæ”¾å¼ƒï¼š");
 		input_to("get_stoptime1", 1,valcode,valcontext,valbetmax,ibegin_time, ob );
 	}
 }
@@ -185,10 +185,10 @@ private void get_begintime2(string valbegin_time,string valcode, string valconte
 	else
 		ibegin_time=getsettime(valbegin_time);
 
-	write("ÄãÉèÖÃµÄ¿ªÊ¼Í¶×¢Ê±¼äÊÇ£º"HIW+DOBET_D->longtime(ibegin_time)+NOR"\n");
-	write("Ô­¶Ä¾ÖµÄÍ¶×¢½ØÖ¹Ê±¼äÊÇ£º"HIW+DOBET_D->longtime(valstop_time)+NOR"\n");
-	write("ÇëÊäÈë¶Ä¾ÖµÄÍ¶×¢½ØÖ¹Ê±¼ä£¬ÊäÈëÊ¾ÀıÎª 4 12:00:00,±íÊ¾ËÄÌìºóµÄÖĞÎç12µãÕı\n");
-	write("»Ø³µ±íÊ¾²»ĞŞ¸Ä£º");
+	write("ä½ è®¾ç½®çš„å¼€å§‹æŠ•æ³¨æ—¶é—´æ˜¯ï¼š"HIW+DOBET_D->longtime(ibegin_time)+NOR"\n");
+	write("åŸèµŒå±€çš„æŠ•æ³¨æˆªæ­¢æ—¶é—´æ˜¯ï¼š"HIW+DOBET_D->longtime(valstop_time)+NOR"\n");
+	write("è¯·è¾“å…¥èµŒå±€çš„æŠ•æ³¨æˆªæ­¢æ—¶é—´ï¼Œè¾“å…¥ç¤ºä¾‹ä¸º 4 12:00:00,è¡¨ç¤ºå››å¤©åçš„ä¸­åˆ12ç‚¹æ­£\n");
+	write("å›è½¦è¡¨ç¤ºä¸ä¿®æ”¹ï¼š");
 	input_to("get_stoptime2", 1,valcode,valcontext,valbetmax,
 			ibegin_time, valstop_time, valend_time, ob );
 }
@@ -199,12 +199,12 @@ private void get_stoptime1(string valstop_time,string valcode, string valcontext
 	int istop_time;
 
 	if( !stringp(valstop_time)||(valstop_time=="") ){
-		write("Äã·ÅÆúÁËÉèÖÃ\n");
+		write("ä½ æ”¾å¼ƒäº†è®¾ç½®\n");
 	}else{
 		istop_time=getsettime(valstop_time);
-		write("ÄãÉèÖÃµÄÍ¶×¢½ØÖ¹Ê±¼äÊÇ£º"HIW+DOBET_D->longtime(istop_time)+NOR"\n");
-		write("ÇëÊäÈë¶Ä¾ÖµÄÅÉ²ÊÊ±¼ä£¬ÊäÈëÊ¾ÀıÎª 4 12:00:00,±íÊ¾ËÄÌìºóµÄÖĞÎç12µãÕı\n");
-		write("»Ø³µ±íÊ¾·ÅÆú£º");
+		write("ä½ è®¾ç½®çš„æŠ•æ³¨æˆªæ­¢æ—¶é—´æ˜¯ï¼š"HIW+DOBET_D->longtime(istop_time)+NOR"\n");
+		write("è¯·è¾“å…¥èµŒå±€çš„æ´¾å½©æ—¶é—´ï¼Œè¾“å…¥ç¤ºä¾‹ä¸º 4 12:00:00,è¡¨ç¤ºå››å¤©åçš„ä¸­åˆ12ç‚¹æ­£\n");
+		write("å›è½¦è¡¨ç¤ºæ”¾å¼ƒï¼š");
 		input_to("get_endtime1", 1,valcode,valcontext,valbetmax,ibegin_time,istop_time, ob );
 	}
 }
@@ -219,10 +219,10 @@ private void get_stoptime2(string valstop_time,string valcode, string valcontext
 	else
 		istop_time=getsettime(valstop_time);
 	
-	write("ÄãÉèÖÃµÄÍ¶×¢½ØÖ¹Ê±¼äÊÇ£º"HIW+DOBET_D->longtime(istop_time)+NOR"\n");
-	write("Ô­¶Ä¾ÖµÄÅÉ²ÊÊ±¼äÊÇ£º"HIW+DOBET_D->longtime(valend_time)+NOR"\n");
-	write("ÇëÊäÈë¶Ä¾ÖµÄÅÉ²ÊÊ±¼ä£¬ÊäÈëÊ¾ÀıÎª 4 12:00:00,±íÊ¾ËÄÌìºóµÄÖĞÎç12µãÕı\n");
-	write("»Ø³µ±íÊ¾²»ĞŞ¸Ä£º");
+	write("ä½ è®¾ç½®çš„æŠ•æ³¨æˆªæ­¢æ—¶é—´æ˜¯ï¼š"HIW+DOBET_D->longtime(istop_time)+NOR"\n");
+	write("åŸèµŒå±€çš„æ´¾å½©æ—¶é—´æ˜¯ï¼š"HIW+DOBET_D->longtime(valend_time)+NOR"\n");
+	write("è¯·è¾“å…¥èµŒå±€çš„æ´¾å½©æ—¶é—´ï¼Œè¾“å…¥ç¤ºä¾‹ä¸º 4 12:00:00,è¡¨ç¤ºå››å¤©åçš„ä¸­åˆ12ç‚¹æ­£\n");
+	write("å›è½¦è¡¨ç¤ºä¸ä¿®æ”¹ï¼š");
 	input_to("get_endtime2", 1,valcode,valcontext,valbetmax,
 			valbegin_time, istop_time, valend_time, ob );
 }
@@ -233,16 +233,16 @@ private void get_endtime1(string valend_time,string valcode, string valcontext, 
 	int iend_time;
 	
 	if( !stringp(valend_time)||(valend_time=="") ){
-		write("Äã·ÅÆúÁËÉèÖÃ\n");
+		write("ä½ æ”¾å¼ƒäº†è®¾ç½®\n");
 	}else{
 		iend_time=getsettime(valend_time);
-		write("ÄãÉèÖÃµÄÅÉ²ÊÊ±¼äÊÇ£º"HIW+DOBET_D->longtime(iend_time)+NOR"\n");
+		write("ä½ è®¾ç½®çš„æ´¾å½©æ—¶é—´æ˜¯ï¼š"HIW+DOBET_D->longtime(iend_time)+NOR"\n");
 
 		if( wizardp(ob)||( (ob->query("gamblers"))&&(ob->query("gamblers")==1) ) ){
 			end_input_bet(valcode,valcontext, ob->query("id"),valbetmax,
 				ibegin_time, istop_time, iend_time, 0,ob);
 		}else{
-			write("ÇëÊäÈëÄãÎª×éÖ¯Õâ´Î¶Ä¾Ö¼Æ»®Ö§¸¶µÄÑº½ğ£¬ÒÔ¶§»Æ½ğÎªµ¥Î»£¬»Ø³µ±íÊ¾·ÅÆú£º");
+			write("è¯·è¾“å…¥ä½ ä¸ºç»„ç»‡è¿™æ¬¡èµŒå±€è®¡åˆ’æ”¯ä»˜çš„æŠ¼é‡‘ï¼Œä»¥é”­é»„é‡‘ä¸ºå•ä½ï¼Œå›è½¦è¡¨ç¤ºæ”¾å¼ƒï¼š");
 			input_to("get_deposit", 1,valcode,valcontext,valbetmax,ibegin_time,istop_time,iend_time, ob );
 		};
 	}
@@ -258,7 +258,7 @@ private void get_endtime2(string valend_time, string valcode,string valcontext, 
 	else
 		iend_time=getsettime(valend_time);
 
-	write("ÄãÉèÖÃµÄÅÉ²ÊÊ±¼äÊÇ£º"HIW+DOBET_D->longtime(iend_time)+NOR"\n");
+	write("ä½ è®¾ç½®çš„æ´¾å½©æ—¶é—´æ˜¯ï¼š"HIW+DOBET_D->longtime(iend_time)+NOR"\n");
 
 	end_input_bet(valcode,valcontext, "*",valbetmax,
 		valbegin_time, valstop_time, iend_time, 0,ob);
@@ -270,14 +270,14 @@ private void get_deposit(string valgold,string valcode, string valcontext,  int 
 	int igold;
 	
 	if( !stringp(valgold)||(valgold=="") ){
-		write("Äã·ÅÆúÁËÉèÖÃ\n");
+		write("ä½ æ”¾å¼ƒäº†è®¾ç½®\n");
 	}else{
 		sscanf( valgold, "%d",igold);
 		if(igold<100){
-			write("ÄãÉèÖÃµÄÒªÖ§¸¶µÄÑº½ğµÍÓÚ100¶§»Æ½ğ£¬ÇëÖØĞÂÊäÈë£¬»Ø³µ±íÊ¾·ÅÆú£º");
+			write("ä½ è®¾ç½®çš„è¦æ”¯ä»˜çš„æŠ¼é‡‘ä½äº100é”­é»„é‡‘ï¼Œè¯·é‡æ–°è¾“å…¥ï¼Œå›è½¦è¡¨ç¤ºæ”¾å¼ƒï¼š");
 			input_to("get_deposit", 1,valcode,valcontext,valbetmax,ibegin_time,istop_time,iend_time, ob );
 		};
-		write(sprintf("ÄãÉèÖÃµÄÒªÖ§¸¶µÄÑº½ğÊÇ£º%d¶§»Æ½ğ\n",igold));
+		write(sprintf("ä½ è®¾ç½®çš„è¦æ”¯ä»˜çš„æŠ¼é‡‘æ˜¯ï¼š%dé”­é»„é‡‘\n",igold));
 
 		end_input_bet(valcode,valcontext, ob->query("id"),valbetmax,
 				ibegin_time, istop_time, iend_time, igold,ob);
@@ -288,23 +288,23 @@ void end_input_bet(string valcode,string valcontext, string valsetup_id, int val
 		int valbegin_time, int valstop_time, int valend_time, int valdeposit, object ob)
 {
 	if( valsetup_id!="*" ){
-		write("Äã±¾´Î¶Ä¾ÖµÄÉèÖÃÈçÏÂ\n");
-		write(sprintf("´úÂë£º"HIW"%s"NOR"\n",valcode));
-		write(sprintf("ÄÚÈİ£º"HIW"%s"NOR"\n",valcontext));
-		write(sprintf("×î¸ßÍ¶×¢½ğ£º"HIW"%d¶§»Æ½ğ"NOR"\n",valbetmax));
-		write(sprintf("¿ªÊ¼Í¶×¢Ê±¼ä£º"HIW"%s"NOR"\n",DOBET_D->longtime(valbegin_time)));
-		write(sprintf("Í¶×¢½ØÖ¹Ê±¼ä£º"HIW"%s"NOR"\n",DOBET_D->longtime(valstop_time)));
-		write(sprintf("ÅÉ²ÊÊ±¼ä£º"HIW"%s"NOR"\n",DOBET_D->longtime(valend_time)));
-		write(sprintf("Ñº½ğ£º"HIW"%d¶§»Æ½ğ"NOR"\n",valdeposit));
-		write("È·ÈÏÇëÊäÈëy£¬·ñÔòÈ¡Ïû±¾´ÎÉèÖÃ£º");
+		write("ä½ æœ¬æ¬¡èµŒå±€çš„è®¾ç½®å¦‚ä¸‹\n");
+		write(sprintf("ä»£ç ï¼š"HIW"%s"NOR"\n",valcode));
+		write(sprintf("å†…å®¹ï¼š"HIW"%s"NOR"\n",valcontext));
+		write(sprintf("æœ€é«˜æŠ•æ³¨é‡‘ï¼š"HIW"%dé”­é»„é‡‘"NOR"\n",valbetmax));
+		write(sprintf("å¼€å§‹æŠ•æ³¨æ—¶é—´ï¼š"HIW"%s"NOR"\n",DOBET_D->longtime(valbegin_time)));
+		write(sprintf("æŠ•æ³¨æˆªæ­¢æ—¶é—´ï¼š"HIW"%s"NOR"\n",DOBET_D->longtime(valstop_time)));
+		write(sprintf("æ´¾å½©æ—¶é—´ï¼š"HIW"%s"NOR"\n",DOBET_D->longtime(valend_time)));
+		write(sprintf("æŠ¼é‡‘ï¼š"HIW"%dé”­é»„é‡‘"NOR"\n",valdeposit));
+		write("ç¡®è®¤è¯·è¾“å…¥yï¼Œå¦åˆ™å–æ¶ˆæœ¬æ¬¡è®¾ç½®ï¼š");
 	}else{
-		write("Äã¶Ô±¾´Î¶Ä¾Ö×öÁËÈçĞŞ¸Ä\n");
-		write(sprintf("ÄÚÈİ£º"HIW"%s"NOR"\n",valcontext));
-		write(sprintf("×î¸ßÍ¶×¢½ğ£º"HIW"%d¶§»Æ½ğ"NOR"\n",valbetmax));
-		write(sprintf("¿ªÊ¼Í¶×¢Ê±¼ä£º"HIW"%s"NOR"\n",DOBET_D->longtime(valbegin_time)));
-		write(sprintf("Í¶×¢½ØÖ¹Ê±¼ä£º"HIW"%s"NOR"\n",DOBET_D->longtime(valstop_time)));
-		write(sprintf("ÅÉ²ÊÊ±¼ä£º"HIW"%s"NOR"\n",DOBET_D->longtime(valend_time)));
-		write("È·ÈÏÇëÊäÈëy£¬·ñÔòÈ¡Ïû±¾´ÎÉèÖÃ£º");
+		write("ä½ å¯¹æœ¬æ¬¡èµŒå±€åšäº†å¦‚ä¿®æ”¹\n");
+		write(sprintf("å†…å®¹ï¼š"HIW"%s"NOR"\n",valcontext));
+		write(sprintf("æœ€é«˜æŠ•æ³¨é‡‘ï¼š"HIW"%dé”­é»„é‡‘"NOR"\n",valbetmax));
+		write(sprintf("å¼€å§‹æŠ•æ³¨æ—¶é—´ï¼š"HIW"%s"NOR"\n",DOBET_D->longtime(valbegin_time)));
+		write(sprintf("æŠ•æ³¨æˆªæ­¢æ—¶é—´ï¼š"HIW"%s"NOR"\n",DOBET_D->longtime(valstop_time)));
+		write(sprintf("æ´¾å½©æ—¶é—´ï¼š"HIW"%s"NOR"\n",DOBET_D->longtime(valend_time)));
+		write("ç¡®è®¤è¯·è¾“å…¥yï¼Œå¦åˆ™å–æ¶ˆæœ¬æ¬¡è®¾ç½®ï¼š");
 	};
 	input_to("bet_set_yes_no", 1,valcode,valcontext, valsetup_id,valbetmax,
 		valbegin_time, valstop_time, valend_time, valdeposit,ob);
@@ -314,18 +314,18 @@ private void bet_set_yes_no(string yes_no,string valcode,string valcontext, stri
 		int valbegin_time, int valstop_time, int valend_time, int valdeposit,object me)
 {
 	if( (yes_no !="y") && (yes_no !="Y") ){
-		write("Äã·ÅÆúÁËÉèÖÃ\n");
+		write("ä½ æ”¾å¼ƒäº†è®¾ç½®\n");
 		return;
 	};
 	if( DOBET_D->set_bet(valcode,valcontext, valsetup_id,valbetmax,
 		valbegin_time, valstop_time, valend_time, valdeposit) != 1)
-		write("±¾´ÎÉèÖÃÊ§°Ü\n");
+		write("æœ¬æ¬¡è®¾ç½®å¤±è´¥\n");
 	else{
-		write("±¾´ÎÉèÖÃ³É¹¦\n");
-		write("ÇëÊ¹ÓÃ"HIW"betaddodds "+valcode+" <¶Ä×¢´úÂë> <ÅâÂÊËµÃ÷> <ÅâÂÊ> "NOR"À´Ìí¼Ó»òĞŞ¸Ä±¾´Î¶Ä¾ÖµÄÅâÂÊ\n");
-		log_file("betlog",sprintf("%s%s¶Ä¾Ö%sÄÚÈİ%s ×î¸ßÍ¶×¢%d %s %s %s Ñº½ğ%i ",
+		write("æœ¬æ¬¡è®¾ç½®æˆåŠŸ\n");
+		write("è¯·ä½¿ç”¨"HIW"betaddodds "+valcode+" <èµŒæ³¨ä»£ç > <èµ”ç‡è¯´æ˜> <èµ”ç‡> "NOR"æ¥æ·»åŠ æˆ–ä¿®æ”¹æœ¬æ¬¡èµŒå±€çš„èµ”ç‡\n");
+		log_file("betlog",sprintf("%s%sèµŒå±€%så†…å®¹%s æœ€é«˜æŠ•æ³¨%d %s %s %s æŠ¼é‡‘%i ",
 			me->query("id"),
-			((valsetup_id=="*")?"ĞŞ¸Ä":"´´½¨"),
+			((valsetup_id=="*")?"ä¿®æ”¹":"åˆ›å»º"),
 			valcode,valcontext,valbetmax,
 			DOBET_D->longtime(valbegin_time),
 			DOBET_D->longtime(valstop_time),
@@ -337,14 +337,14 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºbetadd
+æŒ‡ä»¤æ ¼å¼ï¼šbetadd
 --------------------------------------------------
- betadd ÉèÖÃ¶Ä¾Ö»òĞŞ¸Ä
- ĞŞ¸ÄÒÔÇ°µÄ¶Ä¾Ö£¬Ö»ÄÜĞŞ¸Ä
-¶Ä¾ÖÄÚÈİ£ºÈçË­¶ÔË­
-ÆğÊ¼Ê±¿Ì
-½ØÖ¹Ê±¿Ì
-ÅÉ²ÊÊ±¿Ì,Ò²ÊÇ±¾¶Ä¾ÖµÄ½áÊøÊ±¼ä
+ betadd è®¾ç½®èµŒå±€æˆ–ä¿®æ”¹
+ ä¿®æ”¹ä»¥å‰çš„èµŒå±€ï¼Œåªèƒ½ä¿®æ”¹
+èµŒå±€å†…å®¹ï¼šå¦‚è°å¯¹è°
+èµ·å§‹æ—¶åˆ»
+æˆªæ­¢æ—¶åˆ»
+æ´¾å½©æ—¶åˆ»,ä¹Ÿæ˜¯æœ¬èµŒå±€çš„ç»“æŸæ—¶é—´
 --------------------------------------------------
 
 HELP

@@ -61,22 +61,22 @@ int main(object me, string arg)
 int help(object me)
 {
         write(@HELP
-ж╦аН╦Яй╫ : cc цЭаН
+Ф▄┤Д╩╓Ф═╪Е╪▐ : cc Е▒╫Д╩╓
  
-уБ╦Жж╦аН©иртхцдЦ╣дцЭаН╪сиояуи╚║ё
+Х©≥Д╦╙Ф▄┤Д╩╓Е▐╞Д╩╔Х╝╘Д╫═Г └Е▒╫Д╩╓Е┼═Д╦┼И╒°Х┴╡Ц─┌
 
 HELP
-"                     $NOR$ - ╩ж╦╢уЩЁёяуи╚\n"
-"$RED$ - "RED"╨Ли╚"NOR"         $HIR$ - "HIR"аа╨Ли╚\n"NOR
-"$GRN$ - "GRN"бли╚"NOR"         $HIG$ - "HIG"аабли╚\n"NOR
-"$YEL$ - "YEL"ма╩фи╚"NOR"       $HIY$ - "HIY"╩фи╚\n"NOR
-"$BLU$ - "BLU"иНю╤и╚"NOR"       $HIB$ - "HIB"ю╤и╚\n"NOR
-"$MAG$ - "MAG"гЁвои╚"NOR"       $HIM$ - "HIM"╥ш╨Ли╚\n"NOR
-"$CYN$ - "CYN"ю╤бли╚"NOR"       $HIC$ - "HIC"лЛгЮи╚\n"NOR
-"$WHT$ - гЁ╩ри╚       $HIW$ - "HIW"╟ви╚\n"NOR
+"                     $NOR$ - Ф│╒Е╓█Ф╜ёЕ╦╦И╒°Х┴╡\n"
+"$RED$ - "RED"Г╨╒Х┴╡"NOR"         $HIR$ - "HIR"Д╨╝Г╨╒Х┴╡\n"NOR
+"$GRN$ - "GRN"Г╩©Х┴╡"NOR"         $HIG$ - "HIG"Д╨╝Г╩©Х┴╡\n"NOR
+"$YEL$ - "YEL"Е°÷И╩└Х┴╡"NOR"       $HIY$ - "HIY"И╩└Х┴╡\n"NOR
+"$BLU$ - "BLU"Ф╥╠Х⌠²Х┴╡"NOR"       $HIB$ - "HIB"Х⌠²Х┴╡\n"NOR
+"$MAG$ - "MAG"Ф╣┘Г╢╚Х┴╡"NOR"       $HIM$ - "HIM"Г╡┴Г╨╒Х┴╡\n"NOR
+"$CYN$ - "CYN"Х⌠²Г╩©Х┴╡"NOR"       $HIC$ - "HIC"Е╓╘И²▓Х┴╡\n"NOR
+"$WHT$ - Ф╣┘Г│╟Х┴╡       $HIW$ - "HIW"Г≥╫Х┴╡\n"NOR
 @HELP 
 
-фДжпо╣мЁвт╤╞╩Атзвж╢╝н╡╤к╪ср╩╦Ж $NOR$║ё
+Е┘╤Д╦╜ГЁ╩Г╩÷Х┤╙Е┼╗Д╪ Е°╗Е╜≈Д╦╡Е╟╬Г╚╞Е┼═Д╦─Д╦╙ $NOR$Ц─┌
 HELP
 );
         return 1;

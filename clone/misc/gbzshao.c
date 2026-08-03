@@ -1,4 +1,4 @@
-//µÑ×Ó /clone/misc/gbzshao.c
+//ç¬›å­ /clone/misc/gbzshao.c
 #include <ansi.h>
 
 inherit ITEM;
@@ -8,9 +8,9 @@ inherit F_AUTOLOAD;
 void create()
 {
         seteuid(getuid());
-	set_name(HIM"µÑ×Ó"NOR, ({ "di zi"}) );
-	set("long", HIM"ÕâÊÇÒ»¸öÑµÁ·ÉßµÄµÑ×Ó¡£\n"NOR);
-        set("unit","¸ö");
+	set_name(HIM"ç¬›å­"NOR, ({ "di zi"}) );
+	set("long", HIM"è¿™æ˜¯ä¸€ä¸ªè®­ç»ƒè›‡çš„ç¬›å­ã€‚\n"NOR);
+        set("unit","ä¸ª");
         set("no_get", 1);
         set("no_drop", 1);
         set("material", "steel");
@@ -23,10 +23,10 @@ void init()
 	object me=this_player();
 	
 	if (environment() != me) return;
-	add_action("do_tame","tame");  //Ñ±·ş×Ô¼ºµÄÉß
-	add_action("do_play","play");  //Ôö¼ÓÉßµÄÓÑÉÆ
-	add_action("do_aggress","aggress"); //Ôö¼ÓÉßµÄĞ×²Ğ
-	add_action("do_ambush","fuji"); //ÃüÁîÉß·ü»÷id
+	add_action("do_tame","tame");  //é©¯æœè‡ªå·±çš„è›‡
+	add_action("do_play","play");  //å¢åŠ è›‡çš„å‹å–„
+	add_action("do_aggress","aggress"); //å¢åŠ è›‡çš„å‡¶æ®‹
+	add_action("do_ambush","fuji"); //å‘½ä»¤è›‡ä¼å‡»id
 }
 
 int query_autoload()
@@ -40,38 +40,38 @@ int do_tame(string arg)
 	string msg;
 
 	if (arg!="snake" && arg!="she")
-		return notify_fail("ÄãÒªÑ±·şË­£¿\n");
+		return notify_fail("ä½ è¦é©¯æœè°ï¼Ÿ\n");
 		
 	me = this_player();
 
 	snake = present("snake",environment(me));
 
-	if (!snake) return notify_fail("ÄãËÄÏÂÍûÁËÍû£¬·¢ÏÖËÄÖÜ²¢Ã»ÓĞÊ²Ã´Éß£¡\n");
+	if (!snake) return notify_fail("ä½ å››ä¸‹æœ›äº†æœ›ï¼Œå‘ç°å››å‘¨å¹¶æ²¡æœ‰ä»€ä¹ˆè›‡ï¼\n");
 	
-	if (snake->query_temp("owner")==me->query("id")) return notify_fail("ÄãµÄÉßÒÑ¾­Ñ±·şÁË¡£\n");
+	if (snake->query_temp("owner")==me->query("id")) return notify_fail("ä½ çš„è›‡å·²ç»é©¯æœäº†ã€‚\n");
 
 	if (!me->query_temp("tame"))
 	{
 		switch (random(5))
 		{
-			case 0 : msg=HIY"$N×ßÉÏÇ°È¥£¬Ğ¡ĞÄÒíÒíµØÃşÁËÒ»ÏÂ$nµÄÉíÌå¡£\n"NOR;break;
-			case 1 : msg=HIR"$N×ªµ½$nµÄºóÃæ£¬ÇáÇáÅÄÁËÅÄ$nµÄÎ²°Í¡£\n"NOR;break;
-			case 2 : msg=HIG"$NÉì³öÒ»Ö»ÊÖ£¬ËÆºõÏëºÍ$nÎÕÎÕÊÖ¡£\n"NOR;break;
-			case 3 : msg=HIM"$NÉì³öË«ÊÖ£¬Äó×¡×Ô¼ºµÄ±Ç×ÓºÍÏÂ°Í£¬¶Ô×Å$n×öÁËÒ»¸ö¹íÁ³¡£\n"NOR;break;
-			case 4 : msg=HIB"$N³åÉÏÇ°È¥£¬½ô½ôÎÕ×¡$nµÄÎ²°Í¡£\n"NOR;break;
+			case 0 : msg=HIY"$Nèµ°ä¸Šå‰å»ï¼Œå°å¿ƒç¿¼ç¿¼åœ°æ‘¸äº†ä¸€ä¸‹$nçš„èº«ä½“ã€‚\n"NOR;break;
+			case 1 : msg=HIR"$Nè½¬åˆ°$nçš„åé¢ï¼Œè½»è½»æ‹äº†æ‹$nçš„å°¾å·´ã€‚\n"NOR;break;
+			case 2 : msg=HIG"$Nä¼¸å‡ºä¸€åªæ‰‹ï¼Œä¼¼ä¹æƒ³å’Œ$næ¡æ¡æ‰‹ã€‚\n"NOR;break;
+			case 3 : msg=HIM"$Nä¼¸å‡ºåŒæ‰‹ï¼Œæä½è‡ªå·±çš„é¼»å­å’Œä¸‹å·´ï¼Œå¯¹ç€$nåšäº†ä¸€ä¸ªé¬¼è„¸ã€‚\n"NOR;break;
+			case 4 : msg=HIB"$Nå†²ä¸Šå‰å»ï¼Œç´§ç´§æ¡ä½$nçš„å°¾å·´ã€‚\n"NOR;break;
 		}
 		message_vision(msg,me,snake);
 		if (random(20)==18)
 		{
 			me->set_temp("tame",1);
-			message_vision("$N·¢ÏÖÊÂÇé²»ÃîÁË£¬$NµÄÉßÍ»È»°ÚÁË°ÚÎ²°Í£¬È»ºó¶Ô×Å$N¾ÍÆËÁËÏÂÀ´£¡\n",me);
+			message_vision("$Nå‘ç°äº‹æƒ…ä¸å¦™äº†ï¼Œ$Nçš„è›‡çªç„¶æ‘†äº†æ‘†å°¾å·´ï¼Œç„¶åå¯¹ç€$Nå°±æ‰‘äº†ä¸‹æ¥ï¼\n",me);
 			snake->kill_ob(me);
-			message_vision(HIR"¿´ÆğÀ´$NµÄÉßÏëÉ±ËÀ$N"NOR,me);
+			message_vision(HIR"çœ‹èµ·æ¥$Nçš„è›‡æƒ³æ€æ­»$N"NOR,me);
 			return 0;
 		}	
 		else 
 		{
-			message_vision(BLU"$nµÉÁË$NÒ»ÑÛ£¬×ª¹ıÍ·È¥²»Àí$N¡£\n"NOR,me,snake);
+			message_vision(BLU"$nçªäº†$Nä¸€çœ¼ï¼Œè½¬è¿‡å¤´å»ä¸ç†$Nã€‚\n"NOR,me,snake);
 			return 0;
 		}
 	}
@@ -86,8 +86,8 @@ int do_tame(string arg)
 				me->remove_killer(snake);
 				snake->set_leader(me);
 				snake->set_temp("owner",me->query("id"));
-				message_vision(HIY"Í»È»$nÏòºóÒ»Ìø£¬²»ºÍ$N´òÁË£¡\n"NOR,me,snake);
-				message_vision(HIM"$nÅÀµ½$N½ÅÏÂ£¬ÓÃÎ²°ÍÇáÇá²äÁË²ä$PµÄ½Å£¡\n"NOR,me,snake);
+				message_vision(HIY"çªç„¶$nå‘åä¸€è·³ï¼Œä¸å’Œ$Næ‰“äº†ï¼\n"NOR,me,snake);
+				message_vision(HIM"$nçˆ¬åˆ°$Nè„šä¸‹ï¼Œç”¨å°¾å·´è½»è½»è¹­äº†è¹­$Pçš„è„šï¼\n"NOR,me,snake);
 				me->delete_temp("tame");
 				me->set("snake/friendly",50);
 				me->set("snake/aggress",50);
@@ -95,7 +95,7 @@ int do_tame(string arg)
 			}
 			else 
 			{
-				message_vision(HIW"$NÏòºóÒ»Ô¾£¬ÊÔÍ¼Ìø³öÕ½È¦£¬µ«ÊÇ$nËÆºõ²¢Ã»ÓĞÕâ¸öÒâË¼£¬¼ÌĞø¹¥»÷$P¡£\n"NOR,me,snake);
+				message_vision(HIW"$Nå‘åä¸€è·ƒï¼Œè¯•å›¾è·³å‡ºæˆ˜åœˆï¼Œä½†æ˜¯$nä¼¼ä¹å¹¶æ²¡æœ‰è¿™ä¸ªæ„æ€ï¼Œç»§ç»­æ”»å‡»$Pã€‚\n"NOR,me,snake);
 				me->add("jingli",-10);
 				me->add("qi",-10);
 				me->start_busy(random(4));
@@ -111,17 +111,17 @@ int do_play(string arg)
 	object me,snake;
 	
 	if (!arg || arg!="snake" && arg!="diao")
-		return notify_fail("ÄãÒªºÍË­Íæ£¿\n");
+		return notify_fail("ä½ è¦å’Œè°ç©ï¼Ÿ\n");
 	
 	me = this_player();
 	snake = present("snake",environment(me));
 	
-	if (!snake) return notify_fail("ÄãµÄÉßÔÚÄÄÀïÄØ£¿\n");
+	if (!snake) return notify_fail("ä½ çš„è›‡åœ¨å“ªé‡Œå‘¢ï¼Ÿ\n");
 	
 	if (me->query("snake/aggress")>2) me->add("snake/aggress",-2);
 	if (me->query("snake/friendly")<100) me->add("snake/friendly",1);
 	
-	message_vision(HIB"$NÌÍ³öµÑ×Ó£¬ÇáÇá´µ×àÆğÀ´£¬$NµÄÉßÌı¼ûµÑÉù£¬ÉíÌå¾¹È»Ëæ×Å½ÚÅÄÅ¤¶¯ÆğÀ´¡£\n"NOR,me);
+	message_vision(HIB"$Næå‡ºç¬›å­ï¼Œè½»è½»å¹å¥èµ·æ¥ï¼Œ$Nçš„è›‡å¬è§ç¬›å£°ï¼Œèº«ä½“ç«Ÿç„¶éšç€èŠ‚æ‹æ‰­åŠ¨èµ·æ¥ã€‚\n"NOR,me);
 	me->add("jingli",-50);
 	me->start_busy(2);
 	return 1;
@@ -132,28 +132,28 @@ int do_aggress(string arg)
 	object me,snake,ji;
 	
 	if (!arg || arg!="snake" && arg!="diao")
-		return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 
 	me = this_player();
 
 	ji = present("gong ji",me);
 	snake = present("snake",environment(me));
 	
-	if (!snake) return notify_fail("ÄãµÄÉßÄØ£¿\n");
-	if (!ji) return notify_fail("ÄãµÄÑµÁ··½·¨ºÃÏñ²»µÃÒªÁì£¡\n");
+	if (!snake) return notify_fail("ä½ çš„è›‡å‘¢ï¼Ÿ\n");
+	if (!ji) return notify_fail("ä½ çš„è®­ç»ƒæ–¹æ³•å¥½åƒä¸å¾—è¦é¢†ï¼\n");
 
 	if (random(10)>6 )
 	{
 		if (me->query("snake/aggress")>100) me->add("snake/aggress",1);
 		if (me->query("snake/friendly")<2) me->add("snake/friendly",-2);
 	
-		message_vision(HIR"ÉßÆËÏò$NÉíÉÏµÄ$n£¬ÈıÏÂÁ½ÏÂ¾Í³ÔÁË¸ö¸É¸É¾»¾»¡£\n"NOR,me,ji);
+		message_vision(HIR"è›‡æ‰‘å‘$Nèº«ä¸Šçš„$nï¼Œä¸‰ä¸‹ä¸¤ä¸‹å°±åƒäº†ä¸ªå¹²å¹²å‡€å‡€ã€‚\n"NOR,me,ji);
 		destruct(snake);
 		me->add("jingli",-50);
 		me->start_busy(2);
 	}
 	else
-		message_vision(HIR"¿´ÆğÀ´$NµÄÉß¶Ô$n²»Ì«¸ĞĞËÈ¤¡£\n"NOR,me,ji);
+		message_vision(HIR"çœ‹èµ·æ¥$Nçš„è›‡å¯¹$nä¸å¤ªæ„Ÿå…´è¶£ã€‚\n"NOR,me,ji);
 	return 1;
 }
 
@@ -162,21 +162,21 @@ int do_ambush(string arg)
 	object ob,me,snake;
 	
 	if (!arg)
-		return notify_fail("ÄãÒªÉß¹¥»÷Ë­£¿\n");
+		return notify_fail("ä½ è¦è›‡æ”»å‡»è°ï¼Ÿ\n");
 
 	me = this_player();
 	
 	snake = present("snake",environment(me));
 	
-	if ( !snake || !snake && snake->query_temp("owner")!=me->query("id") ) return notify_fail("ÄãµÄÉßÄØ£¿\n");
+	if ( !snake || !snake && snake->query_temp("owner")!=me->query("id") ) return notify_fail("ä½ çš„è›‡å‘¢ï¼Ÿ\n");
 	
-	if (arg==me->query("id")) return notify_fail("Äã·¢·èÁËÃ´£¿ÓÃ×Ô¼ºµÄÉß¹¥»÷×Ô¼º£¿\n");
+	if (arg==me->query("id")) return notify_fail("ä½ å‘ç–¯äº†ä¹ˆï¼Ÿç”¨è‡ªå·±çš„è›‡æ”»å‡»è‡ªå·±ï¼Ÿ\n");
 	
         ob =find_player(arg);
         if (!ob) ob = find_living(arg);
-        if (!ob) return notify_fail("ÄãÒª·ü»÷µÄÈËºÃÏñ²»ÔÚ!\n");
+        if (!ob) return notify_fail("ä½ è¦ä¼å‡»çš„äººå¥½åƒä¸åœ¨!\n");
 	
-	tell_object(me,HIR"ÄãÒªÉßÂñ·üÔÚÕâÀï£¬×¼±¸·ü»÷ÃûÎª"+ob->query("name")+"µÄÈË¡£\n"NOR);
+	tell_object(me,HIR"ä½ è¦è›‡åŸ‹ä¼åœ¨è¿™é‡Œï¼Œå‡†å¤‡ä¼å‡»åä¸º"+ob->query("name")+"çš„äººã€‚\n"NOR);
 	snake->set_temp("ambush",ob->query("id"));
 	snake->set_leader(0);	
 	return 1;

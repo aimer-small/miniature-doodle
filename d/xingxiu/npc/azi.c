@@ -1,4 +1,4 @@
-// azi.c °¢×Ï
+// azi.c é˜¿ç´«
 // Update by caiji@SJ 8/27/2000
 
 inherit NPC;
@@ -9,10 +9,10 @@ string ask_for(object);
 string ask_weng();
 void create()
 {
-        set_name("°¢×Ï", ({ "azi", "a zi", "a" ,"zi"}));
-        set("nickname", "ĞÇËŞÅÉĞ¡Ê¦ÃÃ");
-        set("long", "ĞÇËŞÅÉĞ¡Ê¦ÃÃ¡£Ò»¸öÉí´©×ÏÒÂµÄÃÀÃ²ÉÙÅ®¡£¹Ï×Ó°×¾»Á³, ÑÛÉñÖĞ×ÜÊÇÍ¸³öÒ»¹ÉĞ°Æø¡£\n");
-        set("gender", "Å®ĞÔ");
+        set_name("é˜¿ç´«", ({ "azi", "a zi", "a" ,"zi"}));
+        set("nickname", "æ˜Ÿå®¿æ´¾å°å¸ˆå¦¹");
+        set("long", "æ˜Ÿå®¿æ´¾å°å¸ˆå¦¹ã€‚ä¸€ä¸ªèº«ç©¿ç´«è¡£çš„ç¾è²Œå°‘å¥³ã€‚ç“œå­ç™½å‡€è„¸, çœ¼ç¥ä¸­æ€»æ˜¯é€å‡ºä¸€è‚¡é‚ªæ°”ã€‚\n");
+        set("gender", "å¥³æ€§");
         set("age", 15);
         set("attitude", "peaceful");
         set("env/wimpy", 110);
@@ -50,23 +50,23 @@ void create()
         prepare_skill("claw", "sanyin-zhua");
         prepare_skill("strike", "chousui-zhang");
 
-        create_family("ĞÇËŞÅÉ", 2, "µÜ×Ó");
+        create_family("æ˜Ÿå®¿æ´¾", 2, "å¼Ÿå­");
 
         set("inquiry", ([
-                "ĞÇËŞÅÉ" : "ÄãÏë¼ÓÈë£¬¾Í°İÎÒÎªÊ¦¡£\n",
-                "Éî½§" : "ºÙºÙ£¬ÄÄÓĞÄÇÃ´ÈİÒ×¾Í¸æËßÄã¡£\n",
-                "ĞÇËŞº£" : "È¥ĞÇËŞº£¸ÉÊ²Ã´£¿°İÎÒÎªÊ¦¾Í¹»ÄãÑ§µÄÁË¡£\n",
-                "¶¡´ºÇï" : "¶¡´ºÇïÊÇÄã½ĞµÄÂğ£¿Ã»´óÃ»Ğ¡µÄ¡£ÒÔºó½ĞÀÏÏÉ£¡\n",
-                "ÀÏÏÉ" : "ÄãµÃ¶à´µÅõÀÏÏÉ£¬·ñÔò±ğÏëÓĞ³öÍ·Ö®ÈÕ¡£\n",
-                "ÉñÍõÄ¾¶¦" : "ÎÒËÍÁË¸øÎÒ½ã·òÀ²¡£ÓĞ±¾ÊÂÄã×Ô¼ºÈ¥ÄÃ¡£\n",
-                "½ã·ò" : "Á¬ÎÒ½ã·òÏô·å¶¼²»ÖªµÀ£¬ÄãÕæÊÇ¸ö´ó´ô¹Ï¡£\n",
-                "ĞÇËŞ" : "ÄãÎÊµÄ¿ÉÊÇĞÇËŞÅÉ£¿\n",
-                "´µÅõ" : "Å®µÄÈİÒ×¶àÁË£¬ÎÒ×îÌÖÀÏÏÉÏ²»¶¡£ÄĞµÄµÃ¸ü¼Ó°Ñ¾¢¡£\n",
-                "½âÒ©" : (: ask_san :), //add by caiji
-		"ÇåĞÄÉ¢" : (: ask_san :), //add by caiji
-		"Åû·ç" : (: ask_for, "pifeng" :),//add by caiji
+                "æ˜Ÿå®¿æ´¾" : "ä½ æƒ³åŠ å…¥ï¼Œå°±æ‹œæˆ‘ä¸ºå¸ˆã€‚\n",
+                "æ·±æ¶§" : "å˜¿å˜¿ï¼Œå“ªæœ‰é‚£ä¹ˆå®¹æ˜“å°±å‘Šè¯‰ä½ ã€‚\n",
+                "æ˜Ÿå®¿æµ·" : "å»æ˜Ÿå®¿æµ·å¹²ä»€ä¹ˆï¼Ÿæ‹œæˆ‘ä¸ºå¸ˆå°±å¤Ÿä½ å­¦çš„äº†ã€‚\n",
+                "ä¸æ˜¥ç§‹" : "ä¸æ˜¥ç§‹æ˜¯ä½ å«çš„å—ï¼Ÿæ²¡å¤§æ²¡å°çš„ã€‚ä»¥åå«è€ä»™ï¼\n",
+                "è€ä»™" : "ä½ å¾—å¤šå¹æ§è€ä»™ï¼Œå¦åˆ™åˆ«æƒ³æœ‰å‡ºå¤´ä¹‹æ—¥ã€‚\n",
+                "ç¥ç‹æœ¨é¼" : "æˆ‘é€äº†ç»™æˆ‘å§å¤«å•¦ã€‚æœ‰æœ¬äº‹ä½ è‡ªå·±å»æ‹¿ã€‚\n",
+                "å§å¤«" : "è¿æˆ‘å§å¤«è§å³°éƒ½ä¸çŸ¥é“ï¼Œä½ çœŸæ˜¯ä¸ªå¤§å‘†ç“œã€‚\n",
+                "æ˜Ÿå®¿" : "ä½ é—®çš„å¯æ˜¯æ˜Ÿå®¿æ´¾ï¼Ÿ\n",
+                "å¹æ§" : "å¥³çš„å®¹æ˜“å¤šäº†ï¼Œæˆ‘æœ€è®¨è€ä»™å–œæ¬¢ã€‚ç”·çš„å¾—æ›´åŠ æŠŠåŠ²ã€‚\n",
+                "è§£è¯" : (: ask_san :), //add by caiji
+		"æ¸…å¿ƒæ•£" : (: ask_san :), //add by caiji
+		"æŠ«é£" : (: ask_for, "pifeng" :),//add by caiji
 		"pifeng" : (: ask_for, "pifeng" :),//add by caiji
-                "ÍßÎÍ" : (: ask_weng :), 
+                "ç“¦ç“®" : (: ask_weng :), 
         ]));
         setup();
         set("pifeng_count",6);
@@ -79,7 +79,7 @@ void create()
 void attempt_apprentice(object ob)
 {
         if(ob->query("shen") > 0){
-		command("say Äã¿´ÉÏÈ¥ÕæÊÇ¸ö¼ÙÕı¾­£¬ÎÒ²Å²»ÏëÊÕÄãÄØ¡£");
+		command("say ä½ çœ‹ä¸Šå»çœŸæ˜¯ä¸ªå‡æ­£ç»ï¼Œæˆ‘æ‰ä¸æƒ³æ”¶ä½ å‘¢ã€‚");
 		return;
         }
 	command("hehe " + ob->query("id"));
@@ -98,22 +98,22 @@ string ask_san()
         fam = (mapping)ob->query("family");
         exp=ob->query("combat_exp",1);
 
-        if(!fam || exp < 80000 || fam["family_name"] != "ĞÇËŞÅÉ")
-                return "¾ÍÆ¾ÄãÒ²ÏëÒªĞÇËŞµÄ¶ÀÃÅ½âÒ©£¿\n";
+        if(!fam || exp < 80000 || fam["family_name"] != "æ˜Ÿå®¿æ´¾")
+                return "å°±å‡­ä½ ä¹Ÿæƒ³è¦æ˜Ÿå®¿çš„ç‹¬é—¨è§£è¯ï¼Ÿ\n";
         if( (int)ob->query_skill("huagong-dafa", 1) < 90 )//....caiji
-                return "ÄãµÄ»¯¹¦´ó·¨¹¦Á¦Ì«Ç³£¬ÎÒÔõÃ´ÄÜĞÅÈÎÄãÄØ£¿\n";
+                return "ä½ çš„åŒ–åŠŸå¤§æ³•åŠŸåŠ›å¤ªæµ…ï¼Œæˆ‘æ€ä¹ˆèƒ½ä¿¡ä»»ä½ å‘¢ï¼Ÿ\n";
         if(me->query("san_count") >= 1 && (!ob->query_temp("san_given"))){
                         me->add("san_count", -1);
                         drug = unew("/d/xingxiu/obj/qxs");
-                        if (!clonep(drug)) return "ÄãÀ´ÍíÀ²£¬¶¼±»ÄãÊ¦ĞÖÃÇÄÃ×ßÁË¡£\n";
+                        if (!clonep(drug)) return "ä½ æ¥æ™šå•¦ï¼Œéƒ½è¢«ä½ å¸ˆå…„ä»¬æ‹¿èµ°äº†ã€‚\n";
                         drug->move(ob);
                         ob->set_temp("san_given", 1);
-                        message_vision("$N¶Ô$nµãÁËµãÍ·£¬½»¸ø$nÒ»Ğ¡°üÇåĞÄÉ¢¡£\n", me, ob);
-                        return "×Ô¼ºÓÃ¾ÍĞĞÁË£¬Ç§Íò²»Òª½»¸øÍâÅÉµÜ×Ó£¡\n";
+                        message_vision("$Nå¯¹$nç‚¹äº†ç‚¹å¤´ï¼Œäº¤ç»™$nä¸€å°åŒ…æ¸…å¿ƒæ•£ã€‚\n", me, ob);
+                        return "è‡ªå·±ç”¨å°±è¡Œäº†ï¼Œåƒä¸‡ä¸è¦äº¤ç»™å¤–æ´¾å¼Ÿå­ï¼\n";
         }
         if(ob->query_temp("san_given"))
-                     return "ÎÒ²»ÊÇ¸ø¹ıÄãÁËÂğ£¿\n";
-        return "ÄãÀ´ÍíÀ²£¬¶¼±»ÄãÊ¦ĞÖÃÇÄÃ×ßÁË¡£\n";
+                     return "æˆ‘ä¸æ˜¯ç»™è¿‡ä½ äº†å—ï¼Ÿ\n";
+        return "ä½ æ¥æ™šå•¦ï¼Œéƒ½è¢«ä½ å¸ˆå…„ä»¬æ‹¿èµ°äº†ã€‚\n";
 }
 
 string ask_for(string name)
@@ -121,25 +121,25 @@ string ask_for(string name)
         mapping fam;
         object ob;
 
-        if (!(fam = this_player()->query("family")) || fam["family_name"] != "ĞÇËŞÅÉ")
+        if (!(fam = this_player()->query("family")) || fam["family_name"] != "æ˜Ÿå®¿æ´¾")
                 return RANK_D->query_rude(this_player()) +
-                "ÓÖ²»ÊÇĞÇËŞµÜ×Ó£¬Æ¾Ê²Ã´ÏòÎÒÒªÕâÒªÄÇµÄ£¡";
+                "åˆä¸æ˜¯æ˜Ÿå®¿å¼Ÿå­ï¼Œå‡­ä»€ä¹ˆå‘æˆ‘è¦è¿™è¦é‚£çš„ï¼";
 
         if (  present(name, this_player()) )
                 return RANK_D->query_rude(this_player()) +
-                "ÄãÏÖÔÚÉíÉÏ²»ÊÇÓĞÕâÑù·À¾ßÂğ£¬Ôõ÷áÓÖÀ´ÒªÁË£¿ ÕæÊÇÌ°µÃÎŞ÷Ğ£¡";
+                "ä½ ç°åœ¨èº«ä¸Šä¸æ˜¯æœ‰è¿™æ ·é˜²å…·å—ï¼Œæ€éº½åˆæ¥è¦äº†ï¼Ÿ çœŸæ˜¯è´ªå¾—æ— é¤ï¼";
 
         if (query("pifeng_count") < 1)
-                return "±§Ç¸£¬ÄãÀ´µÃ²»ÊÇÊ±ºò£¬Åû·çÒÑ¾­·¢ÍêÁË¡£";
+                return "æŠ±æ­‰ï¼Œä½ æ¥å¾—ä¸æ˜¯æ—¶å€™ï¼ŒæŠ«é£å·²ç»å‘å®Œäº†ã€‚";
 
         ob = new("/d/xingxiu/obj/" + name);
         ob->move(this_player());
 
         add("pifeng_count", -1);
 
-	message_vision("$N¸ø$nÒ»¼ş" + ob->query("name") + "¡£\n",this_object() ,this_player());
+	message_vision("$Nç»™$nä¸€ä»¶" + ob->query("name") + "ã€‚\n",this_object() ,this_player());
 
-        return "Õâ¿ÉÊÇ¼şºÃ¶«Î÷£¬±ğÅª¶ªÁË¡£";
+        return "è¿™å¯æ˜¯ä»¶å¥½ä¸œè¥¿ï¼Œåˆ«å¼„ä¸¢äº†ã€‚";
 }
 
 
@@ -150,23 +150,23 @@ string ask_weng()
         mapping fam;
         object ob;
 
-        if (!(fam = this_player()->query("family")) || fam["family_name"] != "ĞÇËŞÅÉ")
+        if (!(fam = this_player()->query("family")) || fam["family_name"] != "æ˜Ÿå®¿æ´¾")
                 return RANK_D->query_rude(this_player()) +
-                "ÓÖ²»ÊÇĞÇËŞµÜ×Ó£¬Æ¾Ê²Ã´ÏòÎÒÒªÕâÒªÄÇµÄ£¡";
+                "åˆä¸æ˜¯æ˜Ÿå®¿å¼Ÿå­ï¼Œå‡­ä»€ä¹ˆå‘æˆ‘è¦è¿™è¦é‚£çš„ï¼";
 
        if ( !present("fanwen book", this_player()))
-return "ÄãËµÊ²Ã´£¿ÎÒÌı²»¶®...";
+return "ä½ è¯´ä»€ä¹ˆï¼Ÿæˆ‘å¬ä¸æ‡‚...";
         
 if (this_player()->query_temp("waweng"))
- return "ÄãÔõÃ´ÄÇÃ´Ì°µÃÎŞÑá...";
+ return "ä½ æ€ä¹ˆé‚£ä¹ˆè´ªå¾—æ— åŒ...";
 
         ob = new("clone/misc/weng");
         ob->set("owner",this_player()->query("id"));
         ob->move(this_player());
 this_player()->set_temp("waweng",1);
-	message_vision("$N¸ø$nÒ»¼ş" + ob->query("name") + "¡£\n",this_object() ,this_player());
+	message_vision("$Nç»™$nä¸€ä»¶" + ob->query("name") + "ã€‚\n",this_object() ,this_player());
 
-        return "ÄÃÈ¥°É¡£";
+        return "æ‹¿å»å§ã€‚";
 }
 
 

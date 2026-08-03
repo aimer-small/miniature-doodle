@@ -5,13 +5,13 @@ inherit NPC;
  
 void create()
 {           
-        set_name("¹é¶şÄï", ({ "gui erniang", "gui" }));
+        set_name("å½’äºŒå¨˜", ({ "gui erniang", "gui" }));
         set("long",@LONG
-Ëû¾ÍÊÇÃûÕğÌìÏÂµÄ¹éĞÁÊ÷µÄÆŞ×Ó¹é¶şÄï£¬Æ¢Æø·Ç³£±©Ôê£¬²»ÈÃĞëÃ¼¡£
+ä»–å°±æ˜¯åéœ‡å¤©ä¸‹çš„å½’è¾›æ ‘çš„å¦»å­å½’äºŒå¨˜ï¼Œè„¾æ°”éå¸¸æš´èºï¼Œä¸è®©é¡»çœ‰ã€‚
 LONG
         ); 
-        set("gender", "Å®ĞÔ");
-        set("nickname", "ÉñÈ­ÎŞµĞ");
+        set("gender", "å¥³æ€§");
+        set("nickname", "ç¥æ‹³æ— æ•Œ");
         set("age", 58);
         set("attitude", "friendly");
         set("shen", 0);
@@ -49,7 +49,7 @@ LONG
         map_skill("sword", "quanzhen-jianfa");
         prepare_skill("strike", "tiangang-zhang");
  
-        create_family("»ªÉ½ÅÉ", 10, "µÜ×Ó");
+        create_family("åå±±æ´¾", 10, "å¼Ÿå­");
  
         setup();
         carry_object("/clone/armor/cloth")->wear();

@@ -3,9 +3,9 @@ int main(object me,string sql)
 {
 	mixed ret;
         if(!sql) return notify_fail("failed\n");
-        if(strsrch(sql,"*")!=-1) return notify_fail("´ó¸çÐ¡ÐÄµã£¬±ð¸ãµ±»úÁË¡£\n");
+        if(strsrch(sql,"*")!=-1) return notify_fail("å¤§å“¥å°å¿ƒç‚¹ï¼Œåˆ«æžå½“æœºäº†ã€‚\n");
 	ret = dbquery(sql);
 	if(!ret) return notify_fail("exec failed\n");
-	me->start_more(sprintf("·µ»Ø½á¹û£º%O\n",ret));
+	me->start_more(sprintf("è¿”å›žç»“æžœï¼š%O\n",ret));
 	return 1;
 }

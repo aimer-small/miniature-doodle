@@ -16,18 +16,18 @@ int main(object me, string arg)
 
 	if (arg == "yes") {
 		if (me->is_busy())
-			return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+			return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 		if (me->is_perform())
-			return notify_fail("ÄãÕıÔÚÊ¹ÓÃ"+me->query_perform()+"£¬ÔİÊ±ÎŞ·¨´ò²»»¹ÊÖ¡£\n");
+			return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨"+me->query_perform()+"ï¼Œæš‚æ—¶æ— æ³•æ‰“ä¸è¿˜æ‰‹ã€‚\n");
 		me->set_temp("combat_yield", 1);
 		me->remove_all_enemy();
-       		tell_object(me, "Äã¾ö¶¨´ò¼ÜÊ±´ò²»»¹ÊÖ¡£\n");
+       		tell_object(me, "ä½ å†³å®šæ‰“æ¶æ—¶æ‰“ä¸è¿˜æ‰‹ã€‚\n");
     	}
 	else if( arg == "no"){
 	    	me->delete_temp("combat_yield");
-	     	tell_object(me, "Äã¾ö¶¨´ò¼ÜÊ±»¹ÊÖ·´»÷¡£\n");
+	     	tell_object(me, "ä½ å†³å®šæ‰“æ¶æ—¶è¿˜æ‰‹åå‡»ã€‚\n");
       	}
-	else return notify_fail("Äã¾ö¶¨´ò¼Ü»¹ÊÖ(yield no)»¹ÊÇ²»»¹ÊÖ(yield yes)£¿\n");
+	else return notify_fail("ä½ å†³å®šæ‰“æ¶è¿˜æ‰‹(yield no)è¿˜æ˜¯ä¸è¿˜æ‰‹(yield yes)ï¼Ÿ\n");
 
 	return 1;
 }
@@ -35,9 +35,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : yield <yes | no>
+æŒ‡ä»¤æ ¼å¼ : yield <yes | no>
  
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã¾ö¶¨´ò¼ÜÊ±ÊÇ·ñ»¹ÊÖ·´»÷¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ å†³å®šæ‰“æ¶æ—¶æ˜¯å¦è¿˜æ‰‹åå‡»ã€‚
  
 HELP
     );

@@ -2,17 +2,17 @@ inherit ROOM;
 
 void create()
 {
-  set ("short", "»ÄµØ");
+  set ("short", "è’åœ°");
   set ("long", @LONG
 
-ÕâÀïÊÇÒ»´¦¹ÅÕ½³¡µÄÒÅ¼££¬Èç½ñ»ÄÂÒ²»¿°Ò°²İ´ÔÉú£¬´«ÑÔÓĞ½©Ê¬³öÃ»£¬º¦ÈËĞÔÃü¡£
+è¿™é‡Œæ˜¯ä¸€å¤„å¤æˆ˜åœºçš„é—è¿¹ï¼Œå¦‚ä»Šè’ä¹±ä¸å ªé‡è‰ä¸›ç”Ÿï¼Œä¼ è¨€æœ‰åƒµå°¸å‡ºæ²¡ï¼Œå®³äººæ€§å‘½ã€‚
 
 LONG);
 
   set("item_desc",([
-    "paizi" : "Ñº³¤ÊÙ¹ê£º sai cs <amount> <money>\n"+ 
-              "ÑºÇ§Äê¹ê£º sai qn <amount> <money>\n"+ 
-              "Ñº²»ÀÏ¹ê£º sai bl <amount> <money>\n", 
+    "paizi" : "æŠ¼é•¿å¯¿é¾Ÿï¼š sai cs <amount> <money>\n"+ 
+              "æŠ¼åƒå¹´é¾Ÿï¼š sai qn <amount> <money>\n"+ 
+              "æŠ¼ä¸è€é¾Ÿï¼š sai bl <amount> <money>\n", 
   ])); 
 
   set("exits", ([ /* sizeof() == 1 */
@@ -20,5 +20,5 @@ LONG);
   ]));
   setup();
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

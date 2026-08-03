@@ -7,9 +7,9 @@ inherit ROOM;
 
 void create()
 { 
-       set("short","ÃØµÀ");
+       set("short","ç§˜é“");
        set("long", @LONG
-ÕâÊÇÒ»ÌõÍäÇú¶øÉÏµÄÃØµÀ¡£
+è¿™æ˜¯ä¸€æ¡å¼¯æ›²è€Œä¸Šçš„ç§˜é“ã€‚
 LONG
      );
        set("exits", ([
@@ -24,6 +24,6 @@ LONG
 int valid_leave(object me, string dir)
 {
         if (dir == "eastdown" )
-         return notify_fail(HIY"\nÄãÏëÍùÏÂ×ßÈ¥£¬µ«¶´ÉíÈ·ÊµÌ«¶¸ÎŞ·¨×Å½Å¡£\n\n"NOR);
+         return notify_fail(HIY"\nä½ æƒ³å¾€ä¸‹èµ°å»ï¼Œä½†æ´èº«ç¡®å®å¤ªé™¡æ— æ³•ç€è„šã€‚\n\n"NOR);
         return ::valid_leave(me, dir);
 }

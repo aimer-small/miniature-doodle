@@ -9,23 +9,23 @@ int exert(object me, object target)
 	int skill, skill1;
 
 	if ((int)me->query_skill("longxiang-boruo", 1) < 100)
-		return notify_fail("ÄãµÄÁúÏó°ãÈô¹¦ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„é¾™è±¡èˆ¬è‹¥åŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if((int)me->query("max_neili") < 1500)
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎªÌ«²î£¬¶à¶à´ò×ø°É¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºå¤ªå·®ï¼Œå¤šå¤šæ‰“åå§ã€‚\n");
 
 	if( (int)me->query("neili") < 1000 ) 
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if (me->query_temp("xs/shield"))
-		return notify_fail("ÄãÒÑ¾­ÔÚÔËÕæÆø»¤ÌåÁË¡£\n"); 
+		return notify_fail("ä½ å·²ç»åœ¨è¿çœŸæ°”æŠ¤ä½“äº†ã€‚\n"); 
 
 	if (me->query_temp("xs/longxiang"))
 		me->add("max_neili",-1);
 
 	skill = me->query_skill("longxiang-boruo",1) / 4;
 
-	message_vision(CYN "$NÉîÉîÎüÈëÒ»¿ÚÆø£¬ÌåÄÚÕæÆøÁ÷×ª£¬ÉíÖÜ·Â·ğÄı½áÁËÒ»ÃæÆø¶Ü£¡\n" NOR, me);
+	message_vision(CYN "$Næ·±æ·±å¸å…¥ä¸€å£æ°”ï¼Œä½“å†…çœŸæ°”æµè½¬ï¼Œèº«å‘¨ä»¿ä½›å‡ç»“äº†ä¸€é¢æ°”ç›¾ï¼\n" NOR, me);
 
 	skill1 = skill*2;
 
@@ -36,7 +36,7 @@ int exert(object me, object target)
 
 	me->start_call_out( (: call_other, __FILE__, "remove_effect", me :), skill*7/2 );
 	if( me->is_fighting() ) me->start_busy(random(2));
-	me->start_exert(1, "Æø¶Ü");
+	me->start_exert(1, "æ°”ç›¾");
 	return 1;
 }
 
@@ -49,19 +49,19 @@ void remove_effect(object me)
                 me->add_temp("apply/dodge", - amount);
                 me->add_temp("apply/armor", - amount*2);
                 me->delete_temp("xs/shield");
-                message_vision(RED "$NÁ³ÉÏºì¹âÒ»ÉÁ£¬¹Ç½ÚÅ¾Å¾ÇáÏì¼¸Éù£¬É¢È¥ÁË»¤ÌåÕæÆø¡£\n" NOR, me);
+                message_vision(RED "$Nè„¸ä¸Šçº¢å…‰ä¸€é—ªï¼Œéª¨èŠ‚å•ªå•ªè½»å“å‡ å£°ï¼Œæ•£å»äº†æŠ¤ä½“çœŸæ°”ã€‚\n" NOR, me);
 	}
 }
 
-string exert_name(){ return CYN"Æø¶Ü"NOR; }
+string exert_name(){ return CYN"æ°”ç›¾"NOR; }
 
 int help(object me)
 {
-        write(CYN"\nÁúÏó°ãÈô¹¦Ö®¡¸Æø¶Ü¡¹£º"NOR"\n\n");
+        write(CYN"\né¾™è±¡èˆ¬è‹¥åŠŸä¹‹ã€Œæ°”ç›¾ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1000 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 1500 ÒÔÉÏ£»
-                ÁúÏó°ãÈô¹¦µÈ¼¶ 100 ÒÔÉÏ¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1000 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 1500 ä»¥ä¸Šï¼›
+                é¾™è±¡èˆ¬è‹¥åŠŸç­‰çº§ 100 ä»¥ä¸Šã€‚
 
 HELP
         );

@@ -2,7 +2,7 @@ inherit ITEM;
 #include "/inherit/item/embed.h"
 void create()
 {
-        set_name(HIY "½ğÉß×¶" NOR, ({ "jinshe zhui", "zhui" }));
+        set_name(HIY "é‡‘è›‡é”¥" NOR, ({ "jinshe zhui", "zhui" }));
 
         set_weight(200);
         if (clonep())
@@ -10,9 +10,9 @@ void create()
         else {
                 set("damage", 3);
                 set("embed", 1);
-                set("unit", "Ã¶");
-             //   set("throw_msg", HIW"$NĞäÅÛÒ»»Ó£¬Ò»Ã¶±ùÆÇÒøÕë×ÔĞäµ×·É³öÖ±Ïò$n¼±Éä¶øÈ¥£¡\n"NOR);
-                set("long", "ÕâÊÇÒ»Ã¶Á½´çÀ´³¤£¬³ÉÉßĞÎµÄ°µÆ÷¡£\n");
+                set("unit", "æš");
+             //   set("throw_msg", HIW"$Nè¢–è¢ä¸€æŒ¥ï¼Œä¸€æšå†°é­„é“¶é’ˆè‡ªè¢–åº•é£å‡ºç›´å‘$næ€¥å°„è€Œå»ï¼\n"NOR);
+                set("long", "è¿™æ˜¯ä¸€æšä¸¤å¯¸æ¥é•¿ï¼Œæˆè›‡å½¢çš„æš—å™¨ã€‚\n");
                 set("unique", 20);
                 set("value", 20000);
         }

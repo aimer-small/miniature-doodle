@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>书剑MUD</title>
+<style>
+:root {
+  --bg: #0d0d12; --panel: #1a1a2e; --border: #2a2a3e;
+  --gold: #d4a843; --gold-dim: #8b6914; --text: #c8c8c8; --text-dim: #777;
+  --red: #e05555; --green: #5cb85c; --blue: #5b9bd5; --cyan: #5bc0c0;
+  --hp: #4caf50; --mp: #2196f3; --food: #ff9800; --water: #03a9f4; --danger: #f44336;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; overflow:hidden; }
+body {
+  background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+  font-size:14px; display:flex; flex-direction:column;
+  user-select:none; -webkit-user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* ===== Header ===== */
+#header {
+  background:linear-gradient(180deg,#1a1a2e 0%,#151528 100%);
+  padding:5px 10px; display:flex; align-items:center; justify-content:space-between;
+  border-bottom:1px solid var(--border); flex-shrink:0; z-index:20;
+}
+#header .title { color:var(--gold); font-size:14px; font-weight:700; letter-spacing:1px; }
+#header-right { display:flex; align-items:center; gap:6px; }
+#status-dot { width:7px; height:7px; border-radius:50%; display:inline-block; }
+#status-dot.on { background:var(--green); box-shadow:0 0 6px var(--green); }
+#status-dot.off { background:var(--danger); }
+#status-dot.connecting { background:var(--food); animation:blink 1s infinite; }
+#status-text { font-size:10px; color:var(--text-dim); }
+.header-btn {
+  background:var(--panel); color:var(--gold); border:1px solid var(--border);
+  border-radius:10px; padding:3px 8px; font-size:10px; cursor:pointer;
+}
+.header-btn:active { background:#3a3a5e; }
+
+/* ===== Compact Status Bar ===== */
+#status-bar {
+  display:flex; gap:3px; padding:3px 6px; background:#111120;
+  border-bottom:1px solid var(--border); flex-shrink:0; overflow-x:auto;
+}
+#status-bar::-webkit-scrollbar { display:none; }
+.stat-item { display:flex; flex-direction:column; align-items:center; min-width:44px; flex-shrink:0; }
+.stat-icon { font-size:10px; }
+.stat-val { font-size:9px; font-weight:600; }
+.stat-bar-wrap { width:100%; height:2px; background:#222; border-radius:1px; margin-top:1px; overflow:hidden; }
+.stat-bar-fill { height:100%; border-radius:1px; transition:width 0.3s; }
+
+/* ===== Room Bar ===== */
+#room-bar {
+  padding:3px 8px; background:#0f0f1a; border-bottom:1px solid #1a1a2e;
+  flex-shrink:0; display:flex; align-items:center; gap:5px; min-height:22px;
+}
+#room-name { color:var(--gold); font-size:11px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#room-exits { display:flex; gap:3px; flex-wrap:wrap; }
+.exit-tag { font-size:9px; padding:1px 5px; border-radius:4px; background:#1a2a1a; color:#5cb85c; border:1px solid #2a4a2a; white-space:nowrap; }
+
+/* ===== Output ===== */
+#output-wrap { flex:1; overflow:hidden; position:relative; }
+#output {
+  height:100%; overflow-y:auto; padding:6px 8px; white-space:pre-wrap;
+  word-break:break-all; line-height:1.5; font-size:12px;
+  font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;
+  -webkit-overflow-scrolling:touch;
+}
+#output::-webkit-scrollbar { width:2px; }
+#output::-webkit-scrollbar-track { background:transparent; }
+#output::-webkit-scrollbar-thumb { background:#333; border-radius:1px; }
+
+/* ANSI */
+.ansi-0 {} .ansi-1 { font-weight:bold; } .ansi-2 { opacity:0.5; }
+.ansi-3 { font-style:italic; } .ansi-4 { text-decoration:underline; }
+.ansi-5 { animation:blink 1s step-end infinite; } .ansi-7 { filter:invert(1); }
+.ansi-30 { color:#000; } .ansi-31 { color:#e05555; } .ansi-32 { color:#5cb85c; }
+.ansi-33 { color:#d4a843; } .ansi-34 { color:#5b9bd5; } .ansi-35 { color:#b05bb0; }
+.ansi-36 { color:#5bc0c0; } .ansi-37 { color:#ddd; }
+.ansi-40 { background:#000; } .ansi-41 { background:#c0392b; }
+.ansi-42 { background:#27ae60; } .ansi-43 { background:#d4a843; }
+.ansi-44 { background:#2980b9; } .ansi-45 { background:#8e44ad; }
+.ansi-46 { background:#16a085; } .ansi-47 { background:#bbb; }
+.ansi-90 { color:#777; } .ansi-91 { color:#ff6b6b; } .ansi-92 { color:#6bff6b; }
+.ansi-93 { color:#ffe66b; } .ansi-94 { color:#6b9bff; } .ansi-95 { color:#e06bff; }
+.ansi-96 { color:#6bffff; } .ansi-97 { color:#fff; }
+@keyframes blink { 50% { opacity:0; } }
+
+/* ===== NPC Bar ===== */
+#npc-bar {
+  display:flex; gap:4px; padding:2px 6px; background:#111120;
+  border-top:1px solid var(--border); flex-shrink:0; overflow-x:auto; min-height:0;
+}
+#npc-bar:empty { padding:0; }
+#npc-bar::-webkit-scrollbar { display:none; }
+.npc-btn {
+  font-size:9px; padding:2px 6px; border-radius:6px; background:#1a1a2a;
+  color:var(--cyan); border:1px solid #2a3a4a; white-space:nowrap; cursor:pointer; flex-shrink:0;
+}
+.npc-btn:active { background:#2a3a5a; }
+
+/* ===== Direction Pad (九宫格) ===== */
+#dir-pad {
+  display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr);
+  gap:3px; padding:4px 6px; background:#0f0f1a; border-top:1px solid #1a1a2e;
+  flex-shrink:0; max-width:220px; margin:0 auto; width:100%;
+}
+.dir-btn {
+  aspect-ratio:1; border-radius:8px; background:#1a1a2e; color:var(--text);
+  border:1px solid #2a2a3e; font-size:12px; cursor:pointer;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  transition:all 0.1s; padding:2px; gap:1px; min-height:0; overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+.dir-btn:active { background:#3a3a5e; transform:scale(0.9); }
+.dir-btn.available { background:#1a2a1a; border-color:#2a4a2a; color:var(--green); }
+.dir-btn .dir-arrow { font-size:16px; line-height:1; }
+.dir-btn .dir-label { font-size:8px; line-height:1; opacity:0.7; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.dir-btn.center { background:#1a1a3a; border-color:var(--gold); color:var(--gold); cursor:default; }
+.dir-btn.center .dir-arrow { font-size:9px; }
+.dir-btn.center .dir-label { font-size:8px; color:var(--gold); }
+
+/* ===== Action Buttons ===== */
+#actions-bar {
+  display:flex; gap:3px; padding:3px 4px; background:#0f0f1a;
+  border-top:1px solid #1a1a2e; flex-shrink:0; overflow-x:auto; flex-wrap:wrap; justify-content:center;
+}
+#actions-bar::-webkit-scrollbar { display:none; }
+.act-btn {
+  font-size:9px; padding:3px 6px; border-radius:10px; background:#1a1a2e;
+  color:var(--text); border:1px solid #2a2a3e; cursor:pointer; white-space:nowrap; flex-shrink:0;
+}
+.act-btn:active { background:#3a3a5e; transform:scale(0.95); }
+.act-btn.primary { background:#2a2a1a; border-color:#4a4a2a; color:var(--gold); }
+
+/* ===== Bottom Tab Bar ===== */
+#tab-bar {
+  display:flex; background:#111120; border-top:1px solid var(--border); flex-shrink:0;
+}
+.tab-btn {
+  flex:1; padding:6px 2px; background:transparent; border:none; color:var(--text-dim);
+  font-size:10px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:2px;
+  transition:all 0.15s;
+}
+.tab-btn .tab-icon { font-size:14px; }
+.tab-btn .tab-label { font-size:9px; }
+.tab-btn.active { color:var(--gold); background:#1a1a2e; }
+.tab-btn:active { background:#2a2a4e; }
+
+/* ===== Input ===== */
+#input-bar {
+  display:flex; gap:4px; padding:4px 6px; padding-bottom:calc(4px + var(--safe-bottom));
+  background:#1a1a2e; border-top:1px solid var(--border); flex-shrink:0; align-items:center;
+}
+#cmd-input {
+  flex:1; background:#0d0d18; border:1px solid #2a2a3e; border-radius:12px;
+  color:#e0e0e0; font-family:inherit; font-size:12px; padding:6px 10px; outline:none; caret-color:var(--gold);
+}
+#cmd-input:focus { border-color:var(--gold); }
+#send-btn {
+  background:var(--gold); color:#1a1a2e; border:none; border-radius:12px;
+  padding:6px 12px; font-size:11px; font-weight:700; cursor:pointer; white-space:nowrap; flex-shrink:0;
+}
+#send-btn:active { opacity:0.8; }
+
+/* ===== Toast ===== */
+#toast {
+  position:fixed; bottom:120px; left:50%; transform:translateX(-50%);
+  background:rgba(0,0,0,0.85); color:#fff; padding:6px 14px; border-radius:12px;
+  font-size:11px; z-index:200; opacity:0; transition:opacity 0.3s; pointer-events:none;
+}
+#toast.show { opacity:1; }
+
+/* ===== Panel Overlay (universal) ===== */
+#panel-overlay {
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:50;
+}
+#panel-overlay.show { display:block; }
+#panel-sheet {
+  position:fixed; bottom:0; left:0; right:0; background:#1a1a2e;
+  border-radius:16px 16px 0 0; z-index:51; max-height:75vh; overflow-y:auto;
+  padding:16px; transform:translateY(100%); transition:transform 0.3s;
+}
+#panel-sheet.show { transform:translateY(0); }
+#panel-sheet h3 { color:var(--gold); margin-bottom:8px; font-size:14px; }
+#panel-sheet h4 { color:var(--cyan); font-size:11px; margin:10px 0 4px; border-top:1px solid #222; padding-top:8px; }
+.panel-row { display:flex; justify-content:space-between; padding:3px 0; font-size:11px; border-bottom:1px solid #1a1a2a; }
+.panel-row .lbl { color:var(--text-dim); }
+.panel-row .val { color:var(--text); font-weight:600; }
+.panel-bar-wrap { height:6px; background:#222; border-radius:3px; margin:4px 0 8px; overflow:hidden; }
+.panel-bar-fill { height:100%; border-radius:3px; transition:width 0.3s; }
+.panel-btn {
+  display:inline-block; margin:3px; padding:5px 10px; border-radius:10px;
+  background:#1a1a2e; color:var(--text); border:1px solid #2a2a3e; font-size:10px; cursor:pointer;
+}
+.panel-btn:active { background:#3a3a5e; }
+.panel-btn.primary { background:#2a2a1a; border-color:#4a4a2a; color:var(--gold); }
+.panel-btn.skill { color:var(--gold); }
+.panel-btn.combat { color:var(--red); }
+.panel-btn.cmd { color:var(--blue); }
+.panel-btn.wide { display:block; width:100%; text-align:left; padding:8px 10px; border-radius:6px; margin:2px 0; border-bottom:1px solid #222; }
+.panel-close {
+  display:block; width:100%; text-align:center; padding:10px; background:transparent;
+  border:none; color:#888; font-size:12px; cursor:pointer; margin-top:6px;
+}
+.panel-close:active { background:#222; }
+
+/* Touch */
+#dir-pad,#actions-bar,#tab-bar,#input-bar,#npc-bar,#status-bar { touch-action:manipulation; }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <span class="title">⚔ 书剑MUD</span>
+  <div id="header-right">
+    <span><span id="status-dot" class="connecting"></span><span id="status-text">连接中</span></span>
+    <button class="header-btn" id="btn-reconnect" style="display:none" onclick="reconnectWS()">🔄</button>
+  </div>
+</div>
+
+<div id="status-bar">
+  <div class="stat-item"><span class="stat-icon">❤️</span><span class="stat-val" style="color:var(--hp)" id="s-hp">--</span><div class="stat-bar-wrap"><div class="stat-bar-fill" style="width:0;background:var(--hp)" id="b-hp"></div></div></div>
+  <div class="stat-item"><span class="stat-icon">💙</span><span class="stat-val" style="color:var(--mp)" id="s-mp">--</span><div class="stat-bar-wrap"><div class="stat-bar-fill" style="width:0;background:var(--mp)" id="b-mp"></div></div></div>
+  <div class="stat-item"><span class="stat-icon">⚡</span><span class="stat-val" style="color:var(--blue)" id="s-ep">--</span><div class="stat-bar-wrap"><div class="stat-bar-fill" style="width:0;background:var(--blue)" id="b-ep"></div></div></div>
+  <div class="stat-item"><span class="stat-icon">🍖</span><span class="stat-val" style="color:var(--food)" id="s-food">--</span></div>
+  <div class="stat-item"><span class="stat-icon">💧</span><span class="stat-val" style="color:var(--water)" id="s-water">--</span></div>
+  <div class="stat-item"><span class="stat-icon">✨</span><span class="stat-val" style="color:var(--gold)" id="s-exp">--</span></div>
+</div>
+
+<div id="room-bar">
+  <span id="room-name">--</span>
+  <span id="room-exits"></span>
+</div>
+
+<div id="output-wrap"><div id="output"></div></div>
+
+<div id="npc-bar"></div>
+
+<div id="actions-bar">
+  <button class="act-btn primary" data-cmd="l">👁 观察</button>
+  <button class="act-btn" data-cmd="hp">📊 状态</button>
+  <button class="act-btn" data-cmd="i">🎒 背包</button>
+  <button class="act-btn" data-cmd="skills">📜 技能</button>
+  <button class="act-btn" data-cmd="eat">🍖 吃</button>
+  <button class="act-btn" data-cmd="drink">💧 喝</button>
+  <button class="act-btn" data-cmd="dazuo 10">🧘 打坐</button>
+  <button class="act-btn" data-cmd="sleep">😴 睡觉</button>
+</div>
+
+<!-- 九宫格方向 -->
+<div id="dir-pad">
+  <button class="dir-btn" data-slot="nw">↖<span class="dir-label"></span></button>
+  <button class="dir-btn" data-slot="n">↑<span class="dir-label"></span></button>
+  <button class="dir-btn" data-slot="ne">↗<span class="dir-label"></span></button>
+  <button class="dir-btn" data-slot="w">←<span class="dir-label"></span></button>
+  <button class="dir-btn center" data-slot="c"><span class="dir-arrow">📍</span><span class="dir-label">--</span></button>
+  <button class="dir-btn" data-slot="e">→<span class="dir-label"></span></button>
+  <button class="dir-btn" data-slot="sw">↙<span class="dir-label"></span></button>
+  <button class="dir-btn" data-slot="s">↓<span class="dir-label"></span></button>
+  <button class="dir-btn" data-slot="se">↘<span class="dir-label"></span></button>
+</div>
+
+<!-- 底部Tab栏 -->
+<div id="tab-bar">
+  <button class="tab-btn active" data-tab="map"><span class="tab-icon">🗺️</span><span class="tab-label">地图</span></button>
+  <button class="tab-btn" data-tab="char"><span class="tab-icon">🧑</span><span class="tab-label">人物</span></button>
+  <button class="tab-btn" data-tab="bag"><span class="tab-icon">🎒</span><span class="tab-label">背包</span></button>
+  <button class="tab-btn" data-tab="skill"><span class="tab-icon">📜</span><span class="tab-label">技能</span></button>
+  <button class="tab-btn" data-tab="status"><span class="tab-icon">📊</span><span class="tab-label">状态</span></button>
+</div>
+
+<div id="input-bar">
+  <input type="text" id="cmd-input" placeholder="输入指令..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <button id="send-btn">发送</button>
+</div>
+
+<div id="toast"></div>
+
+<!-- Universal Panel -->
+<div id="panel-overlay"><div id="panel-sheet"></div></div>
+
+<script>
+(function() {
+  'use strict';
+
+  // DOM
+  var $ = function(id){ return document.getElementById(id); };
+  var output = $('output');
+  var cmdInput = $('cmd-input');
+  var statusDot = $('status-dot');
+  var statusText = $('status-text');
+  var sendBtn = $('send-btn');
+  var roomName = $('room-name');
+  var roomExits = $('room-exits');
+  var npcBar = $('npc-bar');
+  var toast = $('toast');
+  var panelOverlay = $('panel-overlay');
+  var panelSheet = $('panel-sheet');
+  var btnReconnect = $('btn-reconnect');
+
+  // State
+  var ws = null;
+  var sessionEpoch = 0;
+  var connected = false;
+  var reconnectTimer = null;
+  var reconnectDelay = 1000;
+  var currentRoom = '';
+  var currentExits = {}; // { direction: actual_exit_name }
+  var currentNPCs = [];
+  var playerStats = {};
+  var inputHistory = [];
+  var historyIdx = -1;
+  var currentInput = '';
+  var activeTab = 'map';
+
+  // ===== Helpers =====
+  function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function stripAnsi(s) { return s.replace(/\x1b\[[0-9;]*m/g,''); }
+
+  function parseAnsi(text) {
+    var re = /\x1b\[([0-9;]*)m/g;
+    var result = '', last = 0, m, open = [];
+    while ((m = re.exec(text)) !== null) {
+      if (m.index > last) result += escHtml(text.substring(last, m.index));
+      var codes = (m[1] === '' || m[1] === '0') ? [0] : m[1].split(';').map(function(c){return parseInt(c,10)||0;});
+      var cls = [];
+      for (var i = 0; i < codes.length; i++) {
+        var c = codes[i];
+        if (c === 0) cls = [];
+        else if (c === 1) cls.push('ansi-1'); else if (c === 2) cls.push('ansi-2');
+        else if (c === 3) cls.push('ansi-3'); else if (c === 4) cls.push('ansi-4');
+        else if (c === 5) cls.push('ansi-5'); else if (c === 7) cls.push('ansi-7');
+        else if (c >= 30 && c <= 37) cls.push('ansi-'+c);
+        else if (c >= 40 && c <= 47) cls.push('ansi-'+c);
+        else if (c >= 90 && c <= 97) cls.push('ansi-'+c);
+        else if (c >= 100 && c <= 107) cls.push('ansi-'+c);
+      }
+      for (var j = 0; j < open.length; j++) result += '</span>';
+      open = [];
+      if (cls.length > 0) { result += '<span class="'+cls.join(' ')+'">'; open = cls; }
+      last = m.index + m[0].length;
+    }
+    if (last < text.length) result += escHtml(text.substring(last));
+    for (var k = 0; k < open.length; k++) result += '</span>';
+    return result;
+  }
+
+  // ===== Parser =====
+  function parseGameOutput(text) {
+    var clean = stripAnsi(text);
+
+    // Room name
+    var roomMatch = clean.match(/^(\S+)\s*-\s*$/m);
+    if (roomMatch && roomMatch[1].length >= 2 && roomMatch[1].length <= 20) {
+      currentRoom = roomMatch[1];
+      roomName.textContent = '📍 ' + currentRoom;
+      updateDirPad(); // update center room name
+    }
+
+    // Exits - parse actual exit names
+    var exitMatch = clean.match(/这里明显的出口是\s*([^。]+)/);
+    if (exitMatch) {
+      var exits = {};
+      var rawExits = exitMatch[1].split(/[、，,和\s]+/).filter(Boolean);
+      rawExits.forEach(function(d){
+        d = d.trim().toLowerCase();
+        exits[d] = d; // store actual exit name
+      });
+      currentExits = exits;
+      updateDirPad();
+      updateExitTags();
+    }
+
+    // NPCs
+    var npcRegex = /([^\s\x1b\[\]\(\)\-\d\*\|]{2,4})\(([A-Za-z][a-z\s]+)\)/g;
+    var npcs = [], m;
+    while ((m = npcRegex.exec(clean)) !== null) {
+      var nm = m[1].trim(), nid = m[2].trim();
+      if (nm.length >= 2 && nm.length <= 4 && nid.length >= 2 &&
+          !/花名册|留言|Board|出口|明显|权限|贵宾|系统|提示|消息|状态|短消息|玩家|武士/i.test(nm)) {
+        if (!npcs.find(function(n){return n.id===nid;})) npcs.push({ name: nm, id: nid });
+      }
+    }
+    if (npcs.length > 0) { currentNPCs = npcs; updateNPCBar(); }
+
+    // HP
+    var hpM = clean.match(/·气血·\s*(\d+)\s*\/\s*(\d+)/);
+    if (hpM) {
+      playerStats.hp = hpM[1]; playerStats.maxHp = hpM[2];
+      $('s-hp').textContent = hpM[1]+'/'+hpM[2];
+      $('b-hp').style.width = (parseInt(hpM[1])/parseInt(hpM[2])*100)+'%';
+    }
+    var mpM = clean.match(/·内力·\s*(\d+)\s*\/\s*(\d+)/);
+    if (mpM) {
+      playerStats.mp = mpM[1]; playerStats.maxMp = mpM[2];
+      $('s-mp').textContent = mpM[1]+'/'+mpM[2];
+      $('b-mp').style.width = (parseInt(mpM[2])>0?parseInt(mpM[1])/parseInt(mpM[2])*100:0)+'%';
+    }
+    var epM = clean.match(/·精力·\s*(\d+)\s*\/\s*(\d+)/);
+    if (epM) {
+      playerStats.ep = epM[1]; playerStats.maxEp = epM[2];
+      $('s-ep').textContent = epM[1]+'/'+epM[2];
+      $('b-ep').style.width = (parseInt(epM[1])/parseInt(epM[2])*100)+'%';
+    }
+    var foodM = clean.match(/·食物·\s*([\d.]+)%/);
+    if (foodM) { playerStats.food = foodM[1]; $('s-food').textContent = foodM[1]+'%'; }
+    var waterM = clean.match(/·饮水·\s*([\d.]+)%/);
+    if (waterM) { playerStats.water = waterM[1]; $('s-water').textContent = waterM[1]+'%'; }
+    var expM = clean.match(/·经验·\s*(\d+)/);
+    if (expM) { playerStats.exp = expM[1]; $('s-exp').textContent = expM[1]; }
+    var potM = clean.match(/·潜能·\s*(\d+)/);
+    if (potM) playerStats.pot = potM[1];
+    var jxM = clean.match(/·精血·\s*(\d+)\s*\/\s*(\d+)/);
+    if (jxM) { playerStats.jx = jxM[1]; playerStats.maxJx = jxM[2]; }
+    var zqM = clean.match(/·正气·\s*(\-?\d+)/);
+    if (zqM) playerStats.zq = zqM[1];
+    var nlMaxM = clean.match(/·内力上限·\s*(\d+)\s*\/\s*(\d+)/);
+    if (nlMaxM) playerStats.nlMax = nlMaxM[1]+'/'+nlMaxM[2];
+    var jlM = clean.match(/·精·\s*(\d+)\s*\/\s*(\d+)/);
+    if (jlM && !jxM) { playerStats.jl = jlM[1]; playerStats.maxJl = jlM[2]; }
+    var qiM = clean.match(/·气·\s*(\d+)\s*\/\s*(\d+)/);
+    if (qiM && !playerStats.mp) { playerStats.qi = qiM[1]; playerStats.maxQi = qiM[2]; }
+  }
+
+  // ===== Direction Pad: map exits to 九宫格 =====
+  // Slot -> possible exit names (ordered by priority)
+  var slotMap = {
+    'nw': ['northwest'],
+    'n':  ['north','northup','northdown'],
+    'ne': ['northeast'],
+    'w':  ['west','westup','westdown'],
+    'e':  ['east','eastup','eastdown'],
+    'sw': ['southwest'],
+    's':  ['south','southup','southdown'],
+    'se': ['southeast']
+  };
+
+  function updateDirPad() {
+    // Update center room name
+    var centerBtn = document.querySelector('#dir-pad .dir-btn[data-slot="c"]');
+    if (centerBtn) {
+      centerBtn.querySelector('.dir-label').textContent = currentRoom || '--';
+    }
+
+    // Update direction buttons
+    document.querySelectorAll('#dir-pad .dir-btn[data-slot]').forEach(function(btn){
+      var slot = btn.dataset.slot;
+      if (slot === 'c') return;
+
+      var possibilities = slotMap[slot] || [];
+      var found = null;
+      for (var i = 0; i < possibilities.length; i++) {
+        if (currentExits[possibilities[i]]) {
+          found = possibilities[i];
+          break;
+        }
+      }
+      // Also check for enter/up/down in special slots
+      if (!found && slot === 'n' && currentExits['enter']) found = 'enter';
+      if (!found && slot === 'n' && currentExits['up']) found = 'up';
+      if (!found && slot === 's' && currentExits['down']) found = 'down';
+      if (!found && slot === 's' && currentExits['out']) found = 'out';
+
+      if (found) {
+        btn.classList.add('available');
+        btn.dataset.cmd = found; // actual exit command
+        // Show direction label
+        var label = found;
+        if (found === 'northup') label = '北↑';
+        else if (found === 'southdown') label = '南↓';
+        else if (found === 'northdown') label = '北↓';
+        else if (found === 'southup') label = '南↑';
+        else if (found === 'eastup') label = '东↑';
+        else if (found === 'westup') label = '西↑';
+        else if (found === 'enter') label = '入';
+        else if (found === 'out') label = '出';
+        btn.querySelector('.dir-label').textContent = label;
+      } else {
+        btn.classList.remove('available');
+        btn.dataset.cmd = '';
+        btn.querySelector('.dir-label').textContent = '';
+      }
+    });
+  }
+
+  function updateExitTags() {
+    var labels = {
+      'east':'东','west':'西','south':'南','north':'北',
+      'northup':'北↑','southdown':'南↓','northdown':'北↓','southup':'南↑',
+      'eastup':'东↑','westup':'西↑','eastdown':'东↓','westdown':'西↓',
+      'northeast':'东北','northwest':'西北','southeast':'东南','southwest':'西南',
+      'up':'上','down':'下','enter':'入','out':'出'
+    };
+    var html = '';
+    Object.keys(currentExits).forEach(function(d){
+      html += '<span class="exit-tag">'+(labels[d]||d)+'</span>';
+    });
+    roomExits.innerHTML = html;
+  }
+
+  function updateNPCBar() {
+    var html = '';
+    currentNPCs.forEach(function(npc){
+      html += '<button class="npc-btn" data-npc="'+escHtml(npc.id)+'" data-name="'+escHtml(npc.name)+'">'+escHtml(npc.name)+'</button>';
+    });
+    npcBar.innerHTML = html;
+    npcBar.querySelectorAll('.npc-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ showNPCSheet(btn.dataset.npc, btn.dataset.name); });
+    });
+  }
+
+  // ===== Panel System =====
+  function openPanel(html) {
+    panelSheet.innerHTML = html;
+    panelOverlay.classList.add('show');
+    panelSheet.classList.add('show');
+    // Re-bind events
+    panelSheet.querySelectorAll('[data-cmd]').forEach(function(el){
+      el.addEventListener('click', function(){
+        sendCommand(el.dataset.cmd);
+        closePanel();
+      });
+    });
+    panelSheet.querySelectorAll('[data-close]').forEach(function(el){
+      el.addEventListener('click', closePanel);
+    });
+  }
+
+  function closePanel() {
+    panelOverlay.classList.remove('show');
+    panelSheet.classList.remove('show');
+  }
+  panelOverlay.addEventListener('click', function(e){
+    if (e.target === panelOverlay) closePanel();
+  });
+
+  // ===== Tab Panels =====
+  function showMapPanel() {
+    var html = '<h3>🗺️ 地图 - 移动区</h3>';
+    html += '<p style="color:var(--text-dim);font-size:11px;margin-bottom:8px">当前: <b style="color:var(--gold)">'+(currentRoom||'未知')+'</b></p>';
+
+    // Mini 九宫格 in panel
+    html += '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:200px;margin:0 auto;">';
+    var slots = ['nw','n','ne','w','c','e','sw','s','se'];
+    var arrows = {'nw':'↖','n':'↑','ne':'↗','w':'←','c':'📍','e':'→','sw':'↙','s':'↓','se':'↘'};
+    slots.forEach(function(slot){
+      if (slot === 'c') {
+        html += '<button class="panel-btn" style="aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9px;border-color:var(--gold);color:var(--gold);padding:4px;">📍<span style="font-size:7px">'+(currentRoom||'--')+'</span></button>';
+      } else {
+        var possibilities = slotMap[slot] || [];
+        var found = null;
+        for (var i = 0; i < possibilities.length; i++) {
+          if (currentExits[possibilities[i]]) { found = possibilities[i]; break; }
+        }
+        if (!found && slot === 'n' && currentExits['enter']) found = 'enter';
+        if (!found && slot === 'n' && currentExits['up']) found = 'up';
+        if (!found && slot === 's' && currentExits['down']) found = 'down';
+        if (!found && slot === 's' && currentExits['out']) found = 'out';
+
+        if (found) {
+          var label = found;
+          if (found === 'northup') label = '北↑';
+          else if (found === 'southdown') label = '南↓';
+          else if (found === 'northdown') label = '北↓';
+          else if (found === 'southup') label = '南↑';
+          else if (found === 'eastup') label = '东↑';
+          else if (found === 'westup') label = '西↑';
+          else if (found === 'enter') label = '入';
+          else if (found === 'out') label = '出';
+          html += '<button class="panel-btn primary" data-cmd="'+found+'" style="aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;padding:4px;">'+arrows[slot]+'<span style="font-size:8px">'+label+'</span></button>';
+        } else {
+          html += '<button class="panel-btn" style="aspect-ratio:1;opacity:0.3;font-size:10px;padding:4px;" disabled>'+arrows[slot]+'</button>';
+        }
+      }
+    });
+    html += '</div>';
+
+    // Exit list
+    html += '<h4>出口列表</h4>';
+    var exitLabels = {'east':'东','west':'西','south':'南','north':'北','northup':'北↑','southdown':'南↓','northdown':'北↓','southup':'南↑','eastup':'东↑','westup':'西↑','eastdown':'东↓','westdown':'西↓','northeast':'东北','northwest':'西北','southeast':'东南','southwest':'西南','up':'上','down':'下','enter':'入','out':'出'};
+    Object.keys(currentExits).forEach(function(d){
+      html += '<button class="panel-btn wide primary" data-cmd="'+d+'">➤ '+(exitLabels[d]||d)+'</button>';
+    });
+    if (Object.keys(currentExits).length === 0) {
+      html += '<p style="color:var(--text-dim);font-size:11px">无可用出口，请先观察(look)</p>';
+    }
+
+    html += '<button class="panel-close" data-close="1">✕ 关闭</button>';
+    openPanel(html);
+  }
+
+  function showCharPanel() {
+    var html = '<h3>🧑 人物</h3>';
+
+    // Player
+    html += '<h4>👤 玩家角色</h4>';
+    if (playerStats.hp) {
+      html += '<div class="panel-row"><span class="lbl">❤️ 气血</span><span class="val">'+playerStats.hp+' / '+playerStats.maxHp+'</span></div>';
+      html += '<div class="panel-bar-wrap"><div class="panel-bar-fill" style="width:'+(parseInt(playerStats.hp)/parseInt(playerStats.maxHp)*100)+'%;background:var(--hp)"></div></div>';
+    }
+    if (playerStats.mp !== undefined) {
+      html += '<div class="panel-row"><span class="lbl">💙 内力</span><span class="val">'+playerStats.mp+' / '+playerStats.maxMp+'</span></div>';
+    }
+    if (playerStats.ep) {
+      html += '<div class="panel-row"><span class="lbl">⚡ 精力</span><span class="val">'+playerStats.ep+' / '+playerStats.maxEp+'</span></div>';
+    }
+    html += '<button class="panel-btn primary" data-cmd="hp">📊 刷新状态</button>';
+    html += '<button class="panel-btn" data-cmd="score">📋 查看档案</button>';
+    html += '<button class="panel-btn" data-cmd="i">🎒 查看背包</button>';
+
+    // NPCs in room
+    if (currentNPCs.length > 0) {
+      html += '<h4>🧑‍🤝‍🧑 房间人物 ('+currentNPCs.length+')</h4>';
+      currentNPCs.forEach(function(npc){
+        html += '<button class="panel-btn wide cmd" data-npc="'+escHtml(npc.id)+'" data-nname="'+escHtml(npc.name)+'">'+npc.name+' <span style="color:var(--text-dim);font-size:9px">('+npc.id+')</span></button>';
+      });
+    } else {
+      html += '<p style="color:var(--text-dim);font-size:11px">房间内没有其他人物</p>';
+    }
+
+    html += '<button class="panel-close" data-close="1">✕ 关闭</button>';
+    openPanel(html);
+
+    // Bind NPC clicks in char panel
+    panelSheet.querySelectorAll('[data-npc]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.stopPropagation();
+        showNPCSheet(el.dataset.npc, el.dataset.nname);
+      });
+    });
+  }
+
+  function showBagPanel() {
+    var html = '<h3>🎒 背包</h3>';
+    html += '<p style="color:var(--text-dim);font-size:11px;margin-bottom:8px">点击按钮查看背包物品</p>';
+    html += '<button class="panel-btn wide primary" data-cmd="i">🎒 查看背包</button>';
+    html += '<button class="panel-btn wide" data-cmd="i2">📋 查看详细物品</button>';
+    html += '<p style="color:var(--text-dim);font-size:10px;margin-top:8px">背包内容将显示在上方输出区</p>';
+    html += '<button class="panel-close" data-close="1">✕ 关闭</button>';
+    openPanel(html);
+  }
+
+  function showSkillPanel() {
+    var html = '<h3>📜 技能</h3>';
+    html += '<p style="color:var(--text-dim);font-size:11px;margin-bottom:8px">查看和学习技能</p>';
+    html += '<button class="panel-btn wide primary" data-cmd="skills">📜 查看技能列表</button>';
+    html += '<button class="panel-btn wide" data-cmd="cha">🔍 查看技能详情</button>';
+    html += '<p style="color:var(--text-dim);font-size:10px;margin-top:8px">技能列表将显示在上方输出区</p>';
+    html += '<button class="panel-close" data-close="1">✕ 关闭</button>';
+    openPanel(html);
+  }
+
+  function showStatusPanel() {
+    var html = '<h3>📊 角色状态</h3>';
+
+    if (playerStats.hp) {
+      html += '<div class="panel-row"><span class="lbl">❤️ 气血</span><span class="val">'+playerStats.hp+' / '+playerStats.maxHp+'</span></div>';
+      html += '<div class="panel-bar-wrap"><div class="panel-bar-fill" style="width:'+(parseInt(playerStats.hp)/parseInt(playerStats.maxHp)*100)+'%;background:var(--hp)"></div></div>';
+    }
+    if (playerStats.mp !== undefined) {
+      html += '<div class="panel-row"><span class="lbl">💙 内力</span><span class="val">'+playerStats.mp+' / '+playerStats.maxMp+'</span></div>';
+      var mpPct = parseInt(playerStats.maxMp)>0 ? parseInt(playerStats.mp)/parseInt(playerStats.maxMp)*100 : 0;
+      html += '<div class="panel-bar-wrap"><div class="panel-bar-fill" style="width:'+mpPct+'%;background:var(--mp)"></div></div>';
+    }
+    if (playerStats.ep) {
+      html += '<div class="panel-row"><span class="lbl">⚡ 精力</span><span class="val">'+playerStats.ep+' / '+playerStats.maxEp+'</span></div>';
+      html += '<div class="panel-bar-wrap"><div class="panel-bar-fill" style="width:'+(parseInt(playerStats.ep)/parseInt(playerStats.maxEp)*100)+'%;background:var(--blue)"></div></div>';
+    }
+    if (playerStats.jx) html += '<div class="panel-row"><span class="lbl">🩸 精血</span><span class="val">'+playerStats.jx+' / '+playerStats.maxJx+'</span></div>';
+    if (playerStats.jl) html += '<div class="panel-row"><span class="lbl">🧠 精</span><span class="val">'+playerStats.jl+' / '+playerStats.maxJl+'</span></div>';
+    if (playerStats.qi) html += '<div class="panel-row"><span class="lbl">💨 气</span><span class="val">'+playerStats.qi+' / '+playerStats.maxQi+'</span></div>';
+    if (playerStats.food) html += '<div class="panel-row"><span class="lbl">🍖 食物</span><span class="val">'+playerStats.food+'%</span></div>';
+    if (playerStats.water) html += '<div class="panel-row"><span class="lbl">💧 饮水</span><span class="val">'+playerStats.water+'%</span></div>';
+    if (playerStats.exp) html += '<div class="panel-row"><span class="lbl">✨ 经验</span><span class="val">'+playerStats.exp+'</span></div>';
+    if (playerStats.pot) html += '<div class="panel-row"><span class="lbl">📚 潜能</span><span class="val">'+playerStats.pot+'</span></div>';
+    if (playerStats.zq) html += '<div class="panel-row"><span class="lbl">⚖ 正气</span><span class="val">'+playerStats.zq+'</span></div>';
+    if (playerStats.nlMax) html += '<div class="panel-row"><span class="lbl">🔥 内力上限</span><span class="val">'+playerStats.nlMax+'</span></div>';
+
+    if (!playerStats.hp) {
+      html += '<p style="color:var(--text-dim);font-size:11px">暂无状态数据，请先登录游戏</p>';
+    }
+
+    // Room
+    html += '<h4>📍 当前位置</h4>';
+    html += '<div class="panel-row"><span class="lbl">房间</span><span class="val">'+(currentRoom||'未知')+'</span></div>';
+    var exitLabels = {'east':'东','west':'西','south':'南','north':'北','northup':'北↑','southdown':'南↓','northeast':'东北','northwest':'西北','southeast':'东南','southwest':'西南','up':'上','down':'下','enter':'入','out':'出'};
+    var exitStr = Object.keys(currentExits).map(function(d){return exitLabels[d]||d;}).join(' · ');
+    if (exitStr) html += '<div class="panel-row"><span class="lbl">出口</span><span class="val">'+exitStr+'</span></div>';
+
+    // Quick actions
+    html += '<h4>⚡ 快捷操作</h4>';
+    html += '<button class="panel-btn primary" data-cmd="hp">📊 刷新</button>';
+    html += '<button class="panel-btn primary" data-cmd="i">🎒 背包</button>';
+    html += '<button class="panel-btn" data-cmd="skills">📜 技能</button>';
+    html += '<button class="panel-btn" data-cmd="score">📋 档案</button>';
+    html += '<button class="panel-btn" data-cmd="eat">🍖 吃</button>';
+    html += '<button class="panel-btn" data-cmd="drink">💧 喝</button>';
+    html += '<button class="panel-btn" data-cmd="dazuo 10">🧘 打坐</button>';
+    html += '<button class="panel-btn" data-cmd="sleep">😴 睡觉</button>';
+    html += '<button class="panel-btn" data-cmd="l">👁 观察</button>';
+
+    html += '<button class="panel-close" data-close="1">✕ 关闭</button>';
+    openPanel(html);
+  }
+
+  // ===== NPC Sheet =====
+  function showNPCSheet(npcId, npcName) {
+    var actions = [];
+    var lower = (npcId + ' ' + npcName).toLowerCase();
+
+    actions.push({ label: '👁 查看 '+npcName, cmd: 'look '+npcId, cls: 'cmd' });
+
+    var isMaster = /万震山|师傅|师父|master|shifu|戚长发|梅念笙|万圭|狄云|水笙|风清扬|岳不群|张三丰|扫地|黄裳|独孤/i.test(lower);
+    var isShopkeeper = /掌柜|伙计|老板|shop|seller|buy|sell|waiter|keeper|摊贩|贩子|商人|小二|老板娘/i.test(lower);
+    var isHealer = /大夫|郎中|doctor|healer|medicine|神医|薛慕华|平一指|胡青牛/i.test(lower);
+    var isGuard = /武士|侍卫|守门|guard|士兵|官兵|家丁|护院|武师/i.test(lower);
+    var isQuest = /侠客|隐士|老者|乞丐|书生|樵夫|渔夫|猎人|农夫|村姑|小孩|姑娘|婆婆|公公|和尚|道士|尼姑/i.test(lower);
+    var isFighter = /杀手|恶霸|强盗|土匪|贼|闯王|李自成|张召重|血刀|欧阳锋|洪七公|黄药师|金轮/i.test(lower);
+
+    if (isMaster) {
+      actions.push({ section: '🎓 师门' });
+      actions.push({ label: '📖 学习技能', cmd: 'xue '+npcId+' force', cls: 'skill' });
+      actions.push({ label: '📖 学习内功', cmd: 'xue '+npcId+' force', cls: 'skill' });
+      actions.push({ label: '📖 学习轻功', cmd: 'xue '+npcId+' dodge', cls: 'skill' });
+      actions.push({ label: '📖 学习招架', cmd: 'xue '+npcId+' parry', cls: 'skill' });
+      actions.push({ label: '🗡 学习剑法', cmd: 'xue '+npcId+' sword', cls: 'skill' });
+      actions.push({ label: '⚔ 学习刀法', cmd: 'xue '+npcId+' blade', cls: 'skill' });
+      actions.push({ label: '👊 学习拳脚', cmd: 'xue '+npcId+' unarmed', cls: 'skill' });
+      actions.push({ label: '💬 询问离馆', cmd: 'ask '+npcId+' about 离馆', cls: 'cmd' });
+      actions.push({ label: '💬 询问技能', cmd: 'ask '+npcId+' about 技能', cls: 'cmd' });
+    }
+
+    if (isShopkeeper) {
+      actions.push({ section: '🛒 交易' });
+      actions.push({ label: '📋 查看商品', cmd: 'list', cls: 'cmd' });
+      actions.push({ label: '🛒 购买', cmd: 'buy', cls: 'cmd' });
+      actions.push({ label: '💰 出售', cmd: 'sell', cls: 'cmd' });
+    }
+
+    if (isHealer) {
+      actions.push({ section: '💊 治疗' });
+      actions.push({ label: '💊 治疗伤势', cmd: 'heal', cls: 'cmd' });
+    }
+
+    if (isGuard) {
+      actions.push({ section: '🛡 守卫' });
+      actions.push({ label: '💬 询问通行', cmd: 'ask '+npcId+' about 通行', cls: 'cmd' });
+    }
+
+    if (isQuest && !isMaster && !isShopkeeper && !isHealer) {
+      actions.push({ section: '💬 打听' });
+      actions.push({ label: '💬 询问消息', cmd: 'ask '+npcId+' about 消息', cls: 'cmd' });
+      actions.push({ label: '💬 询问任务', cmd: 'ask '+npcId+' about 任务', cls: 'cmd' });
+    }
+
+    if (isFighter) {
+      actions.push({ section: '⚔ 战斗' });
+      actions.push({ label: '⚔ 攻击', cmd: 'kill '+npcId, cls: 'combat' });
+      actions.push({ label: '🛡 切磋', cmd: 'fight '+npcId, cls: 'combat' });
+      actions.push({ label: '🏃 逃跑', cmd: 'halt', cls: 'combat' });
+    }
+
+    actions.push({ section: '🔧 通用' });
+    actions.push({ label: '💬 询问学习', cmd: 'ask '+npcId+' about 学习', cls: 'cmd' });
+    actions.push({ label: '💬 询问技能', cmd: 'ask '+npcId+' about 技能', cls: 'cmd' });
+    actions.push({ label: '🎁 给予物品', cmd: 'give '+npcId, cls: 'cmd' });
+    actions.push({ label: '🕵 偷窃', cmd: 'steal '+npcId, cls: 'combat' });
+    actions.push({ label: '👣 跟随', cmd: 'follow '+npcId, cls: 'cmd' });
+
+    var html = '<h3>🧑 '+npcName+' <span style="color:var(--text-dim);font-size:10px">('+npcId+')</span></h3>';
+    actions.forEach(function(a){
+      if (a.section) html += '<h4>'+a.section+'</h4>';
+      else html += '<button class="panel-btn wide '+(a.cls||'')+'" data-cmd="'+escHtml(a.cmd)+'">'+a.label+'</button>';
+    });
+    html += '<button class="panel-close" data-close="1">✕ 关闭</button>';
+    openPanel(html);
+  }
+
+  // ===== Tab Bar =====
+  document.querySelectorAll('#tab-bar .tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('#tab-bar .tab-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeTab = btn.dataset.tab;
+      switch (activeTab) {
+        case 'map': showMapPanel(); break;
+        case 'char': showCharPanel(); break;
+        case 'bag': showBagPanel(); break;
+        case 'skill': showSkillPanel(); break;
+        case 'status': showStatusPanel(); break;
+      }
+    });
+  });
+
+  // ===== Output =====
+  function appendOutput(text) {
+    if (!text) return;
+    var div = document.createElement('div');
+    div.innerHTML = parseAnsi(text);
+    output.appendChild(div);
+    while (output.children.length > 1500) output.removeChild(output.firstChild);
+    output.scrollTop = output.scrollHeight;
+    parseGameOutput(text);
+  }
+
+  function clearOutput() {
+    output.innerHTML = '';
+    currentExits = {};
+    currentNPCs = [];
+    currentRoom = '';
+    playerStats = {};
+    roomName.textContent = '--';
+    roomExits.innerHTML = '';
+    npcBar.innerHTML = '';
+    updateDirPad();
+  }
+
+  // ===== Toast =====
+  var toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2000);
+  }
+
+  // ===== WebSocket =====
+  function setStatus(state, text) {
+    statusDot.className = state;
+    statusText.textContent = text;
+    if (state === 'on') {
+      connected = true;
+      btnReconnect.style.display = 'none';
+    } else if (state === 'off') {
+      connected = false;
+      btnReconnect.style.display = 'inline-block';
+    }
+  }
+
+  function connectWS() {
+    if (ws) { try { ws.close(); } catch(e) {} ws = null; }
+
+    var proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+    ws = new WebSocket(proto + '//' + location.host + '/ws');
+
+    ws.onopen = function() {
+      setStatus('on', '已连接');
+      reconnectDelay = 1000;
+    };
+
+    ws.onmessage = function(e) {
+      var msg;
+      try { msg = JSON.parse(e.data); } catch(err) { return; }
+
+      if (msg.type === 'session') {
+        if (msg.epoch && msg.epoch !== sessionEpoch) {
+          sessionEpoch = msg.epoch;
+          clearOutput();
+        }
+        setStatus(msg.connected ? 'on' : 'connecting', msg.connected ? '已连接' : '重连中');
+        if (msg.connected) connected = true;
+        if (msg.history && msg.history.length > 0) {
+          for (var i = 0; i < msg.history.length; i++) {
+            if (msg.history[i].text) appendOutput(msg.history[i].text);
+          }
+        }
+      }
+      else if (msg.type === 'status') {
+        setStatus(msg.connected ? 'on' : 'off', msg.connected ? '已连接' : 'MUD断开');
+        connected = msg.connected;
+      }
+      else if (msg.type === 'output') {
+        if (msg.text) appendOutput(msg.text);
+      }
+      else if (msg.type === 'ack') {
+        if (!msg.ok) showToast('发送失败: ' + (msg.error || ''));
+      }
+    };
+
+    ws.onclose = function() {
+      ws = null;
+      setStatus('off', '已断开');
+      scheduleReconnect();
+    };
+
+    ws.onerror = function() {
+      setStatus('off', '连接错误');
+    };
+  }
+
+  function scheduleReconnect() {
+    if (reconnectTimer) return;
+    setStatus('connecting', '重连中...');
+    reconnectTimer = setTimeout(function() {
+      reconnectTimer = null;
+      connectWS();
+    }, reconnectDelay);
+    reconnectDelay = Math.min(reconnectDelay * 2, 15000);
+  }
+
+  function reconnectWS() {
+    reconnectDelay = 1000;
+    if (reconnectTimer) { clearTimeout(reconnectTimer); reconnectTimer = null; }
+    connectWS();
+  }
+
+  function sendCommand(cmd) {
+    if (!cmd) return;
+    if (!ws || ws.readyState !== WebSocket.OPEN) {
+      showToast('未连接，正在重连...');
+      reconnectWS();
+      return;
+    }
+    ws.send(JSON.stringify({ type: 'cmd', cmd: cmd }));
+  }
+
+  // ===== Event Handlers =====
+  cmdInput.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      var cmd = cmdInput.value.trim();
+      if (cmd) {
+        sendCommand(cmd);
+        if (cmd !== inputHistory[inputHistory.length-1]) {
+          inputHistory.push(cmd);
+          if (inputHistory.length > 200) inputHistory.shift();
+        }
+        historyIdx = inputHistory.length;
+        cmdInput.value = '';
+      }
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (inputHistory.length === 0) return;
+      if (historyIdx === inputHistory.length) currentInput = cmdInput.value;
+      historyIdx = Math.max(0, historyIdx - 1);
+      cmdInput.value = inputHistory[historyIdx];
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIdx < inputHistory.length - 1) { historyIdx++; cmdInput.value = inputHistory[historyIdx]; }
+      else { historyIdx = inputHistory.length; cmdInput.value = currentInput; }
+    }
+  });
+
+  sendBtn.addEventListener('click', function(){
+    var cmd = cmdInput.value.trim();
+    if (cmd) {
+      sendCommand(cmd);
+      if (cmd !== inputHistory[inputHistory.length-1]) {
+        inputHistory.push(cmd);
+        if (inputHistory.length > 200) inputHistory.shift();
+      }
+      historyIdx = inputHistory.length;
+      cmdInput.value = '';
+    }
+  });
+
+  // Direction pad buttons
+  document.querySelectorAll('#dir-pad .dir-btn[data-slot]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if (btn.dataset.cmd) sendCommand(btn.dataset.cmd);
+    });
+  });
+
+  // Action buttons
+  document.querySelectorAll('#actions-bar .act-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){ sendCommand(btn.dataset.cmd); });
+  });
+
+  // Click output to focus input
+  output.addEventListener('click', function(){ cmdInput.focus(); });
+
+  // ===== Init =====
+  connectWS();
+})();
+</script>
+</body>
+</html>

@@ -8,7 +8,7 @@ int main(object me, string arg)
 	int i;
 	string output;
 
-	output = sprintf("%-40s %-20s %s\n", "物件", "函数", "延迟时间"); 
+	output = sprintf("%-40s %-20s %s\n", "鐗╀欢", "鍑芥暟", "寤惰繜鏃堕棿"); 
 	if( arg && arg!="" )
 		info = filter_array(call_out_info(), (: $1[1]==$2 || file_name($1[0])==$2 :), arg);
 	else
@@ -25,7 +25,7 @@ int main(object me, string arg)
 int help()
 {
 	write(@LONG
-指令格式：callouts [<函数名称>]
+鎸囦护鏍煎紡锛歝allouts [<鍑芥暟鍚嶇О>]
 
 List all the system callouts, or, a particular callouts 
 specified as a parameter.

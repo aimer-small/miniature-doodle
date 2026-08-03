@@ -1,4 +1,4 @@
-// hhs		ÒõÑôºÏ»¶É¢
+// hhs		é˜´é˜³åˆæ¬¢æ•£
 // 2/9/2k  by emnil
 
 #include <ansi.h>
@@ -7,9 +7,9 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIB"ÒõÑôºÏ»¶É¢"NOR, ({ "hehuan san","san" }) );
-        set("long",HIB"ÕâÊÇÑªµ¶ÀÏ×æÃØÖÆµÄÒ©·Û£¬Ö»ĞèÒªÈö(sa)Ò»µãµã¾ÍÄÜ·¢»Ó×öÓÃ¡£\n"NOR);
-        set("unit", "°ü");
+        set_name(HIB"é˜´é˜³åˆæ¬¢æ•£"NOR, ({ "hehuan san","san" }) );
+        set("long",HIB"è¿™æ˜¯è¡€åˆ€è€ç¥–ç§˜åˆ¶çš„è¯ç²‰ï¼Œåªéœ€è¦æ’’(sa)ä¸€ç‚¹ç‚¹å°±èƒ½å‘æŒ¥åšç”¨ã€‚\n"NOR);
+        set("unit", "åŒ…");
         set("weight", 90);
         set("no_sell",1);
         set("value", 0);
@@ -24,29 +24,29 @@ int do_sa(string arg)
 {
     object me=this_player() , ob , bb;
 
-	if (!arg) return notify_fail("ÄãÒªÈöË­£¿\n");
+	if (!arg) return notify_fail("ä½ è¦æ’’è°ï¼Ÿ\n");
 
 	ob = present(arg, environment(me));
-	if (!ob || !living(ob)) return notify_fail("ÄãÒªÈöË­£¿\n");
+	if (!ob || !living(ob)) return notify_fail("ä½ è¦æ’’è°ï¼Ÿ\n");
 
-	if (!wizardp(me) && ob->query("gender")!="Å®ĞÔ" )
-		return notify_fail("ÓĞÃ»ÓĞ¸ã´íÑ½£¬ÀÏ×æ¿É²»ÊÇÍÃ×Ó£¡\n");
+	if (!wizardp(me) && ob->query("gender")!="å¥³æ€§" )
+		return notify_fail("æœ‰æ²¡æœ‰æé”™å‘€ï¼Œè€ç¥–å¯ä¸æ˜¯å…”å­ï¼\n");
 	
 	if (!wizardp(me) && (userp(ob) || ob->query("id")!="beauty"))
-		return notify_fail("Õâ¸öÅ®ÈËºÃÏó²»ÊÇÀÏ×æÒªµÄÄÇ¸öÀ²£¡\n");
+		return notify_fail("è¿™ä¸ªå¥³äººå¥½è±¡ä¸æ˜¯è€ç¥–è¦çš„é‚£ä¸ªå•¦ï¼\n");
 
     bb=present("body guard", environment(me));
     if(!objectp(bb) || bb!=ob->query("guard"))
         bb=present("super guard", environment(me));
     if(objectp(bb) && bb==ob->query("guard"))
-		return notify_fail("ÈË¼ÒÓĞ±£ïÚÔÚÄØ£¡ÄãÕâÃ´¸ÉÌ«Ã°ÏÕÁË°É£¡\n");
+		return notify_fail("äººå®¶æœ‰ä¿é•–åœ¨å‘¢ï¼ä½ è¿™ä¹ˆå¹²å¤ªå†’é™©äº†å§ï¼\n");
 
 	if( objectp(ob->query("guard")) )
-		return notify_fail("hmm£¬ÄãËÆºõÔÚÀûÓÃBUG£¡\n");
+		return notify_fail("hmmï¼Œä½ ä¼¼ä¹åœ¨åˆ©ç”¨BUGï¼\n");
 
         if (!ob->query("ok"))
 		ob->kill_ob(me);
-        message_vision(HIB"$N"HIB"ºÙºÙÒõĞ¦ÁË¼¸Éù£¬ÓÃÖ¸¼×Ïò$n"HIB"ÇáÇáµ¯ÁËµã·ÛÄ­¡£\n"MAG"²»Ò»»á¶ù£¬$n"MAG"¾ÍÂúÃæÍ¨ºìµÄÔÎÁË¹ıÈ¥£¡\n"NOR,me, ob);
+        message_vision(HIB"$N"HIB"å˜¿å˜¿é˜´ç¬‘äº†å‡ å£°ï¼Œç”¨æŒ‡ç”²å‘$n"HIB"è½»è½»å¼¹äº†ç‚¹ç²‰æ²«ã€‚\n"MAG"ä¸ä¸€ä¼šå„¿ï¼Œ$n"MAG"å°±æ»¡é¢é€šçº¢çš„æ™•äº†è¿‡å»ï¼\n"NOR,me, ob);
 
 	ob->unconcious();
 	ob->set("hhs",1);

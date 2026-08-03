@@ -1,4 +1,4 @@
-// É½½Å
+// å±±è„š
 // gaoshan0.c
 // augx@sj 2/27/2002
 
@@ -8,12 +8,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short","¸ßÉ½½ÅÏÂ");
+	set("short","é«˜å±±è„šä¸‹");
 	set("long",
-"ÕâÊÇ×ö¼«¸ßµÄÉ½·å£¬´Ó°ëÉ½ÑüÆð¾ÍÔÆÎíçÔÈÆ£¬ÔÚÉ½¶¥µÄÐüÑÂÉÏÉú³¤×Å²»ÉÙ
-ÆæÕäÒì²Ý£¬»¹ÓÐ²»ÉÙº±¼ûµÄ¶¯Îï³öÃ»¡£´ËÉ½ÊÇÓÐÃûµÄÒ©²Ä²úµØ£¬³£Äê¶¼ÓÐÎÞÊý
-µÄ²ÉÒ©ÈËÃ¦ÂµÆä¼ä¡£
-ÄãÌ§Í·ÍûÈ¥£¬ËÆºõÓÐÒ»ÌõÑò³¦É½Â·òêÑÑÆä¼ä£¬²»ÖªµÀÍ¨ÍùºÎ´¦¡£
+"è¿™æ˜¯åšæžé«˜çš„å±±å³°ï¼Œä»ŽåŠå±±è…°èµ·å°±äº‘é›¾ç¼­ç»•ï¼Œåœ¨å±±é¡¶çš„æ‚¬å´–ä¸Šç”Ÿé•¿ç€ä¸å°‘
+å¥‡çå¼‚è‰ï¼Œè¿˜æœ‰ä¸å°‘ç½•è§çš„åŠ¨ç‰©å‡ºæ²¡ã€‚æ­¤å±±æ˜¯æœ‰åçš„è¯æäº§åœ°ï¼Œå¸¸å¹´éƒ½æœ‰æ— æ•°
+çš„é‡‡è¯äººå¿™ç¢Œå…¶é—´ã€‚
+ä½ æŠ¬å¤´æœ›åŽ»ï¼Œä¼¼ä¹Žæœ‰ä¸€æ¡ç¾Šè‚ å±±è·¯èœ¿èœ’å…¶é—´ï¼Œä¸çŸ¥é“é€šå¾€ä½•å¤„ã€‚
 "); 
 
 	set("objects",([
@@ -27,7 +27,7 @@ void create()
 		"eastup"	: __DIR__"gaoshan3",
 	]));
 	
-	set("outdoors", "³É¶¼½¼Íâ");
+	set("outdoors", "æˆéƒ½éƒŠå¤–");
 	set("incity",1);
 	setup();
 }
@@ -42,7 +42,7 @@ int valid_leave(object me, string dir)
 {
 	if (dir != "west")
 	{
-		return notify_fail("´ËµØ½üÓÐÃÍÊÞ³öÃ»£¬½ûÖ¹Í¨ÐÐ¡£\n\n\t\t³É¶¼Öª¸®¡£\n");
+		return notify_fail("æ­¤åœ°è¿‘æœ‰çŒ›å…½å‡ºæ²¡ï¼Œç¦æ­¢é€šè¡Œã€‚\n\n\t\tæˆéƒ½çŸ¥åºœã€‚\n");
 	}
 
 	return ::valid_leave(me, dir);
@@ -56,15 +56,15 @@ void init()
 int do_push(string arg)
 {
          object me = this_player();
-          if (arg != "É½Â·")
-                  return notify_fail("ÄãÒªÅÀÊ²Ã´?\n");
+          if (arg != "å±±è·¯")
+                  return notify_fail("ä½ è¦çˆ¬ä»€ä¹ˆ?\n");
           if (me->is_busy() || me->is_fighting())
-                 return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                 return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-if(me->query("family") && me->query("family/family_name")!="åÐÒ£ÅÉ")
-                  return notify_fail("ÄãÒªÅÀÊ²Ã´??\n");
+if(me->query("family") && me->query("family/family_name")!="é€é¥æ´¾")
+                  return notify_fail("ä½ è¦çˆ¬ä»€ä¹ˆ??\n");
 me->add_busy(3);
-     message_vision("$N×ÝÉíÒ»Ô¾£¬ÏûÊ§ÔÚÒ»ÌõÑò³¦Ð¡Â·ÖÐ²»¼ûÁË¡£\n", me);
+     message_vision("$Nçºµèº«ä¸€è·ƒï¼Œæ¶ˆå¤±åœ¨ä¸€æ¡ç¾Šè‚ å°è·¯ä¸­ä¸è§äº†ã€‚\n", me);
           me->receive_damage("jing", 30);
           me->move("/d/xiaoyao/muwu2");
           return 1;

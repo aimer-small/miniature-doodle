@@ -1,4 +1,4 @@
-// É³³¡ÆÆÕó½£·¨ Ô½Å®Ç×´«
+// æ²™åœºç ´é˜µå‰‘æ³• è¶Šå¥³äº²ä¼ 
 // by Jpei@NT 2009/05
 
 #include <ansi.h>
@@ -6,7 +6,7 @@
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h";
 
-string perform_name() {return HIY"ÁÙÕóÁù½£"NOR;}
+string perform_name() {return HIY"ä¸´é˜µå…­å‰‘"NOR;}
 
 int perform(object me,object target)
 {
@@ -16,21 +16,21 @@ int perform(object me,object target)
      
     if(!objectp(target) || !me->is_fighting(target) || !living(target)
         || environment(target)!=environment(me))
-                return notify_fail("ÁÙÕóÁù½£Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ä¸´é˜µå…­å‰‘åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
     if( (int)me->query_skill("yuenu-jian", 1) < 220 )
-                return notify_fail("ÄãµÄ½£·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃÁÙÕóÁù½£¹¥»÷£¡\n");
+                return notify_fail("ä½ çš„å‰‘æ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨ä¸´é˜µå…­å‰‘æ”»å‡»ï¼\n");
     if((int)me->query_skill("sword", 1) < 160 )
-                return notify_fail("ÄãµÄ»ù±¾½£·¨²»¹»æµÊì£¬²»ÄÜÊ¹ÓÃÁÙÕóÁù½£¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬å‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½ä½¿ç”¨ä¸´é˜µå…­å‰‘ã€‚\n");
     if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "yuenu-jian")
-                return notify_fail("ÄãÊÖÀïÎŞ½££¬ÈçºÎÊ¹ÓÃÁÙÕóÁù½££¿\n");
+                return notify_fail("ä½ æ‰‹é‡Œæ— å‰‘ï¼Œå¦‚ä½•ä½¿ç”¨ä¸´é˜µå…­å‰‘ï¼Ÿ\n");
                 
     if((int)me->query("max_neili") < 1500 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»£¬²»ÄÜÊ¹ÓÃÁÙÕóÁù½££¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ä¸´é˜µå…­å‰‘ï¼\n");
     if((int)me->query("neili") < 1000 )
-                return notify_fail("ÄãÏÖÔÚÕæÆø²»×ã£¬²»ÄÜÊ¹ÓÃÁÙÕóÁù½££¡\n");
-        message_vision(HIY"\n$N½£ÕĞºöÉú²ÒÁÒ±¯×³Ö®Òâ£¬´ÌÌôÏ÷¡¢ĞıÒıÁÃ£¬ÕĞÕĞ½ÔÊÇ½£·¨ÈëÃÅ£¬ÍşÁ¦È´ÊÇ¼«´ó£¬½£½£²»Àë$nÖÂÃüÖ®´¦£¬ÕıÊÇÔ½Å®Ç×ÊÚÖ®¡°ÁÙÕóÁù½£¡±"HIY"£¡\n"NOR, me,target);
-    me->start_perform(3,"¡¸ÁÙÕóÁù½£¡¹");
+                return notify_fail("ä½ ç°åœ¨çœŸæ°”ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨ä¸´é˜µå…­å‰‘ï¼\n");
+        message_vision(HIY"\n$Nå‰‘æ‹›å¿½ç”Ÿæƒ¨çƒˆæ‚²å£®ä¹‹æ„ï¼ŒåˆºæŒ‘å‰Šã€æ—‹å¼•æ’©ï¼Œæ‹›æ‹›çš†æ˜¯å‰‘æ³•å…¥é—¨ï¼Œå¨åŠ›å´æ˜¯æå¤§ï¼Œå‰‘å‰‘ä¸ç¦»$nè‡´å‘½ä¹‹å¤„ï¼Œæ­£æ˜¯è¶Šå¥³äº²æˆä¹‹â€œä¸´é˜µå…­å‰‘â€"HIY"ï¼\n"NOR, me,target);
+    me->start_perform(3,"ã€Œä¸´é˜µå…­å‰‘ã€");
     me->set_temp("ynj/6j",1);
      me->add("neili", -500);
  me->add_temp("apply/strength",  me->query_skill("yuenu-jian", 1)*2/5);
@@ -55,9 +55,9 @@ int perform(object me,object target)
 
 int help(object me)
 {
-   write(WHT"\nÔ½Å®½£¡¸"HIY"ÁÙÕóÁù½£"WHT"¡¹£º"NOR"\n");
+   write(WHT"\nè¶Šå¥³å‰‘ã€Œ"HIY"ä¸´é˜µå…­å‰‘"WHT"ã€ï¼š"NOR"\n");
    write(@HELP
-    Ô½Å®Ç×ÊÚÁÙÕóÁù½££¬´ÌÌôÏ÷¡¢ĞıÒıÁÃ£¬ÕĞÕĞ½ÔÊÇ½£·¨ÈëÃÅ£¬È´ÕĞÕĞÖ¸ÏòÖÂÃüÖ®´¦£¬µ±ÕßÅûÃÒ¡£
+    è¶Šå¥³äº²æˆä¸´é˜µå…­å‰‘ï¼ŒåˆºæŒ‘å‰Šã€æ—‹å¼•æ’©ï¼Œæ‹›æ‹›çš†æ˜¯å‰‘æ³•å…¥é—¨ï¼Œå´æ‹›æ‹›æŒ‡å‘è‡´å‘½ä¹‹å¤„ï¼Œå½“è€…æŠ«é¡ã€‚
 HELP
    );
    return 1;

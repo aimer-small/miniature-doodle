@@ -1,5 +1,5 @@
 // Write by Yanyang@SJ 2000.9.23
-// jintan.c  ´ó¾ÆÌ³
+// jintan.c  å¤§é…’å›
 
 inherit ITEM;
 inherit F_LIQUID;
@@ -7,20 +7,20 @@ inherit F_LIQUID;
 
 void create()
 {
-        set_name(YEL"´ó¾ÆÌ³"NOR, ({"da jiutan", "jiutan", "tan"}));
+        set_name(YEL"å¤§é…’å›"NOR, ({"da jiutan", "jiutan", "tan"}));
         set_weight(700);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»¸ö´ó¾ÆÌ³£¬¿ÉÒÔÓÃËüÀ´ÏòĞ¡½ğ±­Àïµ¹¾Æ(daojiu)¡£\n");
-                set("unit", "Ö»");
+                set("long", "ä¸€ä¸ªå¤§é…’å›ï¼Œå¯ä»¥ç”¨å®ƒæ¥å‘å°é‡‘æ¯é‡Œå€’é…’(daojiu)ã€‚\n");
+                set("unit", "åª");
                 set("value", 300);
                 set("max_liquid",400);
         }
 
         set("liquid", ([
                 "type": "alcohol",
-                "name": "ÉÏµÈµÄÅ®¶ùºì",
+                "name": "ä¸Šç­‰çš„å¥³å„¿çº¢",
                 "remaining": 400,
                 "drunk_apply": 200,
         ]));
@@ -37,9 +37,9 @@ int do_drink(string arg)
 	object me=this_player();
 	object ob=this_object();
         if(!objectp(present(ob, me)) ) return 0;
-        if(ob->query("liquid/name")!="ÉÏµÈµÄÅ®¶ùºì") return 0;
+        if(ob->query("liquid/name")!="ä¸Šç­‰çš„å¥³å„¿çº¢") return 0;
 	if (arg=="da jiutan" || arg=="jiutan" || arg=="tan"){
-		message_vision("$NËÆºõ¾õµÃÓÃĞ¡½ğ±­²»¹ıñ«£¬ÓÚÊÇÄÃÆğ"YEL"´ó¾ÆÌ³"NOR"Ò»Õóº£ºÈ£¡\n",me);
+		message_vision("$Nä¼¼ä¹è§‰å¾—ç”¨å°é‡‘æ¯ä¸è¿‡ç˜¾ï¼Œäºæ˜¯æ‹¿èµ·"YEL"å¤§é…’å›"NOR"ä¸€é˜µæµ·å–ï¼\n",me);
 		me->add("water",-50);
 		}
 }        
@@ -49,10 +49,10 @@ int do_daojiu()
 	object me=this_player();
 	object ob=this_object();
 	object obj=(present("xiao jinbei",me));
-        if (ob->query("liquid/name")!="ÉÏµÈµÄÅ®¶ùºì") return notify_fail("ÄãÕâÌ³Ò²²»ÊÇ¾Æ°¡£¡\n");
-	if (!obj) return notify_fail("ÄãÉíÉÏÃ»ÓĞĞ¡½ğ±­£¬×¼±¸ÓÃÊ²Ã´¶«Î÷À´Ê¢×°ÕâÉÏµÈµÄÅ®¶ùºì£¿\n");
-	if (obj->query("liquid/remaining")>0) return notify_fail("Ğ¡½ğ±­ÀïÒÑ¾­ÊÇÂúµÄÁË£¡\n");
-	message_vision("$NÓÃ"YEL"´ó¾ÆÌ³"NOR"½«"HIY"Ğ¡½ğ±­"NOR"µ¹ÂúÁËÉÏµÈµÄÅ®¶ùºì£¡\n",me);
+        if (ob->query("liquid/name")!="ä¸Šç­‰çš„å¥³å„¿çº¢") return notify_fail("ä½ è¿™å›ä¹Ÿä¸æ˜¯é…’å•Šï¼\n");
+	if (!obj) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰å°é‡‘æ¯ï¼Œå‡†å¤‡ç”¨ä»€ä¹ˆä¸œè¥¿æ¥ç››è£…è¿™ä¸Šç­‰çš„å¥³å„¿çº¢ï¼Ÿ\n");
+	if (obj->query("liquid/remaining")>0) return notify_fail("å°é‡‘æ¯é‡Œå·²ç»æ˜¯æ»¡çš„äº†ï¼\n");
+	message_vision("$Nç”¨"YEL"å¤§é…’å›"NOR"å°†"HIY"å°é‡‘æ¯"NOR"å€’æ»¡äº†ä¸Šç­‰çš„å¥³å„¿çº¢ï¼\n",me);
         ob->add("liquid/remaining", -1);
         obj->add("liquid/remaining",1);
         return 1;

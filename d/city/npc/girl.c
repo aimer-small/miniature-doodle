@@ -1,13 +1,13 @@
-// girl.c Ğ¡æ¤
+// girl.c å°å¦
 
 inherit NPC;
 
 void create()
 {
-	set_name("Å®º¢",({"nv hai", "nvhai", "girl"}) );
-	set("gender", "Å®ĞÔ" );
+	set_name("å¥³å­©",({"nv hai", "nvhai", "girl"}) );
+	set("gender", "å¥³æ€§" );
         set("age", 16);
-	set("long", "ÕâÊÇ¸ö´ı¼ŞµÄÅ®º¢×Ó£¬ËıÕıÌô×ÅÒ»Ğ©»¨²¼¡£\n");
+	set("long", "è¿™æ˜¯ä¸ªå¾…å«çš„å¥³å­©å­ï¼Œå¥¹æ­£æŒ‘ç€ä¸€äº›èŠ±å¸ƒã€‚\n");
         set_temp("apply/defense",8);
         set("combat_exp", 100);
 	set("shen_type", 1);

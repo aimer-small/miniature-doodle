@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "â©áø³î");
+        set("short", "çŒ¢ç‹²æ„");
         set("long", @LONG
-Ç°ÃæÓÖÊÇÒ»´¦Ê®·Ö¶¸ÇÍµÄÉ½Áë£¬ÉÏÃæÓÐËÄÖ»ÌúÔ³£¬ÅÌ¾áÌ¨ÅÏ£¬¾ÝËµÒÔÇ°´Ó
-»ªÉ½Ë®Á±¶´³öÀ´µÄÔ³ºï£¬Ã¿µ½ÕâÀï¾ÍÒª·µ»ØÈ¥£¬Á¬ËüÃÇÒ²¸Ðµ½ÄÑÓÚ³¬Ô½£¬´ËÁë
-Òò¶øµÃÃû¡£
+å‰é¢åˆæ˜¯ä¸€å¤„ååˆ†é™¡å³­çš„å±±å²­ï¼Œä¸Šé¢æœ‰å››åªé“çŒ¿ï¼Œç›˜è¸žå°ç•”ï¼Œæ®è¯´ä»¥å‰ä»Ž
+åŽå±±æ°´å¸˜æ´žå‡ºæ¥çš„çŒ¿çŒ´ï¼Œæ¯åˆ°è¿™é‡Œå°±è¦è¿”å›žåŽ»ï¼Œè¿žå®ƒä»¬ä¹Ÿæ„Ÿåˆ°éš¾äºŽè¶…è¶Šï¼Œæ­¤å²­
+å› è€Œå¾—åã€‚
 LONG
         );
 	set("objects",([
@@ -20,7 +20,7 @@ LONG
 	  "northdown" : __DIR__"laojun",
 	  "southup" : __DIR__"canglong",
 ]));
-        set("outdoors", "»ªÉ½" );
+        set("outdoors", "åŽå±±" );
 
         set("coor/x",70);
   set("coor/y",60);
@@ -37,7 +37,7 @@ int do_look(string arg)
 {
        if( !arg || arg == "" || arg !=  "tieyuan") return 0;
              write(
-             "ÄãÑöÍ·×ÐÏ¸¹Û¿´ÉÏÃæµÄÌúÔ³£¬ºöÈ»·¢ÏÖÉ½ÑÂµÄ¶¥²¿ËÆºõÓÐÐ©Ê²÷á¶«Î÷¡£\n"
+             "ä½ ä»°å¤´ä»”ç»†è§‚çœ‹ä¸Šé¢çš„é“çŒ¿ï¼Œå¿½ç„¶å‘çŽ°å±±å´–çš„é¡¶éƒ¨ä¼¼ä¹Žæœ‰äº›ä»€éº½ä¸œè¥¿ã€‚\n"
              );
              this_player()->set_temp("marks/look", 1);
              return 1;
@@ -50,22 +50,22 @@ int do_pa(string arg)
          if ( !arg ) return 0;
 
         if (!me->query_temp("marks/look"))
-        return notify_fail("ÄãÒªÍùÄÇÀïÅÀ£¿\n");
+        return notify_fail("ä½ è¦å¾€é‚£é‡Œçˆ¬ï¼Ÿ\n");
         
         if (!living(me)) return 0;
         if ((int)me->query_encumbrance() * 100 / (int)me->query_max_encumbrance() >= 10) {
-                message_vision("$NÆø´­ÐêÐê£¬¸Ðµ½ÎÞ·¨ÅÀÉÏÈ¥£¬Ë¤ÁËÏÂÀ´£¡\n", me);
+                message_vision("$Næ°”å–˜å˜˜å˜˜ï¼Œæ„Ÿåˆ°æ— æ³•çˆ¬ä¸ŠåŽ»ï¼Œæ‘”äº†ä¸‹æ¥ï¼\n", me);
                 me->unconcious();
                 return 1;
         } 
         if( (int)me->query_skill("dodge",1) < 80 ) {  
-        message_vision(HIR"$NÏëÒªÅÀÉÏÉ½¶¥£¬ÎÞÄÎÇá¹¦²»¹»£¬Ë¤ÁËÏÂÀ´£¡\n"NOR, me);
+        message_vision(HIR"$Næƒ³è¦çˆ¬ä¸Šå±±é¡¶ï¼Œæ— å¥ˆè½»åŠŸä¸å¤Ÿï¼Œæ‘”äº†ä¸‹æ¥ï¼\n"NOR, me);
         me->unconcious();
         return 1;     
         }  
-        message_vision("$N°Ç×¡Í»³öµÄÑÒÊ¯£¬Ê©Õ¹Çá¹¦ÅÀÁËÉÏÈ¥¡£\n", me);
+        message_vision("$Næ‰’ä½çªå‡ºçš„å²©çŸ³ï¼Œæ–½å±•è½»åŠŸçˆ¬äº†ä¸ŠåŽ»ã€‚\n", me);
         me->move(__DIR__"jinshe/biding");
-        tell_room(environment(me), me->name() + "´ÓÏÂÃæÅÀÁËÉÏÀ´¡£\n", ({ me }));
+        tell_room(environment(me), me->name() + "ä»Žä¸‹é¢çˆ¬äº†ä¸Šæ¥ã€‚\n", ({ me }));
         me->delete_temp("marks/look");
         return 1;
 }

@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("ÄþÖÐÔò",({"ning zhongze","ning"}));
-        set("title","»ªÉ½ÅÉÕÆÃÅ·òÈË");
-        set("long", "ËýÊÇ¸ö²»ÈÃÐëÃ¼µÄÅ®ÖÐºÀ½Ü£¬»ªÉ½ÅÉ¾ý×Ó½£ÔÀ²»ÈºµÄ·òÈË¡£\n");
-        set("gender", "Å®ÐÔ");
+        set_name("å®ä¸­åˆ™",({"ning zhongze","ning"}));
+        set("title","åŽå±±æ´¾æŽŒé—¨å¤«äºº");
+        set("long", "å¥¹æ˜¯ä¸ªä¸è®©é¡»çœ‰çš„å¥³ä¸­è±ªæ°ï¼ŒåŽå±±æ´¾å›å­å‰‘å²³ä¸ç¾¤çš„å¤«äººã€‚\n");
+        set("gender", "å¥³æ€§");
         set("age", 40);
         set("attitude", "friendly");
         set("per", 28);
@@ -57,7 +57,7 @@ void create()
 
 	prepare_skill("cuff", "poyu-quan");
 
-	create_family("»ªÉ½ÅÉ",13,"µÜ×Ó");
+	create_family("åŽå±±æ´¾",13,"å¼Ÿå­");
 
         setup();
 
@@ -69,35 +69,35 @@ void attempt_apprentice(object ob)
 {
         mapping fam;
         if ( mapp(fam=ob->query("family"))
-         && (string)fam["family_name"] != "»ªÉ½ÅÉ"
+         && (string)fam["family_name"] != "åŽå±±æ´¾"
          && (int)ob->query("is/huashan")==1 ) {
-		message_vision("$N£¡ÄãÕâ¸ö»ªÉ½ÅÉµÄÅÑÍ½»¹»ØÀ´¸ÉÊ²Ã´ £¿\n", ob );
+		message_vision("$Nï¼ä½ è¿™ä¸ªåŽå±±æ´¾çš„å›å¾’è¿˜å›žæ¥å¹²ä»€ä¹ˆ ï¼Ÿ\n", ob );
 		command("slap "+ob->query("id"));
 		return;
         }
 	if ( ob->query("fengset")) {
-		command("say Äã²»ÊÇÒÑ¾­°ÝÁË½£×ÚµÄÇ°±²ÎªÊ¦ÁËÃ´£¿");
+		command("say ä½ ä¸æ˜¯å·²ç»æ‹œäº†å‰‘å®—çš„å‰è¾ˆä¸ºå¸ˆäº†ä¹ˆï¼Ÿ");
 		return;
 	}
 /*
-                        if(ob->query("quest/huashan")=="½£×Ú"){
+                        if(ob->query("quest/huashan")=="å‰‘å®—"){
                 command("heng");
-                command("say ºßºß£¡½£×ÚµÜ×ÓÔçÒÑÀë¿ª»ªÉ½£¬²»ÔÙÊÇ»ªÉ½ÅÉµÜ×Ó£¬ÄãÓÖÀ´ÕâÀï£¬ÄÑµÀÊÇÏëÕù¶áÕâÕÆÃÅÖ®Î»£¿");
+                command("say å“¼å“¼ï¼å‰‘å®—å¼Ÿå­æ—©å·²ç¦»å¼€åŽå±±ï¼Œä¸å†æ˜¯åŽå±±æ´¾å¼Ÿå­ï¼Œä½ åˆæ¥è¿™é‡Œï¼Œéš¾é“æ˜¯æƒ³äº‰å¤ºè¿™æŽŒé—¨ä¹‹ä½ï¼Ÿ");
                 return;
         }
 */
-        if( (string)ob->query("gender") != "Å®ÐÔ" ) {
-                command ("say ¶Ô²»Æð£¬ÎÒÖ»ÊÕÅ®µÜ×Ó¡£");
+        if( (string)ob->query("gender") != "å¥³æ€§" ) {
+                command ("say å¯¹ä¸èµ·ï¼Œæˆ‘åªæ”¶å¥³å¼Ÿå­ã€‚");
                 return;
         }
         if ((int)ob->query("shen") < 0) {
-		command("say ÎÒ»ªÉ½ÅÉÄËÊÇÌÃÌÃÃûÃÅÕýÅÉ£¬¶ÔµÜ×ÓÒªÇó¼«ÑÏ¡£");
-		command("say ÔÚµÂÐÐ·½Ãæ£¬" + RANK_D->query_respect(ob) + "ÊÇ·ñ»¹×öµÃ²»¹»£¿");
+		command("say æˆ‘åŽå±±æ´¾ä¹ƒæ˜¯å ‚å ‚åé—¨æ­£æ´¾ï¼Œå¯¹å¼Ÿå­è¦æ±‚æžä¸¥ã€‚");
+		command("say åœ¨å¾·è¡Œæ–¹é¢ï¼Œ" + RANK_D->query_respect(ob) + "æ˜¯å¦è¿˜åšå¾—ä¸å¤Ÿï¼Ÿ");
 		return;
         }
-        command("say ß×£¬²»´íµÄÐ¡Å®º¢Âï£¬ÎÒ¾ÍÊÕÏÂÄãÁË¡£");
+        command("say å’¦ï¼Œä¸é”™çš„å°å¥³å­©å˜›ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ã€‚");
         command("recruit " + ob->query("id"));
-	      ob->set("title",HIW"»ªÉ½ÅÉÆø×ÚÇ×´«µÜ×Ó"NOR);
-        ob->set("quest/huashan","Æø×Ú");
+	      ob->set("title",HIW"åŽå±±æ´¾æ°”å®—äº²ä¼ å¼Ÿå­"NOR);
+        ob->set("quest/huashan","æ°”å®—");
         return;
 }

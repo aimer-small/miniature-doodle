@@ -1,12 +1,12 @@
-// mmr.c ÃÉÃæÈË
+// mmr.c è’™é¢äºº
 
 inherit NPC;
 
 void create()
 {
-        set_name("ÃÉÃæÈË", ({"mengmian ren", "mengmian", "ren"}));
+        set_name("è’™é¢äºº", ({"mengmian ren", "mengmian", "ren"}));
         set("long",
-                "Ò»¸öÄªÃûÆäÃîµÄ¼Ò»ï¡£\n"
+                "ä¸€ä¸ªè«åå…¶å¦™çš„å®¶ä¼™ã€‚\n"
         );
 
         set("attitude", "heroism");

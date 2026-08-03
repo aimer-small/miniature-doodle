@@ -6,17 +6,17 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ğ¡É³ÃÖ", ({
+	set_name("å°æ²™å¼¥", ({
 		"xiao shami",
 		"xiao",
 		"shami",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Î´Í¨ÊÀ¹ÊµÄÉÙÄêºÍÉĞ£¬Á³ÉÏ¹Ò×ÅÌìÕæµÄÖÉĞ¦¡£\n"
+		"ä»–æ˜¯ä¸€ä½æœªé€šä¸–æ•…çš„å°‘å¹´å’Œå°šï¼Œè„¸ä¸ŠæŒ‚ç€å¤©çœŸçš„ç¨šç¬‘ã€‚\n"
 	);
 
-        set("nickname", "ÊÌÕ«É®");
-	set("gender", "ÄĞĞÔ");
+        set("nickname", "ä¾æ–‹åƒ§");
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 	set("class", "bonze");
 
@@ -58,8 +58,8 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment() ) return;
-        say("Ğ¡É³ÃÖ¹ªÉíËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-	     + "ÇëÏÈÈë×ù¡£\n");
+        say("å°æ²™å¼¥èº¬èº«è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+	     + "è¯·å…ˆå…¥åº§ã€‚\n");
        
 }
 
@@ -80,7 +80,7 @@ void serve_food(object who)
 	
  	ob = new("d/shaolin/obj/furong-huagu");
 	ob->move(room);
-	message_vision("Ğ¡É³ÃÖ¶ËÀ´Ò»ÅÌÜ½ÈØ»¨¹½·ÅÔÚ×ÀÉÏ£®\n", who);
+	message_vision("å°æ²™å¼¥ç«¯æ¥ä¸€ç›˜èŠ™è“‰èŠ±è‡æ”¾åœ¨æ¡Œä¸Šï¼\n", who);
 	
 	return;
 }

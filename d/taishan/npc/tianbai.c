@@ -4,8 +4,8 @@ inherit NPC;
 #include <ansi.h>;
 void create()
 {
-        set_name("Ìì°ØµÀÈË", ({ "tianbai daoren", "daoren", "tianbai" }) );
-        set("gender", "ÄÐÐÔ");
+        set_name("å¤©æŸé“äºº", ({ "tianbai daoren", "daoren", "tianbai" }) );
+        set("gender", "ç”·æ€§");
         set("class", "taoist");
         set("unique", 1);
         set("age", 45);
@@ -41,7 +41,7 @@ void create()
         prepare_skill("cuff", "taizu-quan");
 
 
-        create_family("Ì©É½ÅÉ", 13, "µÜ×Ó");
+        create_family("æ³°å±±æ´¾", 13, "å¼Ÿå­");
         setup();
 
         carry_object("/clone/weapon/changjian")->wield();

@@ -5,11 +5,11 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
     	if( !living(me) ){
-    		message("vision",HIW + me->name() + "������ͻȻ�鶯��һ�£�\n"NOR, environment(me), me);
+    		message("vision",HIW + me->name() + "的身体突然抽动了一下！\n"NOR, environment(me), me);
     	}
     	    
-      	tell_object(me, HIB "���Ȼ�е����彩ֱ���Ѿ�����ʹ���ˡ�\n" NOR );      
-      	me->set_temp("last_damage_from", "���ڹ���֮������");      
+      	tell_object(me, HIB "你忽然感到身体僵直，已经不听使唤了。\n" NOR );      
+      	me->set_temp("last_damage_from", "体内怪蛇之毒发作");      
       	me->receive_wound("qi", 50 + random(50));
       	if( !me->is_busy() ) me->start_busy(3);
       	if(userp(me))
@@ -18,12 +18,12 @@ int update_condition(object me, int duration)
       	
       
       	if( me->query("jing") >= 500)
-              	tell_room(environment(me), YEL+me->name()+"ͻȻֻϥ�����������������£����з����������޵ĺɺ�֮����\n" NOR, ({ me }));            
+              	tell_room(environment(me), YEL+me->name()+"突然只膝弯曲，身子慢慢垂下，口中发出似人似兽的荷荷之声。\n" NOR, ({ me }));            
       	else if( me->query("jing") < 500 && me->query("jing") >= 350)
-              	tell_room(environment(me), BLU+me->name()+"��Ȼ����ѻ�������Ц�����Եù������ס�\n" NOR,  ({ me }));        
+              	tell_room(environment(me), BLU+me->name()+"忽然满面堆欢裂嘴嘻笑，更显得诡异无伦。\n" NOR,  ({ me }));        
       	else if( me->query("jing") < 350 && me->query("jing") >= 150)
-              	tell_room(environment(me), HIB+me->name()+"��ʱ���Ǹ��Ӻ�Ϳ��ָ���������ҡ���ҧ��\n" NOR,({ me }));           
-      	else    tell_room(environment(me), HIR+me->name()+"ͻȻ����һ�ţ����ڵ��ϲ�ͣ�ط�����\n" NOR,({ me }));
+              	tell_room(environment(me), HIB+me->name()+"此时神智更加胡涂，指东打西，乱□乱咬。\n" NOR,({ me }));           
+      	else    tell_room(environment(me), HIR+me->name()+"突然缩成一团，滚在地上不停地发颤。\n" NOR,({ me }));
 
       	if( duration < 1 ) return 0;           
       	me->apply_condition("bt_poison", duration - 1);

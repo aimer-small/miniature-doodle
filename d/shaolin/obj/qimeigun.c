@@ -4,17 +4,17 @@ inherit CLUB;
 
 void create()
 {
-        set_name("½ä¹÷", ({ "jie gun", "gun" }));
+        set_name("æˆ’æ£", ({ "jie gun", "gun" }));
         set_weight(3000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»¸ùèëÄ¾½ä¹÷£¬¾Ù¿ÉÆëÃ¼£¬ÇáÖØºÏÒË£¬¿É¹¥»÷´óÆ¬µĞÈË¡£\n");
+                set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æ ¹æ¡¦æœ¨æˆ’æ£ï¼Œä¸¾å¯é½çœ‰ï¼Œè½»é‡åˆå®œï¼Œå¯æ”»å‡»å¤§ç‰‡æ•Œäººã€‚\n");
                 set("value", 200);
                 set("material", "steel");
-                set("wield_msg", "$N³é³öÒ»¸ù$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»ØÑü¼ä¡£\n");
+                set("wield_msg", "$NæŠ½å‡ºä¸€æ ¹$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›è…°é—´ã€‚\n");
 		set("shaolin",1);
         }
         init_club(15);

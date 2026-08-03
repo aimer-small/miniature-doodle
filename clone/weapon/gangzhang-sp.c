@@ -6,13 +6,13 @@ inherit STAFF;
 
 void create()
 {
-        set_name("¸ÖÕÈ", ({ "gangzhang","gang zhang","zhang" }));
+        set_name("é’¢æ–", ({ "gangzhang","gang zhang","zhang" }));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "ÕâÊÇÒ»±ú¸ÖÕÈ¡£\n");
+                set("unit", "æŸ„");
+                set("long", "è¿™æ˜¯ä¸€æŸ„é’¢æ–ã€‚\n");
                 set("value", 1);
                 set("unique", 1);
                 set("rigidity", 7);
@@ -22,15 +22,15 @@ void create()
                 set("weapon_prop/dodge", 2);
                 set("treasure",1);  
                 set("material", "steel");
-                set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖÐ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖÐµÄ$n±³µ½±³ºó¡£\n");
+                set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nèƒŒåˆ°èƒŒåŽã€‚\n");
         }
         init_staff(70);
         setup();
 }
 void init()
 {
-    add_action("do_sub",({"ba", "°Î"}));
+    add_action("do_sub",({"ba", "æ‹”"}));
 }
 
 int do_sub(string arg)
@@ -38,11 +38,11 @@ int do_sub(string arg)
      object me, obj;
      me = this_player();
      obj = this_object();
-     if(arg!="jian" && arg!="½£")
+     if(arg!="jian" && arg!="å‰‘")
            return 0;
      if((int)me->query("neili") < 150)
-                return notify_fail("Äã¸Ð¾õÈ«ÉíÆøÑª·­ÌÚ£¬Ô­À´ÄãÕæÆø²»¹»£¬°Î²»³öÇàÚ¤½££¡\n");
-     message_vision(HIY"\nÖ»Ìýà§ÀãÒ»Éù£¬$N´Ó¸ÖÕÈÖÐ°Î³öÒ»°ÑÇàÉ«±¦½££¬Ô­À´ÕÈÄÚ°µ²ØÐþ»ú¡£\n"NOR, me);
+                return notify_fail("ä½ æ„Ÿè§‰å…¨èº«æ°”è¡€ç¿»è…¾ï¼ŒåŽŸæ¥ä½ çœŸæ°”ä¸å¤Ÿï¼Œæ‹”ä¸å‡ºé’å†¥å‰‘ï¼\n");
+     message_vision(HIY"\nåªå¬å”°æ¥žä¸€å£°ï¼Œ$Nä»Žé’¢æ–ä¸­æ‹”å‡ºä¸€æŠŠé’è‰²å®å‰‘ï¼ŒåŽŸæ¥æ–å†…æš—è—çŽ„æœºã€‚\n"NOR, me);
      me->add("neili", -100);
      new(BINGQI_D("sword/qm-jian"))->move(me, 1);
      new(BINGQI_D("sword/qm-qiao"))->move(me, 1);  

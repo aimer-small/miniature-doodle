@@ -1,4 +1,4 @@
-// chang.c ³£Óö´º
+// chang.c å¸¸é‡æ˜¥
 // Modify By River@sj 99.06
 
 #include <ansi.h>
@@ -8,11 +8,11 @@ inherit NPC;
 string ask_me();
 void create()
 {
-        set_name("³£Óö´º", ({ "chang yuchun","chang","yuchun" }) );
-        set("title", "Ã÷½Ì¾ŞÄ¾ÆìµÜ×Ó");
-        set("gender", "ÄĞĞÔ");
+        set_name("å¸¸é‡æ˜¥", ({ "chang yuchun","chang","yuchun" }) );
+        set("title", "æ˜æ•™å·¨æœ¨æ——å¼Ÿå­");
+        set("gender", "ç”·æ€§");
         set("age",34);
-        set("long","ËûÉí²Ä¸ß´ó£¬ÓÂÃÍ¹ıÈË¡£\n");
+        set("long","ä»–èº«æé«˜å¤§ï¼Œå‹‡çŒ›è¿‡äººã€‚\n");
         set("str", 24);
         set("int", 27);
         set("con", 23);
@@ -40,19 +40,19 @@ void create()
 
         set("inquiry", 
                 ([
-                        "ÊØÎÀ" : (: ask_me :),
+                        "å®ˆå«" : (: ask_me :),
                 ]));
         
         setup();
-        create_family("Ã÷½Ì",38,"µÜ×Ó");
+        create_family("æ˜æ•™",38,"å¼Ÿå­");
         carry_object("/d/mingjiao/obj/black-cloth")->wear();
         carry_object(BINGQI_D("blade"))->wield();
 }
 
 void attempt_apprentice(object ob)
 {     
-        command("say ºÇºÇ£¬ÎÒÎä¹¦µÍÎ¢£¬¿É²»¸ÒÊÕÍ½°¡¡£");
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"»¹ÊÇÇë»Ø°É¡£");
+        command("say å‘µå‘µï¼Œæˆ‘æ­¦åŠŸä½å¾®ï¼Œå¯ä¸æ•¢æ”¶å¾’å•Šã€‚");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"è¿˜æ˜¯è¯·å›å§ã€‚");
         return;
 }
 void init()
@@ -66,21 +66,21 @@ string ask_me()
 	me=this_player();
 	ob=this_object();
 
-	if (me->query("family/family_name")!= "Ã÷½Ì")
-		return RANK_D->query_respect(ob) + "£¬Äã²»ÊÇ±¾½ÌµÜ×Ó£¬´Ë»°´ÓºÎËµÆğ£¿";
+	if (me->query("family/family_name")!= "æ˜æ•™")
+		return RANK_D->query_respect(ob) + "ï¼Œä½ ä¸æ˜¯æœ¬æ•™å¼Ÿå­ï¼Œæ­¤è¯ä»ä½•è¯´èµ·ï¼Ÿ";
 	if(me->query("combat_exp")<20000)
-		return ("ÄãµÄÎä¹¦Ì«²î£¬»ØÈ¥Á·¼¸ÄêÔÙËµ°É¡£");
+		return ("ä½ çš„æ­¦åŠŸå¤ªå·®ï¼Œå›å»ç»ƒå‡ å¹´å†è¯´å§ã€‚");
 	if (me->query("combat_exp")>=90000)
-		return ("ÎÒ¿´ÄãµÄÎä¹¦ÒÑÓĞÏàµ±µÄ¹¦µ×ÁË£¬È¥×ö±ğµÄ»î°É¡£\n");
+		return ("æˆ‘çœ‹ä½ çš„æ­¦åŠŸå·²æœ‰ç›¸å½“çš„åŠŸåº•äº†ï¼Œå»åšåˆ«çš„æ´»å§ã€‚\n");
        
 	if (me->query_temp("shouwei"))
-		return ("Äã¸Õ²ÅºÃÏó»¹Ã»Íê³É°É£¿");
+		return ("ä½ åˆšæ‰å¥½è±¡è¿˜æ²¡å®Œæˆå§ï¼Ÿ");
 	ob->set("shouwei_name",ob->query("name"));
 	me->set_temp("shouwei",1);
 	ling=new("/d/mingjiao/obj/sw_ling");
 	ling->move(me);
-	write("³£Óö´º¸øÄãÒ»Ö½ÊØÎÀÊé¡£\n");
-	return "ºÃ°É£¬ÄãÈ¥×ÜÌ³Ç°Ìü½«ĞÅÎï½»¸øÒ°ÍõĞÖ£¬ÓÉËû²îÇ²¡£";
+	write("å¸¸é‡æ˜¥ç»™ä½ ä¸€çº¸å®ˆå«ä¹¦ã€‚\n");
+	return "å¥½å§ï¼Œä½ å»æ€»å›å‰å…å°†ä¿¡ç‰©äº¤ç»™é‡ç‹å…„ï¼Œç”±ä»–å·®é£ã€‚";
 }
 
 int do_task(string arg)
@@ -98,17 +98,17 @@ int do_task(string arg)
 		if (interactive(ob) 
 		&& (int)ob->query_condition("mj_shouwei")) {
 			command("kick"+ob->query("id"));
-			return notify_fail(RED "ÏëÍµÀÁ£¬¿ì¸øÎÒ¹ö»ØÈ¥¡£\n"NOR);
+			return notify_fail(RED "æƒ³å·æ‡’ï¼Œå¿«ç»™æˆ‘æ»šå›å»ã€‚\n"NOR);
 		} 
 		command("pat "+ob->query("id"));
-		command("say ĞÁ¿àÄãÁË£¬"+RANK_D->query_respect(ob)+"£¬¸ÉµÃºÃ£¡");
+		command("say è¾›è‹¦ä½ äº†ï¼Œ"+RANK_D->query_respect(ob)+"ï¼Œå¹²å¾—å¥½ï¼");
 		
 		exp = (int)(ob->query_skill("shenghuo-shengong",1)/4)+90;
 		pot = 25+random(20);
 				
-		exp = ob->add_exp_combat(exp,this_object(),"Ã÷½ÌÊØÎÀ");
-		//ob->add("job_time/Ã÷½ÌÊØÎÀ",1);
-		//GIFT_D->check_count(ob,this_object(),"Ã÷½ÌÊØÎÀ");
+		exp = ob->add_exp_combat(exp,this_object(),"æ˜æ•™å®ˆå«");
+		//ob->add("job_time/æ˜æ•™å®ˆå«",1);
+		//GIFT_D->check_count(ob,this_object(),"æ˜æ•™å®ˆå«");
 		//ob->add("combat_exp",exp);
 						
 		ob->add("potential",pot );
@@ -121,5 +121,5 @@ int do_task(string arg)
 		ob->delete_temp("shouweied");
 		return 1;
 	}
-	return notify_fail("ÄãÕâ¸ö¶«Î÷ÊÇ´ÓÄÄÀïÀ´µÄ£¿\n");
+	return notify_fail("ä½ è¿™ä¸ªä¸œè¥¿æ˜¯ä»å“ªé‡Œæ¥çš„ï¼Ÿ\n");
 }

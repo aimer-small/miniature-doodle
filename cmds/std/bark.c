@@ -1,4 +1,4 @@
-// bark.c ½ĞÂî
+// bark.c å«éª‚
 // Creat By Looklove@SJ at 2000/10/07
 // Modify By Looklove@SJ 2001/1/19
 
@@ -27,26 +27,26 @@ mapping default_where = ([
 ]);
 
 mapping default_dirs = ([
-        "north":                "±±Ãæ",
-        "south":                "ÄÏÃæ",
-        "east":                 "¶«Ãæ",
-        "west":                 "Î÷Ãæ",
-        "northup":              "±±±ß",
-        "southup":              "ÄÏ±ß",
-        "eastup":               "¶«±ß",
-        "westup":               "Î÷±ß",
-        "northdown":            "±±±ß",
-        "southdown":            "ÄÏ±ß",
-        "eastdown":             "¶«±ß",
-        "westdown":             "Î÷±ß",
-        "northeast":            "¶«±±",
-        "northwest":            "Î÷±±",
-        "southeast":            "¶«ÄÏ",
-        "southwest":            "Î÷ÄÏ",
-        "up":                   "ÉÏÃæ",
-        "down":                 "ÏÂÃæ",
-        "enter":                "ÀïÃæ",
-        "out":                  "ÍâÃæ",
+        "north":                "åŒ—é¢",
+        "south":                "å—é¢",
+        "east":                 "ä¸œé¢",
+        "west":                 "è¥¿é¢",
+        "northup":              "åŒ—è¾¹",
+        "southup":              "å—è¾¹",
+        "eastup":               "ä¸œè¾¹",
+        "westup":               "è¥¿è¾¹",
+        "northdown":            "åŒ—è¾¹",
+        "southdown":            "å—è¾¹",
+        "eastdown":             "ä¸œè¾¹",
+        "westdown":             "è¥¿è¾¹",
+        "northeast":            "ä¸œåŒ—",
+        "northwest":            "è¥¿åŒ—",
+        "southeast":            "ä¸œå—",
+        "southwest":            "è¥¿å—",
+        "up":                   "ä¸Šé¢",
+        "down":                 "ä¸‹é¢",
+        "enter":                "é‡Œé¢",
+        "out":                  "å¤–é¢",
 ]);
 
 int main(object me, string arg)
@@ -59,11 +59,11 @@ int main(object me, string arg)
 	string gen,dir2;
 
 	if( !arg || sscanf(arg, "%s at %s", who, where_temp)!=2 )
-		return notify_fail("Ö¸Áî¸ñÊ½£ºbark <ÈËÎï> at <·½Ïò>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šbark <äººç‰©> at <æ–¹å‘>\n");
 
 	env = environment(me);
 
-	if(!env) return notify_fail("ÄãÒª½ĞÂîË­£¿\n");
+	if(!env) return notify_fail("ä½ è¦å«éª‚è°ï¼Ÿ\n");
 	old_env = env;
 
 	if( !undefinedp(default_where[where_temp]) )
@@ -72,36 +72,36 @@ int main(object me, string arg)
 		where = where_temp;
 
 	if( !mapp(exits = env->query("exits")) || undefinedp(exits[where]) )
-		return notify_fail("Ã»ÓĞÕâ¸ö·½Ïò¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªæ–¹å‘ã€‚\n");
 
 	if( !objectp(env = find_object(exits[where])) ) {
 		call_other(exits[where], "???");
 		env = find_object(exits[where]);
 	}
 
-	if (env == old_env) return notify_fail("Ö±½ÓÌßËûÆ¨¹ÉºÃÁË¡£\n");
+	if (env == old_env) return notify_fail("ç›´æ¥è¸¢ä»–å±è‚¡å¥½äº†ã€‚\n");
     	if( !old_env->valid_leave(me, where) ) {
         	write(query_notify_fail());
         	return 1;
         }
 
 	if( !objectp(target = present(who, env)) )
-		return notify_fail("Õâ¸ö·½ÏòÃ»ÓĞ´ËÈË¡£\n");
+		return notify_fail("è¿™ä¸ªæ–¹å‘æ²¡æœ‰æ­¤äººã€‚\n");
 
 	if ( me->query("no_pk") )
-		return notify_fail("ÄãÒÑ¾­½ğÅèÏ´ÊÖ£¬»¹ÊÇ²»Òª½éÈë½­ºşÕù¶·°É£¡\n");
+		return notify_fail("ä½ å·²ç»é‡‘ç›†æ´—æ‰‹ï¼Œè¿˜æ˜¯ä¸è¦ä»‹å…¥æ±Ÿæ¹–äº‰æ–—å§ï¼\n");
 
 	if (wiz_level(me) < wiz_level(target))
-		return notify_fail("Äã²»ÄÜ½ĞÂîÎ×Ê¦µÈ¼¶±ÈÄã¸ßµÄ¶ÔÊÖ¡£\n");
+		return notify_fail("ä½ ä¸èƒ½å«éª‚å·«å¸ˆç­‰çº§æ¯”ä½ é«˜çš„å¯¹æ‰‹ã€‚\n");
 
 	if ( userp(me) && me->query("age") < 18 )
-		return notify_fail("ÄãÕâ¸öĞ¡º¢ÔõÃ´²»Ñ§ºÃ£¿\n");
+		return notify_fail("ä½ è¿™ä¸ªå°å­©æ€ä¹ˆä¸å­¦å¥½ï¼Ÿ\n");
 
 	if ( userp(me) && userp(target) && target->query("age") < 16 )
-		return notify_fail("ÄãµÄ×ìÌ«ºÚÁË, Ğ¡º¢ÄãÒ²Âî£¿\n");
+		return notify_fail("ä½ çš„å˜´å¤ªé»‘äº†, å°å­©ä½ ä¹Ÿéª‚ï¼Ÿ\n");
 
 	if ( !wizardp(me) && !userp(target))
-		return notify_fail("Äã²»ÄÜ½ĞÂîNPC¡£\n");
+		return notify_fail("ä½ ä¸èƒ½å«éª‚NPCã€‚\n");
 
 // Add By River@SJ 2003.6.24
 	if ( pktime_limit(me, target))
@@ -109,53 +109,53 @@ int main(object me, string arg)
 
 	if(meisdummy(me,target))
 	{
-		return notify_fail("ËÀ´óÃ×£¬Ò»±ßÁ¹¿ìÈ¥¡£\n");
+		return notify_fail("æ­»å¤§ç±³ï¼Œä¸€è¾¹å‡‰å¿«å»ã€‚\n");
 	}
 
 	if ( userp(me) && target->query("combat_exp") < 15000 )
-		return notify_fail("ÄãµÄ×ìÌ«ºÚÁË, ÈõÕßÄãÒ²Âî£¿\n");
+		return notify_fail("ä½ çš„å˜´å¤ªé»‘äº†, å¼±è€…ä½ ä¹Ÿéª‚ï¼Ÿ\n");
 		
  if ( userp(me) && me->query("combat_exp") < 2000000 )
-                                return notify_fail("¶Ô²»Æğ,Ö»ÓĞ´óÓÚ2M²Å¿ÉÒÔ½ĞÂîÍæ¼Ò¡£\n");
+                                return notify_fail("å¯¹ä¸èµ·,åªæœ‰å¤§äº2Mæ‰å¯ä»¥å«éª‚ç©å®¶ã€‚\n");
 
         if( me->query_condition("killer") && userp(target))
-                return notify_fail("ÄãÏëµ½×Ô¼ºÊÇÍ¨¼©·¸£¬ÈÌ²»×¡Ñ¹µÍÁËÉùÒô¡£\n");
+                return notify_fail("ä½ æƒ³åˆ°è‡ªå·±æ˜¯é€šç¼‰çŠ¯ï¼Œå¿ä¸ä½å‹ä½äº†å£°éŸ³ã€‚\n");
 
 	if( !target->is_character() || target->is_corpse() )
-		return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇÉúÎï¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯ç”Ÿç‰©ã€‚\n");
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÏÈ´­¿ÚÆøÔÙ¿ªÂî°É¡£\n");
+		return notify_fail("ä½ å…ˆå–˜å£æ°”å†å¼€éª‚å§ã€‚\n");
 
 	if( me->is_fighting() )
-		return notify_fail("ÄãÕıÃ¦×ÅÕ½¶·ÄØ£¬»¹ÓĞĞÄË¼ÂîÈË£¿\n");
+		return notify_fail("ä½ æ­£å¿™ç€æˆ˜æ–—å‘¢ï¼Œè¿˜æœ‰å¿ƒæ€éª‚äººï¼Ÿ\n");
 
 	if( !living(target))
-		return notify_fail(target->name() + "Ìı²»¼ûÄãµÄ·Ï»°£¬Äã»¹ÊÇÊ¡Ê¡°É¡£\n");
+		return notify_fail(target->name() + "å¬ä¸è§ä½ çš„åºŸè¯ï¼Œä½ è¿˜æ˜¯çœçœå§ã€‚\n");
 
 	if( target->query("no_bark") || target->query("no_pk") || target->query("job_npc") )
-		return notify_fail("Äã²»ÄÜ½ĞÂîÕâ¸öÈË£¡\n");
+		return notify_fail("ä½ ä¸èƒ½å«éª‚è¿™ä¸ªäººï¼\n");
 
 	if( (int)me->query("jingli") < 500 )
-		return notify_fail("ÄãÏÖÔÚ¾«ÉñÍ·²»×ã£¬Ã»ÈË»áÀíÄã¡£\n");
+		return notify_fail("ä½ ç°åœ¨ç²¾ç¥å¤´ä¸è¶³ï¼Œæ²¡äººä¼šç†ä½ ã€‚\n");
 
 	if(!wizardp(me)){
 		if( env->query("no_fight")
 			|| old_env->query("no_fight")
 			|| !userp(target))
-			return notify_fail("ÈË¼ÒÀÁµÃÀíÄã£¬Ê¡Ê¡°É¡£\n");
+			return notify_fail("äººå®¶æ‡’å¾—ç†ä½ ï¼Œçœçœå§ã€‚\n");
 		}
 
 
 if (userp(target) && target->query("combat_exp")<1000000) 
-		return notify_fail("ÄãµÄ×ìÌ«ºÚÁË, ÈõÕßÄãÒ²Âî£¿\n");
+		return notify_fail("ä½ çš„å˜´å¤ªé»‘äº†, å¼±è€…ä½ ä¹Ÿéª‚ï¼Ÿ\n");
 
 
 if (userp(target) && me->query("combat_exp")<  target->query("combat_exp") * 2 /3 &&  !target->query_condition("killer") ) 
-			return notify_fail("ÈË¼ÒÀÁµÃÀíÄã£¬Ê¡Ê¡°É¡£\n");
+			return notify_fail("äººå®¶æ‡’å¾—ç†ä½ ï¼Œçœçœå§ã€‚\n");
 		
 if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 / 2 &&  !target->query_condition("killer")) 
-		return notify_fail("ÄãµÄ×ìÌ«ºÚÁË, ÈõÕßÄãÒ²Âî£¿\n");
+		return notify_fail("ä½ çš„å˜´å¤ªé»‘äº†, å¼±è€…ä½ ä¹Ÿéª‚ï¼Ÿ\n");
 
 
 
@@ -169,10 +169,10 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 	undir = old_env->query("short");
 
 
-	if(me->query("gender") == "Å®ĞÔ")
-		gen = "Å®×Ó";
+	if(me->query("gender") == "å¥³æ€§")
+		gen = "å¥³å­";
 	else
-		gen = "ÄĞ×Ó";
+		gen = "ç”·å­";
 	switch (where_temp) {
 		case "north": 	dir2 = "south"; break;
 		case "n": 	dir2 = "south"; break;
@@ -216,9 +216,9 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 
 
 	who = RANK_D->query_rude(target);
-	write("ÄãÎüÁË¿ÚÆø£¬Ë¦ÆğÈù°ï×Ó£¬Ïò" + dir + "µÄ" + target->name() + "ÂîµÀ£º"+who+"£¡ÄãÓĞµ¨×Ó¾Í¹ıÀ´ºÍÎÒ±È»®±È»®£¡\n");
-	tell_room(old_env, CYN "\nÖ»¼û" + me->name() + "Ë¦ÆğÈù°ï×ÓÏò" + dir + "·½Ïò¸ßÉù½ĞÂî¡£\n" NOR, ({me}));
-	message_vision(CYN "\nÒ»¸ö" + gen + "Õ¾ÔÚ" + undir + "Ïò$N½ĞÂîµÀ£º"+who+"£¡ÓĞµ¨×Ó¾Í¹ıÀ´ºÍÎÒ±È»®±È»®£¡\n\n" NOR, target);
+	write("ä½ å¸äº†å£æ°”ï¼Œç”©èµ·è…®å¸®å­ï¼Œå‘" + dir + "çš„" + target->name() + "éª‚é“ï¼š"+who+"ï¼ä½ æœ‰èƒ†å­å°±è¿‡æ¥å’Œæˆ‘æ¯”åˆ’æ¯”åˆ’ï¼\n");
+	tell_room(old_env, CYN "\nåªè§" + me->name() + "ç”©èµ·è…®å¸®å­å‘" + dir + "æ–¹å‘é«˜å£°å«éª‚ã€‚\n" NOR, ({me}));
+	message_vision(CYN "\nä¸€ä¸ª" + gen + "ç«™åœ¨" + undir + "å‘$Nå«éª‚é“ï¼š"+who+"ï¼æœ‰èƒ†å­å°±è¿‡æ¥å’Œæˆ‘æ¯”åˆ’æ¯”åˆ’ï¼\n\n" NOR, target);
 
 	name = me->query_temp("apply/name");
 
@@ -230,27 +230,27 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 
 	if (target->query_busy()){
 		me->set_temp("apply/name", name);
-		message_vision(CYN"$NÖåÁËÖåÃ¼£¬¼Ù×°Ã»Ìı×ÅÂîÉù¡£\n"NOR, target,me);
-		message_vision(CYN"ÅÔ¹ÛµÄÖÚÈË¿´×Å$N£¬Åõ¸¹´óĞ¦ÆğÀ´¡£\n"NOR, target,me);
+		message_vision(CYN"$Nçš±äº†çš±çœ‰ï¼Œå‡è£…æ²¡å¬ç€éª‚å£°ã€‚\n"NOR, target,me);
+		message_vision(CYN"æ—è§‚çš„ä¼—äººçœ‹ç€$Nï¼Œæ§è…¹å¤§ç¬‘èµ·æ¥ã€‚\n"NOR, target,me);
 		me->start_busy(2+random(2));
 		me->receive_damage("jingli", 50+random(50));
 		return 1;
 	}
 
-	if( target->query("family/family_name")=="ÉÙÁÖÅÉ"
-	||target->query("family/family_name")=="ÌìÁúËÂ"
-	||target->query("family/family_name")=="¶ëáÒÅÉ"
-	||target->query("family/family_name")=="Îäµ±ÅÉ"
-	||target->query("family/family_name")=="´óÂÖËÂ"){
+	if( target->query("family/family_name")=="å°‘æ—æ´¾"
+	||target->query("family/family_name")=="å¤©é¾™å¯º"
+	||target->query("family/family_name")=="å³¨åµ‹æ´¾"
+	||target->query("family/family_name")=="æ­¦å½“æ´¾"
+	||target->query("family/family_name")=="å¤§è½®å¯º"){
 		if(random(tp)> random(mp)){
-			write(CYN "¶Ô·½¶¨Á¦ºÜ¸ß£¬¿´À´²»ÏëºÍÄã¼Æ½Ï¡£\n"NOR);
+			write(CYN "å¯¹æ–¹å®šåŠ›å¾ˆé«˜ï¼Œçœ‹æ¥ä¸æƒ³å’Œä½ è®¡è¾ƒã€‚\n"NOR);
 			me->set_temp("apply/name", name);
 			me->receive_damage("jingli", 80+random(50));
 			me->start_busy(1+random(2));
 			return 1;
 		}
 		if(random(tp)>random(mp)/2){
-		write(CYN "¶Ô·½¶¨Á¦ºÜ¸ß£¬ÄãÒ»Ê±ÄÎºÎ²»ÁËËû¡£\n"NOR);
+		write(CYN "å¯¹æ–¹å®šåŠ›å¾ˆé«˜ï¼Œä½ ä¸€æ—¶å¥ˆä½•ä¸äº†ä»–ã€‚\n"NOR);
 		me->receive_damage("jingli", 80+random(50));
 		me->set_temp("apply/name", name);
 		me->start_busy(1+random(2));
@@ -264,14 +264,14 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 		target->force_me("go "+dir2);
 
 		if (!present(target,environment(me))){
-			message_vision(CYN"$NÆøºßºßµØº°µÀ£º$n£¬ÄãĞ¡ĞÄµã£¡±ğÈÃÎÒ´ş×Å£¬ÓĞÄãºÃ¿´£¡\n"NOR, target, me);
+			message_vision(CYN"$Næ°”å“¼å“¼åœ°å–Šé“ï¼š$nï¼Œä½ å°å¿ƒç‚¹ï¼åˆ«è®©æˆ‘é€®ç€ï¼Œæœ‰ä½ å¥½çœ‹ï¼\n"NOR, target, me);
 			return 1;
 		}
 
-		tell_room(old_env, CYN "Ö»¼û"+target->query("name")+"Å­Æø³åÌìµØ´Ó" + dir + "³åÁË¹ıÀ´¡£\n" NOR, ({target}));
-		tell_room(env, CYN "Ö»¼û"+target->query("name")+"°´Şà²»×¡£¬ÆøßİßİµØÏò" + undir + "³åÁË¹ıÈ¥¡£\n" NOR, ({target}));
-		message_vision(CYN"$NÆøµÃÃæºì¶ú³à£¬´ó½ĞµÀ£º$nĞİ×ß£¡ÎÒÀ´Ò²£¡£¡£¡\n"NOR, target, me);
-		write(CYN "²»ºÃ£¬ÑÛ¿´" + target->name() + "µ½ÁËÄã½üÇ°£¡\n"NOR);
+		tell_room(old_env, CYN "åªè§"+target->query("name")+"æ€’æ°”å†²å¤©åœ°ä»" + dir + "å†²äº†è¿‡æ¥ã€‚\n" NOR, ({target}));
+		tell_room(env, CYN "åªè§"+target->query("name")+"æŒ‰æºä¸ä½ï¼Œæ°”å’»å’»åœ°å‘" + undir + "å†²äº†è¿‡å»ã€‚\n" NOR, ({target}));
+		message_vision(CYN"$Næ°”å¾—é¢çº¢è€³èµ¤ï¼Œå¤§å«é“ï¼š$nä¼‘èµ°ï¼æˆ‘æ¥ä¹Ÿï¼ï¼ï¼\n"NOR, target, me);
+		write(CYN "ä¸å¥½ï¼Œçœ¼çœ‹" + target->name() + "åˆ°äº†ä½ è¿‘å‰ï¼\n"NOR);
 
 		target->set_temp("other_kill/"+me->query("id"), 1);
 		
@@ -299,15 +299,15 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 		target->force_me("go "+dir2);
 
 		if (!present(target,environment(me))){
-			message_vision(CYN"$NÌø×Å½Å½ĞµÀ£º½ñÌìÎÒÀÁµÃÀíÄã£¬ÔÛÃÇ×ß×ÅÇÆ£¡\n"NOR, target, me);
+			message_vision(CYN"$Nè·³ç€è„šå«é“ï¼šä»Šå¤©æˆ‘æ‡’å¾—ç†ä½ ï¼Œå’±ä»¬èµ°ç€ç§ï¼\n"NOR, target, me);
 			return 1;
 		}
 
-		tell_object(target, CYN"Äã×ß¹ıÈ¥Ò»¿´£¬Ô­À´ÊÇ" + me->name() + "ÔÚÌø×Å½ÅÂîÄãÄØ£¡\n"NOR);
-		tell_room(old_env, CYN "Ö»¼û"+target->query("name")+"Å­Æø³åÌìµØ´Ó" + dir + "³åÁË¹ıÀ´¡£\n" NOR, ({target}));
-		tell_room(env, CYN "Ö»¼û"+target->query("name")+"°´Şà²»×¡£¬ÆøßİßİµØÏò" + undir + "³åÁË¹ıÈ¥¡£\n" NOR, ({target}));
-		message_vision(HIR"$NÌøÁË¹ıÀ´£¬ºÈµÀ£º$n£¡Äã¸ÒÂîÎÒ£¡½ñÌìÎÒ¸úÄãÃ»Íê£¡\n"NOR,target,me);
-		write(CYN "²»ºÃ£¬" + target->name() + "ÆøÊÆĞÚĞÚµØÏòÄã³åÁË¹ıÀ´£¡\n"NOR);
+		tell_object(target, CYN"ä½ èµ°è¿‡å»ä¸€çœ‹ï¼ŒåŸæ¥æ˜¯" + me->name() + "åœ¨è·³ç€è„šéª‚ä½ å‘¢ï¼\n"NOR);
+		tell_room(old_env, CYN "åªè§"+target->query("name")+"æ€’æ°”å†²å¤©åœ°ä»" + dir + "å†²äº†è¿‡æ¥ã€‚\n" NOR, ({target}));
+		tell_room(env, CYN "åªè§"+target->query("name")+"æŒ‰æºä¸ä½ï¼Œæ°”å’»å’»åœ°å‘" + undir + "å†²äº†è¿‡å»ã€‚\n" NOR, ({target}));
+		message_vision(HIR"$Nè·³äº†è¿‡æ¥ï¼Œå–é“ï¼š$nï¼ä½ æ•¢éª‚æˆ‘ï¼ä»Šå¤©æˆ‘è·Ÿä½ æ²¡å®Œï¼\n"NOR,target,me);
+		write(CYN "ä¸å¥½ï¼Œ" + target->name() + "æ°”åŠ¿æ±¹æ±¹åœ°å‘ä½ å†²äº†è¿‡æ¥ï¼\n"NOR);
 
 		if (!userp(target)&& random(4)!=1) {
 			me->set_temp("kill_other/"+target->query("id"),1);
@@ -333,8 +333,8 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 
 	me->set_temp("apply/name", name);
 
-	message_vision(CYN"$NÖåÁËÖåÃ¼£¬¼Ù×°Ã»Ìı×ÅÂîÉù¡£\n"NOR, target,me);
-	message_vision(CYN"ÅÔ¹ÛµÄÖÚÈË¿´×Å$N£¬Åõ¸¹´óĞ¦ÆğÀ´¡£\n"NOR, target,me);
+	message_vision(CYN"$Nçš±äº†çš±çœ‰ï¼Œå‡è£…æ²¡å¬ç€éª‚å£°ã€‚\n"NOR, target,me);
+	message_vision(CYN"æ—è§‚çš„ä¼—äººçœ‹ç€$Nï¼Œæ§è…¹å¤§ç¬‘èµ·æ¥ã€‚\n"NOR, target,me);
 
 	me->start_busy(2+random(2));
 	me->receive_damage("jingli", 50+random(50));
@@ -344,10 +344,10 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : bark <ÈËÎï> at <·½Ïò>
+æŒ‡ä»¤æ ¼å¼ : bark <äººç‰©> at <æ–¹å‘>
 
-Õâ¸öÖ¸ÁîÈÃÄã½ĞÂîÎ»ÓÚ<·½Ïò>µÄ<ÈËÎï>¡£
-Èç¹û½ĞÂî³É¹¦£¬Ôò¶Ô·½»áºÍÄã´ò¶·£¬¶Ô·½ÓĞ¿ÉÄÜ»á×Ô¶¯É±Äã£¬Ğ¡ĞÄ¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ å«éª‚ä½äº<æ–¹å‘>çš„<äººç‰©>ã€‚
+å¦‚æœå«éª‚æˆåŠŸï¼Œåˆ™å¯¹æ–¹ä¼šå’Œä½ æ‰“æ–—ï¼Œå¯¹æ–¹æœ‰å¯èƒ½ä¼šè‡ªåŠ¨æ€ä½ ï¼Œå°å¿ƒã€‚
 HELP
 );
 	return 1;

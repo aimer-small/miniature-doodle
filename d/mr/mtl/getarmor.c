@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 {
-        set("short",HIG"ÄïçÙÓñ¶´-×°±¸²¿"NOR);
+        set("short",HIG"å¨˜ç¼³çŽ‰æ´ž-è£…å¤‡éƒ¨"NOR);
 	
         set ("long",@long
-ÕâÊÇÂüÙ¢ÂÞÉ½×¯¾«Á¶ÌØÊâ×°±¸µÄµØ·½£¬Íæ¼Ò¿ÉÒÔÔÚ´Ë¾«Á¶(jinglian)×°±¸£¬
-¾«Á¶Ê±ÇëÎñ±ØÊäÈë×°±¸È«²¿Æ´Òô¡£
+è¿™æ˜¯æ›¼ä½—ç½—å±±åº„ç²¾ç‚¼ç‰¹æ®Šè£…å¤‡çš„åœ°æ–¹ï¼ŒçŽ©å®¶å¯ä»¥åœ¨æ­¤ç²¾ç‚¼(jinglian)è£…å¤‡ï¼Œ
+ç²¾ç‚¼æ—¶è¯·åŠ¡å¿…è¾“å…¥è£…å¤‡å…¨éƒ¨æ‹¼éŸ³ã€‚
 long);
 	set("exits",([
 		"out" : __DIR__"huandong",
@@ -34,7 +34,7 @@ int do_canwu(string arg)
      object me = this_player();
      object wpn;
          if(!arg)
-           return notify_fail("ÄãÒª¾«Á·Ê²Ã´£¿\n");
+           return notify_fail("ä½ è¦ç²¾ç»ƒä»€ä¹ˆï¼Ÿ\n");
 
  
 switch(arg){
@@ -63,28 +63,28 @@ switch(arg){
                 case "yongzhe pifeng":
                 break;
                                 default:
-                        return notify_fail("ÕâÀï²»ÄÜ¾«Á¶ÕâÖÖ×°±¸¡£\n");
+                        return notify_fail("è¿™é‡Œä¸èƒ½ç²¾ç‚¼è¿™ç§è£…å¤‡ã€‚\n");
         }
 
 
 wpn = me->query_temp("armor/"+arg);
 if(!objectp(wpn = present(arg, me)))       
- return notify_fail("ÄãÃ»ÓÐËæÉíÐ¯´ø×°±¸£¬¾«Á¶Ê²Ã´¡£\n");    
+ return notify_fail("ä½ æ²¡æœ‰éšèº«æºå¸¦è£…å¤‡ï¼Œç²¾ç‚¼ä»€ä¹ˆã€‚\n");    
      if (me->is_busy() || me->is_fighting() )
-       return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+       return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
  if (me->query_temp("canwu_now") )
-       return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+       return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
        
        if (query_temp("canwu") )
-       return notify_fail("ÓÐÈËÕýÔÚ¾«Á¶ÄØ£¬ÄãµÈÒ»»á°Ñ¡£\n");
+       return notify_fail("æœ‰äººæ­£åœ¨ç²¾ç‚¼å‘¢ï¼Œä½ ç­‰ä¸€ä¼šæŠŠã€‚\n");
 
      if( me->query("combat_exp",1)<2000000)
          
-        return notify_fail("ÄãµÄ¾­Ñé²»¹»£¬¸ù±¾Ã»·¨¾«Á¶¡£\n");
+        return notify_fail("ä½ çš„ç»éªŒä¸å¤Ÿï¼Œæ ¹æœ¬æ²¡æ³•ç²¾ç‚¼ã€‚\n");
 
  if( !wpn->query("canjinglian"))   
-          return notify_fail("ÕâÖÖ¶«Î÷Ã»·¨¾«Á¶¡£\n");  
+          return notify_fail("è¿™ç§ä¸œè¥¿æ²¡æ³•ç²¾ç‚¼ã€‚\n");  
 
 
 
@@ -100,10 +100,10 @@ if(!objectp(wpn = present(arg, me)))
     && wpn->query("armor_prop/intelligence",1) >=20
 && wpn->query("armor_prop/strength",1)     >=20 || me->query("jinglian/"+arg) == 9)
 
-return notify_fail("ÄãµÄ×°±¸ÒÑÊÇ¾«Æ·£¬×ÔÓÐÁéÐÔ£¬¸ù±¾²»ÐèÒªÔÙ¼Ó¾«Á¶ÁË¡£¡£\n");
+return notify_fail("ä½ çš„è£…å¤‡å·²æ˜¯ç²¾å“ï¼Œè‡ªæœ‰çµæ€§ï¼Œæ ¹æœ¬ä¸éœ€è¦å†åŠ ç²¾ç‚¼äº†ã€‚ã€‚\n");
 
-message_vision( HIW"$N½«"+wpn->query("name")+""HIW"·ÅÔÚ¾«Á¶³ØÖÐ×¼±¸¾«Á¶¡£\n"NOR,me);
-message_vision( HIW"$N×¨ÐÄÖÂÖ¾µØ£¬½«"+wpn->query("name")+""HIW"×ÐÏ¸Á¶ÖÆ¡£\n"NOR, me);
+message_vision( HIW"$Nå°†"+wpn->query("name")+""HIW"æ”¾åœ¨ç²¾ç‚¼æ± ä¸­å‡†å¤‡ç²¾ç‚¼ã€‚\n"NOR,me);
+message_vision( HIW"$Nä¸“å¿ƒè‡´å¿—åœ°ï¼Œå°†"+wpn->query("name")+""HIW"ä»”ç»†ç‚¼åˆ¶ã€‚\n"NOR, me);
   
        me->start_busy(100);  
        me->set_temp("canwu_now",1); 
@@ -122,10 +122,10 @@ object ob1,ob2;
 	
   if(me->query_temp("con_weapon")<(3+random(3)))
        {  me->add_temp("con_weapon",1);
-if(random(2)) tell_object(me,HIG"\nÄã×ÐÏ¸µÄ¾«Á¶×Å...\n"NOR,me);
-                   else tell_object(me,HIY"\nÄãÂýÂýµÄ½«ÕæÆøÊäÈëµ½×°±¸Ö®ÖÐ...\n"NOR,me,wpn);  
+if(random(2)) tell_object(me,HIG"\nä½ ä»”ç»†çš„ç²¾ç‚¼ç€...\n"NOR,me);
+                   else tell_object(me,HIY"\nä½ æ…¢æ…¢çš„å°†çœŸæ°”è¾“å…¥åˆ°è£…å¤‡ä¹‹ä¸­...\n"NOR,me,wpn);  
 
-tell_room(environment(me),HIC""+me->query("name")+"Ä¬ÔËÐþ¹¦£¬ÊÖÖÐ×°±¸ÂýÂýµÄ·º³öÒ»µÀÆæÒìµÄ¹â»Ô...\n"NOR, ({}));
+tell_room(environment(me),HIC""+me->query("name")+"é»˜è¿çŽ„åŠŸï¼Œæ‰‹ä¸­è£…å¤‡æ…¢æ…¢çš„æ³›å‡ºä¸€é“å¥‡å¼‚çš„å…‰è¾‰...\n"NOR, ({}));
 
 	  remove_call_out("thinking");
 call_out("thinking",3+random(3), me,wpn,arg);
@@ -147,9 +147,9 @@ if (ob1 || me->query("jinglian/"+arg) < 3
 || me->query("jinglian/"+arg) == 8 && random(100) > 80)
 
  {    
-message_vision(HIC"\n$NÊÖÖÐ×°±¸ºö×öÁúÒ÷£¬ËÆºõÔö¼ÓÁË²»ÉÙÁéÐÔ£¡¡±\n"NOR,me); 
+message_vision(HIC"\n$Næ‰‹ä¸­è£…å¤‡å¿½åšé¾™åŸï¼Œä¼¼ä¹Žå¢žåŠ äº†ä¸å°‘çµæ€§ï¼â€\n"NOR,me); 
   
-     tell_object(me,HIR"\nÄã¶ÔÄ¿Ç°×°±¸³É¹¦µÄ½øÐÐÁËÒ»´Î´ãÁ¶£¬ÊôÐÔÔÚÏÂ´ÎµÇÂ¼Ê±ÉúÐ§£¡\n"NOR,me,wpn);
+     tell_object(me,HIR"\nä½ å¯¹ç›®å‰è£…å¤‡æˆåŠŸçš„è¿›è¡Œäº†ä¸€æ¬¡æ·¬ç‚¼ï¼Œå±žæ€§åœ¨ä¸‹æ¬¡ç™»å½•æ—¶ç”Ÿæ•ˆï¼\n"NOR,me,wpn);
        me->add("combat_exp",-200000);
 
    me->add("jinglian/"+arg,1);
@@ -167,12 +167,12 @@ stre= wpn->query("armor_prop/strength",1) ;
     delete_temp("canwu");   
 destruct(ob1);
 
-    tell_object(me,HBYEL"\nÄã±¾´Î¾«Á¶¹²ºÄ·ÑÁË¶þÊ®ÍòÍòÊµÕ½¾­Ñé£¡\n"NOR,me);
-    tell_object(me,"ÍþÁ¦£º"+HIR+chinese_number(d)+HIR+"£¬ÃüÖÐ"+HIW+chinese_number(a)+HIW+"£¬\n"NOR);
-   tell_object(me,"Ôö¼ÓëöÁ¦"+HIG+chinese_number(stre)+NOR+"µã£¬Éí·¨"+HIM+chinese_number(dexe)+NOR+"µã£¬¸ù¹Ç"+HIC+chinese_number(cons)+NOR+"µã£¬ÎòÐÔ"+HIY+chinese_number(inte)+NOR+"µã¡£\n"NOR);
+    tell_object(me,HBYEL"\nä½ æœ¬æ¬¡ç²¾ç‚¼å…±è€—è´¹äº†äºŒåä¸‡ä¸‡å®žæˆ˜ç»éªŒï¼\n"NOR,me);
+    tell_object(me,"å¨åŠ›ï¼š"+HIR+chinese_number(d)+HIR+"ï¼Œå‘½ä¸­"+HIW+chinese_number(a)+HIW+"ï¼Œ\n"NOR);
+   tell_object(me,"å¢žåŠ è†‚åŠ›"+HIG+chinese_number(stre)+NOR+"ç‚¹ï¼Œèº«æ³•"+HIM+chinese_number(dexe)+NOR+"ç‚¹ï¼Œæ ¹éª¨"+HIC+chinese_number(cons)+NOR+"ç‚¹ï¼Œæ‚Ÿæ€§"+HIY+chinese_number(inte)+NOR+"ç‚¹ã€‚\n"NOR);
 
 
-      log_file("quest/jinglian", sprintf("%s(%s) µÚ%d´Î²ÎÎò´ãÁ¶ÎäÆ÷²¿·Ö£¬ÎäÆ÷ÍþÁ¦%d£¬ÃüÖÐ%d£¬Á¦%dÉí%d¸ù%dÎò%d£¬ µ±Ç°ÐÇ¼¶£º%d¡£\n", 
+      log_file("quest/jinglian", sprintf("%s(%s) ç¬¬%dæ¬¡å‚æ‚Ÿæ·¬ç‚¼æ­¦å™¨éƒ¨åˆ†ï¼Œæ­¦å™¨å¨åŠ›%dï¼Œå‘½ä¸­%dï¼ŒåŠ›%dèº«%dæ ¹%dæ‚Ÿ%dï¼Œ å½“å‰æ˜Ÿçº§ï¼š%dã€‚\n", 
        me->name(1),
        me->query("id"),
        t,
@@ -188,27 +188,27 @@ destruct(ob1);
 ob2= present("wanbi fu", me);
 if (ob2)
 {
-message_vision(HIG"\n$NÒòÎªÊÖÖÐÓÐÍêèµ·û£¬Ëä¾«Á¶Ê§°Ü£¬µ«±£´æÁË×°±¸µÄÍêÕû¡£\n"NOR,me);
-tell_object(me,HIR"\nÄãµÄ×°±¸ÔÚ±¾´Î¾«Á¶ÖÐÎÞÐ§£¡\n"NOR);
+message_vision(HIG"\n$Nå› ä¸ºæ‰‹ä¸­æœ‰å®Œç’§ç¬¦ï¼Œè™½ç²¾ç‚¼å¤±è´¥ï¼Œä½†ä¿å­˜äº†è£…å¤‡çš„å®Œæ•´ã€‚\n"NOR,me);
+tell_object(me,HIR"\nä½ çš„è£…å¤‡åœ¨æœ¬æ¬¡ç²¾ç‚¼ä¸­æ— æ•ˆï¼\n"NOR);
 me->add("jinglian/"+arg,-1);
 me->delete_temp("canwu_now");
 delete_temp("canwu"); 
 destruct(ob2);
-log_file("quest/jinglian", sprintf("%s(%s) Ê¹ÓÃÍêèµ·û£¬×°±¸ÐÇ¼¶%d¡£\n", me->name(1),me->query("id"),me->query("jinglian/"+arg)+1));
+log_file("quest/jinglian", sprintf("%s(%s) ä½¿ç”¨å®Œç’§ç¬¦ï¼Œè£…å¤‡æ˜Ÿçº§%dã€‚\n", me->name(1),me->query("id"),me->query("jinglian/"+arg)+1));
 }
 else 
 {
- message_vision(HIC"\n$NÊÖÖÐ×°±¸½û²»ÆðÕâ¼¤ÁÒµÄÕðµ´£¬¾¹È»ÆÆËéÁË£¡¡±\n"NOR,me); 
-tell_object(me,HIR"\nÄãµÄ×°±¸ÔÚ¾«Á¶ÖÐËð»µÁË£¡\n"NOR);
+ message_vision(HIC"\n$Næ‰‹ä¸­è£…å¤‡ç¦ä¸èµ·è¿™æ¿€çƒˆçš„éœ‡è¡ï¼Œç«Ÿç„¶ç ´ç¢Žäº†ï¼â€\n"NOR,me); 
+tell_object(me,HIR"\nä½ çš„è£…å¤‡åœ¨ç²¾ç‚¼ä¸­æŸåäº†ï¼\n"NOR);
 me->add("jinglian/"+arg,-1);
  me->delete_temp("canwu_now");   
     delete_temp("canwu");   
 
 wpn->move(environment(me));
-wpn->set("name", "ÆÆËéµÄ" + wpn->query("name"));
+wpn->set("name", "ç ´ç¢Žçš„" + wpn->query("name"));
 wpn->set("value", 0);
   wpn->set("armor_prop", 0);
-log_file("quest/jinglian", sprintf("%s(%s) ¾«Á¶»µÁË£¬×°±¸ÐÇ¼¶%d¡£\n", me->name(1),me->query("id"),me->query("jinglian/"+arg)+1));
+log_file("quest/jinglian", sprintf("%s(%s) ç²¾ç‚¼åäº†ï¼Œè£…å¤‡æ˜Ÿçº§%dã€‚\n", me->name(1),me->query("id"),me->query("jinglian/"+arg)+1));
 
 }
 }

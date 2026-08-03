@@ -1,13 +1,13 @@
-// lgshou.c Âà¹ÄÊÖ
+// lgshou.c é”£é¼“æ‰‹
 #include <ansi.h>
 
 inherit NPC;
 
 void create()
 {
-	set_name("Âà¹ÄÊÖ", ({ "luogu shou", "shou" }));
-	set("long", "ÕâÊÇÒ»¸ö»éÀñ´µ´ò×àÀÖµÄÂà¹ÄÊÖ£¬ÉíÉÏ¹Ò×ÅÂà¹Ä£¬Æğ¾¢µØÇÃ´ò×Å¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("é”£é¼“æ‰‹", ({ "luogu shou", "shou" }));
+	set("long", "è¿™æ˜¯ä¸€ä¸ªå©šç¤¼å¹æ‰“å¥ä¹çš„é”£é¼“æ‰‹ï¼Œèº«ä¸ŠæŒ‚ç€é”£é¼“ï¼Œèµ·åŠ²åœ°æ•²æ‰“ç€ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 	set("attitude", "peaceful");
 	set("str", 50);

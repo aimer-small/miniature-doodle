@@ -1,4 +1,4 @@
-// sqbing.c Ê¿±ø
+// sqbing.c å£«å…µ
 
 #include <ansi.h>
 inherit NPC;
@@ -28,10 +28,10 @@ switch (random(3)){
 	} 
 	set_name(name, ({ "qi bing", "qibing" ,"bing","qi"}));
 	set("age", random(10)+20);
-	set("gender", "ÄĞĞÔ");
-	set("long", "ËûÃÇÊÇÃÉ¹ÅÆï±ø£¬¸ö¸ö¶¼ÒÂ¼×ÏÊÃ÷£¬¾«Éñ±¥Âú£¬ĞÎÃ²±ëº·£¬ÉÆÓÚÆï³ËÖ®Êõ¡£\n");
+	set("gender", "ç”·æ€§");
+	set("long", "ä»–ä»¬æ˜¯è’™å¤éª‘å…µï¼Œä¸ªä¸ªéƒ½è¡£ç”²é²œæ˜ï¼Œç²¾ç¥é¥±æ»¡ï¼Œå½¢è²Œå½ªæ‚ï¼Œå–„äºéª‘ä¹˜ä¹‹æœ¯ã€‚\n");
 	set("attitude", "heroism");
-        set("title",HIY"Éñ·çÓªÆï±ø"NOR);
+        set("title",HIY"ç¥é£è¥éª‘å…µ"NOR);
 
 	set("str", random(10)+15);
 	set("dex", random(10)+20);

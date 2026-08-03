@@ -2,17 +2,17 @@ inherit NPC;
 
 void create()
 {
-    set_name("¹Öòş", ({ "guai mang", "snake", "mang" }) );
-	set("race", "Ò°ÊŞ");
+    set_name("æ€ªèŸ’", ({ "guai mang", "snake", "mang" }) );
+	set("race", "é‡å…½");
 	set("age", 80);
-    set("long", "Ò»ÌõÁ½ÕÉÀ´³¤µÄòşÉß£¬»ëÉíºÚ÷î÷îµÄ¡£\n");
+    set("long", "ä¸€æ¡ä¸¤ä¸ˆæ¥é•¿çš„èŸ’è›‡ï¼Œæµ‘èº«é»‘é»é»çš„ã€‚\n");
     set("attitude", "aggressive");
 	
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Æß´ç", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ä¸ƒå¯¸", "å°¾å·´" }) );
 	set("verbs", ({ "twist", "bite" }) );
 
 	set("combat_exp", 12000);
-set("no_get","¹Öòş¶ÔÄã¶øÑÔÌ«ÖØÀ²£¬ÄãÎŞ·¨ÄÃ¶¯");
+set("no_get","æ€ªèŸ’å¯¹ä½ è€Œè¨€å¤ªé‡å•¦ï¼Œä½ æ— æ³•æ‹¿åŠ¨");
 	
 	set_temp("apply/attack", 355);
 	set_temp("apply/defense", 350);

@@ -2,7 +2,7 @@
 inherit FORCE;
 
 int valid_enable(string usage) { 
-	  if (this_player()->query("family/family_name")=="Ø¤°ï"|| this_player()->query("cw_mp/Ø¤°ï") )
+	  if (this_player()->query("family/family_name")=="ä¸å¸®"|| this_player()->query("cw_mp/ä¸å¸®") )
 return usage == "force"; }
 
 #include "/kungfu/skill/force.h"
@@ -10,15 +10,15 @@ return usage == "force"; }
 int valid_learn(object me)
 {
 		mapping fam  = me->query("family");
-	if((!fam || fam["family_name"] != "Ø¤°ï" )&& !me->query("cw_mp/Ø¤°ï") )
-			 	return notify_fail("Äã²¢·ÇØ¤°ïµÜ×Ó£¬ÈçºÎÏ°µÃÁË»ìÌìÆø¹¦¡£\n");
+	if((!fam || fam["family_name"] != "ä¸å¸®" )&& !me->query("cw_mp/ä¸å¸®") )
+			 	return notify_fail("ä½ å¹¶éžä¸å¸®å¼Ÿå­ï¼Œå¦‚ä½•ä¹ å¾—äº†æ··å¤©æ°”åŠŸã€‚\n");
 
-	if ( me->query("gender") == "ÎÞÐÔ")
-		return notify_fail("ÄãÎÞ¸ùÎÞÐÔ£¬ÒõÑô²»µ÷£¬ÄÑÒÔÁì»á¸ßÉîµÄ»ìÌìÆø¹¦¡£\n");
+	if ( me->query("gender") == "æ— æ€§")
+		return notify_fail("ä½ æ— æ ¹æ— æ€§ï¼Œé˜´é˜³ä¸è°ƒï¼Œéš¾ä»¥é¢†ä¼šé«˜æ·±çš„æ··å¤©æ°”åŠŸã€‚\n");
 
         if ((int)me->query_skill("huntian-qigong", 1) > me->query_skill("force", 1) + 10
           && me->query_skill("huntian-qigong", 1) >= 200 )
-               return notify_fail("ÄãµÄ»ù±¾¹¦»ðºòÎ´µ½£¬±ØÐëÏÈ´òºÃ»ù´¡²ÅÄÜ¼ÌÐøÌá¸ß¡£\n");
+               return notify_fail("ä½ çš„åŸºæœ¬åŠŸç«å€™æœªåˆ°ï¼Œå¿…é¡»å…ˆæ‰“å¥½åŸºç¡€æ‰èƒ½ç»§ç»­æé«˜ã€‚\n");
 
         return valid_public(me);
 }
@@ -34,8 +34,8 @@ int practice_skill(object me)
                    me->add("potential", -1*(1+random(3)));
                    return 1;
            }
-           else return notify_fail("ÄãÏÖÔÚµÄÐÞÎª²»×ãÒÔÌá¸ß»ìÌìÆø¹¦ÁË¡£\n");       }
-        else return notify_fail("ÄãÏÖÔÚµÄ»ìÌìÆø¹¦ÐÞÎªÖ»ÄÜÓÃÑ§(learn)µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+           else return notify_fail("ä½ çŽ°åœ¨çš„ä¿®ä¸ºä¸è¶³ä»¥æé«˜æ··å¤©æ°”åŠŸäº†ã€‚\n");       }
+        else return notify_fail("ä½ çŽ°åœ¨çš„æ··å¤©æ°”åŠŸä¿®ä¸ºåªèƒ½ç”¨å­¦(learn)çš„æ¥å¢žåŠ ç†Ÿç»ƒåº¦ã€‚\n");
 
 }
 void skill_improved(object me)
@@ -44,7 +44,7 @@ void skill_improved(object me)
         skill = me->query_skill("huntian-qigong", 1);
         lit = me->query_skill("literate", 1);
         if(skill >= 300 && !me->query("htqg/300") && me->query("age")>55){
-                tell_object(me, HIR"\nÎÞÒâÖÐÄã¸Ð¾õÒ»¹ÉÈÈÀË£¬´Óµ¤ÌïÓ¿³ö£¬Äã¶àÄêÐÞÁ¶µÄÄÚÁ¦ÓÐÁËÌá¸ß£¡\n"NOR);
+                tell_object(me, HIR"\næ— æ„ä¸­ä½ æ„Ÿè§‰ä¸€è‚¡çƒ­æµªï¼Œä»Žä¸¹ç”°æ¶Œå‡ºï¼Œä½ å¤šå¹´ä¿®ç‚¼çš„å†…åŠ›æœ‰äº†æé«˜ï¼\n"NOR);
                 me->add("max_neili", random(lit + skill));
                 me->set("htqg/300", 1);
         }
@@ -58,11 +58,11 @@ string exert_function_file(string func)
 mapping exercise_msg(object me)
 {
 	return ([
-		"status_msg" : HIW + me->name()+"Ãæ´øÉñ¹â£¬ÒÂÅÛ·ÉÎè" NOR,
-                "start_my_msg" : "ÄãËæÒâ×øÏÂ£¬Ë«ÊÖÆ½·ÅÔÚË«Ï¥£¬Ä¬Äî¿Ú¾÷£¬¿ªÊ¼ÔËÆð¶ÀÃÅÐÄ·¨¡£\n",
-		"start_other_msg" : me->name()+"ËæÒâÔÚÄÇÀï×øÏÂ£¬Ë«ÊÖÆ½·ÅÔÚË«Ï¥£¬×ì´½Î¢Î¢²ü¶¯£¬ÉíÉÏµÄÒÂÅÛ¿ªÊ¼¹Ä¶¯ÆðÀ´¡£\n",
-		"halt_msg" : "$NÃæÉ«Ò»³Á£¬Ñ¸ËÙÊÕÆø£¬Õ¾ÁËÆðÀ´¡£\n",
-		"end_my_msg" : "ÄãÎüÆøÈëµ¤Ìï£¬ÕæÆøÔË×ª½¥»º£¬ÂýÂýÊÕ¹¦£¬Ë«ÊÖÌ§Æð£¬Õ¾ÁËÆðÀ´¡£\n",
-		"end_other_msg" : "Ö»¼û"+me->name()+"Ë«ÊÖÌ§Æð£¬Õ¾ÁËÆðÀ´£¬ÒÂÅÛÂýÂý´¹ÁËÏÂÀ´¡£\n"
+		"status_msg" : HIW + me->name()+"é¢å¸¦ç¥žå…‰ï¼Œè¡£è¢é£žèˆž" NOR,
+                "start_my_msg" : "ä½ éšæ„åä¸‹ï¼ŒåŒæ‰‹å¹³æ”¾åœ¨åŒè†ï¼Œé»˜å¿µå£è¯€ï¼Œå¼€å§‹è¿èµ·ç‹¬é—¨å¿ƒæ³•ã€‚\n",
+		"start_other_msg" : me->name()+"éšæ„åœ¨é‚£é‡Œåä¸‹ï¼ŒåŒæ‰‹å¹³æ”¾åœ¨åŒè†ï¼Œå˜´å”‡å¾®å¾®é¢¤åŠ¨ï¼Œèº«ä¸Šçš„è¡£è¢å¼€å§‹é¼“åŠ¨èµ·æ¥ã€‚\n",
+		"halt_msg" : "$Né¢è‰²ä¸€æ²‰ï¼Œè¿…é€Ÿæ”¶æ°”ï¼Œç«™äº†èµ·æ¥ã€‚\n",
+		"end_my_msg" : "ä½ å¸æ°”å…¥ä¸¹ç”°ï¼ŒçœŸæ°”è¿è½¬æ¸ç¼“ï¼Œæ…¢æ…¢æ”¶åŠŸï¼ŒåŒæ‰‹æŠ¬èµ·ï¼Œç«™äº†èµ·æ¥ã€‚\n",
+		"end_other_msg" : "åªè§"+me->name()+"åŒæ‰‹æŠ¬èµ·ï¼Œç«™äº†èµ·æ¥ï¼Œè¡£è¢æ…¢æ…¢åž‚äº†ä¸‹æ¥ã€‚\n"
 	]);
 }

@@ -7,18 +7,18 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ɽ������");
+	set("short", "山中密林");
 	set("long", @LONG
-�������£�������ȣ����о����ĵģ���˵�˼�����������Ҳ�ް�㣬Ψ
-��������䣬ң��ͺ��������ٲ��������Ͽ�ȥ��ֻ���ٲ�֮��һ��ʯ�ڹ���
-���񣬲�֪������ĳ弤ĥϴ���Ž������ʯ��ĥ�����ƽ����������ˮ����
-�٣��Ž���Ƭ����������������ʯ��¶�˳�����
+仰望高崖，白雾封谷，谷中静悄悄的，别说人迹，就连兽踪也无半点，唯
+闻鸟语相间，遥相和呼，逆着瀑布从下往上看去，只见瀑布之右一块石壁光润
+如玉，不知多少年的冲激磨洗，才将这半面石壁磨得如此平整，后来瀑水量减
+少，才将这片如琉璃，如明镜的石壁露了出来。
 LONG
 	);
         set("exits", ([
               "south" : __DIR__"donghubian",
 	]));
-        set("outdoors", "����"); 
+        set("outdoors", "大理"); 
 	set("objects", ([
 	   __DIR__"obj/yeguo" : 2,
 	]));
@@ -37,7 +37,7 @@ int do_move(string arg)
 {
 	object me;
  	me = this_player();
-	message_vision("$N�ǿ�Ұ�����ԣ������Ժ��߹�ȥ��\n" NOR, me);
+	message_vision("$N扒开野果树丛，向树丛后走过去。\n" NOR, me);
 	me->move(__DIR__"shuhou");
 	return 1;
 }
@@ -52,43 +52,43 @@ int do_look()
 	
 	if((local[2] < 2 || local[2] >= 23) && me->query("marks/xiaoyao")== "wait2" )
 	{
-		write(HIC"    ��һƳ�ۼ䣬��������ʯ���������вʹ�����������ȥ����Ȼ��һ�ѳ�����Ӱ\n"
-		         "�ӡ�����Ӱ�и������ʺ�һ����ι⣬��˸���������߲�����\n"NOR, me);
+		write(HIC"    你一瞥眼间，忽见身畔石壁上隐隐有彩光流动，凝神看去，赫然有一把长剑的影\n"
+		         "子。而剑影中更发出彩虹一般的晕光，闪烁流动，游走不定。\n"NOR, me);
                                            me->set("marks/xiaoyao","wait3");   
 
 	}
 	
 		if(local[2] >= 2 && local[2] < 4 &&  me->query("marks/xiaoyao")== "wait3" )
 	{
-		write(HIY"    ��̧ͷһ����ԭ������������Ѿ��䵽�������ͱ�֮���ͱ�����һ���ף��¹�\n"
-		         "�Ӷ��ױ˶���������������������вʹ������������������ڶ�����ظߴ���ʮ�ɣ�\n"
-		         "���ɵ����´��棬��Ҫ��ȥ�������ס�\n"NOR, me);
+		write(HIY"    你抬头一看，原来皓月西沉，已经落到了西首峭壁之后，峭壁上有一洞孔，月光\n"
+		         "从洞孔彼端照射过来，东空中隐隐有彩光流动。但见宝剑所在洞孔离地高达数十丈，\n"
+		         "不由得心下大奇，想要上去看个明白。\n"NOR, me);
  me->delete("marks/xiaoyao");
  me->set("marks/xiaoyao","get_book");
 
 	}
 
-//����������ʼ������ſ�ɱ�������˵ı�ǣ���look���������
+//白天来，开始如果有门口杀两个贱人的标记，用look来激发标记
                 if(local[2] >= 4 && local[2] < 18 &&  me->query("marks/xiaoyao")== "gotofind")
 	{
-                write(HIW"�������£����Ʒ�ȣ������ϱ����������ͱڣ����޳�·����������һ�ԴԵĲ軨��ҡҷ���ˡ���\n"NOR, me);
+                write(HIW"仰望高崖，白云封谷，东西南北尽是悬崖峭壁，绝无出路。湖畔生着一丛丛的茶花，摇曳生姿。。\n"NOR, me);
                 me->set("marks/xiaoyao","wait");
 	}
 	
 		if(local[2] >= 18 && local[2] < 21 &&  me->query("marks/xiaoyao")== "wait" )
 	{
-		write(HIC"    ��վ��������̧ͷֻ��������Բ������ں����ϱ���ͬ����һ�����һ�㣬��\n"
-                         "��˳�ź���һ·��չ��ȥ��ͻȻȫ��һ��ֻ����������Ϻ�Ȼ�и���Ӱ��\n"NOR, me);
+		write(HIC"    你站起身来，抬头只见月亮正圆，清光在湖面上便如同镀了一层白银一般，眼\n"
+                         "光顺着湖面一路伸展出去，突然全身一震，只见对面玉璧上赫然有个人影！\n"NOR, me);
                                 me->set("marks/xiaoyao","wait1");         
 	}
 
 		if(local[2] >= 21 && local[2] < 23 &&  me->query("marks/xiaoyao")== "wait1" )
 	{
-		write(HIM"    ��ع�������ֻ������Сʯ����Ҳ�и���Ӱ��ֻ�����μ�С��Ӱ��ҲŨ�Ķࡣ��ʱ��\n"
-		         "Ȼ���򣺡�ԭ�������Ƚ��ҵ�Ӱ��ӳ�����Сʯ���ϣ���ӳ������Ĵ�ʯ���ϣ�����ȷ��\n"
-		         "�����������轣����Ӱӳ����� �����������������������������֮�ʣ��漴�����㵸��\n"
-		         "ȭ�����,���������������Ҳ���¶���������赡���Ӱ�����϶�����������ʾ�����书��\n"
-		         "Խ��Խ����Ȥ���̲�ס������Ц��\n"NOR, me);
+		write(HIM"    你回过身来，只见身边小石壁上也有个人影，只是身形既小，影子也浓的多。登时恍\n"
+		         "然大悟：“原来月亮先将我的影子映在这块小石壁上，再映到滆湖的大石壁上，当年确是\n"
+		         "有人在这里舞剑，人影映上玉璧 ”。既明白了这个道理，百无聊赖之际，随即手舞足蹈，\n"
+		         "拳打脚踢,心想最好现在有人也在崖顶，见到玉璧“仙影”，认定是仙人在演示绝世武功。\n"
+		         "越想越是有趣，忍不住纵声大笑。\n"NOR, me);
                                            me->set("marks/xiaoyao","wait2");   
 	}
 
@@ -105,18 +105,18 @@ int do_jump(string arg)
 	
 	if (me->is_busy() || me->is_fighting())
 	{
-		return notify_fail("����æ���ģ�\n");
+		return notify_fail("你正忙着哪！\n");
 	}
 	
 	if(arg != "cliff")
 	{
-		return notify_fail("��Ҫ����������\n");
+		return notify_fail("你要往哪里爬？\n");
 	}
 	
 
 	if( me->query("quest/xiaoyao/pass"))
 	{
-		return notify_fail("���Ѿ�ȡ�����±ڿն������书�ؼ��ˡ�\n");
+		return notify_fail("你已经取得了崖壁空洞所藏武功秘籍了。\n");
 	}
 	
 
@@ -124,7 +124,7 @@ int do_jump(string arg)
 	
 	if ( (time() - me->query("quest/xiaoyao/time")) < 86400)
 	{
-		return notify_fail("�����ɽ�������ʮ�ɣ���ԥ�˰��죬���뻹�ǻ�ȥ�����Ṧ�������ɡ�\n");
+		return notify_fail("你见这山崖离地数十丈，犹豫了半天，想想还是回去练好轻功再来爬吧。\n");
 	}
 	
 
@@ -140,7 +140,7 @@ int do_jump(string arg)
 			}
 		}
 
-		message_vision(HIR"$N����������������������ȥ��\n"NOR, me);
+		message_vision(HIR"$N轻身提气，朝悬崖攀爬上去。\n"NOR, me);
 		me->move(__DIR__"bankong1");
 
 		if(local[2] > 4 && local[2] < 18 )
@@ -176,12 +176,12 @@ void do_wait(object me)
 
 
 
-	tell_object(me, HIR"��С���������������ͱڼ�Ѱ������ŵص�....\n"NOR);
-	tell_object(me, HIR"���������˿׶���,����ȡ����һ��������\n"NOR);
-	tell_object(me, HIR"�㻹��ȥ���ǰѱ�����ȴ����������֧�ˣ�ֻ�÷��عȵס�\n"NOR);
+	tell_object(me, HIR"你小心翼翼的在悬崖峭壁间寻找着落脚地点....\n"NOR);
+	tell_object(me, HIR"终于爬到了孔洞处,伸手取出了一副帛卷。\n"NOR);
+	tell_object(me, HIR"你还想去拔那把宝剑，却发现体力不支了，只得返回谷底。\n"NOR);
 
 
- //���������õ��貨΢����bmsg���ں��ؼ�
+ //玩家在这里得到凌波微步，bmsg和融合秘籍
   obj->set("owner", me->query("id"));
   obj->move(me);       
 
@@ -190,7 +190,7 @@ void do_wait(object me)
   me->delete("marks/xiaoyao");
   me->set("quest/xiaoyao/pass",1);
 
-	log_file("quest/xiaoyao",sprintf("%-18sʧ��%s�κ�ɹ�����������ؼ�������%d��\n",
+	log_file("quest/xiaoyao",sprintf("%-18s失败%s次后成功获得无崖子秘籍，福：%d。\n",
 		me->name(1)+"("+capitalize(getuid(me))+")",
 		chinese_number(me->query("quest/xiaoyao/fail")), me->query("kar")), me);
 
@@ -201,16 +201,16 @@ void do_wait1(object me)
 	object *ob, *inv;
 	int i, j;
 	ob = all_inventory(environment(me));
-	tell_object(me, HIR"��С���������������ͱڼ�Ѱ������ŵص�....\n"NOR);
+	tell_object(me, HIR"你小心翼翼的在悬崖峭壁间寻找着落脚地点....\n"NOR);
         me->move(__DIR__"gudi");
   me->delete("marks/xiaoyao");      
 	me->set("water", 666); 
 	me->add("quest/xiaoyao/fail",1);
 	me->set("quest/xiaoyao/time", time());
-	log_file("quest/xiaoyao",sprintf("%-18s�Ӱ�յ��䣬��ȡ�������ؼ�ʧ��%s�Ρ�\n",
+	log_file("quest/xiaoyao",sprintf("%-18s从半空跌落，获取无崖子秘籍失败%s次。\n",
 		me->name(1)+"("+capitalize(getuid(me))+")",chinese_number(me->query("quest/xiaoyao/fail"))), me);
-	tell_object(me, HIC"�㲻С��һ��̤�գ�����������������˴�ˮ̶û��ˤ��..\n"NOR);
-	tell_object(me, HIC"����������˴�ˮ̶û��ˤ��..���������������ߣ��������ᣬ���˹�ȥ��\n"NOR);
+	tell_object(me, HIC"你不小心一脚踏空！啊！！还好你掉进了大水潭没有摔死..\n"NOR);
+	tell_object(me, HIC"还好你掉进了大水潭没有摔死..你挣扎着爬到岸边，心力交瘁，晕了过去。\n"NOR);
         for(i=0; i<sizeof(ob); i++) {
 		inv = all_inventory(ob[i]);
 		for (j = 0; j < sizeof(inv); j++)
@@ -225,14 +225,14 @@ void do_wait2(object me)
         object tmp;
         object *ob;
         int i;
-	tell_object(me, HIR"��С���������������ͱڼ�Ѱ������ŵص�....\n"NOR);
-	tell_object(me, HIW"�㲻С��һ��̤�գ�����������ֻ����������������Զȥ........\n"NOR);
+	tell_object(me, HIR"你小心翼翼的在悬崖峭壁间寻找着落脚地点....\n"NOR);
+	tell_object(me, HIW"你不小心一脚踏空！啊！！！你只觉得世界正在离你远去........\n"NOR);
         me->move(__DIR__"gudi");
         me->delete("marks/xiaoyao");
-        me->set_temp("last_damage_from","ˤ��ɽ�µ�");
+        me->set_temp("last_damage_from","摔下山崖跌");
         me->add("quest/xiaoyao/fail", 1);
         me->set("quest/xiaoyao/time", time());
-	log_file("quest/xiaoyao",sprintf("%-18s�Ӱ�յ��䣬������ȡ�������ؼ�ʧ��%s�Ρ�\n",
+	log_file("quest/xiaoyao",sprintf("%-18s从半空跌落，死，获取无崖子秘籍失败%s次。\n",
 		me->name(1)+"("+capitalize(getuid(me))+")",chinese_number(me->query("quest/xiaoyao/fail"))), me);
         me->unconcious();
         me->die();
@@ -241,10 +241,10 @@ void do_wait2(object me)
 		i = sizeof(ob);
 		while (i--) if (userp(ob[i])){
 			ob[i]->move(this_object());
-			ob[i]->set_temp("last_damage_from","ˤ��ɽ�µ�");
+			ob[i]->set_temp("last_damage_from","摔下山崖跌");
 			ob[i]->die();
 		}
 		destruct(tmp);
-		if (me) tell_room(this_object(), me->name()+"��ʬ�Ƕ��Ҳ����ˡ�\n");
+		if (me) tell_room(this_object(), me->name()+"的尸骨都找不到了。\n");
 	}
 }

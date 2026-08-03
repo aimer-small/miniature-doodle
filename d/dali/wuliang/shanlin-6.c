@@ -3,14 +3,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "É­ÁÖ");
+	set("short", "æ£®æ—");
 	set("long", @LONG
-Äã·ÑÁË¾ÅÅ£¶ş»¢Ö®Á¦£¬´ÓÃÜÃÜÂéÂéµÄÊ÷ÁÖÖĞ×ê½øÁËÕâÀï£¬È´·¢ÏÖÑÛÇ°ÒÑÃ»
-ÓĞÁËÈ¥Â·,Ç°ÃæÒ»ÖêÖê¹ÅÊ÷»¥Ïà¼·ÔÚÒ»Æğ£¬±ãÈçÒ»¶Â´óÇ½£¨wall)ÏàËÆ£¬ÔÙÒ²ÎŞ
-·¨ÏòÇ°½øÒ»²½ÁË¡£
+ä½ è´¹äº†ä¹ç‰›äºŒè™ä¹‹åŠ›ï¼Œä»å¯†å¯†éº»éº»çš„æ ‘æ—ä¸­é’»è¿›äº†è¿™é‡Œï¼Œå´å‘ç°çœ¼å‰å·²æ²¡
+æœ‰äº†å»è·¯,å‰é¢ä¸€æ ªæ ªå¤æ ‘äº’ç›¸æŒ¤åœ¨ä¸€èµ·ï¼Œä¾¿å¦‚ä¸€å µå¤§å¢™ï¼ˆwall)ç›¸ä¼¼ï¼Œå†ä¹Ÿæ— 
+æ³•å‘å‰è¿›ä¸€æ­¥äº†ã€‚
 LONG
 	);
-        set("outdoors", "´óÀí");
+        set("outdoors", "å¤§ç†");
 
 	set("exits", ([
              "south" : __DIR__"shanlin-5",
@@ -30,21 +30,21 @@ int do_jump(string arg)
        object me;
        me = this_player();
        if (!arg || arg !="wall") 
-           return notify_fail("ÄãÒªÌøµ½ÄÇÈ¥£¿\n");
+           return notify_fail("ä½ è¦è·³åˆ°é‚£å»ï¼Ÿ\n");
        if (random(me->query_skill("dodge",1)) < 60){ 
-           write("ÄãÎüÆø·ÜÁ¦Ò»Ìø£¬ÎŞÄÎÔËÆø²»ºÃ£¬Ã»Ìø¹ıÊ÷Ç½£¬Ë¤ÁËÏÂÀ´¡£\n");
-           write("ÄãÊÜÁËµãÉË!\n");
+           write("ä½ å¸æ°”å¥‹åŠ›ä¸€è·³ï¼Œæ— å¥ˆè¿æ°”ä¸å¥½ï¼Œæ²¡è·³è¿‡æ ‘å¢™ï¼Œæ‘”äº†ä¸‹æ¥ã€‚\n");
+           write("ä½ å—äº†ç‚¹ä¼¤!\n");
 	   me->add("qi", -100);
            me->add("jingli", -80);
            me->receive_wound("qi", 50);
 	   return 1;
            }
        else {
-           write("ÄãÒ»ÎüÆø£¬ÇáÇáÇÉÇÉµÄÌø¹ıÁË´óÊ÷Ç½¡£\n");
-           message("vision",me->name() + "Ò»×İÉíÌø¹ıÁËÊ÷Ç½¡£\n",environment(me), ({me}) );            
+           write("ä½ ä¸€å¸æ°”ï¼Œè½»è½»å·§å·§çš„è·³è¿‡äº†å¤§æ ‘å¢™ã€‚\n");
+           message("vision",me->name() + "ä¸€çºµèº«è·³è¿‡äº†æ ‘å¢™ã€‚\n",environment(me), ({me}) );            
            me->move(__DIR__"muwu1");
            me->start_busy(1);
-           message("vision",me->name() + "´ÓÊ÷Ç½ºóÃæÌøÁË¹ıÀ´¡£\n",environment(me), ({me}) );
+           message("vision",me->name() + "ä»æ ‘å¢™åé¢è·³äº†è¿‡æ¥ã€‚\n",environment(me), ({me}) );
            return 1;
            }
 }

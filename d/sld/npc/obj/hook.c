@@ -1,17 +1,17 @@
-// hook.c Ë«¹³
+// hook.c åŒé’©
 
 #include <weapon.h>
 inherit HOOK;
 
 void create()
 {
-        set_name("Ë«¹³", ({ "shuang gou", "gou" }));
+        set_name("åŒé’©", ({ "shuang gou", "gou" }));
         set_weight(300);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "ÕâÊÇÒ»±ú¾«¸ÖÖÆ³ÉµÄ¹³×Ó¡£\n");
+                set("unit", "æŸ„");
+                set("long", "è¿™æ˜¯ä¸€æŸ„ç²¾é’¢åˆ¶æˆçš„é’©å­ã€‚\n");
                 set("value", 30);
                 set("material", "steel");
         }

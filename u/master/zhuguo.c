@@ -6,10 +6,10 @@ inherit SPEC;
 
 void create()
 {
-     set_name (HIR"ÍòÄêÖì¹û"NOR, ({ "zhuguo"}));
-     set("long",HIR"ÕâÊÇÒ»Ã¶ÌìÉñÉÁµç¾«ÐÄÅàÓýµÄÍòÄêÖì¹û,³Ô(eat)ÏÂËü»á·¢ÉúÆæ¹ÖµÄÊÂÇé¡£\n"NOR);
+     set_name (HIR"ä¸‡å¹´æœ±æžœ"NOR, ({ "zhuguo"}));
+     set("long",HIR"è¿™æ˜¯ä¸€æžšå¤©ç¥žé—ªç”µç²¾å¿ƒåŸ¹è‚²çš„ä¸‡å¹´æœ±æžœ,åƒ(eat)ä¸‹å®ƒä¼šå‘ç”Ÿå¥‡æ€ªçš„äº‹æƒ…ã€‚\n"NOR);
 
-     set("unit","Ã¶");
+     set("unit","æžš");
      set_weight(100);
      set("value",3000000);
      set("no_give",1);
@@ -18,7 +18,7 @@ void create()
      set("degree",2);
      set("flag","spec/zhuguo");
      set("rest",9);
-     set("desc","ÉñÆæÎïÆ·¡£");
+     set("desc","ç¥žå¥‡ç‰©å“ã€‚");
      set("credit",15000);
      setup(); 
 
@@ -36,15 +36,15 @@ int do_eat(string arg)
      
          
      if (arg!="zhuguo")
-                     return notify_fail("ÄãÒª³ÔÊ²Ã´?\n");
+                     return notify_fail("ä½ è¦åƒä»€ä¹ˆ?\n");
             
-            if (!restrict()) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÔÙ³Ô"+this_object()->query("name")+"ÁË¡£\n");}   
+            if (!restrict()) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½å†åƒ"+this_object()->query("name")+"äº†ã€‚\n");}   
 
             me->add("potential",100000);
 //            me->add("SJ_Credit",1000);
 //            me->add("balance",1000000);
             me->add("combat_exp",100000);
-    write(HIY"Äã³ÔÏÂÒ»Ã¶"HIR"ÍòÄêÖì¹û"HIY"·¢ÏÖ×Ô¼ºÎäÑ§ÐÞÎª´óÔö!\n"NOR);
+    write(HIY"ä½ åƒä¸‹ä¸€æžš"HIR"ä¸‡å¹´æœ±æžœ"HIY"å‘çŽ°è‡ªå·±æ­¦å­¦ä¿®ä¸ºå¤§å¢ž!\n"NOR);
      degree();
     return 1;
 }    

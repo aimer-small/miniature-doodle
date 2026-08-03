@@ -1,5 +1,5 @@
 // pifeng.c
-// caiji@SJ 8/27/2000 ¸ù¾Ý½õ»¢Åû·çÐÞ¸Ä£¬Èç¸Ð¾õÀ×Í¬µÄ»°£¬Çë°ïÃ¦CUT¡£ 
+// caiji@SJ 8/27/2000 æ ¹æ®é”¦è™ŽæŠ«é£Žä¿®æ”¹ï¼Œå¦‚æ„Ÿè§‰é›·åŒçš„è¯ï¼Œè¯·å¸®å¿™CUTã€‚ 
 #include <ansi.h> 
 #include <armor.h> 
  
@@ -8,17 +8,17 @@ inherit SURCOAT;
 void create() 
 {
 	object me=this_object(); 
-        set_name( HIB "÷Î÷ÈÅû·ç" NOR, ({ "chimei pifeng", "pifeng" }) ); 
+        set_name( HIB "é­‘é­…æŠ«é£Ž" NOR, ({ "chimei pifeng", "pifeng" }) ); 
         set_weight(300); 
         if( clonep() ) 
                 set_default_object(__FILE__); 
         else { 
-                set("unit", "¼þ"); 
-                set("long", "ÕâÊÇÒ»¼þ´«Ëµ¿ÉÒÔÉ¢·¢¹íÆø£¬Ê¹ÈË²úÉú»ÃÓ°µÄÅû·ç¡£\n"); 
+                set("unit", "ä»¶"); 
+                set("long", "è¿™æ˜¯ä¸€ä»¶ä¼ è¯´å¯ä»¥æ•£å‘é¬¼æ°”ï¼Œä½¿äººäº§ç”Ÿå¹»å½±çš„æŠ«é£Žã€‚\n"); 
                 set("value", 300);
                 set("material", "cloth"); 
-                set("wield_msg", "$N¡°»©¡±µØÕ¹¿ª"+me->name()+"ÅûÔÚÉíÉÏ£¬Åû·çÔÚÉíºóËæ·çÆ®Ñï¡£\n");
-                set("unwield_msg"," $N½«"+me->name()+"½âÏÂÀ´µþºÃÈûÔÚÁË»³Àï¡£\n");
+                set("wield_msg", "$Nâ€œå“—â€åœ°å±•å¼€"+me->name()+"æŠ«åœ¨èº«ä¸Šï¼ŒæŠ«é£Žåœ¨èº«åŽéšé£Žé£˜æ‰¬ã€‚\n");
+                set("unwield_msg"," $Nå°†"+me->name()+"è§£ä¸‹æ¥å å¥½å¡žåœ¨äº†æ€€é‡Œã€‚\n");
                 set("armor_prop/armor", 4); 
                 set("armor_prop/dodge", 1); 
               } 

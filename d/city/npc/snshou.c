@@ -1,13 +1,13 @@
-// snshou.c ßïÄÅÊÖ
+// snshou.c å”¢å‘æ‰‹
 #include <ansi.h>
 
 inherit NPC;
 
 void create()
 {
-	set_name("ßïÄÅÊÖ", ({ "suona shou", "shou" }));
-	set("long", "ÕâÊÇÒ»¸ö»éÀñ´µ´ò×àÀÖµÄßïÄÅÊÖ£¬¹Ä×ãÁËÈù°ï×Ó£¬ÓÃÁ¦µØ´µ×Å»¶¿ìµÄÀÖÇú¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("å”¢å‘æ‰‹", ({ "suona shou", "shou" }));
+	set("long", "è¿™æ˜¯ä¸€ä¸ªå©šç¤¼å¹æ‰“å¥ä¹çš„å”¢å‘æ‰‹ï¼Œé¼“è¶³äº†è…®å¸®å­ï¼Œç”¨åŠ›åœ°å¹ç€æ¬¢å¿«çš„ä¹æ›²ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 	set("attitude", "peaceful");
 	set("str", 50);

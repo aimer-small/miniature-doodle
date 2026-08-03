@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ѩ���ŵ�");
+	set("short", "雪积古道");
 	set("long", @LONG
-  �죬������Ǧ�Ҷ��ͳ���
-  ѩ�����죬��������ۡ�
-  ��������ɵĸ��£����Ͳ�������
-  �Ҳ��ǲ����ɽ�ȣ����䲻���ס�
-  С������ѩɽ�ؾ�֮·��
+  天，阴郁，铅灰而低沉。
+  雪，漫天，狂风迷人眼。
+  左侧是万丈的高崖，陡峭不见顶；
+  右侧是不测的山谷，深邃不见底。
+  小径，上雪山必经之路。
 LONG
 	);
 
@@ -18,7 +18,7 @@ LONG
 		"southeast" : __DIR__"shanlu6",
 		"southwest" : __DIR__"xuelingquan",
 	]));
-        set("outdoors", "ѩɽ");
+        set("outdoors", "雪山");
         set("objects", ([
          __DIR__"npc/xuebao" : 1,
         ]));

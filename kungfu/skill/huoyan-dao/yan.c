@@ -3,10 +3,10 @@
 #include <ansi.h>
 #include <combat.h>
 
-#define YAN "¡¸" HIR "Ììå¾ÉñÑ×" NOR "¡¹"
+#define YAN "ã€Œ" HIR "å¤©å¯°ç¥žç‚Ž" NOR "ã€"
 
 inherit F_SSERVER; 
-string perform_name(){ return HIR"Ììå¾ÉñÑ×"NOR; }
+string perform_name(){ return HIR"å¤©å¯°ç¥žç‚Ž"NOR; }
 int perform(object me, object target)
 {
         object weapon;
@@ -19,34 +19,34 @@ int perform(object me, object target)
          || !me->is_fighting(target)
          || !objectp(target)
          || environment(target)!= environment(me))
-		return notify_fail("Ììå¾ÉñÑæÖ»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("å¤©å¯°ç¥žç„°åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
          
         if (me->query_temp("weapon") )
-                return notify_fail("Äã±ØÐë¿ÕÊÖ²ÅÄÜÊ©Õ¹" YAN "¡£\n");
+                return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹æ‰èƒ½æ–½å±•" YAN "ã€‚\n");
          
         if (me->query_skill("force") < 200) 
-                return notify_fail("ÄãµÄÄÚ¹¦µÄÐÞÎª²»¹»£¬ÎÞ·¨Ê©Õ¹" YAN "¡£\n");
+                return notify_fail("ä½ çš„å†…åŠŸçš„ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•æ–½å±•" YAN "ã€‚\n");
         
         if (me->query_skill("huoyan-dao", 1) < 150) 
-                return notify_fail("ÄãµÄ»ðÑæµ¶ÐÞÎª²»¹»£¬ÎÞ·¨Ê©Õ¹" YAN "¡£\n");
+                return notify_fail("ä½ çš„ç«ç„°åˆ€ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•æ–½å±•" YAN "ã€‚\n");
          
         if (me->query("neili") < 600 || me->query("max_neili") < 2000) 
-                return notify_fail("ÄãµÄÕæÆø²»¹»£¬ÎÞ·¨Ê©Õ¹" YAN "¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•æ–½å±•" YAN "ã€‚\n");
 
         if (me->query_skill_mapped("strike") != "huoyan-dao") 
-                return notify_fail("ÄãÃ»ÓÐ¼¤·¢»ðÑæµ¶£¬ÎÞ·¨Ê©Õ¹" YAN "¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰æ¿€å‘ç«ç„°åˆ€ï¼Œæ— æ³•æ–½å±•" YAN "ã€‚\n");
 
         if (me->query_skill_prepared("strike") != "huoyan-dao")
-                return notify_fail("ÄãÃ»ÓÐ×¼±¸»ðÑæµ¶£¬ÎÞ·¨Ê©Õ¹" YAN "¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰å‡†å¤‡ç«ç„°åˆ€ï¼Œæ— æ³•æ–½å±•" YAN "ã€‚\n");
 
        
         if (me->query_skill("xuedao-jing", 1) > 1) 
-               return notify_fail("ÄãÐÞÁ¶Ñªµ¶¾­Óë" YAN "ÒåÀíÏàã££¬²»ÄÜÊ©Õ¹¡£\n");
+               return notify_fail("ä½ ä¿®ç‚¼è¡€åˆ€ç»ä¸Ž" YAN "ä¹‰ç†ç›¸æ‚–ï¼Œä¸èƒ½æ–½å±•ã€‚\n");
      
         if (! living(target))
-               return notify_fail("¶Ô·½¶¼ÒÑ¾­ÕâÑùÁË£¬ÓÃ²»×ÅÕâÃ´·ÑÁ¦°É£¿\n");
+               return notify_fail("å¯¹æ–¹éƒ½å·²ç»è¿™æ ·äº†ï¼Œç”¨ä¸ç€è¿™ä¹ˆè´¹åŠ›å§ï¼Ÿ\n");
 
-        msg = HIR "\n\n$N" HIR "ºö×öÃ÷Íõ·ÞÅ­×´£¬ Ä¿µÉÈçÁå£¬Å­·¢ÉÏ³å£¬¿ñ´ßÕæÆø×¢Èëµ¥ÕÆ£¬ÕÆÔµ¶ÙÊ±ÌÚÆðÒ»µÀÐÜÐÜÁÒÑ×£¡\n" NOR;
+        msg = HIR "\n\n$N" HIR "å¿½åšæ˜ŽçŽ‹å¿¿æ€’çŠ¶ï¼Œ ç›®çžªå¦‚é“ƒï¼Œæ€’å‘ä¸Šå†²ï¼Œç‹‚å‚¬çœŸæ°”æ³¨å…¥å•æŽŒï¼ŒæŽŒç¼˜é¡¿æ—¶è…¾èµ·ä¸€é“ç†Šç†Šçƒˆç‚Žï¼\n" NOR;
        
 
         me->add("neili", -500);
@@ -94,7 +94,7 @@ me->add_temp("apply/damage", lvl/5);
   //      target->delete_temp("must_be_hit");
   
         me->start_busy(1 + random(2));
-        me->start_perform(3,"¡¸Ììå¾ÉñÑ×¡¹");
+        me->start_perform(3,"ã€Œå¤©å¯°ç¥žç‚Žã€");
        
 me->add_temp("apply/parry", -lvl/3);
 me->add_temp("apply/dodge", -lvl/3);

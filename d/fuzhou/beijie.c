@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����");
+	set("short", "北街");
 	set("long", @LONG
-�����Ǹ��ݵı��֣������˲��Ǻܶ࣬ż���м������󽭺����ʹ�����
-���������򱱼��۶�ȥ��
+这里是福州的北街，街面人不是很多，偶尔有几个好象江湖豪客打扮的人
+骑马从南向北疾驰而去。
 LONG
 
 	);
@@ -18,7 +18,7 @@ LONG
                 "south" : __DIR__"zhongxin",
 	]));
 
-	set("outdoors", "����");
+	set("outdoors", "福州");
 	setup();
 }
 

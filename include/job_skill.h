@@ -37,7 +37,7 @@ void set_martial()
         string weapon = "null";
         switch(random(33))
         {
-                case 0:  // wd Ì«¼«È­
+                case 0:  // wd å¤ªæžæ‹³
                         set_skill("yinyun-ziqi", 500);
                         set_skill("tiyunzong", 500);
                         set_skill("taiji-quan", 500);
@@ -46,7 +46,7 @@ void set_martial()
                         map_skill("parry", "taiji-quan");
                         map_skill("cuff", "taiji-quan");
                         prepare_skill("cuff", "taiji-quan");
-                        set("family/family_name","Îäµ±ÅÉ");
+                        set("family/family_name","æ­¦å½“æ´¾");
                         set("chat_chance_combat", 20);
                         set("chat_msg_combat", ({
                                 (: exert_function, "taiji" :),
@@ -57,7 +57,7 @@ void set_martial()
                                 (: perform_action, "cuff.gangrou" :),
                         }));
                         break;
-                case 1:  // wd Ì«¼«½£
+                case 1:  // wd å¤ªæžå‰‘
                         set_skill("yinyun-ziqi", 500);
                         set_skill("tiyunzong", 500);
                         set_skill("taiji-jian", 500);
@@ -68,7 +68,7 @@ void set_martial()
                         map_skill("parry", "taiji-jian");
                         map_skill("cuff", "taiji-quan");
                         prepare_skill("cuff", "taiji-quan");
-                        set("family/family_name","Îäµ±ÅÉ");
+                        set("family/family_name","æ­¦å½“æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "taiji" :),
@@ -79,7 +79,7 @@ void set_martial()
                         }));
                         weapon = "sword";
                         break;
-                case 2:  // sl ÈÕÔÂ±Þ·¨
+                case 2:  // sl æ—¥æœˆéž­æ³•
                         set_skill("yijin-jing", 500);
                         set_skill("shaolin-shenfa", 500);
                         set_skill("riyue-bian", 500);
@@ -90,7 +90,7 @@ void set_martial()
                         map_skill("parry", "riyue-bian");
                         map_skill("finger", "yizhi-chan");
                         prepare_skill("finger", "yizhi-chan");
-                        set("family/family_name","ÉÙÁÖÅÉ");
+                        set("family/family_name","å°‘æž—æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "jingang" :),
@@ -99,7 +99,7 @@ void set_martial()
                         }));
                         weapon = "whip";
                         break;
-                case 3:  // sl È¼Ä¾µ¶·¨
+                case 3:  // sl ç‡ƒæœ¨åˆ€æ³•
                         set_skill("yijin-jing", 500);
                         set_skill("shaolin-shenfa", 500);
                         set_skill("ranmu-daofa", 500);
@@ -110,7 +110,7 @@ void set_martial()
                         map_skill("parry", "ranmu-daofa");
                         map_skill("finger", "yizhi-chan");
                         prepare_skill("finger", "yizhi-chan");
-                        set("family/family_name","ÉÙÁÖÅÉ");
+                        set("family/family_name","å°‘æž—æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "jingang" :),
@@ -120,7 +120,7 @@ void set_martial()
                         }));
                         weapon = "blade";
                         break;
-                case 4:  // sl Î¤ÍÓèÆ
+                case 4:  // sl éŸ¦é™€æµ
                         set_skill("yijin-jing", 500);
                         set_skill("shaolin-shenfa", 500);
                         set_skill("yizhi-chan", 500);
@@ -131,7 +131,7 @@ void set_martial()
                         map_skill("finger", "yizhi-chan");
                         map_skill("club", "weituo-chu");
                         prepare_skill("finger", "yizhi-chan");
-                        set("family/family_name","ÉÙÁÖÅÉ");
+                        set("family/family_name","å°‘æž—æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "jingang" :),
@@ -140,7 +140,7 @@ void set_martial()
                         }));
                         weapon = "club";
                         break;
-                case 5:  // sl Ò»Ö¸ìø Áú×¥¹¦
+                case 5:  // sl ä¸€æŒ‡ç¦… é¾™æŠ“åŠŸ
                         set_skill("yijin-jing", 500);
                         set_skill("shaolin-shenfa", 500);
                         set_skill("yizhi-chan", 500);
@@ -152,7 +152,7 @@ void set_martial()
                         map_skill("claw", "longzhua-gong");
                         prepare_skill("finger", "yizhi-chan");
                         prepare_skill("claw", "longzhua-gong");
-                        set("family/family_name","ÉÙÁÖÅÉ");
+                        set("family/family_name","å°‘æž—æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "jingang" :),
@@ -160,7 +160,7 @@ void set_martial()
                                 (: perform_action, "claw.lianhuan" :),
                         }));
                         break;
-                case 6:  // sl ½ð¸ÕÈ­ °ãÈôÕÆ
+                case 6:  // sl é‡‘åˆšæ‹³ èˆ¬è‹¥æŽŒ
                         set_skill("yijin-jing", 500);
                         set_skill("shaolin-shenfa", 500);
                         set_skill("banruo-zhang", 500);
@@ -172,7 +172,7 @@ void set_martial()
                         map_skill("strike", "banruo-zhang");
                         prepare_skill("cuff", "jingang-quan");
                         prepare_skill("strike", "banruo-zhang");
-                        set("family/family_name","ÉÙÁÖÅÉ");
+                        set("family/family_name","å°‘æž—æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "jingang" :),
@@ -180,7 +180,7 @@ void set_martial()
                                 (: perform_action, "cuff.fumo" :),
                         }));
                         break;
-                case 7:  // sl ÈçÓ°ÍÈ Ç§Ò¶ÊÖ
+                case 7:  // sl å¦‚å½±è…¿ åƒå¶æ‰‹
                         set_skill("yijin-jing", 500);
                         set_skill("shaolin-shenfa", 500);
                         set_skill("ruying-suixingtui", 500);
@@ -192,7 +192,7 @@ void set_martial()
                         map_skill("hand", "qianye-shou");
                         prepare_skill("hand", "qianye-shou");
                         prepare_skill("leg", "ruying-suixingtui");
-                        set("family/family_name","ÉÙÁÖÅÉ");
+                        set("family/family_name","å°‘æž—æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "jingang" :),
@@ -200,7 +200,7 @@ void set_martial()
                                 (: perform_action, "hand.qianshou" :),
                         }));
                         break;
-                case 8:  // hs »ìÔªÕÆ
+                case 8:  // hs æ··å…ƒæŽŒ
                         set_skill("zixia-gong", 500);
                         set_skill("huashan-shenfa", 500);
                         set_skill("hunyuan-zhang", 500);
@@ -209,16 +209,16 @@ void set_martial()
                         map_skill("parry", "hunyuan-zhang");
                         map_skill("strike", "hunyuan-zhang");
                         prepare_skill("strike", "hunyuan-zhang");
-                        set("family/family_name","»ªÉ½ÅÉ");
+                        set("family/family_name","åŽå±±æ´¾");
                         set("chat_chance_combat", 30);
-                        set("family/sect", "Æø×Ú");
+                        set("family/sect", "æ°”å®—");
                         set("chat_msg_combat", ({
                                 (: exert_function, "zixia" :),
                                 (: perform_action, "strike.hunyuan" :),
                                 (: perform_action, "strike.wuji" :),
                         }));
                         break;
-                case 9:  // hs »ªÉ½½£·¨
+                case 9:  // hs åŽå±±å‰‘æ³•
                         set_skill("zixia-gong", 500);
                         set_skill("huashan-shenfa", 500);
                         set_skill("huashan-jianfa", 500);
@@ -229,11 +229,11 @@ void set_martial()
                         map_skill("parry", "huashan-jianfa");
                         map_skill("strike", "hunyuan-zhang");
                         prepare_skill("strike", "hunyuan-zhang");
-                        set("family/family_name","»ªÉ½ÅÉ");
+                        set("family/family_name","åŽå±±æ´¾");
                         set("chat_chance_combat", 30);
                         if (random(2))
                         {
-                                set("family/sect", "½£×Ú");
+                                set("family/sect", "å‰‘å®—");
                                 set("chat_msg_combat", ({
                                         (: exert_function, "zixia" :),
                                         (: exert_function, "jianqi" :),
@@ -245,7 +245,7 @@ void set_martial()
                         }
                         else
                         {
-                                set("family/sect", "Æø×Ú");
+                                set("family/sect", "æ°”å®—");
                                 set("chat_msg_combat", ({
                                         (: exert_function, "zixia" :),
                                         (: exert_function, "jianqi" :),
@@ -257,7 +257,7 @@ void set_martial()
                         }
                         weapon = "sword";
                         break;
-                case 10: // sld »¯¹ÇÃàÕÆ
+                case 10: // sld åŒ–éª¨ç»µæŽŒ
                         set_skill("poison", 500);
                         set_skill("dulong-dafa", 500);
                         set_skill("huagu-mianzhang", 500);
@@ -268,7 +268,7 @@ void set_martial()
                         map_skill("parry", "huagu-mianzhang");
                         map_skill("strike", "huagu-mianzhang");
                         prepare_skill("strike", "huagu-mianzhang");
-                        set("family/family_name","ÉñÁúµº");
+                        set("family/family_name","ç¥žé¾™å²›");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "wudi" :),
@@ -276,7 +276,7 @@ void set_martial()
                                 (: perform_action, "strike.bujue" :),
                         }));
                         break;
-                case 11: // sld ÌÚÁúØ°·¨
+                case 11: // sld è…¾é¾™åŒ•æ³•
                         set_skill("poison", 500);
                         set_skill("dulong-dafa", 500);
                         set_skill("huagu-mianzhang", 500);
@@ -289,7 +289,7 @@ void set_martial()
                         map_skill("strike", "huagu-mianzhang");
                         map_skill("dagger", "tenglong-bifa");
                         prepare_skill("strike", "huagu-mianzhang");
-                        set("family/family_name","ÉñÁúµº");
+                        set("family/family_name","ç¥žé¾™å²›");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "wudi" :),
@@ -303,7 +303,7 @@ void set_martial()
                         }));
                         weapon = "dagger";
                         break;
-                case 12:  // gb ´ò¹·°ô·¨
+                case 12:  // gb æ‰“ç‹—æ£’æ³•
                         set_skill("huntian-qigong", 500);
                         set_skill("bangjue", 500);
                         set_skill("xiaoyaoyou", 500);
@@ -315,7 +315,7 @@ void set_martial()
                         map_skill("parry", "dagou-bang");
                         map_skill("strike", "xianglong-zhang");
                         prepare_skill("strike", "xianglong-zhang");
-                        set("family/family_name","Ø¤°ï");
+                        set("family/family_name","ä¸å¸®");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "huntian" :),
@@ -328,7 +328,7 @@ void set_martial()
                         }));
                         weapon = "stick";
                         break;
-                case 13:  // gb ½µÁúÊ®°ËÕÆ
+                case 13:  // gb é™é¾™åå…«æŽŒ
                         set_skill("huntian-qigong", 500);
                         set_skill("xiaoyaoyou", 500);
                         set_skill("xianglong-zhang", 500);
@@ -337,7 +337,7 @@ void set_martial()
                         map_skill("parry", "xianglong-zhang");
                         map_skill("strike", "xianglong-zhang");
                         prepare_skill("strike", "xianglong-zhang");
-                        set("family/family_name","Ø¤°ï");
+                        set("family/family_name","ä¸å¸®");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "huntian" :),
@@ -346,7 +346,7 @@ void set_martial()
                                 (: perform_action, "strike.xiao" :),
                         }));
                         break;
-                case 14:  // thd ×éºÏ
+                case 14:  // thd ç»„åˆ
                         set_skill("qimen-bagua", 500);
                         set_skill("suibo-zhuliu", 500);
                         set_skill("xuanfeng-tui", 500);
@@ -364,7 +364,7 @@ void set_martial()
                         map_skill("parry", "yuxiao-jian");
                         map_skill("finger", "tanzhi-shentong");
                         prepare_skill("finger", "tanzhi-shentong");
-                        set("family/family_name","ÌÒ»¨µº");
+                        set("family/family_name","æ¡ƒèŠ±å²›");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "maze" :),
@@ -374,7 +374,7 @@ void set_martial()
                         }));
                         weapon = "xiao";
                         break;
-                case 15: // mr Ä½ÈÝ½£·¨
+                case 15: // mr æ…•å®¹å‰‘æ³•
                         set_skill("shenyuan-gong", 500);
                         set_skill("douzhuan-xingyi", 500);
                         set_skill("yanling-shenfa", 500);
@@ -386,7 +386,7 @@ void set_martial()
                         map_skill("parry", "murong-jianfa");
                         map_skill("finger", "canhe-zhi");
                         prepare_skill("finger", "canhe-zhi");
-                        set("family/family_name","¹ÃËÕÄ½ÈÝ");
+                        set("family/family_name","å§‘è‹æ…•å®¹");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "shenyuan" :),
@@ -395,7 +395,7 @@ void set_martial()
                         }));
                         weapon = "sword";
                         break;
-                case 16: // mr ²ÎºÏÖ¸
+                case 16: // mr å‚åˆæŒ‡
                         set_skill("shenyuan-gong", 500);
                         set_skill("douzhuan-xingyi", 500);
                         set_skill("yanling-shenfa", 500);
@@ -407,14 +407,14 @@ void set_martial()
                         map_skill("parry", "canhe-zhi");
                         map_skill("finger", "canhe-zhi");
                         prepare_skill("finger", "canhe-zhi");
-                        set("family/family_name","¹ÃËÕÄ½ÈÝ");
+                        set("family/family_name","å§‘è‹æ…•å®¹");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "shenyuan" :),
                                 (: perform_action, "finger.ci" :),
                         }));
                         break;
-                case 17: // gumu ÐþÌú½£·¨
+                case 17: // gumu çŽ„é“å‰‘æ³•
                         set_skill("yunu-xinjing", 500);
                         set_skill("yunu-shenfa", 500);
                         set_skill("xuantie-jianfa", 500);
@@ -425,8 +425,8 @@ void set_martial()
                         map_skill("parry", "xuantie-jianfa");
                         map_skill("strike", "anran-zhang");
                         prepare_skill("strike", "anran-zhang");
-                        set("family/family_name","¹ÅÄ¹ÅÉ");
-                        set("gender", "ÄÐÐÔ");
+                        set("family/family_name","å¤å¢“æ´¾");
+                        set("gender", "ç”·æ€§");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "xinjing" :),
@@ -435,7 +435,7 @@ void set_martial()
                         }));
                         weapon = "sword";
                         break;
-                case 18: // gumu ÷öÈ»Ïú»êÕÆ
+                case 18: // gumu é»¯ç„¶é”€é­‚æŽŒ
                         set_skill("yunu-xinjing", 500);
                         set_skill("yunu-shenfa", 500);
                         set_skill("xuantie-jianfa", 500);
@@ -446,8 +446,8 @@ void set_martial()
                         map_skill("parry", "anran-zhang");
                         map_skill("strike", "anran-zhang");
                         prepare_skill("strike", "anran-zhang");
-                        set("family/family_name","¹ÅÄ¹ÅÉ");
-                        set("gender", "ÄÐÐÔ");
+                        set("family/family_name","å¤å¢“æ´¾");
+                        set("gender", "ç”·æ€§");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "xinjing" :),
@@ -455,7 +455,7 @@ void set_martial()
                                 (: perform_action, "strike.xiaohun" :),
                         }));
                         break;
-                case 19: // gumu ÒøË÷½ðÁå
+                case 19: // gumu é“¶ç´¢é‡‘é“ƒ
                         set("gmsanwu",1);
                         set_skill("yunu-xinjing", 500);
                         set_skill("yunu-shenfa", 500);
@@ -467,8 +467,8 @@ void set_martial()
                         map_skill("parry", "yinsuo-jinling");
                         map_skill("cuff", "meinu-quanfa");
                         prepare_skill("cuff", "meinu-quanfa");
-                        set("family/family_name","¹ÅÄ¹ÅÉ");
-                        set("gender", "Å®ÐÔ");
+                        set("family/family_name","å¤å¢“æ´¾");
+                        set("gender", "å¥³æ€§");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "xinjing" :),
@@ -477,7 +477,7 @@ void set_martial()
                         }));
                         weapon = "whip";
                         break;
-                case 20: // emei »Ø·ç·÷Áø½£
+                case 20: // emei å›žé£Žæ‹‚æŸ³å‰‘
                         set_skill("linji-zhuang", 500);
                         set_skill("anying-fuxiang", 500);
                         set_skill("huifeng-jian", 500);
@@ -488,7 +488,7 @@ void set_martial()
                         map_skill("parry", "huifeng-jian");
                         map_skill("strike", "sixiang-zhang");
                         prepare_skill("strike", "sixiang-zhang");
-                        set("family/family_name","¶ëáÒÅÉ");
+                        set("family/family_name","å³¨åµ‹æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "riyue" :),
@@ -498,7 +498,7 @@ void set_martial()
                         }));
                         weapon = "sword";
                         break;
-                case 21: // emei ½ØÊÖ¾ÅÊ½
+                case 21: // emei æˆªæ‰‹ä¹å¼
                         set_skill("linji-zhuang", 500);
                         set_skill("anying-fuxiang", 500);
                         set_skill("jieshou-jiushi", 500);
@@ -507,7 +507,7 @@ void set_martial()
                         map_skill("parry", "jieshou-jiushi");
                         map_skill("hand", "jieshou-jiushi");
                         prepare_skill("hand", "jieshou-jiushi");
-                        set("family/family_name","¶ëáÒÅÉ");
+                        set("family/family_name","å³¨åµ‹æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "fengyun" :),
@@ -515,7 +515,7 @@ void set_martial()
                                 (: perform_action, "strike.foguang" :),
                         }));
                         break;
-                case 22: // mj Ê¥»ðÁî·¨
+                case 22: // mj åœ£ç«ä»¤æ³•
                         set_skill("qiankun-danuoyi", 500);
                         set_skill("piaoyi-shenfa", 500);
                         set_skill("shenghuo-lingfa", 500);
@@ -527,7 +527,7 @@ void set_martial()
                         map_skill("parry", "shenghuo-lingfa");
                         map_skill("cuff", "qishang-quan");
                         prepare_skill("cuff", "qishang-quan");
-                        set("family/family_name","Ã÷½Ì");
+                        set("family/family_name","æ˜Žæ•™");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "yinfeng" :),
@@ -536,7 +536,7 @@ void set_martial()
                         }));
                         weapon = "tieling";
                         break;
-                case 23: // mj ÆßÉËÈ­
+                case 23: // mj ä¸ƒä¼¤æ‹³
                         set_skill("shenghuo-shengong", 500);
                         set_skill("qiankun-danuoyi", 500);
                         set_skill("piaoyi-shenfa", 500);
@@ -546,7 +546,7 @@ void set_martial()
                         map_skill("parry", "qishang-quan");
                         map_skill("cuff", "qishang-quan");
                         prepare_skill("cuff", "qishang-quan");
-                        set("family/family_name","Ã÷½Ì");
+                        set("family/family_name","æ˜Žæ•™");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "yinfeng" :),
@@ -555,7 +555,7 @@ void set_martial()
 
                         }));
                         break;
-                case 24: // tls Ò»ÑôÖ¸
+                case 24: // tls ä¸€é˜³æŒ‡
                         set_skill("kurong-changong", 500);
                         set_skill("tianlong-xiang", 500);
                         set_skill("yiyang-zhi", 500);
@@ -564,7 +564,7 @@ void set_martial()
                         map_skill("parry", "yiyang-zhi");
                         map_skill("finger", "yiyang-zhi");
                         prepare_skill("finger", "yiyang-zhi");
-                        set("family/family_name","ÌìÁúËÂ");
+                        set("family/family_name","å¤©é¾™å¯º");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "kurong" :),
@@ -572,7 +572,7 @@ void set_martial()
                                 (: perform_action, "finger.sandie" :),
                         }));
                         break;
-                case 25: // tz ÌúÕÆÕÆ·¨
+                case 25: // tz é“æŽŒæŽŒæ³•
                         set_skill("tiezhang-zhangfa", 500);
                         set_skill("shuishangpiao", 500);
                         set_skill("guiyuan-tunafa", 500);
@@ -582,7 +582,7 @@ void set_martial()
                         map_skill("parry", "tiezhang-zhangfa");
                         map_skill("strike", "tiezhang-zhangfa");
                         prepare_skill("strike", "tiezhang-zhangfa");
-                        set("family/family_name","ÌúÕÆ°ï");
+                        set("family/family_name","é“æŽŒå¸®");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "guiyuan" :),
@@ -592,7 +592,7 @@ void set_martial()
                                 (: perform_action, "dodge.piao" :),
                         }));
                         break;
-                case 26: // xx ³éËèÕÆ
+                case 26: // xx æŠ½é«“æŽŒ
                         set_skill("huagong-dafa", 500);
                         set_skill("chousui-zhang", 500);
                         set_skill("zhaixingshu", 500);
@@ -602,14 +602,14 @@ void set_martial()
                         map_skill("parry", "chousui-zhang");
                         map_skill("strike", "chousui-zhang");
                         prepare_skill("strike", "chousui-zhang");
-                        set("family/family_name","ÐÇËÞÅÉ");
+                        set("family/family_name","æ˜Ÿå®¿æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "huadu" :),
                                 (: perform_action, "strike.chousui" :),
                         }));
                         break;
-                case 27: // xx ÌìÉ½ÕÈ·¨
+                case 27: // xx å¤©å±±æ–æ³•
                         set_skill("huagong-dafa", 500);
                         set_skill("tianshan-zhang", 500);
                         set_skill("chousui-zhang", 500);
@@ -621,7 +621,7 @@ void set_martial()
                         map_skill("strike", "chousui-zhang");
                         map_skill("staff", "tianshan-zhang");
                         prepare_skill("strike", "chousui-zhang");
-                        set("family/family_name","ÐÇËÞÅÉ");
+                        set("family/family_name","æ˜Ÿå®¿æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "huadu" :),
@@ -629,7 +629,7 @@ void set_martial()
                         }));
                         weapon = "staff";
                         break;
-                case 28: // ss áÔÉ½½£·¨
+                case 28: // ss åµ©å±±å‰‘æ³•
                         set_skill("hanbing-zhenqi", 500);
                         set_skill("zhongyuefeng", 500);
                         set_skill("songshan-jian", 500);
@@ -641,7 +641,7 @@ void set_martial()
                         map_skill("sword", "songshan-jian");
                         map_skill("strike", "hanbing-shenzhang");
                         prepare_skill("strike", "hanbing-shenzhang");
-                        set("family/family_name","áÔÉ½ÅÉ");
+                        set("family/family_name","åµ©å±±æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "hanbing" :),
@@ -652,7 +652,7 @@ void set_martial()
                         }));
                         weapon = "sword";
                         break;
-                case 29: // ss º®±ùÉñÕÆ
+                case 29: // ss å¯’å†°ç¥žæŽŒ
                         set_skill("hanbing-zhenqi", 500);
                         set_skill("zhongyuefeng", 500);
                         set_skill("songshan-jian", 500);
@@ -663,7 +663,7 @@ void set_martial()
                         map_skill("parry", "hanbing-shenzhang");
                         map_skill("strike", "hanbing-shenzhang");
                         prepare_skill("strike", "hanbing-shenzhang");
-                        set("family/family_name","áÔÉ½ÅÉ");
+                        set("family/family_name","åµ©å±±æ´¾");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "hanbing" :),
@@ -671,7 +671,7 @@ void set_martial()
                                 (: perform_action, "strike.hanbing" :),
                         }));
                         break;
-                case 30: // dls »ðÑæµ¶
+                case 30: // dls ç«ç„°åˆ€
                         set_skill("longxiang-boruo", 500);
                         set_skill("yuxue-dunxing", 500);
                         set_skill("huoyan-dao", 500);
@@ -680,7 +680,7 @@ void set_martial()
                         map_skill("parry", "huoyan-dao");
                         map_skill("strike", "huoyan-dao");
                         prepare_skill("strike", "huoyan-dao");
-                        set("family/family_name", "´óÂÖËÂ");
+                        set("family/family_name", "å¤§è½®å¯º");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "longxiang" :),
@@ -689,7 +689,7 @@ void set_martial()
                                 (: perform_action, "strike.fen" :),
                         }));
                         break;
-                case 31: // dls Ñªµ¶¾­
+                case 31: // dls è¡€åˆ€ç»
                         set_skill("longxiang-boruo", 500);
                         set_skill("yuxue-dunxing", 500);
                         set_skill("huoyan-dao", 500);
@@ -700,7 +700,7 @@ void set_martial()
                         map_skill("strike", "huoyan-dao");
                         map_skill("blade", "xuedao-jing");
                         prepare_skill("strike", "huoyan-dao");
-                        set("family/family_name","´óÂÖËÂ");
+                        set("family/family_name","å¤§è½®å¯º");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "longxiang" :),
@@ -709,7 +709,7 @@ void set_martial()
                         }));
                         weapon = "blade";
                         break;
-                case 32: // dls ½µ·þÂÖ
+                case 32: // dls é™æœè½®
                         set_skill("longxiang-boruo", 500);
                         set_skill("yuxue-dunxing", 500);
                         set_skill("huoyan-dao", 500);
@@ -720,7 +720,7 @@ void set_martial()
                         map_skill("strike", "huoyan-dao");
                         map_skill("hammer", "xiangfu-lun");
                         prepare_skill("strike", "huoyan-dao");
-                        set("family/family_name","´óÂÖËÂ");
+                        set("family/family_name","å¤§è½®å¯º");
                         set("chat_chance_combat", 30);
                         set("chat_msg_combat", ({
                                 (: exert_function, "longxiang" :),
@@ -729,7 +729,7 @@ void set_martial()
                         weapon = "chui";
                         break;
                 default: // others      BUG!!!
-                        set("long","Îä¹¦ÉèÖÃ´íÎó£¬BUG£¡£¡£¡");
+                        set("long","æ­¦åŠŸè®¾ç½®é”™è¯¯ï¼ŒBUGï¼ï¼ï¼");
         }
         set("weapon", weapon);
         if (weapon != "null")
@@ -745,7 +745,7 @@ void check_fight()
         weapon = ob->query("weapon");
         if (stringp(weapon) && weapon != "null" && !ob->query_temp("weapon"))
         {
-                message_vision("$NÓÖÄÃ³öÒ»°Ñ±øÆ÷ÎÕÔÚÊÖÖÐ¡£\n", ob);
+                message_vision("$Nåˆæ‹¿å‡ºä¸€æŠŠå…µå™¨æ¡åœ¨æ‰‹ä¸­ã€‚\n", ob);
                 carry_object(BINGQI_D(weapon))->wield();
         }
         call_out("check_fight", 1);

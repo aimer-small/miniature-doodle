@@ -14,13 +14,13 @@ void init()
 
 void create()
 {
-        set_name(HIG "ÉñÁúµ¤" NOR, ({"shenglong dan","dan"}));
+        set_name(HIG "ç¥žé¾™ä¸¹" NOR, ({"shenglong dan","dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
 		set("long",
-                "Îå²ÊÉñÁúµÄÄÚµ¤£¬³ÔÁË¿ÉÄÜ»áÖÐ¶¾¡£\n");
-		set("unit", "¿Å");
+                "äº”å½©ç¥žé¾™çš„å†…ä¸¹ï¼Œåƒäº†å¯èƒ½ä¼šä¸­æ¯’ã€‚\n");
+		set("unit", "é¢—");
 		set("medicine", "drug");
 		//set("no_get", 1);
 //                set("no_drop", 1);
@@ -30,11 +30,11 @@ void create()
 int do_eat(string arg)
 {
 	object me = this_player();
-	if (!living(me)) return notify_fail("Ïëµ±»úÂð£¿\n");
+	if (!living(me)) return notify_fail("æƒ³å½“æœºå—ï¼Ÿ\n");
 	if (!id(arg)) return 0;
-	message_vision(HIG "$N³ÔÏÂÒ»¿Å"
+	message_vision(HIG "$Nåƒä¸‹ä¸€é¢—"
 	+this_object()->query("name")+
-	HIG "£¬¶ÙÊ±¾õµÃÈ«Éí·¢ÈÈ£¬Ò»¹ÉÕæÆøÖ±³åÍ·¶¥£¬ËÆÓû³å¶¥¶ø³ö¡£\n"
+	HIG "ï¼Œé¡¿æ—¶è§‰å¾—å…¨èº«å‘çƒ­ï¼Œä¸€è‚¡çœŸæ°”ç›´å†²å¤´é¡¶ï¼Œä¼¼æ¬²å†²é¡¶è€Œå‡ºã€‚\n"
 	NOR,me);
 	//"/adm/daemons/emoted"->do_emote(me,"taste");
         if(random(10)>4)

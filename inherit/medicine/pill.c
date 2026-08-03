@@ -17,14 +17,14 @@ int do_eat(string arg)
 	int howmuch = query("amount");
 
 	if (!id(arg))
-		return notify_fail("ÄãÏë³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ æƒ³åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ((int)this_player()->query("eff_qi") == 
 	    (int)this_player()->query("max_qi"))
-		return notify_fail("ÄãÏÖÔÚ²»ÐèÒªÓÃ" + this_object()->name() + "¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨ä¸éœ€è¦ç”¨" + this_object()->name() + "ã€‚\n");
 	else {
 		this_player()->receive_curing("qi", 50);
-		message_vision("$N³ÔÏÂÒ»°ü½ð´´Ò©£¬ÆøÉ«¿´ÆðÀ´ºÃ¶àÁË¡£\n", this_player());
+		message_vision("$Nåƒä¸‹ä¸€åŒ…é‡‘åˆ›è¯ï¼Œæ°”è‰²çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n", this_player());
 		destruct(this_object());
 		return 1;
 	}

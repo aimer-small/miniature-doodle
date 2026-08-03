@@ -6,21 +6,21 @@ inherit NECK;
 
 void create()
 {
-	set_name(MAG "×ÏÉ«Ë®¾§ÏîÁ´" NOR, ({ "shuijing xianglian", "xianglian" }) );
+	set_name(MAG "ç´«è‰²æ°´æ™¶é¡¹é“¾" NOR, ({ "shuijing xianglian", "xianglian" }) );
 	set_weight(1000);
 	if (clonep()) set_default_object(__FILE__);
 	else
 	{
-		set("long","×ÏË®¾§´ú±í¸ĞÇé¡¢ÖÇ»ÛµÄÌáÉı£¬¹ã½áÈËÔµ£¬ÕĞ¸£µ²É·¡£\n");
+		set("long","ç´«æ°´æ™¶ä»£è¡¨æ„Ÿæƒ…ã€æ™ºæ…§çš„æå‡ï¼Œå¹¿ç»“äººç¼˜ï¼Œæ‹›ç¦æŒ¡ç…ã€‚\n");
 		set("female_only",1);
-		set("unit", "¸ö");
+		set("unit", "ä¸ª");
 		set("value", 10000);
 		set("material", "jade");
 		set("armor_prop/armor",1);
 		set("no_get",1);
 		set("no_drop",1);
-		set("remove_msg","$NÏ¸ĞÄµÃ½«"+name()+"ÕªÏÂ£¬·ÅÔÚÌùÉí´¦ÊÕ²Ø¡£\n");
-		set("wear_msg","$N½«"+name()+"´÷ÔÚ×Ô¼º¾±ÉÏ£¬µÃÒâ·Ç·²¡£\n");
+		set("remove_msg","$Nç»†å¿ƒå¾—å°†"+name()+"æ‘˜ä¸‹ï¼Œæ”¾åœ¨è´´èº«å¤„æ”¶è—ã€‚\n");
+		set("wear_msg","$Nå°†"+name()+"æˆ´åœ¨è‡ªå·±é¢ˆä¸Šï¼Œå¾—æ„éå‡¡ã€‚\n");
 	}
 	setup();
 }

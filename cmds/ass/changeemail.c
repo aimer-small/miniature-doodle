@@ -1,6 +1,6 @@
 
 #include <ansi.h>
-#define SYNTAX  "Ö¸Áî¸ñÊ½£ºchangemail <Ä³ÈË> <ĞÂĞÅÏä>\n"
+#define SYNTAX  "æŒ‡ä»¤æ ¼å¼ï¼šchangemail <æŸäºº> <æ–°ä¿¡ç®±>\n"
 inherit F_CLEAN_UP;
 
 
@@ -16,12 +16,12 @@ int main(object me, string str)
 
 	if (!ret)
 	{
-		write("Êı¾İ¿âÁ¬½ÓÊ§°Ü¡£\n");
+		write("æ•°æ®åº“è¿æ¥å¤±è´¥ã€‚\n");
 		return 1;
 	}
 
 	if (sizeof(ret) < 1) {
-		write(HIY "Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n"NOR);
+		write(HIY "æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n"NOR);
 		return 1;
 	}
 	else
@@ -31,14 +31,14 @@ int main(object me, string str)
 		ret = dbquery ("UPDATE Users set U_Email = \"" + mail + "\" where U_Username = \"" + name+ "\"");
 		if (!ret)
 		{
-			write("¸üĞÂÍæ¼ÒÊı¾İ¿âÊ§°Ü¡£\n");
+			write("æ›´æ–°ç©å®¶æ•°æ®åº“å¤±è´¥ã€‚\n");
 			return 1;
 		}
 		else
 		{
-			write("Íæ¼Ò " + name + " µÄĞÅÏäÒÑ¾­ÓÉ " + oldmail + " ¸ü¸ÄÎª " + mail + " ¡£\n");
+			write("ç©å®¶ " + name + " çš„ä¿¡ç®±å·²ç»ç”± " + oldmail + " æ›´æ”¹ä¸º " + mail + " ã€‚\n");
 			log_file("static/CHANGEEMAIL",
-			sprintf("%s  ±» %s(%s) ĞŞ¸ÄĞÅÏäÓÉ %s ±ä³É %s ¡£\n",
+			sprintf("%s  è¢« %s(%s) ä¿®æ”¹ä¿¡ç®±ç”± %s å˜æˆ %s ã€‚\n",
 				name, (string)me->query("name"),me->query("id"), oldmail,mail
 			), ({ me }) );
 		}
@@ -52,8 +52,8 @@ int main(object me, string str)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºchangemail <Ä³ÈË> <ĞÂĞÅÏä>
-Äã¿ÉÒÔÓÃÕâ¸öÖ¸Áî¸øÍæ¼Ò»»ĞÅÏä¡£
+æŒ‡ä»¤æ ¼å¼ï¼šchangemail <æŸäºº> <æ–°ä¿¡ç®±>
+ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤ç»™ç©å®¶æ¢ä¿¡ç®±ã€‚
 HELP
 	);
 	return 1;

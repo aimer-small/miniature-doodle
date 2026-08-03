@@ -3,15 +3,15 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-   set_name("ÓñÁéÉ¢", ({"yuling san", "yuling","san"}));
+   set_name("ç‰çµæ•£", ({"yuling san", "yuling","san"}));
    if (clonep())
       set_default_object(__FILE__);
    else {
       set("value", 20000);
-      set("unit", "Ğ©");
-      set("long","ÕâÊÇÒ»·İ»ªÉ½ÅÉµÄÓñÁéÉ¢£¬ÓÃÓÚ½âÈÈ¶¾¡£\n");
+      set("unit", "äº›");
+      set("long","è¿™æ˜¯ä¸€ä»½åå±±æ´¾çš„ç‰çµæ•£ï¼Œç”¨äºè§£çƒ­æ¯’ã€‚\n");
       set("base_value", 20000);
-      set("base_unit", "·İ");
+      set("base_unit", "ä»½");
       set("base_weight", 30);
    }
    set_amount(1);
@@ -27,16 +27,16 @@ int do_eat(string arg)
    object me = this_player();
 
    if(!id(arg))
-       return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+       return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
    if (!me->query_condition("hot_poison"))
-           return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃÓñÁéÉ¢¡£\n");
+           return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨ç‰çµæ•£ã€‚\n");
    else {       
         if(me->query_condition("hot_poison") > 10)
            me->apply_condition("hot_poison", me->query_condition("hot_poison")-10);
         else
            me->clear_condition("hot_poison");
-        message_vision("$N·şÏÂÒ»·İÓñÁéÉ¢£¬ÉñÉ«½¥½¥¿ªÊ¼ºÃ×ª£¬ÉíÉÏµÄÈÈ¶¾Ò²¿ªÊ¼ÏûÉ¢ÁË¡£\n", this_player());
+        message_vision("$Næœä¸‹ä¸€ä»½ç‰çµæ•£ï¼Œç¥è‰²æ¸æ¸å¼€å§‹å¥½è½¬ï¼Œèº«ä¸Šçš„çƒ­æ¯’ä¹Ÿå¼€å§‹æ¶ˆæ•£äº†ã€‚\n", this_player());
         add_amount(-1);
         return 1;
         }

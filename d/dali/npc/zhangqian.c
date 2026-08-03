@@ -1,17 +1,17 @@
-// NPC zhangqian.c ÕÅÇ§
+// NPC zhangqian.c å¼ åƒ
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("ÕÅÇ§", ({ "zhang qian", "zhang","qian" }));
-	set("title", "·çÎ¶µêÀÏ°å");
+	set_name("å¼ åƒ", ({ "zhang qian", "zhang","qian" }));
+	set("title", "é£å‘³åº—è€æ¿");
 	set("shen_type", 1);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
-	set("long","ÕâÎ»ÀÏ°åÕıÃ¦µÄÂúÍ·´óº¹¡£\n");
+	set("long","è¿™ä½è€æ¿æ­£å¿™çš„æ»¡å¤´å¤§æ±—ã€‚\n");
 	set_skill("unarmed", 40);
 	set_skill("dodge", 40);
 	set_temp("apply/damage", 25);

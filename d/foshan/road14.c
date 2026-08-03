@@ -3,15 +3,15 @@
 inherit ROOM;
 void create()
 {
-        set("short","ÁÖ¼äµÀ");
+        set("short","æ—é—´é“");
         set("long",@LONG
-ÕâÀïÊÇÒ»ÌõÁÖ¼äĞ¡µÀ£¬ÔÚÊ÷´ÔÖĞòêÑÑ¡£±±Ãæ¾ÍÊÇ¸£Öİ³ÇµÄÄÏÃÅµõÇÅ£¬ÏòÎ÷
-ÄÏ¿É´ïÁëÄÏ¹ã¶«¡£
+è¿™é‡Œæ˜¯ä¸€æ¡æ—é—´å°é“ï¼Œåœ¨æ ‘ä¸›ä¸­èœ¿èœ’ã€‚åŒ—é¢å°±æ˜¯ç¦å·åŸçš„å—é—¨åŠæ¡¥ï¼Œå‘è¥¿
+å—å¯è¾¾å²­å—å¹¿ä¸œã€‚
 LONG);
         set("objects", ([
 		__DIR__"obj/hua3": 1,
         ]));
-        set("outdoors", "·ğÉ½");
+        set("outdoors", "ä½›å±±");
         set("exits",([ /* sizeof() == 1 */
 		"north"      : "/d/fuzhou/bridge",
 		"southwest" : "/d/group/entry/fsroad13",

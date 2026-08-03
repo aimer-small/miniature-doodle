@@ -4,17 +4,17 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "É½Â·");
+	set("short", "å±±è·¯");
 	set("long", @LONG
-ÕâÀï´¦ÓÚÈºÉ½¾şÁëÖ®ÖĞ£¬¹ÛÊ¤·åÒÑÔÚÉíºó£¬¶øÆÙ²¼ÉùÈÔ²»¾øÓÚ¶ú£¬
-Èç¹ûÃ»ÓĞÊìÈËÁìÂ·£¬Ò²ĞíÊ®·ÖÈİÒ×ÃÔÂ·¡£
+è¿™é‡Œå¤„äºç¾¤å±±å³»å²­ä¹‹ä¸­ï¼Œè§‚èƒœå³°å·²åœ¨èº«åï¼Œè€Œç€‘å¸ƒå£°ä»ä¸ç»äºè€³ï¼Œ
+å¦‚æœæ²¡æœ‰ç†Ÿäººé¢†è·¯ï¼Œä¹Ÿè®¸ååˆ†å®¹æ˜“è¿·è·¯ã€‚
 LONG);
 	set("exits", ([ /* sizeof() == 2 */
             "northup" : __DIR__"qgfeng",
             "southup" : __DIR__"guanshengfeng",
         ]));
         set("jingli_cost/northup", 10);
-	set("outdoors", "áÔÉ½");
+	set("outdoors", "åµ©å±±");
 	set("coor/x",50);
   set("coor/y",170);
    set("coor/z",60);

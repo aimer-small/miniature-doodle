@@ -5,11 +5,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ê©´÷×Ó", ({ "shi daizi", "shi", "daizi" }));
+	set_name("æ–½æˆ´å­", ({ "shi daizi", "shi", "daizi" }));
 	set("long",
-"Ê©´÷×ÓÉí²Ä¸ßÌô£¬³¤µÄÆÕÆÕÍ¨Í¨£¬µ«Ë«ÑÛ¾¼¾¼ÓÐÉñ£¬ËûÔÚ\n"
-"Í¬ÃÅÖÐÅÅÐÐµÚËÄ£¬ÊÇ»ªÉ½ÅÉÄêÇáÒ»´úÖÐµÄºÃÊÖ¡£\n");
-	set("gender", "ÄÐÐÔ");
+"æ–½æˆ´å­èº«æé«˜æŒ‘ï¼Œé•¿çš„æ™®æ™®é€šé€šï¼Œä½†åŒçœ¼ç‚¯ç‚¯æœ‰ç¥žï¼Œä»–åœ¨\n"
+"åŒé—¨ä¸­æŽ’è¡Œç¬¬å››ï¼Œæ˜¯åŽå±±æ´¾å¹´è½»ä¸€ä»£ä¸­çš„å¥½æ‰‹ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 28);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -47,7 +47,7 @@ void create()
 
 	prepare_skill("cuff", "poyu-quan");
 
-	create_family("»ªÉ½ÅÉ", 14, "µÜ×Ó");
+	create_family("åŽå±±æ´¾", 14, "å¼Ÿå­");
 
 	setup();
 	carry_object(BINGQI_D("sword/sword"))->wield();

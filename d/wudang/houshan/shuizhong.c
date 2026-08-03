@@ -1,4 +1,4 @@
-// Room: /d/wudang/shuizhong.c  Ë®ÖĞ
+// Room: /d/wudang/shuizhong.c  æ°´ä¸­
 // By lius 99/11
 
 #include <ansi.h>
@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-       set("short", HIW"Ë®ÖĞ"NOR);
+       set("short", HIW"æ°´ä¸­"NOR);
        set("long", @LONG
-ËÄÖÜ°×ÃÉÃÉµÄÒ»Æ¬£¬Ë®»¨·É½¦£¬Äã¸Ğµ½Ò»Õóº®ÒâÏ®ÉÏĞÄÀ´¡£
+å››å‘¨ç™½è’™è’™çš„ä¸€ç‰‡ï¼Œæ°´èŠ±é£æº…ï¼Œä½ æ„Ÿåˆ°ä¸€é˜µå¯’æ„è¢­ä¸Šå¿ƒæ¥ã€‚
 LONG
     );
        setup();

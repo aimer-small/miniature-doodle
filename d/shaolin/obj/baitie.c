@@ -3,14 +3,14 @@ inherit ITEM;
 
 void create()
 {
-        set_name(RED"°İÌù"NOR, ({ "baitie" }));
+        set_name(RED"æ‹œè´´"NOR, ({ "baitie" }));
         set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-                set("unit", "ÕÅ");
+                set("unit", "å¼ ");
 		set("long",
-                        "ÉÙÁÖÅÉÎä¹¦£¬³ÆĞÛÖĞÔ­Î÷ÓòÓĞÄê£¬Ê®ÌìÖ®ºó£¬À¥ÂØÈıÊ¥Ç°À´Ò»²¢Áì½Ì¡£\n");
+                        "å°‘æ—æ´¾æ­¦åŠŸï¼Œç§°é›„ä¸­åŸè¥¿åŸŸæœ‰å¹´ï¼Œåå¤©ä¹‹åï¼Œæ˜†ä»‘ä¸‰åœ£å‰æ¥ä¸€å¹¶é¢†æ•™ã€‚\n");
                 set("treasure", 1);
                 set("value", 0);
                 set("material", "paper");

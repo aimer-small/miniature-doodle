@@ -1,4 +1,4 @@
-// ya.c »ğõàÉñÏÉÑ¼
+// ya.c ç«è¸µç¥ä»™é¸­
 
 #include <ansi.h>
 
@@ -7,14 +7,14 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name(HIY "»ğõàÉñÏÉÑ¼" NOR, ({"shenxian ya", "ya"}));
+	set_name(HIY "ç«è¸µç¥ä»™é¸­" NOR, ({"shenxian ya", "ya"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "»ğõàÉñÏÉÑ¼Ñ¼ÈâÏÊÄÛÎŞ±È£¬ÌÀÖ­Èé°×ËÆÄÌ£¬Î¶µÀÏÊÃÀ£¬
-¸»ÓªÑø£¬¶øÇÒ»¹ÓĞ¿ªÎ¸Éú½ò¡¢×ÌÒõ²¹ĞéµÄÃîĞ§¡£\n");
-		set("unit", "Ö»");
+		set("long", "ç«è¸µç¥ä»™é¸­é¸­è‚‰é²œå«©æ— æ¯”ï¼Œæ±¤æ±ä¹³ç™½ä¼¼å¥¶ï¼Œå‘³é“é²œç¾ï¼Œ
+å¯Œè¥å…»ï¼Œè€Œä¸”è¿˜æœ‰å¼€èƒƒç”Ÿæ´¥ã€æ»‹é˜´è¡¥è™šçš„å¦™æ•ˆã€‚\n");
+		set("unit", "åª");
 		set("value", 250);
 		set("food_remaining", 3);
 		set("food_supply", 70);

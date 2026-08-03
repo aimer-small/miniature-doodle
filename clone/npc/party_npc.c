@@ -6,15 +6,15 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÃÅÅÉµÜ×Ó", ({ "menpai dizi", "dizi", "npc" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("é—¨æ´¾å¼Ÿå­", ({ "menpai dizi", "dizi", "npc" }));
+	set("gender", "ç”·æ€§");
 	set("age", 20);
 	set("attitude", "peaceful");
 	set("str", 10+random(20));
 	set("int", 10+random(20));
 	set("con", 10+random(20));
 	set("dex", 10+random(20));
-	set("no_get","ÕâÈË¶ÔÄã¶øÑÔÌ«ÖØÁË¡£");
+	set("no_get","è¿™äººå¯¹ä½ è€Œè¨€å¤ªé‡äº†ã€‚");
 	set("no_bark",1);
 	set("no_ansuan",1);
 
@@ -54,14 +54,14 @@ void die()
 	if( me ) me->delete_temp("zhaoji_npc");
 
 	if( !me || environment(me) != environment(this_object()) )
-		message_vision("$NÍ»È»ÏòºóÒ»Ô¾£¬´Ò´ÒÃ¦Ã¦µÄÀë¿ªÁË¡£\n", this_object());
+		message_vision("$Nçªç„¶å‘åä¸€è·ƒï¼ŒåŒ†åŒ†å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n", this_object());
 
 	if( !living(me) ) {
-		message_vision("$N´ó½ĞÒ»Éù£º¡°²»ºÃ¡±£¬±³Æğ$n¶áÂ·¶øÌÓ¡£\n", this_object(), me);
+		message_vision("$Nå¤§å«ä¸€å£°ï¼šâ€œä¸å¥½â€ï¼ŒèƒŒèµ·$nå¤ºè·¯è€Œé€ƒã€‚\n", this_object(), me);
 		me->move("/d/xiangyang/damen");
 		if( me->query("eff_qi") < 1 ) me->set("eff_qi",1);
 	} else 	if( !me->is_fighting() || !this_object()->is_fighting() )
-		message_vision("$N¶Ô$n¾ÏÁË¸ö¹ªµÀ£º¡°´úÕÆÃÅ£¬±°Ö¶»¹ÒªÒªÊÂÔÚÉí£¬ÏÈĞĞ¸æÍËÁË£¡¡±\nËµÍê±ã´Ò´ÒÃ¦Ã¦µÄÀë¿ªÁË¡£\n", this_object(), me);
+		message_vision("$Nå¯¹$né äº†ä¸ªèº¬é“ï¼šâ€œä»£æŒé—¨ï¼Œå‘ä¾„è¿˜è¦è¦äº‹åœ¨èº«ï¼Œå…ˆè¡Œå‘Šé€€äº†ï¼â€\nè¯´å®Œä¾¿åŒ†åŒ†å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n", this_object(), me);
 
 	destruct(this_object());
 }
@@ -85,17 +85,17 @@ void set_master_player(object ob)
 	set("age", ob->query("age")*2/3);
 	set("gender", ob->query("gender"));
 
-	if( fam == "´óÂÖËÂ" ) {
-		set_name("Ñ©É½µÜ×Ó", ({ "xueshan dizi", "dizi" }) );
+	if( fam == "å¤§è½®å¯º" ) {
+		set_name("é›ªå±±å¼Ÿå­", ({ "xueshan dizi", "dizi" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "longxiang" :),
  			(: exert_function, "shield" :),
 		}));
 	}
-	if( fam == "¶ëáÒÅÉ" ) {
-		set_name("¶ëáÒÅ®µÜ×Ó", ({ "emei dizi", "dizi" }) );
-		set("gender", "Å®ĞÔ");
+	if( fam == "å³¨åµ‹æ´¾" ) {
+		set_name("å³¨åµ‹å¥³å¼Ÿå­", ({ "emei dizi", "dizi" }) );
+		set("gender", "å¥³æ€§");
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "fengyun" :),
@@ -107,59 +107,59 @@ void set_master_player(object ob)
  			(: exert_function, "zhixin" :),
 		}));
 	}
-	if( fam == "¹ÃËÕÄ½Èİ" ) {
-		set_name("Ä½ÈİÃÅÈË", ({ "murong menren", "menren" }) );
+	if( fam == "å§‘è‹æ…•å®¹" ) {
+		set_name("æ…•å®¹é—¨äºº", ({ "murong menren", "menren" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "shenyuan" :),
 		}));
 	}
-	if( fam == "¹ÅÄ¹ÅÉ" ) {
-		set_name("¹ÅÄ¹µÜ×Ó", ({ "gumu dizi", "dizi" }) );
+	if( fam == "å¤å¢“æ´¾" ) {
+		set_name("å¤å¢“å¼Ÿå­", ({ "gumu dizi", "dizi" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "xinjing" :),
 		}));
 	}
-	if( fam == "»ªÉ½ÅÉ" ) {
-		set_name("»ªÉ½µÜ×Ó", ({ "huashan dizi", "dizi" }) );
+	if( fam == "åå±±æ´¾" ) {
+		set_name("åå±±å¼Ÿå­", ({ "huashan dizi", "dizi" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "zixia" :),
 		}));
 	}
-	if( fam == "Ã÷½Ì" ) {
-		set_name("Ã÷½Ì½ÌÖÚ", ({ "mingjiao jiaozhong", "jiaozhong" }) );
+	if( fam == "æ˜æ•™" ) {
+		set_name("æ˜æ•™æ•™ä¼—", ({ "mingjiao jiaozhong", "jiaozhong" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "jiuyang" :),
 		}));
 	}
-	if( fam == "ÉÙÁÖÅÉ" ) {
-		set_name("ÉÙÁÖµÜ×Ó", ({ "shaolin dizi", "dizi" }) );
+	if( fam == "å°‘æ—æ´¾" ) {
+		set_name("å°‘æ—å¼Ÿå­", ({ "shaolin dizi", "dizi" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "jingang" :),
 		}));
 	}
-	if( fam == "ÉñÁú½Ì" ) {
-		set_name("ÉñÁú½ÌµÜ×Ó", ({ "shenlong dizi", "dizi" }) );
+	if( fam == "ç¥é¾™æ•™" ) {
+		set_name("ç¥é¾™æ•™å¼Ÿå­", ({ "shenlong dizi", "dizi" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "wudi" :),
  			(: exert_function, "shexin" :),
 		}));
 	}
-	if( fam == "ÌÒ»¨µº" ) {
-		set_name("ÌÒ»¨µºÃÅÈË", ({ "taohuadao menren", "menren" }) );
+	if( fam == "æ¡ƒèŠ±å²›" ) {
+		set_name("æ¡ƒèŠ±å²›é—¨äºº", ({ "taohuadao menren", "menren" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "qimen" :),
  			(: exert_function, "maze" :),
 		}));
 	}
-	if( fam == "ÌìÁúËÂ" ) {
-		set_name("ÌìÁúËÂµÜ×Ó", ({ "tianlong dizi", "dizi" }) );
+	if( fam == "å¤©é¾™å¯º" ) {
+		set_name("å¤©é¾™å¯ºå¼Ÿå­", ({ "tianlong dizi", "dizi" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "ku" :),
@@ -168,23 +168,23 @@ void set_master_player(object ob)
  			(: exert_function, "xinjing" :),
 		}));
 	}
-	if( fam == "ÌúÕÆ°ï" ) {
-		set_name("ÌúÕÆ°ïÖÚ", ({ "tiezhang bangzhong", "bangzhong" }) );
+	if( fam == "é“æŒå¸®" ) {
+		set_name("é“æŒå¸®ä¼—", ({ "tiezhang bangzhong", "bangzhong" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "juli" :),
 		}));
 	}
-	if( fam == "Îäµ±ÅÉ" ) {
-		set_name("Îäµ±ÅÉµÜ×Ó", ({ "wudang dizi", "dizi" }) );
+	if( fam == "æ­¦å½“æ´¾" ) {
+		set_name("æ­¦å½“æ´¾å¼Ÿå­", ({ "wudang dizi", "dizi" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "taiji" :),
  			(: exert_function, "yinyun" :),
 		}));
 	}
-	if( fam == "ĞÇËŞÅÉ" ) {
-		set_name("ĞÇËŞµÜ×Ó", ({ "xingxiu dizi", "dizi" }) );
+	if( fam == "æ˜Ÿå®¿æ´¾" ) {
+		set_name("æ˜Ÿå®¿å¼Ÿå­", ({ "xingxiu dizi", "dizi" }) );
  		set("chat_chance_combat", 40);
  		set("chat_msg_combat", ({
  			(: exert_function, "huadu" :),
@@ -193,16 +193,16 @@ void set_master_player(object ob)
  			(: exert_function, "judu" :),
 		}));
 	}
-	if( fam == "Ø¤°ï" ) {
-		set_name("Ø¤°ï°ïÖÚ", ({ "gaibang bangzhong", "bangzhong" }) );
+	if( fam == "ä¸å¸®" ) {
+		set_name("ä¸å¸®å¸®ä¼—", ({ "gaibang bangzhong", "bangzhong" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "huntian" :),
  			(: exert_function, "shentong" :),
 		}));
 	}
-	if( fam == "áÔÉ½ÅÉ" ) {
-		set_name("áÔÉ½µÜ×Ó", ({ "songshan dizi", "dizi" }) );
+	if( fam == "åµ©å±±æ´¾" ) {
+		set_name("åµ©å±±å¼Ÿå­", ({ "songshan dizi", "dizi" }) );
  		set("chat_chance_combat", 80);
  		set("chat_msg_combat", ({
  			(: exert_function, "hanbing" :),
@@ -210,8 +210,8 @@ void set_master_player(object ob)
  			(: exert_function, "juhan" :),
 		}));
 	}
-	if( fam == "À¥ÂØÅÉ" ) {
-		set_name("À¥ÂØµÜ×Ó", ({ "kunlun dizi", "dizi" }) );
+	if( fam == "æ˜†ä»‘æ´¾" ) {
+		set_name("æ˜†ä»‘å¼Ÿå­", ({ "kunlun dizi", "dizi" }) );
  		set("chat_chance_combat", 50);
  		set("chat_msg_combat", ({
  			(: exert_function, "riyue" :),

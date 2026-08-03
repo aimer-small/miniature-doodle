@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIW "¹íÃÅ¹Ø" NOR);
+	set("short", HIW "é¬¼é—¨å…³" NOR);
 	set("long", @LONG
-ÕâÀï¾ÍÊÇÖøÃûµÄÒõ¼äÈë¿Ú¡¾¹íÃÅ¹Ø¡¿£¬ÔÚÄãÃæÇ°´£Á¢ÖøÒ»×ù¸ß´óµÄºÚÉ«³Ç
-Â¥£¬³ÇÂ¥µÄÃÅ¿ÚÓĞĞí¶àÍö»êÕı¿Ş¿ŞÌäÌäµØÁĞ¶ÓÇ°½ø£¬Ò»½ø¹íÃÅ¹Ø¾ÍÎŞ·¨ÔÙ»ØÑô
-¼äÁË¡£
+è¿™é‡Œå°±æ˜¯è‘—åçš„é˜´é—´å…¥å£ã€é¬¼é—¨å…³ã€‘ï¼Œåœ¨ä½ é¢å‰çŸ—ç«‹è‘—ä¸€åº§é«˜å¤§çš„é»‘è‰²åŸ
+æ¥¼ï¼ŒåŸæ¥¼çš„é—¨å£æœ‰è®¸å¤šäº¡é­‚æ­£å“­å“­å•¼å•¼åœ°åˆ—é˜Ÿå‰è¿›ï¼Œä¸€è¿›é¬¼é—¨å…³å°±æ— æ³•å†å›é˜³
+é—´äº†ã€‚
 LONG);
 	set("exits", ([
 		"enter" : __DIR__"gateway",
@@ -23,7 +23,7 @@ void init()
         object ob, me;
         me = this_player();
 /*
-        //ÌÒ»¨¡¢Ç¬À¤Ò»Ö¸
+        //æ¡ƒèŠ±ã€ä¹¾å¤ä¸€æŒ‡
         if(me->query("thd/qiankun")) {
                  me->set("max_qi",me->query("qiankun/qi"));
                  me->set("max_neili",me->query("qiankun/neili"));
@@ -36,26 +36,26 @@ void init()
                  me->delete_temp("was_job");
         }
 
-        if(me->query("thd/qiankun")) //ÌÒ»¨¡¢Ç¬À¤Ò»Ö¸
+        if(me->query("thd/qiankun")) //æ¡ƒèŠ±ã€ä¹¾å¤ä¸€æŒ‡
         {
                  me->set("max_qi",me->query("thd/qiankun"));
                  me->delete("thd/qiankun");
                  me->clear_condition("qiankun_wound");
         }
 
-        if (me->query("thd/fugu")) // ÌÒ»¨¡¢¸½¹Ç¶¤
+        if (me->query("thd/fugu")) // æ¡ƒèŠ±ã€é™„éª¨é’‰
                  me->delete("thd/fugu");
 
-        //ÉñÁú¡¢Æß³æÉ¢
+        //ç¥é¾™ã€ä¸ƒè™«æ•£
         if(me->query("dec/str")) {
             me->add("str",me->query("dec/str"));
             me->delete("dec/str");
         }
-        //ÕÔÃô¡¢¶ÏÖ¸
+        //èµµæ•ã€æ–­æŒ‡
         if (me->query("duanzhi"))
                  me->delete("duanzhi");
-        // gb ²¼´ü
-        if (me->query("family/family_name")=="Ø¤°ï"
+        // gb å¸ƒè¢‹
+        if (me->query("family/family_name")=="ä¸å¸®"
          && me->is_ghost() ) {
         	ob = me->query_temp("armor/gaibang");
         	if (objectp(ob))
@@ -69,7 +69,7 @@ void init()
 void run(object ob)
 {
         if (!ob || !present(ob)) return;
-        tell_object(ob, HIW"Ò»¹ÉÒõÀäµÄÅ¨ÎíÍ»È»³öÏÖ£¬ºÜ¿ìµØ°üÎ§ÁËÄã¡£\n\n"NOR);
+        tell_object(ob, HIW"ä¸€è‚¡é˜´å†·çš„æµ“é›¾çªç„¶å‡ºç°ï¼Œå¾ˆå¿«åœ°åŒ…å›´äº†ä½ ã€‚\n\n"NOR);
 
         if (ob->query("class") == "bonze" || ob->query("class") == "lama")
 		ob->move(__DIR__"pusadian");
@@ -82,9 +82,9 @@ int valid_leave(object me, string dir)
         if( wizardp(me) || !userp(me) ) return ::valid_leave(me, dir);
         if( dir == "enter")
                 return notify_fail(
-"ºÕ¼û£¬ÄãÉíÇ°¾¹³öÏÖÎªÊıÓâÇ§¿İÓÚ²»¿°µÄÈË½«Äã°üÎ§£¬Ê¹Äã¶¯µ¯²»µÃ£¬Õâ
-Ğ©ÈËÓĞÄĞÓĞÅ®£¬ËûÃÇÒÂÉÀñÜÂ¥£¬ÉíÉÏµÄ¼¡·ô£¬ÔçÒÑ¿İÓÚµÃ²»³ÉÈËĞÎ£¬¾ÍÏñ
-ÊÇÒ»ÈºÆ¤°ü×Å¹ÇµÄ÷¼÷Ã£¬Ïàµ±º§ÈË£¡\n"
+"èµ«è§ï¼Œä½ èº«å‰ç«Ÿå‡ºç°ä¸ºæ•°é€¾åƒæ¯äºä¸å ªçš„äººå°†ä½ åŒ…å›´ï¼Œä½¿ä½ åŠ¨å¼¹ä¸å¾—ï¼Œè¿™
+äº›äººæœ‰ç”·æœ‰å¥³ï¼Œä»–ä»¬è¡£è¡«è¤´æ¥¼ï¼Œèº«ä¸Šçš„è‚Œè‚¤ï¼Œæ—©å·²æ¯äºå¾—ä¸æˆäººå½¢ï¼Œå°±åƒ
+æ˜¯ä¸€ç¾¤çš®åŒ…ç€éª¨çš„éª·é«…ï¼Œç›¸å½“éª‡äººï¼\n"
                 );
         return ::valid_leave(me, dir);
 }

@@ -2,11 +2,11 @@
 //
 //      bid.c
 //      Created by mychat 31/04/2004
-//      ±£ÁôÎÒµÄÇ©ÃûÇé¿öÏÂ free of use.
-//      µ±È»¸ü»¶Ó­ĞŞ¸Ä¡¢ÓÅ»¯µÈ¡£
+//      ä¿ç•™æˆ‘çš„ç­¾åæƒ…å†µä¸‹ free of use.
+//      å½“ç„¶æ›´æ¬¢è¿ä¿®æ”¹ã€ä¼˜åŒ–ç­‰ã€‚
 //
 //      Email & MSN: codemake@163.com
-//      ÎÄ¼şÎ»ÓÚ/cmds/usrÏÂ
+//      æ–‡ä»¶ä½äº/cmds/usrä¸‹
 // 		
 ***********************************************************************************/
 #include <ansi.h>
@@ -24,40 +24,40 @@ int main(object me, string arg)
 	
 	bidflag=1;
 	if( !stringp(arg)) 
-		return notify_fail("ÄãÍ¶Ê²Ã´±ê£¿\n");
+		return notify_fail("ä½ æŠ•ä»€ä¹ˆæ ‡ï¼Ÿ\n");
 	if( (sscanf(arg, "%s %d %s", bidname, bidamount,flag)==3)&&(flag=="-t") ){
 		bidflag=2;
 	}else if( sscanf(arg, "%s %d", bidname, bidamount)==2 );
-	else return notify_fail("ÄãÍ¶Ê²Ã´±ê£¿\n");
+	else return notify_fail("ä½ æŠ•ä»€ä¹ˆæ ‡ï¼Ÿ\n");
 	
 	if (!wizardp(me) && me->query_temp("command_busy"))
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         me->set_temp("command_busy",1);
         call_out("remove_busy", 3, me);
  
 	if( !ROOMLEASE_D->query_ifhavebidname(bidname) )	
-		return notify_fail(HIY"Ã»ÓĞÕâ¸öµêÆÌÒªÍ¶±ê\n"NOR );
+		return notify_fail(HIY"æ²¡æœ‰è¿™ä¸ªåº—é“ºè¦æŠ•æ ‡\n"NOR );
 
 	leasemap=ROOMLEASE_D->query_amap(bidname);
 	
 	if( (leasemap["bidtype"]!=1)&&(leasemap["bidtype"]!=2) )
-		return notify_fail(HIY"Õâ¸öµêÆÌ»¹Ã»´òËãÍ¶±ê\n"NOR );
+		return notify_fail(HIY"è¿™ä¸ªåº—é“ºè¿˜æ²¡æ‰“ç®—æŠ•æ ‡\n"NOR );
 
 	mybalance=me->query("balance");
-	//Í¶±êÊ±ÓÃµÄsilverÎªµ¥Î»
+	//æŠ•æ ‡æ—¶ç”¨çš„silverä¸ºå•ä½
 	bidamount=bidamount*100;
 	
 	valroomname=ROOMLEASE_D->get_myregions(leasemap["roomwhere"])+leasemap["originshortname"];
 
-	write( HIY"ÄãÌîĞ´ÁËÒ»ÕÅ" + 
+	write( HIY"ä½ å¡«å†™äº†ä¸€å¼ " + 
 		ROOMLEASE_D->money_str(bidamount)+
-		"µÄÖ§Æ±£¬ÏëÒªÍ¶±ê¡¾"+
+		"çš„æ”¯ç¥¨ï¼Œæƒ³è¦æŠ•æ ‡ã€"+
 		valroomname + 
-		"¡¿"+
+		"ã€‘"+
 		ROOMLEASE_D->chinese_time(leasemap["leasetime"]) +
-		"µÄ×âÓÃÈ¨\n"NOR );
+		"çš„ç§Ÿç”¨æƒ\n"NOR );
 	if(mybalance<bidamount)
-		return notify_fail(HIY"µ«ÊÇÄãÃ»ÕâÃ´¶à´æ¿î\n"NOR);
+		return notify_fail(HIY"ä½†æ˜¯ä½ æ²¡è¿™ä¹ˆå¤šå­˜æ¬¾\n"NOR);
 	call_out("do_bid",3+random(3),me,bidname, bidamount,bidflag);
 	return 1;
 }
@@ -71,41 +71,41 @@ void do_bid(object me,string bidname,int bidamount,int bidflag)
                 
 	if(leasemap["leaser"]==me->query("id"))
 	{
-		tell_object(me,"ÄãÊÇ²»ÊÇ·¸ÉµÁË£¿ÕâÒÑ¾­ÊÇÄãµÄµêÁË¡£\n");
+		tell_object(me,"ä½ æ˜¯ä¸æ˜¯çŠ¯å‚»äº†ï¼Ÿè¿™å·²ç»æ˜¯ä½ çš„åº—äº†ã€‚\n");
 		return;
 	}
 	if(time()<leasemap["bidtime"])
 	{
-		tell_object(me,HIY"µ«ÊÇÍ¶±ê»¹Ã»ÓĞ¿ªÊ¼ÄØ£¬ÇëÉÔºóÔÙÀ´°É\n"NOR);
+		tell_object(me,HIY"ä½†æ˜¯æŠ•æ ‡è¿˜æ²¡æœ‰å¼€å§‹å‘¢ï¼Œè¯·ç¨åå†æ¥å§\n"NOR);
 		return;
 	}
 	if(time()>leasemap["bidendtime"])
 	{
-		tell_object(me,HIY"µ«ÊÇµ±Ç°Í¶±êÒÑ¾­½áÊø£¬ÇëÉÔºóÔÙÀ´°É\n"NOR);
+		tell_object(me,HIY"ä½†æ˜¯å½“å‰æŠ•æ ‡å·²ç»ç»“æŸï¼Œè¯·ç¨åå†æ¥å§\n"NOR);
 		return;
 	}
 	if(me->query("id")==leasemap["bider"])
 	{
-		tell_object(me,HIY"µ±Ç°×î¸ß¼Û¾ÍÊÇÄã³öµÄ£¬ÄãÇ®¶àÉÕµÃ»Å£¬»¹Òª×Ô¼ºÔÙ¼Ó¼Û£¿\n"NOR);
+		tell_object(me,HIY"å½“å‰æœ€é«˜ä»·å°±æ˜¯ä½ å‡ºçš„ï¼Œä½ é’±å¤šçƒ§å¾—æ…Œï¼Œè¿˜è¦è‡ªå·±å†åŠ ä»·ï¼Ÿ\n"NOR);
 		return;
 	}
 	if(leasemap["minirent"]>bidamount)
 	{
-		tell_object(me,HIY"µ«ÊÇÄã³öµÄ¼Û±ØĞë±È×îµÍÈëÎ§¼Û¸ß\n"NOR);
+		tell_object(me,HIY"ä½†æ˜¯ä½ å‡ºçš„ä»·å¿…é¡»æ¯”æœ€ä½å…¥å›´ä»·é«˜\n"NOR);
 		return;
 	}
 	if(leasemap["bidamount"]>bidamount)
 	{
-		tell_object(me,HIY"µ«ÊÇÄã³öµÄ¼Û»¹Ã»µ±Ç°×î¸ß¼Û¸ß\n"NOR);
+		tell_object(me,HIY"ä½†æ˜¯ä½ å‡ºçš„ä»·è¿˜æ²¡å½“å‰æœ€é«˜ä»·é«˜\n"NOR);
 		return;
 	}
 	if( (leasemap["bidamount"]+leasemap["minirentadd"])>bidamount )
 	{
-		tell_object(me,sprintf(HIY"µ«ÊÇ¼Ó¼ÛµÄ×îµÍ·ù¶ÈÎª%d\n",leasemap["minirentadd"]));
+		tell_object(me,sprintf(HIY"ä½†æ˜¯åŠ ä»·çš„æœ€ä½å¹…åº¦ä¸º%d\n",leasemap["minirentadd"]));
 		return;
 	}
 	if(ROOMLEASE_D->new_bid(me, bidname,bidamount,bidflag)) return;
-	tell_object(me,"Í¶×ÊÊ§°Ü£¡\n");
+	tell_object(me,"æŠ•èµ„å¤±è´¥ï¼\n");
 }
 
 void remove_busy(object me)
@@ -118,10 +118,10 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºbid Í¶±ê´úÂë Í¶±ê½ğ¶î <-t>
+æŒ‡ä»¤æ ¼å¼ï¼šbid æŠ•æ ‡ä»£ç  æŠ•æ ‡é‡‘é¢ <-t>
 --------------------------------------------------
- Í¶±ê½ğ¶î:ÒÔÁ½Òø×ÓÎªµ¥Î»
- -t ÒÔÄäÃûÉí·İÍ¶±ê
+ æŠ•æ ‡é‡‘é¢:ä»¥ä¸¤é“¶å­ä¸ºå•ä½
+ -t ä»¥åŒ¿åèº«ä»½æŠ•æ ‡
  
 --------------------------------------------------
 

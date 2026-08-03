@@ -1,19 +1,19 @@
 
 	snoop(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		snoop() - ¿úÊÓÒ»¸ö¿É»¥¶¯µÄÊ¹ÓÃÕß (interactive user).
-	Óï·¨:
+	åç§°:
+		snoop() - çª¥è§†ä¸€ä¸ªå¯äº’åŠ¨çš„ä½¿ç”¨è€… (interactive user).
+	è¯­æ³•:
 		varargs object snoop( object snooper, object snoopee );
 
-		²»¶¨²ÎÊı Îï¼ş snoop( Îï¼ş snooper, Îï¼ş snoopee );
-	ÓÃ·¨:
-		ÓĞÁ½¸ö²ÎÊıÊ±, Ôò snooper ¿ªÊ¼¿úÊÓ snoopee. Èç¹û²»Ö¸¶¨
-		µÚ¶ş¸ö²ÎÊı, ÔòÍ£Ö¹ snooper ËùÓĞµÄ¿úÊÓ×´Ì¬. Í¨³£»áÊ¹ÓÃ
-		simul_efun  ×÷Îª¿ØÖÆ snoop() µÄ°²È«´ëÊ©. ÓĞÁ½¸ö²ÎÊıÊ±
-		, snoop() ³É¹¦»á´«»Ø snoopee. Ö»ÓĞÒ»¸ö²ÎÊıÊ±, Ôò´«»Ø 
-		snooper. ´«»Ø 0  ±íÊ¾Ê§°Ü. 
-	²Î¿¼:
+		ä¸å®šå‚æ•° ç‰©ä»¶ snoop( ç‰©ä»¶ snooper, ç‰©ä»¶ snoopee );
+	ç”¨æ³•:
+		æœ‰ä¸¤ä¸ªå‚æ•°æ—¶, åˆ™ snooper å¼€å§‹çª¥è§† snoopee. å¦‚æœä¸æŒ‡å®š
+		ç¬¬äºŒä¸ªå‚æ•°, åˆ™åœæ­¢ snooper æ‰€æœ‰çš„çª¥è§†çŠ¶æ€. é€šå¸¸ä¼šä½¿ç”¨
+		simul_efun  ä½œä¸ºæ§åˆ¶ snoop() çš„å®‰å…¨æªæ–½. æœ‰ä¸¤ä¸ªå‚æ•°æ—¶
+		, snoop() æˆåŠŸä¼šä¼ å› snoopee. åªæœ‰ä¸€ä¸ªå‚æ•°æ—¶, åˆ™ä¼ å› 
+		snooper. ä¼ å› 0  è¡¨ç¤ºå¤±è´¥. 
+	å‚è€ƒ:
 		query_snoop(3), query_snooping(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Jul.23.		(printed 3/16/95)

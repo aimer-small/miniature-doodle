@@ -1,4 +1,4 @@
-//edit by rock,ÐÞ¸Ä by hongba
+//edit by rock,ä¿®æ”¹ by hongba
 //2008.10.15
 
 string check_len(string str)
@@ -6,7 +6,7 @@ string check_len(string str)
 	int max_len = 33,len;
 	
 	len = strlen(str);
-	return sprintf("%"+len+"s","©¦\n");
+	return sprintf("%"+len+"s","â”‚\n");
 }
 
 int init()
@@ -43,110 +43,110 @@ int init()
 
 		switch(zl)
 		{
-			case 1  : equip_zl = HIG"ÖÐ¼¶"NOR; break;
-			case 2  : equip_zl = CYN"¸ß¼¶"NOR; break;
-			case 3  : equip_zl = HIR"×¿Ô½"NOR; break;
-			default : equip_zl = WHT"³õ¼¶"NOR; break;
+			case 1  : equip_zl = HIG"ä¸­çº§"NOR; break;
+			case 2  : equip_zl = CYN"é«˜çº§"NOR; break;
+			case 3  : equip_zl = HIR"å“è¶Š"NOR; break;
+			default : equip_zl = WHT"åˆçº§"NOR; break;
 		}
 		
 		chars =HIY+"("+equip_zl+")"+NOR;
 		
                                   if(zj) temp_str = zj+name+chars;
                                   else temp_str = name+chars;
-		   str=YEL"©³©¥©¥©¥¡¾"NOR+temp_str+YEL"¡¿©¥©¥©¥©·\n"NOR;;
-         str += sprintf(NOR YEL"©Ç©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©×©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·\n"NOR);
+		   str=YEL"â”â”â”â”ã€"NOR+temp_str+YEL"ã€‘â”â”â”â”“\n"NOR;;
+         str += sprintf(NOR YEL"â”£â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”³â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“\n"NOR);
                             		  
-                                str+=sprintf("%s  %-"+(28)+"s%s\n",YEL+"©§"+NOR,
-                                                    "    ×°±¸·ÀÓù£º"+CHINESE_D->chinese_number(armor)+"( "+ CHINESE_D->chinese_numbe(dp) +" )",YEL+"©§"+NOR);         
-                                str +=HIM"©Ç¸½¼Ó©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©ï©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n"NOR;   
+                                str+=sprintf("%s  %-"+(28)+"s%s\n",YEL+"â”ƒ"+NOR,
+                                                    "    è£…å¤‡é˜²å¾¡ï¼š"+CHINESE_D->chinese_number(armor)+"( "+ CHINESE_D->chinese_numbe(dp) +" )",YEL+"â”ƒ"+NOR);         
+                                str +=HIM"â”£é™„åŠ â”â”â”â”â”â”â”â”â”â”â”â”â”â•‹â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n"NOR;   
 		if(hp)
 		{
-			  str+=  sprintf("%s  %-"+(28)+"s%s",HIM+"©§"+NOR,"    ÆøÑª¼Ó³É£º"+CHINESE_D->chinese_number(hp),HIM+"©§"+NOR);      
+			  str+=  sprintf("%s  %-"+(28)+"s%s",HIM+"â”ƒ"+NOR,"    æ°”è¡€åŠ æˆï¼š"+CHINESE_D->chinese_number(hp),HIM+"â”ƒ"+NOR);      
 		}
 		if(mp)
 		{
-			 str+=sprintf("%-"+(30)+"s%s\n","    ÄÚÁ¦¼Ó³É£º"+CHINESE_D->chinese_number(mp),HIM+"©§"+NOR); 	
+			 str+=sprintf("%-"+(30)+"s%s\n","    å†…åŠ›åŠ æˆï¼š"+CHINESE_D->chinese_number(mp),HIM+"â”ƒ"+NOR); 	
 		}
 
 		if(pp)
 		{
-			  str+=sprintf("\n%s  %-"+(28)+"s%s",HIM+"©§"+NOR, "    ×·¼Ó·ÀÓù£º"+CHINESE_D->chinese_number(pp),HIM+"©§"+NOR);      
+			  str+=sprintf("\n%s  %-"+(28)+"s%s",HIM+"â”ƒ"+NOR, "    è¿½åŠ é˜²å¾¡ï¼š"+CHINESE_D->chinese_number(pp),HIM+"â”ƒ"+NOR);      
 		}
 
 		if(cp)
 		{
-			 str+=sprintf("%-"+(30)+"s%s\n","    ÔöÇ¿¹¥»÷£º"+CHINESE_D->chinese_number(cp),HIM+"©§"+NOR); 
+			 str+=sprintf("%-"+(30)+"s%s\n","    å¢žå¼ºæ”»å‡»ï¼š"+CHINESE_D->chinese_number(cp),HIM+"â”ƒ"+NOR); 
 		}
 
 		if(ap)
 		{
-			 str+=sprintf("\n%s  %-"+(28)+"s%s",HIM+"©§"+NOR, "    ×·¼Ó¹¥»÷£º"+CHINESE_D->chinese_number(ap),HIM+"©§"+NOR);      
+			 str+=sprintf("\n%s  %-"+(28)+"s%s",HIM+"â”ƒ"+NOR, "    è¿½åŠ æ”»å‡»ï¼š"+CHINESE_D->chinese_number(ap),HIM+"â”ƒ"+NOR);      
 		}
 		if(strs)
 		{
-			 str+=sprintf("%-"+(30)+"s%s\n","    ±ÛÁ¦Ôö¼Ó£º"+CHINESE_D->chinese_number(strs),HIM+"©§"+NOR); 
+			 str+=sprintf("%-"+(30)+"s%s\n","    è‡‚åŠ›å¢žåŠ ï¼š"+CHINESE_D->chinese_number(strs),HIM+"â”ƒ"+NOR); 
 		}
 		if(dex)
 		{
-			 str+=sprintf("\n%s  %-"+(28)+"s%s",HIM+"©§"+NOR, "    Éí·¨Ôö¼Ó£º"+CHINESE_D->chinese_number(dex),HIM+"©§"+NOR);      
+			 str+=sprintf("\n%s  %-"+(28)+"s%s",HIM+"â”ƒ"+NOR, "    èº«æ³•å¢žåŠ ï¼š"+CHINESE_D->chinese_number(dex),HIM+"â”ƒ"+NOR);      
 		}
 		if(ints)
 		{
-			 str+=sprintf("%-"+(30)+"s%s\n","    ÎòÐÔÔö¼Ó£º"+CHINESE_D->chinese_number(ints),HIM+"©§"+NOR); 
+			 str+=sprintf("%-"+(30)+"s%s\n","    æ‚Ÿæ€§å¢žåŠ ï¼š"+CHINESE_D->chinese_number(ints),HIM+"â”ƒ"+NOR); 
 		}
 		if(cons)
 		{
-			str+=sprintf("\n%s  %-"+(28)+"s%s",HIM+"©§"+NOR, "    ¸ù¹ÇÔö¼Ó£º"+CHINESE_D->chinese_number(cons),HIM+"©§"+NOR);  
+			str+=sprintf("\n%s  %-"+(28)+"s%s",HIM+"â”ƒ"+NOR, "    æ ¹éª¨å¢žåŠ ï¼š"+CHINESE_D->chinese_number(cons),HIM+"â”ƒ"+NOR);  
 		}
 		if(jing)
 		{
-			 str+=sprintf("%-"+(30)+"s%s\n","    ¾«Æø¼Ó³É£º"+CHINESE_D->chinese_number(jing),HIM+"©§"+NOR); 
+			 str+=sprintf("%-"+(30)+"s%s\n","    ç²¾æ°”åŠ æˆï¼š"+CHINESE_D->chinese_number(jing),HIM+"â”ƒ"+NOR); 
 		}
 		if(jingli)
 		{
-			str+=sprintf("\n%s  %-"+(28)+"s%s\n",HIM+"©§"+NOR,"    ¾«Æø¼Ó³É£º"+CHINESE_D->chinese_number(jingli),HIM+"©§"+NOR);  
+			str+=sprintf("\n%s  %-"+(28)+"s%s\n",HIM+"â”ƒ"+NOR,"    ç²¾æ°”åŠ æˆï¼š"+CHINESE_D->chinese_number(jingli),HIM+"â”ƒ"+NOR);  
 		} 
-             str +=WHT"\n©Ç¹ÌÓÐ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©ï©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï"NOR;
-str+=sprintf("%s  %-"+(28)+"s%s",WHT+"\n©§"+NOR, "    ×°±¸ÖØÁ¿£º"+CHINESE_D->chinese_number(weight),WHT+"©§"+NOR);  
-str+=sprintf("%-"+(30)+"s%s\n","      ×°±¸ÄÍ¾Ã£º"+CHINESE_D->chinese_number(lasting),WHT+"©§"+NOR); 
-str+=sprintf("%s  %-"+(28)+"s%s\n",WHT+"©§"+NOR, "    ×°±¸¼ÛÖµ: "+CHINESE_D->chinese_number(value/10000)+"Á½»Æ½ð",WHT+"©§"+NOR);  
-		str +=HIR"©ÇÐèÇó©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©ï©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n"NOR;
+             str +=WHT"\nâ”£å›ºæœ‰â”â”â”â”â”â”â”â”â”â”â”â”â”â•‹â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«"NOR;
+str+=sprintf("%s  %-"+(28)+"s%s",WHT+"\nâ”ƒ"+NOR, "    è£…å¤‡é‡é‡ï¼š"+CHINESE_D->chinese_number(weight),WHT+"â”ƒ"+NOR);  
+str+=sprintf("%-"+(30)+"s%s\n","      è£…å¤‡è€ä¹…ï¼š"+CHINESE_D->chinese_number(lasting),WHT+"â”ƒ"+NOR); 
+str+=sprintf("%s  %-"+(28)+"s%s\n",WHT+"â”ƒ"+NOR, "    è£…å¤‡ä»·å€¼: "+CHINESE_D->chinese_number(value/10000)+"ä¸¤é»„é‡‘",WHT+"â”ƒ"+NOR);  
+		str +=HIR"â”£éœ€æ±‚â”â”â”â”â”â”â”â”â”â”â”â”â”â•‹â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n"NOR;
 		if(exp) 
                                 {
-                                          str+=sprintf("%s  %-"+(28)+"s%s",HIR+"©§"+NOR,
-                                                    "    ¾­ÑéÐèÇó£º"+exp,HIR+"©§"+NOR);            
+                                          str+=sprintf("%s  %-"+(28)+"s%s",HIR+"â”ƒ"+NOR,
+                                                    "    ç»éªŒéœ€æ±‚ï¼š"+exp,HIR+"â”ƒ"+NOR);            
                                 }
 		else
                                 { 
-                                           str+=sprintf("%s  %-"+(28)+"s%s",HIR+"©§"+NOR,
-                                                    "    ¾­ÑéÐèÇó£ºÎÞÐèÇó",HIR+"©§"+NOR);   
+                                           str+=sprintf("%s  %-"+(28)+"s%s",HIR+"â”ƒ"+NOR,
+                                                    "    ç»éªŒéœ€æ±‚ï¼šæ— éœ€æ±‚",HIR+"â”ƒ"+NOR);   
                                  }
 
 		if(gender) 
                                  {
                                      gender=HIG+gender+NOR;
-	                     str+=sprintf("%-"+(30)+"s%s\n","    ÐÔ±ðÐèÇó£º"+gender,HIR+"©§"+NOR);     
+	                     str+=sprintf("%-"+(30)+"s%s\n","    æ€§åˆ«éœ€æ±‚ï¼š"+gender,HIR+"â”ƒ"+NOR);     
                                  }
 		else 
                                  {
-		      gender=HIG+"ÎÞÐèÇó"+NOR;
-                                     str+=sprintf("%-"+(30)+"s%s\n","    ÐÔ±ðÐèÇó£º"+gender,HIR+"©§"+NOR);     
+		      gender=HIG+"æ— éœ€æ±‚"+NOR;
+                                     str+=sprintf("%-"+(30)+"s%s\n","    æ€§åˆ«éœ€æ±‚ï¼š"+gender,HIR+"â”ƒ"+NOR);     
 		 }
                                 
 /*
 		if(level) 
 		{
-                                          str+=sprintf("%s  %-"+(28)+"s%s\n",HIR+"©§"+NOR,
-                                                    "    µÈ¼¶ÐèÇó£º"+CHINESE_D->chinese_number(level),HIR+"©§"+NOR);            
+                                          str+=sprintf("%s  %-"+(28)+"s%s\n",HIR+"â”ƒ"+NOR,
+                                                    "    ç­‰çº§éœ€æ±‚ï¼š"+CHINESE_D->chinese_number(level),HIR+"â”ƒ"+NOR);            
                                 }
 else 
                        
          {
-			  str+=sprintf("%s  %-"+(28)+"s%s\n",HIR+"©§"+NOR,
-                                                    "    µÈ¼¶ÐèÇó£ºÎÞÐèÇó",HIR+"©§"+NOR);    
+			  str+=sprintf("%s  %-"+(28)+"s%s\n",HIR+"â”ƒ"+NOR,
+                                                    "    ç­‰çº§éœ€æ±‚ï¼šæ— éœ€æ±‚",HIR+"â”ƒ"+NOR);    
 		}
 */
-		str +=HIR"©Ç©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©ß©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n"NOR;
+		str +=HIR"â”£â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”»â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n"NOR;
 	
 		ob->set("long",str);
 	}

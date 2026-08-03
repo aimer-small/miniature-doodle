@@ -62,7 +62,7 @@ string creator_file(string file)
                 case "cmds":
                         return ROOT_UID;
         }
-        if (path[0] == "clone" && path[1] == "spec") return ROOT_UID;//ÐÂÔöÐÐ
+        if (path[0] == "clone" && path[1] == "spec") return ROOT_UID;//æ–°å¢žè¡Œ
         return "MudOS";
 }
 

@@ -1,4 +1,4 @@
-// /area/jiangbei/wudang/gsdao5.c �����
+// /area/jiangbei/wudang/gsdao5.c 古神道
 // By River@SJ
 
 inherit ROOM;
@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", YEL"�����"NOR);
+        set("short", YEL"古神道"NOR);
         set("long", @LONG
-�������ʵ����ͨ���䵱ɽ�ϵ�С�����ഫԶ��ʱ����Ӵξ������γ���
-�����ߵĵ�·�Ӷ�������ʵ���Ϲ����������Ͽ��֮�У����｣��ˮ���겻��
-�������ʣ�ɽ�Ϲ������죬Ͽ��������Ũ�ܣ����䵱ɽһ�羰����֮����
+古神道其实就是通往武当山上的小道，相传远古时有神从次经过，形成人
+可以走的道路从而得名。实际上古神道是在条峡谷之中，这里剑河水长年不断
+地涓涓流淌，山上古树参天，峡谷中林荫浓密，是武当山一风景绝佳之处。
 LONG
         );
 
@@ -21,7 +21,7 @@ LONG
 
         set("no_clean_up", 0);
 
-        set("outdoors", "�䵱");
+        set("outdoors", "武当");
 
         setup();
 }

@@ -8,9 +8,9 @@ int do_clone(object me, object ob);
 
 void create()
 {
-	set_name("Éß", ({ "du she","dushe", "she", "snake" }) );
-	set("race", "Ò°ÊŞ");
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Î²°Í" }) );
+	set_name("è›‡", ({ "du she","dushe", "she", "snake" }) );
+	set("race", "é‡å…½");
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å°¾å·´" }) );
 	set("verbs", ({ "bite" }));
 	set("shen", -15000);
 	set("attitude", "killer");
@@ -32,9 +32,9 @@ void create()
         set("score", 10000);
 	set("chat_chance", 10);
 	set("chat_msg", ({
-		"Ò»ÌõÉßÔÚ²İ´ÔÖĞÅÌ³ÉÒ»ÍÅ¡£\n",
-		"Ò»ÌõÉßÅÀ¹ıÀ´£¬ÔÚÄãµÄÍÈ±ßÅÀÀ´ÅÀÈ¥¡£\n",
-		"Ò»ÌõÉßÏò×ÅÄãÂıÂıµØÅÀÁË¹ıÀ´¡£\n",
+		"ä¸€æ¡è›‡åœ¨è‰ä¸›ä¸­ç›˜æˆä¸€å›¢ã€‚\n",
+		"ä¸€æ¡è›‡çˆ¬è¿‡æ¥ï¼Œåœ¨ä½ çš„è…¿è¾¹çˆ¬æ¥çˆ¬å»ã€‚\n",
+		"ä¸€æ¡è›‡å‘ç€ä½ æ…¢æ…¢åœ°çˆ¬äº†è¿‡æ¥ã€‚\n",
 		(: random_move :)
 	}));
 
@@ -50,7 +50,7 @@ void kill_ob(object me)
              && ob->query_temp("name1")!=me->query("id")) {
 		me->remove_killer(ob);
                 remove_killer(me);
-                message_vision("$N·¢ÏÖ$n¸ù±¾²»Àí$P£¡\n", me, ob);
+                message_vision("$Nå‘ç°$næ ¹æœ¬ä¸ç†$Pï¼\n", me, ob);
                 return;
         }
       	::kill_ob(me);
@@ -71,7 +71,7 @@ void init()
 	// && !ob->query("no_pk")
 	// && ob->query_temp("user_type") != "worker"
 	){
-		message_vision("$nÍ»È»·¢ÏÖ²İ´ÔÖĞÓĞÒ»Ìõ$N¡£\n",me,ob);
+		message_vision("$nçªç„¶å‘ç°è‰ä¸›ä¸­æœ‰ä¸€æ¡$Nã€‚\n",me,ob);
 		me->set_leader(ob);
 		if (!me->query_temp("skillset")) do_clone(me, ob);
 		remove_call_out("kill_ob");
@@ -85,17 +85,17 @@ int do_clone(object me, object ob)
 	int number,k_qi,k_neili,k_jing,k_jingli;
 
 	switch (random(11)) {
-		case 0: me->set("name","Ğ¡ÇàÉß");break;
-		case 1: me->set("name","²Ë»¨Éß");break;
-		case 2: me->set("name","ÑÛ¾µÉß");break;
-		case 3: me->set("name","¸¹Éß");break;
-		case 4: me->set("name","Îå²½Éß");break;
-		case 5: me->set("name","Òø»·Éß");break;
-		case 6: me->set("name","ÏìÎ²Éß");break;
-		case 7: me->set("name","ËÄ½ÅÉß");break;
-		case 8: me->set("name","½ğ»·Éß");break;
-		case 9: me->set("name","³àÁ·Éß");break;
-		case 10: me->set("name","Ò°¼¦²±×Ó");break;
+		case 0: me->set("name","å°é’è›‡");break;
+		case 1: me->set("name","èœèŠ±è›‡");break;
+		case 2: me->set("name","çœ¼é•œè›‡");break;
+		case 3: me->set("name","è…¹è›‡");break;
+		case 4: me->set("name","äº”æ­¥è›‡");break;
+		case 5: me->set("name","é“¶ç¯è›‡");break;
+		case 6: me->set("name","å“å°¾è›‡");break;
+		case 7: me->set("name","å››è„šè›‡");break;
+		case 8: me->set("name","é‡‘ç¯è›‡");break;
+		case 9: me->set("name","èµ¤ç»ƒè›‡");break;
+		case 10: me->set("name","é‡é¸¡è„–å­");break;
 	}
 
 	number = (int)ob->query("max_pot");
@@ -138,7 +138,7 @@ void dest()
 		call_out("dest", 20);
 		return;
 	}
-	message_vision("$NË¦ÁËÒ»ÏÂÎ²°Í£¬×ê½ø²İ´ÔÀïÃæ²»¼ûÁË¡£\n",this_object());
+	message_vision("$Nç”©äº†ä¸€ä¸‹å°¾å·´ï¼Œé’»è¿›è‰ä¸›é‡Œé¢ä¸è§äº†ã€‚\n",this_object());
 	destruct(this_object());
 }
 
@@ -155,7 +155,7 @@ void unconcious()
 		snake2->move(ob);
 		snake2->set("name",me->query("name"));
 		snake2->set_temp("name1",me->query_temp("name1"));
-		message_vision ("\n$NËõ³ÉÒ»ÍÅ£¬²»¶¯ÁË¡£$nÉìÊÖ×¥ÁËÆğÀ´¡£\n",me,ob);
+		message_vision ("\n$Nç¼©æˆä¸€å›¢ï¼Œä¸åŠ¨äº†ã€‚$nä¼¸æ‰‹æŠ“äº†èµ·æ¥ã€‚\n",me,ob);
 	}
 	destruct(me);
 }

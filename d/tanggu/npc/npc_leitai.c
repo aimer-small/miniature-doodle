@@ -1,24 +1,24 @@
 #include <ansi.h>
 inherit NPC;
 #define ZHAOQIN_DIR "/d/tanggu/"
-//ÎÄ¼şÄ¿Â¼
+//æ–‡ä»¶ç›®å½•
 #define BIWU_LEITAI ZHAOQIN_DIR"biwuleitai.c"
-//±ÈÎäÀŞÌ¨
+//æ¯”æ­¦æ“‚å°
 
 void create()
 {
-        set_name(HIR"ÀŞÌ¨¸ºÔğÈË"NOR, ({ "leitai fuzeren","leitai ren","ren"  }) );
-        set("gender", "ÄĞĞÔ" );
-        set_temp("apply/long", ({YEL"\nÕâÊÇÒ»¸ö×¨ÃÅ·¢·Å¸÷ÖÖÎïÆ·µÄ¸ºÔğÈË¡£
-Äã´ÓËûÄÇÀïÄÃµ½×Ô¼ºÏ²»¶µÄÎïÆ· ( na <ÎïÆ·Ãû³Æ> )¡£
+        set_name(HIR"æ“‚å°è´Ÿè´£äºº"NOR, ({ "leitai fuzeren","leitai ren","ren"  }) );
+        set("gender", "ç”·æ€§" );
+        set_temp("apply/long", ({YEL"\nè¿™æ˜¯ä¸€ä¸ªä¸“é—¨å‘æ”¾å„ç§ç‰©å“çš„è´Ÿè´£äººã€‚
+ä½ ä»ä»–é‚£é‡Œæ‹¿åˆ°è‡ªå·±å–œæ¬¢çš„ç‰©å“ ( na <ç‰©å“åç§°> )ã€‚
 
-"NOR+CYN"µ¶(dao, blade)   ±Ş(bian, whip)   ½£(jian, sword)  
-°µÉ±Ø°Ê×(dagger) Öñ½£(zhujian)    Öñ°ô(zhubang)
-¹÷(gun, club)    Õë(zhen, needle) ÕÈ(zhang, staff)
-Áî(ling)         °ô(bang, stick)  Ìú¼×(jia, armor) 
-´¸(chui, hammer) ¹³(gou, hook)    ¸«(fu)
-ÂÖ(lun)          Ê¯×Ó(shi)        ±Ê(bi,brush)  
-Ïô(xiao)         »ğÕÛ(fire)       ¶¾·Û(fen)"NOR}));
+"NOR+CYN"åˆ€(dao, blade)   é­(bian, whip)   å‰‘(jian, sword)  
+æš—æ€åŒ•é¦–(dagger) ç«¹å‰‘(zhujian)    ç«¹æ£’(zhubang)
+æ£(gun, club)    é’ˆ(zhen, needle) æ–(zhang, staff)
+ä»¤(ling)         æ£’(bang, stick)  é“ç”²(jia, armor) 
+é”¤(chui, hammer) é’©(gou, hook)    æ–§(fu)
+è½®(lun)          çŸ³å­(shi)        ç¬”(bi,brush)  
+è§(xiao)         ç«æŠ˜(fire)       æ¯’ç²‰(fen)"NOR}));
         set("age", 20);  
         set("per", 30);       
         set("str", 30);
@@ -33,7 +33,7 @@ void create()
 void init()
 {
 	if(this_player()->query_temp("quest/bwzh/leitai"))
-    		add_action("do_get",({"ÄÃ","na"}));
+    		add_action("do_get",({"æ‹¿","na"}));
 }
 string prefix, str;
 
@@ -41,7 +41,7 @@ int move(mixed dest, int silently)
 {
 	if (::move(dest, silently)) {
 		str = environment()->query("dest_room");
-		prefix = WHT "¡¾"+environment()->query("short")+WHT "¡¿"NOR;
+		prefix = WHT "ã€"+environment()->query("short")+WHT "ã€‘"NOR;
 		return 1;
 	}
 	return 0;
@@ -77,7 +77,7 @@ int do_get(string arg)
   	object me,ob;
   	me=this_player();
   	
-  	if( !arg )return notify_fail("ÃüÁî¸ñÊ½: na <ÎïÆ·Ãû³Æ> ¡£\n");
+  	if( !arg )return notify_fail("å‘½ä»¤æ ¼å¼: na <ç‰©å“åç§°> ã€‚\n");
 
     	switch (arg){
           	case "sword":                
@@ -123,7 +123,7 @@ int do_get(string arg)
           	case "fire": 
           	case "huo":     ob=new(MISC_D("fire")); break;
           	case "fen":     ob=new("/d/xingxiu/obj/yao"); break;
-          	default :	return notify_fail("Ã»ÓĞÕâÖÖ¶«Î÷¡£\n");
+          	default :	return notify_fail("æ²¡æœ‰è¿™ç§ä¸œè¥¿ã€‚\n");
         }
         
        	if(!ob) return 0;
@@ -131,7 +131,7 @@ int do_get(string arg)
        	if(ob->query("weapon_prop/damage"))
           	ob->set("weapon_prop/damage", 50);
        	ob->move(me);
-       	message_vision("$N´Ó"+this_object()->query("name")+"ÊÖÀï½Ó¹ıÒ»"+ob->query("unit")+"$n¡£\n",me, ob);  
+       	message_vision("$Nä»"+this_object()->query("name")+"æ‰‹é‡Œæ¥è¿‡ä¸€"+ob->query("unit")+"$nã€‚\n",me, ob);  
        	return 1;
 }
 

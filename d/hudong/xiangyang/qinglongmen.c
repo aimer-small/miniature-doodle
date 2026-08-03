@@ -6,17 +6,17 @@ string look_gaoshi();
 
 void create()
 {
-        set("short", YEL"ÇàÁúÃÅ"NOR);
+        set("short", YEL"é’é¾™é—¨"NOR);
         set("long", @LONG
-ÕâÀïÊÇ¾üÊÂÖØÕòÏåÑô³ÇµÄ¶«ÃÅ£¬²»Ê±µØÓĞ¶¥¿ø¹á¼×µÄÊ¿±ø×ßÀ´×ßÈ¥¡£Ïò¶«
-±ß×ß¿ÉÒÔ½øÈë°²»Õ¡¢½­ËÕ¾³ÄÚ¡£³ÇÍâÓÉÓÚÁ¬ÄêµÄÕ½Õù£¬°ÙĞÕÁ÷ÀëÊ§Ëù£¬Ôì³ÉÁË´óÆ¬µÄ»Ä
-µØ£¬ÈËÑÌÏ¡ÉÙ¡£³ÇÃÅ½ô½ôµØ¹Ø×Å£¬ÓÃ³å³µ³å¿ª(chong chengmen)µ¹²»Ê§ÊÇ¸öºÃ°ì·¨¡£
+è¿™é‡Œæ˜¯å†›äº‹é‡é•‡è¥„é˜³åŸçš„ä¸œé—¨ï¼Œä¸æ—¶åœ°æœ‰é¡¶ç›”è´¯ç”²çš„å£«å…µèµ°æ¥èµ°å»ã€‚å‘ä¸œ
+è¾¹èµ°å¯ä»¥è¿›å…¥å®‰å¾½ã€æ±Ÿè‹å¢ƒå†…ã€‚åŸå¤–ç”±äºè¿å¹´çš„æˆ˜äº‰ï¼Œç™¾å§“æµç¦»å¤±æ‰€ï¼Œé€ æˆäº†å¤§ç‰‡çš„è’
+åœ°ï¼ŒäººçƒŸç¨€å°‘ã€‚åŸé—¨ç´§ç´§åœ°å…³ç€ï¼Œç”¨å†²è½¦å†²å¼€(chong chengmen)å€’ä¸å¤±æ˜¯ä¸ªå¥½åŠæ³•ã€‚
 LONG
 
         );
   set("no_save", 1);
 
-        set("outdoors", "ÏåÑô");
+        set("outdoors", "è¥„é˜³");
                 set("item_desc", ([
                 "gaoshi" : (:look_gaoshi:),
         ]));
@@ -54,14 +54,14 @@ else
 this_object()->delete("no_fight");
 return ;
 }
- if(wizardp(me)) message_vision(HIG"Í¬Ö¾ÃÇ£¬É±Ñ½£¡²âÊÔÒ»ÏÂ\n"NOR, me);
+ if(wizardp(me)) message_vision(HIG"åŒå¿—ä»¬ï¼Œæ€å‘€ï¼æµ‹è¯•ä¸€ä¸‹\n"NOR, me);
     
    
 }
 
 string look_gaoshi()
 {
-        return FINGER_D->get_killer() + "\nÏåÑô°²¸§Ê¹\nÂÀÎÄµÂ\n";
+        return FINGER_D->get_killer() + "\nè¥„é˜³å®‰æŠšä½¿\nå•æ–‡å¾·\n";
 }
 
 int valid_leave(object me, string dir)
@@ -69,15 +69,15 @@ int valid_leave(object me, string dir)
 object ob;
 object env = this_object();
         if (dir == "east"){
-                if ( me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª"))
-                        return notify_fail("ÄãÕı´¦ÔÚ»¥¶¯ÈÎÎñÏåÑô´óÕ½²»ÄÜÀë¿ªÕ½³¡¡£\n");
+                if ( me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥"))
+                        return notify_fail("ä½ æ­£å¤„åœ¨äº’åŠ¨ä»»åŠ¡è¥„é˜³å¤§æˆ˜ä¸èƒ½ç¦»å¼€æˆ˜åœºã€‚\n");
         }
 
 
 if (dir == "west"){
-if ( me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª") == 2 && ob = present("qinglong chengmen", env) )
+if ( me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥") == 2 && ob = present("qinglong chengmen", env) )
 
-                        return notify_fail("³ÇÃÅ»¹Î´¹¥ÆÆ£¬²»ÄÜ½øÈë¡£\n");
+                        return notify_fail("åŸé—¨è¿˜æœªæ”»ç ´ï¼Œä¸èƒ½è¿›å…¥ã€‚\n");
         }
 
 
@@ -91,25 +91,25 @@ int do_back(string arg)
 	if(!living(me) ) return 0;
 
         if (me->is_busy() || me->is_fighting())
-	return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+	return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
-	if(!arg || arg == "" || arg != "ÓªÕÊÍâ")	
-return notify_fail("ÄãÏëÈ¥ÄÄÀï£¿\n");
-if(arg == "ÓªÕÊÍâ")
+	if(!arg || arg == "" || arg != "è¥å¸å¤–")	
+return notify_fail("ä½ æƒ³å»å“ªé‡Œï¼Ÿ\n");
+if(arg == "è¥å¸å¤–")
 {
-if ( me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª") == 2)
+if ( me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥") == 2)
 {
-message_vision("$N¼û´Ë´¦·ÀÊØÉõÑÏ£¬Ö»ºÃÏÈ³·»ØÔÙÍ¼´òËã¡£\n", me);
+message_vision("$Nè§æ­¤å¤„é˜²å®ˆç”šä¸¥ï¼Œåªå¥½å…ˆæ’¤å›å†å›¾æ‰“ç®—ã€‚\n", me);
 me->move("/d/hudong/xiangyang/zhangwai");
 return 1;
 }
-if ( me->query_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª") == 1)
+if ( me->query_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥") == 1)
 {
-return notify_fail("ÄãÊÇÊØ¾ü£¬»¹ÍùÄÄÀï³·£¿\n");
+return notify_fail("ä½ æ˜¯å®ˆå†›ï¼Œè¿˜å¾€å“ªé‡Œæ’¤ï¼Ÿ\n");
 
 }
 else
-return notify_fail("ÄãÊÇÄÄ²¿·ÖµÄ£¿£¿£¿\n");
+return notify_fail("ä½ æ˜¯å“ªéƒ¨åˆ†çš„ï¼Ÿï¼Ÿï¼Ÿ\n");
 
 }
 return 1;

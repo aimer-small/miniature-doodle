@@ -1,4 +1,4 @@
-// chen.c ³Â½üÄÏ
+// chen.c é™ˆè¿‘å—
 
 inherit NPC;
 #include <ansi.h>
@@ -7,13 +7,13 @@ string ask_ningxue();
 
 void create()
 {
-	set_name("³Â½üÄÏ", ({ "chen jinnan", "chen", "jinnan" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("é™ˆè¿‘å—", ({ "chen jinnan", "chen", "jinnan" }));
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set("shen_type", 1);
-	set("ÌìµØ»á/title","×Ü¶æÖ÷");
-	set("title", HIW"ÌìµØ»á×Ü¶æÖ÷"NOR);
-	set("long", "Ëû¾ÍÊÇÌìµØ»á×Ü¶æÖ÷³Â½üÄÏ£¬ËùÎ½Æ½Éú²»¼û³Â½üÄÏ£¬±ã³ÆÓ¢ĞÛÒ²Í÷È»¡£\n");
+	set("å¤©åœ°ä¼š/title","æ€»èˆµä¸»");
+	set("title", HIW"å¤©åœ°ä¼šæ€»èˆµä¸»"NOR);
+	set("long", "ä»–å°±æ˜¯å¤©åœ°ä¼šæ€»èˆµä¸»é™ˆè¿‘å—ï¼Œæ‰€è°“å¹³ç”Ÿä¸è§é™ˆè¿‘å—ï¼Œä¾¿ç§°è‹±é›„ä¹Ÿæ‰ç„¶ã€‚\n");
 
 	set("str", 35);
 	set("int", 35);
@@ -61,7 +61,7 @@ void create()
 	}));
 
 	set("inquiry", ([
-		"ÄıÑªÉñ×¦":	(: ask_ningxue :),
+		"å‡è¡€ç¥çˆª":	(: ask_ningxue :),
 	]));
 	setup();
 
@@ -73,43 +73,43 @@ void create()
 string ask_ningxue()
 {
 	object ob, me = this_player();
-	int time, i, job = me->query("job_time/ÌìµØ»á");
+	int time, i, job = me->query("job_time/å¤©åœ°ä¼š");
 	mapping quest;
 
 	if ( job <= 1000 || ! me->query("quest/ningxue/meet"))
-		return "ÄıÑªÉñ×¦£¿Äã´ÓÄÇÀïÌıËµµÄ£¿";
+		return "å‡è¡€ç¥çˆªï¼Ÿä½ ä»é‚£é‡Œå¬è¯´çš„ï¼Ÿ";
 
 	time = time() - me->query("quest/ningxue/time");
 	if ( me->query("quest/ningxue/time") && time < 86400 && !me->query("quest/ningxue/pass"))
-		return "ÎÒ²»ÊÇºÍÄãËµÁË£¬ÄãÔİÊ±ÎŞ·¨Ñ§»áÄıÑªÉñ×¦Ã´£¿";
+		return "æˆ‘ä¸æ˜¯å’Œä½ è¯´äº†ï¼Œä½ æš‚æ—¶æ— æ³•å­¦ä¼šå‡è¡€ç¥çˆªä¹ˆï¼Ÿ";
 
 	me->set("quest/ningxue/time", time());
 
 	if ( me->query("con") < 15 )
-		return "ÄıÑªÉñ×¦¶Ô¸ù¹ÇÓĞÒ»¶¨µÄÒªÇó£¬¿´À´Äã²¢²»ºÏÊÊ¡£";
+		return "å‡è¡€ç¥çˆªå¯¹æ ¹éª¨æœ‰ä¸€å®šçš„è¦æ±‚ï¼Œçœ‹æ¥ä½ å¹¶ä¸åˆé€‚ã€‚";
 
 	if ( me->query("dex") < 15 )
-		return "ÄıÑªÉñ×¦¶ÔÉí·¨ÓĞÒ»¶¨µÄÒªÇó£¬¿´À´Äã²¢²»ºÏÊÊ¡£";
+		return "å‡è¡€ç¥çˆªå¯¹èº«æ³•æœ‰ä¸€å®šçš„è¦æ±‚ï¼Œçœ‹æ¥ä½ å¹¶ä¸åˆé€‚ã€‚";
 
 	quest = me->query("quest/ningxue");
 	i = me->query("combat_exp", 1) / 500000;
 
 	if ( quest["fail"] >= i)
-		return "ÏÖÔÚÄãµÄĞŞÎª»¹²»¹»ÔÙ´Î³¢ÊÔ£¬»¹ÊÇ¹ı¶ÎÊ±¼äÔÙÀ´°É¡£";
+		return "ç°åœ¨ä½ çš„ä¿®ä¸ºè¿˜ä¸å¤Ÿå†æ¬¡å°è¯•ï¼Œè¿˜æ˜¯è¿‡æ®µæ—¶é—´å†æ¥å§ã€‚";
 
 	if ( quest["pass"]) {
 		if ( present("ningxue shenzhuapu", me))
-			return "¡¸ÄıÑªÉñ×¦Æ×¡¹²»ÊÇÔÚÄãÉíÉÏÃ´£¿»¹ÎÊÎÒ×öÊ²Ã´£¿";
+			return "ã€Œå‡è¡€ç¥çˆªè°±ã€ä¸æ˜¯åœ¨ä½ èº«ä¸Šä¹ˆï¼Ÿè¿˜é—®æˆ‘åšä»€ä¹ˆï¼Ÿ";
 
 		if ( me->query_skill("ningxue-shenzhua", 1) < 150 ) {
 			ob = new(BOOK_D("ningxue"));
 			ob->set("owner", me);
-			message_vision("$n¸øÁË$NÒ»±¾"+ob->name()+"¡£\n", me, this_object());
+			message_vision("$nç»™äº†$Nä¸€æœ¬"+ob->name()+"ã€‚\n", me, this_object());
 			ob->move(me);
-			return "Õâ±¾¡¸ÄıÑªÉñ×¦Æ×¡¹Äã¾ÍÄÃÈ¥ÑĞ¾¿ÏÂ°É¡£";
+			return "è¿™æœ¬ã€Œå‡è¡€ç¥çˆªè°±ã€ä½ å°±æ‹¿å»ç ”ç©¶ä¸‹å§ã€‚";
 		}
 		else
-			return "ÄãÒÑ¾­»ù±¾ÕÆÎÕÁËÄıÑªÉñ×¦¹¦£¬Ö»ĞèÒªÇÚ¼ÓĞŞÁ¶¾ÍĞĞÁË¡£";
+			return "ä½ å·²ç»åŸºæœ¬æŒæ¡äº†å‡è¡€ç¥çˆªåŠŸï¼Œåªéœ€è¦å‹¤åŠ ä¿®ç‚¼å°±è¡Œäº†ã€‚";
 	}
 
 if(random(me->query_con(1)) > 55  
@@ -121,10 +121,10 @@ if(random(me->query_con(1)) > 55
 		command("pat "+ me->query("id"));
 		ob = new(BOOK_D("ningxue"));
 		ob->set("owner", me);
-		message_vision("$n¸øÁË$NÒ»±¾"+ob->name()+"¡£\n", me, this_object());
+		message_vision("$nç»™äº†$Nä¸€æœ¬"+ob->name()+"ã€‚\n", me, this_object());
 		ob->move(me);
 		log_file("quest/ningxue",
-			sprintf(HIR"%-18sÊ§°Ü%-2d´Îºó´Ó³Â½üÄÏ´¦µÃµ½ÄıÑªÉñ×¦Æ×£¬¸ù£º%d£¬Éí£º%d£¬¸££º%d¡£"NOR,
+			sprintf(HIR"%-18så¤±è´¥%-2dæ¬¡åä»é™ˆè¿‘å—å¤„å¾—åˆ°å‡è¡€ç¥çˆªè°±ï¼Œæ ¹ï¼š%dï¼Œèº«ï¼š%dï¼Œç¦ï¼š%dã€‚"NOR,
 				me->name(1)+"("+capitalize(getuid(me))+")", 
 				me->query("quest/ningxue/fail"),
 				me->query_con(1), 
@@ -133,13 +133,13 @@ if(random(me->query_con(1)) > 55
 			), me
 		);
 		me->set("quest/ningxue/pass", 1);
-		return "àÅ£¬²»´í£¬Äã×ÊÖÊ²»´íÊÇ¿éÑ§ÎäµÄÁÏ£¬Õâ±¾¡¸ÄıÑªÉñ×¦Æ×¡¹Äã¾ÍÄÃÈ¥ÑĞ¾¿ÏÂ°É¡£";
+		return "å—¯ï¼Œä¸é”™ï¼Œä½ èµ„è´¨ä¸é”™æ˜¯å—å­¦æ­¦çš„æ–™ï¼Œè¿™æœ¬ã€Œå‡è¡€ç¥çˆªè°±ã€ä½ å°±æ‹¿å»ç ”ç©¶ä¸‹å§ã€‚";
 	}
 	else {
 		command("pat "+ me->query("id"));
 		me->add("quest/ningxue/fail", 1);
 		log_file("quest/ningxue", 
-			sprintf("%-18sµÚ%-2d´ÎÃ»ÓĞÄÜ´Ó³Â½üÄÏ´¦µÃµ½ÄıÑªÉñ×¦Æ×£¬¸ù£º%d£¬Éí£º%d£¬¸££º%d¡£",
+			sprintf("%-18sç¬¬%-2dæ¬¡æ²¡æœ‰èƒ½ä»é™ˆè¿‘å—å¤„å¾—åˆ°å‡è¡€ç¥çˆªè°±ï¼Œæ ¹ï¼š%dï¼Œèº«ï¼š%dï¼Œç¦ï¼š%dã€‚",
 				me->name(1)+"("+capitalize(getuid(me))+")", 
 				me->query("quest/ningxue/fail"),
 				me->query_con(1), 
@@ -147,7 +147,7 @@ if(random(me->query_con(1)) > 55
 				me->query("kar")
 			), me
 		);
-		return "ÕâÎ»"+RANK_D->query_respect(me)+"¿´À´»¹ĞèÒªÅ¬Á¦Ò»·¬²ÅĞĞ£¬ÄãÏÖÔÚ×´Ì¬²»Ì«ÊÊºÏÑ§Ï°ÄıÑªÉñ×¦¡£";
+		return "è¿™ä½"+RANK_D->query_respect(me)+"çœ‹æ¥è¿˜éœ€è¦åŠªåŠ›ä¸€ç•ªæ‰è¡Œï¼Œä½ ç°åœ¨çŠ¶æ€ä¸å¤ªé€‚åˆå­¦ä¹ å‡è¡€ç¥çˆªã€‚";
 	}
 }
                                                                                                                                                                                                                                                                                                          

@@ -3,16 +3,16 @@ inherit ITEM;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(HIC"ĞÂĞŞ±¾²İ"NOR, ({ "xinxiu bencao", "medicine book" }));
+        set_name(HIC"æ–°ä¿®æœ¬è‰"NOR, ({ "xinxiu bencao", "medicine book" }));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
+                set("unit", "æœ¬");
                 set("treasure",1);
                 set("unique", 1);
-                set("long", "ÕâÊÇÒ»±¾ÓÉÌÆ´úËÕ¾´µÈ±à¼­Íê³ÉµÄÒ½Ñ§Ò©µä£¬ÓÉÌÆ³¯Í¢ÏòÈ«¹ú°äĞĞÁ÷Í¨
-Ê¹ÓÃ£¬ÎªÖĞ¹úÒ½Ñ§Ê·ÉÏµÚÒ»²¿¹ú¼ÒÒ©µä£¬ËüÓÖ±»³ÆÎª¡¶ÌÆ±¾²İ¡·¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æœ¬ç”±å”ä»£è‹æ•¬ç­‰ç¼–è¾‘å®Œæˆçš„åŒ»å­¦è¯å…¸ï¼Œç”±å”æœå»·å‘å…¨å›½é¢è¡Œæµé€š
+ä½¿ç”¨ï¼Œä¸ºä¸­å›½åŒ»å­¦å²ä¸Šç¬¬ä¸€éƒ¨å›½å®¶è¯å…¸ï¼Œå®ƒåˆè¢«ç§°ä¸ºã€Šå”æœ¬è‰ã€‹ã€‚\n");
                  set("value", 45000);
                 set("material", "paper");
                 set("exp_required", 200000);

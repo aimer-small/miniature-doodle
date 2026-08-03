@@ -1,12 +1,12 @@
-// Jiaozhong.c ½ÌÖÚ
+// Jiaozhong.c æ•™ä¼—
 // By Numa@Sj 2000.2.15
 
 #include <ansi.h>
 inherit NPC;
 
-string *first_name = ({ "ÕÔ","Ç®","Ëï","Àî","ÖÜ","Îâ","Ö£","Íõ","ÕÅ","³Â", "Áõ","ÁÖ" }); 
-string *name_words = ({ "Ë³","²ý","Õñ","·¢","²Æ","¿¡","Ñå","Á¼","Ö¾","ÖÒ", "Ð¢","ÐÛ","Òæ","Ìí","½ð",
-"»Ô","³¤","Ê¢","Ê¤","½ø","°²","¸£","Í¬","Âú", "¸»","Íò","Áú","Â¡","Ïé","¶°","¹ú","ÒÚ","ÊÙ" });
+string *first_name = ({ "èµµ","é’±","å­™","æŽ","å‘¨","å´","éƒ‘","çŽ‹","å¼ ","é™ˆ", "åˆ˜","æž—" }); 
+string *name_words = ({ "é¡º","æ˜Œ","æŒ¯","å‘","è´¢","ä¿Š","å½¦","è‰¯","å¿—","å¿ ", "å­","é›„","ç›Š","æ·»","é‡‘",
+"è¾‰","é•¿","ç››","èƒœ","è¿›","å®‰","ç¦","åŒ","æ»¡", "å¯Œ","ä¸‡","é¾™","éš†","ç¥¥","æ ‹","å›½","äº¿","å¯¿" });
 string *rnd_id = ({"ra","ma","ta","pu","gu","du","so","po","lo","phi","tri","ne"}); 
 string *rnd_id_tail = ({"ng","gh","ss","h","le","d","ck","m","tte"});
 
@@ -23,11 +23,11 @@ void create()
                 id += rnd_id[random(sizeof(rnd_id))]; 
         id += rnd_id_tail[random(sizeof(rnd_id_tail))];
         set_name(name, ({"jiao zhong","zhong",id}));
-        set("title","ÈÕÔÂÉñ½Ì½ÌÖÚ");
+        set("title","æ—¥æœˆç¥žæ•™æ•™ä¼—");
         set("age", 16 + random(10));
         if (random(2)>0)
-        	set("gender","ÄÐÐÔ");
-        else set("gender","Å®ÐÔ");
+        	set("gender","ç”·æ€§");
+        else set("gender","å¥³æ€§");
         set("attitude", "friendly");
 	set("shen", 8000);
         set("combat_exp", 50000 + random(5000));
@@ -46,7 +46,7 @@ void create()
 	map_skill("sword", "tianmo-jian");
        	map_skill("dodge", "ding-dodge");
 */
-	create_family("ÈÕÔÂÉñ½Ì", 6, "µÜ×Ó");
+	create_family("æ—¥æœˆç¥žæ•™", 6, "å¼Ÿå­");
  
         setup(); 
 	if (random(2)>0)

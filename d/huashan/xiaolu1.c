@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Сɽ·");
+	set("short", "小山路");
 	set("long", @LONG
-�����ǻ�ɽ��һ��Сɽ·�����ƽ�Ϊƽ�������������ط���ô�վ�������
-��������ܾ����ĵģ�������߽���һ��������Դ��
+这里是华山的一条小山路，地势较为平缓，不似其它地方那么险峻。你走
+在这里，四周静悄悄的，你就象走进了一个世外桃源。
 LONG
 	);
 	set("exits", ([
@@ -16,7 +16,7 @@ LONG
 		"northwest" : __DIR__"xiaolu2",
 	]));
 	set("no_clean_up", 0);
-	set("outdoors", "��ɽ" );
+	set("outdoors", "华山" );
 
 	set("coor/x",60);
   set("coor/y",40);

@@ -1,4 +1,4 @@
-// É¨À×ÓÎÏ·
+// æ‰«é›·æ¸¸æˆ
 /*
 	by snowman@SJ 20/11/2000
 	
@@ -15,30 +15,30 @@ inherit ROOM;
 inherit F_SAVE;
 
 nosave int x = 15, y = 20, bomb = 40;
-nosave string *number = ({ "¡ö",CYN"£±"NOR,HIG"£²"NOR,HIR"£³"NOR,HIC"£´"NOR,RED"£µ"NOR,HIM"£¶"NOR,MAG"£·"NOR,BLU"£¸"NOR,WHT"¡ï"NOR,"¡õ",HIY"¡Ñ"NOR });
+nosave string *number = ({ "â– ",CYN"ï¼‘"NOR,HIG"ï¼’"NOR,HIR"ï¼“"NOR,HIC"ï¼”"NOR,RED"ï¼•"NOR,HIM"ï¼–"NOR,MAG"ï¼—"NOR,BLU"ï¼˜"NOR,WHT"â˜…"NOR,"â–¡",HIY"âŠ™"NOR });
 nosave mapping game;
 nosave mapping map;
 nosave int mine = 0, real_mine = 0, t = 0;
-nosave string player, table = "ÏÖÔÚ×ÀÉÏÊ²Ã´Ò²Ã»ÓĞ¡£\n";
+nosave string player, table = "ç°åœ¨æ¡Œä¸Šä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n";
 nosave string rules = "      
        	
-¡°É¨À×¡±ÓÎÏ·µÄÄ¿±êÊÇÑ¸ËÙÕÒµ½À×ÇøÖĞµÄËùÓĞµØÀ×£¬¶ø²»Ğí²Èµ½µØÀ×¡£
-Òª½Ò¿ªÄ³¸ö·½¿é£¬ÇëÊ¹ÓÃ"CYN" mine dig x?y? "NOR"´ò¿ªËü¡£ÈôÊÇËù½Ò·½¿éÏÂÓĞÀ×£¬Äú±ãÊäÁËÕâÒ»¾Ö¡£ 
-Èç¹û·½¿éÉÏ³öÏÖÊı×Ö£¬Ëü´ú±íÔÚËüÖÜÎ§µÄ°Ë¸ö·½¿éÖĞ¹²ÓĞ¶àÉÙ¿ÅµØÀ×¡£ 
-Èç¹ûÄúÈÏÎªÄ³¸ö·½¿éÏÂÂñ×ÅµØÀ×£¬ÇëÓÃ"CYN" mine at x?y?"NOR" È·¶¨Ëü£¬ÕÒÍêËùÓĞµØÀ×¾ÍÓ®¡£ 
+â€œæ‰«é›·â€æ¸¸æˆçš„ç›®æ ‡æ˜¯è¿…é€Ÿæ‰¾åˆ°é›·åŒºä¸­çš„æ‰€æœ‰åœ°é›·ï¼Œè€Œä¸è®¸è¸©åˆ°åœ°é›·ã€‚
+è¦æ­å¼€æŸä¸ªæ–¹å—ï¼Œè¯·ä½¿ç”¨"CYN" mine dig x?y? "NOR"æ‰“å¼€å®ƒã€‚è‹¥æ˜¯æ‰€æ­æ–¹å—ä¸‹æœ‰é›·ï¼Œæ‚¨ä¾¿è¾“äº†è¿™ä¸€å±€ã€‚ 
+å¦‚æœæ–¹å—ä¸Šå‡ºç°æ•°å­—ï¼Œå®ƒä»£è¡¨åœ¨å®ƒå‘¨å›´çš„å…«ä¸ªæ–¹å—ä¸­å…±æœ‰å¤šå°‘é¢—åœ°é›·ã€‚ 
+å¦‚æœæ‚¨è®¤ä¸ºæŸä¸ªæ–¹å—ä¸‹åŸ‹ç€åœ°é›·ï¼Œè¯·ç”¨"CYN" mine at x?y?"NOR" ç¡®å®šå®ƒï¼Œæ‰¾å®Œæ‰€æœ‰åœ°é›·å°±èµ¢ã€‚ 
 
-Ä¿Ç°µÄÊ¡È´ÖµÊÇ "+bomb+" Ã¶µØÀ×£¬ XÖáÎª"+x+"£¬YÖáÎª"+y+"¡£
-ÏµÍ³×Ô¶¯¼ÇÂ¼Íê³ÉÊ±¼äÇ°Ê®ÃûµÄÍæ¼Ò¼°ËùÓÃÊ±¼ä(list)¡£
+ç›®å‰çš„çœå´å€¼æ˜¯ "+bomb+" æšåœ°é›·ï¼Œ Xè½´ä¸º"+x+"ï¼ŒYè½´ä¸º"+y+"ã€‚
+ç³»ç»Ÿè‡ªåŠ¨è®°å½•å®Œæˆæ—¶é—´å‰ååçš„ç©å®¶åŠæ‰€ç”¨æ—¶é—´(list)ã€‚
 
-ÓÎÏ·Ö¸Áî£º
-	"HIC"mine start"NOR"	£º	¿ªÊ¼ÓÎÏ·¡£
-	"HIC"mine cancel"NOR"	£º	½áÊøÄ¿Ç°µÄÓÎÏ·¡£
-	"HIC"mine dig x?y?"NOR"	£º	´ò¿ªÎ»ÓÚµÚ ? ¸öXÖáºÍµÚ ? ¸öYÖáµÄ·½¿é¡£
-	"HIC"mine at x?y?"NOR"	£º	È·¶¨Î»ÓÚµÚ ? ¸öXÖáºÍµÚ ? ¸öYÖáµÄ·½¿éÊÇµØÀ×¡£
-	"HIC"mine re x?y?"NOR"	£º	È¡Ïû´Ë·½¿éµÄµØÀ×È·¶¨¡£
-	"HIC"mine finish"NOR"	£º	Èç¹ûÄãÈ·¶¨ÄãÒÑ¾­ÕÒ³öÁËËùÓĞµØÀ×£¬ÓÃÕâ¸öÃüÁî¡£
+æ¸¸æˆæŒ‡ä»¤ï¼š
+	"HIC"mine start"NOR"	ï¼š	å¼€å§‹æ¸¸æˆã€‚
+	"HIC"mine cancel"NOR"	ï¼š	ç»“æŸç›®å‰çš„æ¸¸æˆã€‚
+	"HIC"mine dig x?y?"NOR"	ï¼š	æ‰“å¼€ä½äºç¬¬ ? ä¸ªXè½´å’Œç¬¬ ? ä¸ªYè½´çš„æ–¹å—ã€‚
+	"HIC"mine at x?y?"NOR"	ï¼š	ç¡®å®šä½äºç¬¬ ? ä¸ªXè½´å’Œç¬¬ ? ä¸ªYè½´çš„æ–¹å—æ˜¯åœ°é›·ã€‚
+	"HIC"mine re x?y?"NOR"	ï¼š	å–æ¶ˆæ­¤æ–¹å—çš„åœ°é›·ç¡®å®šã€‚
+	"HIC"mine finish"NOR"	ï¼š	å¦‚æœä½ ç¡®å®šä½ å·²ç»æ‰¾å‡ºäº†æ‰€æœ‰åœ°é›·ï¼Œç”¨è¿™ä¸ªå‘½ä»¤ã€‚
 	
-´ËÓÎÏ·»ùÓÚ Microsoft (R) É¨À×
+æ­¤æ¸¸æˆåŸºäº Microsoft (R) æ‰«é›·
 
 \n";
 
@@ -54,11 +54,11 @@ void create()
 	delete("no_death");
 	if (!sizeof(top10)) top10 = ({ ([ "id": "beginner", "time": 3600 ]) });
 	
-        set("short", YEL"É¨À×ÓÎÏ·ÊÒ"NOR);
+        set("short", YEL"æ‰«é›·æ¸¸æˆå®¤"NOR);
         set("long", @LONG
-ÕâÀïÊÇÊé½£ÀïµÄÉ¨À×ÌìµØ£¬¿ÉÒÔÍæÉ¨À×(Minesweep£©ÓÎÏ·»ò¹Û¿´£¬ÕıÖĞµÄ
-×À×ÓÉÏÊÇÓÎÏ·Ö÷±í¸ñ(table)£¬ÅÔ±ßµÄÅÆ×Ó(paizi)ÉÏĞ´ÓĞÓÎÏ·¹æÔòºÍÍæ·¨£¬Ò»
-ÅÔÊÇ³É¼¨±í(list)¡£
+è¿™é‡Œæ˜¯ä¹¦å‰‘é‡Œçš„æ‰«é›·å¤©åœ°ï¼Œå¯ä»¥ç©æ‰«é›·(Minesweepï¼‰æ¸¸æˆæˆ–è§‚çœ‹ï¼Œæ­£ä¸­çš„
+æ¡Œå­ä¸Šæ˜¯æ¸¸æˆä¸»è¡¨æ ¼(table)ï¼Œæ—è¾¹çš„ç‰Œå­(paizi)ä¸Šå†™æœ‰æ¸¸æˆè§„åˆ™å’Œç©æ³•ï¼Œä¸€
+æ—æ˜¯æˆç»©è¡¨(list)ã€‚
 LONG    );
 
         set("no_fight", 1);
@@ -91,13 +91,13 @@ string look_table(){ return table; }
 string look_map()
 {
 	int i;
-	string tmp = HIW"×î¼Ñ³É¼¨±í£º\n"NOR;
+	string tmp = HIW"æœ€ä½³æˆç»©è¡¨ï¼š\n"NOR;
 	for (i = 0; i < sizeof(top10); i++){
 		if( i > 9 ){
 			top10[i] = 0;
 			continue;
 		}
-		tmp += sprintf(" %-2s£¬%-8s "HIY"¡ú"NOR" %s\n", (i+1)+"", capitalize(top10[i]["id"]), CHINESE_D->chinese_time(top10[i]["time"]));
+		tmp += sprintf(" %-2sï¼Œ%-8s "HIY"â†’"NOR" %s\n", (i+1)+"", capitalize(top10[i]["id"]), CHINESE_D->chinese_time(top10[i]["time"]));
 	}
 	top10 -= ({ 0 });
 	return tmp;
@@ -107,21 +107,21 @@ int do_set(string arg)
 {
 	int i, j, k;
 	if( !wizardp(this_player()) )
-		return notify_fail("Ö¸Áî£ºmine <dig|at|re x?y?> | start | cancel | ? ¡£\n");
+		return notify_fail("æŒ‡ä»¤ï¼šmine <dig|at|re x?y?> | start | cancel | ? ã€‚\n");
 	if( sscanf(arg, "%d x%d y%d", k, i, j) == 3 ){
 		if( k < 10 || i < 10 || j < 10 )
-			return notify_fail("set <bomb> x<ÊıÄ¿> y<ÊıÄ¿>£º ¸÷Êı×Ö×îÉÙÎª 10¡£\n");
+			return notify_fail("set <bomb> x<æ•°ç›®> y<æ•°ç›®>ï¼š å„æ•°å­—æœ€å°‘ä¸º 10ã€‚\n");
 		if( k > 99 )
-			return notify_fail("set <bomb> x<ÊıÄ¿> y<ÊıÄ¿>£º µØÀ×Êı×î¶àÎª 99¡£\n");
+			return notify_fail("set <bomb> x<æ•°ç›®> y<æ•°ç›®>ï¼š åœ°é›·æ•°æœ€å¤šä¸º 99ã€‚\n");
 		if( i > 25 || j > 35 )
-			return notify_fail("set <bomb> x<ÊıÄ¿> y<ÊıÄ¿>£º x×î¶àÎª 25£¬y×î¶àÎª 35¡£\n");
+			return notify_fail("set <bomb> x<æ•°ç›®> y<æ•°ç›®>ï¼š xæœ€å¤šä¸º 25ï¼Œyæœ€å¤šä¸º 35ã€‚\n");
 		bomb = k;
 		x = i;
 		y = j;
 		clean_table();
-		return notify_fail("µØÀ×Êı£º"+ bomb +"£¬X Öá£º"+ x +"£¬Y Öá£º"+ y +"¡£\n");
+		return notify_fail("åœ°é›·æ•°ï¼š"+ bomb +"ï¼ŒX è½´ï¼š"+ x +"ï¼ŒY è½´ï¼š"+ y +"ã€‚\n");
 	}
-	else return notify_fail("¸ñÊ½£ºmineset <bomb> x<ÖáÄ¿> y<ÖáÄ¿>¡£\n");
+	else return notify_fail("æ ¼å¼ï¼šmineset <bomb> x<è½´ç›®> y<è½´ç›®>ã€‚\n");
 }
 
 
@@ -147,12 +147,12 @@ void clean_table()
 	int i;
 	game = mine = real_mine = t = 0;
 	player = 0;
-	table = "ÏÖÔÚ×ÀÉÏÊ²Ã´Ò²Ã»ÓĞ¡£\n";
+	table = "ç°åœ¨æ¡Œä¸Šä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n";
 	map = allocate_mapping(x);
 	for(i = 0; i < x; i++ ){
 		map[i] = allocate_mapping(y);
 	}
-	tell_room(this_object(), HIW"\nÓÎÏ·¿ÉÒÔÖØĞÂ¿ªÊ¼ÁË£¡\n"NOR);	
+	tell_room(this_object(), HIW"\næ¸¸æˆå¯ä»¥é‡æ–°å¼€å§‹äº†ï¼\n"NOR);	
 }
 mapping make_game(int mines)
 {
@@ -200,11 +200,11 @@ mapping make_game(int mines)
 string drew_map(int k)
 {
 	int i, j;
-	string str = YEL"ÏÖÔÚÊÇ "+ player +" ÔÚÉ¨À×¡£\n\n   "NOR;
+	string str = YEL"ç°åœ¨æ˜¯ "+ player +" åœ¨æ‰«é›·ã€‚\n\n   "NOR;
 	
 	for(i = 0; i < y; i++)
 		str += sprintf("%-2s", (i+1)+"");
-	str += " ¡ûYÖá\n 1,";
+	str += " â†Yè½´\n 1,";
 	for(i = 0; i < x; i++){
 		for(j = 0; j < y; j++){
 			if( k )
@@ -213,7 +213,7 @@ string drew_map(int k)
 		}
 		if( i < x-1 )
 			str += "\n"+sprintf("%3s", (i+2)+",");
-		else str += "\n¡ü\tµØÀ××ÜÊı£º"+ bomb +"£¬Ä¿Ç°ÒÑÌ½Ã÷Êı£º"+ mine +"¡£\nXÖá\n";
+		else str += "\nâ†‘\tåœ°é›·æ€»æ•°ï¼š"+ bomb +"ï¼Œç›®å‰å·²æ¢æ˜æ•°ï¼š"+ mine +"ã€‚\nXè½´\n";
 	}
 	table = str;
 	return str;
@@ -257,12 +257,12 @@ int main_mine(string arg)
 {
 	int i, j, k;
 	object ob, me;
-	string tmp = YEL"\nÉ¨À×ÓÎÏ·£º"NOR;
+	string tmp = YEL"\næ‰«é›·æ¸¸æˆï¼š"NOR;
 	
 	if( !arg ){
 		if( game )
 			 return notify_fail(table);
-		else return notify_fail("Ö¸Áî£ºmine <dig|at|re x?y?> | start | cancel | finish ¡£\n");
+		else return notify_fail("æŒ‡ä»¤ï¼šmine <dig|at|re x?y?> | start | cancel | finish ã€‚\n");
 	}
 	me = this_player();
 	if( !player ) player = me->query("id");
@@ -270,7 +270,7 @@ int main_mine(string arg)
 	else if( player != me->query("id") ){
 		ob = LOGIN_D->find_body(player);
 		if( objectp(ob) && environment(ob) == this_object() && ob->query_idle(ob) < 180 ) 
-			return notify_fail("ÏÖÔÚÕıÓÉ"+ob->name()+"ÔÚÍæÄØ£¬ÄãÏÈµÈµÈ¡£\n");
+			return notify_fail("ç°åœ¨æ­£ç”±"+ob->name()+"åœ¨ç©å‘¢ï¼Œä½ å…ˆç­‰ç­‰ã€‚\n");
 		else {
 			clean_table();
 			player = me->query("id");
@@ -280,11 +280,11 @@ int main_mine(string arg)
 	// mine cancel
 	if( arg == "cancel" ){
 		clean_table();
-		tmp += "£ºÓÎÏ·ÒÑ¾­ÇåÀí¸É¾»¡£\n";	
+		tmp += "ï¼šæ¸¸æˆå·²ç»æ¸…ç†å¹²å‡€ã€‚\n";	
 	}
 	else if( arg == "start" ){
 		if( game )
-			return notify_fail("ÓÎÏ·ÒÑ¾­¿ªÊ¼ÁË£¬ÓÃ mine <dig|at|re x?y?> ÓÎÏ·»ò mine cancel ÇåÀí¡£\n");
+			return notify_fail("æ¸¸æˆå·²ç»å¼€å§‹äº†ï¼Œç”¨ mine <dig|at|re x?y?> æ¸¸æˆæˆ– mine cancel æ¸…ç†ã€‚\n");
 		clean_table();
 		player = me->query("id");
 		game = make_game(bomb);
@@ -297,20 +297,20 @@ int main_mine(string arg)
 	// mine finish
 	else if( arg == "finish" ){
 		if( !game )
-			return notify_fail("ÓÎÏ·»¹Ã»¿ªÊ¼ÄØ£¬ÓÃ mine start ¿ªÊ¼¡£\n");
+			return notify_fail("æ¸¸æˆè¿˜æ²¡å¼€å§‹å‘¢ï¼Œç”¨ mine start å¼€å§‹ã€‚\n");
 		if( mine < bomb || real_mine < bomb || real_mine < mine )
-			return notify_fail("Äã»¹Ã»ÓĞÍêÈ«Ì½²âÍêÄØ£¬¼ÌĞø°É£¡\n");
+			return notify_fail("ä½ è¿˜æ²¡æœ‰å®Œå…¨æ¢æµ‹å®Œå‘¢ï¼Œç»§ç»­å§ï¼\n");
 		tmp += drew_map(0);
-		tmp += "Ì½Ã÷µÄÕıÈ·Êı£º"+ real_mine +"£¬";
+		tmp += "æ¢æ˜çš„æ­£ç¡®æ•°ï¼š"+ real_mine +"ï¼Œ";
 		t = time() - t;
-		tmp += player+"³É¹¦µØÍê³ÉÁËÕâ´ÎÈÎÎñ£¡£¬×Ü¹²Ê¹ÓÃÁË"+ CHINESE_D->chinese_time(t) +"¡£\n";
+		tmp += player+"æˆåŠŸåœ°å®Œæˆäº†è¿™æ¬¡ä»»åŠ¡ï¼ï¼Œæ€»å…±ä½¿ç”¨äº†"+ CHINESE_D->chinese_time(t) +"ã€‚\n";
 		k = sizeof(top10);
 		for (i = 0; i < k; i++){
 			if( i > 9 ) break;
 			if( t < top10[i]["time"] ){
 				top10 = top10[0..i-1] + ({ ([ "id": me->query("id"), "time":t, ]) }) + top10[i..k];
 				me->add("balance", (10-i) * 500000 );  // base reward is 50 gold.
-				tmp += "\n´Ë´Î³É¼¨ÎªÄ¿Ç°ÅÅÃûµÚ" + chinese_number(i+1) + "Ãû£¡½±Àø"+MONEY_D->money_str((10-i) * 500000)+"´æ¿î£¡\n";
+				tmp += "\næ­¤æ¬¡æˆç»©ä¸ºç›®å‰æ’åç¬¬" + chinese_number(i+1) + "åï¼å¥–åŠ±"+MONEY_D->money_str((10-i) * 500000)+"å­˜æ¬¾ï¼\n";
 				break;
 			}
 		}
@@ -320,18 +320,18 @@ int main_mine(string arg)
 	// mine dig xxxx
 	else if( sscanf(arg, "dig x%dy%d", i, j) == 2 ){
 		if( !game )
-			return notify_fail("ÓÎÏ·»¹Ã»¿ªÊ¼ÄØ£¬ÓÃ mine start ¿ªÊ¼¡£\n");
+			return notify_fail("æ¸¸æˆè¿˜æ²¡å¼€å§‹å‘¢ï¼Œç”¨ mine start å¼€å§‹ã€‚\n");
 		if( i > x || i < 1 ) 
-			return notify_fail("XÖµÌ«´ó»òÌ«Ğ¡ÁË¡£\n");
+			return notify_fail("Xå€¼å¤ªå¤§æˆ–å¤ªå°äº†ã€‚\n");
 		if( j > y || j < 1 ) 
-			return notify_fail("YÖµÌ«´ó»òÌ«Ğ¡ÁË¡£\n");
-		tmp += "Ñ¡ÔñÔÚ X"+i+"£¬Y"+j+" µÄµØ·½ÍÚ¾ò¡£\n";
+			return notify_fail("Yå€¼å¤ªå¤§æˆ–å¤ªå°äº†ã€‚\n");
+		tmp += "é€‰æ‹©åœ¨ X"+i+"ï¼ŒY"+j+" çš„åœ°æ–¹æŒ–æ˜ã€‚\n";
 		i--;
 		j--;
 		if( i < 0 ) i = 0;
 		if( j < 0 ) j = 0;
 		if( map[i][j] > 10 ) 
-			return notify_fail("´ËµØ²»¿Éµã£¬³ı·ÇÄãÏÈÈ¡Ïû±êÖ¾¡£\n");
+			return notify_fail("æ­¤åœ°ä¸å¯ç‚¹ï¼Œé™¤éä½ å…ˆå–æ¶ˆæ ‡å¿—ã€‚\n");
 		k = game[i][j];
 		if( k < 9 ){
 			block_check(i, j);
@@ -342,8 +342,8 @@ int main_mine(string arg)
 		tmp += drew_map(0);
 		if( map[i][j] == 9 ){
 			t = time() - t;
-			tmp += HIR"½øĞĞÁË"+ CHINESE_D->chinese_time(t) +"ºó²ÈÉÏÁËµØÀ×£¡ÓÎÏ·½áÊø£¡\n"NOR;
-			tmp += "É¨À×µÄÕıÈ·Êı£º"+ real_mine +"¡£\n";
+			tmp += HIR"è¿›è¡Œäº†"+ CHINESE_D->chinese_time(t) +"åè¸©ä¸Šäº†åœ°é›·ï¼æ¸¸æˆç»“æŸï¼\n"NOR;
+			tmp += "æ‰«é›·çš„æ­£ç¡®æ•°ï¼š"+ real_mine +"ã€‚\n";
 			clean_table();
 		}
 	}
@@ -351,18 +351,18 @@ int main_mine(string arg)
 	// mine at xxxx
 	else if( sscanf(arg, "at x%dy%d", i, j) == 2 ){
 		if( !game )
-			return notify_fail("ÓÎÏ·»¹Ã»¿ªÊ¼ÄØ£¬ÓÃ mine start ¿ªÊ¼¡£\n");
+			return notify_fail("æ¸¸æˆè¿˜æ²¡å¼€å§‹å‘¢ï¼Œç”¨ mine start å¼€å§‹ã€‚\n");
 		if( i > x || i < 1 ) 
-			return notify_fail("XÖµÌ«´ó»òÌ«Ğ¡ÁË¡£\n");
+			return notify_fail("Xå€¼å¤ªå¤§æˆ–å¤ªå°äº†ã€‚\n");
 		if( j > y || j < 1 ) 
-			return notify_fail("YÖµÌ«´ó»òÌ«Ğ¡ÁË¡£\n");
-		tmp += "Ñ¡ÔñÔÚ X"+i+"£¬Y"+j+" µÄµØ·½×÷±êÖ¾¡£\n";
+			return notify_fail("Yå€¼å¤ªå¤§æˆ–å¤ªå°äº†ã€‚\n");
+		tmp += "é€‰æ‹©åœ¨ X"+i+"ï¼ŒY"+j+" çš„åœ°æ–¹ä½œæ ‡å¿—ã€‚\n";
 		i--;
 		j--;
 		if( i < 0 ) i = 0;
 		if( j < 0 ) j = 0;
 		if( map[i][j] == 11 )
-			return notify_fail("´ËµØÒÑ¾­Ì½¹ı²¢×öºÃ±êÖ¾ÁË£¬ÒªÈ¡ÏûÇëÓÃ mine re x?y?¡£\n");
+			return notify_fail("æ­¤åœ°å·²ç»æ¢è¿‡å¹¶åšå¥½æ ‡å¿—äº†ï¼Œè¦å–æ¶ˆè¯·ç”¨ mine re x?y?ã€‚\n");
 		map[i][j] = 11;
 		mine++;
 		if( game[i][j] == 9 )
@@ -373,25 +373,25 @@ int main_mine(string arg)
 	// mine re xxxx
 	else if( sscanf(arg, "re x%dy%d", i, j) == 2 ){
 		if( !game )
-			return notify_fail("ÓÎÏ·»¹Ã»¿ªÊ¼ÄØ£¬ÓÃ mine start ¿ªÊ¼¡£\n");
+			return notify_fail("æ¸¸æˆè¿˜æ²¡å¼€å§‹å‘¢ï¼Œç”¨ mine start å¼€å§‹ã€‚\n");
 		if( i > x || i < 1 ) 
-			return notify_fail("XÖµÌ«´ó»òÌ«Ğ¡ÁË¡£\n");
+			return notify_fail("Xå€¼å¤ªå¤§æˆ–å¤ªå°äº†ã€‚\n");
 		if( j > y || j < 1 ) 
-			return notify_fail("YÖµÌ«´ó»òÌ«Ğ¡ÁË¡£\n");
-		tmp += "Ñ¡ÔñÔÚ X"+i+"£¬Y"+j+" µÄµØ·½È¡Ïû±êÖ¾¡£\n";
+			return notify_fail("Yå€¼å¤ªå¤§æˆ–å¤ªå°äº†ã€‚\n");
+		tmp += "é€‰æ‹©åœ¨ X"+i+"ï¼ŒY"+j+" çš„åœ°æ–¹å–æ¶ˆæ ‡å¿—ã€‚\n";
 		i--;
 		j--;
 		if( i < 0 ) i = 0;
 		if( j < 0 ) j = 0;
 		if( map[i][j] != 11 )
-			return notify_fail("²îµãµØ²¢ÎŞÀ×±ê£¬ÎŞ·¨È¡Ïû¡£\n");
+			return notify_fail("å·®ç‚¹åœ°å¹¶æ— é›·æ ‡ï¼Œæ— æ³•å–æ¶ˆã€‚\n");
 		map[i][j] = 0;
 		mine--;
 		if( game[i][j] == 9 )
 			real_mine--;
 		tmp += drew_map(0);
 	}
-	else return notify_fail("Ö¸Áî¸ñÊ½£ºmine <dig|at|re x?y?> | start | cancel | finish ¡£\n");
+	else return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šmine <dig|at|re x?y?> | start | cancel | finish ã€‚\n");
 	tell_room(this_object(), tmp+"\n");
 	return 1;
 }
@@ -399,7 +399,7 @@ int main_mine(string arg)
 int valid_leave(object me, string dir)
 {
   	if( me->query("id") == player )
-               return notify_fail("ÄãÕıÔÚÓÎÏ·£¡ÈçÒªÀë¿ª£¬ÇëÏÈ´ò mine cancel \n");
+               return notify_fail("ä½ æ­£åœ¨æ¸¸æˆï¼å¦‚è¦ç¦»å¼€ï¼Œè¯·å…ˆæ‰“ mine cancel \n");
 
       	return ::valid_leave(me, dir);
 } 

@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "À¶Ìï");
+        set("short", "è“ç”°");
         set("long", @LONG
-À¶Ìï×Ô¹Å³ö²úÃÀÓñ£¬²»½öÓñÖÊºÃ£¬Ò²¿ÉÒÑÈëÒ©¡£ÕâÀïÒÑÊÇ³¤°²¸½½ü£¬¶«ÄÏ
-±ßÊÇÈ¥ºş±±µÄÕıÂ·¡£
+è“ç”°è‡ªå¤å‡ºäº§ç¾ç‰ï¼Œä¸ä»…ç‰è´¨å¥½ï¼Œä¹Ÿå¯å·²å…¥è¯ã€‚è¿™é‡Œå·²æ˜¯é•¿å®‰é™„è¿‘ï¼Œä¸œå—
+è¾¹æ˜¯å»æ¹–åŒ—çš„æ­£è·¯ã€‚
 LONG
         );
-        set("outdoors", "³¤°²");
+        set("outdoors", "é•¿å®‰");
 
         set("exits", ([
             "southeast" : __DIR__"shanxiroad2",
@@ -29,14 +29,14 @@ void init()
  {
            object me = this_player();
            if (me->is_busy() || me->is_fighting())
-                  return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
-if(me->query("family") && me->query("family/family_name")!="ÁéğÕ¹¬")
-                    return notify_fail("Ê²Ã´?\n");
+                  return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+if(me->query("family") && me->query("family/family_name")!="çµé¹«å®«")
+                    return notify_fail("ä»€ä¹ˆ?\n");
 
-       message_vision("$NÔçÌıËµÀ¶ÌïÓñÅ¯£¬ÓĞĞÄÑ°ÃÙ£¬¾¹´ÓÏç´å×ß·òÊÖÖĞ»ñµÃ¼«Æ·ÃÀÓñÒ»·½£¬ĞÀÏ²Ö®Óà£¬¼±×Å¸ÏÂ·£¬Ç°ÍùÁéğÕ£¬ĞãÓñÖîæ­¡£\n", me);
+       message_vision("$Næ—©å¬è¯´è“ç”°ç‰æš–ï¼Œæœ‰å¿ƒå¯»è§…ï¼Œç«Ÿä»ä¹¡æ‘èµ°å¤«æ‰‹ä¸­è·å¾—æå“ç¾ç‰ä¸€æ–¹ï¼Œæ¬£å–œä¹‹ä½™ï¼Œæ€¥ç€èµ¶è·¯ï¼Œå‰å¾€çµé¹«ï¼Œç§€ç‰è¯¸å§ã€‚\n", me);
            me->receive_damage("jing", 30);
            me->start_busy(random(3));
-         message_vision("$Nµ±ÏÂ´Ò´Ò¸ÏÂ·£¬ÈÕ×ªÔÂÂÖ£¬²»¶àÈÕÒÑÊÇµ½ÁËÆ®Ãì·å¡£\n", me);
+         message_vision("$Nå½“ä¸‹åŒ†åŒ†èµ¶è·¯ï¼Œæ—¥è½¬æœˆè½®ï¼Œä¸å¤šæ—¥å·²æ˜¯åˆ°äº†é£˜æ¸ºå³°ã€‚\n", me);
   me->move("/d/tianshan/pmfeng");
            return 1;
  }

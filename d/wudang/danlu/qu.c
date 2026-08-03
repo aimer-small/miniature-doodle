@@ -8,36 +8,36 @@ int do_qu(string arg)
         object ob = this_player();
         int i, amount;
         if(!arg || sscanf(arg, "%s from %s", arg1, arg2)!=2)
-                return notify_fail("ÕâÀïÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+                return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
         if (arg2!="lu")
-                return notify_fail("ÕâÀïÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+                return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
         if( !me->query("marks/open") )
-        return notify_fail("µ¤Â¯µÄ¸Ç×ÓÃ»ÓĞ´ò¿ª¡£\n");
+        return notify_fail("ä¸¹ç‚‰çš„ç›–å­æ²¡æœ‰æ‰“å¼€ã€‚\n");
                 
         if( ob->is_busy() )
-                return notify_fail("ÄãÕıÔÚÃ¦¡£\n");
+                return notify_fail("ä½ æ­£åœ¨å¿™ã€‚\n");
 
         if( sscanf(arg, "%s from %s", arg, arg1)==2 ) {
                 env = present(arg1, ob);
                 if(!env) env = present(arg1, environment(ob));
-                if(!env) return notify_fail("ÄãÕÒ²»µ½ " + arg1 + " ÕâÑù¶«Î÷¡£\n");
+                if(!env) return notify_fail("ä½ æ‰¾ä¸åˆ° " + arg1 + " è¿™æ ·ä¸œè¥¿ã€‚\n");
                 if(living(env) && (wiz_level(me) <= wiz_level(env)))
-                        return notify_fail("ÄãµÄÎ×Ê¦µÈ¼¶±ØĞë±È¶Ô·½¸ß£¬²ÅÄÜËÑÉí¡£\n");
+                        return notify_fail("ä½ çš„å·«å¸ˆç­‰çº§å¿…é¡»æ¯”å¯¹æ–¹é«˜ï¼Œæ‰èƒ½æœèº«ã€‚\n");
         } else env = environment(ob);
         if (!wizardp(me) && env->query("no_get_arg1"))
-                return notify_fail("¹âÌì»¯ÈÕµÄÏëÇÀ½Ù°¡£¿\n");
+                return notify_fail("å…‰å¤©åŒ–æ—¥çš„æƒ³æŠ¢åŠ«å•Šï¼Ÿ\n");
 
         if(sscanf(arg, "%d %s", amount, arg1)==2) {
                 if( !objectp(obj = present(arg1, env)) )
-                        return notify_fail("ÕâÀïÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+                        return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
                 if( !obj->query_amount() )
-                        return notify_fail( obj->name() + "²»ÄÜ±»·Ö¿ªÄÃ×ß¡£\n");
+                        return notify_fail( obj->name() + "ä¸èƒ½è¢«åˆ†å¼€æ‹¿èµ°ã€‚\n");
                 if( amount < 1 )
-                        return notify_fail("¶«Î÷µÄ¸öÊıÖÁÉÙÊÇÒ»¸ö¡£\n");
+                        return notify_fail("ä¸œè¥¿çš„ä¸ªæ•°è‡³å°‘æ˜¯ä¸€ä¸ªã€‚\n");
                 if( amount > obj->query_amount() )
-                        return notify_fail("ÕâÀïÃ»ÓĞÄÇÃ´¶àµÄ" + obj->name() + "¡£\n");
+                        return notify_fail("è¿™é‡Œæ²¡æœ‰é‚£ä¹ˆå¤šçš„" + obj->name() + "ã€‚\n");
                 else if( amount == (int)obj->query_amount() ) {
                         return do_haha(ob, obj);
                 } else {
@@ -56,28 +56,28 @@ int do_qu(string arg)
         }
 
         if(arg=="all") {
-                if( ob->is_fighting() ) return notify_fail("Äã»¹ÔÚÕ½¶·ÖĞ£¡Ö»ÄÜÒ»´ÎÄÃÒ»Ñù¡£\n");
-                if( !env->query_max_encumbrance() )     return notify_fail("ÄÇ²»ÊÇÈİÆ÷¡£\n");
+                if( ob->is_fighting() ) return notify_fail("ä½ è¿˜åœ¨æˆ˜æ–—ä¸­ï¼åªèƒ½ä¸€æ¬¡æ‹¿ä¸€æ ·ã€‚\n");
+                if( !env->query_max_encumbrance() )     return notify_fail("é‚£ä¸æ˜¯å®¹å™¨ã€‚\n");
 
                 inv = all_inventory(env);
                 if( !sizeof(inv) )
-                        return notify_fail("ÄÇÀïÃæÃ»ÓĞÈÎºÎ¶«Î÷¡£\n");
+                        return notify_fail("é‚£é‡Œé¢æ²¡æœ‰ä»»ä½•ä¸œè¥¿ã€‚\n");
 
                 for(i=0; i<sizeof(inv); i++) {
                         if( inv[i]->is_character() || inv[i]->query("no_get") ) continue;
                         do_haha(ob, inv[i]);
                 }
-                write("Ok¡£\n");
+                write("Okã€‚\n");
                 return 1;
         }
 
         if( !objectp(obj = present(arg, env)) || living(obj) )
-                return notify_fail("Äã¸½½üÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+                return notify_fail("ä½ é™„è¿‘æ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
         if( !wizardp(ob) && obj->query("no_get") ) {
                 if (stringp(obj->query("no_get")))
                         return notify_fail(obj->query("no_get"));
-                return notify_fail("Õâ¸ö¶«Î÷ÄÃ²»ÆğÀ´¡£\n");
+                return notify_fail("è¿™ä¸ªä¸œè¥¿æ‹¿ä¸èµ·æ¥ã€‚\n");
         }
         
         return do_haha(ob, obj);
@@ -101,13 +101,13 @@ int do_haha(object ob, object obj)
         if( obj->move(ob) ) {
                 if( ob->is_fighting() ) ob->start_busy(1);
                 if( obj->is_character() )
-                        message_vision( "$N½«$n·öÁËÆğÀ´±³ÔÚ±³ÉÏ¡£\n", ob, obj );
+                        message_vision( "$Nå°†$næ‰¶äº†èµ·æ¥èƒŒåœ¨èƒŒä¸Šã€‚\n", ob, obj );
                 else
-                        message_vision( sprintf("$N%sÒ»%s$n¡£\n", 
-                                old_env==environment(ob)? "¼ñÆğ":
+                        message_vision( sprintf("$N%sä¸€%s$nã€‚\n", 
+                                old_env==environment(ob)? "æ¡èµ·":
                                         (old_env->is_character() ?
-                                                "´Ó" + old_env->name() + "ÉíÉÏ" + (equipped? "³ıÏÂ" : "ËÑ³ö"):
-                                                "´Ó" + old_env->name() + "ÖĞÄÃ³ö"),
+                                                "ä»" + old_env->name() + "èº«ä¸Š" + (equipped? "é™¤ä¸‹" : "æœå‡º"):
+                                                "ä»" + old_env->name() + "ä¸­æ‹¿å‡º"),
                                 obj->query("unit")), ob, obj);
                 ob->start_busy(90);
                 return 1;

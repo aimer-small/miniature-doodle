@@ -1,4 +1,4 @@
-// jingxin.c ¾²
+// jingxin.c é™
 
 #include <ansi.h>
 
@@ -8,26 +8,26 @@ int exert(object me)
 	skill = me->query_skill("literate", 1)/2;
 
 	if(me->is_fighting())
-	      return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ£¬ÈçºÎ¿ÉÒÔ¾²ÏÂĞÄÀ´£¿\n");
+	      return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œå¦‚ä½•å¯ä»¥é™ä¸‹å¿ƒæ¥ï¼Ÿ\n");
 
     if((int)me->query_skill("kurong-changong",1) < 100 )
-	      return notify_fail("ÄãµÄÇ¬ÌìÒ»Ñô¹¦²»¹»æµÊì£¬ÄÚÁ¦µÄ³å×²Ê¹Äã¾²²»ÏÂĞÄÀ´£¡\n");
+	      return notify_fail("ä½ çš„ä¹¾å¤©ä¸€é˜³åŠŸä¸å¤Ÿå¨´ç†Ÿï¼Œå†…åŠ›çš„å†²æ’ä½¿ä½ é™ä¸ä¸‹å¿ƒæ¥ï¼\n");
 
 	if(me->query("class") != "bonze" )
-	      return notify_fail("ÄãÃ»ÓĞ³ö¼Ò£¬ÄÚÁ¦µÄ³å×²Ê¹Äã¾²²»ÏÂĞÄÀ´£¡\n");
+	      return notify_fail("ä½ æ²¡æœ‰å‡ºå®¶ï¼Œå†…åŠ›çš„å†²æ’ä½¿ä½ é™ä¸ä¸‹å¿ƒæ¥ï¼\n");
 
 	if((int)me->query_skill("buddhism",1) < 50 )
-	      return notify_fail("ÄãµÄ·ğÑ§ĞŞÎª²»¹»£¬ÎŞ·¨¾²ÏÂĞÄÀ´Ç±ĞŞ£¡\n");
+	      return notify_fail("ä½ çš„ä½›å­¦ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•é™ä¸‹å¿ƒæ¥æ½œä¿®ï¼\n");
 
 	if (me->query("neili") < 300  ) 
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
 	if (me->query_temp("dali_jing"))
-		return notify_fail("ÄãÕıÔÚ¾²ĞÄÇ±ĞŞ¡£\n");
+		return notify_fail("ä½ æ­£åœ¨é™å¿ƒæ½œä¿®ã€‚\n");
        
 	me->add("neili", -250);
 
-	message_vision(GRN "\n$N±ÕÄ¿ÅÌÏ¥×øÏÂ£¬Ö»¾õĞÄÖĞÇå¾²Æ½ºÍ£¬½¥½¥½øÈëÍüÎÒÖ®¾³¡£\n" NOR, me);
+	message_vision(GRN "\n$Né—­ç›®ç›˜è†åä¸‹ï¼Œåªè§‰å¿ƒä¸­æ¸…é™å¹³å’Œï¼Œæ¸æ¸è¿›å…¥å¿˜æˆ‘ä¹‹å¢ƒã€‚\n" NOR, me);
 
 	me->set_temp("dali_jing", me->query("int"));  
 	me->add_temp("apply/intelligence", me->query("int"));
@@ -49,19 +49,19 @@ void remove_effect(object me, int d)
 	i = me->query_temp("dali_jing");
 	me->add_temp("apply/intelligence", -i);
 	me->delete_temp("dali_jing");
-	tell_object(me, HIY "ÄãĞÄÖĞÔÓÄîÓÖÉú£¬ÎŞ·¨¼ÌĞøÇ±ĞŞÁË¡£\n" NOR);
+	tell_object(me, HIY "ä½ å¿ƒä¸­æ‚å¿µåˆç”Ÿï¼Œæ— æ³•ç»§ç»­æ½œä¿®äº†ã€‚\n" NOR);
 }
 
-string exert_name(){ return GRN"ĞÄ¾­"NOR; }
+string exert_name(){ return GRN"å¿ƒç»"NOR; }
 
 int help(object me)
 {
-        write(YEL"\n¿İÈÙìø¹¦Ö®¡¸"GRN"ĞÄ¾­"YEL"¡¹£º"NOR"\n\n");
+        write(YEL"\næ¯è£ç¦…åŠŸä¹‹ã€Œ"GRN"å¿ƒç»"YEL"ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 550 ÒÔÉÏ£»
-                ¿İÈÙìø¹¦µÈ¼¶ 100 ÒÔÉÏ£»
-                ìø×ÚĞÄ·¨µÈ¼¶ 50 ÒÔÉÏ£»
-                ±ØĞë³ö¼Ò¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 550 ä»¥ä¸Šï¼›
+                æ¯è£ç¦…åŠŸç­‰çº§ 100 ä»¥ä¸Šï¼›
+                ç¦…å®—å¿ƒæ³•ç­‰çº§ 50 ä»¥ä¸Šï¼›
+                å¿…é¡»å‡ºå®¶ã€‚
 
 HELP
         );

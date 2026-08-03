@@ -1,10 +1,10 @@
-// ding. ¶¨ÑôÕë
+// ding. å®šé˜³é’ˆ
 // Modified by action@SJ
 #include <ansi.h>
 #include "/kungfu/skill/eff_msg.h";
 inherit F_SSERVER;
 
-string perform_name() {return HIB"¶¨ÑôÕë"NOR;}
+string perform_name() {return HIB"å®šé˜³é’ˆ"NOR;}
 
 int perform(object me, object target)
 {        
@@ -19,40 +19,40 @@ int perform(object me, object target)
          || !me->is_fighting(target) 
          || !living(target)
          || environment(target)!=environment(me))
-                return notify_fail("¡¸¶¨ÑôÕë¡¹Ö»ÄÜÔÚÕ½¶·ÖÐ¶Ô¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œå®šé˜³é’ˆã€åªèƒ½åœ¨æˆ˜æ–—ä¸­å¯¹å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if (!objectp(weapon = me->query_temp("weapon"))
         || (string)weapon->query("skill_type") != "sword")
-                return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");    
+                return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");    
 
         if( (int)me->query_skill("xiantian-gong",1) < 100 )
-                return notify_fail("ÄãµÄÏÈÌì¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ©Õ¹¡¸¶¨ÑôÕë¡¹£¡\n");
+                return notify_fail("ä½ çš„å…ˆå¤©åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½æ–½å±•ã€Œå®šé˜³é’ˆã€ï¼\n");
 
         if( (int)me->query_skill("force", 1) < 100 )
-                return notify_fail("ÄãµÄ»ù±¾ÄÚ¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ©Õ¹¡¸¶¨ÑôÕë¡¹£¡\n");
+                return notify_fail("ä½ çš„åŸºæœ¬å†…åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½æ–½å±•ã€Œå®šé˜³é’ˆã€ï¼\n");
                 
         if ((int)me->query_skill("quanzhen-jianfa", 1) < 100)
-                return notify_fail("ÄãµÄÈ«Õæ½£·¨²»¹»æµÊì£¬²»ÄÜÊ¹ÓÃ¡¸¶¨ÑôÕë¡¹¡£\n");
+                return notify_fail("ä½ çš„å…¨çœŸå‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œå®šé˜³é’ˆã€ã€‚\n");
                 
         if (me->query_skill_mapped("sword") != "quanzhen-jianfa")
-                return notify_fail("ÄãÃ»ÓÐ¼¤·¢È«Õæ½£·¨£¬²»ÄÜÊ¹ÓÃ¡¸¶¨ÑôÕë¡¹¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰æ¿€å‘å…¨çœŸå‰‘æ³•ï¼Œä¸èƒ½ä½¿ç”¨ã€Œå®šé˜³é’ˆã€ã€‚\n");
 
         if( (int)me->query("neili") < 500 )
-                return notify_fail("ÄãµÄÕæÆø²»×ã£¬²»ÄÜÊ©Õ¹¡¸¶¨ÑôÕë¡¹£¡\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸è¶³ï¼Œä¸èƒ½æ–½å±•ã€Œå®šé˜³é’ˆã€ï¼\n");
 
         if( (int)me->query("max_neili") < 1000 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»×ã£¬²»ÄÜÊ©Õ¹¡¸¶¨ÑôÕë¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸è¶³ï¼Œä¸èƒ½æ–½å±•ã€Œå®šé˜³é’ˆã€ï¼\n");
 
         if( (int)me->query("jingli") < 300 )
-                return notify_fail("ÄãµÄ¾«Á¦²»×ã£¬²»ÄÜÊ©Õ¹¡¸¶¨ÑôÕë¡¹£¡\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›ä¸è¶³ï¼Œä¸èƒ½æ–½å±•ã€Œå®šé˜³é’ˆã€ï¼\n");
 
         if( target->is_busy()) 
-                 return notify_fail("¶Ô·½Õý×Ô¹Ë²»Ï¾ÄØ£¬Äã²»Ã¦Ê©Õ¹¡¸¶¨ÑôÕë¡¹£¡\n");
+                 return notify_fail("å¯¹æ–¹æ­£è‡ªé¡¾ä¸æš‡å‘¢ï¼Œä½ ä¸å¿™æ–½å±•ã€Œå®šé˜³é’ˆã€ï¼\n");
 
-        me->start_perform(2, "¡¸¶¨ÑôÕë¡¹");
+        me->start_perform(2, "ã€Œå®šé˜³é’ˆã€");
 
         force = me->query_skill("force") + me->query_skill("xiantian-gong", 1)/10;
-        tell_object(me,HIW"Äã×óÊÖÄó×Å½£¾÷£¬ÓÒ×ãÌ¤¿ªÒ»ÕÐ¡¸"HIR"¶¨ÑôÕë"HIW"¡¹ÏòÉÏÐ±´Ì£¬"+weapon->name()+""HIW"ïÏÈ»Ô¾³ö£¬Ù¿µÄ»¯×÷¼¸µãÐÇ¹â£¬ÉäÏò"+target->name()+"£¡\n"NOR);
+        tell_object(me,HIW"ä½ å·¦æ‰‹æç€å‰‘è¯€ï¼Œå³è¶³è¸å¼€ä¸€æ‹›ã€Œ"HIR"å®šé˜³é’ˆ"HIW"ã€å‘ä¸Šæ–œåˆºï¼Œ"+weapon->name()+""HIW"é”µç„¶è·ƒå‡ºï¼Œå€çš„åŒ–ä½œå‡ ç‚¹æ˜Ÿå…‰ï¼Œå°„å‘"+target->name()+"ï¼\n"NOR);
         if(random(force) > target->query_skill("force")/3){
            damage = force;
            damage += random(damage);
@@ -64,19 +64,19 @@ int perform(object me, object target)
               damage = damage+random(damage);
              if (damage > 1500) damage = 1500;
            if(damage > 300)
-              tell_object(target, HIB"\nÍ»È»Ö®¼ä£¬ÄãÐØ¿ÚÒ»Í´£¬ËÆºõ±»Ò»Ã¶¼«Ï¸µÄ¼âÕë´ÌÁËÒ»ÏÂ¡£ÕâÒ»ÏÂ´ÌÍ´\n"+
-                                     "Í»ÈçÆäÀ´£¬ËÆÓÐÐÎ£¬ÊµÎÞÖÊ£¬Ò»¹É½£ÆøÍ»ÆÆÄãµÄ»¤ÌåÉñ¹¦£¬Ö±×êÈëÐÄ·Î£¡\n"NOR);            
+              tell_object(target, HIB"\nçªç„¶ä¹‹é—´ï¼Œä½ èƒ¸å£ä¸€ç—›ï¼Œä¼¼ä¹Žè¢«ä¸€æžšæžç»†çš„å°–é’ˆåˆºäº†ä¸€ä¸‹ã€‚è¿™ä¸€ä¸‹åˆºç—›\n"+
+                                     "çªå¦‚å…¶æ¥ï¼Œä¼¼æœ‰å½¢ï¼Œå®žæ— è´¨ï¼Œä¸€è‚¡å‰‘æ°”çªç ´ä½ çš„æŠ¤ä½“ç¥žåŠŸï¼Œç›´é’»å…¥å¿ƒè‚ºï¼\n"NOR);            
            target->receive_damage("qi", damage, me);
            target->receive_wound("qi", damage/3, me);
            me->receive_damage("neili", damage/3);
            limbs = target->query("limbs");
            p = (int)target->query("qi")*100/(int)target->query("max_qi");
-           tell_room(environment(target), HIR + target->name()+"ºö¸ÐÈ«ÉíÏñ±»Õë´ÌÁËÒ»Ñù£¬Ò»ÕóÒ»ÕóµÄÂé£¡\n" NOR, ({ target }));  
-           msg = damage_msg(damage, "ÄÚÉË");
+           tell_room(environment(target), HIR + target->name()+"å¿½æ„Ÿå…¨èº«åƒè¢«é’ˆåˆºäº†ä¸€æ ·ï¼Œä¸€é˜µä¸€é˜µçš„éº»ï¼\n" NOR, ({ target }));  
+           msg = damage_msg(damage, "å†…ä¼¤");
            msg += "( $n"+eff_status_msg(p)+" )\n";
            message_vision(msg, me, target);
-if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"Äã¶Ô"+ target->query("name") +"Ôì³ÉÁË"RED+ damage+ WHT"µã¹¥»÷ÉËº¦¡£\n"NOR); 
-if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"µÄ¹¥»÷¶ÔÄãÔì³ÉÁË"RED+ damage+ WHT"µãÉËº¦¡£\n"NOR); ;
+if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"ä½ å¯¹"+ target->query("name") +"é€ æˆäº†"RED+ damage+ WHT"ç‚¹æ”»å‡»ä¼¤å®³ã€‚\n"NOR); 
+if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"çš„æ”»å‡»å¯¹ä½ é€ æˆäº†"RED+ damage+ WHT"ç‚¹ä¼¤å®³ã€‚\n"NOR); ;
            me->start_busy(1);
            me->add("jingli", -20);
            target->start_busy(2+random(4));
@@ -85,7 +85,7 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
         else {
            me->add("neili", -50);
            me->add("jingli", -5);
-           tell_object(me, HIY"¿ÉÊÇ"+target->name()+"¿´ÆÆÁËÄãµÄÆóÍ¼£¬Ð±Ô¾±Ü¿ªÁË¹¥»÷¡£\n"NOR);
+           tell_object(me, HIY"å¯æ˜¯"+target->name()+"çœ‹ç ´äº†ä½ çš„ä¼å›¾ï¼Œæ–œè·ƒé¿å¼€äº†æ”»å‡»ã€‚\n"NOR);
            me->start_busy(2);         
         }
         return 1;

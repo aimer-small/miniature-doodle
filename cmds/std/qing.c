@@ -7,38 +7,38 @@ int main(object me, string arg)
 	string msg;
 	int i,j;
 
-	if (!mapp(quest = me->query_temp("quest")) || quest["type"] != "Çë")
-		return notify_fail("ÄãµÄÈÎÎñºÃÏó²»ÊÇÒªÑûÇëË­°É£¿\n");
+	if (!mapp(quest = me->query_temp("quest")) || quest["type"] != "è¯·")
+		return notify_fail("ä½ çš„ä»»åŠ¡å¥½è±¡ä¸æ˜¯è¦é‚€è¯·è°å§ï¼Ÿ\n");
 
 	if( me->is_busy())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¬ÏÈĞª¿ÚÆø°É¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼Œå…ˆæ­‡å£æ°”å§ã€‚\n");
 
 	if( me->is_fighting())
-		return notify_fail("ÄãÕıÔÚ´ò¼ÜÄØ£¬µÈ»á¶ùÔÙËµ°É¡£\n");
+		return notify_fail("ä½ æ­£åœ¨æ‰“æ¶å‘¢ï¼Œç­‰ä¼šå„¿å†è¯´å§ã€‚\n");
 
 	if( me->query_temp("yaoqing") )
-		return notify_fail("ÄãÕıÔÚ¼«Á¦ÑûÇëÈË¼ÒÄØ£¡\n");
+		return notify_fail("ä½ æ­£åœ¨æåŠ›é‚€è¯·äººå®¶å‘¢ï¼\n");
 
 	if( !arg || !objectp(ob=present(arg, environment(me))))
-		return notify_fail("ÕâÀïÃ»ÓĞÕâ¸öÈËÒ®¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººè€¶ã€‚\n");
 
 	if( !ob || ob == me)
-		return notify_fail("ÄãÏëÑûÇëµÄ¶ÔÏó²»ÔÚÕâÀï¡£\n");
+		return notify_fail("ä½ æƒ³é‚€è¯·çš„å¯¹è±¡ä¸åœ¨è¿™é‡Œã€‚\n");
 
 	if( !living(ob) )
-		return notify_fail("ÄãÒªÏÈµÈËûĞÑ¹ıÀ´ÔÙËµ¡£\n");
+		return notify_fail("ä½ è¦å…ˆç­‰ä»–é†’è¿‡æ¥å†è¯´ã€‚\n");
 
 	if( !wizardp(me) && wizardp(ob) )
-		return notify_fail("ÏëÑûÇëÎ×Ê¦³Ô·¹£¿ºÃÖ÷Òâ£¬²»¹ıÓÃ chat Ğ§¹û»á¸üºÃ¡£\n");
+		return notify_fail("æƒ³é‚€è¯·å·«å¸ˆåƒé¥­ï¼Ÿå¥½ä¸»æ„ï¼Œä¸è¿‡ç”¨ chat æ•ˆæœä¼šæ›´å¥½ã€‚\n");
 
 	if( ob->is_fighting() || ob->is_busy())
-		return notify_fail("Ã»¿´¼û"+ob->name() + "ÕıÃ¦×ÅÂğ£¿Ã»¿ÕÀíÄã£¡\n");
+		return notify_fail("æ²¡çœ‹è§"+ob->name() + "æ­£å¿™ç€å—ï¼Ÿæ²¡ç©ºç†ä½ ï¼\n");
 
 	if( ob->query_temp("songshan_job") == me)
-		return notify_fail(ob->name() + "ÒÑ¾­½ÓÊÜÁËÑûÇë£¬Äã²»ÓÃÔÙ·Ñ¾¢À²¡£\n");
+		return notify_fail(ob->name() + "å·²ç»æ¥å—äº†é‚€è¯·ï¼Œä½ ä¸ç”¨å†è´¹åŠ²å•¦ã€‚\n");
 
 	if (quest["id"] != ob->query("id"))
-		return notify_fail("ÄãµÄÈÎÎñºÃÏó²»ÊÇÒªÑûÇëÕâÈË°É£¿\n");
+		return notify_fail("ä½ çš„ä»»åŠ¡å¥½è±¡ä¸æ˜¯è¦é‚€è¯·è¿™äººå§ï¼Ÿ\n");
 
 	i = (int)me->query_skill("force") + (int)me->query_kar() * 5;
 	j = (int)ob->query_skill("force") + (int)ob->query_kar() * 5;
@@ -50,22 +50,22 @@ int main(object me, string arg)
 
 	if(me->query("jing") < me->query("eff_jing")/2
 	|| me->query("jingli") < me->query("eff_jingli")/2)
-		return notify_fail("Äã¾«Éñ²»Õñ£¬ÏÈĞİÏ¢Ò»ÏÂ°É£¡\n");
+		return notify_fail("ä½ ç²¾ç¥ä¸æŒ¯ï¼Œå…ˆä¼‘æ¯ä¸€ä¸‹å§ï¼\n");
 
-	me->set_temp("last_damage_from", "ÍÑÁ¦¶ø");
+	me->set_temp("last_damage_from", "è„±åŠ›è€Œ");
 	me->receive_damage("jing", me->query("jing")/3, me);
 	me->receive_damage("jingli", me->query("jingli")/3, me);
 
 	switch(random(4)){
-		case 0: msg = CYN"\n$NÒ»Á³µÄ¹§¾´£¬¶Ô$n±§È­¾Ï¹ªµÀ£º·îáÔÉ½ÅÉ×óÕÆÃÅÖ®Ãü£¬Ç°À´Çë"+RANK_D->query_respect(ob)+"³öÉ½ÏàÖú¡£\n"NOR;break;
-		case 1: msg = CYN"\n$N¶Ô×Å$nÉîÉîÒ»¹ª£ºÍí±²"+me->name()+"¸ø"+RANK_D->query_respect(ob)+"Çë°²ÁË£¬·îáÔÉ½ÅÉÕÆÃÅÃüÁîÇë"+RANK_D->query_respect(ob)+"³öÉ½ÏàÖú¡£\n"NOR;break;
-		case 2: msg = CYN"\n$NÃæ´øĞ¦Èİ£¬¶Ô$nµÀ£º·îáÔÉ½ÅÉ×óÕÆÃÅÖ®Ãü£¬Ç°À´ÑûÇëÇ°±²³öÉ½ÏàÖú¡£¾ÃÎÅ"+RANK_D->query_respect(ob)+"´óÃû£¬½ñÈÕ×ÜËãÄÜÒ»¶Ã½ğÃæ£¬¹ûÈ»Ãû²»Ğé´«£¡\n"NOR;break;
-		case 3: msg = CYN"\n$N¶Ô$n¾Ï¹ªµÀ£ºáÔÉ½ÅÉÕÆÃÅÈËÇ²"+RANK_D->query_self(me)+"Ç°À´¹§Çë"+RANK_D->query_respect(ob)+"³öÉ½ÏàÖú£¬Ë³µÀÒ»Ğğ¹ÊÈËÖ®Çé¡£\n"NOR;break;
+		case 0: msg = CYN"\n$Nä¸€è„¸çš„æ­æ•¬ï¼Œå¯¹$næŠ±æ‹³é èº¬é“ï¼šå¥‰åµ©å±±æ´¾å·¦æŒé—¨ä¹‹å‘½ï¼Œå‰æ¥è¯·"+RANK_D->query_respect(ob)+"å‡ºå±±ç›¸åŠ©ã€‚\n"NOR;break;
+		case 1: msg = CYN"\n$Nå¯¹ç€$næ·±æ·±ä¸€èº¬ï¼šæ™šè¾ˆ"+me->name()+"ç»™"+RANK_D->query_respect(ob)+"è¯·å®‰äº†ï¼Œå¥‰åµ©å±±æ´¾æŒé—¨å‘½ä»¤è¯·"+RANK_D->query_respect(ob)+"å‡ºå±±ç›¸åŠ©ã€‚\n"NOR;break;
+		case 2: msg = CYN"\n$Né¢å¸¦ç¬‘å®¹ï¼Œå¯¹$né“ï¼šå¥‰åµ©å±±æ´¾å·¦æŒé—¨ä¹‹å‘½ï¼Œå‰æ¥é‚€è¯·å‰è¾ˆå‡ºå±±ç›¸åŠ©ã€‚ä¹…é—»"+RANK_D->query_respect(ob)+"å¤§åï¼Œä»Šæ—¥æ€»ç®—èƒ½ä¸€ç¹é‡‘é¢ï¼Œæœç„¶åä¸è™šä¼ ï¼\n"NOR;break;
+		case 3: msg = CYN"\n$Nå¯¹$né èº¬é“ï¼šåµ©å±±æ´¾æŒé—¨äººé£"+RANK_D->query_self(me)+"å‰æ¥æ­è¯·"+RANK_D->query_respect(ob)+"å‡ºå±±ç›¸åŠ©ï¼Œé¡ºé“ä¸€å™æ•…äººä¹‹æƒ…ã€‚\n"NOR;break;
 	}
 
 	if(ob->is_killing(me->query("id"))){
 		ob->remove_all_enemy();
-		msg += "\n$nÉÏÏÂ´òÁ¿ÁË$NÒ»ÑÛ£¬ÉíĞÎÏòºóÒ»Ô¾£¬Ìø³öÕ½È¦²»´òÁË¡£\n";
+		msg += "\n$nä¸Šä¸‹æ‰“é‡äº†$Nä¸€çœ¼ï¼Œèº«å½¢å‘åä¸€è·ƒï¼Œè·³å‡ºæˆ˜åœˆä¸æ‰“äº†ã€‚\n";
 	}
 
 	message_vision(msg, me, ob);
@@ -87,7 +87,7 @@ private void compelete_yaoqing(object me, object ob, int i, int j)
 	if (!living(me))
 		return;
 	if( !ob || environment(ob) != where ) {
-		tell_object(me, "Ì«¿ÉÏ§ÁË£¬ÄãÒªÑûÇëµÄÈËÒÑ¾­×ßÁË¡£\n");
+		tell_object(me, "å¤ªå¯æƒœäº†ï¼Œä½ è¦é‚€è¯·çš„äººå·²ç»èµ°äº†ã€‚\n");
 		return;
 	}
 
@@ -96,9 +96,9 @@ private void compelete_yaoqing(object me, object ob, int i, int j)
 	if( living(ob) && (random(i+j) > j) ) {
 		if (ob->query_temp("last_lost_to") == me && ob->query_temp("yaoqing") == me){
 			message_vision(
-				CYN"\n$N¹ş¹şÒ»Ğ¦£º¡°"
+				CYN"\n$Nå“ˆå“ˆä¸€ç¬‘ï¼šâ€œ"
 				+RANK_D->query_respect(me)
-				+"µÄ¹¦·ò¹ûÈ»²»´í£¬³ĞÃÉ×óÕÆÃÅ¿´µÃÆğ£¬Äã¾Í¸øÎÒ´øÂ·°É£¡¡±\n"NOR, ob
+				+"çš„åŠŸå¤«æœç„¶ä¸é”™ï¼Œæ‰¿è’™å·¦æŒé—¨çœ‹å¾—èµ·ï¼Œä½ å°±ç»™æˆ‘å¸¦è·¯å§ï¼â€\n"NOR, ob
 			);
 			ob->set_temp("songshan_job", me);
 			ob->delete_temp("yaoqing");
@@ -110,20 +110,20 @@ private void compelete_yaoqing(object me, object ob, int i, int j)
 			ob->apply_condition("songshan_busy", 20+random(30));
 			ob->set_leader(me);
 			ob->reincarnate();
-			message_vision("$N¾ö¶¨¸úËæ$nÒ»ÆğĞĞ¶¯¡£\n", ob, me);
+			message_vision("$Nå†³å®šè·Ÿéš$nä¸€èµ·è¡ŒåŠ¨ã€‚\n", ob, me);
 			return;
 		}
 		if( ob->query("jing") * 100 / ob->query("max_jing") < 90
 		|| ob->query("qi") * 100 / ob->query("max_qi") < 90
 		|| ob->query("jingli") * 100 / ob->query("eff_jingli") < 70
 		|| ob->query("neili") * 100 / ob->query("max_neili") < 70 ) {
-			message_vision("$NÁ³É«²Ô°×£¬Ö»¿´ÁË$nÒ»ÑÛ¡£¿´À´ÊÇÉíÌå²»ÊÊ¡£\n", ob, me);
+			message_vision("$Nè„¸è‰²è‹ç™½ï¼Œåªçœ‹äº†$nä¸€çœ¼ã€‚çœ‹æ¥æ˜¯èº«ä½“ä¸é€‚ã€‚\n", ob, me);
 			return;
 		}
 		message_vision(
-			HIY"\n$NÉ¨ÁË$nÒ»ÑÛµÀ£º¡°"+RANK_D->query_rude(me)
-			+"£¬×óĞÖ¼ÈÈ»ÅÉÄãÀ´£¬Ïë±ØÓĞ¼¸·ÖÕæ²ÅÊµÑ§£¬¾ÍÈÃ"
-			+RANK_D->query_self_rude(ob)+"À´µàÁ¿µàÁ¿Äã°É£¡¡±\n"NOR, ob, me
+			HIY"\n$Næ‰«äº†$nä¸€çœ¼é“ï¼šâ€œ"+RANK_D->query_rude(me)
+			+"ï¼Œå·¦å…„æ—¢ç„¶æ´¾ä½ æ¥ï¼Œæƒ³å¿…æœ‰å‡ åˆ†çœŸæ‰å®å­¦ï¼Œå°±è®©"
+			+RANK_D->query_self_rude(ob)+"æ¥æ‚é‡æ‚é‡ä½ å§ï¼â€\n"NOR, ob, me
 		);
 		ob->delete_temp("last_lost_to");
 		ob->set_temp("yaoqing", me);
@@ -133,21 +133,21 @@ private void compelete_yaoqing(object me, object ob, int i, int j)
 	}
 	switch(random(4)){
 		case 0:
-			message_vision("$N×ª¹ıÍ·À´£¬ÉÏÉÏÏÂÏÂ¿´ÁË$nÒ»±é£¬ÓÖ×ª¹ıÍ·È¥ÁË¡£\n", ob, me);
+			message_vision("$Nè½¬è¿‡å¤´æ¥ï¼Œä¸Šä¸Šä¸‹ä¸‹çœ‹äº†$nä¸€éï¼Œåˆè½¬è¿‡å¤´å»äº†ã€‚\n", ob, me);
 			break;
 		case 1:
-			message_vision("$NÇáÃïµØÉ¨ÁË$nÒ»ÑÛ£¬Á³ÉÏÂ¶³ö²»Ğ¼µÄ±íÇé¡£\n", ob, me);
+			message_vision("$Nè½»è”‘åœ°æ‰«äº†$nä¸€çœ¼ï¼Œè„¸ä¸Šéœ²å‡ºä¸å±‘çš„è¡¨æƒ…ã€‚\n", ob, me);
 			break;
 		case 2:
 			message_vision(
-				"$NºÙºÙÒ»Éù£º"+RANK_D->query_rude(me)+"£¬ÏëÇë¶¯"
-				+RANK_D->query_self_rude(ob)+"£¬¿ÉµÃ»¨²»ÉÙ¹¤·ò°¡¡£\n", ob, me
+				"$Nå˜¿å˜¿ä¸€å£°ï¼š"+RANK_D->query_rude(me)+"ï¼Œæƒ³è¯·åŠ¨"
+				+RANK_D->query_self_rude(ob)+"ï¼Œå¯å¾—èŠ±ä¸å°‘å·¥å¤«å•Šã€‚\n", ob, me
 			);
 			break;
 		case 3:
 			message_vision(
-				"$NÒ»Á³²»ÄÍ·³µÄ±íÇé£ºÈ¥£¡È¥£¡È¥£¡±ğÀ´´òÈÅ"
-				+RANK_D->query_self_rude(ob)+"¡£\n", ob
+				"$Nä¸€è„¸ä¸è€çƒ¦çš„è¡¨æƒ…ï¼šå»ï¼å»ï¼å»ï¼åˆ«æ¥æ‰“æ‰°"
+				+RANK_D->query_self_rude(ob)+"ã€‚\n", ob
 			);
 			break;
 	}
@@ -157,9 +157,9 @@ private void compelete_yaoqing(object me, object ob, int i, int j)
 int help(object me)
 {
 write(@HELP
-ÑûÇëÄ³ÈË¡£
+é‚€è¯·æŸäººã€‚
 
-Ö¸Áî¸ñÊ½ : qing <Ä³ÈË>
+æŒ‡ä»¤æ ¼å¼ : qing <æŸäºº>
 
 HELP
     );

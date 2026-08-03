@@ -1,11 +1,11 @@
 // cf.c
-// ����
+// 厨房
 inherit ROOM;
 void create()
 {
-	set("short","����");
+	set("short","厨房");
 	set("long",@long
-�����������̽��ڳԷ���ˮ�ĵط�����̨�Ϸ��Ų��ٰ��ӡ��ƴ���
+这里是神龙教教众吃饭喝水的地方，灶台上放着不少包子、酒袋。
 long);
 	set("exits",([
 		"west" : __DIR__"th",

@@ -7,13 +7,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("¾²¿ÕÊ¦Ì«", ({"jingkong shitai", "jingkong", "shitai"}));
+	set_name("é™ç©ºå¸ˆå¤ª", ({"jingkong shitai", "jingkong", "shitai"}));
 	set("long",
-		"ËıÊÇÒ»Î»´ÈÏéµÄÖĞÄêÊ¦Ì«£¬ÔÚÍòÄêâÖĞŞĞĞ¡£\n"
-		"ËıÊÇÃğ¾øÊ¦Ì«µÄ°Ë´ó¾²×Ö±²µÜ×ÓÖ®ËÄ£¬×îÉÃ³¤ÕÆ·¨¡£\n"
+		"å¥¹æ˜¯ä¸€ä½æ…ˆç¥¥çš„ä¸­å¹´å¸ˆå¤ªï¼Œåœ¨ä¸‡å¹´åºµä¿®è¡Œã€‚\n"
+		"å¥¹æ˜¯ç­ç»å¸ˆå¤ªçš„å…«å¤§é™å­—è¾ˆå¼Ÿå­ä¹‹å››ï¼Œæœ€æ“…é•¿æŒæ³•ã€‚\n"
 	);
 
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 	set("class", "bonze");
@@ -42,8 +42,8 @@ void create()
 	set_skill("force", 130);
 	set_skill("anying-fuxiang", 130);
 	set("inquiry",([
-                "Ìê¶È"  : (: ask_for_join :),
-                "³ö¼Ò"  : (: ask_for_join :),
+                "å‰ƒåº¦"  : (: ask_for_join :),
+                "å‡ºå®¶"  : (: ask_for_join :),
         ]));
 	map_skill("force", "linji-zhuang");
 	map_skill("strike", "sixiang-zhang");
@@ -52,7 +52,7 @@ void create()
 
 	prepare_skill("strike", "sixiang-zhang");
 
-	create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+	create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
 	setup();
 	carry_object("/d/emei/obj/shoes")->wear();

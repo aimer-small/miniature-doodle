@@ -6,16 +6,16 @@ inherit NPC;
 inherit F_MASTER;
 void create()
 {
-        set_name("·½±ÌÁÕ", ({
+        set_name("æ–¹ç¢§ç³", ({
                 "fang bilin",
                 "fang",
                 }));
         set("long",
-                "ËıÊÇÃğ¾øÊ¦Ì«µÄ°Ë´óË×¼ÒµÚ×ÓÖ®Ò»¡£\n"
+                "å¥¹æ˜¯ç­ç»å¸ˆå¤ªçš„å…«å¤§ä¿—å®¶ç¬¬å­ä¹‹ä¸€ã€‚\n"
         );
 
 
-        set("gender", "Å®ĞÔ");
+        set("gender", "å¥³æ€§");
         set("attitude", "friendly");
          set("unique", 1);
         set("age", 25);
@@ -46,7 +46,7 @@ set("combat_exp", 200000);
 	map_skill("sword", "huifeng-jian");
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
         setup();
 

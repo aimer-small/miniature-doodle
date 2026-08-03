@@ -2,15 +2,15 @@
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
-#define QUESTDIR5 "quest/Ñ©É½·Éºü/±¦²Ø/"
-#define JADE    "/d/zhiye/obj/othermaterial" //Óñ
+#define QUESTDIR5 "quest/é›ªå±±é£ç‹/å®è—/"
+#define JADE    "/d/zhiye/obj/othermaterial" //ç‰
 
 void create()
 {
-        set("short",YEL"±øÆ÷¿â"NOR);
+        set("short",YEL"å…µå™¨åº“"NOR);
         set("long", @long
-ÕâÀïÓ¦¸ÃÊÇÒ»¸öÁ·Îä³¡»òÕß±øÆ÷ÊÒ£¬µØÉÏÉ¢ÂúÁËÂÒÆß°ËÔãµÄ±øÆ÷£¬Ê®Ö®°Ë
-¾Å¶¼ÊÇ¹Å½££¬»ò³¤ÓâÆß³ß£¬»ò¶Ì½öÊı´ç£¬Ö»ÊÇ´ó¶àÌú¿Ú°ß²µ¡£
+è¿™é‡Œåº”è¯¥æ˜¯ä¸€ä¸ªç»ƒæ­¦åœºæˆ–è€…å…µå™¨å®¤ï¼Œåœ°ä¸Šæ•£æ»¡äº†ä¹±ä¸ƒå…«ç³Ÿçš„å…µå™¨ï¼Œåä¹‹å…«
+ä¹éƒ½æ˜¯å¤å‰‘ï¼Œæˆ–é•¿é€¾ä¸ƒå°ºï¼Œæˆ–çŸ­ä»…æ•°å¯¸ï¼Œåªæ˜¯å¤§å¤šé“å£æ–‘é©³ã€‚
 long);
         set("exits", ([
                 "east" : __DIR__"tiantan",
@@ -33,20 +33,20 @@ int do_search(string arg)
 	object me,obj;
   me = this_player();
 	if (me->is_busy() || me->is_fighting())
-		      return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
-  message_vision(HIY"$N¶×ÔÚµØÉÏ£¬ËÄ´¦Ñ°ÕÒ¡£\n"NOR, me);
+		      return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
+  message_vision(HIY"$Nè¹²åœ¨åœ°ä¸Šï¼Œå››å¤„å¯»æ‰¾ã€‚\n"NOR, me);
   if(!wizardp(me)) me->start_busy(1);
   if(me->query(QUESTDIR5+"bingqiku")>=2||random(2))
   {
-         tell_room(environment(me), me->name() + "ÕÒÁË°ëÌì£¬Ò»²»Ğ¡ĞÄ²Èµ½ÁËÒ»Ûçòùòğ·à±ã£¬Ë¤ÁË¸öÑö°Ë²æ¡£\n", ({ me }));
-       return notify_fail("ÄãÕÒÁË°ëÌì£¬Ê²Ã´Ò²Ã»ÕÒµ½¡£\n");
+         tell_room(environment(me), me->name() + "æ‰¾äº†åŠå¤©ï¼Œä¸€ä¸å°å¿ƒè¸©åˆ°äº†ä¸€å¨è™è ç²ªä¾¿ï¼Œæ‘”äº†ä¸ªä»°å…«å‰ã€‚\n", ({ me }));
+       return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œä»€ä¹ˆä¹Ÿæ²¡æ‰¾åˆ°ã€‚\n");
   }
     me->add(QUESTDIR5+"bingqiku",1);
   obj = new(JADE);
   obj->set_level(3+random(3));
         obj->move(me);
-        message_vision(WHT"$N·¢ÏÖÒ»¿é"+obj->name()+WHT"¡£\n"NOR, me);
-  log_file("quest/FEIHU", sprintf("%s(%s)ÕÒµ½±øÆ÷¿âµÄ±¦Îï%s¡£¾­Ñé%d¡£\n", me->name(1),me->query("id"),obj->query("name"), me->query("combat_exp")) );
+        message_vision(WHT"$Nå‘ç°ä¸€å—"+obj->name()+WHT"ã€‚\n"NOR, me);
+  log_file("quest/FEIHU", sprintf("%s(%s)æ‰¾åˆ°å…µå™¨åº“çš„å®ç‰©%sã€‚ç»éªŒ%dã€‚\n", me->name(1),me->query("id"),obj->query("name"), me->query("combat_exp")) );
   me->start_busy(2);
 	return 1;
 }

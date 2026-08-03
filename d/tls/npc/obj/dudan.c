@@ -14,13 +14,13 @@ void init()
 
 void create()
 {
-	set_name("¶¾µ¤", ({"du dan", "du", "dan"}));
+	set_name("æ¯’ä¸¹", ({"du dan", "du", "dan"}));
 	set_weight(150);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿ÅºÚÉ«µÄµ¤Íè£¬ºÃÏóÓÐ¶¾¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—é»‘è‰²çš„ä¸¹ä¸¸ï¼Œå¥½è±¡æœ‰æ¯’ã€‚\n");
 		set("value", 100000);
 		set("no_get", 1);
 		set("no_drop", 1);
@@ -33,20 +33,20 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->query_skill_mapped("force") == "qiantian-yiyang" )
-		return notify_fail("ÄãÏÖÔÚËùÓÃÄÚ¹¦²»¶Ô£¬³ÔÁË·´¶ø»á´óËðÔªÆø¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨æ‰€ç”¨å†…åŠŸä¸å¯¹ï¼Œåƒäº†åè€Œä¼šå¤§æŸå…ƒæ°”ã€‚\n");
        
 	if ( (int)me->query_condition("bonze_drug" ) > 0 )
-		return notify_fail("Äã¸Õ³Ô¹ýÁéÒ©£¬ÏÖÔÚ²»ÄÜ³Ô¶¾µ¤! \n");
+		return notify_fail("ä½ åˆšåƒè¿‡çµè¯ï¼ŒçŽ°åœ¨ä¸èƒ½åƒæ¯’ä¸¹! \n");
 
 	if ( me->query_skill_mapped("force") == "kurong-changong"){
                 me->set("eff_qi", me->query("max_qi"));
                 me->add("combat_exp",me->query_skill("kurong-changong")+ random(me->query_skill("kurong-changong")) );
 		me->set("food", me->max_food_capacity());
 		me->set("water", me->max_water_capacity());
-                message_vision(HIG "$N³ÔÏÂÒ»¿Å¶¾µ¤£¬¾õµÃ¾«ÆøÒ»Õñ£¬×ÔÉíÐÞÎªËÆºõÂÔÓÐÔöÕÇ¡£\n" NOR,me);
+                message_vision(HIG "$Nåƒä¸‹ä¸€é¢—æ¯’ä¸¹ï¼Œè§‰å¾—ç²¾æ°”ä¸€æŒ¯ï¼Œè‡ªèº«ä¿®ä¸ºä¼¼ä¹Žç•¥æœ‰å¢žæ¶¨ã€‚\n" NOR,me);
 		destruct(this_object());
 		return 1;
 	}
@@ -54,7 +54,7 @@ int do_eat(string arg)
 		me->add("qi", -200);
 		me->add("jing", -100);
                 me->set("eff_qi", me->query("max_qi"));
-		message_vision(HIR "$N³ÔÏÂÒ»¿Å¶¾µ¤£¬Ö»¾õµÃ¸Î³¦´ç¶Ï¡£\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—æ¯’ä¸¹ï¼Œåªè§‰å¾—è‚è‚ å¯¸æ–­ã€‚\n" NOR, me);
 		me->unconcious();
 		destruct(this_object());
 		return 1;

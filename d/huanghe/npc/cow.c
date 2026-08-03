@@ -1,13 +1,13 @@
-// cow.c ´ó»ÆÅ£
+// cow.c å¤§é»„ç‰›
 #include <ansi.h>
 
 inherit NPC;
 
 void create()
 {
-        set_name(YEL"´ó»ÆÅ£"NOR, ({ "da huangniu", "huangniu", "cow" }));
-        set("long","Ò»Í·Êİ¹Çá×á¾µÄ´ó»ÆÅ££¬²»ÖªÊÇË­¼ÒµÄ£¬ÕıµÍÍ·ÈÏÕæµØ³Ô×Å²İ¡£\n");
-        set("race", "Ò°ÊŞ");
+        set_name(YEL"å¤§é»„ç‰›"NOR, ({ "da huangniu", "huangniu", "cow" }));
+        set("long","ä¸€å¤´ç˜¦éª¨å¶™å³‹çš„å¤§é»„ç‰›ï¼Œä¸çŸ¥æ˜¯è°å®¶çš„ï¼Œæ­£ä½å¤´è®¤çœŸåœ°åƒç€è‰ã€‚\n");
+        set("race", "é‡å…½");
         set("age", 5);
         set("int", 30);
         set("can_ride",1);
@@ -20,7 +20,7 @@ void create()
         set("combat_exp",50000);
         set("attitude", "peaceful");
 
-        set("limbs", ({ "Í·²¿", "¸¹²¿", "Î²°Í","ºóÍÈ","Ç°ÍÈ" }) );
+        set("limbs", ({ "å¤´éƒ¨", "è…¹éƒ¨", "å°¾å·´","åè…¿","å‰è…¿" }) );
         set("verbs", ({ "bite","hoof" }) );
         set_temp("apply/attack", 50);
         set_temp("apply/armor", 15);
@@ -28,8 +28,8 @@ void create()
 
         set("chat_chance", 2);
         set("chat_msg", ({
-        "´ó»ÆÅ£ÎŞ¹¼µÄ¿´×ÅÄã£¬ºÃÏóÔÚÆòÇóĞ©Ê²Ã´¡£\n",
-        "´ó»ÆÅ£¿ÚÖĞ´­×Å´ÖÆø¡£\n",
+        "å¤§é»„ç‰›æ— è¾œçš„çœ‹ç€ä½ ï¼Œå¥½è±¡åœ¨ä¹æ±‚äº›ä»€ä¹ˆã€‚\n",
+        "å¤§é»„ç‰›å£ä¸­å–˜ç€ç²—æ°”ã€‚\n",
         }) ); 
 
         setup();

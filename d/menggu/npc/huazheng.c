@@ -2,12 +2,12 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-   set_name("»ªóİ¹«Ö÷",({"huazheng"}));
-   set("gender","Å®ĞÔ");
-   set("long","ÌúÄ¾ÕæµÄĞ¡Å®¶ù,¹ù¾¸µÄÎ´»éÆŞ×Ó!\n");
+   set_name("åç­å…¬ä¸»",({"huazheng"}));
+   set("gender","å¥³æ€§");
+   set("long","é“æœ¨çœŸçš„å°å¥³å„¿,éƒ­é–çš„æœªå©šå¦»å­!\n");
    set("score",30000);
    set("combat_exp",60000);
-   set("title",HIC"ÃÉ¹Å¿¤Ö÷"NOR);
+   set("title",HIC"è’™å¤éƒ¡ä¸»"NOR);
    
    set("age",12);
    set("pur",25);

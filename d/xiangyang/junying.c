@@ -4,14 +4,14 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "ÃÉ¹Å¾üÓª");
+        set("short", "è’™å¤å†›è¥");
         set("long", @LONG
-ÕâÀïÊÇÃÉ¹Å¹¥»÷ÏåÑôµÄÁÙÊ±¾üÓª£¬Ê±Ê±ÓÐÊ¿±øÀ´»ØÑ²Âß¡£
-ÍùÎ÷ÄÏ±ãÄÜµ½´ïÏåÑô¡£
+è¿™é‡Œæ˜¯è’™å¤æ”»å‡»è¥„é˜³çš„ä¸´æ—¶å†›è¥ï¼Œæ—¶æ—¶æœ‰å£«å…µæ¥å›žå·¡é€»ã€‚
+å¾€è¥¿å—ä¾¿èƒ½åˆ°è¾¾è¥„é˜³ã€‚
 LONG
         );
         set("xyjob", 1);
-        set("outdoors", "ÏåÑô");
+        set("outdoors", "è¥„é˜³");
         set("objects", ([
                 __DIR__"npc/weishi" : 3,
         ]));
@@ -28,7 +28,7 @@ int valid_leave(object me, string dir)
       if ((dir == "enter") 
       && (me->query_temp("xyjob/xy_defend")) 
       && (present("weishi", this_object())))
-      return notify_fail("Äã»¹ÊÇÏÈÉ±µôÃÅ¿ÚµÄÎÀÊ¿ÔÙËµ°É¡£\n");
+      return notify_fail("ä½ è¿˜æ˜¯å…ˆæ€æŽ‰é—¨å£çš„å«å£«å†è¯´å§ã€‚\n");
       return ::valid_leave(me, dir);
 }
 
@@ -38,7 +38,7 @@ void init()
      object me = this_player();
 
      if ( me->query_temp("quest/tzauto/yideng",1) ) 
-                {    message_vision( "$NºöÈ»Ìýµ½Ô¶´¦´«À´Ò»Õó´ò¶·Ö®Éù£¬²»½ûÐÄÏÂÒÉ»ó£¬Ïë¹ýÈ¥¿´¸ö¾¿¾¹¡£\n", me);
+                {    message_vision( "$Nå¿½ç„¶å¬åˆ°è¿œå¤„ä¼ æ¥ä¸€é˜µæ‰“æ–—ä¹‹å£°ï¼Œä¸ç¦å¿ƒä¸‹ç–‘æƒ‘ï¼Œæƒ³è¿‡åŽ»çœ‹ä¸ªç©¶ç«Ÿã€‚\n", me);
                      me->move("/d/xiangyang/junying1");
  }
 }

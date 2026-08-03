@@ -1,4 +1,4 @@
-// NPC: jydizi.c ½ÓÒıµÜ×Ó
+// NPC: jydizi.c æ¥å¼•å¼Ÿå­
 
 #include <ansi.h>
 #include <combat.h>
@@ -6,18 +6,18 @@ inherit NPC;
 string ask_for_test();
 void create()
 {
-	set_name("½ÓÒıµÜ×Ó", ({"jieyin dizi", "jieyin", "dizi"}));
+	set_name("æ¥å¼•å¼Ÿå­", ({"jieyin dizi", "jieyin", "dizi"}));
 	set("long",
-		"ËûÊÇÒ»Î»Ìå¸ñÇ¿½¡µÄ×³ºº£¬ËûÉí²Ä¿ıÎà£¬»¢±³ĞÜÑü£¬Ò»¿´±ãÖªÓĞ\n"
-		"×ÅÒ»ÉíºÃÎäÒÕ¡£\n"
+		"ä»–æ˜¯ä¸€ä½ä½“æ ¼å¼ºå¥çš„å£®æ±‰ï¼Œä»–èº«æé­æ¢§ï¼Œè™èƒŒç†Šè…°ï¼Œä¸€çœ‹ä¾¿çŸ¥æœ‰\n"
+		"ç€ä¸€èº«å¥½æ­¦è‰ºã€‚\n"
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 
 	set("inquiry",([
-		"Èë°ï"	: (: ask_for_test :),
-		"¿¼Ñé"	: (: ask_for_test :),
+		"å…¥å¸®"	: (: ask_for_test :),
+		"è€ƒéªŒ"	: (: ask_for_test :),
 	]));
 
 	set("age", 20);
@@ -54,11 +54,11 @@ void create()
 	set("startroom","/d/city/fenduo2");
 	set("chat_chance", 3);
 	set("chat_msg", ({
-		"½ÓÒıµÜ×ÓËµµÀ: ÎÒÃÇÒª¹ãÕĞÌìÏÂÓ¢ĞÛ£¬¹â´óØ¤°ï¡£\n",
-		"½ÓÒıµÜ×ÓÓÃÊÖÇáÇáµÄ¸§Ä¦×Åµ¶·æ¡£\n",
-		"½ÓÒıµÜ×ÓËµµÀ£º½­ºşÉÏÆæÈËÒìÊ¿ÈëÎÒØ¤°ï£¬¶¼ÒªÏÈÈÃÎÒÀ´¿¼Ñé¡£ \n",
+		"æ¥å¼•å¼Ÿå­è¯´é“: æˆ‘ä»¬è¦å¹¿æ‹›å¤©ä¸‹è‹±é›„ï¼Œå…‰å¤§ä¸å¸®ã€‚\n",
+		"æ¥å¼•å¼Ÿå­ç”¨æ‰‹è½»è½»çš„æŠšæ‘©ç€åˆ€é”‹ã€‚\n",
+		"æ¥å¼•å¼Ÿå­è¯´é“ï¼šæ±Ÿæ¹–ä¸Šå¥‡äººå¼‚å£«å…¥æˆ‘ä¸å¸®ï¼Œéƒ½è¦å…ˆè®©æˆ‘æ¥è€ƒéªŒã€‚ \n",
 	}) );
-  	create_family("Ø¤°ï", 19, "µÜ×Ó");
+  	create_family("ä¸å¸®", 19, "å¼Ÿå­");
 
 	setup();
 
@@ -77,9 +77,9 @@ string ask_for_test()
 	object me = this_player();
 
         if (me->query("gb_pass"))
-		return "ÄãÒÑ¾­ÊÇØ¤°ï°ïÖÚÁË£¬¿É±ğ¸úÎÒ¿ªÕâµÈÍæĞ¦¡£\n";
+		return "ä½ å·²ç»æ˜¯ä¸å¸®å¸®ä¼—äº†ï¼Œå¯åˆ«è·Ÿæˆ‘å¼€è¿™ç­‰ç©ç¬‘ã€‚\n";
 	me->set_temp("pending/join_gb", 1);
-	return "ÎªØ¤°ïĞ§Á¦ĞèÒªÓĞÒ»¶¨µÄ¹¦·ò£¬ÄãÈôÔ¸Òâ¿ÉÒÔÈÃÎÒ¿¼ÑéÒ»·¬¡£(test)\n";
+	return "ä¸ºä¸å¸®æ•ˆåŠ›éœ€è¦æœ‰ä¸€å®šçš„åŠŸå¤«ï¼Œä½ è‹¥æ„¿æ„å¯ä»¥è®©æˆ‘è€ƒéªŒä¸€ç•ªã€‚(test)\n";
 }
 
 int do_test()
@@ -91,18 +91,18 @@ int do_test()
 		return 0;
 	if (!living(this_object())) return 0;
 	message_vision(
-		"$N¹ªÉíÒ»Ò¾£¬¹§¹§¾´¾´µÄµÀ£º¡°ÇëÖ¸½Ì¡£¡±\n\n"
-		"$nË«ÊÖ±§È­ÀÊÉùËµµÀ£º¡°Çë¡±¡£\n\n",
+		"$Nèº¬èº«ä¸€æ–ï¼Œæ­æ­æ•¬æ•¬çš„é“ï¼šâ€œè¯·æŒ‡æ•™ã€‚â€\n\n"
+		"$nåŒæ‰‹æŠ±æ‹³æœ—å£°è¯´é“ï¼šâ€œè¯·â€ã€‚\n\n",
 		me, this_object() );
 	for (i=0;i<6;i++){
 		if (interactive(me) && me->query_temp("pending/join_gb") && living(me))
 			COMBAT_D->do_attack(this_object(), me, query_temp("weapon"), 1);
 		if((!living(me))||((int)me->query("qi")<(int)me->query("max_qi")/4))
-			return notify_fail("ÕæÊÇ¿ÉÏ§Ñ½£¬¿´À´Äã»¹Òª¶à¶àÅ¬Á¦¡£\n");
+			return notify_fail("çœŸæ˜¯å¯æƒœå‘€ï¼Œçœ‹æ¥ä½ è¿˜è¦å¤šå¤šåŠªåŠ›ã€‚\n");
 	}
 	command("smile");
-	command("say ¹§Ï²£¬¹§Ï²£¬´Ó½ñÒÔºóÄã¾ÍÊÇØ¤°ïµÄ°ïÖÚÁË¡£\n");
-	command("say Äã¿ÉÒÔÏòØ¤°ïµÄÎâ³¤ÀÏÉêÇëÎªØ¤°ï¹¤×÷¡£(ask wu about job)\n");
+	command("say æ­å–œï¼Œæ­å–œï¼Œä»ä»Šä»¥åä½ å°±æ˜¯ä¸å¸®çš„å¸®ä¼—äº†ã€‚\n");
+	command("say ä½ å¯ä»¥å‘ä¸å¸®çš„å´é•¿è€ç”³è¯·ä¸ºä¸å¸®å·¥ä½œã€‚(ask wu about job)\n");
 	me->delete_temp("pending/join_gb");
 	me->set("gb_pass",1);
 	return 1;

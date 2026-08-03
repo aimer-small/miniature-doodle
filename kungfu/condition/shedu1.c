@@ -6,12 +6,12 @@ int update_condition(object me, int duration)
 {
         me->receive_wound("jing", 1);
         me->receive_damage("jing", 1);
-	me->set_temp("last_damage_from", "Éß¶¾·¢×÷");
+	me->set_temp("last_damage_from", "è›‡æ¯’å‘ä½œ");
 	me->apply_condition("snake_poison", duration - 1);
 	if (living(me))
-		message_vision(BLU "$NÁ½ÑÛ·¢Ö±£¬Éí×ÓÉªÉª¶¶ÁËÆðÀ´£¡\n" NOR, me);
+		message_vision(BLU "$Nä¸¤çœ¼å‘ç›´ï¼Œèº«å­ç‘Ÿç‘ŸæŠ–äº†èµ·æ¥ï¼\n" NOR, me);
 	else
-		message_vision(BLU "$NÍ´¿àµØÉëßÌÁËÒ»Éù£¡\n" NOR, me);
+		message_vision(BLU "$Nç—›è‹¦åœ°å‘»å’›äº†ä¸€å£°ï¼\n" NOR, me);
 	me->add_busy(2); 
 	if( duration < 1 ) return 0;
 	return 1;

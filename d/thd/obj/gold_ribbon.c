@@ -1,4 +1,4 @@
-// gold_ribbon.c Êø·¢½ğ´ø
+// gold_ribbon.c æŸå‘é‡‘å¸¦
 
 #include <armor.h>
 
@@ -6,12 +6,12 @@ inherit HEAD;
 
 void create()
 {
-	set_name("Êø·¢½ğ´ø", ({ "gold ribbon", "ribon", "dai" }));
+	set_name("æŸå‘é‡‘å¸¦", ({ "gold ribbon", "ribon", "dai" }));
 	set("weight", 100);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ìõ");
+		set("unit", "æ¡");
 		set("value", 2000);
 		set("material", "gold");
 		set("armor_prop/armor", 1);

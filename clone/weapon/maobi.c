@@ -1,4 +1,4 @@
-// maobi.c Ã«±Ê
+// maobi.c æ¯›ç¬”
 // by iceland
 
 #include <weapon.h>
@@ -6,13 +6,13 @@ inherit SWORD;
 
 void create()
 {
-        set_name( "Ã«±Ê", ({  "mao bi" , "maobi" , "bi"}));
+        set_name( "æ¯›ç¬”", ({  "mao bi" , "maobi" , "bi"}));
         set_weight(100);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ö§");
-                set("long", "Ò»Ö§ÓÃÓÚÊéĞ´µÄÃ«±Ê£¬ÖñÖÆ±Ê¸Ë£¬Èı´çÀ´³¤£¬ÈëÊÖÇáÆ®Æ®µÄ¡£\n");
+                set("unit", "æ”¯");
+                set("long", "ä¸€æ”¯ç”¨äºä¹¦å†™çš„æ¯›ç¬”ï¼Œç«¹åˆ¶ç¬”æ†ï¼Œä¸‰å¯¸æ¥é•¿ï¼Œå…¥æ‰‹è½»é£˜é£˜çš„ã€‚\n");
                 set("value", 5);
                 set("material", "wood");
               }

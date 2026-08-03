@@ -1,4 +1,4 @@
-//chaodu.c  °ãÈôÕÆ³¬¶ÈÁ¬»·¾÷
+//chaodu.c  èˆ¬è‹¥æŽŒè¶…åº¦è¿žçŽ¯è¯€
 
 #include <ansi.h>
 
@@ -15,37 +15,37 @@ int perform(object me, object target)
         if( !target
         ||      !target->is_character()
         ||      !me->is_fighting(target) )
-                return notify_fail("³¬¶ÈÁ¬»·¾÷Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("è¶…åº¦è¿žçŽ¯è¯€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if( me->query_temp("lianhuan") )
-                return notify_fail("ÄãÒÑÔÚÊ¹ÓÃ³¬¶ÈÁ¬»·¾÷ÁË£¡\n");
+                return notify_fail("ä½ å·²åœ¨ä½¿ç”¨è¶…åº¦è¿žçŽ¯è¯€äº†ï¼\n");
 
         weapon = me->query_temp("weapon");
         if( objectp(weapon) )
-                return notify_fail("ÄãÊÖÖÐÄÃ×Å¼Ò»ï£¬ÈçºÎÄÜ¹»Ê©Õ¹Á¬»·¾÷£¿\n");
+                return notify_fail("ä½ æ‰‹ä¸­æ‹¿ç€å®¶ä¼™ï¼Œå¦‚ä½•èƒ½å¤Ÿæ–½å±•è¿žçŽ¯è¯€ï¼Ÿ\n");
 
         if( me->query_skill_mapped("force") != "yijin-jing" )
-                return notify_fail("ÄãËùÓÃµÄ²¢·ÇÒ×½î¾­Éñ¹¦£¬ÎÞ·¨ÅäºÏÕÆ·¨Ê©Õ¹Á¬»·¾÷£¡\n");
+                return notify_fail("ä½ æ‰€ç”¨çš„å¹¶éžæ˜“ç­‹ç»ç¥žåŠŸï¼Œæ— æ³•é…åˆæŽŒæ³•æ–½å±•è¿žçŽ¯è¯€ï¼\n");
 
         if( me->query_skill("force") < 120 )
-                return notify_fail("ÄãµÄÒ×½î¾­Æø¹¦»ðºòÎ´µ½£¬ÎÞ·¨ÅäºÏÊ©Õ¹Á¬»·¾÷£¡\n");
+                return notify_fail("ä½ çš„æ˜“ç­‹ç»æ°”åŠŸç«å€™æœªåˆ°ï¼Œæ— æ³•é…åˆæ–½å±•è¿žçŽ¯è¯€ï¼\n");
 
 /*
         if( me->query_skill("banruo-zhang") < 120 )
-                return notify_fail("ÄãÕÆ·¨ÐÞÎª²»×ã£¬»¹²»»áÊ¹ÓÃ³¬¶È¾÷£¡\n");
+                return notify_fail("ä½ æŽŒæ³•ä¿®ä¸ºä¸è¶³ï¼Œè¿˜ä¸ä¼šä½¿ç”¨è¶…åº¦è¯€ï¼\n");
 */
 
         if( me->query_skill("strike") < 120 )
-                return notify_fail("ÄãÕÆ·¨ÐÞÎª²»×ã£¬»¹²»»áÊ¹ÓÃÁ¬»·¾÷£¡\n");
+                return notify_fail("ä½ æŽŒæ³•ä¿®ä¸ºä¸è¶³ï¼Œè¿˜ä¸ä¼šä½¿ç”¨è¿žçŽ¯è¯€ï¼\n");
 
         if( me->query("neili") <= 300 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»Ê©Õ¹Á¬»·¾÷£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿæ–½å±•è¿žçŽ¯è¯€ï¼\n");
         if( me->query("jingli") <= 200 )
-                return notify_fail("ÄãµÄ¾«Á¦²»¹»Ê©Õ¹Á¬»·¾÷£¡\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿæ–½å±•è¿žçŽ¯è¯€ï¼\n");
 
         skill = me->query_skill("strike");
         
-        message_vision(HIR "\n$N´óºÈÒ»Éù£¬ÔËÕÆÈçµç,ÕÆ·ç»ô»ô£¬ÕÐÕÐÁ¬»·£¬ÕýÊ½·ðÃÅ·üÄ§¹¦³¬¶È¾ö£¡\n\n" NOR, me, target);
+        message_vision(HIR "\n$Nå¤§å–ä¸€å£°ï¼Œè¿æŽŒå¦‚ç”µ,æŽŒé£Žéœéœï¼Œæ‹›æ‹›è¿žçŽ¯ï¼Œæ­£å¼ä½›é—¨ä¼é­”åŠŸè¶…åº¦å†³ï¼\n\n" NOR, me, target);
 
         me->set_temp("lianhuan", 1);
         me->start_call_out( (: call_other, __FILE__, "remove_effect", me :), skill/5);
@@ -60,11 +60,11 @@ void remove_effect(object me, int amount)
         me->delete_temp("lianhuan");
 
         if ( me->is_fighting() ) {
-                message_vision(HIR "\n$NµÄÒ×½î¾­Éñ¹¦ÔËÐÐÍê±Ï£¬½«ÄÚÁ¦ÊÕ»Øµ¤Ìï£¬ÊÖÉÏÕÐÊýÒ²Öð½¥ÂýÁËÏÂÀ´¡£\n\n" NOR, me);
+                message_vision(HIR "\n$Nçš„æ˜“ç­‹ç»ç¥žåŠŸè¿è¡Œå®Œæ¯•ï¼Œå°†å†…åŠ›æ”¶å›žä¸¹ç”°ï¼Œæ‰‹ä¸Šæ‹›æ•°ä¹Ÿé€æ¸æ…¢äº†ä¸‹æ¥ã€‚\n\n" NOR, me);
         }
         else {
-                tell_object(me, HIR "\nÄãµÄÒ×½î¾­¹¦ÔËÐÐÍê±Ï£¬½«ÄÚÁ¦»º»ºÊÕ»Øµ¤Ìï¡£\n\n" NOR);
+                tell_object(me, HIR "\nä½ çš„æ˜“ç­‹ç»åŠŸè¿è¡Œå®Œæ¯•ï¼Œå°†å†…åŠ›ç¼“ç¼“æ”¶å›žä¸¹ç”°ã€‚\n\n" NOR);
         }
 }
 
-string perform_name(){ return HIR"³¬¶ÈÁ¬»·¾÷"NOR; }
+string perform_name(){ return HIR"è¶…åº¦è¿žçŽ¯è¯€"NOR; }

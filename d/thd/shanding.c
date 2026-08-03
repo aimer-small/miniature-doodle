@@ -6,14 +6,14 @@ inherit ROOM;
 
 void create()
 {
-        set("short", HIW"ÊÔ½£·å¶¥"NOR);
+        set("short", HIW"è¯•å‰‘å³°é¡¶"NOR);
         set("long",@LONG
-ÕâÀï¾ÍÊÇÊÔ½£·åµÄ·å¶¥£¬ÕâÀïÑÒÊ¯ÁÖÁ¢£¬¾øÏÕÖ®¼«£¬ÒªÏë»ØÈ¥£¬ÓÖ
-ÊÇÄÑ¶ÈÖ®¼«¡£µ«¸©ÉíÏòÏÂÍûÈ¥£¬Õû¸öÌÒ»¨µºÒ»ÀÀÎÞÓà¡£
+è¿™é‡Œå°±æ˜¯è¯•å‰‘å³°çš„å³°é¡¶ï¼Œè¿™é‡Œå²©çŸ³æž—ç«‹ï¼Œç»é™©ä¹‹æžï¼Œè¦æƒ³å›žåŽ»ï¼Œåˆ
+æ˜¯éš¾åº¦ä¹‹æžã€‚ä½†ä¿¯èº«å‘ä¸‹æœ›åŽ»ï¼Œæ•´ä¸ªæ¡ƒèŠ±å²›ä¸€è§ˆæ— ä½™ã€‚
 LONG
         );
         set("no_clean_up", 0);
-        set("outdoors","ÌÒ»¨µº");
+        set("outdoors","æ¡ƒèŠ±å²›");
 
         setup();
 }
@@ -29,14 +29,14 @@ int do_jump(string arg)
 	object me = this_player();
 	
 	if (me->is_fighting() || me->is_busy())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (arg!="ya") return 0;
 	if(me->query_encumbrance() * 100 / me->query_max_encumbrance() > 20)
-	        return notify_fail("Äã¸ºÖØ¹ý¶à£¬¿ÖÅÂÄÑÒÔÔ¾¹ýÈ¥¡£\n");
+	        return notify_fail("ä½ è´Ÿé‡è¿‡å¤šï¼Œææ€•éš¾ä»¥è·ƒè¿‡åŽ»ã€‚\n");
         if (me->query_skill("dodge") < 100)
-                return notify_fail("Äã³¢ÊÔÔ¾Ïò¶Ô°¶µÄ¶ÏÑÂ£¬µ«È´·¢ÏÖ×Ô¼ºÎÞ·¨Ô¾¹ýÈ¥£¡\n");
-        tell_room(environment(me), HIC+me->name()+"½ôÁË½ôËæÉíÎïÆ·£¬Ëæ¼´Ò»ÕÐ¡¸Ëæ²¨ÖðÁ÷¡¹Ô¾Ïò¶Ô°¶¶ÏÑÂ£¬ÎÈÎÈµÄÂäÔÚ¶ÔÃæ¡£\n" NOR, ({me}));
-        write("ÄãÄÚÏ¢Ò»Ìá£¬×ÝÉíÔ¾¹ý¶ÏÑÂ¡£\n");
+                return notify_fail("ä½ å°è¯•è·ƒå‘å¯¹å²¸çš„æ–­å´–ï¼Œä½†å´å‘çŽ°è‡ªå·±æ— æ³•è·ƒè¿‡åŽ»ï¼\n");
+        tell_room(environment(me), HIC+me->name()+"ç´§äº†ç´§éšèº«ç‰©å“ï¼Œéšå³ä¸€æ‹›ã€Œéšæ³¢é€æµã€è·ƒå‘å¯¹å²¸æ–­å´–ï¼Œç¨³ç¨³çš„è½åœ¨å¯¹é¢ã€‚\n" NOR, ({me}));
+        write("ä½ å†…æ¯ä¸€æï¼Œçºµèº«è·ƒè¿‡æ–­å´–ã€‚\n");
         me->move(__DIR__"shanya");
         return 1;
 }

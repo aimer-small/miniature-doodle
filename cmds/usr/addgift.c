@@ -10,85 +10,85 @@ int main(object me, string arg)
     max_gifts = me->query("relife/gifts/now");
 
     if(!arg){
-        tell_object(me,"Äú¿ÉÒÔÊ¹ÓÃ¡°"+HIG+"addgift Ìì¸³µãÊý to Ìì¸³ÖÐÎÄÃû³Æ"+NOR+"¡±½øÐÐÌì¸³·ÖÅä!\n"NOR);
-        tell_object(me,"ÄúÒ²¿ÉÒÔÊ¹ÓÃ¡°"+HIG+"addgift Ìì¸³µãÊý to ÉùÍû"+NOR+"¡±½«Ìì¸³ÓÀ¾Ã×ª»»Îª½­ºþÉùÍû!\n\n"NOR); 
-        write("ËÄÏîÌì¸³µÄÖÐÎÄÃû³ÆÎª¡°"HIW"ëöÁ¦"NOR"¡±¡°"HIY"¸ù¹Ç"NOR"¡±¡°"HIM"Éí·¨"NOR"¡±¡°"HIC"ÎòÐÔ"NOR"¡±¡£ \n"NOR);
-        write("½­ºþÉùÍûµÄÖÐÎÄÃû³ÆÎª¡°"HIW"ÉùÍû"NOR"¡±£¬Ó¢ÎÄ´úºÅÎª¡°"HIM"mana"NOR"¡±¡£ \n\n"NOR);
-        write("½­ºþÉùÍûµÄÓÃÍ¾£º1¡¢ÓÃÒÔÌáÉýÏà¹ØµÄÌì¸³Ê÷¡£2¡¢ÓÃÒÔ½µµÍÏàÓ¦µÄQuestÄÑ¶ÈÏµÊý¡£ \n\n"NOR);
+        tell_object(me,"æ‚¨å¯ä»¥ä½¿ç”¨â€œ"+HIG+"addgift å¤©èµ‹ç‚¹æ•° to å¤©èµ‹ä¸­æ–‡åç§°"+NOR+"â€è¿›è¡Œå¤©èµ‹åˆ†é…!\n"NOR);
+        tell_object(me,"æ‚¨ä¹Ÿå¯ä»¥ä½¿ç”¨â€œ"+HIG+"addgift å¤©èµ‹ç‚¹æ•° to å£°æœ›"+NOR+"â€å°†å¤©èµ‹æ°¸ä¹…è½¬æ¢ä¸ºæ±Ÿæ¹–å£°æœ›!\n\n"NOR); 
+        write("å››é¡¹å¤©èµ‹çš„ä¸­æ–‡åç§°ä¸ºâ€œ"HIW"è†‚åŠ›"NOR"â€â€œ"HIY"æ ¹éª¨"NOR"â€â€œ"HIM"èº«æ³•"NOR"â€â€œ"HIC"æ‚Ÿæ€§"NOR"â€ã€‚ \n"NOR);
+        write("æ±Ÿæ¹–å£°æœ›çš„ä¸­æ–‡åç§°ä¸ºâ€œ"HIW"å£°æœ›"NOR"â€ï¼Œè‹±æ–‡ä»£å·ä¸ºâ€œ"HIM"mana"NOR"â€ã€‚ \n\n"NOR);
+        write("æ±Ÿæ¹–å£°æœ›çš„ç”¨é€”ï¼š1ã€ç”¨ä»¥æå‡ç›¸å…³çš„å¤©èµ‹æ ‘ã€‚2ã€ç”¨ä»¥é™ä½Žç›¸åº”çš„Questéš¾åº¦ç³»æ•°ã€‚ \n\n"NOR);
         return 1;
     }
 
     if(!sscanf(arg, "%d to %s", gifts, gifts_name)){
-        tell_object(me,"ÇëÊ¹ÓÃ¡°addgift Ìì¸³µãÊý to Ìì¸³ÖÐÎÄÃû³Æ¡±½øÐÐ·ÖÅä£¡\n"NOR);
-        write("ËÄÏîÌì¸³µÄÖÐÎÄÃû³ÆÎª¡°ëöÁ¦¡±¡°¸ù¹Ç¡±¡°Éí·¨¡±¡°ÎòÐÔ¡±¡£ \n"NOR);
+        tell_object(me,"è¯·ä½¿ç”¨â€œaddgift å¤©èµ‹ç‚¹æ•° to å¤©èµ‹ä¸­æ–‡åç§°â€è¿›è¡Œåˆ†é…ï¼\n"NOR);
+        write("å››é¡¹å¤©èµ‹çš„ä¸­æ–‡åç§°ä¸ºâ€œè†‚åŠ›â€â€œæ ¹éª¨â€â€œèº«æ³•â€â€œæ‚Ÿæ€§â€ã€‚ \n"NOR);
         return 1;
     }
     else{
         if(gifts<1)
-            return notify_fail("ÄãÄÔ×Ó²ÎÎò¹ýÍ·»µµôÁË£¿\n");
+            return notify_fail("ä½ è„‘å­å‚æ‚Ÿè¿‡å¤´åæŽ‰äº†ï¼Ÿ\n");
 
         if(gifts > max_gifts)
-            return notify_fail("ÄãÏÖÔÚÃ»ÕâÃ´¶àÌì¸³µãÊý¿ÉÒÔ·ÖÅä£¡\nÇëÓÃscoreÖ¸ÁîÀ´²é¿´ÄãÏÖÔÚÓµÓÐ¶àÉÙ¿É·ÖÅäÌì¸³µãÊý£¡\n");
-//ëöÁ¦
-        if(gifts_name == "ëöÁ¦" || gifts_name == "±ÛÁ¦" || gifts_name == "str" ){
+            return notify_fail("ä½ çŽ°åœ¨æ²¡è¿™ä¹ˆå¤šå¤©èµ‹ç‚¹æ•°å¯ä»¥åˆ†é…ï¼\nè¯·ç”¨scoreæŒ‡ä»¤æ¥æŸ¥çœ‹ä½ çŽ°åœ¨æ‹¥æœ‰å¤šå°‘å¯åˆ†é…å¤©èµ‹ç‚¹æ•°ï¼\n");
+//è†‚åŠ›
+        if(gifts_name == "è†‚åŠ›" || gifts_name == "è‡‚åŠ›" || gifts_name == "str" ){
                if((int)me->query("str",1)> 50 - gifts)
-               return notify_fail("µ¥ÏîÌì¸³×î¶à²»ÄÜ³¬¹ý50µã£¡ÇëÖØÐÂÑ¡Ôñ£¡\n"NOR);
+               return notify_fail("å•é¡¹å¤©èµ‹æœ€å¤šä¸èƒ½è¶…è¿‡50ç‚¹ï¼è¯·é‡æ–°é€‰æ‹©ï¼\n"NOR);
            
                me->add("str",gifts);
                me->add("relife/gifts/now",-gifts);
                me->add("relife/gifts/used",gifts);
-               tell_object(me,"Äã½«"+HIW+chinese_number(gifts)+NOR+"µãÌì¸³·ÖÅäµ½ÁË¡°"+HIR+"ëöÁ¦"+NOR+"¡±ÉÏ£¡\n");
+               tell_object(me,"ä½ å°†"+HIW+chinese_number(gifts)+NOR+"ç‚¹å¤©èµ‹åˆ†é…åˆ°äº†â€œ"+HIR+"è†‚åŠ›"+NOR+"â€ä¸Šï¼\n");
                return 1;
         }
 
  
-//¸ù¹Ç
-        if(gifts_name == "¸ù¹Ç"|| gifts_name == "con"){
+//æ ¹éª¨
+        if(gifts_name == "æ ¹éª¨"|| gifts_name == "con"){
             if((int)me->query("con",1)>50 - gifts)
-               return notify_fail("µ¥ÏîÌì¸³×î¶à²»ÄÜ³¬¹ý50µã£¡ÇëÖØÐÂÑ¡Ôñ£¡\n"NOR);
+               return notify_fail("å•é¡¹å¤©èµ‹æœ€å¤šä¸èƒ½è¶…è¿‡50ç‚¹ï¼è¯·é‡æ–°é€‰æ‹©ï¼\n"NOR);
             me->add("con",gifts);
             me->add("relife/gifts/now",-gifts);
             me->add("relife/gifts/used",gifts);
-            tell_object(me,"Äã½«"+HIW+chinese_number(gifts)+NOR+"µãÌì¸³·ÖÅäµ½ÁË¡°"+HIR+"¸ù¹Ç"+NOR+"¡±ÉÏ£¡\n");
+            tell_object(me,"ä½ å°†"+HIW+chinese_number(gifts)+NOR+"ç‚¹å¤©èµ‹åˆ†é…åˆ°äº†â€œ"+HIR+"æ ¹éª¨"+NOR+"â€ä¸Šï¼\n");
             return 1;
         }
-//Éí·¨
-        if(gifts_name == "Éí·¨" || gifts_name == "dex"){
+//èº«æ³•
+        if(gifts_name == "èº«æ³•" || gifts_name == "dex"){
             if((int)me->query("dex",1)>50 - gifts)
-               return notify_fail("µ¥ÏîÌì¸³×î¶à²»ÄÜ³¬¹ý50µã£¡ÇëÖØÐÂÑ¡Ôñ£¡\n"NOR);
+               return notify_fail("å•é¡¹å¤©èµ‹æœ€å¤šä¸èƒ½è¶…è¿‡50ç‚¹ï¼è¯·é‡æ–°é€‰æ‹©ï¼\n"NOR);
             me->add("dex",gifts);
             me->add("relife/gifts/now",-gifts);
             me->add("relife/gifts/used",gifts);
-            tell_object(me,"Äã½«"+HIW+chinese_number(gifts)+NOR+"µãÌì¸³·ÖÅäµ½ÁË¡°"+HIR+"Éí·¨"+NOR+"¡±ÉÏ£¡\n");
+            tell_object(me,"ä½ å°†"+HIW+chinese_number(gifts)+NOR+"ç‚¹å¤©èµ‹åˆ†é…åˆ°äº†â€œ"+HIR+"èº«æ³•"+NOR+"â€ä¸Šï¼\n");
             return 1;
         }
 
 
-//ÎòÐÔ
-        if(gifts_name == "ÎòÐÔ" ||gifts_name == "int"){
+//æ‚Ÿæ€§
+        if(gifts_name == "æ‚Ÿæ€§" ||gifts_name == "int"){
             if((int)me->query("int",1)>50 - gifts)
-               return notify_fail("µ¥ÏîÌì¸³×î¶à²»ÄÜ³¬¹ý50µã£¡ÇëÖØÐÂÑ¡Ôñ£¡\n"NOR);
+               return notify_fail("å•é¡¹å¤©èµ‹æœ€å¤šä¸èƒ½è¶…è¿‡50ç‚¹ï¼è¯·é‡æ–°é€‰æ‹©ï¼\n"NOR);
             me->add("int",gifts);
             me->add("relife/gifts/now",-gifts);
             me->add("relife/gifts/used",gifts);
-            tell_object(me,"Äã½«"+HIW+chinese_number(gifts)+NOR+"µãÌì¸³·ÖÅäµ½ÁË¡°"+HIR+"ÎòÐÔ"+NOR+"¡±ÉÏ£¡\n");
+            tell_object(me,"ä½ å°†"+HIW+chinese_number(gifts)+NOR+"ç‚¹å¤©èµ‹åˆ†é…åˆ°äº†â€œ"+HIR+"æ‚Ÿæ€§"+NOR+"â€ä¸Šï¼\n");
             return 1;
         }
         
-//ÉùÍû
-        if(gifts_name == "ÉùÍû" ||gifts_name == "mana"){
+//å£°æœ›
+        if(gifts_name == "å£°æœ›" ||gifts_name == "mana"){
         	
             if(gifts > me->query("relife/gifts/total"))
-               return notify_fail("ÇëÍ×ÉÆ·ÖÅäÄúµÄËÄÎ¬Ìì¸³ºóÔÙÀ´ÌáÉýÄúµÄ½­ºþÉùÍû£¡\n"NOR);
+               return notify_fail("è¯·å¦¥å–„åˆ†é…æ‚¨çš„å››ç»´å¤©èµ‹åŽå†æ¥æå‡æ‚¨çš„æ±Ÿæ¹–å£°æœ›ï¼\n"NOR);
         	
             me->add("mana",gifts*100);
             me->add("relife/gifts/now",-gifts);            
             me->add("relife/gifts/total",-gifts);
-            tell_object(me,"ÄãºÄ·ÑÁË"+HIW+chinese_number(gifts)+NOR+"µã²ÎÎòËùµÃ£¬»ñµÃÁË"+HIW+chinese_number(gifts*100)+NOR+"µã¡°"+HIR+"½­ºþÉùÍû"+NOR+"¡±£¡\n");
+            tell_object(me,"ä½ è€—è´¹äº†"+HIW+chinese_number(gifts)+NOR+"ç‚¹å‚æ‚Ÿæ‰€å¾—ï¼ŒèŽ·å¾—äº†"+HIW+chinese_number(gifts*100)+NOR+"ç‚¹â€œ"+HIR+"æ±Ÿæ¹–å£°æœ›"+NOR+"â€ï¼\n");
             return 1;
         }
-        //Êä´í²ÎÊý
-        return notify_fail("ÇëÑ¡ÔñÕýÈ·µÄÌì¸³Ãû³ÆÀ´Ìí¼ÓÌì¸³µãÊý£¬Ö¸Áî¸ñÊ½£º\n"+HIR+"giftadd Ìì¸³µãÊý to Ìì¸³ÖÐÎÄÃû³Æ "+NOR+"!\n");
+        //è¾“é”™å‚æ•°
+        return notify_fail("è¯·é€‰æ‹©æ­£ç¡®çš„å¤©èµ‹åç§°æ¥æ·»åŠ å¤©èµ‹ç‚¹æ•°ï¼ŒæŒ‡ä»¤æ ¼å¼ï¼š\n"+HIR+"giftadd å¤©èµ‹ç‚¹æ•° to å¤©èµ‹ä¸­æ–‡åç§° "+NOR+"!\n");
          }
         return 1;
 }

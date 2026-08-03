@@ -1,4 +1,4 @@
-// zhong.c ����ɩ 
+// zhong.c 钟四嫂 
 
 #include <ansi.h>
 
@@ -8,11 +8,11 @@ int ask_me();
 
 void create()
 {
-	set_name("����ɩ", ({ "zhong sisao","zhong","sisao" }));
+	set_name("钟四嫂", ({ "zhong sisao","zhong","sisao" }));
 	set("long",
-		"��ͷ��ɢ�ң����ϡ����ϡ�����ȫ����Ѫ������ץ��һ���˵�����һ
-��Цһ��ָ�ֻ��ţ�ԭ���Ǹ����ӡ�\n");
-	set("gender", "Ů��");
+		"她头发散乱，脸上、衣上、手上全是鲜血，手中抓着一柄菜刀，哭一
+阵，笑一阵，指手划脚，原来是个疯子。\n");
+	set("gender", "女性");
 	set("age", 35);
 
 	set("str", 20);
@@ -31,8 +31,8 @@ void create()
 	set("combat_exp", 2000);
 
         set("inquiry", ([
-		"��С��"   : (: ask_me :),
-                "������": "����ү���۾�ѽ������С���ӿ�û͵�˼ҵĶ�԰���\n",
+		"钟小三"   : (: ask_me :),
+                "凤天南": "老天爷生眼睛呀，我那小三子可没偷人家的鹅吃啊！\n",
 ]) );
 
 
@@ -43,6 +43,6 @@ void create()
 int ask_me()
 {
 	this_player()->set_temp("marks/feng",1);
-	write("����ɩͻȻ�����޺�������Ŀ����ͣ���Ȼ�޷��ش�������⡣\n");
+	write("钟四嫂突然大声哭喊起来，目光呆滞，显然无法回答你的问题。\n");
 	return 1;
 }

@@ -1,13 +1,13 @@
 // lianhuan.c for huashan-jianfa
 // by tiantian@SJ 11/05/2000.
-// update by lsxk@hsbbs 2007/7/26 forÔöÇ¿½£×ÚÊ¹ÓÃÍþÁ¦.
+// update by lsxk@hsbbs 2007/7/26 forå¢žå¼ºå‰‘å®—ä½¿ç”¨å¨åŠ›.
 
 #include <ansi.h>
 
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h";
 
-string perform_name() {return MAG"¶áÃüÁ¬»·ÈýÏÉ½£"NOR;}
+string perform_name() {return MAG"å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘"NOR;}
 
 int perform(object me,object target)
 {
@@ -17,37 +17,37 @@ int perform(object me,object target)
      
     if(!objectp(target) || !me->is_fighting(target) || !living(target)
         || environment(target)!=environment(me))
-                return notify_fail("¶áÃüÁ¬»·ÈýÏÉ½£Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
     if(me->query_skill_mapped("force") != "huashan-qigong"
       &&me->query_skill_mapped("force") != "zixia-gong" )
-                return notify_fail("ÄãµÄÌØÊâÄÚ¹¦²»¶Ô£¬ÎÞ·¨Ê¹ÓÃ¶áÃüÁ¬»·ÈýÏÉ½££¡\n");
+                return notify_fail("ä½ çš„ç‰¹æ®Šå†…åŠŸä¸å¯¹ï¼Œæ— æ³•ä½¿ç”¨å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘ï¼\n");
     if( (int)me->query_skill("huashan-qigong", 1) < 160
       &&(int)me->query_skill("zixia-gong", 1) < 160 )
-                return notify_fail("ÄãµÄÄÚ¹¦»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃ¶áÃüÁ¬»·ÈýÏÉ½££¡\n");
+                return notify_fail("ä½ çš„å†…åŠŸè¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘ï¼\n");
     if( (int)me->query_skill("huashan-jianfa", 1) < 160 ) 
-                return notify_fail("ÄãµÄ½£·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃ¶áÃüÁ¬»·ÈýÏÉ½££¡\n");
+                return notify_fail("ä½ çš„å‰‘æ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘ï¼\n");
     if((int)me->query_skill("sword", 1) < 160 )
-                return notify_fail("ÄãµÄ»ù±¾½£·¨²»¹»æµÊì£¬²»ÄÜÔÚ½£ÕÐÖÐÊ¹ÓÃ¶áÃüÁ¬»·ÈýÏÉ½£¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬å‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨å‰‘æ‹›ä¸­ä½¿ç”¨å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘ã€‚\n");
     if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "huashan-jianfa")
-                return notify_fail("ÄãÊÖÀïÎÞ½££¬ÈçºÎÊ¹ÓÃ¶áÃüÁ¬»·ÈýÏÉ½££¿\n");
+                return notify_fail("ä½ æ‰‹é‡Œæ— å‰‘ï¼Œå¦‚ä½•ä½¿ç”¨å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘ï¼Ÿ\n");
                 
     if((int)me->query("max_neili") < 2500 )
-                return notify_fail("ÄãµÄÄÚÁ¦ÐÞÎª²»¹»£¬²»ÄÜÊ¹ÓÃ¶áÃüÁ¬»·ÈýÏÉ½££¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘ï¼\n");
     if((int)me->query("neili") < 2000 )
-                return notify_fail("ÄãÏÖÔÚÕæÆø²»×ã£¬²»ÄÜÊ¹ÓÃ¶áÃüÁ¬»·ÈýÏÉ½££¡\n");
+                return notify_fail("ä½ çŽ°åœ¨çœŸæ°”ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘ï¼\n");
     if((int)me->query_temp("wudui"))
-                return notify_fail("ÄãÕýÔÚÊ¹ÓÃÎÞË«ÎÞ¶Ô£¡\n");
+                return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨æ— åŒæ— å¯¹ï¼\n");
 
-        message_vision(MAG"\n$N"MAG"³¤Ð¥Ò»Éù£¬Ê¹³öÆ½Éú¾ø¼¼£¬Á¬»·Èý»÷£¬ÕýÊÇ»ªÉ½½£×Ú¾øÑ§¡°"HIR"¶áÃüÁ¬»·ÈýÏÉ½£"MAG"¡±£¡\n"NOR, me,target);
+        message_vision(MAG"\n$N"MAG"é•¿å•¸ä¸€å£°ï¼Œä½¿å‡ºå¹³ç”Ÿç»æŠ€ï¼Œè¿žçŽ¯ä¸‰å‡»ï¼Œæ­£æ˜¯åŽå±±å‰‘å®—ç»å­¦â€œ"HIR"å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘"MAG"â€ï¼\n"NOR, me,target);
 if(!userp(target) && me->query_skill("huashan-jianfa,1")>=450 ) target->add_busy(2);
-    me->start_perform(3,"¡¸¶áÃüÁ¬»·ÈýÏÉ½£¡¹");
+    me->start_perform(3,"ã€Œå¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘ã€");
     me->set_temp("hsjf/lianhuan",1);
     me->add("neili", -500);
     me->add_temp("apply/attack",  me->query_skill("huashan-jianfa", 1)/4);
 
-    if(me->query("quest/huashan")=="½£×Ú" || me->query_temp("zxg"))
+    if(me->query("quest/huashan")=="å‰‘å®—" || me->query_temp("zxg"))
 {
         target->start_busy(1+ random(2));
         me->add_temp("apply/damage",  me->query_skill("huashan-jianfa", 1)/3);
@@ -56,8 +56,8 @@ if(!userp(target) && me->query_skill("huashan-jianfa,1")>=450 ) target->add_busy
 
 if(me->query("quest/zixia/pass")&& me->query_temp("zxg"))
 	{
-                  message_vision(HIM"\n$N"HIM"½«×ÏÏ¼Éñ¹¦¶¼ÔËµ½ÁË½£ÉÏ£¬ºôµÄÒ»½££¬µ±Í·Ö±Åü¡£Ëæ¼´È¦×ª³¤½££¬À¹ÑüºáÏ÷¡£¸ú×Å»Ó½£·´ÁÃ£¬¼²´Ì$nºóÐÄ£¬\n"NOR, me,target);
-                  message_vision(HIM"ÕâÁ¬»·Èý»÷±äÕÐ¿ì¼«£¬½£·¨¾«Ãî£¬¼¸½üÄ§µÀ£¬$N½«×ÏÏ¼ÄÚ¾¢¸½ÔÚ½£ÉÏ£¬ÍþÁ¦¸üÊÇ²»·²£¡\n"NOR, me,target);
+                  message_vision(HIM"\n$N"HIM"å°†ç´«éœžç¥žåŠŸéƒ½è¿åˆ°äº†å‰‘ä¸Šï¼Œå‘¼çš„ä¸€å‰‘ï¼Œå½“å¤´ç›´åŠˆã€‚éšå³åœˆè½¬é•¿å‰‘ï¼Œæ‹¦è…°æ¨ªå‰Šã€‚è·Ÿç€æŒ¥å‰‘åæ’©ï¼Œç–¾åˆº$nåŽå¿ƒï¼Œ\n"NOR, me,target);
+                  message_vision(HIM"è¿™è¿žçŽ¯ä¸‰å‡»å˜æ‹›å¿«æžï¼Œå‰‘æ³•ç²¾å¦™ï¼Œå‡ è¿‘é­”é“ï¼Œ$Nå°†ç´«éœžå†…åŠ²é™„åœ¨å‰‘ä¸Šï¼Œå¨åŠ›æ›´æ˜¯ä¸å‡¡ï¼\n"NOR, me,target);
 		  target->add_busy(2);
       target->set_temp("must_be_hit",1);
       me->add_temp("apply/damage",  me->query_skill("huashan-jianfa", 1)/4);
@@ -76,7 +76,7 @@ if(me->query("quest/zixia/pass")&& me->query_temp("zxg"))
    
  me->add_temp("apply/attack",  -me->query_skill("huashan-jianfa", 1)/4);
 
-    if(me->query("quest/huashan")=="½£×Ú"|| me->query_temp("zxg"))
+    if(me->query("quest/huashan")=="å‰‘å®—"|| me->query_temp("zxg"))
 {
         me->add_temp("apply/damage", - me->query_skill("huashan-jianfa", 1)/3);
         me->add_temp("apply/sword",    - me->query_skill("huashan-jianfa", 1)/3);
@@ -101,22 +101,22 @@ if(me->query("quest/zixia/pass")&& me->query_temp("zxg"))
 
 int help(object me)
 {
-   write(WHT"\n»ªÉ½½£·¨¡¸"MAG"¶áÃüÁ¬»·ÈýÏÉ½£"WHT"¡¹£º"NOR"\n");
+   write(WHT"\nåŽå±±å‰‘æ³•ã€Œ"MAG"å¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘"WHT"ã€ï¼š"NOR"\n");
    write(@HELP
-    Õâ¾ÍÊÇ»ªÉ½½£×Ú¾ø¼¼¡¸¶áÃüÁ¬»·ÈýÏÉ½£¡¹£¡µ±Äê»ªÉ½ÅÉ½£×Ú¡¢Æø×ÚÖ®
-    Õù£¬ÄËÔÚ»ªÉ½ÓñÅ®·å±È½£Õù¶á£¬½£×ÚµÜ×ÓÕýÊÇÓÃÁË´ËÕÐÉ±º¦ÁËÊýÃûÆø
-    ×ÚºÃÊÖ£¬»ØÏëÆðµ±ÄêÕ½³¡£¬Ò²ÁîÏÖÔÚµÄÆø×ÚµÜ×Óº§È»¡£Æø×ÚµÜ×ÓËäÊÓ
-    ½£×ÚµÜ×ÓÎªÄ§µÀ£¬µ«ÐÄÏÂÈ´²»½ûÅå·þ´ËÕÐÖ®¸ßÃ÷£¬»ªÉ½ÓñÅ®·åÒ»Õ½ºó
-    ÓÐÉÙÊýÆø×ÚµÜ×Ó¾¹È»Ò²ÔÚÁ·Ï°´ËÕÐ£¬µ«Ö»ÊÇÍ½ÓÐ¼ÜÊÆ£¬ÍþÁ¦ÄË²»¼°½£
-    ×ÚµÜ×ÓÖ®Èý¡¢ËÄ³É¡£
-    »ªÉ½½£·¨µÈ¼¶450¼¶ÒÔºóÐ§¹û·ÉÔ¾¡£
-    Ö¸Áî£ºperform lianhuan
+    è¿™å°±æ˜¯åŽå±±å‰‘å®—ç»æŠ€ã€Œå¤ºå‘½è¿žçŽ¯ä¸‰ä»™å‰‘ã€ï¼å½“å¹´åŽå±±æ´¾å‰‘å®—ã€æ°”å®—ä¹‹
+    äº‰ï¼Œä¹ƒåœ¨åŽå±±çŽ‰å¥³å³°æ¯”å‰‘äº‰å¤ºï¼Œå‰‘å®—å¼Ÿå­æ­£æ˜¯ç”¨äº†æ­¤æ‹›æ€å®³äº†æ•°åæ°”
+    å®—å¥½æ‰‹ï¼Œå›žæƒ³èµ·å½“å¹´æˆ˜åœºï¼Œä¹Ÿä»¤çŽ°åœ¨çš„æ°”å®—å¼Ÿå­éª‡ç„¶ã€‚æ°”å®—å¼Ÿå­è™½è§†
+    å‰‘å®—å¼Ÿå­ä¸ºé­”é“ï¼Œä½†å¿ƒä¸‹å´ä¸ç¦ä½©æœæ­¤æ‹›ä¹‹é«˜æ˜Žï¼ŒåŽå±±çŽ‰å¥³å³°ä¸€æˆ˜åŽ
+    æœ‰å°‘æ•°æ°”å®—å¼Ÿå­ç«Ÿç„¶ä¹Ÿåœ¨ç»ƒä¹ æ­¤æ‹›ï¼Œä½†åªæ˜¯å¾’æœ‰æž¶åŠ¿ï¼Œå¨åŠ›ä¹ƒä¸åŠå‰‘
+    å®—å¼Ÿå­ä¹‹ä¸‰ã€å››æˆã€‚
+    åŽå±±å‰‘æ³•ç­‰çº§450çº§ä»¥åŽæ•ˆæžœé£žè·ƒã€‚
+    æŒ‡ä»¤ï¼šperform lianhuan
 
-    ÒªÇó£º»ªÉ½Æø¹¦ »òÕß ×ÏÏ¼Éñ¹¦ 160¼¶
-          »ªÉ½½£·¨160¼¶£¬
-          »ù±¾½£·¨160¼¶£¬
-          ×î´óÄÚÁ¦2500ÒÔÉÏ£¬
-          µ±Ç°ÄÚÁ¦2000ÒÔÉÏ¡£
+    è¦æ±‚ï¼šåŽå±±æ°”åŠŸ æˆ–è€… ç´«éœžç¥žåŠŸ 160çº§
+          åŽå±±å‰‘æ³•160çº§ï¼Œ
+          åŸºæœ¬å‰‘æ³•160çº§ï¼Œ
+          æœ€å¤§å†…åŠ›2500ä»¥ä¸Šï¼Œ
+          å½“å‰å†…åŠ›2000ä»¥ä¸Šã€‚
 HELP
    );
    return 1;

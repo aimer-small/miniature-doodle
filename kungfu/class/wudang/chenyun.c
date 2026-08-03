@@ -1,13 +1,13 @@
-// chengyun.c ³ÂÔËÇå
+// chengyun.c é™ˆè¿æ¸…
 
 inherit NPC;
 
 void create()
 {
-        set_name("³ÂÔËÇå", ({ "chen yunqing", "chen", "yunqing" }));
+        set_name("é™ˆè¿æ¸…", ({ "chen yunqing", "chen", "yunqing" }));
 	set("long", 
-		"ËûÊÇÕÅÏªËÉµÄ´óµÜ×Ó,Éí²Ä´Ö×³¿ýÎà£¬Ò»Ïò¼²¶ñÈç³ð¡£\n");
-	set("gender", "ÄÐÐÔ");
+		"ä»–æ˜¯å¼ æºªæ¾çš„å¤§å¼Ÿå­,èº«æç²—å£®é­æ¢§ï¼Œä¸€å‘ç–¾æ¶å¦‚ä»‡ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -45,7 +45,7 @@ void create()
         map_skill("cuff", "taiji-quan");
         prepare_skill("cuff", "taiji-quan");
       
-        create_family("Îäµ±ÅÉ", 3, "µÜ×Ó");
+        create_family("æ­¦å½“æ´¾", 3, "å¼Ÿå­");
 
 	setup();
 	carry_object("/clone/weapon/changjian")->wield();

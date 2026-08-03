@@ -8,7 +8,7 @@ int update_condition(object me, int duration)
 	mixed where;
 
 	if (duration < 2) {
-		message_vision(MAG"\nÍ»È»Æ®À´Ò»Î»¾øÉ«ÃÀÅ®£¬½«$N·öÆðÀë¿ªÁË¡£\n\n"NOR, me);
+		message_vision(MAG"\nçªç„¶é£˜æ¥ä¸€ä½ç»è‰²ç¾Žå¥³ï¼Œå°†$Næ‰¶èµ·ç¦»å¼€äº†ã€‚\n\n"NOR, me);
 		if (!stringp(where = me->query("relax_timeout_room")))
 			if (me->query("enter_wuguan"))
 				where = START_ROOM;
@@ -18,8 +18,8 @@ int update_condition(object me, int duration)
 		me->move(where);
 		me->set("startroom", where);
 		me->save();
-		message_vision(HIY "Ò»Î»¾øÉ«ÃÀÅ®´ø×Å$N×ßÁË¹ýÀ´£¡\n" NOR, me);
-		tell_object(me, HIY "ÓÐÈËÔÚ¶ú±ß¶ÔÄãËµµÀ£ºÕâ´Î¾Í·ÅÁËÄã£¬ÏÂ´Î¶¨²»ÇáÈÄ£¡\n" NOR);
+		message_vision(HIY "ä¸€ä½ç»è‰²ç¾Žå¥³å¸¦ç€$Nèµ°äº†è¿‡æ¥ï¼\n" NOR, me);
+		tell_object(me, HIY "æœ‰äººåœ¨è€³è¾¹å¯¹ä½ è¯´é“ï¼šè¿™æ¬¡å°±æ”¾äº†ä½ ï¼Œä¸‹æ¬¡å®šä¸è½»é¥¶ï¼\n" NOR);
 		return 0;
 	}
 
@@ -27,15 +27,15 @@ int update_condition(object me, int duration)
 		me->move(RELAX_ROOM);
 
 	if (duration > 1 && base_name(where) != RELAX_ROOM) {
-		message_vision(HIR "\nÒ»Î»ÏÉÈË×ßÀ´£¬ÉÏÏÂ´òÁ¿×Å$N£¬ËµµÀ£º¡°ß×£¿ÌÒ»¨Ô´µÄÈËÊ²Ã´Ê±ºòÅÜÕâÀïÀ´ÁË£¿¿ì¸úÎÒ»ØÈ¥°É£¡¡±\n" NOR, me);
-		message_vision("ÏÉÈË´ø×Å$N£¬ÂýÂýµÄÀë¿ªÁË¡£\n", me);
+		message_vision(HIR "\nä¸€ä½ä»™äººèµ°æ¥ï¼Œä¸Šä¸‹æ‰“é‡ç€$Nï¼Œè¯´é“ï¼šâ€œå’¦ï¼Ÿæ¡ƒèŠ±æºçš„äººä»€ä¹ˆæ—¶å€™è·‘è¿™é‡Œæ¥äº†ï¼Ÿå¿«è·Ÿæˆ‘å›žåŽ»å§ï¼â€\n" NOR, me);
+		message_vision("ä»™äººå¸¦ç€$Nï¼Œæ…¢æ…¢çš„ç¦»å¼€äº†ã€‚\n", me);
 //		me->set("eff_qi", 1);
 //		me->set("qi", 1);
 //		duration = me->query("rules")*90;
 		me->move(RELAX_ROOM);
-		message_vision(HIY "Ò»Î»ÏÉÈË´ø×Å$N×ßÁË¹ýÀ´£¡\n" NOR, me);
+		message_vision(HIY "ä¸€ä½ä»™äººå¸¦ç€$Nèµ°äº†è¿‡æ¥ï¼\n" NOR, me);
 	}
-        if (duration % 6 == 0) message_vision("Ò»¸öÉùÒôËµµÀ£º$N»¹ÓÐ´óÔ¼"+chinese_number(duration/6)+"·ÖÖÓµÄ½û±ÕÊ±¼ä¡£\n", me);
+        if (duration % 6 == 0) message_vision("ä¸€ä¸ªå£°éŸ³è¯´é“ï¼š$Nè¿˜æœ‰å¤§çº¦"+chinese_number(duration/6)+"åˆ†é’Ÿçš„ç¦é—­æ—¶é—´ã€‚\n", me);
 	me->apply_condition("relax", duration - 1);
 	return 1;
 }

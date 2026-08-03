@@ -1,4 +1,4 @@
-//onhook.c ±Õ¹Ø
+//onhook.c é—­å…³
 
 #include <ansi.h>
 inherit F_CLEAN_UP;
@@ -11,13 +11,13 @@ int main(object me,string arg)
 
 	seteuid(getuid());
 
-  time = uptime()-me->query_temp("time"); //±¾´ÎÔÚÏßÊ±¼ä
-    pot= me->query("qn_balance");            //Ç±ÄÜÒøĞĞ  
-    tb = me->query("SJ_Credit");                 //Í¨±¦
+  time = uptime()-me->query_temp("time"); //æœ¬æ¬¡åœ¨çº¿æ—¶é—´
+    pot= me->query("qn_balance");            //æ½œèƒ½é“¶è¡Œ  
+    tb = me->query("SJ_Credit");                 //é€šå®
 
 
 if( !objectp(link_ob = me->query_temp("link_ob")) )
-          return notify_fail("Äã²»ÊÇ¾­ÓÉÕı³£Á¬Ïß½øÈë£¬²»ÄÜÖ´ĞĞÕâ¸öÖ¸Áî£¬ÇëÍË³öºóÔÙÊÔ¡£\n");
+          return notify_fail("ä½ ä¸æ˜¯ç»ç”±æ­£å¸¸è¿çº¿è¿›å…¥ï¼Œä¸èƒ½æ‰§è¡Œè¿™ä¸ªæŒ‡ä»¤ï¼Œè¯·é€€å‡ºåå†è¯•ã€‚\n");
 
 
 
@@ -25,48 +25,48 @@ if(!arg || (arg!="halt" && arg!="over")) {
 	
 	if(me->query("on_hook"))
 		
-          return notify_fail("Äã±Õ¹ØÇ±ĞŞ×´Ì¬ÉĞÎ´½â³ı£¬ÇëÏÈÊ¹ÓÃonhook halt/overÀ´½áÊøÇ±ĞŞ×´Ì¬¡£\n");
+          return notify_fail("ä½ é—­å…³æ½œä¿®çŠ¶æ€å°šæœªè§£é™¤ï¼Œè¯·å…ˆä½¿ç”¨onhook halt/overæ¥ç»“æŸæ½œä¿®çŠ¶æ€ã€‚\n");
 
 
-exp = ((me->query("combat_exp") - me->query_temp("combat_exp"))/time ) * 2/3; // Ã¿ÃëÕı³£ÊÕÒæµÄ2/3,Òª¿Û³ıÇ±ĞŞËùµÃ¡£
+exp = ((me->query("combat_exp") - me->query_temp("combat_exp"))/time ) * 2/3; // æ¯ç§’æ­£å¸¸æ”¶ç›Šçš„2/3,è¦æ‰£é™¤æ½œä¿®æ‰€å¾—ã€‚
 
 if(exp<1)
-	     return notify_fail("Äã±¾´ÎÎÈ¶¨ÔÚÏßÊ±¼äÊµÕ½ÊÕÒæĞ§ÂÊ¹ıµÍ£¬±Õ¹ØÇ±ĞŞµÃ²»µ½¶àÉÙ¾­ÑéµÄ¡£\n");
+	     return notify_fail("ä½ æœ¬æ¬¡ç¨³å®šåœ¨çº¿æ—¶é—´å®æˆ˜æ”¶ç›Šæ•ˆç‡è¿‡ä½ï¼Œé—­å…³æ½œä¿®å¾—ä¸åˆ°å¤šå°‘ç»éªŒçš„ã€‚\n");
 	
 /*	
 
 if( !environment(me)->query("onhook_room") ) 
-                        return notify_fail("´Ë´¦²»°²È«£¬ÎŞ·¨±Õ¹ØÇ±ĞŞ£¬Çë·µ»Ø°ïÅÉ»òÃÅÅÉ×¤µØ¡£\n");
+                        return notify_fail("æ­¤å¤„ä¸å®‰å…¨ï¼Œæ— æ³•é—­å…³æ½œä¿®ï¼Œè¯·è¿”å›å¸®æ´¾æˆ–é—¨æ´¾é©»åœ°ã€‚\n");
 
 
 if(time<3600)
-        return notify_fail("Äã±¾´ÎÎÈ¶¨ÔÚÏßÊ±¼ä²»×ãÒ»¸öĞ¡Ê±£¬ÉĞÎŞ·¨¼ÆËãÄãµÄÎÈ¶¨ÊÕÒæÊı¾İ¡£\n");
+        return notify_fail("ä½ æœ¬æ¬¡ç¨³å®šåœ¨çº¿æ—¶é—´ä¸è¶³ä¸€ä¸ªå°æ—¶ï¼Œå°šæ— æ³•è®¡ç®—ä½ çš„ç¨³å®šæ”¶ç›Šæ•°æ®ã€‚\n");
 */
 
 if(pot<time*3)
-      	return notify_fail("±¾´Î±Õ¹ØÔ¤¼ÆÏûºÄ"+ time*3 +"µãÇ±ÄÜ£¬Äã±£´æµÄÇ±ÄÜ²»×ãÒÔÖ§³ÖÄã±Õ¹ØÇ±ĞŞµÄÏûºÄ¡£\n");
+      	return notify_fail("æœ¬æ¬¡é—­å…³é¢„è®¡æ¶ˆè€—"+ time*3 +"ç‚¹æ½œèƒ½ï¼Œä½ ä¿å­˜çš„æ½œèƒ½ä¸è¶³ä»¥æ”¯æŒä½ é—­å…³æ½œä¿®çš„æ¶ˆè€—ã€‚\n");
 
 if(tb<time/36)
-      	return notify_fail("Äã±¾´Î±Õ¹ØÇ±ĞŞĞèÒªÔ¤±¸µÄÉú´æ×Ê½ğÎª"+ time/36 + "¸öÍ¨±¦£¬ÄãµÄÍ¨±¦ËÆºõ²»¹»ÓÃÁË¡£\n");
+      	return notify_fail("ä½ æœ¬æ¬¡é—­å…³æ½œä¿®éœ€è¦é¢„å¤‡çš„ç”Ÿå­˜èµ„é‡‘ä¸º"+ time/36 + "ä¸ªé€šå®ï¼Œä½ çš„é€šå®ä¼¼ä¹ä¸å¤Ÿç”¨äº†ã€‚\n");
 	
-//¿ªÊ¼Ç±ĞŞ¡£
+//å¼€å§‹æ½œä¿®ã€‚
 	
 	if( (int)link_ob->save() && (int)me->save() ) {
-   write("\n\nÄãÅÌÏ¥×øÏÂ£¬²ÎÕÕ±¾ÃÅĞÄ·¨£¬Ç±ÔËÄÚÏ¢£¬½øÈëÁËÒ»ÖÖĞşÖ®ÓÖĞşµÄ±Õ¹Ø×´Ì¬¡£\n\n");
+   write("\n\nä½ ç›˜è†åä¸‹ï¼Œå‚ç…§æœ¬é—¨å¿ƒæ³•ï¼Œæ½œè¿å†…æ¯ï¼Œè¿›å…¥äº†ä¸€ç§ç„ä¹‹åˆç„çš„é—­å…³çŠ¶æ€ã€‚\n\n");
 
 
     me->start_busy(99999);
-    me->set("on_hook/start",time());  //¿ªÊ¼Ê±¼ä¡£ 
-    me->set("on_hook/time",time()+ time*2);//Ô¤ÆÚÇ±ĞŞ½áÊøÊ±¼ä¡£ 
+    me->set("on_hook/start",time());  //å¼€å§‹æ—¶é—´ã€‚ 
+    me->set("on_hook/time",time()+ time*2);//é¢„æœŸæ½œä¿®ç»“æŸæ—¶é—´ã€‚ 
     me->set("on_hook/pexp",exp);
     me->apply_condition("onhook",time/5+1);
           
-     write(HIG"Äã±¾´Î±Õ¹ØÇ±ĞŞ×î³¤Ê±¼äÎª"+ CHINESE_D->chinese_time(time*2)+ "¡£\n"NOR);  
-     write(HIG"Ô¤¼ÆÏûºÄÇ±ÄÜ"HIR+ time*3 + HIG"µã£¬Êé½£Í¨±¦"HIR+ time/36 +HIG"Ã¶¡£\n"NOR); 
-     write(HIG"Ô¤¼ÆÊÕÒæÎªÊµÕ½¾­Ñé"HIR +  exp*time*2 + HIG"µã£¨"+exp*3600+"/Ğ¡Ê±£©¡£\n"NOR);  
-     write(HIG"µ±Ç±ĞŞ½áÊøÊ±£¬Äã¿ÉÒÔÊ¹ÓÃÀ´"HIR"onhook over"HIG"½áÊøÇ±ĞŞ²¢ÁìÈ¡ÊÕÒæ¡£\n"NOR);  
-     write(HIG"ÄãÒ²¿ÉÒÔËæÊ±Ê¹ÓÃ"HIR"onhook halt"HIG"À´½áÊøÇ±ĞŞ²¢½áËãÊÕÒæ¡£\n"NOR);        
-     write(HBRED"ÄãÏÖÔÚ¿ÉÒÔ¹Ø±ÕÄãµÄmud´°¿ÚÁË¡£\n\n\n\n"NOR);
+     write(HIG"ä½ æœ¬æ¬¡é—­å…³æ½œä¿®æœ€é•¿æ—¶é—´ä¸º"+ CHINESE_D->chinese_time(time*2)+ "ã€‚\n"NOR);  
+     write(HIG"é¢„è®¡æ¶ˆè€—æ½œèƒ½"HIR+ time*3 + HIG"ç‚¹ï¼Œä¹¦å‰‘é€šå®"HIR+ time/36 +HIG"æšã€‚\n"NOR); 
+     write(HIG"é¢„è®¡æ”¶ç›Šä¸ºå®æˆ˜ç»éªŒ"HIR +  exp*time*2 + HIG"ç‚¹ï¼ˆ"+exp*3600+"/å°æ—¶ï¼‰ã€‚\n"NOR);  
+     write(HIG"å½“æ½œä¿®ç»“æŸæ—¶ï¼Œä½ å¯ä»¥ä½¿ç”¨æ¥"HIR"onhook over"HIG"ç»“æŸæ½œä¿®å¹¶é¢†å–æ”¶ç›Šã€‚\n"NOR);  
+     write(HIG"ä½ ä¹Ÿå¯ä»¥éšæ—¶ä½¿ç”¨"HIR"onhook halt"HIG"æ¥ç»“æŸæ½œä¿®å¹¶ç»“ç®—æ”¶ç›Šã€‚\n"NOR);        
+     write(HBRED"ä½ ç°åœ¨å¯ä»¥å…³é—­ä½ çš„mudçª—å£äº†ã€‚\n\n\n\n"NOR);
    me->set_temp("block_msg/all",1);
       
    return 1;
@@ -76,15 +76,15 @@ if(tb<time/36)
  if(arg=="over" || arg=="halt"){
  	
  	if(!me->query("on_hook"))
- 		        return notify_fail("Äã²¢Ã»ÓĞ½øĞĞ±Õ¹ØÇ±ĞŞ°¡¡£\n");
+ 		        return notify_fail("ä½ å¹¶æ²¡æœ‰è¿›è¡Œé—­å…³æ½œä¿®å•Šã€‚\n");
  
  	flag = 0;
 
 if(time()-me->query("on_hook/time")>0) {
-	   time= me->query("on_hook/time") -me->query("on_hook/start"); //Ç±ĞŞÊ±¼äÒÑ¹ı¡£
+	   time= me->query("on_hook/time") -me->query("on_hook/start"); //æ½œä¿®æ—¶é—´å·²è¿‡ã€‚
   flag =1;                                      
                                         }
-else time = time() - me->query("on_hook/start");//Ç±ĞŞÖĞ¶Ï	
+else time = time() - me->query("on_hook/start");//æ½œä¿®ä¸­æ–­	
 
      me->clear_condition("onhook");
 	   me->start_busy(-1);
@@ -93,7 +93,7 @@ else time = time() - me->query("on_hook/start");//Ç±ĞŞÖĞ¶Ï
 
 if(time<10) {
 	
-     write(HIG"Äã±¾´Î±Õ¹ØÇ±ĞŞÊ±¼ä¹ı¶Ì£¬Ã»ÓĞ»ñµÃÈÎºÎÊÕÒæ¡£\n"NOR);  
+     write(HIG"ä½ æœ¬æ¬¡é—­å…³æ½œä¿®æ—¶é—´è¿‡çŸ­ï¼Œæ²¡æœ‰è·å¾—ä»»ä½•æ”¶ç›Šã€‚\n"NOR);  
 	   me->delete("on_hook");
 	   me->set_temp("combat_exp",me->query("combat_exp"));    
 	   return 1;
@@ -111,26 +111,26 @@ me->set_temp("combat_exp",me->query("combat_exp"));
 me->set_temp("onhook_exp",exp);
   
   if(flag==0)         
-     write(HIG"\n\nÄãÖĞ¶ÏÁË±Õ¹ØÇ±ĞŞ¡£\n\n"NOR);  
-     write(HIG"\nÄã±¾´Î±Õ¹ØÇ±ĞŞ³ÖĞøÊ±¼äÎª"+ CHINESE_D->chinese_time(time)+ "¡£\n"NOR);  
-     write(HIG"ÏûºÄÇ±ÄÜ"HIR+ pot + HIG"µã£¬Êé½£Í¨±¦"HIR+ tb +HIG"Ã¶¡£\n"NOR); 
-     write(HIG"¹§Ï²Äú£¬±¾´ÎÇ±ĞŞÄúÔö¼ÓÁË"HIR +  exp + HIG"µãÊµÕ½¾­Ñé£¨"+exp*3600/time +"/Ğ¡Ê±£©¡£\n"NOR);
-     write(HBRED"ÄãÏÖÔÚ¿ÉÒÔ¿ªÊ¼ÓÎÏ·ÁË¡£\n\n"NOR);
+     write(HIG"\n\nä½ ä¸­æ–­äº†é—­å…³æ½œä¿®ã€‚\n\n"NOR);  
+     write(HIG"\nä½ æœ¬æ¬¡é—­å…³æ½œä¿®æŒç»­æ—¶é—´ä¸º"+ CHINESE_D->chinese_time(time)+ "ã€‚\n"NOR);  
+     write(HIG"æ¶ˆè€—æ½œèƒ½"HIR+ pot + HIG"ç‚¹ï¼Œä¹¦å‰‘é€šå®"HIR+ tb +HIG"æšã€‚\n"NOR); 
+     write(HIG"æ­å–œæ‚¨ï¼Œæœ¬æ¬¡æ½œä¿®æ‚¨å¢åŠ äº†"HIR +  exp + HIG"ç‚¹å®æˆ˜ç»éªŒï¼ˆ"+exp*3600/time +"/å°æ—¶ï¼‰ã€‚\n"NOR);
+     write(HBRED"ä½ ç°åœ¨å¯ä»¥å¼€å§‹æ¸¸æˆäº†ã€‚\n\n"NOR);
      return 1;
  	
  	}
  
    
-	return notify_fail("ÄãÏÖÔÚÎŞ·¨±Õ¹ØÁ·¹¦¡£\n");
+	return notify_fail("ä½ ç°åœ¨æ— æ³•é—­å…³ç»ƒåŠŸã€‚\n");
    
 }
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºonhook [halt/over]
+æŒ‡ä»¤æ ¼å¼ï¼šonhook [halt/over]
 
-±Õ¹ØÇ±ĞŞÏà¹ØÖ¸Áî¡£
+é—­å…³æ½œä¿®ç›¸å…³æŒ‡ä»¤ã€‚
 
 HELP
 	);

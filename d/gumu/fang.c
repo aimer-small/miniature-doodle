@@ -7,11 +7,11 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short", HIC"Ê¯ÊÒ"NOR);
+	set("short", HIC"çŸ³å®¤"NOR);
 	set("long",@long
-Ò»¼ä¿Õµ´µ´µÄÊ¯ÊÒ£¬ÕıÇ°·½·Å×ÅÒ»¸ö¼ÀÌ³£¬ÉÏÃæ³Ê·Å×ÅÒ»Ğ©¹Ï¹û£¬Á½±ßÏã
-ÖòÉ¢·¢³öÒ¡Ò·µÄ»ğ¹â£¬Ò»Ğ©¹ÅÄ¹µÜ×ÓÕı½«ÇÖ·¸¹ÅÄ¹µÄÅÑÄæµÄÊ×¼¶³Ê·ÅÔÚ¼ÀÌ³Á½
-²àÓÃÀ´¸æÎ¿ÏÈ×æµÄÓ¢Áé¡£
+ä¸€é—´ç©ºè¡è¡çš„çŸ³å®¤ï¼Œæ­£å‰æ–¹æ”¾ç€ä¸€ä¸ªç¥­å›ï¼Œä¸Šé¢å‘ˆæ”¾ç€ä¸€äº›ç“œæœï¼Œä¸¤è¾¹é¦™
+çƒ›æ•£å‘å‡ºæ‘‡æ›³çš„ç«å…‰ï¼Œä¸€äº›å¤å¢“å¼Ÿå­æ­£å°†ä¾µçŠ¯å¤å¢“çš„å›é€†çš„é¦–çº§å‘ˆæ”¾åœ¨ç¥­å›ä¸¤
+ä¾§ç”¨æ¥å‘Šæ…°å…ˆç¥–çš„è‹±çµã€‚
 long);
 
 	set("exits",([
@@ -38,24 +38,24 @@ int do_jibai(string arg)
 
 	if ( arg == "head") {
 		if(!ob )
-			return notify_fail("ÄãÃ»ÓĞÈËÍ·£¬¼À°İÊ²Ã´£¿\n");
+			return notify_fail("ä½ æ²¡æœ‰äººå¤´ï¼Œç¥­æ‹œä»€ä¹ˆï¼Ÿ\n");
 		if(!me->query_temp("gm/job")) 
-			return notify_fail("Äã»¹Ã»È¥Ñ²ÂßÄØ£¬ÄÄÀï¼ñÀ´µÄÊ×¼¶£¿\n");
-		if(ob->query("name") != "ÃÉÃæÅ®×ÓµÄÊ×¼¶")
-			return notify_fail("ÄãÄÄÀïÅªÀ´µÄÈËÍ·£¬ÕâÈËºÃÏó²»ÊÇ¹ÅÄ¹ÅÑÄæ°¡£¿\n");
+			return notify_fail("ä½ è¿˜æ²¡å»å·¡é€»å‘¢ï¼Œå“ªé‡Œæ¡æ¥çš„é¦–çº§ï¼Ÿ\n");
+		if(ob->query("name") != "è’™é¢å¥³å­çš„é¦–çº§")
+			return notify_fail("ä½ å“ªé‡Œå¼„æ¥çš„äººå¤´ï¼Œè¿™äººå¥½è±¡ä¸æ˜¯å¤å¢“å›é€†å•Šï¼Ÿ\n");
 		if(ob->query("victim_user")) 
-			return notify_fail("ÄãÄÄÀïÅªÀ´µÄÊ×¼¶£¬É±´íÈËÁË°É£¿\n");
+			return notify_fail("ä½ å“ªé‡Œå¼„æ¥çš„é¦–çº§ï¼Œæ€é”™äººäº†å§ï¼Ÿ\n");
 		if(ob->query("kill_by") != me)
-			return notify_fail("ÕâºÃÏó²»ÊÇÄãÉ±µÄ°É£¿ÄãÊÇÔõÃ´µÃµ½Õâ¸öÈËÍ·µÄ£¿\n");
+			return notify_fail("è¿™å¥½è±¡ä¸æ˜¯ä½ æ€çš„å§ï¼Ÿä½ æ˜¯æ€ä¹ˆå¾—åˆ°è¿™ä¸ªäººå¤´çš„ï¼Ÿ\n");
 
-		message_vision(HIY"$N¹§¹§¾´¾´µØ¿ÄÁË¼¸¸öÏìÍ·£¬È»ºóÂıÂı½«$n³Ê·ÅÔÚ¼ÀÌ³Á½²à¡£\n"NOR, me,ob);
+		message_vision(HIY"$Næ­æ­æ•¬æ•¬åœ°ç£•äº†å‡ ä¸ªå“å¤´ï¼Œç„¶åæ…¢æ…¢å°†$nå‘ˆæ”¾åœ¨ç¥­å›ä¸¤ä¾§ã€‚\n"NOR, me,ob);
 		
 		exp = 160 + random(50);
-		//me->add("job_time/¹ÅÄ¹»¤Ä¹",1);
-		//GIFT_D->check_count(me,"ËïÆÅÆÅ","¹ÅÄ¹»¤Ä¹");
+		//me->add("job_time/å¤å¢“æŠ¤å¢“",1);
+		//GIFT_D->check_count(me,"å­™å©†å©†","å¤å¢“æŠ¤å¢“");
 		//me->add("combat_exp", exp);
 						
-		exp = me->add_exp_combat(exp,"ËïÆÅÆÅ","¹ÅÄ¹»¤Ä¹");
+		exp = me->add_exp_combat(exp,"å­™å©†å©†","å¤å¢“æŠ¤å¢“");
 		
 		pot = exp/5 + random(exp/10);
 		me->add("potential",pot);
@@ -64,10 +64,10 @@ int do_jibai(string arg)
 		me->delete_temp("gm/job");
 		me->delete_temp("meet_nuzi");
 		call_out("destroying", 1, ob);
-		tell_object(me,HIW"Äã±»½±ÀøÁË£º"+ chinese_number(exp)+"µãÊµÕ½¾­ÑéºÍ"+ chinese_number(pot) + "µãÇ±ÄÜ¡£\n"NOR);
+		tell_object(me,HIW"ä½ è¢«å¥–åŠ±äº†ï¼š"+ chinese_number(exp)+"ç‚¹å®æˆ˜ç»éªŒå’Œ"+ chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚\n"NOR);
 		return 1;
 	}
-	return notify_fail("ÄãÄÃÊ²Ã´¼À°İ°¡£¿\n");
+	return notify_fail("ä½ æ‹¿ä»€ä¹ˆç¥­æ‹œå•Šï¼Ÿ\n");
 }
 
 void destroying(object ob)
@@ -80,24 +80,24 @@ int do_ketou(string arg)
 {
 	mapping fam;
 	object me=this_player();
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹´«ÈË£¬ÔÚ´Ë¿ÄÍ·×÷Éõ£¿\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“ä¼ äººï¼Œåœ¨æ­¤ç£•å¤´ä½œç”šï¼Ÿ\n");
 	if ( arg == "jitan"){
 		if ( me->query("combat_exp") < 30000)
-			return notify_fail("Äã¿´×Å¼ÀÌ³£¬ĞÄ¸ĞÎäÒÕÌ«²î£¬²»ÓÉ»Ì¿Ö²»°²£¬ÓÖÂıÂıÕ¾ÆğÁËÉí¡£\n");
+			return notify_fail("ä½ çœ‹ç€ç¥­å›ï¼Œå¿ƒæ„Ÿæ­¦è‰ºå¤ªå·®ï¼Œä¸ç”±æƒ¶æä¸å®‰ï¼Œåˆæ…¢æ…¢ç«™èµ·äº†èº«ã€‚\n");
 		if ( me->query("combat_exp") > 120000)
-			return notify_fail("Äã»¹ÊÇÈ¥½­ºşÉÏ¶à¸ÉĞ©ÊÂÀ´¸æÎ¿×æÊ¦°É£¡\n");
+			return notify_fail("ä½ è¿˜æ˜¯å»æ±Ÿæ¹–ä¸Šå¤šå¹²äº›äº‹æ¥å‘Šæ…°ç¥–å¸ˆå§ï¼\n");
 		if ( me->query_temp("bishou") < 2 ) {
 			if(objectp(present("bi shou", me)))        
-				return notify_fail("Äã·¢ÏÖºĞ×ÓÀïÒÑ¾­¿Õµ´µ´µÄ£¬Ê²Ã´Ò²Ã»ÓĞÁË¡£\n"); 
+				return notify_fail("ä½ å‘ç°ç›’å­é‡Œå·²ç»ç©ºè¡è¡çš„ï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰äº†ã€‚\n"); 
 			me->add_temp("bishou", 1);
-			message_vision(HIY"$N¹§¹§¾´¾´µØ¶Ô×Å¼ÀÌ³¿ÄÆğÍ·À´¡£\n"NOR, me);
+			message_vision(HIY"$Næ­æ­æ•¬æ•¬åœ°å¯¹ç€ç¥­å›ç£•èµ·å¤´æ¥ã€‚\n"NOR, me);
 			return 1;
 		}
-		message_vision(YEL"¼ÀÌ³»º»º×ª¶¯£¬$N´ÓÀïÃæµÄĞ¡ºĞ×ÓÀïÄÃ³öÒ»°ÑØ°Ê×¡£\n"NOR, me);
+		message_vision(YEL"ç¥­å›ç¼“ç¼“è½¬åŠ¨ï¼Œ$Nä»é‡Œé¢çš„å°ç›’å­é‡Œæ‹¿å‡ºä¸€æŠŠåŒ•é¦–ã€‚\n"NOR, me);
 		me->delete_temp("bishou");
 		new(__DIR__"obj/bishou")->move(me);
 		return 1;
 	}
-	return notify_fail("Äã¶Ô×ÅÊ²Ã´¿ÄÍ·°¡£¿\n");
+	return notify_fail("ä½ å¯¹ç€ä»€ä¹ˆç£•å¤´å•Šï¼Ÿ\n");
 }

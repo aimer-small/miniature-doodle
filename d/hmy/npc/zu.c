@@ -6,13 +6,13 @@ inherit NPC;
 
 void create()
 {
-	set_name("×æÇ§Çï", ({ "zu qianqiu", "zu",}));
-        set("nickname","»ÆºÓÀÏ×æ");
+	set_name("ç¥–åƒç§‹", ({ "zu qianqiu", "zu",}));
+        set("nickname","é»„æ²³è€ç¥–");
         set("long", 
-"Ö»¼ûËûÃæÆ¤½¹»Æ£¬Ë«Ä¿ÎŞÉñ£¬ÊèÊèÂäÂäÓĞ¼¸¸ù
-ºú×Ó£¬Éí²ÄÆÄÊİÏ÷£¬È´Í¦×Å¸ö´ó¶Ç×Ó¡£\n");
+"åªè§ä»–é¢çš®ç„¦é»„ï¼ŒåŒç›®æ— ç¥ï¼Œç–ç–è½è½æœ‰å‡ æ ¹
+èƒ¡å­ï¼Œèº«æé¢‡ç˜¦å‰Šï¼Œå´æŒºç€ä¸ªå¤§è‚šå­ã€‚\n");
         set("age", 80);        
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "peaceful");
         set("shen", -10000);
         set("str", 22);
@@ -50,7 +50,7 @@ void create()
         map_skill("force", "tianmo-gong");
 	map_skill("parry", "tianmo-zhang");
 	prepare_skill("strike", "tianmo-zhang");
-	create_family("ÈÕÔÂÉñ½Ì",9,"µÜ×Ó");
+	create_family("æ—¥æœˆç¥æ•™",9,"å¼Ÿå­");
 
         setup();
 	carry_object("/clone/misc/cloth")->wear();

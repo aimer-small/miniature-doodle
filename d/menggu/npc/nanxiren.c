@@ -1,17 +1,17 @@
-// nanxiren.c ÄÏÏ£ÈÊ
+// nanxiren.c å—å¸Œä»
 // Created by Zhuifeng@sjfy 08/8/2010
 
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-   set_name("ÄÏÏ£ÈÊ",({"nan xiren","nan","xiren"}));
-   set("gender","ÄĞĞÔ");
-   set("long","½­ÄÏÆß¹ÖÀÏËÄ,\n");
+   set_name("å—å¸Œä»",({"nan xiren","nan","xiren"}));
+   set("gender","ç”·æ€§");
+   set("long","æ±Ÿå—ä¸ƒæ€ªè€å››,\n");
    set("shen",80000);
    set("combat_exp",1200000);
-   set("nickname",HIY"ÄÏÉ½éÔ×Ó"NOR);
-   set("title",WHT"½­ÄÏÆß¹ÖÀÏËÄ"NOR);
+   set("nickname",HIY"å—å±±æ¨µå­"NOR);
+   set("title",WHT"æ±Ÿå—ä¸ƒæ€ªè€å››"NOR);
    
    set("age",28);
    set("pur",30);

@@ -6,16 +6,16 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("Ìì¾µìøÊ¦", ({
+        set_name("å¤©é•œç¦…å¸ˆ", ({
                 "tianjing chanshi",
                 "tianjing",
                 "chanshi",
         }));
         set("long",
-                "ËûÁ½¼ÕÉîÏÝ£¬È«ÉíËÆºõÎÞÈâ£¬ÇÆÉÏÈ¥²»Å­×ÔÍþ¡£¡£\n"
+                "ä»–ä¸¤é¢Šæ·±é™·ï¼Œå…¨èº«ä¼¼ä¹Žæ— è‚‰ï¼Œçž§ä¸ŠåŽ»ä¸æ€’è‡ªå¨ã€‚ã€‚\n"
         );
 
-        set("gender", "ÄÐÐÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
 
@@ -65,8 +65,8 @@ void create()
 		(: perform_action, "claw.canyun" :),
 	}));
 
-        create_family("ÄÏÉÙÁÖ", 23, "µÜ×Ó");
-        set("title", "´ïÄ¦ÔºÊ××ù");
+        create_family("å—å°‘æž—", 23, "å¼Ÿå­");
+        set("title", "è¾¾æ‘©é™¢é¦–åº§");
 
         setup();
 
@@ -84,7 +84,7 @@ void init()
         me = this_object();
 
 	if (interactive(ob) && ob->query_temp("target_putian")){
-		command("say ´óµ¨¿ñÍ½£¬¾¹¸Ò´³µ½ÉÙÁÖËÂÀïÀ´ÈöÒ°£¡£¡£¡");
+		command("say å¤§èƒ†ç‹‚å¾’ï¼Œç«Ÿæ•¢é—¯åˆ°å°‘æž—å¯ºé‡Œæ¥æ’’é‡Žï¼ï¼ï¼");
 		me->set_leader(ob);
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);

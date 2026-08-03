@@ -2,13 +2,13 @@
 inherit ROOM;
 void create()
 {
-	set("short", HIR"ÃØµÀ"NOR);
+	set("short", HIR"ç§˜é“"NOR);
 	set("long", @LONG
-ÕâÌõÒõ°µµÄÃØµÀÔÚÉ½¸¹ÖĞÇúÕÛÑÓÉì£¬²»ÖªÍ¨ÍùºÎ´¦¡£ÕâÀïÓĞÓĞÒ»¿é´ó
-Ê¯Öù(shizhu)µ²×ÅÏòÉÏµÄ³ö¿Ú£¬ÍùÇ°×ßºÃÏó¿ÉÒÔ¿´¼ûÒ»µãÁÁ¹â¡£
+è¿™æ¡é˜´æš—çš„ç§˜é“åœ¨å±±è…¹ä¸­æ›²æŠ˜å»¶ä¼¸ï¼Œä¸çŸ¥é€šå¾€ä½•å¤„ã€‚è¿™é‡Œæœ‰æœ‰ä¸€å—å¤§
+çŸ³æŸ±(shizhu)æŒ¡ç€å‘ä¸Šçš„å‡ºå£ï¼Œå¾€å‰èµ°å¥½è±¡å¯ä»¥çœ‹è§ä¸€ç‚¹äº®å…‰ã€‚
 LONG);
 	set("item_desc",([
-	"shizhu" : "ÕâÊÇ¸ù¾ŞĞÍÔ²Öù£¬¿´Ñù×ÓÓ¦¸Ã¿ÉÒÔ°â(move)¶¯Ëü¡£\n",
+	"shizhu" : "è¿™æ˜¯æ ¹å·¨å‹åœ†æŸ±ï¼Œçœ‹æ ·å­åº”è¯¥å¯ä»¥æ‰³(move)åŠ¨å®ƒã€‚\n",
 	]));
 	set("exits", ([
 	      "west" : __DIR__"midao1",
@@ -26,15 +26,15 @@ int do_move(string arg)
 	object room, me = this_player();
 	
 	if( (int)me->is_busy() || me->is_fighting()) 
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 		
 	if( !arg || arg!="shizhu" ) return 0;
 	
-	message("vision","Ê¯ÖùºöÈ»·¢³öÔşÔşµÄÉùÒô£¬ÏòÒ»²à»º»ºÒÆ¿ª£¬ÏòÉÏÂ¶³öÒ»¸ö¹âÁÁµÄ³ö¿Ú¡£\n", this_object() );
+	message("vision","çŸ³æŸ±å¿½ç„¶å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œå‘ä¸€ä¾§ç¼“ç¼“ç§»å¼€ï¼Œå‘ä¸Šéœ²å‡ºä¸€ä¸ªå…‰äº®çš„å‡ºå£ã€‚\n", this_object() );
 	set("exits/up", __DIR__"yuanzi4");
 	if( room = load_object(__DIR__"yuanzi4") ) {
 		 room->set("exits/down", __FILE__);
-		 message("vision","Ê¯ÖùºöÈ»·¢³öÔşÔşµÄÉùÒô£¬Â¶³öÒ»¸öºÚ¶´¶´µÄ¶´¿Ú¡£\n",room );
+		 message("vision","çŸ³æŸ±å¿½ç„¶å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œéœ²å‡ºä¸€ä¸ªé»‘æ´æ´çš„æ´å£ã€‚\n",room );
 	} 
 	remove_call_out("close_door");
 	call_out("close_door", 5);
@@ -45,10 +45,10 @@ void close_door()
 {
 	object room;
 	if( !query("exits/up") ) return;
-	message("vision","Í·¶¥ÉÏºöÈ»·¢³öÔşÔşµÄÉùÒô£¬Ê¯ÖùÓÖ»º»ºµØÊÕÁË»ØÈ¥£¬½×ÌİÏûÊ§ÁË¡£\n", this_object() );
+	message("vision","å¤´é¡¶ä¸Šå¿½ç„¶å‘å‡ºè½§è½§çš„å£°éŸ³ï¼ŒçŸ³æŸ±åˆç¼“ç¼“åœ°æ”¶äº†å›å»ï¼Œé˜¶æ¢¯æ¶ˆå¤±äº†ã€‚\n", this_object() );
 	if( room = load_object(__DIR__"yuanzi4") ) {
 		room->delete("exits/down");
-		message("vision", "Ê¯ÖùºöÈ»·¢³öÔşÔşµÄÉùÒô£¬»º»ºµØÒÆ»ØÔ­´¦£¬½«ÏòÏÂµÄ¶´¿Ú¸Ç×¡ÁË¡£\n", room );
+		message("vision", "çŸ³æŸ±å¿½ç„¶å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œç¼“ç¼“åœ°ç§»å›åŸå¤„ï¼Œå°†å‘ä¸‹çš„æ´å£ç›–ä½äº†ã€‚\n", room );
 		}
 	delete("exits/up");
 }

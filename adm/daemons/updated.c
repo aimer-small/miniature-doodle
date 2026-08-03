@@ -34,7 +34,7 @@ void get_cloth(object user)
 	i = user->query("family/generation");
 
 	switch(fam) {
-		case "ÉÙÁÖÅÉ":
+		case "å°‘æ—æ´¾":
 			if (i <= 35) cloth = new("/d/shaolin/obj/du-cloth");
 			if (i == 36) cloth = new("/d/shaolin/obj/xuan-cloth");
 			if (i == 37) cloth = new("/d/shaolin/obj/cheng-cloth");
@@ -44,34 +44,34 @@ void get_cloth(object user)
 			if (i >= 41) cloth = new("/d/shaolin/obj/cloth");
 			if (i < 41 && userp(user))
 				switch (user->query("name")[0..1]) {
-					case "¾»":
-					case "Ã÷":
-					case "¿Õ":
-					case "Ğé":
+					case "å‡€":
+					case "æ˜":
+					case "ç©º":
+					case "è™š":
 						user->set("class", "huanxi");
 				}
 			break;
-		case "Ã÷½Ì":
+		case "æ˜æ•™":
 			if (i <= 35) {
-				if(user->query("family/master_name") == "ÕÅÎŞ¼É")
+				if(user->query("family/master_name") == "å¼ æ— å¿Œ")
 					cloth = new("/d/mingjiao/obj/white-cloth");
 				else cloth = new("/d/mingjiao/obj/yel-cloth");
 			}
 			if (i == 36) cloth = new("/d/mingjiao/obj/red-cloth");
 			if (i >= 37) cloth = new("/d/mingjiao/obj/green-cloth");
 			break;
-		case "À¥ÂØÅÉ":
+		case "æ˜†ä»‘æ´¾":
 		        if (i <= 3 ) cloth = new("/d/kunlun/obj/pao1");
 		        if (i == 4 ) cloth = new("/d/kunlun/obj/pao2");
 		        if (i == 5 ) cloth = new("/d/kunlun/obj/pao3");
 		        if (i == 6 ) cloth = new("/d/kunlun/obj/pao4");
                         break;
-		case "¶ëáÒÅÉ":
+		case "å³¨åµ‹æ´¾":
 			if (user->query("class") == "bonze")
 				cloth = new("/d/emei/obj/cloth");
 			else    cloth = new("/d/emei/obj/cloth2");
 			break;
-		case "ÌìÁúËÂ":
+		case "å¤©é¾™å¯º":
 			if (user->query("tls")) {
 				if (i <= 13) cloth = new("/d/tls/obj/jiasha");
 				if (i == 14) cloth = new("/d/tls/obj/jiasha1");
@@ -82,8 +82,8 @@ void get_cloth(object user)
 				if (i >= 15) cloth = new("/d/dali/obj/guanfu2");
 			}
 			break;
-		case "¹ÃËÕÄ½Èİ":
-			if(user->query("gender") == "Å®ĞÔ")
+		case "å§‘è‹æ…•å®¹":
+			if(user->query("gender") == "å¥³æ€§")
 			{
 				if (i == 2) cloth = new("/d/mr/obj/cloth6");
 				if (i == 3) cloth = new("/d/mr/obj/cloth5");
@@ -96,53 +96,53 @@ void get_cloth(object user)
 				if (i == 4) cloth = new("/d/mr/obj/cloth1");
 			}
 			break;
-		case "Îäµ±ÅÉ":
+		case "æ­¦å½“æ´¾":
 			if (i <= 2) cloth = new("/d/wudang/obj/whiterobe");
 			if (i >= 3)
-				if(user->query("gender") != "Å®ĞÔ") cloth = new("/d/wudang/obj/greyrobe");
+				if(user->query("gender") != "å¥³æ€§") cloth = new("/d/wudang/obj/greyrobe");
 				else cloth = new("/d/wudang/obj/greenrobe");
 			break;
-		case "´óÂÖËÂ":
+		case "å¤§è½®å¯º":
 			if (i <= 11) cloth = new("/d/xueshan/npc/obj/longxiang-jiasha");
 			if (i == 12) cloth = new("/d/xueshan/npc/obj/changsheng-jiasha");
 			if (i == 13) cloth = new("/d/xueshan/npc/obj/gongde-jiasha");
 			if (i >= 14) cloth = new("/d/xueshan/npc/obj/qinxiu-jiasha");
 			break;
-		case "¹ÅÄ¹ÅÉ":
-			if (user->query("gender") =="Å®ĞÔ")
+		case "å¤å¢“æ´¾":
+			if (user->query("gender") =="å¥³æ€§")
 				cloth = new("/d/gumu/obj/qun1");
 			else
 				cloth = new("/d/gumu/obj/pao1");
 			break;
-		case "áÔÉ½ÅÉ":
-			if(user->query("gender") == "Å®ĞÔ"){
+		case "åµ©å±±æ´¾":
+			if(user->query("gender") == "å¥³æ€§"){
 				cloth = new(ARMOR_D("cloth"));
-				cloth->set("name", HIM "·ÛºìÌ×ÉÀ" NOR);
+				cloth->set("name", HIM "ç²‰çº¢å¥—è¡«" NOR);
 			}
 			else cloth = new(ARMOR_D("changpao1"));
 			break;
 		default:
 			cloth = new(ARMOR_D("cloth"));
-			if (fam == "ĞÇËŞÅÉ")
-				cloth->set("name", YEL "»Æ¸ğ²¼ÉÀ" NOR);
-			if (fam == "»ªÉ½ÅÉ")
-				cloth->set("name", BLU "¾¢×°" NOR);
-			if (fam == "Ø¤°ï")
-				cloth->set("name", YEL "°ÙñÄ½áÒÂ" NOR);
-			if (fam == "ÌÒ»¨µº")
-				cloth->set("name", MAG "×Ï³¤ÉÀ" NOR);
-			if (fam == "ÌúÕÆ°ï")
-				cloth->set("name", "¶Ì´ò×°" );
-			if (fam == "ÉñÁú½Ì")
-				cloth->set("name", "´òÓã×°" );
-			if (fam == "È«Õæ½Ì")
-				cloth->set("name", HIB"À¶É«µÀÅÛ"NOR );
-			if (fam == "ÁéğÕ¹¬")
-				cloth->set("name", HIW"°×É«ÄŞÉÑ"NOR );
-			if (fam == "åĞÒ£ÅÉ")
-				cloth->set("name", HIC"ÇàÉ«º×ë©"NOR );
+			if (fam == "æ˜Ÿå®¿æ´¾")
+				cloth->set("name", YEL "é»„è‘›å¸ƒè¡«" NOR);
+			if (fam == "åå±±æ´¾")
+				cloth->set("name", BLU "åŠ²è£…" NOR);
+			if (fam == "ä¸å¸®")
+				cloth->set("name", YEL "ç™¾è¡²ç»“è¡£" NOR);
+			if (fam == "æ¡ƒèŠ±å²›")
+				cloth->set("name", MAG "ç´«é•¿è¡«" NOR);
+			if (fam == "é“æŒå¸®")
+				cloth->set("name", "çŸ­æ‰“è£…" );
+			if (fam == "ç¥é¾™æ•™")
+				cloth->set("name", "æ‰“é±¼è£…" );
+			if (fam == "å…¨çœŸæ•™")
+				cloth->set("name", HIB"è“è‰²é“è¢"NOR );
+			if (fam == "çµé¹«å®«")
+				cloth->set("name", HIW"ç™½è‰²éœ“è£³"NOR );
+			if (fam == "é€é¥æ´¾")
+				cloth->set("name", HIC"é’è‰²é¹¤æ°…"NOR );
 			if (!fam && user->query("class") == "bonze")
-				cloth->set("name", "É®ÒÂ");
+				cloth->set("name", "åƒ§è¡£");
 	}
 
 	if (cloth) {
@@ -152,31 +152,31 @@ void get_cloth(object user)
 
 	switch(fam)
 	{
-		case "¹ÃËÕÄ½Èİ":
-			if(user->query("gender") == "Å®ĞÔ") cloth = new("/d/mr/obj/xiuhuaxie");
+		case "å§‘è‹æ…•å®¹":
+			if(user->query("gender") == "å¥³æ€§") cloth = new("/d/mr/obj/xiuhuaxie");
 			else cloth = new("/d/mr/obj/guanxue");
 			break;
-		case "¹ÅÄ¹ÅÉ":
+		case "å¤å¢“æ´¾":
 			cloth = new("/d/gumu/obj/buxue1");
 			break;
-		case "Ø¤°ï":
+		case "ä¸å¸®":
 			cloth = new("clone/armor/caoxie");
 			break;
-		case "È«Õæ½Ì":
+		case "å…¨çœŸæ•™":
 			cloth = new("clone/armor/shoes");
-			cloth->set("name","µÀÂÄ");
+			cloth->set("name","é“å±¥");
 			break;
-	  case "åĞÒ£ÅÉ":
+	  case "é€é¥æ´¾":
 			cloth = new("clone/armor/shoes");
-			cloth->set("name","ĞşÎäÑ¥");
+			cloth->set("name","ç„æ­¦é´");
 			break;
-		case "ÁéğÕ¹¬":
+		case "çµé¹«å®«":
 			cloth = new("clone/armor/shoes");
-			cloth->set("name",HIR"Ğå»¨Ğ¡Ğ¬"NOR);
+			cloth->set("name",HIR"ç»£èŠ±å°é‹"NOR);
 			break;
 		default:
 			cloth = new("/clone/armor/shoes");
-			if (user->query("class") == "bonze") cloth->set("name", "É®Ğ¬");
+			if (user->query("class") == "bonze") cloth->set("name", "åƒ§é‹");
 	}
 
 	if(cloth){
@@ -184,7 +184,7 @@ void get_cloth(object user)
 		cloth->wear();
 	}
 
-	if ( fam == "Ø¤°ï") {
+	if ( fam == "ä¸å¸®") {
 		i = user->query("gb/bags");
 		switch (i) {
 			case 0: cloth=new("kungfu/class/gaibang/obj/gb_budai"); break;
@@ -206,25 +206,25 @@ void get_cloth(object user)
 		}
 	}
 
-	// °ïÅÉÁîÅÆ
+	// å¸®æ´¾ä»¤ç‰Œ
 	// if (!present("lingpai", user) && user->query("g_name")) new("/data/group/obj/ling")->move(user);
 
 	
-       // ½á»éĞÅÎï
-	if (user->query("gender") == "Å®ĞÔ") {
+       // ç»“å©šä¿¡ç‰©
+	if (user->query("gender") == "å¥³æ€§") {
 		if (!present("yu pei", user) && user->query("marry")) new("/clone/misc/marry-token")->move(user);
 	} else
 		if (!present("xiang nang", user) && user->query("marry")) new("/clone/misc/marry-token")->move(user);
 
-	// class ¾ÀÕı
-	if (user->query("gender") == "ÎŞĞÔ")
+	// class çº æ­£
+	if (user->query("gender") == "æ— æ€§")
 		user->set("class", "eunuch");
-	// ĞÔ±ğ¾ÀÕı
+	// æ€§åˆ«çº æ­£
 	switch (user->query("class")) {
 		case "eunach":
 			user->set("class", "eunuch");
 		case "eunuch":
-			user->set("gender", "ÎŞĞÔ");
+			user->set("gender", "æ— æ€§");
 		case "emsujia":
 			user->delete("class");
 		case "bonze":
@@ -234,18 +234,18 @@ void get_cloth(object user)
 			user->delete("marry");
 	}
 		
-	// ÉúÈÕ¾ÀÕı
+	// ç”Ÿæ—¥çº æ­£
 	   if (user->query("birthday") + user->query("mud_age") > time())
 		user->set("birthday", time() - user->query("mud_age"));
 	
-	//²¢Õ¾ÉúÈÕ¾ÀÕı 	
+	//å¹¶ç«™ç”Ÿæ—¥çº æ­£ 	
 			
-	//´æ¿î¾ÀÕı
+	//å­˜æ¬¾çº æ­£
 	if(user->query("balance") > F_BANKER->query_balance_limit(user) )
 	{
-                //tell_object(user, HIY "Êé½£¾©³Ç×ÜĞĞÍ¨ÖªÄú£ºÒòÎªÄúµÄ´æ¿îÊıÁ¿¹ı¶à£¬ÒÑ¾­½«³¬¶î²¿·Ö°´ÕÕ100»Æ½ğ:1Í¨±¦½øĞĞ×ª»»£¬Çë²»Òªµ£ĞÄ¡£\n" NOR);
-                tell_object(user, HIY "Êé½£¾©³Ç×ÜĞĞÍ¨ÖªÄú£ºÒòÎªÄúµÄ´æ¿îÊıÁ¿¹ı¶à£¬ÒÑ¾­½«³¬¶î²¿·Ö½øĞĞµ÷Õû£¬Çë²»Òªµ£ĞÄ¡£\n" NOR);
-		log_file("balance",sprintf("%-19s±¾À´ÓĞ %10d ´æ¿î£¬ÏÖ¼õÎª£º%10d¡£\n",user->name(1)+"("+user->query("id")+")", user->query("balance"), F_BANKER->query_balance_limit(user)), user);		
+                //tell_object(user, HIY "ä¹¦å‰‘äº¬åŸæ€»è¡Œé€šçŸ¥æ‚¨ï¼šå› ä¸ºæ‚¨çš„å­˜æ¬¾æ•°é‡è¿‡å¤šï¼Œå·²ç»å°†è¶…é¢éƒ¨åˆ†æŒ‰ç…§100é»„é‡‘:1é€šå®è¿›è¡Œè½¬æ¢ï¼Œè¯·ä¸è¦æ‹…å¿ƒã€‚\n" NOR);
+                tell_object(user, HIY "ä¹¦å‰‘äº¬åŸæ€»è¡Œé€šçŸ¥æ‚¨ï¼šå› ä¸ºæ‚¨çš„å­˜æ¬¾æ•°é‡è¿‡å¤šï¼Œå·²ç»å°†è¶…é¢éƒ¨åˆ†è¿›è¡Œè°ƒæ•´ï¼Œè¯·ä¸è¦æ‹…å¿ƒã€‚\n" NOR);
+		log_file("balance",sprintf("%-19sæœ¬æ¥æœ‰ %10d å­˜æ¬¾ï¼Œç°å‡ä¸ºï¼š%10dã€‚\n",user->name(1)+"("+user->query("id")+")", user->query("balance"), F_BANKER->query_balance_limit(user)), user);		
 user->add("SJ_Credit", (user->query("balance") - F_BANKER->query_balance_limit(user) )/1000000);
                 user->set("balance",F_BANKER->query_balance_limit(user) );
 	}
@@ -254,7 +254,7 @@ user->add("SJ_Credit", (user->query("balance") - F_BANKER->query_balance_limit(u
 	GROUP_D->check_user_group(user);
 	//LD->check_user_game(user);
 	if (user->query("registered") == 3 && !user->query("vip/rules")){
-		tell_object(user, HIY "»¶Ó­Äú×¢²á³ÉÎªÊé½£¹ó±öÍæ¼Ò£¬ÏµÍ³ÒÑ¾­×Ô¶¯Çå³ıÁËÄãµÄÌÒ»¨Ô´Î¥¹æ¼ÇÂ¼ºÍÀë»é¼ÇÂ¼¡£\n" NOR);
+		tell_object(user, HIY "æ¬¢è¿æ‚¨æ³¨å†Œæˆä¸ºä¹¦å‰‘è´µå®¾ç©å®¶ï¼Œç³»ç»Ÿå·²ç»è‡ªåŠ¨æ¸…é™¤äº†ä½ çš„æ¡ƒèŠ±æºè¿è§„è®°å½•å’Œç¦»å©šè®°å½•ã€‚\n" NOR);
 		user->delete("rules");
 		user->delete("divorce");
 		user->set("vip/rules",1);
@@ -270,7 +270,7 @@ int get_object(object ob, object me)
 	if( ob->is_character()
 	|| ob->query("book")
         || ob->query("imbued")
-	|| ob->query("weapon_prop")  //ÕâÀïÔö¼Ó¸ö¶Ô±¦ÎïÎäÆ÷µÄholdµÄ´¦Àí¡£
+	|| ob->query("weapon_prop")  //è¿™é‡Œå¢åŠ ä¸ªå¯¹å®ç‰©æ­¦å™¨çš„holdçš„å¤„ç†ã€‚
 	|| ob->query("old_ob") == me ) return 0;
 	return ob->query("unique");
 }
@@ -295,23 +295,23 @@ void check_inventory(object me)
 	if (desc = strip(me->query("long"))) {
 		if (strsrch(desc, "\n") > 80) {
 			me->delete("long");
-			tell_object(me, "ÄãµÄÃèÊöÌ«³¤ÁË£¬ÇëÖØĞÂ describe\n");
-		} else if (strsrch(desc, "É±ËÀÄã") > 5) {
+			tell_object(me, "ä½ çš„æè¿°å¤ªé•¿äº†ï¼Œè¯·é‡æ–° describe\n");
+		} else if (strsrch(desc, "æ€æ­»ä½ ") > 5) {
 			me->delete("long");
-			tell_object(me, "ÄãµÄÃèÊöÈİÒ×ÈÃÈËÎó»á£¬ÇëÖØĞÂ describe\n");
+			tell_object(me, "ä½ çš„æè¿°å®¹æ˜“è®©äººè¯¯ä¼šï¼Œè¯·é‡æ–° describe\n");
 		} else if (desc[<1] != '\n')
 			me->set("long", desc+"\n");
 	}
 
 	
-	//vip Ï´ÊÖ
+	//vip æ´—æ‰‹
 	if(me->query("registered")==2 && me->query("no_pk"))
 	{
 		me->set("no_pk_vip",me->query("no_pk"));
 		me->set("no_pk_PKS",me->query("PKS"));
 		me->delete("no_pk");
-		tell_object(me,YEL"ÄúÒÑ¾­²»ÊÇ¹ó±öÓÃ»§ÁË£¬ÏµÍ³È¡ÏûÁËÄúµÄ½ğÅèÏ´ÊÖ£»Çë¼°Ê±¼¤»îÄúµÄ¹ó±ö»Ö¸´Ï´ÊÖ×´Ì¬¡£\n"NOR);
-		tell_object(me,HIR"ÌáĞÑ£ºÈç¹ûÄúÔÚÕâ¶ÎµÈ´ıĞø·ÑµÄ·ÇÏ´ÊÖ×´Ì¬ÏÂÉ±º¦ÁËÆäËûÍæ¼Ò£¬ÄÇÃ´ÏµÍ³»áÈÏÎªÄãÖØ³ö½­ºş£¬¶øÇÒ°´ÕÕ³ÌĞò½øĞĞ´¦·£¡£\n"NOR);
+		tell_object(me,YEL"æ‚¨å·²ç»ä¸æ˜¯è´µå®¾ç”¨æˆ·äº†ï¼Œç³»ç»Ÿå–æ¶ˆäº†æ‚¨çš„é‡‘ç›†æ´—æ‰‹ï¼›è¯·åŠæ—¶æ¿€æ´»æ‚¨çš„è´µå®¾æ¢å¤æ´—æ‰‹çŠ¶æ€ã€‚\n"NOR);
+		tell_object(me,HIR"æé†’ï¼šå¦‚æœæ‚¨åœ¨è¿™æ®µç­‰å¾…ç»­è´¹çš„éæ´—æ‰‹çŠ¶æ€ä¸‹æ€å®³äº†å…¶ä»–ç©å®¶ï¼Œé‚£ä¹ˆç³»ç»Ÿä¼šè®¤ä¸ºä½ é‡å‡ºæ±Ÿæ¹–ï¼Œè€Œä¸”æŒ‰ç…§ç¨‹åºè¿›è¡Œå¤„ç½šã€‚\n"NOR);
 	}
 		
 	if(me->query("registered")==3 && me->query("no_pk_vip"))
@@ -321,13 +321,13 @@ void check_inventory(object me)
 			me->set("no_pk",me->query("no_pk_vip"));
 			me->delete("no_pk_vip");
 			me->delete("no_pk_PKS");
-			tell_object(me,YEL"ÄúµÄÏ´ÊÖ×´Ì¬ÒÑ¾­»Ö¸´¡£\n"NOR);
+			tell_object(me,YEL"æ‚¨çš„æ´—æ‰‹çŠ¶æ€å·²ç»æ¢å¤ã€‚\n"NOR);
 		}
 		else
 		{
 			me->set("no_pk",1);
 			me->set("prepare_rejoin",1);
-			tell_object(me,YEL"ÄúÔÚµÈ´ıĞø·ÑµÄ·ÇÏ´ÊÖÆÚ¼äÉ±º¦ÁËÆäËûÍæ¼Ò£¬ËùÒÔÄãÒªÖØ³ö½­ºş£¡\n"NOR);
+			tell_object(me,YEL"æ‚¨åœ¨ç­‰å¾…ç»­è´¹çš„éæ´—æ‰‹æœŸé—´æ€å®³äº†å…¶ä»–ç©å®¶ï¼Œæ‰€ä»¥ä½ è¦é‡å‡ºæ±Ÿæ¹–ï¼\n"NOR);
 			REJOIN_CMD->main(me);
 			me->delete("no_pk_vip");
 			me->delete("no_pk_PKS");			
@@ -344,14 +344,14 @@ void check_inventory(object me)
 				if (i = me->query("no_pk")) {
 					me->delete("no_pk");
 					me->set("no_pk_disable", i);
-					tell_object(me, "ÄãÒÑ¾­²»ÊÇÎäÊ¿ÁË£¬Ï´ÊÖ±êÖ¾±»×Ô¶¯¹Ø±Õ£¬ÔÚÄã»Ö¸´ÎäÊ¿Éí·İºó£¬Ï´ÊÖ±êÖ¾Ò²½«×Ô¶¯»Ö¸´¡£\n");
+					tell_object(me, "ä½ å·²ç»ä¸æ˜¯æ­¦å£«äº†ï¼Œæ´—æ‰‹æ ‡å¿—è¢«è‡ªåŠ¨å…³é—­ï¼Œåœ¨ä½ æ¢å¤æ­¦å£«èº«ä»½åï¼Œæ´—æ‰‹æ ‡å¿—ä¹Ÿå°†è‡ªåŠ¨æ¢å¤ã€‚\n");
 				}
 				break;
 			default:
 				if (i = me->query("no_pk_disable")) {
 					me->delete("no_pk_disable");
 					me->set("no_pk", i);
-					tell_object(me, "ÄãÒÑ¾­»Ö¸´ÎäÊ¿Éí·İ£¬Ï´ÊÖ±êÖ¾×Ô¶¯»Ö¸´¡£\n");
+					tell_object(me, "ä½ å·²ç»æ¢å¤æ­¦å£«èº«ä»½ï¼Œæ´—æ‰‹æ ‡å¿—è‡ªåŠ¨æ¢å¤ã€‚\n");
 				}
 		}
 		tick_count = 0;
@@ -365,7 +365,7 @@ void check_inventory(object me)
 		if (inv[i]->is_character()) return;
 		if (inv[i]->query("equipped")) return;
 		tell_object(me,
-			"ÄãÍ»È»·¢ÏÖÒ»"+inv[i]->query("unit") + inv[i]->name() + "²»¼ûÁË£¡¿´À´ÊÇ¶«Î÷Ì«¶àÁË¡£\n"
+			"ä½ çªç„¶å‘ç°ä¸€"+inv[i]->query("unit") + inv[i]->name() + "ä¸è§äº†ï¼çœ‹æ¥æ˜¯ä¸œè¥¿å¤ªå¤šäº†ã€‚\n"
 		);
 		destruct(inv[i]);
 	}
@@ -377,7 +377,7 @@ void check_inventory(object me)
 		if( me->query_temp("inv_check") < 4 ) return;
 		if( random(10) < i ){
 			i = random(i);
-			tell_object(me, "ÄãÍ»È»·¢ÏÖÉíÉÏµÄÒ»"+inv[i]->query("unit") + inv[i]->name() + "²»¼ûÁË£¡\n");
+			tell_object(me, "ä½ çªç„¶å‘ç°èº«ä¸Šçš„ä¸€"+inv[i]->query("unit") + inv[i]->name() + "ä¸è§äº†ï¼\n");
 			if((string)inv[i]->query("equipped")) inv[i]->unequip();
 			destruct(inv[i]);
 			me->delete_temp("inv_check");

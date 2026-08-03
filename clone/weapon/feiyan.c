@@ -7,18 +7,18 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-	set_name(CYN"·ÉÑà"NOR, ({ "fei yan","yan"}) );
+	set_name(CYN"é£ç‡•"NOR, ({ "fei yan","yan"}) );
 	set_weight(200);
 	if( clonep() )
 		 set_default_object(__FILE__);
 	else {
-		set("long", CYN"ÕâÊÇÒ»¸ö¿áËÆÑà×ÓĞÎ×´µÄÒõ¶¾°µÆ÷£¬ÑàÎ²ÉÏ³¤ÂúÁËµ¹´Ì¡£\n"NOR);
-		set("unit", "¸ö");
+		set("long", CYN"è¿™æ˜¯ä¸€ä¸ªé…·ä¼¼ç‡•å­å½¢çŠ¶çš„é˜´æ¯’æš—å™¨ï¼Œç‡•å°¾ä¸Šé•¿æ»¡äº†å€’åˆºã€‚\n"NOR);
+		set("unit", "ä¸ª");
 		set("damage", 12);
 		set("base_value",400);
-		set("base_unit", "¸ö");
+		set("base_unit", "ä¸ª");
 		set("base_weight", 100);
-		set("throw_msg", HIR"$N×óÊÖ°µ²ØĞäÖĞ£¬Ê³Ö¸Ò»µ¯£¬·ÉÑà»®³öÒ»µÀºÚÉ«µÄ»¡ÏßÉäÏò$n£¡\n"NOR);
+		set("throw_msg", HIR"$Nå·¦æ‰‹æš—è—è¢–ä¸­ï¼Œé£ŸæŒ‡ä¸€å¼¹ï¼Œé£ç‡•åˆ’å‡ºä¸€é“é»‘è‰²çš„å¼§çº¿å°„å‘$nï¼\n"NOR);
 		set("material", "steel");
 		set("embed", 1);
 	}

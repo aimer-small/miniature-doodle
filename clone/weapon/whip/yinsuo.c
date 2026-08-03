@@ -1,4 +1,4 @@
-// yinsuo.c ½ğÁåË÷ 
+// yinsuo.c é‡‘é“ƒç´¢ 
 #include <weapon.h>
 #include <ansi.h>
 
@@ -7,12 +7,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("½ğÁåË÷",({ "jinling suo", "whip", "bian", "suo" }) );
+        set_name("é‡‘é“ƒç´¢",({ "jinling suo", "whip", "bian", "suo" }) );
         set_weight(12000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "ÍÅ");
+                set("unit", "å›¢");
                 set("value", 1);
                 set("unique", 1);
                 set("rigidity", 6);
@@ -22,9 +22,9 @@ void create()
                 set("wield_neili", 800);
                 set("wield_maxneili", 1300);
                 set("wield_str", 23);
-                set("long", "Ò»Ìõ°×É«³ñ´ø£¬Ä©¶Ë»¹ÏµÖøÒ»¸ö½ğÉ«µÄÔ²Çò¡£\n");                
-                set("unwield_msg", HIY"$NËæÊÖÒ»¶¶£¬½«½ğÁåË÷·ÅÈë»³ÖĞ¡£\n"NOR);
-                set("wield_msg", HIY"$N»º»º´Ó»³ÖĞÈ¡³öÒ»ÍÅ±ùç¯°ãµÄÎïÊÂÎÕÔÚ×óÊÖÖ®ÉÏ¡£\n"NOR);
+                set("long", "ä¸€æ¡ç™½è‰²ç»¸å¸¦ï¼Œæœ«ç«¯è¿˜ç³»è‘—ä¸€ä¸ªé‡‘è‰²çš„åœ†çƒã€‚\n");                
+                set("unwield_msg", HIY"$Néšæ‰‹ä¸€æŠ–ï¼Œå°†é‡‘é“ƒç´¢æ”¾å…¥æ€€ä¸­ã€‚\n"NOR);
+                set("wield_msg", HIY"$Nç¼“ç¼“ä»æ€€ä¸­å–å‡ºä¸€å›¢å†°ç»¡èˆ¬çš„ç‰©äº‹æ¡åœ¨å·¦æ‰‹ä¹‹ä¸Šã€‚\n"NOR);
         }
         init_whip(75);
         setup();

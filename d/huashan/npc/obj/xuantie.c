@@ -7,13 +7,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIB "Ä«ÎÆĞşÌú" NOR, ({"mowen xuantie", "xuantie", "tie"}));
+        set_name(HIB "å¢¨çº¹ç„é“" NOR, ({"mowen xuantie", "xuantie", "tie"}));
         set_weight(50);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-              set("unit", "¿é");
-              set("long", HIY "ÕâÊÇÒ»¿éÇ§Äêº±¼ûµÄÄ«ÎÆĞşÌú£¬ÈëÊÖ¼«ÖØ£¬Èç¹ûÖı³É½£µÄ»°£¬¿ÖÅÂÆä·æÎŞ½£¿É±È¡£\n");
+              set("unit", "å—");
+              set("long", HIY "è¿™æ˜¯ä¸€å—åƒå¹´ç½•è§çš„å¢¨çº¹ç„é“ï¼Œå…¥æ‰‹æé‡ï¼Œå¦‚æœé“¸æˆå‰‘çš„è¯ï¼Œææ€•å…¶é”‹æ— å‰‘å¯æ¯”ã€‚\n");
               set("value", 10000);
               set("unique", 1);
 	      set("treasure",1);

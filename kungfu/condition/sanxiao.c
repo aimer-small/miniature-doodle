@@ -7,10 +7,10 @@ int update_condition(object me, int duration)
 {
 	if( !living(me) ) return CND_CONTINUE;
     if (duration % 2 == 0)
-	tell_room(environment(me), HIM + me->name()+"朝你诡异地一笑。\n" NOR,
+	tell_room(environment(me), HIM + me->name()+"鏈濅綘璇″紓鍦颁竴绗戙�俓n" NOR,
 		({ me }));
 	if( duration < 1 ) {
-		me->set_temp("last_damage_from", "剧毒发作");
+		me->set_temp("last_damage_from", "鍓ф瘨鍙戜綔");
 		me->die();
 		return 0;
 	}

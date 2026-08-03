@@ -10,7 +10,7 @@ void init()
 /*void destdan()
 {
 	object ob;
-	message_vision("$NÂýÂý±»·ç´µ×Å£¬Ò»»á¾Í²»ÔÙÐÂÏÊÁË¡£\n",this_object());
+	message_vision("$Næ…¢æ…¢è¢«é£Žå¹ç€ï¼Œä¸€ä¼šå°±ä¸å†æ–°é²œäº†ã€‚\n",this_object());
 	ob = new(__DIR__"xiongdan1");
 	ob->move(environment(this_object()));
 	destruct(this_object());
@@ -18,9 +18,9 @@ void init()
 
 void create()
 {
-	set_name(HIG"ÐÜµ¨"NOR, ({"dan", "xiong dan"}));
-	set("unit", "¸±");
-	set("long", GRN"ÕâÊÇÒ»¸±ÐÜµ¨£¬ÒÑ¾­²»Ì«ÐÂÏÊÁË£¬µ«ÈÔÈ»Ê®·ÖÓÕÈË,ºÃÏóÉÆÁ¼Ö®±²²»ÒËÈç´Ë»çÐÈ¡£\n"NOR);
+	set_name(HIG"ç†Šèƒ†"NOR, ({"dan", "xiong dan"}));
+	set("unit", "å‰¯");
+	set("long", GRN"è¿™æ˜¯ä¸€å‰¯ç†Šèƒ†ï¼Œå·²ç»ä¸å¤ªæ–°é²œäº†ï¼Œä½†ä»ç„¶ååˆ†è¯±äºº,å¥½è±¡å–„è‰¯ä¹‹è¾ˆä¸å®œå¦‚æ­¤è¤è…¥ã€‚\n"NOR);
 	setup();
 }
 
@@ -28,24 +28,24 @@ int do_eat(string arg)
 {
         mapping fam;	
 	object me=this_player();
-	if (!id(arg))  return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if (!id(arg))  return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if(arg=="dan")
 	{
          if((int)me->query_condition("medicine"))
-         return notify_fail("ÄãÎÅµ½Ò»¹ÉÑªÐÈµÄÎ¶µÀ£¬ÎÞÂÛÈçºÎÎÞ·¨Èë¿Ú£¡\n"); 		
+         return notify_fail("ä½ é—»åˆ°ä¸€è‚¡è¡€è…¥çš„å‘³é“ï¼Œæ— è®ºå¦‚ä½•æ— æ³•å…¥å£ï¼\n"); 		
         if ( mapp(fam = me->query("family")) 
-	&& (fam["family_name"] == "Ø¤°ï"||fam["family_name"]=="ÐÇËÞÅÉ"||fam["family_name"]=="ÉñÁú½Ì"))
+	&& (fam["family_name"] == "ä¸å¸®"||fam["family_name"]=="æ˜Ÿå®¿æ´¾"||fam["family_name"]=="ç¥žé¾™æ•™"))
         {
          	me->add("max_neili",2);
 	//me->set("neili",me->query("max_neili"));
 	//	me->set("qi",me->query("eff_qi"));
-                message_vision("$N³ÔÏÂÒ»¸±ÐÜµ¨£¬Ö»¾õµÃ¾«Éñ½¡Íú£¬ÌåÄÚÕæÁ¦Ô´Ô´×ÌÉú£¬ÆøÑª³äÓ¯¡£\n",me);
+                message_vision("$Nåƒä¸‹ä¸€å‰¯ç†Šèƒ†ï¼Œåªè§‰å¾—ç²¾ç¥žå¥æ—ºï¼Œä½“å†…çœŸåŠ›æºæºæ»‹ç”Ÿï¼Œæ°”è¡€å……ç›ˆã€‚\n",me);
                 me->apply_condition("medicine",60);
 		destruct(this_object());
 	        return 1;    
 	}
 	else {
-	   message_vision("$N²»¹Ë¶àÄê³ÔÒ©Á·ÆøºÍÐÐÉÆ»ýµÂµÄµÂÐÐ£¬Ç¿ÐÐÈãÃ«ÒûÑª£¬µ±³¡µÃ±¨¡£\n",me); 
+	   message_vision("$Nä¸é¡¾å¤šå¹´åƒè¯ç»ƒæ°”å’Œè¡Œå–„ç§¯å¾·çš„å¾·è¡Œï¼Œå¼ºè¡ŒèŒ¹æ¯›é¥®è¡€ï¼Œå½“åœºå¾—æŠ¥ã€‚\n",me); 
 	   me->unconcious();               
 	   me->add("max_neili",-10);
 	   me->apply_condition("medicine",60);

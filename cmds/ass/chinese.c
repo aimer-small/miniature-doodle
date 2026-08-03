@@ -5,15 +5,15 @@ int main(object me, string arg)
 	string key, chinz;
 
 	if( !arg )
-		return notify_fail("指令格式：chinese 英文==中文 注意不要有空格。\n");
+		return notify_fail("鎸囦护鏍煎紡锛歝hinese 鑻辨枃==涓枃 娉ㄦ剰涓嶈鏈夌┖鏍笺�俓n");
 
 	if( sscanf(arg, "%s==%s", key, chinz)==2 ) {
 		if (chinz == "none") {
-			write("删除("+key+")("+to_chinese(key)+")。\n");
+			write("鍒犻櫎("+key+")("+to_chinese(key)+")銆俓n");
 			CHINESE_D->remove_translate(key);
 		} else {
 			CHINESE_D->add_translate(key, chinz);
-			write("添加("+key+")(" + chinz + ")。\n");
+			write("娣诲姞("+key+")(" + chinz + ")銆俓n");
 		}
 		return 1;
 	}
@@ -24,7 +24,7 @@ int main(object me, string arg)
 int help()
 {
 	write ( @HELP
-指令格式：chinese 英文==中文|none
+鎸囦护鏍煎紡锛歝hinese 鑻辨枃==涓枃|none
 HELP
 	);
 	return 1 ;

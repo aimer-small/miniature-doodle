@@ -38,7 +38,7 @@ int do_action(string arg)
 			case "yun roar":
 			case "exert roar":
 			case "hit mojiao shashou":
-				write("Ä§½ÌÉ±ÊÖ¡¸ºÙºÙ¡¹Ğ¦ÁË¼¸Éù£ºÔÚÎÒÃæÇ°ÍæÕâĞ©»¨Ñù£¬²»¶¥ÓÃµÄ¡£\n");
+				write("é­”æ•™æ€æ‰‹ã€Œå˜¿å˜¿ã€ç¬‘äº†å‡ å£°ï¼šåœ¨æˆ‘é¢å‰ç©è¿™äº›èŠ±æ ·ï¼Œä¸é¡¶ç”¨çš„ã€‚\n");
 				return 1;
 		}
 	}
@@ -58,7 +58,7 @@ int valid_leave(object me, string dir)
 		}
 		for(i=0;i<sizeof(way);i++) {
 			if (dir == way[i] && objectp(present("mojiao shashou", environment(me)))) {
-				tell_room(environment(me),CYN"Óü×ä´óÉù¶Ô×Å" + me->name() + "ºÈµÀ£º" + RANK_D->query_rude(me) + "£¬ÄãÀ´µ½ÕâÀï»¹ÏëÈöÒ°£¡\n"NOR);
+				tell_room(environment(me),CYN"ç‹±å’å¤§å£°å¯¹ç€" + me->name() + "å–é“ï¼š" + RANK_D->query_rude(me) + "ï¼Œä½ æ¥åˆ°è¿™é‡Œè¿˜æƒ³æ’’é‡ï¼\n"NOR);
 				return 0;
 				break;
 			}

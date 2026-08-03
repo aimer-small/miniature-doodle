@@ -1,4 +1,4 @@
-//Mr.music yangzhou Ìú¼×
+//Mr.music yangzhou é“ç”²
 
 #include <armor.h>
 
@@ -6,12 +6,12 @@ inherit ARMOR;
 
 void create()
 {
-	set_name("Ìú¼×", ({ "tiejia","jia" }) );
+	set_name("é“ç”²", ({ "tiejia","jia" }) );
 	set_weight(6000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¼ş");
+		set("unit", "ä»¶");
                 set("value", 1000);
                 set("material", "steel");
 		set("armor_prop/armor", 15);

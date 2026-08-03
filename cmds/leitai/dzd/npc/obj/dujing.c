@@ -1,18 +1,18 @@
-// dujing.c ¶¾¾­
+// dujing.c æ¯’ç»
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name("¶¾¾­",({"wangnangu dujing","dujing","jing"}));
+	set_name("æ¯’ç»",({"wangnangu dujing","dujing","jing"}));
 	set_weight(1000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else{
-        	set("unit", "±¾");
-        	set("long","ÕâÊÇÒ»²¿ÊÖĞ´µÄ³­±¾£¬ÌâÇ©ÉÏĞ´×Å¡°ÍõÄÑ¹Ã¶¾¾­¡±Îå×Ö¡£·­½«¿ªÀ´,ÊéÒ³ÉÏÂúÊÇÓ¬Í·Ğ¡¿¬£¬ÃÜÃÜÂéÂéµÄĞ´×Å
-Öî°ã¶¾ÎïµÄ¶¾ĞÔ¡¢Ê¹ÓÃºÍ»¯½âÖ®·¨¡£ÕâÏÂÅöÉÏÇı¶¾(qudu)¡¢ÏÂ¶¾(xiadu)µÄÊÂ£¬²»×Å¼±ÁË°É?\n");
+        	set("unit", "æœ¬");
+        	set("long","è¿™æ˜¯ä¸€éƒ¨æ‰‹å†™çš„æŠ„æœ¬ï¼Œé¢˜ç­¾ä¸Šå†™ç€â€œç‹éš¾å§‘æ¯’ç»â€äº”å­—ã€‚ç¿»å°†å¼€æ¥,ä¹¦é¡µä¸Šæ»¡æ˜¯è‡å¤´å°æ¥·ï¼Œå¯†å¯†éº»éº»çš„å†™ç€
+è¯¸èˆ¬æ¯’ç‰©çš„æ¯’æ€§ã€ä½¿ç”¨å’ŒåŒ–è§£ä¹‹æ³•ã€‚è¿™ä¸‹ç¢°ä¸Šé©±æ¯’(qudu)ã€ä¸‹æ¯’(xiadu)çš„äº‹ï¼Œä¸ç€æ€¥äº†å§?\n");
         	set("value", 10000);
         	set("material", "paper");
        //	set("unique", 1);
@@ -37,19 +37,19 @@ int do_qudu(string arg)
 	else 
 		{
 			if(!objectp(ob = present(arg, environment(me))))
-				return notify_fail("ÄãÒª¸øË­Çı¶¾£¿\n");
+				return notify_fail("ä½ è¦ç»™è°é©±æ¯’ï¼Ÿ\n");
 			if (!ob->is_character() || ob->is_corpse())
-				return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇ»îÎï¡£\n");
+				return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯æ´»ç‰©ã€‚\n");
 		}
 	if( ob->is_fighting() )
-		return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞÔË¹¦ÁÆ¶¾¡£\n");
+		return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­è¿åŠŸç–—æ¯’ã€‚\n");
 		
 	if( !mapp(ob->query_conditions_by_type("poison"))  )
-	  return notify_fail(ob->query("name")+"²¢Ã»ÓĞÖĞ¶¾¡£\n");
+	  return notify_fail(ob->query("name")+"å¹¶æ²¡æœ‰ä¸­æ¯’ã€‚\n");
 	if(me==ob) 
-		message_vision(HIW"$N¶Ë×øÔÚµØ£¬ÒÀÕÕ¾­ÊéÖĞµÄ·½·¨£¬ÂıÂıµÄ½«ÌåÄÚµÄ¶¾Çı³öÌåÍâ¡£\n"NOR,me);
+		message_vision(HIW"$Nç«¯ååœ¨åœ°ï¼Œä¾ç…§ç»ä¹¦ä¸­çš„æ–¹æ³•ï¼Œæ…¢æ…¢çš„å°†ä½“å†…çš„æ¯’é©±å‡ºä½“å¤–ã€‚\n"NOR,me);
 	else
-		message_vision(HIW"$N¶Ë×øÔÚµØ£¬ÒÀÕÕ¾­ÊéÖĞµÄ·½·¨£¬ÂıÂıµÄ½«$nÌåÄÚµÄ¶¾Çı³öÌåÍâ¡£\n"NOR,me,ob);
+		message_vision(HIW"$Nç«¯ååœ¨åœ°ï¼Œä¾ç…§ç»ä¹¦ä¸­çš„æ–¹æ³•ï¼Œæ…¢æ…¢çš„å°†$nä½“å†…çš„æ¯’é©±å‡ºä½“å¤–ã€‚\n"NOR,me,ob);
 		//nomask mapping query_conditions_by_type(string required_type)
 		//nomask void clear_conditions_by_type(string required_type)
 		ob->clear_conditions_by_type("poison");		
@@ -63,26 +63,26 @@ int do_xiadu(string arg)
 	object ob;
 	object me = this_player();
 	
-	if( me->is_busy()) return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");	
+	if( me->is_busy()) return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");	
 	if(me->query_temp("dzd_quest/used_dujing"))	
-		return notify_fail("ÄãÒÑ¾­ÏÂ¶¾ÁË¡£\n");	
+		return notify_fail("ä½ å·²ç»ä¸‹æ¯’äº†ã€‚\n");	
 	if(!arg)
-		return notify_fail("ÄãÒª¸øË­ÏÂ¶¾£¿\n");
+		return notify_fail("ä½ è¦ç»™è°ä¸‹æ¯’ï¼Ÿ\n");
 	if(!objectp(ob = present(arg, environment(me))))
-		return notify_fail("ÄãÒª¸øË­ÏÂ¶¾£¿\n");	
+		return notify_fail("ä½ è¦ç»™è°ä¸‹æ¯’ï¼Ÿ\n");	
 	if (!ob->is_character() || ob->is_corpse())
-		return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇ»îÎï¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯æ´»ç‰©ã€‚\n");
 				
 	me->set_temp("dzd_quest/used_dujing",1);
 	remove_call_out("out_xiadu");
 	call_out("out_xiadu",10,me);
-	message_vision(HIB"$NºÙºÙÒ»Ğ¦£¬½«°´¶¾¾­ËùËµÁ¶ÖÆ³öÀ´µÄ¶¾·ÛÍµÍµÏò$nÈöÈ¥¡£\n"NOR,me,ob);
+	message_vision(HIB"$Nå˜¿å˜¿ä¸€ç¬‘ï¼Œå°†æŒ‰æ¯’ç»æ‰€è¯´ç‚¼åˆ¶å‡ºæ¥çš„æ¯’ç²‰å·å·å‘$næ’’å»ã€‚\n"NOR,me,ob);
 	if(random(4)) {
-		message_vision(HIY"$NÒ»Ê±²»²ì£¬ÒÑ¾­ÉíÖĞ¾ç¶¾£¡\n"NOR,ob);
+		message_vision(HIY"$Nä¸€æ—¶ä¸å¯Ÿï¼Œå·²ç»èº«ä¸­å‰§æ¯’ï¼\n"NOR,ob);
 		ob->add_condition("snake_poison",20);		
 	}
 	else 
-		message_vision(HIY"Ë­Öª$NÔçÓĞ×¼±¸£¬²àÉí¶ã¹ıÁË°µËã£¡\n"NOR,ob);
+		message_vision(HIY"è°çŸ¥$Næ—©æœ‰å‡†å¤‡ï¼Œä¾§èº«èº²è¿‡äº†æš—ç®—ï¼\n"NOR,ob);
 	me->start_busy(1);
 	return 1;
 }

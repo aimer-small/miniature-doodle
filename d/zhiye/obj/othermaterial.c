@@ -8,15 +8,15 @@ void initlvl();
 void create()
 {
        
-        set_name(HIW "´Ìâ¬Ê¯" NOR, ({ "ciwei shi","shi"}));         
+        set_name(HIW "åˆºçŒ¬çŸ³" NOR, ({ "ciwei shi","shi"}));         
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
                 set("value", 5000000);              
-		set("long", "ÏãÌğ¿É¿Ú£¬Ïë³Ô¾Í³Ô£¡\n");
+		set("long", "é¦™ç”œå¯å£ï¼Œæƒ³åƒå°±åƒï¼\n");
 		set("material", "stone");		
 		set("can_dazao",1);	
-		set("unit","¿é");			
+		set("unit","å—");			
 		}
 	setup();
 	initlvl();

@@ -3,9 +3,9 @@ inherit NPC;
 int ask_lineup();
 void create()
 {
-        set_name("·ëÄ¬·ç", ({"feng mofeng", "feng", "mofeng"}) );
-        set("long", "ËûÊÇ»ÆÒ©Ê¦µÄµÜ×Ó£¬±»ÒòÎª¾ÅÒõÕæ¾­ÊÂ¼ş±»»ÆÒ©Ê¦Öğ³öÌÒ»¨µº¡£\n");
-        set("gender", "ÄĞĞÔ" );
+        set_name("å†¯é»˜é£", ({"feng mofeng", "feng", "mofeng"}) );
+        set("long", "ä»–æ˜¯é»„è¯å¸ˆçš„å¼Ÿå­ï¼Œè¢«å› ä¸ºä¹é˜´çœŸç»äº‹ä»¶è¢«é»„è¯å¸ˆé€å‡ºæ¡ƒèŠ±å²›ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("age", 45);
         set("attitude", "friendly");
         set("apprentice",1);
@@ -49,12 +49,12 @@ void create()
 
 
         set("inquiry", ([
-                "²¼Õó": (: ask_lineup :),
+                "å¸ƒé˜µ": (: ask_lineup :),
         ]) );
 
         set("shen_type", 1);
         set("shen", 100);
-        create_family("ÌÒ»¨µº", 2, "µÜ×Ó");
+        create_family("æ¡ƒèŠ±å²›", 2, "å¼Ÿå­");
         set("class", "fighter");
         setup();
 

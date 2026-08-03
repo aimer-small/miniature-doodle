@@ -8,66 +8,66 @@ int main(object me, string arg)
 	object obj,ob;
 
 	if( environment(me)->query("no_fight") )
-		return notify_fail("�����ֹս����\n");
+		return notify_fail("这里禁止战斗。\n");
 
 	if(strsrch(file_name(environment(me)),"/d/wuguan/") >= 0)
-		return notify_fail("����ڽ�ֹ���ˡ�\n");
+		return notify_fail("武馆内禁止打人。\n");
 
 
 	if(!arg || !objectp(obj = present(arg, environment(me))))
-		return notify_fail("���빥��˭��\n");
+		return notify_fail("你想攻击谁？\n");
 
 	if( !obj->is_character() || obj->is_corpse() )
-		return notify_fail("�����һ�㣬�ǲ��������\n");
+		return notify_fail("看清楚一点，那并不是生物。\n");
 
 	if (me->query_temp("quit"))
-		return notify_fail("�����˳���Ϸ�У��д�����ʧ�ܡ�\n");
+		return notify_fail("正在退出游戏中，切磋武艺失败。\n");
 		
 	if( me->is_fighting(obj) )
-		return notify_fail("���ͣ����ͣ����ͣ�\n");
+		return notify_fail("加油！加油！加油！\n");
 
 	if( me->query_temp("hitting") )
-		return notify_fail("���ͣ����ͣ����ͣ�\n");
+		return notify_fail("加油！加油！加油！\n");
 
 	if (wiz_level(me) < wiz_level(obj))
-		return notify_fail("�㲻��͵Ϯ��ʦ�ȼ�����ߵĶ��֡�\n");
+		return notify_fail("你不能偷袭巫师等级比你高的对手。\n");
 
-	if (obj==me) return notify_fail("���Լ�������ô�벻����\n");
+	if (obj==me) return notify_fail("打自己？别这么想不开。\n");
 
 	if ( userp(me) && userp(obj) && obj->query("age") < 18 )
-		return notify_fail("����ĳ�̫����, �����޸���֮�������Ҳ�µ����֡�\n");
+		return notify_fail("你的心肠太黑了, 对手无缚鸡之力的玩家也下得了手。\n");
 		
         if ( userp(me) && userp(obj) && me->query("combat_exp")<1000000)
  	
-		return notify_fail("��Ŀǰ�����ڴ��׼��𡣡���\n");
+		return notify_fail("你目前还属于大米级别。。。\n");
 
 	if (userp(me) && userp(obj)) {
-		if(me->query("no_pk")) return notify_fail("���Ѿ�����ϴ�֣���λ������˵ȹ�����\n");
-		if(obj->query("no_pk")) return notify_fail("�Է��Ѿ�����ϴ�֣��㻹�ǷŹ����ɡ�\n");
-			if(objectp(ob = present("hu wan", me))) return notify_fail("�㻹�ǰ����ֻ���������˵�ɣ�\n");
+		if(me->query("no_pk")) return notify_fail("你已经金盆洗手，如何还能做此等勾当。\n");
+		if(obj->query("no_pk")) return notify_fail("对方已经金盆洗手，你还是放过他吧。\n");
+			if(objectp(ob = present("hu wan", me))) return notify_fail("你还是把新手护腕丢下来再说吧！\n");
 	}
 
 
 
 if (userp(obj) && userp(me) && obj->query("combat_exp")<1000000) 
-                return notify_fail("�Բ����밮��С���ѡ�\n");
+                return notify_fail("对不起，请爱护小朋友。\n");
 
 if (userp(obj) && userp(me) && me->query("combat_exp")<  obj->query("combat_exp") * 2 /3 &&  !obj->query_condition("killer") ) 
-                return notify_fail("�˼ұ���ǿ��ô�࣬��Ͳ����˼ұ�����\n");
+                return notify_fail("人家比你强这么多，你就不怕人家报复？\n");
 		
 
 if (userp(obj) && userp(me) && me->query("combat_exp") > obj->query("combat_exp") * 3 / 2 &&  !obj->query_condition("killer")) 
-                return notify_fail("����˼�ǿ��ô�࣬����СϺ��Ҳֵ���㶯�֣�\n");		
+                return notify_fail("你比人家强这么多，这种小虾米也值得你动手？\n");		
 
 
 
 
 /*
 if (userp(target) && me->query("combat_exp")<  target->query("combat_exp") * 2 /3 &&  !target->query_condition("killer") ) 
-                return notify_fail("�˼ұ���ǿ��ô�࣬��Ͳ����˼ұ�����\n");
+                return notify_fail("人家比你强这么多，你就不怕人家报复？\n");
 		
 if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 / 2 &&  !target->query_condition("killer")) 
-                return notify_fail("����˼�ǿ��ô�࣬����СϺ��Ҳֵ���㶯�֣�\n");
+                return notify_fail("你比人家强这么多，这种小虾米也值得你动手？\n");
 */		
 
 
@@ -82,16 +82,16 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 	if ( userp(me) && userp(obj) &&
 	   ( (obj->query("qi") < obj->query("max_qi")/2 )
 	 || (obj->query("eff_qi") < obj->query("max_qi")/2 )) )
-		return notify_fail("�Է��Ѿ��������������ٺ����д��ˡ�\n");
+		return notify_fail("对方已经很虚弱，无力再和你切磋了。\n");
 
 	if (!living(obj))
-		return notify_fail(obj->name()+"�Ѿ��޷������ˣ�\n");
+		return notify_fail(obj->name()+"已经无法还手了！\n");
 
         if ( obj->query("no_ansuan") || obj->query("job_npc") || obj->query("id")=="hou junji")
-		return notify_fail("Ҫɱ��ɱ����ʲô͵Ϯ��\n");
+		return notify_fail("要杀就杀，搞什么偷袭！\n");
 
 	if( userp(obj) ) {
-		message_vision("\n$N����$n���һ����"+RANK_D->query_rude(obj)+"������һ�����ԣ�\n\n", me, obj);
+		message_vision("\n$N对着$n大喝一声："+RANK_D->query_rude(obj)+"，接我一招试试！\n\n", me, obj);
 		me->set_temp("hitting", 1);
 		me->add_busy(1);
 		if (userp(me))
@@ -112,12 +112,12 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 	}
 
 	if( obj->query("can_speak") ) {
-		message_vision("\n$N����$n���һ����"+RANK_D->query_rude(obj)+"���У�\n\n", me, obj);
+		message_vision("\n$N对着$n大喝一声："+RANK_D->query_rude(obj)+"看招！\n\n", me, obj);
 		me->fight_ob(obj);
 		if (obj->accept_fight(me)) obj->fight_ob(me);
 		else obj->kill_ob(me);
 	} else {
-		message_vision("\n$N���һ������ʼ��$n����������\n\n", me, obj);
+		message_vision("\n$N大喝一声，开始对$n发动攻击！\n\n", me, obj);
 		me->fight_ob(obj);
 		obj->kill_ob(me);
 	}
@@ -125,7 +125,7 @@ if (userp(target) && me->query("combat_exp") > target->query("combat_exp") * 3 /
 	if (obj && obj->query_temp("last_hit_by") == me && me->query_temp("hit_time") == time()) {
 		if (me->add_temp("hit_count", 1) > 4) me->add("combat_exp", -1000);
 		if (me->query("combat_exp") < 0) me->delete("combat_exp");
-		log_file("punish", me->query("id") + " hit " + obj->query("id") + "�н��ˣ�\n");
+		log_file("punish", me->query("id") + " hit " + obj->query("id") + "中奖了！\n");
 	} else {
 		me->set_temp("hit_time", time());
 		me->delete_temp("hit_count");
@@ -152,7 +152,7 @@ void do_hit(object me, object obj)
 		
 		if(meisdummy(me,obj))
 		{
-			message_vision("$N��Ȼ�����Լ��������ף���ʱ�����ҡ�\n", me);
+			message_vision("$N忽然想起自己是死大米，顿时万念俱灰。\n", me);
 			me->set("qi", -1);
 			return;
 		}
@@ -165,16 +165,16 @@ void do_hit(object me, object obj)
 int help(object me)
 {
   write(@HELP
-ָ���ʽ : hit <����>
+指令格式 : hit <人物>
 
-���ָ��������һ������ֽ̡������ǡ��д����ա���������ʽ��ս��������
-�㵽Ϊֹ�����ֻ����������������������ˣ����ǲ��������е� NPC ��ϲ��
-��ܣ���������״����ı���Ҫ��ᱻ�ܾ���
+这个指令让你向一个人物「讨教」或者是「切磋武艺」，这种形式的战斗纯粹是
+点到为止，因此只会消耗体力，不会真的受伤，但是并不是所有的 NPC 都喜欢
+打架，因此有需多状况你的比武要求会被拒绝。
 
-�������ָ��: kill
+其他相关指令: kill
 
-PS. ����Է���Ը����������ս������Ȼ���������� kill ָ�ʼս������
-    �� hit �� kill �������뿴 'help combat'.
+PS. 如果对方不愿意接受你的挑战，你仍然可以迳行用 kill 指令开始战斗，有
+    关 hit 跟 kill 的区分请看 'help combat'.
 HELP
     );
     return 1;

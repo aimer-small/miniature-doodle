@@ -1,4 +1,4 @@
-// Room: hubian.c ºş±ß
+// Room: hubian.c æ¹–è¾¹
 
 #include <ansi.h>
 
@@ -8,10 +8,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "ºş±ß");
+        set("short", "æ¹–è¾¹");
         set("long", @LONG
-×ßµ½ÕâÀï£¬Ğ¡Â·ÒÑ¾­µ½ÁË¾¡Í·£¬Ò»µÀµ¶Ï÷ËÆµÄÇÍ±Ú(qiaobi)ºáÔÚÃæÇ°¡£Ì§Í·
-¿´È¥£¬ÇÍ±Ú¼äÔÆÎíçÔÈÆ£¬Ê¯±Ú¹â»¬£¬ÎŞ¿ÉÅÊÔµÖ®´¦£¬¿´À´Ö»ÄÜ»ØÍ·ÁË¡£
+èµ°åˆ°è¿™é‡Œï¼Œå°è·¯å·²ç»åˆ°äº†å°½å¤´ï¼Œä¸€é“åˆ€å‰Šä¼¼çš„å³­å£(qiaobi)æ¨ªåœ¨é¢å‰ã€‚æŠ¬å¤´
+çœ‹å»ï¼Œå³­å£é—´äº‘é›¾ç¼­ç»•ï¼ŒçŸ³å£å…‰æ»‘ï¼Œæ— å¯æ”€ç¼˜ä¹‹å¤„ï¼Œçœ‹æ¥åªèƒ½å›å¤´äº†ã€‚
 LONG
         );
 
@@ -20,10 +20,10 @@ LONG
         ]));
 
         set("item_desc", ([
-                "qiaobi" : "ÕâµÀÇÍ±Ú°ÎµØ¶øÆğ£¬¼´Ê¹ÊÇÔ³ºï¹À¼ÆÒ²ÅÀ²»ÉÏÈ¥¡£\n",
+                "qiaobi" : "è¿™é“å³­å£æ‹”åœ°è€Œèµ·ï¼Œå³ä½¿æ˜¯çŒ¿çŒ´ä¼°è®¡ä¹Ÿçˆ¬ä¸ä¸Šå»ã€‚\n",
         ]));
 
-        set("outdoors", "Ñ©É½");
+        set("outdoors", "é›ªå±±");
         set("coor/x",-240);
   set("coor/y",130);
    set("coor/z",0);
@@ -48,19 +48,19 @@ void check_trigger(object me)
                                 room->set("yell_trigger", 1);
                                 set("exits/enter", __DIR__"tengkuang");
                                 room->set("exits/out", __FILE__);
-                                message("vision", "Ò»Ìõ´Ö´óµÄÉşË÷×¹×Å¸ö´óÌÙ¿ğ×ÔÔÆÎíÖĞ»º»º´¹ÂäÏÂÀ´£¬ÇáÇáÂäÔÚµØÉÏ¡£\n", thisroom);
-                                message("vision", "Ò»Ìõ´Ö´óµÄÉşË÷×¹×Å¸ö´óÌÙ¿ğ×ÔÔÆÎíÖĞ»º»º´¹ÂäÏÂÀ´£¬ÇáÇáÂäÔÚµØÉÏ¡£\n", room);
+                                message("vision", "ä¸€æ¡ç²—å¤§çš„ç»³ç´¢å ç€ä¸ªå¤§è—¤ç­è‡ªäº‘é›¾ä¸­ç¼“ç¼“å‚è½ä¸‹æ¥ï¼Œè½»è½»è½åœ¨åœ°ä¸Šã€‚\n", thisroom);
+                                message("vision", "ä¸€æ¡ç²—å¤§çš„ç»³ç´¢å ç€ä¸ªå¤§è—¤ç­è‡ªäº‘é›¾ä¸­ç¼“ç¼“å‚è½ä¸‹æ¥ï¼Œè½»è½»è½åœ¨åœ°ä¸Šã€‚\n", room);
                                 remove_call_out("on_board");
                                 call_out("on_board", 15, me);
                         }
                         else
-                                message("vision", "Ö»ÌıÇÍ±ÚÉÏÃæÓĞ¸öÉ³ÑÆµÄÉ¤×Óº°£º¡°µÈ¡­¡­¡±£¬¾àÀëÌ«Ô¶Ìı²»Çå³ş¡£\n", thisroom);
+                                message("vision", "åªå¬å³­å£ä¸Šé¢æœ‰ä¸ªæ²™å“‘çš„å—“å­å–Šï¼šâ€œç­‰â€¦â€¦â€ï¼Œè·ç¦»å¤ªè¿œå¬ä¸æ¸…æ¥šã€‚\n", thisroom);
                 }
                 else
                         message("vision", "ERROR: Tengkuang Not Found\n", thisroom);
         }
         else 
-                message("vision", "º°ÁË°ëÌìÃ»¶¯¾²£¬ÄãÕâ²Å·¢ÏÖÑÛÇ°¾ÍÓĞÒ»¸öÀÏ´óµÄÌÙ¿ğ¡£\n", thisroom);
+                message("vision", "å–Šäº†åŠå¤©æ²¡åŠ¨é™ï¼Œä½ è¿™æ‰å‘ç°çœ¼å‰å°±æœ‰ä¸€ä¸ªè€å¤§çš„è—¤ç­ã€‚\n", thisroom);
 }
 
 void on_board(object me)
@@ -69,12 +69,12 @@ void on_board(object me)
 
         if( !me || !query("exits/enter") ) return;
 
-        message("vision", "ÉşË÷Ò»½ô£¬ÌÙ¿ğ×óÓÒÒ¡»ÎÕñ¶¯ÁË¼¸ÏÂ£¬È½È½ÏòÉÏÉıÁËÆğÀ´¡£\n", this_object());
+        message("vision", "ç»³ç´¢ä¸€ç´§ï¼Œè—¤ç­å·¦å³æ‘‡æ™ƒæŒ¯åŠ¨äº†å‡ ä¸‹ï¼Œå†‰å†‰å‘ä¸Šå‡äº†èµ·æ¥ã€‚\n", this_object());
 
         if( room = find_object(__DIR__"tengkuang") )
         {
                 room->delete("exits/out");
-                message("vision", "ÉşË÷Ò»½ô£¬ÌÙ¿ğ×óÓÒÒ¡»ÎÕñ¶¯ÁË¼¸ÏÂ£¬È½È½ÏòÉÏÉıÁËÆğÀ´¡£\n", room);
+                message("vision", "ç»³ç´¢ä¸€ç´§ï¼Œè—¤ç­å·¦å³æ‘‡æ™ƒæŒ¯åŠ¨äº†å‡ ä¸‹ï¼Œå†‰å†‰å‘ä¸Šå‡äº†èµ·æ¥ã€‚\n", room);
         }
         delete("exits/enter");
         remove_call_out("no_board_two");
@@ -84,8 +84,8 @@ void on_board(object me)
 void on_board_two(object me)
 {
 	if (!me) return;
-           message_vision("ÏòÍâ¸©î«£¬ÌìºşÒÑ¾­±ä³ÉÁËÃæĞ¡¾µ×Ó¡£Ò»ÕóÉ½·ç´µµÃÌÙ¿ğÔÚ¿ÕÖĞÒ¡µ´ÆğÀ´£¬\n"+
-                          "$NÁ¬Ã¦×¥½ôÌÙ¿ğ£¬Á³É«ÏÅµÃ²Ô°×¡£\n",me);
+           message_vision("å‘å¤–ä¿¯ç°ï¼Œå¤©æ¹–å·²ç»å˜æˆäº†é¢å°é•œå­ã€‚ä¸€é˜µå±±é£å¹å¾—è—¤ç­åœ¨ç©ºä¸­æ‘‡è¡èµ·æ¥ï¼Œ\n"+
+                          "$Nè¿å¿™æŠ“ç´§è—¤ç­ï¼Œè„¸è‰²å“å¾—è‹ç™½ã€‚\n",me);
            remove_call_out("arrive");
            call_out("arrive", 10);
 }
@@ -97,7 +97,7 @@ void arrive()
         if( room = find_object(__DIR__"tengkuang") )
         {
                 room->set("exits/out", SHIP_TO);
-                message("vision", "Ò»¸ö·¬É®ÓÃÉ³ÑÆµÄÉùÒôµÀ£º¡°´óÂÖËÂµ½À²£¬³öÀ´°É¡£¡±£¬»°ÒôÎ´Âä£¬ÌÙ¿ğÒÑ¾­±»ÎÈÎÈµÄÍ£×¡ÁË¡£\n", room);
+                message("vision", "ä¸€ä¸ªç•ªåƒ§ç”¨æ²™å“‘çš„å£°éŸ³é“ï¼šâ€œå¤§è½®å¯ºåˆ°å•¦ï¼Œå‡ºæ¥å§ã€‚â€ï¼Œè¯éŸ³æœªè½ï¼Œè—¤ç­å·²ç»è¢«ç¨³ç¨³çš„åœä½äº†ã€‚\n", room);
         }
         remove_call_out("close_passage");
         call_out("close_passage", 20);
@@ -111,18 +111,18 @@ void close_passage()
         if( room = find_object(__DIR__"tengkuang") ) {
                 room->delete("exits/out");
 
-                tell_room(room, "·¬É®²»ÄÍ·³µÄµÀ£º¡°¶¼ÏÂÀ´°É£¬ÏÅÉµÁË¶¯µ¯²»ÁËÀ²£¿¡±\n", ({}));
+                tell_room(room, "ç•ªåƒ§ä¸è€çƒ¦çš„é“ï¼šâ€œéƒ½ä¸‹æ¥å§ï¼Œå“å‚»äº†åŠ¨å¼¹ä¸äº†å•¦ï¼Ÿâ€\n", ({}));
                 ob = all_inventory(room);
                 for(i = 0; i < sizeof(ob); i++) {
                         if (userp(ob[i])) {
-                                if (!living(ob[i])) tell_room(room, "·¬É®°Ñ$NÌ§³öÁËÌÙ¿ğ¡£\n", ob[i]);
-                                else tell_room(room, "$NË«ÍÈ²ü¶¶£¬²»ÌıÊ¹»½£¬±»·¬É®¼Ü³öÁËÌÙ¿ğ¡£\n", ({ob[i]}));
+                                if (!living(ob[i])) tell_room(room, "ç•ªåƒ§æŠŠ$NæŠ¬å‡ºäº†è—¤ç­ã€‚\n", ob[i]);
+                                else tell_room(room, "$NåŒè…¿é¢¤æŠ–ï¼Œä¸å¬ä½¿å”¤ï¼Œè¢«ç•ªåƒ§æ¶å‡ºäº†è—¤ç­ã€‚\n", ({ob[i]}));
                                 ob[i]->move(SHIP_TO);
-                                if (!living(ob[i])) tell_room(SHIP_TO, ob[i]->name() + "±»Ì§³öÁËÌÙ¿ğ¡£\n", ({ob[i]}));
-                                else tell_room(SHIP_TO, ob[i]->name() + "Á³É«²Ô°×£¬Ë«ÍÈÃàÈí£¬±»Á½¸ö·¬É®Ò»×óÒ»ÓÒ¼Ü³öÁËÌÙ¿ğ¡£\n", ({ob[i]}));
+                                if (!living(ob[i])) tell_room(SHIP_TO, ob[i]->name() + "è¢«æŠ¬å‡ºäº†è—¤ç­ã€‚\n", ({ob[i]}));
+                                else tell_room(SHIP_TO, ob[i]->name() + "è„¸è‰²è‹ç™½ï¼ŒåŒè…¿ç»µè½¯ï¼Œè¢«ä¸¤ä¸ªç•ªåƒ§ä¸€å·¦ä¸€å³æ¶å‡ºäº†è—¤ç­ã€‚\n", ({ob[i]}));
                         }
                 }
-                message("vision", "ÌÙ¿ğ·É¿ìµÄ½µÁËÏÂÈ¥£¬Ò»»á¾ÍÏûÊ§ÔÚÔÆÖĞ¡£\n", room);
+                message("vision", "è—¤ç­é£å¿«çš„é™äº†ä¸‹å»ï¼Œä¸€ä¼šå°±æ¶ˆå¤±åœ¨äº‘ä¸­ã€‚\n", room);
                 room->delete("yell_trigger"); 
         }
 }
@@ -133,22 +133,22 @@ int do_yell(string arg)
 
         if (!arg) return 0;
 
-        if (arg == "tengkuang")arg = "ÌÙ¿ğ";
-	if (arg != "ÌÙ¿ğ") arg = "ÍÛ";
+        if (arg == "tengkuang")arg = "è—¤ç­";
+	if (arg != "è—¤ç­") arg = "å“‡";
 
         if (me->query("age") < 16  )        
-                message_vision("$NÊ¹³ö³ÔÄÌµÄÁ¦Æøº°ÁËÒ»Éù£º¡°·ÅÏÂ" + arg + "¡±\n", me);
+                message_vision("$Nä½¿å‡ºåƒå¥¶çš„åŠ›æ°”å–Šäº†ä¸€å£°ï¼šâ€œæ”¾ä¸‹" + arg + "â€\n", me);
         else if (me->query("neili") > 500)
-                message_vision("$NÎüÁË¿ÚÆø£¬Ò»Éù¡°·ÅÏÂ" + arg + "¡±£¬ÉùÒôÖĞÕıÆ½ºÍµØÔ¶Ô¶´«ÁË³öÈ¥¡£\n", me);
+                message_vision("$Nå¸äº†å£æ°”ï¼Œä¸€å£°â€œæ”¾ä¸‹" + arg + "â€ï¼Œå£°éŸ³ä¸­æ­£å¹³å’Œåœ°è¿œè¿œä¼ äº†å‡ºå»ã€‚\n", me);
         else
-                message_vision("$N¹Ä×ãÖĞÆø£¬³¤Ğ¥Ò»Éù£º¡°·ÅÏÂ" + arg + "£¡¡±\n", me);
-        if (arg == "ÌÙ¿ğ")
+                message_vision("$Né¼“è¶³ä¸­æ°”ï¼Œé•¿å•¸ä¸€å£°ï¼šâ€œæ”¾ä¸‹" + arg + "ï¼â€\n", me);
+        if (arg == "è—¤ç­")
         {
                 check_trigger(me);
                 return 1;
         }
         else
-                message_vision("É½¹È¼äÔ¶Ô¶´«À´Ò»Õó»ØÉù£º¡°" + arg + "¡«¡«¡«¡±\n", me);
+                message_vision("å±±è°·é—´è¿œè¿œä¼ æ¥ä¸€é˜µå›å£°ï¼šâ€œ" + arg + "ï½ï½ï½â€\n", me);
         return 1;
 }
 
@@ -169,7 +169,7 @@ int valid_leave(object me, string dir)
           return 0;
           }       
         if(me->query_temp("ride_horse"))
-        return notify_fail("ÄãÒªÆïÂíÉÏÌÙ¿ğ£¬²»ÅÂ·­ÁË£¿\n");
+        return notify_fail("ä½ è¦éª‘é©¬ä¸Šè—¤ç­ï¼Œä¸æ€•ç¿»äº†ï¼Ÿ\n");
         }
         return ::valid_leave(me, dir);
 }

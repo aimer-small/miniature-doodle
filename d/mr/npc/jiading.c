@@ -1,11 +1,11 @@
-// /u/beyond/mr/npc/jiading.c ¼Ò¶¡
+// /u/beyond/mr/npc/jiading.c å®¶ä¸
 // this is made by beyond
 // update 1997.6.23
 inherit NPC;
 void create()
 {
-        set_name("¼Ò¶¡", ({ "jia ding", "ding" }));
-        set("gender", "ÄĞĞÔ");
+        set_name("å®¶ä¸", ({ "jia ding", "ding" }));
+        set("gender", "ç”·æ€§");
         set("age", 24);
 	set("str", 24);
         set("int", 23);

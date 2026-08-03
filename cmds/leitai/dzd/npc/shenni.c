@@ -7,24 +7,24 @@ int ask_leave();
 
 void create()
 {
-	set_name(HIY"ÄÏº£ÉñÄá"NOR, ({
+	set_name(HIY"å—æµ·ç¥å°¼"NOR, ({
 		"nanhai shenni",
 		"shenni",
 		"shitai",
 	}));
 	set("long",
-		"Ëı¾ÍÊÇÔÚ´óÖÇµºÉÏĞŞĞĞµÄÄÏº£ÉñÄá£¬ËäÈ»Îä¹¦¸ßÇ¿£¬µ«¿´ÉÏÈ¥¸ú³£ÈËÎŞÒì¡£\n"
+		"å¥¹å°±æ˜¯åœ¨å¤§æ™ºå²›ä¸Šä¿®è¡Œçš„å—æµ·ç¥å°¼ï¼Œè™½ç„¶æ­¦åŠŸé«˜å¼ºï¼Œä½†çœ‹ä¸Šå»è·Ÿå¸¸äººæ— å¼‚ã€‚\n"
 	);
 
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("per",30);
        set("unique", 1);
 	set("class", "bonze");
 	set("inquiry",([
 		//"leave" : (: ask_leave :),
-		//"Àë¿ª" : (: ask_leave :),
-		//"Àëµº" : (: ask_leave :),
+		//"ç¦»å¼€" : (: ask_leave :),
+		//"ç¦»å²›" : (: ask_leave :),
 		]));
 
 	setup();
@@ -37,7 +37,7 @@ int ask_leave()
 {
 	object me = this_player();
 
-	message_vision(HIW"¡°ºÃ°É¡±£¬$n"+HIW"ËæÊÖÕĞ¹ıÒ»¸öÅ®Äá£¬¡°ËÍÕâÎ»" + RANK_D->query_respect(me) +"³öµº¡£¡±\n"NOR,me,this_object());
+	message_vision(HIW"â€œå¥½å§â€ï¼Œ$n"+HIW"éšæ‰‹æ‹›è¿‡ä¸€ä¸ªå¥³å°¼ï¼Œâ€œé€è¿™ä½" + RANK_D->query_respect(me) +"å‡ºå²›ã€‚â€\n"NOR,me,this_object());
 	me->delete_temp("out_dzd");
 	me->delete_temp("last_damage_from");
 	call_out("leave_dzd",2,me);
@@ -55,7 +55,7 @@ void leave_dzd()
 	oblist = ({"ziwei jian","zhujing bingchan","yuwang","yufeng ping","xueshen yuchanwan","haitang fen","qimenbagua tupu",
 			"pi mao","tanxiang mujian","huqin","hansha sheying","wangnangu dujing","bishou","hulu","wujin beixin"});
 
-	tell_object(me,"ÄãÔÚÅ®ÄáµÄÖ¸ÒıÏÂ£¬ÖÕÓÚÀë¿ªÁË´óÖÇµº¡£\n");
+	tell_object(me,"ä½ åœ¨å¥³å°¼çš„æŒ‡å¼•ä¸‹ï¼Œç»ˆäºç¦»å¼€äº†å¤§æ™ºå²›ã€‚\n");
 	me->delete("maoxian_dzd");
 
 	obj = all_inventory(me);
@@ -67,39 +67,39 @@ void leave_dzd()
 	me->move("/d/fuzhou/haigang");
 	
 	//link_ob->set("dzd_gift",me->query("dzd_gift"));
-	//¸ù¾İgift ½±Àø :)
+	//æ ¹æ®gift å¥–åŠ± :)
 	/*
 		dzd_gift
-			killed  É±ËÀµĞÈËÊıÄ¿
-			found    ·¢ÏÖÒâÍâ
-			dead  ËÀÍö±ê¼Ç
-			win   ¶À»î±ê¼Ç
+			killed  æ€æ­»æ•Œäººæ•°ç›®
+			found    å‘ç°æ„å¤–
+			dead  æ­»äº¡æ ‡è®°
+			win   ç‹¬æ´»æ ‡è®°
 	*/	
 	
 	/*
 	if(!me->query_temp("dzd_winner")) {
-		tell_object(me,HIY"Äã¾õµÃ×Ô¼ºµÄÎä¹¦Ëä»Ø¸´Èç³õ£¬È´ÒÑ²»ÈçÒÔÇ°ÁË¡£\n"NOR);
+		tell_object(me,HIY"ä½ è§‰å¾—è‡ªå·±çš„æ­¦åŠŸè™½å›å¤å¦‚åˆï¼Œå´å·²ä¸å¦‚ä»¥å‰äº†ã€‚\n"NOR);
 		me->set("combat_exp",me->query("old_exp") - 2000 );
 		me->delete("old_exp");
 
 	}
 	else {
-		tell_object(me,HIW"¾­¹ı´óÖÇµºµÄÄ¥ÄÑ£¬Äã¸Ğ¾õ×Ô¼ºµÄÎä¹¦Í»·ÉÃÍ½ø£¡\n"NOR);
+		tell_object(me,HIW"ç»è¿‡å¤§æ™ºå²›çš„ç£¨éš¾ï¼Œä½ æ„Ÿè§‰è‡ªå·±çš„æ­¦åŠŸçªé£çŒ›è¿›ï¼\n"NOR);
 		exp = 8000 + random(4000);
 		me->set("combat_exp",me->query("old_exp") + exp );
 		me->delete("old_exp");
 		pot = me->query("max_pot");
-		tell_object(me,HIW"Õâ´Î´óÖÇµºÌ½ÏÕ£¬Äã×Ü¹²»ñµÃÁË"
+		tell_object(me,HIW"è¿™æ¬¡å¤§æ™ºå²›æ¢é™©ï¼Œä½ æ€»å…±è·å¾—äº†"
 			+ CHINESE_D->chinese_number( exp ) 
-                 + "µãÊµÕ½¾­Ñé£¬" 
+                 + "ç‚¹å®æˆ˜ç»éªŒï¼Œ" 
                  + CHINESE_D->chinese_number( pot )
-                 + "µãÇ±ÄÜ¡£\n"NOR);
+                 + "ç‚¹æ½œèƒ½ã€‚\n"NOR);
               me->add( "potential", pot );
               if( me->query("potential") > me->query("max_pot") )
                 me->set("potential", me->query("max_pot") );
 	}
 	*/
 	me->delete("dzd_gift");
-	write("ÕâÀï¸ø³ö½±Àø¡£\n");		
+	write("è¿™é‡Œç»™å‡ºå¥–åŠ±ã€‚\n");		
 }
 

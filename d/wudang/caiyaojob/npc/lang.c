@@ -4,22 +4,22 @@ inherit NPC;
 
 void create()
 {
-set_name("Ò°¹·", ({ "lang gou", "gou" }) );
-	set("race", "Ò°ÊÞ");
+set_name("é‡Žç‹—", ({ "lang gou", "gou" }) );
+	set("race", "é‡Žå…½");
 	set("age", 4);
-	set("long", "Ò»Ö»»ÒÉ«µÄÀÇ£¬Á½Ö»ÑÛ¾¦·º×ÅÂÌ¹â¡£\n");
+	set("long", "ä¸€åªç°è‰²çš„ç‹¼ï¼Œä¸¤åªçœ¼ç›æ³›ç€ç»¿å…‰ã€‚\n");
         set("attitude", "aggressive");
 	
 	set("str", 26);
 	set("cor", 30);
 
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°½Å", "ºó½Å", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰è„š", "åŽè„š", "å°¾å·´" }) );
 	set("verbs", ({ "bite", "claw" }) );
 
 	set("combat_exp", 1000);
 	set("chat_msg_combat", ({
 		(: this_object(), "random_move" :),
-		"Ò°ÀÇ¾¯ÌèµÄ×¢ÊÓ×ÅËÄÖÜ£¡\n",
+		"é‡Žç‹¼è­¦æƒ•çš„æ³¨è§†ç€å››å‘¨ï¼\n",
 		 
 	}) );
 		
@@ -44,7 +44,7 @@ void init()
 void die()
 {
 	object ob;
-	message_vision("\n$N²Òº¿Ò»Éù£¬ËÀÁË£¡\n", this_object());
+	message_vision("\n$Næƒ¨åšŽä¸€å£°ï¼Œæ­»äº†ï¼\n", this_object());
 	ob = new(__DIR__"obj/goupi");
 	ob->move(environment(this_object()));
 	destruct(this_object());

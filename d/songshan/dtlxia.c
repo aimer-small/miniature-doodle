@@ -4,10 +4,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "´óÌúÁºÏ¿");
+        set("short", "å¤§é“æ¢å³¡");
         set("long", @LONG
-ÕâÀïµÄµÀÂ·Ê®·ÖÏÞÏÕ£¬ÏòµÀÂ·Ö®ÓÒÍûÈ¥£¬ÌúÁºÏ¿Ö®ÓÒ¾¡ÊÇ¹ÖÊ¯£¬µÀ
-Â·×ó²àÈ´ÊÇÍòØðÉîÛÖ£¬Ãì²»¼ûµ×¡£²»½ûÈÃÈËµ¨²üÐÄ¾ª¡£
+è¿™é‡Œçš„é“è·¯ååˆ†é™é™©ï¼Œå‘é“è·¯ä¹‹å³æœ›åŽ»ï¼Œé“æ¢å³¡ä¹‹å³å°½æ˜¯æ€ªçŸ³ï¼Œé“
+è·¯å·¦ä¾§å´æ˜¯ä¸‡ä»žæ·±å£‘ï¼Œæ¸ºä¸è§åº•ã€‚ä¸ç¦è®©äººèƒ†é¢¤å¿ƒæƒŠã€‚
 LONG);
         set("exits", ([
             "southdown" : __DIR__"qgping",
@@ -18,7 +18,7 @@ LONG);
             __DIR__"npc/ssdizi" : 1,
         ]));
         set("jingli_cost/northup", 10);
-        set("outdoors", "áÔÉ½");
+        set("outdoors", "åµ©å±±");
         set("coor/x",50);
   set("coor/y",200);
    set("coor/z",90);
@@ -44,21 +44,21 @@ int do_tie(string arg)
         object ob;
         
         if (!arg || arg != "sheng")
-                return notify_fail("ÄãÒªÏµÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦ç³»ä»€ä¹ˆï¼Ÿ\n");
         if (!(ob = present("song sheng",me)))
-                return notify_fail("Á¬Éþ×Ó¶¼Ã»ÓÐÔõÃ´ÏµÑ½£¡£¡\n");
+                return notify_fail("è¿žç»³å­éƒ½æ²¡æœ‰æ€Žä¹ˆç³»å‘€ï¼ï¼\n");
 
         if (me->query_temp("tie_sheng"))
         {
-                message_vision("$NÓÖ½«Éþ×ÓÔÚÊ¯Í·ÉÏÃæÏµÁËÒ»¸ö½á¡£\n",me);
+                message_vision("$Nåˆå°†ç»³å­åœ¨çŸ³å¤´ä¸Šé¢ç³»äº†ä¸€ä¸ªç»“ã€‚\n",me);
                 if (random(3)>1)
                 {
-                        message_vision("½á¹ûÒ»²»Ð¡ÐÄ£¬Ã»ÏµºÃ£¬Éþ×ÓÍÑÂäÁË£¬µô½øÁËÏ¿¹È¡£\n",me);
+                        message_vision("ç»“æžœä¸€ä¸å°å¿ƒï¼Œæ²¡ç³»å¥½ï¼Œç»³å­è„±è½äº†ï¼ŒæŽ‰è¿›äº†å³¡è°·ã€‚\n",me);
                         destruct(ob);
                 }
                 return 1;
         }
-        message_vision("$N½«ÊÖÖÐËÉÉþ½á½áÊµÊµµÄÏµÔÚÁËÊ¯Í·Ò»½ÇÉÏ¡£\n",me);
+        message_vision("$Nå°†æ‰‹ä¸­æ¾ç»³ç»“ç»“å®žå®žçš„ç³»åœ¨äº†çŸ³å¤´ä¸€è§’ä¸Šã€‚\n",me);
         me->set_temp("tie_sheng",1);
         return 1;
 }
@@ -67,13 +67,13 @@ int do_down(string arg)
         object me = this_player();
         
         if (!arg || arg != "down")
-                return notify_fail("ÄãÒªÍùÄÄÀïÅÀ£¿\n");
+                return notify_fail("ä½ è¦å¾€å“ªé‡Œçˆ¬ï¼Ÿ\n");
         if (!present("song sheng",me))
-                return notify_fail("ÄãÕÒËÀÑ½?ÕâÃ´¸ß,ÔõÃ´ÌøµÄÏÂÈ¥£¬È¥ÕÒ¸ùÉþ×ÓÔÙÏÂÈ¥°É£¡£¡\n");
+                return notify_fail("ä½ æ‰¾æ­»å‘€?è¿™ä¹ˆé«˜,æ€Žä¹ˆè·³çš„ä¸‹åŽ»ï¼ŒåŽ»æ‰¾æ ¹ç»³å­å†ä¸‹åŽ»å§ï¼ï¼\n");
         if (!me->query_temp("tie_sheng"))
-                return notify_fail("²»°óºÃÉþ×Ó£¬ÄãÊÇÕÒËÀÑ½£¡\n");
+                return notify_fail("ä¸ç»‘å¥½ç»³å­ï¼Œä½ æ˜¯æ‰¾æ­»å‘€ï¼\n");
 
-        message_vision("$N½«ÊÖÖÐËÉÉþÏò¹ÈÏÂÒ»ÁÌ£¬Ë³×ÅÉþ×ÓÅÀÁËÏÂÈ¥¡£\n",me);
+        message_vision("$Nå°†æ‰‹ä¸­æ¾ç»³å‘è°·ä¸‹ä¸€æ’‚ï¼Œé¡ºç€ç»³å­çˆ¬äº†ä¸‹åŽ»ã€‚\n",me);
         me->delete_temp("tie_sheng");
         me->move(__DIR__"yanbi");
         return 1;

@@ -6,13 +6,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIC"ÇàÉ´³¤È¹"NOR, ({ "qingsha changqun","qun","cloth" }) );
+        set_name(HIC"é’çº±é•¿è£™"NOR, ({ "qingsha changqun","qun","cloth" }) );
         set_weight(1500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long","Ò»Ï®ÇáÉ´°ãµÄÇàÒÂ£¬ÓÌËÆÉíÔÚÑÌÖĞÎíÀï¡£\n");
-                set("unit", "¼ş");
+                set("long","ä¸€è¢­è½»çº±èˆ¬çš„é’è¡£ï¼ŒçŠ¹ä¼¼èº«åœ¨çƒŸä¸­é›¾é‡Œã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");                
                 set("armor_prop/armor", 20);
         }

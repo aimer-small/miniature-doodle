@@ -1,4 +1,4 @@
-//½±ÀøÏµÍ³Ö®¾­ÑéÇ±ÄÜÄÚÁ¦¾«Á¦Æª
+//å¥–åŠ±ç³»ç»Ÿä¹‹ç»éªŒæ½œèƒ½å†…åŠ›ç²¾åŠ›ç¯‡
 
 #include <ansi.h>
 
@@ -16,7 +16,7 @@ void create()
                         case 2: str = "max_jingli";     break;
                         case 3: str = "potential";      break;
                 }
-        set_name(WHT "µ¤Ò©" NOR, ({ "dan yao","yao" }));        
+        set_name(WHT "ä¸¹è¯" NOR, ({ "dan yao","yao" }));        
         if (clonep())
                 set_default_object(__FILE__);
         else {
@@ -25,8 +25,8 @@ void create()
                 }
                 set_weight(300);
                 set("long", (: long :));
-                set("unit", "¿Å");
-                set("no_sell", "ÕâÃ´ºÃµÄ¶«Î÷ÄãÒ²ÉáµÃÂô£¿");
+                set("unit", "é¢—");
+                set("no_sell", "è¿™ä¹ˆå¥½çš„ä¸œè¥¿ä½ ä¹Ÿèˆå¾—å–ï¼Ÿ");
                 //set("no_drop", 1);
                 //set("no_give", 1);
                 set("cloned",0);
@@ -40,11 +40,11 @@ void init()
         object me = this_player();
         int i, size;
         string name, id, id1;
-        string *first_name=({HIR+"³à",YEL+"³È",HIY+"»Æ",HIG+"ÂÌ",HIC+"Çà",HIB+"À¶",MAG+"×Ï",HIY+"½ğ",HIW+"Òø",WHT+"Óñ",HIM+"ÏÉ",CYN+"·É"});
+        string *first_name=({HIR+"èµ¤",YEL+"æ©™",HIY+"é»„",HIG+"ç»¿",HIC+"é’",HIB+"è“",MAG+"ç´«",HIY+"é‡‘",HIW+"é“¶",WHT+"ç‰",HIM+"ä»™",CYN+"é£"});
         string *first_id=({"chi","cheng","huang","lv","qing","lan","zi","jin","yin","yu","xian","fei"});
-        string *second_name=({"Ë®","Öñ","Ê¯","¼¡","É°","ÁÖ","Áú","»¢","±ª","·ï"});
+        string *second_name=({"æ°´","ç«¹","çŸ³","è‚Œ","ç ‚","æ—","é¾™","è™","è±¹","å‡¤"});
         string *second_id=({"shui","zhu","shi","ji","sha","lin","long","hu","bao","feng"});
-        string *third_name=({"Íè"+NOR,"µ¤"+NOR});
+        string *third_name=({"ä¸¸"+NOR,"ä¸¹"+NOR});
         string *third_id=({"wan", "dan"});
 	if (!query("cloned"))
 	{
@@ -64,16 +64,16 @@ void init()
         id1 = third_id[i];
         
         if ( query("secret_obj") ) 
-                set_name(HIY + "¼«Æ·" + name, ({id+" "+id1,id,id1}));
+                set_name(HIY + "æå“" + name, ({id+" "+id1,id,id1}));
         else
                 set_name(name, ({id+" "+id1,id,id1}));
         
-        if((me->query("gender") == "ÎŞĞÔ" && random(100) == 1) || random(500) == 1)
+        if((me->query("gender") == "æ— æ€§" && random(100) == 1) || random(500) == 1)
         {
-        	set_name("ÃÜ×ÚÁúÑôÉ¢",({"mizong longyangsan","san"}));
+        	set_name("å¯†å®—é¾™é˜³æ•£",({"mizong longyangsan","san"}));
         	set("bonus","recover_jj");
         	delete("secret_obj");
-        	set("gift_target",getuid(me));//×ÔÓÉ½»Ò×
+        	set("gift_target",getuid(me));//è‡ªç”±äº¤æ˜“
         }//
 
         if ( environment() == me ) {
@@ -96,7 +96,7 @@ void init()
 
         if ( ob->query_temp("die_by_from") == me){
                 ob->delete_temp("die_by_from");
-                CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%sÅªµ½ÁËÒ»¿Å%s£¡", me->name(1), query("name")));
+                CHANNEL_D->do_channel( this_object(), "rumor",sprintf("%så¼„åˆ°äº†ä¸€é¢—%sï¼", me->name(1), query("name")));
                 set("gift_target", getuid(me));
                 set("eat_time", uptime());
         }
@@ -111,20 +111,20 @@ string long()
         string str;
         
         str = query("name")+"("+capitalize(query("id"))+")\n";
-        str += "Ò»¿Å"+query("name")+"£¬·şÓÃ(fu)ÒÔºó£¬ÓĞ";
+        str += "ä¸€é¢—"+query("name")+"ï¼Œæœç”¨(fu)ä»¥åï¼Œæœ‰";
         if ( query("secret_obj") ) 
-                str += "´óÁ¿";
+                str += "å¤§é‡";
         switch(query("bonus")) {
-                case "combat_exp":      str +="Ôö¼ÓÊµÕ½¾­Ñé";   break;
-                case "max_jingli":      str +="Ìá¸ß¾«Á¦";       break;
-                case "max_neili":       str +="¼Ó´óÄÚÁ¦";       break;
-                case "potential":       str +="Ôö¼ÓÇ±ÄÜ";       break;
-                case "recover_jj":      str +="»Ö¸´ÕæÄĞÖ®Éí";     break;
-                default:                str +="Ò»¶¨";           break;
+                case "combat_exp":      str +="å¢åŠ å®æˆ˜ç»éªŒ";   break;
+                case "max_jingli":      str +="æé«˜ç²¾åŠ›";       break;
+                case "max_neili":       str +="åŠ å¤§å†…åŠ›";       break;
+                case "potential":       str +="å¢åŠ æ½œèƒ½";       break;
+                case "recover_jj":      str +="æ¢å¤çœŸç”·ä¹‹èº«";     break;
+                default:                str +="ä¸€å®š";           break;
         }
-        str += "µÄ¹¦Ğ§¡£\n";
+        str += "çš„åŠŸæ•ˆã€‚\n";
         if (query("bonus")=="recover_jj")
-        	str += HIG"\n´ËÄËÎ÷ÓòÆæÒ©£¬¾İËµ·şÓÃÖ®ºó£¬Èç¹û·şÓÃÕßÓĞĞŞÁ¶±ÙĞ°½£·¨£¬ÄÇÃ´½«±»·ÅÆú£¬²»ÄÜ»Ö¸´£¬ÉõÖ®ÉõÖ®£¡\n"NOR;
+        	str += HIG"\næ­¤ä¹ƒè¥¿åŸŸå¥‡è¯ï¼Œæ®è¯´æœç”¨ä¹‹åï¼Œå¦‚æœæœç”¨è€…æœ‰ä¿®ç‚¼è¾Ÿé‚ªå‰‘æ³•ï¼Œé‚£ä¹ˆå°†è¢«æ”¾å¼ƒï¼Œä¸èƒ½æ¢å¤ï¼Œç”šä¹‹ç”šä¹‹ï¼\n"NOR;
         
         return str;
 }
@@ -138,12 +138,12 @@ int do_eat(string arg)
         if (!id(arg)) return 0;
 
         if ( me->is_busy() || me->is_fighting()) 
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
        // if ( query("gift_target") != getuid(me))
-              //  return notify_fail("Äã´ÓÊ²Ã´µØ·½µÃµ½µÄ£¿\n");
+              //  return notify_fail("ä½ ä»ä»€ä¹ˆåœ°æ–¹å¾—åˆ°çš„ï¼Ÿ\n");
 
-        str = HIW"$N³ÔÏÂÒ»¿Å"+query("name")+HIW"£¬¶ÙÊ±¾õµÃ»ëÉíÎªÖ®Ò»Õñ£¬Ôö¼ÓÁË";
+        str = HIW"$Nåƒä¸‹ä¸€é¢—"+query("name")+HIW"ï¼Œé¡¿æ—¶è§‰å¾—æµ‘èº«ä¸ºä¹‹ä¸€æŒ¯ï¼Œå¢åŠ äº†";
         switch(query("bonus")) {
                 case "combat_exp":
                         if ( query("secret_obj") )
@@ -152,14 +152,14 @@ int do_eat(string arg)
                                 i = 500 + random(80);
                         me->add("combat_exp", i);
                         log_file("job/PRIZE", 
-                                sprintf("%8s%-10sÊ³ÓÃ%6s£¬µÃµ½%4dµã¾­Ñé¡£",
+                                sprintf("%8s%-10sé£Ÿç”¨%6sï¼Œå¾—åˆ°%4dç‚¹ç»éªŒã€‚",
                                         ctime(time())[4..19],
                                         me->name(1)+"("+getuid(me)+")",
                                         query("name"),
                                         i
                                 ), me
                         );
-                        str += chinese_number(i)+"µãÊµÕ½¾­Ñé¡£\n"NOR;
+                        str += chinese_number(i)+"ç‚¹å®æˆ˜ç»éªŒã€‚\n"NOR;
                         break;
                 case "max_jingli":
                         if ( query("secret_obj") )
@@ -168,7 +168,7 @@ int do_eat(string arg)
                                 i = random(20) + 10;
                         me->add("max_jingli", i);
                         me->add("eff_jingli", i);
-                        str += chinese_number(i)+"µã×î´ó¾«Á¦¡£\n"NOR;
+                        str += chinese_number(i)+"ç‚¹æœ€å¤§ç²¾åŠ›ã€‚\n"NOR;
                         break;
                 case "max_neili":
                         if ( query("secret_obj") )
@@ -178,7 +178,7 @@ int do_eat(string arg)
                         max = (me->query_skill("force")-me->query_temp("apply/force")) * 8 + me->query("combat_exp") / 1000;
                         if ( (me->query("max_neili") - 100 ) < max )
                                 me->add("max_neili", i);
-                        str += chinese_number(i)+"µã×î´óÄÚÁ¦¡£\n"NOR;
+                        str += chinese_number(i)+"ç‚¹æœ€å¤§å†…åŠ›ã€‚\n"NOR;
                         break;
                 case "potential":
                         if ( query("secret_obj") )
@@ -190,29 +190,29 @@ int do_eat(string arg)
                         if ( me->query("potential") > me->query("max_pot"))
                                 me->set("potential", me->query("max_pot"));
 */
-                        str += chinese_number(i)+"µãÇ±ÄÜ¡£\n"NOR;
+                        str += chinese_number(i)+"ç‚¹æ½œèƒ½ã€‚\n"NOR;
                         break;
                 case "recover_jj":
-                	if (me->query("gender")!="ÎŞĞÔ" )
+                	if (me->query("gender")!="æ— æ€§" )
                 	{
-                		message_vision("$NÍµÍµµÄÃş³öÒ»¸öÒ©ÍèËÆµÄ¶«Î÷ÌíÁËÒ»ÏÂ¡£\n",me);
-                		tell_object(me,HIR"Äã¾õµÃÌåÄÚÔïÈÈËÆ»ğ£¬È«ÉíÓû±¬µÄ¸Ğ¾õ£¡£¡\n"NOR);
+                		message_vision("$Nå·å·çš„æ‘¸å‡ºä¸€ä¸ªè¯ä¸¸ä¼¼çš„ä¸œè¥¿æ·»äº†ä¸€ä¸‹ã€‚\n",me);
+                		tell_object(me,HIR"ä½ è§‰å¾—ä½“å†…ç‡¥çƒ­ä¼¼ç«ï¼Œå…¨èº«æ¬²çˆ†çš„æ„Ÿè§‰ï¼ï¼\n"NOR);
                 		me->unconcious();
-                		return 1;//²»dest 
+                		return 1;//ä¸dest 
                 	}
-                	me->set("gender","ÄĞĞÔ");
+                	me->set("gender","ç”·æ€§");
                 	if (me->query("class") == "eunuch")
                 		me->delete("class");
                 	if (me->query_skill("pixie-jian",1)){               		
-                		tell_object(me,HIR"ÄãĞÄÖĞ»ØÒäÆğµ±ÄêÁ·±ÙĞ°½£·¨µÄµãµãµÎµÎ£¬ÖÕÓÚ¾ö¶¨Òª·ÅÆú¡£\n"NOR);				
-				log_file("static/ABANDON", sprintf("%s(%s) ³ÔÒ©·ÅÆúÁËÈ«²¿ %d ¼¶ %s ÔÚ %s\n",
+                		tell_object(me,HIR"ä½ å¿ƒä¸­å›å¿†èµ·å½“å¹´ç»ƒè¾Ÿé‚ªå‰‘æ³•çš„ç‚¹ç‚¹æ»´æ»´ï¼Œç»ˆäºå†³å®šè¦æ”¾å¼ƒã€‚\n"NOR);				
+				log_file("static/ABANDON", sprintf("%s(%s) åƒè¯æ”¾å¼ƒäº†å…¨éƒ¨ %d çº§ %s åœ¨ %s\n",
 				me->name(1), me->query("id"), me->query_skill("pixie-jian",1), to_chinese("pixie-jian") , ctime(time()) ));				                		
                 		me->delete_skill("pixie-jian");
                 	}
-                	str = HIW"$N³ÔÏÂÒ»¿Å"+query("name")+HIW"£¬¶ÙÊ±¾õµÃ»ëÉíÎªÖ®Ò»Õñ£¬";
-                	str += "»Ö¸´ÁËÕæÄĞÖ®Éí¡£\n";
+                	str = HIW"$Nåƒä¸‹ä¸€é¢—"+query("name")+HIW"ï¼Œé¡¿æ—¶è§‰å¾—æµ‘èº«ä¸ºä¹‹ä¸€æŒ¯ï¼Œ";
+                	str += "æ¢å¤äº†çœŸç”·ä¹‹èº«ã€‚\n";
                 	log_file("job/PRIZE", 
-                                sprintf("%8s%-10sÊ³ÓÃ%6s£¬»Ö¸´ÁËJJ¡£",
+                                sprintf("%8s%-10sé£Ÿç”¨%6sï¼Œæ¢å¤äº†JJã€‚",
                                         ctime(time())[4..19],
                                         me->name(1)+"("+getuid(me)+")",
                                         query("name"),                                        
@@ -220,12 +220,12 @@ int do_eat(string arg)
                         );
                         break;
                 default :
-                        return notify_fail("ÓĞÎÊÌâ£¬ÇëÏò¹ÜÀíÔ±»ã±¨¡£\n");
+                        return notify_fail("æœ‰é—®é¢˜ï¼Œè¯·å‘ç®¡ç†å‘˜æ±‡æŠ¥ã€‚\n");
         }
         message_vision(str, me);
         "/adm/daemons/emoted"->do_emote(me,"taste");
         if ( query("secret_obj"))
-                CHANNEL_D->do_channel( this_object(), "rumor",sprintf("ÓĞÈË¿´µ½%s·şÏÂÁËÒ»¿Å%s£¡", me->name(1), query("name")));
+                CHANNEL_D->do_channel( this_object(), "rumor",sprintf("æœ‰äººçœ‹åˆ°%sæœä¸‹äº†ä¸€é¢—%sï¼", me->name(1), query("name")));
         destruct(this_object());
         return 1;
 }

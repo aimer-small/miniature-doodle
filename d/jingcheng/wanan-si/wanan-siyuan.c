@@ -4,8 +4,8 @@ inherit ROOM;
 int do_leave(string arg);
 void create()
 {
-        set("short", "Íò°²ËÂËÂÔº");
-        set("long","ÕâÀïÊÇÍò°²ËÂµÄËÂÔº£¬ÃæÇ°ÊÇÒ»×ù±¦Ëþ£¬ÉÏÃæ½ä±¸É­ÑÏ£¬Ò»¿´¾ÍÖªµÀ¹ØÑº×ÅÖØÒªÈËÎï¡£\n");
+        set("short", "ä¸‡å®‰å¯ºå¯ºé™¢");
+        set("long","è¿™é‡Œæ˜¯ä¸‡å®‰å¯ºçš„å¯ºé™¢ï¼Œé¢å‰æ˜¯ä¸€åº§å®å¡”ï¼Œä¸Šé¢æˆ’å¤‡æ£®ä¸¥ï¼Œä¸€çœ‹å°±çŸ¥é“å…³æŠ¼ç€é‡è¦äººç‰©ã€‚\n");
         set("no_save", 1);
         set("no_quit", 1);
         set("exits", ([
@@ -19,8 +19,8 @@ void init()
         add_action("do_leave", "leave");
         if (!me->query_temp("was_job") && userp(me) && !wizardp(me))
         {
-                message_vision("Ê²Ã´ÈË¾¹È»ÉÃ´³Íò°²ËÂ£¿¿ì·Å¼ý£¡\n");
-                message_vision("Ò»ÕóÂÒ¼ýÉäÀ´£¬$NÁ¬ÖÐÊý¼ý£¬Âä»Ä¶øÌÓ¡£\n", me);
+                message_vision("ä»€ä¹ˆäººç«Ÿç„¶æ“…é—¯ä¸‡å®‰å¯ºï¼Ÿå¿«æ”¾ç®­ï¼\n");
+                message_vision("ä¸€é˜µä¹±ç®­å°„æ¥ï¼Œ$Nè¿žä¸­æ•°ç®­ï¼Œè½è’è€Œé€ƒã€‚\n", me);
                 me->move("/d/nanyang/kedian1");
                 me->unconcious();
         }
@@ -34,7 +34,7 @@ int do_leave(string arg)
         if (!me->query_temp("was_job/asked"))
                 return 0;
         if (!me->query_temp("was_job/floor"))
-                return notify_fail("»¹Ã»¾ÈÈË¾ÍÏë×ß£¿ÁÙÕóÍÑÌÓ£¿\n");
+                return notify_fail("è¿˜æ²¡æ•‘äººå°±æƒ³èµ°ï¼Ÿä¸´é˜µè„±é€ƒï¼Ÿ\n");
 //        me->apply_condition("job_busy", 5);
 //        me->apply_condition("was_job", 90);
         if (num < 1)

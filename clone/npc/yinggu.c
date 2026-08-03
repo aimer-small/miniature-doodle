@@ -1,6 +1,6 @@
-// yinggu.c çø¹Ã ¹í¹ÈËãÊı
+// yinggu.c ç‘›å§‘ é¬¼è°·ç®—æ•°
 // created by campsun 2003/12/2
-//ÊÇ·ñ´¦ÓÚ¹í¹ÈËãÊõ×´Ì¬µÄÅĞ¶ÏÎªquery_temp("ggs/started") ÔÚ×öÏà¹ØĞŞ¸ÄµÄÊ±ºòÒªÌØ±ğ×¢Òâ¡£
+//æ˜¯å¦å¤„äºé¬¼è°·ç®—æœ¯çŠ¶æ€çš„åˆ¤æ–­ä¸ºquery_temp("ggs/started") åœ¨åšç›¸å…³ä¿®æ”¹çš„æ—¶å€™è¦ç‰¹åˆ«æ³¨æ„ã€‚
 //LinuX@SJ 2004.2.28
 
 
@@ -13,15 +13,15 @@ int ask_ggso();
 void create()
 {
 	seteuid( getuid() );
-        set_name("çø¹Ã", ({ "ying gu","ying"}));
-        set("nickname",HIW"¹í¹ÈËãÊõ×¨¼Ò"NOR);
-        set("title",HIR"ÉñËã×Ó"NOR);
-        set("gender", "Å®ĞÔ");
+        set_name("ç‘›å§‘", ({ "ying gu","ying"}));
+        set("nickname",HIW"é¬¼è°·ç®—æœ¯ä¸“å®¶"NOR);
+        set("title",HIR"ç¥ç®—å­"NOR);
+        set("gender", "å¥³æ€§");
         set("age", 35);
-        set("long", "ËıÊÇ¸ö¿´ÆğÀ´ËÆºõÓĞ¼¸·ÖÃÀÃ²µÄÅ®×Ó¡£µ«ÊÇÈ·ÊÇÒ»Í·°×·¢ÈçÑ©£¬Á½Ö»íø×ÓÀï¶¼ÊÇÓÄÔ¹ºÍ¸ĞÉË¡£\n");
+        set("long", "å¥¹æ˜¯ä¸ªçœ‹èµ·æ¥ä¼¼ä¹æœ‰å‡ åˆ†ç¾è²Œçš„å¥³å­ã€‚ä½†æ˜¯ç¡®æ˜¯ä¸€å¤´ç™½å‘å¦‚é›ªï¼Œä¸¤åªçœ¸å­é‡Œéƒ½æ˜¯å¹½æ€¨å’Œæ„Ÿä¼¤ã€‚\n");
         set("attitude", "peaceful");
         set("shen_type", 0);
-	set("no_get","çø¹Ã¶ÔÄã¶øÑÔÌ«ÖØÁË¡£");
+	set("no_get","ç‘›å§‘å¯¹ä½ è€Œè¨€å¤ªé‡äº†ã€‚");
         set("str", 30);
         set("int", 60);
         set("con", 30);
@@ -80,14 +80,14 @@ void create()
 
 
         set("inquiry", ([
-                "rumors" : "ÕâµÀÌâÔõÃ´ÄÇÃ´ÄÑËã°¡£¿²»ÖªµÀÉÏ´ÎÀ´ÇóÒ½µÄĞ¡¹ÃÄïÊ²Ã´Ê±ºò²ÅÄÜÔÙÀ´¡£",
-                "ÖÜ²®Í¨" : "ÌıËµËû±»À§ÔÚÌÒ»¨µºÉÏ£¬ÎÒ¿àĞÄÑĞ¾¿¹í¹ÈËãÊı¾ÍÊÇÎªÁËÄÜÈ¥¾ÈËû¡£",
-                "ËÄÕÅ»ú" : "ËÄÕÅ»ú£¬Ô§ÑìÖ¯¾ÍÓûË«·É....",
-                "¹í¹ÈËãÊõ" : (: ask_ggs :),
-                "¿ªÊ¼" 	: (: ask_ggs :),
+                "rumors" : "è¿™é“é¢˜æ€ä¹ˆé‚£ä¹ˆéš¾ç®—å•Šï¼Ÿä¸çŸ¥é“ä¸Šæ¬¡æ¥æ±‚åŒ»çš„å°å§‘å¨˜ä»€ä¹ˆæ—¶å€™æ‰èƒ½å†æ¥ã€‚",
+                "å‘¨ä¼¯é€š" : "å¬è¯´ä»–è¢«å›°åœ¨æ¡ƒèŠ±å²›ä¸Šï¼Œæˆ‘è‹¦å¿ƒç ”ç©¶é¬¼è°·ç®—æ•°å°±æ˜¯ä¸ºäº†èƒ½å»æ•‘ä»–ã€‚",
+                "å››å¼ æœº" : "å››å¼ æœºï¼Œé¸³é¸¯ç»‡å°±æ¬²åŒé£....",
+                "é¬¼è°·ç®—æœ¯" : (: ask_ggs :),
+                "å¼€å§‹" 	: (: ask_ggs :),
                 "start" : (: ask_ggs :),
-                "½áÊø" 	: (: ask_ggso :),
-                "ĞİÏ¢" 	: (: ask_ggso :),
+                "ç»“æŸ" 	: (: ask_ggso :),
+                "ä¼‘æ¯" 	: (: ask_ggso :),
                 "over" 	: (: ask_ggso :),
         ]));
 
@@ -106,7 +106,7 @@ int ask_ggs()
 	
 	if (me->query("registered")!=3)
 	{
-		tell_object(me, "¶Ô²»Æğ°¡£¬Ä¿Ç°¹í¹ÈËãÊõÖ»¶Ô¹ó±öVIPÓÃ»§¿ª·ÅÇ¿»¯Ñ§Ï°¹¦ÄÜ¡£\n");
+		tell_object(me, "å¯¹ä¸èµ·å•Šï¼Œç›®å‰é¬¼è°·ç®—æœ¯åªå¯¹è´µå®¾VIPç”¨æˆ·å¼€æ”¾å¼ºåŒ–å­¦ä¹ åŠŸèƒ½ã€‚\n");
 		return 1;
 	} 
 	
@@ -125,35 +125,35 @@ int ask_ggs()
 
 	if(me->query("ggs/left_time") < 1)
 	{
-		command("say ÄãËäÈ»Ìì×Ê´Ï»Û£¬µ«ÊÇÌ°¶à½À²»ÀÃ£¬²»ÄÜÔÙÃ°½øÁË£¬ÇëÏÂÖÜÔÙÀ´Ñ¯ÎÊ°É¡£");
+		command("say ä½ è™½ç„¶å¤©èµ„èªæ…§ï¼Œä½†æ˜¯è´ªå¤šåš¼ä¸çƒ‚ï¼Œä¸èƒ½å†å†’è¿›äº†ï¼Œè¯·ä¸‹å‘¨å†æ¥è¯¢é—®å§ã€‚");
 		return 1;
 	}
 	if(me->query("ggs/started")==1)
 	{
 		if(me->query_temp("ggs/started")=="")
 		{
-			tell_object(me, "ÄãÏÈÒªÎÊÎÒĞİÏ¢£¬²ÅÄÜÔÙ¿ªÊ¼Ê¹ÓÃ¹í¹ÈËãÊõ¡£\n");
+			tell_object(me, "ä½ å…ˆè¦é—®æˆ‘ä¼‘æ¯ï¼Œæ‰èƒ½å†å¼€å§‹ä½¿ç”¨é¬¼è°·ç®—æœ¯ã€‚\n");
 		}
 		else
 		{
-			tell_object(me, "Äã²»ÊÇÕıÔÚÑĞÏ°ĞŞÁ¶¹í¹ÈËãÊõÖĞÃ´£¿»¹²»¿ìµã×¥½ôÊ±¼ä¡­¡­\n");
+			tell_object(me, "ä½ ä¸æ˜¯æ­£åœ¨ç ”ä¹ ä¿®ç‚¼é¬¼è°·ç®—æœ¯ä¸­ä¹ˆï¼Ÿè¿˜ä¸å¿«ç‚¹æŠ“ç´§æ—¶é—´â€¦â€¦\n");
 			command("kick " + me->query("id"));
 		}
 		return 1;
 	}
 	
-	me->set("ggs/started",1); //Ê¹ÓÃ×´Ì¬±ê¼Ç
-	me->set_temp("ggs/started",1); //Ê¹ÓÃ×´Ì¬±ê¼Ç
-	me->set("ggs/start_time",time()); //Ê¹ÓÃ×´Ì¬±ê¼Ç
+	me->set("ggs/started",1); //ä½¿ç”¨çŠ¶æ€æ ‡è®°
+	me->set_temp("ggs/started",1); //ä½¿ç”¨çŠ¶æ€æ ‡è®°
+	me->set("ggs/start_time",time()); //ä½¿ç”¨çŠ¶æ€æ ‡è®°
 	
-	me->apply_condition("guigushu",1); //Õâ¸öcondition ²»»á×Ô¶¯¼õÉÙ
+	me->apply_condition("guigushu",1); //è¿™ä¸ªcondition ä¸ä¼šè‡ªåŠ¨å‡å°‘
 	
-	command("say ¹í¹ÈËãÊõ£¬ÊÇÎÒÕâĞ©Äê¾«ĞÄÑĞ¾¿µÄĞŞĞÄÃî·¨£¬ÈôÄÜ²ÎÎò£¬¿ÉÒÔ¼Ó±¶Ìá¸ßÑ§Ï°ÁìÎòµÄÄÜÁ¦¡£");
-	command("say ²»¹ı¹í¹ÈËãÊõ²©´óÔ¨Éî£¬ÉõÀÍĞÄÉñ£¬Ã¿ÖÜ×î¶àÒ²¾ÍÓ¦ÓÃÊ®¸öĞ¡Ê±°É¡£");
+	command("say é¬¼è°·ç®—æœ¯ï¼Œæ˜¯æˆ‘è¿™äº›å¹´ç²¾å¿ƒç ”ç©¶çš„ä¿®å¿ƒå¦™æ³•ï¼Œè‹¥èƒ½å‚æ‚Ÿï¼Œå¯ä»¥åŠ å€æé«˜å­¦ä¹ é¢†æ‚Ÿçš„èƒ½åŠ›ã€‚");
+	command("say ä¸è¿‡é¬¼è°·ç®—æœ¯åšå¤§æ¸Šæ·±ï¼Œç”šåŠ³å¿ƒç¥ï¼Œæ¯å‘¨æœ€å¤šä¹Ÿå°±åº”ç”¨åä¸ªå°æ—¶å§ã€‚");
 	command("look " + me->query("id"));
-	command("say ÏÖÔÚÊÇ "+ CHINESE_D->chinese_date(time(),1) + "¡£");
-	command("say Äã±¾ÖÜ»¹¿ÉÒÔÊ¹ÓÃ¹í¹ÈËãÊõ"+CHINESE_D->chinese_time(me->query("ggs/left_time"))+"£¬ÏÖÔÚ¿ªÊ¼¼ÆÊ±ÁË¡£");
-	log_file( "quest/ggs",sprintf("%s(%s)ÔÚµÚ%dÖÜ¿ªÊ¼¹í¹ÈËãÊõ,Ê£:%s.\n",
+	command("say ç°åœ¨æ˜¯ "+ CHINESE_D->chinese_date(time(),1) + "ã€‚");
+	command("say ä½ æœ¬å‘¨è¿˜å¯ä»¥ä½¿ç”¨é¬¼è°·ç®—æœ¯"+CHINESE_D->chinese_time(me->query("ggs/left_time"))+"ï¼Œç°åœ¨å¼€å§‹è®¡æ—¶äº†ã€‚");
+	log_file( "quest/ggs",sprintf("%s(%s)åœ¨ç¬¬%då‘¨å¼€å§‹é¬¼è°·ç®—æœ¯,å‰©:%s.\n",
 			me->name(),
 			me->query("id"),
 			this_week,
@@ -174,18 +174,18 @@ int ask_ggso()
 	
 	if (me->query("registered")!=3)
 	{
-		tell_object(me, "¶Ô²»Æğ°¡£¬Ä¿Ç°¹í¹ÈËãÊõÖ»¶Ô¹ó±öVIPÓÃ»§¿ª·ÅÇ¿»¯Ñ§Ï°¹¦ÄÜ¡£\n");
+		tell_object(me, "å¯¹ä¸èµ·å•Šï¼Œç›®å‰é¬¼è°·ç®—æœ¯åªå¯¹è´µå®¾VIPç”¨æˆ·å¼€æ”¾å¼ºåŒ–å­¦ä¹ åŠŸèƒ½ã€‚\n");
 		return 1;
 	}
 	if(me->query("ggs/started")!=1)
 	{
-		command("say »¹Ã»ÓĞ¿ªÊ¼¾ÍÒªĞİÏ¢¡­¡­");
+		command("say è¿˜æ²¡æœ‰å¼€å§‹å°±è¦ä¼‘æ¯â€¦â€¦");
 		command("pig " + me->query("id"));
 		return 1;
 	}
 	if(me->query_temp("ggs/started")!=1)
 	{
-		command("say ÄãÊÇ²»ÊÇÃ»ÎÊĞİÏ¢¾ÍÏÂÏßÁË£¿½áÊøÊ±¼ä¾Í°´ÕÕÄãÉÏ´ÎÏÂÏßÊ±¼äËã°É¡£");
+		command("say ä½ æ˜¯ä¸æ˜¯æ²¡é—®ä¼‘æ¯å°±ä¸‹çº¿äº†ï¼Ÿç»“æŸæ—¶é—´å°±æŒ‰ç…§ä½ ä¸Šæ¬¡ä¸‹çº¿æ—¶é—´ç®—å§ã€‚");
 		me->set("ggs/over_time",FINGER_D->get_last_on(me->query("id")));		
 	}
 	else
@@ -194,15 +194,15 @@ int ask_ggso()
 	}
 	
 	user_time=(int)me->query("ggs/over_time")-(int)me->query("ggs/start_time");
-	command("say ÊÇ°¡£¬ÀÍÒİ½áºÏ£¬¶ÁÊéÁìÎò¾ÃÁË£¬ÊÇ¸ÃĞİÏ¢ĞİÏ¢¡£");
+	command("say æ˜¯å•Šï¼ŒåŠ³é€¸ç»“åˆï¼Œè¯»ä¹¦é¢†æ‚Ÿä¹…äº†ï¼Œæ˜¯è¯¥ä¼‘æ¯ä¼‘æ¯ã€‚");
 	command("look " + me->query("id"));
 	
-	command("say ÄãµÄ¹í¹ÈËãÊõ¿ªÊ¼Ê±¼äÊÇ£º" + CHINESE_D->chinese_date((int)me->query("ggs/start_time"),1) + "¡£");
-	command("say             ½áÊøÊ±¼äÊÇ£º" + CHINESE_D->chinese_date((int)me->query("ggs/over_time"),1) + "¡£");
-	command("say Õâ´ÎÄãÒ»¹²ĞŞÁ¶ÁË£º" + CHINESE_D->chinese_time(user_time)+"¡£");
+	command("say ä½ çš„é¬¼è°·ç®—æœ¯å¼€å§‹æ—¶é—´æ˜¯ï¼š" + CHINESE_D->chinese_date((int)me->query("ggs/start_time"),1) + "ã€‚");
+	command("say             ç»“æŸæ—¶é—´æ˜¯ï¼š" + CHINESE_D->chinese_date((int)me->query("ggs/over_time"),1) + "ã€‚");
+	command("say è¿™æ¬¡ä½ ä¸€å…±ä¿®ç‚¼äº†ï¼š" + CHINESE_D->chinese_time(user_time)+"ã€‚");
 	me->set("ggs/left_time",me->query("ggs/left_time") - user_time);
 
-	log_file( "quest/ggs",sprintf("%s(%s)ÔÚµÚ%dÖÜ½áÊøggs,Ê£:%s,ÓÃ:%s.\n",
+	log_file( "quest/ggs",sprintf("%s(%s)åœ¨ç¬¬%då‘¨ç»“æŸggs,å‰©:%s,ç”¨:%s.\n",
 			me->name(),
 			me->query("id"),
 			this_week,
@@ -212,32 +212,32 @@ int ask_ggso()
 
 
 
-	if (me->query("ggs/left_time") < 0 ) //·ÀÖ¹bug
+	if (me->query("ggs/left_time") < 0 ) //é˜²æ­¢bug
 		me->set("ggs/left_time",0);
 		
 	if (me->query("ggs/left_time")) 	
-		command("say Äã±¾ÖÜ»¹¿ÉÒÔÊ¹ÓÃ¹í¹ÈËãÊõ"+CHINESE_D->chinese_time(me->query("ggs/left_time"))+"¡£");
+		command("say ä½ æœ¬å‘¨è¿˜å¯ä»¥ä½¿ç”¨é¬¼è°·ç®—æœ¯"+CHINESE_D->chinese_time(me->query("ggs/left_time"))+"ã€‚");
 	else
-		command("say ÄãµÄ¹í¹ÈËãÊõÊ±¼äÓÃÍêÁË£¬ÏÂÖÜÔÙÀ´°É¡£");
+		command("say ä½ çš„é¬¼è°·ç®—æœ¯æ—¶é—´ç”¨å®Œäº†ï¼Œä¸‹å‘¨å†æ¥å§ã€‚");
 	
 	me->set_temp("ggs/started",0);
 	me->set("ggs/started",0);
 	me->set("ggs/start_time","");
 	me->set("ggs/over_time","");	
 	
-	me->clear_condition("guigushu"); //Çå³ıÁË
+	me->clear_condition("guigushu"); //æ¸…é™¤äº†
 
 
 return 1;	
 }
 
-//²»ËÀ
+//ä¸æ­»
 int accept_fight(object ob){
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"£¬Îä¹¦ÊÇÓÃÀ´·ÀÉíµÄ£¬²»ÊÇºÃ¶·µÎ£¡");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"ï¼Œæ­¦åŠŸæ˜¯ç”¨æ¥é˜²èº«çš„ï¼Œä¸æ˜¯å¥½æ–—æ»´ï¼");
 }
 int hit_ob(object ob)
 {
-        command("say ÕâÎ»"+RANK_D->query_respect(ob)+"£¬Îä¹¦ÊÇÓÃÀ´·ÀÉíµÄ£¬²»ÊÇºÃ¶·µÎ£¡");
+        command("say è¿™ä½"+RANK_D->query_respect(ob)+"ï¼Œæ­¦åŠŸæ˜¯ç”¨æ¥é˜²èº«çš„ï¼Œä¸æ˜¯å¥½æ–—æ»´ï¼");
 }
 
 
@@ -250,9 +250,9 @@ void kill_ob(object ob)
 
 void unconcious()
 {
-	message_vision(YEL"$NÍ»È»ÔËÓÃ¹í¹ÈÖ®Êõ£¬È«Éí·¢³öÒìÑùÉ«²Ê£¬ÓĞÓúÕ½ÓúÓÂÖ®ÊÆ¡£\n"NOR, this_object());
+	message_vision(YEL"$Nçªç„¶è¿ç”¨é¬¼è°·ä¹‹æœ¯ï¼Œå…¨èº«å‘å‡ºå¼‚æ ·è‰²å½©ï¼Œæœ‰æ„ˆæˆ˜æ„ˆå‹‡ä¹‹åŠ¿ã€‚\n"NOR, this_object());
         reincarnate();
-        add("str",10); //Ô½À´Ô½ÓÂ£¬^_^
+        add("str",10); //è¶Šæ¥è¶Šå‹‡ï¼Œ^_^
         set("eff_qi", query("max_qi"));
         set("qi", query("max_qi"));
         set("eff_jing", query("max_jing"));

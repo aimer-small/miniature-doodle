@@ -6,9 +6,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ØÒºó");
+	set("short", "åŒ¾å");
 	set("long", @LONG
-ÕâÀï¾ÍÊÇÂŞººÌÃØÒ¶îÖ®ºó£¬ºÚÆáÆáµÄÊ²Ã´¶¼¿´²»Çå³ş¡£
+è¿™é‡Œå°±æ˜¯ç½—æ±‰å ‚åŒ¾é¢ä¹‹åï¼Œé»‘æ¼†æ¼†çš„ä»€ä¹ˆéƒ½çœ‹ä¸æ¸…æ¥šã€‚
 LONG
 	);
 	set("indoors", "shaolin");
@@ -29,8 +29,8 @@ int do_jump(string arg)
 
 	if (arg!="down") return 0;
 	if (me->is_busy()) return 0;
-	message_vision("$NÒ»×İÉí£¬ÌøÁËÏÂÈ¥¡£\n", me);
+	message_vision("$Nä¸€çºµèº«ï¼Œè·³äº†ä¸‹å»ã€‚\n", me);
 	me->move(__DIR__"lhtang");
-	tell_room(environment(me), me->name()+"´ÓØÒ¶îÉÏÌøÁË¹ıÀ´¡£\n", me);
+	tell_room(environment(me), me->name()+"ä»åŒ¾é¢ä¸Šè·³äº†è¿‡æ¥ã€‚\n", me);
 	return 1;
 }

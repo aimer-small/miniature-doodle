@@ -7,13 +7,13 @@ inherit SWORD;
 
 void create()
 {
-        set_name( GRN "±ÌË®½£" NOR, ({ "bishui jian", "jian", "sword" }));
+        set_name( GRN "ç¢§æ°´å‰‘" NOR, ({ "bishui jian", "jian", "sword" }));
         set_weight(12000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", GRN "ÕâÊÇ±úÓÖ±¡ÓÖÇáµÄÈí½££¬½£ÉíÉÏÒşÒşµÄÍ¸³öÂÌ¹â£¬µ±Õæ·æÀûÎŞ±È¡£\n" NOR);
+                set("unit", "æŸ„");
+                set("long", GRN "è¿™æ˜¯æŸ„åˆè–„åˆè½»çš„è½¯å‰‘ï¼Œå‰‘èº«ä¸Šéšéšçš„é€å‡ºç»¿å…‰ï¼Œå½“çœŸé”‹åˆ©æ— æ¯”ã€‚\n" NOR);
                 set("value", 1500);
                 set("rigidity", 3);
                 set("sharpness", 3);
@@ -24,8 +24,8 @@ void create()
                 set("wield_neili", 500);
                 set("wield_maxneili", 900);
                 set("wield_str", 22);
-                set("wield_msg", GRN "Ö»Ìı¡¸ÎË¡¹µØÒ»Éù£¬ÂÌ¹â¶ÙÏÖ£¬$NÔÚÑü¼ä½âÏÂ$n"+ GRN "£¬¡¸Ë¢¡¹µÄÒ»Éù¶¶µÃ±ÊÖ±¡£\n" NOR);
-                set("unwield_msg", GRN "Ö»¼ûÂÌ¹âÒ»ÉÁ£¬ÄãµÄÑÛÇ°Ò»»¨£¬$N½«ÊÖÖĞµÄ$n"+ GRN "²øÔÚÑü¼ä¡£\n" NOR);
+                set("wield_msg", GRN "åªå¬ã€Œå—¡ã€åœ°ä¸€å£°ï¼Œç»¿å…‰é¡¿ç°ï¼Œ$Nåœ¨è…°é—´è§£ä¸‹$n"+ GRN "ï¼Œã€Œåˆ·ã€çš„ä¸€å£°æŠ–å¾—ç¬”ç›´ã€‚\n" NOR);
+                set("unwield_msg", GRN "åªè§ç»¿å…‰ä¸€é—ªï¼Œä½ çš„çœ¼å‰ä¸€èŠ±ï¼Œ$Nå°†æ‰‹ä¸­çš„$n"+ GRN "ç¼ åœ¨è…°é—´ã€‚\n" NOR);
         }
         init_sword(52);
         setup();

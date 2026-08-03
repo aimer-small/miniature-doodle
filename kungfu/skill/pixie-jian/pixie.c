@@ -1,10 +1,10 @@
-// pixie.c х╨п╟╠ырв Created by action 2007/7/25
+// pixie.c Г╬╓И┌╙Х╬÷Ф≤⌠ Created by action 2007/7/25
 
 #include <ansi.h>
 
 inherit F_SSERVER;
 
-string perform_name() {return HIB"х╨п╟╠ырв"NOR;}
+string perform_name() {return HIB"Г╬╓И┌╙Х╬÷Ф≤⌠"NOR;}
 
 int perform(object me, object target)
 {
@@ -15,38 +15,38 @@ int perform(object me, object target)
        
     if(!objectp(target) || !me->is_fighting(target) || !living(target)
         || environment(target)!=environment(me))
-		return notify_fail("дЦж╩дэ╤ту╫╤╥жп╣д╤тйжй╧сц║╦х╨п╟╠ырв║╧╬Ь╪╪║ё\n");
+		return notify_fail("Д╫═Е▐╙Х┐╫Е╞╧Ф┬≤Ф√≈Д╦╜Г └Е╞╧Ф┴▀Д╫©Г■╗Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█Г╩²Ф┼─Ц─┌\n");
  
         weapon = me->query_temp("weapon");
         if (!weapon || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "pixie-jian")
-                return notify_fail("йжжпнч╫ё,дЦтУц╢й╧╣цЁЖ║╦х╨п╟╠ырв║╧╬Ь╪╪ё║\n");
+                return notify_fail("Ф┴▀Д╦╜Ф≈═Е┴▒,Д╫═Ф─▌Д╧┬Д╫©Е╬≈Е┤╨Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█Г╩²Ф┼─О╪│\n");
 
         if( (int)me->query_skill("pixie-jian", 1) < 250 )
-                return notify_fail("дЦ╣д╠ып╟╫ё╥╗╧╕а╕л╚гЁё╛нч╥╗й╧ЁЖ╠ып╟╫ё╥╗ж╝║╦х╨п╟╠ырв║╧╬Ь╪╪ё║\n");
+                return notify_fail("Д╫═Г └Х╬÷И┌╙Е┴▒ФЁ∙Е┼÷Е┼⌡Е╓╙Ф╣┘О╪▄Ф≈═ФЁ∙Д╫©Е┤╨Х╬÷И┌╙Е┴▒ФЁ∙Д╧▀Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█Г╩²Ф┼─О╪│\n");
 
         if( (int)me->query_skill("sword", 1) < 250 )
-                return notify_fail("дЦ╣д╩Ы╠╬╫ё╥╗л╚╡Н,нч╥╗й╧ЁЖ║╦х╨п╟╠ырв║╧╬Ь╪╪ё║\n");
+                return notify_fail("Д╫═Г └Е÷╨Ф°╛Е┴▒ФЁ∙Е╓╙Е╥╝,Ф≈═ФЁ∙Д╫©Е┤╨Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█Г╩²Ф┼─О╪│\n");
 
         if( (int)me->query_skill("kuihua-shengong", 1) < 250)
-                return notify_fail("дЦ╣дльйБдз╧╕л╚╡Н,нч╥╗й╧ЁЖ║╦х╨п╟╠ырв║╧╬Ь╪╪ё║\n");
+                return notify_fail("Д╫═Г └Г┴╧Ф╝┼Е├┘Е┼÷Е╓╙Е╥╝,Ф≈═ФЁ∙Д╫©Е┤╨Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█Г╩²Ф┼─О╪│\n");
 
         if(me->query_skill_mapped("force") != "kuihua-shengong" )
-            return notify_fail("дЦ╣дльйБдз╧╕╡╩╤тё╛нч╥╗й╧сц║╦х╨п╟╠ырв║╧ё║\n");
+            return notify_fail("Д╫═Г └Г┴╧Ф╝┼Е├┘Е┼÷Д╦█Е╞╧О╪▄Ф≈═ФЁ∙Д╫©Г■╗Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█О╪│\n");
 
         if( (int)me->query("max_neili") < 5000 )
-               return notify_fail("дЦ╣ддза╕пчн╙л╚гЁё╛нч╥╗й╧ЁЖ║╦х╨п╟╠ырв║╧ё║\n");
+               return notify_fail("Д╫═Г └Е├┘Е┼⌡Д©╝Д╦╨Е╓╙Ф╣┘О╪▄Ф≈═ФЁ∙Д╫©Е┤╨Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█О╪│\n");
 
         if( (int)me->query("neili") < 2000 )
-                return notify_fail("дЦ╣дуФфЬ╡╩╧╩ё╛нч╥╗й╧ЁЖ║╦х╨п╟╠ырв║╧╧╕╥Рё║\n");
+                return notify_fail("Д╫═Г └Г°÷Ф╟■Д╦█Е╓÷О╪▄Ф≈═ФЁ∙Д╫©Е┤╨Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█Е┼÷Е╓╚О╪│\n");
 
         if (   me->query_skill_mapped("sword") != "pixie-jian"
 	          || me->query_skill_mapped("parry") != "pixie-jian"
 	          || me->query_skill_mapped("dodge") != "pixie-jian")
-                return notify_fail("дЦ╡╩й╧сц╠ып╟╫ё╥╗,хГ╨нй╧╣цак║╦х╨п╟╠ырв║╧ё║\n");                         
+                return notify_fail("Д╫═Д╦█Д╫©Г■╗Х╬÷И┌╙Е┴▒ФЁ∙,Е╕┌Д╫∙Д╫©Е╬≈Д╨├Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█О╪│\n");                         
                      
-message_vision(HIM"\n$Nйжжп╣д"+weapon->query("name")+HIM"м╩х╩р╩╩нё╛бЗЁ║снвъё╛р╩иМвоию╩╞Ёиакр╩ф╛вос╟ё╛р╩уп║╦"+GRN+"х╨"+
-           "п╟╠ырв"+HIM+"║╧ж╠╢л$n║ё\n"NOR,me,target);  
+message_vision(HIM"\n$NФ┴▀Д╦╜Г └"+weapon->query("name")+HIM"Г╙│Г└╤Д╦─Ф≥┐О╪▄Ф╩║Е°╨Ф╦╦Х╣╟О╪▄Д╦─Х╨╚Г╢╚Х║╚Е▄√Ф┬░Д╨├Д╦─Г┴┤Г╢╚Е╫╠О╪▄Д╦─Ф▀⌡Ц─▄"+GRN+"Г╬╓"+
+           "И┌╙Х╬÷Ф≤⌠"+HIM+"Ц─█Г⌡╢Е┬╨$nЦ─┌\n"NOR,me,target);  
         i = ((int)me->query_skill("pixie-jian",1)+(int)me->query_skill("kuihua-shengong",1))/2;
         	j = i /3;
 
@@ -54,12 +54,12 @@ message_vision(HIM"\n$Nйжжп╣д"+weapon->query("name")+HIM"м╩х╩р╩╩нё╛бЗЁ║снвъё╛р╩и
 		j = to_int(i/200.0 * i/3.0);
         
         if ( me->query("quest/pixie/super") ) {
-        	message_vision(HIW "\n╬╜тю╡╩х╨ж╦╣╪ж╝╨Сё╛дЦуБуп║╦"+GRN+"х╨п╟╠ырв"+HIW+"║╧╬Ь╪╪ё╛й╧╫╚ЁЖю╢╣дмЧа╕╦Эй╓╢сг╟ё╛ря╢О╬Ь╬Ёё║\n"NOR,me,target);
+        	message_vision(HIW "\nГ╩▐Е╡ЁД╦█Г╬╓Ф▄┤Е╞╪Д╧▀Е░▌О╪▄Д╫═Х©≥Ф▀⌡Ц─▄"+GRN+"Г╬╓И┌╙Х╬÷Ф≤⌠"+HIW+"Ц─█Г╩²Ф┼─О╪▄Д╫©Е╟├Е┤╨Ф²╔Г └Е╗│Е┼⌡Ф⌡╢Х┐°Д╩▌Е┴█О╪▄Е╥╡Х╬╬Г╩²Е╒┐О╪│\n"NOR,me,target);
         	me->add_temp("apply/sword",j/2);
         	me->add_temp("apply/damage",j);
           }
     else if(me->query("quest/pixie/pass")) {
-        	message_vision(HIW "\n$NуБуп║╦"+GRN+"х╨п╟╠ырв"+HIW+"║╧ря╣ц©Ш╩╗╠╕╣Д╬╚р╙,╢кй╠й╧╫╚ЁЖю╢,мЧа╕дк╫Я╥гнТ╠х!\n"NOR,me,target);
+        	message_vision(HIW "\n$NХ©≥Ф▀⌡Ц─▄"+GRN+"Г╬╓И┌╙Х╬÷Ф≤⌠"+HIW+"Ц─█Е╥╡Е╬≈Х▒╣Х┼╠Е╝²Е┘╦Г╡╬Х╕│,Ф╜╓Ф≈╤Д╫©Е╟├Е┤╨Ф²╔,Е╗│Е┼⌡Д╧┐Д╩┼И²·Ф≤■Ф╞■!\n"NOR,me,target);
  target->set_temp("must_be_hit",1);
 j= j*3/2;
                                             }
@@ -80,7 +80,7 @@ j= j*3/2;
         me->add_temp("apply/attack", -j*4/5);
         me->add_temp("apply/sword", -j*2/5);
         me->add_temp("apply/damage",-j/2);
-        me->start_perform(4+ random(1), "║╦х╨п╟╠ырв║╧");
+        me->start_perform(4+ random(1), "Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█");
                 if ( me->query("quest/pixie/super") ) {
         	me->add_temp("apply/sword",-j/2);
         	me->add_temp("apply/damage",-j);
@@ -91,18 +91,18 @@ if(target) target->delete_temp("must_be_hit");
 
 int help(object me)
 {
-   write(WHT"\n╠ып╟╫ё╥╗║╦"HIG"х╨п╟╠ырв"WHT"║╧ё╨"NOR"\n");
+   write(WHT"\nХ╬÷И┌╙Е┴▒ФЁ∙Ц─▄"HIG"Г╬╓И┌╙Х╬÷Ф≤⌠"WHT"Ц─█О╪ "NOR"\n");
    write(@HELP
-    хутбиЯ╫лдк╦ВспкЫЁ╓ё╛╠ып╟╫ё╥╗╦ЭртгАги║╒аИ╩Н║╒╤Ю╠Д╤ЬжЬЁф║ёуБуп
-    ║╦х╨п╟╠ырв║╧╦Эйг╫лжВ╤╚╥╫╡╩╟э╣д╣црБ╬Ь╪╪,упйЩф╫ф╫╤Ь╨анч╩╗гн,
-    ╣╚хТдэуФуЩаЛ╩АфДуФуЩ╫ёрБ,тыеД╨о©Ш╩╗иЯ╧╕,й╣дкр╩╢Си╠уп!
-    ж╦аНё╨perform pixie
+    Ф≈╔Ф°┬Г╔·Ф∙≥Д╧┐Е░└Ф°┴Ф┴─И∙©О╪▄Х╬÷И┌╙Е┴▒ФЁ∙Ф⌡╢Д╩╔Х╫╩Е╥╖Ц─│Г│╣Ф╢╩Ц─│Е╓ Е▐≤Х─▄Х▒≈Г╖╟Ц─┌Х©≥Ф▀⌡
+    Ц─▄Г╬╓И┌╙Х╬÷Ф≤⌠Ц─█Ф⌡╢Ф≤╞Ф∙≥Д╦╩Д╦°Ф√╧Д╦█Х╢╔Г └Е╬≈Ф└▐Г╩²Ф┼─,Ф▀⌡Ф∙╟Е╧ЁЕ╧ЁХ─▄Ф╞╚Ф≈═Х┼╠Д©▐,
+    Д╫├Х▀╔Х┐╫Г°÷Ф╜ёИ╒├Д╪ Е┘╤Г°÷Ф╜ёЕ┴▒Ф└▐,Е├█И┘█Е░┬Х▒╣Х┼╠Г╔·Е┼÷,Е╝·Д╧┐Д╦─Е╓╖Ф²─Ф▀⌡!
+    Ф▄┤Д╩╓О╪ perform pixie
 
-    р╙гСё╨  дза╕ 2000 ртиоё╩
-            вН╢Сдза╕ 5000 ртиоё╩ 
-            ╠ып╟╫ё╥╗ 250 ртиоё╩
-            ╩Ы╠╬╫ё╥╗ 250 ртиоё╩
-            ©Ш╩╗иЯ╧╕ 250 ртио║ё
+    Х╕│Ф╠┌О╪   Е├┘Е┼⌡ 2000 Д╩╔Д╦┼О╪⌡
+            Ф°─Е╓╖Е├┘Е┼⌡ 5000 Д╩╔Д╦┼О╪⌡ 
+            Х╬÷И┌╙Е┴▒ФЁ∙ 250 Д╩╔Д╦┼О╪⌡
+            Е÷╨Ф°╛Е┴▒ФЁ∙ 250 Д╩╔Д╦┼О╪⌡
+            Х▒╣Х┼╠Г╔·Е┼÷ 250 Д╩╔Д╦┼Ц─┌
 
 
 HELP

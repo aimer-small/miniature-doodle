@@ -1,4 +1,4 @@
-//mayi.c »ÒÒÂ
+//mayi.c ç°è¡£
 #include <armor.h>
 #include <ansi.h>
 
@@ -6,12 +6,12 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(YEL"ÂéÒÂ"NOR, ({"ma yi", "cloth" }) );
+        set_name(YEL"éº»è¡£"NOR, ({"ma yi", "cloth" }) );
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                  set("armor_prop/armor", 50);
         }

@@ -8,10 +8,10 @@ int do_pai(string arg);
 
 void create()
 {
-        set("short",GRN"¾«Éá"NOR);
+        set("short",GRN"ç²¾èˆ"NOR);
         set("long",@LONG
-ÕâÊÇÌÒ»¨µºÖ÷»ÆÒ©Ê¦µÄÊé·¿¡£Õû¼äÎİ×ÓÈ«ÊÇÒÔ²»ÅÙÆ¤µÄËÉÊ÷´î³É£¬ÎİÖĞÂúÊÇÊ«¾­µä¼®Óñ
-Æ÷¹ÅÍæ¡£Îİ±ß°Ú×ÅÒ»ÕÅ×À×Ó(zhuozi)¡£Î÷±ßµÄÇ½±ÚÉÏ¹Ò×ÅÒ»·ùµ­Ä«É½Ë®¡£
+è¿™æ˜¯æ¡ƒèŠ±å²›ä¸»é»„è¯å¸ˆçš„ä¹¦æˆ¿ã€‚æ•´é—´å±‹å­å…¨æ˜¯ä»¥ä¸åˆ¨çš®çš„æ¾æ ‘æ­æˆï¼Œå±‹ä¸­æ»¡æ˜¯è¯—ç»å…¸ç±ç‰
+å™¨å¤ç©ã€‚å±‹è¾¹æ‘†ç€ä¸€å¼ æ¡Œå­(zhuozi)ã€‚è¥¿è¾¹çš„å¢™å£ä¸ŠæŒ‚ç€ä¸€å¹…æ·¡å¢¨å±±æ°´ã€‚
 LONG
         );
         set("exits",([
@@ -22,8 +22,8 @@ LONG
         ]) ); 
         set("no_clean_up",0);
         set("item_desc",([
-                "table" : "ÕâÊÇÒ»ÕÅÊ¯×À¡£\n",
-                "zhuozi" : "ÕâÊÇÒ»ÕÅÊ¯×À¡£\n",
+                "table" : "è¿™æ˜¯ä¸€å¼ çŸ³æ¡Œã€‚\n",
+                "zhuozi" : "è¿™æ˜¯ä¸€å¼ çŸ³æ¡Œã€‚\n",
         ]) );
         setup();
 }
@@ -36,7 +36,7 @@ void init()
 
 void close_door(object room)
 {
-        message("vision", "¾íÖá×Ô¶¯À­ÏÂÀ´£¬ÕÚ×¡ÁËÈë¿Ú¡£\n", room);
+        message("vision", "å·è½´è‡ªåŠ¨æ‹‰ä¸‹æ¥ï¼Œé®ä½äº†å…¥å£ã€‚\n", room);
         room->delete("exits/enter");
 }
 
@@ -45,10 +45,10 @@ int do_pai(string arg)
         object me = this_player();
 
         if (me->is_busy() || me->is_fighting())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
         if( arg == "table" || arg == "zhuozi")
         {
-                write("ÕıÃæ±ÚÉÏ¹Ò×ÅµÄµ­Ä«É½Ë®ºöµØĞìĞìÉıÆğ£¬Â¶³öÒ»¸ö°µ¼äÀ´¡£\n");
+                write("æ­£é¢å£ä¸ŠæŒ‚ç€çš„æ·¡å¢¨å±±æ°´å¿½åœ°å¾å¾å‡èµ·ï¼Œéœ²å‡ºä¸€ä¸ªæš—é—´æ¥ã€‚\n");
                 set("exits/enter", __DIR__"liandanfang.c");
                 remove_call_out("close_door");
                 call_out("close_door", 5, this_object());

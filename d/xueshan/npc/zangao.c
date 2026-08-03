@@ -1,15 +1,15 @@
-//zangao.c 藏獒
+//zangao.c 钘忕崚
 
 inherit NPC;
 
 void create()
 {
-       set_name("藏獒", ({ "zang ao", "zangao" ,"dog" }) );
- 	set("race", "野兽");
+       set_name("钘忕崚", ({ "zang ao", "zangao" ,"dog" }) );
+ 	set("race", "閲庡吔");
 	set("age", 10);
-       set("long", "这头藏獒通体黝黑，颈中披散着长长的棕毛，显得威武凶猛，喉中发出骇人地低吼。\n");
+       set("long", "杩欏ご钘忕崚閫氫綋榛濋粦锛岄涓姭鏁ｇ潃闀块暱鐨勬姣涳紝鏄惧緱濞佹鍑剁寷锛屽枆涓彂鍑洪獓浜哄湴浣庡惣銆俓n");
        set("attitude", "aggressive");	
-	set("limbs", ({ "头部", "牙齿", "前脚", "后脚", "前爪" }) );
+	set("limbs", ({ "澶撮儴", "鐗欓娇", "鍓嶈剼", "鍚庤剼", "鍓嶇埅" }) );
 	set("verbs", ({ "bite", "claw" }) );
        set("max_qi", 750);
        set("max_jing", 300);

@@ -1,4 +1,4 @@
-// Lottery_paper.c ¶Ò½±È¯
+// Lottery_paper.c å…‘å¥–åˆ¸
 
 #include <ansi.h>
 inherit ITEM;
@@ -7,12 +7,12 @@ string do_look();
 
 void create()
 {
-        set_name(HIW"¶Ò½±È¯"NOR, ({"duijiang quan", "quan"}));
+        set_name(HIW"å…‘å¥–åˆ¸"NOR, ({"duijiang quan", "quan"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "ÕÅ");
+                set("unit", "å¼ ");
                 set("no_give", 1);
                 set("no_get", 1);
                 set("no_drop", 1);
@@ -28,10 +28,10 @@ string do_look()
 	string str = me->query("lottery/number");
 
 	if ( ! str )
-		return "ÕâÊÇÒ»ÕÅÆÕÆÕÍ¨Í¨µÄ¶Ò½±È¯£¬ÏÂÃæÓÐÐ©Êý×Ö£¬²»¹ýÒÑ¾­Ä£ºý²»ÇåÁË¡£\n";
+		return "è¿™æ˜¯ä¸€å¼ æ™®æ™®é€šé€šçš„å…‘å¥–åˆ¸ï¼Œä¸‹é¢æœ‰äº›æ•°å­—ï¼Œä¸è¿‡å·²ç»æ¨¡ç³Šä¸æ¸…äº†ã€‚\n";
 	else {
 		me->set_temp("lottery_look", 1);
-		return "Ò»ÕÅÆÕÍ¨µÄ¶Ò½±È¯£¬ÔÚÐÑÄ¿µÄÎ»ÖÃÓÐ×ÅÒ»ÅÅÊý×Ö£¬¿´À´¾ÍÊÇ¶Ò½±ÓÃµÄºÅÂë£º\n"+
+		return "ä¸€å¼ æ™®é€šçš„å…‘å¥–åˆ¸ï¼Œåœ¨é†’ç›®çš„ä½ç½®æœ‰ç€ä¸€æŽ’æ•°å­—ï¼Œçœ‹æ¥å°±æ˜¯å…‘å¥–ç”¨çš„å·ç ï¼š\n"+
 			CHINESE_D->font(str)+"\n";
 	}
 }

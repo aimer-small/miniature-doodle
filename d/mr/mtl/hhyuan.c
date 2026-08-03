@@ -6,12 +6,12 @@
 inherit ROOM;
 void create()
 {
-	set("short",MAG"ºó»¨Ô°"NOR);
+	set("short",MAG"åèŠ±å›­"NOR);
 	set ("long",@long
-ºó»¨Ô°ºÍ×¯ÖĞÆäËüµØ·½Ò»ÑùÖÖÂúÁËÉ½²è»¨, ²ÎÔÓÔÚ¼ÙÉ½¾ŞÊ¯, ÂÌÖñĞ¡ÏªÖĞ,
-´ËËùÎ½£º¡°Ç§ºôÍò»½Ê¼³öÀ´£¬ÓÌ±¨ÅıÅÃ°ëÕÚÃæ¡±¸üÔö×ËÃÄ¡£Ì§Í·ÍûÈ¥£¬Ö»¼û²Ø
-Êé¸óµÄ´°»§°ë¿ª×Å£¬Ò»¸ù¹ÅÌÙÑÑÉìÔÚÇ½ÉÏ¡£Ò»¹ÉÇåÈª´Ó¼ÙÉ½ÉÏÓ¿³ö£¬³¢Ò»¿ÚÇß
-ÈËĞÄÆ¢¡£
+åèŠ±å›­å’Œåº„ä¸­å…¶å®ƒåœ°æ–¹ä¸€æ ·ç§æ»¡äº†å±±èŒ¶èŠ±, å‚æ‚åœ¨å‡å±±å·¨çŸ³, ç»¿ç«¹å°æºªä¸­,
+æ­¤æ‰€è°“ï¼šâ€œåƒå‘¼ä¸‡å”¤å§‹å‡ºæ¥ï¼ŒçŠ¹æŠ¥çµç¶åŠé®é¢â€æ›´å¢å§¿åªšã€‚æŠ¬å¤´æœ›å»ï¼Œåªè§è—
+ä¹¦é˜çš„çª—æˆ·åŠå¼€ç€ï¼Œä¸€æ ¹å¤è—¤èœ’ä¼¸åœ¨å¢™ä¸Šã€‚ä¸€è‚¡æ¸…æ³‰ä»å‡å±±ä¸Šæ¶Œå‡ºï¼Œå°ä¸€å£æ²
+äººå¿ƒè„¾ã€‚
 long);
          set("resource/water", 1);
          set("exits",([
@@ -20,7 +20,7 @@ long);
 		"east" : __DIR__"zahuoshi",
 	]));
 	set("item_desc",([
-		"teng" : "Ò»ÌõË³×ÅÇ½±ÚÅÊÑÓ¶øÉÏµÄÂÌÊ÷ÌÙ¡£\n"
+		"teng" : "ä¸€æ¡é¡ºç€å¢™å£æ”€å»¶è€Œä¸Šçš„ç»¿æ ‘è—¤ã€‚\n"
 	]));
 	setup();
 }
@@ -35,17 +35,17 @@ int do_say(string arg)
 {
 	object me;
 	me = this_player();
-	if( !arg || arg != "ÆáÒ¶ÔÆ²îÃÜ, ²è»¨Ñ©¼ÉÑŞ")
-		return notify_fail("Ê²Ã´£¿\n");
-	if (me->query("family/family_name")!="¹ÃËÕÄ½Èİ")
-		return notify_fail("Ê²Ã´£¿\n");
+	if( !arg || arg != "æ¼†å¶äº‘å·®å¯†, èŒ¶èŠ±é›ªå¿Œè‰³")
+		return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
+	if (me->query("family/family_name")!="å§‘è‹æ…•å®¹")
+		return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
 	if ((int)me->query_encumbrance() * 100 / (int)me->query_max_encumbrance() >= 50) {
-		write("ÄãÏë±³±ğÈË½øÄïçÙÓñ¶´¿ÖÅÂÃ»ÕâÃ´ÈİÒ×°É£¿\n", me);
+		write("ä½ æƒ³èƒŒåˆ«äººè¿›å¨˜ç¼³ç‰æ´ææ€•æ²¡è¿™ä¹ˆå®¹æ˜“å§ï¼Ÿ\n", me);
 		return 0;
 	}
-	message_vision("Ê÷ÌÙÀï±ßÒ»¶ÂÇ½»º»ºÒÆÁË¿ªÀ´£¬Ô­À´ÊÇµÀĞ¡Ä¾ÃÅ£¬$NË³×ÅĞ¡ÃÅ×ßÁË½øÈ¥¡£\n", me);
+	message_vision("æ ‘è—¤é‡Œè¾¹ä¸€å µå¢™ç¼“ç¼“ç§»äº†å¼€æ¥ï¼ŒåŸæ¥æ˜¯é“å°æœ¨é—¨ï¼Œ$Né¡ºç€å°é—¨èµ°äº†è¿›å»ã€‚\n", me);
 	me->move(__DIR__"midao");
-	tell_room(environment(me), me->name()+"´Ó°µÃÅ×ßÁË³öÀ´¡£\n", me);
+	tell_room(environment(me), me->name()+"ä»æš—é—¨èµ°äº†å‡ºæ¥ã€‚\n", me);
 	return 1;
 }
                 
@@ -54,12 +54,12 @@ int do_pa(string arg)
 	object me;
 	me = this_player();
 	if (arg != "teng")
-		return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 	if ( arg =="teng"){ 
-		write("ÄãÑØ×Å´óÊ÷ÌÙÅÀÁËÉÏÈ¥¡£\n");
-		message("vision", me->name() + "ÑØ×Å´óÊ÷ÌÙÅÀÁËÉÏÈ¥¡£\n", environment(me), ({me}) );
+		write("ä½ æ²¿ç€å¤§æ ‘è—¤çˆ¬äº†ä¸Šå»ã€‚\n");
+		message("vision", me->name() + "æ²¿ç€å¤§æ ‘è—¤çˆ¬äº†ä¸Šå»ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"shuteng");
-		message("vision", me->name() + "´ÓÑØ×ÅÊ÷ÌÙÅÀÁËÉÏÀ´¡£\n", environment(me), ({me}) );
+		message("vision", me->name() + "ä»æ²¿ç€æ ‘è—¤çˆ¬äº†ä¸Šæ¥ã€‚\n", environment(me), ({me}) );
 	}
 	return 1;
 }

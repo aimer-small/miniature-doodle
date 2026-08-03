@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-    set("short", "路上");
+    set("short", "璺笂");
     setup();
 }
 
 void init()
 {
-	printf("运河两岸沿途的风景令你如痴如醉，转眼间多少天过去了.......\n");
+	printf("杩愭渤涓ゅ哺娌块�旂殑椋庢櫙浠や綘濡傜棿濡傞唹锛岃浆鐪奸棿澶氬皯澶╄繃鍘讳簡.......\n");
 }

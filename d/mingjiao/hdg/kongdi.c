@@ -1,18 +1,18 @@
-// �յ� kongdi.c
+// 空地 kongdi.c
  
 #include <ansi.h>
 inherit ROOM;
 
 void create() 
 { 
-        set("short", "�յ�");
+        set("short", "空地");
         set("long", @LONG
-������һƬ��Ŀյأ���˵�����������ʦ��������������еģ��յ�
-�ұ���һ��СϪ������������֪ͨ���η���
+这里是一片大的空地，据说当年蝴蝶谷誓师大会便是在这里进行的，空地
+右边有一条小溪，弯弯曲曲不知通往何方。
 LONG
         );
 
-        set("outdoors", "������");
+        set("outdoors", "蝴蝶谷");
 
         set("exits", ([ 
             "north" : __DIR__"niupeng",

@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ó°×ÓÎäÊ¿", ({ "yingzi wushi", "wushi", "yingzi" }) );
+        set_name("å½±å­æ­¦å£«", ({ "yingzi wushi", "wushi", "yingzi" }) );
 
-        set("gender", "ÎÞÐÔ" );
+        set("gender", "æ— æ€§" );
         set("age", 30);
-        set("nickname", HIR"Ó°×ÓÎäÊ¿"NOR);
-        set("long", "Ò»¸öÓ°×ÓÎäÊ¿£¬Ãæ²¿Éä³öÁ½µÀ½ð¹â¡£\n");
+        set("nickname", HIR"å½±å­æ­¦å£«"NOR);
+        set("long", "ä¸€ä¸ªå½±å­æ­¦å£«ï¼Œé¢éƒ¨å°„å‡ºä¸¤é“é‡‘å…‰ã€‚\n");
         set("meitude","peaceful");
 
         set("combat_exp", 2000000);
@@ -198,11 +198,11 @@ void die()
                 me->add("combat_exp", exp);
                 me->add("potential", pot);
                 me->add("safeguard_party", 1);
-                message_vision(YEL"\n$NÉ±ËÀÁË" + ob->name() + "£¬Îª" + me->query("family/family_name") + "Çå³ýÁËÀ´·¸µÄ¶ñÔô¡£\n",me);
-                message_vision(YEL"$N×ÐÏ¸»ØÒä¸Õ²ÅºÍ" + ob->name() + "µÄ´ò¶·¾­¹ý£¬·¢ÏÖ×Ô¼º¶ÔÎäÑ§µÄÁìÎòÓÖ¸üÉîÁËÒ»²ã£¡\n"NOR,me);
-                tell_object(me, HIW"Äã»ñµÃÁË" + CHINESE_D->chinese_number(exp) + HIW"µã¾­Ñé£¬" +
-                        CHINESE_D->chinese_number(pot) + HIW"µãÇ±ÄÜ£¬Äã¹²Îª" + me->query("family/family_name") + HIW
-                        "²ù³ýÁË" + CHINESE_D->chinese_number(me->query("safeguard_party")) + HIW"¸ö¶ñÔô¡£\n"NOR);
+                message_vision(YEL"\n$Næ€æ­»äº†" + ob->name() + "ï¼Œä¸º" + me->query("family/family_name") + "æ¸…é™¤äº†æ¥çŠ¯çš„æ¶è´¼ã€‚\n",me);
+                message_vision(YEL"$Nä»”ç»†å›žå¿†åˆšæ‰å’Œ" + ob->name() + "çš„æ‰“æ–—ç»è¿‡ï¼Œå‘çŽ°è‡ªå·±å¯¹æ­¦å­¦çš„é¢†æ‚Ÿåˆæ›´æ·±äº†ä¸€å±‚ï¼\n"NOR,me);
+                tell_object(me, HIW"ä½ èŽ·å¾—äº†" + CHINESE_D->chinese_number(exp) + HIW"ç‚¹ç»éªŒï¼Œ" +
+                        CHINESE_D->chinese_number(pot) + HIW"ç‚¹æ½œèƒ½ï¼Œä½ å…±ä¸º" + me->query("family/family_name") + HIW
+                        "é“²é™¤äº†" + CHINESE_D->chinese_number(me->query("safeguard_party")) + HIW"ä¸ªæ¶è´¼ã€‚\n"NOR);
         }
         ::die();
         return;
@@ -213,8 +213,8 @@ void dest()
         object me,ob;
         me = this_player();
         ob = this_object();
-        write(ob->query("name")+"µÀ£º½ñÌìºÃË¬£¬ÍæµÄ²î²»¶àÁË£¬¸Ã×ßÁË£¡\n",me); 
-        write(ob->query("name")+"Ê©Õ¹Éí·¨£¬ÉíÐÎÒ»»Î£¬Æ®È»ÀëÈ¥¡£\n",me);
+        write(ob->query("name")+"é“ï¼šä»Šå¤©å¥½çˆ½ï¼ŒçŽ©çš„å·®ä¸å¤šäº†ï¼Œè¯¥èµ°äº†ï¼\n",me); 
+        write(ob->query("name")+"æ–½å±•èº«æ³•ï¼Œèº«å½¢ä¸€æ™ƒï¼Œé£˜ç„¶ç¦»åŽ»ã€‚\n",me);
         destruct(this_object());
 }
 

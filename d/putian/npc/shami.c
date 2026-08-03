@@ -5,16 +5,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ğ¡É³ÃÖ", ({
+        set_name("å°æ²™å¼¥", ({
                 "xiao shami",
                 "xiao",
                 "shami",
         }));
         set("long",
-                "Ò»Î»ÄêÇáµÄĞ¡ºÍÉĞ£¬ÕıÎ¢Ğ¦µØ¿´×ÅÄã¡£\n"
+                "ä¸€ä½å¹´è½»çš„å°å’Œå°šï¼Œæ­£å¾®ç¬‘åœ°çœ‹ç€ä½ ã€‚\n"
         );
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "peaceful");
         set("class", "bonze");
 

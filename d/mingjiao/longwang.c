@@ -1,4 +1,4 @@
-// longwang.c ÁúÍõµî
+// longwang.c é¾™ç‹æ®¿
 // Modify By River@SJ 99.06
 
 #include <ansi.h>
@@ -6,11 +6,11 @@
 inherit ROOM;
 void create()
 {
-       set("short",MAG"ÁúÍõµî"NOR);
+       set("short",MAG"é¾™ç‹æ®¿"NOR);
        set("long", @LONG
-ÕâÀïÊÇ×¨Îª¡°×ÏÉÀÁúÍõ¡±÷ìç²Ë¿½¨ÔìµÄĞĞµî£¬Ò²ÊÇÕÅÎŞ¼É½ÌÖ÷ÎªÕÙ¼¯Ã÷½Ì
-Ê×ÁìĞûÊ¾ĞĞÉÆÈ¥¶ñ¡¢³ı±©°²Á¼µÄ½ÌÖ¼Ö®´¦¡£ÕâÀï°ÚÓĞÒ»ÕÅÏã°¸£¬³¤Äê¶¼ÓĞÏãÊø
-È¼×Å£¬ÓÄÏãÑ¬µÃÄãÍ·ÄÔÔÎÔÎµÄ¡£
+è¿™é‡Œæ˜¯ä¸“ä¸ºâ€œç´«è¡«é¾™ç‹â€é»›ç»®ä¸å»ºé€ çš„è¡Œæ®¿ï¼Œä¹Ÿæ˜¯å¼ æ— å¿Œæ•™ä¸»ä¸ºå¬é›†æ˜æ•™
+é¦–é¢†å®£ç¤ºè¡Œå–„å»æ¶ã€é™¤æš´å®‰è‰¯çš„æ•™æ—¨ä¹‹å¤„ã€‚è¿™é‡Œæ‘†æœ‰ä¸€å¼ é¦™æ¡ˆï¼Œé•¿å¹´éƒ½æœ‰é¦™æŸ
+ç‡ƒç€ï¼Œå¹½é¦™ç†å¾—ä½ å¤´è„‘æ™•æ™•çš„ã€‚
 LONG);
 	set("exits", ([
 		"east" : __DIR__"jyt",
@@ -37,13 +37,13 @@ int valid_leave(object me, string dir)
 	if (dir == "northwest" && is_wanted(me))
 		return 0;
 	if (dir == "northwest" && (!ob || !living(ob)) && !wizardp(me))
-		return notify_fail(YEL"\nÍ»È»Ò»¸öÉùÒôÔÚÄã¶ú±ßÏìÆğ£ºÉÃ´³Ñî×óÊ¹Å®¶ùµÄ¹ë·¿ÕßÉ±£¡\n\n"NOR);
+		return notify_fail(YEL"\nçªç„¶ä¸€ä¸ªå£°éŸ³åœ¨ä½ è€³è¾¹å“èµ·ï¼šæ“…é—¯æ¨å·¦ä½¿å¥³å„¿çš„é—ºæˆ¿è€…æ€ï¼\n\n"NOR);
 	if (dir == "northwest" && !myfam && ob && !wizardp(me))
-		return notify_fail("ÑîåĞ°ÑÊÖÒ»ÉìÀ¹×¡ÄãµÄÈ¥Â·£ºÉÃ´³ÎÒÅ®¶ùµÄ¹ë·¿ÕßÉ±£¡\n");
-	if ((!myfam || myfam["master_name"] != "ÕÅÎŞ¼É" || !me->query_temp("mj_jiaozhu"))
+		return notify_fail("æ¨é€æŠŠæ‰‹ä¸€ä¼¸æ‹¦ä½ä½ çš„å»è·¯ï¼šæ“…é—¯æˆ‘å¥³å„¿çš„é—ºæˆ¿è€…æ€ï¼\n");
+	if ((!myfam || myfam["master_name"] != "å¼ æ— å¿Œ" || !me->query_temp("mj_jiaozhu"))
 	 && dir == "northwest"
 	 && objectp(ob)
 	 && !wizardp(me))
-		return notify_fail(YEL"\nÑîåĞ°ÑÊÖÒ»ÉìÀ¹×¡ÄãµÄÈ¥Â·£ºÀïÃæÊÇÎÒÅ®¶ùµÄ¹ë·¿£¬²»×¼ÉÃ×Ô½øÈë£¡\n\n"NOR);
+		return notify_fail(YEL"\næ¨é€æŠŠæ‰‹ä¸€ä¼¸æ‹¦ä½ä½ çš„å»è·¯ï¼šé‡Œé¢æ˜¯æˆ‘å¥³å„¿çš„é—ºæˆ¿ï¼Œä¸å‡†æ“…è‡ªè¿›å…¥ï¼\n\n"NOR);
 	return ::valid_leave(me, dir);
 }

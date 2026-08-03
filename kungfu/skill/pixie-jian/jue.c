@@ -1,7 +1,7 @@
-// jue.c ¾øÃüÕë
+// jue.c ç»å‘½é’ˆ
 
 #include <ansi.h>
-string perform_name(){ return RED"¾øÃüÕë"NOR; }
+string perform_name(){ return RED"ç»å‘½é’ˆ"NOR; }
 
 inherit F_SSERVER;
 
@@ -15,38 +15,38 @@ int perform(object me, object target)
         if( !target
         ||      !target->is_character()
         ||      !me->is_fighting(target) )
-                return notify_fail("ÄãÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ä½ åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if( (int)me->query_skill("pixie-jian", 1) < 140 )
-                return notify_fail("ÄãµÄ±ÙĞ°½£·¨²»¹»æµÊì£¬²»»áÊ¹ÓÃ¾øÃüÕë¡£\n");
+                return notify_fail("ä½ çš„è¾Ÿé‚ªå‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨ç»å‘½é’ˆã€‚\n");
 
         if( (int)me->query_dex() < 35  )
-                return notify_fail("ÄãµÄÉí·¨Ì«µÍ£¬²»ÄÜÊ¹ÓÃ¾øÃüÕë¡£\n");
+                return notify_fail("ä½ çš„èº«æ³•å¤ªä½ï¼Œä¸èƒ½ä½¿ç”¨ç»å‘½é’ˆã€‚\n");
  
         if( (int)me->query("neili", 1) < 600 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»×ã£¡\n");     
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸è¶³ï¼\n");     
       
      if( (int)me->query("qi") > (int)me->query("max_qi") / 5 )
-                return notify_fail("¾øÃüÕëÊÇ¾ÈÃüÕĞÊı£¬Ôõ¿ÉÒÔËæ±ãÊ¹ÓÃ£¿£¡\n");    
+                return notify_fail("ç»å‘½é’ˆæ˜¯æ•‘å‘½æ‹›æ•°ï¼Œæ€å¯ä»¥éšä¾¿ä½¿ç”¨ï¼Ÿï¼\n");    
 
         if (!weapon || !(weapon->id("needle"))
         || me->query_skill_mapped("sword") != "pixie-jian")
-                return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¾øÃüÕë¡£\n");
+                return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ç»å‘½é’ˆã€‚\n");
       if (me->is_busy()) 
    {
-    message_vision(MAG "$N½«Ò»Éù¼â½Ğ£¬ÉíĞÎ·ÉÁËÆğÀ´£¬ÈçÒ»¶äºìÔÆ½«$NµÄÉíĞÎÑÚÃ»£¬¾¹È»°ÚÍÑÁË¹¥»÷£¡\n" NOR, me);
+    message_vision(MAG "$Nå°†ä¸€å£°å°–å«ï¼Œèº«å½¢é£äº†èµ·æ¥ï¼Œå¦‚ä¸€æœµçº¢äº‘å°†$Nçš„èº«å½¢æ©æ²¡ï¼Œç«Ÿç„¶æ‘†è„±äº†æ”»å‡»ï¼\n" NOR, me);
 me->start_busy(1);
 }
 
-  message_vision(RED"\n$NÃÍµØ×İÆğ£¬Ïò$nÆËÈ¥£¬ÊÖÖ¸Ò»µ¯£¬Ï¸Õë·ÉÁË³öÈ¥£¬²åÏò$nÓÒÄ¿¡£\n\n"NOR, me, target);
+  message_vision(RED"\n$NçŒ›åœ°çºµèµ·ï¼Œå‘$næ‰‘å»ï¼Œæ‰‹æŒ‡ä¸€å¼¹ï¼Œç»†é’ˆé£äº†å‡ºå»ï¼Œæ’å‘$nå³ç›®ã€‚\n\n"NOR, me, target);
   
    me->set("neili", 50);
    me->set("jingli", 50);
       
 if(random((me->query("combat_exp"))) > (int)target->query("combat_exp")/3 &&
  me->query_dex() >random((int)target->query_dex())) {
-        message_vision(HIR"\n$nâ§²»¼°·À£¬´ó½ĞÒ»Éù£¬ÓÒÑÛÖĞÕë£¡\n"NOR, me, target);
-        tell_object(target, HIY "Äã¸Ğ¾õÏ¸ÕëÕı²åÔÚ×Ô¼ºµÄÍ«ÈÊÖ®ÖĞ£¬Èç¹ûÕâÕëÖ±¹áÈëÄÔ£¬±ãÓĞĞÔÃüÖ®ÓÇ£¡\n" NOR);
+        message_vision(HIR"\n$nçŒä¸åŠé˜²ï¼Œå¤§å«ä¸€å£°ï¼Œå³çœ¼ä¸­é’ˆï¼\n"NOR, me, target);
+        tell_object(target, HIY "ä½ æ„Ÿè§‰ç»†é’ˆæ­£æ’åœ¨è‡ªå·±çš„ç³ä»ä¹‹ä¸­ï¼Œå¦‚æœè¿™é’ˆç›´è´¯å…¥è„‘ï¼Œä¾¿æœ‰æ€§å‘½ä¹‹å¿§ï¼\n" NOR);
                 me->start_busy(2);
                 target->start_busy(2);
                 me->add("neili", -300);
@@ -56,8 +56,8 @@ if(random((me->query("combat_exp"))) > (int)target->query("combat_exp")/3 &&
                 
                 target->receive_damage("qi", damage);
                 target->receive_wound("qi", damage);
-if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"Äã¶Ô"+ target->query("name") +"Ôì³ÉÁË"RED+damage+ WHT"µã¹¥»÷ÉËº¦¡£\n"NOR); 
-if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"µÄ¹¥»÷¶ÔÄãÔì³ÉÁË"RED+ damage+ WHT"µãÉËº¦¡£\n"NOR); 
+if(userp(me) && me->query("env/damage"))             tell_object(me,WHT"ä½ å¯¹"+ target->query("name") +"é€ æˆäº†"RED+damage+ WHT"ç‚¹æ”»å‡»ä¼¤å®³ã€‚\n"NOR); 
+if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ me->query("name") +"çš„æ”»å‡»å¯¹ä½ é€ æˆäº†"RED+ damage+ WHT"ç‚¹ä¼¤å®³ã€‚\n"NOR); 
                 me->query_temp("weapon")->move(target);
                 target->kill_ob(me);
                }
@@ -66,7 +66,7 @@ if(userp(target)&& target->query("env/damage"))      tell_object(target,WHT""+ m
                 target->start_busy(2);
                 me->query_temp("weapon")->move(environment(target));
                 target->kill_ob(me);
-                message_vision(HIY"\n¿ÉÊÇ$n¿´ÆÆÁË$NµÄÆóÍ¼£¬·ÉÉíÉÁÁË¿ªÈ¥¡£\n"NOR, me, target);
+                message_vision(HIY"\nå¯æ˜¯$nçœ‹ç ´äº†$Nçš„ä¼å›¾ï¼Œé£èº«é—ªäº†å¼€å»ã€‚\n"NOR, me, target);
                 me->set("neili", 0);
               }
 

@@ -1,23 +1,23 @@
 
 	link(3)			MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		link() - ½«Ò»¸öµµ°¸ÓëÁíÒ»¸öµµ°¸Á´½á
-	Óï·¨:
+	åç§°:
+		link() - å°†ä¸€ä¸ªæ¡£æ¡ˆä¸å¦ä¸€ä¸ªæ¡£æ¡ˆé“¾ç»“
+	è¯­æ³•:
 		void link( string original, string reference );
 
-		ÎŞ´«»ØÖµ link( ×Ö´® original, ×Ö´® reference );
-	ÓÃ·¨:
-		½«µµ°¸ reference  Á´½áµ½µµ°¸ original . link()  »áÊ¹
-		Ö÷Ô×Îï¼ş (master object)  ºô½Ğ valid_link( original,
-		reference). Èç¹û valid_link() ´«»Ø 0, ÔòÕâ´ÎµÄ link()
-		Ê§°Ü. Èç¹û valid_link() ´«»Ø 1, Ôò»¹ÒªÓÉ rename() ÒÔ
-		Í¬ÑùµÄ²ÎÊı (argument) ºô½Ğ, ÅĞ¶ÏÊÇ·ñ³É¹¦. Èç¹û rename()
-		, valid_link()  ¾ù´«»Ø 1, Ôò link() ³É¹¦.
+		æ— ä¼ å›å€¼ link( å­—ä¸² original, å­—ä¸² reference );
+	ç”¨æ³•:
+		å°†æ¡£æ¡ˆ reference  é“¾ç»“åˆ°æ¡£æ¡ˆ original . link()  ä¼šä½¿
+		ä¸»å®°ç‰©ä»¶ (master object)  å‘¼å« valid_link( original,
+		reference). å¦‚æœ valid_link() ä¼ å› 0, åˆ™è¿™æ¬¡çš„ link()
+		å¤±è´¥. å¦‚æœ valid_link() ä¼ å› 1, åˆ™è¿˜è¦ç”± rename() ä»¥
+		åŒæ ·çš„å‚æ•° (argument) å‘¼å«, åˆ¤æ–­æ˜¯å¦æˆåŠŸ. å¦‚æœ rename()
+		, valid_link()  å‡ä¼ å› 1, åˆ™ link() æˆåŠŸ.
 
-		×¢Òâ: link() º¯Ê½´´ÔìÒ»¸öÇ¿Á´½á (hard link) , ¶ø·Ç·û
-		ºÅÁ´½á (symbolic link).
-	²Î¿¼:
+		æ³¨æ„: link() å‡½å¼åˆ›é€ ä¸€ä¸ªå¼ºé“¾ç»“ (hard link) , è€Œéç¬¦
+		å·é“¾ç»“ (symbolic link).
+	å‚è€ƒ:
 		rm(3), rmdir(3), rename(3), mkdir(3), cp(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Feb.18.		(printed 3/16/95)

@@ -1,4 +1,4 @@
-// kaoya.c ¿¾Ñ¼
+// kaoya.c çƒ¤é¸­
 // Lklv 2001.9.27
 
 inherit ITEM;
@@ -6,13 +6,13 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name("¿¾Ñ¼", ({"kao ya", "kaoya", "ya"}));
+	set_name("çƒ¤é¸­", ({"kao ya", "kaoya", "ya"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»Ö»·ÊµÃÁ÷ÓÍµÄ±±¾©¿¾Ñ¼¡£\n");
-		set("unit", "Ö»");
+		set("long", "ä¸€åªè‚¥å¾—æµæ²¹çš„åŒ—äº¬çƒ¤é¸­ã€‚\n");
+		set("unit", "åª");
 		set("value", 150);
 		set("food_remaining", 3);
 		set("food_supply", 60);

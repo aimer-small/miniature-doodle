@@ -5,15 +5,15 @@ inherit ITEM;
 
 void create()
 {
-        set_name(YEL"Óã¸Í"NOR, ({ "yu gan", "yugan", "gan" }) );
+        set_name(YEL"é±¼ç«¿"NOR, ({ "yu gan", "yugan", "gan" }) );
         set_weight(1500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ù");
+                set("unit", "æ ¹");
 		set("no_drop", 1);
                 set("value", 200);
-                set("long", "ÕâÊÇÒ»°ÑÓã¸Í¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æŠŠé±¼ç«¿ã€‚\n");
         }
         setup();
 }

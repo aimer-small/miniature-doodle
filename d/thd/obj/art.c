@@ -3,22 +3,22 @@ inherit ITEM;
 void create()
 {
         switch(random(10)) {
-               case 0 : set_name(HIW "ÇåÃ÷ÉÏºÓÍ¼" NOR, ({ "tu", "art"})); break;
-               case 1 : set_name(HIG "É½ÖĞÓÎÂÃÍ¼" NOR, ({ "tu", "art"})); break;
-               case 2 : set_name(HIR "ÂÊÒâÌû" NOR, ({ "tie", "art"})); break;
-               case 3 : set_name(HIB "°Ë¿¥Í¼" NOR, ({ "tu", "art"})); break;
-               case 4 : set_name(HIY "»ÆÉ½ĞĞÂÃÍ¼" NOR, ({ "tu", "art"})); break;
-               case 5 : set_name(HIM "Åá½«¾üÊ«Ìû" NOR, ({ "tie", "art"})); break;
-               case 6 : set_name(HIC "Âú½­ºì´Ê¸å" NOR, ({ "ci", "art"})); break;
-               case 7 : set_name(CYN "Ã÷ÔÂ±¦½£Í¼" NOR, ({ "tu", "art"})); break;
-               case 8 : set_name(BLU "°ÙÄñ³¯·ïÍ¼" NOR, ({ "tu", "art"})); break;
-               case 9 : set_name(MAG "ËÎ»Õ×Ú×ÖÌû" NOR, ({ "tie", "art"})); break;
+               case 0 : set_name(HIW "æ¸…æ˜ä¸Šæ²³å›¾" NOR, ({ "tu", "art"})); break;
+               case 1 : set_name(HIG "å±±ä¸­æ¸¸æ—…å›¾" NOR, ({ "tu", "art"})); break;
+               case 2 : set_name(HIR "ç‡æ„å¸–" NOR, ({ "tie", "art"})); break;
+               case 3 : set_name(HIB "å…«éªå›¾" NOR, ({ "tu", "art"})); break;
+               case 4 : set_name(HIY "é»„å±±è¡Œæ—…å›¾" NOR, ({ "tu", "art"})); break;
+               case 5 : set_name(HIM "è£´å°†å†›è¯—å¸–" NOR, ({ "tie", "art"})); break;
+               case 6 : set_name(HIC "æ»¡æ±Ÿçº¢è¯ç¨¿" NOR, ({ "ci", "art"})); break;
+               case 7 : set_name(CYN "æ˜æœˆå®å‰‘å›¾" NOR, ({ "tu", "art"})); break;
+               case 8 : set_name(BLU "ç™¾é¸Ÿæœå‡¤å›¾" NOR, ({ "tu", "art"})); break;
+               case 9 : set_name(MAG "å®‹å¾½å®—å­—å¸–" NOR, ({ "tie", "art"})); break;
         }
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("value", 300000);
-                set("unit", "·ù");
+                set("unit", "å¹…");
                 set("weight", 100);
                 set("material", "paper");
                 }

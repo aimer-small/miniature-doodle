@@ -1,9 +1,9 @@
 // perform.c
 // Modified by snowman@SJ 08/12/2000
-// �� perform_action() ��/inherit/skill/skill.c �ᵽ���
-// �������Ƿ���Խ�ԼһЩ�ڴ棿 :-)
+// 将 perform_action() 从/inherit/skill/skill.c 搬到这里。
+// 理论上是否可以节约一些内存？ :-)
 // Modified by emnil@sj 02/14/2001
-// �����Դ�perform�Ľӿ�
+// 添加自创perform的接口
 
 inherit F_SSERVER;
 
@@ -19,17 +19,17 @@ int main(object me, string arg)
 	
 	seteuid(getuid());
 
-	if ( !arg ) return notify_fail("��Ҫ���⹦��ʲô��\n");
+	if ( !arg ) return notify_fail("你要用外功做什么？\n");
 	if ( me->is_busy() )
-		return notify_fail("( ����һ��������û����ɣ�����ʩ���⹦��)\n");
+		return notify_fail("( 你上一个动作还没有完成，不能施用外功。)\n");
 	if ( me->is_perform()) 
-		return notify_fail(me->query_perform()+"������ʱ�仹û����Ŀǰ����ʩ���⹦��\n");
+		return notify_fail(me->query_perform()+"的作用时间还没过，目前不能施用外功。\n");
 	
 	if ( me->query_condition("no_perform") )
-		return notify_fail("( ����Ϣ���ȣ���ʱ����ʩ���⹦��)\n");
+		return notify_fail("( 你气息不匀，暂时不能施用外功。)\n");
 
 	if ( me->query_temp("combat_yield") )
-		return notify_fail("( �����򲻻����أ�ʩ���⹦���)\n");
+		return notify_fail("( 你正打不还手呢，施用外功干嘛？)\n");
 			
 	if( sscanf(arg, "%s.%s", martial, arg)!=2 ) {
 		if( weapon = me->query_temp("weapon") )
@@ -42,7 +42,7 @@ int main(object me, string arg)
 		}
 	}
 	
-	notify_fail("����ʹ�õ��⹦��û�����ֹ��ܡ�\n");
+	notify_fail("你所使用的外功中没有这种功能。\n");
 	
 	pfmname = arg;
 	sscanf(arg,"%s %*s",pfmname);
@@ -111,7 +111,7 @@ int perform_action(object me, object skill, string arg)
 	if( sscanf(arg, "%s %s", action, target)==2 ) {
 		target_ob = present(target, environment(me));
 		if( !target_ob ) target_ob = target;
-//			return notify_fail("����û�� " + target + "��\n");
+//			return notify_fail("这里没有 " + target + "。\n");
 	}
 	
 	else{
@@ -124,10 +124,10 @@ int perform_action(object me, object skill, string arg)
 		return 0;
 	
 	if ( !objectp(target_ob) ) 
-//		return notify_fail("����û�п�ʹ�õĶ���\n");
+//		return notify_fail("这里没有可使用的对象。\n");
 		return (int)call_other( file, "perform", me, target_ob);
 	if ( !present(target_ob, environment(me)) )
-		return notify_fail("����û�п�ʹ�õĶ���\n");
+		return notify_fail("这里没有可使用的对象。\n");
 		
 	if ( target_ob != me 
 	&& (d_target = target_ob->query_temp("douzhuan_target"))
@@ -164,7 +164,7 @@ int diy_pfm(object me, string arg)
 	if( sscanf(arg, "%s %s", action, target)==2 ) {
 		target_ob = present(target, environment(me));
 		if( !target_ob ) //target_ob = target;
-			return notify_fail("����û�� " + target + "��\n");
+			return notify_fail("这里没有 " + target + "。\n");
 	}
 	else{
 		action = arg;
@@ -177,14 +177,14 @@ int diy_pfm(object me, string arg)
 int help (object me)
 {
 	write(@HELP
-ָ���ʽ��perfrom [<�书����>.]<��ʽ����> [<ʩ�ö���>]
+指令格式：perfrom [<武功种类>.]<招式名称> [<施用对象>]
 
-�������ѧ���⹦(ȭ�š�����������....)��һЩ����Ĺ�����ʽ����ʽ������
-�����ָ����ʹ�ã���������� enable ָ��ָ����ʹ�õ��书����ָ���书��
-��ʱ�����ֵ��⹦��ָ���ȭ�Ź���ʹ������ʱ���Ǳ��е��书��
+如果你所学的外功(拳脚、剑法、刀法....)有一些特殊的攻击方式或招式，可以
+用这个指令来使用，你必须先用 enable 指令指定你使用的武功，不指定武功种
+类时，空手的外功是指你的拳脚功夫，使用武器时则是兵刃的武功。
 
-��������⹦�������಻ͬ��������ʽ������ͬ�ģ����߲����ȭ�Ÿ���������
-���书(���Ṧ)�������� <�书>.<��ʽ>  �ķ�ʽָ�����磺
+若是你的外功中有种类不同，但是招式名称相同的，或者不属於拳脚跟武器技能
+的武功(如轻功)，可以用 <武功>.<招式>  的方式指定，如：
 
 perform parry.yi
 
@@ -192,7 +192,7 @@ or
 
 perform chan
 
-���仰˵��ֻҪ�� enable �е��书��������ʽ�ģ������������ָ��ʹ�á�
+换句话说，只要是 enable 中的武功有特殊招式的，都可以用这个指令使用。
 HELP
 	);
 	return 1;

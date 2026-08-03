@@ -11,17 +11,17 @@ string look_dashi();
 
 void create()
 {
-        set("short", "Ê¯±ÚÏÂ");
+        set("short", "çŸ³å£ä¸‹");
 	set("long", @LONG
-ÄãÔÚÒ»¿é´óÊ¯±Ú(dashi)ÏÂ£¬ÏÂÃæÊÇÒ»¿éĞ¡Ê¯èµ(xiaoshi)£¬ÉÏÃæÅÀÂúÁËÌÙ
-Âû£¬×İºá½»´í£¬µØÏÂ¿İ»ÆµÄÊ÷Ö¦ÂäÒ¶»ıÁËºÃ¶à²ã£¬¿´À´ºÜ¾ÃÕâÀïÃ»ÈËÀ´¹ıÁË¡£
+ä½ åœ¨ä¸€å—å¤§çŸ³å£(dashi)ä¸‹ï¼Œä¸‹é¢æ˜¯ä¸€å—å°çŸ³ç’§(xiaoshi)ï¼Œä¸Šé¢çˆ¬æ»¡äº†è—¤
+è”“ï¼Œçºµæ¨ªäº¤é”™ï¼Œåœ°ä¸‹æ¯é»„çš„æ ‘æè½å¶ç§¯äº†å¥½å¤šå±‚ï¼Œçœ‹æ¥å¾ˆä¹…è¿™é‡Œæ²¡äººæ¥è¿‡äº†ã€‚
 LONG
 	);
 
 	set("exits", ([
 	      "out" : __DIR__"shuhou",
 	]));
-        set("outdoors", "´óÀí");
+        set("outdoors", "å¤§ç†");
 	set("item_desc",([
            "dashi" : (: look_dashi :),
 	   "xiaoshi" : (: look_xiaoshi :),
@@ -44,8 +44,8 @@ void check_trigger()
 	if( (int)query("up_trigger")>=2
 	&& (int)query("down_trigger")>=2
 	&& !query("exits/enter") ) {
-          message("vision", "ÑÒÊ¯»º»º×ª¶¯£¬±ãÈçÒ»ÉÈ´óÃÅËÆµÄ£¬"
-			"×ªµ½Ò»°ë£¬ÑÒºóÂ¶³öÒ»¸öÈı³ßÀ´¸ßµÄ¶´Ñ¨¡£\n", this_object() );
+          message("vision", "å²©çŸ³ç¼“ç¼“è½¬åŠ¨ï¼Œä¾¿å¦‚ä¸€æ‰‡å¤§é—¨ä¼¼çš„ï¼Œ"
+			"è½¬åˆ°ä¸€åŠï¼Œå²©åéœ²å‡ºä¸€ä¸ªä¸‰å°ºæ¥é«˜çš„æ´ç©´ã€‚\n", this_object() );
 	  set("exits/enter", __DIR__"dongkou");	
           delete("poem_teared");
 	  delete("up_trigger");
@@ -58,8 +58,8 @@ void check_trigger()
 void close_passage()
 {
 	if( !query("exits/enter") ) return;
-	message("vision", "ÑÒÊ¯ºöÈ»·¢³öÔşÔşµÄÉùÒô£¬»º»ºµØÒÆ»ØÔ­´¦£¬"
-		"½«¶´¿Ú¸Ç×¡ÁË¡£\n", this_object() );
+	message("vision", "å²©çŸ³å¿½ç„¶å‘å‡ºè½§è½§çš„å£°éŸ³ï¼Œç¼“ç¼“åœ°ç§»å›åŸå¤„ï¼Œ"
+		"å°†æ´å£ç›–ä½äº†ã€‚\n", this_object() );
 	delete("exits/enter");
 }
 
@@ -69,21 +69,21 @@ int do_tui(string arg)
 	if( !arg) return 0;
 	if (arg == "dashi") {
 	 if(!query("poem_teared"))
-	   return notify_fail("ÉÏÃæÅÀÂúÁËÌÙÂü£¬ÄãÍÆ²»¶¯¡£\n");
-	 write("ÄãÊÔ×ÅÍÆ¶¯Õâ¿éÑÒÊ¯£¬·¢ÏÖ¿ÉÒÔÍÆ¶¯......\n");
+	   return notify_fail("ä¸Šé¢çˆ¬æ»¡äº†è—¤æ›¼ï¼Œä½ æ¨ä¸åŠ¨ã€‚\n");
+	 write("ä½ è¯•ç€æ¨åŠ¨è¿™å—å²©çŸ³ï¼Œå‘ç°å¯ä»¥æ¨åŠ¨......\n");
 	   return 1;
 	   }
 	if( sscanf(arg, "dashi %s", dir)==1 && (int)query("poem_teared") ) {
 	 if( dir=="right" ) {
-	  message_vision("$N½«ÑÒÊ¯ÍÆÁËÍÆ£¬ÑÒÊ¯»ÎÁË»Î£¬ÓÖÒÆ»ØÔ­Î»¡£\n",this_player());
+	  message_vision("$Nå°†å²©çŸ³æ¨äº†æ¨ï¼Œå²©çŸ³æ™ƒäº†æ™ƒï¼Œåˆç§»å›åŸä½ã€‚\n",this_player());
           add("up_trigger", 1);
 	  check_trigger();
 	  return 1;
 	  }
-	  write("ÄãÒª½«´óÑÒÊ¯ÍÆÏòÄÇ¸ö·½Ïò£¿\n");
+	  write("ä½ è¦å°†å¤§å²©çŸ³æ¨å‘é‚£ä¸ªæ–¹å‘ï¼Ÿ\n");
 	  return 1;
 	  }
-      return notify_fail("ÄãÒªÍÆÊ²Ã´£¿\n");
+      return notify_fail("ä½ è¦æ¨ä»€ä¹ˆï¼Ÿ\n");
 }
 
 int do_huang(string arg)
@@ -92,32 +92,32 @@ int do_huang(string arg)
 	if( !arg) return 0;
 	if (arg == "dashi") {
 	  if(!query("poem_teared"))
-	   return notify_fail("ÉÏÃæÅÀÂúÁËÌÙÂü£¬Äã»Î²»ÁË¡£\n");
-	   write("ÄãÊÔ×Å»Î¶¯Õâ¿éÑÒÊ¯£¬·¢ÏÖ¿ÉÒÔÍÆ¶¯......\n");
+	   return notify_fail("ä¸Šé¢çˆ¬æ»¡äº†è—¤æ›¼ï¼Œä½ æ™ƒä¸äº†ã€‚\n");
+	   write("ä½ è¯•ç€æ™ƒåŠ¨è¿™å—å²©çŸ³ï¼Œå‘ç°å¯ä»¥æ¨åŠ¨......\n");
 	   return 1;
 	   }
 	if( sscanf(arg, "dashi %s", dir)==1 && (int)query("poem_teared") ) {
 	  if( dir=="left" ) {
-	   message_vision("$N½«ÑÒÊ¯Íù×ó»Î£¬ÑÒÊ¯¶¯ÁË¶¯£¬ÓÖÒÆ»ØÔ­Î»¡£\n",this_player());
+	   message_vision("$Nå°†å²©çŸ³å¾€å·¦æ™ƒï¼Œå²©çŸ³åŠ¨äº†åŠ¨ï¼Œåˆç§»å›åŸä½ã€‚\n",this_player());
            add("down_trigger", 1);
 	   check_trigger();
 	   return 1;
 	   }
-	   write("ÄãÒª½«´óÑÒÊ¯»ÎÏòÄÇ¸ö·½Ïò£¿\n");
+	   write("ä½ è¦å°†å¤§å²©çŸ³æ™ƒå‘é‚£ä¸ªæ–¹å‘ï¼Ÿ\n");
 	   return 1;
 	   }
-       return notify_fail("ÄãÒª»ÎÊ²Ã´£¿\n");
+       return notify_fail("ä½ è¦æ™ƒä»€ä¹ˆï¼Ÿ\n");
 }
 
 int do_tear(string arg)
 {
 	if( !arg || arg=="" )  return 0;
 	if( arg =="cao" ){
-          write("ÄãÒª³ı²İÂğ£¿ !\n");
+          write("ä½ è¦é™¤è‰å—ï¼Ÿ !\n");
 	  return 1;
 	  }
 	if( arg=="teng" ) {
-	  write("Äã°Ñ´óĞ¡ÑÒÊ¯¼äµÄÌÙÂû¾¡Êı³ıÈ¥¡£\n");
+	  write("ä½ æŠŠå¤§å°å²©çŸ³é—´çš„è—¤è”“å°½æ•°é™¤å»ã€‚\n");
 	  add("poem_teared", 1);
 	  return 1;
 	}
@@ -134,11 +134,11 @@ void reset()
 string look_xiaoshi()
 {
 	return
-	 "ºÜ¶àµÄ²İÌÙÖ®Àà²øÔÚËüµÄÉÏÃæ¡£\n";
+	 "å¾ˆå¤šçš„è‰è—¤ä¹‹ç±»ç¼ åœ¨å®ƒçš„ä¸Šé¢ã€‚\n";
 }
 
 string look_dashi()
 {
 	return
-	"ÑÒ¸ßÆëĞØ£¬Áè¿ÕÖÃÓÚÒ»¿éĞ¡ÑÒÊ¯Ö®ÉÏ¡£\n";
+	"å²©é«˜é½èƒ¸ï¼Œå‡Œç©ºç½®äºä¸€å—å°å²©çŸ³ä¹‹ä¸Šã€‚\n";
 }

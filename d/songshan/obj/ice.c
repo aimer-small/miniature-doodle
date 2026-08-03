@@ -1,4 +1,4 @@
-// OBJECT:  ice.c Ğş±ù
+// OBJECT:  ice.c ç„å†°
 // Created by Numa 1999-12-09
 
 #include <ansi.h>
@@ -8,7 +8,7 @@ string do_long();
 
 void create()
 {
-	set_name(HIW"Ğş±ù"NOR,({"ice"}));
+	set_name(HIW"ç„å†°"NOR,({"ice"}));
 	set_weight(2000000);
 //        if (clonep())
 /*
@@ -16,7 +16,7 @@ void create()
      	else
      	{
 */
-        	set("unit", "¿é");
+        	set("unit", "å—");
         	set("long", (: do_long :));
         	set("value", 500000);
         	set("no_get", 1); 
@@ -33,17 +33,17 @@ string do_long()
 	object ob = this_object();
 	
 	if (!me->query_temp("ss/zsb_get"))
-		return "ÕâÊÇÒ»¿éº®ÆøÉ­É­µÄĞş±ù£¬ÄÚÖĞ¾§Ó¨Í¸ÁÁ£¬ÉÁË¸×ÅÒìÑùµÄ¹âÃ¢¡£\n";
+		return "è¿™æ˜¯ä¸€å—å¯’æ°”æ£®æ£®çš„ç„å†°ï¼Œå†…ä¸­æ™¶è¹é€äº®ï¼Œé—ªçƒç€å¼‚æ ·çš„å…‰èŠ’ã€‚\n";
 	
     if (me->query("id") == ob->query_temp("find_by"))
 	{
 		me->delete_temp("ss/zsb_get");
 		me->set_temp("ss/zsb_done",1);
-		return "ÕâÊÇÒ»¿éº®ÆøÉ­É­µÄĞş±ù£¬ÄÚÖĞ¾íÇú×ÅÒ»Ìõ³¤±Ş£¬ËÆºõ¿ÉÒÔÆÆ(po)±ùÈ¡Ö®¡£\n";
+		return "è¿™æ˜¯ä¸€å—å¯’æ°”æ£®æ£®çš„ç„å†°ï¼Œå†…ä¸­å·æ›²ç€ä¸€æ¡é•¿é­ï¼Œä¼¼ä¹å¯ä»¥ç ´(po)å†°å–ä¹‹ã€‚\n";
 	}
 
 	me->delete_temp("ss/zsb_get");
-	return "ÕâÊÇÒ»¿éº®ÆøÉ­É­µÄĞş±ù£¬ÄÚÖĞ¾íÇúÒ»¸öºÚ÷î÷îµÄ¶«Î÷£¬ËÆºõÈ¡²»³öÀ´¡£\n";	
+	return "è¿™æ˜¯ä¸€å—å¯’æ°”æ£®æ£®çš„ç„å†°ï¼Œå†…ä¸­å·æ›²ä¸€ä¸ªé»‘é»é»çš„ä¸œè¥¿ï¼Œä¼¼ä¹å–ä¸å‡ºæ¥ã€‚\n";	
 }
 
 void init()
@@ -60,31 +60,31 @@ int do_po(string arg)
 
 
 	if (!arg)
-		return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 	if (!me->query_temp("ss/zsb_done"))
-		return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 		
 	if (arg == "ice" || arg == "bing")
 	{
 		if (me->is_busy() || me->is_fighting())
-			return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+			return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
         if (me->query_temp("weapon"))
-                return notify_fail("ÒªÆÆ¿ªÕâ¿éĞş±ù£¬Æ¾ÄãÊÖÉÏÄÇÆÆÎäÆ÷¿ÖÅÂÄÑÒÔ×àĞ§°É£¡\n");
+                return notify_fail("è¦ç ´å¼€è¿™å—ç„å†°ï¼Œå‡­ä½ æ‰‹ä¸Šé‚£ç ´æ­¦å™¨ææ€•éš¾ä»¥å¥æ•ˆå§ï¼\n");
 		if (me->query_skill("hanbing-zhenqi",1) < 150)
 		{
-			tell_object(me,HIC"ÄãÉì³öÊÖÕÆ£¬Ïò×ÅĞş±ùÓÃÁ¦Õ¶È¥£¬¿ÉÊÇÈ´±»º®ÆøËù±Æ£¬Ò»Ê±¼äÓÖÀäÓÖÍ´¡£"NOR);
+			tell_object(me,HIC"ä½ ä¼¸å‡ºæ‰‹æŒï¼Œå‘ç€ç„å†°ç”¨åŠ›æ–©å»ï¼Œå¯æ˜¯å´è¢«å¯’æ°”æ‰€é€¼ï¼Œä¸€æ—¶é—´åˆå†·åˆç—›ã€‚"NOR);
 			me->apply_condition("cold_poison",50-random(me->query("kar")));
 			me->unconcious();
 			return 1;
 		}
-		message_vision(HIC"$NÉì³öÊÖÕÆ£¬Ïò×ÅĞş±ùÓÃÁ¦Õ¶È¥£¬Ö»Ìı¡¸Å¾¡¹µÄÒ»Éù£¬Ğş±ùÁ¢Ê±Ëæ¿ª£¬ÆäÖĞ³¤±ŞÒ²µôÁË³öÀ´¡£\n"NOR,me);
+		message_vision(HIC"$Nä¼¸å‡ºæ‰‹æŒï¼Œå‘ç€ç„å†°ç”¨åŠ›æ–©å»ï¼Œåªå¬ã€Œå•ªã€çš„ä¸€å£°ï¼Œç„å†°ç«‹æ—¶éšå¼€ï¼Œå…¶ä¸­é•¿é­ä¹Ÿæ‰äº†å‡ºæ¥ã€‚\n"NOR,me);
         call_out("dest",1,obj);
 		me->delete_temp("ss");
         ob = unew(BINGQI_D("zisong-bian"));
        		if(!clonep(ob))
        		{
        			ob = new(BINGQI_D("whip"));
-       			tell_object(me,HIR"Äã¼ñÆğ³¤±Ş£¬·¢ÏÖ¾¹È»Ö»ÊÇÒ»¸ùÆÕÍ¨µÄ³¤±Ş£¬ÄãÊ§Íû¼«ÁË¡£\n"NOR);
+       			tell_object(me,HIR"ä½ æ¡èµ·é•¿é­ï¼Œå‘ç°ç«Ÿç„¶åªæ˜¯ä¸€æ ¹æ™®é€šçš„é•¿é­ï¼Œä½ å¤±æœ›æäº†ã€‚\n"NOR);
        			ob->move(me);
        			return 1;
        		}
@@ -98,17 +98,17 @@ int do_po(string arg)
        		{
         		destruct(ob);
        			ob = new(BINGQI_D("whip"));
-       			tell_object(me,HIR"Äã¼ñÆğ³¤±Ş£¬·¢ÏÖ¾¹È»Ö»ÊÇÒ»¸ùÆÕÍ¨µÄ³¤±Ş£¬ÄãÊ§Íû¼«ÁË¡£\n"NOR);
+       			tell_object(me,HIR"ä½ æ¡èµ·é•¿é­ï¼Œå‘ç°ç«Ÿç„¶åªæ˜¯ä¸€æ ¹æ™®é€šçš„é•¿é­ï¼Œä½ å¤±æœ›æäº†ã€‚\n"NOR);
        			ob->move(me);
        			return 1;
        		}
 
-		tell_object(me,HIR"Äã¼ñÆğ³¤±Ş£¬·¢ÏÖ¾¹È»ÊÇµË°Ë¹«µ±ÄêËùÊ¹µÄÄÇÌõ×ÏËÉ±Ş£¬¶ÙÊ±ĞÀÏ²Èô¿ñ¡£\n"NOR);		
+		tell_object(me,HIR"ä½ æ¡èµ·é•¿é­ï¼Œå‘ç°ç«Ÿç„¶æ˜¯é‚“å…«å…¬å½“å¹´æ‰€ä½¿çš„é‚£æ¡ç´«æ¾é­ï¼Œé¡¿æ—¶æ¬£å–œè‹¥ç‹‚ã€‚\n"NOR);		
 		ob->move(me);
 		return 1;
 	}
 	else
-		return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 }
 
 void dest(object ob)

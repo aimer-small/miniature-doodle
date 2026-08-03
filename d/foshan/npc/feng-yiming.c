@@ -1,13 +1,13 @@
-//feng-yiming.c  ·ïÒ»Ãù
+//feng-yiming.c  å‡¤ä¸€é¸£
 
 inherit NPC;
 
 void create()
 {
 
-        set_name("·ïÒ»Ãù", ({ "feng yiming", "feng" }));
-        set("long", "ËûÉí´©À¶³ñ³¤ÉÀ£¬ÓÒÊÖÒ¡×ÅÕÛÉÈ£¬Á³ÉÏÓ¢Æø²ª²ª£¬ÏÔÊÇÎä¹¦²»Èõ¡£\n");
-        set("gender", "ÄÐÐÔ" );
+        set_name("å‡¤ä¸€é¸£", ({ "feng yiming", "feng" }));
+        set("long", "ä»–èº«ç©¿è“ç»¸é•¿è¡«ï¼Œå³æ‰‹æ‘‡ç€æŠ˜æ‰‡ï¼Œè„¸ä¸Šè‹±æ°”å‹ƒå‹ƒï¼Œæ˜¾æ˜¯æ­¦åŠŸä¸å¼±ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("age", 23);
         set("no_quest", 1);
 	set("attitude", "peaceful");
@@ -52,7 +52,7 @@ void die()
 {
 	object ob,me;
 	me=this_player();
-	message_vision("\n$NÔâ´ËÒ»»÷£¬»ëÉíÒ»Õó³é´¤£¬ÑÛ¿´ÊÇ»î²»³ÉÁË¡£\n",this_object());
+	message_vision("\n$Né­æ­¤ä¸€å‡»ï¼Œæµ‘èº«ä¸€é˜µæŠ½æï¼Œçœ¼çœ‹æ˜¯æ´»ä¸æˆäº†ã€‚\n",this_object());
 	ob = unew("/d/foshan/npc/fengtiannan");
         if(!clonep(ob)){
            destruct(this_object());
@@ -63,7 +63,7 @@ void die()
            destruct(ob);
            return ;
         } 
-        message_vision("\n·ïÌìÄÏ¼±´Ò´ÒµÄÅÜÁË¹ýÀ´£¬Ò»°Ñ±§Æð·ïÒ»ÃùµÄÊ¬Ìå£¬´ó¿ÞÆðÀ´¡£\n",this_object());
+        message_vision("\nå‡¤å¤©å—æ€¥åŒ†åŒ†çš„è·‘äº†è¿‡æ¥ï¼Œä¸€æŠŠæŠ±èµ·å‡¤ä¸€é¸£çš„å°¸ä½“ï¼Œå¤§å“­èµ·æ¥ã€‚\n",this_object());
 	ob->move(environment(this_object()) );
 ::die();
 }

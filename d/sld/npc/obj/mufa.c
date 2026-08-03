@@ -6,15 +6,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Ä¾·¤",({"mufa"}));
+	set_name("æœ¨ç­",({"mufa"}));
 	set_weight(50000);
 	set("no_get",1);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit","¸ö");
+		set("unit","ä¸ª");
 		set("value",50);
-		set("long","ÕâÊÇÒ»¸öÓÃÄ¾Í·ºÍÉş×ÓÔúÆğÀ´µÄĞ¡Ä¾·¤£¬¿ÉÒÔ×ö(zuo)×ÅËüÆ¯²´¡£\n");
+		set("long","è¿™æ˜¯ä¸€ä¸ªç”¨æœ¨å¤´å’Œç»³å­æ‰èµ·æ¥çš„å°æœ¨ç­ï¼Œå¯ä»¥åš(zuo)ç€å®ƒæ¼‚æ³Šã€‚\n");
 	}
 	setup();
 }
@@ -48,13 +48,13 @@ int do_zuo(string arg)
 				if(!objectp(mf=find_object(__DIR__"mu_fa3")))
 					mf=load_object(__DIR__"mu_fa3");
 				if(mf->query_temp("curstatus",1)=="run")
-					return notify_fail("Ä¾·¤»¹Ã»Ôú½áÊµ£¬µÈÏÂÔÙ×ø°É¡£\n");
+					return notify_fail("æœ¨ç­è¿˜æ²¡æ‰ç»“å®ï¼Œç­‰ä¸‹å†åå§ã€‚\n");
 			}
 		}
 		me=this_player();
-		message_vision("Ö»¼û$NÇáÇáÒ»Ô¾£¬ÒÑ×øÔÚÄ¾·¤ÉÏ¡£\n" NOR,me);
-		message_vision("Ö»¼ûÒ»Õóº£·ç´µÀ´£¬Ä¾·¤ÒÑ»º»ºÏò¶«Æ®È¥¡£\n" NOR,me);
-		tell_room(environment(me), me->name() + "×øÔÚÄ¾·¤ÉÏÏò¶«Æ®È¥¡£\n");
+		message_vision("åªè§$Nè½»è½»ä¸€è·ƒï¼Œå·²ååœ¨æœ¨ç­ä¸Šã€‚\n" NOR,me);
+		message_vision("åªè§ä¸€é˜µæµ·é£å¹æ¥ï¼Œæœ¨ç­å·²ç¼“ç¼“å‘ä¸œé£˜å»ã€‚\n" NOR,me);
+		tell_room(environment(me), me->name() + "ååœ¨æœ¨ç­ä¸Šå‘ä¸œé£˜å»ã€‚\n");
 //		mf=new(__DIR__"mu_fa");
 //		if(userp(me) && !wizardp(me)) me->set("invisibility",  1);
 		me->move(mf);
@@ -62,5 +62,5 @@ int do_zuo(string arg)
 		destruct(this_object());
 		return 1;
 	}
-	return notify_fail("ÄãÒª×øÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åä»€ä¹ˆï¼Ÿ\n");
 }

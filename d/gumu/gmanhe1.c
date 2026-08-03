@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIR"°µºÓ"NOR);
+	set("short", HIR"æš—æ²³"NOR);
 	set("long", @LONG
-Ô­À´ÕâÕıÊÇÒ»ÌõµØÏÂ°µºÓ£¬´Ë´¦Ë®ÉùÒÑÊÇºäºä£¬ÉùÊÆ¼«Îªº§ÈË¡£Äã½ÅÏÂÒ»
-´¦Ì¤¿Õ£¬±ãÓĞË®Á÷Ö±³åÑÊºí¡£´ËÇ±Á÷²»ÖªÀ´×ÔºÎ´¦£¬¸ü²»ÖªÍ¨ÍùºÎ·½¡£
+åŸæ¥è¿™æ­£æ˜¯ä¸€æ¡åœ°ä¸‹æš—æ²³ï¼Œæ­¤å¤„æ°´å£°å·²æ˜¯è½°è½°ï¼Œå£°åŠ¿æä¸ºéª‡äººã€‚ä½ è„šä¸‹ä¸€
+å¤„è¸ç©ºï¼Œä¾¿æœ‰æ°´æµç›´å†²å’½å–‰ã€‚æ­¤æ½œæµä¸çŸ¥æ¥è‡ªä½•å¤„ï¼Œæ›´ä¸çŸ¥é€šå¾€ä½•æ–¹ã€‚
 LONG 
        );
 
@@ -27,13 +27,13 @@ void init()
         if ( me->query_skill("yunu-xinjing", 1) < 110 ) {
 		me->receive_damage("qi", 50 );
 		me->receive_damage("jing", 50 ); 
-		message_vision(HIB"$NµÄÕæÆøÕıÔÚÁ÷Ê§£¬ºôÎüÊ®·ÖÀ§ÄÑ¡£\n"NOR, me);
+		message_vision(HIB"$Nçš„çœŸæ°”æ­£åœ¨æµå¤±ï¼Œå‘¼å¸ååˆ†å›°éš¾ã€‚\n"NOR, me);
 		if ((int)me->query("qi") < 10 || (int)me->query("jing") < 10) {
-			me->set_temp("last_damage_from","ÔÚ°µºÓÖĞ±»ÑÍ");
+			me->set_temp("last_damage_from","åœ¨æš—æ²³ä¸­è¢«æ·¹");
 		//	me->unconcious();
 			me->die();   
 			return ;
 		}
 	}
-	message_vision(HIB"$NÆÁ×¡ºôÎü£¬¶É¹ıÁË°µºÓ¡£\n"NOR, me);
+	message_vision(HIB"$Nå±ä½å‘¼å¸ï¼Œæ¸¡è¿‡äº†æš—æ²³ã€‚\n"NOR, me);
 }

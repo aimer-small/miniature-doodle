@@ -7,21 +7,21 @@ int do_close(string arg)
         ob = this_player();
         
         if( ob->is_busy() ) 
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if( ob->is_fighting() )
-                return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ¡£\n");
+                return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ã€‚\n");
 
     if( !arg || arg == "" || arg != "lid")
-                return notify_fail("ÄãÒª¹ØÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦å…³ä»€ä¹ˆï¼Ÿ\n");
 
-        if( !me->query("marks/open") )      // ÅĞ¶Ï´ËÊ±µ¤Â¯µÄ¸Ç×ÓÊÇ´ò¿ª»¹ÊÇ¹ØÉÏµÄ
-                return notify_fail("µ¤Â¯µÄ¸Ç×ÓÃ»ÓĞ´ò¿ª¡£\n");
+        if( !me->query("marks/open") )      // åˆ¤æ–­æ­¤æ—¶ä¸¹ç‚‰çš„ç›–å­æ˜¯æ‰“å¼€è¿˜æ˜¯å…³ä¸Šçš„
+                return notify_fail("ä¸¹ç‚‰çš„ç›–å­æ²¡æœ‰æ‰“å¼€ã€‚\n");
 
     if( arg == "lid" )
         {
-        message_vision("$NÇáÊÖÇá½ÅµÄ½«µ¤Â¯µÄ¸Ç×Ó¸ÇÉÏ¡£\n", ob);
-        me->delete("marks/open");           // Èç¹ûÓĞÈË°Ñµ¤Â¯µÄ¸Ç×Ó¹ØÉÏ£¬ÄÇÃ´È¥µô´Ë±ê¼Ç¡£
+        message_vision("$Nè½»æ‰‹è½»è„šçš„å°†ä¸¹ç‚‰çš„ç›–å­ç›–ä¸Šã€‚\n", ob);
+        me->delete("marks/open");           // å¦‚æœæœ‰äººæŠŠä¸¹ç‚‰çš„ç›–å­å…³ä¸Šï¼Œé‚£ä¹ˆå»æ‰æ­¤æ ‡è®°ã€‚
         return 1;
         }
 

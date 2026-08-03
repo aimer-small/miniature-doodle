@@ -7,13 +7,13 @@ inherit FINGER;
 
 void create()
 {
-	set_name( "ÄîÖé", ({ "nian zhu", "nianzhu" }) );
+	set_name( "å¿µç ", ({ "nian zhu", "nianzhu" }) );
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸±");
-                set("long", "ÕâÊÇÒ»¸±ÄîÖé£¬ºÚ³Á³ÁµÄ²»ÖªÊÇÓÃÊ²Ã´ÖÆ³ÉµÄ£¬¿´ÆğÀ´·Ç³£Ô²Èó£¬Ïë±Ø¾­³£±»¸§Ãş¹ö¶¯¡£\n");
+		set("unit", "å‰¯");
+                set("long", "è¿™æ˜¯ä¸€å‰¯å¿µç ï¼Œé»‘æ²‰æ²‰çš„ä¸çŸ¥æ˜¯ç”¨ä»€ä¹ˆåˆ¶æˆçš„ï¼Œçœ‹èµ·æ¥éå¸¸åœ†æ¶¦ï¼Œæƒ³å¿…ç»å¸¸è¢«æŠšæ‘¸æ»šåŠ¨ã€‚\n");
 		set("value", 0);
 		set("material", "hand");
 		set("armor_prop/armor", 5);

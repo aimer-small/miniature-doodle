@@ -1,4 +1,4 @@
-// yaopu-laoban.c Ò©ÆÌÀÏ°å
+// yaopu-laoban.c è¯é“ºè€æ¿
 // by shang 97/6
 
 inherit NPC;
@@ -10,9 +10,9 @@ void recover(object ob);
 
 void create()
 {
-	set_name("Ò©ÆÌÀÏ°å", ({ "yaopu laoban", "laoban", "boss" }));
-	set("gender", "ÄÐÐÔ");
-	set("long", "Ò»Î»¾«Ã÷µÄÒ©·¿ÀÏ°å, ¾­Óª×Å×æ´«µÄÀÏÆÌ¡£\n");
+	set_name("è¯é“ºè€æ¿", ({ "yaopu laoban", "laoban", "boss" }));
+	set("gender", "ç”·æ€§");
+	set("long", "ä¸€ä½ç²¾æ˜Žçš„è¯æˆ¿è€æ¿, ç»è¥ç€ç¥–ä¼ çš„è€é“ºã€‚\n");
 	set("age", 65);
 
 	set("int", 20);
@@ -36,9 +36,9 @@ void create()
 	set("vendor_goods", ({
 	}));
        set("inquiry", ([
-       "Ò½Êé" : (: ask_book :),
-       "Ò©µä" : (: ask_book :),
-		"ÁÆÉË" : (:ask_liaoshang:),//for newbie
+       "åŒ»ä¹¦" : (: ask_book :),
+       "è¯å…¸" : (: ask_book :),
+		"ç–—ä¼¤" : (:ask_liaoshang:),//for newbie
     ]));
 
 	setup();
@@ -52,8 +52,8 @@ void init()
 int ask_book()
 {
   command("sigh");
-  command("say ÄãÊÇËµÄÇ±¾[¿Æ½ð¾µ¸³¼¯½â]°É£¬Ç°¼¸Ìì»¹ÔÚÕâÀïÂôµÄ£¬²»ÖªµÀ¸øÄÄ¸ö¼Ò»ï\n"
-+"Ë³ÊÖÇ£Ñò¸øÍµ×ßÁË£¬°¦£¡¡£¡£ÕâÄêÍ·¡£¡£\n");
+  command("say ä½ æ˜¯è¯´é‚£æœ¬[ç§‘é‡‘é•œèµ‹é›†è§£]å§ï¼Œå‰å‡ å¤©è¿˜åœ¨è¿™é‡Œå–çš„ï¼Œä¸çŸ¥é“ç»™å“ªä¸ªå®¶ä¼™\n"
++"é¡ºæ‰‹ç‰µç¾Šç»™å·èµ°äº†ï¼Œå”‰ï¼ã€‚ã€‚è¿™å¹´å¤´ã€‚ã€‚\n");
   this_player()->set_temp("marks/m-book4", 1);
 return 1;
 }
@@ -65,31 +65,31 @@ int ask_liaoshang()
 	if(ob->query("combat_exp")<3000) 
 	{
 		command("? "+ob->query("id"));     
-		command("say ÄãÔõÃ´´ÓÎä¹Ý³öÀ´ÁË°¡£¬ÕâÍâÃæ¶àÎ£ÏÕ°¡£¡\n");
+		command("say ä½ æ€Žä¹ˆä»Žæ­¦é¦†å‡ºæ¥äº†å•Šï¼Œè¿™å¤–é¢å¤šå±é™©å•Šï¼\n");
 		command("poor "+ob->query("id"));
 		return 1;
 	}
 	if(ob->query("combat_exp")>50000) 
 	{
 		command("? "+ob->query("id"));     
-		command("say ÁÆÉË£¿»¨Ç®ÂòÒ©°¡¡£¹«Æ½¹²¼Û£¬Í¯ÛÅÎÞÆÛ£¡\n");
+		command("say ç–—ä¼¤ï¼ŸèŠ±é’±ä¹°è¯å•Šã€‚å…¬å¹³å…±ä»·ï¼Œç«¥åŸæ— æ¬ºï¼\n");
 		command("knock "+ob->query("id"));
 		return 1;
 	}
 	if (ob->query("eff_qi") >= ob->query("max_qi"))
 	{
 		command("? "+ob->query("id"));     
-		command("say µ÷Æ¤µ°£¬ÅÜÎÒÕâÀïÌíÂÒ£¡\n");
+		command("say è°ƒçš®è›‹ï¼Œè·‘æˆ‘è¿™é‡Œæ·»ä¹±ï¼\n");
 		command("smile "+ob->query("id"));
 		return 1;
 	}
 	else 
 	{
-		message_vision("$n¶Ô×Å$NÈÂµÀ£º¡°ÀÏ°åÊåÊå£¬ÎÒÊÜÉËÁË£¬ºÃÍ´°¡......¡±\n", this_object(),ob);
+		message_vision("$nå¯¹ç€$Nåš·é“ï¼šâ€œè€æ¿å”å”ï¼Œæˆ‘å—ä¼¤äº†ï¼Œå¥½ç—›å•Š......â€\n", this_object(),ob);
 		command("poor "+ob->query("id"));
 		command("pat "+ob->query("id"));
-		command("say ºÃ°É£¬¿´ÄãÒ»¸öÐ¡º¢×Ó³öÀ´´³µ´½­ºþ£¬Ò²¿ÉÁ¯µÄ½ô¡£");
-                message_vision("$NÄÃ³öÒ»¸ùÒøÕëÇáÇáÄíÈë$nÊÜÉË²¿Î»¸½½üµÄÑ¨µÀ£¬$n¸Ð¾õÊæ·þ¶àÁË¡£\n", this_object(),ob);
+		command("say å¥½å§ï¼Œçœ‹ä½ ä¸€ä¸ªå°å­©å­å‡ºæ¥é—¯è¡æ±Ÿæ¹–ï¼Œä¹Ÿå¯æ€œçš„ç´§ã€‚");
+                message_vision("$Næ‹¿å‡ºä¸€æ ¹é“¶é’ˆè½»è½»æ»å…¥$nå—ä¼¤éƒ¨ä½é™„è¿‘çš„ç©´é“ï¼Œ$næ„Ÿè§‰èˆ’æœå¤šäº†ã€‚\n", this_object(),ob);
 		ob->start_busy(3);
 		call_out("recover", 5, ob);
 		return 1;
@@ -101,7 +101,7 @@ void recover(object ob)
 	if (environment(ob) != environment(this_object())) return;
 	ob->set("eff_qi", (int)ob->query("max_qi"));
 ob->set("eff_jing", (int)ob->query("max_jing"));
-	message_vision("Ò»ÖùÏãµÄ¹¤·ò¹ýÈ¥ÁË£¬$N¾õµÃÉËÊÆÒÑ¾­»ù±¾È¬ÓúÁË¡£\n",ob);
-	command("say ½­ºþÏÕ¶ñ,²»Ð¡ÐÄµÄ»°£¬ÏÂ´ÎÄã¾ÍÃ»ÕâÃ´ÐÒÔËÁË¡£\n");
+	message_vision("ä¸€æŸ±é¦™çš„å·¥å¤«è¿‡åŽ»äº†ï¼Œ$Nè§‰å¾—ä¼¤åŠ¿å·²ç»åŸºæœ¬ç—Šæ„ˆäº†ã€‚\n",ob);
+	command("say æ±Ÿæ¹–é™©æ¶,ä¸å°å¿ƒçš„è¯ï¼Œä¸‹æ¬¡ä½ å°±æ²¡è¿™ä¹ˆå¹¸è¿äº†ã€‚\n");
 	command("pat "+ob->query("id"));
 }

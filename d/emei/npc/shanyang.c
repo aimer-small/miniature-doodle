@@ -5,17 +5,17 @@ inherit NPC;
 
 void create()
 {
-        set_name("É½Ñò", ({ "shan yang", "yang" }) );
-        set("race", "Ò°ÊÞ");
+        set_name("å±±ç¾Š", ({ "shan yang", "yang" }) );
+        set("race", "é‡Žå…½");
         set("age", 20);
-        set("long", "Ò»Ö»¿É°®µÄÐ¡É½Ñò¡£\n");
+        set("long", "ä¸€åªå¯çˆ±çš„å°å±±ç¾Šã€‚\n");
         set("attitude", "peaceful");
 	set("no_quest", 1);
 
         set("str", 26);
         set("cor", 30);
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
 
         set("combat_exp", 10000);
@@ -30,7 +30,7 @@ void create()
 /*void die()
 {
         object ob;
-        message_vision("$N¡°ßã¡±Ò»ÉùËÀÁË¡£\n", this_object());
+        message_vision("$Nâ€œå’©â€ä¸€å£°æ­»äº†ã€‚\n", this_object());
 ob = new(__DIR__"pi");
         ob->move(environment(this_object()));
         destruct(this_object());

@@ -12,12 +12,12 @@ void init()
 
 void create()
 {
-        set_name("°Ù²İµ¤", ({"bai caodan", "dan"}));
+        set_name("ç™¾è‰ä¸¹", ({"bai caodan", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿Å°Ù²İµ¤£¬¾İËµÊÇØ¤°ïµÜ×ÓÔÚÓëÉß³æÏà¶·ÖĞÅäÖÆµÄ½â¶¾Ò©Æ·¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—ç™¾è‰ä¸¹ï¼Œæ®è¯´æ˜¯ä¸å¸®å¼Ÿå­åœ¨ä¸è›‡è™«ç›¸æ–—ä¸­é…åˆ¶çš„è§£æ¯’è¯å“ã€‚\n");
                 set("value", 100);
                 set("no_drop", 1);
                 set("no_give",1);
@@ -31,12 +31,12 @@ int do_fu(string arg)
         object me;
         me = this_player();
         if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         if( me->is_fighting() )
-                return notify_fail("Õ½¶·ÖĞ²»ÄÜ³ÔÒ©ÁÆÉË£¡\n");
+                return notify_fail("æˆ˜æ–—ä¸­ä¸èƒ½åƒè¯ç–—ä¼¤ï¼\n");
         if ((int)this_player()->query("eff_jing") ==
             (int)this_player()->query("max_jing"))
-                return notify_fail("ÄãÏÖÔÚÃ»ÉË£¬Ï¹³ÔÊ²÷áÒ©£¿\n");
+                return notify_fail("ä½ ç°åœ¨æ²¡ä¼¤ï¼Œçåƒä»€éº½è¯ï¼Ÿ\n");
         
         else {
 if ((int)me->query_condition("snake_poison") > 0||(int)me->query_condition("scorpion_poison ")>0) 
@@ -45,7 +45,7 @@ if ((int)me->query_condition("snake_poison") > 0||(int)me->query_condition("scor
            me->apply_condition("scorpion_poison", 0);
          }
         me->receive_curing("jing", 500);
-       message_vision("$N·şÏÂÒ»¿Å°Ù²İµ¤¡£\n", this_player());
+       message_vision("$Næœä¸‹ä¸€é¢—ç™¾è‰ä¸¹ã€‚\n", this_player());
         me->start_busy(2);
                 destruct(this_object());
                 return 1;

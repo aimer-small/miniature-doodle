@@ -1,4 +1,4 @@
-// /d/xiangyang/muren.c Ä¾ÈË
+// /d/xiangyang/muren.c æœ¨äºº
 
 inherit NPC;
 
@@ -7,14 +7,14 @@ int do_get(string arg);
 
 void create()
 {
-	set_name("Ä¾ÈË", ({ "mu ren", "mu", "ren", "wood man", "wood", "muren" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æœ¨äºº", ({ "mu ren", "mu", "ren", "wood man", "wood", "muren" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 30);
 	set("mute", 1);
-	set("long", "Ò»¸öÖÆ×÷¾«ÇÉµÄÄ¾ÈË£¬²ÄÁÏÊÇÑ¡ÓÃÉÏµÈºìÄ¾£¬\n"
-	"¹Ø½Ú´¦ÒÔÏ¸Ğ¡µÄÍ­¶¤Ã­ºÏ£¬ÏÔµÃ¼«ÎªÁé»î£¬\n"
-	"Í·²¿ÊÇÓÃÕû¿éµÄÔ²Ä¾µñ×Á¶ø³É£¬ÑÛÉñÁ÷¶¯£¬\n"
-	"×ì°ÍÒ²ºÃÏóÄÜ·¢³öÉùÒôÀ´¡£ÔÚ±³²¿ÓĞÒ»¸öĞ¡Ğ¡µÄ¿ª¹Ø(trigger)¡£\n");
+	set("long", "ä¸€ä¸ªåˆ¶ä½œç²¾å·§çš„æœ¨äººï¼Œææ–™æ˜¯é€‰ç”¨ä¸Šç­‰çº¢æœ¨ï¼Œ\n"
+	"å…³èŠ‚å¤„ä»¥ç»†å°çš„é“œé’‰é“†åˆï¼Œæ˜¾å¾—æä¸ºçµæ´»ï¼Œ\n"
+	"å¤´éƒ¨æ˜¯ç”¨æ•´å—çš„åœ†æœ¨é›•ç¢è€Œæˆï¼Œçœ¼ç¥æµåŠ¨ï¼Œ\n"
+	"å˜´å·´ä¹Ÿå¥½è±¡èƒ½å‘å‡ºå£°éŸ³æ¥ã€‚åœ¨èƒŒéƒ¨æœ‰ä¸€ä¸ªå°å°çš„å¼€å…³(trigger)ã€‚\n");
 	set("attitude", "friendly");
 
 	set("str", 25);
@@ -70,8 +70,8 @@ void unconcious()
 	object me = this_object();
 
 	this_player()->add_temp("muren_num", -1);
-	say("Ä¾ÈËºöÈ»·¢³ö¡°»©À²¡±Ò»Éù¾ŞÏì£¬Ã­ÔÚ¹Ø½Ú´¦µÄÍ­¶¤¶¼ÍÑÂäÁËÏÂÀ´£¬\n"
-	"ÉíÌåÕû¸öÉ¢¼ÜÁË£¬ÁèÂÒµØÂäÁËÒ»µØ¡£\n");
+	say("æœ¨äººå¿½ç„¶å‘å‡ºâ€œå“—å•¦â€ä¸€å£°å·¨å“ï¼Œé“†åœ¨å…³èŠ‚å¤„çš„é“œé’‰éƒ½è„±è½äº†ä¸‹æ¥ï¼Œ\n"
+	"èº«ä½“æ•´ä¸ªæ•£æ¶äº†ï¼Œå‡Œä¹±åœ°è½äº†ä¸€åœ°ã€‚\n");
 	new("/d/xiangyang/obj/mutou")->move(environment(me));
 	destruct(me);
 }
@@ -83,7 +83,7 @@ void die()
 
 int accept_fight(object ob)
 {
-	return notify_fail("¿´Çå³şµã£¬ÄÇÖ»ÊÇ¸öÄ¾ÈË¶øÒÑ£¡\n");
+	return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£åªæ˜¯ä¸ªæœ¨äººè€Œå·²ï¼\n");
 }
 
 int do_get(string arg)
@@ -91,27 +91,27 @@ int do_get(string arg)
 	object npc = this_object();
 	object me = this_player();
 
-	if (!arg) return notify_fail("ÄãÒª¼ñÆğÊ²Ã´¶«Î÷£¿\n");
+	if (!arg) return notify_fail("ä½ è¦æ¡èµ·ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 	if (npc != present(arg, environment())) return 0;
 	if (environment() == me) {
-		write("Äã²»ÊÇÒÑ¾­¿¸×ÅÁËÂğ£¿\n");
+		write("ä½ ä¸æ˜¯å·²ç»æ‰›ç€äº†å—ï¼Ÿ\n");
 		return 1;
 	}
 	if (query("owner") != me) {
-		write("Õâ¸ö²»ÊÇÄã¶©×öµÄÄ¾ÈË£¡\n");
+		write("è¿™ä¸ªä¸æ˜¯ä½ è®¢åšçš„æœ¨äººï¼\n");
 		return 1;
 	}
 	if (is_busy() || is_fighting()) {
-		write("Ä¾ÈËÕıÔÚ×÷Õ½£¬ÄãÎŞ·¨ÄÃÆğËü£¡\n");
+		write("æœ¨äººæ­£åœ¨ä½œæˆ˜ï¼Œä½ æ— æ³•æ‹¿èµ·å®ƒï¼\n");
 		return 1;
 	}
 	if (npc->move(me)) {
 		if (me->is_fighting()) me->start_busy(1);
-		message_vision( "$N½«$n¿¸ÔÚÁË±³ÉÏ¡£\n", me, npc);
+		message_vision( "$Nå°†$næ‰›åœ¨äº†èƒŒä¸Šã€‚\n", me, npc);
 		return 1;
 	}
 	else {
-		write("ÄãÎŞ·¨ÄÃÆğÄ¾ÈË£¡\n");
+		write("ä½ æ— æ³•æ‹¿èµ·æœ¨äººï¼\n");
 		return 1;
 	}
 	return 0;
@@ -126,18 +126,18 @@ int do_turn(string arg)
 	string *sname, *mname, *pname;
 	int i, temp;
 
-	if (ob->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (arg != "trigger" && arg != "kaiguan") return notify_fail("ÄãÒª°â¶¯Ê²Ã´£¿\n");
-	if (query("owner") != ob) return notify_fail("Äã·¢ÏÖ¿ª¹ØËÆºõ±»Ê²Ã´¶«Î÷¿¨×¡ÁË£¬ÔõÃ´°â¶¼°â²»¶¯¡£\n");
+	if (ob->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (arg != "trigger" && arg != "kaiguan") return notify_fail("ä½ è¦æ‰³åŠ¨ä»€ä¹ˆï¼Ÿ\n");
+	if (query("owner") != ob) return notify_fail("ä½ å‘ç°å¼€å…³ä¼¼ä¹è¢«ä»€ä¹ˆä¸œè¥¿å¡ä½äº†ï¼Œæ€ä¹ˆæ‰³éƒ½æ‰³ä¸åŠ¨ã€‚\n");
 
-//	if (ob->is_fighting()) return notify_fail("ÄãÕıÃ¦×Å´ò¼ÜÄØ£¡\n");
-	if (is_fighting()) return notify_fail("Ä¾ÈËÕıÔÚ×Ô¶¯×÷Õ½£¬ÄãÎŞ·¨Åöµ½¿ª¹Ø£¡\n");
+//	if (ob->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€æ‰“æ¶å‘¢ï¼\n");
+	if (is_fighting()) return notify_fail("æœ¨äººæ­£åœ¨è‡ªåŠ¨ä½œæˆ˜ï¼Œä½ æ— æ³•ç¢°åˆ°å¼€å…³ï¼\n");
 
-	if (environment() == ob) return notify_fail("ÏÈ°ÑÄ¾ÈË·ÅÏÂÀ´ÔÙËµ°É£¡\n");
-	if (environment(ob) != environment()) return notify_fail("Äã¹»²»µ½Ä¾ÈËµÄ¿ª¹Ø£¡\n");
-	if (environment()->query("no_fight")) return notify_fail("ÕâÀï²»×¼´ò¼Ü£¡\n");
+	if (environment() == ob) return notify_fail("å…ˆæŠŠæœ¨äººæ”¾ä¸‹æ¥å†è¯´å§ï¼\n");
+	if (environment(ob) != environment()) return notify_fail("ä½ å¤Ÿä¸åˆ°æœ¨äººçš„å¼€å…³ï¼\n");
+	if (environment()->query("no_fight")) return notify_fail("è¿™é‡Œä¸å‡†æ‰“æ¶ï¼\n");
 
-	message_vision("$NÇáÇáµØ°â¶¯ÁËÄ¾ÈË±³ºóµÄ¿ª¹Ø¡£\n", ob);	
+	message_vision("$Nè½»è½»åœ°æ‰³åŠ¨äº†æœ¨äººèƒŒåçš„å¼€å…³ã€‚\n", ob);	
 	add("fight_times", 1);
 
 /* delete and copy skills */
@@ -217,7 +217,7 @@ int do_turn(string arg)
 	set("jiali",     hp_status["jiali"]);
 	set("combat_exp",hp_status["combat_exp"]);
 
-	message_vision("Ä¾ÈËºöÈ»Ò»Ô¾¶øÆğ£¬¶Ô$N·¢¶¯ÁËÃÍÁÒµÄ½ø¹¥£¡\n", ob);	
+	message_vision("æœ¨äººå¿½ç„¶ä¸€è·ƒè€Œèµ·ï¼Œå¯¹$Nå‘åŠ¨äº†çŒ›çƒˆçš„è¿›æ”»ï¼\n", ob);	
 	me->fight_ob(ob);
 	ob->fight_ob(me);
 	return 1;
@@ -227,7 +227,7 @@ void kill_ob(object ob)
 {
 	ob->remove_killer(this_object());
 	remove_killer(ob);
-	write("¿´Çå³şµã£¬ÄÇÖ»ÊÇ¸öÄ¾ÈË¶øÒÑ£¡\n");
+	write("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£åªæ˜¯ä¸ªæœ¨äººè€Œå·²ï¼\n");
 }
 
 int remove_enemy(object ob)

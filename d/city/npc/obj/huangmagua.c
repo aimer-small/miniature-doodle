@@ -8,12 +8,12 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIY"»ÆÂí¹Ó"NOR, ({ "huang magua","magua" }) );
+        set_name(HIY"é»„é©¬è¤‚"NOR, ({ "huang magua","magua" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼þ");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 10);
                 set("no_get",1);

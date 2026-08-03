@@ -1,4 +1,4 @@
-// kongkong.c ¿Õ¿Õ¶ù
+// kongkong.c ç©ºç©ºå„¿
 // Modify By Looklove 2000/10/21
 
 inherit NPC;
@@ -11,12 +11,12 @@ void consider();
 
 void create()
 {
-	set_name("¿Õ¿Õ¶ù", ({ "kong kong","beggar","qi gai","kong" }) );
-	set("title", "ÃîÊÖÉñØ¤");
+	set_name("ç©ºç©ºå„¿", ({ "kong kong","beggar","qi gai","kong" }) );
+	set("title", "å¦™æ‰‹ç¥žä¸");
 	set("gb/bags",8);
-	set("gender", "ÄÐÐÔ" );
+	set("gender", "ç”·æ€§" );
 	set("age", 53);
-	set("long", "Ò»¸öÂúÁ³·çËªÖ®É«µÄÀÏÆòØ¤¡£\n");
+	set("long", "ä¸€ä¸ªæ»¡è„¸é£Žéœœä¹‹è‰²çš„è€ä¹žä¸ã€‚\n");
 	set("attitude", "peaceful");
         set("book_count",1);
 	set("str", 25);
@@ -58,20 +58,20 @@ void create()
 	map_skill("parry", "lianhua-zhang");
 	map_skill("strike", "lianhua-zhang");
 
-	create_family("Ø¤°ï", 19, "°Ë´üµÜ×Ó");
+	create_family("ä¸å¸®", 19, "å…«è¢‹å¼Ÿå­");
        	set("inquiry", ([
-        	"Ò½Êé" : (: ask_book :),
-         	"Ò©µä" : (: ask_book :),
-         	"½Ð»¯¼¦" : (: ask_ji :),
+        	"åŒ»ä¹¦" : (: ask_book :),
+         	"è¯å…¸" : (: ask_book :),
+         	"å«åŒ–é¸¡" : (: ask_ji :),
 
          ]));
 
 
 	set("chat_chance", 20);
 	set("chat_msg", ({
-		"¿Õ¿Õ¶ùËµµÀ: ºÃÐÄµÄ´óÒ¯ÄÄ¡« ÉÍÎÒÒª·¹µÄ¼¸¸öÍ­°å°É¡«\n",
-		"¿Õ¿Õ¶ùÀÁÑóÑóµØ´òÁË¸ö¹þÇ·¡£\n",
-		"¿Õ¿Õ¶ùÉìÊÖ×½×¡ÁËÉíÉÏµÄÊ­×Ó£¬ÂîµÀ: ÀÏ×ÓÉíÉÏÃ»¼¸Á½Èâ£¬È«½ÐÄãÃÇ¸øÒ§ÃÓÁË¡£ \n",
+		"ç©ºç©ºå„¿è¯´é“: å¥½å¿ƒçš„å¤§çˆ·å“ªï½ž èµæˆ‘è¦é¥­çš„å‡ ä¸ªé“œæ¿å§ï½ž\n",
+		"ç©ºç©ºå„¿æ‡’æ´‹æ´‹åœ°æ‰“äº†ä¸ªå“ˆæ¬ ã€‚\n",
+		"ç©ºç©ºå„¿ä¼¸æ‰‹æ‰ä½äº†èº«ä¸Šçš„è™±å­ï¼Œéª‚é“: è€å­èº«ä¸Šæ²¡å‡ ä¸¤è‚‰ï¼Œå…¨å«ä½ ä»¬ç»™å’¬ç³œäº†ã€‚ \n",
 		(: random_move :)
 	}) );
 
@@ -89,23 +89,23 @@ void create()
 void attempt_apprentice(object ob)
 {
 /*
-	if ( ob->query("family/family_name") != "Ø¤°ï") {
-		command("say Äã·ÇÎÒØ¤°ïÖÐÈË¡£");
+	if ( ob->query("family/family_name") != "ä¸å¸®") {
+		command("say ä½ éžæˆ‘ä¸å¸®ä¸­äººã€‚");
 		return;
 	}
 */
 	if ( ob->query("gb/bags") >= 2
-	 && ob->query("family/family_name") != "Ø¤°ï" ) {
-                command("say ËûÂèµÄ£¬ÄãÕâ¸öÅÑÍ½£¬·´¸´ÎÞ³£µÄÐ¡ÈË£¡");
-                command("say "+ob->query("name")+"£¬ÄãÔÙ·´¸´ÎÞ³££¬ÎÒµÚÒ»¸öÔ×ÁËÄã£¡");
+	 && ob->query("family/family_name") != "ä¸å¸®" ) {
+                command("say ä»–å¦ˆçš„ï¼Œä½ è¿™ä¸ªå›å¾’ï¼Œåå¤æ— å¸¸çš„å°äººï¼");
+                command("say "+ob->query("name")+"ï¼Œä½ å†åå¤æ— å¸¸ï¼Œæˆ‘ç¬¬ä¸€ä¸ªå®°äº†ä½ ï¼");
                 return;
         }
-	command("say ºÃ°É£¬Ï£Íû" + RANK_D->query_respect(ob)+"ÄÜºÃºÃÑ§Ï°±¾ÃÅÎä¹¦£¬½«À´ÔÚ½­ºþÖÐ´³³öÒ»·¬×÷Îª¡£");
+	command("say å¥½å§ï¼Œå¸Œæœ›" + RANK_D->query_respect(ob)+"èƒ½å¥½å¥½å­¦ä¹ æœ¬é—¨æ­¦åŠŸï¼Œå°†æ¥åœ¨æ±Ÿæ¹–ä¸­é—¯å‡ºä¸€ç•ªä½œä¸ºã€‚");
         if (!ob->query("gb/bags")) ob->set("gb/bags", 1);
         command("recruit " + ob->query("id"));
-        ob->set("title",sprintf("Ø¤°ï´óÓÂ·Ö¶æ%s´üµÜ×Ó",
+        ob->set("title",sprintf("ä¸å¸®å¤§å‹‡åˆ†èˆµ%sè¢‹å¼Ÿå­",
                 chinese_number(ob->query("gb/bags"))) );
-        ob->set("gb/fenduo","´óÓÂ·Ö¶æ");
+        ob->set("gb/fenduo","å¤§å‹‡åˆ†èˆµ");
         ob->set("class","beggar");
 }
 
@@ -125,7 +125,7 @@ void stealing(object ob)
 	mapping fam;
 
 	if( !ob || environment(ob) != environment()
-                || ((fam = ob->query("family")) && fam["family_name"] == "Ø¤°ï")
+                || ((fam = ob->query("family")) && fam["family_name"] == "ä¸å¸®")
                 || (int)ob->query("kar") > 22
                 || ob->query_int() > 30
           ) return;
@@ -167,24 +167,24 @@ int accept_object(object me, object obj)
 
       	if (obj->query("money_id") && obj->value() <= 100000) {
         	 command("smile");
-	         command("say ¶àÐ»À² ! ÆäÊµÎÒ»¹ÊÇÓÐµãÇ®µÄ£¬Õâ´ÎÖ»²»¹ýÊÔÊÔÄã°ÕÁË !");
+	         command("say å¤šè°¢å•¦ ! å…¶å®žæˆ‘è¿˜æ˜¯æœ‰ç‚¹é’±çš„ï¼Œè¿™æ¬¡åªä¸è¿‡è¯•è¯•ä½ ç½¢äº† !");
         	 command("give 10 silver to " + me->query("id"));
 	}
-       	else if (ob->query_temp("marks/ÌáÊ¾")&&(query("book_count") >= 1)&&(
+       	else if (ob->query_temp("marks/æç¤º")&&(query("book_count") >= 1)&&(
 	obj->id("kao ya") || obj->query("id") == "lingbai xiaren" ||
 	obj->query("id") == "dongsun-tang"|| obj->query("id") == "yingtao huotui")) {
 		command("nod");
-		command("say ÄãÕâÃ´´ÏÃ÷£¬Õâ±¾ÊéÄã¾ÍÄÃÈ¥°É.");
+		command("say ä½ è¿™ä¹ˆèªæ˜Žï¼Œè¿™æœ¬ä¹¦ä½ å°±æ‹¿åŽ»å§.");
 		ob1 = new("/clone/medicine/m-book4");
 		ob1->move(this_player());
-		ob->delete_temp("marks/ÌáÊ¾");
+		ob->delete_temp("marks/æç¤º");
 		add("book_count", -1);
 	}
 	else if ( ob->query_temp("marks/find-ji",1) ) {
 		if (( !obj->query("money_id") && obj->query("value",1) >= 100000 )
 		 ||( obj->query("money_id") && obj->value() >= 100000 )) {
 			command("hehe");
-			command("say ÄãÕâÃ´´ÏÃ÷£¬ÕâÖ»¼¦Äã¾ÍÄÃÈ¥°É.");
+			command("say ä½ è¿™ä¹ˆèªæ˜Žï¼Œè¿™åªé¸¡ä½ å°±æ‹¿åŽ»å§.");
 			ob1 = new(__DIR__"obj/jiaohuaji");
 			ob1->move(this_player());
 			ob->delete_temp("marks/find-ji");
@@ -197,7 +197,7 @@ int accept_object(object me, object obj)
 	}
 	else {
 		command("shake");
-		command("say ÕâÖÖ¶«Î÷¹í²ÅÒª ! ¹öÒ»±ßÈ¥ !");
+		command("say è¿™ç§ä¸œè¥¿é¬¼æ‰è¦ ! æ»šä¸€è¾¹åŽ» !");
 		return notify_fail("");
 	}
 	return 1;
@@ -212,7 +212,7 @@ void destroying(object obj)
 
 int accept_fight(object me)
 {
-	command("say " + RANK_D->query_respect(me) + "ÈÄÃüÐ¡µÄÕâ¾ÍÀë¿ª\n");
+	command("say " + RANK_D->query_respect(me) + "é¥¶å‘½å°çš„è¿™å°±ç¦»å¼€\n");
 	return 0;
 }
 
@@ -223,15 +223,15 @@ int ask_book()
 	if (ob->query_temp("marks/m-book4"))
 	{
 		command("xixi");
-		command("say ÎûÎû£¬ÄãËµÄÇ±¾Êé°¡£¬ÊÇÔÚÎÒÊÖÀï£¬²»¹ý¡£¡£ÎÒºÃÏó²»¼ÇµÃ·ÅÄÄÁË?\n"
-		+RANK_D->query_respect(ob)+"ÊÇ²»ÊÇµÃÀ´µã...ÄÄ¸öÌáÊ¾..ÌáÊ¾...£¡\n");
+		command("say å˜»å˜»ï¼Œä½ è¯´é‚£æœ¬ä¹¦å•Šï¼Œæ˜¯åœ¨æˆ‘æ‰‹é‡Œï¼Œä¸è¿‡ã€‚ã€‚æˆ‘å¥½è±¡ä¸è®°å¾—æ”¾å“ªäº†?\n"
+		+RANK_D->query_respect(ob)+"æ˜¯ä¸æ˜¯å¾—æ¥ç‚¹...å“ªä¸ªæç¤º..æç¤º...ï¼\n");
   		ob->delete_temp("marks/m-book4");
-  		ob->set_temp("marks/ÌáÊ¾",1);
+  		ob->set_temp("marks/æç¤º",1);
 		return 1;
 	}
 	else {
 		command("?");
-	command("say ÄãËµÊ²Ã´°¡£¬ÎÒ²»¶®,¿É±ðÔ©Í÷ºÃÈË!\n");
+	command("say ä½ è¯´ä»€ä¹ˆå•Šï¼Œæˆ‘ä¸æ‡‚,å¯åˆ«å†¤æž‰å¥½äºº!\n");
 	return 1;
 	}
 }
@@ -244,9 +244,9 @@ int ask_ji()
   	if (ob->query_temp("marks/lost-ji",1)) {
                 if ( random(10 ) < 2){
          		command("?");
-         		command("say ÄãËµÊ²Ã´°¡£¬ÎÒ²»¶®,¿É±ðÔ©Í÷ºÃÈË!\n");
+         		command("say ä½ è¯´ä»€ä¹ˆå•Šï¼Œæˆ‘ä¸æ‡‚,å¯åˆ«å†¤æž‰å¥½äºº!\n");
           	} else {
-			command("say ÎûÎû£¬ÄãËµÄÇÖ»¼¦°¡£¬ÊÇÔÚÎÒÊÖÀï£¬²»¹ý¡£¡£ÎÒºÃÏó²»¼ÇµÃ·ÅÄÄÁË?\n" +RANK_D->query_respect(ob)+"ÊÇ²»ÊÇµÃÀ´µã...ÄÇ¸öÌáÊ¾..ÌáÊ¾...£¡\n");
+			command("say å˜»å˜»ï¼Œä½ è¯´é‚£åªé¸¡å•Šï¼Œæ˜¯åœ¨æˆ‘æ‰‹é‡Œï¼Œä¸è¿‡ã€‚ã€‚æˆ‘å¥½è±¡ä¸è®°å¾—æ”¾å“ªäº†?\n" +RANK_D->query_respect(ob)+"æ˜¯ä¸æ˜¯å¾—æ¥ç‚¹...é‚£ä¸ªæç¤º..æç¤º...ï¼\n");
   			ob->delete_temp("marks/lost-ji",1);
   			ob->set_temp("marks/find-ji",1);
 		}

@@ -6,12 +6,12 @@ string ask_water();
 
 void create()
 {
-        set_name("Ğ¡³ø×Ó", ({ "xiao chuzi", "chuzi" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("å°å¨å­", ({ "xiao chuzi", "chuzi" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 28);
         set("long", 
-             "Ğ¡³ø×ÓÊÇĞÇËŞÅÉµÄÊ³ÌÃ¹ÜÊÂµÄ¡£ÉúĞÔ²»°®Á·Îä¹¦¡£"
-             "Ö»°®×ö·¹£¬ÒòÀÏÏÉ°®³ÔËû×öµÄ²Ë£¬ËùÒÔÊÕËûÎªÍ½¡£\n");
+             "å°å¨å­æ˜¯æ˜Ÿå®¿æ´¾çš„é£Ÿå ‚ç®¡äº‹çš„ã€‚ç”Ÿæ€§ä¸çˆ±ç»ƒæ­¦åŠŸã€‚"
+             "åªçˆ±åšé¥­ï¼Œå› è€ä»™çˆ±åƒä»–åšçš„èœï¼Œæ‰€ä»¥æ”¶ä»–ä¸ºå¾’ã€‚\n");
         set("str", 25);
         set("dex", 30);
         set("con", 17);
@@ -28,14 +28,14 @@ void create()
         set("max_qi", 500);
         set("max_jing", 500);
 
-        create_family("ĞÇËŞÅÉ", 2, "µÜ×Ó");
+        create_family("æ˜Ÿå®¿æ´¾", 2, "å¼Ÿå­");
 
         set("attitude", "peaceful");
        set("inquiry", ([
-             "name" : "Ğ¡Éú±ãÊÇĞÇËŞÅÉµÄ³ø×Ó¡£",
-             "ÊÖÒÕ" : "ÎÒ×ö²ËµÄÊÖÒÕ¿ÉÊÇÎ÷ÓòÒ»¾ø£¬Á¬ÀÏÏÉËûÀÏÈË¼ÒÒ²°®³ÔÎÒ×öµÄ²Ë£¡",
-             "Ê³Îï" : (: ask_food :),
-             "Ë®" : (: ask_water :), 
+             "name" : "å°ç”Ÿä¾¿æ˜¯æ˜Ÿå®¿æ´¾çš„å¨å­ã€‚",
+             "æ‰‹è‰º" : "æˆ‘åšèœçš„æ‰‹è‰ºå¯æ˜¯è¥¿åŸŸä¸€ç»ï¼Œè¿è€ä»™ä»–è€äººå®¶ä¹Ÿçˆ±åƒæˆ‘åšçš„èœï¼",
+             "é£Ÿç‰©" : (: ask_food :),
+             "æ°´" : (: ask_water :), 
        ]) );
 
         setup();
@@ -48,16 +48,16 @@ string ask_food()
         object ob,me,food;
         ob=this_object();
         me=this_player();
-        say("Ğ¡³ø×ÓËµµÀ£ºÎÒ×öÕâµã·¹²ËÒ²²»ÈİÒ×£¡±ğÀË·ÑÁË¡£¡±\n");
+        say("å°å¨å­è¯´é“ï¼šæˆ‘åšè¿™ç‚¹é¥­èœä¹Ÿä¸å®¹æ˜“ï¼åˆ«æµªè´¹äº†ã€‚â€\n");
         if ((me->query("food")*10/me->max_water_capacity())>8)
-                return "ÄãÔõÃ´³Ô±¥ÁË»¹ÏëÒª£¿";
+                return "ä½ æ€ä¹ˆåƒé¥±äº†è¿˜æƒ³è¦ï¼Ÿ";
         if ( present("cai yao", this_player()))
-                return "ÏÈ³ÔÍêÁËÎÒ¸øÄãµÄÔÙËµ°É¡£";
+                return "å…ˆåƒå®Œäº†æˆ‘ç»™ä½ çš„å†è¯´å§ã€‚";
         if ( present("cai yao",  environment(me)) )
-                return "ÄÇ²»ÊÇÓĞÂğ£¿ÏÈ³ÔÍêÁËÔÙËµ¡£";              
+                return "é‚£ä¸æ˜¯æœ‰å—ï¼Ÿå…ˆåƒå®Œäº†å†è¯´ã€‚";              
         food = new (FOOD_D("caiyao"));
         food->move(me);
-        return "ÕâÅÌ²Ë¾Í¸øÄãÁË£¬Âıµã³ÔÓ´¡£";
+        return "è¿™ç›˜èœå°±ç»™ä½ äº†ï¼Œæ…¢ç‚¹åƒå“Ÿã€‚";
 }
  
 string ask_water()
@@ -66,14 +66,14 @@ string ask_water()
         ob=this_object();
         me=this_player();
         if ((me->query("water")*10/me->max_water_capacity())>8)
-                return "ÄãÔõÃ´ºÈ±¥ÁË»¹ÏëÒª£¿";
+                return "ä½ æ€ä¹ˆå–é¥±äº†è¿˜æƒ³è¦ï¼Ÿ";
         if ( present("qing hulu", this_player()))
-                return "ÏÈºÈÍêÁËÎÒ¸øÄãµÄÔÙËµ°É¡£";
+                return "å…ˆå–å®Œäº†æˆ‘ç»™ä½ çš„å†è¯´å§ã€‚";
         if ( present("qing hulu",  environment(me)) )
-                return "ÄÇ²»ÊÇÓĞÂğ£¿ÏÈºÈÍêÁËÔÙËµ¡£";
+                return "é‚£ä¸æ˜¯æœ‰å—ï¼Ÿå…ˆå–å®Œäº†å†è¯´ã€‚";
         water = new(FOOD_D("hulu"));
         water->move(me);
-        return "Õâ¸öÇàºùÂ«¾Í¸øÄã°É£¬ÇëÂıµãºÈÓ´¡£";        
+        return "è¿™ä¸ªé’è‘«èŠ¦å°±ç»™ä½ å§ï¼Œè¯·æ…¢ç‚¹å–å“Ÿã€‚";        
 }
 
 void greeting(object ob)
@@ -82,7 +82,7 @@ void greeting(object ob)
          
         if ( ob->query("combat_exp") < 3000){
           command(":) "+ob->query("id"));
-          command("say ÕâÀïÊÇ³ø·¿£¬Äã¿ÉÒÔÏÈ¿´¿´ÓĞÊ²Ã´³ÔµÄºÍºÈµÄ£¬Èç¹ûÃ»ÁËÄã¾ÍÏòÎÒ\n"+
-          "ÒªÊ³Îï "HIY HBCYN"ask chuzi about Ê³Îï"CYN" ºÍ\nºÈµÄ "HIY HBCYN"ask chuzi about Ë®"CYN" °É¡£"NOR);
+          command("say è¿™é‡Œæ˜¯å¨æˆ¿ï¼Œä½ å¯ä»¥å…ˆçœ‹çœ‹æœ‰ä»€ä¹ˆåƒçš„å’Œå–çš„ï¼Œå¦‚æœæ²¡äº†ä½ å°±å‘æˆ‘\n"+
+          "è¦é£Ÿç‰© "HIY HBCYN"ask chuzi about é£Ÿç‰©"CYN" å’Œ\nå–çš„ "HIY HBCYN"ask chuzi about æ°´"CYN" å§ã€‚"NOR);
         }
 }

@@ -1,12 +1,12 @@
-// /u/beyond/hz/jingzhongbai.c ���Ұ�
+// /u/beyond/hz/jingzhongbai.c 精忠柏
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short",GRN"���Ұ�"NOR);
+        set("short",GRN"精忠柏"NOR);
         set("long", @LONG
-Ĺ԰��������һ�����Ұء�ͤ�����ԡ���ʯ�����������ɼ��겻���ľ�
-�񣬷�ӳ���������λ����Ӣ�۵ĳ羴������֮�顣
+墓园的西部有一“精忠柏”亭，乃以“化石”来比喻岳飞坚贞不屈的精
+神，反映了人民对这位民族英雄的崇敬、景仰之情。
 LONG
         );
         set("exits", ([

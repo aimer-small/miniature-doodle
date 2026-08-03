@@ -3,9 +3,9 @@
 inherit NPC;
 void create()
 {
-       set_name("ÂÌÒÂÙ×¶ù", ({ "luyi tonger", "luyi", "tonger"}));
-       set("long", "ËûÊÇ¾øÇé¹ÈµÄÂÌÒÂµÜ×Ó£¬³¤µÃÃ¼ÇåÄ¿Ğã¡£\n");
-       set("gender", "ÄĞĞÔ");
+       set_name("ç»¿è¡£åƒ®å„¿", ({ "luyi tonger", "luyi", "tonger"}));
+       set("long", "ä»–æ˜¯ç»æƒ…è°·çš„ç»¿è¡£å¼Ÿå­ï¼Œé•¿å¾—çœ‰æ¸…ç›®ç§€ã€‚\n");
+       set("gender", "ç”·æ€§");
        set("age", 15);
        set("shen_type",1);
        set("attitude", "peaceful");

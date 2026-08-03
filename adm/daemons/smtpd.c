@@ -1,14 +1,14 @@
-// µ÷ÓÃ·½·¨
+// è°ƒç”¨æ–¹æ³•
 /*
 	SMTP_D->send_mail(object sender, mixed email, string subject, string content);
-	sender: ·¢ĞÅÈË
-	email: ¿ÉÒÔÊÇ Íæ¼Ò ID¡¢Íæ¼Ò object¡¢µÇÂ¼ object »ò email µØÖ·
-	subject: Ö÷Ìâ
-	content: ÄÚÈİ
+	sender: å‘ä¿¡äºº
+	email: å¯ä»¥æ˜¯ ç©å®¶ IDã€ç©å®¶ objectã€ç™»å½• object æˆ– email åœ°å€
+	subject: ä¸»é¢˜
+	content: å†…å®¹
 
 */
-// olives ³õ¸å 2001-04-15@Beijing
-// yuj@SJ ÍêÃÀ×°ĞŞ 2001-04-16@Toronto
+// olives åˆç¨¿ 2001-04-15@Beijing
+// yuj@SJ å®Œç¾è£…ä¿® 2001-04-16@Toronto
 
 #include <ansi.h>
 #include <mudlib.h>
@@ -24,9 +24,9 @@
 
 class email
 {
-	string address;	// ÊÕ¼şÕßµØÖ·
-	string body;	// ÄÚÈİ
-	int status;	// ×´Ì¬Âë
+	string address;	// æ”¶ä»¶è€…åœ°å€
+	string body;	// å†…å®¹
+	int status;	// çŠ¶æ€ç 
 	int time_stamp;
 	object user;
 }
@@ -55,7 +55,7 @@ int send_mail(object user, mixed mail, string subject, string content)
 
 	if (!stringp(content))
 	{
-		tell_object(user, "ÓÊ¼şÄÚÈİÎª¿Õ¡£\n");
+		tell_object(user, "é‚®ä»¶å†…å®¹ä¸ºç©ºã€‚\n");
 		return 0;
 	}
 
@@ -79,14 +79,14 @@ int send_mail(object user, mixed mail, string subject, string content)
 			mail = tmp->query("email");
 	}
 	if (!stringp(mail) || sscanf(mail, "%*s@%*s.%*s") != 3) {
-		tell_object(user, "ÓÊ¼şµØÖ·´íÎó¡£\n");
+		tell_object(user, "é‚®ä»¶åœ°å€é”™è¯¯ã€‚\n");
 		return 0;
 	}
 
 	mail = lower_case(mail);
-	// ¹ıÂËÎŞĞ§½áÊø±êÖ¾
+	// è¿‡æ»¤æ— æ•ˆç»“æŸæ ‡å¿—
 	content = replace_string(content, "\n.\n", "\n\n");
-	if (!stringp(subject)) subject = CHINESE_MUD_NAME+"ÓÊ¼ş";
+	if (!stringp(subject)) subject = CHINESE_MUD_NAME+"é‚®ä»¶";
 
 	msg = sprintf(
 		"From: \"%s\" <%s>\n"
@@ -113,7 +113,7 @@ int send_mail(object user, mixed mail, string subject, string content)
 	s = socket_create(STREAM, "read_callback", "close_callback");
 	if(s<0)
 	{
-		tell_object(user, "´´½¨Ì×½Ó×Ö·¢Éú´íÎó¡£\n");
+		tell_object(user, "åˆ›å»ºå¥—æ¥å­—å‘ç”Ÿé”™è¯¯ã€‚\n");
 		return 0;
 	}
 
@@ -121,12 +121,12 @@ int send_mail(object user, mixed mail, string subject, string content)
 	err = socket_connect(s, smtp_server, "read_callback", "write_call_back");
 	if (err != EESUCCESS)
 	{
-		tell_object(user, "Á¬½Ó·şÎñÆ÷·¢Éú´íÎó¡£\n");
+		tell_object(user, "è¿æ¥æœåŠ¡å™¨å‘ç”Ÿé”™è¯¯ã€‚\n");
 		map_delete(queue, s);
 		socket_close(s);
 		return 0;
 	}
-	tell_object(user,"ÓÊ¼ş·¢ËÍÖĞ£¬ÇëÉÔºò¡£\n");
+	tell_object(user,"é‚®ä»¶å‘é€ä¸­ï¼Œè¯·ç¨å€™ã€‚\n");
 	call_out("time_out", TIME_OUT, s, newmail->time_stamp);
 	return 1;
 }
@@ -144,9 +144,9 @@ protected void time_out(int fd, int s)
 		return;
 
 	if (objectp(usr = mailmsg->user)){
-		tell_object(usr, BLINK "·¢ËÍ¹ı³Ì³¬Ê±£¬ÇëÖØĞÂÔÙ·¢ËÍÒ»´Î¡£\n" NOR);
-		tell_object(usr, HIW "Èç¹ûÄãÁ¬ĞøÓöµ½ÕâÖÖÇé¿ö£¬Çëµ½Êé½£¹Ù·½ÂÛÌ³¡£\n" NOR);
-		tell_object(usr,HIW"ÍøÖ·£º"+HIY+U+"http://bbs.mymud.com/forumdisplay.php?fid=28"NOR+HIW+"ÁôÑÔ£¬¹¤×÷ÈËÔ±»áÊÖ¹¤·¢ËÍ¡£\n"NOR);
+		tell_object(usr, BLINK "å‘é€è¿‡ç¨‹è¶…æ—¶ï¼Œè¯·é‡æ–°å†å‘é€ä¸€æ¬¡ã€‚\n" NOR);
+		tell_object(usr, HIW "å¦‚æœä½ è¿ç»­é‡åˆ°è¿™ç§æƒ…å†µï¼Œè¯·åˆ°ä¹¦å‰‘å®˜æ–¹è®ºå›ã€‚\n" NOR);
+		tell_object(usr,HIW"ç½‘å€ï¼š"+HIY+U+"http://bbs.mymud.com/forumdisplay.php?fid=28"NOR+HIW+"ç•™è¨€ï¼Œå·¥ä½œäººå‘˜ä¼šæ‰‹å·¥å‘é€ã€‚\n"NOR);
 	}
 	map_delete(queue,fd);
 	socket_close(fd);
@@ -162,7 +162,7 @@ protected void success_send(int fd)
 
 	mailmsg = queue[fd];
 	if(objectp(usr = mailmsg->user))
-		tell_object(usr, sprintf(HIW "ĞÅ¼şÒÑ¾­·¢Íù£º%s£¡\n" NOR, mailmsg->address));
+		tell_object(usr, sprintf(HIW "ä¿¡ä»¶å·²ç»å‘å¾€ï¼š%sï¼\n" NOR, mailmsg->address));
 	map_delete(queue, fd);
 	socket_close(fd);
 }
@@ -179,7 +179,7 @@ protected void mail_error(int fd, string message)
 
 	if (objectp(usr = mailmsg->user))
 	{
-		tell_object(usr, sprintf(BLINK "·¢ËÍ¹ı³ÌÖĞ³öÏÖÒì³£´íÎó£º%s\n" NOR,
+		tell_object(usr, sprintf(BLINK "å‘é€è¿‡ç¨‹ä¸­å‡ºç°å¼‚å¸¸é”™è¯¯ï¼š%s\n" NOR,
 			message)
 		);
 	}

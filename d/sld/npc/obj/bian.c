@@ -1,21 +1,21 @@
-// bian.c ±Ş
+// bian.c é­
 
 #include <weapon.h>
 inherit WHIP;
 
 void create()
 {
-        set_name("Éß±Ş", ({ "bian", "whip" }));
+        set_name("è›‡é­", ({ "bian", "whip" }));
         set_weight(300);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ìõ");
-                set("long", "ÕâÊÇÒ»ÌõÓÃÉßÆ¤ÖÆ³ÉµÄ³¤±Ş£¬×ö¹¤´Ö²Ú¡£\n");
+                set("unit", "æ¡");
+                set("long", "è¿™æ˜¯ä¸€æ¡ç”¨è›‡çš®åˆ¶æˆçš„é•¿é­ï¼Œåšå·¥ç²—ç³™ã€‚\n");
                 set("value", 30);
                 set("material", "fur");
-                set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù´ÓÑüºó³é³öÒ»Ìõ$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n±ğ»ØÑüºó¡£\n");
+                set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°ä»è…°åæŠ½å‡ºä¸€æ¡$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nåˆ«å›è…°åã€‚\n");
 		set("no_return",1);
         }
         init_whip(30);

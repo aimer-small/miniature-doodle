@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÑÆ°Í", ({"yaba"}));
-	set("long","ÑÆ°Í¼ûÁËÄã£¬Ë«ÊÖ±È»­£¬¿ÚÖÐÑÆÑÆ×÷Éù£¬ºÃÏóÔÚÎÊÄãµÄÀ´Àú¡£\n");
-	set("gender", "ÄÐÐÔ");
+	set_name("å“‘å·´", ({"yaba"}));
+	set("long","å“‘å·´è§äº†ä½ ï¼ŒåŒæ‰‹æ¯”ç”»ï¼Œå£ä¸­å“‘å“‘ä½œå£°ï¼Œå¥½è±¡åœ¨é—®ä½ çš„æ¥åŽ†ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -50,7 +50,7 @@ void create()
 	map_skill("cuff", "poyu-quan");
 	prepare_skill("strike", "hunyuan-zhang");
 	prepare_skill("cuff", "poyu-quan");
-	create_family("»ªÉ½ÅÉ", 14, "µÜ×Ó");
+	create_family("åŽå±±æ´¾", 14, "å¼Ÿå­");
 
 	setup();
 	carry_object(BINGQI_D("sword/sword"))->wield();
@@ -64,14 +64,14 @@ void init()
 	add_action("do_follow","follow");
 	add_action("do_kill","kill");
 	::init();
-	if (me->query("family/family_name") == "»ªÉ½ÅÉ" && me->query_temp("fill") > 0) {
-	write("ÑÆ°ÍÓÃÊÖÊÆ±È»­ÁË°ëÌì£¬Äã²ÅÃ÷°×ÁËËûµÄÒâË¼£¬¸Ï½ô¸úËûÒ»¿é×ß°É(follow yaba)¡£\n", me);
+	if (me->query("family/family_name") == "åŽå±±æ´¾" && me->query_temp("fill") > 0) {
+	write("å“‘å·´ç”¨æ‰‹åŠ¿æ¯”ç”»äº†åŠå¤©ï¼Œä½ æ‰æ˜Žç™½äº†ä»–çš„æ„æ€ï¼Œèµ¶ç´§è·Ÿä»–ä¸€å—èµ°å§(follow yaba)ã€‚\n", me);
 	}
 	call_out("do_back", 7, me);
 }
 
 void do_back(object me)
 {
-	write("ÑÆ°Í¼ûÄãÃ»ÓÐÃ÷°×ËûµÄÒâË¼£¬Ê®·Ö¾ÚÉ¥µÄ×ßÁË¡£¡£¡£\n", me);
+	write("å“‘å·´è§ä½ æ²¡æœ‰æ˜Žç™½ä»–çš„æ„æ€ï¼Œååˆ†æ²®ä¸§çš„èµ°äº†ã€‚ã€‚ã€‚\n", me);
 	destruct(this_object());
 }

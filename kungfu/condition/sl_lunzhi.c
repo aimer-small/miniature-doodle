@@ -6,7 +6,7 @@
 int update_condition(object me, int duration)
 {
         if (duration < 2) {
-                    tell_object(me, HIY "ÄãÂÖÖµµÄÊ±¼äÒÑµ½£¬¿ì»ØÈ¥¸´Ãü(task ok)°É£¡\n" NOR);
+                    tell_object(me, HIY "ä½ è½®å€¼çš„æ—¶é—´å·²åˆ°ï¼Œå¿«å›žåŽ»å¤å‘½(task ok)å§ï¼\n" NOR);
 me->set_temp("lunzhi_ok",1);
                 return 0;
         }

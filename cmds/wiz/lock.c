@@ -2,7 +2,7 @@
 
 #include <ansi.h>
 #include <login.h>
-#define SYNTAX "÷∏¡Ó∏Ò Ω£∫lock <ƒ≥»À> because <‘≠“Ú>\n"
+#define SYNTAX "Êåá‰ª§Ê†ºÂºèÔºölock <Êüê‰∫∫> because <ÂéüÂõ†>\n"
 #define BLOCK "/d/death/block"
 
 inherit F_CLEAN_UP;
@@ -16,31 +16,31 @@ int main(object me, string str)
 		  return notify_fail(SYNTAX);
        
 	if (!objectp(ob = LOGIN_D->find_body(name))) 
-		  return notify_fail("√ª”–’‚∏ˆ»À∞…?\n");
+		  return notify_fail("Ê≤°ÊúâËøô‰∏™‰∫∫Âêß?\n");
 
 	if (wiz_level(ob))
-		 return notify_fail("◊•Œ◊ ¶£øƒ„“‘Œ™ƒ„ «darken∞°£ø\n");
+		 return notify_fail("ÊäìÂ∑´Â∏àÔºü‰Ω†‰ª•‰∏∫‰Ω†ÊòØdarkenÂïäÔºü\n");
 
 	if(!objectp(where = environment(ob)))
-		  return notify_fail("’‚∏ˆ»À≤ª÷™µ¿∂„‘⁄ƒƒ¿Ô“Æ... :-( \n");
+		  return notify_fail("Ëøô‰∏™‰∫∫‰∏çÁü•ÈÅìË∫≤Âú®Âì™ÈáåËÄ∂... :-( \n");
 	
 	if (ob->query("registered") < 2)
-		return notify_fail("’‚∏ˆ»À≤ª «’˝ Ω◊¢≤·µƒÕÊº“°£\n");
+		return notify_fail("Ëøô‰∏™‰∫∫‰∏çÊòØÊ≠£ÂºèÊ≥®ÂÜåÁöÑÁé©ÂÆ∂„ÄÇ\n");
 
 	if (file_name(where) == BLOCK)
-		  return notify_fail(ob->query("name") + "“—æ≠‘⁄À¿–Ã∑øÀºπ˝¡À£¨≤ª”√‘Ÿ◊•¡À°£\n");
+		  return notify_fail(ob->query("name") + "Â∑≤ÁªèÂú®Ê≠ªÂàëÊàøÊÄùËøá‰∫ÜÔºå‰∏çÁî®ÂÜçÊäì‰∫Ü„ÄÇ\n");
 
 	if (base_name(ob) == "/cmds/leitai/leitaiuser")
-		return notify_fail(ob->name() + "’‚»À «±»Œ‰¿ﬁÃ®Clone≥ˆ¿¥µƒ£¨‘⁄¿ﬁÃ®ƒ⁄»√À˚¿Îø™æÕ «¡À°£\n");
+		return notify_fail(ob->name() + "Ëøô‰∫∫ÊòØÊØîÊ≠¶ÊìÇÂè∞CloneÂá∫Êù•ÁöÑÔºåÂú®ÊìÇÂè∞ÂÜÖËÆ©‰ªñÁ¶ªÂºÄÂ∞±ÊòØ‰∫Ü„ÄÇ\n");
 
-	tell_room(where, WHT HBMAG"Õª»ª≥ˆœ÷¡À¡Ω∏ˆπÙ◊” ÷£¨∞—"+ob->query("name")+"º‹µΩÀ¿–Ã∑ø»•¡À°£\n"NOR, ob);
-	tell_object(ob, MAG"¡Ω∏ˆπÙ◊” ÷∞—ƒ„Õ∆Ω¯¡ÀÀ¿–Ã∑ø¥....\n"NOR);
+	tell_room(where, WHT HBMAG"Á™ÅÁÑ∂Âá∫Áé∞‰∫Ü‰∏§‰∏™ÂàΩÂ≠êÊâãÔºåÊää"+ob->query("name")+"Êû∂Âà∞Ê≠ªÂàëÊàøÂéª‰∫Ü„ÄÇ\n"NOR, ob);
+	tell_object(ob, MAG"‰∏§‰∏™ÂàΩÂ≠êÊâãÊää‰Ω†Êé®Ëøõ‰∫ÜÊ≠ªÂàëÊàøÔøΩ....\n"NOR);
 
-	message("shout", YEL HBRED "\n°æºÕ¬…°ø"+ob->query("name")+"("+capitalize(ob->query("id"))
-		+")“ÚŒ™£€" + reason + "£›£¨Œ•∑¥ ÈΩ£”Œœ∑πÊ‘Ú£¨æˆ∂®∏¯”ËπÿΩ¯À¿–Ã∑øµƒ¥¶∑£°£\n\n" NOR, users());
+	message("shout", YEL HBRED "\n„ÄêÁ∫™Âæã„Äë"+ob->query("name")+"("+capitalize(ob->query("id"))
+		+")Âõ†‰∏∫Ôºª" + reason + "ÔºΩÔºåËøùÂèç‰π¶ÂâëÊ∏∏ÊàèËßÑÂàôÔºåÂÜ≥ÂÆöÁªô‰∫àÂÖ≥ËøõÊ≠ªÂàëÊàøÁöÑÂ§ÑÁΩö„ÄÇ\n\n" NOR, users());
 
 	log_file("static/LOCK",
-		sprintf("%s(%s) “ÚŒ™ [%s] ±ª %s(%s) ◊•µΩÀ¿–Ã∑ø°£\n",
+		sprintf("%s(%s) Âõ†‰∏∫ [%s] Ë¢´ %s(%s) ÊäìÂà∞Ê≠ªÂàëÊàø„ÄÇ\n",
 			ob->query("name"),ob->query("id"), reason, (string)me->query("name"),me->query("id")
 		), me, ({ ob })
 	);

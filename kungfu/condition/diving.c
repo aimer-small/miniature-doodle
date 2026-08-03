@@ -7,10 +7,10 @@ int update_condition(object me, int duration)
 {
 	int l_temp; 
 
-	me->set_temp("last_damage_from", "±»Ë®ÑÍ");
+	me->set_temp("last_damage_from", "è¢«æ°´æ·¹");
 	if(living(me)) {
-		tell_object(me, HIY "ÄãÎÞ·¨ºôÎü£¬ÐÄÌø¼ÓËÙ£¬Í·ÄÔ¡¸ÎËÎË¡¹Ïì¡£\n" NOR );
-		message("vision", me->name() + "¼èÄÑµØºô³öÒ»¿ÚÆø£¬¿´Ñù×Ó¿ì²»ÐÐÁË¡£\n", environment(me), me);
+		tell_object(me, HIY "ä½ æ— æ³•å‘¼å¸ï¼Œå¿ƒè·³åŠ é€Ÿï¼Œå¤´è„‘ã€Œå—¡å—¡ã€å“ã€‚\n" NOR );
+		message("vision", me->name() + "è‰°éš¾åœ°å‘¼å‡ºä¸€å£æ°”ï¼Œçœ‹æ ·å­å¿«ä¸è¡Œäº†ã€‚\n", environment(me), me);
 	}
 	l_temp=120-(int)me->query_skill("force", 1)/5;
 	me->add("qi",-l_temp);

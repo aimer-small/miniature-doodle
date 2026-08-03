@@ -2,8 +2,8 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÃÉ¹ÅÎÀÊ¿", ({ "weishi","fighter" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("è’™å¤å«å£«", ({ "weishi","fighter" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 35+random(10));
         set("attitude", "peaceful");
         set("str", 40+random(5));

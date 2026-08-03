@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-       set("short", "ÆÙ²¼");
+       set("short", "ç€‘å¸ƒ");
        set("long", @LONG
-É½Â·ÐÐµ½ÕâÀï£¬ºöÌýÔ¶´¦´«À´ÒþÒþË®Éù£¬×ª¹ýÒ»µÀÉ½Áº£¬Ö»¼ûÒ»µÀ°×ÁúËÆ
-µÄ´óÆÙ²¼´Ó¶ÔÃæË«·åÖ®¼ä±¼ÌÚ¶øÏÂ£¬¿ÕÉ½¼Å¼Å£¬ÄÇË®ÉùÔÚÉ½¹ÈÖÐ¼¤µ´»ØÏë£¬Éù
-ÊÆÉõÊÇ¾ªÈË¡£
+å±±è·¯è¡Œåˆ°è¿™é‡Œï¼Œå¿½å¬è¿œå¤„ä¼ æ¥éšéšæ°´å£°ï¼Œè½¬è¿‡ä¸€é“å±±æ¢ï¼Œåªè§ä¸€é“ç™½é¾™ä¼¼
+çš„å¤§ç€‘å¸ƒä»Žå¯¹é¢åŒå³°ä¹‹é—´å¥”è…¾è€Œä¸‹ï¼Œç©ºå±±å¯‚å¯‚ï¼Œé‚£æ°´å£°åœ¨å±±è°·ä¸­æ¿€è¡å›žæƒ³ï¼Œå£°
+åŠ¿ç”šæ˜¯æƒŠäººã€‚
 LONG   );
        set("exits", ([ 
 "northup" : __DIR__"xzfeng",
@@ -36,25 +36,25 @@ int do_write(string arg)
 
        if (!living(me)) return 0;
        if (me->is_busy() || me->is_fighting()) 
-                 return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                 return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
        if (!me->query_temp("weapon"))
-                 return notify_fail("Äã¿ÕÊÖÔõÃ´Ð´×Ö? \n");
+                 return notify_fail("ä½ ç©ºæ‰‹æ€Žä¹ˆå†™å­—? \n");
        if (!objectp(weapon = me->query_temp("weapon"))
         || (string)weapon->query("skill_type") != "brush") 
-                 return notify_fail("ÄãÓÃµÄ±øÆ÷²»¶Ô¡£\n");   
+                 return notify_fail("ä½ ç”¨çš„å…µå™¨ä¸å¯¹ã€‚\n");   
        if (!me->query_skill("brush",1))
-               return notify_fail("Äã²»»áÕâÖÖ¼¼ÄÜ¡£\n");
+               return notify_fail("ä½ ä¸ä¼šè¿™ç§æŠ€èƒ½ã€‚\n");
        if (me->query("jing") < 20) 
-               return notify_fail("ÄãÃ»°ì·¨¼¯ÖÐ¾«Éñ¡£\n");
+               return notify_fail("ä½ æ²¡åŠžæ³•é›†ä¸­ç²¾ç¥žã€‚\n");
        if (me->query("neili") <100)
-               return notify_fail("ÄãµÄÄÚÁ¦²»¹»ÁË¡£\n");
+               return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿäº†ã€‚\n");
        if (me->query_skill("brush",1) < 30) 
-               return notify_fail("ÄãµÄ»ù±¾±Ê·¨Ì«µÍÁË£¬ÎÞ·¨ÁìÎòÊé·¨µÄÒâ¾³¡£\n");
+               return notify_fail("ä½ çš„åŸºæœ¬ç¬”æ³•å¤ªä½Žäº†ï¼Œæ— æ³•é¢†æ‚Ÿä¹¦æ³•çš„æ„å¢ƒã€‚\n");
        if (me->query_skill("brush",1) > 100)
-               return notify_fail("Äãî¨Ë¼¿àÏë£¬¶Ô×Å¿ÕÖÐ²»Í£µØÊéÐ´£¬ÏëÈ¥ÁìÎòÊé·¨µÄÒâ¾³£¬µ«ÊÇÔÙÒ²ÎÞ·¨¸ü½øÒ»²½ÁË¡£\n");
+               return notify_fail("ä½ çž‘æ€è‹¦æƒ³ï¼Œå¯¹ç€ç©ºä¸­ä¸åœåœ°ä¹¦å†™ï¼Œæƒ³åŽ»é¢†æ‚Ÿä¹¦æ³•çš„æ„å¢ƒï¼Œä½†æ˜¯å†ä¹Ÿæ— æ³•æ›´è¿›ä¸€æ­¥äº†ã€‚\n");
        neili_lost=(int)(me->query_skill("brush",1)/10);
 
-       write("Äã¿àË¼êÔÏë£¬¶Ô×Å¿ÕÖÐ²»Í£µØÊéÐ´£¬¶ÔÊé·¨µÄÒâ¾³ÁìÎòÓÖ¸üÉîÁËÒ»²ã¡£\n");
+       write("ä½ è‹¦æ€æšæƒ³ï¼Œå¯¹ç€ç©ºä¸­ä¸åœåœ°ä¹¦å†™ï¼Œå¯¹ä¹¦æ³•çš„æ„å¢ƒé¢†æ‚Ÿåˆæ›´æ·±äº†ä¸€å±‚ã€‚\n");
        me->receive_damage("jing",20);
        me->set("neili",(int)me->query("neili")-neili_lost);
        me->improve_skill("brush", me->query_int()/2);

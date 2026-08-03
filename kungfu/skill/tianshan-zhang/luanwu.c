@@ -1,12 +1,12 @@
 //By lsxk@hsbbs 2007/10/19
-//ÈºÄ§ÂÒÎè
+//ç¾¤é­”ä¹±èˆ
 
 #include <ansi.h>
 
 inherit F_SSERVER;
 #include "/kungfu/skill/eff_msg.h";
 
-string perform_name(){ return HIB"ÈºÄ§"HIR"ÂÒÎè"NOR; }
+string perform_name(){ return HIB"ç¾¤é­”"HIR"ä¹±èˆ"NOR; }
 
 int perform(object me,object target)
 {
@@ -17,33 +17,33 @@ int perform(object me,object target)
      
     if( !objectp (target) || !me->is_fighting(target) || !living(target)
         || environment(target)!=environment(me))
-                return notify_fail("ÈºÄ§ÂÒÎèÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ç¾¤é­”ä¹±èˆåªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
     if(me->query_skill_mapped("force") != "huagong-dafa")
-                return notify_fail("ÄãµÄÄÚ¹¦²»ÊÇ»¯¹¦´ó·¢£¬ÎŞ·¨Ê¹ÓÃÈºÄ§ÂÒÎè£¡\n");
+                return notify_fail("ä½ çš„å†…åŠŸä¸æ˜¯åŒ–åŠŸå¤§å‘ï¼Œæ— æ³•ä½¿ç”¨ç¾¤é­”ä¹±èˆï¼\n");
     if( (int)me->query_skill("huagong-dafa", 1) < 250 )
-                return notify_fail("ÄãµÄÄÚ¹¦»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃÈºÄ§ÂÒÎè£¡\n");
+                return notify_fail("ä½ çš„å†…åŠŸè¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨ç¾¤é­”ä¹±èˆï¼\n");
     if( (int)me->query_skill("tianshan-zhang", 1) < 250 ) 
-                return notify_fail("ÄãµÄÌìÉ½ÕÈ·¨»¹Î´Á·³É£¬²»ÄÜÊ¹ÓÃÈºÄ§ÂÒÎè£¡\n");
+                return notify_fail("ä½ çš„å¤©å±±æ–æ³•è¿˜æœªç»ƒæˆï¼Œä¸èƒ½ä½¿ç”¨ç¾¤é­”ä¹±èˆï¼\n");
     if((int)me->query_skill("staff", 1) < 250 )
-                return notify_fail("ÄãµÄ»ù±¾ÕÈ·¨²»¹»æµÊì£¬²»ÄÜÔÚÊ¹ÓÃÌìÏÂÎŞ¹·¡£\n");
+                return notify_fail("ä½ çš„åŸºæœ¬æ–æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨ä½¿ç”¨å¤©ä¸‹æ— ç‹—ã€‚\n");
     if((int)me->query_skill("poison", 1) < 180 )
-                return notify_fail("ÄãµÄ¶¾¼¼²»¹»æµÊì£¬²»ÄÜÔÚÊ¹ÓÃÈºÄ§ÂÒÎè¡£\n");
+                return notify_fail("ä½ çš„æ¯’æŠ€ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½åœ¨ä½¿ç”¨ç¾¤é­”ä¹±èˆã€‚\n");
     if((int)me->query_dex(1) < 41 )
-                return notify_fail("ÄãµÄÉí·¨»¹²»¹»ÁéÇÉ£¬²»ÄÜÊ¹ÓÃÈºÄ§ÂÒÎè¡£\n");
+                return notify_fail("ä½ çš„èº«æ³•è¿˜ä¸å¤Ÿçµå·§ï¼Œä¸èƒ½ä½¿ç”¨ç¾¤é­”ä¹±èˆã€‚\n");
     if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "staff"
         || me->query_skill_mapped("staff") != "tianshan-zhang"
         || me->query_skill_mapped("parry") != "tianshan-zhang")
-                return notify_fail("ÄãÏÖÔÚÊ¹µÃÁËÈºÄ§ÂÒÎèÃ´£¿\n");
+                return notify_fail("ä½ ç°åœ¨ä½¿å¾—äº†ç¾¤é­”ä¹±èˆä¹ˆï¼Ÿ\n");
                 
     if((int)me->query("max_neili") < 4500 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎª²»¹»£¬²»ÄÜÊ¹ÓÃÈºÄ§ÂÒÎè£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ç¾¤é­”ä¹±èˆï¼\n");
     if((int)me->query("neili") < 2000 )
-                return notify_fail("ÄãÏÖÔÚÕæÆø²»×ã£¬²»ÄÜÊ¹ÓÃÈºÄ§ÂÒÎè£¡\n");
+                return notify_fail("ä½ ç°åœ¨çœŸæ°”ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨ç¾¤é­”ä¹±èˆï¼\n");
 
-        message_vision(HIB"\n$NÍ»È»Ò»Éù¹Ö½Ğ£¬½Å²½Æ®ºö²»¶¨£¬Ë²¼äÒÑÈ»Ïò$n»Ó³öÊıÕĞ£¬ÆøÊÆÏÅÈËÖ®¼«£¡\n"NOR,me,target);
+        message_vision(HIB"\n$Nçªç„¶ä¸€å£°æ€ªå«ï¼Œè„šæ­¥é£˜å¿½ä¸å®šï¼Œç¬é—´å·²ç„¶å‘$næŒ¥å‡ºæ•°æ‹›ï¼Œæ°”åŠ¿å“äººä¹‹æï¼\n"NOR,me,target);
 
-    me->start_perform(3+random(2),"¡¸ÈºÄ§ÂÒÎè¡¹");
+    me->start_perform(3+random(2),"ã€Œç¾¤é­”ä¹±èˆã€");
     i = (int)me->query_skill("tianshan-zhang",1);
         me->add("neili", -300);
         me->add_temp("apply/attack",  i);
@@ -64,16 +64,16 @@ int perform(object me,object target)
 
 int help(object me)
 {
-   write(WHT"\nÌìÉ½ÕÈ·¨¡¸"HIB"ÈºÄ§"HIR"ÂÒÎè"WHT"¡¹£º"NOR"\n");
+   write(WHT"\nå¤©å±±æ–æ³•ã€Œ"HIB"ç¾¤é­”"HIR"ä¹±èˆ"WHT"ã€ï¼š"NOR"\n");
    write(@HELP
 
-   ÒªÇó£º  ×î´óÄÚÁ¦ 4500 ÒÔÉÏ£»
-           ÄÚÁ¦ 2000 ÒÔÉÏ£»
-           ÌìÉ½ÕÈ·¨µÈ¼¶ 250 ÒÔÉÏ£»
-           »¯¹¦´ó·¨µÈ¼¶ 250 ÒÔÉÏ£»
-           ºóÌìÉí·¨ 41 ÒÔÉÏ£»
-           ¶¾¼¼µÈ¼¶ 180 ÒÔÉÏ£»
-           ¼¤·¢ÕĞ¼ÜÎªÌìÉ½ÕÈ·¨¡£
+   è¦æ±‚ï¼š  æœ€å¤§å†…åŠ› 4500 ä»¥ä¸Šï¼›
+           å†…åŠ› 2000 ä»¥ä¸Šï¼›
+           å¤©å±±æ–æ³•ç­‰çº§ 250 ä»¥ä¸Šï¼›
+           åŒ–åŠŸå¤§æ³•ç­‰çº§ 250 ä»¥ä¸Šï¼›
+           åå¤©èº«æ³• 41 ä»¥ä¸Šï¼›
+           æ¯’æŠ€ç­‰çº§ 180 ä»¥ä¸Šï¼›
+           æ¿€å‘æ‹›æ¶ä¸ºå¤©å±±æ–æ³•ã€‚
 
 HELP
    );

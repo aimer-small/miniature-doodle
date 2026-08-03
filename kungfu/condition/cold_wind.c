@@ -13,7 +13,7 @@ int update_condition(object me, int duration)
 
     if(!(where)->query("outdoors")) return CND_CONTINUE;
     if(objectp(cloth = me->query_temp("armor/cloth")) && cloth->query("warm_cloth")) return 0;
-    tell_object(me, HIR"ºöÈ»Ò»Õó´Ì¹ÇµÄº®·çÏ®À´£¬Äã²»½û´òÁË¸ö¶ßàÂ£¡\n"NOR);             
+    tell_object(me, HIR"å¿½ç„¶ä¸€é˜µåˆºéª¨çš„å¯’é£Žè¢­æ¥ï¼Œä½ ä¸ç¦æ‰“äº†ä¸ªå“†å—¦ï¼\n"NOR);             
     me->receive_damage("qi", 25);
     me->receive_wound("qi", 5);
     me->receive_damage("jing", 25);

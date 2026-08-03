@@ -1,4 +1,4 @@
-// ¿ÕÃ÷Ë«¾ø
+// ç©ºæ˜åŒç»
 
 
 #include <ansi.h>
@@ -16,47 +16,47 @@ if (me->query("max_pot") >= 400 ) lvl = lvl /4;
 	 || !me->is_fighting(target)
 	 || !living(target)
 	 || environment(target)!=environment(me))
-		return notify_fail("¡¸¿ÕÃ÷Ë«¾ø¡¹Ö»ÄÜÔÚÕ½¶·ÖĞ¶Ô¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€Œç©ºæ˜åŒç»ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­å¯¹å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
   if( objectp(me->query_temp("weapon")))
-		return notify_fail("Äã±ØĞë¿ÕÊÖ²ÅÄÜÊ¹ÓÃ¡¸¿ÕÃ÷Ë«¾ø¡¹£¡\n");
+		return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹æ‰èƒ½ä½¿ç”¨ã€Œç©ºæ˜åŒç»ã€ï¼\n");
 
    if( (int)me->query_skill("kongming-quan", 1) < 200 )
-		return notify_fail("ÄãµÄ¿ÕÃ÷È­»¹²»¹»æµÊì£¬Ê¹²»³ö¡¸¿ÕÃ÷Ë«¾ø¡¹¾ø¼¼¡£\n");
+		return notify_fail("ä½ çš„ç©ºæ˜æ‹³è¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡ºã€Œç©ºæ˜åŒç»ã€ç»æŠ€ã€‚\n");
 
    if(!me->query_skill("force", 1) || (int)me->query_skill("cuff",1)<200)
    if( (int)me->query_skill("parry", 1) < 200 )
-           return notify_fail("ÄãµÄ»ù´¡¼¼ÄÜµÈ¼¶»¹²»¹»£¬Ê¹²»³ö¡¸¿ÕÃ÷Ë«¾ø¡¹¾ø¼¼¡£\n");
+           return notify_fail("ä½ çš„åŸºç¡€æŠ€èƒ½ç­‰çº§è¿˜ä¸å¤Ÿï¼Œä½¿ä¸å‡ºã€Œç©ºæ˜åŒç»ã€ç»æŠ€ã€‚\n");
 
    if( (int)me->query_skill("dodge",1) < 200 )
-		return notify_fail("ÄãµÄÇá¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸¿ÕÃ÷Ë«¾ø¡¹¡£\n");
+		return notify_fail("ä½ çš„è½»åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œç©ºæ˜åŒç»ã€ã€‚\n");
 		
   if( (int)me->query_skill("xiantian-gong",1) < 200 )
-		return notify_fail("ÄãµÄÏÈÌì¹¦µÈ¼¶²»¹»£¬²»ÄÜÊ¹ÓÃ¡¸¿ÕÃ÷Ë«¾ø¡¹¡£\n");
+		return notify_fail("ä½ çš„å…ˆå¤©åŠŸç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€Œç©ºæ˜åŒç»ã€ã€‚\n");
 /*
 	if( !me->query("quest/jiebai/pass") )
-		return notify_fail("Äã²¢Î´»ñµÃÖÜ²®Í¨´«ÊÚ£¬²»ÄÜÊ¹ÓÃ¡¸¿ÕÃ÷Ë«¾ø¡¹¡£\n");
+		return notify_fail("ä½ å¹¶æœªè·å¾—å‘¨ä¼¯é€šä¼ æˆï¼Œä¸èƒ½ä½¿ç”¨ã€Œç©ºæ˜åŒç»ã€ã€‚\n");
 */
    if( me->query_skill_prepared("cuff") != "kongming-quan"
 	 || me->query_skill_mapped("cuff") != "kongming-quan")
-		return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸¿ÕÃ÷Ë«¾ø¡¹£¡\n");
+		return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€Œç©ºæ˜åŒç»ã€ï¼\n");
 
    if( me->query_skill_mapped("parry") != "kongming-quan")
-		return notify_fail("ÄãĞèÒª¼¤·¢ÕĞ¼ÜÎª¿ÕÃ÷È­£¬·½ÄÜÊ¹ÓÃ¡¸¿ÕÃ÷Ë«¾ø¡¹¡£\n");
+		return notify_fail("ä½ éœ€è¦æ¿€å‘æ‹›æ¶ä¸ºç©ºæ˜æ‹³ï¼Œæ–¹èƒ½ä½¿ç”¨ã€Œç©ºæ˜åŒç»ã€ã€‚\n");
 if(userp(me)) 
-            return notify_fail("ÄãÊ¹²»³öÕâ¸ö¾øÕĞ¡£\n");
+            return notify_fail("ä½ ä½¿ä¸å‡ºè¿™ä¸ªç»æ‹›ã€‚\n");
 
    if( (int)me->query("max_neili") < 3000)
-		return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬Ê¹²»³ö¡¸¿ÕÃ÷Ë«¾ø¡¹¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œä½¿ä¸å‡ºã€Œç©ºæ˜åŒç»ã€ã€‚\n");
 
    if( (int)me->query("neili") < 1500 )
-		return notify_fail("ÄãÏÖÔÚÕæÆøÌ«Èõ£¬Ê¹²»³ö¡¸¿ÕÃ÷Ë«¾ø¡¹¡£\n");
+		return notify_fail("ä½ ç°åœ¨çœŸæ°”å¤ªå¼±ï¼Œä½¿ä¸å‡ºã€Œç©ºæ˜åŒç»ã€ã€‚\n");
 
    if( (int)me->query("jingli") < 1500 )
-           return notify_fail("ÄãÏÖÔÚÌ«ÀÛÁË£¬Ê¹²»³ö¡¸¿ÕÃ÷Ë«¾ø¡¹¡£\n");
+           return notify_fail("ä½ ç°åœ¨å¤ªç´¯äº†ï¼Œä½¿ä¸å‡ºã€Œç©ºæ˜åŒç»ã€ã€‚\n");
 
 
-message_vision(HIB"\n$NÄıÉñÆÁÆø£¬Ä¬Äî¿Ú¾÷£º¡°¿Õëü¶´ËÉ¡¢·çÍ¨ÈİÃÎ¡¢³åÇîÖĞÅª¡¢Í¯Ó¹¹­³æ¡£¡±Ê¹³ö¿ÕÃ÷È­¾ø¼¼¡¸"NOR+HBWHT+WHT"¿ÕÃ÷Ë«¾ø"NOR+HIB"¡¹£¡\n"NOR,me);
+message_vision(HIB"\n$Nå‡ç¥å±æ°”ï¼Œé»˜å¿µå£è¯€ï¼šâ€œç©ºæœ¦æ´æ¾ã€é£é€šå®¹æ¢¦ã€å†²ç©·ä¸­å¼„ã€ç«¥åº¸å¼“è™«ã€‚â€ä½¿å‡ºç©ºæ˜æ‹³ç»æŠ€ã€Œ"NOR+HBWHT+WHT"ç©ºæ˜åŒç»"NOR+HIB"ã€ï¼\n"NOR,me);
 
   
 
@@ -90,25 +90,25 @@ message_vision(HIB"\n$NÄıÉñÆÁÆø£¬Ä¬Äî¿Ú¾÷£º¡°¿Õëü¶´ËÉ¡¢·çÍ¨ÈİÃÎ¡¢³åÇîÖĞÅª¡¢Í¯Ó¹¹
    me->add("neili", -200);
    me->start_busy(random(2));
 
-   me->start_perform(3+ random(3),"¡¸¿ÕÃ÷Ë«¾ø¡¹");
+   me->start_perform(3+ random(3),"ã€Œç©ºæ˜åŒç»ã€");
 
 	return 1;
 }
 
 
-string perform_name(){ return WHT"¿ÕÃ÷Ë«¾ø"NOR; }
+string perform_name(){ return WHT"ç©ºæ˜åŒç»"NOR; }
 
 int help(object me)
 {
-	write(WHT"\n¿ÕÃ÷È­Ö®¡¸¿ÕÃ÷Ë«¾ø¡¹£º"NOR"\n\n");
+	write(WHT"\nç©ºæ˜æ‹³ä¹‹ã€Œç©ºæ˜åŒç»ã€ï¼š"NOR"\n\n");
 	write(@HELP
-           ×î´óÄÚÁ¦ 3000 ÒÔÉÏ£»
-           µ±Ç°ÄÚÁ¦ 1500  ÒÔÉÏ£»
-           µ±Ç°¾«Á¦ 1500  ÒÔÉÏ£»
-           ¿ÕÃ÷È­µÈ¼¶ 200 ÒÔÉÏ£»
-           ¼¤·¢È­·¨ÕĞ¼ÜÎª¿ÕÃ÷È­£»
-                       ±¸È­·¨Îª¿ÕÃ÷È­ÇÒ¿ÕÊÖ¡£
-            (NPC×¨ÓÃ)¡£
+           æœ€å¤§å†…åŠ› 3000 ä»¥ä¸Šï¼›
+           å½“å‰å†…åŠ› 1500  ä»¥ä¸Šï¼›
+           å½“å‰ç²¾åŠ› 1500  ä»¥ä¸Šï¼›
+           ç©ºæ˜æ‹³ç­‰çº§ 200 ä»¥ä¸Šï¼›
+           æ¿€å‘æ‹³æ³•æ‹›æ¶ä¸ºç©ºæ˜æ‹³ï¼›
+                       å¤‡æ‹³æ³•ä¸ºç©ºæ˜æ‹³ä¸”ç©ºæ‰‹ã€‚
+            (NPCä¸“ç”¨)ã€‚
 
 HELP
 	);

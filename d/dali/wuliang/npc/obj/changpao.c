@@ -1,4 +1,4 @@
-// changpao.c ³¤ÅÛ
+// changpao.c é•¿è¢
 
 #include <armor.h>
 #include <ansi.h>
@@ -6,14 +6,14 @@ inherit CLOTH;
 
 void create()
 {
-        set_name("³¤ÅÛ", ({ "chang pao", "pao" ,"cloth" }) );
+        set_name("é•¿è¢", ({ "chang pao", "pao" ,"cloth" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
                 set("material", "cloth");
-                set("long","Ò»¼şÓĞÆÕÍ¨²¼ÁÏÖÆ³ÉµÄ³¤ÅÛ¡£\n");
+                set("long","ä¸€ä»¶æœ‰æ™®é€šå¸ƒæ–™åˆ¶æˆçš„é•¿è¢ã€‚\n");
                 set("value", 100);
                 set("armor_prop/armor", 5);
         }

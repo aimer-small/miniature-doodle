@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("¹«×Ó¸ç¶ù", ({"gong zi", "gongzi", "man"}) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("å…¬å­å“¥å„¿", ({"gong zi", "gongzi", "man"}) );
+        set("gender", "ç”·æ€§" );
         set("age", 20);
-        set("long", "ÕâÊÇÒ»¸öÕûÌìÓÎÊÖºÃÏĞµÄ¹«×Ó¸ç¶ù¡£\n");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªæ•´å¤©æ¸¸æ‰‹å¥½é—²çš„å…¬å­å“¥å„¿ã€‚\n");
 
         set_temp("apply/attack", 15);
         set_temp("apply/defense", 15);

@@ -3,11 +3,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("´óÀíïÚÍ·", ({ "dali biaotou","biaotou" }) );
-        set("title","ÁúÍşïÚ¾Ö");
-	set("gender", "ÄĞĞÔ");
+	set_name("å¤§ç†é•–å¤´", ({ "dali biaotou","biaotou" }) );
+        set("title","é¾™å¨é•–å±€");
+	set("gender", "ç”·æ€§");
 	set("age", 44);
-	set("long","ÕâÊÇÒ»¸öïÚÍ·£¬×ßÄÏ´³±±¶àÄê¡£\n");
+	set("long","è¿™æ˜¯ä¸€ä¸ªé•–å¤´ï¼Œèµ°å—é—¯åŒ—å¤šå¹´ã€‚\n");
 	set("combat_exp", 50000);
 	set("shen_type", 1);
 	set("attitude", "friendly");

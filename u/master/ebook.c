@@ -6,17 +6,17 @@ inherit SPEC;
 
 void create()
 {
-        set_name (HIR"¾«Ó¢Ö®Êé(ºØËê°æ)"NOR, ({ "ebook","book"}));
-        set("long","ÕâÊÇÒ»±¾"HIR"¾«Ó¢Ö®Êé(ºØËê°æ)"NOR"£¬ÔÄ¶Á("HIY"read"NOR")ËüÄÜÈÃÄãÏó¾«Ó¢Ò»Ñù³É³¤(1:10°æ)¡£\n");
+        set_name (HIR"ç²¾è‹±ä¹‹ä¹¦(è´ºå²ç‰ˆ)"NOR, ({ "ebook","book"}));
+        set("long","è¿™æ˜¯ä¸€æœ¬"HIR"ç²¾è‹±ä¹‹ä¹¦(è´ºå²ç‰ˆ)"NOR"ï¼Œé˜…è¯»("HIY"read"NOR")å®ƒèƒ½è®©ä½ è±¡ç²¾è‹±ä¸€æ ·æˆé•¿(1:10ç‰ˆ)ã€‚\n");
 
-	set("unit","±¾");
+	set("unit","æœ¬");
 	set_weight(100);
 	set("value",3000);
 set("no_cun",1);
 	set("degree",1);
         set("flag","spec/ebook_lim");
     set("rest",1);
-    set("desc","Ò»¶¨Ê±¼äÄÚ¾­Ñé¼Ó³É¡£");
+    set("desc","ä¸€å®šæ—¶é—´å†…ç»éªŒåŠ æˆã€‚");
     set("credit",200);
 	setup();
 }
@@ -32,13 +32,13 @@ int do_read(string arg)
 	object me=this_player();
 	    
 	if (!arg)
-      		return notify_fail("ÄãÒª¶ÁÊ²Ã´?\n");
+      		return notify_fail("ä½ è¦è¯»ä»€ä¹ˆ?\n");
       		
 	if (arg!="book")
-      		return notify_fail("ÄãÒª¶ÁÊ²Ã´?\n");
+      		return notify_fail("ä½ è¦è¯»ä»€ä¹ˆ?\n");
       	
       		
-      	if (!restrict()) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}   
+      	if (!restrict()) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}   
 
 	
 	if(!mapp(me->query_conditions_by_type("db_exp")))
@@ -50,7 +50,7 @@ me->add_temp("apply/attack",100);
 me->add_temp("apply/damage",100);
 me->add_temp("apply/defense",100);
 */
-	write(HIY"ÄãÏ¸Ï¸ÔÄ¶Á"HIC"¾«Ó¢Ö®Êé"HIY"ĞÄÓĞËùµÃ,×öÊ²Ã´¶¼ÊÇÊÂ°ë¹¦±¶¡£\n"NOR);
+	write(HIY"ä½ ç»†ç»†é˜…è¯»"HIC"ç²¾è‹±ä¹‹ä¹¦"HIY"å¿ƒæœ‰æ‰€å¾—,åšä»€ä¹ˆéƒ½æ˜¯äº‹åŠåŠŸå€ã€‚\n"NOR);
 
 	degree();
 	return 1;

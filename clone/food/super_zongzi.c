@@ -1,17 +1,17 @@
-// zongzi.c ×Ø×Ó
+// zongzi.c æ£•å­
 
 inherit ITEM;
 //inherit F_FOOD;
 
 void create()
 {
-       set_name("ôÕ×Ó", ({"zong zi","zongzi", "zong"}));
+       set_name("ç²½å­", ({"zong zi","zongzi", "zong"}));
        set_weight(150);
        if (clonep())
                set_default_object(__FILE__);
        else {
-               set("long", "Ò»¸öÏãÅçÅçµÄ×Ø×Ó£¬¾İËµµÚÒ»¸ö³ÔµÄÈË»á¼õÉÙ1£¥¾­ÑéÖµ¡£\n");
-               set("unit", "¸ö");
+               set("long", "ä¸€ä¸ªé¦™å–·å–·çš„æ£•å­ï¼Œæ®è¯´ç¬¬ä¸€ä¸ªåƒçš„äººä¼šå‡å°‘1ï¼…ç»éªŒå€¼ã€‚\n");
+               set("unit", "ä¸ª");
                set("value", 100);
                //set("food_remaining", 3);
                //set("food_supply", 30);
@@ -30,7 +30,7 @@ int do_drink(string arg)
 
         if (!arg || !id(arg))
                 return 0;	
-        message_vision("$N½«ôÕ×Ó³ÔµÃ¸É¸É¾»¾»¡£\n",me);
+        message_vision("$Nå°†ç²½å­åƒå¾—å¹²å¹²å‡€å‡€ã€‚\n",me);
         me->add("food", 500);
 	me->add("water",500);
 	destruct(ob);

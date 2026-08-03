@@ -9,9 +9,9 @@ string ask_leave();
 //a
 void create()
 {
-	set_name("ÃÉÃæÈË", ({ "mengmian ren", "ren" }) );
-	set("gender", "ÄĞĞÔ");
-	set("long","Õâ¼Ò»ïÂúÁ³ºáÈâª¬Ò»¸¶Ğ×Éñ¶ñÉ·µÄÄ£Ñù£¬ÁîÈËÍû¶øÉúÎ·¡£\n");
+	set_name("è’™é¢äºº", ({ "mengmian ren", "ren" }) );
+	set("gender", "ç”·æ€§");
+	set("long","è¿™å®¶ä¼™æ»¡è„¸æ¨ªè‚‰ï¿½ï¿½ä¸€ä»˜å‡¶ç¥æ¶ç…çš„æ¨¡æ ·ï¼Œä»¤äººæœ›è€Œç”Ÿç•ã€‚\n");
 	set("shen", -15000);
 	set("attitude", "killer");
 	set("age", random(20)+25);
@@ -47,7 +47,7 @@ set("no_party_job",1);
 	set_skill("cuff", 300);
 
         set("inquiry", ([
-		"½ÏÁ¿" : (: ask_leave :), //add by caiji
+		"è¾ƒé‡" : (: ask_leave :), //add by caiji
 	]));
 
 //        if (random(10) < 3)
@@ -57,7 +57,7 @@ set("no_party_job",1);
 	carry_object(ARMOR_D("cloth"))->wear();
 }
 
-//caijiÊÜriverÆô·¢¶ø¼Ó
+//caijiå—riverå¯å‘è€ŒåŠ 
 string ask_leave()
 {
         object me;
@@ -65,7 +65,7 @@ string ask_leave()
         if(environment(me)->query("no_fight")){
         	 random_move();
         }
-        return "¾ÍÔÚÕâÀï£¬¶¯ÊÖ°É£¡\n";
+        return "å°±åœ¨è¿™é‡Œï¼ŒåŠ¨æ‰‹å§ï¼\n";
 
 }
 

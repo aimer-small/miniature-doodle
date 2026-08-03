@@ -3,16 +3,16 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-   set_name("Èı»Æ±¦À°Íè", ({"baola wan", "sanhuang","baola", "wan"}));
+   set_name("ä¸‰é»„å®è…Šä¸¸", ({"baola wan", "sanhuang","baola", "wan"}));
    if (clonep())
       set_default_object(__FILE__);
    else {
       set("value", 15000);
-      set("unit", "Ğ©");
+      set("unit", "äº›");
       set("heal_up", 1);
-      set("long","ÕâÊÇÒ»Á£Îäµ±ÅÉËùÖÆµÄÉËÒ©£¬ÄÚº¬Âé»Æ¡¢ĞÛ»Æ¡¢ÌÙ»ÆÈı»Æ¡£\n");
+      set("long","è¿™æ˜¯ä¸€ç²’æ­¦å½“æ´¾æ‰€åˆ¶çš„ä¼¤è¯ï¼Œå†…å«éº»é»„ã€é›„é»„ã€è—¤é»„ä¸‰é»„ã€‚\n");
       set("base_value", 15000);
-      set("base_unit", "Á£");
+      set("base_unit", "ç²’");
       set("base_weight", 20);
    }
    set_amount(1);
@@ -27,14 +27,14 @@ int do_eat(string arg)
 {
 
    if(!id(arg))
-       return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+       return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
    if ((int)this_player()->query("eff_qi") == 
        (int)this_player()->query("max_qi"))
-           return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃÈı»Æ±¦À°Íè¡£\n");
+           return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨ä¸‰é»„å®è…Šä¸¸ã€‚\n");
    else {
         this_player()->receive_curing("qi", 200+random(200));
-        message_vision("$N·şÏÂÒ»Á£Èı»Æ±¦À°Íè£¬Á³É«¿ªÊ¼ÓÉÇà×ªºì¡£\n", this_player());
+        message_vision("$Næœä¸‹ä¸€ç²’ä¸‰é»„å®è…Šä¸¸ï¼Œè„¸è‰²å¼€å§‹ç”±é’è½¬çº¢ã€‚\n", this_player());
         add_amount(-1);
         return 1;
         }

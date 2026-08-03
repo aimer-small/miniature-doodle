@@ -12,12 +12,12 @@ string* skills = ({
 void create()
 {
 	int i = random(sizeof(skills));
-	string titles = to_chinese(skills[i]) + "Æ×";
+	string titles = to_chinese(skills[i]) + "è°±";
 
 	set_name(titles, ({ "shaolin wuji", "wuji" }));
 	set_weight(200);
-	set("unit", "²á");
-	set("long", "ÕâÊÇÒ»²á" + titles + "¡£\n");
+	set("unit", "å†Œ");
+	set("long", "è¿™æ˜¯ä¸€å†Œ" + titles + "ã€‚\n");
 	set("value", 500);
 	set("material", "paper");
 	set("shaolin", 1);

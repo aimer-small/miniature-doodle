@@ -1,4 +1,4 @@
-// wujiang.c Îä½«
+// wujiang.c æ­¦å°†
 
 inherit NPC;
 #include <ansi.h>
@@ -26,12 +26,12 @@ switch (random(3)){
 	break;
 	} 
 	set_name(name, ({ "wu jiang", "wu", "jiang" ,"wujing"}));
-	set("gender", "ÄĞĞÔ");
-        set("title",HIY"ÍÂŞ¬ÃÍ»¢Óª´ó½«"NOR);
+	set("gender", "ç”·æ€§");
+        set("title",HIY"åè•ƒçŒ›è™è¥å¤§å°†"NOR);
 	set("age", random(10) + 30);
 	set("str", 30);
 	set("dex", 16);
-	set("long", "³¤µÃ»¢±³ĞÜÑü£¬°ºÊ×Í¦ĞØÕâÃ´Ò»Õ¾£¬¿´µÃ³öÊÇ¾Ã¾­Õ½ÕóµÄÍÂŞ¬æç½«¡£\n");
+	set("long", "é•¿å¾—è™èƒŒç†Šè…°ï¼Œæ˜‚é¦–æŒºèƒ¸è¿™ä¹ˆä¸€ç«™ï¼Œçœ‹å¾—å‡ºæ˜¯ä¹…ç»æˆ˜é˜µçš„åè•ƒéªå°†ã€‚\n");
 	set("combat_exp", 75000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

@@ -12,31 +12,31 @@ int main(object	me, string arg)
 	int i;
 
 	if( !arg || !ob	= present(arg, environment(me))	)
-		return notify_fail("ÄãÒª½«Ë­Öğ³öÊ¦ÃÅ£¿\n");
+		return notify_fail("ä½ è¦å°†è°é€å‡ºå¸ˆé—¨ï¼Ÿ\n");
 
 	if( !ob->is_character()	)
-		return notify_fail("ÄãÖğ²»¶¯Ëû¡£\n");
+		return notify_fail("ä½ é€ä¸åŠ¨ä»–ã€‚\n");
 
 	if( !userp(ob) )
-		return notify_fail("ÄãÖ»ÄÜ¿ª³ıÍæ¼ÒËù°çÑİµÄÈËÎï¡£\n");
+		return notify_fail("ä½ åªèƒ½å¼€é™¤ç©å®¶æ‰€æ‰®æ¼”çš„äººç‰©ã€‚\n");
 
 	if( userp(me) )
-		return notify_fail("ÔİÊ±¹Ø±Õ¡£\n");
+		return notify_fail("æš‚æ—¶å…³é—­ã€‚\n");
 
 	if (me->query("family/privs")==-1
 	&& (string)me->query("family/family_name")==(string)ob->query("family/family_name"))
 	{
-		message_vision("\n$N¶Ô×Å$nËµµÀ£º´Ó½ñÌìÆğ£¬ÄãÔÙÒ²²»ÊÇÎÒ"
-			+ me->query("family/family_name") + "µÄµÜ×ÓÁË£¬Äã×ß°É£¡\n\n", me, ob
+		message_vision("\n$Nå¯¹ç€$nè¯´é“ï¼šä»ä»Šå¤©èµ·ï¼Œä½ å†ä¹Ÿä¸æ˜¯æˆ‘"
+			+ me->query("family/family_name") + "çš„å¼Ÿå­äº†ï¼Œä½ èµ°å§ï¼\n\n", me, ob
 		);
-		tell_object(ob, "\nÄã±»" + me->query("family/title") + "¿ª¸ï³öÊ¦ÃÅÁË£¡\n\n");
+		tell_object(ob, "\nä½ è¢«" + me->query("family/title") + "å¼€é©å‡ºå¸ˆé—¨äº†ï¼\n\n");
 	}
 	else if (ob->is_apprentice_of(me))
 	{
-		message_vision("\n$N¶Ô×Å$nËµµÀ£º´Ó½ñÌìÆğ£¬ÄãÎÒÊ¦Í½¶÷¶ÏÇé¾ø£¬Äã×ß°É£¡\n\n", me, ob);
-		tell_object(ob,	"\nÄã±»Ê¦¸¸¿ª¸ï³öÊ¦ÃÅÁË£¡\n\n");
+		message_vision("\n$Nå¯¹ç€$nè¯´é“ï¼šä»ä»Šå¤©èµ·ï¼Œä½ æˆ‘å¸ˆå¾’æ©æ–­æƒ…ç»ï¼Œä½ èµ°å§ï¼\n\n", me, ob);
+		tell_object(ob,	"\nä½ è¢«å¸ˆçˆ¶å¼€é©å‡ºå¸ˆé—¨äº†ï¼\n\n");
 	} else
-		return notify_fail("Õâ¸öÈË²»ÊÇÄãµÄµÜ×Ó¡£\n");
+		return notify_fail("è¿™ä¸ªäººä¸æ˜¯ä½ çš„å¼Ÿå­ã€‚\n");
 
 	i = ob->query("combat_exp") / 200;
 	if (i > 30000) i = 30000;
@@ -50,16 +50,16 @@ int main(object	me, string arg)
 	ob->delete("title");
         ob->add("combat_exp", -i);
 	ob->skill_death_penalty();
-	tell_object(ob, "Äã±»³Í·£ÁË"+chinese_number(i)+"µã¾­Ñé£¬ÇÒËùÓĞÎä¹¦±»½µÁË°ë¼¶¡£\n");
+	tell_object(ob, "ä½ è¢«æƒ©ç½šäº†"+chinese_number(i)+"ç‚¹ç»éªŒï¼Œä¸”æ‰€æœ‰æ­¦åŠŸè¢«é™äº†åŠçº§ã€‚\n");
 	return 1;
 }
 
 int help(object	me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : expell|kaichu <Ä³ÈË>
+æŒ‡ä»¤æ ¼å¼ : expell|kaichu <æŸäºº>
 
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄã¿ª³ı²»³É²ÅµÄµÜ×Ó£¬ÇëÄãÔÚ¿ª³ıÒ»ÃûµÜ×ÓÖ®Ç°Îñ±ØÉóÉ÷¿¼ÂÇ¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ å¼€é™¤ä¸æˆæ‰çš„å¼Ÿå­ï¼Œè¯·ä½ åœ¨å¼€é™¤ä¸€åå¼Ÿå­ä¹‹å‰åŠ¡å¿…å®¡æ…è€ƒè™‘ã€‚
 HELP
 	);
 	return 1;

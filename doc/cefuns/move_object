@@ -1,17 +1,17 @@
 
 	move_object(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		move_object() - °ÑÄ¿Ç°µÄÎï¼ş°áµ½ÆäËûµÄ»·¾³ (environment) ÖĞ.
-	Óï·¨:
+	åç§°:
+		move_object() - æŠŠç›®å‰çš„ç‰©ä»¶æ¬åˆ°å…¶ä»–çš„ç¯å¢ƒ (environment) ä¸­.
+	è¯­æ³•:
 		void move_object( object item, mixed dest );
 
-		ÎŞ´«»ØÖµ move_object( Îï¼ş item, »ìºÏ dest );
-	ÓÃ·¨:
-		°ÑÎï¼ş item °áµ½Îï¼ş dest ÀïÃæ. item ±ØĞëÊÇ this_object().
-		Èç¹û item ÊÇ this_object(), move_object() ¿ÉÒÔÖ»Ö¸¶¨ dest
-		Ò»¸ö²ÎÊı.
-	²Î¿¼:
+		æ— ä¼ å›å€¼ move_object( ç‰©ä»¶ item, æ··åˆ dest );
+	ç”¨æ³•:
+		æŠŠç‰©ä»¶ item æ¬åˆ°ç‰©ä»¶ dest é‡Œé¢. item å¿…é¡»æ˜¯ this_object().
+		å¦‚æœ item æ˜¯ this_object(), move_object() å¯ä»¥åªæŒ‡å®š dest
+		ä¸€ä¸ªå‚æ•°.
+	å‚è€ƒ:
 		this_object(3), move(4)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Apr.15.		(printed 3/16/95)

@@ -15,9 +15,9 @@ void create()
 	set_name(name["name"], name["id"]);
         set_name(query("name"), ({ query("id"),"gao shou"}));
 
-	set("long", "һλĳ���ɵ��ӡ�\n");
-	set("title", HIY"��ͽ"NOR);
-	set("gender", "����");
+	set("long", "一位某门派弟子。\n");
+	set("title", HIY"叛徒"NOR);
+	set("gender", "男性");
 	set("age", 33);
 	set("attitude", "peaceful");
 	set("shen", -100);
@@ -53,14 +53,14 @@ void init()
     ob = this_object();
     if(ob->query("setok")) return;
 	  if(!ob->query("party"))	ob->set("party",str_menpai[random(sizeof(str_menpai))]);  	 
-    ob->copy_menpai(({ob->query("party")}),1,random(2),50+random(50));	//����npc�������书��			
-	  ob->copy_state();				//�������ɸ���npc ��һЩ״̬
+    ob->copy_menpai(({ob->query("party")}),1,random(2),50+random(50));	//复制npc的门派武功，			
+	  ob->copy_state();				//根据门派更新npc 的一些状态
 		if (ob->query("f_skill2")) 
-				good_skills=to_chinese(ob->query("f_skill"))+"��"+to_chinese(ob->query("f_skill2"));
+				good_skills=to_chinese(ob->query("f_skill"))+"和"+to_chinese(ob->query("f_skill2"));
 		else	
 				good_skills=to_chinese(ob->query("f_skill"));
-   	ob->set("long",HIW+ob->query("family/family_name")+"���֣�����������"+good_skills+"��"NOR);
-    message_vision(HIG"$N����ؿ���$n����ɫ������š�\n"NOR,ob,this_player());
+   	ob->set("long",HIW+ob->query("family/family_name")+"高手，成名绝技："+good_skills+"。"NOR);
+    message_vision(HIG"$N警惕地看着$n，神色极其慌张。\n"NOR,ob,this_player());
     if(!ob->query("fight_id"))
     {
 		  ob->set_skills_level(350+random(200));
@@ -72,7 +72,7 @@ void init()
 		  ob->set_skills_level(350+random(200));
     	return;
     }
-        ob->set("long",HIW"�ڷ�կ�������\n"NOR);
+        ob->set("long",HIW"黑风寨高手�。\n"NOR);
  		ob->set("setok",1);
 	  i=me->query("max_pot");
 	  if(i<350) i=350;
@@ -118,8 +118,8 @@ int do_kill(object me)
 {
 	object ob = this_object();
 	if(!me) return 0;
-  if(random(2)) message_vision(HIG"����һ����Ӱ���˳�����$N��ݺݵص�����"+me->name()+"�����"+RANK_D->query_rude(ob)+ "����Ȼ���㷢�֣�����������\n"NOR,ob);
-  else message_vision(HIY"$N��Цһ��������֪��ߵغ񣬾�Ȼ���谭"+RANK_D->query_self_rude(ob) +"��ȥ·�������Ҫ�������\n"NOR,ob);
+  if(random(2)) message_vision(HIG"呼的一个身影蹿了出来，$N恶狠狠地道：“"+me->name()+"你这个"+RANK_D->query_rude(ob)+ "，既然被你发现，拿命来！”\n"NOR,ob);
+  else message_vision(HIY"$N冷笑一声道：不知天高地厚，竟然敢阻碍"+RANK_D->query_self_rude(ob) +"的去路，今天就要你的命！\n"NOR,ob);
   command("follow "+me->query("id"));
   ob->set_leader(me);
 	remove_call_out("checking");
@@ -127,7 +127,7 @@ int do_kill(object me)
 	::do_kill(me);
 }
 
-//��飬quest���̲���������
+//检查，quest过程不允许死亡
 int checking(object me, object ob)
 {
 	int ret =  ::checking(me,ob);
@@ -137,17 +137,17 @@ int checking(object me, object ob)
   if(!living(me) && living(ob) && ob->query("jing")>0 && ob->query("jingli")>0 && ob->query("qi")>0  ){
 		remove_call_out("checking");
 		me->set("qi",100);																		
-        me->delete("quest/ѩɽ�ɺ�/����/start");
-        me->delete_temp("quest/ѩɽ�ɺ�/����/search_ok");
-        me->delete_temp("quest/ѩɽ�ɺ�/����/guanzhu_ok");
-        me->delete_temp("quest/ѩɽ�ɺ�/����/yanjiu_ok");
-        me->set("quest/ѩɽ�ɺ�/����/time",time());
-        me->set("quest/ѩɽ�ɺ�/����/combat_exp",me->query("combat_exp"));
-  log_file("quest/FEIHU", sprintf("%s��¼��%s(%s)Ѱ�ұ���ʧ�ܡ�����%d��\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
+        me->delete("quest/雪山飞狐/宝藏/start");
+        me->delete_temp("quest/雪山飞狐/宝藏/search_ok");
+        me->delete_temp("quest/雪山飞狐/宝藏/guanzhu_ok");
+        me->delete_temp("quest/雪山飞狐/宝藏/yanjiu_ok");
+        me->set("quest/雪山飞狐/宝藏/time",time());
+        me->set("quest/雪山飞狐/宝藏/combat_exp",me->query("combat_exp"));
+  log_file("quest/FEIHU", sprintf("%s纪录：%s(%s)寻找宝藏失败。经验%d。\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
                 me->set("jing",100);
                 me->set("jingli",100);
-          if(!random(3)) tell_room(environment(ob), HIB"\n"+ob->name()+"����һ����ת����������Ͳ����ˡ�\n"NOR);
-        else tell_room(environment(ob), HIB"\n"+ob->name()+"���µ���������������"+RANK_D->query_rude(me)+ "�����Ǿ�����취Ѱ�ұ��ء�\n"NOR);
+          if(!random(3)) tell_room(environment(ob), HIB"\n"+ob->name()+"哼了一声，转身几个起落就不见了。\n"NOR);
+        else tell_room(environment(ob), HIB"\n"+ob->name()+"嚷嚷道：不必理睬这种"+RANK_D->query_rude(me)+ "，还是尽快想办法寻找宝藏。\n"NOR);
 		destruct(ob);
 		return 1;
 	}
@@ -165,21 +165,21 @@ void do_lost()
 	ob = this_object();
 	me = find_player(ob->query("fight_id"));
 	if(!me) return;
-        me->delete("quest/ѩɽ�ɺ�/����/start");
-        me->delete_temp("quest/ѩɽ�ɺ�/����/search_ok");
-        me->delete_temp("quest/ѩɽ�ɺ�/����/guanzhu_ok");
-        me->delete_temp("quest/ѩɽ�ɺ�/����/yanjiu_ok");
-        me->set("quest/ѩɽ�ɺ�/����/time",time());
-        me->set("quest/ѩɽ�ɺ�/����/combat_exp",me->query("combat_exp"));
-  log_file("quest/FEIHU", sprintf("%s��¼��%s(%s)Ѱ�ұ���ʧ�ܡ�����%d��\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
-        if(!random(3)) tell_room(environment(ob), HIB"\n"+ob->name()+"����һ����ת����������Ͳ����ˡ�\n"NOR);
-        else tell_room(environment(ob), HIB"\n"+ob->name()+"���µ���������������"+RANK_D->query_rude(me)+ "�����Ǿ�����취Ѱ�ұ��ء�\n"NOR);
+        me->delete("quest/雪山飞狐/宝藏/start");
+        me->delete_temp("quest/雪山飞狐/宝藏/search_ok");
+        me->delete_temp("quest/雪山飞狐/宝藏/guanzhu_ok");
+        me->delete_temp("quest/雪山飞狐/宝藏/yanjiu_ok");
+        me->set("quest/雪山飞狐/宝藏/time",time());
+        me->set("quest/雪山飞狐/宝藏/combat_exp",me->query("combat_exp"));
+  log_file("quest/FEIHU", sprintf("%s纪录：%s(%s)寻找宝藏失败。经验%d。\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
+        if(!random(3)) tell_room(environment(ob), HIB"\n"+ob->name()+"哼了一声，转身几个起落就不见了。\n"NOR);
+        else tell_room(environment(ob), HIB"\n"+ob->name()+"嚷嚷道：不必理睬这种"+RANK_D->query_rude(me)+ "，还是尽快想办法寻找宝藏。\n"NOR);
 	destruct(ob);
 }
 
 void dest(object ob)
 {
   if(!ob) return;
-  tell_room(environment(ob), HIR+"\n"+ob->name()+"����һ���������ҵ�Ѱ�ұ��ذɡ�\n"NOR);
+  tell_room(environment(ob), HIR+"\n"+ob->name()+"哼了一声，还是找点寻找宝藏吧。\n"NOR);
 	destruct(ob);
 }

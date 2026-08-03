@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("µÁÄ¹¹¤¾ß", ({ "tools", "daomu gongju", "gravedigger tools", "gongju" }));
+	set_name("ç›—å¢“å·¥å…·", ({ "tools", "daomu gongju", "gravedigger tools", "gongju" }));
 	set_weight(4000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ì×");
-		set("long", "ÕâÊÇÒ»Ì××¨ÃÅÓÃÀ´µÁÄ¹µÄ¹¤¾ß¡£¸ÉµÄÊ±ºòĞ¡ĞÄµã£¬±ğÈÃÑ²²¶×¥µ½£¡\n");
+		set("unit", "å¥—");
+		set("long", "è¿™æ˜¯ä¸€å¥—ä¸“é—¨ç”¨æ¥ç›—å¢“çš„å·¥å…·ã€‚å¹²çš„æ—¶å€™å°å¿ƒç‚¹ï¼Œåˆ«è®©å·¡æ•æŠ“åˆ°ï¼\n");
 		set("value", 1);
 		set("material", "steel");
 	}

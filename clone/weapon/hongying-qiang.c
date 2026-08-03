@@ -1,4 +1,4 @@
-// hongying-qiang.c ºìÓ§Ç¹
+// hongying-qiang.c çº¢ç¼¨æžª
 
 #include <ansi.h>
 #include <weapon.h>
@@ -6,13 +6,13 @@ inherit SPEAR;
 
 void create()
 {
-        set_name(RED"ºìÓ§Ç¹"NOR , ({ "hongying qiang", "qiang", "spear","hongying" }));
+        set_name(RED"çº¢ç¼¨æžª"NOR , ({ "hongying qiang", "qiang", "spear","hongying" }));
         set_weight(12000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "ÕâÊÇÒ»±úÔÚÇ¹Í·ÓÐºìÓ§µÄ³¤Ç¹£¬ÓÐÊ±ÓÐÈÅÂÒµÐÈËµÄ¹¦ÄÜ¡£\n");
+                set("unit", "æŸ„");
+                set("long", "è¿™æ˜¯ä¸€æŸ„åœ¨æžªå¤´æœ‰çº¢ç¼¨çš„é•¿æžªï¼Œæœ‰æ—¶æœ‰æ‰°ä¹±æ•Œäººçš„åŠŸèƒ½ã€‚\n");
                 set("value", 1000);
                 set("material", "steel");
         }

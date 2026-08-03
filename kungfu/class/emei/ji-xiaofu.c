@@ -7,16 +7,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("¼ÍÏşÜ½", ({
+        set_name("çºªæ™“èŠ™", ({
                 "ji xiaofu",
                 "ji",
                 }));
         set("long",
-                "ËıÊÇÒ»Î»ÃÀÃ²µÄÅ®×Ó£¬Ê¹µÃÒ»ÊÖÉÏºÃµÄ»Ø·ç·÷Áø½£¡£\n"
+                "å¥¹æ˜¯ä¸€ä½ç¾è²Œçš„å¥³å­ï¼Œä½¿å¾—ä¸€æ‰‹ä¸Šå¥½çš„å›é£æ‹‚æŸ³å‰‘ã€‚\n"
         );
 
 
-        set("gender", "Å®ĞÔ");
+        set("gender", "å¥³æ€§");
         set("attitude", "friendly");
          set("unique", 1);
 
@@ -35,7 +35,7 @@ void create()
         set("score", 100);
 
 
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 
         setup();
 

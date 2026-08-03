@@ -10,10 +10,10 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("·ÄÖ¯Å®",({ "fangzhi nu","nu" }) );
-	set("gender", "Å®ÐÔ" );
+	set_name("çººç»‡å¥³",({ "fangzhi nu","nu" }) );
+	set("gender", "å¥³æ€§" );
 	set("age", 35);
-	set("long","ÕâÊÇÎ»·ÄÖ¯Å®¹¤£¬´ÓÊÂ·ÄÖ¯ÒÑ¾­¶àÄêÁË£¬ÏÐÊ±Ò²×öÐ©·ÄÖ¯Æ·µÄÂòÂôºÍ½Ì½ÌÄêÇáÈË¡£\n");
+	set("long","è¿™æ˜¯ä½çººç»‡å¥³å·¥ï¼Œä»Žäº‹çººç»‡å·²ç»å¤šå¹´äº†ï¼Œé—²æ—¶ä¹Ÿåšäº›çººç»‡å“çš„ä¹°å–å’Œæ•™æ•™å¹´è½»äººã€‚\n");
 
 	set("str", 35);
 	set("dex", 55);
@@ -46,8 +46,8 @@ void create()
 
 	set("chat_chance", 1);
  	set("chat_msg", ({
- 		CYN"·ÄÖ¯Å®ËµµÀ£º¡¸ÓÐÈËÒªÂòÃÞ»¨Âð£¿¡¹\n"NOR,
- 		//CYN"·ÄÖ¯Å®ËµµÀ£º¡¸ÎÒµÄ±àÖ¯¼¼Êõ¿ÉÊÇÒ»Á÷£¬ÒªÈËÒªÑ§Âð£¿¡¹\n"NOR,
+ 		CYN"çººç»‡å¥³è¯´é“ï¼šã€Œæœ‰äººè¦ä¹°æ£‰èŠ±å—ï¼Ÿã€\n"NOR,
+ 		//CYN"çººç»‡å¥³è¯´é“ï¼šã€Œæˆ‘çš„ç¼–ç»‡æŠ€æœ¯å¯æ˜¯ä¸€æµï¼Œè¦äººè¦å­¦å—ï¼Ÿã€\n"NOR,
  	}) );
 
 	set("vendor_goods", ({
@@ -71,7 +71,7 @@ void kill_ob(object ob)
 {
 	object me = this_object();
 	command("!!!");
-	command("say ÎÒºÍÄãÎÞÔ¹ÎÞ³ð£¬ÎªºÎÒªº¦ÎÒ£¡");
+	command("say æˆ‘å’Œä½ æ— æ€¨æ— ä»‡ï¼Œä¸ºä½•è¦å®³æˆ‘ï¼");
 	me->remove_enemy(ob);
 	ob->remove_killer(me);
 	return;
@@ -79,7 +79,7 @@ void kill_ob(object ob)
 
 int accept_fight(object ob)
 {
-	command("say ÎÒºÍÄãÎÞÔ¹ÎÞ³ð£¬ÎªºÎÒªº¦ÎÒ£¡");
+	command("say æˆ‘å’Œä½ æ— æ€¨æ— ä»‡ï¼Œä¸ºä½•è¦å®³æˆ‘ï¼");
 	return 0;
 }
 
@@ -117,7 +117,7 @@ int recognize_apprentice(object ob)
 
 	switch (MONEY_D->player_pay(ob, money)) {
 		case 0:
-		case 2: tell_object(ob,"ÄãÏÖÔÚµÄÑ§·ÑÊÇÃ¿´Î"+MONEY_D->money_str(money)+"¡£ÄãµÄÇ®²»¹»£¡\n" ); return 0;
+		case 2: tell_object(ob,"ä½ çŽ°åœ¨çš„å­¦è´¹æ˜¯æ¯æ¬¡"+MONEY_D->money_str(money)+"ã€‚ä½ çš„é’±ä¸å¤Ÿï¼\n" ); return 0;
 	}
 	return 1;
 }
@@ -162,22 +162,22 @@ int do_sell(string arg)
 	int value, improve;
 
 	if (!living(this_object()))
-		return notify_fail("»¹ÊÇµÈ¶Ô·½ÐÑÀ´ÔÙËµ°É¡£\n");
+		return notify_fail("è¿˜æ˜¯ç­‰å¯¹æ–¹é†’æ¥å†è¯´å§ã€‚\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (!arg || !(ob = present(arg, me)))
-		return notify_fail("ÄãÒªÂôÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å–ä»€ä¹ˆï¼Ÿ\n");
 
 	if (query_temp("busy"))
-		return notify_fail("Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕýÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
 	if ( !(int)ob->query("buliao") && !(int)ob->query("bu") )
-		return notify_fail("ÎÒÖ»ÊÕ¹º²¼ÁÏºÍ²¼Æ¥¡£\n");
+		return notify_fail("æˆ‘åªæ”¶è´­å¸ƒæ–™å’Œå¸ƒåŒ¹ã€‚\n");
 
 	value = query_goods_value2(ob);
-	message_vision("$NÒÔ"+MONEY_D->price_str(value)+"µÄ¼Û¸ñÂôµôÁËÒ»"+ob->query("unit")+ob->name() + "¸ø$n¡£\n", me, this_object());
+	message_vision("$Nä»¥"+MONEY_D->price_str(value)+"çš„ä»·æ ¼å–æŽ‰äº†ä¸€"+ob->query("unit")+ob->name() + "ç»™$nã€‚\n", me, this_object());
 	destruct(ob);
 	MONEY_D->pay_player(me, value);
 	improve = 40 - me->query("pur");

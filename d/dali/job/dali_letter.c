@@ -1,5 +1,5 @@
 // Update by lsxk@hsbbs 2008/1/11 
-//Í³Ò»½±Àø¼ÆËã·½Ê½¡£
+//ç»Ÿä¸€å¥–åŠ±è®¡ç®—æ–¹å¼ã€‚
 
 #include <ansi.h>
 #include <get_place.h>
@@ -13,13 +13,13 @@ int check(object ob);
 
 void create()
 {
-	set_name(RED"ĞÅ¼ş"NOR, ({ "letter","xin","secret letter" }));
+	set_name(RED"ä¿¡ä»¶"NOR, ({ "letter","xin","secret letter" }));
 	set_weight(10);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "·â");
-		set("long","ÕâÊÇÒ»·âĞÅ¼ş£¬ÕòÄÏÍõÇ×±ÊÊÖÚÍ£¬ĞÅ·âµÄºÜÑÏÊµ£¬·â¿Ú¸Ç×ÅºìÆáÓ¡´Á¡£\n");
+		set("unit", "å°");
+		set("long","è¿™æ˜¯ä¸€å°ä¿¡ä»¶ï¼Œé•‡å—ç‹äº²ç¬”æ‰‹è°•ï¼Œä¿¡å°çš„å¾ˆä¸¥å®ï¼Œå°å£ç›–ç€çº¢æ¼†å°æˆ³ã€‚\n");
 		set("value", 0);
 		set("material", "paper");
 		set("no_drop",1);
@@ -44,20 +44,20 @@ string do_look()
 	where = me->query_temp("songxin/where");
 	if (me->query_temp("songxin/twice") && strlen(where) < 1)
 		where = "\n"+CHINESE_D->font(me->query_temp("songxin/where"))+"\n";
-	if (where == "´íÎóµÄÊäÈë×Ö·û´®£¡")
+	if (where == "é”™è¯¯çš„è¾“å…¥å­—ç¬¦ä¸²ï¼")
 		where = me->query_temp("songxin/where");
 
 	now_time = me->query_condition("dali_songxin");
 	time = me->query_temp("songxin/time");
 
 	if( me->query_temp("dali_songxin")) {
-		ret = "\nÕâÊÇÒ»·âÓÉ´óÀí¹úÕòÄÏÍõ·¢³öµÄĞÅ¼ş£¬ÉÏÃæĞ´×Å\n\n"
-		"    ¡¸"HIR + where + " " +me->query_temp("songxin/target_name") + NOR"¡¹ Ç×Æô¡£\n\n"NOR;
-		if (now_time > time*3/4) ret += "ÄãÏÖÔÚÓĞ³ä×ãµÄÊ±¼äÈ¥ËÍĞÅ¡£\n";
-		else if (now_time > time/2 && now_time <= time*3/4) ret += "ÒÑ¾­¹ıÈ¥Ò»Ğ¡°ëÊ±¼äÁË¡£\n";
-		else if (now_time > time/4 && now_time <= time/2) ret += "Äã»¹ÓĞÒ»°ëµÄÊ±¼äÈ¥ËÍĞÅ¡£\n";
-		else if (now_time > time/8 && now_time <= time/4) ret += "ÄãµÄÊ±¼äÒÑ¾­²»¶àÁË¡£\n";
-		else if (now_time > 0 && now_time <= time/8) ret += "Ê±¼ä½«ÖÁ£¬ÈÎÎñ¼´½«Ê§°Ü¡£\n";
+		ret = "\nè¿™æ˜¯ä¸€å°ç”±å¤§ç†å›½é•‡å—ç‹å‘å‡ºçš„ä¿¡ä»¶ï¼Œä¸Šé¢å†™ç€\n\n"
+		"    ã€Œ"HIR + where + " " +me->query_temp("songxin/target_name") + NOR"ã€ äº²å¯ã€‚\n\n"NOR;
+		if (now_time > time*3/4) ret += "ä½ ç°åœ¨æœ‰å……è¶³çš„æ—¶é—´å»é€ä¿¡ã€‚\n";
+		else if (now_time > time/2 && now_time <= time*3/4) ret += "å·²ç»è¿‡å»ä¸€å°åŠæ—¶é—´äº†ã€‚\n";
+		else if (now_time > time/4 && now_time <= time/2) ret += "ä½ è¿˜æœ‰ä¸€åŠçš„æ—¶é—´å»é€ä¿¡ã€‚\n";
+		else if (now_time > time/8 && now_time <= time/4) ret += "ä½ çš„æ—¶é—´å·²ç»ä¸å¤šäº†ã€‚\n";
+		else if (now_time > 0 && now_time <= time/8) ret += "æ—¶é—´å°†è‡³ï¼Œä»»åŠ¡å³å°†å¤±è´¥ã€‚\n";
 	}
 	return ret;
 }
@@ -72,49 +72,49 @@ int do_send(string arg)
 
 	me = this_player();
 	if( me->is_busy() || me->is_fighting() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
-	if( !arg ) return notify_fail("ÄãÒªËÍ¸øË­£¿\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+	if( !arg ) return notify_fail("ä½ è¦é€ç»™è°ï¼Ÿ\n");
 	if(!objectp(target = present(arg, environment(me))))
-		return notify_fail("ÄãÒªËÍ¸øË­£¿\n");
+		return notify_fail("ä½ è¦é€ç»™è°ï¼Ÿ\n");
 
 	t_name = target->query("name");
 	job_time = me->query_temp("songxin/time");
 
 	if( !living(target) )
-		return notify_fail("¿´Çå³şµã£¬ÄÇÊÇ»îÈËÂğ£¿£¡\n");
+		return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£æ˜¯æ´»äººå—ï¼Ÿï¼\n");
 	if( userp(target) )
-		return notify_fail("ºÙºÙ£¬Ïë×÷±×£¿£¡\n");
+		return notify_fail("å˜¿å˜¿ï¼Œæƒ³ä½œå¼Šï¼Ÿï¼\n");
 	if( me->query_temp("dali_songxin_late"))
-		return notify_fail("ÄãÈÎÎñÒÑ¾­Ê§°ÜÁË£¬ÖØĞÂÔÙÁìÒ»¸ö°É¡£\n");
+		return notify_fail("ä½ ä»»åŠ¡å·²ç»å¤±è´¥äº†ï¼Œé‡æ–°å†é¢†ä¸€ä¸ªå§ã€‚\n");
 	if( !wizardp(me) && !me->query_temp("dali_join") )
-		return notify_fail(t_name+"µÀ£ºÄã²»ÊÇ´óÀí¹úµÄËæ´Ó£¬ÔõÃ´»áËÍÕòÄÏÍõÊÖÚÍµÄĞÅ¸øÎÒ£¿\n");
+		return notify_fail(t_name+"é“ï¼šä½ ä¸æ˜¯å¤§ç†å›½çš„éšä»ï¼Œæ€ä¹ˆä¼šé€é•‡å—ç‹æ‰‹è°•çš„ä¿¡ç»™æˆ‘ï¼Ÿ\n");
 	if( !me->query_temp("dali_songxin"))
-		return notify_fail(t_name+"µÀ£ºÕâÊÇ´óÀí¹úÕòÄÏÍõ¸®Ç××Ô½»¸øÄãµÄ£¿ÄãÊÇ²»ÊÇ´Ó±ğÈËÄÇÀïÇÀÀ´µÄ£¿\n");
+		return notify_fail(t_name+"é“ï¼šè¿™æ˜¯å¤§ç†å›½é•‡å—ç‹åºœäº²è‡ªäº¤ç»™ä½ çš„ï¼Ÿä½ æ˜¯ä¸æ˜¯ä»åˆ«äººé‚£é‡ŒæŠ¢æ¥çš„ï¼Ÿ\n");
 	if( me->query_temp("songxin/target_name") != t_name)
-		return notify_fail(t_name+"µÀ£ºÕâ·âĞÅ²»ÊÇ¸øÎÒµÄ£¬ÄãÊÇ²»ÊÇËÍ´íÁË£¿\n");
+		return notify_fail(t_name+"é“ï¼šè¿™å°ä¿¡ä¸æ˜¯ç»™æˆ‘çš„ï¼Œä½ æ˜¯ä¸æ˜¯é€é”™äº†ï¼Ÿ\n");
 	if (me->query_temp("songxin/areab") != target->query("startroom"))
-		return notify_fail(t_name+"Ææ¹ÖµÀ£ºÄã¿´Çå³ş£¬ÊÇ·ñËÍ´íÈËÁË£¬ºÍÎÒÍ¬ÃûµÄÈË¿É²»ÉÙÅ¶¡£\n");
+		return notify_fail(t_name+"å¥‡æ€ªé“ï¼šä½ çœ‹æ¸…æ¥šï¼Œæ˜¯å¦é€é”™äººäº†ï¼Œå’Œæˆ‘åŒåçš„äººå¯ä¸å°‘å“¦ã€‚\n");
 
-	me->add_busy(random(2)); // hehe, ·ÀÖ¹ÀûÓÃbug£¬¼òµ¥ÓĞĞ§ :) snowman@SJ
+	me->add_busy(random(2)); // hehe, é˜²æ­¢åˆ©ç”¨bugï¼Œç®€å•æœ‰æ•ˆ :) snowman@SJ
 
-	m_name = me->query_temp("songxin/twice") ? me->query_temp("songxin/twice"): "¶ÎÍõÒ¯";
+	m_name = me->query_temp("songxin/twice") ? me->query_temp("songxin/twice"): "æ®µç‹çˆ·";
 
-	message_vision(HIY"$N²ÁÁËÒ»°Ñ¶îÍ·µÄº¹£¬´Ó»³ÖĞÌÍ³öĞÅ½»¸ø$nËµµÀ£¬ÕâÊÇ"+m_name+"ÈÃÔÚÏÂËÍ¸øÄúµÄĞÅ£¬ÇëÄúÊÕºÃ¡£\n"NOR, me, target);
-	message_vision(HIY "$N½Ó¹ıĞÅ¿´ÁË¿´£¬µãÁËµãÍ·ËµµÀ£ºÕâÎ»"+RANK_D->query_respect(me)+"ĞÁ¿àÄãÁË¡£\n"NOR, target, me);
+	message_vision(HIY"$Næ“¦äº†ä¸€æŠŠé¢å¤´çš„æ±—ï¼Œä»æ€€ä¸­æå‡ºä¿¡äº¤ç»™$nè¯´é“ï¼Œè¿™æ˜¯"+m_name+"è®©åœ¨ä¸‹é€ç»™æ‚¨çš„ä¿¡ï¼Œè¯·æ‚¨æ”¶å¥½ã€‚\n"NOR, me, target);
+	message_vision(HIY "$Næ¥è¿‡ä¿¡çœ‹äº†çœ‹ï¼Œç‚¹äº†ç‚¹å¤´è¯´é“ï¼šè¿™ä½"+RANK_D->query_respect(me)+"è¾›è‹¦ä½ äº†ã€‚\n"NOR, target, me);
 
 	if (!me->query_temp("zuji"))
-       TASKREWARD_D->get_reward(me,"ËÍĞÅ",0,0,0,-3,0,0,0,t_name);
+       TASKREWARD_D->get_reward(me,"é€ä¿¡",0,0,0,-3,0,0,0,t_name);
    else if (me->query_temp("songxin/twice"))
-       TASKREWARD_D->get_reward(me,"ËÍĞÅ",0,0,0,6+random(2),0,0,0,t_name);
+       TASKREWARD_D->get_reward(me,"é€ä¿¡",0,0,0,6+random(2),0,0,0,t_name);
    else
-       TASKREWARD_D->get_reward(me,"ËÍĞÅ",0,0,0,2+random(2),0,0,0,t_name);
+       TASKREWARD_D->get_reward(me,"é€ä¿¡",0,0,0,2+random(2),0,0,0,t_name);
 
 	me->clear_condition("job_busy");
 	me->clear_condition("dali_songxin");
 	me->delete_temp("zuji");
 	me->delete_temp("songxin_zuji");
 	
-	me->set("job_name", "´óÀíËÍĞÅ");
+	me->set("job_name", "å¤§ç†é€ä¿¡");
 	
 	if (!me->query_temp("songxin/other")) {
 		me->delete_temp("dali_songxin");
@@ -138,10 +138,10 @@ int do_send(string arg)
 			if(check(living[j]) ){
 				ob = living[j];
 				str = environment(ob)->query("short");
-				if( str == "ÎäÉ®ÌÃ"
-				 || str == HIR"ĞÄìøÌÃ"NOR
-				 || str =="µØÏÂºÚÈ­ÊĞ"
-				 || str == "½ğ¸Õ·üÄ§È¦" ) continue;
+				if( str == "æ­¦åƒ§å ‚"
+				 || str == HIR"å¿ƒç¦…å ‚"NOR
+				 || str =="åœ°ä¸‹é»‘æ‹³å¸‚"
+				 || str == "é‡‘åˆšä¼é­”åœˆ" ) continue;
 				if( environment(ob) == environment(target)) continue;
 				if (get_place(base_name(environment(target))) == get_place(base_name(environment(ob)))) continue;
 				if( get_place(base_name(environment(ob)))!="" ) break;
@@ -189,50 +189,50 @@ int do_send(string arg)
 		where = me->query_temp("songxin/where");
 		if (strlen(where) < 0)
 			where = "\n"+CHINESE_D->font(me->query_temp("songxin/where"))+"\n";
-		if (where == "´íÎóµÄÊäÈë×Ö·û´®£¡")
+		if (where == "é”™è¯¯çš„è¾“å…¥å­—ç¬¦ä¸²ï¼")
 			where = me->query_temp("songxin/where");
 		
 			
-		message_vision(HIY"$NË³ÊÖÔÚĞÅÉÏ¹´»­ÁË¼¸ÏÂ£¬È»ºóºÏÉÏĞÅ·â£¬ÓÖ½»»¹¸øÁË$n¡£\n"NOR, target, me);
-		tell_object(me, GRN+target->name()+"ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£ºÄã¸Ï½ô°ÑËüËÍµ½¡¸"+HIY+where+GRN"¡¹µÄ¡¸"+me->query_temp("songxin/target_name")+GRN"¡¹ÊÖÉÏ¡£\n"NOR);
+		message_vision(HIY"$Né¡ºæ‰‹åœ¨ä¿¡ä¸Šå‹¾ç”»äº†å‡ ä¸‹ï¼Œç„¶ååˆä¸Šä¿¡å°ï¼Œåˆäº¤è¿˜ç»™äº†$nã€‚\n"NOR, target, me);
+		tell_object(me, GRN+target->name()+"åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼šä½ èµ¶ç´§æŠŠå®ƒé€åˆ°ã€Œ"+HIY+where+GRN"ã€çš„ã€Œ"+me->query_temp("songxin/target_name")+GRN"ã€æ‰‹ä¸Šã€‚\n"NOR);
 		
-		if (me->query("bonus/ËÍĞÅ") >= SX_JOB_ROUND || !me->query("bonus/ËÍĞÅ") || me->query("bonus/ËÍĞÅ")<1 )
+		if (me->query("bonus/é€ä¿¡") >= SX_JOB_ROUND || !me->query("bonus/é€ä¿¡") || me->query("bonus/é€ä¿¡")<1 )
 		{
-			if (me->query("bonus/ËÍĞÅ") == SX_JOB_ROUND)
-				me->set("bonus/ËÍĞÅ",4);
+			if (me->query("bonus/é€ä¿¡") == SX_JOB_ROUND)
+				me->set("bonus/é€ä¿¡",4);
 			else
-				me->set("bonus/ËÍĞÅ",1);
+				me->set("bonus/é€ä¿¡",1);
 		}
 		else
-			me->add("bonus/ËÍĞÅ",1);  
+			me->add("bonus/é€ä¿¡",1);  
 			
-		switch ((int)me->query("bonus/ËÍĞÅ"))
+		switch ((int)me->query("bonus/é€ä¿¡"))
 	       	{
 	       		case 1:
-	       			tell_object(me, GRN+target->name()+"ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º¿ÉÄÜÓĞ¸öÎä¹¦ºÍÄãÏà±È" + BLU + "Î¢²»×ãµÀ" + GRN + "µÄ¼Ò»ïÒªÀ´ÇÀÄãµÄĞÅ£¬ÄãÓ¦¸ÃËæ±ã¶Ô¸¶¼¸ÏÂ¾Í¿ÉÒÔÁË°É¡£\n"NOR);
+	       			tell_object(me, GRN+target->name()+"åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼šå¯èƒ½æœ‰ä¸ªæ­¦åŠŸå’Œä½ ç›¸æ¯”" + BLU + "å¾®ä¸è¶³é“" + GRN + "çš„å®¶ä¼™è¦æ¥æŠ¢ä½ çš„ä¿¡ï¼Œä½ åº”è¯¥éšä¾¿å¯¹ä»˜å‡ ä¸‹å°±å¯ä»¥äº†å§ã€‚\n"NOR);
 	       		break;
 	       		case 2:
-	       			tell_object(me, GRN+target->name()+"ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º¿ÉÄÜÓĞ¸öÎä¹¦ºÍÄãÏà±È" + HIB + "ÂíÂí»¢»¢" + GRN + "µÄ¼Ò»ïÒªÀ´ÇÀÄãµÄĞÅ£¬Äã¼°Ê±ËÍµ½Ó¦¸ÃÃ»ÎÊÌâ°É¡£\n"NOR);
+	       			tell_object(me, GRN+target->name()+"åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼šå¯èƒ½æœ‰ä¸ªæ­¦åŠŸå’Œä½ ç›¸æ¯”" + HIB + "é©¬é©¬è™è™" + GRN + "çš„å®¶ä¼™è¦æ¥æŠ¢ä½ çš„ä¿¡ï¼Œä½ åŠæ—¶é€åˆ°åº”è¯¥æ²¡é—®é¢˜å§ã€‚\n"NOR);
 	       		break;
 	       		case 3:
-	       			tell_object(me, GRN+target->name()+"ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º¿ÉÄÜÓĞ¸öÎä¹¦ºÍÄãÏà±È" + CYN + "Ğ¡ÓĞËù³É" + GRN + "µÄ¼Ò»ïÒªÀ´ÇÀÄãµÄĞÅ£¬ÄãÒ»Â·Ğ¡ĞÄ±ãÊÇ¡£\n"NOR);
+	       			tell_object(me, GRN+target->name()+"åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼šå¯èƒ½æœ‰ä¸ªæ­¦åŠŸå’Œä½ ç›¸æ¯”" + CYN + "å°æœ‰æ‰€æˆ" + GRN + "çš„å®¶ä¼™è¦æ¥æŠ¢ä½ çš„ä¿¡ï¼Œä½ ä¸€è·¯å°å¿ƒä¾¿æ˜¯ã€‚\n"NOR);
 	       		break;
 	       		case 4:
-	       			tell_object(me, GRN+target->name()+"ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º¿ÉÄÜÓĞ¸öÎä¹¦ºÍÄãÏà±È" + HIC + "ÈÚ»á¹áÍ¨" + GRN + "µÄ¼Ò»ïÒªÀ´ÇÀÄãµÄĞÅ£¬Äã¿ÉµÃĞ¡ĞÄ¶Ô¸¶Å¶¡£\n"NOR);
+	       			tell_object(me, GRN+target->name()+"åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼šå¯èƒ½æœ‰ä¸ªæ­¦åŠŸå’Œä½ ç›¸æ¯”" + HIC + "èä¼šè´¯é€š" + GRN + "çš„å®¶ä¼™è¦æ¥æŠ¢ä½ çš„ä¿¡ï¼Œä½ å¯å¾—å°å¿ƒå¯¹ä»˜å“¦ã€‚\n"NOR);
 	       		break;
 	       		case 5..7:
-	       			tell_object(me, GRN+target->name()+"ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º¿ÉÄÜÓĞ¸öÎä¹¦ºÍÄãÏà±È" + HIC + "ÆÄÎªÁËµÃ" + GRN + "µÄ¼Ò»ïÒªÀ´ÇÀÄãµÄĞÅ£¬ÄãÒªĞ¡ĞÄµãÅ¶¡£\n"NOR);
+	       			tell_object(me, GRN+target->name()+"åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼šå¯èƒ½æœ‰ä¸ªæ­¦åŠŸå’Œä½ ç›¸æ¯”" + HIC + "é¢‡ä¸ºäº†å¾—" + GRN + "çš„å®¶ä¼™è¦æ¥æŠ¢ä½ çš„ä¿¡ï¼Œä½ è¦å°å¿ƒç‚¹å“¦ã€‚\n"NOR);
 	       		break;
 	       		
 	       		case 8..9:
-	       			tell_object(me, GRN+target->name()+"ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º¿ÉÄÜÓĞ¸öÎä¹¦ºÍÄãÏà±È" + HIW + "¼«ÆäÀ÷º¦" + GRN + "µÄ¼Ò»ïÒªÀ´ÇÀÄãµÄĞÅ£¬Äã¿ÉµÃĞ¡ĞÄÓ¦¸¶¡£\n"NOR);
+	       			tell_object(me, GRN+target->name()+"åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼šå¯èƒ½æœ‰ä¸ªæ­¦åŠŸå’Œä½ ç›¸æ¯”" + HIW + "æå…¶å‰å®³" + GRN + "çš„å®¶ä¼™è¦æ¥æŠ¢ä½ çš„ä¿¡ï¼Œä½ å¯å¾—å°å¿ƒåº”ä»˜ã€‚\n"NOR);
 	       		break;
 	       		case 10:
-	       			tell_object(me, GRN+target->name()+"ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º¿ÉÄÜÓĞ¸öÎä¹¦ºÍÄãÏà±È" + HIR + "ÒÑÈë»¯¾³" + GRN + "µÄ¼Ò»ïÒªÀ´ÇÀÄãµÄĞÅ£¬´ò²»¹ı¿É²»Òª³ÑÄÜ¡£\n"NOR);
+	       			tell_object(me, GRN+target->name()+"åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼šå¯èƒ½æœ‰ä¸ªæ­¦åŠŸå’Œä½ ç›¸æ¯”" + HIR + "å·²å…¥åŒ–å¢ƒ" + GRN + "çš„å®¶ä¼™è¦æ¥æŠ¢ä½ çš„ä¿¡ï¼Œæ‰“ä¸è¿‡å¯ä¸è¦é€èƒ½ã€‚\n"NOR);
 	       	}
 	       		
-		tell_room( environment(me), target->name() + "ÔÚ" + me->name() + "¶ú±ßĞ¡ÉùµØËµÁËĞ©»°¡£\n", ({ target, me }) );
-		write("Äã¿ÉÒÔÑ¡ÔñÍ¬Òâ»òÕß·ÅÆú²»×ö(no)¡£\n");
+		tell_room( environment(me), target->name() + "åœ¨" + me->name() + "è€³è¾¹å°å£°åœ°è¯´äº†äº›è¯ã€‚\n", ({ target, me }) );
+		write("ä½ å¯ä»¥é€‰æ‹©åŒæ„æˆ–è€…æ”¾å¼ƒä¸åš(no)ã€‚\n");
 		add_action("do_no", "no");
 		if(target->query("no_quest")) destruct(target);
 		me->delete_temp("songxin/other");
@@ -246,7 +246,7 @@ int do_no()
 {
 	object me = this_player();
 
-	message_vision("$N¿´ÁË¿´ĞÅ£¬¾ö¶¨»¹ÊÇ²»È¥ÁË¡£\n", me);
+	message_vision("$Nçœ‹äº†çœ‹ä¿¡ï¼Œå†³å®šè¿˜æ˜¯ä¸å»äº†ã€‚\n", me);
 	me->clear_condition("job_busy");
 	me->clear_condition("dali_songxin");
 	me->delete_temp("zuji");
@@ -260,10 +260,10 @@ int do_no()
 	me->delete_temp("songxin/where");
 	me->delete_temp("letter_steal");
 	me->set_temp("songxin_ok",1);
-	me->set("job_name", "´óÀíËÍĞÅ");
+	me->set("job_name", "å¤§ç†é€ä¿¡");
 	me->delete_temp("songxin/twice");
 	
-	me->add("bonus/ËÍĞÅ",-3);
+	me->add("bonus/é€ä¿¡",-3);
 	
 	if (other) {
 		destruct(other);
@@ -274,7 +274,7 @@ int do_no()
 
 void dest()
 {
-	message_vision("$NºöÈ»µôÂäÔÚÂ·ÉÏ²»¼ûÁË¡£\n", this_object());
+	message_vision("$Nå¿½ç„¶æ‰è½åœ¨è·¯ä¸Šä¸è§äº†ã€‚\n", this_object());
 	destruct(this_object());
 }
 
@@ -298,7 +298,7 @@ int check(object ob)
 	|| !objectp(room=environment(ob))
 	|| room->query("no_fight")
 	|| room->query("quest")
-	|| room->query("outdoors") == "À¥ÂØ´ä¹È"
+	|| room->query("outdoors") == "æ˜†ä»‘ç¿ è°·"
 	|| strsrch(room_name = base_name(room), "/d/") != 0
 	|| ob->query("lastroom") == room_name && start_room != room_name
 	|| start_room[0..5] != room_name[0..5]

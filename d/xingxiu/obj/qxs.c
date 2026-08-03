@@ -4,7 +4,7 @@ inherit ITEM;
 
 void create()
 {
-   set_name("ÇåÐÄÉ¢", ({"qingxin san", "san"}));
+   set_name("æ¸…å¿ƒæ•£", ({"qingxin san", "san"}));
    if (clonep())
       set_default_object(__FILE__);
    else {
@@ -13,7 +13,7 @@ void create()
       set("no_drop", 1);
       set("no_steal", 1);
       set("no_get", 1);
-      set("unit", "°ü");
+      set("unit", "åŒ…");
       set("value", 1000);
    }
    setup();
@@ -29,9 +29,9 @@ int do_eat(string arg)
    object me = this_player();
 
    if(!id(arg))
-       return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+       return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
-   message_vision("$N³ÔÏÂÒ»°ü" + name() + "¡£\n", me);
+   message_vision("$Nåƒä¸‹ä¸€åŒ…" + name() + "ã€‚\n", me);
    if ((int)me->query_condition("xx_poison") > 0) {
       me->clear_condition("xx_poison");
    }

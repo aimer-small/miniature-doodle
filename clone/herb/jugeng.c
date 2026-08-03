@@ -2,14 +2,14 @@
 
 void create()
 {
-        set_name(HIY "¾Õ¹£" NOR, ({"ju geng"}));
+        set_name(HIY "èŠæ¢—" NOR, ({"ju geng"}));
 
         if (clonep())
                 set_default_object(__FILE__);
         else 
         {
-                set("long","¾Õ¹££º¾Õ»¨¸ù¾¥£¬ÇåÈÈ°Ü»ğ¡£\n");
-                set("base_unit", "¿é");
+                set("long","èŠæ¢—ï¼šèŠèŠ±æ ¹èŒï¼Œæ¸…çƒ­è´¥ç«ã€‚\n");
+                set("base_unit", "å—");
                 set("base_value", 4000);
                 set("base_weight", 60);
         	set("cure_s",0);

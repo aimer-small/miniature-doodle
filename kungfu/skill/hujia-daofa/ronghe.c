@@ -14,38 +14,38 @@ int perform(object me, object target)
 
 	if( !target ) target = offensive_target(me);
 
-    if( !me->query("/quest/Ñ©É½·Éºü/Îä¹¦/ronghe") )
-		return notify_fail("ÄãÉĞÎ´²»ÖªÏşµ¶½£ÈÚºÏµÄ°ÂÃØ£¡\n");
+    if( !me->query("/quest/é›ªå±±é£ç‹/æ­¦åŠŸ/ronghe") )
+		return notify_fail("ä½ å°šæœªä¸çŸ¥æ™“åˆ€å‰‘èåˆçš„å¥¥ç§˜ï¼\n");
 
 		
         if( !target 
          || !me->is_fighting(target)
          || !objectp(target)
          || environment(target)!= environment(me))
-  		return notify_fail("µ¶½£ÈÚºÏÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+  		return notify_fail("åˆ€å‰‘èåˆåªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
   		
   		
        if( me->query_skill_mapped("sword") != "miaojia-jianfa" || me->query_skill_mapped("blade") != "hujia-daofa")
-		return notify_fail("ÄãÏÖÔÚ»¹²»ÄÜÊ¹ÓÃºú¼Òµ¶·¨ºÍÃç¼Ò½£·¨µÄÈÚºÏ¼¼ÇÉ£¡\n");
+		return notify_fail("ä½ ç°åœ¨è¿˜ä¸èƒ½ä½¿ç”¨èƒ¡å®¶åˆ€æ³•å’Œè‹—å®¶å‰‘æ³•çš„èåˆæŠ€å·§ï¼\n");
 
      
 	
       if(me->query_skill("miaojia-jianfa",1) <120)
-		return notify_fail("ÄãµÄÃç¼Ò½£·¨²»¹»ÊìÁ·£¡\n");
+		return notify_fail("ä½ çš„è‹—å®¶å‰‘æ³•ä¸å¤Ÿç†Ÿç»ƒï¼\n");
 
 	if(me->query_skill("hujia-daofa",1) <120)
-		return notify_fail("ÄãµÄºú¼Òµ¶·¨²»¹»ÊìÁ·£¡\n");
+		return notify_fail("ä½ çš„èƒ¡å®¶åˆ€æ³•ä¸å¤Ÿç†Ÿç»ƒï¼\n");
 
 	if( me->query_skill_mapped("force") != "lengquan-shengong" 
 		)
-		return notify_fail("ÄãËùÓÃµÄ²¢·ÇÀäÈªÉñ¹¦£¡\n");
+		return notify_fail("ä½ æ‰€ç”¨çš„å¹¶éå†·æ³‰ç¥åŠŸï¼\n");
 
 	
 
 		
 	if( !objectp(weapon = me->query_temp("weapon"))
 		|| (string)weapon->query("skill_type") != "blade" )
-		return notify_fail("±ØĞë³ÖÓĞµ¶½£²ÅÄÜÊ¹ÓÃ£¡\n");
+		return notify_fail("å¿…é¡»æŒæœ‰åˆ€å‰‘æ‰èƒ½ä½¿ç”¨ï¼\n");
 
      inv = all_inventory(me);
      for(count=0, i=0; i<sizeof(inv); i++) {
@@ -58,14 +58,14 @@ int perform(object me, object target)
      }
 
 	if( !objectp(weapon2) )
-		return notify_fail("±ØĞë³ÖÓĞµ¶½£²ÅÄÜÊ¹ÓÃ£¡\n");
+		return notify_fail("å¿…é¡»æŒæœ‰åˆ€å‰‘æ‰èƒ½ä½¿ç”¨ï¼\n");
 
 	if( me->query("neili") <= 1000 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼\n");
 	if( me->query("jingli") <= 500 )
-		return notify_fail("ÄãµÄ¾«Á¦²»¹»£¡\n");
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿï¼\n");
 	if( me->query("jing") <= 120 )
-		return notify_fail("ÄãµÄ¾«²»¹»£¡\n");
+		return notify_fail("ä½ çš„ç²¾ä¸å¤Ÿï¼\n");
 
 	skill =  ( me->query_skill("sword",1) 
                 + me->query_skill("miaojia-jianfa",1)
@@ -75,7 +75,7 @@ int perform(object me, object target)
 
  skill = to_int(skill/250.0 * skill/2.0);
 
-	message_vision(HIW"$NÁ¬Á¬´ß¶¯ÀäÈªÉñ¹¦£¬½«Ãç¼Ò½£·¨ºÍºú¼Òµ¶·¨ÈÚºÏÊ¹ÓÃ£¬µ¶½£ÂÖÁ÷í½³ö£¬¼ä»òÒÔµ¶Îª½££¬ÒÔ½£Ê¹µ¶£¬ÕĞÊ½¾«Ãî£¬ÍşÁ¦ÎŞÙ±¡£\n" NOR, me);
+	message_vision(HIW"$Nè¿è¿å‚¬åŠ¨å†·æ³‰ç¥åŠŸï¼Œå°†è‹—å®¶å‰‘æ³•å’Œèƒ¡å®¶åˆ€æ³•èåˆä½¿ç”¨ï¼Œåˆ€å‰‘è½®æµæ–«å‡ºï¼Œé—´æˆ–ä»¥åˆ€ä¸ºå‰‘ï¼Œä»¥å‰‘ä½¿åˆ€ï¼Œæ‹›å¼ç²¾å¦™ï¼Œå¨åŠ›æ— ä¿¦ã€‚\n" NOR, me);
  
 	me->add_temp("apply/attack", skill);
 	me->add_temp("apply/damage", skill/2);
@@ -151,6 +151,6 @@ target->delete_temp("must_be_hit");
 	me->add_temp("apply/blade",  -skill/2);
 
 me->delete_temp("pfmronghe",1);
-    me->start_perform(2+random(2), "¡¸µ¶½£ÈÚºÏ¡¹");
+    me->start_perform(2+random(2), "ã€Œåˆ€å‰‘èåˆã€");
 	return 1;
 }

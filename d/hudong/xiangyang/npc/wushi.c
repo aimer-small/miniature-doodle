@@ -3,8 +3,8 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÃÉ¹ÅÎäÊ¿", ({ "wushi","fighter" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("è’™å¤æ­¦å£«", ({ "wushi","fighter" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 35+random(10));
         set("attitude", "friendly");
         set("str", 40+random(5));
@@ -54,7 +54,7 @@ void init()
 void dest()
 {
        object me = this_object();
-       message_vision(HIY"$NËµµÀ£º¡°ÀÏ×Ó¿ÉÒª»ØÈ¥±¨µ½ÁË¡£¡±\n"NOR,me);
+       message_vision(HIY"$Nè¯´é“ï¼šâ€œè€å­å¯è¦å›å»æŠ¥åˆ°äº†ã€‚â€\n"NOR,me);
        destruct(me);
 }
 
@@ -71,7 +71,7 @@ void die()
              fighters[i]->add_temp("xy/job", random(2)+1); }
     }
     remove_call_out("dest");
-    message_vision(HIY"$N½ĞµÀ£º¡°ÀÏ×Ó»ØÈ¥ÕÒÔ®±ø£¬ÄãÃÇ³Å×¡°¡£¡¡±\n"NOR,me);
+    message_vision(HIY"$Nå«é“ï¼šâ€œè€å­å›å»æ‰¾æ´å…µï¼Œä½ ä»¬æ’‘ä½å•Šï¼â€\n"NOR,me);
     destruct(me);
 }
 

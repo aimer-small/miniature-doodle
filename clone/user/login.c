@@ -14,11 +14,11 @@ void create()
 void logon()
 {
 	if (!find_object(LOGIN_D)) {
-		write("游戏尚未启动完毕，请等五秒再来。\n");
+		write("娓告垙灏氭湭鍚姩瀹屾瘯锛岃绛変簲绉掑啀鏉ャ�俓n");
 		destruct(this_object());
 		return;
 	}
-	call_out( "time_check", 30 );
+	call_out( "time_check", LOGIN_TIMEOUT );
 	LOGIN_D->logon( this_object() );
 }
 
@@ -38,7 +38,7 @@ void time_out()
 // add by Yu Jue 1997.08.31
 	if (objectp(ob) && environment(ob)) return;
 	if (interactive(me))
-		write("您花在连线进入手续的时间太久了，下次想好再来吧。\n");
+		write("鎮ㄨ姳鍦ㄨ繛绾胯繘鍏ユ墜缁殑鏃堕棿澶箙浜嗭紝涓嬫鎯冲ソ鍐嶆潵鍚с�俓n");
 	destruct(me);
 }
 
@@ -46,7 +46,12 @@ void time_check()
 {
 	string id = query("id");
 
-	if (!id || file_size("/data/login/"+id[0..0]+"/"+id+".o") > 0) {
+	// If no id set yet, just check again later (user is still in login flow)
+	if (!id) {
+		call_out( "time_check", LOGIN_TIMEOUT );
+		return;
+	}
+	if (file_size("/data/login/"+id[0..0]+"/"+id+".o") > 0) {
 		time_out();
 		return;
 	}

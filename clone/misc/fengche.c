@@ -1,4 +1,4 @@
-// fengche.c Ö½·ç³µ
+// fengche.c çº¸é£è½¦
 // By River@SJ 
 
 inherit ITEM;
@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIC"Ö½·ç³µ"NOR, ({ "zhi fengche", "zhi", "fengche" }));
+	set_name(HIC"çº¸é£è½¦"NOR, ({ "zhi fengche", "zhi", "fengche" }));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¼Ü");
-		set("long", "Ò»¼ÜÓÃ²ÊÖ½ÕÛµşµÄ·ç³µ,Ê®·Ö¾«ÇÉ¡£\n");
+		set("unit", "æ¶");
+		set("long", "ä¸€æ¶ç”¨å½©çº¸æŠ˜å çš„é£è½¦,ååˆ†ç²¾å·§ã€‚\n");
 		set("value", 1000);
 		set("material", "paper");
 	}
@@ -33,13 +33,13 @@ int do_blow(string arg)
         if (!id(arg))  return 0;
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         color = colors[random(sizeof(colors))];
 
 	switch (random(2)){
-		case 0:	message_vision(color+"\n$NÇáÇáµØ´µÁËÏÂ·ç³µ£¬·ç³µÇáÇá×ª¶¯ÆğÀ´,ÔÚÑô¹âÏÂÕÛÉä×Å²ÊÉ«µÄ¹â¡£\n"NOR, me); break;
-		case 1: message_vision(color+"\n$N¹ÄÆğÈù°ïÇáÇáµØ´µ×Å·ç³µ,·ç³µÉ³É³µØ×ª¶¯ÆğÀ´.....\n"NOR,me); break;
+		case 0:	message_vision(color+"\n$Nè½»è½»åœ°å¹äº†ä¸‹é£è½¦ï¼Œé£è½¦è½»è½»è½¬åŠ¨èµ·æ¥,åœ¨é˜³å…‰ä¸‹æŠ˜å°„ç€å½©è‰²çš„å…‰ã€‚\n"NOR, me); break;
+		case 1: message_vision(color+"\n$Né¼“èµ·è…®å¸®è½»è½»åœ°å¹ç€é£è½¦,é£è½¦æ²™æ²™åœ°è½¬åŠ¨èµ·æ¥.....\n"NOR,me); break;
 	}
         me->add_busy(1);
 	return 1;

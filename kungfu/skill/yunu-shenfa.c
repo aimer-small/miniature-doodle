@@ -1,13 +1,13 @@
-// yunu-shengfa.c ÓñÅ®Éí·¨
+// yunu-shengfa.c ç‰å¥³èº«æ³•
 #include <ansi.h>;
 inherit SKILL;
 
 string *dodge_msg = ({
-HIW"$nÒ»ÕĞ¡¸ÂåÉñÁè²¨¡¹£¬³¤ĞäÎè¶¯£¬ÑÚ×¡ÉíĞÎÈ¥´¦£¬ÇáÆ®Æ®ÌÚÉíÕÉÍâ£¬¶ã¹ıÁË$NÕâÒ»ÕĞ¡£\n"NOR,
-HIR"$næÌÈ»Ò»Ğ¦£¬·ç×Ë¾ø´ú£¬$nÒÑ½èÕâ¡¸Ò»Ğ¦Çã¹ú¡¹Ö®ÊÆ£¬±Ü¿ªÁË$NµÄÁèÀ÷¹¥ÊÆ¡£\n"NOR,
-HIM"$nÊ¹³ö¡¸¹óåú×í¾Æ¡¹£¬ÂúÃæºìÔÎ£¬½Å²½õÔõÄÖĞÒÑÈÄÖÁ$NµÄÉíºó¡£\n"NOR,
-HIC"$n×ó×ãµãµØ£¬ÑÛ¿´$NÉ±ÕĞ¿°¿°Ï®À´£¬Ò»ÕĞ¡¸ºì·÷Ò¹±¼¡¹£¬ÉíÇûÒÑ½èÊÆÆ½ÒÆ£¬ÉÁ¹ıÒ»ÅÔ¡£\n"NOR,
-MAG"$nÒ»Ê½¡¸ÂÌÖé×¹Â¥¡¹£¬ÉíÌåÌùµØ»¬ĞĞ£¬Õæ½ĞÈË·ËÒÄËùË¼£¬Áî$NµÄ¹¥»÷ÒÑÈ»ÆË¿Õ¡£\n"NOR,
+HIW"$nä¸€æ‹›ã€Œæ´›ç¥å‡Œæ³¢ã€ï¼Œé•¿è¢–èˆåŠ¨ï¼Œæ©ä½èº«å½¢å»å¤„ï¼Œè½»é£˜é£˜è…¾èº«ä¸ˆå¤–ï¼Œèº²è¿‡äº†$Nè¿™ä¸€æ‹›ã€‚\n"NOR,
+HIR"$nå«£ç„¶ä¸€ç¬‘ï¼Œé£å§¿ç»ä»£ï¼Œ$nå·²å€Ÿè¿™ã€Œä¸€ç¬‘å€¾å›½ã€ä¹‹åŠ¿ï¼Œé¿å¼€äº†$Nçš„å‡Œå‰æ”»åŠ¿ã€‚\n"NOR,
+HIM"$nä½¿å‡ºã€Œè´µå¦ƒé†‰é…’ã€ï¼Œæ»¡é¢çº¢æ™•ï¼Œè„šæ­¥è¸‰è·„ä¸­å·²é¥¶è‡³$Nçš„èº«åã€‚\n"NOR,
+HIC"$nå·¦è¶³ç‚¹åœ°ï¼Œçœ¼çœ‹$Næ€æ‹›å ªå ªè¢­æ¥ï¼Œä¸€æ‹›ã€Œçº¢æ‹‚å¤œå¥”ã€ï¼Œèº«èº¯å·²å€ŸåŠ¿å¹³ç§»ï¼Œé—ªè¿‡ä¸€æ—ã€‚\n"NOR,
+MAG"$nä¸€å¼ã€Œç»¿ç å æ¥¼ã€ï¼Œèº«ä½“è´´åœ°æ»‘è¡Œï¼ŒçœŸå«äººåŒªå¤·æ‰€æ€ï¼Œä»¤$Nçš„æ”»å‡»å·²ç„¶æ‰‘ç©ºã€‚\n"NOR,
 });
 
 int valid_enable(string usage) { return (usage == "dodge"); }
@@ -15,7 +15,7 @@ int valid_enable(string usage) { return (usage == "dodge"); }
 int valid_learn(object me)
 {
 	if ( me->query_skill("yunu-xinjing", 1) < 10)
-		return notify_fail("ÄãµÄÓñÅ®ĞÄ¾­µÈ¼¶²»¹»£¬ÎŞ·¨ÁìÎòÓñÅ®Éí·¨µÄÒª¾÷¡£\n");
+		return notify_fail("ä½ çš„ç‰å¥³å¿ƒç»ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•é¢†æ‚Ÿç‰å¥³èº«æ³•çš„è¦è¯€ã€‚\n");
 	return 1;
 }
 
@@ -27,7 +27,7 @@ string query_dodge_msg(object me)
 int practice_skill(object me)
 {
 	if((int)me->query("jingli") < 30 )
-		return notify_fail("Äã¸ÃĞİÏ¢Ò»ÏÂÁË£¬µÈ»áÔÙÁ·ÓñÅ®Éí·¨°É¡£\n");
+		return notify_fail("ä½ è¯¥ä¼‘æ¯ä¸€ä¸‹äº†ï¼Œç­‰ä¼šå†ç»ƒç‰å¥³èº«æ³•å§ã€‚\n");
         me->receive_damage("jingli", 10);
 	return 1;
 }
@@ -37,12 +37,12 @@ mapping query_action(object me, object weapon)
 	int level,out;
 	level   = (int) me->query_skill("yunu-shenfa",1);
 	out = (stringp(environment(me)->query("outdoors"))?1:0);
-	if(me->query("family/family_name")!="¹ÅÄ¹ÅÉ")
+	if(me->query("family/family_name")!="å¤å¢“æ´¾")
 		return ([
 			"action":dodge_msg[random(sizeof(dodge_msg))], 
 			"dodge": -level/3,
 		]);
-	if(me->query("gender") == "ÄĞĞÔ")
+	if(me->query("gender") == "ç”·æ€§")
 		return ([
 			"action":dodge_msg[random(sizeof(dodge_msg))],
 			"dodge": level/3 + me->query_con() - out*level/5,

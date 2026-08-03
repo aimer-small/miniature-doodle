@@ -6,21 +6,21 @@
 inherit ROOM;
 
 mapping *book = ({
-	(["name":	"ÖÆ×÷¶¾Ò©",
+	(["name":	"åˆ¶ä½œæ¯’è¯",
 	  "color":	HIR,
-	  "show":	"ºìÍ­É«",]),
-	(["name":	"ÄÜ¹»³¤Éú²»ÀÏ",
+	  "show":	"çº¢é“œè‰²",]),
+	(["name":	"èƒ½å¤Ÿé•¿ç”Ÿä¸è€",
 	  "color":	HIC,
-	  "show":	"ÇàÍ­É«",]),
-	(["name":	"·µÀÏ»¹Í¯",
+	  "show":	"é’é“œè‰²",]),
+	(["name":	"è¿”è€è¿˜ç«¥",
 	  "color":	HIY,
-	  "show":	"»ÆÍ­É«",]),
-	(["name":	"ÌáÁ¶ÏÉµ¤",
+	  "show":	"é»„é“œè‰²",]),
+	(["name":	"æç‚¼ä»™ä¸¹",
 	  "color":	HIG,
-	  "show":	"ÂÌÍ­É«",]),
-	(["name":	"½â¶¾",
+	  "show":	"ç»¿é“œè‰²",]),
+	(["name":	"è§£æ¯’",
 	  "color":	HIM,
-	  "show":	"×ÏÍ­É«",]),
+	  "show":	"ç´«é“œè‰²",]),
 });
 
 string do_have();
@@ -28,19 +28,19 @@ string do_see();
 
 void create()
 {
-	set("short", "Êé·¿");
+	set("short", "ä¹¦æˆ¿");
 	set("long", @LONG
-ÕâÀïÊÇÑîÁ«Í¤µÄÊé·¿£¬Êé°¸ÉÏÃæ°Ú×Å¼¸ÞûÊé¡£Ç½±ßÁ¢×ÅÒ»¸öÊé¼Ü£¬ÀïÃæ²ã
-²ãµþµþµÄ°Ú·Å×ÅÒ»ÞûÒ»ÞûµÄÊé¡£
+è¿™é‡Œæ˜¯æ¨èŽ²äº­çš„ä¹¦æˆ¿ï¼Œä¹¦æ¡ˆä¸Šé¢æ‘†ç€å‡ æ‘žä¹¦ã€‚å¢™è¾¹ç«‹ç€ä¸€ä¸ªä¹¦æž¶ï¼Œé‡Œé¢å±‚
+å±‚å å çš„æ‘†æ”¾ç€ä¸€æ‘žä¸€æ‘žçš„ä¹¦ã€‚
 LONG
 	);
 	set("exits", ([ 
 		"north" : __DIR__"changlang3",
 	]));
 	set("item_desc",([
-		"Êé¼Ü":		(: do_have :),
+		"ä¹¦æž¶":		(: do_have :),
 		"shujia":	(: do_have :),
-		"Êé¼®":		(: do_see  :),
+		"ä¹¦ç±":		(: do_see  :),
 		"shuji":	(: do_see  :),
 	]));
 	setup();
@@ -58,7 +58,7 @@ string do_have()
 	object me = this_player();
 	
 	me->set_temp("shufang/have",1);
-	return "Ò»¸öÊ®·Ö¿í´óµÄÊé¼Ü£¬ÉÏÃæ·Å×Å²»ÉÙÊé¼®¡£\n";
+	return "ä¸€ä¸ªååˆ†å®½å¤§çš„ä¹¦æž¶ï¼Œä¸Šé¢æ”¾ç€ä¸å°‘ä¹¦ç±ã€‚\n";
 }
 
 string do_see()
@@ -66,10 +66,10 @@ string do_see()
 	object me = this_player();
 	
 	if (!me->query_temp("shufang/have"))
-		return "ÄãË³ÊÖ·­¿´ÁË¼¸±¾Êé£¬Ã»·¢ÏÖÓÐÊ²Ã´ÒìÑù¡£\n";
+		return "ä½ é¡ºæ‰‹ç¿»çœ‹äº†å‡ æœ¬ä¹¦ï¼Œæ²¡å‘çŽ°æœ‰ä»€ä¹ˆå¼‚æ ·ã€‚\n";
 	me->delete_temp("shufang/have");
 	me->set_temp("shufang/see",1);
-	return "Äã×ÐÏ¸¿´ÁË¿´ÕâÐ©Êé¼®£¬·¢ÏÖÓÐÒ»Ì×Îå±¾¹Å¼®ËÆºõºÜÏÔÑÛ£¬Äã½û²»×¡ÏëÒªÈ¡ÏÂÀ´·­¿´¡£\n";
+	return "ä½ ä»”ç»†çœ‹äº†çœ‹è¿™äº›ä¹¦ç±ï¼Œå‘çŽ°æœ‰ä¸€å¥—äº”æœ¬å¤ç±ä¼¼ä¹Žå¾ˆæ˜¾çœ¼ï¼Œä½ ç¦ä¸ä½æƒ³è¦å–ä¸‹æ¥ç¿»çœ‹ã€‚\n";
 }
 
 int do_get(string arg)
@@ -79,37 +79,37 @@ int do_get(string arg)
 	int i;
 
 	if ( me->query_temp("shufang/getkey"))
-		return notify_fail("ÄãÒÑ¾­·¢ÏÖÕâ±¾ÊéÓÐ²»Í¬ÁË£¬»¹ÊÇÑÐ¾¿ÏÂ°É¡£\n");
+		return notify_fail("ä½ å·²ç»å‘çŽ°è¿™æœ¬ä¹¦æœ‰ä¸åŒäº†ï¼Œè¿˜æ˜¯ç ”ç©¶ä¸‹å§ã€‚\n");
 	
 	if (!me->query_temp("shufang/see"))
 		return 0;
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if ( me->query_temp("shufang/shu"))
-		return notify_fail("ÄãÒÑ¾­È¡ÏÂÒ»±¾ÊéÁË£¬»¹ÊÇÏÈ·­¿´ÏÂ°É¡£\n");
+		return notify_fail("ä½ å·²ç»å–ä¸‹ä¸€æœ¬ä¹¦äº†ï¼Œè¿˜æ˜¯å…ˆç¿»çœ‹ä¸‹å§ã€‚\n");
 
 	if (!arg || sscanf(arg,"%s %d from %s",arg,i,tar)!=3)
-		return notify_fail("ÄãÒª´ÓÄÄÀïÈ¡µÚ¼¸±¾Êé°¡£¿\n");
+		return notify_fail("ä½ è¦ä»Žå“ªé‡Œå–ç¬¬å‡ æœ¬ä¹¦å•Šï¼Ÿ\n");
 
-	if (arg != "shu" && arg != "Êé")
-		return notify_fail("ÄãÒªÈ¡Ê²Ã´£¿\n");
+	if (arg != "shu" && arg != "ä¹¦")
+		return notify_fail("ä½ è¦å–ä»€ä¹ˆï¼Ÿ\n");
 
 	if (i > 5 || i < 1)
-		return notify_fail("ÄãÒªÈ¡µÚ¼¸±¾Êé£¿\n");
+		return notify_fail("ä½ è¦å–ç¬¬å‡ æœ¬ä¹¦ï¼Ÿ\n");
 
-	if (tar != "jia" && arg != "Êé¼Ü")
-		return notify_fail("Äã´ÓÄÄÀïÈ¡£¿\n");
+	if (tar != "jia" && arg != "ä¹¦æž¶")
+		return notify_fail("ä½ ä»Žå“ªé‡Œå–ï¼Ÿ\n");
 	
 	me->set_temp("shufang/shu",i);
-	message_vision("$N´ÓÊé¼ÜÉÏÃæ³é³öµÚ" + CHINESE_D->chinese_number(i) + "±¾ÊéÄÃÏÂÀ´·­¿´¡£\n",me);
+	message_vision("$Nä»Žä¹¦æž¶ä¸Šé¢æŠ½å‡ºç¬¬" + CHINESE_D->chinese_number(i) + "æœ¬ä¹¦æ‹¿ä¸‹æ¥ç¿»çœ‹ã€‚\n",me);
 	return 1;
 }
 
 int do_key(object me)
 {
-	tell_object(me,"ÄãÍ»È»·¢ÏÖÕâ±¾¹Å¼®ËÆºõÖØÁ¿ºÍ±ðµÄÓÐÐ©²»Í¬£¬ºÃÏñÓÐÊ²Ã´¶«Î÷²ØÔÚÕâ±¾ÊéÖÐ¡£\n");
+	tell_object(me,"ä½ çªç„¶å‘çŽ°è¿™æœ¬å¤ç±ä¼¼ä¹Žé‡é‡å’Œåˆ«çš„æœ‰äº›ä¸åŒï¼Œå¥½åƒæœ‰ä»€ä¹ˆä¸œè¥¿è—åœ¨è¿™æœ¬ä¹¦ä¸­ã€‚\n");
 	me->set_temp("shufang/getkey",1);
 }
 
@@ -120,18 +120,18 @@ int do_fankan(string arg)
 	int i;
 
 	if ( me->query_temp("shufang/getkey"))
-		return notify_fail("ÄãÒÑ¾­·¢ÏÖÕâ±¾ÊéÓÐ²»Í¬ÁË£¬»¹ÊÇÑÐ¾¿ÏÂ°É¡£\n");
+		return notify_fail("ä½ å·²ç»å‘çŽ°è¿™æœ¬ä¹¦æœ‰ä¸åŒäº†ï¼Œè¿˜æ˜¯ç ”ç©¶ä¸‹å§ã€‚\n");
 
 	if (!me->query_temp("shufang/shu") && !wizardp(me)) return 0;
 
 	if (!arg)
-		return notify_fail("ÄãÒª·­¿´Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦ç¿»çœ‹ä»€ä¹ˆï¼Ÿ\n");
 
-	if (arg != "shu" && arg != "Êé")
-		return notify_fail("ÄãÒª·­¿´Ê²Ã´£¿\n");
+	if (arg != "shu" && arg != "ä¹¦")
+		return notify_fail("ä½ è¦ç¿»çœ‹ä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	i = me->query_temp("shufang/shu");
 	i = random(i) + 1;
@@ -140,10 +140,10 @@ int do_fankan(string arg)
         i = 1;        
 
 	book_info = book[i];
-	tell_object(me,book_info["color"]+"ÕâÊÇÒ»±¾½²ÊöÈçºÎ"+ book_info["name"] +"µÄ¹Å¼®£¬·âÃæ³Ê"+ book_info["show"] +"£¬ÊéÒ³ÒÑ¾­·º»ÆÇÒ²ÐÈ±ÁË¼¸Ò³¡£\n"NOR);
+	tell_object(me,book_info["color"]+"è¿™æ˜¯ä¸€æœ¬è®²è¿°å¦‚ä½•"+ book_info["name"] +"çš„å¤ç±ï¼Œå°é¢å‘ˆ"+ book_info["show"] +"ï¼Œä¹¦é¡µå·²ç»æ³›é»„ä¸”æ®‹ç¼ºäº†å‡ é¡µã€‚\n"NOR);
 	if ( random(5)) {
 		me->delete_temp("shufang/shu");
-		tell_object(me,"Äã·­¿´ÁË¼¸Ò³£¬²¢Ã»ÓÐÊ²Ã´ÌØ±ðÖ®´¦£¬ÓÚÊÇÓÖ·ÅÁË»ØÈ¥¡£\n");
+		tell_object(me,"ä½ ç¿»çœ‹äº†å‡ é¡µï¼Œå¹¶æ²¡æœ‰ä»€ä¹ˆç‰¹åˆ«ä¹‹å¤„ï¼ŒäºŽæ˜¯åˆæ”¾äº†å›žåŽ»ã€‚\n");
 	}
 	else {
 		me->delete_temp("shufang/shu");
@@ -161,20 +161,20 @@ int do_open(string arg)
 	if (!me->query_temp("shufang/getkey")) return 0;
 
 	if (!arg)
-		return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 
-	if (arg != "shu" && arg != "Êé")
-		return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+	if (arg != "shu" && arg != "ä¹¦")
+		return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 	
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-	tell_object(me,"Äã´ò¿ªÊéµÄ·âÒ³£¬·¢ÏÖÀïÃæÊÇÒ»¸ö¼Ð²ã¡£\n");
+	tell_object(me,"ä½ æ‰“å¼€ä¹¦çš„å°é¡µï¼Œå‘çŽ°é‡Œé¢æ˜¯ä¸€ä¸ªå¤¹å±‚ã€‚\n");
 	ob = unew(__DIR__"obj/key");
 	if ( !random(3) || !clonep(ob)) {
 		if( clonep(ob)) 
 			destruct(ob);
-		message_vision("$NÕýÒª´ò¿ªÊÖÖÐµÄ¹Å¼®£¬Í»È»£¬Ò»Î»ÈÕÔÂÉñ½Ì³¤ÀÏ³åÁË½øÀ´¡£\n",me);
+		message_vision("$Næ­£è¦æ‰“å¼€æ‰‹ä¸­çš„å¤ç±ï¼Œçªç„¶ï¼Œä¸€ä½æ—¥æœˆç¥žæ•™é•¿è€å†²äº†è¿›æ¥ã€‚\n",me);
 		me->delete_temp("shufang/getkey");
 		obj = new(__DIR__"npc/zhanglao");
 		obj->set_temp("target",me->query("id"));
@@ -182,7 +182,7 @@ int do_open(string arg)
 		me->start_busy(random(2));
 		return 1;
 	}
-	message_vision("$N»º»º´ò¿ªÊÖÖÐ¹Å¼®µÄ¼Ð²ã£¬È¡³öÁËÔ¿³×¡£\n",me);
+	message_vision("$Nç¼“ç¼“æ‰“å¼€æ‰‹ä¸­å¤ç±çš„å¤¹å±‚ï¼Œå–å‡ºäº†é’¥åŒ™ã€‚\n",me);
 	me->delete_temp("shufang");
 	ob->set_temp("owner",me->query("id"));
 	ob->move(me);

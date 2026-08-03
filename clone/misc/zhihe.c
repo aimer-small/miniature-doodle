@@ -1,19 +1,19 @@
-// zhihe.c Ö½º×
+// zhihe.c çº¸é¹¤
 // By River@SJ 
 inherit COMBINED_ITEM;
 #include <ansi.h> 
 
 void create()
 {
-	set_name(HIW"Ö½º×"NOR, ({ "zhihe", "he" }));
+	set_name(HIW"çº¸é¹¤"NOR, ({ "zhihe", "he" }));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»Ö»´ú±íË¼ÄîµÄÖ½º×£¬·Ç³£¾«ÖÂ£¬¾İËµÊÕ¼¯µ½Ò»Ç§Ö»¿ÉÒÔ´øÀ´ºÃÔË¡£\n");
+		set("long", "ä¸€åªä»£è¡¨æ€å¿µçš„çº¸é¹¤ï¼Œéå¸¸ç²¾è‡´ï¼Œæ®è¯´æ”¶é›†åˆ°ä¸€åƒåªå¯ä»¥å¸¦æ¥å¥½è¿ã€‚\n");
 		set("base_value", 500);
 		set("value", 500);
-		set("base_unit", "Ö»");
-		set("unit", "Ğ©");
+		set("base_unit", "åª");
+		set("unit", "äº›");
 		set("base_weight", 5);
 		set("no_drop", 1);
 		set("no_give", 1);
@@ -41,28 +41,28 @@ int do_give(string arg)
 
 	if( sscanf(arg, "%s to %s", item, target)==2
 	 || sscanf(arg, "%s %s", target, item)==2);
-	else return notify_fail("Ö¸Áî¸ñÊ½ : song <ÎïÆ·Ãû³Æ> to <Ä³ÈË> »ò : song <Ä³ÈË> <ÎïÆ·Ãû³Æ>\n");
+	else return notify_fail("æŒ‡ä»¤æ ¼å¼ : song <ç‰©å“åç§°> to <æŸäºº> æˆ– : song <æŸäºº> <ç‰©å“åç§°>\n");
 	
 	if ( item != "zhihe")
-		return notify_fail("Ö¸Áî¸ñÊ½ : song <ÎïÆ·Ãû³Æ> to <Ä³ÈË> »ò : song <Ä³ÈË> <ÎïÆ·Ãû³Æ>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ : song <ç‰©å“åç§°> to <æŸäºº> æˆ– : song <æŸäºº> <ç‰©å“åç§°>\n");
 
 	if (!objectp(who = present(target, environment(me))) || !living(who))
-		return notify_fail("ÕâÀïÃ»ÓĞÕâ¸öÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 
-	if ( who == me) return notify_fail("¸ø×Ô¼º£¿\n");
+	if ( who == me) return notify_fail("ç»™è‡ªå·±ï¼Ÿ\n");
 
-	if ( me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+	if ( me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if ( who->query("env/no_accept"))
-		return notify_fail("¶Ô·½ÏÖÔÚ²»½ÓÊÜÈÎºÎ¶«Î÷¡£\n");
+		return notify_fail("å¯¹æ–¹ç°åœ¨ä¸æ¥å—ä»»ä½•ä¸œè¥¿ã€‚\n");
 
 	if ( who->query_temp("make_zhihe/get"))
-		return notify_fail(who->query("name")+"ÒÑ¾­ÓĞÖ½º×ÁË¡£\n");
+		return notify_fail(who->query("name")+"å·²ç»æœ‰çº¸é¹¤äº†ã€‚\n");
 
 	if ( query_amount() < 1000)
-		return notify_fail("Äã»¹Ã»ÓĞ´ÕÆëÒ»Ç§Ö»Ö½º×ÄØ¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰å‡‘é½ä¸€åƒåªçº¸é¹¤å‘¢ã€‚\n");
 	
-	message_vision("$N¸øÁË$nÒ»Ğ©"+obj->query("name")+"¡£\n", me, who);
+	message_vision("$Nç»™äº†$nä¸€äº›"+obj->query("name")+"ã€‚\n", me, who);
 	me->delete_temp("make_zhihe");
 	who->set_temp("make_zhihe/get", 1);
 	obj->move(who);
@@ -75,8 +75,8 @@ int do_tear(string arg)
 	
 	if(!id(arg)) return 0;
 	
-	message_vision(HIW"$N´ô´ôµØÕ¾×Å£¬½«ÊÖÖĞµÄÖ½º×¿´ÁËÓÖ¿´£¬Í»È»Ò»Ò§ÑÀ£¬¼¸ÏÂ½«Ö½º×Ëº³ÉËéÆ¬£¬\n"+
-			"¿´×ÅÆ¬Æ¬Ëéº×ÔÚ·çÖĞ·ÉÎè£¬ÖÕÖÁÀáË®¶á¿ô¶ø³ö¡£\n"NOR, me);
+	message_vision(HIW"$Nå‘†å‘†åœ°ç«™ç€ï¼Œå°†æ‰‹ä¸­çš„çº¸é¹¤çœ‹äº†åˆçœ‹ï¼Œçªç„¶ä¸€å’¬ç‰™ï¼Œå‡ ä¸‹å°†çº¸é¹¤æ’•æˆç¢ç‰‡ï¼Œ\n"+
+			"çœ‹ç€ç‰‡ç‰‡ç¢é¹¤åœ¨é£ä¸­é£èˆï¼Œç»ˆè‡³æ³ªæ°´å¤ºçœ¶è€Œå‡ºã€‚\n"NOR, me);
 	EMOTE_D->do_emote(me,"cry", me->query("id"));
 	me->delete_temp("make_zhihe");
 	me->delete_temp("zhihe");

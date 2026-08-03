@@ -5,7 +5,7 @@
 
 inherit F_DBASE;
 inherit F_SSERVER;
-string perform_name(){ return HIW"һ��������"NOR; }
+string perform_name(){ return HIW"一剑化三清"NOR; }
 int perform(object me, object target)
 {
         int skill = me->query_skill("quanzhen-jianfa", 1);
@@ -18,39 +18,39 @@ int perform(object me, object target)
          || !me->is_fighting(target) 
          || !objectp(target)
          || environment(target)!= environment(me))
-                return notify_fail("һ��������ֻ�ܶ�ս���еĶ���ʹ�á�\n");
+                return notify_fail("一剑化三清只能对战斗中的对手使用。\n");
 
         if( me->query_skill("force", 1) < 100 )
-                return notify_fail("����ڹ����δ�����޷�ʩչһ�������壡\n");
+                return notify_fail("你的内功火候未到，无法施展一剑化三清！\n");
 
         if( me->query_skill("dodge") < 150 )
-                return notify_fail("һ�����������Ṧ��ϣ�����ʩչ��\n");
+                return notify_fail("一剑化三清需轻功配合，方能施展！\n");
 
         if( me->query_skill("sword") < 150 )
-                return notify_fail("�㽣�����δ�㣬�޷�ʹ��һ�������壡\n");
+                return notify_fail("你剑法火候未足，无法使用一剑化三清！\n");
 
         if( me->query("neili") < 500 )
-                return notify_fail("�����������ʹ��һ�������壡\n");
+                return notify_fail("你的内力不够使用一剑化三清！\n");
 
         if( me->query("jingli") < 150 )
-                return notify_fail("��ľ�������ʹ��һ�������壡\n");
+                return notify_fail("你的精力不够使用一剑化三清！\n");
      
        if( me->query_temp("sanqing") )
-                return notify_fail("������ʹ��һ���������أ�\n");
+                return notify_fail("你正在使用一剑化三清呢！\n");
 
         if((int)me->query_temp("hebi"))
-               return notify_fail("������ʩչ˫���ϱڣ��޷�ʹ�á�һ�������塹������\n"); 
+               return notify_fail("你正在施展双剑合壁，无法使用「一剑化三清」绝技。\n"); 
 
         if(!me->query_skill("xiantian-gong"))
           if(me->query_skill("yunu-xinjing", 1) < 100)
-                return notify_fail("����ڹ���򲻹����޷�ʹ��һ�������塣\n");
+                return notify_fail("你的内功火候不够，无法使用一剑化三清。\n");
 
         if (!weapon 
          || weapon->query("skill_type") != "sword"
          || me->query_skill_mapped("sword") != "quanzhen-jianfa")
-                return notify_fail("�������޽�����ʹ��һ�������壿��\n");
+                return notify_fail("你手中无剑怎能使用一剑化三清？！\n");
 
-        msg = HIW"\n$Nһ����Х��ʹ��ȫ�潣���е�һ�������壬����ֳ����㣬����$n��\n" NOR;
+        msg = HIW"\n$N一声清啸，使出全真剑法中的一剑化三清，剑尖分成数点，刺向$n！\n" NOR;
         message_vision(msg , me, target);
         me->add_temp("apply/attack", me->query_skill("xiantian-gong") /3 );
         me->add_temp("apply/damage", me->query_skill("xiantian-gong")/4 );
@@ -61,7 +61,7 @@ int perform(object me, object target)
         COMBAT_D->do_attack(me, target, me->query_temp("weapon"), random(2)?3:1);
   
   if(me->query_skill("quanzhen-jianfa",1)<=450 ) 
-  	    me->start_perform(3,"һ��������");
+  	    me->start_perform(3,"一剑化三清");
   
         call_out("check_fight", 2, me, target, weapon, skill/20);
         return 1;
@@ -75,7 +75,7 @@ void check_fight(object me,object target,object weapon,int count)
          || !weapon
          || me->query_skill_mapped("sword") != "quanzhen-jianfa"
          || count < 3 ){
-                message_vision(HIW"\n�⼸��һ���ǳɣ��������������Ƴ��ȣ�ȡ��������壬����ȫ�潣���еľ������ڡ�\n\n"NOR, me);
+                message_vision(HIW"\n这几剑一气呵成，剑意连环，剑势沉稳，取意道家三清，乃是全真剑法中的精髓所在。\n\n"NOR, me);
                 me->delete_temp("sanqing");
                 me->add_temp("apply/attack", -me->query_skill("xiantian-gong")/3);
                 me->add_temp("apply/damage", -me->query_skill("xiantian-gong")/4);

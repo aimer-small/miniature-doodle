@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("ºÚÒÂ°ïÖÚ", ({"heiyi bangzhong", "heiyi", "bangzhong"}));
-	set("long", "ËûÊÇÒ»¸öÉíĞĞ½¡×³µÄºº×Ó£¬Á½±Û´Ö×³£¬°òÀ«ÑüÔ²¡£ÂúÁ³µÄĞ×Ïà¡£\n");
+	set_name("é»‘è¡£å¸®ä¼—", ({"heiyi bangzhong", "heiyi", "bangzhong"}));
+	set("long", "ä»–æ˜¯ä¸€ä¸ªèº«è¡Œå¥å£®çš„æ±‰å­ï¼Œä¸¤è‡‚ç²—å£®ï¼Œè†€é˜”è…°åœ†ã€‚æ»¡è„¸çš„å‡¶ç›¸ã€‚\n");
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 
 	set("age", 30);
@@ -42,7 +42,7 @@ void create()
 	map_skill("strike", "tiezhang-zhangfa");
 	map_skill("parry", "tiezhang-zhangfa");
         prepare_skill("strike","tiezhang-zhangfa");
-        create_family("ÌúÕÆ°ï", 16, "µÜ×Ó");
+        create_family("é“æŒå¸®", 16, "å¼Ÿå­");
 
 	setup();
         carry_object(__DIR__"obj/heiyi")->wear();
@@ -62,11 +62,11 @@ void init()
 	&& !wizardp(ob)
 	&& !environment(ob)->query("no_fight")
 	&& !present("tiezhang ling", ob) 
-        && ( (fam = ob->query("family")) && fam["family_name"] != "ÌúÕÆ°ï")
+        && ( (fam = ob->query("family")) && fam["family_name"] != "é“æŒå¸®")
         && (int)ob->query("combat_exp", 1) >= 10000 ) {
 		if( !ob->query_temp("warned") ) {
-			command("say Õ¾×¡£¡Äã²»ÊÇÌúÕÆ°ïµÜ×Ó£¬²»ÄÜÔÚ´Ë¾ÃÁô£¡£¡");
-			command("say Ê¶ÏàµÄ¾Í¿ì¹ö£¬ÈÇµÃÒ¯Ò¯»ğÆğ£¬´ò¶ÏÄãµÄ¹·ÍÈ£¡£¡");
+			command("say ç«™ä½ï¼ä½ ä¸æ˜¯é“æŒå¸®å¼Ÿå­ï¼Œä¸èƒ½åœ¨æ­¤ä¹…ç•™ï¼ï¼");
+			command("say è¯†ç›¸çš„å°±å¿«æ»šï¼Œæƒ¹å¾—çˆ·çˆ·ç«èµ·ï¼Œæ‰“æ–­ä½ çš„ç‹—è…¿ï¼ï¼");
 			command("hehe");
 			ob->set_temp("warned", 1);
 		}
@@ -74,7 +74,7 @@ void init()
 			if( ob->query_temp("stay") < 3 )
 				ob->add_temp("stay", 1);
 		else {
-			command("say Äã»îµÃ²»ÄÍ·³ÁË£¬¾¹¸Òµ½ÌúÕÆ°ïÀ´ÈöÒ°£¡£¡£¡\n");
+			command("say ä½ æ´»å¾—ä¸è€çƒ¦äº†ï¼Œç«Ÿæ•¢åˆ°é“æŒå¸®æ¥æ’’é‡ï¼ï¼ï¼\n");
 			remove_call_out("hiting_ob");
 			call_out("hiting_ob", 1, ob);
 		}

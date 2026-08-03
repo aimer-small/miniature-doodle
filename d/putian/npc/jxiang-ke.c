@@ -1,11 +1,11 @@
-// jxiang-ke.c ½øÏã¿Í
+// jxiang-ke.c è¿›é¦™å®¢
 
 inherit NPC;
 
 void create()
 {
-        set_name("½øÏã¿Í", ({ "jingxiang ke", "ke" }));
-        set("gender", random(2)==1 ? "ÄÐÐÔ":"Å®ÐÔ");
+        set_name("è¿›é¦™å®¢", ({ "jingxiang ke", "ke" }));
+        set("gender", random(2)==1 ? "ç”·æ€§":"å¥³æ€§");
         set("age", 24 + random(50));
 
         set("combat_exp", 500 + random(1000));

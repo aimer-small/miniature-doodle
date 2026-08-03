@@ -10,29 +10,29 @@ string xykm_job()
 	object *ob_list;
 	object ob2;
 //	if (!wizardp(me))	
-//              return "ÔİÊ±¹Ø±Õ,¿ª·ÅÈÕÆÚÁíĞĞÍ¨Öª!";
+//              return "æš‚æ—¶å…³é—­,å¼€æ”¾æ—¥æœŸå¦è¡Œé€šçŸ¥!";
 	if ( me->query_temp("xykm_job") )
-		return "Äã²»ÊÇÒÑ¾­½Ó¹ıÈÎÎñÁËÂğ£¿";
+		return "ä½ ä¸æ˜¯å·²ç»æ¥è¿‡ä»»åŠ¡äº†å—ï¼Ÿ";
 	
 	ob_list = filter_array(children(USER_OB), (: clonep($1) && !wizardp($1) :));
 	max=sizeof(ob_list);
 	for (i=0;i<max;i++){
 		obj1 = ob_list[i];
 		if (obj1->query_temp("xykm_job") )
-		return "Õâ¸öÈÎÎñÎÒÒÑ¾­½»¸ø" + obj1->query("name")
-		+"("+capitalize(obj1->query("id"))+")"+"È¥×öÁË¡£";
+		return "è¿™ä¸ªä»»åŠ¡æˆ‘å·²ç»äº¤ç»™" + obj1->query("name")
+		+"("+capitalize(obj1->query("id"))+")"+"å»åšäº†ã€‚";
 	}
-//µ÷ÊÔ
+//è°ƒè¯•
 	if( !wizardp(me) && !DEBUG_MODE ) {
 	if ( me->query_condition("job_busy") || me->query_condition("xykm_job_busy"))
-		return "ÄúÉÏ´ÎÈÎÎñĞÁ¿àÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»ÏÂÔÙËµ°É¡£";
+		return "æ‚¨ä¸Šæ¬¡ä»»åŠ¡è¾›è‹¦äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å†è¯´å§ã€‚";
 
-	if (me->query("job_name") == "ÏåÑôµÖÓùÃÉ¹Å´ó¾ü")
-		return "ÄúÉÏ´ÎÈÎÎñĞÁ¿àÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»ÏÂÔÙËµ°É¡£";
+	if (me->query("job_name") == "è¥„é˜³æŠµå¾¡è’™å¤å¤§å†›")
+		return "æ‚¨ä¸Šæ¬¡ä»»åŠ¡è¾›è‹¦äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¸‹å†è¯´å§ã€‚";
 /*		
 	if( me->query_temp("xykm_job") )
-		return "ÎÒÕâÀïÏÖÔÚÃ»ÓĞÊ²Ã´ÈÎÎñ¿ÉÒÔ¸øÄã¡£";*/
-//µ÷ÊÔ
+		return "æˆ‘è¿™é‡Œç°åœ¨æ²¡æœ‰ä»€ä¹ˆä»»åŠ¡å¯ä»¥ç»™ä½ ã€‚";*/
+//è°ƒè¯•
 	}
 
 	ob2 = new("/clone/npc/zhong-shentong");
@@ -40,15 +40,15 @@ string xykm_job()
 		destruct(ob2);
 	}
 			
-	command("say Ó¦¹ù´óÏÀµÄÑûÇë£¬ÎÒÔÚÕâÀï¹ãÑûÖĞÔ­¸÷ÅÉÎäÁÖ¸ßÊÖÔÚĞşÎäÃÅµÖ¿¹ÃÉ¹Å¾ü¶ÓµÄ¹¥»÷¡£\n" );
+	command("say åº”éƒ­å¤§ä¾ çš„é‚€è¯·ï¼Œæˆ‘åœ¨è¿™é‡Œå¹¿é‚€ä¸­åŸå„æ´¾æ­¦æ—é«˜æ‰‹åœ¨ç„æ­¦é—¨æŠµæŠ—è’™å¤å†›é˜Ÿçš„æ”»å‡»ã€‚\n" );
 
 	set_temp("xykm_job",1);
 
-	// µ÷ÊÔĞÅÏ¢
+	// è°ƒè¯•ä¿¡æ¯
 	me->set_temp("xykm_job/asked",1);
 	me->apply_condition("job_busy", 30);
-	command("say ĞşÎäÃÅÊÇÃÉ¹Å½ø·¸ÏåÑôµÄ±Ø¾­Ö®µØ£¬ÄãËÙÑû¼¸ÃûÎäÁÖ¸ßÊÖÈ¥µÖÓùÃÉ¹Å¾ü¶Ó¹¥»÷¡£\n");
-	CHANNEL_D->do_channel( this_object(), "rumor",sprintf(HIR"%s¿ªÊ¼ÏåÑô³ÇµÖ¿¹ÃÉ¹Å´ó¾üÈÎÎñ£¡", me->name(1)));
+	command("say ç„æ­¦é—¨æ˜¯è’™å¤è¿›çŠ¯è¥„é˜³çš„å¿…ç»ä¹‹åœ°ï¼Œä½ é€Ÿé‚€å‡ åæ­¦æ—é«˜æ‰‹å»æŠµå¾¡è’™å¤å†›é˜Ÿæ”»å‡»ã€‚\n");
+	CHANNEL_D->do_channel( this_object(), "rumor",sprintf(HIR"%så¼€å§‹è¥„é˜³åŸæŠµæŠ—è’™å¤å¤§å†›ä»»åŠ¡ï¼", me->name(1)));
 
 	if (wizardp(me)) {
 		me->apply_condition("xykm_job", 6);
@@ -57,5 +57,5 @@ string xykm_job()
 	else
 		me->apply_condition("xykm_job", 10);
 
-	return "ÃÉ¹Å¾ü¶Ó²»·¦ÓĞĞí¶à¸ßÊÖ£¬Äã¶à´øµÜ×Ó£¬²¼ÏÂÕó·¨£¬ÒÔ²ßÍòÈ«£¬ÇĞ¼ÇÇĞ¼Ç¡£";
+	return "è’™å¤å†›é˜Ÿä¸ä¹æœ‰è®¸å¤šé«˜æ‰‹ï¼Œä½ å¤šå¸¦å¼Ÿå­ï¼Œå¸ƒä¸‹é˜µæ³•ï¼Œä»¥ç­–ä¸‡å…¨ï¼Œåˆ‡è®°åˆ‡è®°ã€‚";
 }

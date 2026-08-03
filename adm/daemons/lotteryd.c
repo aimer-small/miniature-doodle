@@ -11,7 +11,7 @@ inherit F_SAVE;
 
 mapping games = ([
 	"1":	([
-		"name"		: "ÊÀ½ç±­¹Ú¾ü¾º²Â",
+		"name"		: "ä¸–ç•Œæ¯å† å†›ç«çŒœ",
 		"status"	: 0,
 		"starttime"	: 1022663400,
 		"endtime"	: 1023010200,
@@ -21,7 +21,7 @@ mapping games = ([
 		"texp"		: ([ ]),
 		]),
 	"2":	([
-		"name"		: "ÊÀ½ç±­ÖĞ¹ú¶Ó×ÜÈëÇòÊı",
+		"name"		: "ä¸–ç•Œæ¯ä¸­å›½é˜Ÿæ€»å…¥çƒæ•°",
 		"status"	: 0,
 		"starttime"	: 1022663400,
 		"endtime"	: 1023172200,
@@ -47,7 +47,7 @@ void check_bet26(object me);
 
 string query(string arg)
 {
-	if (arg == "channel_id") return "Î¤Ğ¡±¦(Wei Xiaobao)";
+	if (arg == "channel_id") return "éŸ¦å°å®(Wei Xiaobao)";
 }
 
 string query_save_file()
@@ -119,10 +119,10 @@ int set_result(int idx,string result)
 	save();
 
 	if( idx < 10 )
-		msg = "µÚ"+CHINESE_D->chinese_number(idx)+"³¡²©²Ê¡°"+games[sidx]["name"]+"¡±½áÊøÁË£¬½á¹ûÎª¡°"+result+"¡±£¡";
+		msg = "ç¬¬"+CHINESE_D->chinese_number(idx)+"åœºåšå½©â€œ"+games[sidx]["name"]+"â€ç»“æŸäº†ï¼Œç»“æœä¸ºâ€œ"+result+"â€ï¼";
 	else
-		msg = "µÚ"+CHINESE_D->chinese_number(idx)+"³¡²©²Ê¡°"+games[sidx]["key1"]+"VS"+games[sidx]["key2"]+"¡±½áÊøÁË£¬½á¹ûÎª¡°"+result+"Çò¡±£¡";
-	message("channel", "\r"+HIW+query("channel_id")+"×İÉù³¤Ğ¥£º¡¸"+msg+"¡¹\n"NOR,users());
+		msg = "ç¬¬"+CHINESE_D->chinese_number(idx)+"åœºåšå½©â€œ"+games[sidx]["key1"]+"VS"+games[sidx]["key2"]+"â€ç»“æŸäº†ï¼Œç»“æœä¸ºâ€œ"+result+"çƒâ€ï¼";
+	message("channel", "\r"+HIW+query("channel_id")+"çºµå£°é•¿å•¸ï¼šã€Œ"+msg+"ã€\n"NOR,users());
 
 	user = users();
 	for(i=0;i<sizeof(user);i++)
@@ -146,10 +146,10 @@ void check_games()
 
 			sscanf(sk[i],"%d",idx);
 			if( idx < 10 )
-				msg = "µÚ"+CHINESE_D->chinese_number(idx)+"³¡²©²Ê¡°"+sv[i]["name"]+"¡±¿ªÊ¼Í¶×¢ÁË£¬¿ìµ½ÏåÑôÍò½ğ¶Ä·»À´ÏÂ×¢°¡£¡";
+				msg = "ç¬¬"+CHINESE_D->chinese_number(idx)+"åœºåšå½©â€œ"+sv[i]["name"]+"â€å¼€å§‹æŠ•æ³¨äº†ï¼Œå¿«åˆ°è¥„é˜³ä¸‡é‡‘èµŒåŠæ¥ä¸‹æ³¨å•Šï¼";
 			else
-				msg = "µÚ"+CHINESE_D->chinese_number(idx)+"³¡²©²Ê¡°"+sv[i]["key1"]+"VS"+sv[i]["key2"]+"¡±¿ªÊ¼Í¶×¢ÁË£¬¿ìµ½ÏåÑôÍò½ğ¶Ä·»À´ÏÂ×¢°¡£¡";
-			message("channel", "\r"+HIW+query("channel_id")+"×İÉù³¤Ğ¥£º¡¸"+msg+"¡¹\n"NOR,users());
+				msg = "ç¬¬"+CHINESE_D->chinese_number(idx)+"åœºåšå½©â€œ"+sv[i]["key1"]+"VS"+sv[i]["key2"]+"â€å¼€å§‹æŠ•æ³¨äº†ï¼Œå¿«åˆ°è¥„é˜³ä¸‡é‡‘èµŒåŠæ¥ä¸‹æ³¨å•Šï¼";
+			message("channel", "\r"+HIW+query("channel_id")+"çºµå£°é•¿å•¸ï¼šã€Œ"+msg+"ã€\n"NOR,users());
 		}
 		if( sv[i]["status"]==1 && sv[i]["endtime"]<time() ) {
 			sv[i]["status"] = 2;
@@ -178,7 +178,7 @@ void debug_info(object me,string type)
 	else if( type == "bet26sy" )
 		tell_object(me,sprintf("bet26sy: %O\n",bet26sy));
 	else
-		tell_object(me,"Ã»ÓĞ´ËÀà±ğµÄµ÷ÊÔÏûÏ¢¡£\n");
+		tell_object(me,"æ²¡æœ‰æ­¤ç±»åˆ«çš„è°ƒè¯•æ¶ˆæ¯ã€‚\n");
 }
 
 
@@ -187,13 +187,13 @@ protected string str_goal(int goal)
 	string msg;
 	int i;
 
-	if( goal == 0 ) return "Æ½ÊÖ";
+	if( goal == 0 ) return "å¹³æ‰‹";
 
 	msg = "";
 	i = goal / 100;
-	if( i )	msg += CHINESE_D->chinese_number(goal/100) + "Çò";
-	if( (goal%100) > 0 ) msg += "°ë";
-	if( !i ) msg += "Çò";
+	if( i )	msg += CHINESE_D->chinese_number(goal/100) + "çƒ";
+	if( (goal%100) > 0 ) msg += "åŠ";
+	if( !i ) msg += "çƒ";
 
 	return msg;
 }
@@ -202,7 +202,7 @@ protected string str_time(int date)
 {
 	mixed *local;
 	local = localtime(date);
-	return sprintf("%1dÔÂ%2dÈÕ%2dÊ±%2d·Ö",local[LT_MON]+1,local[LT_MDAY],local[LT_HOUR],local[LT_MIN]);
+	return sprintf("%1dæœˆ%2dæ—¥%2dæ—¶%2dåˆ†",local[LT_MON]+1,local[LT_MDAY],local[LT_HOUR],local[LT_MIN]);
 }
 
 string list(int type)
@@ -219,30 +219,30 @@ string list(int type)
 	j = sizeof(sk);
 
 	if( type == 1 )
-		msg = "Ä¿Ç°¿ÉÒÔÍ¶×¢µÄ²©²ÊÓĞ£º\n";
+		msg = "ç›®å‰å¯ä»¥æŠ•æ³¨çš„åšå½©æœ‰ï¼š\n";
 	else if( type == 2 )
-		msg = "Ä¿Ç°ÒÑ¾­½áÊøÍ¶×¢ÕıÔÚ½øĞĞ±ÈÈüµÄ²©²ÊÓĞ£º\n";
+		msg = "ç›®å‰å·²ç»ç»“æŸæŠ•æ³¨æ­£åœ¨è¿›è¡Œæ¯”èµ›çš„åšå½©æœ‰ï¼š\n";
 	else
-		msg = "Ä¿Ç°ÒÑ¾­½áÊøµÄ²©²ÊÓĞ£º\n";
+		msg = "ç›®å‰å·²ç»ç»“æŸçš„åšå½©æœ‰ï¼š\n";
 
 	for(i=0;i<j;i++) {
 		if( sv[i]["status"] != type ) continue;
 		if( strlen(sk[i]) > 1 ) continue;
 
-		msg += CYN"²©²Ê³¡´Î£º"+sk[i]+"    ²©²ÊÏîÄ¿£º"+sv[i]["name"] + "    Í¶×¢½áÊøÊ±¼ä£º"+str_time(sv[i]["endtime"])+"    ÅâÂÊ£º"NOR;
+		msg += CYN"åšå½©åœºæ¬¡ï¼š"+sk[i]+"    åšå½©é¡¹ç›®ï¼š"+sv[i]["name"] + "    æŠ•æ³¨ç»“æŸæ—¶é—´ï¼š"+str_time(sv[i]["endtime"])+"    èµ”ç‡ï¼š"NOR;
 		sk2 = keys(sv[i]["key"]);
 		sv2 = values(sv[i]["key"]);
 		b = sizeof(sk2);
 		for(a=0;a<b;a++) {
 			if( (a%4) == 0 ) msg += "\n";
-			msg += sprintf("%-10s£º%3d.%1d      ",sk2[a],sv2[a]/100,(sv2[a]/10)%10);
+			msg += sprintf("%-10sï¼š%3d.%1d      ",sk2[a],sv2[a]/100,(sv2[a]/10)%10);
 		}
 		msg += "\n";
-		if( type == 3 ) msg += "½á¹û£º"+sv[i]["result"]+"\n\n";
+		if( type == 3 ) msg += "ç»“æœï¼š"+sv[i]["result"]+"\n\n";
 	}
 
-	msg += CYN"\n²©²Ê³¡´Î  ²©²Ê½áÊøÍ¶×¢Ê±¼ä  ²ÎÈüÇò¶ÓÒ»  ÅâÂÊ      ÈÃÇò      ÅâÂÊ  ²ÎÈüÇò¶Ó¶ş";
-	if( type == 3 ) msg += "  ½á¹û";
+	msg += CYN"\nåšå½©åœºæ¬¡  åšå½©ç»“æŸæŠ•æ³¨æ—¶é—´  å‚èµ›çƒé˜Ÿä¸€  èµ”ç‡      è®©çƒ      èµ”ç‡  å‚èµ›çƒé˜ŸäºŒ";
+	if( type == 3 ) msg += "  ç»“æœ";
 	msg += "\n"NOR;
 
 	for(i=0;i<j;i++) {
@@ -271,11 +271,11 @@ string buy(object me,int idx,string team,int exp,int gold)
 
  	sidx = sprintf("%d",idx);
 	if( !mapp(games[sidx]) )
-		return "²»´æÔÚÕâ³¡²©²Ê¡£";
+		return "ä¸å­˜åœ¨è¿™åœºåšå½©ã€‚";
 	if( games[sidx]["status"] < 1  )
-		return "Õâ³¡²©²Ê»¹Ã»ÓĞ¿ªÊ¼¡£";
+		return "è¿™åœºåšå½©è¿˜æ²¡æœ‰å¼€å§‹ã€‚";
 	if( games[sidx]["status"] > 1  )
-		return "Õâ³¡²©²ÊÒÑ¾­½áÊøÍ¶×¢ÁË¡£";
+		return "è¿™åœºåšå½©å·²ç»ç»“æŸæŠ•æ³¨äº†ã€‚";
 
 	mp["key"] = team;
 	mp["exp"] = exp;
@@ -289,16 +289,16 @@ string buy(object me,int idx,string team,int exp,int gold)
 		else if( !mapp(me->query("fifa/"+sidx+"c")) )
 			me->set("fifa/"+sidx+"c",copy(mp));
 		else
-			return "ÄãÒÑ¾­ÔÚÕâ³¡²©²ÊÖĞÍ¶×¢ÁË¡£";
+			return "ä½ å·²ç»åœ¨è¿™åœºåšå½©ä¸­æŠ•æ³¨äº†ã€‚";
 		if( games[sidx]["key"][team] == 0 )
-			return "Ã»ÓĞÕâ¸öÍ¶×¢ÏîÄ¿¡£";
+			return "æ²¡æœ‰è¿™ä¸ªæŠ•æ³¨é¡¹ç›®ã€‚";
 
 		games[sidx]["tgold"][team] += gold;
 		games[sidx]["texp" ][team] += exp;
 	}
 	else {
 		if( mapp(me->query("fifa/"+sidx)) )
-			return "ÄãÒÑ¾­ÔÚÕâ³¡²©²ÊÖĞÍ¶×¢ÁË¡£";
+			return "ä½ å·²ç»åœ¨è¿™åœºåšå½©ä¸­æŠ•æ³¨äº†ã€‚";
 
 		if( team == games[sidx]["key1"] ) {
 			games[sidx]["tgold1"] += gold;
@@ -309,7 +309,7 @@ string buy(object me,int idx,string team,int exp,int gold)
 			games[sidx]["texp2"]  += exp;
 		}
 		else
-			return "Ã»ÓĞÕâ¸öÍ¶×¢ÏîÄ¿¡£";
+			return "æ²¡æœ‰è¿™ä¸ªæŠ•æ³¨é¡¹ç›®ã€‚";
 
 		me->set("fifa/"+sidx,copy(mp));
 	}
@@ -348,7 +348,7 @@ void check_user_game(object me)
 	sk = keys(games);
 	sv = values(games);
 	j = sizeof(sk);
-	msg = CYN+BLINK+"\nÏÖÔÚÕıÔÚ½øĞĞÊÀ½ç±­²©²Ê»î¶¯£¬Çëµ½ÏåÑôÍò½ğ¶Ä³¡ÏÂ×¢¡£\n"NOR+CYN"ÏÖÔÚ¿ÉÒÔÍ¶×¢µÄµ¥³¡²©²ÊÓĞ£º\n";
+	msg = CYN+BLINK+"\nç°åœ¨æ­£åœ¨è¿›è¡Œä¸–ç•Œæ¯åšå½©æ´»åŠ¨ï¼Œè¯·åˆ°è¥„é˜³ä¸‡é‡‘èµŒåœºä¸‹æ³¨ã€‚\n"NOR+CYN"ç°åœ¨å¯ä»¥æŠ•æ³¨çš„å•åœºåšå½©æœ‰ï¼š\n";
 	for(i=0;i<j;i++) {
 		if( sv[i]["status"] != 1 ) continue;
 		if( strlen(sk[i]) < 2 ) continue;
@@ -372,7 +372,7 @@ void check_user_game(object me)
 			if( games[sk[i][0..0]]["status"] != 3 ) continue;
 			if( sv[i]["key"] == games[sk[i][0..0]]["result"] )
 				k = games[sk[i][0..0]]["key"][sv[i]["key"]];
-			msg = "\nµÚ"+sk[i][0..0]+"³¡²©²Ê½áÊøÁË£¬½á¹ûÎª"+games[sk[i][0..0]]["result"]+"¡£";
+			msg = "\nç¬¬"+sk[i][0..0]+"åœºåšå½©ç»“æŸäº†ï¼Œç»“æœä¸º"+games[sk[i][0..0]]["result"]+"ã€‚";
 		}
 		else {
 			if( undefinedp(games[sk[i]]) ) {
@@ -387,7 +387,7 @@ void check_user_game(object me)
 				k += calc_result(r*100,sk[i],games[sk[i]]["goal2"],sv[i]["key"]);
 				k /= 2;
 			}
-			msg = "\nµÚ"+sk[i]+"³¡²©²Ê½áÊøÁË£¬½á¹ûÎª"+CHINESE_D->chinese_number(r)+"Çò¡£";
+			msg = "\nç¬¬"+sk[i]+"åœºåšå½©ç»“æŸäº†ï¼Œç»“æœä¸º"+CHINESE_D->chinese_number(r)+"çƒã€‚";
 		}
 
 		gold = sv[i]["gold"] * (k-100) / 100;
@@ -396,14 +396,14 @@ void check_user_game(object me)
 		if( exp > 1000000 ) exp = 1000000;
 
 		if( sv[i]["gold"] != 0 ) {
-			if( gold < 0 ) msg += "±¾³¡²©²Ê£¬Äã¹²¿÷Ëğ»Æ½ğ"+CHINESE_D->chinese_number(-gold)+"¶§¡£\n";
-			else if( gold > 0 ) msg += "±¾³¡²©²Ê£¬Äã¹²»ñµÃ²Ê½ğ"+CHINESE_D->chinese_number(gold)+"¶§¡£\n";
-			else msg += "±¾³¡²©²Ê£¬Äã²»¿÷²»×¬¡£\n";
+			if( gold < 0 ) msg += "æœ¬åœºåšå½©ï¼Œä½ å…±äºæŸé»„é‡‘"+CHINESE_D->chinese_number(-gold)+"é”­ã€‚\n";
+			else if( gold > 0 ) msg += "æœ¬åœºåšå½©ï¼Œä½ å…±è·å¾—å½©é‡‘"+CHINESE_D->chinese_number(gold)+"é”­ã€‚\n";
+			else msg += "æœ¬åœºåšå½©ï¼Œä½ ä¸äºä¸èµšã€‚\n";
 		}
 		else {
-			if( exp < 0 ) msg += "±¾³¡²©²Ê£¬Äã¹²¿÷ËğÕ½¶·¾­Ñé"+CHINESE_D->chinese_number(-exp)+"µã¡£\n";
-			else if( exp > 0 ) msg += "±¾³¡²©²Ê£¬Äã¹²Ó®È¡Õ½¶·¾­Ñé"+CHINESE_D->chinese_number(exp)+"µã¡£\n";
-			else msg += "±¾³¡²©²Ê£¬Äã²»¿÷²»×¬¡£\n";
+			if( exp < 0 ) msg += "æœ¬åœºåšå½©ï¼Œä½ å…±äºæŸæˆ˜æ–—ç»éªŒ"+CHINESE_D->chinese_number(-exp)+"ç‚¹ã€‚\n";
+			else if( exp > 0 ) msg += "æœ¬åœºåšå½©ï¼Œä½ å…±èµ¢å–æˆ˜æ–—ç»éªŒ"+CHINESE_D->chinese_number(exp)+"ç‚¹ã€‚\n";
+			else msg += "æœ¬åœºåšå½©ï¼Œä½ ä¸äºä¸èµšã€‚\n";
 		}
 		tell_object(me,msg);
 
@@ -428,24 +428,24 @@ string check(object me)
 	string msg,sidx;
 
 	if( !mapp(me->query("fifa")) || sizeof(me->query("fifa"))<1 )
-		return "Äã²¢Ã»ÓĞÔÚ±¾¶Ä³¡ÏÂ×¢°¡£¡";
+		return "ä½ å¹¶æ²¡æœ‰åœ¨æœ¬èµŒåœºä¸‹æ³¨å•Šï¼";
 
 	sk = keys(me->query("fifa"));
 	sv = values(me->query("fifa"));
 	j = sizeof(sk);
-	msg = "ÄãÔÚ±¾¶Ä³¡ÏÂ×¢µÄ³¡´ÎÓĞ£º\n";
+	msg = "ä½ åœ¨æœ¬èµŒåœºä¸‹æ³¨çš„åœºæ¬¡æœ‰ï¼š\n";
 
 	for(i=0;i<j;i++) {
 		if( sk[i][1]=='a' || sk[i][1]=='b' || sk[i][1]=='c' ) {
 			sidx = sk[i][0..0];
-			msg += sprintf("³¡´Î£º%-2s  ÏîÄ¿£º%-22s  Í¶×¢¶ÔÏó£º%-12s  Í¶×¢%s£º%-6d\n",sidx,games[sidx]["name"],sv[i]["key"],
-					(sv[i]["gold"]>0?"»Æ½ğ":"¾­Ñé"),(sv[i]["gold"]>0?sv[i]["gold"]:sv[i]["exp"]) );
+			msg += sprintf("åœºæ¬¡ï¼š%-2s  é¡¹ç›®ï¼š%-22s  æŠ•æ³¨å¯¹è±¡ï¼š%-12s  æŠ•æ³¨%sï¼š%-6d\n",sidx,games[sidx]["name"],sv[i]["key"],
+					(sv[i]["gold"]>0?"é»„é‡‘":"ç»éªŒ"),(sv[i]["gold"]>0?sv[i]["gold"]:sv[i]["exp"]) );
 		}
 		else {
 			if( undefinedp(games[sk[i]]) ) continue;
 			sidx = sk[i];
-			msg += sprintf("³¡´Î£º%-2s  ÏîÄ¿£º%-22s  Í¶×¢¶ÔÏó£º%-12s  Í¶×¢%s£º%-6d\n",sidx,games[sidx]["key1"]+"VS"+games[sidx]["key2"],sv[i]["key"],
-					(sv[i]["gold"]>0?"»Æ½ğ":"¾­Ñé"),(sv[i]["gold"]>0?sv[i]["gold"]:sv[i]["exp"]) );
+			msg += sprintf("åœºæ¬¡ï¼š%-2s  é¡¹ç›®ï¼š%-22s  æŠ•æ³¨å¯¹è±¡ï¼š%-12s  æŠ•æ³¨%sï¼š%-6d\n",sidx,games[sidx]["key1"]+"VS"+games[sidx]["key2"],sv[i]["key"],
+					(sv[i]["gold"]>0?"é»„é‡‘":"ç»éªŒ"),(sv[i]["gold"]>0?sv[i]["gold"]:sv[i]["exp"]) );
 		}
 	}
 
@@ -458,7 +458,7 @@ void check_bet26(object me)
 	int e,g;
 
 	if( undefinedp(bet26[u]) ) return;
-	if( bet26[u]["key"] == "ÖĞ¹ú" ) {
+	if( bet26[u]["key"] == "ä¸­å›½" ) {
 		e = -bet26[u]["exp" ]*7/10;
 		g = -bet26[u]["gold"]*7/10;
 	}
@@ -473,9 +473,9 @@ void check_bet26(object me)
 	me->add("fifawin/gold",g);
 	if( me->query("balance") < 0 ) me->set("balance",0);
 
-	tell_object(me,"ÊÀ½ç±­²©²ÊµÚ26³¡¡°ÖĞ¹úVS°ÍÎ÷¡±½áÊøÁË£¬½á¹ûÊÇ4Çò£¬\nÄã»ñµÃ"+
-		CHINESE_D->chinese_number(g)+"¶§»Æ½ğ£¬"+
-		CHINESE_D->chinese_number(e)+"µã¾­Ñé¡£\n");
+	tell_object(me,"ä¸–ç•Œæ¯åšå½©ç¬¬26åœºâ€œä¸­å›½VSå·´è¥¿â€ç»“æŸäº†ï¼Œç»“æœæ˜¯4çƒï¼Œ\nä½ è·å¾—"+
+		CHINESE_D->chinese_number(g)+"é”­é»„é‡‘ï¼Œ"+
+		CHINESE_D->chinese_number(e)+"ç‚¹ç»éªŒã€‚\n");
 	log_file("lottery/bet26", sprintf("u:%-8s;k:%s;g:%-5d;e:%6d",u,bet26[u]["key"],bet26[u]["gold"],bet26[u]["exp"]));
 	map_delete(bet26,u);
 	save();
@@ -531,147 +531,147 @@ void dobet26()
 void init_bet26()
 {
 	bet26hn = ({
-"Sat Jun  8 19:25:54 ;shenlong;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 19:08:25 ;duxin   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:50000",
-"Sat Jun  8 18:48:51 ;wangll  ;i:26;t:ÖĞ¹ú      ;g:0  ;e:10000",
-"Sat Jun  8 18:15:15 ;ggk     ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Sat Jun  8 17:42:47 ;amy     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 17:01:06 ;zhaohao ;i:26;t:°ÍÎ÷      ;g:300;e:0",
-"Sat Jun  8 16:29:43 ;yuikt   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:20000",
-"Sat Jun  8 16:29:20 ;axiong  ;i:26;t:ÖĞ¹ú      ;g:200;e:0",
-"Sat Jun  8 16:25:50 ;babyblue;i:26;t:°ÍÎ÷      ;g:350;e:0",
-"Sat Jun  8 16:25:38 ;wanguliu;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 16:18:06 ;yiran   ;i:26;t:°ÍÎ÷      ;g:0  ;e:30000",
-"Sat Jun  8 15:08:18 ;only    ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Sat Jun  8 15:02:26 ;cnunicom;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 14:55:58 ;mongols ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 14:06:57 ;tree    ;i:26;t:°ÍÎ÷      ;g:0  ;e:30000",
-"Sat Jun  8 13:47:11 ;bbstal  ;i:26;t:°ÍÎ÷      ;g:0  ;e:80000",
-"Sat Jun  8 13:30:39 ;miluo   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 13:30:01 ;xiaoxiao;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 13:29:21 ;city    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 12:36:30 ;wqwa    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:70000",
-"Sat Jun  8 12:21:03 ;sophidia;i:26;t:ÖĞ¹ú      ;g:0  ;e:20000",
-"Sat Jun  8 12:20:08 ;martix  ;i:26;t:ÖĞ¹ú      ;g:0  ;e:35000",
-"Sat Jun  8 12:10:56 ;skkevin ;i:26;t:°ÍÎ÷      ;g:0  ;e:20000",
-"Sat Jun  8 12:07:29 ;terrific;i:26;t:ÖĞ¹ú      ;g:0  ;e:6000",
-"Sat Jun  8 11:38:08 ;cdj     ;i:26;t:°ÍÎ÷      ;g:0  ;e:50000",
-"Sat Jun  8 10:36:15 ;alfios  ;i:26;t:°ÍÎ÷      ;g:0  ;e:45000",
-"Sat Jun  8 09:35:18 ;vaco    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 08:48:25 ;legend  ;i:26;t:°ÍÎ÷      ;g:0  ;e:10000",
-"Sat Jun  8 08:22:53 ;rsun    ;i:26;t:°ÍÎ÷      ;g:0  ;e:70000",
-"Sat Jun  8 08:04:18 ;missluo ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 02:17:29 ;religion;i:26;t:°ÍÎ÷      ;g:0  ;e:50000",
-"Sat Jun  8 00:24:56 ;fair    ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Sat Jun  8 00:19:10 ;mental  ;i:26;t:°ÍÎ÷      ;g:0  ;e:28000",
-"Fri Jun  7 23:30:55 ;wyss    ;i:26;t:ÖĞ¹ú      ;g:3000;e:0",
-"Fri Jun  7 23:22:31 ;sdfg    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 23:00:00 ;zfeng   ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 22:24:13 ;lane    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:3000",
-"Fri Jun  7 22:02:14 ;bluehawk;i:26;t:ÖĞ¹ú      ;g:0  ;e:66000",
-"Fri Jun  7 22:00:05 ;vincent ;i:26;t:ÖĞ¹ú      ;g:0  ;e:50000",
-"Fri Jun  7 21:57:52 ;smart   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:80000",
-"Fri Jun  7 21:37:24 ;xianzi  ;i:26;t:°ÍÎ÷      ;g:0  ;e:17000",
-"Fri Jun  7 21:31:04 ;maianui ;i:26;t:ÖĞ¹ú      ;g:0  ;e:40000",
-"Fri Jun  7 19:16:36 ;mario   ;i:26;t:°ÍÎ÷      ;g:0  ;e:20000",
-"Fri Jun  7 19:14:56 ;think   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:20000",
-"Fri Jun  7 18:50:05 ;playboy ;i:26;t:ÖĞ¹ú      ;g:0  ;e:10000",
-"Fri Jun  7 18:36:07 ;fuxiao  ;i:26;t:°ÍÎ÷      ;g:157;e:0",
-"Fri Jun  7 18:00:46 ;action  ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 18:00:36 ;longfeng;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 17:06:42 ;muder   ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 17:02:58 ;biaofeng;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 17:00:34 ;ptz     ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 16:48:29 ;cooky   ;i:26;t:°ÍÎ÷      ;g:0  ;e:10000",
-"Fri Jun  7 16:47:07 ;wxw     ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 16:46:11 ;liumu   ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 16:45:21 ;gmll    ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
+"Sat Jun  8 19:25:54 ;shenlong;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 19:08:25 ;duxin   ;i:26;t:ä¸­å›½      ;g:0  ;e:50000",
+"Sat Jun  8 18:48:51 ;wangll  ;i:26;t:ä¸­å›½      ;g:0  ;e:10000",
+"Sat Jun  8 18:15:15 ;ggk     ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Sat Jun  8 17:42:47 ;amy     ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 17:01:06 ;zhaohao ;i:26;t:å·´è¥¿      ;g:300;e:0",
+"Sat Jun  8 16:29:43 ;yuikt   ;i:26;t:ä¸­å›½      ;g:0  ;e:20000",
+"Sat Jun  8 16:29:20 ;axiong  ;i:26;t:ä¸­å›½      ;g:200;e:0",
+"Sat Jun  8 16:25:50 ;babyblue;i:26;t:å·´è¥¿      ;g:350;e:0",
+"Sat Jun  8 16:25:38 ;wanguliu;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 16:18:06 ;yiran   ;i:26;t:å·´è¥¿      ;g:0  ;e:30000",
+"Sat Jun  8 15:08:18 ;only    ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Sat Jun  8 15:02:26 ;cnunicom;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 14:55:58 ;mongols ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 14:06:57 ;tree    ;i:26;t:å·´è¥¿      ;g:0  ;e:30000",
+"Sat Jun  8 13:47:11 ;bbstal  ;i:26;t:å·´è¥¿      ;g:0  ;e:80000",
+"Sat Jun  8 13:30:39 ;miluo   ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 13:30:01 ;xiaoxiao;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 13:29:21 ;city    ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 12:36:30 ;wqwa    ;i:26;t:ä¸­å›½      ;g:0  ;e:70000",
+"Sat Jun  8 12:21:03 ;sophidia;i:26;t:ä¸­å›½      ;g:0  ;e:20000",
+"Sat Jun  8 12:20:08 ;martix  ;i:26;t:ä¸­å›½      ;g:0  ;e:35000",
+"Sat Jun  8 12:10:56 ;skkevin ;i:26;t:å·´è¥¿      ;g:0  ;e:20000",
+"Sat Jun  8 12:07:29 ;terrific;i:26;t:ä¸­å›½      ;g:0  ;e:6000",
+"Sat Jun  8 11:38:08 ;cdj     ;i:26;t:å·´è¥¿      ;g:0  ;e:50000",
+"Sat Jun  8 10:36:15 ;alfios  ;i:26;t:å·´è¥¿      ;g:0  ;e:45000",
+"Sat Jun  8 09:35:18 ;vaco    ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 08:48:25 ;legend  ;i:26;t:å·´è¥¿      ;g:0  ;e:10000",
+"Sat Jun  8 08:22:53 ;rsun    ;i:26;t:å·´è¥¿      ;g:0  ;e:70000",
+"Sat Jun  8 08:04:18 ;missluo ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 02:17:29 ;religion;i:26;t:å·´è¥¿      ;g:0  ;e:50000",
+"Sat Jun  8 00:24:56 ;fair    ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Sat Jun  8 00:19:10 ;mental  ;i:26;t:å·´è¥¿      ;g:0  ;e:28000",
+"Fri Jun  7 23:30:55 ;wyss    ;i:26;t:ä¸­å›½      ;g:3000;e:0",
+"Fri Jun  7 23:22:31 ;sdfg    ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 23:00:00 ;zfeng   ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 22:24:13 ;lane    ;i:26;t:ä¸­å›½      ;g:0  ;e:3000",
+"Fri Jun  7 22:02:14 ;bluehawk;i:26;t:ä¸­å›½      ;g:0  ;e:66000",
+"Fri Jun  7 22:00:05 ;vincent ;i:26;t:ä¸­å›½      ;g:0  ;e:50000",
+"Fri Jun  7 21:57:52 ;smart   ;i:26;t:ä¸­å›½      ;g:0  ;e:80000",
+"Fri Jun  7 21:37:24 ;xianzi  ;i:26;t:å·´è¥¿      ;g:0  ;e:17000",
+"Fri Jun  7 21:31:04 ;maianui ;i:26;t:ä¸­å›½      ;g:0  ;e:40000",
+"Fri Jun  7 19:16:36 ;mario   ;i:26;t:å·´è¥¿      ;g:0  ;e:20000",
+"Fri Jun  7 19:14:56 ;think   ;i:26;t:ä¸­å›½      ;g:0  ;e:20000",
+"Fri Jun  7 18:50:05 ;playboy ;i:26;t:ä¸­å›½      ;g:0  ;e:10000",
+"Fri Jun  7 18:36:07 ;fuxiao  ;i:26;t:å·´è¥¿      ;g:157;e:0",
+"Fri Jun  7 18:00:46 ;action  ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 18:00:36 ;longfeng;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 17:06:42 ;muder   ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 17:02:58 ;biaofeng;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 17:00:34 ;ptz     ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 16:48:29 ;cooky   ;i:26;t:å·´è¥¿      ;g:0  ;e:10000",
+"Fri Jun  7 16:47:07 ;wxw     ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 16:46:11 ;liumu   ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 16:45:21 ;gmll    ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
 	});
 
 	bet26sy = ({
-"Sat Jun  8 19:43:57 ;susu    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 18:54:43 ;zcz     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 17:39:31 ;gucci   ;i:26;t:°ÍÎ÷      ;g:400;e:0",
-"Sat Jun  8 16:17:31 ;lpinkpig;i:26;t:°ÍÎ÷      ;g:0  ;e:20000",
-"Sat Jun  8 15:51:50 ;zxcvbnm ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 14:53:29 ;sable   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 13:24:47 ;wwd     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 13:09:20 ;lengbing;i:26;t:ÖĞ¹ú      ;g:1000;e:0",
-"Sat Jun  8 13:08:20 ;jdzxgmwz;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 12:56:05 ;wyang   ;i:26;t:°ÍÎ÷      ;g:10 ;e:0",
-"Sat Jun  8 12:50:35 ;wangy   ;i:26;t:ÖĞ¹ú      ;g:25 ;e:0",
-"Sat Jun  8 12:24:00 ;bbman   ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Sat Jun  8 12:12:07 ;huanle  ;i:26;t:°ÍÎ÷      ;g:0  ;e:10000",
-"Sat Jun  8 11:50:22 ;hert    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:80000",
-"Sat Jun  8 11:31:56 ;goting  ;i:26;t:°ÍÎ÷      ;g:0  ;e:20000",
-"Sat Jun  8 11:27:00 ;lovesx  ;i:26;t:°ÍÎ÷      ;g:0  ;e:10000",
-"Sat Jun  8 10:55:13 ;zhd     ;i:26;t:°ÍÎ÷      ;g:0  ;e:70000",
-"Sat Jun  8 10:45:42 ;luoxue  ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 10:23:52 ;lilian  ;i:26;t:°ÍÎ÷      ;g:1000;e:0",
-"Sat Jun  8 10:20:28 ;hmm     ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Sat Jun  8 10:04:00 ;bdp     ;i:26;t:°ÍÎ÷      ;g:0  ;e:98000",
-"Sat Jun  8 09:36:31 ;lvbu    ;i:26;t:°ÍÎ÷      ;g:0  ;e:70000",
-"Sat Jun  8 09:02:16 ;tying   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:10000",
-"Sat Jun  8 06:28:15 ;passwds ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Sat Jun  8 06:03:59 ;slw     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Sat Jun  8 05:22:38 ;zlxcy   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:70000",
-"Sat Jun  8 03:16:17 ;bluemary;i:26;t:ÖĞ¹ú      ;g:0  ;e:5000",
-"Sat Jun  8 01:38:59 ;jiajia  ;i:26;t:ÖĞ¹ú      ;g:0  ;e:10000",
-"Sat Jun  8 01:12:23 ;dracula ;i:26;t:°ÍÎ÷      ;g:0  ;e:10000",
-"Sat Jun  8 00:05:43 ;mirale  ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 23:44:54 ;wsjking ;i:26;t:°ÍÎ÷      ;g:0  ;e:50000",
-"Fri Jun  7 23:18:27 ;xiaolong;i:26;t:ÖĞ¹ú      ;g:0  ;e:41000",
-"Fri Jun  7 23:18:13 ;gdg     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:57000",
-"Fri Jun  7 23:11:27 ;fanghs  ;i:26;t:ÖĞ¹ú      ;g:0  ;e:95540",
-"Fri Jun  7 22:55:22 ;runy    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 22:55:02 ;maxwell ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 22:34:05 ;xubint  ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 22:34:01 ;jiejie  ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 22:06:40 ;net     ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 21:51:09 ;symbol  ;i:26;t:ÖĞ¹ú      ;g:0  ;e:60000",
-"Fri Jun  7 21:47:01 ;tlx     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 21:44:45 ;babycat ;i:26;t:°ÍÎ÷      ;g:0  ;e:75000",
-"Fri Jun  7 21:43:23 ;fhun    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 21:42:41 ;gzyelang;i:26;t:ÖĞ¹ú      ;g:0  ;e:30000",
-"Fri Jun  7 21:41:31 ;yjxsw   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 21:40:22 ;ysy     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 21:39:34 ;hairll  ;i:26;t:°ÍÎ÷      ;g:40 ;e:0",
-"Fri Jun  7 21:37:44 ;spp     ;i:26;t:°ÍÎ÷      ;g:0  ;e:40000",
-"Fri Jun  7 21:36:44 ;zlong   ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 21:31:03 ;mikle   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 21:29:53 ;glos    ;i:26;t:°ÍÎ÷      ;g:0  ;e:20000",
-"Fri Jun  7 21:29:33 ;nani    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 21:27:09 ;wxb     ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 21:21:20 ;weisher ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 21:19:34 ;fengqing;i:26;t:°ÍÎ÷      ;g:0  ;e:85000",
-"Fri Jun  7 20:37:51 ;ohan    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:60000",
-"Fri Jun  7 19:47:03 ;pingping;i:26;t:ÖĞ¹ú      ;g:0  ;e:80000",
-"Fri Jun  7 19:19:06 ;router  ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 19:17:18 ;wangyang;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 19:14:58 ;gmly    ;i:26;t:°ÍÎ÷      ;g:0  ;e:10000",
-"Fri Jun  7 19:13:54 ;stefsun ;i:26;t:ÖĞ¹ú      ;g:0  ;e:50000",
-"Fri Jun  7 19:09:31 ;welcome ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 19:08:53 ;xwd     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 19:06:03 ;yuyuz   ;i:26;t:°ÍÎ÷      ;g:0  ;e:10000",
-"Fri Jun  7 19:01:15 ;tlslover;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 18:56:45 ;madge   ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 18:52:17 ;tudou   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:45000",
-"Fri Jun  7 18:47:08 ;axue    ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 18:40:00 ;iii     ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 18:39:56 ;bluesky ;i:26;t:ÖĞ¹ú      ;g:17 ;e:0",
-"Fri Jun  7 18:37:52 ;joe     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 18:23:57 ;yangz   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:85000",
-"Fri Jun  7 18:14:55 ;yangzzz ;i:26;t:°ÍÎ÷      ;g:0  ;e:5000",
-"Fri Jun  7 17:52:20 ;mulan   ;i:26;t:°ÍÎ÷      ;g:0  ;e:9000",
-"Fri Jun  7 17:08:31 ;kelly   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 17:07:59 ;angles  ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 17:06:45 ;yemao   ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 17:06:30 ;tianyi  ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 17:03:18 ;meimeid ;i:26;t:ÖĞ¹ú      ;g:0  ;e:100000",
-"Fri Jun  7 16:57:08 ;pix     ;i:26;t:ÖĞ¹ú      ;g:0  ;e:50000",
-"Fri Jun  7 16:55:16 ;cityboy ;i:26;t:°ÍÎ÷      ;g:0  ;e:100000",
-"Fri Jun  7 16:54:54 ;bff     ;i:26;t:°ÍÎ÷      ;g:0  ;e:50000",
-"Fri Jun  7 16:49:12 ;akun    ;i:26;t:°ÍÎ÷      ;g:0  ;e:54927",
+"Sat Jun  8 19:43:57 ;susu    ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 18:54:43 ;zcz     ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 17:39:31 ;gucci   ;i:26;t:å·´è¥¿      ;g:400;e:0",
+"Sat Jun  8 16:17:31 ;lpinkpig;i:26;t:å·´è¥¿      ;g:0  ;e:20000",
+"Sat Jun  8 15:51:50 ;zxcvbnm ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 14:53:29 ;sable   ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 13:24:47 ;wwd     ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 13:09:20 ;lengbing;i:26;t:ä¸­å›½      ;g:1000;e:0",
+"Sat Jun  8 13:08:20 ;jdzxgmwz;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 12:56:05 ;wyang   ;i:26;t:å·´è¥¿      ;g:10 ;e:0",
+"Sat Jun  8 12:50:35 ;wangy   ;i:26;t:ä¸­å›½      ;g:25 ;e:0",
+"Sat Jun  8 12:24:00 ;bbman   ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Sat Jun  8 12:12:07 ;huanle  ;i:26;t:å·´è¥¿      ;g:0  ;e:10000",
+"Sat Jun  8 11:50:22 ;hert    ;i:26;t:ä¸­å›½      ;g:0  ;e:80000",
+"Sat Jun  8 11:31:56 ;goting  ;i:26;t:å·´è¥¿      ;g:0  ;e:20000",
+"Sat Jun  8 11:27:00 ;lovesx  ;i:26;t:å·´è¥¿      ;g:0  ;e:10000",
+"Sat Jun  8 10:55:13 ;zhd     ;i:26;t:å·´è¥¿      ;g:0  ;e:70000",
+"Sat Jun  8 10:45:42 ;luoxue  ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 10:23:52 ;lilian  ;i:26;t:å·´è¥¿      ;g:1000;e:0",
+"Sat Jun  8 10:20:28 ;hmm     ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Sat Jun  8 10:04:00 ;bdp     ;i:26;t:å·´è¥¿      ;g:0  ;e:98000",
+"Sat Jun  8 09:36:31 ;lvbu    ;i:26;t:å·´è¥¿      ;g:0  ;e:70000",
+"Sat Jun  8 09:02:16 ;tying   ;i:26;t:ä¸­å›½      ;g:0  ;e:10000",
+"Sat Jun  8 06:28:15 ;passwds ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Sat Jun  8 06:03:59 ;slw     ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Sat Jun  8 05:22:38 ;zlxcy   ;i:26;t:ä¸­å›½      ;g:0  ;e:70000",
+"Sat Jun  8 03:16:17 ;bluemary;i:26;t:ä¸­å›½      ;g:0  ;e:5000",
+"Sat Jun  8 01:38:59 ;jiajia  ;i:26;t:ä¸­å›½      ;g:0  ;e:10000",
+"Sat Jun  8 01:12:23 ;dracula ;i:26;t:å·´è¥¿      ;g:0  ;e:10000",
+"Sat Jun  8 00:05:43 ;mirale  ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 23:44:54 ;wsjking ;i:26;t:å·´è¥¿      ;g:0  ;e:50000",
+"Fri Jun  7 23:18:27 ;xiaolong;i:26;t:ä¸­å›½      ;g:0  ;e:41000",
+"Fri Jun  7 23:18:13 ;gdg     ;i:26;t:ä¸­å›½      ;g:0  ;e:57000",
+"Fri Jun  7 23:11:27 ;fanghs  ;i:26;t:ä¸­å›½      ;g:0  ;e:95540",
+"Fri Jun  7 22:55:22 ;runy    ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 22:55:02 ;maxwell ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 22:34:05 ;xubint  ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 22:34:01 ;jiejie  ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 22:06:40 ;net     ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 21:51:09 ;symbol  ;i:26;t:ä¸­å›½      ;g:0  ;e:60000",
+"Fri Jun  7 21:47:01 ;tlx     ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 21:44:45 ;babycat ;i:26;t:å·´è¥¿      ;g:0  ;e:75000",
+"Fri Jun  7 21:43:23 ;fhun    ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 21:42:41 ;gzyelang;i:26;t:ä¸­å›½      ;g:0  ;e:30000",
+"Fri Jun  7 21:41:31 ;yjxsw   ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 21:40:22 ;ysy     ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 21:39:34 ;hairll  ;i:26;t:å·´è¥¿      ;g:40 ;e:0",
+"Fri Jun  7 21:37:44 ;spp     ;i:26;t:å·´è¥¿      ;g:0  ;e:40000",
+"Fri Jun  7 21:36:44 ;zlong   ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 21:31:03 ;mikle   ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 21:29:53 ;glos    ;i:26;t:å·´è¥¿      ;g:0  ;e:20000",
+"Fri Jun  7 21:29:33 ;nani    ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 21:27:09 ;wxb     ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 21:21:20 ;weisher ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 21:19:34 ;fengqing;i:26;t:å·´è¥¿      ;g:0  ;e:85000",
+"Fri Jun  7 20:37:51 ;ohan    ;i:26;t:ä¸­å›½      ;g:0  ;e:60000",
+"Fri Jun  7 19:47:03 ;pingping;i:26;t:ä¸­å›½      ;g:0  ;e:80000",
+"Fri Jun  7 19:19:06 ;router  ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 19:17:18 ;wangyang;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 19:14:58 ;gmly    ;i:26;t:å·´è¥¿      ;g:0  ;e:10000",
+"Fri Jun  7 19:13:54 ;stefsun ;i:26;t:ä¸­å›½      ;g:0  ;e:50000",
+"Fri Jun  7 19:09:31 ;welcome ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 19:08:53 ;xwd     ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 19:06:03 ;yuyuz   ;i:26;t:å·´è¥¿      ;g:0  ;e:10000",
+"Fri Jun  7 19:01:15 ;tlslover;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 18:56:45 ;madge   ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 18:52:17 ;tudou   ;i:26;t:ä¸­å›½      ;g:0  ;e:45000",
+"Fri Jun  7 18:47:08 ;axue    ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 18:40:00 ;iii     ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 18:39:56 ;bluesky ;i:26;t:ä¸­å›½      ;g:17 ;e:0",
+"Fri Jun  7 18:37:52 ;joe     ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 18:23:57 ;yangz   ;i:26;t:ä¸­å›½      ;g:0  ;e:85000",
+"Fri Jun  7 18:14:55 ;yangzzz ;i:26;t:å·´è¥¿      ;g:0  ;e:5000",
+"Fri Jun  7 17:52:20 ;mulan   ;i:26;t:å·´è¥¿      ;g:0  ;e:9000",
+"Fri Jun  7 17:08:31 ;kelly   ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 17:07:59 ;angles  ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 17:06:45 ;yemao   ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 17:06:30 ;tianyi  ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 17:03:18 ;meimeid ;i:26;t:ä¸­å›½      ;g:0  ;e:100000",
+"Fri Jun  7 16:57:08 ;pix     ;i:26;t:ä¸­å›½      ;g:0  ;e:50000",
+"Fri Jun  7 16:55:16 ;cityboy ;i:26;t:å·´è¥¿      ;g:0  ;e:100000",
+"Fri Jun  7 16:54:54 ;bff     ;i:26;t:å·´è¥¿      ;g:0  ;e:50000",
+"Fri Jun  7 16:49:12 ;akun    ;i:26;t:å·´è¥¿      ;g:0  ;e:54927",
 	});
 }
 
@@ -685,7 +685,7 @@ inherit F_SAVE;
 string query(string arg)
 {
 	if (arg == "channel_id")
-		return "Î¤Ğ¡±¦(Wei Xiaobao)";
+		return "éŸ¦å°å®(Wei Xiaobao)";
 }
 
 string query_save_file()
@@ -733,25 +733,25 @@ void purchase(mixed me, int num, int qty)
 	if (!objectp(me))
 		return;
 	if (flag) {
-		tell_object(me, "ÕıÔÚ¿ª½±£¬µÈµÈ°É¡£\n");
+		tell_object(me, "æ­£åœ¨å¼€å¥–ï¼Œç­‰ç­‰å§ã€‚\n");
 		return;
 	}
 	if (qty < 1) {
-		tell_object(me, "ÄãÏëÂò¼¸ÕÅ£¿\n");
+		tell_object(me, "ä½ æƒ³ä¹°å‡ å¼ ï¼Ÿ\n");
 		return;
 	}
 	if (qty > 10000 || !me->query("lottery/"+generation+"/"+num) && sizeof(me->query("lottery/"+generation)) > 9) {
-		tell_object(me, "Áôµã»ú»á¸ø±ğÈË°É¡£\n");
+		tell_object(me, "ç•™ç‚¹æœºä¼šç»™åˆ«äººå§ã€‚\n");
 		return;
 	}
 	if (num < 0 || num > 9999) {
-		tell_object(me, "ÇëÑ¡ÔñËÄÎ»Êı×Ö(0000-9999)¡£\n");
+		tell_object(me, "è¯·é€‰æ‹©å››ä½æ•°å­—(0000-9999)ã€‚\n");
 		return;
 	}
 	switch (MONEY_D->player_pay(me, PRICE*qty)) {
 		case 0:
 		case 2:
-			tell_object(me, "ÄãµÄÁãÇ®²»¹»¡£\n");
+			tell_object(me, "ä½ çš„é›¶é’±ä¸å¤Ÿã€‚\n");
 			return;
 	}
 	me->add("lottery/"+generation+"/"+num, qty);
@@ -760,7 +760,7 @@ void purchase(mixed me, int num, int qty)
 	award += qty*PRICE;
 	save();
 	message_vision(
-		sprintf("$NÔÚ%sÕÅ²ÊÆ±ÉÏĞ´ÏÂ¡¸"+HIW+"%s"+NOR+"¡¹ËÄ¸öÊı×Ö£¬È»ºó½»¸ø»ï¼ÆĞ¡ĞÄµØÊÕºÃ¡£\n",
+		sprintf("$Nåœ¨%så¼ å½©ç¥¨ä¸Šå†™ä¸‹ã€Œ"+HIW+"%s"+NOR+"ã€å››ä¸ªæ•°å­—ï¼Œç„¶åäº¤ç»™ä¼™è®¡å°å¿ƒåœ°æ”¶å¥½ã€‚\n",
 			chinese_number(qty), number(num)
 		), me
 	);
@@ -784,28 +784,28 @@ void show_now(mixed me)
 	if (!objectp(me))
 		return;
 	if (flag) {
-		tell_object(me, "ÕıÔÚ¿ª½±£¬µÈµÈ°É¡£\n");
+		tell_object(me, "æ­£åœ¨å¼€å¥–ï¼Œç­‰ç­‰å§ã€‚\n");
 		return;
 	}
 	tmp = me->query("lottery");
 	if (!sizeof(tmp)) {
-		tell_object(me, "ÄãÄ¿Ç°Ã»ÓĞÈÎºÎ²ÊÆ±¡£\n");
+		tell_object(me, "ä½ ç›®å‰æ²¡æœ‰ä»»ä½•å½©ç¥¨ã€‚\n");
 		return;
 	}
-	tell_object(me, "»ï¼Æ·­ÁË·­²ÊÆ±µÇ¼Ç±¾£¬ËµµÀ£ºÄãÓĞ\n");
+	tell_object(me, "ä¼™è®¡ç¿»äº†ç¿»å½©ç¥¨ç™»è®°æœ¬ï¼Œè¯´é“ï¼šä½ æœ‰\n");
 	foreach (string gen in sort_array(keys(tmp),0)) {
 		tmp2 = tmp[gen];
 		if (!sizeof(tmp2))
 			continue;
 		if (atoi(gen) < generation-1 || atoi(gen) > generation) {
-			tell_object(me, "Ò»Ğ©¹ıÆÚµÄµÚ"+chinese_number(atoi(gen))+"ÆÚ²ÊÆ±£¬¸øÄúÇåÀíµôÁË¡£\n");
+			tell_object(me, "ä¸€äº›è¿‡æœŸçš„ç¬¬"+chinese_number(atoi(gen))+"æœŸå½©ç¥¨ï¼Œç»™æ‚¨æ¸…ç†æ‰äº†ã€‚\n");
 			map_delete(tmp, gen);
 		} else
 			foreach (string num in sort_array(keys(tmp2),0)) {
 				i = atoi(gen);
 				n = atoi(num);
 				tell_object(me,
-					sprintf("%sÕÅµÚ%sÆÚ²ÊÆ±£¬ÉÏÃæĞ´×Å¡¸"+HIW+"%s"+NOR+"¡¹",
+					sprintf("%så¼ ç¬¬%sæœŸå½©ç¥¨ï¼Œä¸Šé¢å†™ç€ã€Œ"+HIW+"%s"+NOR+"ã€",
 						chinese_number(tmp2[num]), chinese_number(i), number(n)
 					)
 				);
@@ -815,35 +815,35 @@ void show_now(mixed me)
 							n = tmp2[num] * award1 / 10 * 9;
 							c1 += tmp2[num];
 							last_award -= n / 9;
-							tell_object(me, "£¬¹§Ï²ÖĞÁËÍ·½±£¬¸øÄúË°ºó½±½ğ"+MONEY_D->money_str(n));
+							tell_object(me, "ï¼Œæ­å–œä¸­äº†å¤´å¥–ï¼Œç»™æ‚¨ç¨åå¥–é‡‘"+MONEY_D->money_str(n));
 							break;
 						case 3:
 							n = tmp2[num] * award2;
 							c2 += tmp2[num];
-							tell_object(me, "£¬¹§Ï²ÖĞÁË¶ş½±£¬¸øÄú½±½ğ"+MONEY_D->money_str(n));
+							tell_object(me, "ï¼Œæ­å–œä¸­äº†äºŒå¥–ï¼Œç»™æ‚¨å¥–é‡‘"+MONEY_D->money_str(n));
 							break;
 						case 2:
 							n = tmp2[num] * award3;
 							c3 += tmp2[num];
-							tell_object(me, "£¬¹§Ï²ÖĞÁËÈı½±£¬¸øÄú½±½ğ"+MONEY_D->money_str(n));
+							tell_object(me, "ï¼Œæ­å–œä¸­äº†ä¸‰å¥–ï¼Œç»™æ‚¨å¥–é‡‘"+MONEY_D->money_str(n));
 							break;
 						default:
 							n = 0;
-							tell_object(me, "£¬¿ÉÏ§Ã»ÓĞÖĞ½±");
+							tell_object(me, "ï¼Œå¯æƒœæ²¡æœ‰ä¸­å¥–");
 					}
 					if (n) {
 						MONEY_D->pay_player(me, n, 1);
-						log_file("LOTTERY", me->query("name")+"»ñµÃ½±½ğ"+MONEY_D->money_str(n), me);
+						log_file("LOTTERY", me->query("name")+"è·å¾—å¥–é‡‘"+MONEY_D->money_str(n), me);
 						CHANNEL_D->do_channel(
-							this_object(), "chat", "¹§Ï²"+me->query("name")+RANK_D->query_respect(me)+"»ñµÃ½±½ğ"+MONEY_D->money_str(n)
+							this_object(), "chat", "æ­å–œ"+me->query("name")+RANK_D->query_respect(me)+"è·å¾—å¥–é‡‘"+MONEY_D->money_str(n)
 						);
 					}
 					last_award -= n;
 				}
-				tell_object(me, "¡£\n");
+				tell_object(me, "ã€‚\n");
 				if (i == generation-1) {
 					map_delete(tmp, gen);
-					tell_object(me, "ÕâĞ©ÉÏÆÚµÄ²ÊÆ±¶¼¸øÄúÇåÀíµôÁË¡£\n");
+					tell_object(me, "è¿™äº›ä¸ŠæœŸçš„å½©ç¥¨éƒ½ç»™æ‚¨æ¸…ç†æ‰äº†ã€‚\n");
 				}
 			}
 	}
@@ -856,22 +856,22 @@ string show_total()
 	string str, ret;
 
 	if (flag)
-		return "ÕıÔÚ¿ª½±£¬µÈµÈ°É¡£\n";
+		return "æ­£åœ¨å¼€å¥–ï¼Œç­‰ç­‰å§ã€‚\n";
 
 	str = sprintf(
-		"ÏÖÔÚÏúÊÛµÚ%sÆÚ²ÊÆ±£¬Ä¿Ç°ÀÛ¼Æ½±½ğ%s£¬Àë¿ª½±»¹ÓĞ%s¸öÊ±³½\n"
-		"ÉÏÆÚ½±½ğ%s£¬ÖĞ½±ºÅÂë£º"+HIG+"%s"+NOR+"\n"
+		"ç°åœ¨é”€å”®ç¬¬%sæœŸå½©ç¥¨ï¼Œç›®å‰ç´¯è®¡å¥–é‡‘%sï¼Œç¦»å¼€å¥–è¿˜æœ‰%sä¸ªæ—¶è¾°\n"
+		"ä¸ŠæœŸå¥–é‡‘%sï¼Œä¸­å¥–å·ç ï¼š"+HIG+"%s"+NOR+"\n"
 		"%s\n"
 		"%s\n"
 		"%s\n",
 		chinese_number(generation),
-		award?MONEY_D->money_str(award):"ÎŞ",
+		award?MONEY_D->money_str(award):"æ— ",
 		chinese_number((find_call_out("kaijiang")+119)/120),
-		last_award?"»¹Ê£"+MONEY_D->money_str(last_award):"ÒÑÈ«²¿·¢·Å",
+		last_award?"è¿˜å‰©"+MONEY_D->money_str(last_award):"å·²å…¨éƒ¨å‘æ”¾",
 		number(no1),
-		count1?chinese_number(count1)+"×¢ÖĞÍ·½±£¬Ã¿×¢½±½ğ"+MONEY_D->money_str(award1):"Í·½±ÎŞÈËÖĞ",
-		count2?chinese_number(count2)+"×¢ÖĞ¶ş½±£¬Ã¿×¢½±½ğ"+MONEY_D->money_str(award2):"¶ş½±ÎŞÈËÖĞ",
-		count3?chinese_number(count3)+"×¢ÖĞÈı½±£¬Ã¿×¢½±½ğ"+MONEY_D->money_str(award3):"Èı½±ÎŞÈËÖĞ"
+		count1?chinese_number(count1)+"æ³¨ä¸­å¤´å¥–ï¼Œæ¯æ³¨å¥–é‡‘"+MONEY_D->money_str(award1):"å¤´å¥–æ— äººä¸­",
+		count2?chinese_number(count2)+"æ³¨ä¸­äºŒå¥–ï¼Œæ¯æ³¨å¥–é‡‘"+MONEY_D->money_str(award2):"äºŒå¥–æ— äººä¸­",
+		count3?chinese_number(count3)+"æ³¨ä¸­ä¸‰å¥–ï¼Œæ¯æ³¨å¥–é‡‘"+MONEY_D->money_str(award3):"ä¸‰å¥–æ— äººä¸­"
 	);
 	ret = "\n";
 
@@ -913,11 +913,11 @@ private void kaijiang()
 {
 	flag = 1;
 	CHANNEL_D->do_channel(this_object(),
-		"chat", "µÚ"+chinese_number(generation)+"ÆÚ²ÊÆ±¿ª½±£¬Çë¸÷Î»×¼±¸ºÃ±ÊÄ«Ö½Ñâ£¡"
+		"chat", "ç¬¬"+chinese_number(generation)+"æœŸå½©ç¥¨å¼€å¥–ï¼Œè¯·å„ä½å‡†å¤‡å¥½ç¬”å¢¨çº¸ç šï¼"
 	);
 	if (last_award)
 		CHANNEL_D->do_channel(this_object(),
-			"chat", "ÉÏÆÚÊ£Óà½±½ğ"+MONEY_D->money_str(last_award)+"¹öÈë±¾ÆÚ£¡"
+			"chat", "ä¸ŠæœŸå‰©ä½™å¥–é‡‘"+MONEY_D->money_str(last_award)+"æ»šå…¥æœ¬æœŸï¼"
 		);
 	call_out("k1", 3);
 }
@@ -927,7 +927,7 @@ private void k1()
 	int i = random(10);
 
 	no1 = i*1000;
-	CHANNEL_D->do_channel(this_object(), "chat", "µÚÒ»Î»Êı×ÖÊÇ "+chinese_number(i));
+	CHANNEL_D->do_channel(this_object(), "chat", "ç¬¬ä¸€ä½æ•°å­—æ˜¯ "+chinese_number(i));
 	call_out("k2", 1);
 }
 
@@ -936,7 +936,7 @@ private void k2()
 	int i = random(10);
 
 	no1 += i*100;
-	CHANNEL_D->do_channel(this_object(), "chat", "µÚ¶şÎ»Êı×ÖÊÇ "+chinese_number(i));
+	CHANNEL_D->do_channel(this_object(), "chat", "ç¬¬äºŒä½æ•°å­—æ˜¯ "+chinese_number(i));
 	call_out("k3", 1);
 }
 
@@ -945,7 +945,7 @@ private void k3()
 	int i = random(10);
 
 	no1 += i*10;
-	CHANNEL_D->do_channel(this_object(), "chat", "µÚÈıÎ»Êı×ÖÊÇ "+chinese_number(i));
+	CHANNEL_D->do_channel(this_object(), "chat", "ç¬¬ä¸‰ä½æ•°å­—æ˜¯ "+chinese_number(i));
 	call_out("k4", 1);
 }
 
@@ -954,14 +954,14 @@ private void k4()
 	int i = random(10);
 
 	no1 += i;
-	CHANNEL_D->do_channel(this_object(), "chat", "µÚËÄÎ»Êı×ÖÊÇ "+chinese_number(i));
+	CHANNEL_D->do_channel(this_object(), "chat", "ç¬¬å››ä½æ•°å­—æ˜¯ "+chinese_number(i));
 	call_out("k5", 1);
 }
 
 private void k5()
 {
 	CHANNEL_D->do_channel(this_object(), "chat",
-		sprintf("µÚ%sÆÚ²ÊÆ±µÄºÅÂëÊÇ %s", chinese_number(generation++), number(no1))
+		sprintf("ç¬¬%sæœŸå½©ç¥¨çš„å·ç æ˜¯ %s", chinese_number(generation++), number(no1))
 	);
 	call_out("finish", 2);
 }
@@ -994,7 +994,7 @@ private void finish()
 	save();
 	call_out("kaijiang", DUR);
 	result = replace_string(show_total(), " ", "");
-	result = implode(explode(result, "\n"), "£» ");
+	result = implode(explode(result, "\n"), "ï¼› ");
 	CHANNEL_D->do_channel(this_object(), "chat", result);
 }
 */

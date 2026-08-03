@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "�ͷ�");
+	set("short", "客房");
 	set("long", @LONG
-���������չ��Ŀͷ�������ʮ�ּ�ª����ǽ����ʮ����Сľ�������ٿ���
-�����¶��ԡ�
+这里是灵鹫宫的客房，陈设十分简陋，靠墙放了十几张小木床，不少客人
+正和衣而卧。
 LONG);
 	set("exits", ([
 		"south" : __DIR__"zoulang4",

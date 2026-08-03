@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "»ØÀÈ");
+	set("short", "å›å»Š");
 	set("long", @LONG
-Ò»ÌõÁ¬½Ó´óÌüºÍÁ·Îä³¡µÄ»ØÀÈ¡£
+ä¸€æ¡è¿æ¥å¤§å…å’Œç»ƒæ­¦åœºçš„å›å»Šã€‚
 LONG
 	);
 	set("no_clean_up", 0);
-	set("outdoors","ÌÒ»¨µº");
+	set("outdoors","æ¡ƒèŠ±å²›");
 
 	set("exits", ([
 		"west": __DIR__"lianwuchang",
@@ -22,8 +22,8 @@ LONG
 
 int valid_leave(object me, string dir)
 {
-	if (dir == "west" && me->query("family/family_name") != "ÌÒ»¨µº")
-		return notify_fail("Ò»Î»ÑÆÆÍÀ¹×¡ÁËÄã£¬ÓÃÊÖÊÆ±È»®×Å±íÊ¾ÄÇ±ß²»ÄÜÈ¥¡£\n");
+	if (dir == "west" && me->query("family/family_name") != "æ¡ƒèŠ±å²›")
+		return notify_fail("ä¸€ä½å“‘ä»†æ‹¦ä½äº†ä½ ï¼Œç”¨æ‰‹åŠ¿æ¯”åˆ’ç€è¡¨ç¤ºé‚£è¾¹ä¸èƒ½å»ã€‚\n");
 	
 	return ::valid_leave(me, dir);
 }

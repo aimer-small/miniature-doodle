@@ -1,15 +1,15 @@
-// Ü½ÈØÑç»áÌü.c
+// èŠ™è“‰å®´ä¼šå….c
 
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
-// amount: µ¥Î»ÊÇgold
+// amount: å•ä½æ˜¯gold
 
 void create()
 {
-        set("short", HIY"ÆÆ¾É¾ÆÂ¥"NOR);
+        set("short", HIY"ç ´æ—§é…’æ¥¼"NOR);
         set("long", @LONG
-ÕâÀïÊÇÒ»´¦¹ÅÕ½³¡µÄÒÅ¼££¬Èç½ñ»ÄÂÒ²»¿°Ò°²İ´ÔÉú£¬´«ÑÔÓĞ½©Ê¬³öÃ»£¬º¦ÈËĞÔÃü¡£
+è¿™é‡Œæ˜¯ä¸€å¤„å¤æˆ˜åœºçš„é—è¿¹ï¼Œå¦‚ä»Šè’ä¹±ä¸å ªé‡è‰ä¸›ç”Ÿï¼Œä¼ è¨€æœ‰åƒµå°¸å‡ºæ²¡ï¼Œå®³äººæ€§å‘½ã€‚
 
 LONG );
         set("exits", ([ /* sizeof() == 1 */
@@ -18,20 +18,20 @@ LONG );
 
         set("item_desc", ([
                 "menu": @TEXT
-³Ğ°ì¸÷Ê½¾ÆÏ¯, »¶Ó­»İ¹Ë£º
+æ‰¿åŠå„å¼é…’å¸­, æ¬¢è¿æƒ é¡¾ï¼š
 
-        order birthday: ×£ÊÙÑç        (400Á½»Æ½ğ)
+        order birthday: ç¥å¯¿å®´        (400ä¸¤é»„é‡‘)
 
-        order marry:    ¶©»éÑç        (800Á½»Æ½ğ)
+        order marry:    è®¢å©šå®´        (800ä¸¤é»„é‡‘)
 
-        order player:   ÈººÀÑç        (1000Á½»Æ½ğ)
+        order player:   ç¾¤è±ªå®´        (1000ä¸¤é»„é‡‘)
 
-        order end:      ½á  Êø
+        order end:      ç»“  æŸ
 
 TEXT
         ]) );
 
         setup();
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

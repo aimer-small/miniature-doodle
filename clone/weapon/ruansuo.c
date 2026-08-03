@@ -4,17 +4,17 @@ inherit WHIP;
 
 void create()
 {
-	set_name("ÈíË÷", ({ "ruansuo", "suo" }));
+	set_name("è½¯ç´¢", ({ "ruansuo", "suo" }));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ù");
-		set("long", "ÕâÊÇÒ»¸ùÈíË÷£¬ÓÉÅ£½î»ìºÏÎå½ğ¾«¹¤±àÖ¯¶ø³É£¬Ë÷µÄÒ»¶ËÊÇÒ»¸ùÌú¸Ë¡£\n");
+		set("unit", "æ ¹");
+		set("long", "è¿™æ˜¯ä¸€æ ¹è½¯ç´¢ï¼Œç”±ç‰›ç­‹æ··åˆäº”é‡‘ç²¾å·¥ç¼–ç»‡è€Œæˆï¼Œç´¢çš„ä¸€ç«¯æ˜¯ä¸€æ ¹é“æ†ã€‚\n");
 		set("value", 100);
 		set("material", "leather");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù¶¶³öÒ»¸ù$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n¾í»ØÑü¼ä¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ–å‡ºä¸€æ ¹$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nå·å›è…°é—´ã€‚\n");
 	}
 	init_whip(20);
 	setup();

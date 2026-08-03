@@ -4,15 +4,15 @@ inherit ROOM;
 
 void create()
 {
-    set("short", "Ğ¡Â·");
+    set("short", "å°è·¯");
 	set("long", @LONG
-ÕâÀïÊÇÉ½Â·µÄ¾¡Í·£¬Ç°ÃæÊÇÒ»×ùÏÕ¾şµÄÉ½·å¡£ÇÍ±ÚÉÏ³¤×ÅĞí¶àËÉÊ÷£¬ÔÚÉ½±Ú
-ÉÏ´òÁËÒ»Ğ©Ò»³ßÀ´³¤µÄÄ¾×®£¬ËÆºõ¿ÉÒÔ²È×ÅÄ¾×®ÅÀ(pa)ÉÏÈ¥¡£
+è¿™é‡Œæ˜¯å±±è·¯çš„å°½å¤´ï¼Œå‰é¢æ˜¯ä¸€åº§é™©å³»çš„å±±å³°ã€‚å³­å£ä¸Šé•¿ç€è®¸å¤šæ¾æ ‘ï¼Œåœ¨å±±å£
+ä¸Šæ‰“äº†ä¸€äº›ä¸€å°ºæ¥é•¿çš„æœ¨æ¡©ï¼Œä¼¼ä¹å¯ä»¥è¸©ç€æœ¨æ¡©çˆ¬(pa)ä¸Šå»ã€‚
 LONG	);
 	set("exits", ([ 
                  "southdown" : __DIR__"hsxl2",
 ])); 
-          set("outdoors", "Îäµ±");
+          set("outdoors", "æ­¦å½“");
 	  set("coor/x",-20);
   set("coor/y",-100);
    set("coor/z",130);
@@ -31,25 +31,25 @@ int do_pa(string arg)
         me=this_player();
         
     if ( (int)me->query_skill("dodge", 1) < 20)
-            return notify_fail("ÄãµÄÇá¹¦²»¹»£¬ÎŞ·¨ÅÀÉÏÈ¥¡£\n");
+            return notify_fail("ä½ çš„è½»åŠŸä¸å¤Ÿï¼Œæ— æ³•çˆ¬ä¸Šå»ã€‚\n");
 
-//    if (!(fam = this_player()->query("family")) || fam["family_name"] != "Îäµ±ÅÉ")
-//        return notify_fail("·ÇÎäµ±µÜ×Ó²»ÄÜÉÏÉ½£¡\n");
+//    if (!(fam = this_player()->query("family")) || fam["family_name"] != "æ­¦å½“æ´¾")
+//        return notify_fail("éæ­¦å½“å¼Ÿå­ä¸èƒ½ä¸Šå±±ï¼\n");
 
     
     if (arg =="up")
     {
-	if (me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
-        write("Äã²È×ÅÄ¾×®£¬Ğ¡ĞÄÒíÒíµÄÏòÉÏÅÀÈ¥¡£\n");
-        message("vision",me->name() + "ÏòÉÏÒ»×İÍ»È»²»¼ûÁË¡£\n",
+	if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+        write("ä½ è¸©ç€æœ¨æ¡©ï¼Œå°å¿ƒç¿¼ç¿¼çš„å‘ä¸Šçˆ¬å»ã€‚\n");
+        message("vision",me->name() + "å‘ä¸Šä¸€çºµçªç„¶ä¸è§äº†ã€‚\n",
                 environment(me), ({me}) );
       
-        message("vision", me->name() + "ÅÀÁËÉÏÀ´¡£\n",
+        message("vision", me->name() + "çˆ¬äº†ä¸Šæ¥ã€‚\n",
         environment(me), ({me}) );
-//        this_player()->delete_temp("marks/²ÉÒ©");
+//        this_player()->delete_temp("marks/é‡‡è¯");
 
         me->move(__DIR__"taoyuan1");
         return 1;
     }
-    return notify_fail("ÄãÒªÍùÄÄ¶ùÅÀ£¿\n");
+    return notify_fail("ä½ è¦å¾€å“ªå„¿çˆ¬ï¼Ÿ\n");
 }

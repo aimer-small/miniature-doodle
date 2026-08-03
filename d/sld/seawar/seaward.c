@@ -11,7 +11,7 @@
 #define ANSI_DOWN	"B"
 #define PI		3.1416
 
-#define MAX_JOBS       8       // 2003.1.7 Ôö¼Óµ½  8 ×é
+#define MAX_JOBS       8       // 2003.1.7 å¢åŠ åˆ°  8 ç»„
 #define	MAX_SHOTS	25
 
 #define DIFFICULTY	1100	// smaller is harder , 0 is no hard consider
@@ -92,50 +92,50 @@ string query_location(int idx,int team)
 	int x,y;
 	x = sea[idx][sprintf("x%d",team)];
 	y = sea[idx][sprintf("y%d",team)];
-	return CYN"Äã×ĞÏ¸µÄ¹Û²ìÂŞÅÌ£¬·¢ÏÖÕ½´¬µÄ·½Î»ÊÇ£ºÌÁ¹Á¿ÚÒÔ¶«"+sprintf("%d.%.3d",x/1000,x%1000)+"Àï£¬ÒÔ±±"+sprintf("%d.%.3d",y/1000,y%1000)+"Àï"NOR;
+	return CYN"ä½ ä»”ç»†çš„è§‚å¯Ÿç½—ç›˜ï¼Œå‘ç°æˆ˜èˆ¹çš„æ–¹ä½æ˜¯ï¼šå¡˜æ²½å£ä»¥ä¸œ"+sprintf("%d.%.3d",x/1000,x%1000)+"é‡Œï¼Œä»¥åŒ—"+sprintf("%d.%.3d",y/1000,y%1000)+"é‡Œ"NOR;
 }
 
 void query_wind(object me,int idx)
 {
 	string wind;
 	switch( sea[idx]["wind"] ) {
-		case 1: wind = "Î÷ÄÏ·ç"; break;
-		case 2: wind = "ÄÏ·ç";   break;
-		case 3: wind = "¶«ÄÏ·ç"; break;
-		case 4: wind = "Î÷·ç";   break;
-		case 6: wind = "¶«·ç";   break;
-		case 7: wind = "Î÷±±·ç"; break;
-		case 8: wind = "±±·ç";   break;
-		case 9: wind = "¶«±±·ç"; break;
-		default: tell_object(me,CYN"Äã×ĞÏ¸¹Û²ì·çĞÅ£¬·¢ÏÖÏÖÔÚÃ»ÓĞ·ç¡£"NOR); return;
+		case 1: wind = "è¥¿å—é£"; break;
+		case 2: wind = "å—é£";   break;
+		case 3: wind = "ä¸œå—é£"; break;
+		case 4: wind = "è¥¿é£";   break;
+		case 6: wind = "ä¸œé£";   break;
+		case 7: wind = "è¥¿åŒ—é£"; break;
+		case 8: wind = "åŒ—é£";   break;
+		case 9: wind = "ä¸œåŒ—é£"; break;
+		default: tell_object(me,CYN"ä½ ä»”ç»†è§‚å¯Ÿé£ä¿¡ï¼Œå‘ç°ç°åœ¨æ²¡æœ‰é£ã€‚"NOR); return;
 	}
-	tell_object(me,CYN"Äã×ĞÏ¸¹Û²ì·çĞÅ£¬·¢ÏÖÏÖÔÚµÄ·çÏòÊÇ£º"+wind+"£¬·çËÙ´ïµ½£º"+CHINESE_D->chinese_number(sea[idx]["windspeed"])+"¼¶¡£\n"NOR);
+	tell_object(me,CYN"ä½ ä»”ç»†è§‚å¯Ÿé£ä¿¡ï¼Œå‘ç°ç°åœ¨çš„é£å‘æ˜¯ï¼š"+wind+"ï¼Œé£é€Ÿè¾¾åˆ°ï¼š"+CHINESE_D->chinese_number(sea[idx]["windspeed"])+"çº§ã€‚\n"NOR);
 }
 
 void query_water(object me,int idx)
 {
 	string water;
 	switch( sea[idx]["water"] ) {
-		case 1: water = "Î÷ÄÏ"; break;
-		case 2: water = "ÄÏ";   break;
-		case 3: water = "¶«ÄÏ"; break;
-		case 4: water = "Î÷";   break;
-		case 6: water = "¶«";   break;
-		case 7: water = "Î÷±±"; break;
-		case 8: water = "±±";   break;
-		case 9: water = "¶«±±"; break;
-		default: tell_object(me,CYN"Äã×ĞÏ¸¹Û²ì´óº££¬·¢ÏÖÏÖÔÚÍòÀïÎŞ²¨¡£"NOR); return;
+		case 1: water = "è¥¿å—"; break;
+		case 2: water = "å—";   break;
+		case 3: water = "ä¸œå—"; break;
+		case 4: water = "è¥¿";   break;
+		case 6: water = "ä¸œ";   break;
+		case 7: water = "è¥¿åŒ—"; break;
+		case 8: water = "åŒ—";   break;
+		case 9: water = "ä¸œåŒ—"; break;
+		default: tell_object(me,CYN"ä½ ä»”ç»†è§‚å¯Ÿå¤§æµ·ï¼Œå‘ç°ç°åœ¨ä¸‡é‡Œæ— æ³¢ã€‚"NOR); return;
 	}
-	tell_object(me,CYN"Äã×ĞÏ¸¹Û²ì´óº££¬·¢ÏÖÏÖÔÚµÄº£Á÷·½ÏòÊÇ£º"+water+"£¬Á÷ËÙ´ïµ½£º"+CHINESE_D->chinese_number(sea[idx]["waterspeed"])+"¼¶¡£\n"NOR);
+	tell_object(me,CYN"ä½ ä»”ç»†è§‚å¯Ÿå¤§æµ·ï¼Œå‘ç°ç°åœ¨çš„æµ·æµæ–¹å‘æ˜¯ï¼š"+water+"ï¼Œæµé€Ÿè¾¾åˆ°ï¼š"+CHINESE_D->chinese_number(sea[idx]["waterspeed"])+"çº§ã€‚\n"NOR);
 }
 
 string query_way(int idx,int team)
 {
 	int way = sea[idx][sprintf("way%d",team)];
 	if(way>360) 
-		return "ÏÖÔÚÕ½´¬´¦ÓÚÍ£Ö¹×´Ì¬¡£";
+		return "ç°åœ¨æˆ˜èˆ¹å¤„äºåœæ­¢çŠ¶æ€ã€‚";
 	else
-		return sprintf("ÏÖÔÚÕ½´¬µÄº½ÏòÊÇ£º%d¶È¡£",way);
+		return sprintf("ç°åœ¨æˆ˜èˆ¹çš„èˆªå‘æ˜¯ï¼š%dåº¦ã€‚",way);
 }
 
 /////////////////////////////////////////////////////////////////
@@ -151,29 +151,29 @@ protected void rank(object me,int team)
 	string title;
 	int skill = MAX( me->query_skill("saling",1) , me->query_skill("gunnery",1) );
 	if(team==1) {
-		title = HIY"´óÇåË®Ê¦";
-		if(skill<25) title += "°Ñ×Ü";
-		else if(skill< 50) title += "Ç§×Ü";
-		else if(skill< 75) title += "ÊØ±¸";
-		else if(skill<100) title += "¶¼Ë¾";
-		else if(skill<125) title += "ÓÎ»÷";
-		else if(skill<150) title += "²Î½«";
-		else if(skill<175) title += "¸±½«";
-		else if(skill<200) title += "×Ü±ø";
-		else title += "Ìá¶½";
+		title = HIY"å¤§æ¸…æ°´å¸ˆ";
+		if(skill<25) title += "æŠŠæ€»";
+		else if(skill< 50) title += "åƒæ€»";
+		else if(skill< 75) title += "å®ˆå¤‡";
+		else if(skill<100) title += "éƒ½å¸";
+		else if(skill<125) title += "æ¸¸å‡»";
+		else if(skill<150) title += "å‚å°†";
+		else if(skill<175) title += "å‰¯å°†";
+		else if(skill<200) title += "æ€»å…µ";
+		else title += "æç£";
 		title += NOR;
 	}
 	else {
-		title = HIR"ÉñÁú½Ì";
-		if(skill<25) title += "»¤·¨";
-		else if(skill< 50) title += "»ÆÁúÃÅ»¤·¨";
-		else if(skill< 75) title += "ºÚÁúÃÅ»¤·¨";
-		else if(skill<100) title += "³àÁúÃÅ»¤·¨";
-		else if(skill<125) title += "ÇàÁúÃÅ»¤·¨";
-		else if(skill<150) title += "°×ÁúÃÅ»¤·¨";
-		else if(skill<175) title += "×ÜÌ³»¤·¨";
-		else if(skill<175) title += "½ÌÖ÷»¤·¨";
-		else title += "ÕÆ½Ì»¤·¨";
+		title = HIR"ç¥é¾™æ•™";
+		if(skill<25) title += "æŠ¤æ³•";
+		else if(skill< 50) title += "é»„é¾™é—¨æŠ¤æ³•";
+		else if(skill< 75) title += "é»‘é¾™é—¨æŠ¤æ³•";
+		else if(skill<100) title += "èµ¤é¾™é—¨æŠ¤æ³•";
+		else if(skill<125) title += "é’é¾™é—¨æŠ¤æ³•";
+		else if(skill<150) title += "ç™½é¾™é—¨æŠ¤æ³•";
+		else if(skill<175) title += "æ€»å›æŠ¤æ³•";
+		else if(skill<175) title += "æ•™ä¸»æŠ¤æ³•";
+		else title += "æŒæ•™æŠ¤æ³•";
 		title += NOR;
 	}
 	me->set_temp("title",title);
@@ -187,7 +187,7 @@ string play(object me1,object me2,int team)
 	
 	for(i=0;i<MAX_JOBS;i++)
 		if( sea[i]["playing"]==0 ) break;
-	if(i>=MAX_JOBS) return "Ä¿Ç°ÎÒÃÇµÄÈËÊÖÒÑ¾­×ã¹»ÁË£¬ÄãÃÇµÈÒ»»á¶ùÔÙÀ´°É¡£";
+	if(i>=MAX_JOBS) return "ç›®å‰æˆ‘ä»¬çš„äººæ‰‹å·²ç»è¶³å¤Ÿäº†ï¼Œä½ ä»¬ç­‰ä¸€ä¼šå„¿å†æ¥å§ã€‚";
 	
 	t = sprintf("%d",team);
 	t2 = sprintf("%d",3-team);
@@ -203,7 +203,7 @@ string play(object me1,object me2,int team)
 
 	ship1 = load_object(sprintf(__DIR__"ship%d1",i+1));
 	ship2 = load_object(sprintf(__DIR__"ship%d2",i+1));
-	if( !ship1 || !ship2 ) return "´íÎó£ºÎŞ·¨ÕÒµ½Õ½´¬£¬Çë±¨¸æÎ×Ê¦£¡";
+	if( !ship1 || !ship2 ) return "é”™è¯¯ï¼šæ— æ³•æ‰¾åˆ°æˆ˜èˆ¹ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼";
 	ship1->default_mode();
 	ship2->default_mode();
 	
@@ -247,7 +247,7 @@ string play(object me1,object me2,int team)
 	rank(me1,team);
 	rank(me2,team);
 
-	log_file("job/seawar",sprintf("¿ªÊ¼ÈÎÎñ,%s%s:%d,%s%s:%d\n",
+	log_file("job/seawar",sprintf("å¼€å§‹ä»»åŠ¡,%s%s:%d,%s%s:%d\n",
 		me1->name(), "("+me1->query("id")+")", me1->query("combat_exp"),
 		me2->name(), "("+me2->query("id")+")", me2->query("combat_exp") ),me1,me2);
 	
@@ -256,9 +256,9 @@ string play(object me1,object me2,int team)
 	
 	call_out("move2ship",2,me1,me2,(team==1?ship1:ship2));
 	if(team==1)
-		return "ºÃ£¬ÄãÃÇ¸Ï¿ì²ÎÕ½°É£¬Îñ±ØÒª»÷³ÁµĞ½¢£¬ÑïÎÒ´óÇå¹úÍş£¡";
+		return "å¥½ï¼Œä½ ä»¬èµ¶å¿«å‚æˆ˜å§ï¼ŒåŠ¡å¿…è¦å‡»æ²‰æ•Œèˆ°ï¼Œæ‰¬æˆ‘å¤§æ¸…å›½å¨ï¼";
 	else
-		return "ºÃ£¬ÄãÃÇ¸Ï¿ì²ÎÕ½°É£¬Îñ±ØÒª»÷³ÁµĞ½¢£¬ÏÔÎÒ½ÌÉñÍş£¡";
+		return "å¥½ï¼Œä½ ä»¬èµ¶å¿«å‚æˆ˜å§ï¼ŒåŠ¡å¿…è¦å‡»æ²‰æ•Œèˆ°ï¼Œæ˜¾æˆ‘æ•™ç¥å¨ï¼";
 }
 
 void flee(object me,int idx,int team)
@@ -276,22 +276,22 @@ void flee(object me,int idx,int team)
 
 	if(team==1) {
 		if( (sea[idx]["y1"]-7000)>sea[idx]["bottom"] || distance<(3000*3000) ) {
-			tell_object(me,"ÄãÃÇ»¹Ã»ÓĞÍÑÀëÕ½³¡ÄØ¡£\n");
+			tell_object(me,"ä½ ä»¬è¿˜æ²¡æœ‰è„±ç¦»æˆ˜åœºå‘¢ã€‚\n");
 			return;
 		}
 		else
-			tell_room(sea[idx]["ship1"],"Õ½´¬ĞĞÊ»Ğí¾Ã£¬×ÜËã¿´µ½Â½µØ...\nÕ½´¬ÂıÂı¿¿°¶£¬ÄãÃÇ»Øµ½°¶ÉÏ¡£\n");
+			tell_room(sea[idx]["ship1"],"æˆ˜èˆ¹è¡Œé©¶è®¸ä¹…ï¼Œæ€»ç®—çœ‹åˆ°é™†åœ°...\næˆ˜èˆ¹æ…¢æ…¢é å²¸ï¼Œä½ ä»¬å›åˆ°å²¸ä¸Šã€‚\n");
 		me1 = sea[idx]["player11"];
 		me2 = sea[idx]["player12"];
 		startroom = load_object(startroom1);
 	}
 	else {
 		if( (sea[idx]["y2"]+7000)<sea[idx]["top"] || distance<(3000*3000) ) {
-			tell_object(me,"ÄãÃÇ»¹Ã»ÓĞÍÑÀëÕ½³¡ÄØ¡£\n");
+			tell_object(me,"ä½ ä»¬è¿˜æ²¡æœ‰è„±ç¦»æˆ˜åœºå‘¢ã€‚\n");
 			return;
 		}
 		else
-			tell_room(sea[idx]["ship2"],"Õ½´¬ĞĞÊ»Ğí¾Ã£¬×ÜËã¿´µ½Â½µØ...\nÕ½´¬ÂıÂı¿¿°¶£¬ÄãÃÇ»Øµ½°¶ÉÏ¡£\n");
+			tell_room(sea[idx]["ship2"],"æˆ˜èˆ¹è¡Œé©¶è®¸ä¹…ï¼Œæ€»ç®—çœ‹åˆ°é™†åœ°...\næˆ˜èˆ¹æ…¢æ…¢é å²¸ï¼Œä½ ä»¬å›åˆ°å²¸ä¸Šã€‚\n");
 		me1 = sea[idx]["player21"];
 		me2 = sea[idx]["player22"];
 		startroom = load_object(startroom2);
@@ -301,7 +301,7 @@ void flee(object me,int idx,int team)
 	
 	mename = "";
 	if(objectp(me1)) mename  = me1->query("name");
-	if(objectp(me1) && objectp(me2)) mename += "¡¢";
+	if(objectp(me1) && objectp(me2)) mename += "ã€";
 	if(objectp(me2)) mename += me2->query("name");
 	
 	g = sea[idx]["gain"+t];
@@ -309,33 +309,33 @@ void flee(object me,int idx,int team)
 	if( g>0 ) {
 		if(objectp(me1)) me1->clear_condition("job_busy");
 		if(objectp(me2)) me2->clear_condition("job_busy");
-                if(objectp(me1)) {me1->add("job_time/´óÇå¹úº£Õ½",1);
-                                me1->set("job_name","ÉñÁúµºº£Õ½");}
-                if(objectp(me2)){ me2->set("job_name","ÉñÁúµºº£Õ½");
-                             me2->add("job_time/´óÇå¹úº£Õ½",1);}
+                if(objectp(me1)) {me1->add("job_time/å¤§æ¸…å›½æµ·æˆ˜",1);
+                                me1->set("job_name","ç¥é¾™å²›æµ·æˆ˜");}
+                if(objectp(me2)){ me2->set("job_name","ç¥é¾™å²›æµ·æˆ˜");
+                             me2->add("job_time/å¤§æ¸…å›½æµ·æˆ˜",1);}
 		
 		if(team==1) {
-			if(g<60) s = "ÄãÃÇÔõÃ´ÄÇÃ´Ã»ÓÃ°¡£¡";
-			else if(g<120) s = "ÄÜÁ¦²»Ç¿°¡£¬»¹Òª¶à¶à¼ÓÓÍ¡£";
-			else if(g<240) s = "ËäÈ»»÷³ÁµĞ½¢£¬µ«ÊÇÃ»ÄÜ¼ßÃğµĞ¾ü£¬»¹ÒªÅ¬Á¦°¡¡£";
-			else if(g<340) s = "¼ßÃğµĞ¾ü´ó²¿£¬ÊµÁ¦²»´í°¡£¬ÏÂ´Î¶¨ÒªÈ«¼ßµĞ¾ü¡£";
-			else s = "È«¼ßµĞ¾ü£¬´óÑïÎÒ´óÇå¹úÍş£¬±¾½«±Ø¶¨×àÇë»ÊÉÏ£¬ºÃºÃ¼Î½±ÄãµÈ£¡";
-			tell_room(startroom,CYN"Ê©ÀÅËµµÀ£º"+mename+"£¬ÄãÃÇ"+s+"\n"NOR);
+			if(g<60) s = "ä½ ä»¬æ€ä¹ˆé‚£ä¹ˆæ²¡ç”¨å•Šï¼";
+			else if(g<120) s = "èƒ½åŠ›ä¸å¼ºå•Šï¼Œè¿˜è¦å¤šå¤šåŠ æ²¹ã€‚";
+			else if(g<240) s = "è™½ç„¶å‡»æ²‰æ•Œèˆ°ï¼Œä½†æ˜¯æ²¡èƒ½æ­¼ç­æ•Œå†›ï¼Œè¿˜è¦åŠªåŠ›å•Šã€‚";
+			else if(g<340) s = "æ­¼ç­æ•Œå†›å¤§éƒ¨ï¼Œå®åŠ›ä¸é”™å•Šï¼Œä¸‹æ¬¡å®šè¦å…¨æ­¼æ•Œå†›ã€‚";
+			else s = "å…¨æ­¼æ•Œå†›ï¼Œå¤§æ‰¬æˆ‘å¤§æ¸…å›½å¨ï¼Œæœ¬å°†å¿…å®šå¥è¯·çš‡ä¸Šï¼Œå¥½å¥½å˜‰å¥–ä½ ç­‰ï¼";
+			tell_room(startroom,CYN"æ–½ç…è¯´é“ï¼š"+mename+"ï¼Œä½ ä»¬"+s+"\n"NOR);
 		}
 		else {
-			if(g<60) s = "ÄãÃÇÔõÃ´ÄÇÃ´Ã»ÓÃ°¡£¡";
-			else if(g<120) s = "ÄÜÁ¦²»Ç¿°¡£¬»¹Òª¶à¶à¼ÓÓÍ¡£";
-			else if(g<240) s = "ËäÈ»»÷³ÁµĞ½¢£¬µ«ÊÇÃ»ÄÜ¼ßÃğµĞ¾ü£¬»¹ÒªÅ¬Á¦°¡¡£";
-			else if(g<340) s = "¼ßÃğµĞ¾ü´ó²¿£¬ÊµÁ¦²»´í°¡£¬ÏÂ´Î¶¨ÒªÈ«¼ßµĞ¾ü¡£";
-			else s = "È«¼ßµĞ¾ü£¬´óÑïÎÒÉñÁúÍş·ç£¬ÀÏ·ò±Ø¶¨Ù÷±¨½ÌÖ÷£¬ºÃºÃ¼Î½±ÄãµÈ£¡";
-			tell_room(startroom,CYN"Â½¸ßĞùËµµÀ£º"+mename+"£¬ÄãÃÇ"+s+"\n"NOR);
+			if(g<60) s = "ä½ ä»¬æ€ä¹ˆé‚£ä¹ˆæ²¡ç”¨å•Šï¼";
+			else if(g<120) s = "èƒ½åŠ›ä¸å¼ºå•Šï¼Œè¿˜è¦å¤šå¤šåŠ æ²¹ã€‚";
+			else if(g<240) s = "è™½ç„¶å‡»æ²‰æ•Œèˆ°ï¼Œä½†æ˜¯æ²¡èƒ½æ­¼ç­æ•Œå†›ï¼Œè¿˜è¦åŠªåŠ›å•Šã€‚";
+			else if(g<340) s = "æ­¼ç­æ•Œå†›å¤§éƒ¨ï¼Œå®åŠ›ä¸é”™å•Šï¼Œä¸‹æ¬¡å®šè¦å…¨æ­¼æ•Œå†›ã€‚";
+			else s = "å…¨æ­¼æ•Œå†›ï¼Œå¤§æ‰¬æˆ‘ç¥é¾™å¨é£ï¼Œè€å¤«å¿…å®šç¦€æŠ¥æ•™ä¸»ï¼Œå¥½å¥½å˜‰å¥–ä½ ç­‰ï¼";
+			tell_room(startroom,CYN"é™†é«˜è½©è¯´é“ï¼š"+mename+"ï¼Œä½ ä»¬"+s+"\n"NOR);
 		}
 	}
 	else {
 		if(team==1)
-			tell_room(startroom,CYN"Ê©ÀÅËµµÀ£º"+mename+"£¬ÄãÃÇ´óËğÎÒ´óÇå¹úÍş£¬ÕæÊÇÌ«Ã»ÓÃÁË£¡\n"NOR);
+			tell_room(startroom,CYN"æ–½ç…è¯´é“ï¼š"+mename+"ï¼Œä½ ä»¬å¤§æŸæˆ‘å¤§æ¸…å›½å¨ï¼ŒçœŸæ˜¯å¤ªæ²¡ç”¨äº†ï¼\n"NOR);
 		else
-			tell_room(startroom,CYN"Â½¸ßĞùËµµÀ£º"+mename+"£¬ÄãÃÇ´óËğÎÒÉñÁúÍş·ç£¬ÕæÊÇÌ«Ã»ÓÃÁË£¡\n"NOR);
+			tell_room(startroom,CYN"é™†é«˜è½©è¯´é“ï¼š"+mename+"ï¼Œä½ ä»¬å¤§æŸæˆ‘ç¥é¾™å¨é£ï¼ŒçœŸæ˜¯å¤ªæ²¡ç”¨äº†ï¼\n"NOR);
 	}
 	
 	if(objectp(me1)) me1->delete_temp("seawar");
@@ -345,7 +345,7 @@ void flee(object me,int idx,int team)
 	if(g<=0) {
 		if(!objectp(me1)) me1 = me2;
 		if(!objectp(me2)) me2 = me1;
-		log_file("job/seawar",sprintf("ÈÎÎñÊ§°Ü,t:%-4d,%s%s,%s%s\n",
+		log_file("job/seawar",sprintf("ä»»åŠ¡å¤±è´¥,t:%-4d,%s%s,%s%s\n",
 			time()-sea[idx]["starttime"],
 			me1->name(), "("+me1->query("id")+")", 
 			me2->name(), "("+me2->query("id")+")" ),me1,me2);
@@ -387,16 +387,16 @@ db_exp = exp /3 + random(exp/2);
 		me1->add("shen",shen);
 		if ( (int)me1->query("potential", 1) > (int)me1->query("max_pot", 1) )
 			me1->set("potential" , me1->query("max_pot", 1) );
-		tell_object(me1, HIC"Äã±»½±ÀøÁË"+CHINESE_D->chinese_number(exp)+"µã¾­Ñé£¬"+CHINESE_D->chinese_number(pot)+"µãÇ±ÄÜ");
+		tell_object(me1, HIC"ä½ è¢«å¥–åŠ±äº†"+CHINESE_D->chinese_number(exp)+"ç‚¹ç»éªŒï¼Œ"+CHINESE_D->chinese_number(pot)+"ç‚¹æ½œèƒ½");
 
-		if(team==1) tell_object(me1,"£¬Äã¸Ğ¾õÏÀÒåÕıÆø¸üÊ¤´ÓÇ°£¡\n"NOR);
-		else tell_object(me1,"Äã¸Ğ¾õĞ°¶ñÖ®Æø¸üÊ¤´ÓÇ°£¡\n"NOR);
+		if(team==1) tell_object(me1,"ï¼Œä½ æ„Ÿè§‰ä¾ ä¹‰æ­£æ°”æ›´èƒœä»å‰ï¼\n"NOR);
+		else tell_object(me1,"ä½ æ„Ÿè§‰é‚ªæ¶ä¹‹æ°”æ›´èƒœä»å‰ï¼\n"NOR);
 
 
    ext = me1->query("relife/exp_ext");
                 if( ext >0 ) {    
                   me1->add("combat_exp", exp* ext /20 );
-		tell_object(me1, HIC"Äã×ĞÏ¸»ØÏë×Å¸Õ²Åº£Õ½µÄ¹ı³Ì£¬ÓÖ¶îÍâ»ñµÃÁË"+CHINESE_D->chinese_number(exp*ext/20)+"µã¾­Ñé£¡\n"NOR);
+		tell_object(me1, HIC"ä½ ä»”ç»†å›æƒ³ç€åˆšæ‰æµ·æˆ˜çš„è¿‡ç¨‹ï¼Œåˆé¢å¤–è·å¾—äº†"+CHINESE_D->chinese_number(exp*ext/20)+"ç‚¹ç»éªŒï¼\n"NOR);
     
                                           }
 
@@ -404,7 +404,7 @@ db_exp = exp /3 + random(exp/2);
    if( me1->query_condition("db_exp") ) {
           me1->add("combat_exp", db_exp );
 
-          	tell_object(me1,HBGRN"Ë«±¶¾­Ñé½±ÀøÆÚ¼ä£¬Äã¶îÍâµØÔö¼ÓÁË"+chinese_number(db_exp)+"µãÊµÕ½¾­Ñé£¡\n"NOR);}
+          	tell_object(me1,HBGRN"åŒå€ç»éªŒå¥–åŠ±æœŸé—´ï¼Œä½ é¢å¤–åœ°å¢åŠ äº†"+chinese_number(db_exp)+"ç‚¹å®æˆ˜ç»éªŒï¼\n"NOR);}
 }
 
 
@@ -415,18 +415,18 @@ db_exp = exp /3 + random(exp/2);
 		me2->add("shen",shen);
 		if ( (int)me2->query("potential", 1) > (int)me2->query("max_pot", 1) )
 			me2->set("potential" , me2->query("max_pot", 1) );
-		tell_object(me2, HIC"Äã±»½±ÀøÁË"+CHINESE_D->chinese_number(exp)+"µã¾­Ñé£¬"+CHINESE_D->chinese_number(pot)+"µãÇ±ÄÜ");
+		tell_object(me2, HIC"ä½ è¢«å¥–åŠ±äº†"+CHINESE_D->chinese_number(exp)+"ç‚¹ç»éªŒï¼Œ"+CHINESE_D->chinese_number(pot)+"ç‚¹æ½œèƒ½");
 
  
 
 
-		if(team==1) tell_object(me2,"£¬Äã¸Ğ¾õÏÀÒåÕıÆø¸üÊ¤´ÓÇ°£¡\n"NOR);
-		else tell_object(me2,"Äã¸Ğ¾õĞ°¶ñÖ®Æø¸üÊ¤´ÓÇ°£¡\n"NOR);
+		if(team==1) tell_object(me2,"ï¼Œä½ æ„Ÿè§‰ä¾ ä¹‰æ­£æ°”æ›´èƒœä»å‰ï¼\n"NOR);
+		else tell_object(me2,"ä½ æ„Ÿè§‰é‚ªæ¶ä¹‹æ°”æ›´èƒœä»å‰ï¼\n"NOR);
 
   ext = me2->query("relife/exp_ext");
                 if( ext >0 ) {    
                   me2->add("combat_exp", exp* ext /20 );
-		tell_object(me2, HIC"Äã×ĞÏ¸»ØÏë×Å¸Õ²Åº£Õ½µÄ¹ı³Ì£¬ÓÖ¶îÍâ»ñµÃÁË"+CHINESE_D->chinese_number(exp*ext/20)+"µã¾­Ñé£¡\n"NOR);
+		tell_object(me2, HIC"ä½ ä»”ç»†å›æƒ³ç€åˆšæ‰æµ·æˆ˜çš„è¿‡ç¨‹ï¼Œåˆé¢å¤–è·å¾—äº†"+CHINESE_D->chinese_number(exp*ext/20)+"ç‚¹ç»éªŒï¼\n"NOR);
     
                                           }
 
@@ -434,13 +434,13 @@ db_exp = exp /3 + random(exp/2);
    if( me2->query_condition("db_exp") ) {
           me2->add("combat_exp", db_exp );
 
-          	tell_object(me2,HBGRN"Ë«±¶¾­Ñé½±ÀøÆÚ¼ä£¬Äã¶îÍâµØÔö¼ÓÁË"+chinese_number(db_exp)+"µãÊµÕ½¾­Ñé£¡\n"NOR);}
+          	tell_object(me2,HBGRN"åŒå€ç»éªŒå¥–åŠ±æœŸé—´ï¼Œä½ é¢å¤–åœ°å¢åŠ äº†"+chinese_number(db_exp)+"ç‚¹å®æˆ˜ç»éªŒï¼\n"NOR);}
 
 }
 	if(!objectp(me1)) me1 = me2;
 	if(!objectp(me2)) me2 = me1;
 	limit = 7000 * utime / 3600;
-	log_file("job/seawar",sprintf("ÈÎÎñÍê³É,t:%-4d,g:%-3d,e:%-4d(%4d;%4d;%4d),p:%-3d,s:%-5d,%s%s,%s%s\n",
+	log_file("job/seawar",sprintf("ä»»åŠ¡å®Œæˆ,t:%-4d,g:%-3d,e:%-4d(%4d;%4d;%4d),p:%-3d,s:%-5d,%s%s,%s%s\n",
 		time()-sea[idx]["starttime"],g,exp,e,limit,e-limit,pot,shen,
 		me1->name(), "("+me1->query("id")+")",
 		me2->name(), "("+me2->query("id")+")" ),me1,me2);
@@ -484,9 +484,9 @@ protected string showship(int idx,int team)
 	else color = RED;
 	
 	if( sea[idx][sprintf("ship%d",team)]->query_mode()==1 )
-		return color+"´¬"NOR;
+		return color+"èˆ¹"NOR;
 	else
-		return color+"ô®"NOR;
+		return color+"èˆ¢"NOR;
 }
 
 void look(object me,int idx,int team,int way)
@@ -515,10 +515,10 @@ void look(object me,int idx,int team,int way)
 	}
 
 	i = MAX( ABS(x) , ABS(y) );
-	if( i > 7500 || size == 0 ) { size = 1000; str = "Ò»"; }
-	else if( i > 3750 ) { size = 500; str = "°ë"; }
-	else if( i > 1875 ) { size = 250; str = "ËÄ·ÖÖ®Ò»"; }
-	else { size = 125; str = "°Ë·ÖÖ®Ò»"; }
+	if( i > 7500 || size == 0 ) { size = 1000; str = "ä¸€"; }
+	else if( i > 3750 ) { size = 500; str = "åŠ"; }
+	else if( i > 1875 ) { size = 250; str = "å››åˆ†ä¹‹ä¸€"; }
+	else { size = 125; str = "å…«åˆ†ä¹‹ä¸€"; }
 	
 	x /= size;
 	y /= size;
@@ -553,25 +553,25 @@ void look(object me,int idx,int team,int way)
 	isshow = 1;
 	switch(way) {
 		case 6: 
-			tell_object(me,CYN"ÄãÍù¶«·½¿´È¥£º\n"NOR);
+			tell_object(me,CYN"ä½ å¾€ä¸œæ–¹çœ‹å»ï¼š\n"NOR);
 			tell_object(me,"  010203040506070809101112131415\n");
 			if(x<1 || x>15) isshow = 0;
 			x1 = 0; x2 = 30; y1 = -15;
 			break;
 		case 4: 
-			tell_object(me,CYN"ÄãÍùÎ÷·½¿´È¥£º\n"NOR);
+			tell_object(me,CYN"ä½ å¾€è¥¿æ–¹çœ‹å»ï¼š\n"NOR);
 			tell_object(me,"  151413121110090807060504030201\n"); 
 			if(x<-15 || x>-1) isshow = 0;
 			x1 = 30; x2 = 30; y1 = -15;
 			break;
 		case 8: 
-			tell_object(me,CYN"ÄãÍù±±·½¿´È¥£º\n"NOR);
+			tell_object(me,CYN"ä½ å¾€åŒ—æ–¹çœ‹å»ï¼š\n"NOR);
 			tell_object(me,"  151413121110090807060504030201**010203040506070809101112131415\n");
 			if(x<-15 || x>15) isshow = 0;
 			x1 = 30; x2 = 62; y1 = 1;
 			break;
 		case 2: 
-			tell_object(me,CYN"ÄãÍùÄÏ·½¿´È¥£º\n"NOR);
+			tell_object(me,CYN"ä½ å¾€å—æ–¹çœ‹å»ï¼š\n"NOR);
 			tell_object(me,"  151413121110090807060504030201"+showship(idx,team)+"010203040506070809101112131415\n");
 			if(x<-15 || x>15) isshow = 0;
 			x1 = 30; x2 = 62; y1 = 1;
@@ -595,7 +595,7 @@ void look(object me,int idx,int team,int way)
 			tell_object(me,ANSI_CHAR+sprintf("%d",cur)+ANSI_RIGHT);	
 			
 			if(tshot[j]["team"]==1) tell_object(me,HIW); else tell_object(me,CYN);
-			tell_object(me,"¡ñ"NOR);
+			tell_object(me,"â—"NOR);
 			cur += 2;
 		}
 		
@@ -627,7 +627,7 @@ void look(object me,int idx,int team,int way)
 			tell_object(me,ANSI_CHAR+sprintf("%d",cur)+ANSI_RIGHT);	
 			
 			if(tshot[j]["team"]==1) tell_object(me,HIW); else tell_object(me,CYN);
-			tell_object(me,"¡ñ"NOR);
+			tell_object(me,"â—"NOR);
 			cur += 2;
 		}
 		
@@ -655,9 +655,9 @@ void look(object me,int idx,int team,int way)
 	}
 
 	// show ruler
-	tell_object(me,"±ê³ßÎª£º"+str+" ÀïÃ¿µ¥Î»¡£");
+	tell_object(me,"æ ‡å°ºä¸ºï¼š"+str+" é‡Œæ¯å•ä½ã€‚");
 	if(wizardp(me) && me->query("env/test"))
-		tell_object(me,sprintf("    ´¬Ò»£º%d,%d ; ´¬¶ş£º%d,%d",sea[idx]["x1"],sea[idx]["y1"],sea[idx]["x2"],sea[idx]["y2"]));
+		tell_object(me,sprintf("    èˆ¹ä¸€ï¼š%d,%d ; èˆ¹äºŒï¼š%d,%d",sea[idx]["x1"],sea[idx]["y1"],sea[idx]["x2"],sea[idx]["y2"]));
 	tell_object(me,"\n");
 	
 	// show ship
@@ -667,7 +667,7 @@ void look(object me,int idx,int team,int way)
 		if(y==0 && way==6)	
 			tell_object(me,showship(idx,team));
 		else
-			tell_object(me,"¡ï");
+			tell_object(me,"â˜…");
 
 		cur = x1 + x*2;
 		if(way==6) cur-=2;
@@ -679,7 +679,7 @@ void look(object me,int idx,int team,int way)
 		if(y==0 && way==4)	
 			tell_object(me,showship(idx,team)+"\n");
 		else
-			tell_object(me,"¡ï\n");
+			tell_object(me,"â˜…\n");
 
 		tell_object(me,ANSI_CHAR+sprintf("%d",a+1)+ANSI_DOWN);
 	}
@@ -756,19 +756,19 @@ void jump(object me,int idx,int team)
 	x = sea[idx]["x1"] - sea[idx]["x2"];
 	y = sea[idx]["y1"] - sea[idx]["y2"];
 	if( (x*x+y*y) > (250*250) ) {
-		tell_object(me,"ÄãÆóÍ¼ÌøÉÏµĞ´¬£¬µ«ÊÇ¾àÀëÌ«Ô¶ÁË£¬ÄãÌø²»¹ıÈ¥£¡\n");
+		tell_object(me,"ä½ ä¼å›¾è·³ä¸Šæ•Œèˆ¹ï¼Œä½†æ˜¯è·ç¦»å¤ªè¿œäº†ï¼Œä½ è·³ä¸è¿‡å»ï¼\n");
 		return;
 	}
 	
 	me1 = sea[idx][sprintf("player%d1",team)];
 	me2 = sea[idx][sprintf("player%d2",team)];
 	if( !objectp(me1) || !objectp(me2) || environment(me1)!=environment(me2) ) {
-		tell_object(me,"ÄãÃÇµÄÈËÊı²»¶Ô°¡£¡\n");
+		tell_object(me,"ä½ ä»¬çš„äººæ•°ä¸å¯¹å•Šï¼\n");
 		return;
 	}
 	ship = sea[idx][sprintf("ship%d",3-team)];
 	if( me1->is_busy() || me2->is_busy() ) {
-		tell_object(me,"ÄãÃÇÕıÃ¦×ÅÄØ£¡\n");
+		tell_object(me,"ä½ ä»¬æ­£å¿™ç€å‘¢ï¼\n");
 		return;
 	}
 	
@@ -779,10 +779,10 @@ void jump(object me,int idx,int team)
 	sea[idx]["ty2"] = 0;
 	sea[idx]["way2"] = 10000;
 	
-	message_vision(CYN"$N·ÜÁ¦Ò»Ô¾£¬ÌøÉÏµĞ´¬¡£\n"NOR,me1);
-	message_vision(CYN"$N·ÜÁ¦Ò»Ô¾£¬ÌøÉÏµĞ´¬¡£\n"NOR,me2);
-	tell_room(ship,CYN+me1->query("name")+"ÌøÁË¹ıÀ´¡£\n"NOR);
-	tell_room(ship,CYN+me2->query("name")+"ÌøÁË¹ıÀ´¡£\n"NOR);
+	message_vision(CYN"$Nå¥‹åŠ›ä¸€è·ƒï¼Œè·³ä¸Šæ•Œèˆ¹ã€‚\n"NOR,me1);
+	message_vision(CYN"$Nå¥‹åŠ›ä¸€è·ƒï¼Œè·³ä¸Šæ•Œèˆ¹ã€‚\n"NOR,me2);
+	tell_room(ship,CYN+me1->query("name")+"è·³äº†è¿‡æ¥ã€‚\n"NOR);
+	tell_room(ship,CYN+me2->query("name")+"è·³äº†è¿‡æ¥ã€‚\n"NOR);
 	me1->move(ship);
 	me2->move(ship);
 
@@ -797,12 +797,12 @@ void back(object me,int idx,int team)
 	x = sea[idx]["x1"] - sea[idx]["x2"];
 	y = sea[idx]["y1"] - sea[idx]["y2"];
 	if( (x*x+y*y) > (1000*1000) ) {
-		tell_object(me,"ÄãÏëÌø»Ø×Ô¼ºµÄ´¬£¬µ«ÊÇ¾àÀëÌ«Ô¶ÁË£¬ÄãÌø²»¹ıÈ¥£¡\n");
+		tell_object(me,"ä½ æƒ³è·³å›è‡ªå·±çš„èˆ¹ï¼Œä½†æ˜¯è·ç¦»å¤ªè¿œäº†ï¼Œä½ è·³ä¸è¿‡å»ï¼\n");
 		return;
 	}
 	ship = sea[idx][sprintf("ship%d",3-team)];
-	message_vision(CYN"$N·ÜÁ¦Ò»Ô¾£¬Ìø»Ø¼º·½Õ½´¬¡£\n"NOR,me);
-	tell_room(ship,CYN+me->query("name")+"ÌøÁË¹ıÀ´¡£\n"NOR);
+	message_vision(CYN"$Nå¥‹åŠ›ä¸€è·ƒï¼Œè·³å›å·±æ–¹æˆ˜èˆ¹ã€‚\n"NOR,me);
+	tell_room(ship,CYN+me->query("name")+"è·³äº†è¿‡æ¥ã€‚\n"NOR);
 	me->move(ship);
 }
 
@@ -818,13 +818,13 @@ protected void dogo(int idx,int team)
 	sea[idx]["x"+t] += sea[idx]["tx"+t] + sea[idx]["windx"] + sea[idx]["waterx"];
 	sea[idx]["y"+t] += sea[idx]["ty"+t] + sea[idx]["windy"] + sea[idx]["watery"];
 	
-	if( sea[idx]["x"+t] < sea[idx]["left"]   ) { sea[idx]["x"+t] = sea[idx]["left"];  s = "Î÷±ß"; }
-	if( sea[idx]["x"+t] > sea[idx]["right"]  ) { sea[idx]["x"+t] = sea[idx]["right"]; s = "¶«±ß"; }
-	if( sea[idx]["y"+t] > sea[idx]["top"]    ) { sea[idx]["y"+t] = sea[idx]["top"];   s = "±±±ß"; }
-	if( sea[idx]["y"+t] < sea[idx]["bottom"] ) { sea[idx]["y"+t] = sea[idx]["bottom"];s = "ÄÏ±ß"; }
+	if( sea[idx]["x"+t] < sea[idx]["left"]   ) { sea[idx]["x"+t] = sea[idx]["left"];  s = "è¥¿è¾¹"; }
+	if( sea[idx]["x"+t] > sea[idx]["right"]  ) { sea[idx]["x"+t] = sea[idx]["right"]; s = "ä¸œè¾¹"; }
+	if( sea[idx]["y"+t] > sea[idx]["top"]    ) { sea[idx]["y"+t] = sea[idx]["top"];   s = "åŒ—è¾¹"; }
+	if( sea[idx]["y"+t] < sea[idx]["bottom"] ) { sea[idx]["y"+t] = sea[idx]["bottom"];s = "å—è¾¹"; }
 	
 	if(s!="" && sea[idx]["team"+t]==1 && random(10)==5)
-		tell_room(sea[idx]["ship"+t],HIR"ÄãÍ»È»·¢ÏÖ"+s+"²»Ô¶´¦ÓĞ´óÆ¬µÄ°µ½¸£¬²»µÃ²»×ĞÏ¸µ÷Õûº½Ïò¡£\n"NOR);
+		tell_room(sea[idx]["ship"+t],HIR"ä½ çªç„¶å‘ç°"+s+"ä¸è¿œå¤„æœ‰å¤§ç‰‡çš„æš—ç¤ï¼Œä¸å¾—ä¸ä»”ç»†è°ƒæ•´èˆªå‘ã€‚\n"NOR);
 }
 
 protected void sink(int idx,int team)
@@ -833,10 +833,10 @@ protected void sink(int idx,int team)
 	if( !ship || ship->query("mode")!=1 ) return;
 	ship->change_mode();
 	sea[idx][sprintf("hp%d",team)] = 1000;
-	tell_room(ship,"ÄãÃÇµÄÕ½´¬ÂíÉÏ¾ÍÒª³ÁÃ»ÁË£¬ÄãÃÇÖ»µÃÌÓÉÏô®°å¡£\n");
+	tell_room(ship,"ä½ ä»¬çš„æˆ˜èˆ¹é©¬ä¸Šå°±è¦æ²‰æ²¡äº†ï¼Œä½ ä»¬åªå¾—é€ƒä¸Šèˆ¢æ¿ã€‚\n");
 	
 	ship = sea[idx][sprintf("ship%d",3-team)];
-	tell_room(ship,"µĞ´¬±»»÷³Á£¬µĞÈË¶¼ÌÓÉÏô®°å¡£\n");
+	tell_room(ship,"æ•Œèˆ¹è¢«å‡»æ²‰ï¼Œæ•Œäººéƒ½é€ƒä¸Šèˆ¢æ¿ã€‚\n");
 }
 
 protected void doshot(int idx)
@@ -853,12 +853,12 @@ protected void doshot(int idx)
 	me = shot[idx]["me"];
 	if(sea[job][sprintf("team%d",team)]==0) {
 		ship = sea[job][sprintf("ship%d",3-team)];
-		t = "µĞ´¬";
+		t = "æ•Œèˆ¹";
 		diff = 0;
 	}
 	else {
 		ship = sea[job][sprintf("ship%d",team)];
-		t = "ÄãÃÇµÄÕ½´¬";
+		t = "ä½ ä»¬çš„æˆ˜èˆ¹";
 		diff = DIFFICULTY;
 	}
 	
@@ -870,9 +870,9 @@ protected void doshot(int idx)
 	}
 	if( ABS(x)>1250 || ABS(y)>1250 || (x*x+y*y)>(1250*1250) || sea[job][sprintf("ship%d",team)]->query_mode()==2 ) {
 		if( ABS(x)>5000 || ABS(y)>5000 || (x*x+y*y)>(5000*5000) )
-			tell_room(ship,"Ö»¼ûÅÚµ¯µôµ½ÁËº£Àï£¬Ê²Ã´¶¼Ã»ÓĞ´òÖĞ£¡\n");
+			tell_room(ship,"åªè§ç‚®å¼¹æ‰åˆ°äº†æµ·é‡Œï¼Œä»€ä¹ˆéƒ½æ²¡æœ‰æ‰“ä¸­ï¼\n");
 		else
-			tell_room(ship,sprintf("Ö»¼ûÅÚµ¯µôµ½ÁËº£Àï£¬¾àÀë"+t+"´óÔ¼Ë®Æ½%d³ß¡¢´¹Ö±%d³ß£¬Ê²Ã´¶¼Ã»ÓĞ´òÖĞ£¡\n",x,y));
+			tell_room(ship,sprintf("åªè§ç‚®å¼¹æ‰åˆ°äº†æµ·é‡Œï¼Œè·ç¦»"+t+"å¤§çº¦æ°´å¹³%då°ºã€å‚ç›´%då°ºï¼Œä»€ä¹ˆéƒ½æ²¡æœ‰æ‰“ä¸­ï¼\n",x,y));
 		return;
 	}
 
@@ -887,23 +887,23 @@ protected void doshot(int idx)
 	gain(job,team,damage);
 	
 	if(me && wizardp(me) && me->query("env/test"))
-		tell_object(me,sprintf("ÉËº¦:%d , ¶Ô·½×´Ì¬:%d\n",damage,sea[shot[idx]["job"]][sprintf("hp%d",team)]));
+		tell_object(me,sprintf("ä¼¤å®³:%d , å¯¹æ–¹çŠ¶æ€:%d\n",damage,sea[shot[idx]["job"]][sprintf("hp%d",team)]));
 		
-	if(damage<5) str = HIG"ÅÚµ¯ÔÚ"+t+"ÅÔ±¬Õ¨£¬Ö»ÊÇÉÔÉÔ²¨¼°µ½"+t+"¡£\n";
-	else if(damage<10) str = GRN"ÅÚµ¯½ô¿¿"+t+"±¬Õ¨£¬"+t+"ÊÜµ½Ò»µãÆÆ»µ¡£\n";
-	else if(damage<15) str = HIY"ÅÚµ¯»÷ÖĞ"+t+"Íâ¿Ç£¬"+t+"ÊÜµ½²»Ğ¡µÄÆÆ»µ¡£\n";
-	else if(damage<20) str = YEL"ÅÚµ¯»÷ÖĞ"+t+"¼×°å£¬"+t+"ÊÜµ½ºÜ´óµÄÆÆ»µ£¡\n";
-	else if(damage<25) str = HIR"ÅÚµ¯»÷ÖĞ"+t+"Ö÷Î¦¸Ë£¬"+t+"ÊÜµ½¼«´óµÄÆÆ»µ£¡£¡\n";
-	else str = RED"ÅÚµ¯»÷ÖĞ"+t+"µ¯Ò©¿â£¬"+t+"ÊÜµ½ÖÂÃüµÄÆÆ»µ£¡£¡£¡\n";
+	if(damage<5) str = HIG"ç‚®å¼¹åœ¨"+t+"æ—çˆ†ç‚¸ï¼Œåªæ˜¯ç¨ç¨æ³¢åŠåˆ°"+t+"ã€‚\n";
+	else if(damage<10) str = GRN"ç‚®å¼¹ç´§é "+t+"çˆ†ç‚¸ï¼Œ"+t+"å—åˆ°ä¸€ç‚¹ç ´åã€‚\n";
+	else if(damage<15) str = HIY"ç‚®å¼¹å‡»ä¸­"+t+"å¤–å£³ï¼Œ"+t+"å—åˆ°ä¸å°çš„ç ´åã€‚\n";
+	else if(damage<20) str = YEL"ç‚®å¼¹å‡»ä¸­"+t+"ç”²æ¿ï¼Œ"+t+"å—åˆ°å¾ˆå¤§çš„ç ´åï¼\n";
+	else if(damage<25) str = HIR"ç‚®å¼¹å‡»ä¸­"+t+"ä¸»æ¡…æ†ï¼Œ"+t+"å—åˆ°æå¤§çš„ç ´åï¼ï¼\n";
+	else str = RED"ç‚®å¼¹å‡»ä¸­"+t+"å¼¹è¯åº“ï¼Œ"+t+"å—åˆ°è‡´å‘½çš„ç ´åï¼ï¼ï¼\n";
 	tell_room(ship,str);
 	
 	damage = sea[shot[idx]["job"]][sprintf("hp%d",team)];
-	if(damage>80) str = HIG+t+"ËÆºõÃ»ÓĞÊÜµ½¶à´óµÄÆÆ»µ¡£\n"NOR;
-	else if(damage>60) str = GRN+t+"µÄ×´¿öËÆºõ²»´óºÃ¡£\n"NOR;
-	else if(damage>45) str = HIY+t+"ÊÜµ½Ò»¶¨µÄÆÆ»µ£¬´¬ÌåÓĞ¼¸´¦Æğ»ğÁË¡£\n"NOR;
-	else if(damage>30) str = YEL+t+"ÊÜµ½ºÜ´óµÄÆÆ»µ£¬Ö÷¼×°å¶¼Æğ»ğÁË£¡\n"NOR;
-	else if(damage>15) str = HIR+t+"ÊÜµ½¼«´óµÄÆÆ»µ£¬µ½´¦ÔÚÆğ»ğ£¡£¡\n"NOR;
-	else str = RED+t+"µÄÖ÷Î¦¸ËÒÑ¾­µ¹ÏÂÁË£¬Õû¸ö´¬Ìå¶¼ÔÚÏÂ³ÁÖĞ£¡£¡£¡\n"NOR;
+	if(damage>80) str = HIG+t+"ä¼¼ä¹æ²¡æœ‰å—åˆ°å¤šå¤§çš„ç ´åã€‚\n"NOR;
+	else if(damage>60) str = GRN+t+"çš„çŠ¶å†µä¼¼ä¹ä¸å¤§å¥½ã€‚\n"NOR;
+	else if(damage>45) str = HIY+t+"å—åˆ°ä¸€å®šçš„ç ´åï¼Œèˆ¹ä½“æœ‰å‡ å¤„èµ·ç«äº†ã€‚\n"NOR;
+	else if(damage>30) str = YEL+t+"å—åˆ°å¾ˆå¤§çš„ç ´åï¼Œä¸»ç”²æ¿éƒ½èµ·ç«äº†ï¼\n"NOR;
+	else if(damage>15) str = HIR+t+"å—åˆ°æå¤§çš„ç ´åï¼Œåˆ°å¤„åœ¨èµ·ç«ï¼ï¼\n"NOR;
+	else str = RED+t+"çš„ä¸»æ¡…æ†å·²ç»å€’ä¸‹äº†ï¼Œæ•´ä¸ªèˆ¹ä½“éƒ½åœ¨ä¸‹æ²‰ä¸­ï¼ï¼ï¼\n"NOR;
 	tell_room(ship,str);
 		
 	if( damage <= 0 ) sink(shot[idx]["job"],team);
@@ -1005,7 +1005,7 @@ protected void ai(int idx,int team)
 		distance = MAX(x*x+y*y,1250*1250);
 		elevation = 90 - sqrt(distance)*SHOT_TIME / SHOT_SPEED;
 		fire(0,idx,team,angle,elevation);
-		tell_room(sea[idx][sprintf("ship%d",3-team)],"Ô¶·½ËÆºõÓĞ¿ÅÅÚµ¯´òÁË¹ıÀ´£¡\n");
+		tell_room(sea[idx][sprintf("ship%d",3-team)],"è¿œæ–¹ä¼¼ä¹æœ‰é¢—ç‚®å¼¹æ‰“äº†è¿‡æ¥ï¼\n");
 	}
 }
 

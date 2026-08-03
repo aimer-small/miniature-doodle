@@ -7,18 +7,18 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("»ÛÕæ×ğÕß", ({
+	set_name("æ…§çœŸå°Šè€…", ({
 		"huizhen zunzhe",
 		"huizhen",
 		"zunzhe",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Á½÷Ş°ß°×µÄÀÏÉ®£¬Éí´©Ò»Ï®Çà²¼Ïâ±ßôÂôÄ¡£ËûÉí²ÄÂÔ¸ß£¬\n"
-		"Ì«ÑôÑ¨Î¢Í¹£¬Ë«Ä¿¾¼¾¼ÓĞÉñ¡£\n"
+		"ä»–æ˜¯ä¸€ä½ä¸¤é¬“æ–‘ç™½çš„è€åƒ§ï¼Œèº«ç©¿ä¸€è¢­é’å¸ƒé•¶è¾¹è¢ˆè£Ÿã€‚ä»–èº«æç•¥é«˜ï¼Œ\n"
+		"å¤ªé˜³ç©´å¾®å‡¸ï¼ŒåŒç›®ç‚¯ç‚¯æœ‰ç¥ã€‚\n"
 	);
 
 	set("no_get", 1);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -61,7 +61,7 @@ void create()
 	prepare_skill("finger", "yizhi-chan");
 	prepare_skill("strike", "banruo-zhang");
 
-	create_family("ÉÙÁÖÅÉ", 38, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 38, "å¼Ÿå­");
 
 	setup();
 
@@ -89,10 +89,10 @@ void confirm(object me)
 
 	room = load_object("/d/shaolin/cjlou");
 
-	if( (mapp(mine = me->query("family")) && mine["family_name"] != "ÉÙÁÖÅÉ")
+	if( (mapp(mine = me->query("family")) && mine["family_name"] != "å°‘æ—æ´¾")
     || ((!present("daoyi chanshi", room)) && (!present("shou yu", me))))
 	{
-		  command("say ´óµ¨¿ñÍ½£¬¾¹¸Ò´³Èë²Ø¾­¸ó£¬ËÙËÙÀë¿ª£¡");
+		  command("say å¤§èƒ†ç‹‚å¾’ï¼Œç«Ÿæ•¢é—¯å…¥è—ç»é˜ï¼Œé€Ÿé€Ÿç¦»å¼€ï¼");
 		call_out("kill", 3, me);
 	}
 }

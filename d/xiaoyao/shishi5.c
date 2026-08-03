@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "����ʯ��");
+	set("short", "地下石室");
 	set("long", @LONG
-�����ǵ���ʯ�ҵ�������һ���ˣ������Ǻں�����˵����������ֲ���
-������ŵ�ǿ�ҵĸ��õĶ�������������ζ���������ǿ���뿪�ȽϺá�
+这里是地下石室的最下面一层了，四周是黑乎乎，说不出的阴深恐怖，
+你可以闻到强烈的腐烂的东西所发出的气味。看来还是快点离开比较好。
 LONG );
 	set("exits", ([
 		"up" : __DIR__"shishi4",

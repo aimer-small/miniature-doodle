@@ -5,7 +5,7 @@
 int update_condition(object me, int duration)
 {
         if (duration < 2) {
-		tell_object(me, HIY "ÄãÓÖ¿ÉÒÔ×ÝÉù³¤Ð¥ÁË¡£\n" NOR);
+		tell_object(me, HIY "ä½ åˆå¯ä»¥çºµå£°é•¿å•¸äº†ã€‚\n" NOR);
 		return 0;
 	}
         me->apply_condition("shout_condition", duration - 1);

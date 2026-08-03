@@ -1,4 +1,4 @@
-// dongchongcao.c ¶¬³æ²İ
+// dongchongcao.c å†¬è™«è‰
 
 #include <ansi.h>
 inherit ITEM;
@@ -13,12 +13,12 @@ void init()
 
 void create()
 {
-	set_name(HIB"¶¬³æ²İ"NOR, ({"dongchong cao", "cao"}));
+	set_name(HIB"å†¬è™«è‰"NOR, ({"dongchong cao", "cao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Öê");
-		set("long", HIB"ÕâÊÇÒ»ÖêÏÄ¼¾´Ó¶¬¼¾×êÈëÍÁÖĞµÄËÀ³æÉíÉÏ³¤³öµÄ¶¬³æÏÄ²İ¡£\n"NOR);
+		set("unit", "æ ª");
+		set("long", HIB"è¿™æ˜¯ä¸€æ ªå¤å­£ä»å†¬å­£é’»å…¥åœŸä¸­çš„æ­»è™«èº«ä¸Šé•¿å‡ºçš„å†¬è™«å¤è‰ã€‚\n"NOR);
 set("value", 2500);
 	}
 	setup();
@@ -30,14 +30,14 @@ int do_fu(string arg)
 //         int howmuch = query("amount");
 
 	if (!id(arg))
-		return notify_fail("ÄãÏë³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ æƒ³åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ((int)this_player()->query("eff_qi") ==
 		 (int)this_player()->query("max_qi"))
-		return notify_fail("ÄãÏÖÔÚÉíÉÏÃ»ÓĞÊÜµ½ÈÎºÎÉËº¦£¡\n");
+		return notify_fail("ä½ ç°åœ¨èº«ä¸Šæ²¡æœ‰å—åˆ°ä»»ä½•ä¼¤å®³ï¼\n");
 	else {
 		this_player()->receive_curing("qi", 50);
-		message_vision("$N°ÑÒ»Öê¶¬³æ²İ·Å½ø¿ÚÖĞ½ÀËé£¬Ğ¡ĞÄ·óÔÚÉË¿ÚÉÏ£¬ÆøÉ«¿´ÆğÀ´ºÃ¶àÁË¡£\n", this_player());
+		message_vision("$NæŠŠä¸€æ ªå†¬è™«è‰æ”¾è¿›å£ä¸­åš¼ç¢ï¼Œå°å¿ƒæ•·åœ¨ä¼¤å£ä¸Šï¼Œæ°”è‰²çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n", this_player());
 		destruct(this_object());
 		return 1;
 	}

@@ -6,13 +6,13 @@ inherit STAFF;
 #include <combat_msg.h>
 void create()
 {
-	set_name("¹ÖÉßÕÈ" NOR, ({ "guaishe zhang", "shezhang", "zhang"}));
+	set_name("æ€ªè›‡æ–" NOR, ({ "guaishe zhang", "shezhang", "zhang"}));
 	set_weight(15000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ù");
-		set("long", "Ò»¸ù¶¥²¿ÓÐÌõ¹ÖÉßµÄÉßÕÈ£¬ÉßÍ·´¦ÓÐ»ú¹Ø£¬Ò§ÆðÈËÀ´À÷º¦ÎÞ±È£¡\n");
+		set("unit", "æ ¹");
+		set("long", "ä¸€æ ¹é¡¶éƒ¨æœ‰æ¡æ€ªè›‡çš„è›‡æ–ï¼Œè›‡å¤´å¤„æœ‰æœºå…³ï¼Œå’¬èµ·äººæ¥åŽ‰å®³æ— æ¯”ï¼\n");
 		set("value", 500);
 		set("unique", 1);
 		set("material", "steel");
@@ -30,7 +30,7 @@ void create()
 void init()
 {
         add_action("do_zhua","yao");
-        add_action("do_zhua","Ò§");
+        add_action("do_zhua","å’¬");
 }
 
 object offensive_target(object me)
@@ -57,7 +57,7 @@ int do_zhua(string str)
         me = this_player();
 
         if (str && !objectp(target = present(str, environment(me)))) 
-                  return notify_fail("ÕâÀïÃ»ÓÐÕâ¸öÈË¡£\n");
+                  return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªäººã€‚\n");
         
         if( !target ) target = offensive_target(me);
         
@@ -65,42 +65,42 @@ int do_zhua(string str)
          || !target->is_character()
          || !living(target)
          || !me->is_fighting(target) )
-                return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖÐÊ¹ÓÃ¡£\n");
+                return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
 
         if (me->is_busy()) 
-                return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 	
         if( !this_object()->query("equipped") )
-		return notify_fail("ÄãÊÇÏëÒ§ÈË£¿Åå·þ£¡Åå·þ£¡\n");
+		return notify_fail("ä½ æ˜¯æƒ³å’¬äººï¼Ÿä½©æœï¼ä½©æœï¼\n");
 		
         if (me->query_skill_prepared("strike") != "hamagong" ||
             me->query_skill_mapped("strike") != "hamagong" ||
             me->query_skill_mapped("force") != "hamagong")
-                return notify_fail("Ã»ÓÐÊìÁ·¸òó¡¹¦£¬Äã¸ù±¾ÎÞ·¨Ê¹ÓÃ¹ÖÉßÕÈ£¡\n"); 
+                return notify_fail("æ²¡æœ‰ç†Ÿç»ƒè›¤èŸ†åŠŸï¼Œä½ æ ¹æœ¬æ— æ³•ä½¿ç”¨æ€ªè›‡æ–ï¼\n"); 
        
         if( (int)me->query_skill("hamagong",1) < 150 )
-                return notify_fail("ÄãµÄ¸òó¡¹¦¹¦Á¦²»¹»£¬Ê¹ÓÃ²»ÁË¹ÖÉßÕÈ£¡\n");
+                return notify_fail("ä½ çš„è›¤èŸ†åŠŸåŠŸåŠ›ä¸å¤Ÿï¼Œä½¿ç”¨ä¸äº†æ€ªè›‡æ–ï¼\n");
         if( (int)me->query_skill("poison",1) < 150 )
-                return notify_fail("ÄãµÄ¶¾¼¼²»¹»£¬Ê¹ÓÃ²»ÁË¹ÖÉßÕÈ£¡\n");
+                return notify_fail("ä½ çš„æ¯’æŠ€ä¸å¤Ÿï¼Œä½¿ç”¨ä¸äº†æ€ªè›‡æ–ï¼\n");
 
 	if( (int)me->query_skill("lingshe-zhangfa",1) < 150 )
-                return notify_fail("ÄãµÄÕÈ¼¼²»¹»£¬Ê¹ÓÃ²»ÁË¹ÖÉßÕÈ£¡\n");
+                return notify_fail("ä½ çš„æ–æŠ€ä¸å¤Ÿï¼Œä½¿ç”¨ä¸äº†æ€ªè›‡æ–ï¼\n");
 
         if( (int)me->query("jingli") < 500 )
-                return notify_fail("ÄãÄ¿Ç°¾«Á¦»ÁÉ¢£¬»¹ÊÇÏÈ×¢Òâ×¢Òâ×Ô¼º°É£¡\n");
+                return notify_fail("ä½ ç›®å‰ç²¾åŠ›æ¶£æ•£ï¼Œè¿˜æ˜¯å…ˆæ³¨æ„æ³¨æ„è‡ªå·±å§ï¼\n");
        
         if( (int)me->query("neili") < 800 )
-                return notify_fail("ÄãÄ¿Ç°ÄÚÁ¦²»Äý£¬»¹ÊÇÏÈ×¢Òâ×¢Òâ×Ô¼º°É£¡\n");
+                return notify_fail("ä½ ç›®å‰å†…åŠ›ä¸å‡ï¼Œè¿˜æ˜¯å…ˆæ³¨æ„æ³¨æ„è‡ªå·±å§ï¼\n");
 
         if(me->query("combat_exp") < (int)target->query("combat_exp")/2 )
-                return notify_fail("°¥ßÏ£¬¶Ô·½±ÈÄã¸ßÃ÷²»Öª¶àÉÙÄØ£¬ÄãÕÒËÀ°¡£¿\n"); 
+                return notify_fail("å“Žå‘¦ï¼Œå¯¹æ–¹æ¯”ä½ é«˜æ˜Žä¸çŸ¥å¤šå°‘å‘¢ï¼Œä½ æ‰¾æ­»å•Šï¼Ÿ\n"); 
 
 	target->add_temp("hmg_bite", 1);
-        message_vision(HIB "\n$N"HIB"Í»È»×ÝÉÏ£¬Ë«ÊÖÒ»Å¡¹ÖÉßÕÈÎ²£¬ÕÅÑÀßÖ×¦¶Ô×Å$nÒ»ÕóÂÒ»Ó£¡\n" NOR, me, target);
+        message_vision(HIB "\n$N"HIB"çªç„¶çºµä¸Šï¼ŒåŒæ‰‹ä¸€æ‹§æ€ªè›‡æ–å°¾ï¼Œå¼ ç‰™å’§çˆªå¯¹ç€$nä¸€é˜µä¹±æŒ¥ï¼\n" NOR, me, target);
 
         if(random(me->query("combat_exp")) < (int)target->query("combat_exp")/2 ||
                 random(target->query_temp("hmg_bite")) > 2){
-                msg = "$n´ó³ÔÒ»¾ª£¬ÖªµÀÀ÷º¦£¬¼±Ã¦·ÉÍË¿ªÈ¥£¬´ó¿Ú´ó¿Ú´­×ÅÆø£¡\n\n" NOR;
+                msg = "$nå¤§åƒä¸€æƒŠï¼ŒçŸ¥é“åŽ‰å®³ï¼Œæ€¥å¿™é£žé€€å¼€åŽ»ï¼Œå¤§å£å¤§å£å–˜ç€æ°”ï¼\n\n" NOR;
                 me->start_busy(1);
                 if(!target->is_busy())
                         target->start_busy(1);
@@ -109,9 +109,9 @@ int do_zhua(string str)
                 me->start_busy(2);
                 if(!target->is_busy())
                         target->start_busy(2);
-                msg = "$pÔõÏëµ½$NÕâÕÈÀïµÄÇ¬À¤£¬Ö»¼ûÕÈÍ·µÄÉßÍ·ºöÈ»Ò»¶¯£¬Ò»¿ÚÒ§ÔÚÁË$pÉíÉÏ£¡";
+                msg = "$pæ€Žæƒ³åˆ°$Nè¿™æ–é‡Œçš„ä¹¾å¤ï¼Œåªè§æ–å¤´çš„è›‡å¤´å¿½ç„¶ä¸€åŠ¨ï¼Œä¸€å£å’¬åœ¨äº†$pèº«ä¸Šï¼";
                 if( query("poison_number") > 0 ){
-                	msg += "Ö»¼ûÉË¿ÚÂíÉÏÁ÷³öÁËºÚÉ«µÄ¶¾Ñª£¡";
+                	msg += "åªè§ä¼¤å£é©¬ä¸Šæµå‡ºäº†é»‘è‰²çš„æ¯’è¡€ï¼";
                 	add("poison_number", -10);
                 	target->apply_condition("bt_poison", target->query_condition("bt_poison") + random(20));
                 }
@@ -119,16 +119,16 @@ int do_zhua(string str)
                 limb = limbs[random(sizeof(limbs))];
                 damage = me->query_skill("hamagong", 1) + me->query_skill("lingshe-zhangfa", 1);
                 if( target->query("neili") > me->query("neili")/2*3){
-                	msg += "\n$n¼±ÖÐÄÚÁ¦ÃÍµØÒ»Õð£¬ÍÑ³öÉß¿Ú£¬µ¹ÍËÁË¼¸²½£¡\n";
+                	msg += "\n$næ€¥ä¸­å†…åŠ›çŒ›åœ°ä¸€éœ‡ï¼Œè„±å‡ºè›‡å£ï¼Œå€’é€€äº†å‡ æ­¥ï¼\n";
                 	damage += random(damage);
                 	target->receive_damage("qi", damage, me);
         		target->receive_wound("qi", damage/4, me);
         		j = (int)target->query("qi")*100/(int)target->query("max_qi");
-        		msg += damage_msg(damage, "×¥ÉË")+"( $n"+eff_status_msg(j)+" )\n"; 
+        		msg += damage_msg(damage, "æŠ“ä¼¤")+"( $n"+eff_status_msg(j)+" )\n"; 
         		msg = replace_string( msg, "$l", limb );
                 } 
                 else {
-                	msg += HIR"\n$nÍË±Ü²»¼°£¬"+ limb + "´¦±»Ò§ÏÂÁËÒ»´ó¿éÑªÈâ£¡\n"NOR;
+                	msg += HIR"\n$né€€é¿ä¸åŠï¼Œ"+ limb + "å¤„è¢«å’¬ä¸‹äº†ä¸€å¤§å—è¡€è‚‰ï¼\n"NOR;
                 	damage *= 2;
                 	damage += me->query_str() * 10;
                 	

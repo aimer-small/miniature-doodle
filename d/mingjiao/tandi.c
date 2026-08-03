@@ -1,15 +1,15 @@
-// tandi.c Ì¶µ×
+// tandi.c æ½­åº•
 // Modify By River@SJ 99.06
 #include <room.h>
 #include <ansi.h>
 inherit ROOM;
 void create()
 { 
-       set("short",HIB"Ì¶µ×"NOR);
+       set("short",HIB"æ½­åº•"NOR);
        set("long", @LONG
-ÄãÉí´¦±ÌË®º®Ì¶µÄÌ¶µ×£¬ºöÈ»¼äÒ»¹Éº®ÆøÖ±ÆË¶øÀ´£¬Äã²»ÓÉµÃÁ¬´òÁËÒ»¸ö
-º®²ü¡£ÍùÉÏ¿´£¬º®±ù¸Ç¶¥£¬Ö»Í¸ÈëË¿Ë¿Ñô¹â£¬Å¼ÓĞÓÎÓã´ÓÄãÉíÁ¬»¬¹ı¡£µ«ÉîÌ¶
-ÖĞÈ·ÊµÌ«Àä£¬¿´À´²»ÄÜ¾ÃÁô¡£
+ä½ èº«å¤„ç¢§æ°´å¯’æ½­çš„æ½­åº•ï¼Œå¿½ç„¶é—´ä¸€è‚¡å¯’æ°”ç›´æ‰‘è€Œæ¥ï¼Œä½ ä¸ç”±å¾—è¿æ‰“äº†ä¸€ä¸ª
+å¯’é¢¤ã€‚å¾€ä¸Šçœ‹ï¼Œå¯’å†°ç›–é¡¶ï¼Œåªé€å…¥ä¸ä¸é˜³å…‰ï¼Œå¶æœ‰æ¸¸é±¼ä»ä½ èº«è¿æ»‘è¿‡ã€‚ä½†æ·±æ½­
+ä¸­ç¡®å®å¤ªå†·ï¼Œçœ‹æ¥ä¸èƒ½ä¹…ç•™ã€‚
 LONG);    
 	set("exits", ([
             "up" : __DIR__"bishui",				
@@ -23,10 +23,10 @@ void run(object ob)
         if (environment(ob) == this_object()){
 	remove_call_out("run");
 	call_out("run", 10, ob);
-	ob->set_temp("last_damage_from", "µô½øÌ¶µ×ÑÍ");
+	ob->set_temp("last_damage_from", "æ‰è¿›æ½­åº•æ·¹");
 	ob->receive_damage("jing", 20);
 	ob->receive_damage("qi", 20);
-	write(HIB"\nÄãÖ»¾õÒ»¹ÉØİ¹ÇµÄº®ÆøÖ±±ÆĞÄÍ·¡£\n\n"NOR);
+	write(HIB"\nä½ åªè§‰ä¸€è‚¡å‰Œéª¨çš„å¯’æ°”ç›´é€¼å¿ƒå¤´ã€‚\n\n"NOR);
 	}
 	return 0;
 	

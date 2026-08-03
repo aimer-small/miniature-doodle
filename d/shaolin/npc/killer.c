@@ -48,12 +48,12 @@ string *weapon1 = ({
 
 void create()
 {
-	set_name("Ä§½Ì½ÌÍ½", ({ "jiaotu"}));
+	set_name("é­”æ•™æ•™å¾’", ({ "jiaotu"}));
 
 	set("init",0);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 20 + random(60));
-	set("long", "ÕâÊÇÒ»ÃûÄ§½Ì½ÌÍ½¡£\n" );
+	set("long", "è¿™æ˜¯ä¸€åé­”æ•™æ•™å¾’ã€‚\n" );
 	set("str", 30 + random(10));
 	set("int", 30 + random(10));
 	set("con", 30 + random(10));

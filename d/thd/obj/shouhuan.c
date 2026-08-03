@@ -5,13 +5,13 @@ inherit HANDS;
 
 void create()
 {
-        set_name(HIW"ÒøÊÖ»·"NOR, ({"yin shouhuan", "yin", "shouhuan"}));
+        set_name(HIW"é“¶æ‰‹ç¯"NOR, ({"yin shouhuan", "yin", "shouhuan"}));
         set_weight(10);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
-                set("long", "ÕâÊÇÒ»¸öÆæ¹ÖµÄÊÖ»·£¬ËÆºõÃ»ÓĞÖØÁ¿¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªå¥‡æ€ªçš„æ‰‹ç¯ï¼Œä¼¼ä¹æ²¡æœ‰é‡é‡ã€‚\n");
                 set("value", 1);
                 set("no_get",1);
                 set("no_give",1);
@@ -19,8 +19,8 @@ void create()
                 set("material", "silver");
                 set("armor_prop/dodge",5);
                 set("armor_prop/hand",5);
-                set("wear_msg", HIW "$N´÷ÉÏÒ»¸öÒøÊÖ»·¡£\n" NOR);
-                set("remove_msg", HIW "Ö»¼û$N½«ÒøÊÖ»·ÍÊÁËÏÂÀ´¡£\n" NOR);
+                set("wear_msg", HIW "$Næˆ´ä¸Šä¸€ä¸ªé“¶æ‰‹ç¯ã€‚\n" NOR);
+                set("remove_msg", HIW "åªè§$Nå°†é“¶æ‰‹ç¯è¤ªäº†ä¸‹æ¥ã€‚\n" NOR);
         }
         setup();
 }

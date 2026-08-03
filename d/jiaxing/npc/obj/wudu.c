@@ -1,17 +1,17 @@
-// wudu.c Îå¶¾ÃØ´«
+// wudu.c äº”æ¯’ç§˜ä¼ 
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-        set_name(HIR"Îå¶¾ÃØ´«"NOR, ({ "wudu mizhuan", "mizhuan", "book" }));
+        set_name(HIR"äº”æ¯’ç§˜ä¼ "NOR, ({ "wudu mizhuan", "mizhuan", "book" }));
         set_weight(600);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
-                set("long", "Ò»±¾¼ÇÔØÖî°ã¶¾Ò©ºÍ½âÒ©µÄ³­±¾¡£\n");
+                set("unit", "æœ¬");
+                set("long", "ä¸€æœ¬è®°è½½è¯¸èˆ¬æ¯’è¯å’Œè§£è¯çš„æŠ„æœ¬ã€‚\n");
                 set("value", 1000);
                 set("material", "paper");
                 set("no_give", 1);

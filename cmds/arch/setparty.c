@@ -16,19 +16,19 @@ int main(object me, string arg)
         ob = find_player(obj);
         if( !ob )       ob = find_living(obj);
         if( !ob )       ob = present(obj, environment(me));
-        if( !ob ) return notify_fail("ÕÒ²»µ½Õâ¸öÉúÎï.\n");
+        if( !ob ) return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªç”Ÿç‰©.\n");
         if( (wiz_level(me) < wiz_level(ob)) && userp(ob) )
-                return notify_fail("ÄãÃ»ÓĞÉèÖÃ" + ob->name() + "¼¼ÄÜµÄÈ¨Àû¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰è®¾ç½®" + ob->name() + "æŠ€èƒ½çš„æƒåˆ©ã€‚\n");
         if( userp(ob) && ob->query("no_call") )
-                return notify_fail("ÄãÃ»ÓĞÉèÖÃ" + ob->name() + "¼¼ÄÜµÄÈ¨Àû¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰è®¾ç½®" + ob->name() + "æŠ€èƒ½çš„æƒåˆ©ã€‚\n");
         if( (wiz_level(me) < wiz_level("(arch)")) && me!=ob )
-                return notify_fail("ÄãÃ»ÓĞÉèÖÃ" + ob->name() + "¼¼ÄÜµÄÈ¨Àû¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰è®¾ç½®" + ob->name() + "æŠ€èƒ½çš„æƒåˆ©ã€‚\n");
 	if (party!="mj" && party!="gb" && party!="wd" && party!="tz" && party!="thd" && party!="hs" &&
 	    party!="ss" && party!="sl" && party!="dls" && party!="gm" && party!="tls" && party!="sld" &&
 	    party!="em" && party!="xx" && party!="mr"&& party!="kl"&& 
 	    party!="xy" && party!="lj" && party!="qz"&& party!="jyu"&& 
 	    party!="feihu") return notify_fail("no this party.\n");
-        write(WHT"begin setting party for "NOR + ob->short(1) + WHT"£º\n"NOR);
+        write(WHT"begin setting party for "NOR + ob->short(1) + WHT"ï¼š\n"NOR);
         
           ob->set("neili",50000);
           ob->set("max_neili",50000);
@@ -466,37 +466,37 @@ if(party=="feihu")
         ob->set_skill("claw",level);
         ob->set_skill("blade",level);
         ob->set("quest/qianzhu/pass");
-        ob->set("quest/Ñ©É½·Éºü/Îä¹¦/hujiadaofa");
-        ob->set("quest/Ñ©É½·Éºü/Îä¹¦/miaojiajianfa");
-        ob->set("quest/Ñ©É½·Éºü/Îä¹¦/lengquanshengong");
+        ob->set("quest/é›ªå±±é£ç‹/æ­¦åŠŸ/hujiadaofa");
+        ob->set("quest/é›ªå±±é£ç‹/æ­¦åŠŸ/miaojiajianfa");
+        ob->set("quest/é›ªå±±é£ç‹/æ­¦åŠŸ/lengquanshengong");
         
 }
 switch(party){
-	case "mj":party="Ã÷½Ì";break;
-	case "gb":party="Ø¤°ï";break;
-	case "wd":party="Îäµ±ÅÉ";break;
-	case "tz":party="ÌúÕÆ°ï";break;
-	case "thd":party="ÌÒ»¨µº";break;
-	case "hs":party="»ªÉ½ÅÉ";break;
-	case "ss":party="áÔÉ½ÅÉ";break;
-	case "sl":party="ÉÙÁÖÅÉ";break;
-	case "dls":party="´óÂÖËÂ";break;
-	case "gm":party="¹ÅÄ¹ÅÉ";break;
-	case "tls":party="ÌìÁúËÂ";break;
-	case "sld":party="ÉñÁúµº";break;
-	case "em":party="¶ëáÒÅÉ";break;
-	case "xx":party="ĞÇËŞÅÉ";break;
-	case "mr":party="¹ÃËÕÄ½Èİ";break;
-  case "wudu":party="Îå¶¾½Ì";break;
-  case "kl":party="À¥ÂØÅÉ";break;
-  case "xy":party="åĞÒ£ÅÉ";break;
-  case "lj":party="ÁéğÕ¹¬";break;
-  case "qz":party="È«Õæ½Ì";break;
-  case "tiandi":party="ÌìµØ»á";break;
-  case "jyu":party="¾ÅÒõÅÉ";break;
-  case "feihu":party="·ÉºüÃÅ";break;
-  case "xuejian":party="Ñ©É½½£ÅÉ";break;
-	default:party="ÆÕÍ¨°ÙĞÕ";
+	case "mj":party="æ˜æ•™";break;
+	case "gb":party="ä¸å¸®";break;
+	case "wd":party="æ­¦å½“æ´¾";break;
+	case "tz":party="é“æŒå¸®";break;
+	case "thd":party="æ¡ƒèŠ±å²›";break;
+	case "hs":party="åå±±æ´¾";break;
+	case "ss":party="åµ©å±±æ´¾";break;
+	case "sl":party="å°‘æ—æ´¾";break;
+	case "dls":party="å¤§è½®å¯º";break;
+	case "gm":party="å¤å¢“æ´¾";break;
+	case "tls":party="å¤©é¾™å¯º";break;
+	case "sld":party="ç¥é¾™å²›";break;
+	case "em":party="å³¨åµ‹æ´¾";break;
+	case "xx":party="æ˜Ÿå®¿æ´¾";break;
+	case "mr":party="å§‘è‹æ…•å®¹";break;
+  case "wudu":party="äº”æ¯’æ•™";break;
+  case "kl":party="æ˜†ä»‘æ´¾";break;
+  case "xy":party="é€é¥æ´¾";break;
+  case "lj":party="çµé¹«å®«";break;
+  case "qz":party="å…¨çœŸæ•™";break;
+  case "tiandi":party="å¤©åœ°ä¼š";break;
+  case "jyu":party="ä¹é˜´æ´¾";break;
+  case "feihu":party="é£ç‹é—¨";break;
+  case "xuejian":party="é›ªå±±å‰‘æ´¾";break;
+	default:party="æ™®é€šç™¾å§“";
 }
 me->set("family/family_name",party);
 
@@ -531,7 +531,7 @@ int update_player(object me)
 	obj->restore();
 	LOGIN_D->enter_world(link_ob, obj, 1);
 
-	write("ÉíÌå¸üĞÂÍê±Ï¡£\n\n");
+	write("èº«ä½“æ›´æ–°å®Œæ¯•ã€‚\n\n");
 	obj->move(env);
 	obj->write_prompt();
 	obj->set("eff_qi",obj->query("max_qi"));

@@ -14,78 +14,78 @@ int main(object me, string arg)
 	object obj, *ob,where;
 	int i;
 
-	if ( !arg || !objectp(obj = present(arg, environment(me)))) return notify_fail("ÄãÏëºÍË­×ö°®£¿\n");
+	if ( !arg || !objectp(obj = present(arg, environment(me)))) return notify_fail("ä½ æƒ³å’Œè°åšçˆ±ï¼Ÿ\n");
 
 	if ( !obj->is_character() || me->query("gender") == obj->query("gender") )
-		return notify_fail("ÕâÑù¡­¡­£¿£¡¿ÖÅÂ²»ĞĞ°É£¿\n");
+		return notify_fail("è¿™æ ·â€¦â€¦ï¼Ÿï¼ææ€•ä¸è¡Œå§ï¼Ÿ\n");
 
-	if ( !living(obj)) return notify_fail("ÈË¼Ò¶¼ÕâÑùÁË£¬Äã»¹...\n");
+	if ( !living(obj)) return notify_fail("äººå®¶éƒ½è¿™æ ·äº†ï¼Œä½ è¿˜...\n");
 
 	if ( !environment(me)->query("sleep_room") || environment(me)->query("no_sleep_room"))
-		return notify_fail("×ÜµÃÕÒ¸öÎÂÜ°µã¶ùµÄµØ·½°É¡£\n");
+		return notify_fail("æ€»å¾—æ‰¾ä¸ªæ¸©é¦¨ç‚¹å„¿çš„åœ°æ–¹å§ã€‚\n");
 
-	if ( me->query("gender") == "Å®ĞÔ" && me->query_condition("pregnant") )
-		return notify_fail ("ÄãÒÑ¾­»³ÔĞÁË£¬»¹Òª¡­¡­£¿²»ÒªÃüÁË£¿\n");
+	if ( me->query("gender") == "å¥³æ€§" && me->query_condition("pregnant") )
+		return notify_fail ("ä½ å·²ç»æ€€å­•äº†ï¼Œè¿˜è¦â€¦â€¦ï¼Ÿä¸è¦å‘½äº†ï¼Ÿ\n");
 
-	if ( obj->query("gender") == "Å®ĞÔ" && obj->query_condition("pregnant") )
-		return notify_fail ("ÈË¼ÒÒÑ¾­»³ÔĞÁË£¬»¹Òª¡­¡­£¿Äã¿É¹»²ĞÈÌµÄ\n");
+	if ( obj->query("gender") == "å¥³æ€§" && obj->query_condition("pregnant") )
+		return notify_fail ("äººå®¶å·²ç»æ€€å­•äº†ï¼Œè¿˜è¦â€¦â€¦ï¼Ÿä½ å¯å¤Ÿæ®‹å¿çš„\n");
 
-	if ( me->query("gender") == "Å®ĞÔ" && me->query_condition("yuejing_butiao") ) {
-		me->force_me("say ÈË¼ÒÕıÀ´ÄÇ¸ö£¬²»Òª¡­¡­");
+	if ( me->query("gender") == "å¥³æ€§" && me->query_condition("yuejing_butiao") ) {
+		me->force_me("say äººå®¶æ­£æ¥é‚£ä¸ªï¼Œä¸è¦â€¦â€¦");
 		return 0;
 	}
-	if ( obj->query("gender") == "Å®ĞÔ" && obj->query_condition("yuejing_butiao") ) {
-		obj->force_me("say ÈË¼ÒÕıÀ´ÄÇ¸ö£¬²»Òª¡­¡­");
+	if ( obj->query("gender") == "å¥³æ€§" && obj->query_condition("yuejing_butiao") ) {
+		obj->force_me("say äººå®¶æ­£æ¥é‚£ä¸ªï¼Œä¸è¦â€¦â€¦");
 		return 0;
 	}
-	if ( (int)me->query("age", 1) < 18 ) return notify_fail ("ÒªÖªµÀ£¬Í¯×Ó¹¦ÄÑÁ·£¬ÄãÒªÕäÏ§¡£\n");
+	if ( (int)me->query("age", 1) < 18 ) return notify_fail ("è¦çŸ¥é“ï¼Œç«¥å­åŠŸéš¾ç»ƒï¼Œä½ è¦çæƒœã€‚\n");
 
-	if ( (int)obj->query("age", 1) < 18 ) return notify_fail ("ÆÛ¸ºÄÇÃ´Ğ¡µÄº¢×Ó£¬²»º¦ëıÑ½¡£\n");
+	if ( (int)obj->query("age", 1) < 18 ) return notify_fail ("æ¬ºè´Ÿé‚£ä¹ˆå°çš„å­©å­ï¼Œä¸å®³è‡Šå‘€ã€‚\n");
 	
 	where=environment(me);
 
 	ob = all_inventory(environment(me));
 	for(i=0; i<sizeof(ob); i++)
 		if( ob[i]->is_character()&&ob[i] != me && ob[i]!=obj&&!wizardp(ob[i]) )
-			return notify_fail("Õâ¶ù»¹ÓĞ±ğÈËÄØ£¬¶à²»ºÃÒâË¼Ñ½£¡\n");
+			return notify_fail("è¿™å„¿è¿˜æœ‰åˆ«äººå‘¢ï¼Œå¤šä¸å¥½æ„æ€å‘€ï¼\n");
 
 	if(!me->query_temp("makelove/quest")) {
-		if( me->query("gender") == "ÄĞĞÔ" ) {
-			message_vision(HIM "$NÇáÇáÀ´µ½$nÉíºó£¬Ë«ÊÖ»·±§ÔÚ$nµÄÑü¼ä£¬\n\n" +
-				"ÔÚ$n¶ú±ßÈáÉùËµµÀ£ºÇ×°®µÄ£¬½ñÍí¡­¡­\n\n"NOR, me, obj);
-			tell_object(obj, HIR "Éµ×ÓÒ²ÄÜ¿´³öÀ´ËûÏëºÍÄã¹²¶ÉÁ¼Ïü£¬\n" +
-				"Èç¹ûÄãÔ¸Òâ£¬ÇëÄãÒ²¶Ô" + me->name() + "("+(string)me->query("id")+")" +
-				"ÏÂÒ»´Î makelove Ö¸Áî¡£\n" NOR);
-		CHANNEL_D->do_channel( me, "sys", sprintf("%s(%s)"HIR"ÔÚ%s"HIR"ÏëºÍ%s(%s)ÄÇ¸ö£¬Çë´ó¼ÒÀ´¹ÛÄ¦Ñ§Ï°¡£\n",
+		if( me->query("gender") == "ç”·æ€§" ) {
+			message_vision(HIM "$Nè½»è½»æ¥åˆ°$nèº«åï¼ŒåŒæ‰‹ç¯æŠ±åœ¨$nçš„è…°é—´ï¼Œ\n\n" +
+				"åœ¨$nè€³è¾¹æŸ”å£°è¯´é“ï¼šäº²çˆ±çš„ï¼Œä»Šæ™šâ€¦â€¦\n\n"NOR, me, obj);
+			tell_object(obj, HIR "å‚»å­ä¹Ÿèƒ½çœ‹å‡ºæ¥ä»–æƒ³å’Œä½ å…±æ¸¡è‰¯å®µï¼Œ\n" +
+				"å¦‚æœä½ æ„¿æ„ï¼Œè¯·ä½ ä¹Ÿå¯¹" + me->name() + "("+(string)me->query("id")+")" +
+				"ä¸‹ä¸€æ¬¡ makelove æŒ‡ä»¤ã€‚\n" NOR);
+		CHANNEL_D->do_channel( me, "sys", sprintf("%s(%s)"HIR"åœ¨%s"HIR"æƒ³å’Œ%s(%s)é‚£ä¸ªï¼Œè¯·å¤§å®¶æ¥è§‚æ‘©å­¦ä¹ ã€‚\n",
 			me->name(1),getuid(me),(string)where->query("short"),obj->name(1), geteuid(obj)			
 			));
 		}
 		else {
-			message_vision(HIM "²»ÖªÊÇÒòÎªÖò¹â£¬»¹ÊÇ¾Æ¾«£¬Òà»òÊÇÒòÎªĞË·Ü£¬$NµÄĞ¡Á³¶ùºìºìµÄ£¬\n\n" +
-				"¶Ë×Å¾Æ±­£¬$NÖ±¹´¹´µØ¶¢×Å$n£ºÇ×°®µÄ¡­¡­ÌıËµ¡­¡­ºÈ¾Æ¡­¡­ÂÒĞÔ¡­¡­\n\n"NOR, me, obj);
-			tell_object(obj, HIR "Éµ×ÓÒ²ÄÜ¿´³öÀ´ËıÏëºÍÄã¹²¶ÉÁ¼Ïü£¬" +
-				"Èç¹ûÄãÔ¸Òâ£¬ÇëÄãÒ²¶Ô" + me->name() + "("+(string)me->query("id")+")" +
-				"ÏÂÒ»´Î makelove Ö¸Áî¡£\n\n" NOR);
-		CHANNEL_D->do_channel( me, "sys", sprintf("%s(%s)"HIR"ÔÚ%s"HIR"ÏëºÍ%s(%s)ÄÇ¸ö£¬Çë´ó¼ÒÀ´¹ÛÄ¦Ñ§Ï°¡£\n",
+			message_vision(HIM "ä¸çŸ¥æ˜¯å› ä¸ºçƒ›å…‰ï¼Œè¿˜æ˜¯é…’ç²¾ï¼Œäº¦æˆ–æ˜¯å› ä¸ºå…´å¥‹ï¼Œ$Nçš„å°è„¸å„¿çº¢çº¢çš„ï¼Œ\n\n" +
+				"ç«¯ç€é…’æ¯ï¼Œ$Nç›´å‹¾å‹¾åœ°ç›¯ç€$nï¼šäº²çˆ±çš„â€¦â€¦å¬è¯´â€¦â€¦å–é…’â€¦â€¦ä¹±æ€§â€¦â€¦\n\n"NOR, me, obj);
+			tell_object(obj, HIR "å‚»å­ä¹Ÿèƒ½çœ‹å‡ºæ¥å¥¹æƒ³å’Œä½ å…±æ¸¡è‰¯å®µï¼Œ" +
+				"å¦‚æœä½ æ„¿æ„ï¼Œè¯·ä½ ä¹Ÿå¯¹" + me->name() + "("+(string)me->query("id")+")" +
+				"ä¸‹ä¸€æ¬¡ makelove æŒ‡ä»¤ã€‚\n\n" NOR);
+		CHANNEL_D->do_channel( me, "sys", sprintf("%s(%s)"HIR"åœ¨%s"HIR"æƒ³å’Œ%s(%s)é‚£ä¸ªï¼Œè¯·å¤§å®¶æ¥è§‚æ‘©å­¦ä¹ ã€‚\n",
 			me->name(1),getuid(me),(string)where->query("short"),obj->name(1), geteuid(obj)			
 			));
 		}
 		obj->set_temp("makelove/quest",1);
 	}
 	else {
-		if( me->query("gender")=="ÄĞĞÔ" ) {
-			message_vision(HIM "$N»Ø¾´ËÆµÄ¶¢×Å$nµÄÑÛ¾¦£¬°ëÉÎÒ»ÑÔ²»·¢£¬Í»È»Ò»°Ñ±§×¡$n£¬Ò»Ë«ÈÈ´½¶Â×¡ÁË$nµÄ×ì£¬\n" +
-				"ÈÃ$n¼òÖ±´­²»ÉÏÀ´Æø£¬¾Æ±­¡¢ºìÖò´òÁËÒ»µØ¡­¡­\n\n"NOR, me, obj);
+		if( me->query("gender")=="ç”·æ€§" ) {
+			message_vision(HIM "$Nå›æ•¬ä¼¼çš„ç›¯ç€$nçš„çœ¼ç›ï¼ŒåŠæ™Œä¸€è¨€ä¸å‘ï¼Œçªç„¶ä¸€æŠŠæŠ±ä½$nï¼Œä¸€åŒçƒ­å”‡å µä½äº†$nçš„å˜´ï¼Œ\n" +
+				"è®©$nç®€ç›´å–˜ä¸ä¸Šæ¥æ°”ï¼Œé…’æ¯ã€çº¢çƒ›æ‰“äº†ä¸€åœ°â€¦â€¦\n\n"NOR, me, obj);
 			call_out("ing", 1, me, obj);
 		}
 		else {
-			message_vision(HIM "$nÉõÖÁÄÜ¿´¼û$NĞßºìµÄ¶ú¸ù£¬$NÇáÇáÕõ¿ª$nµÄ»³±§£¬\n" +
-				"Ä¬Ä¬µØ·ÙÏããåÔ¡£¬$nÈ´ÔÙÒ²ÈÌ²»×¡£¬Ò»°Ñ½«$N±§ÁËÆğÀ´¡­¡­\n\n"NOR, me, obj);
+			message_vision(HIM "$nç”šè‡³èƒ½çœ‹è§$Nç¾çº¢çš„è€³æ ¹ï¼Œ$Nè½»è½»æŒ£å¼€$nçš„æ€€æŠ±ï¼Œ\n" +
+				"é»˜é»˜åœ°ç„šé¦™æ²æµ´ï¼Œ$nå´å†ä¹Ÿå¿ä¸ä½ï¼Œä¸€æŠŠå°†$NæŠ±äº†èµ·æ¥â€¦â€¦\n\n"NOR, me, obj);
 			call_out("ing", 1, obj, me);
 		}
 		me->delete_temp("makelove/quest");
 	}
-	log_file("static/makelove",sprintf("%s(%s)ºÍ%s(%s)ÔÚ%s×ö°®ÓÚ%s\n",
+	log_file("static/makelove",sprintf("%s(%s)å’Œ%s(%s)åœ¨%såšçˆ±äº%s\n",
 		me->name(1),getuid(me),obj->name(1), geteuid(obj),(string)where->query("short"),ctime(time()) ));
 	return 1;
 }
@@ -93,32 +93,32 @@ int main(object me, string arg)
 void ing(object me, object obj)
 {
 	if( obj->query("id") != me->query("marry/id") ) {
-		if ( me->query("gender")=="ÄĞĞÔ" ) {
-			message_vision(HIW"$NÇáÇáµØ¸§Ãş×Å$nµÄÈ«Éí£¬Ç×ÎÇ×Å$nµÄÁ³¼Õ¡£ĞË·ÜµØËµµÀ£º¼Ò»¨Õæ²»ÈçÒ°»¨Ïã£¡\n\n"NOR,
+		if ( me->query("gender")=="ç”·æ€§" ) {
+			message_vision(HIW"$Nè½»è½»åœ°æŠšæ‘¸ç€$nçš„å…¨èº«ï¼Œäº²å»ç€$nçš„è„¸é¢Šã€‚å…´å¥‹åœ°è¯´é“ï¼šå®¶èŠ±çœŸä¸å¦‚é‡èŠ±é¦™ï¼\n\n"NOR,
 				me, obj);
 			obj->force_me("blush");
 		}
-		if ( me->query("gender")=="Å®ĞÔ" ) {
+		if ( me->query("gender")=="å¥³æ€§" ) {
 			if ( me->query("marry") ) {
-				message_vision(HIW"$N½¿´­ÈçË¿£¬ĞßÉ«µÀ£ºÇáµã¡­¡­±ğÈÃÎÒÀÏ¹«¿´¼û¡­¡­\n\n"NOR,
+				message_vision(HIW"$Nå¨‡å–˜å¦‚ä¸ï¼Œç¾è‰²é“ï¼šè½»ç‚¹â€¦â€¦åˆ«è®©æˆ‘è€å…¬çœ‹è§â€¦â€¦\n\n"NOR,
 					me, obj);
 				obj->force_me("hehe");
 			}
 			else {
-				message_vision(HIW"$N½¿´­ÈçË¿£¬ĞßÉ«µÀ£º¸ç¸ç°®ËÀÃÃÃÃÁË¡­¡­\n\n"NOR,
+				message_vision(HIW"$Nå¨‡å–˜å¦‚ä¸ï¼Œç¾è‰²é“ï¼šå“¥å“¥çˆ±æ­»å¦¹å¦¹äº†â€¦â€¦\n\n"NOR,
 					me, obj);
 				obj->force_me("ok");
 			}
 		}
 	}
 	else {
-		if ( me->query("gender")=="ÄĞĞÔ" ) {
-			message_vision(HIW"$NÇáÇáµØ¸§Ãş×Å$nµÄÈ«Éí£¬Ç×ÎÇ×Å$nµÄÁ³¼Õ¡£ËµµÀ£ºÓĞÆŞÈç´Ë£¬½ñÉúºÎÇó£¿£¡\n\n"NOR,
+		if ( me->query("gender")=="ç”·æ€§" ) {
+			message_vision(HIW"$Nè½»è½»åœ°æŠšæ‘¸ç€$nçš„å…¨èº«ï¼Œäº²å»ç€$nçš„è„¸é¢Šã€‚è¯´é“ï¼šæœ‰å¦»å¦‚æ­¤ï¼Œä»Šç”Ÿä½•æ±‚ï¼Ÿï¼\n\n"NOR,
 				me, obj);
 			obj->force_me("iddle");
 		}
-		if ( me->query("gender")=="Å®ĞÔ" ) {
-			message_vision(HIW"$N½¿´­ÈçË¿£¬ĞßÉ«µÀ£ºÇáµã¡­¡­±ğÈÃÎÒÀÏ¹«¿´¼û¡­¡­\n\n"NOR,
+		if ( me->query("gender")=="å¥³æ€§" ) {
+			message_vision(HIW"$Nå¨‡å–˜å¦‚ä¸ï¼Œç¾è‰²é“ï¼šè½»ç‚¹â€¦â€¦åˆ«è®©æˆ‘è€å…¬çœ‹è§â€¦â€¦\n\n"NOR,
 				me, obj);
 			obj->force_me("hoho");
 		}
@@ -130,27 +130,27 @@ void ing(object me, object obj)
 
 void post(object me, object obj)
 {
-	message_vision(HIM"\n$N¿´×Å$nÑ©°×µÄÆ¤·ô£¬½û²»×¡ÇéÓû´ó¶¯¡£\n\n"NOR,me,obj);
+	message_vision(HIM"\n$Nçœ‹ç€$né›ªç™½çš„çš®è‚¤ï¼Œç¦ä¸ä½æƒ…æ¬²å¤§åŠ¨ã€‚\n\n"NOR,me,obj);
 	call_out("sec_post", 3, me, obj);
 }
 
 void sec_post(object me, object obj)
 {
-	message_vision(MAG"\n$NºÍ$nÏà»¥¿íÒÂ½â´ø£¬Ğß´ğ´ğµÄÉÏÁË´²¡£\n\n"NOR, me, obj);
+	message_vision(MAG"\n$Nå’Œ$nç›¸äº’å®½è¡£è§£å¸¦ï¼Œç¾ç­”ç­”çš„ä¸Šäº†åºŠã€‚\n\n"NOR, me, obj);
 	call_out("trd_post", 10, me, obj);
 }
 
 void trd_post(object me, object obj)
 {
-	message_vision(HIW"\n$NºÍ$nÏàÓµ¶øÎÔ£¬·­ÔÆ¸²Óê£¬º¹Ë®ÁÜÀì£¬Çú¾¡ÎÂÈá£¬ÎŞËù²»ÖÁ¡£\n\n"NOR, me, obj);
+	message_vision(HIW"\n$Nå’Œ$nç›¸æ‹¥è€Œå§ï¼Œç¿»äº‘è¦†é›¨ï¼Œæ±—æ°´æ·‹æ¼“ï¼Œæ›²å°½æ¸©æŸ”ï¼Œæ— æ‰€ä¸è‡³ã€‚\n\n"NOR, me, obj);
 	call_out("over", 10, me, obj);
 }
 
 void over(object me, object obj)
 {
-        if ( random(10) > 8 && me->query("gender") == "Å®ĞÔ" && ! obj->query_condition("xu_ruo") ) {
+        if ( random(10) > 8 && me->query("gender") == "å¥³æ€§" && ! obj->query_condition("xu_ruo") ) {
                 if ( ! me->query("baby_on") && ! me->query("no_pregnant") ) {
-			message_vision(HIC+BLINK"$NÒ»Éù´ó½Ğ£¬»®ÆÆÄş¾²µÄÒ¹¿Õ¡­¡­\n\n"NOR, me, obj);
+			message_vision(HIC+BLINK"$Nä¸€å£°å¤§å«ï¼Œåˆ’ç ´å®é™çš„å¤œç©ºâ€¦â€¦\n\n"NOR, me, obj);
 			me->set("preg/id", obj->query("id"));
 			me->set("preg/name", obj->query("name"));
 			me->set("preg/con", obj->query("con"));
@@ -163,9 +163,9 @@ void over(object me, object obj)
 			me->apply_condition("pregnant", 500);
 		}
 	}
-        if ( random(10) > 8 && obj->query("gender") == "Å®ĞÔ" && ! me->query_condition("xu_ruo") ) {
+        if ( random(10) > 8 && obj->query("gender") == "å¥³æ€§" && ! me->query_condition("xu_ruo") ) {
                 if ( ! obj->query("baby_on") && ! obj->query("no_pregnant") ) {
-			message_vision(HIC+BLINK"$nÒ»Éù´ó½Ğ£¬»®ÆÆÄş¾²µÄÒ¹¿Õ¡­¡­\n\n"NOR, me, obj);
+			message_vision(HIC+BLINK"$nä¸€å£°å¤§å«ï¼Œåˆ’ç ´å®é™çš„å¤œç©ºâ€¦â€¦\n\n"NOR, me, obj);
 			obj->set("preg/id", me->query("id"));
 			obj->set("preg/name", me->query("name"));
 			obj->set("preg/con", me->query("con"));
@@ -178,39 +178,39 @@ void over(object me, object obj)
 			obj->apply_condition("pregnant", 500);
 		}
 	}
-	message_vision(HIM"Ğí¾ÃĞí¾Ã£¬$NºÍ$nÖÕÓÚÍ£ÁËÏÂÀ´£¬µ«ÈÔÈ»Ïà»¥Î·ÒÀ²»Ô¸·Ö¿ª¡£\n\n"NOR, me,obj);
+	message_vision(HIM"è®¸ä¹…è®¸ä¹…ï¼Œ$Nå’Œ$nç»ˆäºåœäº†ä¸‹æ¥ï¼Œä½†ä»ç„¶ç›¸äº’ç•ä¾ä¸æ„¿åˆ†å¼€ã€‚\n\n"NOR, me,obj);
 	if( me->query("qi") < 30 || me->query("jing") < 30 || obj->query("qi") < 30 || obj->query("jing") < 30 ) {
                 if( me->query("qi")<30 || me->query("jing") < 30 ) {
-			message_vision(HIR "$NÍ»È»¿ÚÍÂÏÊÑª£¬ÔÎµ¹ÔÚµØ¡£¿´À´ÊÇ×İÓû¹ı¶ÈÁË¡£\n"NOR,me);
+			message_vision(HIR "$Nçªç„¶å£åé²œè¡€ï¼Œæ™•å€’åœ¨åœ°ã€‚çœ‹æ¥æ˜¯çºµæ¬²è¿‡åº¦äº†ã€‚\n"NOR,me);
 			me->unconcious();
 		}
 		else {
-			message_vision(HIR "$NÍ»È»¿ÚÍÂÏÊÑª£¬ÔÎµ¹ÔÚµØ¡£¿´À´ÊÇ×İÓû¹ı¶ÈÁË¡£\n"NOR,obj);
+			message_vision(HIR "$Nçªç„¶å£åé²œè¡€ï¼Œæ™•å€’åœ¨åœ°ã€‚çœ‹æ¥æ˜¯çºµæ¬²è¿‡åº¦äº†ã€‚\n"NOR,obj);
 			obj->unconcious();
 		}
         }
         else
         switch(random(10)) {
         case 0:
-                message_vision(HIR "$NÍ»È»´ó½ĞÒ»Éù£¬ÏÔÈ»ÊÇ¼«¶ÈĞË·Ü£¬½ô½Ó×Å¾¹ÔÎËÀ¹ıÈ¥£¡\n"NOR,me);
+                message_vision(HIR "$Nçªç„¶å¤§å«ä¸€å£°ï¼Œæ˜¾ç„¶æ˜¯æåº¦å…´å¥‹ï¼Œç´§æ¥ç€ç«Ÿæ™•æ­»è¿‡å»ï¼\n"NOR,me);
                 me->unconcious();
                 obj->add("qi",obj->query_str()-55+random(10));
                 obj->add("jing",obj->query_con()-55+random(10));
                 break;
         case 1:
-                message_vision(HIR "$NÍ»È»´ó½ĞÒ»Éù£¬ÏÔÈ»ÊÇ¼«¶ÈĞË·Ü£¬½ô½Ó×Å¾¹ÔÎËÀ¹ıÈ¥£¡\n"NOR,obj);
+                message_vision(HIR "$Nçªç„¶å¤§å«ä¸€å£°ï¼Œæ˜¾ç„¶æ˜¯æåº¦å…´å¥‹ï¼Œç´§æ¥ç€ç«Ÿæ™•æ­»è¿‡å»ï¼\n"NOR,obj);
                 obj->unconcious();
                 me->add("qi",obj->query_str()-55+random(10));
                 me->add("jing",obj->query_con()-55+random(10));
                 break;
         default:
                 if(random(1)) {
-                        message_vision(YEL "$N×øÔÚÒ»ÅÔÃÆÍ·²»Óï£¬ÍûÁËÒ»ÑÛÈÔÔÚÎ¢Î¢½¿´­µÄ$n£¬" +
-				"à«à«Ëµµ½£ºÒª²»È»¡­¡­ÔÙÈÃÎÒÊÔÒ»´Î¡­¡­\n\n"NOR, me, obj);
+                        message_vision(YEL "$Nååœ¨ä¸€æ—é—·å¤´ä¸è¯­ï¼Œæœ›äº†ä¸€çœ¼ä»åœ¨å¾®å¾®å¨‡å–˜çš„$nï¼Œ" +
+				"å–ƒå–ƒè¯´åˆ°ï¼šè¦ä¸ç„¶â€¦â€¦å†è®©æˆ‘è¯•ä¸€æ¬¡â€¦â€¦\n\n"NOR, me, obj);
                 }
                 else {
-			message_vision(HIY "$n¾²¾²µØÌÉÔÚ$NµÄ»³Àï£¬¿¿×ÅÄÇÆğ·üµÄĞØÌÅ£¬" +
-				"Ìı×ÅÄÇ¾ùÔÈµÄºôÎü£¬¸Ğµ½ÎŞÏŞµÄĞÒ¸£¡­¡­\n\n"NOR, me, obj);
+			message_vision(HIY "$né™é™åœ°èººåœ¨$Nçš„æ€€é‡Œï¼Œé ç€é‚£èµ·ä¼çš„èƒ¸è†›ï¼Œ" +
+				"å¬ç€é‚£å‡åŒ€çš„å‘¼å¸ï¼Œæ„Ÿåˆ°æ— é™çš„å¹¸ç¦â€¦â€¦\n\n"NOR, me, obj);
                 }
                 obj->add("qi",obj->query_str()-55+random(10));
                 obj->add("jing",obj->query_con()-55+random(10));
@@ -219,14 +219,14 @@ void over(object me, object obj)
         }
 	if ( me->query_condition("pregnant") ) {
 		me->force_me("cry3");
-		me->force_me("say ÒÔºó½ĞÎÒ³öÈ¥ÔõÃ´¼ûÈËÑ½£¿£¡");
-	log_file("static/makelove",sprintf("%s(%s)±»%s(%s)°Ñ¶Ç×Ó¸ã´óÁË¡£\n",
+		me->force_me("say ä»¥åå«æˆ‘å‡ºå»æ€ä¹ˆè§äººå‘€ï¼Ÿï¼");
+	log_file("static/makelove",sprintf("%s(%s)è¢«%s(%s)æŠŠè‚šå­æå¤§äº†ã€‚\n",
 		me->name(1),getuid(me),obj->name(1), geteuid(obj)));
 	}
 	if ( obj->query_condition("pregnant") ) {
 		obj->force_me("cry3");
-		obj->force_me("say ÒÔºó½ĞÎÒ³öÈ¥ÔõÃ´¼ûÈËÑ½£¿£¡");
-	log_file("static/makelove",sprintf("%s(%s)±»%s(%s)°Ñ¶Ç×Ó¸ã´óÁË¡£\n",
+		obj->force_me("say ä»¥åå«æˆ‘å‡ºå»æ€ä¹ˆè§äººå‘€ï¼Ÿï¼");
+	log_file("static/makelove",sprintf("%s(%s)è¢«%s(%s)æŠŠè‚šå­æå¤§äº†ã€‚\n",
 		obj->name(1), geteuid(obj),me->name(1),getuid(me)));
 	}
 	me->start_busy(1);
@@ -240,9 +240,9 @@ void over(object me, object obj)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : makelove <ÈËÎï>
-×ö°®£¡
-Ïà¹ØÖªÊ¶²Î¿´³õÖĞ¡¶ÉúÀíÎÀÉú¡·¿Î±¾£¬»òÕßÏòÔÚÏßÀÏÊ¦Ñ°ÎÊ¡£
+æŒ‡ä»¤æ ¼å¼ : makelove <äººç‰©>
+åšçˆ±ï¼
+ç›¸å…³çŸ¥è¯†å‚çœ‹åˆä¸­ã€Šç”Ÿç†å«ç”Ÿã€‹è¯¾æœ¬ï¼Œæˆ–è€…å‘åœ¨çº¿è€å¸ˆå¯»é—®ã€‚
 
 HELP);
 	return 1;

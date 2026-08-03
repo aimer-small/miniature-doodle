@@ -5,9 +5,9 @@
 inherit ROOM;
 void create()
 { 
-       set("short","�ص�");
+       set("short","秘道");
        set("long", @LONG
-�����������ص������ƺ���ʧ�˷�����ûͷ��Ӭ�㵽���Ҵ���
+这里是明教秘道，你似乎迷失了方向，象没头苍蝇般到处乱闯。
 LONG
      );
     
@@ -27,5 +27,5 @@ void init()
 	object me,room;
 	me=this_player();
 	room=this_object();
-	message_vision(YEL"\n$Nһ��С�ģ����ص�����·�ˣ�����Ҫ�߳�ȥҪ���ܶ�ʱ�䡣\n\n"NOR,me);
+	message_vision(YEL"\n$N一不小心，在秘道中迷路了！看来要走出去要花很多时间。\n\n"NOR,me);
 }

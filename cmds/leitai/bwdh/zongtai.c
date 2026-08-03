@@ -1,5 +1,5 @@
 
-//zongtai ×ÜÌ¨
+//zongtai æ€»å°
 
 #define SJSZ_D	"/cmds/leitai/bwdh/";
 
@@ -24,17 +24,17 @@ void create()
 	restore();
 	if (!mapp(sjsz))
 		sjsz = ([ ]);
-	set("short",HIR"×¯ÃÅ"NOR);
+	set("short",HIR"åº„é—¨"NOR);
 	set("long", @long
          [21m/J______________________L\
             /||||||||||||||||||||||||||\
         {\/LLLLLLLLLLLLLLLLLLLLLLLLLLLLLL\/}
-         ^^^^||^^^^ [24m¡¾ÊÔ½£É½×¯¡¿[21m ^^^^||^^^^
+         ^^^^||^^^^ [24mã€è¯•å‰‘å±±åº„ã€‘[21m ^^^^||^^^^
           /||||||||||||||||||||||||||||||\
           ^^^||^^^^^^^^^^||^^^^^^^^^^||^^^
              ||          ||          ||
    -I-I-I-I-I||          ||          ||I-I-I-I-I-
-   I-I-I-I-I-||        [24m¡ò[21m||[24m¡ò[21m        ||-I-I-I-I-I
+   I-I-I-I-I-||        [24mâ—[21m||[24mâ—[21m        ||-I-I-I-I-I
    -I-I-I-I-I||          ||          ||I-I-I-I-I-
    [21mI-I-I-I-I-||__________||__________||-I-I-I-I-I
   [25m/__|__|__|__|__[25m|________________|[25m__|__|__|__|__\
@@ -50,7 +50,7 @@ long
 		"gaoshi":	(: gaoshi :),
 	]));
 
-	set("outdoors", "ÊÔ½£É½×¯");
+	set("outdoors", "è¯•å‰‘å±±åº„");
 	set("no_fight", 1);
 	set("valid_startroom", 1);
 	set("no_sleep_room", 1);
@@ -82,20 +82,20 @@ int valid_leave(object me,string dir)
 	inv = filter_array(deep_inventory(me), (: userp :));
 
 	if (sizeof(inv) && dir == "enter" )
-		return notify_fail("ÄãÏë··ÂôÈË¿ÚÃ´£¿\n");
+		return notify_fail("ä½ æƒ³è´©å–äººå£ä¹ˆï¼Ÿ\n");
 
 	if ( me->query("registered") < 3 && dir == "enter" )
-		return notify_fail("Ö»ÓĞÕıÊ½ÓÃ»§²ÅÄÜ½øÈëÊÔ½£É½×¯¡£\n");
+		return notify_fail("åªæœ‰æ­£å¼ç”¨æˆ·æ‰èƒ½è¿›å…¥è¯•å‰‘å±±åº„ã€‚\n");
 
    if ( !me->query_temp("get_in_sjsz") && dir == "enter" && !wizardp(me))
-           return notify_fail(HIR"\nÄã¿´ÁË¿´ÕâµÀ×¯ÃÅ£¬¾õµÃ»¹ÊÇ¸Ï¿ìÀë¿ªÕâÊÇ·ÇÖ®µØ±È½ÏºÃ£¡\n"NOR);
+           return notify_fail(HIR"\nä½ çœ‹äº†çœ‹è¿™é“åº„é—¨ï¼Œè§‰å¾—è¿˜æ˜¯èµ¶å¿«ç¦»å¼€è¿™æ˜¯éä¹‹åœ°æ¯”è¾ƒå¥½ï¼\n"NOR);
     if(dir=="enter" && me->query_temp("get_in_sjsz"))
         me->apply_condition("sjsz_time",15);
 
 
 /*
 	if ( me->query("bxsj_bonus/no_pk") && dir == "enter")
-		return notify_fail("ÄúÏÖÔÚµÄ×´Ì¬ÎŞ·¨½øÈëÊÔ½£É½×¯¡£\n");
+		return notify_fail("æ‚¨ç°åœ¨çš„çŠ¶æ€æ— æ³•è¿›å…¥è¯•å‰‘å±±åº„ã€‚\n");
 */
 
 	if ( me->query("no_quest"))
@@ -111,7 +111,7 @@ int do_jianshi()
 	string str;
 
 	if ( ! sjsz["find_room"] )
-		str = "Ã»ÓĞÈÎºÎĞÅÏ¢¡£\n";
+		str = "æ²¡æœ‰ä»»ä½•ä¿¡æ¯ã€‚\n";
 	else {
 		str = ctime(time())[10..19];
 		str += sjsz["find_room"];
@@ -128,12 +128,12 @@ int do_set(string arg)
 	mixed *local;
 
    if(userp(me)&&!present("shijian ling", me)&&!wizardp(me))
-       return notify_fail("ÄãÆ¾Ê²Ã´À´ÉèÖÃÊÔ½£É½×¯ÍÚ±¦Ê±¼ä£¿µ±ÄãÊÇWIZ°¡£¡\n");
+       return notify_fail("ä½ å‡­ä»€ä¹ˆæ¥è®¾ç½®è¯•å‰‘å±±åº„æŒ–å®æ—¶é—´ï¼Ÿå½“ä½ æ˜¯WIZå•Šï¼\n");
 
    if(!arg)
        arg = "random";
    if(!sscanf(arg, "%d,%d,%d",time1,time2,time3) && arg != "random")
-       return notify_fail("ÉèÖÃÊ±¼ä±ØĞëÎªÊı×Ö(0-24),Ã¿¸öÊı×Ö±ØĞëÏà²îÆğÂë´óĞ¡4£¡\n");
+       return notify_fail("è®¾ç½®æ—¶é—´å¿…é¡»ä¸ºæ•°å­—(0-24),æ¯ä¸ªæ•°å­—å¿…é¡»ç›¸å·®èµ·ç å¤§å°4ï¼\n");
 
    if(arg == "random"
    ||time1<0||time1>20
@@ -159,13 +159,13 @@ int do_set(string arg)
 	set("time2", time2);
 	set("time3", time3);
 
-   message("channel", HIW"\n\t"+CHINESE_MUD_NAME+HIW"µÄÊÔ½£É½×¯ÍÚ±¦Ê±¼äÒÑ¾­×Ô¶¯·Ö²¼Íê³É£¬¾ßÌåÊ±¼äÈçÏÂ£º\n\n"NOR, users());
-   message("channel", HIM"\t\t    Ê±¼ä¶ÎA£º "+HIG+time1+"µã  ¡«  "+(time1+4)+"µã\n"NOR, users());
-   message("channel", HIM"\t\t    Ê±¼ä¶ÎB£º "+HIG+time2+"µã  ¡«  "+(time2+4)+"µã\n"NOR, users());
-   message("channel", HIM"\t\t    Ê±¼ä¶ÎC£º "+HIG+time3+"µã  ¡«  "+(time3+4)+"µã\n\n"NOR, users());
+   message("channel", HIW"\n\t"+CHINESE_MUD_NAME+HIW"çš„è¯•å‰‘å±±åº„æŒ–å®æ—¶é—´å·²ç»è‡ªåŠ¨åˆ†å¸ƒå®Œæˆï¼Œå…·ä½“æ—¶é—´å¦‚ä¸‹ï¼š\n\n"NOR, users());
+   message("channel", HIM"\t\t    æ—¶é—´æ®µAï¼š "+HIG+time1+"ç‚¹  ï½  "+(time1+4)+"ç‚¹\n"NOR, users());
+   message("channel", HIM"\t\t    æ—¶é—´æ®µBï¼š "+HIG+time2+"ç‚¹  ï½  "+(time2+4)+"ç‚¹\n"NOR, users());
+   message("channel", HIM"\t\t    æ—¶é—´æ®µCï¼š "+HIG+time3+"ç‚¹  ï½  "+(time3+4)+"ç‚¹\n\n"NOR, users());
 
 	if (objectp(me))
-		tell_object(me, "Äã³É¹¦ÉèÖÃÊ±¼äÎª£º"+time1+"µã, "+time2+"µã, "+time3+"µã¡£\n");
+		tell_object(me, "ä½ æˆåŠŸè®¾ç½®æ—¶é—´ä¸ºï¼š"+time1+"ç‚¹, "+time2+"ç‚¹, "+time3+"ç‚¹ã€‚\n");
 
    if(userp(me)&&objectp(present("shijian ling", me)))
        destruct(present("shijian ling", me));
@@ -222,7 +222,7 @@ void sjsz_reset()
 		save();
 
 		set("jianshi", i + ", "+j+", "+ ctime(time())[10..19]);
-		message("channel", HIW"\n\t"+CHINESE_MUD_NAME+HIW"µÄÊÔ½£É½×¯ÄÚÌıËµÓĞ¾øÊÀ±¦Îï³öÏÖ£¡\n\n"NOR, users());
+		message("channel", HIW"\n\t"+CHINESE_MUD_NAME+HIW"çš„è¯•å‰‘å±±åº„å†…å¬è¯´æœ‰ç»ä¸–å®ç‰©å‡ºç°ï¼\n\n"NOR, users());
 	}
 	remove_call_out("sjsz_reset");
 	call_out("sjsz_reset", 3);
@@ -233,15 +233,15 @@ string gaoshi()
 	string str;
 
 	if ( !query("time1") && !query("time2"))
-		return "ÊÔ½£É½×¯ÔİÊ±Ã»ÓĞ¿ª·ÅÍÚ¾ò±¦Îï¡£\n";
+		return "è¯•å‰‘å±±åº„æš‚æ—¶æ²¡æœ‰å¼€æ”¾æŒ–æ˜å®ç‰©ã€‚\n";
 
-	str = sprintf(HIY"\n\t¡ù¡ù¡ù"HIW"½ñÈÕ¿ª·ÅµÄ¾ò±¦Ê±¼ä"HIY"¡ù¡ù¡ù\n");
-	str += sprintf("\t¡ù                          ¡ù\n");
-	str += sprintf("\t¡ù     %2d:00  -  %2d:00      ¡ù\n", query("time1"), query("time1") + 4);
-	str += sprintf("\t¡ù     %2d:00  -  %2d:00      ¡ù\n", query("time2"), query("time2") + 4);
-	str += sprintf("\t¡ù     %2d:00  -  %2d:00      ¡ù\n", query("time3"), query("time3") + 4);
-	str += sprintf("\t¡ù                          ¡ù\n");
-	str += sprintf("\t¡ù¡ù¡ù¡ù¡ù¡ù¡ù¡ù"HIC"¡ïÊÔ½£É½×¯¡ï"HIY"¡ù\n\n"NOR);
+	str = sprintf(HIY"\n\tâ€»â€»â€»"HIW"ä»Šæ—¥å¼€æ”¾çš„æ˜å®æ—¶é—´"HIY"â€»â€»â€»\n");
+	str += sprintf("\tâ€»                          â€»\n");
+	str += sprintf("\tâ€»     %2d:00  -  %2d:00      â€»\n", query("time1"), query("time1") + 4);
+	str += sprintf("\tâ€»     %2d:00  -  %2d:00      â€»\n", query("time2"), query("time2") + 4);
+	str += sprintf("\tâ€»     %2d:00  -  %2d:00      â€»\n", query("time3"), query("time3") + 4);
+	str += sprintf("\tâ€»                          â€»\n");
+	str += sprintf("\tâ€»â€»â€»â€»â€»â€»â€»â€»"HIC"â˜…è¯•å‰‘å±±åº„â˜…"HIY"â€»\n\n"NOR);
 
 	return str;
 }

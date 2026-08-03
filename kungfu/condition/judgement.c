@@ -31,7 +31,7 @@ int update_condition(object me, int duration)
         	{
                 if (mine[i]->query("treasure") || mine[i]->query("unique"))
         		{
-        			tell_object(me,"机器人法官发现你似乎有所动作，立刻将你的"+mine[i]->name()+NOR"没收了。\n");
+        			tell_object(me,"鏈哄櫒浜烘硶瀹樺彂鐜颁綘浼间箮鏈夋墍鍔ㄤ綔锛岀珛鍒诲皢浣犵殑"+mine[i]->name()+NOR"娌℃敹浜嗐�俓n");
         			destruct(mine[i]);
         			break;
         		}

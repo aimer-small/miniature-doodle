@@ -3,10 +3,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÌÀÓ¢ğÊ", ({ "tang yinge", "tang", "yinge" }));
-        set("nickname", "µÚÆßÌ«±£");
-        set("long", "ÕâÊÇÒ»ÃûÊİÏ÷µÄÀÏÕß£¬ÕâÊÇ×óÀäìøµÄÊ¦µÜ¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("æ±¤è‹±é¹—", ({ "tang yinge", "tang", "yinge" }));
+        set("nickname", "ç¬¬ä¸ƒå¤ªä¿");
+        set("long", "è¿™æ˜¯ä¸€åç˜¦å‰Šçš„è€è€…ï¼Œè¿™æ˜¯å·¦å†·ç¦…çš„å¸ˆå¼Ÿã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 45);
         set("per", 20);
         set("attitude", "heroism");
@@ -39,7 +39,7 @@ void create()
     map_skill("parry", "songshan-jian");
     map_skill("sword", "songshan-jian");
     prepare_skill("strike", "songyang-zhang");
-    create_family("áÔÉ½ÅÉ", 4, "µÜ×Ó");
+    create_family("åµ©å±±æ´¾", 4, "å¼Ÿå­");
     set("chat_chance_combat", 10);
     set("chat_msg_combat", ({
                 (: perform_action, "sword.feiwu" :),

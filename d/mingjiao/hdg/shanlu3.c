@@ -1,17 +1,17 @@
-// É½Â· shanlu3.c
+// å±±è·¯ shanlu3.c
  
 #include <ansi.h>
 inherit ROOM;
 
 void create() 
 { 
-        set("short", "É½Â·");
+        set("short", "å±±è·¯");
         set("long", @LONG
-ÕâÊÇÒ»ÌõÍäÍäÇúÇúµÄÉ½Â·£¬¶«Ãæ´«À´ÕóÕóÇåÏã£¬ÄãÑ­×ÅÇåÏã×ßÁË¹ıÈ¥¡£
+è¿™æ˜¯ä¸€æ¡å¼¯å¼¯æ›²æ›²çš„å±±è·¯ï¼Œä¸œé¢ä¼ æ¥é˜µé˜µæ¸…é¦™ï¼Œä½ å¾ªç€æ¸…é¦™èµ°äº†è¿‡å»ã€‚
 LONG
         );
         
-        set("outdoors", "ºûµû¹È");
+        set("outdoors", "è´è¶è°·");
 
         set("exits", ([ 
             "southdown" : __DIR__"shanlu1",

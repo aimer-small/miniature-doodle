@@ -4,11 +4,11 @@ void choose_ok(string arg, object me)
 	if( arg == "Q" || arg == "q" )    
 	{
 		command("sigh "+me->query("id"));
-		command("say Ö»ÊÇÈç´ËÐßÉ¬£¬ÄÄÀïÓÐ½­ºþ¶ùÅ®µÄÈ÷ÍÑ¡£Ò²°Õ£¬ÎÒ½«ÕâÆìÉÏµÄÃû×Ö²ÁÈ¥¡£");
-		message_vision(HIY"\n$N×ßÉÏÇ°È¥£¬½«½õÆìÉÏÊéÐ´µÄÃû×Ö²ÁÈ¥¡£\n"NOR,this_object());
+		command("say åªæ˜¯å¦‚æ­¤ç¾žæ¶©ï¼Œå“ªé‡Œæœ‰æ±Ÿæ¹–å„¿å¥³çš„æ´’è„±ã€‚ä¹Ÿç½¢ï¼Œæˆ‘å°†è¿™æ——ä¸Šçš„åå­—æ“¦åŽ»ã€‚");
+		message_vision(HIY"\n$Nèµ°ä¸Šå‰åŽ»ï¼Œå°†é”¦æ——ä¸Šä¹¦å†™çš„åå­—æ“¦åŽ»ã€‚\n"NOR,this_object());
 		command("nod "+me->query("id"));
 		init_over();
-		log_file("quest/zhaoqin",sprintf("%-8s%-10s È¡Ïû±ÈÎäÕÐÇ×choose_ok",me->query("name"),me->query("id")),me);
+		log_file("quest/zhaoqin",sprintf("%-8s%-10s å–æ¶ˆæ¯”æ­¦æ‹›äº²choose_ok",me->query("name"),me->query("id")),me);
 		return;
 	}
 	if(arg == "R" || arg == "r" ) 
@@ -17,11 +17,11 @@ void choose_ok(string arg, object me)
 	   delete("bwzh/exp");
 	   delete("bwzh/per");
 	   delete("bwzh/age");
-	   tell_object(me,HIW"\nÔ­À´ÉèÖÃÈ«²¿Ïû³ý£¬Äã¿ÉÒÔÖØÐÂÉèÖÃ£º\n\n"NOR);
-	   if(!query("bwzh/exp")) tell_object(me,WHT"  1¡¢¡¾¾­Ñé¡¿"NOR);
-	   if(!query("bwzh/per")) tell_object(me,WHT"  2¡¢¡¾ÏàÃ²¡¿"NOR);
-	   if(!query("bwzh/age")) tell_object(me,WHT"  3¡¢¡¾ÄêÁä¡¿"NOR); 
-	   tell_object(me,HIW"\n\nÄã¿ÉÒÔÑ¡ÔñÊý×Ö£¬ÄãÒ²¿ÉÒÔQ¼üÈ¡Ïû¡£\n"NOR);
+	   tell_object(me,HIW"\nåŽŸæ¥è®¾ç½®å…¨éƒ¨æ¶ˆé™¤ï¼Œä½ å¯ä»¥é‡æ–°è®¾ç½®ï¼š\n\n"NOR);
+	   if(!query("bwzh/exp")) tell_object(me,WHT"  1ã€ã€ç»éªŒã€‘"NOR);
+	   if(!query("bwzh/per")) tell_object(me,WHT"  2ã€ã€ç›¸è²Œã€‘"NOR);
+	   if(!query("bwzh/age")) tell_object(me,WHT"  3ã€ã€å¹´é¾„ã€‘"NOR); 
+	   tell_object(me,HIW"\n\nä½ å¯ä»¥é€‰æ‹©æ•°å­—ï¼Œä½ ä¹Ÿå¯ä»¥Qé”®å–æ¶ˆã€‚\n"NOR);
        input_to( (: choose_mode :), me );
 	   return;
 	}
@@ -33,40 +33,40 @@ void choose_ok(string arg, object me)
 	if(arg != "Y" && arg != "y" ) 
 	{
 		command("? "+me->query("id"));
-		tell_object(me,HIW"\nÄãÏÖÔÚÐÄÄ¿ÖÐµÄ·ò¾ýµÄÒªÇóÉèÖÃÈçÏÂ£º\n\n"NOR);
-		tell_object(me,HIR"  1¡¢¡¾¾­Ñé¡¿×îµÍ¾­Ñé"+chinese_number(query("bwzh/exp"))+"Õ×¡£\n"NOR);
-		tell_object(me,HIR"  2¡¢¡¾ÏàÃ²¡¿×îµÍÏàÃ²"+chinese_number(query("bwzh/per"))+"¡£\n"NOR);
-		tell_object(me,HIR"  3¡¢¡¾ÄêÁä¡¿ÔÚ"+chinese_number(i)+"ËêºÍ"+chinese_number(p)+"ËêÖ®¼ä¡£\n"NOR); 
-		tell_object(me,HIW"\nÈç¹ûÄãÍ¬Òâ£¬¿ÉÒÔÑ¡Ôñ£º\n"NOR);
-		tell_object(me,WHT"£¨Y£©Í¬Òâ £¨R£©ÖØÑ¡ £¨Q£©È¡Ïû\n"NOR);
+		tell_object(me,HIW"\nä½ çŽ°åœ¨å¿ƒç›®ä¸­çš„å¤«å›çš„è¦æ±‚è®¾ç½®å¦‚ä¸‹ï¼š\n\n"NOR);
+		tell_object(me,HIR"  1ã€ã€ç»éªŒã€‘æœ€ä½Žç»éªŒ"+chinese_number(query("bwzh/exp"))+"å…†ã€‚\n"NOR);
+		tell_object(me,HIR"  2ã€ã€ç›¸è²Œã€‘æœ€ä½Žç›¸è²Œ"+chinese_number(query("bwzh/per"))+"ã€‚\n"NOR);
+		tell_object(me,HIR"  3ã€ã€å¹´é¾„ã€‘åœ¨"+chinese_number(i)+"å²å’Œ"+chinese_number(p)+"å²ä¹‹é—´ã€‚\n"NOR); 
+		tell_object(me,HIW"\nå¦‚æžœä½ åŒæ„ï¼Œå¯ä»¥é€‰æ‹©ï¼š\n"NOR);
+		tell_object(me,WHT"ï¼ˆYï¼‰åŒæ„ ï¼ˆRï¼‰é‡é€‰ ï¼ˆQï¼‰å–æ¶ˆ\n"NOR);
 		input_to( (: choose_ok :), me );
 		return;
 	}
-    log_file("quest/zhaoqin",sprintf("%-8s%-10s ÕÐÇ×ÉèÖÃÍê±Ïchoose_ok",me->query("name"),me->query("id")),me);
+    log_file("quest/zhaoqin",sprintf("%-8s%-10s æ‹›äº²è®¾ç½®å®Œæ¯•choose_ok",me->query("name"),me->query("id")),me);
 
-	over_time=time();//ºÙºÙ
+	over_time=time();//å˜¿å˜¿
 	start_time=time();
-	set("bwzh/host_player/name",me->query("name"));//ÃÀÅ®ÐÅÏ¢
+	set("bwzh/host_player/name",me->query("name"));//ç¾Žå¥³ä¿¡æ¯
 	set("bwzh/host_player/id",me->query("id"));
 	set("bwzh/host_player/object",me);
-	set("bwzh/winner_player/name",me->query("name"));//ÀÞÖ÷ÊÇÃÀÅ®
+	set("bwzh/winner_player/name",me->query("name"));//æ“‚ä¸»æ˜¯ç¾Žå¥³
 	set("bwzh/winner_player/id",me->query("id"));
 	set("bwzh/winner_player/object",me);
-	set("station",2);//ÏÂÒ»¸ö×´Ì¬
-	me->set_temp("quest/bwzh/biwu_host",1);//ÀÞÖ÷µÄ±ê¼Ç
-	me->set_temp("quest/bwzh/hoster",1);//·¢ÆðÈËµÄ±ê¼Ç£¬ÃÀÅ®±ê¼Ç
-	me->set_temp("quest/busy",1);//²»ÄÜ×÷ÈÎÎñ
-	me->set_temp("apply/short", ({me->name()+"("+me->query("id")+")"YEL" <±ÈÎäÕÐÇ×ÖÐ£¨ÀÞÖ÷£©> "NOR}));	
+	set("station",2);//ä¸‹ä¸€ä¸ªçŠ¶æ€
+	me->set_temp("quest/bwzh/biwu_host",1);//æ“‚ä¸»çš„æ ‡è®°
+	me->set_temp("quest/bwzh/hoster",1);//å‘èµ·äººçš„æ ‡è®°ï¼Œç¾Žå¥³æ ‡è®°
+	me->set_temp("quest/busy",1);//ä¸èƒ½ä½œä»»åŠ¡
+	me->set_temp("apply/short", ({me->name()+"("+me->query("id")+")"YEL" <æ¯”æ­¦æ‹›äº²ä¸­ï¼ˆæ“‚ä¸»ï¼‰> "NOR}));	
 	
-	message_vision(HIR"\n$NÔÚ½õÆìÅÔ±ß×¢Ã÷¼¸ÌõÒªÇó£¬°üÀ¨¡¾¾­Ñé¡¿¡¢¡¾ÏàÃ²¡¿¡¢¡¾ÄêÁä¡¿¡£\n"NOR,me);
+	message_vision(HIR"\n$Nåœ¨é”¦æ——æ—è¾¹æ³¨æ˜Žå‡ æ¡è¦æ±‚ï¼ŒåŒ…æ‹¬ã€ç»éªŒã€‘ã€ã€ç›¸è²Œã€‘ã€ã€å¹´é¾„ã€‘ã€‚\n"NOR,me);
 	command("pat "+me->query("id"));
 	command("addoil "+me->query("id"));
 
 	command("chat* smile "+me->query("id"));
-	CHANNEL_D->do_channel(this_object(),"chat",HIY+me->query("name")+"ÕýÔÚ±ÈÎäÕÐÇ×£¬»¶Ó­¸÷Â·ºÀ½Ü¿ÉÓ»Ô¾±¨Ãû¡£"NOR);
+	CHANNEL_D->do_channel(this_object(),"chat",HIY+me->query("name")+"æ­£åœ¨æ¯”æ­¦æ‹›äº²ï¼Œæ¬¢è¿Žå„è·¯è±ªæ°å¯è¸Šè·ƒæŠ¥åã€‚"NOR);
 	command("chat* addoil");
 
-	tell_object(me,HIW"\nÄãÏÖÔÚ¿ªÊ¼µÈ´ý¡£×¢ÒâµÚÒ»½ìÀÞÖ÷ÊÇÄã±¾ÈË¡£ÁíÍâ£¬Äã¿ÉÒÔÈ¡Ïû£¨cancel£©ÕÐÇ×£¬\nÒ²¿ÉÒÔÈÃÄÂÄî´È°ïÄã¶à´Î·¢²¼ÏûÏ¢£¨fabu xiaoxi£©¡£\n"NOR);
+	tell_object(me,HIW"\nä½ çŽ°åœ¨å¼€å§‹ç­‰å¾…ã€‚æ³¨æ„ç¬¬ä¸€å±Šæ“‚ä¸»æ˜¯ä½ æœ¬äººã€‚å¦å¤–ï¼Œä½ å¯ä»¥å–æ¶ˆï¼ˆcancelï¼‰æ‹›äº²ï¼Œ\nä¹Ÿå¯ä»¥è®©ç©†å¿µæ…ˆå¸®ä½ å¤šæ¬¡å‘å¸ƒæ¶ˆæ¯ï¼ˆfabu xiaoxiï¼‰ã€‚\n"NOR);
 	remove_call_out("biwu_over");
 	remove_call_out("checking");
 	call_out("checking",1);

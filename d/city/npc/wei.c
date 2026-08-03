@@ -1,6 +1,6 @@
 // npc: /d/city/npc/wei.c
 // Jay 5/15/96
-// Modify by Linux@sj ����ask ΤС����ַ
+// Modify by Linux@sj 增加ask 韦小宝地址
 
 #include <get_place.h>
 inherit NPC;
@@ -8,20 +8,20 @@ string ask_beauty();
 string ask_me();
 void create()
 {
-        set_name("Τ����", ({ "wei chunfang", "chunfang", "wei" }) );
-        set("gender", "Ů��" );
-	set("title", "����Ժ�ϰ���");
+        set_name("韦春芳", ({ "wei chunfang", "chunfang", "wei" }) );
+        set("gender", "女性" );
+	set("title", "丽春院老板娘");
         set("age", 42);
         set("long", 
-            "Τ�����ǵ���¹������컨���ܶ���ΤС�����������"
-	    "����ϣ��������ȴ档\n");
+            "韦春芳是当朝鹿鼎公兼红花会总舵主韦小宝他娘，虽是徐"
+	    "娘半老，但风韵尤存。\n");
         set("str", 65);
         set("dex", 25);
         set("con", 25);
         set("int", 25);
 	set("per", 18);
         set("shen_type", 1);
-        set("no_get","Τ�����������̫���ˡ�\n");
+        set("no_get","韦春芳对你而言太重了。\n");
 
 	set_skill("force", 20);
 
@@ -34,12 +34,12 @@ void create()
 
         set("attitude", "friendly");
         set("inquiry", ([
-            "name" : "�����Ҿ���Τ������",
-            //"ΤС��" : "�����ҵĹԶ���, һ˫�۾��������Ǹ�����, �����е�����Ǹ����ӡ�",
-            "ΤС��" : (: ask_me :),
+            "name" : "老娘我就是韦春芳。",
+            //"韦小宝" : "那是我的乖儿子, 一双眼睛长得像那个喇嘛, 鼻子有点儿像那个回子。",
+            "韦小宝" : (: ask_me :),
             "wei xiaobao" : (: ask_me :),
-            "����Ժ" : "��������Ժ�������ݳ���ͷһ�ݵ�������ȥ����",
-            "here" : "��������Ժ�������ݳ���ͷһ�ݵ�������ȥ����",
+            "丽春院" : "我们丽春院可是扬州城里头一份的找乐子去处。",
+            "here" : "我们丽春院可是扬州城里头一份的找乐子去处。",
             "beauty" : (: ask_beauty :),
        	]) );
 
@@ -47,9 +47,9 @@ void create()
         setup();
         set("chat_chance", 15);
         set("chat_msg", ({
-                "Τ���������˵�������������ұ��µúܣ�ÿ���кü������ˡ�\n",
-                "Τ����ŭ������������裬Ҫ����ɲ������ë���ӵ�����Ժ���������ô�ɨ�����˳�ȥ���\n",
-                "Τ��������˵������һ˫�۾���߯�����ģ������Ǹ����\n",
+                "韦春芳得意地说道：当年老娘我标致得很，每天有好几个客人。\n",
+                "韦春芳怒骂道：辣块妈妈，要是罗刹鬼、红毛鬼子到丽春院来，老娘用大扫帚拍了出去�。\n",
+                "韦春芳对你说道：你一双眼睛贼忒嘻嘻的，真像那个喇嘛！\n",
         }) );
         carry_object("/d/city/obj/flower_shoe")->wear();
 
@@ -71,15 +71,15 @@ string ask_me()
        object ob, where;
        object me = this_player();
        ob = find_living("wei xiaobao");
-       if (!ob) return "���С�����ӣ�������Ҳ��֪����ȥ�����ˡ�\n";
+       if (!ob) return "这个小兔崽子，老娘我也不知道他去哪里了。\n";
        where = environment(ob);
-       if (!where) return "���С�����Ӻ�����ʧ��Ү...\n";  
+       if (!where) return "这个小兔崽子好像消失了耶...\n";  
        if (objectp(present("wei xiaobao", environment(me)))){
           	command("disapp "+me->query("id"));
-          	return "�Ҷ��Ӿ�������ѽ...\n";   
+          	return "我儿子就在这里呀...\n";   
        }
        command("look "+me->query("id"));
-       return "��λ" + RANK_D->query_respect(me) + "��������˵�����ǹԶ�������" + get_place(base_name(where)) + (string)where->query("short") +"�������ء�";
+       return "这位" + RANK_D->query_respect(me) + "，不瞒您说，我那乖儿子正在" + get_place(base_name(where)) + (string)where->query("short") +"卖兵器呢。";
 }
 void greeting(object me)
 {
@@ -87,28 +87,28 @@ void greeting(object me)
 		return;
     	command("look " + me->query("id"));
 
-    	if (me->query("gender")=="����") {
-       	command("say �㵱��������������������裬���������ɲػض��ӣ����ǲ��ź�̫�࣡");
+    	if (me->query("gender")=="无性") {
+       	command("say 你当老娘是烂婊子吗？辣块妈妈，老娘满汉蒙藏回都接，就是不伺候太监！");
        	command("kick " + me->query("id"));
-       	message("vision", me->name() +"��Τ����һ���߳����⡣\n",
+       	message("vision", me->name() +"被韦春芳一脚踢出门外。\n",
                 environment(me), ({me}));
        	me->move("/d/city/nandajie2");
-       	message("vision", me->name() +"���˴�����Ժ�����˳������Ե��ڵ��ϣ��ĵ�����������\n", 
+       	message("vision", me->name() +"被人从丽春院里踢了出来，栽倒在地上，磕掉两颗门牙。\n", 
                 environment(me), ({me}));
 
     	}
     	else {
     		if (me->query("class") =="bonze") {
-       		command("say �ϣ�" + RANK_D->query_respect(me) 
-			+"Ҳ�������������Ժ����");
-       		command("say �뵱���ҽӹ�һ������������ϴ�ǰһ��Ҫ���һ����������Ӿ͹�����������ҡ�");
+       		command("say 呦，" + RANK_D->query_respect(me) 
+			+"也来光顾我们丽春院啊。");
+       		command("say 想当年我接过一个西藏喇嘛，他上床前一定要念经，一面念经，眼珠子就骨溜溜地瞧着我。");
 		}
-    		if (me->query("gender")=="Ů��") {
-       		command("say ��ѽ�������´����Ҳ��Ҥ�ӣ��ɺ���ͳ��");
+    		if (me->query("gender")=="女性") {
+       		command("say 哎呀，这年月大姑娘也逛窑子，成何体统。");
        		command("sigh");
-       		command("say ��ϧ�Ҷ��Ӳ��ڣ���Ȼ�����ź��㡣");
+       		command("say 可惜我儿子不在，不然让他伺候你。");
     		}
-    	command("say ¥��¥�µĹ����ǣ��������ˣ�");
+    	command("say 楼上楼下的姑娘们，客人来了！");
     	}
     	return ;
 }
@@ -125,7 +125,7 @@ string ask_beauty()
 	for( i = 0; i < sizeof(ob_list); i++) {
 		where = environment(ob_list[i]);
 		if( ob_list[i]->query("per") > per 
-		&& ob_list[i]->query("gender") == "Ů��"
+		&& ob_list[i]->query("gender") == "女性"
 		&& !ob_list[i]->query("hooker")
 		&& where
 		&& strsrch(file_name(where), "/d/") >= 0) {
@@ -135,7 +135,7 @@ string ask_beauty()
 	}
 
 	if ( !obj ) {
-	msg ="���ģ����ھ�Ȼһ������Ҷ�û�У��϶���������������å�����ˣ�\n";
+	msg ="天哪，现在居然一个姑娘家都没有，肯定都被你们这帮臭流氓吓跑了！\n";
 	return msg;
 	}
 
@@ -145,19 +145,19 @@ string ask_beauty()
 	case 0:
 	case 1:
 	case 2:
-		msg ="�����齣���Ȼ��"+name+"�����������ˣ��߷������ĸҹ����Ư�����⻹��������\n";
+		msg ="现在书剑里居然数"+name+"这样三分象人，七分象鬼的母夜叉最漂亮，这还有天理吗？\n";
 		break;
 	case 3:
-		msg =name+"����ò����������֮�ʣ���ô�����������أ������ɽ�����ϻ������ӳư����ɣ�\n";
+		msg =name+"的相貌还不到中人之资，怎么就排上她了呢，大概是山中无老虎，猴子称霸王吧！\n";
 		break;
 	case 4:
-		msg =name+"����ò�����������ھ������ˣ��Ͽ�����Ҹ��Ϲ����˰ɣ�\n";
+		msg =name+"的相貌不差，泥巴里现在就数她了，赶快帮她找个老公嫁了吧！\n";
 		break;
 	case 5:
-		msg =name+"�����Ǹ��������������������Ժ���ӿͣ��Թ����Ķ��²˳���У����ܿ���̤���ſ��ӣ�\n";
+		msg =name+"长得那个美啊，如果到我们丽春院来接客，乖乖龙的东韭菜炒大葱，保管客人踏破门坎子！\n";
 		break;
 	case 6 :
-		msg =name+"������Ů�·��ɣ����������Ժ�ӣ�����������Ҳ������ĳ����أ�\n";
+		msg =name+"别不是仙女下凡吧，如果到咱这院子，恐怕连神仙也是这里的常客呢！\n";
 		break;
 	}
 

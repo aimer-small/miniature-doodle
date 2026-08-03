@@ -1,5 +1,5 @@
-// killer.c ÃÉÃæÉ±ÊÖ
-// kxkxkx 2004Äê3ÔÂ
+// killer.c è’™é¢æ€æ‰‹
+// kxkxkx 2004å¹´3æœˆ
 
 #include <ansi.h>
 
@@ -7,9 +7,9 @@ inherit FIGHTER;
 
 void create()
 {
-   set_name("ÃÉÃæÉ±ÊÖ", ({"mengmian shashou", "shashou", "killer"}));
-	set("gender", "ÄĞĞÔ");
-   set("long", "Õâ¸öÀ¹Â·µÄºÚÒÂÉ±ÊÖÒ»Á³Ğ×Ïà¡£\n");
+   set_name("è’™é¢æ€æ‰‹", ({"mengmian shashou", "shashou", "killer"}));
+	set("gender", "ç”·æ€§");
+   set("long", "è¿™ä¸ªæ‹¦è·¯çš„é»‘è¡£æ€æ‰‹ä¸€è„¸å‡¶ç›¸ã€‚\n");
 	set("age", random(20) + 25);      
 
 	set("str", 15 + random(5));
@@ -22,7 +22,7 @@ void create()
    set("env/no_fight", 1);
    set("no_ansuan", 1);
    
-   // ugly hack, ·ÀÖ¹ÃÉÃæÉ±ÊÖ×Ô¶¯yun heal
+   // ugly hack, é˜²æ­¢è’™é¢æ€æ‰‹è‡ªåŠ¨yun heal
    set("mute", 1);
 
    set("combat_exp", 100000);
@@ -43,7 +43,7 @@ void create()
 
    set("chat_chance_combat", 3);
    set("chat_msg_combat", ({
-      "ÃÉÃæÉ±ÊÖ¶ñºİºİµØËµµÀ£º¹Ô¹ÔµØ°Ñ¶«Î÷½»³öÀ´¡£\n",
+      "è’™é¢æ€æ‰‹æ¶ç‹ ç‹ åœ°è¯´é“ï¼šä¹–ä¹–åœ°æŠŠä¸œè¥¿äº¤å‡ºæ¥ã€‚\n",
    }));
 
    setup();
@@ -59,7 +59,7 @@ void wave()
 {
    object self;
    self = this_object();
-   message_vision("$NºÃÏóÍ»È»ÏëÆğÊ²Ã´ÊÂ£¬¼±¼±Ã¦Ã¦µÄÀë¿ªÁË¡£\n", self);
+   message_vision("$Nå¥½è±¡çªç„¶æƒ³èµ·ä»€ä¹ˆäº‹ï¼Œæ€¥æ€¥å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n", self);
    destruct(self);
 }
 
@@ -70,7 +70,7 @@ void kill_ob(object obj)
    qqll = query("target", 1);
    pal = qqll->query("pal", 1);
    if(obj != environment(qqll) &&
-         obj != qqll->query("pal", 1)) {  // Èç¹û²»ÊÇteamÖĞµÄ£¬¾Í²»Ïà»¥kill
+         obj != qqll->query("pal", 1)) {  // å¦‚æœä¸æ˜¯teamä¸­çš„ï¼Œå°±ä¸ç›¸äº’kill
       remove_enemy(obj);
       obj->remove_killer(this_object());
       return;
@@ -89,14 +89,14 @@ void unconcious()
    	qqll->add("killers", 1);
 	}
    self = this_object();
-   command("say ºÃººÈÄÃü£¬ÕâĞ©»Æ½ğÇëĞ¦ÄÉ¡£\n");
-   //remove_all_killer();    // Í£Ö¹Õ½¶·²ÅºÃdrop gold   
-   //add_busy(-query_busy());   // È¥µôbusy, ²ÅÄÜdrop¶«Î÷
+   command("say å¥½æ±‰é¥¶å‘½ï¼Œè¿™äº›é»„é‡‘è¯·ç¬‘çº³ã€‚\n");
+   //remove_all_killer();    // åœæ­¢æˆ˜æ–—æ‰å¥½drop gold   
+   //add_busy(-query_busy());   // å»æ‰busy, æ‰èƒ½dropä¸œè¥¿
    start_busy(-1);
    interrupt_me();
    command("drop gold");
    tell_room(environment(), HIR + query("name") +
-      "×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n"NOR);
+      "è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n"NOR);
    destruct(self);
 }
 
@@ -114,8 +114,8 @@ void no_die_ppl(object ob,object obj)
 	if(!living(ob))
 	{
 		ob->set("qi",100);
-		message_vision("$N±Ç×ÓÀïºßÁËÒ»Éù£º¡¸¼ÈÈ»ÍõÖØÑôµÄÒÅÎïµ½ÊÖÁË£¬¾Í·Å¹ıÄãĞ¡×Ó°É¡£·ç½ô£¬³¶ºô¡­¡­¡¹¡£\n",this_object());		
-		message_vision("$N¼¸¸öÆğÂä£¬ÒÑ¾­ÏûÊ§²»¼û¡£\n",this_object());		
+		message_vision("$Né¼»å­é‡Œå“¼äº†ä¸€å£°ï¼šã€Œæ—¢ç„¶ç‹é‡é˜³çš„é—ç‰©åˆ°æ‰‹äº†ï¼Œå°±æ”¾è¿‡ä½ å°å­å§ã€‚é£ç´§ï¼Œæ‰¯å‘¼â€¦â€¦ã€ã€‚\n",this_object());		
+		message_vision("$Nå‡ ä¸ªèµ·è½ï¼Œå·²ç»æ¶ˆå¤±ä¸è§ã€‚\n",this_object());		
 		if(obj) destruct(obj);
 		destruct(this_object());
 		return;

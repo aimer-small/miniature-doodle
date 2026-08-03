@@ -9,21 +9,21 @@ int main(object me, string arg)
 	object target;
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( !arg || !(target=present(arg,environment(me))) )
-		return notify_fail("ÄãÒªÈÃÊ²Ã´¶¯ÎïÍ£ÏÂÀ´£¿\n");
+		return notify_fail("ä½ è¦è®©ä»€ä¹ˆåŠ¨ç‰©åœä¸‹æ¥ï¼Ÿ\n");
 
 	if( !living(target) )
-		return notify_fail("ÄÇ²»ÊÇ»îÎï¡£\n");
+		return notify_fail("é‚£ä¸æ˜¯æ´»ç‰©ã€‚\n");
 
 	if( target->query("master") != me->query("id") )
-		return notify_fail("Äã»¹Ã»ÓĞ½µ·üËüÄØ¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰é™ä¼å®ƒå‘¢ã€‚\n");
 
 	if( target->query_leader() != me )
-		return notify_fail("Ëü²¢Ã»ÓĞ¸úËæÄã°¡¡£\n");
+		return notify_fail("å®ƒå¹¶æ²¡æœ‰è·Ÿéšä½ å•Šã€‚\n");
 
-	message_vision(CYN"$NÅÄÁËÅÄ$nµÄÍ·£¬ÓÖÖ¸Ö¸$n......\n" NOR, me,target);
+	message_vision(CYN"$Næ‹äº†æ‹$nçš„å¤´ï¼ŒåˆæŒ‡æŒ‡$n......\n" NOR, me,target);
 
 	target->set_leader(0);
 	return 1;
@@ -32,9 +32,9 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : stay <¶¯Îïid>
+æŒ‡ä»¤æ ¼å¼ : stay <åŠ¨ç‰©id>
 
-Õâ¸öÃüÁîÓÃÀ´Ê¹¸úËæÄãµÄ¶¯ÎïÍ£ÔÚÔ­µØ¡£
+è¿™ä¸ªå‘½ä»¤ç”¨æ¥ä½¿è·Ÿéšä½ çš„åŠ¨ç‰©åœåœ¨åŸåœ°ã€‚
 HELP
 );
 	return 1;

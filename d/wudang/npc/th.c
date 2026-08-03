@@ -1,4 +1,4 @@
-// NPC : /d/wudang/npc/taohua.c Å®²èÍ¯ÌÒ»¨
+// NPC : /d/wudang/npc/taohua.c å¥³èŒ¶ç«¥æ¡ƒèŠ±
 // Cht update this NPC,xixixixi...........................
 
 inherit NPC;
@@ -7,13 +7,13 @@ int ask_me1();
 int ask_me();
 void create()
 {
-        set_name("ÌÒ»¨", ({"tao hua"}) );
-        set("nickname", "É½´åÒ»Ö¦»¨");
-        set("gender", "Å®ÐÔ" );
+        set_name("æ¡ƒèŠ±", ({"tao hua"}) );
+        set("nickname", "å±±æ‘ä¸€æžèŠ±");
+        set("gender", "å¥³æ€§" );
         set("age", 12+random(6));
         set("long",
-          "ÕâÊÇ¸öÇéÞ¢³õ¿ªµÄÐ¡¹ÃÄï£¬ÌýËµºÍÎäµ±É½µÄÒ»µÀÍ¯Á½ÇéÏàÔÃ¡£\n"
-          "ÊÖ½ÅÇÚ¿ì£¬ÌÖÈËÏ²°®¡£¼ûÓÐÈËÉÔÎ¢Ê¾Òâ£¬±ã¹ýÈ¥¼Ó²èµ¹Ë®¡£\n");
+          "è¿™æ˜¯ä¸ªæƒ…è”»åˆå¼€çš„å°å§‘å¨˜ï¼Œå¬è¯´å’Œæ­¦å½“å±±çš„ä¸€é“ç«¥ä¸¤æƒ…ç›¸æ‚¦ã€‚\n"
+          "æ‰‹è„šå‹¤å¿«ï¼Œè®¨äººå–œçˆ±ã€‚è§æœ‰äººç¨å¾®ç¤ºæ„ï¼Œä¾¿è¿‡åŽ»åŠ èŒ¶å€’æ°´ã€‚\n");
        set("attitude", "friendly");
        set("shen_type", 1);
 
@@ -39,7 +39,7 @@ void create()
         set_temp("apply/damage", 3);
 
          set("inquiry", ([
-           "²ÉÒ©µÀ³¤" : (: ask_me :),
+           "é‡‡è¯é“é•¿" : (: ask_me :),
            "rumor" : (: ask_me1 :),
              ]) );
         setup();
@@ -62,8 +62,8 @@ void greeting(object ob)
 {
         if( !ob || environment(ob) != environment() ) return;
 
-        say("ÌÒ»¨Ð¦Ò÷Ò÷µØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-             + "ÇëÏÈÈë×ù£¬" + "ÎÒÕâ¾Í¸øÄúÉÏ²è¡£\n");
+        say("æ¡ƒèŠ±ç¬‘åŸåŸåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+             + "è¯·å…ˆå…¥åº§ï¼Œ" + "æˆ‘è¿™å°±ç»™æ‚¨ä¸ŠèŒ¶ã€‚\n");
 }
 
 
@@ -82,20 +82,20 @@ void serve_tea(object who)
         {
                 obn = new("/d/wudang/obj/dawancha");
                 obn->move(room);
-                message_vision("ÌÒ»¨°á³ö¸ö´ó²èºøÀ´£¬½«×ÀÉÏµÄ´óÍë²èµ¹Âú£®\n",
+                message_vision("æ¡ƒèŠ±æ¬å‡ºä¸ªå¤§èŒ¶å£¶æ¥ï¼Œå°†æ¡Œä¸Šçš„å¤§ç¢—èŒ¶å€’æ»¡ï¼Ž\n",
                         who);
         } else 
         {
                 who->add_temp("tea_cup", -1);
                 obn = new("/d/wudang/obj/xiangcha");
                 obn->move(room);
-                message_vision("ÌÒ»¨ÄÃ³ö¸öÉÜÐËÐ¡²èºø£¬ÆãÁË±­Ïã²è£¬·ÅÔÚ×ÀÉÏ£®\n",
+                message_vision("æ¡ƒèŠ±æ‹¿å‡ºä¸ªç»å…´å°èŒ¶å£¶ï¼Œæ²äº†æ¯é¦™èŒ¶ï¼Œæ”¾åœ¨æ¡Œä¸Šï¼Ž\n",
                         who);
         }
 
         obn = new("/d/wudang/obj/mitao");
         obn->move(room);
-        message_vision("ÌÒ»¨ÄÃ³öÒ»µúÐÂÏÊµÄË®ÃÛÌÒ£¬·ÅÔÚ×ÀÉÏ£®\n", who);
+        message_vision("æ¡ƒèŠ±æ‹¿å‡ºä¸€ç¢Ÿæ–°é²œçš„æ°´èœœæ¡ƒï¼Œæ”¾åœ¨æ¡Œä¸Šï¼Ž\n", who);
         
         return;
 }
@@ -108,7 +108,7 @@ int ask_me()
         me = this_object();
        
         command("nod " + ob->query("id"));
-    	command("say Å¼¶ûÄÜÔÚÅö¼ûËû£¬ÎªÈËËæºÍ£¬ÊÇ¸öºÜºÃµÄÈË¡£\n");
+    	command("say å¶å°”èƒ½åœ¨ç¢°è§ä»–ï¼Œä¸ºäººéšå’Œï¼Œæ˜¯ä¸ªå¾ˆå¥½çš„äººã€‚\n");
 	return 1;
 }
 int ask_me1()
@@ -118,10 +118,10 @@ int ask_me1()
         ob = this_player();
         me = this_object();
         if(!ob->query_temp("marks/ask2")){
-         command("say " + RANK_D->query_respect(ob) + "ÏëÖªµÀÄÇ·½ÃæµÄÊÂÇé£¿\n");
+         command("say " + RANK_D->query_respect(ob) + "æƒ³çŸ¥é“é‚£æ–¹é¢çš„äº‹æƒ…ï¼Ÿ\n");
          return 1;
          }
-        command("say ÌýËµÓÐÒ»Î»ÀÏÕßÒþ¾ÓÔÚºóÉ½£¬ÈËÃÇºÜÉÙ¿´µ½Ëû£¬Ò²²»ÖªµÀÊÇÕæÊÇ¼Ù¡£\n");
+        command("say å¬è¯´æœ‰ä¸€ä½è€è€…éšå±…åœ¨åŽå±±ï¼Œäººä»¬å¾ˆå°‘çœ‹åˆ°ä»–ï¼Œä¹Ÿä¸çŸ¥é“æ˜¯çœŸæ˜¯å‡ã€‚\n");
         ob->set_temp("marks/taohua",1);
 	return 1;
 }       

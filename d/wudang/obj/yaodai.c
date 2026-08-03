@@ -1,4 +1,4 @@
-// OBJ : /u/lius/yaodai.c Ò©´ü
+// OBJ : /u/lius/yaodai.c è¯è¢‹
 // By lius 99/8
 
 #include <ansi.h>
@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-        set_name(WHT"Ò©´ü"NOR, ({ "yao dai","dai" }));
+        set_name(WHT"è¯è¢‹"NOR, ({ "yao dai","dai" }));
         set_weight(100);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
+                set("unit", "ä¸ª");
                 set("long",
-                        "ÕâÊÇ°×É«µÄ´Ö²¼Ò©´ü£¬ÀïÃæ×°×ÅĞí¶àÒ©²Ä¡£\n");
+                        "è¿™æ˜¯ç™½è‰²çš„ç²—å¸ƒè¯è¢‹ï¼Œé‡Œé¢è£…ç€è®¸å¤šè¯æã€‚\n");
                 set("value", 0);
                 set("material", "cloth");
                 set("no_drop",1);

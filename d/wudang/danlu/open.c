@@ -7,29 +7,29 @@ int do_open(string arg)
         ob = this_player();
         
         if( ob->is_busy() ) 
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if( ob->is_fighting() )
-                return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ¡£\n");
+                return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ã€‚\n");
 
     if( !arg || arg == "" || arg != "lid")
-                return notify_fail("ÄãÒª´ò¿ªÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦æ‰“å¼€ä»€ä¹ˆï¼Ÿ\n");
 
-        if( me->query("marks/open") )           // ÅĞ¶Ïµ¤Â¯¸Ç×Ó´ò¿ª»¹ÊÇ¹ØÉÏµÄ¡£
-                return notify_fail("µ¤Â¯µÄ¸Ç×ÓÒÑ¾­ÊÇ´ò¿ªµÄÁË¡£\n");
+        if( me->query("marks/open") )           // åˆ¤æ–­ä¸¹ç‚‰ç›–å­æ‰“å¼€è¿˜æ˜¯å…³ä¸Šçš„ã€‚
+                return notify_fail("ä¸¹ç‚‰çš„ç›–å­å·²ç»æ˜¯æ‰“å¼€çš„äº†ã€‚\n");
 
         if( me->query("marks/doing") 
          || me->query("marks/aoyao")
-         || me->query("marks/fired"))           // Èç¹ûÓĞÈËÕıÔÚÁ¶µ¤£¬²»ÄÜ¿ª¸Ç×Ó¡£
+         || me->query("marks/fired"))           // å¦‚æœæœ‰äººæ­£åœ¨ç‚¼ä¸¹ï¼Œä¸èƒ½å¼€ç›–å­ã€‚
               {
-                message_vision(RED"\n$NÍ»È»ÊÖ¼âÒ»Õó¾ŞÍ´£¬ÊÖÖ¸±»»ğÁÇÁËÒ»ÏÂ¡£\n"NOR,ob);
+                message_vision(RED"\n$Nçªç„¶æ‰‹å°–ä¸€é˜µå·¨ç—›ï¼Œæ‰‹æŒ‡è¢«ç«ç‡äº†ä¸€ä¸‹ã€‚\n"NOR,ob);
                 return 1;
               }
 
     if( arg == "lid" )
         {
-                message_vision("$N°Ñµ¤Â¯µÄ¸Ç×Ó´ò¿ª¡£\n", ob);
-                me->set("marks/open", 1);       // Èç¹û´ò¿ª¸Ç×Ó¼Ó´Ë±ê¼Ç¡£
+                message_vision("$NæŠŠä¸¹ç‚‰çš„ç›–å­æ‰“å¼€ã€‚\n", ob);
+                me->set("marks/open", 1);       // å¦‚æœæ‰“å¼€ç›–å­åŠ æ­¤æ ‡è®°ã€‚
                 return 1;
         }
 

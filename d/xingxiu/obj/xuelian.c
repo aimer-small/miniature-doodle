@@ -13,13 +13,13 @@ void init()
 
 void create()
 {
-        set_name("ÌìÉ½Ñ©Á«", ({"xue lian", "lian", "lotus"}));
+        set_name("å¤©å±±é›ªèŽ²", ({"xue lian", "lian", "lotus"}));
 	set_weight(250);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ö§");
-                set("long", "ÕâÊÇÒ»Ö§Ö»ÓÐÔÚº®ÀäµÄµØ·½²ÅÄÜÉú³¤µÄÑ©Á«¡£\n");
+                set("unit", "æ”¯");
+                set("long", "è¿™æ˜¯ä¸€æ”¯åªæœ‰åœ¨å¯’å†·çš„åœ°æ–¹æ‰èƒ½ç”Ÿé•¿çš„é›ªèŽ²ã€‚\n");
                 set("value", 100);
 		set("treasure", 1);
         }
@@ -31,12 +31,12 @@ int do_eat(string arg)
        object me = this_player();
 
        if (!id(arg))
-               return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+               return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
-	if (me->is_busy()) return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
-       message_vision(HIG "$N³ÔÏÂÒ»Ã¶"
+	if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
+       message_vision(HIG "$Nåƒä¸‹ä¸€æžš"
 	+this_object()->query("name")+
-	HIG "£¬¶ÙÊ±¾õµÃÍ·ÄÔÇåË¬£¬¾«ÉñÎªÖ®Ò»Õñ¡£\n"
+	HIG "ï¼Œé¡¿æ—¶è§‰å¾—å¤´è„‘æ¸…çˆ½ï¼Œç²¾ç¥žä¸ºä¹‹ä¸€æŒ¯ã€‚\n"
 	NOR,me);
        me->set("qi", me->query("max_qi"));
        me->set("jing", me->query("max_jing"));

@@ -1,4 +1,4 @@
-// zayilama.c ÔÓÒÛÀ®Âï
+// zayilama.c æ‚å½¹å–‡å˜›
 // by iceland
 
 #include <ansi.h>
@@ -29,13 +29,13 @@ switch (random(3)){
 
       set_name(name, ({"zayi lama","lama","zayi"}));
 	set("long",@LONG
-ËûÊÇ´óÂÖËÂµÄÔÓÒÛÀ®Âï£¬Ö»»áĞ©´ÖÇ³¹¦·ò£¬ÔÚËÂÀïÉí·İ×îµÍ£¬ÈÕ³£¸ÉĞ©´Ö»îÖØ»î¡£
+ä»–æ˜¯å¤§è½®å¯ºçš„æ‚å½¹å–‡å˜›ï¼Œåªä¼šäº›ç²—æµ…åŠŸå¤«ï¼Œåœ¨å¯ºé‡Œèº«ä»½æœ€ä½ï¼Œæ—¥å¸¸å¹²äº›ç²—æ´»é‡æ´»ã€‚
 LONG
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "heroism");
-	set("title" , HIW"´óÂÖËÂÔÓÒÛÀ®Âï"NOR);
+	set("title" , HIW"å¤§è½®å¯ºæ‚å½¹å–‡å˜›"NOR);
 	set("age", random(20)+20);
 	set("shen_type", 0);
 	set("str", random(10)+10);

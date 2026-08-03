@@ -4,12 +4,12 @@ inherit NPC;
  
 void create()
 {
-        set_name("ºîÍ¨º£", ({ "hou tonghai", "hou", "tonghai" }));
-        set("nickname", HIC"ÈıÍ·òÔ"NOR);
+        set_name("ä¾¯é€šæµ·", ({ "hou tonghai", "hou", "tonghai" }));
+        set("nickname", HIC"ä¸‰å¤´è›Ÿ"NOR);
         set("long", 
-        "Ëû¾ÍÊÇ»ÆºÓËÄ¹íµÄºîÍ¨º£¡£\n"
-        "¼â×ìºïÈù£¬ÃæÂ¶Ğ°Æø£¬Ò»¿´¾Í²»ÊÇºÃÈË¡£\n");
-        set("gender", "ÄĞĞÔ");
+        "ä»–å°±æ˜¯é»„æ²³å››é¬¼çš„ä¾¯é€šæµ·ã€‚\n"
+        "å°–å˜´çŒ´è…®ï¼Œé¢éœ²é‚ªæ°”ï¼Œä¸€çœ‹å°±ä¸æ˜¯å¥½äººã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 35);
         set("attitude", "peaceful");
         set("str", 27);

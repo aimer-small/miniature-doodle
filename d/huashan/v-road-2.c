@@ -5,15 +5,15 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "É½½§");
+        set("short", "å±±æ¶§");
         set("long", @LONG
-ÕâÀïÖÜÎ§¶¼ÊÇ¹àÄ¾£¬¶«ÄÏµÄ·½ÏòºÍ¶«ÃæµÄ·½ÏòËÆºõÄÜ×ß¹ıÈ¥¡£
+è¿™é‡Œå‘¨å›´éƒ½æ˜¯çŒæœ¨ï¼Œä¸œå—çš„æ–¹å‘å’Œä¸œé¢çš„æ–¹å‘ä¼¼ä¹èƒ½èµ°è¿‡å»ã€‚
 LONG);
         set("exits", ([ /* sizeof() == 2 */
                 "eastup"        : __DIR__"v-road-3",
                 "southwest"     : __DIR__"v-road-1"
         ]));
-        set("outdoors", "»ªÉ½");
+        set("outdoors", "åå±±");
         set("no_clean_up", 0);
         set("coor/x",50);
   set("coor/y",90);

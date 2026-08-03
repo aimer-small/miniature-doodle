@@ -1,4 +1,4 @@
-// shanshen.c ÀÏÉ½Èş
+// shanshen.c è€å±±å
 
 #include <ansi.h>
 
@@ -11,12 +11,12 @@ void init()
 
 void create()
 {
-	set_name("ÀÏÉ½²Î", ({"laoshan shen", "shen"}));
+	set_name("è€å±±å‚", ({"laoshan shen", "shen"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Öê");
-		set("long", "ÕâÊÇÒ»ÖêÕ´ÂúÉ½ÄàµÄ³¤°×ÀÏÉ½²Î¡£\n");
+		set("unit", "æ ª");
+		set("long", "è¿™æ˜¯ä¸€æ ªæ²¾æ»¡å±±æ³¥çš„é•¿ç™½è€å±±å‚ã€‚\n");
 		set("value", 10000);
 	}
 	setup();
@@ -27,20 +27,20 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->query_condition("medicine")) {
         	me->set("qi", 0);
         	me->set("jing", 0);
 
 		message_vision(
-			HIR "$N³ÔÏÂÒ»ÖêÀÏÉ½²Î£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬\n"
-			"Ô­À´·şÊ³Ì«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, this_player());
+			HIR "$Nåƒä¸‹ä¸€æ ªè€å±±å‚ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼Œ\n"
+			"åŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, this_player());
 	}  
                switch(random(3)) {
                 case 0:
                 message_vision(
-                      HIG "$N³ÔÏÂÒ»ÖêÀÏÉ½²Î£¬Ö»¾õ×ìÀïÌğÌğµÄºÜÊÇºÃ³Ô£¡\n" NOR, me);
+                      HIG "$Nåƒä¸‹ä¸€æ ªè€å±±å‚ï¼Œåªè§‰å˜´é‡Œç”œç”œçš„å¾ˆæ˜¯å¥½åƒï¼\n" NOR, me);
                 break;
                 case 1:
 	        me->set("eff_qi", me->query("max_qi"));
@@ -49,12 +49,12 @@ int do_eat(string arg)
 	        me->set("jing", me->query("max_jing"));
 	        me->set("neili", me->query("max_neili"));
                 message_vision(
-			HIG "$N³ÔÏÂÒ»ÖêÀÏÉ½²Î£¬Ö»¾õµÃ»ëÉíÒ»¹ÉÈÈÆø¶µµ×Ã°ÁËÉÏÀ´£¡\n" NOR, me);
+			HIG "$Nåƒä¸‹ä¸€æ ªè€å±±å‚ï¼Œåªè§‰å¾—æµ‘èº«ä¸€è‚¡çƒ­æ°”å…œåº•å†’äº†ä¸Šæ¥ï¼\n" NOR, me);
 		me->apply_condition("medicine", 30);
                 break;
                 case 2:
                      message_vision(
-                      HIG "$N³ÔÏÂÒ»ÖêÀÏÉ½²Î£¬Ö»¾õ×ìÀïÎ¢Î¢ÓĞµã·¢¿à£¬µ¤ÌïËÆºõÓĞ¹ÉÈÈÁ÷ÔÚ¹Ä¶¯£¡\n" NOR, me);
+                      HIG "$Nåƒä¸‹ä¸€æ ªè€å±±å‚ï¼Œåªè§‰å˜´é‡Œå¾®å¾®æœ‰ç‚¹å‘è‹¦ï¼Œä¸¹ç”°ä¼¼ä¹æœ‰è‚¡çƒ­æµåœ¨é¼“åŠ¨ï¼\n" NOR, me);
                 me->set("neili", me->query("max_neili"));
                 break;
 	}

@@ -1,11 +1,11 @@
-// NPC :jinxi_er.c ½øÏ²¶ù 
+// NPC :jinxi_er.c è¿›å–œå„¿ 
 // By River 98/12
 inherit NPC;
 void create()
 {
-        set_name("½øÏ²¶ù", ({ "jinxi er", "jinxi", "er"}));
-        set("title","Íò½Ù¹È¼ÒÈË");                
-        set("gender", "ÄĞĞÔ" );
+        set_name("è¿›å–œå„¿", ({ "jinxi er", "jinxi", "er"}));
+        set("title","ä¸‡åŠ«è°·å®¶äºº");                
+        set("gender", "ç”·æ€§" );
         set("age", 27);
         set("str", 17);
         set("con", 23);
@@ -22,7 +22,7 @@ void create()
         set("max_neili", 500);      
         set("unique", 1);
         
-        set("long","Ò»¸öÀÏÊµµÄ¼ÒÈË£¬ÒÑ¾­ÔÚÍò½Ù¹ÈÖĞ¶àÄêÁË¡£\n");
+        set("long","ä¸€ä¸ªè€å®çš„å®¶äººï¼Œå·²ç»åœ¨ä¸‡åŠ«è°·ä¸­å¤šå¹´äº†ã€‚\n");
         set("combat_exp", 50000);
         set("shen", 0); 
 

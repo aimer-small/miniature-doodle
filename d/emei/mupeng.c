@@ -1,14 +1,14 @@
 // mupeng.c
-// Ä¾Åï
+// æœ¨æ£š
 inherit ROOM;
 #include <ansi.h>
 void create()
 {
-        set("short", "Ä¾Åï" );
+        set("short", "æœ¨æ£š" );
         set("long",@long
-ÕâÀïÊÇ¶ëáÒÅÉµÄÄÐµÜ×ÓÃÇ×Ô¼º¶¯ÊÖ´î½¨µÄ°²ÉíÖ®Ëù¡£¶ëáÒÅÉ×Ô¹ùÏå½¨ÅÉÒÔ
-À´£¬ÒÔÅ®µÜ×Ó¾Ó¶à£¬Òò´ËÄÐµÜ×ÓÃÇ°ÑËüÃÇ½¨µ½ÁËÕâÃ´Æ«Æ§µÄµØ·½¡£ÀïÃæµÄ¶«Î÷
-¶¼ºÜÆÓËØ£¬³ýÁË¼¸ÕÅÄ¾°å´²ÒÔÍâ¾ÍÃ»ÓÐÊ²Ã´±ðµÄ¶«Î÷ÁË¡£
+è¿™é‡Œæ˜¯å³¨åµ‹æ´¾çš„ç”·å¼Ÿå­ä»¬è‡ªå·±åŠ¨æ‰‹æ­å»ºçš„å®‰èº«ä¹‹æ‰€ã€‚å³¨åµ‹æ´¾è‡ªéƒ­è¥„å»ºæ´¾ä»¥
+æ¥ï¼Œä»¥å¥³å¼Ÿå­å±…å¤šï¼Œå› æ­¤ç”·å¼Ÿå­ä»¬æŠŠå®ƒä»¬å»ºåˆ°äº†è¿™ä¹ˆååƒ»çš„åœ°æ–¹ã€‚é‡Œé¢çš„ä¸œè¥¿
+éƒ½å¾ˆæœ´ç´ ï¼Œé™¤äº†å‡ å¼ æœ¨æ¿åºŠä»¥å¤–å°±æ²¡æœ‰ä»€ä¹ˆåˆ«çš„ä¸œè¥¿äº†ã€‚
 long);
         set("sleep_room", 1);
         set("exits",([
@@ -27,12 +27,12 @@ int do_xian(string arg)
 {
     object me = this_player();
     if (me->query_temp("marks/zuan"))
-	return notify_fail("Äã³Ô±¥ÁË³ÅµÄ£¿´²²»ÊÇÏÆ¿ªÁËÂð£¿\n");
+	return notify_fail("ä½ åƒé¥±äº†æ’‘çš„ï¼ŸåºŠä¸æ˜¯æŽ€å¼€äº†å—ï¼Ÿ\n");
     if (!arg) return 0;
-    if (arg != "Ä¾°å´²" && arg != "´²" && arg != "chuang" && arg != "bed")
+    if (arg != "æœ¨æ¿åºŠ" && arg != "åºŠ" && arg != "chuang" && arg != "bed")
 	return 0;
-    message_vision("$NÏÆ¿ªÁË´²°å¡£\n", me);
-    tell_object(me, "Äã·¢ÏÖ´²ÏÂÃæÓÐÒ»¸ö¶´¿Ú¿ÉÒÔ×ê½øÈ¥¡£\n");
+    message_vision("$NæŽ€å¼€äº†åºŠæ¿ã€‚\n", me);
+    tell_object(me, "ä½ å‘çŽ°åºŠä¸‹é¢æœ‰ä¸€ä¸ªæ´žå£å¯ä»¥é’»è¿›åŽ»ã€‚\n");
     me->set_temp("marks/zuan", 1);
     return 1;
 }
@@ -41,11 +41,11 @@ int do_zuan(string arg)
 {
     object me = this_player();
     if (!arg) return 0;
-    if ( arg != "hole" && arg != "¶´" && arg != "dong" && arg != "¶´¿Ú" && arg != "dongkou")
+    if ( arg != "hole" && arg != "æ´ž" && arg != "dong" && arg != "æ´žå£" && arg != "dongkou")
 	return 0;
     if (!me->query_temp("marks/zuan"))
 	return 0;
-    message_vision("$NÒ»Í·×ê½øÁË´²ÏÂµÄ¶´¿Ú¡£\n", me);
+    message_vision("$Nä¸€å¤´é’»è¿›äº†åºŠä¸‹çš„æ´žå£ã€‚\n", me);
     me->delete_temp("marks/zuan");
     me->move(__DIR__"houshanxl");
     return 1;

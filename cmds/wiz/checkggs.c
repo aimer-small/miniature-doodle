@@ -13,9 +13,9 @@ mixed main(object me)
     int t;
     int j;
 
-    str = "¡ò " + MUD_NAME + " µ±Ç°ÔÚÏßÍæ¼Ò¹í¹ÈÖ®ÊõÍ³¼Æ\n\n";
-    str += "ÕÊºÅ            ĞÕÃû       ¹ó±ö    ÓÀ¾Ã±äÁ¿     Condition     Ê¹ÓÃÊ±¼ä/Ê£ÓàÊ±¼ä\n";
-    str += "¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª\n";
+    str = "â— " + MUD_NAME + " å½“å‰åœ¨çº¿ç©å®¶é¬¼è°·ä¹‹æœ¯ç»Ÿè®¡\n\n";
+    str += "å¸å·            å§“å       è´µå®¾    æ°¸ä¹…å˜é‡     Condition     ä½¿ç”¨æ—¶é—´/å‰©ä½™æ—¶é—´\n";
+    str += "â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”\n";
     list = users();
     j=sizeof(list);
     while( j-- ) {
@@ -24,15 +24,15 @@ mixed main(object me)
         str = sprintf("%s%-15s %-10s %-10s %-10s%-10s%s/%-20s\n",
                 str,
                 list[j]->query("id"),list[j]->name(1),
-                (list[j]->query("registered")==3)?"ÊÇ":HIR"·ñ"NOR,
-                (list[j]->query("ggs/started"))?"Õı³£":HIR"Òì³£"NOR,
-                list[j]->query_condition("guigushu")?"Õı³£":HIR"Òì³££¬ÇëÓëLinuXÁªÏµ"NOR,
+                (list[j]->query("registered")==3)?"æ˜¯":HIR"å¦"NOR,
+                (list[j]->query("ggs/started"))?"æ­£å¸¸":HIR"å¼‚å¸¸"NOR,
+                list[j]->query_condition("guigushu")?"æ­£å¸¸":HIR"å¼‚å¸¸ï¼Œè¯·ä¸LinuXè”ç³»"NOR,
                 CHINESE_D->chinese_time(t),
                 CHINESE_D->chinese_time(list[j]->query("ggs/left_time") -t)
             );
     }      
-    str += "¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª\n";
-    str = sprintf("%s¹²ÓĞ %d Î»Ê¹ÓÃÕßÁ¬ÏßÖĞ£¬ÏµÍ³¸ºµ££º%s\n", str, sizeof(list),
+    str += "â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”\n";
+    str = sprintf("%så…±æœ‰ %d ä½ä½¿ç”¨è€…è¿çº¿ä¸­ï¼Œç³»ç»Ÿè´Ÿæ‹…ï¼š%s\n", str, sizeof(list),
         query_load_average() + "\n");
 
     write(str);
@@ -43,11 +43,11 @@ mixed main(object me)
 int help()
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : checkggs
+æŒ‡ä»¤æ ¼å¼ : checkggs
 
-Õâ¸öÖ¸Áî¿ÉÒÔÁĞ³öËùÓĞÔÚÏßÉÏµÄÍæ¼ÒµÄ¹í¹ÈÊõ×´Ì¬£¬¿ÉÒÔ²é¿´ÓĞÃ»ÓĞBUG¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥åˆ—å‡ºæ‰€æœ‰åœ¨çº¿ä¸Šçš„ç©å®¶çš„é¬¼è°·æœ¯çŠ¶æ€ï¼Œå¯ä»¥æŸ¥çœ‹æœ‰æ²¡æœ‰BUGã€‚
 
-Ïà¹ØÖ¸Áî£º finger, who
+ç›¸å…³æŒ‡ä»¤ï¼š finger, who
 HELP
     );
     return 1;

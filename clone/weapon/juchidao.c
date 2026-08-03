@@ -5,13 +5,13 @@ inherit BLADE;
 
 void create()
 {
-        set_name( "¾â³Ýµ¶", ({  "juchi dao" , "blade" , "dao"}));
+        set_name( "é”¯é½¿åˆ€", ({  "juchi dao" , "blade" , "dao"}));
         set_weight(10000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long", "ÕâÊÇÒ»°Ñ³¤µ¶£¬µ¶±³´¦¿ª³öÁËÒ»Áï·æÀûµÄ¾â³Ý£¬Ïà¶ÔÓÚÆÕÍ¨¸Öµ¶¹¥»÷Á¦¸ü´ó¡£\n");
+                set("unit", "æŠŠ");
+                set("long", "è¿™æ˜¯ä¸€æŠŠé•¿åˆ€ï¼Œåˆ€èƒŒå¤„å¼€å‡ºäº†ä¸€æºœé”‹åˆ©çš„é”¯é½¿ï¼Œç›¸å¯¹äºŽæ™®é€šé’¢åˆ€æ”»å‡»åŠ›æ›´å¤§ã€‚\n");
                 set("value", 1000);
                 set("material", "steel");
               }

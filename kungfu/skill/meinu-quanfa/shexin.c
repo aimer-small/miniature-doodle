@@ -1,4 +1,4 @@
-// shexin.c ÉãÐÄ
+// shexin.c æ‘„å¿ƒ
 
 #include <ansi.h>
 
@@ -6,58 +6,58 @@ inherit F_SSERVER;
 
 void affectob(object ,object ,int ,int ,int);
 void dohit(object,object);
-string perform_name(){ return HIW"ÉãÐÄ"NOR; }
+string perform_name(){ return HIW"æ‘„å¿ƒ"NOR; }
 int perform(object me, object target)
 {
 	int affect,skill,hits;
 	string msg;
 	
 	if(!me->is_fighting())
-		return notify_fail("ÄãÃ»ÔÚÕ½¶·ÖÐÄØ£¡\n");
+		return notify_fail("ä½ æ²¡åœ¨æˆ˜æ–—ä¸­å‘¢ï¼\n");
 
 	if(!target) target = offensive_target(me);
 
 	if( (skill=(int)me->query_skill("meinu-quanfa", 1)) < 150 )
-		return notify_fail("ÄãµÄÃÀÅ®È­·¨»¹²»¹»´¿Êì£¬ÎÞ·¨Ê©Õ¹¡¸ÉãÐÄ¡¹¾ø¼¼¡£\n");
+		return notify_fail("ä½ çš„ç¾Žå¥³æ‹³æ³•è¿˜ä¸å¤Ÿçº¯ç†Ÿï¼Œæ— æ³•æ–½å±•ã€Œæ‘„å¿ƒã€ç»æŠ€ã€‚\n");
 
 	if(me->query_skill_mapped("parry") != "meinu-quanfa")
-		return notify_fail("ÄãÃ»ÓÐÊ¹ÓÃÃÀÅ®È­·¨×÷ÎªÕÐ¼Ü£¡\n");
+		return notify_fail("ä½ æ²¡æœ‰ä½¿ç”¨ç¾Žå¥³æ‹³æ³•ä½œä¸ºæ‹›æž¶ï¼\n");
 	
 	if ( me->query_temp("weapon"))
-		return notify_fail("ÄãÊÖ³ÖÎäÆ÷£¬ÈçºÎÊ¹ÓÃ¡¸ÉãÐÄ¡¹¾ø¼¼£¿\n");
+		return notify_fail("ä½ æ‰‹æŒæ­¦å™¨ï¼Œå¦‚ä½•ä½¿ç”¨ã€Œæ‘„å¿ƒã€ç»æŠ€ï¼Ÿ\n");
 
-	if(me->query("gender")=="ÎÞÐÔ")
-		return notify_fail("Ãæ¶ÔÎÞÐÔ¶ÔÊÖ£¬ÄãÈçºÎÊ©Õ¹¡¸ÉãÐÄ¡¹¾ø¼¼£¿\n");
+	if(me->query("gender")=="æ— æ€§")
+		return notify_fail("é¢å¯¹æ— æ€§å¯¹æ‰‹ï¼Œä½ å¦‚ä½•æ–½å±•ã€Œæ‘„å¿ƒã€ç»æŠ€ï¼Ÿ\n");
 		
 if((target->query("gender")==me->query("gender"))&&((int)me->query_skill("meinu-quanfa",1 ) < 350))
-		return notify_fail("Ãæ¶ÔÍ¬ÐÔ¶ÔÊÖ£¬ÄãÈçºÎÊ©Õ¹¡¸ÉãÐÄ¡¹¾ø¼¼¡£\n");
+		return notify_fail("é¢å¯¹åŒæ€§å¯¹æ‰‹ï¼Œä½ å¦‚ä½•æ–½å±•ã€Œæ‘„å¿ƒã€ç»æŠ€ã€‚\n");
 
 	if(me->query("max_neili")<1200)
-		return notify_fail("ÄãÄÚÁ¦²»¹»£¬ÎÞ·¨Ê¹ÓÃ¡¸ÉãÐÄ¡¹¾ø¼¼¡£\n");
+		return notify_fail("ä½ å†…åŠ›ä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨ã€Œæ‘„å¿ƒã€ç»æŠ€ã€‚\n");
 
 	affect=me->query_per()+random(me->query("per")/2);
 
-	if (me->query("gender")=="ÄÐÐÔ") affect=affect / 2;
+	if (me->query("gender")=="ç”·æ€§") affect=affect / 2;
 
-	if (   target->query_skill("buddhism") > (skill+random(affect/2))  //ÅÐ¶Ïmonk
+	if (   target->query_skill("buddhism") > (skill+random(affect/2))  //åˆ¤æ–­monk
 	    || target->query_skill("dacheng-fofa") > (skill+random(affect/2))
 	    || target->query_skill("taoism") > (skill+random(affect/2)) )
 	{
-		msg = HIY"\n$N¶Ô$nÇáÇáÒ»Ð¦£¬ÑÛ¹âÖ®ÖÐÁ÷Â¶³öåüÃÄÖ®Òâ£¬ÏëÊ©Õ¹¡¸ÉãÐÄ¡¹¾ø¼¼¡£\n"+
-			HIW"²»ÁÏ$n¶¨ÁË¶¨Éñ£¬Í»È»´óºÈÒ»Éù£¬¶ÙÊ±°Ñ$N¾ª³öÒ»ÉíÀäº¹¡£\n"NOR;
+		msg = HIY"\n$Nå¯¹$nè½»è½»ä¸€ç¬‘ï¼Œçœ¼å…‰ä¹‹ä¸­æµéœ²å‡ºå¦©åªšä¹‹æ„ï¼Œæƒ³æ–½å±•ã€Œæ‘„å¿ƒã€ç»æŠ€ã€‚\n"+
+			HIW"ä¸æ–™$nå®šäº†å®šç¥žï¼Œçªç„¶å¤§å–ä¸€å£°ï¼Œé¡¿æ—¶æŠŠ$NæƒŠå‡ºä¸€èº«å†·æ±—ã€‚\n"NOR;
 		message_vision(msg,me,target);
 		me->start_busy(4);
 	}
 	else if (target->query_per()>=me->query_per())
 	{
-		msg = HIY"\n$NºöÈ»¶Ô$nÇáÇáÒ»Ð¦£¬ÑÛ¹âËÄ´¦Á÷¶¯£¬Ëù¾­¹ýÖ®´¦ËÆºõ³äÂúÁËåüÃÄ¡£\n"NOR; 
+		msg = HIY"\n$Nå¿½ç„¶å¯¹$nè½»è½»ä¸€ç¬‘ï¼Œçœ¼å…‰å››å¤„æµåŠ¨ï¼Œæ‰€ç»è¿‡ä¹‹å¤„ä¼¼ä¹Žå……æ»¡äº†å¦©åªšã€‚\n"NOR; 
 		message_vision(msg, me, target);
-		message_vision(HIW"µ«ÊÇ$N¾ÚÉ¥µØ·¢¾õ£¬$n±È×Ô¼ºÆ¯ÁÁ£¬¡¸ÉãÐÄ¡¹¾ø¼¼ÎÞ·¨Ê©Õ¹¡£\n"NOR,me,target);
+		message_vision(HIW"ä½†æ˜¯$Næ²®ä¸§åœ°å‘è§‰ï¼Œ$næ¯”è‡ªå·±æ¼‚äº®ï¼Œã€Œæ‘„å¿ƒã€ç»æŠ€æ— æ³•æ–½å±•ã€‚\n"NOR,me,target);
 		me->start_busy(2);
 	}
 	  else if (random(10)>5)
 	{
-		msg = HIY"\n$NºöÈ»¶Ô$nÇáÇáÒ»Ð¦£¬ÑÛ¹âËÄ´¦Á÷¶¯£¬Ëù¾­¹ýÖ®´¦ËÆºõ³äÂúÁËåüÃÄ£¬$n²»ÓÉµÃÒ»´ô¡£\n"NOR; 
+		msg = HIY"\n$Nå¿½ç„¶å¯¹$nè½»è½»ä¸€ç¬‘ï¼Œçœ¼å…‰å››å¤„æµåŠ¨ï¼Œæ‰€ç»è¿‡ä¹‹å¤„ä¼¼ä¹Žå……æ»¡äº†å¦©åªšï¼Œ$nä¸ç”±å¾—ä¸€å‘†ã€‚\n"NOR; 
       
 		message_vision(msg, me, target);
 
@@ -65,7 +65,7 @@ if((target->query("gender")==me->query("gender"))&&((int)me->query_skill("meinu-
 		{
 			target->add_temp("apply/dexerity", -affect);
 			hits = skill / 10;
-			me->start_perform(4,"ÉãÐÄ");
+			me->start_perform(4,"æ‘„å¿ƒ");
 			target->apply_condition("no_perform", 3);
 			target->set_temp("shexin", 1);
                         target->start_busy(3);
@@ -77,8 +77,8 @@ if((target->query("gender")==me->query("gender"))&&((int)me->query_skill("meinu-
 		}
 		else 
 		{
-			message_vision(CYN"\nµ«¼û$n´óºÈÒ»Éù£¬ÏëÓÃÐÛ»ëµÄÄÚÁ¦´òÆÆ$NËÄÖÜÕâåüÃÄµÄÆø·Õ£¡\n"+
-					"½á¹û$nÖ»·¢³öÁ½¡¢ÈýÕÐ£¬¾ÍÎÞ·¨ÈÌÊÜ$NåüÃÄµÄÑÛ¹âÁË¡£\n"NOR, me, target);
+			message_vision(CYN"\nä½†è§$nå¤§å–ä¸€å£°ï¼Œæƒ³ç”¨é›„æµ‘çš„å†…åŠ›æ‰“ç ´$Nå››å‘¨è¿™å¦©åªšçš„æ°”æ°›ï¼\n"+
+					"ç»“æžœ$nåªå‘å‡ºä¸¤ã€ä¸‰æ‹›ï¼Œå°±æ— æ³•å¿å—$Nå¦©åªšçš„çœ¼å…‰äº†ã€‚\n"NOR, me, target);
 
                         target->start_busy(2);
 			me->add("neili",-100);
@@ -87,15 +87,15 @@ if((target->query("gender")==me->query("gender"))&&((int)me->query_skill("meinu-
 			dohit(me,target);
 			if (skill >= 200) dohit(me,target);
 			target->add_temp("apply/dexerity", affect);
-			me->start_perform(4,"ÉãÐÄ");
+			me->start_perform(4,"æ‘„å¿ƒ");
 		}
 	}
 	else
 	{
-		msg = HIY"\n$NºöÈ»¶Ô$nÇáÇáÒ»Ð¦£¬ÏëÊ©Õ¹¡¸ÉãÐÄ¡¹¾ø¼¼¡£\n"+
-			HIM"Ë­Öª$n¸ù±¾¾ÍÃ»ÓÐÉÏµ±¡£\n"NOR; 
+		msg = HIY"\n$Nå¿½ç„¶å¯¹$nè½»è½»ä¸€ç¬‘ï¼Œæƒ³æ–½å±•ã€Œæ‘„å¿ƒã€ç»æŠ€ã€‚\n"+
+			HIM"è°çŸ¥$næ ¹æœ¬å°±æ²¡æœ‰ä¸Šå½“ã€‚\n"NOR; 
 		message_vision(msg, me, target);
-		me->start_perform(5,"ÉãÐÄ");
+		me->start_perform(5,"æ‘„å¿ƒ");
 	}       
 	return 1;
 }
@@ -113,7 +113,7 @@ void affectob(object me,object target,int affect,int hits,int now)
 		|| me->query_skill_prepared("cuff")!="meinu-quanfa"
 		|| me->query_skill_prepared("parry")!="meinu-quanfa")
 	{
-		if( me ) message_vision(HIC"\n$NÄÚÁ¦Í»È»Ò»¶Ù£¬ÑÛ¹âÓÖ»Ö¸´Æ½¾²¡£\n"NOR, me);
+		if( me ) message_vision(HIC"\n$Nå†…åŠ›çªç„¶ä¸€é¡¿ï¼Œçœ¼å…‰åˆæ¢å¤å¹³é™ã€‚\n"NOR, me);
 		if( target && target->query_temp("shexin"))
 			target->delete_temp("shexin");
 		if ( target )  target->add_temp("apply/dexerity", affect);
@@ -125,7 +125,7 @@ void affectob(object me,object target,int affect,int hits,int now)
 
 	dohit(me,target);
 	dohit(me,target);
-	me->start_perform(3,"ÉãÐÄ");
+	me->start_perform(3,"æ‘„å¿ƒ");
 	call_out("affectob",random(2)+2,me,target,affect,hits,now+1);
 }
 

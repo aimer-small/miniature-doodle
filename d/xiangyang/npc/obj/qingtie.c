@@ -6,19 +6,19 @@ inherit ITEM;
 
 void create()
 {
-set_name(HIC"ÏÀ¿ÍµºÀ°°ËÖàÇëÌû"NOR, ({ "qing tie", "qingtie", "tie" }));
+set_name(HIC"ä¾ å®¢å²›è…Šå…«ç²¥è¯·å¸–"NOR, ({ "qing tie", "qingtie", "tie" }));
         set_weight(2000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "ÕÅ");
+                set("unit", "å¼ ");
                 set("long",
-                        "ÕâÊÇÒ»ÕÅÏÀ¿ÍµºÑûÇëÎäÁÖÈËÊ¿ºÈÖàµÄÇëÌû¡£\n");
+                        "è¿™æ˜¯ä¸€å¼ ä¾ å®¢å²›é‚€è¯·æ­¦æ—äººå£«å–ç²¥çš„è¯·å¸–ã€‚\n");
                 set("value", 500);
                 set("no_give", 1);
                 set("treasure",1);
                 set("material", "paper");
-                set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
                
         }
 }

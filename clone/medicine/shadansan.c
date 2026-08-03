@@ -12,12 +12,12 @@ void init()
 
 void create()
 {
-        set_name(HIY"öèµ¨É¢"NOR, ({"shadan san", "san"}));
+        set_name(HIY"é²¨èƒ†æ•£"NOR, ({"shadan san", "san"}));
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
+                set("unit", "é¢—");
                 set("value", 1500);
                 set("medicine", "drug");
                 set("make/drug", 1);
@@ -29,11 +29,11 @@ int do_eat(string arg)
 {
 
         object me = this_player();
-        if (!living(me)) return notify_fail("Ïëµ±»úÂð£¿\n");
+        if (!living(me)) return notify_fail("æƒ³å½“æœºå—ï¼Ÿ\n");
         if (!id(arg)) return 0;
         if( me->query_condition("medicine")>0 )
-        	return notify_fail("ÄãÉÏÒ»´Î·þÒ©µÄÒ©ÐÔ»¹Ã»ÓÐ¹ýÄØ£¡\n");
-	message_vision(HIW"\n$N³ÔÏÂÒ»¿Åöèµ¨É¢£¬¶ÙÊ±¾õµÃ¾«Á¦ÍúÊ¢£¬ÉË¿ÚÆæ¼£°ãµÄÓúºÏÁË¡£\n\n"NOR,me);
+        	return notify_fail("ä½ ä¸Šä¸€æ¬¡æœè¯çš„è¯æ€§è¿˜æ²¡æœ‰è¿‡å‘¢ï¼\n");
+	message_vision(HIW"\n$Nåƒä¸‹ä¸€é¢—é²¨èƒ†æ•£ï¼Œé¡¿æ—¶è§‰å¾—ç²¾åŠ›æ—ºç››ï¼Œä¼¤å£å¥‡è¿¹èˆ¬çš„æ„ˆåˆäº†ã€‚\n\n"NOR,me);
         me->set("eff_qi", me->query("max_qi"));
         me->set("qi", me->query("eff_qi"));
         me->set("eff_jingli", me->query("max_jingli"));

@@ -1,13 +1,13 @@
-// xilang.c Î÷Ïá×ßÀÈ
+// xilang.c è¥¿åŽ¢èµ°å»Š
 // by Xiang
 
 inherit ROOM;
 
 void create()
 {
-	set("short", "Î÷Ïá×ßÀÈ");
+	set("short", "è¥¿åŽ¢èµ°å»Š");
 	set("long", @LONG
-	Äã×ßÔÚÒ»Ìõ×ßÀÈÉÏ£¬¶«±ßÊÇ´óµî£¬±±±ßÊÇÒ»×ùÂ¥¸ó¡£
+	ä½ èµ°åœ¨ä¸€æ¡èµ°å»Šä¸Šï¼Œä¸œè¾¹æ˜¯å¤§æ®¿ï¼ŒåŒ—è¾¹æ˜¯ä¸€åº§æ¥¼é˜ã€‚
 LONG
 	);
 

@@ -7,18 +7,18 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
-grant [Íæ¼Òid] [µÈ¼¶]
-ÉèÖÃÍæ¼ÒÔÚ°ïÅÉÖÐµÄµÈ¼¶¡£
-µÚÒ»µÈ¼¶Îª°ïÖ÷£¬ÏÞÒ»ÈË£»µÚ¶þµÈ¼¶Îª¸±°ïÖ÷£¬ÏÞÒ»ÈË£»
-µÚÈýµÈ¼¶ÎªÌÃÖ÷£¬ÏÞÈýÈË£»µÚËÄµÈ¼¶Îª°ïÖÚ£¬ÊýÁ¿ÓÉ°ïÅÉÊµÁ¦ºÍÃûÍûËùÏÞÖÆ¡£
-ÒÔÉÏ¡°°ïÖ÷¡±£¬¡°¸±°ïÖ÷¡±£¬¡°ÌÃÖ÷¡±£¬¡°°ïÖÚ¡±µÄ³ÆÎ½¿ÉÒÔÓÉÍæ¼Ò×ÔÐÐÉèÖÃ¡£
+æŒ‡ä»¤æ ¼å¼ :
+grant [çŽ©å®¶id] [ç­‰çº§]
+è®¾ç½®çŽ©å®¶åœ¨å¸®æ´¾ä¸­çš„ç­‰çº§ã€‚
+ç¬¬ä¸€ç­‰çº§ä¸ºå¸®ä¸»ï¼Œé™ä¸€äººï¼›ç¬¬äºŒç­‰çº§ä¸ºå‰¯å¸®ä¸»ï¼Œé™ä¸€äººï¼›
+ç¬¬ä¸‰ç­‰çº§ä¸ºå ‚ä¸»ï¼Œé™ä¸‰äººï¼›ç¬¬å››ç­‰çº§ä¸ºå¸®ä¼—ï¼Œæ•°é‡ç”±å¸®æ´¾å®žåŠ›å’Œåæœ›æ‰€é™åˆ¶ã€‚
+ä»¥ä¸Šâ€œå¸®ä¸»â€ï¼Œâ€œå‰¯å¸®ä¸»â€ï¼Œâ€œå ‚ä¸»â€ï¼Œâ€œå¸®ä¼—â€çš„ç§°è°“å¯ä»¥ç”±çŽ©å®¶è‡ªè¡Œè®¾ç½®ã€‚
 
-µÈ¼¶ÓÐ£º0¡«4£¬0±íÊ¾¿ª³ý¡£
-grant [Äã×Ô¼ºµÄid] 0 ±íÊ¾Äã×Ô¼ºÖ÷¶¯ÍÑÀë°ïÅÉ£¬Ã»ÓÐÈÎºÎËðÊ§¡£
-°ïÖ÷¿ÉÒÔ¿ª³ý°ïÅÉÀïµÄÆäËûÈË£¬±»°ïÖ÷¿ª³ýµÄÈË½«ÊÜµ½3%µÄ¾­Ñé³Í·£¡£
+ç­‰çº§æœ‰ï¼š0ï½ž4ï¼Œ0è¡¨ç¤ºå¼€é™¤ã€‚
+grant [ä½ è‡ªå·±çš„id] 0 è¡¨ç¤ºä½ è‡ªå·±ä¸»åŠ¨è„±ç¦»å¸®æ´¾ï¼Œæ²¡æœ‰ä»»ä½•æŸå¤±ã€‚
+å¸®ä¸»å¯ä»¥å¼€é™¤å¸®æ´¾é‡Œçš„å…¶ä»–äººï¼Œè¢«å¸®ä¸»å¼€é™¤çš„äººå°†å—åˆ°3%çš„ç»éªŒæƒ©ç½šã€‚
 
-½ÓÊÕÒ»¸öÍæ¼Ò¼ÓÈë°ïÅÉ£¬´ËÍæ¼Ò±ØÐëÏÈÓÃ¡°gjoin¡±ÃüÁî·¢³öÇëÇó¡£
+æŽ¥æ”¶ä¸€ä¸ªçŽ©å®¶åŠ å…¥å¸®æ´¾ï¼Œæ­¤çŽ©å®¶å¿…é¡»å…ˆç”¨â€œgjoinâ€å‘½ä»¤å‘å‡ºè¯·æ±‚ã€‚
 
 HELP
 	);
@@ -34,19 +34,19 @@ int main(object me, string arg)
 	if( !arg || sscanf(arg,"%s %d",uid,gclass)<2 || gclass<0 || gclass>4 )
 		return help(me);
 	if( !me->query("group/id") )
-		return notify_fail("Äã²¢Ã»ÓÐ¼ÓÈë°ï»áÄØ¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰åŠ å…¥å¸®ä¼šå‘¢ã€‚\n");
 	if( !GROUP_D->site_now(me->query("group/id")) )
 		return notify_fail( GROUP_D->get_last_error() );
 
 	if( uid==me->query("id") && gclass==0 ) {
 		if( me->query("group/class") == 1 )
-			return notify_fail("½âÉ¢°ï»áÇëÓÃ gdismiss ÃüÁî¡£\n");
+			return notify_fail("è§£æ•£å¸®ä¼šè¯·ç”¨ gdismiss å‘½ä»¤ã€‚\n");
 		if( !GROUP_D->set_group_master(me->query("group/id"),uid,gclass) )
 			return notify_fail( GROUP_D->get_last_error() );
 		if( !GROUP_D->set_group_member(me->query("group/id"),uid,0) )
 			return notify_fail( GROUP_D->get_last_error() );
 		GROUP_D->add_group_members(me->query("group/id"),-1);
-		message_vision("$NÍË³öÁË"+GROUP_D->get_group_name(me->query("group/id"))+"¡£\n",me);
+		message_vision("$Né€€å‡ºäº†"+GROUP_D->get_group_name(me->query("group/id"))+"ã€‚\n",me);
 		log_file("group/manage",sprintf("rebel   :%s:%s(%s)",me->query("group/id"),me->name(),me->query("id")),me);
 		me->delete("group");
 		me->delete_temp("title");
@@ -54,19 +54,19 @@ int main(object me, string arg)
 	}
 
 	if( me->query("group/class") > 3 )
-		return notify_fail("ÄãµÄµÈ¼¶²»¹»¡£\n");
+		return notify_fail("ä½ çš„ç­‰çº§ä¸å¤Ÿã€‚\n");
 
 	ob = find_player(uid);
 	if (ob && !me->visible(ob)) ob = 0;
 
 	if( gclass == 0 ) {
-		if( !ob ) return notify_fail("Ã»ÓÐÕâ¸öÈË¡£\n");
+		if( !ob ) return notify_fail("æ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 		if( ob->query("group/id") != me->query("group/id") )
-			return notify_fail("Õâ¸öÈË²¢²»ÊÇÄãÃÇ°ï»áµÄ³ÉÔ±¡£\n");
+			return notify_fail("è¿™ä¸ªäººå¹¶ä¸æ˜¯ä½ ä»¬å¸®ä¼šçš„æˆå‘˜ã€‚\n");
 		if( me->query("group/class") > 2 )
-			return notify_fail("ÄãµÄµÈ¼¶²»¹»¡£\n");
+			return notify_fail("ä½ çš„ç­‰çº§ä¸å¤Ÿã€‚\n");
 		if( me->query("group/class") >= ob->query("group/class") )
-			return notify_fail("ÄãµÄµÈ¼¶²»¹»£¬ÎÞ·¨¿ª³ý"+ob->name()+"¡£\n");
+			return notify_fail("ä½ çš„ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•å¼€é™¤"+ob->name()+"ã€‚\n");
 
 		if( !GROUP_D->set_group_master(me->query("group/id"),uid,gclass) )
 			return notify_fail( GROUP_D->get_last_error() );
@@ -76,22 +76,22 @@ int main(object me, string arg)
 		ob->add("combat_exp",-ob->query("combat_exp")*3/100);
 		ob->delete("group");
 
-		tell_room(environment(me),me->name()+"°Ñ"+ob->name()+"¿ª³ý³ö"+GROUP_D->get_group_name(me->query("group/id"))+"¡£\n",({me,ob}));
-		tell_object(me,"Äã°Ñ"+ob->name()+"¿ª³ý³ö"+GROUP_D->get_group_name(me->query("group/id"))+"¡£\n");
-		tell_object(ob,"Äã±»"+me->name()+"¿ª³ý³ö"+GROUP_D->get_group_name(me->query("group/id"))+"¡£\n");
+		tell_room(environment(me),me->name()+"æŠŠ"+ob->name()+"å¼€é™¤å‡º"+GROUP_D->get_group_name(me->query("group/id"))+"ã€‚\n",({me,ob}));
+		tell_object(me,"ä½ æŠŠ"+ob->name()+"å¼€é™¤å‡º"+GROUP_D->get_group_name(me->query("group/id"))+"ã€‚\n");
+		tell_object(ob,"ä½ è¢«"+me->name()+"å¼€é™¤å‡º"+GROUP_D->get_group_name(me->query("group/id"))+"ã€‚\n");
 		log_file("group/manage",sprintf("fire    :%s:%s(%s):%s(%s)",me->query("group/id"),me->name(),me->query("id"),ob->name(),ob->query("id")),me);
 		ob->delete_temp("title");
 	}
 	else {
-		if( !ob || !present(ob,environment(me)) ) return notify_fail("Ã»ÓÐÕâ¸öÈË¡£\n");
+		if( !ob || !present(ob,environment(me)) ) return notify_fail("æ²¡æœ‰è¿™ä¸ªäººã€‚\n");
 		if( ob->query("group") && ob->query("group/id")!=me->query("group/id") )
-			return notify_fail("Õâ¸öÈË²¢²»ÊÇÄãÃÇ°ï»áµÄ³ÉÔ±¡£\n");
+			return notify_fail("è¿™ä¸ªäººå¹¶ä¸æ˜¯ä½ ä»¬å¸®ä¼šçš„æˆå‘˜ã€‚\n");
 		if( me->query("group/class")>=gclass || (ob->query("group/class") && me->query("group/class")>=ob->query("group/class")) )
-			return notify_fail("ÄãµÄµÈ¼¶²»¹»£¬ÎÞ·¨¸Ä±ä"+ob->name()+"ÔÚ°ï»áÖÐµÄµÈ¼¶¡£\n");
+			return notify_fail("ä½ çš„ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•æ”¹å˜"+ob->name()+"åœ¨å¸®ä¼šä¸­çš„ç­‰çº§ã€‚\n");
 		if( !ob->query("group") && GROUP_D->get_group_members(me->query("group/id"))>=GROUP_D->get_max_group_members(me->query("group/id")) )
-			return notify_fail("ÄãÃÇ°ïÅÉµÄÈËÊýÒÑ¾­´ïµ½ÉÏÏÞ£º"+CHINESE_D->chinese_number(GROUP_D->get_max_group_members(me->query("group/id")))+"ÈË¡£\n");
+			return notify_fail("ä½ ä»¬å¸®æ´¾çš„äººæ•°å·²ç»è¾¾åˆ°ä¸Šé™ï¼š"+CHINESE_D->chinese_number(GROUP_D->get_max_group_members(me->query("group/id")))+"äººã€‚\n");
 		if( !ob->query("group") && ob->query_temp("group/join")!=me->query("group/id") )
-			return notify_fail(ob->name()+"²¢Ã»ÓÐÒªÇó¼ÓÈëÄãÃÇµÄ°ï»á°¡¡£\n");
+			return notify_fail(ob->name()+"å¹¶æ²¡æœ‰è¦æ±‚åŠ å…¥ä½ ä»¬çš„å¸®ä¼šå•Šã€‚\n");
 
 		if( !ob->query("group") && !GROUP_D->set_group_member(me->query("group/id"),uid,1,ob->name()) )
 			return notify_fail( GROUP_D->get_last_error() );
@@ -108,9 +108,9 @@ int main(object me, string arg)
 		ob->set("group/name",GROUP_D->get_group_name(me->query("group/id")));
 		ob->set("group/class",gclass);
 
-		tell_room(environment(me),me->name()+"°Ñ"+ob->name()+"ÔÚ°ïÅÉÖÐµÄµÈ¼¶¸ÄÎª"+GROUP_D->get_member_class(me->query("group/id"),gclass)+"¡£\n",({me,ob}));
-		tell_object(me,"Äã°Ñ"+ob->name()+"ÔÚ°ï»áÖÐµÄÈ¨ÏÞ¸ÄÎª"+GROUP_D->get_member_class(me->query("group/id"),gclass)+"¡£\n");
-		tell_object(ob,me->name()+"°ÑÄãÔÚ°ïÅÉÖÐµÄÈ¨ÏÞ¸ÄÎª"+GROUP_D->get_member_class(me->query("group/id"),gclass)+"¡£\n");
+		tell_room(environment(me),me->name()+"æŠŠ"+ob->name()+"åœ¨å¸®æ´¾ä¸­çš„ç­‰çº§æ”¹ä¸º"+GROUP_D->get_member_class(me->query("group/id"),gclass)+"ã€‚\n",({me,ob}));
+		tell_object(me,"ä½ æŠŠ"+ob->name()+"åœ¨å¸®ä¼šä¸­çš„æƒé™æ”¹ä¸º"+GROUP_D->get_member_class(me->query("group/id"),gclass)+"ã€‚\n");
+		tell_object(ob,me->name()+"æŠŠä½ åœ¨å¸®æ´¾ä¸­çš„æƒé™æ”¹ä¸º"+GROUP_D->get_member_class(me->query("group/id"),gclass)+"ã€‚\n");
 		if(ob) GROUP_D->check_user_group(ob);
 	}
 

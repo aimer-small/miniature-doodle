@@ -1,18 +1,18 @@
 
 	eval_cost(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		eval_cost() - ´«»ØÖ´ĞĞºÄ·ÑÊ±¼ä (evaluation cost) »¹
-			      Ê£¶àÉÙ.
-	Óï·¨:
+	åç§°:
+		eval_cost() - ä¼ å›æ‰§è¡Œè€—è´¹æ—¶é—´ (evaluation cost) è¿˜
+			      å‰©å¤šå°‘.
+	è¯­æ³•:
 		void eval_cost()
 
-		ÎŞ´«»ØÖµ eval_cost()
-	ÓÃ·¨:
-		eval_cost() ÔÚÇı¶¯³ÌÊ½ (driver) ÅĞ¶Ï´ËÊ±ÊÇ·ñÏİÈëÒ»¸ö
-		ÎŞÇî»ØÈ¦Ö®Ç°, ´«»ØÊÇ·ñ¿ÉÒÔÖ´ĞĞµÄÖ¸Ê¾Êı×Ö.
-	²Î¿¼:
+		æ— ä¼ å›å€¼ eval_cost()
+	ç”¨æ³•:
+		eval_cost() åœ¨é©±åŠ¨ç¨‹å¼ (driver) åˆ¤æ–­æ­¤æ—¶æ˜¯å¦é™·å…¥ä¸€ä¸ª
+		æ— ç©·å›åœˆä¹‹å‰, ä¼ å›æ˜¯å¦å¯ä»¥æ‰§è¡Œçš„æŒ‡ç¤ºæ•°å­—.
+	å‚è€ƒ:
 		catch(3), error(3), throw(3), error_handler(4),
 		set_eval_limit(3), reset_eval_cost()
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Feb.12.		(printed 3/16/95)

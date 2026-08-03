@@ -6,7 +6,7 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(RED"ÁÒÑæµ¶"NOR, ({ "lieyan dao", "dao", "lieyan", "blade" }) );        
+        set_name(RED"çƒˆç„°åˆ€"NOR, ({ "lieyan dao", "dao", "lieyan", "blade" }) );        
         set_weight(7000);
         if( clonep() )
                 set_default_object(__FILE__);
@@ -19,8 +19,8 @@ void create()
            set("wield_neili", 100);
            set("wield_maxneili", 1000);
            set("wield_str", 22);
-           set("unit", "°Ñ");
-           set("long", RED"´Ëµ¶µ¶ÃæÈçÓĞ»ğ¹âÁ÷¶¯£¬µ¶ÇÊÉÏÏâÖø¡°ÁÒÑæ¡±Á½¸ö¹Å×­£¬ÄËÊÇÃ÷½ÌµÄÕò½Ì±¦Îï£¬Æ½Ê±¶¼¹©·îÔÚ¹âÃ÷±¦ËşÖ®ÄÚ¡£\n"NOR);
+           set("unit", "æŠŠ");
+           set("long", RED"æ­¤åˆ€åˆ€é¢å¦‚æœ‰ç«å…‰æµåŠ¨ï¼Œåˆ€é˜ä¸Šé•¶è‘—â€œçƒˆç„°â€ä¸¤ä¸ªå¤ç¯†ï¼Œä¹ƒæ˜¯æ˜æ•™çš„é•‡æ•™å®ç‰©ï¼Œå¹³æ—¶éƒ½ä¾›å¥‰åœ¨å…‰æ˜å®å¡”ä¹‹å†…ã€‚\n"NOR);
            }
         init_blade(50);
         setup();

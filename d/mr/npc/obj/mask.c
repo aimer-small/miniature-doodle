@@ -5,13 +5,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name("Ãæ¾ß", ({ "mian ju", "mask" }) );
+        set_name("é¢å…·", ({ "mian ju", "mask" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
-                set("long", "ÕâËÆºõÊÇÒ»¸öÓÉÈËÆ¤ÖÆ³ÉµÄÃæ¾ß¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "è¿™ä¼¼ä¹Žæ˜¯ä¸€ä¸ªç”±äººçš®åˆ¶æˆçš„é¢å…·ã€‚\n");
                set("unique", 1);
                 set("value", 10000);
         }
@@ -31,35 +31,35 @@ int do_pretend(string arg)
         string pshort;
 
         if (! arg)
-                return notify_fail("ÄãÏëÒ×ÈÝ³ÉË­£¿\n");
+                return notify_fail("ä½ æƒ³æ˜“å®¹æˆè°ï¼Ÿ\n");
 
         me = this_player();
         if (arg == "none" || arg == "cancel")
         {
                 if (! query_temp("owner"))
-                        return notify_fail("ÄãÏÖÔÚ²¢Ã»ÓÐÊ¹ÓÃÃæ¾ß¡£\n");
+                        return notify_fail("ä½ çŽ°åœ¨å¹¶æ²¡æœ‰ä½¿ç”¨é¢å…·ã€‚\n");
 
                 me->delete_temp("apply/name");
                 me->delete_temp("apply/short");
                 me->delete_temp("apply/long");
-                message_vision("$N´ÓÁ³ÉÏÈ¡ÏÂÁËÒ»¸öÈËÆ¤Ãæ¾ß¡£\n", me);
+                message_vision("$Nä»Žè„¸ä¸Šå–ä¸‹äº†ä¸€ä¸ªäººçš®é¢å…·ã€‚\n", me);
                 return 1;
         }
 
 
         if (! objectp(who = present(arg, environment(me))) || 
             ! living(who))
-                return notify_fail("ÄãÏëÒ×ÈÝ³ÉË­£¿\n");
+                return notify_fail("ä½ æƒ³æ˜“å®¹æˆè°ï¼Ÿ\n");
 
         if (wizardp(who))
-                return notify_fail("ÄãÎÞ·¨Ò×ÈÝ³ÉÎ×Ê¦¡£\n");
+                return notify_fail("ä½ æ— æ³•æ˜“å®¹æˆå·«å¸ˆã€‚\n");
 
         if (sizeof(mask = who->query_temp("apply/short")))
                 pshort = mask[sizeof(mask) - 1];
         else
                 pshort = who->short(1);
 
-        write("Äã¿ªÊ¼½«×Ô¼ºÒ×ÈÝ³É" + who->name() + "¡£\n");
+        write("ä½ å¼€å§‹å°†è‡ªå·±æ˜“å®¹æˆ" + who->name() + "ã€‚\n");
         me->set_temp("apply/name", ({ who->name() }));
         me->set_temp("apply/short", ({ pshort }));
         me->set_temp("apply/long", ({ who->long() }));

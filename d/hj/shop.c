@@ -1,13 +1,13 @@
-// shop.c ������С�� 
+// shop.c 哈萨克小店 
 
 inherit ROOM;
 
 void create()
 {
-        set("short", "������С��");
+        set("short", "哈萨克小店");
         set("long", @LONG
-�������������ƾɣ��ƺ���ú����˾�û����������������ߵ��ǹ��˲�
-�ٶ�����ţƤ������ȵȣ����������Ǹ�С��Ʒ�㡣
+这座帐篷略显破旧，似乎搭好后主人就没再修整过它。帐篷边到是挂了不
+少东西，牛皮筋，铃铛等等，看来这里是个小杂品点。
 LONG);
         set("exits", ([            
             "south" : __DIR__"pmchang",
@@ -21,7 +21,7 @@ LONG);
                     "/d/xingxiu/npc/shangren" : 1
         ]));
 
-        set("outdoors", "��ԭ");
+        set("outdoors", "草原");
         
         set("coor/x",-320);
   set("coor/y",110);

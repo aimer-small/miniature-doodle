@@ -1,15 +1,15 @@
-//li.c ÀîÀÏ°å 
+//li.c æè€æ¿ 
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("ÀîÀÏ°å", ({ "li", "laoban" }));
+	set_name("æè€æ¿", ({ "li", "laoban" }));
 	set("long",
-		"ÀîÀÏ°åÕıÒóÇÚµÄÕĞÀ¿×ÅÀ´À´ÍùÍùµÄĞĞÈË¡£\n");
-	set("title", "ÔÓ»õÆÌÀÏ°å");
-	set("gender", "ÄĞĞÔ");
+		"æè€æ¿æ­£æ®·å‹¤çš„æ‹›æ½ç€æ¥æ¥å¾€å¾€çš„è¡Œäººã€‚\n");
+	set("title", "æ‚è´§é“ºè€æ¿");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set("attitude", "peaceful");
 	set("shen", 2000);

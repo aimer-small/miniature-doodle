@@ -1,4 +1,4 @@
-// /d/xiangyang/npc/kzxiaoer.c ¿ÍÕ»Ğ¡¶ş
+// /d/xiangyang/npc/kzxiaoer.c å®¢æ ˆå°äºŒ
 //party_job npc By hongba & jpei
 #include <ansi.h>
 inherit WAITER;
@@ -7,28 +7,28 @@ inherit F_VENDOR;
 #include <job_mul.h>
 void create()
 {
-        set_name("Ğ¡¶ş", ({ "xiao er", "xiao", "waiter" }) );
-        set("gender", "ÄĞĞÔ" );
+        set_name("å°äºŒ", ({ "xiao er", "xiao", "waiter" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 27);
-        set("long", "ÕâÎ»µêĞ¡¶şÕıĞ¦ßäßäµØÃ¦×Å£¬»¹²»Ê±ÄÃÆğ¹ÒÔÚ²±×ÓÉÏµÄÄ¨²¼²ÁÁ³¡£\n");
+        set("long", "è¿™ä½åº—å°äºŒæ­£ç¬‘å’ªå’ªåœ°å¿™ç€ï¼Œè¿˜ä¸æ—¶æ‹¿èµ·æŒ‚åœ¨è„–å­ä¸Šçš„æŠ¹å¸ƒæ“¦è„¸ã€‚\n");
         set("combat_exp", 10000);
         set("attitude", "friendly");
-        set("rank_info/respect", "Ğ¡¶ş¸ç");
+        set("rank_info/respect", "å°äºŒå“¥");
         set("vendor_goods", ({
                 (["name": MISC_D("denglong"), "number":10]),
                 (["name": MISC_D("fire"), "number":10]),
         }));
         set("inquiry", ([
-                "name" : "²»¸Òµ±£¬³ÆºôÎÒĞ¡¶ş¾ÍºÃÁË¡£",
-                "rumors" : "ÎÒ¿É²»ÖªµÀÊ²Ã´´«ÎÅ£¬ÕâÖÖÊÂ£¬ÄãÈ¥ÎÊÆäËûÈËºÃÁË¡£",
-                "ÏåÑô" : "Õâ¾ÍÊÇÏåÑôÑ½£¬¿Í¹ÙÄúÕâ²»ÊÇÆïÂ¿ÕÒÂ¿Âğ£¿",
+                "name" : "ä¸æ•¢å½“ï¼Œç§°å‘¼æˆ‘å°äºŒå°±å¥½äº†ã€‚",
+                "rumors" : "æˆ‘å¯ä¸çŸ¥é“ä»€ä¹ˆä¼ é—»ï¼Œè¿™ç§äº‹ï¼Œä½ å»é—®å…¶ä»–äººå¥½äº†ã€‚",
+                "è¥„é˜³" : "è¿™å°±æ˜¯è¥„é˜³å‘€ï¼Œå®¢å®˜æ‚¨è¿™ä¸æ˜¯éª‘é©´æ‰¾é©´å—ï¼Ÿ",
         ]));
         set("per", 20);
 
         set("chat_chance", 5);
         set("chat_msg", ({
-                "µêĞ¡¶şÈÂÉùËµµÀ£¬¡°¿Í¹Ù£¡ÀïÃæÇë£¬ÀïÃæÇë£¡¡±\n",
-                "µêĞ¡¶şĞ¦ÎûÎûµØËµµÀ£¬¡°×¡ÔÛÃÇ½­ºş¿ÍÕ»£¬Äú¾ÍÒ»°Ù¸ö·ÅĞÄ°É¡£¡±\n",
+                "åº—å°äºŒåš·å£°è¯´é“ï¼Œâ€œå®¢å®˜ï¼é‡Œé¢è¯·ï¼Œé‡Œé¢è¯·ï¼â€\n",
+                "åº—å°äºŒç¬‘å˜»å˜»åœ°è¯´é“ï¼Œâ€œä½å’±ä»¬æ±Ÿæ¹–å®¢æ ˆï¼Œæ‚¨å°±ä¸€ç™¾ä¸ªæ”¾å¿ƒå§ã€‚â€\n",
         }) );
         setup();
         carry_object(ARMOR_D("cloth"))->wear();
@@ -56,12 +56,12 @@ void greeting(object ob)
         if (!ob || !present(ob, environment())) return;
         switch( random(2) ) {
                 case 0:
-                        say( "µêĞ¡¶şĞ¦ßäßäµØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬½øÀ´ºÈ±­²è£¬ĞªĞªÍÈ°É¡£\n");
+                        say( "åº—å°äºŒç¬‘å’ªå’ªåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œè¿›æ¥å–æ¯èŒ¶ï¼Œæ­‡æ­‡è…¿å§ã€‚\n");
                         break;
                 case 1:
-                        say( "µêĞ¡¶şÓÃ²±×ÓÉÏµÄÃ«½íÄ¨ÁËÄ¨ÊÖ£¬ËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-                                + "£¬Çë½øÇë½ø¡£\n");
+                        say( "åº—å°äºŒç”¨è„–å­ä¸Šçš„æ¯›å·¾æŠ¹äº†æŠ¹æ‰‹ï¼Œè¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+                                + "ï¼Œè¯·è¿›è¯·è¿›ã€‚\n");
         }
 }
 
@@ -69,8 +69,8 @@ int accept_object(object who, object ob)
 {
 
         if (ob->query("money_id") && ob->value() >= 500){
-                tell_object(who, "Ğ¡¶şÒ»¹şÑü£¬ËµµÀ£º¶àĞ»ÄúÀÏ£¬¿Í¹ÙÇëÉÏÂ¥ĞªÏ¢¡£\n");
-                who->set_temp("rent_paid","½­ºş¿ÍÕ»");
+                tell_object(who, "å°äºŒä¸€å“ˆè…°ï¼Œè¯´é“ï¼šå¤šè°¢æ‚¨è€ï¼Œå®¢å®˜è¯·ä¸Šæ¥¼æ­‡æ¯ã€‚\n");
+                who->set_temp("rent_paid","æ±Ÿæ¹–å®¢æ ˆ");
                 return 1;
         }
         return 0;

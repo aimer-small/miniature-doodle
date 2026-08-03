@@ -65,11 +65,11 @@ void getspec();
 
 void create()
 {
-	set("short", "µ±ÆÌ");
+	set("short", "å½“é“º");
 	set("long", 
-"ÕâÊÇÒ»¼ÒËØÒÔÂòÂô¹«Æ½Öø³ÆµÄÀÏ×ÖºÅµ±ÆÌ£¬Ò»¸öËÄ³ß¸ßµÄ¹ñÌ¨°ÚÔÚÄãµÄÃæ\n"+
-"Ç°£¬¹ñÌ¨ÉÏ°Ú×ÅÒ»¸öÅÆ×Ó(paizi)£¬ ¹ñÌ¨ºó×ø×Åµ±ÆÌµÄÀÏ°å£¬Ò»Ë«¹íÁïÁïµÄÑÛ\n"+
-"¾¦ÉÏÉÏÏÂÏÂ´òÁ¿×ÅÄã£¬ÌıËµÕâÀïÕıÔÚ´óÁ¿ÊÕÆı¡º"+HBGRN+HIG+"Êé½£Í¨±¦"+NOR+"¡»¡£\n"
+"è¿™æ˜¯ä¸€å®¶ç´ ä»¥ä¹°å–å…¬å¹³è‘—ç§°çš„è€å­—å·å½“é“ºï¼Œä¸€ä¸ªå››å°ºé«˜çš„æŸœå°æ‘†åœ¨ä½ çš„é¢\n"+
+"å‰ï¼ŒæŸœå°ä¸Šæ‘†ç€ä¸€ä¸ªç‰Œå­(paizi)ï¼Œ æŸœå°ååç€å½“é“ºçš„è€æ¿ï¼Œä¸€åŒé¬¼æºœæºœçš„çœ¼\n"+
+"ç›ä¸Šä¸Šä¸‹ä¸‹æ‰“é‡ç€ä½ ï¼Œå¬è¯´è¿™é‡Œæ­£åœ¨å¤§é‡æ”¶è®«ã€"+HBGRN+HIG+"ä¹¦å‰‘é€šå®"+NOR+"ã€ã€‚\n"
 );
 	set("no_fight",1);
 	set("no_sleep_room",1);
@@ -96,7 +96,7 @@ void init()
     if(!objectp(me)) return;
 /*
     if(!present("tongbao xiang", me) && !random(100) ){
-        message_vision(HIC"Í»È»£¬$N·¢ÏÖ´Óµ±ÆÌ¹ñÌ¨ÉÏµôÏÂÀ´Ò»Ñù¶«Î÷£¬µ«ÊÇÃ¦ÂµµÄÀÏ°åºÍ»ï¼ÆÃÇ¶¼Ã»·¢ÏÖ¡£\n$NÁ¬Ã¦½«¶«Î÷²ØÔÚÁË×Ô¼ºÉíÉÏ¡£\n"NOR,me);
+        message_vision(HIC"çªç„¶ï¼Œ$Nå‘ç°ä»å½“é“ºæŸœå°ä¸Šæ‰ä¸‹æ¥ä¸€æ ·ä¸œè¥¿ï¼Œä½†æ˜¯å¿™ç¢Œçš„è€æ¿å’Œä¼™è®¡ä»¬éƒ½æ²¡å‘ç°ã€‚\n$Nè¿å¿™å°†ä¸œè¥¿è—åœ¨äº†è‡ªå·±èº«ä¸Šã€‚\n"NOR,me);
         if(!wizardp(me))
         me->add_busy(3+random(3));
         if(!present("tongbao xiang",environment(me)) ){
@@ -118,7 +118,7 @@ void getspec()
 	
 	file = get_dir("/clone/spec/");
 
-	if( !sizeof(file) ) return notify_fail("ÕÒ²»µ½ÈÎºÎÎïÆ· \n");
+	if( !sizeof(file) ) return notify_fail("æ‰¾ä¸åˆ°ä»»ä½•ç‰©å“ \n");
 	for( i = 0; i < sizeof(file); i++ )
 	{	tpw = "";
                 file[i] = "/clone/spec/" + file[i];
@@ -129,9 +129,9 @@ void getspec()
 		if(!ob->query("credit")) continue;		
 		
 		if (!ob->query("rest"))
-			tpw = "ÎŞ";		
+			tpw = "æ— ";		
 		else
-			tpw = "Ã¿ÖÜ"+chinese_number(ob->query("rest"))+"´Î";	
+			tpw = "æ¯å‘¨"+chinese_number(ob->query("rest"))+"æ¬¡";	
 		special[i]=([
 			"value"		:	ob->query("credit"),
 			"name"		:	ob->query("name"),
@@ -152,22 +152,22 @@ int do_look(string arg)
 	int i;
         
 	if(me->is_busy()) 
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         	
  
         if (arg == "paizi" ){   
 	        write(query("special"));
-	        write("¹«Æ½½»Ò×£¬ÀÏÉÙÎŞÆÛ¡£\n");
-	        write("±¾µêÏÖÔÚÊÕÄÉ¡°Êé½£Í¨±¦¡±£¬¿ÉÓÃÊé½£Í¨±¦¶Ò»»µÄÏŞÖÆ¼¶±¦ÎïÈçÏÂ£º\n");
-                write("©³©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·\n");
-                write(sprintf("©§ %-25s  %-45s  %-10s %-12s %-7s©§\n", "±¦ÎïÃû³Æ","±¦Îï×÷ÓÃ","¿ÉÓÃ´ÎÊı","Ê¹ÓÃÏŞÖÆ","Í¨±¦" ));
-                write("©Ç©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n");
+	        write("å…¬å¹³äº¤æ˜“ï¼Œè€å°‘æ— æ¬ºã€‚\n");
+	        write("æœ¬åº—ç°åœ¨æ”¶çº³â€œä¹¦å‰‘é€šå®â€ï¼Œå¯ç”¨ä¹¦å‰‘é€šå®å…‘æ¢çš„é™åˆ¶çº§å®ç‰©å¦‚ä¸‹ï¼š\n");
+                write("â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“\n");
+                write(sprintf("â”ƒ %-25s  %-45s  %-10s %-12s %-7sâ”ƒ\n", "å®ç‰©åç§°","å®ç‰©ä½œç”¨","å¯ç”¨æ¬¡æ•°","ä½¿ç”¨é™åˆ¶","é€šå®" ));
+                write("â”£â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n");
 	        for (i=0;i<sizeof(special);i++) {
 	        	 if (!special[i]["value"]) continue;
-          write(sprintf("©§ %-25s  %-46s %-10s %-12s "+HIY+"%-7d"+NOR+"©§\n", special[i]["name"]+"("+special[i]["id"]+")",special[i]["desc"],chinese_number(special[i]["degree"])+"´Î",special[i]["tpw"],special[i]["value"] ));
+          write(sprintf("â”ƒ %-25s  %-46s %-10s %-12s "+HIY+"%-7d"+NOR+"â”ƒ\n", special[i]["name"]+"("+special[i]["id"]+")",special[i]["desc"],chinese_number(special[i]["degree"])+"æ¬¡",special[i]["tpw"],special[i]["value"] ));
 	        }
-                write("©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n");
-	        write("ÇëÊ¹ÓÃ£¨duihuan xxxx£©Ö¸ÁîÀ´¶Ò»»»ñµÃ¡£\n");
+                write("â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n");
+	        write("è¯·ä½¿ç”¨ï¼ˆduihuan xxxxï¼‰æŒ‡ä»¤æ¥å…‘æ¢è·å¾—ã€‚\n");
 		return 1;
 	}     
 	return 0;
@@ -179,34 +179,34 @@ int do_exchange(string arg)
    object card,ob,me = this_player();
 	
 	if(me->is_busy()) 
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
   		
 	if(!arg)
-		return notify_fail("ÄãÏë¶Ò»»Ê²Ã´¡£\n"); 
+		return notify_fail("ä½ æƒ³å…‘æ¢ä»€ä¹ˆã€‚\n"); 
   		
 	for (i=0;i<sizeof(special);i++)
 	if (arg == special[i]["id"])  
 		j=i+1;	
 	if(!j)
-		return notify_fail("ÕâÀïÃ»ÓĞÄãÏë¶Ò»»¶«Î÷¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰ä½ æƒ³å…‘æ¢ä¸œè¥¿ã€‚\n");
         
         if (me->query("quest/bwdh/card_winner") && present("vip card", me)
           &&special[j-1]["value"]*(int)me->query("quest/bwdh/card_winner")>me->query("SJ_Credit")*100)
-           return notify_fail("¶Ô²»ÆğÄãÏÖÓĞµÄÍ¨±¦²»¹»¶Ò»»"+special[j-1]["name"]+"¡£\n");
+           return notify_fail("å¯¹ä¸èµ·ä½ ç°æœ‰çš„é€šå®ä¸å¤Ÿå…‘æ¢"+special[j-1]["name"]+"ã€‚\n");
         else if (special[j-1]["value"]>me->query("SJ_Credit"))
-		return notify_fail("¶Ô²»ÆğÄãÏÖÓĞµÄÍ¨±¦²»¹»¶Ò»»"+special[j-1]["name"]+"¡£\n");
+		return notify_fail("å¯¹ä¸èµ·ä½ ç°æœ‰çš„é€šå®ä¸å¤Ÿå…‘æ¢"+special[j-1]["name"]+"ã€‚\n");
         
 	ob = new(special[j-1]["file"]);
 	if(!objectp(ob))
-		{return notify_fail("ÏµÍ³´íÎóÇëÁªÏµWIZ¡£\n");}
+		{return notify_fail("ç³»ç»Ÿé”™è¯¯è¯·è”ç³»WIZã€‚\n");}
 		
    if(me->query("quest/bwdh/card_winner") && present("vip card",me)){
     card = present("vip card",me);
    me->add("SJ_Credit",-(special[j-1]["value"]*(int)me->query("quest/bwdh/card_winner")/100));
    me->add("SJ_Credit_Used",(special[j-1]["value"]*(int)me->query("quest/bwdh/card_winner")/100));
    k = special[j-1]["value"]*(int)me->query("quest/bwdh/card_winner")/100;
-   message_vision(sprintf(HIC"%sÒ»°ÑÌÍ³ö»³ÀïµÄ%s"HIC"¶ÔÕâµ±ÆÌÀÏ°åÖ¸ÁËÖ¸%s"HIC"µÀ£º¡°¾ÍËüÁË£¬¸ø°³»»£¡¡±\n"NOR,me->query("name"),card->query("name"),special[j-1]["name"]),me);
-   message_vision(sprintf(HIG"µ±ÆÌÀÏ°å½Ó¹ı%s"HIG"Ò»¿´£¬²ïÒìµÄ¿´×Å%s,Á¬Ã¦µÀ£º¡°Ô­À´ÊÇ±¾µê¹ó±ö£¡ÇëÉÔ×øÆ¬¿Ì£¬Á¢¼´¸øÄú°ìÍ×£¡\n"NOR,card->query("name"),me->query("name")),me);
+   message_vision(sprintf(HIC"%sä¸€æŠŠæå‡ºæ€€é‡Œçš„%s"HIC"å¯¹è¿™å½“é“ºè€æ¿æŒ‡äº†æŒ‡%s"HIC"é“ï¼šâ€œå°±å®ƒäº†ï¼Œç»™ä¿ºæ¢ï¼â€\n"NOR,me->query("name"),card->query("name"),special[j-1]["name"]),me);
+   message_vision(sprintf(HIG"å½“é“ºè€æ¿æ¥è¿‡%s"HIG"ä¸€çœ‹ï¼Œè¯§å¼‚çš„çœ‹ç€%s,è¿å¿™é“ï¼šâ€œåŸæ¥æ˜¯æœ¬åº—è´µå®¾ï¼è¯·ç¨åç‰‡åˆ»ï¼Œç«‹å³ç»™æ‚¨åŠå¦¥ï¼\n"NOR,card->query("name"),me->query("name")),me);
    }
    else{
 	me->add("SJ_Credit",-special[j-1]["value"]);
@@ -214,14 +214,14 @@ int do_exchange(string arg)
    }
    ob->move(me);
    if(me->query("quest/bwdh/card_winner") && present("vip card",me)){
-   message_vision(sprintf("µ±ÆÌÀÏ°åßººÈÒ»Éù£º¡°VIP¿Í»§:%s¶Ò»»ÏŞÖÆ¼¶±¦Îï%s£¬"+me->query("quest/bwdh/card_winner")/10+"ÕÛÓÅ»İ£¬ÊÕÆı%s¸öÊé½£Í¨±¦¡£¡±\n",me->query("name"),special[j-1]["name"],chinese_number(k)),me);
+   message_vision(sprintf("å½“é“ºè€æ¿å†å–ä¸€å£°ï¼šâ€œVIPå®¢æˆ·:%så…‘æ¢é™åˆ¶çº§å®ç‰©%sï¼Œ"+me->query("quest/bwdh/card_winner")/10+"æŠ˜ä¼˜æƒ ï¼Œæ”¶è®«%sä¸ªä¹¦å‰‘é€šå®ã€‚â€\n",me->query("name"),special[j-1]["name"],chinese_number(k)),me);
     }
    else
-	message_vision(sprintf("µ±ÆÌÀÏ°åßººÈÒ»Éù£º¡°%s¶Ò»»ÏŞÖÆ¼¶±¦Îï%s£¬ÊÕÆı%s¸öÊé½£Í¨±¦¡£¡±\n",me->query("name"),special[j-1]["name"],chinese_number(special[j-1]["value"])),me);
-	tell_object(me,"ÄúÄ¿Ç°»¹Ê£"
-		+ chinese_number(me->query("SJ_Credit"))+"¸öÊé½£Í¨±¦£¬ÄúÒÑ¾­ÀÛ¼ÆÏû·ÑÁË" 
-		+ chinese_number(me->query("SJ_Credit_Used")) +"¸öÊé½£Í¨±¦¡£\n");
-	log_file( "static/CREDIT",sprintf("%s(%s) | ¹ºÂò%s | Ê£:%s | ÓÃ:%s | ÀÛ¼Æ:%s.\n", me->name(), me->query("id"), special[j-1]["name"],chinese_number(me->query("SJ_Credit")),chinese_number(special[j-1]["value"]),chinese_number(me->query("SJ_Credit_Used"))));
+	message_vision(sprintf("å½“é“ºè€æ¿å†å–ä¸€å£°ï¼šâ€œ%så…‘æ¢é™åˆ¶çº§å®ç‰©%sï¼Œæ”¶è®«%sä¸ªä¹¦å‰‘é€šå®ã€‚â€\n",me->query("name"),special[j-1]["name"],chinese_number(special[j-1]["value"])),me);
+	tell_object(me,"æ‚¨ç›®å‰è¿˜å‰©"
+		+ chinese_number(me->query("SJ_Credit"))+"ä¸ªä¹¦å‰‘é€šå®ï¼Œæ‚¨å·²ç»ç´¯è®¡æ¶ˆè´¹äº†" 
+		+ chinese_number(me->query("SJ_Credit_Used")) +"ä¸ªä¹¦å‰‘é€šå®ã€‚\n");
+	log_file( "static/CREDIT",sprintf("%s(%s) | è´­ä¹°%s | å‰©:%s | ç”¨:%s | ç´¯è®¡:%s.\n", me->name(), me->query("id"), special[j-1]["name"],chinese_number(me->query("SJ_Credit")),chinese_number(special[j-1]["value"]),chinese_number(me->query("SJ_Credit_Used"))));
         me->start_busy(1);
 		
 	return 1; 

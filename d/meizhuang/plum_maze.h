@@ -1,10 +1,10 @@
-// Included Header: /d/plummanor/plum_maze.h //╣╔б╥╬╤цт╧╛м╥нд╪Ч
+// Included Header: /d/plummanor/plum_maze.h //Е█∙Х╥╞Е╬└Х©╥Е╝╚Е╓╢Ф√┤Д╩╤
 // By Jpei
 
-#define MAZE_WIDTH  12  //ц╥аж©М(╤╚нВоР)
-#define MAZE_HEIGHT 10  //ц╥ажиН(до╠╠оР)
+#define MAZE_WIDTH  12  //Ф╒┘Ф·≈Е╝╫(Д╦°Х╔©Е░▒)
+#define MAZE_HEIGHT 10  //Ф╒┘Ф·≈Ф╥╠(Е█≈Е▄≈Е░▒)
 
-#define LINK_DOWN   1  //╠╬╫з╣ЦспоРоб(до)╣да╛╫с
-#define LINK_RIGHT  2  //╠╬╫з╣ЦспоРср(╤╚)╣да╛╫с
-#define LINK_LEFT   4  //╠╬╫з╣ЦспоРвС(нВ)╣да╛╫с
-#define LINK_UP     8  //╠╬╫з╣ЦспоРио(╠╠)╣да╛╫с
+#define LINK_DOWN   1  //Ф°╛Х┼┌Г┌╧Ф°┴Е░▒Д╦▀(Е█≈)Г └Х©·Ф▌╔
+#define LINK_RIGHT  2  //Ф°╛Х┼┌Г┌╧Ф°┴Е░▒Е▐Ё(Д╦°)Г └Х©·Ф▌╔
+#define LINK_LEFT   4  //Ф°╛Х┼┌Г┌╧Ф°┴Е░▒Е╥╕(Х╔©)Г └Х©·Ф▌╔
+#define LINK_UP     8  //Ф°╛Х┼┌Г┌╧Ф°┴Е░▒Д╦┼(Е▄≈)Г └Х©·Ф▌╔

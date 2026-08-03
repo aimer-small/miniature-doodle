@@ -1,15 +1,15 @@
-//song.c ËÎÀÏ°å 
+//song.c å®‹è€æ¿ 
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("ËÎÀÏ°å", ({ "song", "laoban" }));
+	set_name("å®‹è€æ¿", ({ "song", "laoban" }));
 	set("long",
-		"ËÎÀÏ°åÊÇÍÁÉúÍÁ³¤µÄ·ğÉ½ÈË£¬Õı²Ù×ÅÒ»¿Ú·½ÑÔ½ĞºÈ×Å¡£\n");
-	set("title", "Ğ¡³ÔµêÀÏ°å");
-	set("gender", "ÄĞĞÔ");
+		"å®‹è€æ¿æ˜¯åœŸç”ŸåœŸé•¿çš„ä½›å±±äººï¼Œæ­£æ“ç€ä¸€å£æ–¹è¨€å«å–ç€ã€‚\n");
+	set("title", "å°åƒåº—è€æ¿");
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set("attitude", "peaceful");
 	set("shen", 1000);

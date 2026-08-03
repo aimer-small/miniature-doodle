@@ -4,16 +4,16 @@ inherit NPC;
 
 void create()
 {
-        set_name("Õ÷¶«½«¾ü", ({"zhengdong jiangjun", "dog"}));
-	set("race", "Ò°ÊÞ");
+        set_name("å¾ä¸œå°†å†›", ({"zhengdong jiangjun", "dog"}));
+	set("race", "é‡Žå…½");
 	set("age", 4);
-	set("long", "Ò»Ö»°ºÊ×Í¦ÐØ£¬ÍÂ×Å³¤ÉàÍ·µÄ´ó¶ñ¹·¡£\n");
+	set("long", "ä¸€åªæ˜‚é¦–æŒºèƒ¸ï¼Œåç€é•¿èˆŒå¤´çš„å¤§æ¶ç‹—ã€‚\n");
 	set("attitude", "peaceful");
 	
 	set("str", 26);
 	set("cor", 30);
 
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°½Å", "ºó½Å", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰è„š", "åŽè„š", "å°¾å·´" }) );
 	set("verbs", ({ "bite", "claw" }) );
 
 	set("combat_exp", 1000);
@@ -39,7 +39,7 @@ void init()
 
 void die()
 {
-	message_vision("$N²Òº¿Ò»Éù£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Næƒ¨åšŽä¸€å£°ï¼Œæ­»äº†ï¼\n", this_object());
 	new("/clone/armor/goupi")->move(environment());
 	destruct(this_object());
 }

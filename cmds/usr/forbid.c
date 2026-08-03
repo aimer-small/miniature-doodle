@@ -1,5 +1,5 @@
-// Forbid.c ·âÍ£ÕÊºÅ
-// ½ûÖ¹Íæ¼Ò°´ÕÕÒªÇóÊ±¼äµÇÂ½¡£
+// Forbid.c å°åœå¸å·
+// ç¦æ­¢ç©å®¶æŒ‰ç…§è¦æ±‚æ—¶é—´ç™»é™†ã€‚
 
 
 #include <ansi.h>
@@ -79,11 +79,11 @@ private int delete_forbid_name(object me, string arg)
 
 	if (name)
 	{
-		tell_object(me, "Äã°Ñ" + name + "µÄÕÊºÅ½â·â¡£\n");
+		tell_object(me, "ä½ æŠŠ" + name + "çš„å¸å·è§£å°ã€‚\n");
 	}
 	else
 	{
-		tell_object(me, name + "µÄÕÊºÅÃ»ÓĞ·âÍ£¡£\n");
+		tell_object(me, name + "çš„å¸å·æ²¡æœ‰å°åœã€‚\n");
 	}
 
 	return 1;
@@ -116,7 +116,7 @@ int main(object me, string arg)
 
 	if (wiz_level(me)<4)
 	{
-		return notify_fail("Ö»ÓĞÓÎÏ·¹ÜÀíÔ±²Å¿ÉÒÔ·âÍ£ÕÊºÅ¡£ \n");
+		return notify_fail("åªæœ‰æ¸¸æˆç®¡ç†å‘˜æ‰å¯ä»¥å°åœå¸å·ã€‚ \n");
 	}
 		
 	if (sscanf(arg, "-d %s", s) == 1 )
@@ -132,17 +132,17 @@ int main(object me, string arg)
 
 	if (day < 0)
 	{
-		return notify_fail("ÕÊºÅ½û±ÕÊ±¼ä±ØĞë´óÓÚÁã£¬°´ÕÕÌì¼ÆËã¡£\n");
+		return notify_fail("å¸å·ç¦é—­æ—¶é—´å¿…é¡»å¤§äºé›¶ï¼ŒæŒ‰ç…§å¤©è®¡ç®—ã€‚\n");
 	}
 
 	if (is_forbid(arg1))
 	{
-		return notify_fail("Íæ¼ÒµÄÕÊºÅÒÑ¾­·âÍ££¬Èç¹ûÒÑ¾­½â·â£¬ÇëÉÏÉ¾³ı¸ÃÌõ¼ÇÂ¼ÔÙÖØĞÂ·âÍ£¡£\n");
+		return notify_fail("ç©å®¶çš„å¸å·å·²ç»å°åœï¼Œå¦‚æœå·²ç»è§£å°ï¼Œè¯·ä¸Šåˆ é™¤è¯¥æ¡è®°å½•å†é‡æ–°å°åœã€‚\n");
 	}
 		
 	if (strlen(arg2)< 8 || strlen(arg2)>44)
 	{
-		return notify_fail("Çë¼òÃ÷¶óÒªµØËµÃ÷Ô­Òò£¬×ÖÊı±ØĞëÔÚ4-20Ö®¼ä¡£ \n");
+		return notify_fail("è¯·ç®€æ˜æ‰¼è¦åœ°è¯´æ˜åŸå› ï¼Œå­—æ•°å¿…é¡»åœ¨4-20ä¹‹é—´ã€‚ \n");
 	}
 	
 	if (objectp(ob = LOGIN_D->find_body(arg1)))
@@ -155,7 +155,7 @@ int main(object me, string arg)
 		if( file_size(DATA_DIR + "user/" + arg1[0..0] 
 			+ "/" + arg1 + SAVE_EXTENSION)<0 )
 		{
-			return notify_fail("Ã»ÓĞÕâÎ»Ê¹ÓÃÕß¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä½ä½¿ç”¨è€…ã€‚\n");
 		}
 		
 		ob = new(USER_OB);
@@ -169,7 +169,7 @@ int main(object me, string arg)
 		if (!ob->restore())
 		{
 			destruct(ob);
-			return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
 		}
 
 		ob->set_name(ob->query("name"), ({ arg1 }));
@@ -181,20 +181,20 @@ int main(object me, string arg)
 		
 		if (ob->set("forbid_time", forbid_time))
 		{
-			tell_object(me,"Íæ¼Ò·â±ÕÕÊºÅÊ±¼äÉèÖÃ³É¹¦£¡\n");
+			tell_object(me,"ç©å®¶å°é—­å¸å·æ—¶é—´è®¾ç½®æˆåŠŸï¼\n");
 		}
 		else
 		{
-			return notify_fail("Íæ¼Ò·â±ÕÕÊºÅÊ±¼äÉèÖÃÊ§°Ü£¬·â±ÕÕÊºÅÎŞĞ§£¡ÇëÓë¸ß¼¶Î×Ê¦ÁªÏµ¡£\n");
+			return notify_fail("ç©å®¶å°é—­å¸å·æ—¶é—´è®¾ç½®å¤±è´¥ï¼Œå°é—­å¸å·æ— æ•ˆï¼è¯·ä¸é«˜çº§å·«å¸ˆè”ç³»ã€‚\n");
 		}
 		ob->set_temp("db_quit", 1);
 		if (ob->save())
 		{
-			tell_object(me,"Íæ¼Ò·â±ÕÕÊºÅÊ±¼ä±£´æ³É¹¦£¡\n");
+			tell_object(me,"ç©å®¶å°é—­å¸å·æ—¶é—´ä¿å­˜æˆåŠŸï¼\n");
 		}
 		else
 		{
-			return notify_fail("Íæ¼Ò·â±ÕÕÊºÅÊ±¼ä±£´æÊ§°Ü£¬·â±ÕÕÊºÅÎŞĞ§£¡ÇëÓë¸ß¼¶Î×Ê¦ÁªÏµ¡£\n");
+			return notify_fail("ç©å®¶å°é—­å¸å·æ—¶é—´ä¿å­˜å¤±è´¥ï¼Œå°é—­å¸å·æ— æ•ˆï¼è¯·ä¸é«˜çº§å·«å¸ˆè”ç³»ã€‚\n");
 		}
 		
 		note = allocate_mapping(7);
@@ -206,32 +206,32 @@ int main(object me, string arg)
 		note["day"]	= day;
 		note["utime"] 	= forbid_time;
 
-		message("channel", HIC "\n¡¾¼ÍÂÉ¡¿"+ob->query("name")
+		message("channel", HIC "\nã€çºªå¾‹ã€‘"+ob->query("name")
 			+"("+capitalize(ob->query("id"))
-			+")ÒòÎª£Û" + arg2 + "£İ£¬Î¥·´Êé½£ÓÎÏ·¹æÔò£¬¾ö¶¨¸øÓè·âÍ£ÕÊºÅ"
-			+ CHINESE_D->chinese_number(day) + "ÌìµÄ´¦·£¡£\n\n" NOR, users()
+			+")å› ä¸ºï¼»" + arg2 + "ï¼½ï¼Œè¿åä¹¦å‰‘æ¸¸æˆè§„åˆ™ï¼Œå†³å®šç»™äºˆå°åœå¸å·"
+			+ CHINESE_D->chinese_number(day) + "å¤©çš„å¤„ç½šã€‚\n\n" NOR, users()
 			);
-			//´¦·£¹«¿ª£¬POST×¨ÃÅÁôÑÔ°å
+			//å¤„ç½šå…¬å¼€ï¼ŒPOSTä¸“é—¨ç•™è¨€æ¿
 		
-	        note2 = (["title":"Í£·âÍæ¼Ò"+ob->query("name")+"("+capitalize(ob->query("id"))+")ÕÊºÅµÄ´¦Àí¹«¸æ",
+	        note2 = (["title":"åœå°ç©å®¶"+ob->query("name")+"("+capitalize(ob->query("id"))+")å¸å·çš„å¤„ç†å…¬å‘Š",
 	        	"author":me->query("name") + "(" + getuid(me) + ")",
 	        	"time":0,
 	        	"msg":0,]);
-		"/clone/board/wizto_b"->done_post(this_object(),note2,"¡¾¼ÍÂÉ¡¿"+ob->query("name")
+		"/clone/board/wizto_b"->done_post(this_object(),note2,"ã€çºªå¾‹ã€‘"+ob->query("name")
 			+"("+capitalize(ob->query("id"))
-			+")ÒòÎª£Û" + arg2 + "£İ£¬Î¥·´Êé½£ÓÎÏ·¹æÔò£¬¾ö¶¨¸øÓè·âÍ£ÕÊºÅ"
-			+ CHINESE_D->chinese_number(day) + "ÌìµÄ´¦·£¡£\n");
+			+")å› ä¸ºï¼»" + arg2 + "ï¼½ï¼Œè¿åä¹¦å‰‘æ¸¸æˆè§„åˆ™ï¼Œå†³å®šç»™äºˆå°åœå¸å·"
+			+ CHINESE_D->chinese_number(day) + "å¤©çš„å¤„ç½šã€‚\n");
 		/*
-		"/clone/board/wizto_b"->auto_post("Í£·âÍæ¼Ò"+ob->query("name")
+		"/clone/board/wizto_b"->auto_post("åœå°ç©å®¶"+ob->query("name")
 		+"("+capitalize(ob->query("id"))
-		+")ÕÊºÅµÄ´¦Àí¹«¸æ","¡¾¼ÍÂÉ¡¿"+ob->query("name")
+		+")å¸å·çš„å¤„ç†å…¬å‘Š","ã€çºªå¾‹ã€‘"+ob->query("name")
 			+"("+capitalize(ob->query("id"))
-			+")ÒòÎª£Û" + arg2 + "£İ£¬Î¥·´Êé½£ÓÎÏ·¹æÔò£¬¾ö¶¨¸øÓè·âÍ£ÕÊºÅ"
-			+ CHINESE_D->chinese_number(day) + "ÌìµÄ´¦·£¡£\n");	
+			+")å› ä¸ºï¼»" + arg2 + "ï¼½ï¼Œè¿åä¹¦å‰‘æ¸¸æˆè§„åˆ™ï¼Œå†³å®šç»™äºˆå°åœå¸å·"
+			+ CHINESE_D->chinese_number(day) + "å¤©çš„å¤„ç½šã€‚\n");	
 		*/
-		//save Ê§°Ü ÎŞĞëlog
-		log_file( "static/FORBID", me->query("name")+"("+me->query("id")+") ¸ø " +
-			arg1 + day + " Ìì·âÍ£ÕÊºÅµÄ³Í·£, ÒòÎª:" + arg2 + "\n" );
+		//save å¤±è´¥ æ— é¡»log
+		log_file( "static/FORBID", me->query("name")+"("+me->query("id")+") ç»™ " +
+			arg1 + day + " å¤©å°åœå¸å·çš„æƒ©ç½š, å› ä¸º:" + arg2 + "\n" );
 	}
 	
 	destruct(ob);
@@ -247,7 +247,7 @@ int main(object me, string arg)
 	
 	save();
 
-	tell_object(me, "Äã³É¹¦µØ°Ñ" + note["player"] + "ÁĞÈë·âÍ£ÕÊºÅÃûµ¥¡£\n");
+	tell_object(me, "ä½ æˆåŠŸåœ°æŠŠ" + note["player"] + "åˆ—å…¥å°åœå¸å·åå•ã€‚\n");
 	return 1;
 	
 }
@@ -273,28 +273,28 @@ void list_forbid(object me, int num)
 
 	if( i < 1 )
 	{
-		write("Êé½£·âÍ£ÕÊºÅÃûµ¥Ä¿Ç°Ã»ÓĞÈÎºÎÄÚÈİ¡£\n");
+		write("ä¹¦å‰‘å°åœå¸å·åå•ç›®å‰æ²¡æœ‰ä»»ä½•å†…å®¹ã€‚\n");
 		return;
 	}
 	
-	str="Êé½£·âÍ£ÕÊºÅÃûµ¥£º\n";
-	str += repeat_string("©­", 24) + "\n";
+	str="ä¹¦å‰‘å°åœå¸å·åå•ï¼š\n";
+	str += repeat_string("â”‰", 24) + "\n";
 
 	while (i-- && (i>=sizeof(notes)-num || num==0))
 	{
-		str += sprintf("±àºÅ£º%d\nÍæ¼Ò£º%s\nÔ­Òò£º"HIG"%s"NOR
-			"\nÊ±¼ä£º¹² %s Ìì¡£%s¡£\n×´Ì¬£º%s\nÊ±¼ä£º%s\n",
+		str += sprintf("ç¼–å·ï¼š%d\nç©å®¶ï¼š%s\nåŸå› ï¼š"HIG"%s"NOR
+			"\næ—¶é—´ï¼šå…± %s å¤©ã€‚%sã€‚\nçŠ¶æ€ï¼š%s\næ—¶é—´ï¼š%s\n",
 			i+1,
 			notes[i]["player"],
 			notes[i]["reason"],
 			CHINESE_D->chinese_number(notes[i]["day"]),
-			wizardp(me)?("´¦ÀíÎ×Ê¦:"+notes[i]["block"]):"",				
-			( notes[i]["utime"]-time() > 0 )?("»¹Ê£" + 
-			CHINESE_D->chinese_time(notes[i]["utime"]-time())):"ÒÑµ½ÆÚ",
+			wizardp(me)?("å¤„ç†å·«å¸ˆ:"+notes[i]["block"]):"",				
+			( notes[i]["utime"]-time() > 0 )?("è¿˜å‰©" + 
+			CHINESE_D->chinese_time(notes[i]["utime"]-time())):"å·²åˆ°æœŸ",
 			CHINESE_D->chinese_date(notes[i]["time"],1)
 			);
 
-		str += repeat_string("©­", 24) + "\n";
+		str += repeat_string("â”‰", 24) + "\n";
 	}
 	
 	me->start_more( str );
@@ -304,22 +304,22 @@ int help(object me)
 {
 	if (!wiz_level(me) )
         write(@HELP
-Ö¸Áî¸ñÊ½ :
-forbid [all]                 ²é¿´·âÍ£ÕÊºÅÃûµ¥µÄÄÚÈİºÍ´¦Àí½á¹û
+æŒ‡ä»¤æ ¼å¼ :
+forbid [all]                 æŸ¥çœ‹å°åœå¸å·åå•çš„å†…å®¹å’Œå¤„ç†ç»“æœ
 
-Î×Ê¦½«±»»³ÒÉÎ¥·´¹æÔòµÄÍæ¼ÒµÇ¼ÇÈë·âÍ£ÕÊºÅ£¬ÔÚ·âÍ£ÕÊºÅÆÚ¼ä£¬¸ÃÍæ¼ÒÕÊ
-ºÅ½«±»ÔİÊ±·â±Õ£¬²»ÄÜÁªÏßÓÎÏ·¡£
+å·«å¸ˆå°†è¢«æ€€ç–‘è¿åè§„åˆ™çš„ç©å®¶ç™»è®°å…¥å°åœå¸å·ï¼Œåœ¨å°åœå¸å·æœŸé—´ï¼Œè¯¥ç©å®¶å¸
+å·å°†è¢«æš‚æ—¶å°é—­ï¼Œä¸èƒ½è”çº¿æ¸¸æˆã€‚
 
 HELP);
     else 
         write(@HELP
-Ö¸Áî¸ñÊ½ :
-forbid [all]                       ²é¿´ºÚÃûµ¥µÄÄÚÈİºÍ´¦Àí½á¹û
-forbid <id> <day> because <Ô­Òò>   ½«Íæ¼ÒÁĞÈëºÚÃûµ¥£¬µÈºòµ÷²é´¦Àí
-forbid -d <id>                     É¾³ıÖ¸¶¨±àºÅµÄºÚÃûµ¥
+æŒ‡ä»¤æ ¼å¼ :
+forbid [all]                       æŸ¥çœ‹é»‘åå•çš„å†…å®¹å’Œå¤„ç†ç»“æœ
+forbid <id> <day> because <åŸå› >   å°†ç©å®¶åˆ—å…¥é»‘åå•ï¼Œç­‰å€™è°ƒæŸ¥å¤„ç†
+forbid -d <id>                     åˆ é™¤æŒ‡å®šç¼–å·çš„é»‘åå•
 
-Î×Ê¦½«±»»³ÒÉÎ¥·´¹æÔòµÄÍæ¼ÒµÇ¼ÇÈë·âÍ£ÕÊºÅ£¬ÔÚ·âÍ£ÕÊºÅÆÚ¼ä£¬¸ÃÍæ¼ÒÕÊ
-ºÅ½«±»ÔİÊ±·â±Õ£¬²»ÄÜÁªÏßÓÎÏ·¡£
+å·«å¸ˆå°†è¢«æ€€ç–‘è¿åè§„åˆ™çš„ç©å®¶ç™»è®°å…¥å°åœå¸å·ï¼Œåœ¨å°åœå¸å·æœŸé—´ï¼Œè¯¥ç©å®¶å¸
+å·å°†è¢«æš‚æ—¶å°é—­ï¼Œä¸èƒ½è”çº¿æ¸¸æˆã€‚
 HELP);
         return 1;
 }

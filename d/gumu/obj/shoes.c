@@ -4,12 +4,12 @@ inherit BOOTS;
 
 void create()
 {
-        set_name(HIW"��ɫ��ѥ"NOR, ({ "shoes" }) );
+        set_name(HIW"白色轻靴"NOR, ({ "shoes" }) );
         set_weight(2000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "˫");
+                set("unit", "双");
                 set("material", "boots");
                  set("armor_prop/dodge", 1);
         }

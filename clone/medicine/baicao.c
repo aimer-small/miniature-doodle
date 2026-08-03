@@ -10,12 +10,12 @@ void init()
 
 void create()
 {
-        set_name(HIW"°Ù²İµ¤"NOR, ({"baicao dan", "baicao" , "dan"}));
+        set_name(HIW"ç™¾è‰ä¸¹"NOR, ({"baicao dan", "baicao" , "dan"}));
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
+                set("unit", "é¢—");
                 set("heal_up", 1);
                 set("value", 1500);
                 set("medicine", "drug");
@@ -28,12 +28,12 @@ int do_eat(string arg)
 {
         object me = this_player();
         if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´Ò©£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆè¯ï¼Ÿ\n");
         if ((int)me->query("eff_qi") == 
             (int)me->query("max_qi")
           &&(int)me->query("eff_jing") ==
             (int)me->query("max_jing"))
-                return notify_fail("ÉíÌåºÃºÃµÄÃ»ÊÂ³ÔÊ²Ã´Ò©£¿\n");
+                return notify_fail("èº«ä½“å¥½å¥½çš„æ²¡äº‹åƒä»€ä¹ˆè¯ï¼Ÿ\n");
         else {
                 me->add("eff_qi", 90);
                 me->add("qi", 90);
@@ -47,7 +47,7 @@ int do_eat(string arg)
             { me->set("eff_jing",me->query("max_jing") );
               me->set("jing",me->query("eff_jing") );
             }
-                message_vision(YEL"\n$N³ÔÏÂÒ»¿Å°Ù²İµ¤£¬ÉËÊÆÁ¢Ê±´óÓú£¡\n\n"NOR, this_player());
+                message_vision(YEL"\n$Nåƒä¸‹ä¸€é¢—ç™¾è‰ä¸¹ï¼Œä¼¤åŠ¿ç«‹æ—¶å¤§æ„ˆï¼\n\n"NOR, this_player());
               if(random(5)==1) me->start_busy(1);
                 destruct(this_object());
                 return 1;

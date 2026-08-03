@@ -1,4 +1,4 @@
-// caikuang shifu  ²É¿óÊ¦¸µ
+// caikuang shifu  é‡‡çŸ¿å¸ˆå‚…
 // by augx@sj  9/7/2001
 
 inherit NPC;
@@ -6,12 +6,12 @@ inherit F_VENDOR;
 
 void create()
 {
-	set_name("²É¿óÊ¦¸µ",({ "caikuang shifu", "shifu" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("é‡‡çŸ¿å¸ˆå‚…",({ "caikuang shifu", "shifu" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 56);
 	set("long", 
-"ÕâÊÇÎ»±¥¾­·çËªµÄÀÏ²É¿ó¹¤ÈË£¬ÏÖÔÚÀÏÁË£¬²»ÄÜÈ¥²É¿óÁË£¬
-Ö»ÄÜ¿¿ÂôĞ©²É¿ó¹¤¾ß£¬½ÌÄêÇáµÄ¹¤ÈËÒ»Ğ©³õ²½µÄ²É¿óÖªÊ¶¹ı»î¡£\n");
+"è¿™æ˜¯ä½é¥±ç»é£éœœçš„è€é‡‡çŸ¿å·¥äººï¼Œç°åœ¨è€äº†ï¼Œä¸èƒ½å»é‡‡çŸ¿äº†ï¼Œ
+åªèƒ½é å–äº›é‡‡çŸ¿å·¥å…·ï¼Œæ•™å¹´è½»çš„å·¥äººä¸€äº›åˆæ­¥çš„é‡‡çŸ¿çŸ¥è¯†è¿‡æ´»ã€‚\n");
 
 	set("str", 55);
 	set("dex", 55);
@@ -46,8 +46,8 @@ void create()
 	
 	set("chat_chance", 5);
  	set("chat_msg", ({
- 		"²É¿óÊ¦¸µËµµÀ£º¡°ÓĞÈËÒªÂò²É¿ó´òÌú¹¤¾ßÂğ£¿¡±\n",
- 		"²É¿óÊ¦¸µËµµÀ£º¡°Ë­¾È¼ÃÎÒÒ»ÏÂ°¡£¬ÎÒ¿ÉÒÔ½ÌËû²É¿ó¼¼Êõ¡£¡±\n",
+ 		"é‡‡çŸ¿å¸ˆå‚…è¯´é“ï¼šâ€œæœ‰äººè¦ä¹°é‡‡çŸ¿æ‰“é“å·¥å…·å—ï¼Ÿâ€\n",
+ 		"é‡‡çŸ¿å¸ˆå‚…è¯´é“ï¼šâ€œè°æ•‘æµæˆ‘ä¸€ä¸‹å•Šï¼Œæˆ‘å¯ä»¥æ•™ä»–é‡‡çŸ¿æŠ€æœ¯ã€‚â€\n",
  	}) );
 	
 	set("vendor_goods", ({
@@ -70,7 +70,7 @@ void kill_ob(object ob)
 {
 	object me = this_object();
 	command("!!!");
-	command("say ÎÒÖ»ÊÇÒ»¸ö¿ÉÁ¯µÄÀÏ¿ó¹¤£¬ÎªÊ²Ã´ÒªÉ±ÎÒÄØ£¿");
+	command("say æˆ‘åªæ˜¯ä¸€ä¸ªå¯æ€œçš„è€çŸ¿å·¥ï¼Œä¸ºä»€ä¹ˆè¦æ€æˆ‘å‘¢ï¼Ÿ");
 	me->remove_enemy(ob);
 	ob->remove_killer(me);
 	return;
@@ -78,7 +78,7 @@ void kill_ob(object ob)
 
 int accept_fight(object ob)
 {
-	command("say ÎÒÖ»ÊÇÒ»¸ö¿ÉÁ¯µÄÀÏ¿ó¹¤£¬ÎªÊ²Ã´ÒªÉ±ÎÒÄØ£¿");
+	command("say æˆ‘åªæ˜¯ä¸€ä¸ªå¯æ€œçš„è€çŸ¿å·¥ï¼Œä¸ºä»€ä¹ˆè¦æ€æˆ‘å‘¢ï¼Ÿ");
 	return 0;
 }
 
@@ -109,11 +109,11 @@ int recognize_apprentice(object ob)
 	if (level > 19) money = 500;
 	if (level > 29) money = 1000;
 	if (level > 49) money = 2000;
-	if (level > 50) return 0;//ÊµÏ°½áÊøÁË 
+	if (level > 50) return 0;//å®ä¹ ç»“æŸäº† 
 	
 	switch (MONEY_D->player_pay(ob, money)) {
 		case 0:
-		case 2: tell_object(ob,"ÄãÏÖÔÚµÄÑ§·ÑÊÇÃ¿´Î"+MONEY_D->money_str(money)+"¡£ÄãµÄÇ®²»¹»£¡\n" ); return 0;
+		case 2: tell_object(ob,"ä½ ç°åœ¨çš„å­¦è´¹æ˜¯æ¯æ¬¡"+MONEY_D->money_str(money)+"ã€‚ä½ çš„é’±ä¸å¤Ÿï¼\n" ); return 0;
 	}
 	return 1;
 }

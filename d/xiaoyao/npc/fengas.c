@@ -10,10 +10,10 @@ string ask_me();
 
 void create()
 {
-	set_name("·ë°¢Èý", ({ "feng asan", "feng" }));
+	set_name("å†¯é˜¿ä¸‰", ({ "feng asan", "feng" }));
 	set("long", 
-		"¾ÝËµËû¾ÍÊÇÂ³°àµÄºóÈË£¬µ±´úµÄµÚÒ»ÇÉ½³£¬Éè¼Æ»ú¹ØµÄÄÜÊÖ¡£\n");
-	set("gender", "ÄÐÐÔ");
+		"æ®è¯´ä»–å°±æ˜¯é²ç­çš„åŽäººï¼Œå½“ä»£çš„ç¬¬ä¸€å·§åŒ ï¼Œè®¾è®¡æœºå…³çš„èƒ½æ‰‹ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("attitude", "friendly");
 	set("class", "alchemist");
@@ -24,7 +24,7 @@ void create()
 	set("dex", 28);
 
 	set("inquiry", ([
-		"»ú¹Ø":(:ask_me:),
+		"æœºå…³":(:ask_me:),
 	]) );
 
 	set("max_qi", 600);
@@ -51,9 +51,9 @@ void create()
 	map_skill("force", "beiming-shengong");
 	map_skill("blade", "ruyi-dao");
 
-	create_family("åÐÒ£ÅÉ", 3, "µÜ×Ó");
-	set("title","åÐÒ£ÅÉ¡°º¯¹È°ËÓÑ¡±");
-	set("nickname","ÇÉ½³");
+	create_family("é€é¥æ´¾", 3, "å¼Ÿå­");
+	set("title","é€é¥æ´¾â€œå‡½è°·å…«å‹â€");
+	set("nickname","å·§åŒ ");
 	setup();
 	carry_object(__DIR__"obj/cloth")->wear();
 	carry_object(__DIR__"obj/blade")->wield();
@@ -66,8 +66,8 @@ string ask_me()
 	ob=this_player(); 
 
 	if (random(100)<70)
-		return "ÎÒÔÚÉè¼Æ»ú¹Ø·½ÃæÊÇÓÐµãÌØ³¤£¬ÈÃ´ó¼Ò¼ûÐ¦ÁË¡£";   
+		return "æˆ‘åœ¨è®¾è®¡æœºå…³æ–¹é¢æ˜¯æœ‰ç‚¹ç‰¹é•¿ï¼Œè®©å¤§å®¶è§ç¬‘äº†ã€‚";   
 	command("laugh");
-	return "±ð³³×ÅÎÒ£¬ÎÒÔÚ¿´ÊéÄØ¡£¹þ¹þ£¬Ö¥Âé¿ªÃÅ¡£¡£¡£¡£ÕâÊéÕæºÃÐ¦\n";
+	return "åˆ«åµç€æˆ‘ï¼Œæˆ‘åœ¨çœ‹ä¹¦å‘¢ã€‚å“ˆå“ˆï¼ŒèŠéº»å¼€é—¨ã€‚ã€‚ã€‚ã€‚è¿™ä¹¦çœŸå¥½ç¬‘\n";
 }
 

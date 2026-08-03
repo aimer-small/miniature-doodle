@@ -8,52 +8,52 @@ int main(object me, string arg)
 	string str1,str2;
 
 	if( !arg || sscanf(arg,"%s %s",str1,str2)!=2 )
-		return notify_fail("ÄãÒª×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åšä»€ä¹ˆï¼Ÿ\n");
 
 	if( me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( !me->is_fighting() )
-		return notify_fail("ÄãÃ»ÔÚÕ½¶·ÖÐÄØ!¡£\n");
+		return notify_fail("ä½ æ²¡åœ¨æˆ˜æ–—ä¸­å‘¢!ã€‚\n");
 
 	if( environment(me)->query("no_fight"))
-		return notify_fail("ÕâÀï²»ÄÜÕ½¶·¡£\n");
+		return notify_fail("è¿™é‡Œä¸èƒ½æˆ˜æ–—ã€‚\n");
 
 	if( me->query_skill_mapped("parry")!="qiankun-danuoyi")
-		return notify_fail("ÄãÓÖ²»»áÇ¬À¤´óÅ²ÒÆ¡£\n");
+		return notify_fail("ä½ åˆä¸ä¼šä¹¾å¤å¤§æŒªç§»ã€‚\n");
 
 	if( !present(str1,environment(me)) )
-		return notify_fail("ÕâÀïÃ»ÓÐ"+str1+"¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰"+str1+"ã€‚\n");
 
 	if( !present(str2,environment(me)) )
-		return notify_fail("ÕâÀïÃ»ÓÐ"+str2+"¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰"+str2+"ã€‚\n");
 
 	target1=present(str1,environment(me));
 	target2=present(str2,environment(me));
 
 	if(target1 == target2 || me == target2)
-		return notify_fail("»¹ÊÇ±ð°×·ÑÁ¦ÆøÀ²¡£\n");
+		return notify_fail("è¿˜æ˜¯åˆ«ç™½è´¹åŠ›æ°”å•¦ã€‚\n");
 
 	if( !me->is_fighting(target1) )
-		return notify_fail("Äã²¢Ã»ÓÐÔÚ¸ú"+str1+"×÷Õ½¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰åœ¨è·Ÿ"+str1+"ä½œæˆ˜ã€‚\n");
 
 	if( !living(target2) )
-		return notify_fail("ÄÇ²»ÊÇ¸ö»îÎï¡£\n");
+		return notify_fail("é‚£ä¸æ˜¯ä¸ªæ´»ç‰©ã€‚\n");
 
 	if( (int)me->query("max_neili") < 3000 )
-		return notify_fail("ÔÙÅ¬Á¦µã´ò×ø°É£¡\n");
+		return notify_fail("å†åŠªåŠ›ç‚¹æ‰“åå§ï¼\n");
 
 	if( (int)me->query("neili") < 1500 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼\n");
 
 	if(me->query_skill("qiankun-danuoyi",1) < 210 )
-		return notify_fail("Äã±ØÐëÓÐÇ¬À¤´óÅ²ÒÆµÚÆß²ãµÄÊµÁ¦¡£\n");
+		return notify_fail("ä½ å¿…é¡»æœ‰ä¹¾å¤å¤§æŒªç§»ç¬¬ä¸ƒå±‚çš„å®žåŠ›ã€‚\n");
 
 	if ( me->query_skill("jiuyang-shengong", 1) < 210 
 	&& me->query_skill("shenghuo-shengong", 1) < 210 )
-		return notify_fail("ÄãµÄÄÚ¹¦µÈ¼¶²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸç­‰çº§ä¸å¤Ÿã€‚\n");
 
-	tell_object( me, HIG"Äã°µÔËÇ¬À¤´óÅ²ÒÆµÄµÚÆß²ãÐÄ·¨¡£\n"NOR );
+	tell_object( me, HIG"ä½ æš—è¿ä¹¾å¤å¤§æŒªç§»çš„ç¬¬ä¸ƒå±‚å¿ƒæ³•ã€‚\n"NOR );
 
 	if (userp(target1))
 		me->add_condition("killer", 10);
@@ -64,14 +64,14 @@ int main(object me, string arg)
 	if( random(me->query_int()) > target1->query_int()/4 &&
 	 random(me->query_int()) > target2->query_int()/4) {
 		me->start_busy(1+random(3));
-		message_vision(HIG"Í»È»¼ä£¬$NÏò$n»÷³öÒ»ÕÐ£¡\n",target1, target2);
-		message_vision(HIG"$nºÝºÝµÄµÉÁË$NÒ»ÑÛ£¬$NÒ²ÄªÃûÆäÃî¡£\n"NOR,target1, target2);
+		message_vision(HIG"çªç„¶é—´ï¼Œ$Nå‘$nå‡»å‡ºä¸€æ‹›ï¼\n",target1, target2);
+		message_vision(HIG"$nç‹ ç‹ çš„çžªäº†$Nä¸€çœ¼ï¼Œ$Nä¹ŸèŽ«åå…¶å¦™ã€‚\n"NOR,target1, target2);
 		COMBAT_D->do_attack(target1, target2, target1->query_temp("weapon"), 0);
 		target2->add_temp("qkdny/target",1);
 		if( target2->query_temp("qkdny/target")*5 > random(target2->query_int())){
-			message_vision(HIR"\n$nÃÍÈ»¿ªÊ¼Ïò$N¹¥»÷£¬¿´À´»ð´óÁË£¡\n"NOR,target1,target2);
-			message_vision(HIR"\n$NÄªÃûÆäÃî£¬Ò²·¢ÁËºÝÏò$nÉ±È¥£¡\n"NOR,target1, target2);
-			message_vision(HIW"\n$NÎ¢Î¢Ò»Ð¦£¬¸ºÊÖ¹Û¶·¡£\n"NOR,me);
+			message_vision(HIR"\n$nçŒ›ç„¶å¼€å§‹å‘$Næ”»å‡»ï¼Œçœ‹æ¥ç«å¤§äº†ï¼\n"NOR,target1,target2);
+			message_vision(HIR"\n$NèŽ«åå…¶å¦™ï¼Œä¹Ÿå‘äº†ç‹ å‘$næ€åŽ»ï¼\n"NOR,target1, target2);
+			message_vision(HIW"\n$Nå¾®å¾®ä¸€ç¬‘ï¼Œè´Ÿæ‰‹è§‚æ–—ã€‚\n"NOR,me);
 			target2->delete_temp("qkdny/target");
 			me->remove_all_enemy();
 			target1->remove_all_enemy();
@@ -80,7 +80,7 @@ int main(object me, string arg)
 		}
 	}
 	else {
-		tell_object( me, HIB"µ«ÊÇÊ§°ÜÁË¡£\n"NOR );
+		tell_object( me, HIB"ä½†æ˜¯å¤±è´¥äº†ã€‚\n"NOR );
 		me->start_busy(1+random(3));
 	}
 	me->add("neili",-150-random(50));

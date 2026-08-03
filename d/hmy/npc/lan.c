@@ -6,11 +6,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("À¶·ï»Ë", ({ "lan fenghuang", "lan", "fenghuang"}));
-        set("long", "ÕâÅ®×Ó¼¡·ôÎ¢»Æ£¬Ë«ÑÛ¼«´ó£¬ºÚÈçµãÆá¡£\n"+
-        	    "ËıÕÆ¹ÜÈÕÔÂ½ÌÔÚÃç½®µÄÏÂÊô¡°Îå¶¾½Ì¡±£¬Ê¹¶¾ÊÖ·¨¹îÃØÆæÌØ£¬ÁîÈË·À²»Ê¤·À¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "HIR"Îå¶¾Ê¥¹Ã"NOR);
-        set("gender", "Å®ĞÔ");
+        set_name("è“å‡¤å‡°", ({ "lan fenghuang", "lan", "fenghuang"}));
+        set("long", "è¿™å¥³å­è‚Œè‚¤å¾®é»„ï¼ŒåŒçœ¼æå¤§ï¼Œé»‘å¦‚ç‚¹æ¼†ã€‚\n"+
+        	    "å¥¹æŒç®¡æ—¥æœˆæ•™åœ¨è‹—ç–†çš„ä¸‹å±â€œäº”æ¯’æ•™â€ï¼Œä½¿æ¯’æ‰‹æ³•è¯¡ç§˜å¥‡ç‰¹ï¼Œä»¤äººé˜²ä¸èƒœé˜²ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™  "HIR"äº”æ¯’åœ£å§‘"NOR);
+        set("gender", "å¥³æ€§");
         set("age", 23);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -42,7 +42,7 @@ void create()
         map_skill("strike", "zhusha-zhang");
         prepare_skill("strike", "zhusha-zhang");
         
-	      create_family("ÈÕÔÂÉñ½Ì",9,"µÜ×Ó");
+	      create_family("æ—¥æœˆç¥æ•™",9,"å¼Ÿå­");
        	setup();
 	carry_object(MISC_D("cloth"))->wear();        
 }

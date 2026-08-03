@@ -7,9 +7,9 @@ string no_get()
 	object me = this_player();
 	if(!me) return 0;
 	if(me->query("combat_exp")<750000)
-		return "Äã½­ºþÓÎÀú²»×ã£¬ÅÂµÃ´Ë±¦ÎïÒ²ÎÞÓÃ´¦¡£\n";
+		return "ä½ æ±Ÿæ¹–æ¸¸åŽ†ä¸è¶³ï¼Œæ€•å¾—æ­¤å®ç‰©ä¹Ÿæ— ç”¨å¤„ã€‚\n";
 	if(me->query("drop_hj_uniqe") && ( me->query("mud_time")-me->query("drop_hj_uniqe"))<172800)
-		return "Äã±©éåÌìÎï£¬¸ß²ý²»»¶Ó­Äã¡£\n";
+		return "ä½ æš´æ®„å¤©ç‰©ï¼Œé«˜æ˜Œä¸æ¬¢è¿Žä½ ã€‚\n";
 	return 0;
 }
 
@@ -31,20 +31,20 @@ void remove(string id)
 void create()
 {
         switch(random(7)) {
-        case 0 : set_name("Å£ÎÄÃ÷Ä¹»­ÏñÊ¯", ({ "xiang shi", "shi", "stone"})); break;
-        case 1 : set_name("³µÆï¹ýÇÅ»­ÏñÊ¯", ({ "xiang shi", "shi", "stone"})); break;
-        case 2 : set_name("á÷ÁÔ»­ÏñÊ¯", ({ "xiang shi", "shi", "stone"})); break;
-        case 3 : set_name("ÇÅÍ·½»Õ½»­ÏñÊ¯", ({ "xiang shi", "shi", "stone"})); break;
-        case 4 : set_name("¶·ÊÞ»­ÏñÊ¯", ({ "xiang shi", "shi", "stone"})); break;
-        case 5 : set_name("Á½ÌÒÉ±ÈýÊ¿»­ÏñÊ¯", ({ "xiang shi", "shi", "stone"})); break;
-        case 6 : set_name("±ÈÎä»­ÏñÊ¯", ({ "xiang shi", "shi", "stone"})); break;
+        case 0 : set_name("ç‰›æ–‡æ˜Žå¢“ç”»åƒçŸ³", ({ "xiang shi", "shi", "stone"})); break;
+        case 1 : set_name("è½¦éª‘è¿‡æ¡¥ç”»åƒçŸ³", ({ "xiang shi", "shi", "stone"})); break;
+        case 2 : set_name("ç‹©çŒŽç”»åƒçŸ³", ({ "xiang shi", "shi", "stone"})); break;
+        case 3 : set_name("æ¡¥å¤´äº¤æˆ˜ç”»åƒçŸ³", ({ "xiang shi", "shi", "stone"})); break;
+        case 4 : set_name("æ–—å…½ç”»åƒçŸ³", ({ "xiang shi", "shi", "stone"})); break;
+        case 5 : set_name("ä¸¤æ¡ƒæ€ä¸‰å£«ç”»åƒçŸ³", ({ "xiang shi", "shi", "stone"})); break;
+        case 6 : set_name("æ¯”æ­¦ç”»åƒçŸ³", ({ "xiang shi", "shi", "stone"})); break;
         }
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-                set("unit", "¿é");
+                set("unit", "å—");
                 set("weight", 1000);
-		set("long", "ÕâÊÇ¶«ººÊ¯µñÏñÖÐµÄÒ»¸ö£¬³ö×ÔÉÂÎ÷£¬É½¶«£¬ºÓÄÏÒ»´ø¡£\n");
+		set("long", "è¿™æ˜¯ä¸œæ±‰çŸ³é›•åƒä¸­çš„ä¸€ä¸ªï¼Œå‡ºè‡ªé™•è¥¿ï¼Œå±±ä¸œï¼Œæ²³å—ä¸€å¸¦ã€‚\n");
 		set("material", "stone");
                 set("unique", 4);
 //                set("no_get",(:no_get:));

@@ -1,5 +1,5 @@
 //flowray 2005.6.16
-// By Spiderii ·Å¿íÃ¿ÖÜµÄÊ¹ÓÃ´ÎÊıÏŞÖÆ
+// By Spiderii æ”¾å®½æ¯å‘¨çš„ä½¿ç”¨æ¬¡æ•°é™åˆ¶
 #include <ansi.h>
 
 
@@ -7,10 +7,10 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HIW"Óñ¼¡Íè"NOR, ({ "yuji wan","yuji","wan"}));
-	set("long","ÕâÊÇÒ»¿Å"HIW"Óñ¼¡Íè"NOR"£¬Äã¿ÉÒÔ·ş(fu)ÏÂËüÌá¸ß¾«Á¦ºÍÄÚÁ¦ĞŞÎª¡£\n");
+	set_name (HIW"ç‰è‚Œä¸¸"NOR, ({ "yuji wan","yuji","wan"}));
+	set("long","è¿™æ˜¯ä¸€é¢—"HIW"ç‰è‚Œä¸¸"NOR"ï¼Œä½ å¯ä»¥æœ(fu)ä¸‹å®ƒæé«˜ç²¾åŠ›å’Œå†…åŠ›ä¿®ä¸ºã€‚\n");
 
-	set("unit","¿Å");
+	set("unit","é¢—");
 	set_weight(100);
 	set("value",3000000);
         set("no_give",1);
@@ -19,7 +19,7 @@ void create()
 	set("degree",1);
 	set("flag","spec/yuji");
         set("rest",5);
-	set("desc","Ìá¸ßÒ»°ÙµãÄÚÁ¦¡¢Ò»°Ùµã¾«Á¦µÄÉÏÏŞ¡£");
+	set("desc","æé«˜ä¸€ç™¾ç‚¹å†…åŠ›ã€ä¸€ç™¾ç‚¹ç²¾åŠ›çš„ä¸Šé™ã€‚");
          set("credit",100);                  
 	setup();
 }
@@ -35,13 +35,13 @@ int do_eat(string arg)
 	object me=this_player();
 	
 	if (!arg)
-		return notify_fail("ÄãÒª·şÓÃÊ²Ã´?\n");
+		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
 	    
 	if (arg!="yuji" && arg!="wan")
-		return notify_fail("ÄãÒª·şÓÃÊ²Ã´?\n");
+		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
       	
-      if (!restrict()&& !me->query("buyvip") ) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
-//    if (!restrict() ) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
+      if (!restrict()&& !me->query("buyvip") ) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
+//    if (!restrict() ) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
     
 	me->add("neili", 100);
 	me->add("max_neili", 100);
@@ -52,7 +52,7 @@ int do_eat(string arg)
    me->reincarnate();
 me->setup();
  
-        write(HIY"Äã·şÏÂÒ»¿Å"HIW"Óñ¼¡Íè"HIY"¶Ù¾õ¾«Á¦ÄÚÁ¦´óÔö!\n"NOR);
+        write(HIY"ä½ æœä¸‹ä¸€é¢—"HIW"ç‰è‚Œä¸¸"HIY"é¡¿è§‰ç²¾åŠ›å†…åŠ›å¤§å¢!\n"NOR);
         degree(); 
 	return 1;
 }	 

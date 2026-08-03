@@ -1,7 +1,7 @@
 // exercise.c
 // snowman@SJ 15/12/1998
 // modify by snowman@SJ 01/03/2000
-// By Spiderii@ty ¼ÓÈë×ªÊÀĞ§¹û
+// By Spiderii@ty åŠ å…¥è½¬ä¸–æ•ˆæœ
 #include <skill.h>
 #include <ansi.h>
 int exercising(object me);
@@ -19,54 +19,54 @@ int main(object me, string arg)
 	where = environment(me);
 
 	if (where->query("pigging"))
-		return notify_fail("Äã»¹ÊÇ×¨ĞÄ¹°Öí°É£¡\n");
+		return notify_fail("ä½ è¿˜æ˜¯ä¸“å¿ƒæ‹±çŒªå§ï¼\n");
 
 	if (where->query("pending"))
-		return notify_fail("´ËµØ²»ÒËĞŞÁ·£¡\n");
+		return notify_fail("æ­¤åœ°ä¸å®œä¿®ç»ƒï¼\n");
 
 	if (me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (me->is_exert())
-		return notify_fail("Äã¸ÕÊ©ÓÃ¹ıÄÚ¹¦£¬²»ÄÜÂíÉÏ´ò×ø¡£\n");
+		return notify_fail("ä½ åˆšæ–½ç”¨è¿‡å†…åŠŸï¼Œä¸èƒ½é©¬ä¸Šæ‰“åã€‚\n");
 
 	if( me->is_fighting() )
-		return notify_fail("Õ½¶·ÖĞ²»ÄÜÁ·ÄÚ¹¦£¬»á×ß»ğÈëÄ§¡£\n");
+		return notify_fail("æˆ˜æ–—ä¸­ä¸èƒ½ç»ƒå†…åŠŸï¼Œä¼šèµ°ç«å…¥é­”ã€‚\n");
 
 	if (where->query("sleep_room"))
-		return notify_fail("ÎÔÊÒ²»ÄÜ´ò×ø£¬»áÓ°Ïì±ğÈËĞİÏ¢¡£\n");
+		return notify_fail("å§å®¤ä¸èƒ½æ‰“åï¼Œä¼šå½±å“åˆ«äººä¼‘æ¯ã€‚\n");
 
 	if (where->query("no_fight"))
-		return notify_fail("ÕâÀï²»×¼Õ½¶·£¬Ò²²»×¼´ò×ø¡£\n");
+		return notify_fail("è¿™é‡Œä¸å‡†æˆ˜æ–—ï¼Œä¹Ÿä¸å‡†æ‰“åã€‚\n");
 
 	if (me->query_condition("no_force"))
-		return notify_fail("Äã¸Ğµ½ÌåÄÚÆøÏ¢ÂÒ´Ü£¬ÎŞ·¨¾ÛÆø´ò×ø£¡\n");
+		return notify_fail("ä½ æ„Ÿåˆ°ä½“å†…æ°”æ¯ä¹±çªœï¼Œæ— æ³•èšæ°”æ‰“åï¼\n");
 
 	if (!(force = me->query_skill_mapped("force")))
-		return notify_fail("Äã±ØĞëÏÈÓÃ enable Ñ¡ÔñÄãÒªÓÃµÄÌØÊâÄÚ¹¦¡£\n");
+		return notify_fail("ä½ å¿…é¡»å…ˆç”¨ enable é€‰æ‹©ä½ è¦ç”¨çš„ç‰¹æ®Šå†…åŠŸã€‚\n");
 
 	if (!arg || !sscanf(arg, "%d", exercise_cost))
-		return notify_fail("ÄãÒª»¨¶àÉÙÆøÁ·¹¦£¿\n");
+		return notify_fail("ä½ è¦èŠ±å¤šå°‘æ°”ç»ƒåŠŸï¼Ÿ\n");
 
 	if ((me->query("max_qi")+me->query_temp("apply/qi")) > 1000
 	&& exercise_cost < (me->query("max_qi")+me->query_temp("apply/qi"))/5)
-		return notify_fail("ÄãÖÁÉÙĞèÒª"+chinese_number((me->query("max_qi")+me->query_temp("apply/qi"))/5)+"µãµÄÆøÀ´´ò×ø£¡\n");
+		return notify_fail("ä½ è‡³å°‘éœ€è¦"+chinese_number((me->query("max_qi")+me->query_temp("apply/qi"))/5)+"ç‚¹çš„æ°”æ¥æ‰“åï¼\n");
 
 	if (exercise_cost < 10)
-		return notify_fail("ÄãÖÁÉÙĞèÒªÊ®µãµÄÆøÀ´´ò×ø£¡\n");
+		return notify_fail("ä½ è‡³å°‘éœ€è¦åç‚¹çš„æ°”æ¥æ‰“åï¼\n");
 
 	if (me->query("qi") < exercise_cost )
-		return notify_fail("ÄãÃ»ÓĞÄÇÃ´¶àµÄÆøÀ´²úÉúÄÚÏ¢ÔËĞĞÈ«Éí¾­Âö¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰é‚£ä¹ˆå¤šçš„æ°”æ¥äº§ç”Ÿå†…æ¯è¿è¡Œå…¨èº«ç»è„‰ã€‚\n");
 
 	if (me->query("jing") * 100 / (me->query("max_jing")+me->query_temp("apply/jing")) < 70 )
-		return notify_fail("ÄãÏÖÔÚ¾«²»¹»£¬ÎŞ·¨¿ØÖÆÄÚÏ¢µÄÁ÷¶¯£¡\n");
+		return notify_fail("ä½ ç°åœ¨ç²¾ä¸å¤Ÿï¼Œæ— æ³•æ§åˆ¶å†…æ¯çš„æµåŠ¨ï¼\n");
 
 	if (me->query("neili") > (me->query("max_neili")+me->query_temp("apply/neili"))*2)
-		return notify_fail("ÄãÏÖÔÚÈ«Éí»ıÂúÄÚÁ¦£¬ÎŞ·¨ÔÙ¼ÌĞø´ò×øÁË¡£\n");
+		return notify_fail("ä½ ç°åœ¨å…¨èº«ç§¯æ»¡å†…åŠ›ï¼Œæ— æ³•å†ç»§ç»­æ‰“åäº†ã€‚\n");
 
 	msg = SKILL_D(force)->exercise_msg(me);
 	if (!msg || undefinedp(msg["start_my_msg"]))
-		write("Äã×øÏÂÀ´ÔËÆøÓÃ¹¦£¬Ò»¹ÉÄÚÏ¢¿ªÊ¼ÔÚÌåÄÚÁ÷¶¯¡£\n");
+		write("ä½ åä¸‹æ¥è¿æ°”ç”¨åŠŸï¼Œä¸€è‚¡å†…æ¯å¼€å§‹åœ¨ä½“å†…æµåŠ¨ã€‚\n");
 	else
 		write(msg["start_my_msg"]);
 
@@ -75,7 +75,7 @@ int main(object me, string arg)
 /*
 	if (!msg || undefinedp(msg["start_other_msg"]))
 		tell_room(environment(me),
-			me->name() + "ÅÌÏ¥×øÏÂ£¬¿ªÊ¼ÔË¹¦´ò×ø¡£\n", ({ me }));
+			me->name() + "ç›˜è†åä¸‹ï¼Œå¼€å§‹è¿åŠŸæ‰“åã€‚\n", ({ me }));
 	else
 		tell_room(environment(me),
 			msg["start_other_msg"], ({ me }));
@@ -98,18 +98,18 @@ int exercising(object me)
 //	neili_gain *= 20 / me->query("age");
 	if (me->query("age") < 20)
 		neili_gain += neili_gain * (20 - me->query("age")) / 10;
-	// by spiderii@ty    ¾­¹ı×ªÊÀÖØĞŞºó£¬ÖÜÉí¾­Âö±»ÍØ¿íÁËÊı±¶£¬´ò×øËÙ¶ÈÔ¶Ê¤´ÓÇ°£¡\n"NOR);   
+	// by spiderii@ty    ç»è¿‡è½¬ä¸–é‡ä¿®åï¼Œå‘¨èº«ç»è„‰è¢«æ‹“å®½äº†æ•°å€ï¼Œæ‰“åé€Ÿåº¦è¿œèƒœä»å‰ï¼\n"NOR);   
 	          
        if(me->query_condition("gifts") > 1 ){
-		  neili_gain = neili_gain * (1+ me->query("gifts/´ÏÓ±")+ me->query_temp("gifts/´ÏÓ±"));
+		  neili_gain = neili_gain * (1+ me->query("gifts/èªé¢–")+ me->query_temp("gifts/èªé¢–"));
                    }
 	
 	neili_gain = neili_gain * 3;
-	neili_gain = neili_gain / 2;//¼Ó¿ìdazuo tunaËÙ¶È by ciwei
+	neili_gain = neili_gain / 2;//åŠ å¿«dazuo tunaé€Ÿåº¦ by ciwei
 	if (neili_gain > exercise_cost)
 		neili_gain = exercise_cost;
 
-	me->receive_damage("qi", neili_gain, "×ß»ğÈëÄ§");
+	me->receive_damage("qi", neili_gain, "èµ°ç«å…¥é­”");
 	me->add("neili", neili_gain);
 	me->set_temp("exercise_cost", exercise_cost -= neili_gain);
 
@@ -125,13 +125,13 @@ int exercising(object me)
 
 	me->delete_temp("pending/exercise");
 	if (!msg || undefinedp(msg["end_my_msg"]))
-		tell_object(me, "ÄãÔË¹¦Íê±Ï£¬Õ¾ÁËÆğÀ´¡£\n");
+		tell_object(me, "ä½ è¿åŠŸå®Œæ¯•ï¼Œç«™äº†èµ·æ¥ã€‚\n");
 	else
 		tell_object(me, msg["end_my_msg"]);
 /*
 	if (!msg || undefinedp(msg["end_other_msg"]))
 		tell_room(environment(me),
-			me->name()+"ÔË¹¦Íê±Ï£¬Õ¾ÁËÆğÀ´¡£\n", ({me}));
+			me->name()+"è¿åŠŸå®Œæ¯•ï¼Œç«™äº†èµ·æ¥ã€‚\n", ({me}));
 	else
 		tell_room(environment(me),
 			msg["end_other_msg"], ({me}));
@@ -140,13 +140,13 @@ int exercising(object me)
 	max = (me->query_skill("force")-me->query_temp("apply/force")) * 8 + me->query("combat_exp") / 1000;
 	while (me->query("neili") >= (me->query("max_neili")+me->query_temp("apply/neili")) * 2) {
 		if (me->query("max_neili") >= max) {
-			tell_object(me, "ÄãµÄÄÚÁ¦ĞŞÎªÒÑ¾­ÎŞ·¨¿¿´ò×øÀ´ÌáÉıÁË¡£\n");
+			tell_object(me, "ä½ çš„å†…åŠ›ä¿®ä¸ºå·²ç»æ— æ³•é æ‰“åæ¥æå‡äº†ã€‚\n");
 			me->set("neili", (me->query("max_neili")+me->query_temp("apply/neili")) * 2);
 			break;
 		}
-		if(me->query("env/»ıĞî"))
+		if(me->query("env/ç§¯è“„"))
 		{
-			tell_object(me,"ÄãµÄÄÚÁ¦ĞŞÎªÒÑ¾­´ïµ½Ô²ÂúÖ®¾³¡£\n");
+			tell_object(me,"ä½ çš„å†…åŠ›ä¿®ä¸ºå·²ç»è¾¾åˆ°åœ†æ»¡ä¹‹å¢ƒã€‚\n");
 			me->set("neili", (me->query("max_neili")+me->query_temp("apply/neili")) * 2);
 			break;			
 		}
@@ -154,7 +154,7 @@ int exercising(object me)
 		neili_gain++;
 	}
 	if (neili_gain)
-		tell_object(me, "ÄãµÄÄÚÁ¦ĞŞÎªÔö¼ÓÁË"+chinese_number(neili_gain)+"µã£¡\n");
+		tell_object(me, "ä½ çš„å†…åŠ›ä¿®ä¸ºå¢åŠ äº†"+chinese_number(neili_gain)+"ç‚¹ï¼\n");
 	return 0;
 }
 
@@ -170,7 +170,7 @@ int halt_exercise(object me)
 	if (force) msg = SKILL_D(force)->exercise_msg(me);
 	if (!msg || undefinedp(msg["halt_msg"]))
 		message_vision(
-			"$N°ÑÕıÔÚÔËĞĞµÄÕæÆøÇ¿ĞĞÑ¹»Øµ¤Ìï£¬Õ¾ÁËÆğÀ´¡£\n", me);
+			"$NæŠŠæ­£åœ¨è¿è¡Œçš„çœŸæ°”å¼ºè¡Œå‹å›ä¸¹ç”°ï¼Œç«™äº†èµ·æ¥ã€‚\n", me);
 	else
 		message_vision(msg["halt_msg"], me);
 
@@ -185,10 +185,10 @@ int halt_exercise(object me)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : exercise|dazuo [<ºÄ·Ñ¡¸Æø¡¹µÄÁ¿> ±ØĞë²»ÉÙÓÚ 10]
+æŒ‡ä»¤æ ¼å¼ : exercise|dazuo [<è€—è´¹ã€Œæ°”ã€çš„é‡> å¿…é¡»ä¸å°‘äº 10]
 
-ÔËÆøÁ·¹¦£¬¿ØÖÆÌåÄÚµÄÆøÔÚ¸÷¾­Âö¼äÁ÷¶¯£¬½åÒÔÑµÁ·ÈËÌå¼¡Èâ¹Ç÷ÀµÄÄÍ
-Á¦¡¢±¬·¢Á¦£¬²¢ÇÒÓÃÄÚÁ¦µÄĞÎÊ½½«ÄÜÁ¿´¢±¸ÏÂÀ´¡£
+è¿æ°”ç»ƒåŠŸï¼Œæ§åˆ¶ä½“å†…çš„æ°”åœ¨å„ç»è„‰é—´æµåŠ¨ï¼Œè—‰ä»¥è®­ç»ƒäººä½“è‚Œè‚‰éª¨éª¼çš„è€
+åŠ›ã€çˆ†å‘åŠ›ï¼Œå¹¶ä¸”ç”¨å†…åŠ›çš„å½¢å¼å°†èƒ½é‡å‚¨å¤‡ä¸‹æ¥ã€‚
 HELP
 	);
 	return 1;

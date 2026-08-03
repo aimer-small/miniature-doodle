@@ -6,19 +6,19 @@ inherit STAFF;
 
 void create()
 {
-	set_name(BLU"Ìú½°"NOR, ({ "tie jiang", "jiang"}));
+	set_name(BLU"é“æ¡¨"NOR, ({ "tie jiang", "jiang"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Á½±úºÚ÷î÷îµÄÌú½°¡£\n");
-		set("unit", "±ú");
+		set("long", "ä¸¤æŸ„é»‘é»é»çš„é“æ¡¨ã€‚\n");
+		set("unit", "æŸ„");
 		set("value", 2000);
 		set("no_sell", 1);
 		set("no_drop", 1);
 		set("no_give", 1);
 		set("no_get", 1);
-		set("wield_msg", "$N½«Á½±ú$nÎÕÔÚÊÖÖĞ¡£\n");
+		set("wield_msg", "$Nå°†ä¸¤æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
 	}
 	init_staff(20);
 	setup();

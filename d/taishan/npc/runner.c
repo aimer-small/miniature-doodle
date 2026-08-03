@@ -12,11 +12,11 @@ string *path = ({"southdown","southdown","southdown","southdown","southdown","so
 
 void create()
 {
-        set_name("Ì©É½ÅÉÅÑÍ½", ({ "pantu"}) );
-        set("gender", "ÄĞĞÔ");
+        set_name("æ³°å±±æ´¾å›å¾’", ({ "pantu"}) );
+        set("gender", "ç”·æ€§");
         set("age", 30);
         set("long",
-                "ÕâÊÇÒ»¸öÌ©É½ÅÉµÄÅÑÍ½£¬³¤½£³öÇÊ£¬Ò»¸±ËæÊ±×¼±¸¶¯ÎäµÄÑù×Ó¡£\n");
+                "è¿™æ˜¯ä¸€ä¸ªæ³°å±±æ´¾çš„å›å¾’ï¼Œé•¿å‰‘å‡ºé˜ï¼Œä¸€å‰¯éšæ—¶å‡†å¤‡åŠ¨æ­¦çš„æ ·å­ã€‚\n");
 
         set("combat_exp", 100000);
 
@@ -50,7 +50,7 @@ void create()
         map_skill("cuff","taizu-quan");
         prepare_skill("cuff", "taizu-quan");
 
-        create_family("Ì©É½ÅÉ", 14, "ÆúÍ½");
+        create_family("æ³°å±±æ´¾", 14, "å¼ƒå¾’");
 
         set("no_follow",1);
         setup();
@@ -61,7 +61,7 @@ void create()
 void movement(int step)
 {
         if (step == 0)
-        	command("say Ö»ÒªÈÃÎÒ»îÖø¼ûµ½×óÃËÖ÷£¬Äã½ñºóĞİÏëÓĞºÃÈÕ×Ó¹ı£¡");
+        	command("say åªè¦è®©æˆ‘æ´»è‘—è§åˆ°å·¦ç›Ÿä¸»ï¼Œä½ ä»Šåä¼‘æƒ³æœ‰å¥½æ—¥å­è¿‡ï¼");
 
         command("halt");
         command(path[step]);

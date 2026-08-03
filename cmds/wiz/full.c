@@ -11,26 +11,26 @@ int main(object me,string str)
                 me = this_player();
         else	me = present(lower_case(str), environment(this_player()));
         
-        if (!me) return notify_fail ("ÕâÀïÃ»ÓĞÄãËùÒª»Ö¸´µÄÈË¡£\n");
+        if (!me) return notify_fail ("è¿™é‡Œæ²¡æœ‰ä½ æ‰€è¦æ¢å¤çš„äººã€‚\n");
         
-        // reincarnate ÒÑ¾­ÍêÈ«»Ö¸´£¬ËùÒÔ²»ÓÃÔÙÒ»¸ö¸ösetÁË¡£
+        // reincarnate å·²ç»å®Œå…¨æ¢å¤ï¼Œæ‰€ä»¥ä¸ç”¨å†ä¸€ä¸ªä¸ªsetäº†ã€‚
         me->reincarnate();
 	me->set("neili", me->query("max_neili")*2);
         if (wizardp(me)) me->clear_condition();
 
         if (me != this_player())
-            	message_vision(WHT"Ö»¼ûÒ»µÀ¹âÃ¢´Ó$N´¦ÕÕÔÚ$nÉíÉÏ£¬»Ö¸´ÁË$pËùÓĞµÄÌåÁ¦£¡\n"NOR,this_player(), me);
+            	message_vision(WHT"åªè§ä¸€é“å…‰èŠ’ä»$Nå¤„ç…§åœ¨$nèº«ä¸Šï¼Œæ¢å¤äº†$pæ‰€æœ‰çš„ä½“åŠ›ï¼\n"NOR,this_player(), me);
         else
-                write(WHT"ÄãµÄ×´Ì¬»Ö¸´Íê±Ï£¡\n"NOR);
+                write(WHT"ä½ çš„çŠ¶æ€æ¢å¤å®Œæ¯•ï¼\n"NOR);
         return 1;
 }
 
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½: full [Íæ¼ÒID]
+æŒ‡ä»¤æ ¼å¼: full [ç©å®¶ID]
  
-»Ö¸´Íæ¼ÒËùÓĞ²ÎÊıµ½×î´óÖµ¡£
+æ¢å¤ç©å®¶æ‰€æœ‰å‚æ•°åˆ°æœ€å¤§å€¼ã€‚
 
 HELP );
         return 1;

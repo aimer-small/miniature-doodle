@@ -24,11 +24,11 @@ string* obj = ({
 
 void create()
 {
-        set("short", "´¢²ØÊÒ");
+        set("short", "å‚¨è—å®¤");
         set("long", @LONG
-ÄãÒ»½øÃÅ±ãÎÅµ½Ò»¹ÉÃ¹Î¶£¬ÔÚÃÅÍâÉä½øÀ´µÄÑô¹âµÄÕÕÒ«ÏÂ£¬Äã¿´¼ûÕâ
-ÀïÂúÎÝµÄ»Ò³¾£¬³É¶Ñ³É¶ÑµÄÎïÆ·¿ì¶ÑÂúÁËÕû¼ä·¿¼ä¡£ÄãºÜÊÇÆæ¹ÖÎªÊ²Ã´ÆÍ
-ÒÛÃÇÀë¿ªÊ±²»°ÑÕâÐ©ÎïÆ·Ò²´ø×ß¡£
+ä½ ä¸€è¿›é—¨ä¾¿é—»åˆ°ä¸€è‚¡éœ‰å‘³ï¼Œåœ¨é—¨å¤–å°„è¿›æ¥çš„é˜³å…‰çš„ç…§è€€ä¸‹ï¼Œä½ çœ‹è§è¿™
+é‡Œæ»¡å±‹çš„ç°å°˜ï¼Œæˆå †æˆå †çš„ç‰©å“å¿«å †æ»¡äº†æ•´é—´æˆ¿é—´ã€‚ä½ å¾ˆæ˜¯å¥‡æ€ªä¸ºä»€ä¹ˆä»†
+å½¹ä»¬ç¦»å¼€æ—¶ä¸æŠŠè¿™äº›ç‰©å“ä¹Ÿå¸¦èµ°ã€‚
 LONG);
         set("exits", ([
               "east" : __DIR__"kongdi",
@@ -48,7 +48,7 @@ int found(object me)
         object ob = new( obj[random(sizeof(obj))] );
 if (ob) {
  ob->move(me);
-        message_vision("$N·­ÁË°ëÌì£¬ÕÒµ½ÁË" + ob->query("name") + "¡£\n", me);
+        message_vision("$Nç¿»äº†åŠå¤©ï¼Œæ‰¾åˆ°äº†" + ob->query("name") + "ã€‚\n", me);
         me->set_temp("baituo_find", 1);
 }
         return 1;
@@ -58,23 +58,23 @@ int do_find()
 {
        object me = this_player();
        if( (int)me->query_temp("baituo_find") ) 
-                return notify_fail("ÄãÒÑ¾­ÄÃÁË¶«Î÷ÁË£¬×ß°É¡£\n");
+                return notify_fail("ä½ å·²ç»æ‹¿äº†ä¸œè¥¿äº†ï¼Œèµ°å§ã€‚\n");
        if (me->query_skill("hamagong", 1) && 
            me->query_skill("poison", 1) > 30){
-                message_vision("$NÄó×Å±Ç×ÓÔÚÎïÆ·¶ÑÖÐÂÒ·­×Å¡£\n", me);
+                message_vision("$Næç€é¼»å­åœ¨ç‰©å“å †ä¸­ä¹±ç¿»ç€ã€‚\n", me);
                 found(me);    
                 }
        else if (me->query_skill("poison", 1) > 50){
-                message_vision("$NÄó×Å±Ç×ÓÔÚÎïÆ·¶ÑÖÐÂÒ·­×Å¡£\n", me);
+                message_vision("$Næç€é¼»å­åœ¨ç‰©å“å †ä¸­ä¹±ç¿»ç€ã€‚\n", me);
                 if(random((int)me->query("kar")) < 15){
-                     write("ÄãÎüÁË¿ÚÆø£¬Í»È»¾õµÃÍ·ÖÐÒ»ÕóÑ£ÔÎ¡£\n");
+                     write("ä½ å¸äº†å£æ°”ï¼Œçªç„¶è§‰å¾—å¤´ä¸­ä¸€é˜µçœ©æ™•ã€‚\n");
                      me->unconcious();
                      }
                 else found(me);    
                 }
        else { 
-                message_vision("$NÄó×Å±Ç×ÓÔÚÎïÆ·¶ÑÖÐÂÒ·­×Å¡£\n", me);
-                write("ÄãÎüÁË¿ÚÆø£¬Í»È»¾õµÃÍ·ÖÐÒ»ÕóÑ£ÔÎ¡£¡£¡£²»ºÃ£¡ÄãÖÐ¶¾ÁË£¡\n");
+                message_vision("$Næç€é¼»å­åœ¨ç‰©å“å †ä¸­ä¹±ç¿»ç€ã€‚\n", me);
+                write("ä½ å¸äº†å£æ°”ï¼Œçªç„¶è§‰å¾—å¤´ä¸­ä¸€é˜µçœ©æ™•ã€‚ã€‚ã€‚ä¸å¥½ï¼ä½ ä¸­æ¯’äº†ï¼\n");
                 me->apply_condition("snake_poison", me->query_condition("snake_poison")+22);
                 me->unconcious();
                 }

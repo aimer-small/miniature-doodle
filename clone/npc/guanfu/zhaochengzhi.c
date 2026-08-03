@@ -14,14 +14,14 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÕÔ³ÇÖ®", ({ "zhao chengzhi", "zhao", "chengzhi" }));
-	set("title", "´ÓËÄÆ·Öª¸®");
-	set("gender", "ÄÐÐÔ");
+	set_name("èµµåŸŽä¹‹", ({ "zhao chengzhi", "zhao", "chengzhi" }));
+	set("title", "ä»Žå››å“çŸ¥åºœ");
+	set("gender", "ç”·æ€§");
 	set("age", 43);
 	set("str", 20);
 	set("dex", 20);
 	set("per", 20);
-	set("long", "Ëû¾ÍÊÇÕÔ³ÇÖ®£¬ÑïÖÝÏÖÈÎÖª¸®¡£°ÙÐÕÈçÓÐÀ§ÄÑ¿ÉÕÒËû½â¾ö¡£(¸ÄÃû»»ÐÕ....µÈ)\n");
+	set("long", "ä»–å°±æ˜¯èµµåŸŽä¹‹ï¼Œæ‰¬å·žçŽ°ä»»çŸ¥åºœã€‚ç™¾å§“å¦‚æœ‰å›°éš¾å¯æ‰¾ä»–è§£å†³ã€‚(æ”¹åæ¢å§“....ç­‰)\n");
 	set("combat_exp", 30000);
 
 	set("no_get", 1);
@@ -46,11 +46,11 @@ void create()
 
 	set("inquiry", ([
 		"change_name" : (: ask_me :),
-		"¸ÄÃû»»ÐÕ" : (: ask_me :),
-		"¸ÄÃû" : (: ask_me :),
-		"¸ÄÃû×Ö" : (: ask_me :),
-		"Îª¹Ù": (: get_title :),
-		"±¨Ð§³¯Í¢": (: get_title :),
+		"æ”¹åæ¢å§“" : (: ask_me :),
+		"æ”¹å" : (: ask_me :),
+		"æ”¹åå­—" : (: ask_me :),
+		"ä¸ºå®˜": (: get_title :),
+		"æŠ¥æ•ˆæœå»·": (: get_title :),
 	]));
 	setup();
 	carry_object(ARMOR_D("cloth"))->wear();
@@ -58,7 +58,7 @@ void create()
 
 void kill_ob(object ob)
 {
-	command("say É±ÈËÀ²£¡¾ÈÃü°¡£¡");
+	command("say æ€äººå•¦ï¼æ•‘å‘½å•Šï¼");
 	ob->add_condition("killer", 15);
 	::kill_ob(ob);
 }
@@ -82,7 +82,7 @@ void arrest_him(object me)
 		destruct(inv[i]);
 	}
 	me->move(JAIL);
-	message("vision", "Ö»Ìý¡°Æ¹¡±µØÒ»Éù£¬Ò»¸ö»è³Á³ÁµÄ¼Ò»ï±»ÈÓÁË½øÀ´¡£\n", environment(me), me);
+	message("vision", "åªå¬â€œä¹’â€åœ°ä¸€å£°ï¼Œä¸€ä¸ªæ˜æ²‰æ²‰çš„å®¶ä¼™è¢«æ‰”äº†è¿›æ¥ã€‚\n", environment(me), me);
 }
 
 int accept_object(object me, object obj)
@@ -92,7 +92,7 @@ int accept_object(object me, object obj)
 	mapping target;
 
 	if (is_busy()) {
-		command("say Ã»¿´¼û±¾¹ÙÕýÃ¦×ÅÂð£¿Ò»±ßµÈ×Å£¡");
+		command("say æ²¡çœ‹è§æœ¬å®˜æ­£å¿™ç€å—ï¼Ÿä¸€è¾¹ç­‰ç€ï¼");
 		me->add_busy(1);
 		return 0;
 	}
@@ -100,27 +100,27 @@ int accept_object(object me, object obj)
 	start_busy(2);
 
 	if (member_array(me->query("id"), GF_WANTED->query_wanted_list() ) != -1) {
-		command("say ºÃÍÛ"+me->query("id")+"£¬±¾¸®ÕýÍ¨¼©ÄãÄØ£¬¾¹¸ÒÀ´×ÔÍ¶ÂäÍø£¡");
-		command("say À´ÈË°¡£¡¸øÎÒ°ÑÕâ"+RANK_D->query_rude(me)+"´ò½øËÀÀÎ£¡£¡");
+		command("say å¥½å“‡"+me->query("id")+"ï¼Œæœ¬åºœæ­£é€šç¼‰ä½ å‘¢ï¼Œç«Ÿæ•¢æ¥è‡ªæŠ•è½ç½‘ï¼");
+		command("say æ¥äººå•Šï¼ç»™æˆ‘æŠŠè¿™"+RANK_D->query_rude(me)+"æ‰“è¿›æ­»ç‰¢ï¼ï¼");
 		if (userp(me)) {
-			tell_object(me, "ÄãÒ»¾ª£¬ÕýÒªÓÐËùÐÐ¶¯£¬Ö»ÌýÒ»Éù£º¡°ÔÚÎÒÕÅÕÙÖØÃæÇ°»¹¸ÒË£»¬Í·£¿µ¹£¡¡±ÄãºóÄÔÒ»Õð£¬¾ÍÔÎÁË¹ýÈ¥£¡\n");
+			tell_object(me, "ä½ ä¸€æƒŠï¼Œæ­£è¦æœ‰æ‰€è¡ŒåŠ¨ï¼Œåªå¬ä¸€å£°ï¼šâ€œåœ¨æˆ‘å¼ å¬é‡é¢å‰è¿˜æ•¢è€æ»‘å¤´ï¼Ÿå€’ï¼â€ä½ åŽè„‘ä¸€éœ‡ï¼Œå°±æ™•äº†è¿‡åŽ»ï¼\n");
 			me->unconcious();
 			arrest_him(me);
-			log_file("job/gfbug", sprintf("%-18s ×ÔÍ¶ÂäÍø£¬Obj id£º%s\n",
+			log_file("job/gfbug", sprintf("%-18s è‡ªæŠ•è½ç½‘ï¼ŒObj idï¼š%s\n",
 				me->name()+"("+me->query("id")+")", obj->query("id")), me);
 		}
-		message_vision("\nÖ»ÌýÒ»Õó·çÏì£¬¼¸Ãû¸ß´óµÄ²¶Í·ÒÑ¾­µãµ¹ÁË$N£¬ÍÏÈëÄÚÈ¥ÁË¡£\n",me);
+		message_vision("\nåªå¬ä¸€é˜µé£Žå“ï¼Œå‡ åé«˜å¤§çš„æ•å¤´å·²ç»ç‚¹å€’äº†$Nï¼Œæ‹–å…¥å†…åŽ»äº†ã€‚\n",me);
 		if (!userp(me)) destruct(me);
 		return 0;
 	}
 
 	if( !objectp(wenshu = present("tiebu wenshu", me)) ){
-		command("say ß×£¿ÄãÆ½°×ÎÞ¹ÊÀ´¸ÉÊ²Ã´£¿±¾¸®ÔõÃ´ÖªµÀÄã²»ÊÇ´õÈËÒ»»ï£¿");
+		command("say å’¦ï¼Ÿä½ å¹³ç™½æ— æ•…æ¥å¹²ä»€ä¹ˆï¼Ÿæœ¬åºœæ€Žä¹ˆçŸ¥é“ä½ ä¸æ˜¯æ­¹äººä¸€ä¼™ï¼Ÿ");
 		return 0;
 	}
 
 	if( !mapp(target = wenshu->query("target")) ){
-		command("say ÄãÄÃ¸öÊ²Ã´ÀÃÎÄÊéÀ´ÀÄóÄ³äÊý£¿");
+		command("say ä½ æ‹¿ä¸ªä»€ä¹ˆçƒ‚æ–‡ä¹¦æ¥æ»¥ç«½å……æ•°ï¼Ÿ");
 		return 0;
 	}
 
@@ -131,21 +131,21 @@ int accept_object(object me, object obj)
 		name = obj->query("name");
 
 	if (target["id"] != id || target["name"] != name) {
-		command("say ÒªÄãÈ¥ÄÃÍ¨¼©µÄ·¸ÈË£¬Äã´ø¸ö"+obj->query("name")+"»ØÀ´£¿ºÃºÃ¿´¿´Ìú²¶ÎÄÊé£¡");
+		command("say è¦ä½ åŽ»æ‹¿é€šç¼‰çš„çŠ¯äººï¼Œä½ å¸¦ä¸ª"+obj->query("name")+"å›žæ¥ï¼Ÿå¥½å¥½çœ‹çœ‹é“æ•æ–‡ä¹¦ï¼");
 		return 0;
 	}
 
-	message_vision("$N¸ø$nÒ»"+obj->query("unit")+obj->name(1)+"¡£\n", me, this_object());
+	message_vision("$Nç»™$nä¸€"+obj->query("unit")+obj->name(1)+"ã€‚\n", me, this_object());
 
 	if ( obj->is_character() && !obj->is_corpse() ){
-		command("say ºÃ£¡"+me->query("name")+"¾¹È»°Ñ"+obj->query("name")+"¸ø×¥»ØÀ´ÁË£¬ÕæÊÇÎ»´ó´óµÄÓ¢ÐÛ£¡");
-		command("say À´ÈË°¡£¡¸øÎÒ°ÑÕâ"+RANK_D->query_rude(obj)+"´ò½øËÀÀÎ£¡£¡");
+		command("say å¥½ï¼"+me->query("name")+"ç«Ÿç„¶æŠŠ"+obj->query("name")+"ç»™æŠ“å›žæ¥äº†ï¼ŒçœŸæ˜¯ä½å¤§å¤§çš„è‹±é›„ï¼");
+		command("say æ¥äººå•Šï¼ç»™æˆ‘æŠŠè¿™"+RANK_D->query_rude(obj)+"æ‰“è¿›æ­»ç‰¢ï¼ï¼");
 
-		message_vision("\nÖ»¼û¼¸ÃûÑÃÒÛ¹ýÀ´£¬ÍÏÆð$N£¬ÈëÄÚÈ¥ÁË¡£\n",obj);
-		command("say ±¾¸®´ú±íÇ§ÍòÃñÖÚ¶àÐ»ÕâÎ»"+RANK_D->query_respect(me)+"ÁË");
+		message_vision("\nåªè§å‡ åè¡™å½¹è¿‡æ¥ï¼Œæ‹–èµ·$Nï¼Œå…¥å†…åŽ»äº†ã€‚\n",obj);
+		command("say æœ¬åºœä»£è¡¨åƒä¸‡æ°‘ä¼—å¤šè°¢è¿™ä½"+RANK_D->query_respect(me)+"äº†");
 		GF_WANTED->do_give_reward(id, target, me, 0);
 		
-		GIFT_D->check_count(me,this_object(),"¹Ù¸®");
+		GIFT_D->check_count(me,this_object(),"å®˜åºœ");
 		
 		if( userp(obj) )
 			arrest_him(obj);
@@ -154,16 +154,16 @@ int accept_object(object me, object obj)
 	}
 
 	if( obj->query("kill_by") != me ){
-		command("say Å¶£¬"+obj->name()+"£¡¶àÐ»ÕâÎ»"+RANK_D->query_respect(me)+"ÁË£¬ÄãÏÂÈ¥°É¡£");
-		command("say ÏÂÒ»¸ö£¡");
-		log_file("job/gfbug", sprintf("%-18s Í¨¼©ÈÎÎñ£¬Obj£º%s£¬Killed by %s\n",
+		command("say å“¦ï¼Œ"+obj->name()+"ï¼å¤šè°¢è¿™ä½"+RANK_D->query_respect(me)+"äº†ï¼Œä½ ä¸‹åŽ»å§ã€‚");
+		command("say ä¸‹ä¸€ä¸ªï¼");
+		log_file("job/gfbug", sprintf("%-18s é€šç¼‰ä»»åŠ¡ï¼ŒObjï¼š%sï¼ŒKilled by %s\n",
 			me->name()+"("+me->query("id")+")", obj->query("name"),
 			(stringp(obj->query("kill_by"))?obj->query("kill_by"):"Unknow") ), me);
 	}
 	else {
 		command("thumb "+me->query("id"));
-		command("say "+RANK_D->query_respect(me)+"²ù³ý´ËÈË£¬ÕæÊÇ´ó¿ìÈËÐÄ°¡£¡");
-		command("say ±¾¸®´ú±íÇ§ÍòÃñÖÚ¶àÐ»ÕâÎ»"+RANK_D->query_respect(me)+"ÁË");
+		command("say "+RANK_D->query_respect(me)+"é“²é™¤æ­¤äººï¼ŒçœŸæ˜¯å¤§å¿«äººå¿ƒå•Šï¼");
+		command("say æœ¬åºœä»£è¡¨åƒä¸‡æ°‘ä¼—å¤šè°¢è¿™ä½"+RANK_D->query_respect(me)+"äº†");
 		GF_WANTED->do_give_reward(id, target, me, 1);
 	}
 	destruct(obj);

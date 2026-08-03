@@ -1,4 +1,4 @@
-// wudunru.cÎä¶ØÈå
+// wudunru.cæ­¦æ•¦å„’
 // Lklv modify 2001.9.22
 
 inherit NPC;
@@ -6,10 +6,10 @@ void consider();
 
 void create()
 {
-        set_name("Îä¶ØÈå", ({ "wu dunru","wu","dunru" }) );
-        set("gender", "ÄÐÐÔ" );
+        set_name("æ­¦æ•¦å„’", ({ "wu dunru","wu","dunru" }) );
+        set("gender", "ç”·æ€§" );
         set("age", 28);
-        set("long", "Éí²Ä½¡×³£¬Å¨Å¨µÄÃ¼Ã«£¬Ò»¸±¾«Éñ±¥ÂúµÄÑù×Ó¡£\n");
+        set("long", "èº«æå¥å£®ï¼Œæµ“æµ“çš„çœ‰æ¯›ï¼Œä¸€å‰¯ç²¾ç¥žé¥±æ»¡çš„æ ·å­ã€‚\n");
         set("attitude", "peaceful");
         set("str", 30);
         set("con", 30);
@@ -44,10 +44,10 @@ void create()
         prepare_skill("hand", "suohou-shou");
 
         set("inquiry", ([
-//                "ÊØ³Ç": (: ask_job :),
+//                "å®ˆåŸŽ": (: ask_job :),
         ]) );
 
-        create_family("Ø¤°ï", 19, "¹ÒÃûµÜ×Ó");
+        create_family("ä¸å¸®", 19, "æŒ‚åå¼Ÿå­");
 
         setup();
         carry_object(BINGQI_D("blade"))->wield();

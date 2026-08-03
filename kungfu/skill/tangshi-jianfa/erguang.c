@@ -1,4 +1,4 @@
-//erguang.c ¶ú¹âÊ½
+//erguang.c è€³å…‰å¼
 // By Spiderii
 
 #include <ansi.h>
@@ -16,27 +16,27 @@ int perform(object me, object target)
 	 || !target->is_character()
 	 || !me->is_fighting(target)
 	 || !living(target) )
-		return notify_fail("¡¸¶ú¹âÊ½¡¹Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€Œè€³å…‰å¼ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	
    if( (int)me->query_skill("tangshi-jianfa", 1) < 80 )
-		return notify_fail("ÄãµÄÌÉÊ¬½£·¨¹¦Á¦Ì«Ç³£¬±ð×öÃÎÁË¡£\n");
+		return notify_fail("ä½ çš„èººå°¸å‰‘æ³•åŠŸåŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 
    if( (int)me->query_skill("sword", 1) < 80 )
-		return notify_fail("ÄãµÄ»ù±¾½£·¨¹¦Á¦Ì«Ç³£¬±ð×öÃÎÁË¡£\n");
+		return notify_fail("ä½ çš„åŸºæœ¬å‰‘æ³•åŠŸåŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 
 
    if( (int)me->query("max_neili") < 500 )
-		return notify_fail("ÄãµÄÄÚÁ¦Ì«Ç³£¬±ð×öÃÎÁË¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›å¤ªæµ…ï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 
 	if( (int)me->query("neili") < 100 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»£¬±ð×öÃÎÁË¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼Œåˆ«åšæ¢¦äº†ã€‚\n");
 
 	
 	if( !objectp(weapon = me->query_temp("weapon"))
 	 || weapon->query("skill_type") != "sword"
 	 || me->query_skill_mapped("sword") != "tangshi-jianfa" )
-		return notify_fail("ÄãÊ¹µÃÁË¡¸¶ú¹âÊ½¡¹Ã´?\n");
+		return notify_fail("ä½ ä½¿å¾—äº†ã€Œè€³å…‰å¼ã€ä¹ˆ?\n");
 
 	j = lvl/3;
 
@@ -60,23 +60,23 @@ int perform(object me, object target)
 	me->start_busy(random(2));
 	me->add("neili", -300);
 	me->add("jingli", -100);
-	me->start_perform(4, "¡¸¶ú¹âÊ½¡¹");
+	me->start_perform(4, "ã€Œè€³å…‰å¼ã€");
 	return 1;
 }
 
-string perform_name(){ return HIW"¶ú¹âÊ½"NOR; }
+string perform_name(){ return HIW"è€³å…‰å¼"NOR; }
 
 int help(object me)
 {
-        write(HIW"\nÌÉÊ¬½£·¨Ö®¡¸¶ú¹âÊ½¡¹£º"NOR"\n\n");
+        write(HIW"\nèººå°¸å‰‘æ³•ä¹‹ã€Œè€³å…‰å¼ã€ï¼š"NOR"\n\n");
         write(@HELP
-       ÌÉÊ¬½£·¨¼«Æä¾«ÃîµÄÒ»ÕÐ¡£
-¡¡¡¡¡¡¡¡
-¡¡¡¡¡¡¡¡ÒªÇó£º¡¡µ±Ç°ÄÚÁ¦ 100 ÒÔÉÏ£»
-¡¡¡¡¡¡¡¡¡¡¡¡×î´óÄÚÁ¦ 500 ÒÔÉÏ£»
-¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ÌÉÊ¬½£·¨µÈ¼¶ 80 ÒÔÉÏ£»
-¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡»ù±¾½£·¨µÈ¼¶ 80 ÒÔÉÏ£»
-¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¼¤·¢ÕÐ¼ÜÎªÌÉÊ¬½£·¨¡£
+       èººå°¸å‰‘æ³•æžå…¶ç²¾å¦™çš„ä¸€æ‹›ã€‚
+ã€€ã€€ã€€ã€€
+ã€€ã€€ã€€ã€€è¦æ±‚ï¼šã€€å½“å‰å†…åŠ› 100 ä»¥ä¸Šï¼›
+ã€€ã€€ã€€ã€€ã€€ã€€æœ€å¤§å†…åŠ› 500 ä»¥ä¸Šï¼›
+ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€èººå°¸å‰‘æ³•ç­‰çº§ 80 ä»¥ä¸Šï¼›
+ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€åŸºæœ¬å‰‘æ³•ç­‰çº§ 80 ä»¥ä¸Šï¼›
+ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€æ¿€å‘æ‹›æž¶ä¸ºèººå°¸å‰‘æ³•ã€‚
 
 HELP
         );

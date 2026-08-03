@@ -14,13 +14,13 @@ void init()
 
 void create()
 {
-	set_name(HIG "³¤Éú¹û" NOR, ({"changsheng guo","guo"}));
+	set_name(HIG "é•¿ç”Ÿæžœ" NOR, ({"changsheng guo","guo"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Îäµ±É½µÄÌØ²ú, µÀÊ¿ÃÇÑøÉú¼ÑÆ·¡£\n");
-		set("unit", "Ã¶");
+		set("long", "æ­¦å½“å±±çš„ç‰¹äº§, é“å£«ä»¬å…»ç”Ÿä½³å“ã€‚\n");
+		set("unit", "æžš");
 		set("no_get", 1);
 		set("treasure", 1);
 		set("unique", 1);
@@ -34,7 +34,7 @@ int do_eat(string arg)
 	if (!id(arg)) return 0;
 	if ( me->is_busy() || me->is_fighting()) return 0;
 
-	message_vision(HIG "$N³ÔÏÂÒ»Ã¶"	+this_object()->query("name")+HIG "£¬¶ÙÊ±¾õµÃ¾«Á¦ÍúÊ¢£¬ÉõÖÁ²»ÔÙ¸Ðµ½¸É¿Ê¼¢¶ö¡£\n"NOR,me);
+	message_vision(HIG "$Nåƒä¸‹ä¸€æžš"	+this_object()->query("name")+HIG "ï¼Œé¡¿æ—¶è§‰å¾—ç²¾åŠ›æ—ºç››ï¼Œç”šè‡³ä¸å†æ„Ÿåˆ°å¹²æ¸´é¥¥é¥¿ã€‚\n"NOR,me);
 	"/adm/daemons/emoted"->do_emote(me,"taste");
 	me->set("qi", me->query("max_qi"));
 	me->set("jing", me->query("max_jing"));

@@ -1,11 +1,11 @@
-// /u/beyond/mr/npc/xiaotong.c Ñ¾÷ß 
+// /u/beyond/mr/npc/xiaotong.c ä¸«é¬Ÿ 
 // this is made by beyond
 // update 1997.6.23
 inherit NPC;
 void create()
 {
-        set_name("Ñ¾÷ß", ({ "ya huan", "yahuan" }));
-        set("gender", "Å®ÐÔ");
+        set_name("ä¸«é¬Ÿ", ({ "ya huan", "yahuan" }));
+        set("gender", "å¥³æ€§");
         set("age", 18);
 	set("str", 25);
         set("int", 26);

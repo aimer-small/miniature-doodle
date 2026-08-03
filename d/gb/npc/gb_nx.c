@@ -3,432 +3,432 @@
 
 mapping *names = ({
         ({
-                (["name":                   "´òÊÖ",
+                (["name":                   "æ‰“æ‰‹",
                 "award_exp" :              80,
                    "award_pot" :                          10]), 
-                   (["name":                "ÑÎèÉ",
+                   (["name":                "ç›æž­",
                 "award_exp" :              60,
                    "award_pot" :                          10]),
-                   (["name":                "ÄÐµÜ×Ó",
+                   (["name":                "ç”·å¼Ÿå­",
                 "award_exp" :              100,
                    "award_pot" :                          20]), 
-                  (["name":                "Å®µÜ×Ó",
+                  (["name":                "å¥³å¼Ÿå­",
                 "award_exp" :              90,
                    "award_pot" :                          20]), 
-                  (["name":                "Íõ»µË®",
+                  (["name":                "çŽ‹åæ°´",
                 "award_exp" :              80,
                    "award_pot" :                          20]), 
-                    (["name":                "ÒóÀë",
+                    (["name":                "æ®·ç¦»",
                 "award_exp" :              120,
                    "award_pot" :                          25]), 
-                    (["name":                "ÐÇËÞÅÉµÜ×Ó",
+                    (["name":                "æ˜Ÿå®¿æ´¾å¼Ÿå­",
                 "award_exp" :              80,
                    "award_pot" :                          10]), 
-                     (["name":                "¹þÈø¿ËÄÁÃñ",
+                     (["name":                "å“ˆè¨å…‹ç‰§æ°‘",
                 "award_exp" :              60,
                    "award_pot" :                          20]), 
-                    (["name":                "°ÍÒÀ",
+                    (["name":                "å·´ä¾",
                 "award_exp" :              80,
                    "award_pot" :                          20]), 
-                     (["name":                "¾©³Ç¿Í",
+                     (["name":                "äº¬åŸŽå®¢",
                 "award_exp" :              60,
                    "award_pot" :                          20]), 
-                   (["name":                "ÁÖÕðÄÏ",
+                   (["name":                "æž—éœ‡å—",
                 "award_exp" :              100,
                    "award_pot" :                          20]), 
-                    (["name":                "ÍÁ·ËÍ·",
+                    (["name":                "åœŸåŒªå¤´",
                 "award_exp" :              120,
                    "award_pot" :                          30]),  
-                  (["name":                  "²É»¨×Ó",
+                  (["name":                  "é‡‡èŠ±å­",
                 "award_exp" :              120,
                    "award_pot" :                          30]),  
         }),
         ({
-                   (["name":                  "²ÉÒ©µÀ³¤",
+                   (["name":                  "é‡‡è¯é“é•¿",
                 "award_exp" :              80,
                    "award_pot" :                          20]),  
-                 (["name":                  "ÎÂÄÏÑï",
+                 (["name":                  "æ¸©å—æ‰¬",
                 "award_exp" :              100,
                    "award_pot" :                          20]), 
-                 (["name":                  "¿Õ¿Õ¶ù",
+                 (["name":                  "ç©ºç©ºå„¿",
                 "award_exp" :              100,
                    "award_pot" :                          25]), 
-                 (["name":                  "Íõ·òÈË",
+                 (["name":                  "çŽ‹å¤«äºº",
                 "award_exp" :              100,
                    "award_pot" :                          25]), 
-                 (["name":                  "³£Óö´º",
+                 (["name":                  "å¸¸é‡æ˜¥",
                 "award_exp" :              120,
                    "award_pot" :                          30]), 
-                 (["name":                  "ËÕÆÕ",
+                 (["name":                  "è‹æ™®",
                 "award_exp" :              100,
                    "award_pot" :                          30]), 
-                 (["name":                  "ÑÏÂèÂè",
+                 (["name":                  "ä¸¥å¦ˆå¦ˆ",
                 "award_exp" :              120,
                    "award_pot" :                          30]), 
-                 (["name":                  "¹ÈÐéµÀ³¤",
+                 (["name":                  "è°·è™šé“é•¿",
                 "award_exp" :              150,
                    "award_pot" :                          40]), 
-                 (["name":                  "ºìÒÂÎäÊ¿",
+                 (["name":                  "çº¢è¡£æ­¦å£«",
                 "award_exp" :              60,
                    "award_pot" :                          10]), 
-                 (["name":                  "ÇàÒÂÎäÊ¿",
+                 (["name":                  "é’è¡£æ­¦å£«",
                 "award_exp" :              100,
                    "award_pot" :                          10]), 
-                 (["name":                  "µ¥²®É½",
+                 (["name":                  "å•ä¼¯å±±",
                 "award_exp" :              100,
                    "award_pot" :                          20]), 
-                 (["name":                  "µ¥ÖÙÉ½",
+                 (["name":                  "å•ä»²å±±",
                 "award_exp" :              110,
                    "award_pot" :                          20]), 
-                 (["name":                  "Îâ¾¢²Ý",
+                 (["name":                  "å´åŠ²è‰",
                 "award_exp" :              110,
                    "award_pot" :                          20]),  
-                 (["name":                  "ÊØËÂÉ®±ø",
+                 (["name":                  "å®ˆå¯ºåƒ§å…µ",
                 "award_exp" :              80,
                    "award_pot" :                          15]), 
-                 (["name":                  "Îâ¾¢²Ý",
+                 (["name":                  "å´åŠ²è‰",
                 "award_exp" :              110,
                    "award_pot" :                          20]), 
-                 (["name":                  "°¢×Ï",
+                 (["name":                  "é˜¿ç´«",
                 "award_exp" :              120,
                  "award_pot" :                          30]), 
-                 (["name":                  "ÉñÃØïÚÊ¦",
+                 (["name":                  "ç¥žç§˜é•–å¸ˆ",
                 "award_exp" :              90,
                    "award_pot" :                          20]), 
-                 (["name":                  "Ðì´ï",
+                 (["name":                  "å¾è¾¾",
                 "award_exp" :              80,
                    "award_pot" :                          30]), 
-                 (["name":                  "ÌÆ¹âÐÛ",
+                 (["name":                  "å”å…‰é›„",
                 "award_exp" :              120,
                    "award_pot" :                          15]), 
-                 (["name":                  "»ÛÕÃÀ®Âï",
+                 (["name":                  "æ…§å½°å–‡å˜›",
                 "award_exp" :              160,
                    "award_pot" :                          20]), 
                   }),
              ({
-                 (["name":                  "ËÎÇàÊé",
+                 (["name":                  "å®‹é’ä¹¦",
                 "award_exp" :              150,
                    "award_pot" :                          30]), 
-                 (["name":                  "Ç×±ø",
+                 (["name":                  "äº²å…µ",
                 "award_exp" :              120,
                    "award_pot" :                          20]), 
-                 (["name":                  "°×ÅÛ½£ÏÀ",
+                 (["name":                  "ç™½è¢å‰‘ä¾ ",
                 "award_exp" :              150,
                    "award_pot" :                          30]), 
-                 (["name":                  "³ö³¾×Ó",
+                 (["name":                  "å‡ºå°˜å­",
                 "award_exp" :              120,
                    "award_pot" :                          10]), 
-                 (["name":                  "Ç×±ø¶Ó³¤",
+                 (["name":                  "äº²å…µé˜Ÿé•¿",
                 "award_exp" :              150,
                    "award_pot" :                          10]), 
-                 (["name":                  "ÒóÒ°Íõ",
+                 (["name":                  "æ®·é‡ŽçŽ‹",
                 "award_exp" :              180,
                    "award_pot" :                          30]), 
-                 (["name":                  "²ýÆë´óÀ®Âï",
+                 (["name":                  "æ˜Œé½å¤§å–‡å˜›",
                 "award_exp" :              260,
                    "award_pot" :                          50]), 
-                 (["name":                  "²É»¨Ôô",
+                 (["name":                  "é‡‡èŠ±è´¼",
                 "award_exp" :              150,
                    "award_pot" :                          20]), 
-                 (["name":                  "¼ÆÀÏÈË",
+                 (["name":                  "è®¡è€äºº",
                 "award_exp" :              120,
                    "award_pot" :                          20]), 
-                 (["name":                  "É³Í¨Ìì",
+                 (["name":                  "æ²™é€šå¤©",
                 "award_exp" :              160,
                    "award_pot" :                          30]), 
-                  (["name":                  "ºîÍ¨º£",
+                  (["name":                  "ä¾¯é€šæµ·",
                 "award_exp" :              120,
                    "award_pot" :                          30]), 
-                  (["name":                  "¶ÀÐÐ´óÏÀ",
+                  (["name":                  "ç‹¬è¡Œå¤§ä¾ ",
                 "award_exp" :              100,
                    "award_pot" :                          20]), 
-                 (["name":                  "Ç®Çà½¡",
+                 (["name":                  "é’±é’å¥",
                 "award_exp" :              120,
                    "award_pot" :                          20]), 
-                 (["name":                  "ÀäÇ«",
+                 (["name":                  "å†·è°¦",
                 "award_exp" :              150,
                    "award_pot" :                          30]), 
-                 (["name":                  "¶À½Å´óµÁ",
+                 (["name":                  "ç‹¬è„šå¤§ç›—",
                 "award_exp" :              100,
                    "award_pot" :                          20]), 
-                 (["name":                  "Ëµ²»µÃ",
+                 (["name":                  "è¯´ä¸å¾—",
                 "award_exp" :              150,
                    "award_pot" :                          30]), 
-                 (["name":                  "ÅíÁ¬»¢",
+                 (["name":                  "å½­è¿žè™Ž",
                 "award_exp" :              180,
                    "award_pot" :                          40]), 
-                 (["name":                  "ÅíÓ¨Óñ",
+                 (["name":                  "å½­èŽ¹çŽ‰",
                 "award_exp" :              120,
                    "award_pot" :                          25]), 
-                 (["name":                  "ÖÜµß",
+                 (["name":                  "å‘¨é¢ ",
                 "award_exp" :              100,
                    "award_pot" :                          25]), 
-                 (["name":                  "Ê·¼¾Ç¿",
+                 (["name":                  "å²å­£å¼º",
                 "award_exp" :              120,
                    "award_pot" :                          25]), 
-                 (["name":                  "Ê·²®Íþ",
+                 (["name":                  "å²ä¼¯å¨",
                 "award_exp" :              120,
                    "award_pot" :                          23]), 
-                 (["name":                  "ÌìÀÇ×Ó",
+                 (["name":                  "å¤©ç‹¼å­",
                 "award_exp" :              150,
                    "award_pot"   :                         40]), 
-                 (["name":                  "·½±ÌÁÕ",
+                 (["name":                  "æ–¹ç¢§ç³",
                 "award_exp" :              150,
                    "award_pot"   :                         20]), 
-                 (["name":                  "±´½õÒÇ",
+                 (["name":                  "è´é”¦ä»ª",
                 "award_exp" :              150,
                    "award_pot"   :                         20]), 
-                 (["name":                  "Ê·ÖÙÃÍ",
+                 (["name":                  "å²ä»²çŒ›",
                 "award_exp" :              120,
                    "award_pot"   :                         30]), 
-                 (["name":                  "Ê·ÃÏ½Ý",
+                 (["name":                  "å²å­Ÿæ·",
                 "award_exp" :              80,
                    "award_pot"   :                         40]), 
-                 (["name":                  "ÉÆÓÂÀ®Âï",
+                 (["name":                  "å–„å‹‡å–‡å˜›",
                 "award_exp" :              80,
                    "award_pot"   :                         40]), 
-                 (["name":                  "»ÛÖÇ´óÀ®Âï",
+                 (["name":                  "æ…§æ™ºå¤§å–‡å˜›",
                 "award_exp" :              140,
                    "award_pot"   :                         40]), 
  
          }),
         ({
-                  (["name":                  "ÕªÐÇ×Ó",
+                  (["name":                  "æ‘˜æ˜Ÿå­",
                 "award_exp" :              200,
                    "award_pot"   :                         90]), 
-                  (["name":                  "¶à¼ª´óÀ®Âï",
+                  (["name":                  "å¤šå‰å¤§å–‡å˜›",
                 "award_exp" :              200,
                    "award_pot"   :                         90]), 
-                 (["name":                  "÷öÈ»×Ó",
+                 (["name":                  "é»¯ç„¶å­",
                 "award_exp" :              160,
                    "award_pot"   :                         40]), 
-                (["name":                  "Ê¤ÚÐÀ®Âï",
+                (["name":                  "èƒœè°›å–‡å˜›",
                 "award_exp" :              160,
                    "award_pot"   :                         40]),
-                 (["name":                  "ÎäÐÞÎÄ",
+                 (["name":                  "æ­¦ä¿®æ–‡",
                 "award_exp" :              200,
                    "award_pot"   :                         90]), 
-                 (["name":                  "¾²ºÍÊ¦Ì«",
+                 (["name":                  "é™å’Œå¸ˆå¤ª",
                 "award_exp" :              150,
                    "award_pot"   :                         20]), 
-                 (["name":                  "¾²ÏÐÊ¦Ì«",
+                 (["name":                  "é™é—²å¸ˆå¤ª",
                 "award_exp" :              180,
                    "award_pot"   :                         60]), 
-                 (["name":                  "¾²ÐþÊ¦Ì«",
+                 (["name":                  "é™çŽ„å¸ˆå¤ª",
                 "award_exp" :              120,
                    "award_pot"   :                         30]), 
-                 (["name":                  "¾²µÀÊ¦Ì«",
+                 (["name":                  "é™é“å¸ˆå¤ª",
                 "award_exp" :              100,
                    "award_pot"   :                         50]), 
-                 (["name":                  "¾²·çÊ¦Ì«",
+                 (["name":                  "é™é£Žå¸ˆå¤ª",
                 "award_exp" :              180,
                    "award_pot"   :                         15]), 
-                 (["name":                  "°ü²»Í¬",
+                 (["name":                  "åŒ…ä¸åŒ",
                 "award_exp" :              190,
                    "award_pot"   :                         80]), 
-                 (["name":                  "µË°Ù´¨",
+                 (["name":                  "é‚“ç™¾å·",
                 "award_exp" :              180,
                    "award_pot"   :                         50]), 
-                 (["name":                  "Îä¶ØÈå",
+                 (["name":                  "æ­¦æ•¦å„’",
                 "award_exp" :              120,
                    "award_pot"   :                         30]), 
-                 (["name":                  "·ç²¨¶ñ",
+                 (["name":                  "é£Žæ³¢æ¶",
                 "award_exp" :              120,
                    "award_pot"   :                         40]), 
-                 (["name":                  "ÎÂ·½Ê©",
+                 (["name":                  "æ¸©æ–¹æ–½",
                 "award_exp" :              150,
                    "award_pot"   :                         40]), 
-                 (["name":                  "ÎÂ·½Îò",
+                 (["name":                  "æ¸©æ–¹æ‚Ÿ",
                 "award_exp" :              150,
                    "award_pot"   :                         40]), 
-                 (["name":                  "¾²¿ÕÊ¦Ì«",
+                 (["name":                  "é™ç©ºå¸ˆå¤ª",
                 "award_exp" :              120,
                    "award_pot"   :                         30]), 
-                 (["name":                  "Ê·Êå¸Õ",
+                 (["name":                  "å²å”åˆš",
                 "award_exp" :              200,
                    "award_pot"   :                         120]), 
-                 (["name":                  "³ÎÉÐ",
+                 (["name":                  "æ¾„å°š",
                 "award_exp" :              120,
                    "award_pot"   :                         40]), 
-                 (["name":                  "³ÎÐÄ",
+                 (["name":                  "æ¾„å¿ƒ",
                 "award_exp" :              120,
                    "award_pot"   :                         35]), 
-                 (["name":                  "³ÎÊ¶",
+                 (["name":                  "æ¾„è¯†",
                 "award_exp" :              160,
                    "award_pot"   :                         20]), 
-                 (["name":                  "³ÎË¼",
+                 (["name":                  "æ¾„æ€",
                 "award_exp" :              80,
                    "award_pot"   :                         40]), 
-                 (["name":                  "³ÎÃ÷",
+                 (["name":                  "æ¾„æ˜Ž",
                 "award_exp" :              110,
                    "award_pot"   :                         30]), 
-                 (["name":                  "³ÎÃð",
+                 (["name":                  "æ¾„ç­",
                 "award_exp" :              120,
                    "award_pot"   :                         40]), 
-                 (["name":                  "¾²ÕÕÊ¦Ì«",
+                 (["name":                  "é™ç…§å¸ˆå¤ª",
                 "award_exp" :              100,
                    "award_pot"   :                         40]), 
-                 (["name":                  "¾²ÐÄÊ¦Ì«",
+                 (["name":                  "é™å¿ƒå¸ˆå¤ª",
                 "award_exp" :              120,
                    "award_pot"   :                         30]), 
-                 (["name":                  "³Î¼á",
+                 (["name":                  "æ¾„åš",
                 "award_exp" :              120,
                    "award_pot"   :                         30]), 
-                 (["name":                   "´ó³ó",
+                 (["name":                   "å¤§ä¸‘",
                 "award_exp" :              180,
                    "award_pot"   :                         60]), 
-                 (["name":                    "¶þ³ó",
+                 (["name":                    "äºŒä¸‘",
                 "award_exp" :              180,
                    "award_pot"   :                         50]), 
-                 (["name":                    "Èý³ó",
+                 (["name":                    "ä¸‰ä¸‘",
                 "award_exp" :              180,
                    "award_pot"   :                         50]), 
-                 (["name":                    "³ÎÖª",
+                 (["name":                    "æ¾„çŸ¥",
                 "award_exp" :              120,
                    "award_pot"   :                         30]), 
-                 (["name":                    "ÁéÖÇÉÏÈË",
+                 (["name":                    "çµæ™ºä¸Šäºº",
                 "award_exp" :              180,
                    "award_pot"   :                         80]), 
          }), 
         ({
-                  (["name":                    "ÁéÖÇÉÏÈË",
+                  (["name":                    "çµæ™ºä¸Šäºº",
                 "award_exp" :              100,
                    "award_pot"   :                         30]), 
-                  (["name":                    "Ä½ÈÝ¸´",
+                  (["name":                    "æ…•å®¹å¤",
                 "award_exp" :              160,
                    "award_pot"   :                         60]), 
-                  (["name":                    "ÆëÔÆ°½",
+                  (["name":                    "é½äº‘æ•–",
                 "award_exp" :              200,
                    "award_pot"   :                         40]), 
-                  (["name":                    "É£½á´óÀ®Âï",
+                  (["name":                    "æ¡‘ç»“å¤§å–‡å˜›",
                 "award_exp" :                         180,
                    "award_pot"   :                         60]), 
-                  (["name":                    "ÖÇÉÆ´óÀ®Âï",
+                  (["name":                    "æ™ºå–„å¤§å–‡å˜›",
                 "award_exp" :                         180,
                    "award_pot"   :                         50]), 
-                  (["name":                    "ÎÂ·½´ï",
+                  (["name":                    "æ¸©æ–¹è¾¾",
                 "award_exp" :                        180,
                    "award_pot"   :                         50]), 
-                  (["name":                    "ÎÂ·½Òå",
+                  (["name":                    "æ¸©æ–¹ä¹‰",
                 "award_exp" :                        180,
                    "award_pot"   :                         50]), 
-                  (["name":                    "ÀîÄª³î",
+                  (["name":                    "æŽèŽ«æ„",
                 "award_exp" :                       180,
                    "award_pot"   :                         50]), 
-                  (["name":                    "÷ìç²Ë¿",
+                  (["name":                    "é»›ç»®ä¸",
                 "award_exp" :                       240,
                    "award_pot"   :                         80]), 
-                  (["name":                    "äìÏæ×Ó",
+                  (["name":                    "æ½‡æ¹˜å­",
                 "award_exp" :                      180,
                    "award_pot"   :                         50]), 
-                  (["name":                    "Ñªµ¶ÀÏ×æ",
+                  (["name":                    "è¡€åˆ€è€ç¥–",
                 "award_exp" :                         260,
                    "award_pot"   :                         70]), 
-                  (["name":                    "Ðþ±¯´óÊ¦",
+                  (["name":                    "çŽ„æ‚²å¤§å¸ˆ",
                 "award_exp" :                         180,
                    "award_pot"   :                         50]), 
-                  (["name":                    "Ðþ´È´óÊ¦",
+                  (["name":                    "çŽ„æ…ˆå¤§å¸ˆ",
                 "award_exp" :                       180,
                    "award_pot"   :                         50]), 
-                  (["name":                    "ÐþÉú´óÊ¦",
+                  (["name":                    "çŽ„ç”Ÿå¤§å¸ˆ",
                 "award_exp" :                       180,
                    "award_pot"   :                         50]), 
-                  (["name":                    "Ð»Ñ·",
+                  (["name":                    "è°¢é€Š",
                 "award_exp" :                     270,
                    "award_pot"   :                         90]), 
-                  (["name":                    "ÒóÌìÕý",
+                  (["name":                    "æ®·å¤©æ­£",
                 "award_exp" :              180,
                    "award_pot"   :                         40]), 
-                  (["name":                    "ÑîåÐ",
+                  (["name":                    "æ¨é€",
                 "award_exp" :              180,
                    "award_pot"   :                         60]), 
-                  (["name":                    "·¶Ò£",
+                  (["name":                    "èŒƒé¥",
                 "award_exp" :              180,
                    "award_pot"   :                         60]), 
-                  (["name":                    "Î¤Ò»Ð¦",
+                  (["name":                    "éŸ¦ä¸€ç¬‘",
                 "award_exp" :              180,
                    "award_pot"   :                         60]), 
-                  (["name":                    "ÐþÄÑ´óÊ¦",
+                  (["name":                    "çŽ„éš¾å¤§å¸ˆ",
                 "award_exp" :              180,
                    "award_pot"   :                         60]), 
-                  (["name":                    "Ãð¾øÊ¦Ì«",
+                  (["name":                    "ç­ç»å¸ˆå¤ª",
                 "award_exp" :              180,
                    "award_pot"   :                         60]),  
-                  (["name":                    "´ï¶ø°Í",
+                  (["name":                    "è¾¾è€Œå·´",
                 "award_exp" :              200,
                    "award_pot"   :                         90]), 
             }), 
           ({
-                  (["name":                    "¶¡´ºÇï",
+                  (["name":                    "ä¸æ˜¥ç§‹",
                 "award_exp" :                       270,
                    "award_pot"   :                         100]), 
-                  (["name":                    "·çÁêÊ¦Ì«",
+                  (["name":                    "é£Žé™µå¸ˆå¤ª",
                 "award_exp" :                        180,
                    "award_pot"   :                         60]), 
-                  (["name":                       "ºÎÌúÊÖ",
+                  (["name":                       "ä½•é“æ‰‹",
                 "award_exp" :                        200,
                    "award_pot"   :                         80]), 
-                  (["name":                    "Ä½ÈÝ²©",
+                  (["name":                    "æ…•å®¹åš",
                 "award_exp" :                        180,
                    "award_pot"   :                         60]), 
-                  (["name":                    "¿ÝÈÙ³¤ÀÏ",
+                  (["name":                    "æž¯è£é•¿è€",
                 "award_exp" :                         180,
                    "award_pot"   :                         80]), 
-                  (["name":                    "¶É¶ò",
+                  (["name":                    "æ¸¡åŽ„",
                 "award_exp" :                     180,
                    "award_pot"   :                         60]), 
-                  (["name":                    "¶É½Ù",
+                  (["name":                    "æ¸¡åŠ«",
                 "award_exp" :                    180,
                    "award_pot"   :                         60]), 
-                  (["name":                    "¶ÉÄÑ",
+                  (["name":                    "æ¸¡éš¾",
                 "award_exp" :                     180,
                    "award_pot"   :                         60]), 
-                  (["name":                    "³ÉÀ¥",
+                  (["name":                    "æˆæ˜†",
                 "award_exp" :                    180,
                    "award_pot"   :                         50]), 
-                  (["name":                    "ÐþÄÑ´óÊ¦",
+                  (["name":                    "çŽ„éš¾å¤§å¸ˆ",
                 "award_exp" :                     180,
                    "award_pot"   :                         40]), 
-                  (["name":                    "Ðþ´È´óÊ¦",
+                  (["name":                    "çŽ„æ…ˆå¤§å¸ˆ",
                 "award_exp" :                     180,
                    "award_pot"   :                         40]), 
  
            }), 
                    ({ 
-                  (["name":                              "½ðÂÖ·¨Íõ",
+                  (["name":                              "é‡‘è½®æ³•çŽ‹",
                     "award_exp" :                                  180,
                   "award_pot"   :                         60]), 
-                  (["name":                              "ð¯Ä¦ÖÇ",
+                  (["name":                              "é¸ æ‘©æ™º",
                     "award_exp" :                                  160,
                   "award_pot"   :                         60]), 
-                  (["name":                              "ºúÒÝÖ®",
+                  (["name":                              "èƒ¡é€¸ä¹‹",
                     "award_exp" :                                  160,
                   "award_pot"   :                         50]), 
-                  (["name":                              "ÎÞÃûÀÏÉ®",
+                  (["name":                              "æ— åè€åƒ§",
                     "award_exp" :                                  180,
                   "award_pot"   :                         60]), 
-                  (["name":                              "ÕÅÎÞ¼É",
+                  (["name":                              "å¼ æ— å¿Œ",
                     "award_exp" :                                 180,
                   "award_pot"   :                         60]), 
-                  (["name":                              "¹éÐÁÊ÷",
+                  (["name":                              "å½’è¾›æ ‘",
                     "award_exp" :                                  260,
                   "award_pot"   :                         120]), 
-                  (["name":                              "¹é¶þÄï",
+                  (["name":                              "å½’äºŒå¨˜",
                     "award_exp" :                          200,
                   "award_pot"   :                         70]), 
-                  (["name":                              "ÕÅÈý·á",
+                  (["name":                              "å¼ ä¸‰ä¸°",
                     "award_exp" :                                  320,
                   "award_pot"   :                         80]), 
-                   (["name":                               "³ÉÀ¥",
+                   (["name":                               "æˆæ˜†",
                 "award_exp" :                              180,
                    "award_pot"   :                         40]), 
-                  (["name":                                      "¶É¶ò",
+                  (["name":                                      "æ¸¡åŽ„",
                 "award_exp" :                              180,
                    "award_pot"   :                         40]), 
-                  (["name":                               "¶É½Ù",
+                  (["name":                               "æ¸¡åŠ«",
                 "award_exp" :                              180,
                    "award_pot"   :                         40]), 
-                   (["name":                               "¶ÉÄÑ",
+                   (["name":                               "æ¸¡éš¾",
                 "award_exp" :                              180,
                    "award_pot"   :                         40]), 
           }),
@@ -452,37 +452,37 @@ string ask_job(string arg)
                    exp = (int)applicant->query("combat_exp",1);
 
                    if (!applicant->query("gb_pass"))
-                    return "ÄãÃ»ÓÐÍ¨¹ý½ÓÒýµÜ×ÓµÄ¿¼Ñé£¬ÎÒ¿É²»¸ÒÓÃÄã¡£"; 
+                    return "ä½ æ²¡æœ‰é€šè¿‡æŽ¥å¼•å¼Ÿå­çš„è€ƒéªŒï¼Œæˆ‘å¯ä¸æ•¢ç”¨ä½ ã€‚"; 
                   if(exp>2000000)
-                 return "¸óÏÂÎäÒÕ¸ßÇ¿£¬ÔÚÏÂ¿É²»¸ÒÀÍ·³ÄúÀÏ¡£";
+                 return "é˜ä¸‹æ­¦è‰ºé«˜å¼ºï¼Œåœ¨ä¸‹å¯ä¸æ•¢åŠ³çƒ¦æ‚¨è€ã€‚";
                       if (interactive(applicant) && applicant->query_temp("promotion_target")
                 && (int)applicant->query_condition("gb_mission"))  
-                     return "ÈÃÄãÈ¥É±"+applicant->query_temp("promotion_target")+"»¹²»¿ìÈ¥£¿";
+                     return "è®©ä½ åŽ»æ€"+applicant->query_temp("promotion_target")+"è¿˜ä¸å¿«åŽ»ï¼Ÿ";
 
                          if (interactive(applicant) && !applicant->query_temp("promotion_target")
                 && (int)applicant->query_condition("gb_mission"))  
-                     return "½Ì¸øÄãµÄÈÎÎñÄã»¹Ã»Íê³ÉÔõÃ´ÓÖÅÜ»ØÀ´ÁË£¡";   
+                     return "æ•™ç»™ä½ çš„ä»»åŠ¡ä½ è¿˜æ²¡å®Œæˆæ€Žä¹ˆåˆè·‘å›žæ¥äº†ï¼";   
 
            if (interactive(applicant) && applicant->query_temp("gb_job_exp") || applicant->query_temp("gb_job_pot")) 
-                                      return "ÄãµÄÈÎÎñ»¹Ã»Íê³É£¬ÔõÃ´¾ÍÅÜ»ØÀ´ÁË¡£"; 
+                                      return "ä½ çš„ä»»åŠ¡è¿˜æ²¡å®Œæˆï¼Œæ€Žä¹ˆå°±è·‘å›žæ¥äº†ã€‚"; 
 
                     if (interactive(applicant)&&
                      (int)applicant->query_condition("xx_task"))
                   {
                   applicant->delete("gb_job");
-                   tell_object(applicant,HIW"Äã´Ó´Ë²»ÔÙÊÇØ¤°ï°ïÖÚÁË¡£\n"NOR);
-                    return "¾¹¸ÒÍµÍµÎª¶¡ÀÏ¹ÖÐ§Á¦£¬´Ó´ËÄãÒÔºóºÍÎÒØ¤°ïÔÙÃ»¹ØÏµÁË£¡\n"; 
+                   tell_object(applicant,HIW"ä½ ä»Žæ­¤ä¸å†æ˜¯ä¸å¸®å¸®ä¼—äº†ã€‚\n"NOR);
+                    return "ç«Ÿæ•¢å·å·ä¸ºä¸è€æ€ªæ•ˆåŠ›ï¼Œä»Žæ­¤ä½ ä»¥åŽå’Œæˆ‘ä¸å¸®å†æ²¡å…³ç³»äº†ï¼\n"; 
                     }
         if (interactive(applicant) &&
                 (int)applicant->query_condition("guanfu_task"))
-        return "ÄãÒÑ¾­Í¶¿¿¹Ù¸®Õâ¿Ã´óÊ÷£¬»¹À´ÎÒÃÇÇîÒª»¨×ÓÕâ¸ÉÊ²÷á£¿\n";
+        return "ä½ å·²ç»æŠ•é å®˜åºœè¿™æ£µå¤§æ ‘ï¼Œè¿˜æ¥æˆ‘ä»¬ç©·è¦èŠ±å­è¿™å¹²ä»€éº½ï¼Ÿ\n";
 
     if (interactive(applicant) &&
         (int)applicant->query_condition("gb_busy"))  
-         return "ÏÖÔÚÎÒ¿ÉÃ»ÓÐ¸øÄãµÄÈÎÎñ£¬µÈ»áÔÙÀ´°É¡£\n";
+         return "çŽ°åœ¨æˆ‘å¯æ²¡æœ‰ç»™ä½ çš„ä»»åŠ¡ï¼Œç­‰ä¼šå†æ¥å§ã€‚\n";
        if (interactive(applicant) &&
              (int)applicant->query_condition("dali_songxi"))
-            return "ÄãÒÑ¾­ÔÚÕðÄÏÍõ¸®¸ß¾Í£¬µ½ÎÒÃÇÕâÀïÑ°Ê²Ã´¿ªÐÄ£¿\n";
+            return "ä½ å·²ç»åœ¨éœ‡å—çŽ‹åºœé«˜å°±ï¼Œåˆ°æˆ‘ä»¬è¿™é‡Œå¯»ä»€ä¹ˆå¼€å¿ƒï¼Ÿ\n";
     if(exp>=1100000)
          position=7;
      else if(exp>=850000)
@@ -504,7 +504,7 @@ string ask_job(string arg)
               applicant->set_temp("gb_job_pot", target["award_pot"]);
         applicant->set_temp("assigned_by", me->query("name"));  
         applicant->apply_condition("gb_mission",random(20)+30);
-        return "ºÃ°É£¬×î½ü¡¸"+applicant->query_temp("promotion_target")+"¡¹Ò»Ö±ºÍÎÒØ¤°ï×÷¶Ô£¬ÄãÇ°È¥Éè·¨½«´ËÈË³ýµô£¡";
+        return "å¥½å§ï¼Œæœ€è¿‘ã€Œ"+applicant->query_temp("promotion_target")+"ã€ä¸€ç›´å’Œæˆ‘ä¸å¸®ä½œå¯¹ï¼Œä½ å‰åŽ»è®¾æ³•å°†æ­¤äººé™¤æŽ‰ï¼";
 }
 
 int accept_object(object apper, object ob)
@@ -515,44 +515,44 @@ int accept_object(object apper, object ob)
         if ( !apper->query("gb_pass")) 
               return 0;
         if ( ob->query("id") != "corpse" ) {
-                command("say Õâ¶«Î÷ÎÒÒªÀ´Ã»ÓÃ¡£");
+                command("say è¿™ä¸œè¥¿æˆ‘è¦æ¥æ²¡ç”¨ã€‚");
                 return 0;
         }
         if ( !apper->query_temp("promotion_target") ) {
-                command("say ºÃ°¡£¡²»¹ýÄãµÃÏÈÉêÇëÈÎÎñ¡£");
+                command("say å¥½å•Šï¼ä¸è¿‡ä½ å¾—å…ˆç”³è¯·ä»»åŠ¡ã€‚");
                 return 0;
         }
 
         if ( !apper->query_temp("gb_job_exp") ) {
-                command("say ºÃ°¡£¡²»¹ýÄãµÃÏÈÉêÇëÈÎÎñ¡£");
+                command("say å¥½å•Šï¼ä¸è¿‡ä½ å¾—å…ˆç”³è¯·ä»»åŠ¡ã€‚");
                 return 0;
         }
 
         if ( !apper->query_temp("gb_job_pot") ) {
-                command("say ºÃ°¡£¡²»¹ýÄãµÃÏÈÉêÇëÈÎÎñ¡£");
+                command("say å¥½å•Šï¼ä¸è¿‡ä½ å¾—å…ˆç”³è¯·ä»»åŠ¡ã€‚");
                 return 0;
         }
 
         if ( ob->query("victim_name") 
         != apper->query_temp("promotion_target") ) {
-                command("say ºÙºÙ¡£¡£¡££¬ÄãÉ±´íÈËÁË¡£");
+                command("say å˜¿å˜¿ã€‚ã€‚ã€‚ï¼Œä½ æ€é”™äººäº†ã€‚");
                 return 0;
         }
      if ( ob->query("victim_user") ) {         // is it player's corpse?
                 command("say " + RANK_D->query_rude(apper) + 
-                        "£¬¾ÓÈ»¸ÒÆÛÆ­±¾³¤ÀÏ£¬ÄÃÃüÀ´°Ñ£¡");
+                        "ï¼Œå±…ç„¶æ•¢æ¬ºéª—æœ¬é•¿è€ï¼Œæ‹¿å‘½æ¥æŠŠï¼");
                 call_out("killing_object",1,apper);
                 return 0;
         }
         if ( ob->query("kill_by") != apper) {
-                command("say Õâ¸öÈÎÎñËÆºõ²»ÊÇÄã×Ô¼ºÍê³ÉµÄ°É£¿");
-                command("chat "+ apper->name(1) +"×÷±×£¬´ó¼ÒËµÔõÃ´°ì£¿");
+                command("say è¿™ä¸ªä»»åŠ¡ä¼¼ä¹Žä¸æ˜¯ä½ è‡ªå·±å®Œæˆçš„å§ï¼Ÿ");
+                command("chat "+ apper->name(1) +"ä½œå¼Šï¼Œå¤§å®¶è¯´æ€Žä¹ˆåŠžï¼Ÿ");
                 return 0;
         }
         if (interactive(apper) &&
                 (int)apper->query_condition("xx_task")){
-            command("chat "+ apper->name(1)+"ÍµÍµÎªÐÇËÞÅÉÐ§Á¦£¬ÏÖÔÚ°ÑËûÇýÖð³öØ¤°ï¡£\n");
-            command("chat "+ apper->name(1)+"ÕâµÈÎäÁÖ°ÜÀà£¬ÈËÈËµÃ¶øÖïÖ®!!!\n");
+            command("chat "+ apper->name(1)+"å·å·ä¸ºæ˜Ÿå®¿æ´¾æ•ˆåŠ›ï¼ŒçŽ°åœ¨æŠŠä»–é©±é€å‡ºä¸å¸®ã€‚\n");
+            command("chat "+ apper->name(1)+"è¿™ç­‰æ­¦æž—è´¥ç±»ï¼Œäººäººå¾—è€Œè¯›ä¹‹!!!\n");
             apper->delete("gb_pass");
             apper->delete("gb_job");
              return 1; 
@@ -572,15 +572,15 @@ void ok(object apper)
         int job_time;
         if (!apper) return;
         command("thumb " + apper->query("id"));
-        command("say ÄãÎªØ¤°ïÁ¢ÏÂÁË¹¦ÀÍ£¬ÎÒÃÇ¾ø²»»á¿÷´ýÄãµÄ¡£");
+        command("say ä½ ä¸ºä¸å¸®ç«‹ä¸‹äº†åŠŸåŠ³ï¼Œæˆ‘ä»¬ç»ä¸ä¼šäºå¾…ä½ çš„ã€‚");
  
               job_time=(int)apper->query("gb_job")/800;
                     if (job_time <1) job_time = 0;
 
             tell_room(environment(),
-           		HIY "Îâ³¤ÀÏÔÚ"+ apper->name()
-		+ "µÄ¶ú±ßµÍÉùËÆºõÔÚ½²½â×ÅÊ²÷á£¬Ò»»á¶ù"+ apper->name() +"²»×¡µãÍ·£¬Ãæ³ÊÏ²É«¡£\n"NOR, ({ apper }));
-            write(HIY"Îâ³¤ÀÏ·üÉíÔÚÄã¶ú±ßÇÄÉùÖ¸µãÁËÄãÒ»Ð©Îä¹¦ÒªÁì£¬ÄãÌýÁËÒ»»á½¥ÓÐËùÎò£¬¸Ðµ½×Ô¼ºÎäÑ§ÐÞÎªÓÐËùÌá¸ß¡£\n"NOR);
+           		HIY "å´é•¿è€åœ¨"+ apper->name()
+		+ "çš„è€³è¾¹ä½Žå£°ä¼¼ä¹Žåœ¨è®²è§£ç€ä»€éº½ï¼Œä¸€ä¼šå„¿"+ apper->name() +"ä¸ä½ç‚¹å¤´ï¼Œé¢å‘ˆå–œè‰²ã€‚\n"NOR, ({ apper }));
+            write(HIY"å´é•¿è€ä¼èº«åœ¨ä½ è€³è¾¹æ‚„å£°æŒ‡ç‚¹äº†ä½ ä¸€äº›æ­¦åŠŸè¦é¢†ï¼Œä½ å¬äº†ä¸€ä¼šæ¸æœ‰æ‰€æ‚Ÿï¼Œæ„Ÿåˆ°è‡ªå·±æ­¦å­¦ä¿®ä¸ºæœ‰æ‰€æé«˜ã€‚\n"NOR);
                apper->add("combat_exp", apper->query_temp("gb_job_exp"));
                apper->add("potential", apper->query_temp("gb_job_pot"));
                     apper->add("combat_exp",job_time);
@@ -598,16 +598,16 @@ void gb_apprentice(object ob)
         string prev_family_name;
 
         if ( (int)ob->query("gb_bags") >= 2  
-       && (prev_family_name = ob->query("family/family_name")) != "Ø¤°ï" ) {
-                command("say Ø¤°ï¿ÉÈÝ²»ÏÂÄãÕâÖÖ±³ÐÅÆúÒåµÄÐ¡ÈË£¡");
+       && (prev_family_name = ob->query("family/family_name")) != "ä¸å¸®" ) {
+                command("say ä¸å¸®å¯å®¹ä¸ä¸‹ä½ è¿™ç§èƒŒä¿¡å¼ƒä¹‰çš„å°äººï¼");
                 return;
         }
-        command("say ºÃ°É£¬Ï£Íû" + RANK_D->query_respect(ob) +
-        "ÄÜºÃºÃÑ§Ï°±¾ÃÅÎä¹¦£¬½«À´ÔÚ½­ºþÖÐ´³³öÒ»·¬×÷Îª¡£");
+        command("say å¥½å§ï¼Œå¸Œæœ›" + RANK_D->query_respect(ob) +
+        "èƒ½å¥½å¥½å­¦ä¹ æœ¬é—¨æ­¦åŠŸï¼Œå°†æ¥åœ¨æ±Ÿæ¹–ä¸­é—¯å‡ºä¸€ç•ªä½œä¸ºã€‚");
         command("recruit " + ob->query("id"));
-        if ( prev_family_name != "Ø¤°ï")
+        if ( prev_family_name != "ä¸å¸®")
                 ob->set("gb_bags", 1);
-        ob->set("title",sprintf("Ø¤°ï%s´üµÜ×Ó",
+        ob->set("title",sprintf("ä¸å¸®%sè¢‹å¼Ÿå­",
                 chinese_number(ob->query("gb_bags"))) );
 }
 void killing_object(object who)
@@ -624,9 +624,9 @@ string ask_fangqi()
            me = this_player();
            exp = me->query("combat_exp",1);
            if(!me->query("gb_pass"))
-           return "Äã·ÇÎÒØ¤°ïÓ¢ÐÛ,ÅÜÕâÀïÏ¹ÈÂÈÂÊ²÷á?";
+           return "ä½ éžæˆ‘ä¸å¸®è‹±é›„,è·‘è¿™é‡ŒçžŽåš·åš·ä»€éº½?";
            if(me->query_condition("gb_mission")<=1)
-          return "ÄãÃ»ÓÐÁìÈÎÎñ,ÅÜÕâÀïÏ¹ÈÂÈÂÊ²÷á?";
+          return "ä½ æ²¡æœ‰é¢†ä»»åŠ¡,è·‘è¿™é‡ŒçžŽåš·åš·ä»€éº½?";
           me->clear_condition("gb_mission");
           me->add("combat_exp",-10+random(15));
                 if(exp>500000){
@@ -640,7 +640,7 @@ string ask_fangqi()
                    me->delete_temp("gb_job_exp");
                    me->delete_temp("gb_job_pot");
           me->add("gb_job",-1);
-        return "¼ÈÈ»Äã¸É²»ÁËÒ²Ã»¹ØÏµ,ÔÙÈ¥¿Ì¿àÁ·¹¦°É,ÒÔºóÔÙÀ´ÎªØ¤°ï³öÁ¦!";
+        return "æ—¢ç„¶ä½ å¹²ä¸äº†ä¹Ÿæ²¡å…³ç³»,å†åŽ»åˆ»è‹¦ç»ƒåŠŸå§,ä»¥åŽå†æ¥ä¸ºä¸å¸®å‡ºåŠ›!";
 }
 void destroying(object obj)
 {
@@ -657,8 +657,8 @@ string ask_gonglao(object who)
          i =(int)me->query("gb_job"); 
 
            if(!me->query("gb_job"))
-           return "ÄãÃ»ÎªÎÒØ¤°ï³ö¹ýÈÎºÎÁ¦£¬ÅÜÀ´ÎÊÊ²Ã´¹¦ÀÍÄØ?"; 
+           return "ä½ æ²¡ä¸ºæˆ‘ä¸å¸®å‡ºè¿‡ä»»ä½•åŠ›ï¼Œè·‘æ¥é—®ä»€ä¹ˆåŠŸåŠ³å‘¢?"; 
 
-               message_vision("$NÌÍ³öÒ»±¾²á×Ó·­ÁË·­£¬Ö¸×ÅÉÏÃæµÄÄ«¼£¶Ô$nËµµÀ£¬ÕâÉÏÃæ¹²¼ÇÔØ×ÅÄãÀú´ÎµÄ¹¦ÀÍ£¬Ä¿Ç°ÒÑ¼Ç¹¦" + chinese_number(i) + "´Î¡£\n",who,me);
-        return "ÎÒØ¤°ïÏòÀ´ÉÍ·£·ÖÃ÷£¬¼ÌÐøÅ¬Á¦°É£¡ËæÊÖ½«¹¦ÀÍ²¾´§Èë»³ÖÐ¡£";
+               message_vision("$NæŽå‡ºä¸€æœ¬å†Œå­ç¿»äº†ç¿»ï¼ŒæŒ‡ç€ä¸Šé¢çš„å¢¨è¿¹å¯¹$nè¯´é“ï¼Œè¿™ä¸Šé¢å…±è®°è½½ç€ä½ åŽ†æ¬¡çš„åŠŸåŠ³ï¼Œç›®å‰å·²è®°åŠŸ" + chinese_number(i) + "æ¬¡ã€‚\n",who,me);
+        return "æˆ‘ä¸å¸®å‘æ¥èµç½šåˆ†æ˜Žï¼Œç»§ç»­åŠªåŠ›å§ï¼éšæ‰‹å°†åŠŸåŠ³ç°¿æ£å…¥æ€€ä¸­ã€‚";
 }

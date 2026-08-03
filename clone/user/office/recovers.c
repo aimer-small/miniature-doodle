@@ -1,5 +1,5 @@
 // recovers.c
-// »Ö¸´×ÔÉ±Íæ¼Ò
+// æ¢å¤è‡ªæ€ç©å®¶
 
 #include <ansi.h>
 
@@ -10,30 +10,30 @@ string do_auto(object me, string arg)
 
         seteuid(ROOT_UID);
 	if (file_size("/data/login/" + arg[0..0] + "/" + arg + ".ooo") < 0)
-		return HIR + arg + " µÄµÇÂ¼±¸·İµµ°¸ÒÑÉ¾³ı£¬ÎŞ·¨»Ö¸´¡£\n"NOR;
+		return HIR + arg + " çš„ç™»å½•å¤‡ä»½æ¡£æ¡ˆå·²åˆ é™¤ï¼Œæ— æ³•æ¢å¤ã€‚\n"NOR;
         if (file_size("/data/user/"+ arg[0..0] + "/" + arg + ".ooo")<0)
-                return arg + " µÄµµ°¸ºÃÏóÃ»ÓĞ±¸·İßÏ£¡\n";
+                return arg + " çš„æ¡£æ¡ˆå¥½è±¡æ²¡æœ‰å¤‡ä»½å‘¦ï¼\n";
 
 	ob = find_player(arg);
 	if (ob) {
-		tell_object(ob, BLINK HIR"\n\n\n\tÏÖÔÚÕıÔÚ¸øÄú»Ö¸´µµ°¸ÖĞ£¬ÇëÄú°ë·ÖÖÓºóµÇÂ¼¡£\n\n"NOR);
+		tell_object(ob, BLINK HIR"\n\n\n\tç°åœ¨æ­£åœ¨ç»™æ‚¨æ¢å¤æ¡£æ¡ˆä¸­ï¼Œè¯·æ‚¨åŠåˆ†é’Ÿåç™»å½•ã€‚\n\n"NOR);
 		"/cmds/usr/quit"->main(ob);
 	}
 
 	if (cp("/data/login/" + arg[0..0] + "/" + arg + ".ooo", "/data/login/" + arg[0..0] + "/" + arg + ".o") <=0)
-		return "µÇÂ½ÎÄ¼ş¸´ÖÆÊ§°Ü£¡\n";
+		return "ç™»é™†æ–‡ä»¶å¤åˆ¶å¤±è´¥ï¼\n";
 
 	file_info = stat("/data/user/"+ arg[0..0] + "/" + arg + ".ooo");
 	if (cp("/data/user/" + arg[0..0] + "/" + arg + ".ooo","/data/user/" + arg[0..0] + "/" + arg + ".o") <=0)
-		return "Êı¾İÎÄ¼ş¸´ÖÆÊ§°Ü£¡\n";
-	write("Êı¾İÒÑ¾­»Ö¸´Íê±Ï£¬ÏÖÔÚ"HIW"¼ÇÂ¼"NOR"½ø³Ì£¡\n");
+		return "æ•°æ®æ–‡ä»¶å¤åˆ¶å¤±è´¥ï¼\n";
+	write("æ•°æ®å·²ç»æ¢å¤å®Œæ¯•ï¼Œç°åœ¨"HIW"è®°å½•"NOR"è¿›ç¨‹ï¼\n");
 //log to recover_suicide
-	log_file("static/recover_suicide",sprintf("%s %s»Ö¸´(%s)[×ÔÉ±ÓÚ%s]¡£\n",ctime(time()),geteuid(me),arg,ctime(file_info[1])));
-        write(arg + " µÄ×ÔÉ±Êı¾İ»Ö¸´Íê±Ï£¡\n");
-        return "»Ö¸´Íæ¼Ò "+ arg +" ³É¹¦¡£\n";
+	log_file("static/recover_suicide",sprintf("%s %sæ¢å¤(%s)[è‡ªæ€äº%s]ã€‚\n",ctime(time()),geteuid(me),arg,ctime(file_info[1])));
+        write(arg + " çš„è‡ªæ€æ•°æ®æ¢å¤å®Œæ¯•ï¼\n");
+        return "æ¢å¤ç©å®¶ "+ arg +" æˆåŠŸã€‚\n";
 }
 
 string *help()
 {
-	return ({"recovers [id]","¿ÉÒÔ×Ô¶¯»Ö¸´×ÔÉ±µÄÍæ¼Ò¡£"});
+	return ({"recovers [id]","å¯ä»¥è‡ªåŠ¨æ¢å¤è‡ªæ€çš„ç©å®¶ã€‚"});
 }

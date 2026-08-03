@@ -1,13 +1,13 @@
-// nan dizi. Å®µÜ×Ó
+// nan dizi. å¥³å¼Ÿå­
 // Made By jackie
 
 inherit NPC;
 void create()
 {
-        set_name("Å®µÜ×Ó", ({ "nv dizi", "dizi" }));
-	set("long", "ËıÊÇ¶ëáÒÉ½µÄµÚÎå´úµÜ×Ó£¬ÊÇÔÚ½Ó´ıÏã¿ÍµÄ¡£\n");
-        set("gender", "Å®ĞÔ");
-	set("title", "¶ëáÒÅÉµÚÎå´úµÜ×Ó");
+        set_name("å¥³å¼Ÿå­", ({ "nv dizi", "dizi" }));
+	set("long", "å¥¹æ˜¯å³¨åµ‹å±±çš„ç¬¬äº”ä»£å¼Ÿå­ï¼Œæ˜¯åœ¨æ¥å¾…é¦™å®¢çš„ã€‚\n");
+        set("gender", "å¥³æ€§");
+	set("title", "å³¨åµ‹æ´¾ç¬¬äº”ä»£å¼Ÿå­");
         set("age", 30);
 	set("str", 17);
         set("int", 20);

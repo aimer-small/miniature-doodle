@@ -17,7 +17,7 @@ int main(object me, string arg)
 	int loop, size, count=0, total, n=0;
 
 	if (!find_object(DNS_MASTER)) {
-		write("ÍøÂ·¾«Áé²¢Ã»ÓĞ±»ÔØÈë¡£\n");
+		write("ç½‘è·¯ç²¾çµå¹¶æ²¡æœ‰è¢«è½½å…¥ã€‚\n");
 		return 1;
 	}
 
@@ -25,7 +25,7 @@ int main(object me, string arg)
 	mud_list = (mapping)DNS_MASTER->query_muds();
 
 	if(!mud_list){
-		write(MUD_NAME + "Ä¿Ç°²¢Ã»ÓĞ¸úÍøÂ·ÉÏÆäËû Mud È¡µÃÁªÏµ¡£\n");
+		write(MUD_NAME + "ç›®å‰å¹¶æ²¡æœ‰è·Ÿç½‘è·¯ä¸Šå…¶ä»– Mud å–å¾—è”ç³»ã€‚\n");
 		return 1;
 	}
 
@@ -42,51 +42,51 @@ int main(object me, string arg)
 	if (arg && arg != "ALL") {
 		arg = htonn(arg);
 		if(!mapp( mud_list[arg] )) {
-			write(MUD_NAME + "²¢Ã»ÓĞºÍÕâ¸ö Mud È¡µÃÁªÏµ¡£\n");
+			write(MUD_NAME + "å¹¶æ²¡æœ‰å’Œè¿™ä¸ª Mud å–å¾—è”ç³»ã€‚\n");
 			return 1;
 		}
 		if (wizardp(me) && !me->query("env/debug"))
-			write(sprintf("ÓĞ¹Ø %s µÄ×ÊÑ¶£º\n%O\n", arg, mud_list[arg]));
+			write(sprintf("æœ‰å…³ %s çš„èµ„è®¯ï¼š\n%O\n", arg, mud_list[arg]));
 		else
-			write(sprintf("\nÓĞ¹Ø %s µÄ×ÊÁÏ£º\n"
-				"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n"
-				"ÖĞÎÄÃû³Æ£º  %s\n"
-				"ÓïÑÔ£º      %s\n"
-				"°æ±¾£º      %s\n"
-				"MudOS£º     %s\n"
-				"Mudlib£º    %s\n"
-				"Ö÷»ú£º      %s\n"
-				"¶Ë¿Ú£º      %s\n"
-				"×´Ì¬£º      %s\n"
-				"ÔÚÏßÍæ¼Ò£º  %s\n"
-				"ÔËĞĞÊ±¼ä£º  %s\n"
-				"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n\n",
+			write(sprintf("\næœ‰å…³ %s çš„èµ„æ–™ï¼š\n"
+				"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n"
+				"ä¸­æ–‡åç§°ï¼š  %s\n"
+				"è¯­è¨€ï¼š      %s\n"
+				"ç‰ˆæœ¬ï¼š      %s\n"
+				"MudOSï¼š     %s\n"
+				"Mudlibï¼š    %s\n"
+				"ä¸»æœºï¼š      %s\n"
+				"ç«¯å£ï¼š      %s\n"
+				"çŠ¶æ€ï¼š      %s\n"
+				"åœ¨çº¿ç©å®¶ï¼š  %s\n"
+				"è¿è¡Œæ—¶é—´ï¼š  %s\n"
+				"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n\n",
 				mud_list[arg]["NAME"],
 				undefinedp(mud_list[arg]["MUDNAME"])?
-				"²»Ïê":mud_list[arg]["MUDNAME"],
+				"ä¸è¯¦":mud_list[arg]["MUDNAME"],
 				undefinedp(mud_list[arg]["ENCODING"])?
-				"²»Ïê":(mud_list[arg]["ENCODING"]=="GB"?"¼òÌåºº×Ö":"·±Ìåºº×Ö"),
+				"ä¸è¯¦":(mud_list[arg]["ENCODING"]=="GB"?"ç®€ä½“æ±‰å­—":"ç¹ä½“æ±‰å­—"),
 				undefinedp(mud_list[arg]["VERSION"])?
-				"²»Ïê":mud_list[arg]["VERSION"],
+				"ä¸è¯¦":mud_list[arg]["VERSION"],
 				undefinedp(mud_list[arg]["DRIVER"])?
-				"²»Ïê":mud_list[arg]["DRIVER"],
+				"ä¸è¯¦":mud_list[arg]["DRIVER"],
 				undefinedp(mud_list[arg]["MUDLIB"])?
-				"²»Ïê":mud_list[arg]["MUDLIB"],
+				"ä¸è¯¦":mud_list[arg]["MUDLIB"],
 //                         mud_list[muds[loop]]["HOSTADDRESS"],
                            "localhost", 
 				mud_list[arg]["PORT"],
 				mud_list[arg]["_dns_no_contact"]<1?
-				"Á¬Ïß":"¶Ï¿ª",
+				"è¿çº¿":"æ–­å¼€",
 				undefinedp(mud_list[arg]["USERS"])?
-				"²»Ïê":mud_list[arg]["USERS"],
+				"ä¸è¯¦":mud_list[arg]["USERS"],
 				undefinedp(mud_list[arg]["TIME"])?
-				"²»Ïê":CHINESE_D->chinese_time(atoi(mud_list[arg]["TIME"])/600*600)
+				"ä¸è¯¦":CHINESE_D->chinese_time(atoi(mud_list[arg]["TIME"])/600*600)
 			));
 		return 1;
 	}
 
-        output = "\n      ÖĞ  ÎÄ  Ãû  ³Æ       Íø Âç µØ Ö·           ¶Ë¿Ú         ÔË  ĞĞ  Ê±  ¼ä      ÈËÊı\n";
-	output += repeat_string("©¤", 43) + "\n";
+        output = "\n      ä¸­  æ–‡  å  ç§°       ç½‘ ç»œ åœ° å€           ç«¯å£         è¿  è¡Œ  æ—¶  é—´      äººæ•°\n";
+	output += repeat_string("â”€", 43) + "\n";
 	//      Loop through mud list and store one by one
 	for(loop = 0, size = sizeof(muds); loop<size; loop++) {
 		if (!arg && mud_list[muds[loop]]["VERSION"] != MUDLIB_VERSION)
@@ -113,19 +113,19 @@ int main(object me, string arg)
              output += sprintf("%-13s%9s %-15s%6s\n",
 			(undefinedp(mud_list[muds[loop]]["MUDNAME"])?"":mud_list[muds[loop]]["MUDNAME"]),
                         "(New-SJ)",
-                  "wt.sjmud.cn  (ÍøÍ¨)  ",
+                  "wt.sjmud.cn  (ç½‘é€š)  ",
                    "5555/6666",
 			
 		);
              output += sprintf("%-13s%9s %-15s%6s",
 			"             ",
                         "          ",
-                  "  dx.sjmud.cn  (µçĞÅ)  ",
+                  "  dx.sjmud.cn  (ç”µä¿¡)  ",
                         "8888/110 ",
 		);
 
 		if (time() > query(muds[loop]+".Time") + 130)
-			output += "<Ê§È¥ÁªÏµ"+CHINESE_D->chinese_time((time()-query(muds[loop]+".Time"))/60*60)+">";
+			output += "<å¤±å»è”ç³»"+CHINESE_D->chinese_time((time()-query(muds[loop]+".Time"))/60*60)+">";
 		else {
 			total = atoi(mud_list[muds[loop]]["TIME"]);
                         output += sprintf("%21s", CHINESE_D->chinese_time(total/60*60));
@@ -138,8 +138,8 @@ int main(object me, string arg)
 		output += NOR"\n";
 	}
 	//      Display dumped mudlist output through user's more pager
-	output += repeat_string("©¤", 43) + "\n";
-	output += "¡¸Êé½£¡¹¹²ÓĞ" + chinese_number(count) + "Î»Íæ¼ÒÔÚ" + chinese_number(n) + "´¦Õ¾µãÁ¬ÏßÖĞ¡£\n";
+	output += repeat_string("â”€", 43) + "\n";
+	output += "ã€Œä¹¦å‰‘ã€å…±æœ‰" + chinese_number(count) + "ä½ç©å®¶åœ¨" + chinese_number(n) + "å¤„ç«™ç‚¹è¿çº¿ä¸­ã€‚\n";
 	write(output);
 
 	return 1;
@@ -148,9 +148,9 @@ int main(object me, string arg)
 int help()
 {
 	write("
-Ö¸Áî¸ñÊ½£ºmudlist		ÁĞ³öÁ¬ÏßÖĞµÄ"MUD_NAME"Õ¾µã¡£
-	  mudlist <MudName>	ÁĞ³öÖ¸¶¨ Mud µÄĞÅÏ¢¡£
-	  mudlist all		ÁĞ³öÄ¿Ç°ËùÓĞÁ¬ÏßÖĞµÄ Mud¡£
+æŒ‡ä»¤æ ¼å¼ï¼šmudlist		åˆ—å‡ºè¿çº¿ä¸­çš„"MUD_NAME"ç«™ç‚¹ã€‚
+	  mudlist <MudName>	åˆ—å‡ºæŒ‡å®š Mud çš„ä¿¡æ¯ã€‚
+	  mudlist all		åˆ—å‡ºç›®å‰æ‰€æœ‰è¿çº¿ä¸­çš„ Mudã€‚
 "	);
 	return 1;
 }

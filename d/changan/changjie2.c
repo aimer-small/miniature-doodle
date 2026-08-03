@@ -5,13 +5,13 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "����");
+        set("short", "长街");
         set("long", @LONG
-�����ߵ��˳��ֵľ�ͷ��������һƬï�ܵİ����֣�������ɭɭ�ġ��ϱ�
-�ɿ�����Ժ����Լһ����Ӱ�����º�
+终于走到了长街的尽头，东面是一片茂密的柏树林，里面阴森森的。南边
+可看到寺院，隐约一个塔影闪在寺后。
 LONG
         );
-        set("outdoors", "����");
+        set("outdoors", "长安");
 
         set("exits", ([
                 "east"   : __DIR__"baishulin2",

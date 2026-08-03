@@ -1,30 +1,30 @@
-//ÎåÉ¢ÈËÊÕÍ½Ìõ¼þ
+//äº”æ•£äººæ”¶å¾’æ¡ä»¶
 void attempt_apprentice(object ob)
 {
         object me  = this_object();
         mapping fam = ob->query("family");
         mapping my_fam = me->query("family");
-        if(!fam || fam["family_name"] != "Ã÷½Ì"){
-                command("say "+RANK_D->query_respect(ob) + "Óë±¾ÅÉËØÎÞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æð£¿");
+        if(!fam || fam["family_name"] != "æ˜Žæ•™"){
+                command("say "+RANK_D->query_respect(ob) + "ä¸Žæœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»Žä½•è°ˆèµ·ï¼Ÿ");
                 return;
         }
-        if(fam["master_name"] == "ÕÅÎÞ¼É"){
+        if(fam["master_name"] == "å¼ æ— å¿Œ"){
                 command("haha");
-                command("say "+RANK_D->query_respect(ob)+"ÒÑÊÇ½ÌÖ÷Ç×´«µÜ×Ó£¬"+RANK_D->query_self(me)+"Ôõ¸ÒÔÙÊÕÄãÎªÍ½£¿"); 
+                command("say "+RANK_D->query_respect(ob)+"å·²æ˜¯æ•™ä¸»äº²ä¼ å¼Ÿå­ï¼Œ"+RANK_D->query_self(me)+"æ€Žæ•¢å†æ”¶ä½ ä¸ºå¾’ï¼Ÿ"); 
                 return;
         }
         if (fam["generation"] == my_fam["generation"]){
                 command("shake");
-                command("say "+RANK_D->query_respect(ob)+"ÒÑ°Ý¹âÃ÷Ê¹ÎªÊ¦£¬"+RANK_D->query_self(me)+"Ôõ¸ÒÔÙÊÕÄãÎªÍ½£¿");
+                command("say "+RANK_D->query_respect(ob)+"å·²æ‹œå…‰æ˜Žä½¿ä¸ºå¸ˆï¼Œ"+RANK_D->query_self(me)+"æ€Žæ•¢å†æ”¶ä½ ä¸ºå¾’ï¼Ÿ");
                 return;
         }        
         if ((int)ob->query_skill("shenghuo-shengong", 1) < 70) {
-                command("say ÒªÑ§¸üÎª¸ßÉîµÄÎä¹¦£¬±ØÐëÓÐ¸ßÉîµÄÄÚ¹¦ÐÞÎª¡£"); 
-                command("say " + RANK_D->query_respect(ob)+"ÊÇ·ñ»¹Ó¦¸ÃÔÚÊ¥»ðÉñ¹¦ÉÏ¶àÏÂµã¹¦·ò£¿");
+                command("say è¦å­¦æ›´ä¸ºé«˜æ·±çš„æ­¦åŠŸï¼Œå¿…é¡»æœ‰é«˜æ·±çš„å†…åŠŸä¿®ä¸ºã€‚"); 
+                command("say " + RANK_D->query_respect(ob)+"æ˜¯å¦è¿˜åº”è¯¥åœ¨åœ£ç«ç¥žåŠŸä¸Šå¤šä¸‹ç‚¹åŠŸå¤«ï¼Ÿ");
                 return;
         }        
-        command("say àÅ£¬¿´Äã»¹ÊÇ¸öÑ§ÎäµÄÁÏ£¬ÎÒ¾ÍÊÕÏÂÄã°É£¡");
-        command("say ¶àÐ»Ã÷×ð±ÖÓÓ£¬ÈÃÎÒÃ÷½ÌÓÖµÃÒ»Á¼²Ä£¬Îª¿µ·öÕýÒå£¬°ÑÎÒÃ÷½Ì·¢Ñï¹â´ó°É¡£");
+        command("say å—¯ï¼Œçœ‹ä½ è¿˜æ˜¯ä¸ªå­¦æ­¦çš„æ–™ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ å§ï¼");
+        command("say å¤šè°¢æ˜Žå°Šæ•ä½‘ï¼Œè®©æˆ‘æ˜Žæ•™åˆå¾—ä¸€è‰¯æï¼Œä¸ºåº·æ‰¶æ­£ä¹‰ï¼ŒæŠŠæˆ‘æ˜Žæ•™å‘æ‰¬å…‰å¤§å§ã€‚");
         command("recruit " + ob->query("id"));
-        ob->set("title", this_object()->query("title")+"ÊôÏÂ½ÌÖÚ");
+        ob->set("title", this_object()->query("title")+"å±žä¸‹æ•™ä¼—");
 }

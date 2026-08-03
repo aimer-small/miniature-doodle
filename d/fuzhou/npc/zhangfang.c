@@ -1,12 +1,12 @@
-// zhangfang.c ÕÊ·¿
+// zhangfang.c å¸æˆ¿
 
 inherit NPC;
 
 void create()
 {
-	set_name("¶­ÕÊ·¿", ({ "zhang fang", "zhangfang", "zhang", "fang", }));
-	set("long","ËûÉîµÃÁÖÕğÄÏµÄĞÅÈÎ£¬¸ºÔğ¹ÜÀíïÚ¾ÖµÄÍùÀ´ÕÊÄ¿¡£");
-	set("gender", "ÄĞĞÔ");
+	set_name("è‘£å¸æˆ¿", ({ "zhang fang", "zhangfang", "zhang", "fang", }));
+	set("long","ä»–æ·±å¾—æ—éœ‡å—çš„ä¿¡ä»»ï¼Œè´Ÿè´£ç®¡ç†é•–å±€çš„å¾€æ¥å¸ç›®ã€‚");
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 
 	set("combat_exp", 120000);

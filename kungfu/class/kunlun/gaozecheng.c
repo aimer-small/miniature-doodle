@@ -1,16 +1,16 @@
 // gaozecheng.c (kunlun)
-// By Spiderii ÔİÊ±¹Ø±Õ£¬²»ÊÕÍ½
+// By Spiderii æš‚æ—¶å…³é—­ï¼Œä¸æ”¶å¾’
 inherit NPC;
 inherit F_MASTER;
 #include <ansi.h>
 
 void create()
 {
-	set_name("¸ßÔò³É", ({ "gao zecheng", "gao" }));
+	set_name("é«˜åˆ™æˆ", ({ "gao zecheng", "gao" }));
 	set("long",
-		"Ëû´©ÇàÉ«³¤ÅÛ£¬±³ÉÏĞ±²å³¤½££¬¶şÊ®°Ë¾ÅËêÄê¼Í¡£\n"
-		"Á³ÕÖº®Ëª£¬Ò»¸±ÒªÈÇÊÂÉú·ÇµÄÄ£Ñù¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä»–ç©¿é’è‰²é•¿è¢ï¼ŒèƒŒä¸Šæ–œæ’é•¿å‰‘ï¼ŒäºŒåå…«ä¹å²å¹´çºªã€‚\n"
+		"è„¸ç½©å¯’éœœï¼Œä¸€å‰¯è¦æƒ¹äº‹ç”Ÿéçš„æ¨¡æ ·ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 20);
 	set("attitude", "heroism");
 	set("shen_type", 1);
@@ -45,23 +45,23 @@ void create()
 
 	prepare_skill("cuff", "zhentian-quan");
 
-	create_family("À¥ÂØÅÉ", 5, "µÜ×Ó");
+	create_family("æ˜†ä»‘æ´¾", 5, "å¼Ÿå­");
 	setup();
         carry_object(BINGQI_D("changjian"))->wield();
         carry_object("/d/kunlun/obj/pao3")->wear();
 }
 void attempt_apprentice(object ob)
 {
-        if(ob->query("gender")=="Å®ĞÔ"){
+        if(ob->query("gender")=="å¥³æ€§"){
 	    command("fear");
-	    command("say "+RANK_D->query_respect(ob)+"Ê¦¸µ²»×¼ÎÒÊÕÅ®µÜ×Ó£¬ÄãÈ¥ÕÒÎÒÊ¦æ¢°É¡£");
+	    command("say "+RANK_D->query_respect(ob)+"å¸ˆå‚…ä¸å‡†æˆ‘æ”¶å¥³å¼Ÿå­ï¼Œä½ å»æ‰¾æˆ‘å¸ˆå§Šå§ã€‚");
    	    return;
 	 }
 	 if(ob->query("appren_hezudao", 1) == 1) {
-	    command("say Ç°±²Ôõ¸Ò¿ªÕâµÈÍæĞ¦£¬ÕæÊÇÕÛÉ±×öÍí±²µÄÁË¡£");
+	    command("say å‰è¾ˆæ€æ•¢å¼€è¿™ç­‰ç©ç¬‘ï¼ŒçœŸæ˜¯æŠ˜æ€åšæ™šè¾ˆçš„äº†ã€‚");
 	    return;
 	 }
-	 command("say ¼ÈÈ»"+RANK_D->query_respect(ob)+"Ä½À¥ÂØÅÉÖ®Ãû£¬Ç§Àï¶øÀ´£¬ÎÒÀ¥ÂØÅÉ×Ôµ±¹ãÄÉÌìÏÂÓ¢²Å,ÎÒ¾ÍÊÕÏÂÄã°É¡£");
+	 command("say æ—¢ç„¶"+RANK_D->query_respect(ob)+"æ…•æ˜†ä»‘æ´¾ä¹‹åï¼Œåƒé‡Œè€Œæ¥ï¼Œæˆ‘æ˜†ä»‘æ´¾è‡ªå½“å¹¿çº³å¤©ä¸‹è‹±æ‰,æˆ‘å°±æ”¶ä¸‹ä½ å§ã€‚");
 	 command("recruit " + ob->query("id"));
-	 ob->set("title","À¥ÂØÅÉµÚÁù´úµÜ×Ó");
+	 ob->set("title","æ˜†ä»‘æ´¾ç¬¬å…­ä»£å¼Ÿå­");
 }

@@ -1,13 +1,13 @@
-// mu-ren.c Ä¾ÈË
+// mu-ren.c æœ¨äºº
 
 inherit NPC;
 
 void create()
 {
-	set_name("Ä¾ÈË", ({ "mu ren", "mu", "wood man", "wood" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æœ¨äºº", ({ "mu ren", "mu", "wood man", "wood" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 30);
-	set("long", "Ò»¸öÁ·¹¦ÓÃµÄ±ÈÎäÄ¾ÈË£¬ÖÆ×÷¾«ÇÉ£¬ÈçÍ¬ÕæÈËÒ»°ã¡£\n");
+	set("long", "ä¸€ä¸ªç»ƒåŠŸç”¨çš„æ¯”æ­¦æœ¨äººï¼Œåˆ¶ä½œç²¾å·§ï¼Œå¦‚åŒçœŸäººä¸€èˆ¬ã€‚\n");
         set("mute", 1);
 	set("attitude", "heroism");
         set_weight(30000000);
@@ -56,7 +56,7 @@ int accept_fight(object ob)
 		me->set("damaged", 1);
 
 	if (me->query("damaged"))
-		return notify_fail("Õâ¸öÄ¾ÈËÒÑ¾­±»´ò»µÁË£¡\n");	
+		return notify_fail("è¿™ä¸ªæœ¨äººå·²ç»è¢«æ‰“åäº†ï¼\n");	
 
 	if (me->query("last_fighter") == ob->query("id"))
 		return 1;

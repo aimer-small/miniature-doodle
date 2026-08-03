@@ -6,11 +6,11 @@ int do_jiao(string arg);
 
 void create()
 {
-	set("short",HIG"²ËÔ°"NOR);
+	set("short",HIG"èœå›­"NOR);
 	set("long", @LONG
-ÕâÀïÊÇÒ»×ù¼«´óµÄ²ËÔ°£¬ÖÖÂúÁËÓÍ²Ë£¬ÂÜ²·£¬ÇÑ×Ó£¬Ë¿¹ÏÖ®Àà¡£ÖÜÎ§µÄÀé
-°Ê¶¼ÆÆÁË£¬¿´À´ÒªÕûÐÞÁË¡£²ËÔ°ÅÔÓÐ¼¸¿Ú´ó¸×£¬ÀïÃæÊ¢ÂúÁËË®£¬¿ÉÊÇ²ËµØ¿´Æð
-À´¶¼¸ÉÁÑÁË£¬¼¸¿Ã²ËÄèÄèµÄ³¤×Å£¬ÊÇÈ±Ë®Ì«¶àÁË¡£
+è¿™é‡Œæ˜¯ä¸€åº§æžå¤§çš„èœå›­ï¼Œç§æ»¡äº†æ²¹èœï¼Œèåœï¼ŒèŒ„å­ï¼Œä¸ç“œä¹‹ç±»ã€‚å‘¨å›´çš„ç¯±
+ç¬†éƒ½ç ´äº†ï¼Œçœ‹æ¥è¦æ•´ä¿®äº†ã€‚èœå›­æ—æœ‰å‡ å£å¤§ç¼¸ï¼Œé‡Œé¢ç››æ»¡äº†æ°´ï¼Œå¯æ˜¯èœåœ°çœ‹èµ·
+æ¥éƒ½å¹²è£‚äº†ï¼Œå‡ æ£µèœè”«è”«çš„é•¿ç€ï¼Œæ˜¯ç¼ºæ°´å¤ªå¤šäº†ã€‚
 LONG
 	);
  
@@ -30,7 +30,7 @@ LONG
 void init()
 {
 	add_action("do_jiao", "jiao");
-	add_action("do_jiao", "½½");        
+	add_action("do_jiao", "æµ‡");        
 }
 
 int do_jiao(string arg)
@@ -38,43 +38,43 @@ int do_jiao(string arg)
 	object me = this_player(), weapon;
 	int costj, costq;
 
-	if ( !arg || arg != "Ë®" )
-		return notify_fail("ÄãÒª½½Ê²Ã´£¿\n");
+	if ( !arg || arg != "æ°´" )
+		return notify_fail("ä½ è¦æµ‡ä»€ä¹ˆï¼Ÿ\n");
 
-	if(me->query_temp("job_name") != "¹à¸È²ËµØ") 
-		return notify_fail("Äã±ØÐë¸ú¹ÝÖ÷ÁìÁËÕâ¹¤×÷²ÅÄÜÔÚÕâÀï¸É! \n");
+	if(me->query_temp("job_name") != "çŒæº‰èœåœ°") 
+		return notify_fail("ä½ å¿…é¡»è·Ÿé¦†ä¸»é¢†äº†è¿™å·¥ä½œæ‰èƒ½åœ¨è¿™é‡Œå¹²! \n");
 
 	if (me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ!\n");
+		return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢!\n");
 
 	if (me->is_fighting())
-		return notify_fail("ÄãÕýÔÚÕ½¶·ÖÐ,ÎÞ·¨×¨ÐÄ¸É»î!\n");
+		return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­,æ— æ³•ä¸“å¿ƒå¹²æ´»!\n");
 
 	weapon = me->query_temp("weapon");
 
 	if( !weapon || weapon->query("id") != "piao")
-		return notify_fail("ÄãÏëÓÃÊ²Ã´À´Ò¨Ë®½½£¬ÓÃÊÖÂð£¿("HIY HBCYN"wield piao"NOR")\n");
+		return notify_fail("ä½ æƒ³ç”¨ä»€ä¹ˆæ¥èˆ€æ°´æµ‡ï¼Œç”¨æ‰‹å—ï¼Ÿ("HIY HBCYN"wield piao"NOR")\n");
 
 	costj = random(me->query("con")/3);
 	costq = random(me->query("str")/3);
 
 	if( me->query("jingli") < costj || me->query("qi") < costq){
-		message_vision(HIR"$NÍäÑüµ½´ó¸×ÀïÒ¨Ë®£¬½á¹ûÊ§×ãÔÔµ½¸×Àï¡£\n"NOR,me);
+		message_vision(HIR"$Nå¼¯è…°åˆ°å¤§ç¼¸é‡Œèˆ€æ°´ï¼Œç»“æžœå¤±è¶³æ ½åˆ°ç¼¸é‡Œã€‚\n"NOR,me);
 		me->unconcious();
 		return 1;
 	}
 	me->receive_damage("jingli", costj);
 	me->add("qi", -costq);       
-	if( me->query_temp("mark/½½") > (15 + random(5)) || me->query_temp("mark/ÍêÁË")){
-		me->set_temp("mark/ÍêÁË", 1);
-		write(CYN"²ËÔ°¹ÜÊÂËµµÀ£º¡¸¸ÉµÄ²»´í£¬ºÃÁË£¬Äã¿ÉÒÔµ½´óÊ¦ÐÖÂ³À¤ÄÇÀïÈ¥¸²Ãü("HIY HBCYN"task ok"CYN")ÁË£¡¡¹\n"NOR);
+	if( me->query_temp("mark/æµ‡") > (15 + random(5)) || me->query_temp("mark/å®Œäº†")){
+		me->set_temp("mark/å®Œäº†", 1);
+		write(CYN"èœå›­ç®¡äº‹è¯´é“ï¼šã€Œå¹²çš„ä¸é”™ï¼Œå¥½äº†ï¼Œä½ å¯ä»¥åˆ°å¤§å¸ˆå…„é²å¤é‚£é‡ŒåŽ»è¦†å‘½("HIY HBCYN"task ok"CYN")äº†ï¼ã€\n"NOR);
 		return 1;
 	}  
-	write("ÄãÓÃÆ°´Ó¸×ÀïÒ¨ÆðË®£¬ÔÚ²ËµØÀï½½ÆðË®À´¡£ \n");
+	write("ä½ ç”¨ç“¢ä»Žç¼¸é‡Œèˆ€èµ·æ°´ï¼Œåœ¨èœåœ°é‡Œæµ‡èµ·æ°´æ¥ã€‚ \n");
 	me->start_busy(1);
-	me->add_temp("mark/½½",1);
+	me->add_temp("mark/æµ‡",1);
 	if( me->query_skill("force", 1) < 30 && random(10) > 6 ){
-		write(HIM"ÄãÔÚ½½Ë®ÖÐ¶ÔÓÚÄÚ¹¦µÄÓÃ·¨ÓÐÐ©Ìå»á!\n"NOR);
+		write(HIM"ä½ åœ¨æµ‡æ°´ä¸­å¯¹äºŽå†…åŠŸçš„ç”¨æ³•æœ‰äº›ä½“ä¼š!\n"NOR);
 		me->improve_skill("force", me->query("int") / 10);
 	}
 	return 1;

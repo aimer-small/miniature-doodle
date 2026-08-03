@@ -2,11 +2,11 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-   set_name("ÌúÄ¾Õæ",({"tiemuzhen","dahan"}));
-   set("gender","ÄĞĞÔ");
-   set("long","ÌúÄ¾ÕæÊÇÃÉ¹Å²İÔ­µÄ³É¼ªË¼º¹£¡\n");
-   set("nickname",HIY"´óÄ®ĞÛÓ¥  "HIG"²İÔ­²ÔÁú"NOR);
-   set("title",HIW"³É¼ªË¼º¹"NOR);
+   set_name("é“æœ¨çœŸ",({"tiemuzhen","dahan"}));
+   set("gender","ç”·æ€§");
+   set("long","é“æœ¨çœŸæ˜¯è’™å¤è‰åŸçš„æˆå‰æ€æ±—ï¼\n");
+   set("nickname",HIY"å¤§æ¼ é›„é¹°  "HIG"è‰åŸè‹é¾™"NOR);
+   set("title",HIW"æˆå‰æ€æ±—"NOR);
    set("shen",25000);
    set("combat_exp",500000);
    set("age",45);

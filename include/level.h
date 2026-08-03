@@ -2,15 +2,15 @@
 #define _LEVEL_H_
 
 #define LEVEL \
-	BLU "²»¿°Ò»»÷" NOR,BLU "ºÁ²»×ãÂÇ" NOR,BLU "²»×ã¹Ò³Ý" NOR,BLU "³õÑ§Õ§Á·" NOR,BLU "ÃãÃãÇ¿Ç¿" NOR, \
-	HIB "³õ¿úÃÅ¾¶" NOR,HIB "³õ³öÃ©Â®" NOR,HIB "ÂÔÖªÒ»¶þ" NOR,HIB "ÆÕÆÕÍ¨Í¨" NOR,HIB "Æ½Æ½µ­µ­" NOR, \
-	MAG "Æ½µ­ÎÞÆæ" NOR,MAG "´ÖÍ¨Æ¤Ã«" NOR,MAG "°ëÉú²»Êì" NOR,MAG "ÂíÂí»¢»¢" NOR,MAG "ÂÔÓÐÐ¡³É" NOR, \
-	HIM "ÒÑÓÐÐ¡³É" NOR,HIM "º×Á¢¼¦Èº" NOR,HIM "¼ÝÇá¾ÍÊì" NOR,HIM "Çà³öÓÚÀ¶" NOR,HIM "ÈÚ»á¹áÍ¨" NOR, \
-	CYN "ÐÄÁìÉñ»á" NOR,CYN "Â¯»ð´¿Çà" NOR,CYN "ÁËÈ»ÓÚÐØ" NOR,CYN "ÂÔÓÐ´ó³É" NOR,CYN "ÒÑÓÐ´ó³É" NOR, \
-	YEL "»íÈ»¹áÍ¨" NOR,YEL "³öÀà°ÎÝÍ" NOR,YEL "ÎÞ¿ÉÆ¥µÐ" NOR,YEL "¼¼¹ÚÈºÐÛ" NOR,YEL "ÉñºõÆä¼¼" NOR, \
-	HIY "³öÉñÈë»¯" NOR,HIY "·ÇÍ¬·²Ïì" NOR,HIY "°ÁÊÓÈºÐÛ" NOR,HIY "µÇ·åÔì¼«" NOR,HIY "ÎÞÓëÂ×±È" NOR, \
-	HIG "ËùÏòÅûÃÒ" NOR,HIG "Ò»´ú×ÚÊ¦" NOR,HIG "¾«Éî°ÂÃî" NOR,HIG "Éñ¹¦¸ÇÊÀ" NOR,HIG "¾ÙÊÀÎÞË«" NOR, \
-	HIC "¾ªÊÀº§Ë×" NOR,HIC "º³Ìì¶¯µØ" NOR,HIC "Õð¹Åîå½ñ" NOR,HIC "³¬·²ÈëÊ¥" NOR,HIC "ÍþÕòå¾Óî" NOR, \
-	HIW "¿ÕÇ°¾øºó" NOR,HIW "ÌìÈËºÏÒ»" NOR,HIW "Éî²Ø²»Â¶" NOR,HIW "Éî²»¿É²â" NOR,HIR "·µè±¹éÕæ" NOR
+	BLU "ä¸å ªä¸€å‡»" NOR,BLU "æ¯«ä¸è¶³è™‘" NOR,BLU "ä¸è¶³æŒ‚é½¿" NOR,BLU "åˆå­¦ä¹ç»ƒ" NOR,BLU "å‹‰å‹‰å¼ºå¼º" NOR, \
+	HIB "åˆçª¥é—¨å¾„" NOR,HIB "åˆå‡ºèŒ…åº" NOR,HIB "ç•¥çŸ¥ä¸€äºŒ" NOR,HIB "æ™®æ™®é€šé€š" NOR,HIB "å¹³å¹³æ·¡æ·¡" NOR, \
+	MAG "å¹³æ·¡æ— å¥‡" NOR,MAG "ç²—é€šçš®æ¯›" NOR,MAG "åŠç”Ÿä¸ç†Ÿ" NOR,MAG "é©¬é©¬è™Žè™Ž" NOR,MAG "ç•¥æœ‰å°æˆ" NOR, \
+	HIM "å·²æœ‰å°æˆ" NOR,HIM "é¹¤ç«‹é¸¡ç¾¤" NOR,HIM "é©¾è½»å°±ç†Ÿ" NOR,HIM "é’å‡ºäºŽè“" NOR,HIM "èžä¼šè´¯é€š" NOR, \
+	CYN "å¿ƒé¢†ç¥žä¼š" NOR,CYN "ç‚‰ç«çº¯é’" NOR,CYN "äº†ç„¶äºŽèƒ¸" NOR,CYN "ç•¥æœ‰å¤§æˆ" NOR,CYN "å·²æœ‰å¤§æˆ" NOR, \
+	YEL "è±ç„¶è´¯é€š" NOR,YEL "å‡ºç±»æ‹”èƒ" NOR,YEL "æ— å¯åŒ¹æ•Œ" NOR,YEL "æŠ€å† ç¾¤é›„" NOR,YEL "ç¥žä¹Žå…¶æŠ€" NOR, \
+	HIY "å‡ºç¥žå…¥åŒ–" NOR,HIY "éžåŒå‡¡å“" NOR,HIY "å‚²è§†ç¾¤é›„" NOR,HIY "ç™»å³°é€ æž" NOR,HIY "æ— ä¸Žä¼¦æ¯”" NOR, \
+	HIG "æ‰€å‘æŠ«é¡" NOR,HIG "ä¸€ä»£å®—å¸ˆ" NOR,HIG "ç²¾æ·±å¥¥å¦™" NOR,HIG "ç¥žåŠŸç›–ä¸–" NOR,HIG "ä¸¾ä¸–æ— åŒ" NOR, \
+	HIC "æƒŠä¸–éª‡ä¿—" NOR,HIC "æ’¼å¤©åŠ¨åœ°" NOR,HIC "éœ‡å¤é“„ä»Š" NOR,HIC "è¶…å‡¡å…¥åœ£" NOR,HIC "å¨é•‡å¯°å®‡" NOR, \
+	HIW "ç©ºå‰ç»åŽ" NOR,HIW "å¤©äººåˆä¸€" NOR,HIW "æ·±è—ä¸éœ²" NOR,HIW "æ·±ä¸å¯æµ‹" NOR,HIR "è¿”ç’žå½’çœŸ" NOR
 
 #endif

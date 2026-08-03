@@ -1,4 +1,4 @@
-// ·¢´ô·¿¼ä£¬ºÙºÙ
+// å‘å‘†æˆ¿é—´ï¼Œå˜¿å˜¿
 // by Looklove 2001/11/12
 
 #include <ansi.h>
@@ -6,22 +6,22 @@ inherit ROOM;
 
 void create()
 {
-	set("short","ĞİÏ¢ÊÒ");
+	set("short","ä¼‘æ¯å®¤");
 	set("long",@long
-ÓÉÓÚÄúµÄĞÅÏäÒÑ¾­¹ıÆÚ£¬µ¼ÖÂÄúÎŞ·¨Õı³£ÏíÊÜĞÅÏäµÄÔöÖµ·şÎñ£¬Èç¹ûÄú
-»¹ÏëÕı³£µÄ²ÎÓëÓÎÏ·£¬Çë¾¡¿ìĞø·Ñ¡£¾ßÌåÄÚÈİ¿É²ÎÔÄÏà¹ØĞÂÎÅ¡£
+ç”±äºæ‚¨çš„ä¿¡ç®±å·²ç»è¿‡æœŸï¼Œå¯¼è‡´æ‚¨æ— æ³•æ­£å¸¸äº«å—ä¿¡ç®±çš„å¢å€¼æœåŠ¡ï¼Œå¦‚æœæ‚¨
+è¿˜æƒ³æ­£å¸¸çš„å‚ä¸æ¸¸æˆï¼Œè¯·å°½å¿«ç»­è´¹ã€‚å…·ä½“å†…å®¹å¯å‚é˜…ç›¸å…³æ–°é—»ã€‚
 long);
-	set("outdoors", "ÑïÖİ");
+	set("outdoors", "æ‰¬å·");
 	set("no_update", 1);
 	set("no_fight", 1);
 	set("no_save", 1);
 	set("exits", ([
-		"±¦²ı¿ÍÕ»" : "/d/city/kedian",
-		"ÖĞÑë¹ã³¡" : "/d/city/guangchang",
-		"ÔÂÀÏÍ¤"   : "/d/city/yuelaoting",
-		"³ÇÚòÃí"   : "/d/city/chmiao",
-		"Îä¹İÇ°Ôº" : "/d/wuguan/dayuan",
-		"Ì©É½·âìøÌ¨"   : "/d/taishan/fengchan",
+		"å®æ˜Œå®¢æ ˆ" : "/d/city/kedian",
+		"ä¸­å¤®å¹¿åœº" : "/d/city/guangchang",
+		"æœˆè€äº­"   : "/d/city/yuelaoting",
+		"åŸéšåº™"   : "/d/city/chmiao",
+		"æ­¦é¦†å‰é™¢" : "/d/wuguan/dayuan",
+		"æ³°å±±å°ç¦…å°"   : "/d/taishan/fengchan",
 	]));
 	setup();
 }
@@ -29,7 +29,7 @@ long);
 int valid_leave(object me, string dir)
 {
 	if (!wizardp(me)) {
-		message_vision("$NÏò"+query("exits/"+dir)->query("short")+"µÄ·½Ïò×ßÈ¥£¬¹ıÁË°ëÌì£¬·¢ÏÖ×Ô¼º»¹ÔÚÔ­µØ¡£\n", me);
+		message_vision("$Nå‘"+query("exits/"+dir)->query("short")+"çš„æ–¹å‘èµ°å»ï¼Œè¿‡äº†åŠå¤©ï¼Œå‘ç°è‡ªå·±è¿˜åœ¨åŸåœ°ã€‚\n", me);
 		me->add_busy(1);
 		return 0;
 	}

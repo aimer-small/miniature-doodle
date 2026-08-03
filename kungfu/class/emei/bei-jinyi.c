@@ -1,6 +1,6 @@
-// Npc : beijinyi.c ±´½õÒÇ
+// Npc : beijinyi.c è´é”¦ä»ª
 // Made by Jackie
-// 12345...ÉÏÉ½´òÀÏ»¢....
+// 12345...ä¸Šå±±æ‰“è€è™....
 
 
 #include "sujia.h"
@@ -9,12 +9,12 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("±´½õÒÇ", ({ "bei jinyi", "bei", "jinyi" }));
+        set_name("è´é”¦ä»ª", ({ "bei jinyi", "bei", "jinyi" }));
         set("long", 
-                "ËıÊÇ¶ëáÒÅÉË×¼ÒµÜ×Ó±´½õÒÇ¡£\n"
-                "ËıÉú¾ÍÒ»¸±ÏÍÆŞÁ¼Ä¸Ïñ£¬ĞÔ×ÓÎÂÈáºÍË³¡£\n"
+                "å¥¹æ˜¯å³¨åµ‹æ´¾ä¿—å®¶å¼Ÿå­è´é”¦ä»ªã€‚\n"
+                "å¥¹ç”Ÿå°±ä¸€å‰¯è´¤å¦»è‰¯æ¯åƒï¼Œæ€§å­æ¸©æŸ”å’Œé¡ºã€‚\n"
         );
-        set("gender", "Å®ĞÔ");
+        set("gender", "å¥³æ€§");
         set("age", 30);
         set("attitude", "friendly");
          set("unique", 1);
@@ -44,7 +44,7 @@ void create()
 	map_skill("sword", "huifeng-jian");
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
         setup();
 	carry_object("/d/emei/obj/changjian")->wield();
 	carry_object("/d/emei/obj/shoes")->wear();

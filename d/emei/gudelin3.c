@@ -4,13 +4,13 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short",HIC "¹ÅµÂÁÖ" NOR);
+	set("short",HIC "å¤å¾·æ—" NOR);
 	set("long", @LONG
-ÕâÊÇÒ»Æ¬ÃÜÃÜµÄéªÄ¾ÁÖ£¬ÖêÖêĞãÍ¦¿¡°Î£¬Ö¦Ò¶·ÖÅûÉÏÅõ£¬ÈçÁ½ÊÖÓµ·ğ£¬¾İ
-ËµÓĞÆßÍòÖêÖ®¶à£¬ÒªÊÇ²»ÊìÏ¤µØĞÎºÜÈİÒ×ÃÔÂ·¡£
+è¿™æ˜¯ä¸€ç‰‡å¯†å¯†çš„æ¥ æœ¨æ—ï¼Œæ ªæ ªç§€æŒºä¿Šæ‹”ï¼Œæå¶åˆ†æŠ«ä¸Šæ§ï¼Œå¦‚ä¸¤æ‰‹æ‹¥ä½›ï¼Œæ®
+è¯´æœ‰ä¸ƒä¸‡æ ªä¹‹å¤šï¼Œè¦æ˜¯ä¸ç†Ÿæ‚‰åœ°å½¢å¾ˆå®¹æ˜“è¿·è·¯ã€‚
 LONG
 	);
-	set("outdoors", "¶ëÃ¼É½");
+	set("outdoors", "å³¨çœ‰å±±");
 	set("exits", ([
  	 "east" : __FILE__,
 	 "west" : __FILE__,
@@ -35,12 +35,12 @@ int do_jump(string arg)
 	if(!living(me) ) return 0;
 
         if (me->is_busy() || me->is_fighting())
-	return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+	return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
 	if( arg == "zhuang" ) {
-	message_vision("$NÌøÉÏÁËÃ·»¨×®¡£\n", me); 
+	message_vision("$Nè·³ä¸Šäº†æ¢…èŠ±æ¡©ã€‚\n", me); 
 	me->move(__DIR__"muzhuang"); 
-        message_vision("$NÌøÁËÉÏÀ´¡£\n", me);
+        message_vision("$Nè·³äº†ä¸Šæ¥ã€‚\n", me);
     return 1;
 }
 }

@@ -5,17 +5,17 @@ inherit STAFF;
 
 void create()
 {
-        set_name("ÌìÉßÕÈ", ({ "tianshe zhang", "zhang", "staff", "tianshe" }));
+        set_name("å¤©è›‡æ–", ({ "tianshe zhang", "zhang", "staff", "tianshe" }));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-                set("long", "ÕâÊÇÒ»±ú°ÙÄê×Ï¾£ÖÆ×÷µÄÌìÉßÕÈ£¬³¤Ô¼Áù³ß£¬ĞÎÈô¹ÖÉß£¬ò°ÅÌ¶øó¶Éì£¬ÕÈÍ·¼´ÊÇÉßÍ·£¬¿´ÉÏÈ¥¼«Æä¹ÖÒì¡£\n");
+		set("unit", "æŸ„");
+                set("long", "è¿™æ˜¯ä¸€æŸ„ç™¾å¹´ç´«è†åˆ¶ä½œçš„å¤©è›‡æ–ï¼Œé•¿çº¦å…­å°ºï¼Œå½¢è‹¥æ€ªè›‡ï¼Œè™¬ç›˜è€Œè –ä¼¸ï¼Œæ–å¤´å³æ˜¯è›‡å¤´ï¼Œçœ‹ä¸Šå»æå…¶æ€ªå¼‚ã€‚\n");
                 set("value", 75000);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n±³µ½±³ºó¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nèƒŒåˆ°èƒŒåã€‚\n");
 	}
         init_staff(60);
 	setup();

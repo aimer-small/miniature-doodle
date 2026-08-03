@@ -8,11 +8,11 @@ void delete_hexiu(object me, object arg);
 
 void create()
 {
-	set("short",HIR"ºì»¨´Ô"NOR);
+	set("short",HIR"çº¢èŠ±ä¸›"NOR);
 	set("long", @LONG
-Õâ´Ôºì»¨ÅÅ¿ªÀ´³¤´ïÊıÕÉ£¬ÃÜÃÜ²ã²ã£¬ÆæÏãÆË±Ç£¬µ«¼û»¨´ÔÓĞÈçÒ»×ù´óÆÁ
-·ç£¬ºì°êÂÌÖ¦£¬É·ÊÇºÃ¿´£¬ËÄÏÂÀïÊ÷Òñ´¹¸Ç£¬±ãËÆÌìÈ»½á³ÉµÄÒ»×ù»¨·¿Ê÷Îİ¡£
-ËÄÖÜ¶¼ÊÇÒ»Æ¬ÇåÓÄ£¬Ö»ÎÅÈªÉùÄñÓï£¬èÃÎŞÈË¼££¬È·ÊÇ¸öÉÏºÃµÄÁ·¹¦ËùÔÚ¡£
+è¿™ä¸›çº¢èŠ±æ’å¼€æ¥é•¿è¾¾æ•°ä¸ˆï¼Œå¯†å¯†å±‚å±‚ï¼Œå¥‡é¦™æ‰‘é¼»ï¼Œä½†è§èŠ±ä¸›æœ‰å¦‚ä¸€åº§å¤§å±
+é£ï¼Œçº¢ç“£ç»¿æï¼Œç…æ˜¯å¥½çœ‹ï¼Œå››ä¸‹é‡Œæ ‘è«å‚ç›–ï¼Œä¾¿ä¼¼å¤©ç„¶ç»“æˆçš„ä¸€åº§èŠ±æˆ¿æ ‘å±‹ã€‚
+å››å‘¨éƒ½æ˜¯ä¸€ç‰‡æ¸…å¹½ï¼Œåªé—»æ³‰å£°é¸Ÿè¯­ï¼Œæ³æ— äººè¿¹ï¼Œç¡®æ˜¯ä¸ªä¸Šå¥½çš„ç»ƒåŠŸæ‰€åœ¨ã€‚
 LONG        );
 
 	set("exits", ([
@@ -20,7 +20,7 @@ LONG        );
 		"south" : __DIR__"guolin5",
 	]));
 
-	set("outdoors","¹ÅÄ¹");
+	set("outdoors","å¤å¢“");
 
 	set("no_fight", 1);
 	setup();
@@ -40,73 +40,73 @@ int do_hexiu(string arg)
 	int ynlvl,i;
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if(!arg)
-		return notify_fail("ÄãÒªÓëË­ºÍĞŞÄÚ¹¦£¿\n");
+		return notify_fail("ä½ è¦ä¸è°å’Œä¿®å†…åŠŸï¼Ÿ\n");
 
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÅÄ¹ÅÉ")
-		return notify_fail("Äã²»ÊÇ¹ÅÄ¹ÅÉ´«ÈË£¬ÔõÃ´ÄÜÁ·¹ÅÄ¹µÄÄÚ¹¦£¿\n");
+	if (!(fam = me->query("family")) || fam["family_name"] != "å¤å¢“æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯å¤å¢“æ´¾ä¼ äººï¼Œæ€ä¹ˆèƒ½ç»ƒå¤å¢“çš„å†…åŠŸï¼Ÿ\n");
 
-	if (me->query("gender") == "ÎŞĞÔ")
-		return notify_fail("ÄãÎŞ¸ùÎŞĞÔ£¬ÒõÑô²»µ÷£¬ÄÑÒÔÁì»á¸ßÉîµÄÓñÅ®ĞÄ¾­Éñ¹¦¡£\n");
+	if (me->query("gender") == "æ— æ€§")
+		return notify_fail("ä½ æ— æ ¹æ— æ€§ï¼Œé˜´é˜³ä¸è°ƒï¼Œéš¾ä»¥é¢†ä¼šé«˜æ·±çš„ç‰å¥³å¿ƒç»ç¥åŠŸã€‚\n");
 
 	if (!(ob = present(arg, this_object())))
-		return notify_fail("ÕâÈËÏÖÔÚ²»ÔÚÕâÀï£¡\n");
+		return notify_fail("è¿™äººç°åœ¨ä¸åœ¨è¿™é‡Œï¼\n");
 
 	if ( me == ob)
-		return notify_fail("ÄãÏëÍæË«ÊÖ»¥²«Âğ£¿\n");
+		return notify_fail("ä½ æƒ³ç©åŒæ‰‹äº’æå—ï¼Ÿ\n");
 
 	if (!living(ob))
-		return notify_fail("Äã±ØĞëÏÈ°Ñ" + ob->name() + "ÅªĞÑ¡£\n");
+		return notify_fail("ä½ å¿…é¡»å…ˆæŠŠ" + ob->name() + "å¼„é†’ã€‚\n");
 
 	if (!userp(ob))
-		return notify_fail("ÄãÖ»ÄÜÓëÍæ¼ÒºÍĞŞÁ·¹¦£¡\n");
+		return notify_fail("ä½ åªèƒ½ä¸ç©å®¶å’Œä¿®ç»ƒåŠŸï¼\n");
 
 	if( me->query_temp("weapon"))
-		return notify_fail("ÄãÊÖÖĞÄÃ×ÅÎäÆ÷£¬ÔõÃ´Ë«ÕÆÏà¶Ô£¬ºÏĞŞÓñÅ®ĞÄ¾­£¿\n");
+		return notify_fail("ä½ æ‰‹ä¸­æ‹¿ç€æ­¦å™¨ï¼Œæ€ä¹ˆåŒæŒç›¸å¯¹ï¼Œåˆä¿®ç‰å¥³å¿ƒç»ï¼Ÿ\n");
 
 	ynlvl = me->query_skill("yunu-xinjing",1);
 /*
 	if ( ynlvl > 130 )
-		return notify_fail("ÄãÒÑ¾­²»ÄÜ´ÓºÍĞŞÖĞµÃµ½°ïÖúÁË£¡\n"); 
+		return notify_fail("ä½ å·²ç»ä¸èƒ½ä»å’Œä¿®ä¸­å¾—åˆ°å¸®åŠ©äº†ï¼\n"); 
 */
 	if ( me->query("potential") < 1 )
-		return notify_fail("ÄãµÄÇ±ÄÜÏûºÄ¹âÁË£¬ÔİÊ±ÎŞ·¨ºÏĞŞ¡£\n");
+		return notify_fail("ä½ çš„æ½œèƒ½æ¶ˆè€—å…‰äº†ï¼Œæš‚æ—¶æ— æ³•åˆä¿®ã€‚\n");
 
 	if( ob->query("potential") < 1)
-		return notify_fail( ob->name()+"µÄÇ±ÄÜÏûºÄ¹âÁË£¬ÔİÊ±ÎŞ·¨ºÏĞŞ¡£\n");
+		return notify_fail( ob->name()+"çš„æ½œèƒ½æ¶ˆè€—å…‰äº†ï¼Œæš‚æ—¶æ— æ³•åˆä¿®ã€‚\n");
 /*
 	if ( ob->query_skill("yunu-xinjing", 1) < (ynlvl - 25))
-		return notify_fail(ob->name() +"¹¦·òÓëÄãÏà²îÌ«Ô¶£¬ÎŞ·¨ÖúÄãÁ·¹¦£¡\n");
+		return notify_fail(ob->name() +"åŠŸå¤«ä¸ä½ ç›¸å·®å¤ªè¿œï¼Œæ— æ³•åŠ©ä½ ç»ƒåŠŸï¼\n");
 */
 	if (me->query("jing") < 30 || me->query("qi") < 30)
-		return notify_fail("ÄãÌ«ÀÛÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»»á¶ù°É£¡\n");
+		return notify_fail("ä½ å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¼šå„¿å§ï¼\n");
 
 	if (ob->query("jing") < 30 || ob->query("qi") < 30)
-		return notify_fail(ob->name()+"Ì«ÀÛÁË£¬»¹ÊÇÏÈĞİÏ¢Ò»»á¶ù°É£¡\n");
+		return notify_fail(ob->name()+"å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¼šå„¿å§ï¼\n");
 
 	if (me->query_temp("gumu_hexiu")
 	 && me->query_temp("gumu_hexiu")!= ob->query("id"))
-		return notify_fail("ÄãÕıÓûÓë±ğÈËºÍĞŞÄØ£¡\n");
+		return notify_fail("ä½ æ­£æ¬²ä¸åˆ«äººå’Œä¿®å‘¢ï¼\n");
 
 	inv= all_inventory(me);
 	i = sizeof(inv);
 	while (i--)
 	if( inv[i]->query("equipped") && (! inv[i]->query_autoload() && inv[i]->query("id") != "lingpai"))
-		return notify_fail("Èç¹ûÄã²»³ıÈ¥ÉíÉÏÒÂÉÀ£¬Á·¹¦¼«ÓĞ¿ÉÄÜ»á×ß»ğÈëÄ§¡£\n"); 
+		return notify_fail("å¦‚æœä½ ä¸é™¤å»èº«ä¸Šè¡£è¡«ï¼Œç»ƒåŠŸææœ‰å¯èƒ½ä¼šèµ°ç«å…¥é­”ã€‚\n"); 
 
 	me->set_temp("gumu_hexiu", ob->query("id"));
 
-	tell_object(ob,"ºì»¨´ÔÖĞ£¬"+me->name()+"¶Ë×øÓÚÄãÃæÇ°£¬ÓûÓëÄãºÍĞŞÓñÅ®ĞÄ¾­¡£\n");
-	tell_object(me,"ºì»¨´ÔÖĞ£¬Äã¶Ë×øÓÚ"+ob->name()+"ÃæÇ°£¬ÓûÓëÆäºÍĞŞÓñÅ®ĞÄ¾­¡£\n");
+	tell_object(ob,"çº¢èŠ±ä¸›ä¸­ï¼Œ"+me->name()+"ç«¯åäºä½ é¢å‰ï¼Œæ¬²ä¸ä½ å’Œä¿®ç‰å¥³å¿ƒç»ã€‚\n");
+	tell_object(me,"çº¢èŠ±ä¸›ä¸­ï¼Œä½ ç«¯åäº"+ob->name()+"é¢å‰ï¼Œæ¬²ä¸å…¶å’Œä¿®ç‰å¥³å¿ƒç»ã€‚\n");
 
 	if ( ob->query_temp("gumu_hexiu") 
 	 && ob->query_temp("gumu_hexiu") != me->query("id"))
-		return notify_fail(ob->name()+"Ã»ÓĞÒªÓëÄãºÍĞŞÁ·¹¦µÄÒâË¼£¡\n");
+		return notify_fail(ob->name()+"æ²¡æœ‰è¦ä¸ä½ å’Œä¿®ç»ƒåŠŸçš„æ„æ€ï¼\n");
 
 	if (!ob->query_temp("gumu_hexiu")) return 1;
-	message_vision(HIW"\n$N×ó±ÛÍ¸¹ı»¨´Ô£¬Óë$nÓÒÕÆÏàµÖ£¬¶şÈË¸÷´¦»¨´ÔÒ»±ß£¬½â¿ªÒÂÉÀ£¬ĞŞÏ°ÆğÀ´¡£\n"NOR,me, ob);
+	message_vision(HIW"\n$Nå·¦è‡‚é€è¿‡èŠ±ä¸›ï¼Œä¸$nå³æŒç›¸æŠµï¼ŒäºŒäººå„å¤„èŠ±ä¸›ä¸€è¾¹ï¼Œè§£å¼€è¡£è¡«ï¼Œä¿®ä¹ èµ·æ¥ã€‚\n"NOR,me, ob);
 	me->start_busy(10);
 	ob->start_busy(10);
 	call_out("delete_hexiu", 2+random(3), me, ob);
@@ -133,13 +133,13 @@ void delete_hexiu(object me, object ob)
 	ob->start_busy(1);
 	ob->delete_temp("gumu_hexiu");
 
-	message_vision(HIR"\nÁ¼¾Ãºó£¬$NºÍ$nÊÜµ½¸ĞÓ¦£¬Á¢Ê±ÔË¹¦ÎªÖú£¬È«ÉíÈÈÆøÕôÌÚ£¬ÊÕ»ñÆÄ·á¡£\n\n"NOR,me,ob);
+	message_vision(HIR"\nè‰¯ä¹…åï¼Œ$Nå’Œ$nå—åˆ°æ„Ÿåº”ï¼Œç«‹æ—¶è¿åŠŸä¸ºåŠ©ï¼Œå…¨èº«çƒ­æ°”è’¸è…¾ï¼Œæ”¶è·é¢‡ä¸°ã€‚\n\n"NOR,me,ob);
 	return;
 }
 
 int do_quit()
 {
-	write("ÕâÀï²»×¼ÍË³ö£¡\n");
+	write("è¿™é‡Œä¸å‡†é€€å‡ºï¼\n");
 	return 1;
 }
 

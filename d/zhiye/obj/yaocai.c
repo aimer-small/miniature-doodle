@@ -6,13 +6,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Ò©²Ä", ({ "yaocai" }));
+	set_name("è¯æ", ({ "yaocai" }));
 	set_weight(1000+random(1000));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "·İ");
-		set("long", "ÕâÊÇÒ»ÖÖÒ©²Ä¡£\n");
+		set("unit", "ä»½");
+		set("long", "è¿™æ˜¯ä¸€ç§è¯æã€‚\n");
 		set("value", 200);
 	}
 	set("mode",1);
@@ -28,127 +28,127 @@ int set_type(string type)
 
 	switch (type) {
 		case "bai wei":
-			set_name(HIW"°×Ş±"NOR, ({"bai wei"}));
+			set_name(HIW"ç™½è–‡"NOR, ({"bai wei"}));
 			set("need_lvl",1);
 			break;
 		case "he ye":
-			set_name(HIG"ºÉÒ¶"NOR, ({"he ye"}));
+			set_name(HIG"è·å¶"NOR, ({"he ye"}));
 			set("need_lvl",1);
 			break;
 		case "ju geng":
-			set_name(HIW"¾Õ¹£"NOR, ({"ju geng"}));
+			set_name(HIW"èŠæ¢—"NOR, ({"ju geng"}));
 			set("need_lvl",1);
 			break;
 		case "mu gua":
-			set_name(YEL"Ä¾¹Ï"NOR, ({"mu gua"}));
+			set_name(YEL"æœ¨ç“œ"NOR, ({"mu gua"}));
 			set("need_lvl",1);
 			break;
 		case "sang ye":
-			set_name(HIG"É£Ò¶"NOR, ({"sang ye"}));
+			set_name(HIG"æ¡‘å¶"NOR, ({"sang ye"}));
 			set("need_lvl",1);
 			break;
 		case "tian qi":
-			set_name(HIC"ÌïÆß"NOR, ({"tian qi"}));
+			set_name(HIC"ç”°ä¸ƒ"NOR, ({"tian qi"}));
 			set("need_lvl",1);
 			break;
 		case "zhu ye":
-			set_name(HIG"ÄÛÖñÒ¶"NOR, ({"zhu ye"}));
+			set_name(HIG"å«©ç«¹å¶"NOR, ({"zhu ye"}));
 			set("need_lvl",1);
 			break;
 		case "xiong huang":
-			set_name(YEL"ĞÛ»Æ"NOR, ({"xiong huang"}));
+			set_name(YEL"é›„é»„"NOR, ({"xiong huang"}));
 			set("need_lvl",1);
 			break;
 
 		case "bai zhi":
-			set_name(HIW"°×ÜÆ"NOR, ({"bai zhi"}));
+			set_name(HIW"ç™½èŠ·"NOR, ({"bai zhi"}));
 			set("need_lvl",80);
 			break;
 		case "chai hu":
-			set_name(HIW"²ñºú"NOR, ({"chai hu"}));
+			set_name(HIW"æŸ´èƒ¡"NOR, ({"chai hu"}));
 			set("need_lvl",80);
 			break;
 		case "fang feng":
-			set_name(HIC"·À·ç"NOR, ({"fang feng"}));
+			set_name(HIC"é˜²é£"NOR, ({"fang feng"}));
 			set("need_lvl",80);
 			break;
 		case "gou qi":
-			set_name(HIR"èÛè½"NOR, ({"gou qi"}));
+			set_name(HIR"æ¸æ"NOR, ({"gou qi"}));
 			set("need_lvl",80);
 			break;
 
 		case "chan tui":
-			set_name(HIB"²õÍÉ"NOR, ({"chan tui"}));
+			set_name(HIB"è‰èœ•"NOR, ({"chan tui"}));
 			set("need_lvl",160);
 			set("animal",1);
 			break;
 		case "chuan bei":
-			set_name(HIC"´¨±´"NOR, ({"chuan bei"}));
+			set_name(HIC"å·è´"NOR, ({"chuan bei"}));
 			set("need_lvl",160);
 			break;
 		case "dang gui":
-			set_name(CYN"µ±¹é"NOR, ({"dang gui"}));
+			set_name(CYN"å½“å½’"NOR, ({"dang gui"}));
 			set("need_lvl",160);
 			break;
 		case "fu ling":
-			set_name(HIC"ÜòÜß"NOR, ({"fu ling"}));
+			set_name(HIC"èŒ¯è‹“"NOR, ({"fu ling"}));
 			set("need_lvl",160);
 			break;
 
 		case "jinyin hua":
-			set_name(HIW"½ğÒø»¨"NOR, ({"jinyin hua"}));
+			set_name(HIW"é‡‘é“¶èŠ±"NOR, ({"jinyin hua"}));
 			set("need_lvl",240);
 			break;
 		case "huang qi":
-			set_name(HIY"»ÆÜÎ"NOR, ({"huang qi"}));
+			set_name(HIY"é»„èŠª"NOR, ({"huang qi"}));
 			set("need_lvl",240);
 			break;
 		case "niu huang":
-			set_name(HIY"Å£»Æ"NOR, ({"niu huang"}));
+			set_name(HIY"ç‰›é»„"NOR, ({"niu huang"}));
 			set("need_lvl",240);
 			set("animal",1);
 			break;
 		case "tianhua fen":
-			set_name(HIW"Ìì»¨·Û"NOR, ({"tianhua fen"}));
+			set_name(HIW"å¤©èŠ±ç²‰"NOR, ({"tianhua fen"}));
 			set("need_lvl",240);
 			break;
 
 		case "bao tai":
-			set_name(MAG"±ªÌ¥"NOR, ({"bao tai"}));
+			set_name(MAG"è±¹èƒ"NOR, ({"bao tai"}));
 			set("need_lvl",320);
 			set("animal",1);
 			break;
 		case "hu gu":
-			set_name(HIW"»¢¹Ç"NOR, ({"hu gu"}));
+			set_name(HIW"è™éª¨"NOR, ({"hu gu"}));
 			set("need_lvl",320);
 			set("animal",1);
 			break;
 		case "huo xiang":
-			set_name(HIC"Ş½Ïã"NOR, ({"huo xiang"}));
+			set_name(HIC"è—¿é¦™"NOR, ({"huo xiang"}));
 			set("need_lvl",320);
 			set("animal",1);
 			break;
 		case "he shouwu":
-			set_name(GRN"ºÎÊ×ÎÚ"NOR, ({"he shouwu"}));
+			set_name(GRN"ä½•é¦–ä¹Œ"NOR, ({"he shouwu"}));
 			set("need_lvl",320);
 			break;
 
 		case "ren shen":
-			set_name(HIG"ÈË²Î"NOR, ({"ren shen"}));
+			set_name(HIG"äººå‚"NOR, ({"ren shen"}));
 			set("need_lvl",360);
 			break;
 		case "zang honghua":
-			set_name(HIR"²Øºì»¨"NOR, ({"zang honghua"}));
+			set_name(HIR"è—çº¢èŠ±"NOR, ({"zang honghua"}));
 			set("need_lvl",360);
 			break;
 
 		case "sha dan":
-			set_name(HIY"öèµ¨"NOR, ({"sha dan"}));
+			set_name(HIY"é²¨èƒ†"NOR, ({"sha dan"}));
 			set("need_lvl",390);
 			set("animal",1);
 			break;
 		case "xuelian zi":
-			set_name(HIW"Ñ©Á«×Ó"NOR, ({"xuelian zi"}));
+			set_name(HIW"é›ªè²å­"NOR, ({"xuelian zi"}));
 			set("need_lvl",390);
 			break;
 
@@ -157,7 +157,7 @@ int set_type(string type)
 	}
 
 	set("oid",query("id"));
-	set_name( query("name")+"Éú²Ä" , ({ replace_string(query("id")," ","")+" shengcai","shengcai" }));
+	set_name( query("name")+"ç”Ÿæ" , ({ replace_string(query("id")," ","")+" shengcai","shengcai" }));
 	set("value", query("value") * (query("need_lvl")*8+100)/100 );
 
 	return 1;

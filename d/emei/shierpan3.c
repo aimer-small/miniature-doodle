@@ -4,13 +4,13 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short",HIC "Ê®¶þÅÌ" NOR);
+	set("short",HIC "åäºŒç›˜" NOR);
 	set("long", @LONG
-ÕâÀïÊ¯½×¶¸ÕÛ¶àÍä£¬ºÅ³Æ¡¸Ê®¶þÅÌ¡¹¡£Äã¼ûÂ·±ßÓÐ¸ö°ËÒô³Ø£¬ÓÐÈËÕýÔÚÏò
-³ØÖÐ»÷ÕÆ(clap)¡£ÓÉ´ËÎ÷ÉÏ¿É´ï»ªÑÏ¶¥£¬¶«ÏÂÔòµ½ÍòÄêâÖ¡£
+è¿™é‡ŒçŸ³é˜¶é™¡æŠ˜å¤šå¼¯ï¼Œå·ç§°ã€ŒåäºŒç›˜ã€ã€‚ä½ è§è·¯è¾¹æœ‰ä¸ªå…«éŸ³æ± ï¼Œæœ‰äººæ­£åœ¨å‘
+æ± ä¸­å‡»æŽŒ(clap)ã€‚ç”±æ­¤è¥¿ä¸Šå¯è¾¾åŽä¸¥é¡¶ï¼Œä¸œä¸‹åˆ™åˆ°ä¸‡å¹´åºµã€‚
 LONG
 	);
-	set("outdoors", "¶ëÃ¼É½");
+	set("outdoors", "å³¨çœ‰å±±");
 	set("exits", ([ 
   "eastdown" : __DIR__"shierpan2",
   "southwest" : __DIR__"shierpan4",
@@ -36,18 +36,18 @@ int do_clap()
 	me = this_player();
 
         if (me->is_busy() || me->is_fighting())
-	return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+	return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
 	if((int)me->query("jingli", 1) < 15 )
-	return notify_fail("ÄãÌ«ÀÛÁË£¬»¹ÊÇºÃºÃÐÝÏ¢°É¡£\n");
+	return notify_fail("ä½ å¤ªç´¯äº†ï¼Œè¿˜æ˜¯å¥½å¥½ä¼‘æ¯å§ã€‚\n");
 
 	if( (int)me->query_skill("strike", 1) > 40 ) {
-	message_vision("$NÕýÔÚÏó°ËÒô³Ø»÷ÕÆ¡£\n", me);
+	message_vision("$Næ­£åœ¨è±¡å…«éŸ³æ± å‡»æŽŒã€‚\n", me);
 	me->receive_damage("jingli", 15);
 	return 1;
 	}
 	if( (int)me->query_skill("strike", 1 ) < 40 ) {
-	message_vision("$NÕýÔÚÏó°ËÒô³Ø»÷ÕÆ¡£\n", me);
+	message_vision("$Næ­£åœ¨è±¡å…«éŸ³æ± å‡»æŽŒã€‚\n", me);
 	me->receive_damage("jingli", 10+random(10));
 	me->improve_skill("strike", (int)me->query("str"));
 	return 1;

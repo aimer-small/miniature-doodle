@@ -6,35 +6,35 @@ int exert(object me, object target)
 	object tar;
 
 	if( !target)
-		return notify_fail("ÄãÒª¶ÔË­Ê¹ÓÃËÑÆÇ¹éÔª´ó·¨£¿\n");
+		return notify_fail("ä½ è¦å¯¹è°ä½¿ç”¨æœé­„å½’å…ƒå¤§æ³•ï¼Ÿ\n");
 
 	if ((int)me->query_skill("longxiang-boruo", 1) < 140)
-		return notify_fail("Ö»ÓĞĞŞÁ¶µ½ÁúÏó°ãÈô¹¦µÚÆß²ãÖ®ºó£¬²ÅÄÜÊ©Õ¹¾ÛÆÇ¹éÔª¡£\n");
+		return notify_fail("åªæœ‰ä¿®ç‚¼åˆ°é¾™è±¡èˆ¬è‹¥åŠŸç¬¬ä¸ƒå±‚ä¹‹åï¼Œæ‰èƒ½æ–½å±•èšé­„å½’å…ƒã€‚\n");
 
 	if((int)me->query("max_neili") < 2000)
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎªÌ«²î£¬¶à¶à´ò×ø°É¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºå¤ªå·®ï¼Œå¤šå¤šæ‰“åå§ã€‚\n");
 
 	if( (int)me->query("neili") < 1000 ) 
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n"); 
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n"); 
 
 	if( me->query("jingli") < 500 )
-		return notify_fail("ÄãµÄ¾«Á¦²»¹»£¡\n");
+		return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿï¼\n");
 
 	if ( me->is_fighting())
-		return notify_fail("Õ½¶·ÖĞÊ¹ÓÃËÑÆÇ¹éÔª´ó·¨£¬ÕÒËÀ°¡£¿\n");
+		return notify_fail("æˆ˜æ–—ä¸­ä½¿ç”¨æœé­„å½’å…ƒå¤§æ³•ï¼Œæ‰¾æ­»å•Šï¼Ÿ\n");
 
 	if( !objectp(target) || target == me || ! objectp(tar=present(target, environment(me))) )
-		return notify_fail("ÄãÏëÒª°ïË­ÄıÆÇ¹éÔª£¿\n");
+		return notify_fail("ä½ æƒ³è¦å¸®è°å‡é­„å½’å…ƒï¼Ÿ\n");
 
 	if( tar->is_corpse() )
-		return notify_fail("À´²»¼°ÁË£¬Ö»ÓĞ»îÈË²ÅÄÜ¾ÈĞÑ¡£\n");
+		return notify_fail("æ¥ä¸åŠäº†ï¼Œåªæœ‰æ´»äººæ‰èƒ½æ•‘é†’ã€‚\n");
 
 	if ( living(tar))
-		return notify_fail(tar->name(1)+"ºÃºÃµÄ£¬Äã¶ÔËûÊ¹ÓÃÊ²Ã´ËÑÆÇ¹éÔª´ó·¨°¡£¿\n");
+		return notify_fail(tar->name(1)+"å¥½å¥½çš„ï¼Œä½ å¯¹ä»–ä½¿ç”¨ä»€ä¹ˆæœé­„å½’å…ƒå¤§æ³•å•Šï¼Ÿ\n");
 
 	me->add("jingli", -50);
 	me->add("neili", -500);
-	message_vision( HIY "$NÒ»ÊÖ·ÅÔÚ$nµÄÌìÁé¸ÇÉÏ£¬Ò»ÊÖÌùÔÚ$nµÄááĞÄ£¬±ÕÉÏÑÛ¾¦»º»ºµÍÒ÷ ...\n" NOR, me, target );
+	message_vision( HIY "$Nä¸€æ‰‹æ”¾åœ¨$nçš„å¤©çµç›–ä¸Šï¼Œä¸€æ‰‹è´´åœ¨$nçš„å¾Œå¿ƒï¼Œé—­ä¸Šçœ¼ç›ç¼“ç¼“ä½åŸ ...\n" NOR, me, target );
 
 	if( random(me->query("max_jingli")) > 500 ) {
 		tar->revive();
@@ -45,20 +45,20 @@ int exert(object me, object target)
         else
 		me->unconcious();
 
-	me->start_exert(3, "ËÑÆÇ¹éÔª");
+	me->start_exert(3, "æœé­„å½’å…ƒ");
 	return 1;
 }
 
-string exert_name(){ return HIY"ËÑÆÇ¹éÔª"NOR; }
+string exert_name(){ return HIY"æœé­„å½’å…ƒ"NOR; }
 
 int help(object me)
 {
-        write(HIY"\nÁúÏó°ãÈô¹¦Ö®¡¸ËÑÆÇ¹éÔª¡¹£º"NOR"\n\n");
+        write(HIY"\né¾™è±¡èˆ¬è‹¥åŠŸä¹‹ã€Œæœé­„å½’å…ƒã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1000 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 2000 ÒÔÉÏ£»
-                µ±Ç°¾«Á¦ 500 ÒÔÉÏ£»
-                ÁúÏó°ãÈô¹¦µÈ¼¶ 140 ÒÔÉÏ¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1000 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 2000 ä»¥ä¸Šï¼›
+                å½“å‰ç²¾åŠ› 500 ä»¥ä¸Šï¼›
+                é¾™è±¡èˆ¬è‹¥åŠŸç­‰çº§ 140 ä»¥ä¸Šã€‚
 
 HELP
         );

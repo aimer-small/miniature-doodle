@@ -1,19 +1,19 @@
-// /d/wudang/shanya3.c  É½ÑÂ
+// /d/wudang/shanya3.c  å±±å´–
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short","É½ÑÂ");
+        set("short","å±±å´–");
         set("long", @LONG
-ÕâÊÇÒ»Ãæ¶¸ÇÍµÄÉ½ÑÂ£¬Ê¯±ÚÆ½»¬Èç¾µ£¬¹â¿ÉÕÕÈË£¬É½·ç¹ÎµÃÁ³Èçµ¶¸î£¬ÑÂ
-ÏÂÉî²»¼ûµ×£¬ÁîÈËµ¨º®¡£ÄãµÄÉş×ÓÒÑ·Å¾¡ÁË£¬ËÄÖÜÈÔÎŞ¿ÉÒÔÂä½ÅµÄµØ·½£¬Àë½Å
-ÏÂ¼¸Ê®ÕÉ´¦ÓĞ¿ÃÍòÄêËÉ£¬Ö¦Ò¶Ã¯ÃÜ£¬ĞÍÈçÔ²×À¡£Ã°ÏÕÏÂÌø£¬½èÎï»¬Ïè£¬Ò²ĞíÄÜ
-ÂäÔÚÊ÷ÉÏ¡£
+è¿™æ˜¯ä¸€é¢é™¡å³­çš„å±±å´–ï¼ŒçŸ³å£å¹³æ»‘å¦‚é•œï¼Œå…‰å¯ç…§äººï¼Œå±±é£åˆ®å¾—è„¸å¦‚åˆ€å‰²ï¼Œå´–
+ä¸‹æ·±ä¸è§åº•ï¼Œä»¤äººèƒ†å¯’ã€‚ä½ çš„ç»³å­å·²æ”¾å°½äº†ï¼Œå››å‘¨ä»æ— å¯ä»¥è½è„šçš„åœ°æ–¹ï¼Œç¦»è„š
+ä¸‹å‡ åä¸ˆå¤„æœ‰æ£µä¸‡å¹´æ¾ï¼Œæå¶èŒ‚å¯†ï¼Œå‹å¦‚åœ†æ¡Œã€‚å†’é™©ä¸‹è·³ï¼Œå€Ÿç‰©æ»‘ç¿”ï¼Œä¹Ÿè®¸èƒ½
+è½åœ¨æ ‘ä¸Šã€‚
 LONG                           
 );
-	set("outdoors", "Îäµ±");
+	set("outdoors", "æ­¦å½“");
         setup();
 }
 
@@ -31,25 +31,25 @@ int do_pa(string arg)
         me = this_player();
 
         if ( !arg || (arg != "down" && arg != "up" ))
-            return notify_fail("ÄãÒªÍùÄÄÅÀ£¿\n");
+            return notify_fail("ä½ è¦å¾€å“ªçˆ¬ï¼Ÿ\n");
 
         if (! present("sheng zi", me)) 
-            return notify_fail("Ã»ÓĞÖ§³Åµã£¬ÄãÔõÃ´ÅÀ£¿\n");
+            return notify_fail("æ²¡æœ‰æ”¯æ’‘ç‚¹ï¼Œä½ æ€ä¹ˆçˆ¬ï¼Ÿ\n");
 
         if (arg =="down")
-            return notify_fail("ÄãÒÑÎŞ·¨ÔÙÍùÏÂÅÀÁË¡£\n");
+            return notify_fail("ä½ å·²æ— æ³•å†å¾€ä¸‹çˆ¬äº†ã€‚\n");
 
-        message_vision("$N²ü²üàäàäµØÍùÉÏÅÀ¡£\n", me);
+        message_vision("$Né¢¤é¢¤å™¤å™¤åœ°å¾€ä¸Šçˆ¬ã€‚\n", me);
         me->receive_damage("neili", random(20));
         me->receive_damage("jingli", 60-(int)me->query_skill("dodge", 1)/20);
         if ((int)me->query_skill("dodge",1) < 100)
            me->improve_skill("dodge", me->query("dex")+random((int)me->query_skill("dodge",1)/10));
         me->move(__DIR__"shanya2");
-	tell_room(environment(me), me->name() + "´ÓÏÂÃæÅÀÁËÉÏÀ´¡£\n", ({ me }));
+	tell_room(environment(me), me->name() + "ä»ä¸‹é¢çˆ¬äº†ä¸Šæ¥ã€‚\n", ({ me }));
         if ((int)me->query("jingli", 1)<0 
          ||(int)me->query("neili", 1) < 0){
-            message_vision(RED"$NÍ»È»ÑÛÃ°½ğĞÇ£¬Ò¡Ò¡Óû×¹¡£½ÅÏÂÒ»´ò»¬£¬[°¡...]£¬Ò»¸úÍ·ÔÔÏÂÁËÍòÕÉÉî¹È¡£\n"NOR, me);
-            me->set_temp("last_damage_from","Ë¤ÏÂÉ½ÑÂµø");
+            message_vision(RED"$Nçªç„¶çœ¼å†’é‡‘æ˜Ÿï¼Œæ‘‡æ‘‡æ¬²å ã€‚è„šä¸‹ä¸€æ‰“æ»‘ï¼Œ[å•Š...]ï¼Œä¸€è·Ÿå¤´æ ½ä¸‹äº†ä¸‡ä¸ˆæ·±è°·ã€‚\n"NOR, me);
+            me->set_temp("last_damage_from","æ‘”ä¸‹å±±å´–è·Œ");
             me->unconcious();
             me->die();
   	    if (tmp = present("corpse", this_object())) {
@@ -58,7 +58,7 @@ int do_pa(string arg)
 		while (i--) if (userp(ob[i])) ob[i]->move(this_object());
 		destruct(tmp);
                 destruct("corpse");
-                if (me) tell_room(this_object(), me->name()+"µÄÊ¬¹Ç¶¼ÕÒ²»µ½ÁË¡£\n");
+                if (me) tell_room(this_object(), me->name()+"çš„å°¸éª¨éƒ½æ‰¾ä¸åˆ°äº†ã€‚\n");
 	    }
         }
         return 1;
@@ -72,30 +72,30 @@ int do_jump(string arg)
         me=this_player();
         
         if ( !arg || arg != "down" )
-            return notify_fail("ÄãÒªÍùÄÄÌø£¿\n");
+            return notify_fail("ä½ è¦å¾€å“ªè·³ï¼Ÿ\n");
         
-        message_vision("$NË«ÊÖÒ»ËÉ£¬³¯×¼ËÉÊ÷·ÜÁ¦ÌøÏÂ¡£\n"NOR, me);
+        message_vision("$NåŒæ‰‹ä¸€æ¾ï¼Œæœå‡†æ¾æ ‘å¥‹åŠ›è·³ä¸‹ã€‚\n"NOR, me);
 	
 	if (present("sheng zi", me))
            destruct(present("sheng zi",me));
 
         if (! present("mao tan", me)){ 
-            message_vision("$NÏóÒ»Ìú³ÓíÈ°ãÑ¸ËÙÏÂÂä£¬Ë²¼ä¾Íµ½ÁËËÉÊ÷±ß£¬Á¬Ã¦ÉìÊÖÈ¥×¥£¬È´·¢ÏÖ²îÁË¼¸´ç¡£\n"NOR, me);
-            message_vision(RED"°¡---£¬$NÒ»Éù²Ò½Ğ£¬Ö±ÍùÍòÕÉÉî¹ÈÂäÈ¥¡£\n"NOR, me);
-            me->set_temp("last_damage_from","Ë¤ÏÂÉ½ÑÂµø");
+            message_vision("$Nè±¡ä¸€é“ç§¤ç £èˆ¬è¿…é€Ÿä¸‹è½ï¼Œç¬é—´å°±åˆ°äº†æ¾æ ‘è¾¹ï¼Œè¿å¿™ä¼¸æ‰‹å»æŠ“ï¼Œå´å‘ç°å·®äº†å‡ å¯¸ã€‚\n"NOR, me);
+            message_vision(RED"å•Š---ï¼Œ$Nä¸€å£°æƒ¨å«ï¼Œç›´å¾€ä¸‡ä¸ˆæ·±è°·è½å»ã€‚\n"NOR, me);
+            me->set_temp("last_damage_from","æ‘”ä¸‹å±±å´–è·Œ");
             me->die();
 	    if (tmp = present("corpse", this_object())) {
 		ob = deep_inventory(tmp);
 		i = sizeof(ob);
 		while (i--) if (userp(ob[i])) ob[i]->move(this_object());
 		destruct(tmp);
-		if (me) tell_room(this_object(), me->name()+"µÄÊ¬¹Ç¶¼ÕÒ²»µ½ÁË¡£\n");
+		if (me) tell_room(this_object(), me->name()+"çš„å°¸éª¨éƒ½æ‰¾ä¸åˆ°äº†ã€‚\n");
 	    }
             return 1;
         }
-        message_vision(HIY"$NÈËÔÚ¿ÕÖĞ£¬Á¬Ã¦°ÑÃ«ÌºÕ¹¿ª£¬¶ÙÊ±Ïó³¤ÁË³á°ò°ãÇáÆ®Æ®µØ³¯ËÉÊ÷ÂäÈ¥¡£\n"NOR, me);
+        message_vision(HIY"$Näººåœ¨ç©ºä¸­ï¼Œè¿å¿™æŠŠæ¯›æ¯¯å±•å¼€ï¼Œé¡¿æ—¶è±¡é•¿äº†ç¿…è†€èˆ¬è½»é£˜é£˜åœ°æœæ¾æ ‘è½å»ã€‚\n"NOR, me);
         me->move(__DIR__"wanniansong");
-	tell_room(this_object(), me->name() + "·ÉÁË¹ıÀ´¡£\n", ({ me }));
-        write(HIY"ÄãÖÕÓÚ°²È«×ÅÂ½¡£\n"NOR);
+	tell_room(this_object(), me->name() + "é£äº†è¿‡æ¥ã€‚\n", ({ me }));
+        write(HIY"ä½ ç»ˆäºå®‰å…¨ç€é™†ã€‚\n"NOR);
 	return 1;
 }

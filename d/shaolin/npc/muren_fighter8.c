@@ -4,9 +4,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ä¾ÈË", ({ "mu ren" }) );
-	set("long", "Ò»¸öÄ¾ÈË");
-	set("gender", "»úĞµ");
+	set_name("æœ¨äºº", ({ "mu ren" }) );
+	set("long", "ä¸€ä¸ªæœ¨äºº");
+	set("gender", "æœºæ¢°");
 	set("age", 20);
 	set("attitude", "friendly");
 
@@ -46,17 +46,17 @@ void init()
 	if (query("destructing")) return;
 	prepare_skill("hand", "fengyun-shou");
 	if (userp(ob)) {
-		say("\nÒ»¸öÄ¾ÈË´Ó°µ´¦ÏòÄãÓ­ÃæÆËÀ´£¡\n");
+		say("\nä¸€ä¸ªæœ¨äººä»æš—å¤„å‘ä½ è¿é¢æ‰‘æ¥ï¼\n");
 		COMBAT_D->do_attack(this_object(), ob, this_object()->query_temp("weapon"), 1);
 	}
 	if (!present(ob,environment()) || ob->query("qi") < 0 || ob->query("jing") < 0 || ob->query("jingli") < 0) {
 		ob->move("/d/shaolin/daxiong", 1);
 		ob->delete_temp("murenxiang");
-		tell_object(ob, "Äã±»Ä¾ÈË»÷µ¹ÁË£¡Ú¤Ú¤ÖĞÄãËÆºõ±»ÈËÌ§»ØÁË´óĞÛ±¦µî¡£\n");
+		tell_object(ob, "ä½ è¢«æœ¨äººå‡»å€’äº†ï¼å†¥å†¥ä¸­ä½ ä¼¼ä¹è¢«äººæŠ¬å›äº†å¤§é›„å®æ®¿ã€‚\n");
 	}
 	set("destructing", 1);
 	set_ghost(1);
-	say("\nÄ¾ÈËÉÁÉí¶ã»ØÁË°µ´¦¡£\n");
+	say("\næœ¨äººé—ªèº«èº²å›äº†æš—å¤„ã€‚\n");
 	call_out("destruct_me", 1);
 }
 

@@ -1,7 +1,7 @@
 //Cracked by Kafei
 //wzfeng@xkx 2000 6
 //job_data
-//¼ÇÂ¼ËùÓĞÈÎÎñÏµÍ³Êı¾İ
+//è®°å½•æ‰€æœ‰ä»»åŠ¡ç³»ç»Ÿæ•°æ®
 
 #include <ansi.h>
 
@@ -12,8 +12,8 @@ inherit ITEM;
 #include "lpc_math.h"
 #define JOB_DIR "/clone/obj/job/"
 
-mapping job_data;    //µ±Ç°ÈÎÎñÏµÍ³Êı¾İ¡£
-mapping *job_datas;    //È«²¿ÈÎÎñÏµÍ³µÄÊı¾İ¡£
+mapping job_data;    //å½“å‰ä»»åŠ¡ç³»ç»Ÿæ•°æ®ã€‚
+mapping *job_datas;    //å…¨éƒ¨ä»»åŠ¡ç³»ç»Ÿçš„æ•°æ®ã€‚
 mapping *family_job_data;
 mapping *family_assess;
 //mapping *best_player_data;
@@ -176,7 +176,7 @@ mapping query_assess_playermap()
 	restore();
 	if(!pointerp(assess_player_data))
 		return player_map;
-	//family_map=get_mapping("Îäµ±ÅÉ","family",assess_player_data);
+	//family_map=get_mapping("æ­¦å½“æ´¾","family",assess_player_data);
 	//write(p_map(family_map));
 	for(i=0;i<(sizeof(assess_player_data));i++)
 	{
@@ -190,7 +190,7 @@ mapping query_assess_playermap()
 			{
 				continue;
 			}
-//			printf("Ìí¼Ókeys=%s\tÄÚÈİÎª%s\n",keys[j],assess_player_data[i][keys[j]]);
+//			printf("æ·»åŠ keys=%s\tå†…å®¹ä¸º%s\n",keys[j],assess_player_data[i][keys[j]]);
 			player_map[keys[j]]=assess_player_data[i][keys[j]];
 		}
 	}
@@ -200,7 +200,7 @@ mapping query_assess_playermap()
 }
 void create()
 {
-//	 set_name("ÈÎÎñ²úÉúÆ÷",  ({"job_produce"}));
+//	 set_name("ä»»åŠ¡äº§ç”Ÿå™¨",  ({"job_produce"}));
 	seteuid(getuid());
 }
 
@@ -219,11 +219,11 @@ void change_family_data(string family,object player,string job_kind)
 	mapping family_data;
 	int achievement;
 	restore();
-	write("¿ªÊ¼ĞŞ¸ÄÃÅÅÉdata\n");
+	write("å¼€å§‹ä¿®æ”¹é—¨æ´¾data\n");
 	family_data=([
 		"family_name":family,
 		]);
-	write(job_kind+"ÊÇ³Í·£ĞÎÌ¬\n");
+	write(job_kind+"æ˜¯æƒ©ç½šå½¢æ€\n");
 	switch(job_kind)
 	{
 	case "oppose_pker":
@@ -273,7 +273,7 @@ void change_family_data(string family,object player,string job_kind)
 	}
 	family_job_data=modify_map(family,"family_name",family_data,family_job_data);
 	save();
-	write("ĞŞ¸Ä³É¹¦\n");
+	write("ä¿®æ”¹æˆåŠŸ\n");
 }
 
 //choose player good or bad
@@ -310,7 +310,7 @@ string query_family_jobdata(string family)
 	mapping family_data;
 	string data;
 	if(!is_attr_mapping(family,"family_name",family_job_data))
-		return "Ã»ÓĞÕâ¸öÃÅÅÉµÄÊı¾İ¡£\n";
+		return "æ²¡æœ‰è¿™ä¸ªé—¨æ´¾çš„æ•°æ®ã€‚\n";
 	family_data=get_mapping(family,"family_name",family_job_data);
 	data=p_map(family_data);
 	return data;
@@ -328,7 +328,7 @@ mapping query_family_job_data(string family)
 
 }
 
-//»ñÈ¡´ïµ½ÆÀ¶¨Ìõ¼şµÄÃÅÅÉ
+//è·å–è¾¾åˆ°è¯„å®šæ¡ä»¶çš„é—¨æ´¾
 string is_familyassess_full()
 {
 	mapping family_data,assess_list,*familys_data;
@@ -356,7 +356,7 @@ string is_familyassess_full()
 	for(i=0;i<sizeof(family_job_data);i++)
 	{
 		assess_num=get_msg_map("family_name",family_job_data[i]["family_name"],"family_assess_num",familys_data);
-/*		printf("%sµÄassess_unm==%d\tÏÖÔÚ%sµÄassess_num==%d\n",
+/*		printf("%sçš„assess_unm==%d\tç°åœ¨%sçš„assess_num==%d\n",
 			family_job_data[i]["family_name"],assess_num,
 			family_job_data[i]["family_name"],family_job_data[i]["job_contribute"]);
 */

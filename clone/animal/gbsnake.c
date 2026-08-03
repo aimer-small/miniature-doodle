@@ -1,14 +1,14 @@
-// snake.c Ø¤°ïµÜ×Ó¼´½«Ñ±·şµÄÉß
+// snake.c ä¸å¸®å¼Ÿå­å³å°†é©¯æœçš„è›‡
 // Looklove 2000/10/23
-//±ê¼ÇËµÃ÷
+//æ ‡è®°è¯´æ˜
 //snake
-//	owner	Ö÷ÈË
+//	owner	ä¸»äºº
 //player
-//	snake/succesee	¼ÇÂ¼Ñ±Éß³É¹¦
-//	snake/failure	¼ÇÂ¼Ñ±ÉßÊ§°Ü´ÎÊı
-//	snake/friendly	¼ÇÂ¼ÉßµÄÓÑÉÆ¶È
-//	snake/aggress	¼ÇÂ¼ÉßµÄĞ×²Ğ
-//snakeµÄ×îÖÕ¹¥»÷ÄÜÁ¦ºÍaggress³ÉÕı±È£¬ºÍfriendly³É·´±È
+//	snake/succesee	è®°å½•é©¯è›‡æˆåŠŸ
+//	snake/failure	è®°å½•é©¯è›‡å¤±è´¥æ¬¡æ•°
+//	snake/friendly	è®°å½•è›‡çš„å‹å–„åº¦
+//	snake/aggress	è®°å½•è›‡çš„å‡¶æ®‹
+//snakeçš„æœ€ç»ˆæ”»å‡»èƒ½åŠ›å’Œaggressæˆæ­£æ¯”ï¼Œå’Œfriendlyæˆåæ¯”
 
 inherit NPC;
 
@@ -18,9 +18,9 @@ int do_clone(object me, object ob);
 
 void create()
 {
-	set_name("Éß", ({ "snake","she" }) );
-	set("race", "Ò°ÊŞ");
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Î²°Í" }) );
+	set_name("è›‡", ({ "snake","she" }) );
+	set("race", "é‡å…½");
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å°¾å·´" }) );
 	set("verbs", ({ "bite" }) );
 	set("shen", -15000);
 	set("attitude", "killer");
@@ -55,7 +55,7 @@ void kill_ob(object me)
 	
 	me->remove_killer(snake);
 	remove_killer(me);
-	message_vision(HIW"$nßİµÄ×ê½ø²İ´Ô²»¼ûÁË¡£\n"NOR,me,snake);
+	message_vision(HIW"$nå’»çš„é’»è¿›è‰ä¸›ä¸è§äº†ã€‚\n"NOR,me,snake);
 	destruct(snake);
 }
 
@@ -73,13 +73,13 @@ void init()
 	{
 		do_clone(snake, me);
        		if (random(me->query("snake/aggress"))>random(me->query("snake/friendly"))) {
-			message_vision(BLU"$nÍ»È»Ğ×ĞÔ´ó·¢£¬ÕÕ×Å$NµÄÊÖ¾ÍÊÇÒ»¿Ú¡£\n"NOR,me,snake);
-       			message_vision(HIR"$NµÄÏÊÑªË³×ÅÊÖÍóÁ÷ÁËÏÂÀ´£¡\n"NOR,me);
+			message_vision(BLU"$nçªç„¶å‡¶æ€§å¤§å‘ï¼Œç…§ç€$Nçš„æ‰‹å°±æ˜¯ä¸€å£ã€‚\n"NOR,me,snake);
+       			message_vision(HIR"$Nçš„é²œè¡€é¡ºç€æ‰‹è…•æµäº†ä¸‹æ¥ï¼\n"NOR,me);
 			me->apply_condition("snake_poison",4+me->query_condition("snake_poison"));
 		}
-		else message_vision(HIM"$nºÜÓÑÉÆµØ¶Ô×Å$NÒ¡ÁËÒ¡Î²°Í¡£\n"NOR,me,snake);
+		else message_vision(HIM"$nå¾ˆå‹å–„åœ°å¯¹ç€$Næ‘‡äº†æ‘‡å°¾å·´ã€‚\n"NOR,me,snake);
 		snake->set_leader(me);
-       		message_vision("$NµÄÉß¾ö¶¨ºÍ$NÒ»ÆğĞĞ¶¯¡£\n",me);
+       		message_vision("$Nçš„è›‡å†³å®šå’Œ$Nä¸€èµ·è¡ŒåŠ¨ã€‚\n",me);
 	}
 	if (!living(snake)) {
 		remove_call_out("dest");
@@ -91,7 +91,7 @@ int do_clone(object snake, object me)
 {
 	int number,k_qi,k_neili,k_jing,k_jingli,jiali,friendly,aggress;
 	
-	snake->set("name",me->query("name")+"µÄÉß");
+	snake->set("name",me->query("name")+"çš„è›‡");
 	snake->set_temp("owner",me->query("id"));
 	
 	number = (int)me->query("max_pot") /10;
@@ -153,7 +153,7 @@ void dest()
 		if (owner) owner->delete_temp("snake");
 	}
 
-	message_vision(HIW"$NÅ¤ÁËÅ¤Î²°Í£¬²»ÖªÔõÃ´¾Í²»¼ûÁË¡£\n"NOR,snake);
+	message_vision(HIW"$Næ‰­äº†æ‰­å°¾å·´ï¼Œä¸çŸ¥æ€ä¹ˆå°±ä¸è§äº†ã€‚\n"NOR,snake);
 	destruct(snake);
 }
 

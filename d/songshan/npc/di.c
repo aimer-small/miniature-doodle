@@ -3,9 +3,9 @@ inherit NPC;
 
 void create()
 {
-        set_name("µÒÐÞ", ({ "di xiu", "di", "xiu" }));
-        set("long", "ÕâÊÇÒ»Ãû¾«×³µÄºº×Ó£¬ÊÇ×óÀäìøµÄÍ½µÜ¡£\n");
-        set("gender", "ÄÐÐÔ");
+        set_name("ç‹„ä¿®", ({ "di xiu", "di", "xiu" }));
+        set("long", "è¿™æ˜¯ä¸€åç²¾å£®çš„æ±‰å­ï¼Œæ˜¯å·¦å†·ç¦…çš„å¾’å¼Ÿã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 30);
         set("per", 20);
         set("attitude", "heroism");
@@ -38,7 +38,7 @@ void create()
     map_skill("parry", "songshan-jian");
     map_skill("sword", "songshan-jian");
     prepare_skill("strike", "songyang-zhang");
-    create_family("áÔÉ½ÅÉ", 5, "µÜ×Ó");
+    create_family("åµ©å±±æ´¾", 5, "å¼Ÿå­");
         set("class", "taoist");
         setup();
         carry_object(ARMOR_D("changpao1"))->wear();
@@ -48,10 +48,10 @@ void create()
 void attempt_apprentice(object ob)
 {
      if(ob->query("shen") < 0 && ob->query("combat_exp") < 10000){
-        command("say ÄãÕâÐ°Ä§ÍâµÀ£¬»¹¸ÒÀ´ÎÒáÔÉ½ÅÉ£¿¿ì¹ö£¡");
+        command("say ä½ è¿™é‚ªé­”å¤–é“ï¼Œè¿˜æ•¢æ¥æˆ‘åµ©å±±æ´¾ï¼Ÿå¿«æ»šï¼");
         return;
         }
-     command("say ºÃ°É£¬Ê¦¸µÕýÒªÎÒ¶àÅàÓýÒ»Ð©µÜ×ÓÀ´·¢ÑïáÔÉ½ÅÉÄØ¡£");
+     command("say å¥½å§ï¼Œå¸ˆå‚…æ­£è¦æˆ‘å¤šåŸ¹è‚²ä¸€äº›å¼Ÿå­æ¥å‘æ‰¬åµ©å±±æ´¾å‘¢ã€‚");
      command("recruit " + ob->query("id"));
 }
 

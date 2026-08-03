@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "°ëÉ½Ñü");
+        set("short", "åŠå±±è…°");
         set("long",@LONG
-ÅÀÉÏ°ëÉ½Ñü£¬ÄãÖ»¾õº®Æø±ÆÈË£¬½ÅÏÂÒ²ÓĞÒ»ÍÅÔÆÎí»·ÈÆ¡£
+çˆ¬ä¸ŠåŠå±±è…°ï¼Œä½ åªè§‰å¯’æ°”é€¼äººï¼Œè„šä¸‹ä¹Ÿæœ‰ä¸€å›¢äº‘é›¾ç¯ç»•ã€‚
 LONG
         );
         set("exits", ([ /* sizeof() == 1 */
@@ -15,7 +15,7 @@ LONG
                 "westdown" : __DIR__"shanlu2",
         ]) );
         set("no_clean_up", 0);
-        set("outdoors","ÌÒ»¨µº");
+        set("outdoors","æ¡ƒèŠ±å²›");
 
         setup();
 }

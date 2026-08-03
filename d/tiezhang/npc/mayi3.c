@@ -4,15 +4,15 @@ inherit NPC;
 inherit F_MASTER;
 void create()
 {
-       set_name("»ÆÁîÌì", ({"huang lingtian","huang","lingtian"}));
-       set("title","ÂéÒÂ³¤ÀÏ"); 
-       set("nickname",HIY"ÌúÕÆËÄÓ¥"NOR);
+       set_name("é»„ä»¤å¤©", ({"huang lingtian","huang","lingtian"}));
+       set("title","éº»è¡£é•¿è€"); 
+       set("nickname",HIY"é“æŒå››é¹°"NOR);
        set("long",
-    "ËûÊÇÒ»¸öÄêÔ¼ÁùÑ®µÄÀÏÕß£¬ÂúÍ·»¨·¢£¬Á½÷Ş°ß°×¡£\n"
-    "ËûÁ½²àµÄÌ«ÑôÑ¨¸ß¸ß¹ÄÆğ£¬Î¢±ÕµÄË«Ä¿ÖĞÊ±¶øÉÁ¹ıÁèÀ÷µÄÑÛÉñ£¬ËÆºõÉí»³¾ø¼¼¡£\n"
+    "ä»–æ˜¯ä¸€ä¸ªå¹´çº¦å…­æ—¬çš„è€è€…ï¼Œæ»¡å¤´èŠ±å‘ï¼Œä¸¤é¬“æ–‘ç™½ã€‚\n"
+    "ä»–ä¸¤ä¾§çš„å¤ªé˜³ç©´é«˜é«˜é¼“èµ·ï¼Œå¾®é—­çš„åŒç›®ä¸­æ—¶è€Œé—ªè¿‡å‡Œå‰çš„çœ¼ç¥ï¼Œä¼¼ä¹èº«æ€€ç»æŠ€ã€‚\n"
        );
 
-       set("gender", "ÄĞĞÔ");
+       set("gender", "ç”·æ€§");
        set("attitude", "peaceful");
        set("unique", 1);
        set("age", 60);
@@ -65,18 +65,18 @@ void init()
        
        if (interactive(ob) 
        && !environment(ob)->query("no_fight")
-       && ( (fam = ob->query("family")) && fam["family_name"] != "ÌúÕÆ°ï" ) 
+       && ( (fam = ob->query("family")) && fam["family_name"] != "é“æŒå¸®" ) 
         && (int)ob->query("combat_exp", 1) >= 10000 ) 
        {
                if( !ob->query_temp("warned") ) {
-        command("say Õ¾×¡£¡Äã²»ÊÇÌúÕÆ°ïµÜ×Ó£¬²»ÄÜÔÚ´Ë¾ÃÁô£¡£¡");
-        command("say Äã»¹ÊÇËÙËÙÀë¿ª´ËµØ°É£¬²»È»ÀÏĞà¿ÉÒª¶ÔÄã²»¿ÍÆøÁË£¡£¡");
+        command("say ç«™ä½ï¼ä½ ä¸æ˜¯é“æŒå¸®å¼Ÿå­ï¼Œä¸èƒ½åœ¨æ­¤ä¹…ç•™ï¼ï¼");
+        command("say ä½ è¿˜æ˜¯é€Ÿé€Ÿç¦»å¼€æ­¤åœ°å§ï¼Œä¸ç„¶è€æœ½å¯è¦å¯¹ä½ ä¸å®¢æ°”äº†ï¼ï¼");
         command("hehe");
                        ob->set_temp("warned", 1);
                }
           else if( ob->query_temp("stay") < 3 ) ob->add_temp("stay", 1);
                 else {
-                       command("say Äã»îµÃ²»ÄÍ·³ÁË£¬¾¹¸Òµ½ÌúÕÆ°ïÀ´ÈöÒ°£¡£¡£¡\n");
+                       command("say ä½ æ´»å¾—ä¸è€çƒ¦äº†ï¼Œç«Ÿæ•¢åˆ°é“æŒå¸®æ¥æ’’é‡ï¼ï¼ï¼\n");
                        remove_call_out("hiting_ob");
                        call_out("hiting_ob", 1, ob);
                }

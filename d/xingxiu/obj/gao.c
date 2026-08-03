@@ -6,13 +6,13 @@ int do_chang(string);
 
 void create() 
 {
-	set_name(HIY "ËÄ³æ¸à" NOR,({"gao"}));
+	set_name(HIY "å››è™«è†" NOR,({"gao"}));
 	set_weight(50);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","Ò»°ü»¨»¨ÂÌÂÌµÄ"+this_object()->query("name")+"£¬À´³¢³¢(chang)Î¶µÀ£¿\n");
-		set("unit","°ü");
+		set("long","ä¸€åŒ…èŠ±èŠ±ç»¿ç»¿çš„"+this_object()->query("name")+"ï¼Œæ¥å°å°(chang)å‘³é“ï¼Ÿ\n");
+		set("unit","åŒ…");
 		set("no_drop", 1);
 		set("no_get", 1);
 		set("no_give", 1);
@@ -32,46 +32,46 @@ int do_chang(string arg)
 	int job;
 	mapping fam=who->query("family");
 
-	job = who->query("job_time/ÐÇËÞ") + who->query("job_time/ÐÇËÞÅÑÍ½")+ who->query("job_time/ÐÇËÞ°¾¸à");
+	job = who->query("job_time/æ˜Ÿå®¿") + who->query("job_time/æ˜Ÿå®¿å›å¾’")+ who->query("job_time/æ˜Ÿå®¿ç†¬è†");
 
 	if( who->is_busy())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( !this_object()->id(arg) )
-		return notify_fail("ÄãÏë³¢É¶£¿\n");
+		return notify_fail("ä½ æƒ³å°å•¥ï¼Ÿ\n");
 
-	message_vision("$N¶ËÆð"+me->query("name")+"°¡ÎØÒ»¿ÚµÄ³ÔÁËÏÂÈ¥¡£\n", who);
+	message_vision("$Nç«¯èµ·"+me->query("name")+"å•Šå‘œä¸€å£çš„åƒäº†ä¸‹åŽ»ã€‚\n", who);
 
-	if (!fam || fam["family_name"] !="ÐÇËÞÅÉ")
-		return notify_fail("Äã²»ÊÇÐÇËÞµÜ×Ó£¬³ÔÁËÕâ"+me->name()+"»áÖÐ¶¾µÄ¡£\n");
+	if (!fam || fam["family_name"] !="æ˜Ÿå®¿æ´¾")
+		return notify_fail("ä½ ä¸æ˜¯æ˜Ÿå®¿å¼Ÿå­ï¼Œåƒäº†è¿™"+me->name()+"ä¼šä¸­æ¯’çš„ã€‚\n");
 
 	if ( me->query("prices")<= 0  || me->query("xx/owner")!=who)
-		message_vision("µ«Ê²Ã´×ÌÎ¶Ò²Ã»³¢³öÀ´¡£\n", who);
+		message_vision("ä½†ä»€ä¹ˆæ»‹å‘³ä¹Ÿæ²¡å°å‡ºæ¥ã€‚\n", who);
 
 	else if (who->query("combat_exp") > 2000000 || who->query_skill("huagong-dafa", 1) < 10){
 		if ( job < 500 && who->query("combat_exp") > 2000000){
-			message_vision("$N¿àµÃÌéÀáºáÁ÷£¬Ç¿ÈÌ×ÅÃ»ÍÂ³öÀ´¡£\n", who);
-			tell_object(who,"ÄãÖ»¸Ðµ½¸¹ÄÚÈçÓÐÊýÊ®°ÑÐ¡µ¶ÔÚÂÒÔÜÂÒ´Ì£¬ÄãÊ¹¾¡ÁËÁ¦Æø£¬²Å½«¶¾Ò©µÄÒ©Á¦ÍêÈ«»¯½â¡£\n");
-			who->add("job_time/ÐÇËÞ°¾¸à", 4);
+			message_vision("$Nè‹¦å¾—æ¶•æ³ªæ¨ªæµï¼Œå¼ºå¿ç€æ²¡åå‡ºæ¥ã€‚\n", who);
+			tell_object(who,"ä½ åªæ„Ÿåˆ°è…¹å†…å¦‚æœ‰æ•°åæŠŠå°åˆ€åœ¨ä¹±æ”’ä¹±åˆºï¼Œä½ ä½¿å°½äº†åŠ›æ°”ï¼Œæ‰å°†æ¯’è¯çš„è¯åŠ›å®Œå…¨åŒ–è§£ã€‚\n");
+			who->add("job_time/æ˜Ÿå®¿ç†¬è†", 4);
 		}
 		else {
-			message_vision("$NÖ»¸Ðµ½Ò»Õó¶ñÐÄ£¬ÌìÐýµØ×ª¡£\n", who);
+			message_vision("$Nåªæ„Ÿåˆ°ä¸€é˜µæ¶å¿ƒï¼Œå¤©æ—‹åœ°è½¬ã€‚\n", who);
 			who->unconcious();
 		}
 	}
 	else {
-		message_vision("$N¿àµÃÌéÀáºáÁ÷£¬Ç¿ÈÌ×ÅÃ»ÍÂ³öÀ´¡£\n", who);
-		tell_object(who,"ÄãÖ»¸Ðµ½¸¹ÄÚÈçÓÐÊýÊ®°ÑÐ¡µ¶ÔÚÂÒÔÜÂÒ´Ì£¬ÄãÊ¹¾¡ÁËÁ¦Æø£¬²Å½«¶¾Ò©µÄÒ©Á¦ÍêÈ«»¯½â¡£\n");
+		message_vision("$Nè‹¦å¾—æ¶•æ³ªæ¨ªæµï¼Œå¼ºå¿ç€æ²¡åå‡ºæ¥ã€‚\n", who);
+		tell_object(who,"ä½ åªæ„Ÿåˆ°è…¹å†…å¦‚æœ‰æ•°åæŠŠå°åˆ€åœ¨ä¹±æ”’ä¹±åˆºï¼Œä½ ä½¿å°½äº†åŠ›æ°”ï¼Œæ‰å°†æ¯’è¯çš„è¯åŠ›å®Œå…¨åŒ–è§£ã€‚\n");
 		who->add("combat_exp",me->query("prices"));
 		who->add("potential",me->query("prices")/5);
-		who->add("job_time/ÐÇËÞ°¾¸à", 4);
+		who->add("job_time/æ˜Ÿå®¿ç†¬è†", 4);
 		if(who->query("potential") > who->query("max_pot")) 
 		who->set("potential",who->query("max_pot"));
 		who->add_busy(1);
-		tell_object(who, YEL "ÄãµÄ¾­ÑéÔö¼ÓÁË"+chinese_number(me->query("prices"))+"µã£¬"+
-				"Ç±ÄÜÔö¼ÓÁË"+chinese_number(me->query("prices")/5)+"µã£¡\n" NOR);
-		log_file( "job/chong",sprintf("%8s%-10sµÚ%5d´Î°¾Ò©ÈÎÎñ£¬µÃµ½¾­Ñé:%3d£¬Ç±ÄÜ£º%2d£¬ÏÖ¾­Ñé£º%d¡£\n",
-	                who->name(),"("+who->query("id")+")",who->query("job_time/ÐÇËÞ°¾¸à"),me->query("prices"),me->query("prices")/5,
+		tell_object(who, YEL "ä½ çš„ç»éªŒå¢žåŠ äº†"+chinese_number(me->query("prices"))+"ç‚¹ï¼Œ"+
+				"æ½œèƒ½å¢žåŠ äº†"+chinese_number(me->query("prices")/5)+"ç‚¹ï¼\n" NOR);
+		log_file( "job/chong",sprintf("%8s%-10sç¬¬%5dæ¬¡ç†¬è¯ä»»åŠ¡ï¼Œå¾—åˆ°ç»éªŒ:%3dï¼Œæ½œèƒ½ï¼š%2dï¼ŒçŽ°ç»éªŒï¼š%dã€‚\n",
+	                who->name(),"("+who->query("id")+")",who->query("job_time/æ˜Ÿå®¿ç†¬è†"),me->query("prices"),me->query("prices")/5,
 	                who->query("combat_exp")), who);
 	}
 	destruct(me);

@@ -1,19 +1,19 @@
 // ws.c
-// ÎÔÊÒ
+// å§å®¤
 inherit ROOM;
 void create()
 {
-	set("short","ÎÔÊÒ");
+	set("short","å§å®¤");
 	set("long",@long
-´Ë´¦ÊÇÉñÁú½Ì×ÜÌ³½ÌÖÚµÄÎÔÊÒ£¬ÎİÖĞµÄ²¼ÖÃºÜ¼òµ¥£¬Ö»ÓĞ¼¸Ö»´ó´²¿¿
-Ç½·Å×Å£¬¹©±¾Ì³½ÌÖÚĞİÏ¢Ö®ÓÃ¡£
+æ­¤å¤„æ˜¯ç¥é¾™æ•™æ€»å›æ•™ä¼—çš„å§å®¤ï¼Œå±‹ä¸­çš„å¸ƒç½®å¾ˆç®€å•ï¼Œåªæœ‰å‡ åªå¤§åºŠé 
+å¢™æ”¾ç€ï¼Œä¾›æœ¬å›æ•™ä¼—ä¼‘æ¯ä¹‹ç”¨ã€‚
 long);
 	set("exits",([
 	    "north" : __DIR__"road1",
 ]));
       set("sleep_room", 1);
       set("no_fight",1);
-//create_door("west", "Ğ¡ÃÅ", "east", DOOR_CLOSED);
+//create_door("west", "å°é—¨", "east", DOOR_CLOSED);
       set("coor/x",510);
   set("coor/y",420);
    set("coor/z",90);

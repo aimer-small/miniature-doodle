@@ -1,5 +1,5 @@
 // job_npc.c by Lane@ln 2004.7.28
-// Lane 2004.11.25 Ôö¼ÓÄÑ¶È£¬NPC ×Ô¶¯ pfm 
+// Lane 2004.11.25 å¢žåŠ éš¾åº¦ï¼ŒNPC è‡ªåŠ¨ pfm 
 
 #include <ansi.h>
 inherit NPC;
@@ -25,21 +25,21 @@ int sort_skill(string file)
 
 void create()
 {
-        set_name("ÌôÐÆÁ÷Ã¥", ({ "liu mang", "liumang", "liu" }) );
+        set_name("æŒ‘è¡…æµæ°“", ({ "liu mang", "liumang", "liu" }) );
 
-        set("gender", "ÎÞÐÔ" );
+        set("gender", "æ— æ€§" );
         set("age", 30);
         switch (random(8)) {
-                case 0:set("title", BLU"¾Þ¾¨°ï°ïÖÚ"NOR); break;
-                case 1:set("title", HIR"ÉñÈ­ÃÅµÜ×Ó"NOR); break;
-                case 2:set("title", HIB"º£É³ÅÉ°ïÖÚ"NOR); break;
-                case 3:set("title", YEL"Å©Éñ°ï°ïÖÚ"NOR); break;
-                case 4:set("title", HIG"ÇàÖñ°ï°ïÖÚ"NOR); break;
-                case 5:set("title", HIC"¶ñ»¢¹µ°ïÖÚ"NOR); break;
-                case 6:set("title", HIM"Û¶Ñô°ï°ïÖÚ"NOR); break;
-                case 7:set("title", YEL"½ðÁú°ï°ïÖÚ"NOR); break;
+                case 0:set("title", BLU"å·¨é²¸å¸®å¸®ä¼—"NOR); break;
+                case 1:set("title", HIR"ç¥žæ‹³é—¨å¼Ÿå­"NOR); break;
+                case 2:set("title", HIB"æµ·æ²™æ´¾å¸®ä¼—"NOR); break;
+                case 3:set("title", YEL"å†œç¥žå¸®å¸®ä¼—"NOR); break;
+                case 4:set("title", HIG"é’ç«¹å¸®å¸®ä¼—"NOR); break;
+                case 5:set("title", HIC"æ¶è™Žæ²Ÿå¸®ä¼—"NOR); break;
+                case 6:set("title", HIM"é„±é˜³å¸®å¸®ä¼—"NOR); break;
+                case 7:set("title", YEL"é‡‘é¾™å¸®å¸®ä¼—"NOR); break;
         }
-        set("long", "Ò»¸öÃæÄ¿²»ÇåµÄÈË£¬Ãæ²¿Éä³öÁ½µÀ½ð¹â¡£\n");
+        set("long", "ä¸€ä¸ªé¢ç›®ä¸æ¸…çš„äººï¼Œé¢éƒ¨å°„å‡ºä¸¤é“é‡‘å…‰ã€‚\n");
         set("meitude","friendly");
 
         set("combat_exp", 2000000);
@@ -256,18 +256,18 @@ void die()
                 me->add("potential", pot);
                 me->add("SJ_Credit", tb);
                 me->add("job_time/chue", 1);
-                message_vision(YEL"\n$NÉ±ËÀÁË" + ob->query("title") + YEL"£¬Îª" + me->query("family/family_name") + "Çå³ýÁËÀ´·¸µÄ¶ñÔô¡£\n",me);
-                message_vision(YEL"$N×ÐÏ¸»ØÒä¸Õ²ÅºÍ" + ob->name() + "µÄ´ò¶·¾­¹ý£¬·¢ÏÖ×Ô¼º¶ÔÎäÑ§µÄÁìÎòÓÖ¸üÉîÁËÒ»²ã£¡\n"NOR,me);
-                tell_object(me, HIW"Äã»ñµÃÁË" + CHINESE_D->chinese_number(exp) + HIW"µã¾­Ñé£¬" + CHINESE_D->chinese_number(tb) + HIW"Êé½£Í¨±¦" +
-                        CHINESE_D->chinese_number(pot) + HIW"µãÇ±ÄÜ£¬Äã¹²Îª" + me->query("family/family_name") + HIW
-                        "²ù³ýÁË" + CHINESE_D->chinese_number(me->query("job_time/chue")) + HIW"¸ö¶ñÔô¡£\n"NOR);
+                message_vision(YEL"\n$Næ€æ­»äº†" + ob->query("title") + YEL"ï¼Œä¸º" + me->query("family/family_name") + "æ¸…é™¤äº†æ¥çŠ¯çš„æ¶è´¼ã€‚\n",me);
+                message_vision(YEL"$Nä»”ç»†å›žå¿†åˆšæ‰å’Œ" + ob->name() + "çš„æ‰“æ–—ç»è¿‡ï¼Œå‘çŽ°è‡ªå·±å¯¹æ­¦å­¦çš„é¢†æ‚Ÿåˆæ›´æ·±äº†ä¸€å±‚ï¼\n"NOR,me);
+                tell_object(me, HIW"ä½ èŽ·å¾—äº†" + CHINESE_D->chinese_number(exp) + HIW"ç‚¹ç»éªŒï¼Œ" + CHINESE_D->chinese_number(tb) + HIW"ä¹¦å‰‘é€šå®" +
+                        CHINESE_D->chinese_number(pot) + HIW"ç‚¹æ½œèƒ½ï¼Œä½ å…±ä¸º" + me->query("family/family_name") + HIW
+                        "é“²é™¤äº†" + CHINESE_D->chinese_number(me->query("job_time/chue")) + HIW"ä¸ªæ¶è´¼ã€‚\n"NOR);
 
-                log_file( "job/chue_job",sprintf("%s %s(%s)µÚ%d´ÎÈÎÎñ£¬¾­Ñé£º%d£¬Ç±ÄÜ£º%d£»µÐÈË¾­Ñé£º%d Íæ¼ÒÏÖ¾­Ñé£º%d\n",
+                log_file( "job/chue_job",sprintf("%s %s(%s)ç¬¬%dæ¬¡ä»»åŠ¡ï¼Œç»éªŒï¼š%dï¼Œæ½œèƒ½ï¼š%dï¼›æ•Œäººç»éªŒï¼š%d çŽ©å®¶çŽ°ç»éªŒï¼š%d\n",
                 ctime(time())[4..19], me->name(), me->query("id"), me->query("job_time/chue"), exp, pot,
                 ob->query("combat_exp"), me->query("combat_exp")));
 
                 if( objectp(killer = query_temp("last_damage_from")) )
-                        CHANNEL_D->do_channel(me, "rumor", "Ã°³ä"+ob->name()+"µÄ"+ob->query("title")+"×Ô¸ºÎä¹¦ÁËµÃ£¬¿ÉÏ§×÷¶ñ¶à¶Ë£¬±»"+killer->name()+"¾ÍµØÕý·¨¡£"NOR);
+                        CHANNEL_D->do_channel(me, "rumor", "å†’å……"+ob->name()+"çš„"+ob->query("title")+"è‡ªè´Ÿæ­¦åŠŸäº†å¾—ï¼Œå¯æƒœä½œæ¶å¤šç«¯ï¼Œè¢«"+killer->name()+"å°±åœ°æ­£æ³•ã€‚"NOR);
 
         }
         ::die();

@@ -1,12 +1,12 @@
-// xuebao.c Ñ©±ª
+// xuebao.c é›ªè±¹
 // by iceland
 inherit NPC;
 
 void create()
 {
-	set_name("Ñ©±ª", ({ "xue bao","xuebao","bao" }) );
-	set("long","Ò»Ö»¼¢¶öµÄÑ©±ª£¬»ëÉíÉÏÏÂÑ©°×Ã«Æ¤ÖÐÔÓ×ÅÐ©»Æ»¨ÎÆ£¬É¢·¢×ÅÈáÈíµÄ¹âÔó¡£\n");
-	set("race", "Ò°ÊÞ");
+	set_name("é›ªè±¹", ({ "xue bao","xuebao","bao" }) );
+	set("long","ä¸€åªé¥¥é¥¿çš„é›ªè±¹ï¼Œæµ‘èº«ä¸Šä¸‹é›ªç™½æ¯›çš®ä¸­æ‚ç€äº›é»„èŠ±çº¹ï¼Œæ•£å‘ç€æŸ”è½¯çš„å…‰æ³½ã€‚\n");
+	set("race", "é‡Žå…½");
 	set("age", 5);
 
 	set("eff_jing", 500);
@@ -19,7 +19,7 @@ void create()
 	set("int", 20);
 	set("unique", 2);
 
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°ÍÈ","ºóÍÈ", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰è…¿","åŽè…¿", "å°¾å·´" }) );
 	set("verbs", ({ "bite", "claw"}) );
         set("attitude","aggressive");
 	set_temp("apply/attack", 50);
@@ -31,15 +31,15 @@ void create()
         set("chat_chance", 1);
 	set("chat_msg", ({
 (: this_object(), "random_move" :),
-"Ñ©±ªÇ°ÍÈ°ÇÔÚµØÉÏ£¬ºíÁüÀï·¢³öµÍ³ÁµÄÅØÏø¡£\n",
-"Ñ©±ª³åÄãÁÑÁËÁÑ×ì£¬³¤³¤µÄÑÀ³ÝÔÚÀä·çÖÐÉÁ×Åº®¹â¡£\n",
+"é›ªè±¹å‰è…¿æ‰’åœ¨åœ°ä¸Šï¼Œå–‰å’™é‡Œå‘å‡ºä½Žæ²‰çš„å’†å“®ã€‚\n",
+"é›ªè±¹å†²ä½ è£‚äº†è£‚å˜´ï¼Œé•¿é•¿çš„ç‰™é½¿åœ¨å†·é£Žä¸­é—ªç€å¯’å…‰ã€‚\n",
 }) );
         setup();
 }
 void die()
 {
 	object ob;
-	message_vision("$N×ì½ÇÁ÷³öÁËÒ»ÂÆÏÊÑª£¬ÍÈ½Å³é´¤ÁË¼¸ÏÂ£¬ËÀÁË¡£\n", this_object());
+	message_vision("$Nå˜´è§’æµå‡ºäº†ä¸€ç¼•é²œè¡€ï¼Œè…¿è„šæŠ½æäº†å‡ ä¸‹ï¼Œæ­»äº†ã€‚\n", this_object());
 	ob = new(ARMOR_D("baopi"));
 	ob->move(environment(this_object()));
 	destruct(this_object());

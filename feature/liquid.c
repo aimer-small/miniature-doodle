@@ -9,13 +9,13 @@ string extra_long()
 	if( amount = ob->query("liquid/remaining") ) {
 		max = ob->query("max_liquid");
 		if( amount == max )
-			str = "ÀïÃæ×°ÂúÁË" + ob->query("liquid/name") + "¡£\n";
+			str = "é‡Œé¢è£…æ»¡äº†" + ob->query("liquid/name") + "ã€‚\n";
 		else if( amount > max/2 )
-			str = "ÀïÃæ×°ÁËÆß¡¢°Ë·ÖÂúµÄ" + ob->query("liquid/name") + "¡£\n";
+			str = "é‡Œé¢è£…äº†ä¸ƒã€å…«åˆ†æ»¡çš„" + ob->query("liquid/name") + "ã€‚\n";
 		else if( amount >= max/3 )
-			str = "ÀïÃæ×°ÁËÎå¡¢Áù·ÖÂúµÄ" + ob->query("liquid/name") + "¡£\n";
+			str = "é‡Œé¢è£…äº†äº”ã€å…­åˆ†æ»¡çš„" + ob->query("liquid/name") + "ã€‚\n";
 		else if( amount < max/2 )
-			str = "ÀïÃæ×°ÁËÉÙÐíµÄ" + ob->query("liquid/name") + "¡£\n";
+			str = "é‡Œé¢è£…äº†å°‘è®¸çš„" + ob->query("liquid/name") + "ã€‚\n";
 		return str;
 	}
 	else return 0;

@@ -7,11 +7,11 @@
 inherit ROOM;
 void create()
 {
-	set("short",HIW"Êé·¿"NOR);
+	set("short",HIW"ä¹¦æˆ¿"NOR);
 	set ("long",@long
-ÕâÀïÊÇÑà×ÓÎëµÄÊé·¿, ÌìÏÂÎä¹¦½ÔÜö´âÓë´Ë, °üÂŞÍòÏó, Îİ×ÓÄÏ±ßÊÇÒ»°Ñ
-×øÒÎ£¬ËÄÖÜÈ«ÊÇÒ»ÅÅÅÅ¸ß´óµÄÊé¼Ü¡£ºÃºÃÑ§Ï°£¬±Ø¿É³ÉÎªÒ»´ú¸ßÊÖ¡£Êé·¿µÄ¶«
-ÃæÊÇÒ»Ìõ³¤ÀÈ£¬Î÷ÃæÊÇ´óÌü£¬ÄÏÃæÊÇÒ»¼äÏá·¿¡£
+è¿™é‡Œæ˜¯ç‡•å­åçš„ä¹¦æˆ¿, å¤©ä¸‹æ­¦åŠŸçš†èŸç²¹ä¸æ­¤, åŒ…ç½—ä¸‡è±¡, å±‹å­å—è¾¹æ˜¯ä¸€æŠŠ
+åæ¤…ï¼Œå››å‘¨å…¨æ˜¯ä¸€æ’æ’é«˜å¤§çš„ä¹¦æ¶ã€‚å¥½å¥½å­¦ä¹ ï¼Œå¿…å¯æˆä¸ºä¸€ä»£é«˜æ‰‹ã€‚ä¹¦æˆ¿çš„ä¸œ
+é¢æ˜¯ä¸€æ¡é•¿å»Šï¼Œè¥¿é¢æ˜¯å¤§å…ï¼Œå—é¢æ˜¯ä¸€é—´å¢æˆ¿ã€‚
 long);
 	set("exits",([
 		"west" : __DIR__"dating",
@@ -40,8 +40,8 @@ int do_sit(string arg)
 	if (!arg) return 0;
 	if (arg !="chair") return 0;
 	if (arg=="chair"){
-		write("Äã×øÔÚÒÎ×ÓÉÏ£¬ÕæÊÇÓÆÏĞ×ÔµÃ¡£Äã¿´µ½Êé¼ÜÎ¢Î¢µÄÒ¡»ÎÁËÒ»ÏÂ¡£\n");
-	this_player()->set_temp("marks/×ø1", 1);
+		write("ä½ ååœ¨æ¤…å­ä¸Šï¼ŒçœŸæ˜¯æ‚ é—²è‡ªå¾—ã€‚ä½ çœ‹åˆ°ä¹¦æ¶å¾®å¾®çš„æ‘‡æ™ƒäº†ä¸€ä¸‹ã€‚\n");
+	this_player()->set_temp("marks/å1", 1);
 	return 1;
 	}
 }
@@ -50,13 +50,13 @@ int do_zhuan(string arg)
 {
 	object me;
 	me=this_player();
-	if (me->query_temp("marks/×ø1")){
-		message("vision", me->name() + "ÊÔ×Å×ªÁËÒ»ÏÂÊé¼Ü£¬Í»È»Êé¼ÜÏòºóÒ»×ª£¬ÄãµÄÃæÇ°³öÏÖÁËÒ»¸ö¼Ğ±Ú¡£\n",
+	if (me->query_temp("marks/å1")){
+		message("vision", me->name() + "è¯•ç€è½¬äº†ä¸€ä¸‹ä¹¦æ¶ï¼Œçªç„¶ä¹¦æ¶å‘åä¸€è½¬ï¼Œä½ çš„é¢å‰å‡ºç°äº†ä¸€ä¸ªå¤¹å£ã€‚\n",
                     environment(me), ({me}) );
-		message("vision", me->name() + "Í»È»ÉíÓ°Ò»ÉÁ£¬²»¼ûÁË¡£\n", environment(me), ({me}) );
+		message("vision", me->name() + "çªç„¶èº«å½±ä¸€é—ªï¼Œä¸è§äº†ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"jiabi");
-		message("vision", me->name() + "´ÓÍâÃæ×êÁË¹ıÀ´¡£\n", environment(me), ({me}) );
-		this_player()->delete_temp("marks/×ø1");
+		message("vision", me->name() + "ä»å¤–é¢é’»äº†è¿‡æ¥ã€‚\n", environment(me), ({me}) );
+		this_player()->delete_temp("marks/å1");
 		return 1;
 	}
 }

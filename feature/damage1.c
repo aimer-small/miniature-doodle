@@ -1,7 +1,7 @@
 // Modified by snowman@SJ 22/08/2000.
-// ÔÚYuJÔö¼ÓÎŞÊ³Ë®¼õjing,qiµÄ»ù´¡ÉÏ£¬ÆÁ±Î¶ÔnewbieµÄÓ°Ïì¡£
+// åœ¨YuJå¢åŠ æ— é£Ÿæ°´å‡jing,qiçš„åŸºç¡€ä¸Šï¼Œå±è”½å¯¹newbieçš„å½±å“ã€‚
 // Modified by snowman@SJ 13/04/2001
-// heal ÖĞÔö¼Ó¶Ôapply/xxx µÄÖ§³Ö¡£
+// heal ä¸­å¢åŠ å¯¹apply/xxx çš„æ”¯æŒã€‚
 // add apply/re_xx Ciwei@SJ
 
 #include <ansi.h>
@@ -54,7 +54,7 @@ varargs int receive_damage(string type, int damage, mixed who)
 	if( damage < 0 ) damage = 0;
 
 	if( type!="jing" && type!="qi" && type!="jingli" && type!="neili")
-		error("F_DAMAGE: ÉËº¦ÖÖÀà´íÎó¡£\n");
+		error("F_DAMAGE: ä¼¤å®³ç§ç±»é”™è¯¯ã€‚\n");
 
 //added by snowman for some shadow npcs' hit
 	if (who) set_temp("last_damage_from", who);
@@ -80,7 +80,7 @@ varargs int receive_wound(string type, int damage, mixed who)
 
 	if (damage < 0) damage = 0;
 	if (type!="jing" && type!="qi" && type!="neili")
-		error("F_DAMAGE: ÉËº¦ÖÖÀà´íÎó¡£\n");
+		error("F_DAMAGE: ä¼¤å®³ç§ç±»é”™è¯¯ã€‚\n");
 
 //added by snowman for some shadow npcs' hit
 	if (who) set_temp("last_damage_from", who);
@@ -113,7 +113,7 @@ int receive_heal(string type, int heal)
 
 	if (heal < 0 ) heal = 0;
 	if (type!="jing" && type!="qi" && type!="jingli")
-		error("F_DAMAGE: »Ö¸´ÖÖÀà´íÎó¡£\n");
+		error("F_DAMAGE: æ¢å¤ç§ç±»é”™è¯¯ã€‚\n");
 
 	val = query(type) + heal;
 	if (val > query("eff_" + type) + query_temp("apply/" + type))
@@ -130,7 +130,7 @@ int receive_curing(string type, int heal)
 
 	if (heal < 0) heal = 0;
 	if (type!="jing" && type!="qi")
-		error("F_DAMAGE: »Ö¸´ÖÖÀà´íÎó¡£\n");
+		error("F_DAMAGE: æ¢å¤ç§ç±»é”™è¯¯ã€‚\n");
 
 	val = query("eff_" + type) + heal;
 	max = query("max_" + type);
@@ -155,9 +155,9 @@ void unconcious()
 	me->remove_all_enemy();
 	set_temp("faint_by", defeater);
 
-	tell_object(me, HIR "\nÄãÖ»¾õµÃÍ·»èÄÔÕÍ£¬ÑÛÇ°Ò»ºÚ£¬½Ó×ÅÊ²Ã´Ò²²»ÖªµÀÁË¡­¡­\n\n" NOR);
+	tell_object(me, HIR "\nä½ åªè§‰å¾—å¤´æ˜è„‘èƒ€ï¼Œçœ¼å‰ä¸€é»‘ï¼Œæ¥ç€ä»€ä¹ˆä¹Ÿä¸çŸ¥é“äº†â€¦â€¦\n\n" NOR);
 	command("hp");
-	me->disable_player(" <»èÃÔ²»ĞÑ>");
+	me->disable_player(" <æ˜è¿·ä¸é†’>");
 
 	if ((i = query("jing")) < 0) i = 0;
 	set("jing", i/2);
@@ -175,10 +175,10 @@ void unconcious()
 	call_out("revive", 30 + random(60 - query("con")));
 	// grin YUJ@SJ 2001-05-08 06-03
 	if (userp(me) && previous_object()) {
-		set("no_get", "Äã¸ÕÏë¶¯ÊÖ£¬¶Ô·½ËÆºõ¶¯ÁËÒ»ÏÂ¡£\n");
+		set("no_get", "ä½ åˆšæƒ³åŠ¨æ‰‹ï¼Œå¯¹æ–¹ä¼¼ä¹åŠ¨äº†ä¸€ä¸‹ã€‚\n");
 		set("no_get_from", 1);
 	} else if (userp(me)) {
-		set("no_get", "¶Ô·½»¹Ã»ÓĞÍêÈ«»èÃÔ£¬µÈµÈÔÙ±³°É¡£\n");
+		set("no_get", "å¯¹æ–¹è¿˜æ²¡æœ‰å®Œå…¨æ˜è¿·ï¼Œç­‰ç­‰å†èƒŒå§ã€‚\n");
 		call_out("delete", 10, "no_get");
 	}
 }
@@ -200,7 +200,7 @@ varargs void revive(int quiet)
 	if (!quiet) {
 		COMBAT_D->announce(me, "revive");
 		delete_temp("block_msg/all");
-		tell_object(me, HIY "\nÒ»¹ÉÅ¯Á÷·¢×Ôµ¤ÌïÁ÷ÏòÈ«Éí£¬ÂıÂıµØÄãÓÖ»Ö¸´ÁËÖª¾õ¡­¡­\n\n" NOR);
+		tell_object(me, HIY "\nä¸€è‚¡æš–æµå‘è‡ªä¸¹ç”°æµå‘å…¨èº«ï¼Œæ…¢æ…¢åœ°ä½ åˆæ¢å¤äº†çŸ¥è§‰â€¦â€¦\n\n" NOR);
 		command("hp");
 		if (query_temp("unconcious") && query_temp("unconcious") != environment()) move(environment(), 1);
 		if (environment()) environment()->relay_revive(me);
@@ -247,7 +247,7 @@ void die()
 	command("hp");
 
 	if (!(killer = query_temp("last_damage_from")))
-		killer = "ÄªÃûÆäÃîµØ";
+		killer = "è«åå…¶å¦™åœ°";
 
 	npc_killer = query_temp("faint_by");
 	if ( me->query("job_npc")) {
@@ -256,7 +256,7 @@ void die()
 			npc_killer->set("kill_job_npc/target", me->name());
 			npc_killer->add_condition("killer", 90);
 			log_file("nosave/JOBNPC", 
-				sprintf("%8s%-10sÉ±ËÀÁË%8s¡£", 
+				sprintf("%8s%-10sæ€æ­»äº†%8sã€‚", 
 					npc_killer->name(1),
 					"("+npc_killer->query("id")+")",
 					me->name(),
@@ -268,7 +268,7 @@ void die()
 			killer->set("kill_job_npc/target", me->name());
 			killer->add_condition("killer", 90);
 			log_file("nosave/JOBNPC", 
-				sprintf("%8s%-10sÉ±ËÀ%8s¡£", 
+				sprintf("%8s%-10sæ€æ­»%8sã€‚", 
 					killer->name(1),
 					"("+killer->query("id")+")",
 					me->name(),
@@ -276,12 +276,12 @@ void die()
 			);
 		}
 		if ( killer != npc_killer && objectp(killer) && objectp(npc_killer))
-			command("chat "+npc_killer->name()+"("+capitalize(npc_killer->query("id"))+")ºÍ"+killer->name()+"("+capitalize(killer->query("id"))+")ÄãÃÇ¾¹¸ÒÉ±ÎÒ£¬ÎÒ×ö¹íÒ²²»»á·Å¹ıÄãÃÇ¡£");
+			command("chat "+npc_killer->name()+"("+capitalize(npc_killer->query("id"))+")å’Œ"+killer->name()+"("+capitalize(killer->query("id"))+")ä½ ä»¬ç«Ÿæ•¢æ€æˆ‘ï¼Œæˆ‘åšé¬¼ä¹Ÿä¸ä¼šæ”¾è¿‡ä½ ä»¬ã€‚");
 		else {
 			if ( objectp(killer))
-				command("chat "+killer->name()+"("+capitalize(killer->query("id"))+")Äã¾¹¸ÒÉ±ÎÒ£¬ÎÒ×ö¹íÒ²²»»á·Å¹ıÄã¡£");
+				command("chat "+killer->name()+"("+capitalize(killer->query("id"))+")ä½ ç«Ÿæ•¢æ€æˆ‘ï¼Œæˆ‘åšé¬¼ä¹Ÿä¸ä¼šæ”¾è¿‡ä½ ã€‚");
 			if ( objectp(npc_killer))
-				command("chat "+npc_killer->name()+"("+capitalize(npc_killer->query("id"))+")Äã¾¹¸ÒÉ±ÎÒ£¬ÎÒ×ö¹íÒ²²»»á·Å¹ıÄã¡£");
+				command("chat "+npc_killer->name()+"("+capitalize(npc_killer->query("id"))+")ä½ ç«Ÿæ•¢æ€æˆ‘ï¼Œæˆ‘åšé¬¼ä¹Ÿä¸ä¼šæ”¾è¿‡ä½ ã€‚");
 		}
 	}
 
@@ -304,7 +304,7 @@ void die()
 		//added by Ciwei@SJ
 	}
 	else log_file("no_death", sprintf("%O %O\n", me, environment()));
-	set_temp("last_damage_from", "ÄªÃûÆäÃîµØ");
+	set_temp("last_damage_from", "è«åå…¶å¦™åœ°");
 
 	me->remove_all_killer();
 	all_inventory(environment())->remove_killer(me);
@@ -364,18 +364,18 @@ int heal_up()
 	if (userp(me) && !wizardp(me)) {
 		if( my["water"] < 1 ) {
                      if (my["registered"]==3) {
-			message("system", HIR "\nÄãºÜ¾ÃÃ»ºÈË®ÁË, »¹ºÃÄãÊÇ¹ó±öÓÃ»§ ...\n\nĞ¡µ¶ËÍÄãÒ»Æ¿ºìÅ£ÒûÁÏ£¬ÄãÁ¬Ã¦Ò»¿ÚºÈÁËÏÂÈ¥£¡\n\n" NOR,
+			message("system", HIR "\nä½ å¾ˆä¹…æ²¡å–æ°´äº†, è¿˜å¥½ä½ æ˜¯è´µå®¾ç”¨æˆ· ...\n\nå°åˆ€é€ä½ ä¸€ç“¶çº¢ç‰›é¥®æ–™ï¼Œä½ è¿å¿™ä¸€å£å–äº†ä¸‹å»ï¼\n\n" NOR,
 				this_object());
-			message("vision","Ö»¼û"+my["name"]+"ÄÃ³öÒ»Æ¿ºìÅ£ÒûÁÏ, ÑöÆğÍ·¾ÍºİºİµØºÈÁËÒ»¿Ú!\n",
+			message("vision","åªè§"+my["name"]+"æ‹¿å‡ºä¸€ç“¶çº¢ç‰›é¥®æ–™, ä»°èµ·å¤´å°±ç‹ ç‹ åœ°å–äº†ä¸€å£!\n",
 				environment(this_object()),this_object());
 				my["water"]=max_water_capacity();
 			}
 			else {
-			message_vision("$N¿ÊµÃÑÛÃ°½ğĞÇ£¬È«ÉíÎŞÁ¦¡£\n", me);
+			message_vision("$Næ¸´å¾—çœ¼å†’é‡‘æ˜Ÿï¼Œå…¨èº«æ— åŠ›ã€‚\n", me);
 			if (random(3)) me->start_busy(5);
 			else if (me->query("age") > 16) {
 				receive_wound("jing", 10);
-				me->set_temp("last_damage_from", "ÍÑË®Ê±¼äÌ«³¤¿Ê");
+				me->set_temp("last_damage_from", "è„±æ°´æ—¶é—´å¤ªé•¿æ¸´");
 			}
 			return update_flag;
 		}
@@ -385,7 +385,7 @@ int heal_up()
 			case 30:
 			case 20:
 			case 10:
-				message_vision(HIY"$NÌòÁËÌò¸ÉÁÑµÄ×ì´½£¬¿´À´ÊÇºÜ¾ÃÃ»ÓĞºÈË®ÁË¡£\n"NOR, me);
+				message_vision(HIY"$Nèˆ”äº†èˆ”å¹²è£‚çš„å˜´å”‡ï¼Œçœ‹æ¥æ˜¯å¾ˆä¹…æ²¡æœ‰å–æ°´äº†ã€‚\n"NOR, me);
 		}
 	}
 	}	
@@ -416,18 +416,18 @@ int heal_up()
 	if (userp(me) && !wizardp(me)) {
 		if( my["food"] < 1 ) {
                      if (my["registered"]==3) {
-			message("system", HIR "\nÄãºÜ¾ÃÃ»³Ô·¹ÁË, »¹ºÃÄãÊÇ¹ó±öÓÃ»§ ...\n\nĞ¡µ¶¸øÄãÒ»¿éÃæ°ü, ÄãºİºİµØÒ§ÁËÁ½¿Ú, ¾õµÃºÃ¹ıÁËÒ»µã ...\n\n" NOR,
+			message("system", HIR "\nä½ å¾ˆä¹…æ²¡åƒé¥­äº†, è¿˜å¥½ä½ æ˜¯è´µå®¾ç”¨æˆ· ...\n\nå°åˆ€ç»™ä½ ä¸€å—é¢åŒ…, ä½ ç‹ ç‹ åœ°å’¬äº†ä¸¤å£, è§‰å¾—å¥½è¿‡äº†ä¸€ç‚¹ ...\n\n" NOR,
 				this_object());
-			message("vision","Ö»¼û"+my["name"]+"ÄÃ³öÒ»¿éÃæ°ü, ºİºİµØÒ§ÁËÁ½¿Ú!\n",
+			message("vision","åªè§"+my["name"]+"æ‹¿å‡ºä¸€å—é¢åŒ…, ç‹ ç‹ åœ°å’¬äº†ä¸¤å£!\n",
 				environment(this_object()),this_object());
 				my["food"]=max_food_capacity();
 			}
 			else {
-			message_vision("$N¶öµÃÍ·»èÑÛ»¨£¬Ö±Ã°Àäº¹¡£\n", me);
+			message_vision("$Né¥¿å¾—å¤´æ˜çœ¼èŠ±ï¼Œç›´å†’å†·æ±—ã€‚\n", me);
 			if (random(3)) me->start_busy(5);
 			else if( me->query("age") > 16) {
 				receive_wound("qi", 10);
-				me->set_temp("last_damage_from", "Ì«¾ÃÃ»ÓĞ½øÊ³¶ö");
+				me->set_temp("last_damage_from", "å¤ªä¹…æ²¡æœ‰è¿›é£Ÿé¥¿");
 			}
 			return update_flag;
 		}
@@ -437,7 +437,7 @@ int heal_up()
 			case 30:
 			case 20:
 			case 10:
-				message_vision(HIY"Í»È»Ò»Õó¡°¹¾¹¾¡±Éù´«À´£¬Ô­À´ÊÇ$NµÄ¶Ç×ÓÔÚ½ĞÁË¡£\n"NOR, me);
+				message_vision(HIY"çªç„¶ä¸€é˜µâ€œå’•å’•â€å£°ä¼ æ¥ï¼ŒåŸæ¥æ˜¯$Nçš„è‚šå­åœ¨å«äº†ã€‚\n"NOR, me);
 		}
 	}
 	}	

@@ -1,4 +1,4 @@
-// poison.c ¶¾¼¼
+// poison.c æ¯’æŠ€
 // by pishou
 
 inherit SKILL;
@@ -11,19 +11,19 @@ int valid_learn(object me)
 {
         int i = (int)me->query_skill("poison", 1);
         int t = 1, j;
-if (i>180) return notify_fail("Ñ§¾ÍÖ»ÄÜÑ§µÄÕâÀïÁË£¬Ê£ÏÂµÄÒª¿¿Äã×Ô¼ºÁ·¶¾ÁË¡£ \n");
+if (i>180) return notify_fail("å­¦å°±åªèƒ½å­¦çš„è¿™é‡Œäº†ï¼Œå‰©ä¸‹çš„è¦é ä½ è‡ªå·±ç»ƒæ¯’äº†ã€‚ \n");
         for (j = 1; j < i / 10; j++) t*= 2;
        	if( (int)me->query("shen") > 0 )
-		return notify_fail("ÄãÊÇÏÀÒåÕıÊ¿, ÔõÃ´ÄÜĞŞÁ¶Èç´ËÒõºİµÄ¶¾¼¼? \n");
+		return notify_fail("ä½ æ˜¯ä¾ ä¹‰æ­£å£«, æ€ä¹ˆèƒ½ä¿®ç‚¼å¦‚æ­¤é˜´ç‹ çš„æ¯’æŠ€? \n");
         if (i > 10 && (int)me->query("shen") > t * 100)
-        return notify_fail("Ö»ÓĞ´ó¼é´ó¶ñÖ®ÈË²ÅÄÜ¼ÌĞøĞŞÁ·¶¾¼¼£¡\n");
+        return notify_fail("åªæœ‰å¤§å¥¸å¤§æ¶ä¹‹äººæ‰èƒ½ç»§ç»­ä¿®ç»ƒæ¯’æŠ€ï¼\n");
         if( (int)me->query_skill("poison", 1) >= 200 )
-        return notify_fail("Äã²»ÄÜÔÙĞŞÁ¶¶¾¼¼ÁË¡£\n");
+        return notify_fail("ä½ ä¸èƒ½å†ä¿®ç‚¼æ¯’æŠ€äº†ã€‚\n");
 
 	return 1;
 }
 
 int practice_skill(object me)
 {	
-	return notify_fail("¶¾¼¼²»ÄÜÍ¨¹ı¼òµ¥Á·Ï°µÃÒÔÌá¸ß¡£\n");
+	return notify_fail("æ¯’æŠ€ä¸èƒ½é€šè¿‡ç®€å•ç»ƒä¹ å¾—ä»¥æé«˜ã€‚\n");
 }

@@ -11,37 +11,37 @@ int do_add(string arg)
         dest = present("dan lu", environment(ob));
 
         if( ob->is_busy() ) 
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if( ob->is_fighting() )
-                return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ£¡\n");
+                return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼\n");
 
         if(!arg || sscanf(arg, "%s in %s", arg1, arg2)!=2)
-                return notify_fail("ÇëÓÃ<add Ò©²ÄÃû in lu>À´°ÑÎïÆ··Å½øµ¤Â¯¡£\n");
+                return notify_fail("è¯·ç”¨<add è¯æå in lu>æ¥æŠŠç‰©å“æ”¾è¿›ä¸¹ç‚‰ã€‚\n");
 
         if (arg2!="lu")
-                return notify_fail("ÇëÓÃ<add Ò©²ÄÃû in lu>À´°ÑÎïÆ··Å½øµ¤Â¯¡£\n");
+                return notify_fail("è¯·ç”¨<add è¯æå in lu>æ¥æŠŠç‰©å“æ”¾è¿›ä¸¹ç‚‰ã€‚\n");
 
         if( !me->query("marks/open", 1) )
-        return notify_fail("µ¤Â¯µÄ¸Ç×ÓÃ»ÓĞ´ò¿ª¡£\n");
+        return notify_fail("ä¸¹ç‚‰çš„ç›–å­æ²¡æœ‰æ‰“å¼€ã€‚\n");
 
-        if( objectp(obj = present(arg1, ob)) && !obj->query("make/drug", 1) ) // Èç¹û´ËÎïÆ·Ã»ÓĞmake/drugµÄÊôĞÔ£¬²»ÄÜ·Å½øµ¤Â¯
-                return notify_fail(obj->name()+"²»ÄÜÓÃÀ´×öÎªÖÆÒ©µÄÔ­ÁÏ¡£\n");
+        if( objectp(obj = present(arg1, ob)) && !obj->query("make/drug", 1) ) // å¦‚æœæ­¤ç‰©å“æ²¡æœ‰make/drugçš„å±æ€§ï¼Œä¸èƒ½æ”¾è¿›ä¸¹ç‚‰
+                return notify_fail(obj->name()+"ä¸èƒ½ç”¨æ¥åšä¸ºåˆ¶è¯çš„åŸæ–™ã€‚\n");
 
         if( !dest || living(dest) )
-                return notify_fail("ÕâÀïÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+                return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
         if(sscanf(arg1, "%d %s", amount, arg1)==2) {
                 if( !objectp(obj = present(arg1, ob)) )
-                        return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+                        return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
                 if( objectp(obj = present(arg1, ob)) && !obj->query("make/drug", 1) )
-                        return notify_fail("ÕâÖÖ¶«Î÷²»ÄÜÓÃÀ´×öÎªÖÆÒ©µÄÔ­ÁÏ¡£\n");
+                        return notify_fail("è¿™ç§ä¸œè¥¿ä¸èƒ½ç”¨æ¥åšä¸ºåˆ¶è¯çš„åŸæ–™ã€‚\n");
                 if( !obj->query_amount() )
-                        return notify_fail( obj->name() + "²»ÄÜ±»·Ö¿ª¡£\n");
+                        return notify_fail( obj->name() + "ä¸èƒ½è¢«åˆ†å¼€ã€‚\n");
                 if( amount < 1 )
-                        return notify_fail("¶«Î÷µÄÊıÁ¿ÖÁÉÙÊÇÒ»¸ö¡£\n");
+                        return notify_fail("ä¸œè¥¿çš„æ•°é‡è‡³å°‘æ˜¯ä¸€ä¸ªã€‚\n");
                 if( amount > obj->query_amount() )
-                        return notify_fail("ÄãÃ»ÓĞÄÇÃ´¶àµÄ" + obj->name() + "¡£\n");
+                        return notify_fail("ä½ æ²¡æœ‰é‚£ä¹ˆå¤šçš„" + obj->name() + "ã€‚\n");
                 else if( amount == (int)obj->query_amount() )
                         return do_hehe(ob, obj, dest);
                 else {
@@ -58,13 +58,13 @@ int do_add(string arg)
                 inv = all_inventory(ob);
                 for(i=0; i<sizeof(inv); i++)
                         if( inv[i] != dest || !(inv[i]->query("make/drug", 1)) )
-                                return notify_fail("ÕâÖÖ¶«Î÷²»ÄÜÓÃÀ´×öÎªÖÆÒ©µÄÔ­ÁÏ¡£\n");
+                                return notify_fail("è¿™ç§ä¸œè¥¿ä¸èƒ½ç”¨æ¥åšä¸ºåˆ¶è¯çš„åŸæ–™ã€‚\n");
                         do_hehe(ob, inv[i], dest);
                 write("Ok.\n");
                 return 1;
         }
         if(!objectp(obj = present(arg1, ob)))
-                return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+                return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
         return do_hehe(ob, obj, dest);
 }
@@ -75,11 +75,11 @@ int do_hehe(object ob, object obj, object dest)
         me = present("dan lu", environment(ob));
         if (!wizardp(ob) && obj->query("no_drop"))
                 return notify_fail(stringp(obj->query("no_drop"))?
-                        obj->query("no_drop"):"ÕâÑù¶«Î÷ÎŞ·¨Àë¿ªÄã¡£\n");
+                        obj->query("no_drop"):"è¿™æ ·ä¸œè¥¿æ— æ³•ç¦»å¼€ä½ ã€‚\n");
 
-        if (obj == dest) return notify_fail("°ÑÄã·Å½øÄãµÄÉíÌå£¿\n");
+        if (obj == dest) return notify_fail("æŠŠä½ æ”¾è¿›ä½ çš„èº«ä½“ï¼Ÿ\n");
         if( obj->move(dest) ) {
-                message_vision( sprintf("$N½«Ò»%s%s·Å½ø%s¡£\n",
+                message_vision( sprintf("$Nå°†ä¸€%s%sæ”¾è¿›%sã€‚\n",
                         obj->query("unit"), obj->name(), dest->name()),
                         ob );
                 return 1;

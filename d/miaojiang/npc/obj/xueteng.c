@@ -1,4 +1,4 @@
-//  xueteng Ñ©ÌÙ
+//  xueteng é›ªè—¤
 
 #include <ansi.h>
 inherit ITEM;
@@ -10,12 +10,12 @@ void init()
 
 void create()
 {
-	set_name(WHT"Ñ©ÌÙ"NOR, ({"xue teng", "teng"}));
+	set_name(WHT"é›ªè—¤"NOR, ({"xue teng", "teng"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Öê");
-		set("long", "ÕâÊÇÒ»¶Î½à°×ÈçÓñµÄÑ©ÌÙ£¬Ê®·Öº±¼û¡£\n");
+		set("unit", "æ ª");
+		set("long", "è¿™æ˜¯ä¸€æ®µæ´ç™½å¦‚çŽ‰çš„é›ªè—¤ï¼Œååˆ†ç½•è§ã€‚\n");
 		set("value", 10000);
 	}
 	setup();
@@ -26,15 +26,15 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->query_condition("medicine")) {
         	me->set("qi", 0);
         	me->set("jing", 0);
 
 		message_vision(
-			HIR "$N³ÔÏÂÒ»ÖêÑ©ÌÙ£¬Ö»¾õµÃ»ëÉí±ùÁ¹£¬ÍðÈç×¹Èç±ù½Ñ¡£\n"
-			"Ô­À´·þÊ³Ì«¼±Ì«¶à£¬Ò©Ð§ÊÊµÃÆä·´£¡\n" NOR, this_player());
+			HIR "$Nåƒä¸‹ä¸€æ ªé›ªè—¤ï¼Œåªè§‰å¾—æµ‘èº«å†°å‡‰ï¼Œå®›å¦‚å å¦‚å†°çª–ã€‚\n"
+			"åŽŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, this_player());
 	} else {
 	        me->set("eff_qi", me->query("max_qi"));
 	        me->set("qi", me->query("max_qi"));
@@ -43,7 +43,7 @@ int do_eat(string arg)
 	        me->set("neili", me->query("max_neili"));
   
 		message_vision(
-			WHT "$N³ÔÏÂÒ»ÖêÑ©ÌÙ£¬Ö»¾õµÃÆß½î°ËÂöÍ¨ÌåÇåÁ¹£¡\n" NOR, me);
+			WHT "$Nåƒä¸‹ä¸€æ ªé›ªè—¤ï¼Œåªè§‰å¾—ä¸ƒç­‹å…«è„‰é€šä½“æ¸…å‡‰ï¼\n" NOR, me);
 		me->apply_condition("medicine", 30);
 	}
 	destruct(this_object());

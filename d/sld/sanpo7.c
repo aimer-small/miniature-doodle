@@ -1,18 +1,18 @@
 // sanpo7.c
-// É½ÑÂ
+// å±±å´–
 inherit ROOM;
 void create()
 {
-	set("short","É½ÑÂ");
+	set("short","å±±å´–");
 	set("long",@long
-ÕâÀïµÄ²İÄ¾Ï¡Êè£¬½öÓĞµÄÒ»Ğ©Ò²Ã»¾«´ò²É£¬·¢»Æ¿İÎ®£¬¿ÕÆøÖĞÔòÒşÒş
-Ô¼Ô¼µØÓĞ¹ÉĞÈ³ôÎ¶£¬ËÆºõÊÇ´ÓÑÂµ×Æ®ÉÏÀ´µÄ£¬ÈÃÈËÎÅÁË¸Ğµ½ºÜ²»Êæ·ş£¬´Ë
-´¦¾ö·Ç¾ÃÁôÖ®µØ£¬»¹ÊÇ¸Ï¿ìÀë¿ªÎªÃî¡£
+è¿™é‡Œçš„è‰æœ¨ç¨€ç–ï¼Œä»…æœ‰çš„ä¸€äº›ä¹Ÿæ²¡ç²¾æ‰“é‡‡ï¼Œå‘é»„æ¯èï¼Œç©ºæ°”ä¸­åˆ™éšéš
+çº¦çº¦åœ°æœ‰è‚¡è…¥è‡­å‘³ï¼Œä¼¼ä¹æ˜¯ä»å´–åº•é£˜ä¸Šæ¥çš„ï¼Œè®©äººé—»äº†æ„Ÿåˆ°å¾ˆä¸èˆ’æœï¼Œæ­¤
+å¤„å†³éä¹…ç•™ä¹‹åœ°ï¼Œè¿˜æ˜¯èµ¶å¿«ç¦»å¼€ä¸ºå¦™ã€‚
 long);
 	set("exits",([
 	   "westdown" : __DIR__"sanroad9",
 ]));
-	set("outdoors", "ÉñÁúµº");
+	set("outdoors", "ç¥é¾™å²›");
         set("coor/x",510);
   set("coor/y",430);
    set("coor/z",60);
@@ -29,15 +29,15 @@ int do_kan(string arg)
 {
     object me=this_player();
 
-    if(arg=="É½ÑÂ" || arg=="ÑÂµ×" || arg=="mountain")
+    if(arg=="å±±å´–" || arg=="å´–åº•" || arg=="mountain")
     {
         if(me->query_kar()>random(50))
         {
-            tell_object(me,"ÑÂµ×ÁıÕÖÔÚÃÔÎíÖĞ£¬ÓĞÒ»ÌõÉ½ÌÙËÆºõÍ¦¹â»¬£¬¿´À´³£ÓĞÈË(climb)ÏÂÈ¥¡£\n");
+            tell_object(me,"å´–åº•ç¬¼ç½©åœ¨è¿·é›¾ä¸­ï¼Œæœ‰ä¸€æ¡å±±è—¤ä¼¼ä¹æŒºå…‰æ»‘ï¼Œçœ‹æ¥å¸¸æœ‰äºº(climb)ä¸‹å»ã€‚\n");
             me->set_temp("mark/climbvine",1);
         }
         else 
-           tell_object(me,"ÑÂµ×ÁıÕÖÔÚÃÔÎíÖĞ£¬Ê²Ã´Ò²¿´²»Çå¡£\n");
+           tell_object(me,"å´–åº•ç¬¼ç½©åœ¨è¿·é›¾ä¸­ï¼Œä»€ä¹ˆä¹Ÿçœ‹ä¸æ¸…ã€‚\n");
         return 1;
     }
     return 0;
@@ -48,15 +48,15 @@ int do_climb(string arg)
     object me=this_player();
     object ob;
 
-    if(arg=="É½ÌÙ" || arg="vine")
+    if(arg=="å±±è—¤" || arg="vine")
     {
         if(me->query_temp("mark/climbvine",1)==1)
         {
             me->delete_temp("mark/climbvine");
-            message_vision("$N×¥×ÅÉ½ÌÙ£¬ÂıÂıµØÏòÏÂÅÀÈ¥£¡\n",me);
+            message_vision("$NæŠ“ç€å±±è—¤ï¼Œæ…¢æ…¢åœ°å‘ä¸‹çˆ¬å»ï¼\n",me);
             ob = load_object(__DIR__"sheku");
             me->move(ob);
-            message_vision("$NÇáÇáÒ»×İ£¬Á½½ÅÂäµØ£¡\n",me);
+            message_vision("$Nè½»è½»ä¸€çºµï¼Œä¸¤è„šè½åœ°ï¼\n",me);
             return 1;
         }
         else

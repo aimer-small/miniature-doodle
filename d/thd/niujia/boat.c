@@ -13,11 +13,11 @@ int do_tiaowang();
 
 void create()
 {
-	set("short", "´¬ÉÏ");
+	set("short", "èˆ¹ä¸Š");
 	set("long", @LONG
-Ð¡´¬ÒÑ¾­À´µ½ÁËÃ£Ã£´óº£ÉÏ¡£ËÄÖÜ³ýÁËÅ¼¶ûÂÓ¹ýÍ·¶¥µÄº£ÄñÍâ£¬¾ÍÖ»Ê£ÏÂ
-ÄãËù³Ë×øµÄÕâËÒÐ¡´¬ºÍÕýÔÚ¾Û¾«»áÉñµØÒ¡×ÅéÖµÄÉÒ¹«ÁË¡£º£·çÕóÕóÏ®À´£¬Äã²»
-½û¸Ðµ½Ò»Ë¿Á¹Òâ¡£
+å°èˆ¹å·²ç»æ¥åˆ°äº†èŒ«èŒ«å¤§æµ·ä¸Šã€‚å››å‘¨é™¤äº†å¶å°”æŽ è¿‡å¤´é¡¶çš„æµ·é¸Ÿå¤–ï¼Œå°±åªå‰©ä¸‹
+ä½ æ‰€ä¹˜åçš„è¿™è‰˜å°èˆ¹å’Œæ­£åœ¨èšç²¾ä¼šç¥žåœ°æ‘‡ç€æ©¹çš„æ¢¢å…¬äº†ã€‚æµ·é£Žé˜µé˜µè¢­æ¥ï¼Œä½ ä¸
+ç¦æ„Ÿåˆ°ä¸€ä¸å‡‰æ„ã€‚
 LONG
 	);
 	set("no_clean_up", 0);
@@ -26,7 +26,7 @@ LONG
 	]));
 	set("no_fight",1);
 	set("no_sleep_room",1);
-	set("outdoors","ÌÒ»¨µº");
+	set("outdoors","æ¡ƒèŠ±å²›");
 
 	setup();
 }
@@ -38,15 +38,15 @@ void init()
 	if (!userp(ob)) return;
 	if (query_temp("busy")) {
 		if (!wizardp(ob)) {
-			message_vision("ô¹¹«¶Ô$NºÈµÀ£ºÔõÃ´£¿Ïë°××øÂð£¡\n",ob);
-			message_vision("ô¹¹«Ò»½°½«$N´òÂäµ½º£Àï¡£\n",ob);
+			message_vision("è‰„å…¬å¯¹$Nå–é“ï¼šæ€Žä¹ˆï¼Ÿæƒ³ç™½åå—ï¼\n",ob);
+			message_vision("è‰„å…¬ä¸€æ¡¨å°†$Næ‰“è½åˆ°æµ·é‡Œã€‚\n",ob);
 			ob->unconcious();
             ob->move(__THD__"haibin");
-			message("vision","ºöÈ»Ò»¸ö´ó³±Ó¿ÁË¹ýÀ´£¬½«Ò»¸ö±»Ë®ÅÝµÃ°ëËÀµÄ¼Ò»ï³åµ½ÁË°¶±ß¡£\n",environment(ob),ob);
+			message("vision","å¿½ç„¶ä¸€ä¸ªå¤§æ½®æ¶Œäº†è¿‡æ¥ï¼Œå°†ä¸€ä¸ªè¢«æ°´æ³¡å¾—åŠæ­»çš„å®¶ä¼™å†²åˆ°äº†å²¸è¾¹ã€‚\n",environment(ob),ob);
 			return;
 		}
 		else {
-			message_vision("ô¹¹«ÎÞÄÎµØ¶Ô$NËµµÀ£ºµ±Î×Ê¦¾ÍÊÇºÃ£¬´¬¶¼¿ÉÒÔ°××ø¡£\n",ob);
+			message_vision("è‰„å…¬æ— å¥ˆåœ°å¯¹$Nè¯´é“ï¼šå½“å·«å¸ˆå°±æ˜¯å¥½ï¼Œèˆ¹éƒ½å¯ä»¥ç™½åã€‚\n",ob);
 			return;
 		}
 	}
@@ -76,13 +76,13 @@ void init()
 
 int do_save()
 {
-	write("ÕâÀï²»×¼´æÅÌ£¡\n");
+	write("è¿™é‡Œä¸å‡†å­˜ç›˜ï¼\n");
 	return 1;
 }
 
 int do_quit()
 {
-	write("ÕâÀï²»×¼ÍË³ö£¡\n");
+	write("è¿™é‡Œä¸å‡†é€€å‡ºï¼\n");
 	return 1;
 }
 
@@ -113,7 +113,7 @@ void time_limit1(object ob)
 		delete_temp("busy");
 		return;
 	}
-	message_vision("ô¹¹«¶Ô$NËµµÀ£º¿Í¹Ù£¬ÒªÆð·çÁË£¬ÎÒÃÇ»ØÈ¥°É£¡\n", ob);
+	message_vision("è‰„å…¬å¯¹$Nè¯´é“ï¼šå®¢å®˜ï¼Œè¦èµ·é£Žäº†ï¼Œæˆ‘ä»¬å›žåŽ»å§ï¼\n", ob);
 	call_out("time_limit2", 180, ob);
 }
 
@@ -123,8 +123,8 @@ void time_limit2(object ob)
 		delete_temp("busy");
 		return;
 	}
-	message_vision("ô¹¹«¶Ô$NËµµÀ£º¿Í¹Ù£¬ÔÙ»®ÏÂÈ¥ÔÛÃÇ¿É¶¼ÒªËÀÔÚº£ÉÏÁË£¬Äã²»ÒªÃüÎÒ»¹ÒªÄÄ£¡\n", ob);
-	write("ô¹¹«ÔÙÒ²²»Àí»áÄãµÄÃüÁî£¬¾¶Ö±»®»ØÁË°¶±ß¡£\n");
+	message_vision("è‰„å…¬å¯¹$Nè¯´é“ï¼šå®¢å®˜ï¼Œå†åˆ’ä¸‹åŽ»å’±ä»¬å¯éƒ½è¦æ­»åœ¨æµ·ä¸Šäº†ï¼Œä½ ä¸è¦å‘½æˆ‘è¿˜è¦å“ªï¼\n", ob);
+	write("è‰„å…¬å†ä¹Ÿä¸ç†ä¼šä½ çš„å‘½ä»¤ï¼Œå¾„ç›´åˆ’å›žäº†å²¸è¾¹ã€‚\n");
 	ob->delete_temp("thd_dir");
 	remove_call_out("location");
 	delete_temp("busy");
@@ -140,26 +140,26 @@ int do_turn(string arg)
 	switch(arg) {
 		case "e": 
 		case "east": 
-			dir = "¶«";
+			dir = "ä¸œ";
 			break;
 		case "w": 
 		case "west": 
-			dir = "Î÷";
+			dir = "è¥¿";
 			break;
 		case "n": 
 		case "north": 
-			dir = "±±";
+			dir = "åŒ—";
 			break;
 		case "s": 
 		case "south": 
-			dir = "ÄÏ";
+			dir = "å—";
 			break;
 		default:
-			return notify_fail("ÄãÒªÍùÄÄ¸ö·½Ïò¿ª£¿\n");
+			return notify_fail("ä½ è¦å¾€å“ªä¸ªæ–¹å‘å¼€ï¼Ÿ\n");
 	}
 	ob->set_temp("thd_dir", arg[0..0]);
-	message_vision("$N¶Ôô¹¹«Ëµ£ºÏò" + dir + "¿ª¡£\n", ob);
-	message_vision("ô¹¹«¶Ô$NÓ¦µÀ£ººÃµÄ£¬µ½ÁËÎ»ÖÃ(location)ÎÒ×ÔÈ»»á¸æËßÄú¡£ÄúÒªÏëÌ÷Íû(tiaowang)Ò²Ëæ±ãÄú¡£\n",ob);
+	message_vision("$Nå¯¹è‰„å…¬è¯´ï¼šå‘" + dir + "å¼€ã€‚\n", ob);
+	message_vision("è‰„å…¬å¯¹$Nåº”é“ï¼šå¥½çš„ï¼Œåˆ°äº†ä½ç½®(location)æˆ‘è‡ªç„¶ä¼šå‘Šè¯‰æ‚¨ã€‚æ‚¨è¦æƒ³çœºæœ›(tiaowang)ä¹Ÿéšä¾¿æ‚¨ã€‚\n",ob);
 	return 1;
 }
 
@@ -172,8 +172,8 @@ int do_tiaowang()
 	if ((ABS(ob->query_temp("thd_locx") - ob->query("thd/x"))
 	+ ABS(ob->query_temp("thd_locy") - ob->query("thd/y")) <= viewdist) 
 	&& ob->query_temp("thd_target") == "thd") {
-		message_vision("ô¹¹«Ö¸×ÅÔ¶´¦¶Ô$NËµµÀ£º¿Í¹Ù£¬ÄÇ±ß¾ÍÊÇÌÒ»¨µºÁË£¬ÎÒÕâ¾Í»®¹ýÈ¥¡£\n", ob);
-		write("ô¹¹«Ò»³ÅÖñ¸Ë£¬½«´¬ÂýÂýµØ»®ÏòÁË°¶±ß¡£\n");
+		message_vision("è‰„å…¬æŒ‡ç€è¿œå¤„å¯¹$Nè¯´é“ï¼šå®¢å®˜ï¼Œé‚£è¾¹å°±æ˜¯æ¡ƒèŠ±å²›äº†ï¼Œæˆ‘è¿™å°±åˆ’è¿‡åŽ»ã€‚\n", ob);
+		write("è‰„å…¬ä¸€æ’‘ç«¹æ†ï¼Œå°†èˆ¹æ…¢æ…¢åœ°åˆ’å‘äº†å²¸è¾¹ã€‚\n");
 		remove_call_out("time_limit1");
 		remove_call_out("time_limit2");
         ob->move(__THD__"shore");
@@ -183,15 +183,15 @@ int do_tiaowang()
 	if ((ABS(ob->query_temp("thd_locx") - 1)
 	+ ABS(ob->query_temp("thd_locy") - 1) <= viewdist) 
 	&& ob->query_temp("thd_target") == "bay") {
-		message_vision("ô¹¹«Ö¸×ÅÔ¶´¦¶Ô$NËµµÀ£º¿Í¹Ù£¬ÄÇ±ß¾ÍÊÇÓæ¸ÛÁË£¬ÎÒÕâ¾Í»®¹ýÈ¥¡£\n", ob);
-		write("ô¹¹«Ò»³ÅÖñ¸Ë£¬½«´¬ÂýÂýµØ»®ÏòÁË°¶±ß¡£\n");
+		message_vision("è‰„å…¬æŒ‡ç€è¿œå¤„å¯¹$Nè¯´é“ï¼šå®¢å®˜ï¼Œé‚£è¾¹å°±æ˜¯æ¸”æ¸¯äº†ï¼Œæˆ‘è¿™å°±åˆ’è¿‡åŽ»ã€‚\n", ob);
+		write("è‰„å…¬ä¸€æ’‘ç«¹æ†ï¼Œå°†èˆ¹æ…¢æ…¢åœ°åˆ’å‘äº†å²¸è¾¹ã€‚\n");
 		remove_call_out("time_limit1");
 		remove_call_out("time_limit2");
 		ob->move(__DIR__"bay");
 		delete_temp("busy");
 		return 1;
 	}
-	return notify_fail("Äã¼«Ä¿Ô¶Ì÷£¬¿ÉÊÇ³ýÁË´óº£ÍâÈ´Ê²Ã´Ò²¿´²»µ½¡£\n");
+	return notify_fail("ä½ æžç›®è¿œçœºï¼Œå¯æ˜¯é™¤äº†å¤§æµ·å¤–å´ä»€ä¹ˆä¹Ÿçœ‹ä¸åˆ°ã€‚\n");
 }
 
 void location(object ob)
@@ -209,34 +209,34 @@ void location(object ob)
 	if (!dir) {
 		call_out("location", 3, ob);
 		if (!random(3))
-			message_vision("ô¹¹«²»ÄÍ·³µØ¶Ô$NËµ£º¿Í¹Ùµ½µ××ß²»×ß°¡£¿\n", ob);
+			message_vision("è‰„å…¬ä¸è€çƒ¦åœ°å¯¹$Nè¯´ï¼šå®¢å®˜åˆ°åº•èµ°ä¸èµ°å•Šï¼Ÿ\n", ob);
 		return;
 	}
 	switch (dir) {
 		case "e": 
-			dir = "¶«";
+			dir = "ä¸œ";
 			if (locy > 0) locx++;
 			break;
 		case "w": 
-			dir = "Î÷";
-			if (locx == 1) message_vision("ô¹¹«¶Ô$NËµ£º¿Í¹Ù,Òª×²µ½°¶±ßÁË¡£\n", ob);
+			dir = "è¥¿";
+			if (locx == 1) message_vision("è‰„å…¬å¯¹$Nè¯´ï¼šå®¢å®˜,è¦æ’žåˆ°å²¸è¾¹äº†ã€‚\n", ob);
 			if (locx > 0 && locy > 0) locx--;
 			break;
 		case "n": 
-			dir = "±±";
-			if (locy == 1) message_vision("ô¹¹«¶Ô$NËµ£º¿Í¹Ù,Òª×²µ½°¶±ßÁË¡£\n", ob);
+			dir = "åŒ—";
+			if (locy == 1) message_vision("è‰„å…¬å¯¹$Nè¯´ï¼šå®¢å®˜,è¦æ’žåˆ°å²¸è¾¹äº†ã€‚\n", ob);
 			if (locy > 0 && locx > 0) locy--;
 			break;
 		case "s": 
-			dir = "ÄÏ";
+			dir = "å—";
 			if (locx > 0) locy++;
 			break;
 	}
-	if (locx < 1 || locy < 1) message_vision("Ð¡´¬Í£ÔÚÁË°¶±ß¡£\n", ob);
-	else message_vision("Ð¡´¬ÕýÏò×Å" + dir + "·½Ç°½ø¡£\n", ob);
+	if (locx < 1 || locy < 1) message_vision("å°èˆ¹åœåœ¨äº†å²¸è¾¹ã€‚\n", ob);
+	else message_vision("å°èˆ¹æ­£å‘ç€" + dir + "æ–¹å‰è¿›ã€‚\n", ob);
 	if (locx == ob->query("thd/x") && locy == ob->query("thd/y")
 	&& ob->query_temp("thd_target") == "thd") {
-		message_vision("ô¹¹«¶Ô$NËµµÀ£º¿Í¹Ù£¬ÌÒ»¨µºµ½ÁË£¬ÇëÏÂ´¬°É¡£\n", ob);
+		message_vision("è‰„å…¬å¯¹$Nè¯´é“ï¼šå®¢å®˜ï¼Œæ¡ƒèŠ±å²›åˆ°äº†ï¼Œè¯·ä¸‹èˆ¹å§ã€‚\n", ob);
 		remove_call_out("time_limit1");
 		remove_call_out("time_limit2");
         ob->move(__THD__"shore");
@@ -244,7 +244,7 @@ void location(object ob)
 		return;
 	}
 	if (locx == 1 && locy == 1 && ob->query_temp("thd_target") == "bay") {
-		message_vision("ô¹¹«¶Ô$NËµµÀ£º¿Í¹Ù£¬Óæ¸Ûµ½ÁË£¬ÇëÏÂ´¬°É¡£\n", ob);
+		message_vision("è‰„å…¬å¯¹$Nè¯´é“ï¼šå®¢å®˜ï¼Œæ¸”æ¸¯åˆ°äº†ï¼Œè¯·ä¸‹èˆ¹å§ã€‚\n", ob);
 		remove_call_out("time_limit1");
 		remove_call_out("time_limit2");
 		ob->move(__DIR__"bay");

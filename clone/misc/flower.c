@@ -61,98 +61,98 @@ int check(object me,object obj)
 		
 
 ////////////////////////////////////////////////////////////////		 
-		 //ÇéÈË²Ý
+		 //æƒ…äººè‰
 			if(flowers[0]["flower_id"]=="qingren cao")
 		 {
 			 ob=new(flower_path+"qingren_cao");
 			 ob->set_amount(flowers[0]["amount"]);
 		 }
-		 //À¶É«Ñý¼§
+		 //è“è‰²å¦–å§¬
 			if(flowers[0]["flower_id"]=="lanse yaoji")
 		 {
 			 ob=new(flower_path+"blue_rose");
 			 ob->set_amount(flowers[0]["amount"]);
 		 }
-		 //°×Ãµ¹å
+		 //ç™½çŽ«ç‘°
 			if(flowers[0]["flower_id"]=="bai meigui")
 		 {
 			 ob=new(flower_path+"white_rose");
 			 ob->set_amount(flowers[0]["amount"]);
 		 }
-		 //·ÛÃµ¹å
+		 //ç²‰çŽ«ç‘°
 			if(flowers[0]["flower_id"]=="pink meigui")
 		 {
 			 ob=new(flower_path+"pink_rose");
 			 ob->set_amount(flowers[0]["amount"]);
 		 }
- 		 //ºìÃµ¹å
+ 		 //çº¢çŽ«ç‘°
 			if(flowers[0]["flower_id"]=="hong meigui")
 		 {
 			 ob=new(flower_path+"red_rose");
 			 ob->set_amount(flowers[0]["amount"]);
 		 }
-  		 //°×Ãµ¹å
+  		 //ç™½çŽ«ç‘°
 			if(flowers[0]["flower_id"]=="bai meigui")
 		 {
 			 ob=new(flower_path+"white_rose");
 			 ob->set_amount(flowers[0]["amount"]);
 		 }
-		//¶¡Ïã
+		//ä¸é¦™
 			if(flowers[0]["flower_id"]=="ding xiang")
 		 {
 			 ob=new(flower_path+"ding_xiang");
 			 ob->set_amount(flowers[0]["amount"]);
 		 }
-			//Äµµ¤
+			//ç‰¡ä¸¹
 
 			if(flowers[0]["flower_id"]=="mu dan")
 		 {
 			 ob=new(flower_path+"mu_dan");
 			 ob->set_amount(flowers[0]["amount"]);
 		 }
-			//Óô½ðÏã
+			//éƒé‡‘é¦™
 			if(flowers[0]["flower_id"]=="yu jinxiang")
 		 {
 			 ob=new(flower_path+"yu_jinxiang");
 			 ob->set_amount(flowers[0]["amount"]);
-		 }//°ÙºÏ
+		 }//ç™¾åˆ
 			if(flowers[0]["flower_id"]=="bai he")
 		 {
 			 ob=new(flower_path+"bai_he");
 			 ob->set_amount(flowers[0]["amount"]);
-		 }//¿µÄËÜ°
+		 }//åº·ä¹ƒé¦¨
 			if(flowers[0]["flower_id"]=="kangnaixin")
 		 {
 			 ob=new(flower_path+"kang_naixin");
 			 ob->set_amount(flowers[0]["amount"]);
-		 }//½ðÓã²Ý
+		 }//é‡‘é±¼è‰
 			if(flowers[0]["flower_id"]=="jinyu cao")
 		 {
 			 ob=new(flower_path+"jin_yucao");
 			 ob->set_amount(flowers[0]["amount"]);
-		 }//»ðº×
+		 }//ç«é¹¤
 			if(flowers[0]["flower_id"]=="huo he")
 		 {
 			 ob=new(flower_path+"huo_he");
 			 ob->set_amount(flowers[0]["amount"]);
-		 }//ºûµûÀ¼
+		 }//è´è¶å…°
 			if(flowers[0]["flower_id"]=="hudie lan")
 		 {
 			 ob=new(flower_path+"hu_dielan");
 			 ob->set_amount(flowers[0]["amount"]);
-		 }//Çïº£ÌÄ
+		 }//ç§‹æµ·æ£ 
 
 			if(flowers[0]["flower_id"]=="qiu haitang")
 		 {
 			 ob=new(flower_path+"qiu_haitang");
 			 ob->set_amount(flowers[0]["amount"]);
-		 }//Ê¯õúÀ¼
+		 }//çŸ³æ–›å…°
 
 			if(flowers[0]["flower_id"]=="shihu lan")
 		 {
 			 ob=new(flower_path+"shi_hulan");
 			 ob->set_amount(flowers[0]["amount"]);
-		 }//ÂíÌãÁ«
+		 }//é©¬è¹„èŽ²
 
 			if(flowers[0]["flower_id"]=="mati lian")
 		 {
@@ -164,12 +164,12 @@ int check(object me,object obj)
 
 ///////////////////////////////////////////////////////////////
 
-	tell_object(me,CYN"\nÒ»¸öÂô»¨µÄÐ¡¹ÃÄï½Å²½õçõÇµÄ¸ú×ÅÄã×ßÁË¹ýÀ´¡£\n");
-        tell_object(me,"Âô»¨¹ÃÄï×ßµ½Äã¸úÇ°Ç·ÉíËµµÀ£º¡°ÕâÀïÓÐÄúµÄ»¨£¬ÊÇ"+flowers[0]["from"]+"ÍÐÎÒËÍ¸øÄúµÄ¡±¡£\n");
-        tell_object(me,"Âô»¨¹ÃÄï´Ó»¨ÀºÖÐÄÃ³öÒ»Êø"+flowers[0]["flowername"]+CYN+"½»µ½ÄãÊÖÀï¡±¡£\n");
-        tell_object(me,"Âô»¨¹ÃÄï¶ÔÄãÎ¢Î¢Ò»Ð¦µÀ£º¡°»¨ÒÑ¾­ËÍµ½£¬Ð¡Å®¸æÍË£¬ºó»áÓÐÆÚ£¡¡±¡£\n");
+	tell_object(me,CYN"\nä¸€ä¸ªå–èŠ±çš„å°å§‘å¨˜è„šæ­¥è¹’è·šçš„è·Ÿç€ä½ èµ°äº†è¿‡æ¥ã€‚\n");
+        tell_object(me,"å–èŠ±å§‘å¨˜èµ°åˆ°ä½ è·Ÿå‰æ¬ èº«è¯´é“ï¼šâ€œè¿™é‡Œæœ‰æ‚¨çš„èŠ±ï¼Œæ˜¯"+flowers[0]["from"]+"æ‰˜æˆ‘é€ç»™æ‚¨çš„â€ã€‚\n");
+        tell_object(me,"å–èŠ±å§‘å¨˜ä»ŽèŠ±ç¯®ä¸­æ‹¿å‡ºä¸€æŸ"+flowers[0]["flowername"]+CYN+"äº¤åˆ°ä½ æ‰‹é‡Œâ€ã€‚\n");
+        tell_object(me,"å–èŠ±å§‘å¨˜å¯¹ä½ å¾®å¾®ä¸€ç¬‘é“ï¼šâ€œèŠ±å·²ç»é€åˆ°ï¼Œå°å¥³å‘Šé€€ï¼ŒåŽä¼šæœ‰æœŸï¼â€ã€‚\n");
 	
-        tell_object(me,"Âô»¨¹ÃÄï×ßÁË³öÈ¥¡£\n"NOR);
+        tell_object(me,"å–èŠ±å§‘å¨˜èµ°äº†å‡ºåŽ»ã€‚\n"NOR);
 		if(!ob)
 			ob=new(flower_path+"qingren_cao");
 		ob->move(me);

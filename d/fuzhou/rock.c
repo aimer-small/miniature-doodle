@@ -1,4 +1,4 @@
-// /d/fuzhou/rock.c —“ Ø(–°µ∫)
+// /d/fuzhou/rock.c Â≤©Áü≥(Â∞èÂ≤õ)
 // Lklv MOdify 2001.9.27
 
 #include <ansi.h>
@@ -6,14 +6,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short",YEL"æﬁ—“"NOR);
+	set("short",YEL"Â∑®Â≤©"NOR);
         set("long", @LONG
-“ªøÈπ‚Õ∫Õ∫µƒ¥Û—“ Ø£¨Àƒ÷‹≥§¬˙¡À«‡Ã¶°£÷ª”–’˝÷–¥¶∞º¡Àœ¬»•£¨À∆∫ı∏¯ ≤
-√¥«√π˝°£ƒ„◊ﬂπ˝»•◊–œ∏“ªø¥£¨∫√œÛ¿Ô√Ê”°◊≈≤ª…Ÿ’∆”°À∆µƒ°£’æ‘⁄—“ Ø…œ£¨º´ƒø
-ÀƒÕ˚£¨‘∂¥¶µ„µ„µ∆ª£¨∫√“ª∏ˆ”Ê∏€“πµ∆°£
+‰∏ÄÂùóÂÖâÁßÉÁßÉÁöÑÂ§ßÂ≤©Áü≥ÔºåÂõõÂë®ÈïøÊª°‰∫ÜÈùíËãî„ÄÇÂè™ÊúâÊ≠£‰∏≠Â§ÑÂáπ‰∫Ü‰∏ãÂéªÔºå‰ºº‰πéÁªô‰ªÄ
+‰πàÊï≤Ëøá„ÄÇ‰Ω†Ëµ∞ËøáÂéª‰ªîÁªÜ‰∏ÄÁúãÔºåÂ•ΩË±°ÈáåÈù¢Âç∞ÁùÄ‰∏çÂ∞ëÊéåÂç∞‰ººÁöÑ„ÄÇÁ´ôÂú®Â≤©Áü≥‰∏äÔºåÊûÅÁõÆ
+ÂõõÊúõÔºåËøúÂ§ÑÁÇπÁÇπÁÅØÁÅ´ÔºåÂ•Ω‰∏Ä‰∏™Ê∏îÊ∏ØÂ§úÁÅØ„ÄÇ
 LONG
         );
-        set("outdoors","∏£÷›");
+        set("outdoors","Á¶èÂ∑û");
 
         set("exits",([
 		"south" : __DIR__"island3",
@@ -36,18 +36,18 @@ int do_strike(string arg)
 	if ( !(arg) || ((arg != "rock") && (arg != "yan")) )
 		return 0;
 	if ( me->is_busy() )
-		return notify_fail("ƒ„œ÷‘⁄’˝√¶◊≈ƒÿ£°");
+		return notify_fail("‰Ω†Áé∞Âú®Ê≠£ÂøôÁùÄÂë¢ÔºÅ");
 	if ( me->query("max_neili") <= 300 ) {
-		message_vision("$NÕ˘—“ Ø…œ“ª≈ƒ£¨À≠÷™ƒ⁄¡¶≤ªπª√∆∫ﬂ¡À“ª…˘£¨∑¥∂¯ ‹¡Àƒ⁄…À°£\n", me);
+		message_vision("$NÂæÄÂ≤©Áü≥‰∏ä‰∏ÄÊãçÔºåË∞ÅÁü•ÂÜÖÂäõ‰∏çÂ§üÈó∑Âìº‰∫Ü‰∏ÄÂ£∞ÔºåÂèçËÄåÂèó‰∫ÜÂÜÖ‰º§„ÄÇ\n", me);
 		me->receive_wound("qi", 100);
 		return 1;
 	}
 	else {
 		if ( me->query("jingli") < 150 ) {
-			tell_object(me,"ƒ„Ã´¿€¡À°£\n");
+			tell_object(me,"‰Ω†Â§™Á¥Ø‰∫Ü„ÄÇ\n");
 			return 1;
 		}
-		message_vision("$N¥Û∫»“ª…˘£¨Õ˘—“…œ“ªª˜£¨÷ªÃ˝º˚°ÆŒÀ...°Ø£¨—“ Ø“°¡Àº∏œ¬°£\n",me);
+		message_vision("$NÂ§ßÂñù‰∏ÄÂ£∞ÔºåÂæÄÂ≤©‰∏ä‰∏ÄÂáªÔºåÂè™Âê¨ËßÅ‚ÄòÂó°...‚ÄôÔºåÂ≤©Áü≥Êëá‰∫ÜÂá†‰∏ã„ÄÇ\n",me);
 		if ( me->query_skill("strike", 1) <= 101 ) {
 			skl_impv = (me->query_str(1) / 2)+ me->query_con(1) / 2 + (me->query_condition("drunk") / 2) ;
 			me->improve_skill("strike", skl_impv);
@@ -66,25 +66,25 @@ int do_za(string arg)
 	object weapon = me->query_temp("weapon");
 
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ƒ„’˝√¶◊≈ƒÿ£°\n");
+		return notify_fail("‰Ω†Ê≠£ÂøôÁùÄÂë¢ÔºÅ\n");
 
 	if (!weapon || weapon->query("skill_type") != "stick" )
-		return notify_fail("ƒ„“™”√ ≤√¥¿¥‘“£ø\n");
+		return notify_fail("‰Ω†Ë¶ÅÁî®‰ªÄ‰πàÊù•Á†∏Ôºü\n");
 
 	if( !arg || arg!="yan" )
-		return notify_fail("ƒ„“™‘“ ≤√¥£ø\n");
+		return notify_fail("‰Ω†Ë¶ÅÁ†∏‰ªÄ‰πàÔºü\n");
 
 	if ( me->query_skill("stick",1) > 100 ) {
-		tell_object(me,"ƒ„∑¢œ÷’‚∂‘ƒ„√ª ≤√¥”√°£\n");
+		tell_object(me,"‰Ω†ÂèëÁé∞ËøôÂØπ‰Ω†Ê≤°‰ªÄ‰πàÁî®„ÄÇ\n");
 		return 1;
 	}
 	if ( me->query("jingli") < 150 ) {
-		tell_object(me,"ƒ„Ã´¿€¡À°£\n");
+		tell_object(me,"‰Ω†Â§™Á¥Ø‰∫Ü„ÄÇ\n");
 		return 1;
 	}
 
 	me->receive_damage("jingli",20 +random(20));
-	write("ƒ„ª”ŒË ÷÷–±¯∆˜£¨”√¡¶œÚ—“ Ø‘“»•°£\n");
+	write("‰Ω†Êå•ËàûÊâã‰∏≠ÂÖµÂô®ÔºåÁî®ÂäõÂêëÂ≤©Áü≥Á†∏Âéª„ÄÇ\n");
 	me->improve_skill("stick", 15+me->query("str"));
 	return 1;
 }

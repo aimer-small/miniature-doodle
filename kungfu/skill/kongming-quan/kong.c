@@ -5,7 +5,7 @@
 
 inherit F_SSERVER;
 
-string perform_name(){ return HIW"¿Õ"NOR; }
+string perform_name(){ return HIW"ç©º"NOR; }
 
 int perform(object me,object target)
 {
@@ -13,24 +13,24 @@ int perform(object me,object target)
 
 	if (!target) target = offensive_target(me);
 	if (!target || !me->is_fighting(target))
-		return notify_fail("¡°¿Õ¡±×Ö¾÷Ö»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");                
+		return notify_fail("â€œç©ºâ€å­—è¯€åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");                
 
 	if (me->query_skill("kongming-quan", 1) < 100)
-		return notify_fail("ÄãµÄ¿ÕÃ÷È­ÉĞ²»´¿Êì£¬»¹²»ÄÜÊ¹ÓÃ¡°¿Õ¡±×Ö¾÷¡£\n");        
+		return notify_fail("ä½ çš„ç©ºæ˜æ‹³å°šä¸çº¯ç†Ÿï¼Œè¿˜ä¸èƒ½ä½¿ç”¨â€œç©ºâ€å­—è¯€ã€‚\n");        
 	if (me->query("neili") < 1000)
-		return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»×ã£¬²»ÄÜÊ¹ÓÃ¡°¿Õ¡±×Ö¾÷£¡\n");
+		return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨â€œç©ºâ€å­—è¯€ï¼\n");
     if (!me->query("quest/jiebai/pass"))
-        return notify_fail("ÄãÃ»ÓĞºÍÖÜ²®Í¨½áÒå£¬²»ÄÜÊ¹ÓÃ¡°¿Õ¡±×Ö¾÷¡£\n");
+        return notify_fail("ä½ æ²¡æœ‰å’Œå‘¨ä¼¯é€šç»“ä¹‰ï¼Œä¸èƒ½ä½¿ç”¨â€œç©ºâ€å­—è¯€ã€‚\n");
 	if (me->query_temp("kongming/kong"))
-		return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡°¿Õ¡±×Ö¾÷£¡\n");      
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨â€œç©ºâ€å­—è¯€ï¼\n");      
 //	if (me->query_temp("kongming/ming"))
-//		return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡°Ã÷¡±×Ö¾÷£¡\n");      
-	message_vision(HIW"\n$NÒ»È­´ò³ö£¬ÕıÊÇÒÔÈá¿Ë¸ÕµÄ¾ø¶¥ÎäÑ§£¬$nÃÍ¾õµÃ¶Ô·½È­Á¦ÈôÓĞÈôÎŞ£¬×Ô¼ºÕÆÁ¦"
-		+"Ê¹ÊµÁË¹ÌÈ»²»¶Ô£¬Ê¹ĞéÁËÒ²ÊÇ¼«ÆäÎ£ÏÕ£¬²»½û°µ°µ³Ô¾ª¡£\n"NOR, me,target);
+//		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨â€œæ˜â€å­—è¯€ï¼\n");      
+	message_vision(HIW"\n$Nä¸€æ‹³æ‰“å‡ºï¼Œæ­£æ˜¯ä»¥æŸ”å…‹åˆšçš„ç»é¡¶æ­¦å­¦ï¼Œ$nçŒ›è§‰å¾—å¯¹æ–¹æ‹³åŠ›è‹¥æœ‰è‹¥æ— ï¼Œè‡ªå·±æŒåŠ›"
+		+"ä½¿å®äº†å›ºç„¶ä¸å¯¹ï¼Œä½¿è™šäº†ä¹Ÿæ˜¯æå…¶å±é™©ï¼Œä¸ç¦æš—æš—åƒæƒŠã€‚\n"NOR, me,target);
 lvl = me->query_skill("kongming-quan",1);
 
 	me->add("neili", -300); 
-	me->start_perform(4,"¡°¿Õ¡±×Ö¾÷");
+	me->start_perform(4,"â€œç©ºâ€å­—è¯€");
 	me->set_temp("kongming/kong", 1);
 
 me->add_temp("apply/strength",lvl/10);
@@ -50,6 +50,6 @@ void remove_effect(object me,int lvl )
      me->add_temp("apply/attack",-lvl/3);
      me->add_temp("apply/parry",-lvl/3);
 		me->delete_temp("kongming/kong");
-		tell_object(me, HIW"\nÄã»º»ººôÆø£¬½«ÄÚÁ¦ÄÉÈëµ¤Ìï¡£\n"NOR);
+		tell_object(me, HIW"\nä½ ç¼“ç¼“å‘¼æ°”ï¼Œå°†å†…åŠ›çº³å…¥ä¸¹ç”°ã€‚\n"NOR);
 	}
 }

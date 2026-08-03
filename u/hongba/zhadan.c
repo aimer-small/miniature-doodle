@@ -2,13 +2,13 @@ inherit ITEM;
 #include <ansi.h>
 void create()
 {
-set_name( HIY"ÈËÈâÕ¨µ¯"NOR, ({ "zhadan"}) );
-set("long", "ÕâÊÇÒ»¿ÅÁÒÐÔÊ®×ãµÄÕ¨µ¯£¬×¨ÃÅÓÃÓÚÕ¨(zha)ÒþÉíÖÐµÄÎ×Ê¦ÏÖÐÎ¡£\n");
+set_name( HIY"äººè‚‰ç‚¸å¼¹"NOR, ({ "zhadan"}) );
+set("long", "è¿™æ˜¯ä¸€é¢—çƒˆæ€§åè¶³çš„ç‚¸å¼¹ï¼Œä¸“é—¨ç”¨äºŽç‚¸(zha)éšèº«ä¸­çš„å·«å¸ˆçŽ°å½¢ã€‚\n");
 set_weight(1000);
 if( clonep() )
                    set_default_object(__FILE__);
 else {
-                     set("unit", "¿Å");
+                     set("unit", "é¢—");
                      set("value", 0);
                      }
                      setup();
@@ -22,17 +22,17 @@ void init()
 int do_zha(string arg)
 {
  object ob,me=this_player();
- if(!arg) return notify_fail("ÄãÏëÕ¨Ë­¡£\n");
- if(!ob=find_player(arg)) return notify_fail("ÄãÏëÕ¨Ë­¡£\n");
- if( !wizardp(ob) ) return notify_fail("ÄãÖ»ÄÜÕ¨Î×Ê¦Å¶£¡\n");
- if( !ob->query("env/invisibility") ) return notify_fail("ÄÑµÀÄã¿´²»µ½ÄÇ¸öÎ×Ê¦Âð£¿\n");
+ if(!arg) return notify_fail("ä½ æƒ³ç‚¸è°ã€‚\n");
+ if(!ob=find_player(arg)) return notify_fail("ä½ æƒ³ç‚¸è°ã€‚\n");
+ if( !wizardp(ob) ) return notify_fail("ä½ åªèƒ½ç‚¸å·«å¸ˆå“¦ï¼\n");
+ if( !ob->query("env/invisibility") ) return notify_fail("éš¾é“ä½ çœ‹ä¸åˆ°é‚£ä¸ªå·«å¸ˆå—ï¼Ÿ\n");
  if( me->query_temp("zhadan") ) return 1;
-message_vision("$NÈ¡³öÒ»¿ÅÈËÈâÕ¨µ¯£¬Íù¿ÕÖÐÒ»Å×£¬ÈËÈâÕ¨µ¯Ïó³¤ÁËÑÛ¾¦ËÆµÄ£¬ÍùÔ¶´¦·ÉÈ¥...\n²»Ò»»á¶ù£¬Ô¶´¦´«À´Ò»ÉùÃÆÏì¡£\n",  me );
-message("vision", HIR"ºöÈ»Ò»¿ÅÈËÈâÕ¨µ¯ºôÐ¥µØÍù"+ob->name()+"Õâ¸ö·½Ïò·ÉÀ´,ºäµÄÒ»ÉùÏì£¬"+ob->name()+"±»Õ¨³öÁËÔ­ÐÎ¡£\n"NOR,  environment(ob), ({ ob }) );
+message_vision("$Nå–å‡ºä¸€é¢—äººè‚‰ç‚¸å¼¹ï¼Œå¾€ç©ºä¸­ä¸€æŠ›ï¼Œäººè‚‰ç‚¸å¼¹è±¡é•¿äº†çœ¼ç›ä¼¼çš„ï¼Œå¾€è¿œå¤„é£žåŽ»...\nä¸ä¸€ä¼šå„¿ï¼Œè¿œå¤„ä¼ æ¥ä¸€å£°é—·å“ã€‚\n",  me );
+message("vision", HIR"å¿½ç„¶ä¸€é¢—äººè‚‰ç‚¸å¼¹å‘¼å•¸åœ°å¾€"+ob->name()+"è¿™ä¸ªæ–¹å‘é£žæ¥,è½°çš„ä¸€å£°å“ï¼Œ"+ob->name()+"è¢«ç‚¸å‡ºäº†åŽŸå½¢ã€‚\n"NOR,  environment(ob), ({ ob }) );
 
-tell_object(ob,"ºöÈ»Ò»¸öÈËÈâÕ¨µ¯×²ÔÚÄãÉíÉÏ£¬±¬Õ¨ÁË£¬±ÆµÃÄãÏÖ³öÁËÔ­ÐÎ¡£\nÔ­À´ÊÇ"+me->name()+"ÏòÄã¶ªÈËÈâÕ¨µ¯:->¡£\n");
-message("channel:wiz", HIR"¡¾Ò¥ÑÔ¡¿£º"+ob->query("name")+"±»Õ¨³öÁËÔ­ÐÎ¡£\n"NOR, users());
-message("channel:chat", HIR"¡¾Ò¥ÑÔ¡¿£º"+ob->query("name")+"Ë«ÊÖ±§Í·£¬Í´¿ÞÁ÷Ìé£¬ÑöÌì¿ñº°£º¡°ÎÒ×°±Æ£¬ÎÒ±»À×Åü£¡¡±\n"NOR, users());
+tell_object(ob,"å¿½ç„¶ä¸€ä¸ªäººè‚‰ç‚¸å¼¹æ’žåœ¨ä½ èº«ä¸Šï¼Œçˆ†ç‚¸äº†ï¼Œé€¼å¾—ä½ çŽ°å‡ºäº†åŽŸå½¢ã€‚\nåŽŸæ¥æ˜¯"+me->name()+"å‘ä½ ä¸¢äººè‚‰ç‚¸å¼¹:->ã€‚\n");
+message("channel:wiz", HIR"ã€è°£è¨€ã€‘ï¼š"+ob->query("name")+"è¢«ç‚¸å‡ºäº†åŽŸå½¢ã€‚\n"NOR, users());
+message("channel:chat", HIR"ã€è°£è¨€ã€‘ï¼š"+ob->query("name")+"åŒæ‰‹æŠ±å¤´ï¼Œç—›å“­æµæ¶•ï¼Œä»°å¤©ç‹‚å–Šï¼šâ€œæˆ‘è£…é€¼ï¼Œæˆ‘è¢«é›·åŠˆï¼â€\n"NOR, users());
  me->set_temp("zhadan",1);
  ob->set("env/invisibility",0);
  destruct(this_object());

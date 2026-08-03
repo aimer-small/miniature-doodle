@@ -5,7 +5,7 @@ inherit ITEM;
 
 void create()
 {
-	set("unit","¿é");
+	set("unit","å—");
 	set("no_get", 1);
 	set("no_drop", 1);
 	set("no_put", 1);
@@ -19,9 +19,9 @@ void init()
 {
 	object me = this_player();
 
-	set_name (HIR "Îä¹ÝÁîÅÆ" NOR, ({ "lingpai","ling","pai" }));
+	set_name (HIR "æ­¦é¦†ä»¤ç‰Œ" NOR, ({ "lingpai","ling","pai" }));
 
-	set("long", HIR "ÕâÊÇÏåÑôÎä¹Ý¹ÝÖ÷µÄÐÅÎï£¬ÓÃÀ´½éÉÜÎä¹ÝÈËÔ±È¥¸÷´óÃÅÅÉ°ÝÊ¦ËùÓÃ(here XXX)¡£\n" NOR);
+	set("long", HIR "è¿™æ˜¯è¥„é˜³æ­¦é¦†é¦†ä¸»çš„ä¿¡ç‰©ï¼Œç”¨æ¥ä»‹ç»æ­¦é¦†äººå‘˜åŽ»å„å¤§é—¨æ´¾æ‹œå¸ˆæ‰€ç”¨(here XXX)ã€‚\n" NOR);
 
 	if (me && present(this_object(), me)) {
 		add_action("do_here", "here");
@@ -36,54 +36,54 @@ int do_here(string str)
 	int exp,pot,shen;
         
 	if (!str || str=="")
-		return notify_fail ("Äã´øË­À´µÄ£¿\n");
+		return notify_fail ("ä½ å¸¦è°æ¥çš„ï¼Ÿ\n");
 
 	if (!ob1 = find_living(str))
 		ob1 = LOGIN_D->find_body(str);
 	if (ob1 == me) 
-		return notify_fail("´ø×Ô¼ºÀ´µÄ£¿\n");
+		return notify_fail("å¸¦è‡ªå·±æ¥çš„ï¼Ÿ\n");
 	if(!objectp(ob2 = present(str, environment(me))) )
-		return notify_fail("ÕâÀïÃ» " + str + " Õâ¸öÈË¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡ " + str + " è¿™ä¸ªäººã€‚\n");
 
 	if( !living(ob2) ) 
-		return notify_fail("ÄãµÈ" + ob1->name() + "ÐÑÀ´ÔÙËµ°É¡£\n");            
+		return notify_fail("ä½ ç­‰" + ob1->name() + "é†’æ¥å†è¯´å§ã€‚\n");            
 
 	if (!userp(ob2) ) 
-		return notify_fail("ÄãÖ»ÄÜ¸øÍæ¼Ò´øÂ·¡£\n");
+		return notify_fail("ä½ åªèƒ½ç»™çŽ©å®¶å¸¦è·¯ã€‚\n");
 
 	if( !ob2->query_temp("wg_go"))
-		return notify_fail( "¶Ô·½²¢Ã»ÓÐÕÒÈË´øÂ·¡£\n" );
+		return notify_fail( "å¯¹æ–¹å¹¶æ²¡æœ‰æ‰¾äººå¸¦è·¯ã€‚\n" );
 
 	if( ob2->query_temp( "wg_road" ) == 1)
-		return notify_fail( "ÄãÖªµÀ¶Ô·½ÒªÈ¥ÄÄÀïÁËÂð£¿\n" );
+		return notify_fail( "ä½ çŸ¥é“å¯¹æ–¹è¦åŽ»å“ªé‡Œäº†å—ï¼Ÿ\n" );
         
 	if( !me->query_temp( "wg_lead" ) )
-		return notify_fail( "ÕâÃ´Íí²Åµ½£¿\n" );
+		return notify_fail( "è¿™ä¹ˆæ™šæ‰åˆ°ï¼Ÿ\n" );
 
 	if( !objectp( ob3 = present( me->query_temp( "wg_goto" ), environment( me ) ) ) )
-		return notify_fail( "Äã°ÑÈËËÍµ½µØ·½ÁËÂð£¿\n" );
+		return notify_fail( "ä½ æŠŠäººé€åˆ°åœ°æ–¹äº†å—ï¼Ÿ\n" );
         
-	message_vision( sprintf(HIC "$N¶Ô" + ob3->query( "name" )
-		+ "Ëµµ½£ºÔÚÏÂÊÜÏåÑôÎä¹Ý¹ÝÖ÷Î¯ÍÐ£¬´øÕâÎ»" + RANK_D->query_respect( ob2 )
-		+ "Ç°À´" + RANK_D->query_respect( ob3 ) + "ÕâÀï£¬ÕâÊÇ¹ÝÖ÷ÐÅÎï¡£\n" NOR), me );
+	message_vision( sprintf(HIC "$Nå¯¹" + ob3->query( "name" )
+		+ "è¯´åˆ°ï¼šåœ¨ä¸‹å—è¥„é˜³æ­¦é¦†é¦†ä¸»å§”æ‰˜ï¼Œå¸¦è¿™ä½" + RANK_D->query_respect( ob2 )
+		+ "å‰æ¥" + RANK_D->query_respect( ob3 ) + "è¿™é‡Œï¼Œè¿™æ˜¯é¦†ä¸»ä¿¡ç‰©ã€‚\n" NOR), me );
 	message_vision( sprintf( HIC "" + ob3->query( "name" )
-		+ "³åÉÏÇ°È¥£¬½ô½ôÎÕ×¡$NµÄË«ÊÖ£¬ßìÑÊ×ÅËµ²»³ö»°À´¡£\n"  NOR), ob2 );
+		+ "å†²ä¸Šå‰åŽ»ï¼Œç´§ç´§æ¡ä½$Nçš„åŒæ‰‹ï¼Œå“½å’½ç€è¯´ä¸å‡ºè¯æ¥ã€‚\n"  NOR), ob2 );
 
-	message_vision( sprintf( HIW "$NµÝ¸ø" + ob3->query("name")
-		+ "Ò»¿éÎä¹ÝÁîÅÆ¡£\n" NOR), me );
+	message_vision( sprintf( HIW "$Né€’ç»™" + ob3->query("name")
+		+ "ä¸€å—æ­¦é¦†ä»¤ç‰Œã€‚\n" NOR), me );
         
 	exp = 100 + random( 100 ) + random( me->query( "combat_exp" ) / 30000 ) ;
 	if( exp > 250 )
 		exp = 200 + random( 50 );
 	pot = 50 + random( 50 ) + random( me->query( "combat_exp" ) / 60000 ) ;
 	shen = 200 + random( 2 * exp );
-	write( sprintf(HIW "ºÃ£¬ÈÎÎñÍê³ÉÁË£¬ÄãµÃµ½ÁË" + CHINESE_D->chinese_number( exp )+ "µãÊµÕ½¾­ÑéºÍ" 
-		+ CHINESE_D->chinese_number( shen ) + "µãÕýÉñ¡£\n" NOR));
+	write( sprintf(HIW "å¥½ï¼Œä»»åŠ¡å®Œæˆäº†ï¼Œä½ å¾—åˆ°äº†" + CHINESE_D->chinese_number( exp )+ "ç‚¹å®žæˆ˜ç»éªŒå’Œ" 
+		+ CHINESE_D->chinese_number( shen ) + "ç‚¹æ­£ç¥žã€‚\n" NOR));
 
 	me->add( "combat_exp", exp );
 	me->add( "shen", shen );
 
-	log_file("job/newbie", sprintf("%8s%-10s´øÂ·%8s%-10s£¬µÃµ½%3dµã¾­Ñé£¬ÏÖ¾­Ñé%d¡£\n",
+	log_file("job/newbie", sprintf("%8s%-10så¸¦è·¯%8s%-10sï¼Œå¾—åˆ°%3dç‚¹ç»éªŒï¼ŒçŽ°ç»éªŒ%dã€‚\n",
 		me->query("name"), "("+me->query("id")+")",
 		ob1->query("name"), "("+ob1->query("id")+")", exp, me->query("combat_exp") ), me );
 

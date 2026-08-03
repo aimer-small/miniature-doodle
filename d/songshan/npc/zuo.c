@@ -10,11 +10,11 @@ void create()
 {
         object ob;
         
-        set_name("×óÀäìø", ({ "zuo lengchan", "zuo", "lengchan" }));
-        set("nickname", "ÎåÔÀ½£ÃËÃËÖ÷");
-        set("long", "áÔÉ½ÕÆÃÅ×óÀäìø¸üÊÇµ±½ñÎäÁÖÖĞÁË²»ÆğµÄÈËÎï£¬Îä¹¦¹ÌÈ»³öÉñÈë»¯£¬
-ÎªÈËÓÈ¸»»úÖÇ£¬»ú±ä°Ù³ö£¬½­ºşÉÏÒ»Ìáµ½¡°×óÃËÖ÷¡±Èı×Ö£¬ÎŞ²»ÌèÈ»¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("å·¦å†·ç¦…", ({ "zuo lengchan", "zuo", "lengchan" }));
+        set("nickname", "äº”å²³å‰‘ç›Ÿç›Ÿä¸»");
+        set("long", "åµ©å±±æŒé—¨å·¦å†·ç¦…æ›´æ˜¯å½“ä»Šæ­¦æ—ä¸­äº†ä¸èµ·çš„äººç‰©ï¼Œæ­¦åŠŸå›ºç„¶å‡ºç¥å…¥åŒ–ï¼Œ
+ä¸ºäººå°¤å¯Œæœºæ™ºï¼Œæœºå˜ç™¾å‡ºï¼Œæ±Ÿæ¹–ä¸Šä¸€æåˆ°â€œå·¦ç›Ÿä¸»â€ä¸‰å­—ï¼Œæ— ä¸æƒ•ç„¶ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 52);
         set("per", 20);
         set("attitude", "heroism");
@@ -52,11 +52,11 @@ void create()
         prepare_skill("strike", "hanbing-shenzhang");
         set("inquiry", ([
                 "job": (: do_ask() :),
-                "ÈÎÎñ": (: do_ask() :),
+                "ä»»åŠ¡": (: do_ask() :),
                 "cancel": (: do_cancel() :),
-                "·ÅÆú": (: do_cancel() :),
+                "æ”¾å¼ƒ": (: do_cancel() :),
         ]));
-        create_family("áÔÉ½ÅÉ", 4, "ÕÆÃÅÈË");
+        create_family("åµ©å±±æ´¾", 4, "æŒé—¨äºº");
         set("chat_chance_combat", 20);
         set("chat_msg_combat", ({
                 (: perform_action, "sword.feiwu" :),
@@ -81,13 +81,13 @@ void attempt_apprentice(object ob)
      if(ob->query_skill("hanbing-zhenqi",1) < 160 ||
       ob->query_skill("songshan-jian",1) < 160 ||
         ob->query_skill("songyang-zhang",1) < 160){
-        command("say ÄãµÄÎä¹¦»¹²»¹»æµÊì£¬ÔÙ»ØÈ¥Á·Á·°É¡£");
+        command("say ä½ çš„æ­¦åŠŸè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œå†å›å»ç»ƒç»ƒå§ã€‚");
         return;
         }
      if ((int)ob->query("songshan_points") < 250) {
-                command("say Äã×Ô´ÓÈëÎÒÅÉÒÔÀ´£¬ÍµÀÁË£»¬£¬²»ÎñÕıÒµ£¬»¹Ïë°İÎÒÎªÊ¦£¿");
+                command("say ä½ è‡ªä»å…¥æˆ‘æ´¾ä»¥æ¥ï¼Œå·æ‡’è€æ»‘ï¼Œä¸åŠ¡æ­£ä¸šï¼Œè¿˜æƒ³æ‹œæˆ‘ä¸ºå¸ˆï¼Ÿ");
                 return;}
-     command("say ºÃ£¬ÎÒÕıÏëÕÒĞ©ÓÅĞãµÜ×ÓÀ´´«ÊÚº®±ùÉñÕÆ£¬¿´À´Äã»¹²»´íÂï¡£");
+     command("say å¥½ï¼Œæˆ‘æ­£æƒ³æ‰¾äº›ä¼˜ç§€å¼Ÿå­æ¥ä¼ æˆå¯’å†°ç¥æŒï¼Œçœ‹æ¥ä½ è¿˜ä¸é”™å˜›ã€‚");
      command("recruit " + ob->query("id"));
 }
 
@@ -99,9 +99,9 @@ string do_cancel()
         me = this_player();
         exp = me->query("combat_exp");
         if(!me->query_condition("job_busy"))
-              return "ÄãÃ»ÓĞÁìÈÎÎñ,ÅÜÕâÀïÏ¹ÈÂÈÂÊ²÷á?";
-        if(!me->query_temp("quest") || me->query_temp("quest/family") != "áÔÉ½ÅÉ")
-              return "ÄãÃ»ÓĞÁìÈÎÎñ,ÅÜÕâÀïÏ¹ÈÂÈÂÊ²÷á?";
+              return "ä½ æ²¡æœ‰é¢†ä»»åŠ¡,è·‘è¿™é‡Œçåš·åš·ä»€éº½?";
+        if(!me->query_temp("quest") || me->query_temp("quest/family") != "åµ©å±±æ´¾")
+              return "ä½ æ²¡æœ‰é¢†ä»»åŠ¡,è·‘è¿™é‡Œçåš·åš·ä»€éº½?";
         me->clear_condition("job_busy");
         me->add("combat_exp",-(20+random(50)));
         if(exp>500000){
@@ -109,7 +109,7 @@ string do_cancel()
               }
         me->apply_condition("job_busy",6+random(4));
         me->delete_temp("quest");
-        return "¼ÈÈ»Äã¸É²»ÁËÒ²Ã»¹ØÏµ,ÔÙÈ¥¿Ì¿àÁ·¹¦°É,ÒÔºóÔÙÀ´ÎªÎÒÃÇµÄ²¢ÅÉ´ó¼Æ³öÁ¦!";
+        return "æ—¢ç„¶ä½ å¹²ä¸äº†ä¹Ÿæ²¡å…³ç³»,å†å»åˆ»è‹¦ç»ƒåŠŸå§,ä»¥åå†æ¥ä¸ºæˆ‘ä»¬çš„å¹¶æ´¾å¤§è®¡å‡ºåŠ›!";
 }
 
 string do_ask()
@@ -121,38 +121,38 @@ string do_ask()
     me = this_player();
     ob = this_object();
     
-    if(is_busy()) return "ÎÒÕıÃ¦×ÅÄØ£¬ÄãµÈµÈ¡£\n";
+    if(is_busy()) return "æˆ‘æ­£å¿™ç€å‘¢ï¼Œä½ ç­‰ç­‰ã€‚\n";
   
     if( me->query("combat_exp") < 50000 
      || me->query("shen") > 0)
-            return RANK_D->query_respect(ob)+"ÎÒ¿´ÄãÊÖ½ÅÉ¢Âş£¬ĞĞ¶¯³Ù»º£¬ÔÙ¼ÓÂúÁ³ÖÉÆø¡£ÔõÄÜ·ÅĞÄÈÃÄãÈ¥°ì´óÊÂÄØ£¿\n";
+            return RANK_D->query_respect(ob)+"æˆ‘çœ‹ä½ æ‰‹è„šæ•£æ¼«ï¼Œè¡ŒåŠ¨è¿Ÿç¼“ï¼Œå†åŠ æ»¡è„¸ç¨šæ°”ã€‚æ€èƒ½æ”¾å¿ƒè®©ä½ å»åŠå¤§äº‹å‘¢ï¼Ÿ\n";
     
     if( me->query_temp("quest/id"))
-            return "²»ÊÇÈÃÄãÈ¥"+me->query_temp("quest/type")+me->query_temp("quest/name")+"ÁËÂğ£¬ÔõÃ´»¹ÔÚÕâÀï£¿\n";
+            return "ä¸æ˜¯è®©ä½ å»"+me->query_temp("quest/type")+me->query_temp("quest/name")+"äº†å—ï¼Œæ€ä¹ˆè¿˜åœ¨è¿™é‡Œï¼Ÿ\n";
        
     if( me->query_condition("job_busy"))
-            return "àÅ£¬ÎÒÏÖÔÚÕıÔÚË¼¿¼²¢ÅÉ´ó¼Æ£¬Äã±ğ´òÈÅ¡£\n"; 
+            return "å—¯ï¼Œæˆ‘ç°åœ¨æ­£åœ¨æ€è€ƒå¹¶æ´¾å¤§è®¡ï¼Œä½ åˆ«æ‰“æ‰°ã€‚\n"; 
      
-    type = random(2)?"Çë":"É±";
+    type = random(2)?"è¯·":"æ€";
 
     // get a random npc from TASK_D.
-    if(!mapp(quest= TASK_D->get_quest(me, 0, type, "áÔÉ½ÅÉ"))) 
-            return "àÅ£¬ÎÒÏÖÔÚÕıÔÚË¼¿¼²¢ÅÉ´ó¼Æ£¬Äã±ğ´òÈÅ¡£\n"; 
+    if(!mapp(quest= TASK_D->get_quest(me, 0, type, "åµ©å±±æ´¾"))) 
+            return "å—¯ï¼Œæˆ‘ç°åœ¨æ­£åœ¨æ€è€ƒå¹¶æ´¾å¤§è®¡ï¼Œä½ åˆ«æ‰“æ‰°ã€‚\n"; 
             
     me->set_temp("quest", quest);
     me->apply_condition("job_busy", 25+random(30));    
     t = TASK_D->get_time(quest["time"]);   // get time limit.
     
     me->set_temp("songshan_job", 1);
-    if(type == "É±"){
+    if(type == "æ€"){
             command("grin");
-            command("say ÄãÌıºÃÁË£¬ÓĞµÜ×Ó»Ø±¨"+quest["name"]+"ÕâÈË¶ÔÎÒÎåÔÀ²¢ÅÉÖ®¾ÙÉî±í²»Âú£¬ÄÇÃ´¡£¡£¡£");
-            return "ºÙºÙ£¬ËûÔÚ"+quest["place"]+CYN"Ò»´ø£¬ÄãÈ¥½«ËûÉ±ÁË£¬Îñ±ØÔÚ"+t+CYN"Ö®Ç°´ø×ÅËûµÄÊ¬Ìå¸Ï»ØÀ´¡£\n";
+            command("say ä½ å¬å¥½äº†ï¼Œæœ‰å¼Ÿå­å›æŠ¥"+quest["name"]+"è¿™äººå¯¹æˆ‘äº”å²³å¹¶æ´¾ä¹‹ä¸¾æ·±è¡¨ä¸æ»¡ï¼Œé‚£ä¹ˆã€‚ã€‚ã€‚");
+            return "å˜¿å˜¿ï¼Œä»–åœ¨"+quest["place"]+CYN"ä¸€å¸¦ï¼Œä½ å»å°†ä»–æ€äº†ï¼ŒåŠ¡å¿…åœ¨"+t+CYN"ä¹‹å‰å¸¦ç€ä»–çš„å°¸ä½“èµ¶å›æ¥ã€‚\n";
             }
     else{
             command("nod");
-            command("say ¶ÔÁË£¬"+quest["name"]+"ºÍÎÒ½»Çé²»´í£¬ÈçµÃËûÏàÖú£¬ÎåÔÀ²¢ÅÉÖ®ÊÂ¼òÖ±Ò×Èç·´ÕÆ¡£");
-            return "Äã¾Í´ú±íÎÒÈ¥"+quest["place"]+CYN"ÑûÇëËû£¬Îñ±ØÔÚ"+t+CYN"Ö®Ç°¸Ï»ØÀ´¡£\n";    
+            command("say å¯¹äº†ï¼Œ"+quest["name"]+"å’Œæˆ‘äº¤æƒ…ä¸é”™ï¼Œå¦‚å¾—ä»–ç›¸åŠ©ï¼Œäº”å²³å¹¶æ´¾ä¹‹äº‹ç®€ç›´æ˜“å¦‚åæŒã€‚");
+            return "ä½ å°±ä»£è¡¨æˆ‘å»"+quest["place"]+CYN"é‚€è¯·ä»–ï¼ŒåŠ¡å¿…åœ¨"+t+CYN"ä¹‹å‰èµ¶å›æ¥ã€‚\n";    
             }   
 }
 
@@ -163,31 +163,31 @@ int accept_object(object who, object ob,object me)
        
        // check job.
        
-       if( who->query_temp("quest/family") != "áÔÉ½ÅÉ")
+       if( who->query_temp("quest/family") != "åµ©å±±æ´¾")
                     return 0;
                         
        type = TASK_D->is_target(ob, who);
        switch (type){
-            case 0: command("say ÄãÄÃ¸ö"+ob->name()+"¸øÎÒ¸ÉÂï£¿");
+            case 0: command("say ä½ æ‹¿ä¸ª"+ob->name()+"ç»™æˆ‘å¹²å˜›ï¼Ÿ");
                     return 0;
-            case -1:command("say Ò®£¿ÈÃÇëÈËÄã²»È¥£¬µ¹É±ÈË¶ªÁ³È¥ÁË£¬¹ö¿ª£¡");
+            case -1:command("say è€¶ï¼Ÿè®©è¯·äººä½ ä¸å»ï¼Œå€’æ€äººä¸¢è„¸å»äº†ï¼Œæ»šå¼€ï¼");
                     return 0;
-            case -2:command("say ºÙºÙ£¬Ë­ÈÃÄãÈ¥ÂÒÉ±ÈËÁË£¿¼òÖ±ÊÇ¸øÎÒáÔÉ½ÅÉÄ¨ºÚ£¡");
+            case -2:command("say å˜¿å˜¿ï¼Œè°è®©ä½ å»ä¹±æ€äººäº†ï¼Ÿç®€ç›´æ˜¯ç»™æˆ‘åµ©å±±æ´¾æŠ¹é»‘ï¼");
                     who->apply_condition("job_busy", 40);
                     return 0;
-            case -3:command("say àÅ£¬ÕâÃ´¾Ã²Å°ìÍê£¬Äã¸ÉÊ²Ã´È¥ÁË£¿¸øÎÒ¹öÒ»±ßÈ¥£¡");
+            case -3:command("say å—¯ï¼Œè¿™ä¹ˆä¹…æ‰åŠå®Œï¼Œä½ å¹²ä»€ä¹ˆå»äº†ï¼Ÿç»™æˆ‘æ»šä¸€è¾¹å»ï¼");
                     who->apply_condition("job_busy", 30);
                     return 0;
-            case -4:command("say Å¶£¬ÕâÊÇ¸öÍ¬ÃûÍ¬ĞÔµÄÈË£¬ËãËûµ¹Ã¹°É£¡");
+            case -4:command("say å“¦ï¼Œè¿™æ˜¯ä¸ªåŒååŒæ€§çš„äººï¼Œç®—ä»–å€’éœ‰å§ï¼");
                     return 0;
             default:command("haha");
-                    command("say ºÃ£¡ºÃ£¡Äã°ìÊÂ²»´í£¬ÊÇ¿éºÃÁÏ×Ó¡£");
-                    message_vision("\n$N¸ø$n½²½âÒ»Ğ©ÎäÑ§ÉÏµÄÒÉÄÑ£¬$nÈôÓĞËùË¼µØµã×ÅÍ·¡£\n",me, who);
+                    command("say å¥½ï¼å¥½ï¼ä½ åŠäº‹ä¸é”™ï¼Œæ˜¯å—å¥½æ–™å­ã€‚");
+                    message_vision("\n$Nç»™$nè®²è§£ä¸€äº›æ­¦å­¦ä¸Šçš„ç–‘éš¾ï¼Œ$nè‹¥æœ‰æ‰€æ€åœ°ç‚¹ç€å¤´ã€‚\n",me, who);
                     // give rewards.
                     TASK_D->give_reward(who, who->query_temp("quest"), -1);
                     
                     who->add("songshan_points", 1);
-        tell_object(who,HIW"/nºÃ£¡ÄãÎª±¾ÅÉ×öÁË"+chinese_number(who->query("songshan_points"))+"´Î¹¤×÷¡£\n"NOR);
+        tell_object(who,HIW"/nå¥½ï¼ä½ ä¸ºæœ¬æ´¾åšäº†"+chinese_number(who->query("songshan_points"))+"æ¬¡å·¥ä½œã€‚\n"NOR);
                     call_out("destroy", 1, ob);
                     return 1;
             }
@@ -205,8 +205,8 @@ void init()
 
         ::init();
         if( interactive(ob = this_player()) && !is_fighting() && !is_busy()
-           && ob->query_temp("quest/family") == "áÔÉ½ÅÉ"
-           && ob->query_temp("quest/type") == "Çë") {
+           && ob->query_temp("quest/family") == "åµ©å±±æ´¾"
+           && ob->query_temp("quest/type") == "è¯·") {
                 remove_call_out("greeting");
                 call_out("greeting", 3, ob);
         }
@@ -219,7 +219,7 @@ void greeting(object me)
         
         if( !me || environment(me) != environment() || !living(me)) return;
         
-        if (!mapp(quest = me->query_temp("quest")) || quest["type"] != "Çë"
+        if (!mapp(quest = me->query_temp("quest")) || quest["type"] != "è¯·"
         || !stringp(quest["id"])) return;
         
         command("nod "+me->query("id"));
@@ -233,11 +233,11 @@ void greeting(object me)
                 target->set_leader(0);
                 command("haha");
                 command("touch "+target->query("id"));
-                command("say "+target->name()+"ÄÜÀ´£¬ÎÒáÔÉ½ÅÉÓÖ¶àÁËÒ»·İÁ¦Á¿À²£¡¹ş¹ş£¡");
+                command("say "+target->name()+"èƒ½æ¥ï¼Œæˆ‘åµ©å±±æ´¾åˆå¤šäº†ä¸€ä»½åŠ›é‡å•¦ï¼å“ˆå“ˆï¼");
                 
                 /*
                 if (quest["time"] < TIME_TICK ) {
-                        command("say àÅ£¬"+me->name()+CYN"ÄãÕâÃ´¾Ã²Å°ìÍê£¬Äã¸ÉÊ²Ã´È¥ÁË£¿¸øÎÒ¹öÒ»±ßÈ¥£¡");
+                        command("say å—¯ï¼Œ"+me->name()+CYN"ä½ è¿™ä¹ˆä¹…æ‰åŠå®Œï¼Œä½ å¹²ä»€ä¹ˆå»äº†ï¼Ÿç»™æˆ‘æ»šä¸€è¾¹å»ï¼");
                         me->delete_temp("quest");
                         me->set_temp("quest/last_id", quest["last_id"]);
                         me->apply_condition("job_busy", 30);
@@ -253,16 +253,16 @@ void done(object target, object me, mapping quest, int i)
 {    
         if(me && i >= 0){
                 if(target){          
-                        message_vision("\n$NµãÍ·µÀ£º"+me->name()+"ÕâÍŞÍŞ²»Àµ£¬ÈÃÎÒÖ¸µãËû¼¸ÕĞ£¬¾Íµ±ÊÇ³ÙÀ´µÄ¼ûÃæÀñ°É£¡\n", target, me);
-                        tell_object(me,GRN+target->name()+"ÔÚÄãµÄ¶ú±ßÇÄÉùËµµÀ£º"+(random(2)?"Ñ©ÈË":"åĞÒ£")+"µÄÃÜÂëÊÇ¡°"
-                                +random(10)+random(10)+random(10)+random(10)+random(10)+"¡±\n" NOR);
-                        tell_room( environment(me), target->name() + "ÔÚ" + me->name()+ "¶ú±ßĞ¡ÉùµØËµÁËĞ©»°¡£\n", ({ me, target }) );
+                        message_vision("\n$Nç‚¹å¤´é“ï¼š"+me->name()+"è¿™å¨ƒå¨ƒä¸èµ–ï¼Œè®©æˆ‘æŒ‡ç‚¹ä»–å‡ æ‹›ï¼Œå°±å½“æ˜¯è¿Ÿæ¥çš„è§é¢ç¤¼å§ï¼\n", target, me);
+                        tell_object(me,GRN+target->name()+"åœ¨ä½ çš„è€³è¾¹æ‚„å£°è¯´é“ï¼š"+(random(2)?"é›ªäºº":"é€é¥")+"çš„å¯†ç æ˜¯â€œ"
+                                +random(10)+random(10)+random(10)+random(10)+random(10)+"â€\n" NOR);
+                        tell_room( environment(me), target->name() + "åœ¨" + me->name()+ "è€³è¾¹å°å£°åœ°è¯´äº†äº›è¯ã€‚\n", ({ me, target }) );
             // give rewards.
                         TASK_D->give_reward(me, me->query_temp("quest"), -1, ABS(me->query("songshan_points")/25));
             
                         me->add("songshan_points", 1);
-        tell_object(me,HIW"/nºÃ£¡ÄãÎª±¾ÅÉ×öÁË"+chinese_number(me->query("songshan_points"))+"´Î¹¤×÷¡£\n"NOR);
-                        tell_room(environment(target), target->query("name")+"´óĞ¦Á½Éù£¬ÔÚÖª¿ÍµÜ×Ó´øÁìÏÂµ½Ïá·¿ĞİÏ¢È¥ÁË¡£\n", ({target}));
+        tell_object(me,HIW"/nå¥½ï¼ä½ ä¸ºæœ¬æ´¾åšäº†"+chinese_number(me->query("songshan_points"))+"æ¬¡å·¥ä½œã€‚\n"NOR);
+                        tell_room(environment(target), target->query("name")+"å¤§ç¬‘ä¸¤å£°ï¼Œåœ¨çŸ¥å®¢å¼Ÿå­å¸¦é¢†ä¸‹åˆ°å¢æˆ¿ä¼‘æ¯å»äº†ã€‚\n", ({target}));
                         if(!target->return_home()){
                                 target->delete_temp("songshan_job");
                                 target->delete_temp("last_lost_to");
@@ -279,7 +279,7 @@ void done(object target, object me, mapping quest, int i)
         }
         
         else if(target){ 
-                tell_room(environment(target), target->query("name")+"´óĞ¦Á½Éù£¬ÔÚÖª¿ÍµÜ×Ó´øÁìÏÂµ½Ïá·¿ĞİÏ¢È¥ÁË¡£\n", ({target}));   
+                tell_room(environment(target), target->query("name")+"å¤§ç¬‘ä¸¤å£°ï¼Œåœ¨çŸ¥å®¢å¼Ÿå­å¸¦é¢†ä¸‹åˆ°å¢æˆ¿ä¼‘æ¯å»äº†ã€‚\n", ({target}));   
                 destruct(target);
         }
                     

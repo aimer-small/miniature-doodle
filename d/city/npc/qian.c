@@ -8,10 +8,10 @@ inherit F_BANKER;
 
 void create()
 {
-        set_name("Ç®·ì", ({"qian feng", "qianfeng", "feng", "qian"}));
-        set("title", "Ç®×¯ÀÏ°å");
-        set("nickname", "Ç§½ğÍòÒø½ø×ÔÀ´");
-        set("gender", "ÄĞĞÔ");
+        set_name("é’±ç¼", ({"qian feng", "qianfeng", "feng", "qian"}));
+        set("title", "é’±åº„è€æ¿");
+        set("nickname", "åƒé‡‘ä¸‡é“¶è¿›è‡ªæ¥");
+        set("gender", "ç”·æ€§");
         set("age", 34);
 
         set("str", 22);
@@ -32,8 +32,8 @@ void create()
         set("env/wimpy", 50);
         set("chat_chance", 2);
         set("chat_msg", ({
-		"Ç®·ì½¾°ÁµÄËµµÀ£º±¾ÒøºÅÒÑ¾­ÓĞÉÏ°ÙÄêµÄÀúÊ·£¬ÔÚ½­ÄÏ¿ÉÒÔËµÊÇµÚÒ»¼Ò¡£\n",
-		"Ç®·ìĞ¦×ÅËµµÀ£ºÔÚ±¾µê´æÇ®ÎŞÀûÏ¢£¬È¡Ç®ÊÕ°Ù·ÖÖ®ÎåÊÖĞø·Ñ£¬¿Í¹ÙÄú¿´×Å°ì°É¡£\n"
+		"é’±ç¼éª„å‚²çš„è¯´é“ï¼šæœ¬é“¶å·å·²ç»æœ‰ä¸Šç™¾å¹´çš„å†å²ï¼Œåœ¨æ±Ÿå—å¯ä»¥è¯´æ˜¯ç¬¬ä¸€å®¶ã€‚\n",
+		"é’±ç¼ç¬‘ç€è¯´é“ï¼šåœ¨æœ¬åº—å­˜é’±æ— åˆ©æ¯ï¼Œå–é’±æ”¶ç™¾åˆ†ä¹‹äº”æ‰‹ç»­è´¹ï¼Œå®¢å®˜æ‚¨çœ‹ç€åŠå§ã€‚\n"
         }));
 
         set_skill("unarmed", 150);
@@ -52,8 +52,8 @@ void create()
 void init()
 {
 	::init();
-	add_action("do_check", ({"check", "chazhang", "²éÕÊ"}));
-	add_action("do_convert", ({"convert", "duihuan", "¶Ò»»"}));
-	add_action("do_deposit", ({"deposit", "cun", "´æ"}));
-	add_action("do_withdraw", ({"withdraw", "qu", "È¡"}));
+	add_action("do_check", ({"check", "chazhang", "æŸ¥å¸"}));
+	add_action("do_convert", ({"convert", "duihuan", "å…‘æ¢"}));
+	add_action("do_deposit", ({"deposit", "cun", "å­˜"}));
+	add_action("do_withdraw", ({"withdraw", "qu", "å–"}));
 }

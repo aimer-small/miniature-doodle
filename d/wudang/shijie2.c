@@ -1,15 +1,15 @@
-// /d/wudang/shijie2.c ʯ��
+// /d/wudang/shijie2.c 石阶
 // by ydh
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short", CYN"ʯ��"NOR);
+        set("short", CYN"石阶"NOR);
         set("long", @LONG
-������һ����ʵ��ʯ���ϣ���ʱ�������˻����ʹ���������߹���һ��
-�����£�һ�����ͱڣ�̧ͷ��Լ�ɼ�ɽ�����Ƶ������壬ɽ����棬����������
-�����Ŀ�����������ǰ����չ����ˡ�
+你走在一条坚实的石阶上，不时地有游人或进香客从你的身边走过。一边
+是悬崖，一边是峭壁，抬头隐约可见山雾环绕的天柱峰，山风拂面，鸟鸣声声，
+令人心旷神怡。再往前就是展旗峰了。
 LONG
         );
         set("exits", ([
@@ -21,6 +21,6 @@ LONG
                 __DIR__"npc/jxk" : random(2)+1,
         ]));
 
-        set("outdoors","�䵱");        
+        set("outdoors","武当");        
         setup();
 }

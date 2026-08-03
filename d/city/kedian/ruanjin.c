@@ -3,12 +3,12 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIR "Ê®ÏãÈí½îÉ¢" NOR, ({"shixiang ruanjinsan", "san"}));
+        set_name(HIR "åé¦™è½¯ç­‹æ•£" NOR, ({"shixiang ruanjinsan", "san"}));
         set_weight(1000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ð¡°ü");
+                set("unit", "å°åŒ…");
                 set("no_get", 1);
                 set("no_sell",1);
 		set("no_drop", 1);
@@ -34,14 +34,14 @@ int do_fu(string arg)
 
         if( !arg || !objectp(ob = present(arg, environment(me))) 
         || !ob->is_character() || ob == me)
-                return notify_fail("ËäÈ»¿´ÆðÀ´ºÜºÃ³Ô£¬»¹ÊÇÐ¡ÐÄµã°É¡£\n");
+                return notify_fail("è™½ç„¶çœ‹èµ·æ¥å¾ˆå¥½åƒï¼Œè¿˜æ˜¯å°å¿ƒç‚¹å§ã€‚\n");
         if (ob->query("id") != me->query_temp("zhao/targetid") ||
             ob->query("name") != me->query_temp("zhao/target"))
-                return notify_fail("Ëû²»ÊÇÄãµÄ¶ÔÏó¡£\n");
+                return notify_fail("ä»–ä¸æ˜¯ä½ çš„å¯¹è±¡ã€‚\n");
         if (living(ob))
-                return notify_fail("±ðÌ«Ã÷Ä¿ÕÅµ¨ÁË¡£\n");
+                return notify_fail("åˆ«å¤ªæ˜Žç›®å¼ èƒ†äº†ã€‚\n");
         
-        message_vision(HIR"$N½«Ò»Ð¡°üÊ®ÏãÈí½îÉ¢È«¶¼ÈÃ$n·þÏÂÁË£¡\n"NOR, me, ob);
+        message_vision(HIR"$Nå°†ä¸€å°åŒ…åé¦™è½¯ç­‹æ•£å…¨éƒ½è®©$næœä¸‹äº†ï¼\n"NOR, me, ob);
         ob->apply_condition("ruanjin_poison",10);
         destruct(this_object());
         return 1;
@@ -50,7 +50,7 @@ int do_fu(string arg)
 int do_action(string arg)
 {
 //   if(!wizardp(this_player())) {
-   write("Äã»¹ÊÇÐ¡ÐÄÍê³ÉÈÎÎñ°É¡£\n");
+   write("ä½ è¿˜æ˜¯å°å¿ƒå®Œæˆä»»åŠ¡å§ã€‚\n");
    return 1;
 // }
 }
@@ -59,7 +59,7 @@ void drop()
 {
   object me = this_player();
   if (!me) return;
-  message_vision(HIY"$NÒ»Ãþ¿Ú´ü£¬ËÆºõÉÙÁËÊ²Ã´¶«Î÷¡£\n",me);
+  message_vision(HIY"$Nä¸€æ‘¸å£è¢‹ï¼Œä¼¼ä¹Žå°‘äº†ä»€ä¹ˆä¸œè¥¿ã€‚\n",me);
   me->delete_temp("zhao");
   destruct(this_object());
 }

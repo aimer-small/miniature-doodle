@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("¹éĞÁÊ÷", ({ "gui xinshu", "gui" }));
-        set("long","Ëû¾ÍÊÇÃûÕğÌìÏÂµÄ¹éĞÁÊ÷£¬Ñù×ÓËÆºõºÜÆ½³££¬ËÆºõ¿´²»³öÊ²Ã´ÌØ±ğµÄÀ´¡£\n");
-        set("gender", "ÄĞĞÔ");
-        set("nickname", "ÉñÈ­ÎŞµĞ");
+        set_name("å½’è¾›æ ‘", ({ "gui xinshu", "gui" }));
+        set("long","ä»–å°±æ˜¯åéœ‡å¤©ä¸‹çš„å½’è¾›æ ‘ï¼Œæ ·å­ä¼¼ä¹å¾ˆå¹³å¸¸ï¼Œä¼¼ä¹çœ‹ä¸å‡ºä»€ä¹ˆç‰¹åˆ«çš„æ¥ã€‚\n");
+        set("gender", "ç”·æ€§");
+        set("nickname", "ç¥æ‹³æ— æ•Œ");
         set("age", 72);
 
         set("attitude", "friendly");
@@ -51,7 +51,7 @@ void create()
         map_skill("sword", "quanzhen-jianfa");
         prepare_skill("strike", "tiangang-zhang");
 
-        create_family("»ªÉ½ÅÉ", 10, "µÜ×Ó");
+        create_family("åå±±æ´¾", 10, "å¼Ÿå­");
 
         setup();
         carry_object(ARMOR_D("cloth"))->wear();

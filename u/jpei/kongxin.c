@@ -1,5 +1,5 @@
 //flowray 2005.6.16
-// By Spiderii@ty ĞŞÕıĞ§¹û
+// By Spiderii@ty ä¿®æ­£æ•ˆæœ
 #include <ansi.h>
 
 
@@ -7,18 +7,18 @@ inherit SPEC;
 
 void create()
 {
-	set_name (WHT"¿ÕĞÄÉ¢"NOR, ({ "kongxin san","kongxin","san"}));
-	set("long","ÕâÊÇÒ»°ü¶ëÃ¼É½ÃØ´«µÄ"WHT"¿ÕĞÄÉ¢"NOR"£¬ËùÎ½"HIW"¡¾ÎŞÎÒÎŞËû£¬ÎŞÏàÎŞÉ«£¬¿ÕĞÄ¾²Òô£¬µÓ¹¸·²³¾¡¿"NOR"
-Äã¿ÉÒÔ·ş("HIY"fu"NOR")ÏÂËü½â³ıËöÊÂµÄÀ§ÈÅ¡£\n");
+	set_name (WHT"ç©ºå¿ƒæ•£"NOR, ({ "kongxin san","kongxin","san"}));
+	set("long","è¿™æ˜¯ä¸€åŒ…å³¨çœ‰å±±ç§˜ä¼ çš„"WHT"ç©ºå¿ƒæ•£"NOR"ï¼Œæ‰€è°“"HIW"ã€æ— æˆ‘æ— ä»–ï¼Œæ— ç›¸æ— è‰²ï¼Œç©ºå¿ƒé™éŸ³ï¼Œæ¶¤å¢å‡¡å°˜ã€‘"NOR"
+ä½ å¯ä»¥æœ("HIY"fu"NOR")ä¸‹å®ƒè§£é™¤çäº‹çš„å›°æ‰°ã€‚\n");
 
-	set("unit","°ü");
+	set("unit","åŒ…");
 	set_weight(100);
 //        set("no_cun",1);
 	set("value",3000000);
         set("treasure",1);
         set("degree",25);
 	set("flag","spec/kongxin");
-	set("desc","Ïû³ıÈÎÎñ·±Ã¦×´Ì¬¡£");
+	set("desc","æ¶ˆé™¤ä»»åŠ¡ç¹å¿™çŠ¶æ€ã€‚");
         set("rest",200);
         set("credit",20);
 	setup();
@@ -35,19 +35,19 @@ int do_eat(string arg)
 	object me=this_player();
 	
 	if (!arg)
-		return notify_fail("ÄãÒª·şÓÃÊ²Ã´?\n");
+		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
 	    
         if (arg!="kongxin" && arg!="san" && arg!="kongxin san")
-      		return notify_fail("ÄãÒª·şÓÃÊ²Ã´?\n");
+      		return notify_fail("ä½ è¦æœç”¨ä»€ä¹ˆ?\n");
       	
-        if (!restrict()&& !me->query("buyvip") && !me->query("y-card-vip")) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
+        if (!restrict()&& !me->query("buyvip") && !me->query("y-card-vip")) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
     
 	if (!me->query_condition("job_busy") )
-		return notify_fail("ÄãÏÖÔÚ²»ĞèÒª·şÓÃ¿ÕĞÄÉ¢¡£\n");
+		return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦æœç”¨ç©ºå¿ƒæ•£ã€‚\n");
 	
 	me->clear_condition("job_busy");
 	
-	//Ôö¼ÓÕë¶ÔÒ»Ğ©¾É½á¹¹µÄjob busyµÄ´¦Àí
+	//å¢åŠ é’ˆå¯¹ä¸€äº›æ—§ç»“æ„çš„job busyçš„å¤„ç†
 	me->clear_condition("gb_job_busy");
 	me->clear_condition("gumu_job");
 	me->clear_condition("hs_job");
@@ -63,7 +63,7 @@ int do_eat(string arg)
 	me->clear_condition("xs_job");
 set("no_cun",1);
 	
-	write("Äã·şÏÂÒ»Ğ©"WHT"¿ÕĞÄÉ¢"NOR"¾õµÃĞÄÄşÆø¶¨,°Ñ½­ºşËöÊÂÍüµÃÒ»¸É¶ş¾»!\n");
+	write("ä½ æœä¸‹ä¸€äº›"WHT"ç©ºå¿ƒæ•£"NOR"è§‰å¾—å¿ƒå®æ°”å®š,æŠŠæ±Ÿæ¹–çäº‹å¿˜å¾—ä¸€å¹²äºŒå‡€!\n");
 	degree();
 	return 1;
 }	 

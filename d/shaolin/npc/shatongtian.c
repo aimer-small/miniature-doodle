@@ -1,15 +1,15 @@
-// shatongtian.c É³Í¨Ìì
+// shatongtian.c æ²™é€šå¤©
 
 inherit NPC;
  
 void create()
 {
-        set_name("É³Í¨Ìì", ({ "sha tongtian", "tongtian", "sha" }));
-        set("nickname", "¹íÃÅÁúÍõ");
+        set_name("æ²™é€šå¤©", ({ "sha tongtian", "tongtian", "sha" }));
+        set("nickname", "é¬¼é—¨é¾™ç‹");
         set("long", 
-        "Ëû¾ÍÊÇ»ÆºÓËÄ¹íµÄÉ±Í¨Ìì¡£\n"
-        "ÂúÁ³ºáÈâ£¬ÑÛ¾¦ÀïÃ°ÕâĞ×¹â¡£\n");
-        set("gender", "ÄĞĞÔ");
+        "ä»–å°±æ˜¯é»„æ²³å››é¬¼çš„æ€é€šå¤©ã€‚\n"
+        "æ»¡è„¸æ¨ªè‚‰ï¼Œçœ¼ç›é‡Œå†’è¿™å‡¶å…‰ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 36);
         set("attitude", "peaceful");
         set("str", 28);

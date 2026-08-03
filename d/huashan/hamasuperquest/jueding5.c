@@ -10,10 +10,10 @@ void create()
 {
 
                                         
-        set("short", HIW"»ªÉ½¾ø¶¥"NOR);
+        set("short", HIW"åå±±ç»é¡¶"NOR);
         set("long", @LONG
-ÕâÊÇÒ»´¦ÈË¼£º±ÖÁµÄÉ½·å¾ø¶¥£¬×ãµ×Áï»¬£¬É½ÊÆÏÕ¾ş£¬ÈôÊÇÒ»½ÅÌ¤¿Õ£¬ÊÆ±Ø
-µôÔÚÍòØğÉî¹ÈÖĞµøµÃ·ÛÉíËé¹Ç,Ïà´«»ªÉ½ÂÛ½£¾ÍÔÚ´Ë´¦¡£
+è¿™æ˜¯ä¸€å¤„äººè¿¹ç½•è‡³çš„å±±å³°ç»é¡¶ï¼Œè¶³åº•æºœæ»‘ï¼Œå±±åŠ¿é™©å³»ï¼Œè‹¥æ˜¯ä¸€è„šè¸ç©ºï¼ŒåŠ¿å¿…
+æ‰åœ¨ä¸‡ä»æ·±è°·ä¸­è·Œå¾—ç²‰èº«ç¢éª¨,ç›¸ä¼ åå±±è®ºå‰‘å°±åœ¨æ­¤å¤„ã€‚
 LONG
         );
 
@@ -45,34 +45,34 @@ int do_next(string arg)
         cost = random(cost) + 100;
         
         if(me->is_busy())
-                return notify_fail("Äã»¹ÔÚÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ è¿˜åœ¨å¿™ç€å‘¢ã€‚\n");
 
         me->start_busy(2+random(2));
         
         if (!arg)
         {
-                tell_object(me,"ÄãÏëÏòÄÄ¸ö·½ÏòÅÀ?\n"NOR);
+                tell_object(me,"ä½ æƒ³å‘å“ªä¸ªæ–¹å‘çˆ¬?\n"NOR);
 
                 return 1;
 
         }
         if (me->query("jingli")<500)
         {
-                tell_object(me,HIY"ÄãµÄÌåÁ¦Í¸Ö§£¬»èÁË¹ıÈ¥¡£\n"NOR);
+                tell_object(me,HIY"ä½ çš„ä½“åŠ›é€æ”¯ï¼Œæ˜äº†è¿‡å»ã€‚\n"NOR);
                 me->add("jingli",-500);
                 return 1;
         }
         
         if (arg == "down")
         {
-                message_vision("$NĞ¡ĞÄÒíÒíµÄÅÀÁËÏÂÈ¥¡£\n"NOR,me);
+                message_vision("$Nå°å¿ƒç¿¼ç¿¼çš„çˆ¬äº†ä¸‹å»ã€‚\n"NOR,me);
                 me->move("/d/huashan/sheshen");
                 me->add("jingli",-cost);
                  destruct(hong);
         }
         else
         {
-                tell_object(me,"Õâ¸ö·½Ïò²»ÄÜÅÀ¡£\n");
+                tell_object(me,"è¿™ä¸ªæ–¹å‘ä¸èƒ½çˆ¬ã€‚\n");
                 
         }
         
@@ -90,7 +90,7 @@ int do_cry()
 
 int do_quit()
 {
-        write("ÕâÀï²»×¼ÍË³ö£¡\n");
+        write("è¿™é‡Œä¸å‡†é€€å‡ºï¼\n");
         return 1;
 }
 

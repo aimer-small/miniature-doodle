@@ -1,14 +1,14 @@
-// /u/beyond/hz/kedian3.c �͵�
+// /u/beyond/hz/kedian3.c 客店
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 {
-	set("short",HIC"�͵��¥"NOR);
+	set("short",HIC"客店二楼"NOR);
 	set("long", @LONG
-����һ��ܴ�Ŀͷ�������ʮ�ּ�ª����ǽ����ʮ����Сľ�������ٿ�
-�������¶��ԣ������Ӷ��Ǻ����Ĵ������������Ŵ��ǿյģ����������
-�����˹�ȥ��
+这是一间很大的客房，陈设十分简陋。靠墙放了十几张小木床，不少客
+人正和衣而卧，满屋子都是呼呼的打酣声。西边有张床是空的，你蹑手蹑脚
+地走了过去。
 LONG
 	);
 

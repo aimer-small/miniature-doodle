@@ -4,10 +4,10 @@
 
 inherit F_CLEAN_UP;
 
-//string frame = "¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ¨ˆ\n";
-string frame = "©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n";
+//string frame = "â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“\n";
+string frame = "â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n";
 
-string pattern = "¢Ù¢Ú¢Û";
+string pattern = "â‘ â‘¡â‘¢";
 
 int main(object me)
 {
@@ -17,7 +17,7 @@ int main(object me)
 	string output;
 	int i,n;
 
-	output = MUD_NAME+"ANSIÑÕÉ«×´Ì¬²âÊÔ£º\n";
+	output = MUD_NAME+"ANSIé¢œè‰²çŠ¶æ€æµ‹è¯•ï¼š\n";
 	output += frame;
 	output += "     BBLK  BRED  BGRN  BYEL  BBLU  BMAG  BCYN  BWHT\n";
 	for(i=0;i<sizeof(fgcolor);i++)
@@ -34,10 +34,10 @@ int main(object me)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½ : ansi
+æŒ‡ä»¤æ ¼å¼ : ansi
 
-Õâ¸öÖ¸ÁîÓÃÀ´¼ìÑé¸÷ÖÖANSIÑÕÉ«ºÍ×´Ì¬ÔÚÕıÔÚÊ¹ÓÃµÄ»úÆ÷¼°Èí¼ş
-ÖĞµÄĞ§¹ûµÄ¡£
+è¿™ä¸ªæŒ‡ä»¤ç”¨æ¥æ£€éªŒå„ç§ANSIé¢œè‰²å’ŒçŠ¶æ€åœ¨æ­£åœ¨ä½¿ç”¨çš„æœºå™¨åŠè½¯ä»¶
+ä¸­çš„æ•ˆæœçš„ã€‚
 
 HELP
         );

@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("猴子", ({ "hou zi","hou" }) );
-        set("race", "野兽");
+	set_name("鐚村瓙", ({ "hou zi","hou" }) );
+        set("race", "閲庡吔");
 	set("age", 8);
 	set("long",
-		"这只猴子在在桃树间跳上跳下，还不时津津有味地啃几口着蜜桃。\n");
+		"杩欏彧鐚村瓙鍦ㄥ湪妗冩爲闂磋烦涓婅烦涓嬶紝杩樹笉鏃舵触娲ユ湁鍛冲湴鍟冨嚑鍙ｇ潃铚滄銆俓n");
 	set("combat_exp", 500);
 	set("attitude", "peaceful");
 	

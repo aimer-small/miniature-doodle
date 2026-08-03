@@ -19,19 +19,19 @@ void decay()
         if (!me || !ob) return;
 	switch(add("decay", 1)) {
 		case 2:
-			set_temp("apply/long", ({ query("long") + "可是看起来不是很新鲜。\n" }));
-			tell_object(ob, me->name()+"的颜色有些不对了。\n");
+			set_temp("apply/long", ({ query("long") + "鍙槸鐪嬭捣鏉ヤ笉鏄緢鏂伴矞銆俓n" }));
+			tell_object(ob, me->name()+"鐨勯鑹叉湁浜涗笉瀵逛簡銆俓n");
 			break;
 		case 3:
-			set_temp("apply/long", ({ query("long") + "可是正在散发出一股难闻的味道。\n" }));
-			tell_object(ob, me->name()+"散发出一股难闻的味道。\n");
+			set_temp("apply/long", ({ query("long") + "鍙槸姝ｅ湪鏁ｅ彂鍑轰竴鑲￠毦闂荤殑鍛抽亾銆俓n" }));
+			tell_object(ob, me->name()+"鏁ｅ彂鍑轰竴鑲￠毦闂荤殑鍛抽亾銆俓n");
 			break;
 		case 4:
-			set_temp("apply/long", ({ query("long") + "可是有些腐烂了。\n" }));
-			tell_object(ob, me->name()+"有些腐烂了，发出刺鼻的味道。\n");
+			set_temp("apply/long", ({ query("long") + "鍙槸鏈変簺鑵愮儌浜嗐�俓n" }));
+			tell_object(ob, me->name()+"鏈変簺鑵愮儌浜嗭紝鍙戝嚭鍒洪蓟鐨勫懗閬撱�俓n");
 			break;
 		default:
-			tell_object(ob, me->name()+"整个腐烂掉了。\n");
+			tell_object(ob, me->name()+"鏁翠釜鑵愮儌鎺変簡銆俓n");
 			destruct(this_object());
 			return;
 	}

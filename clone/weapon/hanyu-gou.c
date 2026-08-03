@@ -11,13 +11,13 @@ int halt_exercise(object me);
 
 void create()
 {
-    set_name(HIW"º®Óñ¹³"NOR, ({ "hanyu gou", "gou", "hanyu", "hook" }));
+    set_name(HIW"å¯’çŽ‰é’©"NOR, ({ "hanyu gou", "gou", "hanyu", "hook" }));
 	set_weight(18000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
-set("long", "ÕâÊÇÒ»°ÑÓÃÇ§Äêº®ÓñËùÖÆµÄ¿í±ß»¤ÊÖ¹³£¬³ýÁËÍþÁ¦¾Þ´ó´øÓÐÆæ¶¾Íâ£¬»¹ÊÇÁÆÉË(liaoshang)µÄ±¦Îï¡£\n");
+		set("unit", "æŠŠ");
+set("long", "è¿™æ˜¯ä¸€æŠŠç”¨åƒå¹´å¯’çŽ‰æ‰€åˆ¶çš„å®½è¾¹æŠ¤æ‰‹é’©ï¼Œé™¤äº†å¨åŠ›å·¨å¤§å¸¦æœ‰å¥‡æ¯’å¤–ï¼Œè¿˜æ˜¯ç–—ä¼¤(liaoshang)çš„å®ç‰©ã€‚\n");
 		set("value", 300000);
 		set("material", "yade");
 		set("poisoned", "cold_poison");
@@ -30,8 +30,8 @@ set("long", "ÕâÊÇÒ»°ÑÓÃÇ§Äêº®ÓñËùÖÆµÄ¿í±ß»¤ÊÖ¹³£¬³ýÁËÍþÁ¦¾Þ´ó´øÓÐÆæ¶¾Íâ£¬»¹ÊÇÁÆÉ
                 set("wield_neili", 500);
                 set("wield_maxneili", 2500);
                 set("wield_str", 25);
-		set("wield_msg", HIW"$N½«¹ü²¼Õ¹¿ª£¬³é³ö$n"HIW"ÎÕÔÚÊÖÖÐ£¬»Ó³öÒ»µÀÑ©°×µÄ¹â»ª£¡\n"NOR);
-		set("unwield_msg", "$N×ª¹ýÉíÈ¥£¬ÓÃ·«²¼½«$n½ô½ô°üºÃ±³ÔÚ±³ÉÏ¡£\n");
+		set("wield_msg", HIW"$Nå°†è£¹å¸ƒå±•å¼€ï¼ŒæŠ½å‡º$n"HIW"æ¡åœ¨æ‰‹ä¸­ï¼ŒæŒ¥å‡ºä¸€é“é›ªç™½çš„å…‰åŽï¼\n"NOR);
+		set("unwield_msg", "$Nè½¬è¿‡èº«åŽ»ï¼Œç”¨å¸†å¸ƒå°†$nç´§ç´§åŒ…å¥½èƒŒåœ¨èƒŒä¸Šã€‚\n");
 	}
 	init_hook(120);
 	setup();
@@ -48,34 +48,34 @@ int do_heal()
 	string force;
 	object me = this_player();
 	
-        if(me->query("family/family_name") != "ÐÇËÞÅÉ")
-                return notify_fail("Äã·ÇÐÇËÞµÜ×Ó£¬²»»áÊ¹ÓÃº®Óñ¹³ÁÆÉË¡£\n");
+        if(me->query("family/family_name") != "æ˜Ÿå®¿æ´¾")
+                return notify_fail("ä½ éžæ˜Ÿå®¿å¼Ÿå­ï¼Œä¸ä¼šä½¿ç”¨å¯’çŽ‰é’©ç–—ä¼¤ã€‚\n");
 
         if( me->is_busy() )
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         
         if( me->is_fighting() )
-		return notify_fail("Õ½¶·ÖÐÔË¹¦ÁÆÉË£¿ÕÒËÀÂð£¿\n");
+		return notify_fail("æˆ˜æ–—ä¸­è¿åŠŸç–—ä¼¤ï¼Ÿæ‰¾æ­»å—ï¼Ÿ\n");
 		
         if ((int)me->query_skill("force") < 260)
-                return notify_fail("ÄãµÄÄÚ¹¦ÐÞÎª»¹²»¹»£¬ÎÞ·¨ÊìÁ·ÔËÓÃº®Óñ¹³¡£\n");
+                return notify_fail("ä½ çš„å†…åŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿï¼Œæ— æ³•ç†Ÿç»ƒè¿ç”¨å¯’çŽ‰é’©ã€‚\n");
                 
         if( (int)me->query("max_neili") < 3000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ÐÞÎª²»¹»£¬ÎÞ·¨ÊìÁ·ÔËÓÃº®Óñ¹³¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿï¼Œæ— æ³•ç†Ÿç»ƒè¿ç”¨å¯’çŽ‰é’©ã€‚\n");
                 
         if( (int)me->query("eff_qi") >= (int)me->query("max_qi") )
-                return notify_fail("ÄãÏÖÔÚ²¢Ã»ÓÐÊÜÉË°¡£¡\n");
+                return notify_fail("ä½ çŽ°åœ¨å¹¶æ²¡æœ‰å—ä¼¤å•Šï¼\n");
                 
 	if(!stringp(force = me->query_skill_mapped("force")) || me->query_skill(force, 1) < 160)
-		return notify_fail("ÄãµÄÌØÊâÄÚ¹¦»¹²»ÄÜÖ§³ÖÄãÔËÓÃº®Óñ¹³£¡\n");
+		return notify_fail("ä½ çš„ç‰¹æ®Šå†…åŠŸè¿˜ä¸èƒ½æ”¯æŒä½ è¿ç”¨å¯’çŽ‰é’©ï¼\n");
 	
 	if((int)me->query("neili") < 50 )
-                return notify_fail("ÄãµÄÕæÆø²»¹»ÁË¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿäº†ã€‚\n");
 	
-	message_vision(HIY"$N½«Ë«ÊÖÆ½·ÅÔÚº®Óñ¹³ÉÏ£¬Ö»¼ûº®Óñ¹³½¥½¥·Å³öÒ»Ë¿ÈáºÍµÄ¹âÃ¢......\n"NOR,me);
+	message_vision(HIY"$Nå°†åŒæ‰‹å¹³æ”¾åœ¨å¯’çŽ‰é’©ä¸Šï¼Œåªè§å¯’çŽ‰é’©æ¸æ¸æ”¾å‡ºä¸€ä¸æŸ”å’Œçš„å…‰èŠ’......\n"NOR,me);
 	msg = SKILL_D(force)->exercise_msg(me);
       	if (!msg || undefinedp(msg["heal_msg"]))
-           	message_vision(HIW"$NÅÌÏ¥×øÏÂ£¬¿ªÊ¼ÔË¹¦ÁÆÉË¡£\n"NOR,me);
+           	message_vision(HIW"$Nç›˜è†åä¸‹ï¼Œå¼€å§‹è¿åŠŸç–—ä¼¤ã€‚\n"NOR,me);
       	else 	message_vision(msg["heal_msg"],me);
 
 	me->set_temp("pending/qi_heal", 1);
@@ -98,7 +98,7 @@ int exercising(object me)
        	        return 0;
         }
         
-	if(me->query("family/family_name") == "ÐÇËÞÅÉ")
+	if(me->query("family/family_name") == "æ˜Ÿå®¿æ´¾")
 		skill = 180;
 	else skill = 120;
         skill = (skill+random(skill))/4;
@@ -113,17 +113,17 @@ int exercising(object me)
                 }
         
         if( eff >= max ){
-        	write("Á¼¾Ã£¬Äã¸Ð¾õ×Ô¼ºÔÚº®Óñ¹³µÄ°ïÖúÏÂ£¬ÉíÉÏµÄÉËÊÆÒÑ¾­È«ºÃÁË¡£\n");
-                message_vision(HIW"$N¿´ÉÏÈ¥ÆøÉ«±¥Âú£¬Á½ÑÛÒ»¿ª£¬Ëõ»ØÁË·ÅÔÚº®Óñ¹³ÉÏµÄË«ÕÆ£¬Ò»µãÒ²Ã»ÓÐÊÜ¹ýÉËµÄÑù×Ó¡£\n"NOR,me);
+        	write("è‰¯ä¹…ï¼Œä½ æ„Ÿè§‰è‡ªå·±åœ¨å¯’çŽ‰é’©çš„å¸®åŠ©ä¸‹ï¼Œèº«ä¸Šçš„ä¼¤åŠ¿å·²ç»å…¨å¥½äº†ã€‚\n");
+                message_vision(HIW"$Nçœ‹ä¸ŠåŽ»æ°”è‰²é¥±æ»¡ï¼Œä¸¤çœ¼ä¸€å¼€ï¼Œç¼©å›žäº†æ”¾åœ¨å¯’çŽ‰é’©ä¸Šçš„åŒæŽŒï¼Œä¸€ç‚¹ä¹Ÿæ²¡æœ‰å—è¿‡ä¼¤çš„æ ·å­ã€‚\n"NOR,me);
         	me->delete_temp("pending/qi_heal");
         	me->delete_temp("period");
         	return 0;
         	}
         if( (int)me->query("neili") < 50 ){
-        	write("ÄãÕýÔÚÔË¹¦ÁÆÉË£¬È´·¢ÏÖ×Ô¼ºËùÊ£µÄÄÚÁ¦²»¹»ÁË¡£\n");
+        	write("ä½ æ­£åœ¨è¿åŠŸç–—ä¼¤ï¼Œå´å‘çŽ°è‡ªå·±æ‰€å‰©çš„å†…åŠ›ä¸å¤Ÿäº†ã€‚\n");
         	if(eff < max)
-        	     write(HIY"Äãºô³öÒ»¿ÚÆøÕ¾ÁËÆðÀ´£¬¿ÉÏ§ÉËÊÆ»¹Ã»ÓÐÍêÈ«»Ö¸´¡£\n"NOR);
-        	message_vision(HIY"$NÔË¹¦Íê±Ï£¬»º»ºËõ»ØÁË·ÅÔÚº®Óñ¹³ÉÏµÄË«ÕÆ£¬Á³É«¿´ÆðÀ´ºÃÁËÐí¶à¡£\n"NOR,me);
+        	     write(HIY"ä½ å‘¼å‡ºä¸€å£æ°”ç«™äº†èµ·æ¥ï¼Œå¯æƒœä¼¤åŠ¿è¿˜æ²¡æœ‰å®Œå…¨æ¢å¤ã€‚\n"NOR);
+        	message_vision(HIY"$Nè¿åŠŸå®Œæ¯•ï¼Œç¼“ç¼“ç¼©å›žäº†æ”¾åœ¨å¯’çŽ‰é’©ä¸Šçš„åŒæŽŒï¼Œè„¸è‰²çœ‹èµ·æ¥å¥½äº†è®¸å¤šã€‚\n"NOR,me);
         	me->delete_temp("pending/qi_heal");
         	me->delete_temp("period");
         	return 0;
@@ -132,27 +132,27 @@ int exercising(object me)
         me->receive_damage("neili", 50);
 	switch(period) {
         case 5:
-                write(YEL"Äã²»Í£µØ´ß¶¯ÄÚÏ¢£¬Ã÷ÏÔ¸Ð¾õµ½º®Óñ¹³Ö»ÖÐÓÐÖÖÆøÏ¢ÔÚ°ïÄãÁÆÉË¡£\n"NOR);
+                write(YEL"ä½ ä¸åœåœ°å‚¬åŠ¨å†…æ¯ï¼Œæ˜Žæ˜¾æ„Ÿè§‰åˆ°å¯’çŽ‰é’©åªä¸­æœ‰ç§æ°”æ¯åœ¨å¸®ä½ ç–—ä¼¤ã€‚\n"NOR);
                 break;
         case 20:
-                message_vision(YEL"$N»º»ººô³öÒ»¿ÚÆø£¬Á³É«¿´ÆðÀ´ºÃ¶àÁË¡£\n"NOR,me);
+                message_vision(YEL"$Nç¼“ç¼“å‘¼å‡ºä¸€å£æ°”ï¼Œè„¸è‰²çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n"NOR,me);
                 break;
         case 40:
-                write(YEL"ÄãµÄÄÚÏ¢»º»ºÔË×ª£¬Ç£Òý×Åº®Óñ¹³µÄÆøÏ¢Í¨ÐÐÓÚÈ«ÉíÉËÂö¡£\n"NOR);
+                write(YEL"ä½ çš„å†…æ¯ç¼“ç¼“è¿è½¬ï¼Œç‰µå¼•ç€å¯’çŽ‰é’©çš„æ°”æ¯é€šè¡ŒäºŽå…¨èº«ä¼¤è„‰ã€‚\n"NOR);
                 break;
         case 80:
-                write(YEL"º®Óñ¹³µÄÆøÏ¢ÔÚÄãÌåÄÚÂÖ»ØÔË×ª£¬Äã¸Ðµ½È«ÉíÊæÌ¹¼«ÁË¡£\n"NOR);
+                write(YEL"å¯’çŽ‰é’©çš„æ°”æ¯åœ¨ä½ ä½“å†…è½®å›žè¿è½¬ï¼Œä½ æ„Ÿåˆ°å…¨èº«èˆ’å¦æžäº†ã€‚\n"NOR);
                 me->improve_skill("force", 5+random(5));
                 break;
         case 110:
         case 120:
         case 140:
-                write(YEL"½¥½¥µÄ£¬ÄãÈ«ÉíµÄÁ¦ÆøÔÚº®Óñ¹³µÄ°ïÖúÏÂÔÚÑ¸ËÙµØ»Ö¸´×Å£¡\n"NOR);
+                write(YEL"æ¸æ¸çš„ï¼Œä½ å…¨èº«çš„åŠ›æ°”åœ¨å¯’çŽ‰é’©çš„å¸®åŠ©ä¸‹åœ¨è¿…é€Ÿåœ°æ¢å¤ç€ï¼\n"NOR);
                 me->improve_skill("force", 5);
                 break;
         case 160:
         case 190:
-                write(YEL"ÄãÈ«ÉíÒÑÎÞ´ó°­£¬½¥½¥ÔÝÍ£ÁËÒýµ¼º®Óñ¹³µÄÆøÏ¢¡£\n\n"NOR);
+                write(YEL"ä½ å…¨èº«å·²æ— å¤§ç¢ï¼Œæ¸æ¸æš‚åœäº†å¼•å¯¼å¯’çŽ‰é’©çš„æ°”æ¯ã€‚\n\n"NOR);
                 me->improve_skill("force", 1);
                 break;
         }
@@ -167,8 +167,8 @@ int halt_exercise(object me)
         me->delete_temp("period");
 	me->receive_damage("jing", 50);
 	me->receive_damage("jingli", 50);
-	tell_object(me, "ÄãÐÄÍ·Ò»¶¯£¬¼±Ã¦ÍÂÆøÄÉÏ¢£¬Ó²ÉúÉú½«º®Óñ¹³µÄÆøÏ¢Òýµ¼³öÈ¥¡£\n");
-	message_vision("$NÃ¼Í·Ò»Öå£¬½«Ë«ÕÆÊÕ»Ø£¬ÄÃ×Åº®Óñ¹³Õ¾ÁËÆðÀ´¡£\n", me);    
+	tell_object(me, "ä½ å¿ƒå¤´ä¸€åŠ¨ï¼Œæ€¥å¿™åæ°”çº³æ¯ï¼Œç¡¬ç”Ÿç”Ÿå°†å¯’çŽ‰é’©çš„æ°”æ¯å¼•å¯¼å‡ºåŽ»ã€‚\n");
+	message_vision("$Nçœ‰å¤´ä¸€çš±ï¼Œå°†åŒæŽŒæ”¶å›žï¼Œæ‹¿ç€å¯’çŽ‰é’©ç«™äº†èµ·æ¥ã€‚\n", me);    
         me->start_busy(1+random(5));
 	return 1;
 }

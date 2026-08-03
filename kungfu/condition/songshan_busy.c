@@ -10,7 +10,7 @@ void do_back(object me)
 	if(!me->query_temp("location"))
 		me->delete("location");
 	me->delete_temp("location");
-	tell_room(environment(me), me->name() + "����һ����"+RANK_D->query_self_rude(me)+"���ͷ��ˣ�\n", me);
+	tell_room(environment(me), me->name() + "哼了一声："+RANK_D->query_self_rude(me)+"不耐烦了！\n", me);
 	me->set_leader(0);
 	me->reincarnate(); 
 	if (!me->return_home())
@@ -36,9 +36,9 @@ int update_condition(object me, int duration)
 		}
 		if(environment(player) == environment(me))
 			return 1;
-		tell_room(environment(me) , me->name() + "����һ����"+player->name()+"����ȥ�ˣ�˵��㼱��ææ���뿪�ˡ�\n");
+		tell_room(environment(me) , me->name() + "咦了一声："+player->name()+"跑哪去了？说完便急急忙忙地离开了。\n");
 		if (me->move(environment(player)))
-			tell_room(environment(me) , me->name() + "����ææ�����˹�����\n");
+			tell_room(environment(me) , me->name() + "急急忙忙地走了过来。\n");
 		else destruct(me);
 	}
 	return 1;

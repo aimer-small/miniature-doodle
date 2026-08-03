@@ -3,9 +3,9 @@ inherit NPC;
 int ask_lineup();
 void create()
 {
-        set_name("ÎäÌì·ç", ({"wu tianfeng", "wu", "tianfeng"}) );
-        set("long", "ËûÊÇ»ÆÒ©Ê¦µÄĞ¡µÜ×Ó£¬±»ÒòÎª¾ÅÒõÕæ¾­ÊÂ¼ş±»»ÆÒ©Ê¦Öğ³öÌÒ»¨µº¡£\n");
-        set("gender", "ÄĞĞÔ" );
+        set_name("æ­¦å¤©é£", ({"wu tianfeng", "wu", "tianfeng"}) );
+        set("long", "ä»–æ˜¯é»„è¯å¸ˆçš„å°å¼Ÿå­ï¼Œè¢«å› ä¸ºä¹é˜´çœŸç»äº‹ä»¶è¢«é»„è¯å¸ˆé€å‡ºæ¡ƒèŠ±å²›ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("age", 35);
         set("attitude", "friendly");
         set("apprentice",1);
@@ -48,12 +48,12 @@ void create()
         prepare_skill("strike", "luoying-zhang");
 
         set("inquiry", ([
-                "²¼Õó": (: ask_lineup :),
+                "å¸ƒé˜µ": (: ask_lineup :),
         ]) );
 
         set("shen_type", 1);
         set("shen", 100);
-        create_family("ÌÒ»¨µº", 2, "µÜ×Ó");
+        create_family("æ¡ƒèŠ±å²›", 2, "å¼Ÿå­");
         set("class", "fighter");
         setup();
 

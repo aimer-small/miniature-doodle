@@ -41,22 +41,22 @@ int main(object me, string arg)
 	});
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É£¡\n");
+		return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼\n");
 
 	if( me->is_fighting() )
-		return notify_fail("Äã»¹ÊÇ×¨ĞÄ×÷Õ½°É£¡\n");
+		return notify_fail("ä½ è¿˜æ˜¯ä¸“å¿ƒä½œæˆ˜å§ï¼\n");
 
 	if( me->query("jingli") < 10 )
-		return notify_fail("Äã»¹ÊÇµÈÓĞÁ¦ÆøµÄÊ±ºòÔÙËµ°É£¡\n");
+		return notify_fail("ä½ è¿˜æ˜¯ç­‰æœ‰åŠ›æ°”çš„æ—¶å€™å†è¯´å§ï¼\n");
 
 	env = environment(me);
 	if (!env->query("outdoors"))
-		return notify_fail("Äã´òËã²ğÎİÑ½£¿\n");
+		return notify_fail("ä½ æ‰“ç®—æ‹†å±‹å‘€ï¼Ÿ\n");
 
 	if (env->query("no_dig")) {
 		if (stringp(env->query("no_dig")))
 			return notify_fail(env->query("no_dig"));
-		return notify_fail("ÕâÀï²»×¼Ëæ±ãÍÚ¾ò¡£\n");
+		return notify_fail("è¿™é‡Œä¸å‡†éšä¾¿æŒ–æ˜ã€‚\n");
 	}
 
 	weapon = me->query_temp("weapon");
@@ -64,49 +64,49 @@ int main(object me, string arg)
 	if ( weapon)
 	if ( weapon->query("skill_type") == "whip"
 	|| weapon->query("skill_type") == "throwing")
-		return notify_fail("ÄãÓÃ"+weapon->name()+"ÍÚ£¬ºÃÏñºÜÄÑÏÂÊÖ°É£¿\n");
+		return notify_fail("ä½ ç”¨"+weapon->name()+"æŒ–ï¼Œå¥½åƒå¾ˆéš¾ä¸‹æ‰‹å§ï¼Ÿ\n");
 
 	if ( strsrch(file_name(env), "/cmds/leitai/bwdh") >= 0 ) {
 		j = sizeof(obj);
 		while (j--)
 		if ( obj[j]->query("sjsz_item"))
-			return notify_fail("ÄãÏÈ½«¸ÕÍÚ³öÀ´µÄ¶«Î÷´¦Àíµô£¬ÔÙ¼ÌĞøÍÚ°É¡£\n");
+			return notify_fail("ä½ å…ˆå°†åˆšæŒ–å‡ºæ¥çš„ä¸œè¥¿å¤„ç†æ‰ï¼Œå†ç»§ç»­æŒ–å§ã€‚\n");
 
 		list = filter_array(all_inventory(env), (: userp :) );
 		list -= ({me, 0});
 
 		if ( sizeof(list))
-			return notify_fail("ÍÚ¾ò±¦ÎïÕâÃ´ÃØÃÜµÄÊÂ£¬²»ÒËÓĞµÚ¶şÈËÔÚ³¡£¡\n");
+			return notify_fail("æŒ–æ˜å®ç‰©è¿™ä¹ˆç§˜å¯†çš„äº‹ï¼Œä¸å®œæœ‰ç¬¬äºŒäººåœ¨åœºï¼\n");
 
 		if ( env->query("dig_times") < 1 )
-			return notify_fail("¿´À´ÕâÀïÒÑ¾­ÍÚ²»³öÊ²Ã´¶«Î÷ÁË¡£\n");
+			return notify_fail("çœ‹æ¥è¿™é‡Œå·²ç»æŒ–ä¸å‡ºä»€ä¹ˆä¸œè¥¿äº†ã€‚\n");
 
 		if ( me->query_temp("dig_busy") && !wizardp(me))
-			return notify_fail("Äã¸Õ¸ÕÍÚ¾òÍê±Ï£¬»¹ÊÇÏÈĞİÏ¢Ò»»á°É¡£\n");
+			return notify_fail("ä½ åˆšåˆšæŒ–æ˜å®Œæ¯•ï¼Œè¿˜æ˜¯å…ˆä¼‘æ¯ä¸€ä¼šå§ã€‚\n");
 
 		local = localtime(time());
 		if ( ! room = find_object("/cmds/leitai/bwdh/zongtai"))
 			room = load_object("/cmds/leitai/bwdh/zongtai");
 
 		if ( ! room->query("time1") && !room->query("time2"))
-			return notify_fail("ÏµÍ³»¹Î´·ÖÅäÊ±¼ä£¬ÏÖÔÚÊÔ½£É½×¯ÄÚ²»µÃÍÚ¾ò±¦Îï¡£\n");
+			return notify_fail("ç³»ç»Ÿè¿˜æœªåˆ†é…æ—¶é—´ï¼Œç°åœ¨è¯•å‰‘å±±åº„å†…ä¸å¾—æŒ–æ˜å®ç‰©ã€‚\n");
 
 		if ( !env->query("have_quest_room"))
 		if ( local[2] < room->query("time1")
 		|| ( local[2] >= room->query("time1") + 4 && local[2] < room->query("time2") )
 		|| ( local[2] >= room->query("time2") + 4 && local[2] < room->query("time3") )
 		|| local[2] >= room->query("time3") + 4)
-			return notify_fail("ÏÖÔÚµÄÊ±¼ä¶Î£¬ÊÔ½£É½×¯ÄÚ²»ÄÜÍÚ¾ò±¦Îï¡£\n");
+			return notify_fail("ç°åœ¨çš„æ—¶é—´æ®µï¼Œè¯•å‰‘å±±åº„å†…ä¸èƒ½æŒ–æ˜å®ç‰©ã€‚\n");
 /*
 		if ( me->query("no_pk"))
-			return notify_fail("ÄãÒÑ¾­½ğÅèÏ´ÊÖ£¬¾Í²»ÒªÔÙ½éÈë½­ºş·×ÕùÁË¡£\n");
+			return notify_fail("ä½ å·²ç»é‡‘ç›†æ´—æ‰‹ï¼Œå°±ä¸è¦å†ä»‹å…¥æ±Ÿæ¹–çº·äº‰äº†ã€‚\n");
 */
 	}
 
 	if ( weapon )
-		message_vision(HIY"$N¶×ÔÚµØÉÏ£¬ÓÃÊÖÖĞµÄ"+weapon->name()+HIY"ÔÚµØÉÏÒ»ÕóÂÒÅÙ¡£\n"NOR, me);
+		message_vision(HIY"$Nè¹²åœ¨åœ°ä¸Šï¼Œç”¨æ‰‹ä¸­çš„"+weapon->name()+HIY"åœ¨åœ°ä¸Šä¸€é˜µä¹±åˆ¨ã€‚\n"NOR, me);
 	else 
-		message_vision(HIY"$N¶×ÔÚµØÉÏ£¬¿ÕÊÖÔÚµØÉÏÒ»ÕóÂÒÅÙ¡£\n"NOR, me);
+		message_vision(HIY"$Nè¹²åœ¨åœ°ä¸Šï¼Œç©ºæ‰‹åœ¨åœ°ä¸Šä¸€é˜µä¹±åˆ¨ã€‚\n"NOR, me);
 
 	if ( !wizardp(me))
 		me->add_busy(1);
@@ -136,16 +136,16 @@ int main(object me, string arg)
 			ob->move(me);
 			me->set_temp("dig_busy", 1);
 			call_out("remove_busy", 10 +random(5), me);
-			message_vision("¾­¹ıÒ»¶ÎÊ±¼äµÄÑ°ÕÒ£¬$NÍÚµ½ÁËÒ»" + ob->query("unit") + ob->query("name") + "¡£\n", me);
+			message_vision("ç»è¿‡ä¸€æ®µæ—¶é—´çš„å¯»æ‰¾ï¼Œ$NæŒ–åˆ°äº†ä¸€" + ob->query("unit") + ob->query("name") + "ã€‚\n", me);
 			if ( str == "combat_exp") {
-				message_vision("$NÕıÒª×ĞÏ¸²é¿´ÊÖÖĞµÄ"+ob->query("name")+"£¬ºöÈ»Ò»Î»ÊÔ½£É½×¯µÄ»¤Ôº³åÁË½øÀ´¡£\n",me);
+				message_vision("$Næ­£è¦ä»”ç»†æŸ¥çœ‹æ‰‹ä¸­çš„"+ob->query("name")+"ï¼Œå¿½ç„¶ä¸€ä½è¯•å‰‘å±±åº„çš„æŠ¤é™¢å†²äº†è¿›æ¥ã€‚\n",me);
 				huwei= new(__SJSZ__"npc/huwei");
 				huwei->set_temp("target", getuid(me));
 				huwei->move(environment(me));
 			}
 		}
 		else
-			message_vision("$NÍÚÁËÒ»Õó£¬½á¹ûÊ²Ã´Ò²Ã»ÓĞÕÒµ½¡£\n", me);
+			message_vision("$NæŒ–äº†ä¸€é˜µï¼Œç»“æœä»€ä¹ˆä¹Ÿæ²¡æœ‰æ‰¾åˆ°ã€‚\n", me);
 	}
 	else {
 		if (random(80 - 2 * me->query("kar")) == 7 && !env->query("dig_out")) {
@@ -156,7 +156,7 @@ int main(object me, string arg)
 			for (i = 0; i < sizeof(item_list); i++) {
 				if ((chance -= item_list[i]["chance"]) < 0) {
 					ob = new(item_list[i]["object"]);
-					message_vision("¾­¹ıÒ»¶ÎÊ±¼äµÄÑ°ÕÒ£¬$NÍÚµ½ÁËÒ»" + ob->query("unit") + ob->query("name") + "¡£\n", me);
+					message_vision("ç»è¿‡ä¸€æ®µæ—¶é—´çš„å¯»æ‰¾ï¼Œ$NæŒ–åˆ°äº†ä¸€" + ob->query("unit") + ob->query("name") + "ã€‚\n", me);
 					ob->move(me);
 					return 1;
 				}
@@ -165,7 +165,7 @@ int main(object me, string arg)
 		if (env->query("dig_out"))
 			if (env->add("dig_out", 1) > 100)
 				env->delete("dig_out");
-		message_vision("$NÍÚÁËÒ»Õó£¬Ê²Ã´Ò²Ã»ÓĞÕÒµ½¡£\n", me);
+		message_vision("$NæŒ–äº†ä¸€é˜µï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰æ‰¾åˆ°ã€‚\n", me);
 	}
 	return 1;
 }
@@ -173,9 +173,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : dig
+æŒ‡ä»¤æ ¼å¼ : dig
 
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãÔÚ»§ÍâÍÚ¾òµØÃæ£¬¿ÉÄÜ»áÍÚµ½Ò»Ğ©ÎïÆ·.
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ åœ¨æˆ·å¤–æŒ–æ˜åœ°é¢ï¼Œå¯èƒ½ä¼šæŒ–åˆ°ä¸€äº›ç‰©å“.
 
 HELP
     );

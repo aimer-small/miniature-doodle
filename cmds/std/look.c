@@ -1,11 +1,11 @@
-// look.c ¸üĞÂ°æ±¾
+// look.c æ›´æ–°ç‰ˆæœ¬
 // Modified by snowman@SJ 11/12/2000
-// Inv ÏÔÊ¾ÓÅ»¯£¬¼õÉÙÏûºÄ¡£
+// Inv æ˜¾ç¤ºä¼˜åŒ–ï¼Œå‡å°‘æ¶ˆè€—ã€‚
 // modified by olives@SJ 4/21/2000
-// ĞŞÕıÒ»¸ölookÃèÊö¸úÄêÁäÎŞ¹ØµÄbug
-// query´íÁË
+// ä¿®æ­£ä¸€ä¸ªlookæè¿°è·Ÿå¹´é¾„æ— å…³çš„bug
+// queryé”™äº†
 // modified by augx@sj 9/11/2001
-// Ìí¼ÓÎïÆ·ËğºÄÏÔÊ¾
+// æ·»åŠ ç‰©å“æŸè€—æ˜¾ç¤º
 
 #include <room.h>
 #include <ansi.h>
@@ -28,26 +28,26 @@ string inventory_look(object obj, int corpse, int equip);
 void create() { seteuid(getuid()); }
 
 nosave mapping to_chinses = ([
-	"damage":"ÉËº¦Á¦+$x",
-	"armor":"·ÀÓùÁ¦+$x",
-	"strength":"Á¦Á¿+$x",
-	"constitution":"¸ù¹Ç+$x",
-	"dexerity":"Éí·¨+$x",
-	"intelligence":"ÎòĞÔ+$x",
-	"attack":"ÃüÖĞ+$x",
-	"defense":"ÉÁ±Ü+$x",
-	"neili":"ÄÚÁ¦+$x",
-	"jingli":"¾«Á¦+$x",
-	"jing":"¾«Ñª+$x",
-	"qi":"ÆøÑª+$x",
-	"re_qi":"ÆøÑª»Ö¸´ËÙ¶È+$x%",
-	"re_neili":"ÄÚÁ¦»Ö¸´ËÙ¶È+$x%",
-	"re_jing":"¾«Ñª»Ö¸´ËÙ¶È+$x%",
-	"re_jingli":"¾«Á¦»Ö¸´ËÙ¶È+$x%",
-	"parry":"ÕĞ¼Ü+$x",
-	"dodge":"Çá¹¦+$x",
-	"force":"ÄÚ¹¦+$x",
-	"armor_vs_force":"ÄÚ¹¦¿¹ĞÔ+$x",
+	"damage":"ä¼¤å®³åŠ›+$x",
+	"armor":"é˜²å¾¡åŠ›+$x",
+	"strength":"åŠ›é‡+$x",
+	"constitution":"æ ¹éª¨+$x",
+	"dexerity":"èº«æ³•+$x",
+	"intelligence":"æ‚Ÿæ€§+$x",
+	"attack":"å‘½ä¸­+$x",
+	"defense":"é—ªé¿+$x",
+	"neili":"å†…åŠ›+$x",
+	"jingli":"ç²¾åŠ›+$x",
+	"jing":"ç²¾è¡€+$x",
+	"qi":"æ°”è¡€+$x",
+	"re_qi":"æ°”è¡€æ¢å¤é€Ÿåº¦+$x%",
+	"re_neili":"å†…åŠ›æ¢å¤é€Ÿåº¦+$x%",
+	"re_jing":"ç²¾è¡€æ¢å¤é€Ÿåº¦+$x%",
+	"re_jingli":"ç²¾åŠ›æ¢å¤é€Ÿåº¦+$x%",
+	"parry":"æ‹›æ¶+$x",
+	"dodge":"è½»åŠŸ+$x",
+	"force":"å†…åŠŸ+$x",
+	"armor_vs_force":"å†…åŠŸæŠ—æ€§+$x",
 ]);
 
 int main(object me, string arg)
@@ -112,23 +112,23 @@ void realtime_map(object me,object env)
                 map_room2=alldirs["enter"];
                 if(alldirs["enter"]!="          "){
                         map_room2=alldirs["enter"];
-                        jiantou=HIR+"¡Ä"+NOR;
+                        jiantou=HIR+"âˆ§"+NOR;
                         }
                 if(alldirs["up"]!="          "){
                         map_room2=alldirs["up"];
-                        jiantou=HIC+"¡ş"+NOR;
+                        jiantou=HIC+"ã€“"+NOR;
                         }
                 if(alldirs["northdown"]!="          "){
                         map_room2=alldirs["northdown"];
-                        jiantou="¡ı";
+                        jiantou="â†“";
                         }
                 if(alldirs["northup"]!="          "){
                         map_room2=alldirs["northup"];
-                        jiantou="¡ü";
+                        jiantou="â†‘";
                         }
                 if(alldirs["north"]!="          "){
                         map_room2=alldirs["north"];
-                        jiantou="£ü";
+                        jiantou="ï½œ";
                         }
                 map_room=map_room2;
                 for(i=0;i<(10-strlen(map_room2))/2;i++)
@@ -140,21 +140,21 @@ void realtime_map(object me,object env)
                 alldirs["northwest"],map_room,alldirs["northeast"]);
                 
                 printf("                        %s   %s   %s\n",
-                alldirs["northwest"]=="          " ? "  ":"¨I",
+                alldirs["northwest"]=="          " ? "  ":"â†–",
                 jiantou,
-                alldirs["northeast"]=="          " ? "  ":"¨J");
+                alldirs["northeast"]=="          " ? "  ":"â†—");
                 
                 jiantou="  ";
                 map_room2=alldirs["westdown"];
                 if(map_room2!="          ")
-                                jiantou="¡ú";
+                                jiantou="â†’";
                 if(alldirs["left"]!="          "){
                         map_room2=alldirs["left"];
-                        jiantou="¡´";
+                        jiantou="ã€ˆ";
                         }
                 if(alldirs["westup"]!="          "){
                         map_room2=alldirs["westup"];
-                        jiantou="¡û";
+                        jiantou="â†";
                         }
                 if(alldirs["west"]!="          "){
                         map_room2=alldirs["west"];
@@ -177,14 +177,14 @@ void realtime_map(object me,object env)
                 jiantou="  ";
                 map_room2=alldirs["eastup"];
                 if(map_room2!="          ")
-                                jiantou="¡ú";
+                                jiantou="â†’";
                 if(alldirs["right"]!="          "){
                         map_room2=alldirs["right"];
-                        jiantou="¡µ";
+                        jiantou="ã€‰";
                         }
                 if(alldirs["eastdown"]!="          "){
                         map_room2=alldirs["eastdown"];
-                        jiantou="¡û";
+                        jiantou="â†";
                         }
                 if(alldirs["east"]!="          "){
                         map_room2=alldirs["east"];
@@ -197,24 +197,24 @@ void realtime_map(object me,object env)
                 map_room2=alldirs["out"];
                 if(alldirs["out"]!="          "){
                         map_room2=alldirs["out"];
-                        jiantou=HIR+"¡Å"+NOR;
+                        jiantou=HIR+"âˆ¨"+NOR;
                         }
                 if(alldirs["down"]!="          "){
                         map_room2=alldirs["down"];
-                        jiantou=HIC+"¡ş"+NOR;
+                        jiantou=HIC+"ã€“"+NOR;
                         }
                 
                 if(alldirs["southdown"]!="          "){
                                 map_room2=alldirs["southdown"];
-                                jiantou="¡ü";
+                                jiantou="â†‘";
                                 }
                 if(alldirs["southup"]!="          "){
                         map_room2=alldirs["southup"];
-                        jiantou="¡ı";
+                        jiantou="â†“";
                         }
                 if(alldirs["south"]!="          "){
                         map_room2=alldirs["south"];
-                        jiantou="£ü";
+                        jiantou="ï½œ";
                         }
                 map_room=map_room2;
                 for(i=0;i<(10-strlen(map_room2))/2;i++)
@@ -223,9 +223,9 @@ void realtime_map(object me,object env)
                                 map_room =" "+map_room;
                         }
                 printf("                        %s   %s   %s\n",
-                alldirs["southwest"]=="          " ? "  ":"¨L",
+                alldirs["southwest"]=="          " ? "  ":"â†™",
                 jiantou,
-                alldirs["southeast"]=="          " ? "  ":"¨K");
+                alldirs["southeast"]=="          " ? "  ":"â†˜");
                 printf("             %10s  %7s  %6s\n",
                 alldirs["southwest"],map_room,alldirs["southeast"]);
                 
@@ -258,7 +258,7 @@ int look_room(object me, object env, int night)
 	string str, *dirs, arg;
 
 	if( !env ) {
-		write("ÄãµÄËÄÖÜ»ÒÃÉÃÉµÄÒ»Æ¬£¬Ê²Ã´Ò²Ã»ÓĞ¡£\n");
+		write("ä½ çš„å››å‘¨ç°è’™è’™çš„ä¸€ç‰‡ï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
 		return 1;
 	}
 	// night ^_^ , added by snowman@SJ
@@ -266,15 +266,15 @@ int look_room(object me, object env, int night)
 	&& !env->query_night_light()
 	&& random(me->query_con()) < 35) {
 		if(env->query("night_long")) str = env->query("night_long");
-		else str = "ÕâÀïÒ»Æ¬ÆáºÚ£¬ÄãËäÈ»Õö´óÁËÑÛ¾¦×ĞÏ¸¹Û¿´£¬¿É»¹ÊÇ¿´²»Çå³şÖÜÎ§µÄ\n"+
-			"ÊÂÎï¡£Ò»ÇĞ¶¼±»ÁıÕÖÔÚºÚ°µÖ®ÖĞ£¬ÉìÊÖ²»¼ûÎåÖ¸... \n";
+		else str = "è¿™é‡Œä¸€ç‰‡æ¼†é»‘ï¼Œä½ è™½ç„¶çå¤§äº†çœ¼ç›ä»”ç»†è§‚çœ‹ï¼Œå¯è¿˜æ˜¯çœ‹ä¸æ¸…æ¥šå‘¨å›´çš„\n"+
+			"äº‹ç‰©ã€‚ä¸€åˆ‡éƒ½è¢«ç¬¼ç½©åœ¨é»‘æš—ä¹‹ä¸­ï¼Œä¼¸æ‰‹ä¸è§äº”æŒ‡... \n";
 	} else if (env->query("outdoors") && night
 	&& environment(me) != env
 	&& !env->query_night_light()
 	&& random(me->query_con()) < 35) {
 		if(env->query("night_long")) str = env->query("night_long");
-		else str = "Ò¹ÍíÁË£¬ÄãËäÈ»Õö´óÁËÑÛ¾¦×ĞÏ¸¹Û¿´£¬¿É»¹ÊÇ¿´²»Çå³şÖÜÎ§µÄÊÂÎï¡£\n"+
-			"Ò»ÇĞ¶¼±»Ò¹É«ËùÁıÕÖ£¬Á¬½ÅÏÂµÄµÀÂ·¶¼Ä£ºı²»ÇåÁË... \n";
+		else str = "å¤œæ™šäº†ï¼Œä½ è™½ç„¶çå¤§äº†çœ¼ç›ä»”ç»†è§‚çœ‹ï¼Œå¯è¿˜æ˜¯çœ‹ä¸æ¸…æ¥šå‘¨å›´çš„äº‹ç‰©ã€‚\n"+
+			"ä¸€åˆ‡éƒ½è¢«å¤œè‰²æ‰€ç¬¼ç½©ï¼Œè¿è„šä¸‹çš„é“è·¯éƒ½æ¨¡ç³Šä¸æ¸…äº†... \n";
 	}
 
 	str = sprintf( "%s - %s\n    %s%s",
@@ -299,13 +299,13 @@ int look_room(object me, object env, int night)
 				dirs[i] = 0;
 		dirs -= ({ 0 });
 		if (sizeof(dirs) < 1)
-			str += "    ÕâÀïÃ»ÓĞÈÎºÎÃ÷ÏÔµÄ³öÂ·¡£\n";
+			str += "    è¿™é‡Œæ²¡æœ‰ä»»ä½•æ˜æ˜¾çš„å‡ºè·¯ã€‚\n";
 		else if ((env->query("no_light")
 		|| (night && environment(me) != env && env->query("outdoors")))
 		&& !env->query_night_light() && random(me->query_con()) < 15) {
 			i = random(sizeof(dirs));
-			if (random(me->query_con()) < 10) str += "    ÕâÀï¿´²»¼ûÈÎºÎÃ÷ÏÔµÄ³öÂ·¡£\n";
-			else str += "    ÕâÀï¿´µÃ¼ûµÄÎ¨Ò»³ö¿ÚÊÇ " + BOLD + dirs[i] + NOR + "¡£\n";
+			if (random(me->query_con()) < 10) str += "    è¿™é‡Œçœ‹ä¸è§ä»»ä½•æ˜æ˜¾çš„å‡ºè·¯ã€‚\n";
+			else str += "    è¿™é‡Œçœ‹å¾—è§çš„å”¯ä¸€å‡ºå£æ˜¯ " + BOLD + dirs[i] + NOR + "ã€‚\n";
 		} else {
 			for(i=0; i<sizeof(dirs); i++) {
 				switch (dirs[i]) {
@@ -335,9 +335,9 @@ int look_room(object me, object env, int night)
 			if(dirs2d[0])  str+=HIR; str += " e"NOR;
 
 			if(sizeof(dirs)==1)
-				str += "    ÆäËû³ö¿ÚÓĞ " + BOLD + dirs[0] + NOR + "¡£\n";
+				str += "    å…¶ä»–å‡ºå£æœ‰ " + BOLD + dirs[0] + NOR + "ã€‚\n";
 			else if(sizeof(dirs)> 1)
-				str += sprintf("    ÆäËû³ö¿ÚÓĞ "+BOLD+"%s"+NOR+" ºÍ "+BOLD+"%s"+NOR+ "¡£\n", implode(dirs[0..<2], "¡¢"), dirs[<1]);
+				str += sprintf("    å…¶ä»–å‡ºå£æœ‰ "+BOLD+"%s"+NOR+" å’Œ "+BOLD+"%s"+NOR+ "ã€‚\n", implode(dirs[0..<2], "ã€"), dirs[<1]);
 			else str += "\n";
 
 			if(dirs2d[3])  str+=HIR; str += "sw "NOR;
@@ -352,21 +352,21 @@ int look_room(object me, object env, int night)
 				dirs[i] = 0;
 		dirs -= ({ 0 });
 		if (sizeof(dirs) < 1)
-			str += "    ÕâÀïÃ»ÓĞÈÎºÎÃ÷ÏÔµÄ³öÂ·¡£\n";
+			str += "    è¿™é‡Œæ²¡æœ‰ä»»ä½•æ˜æ˜¾çš„å‡ºè·¯ã€‚\n";
 		// night ^_^ , added by snowman@SJ
 		else if ((env->query("no_light")
 		|| (night && environment(me) != env && env->query("outdoors")))
 		&& !env->query_night_light() && random(me->query_con()) < 35) {
 			i = random(sizeof(dirs));
-			if (random(me->query_con()) < 10) str += "    ÕâÀï¿´²»¼ûÈÎºÎÃ÷ÏÔµÄ³öÂ·¡£\n";
+			if (random(me->query_con()) < 10) str += "    è¿™é‡Œçœ‹ä¸è§ä»»ä½•æ˜æ˜¾çš„å‡ºè·¯ã€‚\n";
 			else if (random(me->query_con()) < 20)
-				str += "    ÕâÀï¿´µÃ¼ûµÄÎ¨Ò»³ö¿ÚÊÇ " + BOLD + dirs[i] + NOR + "¡£\n";
-			else str += sprintf("    ÕâÀï¿´µÃÇåµÄ³ö¿ÚÊÇ " + BOLD + "%s" + NOR + "¡£\n", implode(dirs[0..i], "¡¢"));
+				str += "    è¿™é‡Œçœ‹å¾—è§çš„å”¯ä¸€å‡ºå£æ˜¯ " + BOLD + dirs[i] + NOR + "ã€‚\n";
+			else str += sprintf("    è¿™é‡Œçœ‹å¾—æ¸…çš„å‡ºå£æ˜¯ " + BOLD + "%s" + NOR + "ã€‚\n", implode(dirs[0..i], "ã€"));
 		}
 		// hehehe.....
-		else if( sizeof(dirs)==1 ) str += "    ÕâÀïÎ¨Ò»µÄ³ö¿ÚÊÇ " + BOLD + dirs[0] + NOR + "¡£\n";
-		else str += sprintf("    ÕâÀïÃ÷ÏÔµÄ³ö¿ÚÊÇ " + BOLD + "%s" + NOR + " ºÍ " + BOLD + "%s" + NOR + "¡£\n",
-			implode(dirs[0..<2], "¡¢"), dirs[<1]);
+		else if( sizeof(dirs)==1 ) str += "    è¿™é‡Œå”¯ä¸€çš„å‡ºå£æ˜¯ " + BOLD + dirs[0] + NOR + "ã€‚\n";
+		else str += sprintf("    è¿™é‡Œæ˜æ˜¾çš„å‡ºå£æ˜¯ " + BOLD + "%s" + NOR + " å’Œ " + BOLD + "%s" + NOR + "ã€‚\n",
+			implode(dirs[0..<2], "ã€"), dirs[<1]);
 	}
 
 	env->delete("move_desc");
@@ -392,7 +392,7 @@ int look_room(object me, object env, int night)
 		if (!mapp(exits[arg])) {
 			exits[arg] = ([
 				"total" : 1,
-				"unit" : (inv[i]->query("unit")?inv[i]->query("unit"):"¸ö"),
+				"unit" : (inv[i]->query("unit")?inv[i]->query("unit"):"ä¸ª"),
 				"short" : inv[i]->short(),
 			]);
 		}
@@ -400,7 +400,7 @@ int look_room(object me, object env, int night)
 	}
 	if (me->query("env/look")){
 		string place_name = get_place(file_name(env));
-		if(place_name && place_name!="" && place_name!="ÖĞÔ­ÉñÖİ" ) write("¡¾ÄãÏÖÔÚÕı´¦ÓÚ" HIG+ place_name + NOR+"¡¿\n");
+		if(place_name && place_name!="" && place_name!="ä¸­åŸç¥å·" ) write("ã€ä½ ç°åœ¨æ­£å¤„äº" HIG+ place_name + NOR+"ã€‘\n");
 		realtime_map(me,env);
 	}
 	
@@ -437,25 +437,25 @@ int look_item(object me, object obj)
                 sn = to_chinese(skill["name"]);                
                 if(!undefinedp(skill["exp_required"])){
                 	if (skill["exp_required"] == 0)
-                		look_msg += "ÎŞ¾­ÑéÖµÒªÇó\n";
+                		look_msg += "æ— ç»éªŒå€¼è¦æ±‚\n";
                 	else
-                        	look_msg += sprintf("ÖÁÉÙÒªÓĞ %d µã¾­ÑéÖµ\n", skill["exp_required"]);
+                        	look_msg += sprintf("è‡³å°‘è¦æœ‰ %d ç‚¹ç»éªŒå€¼\n", skill["exp_required"]);
 		
 		}
                 if(!undefinedp(skill["min_skill"]))
-                        look_msg += sprintf("¡¸%s¡¹ÖÁÉÙÒªÓĞ %d ¼¶\n", sn,skill["min_skill"]);
+                        look_msg += sprintf("ã€Œ%sã€è‡³å°‘è¦æœ‰ %d çº§\n", sn,skill["min_skill"]);
                 
                 if(!undefinedp(skill["difficulty"]))
-                        look_msg += sprintf("ÖÁÉÙÒªÓĞ %d µãÎòĞÔ\n", skill["difficulty"]);
+                        look_msg += sprintf("è‡³å°‘è¦æœ‰ %d ç‚¹æ‚Ÿæ€§\n", skill["difficulty"]);
                 
                 if(!undefinedp(skill["max_skill"]))
-                        look_msg += sprintf("¿ÉÒÔÑ§Ï°¡¸%s¡¹µ½ %d ¼¶\n", sn, skill["max_skill"]);
+                        look_msg += sprintf("å¯ä»¥å­¦ä¹ ã€Œ%sã€åˆ° %d çº§\n", sn, skill["max_skill"]);
                 if(look_msg != "") 
-                write(HIG"Ò»ÅÅ¹Å×­×ÖĞ´×Å¡¸"+obj->query("name")+"¡¹Ñ§Ï°ÒªÇó£º\n"NOR
+                write(HIG"ä¸€æ’å¤ç¯†å­—å†™ç€ã€Œ"+obj->query("name")+"ã€å­¦ä¹ è¦æ±‚ï¼š\n"NOR
                 	+
-                	"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n"
+                	"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n"
                 	+look_msg+
-                	"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n");
+                	"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n");
         }        
         if(mapp(obj->query("material_prop")) || mapp(obj->query("material_props")))
         {               
@@ -483,29 +483,29 @@ int look_item(object me, object obj)
                 }
                 }
 		if(look_msg != "") 
-                write(HIG"Ò»ÅÅ¹Å×­×ÖĞ´×Å¡¸"+obj->query("name")+HIG"¡¹¾ßÌå¹¦ÄÜ£º\n"NOR
+                write(HIG"ä¸€æ’å¤ç¯†å­—å†™ç€ã€Œ"+obj->query("name")+HIG"ã€å…·ä½“åŠŸèƒ½ï¼š\n"NOR
                 	+
-                	"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n"
+                	"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n"
                 	+look_msg+
-                	"©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n");
+                	"â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n");
         }       	
 	if( !(int)obj->query("broken") && (i = (int)obj->query("dur")) ) {
-		if(i>1500) write("¿´ÆğÀ´Ã»ÓĞÊ²Ã´Ëğ»µ¡£\n");
-		else if(i>750) write("¿´ÆğÀ´ÒÑ¾­Ê¹ÓÃ¹ıÒ»¶ÎÊ±¼äÁË¡£\n");
-		else if(i>200) write("¿´ÆğÀ´ĞèÒªĞŞÀíÁË¡£\n");
-		else write("¿´ÆğÀ´ÂíÉÏ¾ÍÒª»µÁË¡£\n");
+		if(i>1500) write("çœ‹èµ·æ¥æ²¡æœ‰ä»€ä¹ˆæŸåã€‚\n");
+		else if(i>750) write("çœ‹èµ·æ¥å·²ç»ä½¿ç”¨è¿‡ä¸€æ®µæ—¶é—´äº†ã€‚\n");
+		else if(i>200) write("çœ‹èµ·æ¥éœ€è¦ä¿®ç†äº†ã€‚\n");
+		else write("çœ‹èµ·æ¥é©¬ä¸Šå°±è¦åäº†ã€‚\n");
 	}
 	inv = all_inventory(obj);
 	if( !obj->is_closed() && sizeof(inv)) {
 		switch( (string)obj->query("prep") ) {
-			case "on":prep = "ÉÏ";break;
-			case "under":prep = "ÏÂ"; break;
-			case "behind":prep = "ºó";break;
-			case "inside":prep = "Àï";break;
-			default:prep = "Àï";
+			case "on":prep = "ä¸Š";break;
+			case "under":prep = "ä¸‹"; break;
+			case "behind":prep = "å";break;
+			case "inside":prep = "é‡Œ";break;
+			default:prep = "é‡Œ";
 		}
 		inv = map_array(inv, "inventory_look", this_object(), 1);
-		write(sprintf("%sÃæÓĞ£º\n  %s\n", prep, implode(inv, "\n  ")));
+		write(sprintf("%sé¢æœ‰ï¼š\n  %s\n", prep, implode(inv, "\n  ")));
 	}
 	return 1;
 }
@@ -517,42 +517,42 @@ string getper(object obj)
 	string str;
 
 	per = obj->query_per();
-   //   age = obj->query("str"); ¸ù¾İstr?²»¶ÔÍ·°É£¿
+   //   age = obj->query("str"); æ ¹æ®str?ä¸å¯¹å¤´å§ï¼Ÿ
 	age = obj->query("age");
 
-	if (obj->query("gender") == "Å®ĞÔ") {
-		if (per >= 40) str = "³¬·²ÍÑË×£¬½¿ÑŞ¾øÂ×£¬Ã²ÈçÎ÷×ÓÊ¤Èı·Ö£¡";
+	if (obj->query("gender") == "å¥³æ€§") {
+		if (per >= 40) str = "è¶…å‡¡è„±ä¿—ï¼Œå¨‡è‰³ç»ä¼¦ï¼Œè²Œå¦‚è¥¿å­èƒœä¸‰åˆ†ï¼";
 		else if (per >= 37) {
-			if (age > 22) str = "Öì´½²»Í¿Ò»µãºì£¬»ØíøÒ»Ğ¦°ÙÃÄÉú£¡";
-			else str = "ÇåÀö¾øË×£¬±ùÇåÓñ½à£¬ÓĞÈç»­ÖĞÌìÏÉ£¡";
+			if (age > 22) str = "æœ±å”‡ä¸æ¶‚ä¸€ç‚¹çº¢ï¼Œå›çœ¸ä¸€ç¬‘ç™¾åªšç”Ÿï¼";
+			else str = "æ¸…ä¸½ç»ä¿—ï¼Œå†°æ¸…ç‰æ´ï¼Œæœ‰å¦‚ç”»ä¸­å¤©ä»™ï¼";
 		} else if (per >= 33) {
-			if (age > 22) str = "ÈİÃ²·áÃÀ£¬ÆøÖÊ¸ßÑÅ£¬¿°³ÆÈË¼äÏÉ×Ó£¡";
-			else str = "ÈİÃ²½¿ÃÀ£¬æ¯»¨ÕÕË®£¬¿°³ÆÈË¼äÏÉ×Ó£¡";
+			if (age > 22) str = "å®¹è²Œä¸°ç¾ï¼Œæ°”è´¨é«˜é›…ï¼Œå ªç§°äººé—´ä»™å­ï¼";
+			else str = "å®¹è²Œå¨‡ç¾ï¼Œå§£èŠ±ç…§æ°´ï¼Œå ªç§°äººé—´ä»™å­ï¼";
 		} else if (per >= 30) {
-			if (age > 22) str = "Á³ÈôÒøÅè£¬ÑÛÈçË®ĞÓ£¬ÏàÃ²¾øÃÀ£¡";
-			else str = "ÃÀÛ¼¾øÂ×£¬Ò»Ğ¦Çã³Ç£¬ÔÙĞ¦Çã¹ú£¡";
-		} else if (per >= 27) str = "Ğß»¨±ÕÔÂ£¬ÍğÈôÌìÏÉ£¡";
-		else if (per >= 24) str = "»¨ÑÕÔÂÃ²£¬ÈáÃÄ½¿ÇÎ£¡";
-		else if (per >= 20) str = "³ş³ş¶¯ÈË£¬ÓĞ¼¸·Ö×ËÉ«£¡";
-		else if (per >= 17) str = "ÏàÃ²Æ½Ó¹£¬ºÜÊÇÒ»°ã¡£";
-		else if (per >= 14) str = "Îå¹ÙÅ²Î»£¬Ã²ËÆÎŞÑÎ¡£";
-		else str = "Ò»ËúºıÍ¿£¬²»ÊÇÈËÑù£¡";
+			if (age > 22) str = "è„¸è‹¥é“¶ç›†ï¼Œçœ¼å¦‚æ°´æï¼Œç›¸è²Œç»ç¾ï¼";
+			else str = "ç¾å¥‚ç»ä¼¦ï¼Œä¸€ç¬‘å€¾åŸï¼Œå†ç¬‘å€¾å›½ï¼";
+		} else if (per >= 27) str = "ç¾èŠ±é—­æœˆï¼Œå®›è‹¥å¤©ä»™ï¼";
+		else if (per >= 24) str = "èŠ±é¢œæœˆè²Œï¼ŒæŸ”åªšå¨‡ä¿ï¼";
+		else if (per >= 20) str = "æ¥šæ¥šåŠ¨äººï¼Œæœ‰å‡ åˆ†å§¿è‰²ï¼";
+		else if (per >= 17) str = "ç›¸è²Œå¹³åº¸ï¼Œå¾ˆæ˜¯ä¸€èˆ¬ã€‚";
+		else if (per >= 14) str = "äº”å®˜æŒªä½ï¼Œè²Œä¼¼æ— ç›ã€‚";
+		else str = "ä¸€å¡Œç³Šæ¶‚ï¼Œä¸æ˜¯äººæ ·ï¼";
 	} else {
-		if (per >= 40) str = "Ó¢×Ë²ª·¢£¬Ò»±íÈË²Å£¬³ÆÎª¹ÅÍù½ñÀ´µÚÒ»ÈË£¡";
-		else if (per >= 37) str = "ÓñÊ÷ÁÙ·ç£¬·çÁ÷ÙÃÙÎ£¬¿°³Æ¾øÊÀÃÀÄĞ£¡";
-		else if (per >= 33) str = "ÇåĞã¿¡ÑÅ£¬ÏàÃ²·Ç·²£¬ÕæÊÇÈËÖĞÁú·ï£¡";
+		if (per >= 40) str = "è‹±å§¿å‹ƒå‘ï¼Œä¸€è¡¨äººæ‰ï¼Œç§°ä¸ºå¤å¾€ä»Šæ¥ç¬¬ä¸€äººï¼";
+		else if (per >= 37) str = "ç‰æ ‘ä¸´é£ï¼Œé£æµå€œå‚¥ï¼Œå ªç§°ç»ä¸–ç¾ç”·ï¼";
+		else if (per >= 33) str = "æ¸…ç§€ä¿Šé›…ï¼Œç›¸è²Œéå‡¡ï¼ŒçœŸæ˜¯äººä¸­é¾™å‡¤ï¼";
 		else if (per >= 30) {
-			if (age < 16) str = "Ã²ËÆÃÀÅ®£¬Á³Èô¹ÚÓñ£¬Èõ²»½û·ç£¡";
-			else  str = "Ã²ËÆÅË°²£¬Èİ±ÈËÎÓñ£¬ÒÇ±íÌÃÌÃ£¡";
+			if (age < 16) str = "è²Œä¼¼ç¾å¥³ï¼Œè„¸è‹¥å† ç‰ï¼Œå¼±ä¸ç¦é£ï¼";
+			else  str = "è²Œä¼¼æ½˜å®‰ï¼Œå®¹æ¯”å®‹ç‰ï¼Œä»ªè¡¨å ‚å ‚ï¼";
 		}
-		else if (per >= 27) str = "ÏàÃ²³öÖÚ£¬¿°³ÆÃÀÄĞ£¡";
-		else if (per >= 24) str = "Ó¢¿¡äìÈ÷£¬ÆøÖÊ·Ç·²¡£";
-		else if (per >= 20) str = "Îå¹Ù¶ËÕı£¬ÏàÃ²Æ½Æ½¡£";
-		else if (per >= 17) str = "Îå¹Ù²»Õı£¬ÂúÁ³Âé×Ó¡£";
-		else if (per >= 14) str = "Å£ÑÛÂ¿´½£¬ÃæÄ¿ÕøÄü¡£";
-		else str = "ÓĞÈçÀ×¹«ÏÂ·²£¬°Ë½ä·µ»ê£¡";
+		else if (per >= 27) str = "ç›¸è²Œå‡ºä¼—ï¼Œå ªç§°ç¾ç”·ï¼";
+		else if (per >= 24) str = "è‹±ä¿Šæ½‡æ´’ï¼Œæ°”è´¨éå‡¡ã€‚";
+		else if (per >= 20) str = "äº”å®˜ç«¯æ­£ï¼Œç›¸è²Œå¹³å¹³ã€‚";
+		else if (per >= 17) str = "äº”å®˜ä¸æ­£ï¼Œæ»¡è„¸éº»å­ã€‚";
+		else if (per >= 14) str = "ç‰›çœ¼é©´å”‡ï¼Œé¢ç›®ç‹°ç‹ã€‚";
+		else str = "æœ‰å¦‚é›·å…¬ä¸‹å‡¡ï¼Œå…«æˆ’è¿”é­‚ï¼";
 	}
-	return "³¤µÃ" + str + "\n";
+	return "é•¿å¾—" + str + "\n";
 }
 
 string gettof(object ob, int self)
@@ -585,22 +585,22 @@ int look_living(object me, object obj)
 	if( me != obj && obj->visible(me)) {
 		if (wizardp(obj))
 			tell_object(obj, "("+capitalize(me->query("id"))+")");
-		tell_object(obj, me->name() + "Õı¶¢×ÅÄã¿´£¬²»ÖªµÀ´òĞ©Ê²Ã´Ö÷Òâ¡£\n");
+		tell_object(obj, me->name() + "æ­£ç›¯ç€ä½ çœ‹ï¼Œä¸çŸ¥é“æ‰“äº›ä»€ä¹ˆä¸»æ„ã€‚\n");
 	}
 
 	inv = explode(obj->long(), "\n");
 	if (sizeof(inv) > 10) {
 		str = implode(inv[0..8], "\n") + "\n";
-		str += "´Ë´¦É¾È¥"+chinese_number(sizeof(inv)-9)+"ĞĞ¡£\n";
+		str += "æ­¤å¤„åˆ å»"+chinese_number(sizeof(inv)-9)+"è¡Œã€‚\n";
 	} else str = implode(inv, "\n") + "\n";
 
 	pro = (obj==me) ? gender_self(obj->query("gender")) : gender_pronoun(obj->query("gender"));
 
 	if (!obj->query_temp("apply/long")) {
-		if( (string)obj->query("race")=="ÈËÀà"
+		if( (string)obj->query("race")=="äººç±»"
 		&& intp(age = obj->query("age"))
 		&& !obj->query("no_head")) {
-			if (obj->query("gender") != "ÄĞĞÔ"
+			if (obj->query("gender") != "ç”·æ€§"
 			&& obj->query_skill("beauty") > 34) {
 				int temp_age = (obj->query_skill("beauty") - 30) / 5;
 
@@ -608,29 +608,29 @@ int look_living(object me, object obj)
 					temp_age = age / 2;
 				age -= temp_age;
 			}
-			if (age < 10) str += sprintf("%s¿´ÆğÀ´²»µ½Ê®Ëê", pro);
-			else str += sprintf("%s¿´ÆğÀ´Ô¼%s¶àËê", pro, chinese_number(age / 10 * 10));
-			if (wizardp(me) || userp(obj) && obj->query("age") >= 16) str += "£¬" + getper(obj);
-			else str += "¡£\n";
+			if (age < 10) str += sprintf("%sçœ‹èµ·æ¥ä¸åˆ°åå²", pro);
+			else str += sprintf("%sçœ‹èµ·æ¥çº¦%så¤šå²", pro, chinese_number(age / 10 * 10));
+			if (wizardp(me) || userp(obj) && obj->query("age") >= 16) str += "ï¼Œ" + getper(obj);
+			else str += "ã€‚\n";
 			if (obj==me || wizardp(me)) age = 1;
 			else age = 0;
 			// add by snowman@SJ 28/02/2000
 			if(!obj->is_corpse())
 				if (living(obj) && (me->query("combat_exp") > obj->query("combat_exp")/3*2 || me==obj))
-				str +=sprintf("%sµÄÎäÒÕ¿´ÉÏÈ¥", pro) + gettof(obj, age) +"£¬³öÊÖËÆºõ" + getdam(obj) +"¡£\n";
-				else str += pro+"µÄÎä¹¦¿´²»³öÉîÇ³¡£\n";
+				str +=sprintf("%sçš„æ­¦è‰ºçœ‹ä¸Šå»", pro) + gettof(obj, age) +"ï¼Œå‡ºæ‰‹ä¼¼ä¹" + getdam(obj) +"ã€‚\n";
+				else str += pro+"çš„æ­¦åŠŸçœ‹ä¸å‡ºæ·±æµ…ã€‚\n";
 		}
 		// Modified by snowman@SJ 04/04/2000. move family check to rankd.c
 		if (obj != me && userp(obj))
-			str += pro + "ÊÇÄãµÄ"+RANK_D->query_family_close(me, obj)+"¡£\n";
+			str += pro + "æ˜¯ä½ çš„"+RANK_D->query_family_close(me, obj)+"ã€‚\n";
 
 		if (userp(obj) && obj->query("id") == me->query("marry/id"))
-			str += pro + "ÊÇÄãµÄ"
-				+ (obj->query("gender") == "Å®ĞÔ"?"Äï×Ó":"·ò¾ı")
-				+ "¡£\n";
+			str += pro + "æ˜¯ä½ çš„"
+				+ (obj->query("gender") == "å¥³æ€§"?"å¨˜å­":"å¤«å›")
+				+ "ã€‚\n";
 		else if (obj->query_temp("marry") == me)
-			str += pro + "ÊÇÄãµÄÎ´»é"
-			+ (obj->query("gender") == "Å®ĞÔ"?"ÆŞ":"·ò") + "¡£\n";
+			str += pro + "æ˜¯ä½ çš„æœªå©š"
+			+ (obj->query("gender") == "å¥³æ€§"?"å¦»":"å¤«") + "ã€‚\n";
 	}
 
 	if (obj->query("max_qi")) {
@@ -653,15 +653,15 @@ int look_living(object me, object obj)
 	inv = map_array(inv, "inventory_look", this_object(), obj->is_corpse());
 	inv -= ({ 0 });
 	if( sizeof(inv) )
-		str += sprintf( obj->is_corpse() ? "%sµÄÒÅÎïÓĞ£º\n%s\n" : "%s´©´÷×Å£º\n%s\n",
+		str += sprintf( obj->is_corpse() ? "%sçš„é—ç‰©æœ‰ï¼š\n%s\n" : "%sç©¿æˆ´ç€ï¼š\n%s\n",
 			pro, implode(inv, "\n") );
-//	else if (me != obj && obj->query("race")=="ÈËÀà")
-//		str += pro + "ÉíÉÏÃ»ÓĞÈÎºÎ´©´÷¡£\n";
+//	else if (me != obj && obj->query("race")=="äººç±»")
+//		str += pro + "èº«ä¸Šæ²¡æœ‰ä»»ä½•ç©¿æˆ´ã€‚\n";
 	inv = ({ obj->query_temp("weapon") });
 	inv -= ({ 0 });
-	if( sizeof(inv) ) str += sprintf("%s×°±¸×Å£º\n%s\n",pro, inventory_look(inv[0], 0, 1));
-//	else if (me != obj && obj->query("race")=="ÈËÀà")
-//		str += pro + "ÉíÉÏÃ»ÓĞÈÎºÎ×°±¸¡£\n";
+	if( sizeof(inv) ) str += sprintf("%sè£…å¤‡ç€ï¼š\n%s\n",pro, inventory_look(inv[0], 0, 1));
+//	else if (me != obj && obj->query("race")=="äººç±»")
+//		str += pro + "èº«ä¸Šæ²¡æœ‰ä»»ä½•è£…å¤‡ã€‚\n";
 
 	write(str);
 
@@ -669,10 +669,10 @@ int look_living(object me, object obj)
 	&& !(userp(me) && userp(obj) && me->query("marry/id") == obj->query("id"))
 	&& obj->query("shen") < -me->query_int() * 100 ) {
 		if( (int)obj->query("combat_exp") > (int)me->query("combat_exp")){
-			write(obj->name() + "Í»È»×ª¹ıÍ·À´µÉÄãÒ»ÑÛ¡£\n");
+			write(obj->name() + "çªç„¶è½¬è¿‡å¤´æ¥çªä½ ä¸€çœ¼ã€‚\n");
 			COMBAT_D->auto_fight(obj, me, "berserk");
 		}
-		else write(obj->name() + "Í»È»×ª¹ıÍ·À´¿´ÁËÄã¼¸ÑÛ¡£\n");
+		else write(obj->name() + "çªç„¶è½¬è¿‡å¤´æ¥çœ‹äº†ä½ å‡ çœ¼ã€‚\n");
 	}
 	return 1;
 }
@@ -684,10 +684,10 @@ string inventory_look(object obj, int corpse, int equip)
 	if( obj->query("equipped")) {
 		if (corpse || (!equip && !obj->query("weapon_prop"))
 		|| (equip && obj->query("weapon_prop")))
-		    str = HIC "  ¡õ" NOR + obj->short();
+		    str = HIC "  â–¡" NOR + obj->short();
 		else return 0;
 	}
-	else if( obj->query("embedded") && !corpse && !equip)  str = HIR "  ¡î" NOR + obj->short();
+	else if( obj->query("embedded") && !corpse && !equip)  str = HIR "  â˜†" NOR + obj->short();
 	else if( corpse )
 		str = "    " + obj->short();
 	else return 0;
@@ -701,7 +701,7 @@ int look_room_item(object me, string arg)
 	mapping item, exits;
 
 	if (!objectp(env = environment(me)))
-		return notify_fail("ÕâÀï³ıÁË»ÒÃÉÃÉµÄÒ»Æ¬£¬Ê²Ã´Ò²Ã»ÓĞ¡£\n");
+		return notify_fail("è¿™é‡Œé™¤äº†ç°è’™è’™çš„ä¸€ç‰‡ï¼Œä»€ä¹ˆä¹Ÿæ²¡æœ‰ã€‚\n");
 	if (mapp(item = env->query("item_desc")) && !undefinedp(item[arg])) {
 		if (stringp(item[arg]))
 			write(item[arg]);
@@ -712,10 +712,10 @@ int look_room_item(object me, string arg)
 	if( mapp(exits = env->query("exits")) && !undefinedp(exits[arg]) ) {
 		if( objectp(env = load_object(exits[arg])) )
 			look_room(me, env, NATURE_D->is_night());
-		else return notify_fail("Õâ¸ö·½ÏòÎŞ·¨¿´Çå£¬Çë±¨¸æÎ×Ê¦¡£\n");
+		else return notify_fail("è¿™ä¸ªæ–¹å‘æ— æ³•çœ‹æ¸…ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆã€‚\n");
 		return 1;
 	}
-	return notify_fail("ÄãÒª¿´Ê²Ã´£¿\n");
+	return notify_fail("ä½ è¦çœ‹ä»€ä¹ˆï¼Ÿ\n");
 }
 
 string *tough_level_desc = ({ LEVEL });
@@ -740,10 +740,10 @@ string tough_level(int power, int hide_level, int self)
 string getdam(object obj)
 {
 	int level;
-	string *heavy_level_desc= ({"¼«Çá","ºÜÇá","²»ÖØ","²»Çá","ºÜÖØ","¼«ÖØ",});
+	string *heavy_level_desc= ({"æè½»","å¾ˆè½»","ä¸é‡","ä¸è½»","å¾ˆé‡","æé‡",});
 
 	level = obj->query("jiali");
-	level += obj->query_temp("apply/damage")/3;  // weapon ¼ÓÁ¦Ğ§¹ûµÈÓÚ unarmed / 3
+	level += obj->query_temp("apply/damage")/3;  // weapon åŠ åŠ›æ•ˆæœç­‰äº unarmed / 3
 
 	level /= 30;
 	if( level >= sizeof(heavy_level_desc) ) level = sizeof(heavy_level_desc)-1;
@@ -753,13 +753,13 @@ string getdam(object obj)
 int help (object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: look [<ÎïÆ·>|<ÉúÎï>|<·½Ïò>]
+æŒ‡ä»¤æ ¼å¼: look [<ç‰©å“>|<ç”Ÿç‰©>|<æ–¹å‘>]
 
-Õâ¸öÖ¸ÁîÈÃÄã²é¿´ÄãËùÔÚµÄ»·¾³¡¢Ä³¼şÎïÆ·¡¢ÉúÎï¡¢»òÊÇ·½Ïò¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ æŸ¥çœ‹ä½ æ‰€åœ¨çš„ç¯å¢ƒã€æŸä»¶ç‰©å“ã€ç”Ÿç‰©ã€æˆ–æ˜¯æ–¹å‘ã€‚
 
-Ó°Ïì´ËÃüÁîµÄ»·¾³±äÁ¿£º
-set brief 1/0 : ¼òµ¥/ÏêÏ¸ ÏÔÊ¾·¿ÎİÃèÊö
-set newlook 1/0 : Ö±¹Û/¾­µä ÏÔÊ¾·½Ïò
+å½±å“æ­¤å‘½ä»¤çš„ç¯å¢ƒå˜é‡ï¼š
+set brief 1/0 : ç®€å•/è¯¦ç»† æ˜¾ç¤ºæˆ¿å±‹æè¿°
+set newlook 1/0 : ç›´è§‚/ç»å…¸ æ˜¾ç¤ºæ–¹å‘
 
 HELP
 );

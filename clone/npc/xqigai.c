@@ -5,11 +5,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ğ¡ÆòØ¤", ({ "xiao qigai", "xiao", "qigai" }));
+        set_name("å°ä¹ä¸", ({ "xiao qigai", "xiao", "qigai" }));
 	set("title","");
 	set("gb/bags", 1);
-        set("long","ÕâÊÇÒ»¸öĞ¡ÆòØ¤£¬Á³ÉÏÓĞ²»ÉÙÄà¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set("long","è¿™æ˜¯ä¸€ä¸ªå°ä¹ä¸ï¼Œè„¸ä¸Šæœ‰ä¸å°‘æ³¥ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 33);
         set("attitude", "peaceful");
         set("shen_type", 0);
@@ -32,7 +32,7 @@ void create()
         set_skill("parry", 30);
         set_skill("begging", 50);
 
-	create_family("Ø¤°ï", 20, "µÜ×Ó");
+	create_family("ä¸å¸®", 20, "å¼Ÿå­");
         setup();
 
         carry_object(CLASS_D("gaibang/obj/gb_budai1"))->wear();

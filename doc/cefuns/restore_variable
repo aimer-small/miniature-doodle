@@ -1,16 +1,16 @@
 
 	restore_variable(3)	MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		restore_variable() - ´ÓÒ»¸ö×Ö´®¶Á»Ø±äÊıÖµ.
-	Óï·¨:
+	åç§°:
+		restore_variable() - ä»ä¸€ä¸ªå­—ä¸²è¯»å›å˜æ•°å€¼.
+	è¯­æ³•:
 		mixed restore_variable( string value );
 
-		»ìºÏ restore_variable( ×Ö´® value );
-	ÓÃ·¨:
-		´ÓÒ»¸ö×Ö´®¶Á»Ø±äÊıÖµ. ×Ö´®µÄ¸ñÊ½Óë save_object() ºÍ
-		restore_object() ËùÊ¹ÓÃµÄÏàÍ¬.
-	²Î¿¼:
+		æ··åˆ restore_variable( å­—ä¸² value );
+	ç”¨æ³•:
+		ä»ä¸€ä¸ªå­—ä¸²è¯»å›å˜æ•°å€¼. å­—ä¸²çš„æ ¼å¼ä¸ save_object() å’Œ
+		restore_object() æ‰€ä½¿ç”¨çš„ç›¸åŒ.
+	å‚è€ƒ:
 		restore_object(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Jun.2.		(printed 3/16/95)

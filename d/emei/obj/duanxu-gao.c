@@ -12,16 +12,16 @@ void init()
 
 void create()
 {
-        set_name(MAG"ÌìÏã¶ÏÐø¸à"NOR, ({"tianxiang duanxugao", "duanxugao", "gao"}));
+        set_name(MAG"å¤©é¦™æ–­ç»­è†"NOR, ({"tianxiang duanxugao", "duanxugao", "gao"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸±");
-                set("long", "ÕâÊÇÒ»¸±¶ëáÒÅÉµÄÁéµ¤ÃîÒ©£¬ÔÚÊÜÉËµÄÊ±ºò·óÉÏ¿ÉÒÔºÜ¿ì¸´Ô­¡£µ«Ò©ÐÔÃÍÁÒ£¬·óÓÃºó»áÔÚÒ»¶ÎÊ±¼äÄÚ²»ÄÜ×öÈÎºÎÊÂÇé¡£\n");
+                set("unit", "å‰¯");
+                set("long", "è¿™æ˜¯ä¸€å‰¯å³¨åµ‹æ´¾çš„çµä¸¹å¦™è¯ï¼Œåœ¨å—ä¼¤çš„æ—¶å€™æ•·ä¸Šå¯ä»¥å¾ˆå¿«å¤åŽŸã€‚ä½†è¯æ€§çŒ›çƒˆï¼Œæ•·ç”¨åŽä¼šåœ¨ä¸€æ®µæ—¶é—´å†…ä¸èƒ½åšä»»ä½•äº‹æƒ…ã€‚\n");
                 set("no_drop", 1);
                 set("no_give", 1);
                 set("value", 5000);
-                set("no_get", "ÕâÑù¶«Î÷ÄãÄÃ²»ÁË¡£\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä½ æ‹¿ä¸äº†ã€‚\n");
         }
         setup();
 }
@@ -32,21 +32,21 @@ int do_fu(string arg)
 //      nv = ((int)this_player()->query("max_qi") - (int)this_player()->query("eff_qi")) * 8 / 10;
         object me=this_player();
         if (!id(arg))
-                return notify_fail("ÄãÒª·óÊ²Ã´Ò©£¿\n");
+                return notify_fail("ä½ è¦æ•·ä»€ä¹ˆè¯ï¼Ÿ\n");
 
         if ( me->is_busy() || me->is_fighting())
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
         if( me->query_condition("bonze_drug"))
-                return notify_fail("Äã²»ÊÇ¸Õ³Ô¹ýÒ©£¬Ôõ÷áÓÖÀ´³ÔÁË£¿ ÁéÒ©¶à³ÔÓÐº¦ÎÞÒË£¬¹ý¶ÎÊ±¼äÔÙ³Ô°É¡£\n");
+                return notify_fail("ä½ ä¸æ˜¯åˆšåƒè¿‡è¯ï¼Œæ€Žéº½åˆæ¥åƒäº†ï¼Ÿ çµè¯å¤šåƒæœ‰å®³æ— å®œï¼Œè¿‡æ®µæ—¶é—´å†åƒå§ã€‚\n");
 
         if ((int)me->query("eff_qi") == (int)me->query("max_qi"))
-                return notify_fail("ÄãÏÖÔÚ²»ÐèÒªÓÃÌìÏã¶ÏÐø¸à¡£\n");
+                return notify_fail("ä½ çŽ°åœ¨ä¸éœ€è¦ç”¨å¤©é¦™æ–­ç»­è†ã€‚\n");
 
         else {
                 me->set("eff_qi", this_player()->query("max_qi"));
                 me->set("qi", this_player()->query("max_qi"));
-                message_vision("$NÔÚÉË¿Ú·óÉÏÒ»¸±ÌìÏã¶ÏÐø¸à£¬ÆøÉ«¿´ÆðÀ´ºÃ¶àÁË¡£\n", this_player());
+                message_vision("$Nåœ¨ä¼¤å£æ•·ä¸Šä¸€å‰¯å¤©é¦™æ–­ç»­è†ï¼Œæ°”è‰²çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n", this_player());
                 me->set("eff_jing", me->query("max_jing") );
                 me->set("jing", me->query("eff_jing") );
                 me->set("qi", me->query("eff_qi") );

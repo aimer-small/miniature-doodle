@@ -3,10 +3,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "����");
+        set("short", "北街");
         set("long", @LONG
-���ݳǱ��֣���������缸���Ѿ���ȫͣ�¡����Ͼ͵��������ֵĲ���
-���ջ�ˡ���������������ÿ�춼�������ˣ��ֵ�����Ǹ���ӡ�
+沧州城北街，到了这里，风几乎已经完全停下。向南就到了最热闹的沧州
+大客栈了。那里来来往往的每天都有许多人，街的左边是个民居。
 LONG );
         set("exits", ([
                 "north" : __DIR__"beijie2",
@@ -19,6 +19,6 @@ LONG );
 	set("objects", ([
                 CLASS_D("gaibang/qigai") : 1,
         ]));
-	set("outdoors", "����");
+	set("outdoors", "沧州");
 	setup();
 }

@@ -1,6 +1,6 @@
 // abandon.c
 // Motify by snowman at 19/03/1999.
-// ¼ÓÉÏÔÙÈ·¶¨¡£
+// åŠ ä¸Šå†ç¡®å®šã€‚
 
 #include <ansi.h>
 
@@ -12,35 +12,35 @@ int main(object me, string arg)
 int level, lvl = 0;
 
 if (!arg)
-return notify_fail("Ö¸Áî¸ñÊ½£ºabandon|fangqi <¼¼ÄÜÃû³Æ> [¼¶Êı]\n");
+return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šabandon|fangqi <æŠ€èƒ½åç§°> [çº§æ•°]\n");
 
 sscanf(arg, "%s %d", arg, lvl);
   
 if (!me->query_skills() || undefinedp(me->query_skills()[arg]))
-return notify_fail("Äã²¢Ã»ÓĞÕâÏî¼¼ÄÜ¡£\n");
+return notify_fail("ä½ å¹¶æ²¡æœ‰è¿™é¡¹æŠ€èƒ½ã€‚\n");
 
 level = me->query_skill(arg, 1);
 
 if (!intp(lvl) || lvl < 0) 
-return notify_fail("¼¶Êı²»¿ÉÎª¸ºÊı¡£\n");
+return notify_fail("çº§æ•°ä¸å¯ä¸ºè´Ÿæ•°ã€‚\n");
 
 if (me->is_busy())
-return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 me->start_busy(1);
 if (!lvl) lvl = me->query_skill(arg, 1);
 if (lvl >= level) {
 if (lvl < 60) {
 me->delete_skill(arg);
-write("\nÄã·ÅÆúÁË"+ to_chinese(arg) +"¡£\n\n");
+write("\nä½ æ”¾å¼ƒäº†"+ to_chinese(arg) +"ã€‚\n\n");
 } else {
-write("\n×¢Òâ£¡Äã½«Òª·ÅÆúÈ«²¿ "HIW + to_chinese(arg) + "("+arg+")"NOR" £¬È·¶¨Âğ£¿[Y|N] >");
+write("\næ³¨æ„ï¼ä½ å°†è¦æ”¾å¼ƒå…¨éƒ¨ "HIW + to_chinese(arg) + "("+arg+")"NOR" ï¼Œç¡®å®šå—ï¼Ÿ[Y|N] >");
 input_to("delete_all", me, arg, lvl);
 }
 } 
 else if (level < 100)
-return notify_fail("ÄãÕâÏî¼¼ÄÜ»¹Ã»ÓĞµ½ÄÜÊÕ·Å×ÔÈçµÄµØ²½¡£\n");
+return notify_fail("ä½ è¿™é¡¹æŠ€èƒ½è¿˜æ²¡æœ‰åˆ°èƒ½æ”¶æ”¾è‡ªå¦‚çš„åœ°æ­¥ã€‚\n");
 else {
-write("\n×¢Òâ£¡Äã½«Òª·ÅÆú" + chinese_number(lvl)+ "¼¶ "HIW+to_chinese(arg)+"("+arg+")"NOR" £¬È·¶¨Âğ£¿[Y|N] >");
+write("\næ³¨æ„ï¼ä½ å°†è¦æ”¾å¼ƒ" + chinese_number(lvl)+ "çº§ "HIW+to_chinese(arg)+"("+arg+")"NOR" ï¼Œç¡®å®šå—ï¼Ÿ[Y|N] >");
 input_to("delete_skill", me, arg, level, lvl);
 }
 return 1;
@@ -51,11 +51,11 @@ private void delete_all(string arg, object me, string skill, int lvl)
 if( arg[0]=='y' || arg[0]=='Y' ){
 me->delete_skill(skill);
 if(userp(me) && !wizardp(me) && lvl >= 60)
-log_file("static/ABANDON", sprintf("%s(%s) ·ÅÆúÁËÈ«²¿ %d ¼¶ %s ÔÚ %s\n",
+log_file("static/ABANDON", sprintf("%s(%s) æ”¾å¼ƒäº†å…¨éƒ¨ %d çº§ %s åœ¨ %s\n",
 me->name(1), me->query("id"), lvl, to_chinese(skill) , ctime(time()) ));
-write("\nÄã·ÅÆúÁË"+ to_chinese(skill) +"¡£\n\n");
+write("\nä½ æ”¾å¼ƒäº†"+ to_chinese(skill) +"ã€‚\n\n");
 }
-else write("\nÄã¾ö¶¨±£Áô"+ to_chinese(skill) +"("+skill+")¡£\n\n");
+else write("\nä½ å†³å®šä¿ç•™"+ to_chinese(skill) +"("+skill+")ã€‚\n\n");
 }
 
 private void delete_skill(string arg, object me, string skill, int level, int lvl)
@@ -63,33 +63,33 @@ private void delete_skill(string arg, object me, string skill, int level, int lv
 if( arg[0]=='y' || arg[0]=='Y' ){
 me->set_skill(skill, level - lvl);
 if(userp(me) && !wizardp(me) && lvl >= 60)
-     log_file("static/ABANDON", sprintf("%s(%s) ·ÅÆúÁË %d ¼¶ %s ÔÚ %s\n",
+     log_file("static/ABANDON", sprintf("%s(%s) æ”¾å¼ƒäº† %d çº§ %s åœ¨ %s\n",
   me->name(1),me->query("id"), lvl, to_chinese(skill) , ctime(time()) ));
-write("\nÄã·ÅÆúÁË" + chinese_number(lvl)+ "¼¶"+ to_chinese(skill) +"("+skill+")¡£\n\n");
+write("\nä½ æ”¾å¼ƒäº†" + chinese_number(lvl)+ "çº§"+ to_chinese(skill) +"("+skill+")ã€‚\n\n");
 }
-else write("\nÄã¾ö¶¨±£Áô"+ to_chinese(skill) +"("+skill+")¡£\n\n");
+else write("\nä½ å†³å®šä¿ç•™"+ to_chinese(skill) +"("+skill+")ã€‚\n\n");
 }
 
 int help()
 {
 write("
-Ö¸Áî¸ñÊ½£ºabandon|fangqi <¼¼ÄÜÃû³Æ> [¼¶Êı]
+æŒ‡ä»¤æ ¼å¼ï¼šabandon|fangqi <æŠ€èƒ½åç§°> [çº§æ•°]
 
-·ÅÆúÒ»ÏîÄãËùÑ§¹ıµÄ¼¼ÄÜ£¬×¢ÒâÕâÀïËùËµµÄ¡¸·ÅÆú¡¹ÊÇÖ¸½«ÕâÏî¼¼ÄÜ´ÓÄãÈËÎï
-µÄ×ÊÁÏÖĞÉ¾³ı£¬Èç¹ûÄãÒÔºó»¹ÒªÁ·£¬±ØĞë´Ó£°¿ªÊ¼ÖØÁ·£¬ÇëÎñ±Ø¿¼ÂÇÇå³ş¡£
+æ”¾å¼ƒä¸€é¡¹ä½ æ‰€å­¦è¿‡çš„æŠ€èƒ½ï¼Œæ³¨æ„è¿™é‡Œæ‰€è¯´çš„ã€Œæ”¾å¼ƒã€æ˜¯æŒ‡å°†è¿™é¡¹æŠ€èƒ½ä»ä½ äººç‰©
+çš„èµ„æ–™ä¸­åˆ é™¤ï¼Œå¦‚æœä½ ä»¥åè¿˜è¦ç»ƒï¼Œå¿…é¡»ä»ï¼å¼€å§‹é‡ç»ƒï¼Œè¯·åŠ¡å¿…è€ƒè™‘æ¸…æ¥šã€‚
 
-»òÕß¿ÉÒÔÑ¡Ôñ·ÅÆúÖ¸¶¨µÄ¼¶Êı£¬·¶Î§±ØĞëÊÇ 1 µ½ÏÖÓĞ¼¶ÊıÖ®¼äµÄÊıÄ¿£¬´óÓÚ¼¶
-ÊıÒâÎ¶×ÅÈ«²¿·ÅÆú£¡
+æˆ–è€…å¯ä»¥é€‰æ‹©æ”¾å¼ƒæŒ‡å®šçš„çº§æ•°ï¼ŒèŒƒå›´å¿…é¡»æ˜¯ 1 åˆ°ç°æœ‰çº§æ•°ä¹‹é—´çš„æ•°ç›®ï¼Œå¤§äºçº§
+æ•°æ„å‘³ç€å…¨éƒ¨æ”¾å¼ƒï¼
 
-Õâ¸öÖ¸ÁîÊ¹ÓÃµÄ³¡ºÏÍ¨³£ÊÇÓÃÀ´É¾³ıÒ»Ğ©¡¸²»Ğ¡ĞÄ¡¹Á·³öÀ´µÄ¼¼ÄÜ£¬ÓÉÓÚÃ¿¸ö
-ÈËÓĞ×Å²»Í¬µÄÌì¸³£¬ËùĞŞÏ°µÄÎä¹¦Ò²²»»áÏàÍ¬¡£Èç¹ûÑùÑù¶¼Ñ§£¬µ½Í·À´Ö»»áÑù
-Ñù²»¾«¡£
+è¿™ä¸ªæŒ‡ä»¤ä½¿ç”¨çš„åœºåˆé€šå¸¸æ˜¯ç”¨æ¥åˆ é™¤ä¸€äº›ã€Œä¸å°å¿ƒã€ç»ƒå‡ºæ¥çš„æŠ€èƒ½ï¼Œç”±äºæ¯ä¸ª
+äººæœ‰ç€ä¸åŒçš„å¤©èµ‹ï¼Œæ‰€ä¿®ä¹ çš„æ­¦åŠŸä¹Ÿä¸ä¼šç›¸åŒã€‚å¦‚æœæ ·æ ·éƒ½å­¦ï¼Œåˆ°å¤´æ¥åªä¼šæ ·
+æ ·ä¸ç²¾ã€‚
 
-Àı£º abandon dodge 10.      ·ÅÆú 10 ¼¶»ù±¾Çá¹¦¡£
-     abandon dodge. ·ÅÆú»ù±¾Çá¹¦¡£
+ä¾‹ï¼š abandon dodge 10.      æ”¾å¼ƒ 10 çº§åŸºæœ¬è½»åŠŸã€‚
+     abandon dodge. æ”¾å¼ƒåŸºæœ¬è½»åŠŸã€‚
      
 
-×¢Òâ£ºÎ×Ê¦²»»á»Ö¸´Äã·ÅÆúµÄÎä¹¦£¬Ò»ÇĞºó¹û×Ô¸º£¡
+æ³¨æ„ï¼šå·«å¸ˆä¸ä¼šæ¢å¤ä½ æ”¾å¼ƒçš„æ­¦åŠŸï¼Œä¸€åˆ‡åæœè‡ªè´Ÿï¼
      
 \n");
 return 1;

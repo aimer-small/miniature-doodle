@@ -7,11 +7,11 @@ string ask_water();
 
 void create()
 {
-        set_name("��ʦ", ({ "chu zi", "chu" }));
-        set("title", "�������");
+        set_name("厨师", ({ "chu zi", "chu" }));
+        set("title", "日月神教");
         set("long", 
-                "������̵�һ�����ӣ�Ц���еؿ����㣬�����ܺ��Ƶ����ӡ�\n");
-        set("gender", "����");
+                "日月神教的一个厨子，笑眯眯地看着你，看来很和善的样子。\n");
+        set("gender", "男性");
         set("age", 34);
         set("attitude", "peaceful");
         set("shen_type", 1);
@@ -34,12 +34,12 @@ void create()
         set_skill("cuff", 10);
         set_skill("parry", 10);
 
-        create_family("�������", 11, "����");
+        create_family("日月神教", 11, "弟子");
         set("inquiry", ([
-              "��" : (: ask_water :),
-              "ˮ" : (: ask_water :),
-              "����" : (:ask_food:),
-              "ʳ��" : (:ask_food:),
+              "茶" : (: ask_water :),
+              "水" : (: ask_water :),
+              "棕子" : (:ask_food:),
+              "食物" : (:ask_food:),
         ]));
 
         setup();
@@ -64,14 +64,14 @@ string ask_food()
         ob=this_object();
         me=this_player();
         if ((me->query("food")*10/me->max_water_capacity())>8)
-                return "����ô�Ա��˻���Ҫ��";
+                return "你怎么吃饱了还想要？";
         if ( present("rice", this_player()))
-                return "�ȳ������Ҹ������˵�ɡ�";
+                return "先吃完了我给你的再说吧。";
         if ( present("rice",  environment(me)) )
-                return "�ǲ��������ȳ�������˵��";              
+                return "那不是有吗？先吃完了再说。";              
         food = new (FOOD_D("zongzi"));
         food->move(environment(ob));
-        return "����������ȵ����Ӹ���ɣ��������Ӵ��";
+        return "这个又香又热的棕子给你吧，请慢点吃哟。";
 
 }
  
@@ -83,14 +83,14 @@ string ask_water()
         ob = this_object();
         me = this_player();
         if ((me->query("water")*10/me->max_water_capacity())>8)
-                return "����ô�ȱ��˻���Ҫ��";
+                return "你怎么喝饱了还想要？";
         if ( present("tea", this_player()))
-                return "�Ⱥ������Ҹ������˵�ɡ�";
+                return "先喝完了我给你的再说吧。";
         if ( present("tea",  environment(me)) )
-                return "�ǲ��������Ⱥ�������˵��";
+                return "那不是有吗？先喝完了再说。";
         water = new (FOOD_D("tang"));
         water->move(environment(ob));
-        return "�Ɑ�����͸���ɣ��������Ӵ��";
+        return "这杯大碗茶就给你吧，请慢点喝哟。";
         
 }
 
@@ -99,5 +99,5 @@ void greeting(object ob)
         if( !ob || environment(ob) != environment() ) return;
          
         command(":) "+ob->query("id"));
-        command("say ����������˰ɣ��Ҹ���Ū��Եĺͺȵġ�");
+        command("say 快进来，累了吧？我给您弄点吃的和喝的。");
 }

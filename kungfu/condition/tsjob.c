@@ -10,7 +10,7 @@ int update_condition(object me, int duration)
         {
                 if (!me->query_temp("tsjob/killed"))
                 {
-                        tell_object(me, HBRED+HIW+"ÄãËù×·»÷µÄÌ©É½ÅÉÅÑÍ½ÒÑ¾­ÌÓµ½áÔÉ½£¬ÄãµÄÈÎÎñÊ§°ÜÁË£¡\n"NOR);
+                        tell_object(me, HBRED+HIW+"ä½ æ‰€è¿½å‡»çš„æ³°å±±æ´¾å›å¾’å·²ç»é€ƒåˆ°åµ©å±±ï¼Œä½ çš„ä»»åŠ¡å¤±è´¥äº†ï¼\n"NOR);
                         me->clear_condition("tsjob");
                         me->apply_condition("tsjob_busy", 15+random(6));
                         me->delete_temp("tsjob");
@@ -18,7 +18,7 @@ int update_condition(object me, int duration)
                 }
                 else
                 {
-                        tell_object(me, HBRED+HIW+"Äã³É¹¦µÄÀ¹½ØÏÂÁËÌÓÍùáÔÉ½µÄÌ©É½ÅÑÍ½£¡\n"NOR);
+                        tell_object(me, HBRED+HIW+"ä½ æˆåŠŸçš„æ‹¦æˆªä¸‹äº†é€ƒå¾€åµ©å±±çš„æ³°å±±å›å¾’ï¼\n"NOR);
                        	if (me->query("combat_exp") > 1000000)
                         	TASK_D->job_reward(me, "ts_job", 0, 0);
                        	else
@@ -34,7 +34,7 @@ int update_condition(object me, int duration)
         me->apply_condition("tsjob", duration - 1);
         if (me->query("combat_exp") > 1000000 && (duration == 29 || duration == 26))
         {
-                tell_object(me, HBRED+HIW+"Í»È»Â·ÅÔ¸Z³öÒ»ÈË£¬ËÆºõÊÇ½ÓÓ¦ÅÑÍ½µÄ¡£\n"NOR);
+                tell_object(me, HBRED+HIW+"çªç„¶è·¯æ—ç«„å‡ºä¸€äººï¼Œä¼¼ä¹Žæ˜¯æŽ¥åº”å›å¾’çš„ã€‚\n"NOR);
                 enemy = new("/d/taishan/npc/runner");
                 i = me->query("max_pot")-100;
 	        if (me->query("combat_exp") > 2000000)

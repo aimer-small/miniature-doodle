@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÕÊ·¿ÏÈÉú", ({ "zhangfang xiansheng", "xiansheng" }));
+        set_name("å¸æˆ¿å…ˆç”Ÿ", ({ "zhangfang xiansheng", "xiansheng" }));
         set("age", 22);
-        set("gender", "ÄĞĞÔ");
-        set("long", "Ò»¸ö¾«Ã÷ÄÜ¸É£¬Îä¹¦¸ßÇ¿µÄÕË·¿ÏÈÉú¡£\n");
+        set("gender", "ç”·æ€§");
+        set("long", "ä¸€ä¸ªç²¾æ˜èƒ½å¹²ï¼Œæ­¦åŠŸé«˜å¼ºçš„è´¦æˆ¿å…ˆç”Ÿã€‚\n");
         set("attitude", "peaceful");
 
         set("str", 24);

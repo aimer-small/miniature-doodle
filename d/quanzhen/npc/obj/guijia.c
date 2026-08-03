@@ -1,4 +1,4 @@
-// guijia.c ÎÚ¹ê¼×
+// guijia.c ä¹Œé¾Ÿç”²
 // By Lgg,1998.10
 
 inherit ITEM;
@@ -6,10 +6,10 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIB"ÎÚ¹ê¼×"NOR, ({"gui jia","jia"}));
+        set_name(HIB"ä¹Œé¾Ÿç”²"NOR, ({"gui jia","jia"}));
         set_weight(800);
-        set("unit", "¿é");
-        set("long", "ÕâÊÇÒ»¿éÎÚ¹ê¼×£¬ÉÏÃæÓĞ¸÷ÖÖ»¨ÎÆ£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+        set("unit", "å—");
+        set("long", "è¿™æ˜¯ä¸€å—ä¹Œé¾Ÿç”²ï¼Œä¸Šé¢æœ‰å„ç§èŠ±çº¹ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
         setup();
 }
 

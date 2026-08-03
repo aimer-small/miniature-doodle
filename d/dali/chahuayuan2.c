@@ -4,17 +4,17 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-        set("short",HIC"²è»¨Ô°"NOR);
+        set("short",HIC"èŒ¶èŠ±å›­"NOR);
       	set("long", @LONG
-Äã×ßÔÚÒ»¸öÐ¡É½ÆÂÉÏ£¬ÕâÀïµ½´¦¶¼ÊÇÊ¢¿ªµÄÏÊ»¨£¬ÄãÓÐµãÑÛ»¨çÔÂÒÁË£¬Äã
-Âþ²½ÔÚÕâ»¨Ô°ÖÐ£¬ÐÄÇéÊæ³©Ðí¶à¡£ 
+ä½ èµ°åœ¨ä¸€ä¸ªå°å±±å¡ä¸Šï¼Œè¿™é‡Œåˆ°å¤„éƒ½æ˜¯ç››å¼€çš„é²œèŠ±ï¼Œä½ æœ‰ç‚¹çœ¼èŠ±ç¼­ä¹±äº†ï¼Œä½ 
+æ¼«æ­¥åœ¨è¿™èŠ±å›­ä¸­ï¼Œå¿ƒæƒ…èˆ’ç•…è®¸å¤šã€‚ 
 LONG
        );
         set("exits", ([ 
               "northup" : __DIR__"chahuayuan3",
               "southdown" : __DIR__"chahuayuan",
 	]));
-        set("outdoors","´óÀí");
+        set("outdoors","å¤§ç†");
         set("objects", ([
              __DIR__"obj/chahua2" : 1,
         ]));
@@ -31,7 +31,7 @@ int valid_leave(object me, string dir)
         if(dir == "southdown"){
         while (i--)
         if( ob[i]->id("flower") && ob[i] > 2)
-          return notify_fail("Äã´øÕâÃ´¶à»¨³öÈ¥¸ÉÂð£¿\n");               
+          return notify_fail("ä½ å¸¦è¿™ä¹ˆå¤šèŠ±å‡ºåŽ»å¹²å—ï¼Ÿ\n");               
           }*/
 	if ( dir == "southdown" )
         me->delete_temp("flower_paid");

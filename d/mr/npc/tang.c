@@ -1,4 +1,4 @@
-// /d/mr/npc/tang.c ÌÆ¹âĞÛ
+// /d/mr/npc/tang.c å”å…‰é›„
 // update 1997.6.23 by beyond
 // Modify by looklove 2001.9.20
 
@@ -8,8 +8,8 @@ string ask_1();
 
 void create()
 {
-	set_name("ÌÆ¹âĞÛ", ({ "tang guangxiong", "tang" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("å”å…‰é›„", ({ "tang guangxiong", "tang" }));
+	set("gender", "ç”·æ€§");
 	set("age", 20);
 	set("unique", 1);
 	set("str", 25);
@@ -39,16 +39,16 @@ void create()
 
 	setup();
 	set("inquiry", ([
-		"ÃØÃÜ" : (: ask_1 :),
+		"ç§˜å¯†" : (: ask_1 :),
 		"rumors" : (: ask_1 :),
 	]));
         set("chat_chance",10);
         set("chat_msg",({
-                "ÌÆ¹âĞÛµÀ£º¡°¿ì¾ÈÎÒ³öÈ¥£¬ÎÒ¸æËßÄãÒ»¸öÃØÃÜ£¡£¡£¡\n",
+                "å”å…‰é›„é“ï¼šâ€œå¿«æ•‘æˆ‘å‡ºå»ï¼Œæˆ‘å‘Šè¯‰ä½ ä¸€ä¸ªç§˜å¯†ï¼ï¼ï¼\n",
 
         }) );
 }
 string ask_1()
 {
-		return "ºó»¨Ô°µÄÊ÷ÌÙÀïÃæÓĞ¹Å¹Ö£¡\n";
+		return "åèŠ±å›­çš„æ ‘è—¤é‡Œé¢æœ‰å¤æ€ªï¼\n";
 }

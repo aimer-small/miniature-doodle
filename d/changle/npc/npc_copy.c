@@ -17,7 +17,7 @@ void create()
 	name = RNAME_D->get_random_name(i);
 	skills = npc_skills[random(sizeof(npc_skills))];
 	set_name(name["name"], name["id"]);
-	set("gender", (i==0?"Å®ÐÔ":"ÄÐÐÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 30 + random(40));
 	set("combat_exp", 8000000);
 	set("meitude", "peaceful");

@@ -1,11 +1,11 @@
-// NPC :gong_guangjie.c ¹¨¹â½Ü
+// NPC :gong_guangjie.c é¾šå…‰æ°
 // By River 98/12
 inherit NPC;
 void create()
 {
-        set_name("¹¨¹â½Ü", ({ "gong guangjie", "gong", "guangjie"}));
-        set("title","ÎŞÁ¿½£¶«×ÚµÜ×Ó");              
-        set("gender", "ÄĞĞÔ" );
+        set_name("é¾šå…‰æ°", ({ "gong guangjie", "gong", "guangjie"}));
+        set("title","æ— é‡å‰‘ä¸œå®—å¼Ÿå­");              
+        set("gender", "ç”·æ€§" );
         set("age", 36);
         set("str", 27);
         set("con", 23);
@@ -22,7 +22,7 @@ void create()
         set("max_neili", 1000);      
         set("unique", 1);
         
-        set("long","ËûÊÇÎŞÁ¿½£¶«×ÚµÄµÜ×Ó¡£\n");
+        set("long","ä»–æ˜¯æ— é‡å‰‘ä¸œå®—çš„å¼Ÿå­ã€‚\n");
         set("combat_exp", 200000);
         set("shen", 800); 
 

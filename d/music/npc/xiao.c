@@ -1,5 +1,5 @@
-// by ÎŞÃûÓ¢ĞÛ
-// ÎªÁË yeju@SJ
+// by æ— åè‹±é›„
+// ä¸ºäº† yeju@SJ
 
 #include <ansi.h>
 inherit NPC;
@@ -11,11 +11,11 @@ string ask_prise();
 
 void create()
 {
-	set_name("ÏôÀÏ°å", ({ "xiao laoban", "xiao", "laoban" }));
+	set_name("è§è€æ¿", ({ "xiao laoban", "xiao", "laoban" }));
 	set("shen_type", 1);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
-	set("long", "ÕâÎ»ÀÏ°åÏÔÈ»Ñø×ğ´¦ÓÅ£¬Á³µ°ºÍÊÖÕÆ¶¼·Ê·ÊÅÖÅÖµÄ¡£\n");
+	set("long", "è¿™ä½è€æ¿æ˜¾ç„¶å…»å°Šå¤„ä¼˜ï¼Œè„¸è›‹å’Œæ‰‹æŒéƒ½è‚¥è‚¥èƒ–èƒ–çš„ã€‚\n");
 	set_skill("unarmed", 25);
 	set_skill("dodge", 22);
 	set_temp("apply/damage", 20);
@@ -25,12 +25,12 @@ void create()
 	set_skill("flute", 200);
 
 	set("inquiry", ([
-		"ÇÙ¼¼" : (: ask_for, "string" :),
+		"ç´æŠ€" : (: ask_for, "string" :),
 		"string" : (: ask_for, "string" :),
-		"óï¼¼" : (: ask_for, "flute" :),
+		"ç®«æŠ€" : (: ask_for, "flute" :),
 		"flute" : (: ask_for, "flute" :),
-         	"Í·ÏÎ" : (: ask_title :),
-		"Ñ§·Ñ" : (: ask_prise :),
+         	"å¤´è¡”" : (: ask_title :),
+		"å­¦è´¹" : (: ask_prise :),
 	]) );
 
 	set("combat_exp", 9000);
@@ -63,13 +63,13 @@ string ask_for(string verb)
 	if( is_busy() ) return 0;
 
 	if( me->query_skill(verb, 1) < 30 )
-		return "ÄãºÍÂùÁ¦Ò»Ñù£¬´ÖË×ÎŞÎÄ£¬¿ÉÒÔËµË¿ºÁÃ»ÓĞÀñÀÖ»ù´¡£¬¿ÖÅÂÑ§²»µ½Ê²Ã´¶«Î÷¡£";
+		return "ä½ å’Œè›®åŠ›ä¸€æ ·ï¼Œç²—ä¿—æ— æ–‡ï¼Œå¯ä»¥è¯´ä¸æ¯«æ²¡æœ‰ç¤¼ä¹åŸºç¡€ï¼Œææ€•å­¦ä¸åˆ°ä»€ä¹ˆä¸œè¥¿ã€‚";
 
 	if( me->query_skill(verb, 1) >= 200 )
-		return RANK_D->query_respect(me) + "ÒÑ¾­ÊÇº£ÄÚÖªÃûµÄ´óÀÖÊ¦£¬¾ÓÈ»»¹À´Çë½ÌĞ¡µÜ£¬ÕâÈçºÎ¸Òµ±£¿£¡";
+		return RANK_D->query_respect(me) + "å·²ç»æ˜¯æµ·å†…çŸ¥åçš„å¤§ä¹å¸ˆï¼Œå±…ç„¶è¿˜æ¥è¯·æ•™å°å¼Ÿï¼Œè¿™å¦‚ä½•æ•¢å½“ï¼Ÿï¼";
 
 	if( me->query("potential") < 5 )
-		return RANK_D->query_respect(me) + "£¬ÄãµÄÇ±ÄÜ²»¹»£¬¿ÖÅÂÑ§²»µ½Ê²Ã´¶«Î÷¡£";
+		return RANK_D->query_respect(me) + "ï¼Œä½ çš„æ½œèƒ½ä¸å¤Ÿï¼Œææ€•å­¦ä¸åˆ°ä»€ä¹ˆä¸œè¥¿ã€‚";
 
 	money = 200;
 	if( me->query_skill(verb, 1) > 60 ) money = 500;
@@ -86,26 +86,26 @@ string ask_for(string verb)
 	}
 
 	improve = random(me->query_int() * 3 / 4) + random(me->query_skill(verb, 1) / 10) + me->query_int() / 4;
-	improve = improve*3.5;	// ²Î¿¼³É¸ßµÀÈËµÄ±ÈÀı
-	improve = improve*2;		// 100% Ğ¡ÓÚ 280 level
+	improve = improve*3.5;	// å‚è€ƒæˆé«˜é“äººçš„æ¯”ä¾‹
+	improve = improve*2;		// 100% å°äº 280 level
 
 	if( me->query("registered") == 3 && me->query_temp("ggs/started") && me->query("ggs/started") ) {
 		improve = improve*2;
-		if( !random(4) ) message_vision("$N²ÎÕÕ×Ô¼ºÔÚ"HIG"¹í¹ÈËãÊõ"NOR"ÉÏµÄĞŞÎª£¬ÔËÉñÍ¨Êı£¬¾õµÃ×Ô¼ºÑ§Ï°ÆğÀ´ÊÂ°ë¹¦±¶¡£\n",me);
+		if( !random(4) ) message_vision("$Nå‚ç…§è‡ªå·±åœ¨"HIG"é¬¼è°·ç®—æœ¯"NOR"ä¸Šçš„ä¿®ä¸ºï¼Œè¿ç¥é€šæ•°ï¼Œè§‰å¾—è‡ªå·±å­¦ä¹ èµ·æ¥äº‹åŠåŠŸå€ã€‚\n",me);
 	}
 
 	me->add("potential", -5);	
-	message_vision(CYN"$NĞË·ÜµÄËµµÀ£º¡¸ÀÏ·òÕıÓĞĞËÈ¤ÓëÈËÑĞ¾¿Ì½ÌÖÒôÔÏÄØ¡­¡­¡¹\n"NOR,this_object());
+	message_vision(CYN"$Nå…´å¥‹çš„è¯´é“ï¼šã€Œè€å¤«æ­£æœ‰å…´è¶£ä¸äººç ”ç©¶æ¢è®¨éŸ³éŸµå‘¢â€¦â€¦ã€\n"NOR,this_object());
 	switch( random(5) ) {
-                case 0:tell_object(me, CYN"ÏôÀÏ°åÖ¸µãÁËÄãÒ»Ğ©¹ØÓÚ"HIG"¡ºáç¡»"NOR); break;
-                case 1:tell_object(me, CYN"ÏôÀÏ°åÖ¸µãÁËÄãÒ»Ğ©¹ØÓÚ"HIW"¡º¹¬¡»"NOR); break;
-                case 2:tell_object(me, CYN"ÏôÀÏ°åÖ¸µãÁËÄãÒ»Ğ©¹ØÓÚ"HIM"¡ºÓğ¡»"NOR); break;
-                case 3:tell_object(me, CYN"ÏôÀÏ°åÖ¸µãÁËÄãÒ»Ğ©¹ØÓÚ"HIY"¡ºÉÌ¡»"NOR); break;
-                case 4:tell_object(me, CYN"ÏôÀÏ°åÖ¸µãÁËÄãÒ»Ğ©¹ØÓÚ"MAG"¡º½Ç¡»"NOR); break;
-                case 5:tell_object(me, CYN"ÏôÀÏ°åÖ¸µãÁËÄãÒ»Ğ©¹ØÓÚ"BLU"¡º»ìÒô¡»"NOR); break;
+                case 0:tell_object(me, CYN"è§è€æ¿æŒ‡ç‚¹äº†ä½ ä¸€äº›å…³äº"HIG"ã€å¾µã€"NOR); break;
+                case 1:tell_object(me, CYN"è§è€æ¿æŒ‡ç‚¹äº†ä½ ä¸€äº›å…³äº"HIW"ã€å®«ã€"NOR); break;
+                case 2:tell_object(me, CYN"è§è€æ¿æŒ‡ç‚¹äº†ä½ ä¸€äº›å…³äº"HIM"ã€ç¾½ã€"NOR); break;
+                case 3:tell_object(me, CYN"è§è€æ¿æŒ‡ç‚¹äº†ä½ ä¸€äº›å…³äº"HIY"ã€å•†ã€"NOR); break;
+                case 4:tell_object(me, CYN"è§è€æ¿æŒ‡ç‚¹äº†ä½ ä¸€äº›å…³äº"MAG"ã€è§’ã€"NOR); break;
+                case 5:tell_object(me, CYN"è§è€æ¿æŒ‡ç‚¹äº†ä½ ä¸€äº›å…³äº"BLU"ã€æ··éŸ³ã€"NOR); break;
         }
-	if( verb == "string" ) tell_object(me, CYN"µ¯×àÖ®·¨¡£\n"NOR);
-	else tell_object(me, CYN"´µ×àÖ®·¨¡£\n"NOR);
+	if( verb == "string" ) tell_object(me, CYN"å¼¹å¥ä¹‹æ³•ã€‚\n"NOR);
+	else tell_object(me, CYN"å¹å¥ä¹‹æ³•ã€‚\n"NOR);
 	me->improve_skill(verb, improve);
 	return "";
 }
@@ -130,10 +130,10 @@ string ask_prise()
 	if( j > 150 ) n = 2000;
 	if( j > 180 ) n = 2500;
 
-	return "ÄãÏÖÔÚÈç¹ûÒªÏòÎÒÇë½ÌÄØ£¬Ñ§·ÑÊÇ£º
-		ÀÖÀíÇÙ¼¼ Ã¿´Î" + MONEY_D->money_str(m) + "
-		ÀÖÀíóï¼¼ Ã¿´Î" + MONEY_D->money_str(n) + 
-		"\nÇë×Ô¼º±¸ºÃÁãÇ®¡£\n";
+	return "ä½ ç°åœ¨å¦‚æœè¦å‘æˆ‘è¯·æ•™å‘¢ï¼Œå­¦è´¹æ˜¯ï¼š
+		ä¹ç†ç´æŠ€ æ¯æ¬¡" + MONEY_D->money_str(m) + "
+		ä¹ç†ç®«æŠ€ æ¯æ¬¡" + MONEY_D->money_str(n) + 
+		"\nè¯·è‡ªå·±å¤‡å¥½é›¶é’±ã€‚\n";
 }
 
 string ask_title()
@@ -150,22 +150,22 @@ string ask_title()
 	if( !level || level < 1 ) return 0;
 
 	if( level < 30 )
-		newtitle = HIG"ÀÖÀíÑ§Í½"NOR;
+		newtitle = HIG"ä¹ç†å­¦å¾’"NOR;
 	else if( level < 50 )
-		newtitle = HIY"Ë¾ÀÖ¹¤"NOR;
+		newtitle = HIY"å¸ä¹å·¥"NOR;
 	else if( level < 100 )
-		newtitle = YEL"Ë¾ÀÖÊ¦"NOR;
+		newtitle = YEL"å¸ä¹å¸ˆ"NOR;
         else if( level < 150 )
-		newtitle = GRN"ÖªÒôÑÅ¿Í"NOR;
+		newtitle = GRN"çŸ¥éŸ³é›…å®¢"NOR;
 	else if( level < 200 )
-		newtitle = HIW"ÀñÀÖ´óÊ¦"NOR;
+		newtitle = HIW"ç¤¼ä¹å¤§å¸ˆ"NOR;
 	else if( level < 300 )
-		newtitle = HIR"¿ÕÉ½·ïÃù"NOR;
+		newtitle = HIR"ç©ºå±±å‡¤é¸£"NOR;
 	else if( level < 380 )
-		newtitle = CYN"¾ÅÏöÁúÒ÷"NOR;
-	else newtitle = HIM"Ç§¹Å¾ø³ª"NOR;
+		newtitle = CYN"ä¹éœ„é¾™åŸ"NOR;
+	else newtitle = HIM"åƒå¤ç»å”±"NOR;
 
 	title =  newtitle + " " + me->query("name") + "(" + capitalize(me->query("id")) + ")";
 	me->set_temp("apply/short", ({title}));
-	return "ÒÀÀÏ·ò¿´£¬¸óÏÂµÄÀÖÀíĞŞÎª£¬¿ÉÒÔ³ÆºôÎª"+newtitle+"¡£";
+	return "ä¾è€å¤«çœ‹ï¼Œé˜ä¸‹çš„ä¹ç†ä¿®ä¸ºï¼Œå¯ä»¥ç§°å‘¼ä¸º"+newtitle+"ã€‚";
 }

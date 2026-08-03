@@ -1,4 +1,4 @@
-// guanjia5.c �˵ع���
+// guanjia5.c 菜地管事
 // Modify By River@SJ
 
 inherit NPC;
@@ -6,15 +6,15 @@ inherit NPC;
 
 void create()
 {
-       set_name("�˵ع���", ({ "caiyuan guanshi", "guanshi" }) );
-       set("gender", "����" );
+       set_name("菜地管事", ({ "caiyuan guanshi", "guanshi" }) );
+       set("gender", "男性" );
        set("age", 30);
-       set("long", "����������ݵ�һ���ܼң�ר�ܲ˵����С���£�\n");
+       set("long", "他是襄阳武馆的一个管家，专管菜地里大小杂事！\n");
        set("combat_exp", 2500);
        set("attitude", "friendly");
 
        set("inquiry", ([
-             "����" : "�����������ʵʵ���ҳ����Ӳݣ�û���ҵ����⣬������ȥ������",
+             "锄草" : "你就在这老老实实给我锄清杂草，没有我的满意，你别想回去覆命！",
        ]));
 
        setup();
@@ -32,14 +32,14 @@ void init()
 void greeting(object ob)
 {
        if( !ob || environment(ob) != environment() ) return;
-       if(ob->query_temp("job_name") != "����") return; 
+       if(ob->query_temp("job_name") != "锄草") return; 
        if(!( present("chu tou", ob))){
            command("hmm "+ob->query("id"));
-           command("say �㻹û�칤�߰ɣ�ȥ��Ʒ������ʦ��Ҫ��");
+           command("say 你还没领工具吧，去物品房找六师兄要。");
            return;
        }
-       if(!(ob->query_temp("job_name")!="����")){
+       if(!(ob->query_temp("job_name")!="锄草")){
            command("nod "+ob->query("id"));
-           command("say "+ RANK_D->query_respect(ob)+ "������������ "HIY HBCYN"chu ��"CYN" �ɡ�"NOR);
+           command("say "+ RANK_D->query_respect(ob)+ "，你就在这锄草 "HIY HBCYN"chu 草"CYN" 吧。"NOR);
        }
 }

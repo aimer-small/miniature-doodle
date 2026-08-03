@@ -7,11 +7,11 @@ string status_color(int current, int max);
 inherit NPC;
 void create()
 {
-        set_name("±¦±¦", ({"xiao baobao","baby"}) );
-        set("gender", "Å®ĞÔ");
+        set_name("å®å®", ({"xiao baobao","baby"}) );
+        set("gender", "å¥³æ€§");
         set("age", 1);
         set("attitude", "friendly");
-        set("long","¹Ô±¦±¦¡£\n");
+        set("long","ä¹–å®å®ã€‚\n");
         set("combat_exp", 1);
         set("parents", ({"dad","mom"}));
 	set("is_baby",1);
@@ -92,7 +92,7 @@ int do_drop(string arg)
 	env = environment(who);
 	if(present(arg,who)!=me) return 0;
 	if(me->move(env)) {
-		message_vision("$N°Ñ$n´Ó»³Àï·ÅÁËÏÂÀ´¡£\n",who,me);
+		message_vision("$NæŠŠ$nä»æ€€é‡Œæ”¾äº†ä¸‹æ¥ã€‚\n",who,me);
 		return 1;
 	}
 	return 0;
@@ -107,14 +107,14 @@ int do_get(string arg)
 	if(present(arg, env)!=me) return 0;
 	if( who->query("id") == me->query("momid") || who->query("id") == me->query("popid") ) {
 		if(me->move(who)) {
-			message_vision("$NÍäÏÂÑü°Ñ$n±§ÁËÆğÀ´£¬Â§ÔÚ»³Àï¡£\n",who,me);
+			message_vision("$Nå¼¯ä¸‹è…°æŠŠ$næŠ±äº†èµ·æ¥ï¼Œæ‚åœ¨æ€€é‡Œã€‚\n",who,me);
 		}
 		else {
-			message_vision("$NÍäÏÂÑüÒ»±§È´Ã»°Ñ$n±§ÆğÀ´£¬Ğ¡¼Ò»ïºÃ³ÁÄÄ£¡\n",who,me);
+			message_vision("$Nå¼¯ä¸‹è…°ä¸€æŠ±å´æ²¡æŠŠ$næŠ±èµ·æ¥ï¼Œå°å®¶ä¼™å¥½æ²‰å“ªï¼\n",who,me);
 		}
 	}
 	else {
-		message_vision("$N¶×ÏÂÉí³¯$nÉì¿ªË«ÊÖ£¬$nÈ´Ò»ÏÂ×ÓÉÁ¿ªÁË£®£®£®\n",who,me);
+		message_vision("$Nè¹²ä¸‹èº«æœ$nä¼¸å¼€åŒæ‰‹ï¼Œ$nå´ä¸€ä¸‹å­é—ªå¼€äº†ï¼ï¼ï¼\n",who,me);
 	}
 	return 1;
 }
@@ -139,28 +139,28 @@ int do_kill(string arg)
 		switch(verb) {
 			case "kill":
 				tell_object(environment(this_object()),
-				who->query("name")+"Æ´ÃüµØ¿ŞÁËÆğÀ´£ºµù¡«¡«£¬Äï¡«¡«£¬"+
-				me->query("name")+"ÒªÉ±ÎÒ£®£®£®¿ì»ØÀ´Ñ½£¡\n");
+				who->query("name")+"æ‹¼å‘½åœ°å“­äº†èµ·æ¥ï¼šçˆ¹ï½ï½ï¼Œå¨˜ï½ï½ï¼Œ"+
+				me->query("name")+"è¦æ€æˆ‘ï¼ï¼ï¼å¿«å›æ¥å‘€ï¼\n");
 				break;
 			case "hit":
 				tell_object(environment(this_object()),
-				who->query("name")+"´ó¿ŞÁËÆğÀ´£ºµù¡«¡«£¬Äï¡«¡«£¬"+
-				me->query("name")+"ÆÛ¸ºÎÒ£®£®£®¿ì»ØÀ´Ñ½£¡\n");
+				who->query("name")+"å¤§å“­äº†èµ·æ¥ï¼šçˆ¹ï½ï½ï¼Œå¨˜ï½ï½ï¼Œ"+
+				me->query("name")+"æ¬ºè´Ÿæˆ‘ï¼ï¼ï¼å¿«å›æ¥å‘€ï¼\n");
 				break;
 			case "fight":
 				tell_object(environment(this_object()),
-				who->query("name")+"¿ŞÁËÆğÀ´£ºµù¡«¡«£¬Äï¡«¡«£¬"+
-				me->query("name")+"ÒªÇÀÎÒµÄÌÇ³Ô£®£®£®¿ì»ØÀ´Ñ½£¡\n");
+				who->query("name")+"å“­äº†èµ·æ¥ï¼šçˆ¹ï½ï½ï¼Œå¨˜ï½ï½ï¼Œ"+
+				me->query("name")+"è¦æŠ¢æˆ‘çš„ç³–åƒï¼ï¼ï¼å¿«å›æ¥å‘€ï¼\n");
 				break;
 			case "steal":
 				tell_object(environment(this_object()),
-				who->query("name")+"¿ŞÁËÆğÀ´£ºµù¡«¡«£¬Äï¡«¡«£¬"+
-				me->query("name")+"ÒªÍµ³ÔÎÒµÄÌÇ£¡\n");
+				who->query("name")+"å“­äº†èµ·æ¥ï¼šçˆ¹ï½ï½ï¼Œå¨˜ï½ï½ï¼Œ"+
+				me->query("name")+"è¦å·åƒæˆ‘çš„ç³–ï¼\n");
 				break;
 			case "beg":
 				tell_object(environment(this_object()),
-				who->query("name")+"Ğ¡×ìÒ»Íá¿ŞÁËÆğÀ´£ºµù¡«¡«£¬Äï¡«¡«£¬"+
-				me->query("name")+"ÒªÆ­ÎÒµÄÌÇ³Ô£¡\n");
+				who->query("name")+"å°å˜´ä¸€æ­ªå“­äº†èµ·æ¥ï¼šçˆ¹ï½ï½ï¼Œå¨˜ï½ï½ï¼Œ"+
+				me->query("name")+"è¦éª—æˆ‘çš„ç³–åƒï¼\n");
 				break;
 		}
 	}
@@ -175,30 +175,30 @@ int do_teach(string arg)
 	int myskill, itskill;
 	me = this_player();
 
-	if(!myskill = me->query_skill(arg,1)) return notify_fail("ÕâÏî¼¼ÄÜÄãºÃÏó»¹²»»áÄØ£¡\n");
+	if(!myskill = me->query_skill(arg,1)) return notify_fail("è¿™é¡¹æŠ€èƒ½ä½ å¥½è±¡è¿˜ä¸ä¼šå‘¢ï¼\n");
 
-	if(arg != "unarmed" && arg != "dodge") return notify_fail("ËüÑ§²»»áÕâÏî¼¼ÄÜµÄ£¡\n");
+	if(arg != "unarmed" && arg != "dodge") return notify_fail("å®ƒå­¦ä¸ä¼šè¿™é¡¹æŠ€èƒ½çš„ï¼\n");
 
 	itskill = query_skill(arg,1);
 
-	if(myskill <= itskill) return notify_fail(name()+"ÒÔ³°Ğ¦µÄÄ¿¹âÍû×ÅÄã¡£\n");
+	if(myskill <= itskill) return notify_fail(name()+"ä»¥å˜²ç¬‘çš„ç›®å…‰æœ›ç€ä½ ã€‚\n");
 
-	if((int)me->query("potential")-(int)me->query("learned_points") < 1) return notify_fail("ÄãµÄÇ±ÄÜ²»¹»£¡\n");
+	if((int)me->query("potential")-(int)me->query("learned_points") < 1) return notify_fail("ä½ çš„æ½œèƒ½ä¸å¤Ÿï¼\n");
 
 	gin_cost =  (int) query_int();
 
-	if((int)me->query("jing") < gin_cost) return notify_fail("ÄãÏÔÈ»Ì«ÀÛÁËÃ»ÓĞ°ì·¨½Ì£¡\n");
+	if((int)me->query("jing") < gin_cost) return notify_fail("ä½ æ˜¾ç„¶å¤ªç´¯äº†æ²¡æœ‰åŠæ³•æ•™ï¼\n");
 
 	me->receive_damage("jing",gin_cost);
 	me->add("potential",-1);
 	amount = (int)me->query("int") * (int) query("int");
-	message_vision(sprintf("$N²»ÑáÆä·³µØ½Ì$n¡¸%s¡¹¡£\n",to_chinese(arg)),me,this_object());
+	message_vision(sprintf("$Nä¸åŒå…¶çƒ¦åœ°æ•™$nã€Œ%sã€ã€‚\n",to_chinese(arg)),me,this_object());
 
 	if( random(30) < query("tol") )
-		command("emote ºÜ²»ÇéÔ¸µØºßÁËÒ»Éù¡£");
+		command("emote å¾ˆä¸æƒ…æ„¿åœ°å“¼äº†ä¸€å£°ã€‚");
 	else {
 		improve_skill(arg, amount);
-		message_vision(sprintf("$NËÆºõÕæµÄÑ§»áÁËÒ»Ğ©¡¸%s¡¹£¡\n", to_chinese(arg)), this_object());
+		message_vision(sprintf("$Nä¼¼ä¹çœŸçš„å­¦ä¼šäº†ä¸€äº›ã€Œ%sã€ï¼\n", to_chinese(arg)), this_object());
 	}
 	return 1;
 }
@@ -209,11 +209,11 @@ void relay_emote(object ob, string verb)
 
 	switch(verb) {
 		case "kick":
-			command("say µù¡«¡«£¬Äï¡«¡«£¬"  + ob->query("name") + "ÌßÎÒÒ®£¡");
+			command("say çˆ¹ï½ï½ï¼Œå¨˜ï½ï½ï¼Œ"  + ob->query("name") + "è¸¢æˆ‘è€¶ï¼");
 			command("kick " + ob->query("id"));
 			break;
 		case "slap":
-			command("say µù¡«¡«£¬Äï¡«¡«£¬"  + ob->query("name") + "´òÎÒÒ®£¬ºÃÍ´°¡¡«¡«¡«¡«");
+			command("say çˆ¹ï½ï½ï¼Œå¨˜ï½ï½ï¼Œ"  + ob->query("name") + "æ‰“æˆ‘è€¶ï¼Œå¥½ç—›å•Šï½ï½ï½ï½");
 			command("slap " + ob->query("id"));
 			break;
 		case "hit":
@@ -231,7 +231,7 @@ void relay_emote(object ob, string verb)
 void relay_whisper(object me, string msg)
 {
 	if (member_array(me->query("id"), query("parents"))==-1) {
-		message_vision((string)this_object()->query("name") + "ÒÉ»óµØ¿´×Å$N¡£\n", me);
+		message_vision((string)this_object()->query("name") + "ç–‘æƒ‘åœ°çœ‹ç€$Nã€‚\n", me);
 		return;
 	}
 
@@ -272,22 +272,22 @@ int do_shape(string arg)
 	//string shape;
 	int at_pt, pa_pt, do_pt;
 	my = query_entire_dbase();
-	printf(NOR"©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n"NOR);
-	printf("©¦¾«Á¦£º%s%5d/ %5d %s(%3d%%)    " NOR " ÆøÑª£º%s%5d/ %5d %s(%3d%%)     "NOR"©¦\n" NOR,
+	printf(NOR"â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n"NOR);
+	printf("â”‚ç²¾åŠ›ï¼š%s%5d/ %5d %s(%3d%%)    " NOR " æ°”è¡€ï¼š%s%5d/ %5d %s(%3d%%)     "NOR"â”‚\n" NOR,
 		status_color(my["jing"], my["eff_jing"]), my["jing"],my["eff_jing"],
 		status_color(my["eff_jing"], my["max_jing"]),     my["eff_jing"] * 100 / my["max_jing"],
 		status_color(my["qi"], my["eff_qi"]), my["qi"], my["eff_qi"],
 		status_color(my["eff_qi"], my["max_qi"]),     my["eff_qi"] * 100 / my["max_qi"]);		
-	printf("©¦¸¸Ç×£º "HIW"%-13s"NOR"Ä¸Ç×£º "HIC"%-13s"NOR"¾­Ñé£º "HIR"%-12d"NOR" ©¦\n",
+	printf("â”‚çˆ¶äº²ï¼š "HIW"%-13s"NOR"æ¯äº²ï¼š "HIC"%-13s"NOR"ç»éªŒï¼š "HIR"%-12d"NOR" â”‚\n",
 		my["pop"], my["mom"], my["combat_exp"]);
-	printf("©¦²ÅÖÇ£º %-13dÌåÖÊ£º %-13dÌåÌ¬£º %-12d ©¦\n", query_int(), query_con(),query_per());
-	printf("©¦ËÙ¶È£º %-13dÁ¦Á¿£º %-13dÁéĞÔ£º %-12d ©¦\n", query_dex(), query_str(),query_kar());
-        printf("©¦½ÌÑø£º %-13d¸öĞÔ£º %-32d ©¦\n", my["obe"], my["tol"]);
+	printf("â”‚æ‰æ™ºï¼š %-13dä½“è´¨ï¼š %-13dä½“æ€ï¼š %-12d â”‚\n", query_int(), query_con(),query_per());
+	printf("â”‚é€Ÿåº¦ï¼š %-13dåŠ›é‡ï¼š %-13dçµæ€§ï¼š %-12d â”‚\n", query_dex(), query_str(),query_kar());
+        printf("â”‚æ•™å…»ï¼š %-13dä¸ªæ€§ï¼š %-32d â”‚\n", my["obe"], my["tol"]);
 	at_pt= COMBAT_D->skill_power(this_object(), "unarmed", SKILL_USAGE_ATTACK);
 	pa_pt= COMBAT_D->skill_power(this_object(), "parry", SKILL_USAGE_DEFENSE);
 	do_pt= COMBAT_D->skill_power(this_object(), "dodge", SKILL_USAGE_DEFENSE);
-	printf("©¦¹¥»÷Á¦£º "WHT"%-21d"NOR"·ÀÓùÁ¦£º "WHT"%-21d"NOR"©¦\n"NOR, at_pt+1, pa_pt/2+do_pt/2+1);
+	printf("â”‚æ”»å‡»åŠ›ï¼š "WHT"%-21d"NOR"é˜²å¾¡åŠ›ï¼š "WHT"%-21d"NOR"â”‚\n"NOR, at_pt+1, pa_pt/2+do_pt/2+1);
 //	printf("/cmds/skill/skills"->pet_skill(this_object()));
-	printf(NOR"©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n"NOR);
+	printf(NOR"â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n"NOR);
 	return 1;
 }

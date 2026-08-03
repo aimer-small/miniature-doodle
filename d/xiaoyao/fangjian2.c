@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "·¿¼ä");
+        set("short", "æˆ¿é—´");
         set("long", @LONG
-ÕâÊÇÒ»¼ä²¼ÖÃ³ÉÎÔÊÒÄ£ÑùµÄÐ¡·¿¼ä£¬ÓÐÕÅÊ¯´²£¬´²ÉÏ°Ú×Å¸öÐ¡Ð¡µÄÄ¾Í·
-ÖÆ³ÉµÄÒ¡Àº£¬Ç½±ÚÉÏÐü×ÅÒ»¸öÆßÏÒÇÙ£¬ÏÒÏß¶¼ÒÑ¾­¶ÏÁË¡£
+è¿™æ˜¯ä¸€é—´å¸ƒç½®æˆå§å®¤æ¨¡æ ·çš„å°æˆ¿é—´ï¼Œæœ‰å¼ çŸ³åºŠï¼ŒåºŠä¸Šæ‘†ç€ä¸ªå°å°çš„æœ¨å¤´
+åˆ¶æˆçš„æ‘‡ç¯®ï¼Œå¢™å£ä¸Šæ‚¬ç€ä¸€ä¸ªä¸ƒå¼¦ç´ï¼Œå¼¦çº¿éƒ½å·²ç»æ–­äº†ã€‚
 LONG );
        set("exits", ([
                "south" : __DIR__"shiji2",
@@ -29,19 +29,19 @@ int do_shout(string arg)
 
 	if( !arg || arg=="" ) return 0;
 
-	if( arg=="Ö¥Âé¿ªÃÅ") 
+	if( arg=="èŠéº»å¼€é—¨") 
 	{
-		tell_object(me,"ÄãÆøÔËµ¤Ìï£¬¶Ô×ÅÇ½±Ú´óºÈÒ»Éù£º¡°Ö¥Âé¿ªÃÅ£¡¡±\n");
-		if (random(100) >50 || ((me->query("family")) && me->query("family")["master_name"]=="åÐÒ£×Ó"))
+		tell_object(me,"ä½ æ°”è¿ä¸¹ç”°ï¼Œå¯¹ç€å¢™å£å¤§å–ä¸€å£°ï¼šâ€œèŠéº»å¼€é—¨ï¼â€\n");
+		if (random(100) >50 || ((me->query("family")) && me->query("family")["master_name"]=="é€é¥å­"))
 		{
-		message("vision", "¹ýÁËÒ»»á¶ù£¬ÄãÖ»Ìýµ½Ò»ÕóºäÂ¡Â¡µÄÏìÉù£¬³öÏÖÁËÒ»µÀ°µÃÅ¡£\n", me);
+		message("vision", "è¿‡äº†ä¸€ä¼šå„¿ï¼Œä½ åªå¬åˆ°ä¸€é˜µè½°éš†éš†çš„å“å£°ï¼Œå‡ºçŽ°äº†ä¸€é“æš—é—¨ã€‚\n", me);
 		set("exits/down", __DIR__"shishi4");
 		remove_call_out("close");
 		call_out("close", 5, this_object());
 		}
 	else
 		{
-		message("vision", "·¿¼äÀïµ½´¦»Øµ´×ÅÄãµÄÉùÒô£¬ÕðµÃÄãµÄ¶ú¶äÎÌÎÌ×÷Ïì¡£\n", me);
+		message("vision", "æˆ¿é—´é‡Œåˆ°å¤„å›žè¡ç€ä½ çš„å£°éŸ³ï¼Œéœ‡å¾—ä½ çš„è€³æœµç¿ç¿ä½œå“ã€‚\n", me);
 		me->receive_wound("qi",20);
 		me->unconcious();
 		}
@@ -51,6 +51,6 @@ int do_shout(string arg)
 
 void close(object room)
 {
-	message("vision","Ò»ÕóºäÂ¡Â¡µÄÏìÉù¹ýºó£¬Ê¯ÃÅÓÖ»º»ºµØ¹ØÉÏÁË¡£\n", room);
+	message("vision","ä¸€é˜µè½°éš†éš†çš„å“å£°è¿‡åŽï¼ŒçŸ³é—¨åˆç¼“ç¼“åœ°å…³ä¸Šäº†ã€‚\n", room);
 	room->delete("exits/down");
 }

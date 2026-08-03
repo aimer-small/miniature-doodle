@@ -8,15 +8,15 @@ int update_condition(object me, int duration)
 	me->apply_condition("yzc_qiankun", duration - 1);
 	if( duration < 1 ) return 0;
       
-	tell_object(me, HIC "Í»È»£¬ÇÖÈëµÄµ¤ÌïÖÐµÄÖ¸¾¢ÂÒ´Ü£¬¾ªµÃÄãÀäº¹Ö±Ã°£¡\n" NOR );
-	tell_room(environment(me), HIC + me->name()+"Í»È»Ò»²ü£¬Á³ÉÏË²¼äÃ°³öÐí¶àÀäº¹£¡\n" NOR, ({ me }));  
+	tell_object(me, HIC "çªç„¶ï¼Œä¾µå…¥çš„ä¸¹ç”°ä¸­çš„æŒ‡åŠ²ä¹±çªœï¼ŒæƒŠå¾—ä½ å†·æ±—ç›´å†’ï¼\n" NOR );
+	tell_room(environment(me), HIC + me->name()+"çªç„¶ä¸€é¢¤ï¼Œè„¸ä¸Šçž¬é—´å†’å‡ºè®¸å¤šå†·æ±—ï¼\n" NOR, ({ me }));  
 	switch(duration) {
 		case 1:	me->add_condition("no_exert", 5); 	break;
 		case 3:	me->add_condition("no_perform", 5);	break;
 		case 5:	me->add_condition("no_force", 5);	break;
 		case 7:	me->add_busy(5); 			break;
 		default:
-			me->set_temp("last_damage_from", "Ò»Ö¸ìøÄÚ¾¢·¢×÷");
+			me->set_temp("last_damage_from", "ä¸€æŒ‡ç¦…å†…åŠ²å‘ä½œ");
 			me->receive_damage("qi", 50);
 			me->receive_wound("qi", 50);
 			me->add_busy(2);

@@ -6,18 +6,18 @@ inherit NPC;
 
 void create()
 {
-	set_name("Çå¹Û±ÈÇğ", ({
+	set_name("æ¸…è§‚æ¯”ä¸˜", ({
 		"qingguan biqiu",
 		"qingguan",
 		"biqiu",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Ìå¸ñÇ¿½¡µÄ×³ÄêÉ®ÈË£¬ËûÉíµÃ»¢±³ĞÜÑü£¬È«ÉíËÆºõÔÌº¬\n"
-		"×ÅÎŞÇî¾¢Á¦¡£ËûÉí´©Ò»Ï®°×²¼ºÚ±ßôÂôÄ£¬ËÆºõÉí»³ÎäÒÕ¡£\n"
+		"ä»–æ˜¯ä¸€ä½ä½“æ ¼å¼ºå¥çš„å£®å¹´åƒ§äººï¼Œä»–èº«å¾—è™èƒŒç†Šè…°ï¼Œå…¨èº«ä¼¼ä¹è•´å«\n"
+		"ç€æ— ç©·åŠ²åŠ›ã€‚ä»–èº«ç©¿ä¸€è¢­ç™½å¸ƒé»‘è¾¹è¢ˆè£Ÿï¼Œä¼¼ä¹èº«æ€€æ­¦è‰ºã€‚\n"
 	);
 
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -56,7 +56,7 @@ void create()
 	prepare_skill("claw", "jimie-zhua");
         prepare_skill("finger", "mohe-zhi");
 
-	create_family("ÉÙÁÖÅÉ", 40, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 40, "å¼Ÿå­");
 
 	setup();
 

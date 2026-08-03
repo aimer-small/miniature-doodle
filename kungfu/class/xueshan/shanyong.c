@@ -1,4 +1,4 @@
-// shanyong.c ÉÆÓÂ
+// shanyong.c å–„å‹‡
 // by iceland
 
 #include <ansi.h>
@@ -8,14 +8,14 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("ÉÆÓÂ", ({ "shan yong", "shanyong" ,"shan","yong"}));
+        set_name("å–„å‹‡", ({ "shan yong", "shanyong" ,"shan","yong"}));
         set("long",@LONG
-ËûÊÇÑªµ¶ÀÏ×æ×ùÏÂ¶şµÜ×Ó£¬Éí²ÄÊİ¸ß£¬Á³É«»ÒÆÍÆÍµÄ£¬¼ÓÉÏÒ»¶ÔËÀÓãÑÛ¾¦
-¿´ÆğÀ´ÓĞĞ©ÏÅÈË¡£
+ä»–æ˜¯è¡€åˆ€è€ç¥–åº§ä¸‹äºŒå¼Ÿå­ï¼Œèº«æç˜¦é«˜ï¼Œè„¸è‰²ç°ä»†ä»†çš„ï¼ŒåŠ ä¸Šä¸€å¯¹æ­»é±¼çœ¼ç›
+çœ‹èµ·æ¥æœ‰äº›å“äººã€‚
 LONG
         );
-        set("title", HIR "´óÂÖËÂÑªµ¶ÀÏ×æ×ùÏÂµÜ×Ó" NOR);
-        set("gender", "ÄĞĞÔ");
+        set("title", HIR "å¤§è½®å¯ºè¡€åˆ€è€ç¥–åº§ä¸‹å¼Ÿå­" NOR);
+        set("gender", "ç”·æ€§");
 	set("class", "huanxi");
         set("age", 42);
         set("attitude", "friendly");
@@ -54,7 +54,7 @@ LONG
 
         prepare_skill("hand","dashou-yin");
 
-        create_family("´óÂÖËÂ", 12, "µÜ×Ó");
+        create_family("å¤§è½®å¯º", 12, "å¼Ÿå­");
         set("class", "huanxi");
 
         setup();
@@ -66,21 +66,21 @@ LONG
 
 void attempt_apprentice(object ob)
 {
-        if ((string)ob->query("family/family_name") != "´óÂÖËÂ") {
+        if ((string)ob->query("family/family_name") != "å¤§è½®å¯º") {
                command("say"+ RANK_D->query_respect(ob) +
-                        "²»ÊÇ±¾ËÂµÜ×Ó£¬ÔÚÕâÀïµ·Ê²Ã´ÂÒ£¿£¡");
+                        "ä¸æ˜¯æœ¬å¯ºå¼Ÿå­ï¼Œåœ¨è¿™é‡Œæ£ä»€ä¹ˆä¹±ï¼Ÿï¼");
                 return;
         }
 
         if ((int)ob->query_skill("huanxi-chan", 1) < 80) {
-                command("say »¶Ï²ìøÊÇ¸÷ÏîÎä¹¦Ö®±¾£¬ÄãÔÙÇÚ¼ÓĞŞÁ¶°É¡£");
+                command("say æ¬¢å–œç¦…æ˜¯å„é¡¹æ­¦åŠŸä¹‹æœ¬ï¼Œä½ å†å‹¤åŠ ä¿®ç‚¼å§ã€‚");
                 command("say"+ RANK_D->query_respect(ob) +
-                        "ÔÙ°¾¼¸¸öÍ¨Ïü£¬¶à¶à×êÑĞ×êÑĞ±¾ÃÅµÄĞÄ·¨°É¡£");
+                        "å†ç†¬å‡ ä¸ªé€šå®µï¼Œå¤šå¤šé’»ç ”é’»ç ”æœ¬é—¨çš„å¿ƒæ³•å§ã€‚");
                 return;
         }
 
-        command("say ºÃ°É£¬ÒÔºóÄã¾ÍºÃºÃÊÌ·î·ğÒ¯ÎÒ°É¡£");
+        command("say å¥½å§ï¼Œä»¥åä½ å°±å¥½å¥½ä¾å¥‰ä½›çˆ·æˆ‘å§ã€‚");
         command("recruit " + ob->query("id"));
 
-        ob->set("title", HIR "´óÂÖËÂÑªµ¶ÃÅµÚÁù´úµÜ×Ó" NOR);
+        ob->set("title", HIR "å¤§è½®å¯ºè¡€åˆ€é—¨ç¬¬å…­ä»£å¼Ÿå­" NOR);
 }

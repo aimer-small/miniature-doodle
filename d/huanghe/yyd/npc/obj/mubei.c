@@ -1,20 +1,20 @@
-// mubei Ä¹±®
+// mubei å¢“ç¢‘
 
 #include <weapon.h>
 inherit HAMMER;
 
 void create()
 {
-        set_name("Ä¹±®", ({ "mu bei","bei" }) );
+        set_name("å¢“ç¢‘", ({ "mu bei","bei" }) );
         set_weight(65000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿é");
-                set("long", "±®ÉÏĞ´µÄÊÇ¡¸ÏÈ¿¼»Æ¸®¾ı³Ï±¾Ö®Ä¹¡¹¡£\n");
+                set("unit", "å—");
+                set("long", "ç¢‘ä¸Šå†™çš„æ˜¯ã€Œå…ˆè€ƒé»„åºœå›è¯šæœ¬ä¹‹å¢“ã€ã€‚\n");
                 set("material", "stone");
-                set("wield_msg", "$N¶Ô×ÅµØÉÏÒ»×ù·Ø¿ÄÁË¸öÍ·£¬ËµÉù¶Ô²»Æğ£¬°áÆğÒ»×ùÄ¹±®¡£\n");
-                set("unwield_msg", "$N°ÑÄ¹±®ÍùµØÉÏÒ»·Å£¬²»Ğ¡ĞÄÔÒµ½×Ô¼ºµÄ½Å¡£\n");
+                set("wield_msg", "$Nå¯¹ç€åœ°ä¸Šä¸€åº§åŸç£•äº†ä¸ªå¤´ï¼Œè¯´å£°å¯¹ä¸èµ·ï¼Œæ¬èµ·ä¸€åº§å¢“ç¢‘ã€‚\n");
+                set("unwield_msg", "$NæŠŠå¢“ç¢‘å¾€åœ°ä¸Šä¸€æ”¾ï¼Œä¸å°å¿ƒç ¸åˆ°è‡ªå·±çš„è„šã€‚\n");
         }
         init_hammer(30);
         setup();

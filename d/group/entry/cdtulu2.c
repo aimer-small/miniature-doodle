@@ -4,14 +4,14 @@ inherit ROOM;
 #include "/d/group/entry.h"
 void create()
 {
-set("short","ÍÁÂ·");
-set("long","ÕâÊÇÒ»Ìõ³¾ÍÁ·ÉÑïµÄĞ¡Â·£¬ÒòÎªËÄ´¨×Ô¹Å¾ÍÊÇ¸»ÊüÖ®µØ£¬ËùÒÔ·ÅÑÛÍûÈ¥£¬
-ËÄÖÜµÄÌïÛâÀïÓôÓôÇàÇà¡£
+set("short","åœŸè·¯");
+set("long","è¿™æ˜¯ä¸€æ¡å°˜åœŸé£æ‰¬çš„å°è·¯ï¼Œå› ä¸ºå››å·è‡ªå¤å°±æ˜¯å¯Œåº¶ä¹‹åœ°ï¼Œæ‰€ä»¥æ”¾çœ¼æœ›å»ï¼Œ
+å››å‘¨çš„ç”°å…é‡Œéƒéƒé’é’ã€‚
 ");
 set("exits",([
 "southwest":"/d/chengdu/tulu1","northeast":"/d/chengdu/tulu3","up":"/d/group/fengyun/1311472754.c",
 ]));
-set("outdoors","¶ëáÒÉ½");
+set("outdoors","å³¨åµ‹å±±");
 set("group",1);
 setup();
 }

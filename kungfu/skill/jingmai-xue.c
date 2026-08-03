@@ -1,4 +1,4 @@
-// jingmai-xue.c ¾­ÂöÑ§
+// jingmai-xue.c ç»è„‰å­¦
 
 #include <ansi.h>
 inherit SKILL;
@@ -8,61 +8,61 @@ string type() { return "knowledge"; }
 int valid_learn(object me)
 {
 	if((int)me->query_skill("jingmai-xue", 1) >= 200 )
-		return notify_fail("Äã²»ÄÜÔÙÑ§Ï°¾­ÂöÑ§ÁË¡£\n");
-//    return notify_fail("¾­ÂöÑ§Ö»ÄÜÍ¨¹ıÑĞÏ°Ò½Ñ§Êé¼®À´Ìá¸ß¡£\n");
+		return notify_fail("ä½ ä¸èƒ½å†å­¦ä¹ ç»è„‰å­¦äº†ã€‚\n");
+//    return notify_fail("ç»è„‰å­¦åªèƒ½é€šè¿‡ç ”ä¹ åŒ»å­¦ä¹¦ç±æ¥æé«˜ã€‚\n");
      return 1;
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("¾­ÂöÑ§Ö»ÄÜ¿¿ÑĞ¶Á(study)À´Ìá¸ß¡£\n");
+	return notify_fail("ç»è„‰å­¦åªèƒ½é ç ”è¯»(study)æ¥æé«˜ã€‚\n");
 }
 
 void skill_improved(object me)
 {
 	switch (me->query_skill("jingmai-xue",1)) {
 	case 10:
-		tell_object(me,HIY"Äã¾õµÃ¶ÔÊÖÌ«Òõ·Î¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIY"ä½ è§‰å¾—å¯¹æ‰‹å¤ªé˜´è‚ºç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 20:
-		tell_object(me,HIB"Äã¾õµÃ¶ÔÊÖÑôÃ÷´ó³¦¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIB"ä½ è§‰å¾—å¯¹æ‰‹é˜³æ˜å¤§è‚ ç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 30:
-		tell_object(me,HIY"Äã¾õµÃ¶Ô×ãÑôÃ÷Î¸¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIY"ä½ è§‰å¾—å¯¹è¶³é˜³æ˜èƒƒç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 40:
-		tell_object(me,HIB"Äã¾õµÃ¶Ô×ãÌ«ÒõÆ¢¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIB"ä½ è§‰å¾—å¯¹è¶³å¤ªé˜´è„¾ç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 50:
-		tell_object(me,HIY"Äã¾õµÃ¶ÔÊÖÉÙÒõĞÄ¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIY"ä½ è§‰å¾—å¯¹æ‰‹å°‘é˜´å¿ƒç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 60:
-		tell_object(me,HIB"Äã¾õµÃ¶ÔÊÖÌ«ÑôĞ¡³¦¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIB"ä½ è§‰å¾—å¯¹æ‰‹å¤ªé˜³å°è‚ ç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 70:
-		tell_object(me,HIY"Äã¾õµÃ¶Ô×ãÌ«Ñô°òë×¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIY"ä½ è§‰å¾—å¯¹è¶³å¤ªé˜³è†€èƒ±ç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 80:
-		tell_object(me,HIB"Äã¾õµÃ¶Ô×ãÉÙÒõÉö¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIB"ä½ è§‰å¾—å¯¹è¶³å°‘é˜´è‚¾ç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 90:
-		tell_object(me,HIB"Äã¾õµÃ¶ÔÊÖØÊÒõĞÄ°ü¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIB"ä½ è§‰å¾—å¯¹æ‰‹å¥é˜´å¿ƒåŒ…ç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 100:
-		tell_object(me,HIY"Äã¾õµÃ¶ÔÊÖÉÙÑôÈı½¹¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIY"ä½ è§‰å¾—å¯¹æ‰‹å°‘é˜³ä¸‰ç„¦ç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 110:
-		tell_object(me,HIY"Äã¾õµÃ¶Ô×ãÉÙÑôµ¨¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIY"ä½ è§‰å¾—å¯¹è¶³å°‘é˜³èƒ†ç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 120:
-		tell_object(me,HIB"Äã¾õµÃ¶Ô×ãØÊÒõ¸Î¾­ÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIB"ä½ è§‰å¾—å¯¹è¶³å¥é˜´è‚ç»å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 130:
-		tell_object(me,HIG"Äã¾õµÃ¶ÔÑô½ÃÂöÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIG"ä½ è§‰å¾—å¯¹é˜³çŸ«è„‰å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 140:
-		tell_object(me,HIW"Äã¾õµÃ¶ÔÒõ½ÃÂöÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIW"ä½ è§‰å¾—å¯¹é˜´çŸ«è„‰å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 150:
-		tell_object(me,HIG"Äã¾õµÃ¶ÔÑôÎ¬ÂöÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIG"ä½ è§‰å¾—å¯¹é˜³ç»´è„‰å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 160:
-		tell_object(me,HIW"Äã¾õµÃ¶ÔÒõÎ¬ÂöÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIW"ä½ è§‰å¾—å¯¹é˜´ç»´è„‰å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 170:
-		tell_object(me,HIG"Äã¾õµÃ¶Ô³åÂöÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIG"ä½ è§‰å¾—å¯¹å†²è„‰å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 180:
-		tell_object(me,HIW"Äã¾õµÃ¶Ô¶½ÂöÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIW"ä½ è§‰å¾—å¯¹ç£è„‰å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 190:
-		tell_object(me,HIG"Äã¾õµÃ¶Ô´øÂöÍêÈ«ÁË½âÁË¡£\n"NOR);break;
+		tell_object(me,HIG"ä½ è§‰å¾—å¯¹å¸¦è„‰å®Œå…¨äº†è§£äº†ã€‚\n"NOR);break;
 	case 200:
-		tell_object(me,HIR"Äã¾õµÃ¶ÔÈÎÂöÍêÈ«ÁË½âÁË¡£\n");
+		tell_object(me,HIR"ä½ è§‰å¾—å¯¹ä»»è„‰å®Œå…¨äº†è§£äº†ã€‚\n");
 		if(! me->query("jingmai")){
-			tell_object(me,"Äã¶ÔÈËÈ«ÉíµÄ¾­ÂöÁËÈçÖ¸ÕÆ£¬ÄÚ¹¦²»Öª²»¾õÖĞÒÑ´ó½ø£¡\n"NOR);
+			tell_object(me,"ä½ å¯¹äººå…¨èº«çš„ç»è„‰äº†å¦‚æŒ‡æŒï¼Œå†…åŠŸä¸çŸ¥ä¸è§‰ä¸­å·²å¤§è¿›ï¼\n"NOR);
 			me->add("max_neili",50 + random(30));
 			me->set("jingmai", 1);
 		}

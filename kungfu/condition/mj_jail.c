@@ -7,17 +7,17 @@ int update_condition(object me, int duration)
 	object where;
 	if (duration < 2) {
 		me->move("/d/mingjiao/shaqiu2");
-		message("vision",HIY "ÄãÌýµ½Ò»Éù£º¡°¿ì¹ö£¬ÏÂ´Î±ðÈÃÎÒÔÙ¼ûµ½Äã¡±¡£Ô­À´ÊÇÒ»¸öÈ«ÉíÔãÍ¸ÁËµÄ¼Ò»ï¸øÈÓµ½ÁËÉ³Ä®¡£\n"NOR, environment(me), me);
-		tell_object(me, HIY "Ö»¾õ±»ÈËÁ¬Ì§´øÍÏ£¬Äã»è»è³Á³ÁµØ±»ÈÓµ½ÁËÉ³Ä®Ö®ÖÐ£¡\n" NOR);
+		message("vision",HIY "ä½ å¬åˆ°ä¸€å£°ï¼šâ€œå¿«æ»šï¼Œä¸‹æ¬¡åˆ«è®©æˆ‘å†è§åˆ°ä½ â€ã€‚åŽŸæ¥æ˜¯ä¸€ä¸ªå…¨èº«ç³Ÿé€äº†çš„å®¶ä¼™ç»™æ‰”åˆ°äº†æ²™æ¼ ã€‚\n"NOR, environment(me), me);
+		tell_object(me, HIY "åªè§‰è¢«äººè¿žæŠ¬å¸¦æ‹–ï¼Œä½ æ˜æ˜æ²‰æ²‰åœ°è¢«æ‰”åˆ°äº†æ²™æ¼ ä¹‹ä¸­ï¼\n" NOR);
 		me->set("startroom", START_ROOM);
 		return 0;
         }
 
 	where = environment(me);
 	if ( !wizardp(me) && base_name(where)!="/d/mingjiao/jianyu") {
-		message_vision(HIR "Í»È»³å³ö¼¸ÃûÃ÷½Ì¸ßÊÖ£¬½«$NÂÒ°ô´òÔÎ......\n" NOR, me);
+		message_vision(HIR "çªç„¶å†²å‡ºå‡ åæ˜Žæ•™é«˜æ‰‹ï¼Œå°†$Nä¹±æ£’æ‰“æ™•......\n" NOR, me);
 		me->unconcious();
-		message_vision("Ã÷½Ì¸ßÊÖ¿¸×ÅÔÎËÀ¹ýÈ¥µÄ$N£¬Ñï³¤¶øÈ¥¡£\n", me);
+		message_vision("æ˜Žæ•™é«˜æ‰‹æ‰›ç€æ™•æ­»è¿‡åŽ»çš„$Nï¼Œæ‰¬é•¿è€ŒåŽ»ã€‚\n", me);
 		me->move("/d/mingjiao/jianyu");
 		me->set("eff_qi", 1);
 		me->set("qi", 1);

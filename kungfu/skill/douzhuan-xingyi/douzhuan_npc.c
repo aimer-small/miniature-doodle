@@ -4,7 +4,7 @@ inherit NPC;
 void create()
 {
         set_name("yeah", ({ "douzhuan npc", "npc"}));
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 20);
         set("attitude", "peaceful");
         set("str", 40);

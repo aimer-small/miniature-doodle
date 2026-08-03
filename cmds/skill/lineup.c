@@ -10,45 +10,45 @@ int main(object me, string arg)
 	object ob;
    if (me->query_temp("qzkj_job/finish")> 1)
    	{
-   		return notify_fail("ÄãÒÑ¾­¿ªÊ¼¿¹»÷½ğ±øÈÎÎñÁË£¬ÏÖÔÚ×éÕóÎ´ÃâÌ«³ÙÁË°É¡£\n");
+   		return notify_fail("ä½ å·²ç»å¼€å§‹æŠ—å‡»é‡‘å…µä»»åŠ¡äº†ï¼Œç°åœ¨ç»„é˜µæœªå…å¤ªè¿Ÿäº†å§ã€‚\n");
    	}	
    	   if (me->query_temp("xykm_job/finish")> 1)
    	{
-   		return notify_fail("ÄãÒÑ¾­¿ªÊ¼ÏåÑô¿¹ÃÉÈÎÎñÁË£¬ÏÖÔÚ×éÕóÎ´ÃâÌ«³ÙÁË°É¡£\n");
+   		return notify_fail("ä½ å·²ç»å¼€å§‹è¥„é˜³æŠ—è’™ä»»åŠ¡äº†ï¼Œç°åœ¨ç»„é˜µæœªå…å¤ªè¿Ÿäº†å§ã€‚\n");
    	}	
    	   if (me->query_temp("smy_job/finish")> 1)
    	{
-   		return notify_fail("ÄãÒÑ¾­¿ªÊ¼ËÌÄ¦ÑÂÈÎÎñÁË£¬ÏÖÔÚ×éÕóÎ´ÃâÌ«³ÙÁË°É¡£\n");
+   		return notify_fail("ä½ å·²ç»å¼€å§‹é¢‚æ‘©å´–ä»»åŠ¡äº†ï¼Œç°åœ¨ç»„é˜µæœªå…å¤ªè¿Ÿäº†å§ã€‚\n");
    	}	
     if( !arg ) 
     {
         if( !pointerp(lineup = me->query_lineup()) )
-            return notify_fail("ÄãÏÖÔÚ²¢Ã»ÓĞ¼ÓÈëÈÎºÎÕó·¨¡£\n");
-        write("ÄãÏÖÔÚÕó·¨ÖĞµÄ³ÉÔ±ÓĞ£º\n  " + implode(lineup->name(1), "\n  ") + "¡£\n");
+            return notify_fail("ä½ ç°åœ¨å¹¶æ²¡æœ‰åŠ å…¥ä»»ä½•é˜µæ³•ã€‚\n");
+        write("ä½ ç°åœ¨é˜µæ³•ä¸­çš„æˆå‘˜æœ‰ï¼š\n  " + implode(lineup->name(1), "\n  ") + "ã€‚\n");
         return 1;
     }
 	if(arg=="refuse")
 	{
 		if(!me->query_temp("pending/lineup"))
-			return notify_fail("ÏÖÔÚ²¢Ã»ÓĞÈËÑûÇëÄã¼ÓÈëÕó·¨¡£\n");
+			return notify_fail("ç°åœ¨å¹¶æ²¡æœ‰äººé‚€è¯·ä½ åŠ å…¥é˜µæ³•ã€‚\n");
 		ob=me->query_temp("pending/lineup");
 		if(objectp(ob))
-			tell_object(ob,"¶Ô·½¾Ü¾øÁËÄãµÄÑûÇë¡£\n");
+			tell_object(ob,"å¯¹æ–¹æ‹’ç»äº†ä½ çš„é‚€è¯·ã€‚\n");
 		me->delete_temp("pending/lineup");
-		write("Äã¾Ü¾øÁË¶Ô·½¼ÓÈëÕó·¨µÄÑûÇë¡£\n");
+		write("ä½ æ‹’ç»äº†å¯¹æ–¹åŠ å…¥é˜µæ³•çš„é‚€è¯·ã€‚\n");
 		return 1;
 	}
     if( arg=="dismiss" ) 
     {
         if( !pointerp(lineup = me->query_lineup()) && !me->query_form() )
-            return notify_fail("ÄãÏÖÔÚ²¢Ã»ÓĞ¼ÓÈëÈÎºÎÕó·¨¡£\n");
+            return notify_fail("ä½ ç°åœ¨å¹¶æ²¡æœ‰åŠ å…¥ä»»ä½•é˜µæ³•ã€‚\n");
         if( me->is_lineup_leader() ) 
         {
-            message_vision( "$N½«Õó·¨½âÉ¢ÁË¡£\n", me);
+            message_vision( "$Nå°†é˜µæ³•è§£æ•£äº†ã€‚\n", me);
         } 
         else 
         {
-            message_vision( "$N¾ö¶¨ÍÑÀëÕó·¨¡£\n", me);
+            message_vision( "$Nå†³å®šè„±ç¦»é˜µæ³•ã€‚\n", me);
         }
         me->dismiss_lineup();
         return 1;
@@ -59,28 +59,28 @@ int main(object me, string arg)
         	|| !living(ob)
         	|| !ob->is_character()
         	|| ob==me )
-        	return notify_fail("ÄãÏëºÍË­Ò»Æğ²¼Õó£¿\n");
+        	return notify_fail("ä½ æƒ³å’Œè°ä¸€èµ·å¸ƒé˜µï¼Ÿ\n");
 
         if( ob->query_condition("killer") && ! me->query_condition("killer"))
-            return notify_fail("¶Ô·½ÕıÔÚ±»¹Ù¸®Í¨¼©£¬²»ÄÜ¼ÓÈëÄãµÄÕó·¨¡£\n");
+            return notify_fail("å¯¹æ–¹æ­£åœ¨è¢«å®˜åºœé€šç¼‰ï¼Œä¸èƒ½åŠ å…¥ä½ çš„é˜µæ³•ã€‚\n");
 
         if( ob->query_condition("qzkj_job_busy"))
-            return notify_fail("¶Ô·½ÕıÔÚÈ«Õæ¿¹½ğÈÎÎñµ¹¼ÆÊ±ÖĞ£¬²»ÄÜ¼ÓÈëÄãµÄÕó·¨¡£\n");
+            return notify_fail("å¯¹æ–¹æ­£åœ¨å…¨çœŸæŠ—é‡‘ä»»åŠ¡å€’è®¡æ—¶ä¸­ï¼Œä¸èƒ½åŠ å…¥ä½ çš„é˜µæ³•ã€‚\n");
             
         if( ob->query_condition("xykm_job_busy"))
-            return notify_fail("¶Ô·½ÕıÔÚÏåÑô¿¹ÃÉÈÎÎñµ¹¼ÆÊ±ÖĞ£¬²»ÄÜ¼ÓÈëÄãµÄÕó·¨¡£\n");
+            return notify_fail("å¯¹æ–¹æ­£åœ¨è¥„é˜³æŠ—è’™ä»»åŠ¡å€’è®¡æ—¶ä¸­ï¼Œä¸èƒ½åŠ å…¥ä½ çš„é˜µæ³•ã€‚\n");
             
         if( ob->query_condition("smy_job_busy"))
-            return notify_fail("¶Ô·½ÕıÔÚËÌÄ¦ÑÂÈÎÎñµ¹¼ÆÊ±ÖĞ£¬²»ÄÜ¼ÓÈëÄãµÄÕó·¨¡£\n");            
+            return notify_fail("å¯¹æ–¹æ­£åœ¨é¢‚æ‘©å´–ä»»åŠ¡å€’è®¡æ—¶ä¸­ï¼Œä¸èƒ½åŠ å…¥ä½ çš„é˜µæ³•ã€‚\n");            
             
         if( ob->query_temp("qzkj_job/finish")>1)
-            return notify_fail("¶Ô·½ÒÑÔÚÈ«Õæ¿¹»÷ÈÎÎñ»÷É±½ğ±ø¸ßÊÖ£¬²»ÄÜ¼ÓÈëÄãµÄÕó·¨¡£\n");
+            return notify_fail("å¯¹æ–¹å·²åœ¨å…¨çœŸæŠ—å‡»ä»»åŠ¡å‡»æ€é‡‘å…µé«˜æ‰‹ï¼Œä¸èƒ½åŠ å…¥ä½ çš„é˜µæ³•ã€‚\n");
             
         if( ob->query_temp("xykm_job/finish")>1)
-            return notify_fail("¶Ô·½ÒÑÔÚÏåÑô¿¹ÃÉÈÎÎñ»÷É±ÃÉ¹ÅÓÂÊ¿£¬²»ÄÜ¼ÓÈëÄãµÄÕó·¨¡£\n");
+            return notify_fail("å¯¹æ–¹å·²åœ¨è¥„é˜³æŠ—è’™ä»»åŠ¡å‡»æ€è’™å¤å‹‡å£«ï¼Œä¸èƒ½åŠ å…¥ä½ çš„é˜µæ³•ã€‚\n");
             
          if( ob->query_temp("smy_job/finish")>1)
-            return notify_fail("¶Ô·½ÒÑÔÚËÌÄ¦ÑÂÈÎÎñ»÷É±Î÷ÏÄÎäÊ¿£¬²»ÄÜ¼ÓÈëÄãµÄÕó·¨¡£\n");
+            return notify_fail("å¯¹æ–¹å·²åœ¨é¢‚æ‘©å´–ä»»åŠ¡å‡»æ€è¥¿å¤æ­¦å£«ï¼Œä¸èƒ½åŠ å…¥ä½ çš„é˜µæ³•ã€‚\n");
 
             
         if( !pointerp(me->query_lineup()) || me->is_lineup_leader() ) 
@@ -88,22 +88,22 @@ int main(object me, string arg)
 		if( ob==(object)me->query_temp("pending/lineup"))
 		{
 		if (!ob->query_form())
-			return notify_fail("¶Ô·½ÒÑ¾­°ÑÕó·¨½âÉ¢ÁË¡£\n");
+			return notify_fail("å¯¹æ–¹å·²ç»æŠŠé˜µæ³•è§£æ•£äº†ã€‚\n");
 		if (!me->query_skill(ob->query_form(), 1))
-			return notify_fail("Äã²»»á¶Ô·½µÄÕó·¨¡£\n");
+			return notify_fail("ä½ ä¸ä¼šå¯¹æ–¹çš„é˜µæ³•ã€‚\n");
             	if( sizeof( ob->query_lineup() ) >= 
             		SKILL_D(ob->query_form())->query_limit() )
-            		return notify_fail("¶Ô·½µÄÕó·¨ÒÑ¾­ÓĞ×ã¹»µÄÈËÊÖÁË¡£\n");
+            		return notify_fail("å¯¹æ–¹çš„é˜µæ³•å·²ç»æœ‰è¶³å¤Ÿçš„äººæ‰‹äº†ã€‚\n");
 
 				if( arrayp(me->query_lineup()) || me->query_form() )
-            		return notify_fail("Äã±ØĞëÍË³öµ±Ç°Õó·¨²ÅÄÜ¼ÓÈëĞÂµÄÕó·¨¡£\n");
+            		return notify_fail("ä½ å¿…é¡»é€€å‡ºå½“å‰é˜µæ³•æ‰èƒ½åŠ å…¥æ–°çš„é˜µæ³•ã€‚\n");
             	
                 if( !pointerp(me->query_lineup()) ) 
                 {
                     me->set_form(ob->query_form());
 			me->set_lineup_leader(ob);
                     ob->add_lineup_member(me);
-                    message_vision("$N¾ö¶¨¼ÓÈë$nµÄÕó·¨¡£\n", me, ob);
+                    message_vision("$Nå†³å®šåŠ å…¥$nçš„é˜µæ³•ã€‚\n", me, ob);
                     if( me->is_fighting() && userp(me) )
                         me->start_busy(1);
                     if( ob->is_fighting() && userp(ob) )
@@ -114,7 +114,7 @@ int main(object me, string arg)
 			ob->set_form(me->query_form());
 			ob->set_lineup_leader(me);
                     me->add_lineup_member(ob);
-                    message_vision("$N¾ö¶¨ÈÃ$nÈëÕó¡£\n", me, ob);
+                    message_vision("$Nå†³å®šè®©$nå…¥é˜µã€‚\n", me, ob);
                     if( ob->is_fighting() && userp(ob) )
                         ob->start_busy(1);
                     if( me->is_fighting() && userp(me) )
@@ -126,41 +126,41 @@ int main(object me, string arg)
             else 
             {
             	if( !me->query_form())
-            		return notify_fail("ÄãÃ»ÓĞÑ¡ÔñÒªÖ÷³ÖÄÄÖÖÕó·¨¡£\n");
+            		return notify_fail("ä½ æ²¡æœ‰é€‰æ‹©è¦ä¸»æŒå“ªç§é˜µæ³•ã€‚\n");
             	if( !ob->query_skill(me->query_form(),1) )
-            		return notify_fail("¶Ô·½²»¶®ÕâÖÖÕó·¨£¬ÎŞ·¨¼ÓÈë¡£\n");
+            		return notify_fail("å¯¹æ–¹ä¸æ‡‚è¿™ç§é˜µæ³•ï¼Œæ— æ³•åŠ å…¥ã€‚\n");
 				if( arrayp(ob->query_lineup()) || ob->query_form() )
-            		return notify_fail("¶Ô·½Ä¿Ç°Ò²ÔÚ²¼Õó£¬ÎŞ·¨½ÓÊÜÄãµÄÑûÇë¡£\n");
+            		return notify_fail("å¯¹æ–¹ç›®å‰ä¹Ÿåœ¨å¸ƒé˜µï¼Œæ— æ³•æ¥å—ä½ çš„é‚€è¯·ã€‚\n");
 				if( ob->query_temp("pending/lineup")==me )
-					return notify_fail("ÄãÒÑ¾­ÑûÇë¹ı¶Ô·½ÁË¡£\n");
+					return notify_fail("ä½ å·²ç»é‚€è¯·è¿‡å¯¹æ–¹äº†ã€‚\n");
 				if( ob->query_temp("pending/lineup") )
-					return notify_fail("ÒÑ¾­ÓĞ±ğÈËÑûÇë¹ı¶Ô·½ÁË¡£\n");
-                message_vision("$NÑûÇë$n¼ÓÈë$PµÄ" + to_chinese(me->query_form()) +"¡£\n", me, ob);
-                tell_object(ob, YEL "Èç¹ûÄãÔ¸Òâ¼ÓÈë£¬ÇëÓÃ lineup with " + me->query("id") + "¡£\n" NOR);
+					return notify_fail("å·²ç»æœ‰åˆ«äººé‚€è¯·è¿‡å¯¹æ–¹äº†ã€‚\n");
+                message_vision("$Né‚€è¯·$nåŠ å…¥$Pçš„" + to_chinese(me->query_form()) +"ã€‚\n", me, ob);
+                tell_object(ob, YEL "å¦‚æœä½ æ„¿æ„åŠ å…¥ï¼Œè¯·ç”¨ lineup with " + me->query("id") + "ã€‚\n" NOR);
                 ob->set_temp("pending/lineup", me);
                 return 1;
             }
         } 
         else
-            return notify_fail("Ö»ÓĞÖ÷³ÖÕó·¨Õß²Å¿ÉÒÔÑûÇë±ğÈË¼ÓÈë¡£\n");
+            return notify_fail("åªæœ‰ä¸»æŒé˜µæ³•è€…æ‰å¯ä»¥é‚€è¯·åˆ«äººåŠ å…¥ã€‚\n");
     }
     if( sscanf(arg, "form %s", arg)==1 ) 
     {
         if( pointerp(lineup=me->query_lineup()) || me->query_form() )
-            return notify_fail("Äã±ØĞëÊ×ÏÈÍË³öµ±Ç°µÄÕó·¨²ÅÄÜ×éÖ¯ĞÂµÄÕó·¨¡£\n");
+            return notify_fail("ä½ å¿…é¡»é¦–å…ˆé€€å‡ºå½“å‰çš„é˜µæ³•æ‰èƒ½ç»„ç»‡æ–°çš„é˜µæ³•ã€‚\n");
         if( !me->query_skill(arg, 1) )
-            return notify_fail("ÕâÖÖÕóĞÎÄãÃ»ÓĞÑ§¹ı¡£\n");
+            return notify_fail("è¿™ç§é˜µå½¢ä½ æ²¡æœ‰å­¦è¿‡ã€‚\n");
 		if(SKILL_D(arg)->type()!="array")
-            return notify_fail("ÕâÖÖÎä¹¦²»ÊÇÕó·¨¡£\n");
+            return notify_fail("è¿™ç§æ­¦åŠŸä¸æ˜¯é˜µæ³•ã€‚\n");
 		if( me->query_temp("pending/lineup") )
-			return notify_fail("ÏÖÔÚÕıÓĞÈËÑûÇëÄã¼ÓÈë£¬Äã±ØĞëÊ×ÏÈ¾Ü¾ø¶Ô·½²ÅÄÜ×éÖ¯ĞÂµÄÕó·¨¡£\n");
+			return notify_fail("ç°åœ¨æ­£æœ‰äººé‚€è¯·ä½ åŠ å…¥ï¼Œä½ å¿…é¡»é¦–å…ˆæ‹’ç»å¯¹æ–¹æ‰èƒ½ç»„ç»‡æ–°çš„é˜µæ³•ã€‚\n");
         me->set_form(arg);
         me->set_temp("lineup/env",environment(me));
         call_out("check_lineup",1,me);
         message_vision(HIY"" 
-        	+ "$N¹Ä×ãÕæÆø£¬×İÉù³¤Ğ¥£º¡°²¼"
+        	+ "$Né¼“è¶³çœŸæ°”ï¼Œçºµå£°é•¿å•¸ï¼šâ€œå¸ƒ"
         	+ to_chinese(arg)
-        	+ "¡±£¬ÉùÒô¹ö¹öµØ´«ÁË³öÈ¥¡£\n"NOR, me );
+        	+ "â€ï¼Œå£°éŸ³æ»šæ»šåœ°ä¼ äº†å‡ºå»ã€‚\n"NOR, me );
         return 1;
     }
 }
@@ -207,7 +207,7 @@ int check_lineup(object me)
 	if( environment(me)!=me->query_temp("lineup/env") 
 		|| me->is_ghost() )
 	{
-		message_vision(HIY"ÕóÖ÷ÒÑ¾­²»ÔÚÖ÷³ÖÕó·¨µÄÎ»ÖÃÉÏ£¬Õó·¨½âÉ¢¡£\n"NOR, me );
+		message_vision(HIY"é˜µä¸»å·²ç»ä¸åœ¨ä¸»æŒé˜µæ³•çš„ä½ç½®ä¸Šï¼Œé˜µæ³•è§£æ•£ã€‚\n"NOR, me );
     	me->dismiss_lineup();
     	return 1;
 	}
@@ -225,7 +225,7 @@ int check_lineup(object me)
 			if( !lineup[i] || environment(lineup[i])!=me->query_temp("lineup/env")
 				|| lineup[i]->is_ghost() )
 			{
-				message_vision(HIY"ÒòÎªÓĞÈËÍÑÀëÕó·¨£¬Õó·¨µÄÍşÁ¦ÊÜµ½Ó°Ïì¡£\n"NOR,me);
+				message_vision(HIY"å› ä¸ºæœ‰äººè„±ç¦»é˜µæ³•ï¼Œé˜µæ³•çš„å¨åŠ›å—åˆ°å½±å“ã€‚\n"NOR,me);
 				if(lineup[i])
 				{
 					lineup[i]->set_lineup(0);
@@ -269,14 +269,14 @@ int check_lineup(object me)
 int help(object me)
 {
     write(@HELP
-Õó·¨Ö¸ÁîÊ¹ÓÃ·½·¨:
+é˜µæ³•æŒ‡ä»¤ä½¿ç”¨æ–¹æ³•:
 
-lineup form <Õó·¨> - ×éÖ¯Ä³ÖÖÕó·¨£¬×é³ÉÕó·¨µÄ×´Ì¬Ö»ÒªÒ»ÒÆ¶¯¾Í»á½â³ı¡£
-lineup with <Ä³ÈË> - ¸úÄ³ÈË×é³ÉÕó·¨£¬×Ô¼º»ò¶Ô·½±ØĞëÊÇÄ³¸öÕó·¨µÄÖ÷³ÖÕß¡£
-lineup dismiss     - Àë¿ªÕó·¨¡£ÈôÏÂ´ËÖ¸ÁîµÄÊÇÕó·¨µÄÖ÷³ÖÕß, ÔòÕû¸öÕó·¨»á½âÉ¢¡£
-lineup refuse      - ¾Ü¾ø¼ÓÈëÕó·¨µÄÑûÇë¡£
+lineup form <é˜µæ³•> - ç»„ç»‡æŸç§é˜µæ³•ï¼Œç»„æˆé˜µæ³•çš„çŠ¶æ€åªè¦ä¸€ç§»åŠ¨å°±ä¼šè§£é™¤ã€‚
+lineup with <æŸäºº> - è·ŸæŸäººç»„æˆé˜µæ³•ï¼Œè‡ªå·±æˆ–å¯¹æ–¹å¿…é¡»æ˜¯æŸä¸ªé˜µæ³•çš„ä¸»æŒè€…ã€‚
+lineup dismiss     - ç¦»å¼€é˜µæ³•ã€‚è‹¥ä¸‹æ­¤æŒ‡ä»¤çš„æ˜¯é˜µæ³•çš„ä¸»æŒè€…, åˆ™æ•´ä¸ªé˜µæ³•ä¼šè§£æ•£ã€‚
+lineup refuse      - æ‹’ç»åŠ å…¥é˜µæ³•çš„é‚€è¯·ã€‚
 
-Ö±½ÓÏÂ lineup Ö¸ÁîÊ±Ôò»áÏÔÊ¾ÄãÄ¿Ç°ÊÇ·ñ¼ÓÈëÕó·¨¼°Õó·¨³ÉÔ±Ãûµ¥¡£
+ç›´æ¥ä¸‹ lineup æŒ‡ä»¤æ—¶åˆ™ä¼šæ˜¾ç¤ºä½ ç›®å‰æ˜¯å¦åŠ å…¥é˜µæ³•åŠé˜µæ³•æˆå‘˜åå•ã€‚
 
 HELP
     );

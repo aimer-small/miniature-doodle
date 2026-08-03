@@ -6,10 +6,10 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HIY"Öé±¦ÉÌÃØÎÅ"NOR, ({ "miweng","book"}));
-	set("long","Äã¿ÉÒÔÏòÑïÖÝÖéÉÌµêµÄÖìÀÏ°å³öÊ¾("HIY"show"NOR")Õâ±¾ÃØÎÅ¡£\n");
+	set_name (HIY"ç å®å•†ç§˜é—»"NOR, ({ "miweng","book"}));
+	set("long","ä½ å¯ä»¥å‘æ‰¬å·žç å•†åº—çš„æœ±è€æ¿å‡ºç¤º("HIY"show"NOR")è¿™æœ¬ç§˜é—»ã€‚\n");
 
-	set("unit","±¾");
+	set("unit","æœ¬");
 	set_weight(100);
 	set("value",3000000);
         set("no_give",1);
@@ -17,7 +17,7 @@ void create()
         set("no_get",1);
 	set("degree",1);
 	set("flag","spec/miweng");
-	set("desc","¿ÉÒÔµ½ÑïÖÝÖé±¦µêË÷È¡Ò»¸öÉñÃØÀñÎï¡£");
+	set("desc","å¯ä»¥åˆ°æ‰¬å·žç å®åº—ç´¢å–ä¸€ä¸ªç¥žç§˜ç¤¼ç‰©ã€‚");
         set("credit",200);
 	setup();
 }
@@ -32,29 +32,29 @@ int do_show(string str)
 	
 	object my_object,me = this_player();
 	
-	if (!restrict()&& !me->query("buyvip")) {return notify_fail("±¾ÖÜÄãÒÑ¾­²»ÄÜÊ¹ÓÃ"+this_object()->query("name")+"ÁË¡£\n");}
+	if (!restrict()&& !me->query("buyvip")) {return notify_fail("æœ¬å‘¨ä½ å·²ç»ä¸èƒ½ä½¿ç”¨"+this_object()->query("name")+"äº†ã€‚\n");}
 	
 	if (!str)
-		return notify_fail("ÄãÒª°Ñ¶«Î÷¸øË­¿´°¡£¿\n");
+		return notify_fail("ä½ è¦æŠŠä¸œè¥¿ç»™è°çœ‹å•Šï¼Ÿ\n");
     
 	if (!(my_object = present(str, environment(me))))
-		return notify_fail("ÄãÒªÕÒµÄÈË²»ÔÚÕâÀï¡£È¥±ð´¦ÕÒÕÒ¿´°É¡£\n");
+		return notify_fail("ä½ è¦æ‰¾çš„äººä¸åœ¨è¿™é‡Œã€‚åŽ»åˆ«å¤„æ‰¾æ‰¾çœ‹å§ã€‚\n");
 	
 	if ( str != "zhu laoban")
-		return notify_fail("Õâ¸ö¶«Î÷²»ÄÜËæ±ã¸ø±ðÈË¿´µÄ£¡\n");
+		return notify_fail("è¿™ä¸ªä¸œè¥¿ä¸èƒ½éšä¾¿ç»™åˆ«äººçœ‹çš„ï¼\n");
     
 	if (!living(my_object))
-		return notify_fail("Å¶£¬ÄãµÃÏÈ°ÑËûÅªÐÑÔÚËµ¡£\n");
+		return notify_fail("å“¦ï¼Œä½ å¾—å…ˆæŠŠä»–å¼„é†’åœ¨è¯´ã€‚\n");
 	
 	if (me->query_temp("token/maker"))
-		return notify_fail("ÏÈ°ÑÄãÉíÉÏµÄÒ»¸öËÍ³öÈ¥ÔÙËµ°É¡£\n");
+		return notify_fail("å…ˆæŠŠä½ èº«ä¸Šçš„ä¸€ä¸ªé€å‡ºåŽ»å†è¯´å§ã€‚\n");
 		
-	write("ÖìÀÏ°å´ó³ÔÒ»¾ªµÀ£º¡°ÄãÕâÊÇ´ÓÊ²Ã´µØ·½µÃÀ´µÄ£¿¡±\n"NOR);
-	write("ÖìÀÏ°åÌ¾µÀ£º¡°°ÕÁË°ÕÁË,ÕâÀïÓÐ¼¸ÑùÐ¡¶«Î÷Äú¾ÍÈÎÑ¡Ò»¸ö°É,Ç§Íò²»Òª°ÑÕâÊÂ¸æËß±ðÈË£¡¡±\n");
-	write("ÖìÀÏ°åµ½ÄÚÌÃÄÃ³ö¼¸Ñù¶«Î÷°ÚÔÚÄãµÄÃæÇ°¡£\n");
-	write(HIM"×ÏË®¾§ÏîÁ´"NOR"(necklace),"HIW"°×½ð×ê½ä"NOR"(ring),"HIG"ôä´äÓñïí"NOR"(bangle),"+
-				HIR"Áú·ïÓñÅå"NOR"(jade),"HIY"»Æ½ð·¢ÊÎ"NOR"(headgear)\n");	
-	write("ÄãÒªÑ¡Ê²Ã´ÄØ£º");
+	write("æœ±è€æ¿å¤§åƒä¸€æƒŠé“ï¼šâ€œä½ è¿™æ˜¯ä»Žä»€ä¹ˆåœ°æ–¹å¾—æ¥çš„ï¼Ÿâ€\n"NOR);
+	write("æœ±è€æ¿å¹é“ï¼šâ€œç½¢äº†ç½¢äº†,è¿™é‡Œæœ‰å‡ æ ·å°ä¸œè¥¿æ‚¨å°±ä»»é€‰ä¸€ä¸ªå§,åƒä¸‡ä¸è¦æŠŠè¿™äº‹å‘Šè¯‰åˆ«äººï¼â€\n");
+	write("æœ±è€æ¿åˆ°å†…å ‚æ‹¿å‡ºå‡ æ ·ä¸œè¥¿æ‘†åœ¨ä½ çš„é¢å‰ã€‚\n");
+	write(HIM"ç´«æ°´æ™¶é¡¹é“¾"NOR"(necklace),"HIW"ç™½é‡‘é’»æˆ’"NOR"(ring),"HIG"ç¿¡ç¿ çŽ‰é•¯"NOR"(bangle),"+
+				HIR"é¾™å‡¤çŽ‰ä½©"NOR"(jade),"HIY"é»„é‡‘å‘é¥°"NOR"(headgear)\n");	
+	write("ä½ è¦é€‰ä»€ä¹ˆå‘¢ï¼š");
 	input_to("choose_item", me);
 	return 1;
 }	 
@@ -64,7 +64,7 @@ private void choose_item(string arg, object me)
 	object ob;
 	if (arg!="necklace" && arg!="ring" && arg!="jade" && arg!="bangle" && arg!="headgear")
 	{
-		write("¿´Çå³þµãµ½µ×ÒªÑ¡Ê²Ã´£º");
+		write("çœ‹æ¸…æ¥šç‚¹åˆ°åº•è¦é€‰ä»€ä¹ˆï¼š");
 		input_to((: choose_item :), ob,me);
 		return;
 	}
@@ -84,7 +84,7 @@ private void choose_item(string arg, object me)
 			break;
 	}
 
-	write("ÄãÒªÔÚ¿ÌÉÏÊ²Ã´ÔùÑÔ£º");
+	write("ä½ è¦åœ¨åˆ»ä¸Šä»€ä¹ˆèµ è¨€ï¼š");
 	input_to("desc_item", me,ob);
 	return; 
 }
@@ -93,7 +93,7 @@ private void desc_item(string arg, object me,object ob)
 {
 	if (!strlen(strip(arg))) 
 	{
-		write("Äãµ½µ×Òª¿ÌµÄÊ²Ã´ÄÚÈÝ°¡£¿");
+		write("ä½ åˆ°åº•è¦åˆ»çš„ä»€ä¹ˆå†…å®¹å•Šï¼Ÿ");
 		input_to((: desc_item :),me,ob);
 		return;
 	}
@@ -116,13 +116,13 @@ private void desc_item(string arg, object me,object ob)
 	arg = replace_string(arg, "$NOR$", NOR);
 	if (strlen(strip(arg)) > 40)
 	{
-		write("ÔùÑÔ»¹ÊÇÒª¼ò¶ÌÒ»µã,ÇëÖØÐÂÊäÈë:");
+		write("èµ è¨€è¿˜æ˜¯è¦ç®€çŸ­ä¸€ç‚¹,è¯·é‡æ–°è¾“å…¥:");
 		input_to((: desc_item :),me,ob);
 		return;
 	}
-	arg = " "+arg+NOR+"   ¡¸"+me->query("name")+"("+me->query("id")+") ½÷Ôù¡¹";
+	arg = " "+arg+NOR+"   ã€Œ"+me->query("name")+"("+me->query("id")+") è°¨èµ ã€";
 	ob->set("token/desc",arg);
-	write("Æ¬¿ÌÖìÀÏ°å¾ÍÔÚÄãÒªµÄ¶«Î÷ÉÏ¿ÌºÃÁËÔùÑÔ,°ÑËü×°ÔÚÒ»¸ö"HIW"Ë®¾§ºÐ×Ó"NOR"Àï½»¸øÄã¡£\n");
+	write("ç‰‡åˆ»æœ±è€æ¿å°±åœ¨ä½ è¦çš„ä¸œè¥¿ä¸Šåˆ»å¥½äº†èµ è¨€,æŠŠå®ƒè£…åœ¨ä¸€ä¸ª"HIW"æ°´æ™¶ç›’å­"NOR"é‡Œäº¤ç»™ä½ ã€‚\n");
 	ob->move(me);
 	degree();
 }

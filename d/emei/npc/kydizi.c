@@ -1,4 +1,4 @@
-// kanyaodizi ¿´Ò¤µÜ×Ó
+// kanyaodizi çœ‹çª‘å¼Ÿå­
 // Made By keepon at 99.08.15
 
 inherit NPC;
@@ -9,10 +9,10 @@ string ask_houshan();
 
 void create()
 {
-	set_name("¿´Ò¤µÜ×Ó", ({ "kanyao dizi", "di zi", "dizi", "kanyao" }));
-	set("long", "ËûÊÇ¶ëáÒÉ½µÄµÚÎå´úµÜ×Ó£¬ÊÇÔÚ´Ë¿´ÊØÌ¿Ò¤µÄ¡£\n");
-	set("gender", "ÄĞĞÔ");
-	set("title", "¶ëáÒÅÉµÚÎå´úµÜ×Ó");
+	set_name("çœ‹çª‘å¼Ÿå­", ({ "kanyao dizi", "di zi", "dizi", "kanyao" }));
+	set("long", "ä»–æ˜¯å³¨åµ‹å±±çš„ç¬¬äº”ä»£å¼Ÿå­ï¼Œæ˜¯åœ¨æ­¤çœ‹å®ˆç‚­çª‘çš„ã€‚\n");
+	set("gender", "ç”·æ€§");
+	set("title", "å³¨åµ‹æ´¾ç¬¬äº”ä»£å¼Ÿå­");
 	set("age", 30);
 	set("str", 50);
 	set("int", 20);
@@ -43,10 +43,10 @@ void create()
 	set_temp("apply/attack", 120);
 	set_temp("apply/defense", 120);
 	set("inquiry", ([
-		"·¥Ä¾": (: ask_work1() :),
-		"ÉÕÌ¿": (: ask_work2() :),
-//		"ºóÉ½": (: ask_houshan() :),
-//		"ĞŞÁ¶": (: ask_houshan() :),
+		"ä¼æœ¨": (: ask_work1() :),
+		"çƒ§ç‚­": (: ask_work2() :),
+//		"åå±±": (: ask_houshan() :),
+//		"ä¿®ç‚¼": (: ask_houshan() :),
 	]) );
 
 	setup();
@@ -60,31 +60,31 @@ string ask_work1()
 	object me=this_player();
 	int lvl = (int)me->query_skill("linji-zhuang", 1);
 
-	if( me->query("family/family_name") != "¶ëáÒÅÉ" || me->query("class") == "bonze" )
-		return "ÕâÎ»"+ RANK_D->query_respect(me) + "²»ÊÇ¶ëáÒË×¼ÒµÜ×Ó£¬Ôõ¸ÒÀÍ¶¯ÄúµÄ´ó¼İ£¿";
+	if( me->query("family/family_name") != "å³¨åµ‹æ´¾" || me->query("class") == "bonze" )
+		return "è¿™ä½"+ RANK_D->query_respect(me) + "ä¸æ˜¯å³¨åµ‹ä¿—å®¶å¼Ÿå­ï¼Œæ€æ•¢åŠ³åŠ¨æ‚¨çš„å¤§é©¾ï¼Ÿ";
 	if ( lvl > 100 )
-		return "ÄãµÄ¹¦Á¦Ì«¸ß£¬ÕâĞ©´Ö»î»¹ÊÇÈÃµÍ±²µÜ×ÓÈ¥¸É°É¡£";
-	if( me->query_temp("emjob2/·¥Ä¾") )
-		return "²»ÊÇÒÑ¾­½ĞÄãÈ¥ÁËÂğ£¿ÔõÃ´»¹ÔÚÕâÏĞ´ô×Å£¿";
-	me->set_temp("emjob2/·¥Ä¾", 45 - ((int)me->query("str")) );
-	return "¶ëáÒÅÉµÄµÜ×Ó¾ÍµÃ³Ô¿àÄÍÀÍ¡£ºÃ°É£¬ÄãÕâ¾Íµ½ºóÉ½Ê÷ÁÖÀïÅªÒ»Ğ©Ä¾²ñÀ´¡£";
+		return "ä½ çš„åŠŸåŠ›å¤ªé«˜ï¼Œè¿™äº›ç²—æ´»è¿˜æ˜¯è®©ä½è¾ˆå¼Ÿå­å»å¹²å§ã€‚";
+	if( me->query_temp("emjob2/ä¼æœ¨") )
+		return "ä¸æ˜¯å·²ç»å«ä½ å»äº†å—ï¼Ÿæ€ä¹ˆè¿˜åœ¨è¿™é—²å‘†ç€ï¼Ÿ";
+	me->set_temp("emjob2/ä¼æœ¨", 45 - ((int)me->query("str")) );
+	return "å³¨åµ‹æ´¾çš„å¼Ÿå­å°±å¾—åƒè‹¦è€åŠ³ã€‚å¥½å§ï¼Œä½ è¿™å°±åˆ°åå±±æ ‘æ—é‡Œå¼„ä¸€äº›æœ¨æŸ´æ¥ã€‚";
 }
 
 string ask_work2()
 {
 	object me=this_player();
 	int lvl = (int)me->query_skill("linji-zhuang", 1);
-	if( me->query("family/family_name") != "¶ëáÒÅÉ" || me->query("class") == "bonze" )
-		return "ÕâÎ»"+ RANK_D->query_respect(me) + "²»ÊÇ¶ëáÒË×¼ÒµÜ×Ó£¬Ôõ¸ÒÀÍ¶¯ÄúµÄ´ó¼İ£¿";
+	if( me->query("family/family_name") != "å³¨åµ‹æ´¾" || me->query("class") == "bonze" )
+		return "è¿™ä½"+ RANK_D->query_respect(me) + "ä¸æ˜¯å³¨åµ‹ä¿—å®¶å¼Ÿå­ï¼Œæ€æ•¢åŠ³åŠ¨æ‚¨çš„å¤§é©¾ï¼Ÿ";
 	if ( lvl > 100 )
-		return "ÄãµÄ¹¦Á¦Ì«¸ß£¬ÕâĞ©´Ö»î»¹ÊÇÈÃµÍ±²µÜ×ÓÈ¥¸É°É¡£";
-	if( (int)me->query_temp("emjob2/·¥Ä¾") != 1)
-		return "Äã×îºÃÏÈÅªĞ©¿ÉÒÔ×÷Ì¿µÄÄ¾²ÄÀ´¡£";
-	if( me->query_temp("emjob2/ÉÕÌ¿") )
-		return "²»ÊÇÒÑ¾­½ĞÄãÈ¥¸ÉÁËÂğ£¿ÔõÃ´»¹ÏĞ´ô×Å£¿";
-	me->set_temp("emjob2/ÉÕÌ¿", 10 + random((int)me->query("per")));
+		return "ä½ çš„åŠŸåŠ›å¤ªé«˜ï¼Œè¿™äº›ç²—æ´»è¿˜æ˜¯è®©ä½è¾ˆå¼Ÿå­å»å¹²å§ã€‚";
+	if( (int)me->query_temp("emjob2/ä¼æœ¨") != 1)
+		return "ä½ æœ€å¥½å…ˆå¼„äº›å¯ä»¥ä½œç‚­çš„æœ¨ææ¥ã€‚";
+	if( me->query_temp("emjob2/çƒ§ç‚­") )
+		return "ä¸æ˜¯å·²ç»å«ä½ å»å¹²äº†å—ï¼Ÿæ€ä¹ˆè¿˜é—²å‘†ç€ï¼Ÿ";
+	me->set_temp("emjob2/çƒ§ç‚­", 10 + random((int)me->query("per")));
 	me->set_temp("emjob2/uptime", uptime() );
-	return "ºÃ°É£¬Äã¾ÍÔÚÕâÉÕÌ¿°É¡£";
+	return "å¥½å§ï¼Œä½ å°±åœ¨è¿™çƒ§ç‚­å§ã€‚";
 }
 
 string ask_houshan()
@@ -93,8 +93,8 @@ string ask_houshan()
 	int lvl = (int)me->query_skill("linji-zhuang", 1);
 	if ( (int)lvl/10 == 14 ) me->set("emsujia", 0);
 	if ( (int)lvl/10 == 16 ) me->set("emsujia", 1);
-	if ( lvl < 140 ) return "ºóÉ½ÓĞÒ»¸öÉ½¶´ÊÇĞŞÁ¶µÄ×îºÃ³¡Ëù£¬µ«ÄãµÄÄÚ¹¦»¹²»µ½»ğºò¡£\n";
-	tell_object(me, "¼ÈÈ»ÄãÎÊµ½ÁË£¬ÄÇÎÒ¾Í´øÄãÈ¥°É¡£\n");
+	if ( lvl < 140 ) return "åå±±æœ‰ä¸€ä¸ªå±±æ´æ˜¯ä¿®ç‚¼çš„æœ€å¥½åœºæ‰€ï¼Œä½†ä½ çš„å†…åŠŸè¿˜ä¸åˆ°ç«å€™ã€‚\n";
+	tell_object(me, "æ—¢ç„¶ä½ é—®åˆ°äº†ï¼Œé‚£æˆ‘å°±å¸¦ä½ å»å§ã€‚\n");
 	me->move("/d/emei/houshanxlsd");
-	return "ÓÖÒ»¸öºÃÃç×Ó¡£\n";
+	return "åˆä¸€ä¸ªå¥½è‹—å­ã€‚\n";
 }

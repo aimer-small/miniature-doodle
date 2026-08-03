@@ -5,11 +5,11 @@ inherit NPC;
 
 void create()
 {
-	set_name("É£ÈıÄï", ({ "sang sanniang", "sang", "sanniang"}));
+	set_name("æ¡‘ä¸‰å¨˜", ({ "sang sanniang", "sang", "sanniang"}));
 	set("long", 
-"Ò»ÃûÏàÃ²´ÈÏéµÄÖĞÄê¸¾ÈË£¬µ«É±ÆğÈËÀ´ĞÄºİÊÖÀ±£¬¾ø²»ÊÖÈí¡£\n");
-	set("title",HIY"ÈÕÔÂÉñ½Ì  "HIW"°×»¢ÌÃÌÃÖ÷"NOR);
-  set("gender", "Å®ĞÔ");
+"ä¸€åç›¸è²Œæ…ˆç¥¥çš„ä¸­å¹´å¦‡äººï¼Œä½†æ€èµ·äººæ¥å¿ƒç‹ æ‰‹è¾£ï¼Œç»ä¸æ‰‹è½¯ã€‚\n");
+	set("title",HIY"æ—¥æœˆç¥æ•™  "HIW"ç™½è™å ‚å ‚ä¸»"NOR);
+  set("gender", "å¥³æ€§");
 	set("age", 34);
 	set("attitude", "peaceful");
 	set("shen_type", -1);
@@ -45,7 +45,7 @@ void create()
 	map_skill("parry", "tianmo-zhang");
 	map_skill("whip", "cihang-bian");
 	prepare_skill("strike", "tianmo-zhang");
-	create_family("ÈÕÔÂÉñ½Ì",8,"µÜ×Ó");
+	create_family("æ—¥æœˆç¥æ•™",8,"å¼Ÿå­");
 	
         setup();
         

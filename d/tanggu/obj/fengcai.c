@@ -5,13 +5,13 @@ inherit HEAD;
 
 void create()
 {
-        set_name(HIY"·ïîÎ"NOR, ({ "fengcai", "cai" }));
+        set_name(HIY"å‡¤é’—"NOR, ({ "fengcai", "cai" }));
         set_weight(100);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»±ú½ğ²Ó²ÓµÄîÎ×Ó£¬µñ³ÉÁËÒ»Ö»·ï»ËµÄÑù×Ó¡£\n");
+		set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æŸ„é‡‘ç¿ç¿çš„é’—å­ï¼Œé›•æˆäº†ä¸€åªå‡¤å‡°çš„æ ·å­ã€‚\n");
                 set("value", 5000);
 		set("material", "gold");
 		set("female_only", 1);

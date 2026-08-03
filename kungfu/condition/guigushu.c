@@ -20,43 +20,43 @@ int update_condition(object me, int duration)
 	
 	if(me->query("registered")!=3)
 	{
-		tell_object(me, HIG"\nÌì¿ÕÍ»È»´òÁË¼¸¸öÏìÀ×£¬Ô­À´ÄãµÄ¹ó±öÊ±¼äµ½ÆÚÁË£¬ÄãµÄ¹í¹ÈËãÊõ×Ô¶¯ÖĞÖ¹µô¡£\n"NOR);	
+		tell_object(me, HIG"\nå¤©ç©ºçªç„¶æ‰“äº†å‡ ä¸ªå“é›·ï¼ŒåŸæ¥ä½ çš„è´µå®¾æ—¶é—´åˆ°æœŸäº†ï¼Œä½ çš„é¬¼è°·ç®—æœ¯è‡ªåŠ¨ä¸­æ­¢æ‰ã€‚\n"NOR);	
 		
-		if (me->query("ggs/left_time") < 0 ) //·ÀÖ¹bug
+		if (me->query("ggs/left_time") < 0 ) //é˜²æ­¢bug
 			me->set("ggs/left_time",0);
 			
-		me->set_temp("ggs/started",0);//²»Òªdelete£¬·ñÔòÍæ¼ÒÖØĞÂ¼¤»î¹ó±ö£¬¾ÍÓĞ2´Î10¸öĞ¡Ê±ÁË¡£
+		me->set_temp("ggs/started",0);//ä¸è¦deleteï¼Œå¦åˆ™ç©å®¶é‡æ–°æ¿€æ´»è´µå®¾ï¼Œå°±æœ‰2æ¬¡10ä¸ªå°æ—¶äº†ã€‚
 		me->set("ggs/started",0);
 		me->set("ggs/start_time","");
 		me->set("ggs/over_time","");
 					
-		me->clear_condition("guigushu"); //Çå³ıÁË	
+		me->clear_condition("guigushu"); //æ¸…é™¤äº†	
 			
 		return 0;
 	}	
 	
 	if(me->query("ggs/started") && !me->query_temp("ggs/started"))
 	{
-		tell_object(me, YEL"\nÄã¸Ğ¾õçø¹ÃÓÃ¹í¹ÈËãÊõÊõ¶ÔÄã½øĞĞ¿ØÖÆ£¬Ô­À´ÊÇÄãÉÏ´ÎÏÂÏßÇ°Ã»ÓĞ½áÊø¹í¹ÈËãÊõ×´Ì¬¡£\n"NOR);
-		tell_object(me, YEL"çø¹ÃÔËÓÃÉñ¹¦°ÑÄã¹í¹ÈËãÊõµÄ½áÊøÊ±¼ä±ä³ÉÄãµÄÉÏ´ÎÏÂÏßÊ±¼ä¡£\n"NOR);
+		tell_object(me, YEL"\nä½ æ„Ÿè§‰ç‘›å§‘ç”¨é¬¼è°·ç®—æœ¯æœ¯å¯¹ä½ è¿›è¡Œæ§åˆ¶ï¼ŒåŸæ¥æ˜¯ä½ ä¸Šæ¬¡ä¸‹çº¿å‰æ²¡æœ‰ç»“æŸé¬¼è°·ç®—æœ¯çŠ¶æ€ã€‚\n"NOR);
+		tell_object(me, YEL"ç‘›å§‘è¿ç”¨ç¥åŠŸæŠŠä½ é¬¼è°·ç®—æœ¯çš„ç»“æŸæ—¶é—´å˜æˆä½ çš„ä¸Šæ¬¡ä¸‹çº¿æ—¶é—´ã€‚\n"NOR);
 		me->set("ggs/over_time",FINGER_D->get_last_on(me->query("id")));
 		user_time=(int)me->query("ggs/over_time")-(int)me->query("ggs/start_time");
 		me->set("ggs/left_time",me->query("ggs/left_time") - user_time);
 		
-		if (me->query("ggs/left_time") < 0 ) //·ÀÖ¹bug
+		if (me->query("ggs/left_time") < 0 ) //é˜²æ­¢bug
 			me->set("ggs/left_time",0);
 			
 		if (me->query("ggs/left_time")) 
-			tell_object(me, YEL"Äã±¾ÖÜ»¹¿ÉÒÔÊ¹ÓÃ¹í¹ÈËãÊõ"+CHINESE_D->chinese_time(me->query("ggs/left_time"))+"¡£\n"NOR);
+			tell_object(me, YEL"ä½ æœ¬å‘¨è¿˜å¯ä»¥ä½¿ç”¨é¬¼è°·ç®—æœ¯"+CHINESE_D->chinese_time(me->query("ggs/left_time"))+"ã€‚\n"NOR);
 		else
-			tell_object(me, YEL"Äã±¾ÖÜµÄ¹í¹ÈËãÊõÊ±¼äÓÃÍêÁË¡£\n"NOR);
+			tell_object(me, YEL"ä½ æœ¬å‘¨çš„é¬¼è°·ç®—æœ¯æ—¶é—´ç”¨å®Œäº†ã€‚\n"NOR);
 		
 		me->set_temp("ggs/started",0);
 		me->set("ggs/started",0);
 		me->set("ggs/start_time","");
 		me->set("ggs/over_time","");	
 		
-		me->clear_condition("guigushu"); //Çå³ıÁË
+		me->clear_condition("guigushu"); //æ¸…é™¤äº†
 		
 		
 		return 0;
@@ -69,22 +69,22 @@ int update_condition(object me, int duration)
 	
 	if ( (sNow - sStartTime) == 3600 )
 	{
-		tell_object(me, HIG"Ê±¼ä¹ıµÄºÜ¿ì£¬²»Öª²»¾õ£¬ÄãÓÃ¹í¹ÈËãÊõÒÑ¾­Ò»¸öĞ¡Ê±¹ıÈ¥ÁË¡£\n"NOR);
+		tell_object(me, HIG"æ—¶é—´è¿‡çš„å¾ˆå¿«ï¼Œä¸çŸ¥ä¸è§‰ï¼Œä½ ç”¨é¬¼è°·ç®—æœ¯å·²ç»ä¸€ä¸ªå°æ—¶è¿‡å»äº†ã€‚\n"NOR);
 		//me->add("ggs/left_hours",-1);
 		return 0;
 	
 	}
 	
-	if (me->query("ggs/left_time") < 0 ) //·ÀÖ¹bug
+	if (me->query("ggs/left_time") < 0 ) //é˜²æ­¢bug
 			me->set("ggs/left_time",0);
 		
 	sLeftTime =(int) me->query("ggs/left_time");
 			
 	if (sLeftTime < (sNow - sStartTime))
 	{
-		tell_object(me, HIR"ÄãÄÔ×ÓÀïÎËµÄÒ»ÏÂ£¬¸Ğ¾õ¾«ÉñÆ£±¹Ö®¼«£¬ÄãÕâ¸öĞÇÆÚÀïÒÑÎŞ·¨ÔÙÖ§³Å¹í¹ÈËãÊõ×´Ì¬ÁË¡£\n"NOR);
-		message_vision(BLU"$NÒ»ÕóÍ·ÔÎÄ¿Ñ££¬ÎŞ·¨ÔÙÊ¹ÓÃ¹í¹ÈËãÊõ¼ÓÇ¿Ñ§Ï°ÄÜÁ¦ÁË£¡\n"NOR, me);
-		log_file( "quest/ggs",sprintf("%s(%s)ÔÚµÚ%dÖÜÃ»ÓĞÑ¯ÎÊover×Ô¶¯½áÊø.\n",
+		tell_object(me, HIR"ä½ è„‘å­é‡Œå—¡çš„ä¸€ä¸‹ï¼Œæ„Ÿè§‰ç²¾ç¥ç–²æƒ«ä¹‹æï¼Œä½ è¿™ä¸ªæ˜ŸæœŸé‡Œå·²æ— æ³•å†æ”¯æ’‘é¬¼è°·ç®—æœ¯çŠ¶æ€äº†ã€‚\n"NOR);
+		message_vision(BLU"$Nä¸€é˜µå¤´æ™•ç›®çœ©ï¼Œæ— æ³•å†ä½¿ç”¨é¬¼è°·ç®—æœ¯åŠ å¼ºå­¦ä¹ èƒ½åŠ›äº†ï¼\n"NOR, me);
+		log_file( "quest/ggs",sprintf("%s(%s)åœ¨ç¬¬%då‘¨æ²¡æœ‰è¯¢é—®overè‡ªåŠ¨ç»“æŸ.\n",
 			me->name(),
 			me->query("id"),
 			this_week
@@ -96,18 +96,18 @@ int update_condition(object me, int duration)
 		me->set("ggs/over_time","");
 		me->set("ggs/left_time",0);
 		
-		me->clear_condition("guigushu"); //½áÊøÁË¾ÍÇå³ı
+		me->clear_condition("guigushu"); //ç»“æŸäº†å°±æ¸…é™¤
 		return 0;
 	}
 	
 	if (this_week > me->query("ggs/last_week"))
 	{
 		me->set("ggs/left_time",me->query("ggs/left_time") - sNow + sStartTime);
-		tell_object(me, HIR"\nÄãÄÔ×ÓÀïÎËµÄÒ»ÏÂ£¬¸Ğ¾õ¾«ÉñÆ£±¹Ö®¼«£¬ÄãÕâ¸öĞÇÆÚÀïÒÑÎŞ·¨ÔÙÖ§³Å¹í¹ÈËãÊõ×´Ì¬ÁË¡£\n"NOR);
-		tell_object(me, HIR"ÄãÎª×Ô¼ºÀË·ÑÁË¹í¹ÈËãÊõÊ±¼ä¶ø°Ã»Ú²»ÒÑ£¬Äã´ó¸ÅÀË·ÑÁË"+	CHINESE_D->chinese_time(me->query("ggs/left_time"))+"¡£\n"NOR);
-		message_vision(BLU"$NÒ»ÕóÍ·ÔÎÄ¿Ñ££¬ÎŞ·¨ÔÙÊ¹ÓÃ¹í¹ÈËãÊõ¼ÓÇ¿Ñ§Ï°ÄÜÁ¦ÁË£¡\n"NOR, me);
+		tell_object(me, HIR"\nä½ è„‘å­é‡Œå—¡çš„ä¸€ä¸‹ï¼Œæ„Ÿè§‰ç²¾ç¥ç–²æƒ«ä¹‹æï¼Œä½ è¿™ä¸ªæ˜ŸæœŸé‡Œå·²æ— æ³•å†æ”¯æ’‘é¬¼è°·ç®—æœ¯çŠ¶æ€äº†ã€‚\n"NOR);
+		tell_object(me, HIR"ä½ ä¸ºè‡ªå·±æµªè´¹äº†é¬¼è°·ç®—æœ¯æ—¶é—´è€Œæ‡Šæ‚”ä¸å·²ï¼Œä½ å¤§æ¦‚æµªè´¹äº†"+	CHINESE_D->chinese_time(me->query("ggs/left_time"))+"ã€‚\n"NOR);
+		message_vision(BLU"$Nä¸€é˜µå¤´æ™•ç›®çœ©ï¼Œæ— æ³•å†ä½¿ç”¨é¬¼è°·ç®—æœ¯åŠ å¼ºå­¦ä¹ èƒ½åŠ›äº†ï¼\n"NOR, me);
 		
-		log_file( "quest/ggs",sprintf("%s(%s)ÔÚµÚ%dÖÜ×Ô¶¯½áÊø,ÀË·Ñ:%s\n",
+		log_file( "quest/ggs",sprintf("%s(%s)åœ¨ç¬¬%då‘¨è‡ªåŠ¨ç»“æŸ,æµªè´¹:%s\n",
 			me->name(),
 			me->query("id"),
 			this_week,
@@ -120,14 +120,14 @@ int update_condition(object me, int duration)
 		me->set("ggs/over_time","");
 		me->set("ggs/left_time",0);
 		
-		me->clear_condition("guigushu"); //½áÊøÁË¾ÍÇå³ı
+		me->clear_condition("guigushu"); //ç»“æŸäº†å°±æ¸…é™¤
 		return 0;
 	}
 	
 	if(random(10)==1)
 	{
-		tell_room(environment(me), me->name() + "¿´ÆğÀ´ÃæÄ¿ÇåÀÊ£¬ÉñË¼Ãô½İ¡£\n", ({ me }));
-		tell_object(me, HIG"ÔÚ¹í¹ÈËãÊõµÄ×÷ÓÃÏÂ£¬Äã¸Ğ¾õÌìµØÖ®¼äÃ»ÓĞÄã²»ÄÜÀí½âµÄÊÂ¡£\n"NOR);
+		tell_room(environment(me), me->name() + "çœ‹èµ·æ¥é¢ç›®æ¸…æœ—ï¼Œç¥æ€æ•æ·ã€‚\n", ({ me }));
+		tell_object(me, HIG"åœ¨é¬¼è°·ç®—æœ¯çš„ä½œç”¨ä¸‹ï¼Œä½ æ„Ÿè§‰å¤©åœ°ä¹‹é—´æ²¡æœ‰ä½ ä¸èƒ½ç†è§£çš„äº‹ã€‚\n"NOR);
 	}
     	return CND_CONTINUE;
 }

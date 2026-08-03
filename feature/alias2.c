@@ -32,7 +32,7 @@ string process_input(string str)
 			me->add_busy(1);
 			busy = me->query_busy();
 			if (intp(busy) && !(busy % 5))
-				tell_object(me, "����Ϊ����ָ�����" + busy*2 + "�벻�ܶ�����\n");
+				tell_object(me, "你因为滥用指令，将有" + busy*2 + "秒不能动弹。\n");
 */
 			return "";
 		}
@@ -43,13 +43,13 @@ string process_input(string str)
 	if (!wizardp(me)) {
 		if (me->query("eff_jing") + me->query_temp("apply/jing") < 0
 		|| me->query("eff_qi") + me->query_temp("apply/qi") < 0) {
-			tell_object(me, "������Ҫ�����ˣ��������κ����顣\n");
+			tell_object(me, "你马上要死亡了，不能做任何事情。\n");
 			return "";
 		}
 		if (me->query("jing") < 0
 		|| me->query("qi") < 0
 		|| me->query("jingli") < 0) {
-			tell_object(me, "������Ҫ�����ˣ��������κ����顣\n");
+			tell_object(me, "你马上要昏迷了，不能做任何事情。\n");
 			return "";
 		}
 	}
@@ -106,7 +106,7 @@ int set_alias(string verb, string replace)
 	} else {
 		if (!mapp(alias)) alias = ([]);
 		if (undefinedp(alias[verb]) && sizeof(alias) >= MAX_ALIASES)
-			return notify_fail("���趨�� alias ̫���ˣ�����ɾ��һЩ�����õġ�\n");
+			return notify_fail("您设定的 alias 太多了，请先删掉一些不常用的。\n");
 		alias[verb] = replace;
 		return 1;
 	}

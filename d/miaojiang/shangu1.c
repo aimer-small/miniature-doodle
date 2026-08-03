@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "É½¹È");
+        set("short", "å±±è°·");
         set("long", @LONG
-ÕâÀïÊÇÎå¶¾½ÌµÄµÄ½ûµØ£¬ËÄÖÜÖÖÂúÁË¸÷ÖÖ²İ±¾»¨Ä¾£¬Å¨ÓôµÄ»¨ÏãÈÃÄã¸Ğµ½
-ÔÎĞş¡£¼¸ÃûÎå¶¾½ÌµÜ×Ó·îÃüÔÚÕâÀï¿´ÊØ¡£
+è¿™é‡Œæ˜¯äº”æ¯’æ•™çš„çš„ç¦åœ°ï¼Œå››å‘¨ç§æ»¡äº†å„ç§è‰æœ¬èŠ±æœ¨ï¼Œæµ“éƒçš„èŠ±é¦™è®©ä½ æ„Ÿåˆ°
+æ™•ç„ã€‚å‡ åäº”æ¯’æ•™å¼Ÿå­å¥‰å‘½åœ¨è¿™é‡Œçœ‹å®ˆã€‚
 LONG
         );
 
@@ -35,20 +35,20 @@ int do_wa(string arg)
         object me;
         me = this_player();
         if (!( present("xiao tiechan", this_player())))
-        return notify_fail("ÓÃÊÖÍÚ£¬²»ÅÂÖĞ¶¾£¡\n");
+        return notify_fail("ç”¨æ‰‹æŒ–ï¼Œä¸æ€•ä¸­æ¯’ï¼\n");
         if ( !arg || arg != "hua" )
-            return notify_fail("ÄãÒª×öÊ²÷á£¿\n");
+            return notify_fail("ä½ è¦åšä»€éº½ï¼Ÿ\n");
         if (query("ling_count") > 0) 
        {
-        message_vision("$NÄÃÆğÌú²ù£¬Ğ¡ĞÄÒíÒíµÄÍÚ³öÒ»ÖêÁéÖ¬À¼¡£\n",me);
+        message_vision("$Næ‹¿èµ·é“é“²ï¼Œå°å¿ƒç¿¼ç¿¼çš„æŒ–å‡ºä¸€æ ªçµè„‚å…°ã€‚\n",me);
         add("ling_count", -1);
         lan=new(__DIR__"obj/lian");
         lan->move(__DIR__"shangu1",);
-      me->set_temp("mark/ÍÚ",1);
+      me->set_temp("mark/æŒ–",1);
         me->add("jingli",-100);
         }
         else
-       message_vision("$N·¢ÏÖÕâÀïÒÑ¾­±»ÈËÍÚ¹ıÁË¡£\n", me);
+       message_vision("$Nå‘ç°è¿™é‡Œå·²ç»è¢«äººæŒ–è¿‡äº†ã€‚\n", me);
         return 1;
 }
 int do_shao(string arg)
@@ -57,15 +57,15 @@ int do_shao(string arg)
     object me=this_player(), ob;
 
     if((!arg) || (arg != "lingzhi lan"))
-        return notify_fail("ÄãÒª×öÓÃÊ²Ã´£¿\n");
+        return notify_fail("ä½ è¦åšç”¨ä»€ä¹ˆï¼Ÿ\n");
     if( !(ob=present("fire", me)) )
-      return notify_fail("ÄãÃ»ÓĞµã»ğÖ®Îï£¡\n");
+      return notify_fail("ä½ æ²¡æœ‰ç‚¹ç«ä¹‹ç‰©ï¼\n");
     if( !(ob=present("lingzhi lan", me)) )
-        return notify_fail("ÄãÒªÉÕÊ²÷á£¡\n");
+        return notify_fail("ä½ è¦çƒ§ä»€éº½ï¼\n");
           if (query("jin_count") > 0) 
           {
-        message_vision("$NµãÈ¼ÁéÖ¬À¼£¬ËÄÏÂÀïÒ»ÏÂÉ¢·¢×ÅÕóÕóÌ´Ïã¡£$NºöÈ»¿´µ½
-´Ó¹àÄ¾Àï×ê³öÁ½ÌõÆæ¹ÖµÄĞ¡Éß¡£\n", me);
+        message_vision("$Nç‚¹ç‡ƒçµè„‚å…°ï¼Œå››ä¸‹é‡Œä¸€ä¸‹æ•£å‘ç€é˜µé˜µæª€é¦™ã€‚$Nå¿½ç„¶çœ‹åˆ°
+ä»çŒæœ¨é‡Œé’»å‡ºä¸¤æ¡å¥‡æ€ªçš„å°è›‡ã€‚\n", me);
          add("jin_count", -1);
          jinshe=new(__DIR__"npc/jinshe");
          jinshe=new(__DIR__"npc/yinshe");
@@ -75,7 +75,7 @@ int do_shao(string arg)
          yinshe->move(__DIR__"shangu1",);
           }
         else
-         message_vision("$NµÈÁË°ëÌì£¬Ê²÷áÒ²Ã»ÓĞ·¢ÏÖ¡£\n", me);
+         message_vision("$Nç­‰äº†åŠå¤©ï¼Œä»€éº½ä¹Ÿæ²¡æœ‰å‘ç°ã€‚\n", me);
          return 1;
 //         destruct(ob);
          return 1;

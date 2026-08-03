@@ -1,4 +1,4 @@
-// zhou.c ÖÜµß
+// zhou.c å‘¨é¢ 
 // Modify By River@sj 99.06
 // Modify by Looklove@sj 2000/9/30
 
@@ -11,12 +11,12 @@ string ask_blade();
 void create()
 {
         object weapon;
-        set_name("ÖÜµß", ({ "zhou dian","zhou","dian" }) );
-        set("title", "Ã÷½ÌÎåÉ¢ÈË");
+        set_name("å‘¨é¢ ", ({ "zhou dian","zhou","dian" }) );
+        set("title", "æ˜æ•™äº”æ•£äºº");
         
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age",52);
-        set("long", "Ëû¾ÍÊÇÃ÷½ÌÎåÉ¢ÈËÖ®Ò»µÄÖÜµß¡£\n");
+        set("long", "ä»–å°±æ˜¯æ˜æ•™äº”æ•£äººä¹‹ä¸€çš„å‘¨é¢ ã€‚\n");
         set("str", 25);
         set("int", 25);
         set("con", 25);
@@ -41,15 +41,15 @@ void create()
         map_skill("parry","lieyan-dao");
         prepare_skill("hand","suohou-shou");
 
-        create_family("Ã÷½Ì",36,"É¢ÈË");
+        create_family("æ˜æ•™",36,"æ•£äºº");
 
         set("max_qi",1500);
         set("max_jing",1200);
         set("jiali",50);
         set("eff_jingli",1100);
         set("inquiry", ([
-                "½èµ¶"     : (: ask_blade :),
-                "ÇàÑæµ¶" : "ÄÇÊÇÎÒµÄËæÉí±øÆ÷£¬ÏëÓÃ£¬¿ÉÒÔ½è¸øÄã¡£\n",
+                "å€Ÿåˆ€"     : (: ask_blade :),
+                "é’ç„°åˆ€" : "é‚£æ˜¯æˆ‘çš„éšèº«å…µå™¨ï¼Œæƒ³ç”¨ï¼Œå¯ä»¥å€Ÿç»™ä½ ã€‚\n",
                 ]));
         setup();
 
@@ -77,21 +77,21 @@ string ask_blade()
         ob = this_object();
 
         if ( me->query("combat_exp") < 100000 )
-        return RANK_D->query_respect(me)+"µÄ¹¦·òÌ«²î£¬½è¸øÄã£¬ÅÂÄãÒ²±£²»×¡±¦µ¶¡£";
+        return RANK_D->query_respect(me)+"çš„åŠŸå¤«å¤ªå·®ï¼Œå€Ÿç»™ä½ ï¼Œæ€•ä½ ä¹Ÿä¿ä¸ä½å®åˆ€ã€‚";
         if ( present("qingyan dao", me)|| me->query_temp("qydao"))
                 return RANK_D->query_respect(this_player()) + 
-                "µ¶Ö»ÓĞÒ»°Ñ£¬ÒÑ¾­½è¸øÄãÀ²£¡";
+                "åˆ€åªæœ‰ä¸€æŠŠï¼Œå·²ç»å€Ÿç»™ä½ å•¦ï¼";
         if ( blade=present("qingyan dao", ob))
         command("give qingyan dao to "+me->query("id"));
         if(!objectp(blade))   blade = unew(BINGQI_D("blade/qingyan-dao"));
-        if(!objectp(blade))   return "±§Ç¸£¬Õâ°ÑÇàÑæµ¶ÎÒÒÑ¾­½è¸ø±ğÈËÁË¡£"; 
+        if(!objectp(blade))   return "æŠ±æ­‰ï¼Œè¿™æŠŠé’ç„°åˆ€æˆ‘å·²ç»å€Ÿç»™åˆ«äººäº†ã€‚"; 
 
         blade->move(me);
         blade = unew(BINGQI_D("blade"));
         blade->move(this_object());
         me->set_temp("qydao",1);
         command("wield dao"); 
-        return "´ó¼Ò¶¼ÊÇ½­ºşÍ¬µÀ£¬½»¸öÅóÓÑ,¾¡¹ÜÄÃÈ¥ÓÃ¡£";
+        return "å¤§å®¶éƒ½æ˜¯æ±Ÿæ¹–åŒé“ï¼Œäº¤ä¸ªæœ‹å‹,å°½ç®¡æ‹¿å»ç”¨ã€‚";
          
 }
 
@@ -107,15 +107,15 @@ int do_kill(string arg)
         if (!ob || !ob->is_character()) return 0;
 
         
-        if (userp(ob) && ob->query("family/family_name") == "Ã÷½Ì") {
-                if (me->query("family/family_name") == "Ã÷½Ì") { 
-        message_vision(ob2->name()+"¶Ô$NºÈµÀ£ºÉíÎªÃ÷½ÌµÜ×Ó£¬¾¹È»É±×Ô¼ºµÄÍ¬ÃÅ£¿ÎÒÔ×ÁËÄã£¡\n", me);
+        if (userp(ob) && ob->query("family/family_name") == "æ˜æ•™") {
+                if (me->query("family/family_name") == "æ˜æ•™") { 
+        message_vision(ob2->name()+"å¯¹$Nå–é“ï¼šèº«ä¸ºæ˜æ•™å¼Ÿå­ï¼Œç«Ÿç„¶æ€è‡ªå·±çš„åŒé—¨ï¼Ÿæˆ‘å®°äº†ä½ ï¼\n", me);
                 }
                 else {
-                        message_vision(ob2->name()+"¶Ô$NºÈµÀ£º´óµ¨¿ñÍ½£¬¾ÓÈ»¸ÒÀ´Ã÷½ÌÈöÒ°£¡\n", me);
+                        message_vision(ob2->name()+"å¯¹$Nå–é“ï¼šå¤§èƒ†ç‹‚å¾’ï¼Œå±…ç„¶æ•¢æ¥æ˜æ•™æ’’é‡ï¼\n", me);
                         kill_ob(me);
                 }
-                me->set("vendetta/Ã÷½Ì", 1);
+                me->set("vendetta/æ˜æ•™", 1);
                 return 1;
         }
         return 0;

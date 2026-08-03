@@ -1,18 +1,18 @@
-// kuloutou.c ÷¼÷ÃÍ·
+// kuloutou.c éª·é«…å¤´
 // Last modify by Yanyang because erroneous word
 
 inherit ITEM;
 void destroying(object obj, object me);
 void create()
 {
-        set_name("÷¼÷ÃÍ·", ({ "kulou tou", "kulou", "tou" }) );
+        set_name("éª·é«…å¤´", ({ "kulou tou", "kulou", "tou" }) );
         set_weight(1500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¸ö");
+                set("unit", "ä¸ª");
                 set("value", 20);
-                set("long", "ÕâÊÇÒ»¸öÈËÍ·¿İÀÃºóĞÎ³ÉµÄ÷¼÷ÃÍ·£¬ÉÏÃæÓĞÎå¸öÖ¸¶´£¬¿´ÆğÀ´ÒõÉ­É­µÄ¡£\n");
+                set("long", "è¿™æ˜¯ä¸€ä¸ªäººå¤´æ¯çƒ‚åå½¢æˆçš„éª·é«…å¤´ï¼Œä¸Šé¢æœ‰äº”ä¸ªæŒ‡æ´ï¼Œçœ‹èµ·æ¥é˜´æ£®æ£®çš„ã€‚\n");
         }
         setup();
 }
@@ -26,18 +26,18 @@ int do_cha(string arg)
 {
 	object me=this_player();
 	if( !arg) return 0;
-	if ( arg!="kulou" && arg!="kulou tou" && arg!="÷¼÷ÃÍ·" && arg!="÷¼÷Ã" && arg!="tou")
+	if ( arg!="kulou" && arg!="kulou tou" && arg!="éª·é«…å¤´" && arg!="éª·é«…" && arg!="tou")
 		return 0;
 	if( me->is_fighting() || me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if( me->query_skill("claw", 1) > 100)
-		return notify_fail("Äã·¢ÏÖÔÙÔõÃ´²åÒ²Ã»ÓĞÓÃÁË¡£\n");
+		return notify_fail("ä½ å‘ç°å†æ€ä¹ˆæ’ä¹Ÿæ²¡æœ‰ç”¨äº†ã€‚\n");
 	me->add("jing", -(20 + random(40)));
 	me->add("jingli", - random(40));
 	me->add("shen", -random(80));
 	me->improve_skill("claw", (int)me->query_int()+random((int)me->query_skill("claw")));
-	message_vision("$N°ÑÎå¸öÊÖÖ¸²åÈë÷¼÷ÃÍ·ÉÏµÄÎå¸öÖ¸¿×¡£\n", me);
-        tell_object(me, "ÄãºöÈ»¾õµÃÎå¸öÊÖÖ¸ÕıºÃ²å½øÁËÖ¸¿×£¬ĞÄÀï²»ÓÉ×ÔÖ÷µØ²úÉúÒ»¹ÉĞ°Äî¡£\n");
+	message_vision("$NæŠŠäº”ä¸ªæ‰‹æŒ‡æ’å…¥éª·é«…å¤´ä¸Šçš„äº”ä¸ªæŒ‡å­”ã€‚\n", me);
+        tell_object(me, "ä½ å¿½ç„¶è§‰å¾—äº”ä¸ªæ‰‹æŒ‡æ­£å¥½æ’è¿›äº†æŒ‡å­”ï¼Œå¿ƒé‡Œä¸ç”±è‡ªä¸»åœ°äº§ç”Ÿä¸€è‚¡é‚ªå¿µã€‚\n");
         if ( !random(30))
         	destroying(this_object(), me);
 	return 1;
@@ -46,8 +46,8 @@ int do_cha(string arg)
 void destroying(object obj, object me)
 {     
 	if ( !obj || !me) return;
-	tell_object(me, "ÄãÎå¸öÊÖÖ¸ºİºİ½Ğ¾¢£¬Õû¸ö÷¼÷ÃÍ·¶¼±»ÄãÄóËéÁË¡£\n");
-	message_vision("$NÎåÖ¸½Ğ¾¢£¬Ö»ÌıµÃÒ»Éù´àÏì£¬Õû¸ö÷¼÷ÃÍ·¶¼±»$NÄóËéµÃ·ÛËé¡£\n", me);
+	tell_object(me, "ä½ äº”ä¸ªæ‰‹æŒ‡ç‹ ç‹ å«åŠ²ï¼Œæ•´ä¸ªéª·é«…å¤´éƒ½è¢«ä½ æç¢äº†ã€‚\n");
+	message_vision("$Näº”æŒ‡å«åŠ²ï¼Œåªå¬å¾—ä¸€å£°è„†å“ï¼Œæ•´ä¸ªéª·é«…å¤´éƒ½è¢«$Næç¢å¾—ç²‰ç¢ã€‚\n", me);
 	destruct(obj);
 	return;
 }

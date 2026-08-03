@@ -1,42 +1,42 @@
-// qianzhu-wandushouÇ§ÖëÍò¶¾ÊÖ
+// qianzhu-wandushouåƒè››ä¸‡æ¯’æ‰‹
 // Update By River@SJ 2002.11
-// Modified by mxzhao 2005/02/11 ĞŞ¸Ä³É150ÒÔÉÏ¿ÉÒÔÁ·
-// Update by lsxk@hsbbs  ĞŞ¸ÄÑÕÉ«
-// Update by server ĞŞ¸ÄÃ»±ê¼Ç¿ÉÒÔjifa ¿ÉÒÔÍ¨¹ımarry À´Ñ§Ï°
+// Modified by mxzhao 2005/02/11 ä¿®æ”¹æˆ150ä»¥ä¸Šå¯ä»¥ç»ƒ
+// Update by lsxk@hsbbs  ä¿®æ”¹é¢œè‰²
+// Update by server ä¿®æ”¹æ²¡æ ‡è®°å¯ä»¥jifa å¯ä»¥é€šè¿‡marry æ¥å­¦ä¹ 
 
 #include <ansi.h>
 inherit SKILL;
 
 mapping *action = ({
 ([
-	"action": "$NÉîÎü¿ÚÆø£¬ÉíÌå¼±×İ¶øÉÏ£¬ÓÒÊÖÊ³Ö¸¼²Éì£¬Ö±´Á$nµÄ$l",
+	"action": "$Næ·±å¸å£æ°”ï¼Œèº«ä½“æ€¥çºµè€Œä¸Šï¼Œå³æ‰‹é£ŸæŒ‡ç–¾ä¼¸ï¼Œç›´æˆ³$nçš„$l",
 	"lvl" : 0,
 	"poison": 80,
-	"damage_type": "ğöÉË"
+	"damage_type": "ç˜€ä¼¤"
 ]),
 ([
-	"action": "$NÉíĞÎÎ¢Çú£¬Ìß³öÓÒÍÈºáÉ¨$nµÄÏÂÅÌ, Í»È»¼äÓÖ·ÉÆğË«ÕÆÅÄÏò$nµÄ$l",
+	"action": "$Nèº«å½¢å¾®æ›²ï¼Œè¸¢å‡ºå³è…¿æ¨ªæ‰«$nçš„ä¸‹ç›˜, çªç„¶é—´åˆé£èµ·åŒæŒæ‹å‘$nçš„$l",
 	"lvl" : 40,
 	"poison": 60,
-	"damage_type": "ğöÉË"
+	"damage_type": "ç˜€ä¼¤"
 ]),
 ([
-	"action": "$NÒõºÈÒ»Éù£¬Ë«ÊÖÏòÇ°Îè¶¯£¬Í»È»Ò»¹ÉÄÚ¾¢Ë³Ö¸¼âÆÆ¿Õ¶ø³ö£¬¼²Éä$nµÄ$l",
+	"action": "$Né˜´å–ä¸€å£°ï¼ŒåŒæ‰‹å‘å‰èˆåŠ¨ï¼Œçªç„¶ä¸€è‚¡å†…åŠ²é¡ºæŒ‡å°–ç ´ç©ºè€Œå‡ºï¼Œç–¾å°„$nçš„$l",
 	"lvl" : 80,
 	"poison": 40,
-	"damage_type": "ğöÉË"
+	"damage_type": "ç˜€ä¼¤"
 ]),
 ([
-	"action": "$NÉíĞÎ×İÆğ£¬Ê®Ö¸Çáµ¯£¬Ö»¼ûÂÆÂÆÄÚ¾¢ÓÌÈç·ÉÆÙ°ãÏò$nµÄ$lÉäÈ¥",
+	"action": "$Nèº«å½¢çºµèµ·ï¼ŒåæŒ‡è½»å¼¹ï¼Œåªè§ç¼•ç¼•å†…åŠ²çŠ¹å¦‚é£ç€‘èˆ¬å‘$nçš„$lå°„å»",
 	"lvl" : 120,
 	"poison": 80,
-	"damage_type": "ÄÚÉË"
+	"damage_type": "å†…ä¼¤"
 ]),
 ([
-	"action": "$NÁ³ÉÏÒõÆø´óÊ¢£¬Ò»¹ÉºÚÆøË³Ë«ÊÖÂûÑÓµ½Á½±Û£¬Ò»ÕĞ¡¸ÍòÖëÎüÑª¡¹Á¬Á¬´ÁÏò$nµÄ$l",
+	"action": "$Nè„¸ä¸Šé˜´æ°”å¤§ç››ï¼Œä¸€è‚¡é»‘æ°”é¡ºåŒæ‰‹è”“å»¶åˆ°ä¸¤è‡‚ï¼Œä¸€æ‹›ã€Œä¸‡è››å¸è¡€ã€è¿è¿æˆ³å‘$nçš„$l",
 	"lvl" : 160,
 	"poison": 100,
-	"damage_type": "ğöÉË"
+	"damage_type": "ç˜€ä¼¤"
 ]),
 });
 
@@ -57,7 +57,7 @@ string query_skill_name(int level)
 			return action[i]["skill_name"];
 }
 
-//	HIR"$NÃ¼¼äºÚÆøÁıÕÖ£¬ÑÀ¹Ø½ôÒ§£¬Í»È»Åç³öÒ»¹ÉÏãÆø£¬Ê®Ö¸ÓÖ¿ìÈç¹í÷È°ãµãÏò$nëşÖĞÑ¨"NOR,
+//	HIR"$Nçœ‰é—´é»‘æ°”ç¬¼ç½©ï¼Œç‰™å…³ç´§å’¬ï¼Œçªç„¶å–·å‡ºä¸€è‚¡é¦™æ°”ï¼ŒåæŒ‡åˆå¿«å¦‚é¬¼é­…èˆ¬ç‚¹å‘$nè†»ä¸­ç©´"NOR,
 
 mapping query_action(object me,object weapon)
 {
@@ -71,7 +71,7 @@ mapping query_action(object me,object weapon)
 				return ([
 					"action" :	HIR+action[j]["action"]+NOR,
 					"poison":	action[j]["poison"],
-					"damage_type":	"ÄÚÉË",
+					"damage_type":	"å†…ä¼¤",
 					"dodge":	random(35),
 					"parry":	random(35),
 					"force":	350 + random(300),
@@ -82,7 +82,7 @@ mapping query_action(object me,object weapon)
                            return ([
                                    "action" :      rcolor[random(sizeof(rcolor))]+action[j]["action"]+NOR,
                                    "poison":       action[j]["poison"],
-                                   "damage_type":  "ÄÚÉË",
+                                   "damage_type":  "å†…ä¼¤",
                                    "dodge":        random(55),
                                    "parry":        random(55),
                                    "force":        400 + random(350),
@@ -106,17 +106,17 @@ int practice_skill(object me)
 {
 	if (me->query_skill("qianzhu-wandushou", 1) < 150)
 	{
-		return notify_fail("Ç§ÖëÍò¶¾ÊÖÖ»ÄÜÍ¨¹ıĞŞÁ¶À´Ìá¸ß¡£\n");
+		return notify_fail("åƒè››ä¸‡æ¯’æ‰‹åªèƒ½é€šè¿‡ä¿®ç‚¼æ¥æé«˜ã€‚\n");
 	}
 
 	if (me->query("jingli") < 50)
 	{
-		return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·Ï°Ç§ÖëÍò¶¾ÊÖ¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒä¹ åƒè››ä¸‡æ¯’æ‰‹ã€‚\n");
 	}
 	
 	if (me->query("neili") < 20)
 	{
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·Ï°Ç§ÖëÍò¶¾ÊÖ¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒä¹ åƒè››ä¸‡æ¯’æ‰‹ã€‚\n");
 	}
 
 	me->receive_damage("jingli", 40);
@@ -128,7 +128,7 @@ int valid_learn(object me)
 {
 	if (me->query_skill("qianzhu-wandushou", 1) < 150)
 	{
-		return notify_fail("Ç§ÖëÍò¶¾ÊÖÖ»ÄÜÍ¨¹ıĞŞÁ¶À´Ìá¸ß¡£\n");
+		return notify_fail("åƒè››ä¸‡æ¯’æ‰‹åªèƒ½é€šè¿‡ä¿®ç‚¼æ¥æé«˜ã€‚\n");
 	}
 
 	return 1;
@@ -140,8 +140,8 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 
 	if ( victim->query("job_npc")) return 0;
 
-	if( (random(i) > 150 || me->query_temp("qzwd_pfm")) && me->query("env/Ç§ÖëÍò¶¾ÊÖ")) {
-		message_vision(HIR"$NÉíÌåÒ»¾­½Ó´¥£¬Ö»¾õ»ëÉíÒ»Õğ£¬Á³Â¶³±ºìÖ®É«£¬¿´À´ÒÑ¾­ÖĞ¶¾ÁË£¡\n"NOR, victim);
+	if( (random(i) > 150 || me->query_temp("qzwd_pfm")) && me->query("env/åƒè››ä¸‡æ¯’æ‰‹")) {
+		message_vision(HIR"$Nèº«ä½“ä¸€ç»æ¥è§¦ï¼Œåªè§‰æµ‘èº«ä¸€éœ‡ï¼Œè„¸éœ²æ½®çº¢ä¹‹è‰²ï¼Œçœ‹æ¥å·²ç»ä¸­æ¯’äº†ï¼\n"NOR, victim);
 		victim->set_temp("qianzhu", 1);
 		victim->add_condition("qzhu_poison", random(6)+ i/30);
 		if (userp(me)

@@ -1,19 +1,19 @@
 // Room: /d/emei/guanyintang.c
-// ÔÝÊ±¶Ô player ¹Ø±Õ fen Ïã
+// æš‚æ—¶å¯¹ player å…³é—­ fen é¦™
 
 inherit ROOM;
 #include <ansi.h>
 void create()
 {
-	set("short",HIW "¹ÛÒôÌÃ" NOR);
+	set("short",HIW "è§‚éŸ³å ‚" NOR);
 	set("long", @LONG
-¹ÛÒôÌÃ¸ß¾áÆÂ¸Ú£¬½üÁÙÎ£ÑÂ£¬»·¾³ÓÄ¾²£¬ËÄÖÜÊ÷Ä¾ÝîÓô£¬ÔÃÄ¿ÉÍÐÄ¡£´«Ëµ
-ÈëÉ½ÓÚ´Ë£¬½âÍÑ³¾·²£»³öÉ½ÓÚ´Ë£¬½âÍÑÏÕ×è£¬ÓÖ¹ÊÃû½âÍÑâÖ¡£½øÉ½µÄÈËÔÚ´Ë·Ù
-ÏãÏ´ÐÄ£¬ÈëÉ½·½¿É»¯ÏÕÎªÒÄ£¬²½²½Æ½°²¡£ÕâÀï¶«ÏÂ¿É´ï·ü»¢ËÂ£¬Î÷ÉÏÐÐÔ¼¶þÀï
-¿Éµ½¹éÔÆ¸ó¡£
+è§‚éŸ³å ‚é«˜è¸žå¡å²—ï¼Œè¿‘ä¸´å±å´–ï¼ŒçŽ¯å¢ƒå¹½é™ï¼Œå››å‘¨æ ‘æœ¨è“Šéƒï¼Œæ‚¦ç›®èµå¿ƒã€‚ä¼ è¯´
+å…¥å±±äºŽæ­¤ï¼Œè§£è„±å°˜å‡¡ï¼›å‡ºå±±äºŽæ­¤ï¼Œè§£è„±é™©é˜»ï¼Œåˆæ•…åè§£è„±åºµã€‚è¿›å±±çš„äººåœ¨æ­¤ç„š
+é¦™æ´—å¿ƒï¼Œå…¥å±±æ–¹å¯åŒ–é™©ä¸ºå¤·ï¼Œæ­¥æ­¥å¹³å®‰ã€‚è¿™é‡Œä¸œä¸‹å¯è¾¾ä¼è™Žå¯ºï¼Œè¥¿ä¸Šè¡Œçº¦äºŒé‡Œ
+å¯åˆ°å½’äº‘é˜ã€‚
 LONG
 	);
-	set("outdoors", "¶ëÃ¼É½");
+	set("outdoors", "å³¨çœ‰å±±");
 	set("objects",([
 		__DIR__"npc/xiangke" : 2,
 	]));
@@ -30,7 +30,7 @@ LONG
 void init()
 {
 	add_action("do_fen", "fen");
-	add_action("do_fen", "·Ù");
+	add_action("do_fen", "ç„š");
 }
 
 int do_fen(string arg)
@@ -41,17 +41,17 @@ int do_fen(string arg)
 	if( !wizardp(me) ) return 0;
 
 	if( me->is_busy() || me->is_fighting() )
-		return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
-	if( !arg || arg == "" || arg != "Ïã" )
-		return notify_fail("ÄãÒª·ÙÉÕÊ²Ã´£¿\n");
+	if( !arg || arg == "" || arg != "é¦™" )
+		return notify_fail("ä½ è¦ç„šçƒ§ä»€ä¹ˆï¼Ÿ\n");
 
 	if( !present("xiang", me) )
-		return notify_fail("ÄãÒª·ÙÉÕÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦ç„šçƒ§ä»€ä¹ˆï¼Ÿ\n");
 	
-	if( arg == "Ïã" ) {
+	if( arg == "é¦™" ) {
 		if( (int)me->query_temp("fen_xiang", 1) >= 1 ) {
-			message_vision("$N¹ò°ÝÔÚ¹ÛÒôÌÃÇ°£¬µãÈ¼Ò»°ÑÏã»ð£¬ò¯³ÏµÄ¿ÄÍ·¡£\n", me);
+			message_vision("$Nè·ªæ‹œåœ¨è§‚éŸ³å ‚å‰ï¼Œç‚¹ç‡ƒä¸€æŠŠé¦™ç«ï¼Œè™”è¯šçš„ç£•å¤´ã€‚\n", me);
 			me->add_temp("fen_xiang", 1);
 			destruct(present("xiang", me));
 			return 1;
@@ -60,7 +60,7 @@ int do_fen(string arg)
 			nv = (int)me->query("kar", 1);
 			nh = nv * 250;
 			improve1 = 1;
-			message_vision("$N¹ò°ÝÔÚ¹ÛÒôÌÃÇ°£¬µãÈ¼Ò»°ÑÏã»ð£¬ò¯³ÏµÄ¿ÄÍ·¡£\n", me);
+			message_vision("$Nè·ªæ‹œåœ¨è§‚éŸ³å ‚å‰ï¼Œç‚¹ç‡ƒä¸€æŠŠé¦™ç«ï¼Œè™”è¯šçš„ç£•å¤´ã€‚\n", me);
 			me->add_temp("fen_xiang", 1);
 			destruct(present("xiang",me));
 			me->add("kar", improve1);

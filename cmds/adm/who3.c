@@ -10,8 +10,8 @@ int main(object me, string str)
 
     ob_list = users();
     ob_list = sort_array(users(), "sort_user", this_object());
-    str = HIG" Íæ¼Ò      ÎòĞÔ-ºóÌì ¸ù¹Ç-ºóÌì Éí·¨-ºóÌì ëöÁ¦-ºóÌì ¸£Ôµ ÈİÃ²\n"NOR;
-    str += "¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª\n";
+    str = HIG" ç©å®¶      æ‚Ÿæ€§-åå¤© æ ¹éª¨-åå¤© èº«æ³•-åå¤© è†‚åŠ›-åå¤© ç¦ç¼˜ å®¹è²Œ\n"NOR;
+    str += "â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”\n";
     for(i=0; i<sizeof(ob_list); i++)
     {
         ob = ob_list[i];
@@ -27,8 +27,8 @@ int main(object me, string str)
         str += sprintf(HIC"%-2d   ",ob->query("kar"));
         str += sprintf(HIM"%-2d \n"NOR, ob->query("per"));
     }
-    str += "¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª\n";
-//    str = sprintf("%s¹²ÓĞ %d Î»Ê¹ÓÃÕßÁ¬ÏßÖĞ¡£\n", str, sizeof(ob_list));
+    str += "â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”\n";
+//    str = sprintf("%så…±æœ‰ %d ä½ä½¿ç”¨è€…è¿çº¿ä¸­ã€‚\n", str, sizeof(ob_list));
     me->start_more(str);
     return 1;
 }
@@ -45,9 +45,9 @@ int sort_user(object ob1, object ob2)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½£ºwho3
+æŒ‡ä»¤æ ¼å¼ï¼šwho3
 
-Íæ¼ÒĞÅÏ¢²éÑ¯¡£
+ç©å®¶ä¿¡æ¯æŸ¥è¯¢ã€‚
 HELP
         );
         return 1;

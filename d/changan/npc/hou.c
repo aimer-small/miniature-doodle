@@ -5,8 +5,8 @@ inherit NPC;
 inherit F_VENDOR;
 void create()
 {
-        set_name("ºîÈı½ã", ({"hou sanjie", "hou", "sanjie" }) );
-        set("gender", "Å®ĞÔ" );
+        set_name("ä¾¯ä¸‰å§", ({"hou sanjie", "hou", "sanjie" }) );
+        set("gender", "å¥³æ€§" );
         set("age", 22);
         set("long", "\n");
         set("attitude","heroism");

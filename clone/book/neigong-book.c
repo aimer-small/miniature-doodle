@@ -5,13 +5,13 @@
 inherit ITEM;
 void create()
 {
-        set_name("ÄÚ¹¦ĞÄ·¨", ({"force book", "shu", "book" }));
+        set_name("å†…åŠŸå¿ƒæ³•", ({"force book", "shu", "book" }));
         set_weight(50);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
-                set("long","ÕâÊÇÒ»±¾ÊéÒ³·¢»ÆµÄÊé£¬ÀïÃæÃÜÃÜÂéÂéµÄ»­ÁË²»ÉÙ´ò×øÍÂÄÅµÄ×ËÊÆ¡£\n");
+                set("unit", "æœ¬");
+                set("long","è¿™æ˜¯ä¸€æœ¬ä¹¦é¡µå‘é»„çš„ä¹¦ï¼Œé‡Œé¢å¯†å¯†éº»éº»çš„ç”»äº†ä¸å°‘æ‰“ååå‘çš„å§¿åŠ¿ã€‚\n");
                 set("unique", 1);
                 set("treasure", 1);
                 set("material", "paper");

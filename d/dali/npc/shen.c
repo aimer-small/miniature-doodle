@@ -4,15 +4,15 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("ÉòÀÏ°å", ({ "shen laoban", "laoban", "shen", }));
-	set("title", "µ±ÆÌÀÏ°å");
+	set_name("æ²ˆè€æ¿", ({ "shen laoban", "laoban", "shen", }));
+	set("title", "å½“é“ºè€æ¿");
 	set("shen_type", 0);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set_max_encumbrance(100000000);
 	set("age", 35);
 	set("long",
-		"Ëû´ø×ÅÒ»Á³Ğ¦Èİ£¬ÕĞºô×ÅÄã¡£\n");
+		"ä»–å¸¦ç€ä¸€è„¸ç¬‘å®¹ï¼Œæ‹›å‘¼ç€ä½ ã€‚\n");
 	set("no_get_from", 1);
 
 	set_skill("unarmed", 60);

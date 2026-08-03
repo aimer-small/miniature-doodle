@@ -53,12 +53,12 @@ file += ".c";
 }
 
 if( file_size(file)<0 )
-return notify_fail("Ã»ÓĞÕâ¸öÎÄ¼ş¡£\n");
+return notify_fail("æ²¡æœ‰è¿™ä¸ªæ–‡ä»¶ã€‚\n");
 
 if (ob)
-write("Îï¼ş£º" + ob->name() + "(" + ob->parse_command_id_list()[0] + ")\n");
+write("ç‰©ä»¶ï¼š" + ob->name() + "(" + ob->parse_command_id_list()[0] + ")\n");
 
-write("ÎÄ¼ş£º" + file + "\n");
+write("æ–‡ä»¶ï¼š" + file + "\n");
 
 if (domore)
 {
@@ -91,14 +91,14 @@ return 1;
 int help(object me)
 {
 write(@HELP
-¹¦ÄÜ¡¡¡¡£º¡¡ÏÔÊ¾Ö¸¶¨ÎÄ¼ş¡£
+åŠŸèƒ½ã€€ã€€ï¼šã€€æ˜¾ç¤ºæŒ‡å®šæ–‡ä»¶ã€‚
 
-Ö¸Áî¸ñÊ½: ¡¡cam <ÉúÎïID>|<ÎïÆ·ID>|<ÍêÕûÎÄ¼şÃû>|here [-<more|m>|<n>]
+æŒ‡ä»¤æ ¼å¼: ã€€cam <ç”Ÿç‰©ID>|<ç‰©å“ID>|<å®Œæ•´æ–‡ä»¶å>|here [-<more|m>|<n>]
 
-Ê¾Àı¡¡¡¡£º¡¡cam yingwu -m
-¡¡¡¡¡¡¡¡¡¡¡¡cam cloth -n
-¡¡¡¡¡¡¡¡¡¡¡¡cam -n /d/city/guangchang.c
-¡¡¡¡¡¡¡¡¡¡¡¡cam here
+ç¤ºä¾‹ã€€ã€€ï¼šã€€cam yingwu -m
+ã€€ã€€ã€€ã€€ã€€ã€€cam cloth -n
+ã€€ã€€ã€€ã€€ã€€ã€€cam -n /d/city/guangchang.c
+ã€€ã€€ã€€ã€€ã€€ã€€cam here
 
 
 HELP

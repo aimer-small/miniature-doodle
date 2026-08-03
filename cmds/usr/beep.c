@@ -18,43 +18,43 @@ int main(object me, string arg)
 	object obj;
 
 	if( me->query_temp("command_busy"))
-		return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( !arg ) return help(me);
 
 	if( arg == me->query("id") )
-		return notify_fail("Beep×Ô¼º£¿ºÃÖ÷ÒâÒ®¡£\n");
+		return notify_fail("Beepè‡ªå·±ï¼Ÿå¥½ä¸»æ„è€¶ã€‚\n");
 
 	friend_user = me->query("friend_user");
 	if( !friend_user || !sizeof(friend_user))
-		return notify_fail("ÄãÄ¿Ç°»¹Ã»ÓÐÉè¶¨ºÃÓÑ£¬²»¿ÉÒÔÓÃ beep¡£\n");
+		return notify_fail("ä½ ç›®å‰è¿˜æ²¡æœ‰è®¾å®šå¥½å‹ï¼Œä¸å¯ä»¥ç”¨ beepã€‚\n");
 
 	if( !wizardp(me) && member_array(arg, friend_user) == -1)
-		return notify_fail("ºÃÓÑÃûµ¥ÖÐÃ»ÓÐ´ËÈË£¬²»¿ÉÒÔÓÃ beep¡£\n");
+		return notify_fail("å¥½å‹åå•ä¸­æ²¡æœ‰æ­¤äººï¼Œä¸å¯ä»¥ç”¨ beepã€‚\n");
 
 	if (!obj = LOGIN_D->find_body(arg))
-		return notify_fail(arg+"Õâ¸öÈËÏÖÔÚ²»ÔÚÏßÉÏ¡£\n");
+		return notify_fail(arg+"è¿™ä¸ªäººçŽ°åœ¨ä¸åœ¨çº¿ä¸Šã€‚\n");
 
 	if (!me->visible(obj))
-		return notify_fail(arg+"Õâ¸öÈËÏÖÔÚ²»ÔÚÏßÉÏ¡£\n");
+		return notify_fail(arg+"è¿™ä¸ªäººçŽ°åœ¨ä¸åœ¨çº¿ä¸Šã€‚\n");
 
 	if (!interactive(obj))
-		return notify_fail("Õâ¸öÈË¶ÏÏßÁË¡£\n");
+		return notify_fail("è¿™ä¸ªäººæ–­çº¿äº†ã€‚\n");
 	if (!living(obj))
-		return notify_fail("Õâ¸öÈËÏÖÔÚÎÞ·¨Ìý¼ûÄãµÄ»°¡£\n");
+		return notify_fail("è¿™ä¸ªäººçŽ°åœ¨æ— æ³•å¬è§ä½ çš„è¯ã€‚\n");
 
 	if( !wizardp(me) ){
 		friend_user = obj->query("friend_user");
 		if( !friend_user || !sizeof(friend_user) )
-			return notify_fail("¶Ô·½Ä¿Ç°»¹Ã»ÓÐÉè¶¨ºÃÓÑ£¬²»¿ÉÒÔÓÃ beep¡£\n");
+			return notify_fail("å¯¹æ–¹ç›®å‰è¿˜æ²¡æœ‰è®¾å®šå¥½å‹ï¼Œä¸å¯ä»¥ç”¨ beepã€‚\n");
 
 		if( member_array(me->query("id"), friend_user) == -1)
-			return notify_fail("¶Ô·½µÄºÃÓÑÃûµ¥ÖÐÃ»ÓÐÄã£¬²»¿ÉÒÔÓÃ beep¡£\n");
+			return notify_fail("å¯¹æ–¹çš„å¥½å‹åå•ä¸­æ²¡æœ‰ä½ ï¼Œä¸å¯ä»¥ç”¨ beepã€‚\n");
 	}
 
-	tell_object(me, HIG "¡¾ºô½Ð¡¿"+obj->query("name")+"¡­¡­ Beep !\n"NOR);
-	tell_object(obj, HIG "\n¡¾ºô½Ð¡¿¡­¡­ Beep ¡­¡­ ÄãµÄÅóÓÑ"+me->query("name")+"("+me->query("id")+")ºô½ÐÄãÄØ£¬¿ìºÍ"
-	+gender_pronoun(me->query("gender"))+"ÁªÏµ¡£\n" NOR);
+	tell_object(me, HIG "ã€å‘¼å«ã€‘"+obj->query("name")+"â€¦â€¦ Beep !\n"NOR);
+	tell_object(obj, HIG "\nã€å‘¼å«ã€‘â€¦â€¦ Beep â€¦â€¦ ä½ çš„æœ‹å‹"+me->query("name")+"("+me->query("id")+")å‘¼å«ä½ å‘¢ï¼Œå¿«å’Œ"
+	+gender_pronoun(me->query("gender"))+"è”ç³»ã€‚\n" NOR);
 
 	me->set_temp("command_busy", 1);
 	call_out("remove_busy", 3, me);
@@ -66,13 +66,13 @@ int help(object me)
 {
 write(@HELP
 
-Ö¸Áî¸ñÊ½£ºbeep <Ä³ÈË>
+æŒ‡ä»¤æ ¼å¼ï¼šbeep <æŸäºº>
 
-Äã¿ÉÒÔÓÃÕâ¸öÖ¸ÁîÀ´ºô½Ð×Ô¼ºµÄÅóÓÑ(¶ÔrobotÌØ±ðÓÐÓÃ)¡£
-Ìõ¼þÊÇË«·½¶¼ÔÚ¶Ô·½µÄºÃÓÑÃûµ¥ÄÚ¡£Èç¹û¶Ô·½µçÄÔ(PC)½Ó
-ÉÏÁËÐ¡À®°ÈµÄ(²»ÊÇÒôÏì)£¬¾ÍÄÜÌý¼ûBeepÉù¡£
+ä½ å¯ä»¥ç”¨è¿™ä¸ªæŒ‡ä»¤æ¥å‘¼å«è‡ªå·±çš„æœ‹å‹(å¯¹robotç‰¹åˆ«æœ‰ç”¨)ã€‚
+æ¡ä»¶æ˜¯åŒæ–¹éƒ½åœ¨å¯¹æ–¹çš„å¥½å‹åå•å†…ã€‚å¦‚æžœå¯¹æ–¹ç”µè„‘(PC)æŽ¥
+ä¸Šäº†å°å–‡å­çš„(ä¸æ˜¯éŸ³å“)ï¼Œå°±èƒ½å¬è§Beepå£°ã€‚
 
-Ïà¹ØÖ¸Áî£ºfinger ( ÓÃÓÚ¼ÓÈëºÃÓÑ )
+ç›¸å…³æŒ‡ä»¤ï¼šfinger ( ç”¨äºŽåŠ å…¥å¥½å‹ )
 HELP);
 return 1;
 }

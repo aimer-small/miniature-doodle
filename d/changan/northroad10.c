@@ -5,13 +5,13 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "���");
+        set("short", "大道");
         set("long", @LONG
-����һ������ʯ�̳ɵĴ��������һ���³�������ãã��Ұ֮�ϣ��Ǳ���
-�ɺ�ľ�̿��Ƶ�ƽ���ݣ�������ǰ�����Ǳ�����ɽ�ˡ�
+这是一条由青石铺成的大道，东面一座孤城耸立在茫茫荒野之上，那便是
+由黑木教控制的平定州，再往北前进就是北岳恒山了。
 LONG
 	);
-	set("outdoors", "ƽ����");
+	set("outdoors", "平定州");
 
 	set("exits", ([
 		"northup"  : "/d/hengshan/jinlongxia",

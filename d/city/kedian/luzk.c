@@ -6,10 +6,10 @@ int do_learn(string arg);
 
 void create()
 {
-        set_name("Â¹ÕÈ¿Í", ({ "lu zhangke", "lu", "zhangke" }) );
-        set("title", HBBLU"ĞşÚ¤¶şÀÏ"NOR);
-        set("long", "Ëû¾ÍÊÇĞşÚ¤¶şÀÏÖĞµÄÂ¹ÕÈ¿Í¡£\n");
-        set("gender", "ÄĞĞÔ" );
+        set_name("é¹¿æ–å®¢", ({ "lu zhangke", "lu", "zhangke" }) );
+        set("title", HBBLU"ç„å†¥äºŒè€"NOR);
+        set("long", "ä»–å°±æ˜¯ç„å†¥äºŒè€ä¸­çš„é¹¿æ–å®¢ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("age", 55);
         set("apprentice", 1);
         set("attitude", "peaceful");

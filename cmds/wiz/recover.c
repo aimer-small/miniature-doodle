@@ -49,37 +49,37 @@ int main(object me, string arg)
 	mapping note;
 
 	if( !arg )
-		return notify_fail("recover <Ä³ÈË> [´ÎÊı] because [Ô­Òò]¡£\n");
+		return notify_fail("recover <æŸäºº> [æ¬¡æ•°] because [åŸå› ]ã€‚\n");
 
 	if( sscanf(arg, "%s %d because %s", obj, i, reason)==3 ) j = i;
 	else obj = arg;
 
 	if( !reason )
-		return notify_fail("recover <Ä³ÈË> [´ÎÊı] because [Ô­Òò]¡£\n");
+		return notify_fail("recover <æŸäºº> [æ¬¡æ•°] because [åŸå› ]ã€‚\n");
 
 	ob = find_player(obj);
 	if( !ob )  ob = find_living(obj);
 	if( !ob )  ob = present(obj, environment(me));
-	if( !ob ) return notify_fail("ÕÒ²»µ½Õâ¸öÉúÎï¡£\n");
+	if( !ob ) return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªç”Ÿç‰©ã€‚\n");
 
 	if( !userp(ob) )
-		return notify_fail("¶Ô·½Ö»ÊÇ¸öNPC£¬²»ÓÃÕâÃ´Ğ¡Ìâ´ó×÷°É£¿\n");
+		return notify_fail("å¯¹æ–¹åªæ˜¯ä¸ªNPCï¼Œä¸ç”¨è¿™ä¹ˆå°é¢˜å¤§ä½œå§ï¼Ÿ\n");
 
 	if( (wiz_level(me) < wiz_level("(wizard)")) && me!=ob )
-		return notify_fail("ÄãÃ»ÓĞ»Ö¸´" + ob->name() + "ËÀÍöËğÊ§µÄÈ¨Àû¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰æ¢å¤" + ob->name() + "æ­»äº¡æŸå¤±çš„æƒåˆ©ã€‚\n");
 
-	message_vision(HIR "\n$N¼ÀÆğ"+chinese_number(j)+"µÀ"BLU"¹í»ğ"HIR"£¬½«$nÁıÕÖÔÚÆäÖĞ£¬°Ñ$pÓÖËÍÈëÂÖ»Ø£¡£¡\n\n"NOR,me,ob);
+	message_vision(HIR "\n$Nç¥­èµ·"+chinese_number(j)+"é“"BLU"é¬¼ç«"HIR"ï¼Œå°†$nç¬¼ç½©åœ¨å…¶ä¸­ï¼ŒæŠŠ$påˆé€å…¥è½®å›ï¼ï¼\n\n"NOR,me,ob);
 
-	tell_object(ob, HIW"Äã¸Ğµ½ÉñÇé»Ğºö£¬ÍğÈôÓÖ±éÀúÁùµÀÖ®½ç£¬»Ö¸´ÁË²»ÉÙËğÊ§£¡\n"NOR);
+	tell_object(ob, HIW"ä½ æ„Ÿåˆ°ç¥æƒ…æå¿½ï¼Œå®›è‹¥åˆéå†å…­é“ä¹‹ç•Œï¼Œæ¢å¤äº†ä¸å°‘æŸå¤±ï¼\n"NOR);
 	
-	note = (["title":"¡¾ËÀÍö»Ö¸´¡¿»Ö¸´Íæ¼Ò"+ob->name(1) + "("+ capitalize(ob->query("id"))+")ËÀÍöËğÊ§µÄ¹«¸æ",
+	note = (["title":"ã€æ­»äº¡æ¢å¤ã€‘æ¢å¤ç©å®¶"+ob->name(1) + "("+ capitalize(ob->query("id"))+")æ­»äº¡æŸå¤±çš„å…¬å‘Š",
 			"author":me->query("name") + "(" + getuid(me) + ")",
 			"time":0,
 			"msg":0,
 			]);	
 			
-	"/clone/board/wizto_b"->done_post(me,note,"¡¾ËÀÍö»Ö¸´¡¿" + ob->name(1) + "(" + capitalize(ob->query("id"))
-		+ ")ÒòÎª¡¸"+reason+"¡¹»Ö¸´"+chinese_number(j)+"´ÎËÀÍöËğÊ§¡£\n");
+	"/clone/board/wizto_b"->done_post(me,note,"ã€æ­»äº¡æ¢å¤ã€‘" + ob->name(1) + "(" + capitalize(ob->query("id"))
+		+ ")å› ä¸ºã€Œ"+reason+"ã€æ¢å¤"+chinese_number(j)+"æ¬¡æ­»äº¡æŸå¤±ã€‚\n");
 		
 	if( ob!=me && !wizardp(ob) )
 		log_file("static/RECOVER",
@@ -88,7 +88,7 @@ int main(object me, string arg)
 			), me, ({ ob->query("id") })
 		);
 	do_recover(ob, j);
-	ob->set("last_death", "ÒÑÓÉÎ×Ê¦»Ö¸´");
+	ob->set("last_death", "å·²ç”±å·«å¸ˆæ¢å¤");
 	ob->delete("last_killer_id");
 	ob->delete("last_death_time");
 	return 1;
@@ -97,9 +97,9 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : recover <Ä³ÈË> [´ÎÊı]
+æŒ‡ä»¤æ ¼å¼ : recover <æŸäºº> [æ¬¡æ•°]
 
-´ËÃüÁî½«¿É»Ö¸´ËÀÍöËğÊ§£¬½÷ÓÃ£¡
+æ­¤å‘½ä»¤å°†å¯æ¢å¤æ­»äº¡æŸå¤±ï¼Œè°¨ç”¨ï¼
 
 HELP
     );

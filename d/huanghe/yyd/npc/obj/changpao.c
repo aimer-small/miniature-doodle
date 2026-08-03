@@ -1,4 +1,4 @@
-//³¤ÅÛ changpao.c
+//é•¿è¢ changpao.c
 //zly 99.08.22.
 
 #include <armor.h>
@@ -7,13 +7,13 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIC"ÇàÒÂ³¤ÅÛ"NOR, ({ "cloth" }) );
+        set_name(HIC"é’è¡£é•¿è¢"NOR, ({ "cloth" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long","ÕâÊÇÒ»¼şÇàÉ«µÄ³¤ÅÛ¡£\n");
-                set("unit", "¼ş");
+                set("long","è¿™æ˜¯ä¸€ä»¶é’è‰²çš„é•¿è¢ã€‚\n");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("armor_prop/armor", 10);
         }

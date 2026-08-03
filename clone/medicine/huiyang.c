@@ -3,16 +3,16 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-	set_name("»ØÑôÎåÁú¸à", ({"wulong gao", "huiyang", "wulong", "gao"}));
+	set_name("å›é˜³äº”é¾™è†", ({"wulong gao", "huiyang", "wulong", "gao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ğ©");
+		set("unit", "äº›");
 		set("heal_up", 1);
-		set("long","ÕâÊÇÒ»°üÓÉ²İÎÚÖÆ³ÉµÄáÇá¼ÅÉÉËÒ©¡£\n");
+		set("long","è¿™æ˜¯ä¸€åŒ…ç”±è‰ä¹Œåˆ¶æˆçš„å´†å³’æ´¾ä¼¤è¯ã€‚\n");
 		set("value", 3000);
 		set("base_value", 3000);
-		set("base_unit", "·İ");
+		set("base_unit", "ä»½");
 		set("base_weight", 500);
 	}
 	set_amount(1);
@@ -28,14 +28,14 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if(!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if (me->query("eff_qi") >= me->query("max_qi"))
-		return notify_fail("ÄãÏÖÔÚ²»ĞèÒª·ş»ØÑôÎåÁú¸à¡£\n");
+		return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦æœå›é˜³äº”é¾™è†ã€‚\n");
 	me->receive_curing("qi", 100+random(100));
-	message_vision("$N·şÏÂÒ»·İ»ØÑôÎåÁú¸à£¬Á³É«¿´ÆğÀ´ºÃ¶àÁË¡£\n", me);
+	message_vision("$Næœä¸‹ä¸€ä»½å›é˜³äº”é¾™è†ï¼Œè„¸è‰²çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n", me);
 	me->start_busy(1);
 	add_amount(-1);
 	return 1;

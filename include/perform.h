@@ -1,39 +1,39 @@
 // perform.c
 // Create by athoi@sj
 
-// ¼ì²éÊ¹ÓÃperformËùĞèÒªµÄ±ØÒªÌõ¼ş
+// æ£€æŸ¥ä½¿ç”¨performæ‰€éœ€è¦çš„å¿…è¦æ¡ä»¶
 int perform_check(object me)
 {
 	int num;
 	string *skill, *gift, *other;
 
-	// ¼ì²éÎä¹¦
+	// æ£€æŸ¥æ­¦åŠŸ
 	skill = keys(requirement["skill"]);
 	num = sizeof(skill);
 	while (num--)
 		if (me->query_skill(skill[num], 1) < requirement["skill"][skill[num]])
-			return notify_fail("ÄãµÄ" + to_chinese(skill[num]) + "µÈ¼¶²»¹»£¬»¹²»ÄÜÊ¹ÓÃ¡¸" + perform_name() + "¡¹\n");
-	// ¼ì²éÊôĞÔ
+			return notify_fail("ä½ çš„" + to_chinese(skill[num]) + "ç­‰çº§ä¸å¤Ÿï¼Œè¿˜ä¸èƒ½ä½¿ç”¨ã€Œ" + perform_name() + "ã€\n");
+	// æ£€æŸ¥å±æ€§
 	gift = keys(requirement["gift"]);
 	num = sizeof(gift);
 	while (num--)
 		if (me->query_gift(gift[num], "postnatal") < requirement["gift"][gift[num]])
-			return notify_fail("ÄãµÄ" + to_chinese(gift[num]) + "²»¹»£¬»¹²»ÄÜÊ¹ÓÃ¡¸" + perform_name() + "¡¹\n");
-	// ¼ì²é×î´óÄÚÁ¦£¬¾«Á¦µÈĞèÒªquery()·µ»ØµÄ¶«Î÷
+			return notify_fail("ä½ çš„" + to_chinese(gift[num]) + "ä¸å¤Ÿï¼Œè¿˜ä¸èƒ½ä½¿ç”¨ã€Œ" + perform_name() + "ã€\n");
+	// æ£€æŸ¥æœ€å¤§å†…åŠ›ï¼Œç²¾åŠ›ç­‰éœ€è¦query()è¿”å›çš„ä¸œè¥¿
 	other = keys(requirement["other"]);
 	num = sizeof(other);
 	while (num--)
 		if (me->query(other[num]) < requirement["other"][other[num]])
 		{
 			if (is_chinese(to_chinese(other[num])))
-				return notify_fail("ÄãµÄ" + to_chinese(other[num]) + "²»¹»£¬»¹²»ÄÜÊ¹ÓÃ¡¸" + perform_name() + "¡¹\n");
+				return notify_fail("ä½ çš„" + to_chinese(other[num]) + "ä¸å¤Ÿï¼Œè¿˜ä¸èƒ½ä½¿ç”¨ã€Œ" + perform_name() + "ã€\n");
 			else
-				return notify_fail("ÄãÉĞÓĞÌõ¼şÎ´ÄÜ´ïµ½£¬ÇëÔÄ¶Á°ïÖúÎÄ¼ş¡£\n");
+				return notify_fail("ä½ å°šæœ‰æ¡ä»¶æœªèƒ½è¾¾åˆ°ï¼Œè¯·é˜…è¯»å¸®åŠ©æ–‡ä»¶ã€‚\n");
 		}
 
 	return 1;
 }
-// È¡µÃÊ©ÓÃperformµÄskillµÄÓ¢ÎÄÃû³Æ
+// å–å¾—æ–½ç”¨performçš„skillçš„è‹±æ–‡åç§°
 string skill_name()
 {
 	string skill, *name;
@@ -43,68 +43,68 @@ string skill_name()
 
 	return name[2];
 }
-// ¼ì²éÊ¹ÓÃperformËùĞèÒªµÄÁÙÊ±Ìõ¼ş
-// type 0´ú±í¿ÕÊÖÎä¹¦ 1´ú±í±øÆ÷Îä¹¦
-// flag 0´ú±íÕ½¶·ÖĞ²ÅÄÜÊ¹ÓÃ 1´ú±í²»ĞèÒªÕ½¶·ÖĞ
+// æ£€æŸ¥ä½¿ç”¨performæ‰€éœ€è¦çš„ä¸´æ—¶æ¡ä»¶
+// type 0ä»£è¡¨ç©ºæ‰‹æ­¦åŠŸ 1ä»£è¡¨å…µå™¨æ­¦åŠŸ
+// flag 0ä»£è¡¨æˆ˜æ–—ä¸­æ‰èƒ½ä½¿ç”¨ 1ä»£è¡¨ä¸éœ€è¦æˆ˜æ–—ä¸­
 varargs int perform_temp_check(object me, object target, int type, string skill_type, int flag)
 {
 	object weapon;
 	int num;
 	string *query, *query_temp;
 
-	if ( me->is_busy() && skill_name() != "tenglong-bifa" && perform_name() != HIG"ÉñÁú°ÚÎ²"NOR )
-		return notify_fail("( ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É£¬²»ÄÜÊ©ÓÃÍâ¹¦¡£)\n");
+	if ( me->is_busy() && skill_name() != "tenglong-bifa" && perform_name() != HIG"ç¥é¾™æ‘†å°¾"NOR )
+		return notify_fail("( ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œä¸èƒ½æ–½ç”¨å¤–åŠŸã€‚)\n");
 
-	if ( me->is_lost() && perform_name() != HIG"ÉñÁú°ÚÎ²"NOR )
-		return notify_fail("( ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É£¬²»ÄÜÊ©ÓÃÍâ¹¦¡£)\n");
+	if ( me->is_lost() && perform_name() != HIG"ç¥é¾™æ‘†å°¾"NOR )
+		return notify_fail("( ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œä¸èƒ½æ–½ç”¨å¤–åŠŸã€‚)\n");
 
 	if(!flag && (!target || !me->is_fighting(target)))
-		return notify_fail("¡¸" + perform_name() + "¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€Œ" + perform_name() + "ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	query = keys(requirement_temp["query"]);
 	num = sizeof(query);
 	while (num--)
 		if (me->query(query[num]) < requirement_temp["query"][query[num]])
-			return notify_fail("ÄãµÄ" + to_chinese(query[num]) + "²»¹»£¬ÎŞ·¨Ê©Õ¹¡¸" + perform_name() + "¡¹\n");
+			return notify_fail("ä½ çš„" + to_chinese(query[num]) + "ä¸å¤Ÿï¼Œæ— æ³•æ–½å±•ã€Œ" + perform_name() + "ã€\n");
 
 	query_temp = keys(requirement_temp["query_temp"]);
 	num = sizeof(query_temp);
 	while (num--)
 		if (me->query_temp(query_temp[num]) == requirement_temp["query_temp"][query_temp[num]])
-			return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡¸" + to_chinese(query_temp[num]) + "¡¹¡£\n");
+			return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨ã€Œ" + to_chinese(query_temp[num]) + "ã€ã€‚\n");
 
         if (type == 1)
         {
         	if (!objectp(weapon = me->query_temp("weapon")))
-        		return notify_fail("ÄãÃ»ÓĞÊ¹ÓÃÎäÆ÷£¬ÈçºÎÊ©Õ¹¡¸" + perform_name() + "¡¹£¿\n");
+        		return notify_fail("ä½ æ²¡æœ‰ä½¿ç”¨æ­¦å™¨ï¼Œå¦‚ä½•æ–½å±•ã€Œ" + perform_name() + "ã€ï¼Ÿ\n");
                 if (weapon->query("skill_type") != skill_type)
-        		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô£¬ÄÑÒÔÊ©Õ¹¡¸" + perform_name() + "¡¹¡£\n");
+        		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ï¼Œéš¾ä»¥æ–½å±•ã€Œ" + perform_name() + "ã€ã€‚\n");
 	}
 
         if (!type && me->query_temp("weapon"))
-        	return notify_fail("ÄãÄÃ×ÅÎäÆ÷ÔõÃ´ÄÜÊ¹ÓÃ¡¸" + perform_name() + "¡¹£¿\n");
+        	return notify_fail("ä½ æ‹¿ç€æ­¦å™¨æ€ä¹ˆèƒ½ä½¿ç”¨ã€Œ" + perform_name() + "ã€ï¼Ÿ\n");
 
        	if (skill_type != "dodge")
        	{
         	if (me->query_skill_mapped(skill_type) != skill_name()
          	 || (!type && me->query_skill_prepared(skill_type) != skill_name()))
-        		return notify_fail("ÄãÊ¹ÓÃµÄÍâ¹¦²»¶Ô£¬ÎŞ·¨Ê¹ÓÃ¡¸" + perform_name() + "¡¹£¡\n");
+        		return notify_fail("ä½ ä½¿ç”¨çš„å¤–åŠŸä¸å¯¹ï¼Œæ— æ³•ä½¿ç”¨ã€Œ" + perform_name() + "ã€ï¼\n");
         	if (me->query_skill_mapped("parry") != skill_name()
         	 && me->query_skill_mapped("parry") != "douzhuan-xingyi"
         	 && me->query_skill_mapped("parry") != "qiankun-danuoyi"
         	 && !SKILL_D(me->query_skill_mapped("parry"))->valid_combine(skill_name()))
-        	 	return notify_fail("ÄãÊ¹ÓÃµÄÕĞ¼Ü²»¶Ô£¬ÎŞ·¨Ê¹ÓÃ¡¸" + perform_name() + "¡¹£¡\n");
+        	 	return notify_fail("ä½ ä½¿ç”¨çš„æ‹›æ¶ä¸å¯¹ï¼Œæ— æ³•ä½¿ç”¨ã€Œ" + perform_name() + "ã€ï¼\n");
 	}
 	else
 	{
 		if (me->query_skill_mapped(skill_type) != skill_name())
-			return notify_fail("ÄãÊ¹ÓÃµÄÇá¹¦²»¶Ô£¬ÎŞ·¨Ê¹ÓÃ¡¸" + perform_name() + "¡¹£¡\n");
+			return notify_fail("ä½ ä½¿ç”¨çš„è½»åŠŸä¸å¯¹ï¼Œæ— æ³•ä½¿ç”¨ã€Œ" + perform_name() + "ã€ï¼\n");
 	}
 
 	return 1;
 }
-// ¼ì²éºô½Ğcall_outµÄperformÊÇ·ñ¿ÉÒÔ¼ÌĞø³ÖĞø
-// flag 0´ú±íĞèÒªÕ½¶·ÖĞ²ÅÄÜ³ÖĞø 1´ú±í²»ĞèÒª
+// æ£€æŸ¥å‘¼å«call_outçš„performæ˜¯å¦å¯ä»¥ç»§ç»­æŒç»­
+// flag 0ä»£è¡¨éœ€è¦æˆ˜æ–—ä¸­æ‰èƒ½æŒç»­ 1ä»£è¡¨ä¸éœ€è¦
 int checking(object me, object target, object weapon, string skill_type, int flag)
 {
 	if (!me
@@ -152,7 +152,7 @@ int checking(object me, object target, object weapon, string skill_type, int fla
 	}
 	return 0;
 }
-// ¶ãÉÁµÄÃèÊö
+// èº²é—ªçš„æè¿°
 string dodge_msg(object target)
 {
 	string dodge_skill;
@@ -162,7 +162,7 @@ string dodge_msg(object target)
               	dodge_skill = "dodge";
         return SKILL_D(dodge_skill)->query_dodge_msg(target, 1);
 }
-// µ±Ç°ÊÜÉË×´Ì¬µÄÃèÊö
+// å½“å‰å—ä¼¤çŠ¶æ€çš„æè¿°
 varargs string status_msg(object ob, int effective)
 {
 	int jing_ratio, qi_ratio;
@@ -192,22 +192,22 @@ int help(object me)
 	int num;
 	string *skill, *gift, *other;
 
-	write("\n" + to_chinese(skill_name()) + "Ö®" + perform_name() + "£º\n");
+	write("\n" + to_chinese(skill_name()) + "ä¹‹" + perform_name() + "ï¼š\n");
 	write("\n" + perform_help());
 
-	write("\nÒªÇó£º\n");
+	write("\nè¦æ±‚ï¼š\n");
 	skill = keys(requirement["skill"]);
 	num = sizeof(skill);
 	while (num--)
-		write("\t" + to_chinese(skill[num]) + "£º" + requirement["skill"][skill[num]] + "\n");
+		write("\t" + to_chinese(skill[num]) + "ï¼š" + requirement["skill"][skill[num]] + "\n");
 	gift = keys(requirement["gift"]);
 	num = sizeof(gift);
 	while (num--)
-		write("\t" + to_chinese(gift[num]) + "£º" + requirement["gift"][gift[num]] + "\n");
+		write("\t" + to_chinese(gift[num]) + "ï¼š" + requirement["gift"][gift[num]] + "\n");
 	other = keys(requirement["other"]);
 	num = sizeof(other);
 	while (num--)
-		write("\t" + to_chinese(other[num]) + "£º" + requirement["other"][other[num]] + "\n");
+		write("\t" + to_chinese(other[num]) + "ï¼š" + requirement["other"][other[num]] + "\n");
 
 	return 1;
 }

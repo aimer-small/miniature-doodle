@@ -12,11 +12,11 @@ int main(object me, string arg)
         seteuid( geteuid(me) );
 
         if( !arg )
-                return notify_fail("Ö¸Áî¸ñÊ½£ºmupdate <Â·¾¶>\n");
+                return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šmupdate <è·¯å¾„>\n");
 
         if( arg[strlen(arg)-1]!='/' ) arg += "/";
         if(  file_size(arg)!=-2 )
-                return notify_fail("Ã»ÓĞÕâ¸öÄ¿Â¼£¡\n");
+                return notify_fail("æ²¡æœ‰è¿™ä¸ªç›®å½•ï¼\n");
 
         file = get_dir(arg);
         if( !sizeof(file) )
@@ -28,7 +28,7 @@ int main(object me, string arg)
                 
                 file[i] = arg + file[i];
                 if( file_size(file[i]) < 0 ) {
-                        write("Ã»ÓĞ" + file[i] + "Õâ¸öµµ°¸¡£\n");
+                        write("æ²¡æœ‰" + file[i] + "è¿™ä¸ªæ¡£æ¡ˆã€‚\n");
                         continue;
                 }
 
@@ -37,7 +37,7 @@ int main(object me, string arg)
                 if (obj = find_object(file[i])) {
                         if( obj==environment(me) ) {
                                 if( file_name(obj)==VOID_OB ) {
-                                        write("Äã²»ÄÜÔÚ VOID_OB ÀïÖØĞÂ±àÒë VOID_OB¡£\n");
+                                        write("ä½ ä¸èƒ½åœ¨ VOID_OB é‡Œé‡æ–°ç¼–è¯‘ VOID_OBã€‚\n");
                                         continue;
                                 }
                                 inv = all_inventory(obj);
@@ -49,23 +49,23 @@ int main(object me, string arg)
                         destruct(obj);
                  }
                  if (obj) {
-                        write("ÎŞ·¨Çå³ı¾É³ÌÊ½Âë¡£\n");  
+                        write("æ— æ³•æ¸…é™¤æ—§ç¨‹å¼ç ã€‚\n");  
                         continue;
                         }
 
 				err = "/binaries"+file[i][0..<3]+".b";
-				write("É¾³ı¶ş½øÖÆÎÄ¼ş "+err+" ...");
-				if( file_size(err) < 0 ) write("²»´æÔÚ¡£\n");
+				write("åˆ é™¤äºŒè¿›åˆ¶æ–‡ä»¶ "+err+" ...");
+				if( file_size(err) < 0 ) write("ä¸å­˜åœ¨ã€‚\n");
 				else if (rm(err)) {
-					write("³É¹¦¡£\n");
-				} else write("Ê§°Ü¡£\n");
+					write("æˆåŠŸã€‚\n");
+				} else write("å¤±è´¥ã€‚\n");
 
-				write("ÖØĞÂ±àÒë " + file[i] + " ...");
+				write("é‡æ–°ç¼–è¯‘ " + file[i] + " ...");
 				err = catch( call_other(file[i], "???") );
                  if (err)
-                        printf( "·¢Éú´íÎó£º\n%s\n", err );
+                        printf( "å‘ç”Ÿé”™è¯¯ï¼š\n%s\n", err );
                  else {
-                        write("³É¹¦£¡\n");
+                        write("æˆåŠŸï¼\n");
                         if( (n = sizeof(inv)) && (obj = find_object(file[i]))) {
                                while(n--)
                                       if( inv[n] && userp(inv[n]) ) inv[n]->move(obj, 1);

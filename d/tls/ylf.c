@@ -3,11 +3,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", HIW"Ó¦ÀÖ·å"NOR);
+        set("short", HIW"åº”ä¹å³°"NOR);
         set("long", @LONG
-µã²ÔÉ½×î¸ß·åÓ¦ÀÖ·å£¬É½·åÖ±²åÔÆÏ¼£¬ĞÛÎ°×³Àö¡£ÕâÀïº®·ç´Ì¹Ç£¬
-¼ĞÔÓ×Å±ùÑ©ÏòÄãÆËÃæ´µÀ´¡£½ÅÏÂÉ½Â·ÉÏµÄ»ıÑ©¶¼ÒÑ½á±ù£¬Äã×ßÔÚÉÏÃæ²»
-×¡µØ´ò»¬¡£
+ç‚¹è‹å±±æœ€é«˜å³°åº”ä¹å³°ï¼Œå±±å³°ç›´æ’äº‘éœï¼Œé›„ä¼Ÿå£®ä¸½ã€‚è¿™é‡Œå¯’é£åˆºéª¨ï¼Œ
+å¤¹æ‚ç€å†°é›ªå‘ä½ æ‰‘é¢å¹æ¥ã€‚è„šä¸‹å±±è·¯ä¸Šçš„ç§¯é›ªéƒ½å·²ç»“å†°ï¼Œä½ èµ°åœ¨ä¸Šé¢ä¸
+ä½åœ°æ‰“æ»‘ã€‚
 LONG);
         set("outdoors", "dali");
 
@@ -30,22 +30,22 @@ void init()
        if( random(me->query_skill("dodge",1)) <= 40 && me->query("kar") <5){
                me->receive_damage("qi", 100);
                me->receive_wound("qi",  100);
-               message_vision(HIR"$NÒ»²»Ğ¡ĞÄ½ÅÏÂÒ»»¬£¬... °¡...£¡\n"NOR, me);
+               message_vision(HIR"$Nä¸€ä¸å°å¿ƒè„šä¸‹ä¸€æ»‘ï¼Œ... å•Š...ï¼\n"NOR, me);
                me->move(__DIR__"ylf1");
-               message("vision", HIR"Ö»¼û" + me->query("name") + "´ÓÉ½ÉÏ¹ÇÂµÂµµØ¹öÁË¹ıÀ´£¬ÓÖ¹ÇÂµÂµµØ¹öÁËÏÂÈ¥£¡\n"NOR, environment(me), me);               
+               message("vision", HIR"åªè§" + me->query("name") + "ä»å±±ä¸Šéª¨ç¢Œç¢Œåœ°æ»šäº†è¿‡æ¥ï¼Œåˆéª¨ç¢Œç¢Œåœ°æ»šäº†ä¸‹å»ï¼\n"NOR, environment(me), me);               
                me->move(__DIR__"dc1");
-               message("vision", HIR"Ö»¼û" + me->query("name") + "´ÓÉ½ÉÏ¹ÇÂµÂµµØ¹öÁË¹ıÀ´£¬ÓÖ¹ÇÂµÂµµØ¹öÁËÏÂÈ¥£¡\n"NOR, environment(me), me);
+               message("vision", HIR"åªè§" + me->query("name") + "ä»å±±ä¸Šéª¨ç¢Œç¢Œåœ°æ»šäº†è¿‡æ¥ï¼Œåˆéª¨ç¢Œç¢Œåœ°æ»šäº†ä¸‹å»ï¼\n"NOR, environment(me), me);
                me->move(__DIR__"dc2");
-               message("vision", HIR"Ö»¼û" + me->query("name") + "´ÓÉ½ÉÏ¹ÇÂµÂµµØ¹öÁË¹ıÀ´£¬ÓÖ¹ÇÂµÂµµØ¹öÁËÏÂÈ¥£¡\n"NOR, environment(me), me);
+               message("vision", HIR"åªè§" + me->query("name") + "ä»å±±ä¸Šéª¨ç¢Œç¢Œåœ°æ»šäº†è¿‡æ¥ï¼Œåˆéª¨ç¢Œç¢Œåœ°æ»šäº†ä¸‹å»ï¼\n"NOR, environment(me), me);
                me->move(__DIR__"dc3");
-               tell_object(me, HIR"Äã´ÓÉ½ÉÏ¹öÁËÏÂÀ´£¬Ö»¾õµÃ»ëÉíÎŞ´¦²»ÌÛ£¬»¹ÊÜÁË¼¸´¦ÉË¡£\n"NOR);
-               message("vision", HIR"Ö»¼û" + me->query("name") + "´ÓÉ½ÉÏ¹ÇÂµÂµµØ¹öÁËÏÂÀ´£¬ÌÉÔÚµØÉÏ°ëÌìÅÀ²»ÆğÀ´£¡\n"NOR, environment(me), me);
+               tell_object(me, HIR"ä½ ä»å±±ä¸Šæ»šäº†ä¸‹æ¥ï¼Œåªè§‰å¾—æµ‘èº«æ— å¤„ä¸ç–¼ï¼Œè¿˜å—äº†å‡ å¤„ä¼¤ã€‚\n"NOR);
+               message("vision", HIR"åªè§" + me->query("name") + "ä»å±±ä¸Šéª¨ç¢Œç¢Œåœ°æ»šäº†ä¸‹æ¥ï¼Œèººåœ¨åœ°ä¸ŠåŠå¤©çˆ¬ä¸èµ·æ¥ï¼\n"NOR, environment(me), me);
                me->start_busy(2);
                }
             
    else{
        if (my_fam)
-       if (my_fam["family_name"] == "ÌìÁúËÂ"&&random(10)<2) { 
+       if (my_fam["family_name"] == "å¤©é¾™å¯º"&&random(10)<2) { 
        me->set_temp("wait", 1);
        call_out("do_wait", 30 + random(10), me);
            }
@@ -57,12 +57,12 @@ void do_wait(object me)
         if (!me) return;
         if(environment(me) && me->query_temp("wait") && 
            me->query_skill("literate", 1) > 100){
-           tell_object(me,HIY"\nÄãÕ¾ÔÚ·å¶¥£¬·ÅÑÛÍûÈ¥£¬Ö»¼ûÂúÌì½ğÏ¼£¬ÕÕÒ«×ÅÇ§Íò×ùÆğ·üÉ½·å£¬
-ËÉ°ØÇà´ä£¬¾°ÎïÈôÏ´£¬³¯Â¶ÈçÖé£¬ÉÁÉÁÉú¹â¡£\n"NOR);
+           tell_object(me,HIY"\nä½ ç«™åœ¨å³°é¡¶ï¼Œæ”¾çœ¼æœ›å»ï¼Œåªè§æ»¡å¤©é‡‘éœï¼Œç…§è€€ç€åƒä¸‡åº§èµ·ä¼å±±å³°ï¼Œ
+æ¾æŸé’ç¿ ï¼Œæ™¯ç‰©è‹¥æ´—ï¼Œæœéœ²å¦‚ç ï¼Œé—ªé—ªç”Ÿå…‰ã€‚\n"NOR);
            me->del_temp("wait");
            me->add("potential", random(3));
                    me->set("jing",me->query("max_jing"));
-           message_vision("\n$NÕ¾ÆğÉíÀ´£¬ÉîÉîµØÎüÁË¿ÚÆø£¬Ö»¾õĞÄÖĞÒ»Æ¬Ã÷¾²¡¢ÉñÇåÒâË¬¡£\n", me);
+           message_vision("\n$Nç«™èµ·èº«æ¥ï¼Œæ·±æ·±åœ°å¸äº†å£æ°”ï¼Œåªè§‰å¿ƒä¸­ä¸€ç‰‡æ˜é™ã€ç¥æ¸…æ„çˆ½ã€‚\n", me);
           
           }
 }

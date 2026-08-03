@@ -1,4 +1,4 @@
-// gold_belt.c ½ğÑü´ø
+// gold_belt.c é‡‘è…°å¸¦
 
 #include <armor.h>
 
@@ -6,12 +6,12 @@ inherit WAIST;
 
 void create()
 {
-	set_name("½ğÑü´ø", ({ "gold belt", "belt", "yaodai" }));
+	set_name("é‡‘è…°å¸¦", ({ "gold belt", "belt", "yaodai" }));
 	set("weight", 600);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ìõ");
+		set("unit", "æ¡");
 		set("value", 5000);
 		set("material", "gold");
 		set("armor_prop/armor", 1);

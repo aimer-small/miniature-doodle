@@ -4,22 +4,22 @@
 inherit ROOM;
 void create()
 {
-	set("short", "»Ä·Ï±øÓª");
+	set("short", "è’åºŸå…µè¥");
 	set("long", @LONG
-	ÕâÀïÊÇÒ»´¦¹ÅÕ½³¡µÄÒÅ¼££¬Èç½ñ»ÄÂÒ²»¿°Ò°²İ´ÔÉú£¬´«ÑÔÓĞ½©Ê¬³öÃ»£¬º¦ÈËĞÔÃü¡£
+	è¿™é‡Œæ˜¯ä¸€å¤„å¤æˆ˜åœºçš„é—è¿¹ï¼Œå¦‚ä»Šè’ä¹±ä¸å ªé‡è‰ä¸›ç”Ÿï¼Œä¼ è¨€æœ‰åƒµå°¸å‡ºæ²¡ï¼Œå®³äººæ€§å‘½ã€‚
 
 LONG
 	);
 	set("item_desc", ([
-		"men" : "ÕâÊÇÒ»ÉÈ¼«ºñµÄÌúÃÅ¡£\n",
+		"men" : "è¿™æ˜¯ä¸€æ‰‡æåšçš„é“é—¨ã€‚\n",
 	]));
 	set("exits", ([
 		"south" : __DIR__"bingqiku",
 		"north" : __DIR__"bingyindamen",
 	]));
 
-	create_door("south", "ÌúÃÅ", "north", DOOR_CLOSED);
+	create_door("south", "é“é—¨", "north", DOOR_CLOSED);
 	setup();
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

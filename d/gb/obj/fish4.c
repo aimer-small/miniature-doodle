@@ -1,4 +1,4 @@
-// fish4.c ±ÈÄ¿Óã
+// fish4.c æ¯”ç›®é±¼
 
 #include <ansi.h>
 inherit ITEM;
@@ -6,13 +6,13 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name(HIG"±ÈÄ¿Óã"NOR, ({ "bimu yu", "yu","fish" }) );
+        set_name(HIG"æ¯”ç›®é±¼"NOR, ({ "bimu yu", "yu","fish" }) );
         set_weight(200+random(200));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ìõ");
-                set("long", "Ò»Ìõ±ÈÄ¿Óã¡£\n");
+                set("unit", "æ¡");
+                set("long", "ä¸€æ¡æ¯”ç›®é±¼ã€‚\n");
 		set("value", 150);
                 set("food_remaining", 2);
                 set("food_supply", 30);

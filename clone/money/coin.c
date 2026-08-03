@@ -7,15 +7,15 @@ inherit THROWING;
 
 void create()
 {
-	set_name(YEL "Í­Ç®" NOR, ({"coin", "coins", "coin_money" }));
+	set_name(YEL "é“œé’±" NOR, ({"coin", "coins", "coin_money" }));
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
 		set("money_id", "coin");
-		set("long", "ÕâÊÇÁ÷Í¨ÖĞµ¥Î»×îĞ¡µÄ»õ±Ò£¬Ô¼ÒªÒ»°ÙÎÄÍ­Ç®²ÅÖµµÃÒ»Á½°×Òø¡£\n");
-		set("unit", "Ğ©");
+		set("long", "è¿™æ˜¯æµé€šä¸­å•ä½æœ€å°çš„è´§å¸ï¼Œçº¦è¦ä¸€ç™¾æ–‡é“œé’±æ‰å€¼å¾—ä¸€ä¸¤ç™½é“¶ã€‚\n");
+		set("unit", "äº›");
 		set("base_value", 1);
-		set("base_unit", "ÎÄ");
+		set("base_unit", "æ–‡");
 		set("base_weight", 5);
 	}
 	set_amount(1);

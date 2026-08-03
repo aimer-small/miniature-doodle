@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIG"Ä¾·¿"NOR);
+	set("short",HIG"æœ¨æˆ¿"NOR);
 	set("long", @LONG
-¸Õ½øÎÝ£¬Äã¾Í±»¾Þ´óµÄ¾âÄ¾Éù³³×¡ÁË£¬ÕâÀï¶ÑÁËºÃ¶à³¤µÄÄ¾Í·£¬×¼±¸Òª×ö
-²ñ»ðÓÃµÄ£¬µ«ÊÇÔÚËÍÈ¥²ñ·¿Ç°ÏÈµÃ°Ñ³¤Ä¾Í·¾â¶Ì³ÉÒ»½Ø½ØµÄ£¬²ÅÄÜÓÃ²ñµ¶Åü¿ª¡£
-²»ÉÙÈËÕýÔÚ·ÑÁ¦µÄ¾â×ÅÄ¾Í·¡£
+åˆšè¿›å±‹ï¼Œä½ å°±è¢«å·¨å¤§çš„é”¯æœ¨å£°åµä½äº†ï¼Œè¿™é‡Œå †äº†å¥½å¤šé•¿çš„æœ¨å¤´ï¼Œå‡†å¤‡è¦åš
+æŸ´ç«ç”¨çš„ï¼Œä½†æ˜¯åœ¨é€åŽ»æŸ´æˆ¿å‰å…ˆå¾—æŠŠé•¿æœ¨å¤´é”¯çŸ­æˆä¸€æˆªæˆªçš„ï¼Œæ‰èƒ½ç”¨æŸ´åˆ€åŠˆå¼€ã€‚
+ä¸å°‘äººæ­£åœ¨è´¹åŠ›çš„é”¯ç€æœ¨å¤´ã€‚
 LONG
 	);
         
@@ -29,7 +29,7 @@ LONG
 void init()
 {
 	add_action("do_ju", "ju");
-	add_action("do_ju", "¾â");        
+	add_action("do_ju", "é”¯");        
 }
 
 int do_ju(string arg)
@@ -37,43 +37,43 @@ int do_ju(string arg)
 	object me = this_player(), weapon;
 	int costj, costq;
 
-	if ( !arg || arg != "Ä¾Í·" )
-		return notify_fail ("ÄãÒª¾âÊ²Ã´£¿\n");
+	if ( !arg || arg != "æœ¨å¤´" )
+		return notify_fail ("ä½ è¦é”¯ä»€ä¹ˆï¼Ÿ\n");
 
-	if(me->query_temp("job_name")!="¾âÄ¾Í·") 
-		return notify_fail("Äã±ØÐë¸ú¹ÝÖ÷ÁìÁËÕâ¹¤×÷²ÅÄÜÔÚÕâÀï¸É! \n");
+	if(me->query_temp("job_name")!="é”¯æœ¨å¤´") 
+		return notify_fail("ä½ å¿…é¡»è·Ÿé¦†ä¸»é¢†äº†è¿™å·¥ä½œæ‰èƒ½åœ¨è¿™é‡Œå¹²! \n");
 
 	if (me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕýÃ¦×ÅÄØ!\n");
+		return notify_fail("ä½ çŽ°åœ¨æ­£å¿™ç€å‘¢!\n");
 
 	if (me->is_fighting())
-		return notify_fail("ÄãÕýÔÚÕ½¶·ÖÐ,ÎÞ·¨×¨ÐÄ¸É»î!\n");   
+		return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­,æ— æ³•ä¸“å¿ƒå¹²æ´»!\n");   
 
 	weapon = me->query_temp("weapon");
 	if( !weapon || weapon->query("id") != "ju zi")
-		return notify_fail("ÄãÏëÓÃÊ²Ã´À´¾âÄ¾Í·£¬ÓÃÊÖêþÂð£¿("HIY HBCYN"wield ju zi"NOR")\n");
+		return notify_fail("ä½ æƒ³ç”¨ä»€ä¹ˆæ¥é”¯æœ¨å¤´ï¼Œç”¨æ‰‹æŽ°å—ï¼Ÿ("HIY HBCYN"wield ju zi"NOR")\n");
              
 	costj = random( me->query("con")/3);
 	costq = random( me->query("str")/3);
 
 	if ( me->query("jingli") < costj || me->query("jing") < costq){
-		message_vision(HIR"Ä¾Í·¶ÏÁË£¬$NÒ»Ã»ÁôÉñÈÃµôÏÂÀ´µÄÄ¾Í·ÔÒÔÚÁË½ÅÉÏ¡£\n"NOR,me);
+		message_vision(HIR"æœ¨å¤´æ–­äº†ï¼Œ$Nä¸€æ²¡ç•™ç¥žè®©æŽ‰ä¸‹æ¥çš„æœ¨å¤´ç ¸åœ¨äº†è„šä¸Šã€‚\n"NOR,me);
 		me->unconcious();
 		return 1;
 	}
 
 	me->receive_damage("jingli", costj);
 	me->add("qi", -costq);       
-	if( me->query_temp("mark/¾â") > 15 + random(5) || me->query_temp("mark/ÍêÁË")) {
-		me->set_temp("mark/ÍêÁË",1);
-		write(CYN"Ä¾·¿¹ÜÊÂËµµÀ£º¡¸¸ÉµÄ²»´í£¬ºÃÁË£¬Äã¿ÉÒÔÈ¥´óÊ¦ÐÖÂ³À¤ÄÇ¸²Ãü("HIY HBCYN"task ok"CYN")ÁË£¡¡¹\n"NOR);
+	if( me->query_temp("mark/é”¯") > 15 + random(5) || me->query_temp("mark/å®Œäº†")) {
+		me->set_temp("mark/å®Œäº†",1);
+		write(CYN"æœ¨æˆ¿ç®¡äº‹è¯´é“ï¼šã€Œå¹²çš„ä¸é”™ï¼Œå¥½äº†ï¼Œä½ å¯ä»¥åŽ»å¤§å¸ˆå…„é²å¤é‚£è¦†å‘½("HIY HBCYN"task ok"CYN")äº†ï¼ã€\n"NOR);
 		return 1;
 	}
-	write("Äã°ÚÕýÒ»¸ùÄ¾Í·£¬ÂýÂý¾âÁËÆðÀ´¡£\n");
+	write("ä½ æ‘†æ­£ä¸€æ ¹æœ¨å¤´ï¼Œæ…¢æ…¢é”¯äº†èµ·æ¥ã€‚\n");
 	me->start_busy(1);
-	me->add_temp("mark/¾â",1);
+	me->add_temp("mark/é”¯",1);
 	if( me->query_skill("hand", 1) < 30 && random(10) > 6 ){
-		write(HIM"ÄãÔÚ¾âÄ¾Í·µÄÍÆÀ­ÖÐ¶Ô»ù±¾ÊÖ·¨ÓÐÐ©Ìå»á!\n"NOR);
+		write(HIM"ä½ åœ¨é”¯æœ¨å¤´çš„æŽ¨æ‹‰ä¸­å¯¹åŸºæœ¬æ‰‹æ³•æœ‰äº›ä½“ä¼š!\n"NOR);
 		me->improve_skill("hand", me->query("int") / 10);
 	}
 	return 1;

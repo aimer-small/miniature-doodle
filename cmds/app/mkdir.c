@@ -12,21 +12,21 @@ int main(object me, string arg)
 
 	dir = resolve_path(me->query("cwd"), arg);
 
-	if (file_size(dir) != -1) return notify_fail(dir + " ÒÑ¾­´æÔÚ¡£\n");
+	if (file_size(dir) != -1) return notify_fail(dir + " å·²ç»å­˜åœ¨ã€‚\n");
 	seteuid(geteuid(me));
 	if( mkdir(dir) )
 		write("Ok.\n");
 	else
-		write("ÄãÃ»ÓĞÔÚÕâÀï½¨×ÓÄ¿Â¼µÄÈ¨Àû¡£\n");
+		write("ä½ æ²¡æœ‰åœ¨è¿™é‡Œå»ºå­ç›®å½•çš„æƒåˆ©ã€‚\n");
 	return 1;	
 }
 
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : mkdir <×ÓÄ¿Â¼Ãû>
+æŒ‡ä»¤æ ¼å¼ : mkdir <å­ç›®å½•å>
 
-½¨Á¢Ò»¸ö×ÓÄ¿Â¼¡£
+å»ºç«‹ä¸€ä¸ªå­ç›®å½•ã€‚
 HELP
 	);
 	return 1;

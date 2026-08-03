@@ -1,4 +1,4 @@
-// city guard ³¬¼¶Ñ²²¶
+// city guard è¶…çº§å·¡æ•
 // by augx@sj   8/31/2001
 
 inherit NPC;
@@ -9,11 +9,11 @@ inherit F_SAVE;
 
 void create()
 {
-	set_name("Ñ²²¶Íõ", ({"xunbu wang", "xunbu", "guard"}));
-	set("title", HIW"½ðÅÆ"NOR);
-	set("gender", "ÄÐÐÔ");
+	set_name("å·¡æ•çŽ‹", ({"xunbu wang", "xunbu", "guard"}));
+	set("title", HIW"é‡‘ç‰Œ"NOR);
+	set("gender", "ç”·æ€§");
 	set("age", 20 + random(40));
-	set("long", "Õâ¾ÍÊÇ´«ËµÖÐµÄÕýÒåÊ¹Õß£¬³¬¼¶¸ßÊÖ£¬¹¤½³µÄ±£»¤Éñ£¡\n");
+	set("long", "è¿™å°±æ˜¯ä¼ è¯´ä¸­çš„æ­£ä¹‰ä½¿è€…ï¼Œè¶…çº§é«˜æ‰‹ï¼Œå·¥åŒ çš„ä¿æŠ¤ç¥žï¼\n");
 
 	set("combat_exp", 15000000);
 	set("meitude","peaceful");
@@ -79,11 +79,11 @@ void dokill(object ob)
 	if(!ob || !userp(ob) || !living(ob)) return;
 	set("target",ob);
 
-	message("vision", CYN+me->query("name")+CYN"·É²½ÅÜÁË¹ýÀ´¡£\n"NOR, environment(), me );
+	message("vision", CYN+me->query("name")+CYN"é£žæ­¥è·‘äº†è¿‡æ¥ã€‚\n"NOR, environment(), me );
 	ob->add_busy(5);
 	ob->set("eff_qi", 1000);
 	command("look "+ob->query("id"));
-	command("say "+ob->query("name")+"£¬Äã¾¹È»¸ÒÔÚ¹âÌì»¯ÈÕÖ®ÏÂ²Ðº¦ÉÆÁ¼°ÙÐÕ£¡¿´ÕÐ£¡");
+	command("say "+ob->query("name")+"ï¼Œä½ ç«Ÿç„¶æ•¢åœ¨å…‰å¤©åŒ–æ—¥ä¹‹ä¸‹æ®‹å®³å–„è‰¯ç™¾å§“ï¼çœ‹æ‹›ï¼");
 	command("follow "+ob->query("id"));
 	me->set_temp("kl/dzfail/"+ ob->query("id"), 3);
 	me->kill_ob(ob);

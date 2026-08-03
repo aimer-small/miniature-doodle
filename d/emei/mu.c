@@ -1,5 +1,5 @@
 // mu.c 
-// ¹ùÏåÄ¹
+// éƒ­è¥„å¢“
 
 inherit ROOM;
 #include <ansi.h>
@@ -9,14 +9,14 @@ void reset();
 int do_dig(string arg);
 void create()
 {
-	set("short", "¹ùÏåÖ®Ä¹");
+	set("short", "éƒ­è¥„ä¹‹å¢“");
 	set("long",@long
-ÕâÀïÊÇÒ»×ù¹æÄ£²»´óµÄÄ¹£¬Ä¹±®ÉÏ¿Ì×Å¼¸¸ö´ó×Ö£º¶ëáÒÅÉ×æÊ¦¹ùÏåÖ®Ä¹¡£
-Ô­À´ÕâÊÇ¶ëáÒÅÉ´´ÅÉ×æÊ¦¹ùÏåµÄÄ¹¡£¹ùÅ®ÏÀÄËÊÇ´óÏÀ¹ù¾¸µÄĞ¡Å®¶ù¡£ËıÍíÄê
-ÔÚ¶ëáÒÉ½¶¨¾Ó£¬´´Á¢ÁË¶ëáÒÅÉ£¬ËÀºó¶ëáÒµÜ×Ó½«Ëı°²ÔáÔÚ´Ë´¦¡£ÕâÀïËÄ¼¾Èç
-´º£¬³£ÄêÏÊ»¨Ê¢¿ª£¬Ê®·ÖÓÄ¾²¡£
+è¿™é‡Œæ˜¯ä¸€åº§è§„æ¨¡ä¸å¤§çš„å¢“ï¼Œå¢“ç¢‘ä¸Šåˆ»ç€å‡ ä¸ªå¤§å­—ï¼šå³¨åµ‹æ´¾ç¥–å¸ˆéƒ­è¥„ä¹‹å¢“ã€‚
+åŸæ¥è¿™æ˜¯å³¨åµ‹æ´¾åˆ›æ´¾ç¥–å¸ˆéƒ­è¥„çš„å¢“ã€‚éƒ­å¥³ä¾ ä¹ƒæ˜¯å¤§ä¾ éƒ­é–çš„å°å¥³å„¿ã€‚å¥¹æ™šå¹´
+åœ¨å³¨åµ‹å±±å®šå±…ï¼Œåˆ›ç«‹äº†å³¨åµ‹æ´¾ï¼Œæ­»åå³¨åµ‹å¼Ÿå­å°†å¥¹å®‰è‘¬åœ¨æ­¤å¤„ã€‚è¿™é‡Œå››å­£å¦‚
+æ˜¥ï¼Œå¸¸å¹´é²œèŠ±ç››å¼€ï¼Œååˆ†å¹½é™ã€‚
 long);
-	set("outdoors", "¶ëÃ¼É½");
+	set("outdoors", "å³¨çœ‰å±±");
 	set("exits",([
 		"south" : __DIR__"caodi",
 		"east" : __DIR__"xiaojing2",
@@ -37,11 +37,11 @@ void check_trigger(object me)
 	object room;
 	if( (int)query("dig_trigger")==15
 	 && !query("exits/down")) {
-		message("vision", "Ä¹±®ºóÃæ±»¾ò¿ª¸ö´ó¶´£¬ÑÛÇ°³öÏÖÁËÒ»µÀÊ¯ÃÅ¡£\n", this_object() );
+		message("vision", "å¢“ç¢‘åé¢è¢«æ˜å¼€ä¸ªå¤§æ´ï¼Œçœ¼å‰å‡ºç°äº†ä¸€é“çŸ³é—¨ã€‚\n", this_object() );
 		set("exits/down", __DIR__"mu2");
 		if( room = find_object(__DIR__"mu2") ) {
 			room->set("exits/up", __FILE__);
-			message("vision", "Ä¹ÒÑ¾­¾ò¿ªÁË£¬Ò»µÀ´óÊ¯ÃÅºáÔÚµØÉÏ¡£\n",room );
+			message("vision", "å¢“å·²ç»æ˜å¼€äº†ï¼Œä¸€é“å¤§çŸ³é—¨æ¨ªåœ¨åœ°ä¸Šã€‚\n",room );
 		}
 		delete("dig_trigger");
 		remove_call_out("close_passage");
@@ -53,10 +53,10 @@ void close_passage(object me)
 {
 	object room;
 	if( !query("exits/down") ) return;
-	message("vision", "ºöÈ»£¬ÃÅÅÔµÄÄàÍÁËúÁËÏÂÀ´£¬°Ñ¾ò¿ªµÄÊ¯ÃÅ¸ø¸Ç×¡ÁË¡£\n", this_object() );
+	message("vision", "å¿½ç„¶ï¼Œé—¨æ—çš„æ³¥åœŸå¡Œäº†ä¸‹æ¥ï¼ŒæŠŠæ˜å¼€çš„çŸ³é—¨ç»™ç›–ä½äº†ã€‚\n", this_object() );
 	if( room = find_object(__DIR__"mu2") ) {
 		room->delete("exits/up");
-		message("vision", "ºöÈ»£¬ÃÅÅÔµÄÄàÍÁËúÁËÏÂÀ´£¬°Ñ¾ò¿ªµÄÊ¯ÃÅ¸ø¸Ç×¡ÁË¡£\n", room );
+		message("vision", "å¿½ç„¶ï¼Œé—¨æ—çš„æ³¥åœŸå¡Œäº†ä¸‹æ¥ï¼ŒæŠŠæ˜å¼€çš„çŸ³é—¨ç»™ç›–ä½äº†ã€‚\n", room );
 	}
 	delete("exits/down");
 	me->delete_temp("dig_mu");
@@ -68,27 +68,27 @@ int do_wa(string arg)
 	me = this_player();
 
 	if(! (me->query_temp("sao_mu")))
-		return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
 
         if (me->is_busy() || me->is_fighting())
-        	return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+        	return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
 	if(!(present("tie qiao", me)))
-		return notify_fail("ÄãÒªÍÚÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æŒ–ä»€ä¹ˆï¼Ÿ\n");
 
 	if( !arg || arg == "" || arg != "mu")
-		return notify_fail("ÄãÒªÍÚÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦æŒ–ä»€ä¹ˆï¼Ÿ\n");
 	
 	if( arg == "mu" ) {
 		if( (int)me->query_temp("dig_mu", 1) == 1 ) {
 			if(! present("shoumu dizi", environment(me))) {
 				ob=new("/d/emei/npc/shoumu");
-				message_vision(HIC"ºöÈ»¼äÒ»¸öÇàÒÂÅ®×ÓÓÉ²àµØÀï³å³öÀ´£¬À÷ÉùµÀ£º´óµ¨µÁÔô£¬³ÔÎÒÒ»½££¡\n", me);
-				message_vision(HIC"ÄãÒ»ÏÂ×ÓÂúÁ³É±Æø£¬¾ö¶¨É±ÈËÃğ¿Ú£¡\n"NOR, me);
+				message_vision(HIC"å¿½ç„¶é—´ä¸€ä¸ªé’è¡£å¥³å­ç”±ä¾§åœ°é‡Œå†²å‡ºæ¥ï¼Œå‰å£°é“ï¼šå¤§èƒ†ç›—è´¼ï¼Œåƒæˆ‘ä¸€å‰‘ï¼\n", me);
+				message_vision(HIC"ä½ ä¸€ä¸‹å­æ»¡è„¸æ€æ°”ï¼Œå†³å®šæ€äººç­å£ï¼\n"NOR, me);
 				ob->move(this_object());  
 			}
 		} 
-		message_vision("$N²ÙÆğÊÖÖĞÌúÇÂ£¬¿Ô³Ô¿Ô³ÔµØÍÚÆğÄ¹À´¡£\n", me);
+		message_vision("$Næ“èµ·æ‰‹ä¸­é“é”¹ï¼Œå­åƒå­åƒåœ°æŒ–èµ·å¢“æ¥ã€‚\n", me);
 		me->add_busy(1);
 		me->add_temp("dig_mu", 1);
 		add("dig_trigger", 1);

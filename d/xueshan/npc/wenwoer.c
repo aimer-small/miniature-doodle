@@ -1,4 +1,4 @@
-// wenwoer.c ÎÂÎÔ¶ù
+// wenwoer.c æ¸©å§å„¿
 // by iceland
 
 #include <ansi.h>
@@ -6,14 +6,14 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÎÂÎÔ¶ù", ({"wenwo er","wenwoer","wenwo","er"}));
+	set_name("æ¸©å§å„¿", ({"wenwo er","wenwoer","wenwo","er"}));
 	set("long",
-                "ËûÉúµÃ°«°«ÅÖÅÖ£¬°òÀ«ÑüÔ²£¬Á½µÀÅ¨Ã¼ÏÂÒ»Ë«Å£ÑÛ£¬ÑÀ³İÎ¢Î¢Ïò\n"
-                "Íâíö×Å£¬ÂúÁ³º©ºñµÄÑù×Ó¡£\n"
+                "ä»–ç”Ÿå¾—çŸ®çŸ®èƒ–èƒ–ï¼Œè†€é˜”è…°åœ†ï¼Œä¸¤é“æµ“çœ‰ä¸‹ä¸€åŒç‰›çœ¼ï¼Œç‰™é½¿å¾®å¾®å‘\n"
+                "å¤–çœ¦ç€ï¼Œæ»¡è„¸æ†¨åšçš„æ ·å­ã€‚\n"
 	);
 
-        set("title", HIY "´óÂÖËÂµÚÊ®Èı´úµÜ×Ó" NOR);
-	set("gender", "ÄĞĞÔ");
+        set("title", HIY "å¤§è½®å¯ºç¬¬åä¸‰ä»£å¼Ÿå­" NOR);
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "huanxi");
 
@@ -50,7 +50,7 @@ void create()
 
 	prepare_skill("hand", "dashou-yin");
 
-	create_family("´óÂÖËÂ", 13, "µÜ×Ó");
+	create_family("å¤§è½®å¯º", 13, "å¼Ÿå­");
 
 	setup();
 

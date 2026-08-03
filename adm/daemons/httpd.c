@@ -92,7 +92,7 @@ int query_accesses()
 void create()
 { 
 	seteuid( ROOT_UID );
-	set("channel_id","£×£Å£Â·şÎñ");
+	set("channel_id","ï¼·ï¼¥ï¼¢æœåŠ¡");
 	accesses = 0;
 	set_persistent(1);
 	months = ({"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct",
@@ -100,7 +100,7 @@ void create()
 	sockets = ([]);
 	resolve_pending = ([]);
 	log_info(LOG_HTTP_ERR, "Created when uptime = " + uptime() + "\n");
-	CHANNEL_D->do_channel(this_object(), "sys", "Æô¶¯³É¹¦¡£");
+	CHANNEL_D->do_channel(this_object(), "sys", "å¯åŠ¨æˆåŠŸã€‚");
 	call_out("setup", 5);
 }
 
@@ -532,7 +532,7 @@ int restore_data()
 
 void remove()
 {
-	CHANNEL_D->do_channel(this_object(), "sys", "£×£Å£Â·şÎñÒÑ¾­ÖÕÖ¹¡£");
+	CHANNEL_D->do_channel(this_object(), "sys", "ï¼·ï¼¥ï¼¢æœåŠ¡å·²ç»ç»ˆæ­¢ã€‚");
 	socket_close(httpSock);
 }
 

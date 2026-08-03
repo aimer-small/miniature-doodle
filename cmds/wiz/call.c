@@ -1,6 +1,6 @@
 // call.c
 // Modified by snowman@SJ 28/11/2000
-// call xxx->query µÄĞÎÊ½²»¼Ólog
+// call xxx->query çš„å½¢å¼ä¸åŠ log
 
 #include <ansi.h>
 inherit F_CLEAN_UP;
@@ -16,7 +16,7 @@ int main(object me, string arg)
 	if (arg) {
 		if( sscanf(arg, "-%s %s", euid, arg)==2 ) {
 			if( (string)SECURITY_D->get_status(me) != "(admin)" )
-				return notify_fail("Äã²»ÄÜÉè¶¨×Ô¼ºµÄ euid¡£\n");
+				return notify_fail("ä½ ä¸èƒ½è®¾å®šè‡ªå·±çš„ euidã€‚\n");
 			seteuid(euid);
 		}
 		else
@@ -25,10 +25,10 @@ int main(object me, string arg)
 		if (sscanf(arg, "%s->%s(%s) because %s", objname, func, param, reason) != 4) {
 			arg += NOR;
 			if (sscanf(arg, "%s->%s(%s)" NOR, objname, func, param) != 3)
-				return notify_fail("Ö¸Áî¸ñÊ½£ºcall <Îï¼ş>-><º¯Êı>( <²ÎÊı>, ... )\n");
+				return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šcall <ç‰©ä»¶>-><å‡½æ•°>( <å‚æ•°>, ... )\n");
 		}
 	} else
-		return notify_fail("Ö¸Áî¸ñÊ½£ºcall <Îï¼ş>-><º¯Êı>( <²ÎÊı>, ... )\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šcall <ç‰©ä»¶>-><å‡½æ•°>( <å‚æ•°>, ... )\n");
 
 	obj = present(objname, environment(me));
 	if (!obj)
@@ -40,31 +40,31 @@ int main(object me, string arg)
 	if (!obj && objname=="me")
 		obj = me;
 	if (!obj)
-		return notify_fail("ÕÒ²»µ½Ö¸¶¨µÄÎï¼ş¡£\n");
+		return notify_fail("æ‰¾ä¸åˆ°æŒ‡å®šçš„ç‰©ä»¶ã€‚\n");
 
 	if (SECURITY_D->get_status(me) == "(apprentice)" && obj!=me)
-		return notify_fail("ÄãÃ»ÓĞÖ±½Óºô½ĞÕâ¸öÎï¼şµÄº¯ÊıµÄÈ¨Á¦¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰ç›´æ¥å‘¼å«è¿™ä¸ªç‰©ä»¶çš„å‡½æ•°çš„æƒåŠ›ã€‚\n");
 
 	if (wiz_level(me) < wiz_level(obj))
-		return notify_fail("ÄãÃ»ÓĞÖ±½Óºô½ĞÕâ¸öÎï¼şµÄº¯ÊıµÄÈ¨Á¦¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰ç›´æ¥å‘¼å«è¿™ä¸ªç‰©ä»¶çš„å‡½æ•°çš„æƒåŠ›ã€‚\n");
 	if (userp(obj) && (wiz_level(me) < wiz_level("(admin)")) ){
 		if (obj->query("no_call") )
-			return notify_fail("Õâ¸öÎï¼ş±»½ûÖ¹ÁË±»callµÄÈ¨Àû¡£\n");
+			return notify_fail("è¿™ä¸ªç‰©ä»¶è¢«ç¦æ­¢äº†è¢«callçš„æƒåˆ©ã€‚\n");
 
 		if (obj != me && !wizardp(obj)
 		&& strsrch(func, "query") < 0
 		&& strsrch(func, "temp") < 0
 		&& strsrch(func, "setup") < 0) {
 			if (!reason)
-				return notify_fail("Ö¸Áî¸ñÊ½£ºcall <Îï¼ş>-><º¯Êı>( <²ÎÊı>, ... ) because Ô­Òò\n");
+				return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šcall <ç‰©ä»¶>-><å‡½æ•°>( <å‚æ•°>, ... ) because åŸå› \n");
 		
-		note = (["title":"¡¾CALL¼ÇÂ¼¡¿CALLÍæ¼Ò"+obj->name(1) + "("+ capitalize(obj->query("id"))+")µÄ¼ÇÂ¼",
+		note = (["title":"ã€CALLè®°å½•ã€‘CALLç©å®¶"+obj->name(1) + "("+ capitalize(obj->query("id"))+")çš„è®°å½•",
 			"author":me->query("name") + "(" + getuid(me) + ")",
 			"time":0,
 			"msg":0,
 			]);	
 			
-      "/clone/board/wizto_b"->done_post(me,note,"¡¾CALL¼ÇÂ¼¡¿" + sprintf("%s(%s) call %s(%s)->%s(%s) because %s\n",
+      "/clone/board/wizto_b"->done_post(me,note,"ã€CALLè®°å½•ã€‘" + sprintf("%s(%s) call %s(%s)->%s(%s) because %s\n",
                                         me->name(1), geteuid(me), obj->name(1), geteuid(obj), func, param, reason));
 		
 			log_file("static/CALL_PLAYER",
@@ -74,7 +74,7 @@ int main(object me, string arg)
 			);
 		}
 	} else if (strsrch(func, "query") < 0 && !master()->valid_write(base_name(obj), me, "set"))
-		return notify_fail("ÄãÃ»ÓĞÖ±½Óºô½ĞÕâ¸öÎï¼şµÄº¯ÊıµÄÈ¨Á¦¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰ç›´æ¥å‘¼å«è¿™ä¸ªç‰©ä»¶çš„å‡½æ•°çš„æƒåŠ›ã€‚\n");
 
 	args = explode(param, ",");
 
@@ -100,11 +100,11 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : call <Îï¼ş>-><º¯Êı>(<²ÎÊı>, ...... )
+æŒ‡ä»¤æ ¼å¼ : call <ç‰©ä»¶>-><å‡½æ•°>(<å‚æ•°>, ...... )
 
-ºô½Ğ<Îï¼ş>ÀïµÄ<º¯Êı>²¢´«ÈëÏà¹Ø<²ÎÊı>.
+å‘¼å«<ç‰©ä»¶>é‡Œçš„<å‡½æ•°>å¹¶ä¼ å…¥ç›¸å…³<å‚æ•°>.
 
-½ûÖ¹´«µİ²ÎÊı balance,SJ_Credit,combat_exp
+ç¦æ­¢ä¼ é€’å‚æ•° balance,SJ_Credit,combat_exp
 HELP
     );
     return 1;

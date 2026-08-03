@@ -7,13 +7,13 @@ inherit CLOTH;
  
 void create() 
 { 
-	set_name( RED "ÀğÓã¶Ç¶µ" NOR, ({ "liyu dudou", "dudou" }) ); 
+	set_name( RED "é²¤é±¼è‚šå…œ" NOR, ({ "liyu dudou", "dudou" }) ); 
 	set_weight(300); 
 	if( clonep() ) 
 		set_default_object(__FILE__); 
 	else { 
-		set("unit", "¼ş"); 
-		set("long", "ÕâÊÇÒ»¼şºìÉ«µÄ¶Ç¶µ£¬ÉÏÃæÓÃ½ğÏßĞå×ÅÒ»ÌõèòèòÈçÉúµÄ´óÀğÓã¡£\n"); 
+		set("unit", "ä»¶"); 
+		set("long", "è¿™æ˜¯ä¸€ä»¶çº¢è‰²çš„è‚šå…œï¼Œä¸Šé¢ç”¨é‡‘çº¿ç»£ç€ä¸€æ¡æ ©æ ©å¦‚ç”Ÿçš„å¤§é²¤é±¼ã€‚\n"); 
 		set("value", 300); 
 		set("material", "cloth"); 
 		set("armor_prop/armor", 1);

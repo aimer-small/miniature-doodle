@@ -4,10 +4,10 @@
 inherit NPC;
 void create()
 {
-	set_name("���", ({ "wu gong" }));
-	set("long", "һֻ�ж��Ļ��ɫ����򼡣\n");
+	set_name("蜈蚣", ({ "wu gong" }));
+	set("long", "一只有毒的火红色大蜈蚣。\n");
 
-	set("race", "Ұ��");
+	set("race", "野兽");
 	set("age", 3);
 	set("attitude", "aggressive");
 
@@ -16,7 +16,7 @@ void create()
 	set("str", 10);
 	set("con", 50);
 
-	set("limbs", ({ "��","����", "����", "β��"}));
+	set("limbs", ({ "嘴","触角", "身体", "尾刺"}));
 	set("verbs", ({ "bite" }) );
 
 	set_temp("apply/attack", 10);
@@ -33,6 +33,6 @@ int hit_ob(object me, object ob, int damage)
 	if( random(damage) > (int)ob->query_temp("apply/armor")
     	 &&  (int)ob->query_condition("scorpion_poison") < 10) {
 		ob->add_condition("scorpion_poison", 20);
-		tell_object(ob, HIG "�㿪ʼ�е������ñ�������\n" NOR );
+		tell_object(ob, HIG "你开始感到身体变得冰凉。！\n" NOR );
 	}
 }

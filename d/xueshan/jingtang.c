@@ -4,12 +4,12 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "´ó¾­ÌÃ");
+        set("short", "å¤§ç»å ‚");
         set("long", @LONG
-µîÎªÊ®×ÖĞªÉ½¶¥£¬ĞÎÖÆ¾ş¹å£¬µîÌÃ¹æÄ£ºê´ó£¬ÄÚÓĞ´óÖùÉÏÇ§¸ù£¬¿ÉÍ¬Ê±ÈİÄÉ
-¼¸°ÙÃûÉ®ÈËÍ¬Ê±ËĞ¾­¡£µîÇ°ÓĞÔ¾Âí¡¢·ü»¢¡¢ÎÔÅ£¡¢¹ÖÊŞ¡¢µÈĞí¶àÊ¯µñÏñ¡£µîÄÚ´ó
-ÖùºÍËÄÃæÇ½±ÚÉÏ¿ÌÂú¾­ÎÄ£¬ÓĞ¼¸¸öÉ®ÈËÕıÔÚÖùÏÂìø¶¨(chanding)£¬»¹ÓĞĞ©É®ÈË¶Ô
-×ÅÇ½±ÚÉÏµÄ¾­ÎÄÚ¤Ë¼¿àÏë(mingxiang)¡£
+æ®¿ä¸ºåå­—æ­‡å±±é¡¶ï¼Œå½¢åˆ¶å³»ç‘°ï¼Œæ®¿å ‚è§„æ¨¡å®å¤§ï¼Œå†…æœ‰å¤§æŸ±ä¸Šåƒæ ¹ï¼Œå¯åŒæ—¶å®¹çº³
+å‡ ç™¾ååƒ§äººåŒæ—¶è¯µç»ã€‚æ®¿å‰æœ‰è·ƒé©¬ã€ä¼è™ã€å§ç‰›ã€æ€ªå…½ã€ç­‰è®¸å¤šçŸ³é›•åƒã€‚æ®¿å†…å¤§
+æŸ±å’Œå››é¢å¢™å£ä¸Šåˆ»æ»¡ç»æ–‡ï¼Œæœ‰å‡ ä¸ªåƒ§äººæ­£åœ¨æŸ±ä¸‹ç¦…å®š(chanding)ï¼Œè¿˜æœ‰äº›åƒ§äººå¯¹
+ç€å¢™å£ä¸Šçš„ç»æ–‡å†¥æ€è‹¦æƒ³(mingxiang)ã€‚
 LONG
         );
 
@@ -34,23 +34,23 @@ int do_chanding()
 	me = this_player();
 
 	if (me->is_fighting())
-		return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞìø¶¨¡£\n");
+		return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­ç¦…å®šã€‚\n");
 
 	if (me->is_busy())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (me->query_skill("literate",1) < 10)
-		return notify_fail("¾­ÎÄÉî°ÂĞşÃî£¬ÄãÊ¶×Ö²»¶à£¬ÎŞ·¨ÁìÎò¡£\n");
+		return notify_fail("ç»æ–‡æ·±å¥¥ç„å¦™ï¼Œä½ è¯†å­—ä¸å¤šï¼Œæ— æ³•é¢†æ‚Ÿã€‚\n");
 
 	if (me->query_skill("huanxi-chan",1) > 30)
-		return notify_fail("Ê¯ÖùÉÏµÄ¾­ÎÄÄãÒÑ¾­ÁìÎòÍ¸³¹ÁË£¬ìø¶¨¶ÔÄãÃ»Ê²Ã´°ïÖúÁË¡£\n");
+		return notify_fail("çŸ³æŸ±ä¸Šçš„ç»æ–‡ä½ å·²ç»é¢†æ‚Ÿé€å½»äº†ï¼Œç¦…å®šå¯¹ä½ æ²¡ä»€ä¹ˆå¸®åŠ©äº†ã€‚\n");
 
 	if((int)me->query("jing") < 20) 
-		return notify_fail("Äã¸ÕÒªÚ¤Ïë£¬Ö»¾õµÃÌìĞıµØ×ª£¬Ô­À´ÄãÌ«Æ£ÀÍÁË......\n");
+		return notify_fail("ä½ åˆšè¦å†¥æƒ³ï¼Œåªè§‰å¾—å¤©æ—‹åœ°è½¬ï¼ŒåŸæ¥ä½ å¤ªç–²åŠ³äº†......\n");
 
 	me->add("jing", -10+random(5));
 	me->improve_skill("huanxi-chan", me->query("int"));
-	write("Äã¶Ô×Å´óÖùìø¶¨£¬·Â·ğ¶Ô´óÖùÉÏµÄ¾­ÎÄÓĞËùÁìÎò¡£\n");
+	write("ä½ å¯¹ç€å¤§æŸ±ç¦…å®šï¼Œä»¿ä½›å¯¹å¤§æŸ±ä¸Šçš„ç»æ–‡æœ‰æ‰€é¢†æ‚Ÿã€‚\n");
 	return 1;
 }
 
@@ -60,26 +60,26 @@ int do_mingxiang()
 	me = this_player();
 	
 	if (me->is_fighting())
-		return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞÚ¤Ïë¡£\n");
+		return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­å†¥æƒ³ã€‚\n");
 
 	if (me->is_busy())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (me->query_skill("literate",1) < 10)
-		return notify_fail("¾­ÎÄÉî°ÂĞşÃî£¬ÄãÊ¶×Ö²»¶à£¬ÎŞ·¨ÁìÎò¡£\n");
+		return notify_fail("ç»æ–‡æ·±å¥¥ç„å¦™ï¼Œä½ è¯†å­—ä¸å¤šï¼Œæ— æ³•é¢†æ‚Ÿã€‚\n");
 
 	if (me->query_skill("huanxi-chan",1) < 30)
-		return notify_fail("ÄãÆÁÏ¢¾²Æø£¬±ÕÄ¿Ú¤Ïë¡£ÄÔÖĞÈ´Ò»Æ¬¿Õ°×£¬Ô­À´ÄãµÄ»ù´¡Ì«²îÁË¡£\n");
+		return notify_fail("ä½ å±æ¯é™æ°”ï¼Œé—­ç›®å†¥æƒ³ã€‚è„‘ä¸­å´ä¸€ç‰‡ç©ºç™½ï¼ŒåŸæ¥ä½ çš„åŸºç¡€å¤ªå·®äº†ã€‚\n");
 
 	if (me->query_skill("huanxi-chan",1) > 100)
-		return notify_fail("Ê¯±ÚÉÏµÄ¾­ÎÄÄãÒÑ¾­ÁìÎòÍ¸³¹ÁË£¬Ú¤Ïë¶ÔÄãÃ»Ê²Ã´°ïÖúÁË¡£\n");
+		return notify_fail("çŸ³å£ä¸Šçš„ç»æ–‡ä½ å·²ç»é¢†æ‚Ÿé€å½»äº†ï¼Œå†¥æƒ³å¯¹ä½ æ²¡ä»€ä¹ˆå¸®åŠ©äº†ã€‚\n");
 
 	if((int)me->query("jing") < 50)
-		return notify_fail("Äã¸ÕÒªÚ¤Ïë£¬Ö»¾õµÃÌìĞıµØ×ª£¬Ô­À´ÄãÌ«Æ£ÀÍÁË......\n");
+		return notify_fail("ä½ åˆšè¦å†¥æƒ³ï¼Œåªè§‰å¾—å¤©æ—‹åœ°è½¬ï¼ŒåŸæ¥ä½ å¤ªç–²åŠ³äº†......\n");
 
 	me->add("jing", -(20+random(10)));
 	me->improve_skill("huanxi-chan", me->query("int"));   
-	write("ÄãÆÁÏ¢¾²Æø£¬±ÕÄ¿Ú¤Ïë£¬ËÆºõ¶ÔÇ½±ÚÉÏµÄ¾­ÎÄÓĞËùÁìÎò¡£\n");
+	write("ä½ å±æ¯é™æ°”ï¼Œé—­ç›®å†¥æƒ³ï¼Œä¼¼ä¹å¯¹å¢™å£ä¸Šçš„ç»æ–‡æœ‰æ‰€é¢†æ‚Ÿã€‚\n");
 	return 1;
 }
 
@@ -92,45 +92,45 @@ int do_write(string arg)
 	lite = me->query_skill("literate");
 
 	if ( arg != "jingshu" || !arg) 
-		return notify_fail("ÄãÒªĞ´Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦å†™ä»€ä¹ˆï¼Ÿ\n");
 
 	if (me->is_fighting())
-		return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞĞ´¾­Êé¡£\n");
+		return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­å†™ç»ä¹¦ã€‚\n");
 
 	if (me->is_busy())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (me->query_skill("literate",1) < 10)
-		return notify_fail("Äã´ó×Ö²»Ê¶¼¸¸ö£¬Ò²ÏëĞ´¾­Êé£¿\n");
+		return notify_fail("ä½ å¤§å­—ä¸è¯†å‡ ä¸ªï¼Œä¹Ÿæƒ³å†™ç»ä¹¦ï¼Ÿ\n");
 
 	if (me->query_skill("huanxi-chan",1) < 30)
-		return notify_fail("Äã¿´×ÅÂúÇ½ÃÜÃÜÂéÂéµÄÎÄ×Ö£¬Ö»¾õÍ·ÄÔ·¢ÕÇ£¬Ã»ÓĞÍ·Ğ÷¡£Ô­À´ÄãµÄ»ù´¡Ì«²îÁË¡£\n");
+		return notify_fail("ä½ çœ‹ç€æ»¡å¢™å¯†å¯†éº»éº»çš„æ–‡å­—ï¼Œåªè§‰å¤´è„‘å‘æ¶¨ï¼Œæ²¡æœ‰å¤´ç»ªã€‚åŸæ¥ä½ çš„åŸºç¡€å¤ªå·®äº†ã€‚\n");
 
 	if ((!present("bo juan", this_player())) || (!present("mao bi", this_player()))) 
-		return notify_fail("ÏÖÔÚÄãÊéĞ´ËùÓÃµÄÆ÷¾ß²»¹»£¬ÎŞ·¨Ğ´¾­Êé¡£\n");
+		return notify_fail("ç°åœ¨ä½ ä¹¦å†™æ‰€ç”¨çš„å™¨å…·ä¸å¤Ÿï¼Œæ— æ³•å†™ç»ä¹¦ã€‚\n");
  
         if( me->query_temp("fojing"))
-                return notify_fail("ÄãÒÑ¾­³­ºÃ¾­ÎÄÁË¡£\n");
+                return notify_fail("ä½ å·²ç»æŠ„å¥½ç»æ–‡äº†ã€‚\n");
 
 	if ((me->query_temp("write") == 20 ) && (lite < 30)) {
 		new("/clone/misc/fojing3")->move(me);
 		me->set_temp("fojing", 1);
-		message_vision("Äã½«Ğ´ºÃµÄ²¯¾î°´´ÎĞòÀíË³£¬ÉìÁË¸öÀÁÑü£¬ÖÕÓÚ³­ÍêÁË¡£\n",me);
+		message_vision("ä½ å°†å†™å¥½çš„å¸›ç»¢æŒ‰æ¬¡åºç†é¡ºï¼Œä¼¸äº†ä¸ªæ‡’è…°ï¼Œç»ˆäºæŠ„å®Œäº†ã€‚\n",me);
 		return 1;
 	}
 	if ((me->query_temp("write") == 35 ) && (lite < 100) && (lite >= 30)) {
 		me->set_temp("fojing", 1);
 		new("/clone/misc/fojing1")->move(me);
-		message_vision("Äã½«Ğ´ºÃµÄ²¯¾î°´´ÎĞòÀíË³£¬ÉìÁË¸öÀÁÑü£¬ÖÕÓÚ³­ÍêÁË¡£\n",me);
+		message_vision("ä½ å°†å†™å¥½çš„å¸›ç»¢æŒ‰æ¬¡åºç†é¡ºï¼Œä¼¸äº†ä¸ªæ‡’è…°ï¼Œç»ˆäºæŠ„å®Œäº†ã€‚\n",me);
 		return 1;
 	}
 	if ((me->query_temp("write") == 50 ) && (lite >= 100)) {
 		new("/clone/misc/fojing2")->move(me);
 		me->set_temp("fojing", 1);
-		message_vision("Äã½«Ğ´ºÃµÄ²¯¾î°´´ÎĞòÀíË³£¬ÉìÁË¸öÀÁÑü£¬ÖÕÓÚ³­ÍêÁË¡£\n",me);
+		message_vision("ä½ å°†å†™å¥½çš„å¸›ç»¢æŒ‰æ¬¡åºç†é¡ºï¼Œä¼¸äº†ä¸ªæ‡’è…°ï¼Œç»ˆäºæŠ„å®Œäº†ã€‚\n",me);
 		return 1;
 	}
 	me->add_temp("write", 1);
-	message_vision("$NÕ¹¿ªÆÌÆ½²¯¾î£¬ÓÃÃ«±Ê½«Ç½±ÚÉÏµÄ¾­ÎÄ¹¤¹¤ÕûÕûµÄÂ¼ÁËÏÂÀ´¡£\n", me);
+	message_vision("$Nå±•å¼€é“ºå¹³å¸›ç»¢ï¼Œç”¨æ¯›ç¬”å°†å¢™å£ä¸Šçš„ç»æ–‡å·¥å·¥æ•´æ•´çš„å½•äº†ä¸‹æ¥ã€‚\n", me);
 	return 1;
 }

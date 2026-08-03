@@ -1,4 +1,4 @@
-// yaoshi.c “© ¶
+// yaoshi.c ËçØÂ∏à
 // Created by Numa 1999-12-16
 
 #include <ansi.h>
@@ -10,15 +10,15 @@ int do_give();
 
 void create()
 {
-	set_name("“© ¶", ({ "yao shi", "yao", "shi" }) );
-	set("gender", "ƒ––‘" );
+	set_name("ËçØÂ∏à", ({ "yao shi", "yao", "shi" }) );
+	set("gender", "Áî∑ÊÄß" );
 	set("age", 40);
-	set("long","’‚ «“ªŒªƒÍ≥§µƒ¿œ’ﬂ,∂‘“Ω ıœ‡µ±æ´Õ®°£\n");
+	set("long","ËøôÊòØ‰∏Ä‰ΩçÂπ¥ÈïøÁöÑËÄÅËÄÖ,ÂØπÂåªÊúØÁõ∏ÂΩìÁ≤æÈÄö„ÄÇ\n");
 	set("combat_exp", 100000);
 	set("unique", 1); 
-	set("no_get","“© ¶∂‘ƒ„∂¯—‘Ã´÷ÿ¡À°£\n");
+	set("no_get","ËçØÂ∏àÂØπ‰Ω†ËÄåË®ÄÂ§™Èáç‰∫Ü„ÄÇ\n");
         set("attitude", "peaceful");
-	create_family("·‘…Ω≈…", 6, "µ‹◊”");
+	create_family("Âµ©Â±±Ê¥æ", 6, "ÂºüÂ≠ê");
 
 	set("vendor_goods", ({
 		([ "name":MEDICINE_D("huiyang"), "number":3 ]),
@@ -26,9 +26,9 @@ void create()
 	}));
 
 	set("inquiry", ([
-		"name":	"Œ“µƒ“Ω ıø… « ˝“ª ˝∂˛µƒ°£",
-		"¡∆…À":	(: do_heal :),
-		"µ§“©": (: do_give :),
+		"name":	"ÊàëÁöÑÂåªÊúØÂèØÊòØÊï∞‰∏ÄÊï∞‰∫åÁöÑ„ÄÇ",
+		"Áñó‰º§":	(: do_heal :),
+		"‰∏πËçØ": (: do_give :),
 	]));
 	set("have_dan",5);
 	setup();
@@ -50,7 +50,7 @@ void init()
 void greeting(object ob)
 {
 	if( !ob || environment(ob) != environment()) return;
-	command("say ’‚Œª"+RANK_D->query_respect(ob)+"«Î¡À£¨«ÎŒ “™”√–© ≤√¥“©£ø");
+	command("say Ëøô‰Ωç"+RANK_D->query_respect(ob)+"ËØ∑‰∫ÜÔºåËØ∑ÈóÆË¶ÅÁî®‰∫õ‰ªÄ‰πàËçØÔºü");
 }
 
 string do_heal()
@@ -60,35 +60,35 @@ string do_heal()
 //	int hurt;
 
 	if (!me->query_temp("ss/ready_heal"))
-		return "’‚Œª"+ RANK_D->query_respect(me) +"£¨ƒ˙◊‹µ√“‚Àº“‚Àº∞…£ø";
+		return "Ëøô‰Ωç"+ RANK_D->query_respect(me) +"ÔºåÊÇ®ÊÄªÂæóÊÑèÊÄùÊÑèÊÄùÂêßÔºü";
 
 	if (ob->query_temp("busy"))
-		return "’‚Œª"+ RANK_D->query_respect(me) +"£¨Œ“’˝√¶◊≈ƒÿ£°";
+		return "Ëøô‰Ωç"+ RANK_D->query_respect(me) +"ÔºåÊàëÊ≠£ÂøôÁùÄÂë¢ÔºÅ";
 
 /*
 	if (ob->query_temp("last") == me->query("id"))
-		return "’‚Œª"+ RANK_D->query_respect(me) +"£¨Œ“∏’∏¯ƒ„÷Œ¡∆π˝£¨ƒ„‘Ÿµ»µ»∞…£°";
+		return "Ëøô‰Ωç"+ RANK_D->query_respect(me) +"ÔºåÊàëÂàöÁªô‰Ω†Ê≤ªÁñóËøáÔºå‰Ω†ÂÜçÁ≠âÁ≠âÂêßÔºÅ";
 */
 
 //	hurt = me->query("max_qi") / me->query("eff_qi");
 
 	if (me->query("eff_qi") >= me->query("max_qi"))
-		return "’‚Œª"+ RANK_D->query_respect(me) +"£¨ƒ„∫√œÛ√ª ≤√¥…À∞…£°";
+		return "Ëøô‰Ωç"+ RANK_D->query_respect(me) +"Ôºå‰Ω†Â•ΩË±°Ê≤°‰ªÄ‰πà‰º§ÂêßÔºÅ";
 
 	if (me->query("eff_qi")+me->query_temp("apply/qi") < (me->query("max_qi") + me->query_temp("apply/qi")) / 4)
-		return "’‚Œª"+ RANK_D->query_respect(me) +"£¨ƒ„…À ∆π˝÷ÿ£¨ªπ «»•◊º±∏∫Û ¬∞…£°";
+		return "Ëøô‰Ωç"+ RANK_D->query_respect(me) +"Ôºå‰Ω†‰º§ÂäøËøáÈáçÔºåËøòÊòØÂéªÂáÜÂ§áÂêé‰∫ãÂêßÔºÅ";
 
 	me->delete_temp("ss/ready_heal");
 	ob->set_temp("last",me->query("id"));
 	ob->set_temp("busy",1);
 	command("nod");
-	message_vision(HIR"\n$n∞—¡À∞—¬ˆ£¨—∏ÀŸµƒµ„¡À$N÷‹…Ìµƒº∏¥¶¥Û—®£¨ΩÙΩ”◊≈À´’∆µ÷œÚ$N∫Û–ƒ¥´ ‰’Ê∆¯°£\n"NOR,me,ob);
-	message_vision(HIW"÷ªº˚$Nµƒ—™Ω•Ω•÷π◊°£¨…À ∆“≤¥ÛŒ™∫√◊™°£\n"NOR,me,ob);
+	message_vision(HIR"\n$nÊää‰∫ÜÊääËÑâÔºåËøÖÈÄüÁöÑÁÇπ‰∫Ü$NÂë®Ë∫´ÁöÑÂá†Â§ÑÂ§ßÁ©¥ÔºåÁ¥ßÊé•ÁùÄÂèåÊéåÊäµÂêë$NÂêéÂøÉ‰º†ËæìÁúüÊ∞î„ÄÇ\n"NOR,me,ob);
+	message_vision(HIW"Âè™ËßÅ$NÁöÑË°ÄÊ∏êÊ∏êÊ≠¢‰ΩèÔºå‰º§Âäø‰πüÂ§ß‰∏∫Â•ΩËΩ¨„ÄÇ\n"NOR,me,ob);
 	me->set("eff_qi", me->query("max_qi"));
 //	ob->receive_curing("qi", 100+random(500-hurt));
 	remove_call_out("finish");
 	call_out("finish", 20, ob);
-	return "∂˜£¨∫√¡À£¨ƒ„◊‘º∫‘Ÿ»•–ﬁ—¯œ¬∞…°£";
+	return "ÊÅ©ÔºåÂ•Ω‰∫ÜÔºå‰Ω†Ëá™Â∑±ÂÜçÂéª‰øÆÂÖª‰∏ãÂêß„ÄÇ";
 }
 
 int finish(object ob)
@@ -103,8 +103,8 @@ int accept_object(object who, object ob)
 {
 	int hurt;
 	
-	if (!who->query("family") || who->query("family/family_name") != "·‘…Ω≈…") {
-		command("say ’‚Œª"+ RANK_D->query_respect(who) +"£¨ƒ„∫√œÛ∏˙Œ“≈…≤¢√ª”– ≤√¥¿¥Õ˘∞…£°");
+	if (!who->query("family") || who->query("family/family_name") != "Âµ©Â±±Ê¥æ") {
+		command("say Ëøô‰Ωç"+ RANK_D->query_respect(who) +"Ôºå‰Ω†Â•ΩË±°Ë∑üÊàëÊ¥æÂπ∂Ê≤°Êúâ‰ªÄ‰πàÊù•ÂæÄÂêßÔºÅ");
 		return 0;
 	}
 	if (ob->query("money_id")) {
@@ -113,18 +113,18 @@ int accept_object(object who, object ob)
 		if ( hurt < 1) hurt = 1;
 		if (ob->value() >= hurt*10000) {
 			command("hehe");
-			command("say ’‚Œª"+ RANK_D->query_respect(who) +"£¨ƒ˙◊º±∏∫√£¨Œ“¿¥∏¯ƒ˙¡∆…À(Ask shi about ¡∆…À)°£");
+			command("say Ëøô‰Ωç"+ RANK_D->query_respect(who) +"ÔºåÊÇ®ÂáÜÂ§áÂ•ΩÔºåÊàëÊù•ÁªôÊÇ®Áñó‰º§(Ask shi about Áñó‰º§)„ÄÇ");
 			who->set_temp("ss/ready_heal",1);
 			return 1;
 		}
 		else {
 			command("hmm " + who->query("id"));
-			command("say ’‚Œª"+ RANK_D->query_respect(who) +"£¨’‚µ„“≤Ã´…Ÿ¡À∞…£ø£°");
+			command("say Ëøô‰Ωç"+ RANK_D->query_respect(who) +"ÔºåËøôÁÇπ‰πüÂ§™Â∞ë‰∫ÜÂêßÔºüÔºÅ");
 			return 0;
 		}
 	}
 	else {
-		command("say ’‚ « ≤√¥∆∆¿√ÕÊ“‚£¨ƒ„ªπ «◊‘º∫¡Ù◊≈∞…£°");
+		command("say ËøôÊòØ‰ªÄ‰πàÁ†¥ÁÉÇÁé©ÊÑèÔºå‰Ω†ËøòÊòØËá™Â∑±ÁïôÁùÄÂêßÔºÅ");
 		return 0;
 	}
 }
@@ -135,36 +135,36 @@ int do_give()
 	object ob = this_player();
 	object obj;
 	
-	if (!ob->query("family") || ob->query("family/family_name") != "·‘…Ω≈…") {
-		command("say ’‚Œª"+ RANK_D->query_respect(ob) +"£¨ƒ„∫√œÛ∏˙Œ“≈…≤¢√ª”– ≤√¥¿¥Õ˘∞…£°");
+	if (!ob->query("family") || ob->query("family/family_name") != "Âµ©Â±±Ê¥æ") {
+		command("say Ëøô‰Ωç"+ RANK_D->query_respect(ob) +"Ôºå‰Ω†Â•ΩË±°Ë∑üÊàëÊ¥æÂπ∂Ê≤°Êúâ‰ªÄ‰πàÊù•ÂæÄÂêßÔºÅ");
 		return 1;
 	}
 /*
 	if (!ob->query_temp("ss/give_dan")) {
 		command("shake");
-		command("say Œ¥æ≠◊Û’∆√≈‘ –Ì£¨Œ“ø…≤ª∏“…√◊‘Ω´µ§“©∑¢∏¯ƒ„£°");
+		command("say Êú™ÁªèÂ∑¶ÊéåÈó®ÂÖÅËÆ∏ÔºåÊàëÂèØ‰∏çÊï¢ÊìÖËá™Â∞Ü‰∏πËçØÂèëÁªô‰Ω†ÔºÅ");
 		return 1;
 	}
 */
 	if (ob->query_condition("medicine")) {
-		command("say ’‚Œª"+ RANK_D->query_respect(ob) +"£¨ƒ„∏’≥‘π˝¡È“©£¨ªπ «‘Ÿµ»µ»∞…£°");
+		command("say Ëøô‰Ωç"+ RANK_D->query_respect(ob) +"Ôºå‰Ω†ÂàöÂêÉËøáÁÅµËçØÔºåËøòÊòØÂÜçÁ≠âÁ≠âÂêßÔºÅ");
 		return 1;
 	}
 	
 	if (!me->query("have_dan") < 1) {
 		me->set("have_dan",0);
-		command("say µ§“©“—æ≠∑¢ÕÍ¡À°£");
+		command("say ‰∏πËçØÂ∑≤ÁªèÂèëÂÆå‰∫Ü„ÄÇ");
 		return 1;
 	}
 	
 	if (!(obj=load_object("/clone/medicine/songyang-dan"))) {
-		command("say ’‚Œª"+ RANK_D->query_respect(ob) +"£¨µ§“©ªπ√ª”–¡∑÷∆≥ˆ¿¥£°");
+		command("say Ëøô‰Ωç"+ RANK_D->query_respect(ob) +"Ôºå‰∏πËçØËøòÊ≤°ÊúâÁªÉÂà∂Âá∫Êù•ÔºÅ");
 		return 1;
 	}
 	
-	message_vision("$nµ›∏¯$N“ªø≈·‘—Ùµ§°£\n",ob,me);
+	message_vision("$nÈÄíÁªô$N‰∏ÄÈ¢óÂµ©Èò≥‰∏π„ÄÇ\n",ob,me);
 	obj->move(ob);
-	message_vision("$n∂‘◊≈$NÀµµ¿£∫’‚ø… «Œ“√«·‘…Ωµƒ¡È“©£¨ƒ˙ø…“™–°–ƒ π”√£°\n",ob,me);
+	message_vision("$nÂØπÁùÄ$NËØ¥ÈÅìÔºöËøôÂèØÊòØÊàë‰ª¨Âµ©Â±±ÁöÑÁÅµËçØÔºåÊÇ®ÂèØË¶ÅÂ∞èÂøÉ‰ΩøÁî®ÔºÅ\n",ob,me);
 	me->add("have_dan",-1);
 	return 1;
 }

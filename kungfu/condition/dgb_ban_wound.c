@@ -1,4 +1,4 @@
-// this condition used by dagou-bang's perform ban¡£
+// this condition used by dagou-bang's perform banã€‚
 #include <ansi.h>
 #include <condition.h>
 
@@ -6,7 +6,7 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
    	if (duration < 1) {
-          	message_vision(HIC"$N³¤³öÒ»¿ÚÆø£¬¸Ð¾õ½ÅÉËºÃ¶àÁË¡£\n" NOR, me);
+          	message_vision(HIC"$Né•¿å‡ºä¸€å£æ°”ï¼Œæ„Ÿè§‰è„šä¼¤å¥½å¤šäº†ã€‚\n" NOR, me);
           	me->add_temp("apply/dodge",(int)me->query_temp("dgb/ban"));
           	me->delete_temp("dgb/ban");
           	return 0;
@@ -14,11 +14,11 @@ int update_condition(object me, int duration)
    	if (!duration) return 0;
    	
    	if( !living(me) ) {
-          	message_vision(HIB"$NÃÆºßÒ»Éù£¬½ÅÏÂõÔõÄ£¬Á¢×ã²»ÎÈ¡£\n" NOR, me); 
+          	message_vision(HIB"$Né—·å“¼ä¸€å£°ï¼Œè„šä¸‹è¸‰è·„ï¼Œç«‹è¶³ä¸ç¨³ã€‚\n" NOR, me); 
        	}
    	
    	else {
-          	message_vision(HIB"$NÃÆºßÒ»Éù£¬½ÅÏÂõÔõÄ£¬Á¢×ã²»ÎÈ¡£\n" NOR, me); 
+          	message_vision(HIB"$Né—·å“¼ä¸€å£°ï¼Œè„šä¸‹è¸‰è·„ï¼Œç«‹è¶³ä¸ç¨³ã€‚\n" NOR, me); 
        	}
    		me->add_busy(random(2)+2);
    		me->apply_condition("dgb_ban_wound", duration - 1);

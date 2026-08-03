@@ -8,8 +8,8 @@ int main(object me, string arg)
         string *creat;
         int i;
 
-        if( !arg ) return notify_fail("Õâ¸öÃüÁîÉú³ÉËùÓĞEmoteµÄËÑË÷¿âµ½/u/look/emote.txt¡£\n");
-        if( arg != "-creat" ) return notify_fail("Õâ¸öÃüÁîÉú³ÉËùÓĞEmoteµÄËÑË÷¿âµ½/u/look/emote.txt¡£\n");
+        if( !arg ) return notify_fail("è¿™ä¸ªå‘½ä»¤ç”Ÿæˆæ‰€æœ‰Emoteçš„æœç´¢åº“åˆ°/u/look/emote.txtã€‚\n");
+        if( arg != "-creat" ) return notify_fail("è¿™ä¸ªå‘½ä»¤ç”Ÿæˆæ‰€æœ‰Emoteçš„æœç´¢åº“åˆ°/u/look/emote.txtã€‚\n");
 
         creat = sort_array(EMOTE_D->query_all_emote(), 1);
         if( arg == "-creat" ) {
@@ -23,14 +23,14 @@ int main(object me, string arg)
                         creat[i], emote["others_target"] ));
                 }
         }
-        write("ÎÄ¼şÉú³ÉÍê±Ï¡£\n");
+        write("æ–‡ä»¶ç”Ÿæˆå®Œæ¯•ã€‚\n");
         return 1;
 }
 
 int help(object me)
 {
 write(@HELP
-Õâ¸öÃüÁîÉú³ÉËùÓĞEmoteµÄËÑË÷¿âµ½/u/look/emote.txt¡£
+è¿™ä¸ªå‘½ä»¤ç”Ÿæˆæ‰€æœ‰Emoteçš„æœç´¢åº“åˆ°/u/look/emote.txtã€‚
 HELP
     );
     return 1;

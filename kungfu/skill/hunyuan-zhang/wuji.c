@@ -1,4 +1,4 @@
-// wuji.c ÎŞ¼¶
+// wuji.c æ— çº§
 #include <ansi.h>
 
 inherit F_SSERVER;
@@ -11,21 +11,21 @@ int perform(object me, object target)
         if( !target ) target = offensive_target(me);
 
 	if( !target || !target->is_character() || !me->is_fighting(target) )
-                return notify_fail("»ìÔªÎŞ¼«Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("æ··å…ƒæ— æåªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	if( objectp(me->query_temp("weapon")) )
-                return notify_fail("Äã±ØĞë¿ÕÊÖ²ÅÄÜÊ¹ÓÃ»ìÔªÎŞ¼«£¡\n");  
+                return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹æ‰èƒ½ä½¿ç”¨æ··å…ƒæ— æï¼\n");  
 		
         if( (int)me->query_skill("hunyuan-zhang", 1) < 100 )
-                return notify_fail("ÄãµÄ»ìÔªÕÆ²»¹»æµÊì£¬²»»áÊ¹ÓÃ»ìÔªÎŞ¼«£¡\n");
+                return notify_fail("ä½ çš„æ··å…ƒæŒä¸å¤Ÿå¨´ç†Ÿï¼Œä¸ä¼šä½¿ç”¨æ··å…ƒæ— æï¼\n");
 	                        
         if( (int)me->query_skill("zixia-gong", 1) < 80 )
-                return notify_fail("ÄãµÄ×ÏÏ¼Éñ¹¦²»¹»¸ß£¬²»ÄÜÓÃ³ö»ìÔªÎŞ¼«ÉËµĞ¡£\n");
+                return notify_fail("ä½ çš„ç´«éœç¥åŠŸä¸å¤Ÿé«˜ï¼Œä¸èƒ½ç”¨å‡ºæ··å…ƒæ— æä¼¤æ•Œã€‚\n");
 
         if( (int)me->query("neili") < 200 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬ÎŞ·¨Ê¹³ö»ìÔªÎŞ¼«¡£\n");
+                return notify_fail("ä½ ç°åœ¨å†…åŠ›å¤ªå¼±ï¼Œæ— æ³•ä½¿å‡ºæ··å…ƒæ— æã€‚\n");
 
-    msg = HIR "$N°µÔË×ÏÏ¼Éñ¹¦£¬Á³ÉÏ·µ×Å°µ°µµÄ×ÏÉ«£¬Ò»¹É»ìÔªÕÆÈáºÍµÄÕÆÁ¦Ö±±Æ$nÆæ¾­°ËÂö¡£\n"NOR;
+    msg = HIR "$Næš—è¿ç´«éœç¥åŠŸï¼Œè„¸ä¸Šè¿”ç€æš—æš—çš„ç´«è‰²ï¼Œä¸€è‚¡æ··å…ƒæŒæŸ”å’Œçš„æŒåŠ›ç›´é€¼$nå¥‡ç»å…«è„‰ã€‚\n"NOR;
 
   if (random(me->query_skill("zixia-gong")) > target->query_skill("force")/4 )
 	{
@@ -40,13 +40,13 @@ int perform(object me, object target)
                 target->receive_wound("qi", damage * 2/3);
                 me->add("neili", -damage/8);
                 target->add("neili", -damage*3);
-                msg += RED"½á¹û$NÒ»»÷ÃüÖĞ£¬$nÖ»¸Ğµ½»ëÉíÒ»¹ÉÅ¯Á÷ÏòÈ«ÉíÉ¢È¥£¬Í»È»¸Ğµ½Ò»ÖÖÄÑÒÔÈÌÊÜµÄ×ÆÈÈ¡£\n"NOR;
+                msg += RED"ç»“æœ$Nä¸€å‡»å‘½ä¸­ï¼Œ$nåªæ„Ÿåˆ°æµ‘èº«ä¸€è‚¡æš–æµå‘å…¨èº«æ•£å»ï¼Œçªç„¶æ„Ÿåˆ°ä¸€ç§éš¾ä»¥å¿å—çš„ç¼çƒ­ã€‚\n"NOR;
 	        target->apply_condition("hunyuan_hurt", hehe);
 	} else 
         {
                 me->start_busy(random(3));
                 me->add("neili", damage/10);
-                msg += CYN"¿ÉÊÇ$p¿´ÆÆÁË$PµÄÕĞÊı£¬ÏòÅÔÌø¿ªÊı²½£¬¶ã¿ªÁË$PµÄÁèÀ÷Ò»»÷£¡\n"NOR;
+                msg += CYN"å¯æ˜¯$pçœ‹ç ´äº†$Pçš„æ‹›æ•°ï¼Œå‘æ—è·³å¼€æ•°æ­¥ï¼Œèº²å¼€äº†$Pçš„å‡Œå‰ä¸€å‡»ï¼\n"NOR;
 	}
 	message_vision(msg, me, target);
 	return 1;

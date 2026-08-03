@@ -1,18 +1,18 @@
-// xiaoer2.c ¾ÆµêĞ¡¶ş
+// xiaoer2.c é…’åº—å°äºŒ
 
 inherit WAITER;
 inherit F_VENDOR;
 
 void create()
 {
-        set_name("ÅÜÌÃ", ({ "paotang", "waiter" }) );
-	set("gender", "ÄĞĞÔ" );
+        set_name("è·‘å ‚", ({ "paotang", "waiter" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 22);
 	set("long",
-                "ÕâÎ»ÅÜÌÃÕıĞ¦ßäßäµØÃ¦×Å£¬»¹²»Ê±ÄÃÆğ¹ÒÔÚ²±×ÓÉÏµÄÄ¨²¼²ÁÁ³¡£\n");
+                "è¿™ä½è·‘å ‚æ­£ç¬‘å’ªå’ªåœ°å¿™ç€ï¼Œè¿˜ä¸æ—¶æ‹¿èµ·æŒ‚åœ¨è„–å­ä¸Šçš„æŠ¹å¸ƒæ“¦è„¸ã€‚\n");
 	set("combat_exp", 100);
 	set("attitude", "friendly");
-        set("rank_info/respect", "»ï¼Æ");
+        set("rank_info/respect", "ä¼™è®¡");
 	set("vendor_goods", ({
         (["name":FOOD_D("jitui"),"number":30]),
         (["name":FOOD_D("jiudai"),"number":10]),
@@ -35,7 +35,7 @@ void init()
 	if (base_name(environment()) != query("startroom")) return;
 	if( interactive(ob) && visible(ob) && !is_fighting() ) {
 		if ( (myfam = ob->query("family")) 
-		&& myfam["family_name"] == "Ø¤°ï" 
+		&& myfam["family_name"] == "ä¸å¸®" 
                 && ob->query_skill("begging",1) < 40 )
 		{
 			remove_call_out("saying");
@@ -57,12 +57,12 @@ void greeting(object ob)
 	if( !ob || environment(ob) != environment() || is_fighting(ob)) return;
 	switch( random(2) ) {
 		case 0:
-                        say( "ÅÜÌÃĞ¦ßäßäµØËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-				+ "£¬½øÀ´ºÈ±­²è£¬ĞªĞªÍÈ°É¡£\n");
+                        say( "è·‘å ‚ç¬‘å’ªå’ªåœ°è¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+				+ "ï¼Œè¿›æ¥å–æ¯èŒ¶ï¼Œæ­‡æ­‡è…¿å§ã€‚\n");
 			break;
 		case 1:
-                        say( "ÅÜÌÃÓÃ²±×ÓÉÏµÄÃ«½íÄ¨ÁËÄ¨ÊÖ£¬ËµµÀ£ºÕâÎ»" + RANK_D->query_respect(ob)
-				+ "£¬Çë½øÇë½ø¡£\n");
+                        say( "è·‘å ‚ç”¨è„–å­ä¸Šçš„æ¯›å·¾æŠ¹äº†æŠ¹æ‰‹ï¼Œè¯´é“ï¼šè¿™ä½" + RANK_D->query_respect(ob)
+				+ "ï¼Œè¯·è¿›è¯·è¿›ã€‚\n");
 			break;
 	}
 }
@@ -71,7 +71,7 @@ void saying(object ob)
 {
         if (!ob || environment(ob) != environment() || is_fighting(ob)) return;
 
-        say("\nÅÜÌÃ´óºÈÒ»Éù£ºÄãÕâ³ôÒª·¹µÄ½øÀ´¸ÉÊ²Ã´£¿ ¸øÎÒ¹ö³öÈ¥£¡\n\n");
+        say("\nè·‘å ‚å¤§å–ä¸€å£°ï¼šä½ è¿™è‡­è¦é¥­çš„è¿›æ¥å¹²ä»€ä¹ˆï¼Ÿ ç»™æˆ‘æ»šå‡ºå»ï¼\n\n");
 	remove_call_out("kicking");
 	call_out("kicking", 1, ob);
 	
@@ -82,6 +82,6 @@ void kicking(object ob)
         if (!ob || environment(ob) != environment()) return;
 
         ob->move("/d/hmy/pingding/cj2");
-        message("vision","Ö»Ìı¡°Æ¹¡±µØÒ»Éù£¬" +  ob->query("name") +
-          "±»ÈË´ÓĞ¡³ÔµêÀïÒ»½ÅÌßÁË³öÀ´£¬ÀÇ±·Íò×´µÄÌÓ¿ªÁË¡£\n", environment(ob), ob);
+        message("vision","åªå¬â€œä¹’â€åœ°ä¸€å£°ï¼Œ" +  ob->query("name") +
+          "è¢«äººä»å°åƒåº—é‡Œä¸€è„šè¸¢äº†å‡ºæ¥ï¼Œç‹¼ç‹ˆä¸‡çŠ¶çš„é€ƒå¼€äº†ã€‚\n", environment(ob), ob);
 }

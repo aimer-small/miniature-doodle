@@ -3,9 +3,9 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("¿İÈÙìøÊ¦", ({ "kurong chanshi", "ku", "rong","chanshi","master" }) );
-	set("nickname", "ÌìÁúËÂÀÏÉ®");
-	set("gender", "ÄĞĞÔ" );
+	set_name("æ¯è£ç¦…å¸ˆ", ({ "kurong chanshi", "ku", "rong","chanshi","master" }) );
+	set("nickname", "å¤©é¾™å¯ºè€åƒ§");
+	set("gender", "ç”·æ€§" );
         set("class","bonze");   
 	set("age", 74);
 	set("str", 30);
@@ -19,10 +19,10 @@ void create()
 	set("max_force", 1500);
 	set("force", 1500);
 	set("force_factor", 70);
-	set("rank_info/respect", "¸ßÉ®");
+	set("rank_info/respect", "é«˜åƒ§");
 	set("long", 
-	"Ò»¸ö°ëÃæºìÈóÈôÍ¯×Ó£¬°ëÃæ¸É¿İÈô¿İ¹ÇµÄÀÏÉ®£¬ËûÉí²Ä¸ß´ó£¬¾«ÉñÛÇË¸¡£\n");
-	create_family("ÌìÁúËÂ", 12, "µÜ×Ó");
+	"ä¸€ä¸ªåŠé¢çº¢æ¶¦è‹¥ç«¥å­ï¼ŒåŠé¢å¹²æ¯è‹¥æ¯éª¨çš„è€åƒ§ï¼Œä»–èº«æé«˜å¤§ï¼Œç²¾ç¥çŸçƒã€‚\n");
+	create_family("å¤©é¾™å¯º", 12, "å¼Ÿå­");
 	set("combat_exp", 2000000);
 	set("score", 200000);
 	set("chat_chance_combat", 60);
@@ -46,7 +46,7 @@ void create()
     map_skill("force", "tianlong-shengong");
     prepare_skill("finger","yiyang-zhi");
 	set("inquiry", ([
-	"name": "Æ¶É®¾ÍÊÇ¿İÈÙ",
+	"name": "è´«åƒ§å°±æ˜¯æ¯è£",
 	]) );
 
 	setup();
@@ -57,30 +57,30 @@ void attempt_apprentice(object ob)
   string old_name,new_name;
   if((int)ob->query_skill("buddhism",1)<120)
        {
-         command("say ÎÒ¶Î¼ÒÎä¹¦Óë·ğÑ§Ï¢Ï¢Ïà¹Ø£¬ÎÒ¿´"+RANK_D->query_respect(ob)+"µÄìø×ÚĞŞÎªËÆºõ²»¹»£¿");
+         command("say æˆ‘æ®µå®¶æ­¦åŠŸä¸ä½›å­¦æ¯æ¯ç›¸å…³ï¼Œæˆ‘çœ‹"+RANK_D->query_respect(ob)+"çš„ç¦…å®—ä¿®ä¸ºä¼¼ä¹ä¸å¤Ÿï¼Ÿ");
           return;
         }
        if((int)ob->query_skill("tianlong-shengong",1)<150)
         {
-          command("say ĞŞÁ·Ò»ÑôÖ¸ÄÚ¹¦×îÎªÖØÒª£¬ÎÒ¿´"+RANK_D->query_respect(ob)+"ËÆºõÓ¦ÔÚÌìÁúÉñ¹¦ÉÏ¶àÏÂµã¹¦·ò¡£");
+          command("say ä¿®ç»ƒä¸€é˜³æŒ‡å†…åŠŸæœ€ä¸ºé‡è¦ï¼Œæˆ‘çœ‹"+RANK_D->query_respect(ob)+"ä¼¼ä¹åº”åœ¨å¤©é¾™ç¥åŠŸä¸Šå¤šä¸‹ç‚¹åŠŸå¤«ã€‚");
           return;
         }
        command("smile");
         old_name = ob->query("name");
-        new_name="±¾"+old_name[2..3];
+        new_name="æœ¬"+old_name[2..3];
 
        if ((string)ob->query("class")!="bonze")
        {       
-        command("say Æ¶É®Ö»ÊÕ³ö¼ÒµÜ×Ó£¬½ñÈÕÀÏÉ®°ïÄãÌê¶È¡£");
-        //command("chat  + old_name+ ½ñÈÕÔÚÌìÁúËÂ³ö¼Ò£¬ÀÏÉ®¸øËûÌê¶È¡£"\n);
-        message_vision("¿İÈÙìøÊ¦Éì³öÒ»Ö»Æ¤°ü¹ÇÍ·µÄÊİÊÖÔÚ"+ob->query("name")+"µÄÍ·ÉÏÒ»°´£¬¶ÙÊ±Í··¢¾¡Âä¡£\n",ob);
+        command("say è´«åƒ§åªæ”¶å‡ºå®¶å¼Ÿå­ï¼Œä»Šæ—¥è€åƒ§å¸®ä½ å‰ƒåº¦ã€‚");
+        //command("chat  + old_name+ ä»Šæ—¥åœ¨å¤©é¾™å¯ºå‡ºå®¶ï¼Œè€åƒ§ç»™ä»–å‰ƒåº¦ã€‚"\n);
+        message_vision("æ¯è£ç¦…å¸ˆä¼¸å‡ºä¸€åªçš®åŒ…éª¨å¤´çš„ç˜¦æ‰‹åœ¨"+ob->query("name")+"çš„å¤´ä¸Šä¸€æŒ‰ï¼Œé¡¿æ—¶å¤´å‘å°½è½ã€‚\n",ob);
 	}
         ob->set("name",new_name);
         ob->set("class","bonze");
-        command("say ÈëÎÒÃÅÀ´·¨Ãû"+new_name);
+        command("say å…¥æˆ‘é—¨æ¥æ³•å"+new_name);
         command("recruit " + ob->query("id") );
-        command("chat ¹ş¹ş¹ş¹ş!");
-        command("chat ÀÏñÄÖÕÓÚÕÒµ½Ò»¸ö¿É´«ÒÂ²§Ö®ÈË,ÕæÊÇ¿ÉÏ²¿ÉºØ!");
+        command("chat å“ˆå“ˆå“ˆå“ˆ!");
+        command("chat è€è¡²ç»ˆäºæ‰¾åˆ°ä¸€ä¸ªå¯ä¼ è¡£é’µä¹‹äºº,çœŸæ˜¯å¯å–œå¯è´º!");
         return;
 }
 

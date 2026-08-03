@@ -1,11 +1,11 @@
 // yaopu4.c
-// Ò©ÆÔ
+// è¯åœƒ
 inherit ROOM;
 void create()
 {
-	set("short","Ò©ÆÔ");
+	set("short","è¯åœƒ");
 	set("long",@long
-ÕâÀïÊÇÉñÁúµºµÄÒ©ÆÔ£¬ÖÖÁË²»ÉÙÕäÆæÒ©²Ä¡£
+è¿™é‡Œæ˜¯ç¥é¾™å²›çš„è¯åœƒï¼Œç§äº†ä¸å°‘çå¥‡è¯æã€‚
 long);
 	set("exits",([
 	    "east" : __DIR__"yaopu3",
@@ -14,8 +14,8 @@ long);
 ]));
 	set("no_clean_up",1);
 	set("can_zhong",1);
-	set("8type","Àë");
-	set("outdoors", "ÉñÁúµº");
+	set("8type","ç¦»");
+	set("outdoors", "ç¥é¾™å²›");
 	setup();
 }
 	    	

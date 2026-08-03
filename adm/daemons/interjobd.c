@@ -1,4 +1,4 @@
-// by spiderii@ty »¥¶¯JOBÖ÷¿Ø
+// by spiderii@ty äº’åŠ¨JOBä¸»æŽ§
 //#include <mudlib.h>
 
 // remove all killer
@@ -110,7 +110,7 @@ void gmdjob_die(object killer, object victim)
         }
 }
 */
-//ÌØÊâËÀÍö
+//ç‰¹æ®Šæ­»äº¡
 void special_die(object killer, object victim)
 {
 	string str;
@@ -127,16 +127,16 @@ void special_die(object killer, object victim)
 	if (victim->query_temp("xyjob"))
 	{
 		xyjob_die(killer, victim);
-		str = "ÔÚÏåÑô¹¥·ÀÕ½ÖÐÕóÍö£¡";
+		str = "åœ¨è¥„é˜³æ”»é˜²æˆ˜ä¸­é˜µäº¡ï¼";
 	}
 /*
 	if (victim->query_temp("gmdjob"))
 	{
 		gmdjob_die(killer, victim);
 		if (victim->query_temp("gmdjob/mj_defend"))
-			str = "ÔÚÁù´óÅÉÎ§¹¥¹âÃ÷¶¥Ê±»¤½ÌÉíËÀ£¡";
+			str = "åœ¨å…­å¤§æ´¾å›´æ”»å…‰æ˜Žé¡¶æ—¶æŠ¤æ•™èº«æ­»ï¼";
 		else
-			str = "ÔÚÁù´óÅÉÎ§¹¥¹âÃ÷¶¥Ê±ÑªÕ½ÉíÍö£¡";
+			str = "åœ¨å…­å¤§æ´¾å›´æ”»å…‰æ˜Žé¡¶æ—¶è¡€æˆ˜èº«äº¡ï¼";
 	}
 */
 	CHANNEL_D->do_channel(this_object(), "rumor", victim->query("name") + "(" + capitalize(getuid(victim)) + ")" +str);

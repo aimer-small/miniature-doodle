@@ -1,15 +1,15 @@
-//axe_book.c ¸«·¨¸ÅÒª
+//axe_book.c æ–§æ³•æ¦‚è¦
 inherit ITEM;
 
 void create()
 {
-        set_name("¸«·¨¸ÅÒª", ({ "fufa gaiyao", "gaiyao","shu","book"}));
+        set_name("æ–§æ³•æ¦‚è¦", ({ "fufa gaiyao", "gaiyao","shu","book"}));
         set_weight(600);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
-                set("long", "ÕâÊÇÒ»±¾ÁÑÌì¸«·¨µÄÈëÃÅ¸ÅÒª¡£\n");
+                set("unit", "æœ¬");
+                set("long", "è¿™æ˜¯ä¸€æœ¬è£‚å¤©æ–§æ³•çš„å…¥é—¨æ¦‚è¦ã€‚\n");
                 set("unique", 1);
                 set("treasure",1);                              
                 set("value", 1000);

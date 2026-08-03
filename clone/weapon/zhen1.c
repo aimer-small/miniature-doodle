@@ -1,4 +1,4 @@
-// Õë
+// é’ˆ
 
 #include <weapon.h>
 #include <ansi.h>
@@ -8,20 +8,20 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(BLU "À¶Óñ¶¾Õë" NOR, ({ "lanyu duzhen", "zhen", "needle", "duzhen" }));
+	set_name(BLU "è“ç‰æ¯’é’ˆ" NOR, ({ "lanyu duzhen", "zhen", "needle", "duzhen" }));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ã¶");
-		set("long", "Ò»Ã¶ÆÕÍ¨µÄÏ¸Õë£¬µ«Õë¼âÉÁ×ÅÀ¶É«µÄ¹âÁÁ£¬Î¹ÓĞ¾ç¶¾¡£\n");
+		set("unit", "æš");
+		set("long", "ä¸€æšæ™®é€šçš„ç»†é’ˆï¼Œä½†é’ˆå°–é—ªç€è“è‰²çš„å…‰äº®ï¼Œå–‚æœ‰å‰§æ¯’ã€‚\n");
                 set("value", 100000);
                 set("unique", 2);
                 set("needle", 1);
 		set("material", "steel");
                 set("weapon_prop/dodge", 2);
-		set("wield_msg", "$N´ò¿ªÉ³Ö½£¬ÇáÇáÄíÆğÒ»Ã¶$n¡£\n");
-		set("unwield_msg", "$N½«$nÓÃÉ°Ö½°üÆğÀ´£¬²Ø»Ø»³ÖĞ¡£\n");
+		set("wield_msg", "$Næ‰“å¼€æ²™çº¸ï¼Œè½»è½»æ»èµ·ä¸€æš$nã€‚\n");
+		set("unwield_msg", "$Nå°†$nç”¨ç ‚çº¸åŒ…èµ·æ¥ï¼Œè—å›æ€€ä¸­ã€‚\n");
                 set("poisoned", "xx_poison");
                 set("poison_number", 300);
                 set("treasure", 1);

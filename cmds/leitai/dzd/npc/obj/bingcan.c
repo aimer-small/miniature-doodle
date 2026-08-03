@@ -7,14 +7,14 @@ inherit NPC;
 
 void create()
 {
-	set_name("冰蚕",({"bingcan","can"}));
-	set("race","野兽");
-	set("limbs", ({ "头部", "身体" }) );
+	set_name("鍐拌殨",({"bingcan","can"}));
+	set("race","閲庡吔");
+	set("limbs", ({ "澶撮儴", "韬綋" }) );
 	set("verbs",({"bite"}));
 	set("attitude","peaceful");
 	set("age",3);
 	set("combat_exp",3000000);
-	set("long",HIW"这蚕虫纯白如玉，微带青色，比寻常蚕儿大了一倍有余，便似一条蚯蚓，身子透明直如水晶。\n"NOR);
+	set("long",HIW"杩欒殨铏函鐧藉鐜夛紝寰甫闈掕壊锛屾瘮瀵诲父铓曞効澶т簡涓�鍊嶆湁浣欙紝渚夸技涓�鏉¤毌铓擄紝韬瓙閫忔槑鐩村姘存櫠銆俓n"NOR);
 	set("max_qi",10000);
 	set("max_jing",3500);
 	set("max_neili",7000);

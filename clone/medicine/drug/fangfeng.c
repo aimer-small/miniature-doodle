@@ -5,12 +5,12 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIC"·À·ç"NOR, ({"fang feng"}));
+        set_name(HIC"é˜²é£Ž"NOR, ({"fang feng"}));
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Öê");
+                set("unit", "æ ª");
                 set("value", 2500);
                 set("medicine", "drug");
 		set("make/drug", 1);

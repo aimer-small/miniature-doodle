@@ -8,21 +8,21 @@ int exert(object me, object target)
 	string msg;
 
 	if (me->query_temp("hbzq/huti"))
-		return notify_fail("ÄãÒÑ¾­ÔÚÊ¹ÓÃ¡¸»¤Ìå¡¹ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨ä½¿ç”¨ã€ŒæŠ¤ä½“ã€äº†ã€‚\n");
 
 	if (me->query_skill("hanbing-zhenqi",1) < 100)
-		return notify_fail("ÄãµÄ¡¸º®±ùÕæÆø¡¹¹¦Á¦²»¹»£¬ÎŞ·¨Ê©ÓÃ¡¸»¤Ìå¡¹¡£\n");
+		return notify_fail("ä½ çš„ã€Œå¯’å†°çœŸæ°”ã€åŠŸåŠ›ä¸å¤Ÿï¼Œæ— æ³•æ–½ç”¨ã€ŒæŠ¤ä½“ã€ã€‚\n");
 
 	if (me->query("max_neili") < 1000)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬ÎŞ·¨Ê¹ÓÃ¡¸»¤Ìå¡¹¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨ã€ŒæŠ¤ä½“ã€ã€‚\n");
 
 	if (me->query("neili") < 500)
-		return notify_fail("ÄãµÄÕæÆø²»¹»£¬ÎŞ·¨Ê¹ÓÃ¡¸»¤Ìå¡¹¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨ã€ŒæŠ¤ä½“ã€ã€‚\n");
 
 	me->add("neili", - 250);
-	msg = HIB"$NÄ¬Äîº®±ù¾ö£¬ÖÜÉíº®ÆøÔ½À´Ô½Å¨£¬ÒşÒş°Ñ×Ô¼ºÕû¸öÈË¹üÁËÆğÀ´£¡\n"NOR;
+	msg = HIB"$Né»˜å¿µå¯’å†°å†³ï¼Œå‘¨èº«å¯’æ°”è¶Šæ¥è¶Šæµ“ï¼ŒéšéšæŠŠè‡ªå·±æ•´ä¸ªäººè£¹äº†èµ·æ¥ï¼\n"NOR;
 
-    //Ôö¼ÓÒ»µãhuti Ğ§¹û
+    //å¢åŠ ä¸€ç‚¹huti æ•ˆæœ
 	skill = me->query_skill("hanbing-zhenqi",1)/3;
 	me->add_temp("apply/dodge", skill);
 	me->add_temp("apply/parry", skill);
@@ -31,7 +31,7 @@ int exert(object me, object target)
 	call_out("remove_effect", skill * 2, me);
 	if (me->is_fighting())
 		me->start_busy(1);
-	me->start_exert(1, "¡¸»¤Ìå¾÷¡¹");
+	me->start_exert(1, "ã€ŒæŠ¤ä½“è¯€ã€");
 	message_vision(msg, me);
 	return 1;
 }
@@ -46,21 +46,21 @@ void remove_effect(object me)
 	me->add_temp("apply/parry", -skill);
 	me->delete_temp("hbzq/huti");
 	if (living(me) && ! me->is_ghost())
-		message_vision(HIW"$NÖÜÉíµÄº®ÆøÉ¢¾¡£¬²»ÔÙÄÜÆğµ½±£»¤µÄ×÷ÓÃÁË¡£\n"NOR,me);
+		message_vision(HIW"$Nå‘¨èº«çš„å¯’æ°”æ•£å°½ï¼Œä¸å†èƒ½èµ·åˆ°ä¿æŠ¤çš„ä½œç”¨äº†ã€‚\n"NOR,me);
 }
 
 string exert_name()
 {
-	return HIB"»¤Ìå¾÷"NOR;
+	return HIB"æŠ¤ä½“è¯€"NOR;
 }
 
 int help(object me)
 {
-	write(HIB"\nº®±ùÕæÆøÖ®¡¸»¤Ìå¾÷¡¹£º\n\n"NOR);
+	write(HIB"\nå¯’å†°çœŸæ°”ä¹‹ã€ŒæŠ¤ä½“è¯€ã€ï¼š\n\n"NOR);
 	write(@HELP
-	ÒªÇó£º	º®±ùÕæÆøµÈ¼¶ 100 ÒÔÉÏ£»
-		×î´óÄÚÁ¦ 1000 ÒÔÉÏ£»
-		µ±Ç°ÄÚÁ¦ 500 ÒÔÉÏ¡£
+	è¦æ±‚ï¼š	å¯’å†°çœŸæ°”ç­‰çº§ 100 ä»¥ä¸Šï¼›
+		æœ€å¤§å†…åŠ› 1000 ä»¥ä¸Šï¼›
+		å½“å‰å†…åŠ› 500 ä»¥ä¸Šã€‚
 
 HELP
 	);

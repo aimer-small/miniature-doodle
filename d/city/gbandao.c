@@ -1,4 +1,4 @@
-// gbandao.c Á·¹¦·¿
+// gbandao.c ç»ƒåŠŸæˆ¿
 // by aji
 #include <room.h>
 
@@ -8,10 +8,10 @@ void kick();
 
 void create()
 {
-        set("short", "°µµÀ");
+        set("short", "æš—é“");
         set("long", @LONG
-	Ò»ÌõÏÁÕ­µÄµØÏÂÃØÃÜÍ¨µÀ£¬±ÊÖ±µÄ³¯¶«ÃæÑÓÉì¡£Í¨µÀµÄ¾¡Í·ÓĞÃ÷ÁÁµÄ
-¹âÏßÍ¸½øÀ´¡£
+	ä¸€æ¡ç‹­çª„çš„åœ°ä¸‹ç§˜å¯†é€šé“ï¼Œç¬”ç›´çš„æœä¸œé¢å»¶ä¼¸ã€‚é€šé“çš„å°½å¤´æœ‰æ˜äº®çš„
+å…‰çº¿é€è¿›æ¥ã€‚
 LONG
         );
         set("exits", ([
@@ -22,7 +22,7 @@ LONG
 		CLASS_D("gaibang") + "/jian" : 1
 	]));
 
-	create_door("out", "Ğ¡ÃÅ", "enter", DOOR_CLOSED);
+	create_door("out", "å°é—¨", "enter", DOOR_CLOSED);
 
         setup();
 }
@@ -32,9 +32,9 @@ int valid_leave(object me, string dir)
         mapping myfam;
         myfam = (mapping)me->query("family");
 
-        if ((!myfam || myfam["family_name"] != "Ø¤°ï") && dir == "east" &&
+        if ((!myfam || myfam["family_name"] != "ä¸å¸®") && dir == "east" &&
                 objectp(present("jian zhanglao", environment(me))))
-                return notify_fail("¼ò³¤ÀÏÒ»°Ñ¾¾×¡ÄãµÄÒÂÁìËµ£º¡°Âı×Å¡±\n");
+                return notify_fail("ç®€é•¿è€ä¸€æŠŠæªä½ä½ çš„è¡£é¢†è¯´ï¼šâ€œæ…¢ç€â€\n");
         return ::valid_leave(me, dir);
 }
 

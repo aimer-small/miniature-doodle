@@ -1,11 +1,11 @@
 #define FLOOR 6
-#define SAVE_NPC "ÓáÁ«ÖÛ"
+#define SAVE_NPC "ä¿è²èˆŸ"
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short", "±¦ËşÁù²ã");
-        set("long","ÕâÀïÊÇÍò°²ËÂÄÚ±¦ËşµÄµÚÁù²ã£¬½ä±¸É­ÑÏ£¬Ò»¿´¾ÍÖªµÀ¹ØÑº×ÅÖØÒªÈËÎï¡£\n");
+        set("short", "å®å¡”å…­å±‚");
+        set("long","è¿™é‡Œæ˜¯ä¸‡å®‰å¯ºå†…å®å¡”çš„ç¬¬å…­å±‚ï¼Œæˆ’å¤‡æ£®ä¸¥ï¼Œä¸€çœ‹å°±çŸ¥é“å…³æŠ¼ç€é‡è¦äººç‰©ã€‚\n");
         set("exits", ([
                 "down" : __DIR__"baota-5",
                 "up" : __DIR__"baota-7"

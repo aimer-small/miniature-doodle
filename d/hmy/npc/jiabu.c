@@ -6,19 +6,19 @@ inherit NPC;
 string give_pass();
 
 string *unknow = ({
-	"ÄãÊÇºÎÈË£¿ÈçºÎÉÏµÃºÚÄ¾ÑÂ£¿",
-	"ÇÐ¿Ú£¿ÕâµÈ»úÃÜ¶ûµÈÎÞÈ¨µÃÖª¡£",
-	"²»Öª¡£",
+	"ä½ æ˜¯ä½•äººï¼Ÿå¦‚ä½•ä¸Šå¾—é»‘æœ¨å´–ï¼Ÿ",
+	"åˆ‡å£ï¼Ÿè¿™ç­‰æœºå¯†å°”ç­‰æ— æƒå¾—çŸ¥ã€‚",
+	"ä¸çŸ¥ã€‚",
 });
 
 void create()
 {
-        set_name("¼Ö²¼", ({ "jia bu", "jia", "bu"}));
-	set("nickname", "»ÆÃæ×ðÕß");
+        set_name("è´¾å¸ƒ", ({ "jia bu", "jia", "bu"}));
+	set("nickname", "é»„é¢å°Šè€…");
         set("long",
-"ËûÄÇÒ»ÕÅÊÝÁ³À¯Ò²ËÆ»Æ£¬Á½±ßÌ«ÑôÑ¨¸ß¸ß¹ÄÆð£¬±ãÈç²ØÁËÒ»ÕÈºËÌÒÏàËÆ¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "HIC"ÇàÁúÌÃ³¤ÀÏ"NOR);
-        set("gender", "ÄÐÐÔ");
+"ä»–é‚£ä¸€å¼ ç˜¦è„¸èœ¡ä¹Ÿä¼¼é»„ï¼Œä¸¤è¾¹å¤ªé˜³ç©´é«˜é«˜é¼“èµ·ï¼Œä¾¿å¦‚è—äº†ä¸€æ–æ ¸æ¡ƒç›¸ä¼¼ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥žæ•™  "HIC"é’é¾™å ‚é•¿è€"NOR);
+        set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("attitude", "peaceful");
 	set("shen_type", -1);
@@ -49,7 +49,7 @@ void create()
         prepare_skill("strike", "tiangang-zhang");
 
 	set("inquiry", ([
-		"ÇÐ¿Ú" : (: give_pass :)
+		"åˆ‡å£" : (: give_pass :)
 	]));
         setup();
 
@@ -64,6 +64,6 @@ string give_pass()
 	ob = environment(me);
 	if (ob == load_object("/d/hmy/shimen.c"))
 	if (!is_wanted(this_player()) && random(3) == 1)
-			return "½ñÈÕµÄÇÐ¿ÚÊÇ£º"+ob->query("pass");
+			return "ä»Šæ—¥çš„åˆ‡å£æ˜¯ï¼š"+ob->query("pass");
 	return unknow[random(sizeof(unknow))];
 }

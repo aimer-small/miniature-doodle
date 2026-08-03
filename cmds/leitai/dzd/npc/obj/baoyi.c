@@ -6,20 +6,20 @@ inherit CLOTH;
 //inherit F_UNIQUE;
 void create()
 {
-        set_name(HIY"ÎÚ½ğ±³ĞÄ"NOR, ({ "wujin beixin", "wujin", "beixin" }));
+        set_name(HIY"ä¹Œé‡‘èƒŒå¿ƒ"NOR, ({ "wujin beixin", "wujin", "beixin" }));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "ºÚ÷î÷îµÄÒ»¼ş±³ĞÄ£¬ÄÃÔÚÊÖÀï³ÁµéµéµÄ£¬ÊÇÓÃÎÚ½ğË¿¡¢Í··¢¡¢ºÍ½ğË¿ºïÃ«»ìÍ¬Ö¯³É,
-ÈÎºÎÀ÷º¦µÄ±øÈĞ¶¼ÉËËû²»µÃ¡£\n");
+                set("long", "é»‘é»é»çš„ä¸€ä»¶èƒŒå¿ƒï¼Œæ‹¿åœ¨æ‰‹é‡Œæ²‰ç”¸ç”¸çš„ï¼Œæ˜¯ç”¨ä¹Œé‡‘ä¸ã€å¤´å‘ã€å’Œé‡‘ä¸çŒ´æ¯›æ··åŒç»‡æˆ,
+ä»»ä½•å‰å®³çš„å…µåˆƒéƒ½ä¼¤ä»–ä¸å¾—ã€‚\n");
                 set("material", "silk");
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
                 //set("unique", 1);
 		  //set("treasure", 1);
                 set("value", 1000000);
-                set("wear_msg", HIY "$N´©ÉÏÒ»¼ş$n¡£\n" NOR);
-                set("remove_msg", HIY "$N½«$nÍÑÁËÏÂÀ´¡£\n" NOR);
+                set("wear_msg", HIY "$Nç©¿ä¸Šä¸€ä»¶$nã€‚\n" NOR);
+                set("remove_msg", HIY "$Nå°†$nè„±äº†ä¸‹æ¥ã€‚\n" NOR);
         	set("armor_prop/armor", 200);
              set("dzd",1);
 

@@ -1,16 +1,16 @@
-// NPC : /d/wudang/npc/bao.c 豹子
+// NPC : /d/wudang/npc/bao.c 璞瑰瓙
 
 inherit NPC;
 void create()
 {
-        set_name("豹子", ({ "bao zi","bao" }) );
-        set("race", "野兽");
+        set_name("璞瑰瓙", ({ "bao zi","bao" }) );
+        set("race", "閲庡吔");
         set("age", 6);
         set("con", 100);
         set("str", 100);
-        set("long", "一只凶残的金钱豹。\n");
+        set("long", "涓�鍙嚩娈嬬殑閲戦挶璞广�俓n");
         set("attitude", "aggressive");
-        set("limbs", ({ "头部", "身体", "前爪", "后爪", "尾巴" }) );
+        set("limbs", ({ "澶撮儴", "韬綋", "鍓嶇埅", "鍚庣埅", "灏惧反" }) );
         set("verbs", ({ "bite", "claw" }) );
         set("combat_exp", 250000);
 	 set_temp("apply/attack", 120);

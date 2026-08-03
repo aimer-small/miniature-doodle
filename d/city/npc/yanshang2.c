@@ -1,6 +1,6 @@
-// yanshang2.c ÑÎÉÌÍ·×Ó
+// yanshang2.c ç›å•†å¤´å­
 //Yanqi 08/11/2k
-//ÌáÉıµ½160k¿ÉÒÔ×ö@yeju
+//æå‡åˆ°160kå¯ä»¥åš@yeju
 
 #include <ansi.h>
 inherit NPC;
@@ -8,10 +8,10 @@ int ask_job();
 
 void create()
 {
-        set_name("ÑÎÉÌ", ({ "yanshang touzi", "touzi", "yanshang" }));
-        set("gender", "ÄĞĞÔ");
+        set_name("ç›å•†", ({ "yanshang touzi", "touzi", "yanshang" }));
+        set("gender", "ç”·æ€§");
         set("age", 32+random(20));
-        set("long", "ËûÊÇÕâÀïÑÎÉÌµÄÍ·×Ó£¬±íÃæÉÏÖĞ¹æÖĞ¾Ø£¬µ«ÊÇ±³µØÀï¸É×Å··ÔËË½ÑÎµÄ¹´µ±¡£\n");
+        set("long", "ä»–æ˜¯è¿™é‡Œç›å•†çš„å¤´å­ï¼Œè¡¨é¢ä¸Šä¸­è§„ä¸­çŸ©ï¼Œä½†æ˜¯èƒŒåœ°é‡Œå¹²ç€è´©è¿ç§ç›çš„å‹¾å½“ã€‚\n");
         set("combat_exp", 3000);        
         set("shen_type", 1);
         set("attitude", "peaceful");
@@ -25,7 +25,7 @@ void create()
         ]));
         set("chat_chance", 3);
         set("chat_msg", ({
-                "ÑÎÉÌ²»Í£µØà½àìµÀ£º³¯Í¢Èç´ËÃ»Âä£¬½ĞÎÒµÈ°ÙĞÕÈçºÎÉú´æ£¿\n",
+                "ç›å•†ä¸åœåœ°å˜Ÿå›”é“ï¼šæœå»·å¦‚æ­¤æ²¡è½ï¼Œå«æˆ‘ç­‰ç™¾å§“å¦‚ä½•ç”Ÿå­˜ï¼Ÿ\n",
         }) );
         carry_object("/clone/misc/cloth")->wear();
         add_money("silver", 10);
@@ -54,13 +54,13 @@ int ask_job()
     
         if( exp1 < 30000 || exp1 > 160000 )
         {
-                command("say Äã±ğÊÇ¹Ù¸®ÅÉÀ´ÎÔµ×µÄ°É£¬Ò»±ß´ı×ÅÈ¥¡£");
+                command("say ä½ åˆ«æ˜¯å®˜åºœæ´¾æ¥å§åº•çš„å§ï¼Œä¸€è¾¹å¾…ç€å»ã€‚");
                 return 1;
         }
         
         if (me->query_condition("job_busy")) 
         {
-                command("say ÄãÕıÃ¦×Å×ö±ğµÄÈÎÎñÄØ£¿");
+                command("say ä½ æ­£å¿™ç€åšåˆ«çš„ä»»åŠ¡å‘¢ï¼Ÿ");
                 return 1;
         }
                 
@@ -68,7 +68,7 @@ int ask_job()
         me->apply_condition("job_busy",5 + random(5));
         me->set_temp("newbiejob2/start",1);
         
-        command("whisper "+me->query("id")+" ÄãËÙÈ¥Ì©É½½ÅÏÂµÄº£±õµÈºòÎÒµÄ´¬À´¡£");
+        command("whisper "+me->query("id")+" ä½ é€Ÿå»æ³°å±±è„šä¸‹çš„æµ·æ»¨ç­‰å€™æˆ‘çš„èˆ¹æ¥ã€‚");
         return 1;
 }
 
@@ -80,7 +80,7 @@ void greeting(object ob)
         && ob->query_temp("newbiejob2/middle"))
        { 
            command("nod " +ob->query("id"));
-           command("whisper "+ob->query("id")+" ÄãĞÁ¿àÁË£¬¿ÉÒÔ¸úÎÒ¸²Ãü£¨give yanshang yan£©ÁË! ");
+           command("whisper "+ob->query("id")+" ä½ è¾›è‹¦äº†ï¼Œå¯ä»¥è·Ÿæˆ‘è¦†å‘½ï¼ˆgive yanshang yanï¼‰äº†! ");
            return;
        }
 }
@@ -90,13 +90,13 @@ int accept_object(object me, object yan)
         int pot,exp;
         
         if (!(me->query_temp("newbiejob2/start")))
-                return notify_fail("ÄãÃ»ÓĞÔÚÎÒÕâÀïÒªÈÎÎñÑ½£¿\n");
+                return notify_fail("ä½ æ²¡æœ‰åœ¨æˆ‘è¿™é‡Œè¦ä»»åŠ¡å‘€ï¼Ÿ\n");
                 
         if (!(me->query_temp("newbiejob2/middle")))
-                return notify_fail("ÄãÔõÃ´»¹Ã»ÓĞÈ¥º£Ì²£¿\n");
+                return notify_fail("ä½ æ€ä¹ˆè¿˜æ²¡æœ‰å»æµ·æ»©ï¼Ÿ\n");
 
         if ( yan->query("id") != "yan ba") 
-                return notify_fail("Äã¸øÎÒÕâ¸ö¸ÉÂğ°¡£¿");
+                return notify_fail("ä½ ç»™æˆ‘è¿™ä¸ªå¹²å—å•Šï¼Ÿ");
 
         if (me->query_temp("newbiejob2/over"))
         {
@@ -104,19 +104,19 @@ int accept_object(object me, object yan)
                 exp = pot*3+random(me->query("age",1));
                 pot = exp/5 + random(exp/10);
                 me->add("potential",pot);
-                me->add("job_time/ÑÎèÉ",1);
+                me->add("job_time/ç›æ­",1);
                 if(me->query("potential") > me->query("max_pot"))
                         me->set("potential", me->query("max_pot"));
                 me->add("combat_exp",exp);
                 me->delete_temp("newbiejob2");
                 call_out("destroying", 1, yan);
-                tell_object(me,HIW"Äã±»½±ÀøÁË£º"+chinese_number(exp)+"µã¾­ÑéºÍ"+chinese_number(pot)+"µãÇ±ÄÜ¡£\n"NOR);
+                tell_object(me,HIW"ä½ è¢«å¥–åŠ±äº†ï¼š"+chinese_number(exp)+"ç‚¹ç»éªŒå’Œ"+chinese_number(pot)+"ç‚¹æ½œèƒ½ã€‚\n"NOR);
                 return 1;
         }
         else
         {
-                message_vision("À´ÈËÑ½£¡¿ì°Ñ"+me->query("name")+"¸øÎÒÍ´´òÒ»¶Ù£¡Ò²²»´òÌı´òÌı´óÒ¯ÎÒµÄÃûºÅ¡£\n",me);
-                message_vision("Ö»¼ûÁ½¸öÉí´©ºÚÒÂµÄ´óºº×ßÁË¹ıÀ´£¬Ò»¶ÙÈ­½Å´òµÄ$N»èÁË¹ıÈ¥£¡\n"NOR,me);
+                message_vision("æ¥äººå‘€ï¼å¿«æŠŠ"+me->query("name")+"ç»™æˆ‘ç—›æ‰“ä¸€é¡¿ï¼ä¹Ÿä¸æ‰“å¬æ‰“å¬å¤§çˆ·æˆ‘çš„åå·ã€‚\n",me);
+                message_vision("åªè§ä¸¤ä¸ªèº«ç©¿é»‘è¡£çš„å¤§æ±‰èµ°äº†è¿‡æ¥ï¼Œä¸€é¡¿æ‹³è„šæ‰“çš„$Næ˜äº†è¿‡å»ï¼\n"NOR,me);
                 me->delete_temp("newbiejob2");
                 me->apply_condition("job_busy", 4);
                 call_out("destroying", 1, yan);

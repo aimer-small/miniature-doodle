@@ -1,17 +1,17 @@
-// dongsun-tang ºÊÒ¶¶¬ËñÌÀ
+// dongsun-tang èå¶å†¬ç¬‹æ±¤
 #include <ansi.h>
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-        set_name(HIW"ºÉÒ¶¶¬ËñÌÀ"NOR, ({"dongsun-tang", "tang"}));
+        set_name(HIW"è·å¶å†¬ç¬‹æ±¤"NOR, ({"dongsun-tang", "tang"}));
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»ÅÌÉ«ÈôÃµ¹å£¬ÌğÄÛ¿É¿ÚµÄºÉÒ¶¶¬ËñÌÀ¡£\n");
-                set("unit", "ÅÌ");
+                set("long", "ä¸€ç›˜è‰²è‹¥ç«ç‘°ï¼Œç”œå«©å¯å£çš„è·å¶å†¬ç¬‹æ±¤ã€‚\n");
+                set("unit", "ç›˜");
                 set("value", 150);
                 set("food_remaining", 4);
                 set("food_supply", 40);

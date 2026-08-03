@@ -1,14 +1,14 @@
-// xiaolu2.c ÁÖ¼äĞ¡¾¶
+// xiaolu2.c æ—é—´å°å¾„
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 
 void create()
 {
-        set("short", WHT"ÔºÃÅ"NOR);
+        set("short", WHT"é™¢é—¨"NOR);
         set("long", @LONG
-Äã×ßÔÚÒ»ÌõĞ¡¾¶ÉÏ£¬Á½ÅÔÖÖÂúÁËÖñ×Ó£¬ĞŞóòÉ­É­£¬ÂÌÒñÂúµØ£¬³ıÁËÖñÒ¶Éù
-ºÍÄñÃùÉù£¬Ìı²»µ½±ğµÄ¶¯¾²¡£ÄÏÃæËÆºõÓĞÒ»×ù¼òÂªµÄĞ¡Ôº¡£
+ä½ èµ°åœ¨ä¸€æ¡å°å¾„ä¸Šï¼Œä¸¤æ—ç§æ»¡äº†ç«¹å­ï¼Œä¿®ç¯æ£®æ£®ï¼Œç»¿è«æ»¡åœ°ï¼Œé™¤äº†ç«¹å¶å£°
+å’Œé¸Ÿé¸£å£°ï¼Œå¬ä¸åˆ°åˆ«çš„åŠ¨é™ã€‚å—é¢ä¼¼ä¹æœ‰ä¸€åº§ç®€é™‹çš„å°é™¢ã€‚
 LONG
         );
 
@@ -17,14 +17,14 @@ LONG
                 "north" : __DIR__"xiaolu2",
         ]));
         
-        set("outdoors", "Îäµ±");
+        set("outdoors", "æ­¦å½“");
 	set("cant_hubiao", 1);
 
         set("objects",([
                 CLASS_D("wudang")+ "/yinlt" : 1,
         ]));
 
-        create_door("south", "ÖñÃÅ", "north", DOOR_CLOSED);
+        create_door("south", "ç«¹é—¨", "north", DOOR_CLOSED);
         setup();
 }
 
@@ -40,36 +40,36 @@ int valid_leave(object me, string dir)
         mapping myfam;
         myfam =( mapping)me->query("family");
 
-        if ((!myfam || myfam["family_name"] != "Îäµ±ÅÉ")
+        if ((!myfam || myfam["family_name"] != "æ­¦å½“æ´¾")
          &&  objectp(obj =present("yin liting", environment(me)))
          && dir == "south"
          && living(obj))
-           return notify_fail(CYN"ÒóÀæÍ¤À¹×¡È¥Â·£¬±§È­µÀ£ºÎÒÊ¦¸µÕıÔÚ±Õ¹Ø£¬Ã»ÊÂ²»µÃ´òÈÅ¡£\n"NOR);
+           return notify_fail(CYN"æ®·æ¢¨äº­æ‹¦ä½å»è·¯ï¼ŒæŠ±æ‹³é“ï¼šæˆ‘å¸ˆå‚…æ­£åœ¨é—­å…³ï¼Œæ²¡äº‹ä¸å¾—æ‰“æ‰°ã€‚\n"NOR);
 
         if ((int)me->query("shen") < 0
-         && me->query("family/family_name") == "Îäµ±ÅÉ"
+         && me->query("family/family_name") == "æ­¦å½“æ´¾"
          && objectp(obj =present("yin liting", environment(me)))
          && dir == "south"
          && living(obj))
-           return notify_fail(CYN"ÒóÀæÍ¤°ÑÊÖÒ»À¹£¬È°µÀ£ºÊ¦¸µËûÀÏÈË¼Ò×îÌÖÑáÉÆ¶ñ²»·ÖÖ®ÈË£¬Äã»¹ÊÇÈ¥¶à¶à×öĞ©ÏÀÒåÖ®ÊÂ°É£¡\n"NOR);
+           return notify_fail(CYN"æ®·æ¢¨äº­æŠŠæ‰‹ä¸€æ‹¦ï¼ŒåŠé“ï¼šå¸ˆå‚…ä»–è€äººå®¶æœ€è®¨åŒå–„æ¶ä¸åˆ†ä¹‹äººï¼Œä½ è¿˜æ˜¯å»å¤šå¤šåšäº›ä¾ ä¹‰ä¹‹äº‹å§ï¼\n"NOR);
 
         if((int)me->query_skill("yinyun-ziqi", 1) < 80
          && objectp(obj = present("yin liting", environment(me)))
          && dir == "south"
          && living(obj))
-           return notify_fail(CYN"ÒóÀæÍ¤°ÑÊÖÒ»À¹,È°µÀ£ºÌÈÈôÃ»Òª½ôµÄÊÂ,²»Òª·À°­Ê¦¸µËûÀÏÈË¼ÒÇåĞŞ¡£\n"NOR);
+           return notify_fail(CYN"æ®·æ¢¨äº­æŠŠæ‰‹ä¸€æ‹¦,åŠé“ï¼šå€˜è‹¥æ²¡è¦ç´§çš„äº‹,ä¸è¦é˜²ç¢å¸ˆå‚…ä»–è€äººå®¶æ¸…ä¿®ã€‚\n"NOR);
 
 	inv = deep_inventory(me);
 	if (dir == "north"){
-		write("±±ÃæÊÇÒ»ÌõĞ¡¾¶£¬Á½ÅÔÖÖÂúÁËÖñ×Ó£¬ĞŞóòÉ­É­£¬ÂÌÒñÂúµØ¡£\n");
+		write("åŒ—é¢æ˜¯ä¸€æ¡å°å¾„ï¼Œä¸¤æ—ç§æ»¡äº†ç«¹å­ï¼Œä¿®ç¯æ£®æ£®ï¼Œç»¿è«æ»¡åœ°ã€‚\n");
 		ob = filter_array(inv,(:get_object:));        
-		if (me->query_condition("killer") && me->query("family/family_name") != "Îäµ±ÅÉ") ;
-		else if (myfam && myfam["family_name"] =="Îäµ±ÅÉ" && myfam["generation"] == 2 && ! sizeof(ob))
-			write("ÓÉÓÚÄã×ß¹ßÁËÕâÌõĞ¡¾¶£¬ËùÒÔĞÅ²½×ß³öÁËÖñÁÖ¡£\n");
+		if (me->query_condition("killer") && me->query("family/family_name") != "æ­¦å½“æ´¾") ;
+		else if (myfam && myfam["family_name"] =="æ­¦å½“æ´¾" && myfam["generation"] == 2 && ! sizeof(ob))
+			write("ç”±äºä½ èµ°æƒ¯äº†è¿™æ¡å°å¾„ï¼Œæ‰€ä»¥ä¿¡æ­¥èµ°å‡ºäº†ç«¹æ—ã€‚\n");
 		else {
-			tell_room(environment(me), me->name()+"Íù±±ÃæµÄ"YEL"Ğ¡¾¶"NOR"¿ì²½Àë¿ª¡£\n"NOR, ({ me }));
+			tell_room(environment(me), me->name()+"å¾€åŒ—é¢çš„"YEL"å°å¾„"NOR"å¿«æ­¥ç¦»å¼€ã€‚\n"NOR, ({ me }));
 			me->move(__DIR__"xiaolu6");
-			tell_room(environment(me), me->name()+"´Ó"WHT"ÔºÃÅ"NOR"¿ì²½×ßÁË¹ıÀ´¡£\n"NOR, ({ me }));
+			tell_room(environment(me), me->name()+"ä»"WHT"é™¢é—¨"NOR"å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n"NOR, ({ me }));
 			return notify_fail("");
 		}
 	}

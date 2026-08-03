@@ -1,17 +1,17 @@
-// fengmi.c ·äÃÛ
+// fengmi.c èœ‚èœœ
 // By River 98/09
 #include <ansi.h>;
 inherit ITEM;
 inherit F_FOOD;
 void create()
 {
-     set_name(HIC"·äÃÛ"NOR, ({"feng mi","mi"}));
+     set_name(HIC"èœ‚èœœ"NOR, ({"feng mi","mi"}));
      set_weight(25);
      if (clonep())
             set_default_object(__FILE__);
      else {
-            set("unit", "¶Ñ");
-            set("long", "·äÃÛÉ¢·¢³öÓÕÈËµÄÏãÎ¶¡£\n");
+            set("unit", "å †");
+            set("long", "èœ‚èœœæ•£å‘å‡ºè¯±äººçš„é¦™å‘³ã€‚\n");
             set("no_get", 1);
             set("no_drop", 1);
             set("no_give", 1); 

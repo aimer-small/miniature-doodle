@@ -1,4 +1,4 @@
-// train.c ÑµÊŞ
+// train.c è®­å…½
 // by augx@sj  6/27/2002
 
 #include <ansi.h>
@@ -10,29 +10,29 @@ int main(object me, string arg)
 	int lvl,exp;
 
 	if( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if( me->query_temp("train/busy") )
-		return notify_fail("Äã¸Õ¸ÕÊÔÍ¼Ñ±·ş¹ıÒ°ÊŞ£¬¸Ğ¾õÓĞĞ©Æ£ÀÍ¡£\n");
+		return notify_fail("ä½ åˆšåˆšè¯•å›¾é©¯æœè¿‡é‡å…½ï¼Œæ„Ÿè§‰æœ‰äº›ç–²åŠ³ã€‚\n");
 
 	if( !arg || !(target=present(arg,environment(me))) )
-		return notify_fail("ÄãÒªÑ±·şÊ²Ã´¶¯Îï£¿\n");
+		return notify_fail("ä½ è¦é©¯æœä»€ä¹ˆåŠ¨ç‰©ï¼Ÿ\n");
 
 	if( !living(target) )
-		return notify_fail("ÄãÖ»ÄÜÑ±·ş»îÎï¡£\n");
+		return notify_fail("ä½ åªèƒ½é©¯æœæ´»ç‰©ã€‚\n");
 
-	if( target->query("race") != "Ò°ÊŞ"
-	 && target->query("race") != "·ÉÇİ"
+	if( target->query("race") != "é‡å…½"
+	 && target->query("race") != "é£ç¦½"
 	)
-		return notify_fail("ÄãÖ»ÄÜÑ±·ş¶¯Îï¡£\n");
+		return notify_fail("ä½ åªèƒ½é©¯æœåŠ¨ç‰©ã€‚\n");
 
 	if( target->query("master") == me->query("id") )
-		return notify_fail("ÄãÒÑ¾­Ñ±·şËüÁË¡£\n");
+		return notify_fail("ä½ å·²ç»é©¯æœå®ƒäº†ã€‚\n");
 
 	if( target->query("master") && present(target->query("master"),environment(me)) )
-		return notify_fail("ËüµÄÖ÷ÈË¾ÍÔÚÅÔ±ß£¬ÄãÕâÃ´×ö²»´óºÏÊÊ°É£¿\n");
+		return notify_fail("å®ƒçš„ä¸»äººå°±åœ¨æ—è¾¹ï¼Œä½ è¿™ä¹ˆåšä¸å¤§åˆé€‚å§ï¼Ÿ\n");
 
-	message_vision(CYN"$NÂıÂı¿¿½ü$n£¬Ë«ÑÛ½ô¶¢$n£¬¿ÚÖĞ·¢³ö¹ÖÒìµÄ½ĞÉù......\n" NOR, me,target);
+	message_vision(CYN"$Næ…¢æ…¢é è¿‘$nï¼ŒåŒçœ¼ç´§ç›¯$nï¼Œå£ä¸­å‘å‡ºæ€ªå¼‚çš„å«å£°......\n" NOR, me,target);
 
 	lvl = me->query_skill("training",1);
 	lvl = lvl * lvl * lvl /10;
@@ -46,7 +46,7 @@ int main(object me, string arg)
 	if( lvl > (exp/2) ) lvl = exp / 2;
 
 	if( lvl > random(exp) ) {
-		message_vision(HIW"$nÑ±·şµÄ¿¿½ü$N£¬ÇáÇáÌòÁËÌò$NµÄÊÖ¡£\n" NOR, me,target);
+		message_vision(HIW"$né©¯æœçš„é è¿‘$Nï¼Œè½»è½»èˆ”äº†èˆ”$Nçš„æ‰‹ã€‚\n" NOR, me,target);
 		if( lvl < (exp/3) ) {
 			lvl = me->query_skill("training",1);
 			if( lvl > 300 ) lvl = 300 + (lvl-300)/2;
@@ -58,9 +58,9 @@ int main(object me, string arg)
 	}
 	else {
 		if( random(3) != 1 )
-			message_vision(HIW"$n¸ù±¾²»Àí»á$NµÄ¶¯×÷ºÍºô½ĞÖ®Éù¡£\n" NOR, me,target);
+			message_vision(HIW"$næ ¹æœ¬ä¸ç†ä¼š$Nçš„åŠ¨ä½œå’Œå‘¼å«ä¹‹å£°ã€‚\n" NOR, me,target);
 		else {
-			message_vision(RED"$nÍ»È»¶ñºİºİµÄµÉÁË$NÒ»ÑÛ£¬³åÏò$N¡£\n" NOR, me,target);
+			message_vision(RED"$nçªç„¶æ¶ç‹ ç‹ çš„çªäº†$Nä¸€çœ¼ï¼Œå†²å‘$Nã€‚\n" NOR, me,target);
 			target->fight_ob(me);
 		}
 	}
@@ -80,9 +80,9 @@ void delete_busy(object me)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : train <¶¯Îïid>
+æŒ‡ä»¤æ ¼å¼ : train <åŠ¨ç‰©id>
 
-Õâ¸öÃüÁîÓÃÀ´Ñ±·ş¶¯Îï¡£
+è¿™ä¸ªå‘½ä»¤ç”¨æ¥é©¯æœåŠ¨ç‰©ã€‚
 HELP
 );
 	return 1;

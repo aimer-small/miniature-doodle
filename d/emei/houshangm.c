@@ -1,4 +1,4 @@
-// emei ¹àÄ¾´Ô
+// emei çŒæœ¨ä¸›
 
 #include <room.h>
 inherit ROOM;
@@ -6,11 +6,11 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "¹àÄ¾´Ô");
+        set("short", "çŒæœ¨ä¸›");
         set("long", @LONG
-ÕâÀïÊÇÒ»Æ¬Ò»ÈË¶à¸ßµÄ¹àÄ¾´Ô£¬ÕâÀïÒÑ¾­º±¼û×ã¼£¡£Ò»Õó·ç´µ¹ı£¬¹àÄ¾´Ô
-·¢³öÉ³É³µÄÉùÒô¡£¶«ÄÏÎ÷±±¶¼ÊÇ°«Ê÷¹àÄ¾£¬ÕâÀïÃ»ÓĞÂ·£¬Ã¿×ßÒ»²½£¬¾£¼¬¶¼»á
-¹³´Ìµ½ÒÂ¿ã£¬»®ÆÆÄãµÄÉíÌå¡£
+è¿™é‡Œæ˜¯ä¸€ç‰‡ä¸€äººå¤šé«˜çš„çŒæœ¨ä¸›ï¼Œè¿™é‡Œå·²ç»ç½•è§è¶³è¿¹ã€‚ä¸€é˜µé£å¹è¿‡ï¼ŒçŒæœ¨ä¸›
+å‘å‡ºæ²™æ²™çš„å£°éŸ³ã€‚ä¸œå—è¥¿åŒ—éƒ½æ˜¯çŸ®æ ‘çŒæœ¨ï¼Œè¿™é‡Œæ²¡æœ‰è·¯ï¼Œæ¯èµ°ä¸€æ­¥ï¼Œè†æ£˜éƒ½ä¼š
+é’©åˆºåˆ°è¡£è£¤ï¼Œåˆ’ç ´ä½ çš„èº«ä½“ã€‚
 LONG
         );
 
@@ -21,18 +21,18 @@ LONG
                 "westup" : __DIR__"houshangm",
         ]));
 
-        set("outdoors", "¶ëÃ¼É½");
+        set("outdoors", "å³¨çœ‰å±±");
         setup();
 }
 
 int valid_leave(object me, string dir)
 {
-    me->set_temp("last_damage_from", "ÔÚ¹àÄ¾´ÔÀï½îÆ£Á¦¾¡ÀÛ");
+    me->set_temp("last_damage_from", "åœ¨çŒæœ¨ä¸›é‡Œç­‹ç–²åŠ›å°½ç´¯");
     me->receive_damage("jingli", random(200) );
     if (dir == "eastdown" && me->query("family/master_id") == "guhong zi") {
         me->delete_temp("steps");
         me->move(__DIR__"houshangm1");
-        return notify_fail("ÄãÖÕÓÚ×ß³öÁË¹àÄ¾´Ô¡£\n");
+        return notify_fail("ä½ ç»ˆäºèµ°å‡ºäº†çŒæœ¨ä¸›ã€‚\n");
     }
     if ( dir == "eastdown" ) me->add_temp("steps", random(30));
     if ( dir == "westup" ) me->add_temp("steps", - random(20));
@@ -41,7 +41,7 @@ int valid_leave(object me, string dir)
     if ( (int)me->query_temp("steps") < 110 && (int)me->query_temp("steps") >100 ) {
         me->delete_temp("steps");
         me->move(__DIR__"houshangm1");
-        return notify_fail("ÄãÖÕÓÚ×ß³öÁË¹àÄ¾´Ô¡£\n");
+        return notify_fail("ä½ ç»ˆäºèµ°å‡ºäº†çŒæœ¨ä¸›ã€‚\n");
     }
     return ::valid_leave(me, dir);
 

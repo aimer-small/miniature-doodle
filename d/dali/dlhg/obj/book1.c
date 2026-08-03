@@ -1,15 +1,15 @@
-// book1.c ÌìÁú°Ë²¿1
+// book1.c å¤©é¾™å…«éƒ¨1
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(HIW"ÌìÉñÆª"NOR, ({"tianshen pian","shu","book"}));
+	set_name(HIW"å¤©ç¥ç¯‡"NOR, ({"tianshen pian","shu","book"}));
 	set_weight(80);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "ÕâÊÇÌìÁú°Ë²¿µÄÖ®Ò»--ÌìÉñÆª¡£\n");
-		set("unit", "±¾");
+		set("long", "è¿™æ˜¯å¤©é¾™å…«éƒ¨çš„ä¹‹ä¸€--å¤©ç¥ç¯‡ã€‚\n");
+		set("unit", "æœ¬");
 	     }
 }

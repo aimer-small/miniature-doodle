@@ -5,14 +5,14 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÎÂÈª");
+	set("short", "æ¸©æ³‰");
 	set("long", @LONG
-×ßµ½ÕâÀï£¬Ò»¹ÉÈÈÆøÌÚÌÚµÄ°×Îí½«ÄãÍÅÍÅÎ§×¡£¬ÄãÒÑ¾­À´µ½ÁËÎÂÈª±ß¡£Èª
-ÖÐÇåË®±Ì²¨µ´Ñú£¬Òì³£Çå³º£¬Ë®ÃæÎíÆøçÔÈÆ¡£Ïà´«ÔÚ´ËÎÂÈªÔ¡ºó£¬°×·¢±äºÚ£¬
-·µÀÏ»¹Í¯¡£ÓÐÐí¶àÈËÕýÔÚÀïÃæ±ÕÄ¿×øÔ¡¡£
+èµ°åˆ°è¿™é‡Œï¼Œä¸€è‚¡çƒ­æ°”è…¾è…¾çš„ç™½é›¾å°†ä½ å›¢å›¢å›´ä½ï¼Œä½ å·²ç»æ¥åˆ°äº†æ¸©æ³‰è¾¹ã€‚æ³‰
+ä¸­æ¸…æ°´ç¢§æ³¢è¡æ¼¾ï¼Œå¼‚å¸¸æ¸…æ¾ˆï¼Œæ°´é¢é›¾æ°”ç¼­ç»•ã€‚ç›¸ä¼ åœ¨æ­¤æ¸©æ³‰æµ´åŽï¼Œç™½å‘å˜é»‘ï¼Œ
+è¿”è€è¿˜ç«¥ã€‚æœ‰è®¸å¤šäººæ­£åœ¨é‡Œé¢é—­ç›®åæµ´ã€‚
 LONG
         );
-	set("outdoors", "³¤°²");
+	set("outdoors", "é•¿å®‰");
 	set("exits", ([
 		"west" : __DIR__"baishulin2",
 	]));
@@ -34,29 +34,29 @@ int do_wash()
 	int i;
         
 	if(!living(me) ) return 0;
-	if(me->query_temp("do_wash") > 0) return notify_fail("ÄãÒÑ¾­ÔÚÎÂÈªÖÐÁË£¡\n");
-	if ( me->query("gender") == "ÄÐÐÔ" ) {
-		tell_object(me, "ÄãÒ»¸ö´óÀÏÒ¯ÃÇ×öÄÇÐ©ÊÂÇé¸ÉÊ²Ã´£¿\n");
+	if(me->query_temp("do_wash") > 0) return notify_fail("ä½ å·²ç»åœ¨æ¸©æ³‰ä¸­äº†ï¼\n");
+	if ( me->query("gender") == "ç”·æ€§" ) {
+		tell_object(me, "ä½ ä¸€ä¸ªå¤§è€çˆ·ä»¬åšé‚£äº›äº‹æƒ…å¹²ä»€ä¹ˆï¼Ÿ\n");
 		return 1;
 	}
 	if (me->is_busy() || me->is_fighting()) 
-		return notify_fail("ÄãÕýÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
 
 	if((me->query_encumbrance()*20) > me->query_max_encumbrance()) 
-		return notify_fail("ÄãÉíÉÏµÄ¶«Î÷Ì«¶àÁË£¡\n");
+		return notify_fail("ä½ èº«ä¸Šçš„ä¸œè¥¿å¤ªå¤šäº†ï¼\n");
 
 	if (weapon) 
-		return notify_fail("²»ÒªÄÇÃ´½ôÕÅ°¡£¬Ï´Ôè»¹ÄÃ×ÅÎäÆ÷£¿\n");
+		return notify_fail("ä¸è¦é‚£ä¹ˆç´§å¼ å•Šï¼Œæ´—æ¾¡è¿˜æ‹¿ç€æ­¦å™¨ï¼Ÿ\n");
 
 	inv= all_inventory(me);
 	i = sizeof(inv);
 	while (i--)
 	if( inv[i]->query("equipped") && (! inv[i]->query_autoload() && inv[i]->query("id") != "lingpai"))
-		return notify_fail("ÉíÉÏ´©×ÅÒÂ·þÔõÃ´Ï´Ôè£¿\n"); 
+		return notify_fail("èº«ä¸Šç©¿ç€è¡£æœæ€Žä¹ˆæ´—æ¾¡ï¼Ÿ\n"); 
 
-	message_vision("Ö»Ìý¡°ÆËÍ¨¡±Ò»Éù£¬$NÒÑ¾­Ìø½øÁËÎÂÈªÀï¡£\n",me);
+	message_vision("åªå¬â€œæ‰‘é€šâ€ä¸€å£°ï¼Œ$Nå·²ç»è·³è¿›äº†æ¸©æ³‰é‡Œã€‚\n",me);
 	if(me->query("jingli") < 50) {
-		write("µ«ÊÇÄã¸Ð¾õÈªË®±äµÃ¹öÌÌ£¬¼±Ã¦´ÓÀïÌøÁË³öÀ´£¡\n",me);
+		write("ä½†æ˜¯ä½ æ„Ÿè§‰æ³‰æ°´å˜å¾—æ»šçƒ«ï¼Œæ€¥å¿™ä»Žé‡Œè·³äº†å‡ºæ¥ï¼\n",me);
 		me->unconcious();
 		return 1;
 	}
@@ -70,7 +70,7 @@ void over_wash(object me)
 {
 	if(!me) return;
 	if( me && environment(me) == this_object()) {
-		message_vision("$NÈÝ¹â»À·¢µÄ´ÓÎÂÈªÖÐ×ßÁË³öÀ´£¡\n", me);
+		message_vision("$Nå®¹å…‰ç„•å‘çš„ä»Žæ¸©æ³‰ä¸­èµ°äº†å‡ºæ¥ï¼\n", me);
 		if (me->query_skill("beauty", 1) > 120)
 			me->improve_skill("beauty", random(me->query("con"))*2);
 		me->delete_temp("do_wash",1);

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "Ì¨½×");
+        set("short", "å°é˜¶");
         set("long", @LONG
-ÕâÊÇÒÀÉ½Ê¯¿ªÔäµÄÊ¯½×£¬ÒòÎª¹ıÍùµÄÈË²»¶à£¬ÉÏÃæ²½ÂúÁËÇàÌ¦£¬ÄÏÃæ¾ÍÊÇ
-»ªÉ½ÅÉµÄÖĞĞÄËùÔÚ¡£
+è¿™æ˜¯ä¾å±±çŸ³å¼€å‡¿çš„çŸ³é˜¶ï¼Œå› ä¸ºè¿‡å¾€çš„äººä¸å¤šï¼Œä¸Šé¢æ­¥æ»¡äº†é’è‹”ï¼Œå—é¢å°±æ˜¯
+åå±±æ´¾çš„ä¸­å¿ƒæ‰€åœ¨ã€‚
 LONG
         );
         set("exits", ([ /* sizeof() == 2 */
@@ -20,7 +20,7 @@ LONG
 		__DIR__"npc/liangfa" : 1,
 ]));
 
-        set("outdoors", "»ªÉ½" );
+        set("outdoors", "åå±±" );
 
         set("coor/x",80);
   set("coor/y",0);
@@ -30,9 +30,9 @@ LONG
 
 int valid_leave(object me, string dir)
 {
-        if (dir == "east" && me->query("family/family_name") != "»ªÉ½ÅÉ" && objectp(present("liang fa", environment(me))))
-         return notify_fail("Áº·¢ºÈµÀ£º¡°²»ÊÇ±¾ÅÉµÜ×ÓĞİµÃÍùÉÏ°ë²½¡£\n");
-        if (dir == "northwest" && me->query("family/family_name") != "»ªÉ½ÅÉ" && objectp(present("liang fa", environment(me))))
-         return notify_fail("Áº·¢ºÈµÀ£º¡°²»ÊÇ±¾ÅÉµÜ×ÓĞİµÃÍùÉÏ°ë²½¡£\n");
+        if (dir == "east" && me->query("family/family_name") != "åå±±æ´¾" && objectp(present("liang fa", environment(me))))
+         return notify_fail("æ¢å‘å–é“ï¼šâ€œä¸æ˜¯æœ¬æ´¾å¼Ÿå­ä¼‘å¾—å¾€ä¸ŠåŠæ­¥ã€‚\n");
+        if (dir == "northwest" && me->query("family/family_name") != "åå±±æ´¾" && objectp(present("liang fa", environment(me))))
+         return notify_fail("æ¢å‘å–é“ï¼šâ€œä¸æ˜¯æœ¬æ´¾å¼Ÿå­ä¼‘å¾—å¾€ä¸ŠåŠæ­¥ã€‚\n");
         return ::valid_leave(me, dir);
 }

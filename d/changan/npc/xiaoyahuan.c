@@ -5,18 +5,18 @@ inherit NPC;
 
 void create()
 {
-        set_name("Ğ¡Ñ¾»·", ({ "xiao yahuan", "yahuan"}) );
-        set("gender", "Å®ĞÔ" );
+        set_name("å°ä¸«ç¯", ({ "xiao yahuan", "yahuan"}) );
+        set("gender", "å¥³æ€§" );
         set("age", 16);
         set("unique", 1);        
-        set("long", "ÕâÎ»Ò»¸öÌìÕæÎŞĞ°µÄĞ¡Ñ¾»·¡£\n");
+        set("long", "è¿™ä½ä¸€ä¸ªå¤©çœŸæ— é‚ªçš„å°ä¸«ç¯ã€‚\n");
         set("combat_exp", 100);
         set("attitude", "friendly");
         set("per", 30);
 
         set("chat_chance", 5);
         set("chat_msg", ({
-"Ğ¡Ñ¾»·ËµµÀ£º¡°Áú³ØÔÚ×ó±ß£¬·ï³ØÔÚÓÒ±ß¡£¡±\n",
+"å°ä¸«ç¯è¯´é“ï¼šâ€œé¾™æ± åœ¨å·¦è¾¹ï¼Œå‡¤æ± åœ¨å³è¾¹ã€‚â€\n",
         }) );
         setup();
         carry_object(ARMOR_D("skirt1.c"))->wear();
@@ -27,7 +27,7 @@ int accept_object(object who, object ob)
         
         if (ob->query("money_id") && ob->value() >= 10000) 
         {
-                tell_object(who, "Ğ¡Ñ¾»·ËµµÀ£º¡°¿ì½øÈ¥Ï´Ï´ÉíÉÏµÄ·ç³¾°É£¡¡±\n");
+                tell_object(who, "å°ä¸«ç¯è¯´é“ï¼šâ€œå¿«è¿›å»æ´—æ´—èº«ä¸Šçš„é£å°˜å§ï¼â€\n");
                 who->set_temp("pay_wash",1);
                 return 1;
         }

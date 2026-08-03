@@ -4,16 +4,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¿õµØ");
+	set("short", "æ—·åœ°");
 	set("long", @LONG
-ÕâÊÇÔÚ¾ø¶¥µÄÒ»Æ¬¿õµØ£¬Ê®·Ö¹ã´ó£¬ÒÔÇ°µÄµÛÍõÀ´áÔÌì¼ÀÌìÊ±£¬ÊÌ
-ÎÀ²¿¶ÓÔÚÕâÀï¼¯ºÏÌıÃü£¬ÏÖÔÚÈ´³ÉÁËÎåÔÀ½£ÅÉ»ãºÏµÄ³¡Ëù¡£
+è¿™æ˜¯åœ¨ç»é¡¶çš„ä¸€ç‰‡æ—·åœ°ï¼Œååˆ†å¹¿å¤§ï¼Œä»¥å‰çš„å¸ç‹æ¥åµ©å¤©ç¥­å¤©æ—¶ï¼Œä¾
+å«éƒ¨é˜Ÿåœ¨è¿™é‡Œé›†åˆå¬å‘½ï¼Œç°åœ¨å´æˆäº†äº”å²³å‰‘æ´¾æ±‡åˆçš„åœºæ‰€ã€‚
 LONG);
 	set("exits", ([ 
             "south" : __DIR__"taishi-que",
             "north" : __DIR__"damen",
         ]));
-	set("outdoors", "áÔÉ½");
+	set("outdoors", "åµ©å±±");
 	set("coor/x",40);
   set("coor/y",260);
    set("coor/z",110);
@@ -26,7 +26,7 @@ void init ()
 	string m,m_i;
         int sk;
 	
-	if (!me->query("family") || me->query("family/family_name") != "áÔÉ½ÅÉ")
+	if (!me->query("family") || me->query("family/family_name") != "åµ©å±±æ´¾")
 		return;
 	m_i = me->query("family/master_id");
 	m = me->query("family/master_name");
@@ -38,7 +38,7 @@ void init ()
 			me->set("family/generation",7);
 			me->set_skill("hanbing-zhenqi",me->query_skill("songshan-qigong",1));
 			me->delete_skill("songshan-qigong");
-			tell_object(me,"ÏµÍ³ÒÑ¾­½«ÄúµÄáÔÉ½Æø¹¦×Ô¶¯×ª»»Îªº®±ùÕæÆø£¡\n");
+			tell_object(me,"ç³»ç»Ÿå·²ç»å°†æ‚¨çš„åµ©å±±æ°”åŠŸè‡ªåŠ¨è½¬æ¢ä¸ºå¯’å†°çœŸæ°”ï¼\n");
 			return;
 		}
 		if (m_i == "le hou" || m_i == "lu bo" || m_i == "ding mian" || m_i == "fei bin" || m_i == "tang yinge")
@@ -46,7 +46,7 @@ void init ()
 			me->set("family/generation",6);
 			me->set_skill("hanbing-zhenqi",me->query_skill("songshan-qigong",1));
 			me->delete_skill("songshan-qigong");
-			tell_object(me,"ÏµÍ³ÒÑ¾­½«ÄúµÄáÔÉ½Æø¹¦×Ô¶¯×ª»»Îªº®±ùÕæÆø£¡\n");
+			tell_object(me,"ç³»ç»Ÿå·²ç»å°†æ‚¨çš„åµ©å±±æ°”åŠŸè‡ªåŠ¨è½¬æ¢ä¸ºå¯’å†°çœŸæ°”ï¼\n");
 			return;
 		}
 		if (m_i == "zuo lengchan")
@@ -54,7 +54,7 @@ void init ()
 			me->set("family/generation",4);
 			me->set_skill("hanbing-zhenqi",me->query_skill("songshan-qigong",1));
 			me->delete_skill("songshan-qigong");
-			tell_object(me,"ÏµÍ³ÒÑ¾­½«ÄúµÄáÔÉ½Æø¹¦×Ô¶¯×ª»»Îªº®±ùÕæÆø£¡\n");
+			tell_object(me,"ç³»ç»Ÿå·²ç»å°†æ‚¨çš„åµ©å±±æ°”åŠŸè‡ªåŠ¨è½¬æ¢ä¸ºå¯’å†°çœŸæ°”ï¼\n");
 			return;
 		}
 	}

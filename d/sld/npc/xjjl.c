@@ -1,4 +1,4 @@
-// xjjl.c ÏÝÚå¾«Áé
+// xjjl.c é™·é˜±ç²¾çµ
 
 //inherit F_MASTER;
 inherit NPC;
@@ -12,10 +12,10 @@ void init()
 }
 void create()
 {
-        set_name("ÏÝÚå¾«Áé", ({ "xian jing"}));
-	set("long", "ÕâÊÇÒ»¸ö×¨ÃÅÔÚÉñÁú½ÌÉÏÉèÏÝÚåµÄ¾«Áé¡£\n");
-        set("gender", "ÄÐÐÔ");
-	set("title", "¾«Áé");	
+        set_name("é™·é˜±ç²¾çµ", ({ "xian jing"}));
+	set("long", "è¿™æ˜¯ä¸€ä¸ªä¸“é—¨åœ¨ç¥žé¾™æ•™ä¸Šè®¾é™·é˜±çš„ç²¾çµã€‚\n");
+        set("gender", "ç”·æ€§");
+	set("title", "ç²¾çµ");	
         set("age", 999);       
 	set("str", 20);
         set("int", 22);
@@ -41,14 +41,14 @@ void create()
       set_temp("apply/defense", 1500);
       set_temp("apply/id","");
       set_temp("apply/name","");
-      create_family("ÉñÁú½Ì",2, "»¤½Ì¾«Áé");
+      create_family("ç¥žé¾™æ•™",2, "æŠ¤æ•™ç²¾çµ");
       set("chat_chance", 10);
       set("chat_msg", ({
           (: setxj :)
       }) );
       set("inquiry", ([
     "emnxu":    (: do_ask :),
-	"ÎÞÎª":    (: do_ask :),
+	"æ— ä¸º":    (: do_ask :),
       ]));
       setup();
 }
@@ -99,10 +99,10 @@ int setxj()
         if(!userp(ob[i]) || wizardp(ob[i]) || !living(ob[i])) continue;
 	  myfam = (mapping)ob[i]->query("family");
 	if(!myfam) continue;
-        if(!(myfam["family_name"] != "ÉñÁú½Ì")) continue;
+        if(!(myfam["family_name"] != "ç¥žé¾™æ•™")) continue;
         if(xjf==0)
         {
-	      if(room->query("outdoors")!="ÉñÁúµº")
+	      if(room->query("outdoors")!="ç¥žé¾™å²›")
               {
                 if(!objectp(xj=find_object(__DIR__"obj/xjroom2")))
                     xj=load_object(__DIR__"obj/xjroom2");
@@ -112,15 +112,15 @@ int setxj()
                 if(!objectp(xj=find_object(__DIR__"obj/xjroom1")))
                     xj = load_object(__DIR__"obj/xjroom1");
             }
-	    if (!xj)  return notify_fail("Òì³£´íÎó£¡\n");
+	    if (!xj)  return notify_fail("å¼‚å¸¸é”™è¯¯ï¼\n");
             //xj->set_temp("number",0);
             xjf=1;
         }
 	ob[i]->set("uproom",addr);
-        tell_object(ob[i], "Äã¾õµÃ½Åµ×Ò»Èí£¬´ó¼ÓÒ»Éù²»ºÃ£¬ÉíÌåÒÑ¾­ÏòÏÂµøÂä£¡\n");
-        tell_room(environment(ob[i]), ob[i]->name() + "Í»È»µôÈëÁËÒ»¸öÏÝÚåÖ®ÖÐ! \n");
+        tell_object(ob[i], "ä½ è§‰å¾—è„šåº•ä¸€è½¯ï¼Œå¤§åŠ ä¸€å£°ä¸å¥½ï¼Œèº«ä½“å·²ç»å‘ä¸‹è·Œè½ï¼\n");
+        tell_room(environment(ob[i]), ob[i]->name() + "çªç„¶æŽ‰å…¥äº†ä¸€ä¸ªé™·é˜±ä¹‹ä¸­! \n");
         ob[i]->move(xj);
-        tell_room(environment(ob[i]), ob[i]->name() + "Í»È»´ÓÉÏÃæÂäÁË½øÀ´! \n");
+        tell_room(environment(ob[i]), ob[i]->name() + "çªç„¶ä»Žä¸Šé¢è½äº†è¿›æ¥! \n");
         qi=(int)ob[i]->query_skill("dodge",1);
         if(qi>200) qi=200;
         qi=(200-qi)*1600/ob[i]->query_kar()/ob[i]->query_dex();

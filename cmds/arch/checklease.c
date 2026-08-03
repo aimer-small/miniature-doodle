@@ -14,19 +14,19 @@ int main(object me,object arg)
 	float x;
 	if(!arg){
 		leasemap=ROOMLEASE_D->query_keys();
-		if(leasemap) write(sprintf("Ä¿Ç°¿ÉÓÃ£º%s\n",implode(leasemap,",")));
+		if(leasemap) write(sprintf("ç›®å‰å¯ç”¨ï¼š%s\n",implode(leasemap,",")));
 		return help(me);
 	}
 	
 	if( !ROOMLEASE_D->query_ifhavebidname(arg))
-		return notify_fail(HIY"Ã»ÓĞÕâ¸öµêÆÌ¡£\n"NOR );
+		return notify_fail(HIY"æ²¡æœ‰è¿™ä¸ªåº—é“ºã€‚\n"NOR );
 	
 	ma = ROOMLEASE_D->query_amap(arg);
 	x = (time()-ma["settime"]) / 3600;
-	if(!x || x<=0 ) x = 1.0;//²»µ½Ò»¸öĞ¡Ê±ËãÒ»¸öĞ¡Ê±ÏÈ
-	//write(sprintf("money:%d,Ê±¼ä²î±ğ£º%d\n",ma["repayamount"],time()-ma["settime"] ));
+	if(!x || x<=0 ) x = 1.0;//ä¸åˆ°ä¸€ä¸ªå°æ—¶ç®—ä¸€ä¸ªå°æ—¶å…ˆ
+	//write(sprintf("money:%d,æ—¶é—´å·®åˆ«ï¼š%d\n",ma["repayamount"],time()-ma["settime"] ));
 	//x = (time()-ma["settime"])/3600;
-	write(sprintf("%s ´Ó %s ¿ªÊ¼ µ½ %s ×ÜÊÕÈë %s£¬Ã¿µ¥Î»Ğ¡Ê±ÊÕÈë£º%s¡£\n",arg,
+	write(sprintf("%s ä» %s å¼€å§‹ åˆ° %s æ€»æ”¶å…¥ %sï¼Œæ¯å•ä½å°æ—¶æ”¶å…¥ï¼š%sã€‚\n",arg,
 	ROOMLEASE_D->longtime(ma["settime"]),
 	ROOMLEASE_D->longtime(time()),
 	MONEY_D->money_str(ma["repayamount"]),
@@ -39,9 +39,9 @@ int main(object me,object arg)
 int help(object me)
 {
 	write(@HELP
-	¸ñÊ½ checklease <id>
+	æ ¼å¼ checklease <id>
 	
-	¼ì²é¸Ã·¿¼äµÄ¾­Óª×´¿ö¡£
+	æ£€æŸ¥è¯¥æˆ¿é—´çš„ç»è¥çŠ¶å†µã€‚
 HELP);
 	return 1;
 }

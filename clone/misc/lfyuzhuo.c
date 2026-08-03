@@ -7,21 +7,21 @@ inherit BANGLE;
 
 void create()
 {
-	set_name(HIG "Áú·ïÓñïí" NOR, ({ "longfeng yuzhuo", "yuzhuo" }) );
+	set_name(HIG "é¾™å‡¤ç‰é•¯" NOR, ({ "longfeng yuzhuo", "yuzhuo" }) );
 	set_weight(1000);
 	if (clonep()) set_default_object(__FILE__);
 	else
 	{
-		set("long","ÉÏÃæµñÓĞèòèòÈçÉúµÄÁú·ïÍ¼°¸£¬ÊÇ×£Ô¸ĞÂÈË³ÉË«³É¶Ô£¬°×Í·ÙÉÀÏµÄÊ×ÊÎ¾­µä¡£\n");
+		set("long","ä¸Šé¢é›•æœ‰æ ©æ ©å¦‚ç”Ÿçš„é¾™å‡¤å›¾æ¡ˆï¼Œæ˜¯ç¥æ„¿æ–°äººæˆåŒæˆå¯¹ï¼Œç™½å¤´å•è€çš„é¦–é¥°ç»å…¸ã€‚\n");
 		set("female_only",1);
-		set("unit", "¸ö");
+		set("unit", "ä¸ª");
 		set("value", 10000);
 		set("material", "jade");
 		set("armor_prop/armor",1);
 		set("no_get",1);
 		set("no_drop",1);
-		set("remove_msg","$NÏ¸ĞÄµÃ½«"+name()+"ÕªÏÂ£¬·ÅÔÚÌùÉí´¦ÊÕ²Ø¡£\n");
-		set("wear_msg","$N½«"+name()+"´÷ÔÚ×Ô¼ºÊÖÍóÉÏ£¬µÃÒâ·Ç·²¡£\n");
+		set("remove_msg","$Nç»†å¿ƒå¾—å°†"+name()+"æ‘˜ä¸‹ï¼Œæ”¾åœ¨è´´èº«å¤„æ”¶è—ã€‚\n");
+		set("wear_msg","$Nå°†"+name()+"æˆ´åœ¨è‡ªå·±æ‰‹è…•ä¸Šï¼Œå¾—æ„éå‡¡ã€‚\n");
 	}
 	setup();
 }

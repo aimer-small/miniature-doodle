@@ -4,98 +4,98 @@
 #include <ansi.h>
 inherit ITEM;
 mapping *poi_list = ({
-        (["id":         "snake_poison", // ËùÖĞ¶¾µÄEÎÄÃû³Æ
-          "name":       "Éß¶¾", // ËùÖĞ¶¾µÄÖĞÎÄÃû³Æ
-          "col":        "\"BLU\"", // ÖĞ¶¾·¢×÷µÄÑÕÉ«
-          "con":        "Õ¿À¶Ö®Æø",]), // ÖĞ¶¾·¢×÷µÄ×´Ì¬
+        (["id":         "snake_poison", // æ‰€ä¸­æ¯’çš„Eæ–‡åç§°
+          "name":       "è›‡æ¯’", // æ‰€ä¸­æ¯’çš„ä¸­æ–‡åç§°
+          "col":        "\"BLU\"", // ä¸­æ¯’å‘ä½œçš„é¢œè‰²
+          "con":        "æ¹›è“ä¹‹æ°”",]), // ä¸­æ¯’å‘ä½œçš„çŠ¶æ€
         (["id":         "lvbo_poison",
-          "name":       "ÂÌ²¨ÏãÂ¶Ææ¶¾",
+          "name":       "ç»¿æ³¢é¦™éœ²å¥‡æ¯’",
           "col":        "\"BLU\"",
-          "con":        "Õ¿À¶Ö®Æø",]),
+          "con":        "æ¹›è“ä¹‹æ°”",]),
         (["id":         "xx_poison",
-          "name":       "ĞÇËŞÕÆ¶¾",
+          "name":       "æ˜Ÿå®¿æŒæ¯’",
           "col":        "\"BLU\"",
-          "con":        "Õ¿À¶Ö®Æø",]),
+          "con":        "æ¹›è“ä¹‹æ°”",]),
         (["id":         "dsy_poison",
-          "name":       "ÃÜ×Ú´óÊÖÓ¡ÕÆ¶¾",
+          "name":       "å¯†å®—å¤§æ‰‹å°æŒæ¯’",
           "col":        "\"CYN\"",
-          "con":        "ÇàÆø",]),
+          "con":        "é’æ°”",]),
         (["id":         "fs_poison",
-          "name":       "¸¯Ê¬¶¾",
+          "name":       "è…å°¸æ¯’",
           "col":        "\"HIG\"",
-          "con":        "ÂÌÆø",]), 
+          "con":        "ç»¿æ°”",]), 
         (["id":         "huagu_poison",
-          "name":       "»¯¹ÇÃàÕÆ¾ç¶¾",
+          "name":       "åŒ–éª¨ç»µæŒå‰§æ¯’",
           "col":        "\"BLU\"",
-          "con":        "Õ¿À¶Ö®Æø",]),
+          "con":        "æ¹›è“ä¹‹æ°”",]),
         (["id":         "man_poison",
-          "name":       "ÂûÍÓÂÜ»¨¶¾",
+          "name":       "è”“é™€èèŠ±æ¯’",
           "col":        "\"HIB\"",
-          "con":        "ºÚÆø",]),
+          "con":        "é»‘æ°”",]),
         (["id":         "qinghua_poison",
-          "name":       "Çé»¨¶¾",
+          "name":       "æƒ…èŠ±æ¯’",
           "col":        "\"MAG\"",
-          "con":        "×ÏÆø",]),
+          "con":        "ç´«æ°”",]),
         (["id":         "qishang_poison",
-          "name":       "ÆßÉËÈ­¶¾",
+          "name":       "ä¸ƒä¼¤æ‹³æ¯’",
           "col":        "\"HIR\"",
-          "con":        "³±ºìÖ®Æø",]),
+          "con":        "æ½®çº¢ä¹‹æ°”",]),
         (["id":         "yyz_hurt",
-          "name":       "Ò»ÑôÖ¸ÄÚÉË",
+          "name":       "ä¸€é˜³æŒ‡å†…ä¼¤",
           "col":        "\"HIY\"",
-         "con":        "À¯»ÆÖ®É«",]),
+         "con":        "èœ¡é»„ä¹‹è‰²",]),
         (["id":         "hunyuan_hurt",
-          "name":       "»ìÔªÎŞ¼«ÄÚÉË",
+          "name":       "æ··å…ƒæ— æå†…ä¼¤",
           "col":        "\"HIR\"",
-         "con":        "³±ºìÖ®Æø",]),
+         "con":        "æ½®çº¢ä¹‹æ°”",]),
         (["id":         "qzhu_poison",
-          "name":       "Ç§ÖëÍò¶¾ÊÖ¶¾",
+          "name":       "åƒè››ä¸‡æ¯’æ‰‹æ¯’",
           "col":        "\"HIR\"",
-          "con":        "³±ºìÖ®Æø",]),
+          "con":        "æ½®çº¢ä¹‹æ°”",]),
         (["id":         "sld_shexin",
-          "name":       "ÉãĞÄ´ó·¨",
+          "name":       "æ‘„å¿ƒå¤§æ³•",
           "col":        "\"HIC\"", 
-          "con":        "·èñ²×´Ì¬",]),
+          "con":        "ç–¯ç™«çŠ¶æ€",]),
         (["id":         "sl_poison",
-          "name":       "ÉñÁú¶¾",
+          "name":       "ç¥é¾™æ¯’",
           "col":        "\"BLU\"", 
-          "con":        "Õ¿À¶Ö®Æø",]),
+          "con":        "æ¹›è“ä¹‹æ°”",]),
         (["id":         "sy_poison",
-          "name":       "´óÊÖÓ¡ÕÆ¶¾",
+          "name":       "å¤§æ‰‹å°æŒæ¯’",
           "col":        "\"HIR\"",
-          "con":        "³±ºìÖ®Æø",]),
+          "con":        "æ½®çº¢ä¹‹æ°”",]),
         (["id":         "warm_poison",
-          "name":       "ÈÈ¶¾",
+          "name":       "çƒ­æ¯’",
           "col":        "\"RED\"",
-          "con":        "ÒóºìÖ®Æø",]),
+          "con":        "æ®·çº¢ä¹‹æ°”",]),
         (["id":         "hot_poison",
-          "name":       "»ğ¶¾",
+          "name":       "ç«æ¯’",
           "col":        "\"HIR\"",
-          "con":        "³±ºìÖ®Æø",]),
+          "con":        "æ½®çº¢ä¹‹æ°”",]),
         (["id":         "cold_poison",
-          "name":       "º®¶¾",
+          "name":       "å¯’æ¯’",
           "col":        "\"HIC\"",
-          "con":        "ÂÌÇàÖ®Æø",]),
+          "con":        "ç»¿é’ä¹‹æ°”",]),
         (["id":         "bing_poison",
-          "name":       "±ùÆÇÒøÕë¶¾",
+          "name":       "å†°é­„é“¶é’ˆæ¯’",
           "col":        "\"HIB\"",
-          "con":        "Õ¿À¶Ö®Æø",]),
+          "con":        "æ¹›è“ä¹‹æ°”",]),
         (["id":         "bt_poison",
-          "name":       "¹ÖÉß¶¾", 
+          "name":       "æ€ªè›‡æ¯’", 
           "col":        "\"YEL\"",
-          "con":        "·º»ÆÖ®Æø",]),
+          "con":        "æ³›é»„ä¹‹æ°”",]),
         (["id":         "hb_poison",
-          "name":       "º®±ùÃàÕÆ¶¾",
+          "name":       "å¯’å†°ç»µæŒæ¯’",
           "col":        "\"HIB\"",
-          "con":        "Õ¿À¶Ö®Æø",]),
+          "con":        "æ¹›è“ä¹‹æ°”",]),
         (["id":         "tz_poison",
-          "name":       "ÌúÕÆÆæ¶¾",
+          "name":       "é“æŒå¥‡æ¯’",
           "col":        "\"HIR\"",
-          "con":        "³±ºìÖ®É«",]),
+          "con":        "æ½®çº¢ä¹‹è‰²",]),
         (["id":         "cold_poison",
-          "name":       "º®±ùÉñÕÆ¶¾",
+          "name":       "å¯’å†°ç¥æŒæ¯’",
           "col":        "\"HIY\"",
-          "con":        "º®Æø",]),
+          "con":        "å¯’æ°”",]),
 });
 
 void setup()
@@ -106,12 +106,12 @@ void init()
 }
 void create()
 {
-        set_name(HIY"¾ÅÌì»Ø×ªµ¤"NOR, ({"huizhuan dan", "dan"}));
+        set_name(HIY"ä¹å¤©å›è½¬ä¸¹"NOR, ({"huizhuan dan", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿ÅÄ½Èİ×æ´«ÃØ·½ÅäÖÆµÄ¾ÅÌì»Ø×ªµ¤£¬¾İËµÄÜ½â°Ù¶¾¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—æ…•å®¹ç¥–ä¼ ç§˜æ–¹é…åˆ¶çš„ä¹å¤©å›è½¬ä¸¹ï¼Œæ®è¯´èƒ½è§£ç™¾æ¯’ã€‚\n");
 //                set("value", 15); 
                 set("no_give",1);
         }
@@ -125,18 +125,18 @@ int do_eat(string arg)
         mapping poi;
 
         if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
         if((int)me->query_skill("medicine", 1) < 80 )
-                return notify_fail("ÄãµÄ±¾²İÊõÀíÌ«µÍ£¬³ÔÁËÒ²Ã»¶à´óÓÃ¡£\n");
+                return notify_fail("ä½ çš„æœ¬è‰æœ¯ç†å¤ªä½ï¼Œåƒäº†ä¹Ÿæ²¡å¤šå¤§ç”¨ã€‚\n");
 
-        if (me->query("family/family_name") != "¹ÃËÕÄ½Èİ")
-                return notify_fail("Äã²¢²»ÊÇÄ½ÈİµÜ×Ó£¬Íµ³Ô±ğÈËµÄ¶«Î÷Á³²»ºìÃ´!?\n");
+        if (me->query("family/family_name") != "å§‘è‹æ…•å®¹")
+                return notify_fail("ä½ å¹¶ä¸æ˜¯æ…•å®¹å¼Ÿå­ï¼Œå·åƒåˆ«äººçš„ä¸œè¥¿è„¸ä¸çº¢ä¹ˆ!?\n");
         if( me->is_fighting() )
-                return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ£¬ÎŞ·¨ÁÆ¶¾¡£\n");
+                return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ï¼Œæ— æ³•ç–—æ¯’ã€‚\n");
 
         if( me->is_busy() )
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ£¬ÎŞ·¨ÁÆ¶¾¡£\n"); 
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼Œæ— æ³•ç–—æ¯’ã€‚\n"); 
 
         for(i=0;i<sizeof(poi_list);i++)
         {
@@ -148,9 +148,9 @@ int do_eat(string arg)
                         if (poi_lvl < (int)me->query_skill("medicine", 1)*2)
                         {
                                 if( (int)me->query("neili") < neili_cost )
-                                        return notify_fail("ÄãµÄÄÚÁ¦²»×ãÒÔ½èÖú"HIY"¾ÅÌì»Ø×ªµ¤"NOR"È¥³ıÌåÄÚÓà¶¾¡£\n");
-                                 message_vision("$NË«ÑÛ½ô±ÕÔË¹¦ÁÆ¶¾£¬½èÖú"HIY"¾ÅÌì»Ø×ªµ¤"NOR"µÄÆæĞ§£¬ÂşÂşÁ³ÉÏµÄ" + poi["con"] + "Öğ½¥¼õÍË¡£\n",me);
-                                tell_object(me,"ÄãËùÖĞµÄ" + poi["name"] + "ÒÑ¾­ÍêÈ«È¥³ı¡£\n");
+                                        return notify_fail("ä½ çš„å†…åŠ›ä¸è¶³ä»¥å€ŸåŠ©"HIY"ä¹å¤©å›è½¬ä¸¹"NOR"å»é™¤ä½“å†…ä½™æ¯’ã€‚\n");
+                                 message_vision("$NåŒçœ¼ç´§é—­è¿åŠŸç–—æ¯’ï¼Œå€ŸåŠ©"HIY"ä¹å¤©å›è½¬ä¸¹"NOR"çš„å¥‡æ•ˆï¼Œæ¼«æ¼«è„¸ä¸Šçš„" + poi["con"] + "é€æ¸å‡é€€ã€‚\n",me);
+                                tell_object(me,"ä½ æ‰€ä¸­çš„" + poi["name"] + "å·²ç»å®Œå…¨å»é™¤ã€‚\n");
                                 me->clear_condition(poi["id"]);
                                 me->add("neili",-neili_cost);
                                 me->start_busy(2);
@@ -162,8 +162,8 @@ int do_eat(string arg)
                         else 
                         {
                                 me->apply_condition(poi["id"],poi_lvl-(int)me->query_skill("medicine", 1)*2);
-                                 message_vision("$NË«ÑÛ½ô±ÕÔË¹¦ÁÆ¶¾£¬½èÖú"HIY"¾ÅÌì»Ø×ªµ¤"NOR"µÄÆæĞ§£¬ÂşÂşÁ³ÉÏµÄ" + poi["con"] + "Öğ½¥¼õÍË¡£\n",me);
-                                tell_object(me,"ÄãËùÖĞ" + poi["name"] + "ÒÑ¾­ÂşÂşÏûÍË¡£\n");
+                                 message_vision("$NåŒçœ¼ç´§é—­è¿åŠŸç–—æ¯’ï¼Œå€ŸåŠ©"HIY"ä¹å¤©å›è½¬ä¸¹"NOR"çš„å¥‡æ•ˆï¼Œæ¼«æ¼«è„¸ä¸Šçš„" + poi["con"] + "é€æ¸å‡é€€ã€‚\n",me);
+                                tell_object(me,"ä½ æ‰€ä¸­" + poi["name"] + "å·²ç»æ¼«æ¼«æ¶ˆé€€ã€‚\n");
                                 me->add("neili",-neili_cost);
                                 me->start_busy(2);
                                 me->set_temp("mr/9dan",1);
@@ -175,7 +175,7 @@ int do_eat(string arg)
         }
 
         if (me->query_temp("mr/9dan")<1)
-                return notify_fail("ÄãÃ»ÓĞÖĞ¶¾¡£\n");
+                return notify_fail("ä½ æ²¡æœ‰ä¸­æ¯’ã€‚\n");
         me->delete_temp("mr/9dan");
         me->delete_temp("mr/get_9dan");
         return 1;

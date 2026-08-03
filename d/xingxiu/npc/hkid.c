@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÄÁÍ¯", ({ "mutong", "kid"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("ç‰§ç«¥", ({ "mutong", "kid"}));
+        set("gender", "ç”·æ€§");
         set("age", 8 + random(5));
-        set("long", "Ò»¸öÄÁÍ¯£¬¸Ï×ÅÊ®¼¸Ö»Ñò¡£\n");
+        set("long", "ä¸€ä¸ªç‰§ç«¥ï¼Œèµ¶ç€åå‡ åªç¾Šã€‚\n");
         set("attitude", "friendly");
         set("env/wimpy", 60);
         set("combat_exp", 200);
@@ -24,8 +24,8 @@ void create()
         setup();
         set("chat_chance", 2);
         set("chat_msg", ({
-              "ÄÁÍ¯±¯·ßµØÈÂµÀ£ºÄÇ°ïĞÇËŞÅÉµÜ×Ó×òÌìÀ­×ßÁËÎÒË«Ç×¡£\n",
-              "ÄÁÍ¯¶ÔÌì·¢ÊÄ£ºÎÒ´óÁËÒ»¶¨Òª±¨³ğ¡£\n",
+              "ç‰§ç«¥æ‚²æ„¤åœ°åš·é“ï¼šé‚£å¸®æ˜Ÿå®¿æ´¾å¼Ÿå­æ˜¨å¤©æ‹‰èµ°äº†æˆ‘åŒäº²ã€‚\n",
+              "ç‰§ç«¥å¯¹å¤©å‘èª“ï¼šæˆ‘å¤§äº†ä¸€å®šè¦æŠ¥ä»‡ã€‚\n",
         }));
         carry_object(BINGQI_D("bian"))->wield();
         carry_object(ARMOR_D("yangao"))->wear();

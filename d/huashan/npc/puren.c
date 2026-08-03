@@ -2,7 +2,7 @@
 // Date: Look 99/03/25
 // Modify By Looklove@SJ 2000/1/7 for add job
 // Lklv Modify at 2001.10.18
-// By Spiderii@ty Ôö¼ÓËÍ·¹¹¦ÄÜ
+// By Spiderii@ty å¢åŠ é€é¥­åŠŸèƒ½
 #include <ansi.h>
 inherit NPC;
 string ask_over();
@@ -23,9 +23,9 @@ string* names = ({
 });
 void create()
 {
-	set_name("ÆÍÈË", ({ "pu ren", "puren",}));
-	set("long","Ò»¸öÉÕ·¹É¨µØµÄÆÍÈË\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("ä»†äºº", ({ "pu ren", "puren",}));
+	set("long","ä¸€ä¸ªçƒ§é¥­æ‰«åœ°çš„ä»†äºº\n");
+	set("gender", "ç”·æ€§");
 	set("age", 26);
 	set("attitude", "peaceful");
 	set("shen_type", 1);
@@ -46,10 +46,10 @@ void create()
 
 	set_skill("unarmed", 20);
 	set("inquiry", ([
-	      "²ñºÌ" : (: ask_over :),
-	      "¿³²Ä" : (: ask_over :),
+	      "æŸ´ç¦¾" : (: ask_over :),
+	      "ç æ" : (: ask_over :),
 	      "caihe" : (: ask_over :),
-             "Ê³Îï" : (:ask_food:),
+             "é£Ÿç‰©" : (:ask_food:),
 
 	]));
 	setup();
@@ -63,18 +63,18 @@ string ask_over()
 	me = this_player();
 
 	if ((int)me->query("combat_exp") >= 100000)
-		return "ËäÈ»³ø·¿È±²ñºÌ£¬¿ÉÊÇÕâĞ©ÊÂ»¹ÊÇÈÃÎÒÃÇÏÂÈËÀ´×ö°É¡£\n";
+		return "è™½ç„¶å¨æˆ¿ç¼ºæŸ´ç¦¾ï¼Œå¯æ˜¯è¿™äº›äº‹è¿˜æ˜¯è®©æˆ‘ä»¬ä¸‹äººæ¥åšå§ã€‚\n";
 	if (me->query("shen") < 1000)
-		return "ÄãÑÛÂ¶Ğ×¹â, ×î½üÊÇ²»ÊÇ×öÁËÊ²Ã´»µÊÂ£¿ ";
+		return "ä½ çœ¼éœ²å‡¶å…‰, æœ€è¿‘æ˜¯ä¸æ˜¯åšäº†ä»€ä¹ˆåäº‹ï¼Ÿ ";
 	if (!me->query_temp("hs/kc_job")||!me->query_temp("kc_job/ok"))
-		return "ÄãÁùÊ¦ĞÖ¸Õ²ÅÀ´Ëµ£¬Òª°ïÎÒÕÒ¼¸¸öµÜ×ÓÈ¥¿³²ñ£¬ÄãÈ¥²»È¥£¿È¥¾Í¸æËßËûÒ»Éù¡£\n";
+		return "ä½ å…­å¸ˆå…„åˆšæ‰æ¥è¯´ï¼Œè¦å¸®æˆ‘æ‰¾å‡ ä¸ªå¼Ÿå­å»ç æŸ´ï¼Œä½ å»ä¸å»ï¼Ÿå»å°±å‘Šè¯‰ä»–ä¸€å£°ã€‚\n";
 
 	me->delete_temp("hs/kc_job");
 	me->delete_temp("kc_job");
 
 	exp = me->query("max_pot")*1+random(500);
 	
-	exp = me->add_exp_combat(exp,this_object(),"»ªÉ½¿³²ñ");
+	exp = me->add_exp_combat(exp,this_object(),"åå±±ç æŸ´");
 	
 	pot = exp/5 + random(exp/10);
 
@@ -85,14 +85,14 @@ string ask_over()
 		me->set("potential", me->query("max_pot"));
 		me->improve_skill("zixia-gong",me->query("int")*2);
 		
-	me->add("job_time/»ªÉ½¿³²ñ",1);
+	me->add("job_time/åå±±ç æŸ´",1);
 
-	message_vision("$N´óÉù¶ÔÆÍÈËËµµÀ£º¡°ÄãÒªµÄ²ñºÌÎÒ¶¼¿³ÁË£¬¶ÑÔÚ³¯Ñô·å£¬ĞèÒªµÄ»°ÄãÕÒÈËÈ¥È¡¡£¡±\n",me);
-	tell_object(me,HIM" ÄãµÃµ½ÁË£º\n" +
-	chinese_number(exp) + "µãÊµÕ½¾­Ñé\n"+
-	chinese_number(pot) + "µãÇ±ÄÜ¡£\n"NOR);
+	message_vision("$Nå¤§å£°å¯¹ä»†äººè¯´é“ï¼šâ€œä½ è¦çš„æŸ´ç¦¾æˆ‘éƒ½ç äº†ï¼Œå †åœ¨æœé˜³å³°ï¼Œéœ€è¦çš„è¯ä½ æ‰¾äººå»å–ã€‚â€\n",me);
+	tell_object(me,HIM" ä½ å¾—åˆ°äº†ï¼š\n" +
+	chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒ\n"+
+	chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚\n"NOR);
 	command("ok "+me->query("id"));
-	return "ÏÈ¶Ñ×Å°É£¬µÈÎÒÒªÓÃµÄÊ±ºòÎÒ¾ÍÈ¥È¡¡£\n";
+	return "å…ˆå †ç€å§ï¼Œç­‰æˆ‘è¦ç”¨çš„æ—¶å€™æˆ‘å°±å»å–ã€‚\n";
 }
 string ask_food()
 {
@@ -100,12 +100,12 @@ string ask_food()
 	object me;
 	me=this_player();
        	if ((me->query("food")*10/me->max_water_capacity())>8)
-		return "ÄãÔõÃ´³Ô±¥ÁË»¹ÏëÒª£¿";
+		return "ä½ æ€ä¹ˆåƒé¥±äº†è¿˜æƒ³è¦ï¼Ÿ";
                ob1 = new(FOOD_D("rice"));
 	        ob2 = new(names[random(sizeof(names))]);
 	        if( clonep(ob2) && clonep(ob1))
 	        {
-	        	message_vision(HIC"\nÆÍÈËËµµÀ£º·¹²ËÒÑ¾­×¼±¸ºÃÁË£¬¿ì³ÃÈÈ³Ô°É¡£\n" NOR, me);
+	        	message_vision(HIC"\nä»†äººè¯´é“ï¼šé¥­èœå·²ç»å‡†å¤‡å¥½äº†ï¼Œå¿«è¶çƒ­åƒå§ã€‚\n" NOR, me);
 	        	ob1->move(me);
 	        	ob2->move(me);
 		}

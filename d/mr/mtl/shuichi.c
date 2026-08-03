@@ -6,15 +6,15 @@
 inherit ROOM;
 void create()
 {
-         set("short",HIC"Ë®³Ø"NOR);
+         set("short",HIC"æ°´æ± "NOR);
          set ("long",@long
-ÕâÊÇÒ»´óË®³Ø¡£Ò»ÕóÎ¢·ç´µ¹ý£¬Ë®ÖÐºÊÒ¶Ëæ·çÔÚË®ÃæÉÏÆ¯¸¡, Ë®Ãæ(mian)
-±Ì²¨Ó¿Æð£¬Ãî²»¿ÉÑÔ¡£Ë®³ØÖÐÑëÓÐÒ»×ù¼ÙÉ½£¬ÆäÖÐµÄÊ¯¶´ÊÇºÜ¶àµÄ£¬Ê¹ÈËÈÌ²»
-×¡ÏëÌ½¸ö¾¿¾¹¡£
+è¿™æ˜¯ä¸€å¤§æ°´æ± ã€‚ä¸€é˜µå¾®é£Žå¹è¿‡ï¼Œæ°´ä¸­èå¶éšé£Žåœ¨æ°´é¢ä¸Šæ¼‚æµ®, æ°´é¢(mian)
+ç¢§æ³¢æ¶Œèµ·ï¼Œå¦™ä¸å¯è¨€ã€‚æ°´æ± ä¸­å¤®æœ‰ä¸€åº§å‡å±±ï¼Œå…¶ä¸­çš„çŸ³æ´žæ˜¯å¾ˆå¤šçš„ï¼Œä½¿äººå¿ä¸
+ä½æƒ³æŽ¢ä¸ªç©¶ç«Ÿã€‚
 long);
-	set("outdoors","ÂüÙ¢ÂÞÉ½×¯");
+	set("outdoors","æ›¼ä½—ç½—å±±åº„");
 	set("item_desc",([
-		"mian" : "Ë®Ãæ·º×ÅÁ°äô£¬ÉÁË¸×Åµãµã¹âÁÁ£¬¼¸Ö»òßòÑÂäÔÚºÉ»¨ÉÏ¡£\n"
+		"mian" : "æ°´é¢æ³›ç€æ¶Ÿæ¼ªï¼Œé—ªçƒç€ç‚¹ç‚¹å…‰äº®ï¼Œå‡ åªèœ»èœ“è½åœ¨è·èŠ±ä¸Šã€‚\n"
 	]));
 	set("exits", ([
              "west" : __DIR__"xiaojing7",
@@ -33,15 +33,15 @@ int do_jump(string arg)
 	object me;
 	me = this_player();
 	if (arg !="shuichi")
-		return notify_fail("ÄãÒªµ½ÄÇÈ¥£¿\n");
+		return notify_fail("ä½ è¦åˆ°é‚£åŽ»ï¼Ÿ\n");
           
 	if (me->query_dex()<17) 
-		write("ÄãÊÔÍ¼Ìø¹ýË®³Ø£¬ÎÞÄÎÉí·¨²»¹»Ãô½Ý£¬Ö»ºÃ×ö°Õ¡£\n");
+		write("ä½ è¯•å›¾è·³è¿‡æ°´æ± ï¼Œæ— å¥ˆèº«æ³•ä¸å¤Ÿæ•æ·ï¼Œåªå¥½åšç½¢ã€‚\n");
 	else {
-		write("Äã×ÝÉíÌø¹ýÁËË®³Ø,Âäµ½ÁË¼ÙÉ½ÉÏ¡£\n");
-		message("vision", me->name() + "Ò»×ÝÉíÔ½¹ýÁËË®³Ø¡£\n", environment(me), ({me}) );
+		write("ä½ çºµèº«è·³è¿‡äº†æ°´æ± ,è½åˆ°äº†å‡å±±ä¸Šã€‚\n");
+		message("vision", me->name() + "ä¸€çºµèº«è¶Šè¿‡äº†æ°´æ± ã€‚\n", environment(me), ({me}) );
 		me->move(__DIR__"jiashan");
-		message("vision", me->name() + "´ÓË®³Ø±ßÔ¾ÁËÉÏÀ´¡£\n", environment(me), ({me}) );
+		message("vision", me->name() + "ä»Žæ°´æ± è¾¹è·ƒäº†ä¸Šæ¥ã€‚\n", environment(me), ({me}) );
 		return 1;
 	}
 }
@@ -51,11 +51,11 @@ int do_clean(string arg)
 	object me = this_player();
 	object ob;                             
 	if (! (ob = present("paper", me)) || userp(ob))
-		return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
-	if (arg != "paper" && arg != "Ö½¾í") 
-		return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
-	write("Äã²»¾­ÒâµÄ°ÑÖ½¾í¶ªµ½Ë®³ØÖÐ¡£\n",me);
-	write("Ö½¾í½¥½¥¸É¾»ÁË£¬ÏÔ³öÁËÒ»ÐÐÐÐÐ¡×Ö¡£\n", me);
+		return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
+	if (arg != "paper" && arg != "çº¸å·") 
+		return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
+	write("ä½ ä¸ç»æ„çš„æŠŠçº¸å·ä¸¢åˆ°æ°´æ± ä¸­ã€‚\n",me);
+	write("çº¸å·æ¸æ¸å¹²å‡€äº†ï¼Œæ˜¾å‡ºäº†ä¸€è¡Œè¡Œå°å­—ã€‚\n", me);
 	destruct(ob);
 	ob = new(resolve_path(0, __DIR__"../obj/paper1.c"));
 	ob->move(me);

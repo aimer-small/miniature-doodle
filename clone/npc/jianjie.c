@@ -1,14 +1,14 @@
-// jianjie ¼ò½Ý
+// jianjie ç®€æ·
 // Lklv modify 2001.9.27
 
 inherit NPC;
 void create()
 {
-	set_name("¼ò½Ý", ({ "jian jie", "jian" }));
-	set("nickname", "Ê¥ÊÖåÈÀ¶");
-	set("long", "ÈýÊ®À´ËêµÄÑù×Ó£¬Ò»Ë«ÑÛ¾¦Î¢Î¢ÃÐ·ì¡£\n"
-			"¾ÝËµÒ»Éí¹¦·òºÜÊÇÁËµÃ¡£\n");
-	set("gender", "ÄÐÐÔ");
+	set_name("ç®€æ·", ({ "jian jie", "jian" }));
+	set("nickname", "åœ£æ‰‹è¿¦è“");
+	set("long", "ä¸‰åæ¥å²çš„æ ·å­ï¼Œä¸€åŒçœ¼ç›å¾®å¾®çœ¯ç¼ã€‚\n"
+			"æ®è¯´ä¸€èº«åŠŸå¤«å¾ˆæ˜¯äº†å¾—ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 36);
 	set("attitude", "peaceful");
 	set("shen", -10000);
@@ -44,7 +44,7 @@ void create()
 	map_skill("staff", "tianshan-zhang");
 	prepare_skill("cuff", "wudang-quan");
 
-//	create_family("", 2, "µÜ×Ó");
+//	create_family("", 2, "å¼Ÿå­");
 
 	setup();
 	carry_object(BINGQI_D("gangzhang"))->wield();

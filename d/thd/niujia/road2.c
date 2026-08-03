@@ -4,12 +4,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÍÁÂ·");
+	set("short", "åœŸè·¯");
 	set("long", @LONG
-Ò»Ìõ½¼ÍâµÄÍÁÂ·£¬¶«ÄÏ·½ÓĞ×ÅÒ»×ùĞ¡Ğ¡µÄ´åÂä¡£
+ä¸€æ¡éƒŠå¤–çš„åœŸè·¯ï¼Œä¸œå—æ–¹æœ‰ç€ä¸€åº§å°å°çš„æ‘è½ã€‚
 LONG
 	);
-	set("outdoors","Å£¼Ò´å");
+	set("outdoors","ç‰›å®¶æ‘");
 
 	set("exits", ([
 		"northwest": "/d/group/entry/thdroad1",

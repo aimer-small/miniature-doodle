@@ -71,12 +71,12 @@ nomask int update_condition()
 nomask void apply_condition(string cnd, mixed info)
 {
     string c_type;
-    //�츳��ǧ�����ˡ�Ӱ��Ч����  by lsxk@hsbbs  2008/3/16
+    //天赋“千古奇人”影响效果：  by lsxk@hsbbs  2008/3/16
     if(this_object()->query("relife/recover/qgqr")){
         c_type = call_other(load_object(CONDITION_D(cnd)), "query_type", this_object());
         if (c_type == "poison"){
             info -= info * (int)this_object()->query("relife/recover/qgqr",1) * 10 / 100;
-            message_vision(HIB"���ϵ�$N�������ⶾ��֮�츳����󽵵��˸��඾�صĶ���Ч��!\n"NOR,this_object());
+            message_vision(HIB"哪料到$N竟有驱解毒素之天赋，大大降低了各类毒素的毒性效果!\n"NOR,this_object());
         }
     }
 

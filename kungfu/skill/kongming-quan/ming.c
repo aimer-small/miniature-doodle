@@ -5,7 +5,7 @@
 
 inherit F_SSERVER;
 
-string perform_name(){ return HIC"Ã÷"NOR; }
+string perform_name(){ return HIC"æ˜"NOR; }
 
 int perform(object me,object target)
 {
@@ -13,21 +13,21 @@ int perform(object me,object target)
 	
 	if (!target) target = offensive_target(me);
 	if (!target || !me->is_fighting(target))
-		return notify_fail("¡°Ã÷¡±×Ö¾÷Ö»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");                
+		return notify_fail("â€œæ˜â€å­—è¯€åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");                
 
 	if (me->query_skill("kongming-quan", 1) < 150)
-		return notify_fail("ÄãµÄ¿ÕÃ÷È­ÉĞ²»´¿Êì£¬»¹²»ÄÜÊ¹ÓÃ¡°Ã÷¡±×Ö¾÷¡£\n");        
+		return notify_fail("ä½ çš„ç©ºæ˜æ‹³å°šä¸çº¯ç†Ÿï¼Œè¿˜ä¸èƒ½ä½¿ç”¨â€œæ˜â€å­—è¯€ã€‚\n");        
 	if (me->query("neili") < 1000)
-		return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»×ã£¬²»ÄÜÊ¹ÓÃ¡°Ã÷¡±×Ö¾÷£¡\n");
+		return notify_fail("ä½ ç°åœ¨å†…åŠ›ä¸è¶³ï¼Œä¸èƒ½ä½¿ç”¨â€œæ˜â€å­—è¯€ï¼\n");
 //	if (me->query_temp("kongming/kong"))
-//		return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡°¿Õ¡±×Ö¾÷£¡\n");      
+//		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨â€œç©ºâ€å­—è¯€ï¼\n");      
     if (!me->query("quest/jiebai/pass"))
-        return notify_fail("ÄãÃ»ÓĞºÍÖÜ²®Í¨½áÒå£¬²»ÄÜÊ¹ÓÃ¡°Ã÷¡±×Ö¾÷¡£\n");
+        return notify_fail("ä½ æ²¡æœ‰å’Œå‘¨ä¼¯é€šç»“ä¹‰ï¼Œä¸èƒ½ä½¿ç”¨â€œæ˜â€å­—è¯€ã€‚\n");
 	if (me->query_temp("kongming/ming"))
-		return notify_fail("ÄãÕıÔÚÊ¹ÓÃ¡°Ã÷¡±×Ö¾÷£¡\n");      
-	message_vision(HIW"\n$N³¤Ğ¥Ò»Éù£¬È­·¨¶¸È»¼Ó¿ì£¬Ë«ÊÖÈ­ÕĞÔ´Ô´¶ø³ö¡£\n"NOR, me);
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨â€œæ˜â€å­—è¯€ï¼\n");      
+	message_vision(HIW"\n$Né•¿å•¸ä¸€å£°ï¼Œæ‹³æ³•é™¡ç„¶åŠ å¿«ï¼ŒåŒæ‰‹æ‹³æ‹›æºæºè€Œå‡ºã€‚\n"NOR, me);
 	me->add("neili", -300); 
-	me->start_perform(4,"¡°Ã÷¡±×Ö¾÷");
+	me->start_perform(4,"â€œæ˜â€å­—è¯€");
 	me->set_temp("kongming/ming", 1);
 	call_out("remove_effect", me->query_skill("kongming-quan",1)/10, me);
 	return 1;
@@ -38,6 +38,6 @@ void remove_effect(object me)
 	if (objectp(me)) 
 	{
 		me->delete_temp("kongming/ming");
-		tell_object(me, HIW"\nÄãÈ­·¨Ò»ÖÏ£¬³öÊÖ²»ÓÉµÃÂıÁËÏÂÀ´¡£\n"NOR);
+		tell_object(me, HIW"\nä½ æ‹³æ³•ä¸€çª’ï¼Œå‡ºæ‰‹ä¸ç”±å¾—æ…¢äº†ä¸‹æ¥ã€‚\n"NOR);
 	}
 }

@@ -4,11 +4,11 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÓñĞéÉ¢ÈË", ({ "yuxu sanren", "yuxu", "sanren" }));
-        set("title", "ÓñĞé¹ÛÖ÷³Ö");
-        set("long", "ÕâÊÇÒ»¸öÖĞÄêµÀ¹Ã£¬µ«ÈİÑÕÇÎÀö£¬ÂÔ´øĞ©°§³î¡£\n");
-        set("gender", "Å®ĞÔ");
-        set("rank_info/respect", "µÀ¹Ã");
+        set_name("ç‰è™šæ•£äºº", ({ "yuxu sanren", "yuxu", "sanren" }));
+        set("title", "ç‰è™šè§‚ä¸»æŒ");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªä¸­å¹´é“å§‘ï¼Œä½†å®¹é¢œä¿ä¸½ï¼Œç•¥å¸¦äº›å“€æ„ã€‚\n");
+        set("gender", "å¥³æ€§");
+        set("rank_info/respect", "é“å§‘");
         set("age", 37);
         set("attitude","friendly");
         set("str", 30);

@@ -37,7 +37,7 @@ int main(object me, string arg)
 	if ( !arg || 
 	 ( sscanf(arg,"%s at %s %s",str,dir,cmd)<3 && sscanf(arg,"%s %s %s",str,dir,cmd)<3 &&
 	   sscanf(arg,"%s at %s",str,dir)<2        && sscanf(arg,"%s %s",str,dir)<2 ) )
-		return notify_fail("ָ���ʽ ��grep <�ַ���> <������Ŀ¼> [����]\n           grep <�ַ���> at <������Ŀ¼> [����]\n");
+		return notify_fail("指令格式 ：grep <字符串> <档案或目录> [参数]\n           grep <字符串> at <档案或目录> [参数]\n");
 		
 	if ( str=="InPuT" && dir=="iNpUt" && use ) {
 		input_to("donext",me);
@@ -49,11 +49,11 @@ int main(object me, string arg)
 		return 1;
 	}
 	
-	if( use ) return notify_fail("grep ָ������ʹ���У����Ժ����ԡ�\n");
+	if( use ) return notify_fail("grep 指令正在使用中，请稍后再试。\n");
 
 	cwd = (string)me->query("cwd");
 	if( file_size(dir)==-1 && file_size( (dir = cwd+dir) )==-1 ) {
-		return notify_fail("û�����������Ŀ¼��\n");
+		return notify_fail("没有这个档案或目录。\n");
 	}
 	else if( file_size(dir)==-2 ) {
 		if ( dir[<1]!='/' ) dir += "/";
@@ -93,12 +93,12 @@ int main(object me, string arg)
 				cmds[i] = replace_string(cmds[i],"t","");
 				dt = explode(cmds[i],"|");
 				if(sizeof(dt)<1) { 
-					tell_object(me,"grep: ʱ���ʽ���󣬺���-t������\n"); 
+					tell_object(me,"grep: 时间格式错误，忽略-t参数！\n"); 
 					continue; 
 				}
 				if(sizeof(dt)==1) {
 					if(sscanf(dt[0],"%d:%d:%d",th,tm,ts)<3) { 
-						tell_object(me,"grep: ʱ���ʽ���󣬺���-t������\n");
+						tell_object(me,"grep: 时间格式错误，忽略-t参数！\n");
 						continue;
 					}
 					nd = localtime(time());
@@ -108,7 +108,7 @@ int main(object me, string arg)
 				}
 				else {
 					if( sscanf(dt[0],"%d/%d/%d",dy,dm,dd)<3 || sscanf(dt[1],"%d:%d:%d",th,tm,ts)<3 ) {
-						tell_object(me,"grep: ʱ���ʽ���󣬺���-t������\n"); 
+						tell_object(me,"grep: 时间格式错误，忽略-t参数！\n"); 
 						continue; 
 					}
 				}
@@ -141,7 +141,7 @@ int mktime(int year,int mon,int day,int hour,int min,int sec)
 		year -= 1;
 	}
 	
-	hour -= 8; // �й���ʱ��
+	hour -= 8; // 中国的时区
 
 	return ((( (year/4 - year/100 + year/400 + 367*mon/12 + day) + year*365 - 719499
 		)*24 + hour /* now have hours */
@@ -228,7 +228,7 @@ void searchdir(object me)
 	} 
 	else {
 		reset_grep();
-		tell_object(me,"\n����������\n");
+		tell_object(me,"\n搜索结束。\n");
 	}
 }
 
@@ -280,7 +280,7 @@ void searchstr(object me)
 		
 		if ( mp["count"] >= page_line ) {
 			mp["count"] = 0;
-			tell_object(me,"== δ����� == (ENTER ������һҳ��q �뿪)");
+			tell_object(me,"== 未完继续 == (ENTER 继续下一页，q 离开)");
 			me->force_me("grep2 InPuT iNpUt");
 			return;
 		}
@@ -308,7 +308,7 @@ void donext(string arg,object me)
 		call_out("searchstr",0,me);
 	}
 	else {
-		tell_object(me,"\n��ѯ��ֹ��\n");
+		tell_object(me,"\n查询终止。\n");
 		reset_grep();
 	}
 }
@@ -317,30 +317,30 @@ int help(object me)
 {
 write(@HELP
 
-�����޵���Ͱ� grep   
+超级无敌泥巴版 grep   
 by augx@sj   10/19/2001
 
-ָ���ʽ : grep <�ַ���> <������Ŀ¼> [����]
-      ��   grep <�ַ���> at <������Ŀ¼> [����]
+指令格式 : grep <字符串> <档案或目录> [参数]
+      或   grep <字符串> at <档案或目录> [参数]
  
-���ܣ��ڵ�����Ѱ��ָ�����ַ���������Ŀ¼��Ѱ��ָ�����ļ���
+功能：在档案中寻找指定的字符串，或在目录中寻找指定的文件。
 
-����˵����
-    -f  Ѱ���ļ���
-    -d  ��ʾ��������Ŀ¼
-    -u  ��Сд�޹�
-    -pd ��ҳ��ʾ��dΪÿҳ��ʾ�����У�ȱʡΪ20��
-    -t  ����ʱ���������˲�������-f��������ʱ����Ч���ҽ���
-        ���ļ�������ʽ��y/m/d|h:m:s�� ���û���������ڣ�ȱ
-        ʡ����Ϊʱ��Ϊ���졣
-        ���磺grep2 time / -f-t2001/10/18|20:11:25
-              ���Ӹ�Ŀ¼��ʼ������������޸�ʱ������2001��
-              10��18��20��11��25����ļ���
+参数说明：
+    -f  寻找文件名
+    -d  显示搜索过的目录
+    -u  大小写无关
+    -pd 分页显示，d为每页显示多少行，缺省为20行
+    -t  按照时间搜索，此参数仅当-f参数设置时才有效，且将忽
+        略文件名。格式：y/m/d|h:m:s， 如果没有设置日期，缺
+        省将认为时间为当天。
+        例如：grep2 time / -f-t2001/10/18|20:11:25
+              将从根目录开始搜索所有最后修改时间晚于2001年
+              10月18日20点11分25秒的文件。
 
-���ϲ������Ե���ʹ�ã����磺-d-u-p25
+以上参数可以叠加使用，例如：-d-u-p25
 
-ע�⣺������ͬʱֻ��һ��ʹ�ã�ʹ�ñ���������ӵ�о����ĵ���
-      Ŀ¼��һ����Σ���ԡ�
+注意：本命令同时只供一人使用，使用本命令搜索拥有巨型文档的
+      目录有一定的危险性。
 HELP
 	);
 	return 1;

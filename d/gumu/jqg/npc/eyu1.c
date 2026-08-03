@@ -1,17 +1,17 @@
-// eyu.c 鳄鱼
+// eyu.c 槌勯奔
 // By River 99.5.25
 inherit NPC;
 
 void create()
 {
-        set_name("鳄鱼", ({ "e yu", "e", "yu" }));
-        set("race", "野兽");
+        set_name("槌勯奔", ({ "e yu", "e", "yu" }));
+        set("race", "閲庡吔");
         set("age", 20);
-        set("long", "一条庞大无比鳄鱼，浑身长着像铁甲般的鳞片。\n");
+        set("long", "涓�鏉″簽澶ф棤姣旈硠楸硷紝娴戣韩闀跨潃鍍忛搧鐢茶埇鐨勯碁鐗囥�俓n");
         set("str", 70);
         set("con", 50);
         set("max_qi", 800);
-        set("limbs", ({ "头部", "身体", "尾巴", "嘴巴"}) );
+        set("limbs", ({ "澶撮儴", "韬綋", "灏惧反", "鍢村反"}) );
         set("verbs", ({ "bite" }));
         set("combat_exp", 300000);
 

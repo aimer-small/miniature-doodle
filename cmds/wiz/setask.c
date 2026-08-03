@@ -1,7 +1,7 @@
 //setask.c 
 //for set ask
 // /cmds/wiz/setask.c
-// Ï£Íûcp µ½immÏÂ ²»È»Å¼¾ÍÃ»µÃÓÃÁË 
+// å¸Œæœ›cp åˆ°immä¸‹ ä¸ç„¶å¶å°±æ²¡å¾—ç”¨äº† 
 
 #define TONG "/clone/npc/tong"
 object get_player(string arg);
@@ -20,19 +20,19 @@ int main(object me, string arg)
 	
 	if(!arg) return help(me);
 	if (wiz_level(me) < 3 && getuid(me)!="ciwei" )
-		return notify_fail("Ö»ÓĞ wizard µÈ¼¶ÒÔÉÏÎ×Ê¦²Å¿ÉÒÔÊ¹ÓÃ´ËÖ¸Áî¡£\n");
-	if(!objectp(tong = get_tong())) return notify_fail("ÍòÊÂÍ¨ÉĞÎ´¸´ÖÆ¡£ÎŞ·¨Í¨Ñ¶¡£\n");
+		return notify_fail("åªæœ‰ wizard ç­‰çº§ä»¥ä¸Šå·«å¸ˆæ‰å¯ä»¥ä½¿ç”¨æ­¤æŒ‡ä»¤ã€‚\n");
+	if(!objectp(tong = get_tong())) return notify_fail("ä¸‡äº‹é€šå°šæœªå¤åˆ¶ã€‚æ— æ³•é€šè®¯ã€‚\n");
 	ask = tong->query_ask();
 	if(sscanf( arg,"delete %s",arg) == 1  )
 	{
-		if(mapp(ask) && !mapp(ask[arg])) return notify_fail("Ã»ÓĞ´Ëask¡£\n");
+		if(mapp(ask) && !mapp(ask[arg])) return notify_fail("æ²¡æœ‰æ­¤askã€‚\n");
 		if( tong->delete_ask(arg))
 		{
-			write("É¾³ıOK¡£\n");
+			write("åˆ é™¤OKã€‚\n");
 			update_tong();
 			return 1;
 		}
-		return notify_fail("ĞŞ¸ÄÊ§°Ü¡£\n");
+		return notify_fail("ä¿®æ”¹å¤±è´¥ã€‚\n");
 	}	
 	if(mapp(ask) && mapp(ask[arg]) && stringp(ask[arg]["word"]))
 	{
@@ -43,12 +43,12 @@ int main(object me, string arg)
 		{
 			if( answer[i]["word"]==ask[arg]["word"]) same +=","+top[i];
 		}
-		if(same != "" && same != (","+arg)) write("´æÔÚÓë¸ÃaskÏàÍ¬»Ø´ğ"+same+"  Çë×îºÃÒ»²¢ĞŞ¸Ä¡£\n");
-		write("ask "+arg+" µÄÄÚÈİÒÑ¾­´æÔÚ£¬ÒªÌæ»»Ã´£¿[Y\\N]\n");
+		if(same != "" && same != (","+arg)) write("å­˜åœ¨ä¸è¯¥askç›¸åŒå›ç­”"+same+"  è¯·æœ€å¥½ä¸€å¹¶ä¿®æ”¹ã€‚\n");
+		write("ask "+arg+" çš„å†…å®¹å·²ç»å­˜åœ¨ï¼Œè¦æ›¿æ¢ä¹ˆï¼Ÿ[Y\\N]\n");
 		input_to("config_set",me,arg,tong);
 		return 1;
 	}
-	write("ÊäÈë»Ø´ğµÄÄÚÈİ(ÊäÈëq È¡Ïû)£º\n");
+	write("è¾“å…¥å›ç­”çš„å†…å®¹(è¾“å…¥q å–æ¶ˆ)ï¼š\n");
 	input_to("get_msg_select", me,arg,tong);
 	return 1;
 }
@@ -56,12 +56,12 @@ void config_set(string get,object me,string arg,object tong)
 {
 	if( get == "Y" || get =="y" || get[0]=='y' || get[0]=='Y' ) 
 	{
-		write("ÊäÈë»Ø´ğµÄÄÚÈİ£º\n");
+		write("è¾“å…¥å›ç­”çš„å†…å®¹ï¼š\n");
 		input_to("get_msg_select", me,arg,tong);
 		return;
 	}
 	else {
-	write("·ÅÆúĞŞ¸Ä¡£\n");
+	write("æ”¾å¼ƒä¿®æ”¹ã€‚\n");
 	return;
 	}
 }
@@ -69,13 +69,13 @@ void get_msg_select(string get,object me,string arg,object tong)
 {
 	mapping def = allocate_mapping(3);
 	if(!stringp(get) || get == "Q" || get =="q" || get =="" ) {
-	write("·ÅÆúĞŞ¸Ä¡£\n");
+	write("æ”¾å¼ƒä¿®æ”¹ã€‚\n");
 	return;
 	}
 	def["word"]=get;
 	def["semote"]="";
 	def["updated"]="";
-	write("ÊäÈë»Ø´ğºóÖ´ĞĞµÄsemote(Ö±½Ó»Ø³µ ±íÊ¾²»×öÈÎºÎsemote):\n");
+	write("è¾“å…¥å›ç­”åæ‰§è¡Œçš„semote(ç›´æ¥å›è½¦ è¡¨ç¤ºä¸åšä»»ä½•semote):\n");
 	input_to("get_semote_select", me,arg,def,tong);
 	return;	
 }
@@ -86,10 +86,10 @@ void get_semote_select(string get,object me,string arg,mapping def,object tong)
 	if(!stringp(get)) get = "";
 	if (!tong->set_ask(arg,def))
 	{
-	write("ĞŞ¸ÄÊ§°Ü¡£\n");
+	write("ä¿®æ”¹å¤±è´¥ã€‚\n");
 	return;
 	}
-	write("ĞŞ¸ÄÍê³É¡£\n");
+	write("ä¿®æ”¹å®Œæˆã€‚\n");
 	update_tong();
 	return;	
 }
@@ -137,11 +137,11 @@ void update_tong()
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºsetask xxx
+æŒ‡ä»¤æ ¼å¼ï¼šsetask xxx
 
-ÕâÌõÃüÁîÊÇÓÃÀ´ÉèÖÃÍòÊÂÍ¨×Ô¶¯»Ø´ğµÄ¡£
+è¿™æ¡å‘½ä»¤æ˜¯ç”¨æ¥è®¾ç½®ä¸‡äº‹é€šè‡ªåŠ¨å›ç­”çš„ã€‚
 
-Èç¹ûĞèÒª»»ĞĞ ÓÃ textn
+å¦‚æœéœ€è¦æ¢è¡Œ ç”¨ textn
 ...
 HELP
 	);

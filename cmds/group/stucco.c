@@ -7,14 +7,14 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : stucco/fenshua [·¿¼ä±êÌâ]
-·¿¼ä±êÌâ³¤¶ÈÎª2ÖÁ10¸öºº×Ö£¬¿ÉÒÔ¼ÓÈëÑÕÉ«×Ö´®¡£
-·¿¼äÃèÊöµÚÒ»ÐÐ×î¶à32¸öºº×Ö£¬ÒÔÏÂÒ»ÐÐ×î¶à34¸öºº×Ö£¬¿ÉÒÔÊ¹ÓÃÑÕÉ«×Ö´®£¬
-ÑÕÉ«×Ö´®²»°üÀ¨ÔÚ34¸öºº×ÖµÄÕýÎÄ³¤¶ÈÖÐ¡£ÑÕÉ«×Ö´®µÄÊ¹ÓÃ·½·¨Í¬nick£¬Çë²Î
-¼Óhelp nick¡£Ò»¼ä·¿¼ä×î¶àÆßÐÐÃèÊö£¬Çë¾¡Á¿Ê¹ÓÃÖÐÎÄ£¬²¢×¢Òâ¸ñÊ½ÕûÆë¡£
-·ÛË¢·¿¼äÐèÒªÊ¯»Ò(shi hui)¡£
+æŒ‡ä»¤æ ¼å¼ : stucco/fenshua [æˆ¿é—´æ ‡é¢˜]
+æˆ¿é—´æ ‡é¢˜é•¿åº¦ä¸º2è‡³10ä¸ªæ±‰å­—ï¼Œå¯ä»¥åŠ å…¥é¢œè‰²å­—ä¸²ã€‚
+æˆ¿é—´æè¿°ç¬¬ä¸€è¡Œæœ€å¤š32ä¸ªæ±‰å­—ï¼Œä»¥ä¸‹ä¸€è¡Œæœ€å¤š34ä¸ªæ±‰å­—ï¼Œå¯ä»¥ä½¿ç”¨é¢œè‰²å­—ä¸²ï¼Œ
+é¢œè‰²å­—ä¸²ä¸åŒ…æ‹¬åœ¨34ä¸ªæ±‰å­—çš„æ­£æ–‡é•¿åº¦ä¸­ã€‚é¢œè‰²å­—ä¸²çš„ä½¿ç”¨æ–¹æ³•åŒnickï¼Œè¯·å‚
+åŠ help nickã€‚ä¸€é—´æˆ¿é—´æœ€å¤šä¸ƒè¡Œæè¿°ï¼Œè¯·å°½é‡ä½¿ç”¨ä¸­æ–‡ï¼Œå¹¶æ³¨æ„æ ¼å¼æ•´é½ã€‚
+ç²‰åˆ·æˆ¿é—´éœ€è¦çŸ³ç°(shi hui)ã€‚
 
-£¡£¡£¡×¢Òâ£¡£¡£¡ ÑÏ½ûÔÚÃèÊöÖÐÊ¹ÓÃ·´¶¯¡¢»ÆÉ«ÎÄ×Ö£¬Ò»¾­·¢ÏÖ½«ÑÏËà´¦Àí¡£
+ï¼ï¼ï¼æ³¨æ„ï¼ï¼ï¼ ä¸¥ç¦åœ¨æè¿°ä¸­ä½¿ç”¨ååŠ¨ã€é»„è‰²æ–‡å­—ï¼Œä¸€ç»å‘çŽ°å°†ä¸¥è‚ƒå¤„ç†ã€‚
 
 HELP
 	);
@@ -28,22 +28,22 @@ int main(object me, string arg)
 
 	if( !arg ) return help(me);
 	if( !env || !base_name(env) )
-		return notify_fail("ÄãÎÞ·¨·ÛË¢ÏÖÔÚËùÔÚµÄµØ·½¡£\n");
+		return notify_fail("ä½ æ— æ³•ç²‰åˆ·çŽ°åœ¨æ‰€åœ¨çš„åœ°æ–¹ã€‚\n");
 	if( !me->query("group/class") )
-		return notify_fail("Äã»¹Ã»ÓÐ²Î¼Ó°ï»á£¬·ÛË¢Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰å‚åŠ å¸®ä¼šï¼Œç²‰åˆ·ä»€ä¹ˆï¼Ÿ\n");
 	if( env->query("group1") != me->query("group/id") )
-		return notify_fail("ÄãÖ»ÄÜ·ÛË¢×Ô¼ºµÄ°ï»áÖÐµÄ·¿ÎÝºÍµÀÂ·¡£\n");
+		return notify_fail("ä½ åªèƒ½ç²‰åˆ·è‡ªå·±çš„å¸®ä¼šä¸­çš„æˆ¿å±‹å’Œé“è·¯ã€‚\n");
 	if( !(material=present("shi hui",me)) || !material->query("group") )
-		return notify_fail("ÄãÃ»ÓÐÊ¯»Ò£¬ÈçºÎ·ÛË¢°¡¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰çŸ³ç°ï¼Œå¦‚ä½•ç²‰åˆ·å•Šã€‚\n");
 	if( !GROUP_D->site_now(me->query("group/id")) )
 		return notify_fail( GROUP_D->get_last_error() );
 
 	arg = GROUP_D->color_string(arg);
 	arg2 = strip(arg);
 	if( strlen(arg2)<4 || strlen(arg2)>20 )
-		return notify_fail("·¿¼ä±êÌâ³¤¶È²»·ûºÏ¹æ¶¨¡£\n");
+		return notify_fail("æˆ¿é—´æ ‡é¢˜é•¿åº¦ä¸ç¬¦åˆè§„å®šã€‚\n");
 
-	write("ÇëÊäÈë·¿¼äµÄÏêÏ¸ÃèÊö£º\n");
+	write("è¯·è¾“å…¥æˆ¿é—´çš„è¯¦ç»†æè¿°ï¼š\n");
 	me->edit( (: call_other, this_object(), "input_long" , me, arg :) );
 	return 1;
 }
@@ -59,21 +59,21 @@ void input_long(object me,string arg,string str)
 	material = present("shi hui",me);
 
 	str = GROUP_D->color_string(str);
-	str = replace_string(str ,"\"", "²»¿ÉÓÃ×Ö·û");
+	str = replace_string(str ,"\"", "ä¸å¯ç”¨å­—ç¬¦");
 
 	lines = explode(str,"\n");
 	i = sizeof(lines);
 	k = 0;
 	if( i > 7 ) i = 7; else k = 1;
 	if( i < 1 ) {
-		tell_object(me,"ÄãÒª°ÑÕâÀï·ÛË¢³ÉÊ²Ã´Ñù×Ó£¿\n");
+		tell_object(me,"ä½ è¦æŠŠè¿™é‡Œç²‰åˆ·æˆä»€ä¹ˆæ ·å­ï¼Ÿ\n");
 		return;
 	}
 
 	str = "";
 	for(j=0;j<i;j++) {
 		if( strlen( strip(lines[j]) ) > (j==0?64:68) ) {
-			tell_object(me,sprintf("µÚ%dÐÐ³¤¶È³¬¹ýÏÞÖÆ£¬ÇëÖØÐÂÊäÈë¡£\n",j+1));
+			tell_object(me,sprintf("ç¬¬%dè¡Œé•¿åº¦è¶…è¿‡é™åˆ¶ï¼Œè¯·é‡æ–°è¾“å…¥ã€‚\n",j+1));
 			return;
 		}
 		str += lines[j];
@@ -87,11 +87,11 @@ void input_long(object me,string arg,string str)
 		env->query("group1"),env->query("group2"),
 		env->query("outdoors")?0:1, env->query("have_board") )
 	) {
-		tell_object(me,"Ð´ÎÄ¼þ´íÎó£¬Çë±¨¸æÎ×Ê¦£¡\n");
+		tell_object(me,"å†™æ–‡ä»¶é”™è¯¯ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 		return;
 	}
 
-	message_vision("$N¿ªÊ¼ÓÃ"+material->name()+"·ÛË¢"+(env->query("outdoors")?"µÀÂ·":"·¿ÎÝ")+"¡­¡­\n",me);
+	message_vision("$Nå¼€å§‹ç”¨"+material->name()+"ç²‰åˆ·"+(env->query("outdoors")?"é“è·¯":"æˆ¿å±‹")+"â€¦â€¦\n",me);
 	if(material) destruct(material);
 	delay = 10;
 	if( wizardp(me) && me->query("env/test") ) delay = 2;
@@ -104,6 +104,6 @@ void input_long(object me,string arg,string str)
 void make_finish(object me,string file)
 {
 	if( !me ) return;
-	tell_object(me,"ÄãÃ¦ÂµÁË°ëÌì£¬×ÜËã·ÛË¢ºÃÁË¡£\n");
+	tell_object(me,"ä½ å¿™ç¢Œäº†åŠå¤©ï¼Œæ€»ç®—ç²‰åˆ·å¥½äº†ã€‚\n");
 	if( file && strlen(file)>3 ) GROUP_D->update_room(file);
 }

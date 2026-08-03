@@ -1,6 +1,6 @@
 // time.c
-// yuj@sj ¼ÓÉÏÊÀ½ç·¶Î§µÄÊ±¼ä£¬ºÍÏÄÁîÊ±¼ä£¬Ìì²ÅÉè¼Æ
-// Ôö¼ÓvipÏÔÊ¾ LinuX@SJ
+// yuj@sj åŠ ä¸Šä¸–ç•ŒèŒƒå›´çš„æ—¶é—´ï¼Œå’Œå¤ä»¤æ—¶é—´ï¼Œå¤©æ‰è®¾è®¡
+// å¢åŠ vipæ˜¾ç¤º LinuX@SJ
 
 #include <ansi.h>
 #include <mudlib.h>
@@ -11,25 +11,25 @@ string Ctime(int t)
 	string ts = ctime(t);
 
 	ts = " "+ts[0..2]+ts[19..23]+"-"+ts[4..6]+"-"+ts[8..9]+ts[10..18];
-	ts = replace_string(ts, "Sun", "ĞÇÆÚÈÕ");
-	ts = replace_string(ts, "Mon", "ĞÇÆÚÒ»");
-	ts = replace_string(ts, "Tue", "ĞÇÆÚ¶ş");
-	ts = replace_string(ts, "Wed", "ĞÇÆÚÈı");
-	ts = replace_string(ts, "Thu", "ĞÇÆÚËÄ");
-	ts = replace_string(ts, "Fri", "ĞÇÆÚÎå");
-	ts = replace_string(ts, "Sat", "ĞÇÆÚÁù");
-	ts = replace_string(ts, "Jan", "Ò»ÔÂ");
-	ts = replace_string(ts, "Feb", "¶şÔÂ");
-	ts = replace_string(ts, "Mar", "ÈıÔÂ");
-	ts = replace_string(ts, "Apr", "ËÄÔÂ");
-	ts = replace_string(ts, "May", "ÎåÔÂ");
-	ts = replace_string(ts, "Jun", "ÁùÔÂ");
-	ts = replace_string(ts, "Jul", "ÆßÔÂ");
-	ts = replace_string(ts, "Aug", "°ËÔÂ");
-	ts = replace_string(ts, "Sep", "¾ÅÔÂ");
-	ts = replace_string(ts, "Oct", "Ê®ÔÂ");
-	ts = replace_string(ts, "Nov", "Ê®Ò»ÔÂ");
-	ts = replace_string(ts, "Dec", "Ê®¶şÔÂ");
+	ts = replace_string(ts, "Sun", "æ˜ŸæœŸæ—¥");
+	ts = replace_string(ts, "Mon", "æ˜ŸæœŸä¸€");
+	ts = replace_string(ts, "Tue", "æ˜ŸæœŸäºŒ");
+	ts = replace_string(ts, "Wed", "æ˜ŸæœŸä¸‰");
+	ts = replace_string(ts, "Thu", "æ˜ŸæœŸå››");
+	ts = replace_string(ts, "Fri", "æ˜ŸæœŸäº”");
+	ts = replace_string(ts, "Sat", "æ˜ŸæœŸå…­");
+	ts = replace_string(ts, "Jan", "ä¸€æœˆ");
+	ts = replace_string(ts, "Feb", "äºŒæœˆ");
+	ts = replace_string(ts, "Mar", "ä¸‰æœˆ");
+	ts = replace_string(ts, "Apr", "å››æœˆ");
+	ts = replace_string(ts, "May", "äº”æœˆ");
+	ts = replace_string(ts, "Jun", "å…­æœˆ");
+	ts = replace_string(ts, "Jul", "ä¸ƒæœˆ");
+	ts = replace_string(ts, "Aug", "å…«æœˆ");
+	ts = replace_string(ts, "Sep", "ä¹æœˆ");
+	ts = replace_string(ts, "Oct", "åæœˆ");
+	ts = replace_string(ts, "Nov", "åä¸€æœˆ");
+	ts = replace_string(ts, "Dec", "åäºŒæœˆ");
 	return ts;
 }
 
@@ -40,7 +40,7 @@ string SYDtime(int t)
 	if ( (lt[4] > 9 || lt[4] < 2)
 	  || (lt[4] == 9 && lt[3] - 24 > lt[6])	// Last Sunday
 	  || (lt[4] == 2 && lt[3] - 25 < lt[6])	// Last Sunday
-	) return Ctime(t+3600)+" (ÏÄÁîÊ±¼ä)";
+	) return Ctime(t+3600)+" (å¤ä»¤æ—¶é—´)";
 	else return Ctime(t);
 }
 
@@ -51,7 +51,7 @@ string NZtime(int t)
 	if ( (lt[4] > 9 || lt[4] < 2)
 	  || (lt[4] == 9 && lt[3] > lt[6])	// First Sunday
 	  || (lt[4] == 2 && lt[3] - 5 < lt[6])	// First Sunday on or after 5
-	) return Ctime(t+3600)+" (ÏÄÁîÊ±¼ä)";
+	) return Ctime(t+3600)+" (å¤ä»¤æ—¶é—´)";
 	else return Ctime(t);
 }
 
@@ -62,7 +62,7 @@ string NAtime(int t)
 	if ( (lt[4] > 3 && lt[4] < 9)
 	  || (lt[4] == 3 && lt[3] > lt[6])	// First Sunday
 	  || (lt[4] == 9 && lt[3] - 25 < lt[6])	// Last Sunday
-	) return Ctime(t+3600)+" (ÏÄÁîÊ±¼ä)";
+	) return Ctime(t+3600)+" (å¤ä»¤æ—¶é—´)";
 	else return Ctime(t);
 }
 
@@ -73,7 +73,7 @@ string EUtime(int t)
 	if ( (lt[4] > 2 && lt[4] < 9)
 	  || (lt[4] == 2 && lt[3] - 24 > lt[6])	// Last Sunday
 	  || (lt[4] == 9 && lt[3] - 25 < lt[6])	// Last Sunday
-	) return Ctime(t+3600)+" (ÏÄÁîÊ±¼ä)";
+	) return Ctime(t+3600)+" (å¤ä»¤æ—¶é—´)";
 	else return Ctime(t);
 }
 void do_vip(object me)
@@ -88,39 +88,39 @@ void do_vip(object me)
 	if((me->query("vip/vip_time") > 1104508800) && end_time - time() > 0 && !me->query("vip/redeem") && site=="ln") //1104508800 January 1, 2005, 12:00 am
 	{
 		t1 = me->query("vip/vip_time") - time();
-		write(sprintf(HIY"ÄúµÄÉÏ´Î¹ó±ö%s£¬ÎªÁË²¹³¥ÁÉÄşÕ¾Ç°¶ÎÊ±¼äµÄµ±»úËğÊ§£¬ÌØÔö¼ÓÄã¹ó±ö15Ìì¡£\n"NOR,
-		(t1>0)?("Ê£ÓàÊ±¼ä£º"+CHINESE_D->chinese_time(t1)):"ÒÑ¾­µ½ÆÚ"));	
+		write(sprintf(HIY"æ‚¨çš„ä¸Šæ¬¡è´µå®¾%sï¼Œä¸ºäº†è¡¥å¿è¾½å®ç«™å‰æ®µæ—¶é—´çš„å½“æœºæŸå¤±ï¼Œç‰¹å¢åŠ ä½ è´µå®¾15å¤©ã€‚\n"NOR,
+		(t1>0)?("å‰©ä½™æ—¶é—´ï¼š"+CHINESE_D->chinese_time(t1)):"å·²ç»åˆ°æœŸ"));	
 		
 		if (t1>0)
 			me->add("vip/vip_time",15*24*3600);
 		else
 			me->set("vip/vip_time",time()+15*24*3600);
-		me->set("vip/redeem",1);//±ê¼Ç
+		me->set("vip/redeem",1);//æ ‡è®°
 		log_file("static/REDEEM",
-				sprintf("%s »ñµÃ¹ó±ö²¹³¥¡£\n",me->query("id")));
+				sprintf("%s è·å¾—è´µå®¾è¡¥å¿ã€‚\n",me->query("id")));
 	}
 		
 	t = me->query("vip/vip_time") - time();
 	if ( t > 0 && t < 86400)
-			write (HIY+"¹ó±öÊ£ÓàÊ±¼ä£º" +BLINK+HIR+CHINESE_D->chinese_time(t) + "£¬Çë¼°Ê±Ğø·Ñ¡£\n"+NOR);
+			write (HIY+"è´µå®¾å‰©ä½™æ—¶é—´ï¼š" +BLINK+HIR+CHINESE_D->chinese_time(t) + "ï¼Œè¯·åŠæ—¶ç»­è´¹ã€‚\n"+NOR);
 	else if (t > 0)
-			write (HIY"¹ó±öÊ£ÓàÊ±¼ä£º" +NOR+CHINESE_D->chinese_time(t) + "¡£\n");
+			write (HIY"è´µå®¾å‰©ä½™æ—¶é—´ï¼š" +NOR+CHINESE_D->chinese_time(t) + "ã€‚\n");
 	else if ((int)me->query("vip/vip_start_time") != 0)
-			write(HIY"¹ó±öÏµÍ³ÌáÊ¾£º"NOR"ÄúµÄ¹ó±öÓĞĞ§ÆÚÒÑ¾­µ½ÆÚ£¬Çë¼°Ê±Ğø·Ñ¡£\n");
+			write(HIY"è´µå®¾ç³»ç»Ÿæç¤ºï¼š"NOR"æ‚¨çš„è´µå®¾æœ‰æ•ˆæœŸå·²ç»åˆ°æœŸï¼Œè¯·åŠæ—¶ç»­è´¹ã€‚\n");
 	else
-			write (HIY"¹ó±öÏµÍ³ÌáÊ¾£º"NOR"ÄúÄ¿Ç°²»ÊÇ¹ó±ö£¬ÈçºÎ³ÉÎª¹ó±öÇë¿´( help vip )¡£\n");
+			write (HIY"è´µå®¾ç³»ç»Ÿæç¤ºï¼š"NOR"æ‚¨ç›®å‰ä¸æ˜¯è´µå®¾ï¼Œå¦‚ä½•æˆä¸ºè´µå®¾è¯·çœ‹( help vip )ã€‚\n");
 	if ( t > 0 && (me->query("registered") < 3 )) {
 		me->set("registered",3);
-		write (HBRED+HIY"ÄúµÄ¹ó±öÒÑ¾­¼¤»î£¡\n"NOR);
+		write (HBRED+HIY"æ‚¨çš„è´µå®¾å·²ç»æ¿€æ´»ï¼\n"NOR);
 	}
 	if ( t < 0 && (me->query("registered") > 2 )) {
                 	me->set("registered",2);
-                	write( HBRED+HIY"ÄúµÄ¹ó±öÒÑ¾­µ½ÆÚ£¬ÏµÍ³ÒÑ¾­×Ô¶¯È¡ÏûÄúµÄ¹ó±ö£¡\n"NOR);
+                	write( HBRED+HIY"æ‚¨çš„è´µå®¾å·²ç»åˆ°æœŸï¼Œç³»ç»Ÿå·²ç»è‡ªåŠ¨å–æ¶ˆæ‚¨çš„è´µå®¾ï¼\n"NOR);
        	 }
 	if ((int)me->query("vip/vip_start_time") != 0)
-		write (HIY"¹ó±öÉúĞ§Ê±¼ä£º"+ NOR+CHINESE_D->chinese_date(me->query("vip/vip_start_time"),1) +"¡£\n");	
+		write (HIY"è´µå®¾ç”Ÿæ•ˆæ—¶é—´ï¼š"+ NOR+CHINESE_D->chinese_date(me->query("vip/vip_start_time"),1) +"ã€‚\n");	
 	else
-		write (HIY"¹ó±öÉúĞ§Ê±¼ä£º"NOR"ÄúÃ»ÓĞ¹ó±öÉúĞ§Ê±¼ä¼ÇÂ¼¡£\n");
+		write (HIY"è´µå®¾ç”Ÿæ•ˆæ—¶é—´ï¼š"NOR"æ‚¨æ²¡æœ‰è´µå®¾ç”Ÿæ•ˆæ—¶é—´è®°å½•ã€‚\n");
 		
 	//For all Bug By Ciwei@SJ
 	while(me->query("ggs/left_time")>10*3600)
@@ -129,17 +129,17 @@ void do_vip(object me)
         if (me->query("registered") >= 3 && me->query("ggs/started") && me->query("ggs/start_time")){
 		t = time()-(int)me->query("ggs/start_time");
 		//me->set("ggs/left_time",me->query("ggs/left_time") - t);
-		if (me->query("ggs/left_time") < 0 ) //·ÀÖ¹bug
+		if (me->query("ggs/left_time") < 0 ) //é˜²æ­¢bug
 			me->set("ggs/left_time",0);
 		
-		write (HIY"¹í¹ÈËãÊõ×´Ì¬£º"NOR+"ÒÑ¾­Ê¹ÓÃ"+CHINESE_D->chinese_time(t) +",±¾ÖÜ»¹¿ÉÒÔÊ¹ÓÃ"+CHINESE_D->chinese_time(me->query("ggs/left_time") -t) +"¡£\n");	
+		write (HIY"é¬¼è°·ç®—æœ¯çŠ¶æ€ï¼š"NOR+"å·²ç»ä½¿ç”¨"+CHINESE_D->chinese_time(t) +",æœ¬å‘¨è¿˜å¯ä»¥ä½¿ç”¨"+CHINESE_D->chinese_time(me->query("ggs/left_time") -t) +"ã€‚\n");	
 	}
         else if(me->query("registered") < 3)
-		write (HIY"¹í¹ÈËãÊõ×´Ì¬£º"NOR+"Äã²»ÊÇ¹ó±ö£¬²»ÄÜÊ¹ÓÃ¹í¹ÈËãÊõ£¬ÈçºÎ³ÉÎª¹ó±öÇë¿´( help vip )¡£\n");	
+		write (HIY"é¬¼è°·ç®—æœ¯çŠ¶æ€ï¼š"NOR+"ä½ ä¸æ˜¯è´µå®¾ï¼Œä¸èƒ½ä½¿ç”¨é¬¼è°·ç®—æœ¯ï¼Œå¦‚ä½•æˆä¸ºè´µå®¾è¯·çœ‹( help vip )ã€‚\n");	
 	else if(this_week > me->query("ggs/last_week")) 
-		write (HIY"¹í¹ÈËãÊõ×´Ì¬£º"NOR+"µ±Ç°ÄãÃ»ÓĞ½øĞĞ¹í¹ÈËãÊõ£¬±¾ÖÜ»¹¿ÉÒÔÊ¹ÓÃÊ®¸öĞ¡Ê±¡£\n");		
+		write (HIY"é¬¼è°·ç®—æœ¯çŠ¶æ€ï¼š"NOR+"å½“å‰ä½ æ²¡æœ‰è¿›è¡Œé¬¼è°·ç®—æœ¯ï¼Œæœ¬å‘¨è¿˜å¯ä»¥ä½¿ç”¨åä¸ªå°æ—¶ã€‚\n");		
 	else
-		write (HIY"¹í¹ÈËãÊõ×´Ì¬£º"NOR+"µ±Ç°ÄãÃ»ÓĞ½øĞĞ¹í¹ÈËãÊõ£¬±¾ÖÜ»¹¿ÉÒÔÊ¹ÓÃ"+CHINESE_D->chinese_time(me->query("ggs/left_time")) + "¡£\n");	
+		write (HIY"é¬¼è°·ç®—æœ¯çŠ¶æ€ï¼š"NOR+"å½“å‰ä½ æ²¡æœ‰è¿›è¡Œé¬¼è°·ç®—æœ¯ï¼Œæœ¬å‘¨è¿˜å¯ä»¥ä½¿ç”¨"+CHINESE_D->chinese_time(me->query("ggs/left_time")) + "ã€‚\n");	
 	
 }
 
@@ -151,18 +151,18 @@ int main(object me, string arg)
 	if (!wizardp(me) || !arg) {
 		int GMT = time() + localtime(0)[8] + modify;
 
-		write("ÏÖÔÚÊÇÊé½£"+ NATURE_D->game_time() + "¡£\n");
-		write("Äú²ÎÓëÓÎÏ·µÄÖ÷»ú±±¾©Ê±¼äÊÇ" + Ctime(GMT+28800) + "\n");
-		write("                Ï¤ÄáÊ±¼äÊÇ" + SYDtime(GMT+36000) + "\n");
-		write("      °Â¿ËÀ¼¡¢»İÁé¶ÙÊ±¼äÊÇ" + NZtime(GMT+43200) + "\n");
-		write("      ÎÂ¸ç»ª¡¢ÂåÉ¼í¶Ê±¼äÊÇ" + NAtime(GMT-28800) + "\n");
-		write("        ¶àÂ×¶à¡¢Å¦Ô¼Ê±¼äÊÇ" + NAtime(GMT-18000) + "\n");
-		write("    °ØÁÖ¡¢ÂŞÂí¡¢°ÍÀèÊ±¼äÊÇ" + EUtime(GMT+3600) + "\n");
+		write("ç°åœ¨æ˜¯ä¹¦å‰‘"+ NATURE_D->game_time() + "ã€‚\n");
+		write("æ‚¨å‚ä¸æ¸¸æˆçš„ä¸»æœºåŒ—äº¬æ—¶é—´æ˜¯" + Ctime(GMT+28800) + "\n");
+		write("                æ‚‰å°¼æ—¶é—´æ˜¯" + SYDtime(GMT+36000) + "\n");
+		write("      å¥¥å…‹å…°ã€æƒ çµé¡¿æ—¶é—´æ˜¯" + NZtime(GMT+43200) + "\n");
+		write("      æ¸©å“¥åã€æ´›æ‰çŸ¶æ—¶é—´æ˜¯" + NAtime(GMT-28800) + "\n");
+		write("        å¤šä¼¦å¤šã€çº½çº¦æ—¶é—´æ˜¯" + NAtime(GMT-18000) + "\n");
+		write("    æŸæ—ã€ç½—é©¬ã€å·´é»æ—¶é—´æ˜¯" + EUtime(GMT+3600) + "\n");
 		
 		t = me->query_temp("online_time");
-		if (t > 0) write("ÄúÒÑ¾­Á¬ĞøÍæÁË"+CHINESE_D->chinese_time(t)+"¡£\n");
+		if (t > 0) write("æ‚¨å·²ç»è¿ç»­ç©äº†"+CHINESE_D->chinese_time(t)+"ã€‚\n");
 		t = me->query("online_total");
-		if (t > 0) write("Äã×î½üÍæÁË"+CHINESE_D->chinese_time(t)+"¡£\n");
+		if (t > 0) write("ä½ æœ€è¿‘ç©äº†"+CHINESE_D->chinese_time(t)+"ã€‚\n");
 	
 		do_vip(me);
 	} else if (arg != "-cond") {
@@ -175,7 +175,7 @@ int main(object me, string arg)
 			return 1;
 		}
 		me = LOGIN_D->find_body(arg);
-		if (!me) return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+		if (!me) return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
 	}
 
 
@@ -185,9 +185,9 @@ int main(object me, string arg)
 int help(object me)
 {
  	write(@HELP
-Ö¸Áî¸ñÊ½: time
+æŒ‡ä»¤æ ¼å¼: time
 
-Õâ¸öÖ¸ÁîÈÃÄã(Äã)ÖªµÀÏÖÔÚµÄÊ±³½ºÍÄúµÄÓÎÏ·¹ó±öÇé¿öºÍÉÏ´Î¹ó±öÉúĞ§Ê±¼ä¼ÇÂ¼¡£
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ (ä½ )çŸ¥é“ç°åœ¨çš„æ—¶è¾°å’Œæ‚¨çš„æ¸¸æˆè´µå®¾æƒ…å†µå’Œä¸Šæ¬¡è´µå®¾ç”Ÿæ•ˆæ—¶é—´è®°å½•ã€‚
 
 HELP
     );

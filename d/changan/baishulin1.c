@@ -6,14 +6,14 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "°ØÊ÷ÁÖ");
+        set("short", "æŸæ ‘æ—");
         set("long", @LONG
-ÕâÊÇÒ»Æ¬ÓôÓô´Ğ´ĞµÄ°ØÊ÷ÁÖ¡£Å¨ÃÜ¿íºñµÄÊ÷Ò¶ÕÚ±ÎÁËÈÕÔÂĞÇ³½£¬Ê¹ÈË·Ö²»
-³öÖçÒ¹¡£ËÄÏÂÈçËÀÒ»°ãµÄ¼Å¾²£¬Ö»ÓĞ·ç´µ¹ıÊ÷ÉÒµÄÉ³É³Ö®Éù¡£×ßµ½ÕâÀï£¬ÄãÅ¬
-Á¦µÄ±æÈÏ×ÅËÄÖÜµÄ·½Ïò£¬Ñ°ÕÒ³öÈ¥µÄÂ·¡£
+è¿™æ˜¯ä¸€ç‰‡éƒéƒè‘±è‘±çš„æŸæ ‘æ—ã€‚æµ“å¯†å®½åšçš„æ ‘å¶é®è”½äº†æ—¥æœˆæ˜Ÿè¾°ï¼Œä½¿äººåˆ†ä¸
+å‡ºæ˜¼å¤œã€‚å››ä¸‹å¦‚æ­»ä¸€èˆ¬çš„å¯‚é™ï¼Œåªæœ‰é£å¹è¿‡æ ‘æ¢¢çš„æ²™æ²™ä¹‹å£°ã€‚èµ°åˆ°è¿™é‡Œï¼Œä½ åŠª
+åŠ›çš„è¾¨è®¤ç€å››å‘¨çš„æ–¹å‘ï¼Œå¯»æ‰¾å‡ºå»çš„è·¯ã€‚
 LONG
         );
-        set("outdoors", "³¤°²");
+        set("outdoors", "é•¿å®‰");
 
         set("exits", ([
                 "east"   : __DIR__"baishulin1",
@@ -35,35 +35,35 @@ int valid_leave(object me, string dir)
         if( me->query_temp("ca_bsl") > 20 + random(10) ) {
                 me->move(__DIR__"shihuangling");
                 me->delete_temp("ca_bsl");
-                return notify_fail("Äã×ªÀ´×ªÈ¥£¬ÑÛÇ°ÖÕÓÚ¿´²»µ½°ØÊ÷ÁË¡£\n");
+                return notify_fail("ä½ è½¬æ¥è½¬å»ï¼Œçœ¼å‰ç»ˆäºçœ‹ä¸åˆ°æŸæ ‘äº†ã€‚\n");
                 }
         }
         if( dir =="west") {
         if( me->query_temp("ca_bsl") > 20 + random(10) ) {
                 me->move(__DIR__"beilin");
                 me->delete_temp("ca_bsl");
-                return notify_fail("Äã×ªÀ´×ªÈ¥£¬ÑÛÇ°ÖÕÓÚ¿´²»µ½°ØÊ÷ÁË¡£\n");
+                return notify_fail("ä½ è½¬æ¥è½¬å»ï¼Œçœ¼å‰ç»ˆäºçœ‹ä¸åˆ°æŸæ ‘äº†ã€‚\n");
                 }
         }
         if( dir =="southeast") {
         if( me->query_temp("ca_bsl") > 20 + random(10) ) {
                 me->move(__DIR__"baishulin2");
                 me->delete_temp("ca_bsl");
-                return notify_fail("Äã×ªÀ´×ªÈ¥£¬·¢ÏÖÑÛÇ°ÒÀÈ»ÊÇÒ»Æ¬ÃÜÃÜÂéÂé°ØÊ÷¡£\n");
+                return notify_fail("ä½ è½¬æ¥è½¬å»ï¼Œå‘ç°çœ¼å‰ä¾ç„¶æ˜¯ä¸€ç‰‡å¯†å¯†éº»éº»æŸæ ‘ã€‚\n");
                 }
         }
         if( dir =="southwest") {
         if( me->query_temp("ca_bsl") > 20 + random(10) ) {
                 me->move(__DIR__"changjie2");
                 me->delete_temp("ca_bsl");
-                return notify_fail("Äã×ªÀ´×ªÈ¥£¬ÑÛÇ°ÖÕÓÚ¿´²»µ½°ØÊ÷ÁË¡£\n");
+                return notify_fail("ä½ è½¬æ¥è½¬å»ï¼Œçœ¼å‰ç»ˆäºçœ‹ä¸åˆ°æŸæ ‘äº†ã€‚\n");
                 }
         }
         if( dir =="north") {
         if( me->query_temp("ca_bsl") > 20 + random(10) ) {
                 me->move(__DIR__"xiaoyanta1");
                 me->delete_temp("ca_bsl");
-                return notify_fail("Äã×ªÀ´×ªÈ¥£¬ÑÛÇ°ÖÕÓÚ¿´²»µ½°ØÊ÷ÁË¡£\n");
+                return notify_fail("ä½ è½¬æ¥è½¬å»ï¼Œçœ¼å‰ç»ˆäºçœ‹ä¸åˆ°æŸæ ‘äº†ã€‚\n");
                 }
         }
         return ::valid_leave(me,dir);

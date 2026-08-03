@@ -1,17 +1,17 @@
-// /d/wudang/shuitan.c  Ë®Ì¶
+// /d/wudang/shuitan.c  æ°´æ½­
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short",HIB"Ë®Ì¶"NOR);
+        set("short",HIB"æ°´æ½­"NOR);
         set("long", @LONG
-ÕâÊÇÒ»±ÌÂÌË®Ì¶£¬Ì¶Ë®Çå³º£¬Ë®º®´Ì¹Ç£¬ºÃÏó»¹ÓĞÊ²Ã´¶«Î÷ÔÚÒ§ÄãµÄ½ÅÖº£¬
-»¹ÊÇ¸Ï¿ìÅÀÉÏ°¶°É¡£
+è¿™æ˜¯ä¸€ç¢§ç»¿æ°´æ½­ï¼Œæ½­æ°´æ¸…æ¾ˆï¼Œæ°´å¯’åˆºéª¨ï¼Œå¥½è±¡è¿˜æœ‰ä»€ä¹ˆä¸œè¥¿åœ¨å’¬ä½ çš„è„šè¶¾ï¼Œ
+è¿˜æ˜¯èµ¶å¿«çˆ¬ä¸Šå²¸å§ã€‚
 LONG                           
         );
-	set("outdoors", "Îäµ±");
+	set("outdoors", "æ­¦å½“");
         setup();
 
 }
@@ -26,11 +26,11 @@ int do_pa(string arg)
 {       object me;
         me=this_player();
         if ( !arg || arg != "up" )
-            return notify_fail("ÄãÓÃ¹·ÅÀÊ½ÔÚË®ÀïÓÎÀ´ÓÎÈ¥!\n");
+            return notify_fail("ä½ ç”¨ç‹—çˆ¬å¼åœ¨æ°´é‡Œæ¸¸æ¥æ¸¸å»!\n");
         if (present("lianxin shi", me))
-            return notify_fail("Äã¸ººÉÌ«ÖØ£¬ÎŞ·¨ÅÀÉÏ°¶!\n");
+            return notify_fail("ä½ è´Ÿè·å¤ªé‡ï¼Œæ— æ³•çˆ¬ä¸Šå²¸!\n");
 
-         message_vision("$N»ëÉíÊªÍ¸£¬ÂäÌÀ¼¦ËÆµØÅÀÉÏÁË°¶¡£\n", me);
+         message_vision("$Næµ‘èº«æ¹¿é€ï¼Œè½æ±¤é¸¡ä¼¼åœ°çˆ¬ä¸Šäº†å²¸ã€‚\n", me);
          me->move(__DIR__"caihong");
      return 1;
 }
@@ -39,16 +39,16 @@ int do_qian(string arg)
 {       object me;
         me=this_player();
         if ( !arg || (arg != "down"))
-            return notify_fail("ÄãÏóÌõÓã°ãÔÚË®ÀïÓÎÀ´ÓÎÈ¥!\n");
+            return notify_fail("ä½ è±¡æ¡é±¼èˆ¬åœ¨æ°´é‡Œæ¸¸æ¥æ¸¸å»!\n");
 
         if (arg =="down") {
            if (! present("lianxin shi", me))
-              return notify_fail("ÓÉÓÚÖØÁ¦²»¹»£¬ÄãÎŞ·¨ÏÂÇ±!\n");
-          message_vision("$NÒ»¸öÃÍÔÔ£¬Ç±ÁËÏÂÈ¥¡£\n", me);
+              return notify_fail("ç”±äºé‡åŠ›ä¸å¤Ÿï¼Œä½ æ— æ³•ä¸‹æ½œ!\n");
+          message_vision("$Nä¸€ä¸ªçŒ›æ ½ï¼Œæ½œäº†ä¸‹å»ã€‚\n", me);
           me->receive_damage("jingli", 60-(int)me->query_skill("dodge", 1)/20);
           me->move(__DIR__"tandi1");
           me->apply_condition("diving",1);
-          tell_room(environment(me), me->name() + "´ÓÉÏÃæÇ±ÁËÏÂÀ´¡£\n", ({ me }));
+          tell_room(environment(me), me->name() + "ä»ä¸Šé¢æ½œäº†ä¸‹æ¥ã€‚\n", ({ me }));
           return 1;
           }
 
@@ -57,7 +57,7 @@ int do_qian(string arg)
 /*void drop_ob(object obj)
 {    drop_ob(obj);
   if objectp(present(obj, environment(me)))
-    { message_vision(HIY"$N½¥½¥ÏòÌ¶µ×³ÁÈ¥¡£\n"NOR, obj);
+    { message_vision(HIY"$Næ¸æ¸å‘æ½­åº•æ²‰å»ã€‚\n"NOR, obj);
       destruct(obj);
     }
 }

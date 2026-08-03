@@ -8,13 +8,13 @@ int do_climb();
 
 void create()
 {
-	  set("short", "·ö·åÉ½");
+	  set("short", "æ‰¶å³°å±±");
 	  set("long", @LONG
-·ö·åÉ½¼«¸ßÇÒÊ®·Ö¶¸ÇÍ£¬É½ÑüÒÔÉÏ¾¡Ã»ÈëÃ£Ã£ÔÆº££¬·å¶¥ÖÕÄê»ýÑ©£¬É½Ñü
-ÒÔÏÂÈ´ÊÇÓôÓô²Ô²Ô£¬ÁÖÄ¾Ã¯ÃÜ£¬»¨ÍÅ½õ´Ø£¬´ºÒâÀÃÂþ
+æ‰¶å³°å±±æžé«˜ä¸”ååˆ†é™¡å³­ï¼Œå±±è…°ä»¥ä¸Šå°½æ²¡å…¥èŒ«èŒ«äº‘æµ·ï¼Œå³°é¡¶ç»ˆå¹´ç§¯é›ªï¼Œå±±è…°
+ä»¥ä¸‹å´æ˜¯éƒéƒè‹è‹ï¼Œæž—æœ¨èŒ‚å¯†ï¼ŒèŠ±å›¢é”¦ç°‡ï¼Œæ˜¥æ„çƒ‚æ¼«
 LONG
 	  );
-	  set("outdoors", "À¥ÂØ");
+	  set("outdoors", "æ˜†ä»‘");
 
 	  set("exits", ([
 		 "enter" : __DIR__"houyuan.c",
@@ -22,7 +22,7 @@ LONG
 	  ]));
 
 	  set("no_clean_up",0);
-          create_door("enter", "Ð¡ÃÅ", "out", DOOR_CLOSED);
+          create_door("enter", "å°é—¨", "out", DOOR_CLOSED);
 	  setup();
 }
 
@@ -38,14 +38,14 @@ int do_climb()
           if( random((int)me->query_skill("dodge",1)) <= 30){
 		 me->receive_damage("qi", 50);
 		 me->receive_wound("qi", 50);
-		 message_vision(HIR"$NÒ»²»Ð¡ÐÄ½ÅÏÂÌ¤ÁË¸ö¿Õ... °¡...£¡\n"NOR, me);
+		 message_vision(HIR"$Nä¸€ä¸å°å¿ƒè„šä¸‹è¸äº†ä¸ªç©º... å•Š...ï¼\n"NOR, me);
 		 me->move(__DIR__"fufengshan.c");
-		 tell_object(me,HIR"Äã´ÓÉ½ÉÏ¹öÁËÏÂÀ´£¬Ö»¾õµÃ»ëÉíÎÞ´¦²»ÌÛ£¬»¹ÊÜÁË¼¸´¦ÉË¡£\n"NOR);
-                 message("vision",HIR"Ö»¼û" + me->query("name")+"´ÓÉ½ÉÏ¹ÇÂµÂµµØ¹öÁËÏÂÀ´£¬ÌÉÔÚµØÉÏ°ëÌìÅÀ²»ÆðÀ´£¡\n"NOR, environment(me), ({me}));
+		 tell_object(me,HIR"ä½ ä»Žå±±ä¸Šæ»šäº†ä¸‹æ¥ï¼Œåªè§‰å¾—æµ‘èº«æ— å¤„ä¸ç–¼ï¼Œè¿˜å—äº†å‡ å¤„ä¼¤ã€‚\n"NOR);
+                 message("vision",HIR"åªè§" + me->query("name")+"ä»Žå±±ä¸Šéª¨ç¢Œç¢Œåœ°æ»šäº†ä¸‹æ¥ï¼Œèººåœ¨åœ°ä¸ŠåŠå¤©çˆ¬ä¸èµ·æ¥ï¼\n"NOR, environment(me), ({me}));
   		 return 1;
 	  }
 
-	  message("vision",me->name() + "ÌáÒ»¿ÚÕæÆø£¬×ã¼âÁ¬µãÊýÏÂ£¬·¢×ãÏòÉ½ÉÏ±¼È¥¡£\n",environment(me), ({me}) );
+	  message("vision",me->name() + "æä¸€å£çœŸæ°”ï¼Œè¶³å°–è¿žç‚¹æ•°ä¸‹ï¼Œå‘è¶³å‘å±±ä¸Šå¥”åŽ»ã€‚\n",environment(me), ({me}) );
 	  me->move(__DIR__"sanshengao.c");
  	  return 1;
 }

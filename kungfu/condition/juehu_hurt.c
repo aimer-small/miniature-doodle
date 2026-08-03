@@ -6,12 +6,12 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {  
 	if( !living(me))
-		message("vision", me->name() + "»ëÉíÒ»Õó¶ßàÂ£¬ÀäµÃÑÀ³Ý¡¸¿©¿©¡¹Ïì¡£\n", environment(me), me);
+		message("vision", me->name() + "æµ‘èº«ä¸€é˜µå“†å—¦ï¼Œå†·å¾—ç‰™é½¿ã€Œå’¯å’¯ã€å“ã€‚\n", environment(me), me);
 	else {
-		tell_object(me, HIB "ÄãºöÈ»¸Ðµ½ÌåÄÚ¾«ÔªÁ÷Ð¹£¬Í·»è³Á³ÁµÄ¡£\n" NOR );
-		message("vision", HIB+ me->name(1) + "Í»È»Á½ÍÈ·¢Èí£¬Á½ÊÖ±§³ÉÒ»ÍÅ£¬ÀäµÃÖ±·¢¶¶¡£\n"NOR, environment(me), me);
+		tell_object(me, HIB "ä½ å¿½ç„¶æ„Ÿåˆ°ä½“å†…ç²¾å…ƒæµæ³„ï¼Œå¤´æ˜æ²‰æ²‰çš„ã€‚\n" NOR );
+		message("vision", HIB+ me->name(1) + "çªç„¶ä¸¤è…¿å‘è½¯ï¼Œä¸¤æ‰‹æŠ±æˆä¸€å›¢ï¼Œå†·å¾—ç›´å‘æŠ–ã€‚\n"NOR, environment(me), me);
 	}
-	me->receive_wound("jing", 50 , "¾«Ôª¿Ý½ß¶ø");
+	me->receive_wound("jing", 50 , "ç²¾å…ƒæž¯ç«­è€Œ");
 	me->add_busy(2);
 	me->apply_condition("juehu_hurt", duration - 1);
 	if( duration < 2 ) return 0;

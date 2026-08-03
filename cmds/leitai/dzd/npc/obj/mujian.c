@@ -8,19 +8,19 @@ inherit SWORD;
 
 void create()
 {
-	set_name("Ì´ÏãÄ¾½£",({"tanxiang mujian","mujian","jian","sword"}));
+	set_name("æª€é¦™æœ¨å‰‘",({"tanxiang mujian","mujian","jian","sword"}));
 	set_weight(1000);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit","±ú");
+		set("unit","æŸ„");
 		set("value",1000);
 		set("meterial","wood");
              set("dzd",1);
 
-		set("long","ÕâÊÇÒ»°ÑÓÉÆæöìÏãÄ¾ÖÆ³ÉµÄÄ¾½££¬½£ÈĞµ­»Æ£¬ÒşÒşÎÅµ½Ò»¹Éµ­µ­µÄÏãÆø¡£\n");
-		set("wield_msg",HIY"$NÇáÆ®Æ®µÄ³é³öÒ»°ÑÌ´ÏãÄ¾½££¬Ëæ¼´Ò»¹Éµ­µ­µÄÏãÆøÔÚËÄÖÜÃÖÂş¿ªÀ´¡£\n"NOR);
-		set("unwield_msg",HIY"$NÇáÇáµÄ½«½£²åÈëÇÊÖĞ£¬ÏãÆøÒ²ÂıÂıµÄµ­ÁË¡£\n"NOR);
+		set("long","è¿™æ˜¯ä¸€æŠŠç”±å¥‡é²®é¦™æœ¨åˆ¶æˆçš„æœ¨å‰‘ï¼Œå‰‘åˆƒæ·¡é»„ï¼Œéšéšé—»åˆ°ä¸€è‚¡æ·¡æ·¡çš„é¦™æ°”ã€‚\n");
+		set("wield_msg",HIY"$Nè½»é£˜é£˜çš„æŠ½å‡ºä¸€æŠŠæª€é¦™æœ¨å‰‘ï¼Œéšå³ä¸€è‚¡æ·¡æ·¡çš„é¦™æ°”åœ¨å››å‘¨å¼¥æ¼«å¼€æ¥ã€‚\n"NOR);
+		set("unwield_msg",HIY"$Nè½»è½»çš„å°†å‰‘æ’å…¥é˜ä¸­ï¼Œé¦™æ°”ä¹Ÿæ…¢æ…¢çš„æ·¡äº†ã€‚\n"NOR);
 	}
 	init_sword(100);
 	setup();

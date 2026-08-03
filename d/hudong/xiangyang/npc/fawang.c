@@ -11,14 +11,14 @@ int pfm_riyue();
 void create()
 {
         object weapon;
-        set_name("½ðÂÖ·¨Íõ", ({ "jinlun fawang", "jinlunfawang","fawang" ,"jinlun","fanfang"}));
+        set_name("é‡‘è½®æ³•çŽ‹", ({ "jinlun fawang", "jinlunfawang","fawang" ,"jinlun","fanfang"}));
         set("long",@LONG
-ËûÉí²Ä¸ßÊÝ£¬Á³¼ÕÉîÏÝ£¬Ë«Ä¿¿´ËÆÎÞÉñ£¬Á½±ßÌ«ÑôÑ¨È´¸ß¸ßÍ¹Æð£¬ÃæÈÝÑÏËà¡£
-ËûÊÜ·â¡°ÃÉ¹Å¹úµÚÒ»¹úÊ¦¡±£¬Á·µÃÒ»ÉíÍ¨Ìì³¹µØµÄÉñ¹¦¡£
+ä»–èº«æé«˜ç˜¦ï¼Œè„¸é¢Šæ·±é™·ï¼ŒåŒç›®çœ‹ä¼¼æ— ç¥žï¼Œä¸¤è¾¹å¤ªé˜³ç©´å´é«˜é«˜å‡¸èµ·ï¼Œé¢å®¹ä¸¥è‚ƒã€‚
+ä»–å—å°â€œè’™å¤å›½ç¬¬ä¸€å›½å¸ˆâ€ï¼Œç»ƒå¾—ä¸€èº«é€šå¤©å½»åœ°çš„ç¥žåŠŸã€‚
 LONG
         );
-        set("title", HIY "ÃÉ¹Å¹úµÚÒ»¹úÊ¦" NOR);
-        set("gender", "ÄÐÐÔ");
+        set("title", HIY "è’™å¤å›½ç¬¬ä¸€å›½å¸ˆ" NOR);
+        set("gender", "ç”·æ€§");
         set("class", "huanxi");
         set("age", 65);
         set("attitude", "friendly");
@@ -29,7 +29,7 @@ LONG
         set("dex", 34);
         set("per", 22);
 
-        set("unique", 1);  //Î¨Ò»ÐÔ
+        set("unique", 1);  //å”¯ä¸€æ€§
 
         set("max_qi", 200000);
         set("max_jing", 20000);
@@ -63,7 +63,7 @@ LONG
         prepare_skill("hand","dashou-yin");
         prepare_skill("claw","tianwang-zhua");
 
-        create_family("´óÂÖËÂ", 10, "µÜ×Ó");
+        create_family("å¤§è½®å¯º", 10, "å¼Ÿå­");
         set("inquiry", ([
                
                 
@@ -74,7 +74,7 @@ LONG
         }) );
 
         set("max_cure",5);
-        set_temp("»¥¶¯ÈÎÎñ/ÏåÑô´óÕ½/ÕóÓª",2);
+        set_temp("äº’åŠ¨ä»»åŠ¡/è¥„é˜³å¤§æˆ˜/é˜µè¥",2);
 
         set("class", "huanxi");
      
@@ -124,7 +124,7 @@ int pfm_wushuai()
                 command("perform wushuai");
                 if(random(10) > 5){
                         set("jiali", 200);
-                //      command("unwield falun"); //×ª¿ÕÊÖpfm
+                //      command("unwield falun"); //è½¬ç©ºæ‰‹pfm
                 }
                 return 1;
         }
@@ -154,7 +154,7 @@ int pfm_riyue()
                 command("perform riyue");
                 if(random(10) > 5){
                         set("jiali", 200);
-                //      command("unwield falun"); //×ª¿ÕÊÖpfm
+                //      command("unwield falun"); //è½¬ç©ºæ‰‹pfm
                 }
                 return 1;
         }

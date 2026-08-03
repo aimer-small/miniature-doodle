@@ -4,9 +4,9 @@
 inherit ROOM;
 void create()
 {
-	set("short", "Ò°µØ");
+	set("short", "é‡Žåœ°");
 	set("long", @LONG
-	ÕâÀïÊÇÒ»´¦¹ÅÕ½³¡µÄÒÅ¼££¬Èç½ñ»ÄÂÒ²»¿°Ò°²Ý´ÔÉú£¬´«ÑÔÓÐ½©Ê¬³öÃ»£¬º¦ÈËÐÔÃü¡£
+	è¿™é‡Œæ˜¯ä¸€å¤„å¤æˆ˜åœºçš„é—è¿¹ï¼Œå¦‚ä»Šè’ä¹±ä¸å ªé‡Žè‰ä¸›ç”Ÿï¼Œä¼ è¨€æœ‰åƒµå°¸å‡ºæ²¡ï¼Œå®³äººæ€§å‘½ã€‚
 
 LONG
 	);
@@ -23,8 +23,8 @@ LONG
 int valid_leave(object me, string dir)
 {
 	if (dir == "east" && (int)me->query("age") < 18 && !wizardp(me))
-		return notify_fail("Ð¡ÅóÓÑ²»Òªµ½ÄÇÖÖµØ·½È¥£¡£¡\n");
+		return notify_fail("å°æœ‹å‹ä¸è¦åˆ°é‚£ç§åœ°æ–¹åŽ»ï¼ï¼\n");
 	return 1;
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

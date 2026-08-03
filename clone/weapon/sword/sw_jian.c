@@ -1,4 +1,4 @@
-// sw_jian.c ËÉÎÆ¹Å½£
+// sw_jian.c æ¾çº¹å¤å‰‘
 // by Looklove 2000/8/25 for a quest
 
 #include <weapon.h>
@@ -8,20 +8,20 @@ inherit SWORD;
 
 void create()
 {
-        set_name(HIG"ËÉÎÆ¹Å½£"NOR,({ "songwen jian", "songwen gujian", "jian","sword" }) );
+        set_name(HIG"æ¾çº¹å¤å‰‘"NOR,({ "songwen jian", "songwen gujian", "jian","sword" }) );
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
+                set("unit", "æŸ„");
                 set("material", "wood");
                 set("rigidity", 1);
                 set("weapon_prop/parry", 1);
                 set("weapon_prop/sword", 1);
-                set("no_drop","Ê¦¸µ¸øµÄ½££¬²»ÄÜËæ±ã¶ªÆú¡£\n");
-                set("no_give","Ê¦¸µµÄ½£¸ø±ğÈË£¬¿ÖÅÂ²»ºÃ°É£¿\n");
-                set("wield_msg", HIC"$N×ÔÑü¼ä³éÒ»°Ñ$n"+HIC+"£¬ÎèÁË¸ö½£»¨¡£\n"NOR);
-                set("unwield_msg", HIC"$NÉñÉ«×ÔÈôµØ½«$n"+HIC+"Ğ±¹ÒÔÚÑü¼ä¡£\n"NOR);
+                set("no_drop","å¸ˆå‚…ç»™çš„å‰‘ï¼Œä¸èƒ½éšä¾¿ä¸¢å¼ƒã€‚\n");
+                set("no_give","å¸ˆå‚…çš„å‰‘ç»™åˆ«äººï¼Œææ€•ä¸å¥½å§ï¼Ÿ\n");
+                set("wield_msg", HIC"$Nè‡ªè…°é—´æŠ½ä¸€æŠŠ$n"+HIC+"ï¼Œèˆäº†ä¸ªå‰‘èŠ±ã€‚\n"NOR);
+                set("unwield_msg", HIC"$Nç¥è‰²è‡ªè‹¥åœ°å°†$n"+HIC+"æ–œæŒ‚åœ¨è…°é—´ã€‚\n"NOR);
         }
          init_sword(120);
      
@@ -40,13 +40,13 @@ int i,j;
 if (!me || !interactive(me) || !living(me))   
 		return 0;
 
-if( me->query("family/family_name") != "Îäµ±ÅÉ")
+if( me->query("family/family_name") != "æ­¦å½“æ´¾")
                 return 0;
 
 new_name = me->query("env/swj");
 
 
-if(new_name && strlen(new_name) == 6 &&new_name[4..5] == "½£" )  set("name",HBBLU + new_name + NOR);
+if(new_name && strlen(new_name) == 6 &&new_name[4..5] == "å‰‘" )  set("name",HBBLU + new_name + NOR);
 
 i = me->query("combat_exp")/ 200000; 
 
@@ -57,7 +57,7 @@ i = me->query("combat_exp")/ 200000;
    if (j > 100)  j = 100;
 
    ob_desc =
-            sprintf("½£ÉÏ¿Ì×ÅÒ»ĞĞĞ¡×Ö£ºÎäµ±ÃØ²Ø,ÕÅÈı·áÔùµÜ×Ó%s(%s)ÅåÓÃ,¼û´ËÎïÈç¼ûÈıÇåÊÀ×ğ¡£\n",me->query("name"),me->query("id"));
+            sprintf("å‰‘ä¸Šåˆ»ç€ä¸€è¡Œå°å­—ï¼šæ­¦å½“ç§˜è—,å¼ ä¸‰ä¸°èµ å¼Ÿå­%s(%s)ä½©ç”¨,è§æ­¤ç‰©å¦‚è§ä¸‰æ¸…ä¸–å°Šã€‚\n",me->query("name"),me->query("id"));
  
 set("long",ob_desc);
 set("rigidity", 5);
@@ -67,8 +67,8 @@ set("owner", me->query("id"));
 
 /*//------------------------------------------------
 
-ÕâÀï¸ù¾İÍæ¼ÒµÄ±ê¼ÇÀ´È¡µÃ×°±¸µÄ±ê¼Ç
-Õâ¸ö±ê¼ÇÍ³Ò»ÒÔÎäÆ÷»òÕß×°±¸µÄidÀ´¼ÇÂ¼
+è¿™é‡Œæ ¹æ®ç©å®¶çš„æ ‡è®°æ¥å–å¾—è£…å¤‡çš„æ ‡è®°
+è¿™ä¸ªæ ‡è®°ç»Ÿä¸€ä»¥æ­¦å™¨æˆ–è€…è£…å¤‡çš„idæ¥è®°å½•
 */
 if( me->query("songwen gujian"))
 {

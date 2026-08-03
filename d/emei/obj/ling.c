@@ -1,17 +1,17 @@
-// ling.c ¸«Í·
+// ling.c æ–§å¤´
 
 #include <weapon.h>
 inherit AXE;
 
 void create()
 {
-        set_name("¶ëáÒÁîÅÆ", ({ "ling" }));
+        set_name("å³¨åµ‹ä»¤ç‰Œ", ({ "ling" }));
         set_weight(5000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "°Ñ");
-                set("long", "ÕâÊÇÒ»°Ñ¶ëáÒÅÉºÅÁîµÜ×ÓµÄÁîÅÆ¡£\n");
+                set("unit", "æŠŠ");
+                set("long", "è¿™æ˜¯ä¸€æŠŠå³¨åµ‹æ´¾å·ä»¤å¼Ÿå­çš„ä»¤ç‰Œã€‚\n");
                 set("value", 1500);
                 set("rigidity",100);
                 set("material", "steel");

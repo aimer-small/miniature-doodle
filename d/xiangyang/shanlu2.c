@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ɽ��С·");
+	set("short", "山间小路");
 	set("long", @LONG
-������һ�����Ѷ��ϵ�ɽ��С·�ϣ�����ʮ�ֻ�����ǰ�治Զ������
-һЩС���֣���������С·ͨ���������
+你走在一条蜿蜒而上的山间小路上，这里十分荒凉，前面不远处就是
+一些小树林，南面有条小路通向树林深处。
 LONG
 	);
-        set("outdoors", "����");
+        set("outdoors", "襄阳");
         set("xyjob", 1);
 	set("exits", ([
 		"northdown" : __DIR__"shanlu1",

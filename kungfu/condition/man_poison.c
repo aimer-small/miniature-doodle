@@ -5,12 +5,12 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {         
 
-     tell_object(me, HIB "ÄãÍ»È»¾õµÃÎ¢Î¢Í·ÔÎ£¬»ëÉíÎÞÁ¦£¬ÎÞ·¨ÔÙÄý¾ÛÄÚÏ¢£¡\n" NOR );
-      tell_room(environment(me), HIB + me->name()+"ÃæÉ«²Ô°×£¬ÑÛÉñÎÉÂÒ£¬½ÅÏÂµøµø×²×²£¡\n" NOR,                
+     tell_object(me, HIB "ä½ çªç„¶è§‰å¾—å¾®å¾®å¤´æ™•ï¼Œæµ‘èº«æ— åŠ›ï¼Œæ— æ³•å†å‡èšå†…æ¯ï¼\n" NOR );
+      tell_room(environment(me), HIB + me->name()+"é¢è‰²è‹ç™½ï¼Œçœ¼ç¥žç´Šä¹±ï¼Œè„šä¸‹è·Œè·Œæ’žæ’žï¼\n" NOR,                
       ({ me }));             
     me->receive_damage("qi", 25);      
     me->receive_wound("jing", 25);
-    me->set_temp("last_damage_from", "ÖÐÂûÍÓÂÜ»¨¶¾");      
+    me->set_temp("last_damage_from", "ä¸­è”“é™€èèŠ±æ¯’");      
     me->apply_condition("man_poison", duration - 1);   
     if( duration < 1 ) return 0;   
     return CND_CONTINUE;

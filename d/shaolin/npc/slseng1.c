@@ -7,17 +7,17 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÊØÂÉÉ®", ({
+	set_name("å®ˆå¾‹åƒ§", ({
 		"shoulu seng",
 		"seng",
 		"shoulu",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Éí²Ä¸ß´óµÄÖĞÄêÉ®ÈË£¬Á½±Û´Ö×³£¬°òÀ«ÑüÔ²¡£ËûÊÖ³Ö±ø\n"
-		"ÈĞ£¬Éí´©Ò»Ï®»Ò²¼Ïâ±ßôÂôÄ£¬ËÆºõÓĞÒ»ÉíÎäÒÕ¡£\n"
+		"ä»–æ˜¯ä¸€ä½èº«æé«˜å¤§çš„ä¸­å¹´åƒ§äººï¼Œä¸¤è‡‚ç²—å£®ï¼Œè†€é˜”è…°åœ†ã€‚ä»–æ‰‹æŒå…µ\n"
+		"åˆƒï¼Œèº«ç©¿ä¸€è¢­ç°å¸ƒé•¶è¾¹è¢ˆè£Ÿï¼Œä¼¼ä¹æœ‰ä¸€èº«æ­¦è‰ºã€‚\n"
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 	set("class", "bonze");
 
@@ -76,7 +76,7 @@ void init()
 		if ( ob->query("guilty") == 1 )
 		{
 			if ( random(2) ==1 )
-			command("say "+ob->name()+"£¬ÄãÕâ·ğÃÅ°ÜÀà£¬ÄÄÀïÌÓ£¡ »¹²»ËÙµ½½äÂÉÔºÁì×ï£¡");
+			command("say "+ob->name()+"ï¼Œä½ è¿™ä½›é—¨è´¥ç±»ï¼Œå“ªé‡Œé€ƒï¼ è¿˜ä¸é€Ÿåˆ°æˆ’å¾‹é™¢é¢†ç½ªï¼");
 			set_leader(ob);
 			remove_call_out("fight_ob");
 			call_out("fight_ob", 1, ob); 
@@ -84,7 +84,7 @@ void init()
 		else if ( ob->query("guilty") >= 2 )
 		{
 			if ( random(2) ==1 )
-			command("say "+ob->name()+"£¬½äÂÉÔºĞş¼Å´óÊ¦ÇëÄãÈ¥³ÂÊö´Ë´ÎÏÂÉ½¾­¹ı £¡");
+			command("say "+ob->name()+"ï¼Œæˆ’å¾‹é™¢ç„å¯‚å¤§å¸ˆè¯·ä½ å»é™ˆè¿°æ­¤æ¬¡ä¸‹å±±ç»è¿‡ ï¼");
 			set_leader(ob);
 		}
 		else if (query_leader() == ob)

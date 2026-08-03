@@ -1,12 +1,12 @@
-// daoming.c µÀÃ÷Ğ¡Ê¦¸µ
+// daoming.c é“æ˜å°å¸ˆå‚…
 // Made by jackie
 
 inherit NPC;
 void create()
 {
-        set_name("µÀÃ÷Ğ¡Ê¦¸µ", ({ "daoming shifu", "daoming", "shifu" }));
-	set("long","ÕâÊÇ¸öÄêÁä²»´óµÄĞ¡Ê¦¸¸¡£Ëû¼ûÓĞÈËÀ´µ½£¬ÇáÇáµãÍ·Ğ¦ÁËĞ¦¡£\n");
-        set("gender", "ÄĞĞÔ");
+        set_name("é“æ˜å°å¸ˆå‚…", ({ "daoming shifu", "daoming", "shifu" }));
+	set("long","è¿™æ˜¯ä¸ªå¹´é¾„ä¸å¤§çš„å°å¸ˆçˆ¶ã€‚ä»–è§æœ‰äººæ¥åˆ°ï¼Œè½»è½»ç‚¹å¤´ç¬‘äº†ç¬‘ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 30);
 	set("str", 17);
         set("int", 20);

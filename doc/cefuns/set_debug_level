@@ -1,21 +1,21 @@
 
 	set_debug_level(3)	MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		set_debug_level() - Éè¶¨Çı¶¯³ÌÊ½ (driver) Ê¹ÓÃ debug()
-				    ¾Ş¼¯ (macro) Ê±, Æä³ı´í (debug) µÄ
-				    µÈ¼¶.
-	Óï·¨:
+	åç§°:
+		set_debug_level() - è®¾å®šé©±åŠ¨ç¨‹å¼ (driver) ä½¿ç”¨ debug()
+				    å·¨é›† (macro) æ—¶, å…¶é™¤é”™ (debug) çš„
+				    ç­‰çº§.
+	è¯­æ³•:
 		void set_debug_level( int level );
 
-		ÎŞ´«»ØÖµ set_debug_level( ÕûÊı level );
-	ÓÃ·¨:
-		Õâ¸ö³¬Ô½º¯Ê½ (emulated function, efun) Ö»ÓĞÔÚ±àÒëÇı¶¯³ÌÊ½
-		Ê±Ê¹ÓÃ -DDEBUG_MACRO ²ÅÓĞĞ§. set_debug_macro() ÈÃ mud  Ö´
-		ĞĞÊ±, ¿ÉÒÔ´ÓÄÚ²¿¿ØÖÆ³ı´íÑ¶Ï¢µÄÁ¿¼°ÖÖÀà.
+		æ— ä¼ å›å€¼ set_debug_level( æ•´æ•° level );
+	ç”¨æ³•:
+		è¿™ä¸ªè¶…è¶Šå‡½å¼ (emulated function, efun) åªæœ‰åœ¨ç¼–è¯‘é©±åŠ¨ç¨‹å¼
+		æ—¶ä½¿ç”¨ -DDEBUG_MACRO æ‰æœ‰æ•ˆ. set_debug_macro() è®© mud  æ‰§
+		è¡Œæ—¶, å¯ä»¥ä»å†…éƒ¨æ§åˆ¶é™¤é”™è®¯æ¯çš„é‡åŠç§ç±».
 
-		Çë²Î¿¼Çı¶¯³ÌÊ½Ô­Ê¼ÂëÖĞµÄ debug.h, ÆäÖĞÓĞÏêÏ¸µÄ¶¨Òå.
-	²Î¿¼:
+		è¯·å‚è€ƒé©±åŠ¨ç¨‹å¼åŸå§‹ç ä¸­çš„ debug.h, å…¶ä¸­æœ‰è¯¦ç»†çš„å®šä¹‰.
+	å‚è€ƒ:
 		set_malloc_mask(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Jul.20.		(printed 3/16/95)

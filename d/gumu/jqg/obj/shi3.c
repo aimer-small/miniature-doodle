@@ -5,8 +5,8 @@ inherit ITEM;
 
 void create()
 {
-        set_name("´óÊ¯¿é", ({"da shikuai", "da", "shikuai", "stone"}));
-        set("long","ÕâÊÇÒ»¿éµÄ´ó´óµÄÊ¯¿é¡£\n");
-        set("unit", "¿é");
+        set_name("å¤§çŸ³å—", ({"da shikuai", "da", "shikuai", "stone"}));
+        set("long","è¿™æ˜¯ä¸€å—çš„å¤§å¤§çš„çŸ³å—ã€‚\n");
+        set("unit", "å—");
         set_weight(40000);
 }

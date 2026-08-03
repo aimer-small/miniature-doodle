@@ -4,14 +4,14 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÕÅÈª", ({ "zhang quan", "zhang" }));
-	set("gender", "ÄĞĞÔ");
+	set_name("å¼ æ³‰", ({ "zhang quan", "zhang" }));
+	set("gender", "ç”·æ€§");
 	set("age", random(10) + 30);
-	set("title", "´óÀí³ÇÎä½«"); 
+	set("title", "å¤§ç†åŸæ­¦å°†"); 
         set("str", 25);
 	set("dex", 16);
         set("unique" , 1);
-	set("long", "ÕâÊÇ¸ö´óÀí¹úÎä½«£¬ËûÕ¾ÔÚÄÇÀï£¬µÄÈ·ÓĞËµ²»³öµÄÍş·ç¡£\n");
+	set("long", "è¿™æ˜¯ä¸ªå¤§ç†å›½æ­¦å°†ï¼Œä»–ç«™åœ¨é‚£é‡Œï¼Œçš„ç¡®æœ‰è¯´ä¸å‡ºçš„å¨é£ã€‚\n");
 	set("combat_exp", 75000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");

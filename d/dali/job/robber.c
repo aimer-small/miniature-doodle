@@ -5,18 +5,18 @@ inherit FIGHTER;
 
 void do_kill(object ob);
 
-string *color_title = ({"ÌìÉ±ÃÅ", "µØÉ·ÃÅ"});
+string *color_title = ({"å¤©æ€é—¨", "åœ°ç…žé—¨"});
 
 void create()
 {
         int i;
 
 	i = random(4);
-	set_name("ÎÞÃûÊÏ",({"wuming shi"}));
+	set_name("æ— åæ°",({"wuming shi"}));
 		
-	set("gender", i?"ÄÐÐÔ":"Å®ÐÔ");
-	set("long", "ÕâÈËÉí´©ºÚÉ«½ô×°£¬ÃæÉÏÃÉ×ÅÒ»¿éºÚ²¼£¬Ö»Â¶³öÒ»Ë«ÑÛ¾¦£¬¾«¹âËÄÉä¡£\n");
-	set("title", color_title[random(sizeof(color_title))]+(i?"":"Å®")+"É±ÊÖ");
+	set("gender", i?"ç”·æ€§":"å¥³æ€§");
+	set("long", "è¿™äººèº«ç©¿é»‘è‰²ç´§è£…ï¼Œé¢ä¸Šè’™ç€ä¸€å—é»‘å¸ƒï¼Œåªéœ²å‡ºä¸€åŒçœ¼ç›ï¼Œç²¾å…‰å››å°„ã€‚\n");
+	set("title", color_title[random(sizeof(color_title))]+(i?"":"å¥³")+"æ€æ‰‹");
 	set("age", 20 + random(50));
 	
 	set("combat_exp", 8000000);
@@ -75,7 +75,7 @@ void init()
 		me->set_temp("songxin_zuji1",  1);
 		if (!me->query_temp("zuji_target")) me->set_temp("zuji_target",t_name);
 		if (!me->query_temp("skill_set")) {
-			command("say ¹þ¹þ£¬Åöµ½ÎÒÊÖÀï£¬Äã¿Ï¶¨ÍêÁË£¡£¡£¡");
+			command("say å“ˆå“ˆï¼Œç¢°åˆ°æˆ‘æ‰‹é‡Œï¼Œä½ è‚¯å®šå®Œäº†ï¼ï¼ï¼");
 			me->set_temp("skill_set",1);
 			ob->set_temp("zuji",1);
 //                        me->set_leader(ob);
@@ -85,7 +85,7 @@ void init()
 			call_out("do_kill", 0, ob); 
 		}
 		else {
-                        command("say Kao£¬»¹¸Ò×·À´£¬ÔÙÁ·Ò»°ÙÄê°É£¡£¡£¡£¡");
+                        command("say Kaoï¼Œè¿˜æ•¢è¿½æ¥ï¼Œå†ç»ƒä¸€ç™¾å¹´å§ï¼ï¼ï¼ï¼");
 //                        me->set_leader(ob);                     
 			remove_call_out("dest");
 			call_out("dest",300,ob);
@@ -102,10 +102,10 @@ int checking(object me, object ob)
 	call_out("checking", 1, me, ob);
 	if(!living(ob)){
 		remove_call_out("checking");
-		ob->set("qi",100);																			//·ÀÖ¹Íæ¼ÒÒâÍâËÀÍö
+		ob->set("qi",100);																			//é˜²æ­¢çŽ©å®¶æ„å¤–æ­»äº¡
 		ob->set("jing",100);
 		ob->set("jingli",100);
-		tell_room(environment(me), "\n"+me->query("name")+"´óº°Ò»Éù£ºÀÏ×ÓÐÅÒ²ÄÃµ½ÊÖÁË£¬½ñÌì¾Í²»É±ÄãÁË£¡ËµÍê×ªÉí¼¸¸öÆðÂä¾Í²»¼ûÁË¡£\n");
+		tell_room(environment(me), "\n"+me->query("name")+"å¤§å–Šä¸€å£°ï¼šè€å­ä¿¡ä¹Ÿæ‹¿åˆ°æ‰‹äº†ï¼Œä»Šå¤©å°±ä¸æ€ä½ äº†ï¼è¯´å®Œè½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n");
 		destruct(me);
 		 return 1;
 	}
@@ -126,8 +126,8 @@ int checking(object me, object ob)
 void dest(object ob)
 {
 	if (ob) {
-		tell_object(ob, query("name")+"µÀ£ºÕâ´ÎËãÄãÃü´ó£¡\n");
-		tell_object(ob, query("name")+"´Ò´ÒÀë¿ª¡£\n");
+		tell_object(ob, query("name")+"é“ï¼šè¿™æ¬¡ç®—ä½ å‘½å¤§ï¼\n");
+		tell_object(ob, query("name")+"åŒ†åŒ†ç¦»å¼€ã€‚\n");
 	}
 	destruct(this_object());
 }
@@ -135,8 +135,8 @@ void dest(object ob)
 void dest2(object ob)
 {
 	if (ob) {
-		tell_object(ob, query("name")+"µÀ£ºÄã¶ãµÃ¹ý³õÒ»¶ã²»¹ýÊ®Îå£¬ÎÒÃÇ»¹»áÀ´µÄ£¡\n");
-		tell_object(ob, query("name")+"´Ò´ÒÀë¿ª¡£\n");
+		tell_object(ob, query("name")+"é“ï¼šä½ èº²å¾—è¿‡åˆä¸€èº²ä¸è¿‡åäº”ï¼Œæˆ‘ä»¬è¿˜ä¼šæ¥çš„ï¼\n");
+		tell_object(ob, query("name")+"åŒ†åŒ†ç¦»å¼€ã€‚\n");
 		ob->delete_temp("songxin_zuji");
 	}
 	destruct(this_object());

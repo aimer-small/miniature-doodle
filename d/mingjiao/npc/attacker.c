@@ -22,7 +22,7 @@ string *dodge_skill = ({
 
 string *weapon_list = ({ "chui","sword","blade","whip","gun","sword","gangzhang","blade" }); 
 
-string *first_name = ({ "ÃÉÃæ¿Í","ºÚÒÂÈË","ÉñÃØÈË","ºÚÒÂÈÌÕß","É½Ôô","Ì½×Ó","ËÀÊ¿" }); 
+string *first_name = ({ "è’™é¢å®¢","é»‘è¡£äºº","ç¥ç§˜äºº","é»‘è¡£å¿è€…","å±±è´¼","æ¢å­","æ­»å£«" }); 
 
 void create()
 {
@@ -37,9 +37,9 @@ void create()
         weapon = weapon_list[random(sizeof(weapon_list))];
 
         set_name(name, ({ "attacker"}));
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 20 + random(40));
-        set("long", "Õâ¼Ò»ïÒ»¸¶Ğ×Éñ¶ñÉ·µÄÄ£Ñù£¬Ê±²»Ê±·¢³öĞ°¶ñµÄÒõĞ¦¡£\n");
+        set("long", "è¿™å®¶ä¼™ä¸€ä»˜å‡¶ç¥æ¶ç…çš„æ¨¡æ ·ï¼Œæ—¶ä¸æ—¶å‘å‡ºé‚ªæ¶çš„é˜´ç¬‘ã€‚\n");
         set("combat_exp", 20000);
         set("attitude", "peaceful");
         set("str", 30);
@@ -89,7 +89,7 @@ void create()
 		
 void unconcious()
 {    
-        tell_room(environment(this_object()), this_object()->query("name")+"×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n", ({this_object()}));	
+        tell_room(environment(this_object()), this_object()->query("name")+"è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n", ({this_object()}));	
         destruct(this_object());        
 }
 
@@ -164,7 +164,7 @@ int checking(object me, object ob)
 
 int accept_fight(object victim)
 {
-	command("say ÄãÕâÊÇÕÒËÀ£¡");
+	command("say ä½ è¿™æ˜¯æ‰¾æ­»ï¼");
 	kill_ob(victim);
 	return 1;
 }

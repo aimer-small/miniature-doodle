@@ -1,4 +1,4 @@
-// ziyin-yin.c ×Ïë³Ò÷
+// ziyin-yin.c ç´«æ°¤åŸ
 // cck 3/7/97
 
 inherit SKILL;
@@ -11,13 +11,13 @@ int valid_learn(object me)
 {
 
 	if( (int)me->query("shen") < 0 )
-	return notify_fail("»ªÉ½ÃÅÏÂÔõÃ´ÈÝµÃ´øÓÐ¶ñÒâÖ®ÈËÑ§Ï°×Ïë³Ò÷£¿\n");
+	return notify_fail("åŽå±±é—¨ä¸‹æ€Žä¹ˆå®¹å¾—å¸¦æœ‰æ¶æ„ä¹‹äººå­¦ä¹ ç´«æ°¤åŸï¼Ÿ\n");
 
 	return 1;
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("×Ïë³Ò÷Ö»ÄÜ¿¿Ñ§(learn)À´Ìá¸ß¡£\n");
+	return notify_fail("ç´«æ°¤åŸåªèƒ½é å­¦(learn)æ¥æé«˜ã€‚\n");
 }
 

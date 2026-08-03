@@ -5,15 +5,15 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ĞİÏ¢ÊÒ");
+	set("short", "ä¼‘æ¯å®¤");
 	set("long", @LONG
-ÕâÀïÊÇ¹©áÔÉ½ÅÉ¸÷Î»Å®µÜ×ÓĞİÏ¢µÄ·¿¼ä£¬ÀïÃæ°Ú×Å¼¸ÕÅ´ó´²¡£
+è¿™é‡Œæ˜¯ä¾›åµ©å±±æ´¾å„ä½å¥³å¼Ÿå­ä¼‘æ¯çš„æˆ¿é—´ï¼Œé‡Œé¢æ‘†ç€å‡ å¼ å¤§åºŠã€‚
 LONG);
 	set("exits", ([
 		"south" : __DIR__"qindian",
 	]));
 	set("no_fight", 1);
 	set("sleep_room", 1);
-	set("indoors", "áÔÉ½");
+	set("indoors", "åµ©å±±");
 	setup();
 }

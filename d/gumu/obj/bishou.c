@@ -1,17 +1,17 @@
-// bishou.c Ø°Ê×
+// bishou.c åŒ•é¦–
 #include <ansi.h>
 #include <weapon.h>
 inherit SWORD;
 
 void create()
 {
-	set_name( "Ø°Ê×" , ({ "bi shou", "sword", "bishou", "jian" }) );
+	set_name( "åŒ•é¦–" , ({ "bi shou", "sword", "bishou", "jian" }) );
 	set_weight(500);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
-		set("long", "ÕâÊÇÒ»°Ñ±ßÔµ·æÀûµÄØ°Ê×£¬ºÃÏó¿ÉÒÔÕ¶(zhan)¶«Î÷¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯ä¸€æŠŠè¾¹ç¼˜é”‹åˆ©çš„åŒ•é¦–ï¼Œå¥½è±¡å¯ä»¥æ–©(zhan)ä¸œè¥¿ã€‚\n");
 		set("value", 0);
 		set("material", "iron");
 		set("no_get", 1);
@@ -24,7 +24,7 @@ void create()
 
 void init()
 {
-	add_action("mark_success", ({"zhan", "Õ¶"}));
+	add_action("mark_success", ({"zhan", "æ–©"}));
 }
 
 int mark_success(string arg)
@@ -33,34 +33,34 @@ int mark_success(string arg)
 	me = this_player();
 	name1 = me->query("id"); 
 
-	if(!arg) return notify_fail("ÄãÒªÕ¶Ê²Ã´£¿\n");  
+	if(!arg) return notify_fail("ä½ è¦æ–©ä»€ä¹ˆï¼Ÿ\n");  
 	target = present(arg, environment(me));  
 
 	if( me->is_busy() || me->is_fighting() )
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n"); 
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n"); 
 
 	if(!target) 
-		return notify_fail("ÕÒ²»µ½Õâ¸ö¶«Î÷¡£\n");
+		return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªä¸œè¥¿ã€‚\n");
 
 	if(!target->is_corpse()) 
-		return notify_fail("¿´Çå³şµã£¬ÄÇ²»ÊÇÊ¬Ìå¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£ä¸æ˜¯å°¸ä½“ã€‚\n");
 
-	if (target->query("race") != "ÈËÀà")
-		return notify_fail("²»»á°É£¬Äã¶Ô¶¯ÎïµÄÊ¬ÌåÒ²¸ĞĞËÈ¤£¿\n");
+	if (target->query("race") != "äººç±»")
+		return notify_fail("ä¸ä¼šå§ï¼Œä½ å¯¹åŠ¨ç‰©çš„å°¸ä½“ä¹Ÿæ„Ÿå…´è¶£ï¼Ÿ\n");
 
 	if(target->query("no_head")) 
-		return notify_fail("ÄÇ¾ßÊ¬ÌåÒÑ¾­Ã»ÓĞÊ×¼¶ÁË¡£\n");
+		return notify_fail("é‚£å…·å°¸ä½“å·²ç»æ²¡æœ‰é¦–çº§äº†ã€‚\n");
 
 	if(!target->is_character()) 
-		return notify_fail("ÄÇ¾ßÊ¬ÌåÒÑ¾­¸¯ÀÃÁË¡£\n");
+		return notify_fail("é‚£å…·å°¸ä½“å·²ç»è…çƒ‚äº†ã€‚\n");
 
 	if( me->query_conditions_by_type("job") && target->query("kill_by") != me)
-		return notify_fail("Äã»¹ÊÇ°²ĞÄ×öÈÎÎñ°É£¬ÂÒÇĞ±ğÈËÉ±µÄÈË¸ÉÂğ°¡£¿\n"); 
+		return notify_fail("ä½ è¿˜æ˜¯å®‰å¿ƒåšä»»åŠ¡å§ï¼Œä¹±åˆ‡åˆ«äººæ€çš„äººå¹²å—å•Šï¼Ÿ\n"); 
 
-	message_vision(HIR"$NÑïÆğØ°Ê× £¬¶Ô×¼$nµÄ²±×Ó´¦ÃÍµØÕ¶ÁËÏÂÈ¥£¡\n"NOR, me, target);
+	message_vision(HIR"$Næ‰¬èµ·åŒ•é¦– ï¼Œå¯¹å‡†$nçš„è„–å­å¤„çŒ›åœ°æ–©äº†ä¸‹å»ï¼\n"NOR, me, target);
 	ob=new("/clone/misc/head");
-	ob->set_name(target->query("victim_name")+"µÄÊ×¼¶",({"head"}));
-	ob->set("long", "ÕâÊÇÒ»¿Å"+target->query("victim_name")+"µÄÊ×¼¶¡£\n");    
+	ob->set_name(target->query("victim_name")+"çš„é¦–çº§",({"head"}));
+	ob->set("long", "è¿™æ˜¯ä¸€é¢—"+target->query("victim_name")+"çš„é¦–çº§ã€‚\n");    
 
 	if(target->query("victim_user")) 
 		ob->set("victim_user", 1);  
@@ -74,10 +74,10 @@ int mark_success(string arg)
 	target->delete("victim_id");
 	target->delete("victim_id");
 
-	message_vision(HIR"$N½«$nÕ¶ÁËÏÂÀ´£¬ÌáÔÚÊÖÖĞ¡£\n"NOR, me, ob);
+	message_vision(HIR"$Nå°†$næ–©äº†ä¸‹æ¥ï¼Œæåœ¨æ‰‹ä¸­ã€‚\n"NOR, me, ob);
 	ob->move(me);
-	target->set("name", "ÎŞÍ·Ê¬Ìå");
+	target->set("name", "æ— å¤´å°¸ä½“");
 	target->set("no_head", 1);
-	target->set("long", "Ò»¾ßÎŞÍ·Ê¬Ìå£¬¸¯³ôËÄÒç£¬Çé×´¿É²À¡£\n");           
+	target->set("long", "ä¸€å…·æ— å¤´å°¸ä½“ï¼Œè…è‡­å››æº¢ï¼Œæƒ…çŠ¶å¯æ€–ã€‚\n");           
 	return 1;
 } 

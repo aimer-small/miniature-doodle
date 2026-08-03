@@ -54,8 +54,8 @@ varargs int query_kar(int post)
 varargs int query_per(int post)
 {
 	return query("per") + (post?0:query_temp("apply/personality"))
-		+ (query("gender") == "ÄĞĞÔ"?0:query_skill("beauty", 1) / 20)
-		- query("age")/10 + 2 // 20 ÒÔºó²Å¿ªÊ¼¼õper, ËùÒÔ¼Ó2.
+		+ (query("gender") == "ç”·æ€§"?0:query_skill("beauty", 1) / 20)
+		- query("age")/10 + 2 // 20 ä»¥åæ‰å¼€å§‹å‡per, æ‰€ä»¥åŠ 2.
 		- (query_skill("qianzhu-wandushou", 1) < 60?0:query_skill("qianzhu-wandushou", 1)/ 15);
 }
 
@@ -64,7 +64,7 @@ int sld_btyjw()
 	if(!query("quest_kill/btyao")) return 0;
 	if(!query("quest_kill/fz_month")) set("quest_kill/fz_month",1+random(12));
 	
-	//·¢×÷Ìõ¼ş ÔÂ·İ·ûºÏ ²»ÊÇ¸Õ³ÔµÄ ½ñÄêÒÑ¾­·¢×÷¹ıÁË
+	//å‘ä½œæ¡ä»¶ æœˆä»½ç¬¦åˆ ä¸æ˜¯åˆšåƒçš„ ä»Šå¹´å·²ç»å‘ä½œè¿‡äº†
 	if(query("quest_kill/fz_month")==query("month")
 	&& query("age")!=query("quest_kill/bt_year")
 	&& query("age")!=query("quest_kill/fz_year") )
@@ -73,7 +73,7 @@ int sld_btyjw()
 		set("quest_kill/fz_month",1+random(12));
 		set("quest_kill/fz_year",query("age"));
 		add("quest_kill/fazuo",1);
-		message("channel","\n\nÄã¸Ğµ½Ğ¡¸¹Ò»Õó¾çÍ´£¬¿´À´ÊÇ±ªÌ¥Ò×½îÍèµÄ¶¾·¢×÷ÁË¡£\n",this_object());
+		message("channel","\n\nä½ æ„Ÿåˆ°å°è…¹ä¸€é˜µå‰§ç—›ï¼Œçœ‹æ¥æ˜¯è±¹èƒæ˜“ç­‹ä¸¸çš„æ¯’å‘ä½œäº†ã€‚\n",this_object());
 		//return sld_btyjw();
 	}
 	if(query("quest_kill/fazuo"))

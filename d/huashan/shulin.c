@@ -10,19 +10,19 @@ inherit ROOM;
 object get_where();
 
 string* msg1 = ({
-"ºöÈ»","Í»È»","ÃÍµØ","Àä²»·À","Àä²»¶¡",
+"å¿½ç„¶","çªç„¶","çŒ›åœ°","å†·ä¸é˜²","å†·ä¸ä¸",
 });
 string* msg2 = ({
-"´ÓÊ÷ÁÖÀï","´ÓÊ÷ÁÖÉî´¦",
+"ä»æ ‘æ—é‡Œ","ä»æ ‘æ—æ·±å¤„",
 });
 string* msg3 = ({
-"´Ü³ö","É±³ö",
+"çªœå‡º","æ€å‡º",
 });
 string* msg4 = ({
-"Ò»°Ñ¶áÏÂ","¶áÏÂ","Ò»°ÑÇÀÈ¥","ÇÀÈ¥",
+"ä¸€æŠŠå¤ºä¸‹","å¤ºä¸‹","ä¸€æŠŠæŠ¢å»","æŠ¢å»",
 });
 string* msg5 = ({
-"´¦","·½Ïò","´¦¶áÂ·","·½Ïò¶áÂ·",
+"å¤„","æ–¹å‘","å¤„å¤ºè·¯","æ–¹å‘å¤ºè·¯",
 });
 
 string* names = ({
@@ -43,17 +43,17 @@ __DIR__"houtang",	__DIR__"celang3",	__DIR__"celang4",
 
 void create()
 {
-        set("short", "Ê÷ÁÖ");
+        set("short", "æ ‘æ—");
         set("long",@long
-ÕâÀïÊÇ»ªÉ½´åÀïµÄÒ»Æ¬ÑîÊ÷ÁÖ£¬Èç¹ûÄãÃ»ÓĞºÃÉíÊÖ£¬¿ÉÇ§Íò²»ÒªÔÚ´ËµØ¾Ã
-Áô£¬¾İËµÕâÀïÇ¿µÁ³öÃ»£¬ÇÀ½Ù¡¢É±ÈËµÄÊÂÇé¾­³£·¢Éú¡£
+è¿™é‡Œæ˜¯åå±±æ‘é‡Œçš„ä¸€ç‰‡æ¨æ ‘æ—ï¼Œå¦‚æœä½ æ²¡æœ‰å¥½èº«æ‰‹ï¼Œå¯åƒä¸‡ä¸è¦åœ¨æ­¤åœ°ä¹…
+ç•™ï¼Œæ®è¯´è¿™é‡Œå¼ºç›—å‡ºæ²¡ï¼ŒæŠ¢åŠ«ã€æ€äººçš„äº‹æƒ…ç»å¸¸å‘ç”Ÿã€‚
 long);
         set("exits",([
 		"west" : __DIR__"shulin3",
 		"north" : __DIR__"shulin2",
 		"east" : __DIR__"shulin1",
 	]));
-	set("outdoors", "»ªÉ½");
+	set("outdoors", "åå±±");
 	setup();
 }
 
@@ -83,7 +83,7 @@ void init(object me)
                 ob=new(__DIR__"npc/mmr");
                 objwhere = names[random(sizeof(names))];
                 str = objwhere->query("short");
-                ob->set("long", ob->query("long")+ "¿´À´¾ÍÊÇ¸Õ²ÅÇÀ×ß"+me->query("name")+"("+capitalize(me->query("id"))+")ÁîÅÆµÄÈË¡£\n");
+                ob->set("long", ob->query("long")+ "çœ‹æ¥å°±æ˜¯åˆšæ‰æŠ¢èµ°"+me->query("name")+"("+capitalize(me->query("id"))+")ä»¤ç‰Œçš„äººã€‚\n");
                 if (me->query("combat_exp") > 2000000 && done > 0 && random(4) ){
                 	me->set_temp("hs/power", 1);
                 	objwhere=get_where();
@@ -103,11 +103,11 @@ void init(object me)
                 
                 message_vision(HIW "\n" + msg1[random(sizeof(msg1))] +
                         msg2[random(sizeof(msg2))] + 
-                        msg3[random(sizeof(msg3))] + "Ò»¸öÃÉÃæÈË" +
+                        msg3[random(sizeof(msg3))] + "ä¸€ä¸ªè’™é¢äºº" +
                         msg4[random(sizeof(msg4))] + 
-                        "$NµÄÁîÅÆ£¬Ïò" HIY + str + 
-                        HIW + msg5[random(sizeof(msg5))] + "ÌÓÈ¥¡£\n" NOR, me);
-		tell_object(me,HIY"ÄãÒ»°Ñ×¥ÏòÃÉÃæÈËÊÔÍ¼ÇÀ»ØÁîÅÆ£¬µ«±»ÃÉÃæÈËÃô½İµÃ¶ãÁË¹ıÈ¥£¬ÄãË³ÊÖ³¶ÏÂÃÉÃæÈËµÄÃæÕÖ£¬·¢ÏÖÔ­À´ÊÇÔø¾­ÃûÕğ½­ºşµÄ"+ob->name()+"¡£\n"NOR);
+                        "$Nçš„ä»¤ç‰Œï¼Œå‘" HIY + str + 
+                        HIW + msg5[random(sizeof(msg5))] + "é€ƒå»ã€‚\n" NOR, me);
+		tell_object(me,HIY"ä½ ä¸€æŠŠæŠ“å‘è’™é¢äººè¯•å›¾æŠ¢å›ä»¤ç‰Œï¼Œä½†è¢«è’™é¢äººæ•æ·å¾—èº²äº†è¿‡å»ï¼Œä½ é¡ºæ‰‹æ‰¯ä¸‹è’™é¢äººçš„é¢ç½©ï¼Œå‘ç°åŸæ¥æ˜¯æ›¾ç»åéœ‡æ±Ÿæ¹–çš„"+ob->name()+"ã€‚\n"NOR);
 	}
 }
 
@@ -130,8 +130,8 @@ int check(object ob)
 	 || ob->query("attitude")=="aggressive"
 	 || ob->query("have_master")
 	 || !objectp(room=environment(ob))
-	 || room->query("outdoors") == "À¥ÂØ´ä¹È"
-	 || room->query("outdoors") == "´óÖÇµº"
+	 || room->query("outdoors") == "æ˜†ä»‘ç¿ è°·"
+	 || room->query("outdoors") == "å¤§æ™ºå²›"
 	 || strsrch(room_name = file_name(room),"/d/") != 0
 	 || strsrch(room_name, "/d/wizard/") == 0
 	 || strsrch(room_name, "/d/wuguan/") == 0
@@ -167,9 +167,9 @@ object get_where()
 		if(check(living[j]) ){
 			target = living[j];
 			str = environment(target)->query("short");
-			if( str == "ÎäÉ®ÌÃ"
-			 || str == HIR"ĞÄìøÌÃ"NOR
-			 || str == "½ğ¸Õ·üÄ§È¦" ) continue;
+			if( str == "æ­¦åƒ§å ‚"
+			 || str == HIR"å¿ƒç¦…å ‚"NOR
+			 || str == "é‡‘åˆšä¼é­”åœˆ" ) continue;
 			if( get_place(base_name(environment(target)))!="" )
 				break;
 		}

@@ -1,4 +1,4 @@
-// jiuhuawan.c áÔÑôµ¤
+// jiuhuawan.c åµ©é˜³ä¸¹
 #include <ansi.h>
 
 inherit ITEM;
@@ -13,12 +13,12 @@ void init()
 
 void create()
 {
-	set_name("áÔÑôµ¤", ({"songyang dan", "dan"}));
+	set_name("åµ©é˜³ä¸¹", ({"songyang dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿Å²¢²»ÆğÑÛµÄĞ¡Ô²Çò¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—å¹¶ä¸èµ·çœ¼çš„å°åœ†çƒã€‚\n");
 		set("value", 100);
 		set("no_drop", 1);
 	}
@@ -30,20 +30,20 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	if ((int)this_player()->query("eff_qi") == (int)this_player()->query("max_qi"))
-		return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃÒ©Îï¡£\n");
+		return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨è¯ç‰©ã€‚\n");
         
 	if (this_player()->is_busy() || this_player()->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if (me->query_condition("medicine"))
-		return notify_fail("Äã¸Õ·ş¹ıÁ¼Ò©£¬¶à³ÔÎŞÒæ¡£\n");
+		return notify_fail("ä½ åˆšæœè¿‡è‰¯è¯ï¼Œå¤šåƒæ— ç›Šã€‚\n");
 
 	if (me->query_skill_mapped("force") != "hanbing-zhenqi") {
 		me->add("max_neili", -10);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅáÔÑôµ¤£¬Ö»¾õµÃµ¤ÌïÓĞÈçµ¶¸î£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËğÕæÔª£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—åµ©é˜³ä¸¹ï¼Œåªè§‰å¾—ä¸¹ç”°æœ‰å¦‚åˆ€å‰²ï¼ŒåŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸçœŸå…ƒï¼\n" NOR, me);
 		me->unconcious();
 		destruct(this_object());
 		return 1;
@@ -51,7 +51,7 @@ int do_eat(string arg)
 	else {
 		me->receive_curing("qi", me->query_skill("hanbing-zhenqi", 1));
 		me->add_condition("medicine", 5);
-		message_vision("$N³ÔÏÂÒ»¿ÅáÔÑôµ¤£¬ÉËÊÆ´óÎªºÃ×ª¡£\n", this_player());
+		message_vision("$Nåƒä¸‹ä¸€é¢—åµ©é˜³ä¸¹ï¼Œä¼¤åŠ¿å¤§ä¸ºå¥½è½¬ã€‚\n", this_player());
 	}
 	destruct(this_object());
 	return 1;

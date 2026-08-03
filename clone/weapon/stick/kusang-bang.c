@@ -1,4 +1,4 @@
-// kusang_stick.c ¿ÞÉ¥°ô
+// kusang_stick.c å“­ä¸§æ£’
 // by hunthu 99/7
 
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit STICK;
 inherit F_UNIQUE;
 void create()
 {
-        set_name("¿ÞÉ¥°ô", ({"kusang bang", "bang", "stick"}));
+        set_name("å“­ä¸§æ£’", ({"kusang bang", "bang", "stick"}));
         set("weight",12000);
         if (clonep())
                set_default_object(__FILE__);
         else {
-               set("unit", "¸ù");
-               set("long", "Ò»¸ùÎÚºÚµÄÌú°ô£¬³ÁµéµéµÄËÆºõÓÐÊ²Ã´¹Å¹Ö¡£\n");
+               set("unit", "æ ¹");
+               set("long", "ä¸€æ ¹ä¹Œé»‘çš„é“æ£’ï¼Œæ²‰ç”¸ç”¸çš„ä¼¼ä¹Žæœ‰ä»€ä¹ˆå¤æ€ªã€‚\n");
                set("value", 1000);
                set("unique", 1);
                set("material", "blacksteel");
@@ -23,8 +23,8 @@ void create()
                set("wield_str", 22);
                set("weapon_prop/parry", 2);
                set("treasure",1);
-               set("wield_msg", "$NÒõÒõÒ»Ð¦´Ó±³ºó³é³öÒ»¸ùºÚ°ô×Ó¡£\n");
-               set("unwield_msg", "$N°ÑÊÖÖÐµÄ¿ÞÉ¥°ô±³»Ø±³ºó¡£\n");
+               set("wield_msg", "$Né˜´é˜´ä¸€ç¬‘ä»ŽèƒŒåŽæŠ½å‡ºä¸€æ ¹é»‘æ£’å­ã€‚\n");
+               set("unwield_msg", "$NæŠŠæ‰‹ä¸­çš„å“­ä¸§æ£’èƒŒå›žèƒŒåŽã€‚\n");
                set("chanchu_poison",3);
         }
         init_stick(55);
@@ -46,34 +46,34 @@ int do_throw(string arg)
        if (!arg || arg == "")   return 0;
        ob = present(arg, environment(me));
        if (!ob) return 0;
-       if(! me->is_fighting(ob)) return notify_fail("Äã±ØÐëÔÚÕ½¶·ÖÐ²ÅÄÜÊ¹ÓÃ.\n");
+       if(! me->is_fighting(ob)) return notify_fail("ä½ å¿…é¡»åœ¨æˆ˜æ–—ä¸­æ‰èƒ½ä½¿ç”¨.\n");
        i = ob->query_skill("dodge", 1) + ob->query_skill("parry", 1);
        i = random(i/2) - 10;
        damage = me->query_skill("poison", 1)+me->query_str()*2;
-       if (!arg) return notify_fail("ÄãÒª¶ÔË­ÏÂÊÖ£¿\n");       
-       if (!ob) return notify_fail("ÕÒ²»µ½Õâ¸öÉúÎï¡£\n");
+       if (!arg) return notify_fail("ä½ è¦å¯¹è°ä¸‹æ‰‹ï¼Ÿ\n");       
+       if (!ob) return notify_fail("æ‰¾ä¸åˆ°è¿™ä¸ªç”Ÿç‰©ã€‚\n");
        if( environment(me)->query("no_fight") )
-                return notify_fail("Äã²»ÄÜÔÚÕâÀï¶¯ÊÖ¡£\n");
+                return notify_fail("ä½ ä¸èƒ½åœ¨è¿™é‡ŒåŠ¨æ‰‹ã€‚\n");
        if(me->is_busy())
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
        if(me->query("neili") < 500)
-             return notify_fail("ÄãµÄÄÚÁ¦²»¹»ÓÃÀ´¶¯ÊÖ¡£\n");
+             return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç”¨æ¥åŠ¨æ‰‹ã€‚\n");
        if(this_object()->query("chanchu_poison")<1)
-            return notify_fail("¿ÞÉ¥°ôÀïÃæµÄó¸òÜ¶¾·ÛÒÑ¾­ÓÃ¾¡ÁË£¬ÎÞ·¨ÔÙÅçÉäÉËÈËÁË¡£\n");
-       msg = HIW"\n$NÒ»ÉùÒõÐ¦£¬°´¶¯°ôµ×»úèé£¬Ò»¹É±ÌÂÌµÄó¸òÜ¶¾ÑÌÏò$n¼±Éä¶øÈ¥£¡\n"NOR;       
+            return notify_fail("å“­ä¸§æ£’é‡Œé¢çš„èŸ¾èœæ¯’ç²‰å·²ç»ç”¨å°½äº†ï¼Œæ— æ³•å†å–·å°„ä¼¤äººäº†ã€‚\n");
+       msg = HIW"\n$Nä¸€å£°é˜´ç¬‘ï¼ŒæŒ‰åŠ¨æ£’åº•æœºæ ï¼Œä¸€è‚¡ç¢§ç»¿çš„èŸ¾èœæ¯’çƒŸå‘$næ€¥å°„è€ŒåŽ»ï¼\n"NOR;       
        me->start_busy(2);
        me->add("neili", -100);
        me->add("jingli", -20);
        if(me->query_skill("bangjue", 1) > i
         && random(ob->query("kar")) < 10
         &&random(me->query("combat_exp")) > (int)ob->query("combat_exp")/2 ) {
-          msg += HIR"$nÑÌÎíÖ®ÖÐ£¬Ö»¼û$n¼±Ã¦ºóÔ¾ÉÁ±Ü£¬µ«ÊÇÈÔÈ»ÎüÈë²»ÉÙ¶¾Îí£¬Ò¡Ò¡Óû×¹£¡\n"NOR;
+          msg += HIR"$nçƒŸé›¾ä¹‹ä¸­ï¼Œåªè§$næ€¥å¿™åŽè·ƒé—ªé¿ï¼Œä½†æ˜¯ä»ç„¶å¸å…¥ä¸å°‘æ¯’é›¾ï¼Œæ‘‡æ‘‡æ¬²å ï¼\n"NOR;
           ob->apply_condition("chanchu_poison", 70);
           ob->receive_wound("jing", damage/2);
-          ob->set_temp("last_damage_from", "±»"+me->name()+"É±");
+          ob->set_temp("last_damage_from", "è¢«"+me->name()+"æ€");
        }
        else {
-          msg +=HIY"¶¾ÎíÀ´µÃËä¿ì£¬$n·ÉÉíááÔ¾Ö®ÊÆÈ´ÊÇ¸ü¿ì£¬Ö»ÌýºôµÄÒ»Éù,¶¾ÑÌÒÑ±»$nµÄÅü¿ÕÕÆÁ¦µ´¿ªÏûÊ§ÎÞ¼£¡£\n"NOR;
+          msg +=HIY"æ¯’é›¾æ¥å¾—è™½å¿«ï¼Œ$né£žèº«å¾Œè·ƒä¹‹åŠ¿å´æ˜¯æ›´å¿«ï¼Œåªå¬å‘¼çš„ä¸€å£°,æ¯’çƒŸå·²è¢«$nçš„åŠˆç©ºæŽŒåŠ›è¡å¼€æ¶ˆå¤±æ— è¿¹ã€‚\n"NOR;
           ob->add("jingli", -10);
        }              
        message_vision(msg, me, ob);

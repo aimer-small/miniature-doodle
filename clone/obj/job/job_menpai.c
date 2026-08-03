@@ -1,12 +1,12 @@
 //Cracked by Kafei
 //wzfeng@xkx 2000 6
-// job_menpai.c  ÃÅÅÉ¿ØÖÆºËĞÄÎÄ¼ş£º
+// job_menpai.c  é—¨æ´¾æ§åˆ¶æ ¸å¿ƒæ–‡ä»¶ï¼š
 #include <ansi.h>
 inherit F_SAVE;
 inherit ITEM;
 #include "lpc_math.h"
 mapping family;
-mapping *familys;//¸÷¸öÃÅÅÉµÄÊı¾İ
+mapping *familys;//å„ä¸ªé—¨æ´¾çš„æ•°æ®
 mapping family_assess_number;
 
 
@@ -16,7 +16,7 @@ mapping *query_familys()
 }
 void create()
 {
-	 set_name("ÃÅÅÉ¿ØÖÆÆ÷",  ({"menpai_system"}));
+	 set_name("é—¨æ´¾æ§åˆ¶å™¨",  ({"menpai_system"}));
 	seteuid(getuid());
 }
 string query_save_file()
@@ -39,27 +39,27 @@ void set_familys(mapping family)
 
 }
 
-//ÃÅÅÉÃû³ÆÖĞÓ¢ÎÄ×ª»» string name,Òª×ª»»µÄÃû³Æ£¬int mode ×ª»»·½Ê½ 1=ÖĞÎÄµ½Ó¢ÎÄ 2=Ó¢ÎÊµ½ÖĞÎÄ
+//é—¨æ´¾åç§°ä¸­è‹±æ–‡è½¬æ¢ string name,è¦è½¬æ¢çš„åç§°ï¼Œint mode è½¬æ¢æ–¹å¼ 1=ä¸­æ–‡åˆ°è‹±æ–‡ 2=è‹±é—®åˆ°ä¸­æ–‡
 string con_name(string name,int mode)
 {
 	string con_name;
 	if(mode==1)
 	{
 		switch(name) {
-		case "Îäµ±ÅÉ": con_name = "wudang"; break;
-		case "ĞÇËŞÅÉ": con_name = "xingxiu"; break;
-		case "»ªÉ½ÅÉ": con_name = "huashan"; break;
-		case "ÌÒ»¨µº": con_name = "taohua"; break;
-		case "Ø¤°ï": con_name = "gaibang"; break;
-		case "¶ëáÒÅÉ": con_name = "emei"; break;
-		case "°×ÍÕÉ½": con_name = "baituo"; break;
-		case "È«Õæ½Ì": con_name = "quanzhen"; break;
-		case "Ñ©É½ÅÉ": con_name = "xueshan"; break;
-		case "´óÀí¶Î¼Ò": con_name = "dali"; break;
-		case "ÉÙÁÖÅÉ": con_name = "shaolin"; break;
+		case "æ­¦å½“æ´¾": con_name = "wudang"; break;
+		case "æ˜Ÿå®¿æ´¾": con_name = "xingxiu"; break;
+		case "åå±±æ´¾": con_name = "huashan"; break;
+		case "æ¡ƒèŠ±å²›": con_name = "taohua"; break;
+		case "ä¸å¸®": con_name = "gaibang"; break;
+		case "å³¨åµ‹æ´¾": con_name = "emei"; break;
+		case "ç™½é©¼å±±": con_name = "baituo"; break;
+		case "å…¨çœŸæ•™": con_name = "quanzhen"; break;
+		case "é›ªå±±æ´¾": con_name = "xueshan"; break;
+		case "å¤§ç†æ®µå®¶": con_name = "dali"; break;
+		case "å°‘æ—æ´¾": con_name = "shaolin"; break;
 
 		default:
-				return ("ÃÅÅÉ×ª»»´íÎó\n");
+				return ("é—¨æ´¾è½¬æ¢é”™è¯¯\n");
 
 		}
 		return con_name;
@@ -67,20 +67,20 @@ string con_name(string name,int mode)
 	if(mode==2)
 		{
 		switch(name) {
-		case "wudang": con_name = "Îäµ±ÅÉ"; break;
-		case "xingxiu": con_name = "ĞÇËŞÅÉ"; break;
-		case "huashan": con_name = "»ªÉ½ÅÉ"; break;
-		case "taohua": con_name = "ÌÒ»¨µº"; break;
-		case "gaibang": con_name = "Ø¤°ï"; break;
-		case "emei": con_name = "¶ëáÒÅÉ"; break;
-		case "baituo": con_name = "°×ÍÕÉ½"; break;
-		case "quanzhen": con_name = "È«Õæ½Ì"; break;
-		case "xueshan": con_name = "Ñ©É½ÅÉ"; break;
-		case "dali": con_name = "´óÀí¶Î¼Ò"; break;
-		case "shaolin": con_name = "ÉÙÁÖÅÉ"; break;
+		case "wudang": con_name = "æ­¦å½“æ´¾"; break;
+		case "xingxiu": con_name = "æ˜Ÿå®¿æ´¾"; break;
+		case "huashan": con_name = "åå±±æ´¾"; break;
+		case "taohua": con_name = "æ¡ƒèŠ±å²›"; break;
+		case "gaibang": con_name = "ä¸å¸®"; break;
+		case "emei": con_name = "å³¨åµ‹æ´¾"; break;
+		case "baituo": con_name = "ç™½é©¼å±±"; break;
+		case "quanzhen": con_name = "å…¨çœŸæ•™"; break;
+		case "xueshan": con_name = "é›ªå±±æ´¾"; break;
+		case "dali": con_name = "å¤§ç†æ®µå®¶"; break;
+		case "shaolin": con_name = "å°‘æ—æ´¾"; break;
 
 			default:
-				return ("Ó¢ÎÄ-¡µÖĞÎÄÃÅÅÉ×ª»»´íÎó\n");
+				return ("è‹±æ–‡-ã€‰ä¸­æ–‡é—¨æ´¾è½¬æ¢é”™è¯¯\n");
 
 		}
 		return con_name;
@@ -108,7 +108,7 @@ int do_set_luck(string name,int luck)
 			save();
 			return 1;
 		}
-		return notify_fail ("set luck error¡£\n");
+		return notify_fail ("set luck errorã€‚\n");
 }
 int do_set_assess_num(string name,int num)
 {
@@ -120,7 +120,7 @@ int do_set_assess_num(string name,int num)
 			save();
 			return 1;
 		}
-		return notify_fail ("set family_assess_num error¡£\n");
+		return notify_fail ("set family_assess_num errorã€‚\n");
 }
 
 int do_set_rate(string name,int luck)
@@ -133,7 +133,7 @@ int do_set_rate(string name,int luck)
 			save();
 			return 1;
 		}
-		return notify_fail ("set rate error¡£\n");
+		return notify_fail ("set rate errorã€‚\n");
 }
 
 int do_set_money(string name,int luck)
@@ -146,7 +146,7 @@ int do_set_money(string name,int luck)
 			save();
 			return 1;
 		}
-		return notify_fail ("set money error¡£\n");
+		return notify_fail ("set money errorã€‚\n");
 }
 
 int have_menpai(string name)
@@ -162,7 +162,7 @@ int have_menpai(string name)
 		return 0;
 }
 
-//numĞŞ¸ÄÏàÓ¦µÄstrategy
+//numä¿®æ”¹ç›¸åº”çš„strategy
 int have_strategy(string menpai,string strategy,int num)
 {
 	int i,j;
@@ -174,7 +174,7 @@ int have_strategy(string menpai,string strategy,int num)
 		{
 
 			if(!sizeof(familys[i]["family_strategy"]))
-				return notify_fail ("Õâ¸öÃÅÅÉÃ»ÓĞÖÆ¶¨²ßÂÔ¡£\n");
+				return notify_fail ("è¿™ä¸ªé—¨æ´¾æ²¡æœ‰åˆ¶å®šç­–ç•¥ã€‚\n");
 			else
 			{
 
@@ -194,14 +194,14 @@ int have_strategy(string menpai,string strategy,int num)
 				}
 				
 			}
-		return notify_fail ("Õâ¸öÃÅÅÉÃ»ÓĞÖÆ¶¨ÕâÖÖ²ßÂÔ¡£\n");
+		return notify_fail ("è¿™ä¸ªé—¨æ´¾æ²¡æœ‰åˆ¶å®šè¿™ç§ç­–ç•¥ã€‚\n");
 		}
 
 	}
-		return notify_fail ("Ã»ÓĞÕâ¸öÃÅÅÉ¡£\n");
+		return notify_fail ("æ²¡æœ‰è¿™ä¸ªé—¨æ´¾ã€‚\n");
 
 }
-//numĞŞ¸ÄÏàÓ¦µÄarea power
+//numä¿®æ”¹ç›¸åº”çš„area power
 int have_power(string menpai,string area,int num)
 {
 	int i,j;
@@ -211,7 +211,7 @@ int have_power(string menpai,string area,int num)
 		if(familys[i]["family_name"]==con_name(menpai,2))
 		{
 			if(!sizeof(familys[i]["family_power"]))
-				return notify_fail ("Õâ¸öÃÅÅÉÃ»ÓĞÕâ¸öÇøÓò·¶Î§ÄÚµÄÊÆÁ¦¡£\n");
+				return notify_fail ("è¿™ä¸ªé—¨æ´¾æ²¡æœ‰è¿™ä¸ªåŒºåŸŸèŒƒå›´å†…çš„åŠ¿åŠ›ã€‚\n");
 			else
 			{
 				area_name=keys(familys[i]["family_power"]);
@@ -230,11 +230,11 @@ int have_power(string menpai,string area,int num)
 				}
 				
 			}
-		return notify_fail ("Õâ¸öÃÅÅÉÃ»ÓĞÕâ¸öµØÇøµÄÊÆÁ¦¡£\n");
+		return notify_fail ("è¿™ä¸ªé—¨æ´¾æ²¡æœ‰è¿™ä¸ªåœ°åŒºçš„åŠ¿åŠ›ã€‚\n");
 		}
 
 	}
-		return notify_fail ("Ã»ÓĞÕâ¸öÃÅÅÉ¡£\n");
+		return notify_fail ("æ²¡æœ‰è¿™ä¸ªé—¨æ´¾ã€‚\n");
 
 }
 
@@ -242,11 +242,11 @@ int have_power(string menpai,string area,int num)
 
 //Add a new family data. 
 //parameter explain:
-//string family_name  ÃÅÅÉµÄÃû³Æ
-//mapping strategy      ÃÅÅÉ·¢Õ¹²ßÂÔ(ÓÃÒ»¸ömixedÀ´±íÊ¾£¬ÆäÖĞ¿ÉÒÔÏêÏ¸ËµÃ÷²ßÂÔ¸÷ÖÖ²ÎÊı)
-//int luck			  ÃÅÅÉĞÒÔËÖµ(Ó°ÏìÃÅÅÉÈÎÎñºÍ¸÷ÖÖËæ»ú²ÎÊı£¬Ô½´ó±íÊ¾¶ÔÃÅÅÉÔ½ÓĞÀû)
-//int money           ÃÅÅÉµÄ²ÆÕşÊıÖµ(Ó°ÏìÃÅÅÉ²ßÂÔºÍÃÅÅÉ³ÉÔ±µÄÙºÂ»)
-//mapping power         ÃÅÅÉµÄÊÆÁ¦(Ó°ÏìÕû¸öÓÎÏ·»·¾³ºÍÈÎÎñÏµÍ³)
+//string family_name  é—¨æ´¾çš„åç§°
+//mapping strategy      é—¨æ´¾å‘å±•ç­–ç•¥(ç”¨ä¸€ä¸ªmixedæ¥è¡¨ç¤ºï¼Œå…¶ä¸­å¯ä»¥è¯¦ç»†è¯´æ˜ç­–ç•¥å„ç§å‚æ•°)
+//int luck			  é—¨æ´¾å¹¸è¿å€¼(å½±å“é—¨æ´¾ä»»åŠ¡å’Œå„ç§éšæœºå‚æ•°ï¼Œè¶Šå¤§è¡¨ç¤ºå¯¹é—¨æ´¾è¶Šæœ‰åˆ©)
+//int money           é—¨æ´¾çš„è´¢æ”¿æ•°å€¼(å½±å“é—¨æ´¾ç­–ç•¥å’Œé—¨æ´¾æˆå‘˜çš„ä¿¸ç¦„)
+//mapping power         é—¨æ´¾çš„åŠ¿åŠ›(å½±å“æ•´ä¸ªæ¸¸æˆç¯å¢ƒå’Œä»»åŠ¡ç³»ç»Ÿ)
 
 
 int add_orgdata(string family_name,mapping strategy,int luck,int money,int rate,mapping power,int assess_num)
@@ -265,7 +265,7 @@ int add_orgdata(string family_name,mapping strategy,int luck,int money,int rate,
 			"family_assess_num":assess_num,
       
         ]);
-			write(family_name+"Êı¾İÌí³É¹¦£¨µÚÒ»¸öÃÅÅÉ)¡£\n");
+			write(family_name+"æ•°æ®æ·»æˆåŠŸï¼ˆç¬¬ä¸€ä¸ªé—¨æ´¾)ã€‚\n");
 			set_familys(family);
 			save();
 			return 1;
@@ -279,7 +279,7 @@ int add_orgdata(string family_name,mapping strategy,int luck,int money,int rate,
 		if(familys[i]["family_name"]==family_name)
 		{
 			//printf("%s\n",familys[i]["family_name"]);
-			return notify_fail ("ÒÑ¾­ÓĞÕâ¸öÃÅÅÉÁË£¬ÇëÊ¹ÓÃchange_orgdataÀ´ĞŞ¸Ä¡£\n");
+			return notify_fail ("å·²ç»æœ‰è¿™ä¸ªé—¨æ´¾äº†ï¼Œè¯·ä½¿ç”¨change_orgdataæ¥ä¿®æ”¹ã€‚\n");
 		}
 			family = ([
     				"family_name":family_name,
@@ -291,7 +291,7 @@ int add_orgdata(string family_name,mapping strategy,int luck,int money,int rate,
 					"family_assess_num":assess_num,
       
 				]);
-		write(family_name+"Êı¾İÌí¼Ó³É¹¦¡£\n");
+		write(family_name+"æ•°æ®æ·»åŠ æˆåŠŸã€‚\n");
 		set_familys(family);
 		save();
 		return 1;
@@ -331,7 +331,7 @@ int change_orgdata(string family_name,mapping strategy,int luck,int money,int ra
 			return 1;
 		}
 	}
-		return notify_fail ("Ã»ÓĞÕâ¸öÃÅÅÉÁË£¬ÇëÊ¹ÓÃadd_orgdataÀ´Ôö¼ÓĞÂµÄÃÅÅÉÊı¾İ¡£\n");
+		return notify_fail ("æ²¡æœ‰è¿™ä¸ªé—¨æ´¾äº†ï¼Œè¯·ä½¿ç”¨add_orgdataæ¥å¢åŠ æ–°çš„é—¨æ´¾æ•°æ®ã€‚\n");
 
 }
 mapping query_assess_basenum(string family)
@@ -346,33 +346,33 @@ int query_full_menpaidata(string menpai_name)
 	int i,j;
 	string *strategy_name;
 	if(!sizeof(familys))
-		return notify_fail ("ÏÖÔÚÃ»ÓĞÈÎºÎ½­ºşÃÅÅÉĞÅÏ¢£¬ÇëÊ¹ÓÃsetorg_defaultÀ´ÉèÖÃÈ±Ê¡²ÎÊı¡£\n");
+		return notify_fail ("ç°åœ¨æ²¡æœ‰ä»»ä½•æ±Ÿæ¹–é—¨æ´¾ä¿¡æ¯ï¼Œè¯·ä½¿ç”¨setorg_defaultæ¥è®¾ç½®ç¼ºçœå‚æ•°ã€‚\n");
 		
 	
 	for(i=0;i<sizeof(familys);i++)
 	{
 		if(familys[i]["family_name"]==con_name(menpai_name,2))
 		{
-			write(HIC+con_name(menpai_name,2)+"ÏêÏ¸ÁĞ±í:\n"NOR);
-			write("ÃÅÅÉĞÒÔËµãÊı\t\t"+familys[i]["family_luck"]+"\n"NOR);
-			write("ÃÅÅÉ½ğÇ®ÏµÊı\t\t"+familys[i]["family_money"]+"\n"NOR);
-			write("ÃÅÅÉµÄÆÀ¶¨»ùÊı\t\t"+familys[i]["family_assess_num"]+"\n"NOR);
+			write(HIC+con_name(menpai_name,2)+"è¯¦ç»†åˆ—è¡¨:\n"NOR);
+			write("é—¨æ´¾å¹¸è¿ç‚¹æ•°\t\t"+familys[i]["family_luck"]+"\n"NOR);
+			write("é—¨æ´¾é‡‘é’±ç³»æ•°\t\t"+familys[i]["family_money"]+"\n"NOR);
+			write("é—¨æ´¾çš„è¯„å®šåŸºæ•°\t\t"+familys[i]["family_assess_num"]+"\n"NOR);
 			if(!sizeof(familys[i]["family_strategy"]))
-				write("ÃÅÅÉ²ßÂÔÎŞ\n"NOR);
+				write("é—¨æ´¾ç­–ç•¥æ— \n"NOR);
 			else
 			{
 				strategy_name=keys(familys[i]["family_strategy"]);
-				write("ÃÅÅÉ²ßÂÔÏêÏ¸±í£º\n");
+				write("é—¨æ´¾ç­–ç•¥è¯¦ç»†è¡¨ï¼š\n");
 				for(j=0;j<sizeof(familys[i]["family_strategy"]);j++)
 					printf("\t%-20s\t%d\n",strategy_name[j],familys[i]["family_strategy"][strategy_name[j]]);
 			}
 
 			if(!sizeof(familys[i]["family_power"]))
-				write("ÃÅÅÉÊÆÁ¦ÎŞ\n"NOR);
+				write("é—¨æ´¾åŠ¿åŠ›æ— \n"NOR);
 			else
 			{
 				strategy_name=keys(familys[i]["family_power"]);
-				write("ÃÅÅÉÊÆÁ¦ÏêÏ¸±í£º\n");
+				write("é—¨æ´¾åŠ¿åŠ›è¯¦ç»†è¡¨ï¼š\n");
 				for(j=0;j<sizeof(familys[i]["family_power"]);j++)
 				printf("\t%-20s\t%d\n",strategy_name[j],familys[i]["family_power"][strategy_name[j]]);
 			}
@@ -389,9 +389,9 @@ int query_strategy_list(int mode)
 	
 	int i;
 	if(!sizeof(familys))
-		return notify_fail ("ÏÖÔÚÃ»ÓĞÈÎºÎ½­ºşÃÅÅÉĞÅÏ¢£¬ÇëÊ¹ÓÃsetorg_defaultÀ´ÉèÖÃÈ±Ê¡²ÎÊı¡£\n");
+		return notify_fail ("ç°åœ¨æ²¡æœ‰ä»»ä½•æ±Ÿæ¹–é—¨æ´¾ä¿¡æ¯ï¼Œè¯·ä½¿ç”¨setorg_defaultæ¥è®¾ç½®ç¼ºçœå‚æ•°ã€‚\n");
 		
-	write(HIC"Ä¿Ç°½­ºş¸÷ÅÉµÄÖ÷Òª²ßÂÔÎª:\n"NOR);
+	write(HIC"ç›®å‰æ±Ÿæ¹–å„æ´¾çš„ä¸»è¦ç­–ç•¥ä¸º:\n"NOR);
 	for(i=0;i<sizeof(familys);i++)
 	{
 		write(familys[i]["family_name"]+"\n");
@@ -405,9 +405,9 @@ int query_menpai_list()
 	
 	int i;
 	if(!sizeof(familys))
-		return notify_fail ("ÏÖÔÚÃ»ÓĞÈÎºÎ½­ºşÃÅÅÉĞÅÏ¢£¬ÇëÊ¹ÓÃsetorg_defaultÀ´ÉèÖÃÈ±Ê¡²ÎÊı¡£\n");
+		return notify_fail ("ç°åœ¨æ²¡æœ‰ä»»ä½•æ±Ÿæ¹–é—¨æ´¾ä¿¡æ¯ï¼Œè¯·ä½¿ç”¨setorg_defaultæ¥è®¾ç½®ç¼ºçœå‚æ•°ã€‚\n");
 		
-	write(HIC"Ä¿Ç°ÎäÁÖ»Ã¾³¿ØÖÆµÄÃÅÅÉÓĞ:\n"NOR);
+	write(HIC"ç›®å‰æ­¦æ—å¹»å¢ƒæ§åˆ¶çš„é—¨æ´¾æœ‰:\n"NOR);
 	for(i=0;i<sizeof(familys);i++)
 	{
 		write(HIW+familys[i]["family_name"]+"\n"NOR);
@@ -421,9 +421,9 @@ int query_luck_list()
 	
 	int i;
 	if(!sizeof(familys))
-		return notify_fail ("ÏÖÔÚÃ»ÓĞÈÎºÎ½­ºşÃÅÅÉĞÅÏ¢£¬ÇëÊ¹ÓÃsetorg_defaultÀ´ÉèÖÃÈ±Ê¡²ÎÊı¡£\n");
+		return notify_fail ("ç°åœ¨æ²¡æœ‰ä»»ä½•æ±Ÿæ¹–é—¨æ´¾ä¿¡æ¯ï¼Œè¯·ä½¿ç”¨setorg_defaultæ¥è®¾ç½®ç¼ºçœå‚æ•°ã€‚\n");
 		
-	write(HIC"Ä¿Ç°½­ºş¸÷ÅÉµÄĞÒÔËµãÊıÎª:\n"NOR);
+	write(HIC"ç›®å‰æ±Ÿæ¹–å„æ´¾çš„å¹¸è¿ç‚¹æ•°ä¸º:\n"NOR);
 	for(i=0;i<sizeof(familys);i++)
 	{
 		write(familys[i]["family_name"]+"\t\t");
@@ -437,13 +437,13 @@ int query_money_list()
 	
 	int i;
 	if(!sizeof(familys))
-		return notify_fail ("ÏÖÔÚÃ»ÓĞÈÎºÎ½­ºşÃÅÅÉĞÅÏ¢£¬ÇëÊ¹ÓÃsetorg_defaultÀ´ÉèÖÃÈ±Ê¡²ÎÊı¡£\n");
+		return notify_fail ("ç°åœ¨æ²¡æœ‰ä»»ä½•æ±Ÿæ¹–é—¨æ´¾ä¿¡æ¯ï¼Œè¯·ä½¿ç”¨setorg_defaultæ¥è®¾ç½®ç¼ºçœå‚æ•°ã€‚\n");
 		
-	write(HIC"Ä¿Ç°½­ºş¸÷ÅÉµÄ½ğÇ®·ÖÅäÏµÊıÎª:\n"NOR);
+	write(HIC"ç›®å‰æ±Ÿæ¹–å„æ´¾çš„é‡‘é’±åˆ†é…ç³»æ•°ä¸º:\n"NOR);
 	for(i=0;i<sizeof(familys);i++)
 	{
 		write(familys[i]["family_name"]+"\t\t");
-		write("°Ù·ÖÖ®"+familys[i]["family_money"]+"\n");
+		write("ç™¾åˆ†ä¹‹"+familys[i]["family_money"]+"\n");
 	}
 
 	return 1;
@@ -463,12 +463,12 @@ string random_get_menpai_strategy(string menpai)
 			
 
 			if(!sizeof(familys[i]["family_strategy"]))
-				return ("Õâ¸öÃÅÅÉÃ»ÓĞÖÆ¶¨²ßÂÔ¡£\n");
+				return ("è¿™ä¸ªé—¨æ´¾æ²¡æœ‰åˆ¶å®šç­–ç•¥ã€‚\n");
 			else
 			{
 
 				strategy_name=keys(familys[i]["family_strategy"]);
-				//printf("Ëæ»ú²úÉúµÄ²ßÂÔÊıÖµ=%d\n",strategy_random);
+				//printf("éšæœºäº§ç”Ÿçš„ç­–ç•¥æ•°å€¼=%d\n",strategy_random);
 				for(j=0;j<sizeof(familys[i]["family_strategy"]);j++)
 					{
 					strategy_sum +=familys[i]["family_strategy"][strategy_name[j]];
@@ -476,10 +476,10 @@ string random_get_menpai_strategy(string menpai)
 					return strategy_name[j];
 				}
 			}
-		return ("Õâ¸öÃÅÅÉÃ»ÓĞÖÆ¶¨ÕâÖÖ²ßÂÔ¡£\n");
+		return ("è¿™ä¸ªé—¨æ´¾æ²¡æœ‰åˆ¶å®šè¿™ç§ç­–ç•¥ã€‚\n");
 		}
 	}
-		return ("Ã»ÓĞÕâ¸öÃÅÅÉ(restore())¡£\n");
+		return ("æ²¡æœ‰è¿™ä¸ªé—¨æ´¾(restore())ã€‚\n");
 }
 
 string random_get_menpai_areapower(string menpai)
@@ -491,7 +491,7 @@ string random_get_menpai_areapower(string menpai)
 		if(familys[i]["family_name"]==menpai)
 		{
 			if(!sizeof(familys[i]["family_power"]))
-				return ("Õâ¸öÃÅÅÉÃ»ÓĞÇøÓò·¶Î§ÄÚµÄÊÆÁ¦¡£\n");
+				return ("è¿™ä¸ªé—¨æ´¾æ²¡æœ‰åŒºåŸŸèŒƒå›´å†…çš„åŠ¿åŠ›ã€‚\n");
 			else
 			{
 				area_name=keys(familys[i]["family_power"]);
@@ -500,10 +500,10 @@ string random_get_menpai_areapower(string menpai)
 				{
 					menpai_area_power_sum +=familys[i]["family_power"][area_name[j]];
 				}
-				//printf("ÇøÓòÊÆÁ¦µÄ×ÜºÍ=%d\n",menpai_area_power_sum);
+				//printf("åŒºåŸŸåŠ¿åŠ›çš„æ€»å’Œ=%d\n",menpai_area_power_sum);
 				
 				power_random=1+random(menpai_area_power_sum-1);
-				//printf("Ëæ¼´²úÉúµÄÇøÓòÊÆÁ¦Öµ=%d\n",power_random);
+				//printf("éšå³äº§ç”Ÿçš„åŒºåŸŸåŠ¿åŠ›å€¼=%d\n",power_random);
 				for(j=0;j<sizeof(familys[i]["family_power"]);j++)
 				{
 					power_sum +=familys[i]["family_power"][area_name[j]];
@@ -511,10 +511,10 @@ string random_get_menpai_areapower(string menpai)
 					return area_name[j];
 				}
 			}
-		return ("Õâ¸öÃÅÅÉÃ»ÓĞÕâ¸öµØÇøµÄÊÆÁ¦¡£\n");
+		return ("è¿™ä¸ªé—¨æ´¾æ²¡æœ‰è¿™ä¸ªåœ°åŒºçš„åŠ¿åŠ›ã€‚\n");
 		}
 	}
-		return ("Ã»ÓĞÕâ¸öÃÅÅÉ¡£\n");
+		return ("æ²¡æœ‰è¿™ä¸ªé—¨æ´¾ã€‚\n");
 }
 string get_random_menpai()
 {
@@ -524,13 +524,13 @@ string get_random_menpai()
 		return "error";
 	for(j=0;j<i;j++)
 		all_num+=familys[j]["family_rate"];
-	//printf("ÃÅÅÉ±ÈÂÊµÄ×ÜºÍÎª:\t%d\n",all_num);
+	//printf("é—¨æ´¾æ¯”ç‡çš„æ€»å’Œä¸º:\t%d\n",all_num);
 	random_num=1+random(all_num-1);
-	//printf("Ëæ¼´²úÉúµÄÃÅÅÉ±ÈÂÊÖµ=%d\n",random_num);
+	//printf("éšå³äº§ç”Ÿçš„é—¨æ´¾æ¯”ç‡å€¼=%d\n",random_num);
 	for(j=0;j<sizeof(familys);j++)
 		{
 		
-		//printf("%sµÄ±ÈÂÊÎª:\t%d\n",familys[j]["family_name"],familys[j]["family_rate"]);
+		//printf("%sçš„æ¯”ç‡ä¸º:\t%d\n",familys[j]["family_name"],familys[j]["family_rate"]);
 		temp_num +=familys[j]["family_rate"];
 		if(random_num<temp_num)
 		{
@@ -540,7 +540,7 @@ string get_random_menpai()
 
 
 	
-return ("Ã»ÓĞÕâ¸öÃÅÅÉ¡£\n");
+return ("æ²¡æœ‰è¿™ä¸ªé—¨æ´¾ã€‚\n");
 
 }
 int query_rate_list()
@@ -548,9 +548,9 @@ int query_rate_list()
 	
 	int i;
 	if(!sizeof(familys))
-		return notify_fail ("ÏÖÔÚÃ»ÓĞÈÎºÎ½­ºşÃÅÅÉĞÅÏ¢£¬ÇëÊ¹ÓÃsetorg_defaultÀ´ÉèÖÃÈ±Ê¡²ÎÊı¡£\n");
+		return notify_fail ("ç°åœ¨æ²¡æœ‰ä»»ä½•æ±Ÿæ¹–é—¨æ´¾ä¿¡æ¯ï¼Œè¯·ä½¿ç”¨setorg_defaultæ¥è®¾ç½®ç¼ºçœå‚æ•°ã€‚\n");
 		
-	write(HIC"Ä¿Ç°¸÷ÃÅÅÉ²úÉúÈÎÎñµÄ±ÈÂÊÎª:\n"NOR);
+	write(HIC"ç›®å‰å„é—¨æ´¾äº§ç”Ÿä»»åŠ¡çš„æ¯”ç‡ä¸º:\n"NOR);
 	for(i=0;i<sizeof(familys);i++)
 	{
 		write(HIW+familys[i]["family_name"]+":\t\t"NOR);

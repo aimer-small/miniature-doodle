@@ -1,4 +1,4 @@
-// moxiao.c Ä§Ğ¦
+// moxiao.c é­”ç¬‘
 
 #include <ansi.h>
 
@@ -19,24 +19,24 @@ int perform(object me, object target)
         }
 
         if (! me->is_fighting(target))
-                return notify_fail("¡¸Ä§Ğ¦¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œé­”ç¬‘ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         skill = me->query_skill("tianmo-jian", 1);
 
         if (skill < 150)
-                return notify_fail("ÄãµÄÌìÄ§½£·¨ĞŞÎªÓĞÏŞ£¬ÏÖÔÚ²»ÄÜÊ¹ÓÃ¡¸Ä§Ğ¦¡¹£¡\n");
+                return notify_fail("ä½ çš„å¤©é­”å‰‘æ³•ä¿®ä¸ºæœ‰é™ï¼Œç°åœ¨ä¸èƒ½ä½¿ç”¨ã€Œé­”ç¬‘ã€ï¼\n");
 
         if (me->query("neili") < 100)
-                return notify_fail("ÄãµÄÕæÆø²»¹»£¬ÎŞ·¨ÔËÓÃ¡¸Ä§Ğ¦¡¹£¡\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿï¼Œæ— æ³•è¿ç”¨ã€Œé­”ç¬‘ã€ï¼\n");
 
         if (! objectp(weapon = me->query_temp("weapon")) ||
             (string)weapon->query("skill_type") != "sword")
-                return notify_fail("ÄãÖ»ÓĞ×°±¸½£²ÅÄÜÊ©Õ¹¡¸Ä§Ğ¦¡¹£¡\n");
+                return notify_fail("ä½ åªæœ‰è£…å¤‡å‰‘æ‰èƒ½æ–½å±•ã€Œé­”ç¬‘ã€ï¼\n");
 
-        msg = HIR "$N" HIR "Í»È»¼äÉíĞÎÁ¬×ª£¬¿ÚÖĞ·¢³öÕóÕóÆàÀ÷µÄ¹ÖĞ¦£¬$n"
-              HIR "Ö»¾õ¶úÖĞÓĞÈçÕë´Ì£¬²»½ûĞÄÂÒÉñÃÔ£¬¹¥ÊÆ¶Ù»º¡£\n$N"
-              HIR "İëµÄÆËµ½$n" HIR "½üÇ°£¬ÊÖÖĞµÄ" + weapon->name() +
-              HIR "Ò»Õñ£¬Ë²¼äÒÑÏò$p´Ì³öÊı½£¡£\n" NOR;
+        msg = HIR "$N" HIR "çªç„¶é—´èº«å½¢è¿è½¬ï¼Œå£ä¸­å‘å‡ºé˜µé˜µå‡„å‰çš„æ€ªç¬‘ï¼Œ$n"
+              HIR "åªè§‰è€³ä¸­æœ‰å¦‚é’ˆåˆºï¼Œä¸ç¦å¿ƒä¹±ç¥è¿·ï¼Œæ”»åŠ¿é¡¿ç¼“ã€‚\n$N"
+              HIR "è“¦çš„æ‰‘åˆ°$n" HIR "è¿‘å‰ï¼Œæ‰‹ä¸­çš„" + weapon->name() +
+              HIR "ä¸€æŒ¯ï¼Œç¬é—´å·²å‘$påˆºå‡ºæ•°å‰‘ã€‚\n" NOR;
 
       message_vision(msg, me, target);
         count = skill / 2;
@@ -51,7 +51,7 @@ int perform(object me, object target)
         me->start_busy(2 + random(3));
         me->add_temp("apply/attack", -count);
             me->add_temp("apply/attack", -count);
- me->start_perform(3, "¡¸ÌìÄ§Ğ¦¡¹");
+ me->start_perform(3, "ã€Œå¤©é­”ç¬‘ã€");
 
 
         return 1;

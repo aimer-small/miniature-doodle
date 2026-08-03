@@ -1,4 +1,4 @@
-// ÉßĞÎµóÊÖ  
+// è›‡å½¢åˆæ‰‹  
 
 #include <ansi.h>
 #include <combat.h> 
@@ -15,38 +15,38 @@ int perform(object me, object target)
 	if( !target ) target = offensive_target(me);
 
 	if( !objectp(target) || !me->is_fighting(target) )
-		return notify_fail("¡¸ÉßĞÎµóÊÖ¡¹Ö»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€Œè›‡å½¢åˆæ‰‹ã€åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
 
 	if( me->query_temp("weapon"))
-		return notify_fail("ÄãÄÃ×ÅÎäÆ÷ÔõÃ´ÄÜÊ¹ÓÃ¡¸ÉßĞÎµóÊÖ¡¹£¡\n");   
+		return notify_fail("ä½ æ‹¿ç€æ­¦å™¨æ€ä¹ˆèƒ½ä½¿ç”¨ã€Œè›‡å½¢åˆæ‰‹ã€ï¼\n");   
 
 	if( skill < 160 )
-		return notify_fail("ÄãµÄÉßĞÎµóÊÖ²»¹»æµÊì£¬Ê¹²»³öÉßĞÎµóÊÖ¡£\n");
+		return notify_fail("ä½ çš„è›‡å½¢åˆæ‰‹ä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡ºè›‡å½¢åˆæ‰‹ã€‚\n");
 
 	if(me->query_skill("hamagong",1) < 200 )
-		return notify_fail("ÄãµÄ¸òó¡¹¦²»¹»æµÊì£¬Ê¹²»³öÉßĞÎµóÊÖ¡£\n");
+		return notify_fail("ä½ çš„è›¤èŸ†åŠŸä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡ºè›‡å½¢åˆæ‰‹ã€‚\n");
 
 	if(me->query_skill("shexing-diaoshou",1) < 200 )
-		return notify_fail("ÄãµÄÉßĞÎÉßĞÎµóÊÖ²»¹»æµÊì£¬Ê¹²»³öÉßĞÎµóÊÖ¡£\n");
+		return notify_fail("ä½ çš„è›‡å½¢è›‡å½¢åˆæ‰‹ä¸å¤Ÿå¨´ç†Ÿï¼Œä½¿ä¸å‡ºè›‡å½¢åˆæ‰‹ã€‚\n");
 
 	if (me->query_skill_mapped("parry") != "shexing-diaoshou" 
 	|| me->query_skill_mapped("hand") != "shexing-diaoshou" 
 	|| me->query_skill_prepared("hand") != "shexing-diaoshou" )
-		return notify_fail("ÄãÏÖÔÚÎŞ·¨Ê¹ÓÃ¡¸ÉßĞÎµóÊÖ¡¹£¡\n");
+		return notify_fail("ä½ ç°åœ¨æ— æ³•ä½¿ç”¨ã€Œè›‡å½¢åˆæ‰‹ã€ï¼\n");
 
 	if( (int)me->query("max_neili") < 3000)
-		return notify_fail("ÄãÏÖÔÚÄÚÁ¦Ì«Èõ£¬Ê¹²»³ö¡¸ÉßĞÎµóÊÖ¡¹¡£\n");      
+		return notify_fail("ä½ ç°åœ¨å†…åŠ›å¤ªå¼±ï¼Œä½¿ä¸å‡ºã€Œè›‡å½¢åˆæ‰‹ã€ã€‚\n");      
 
 	if( (int)me->query("neili") < 1500 )
-		return notify_fail("ÄãÏÖÔÚÕæÆøÌ«Èõ£¬Ê¹²»³ö¡¸ÉßĞÎµóÊÖ¡¹¡£\n");
+		return notify_fail("ä½ ç°åœ¨çœŸæ°”å¤ªå¼±ï¼Œä½¿ä¸å‡ºã€Œè›‡å½¢åˆæ‰‹ã€ã€‚\n");
 		
 		if( (int)me->query("jingli") < 1500 )
-		return notify_fail("ÄãÏÖÔÚ¾«Á¦Ì«ÉÙ£¬Ê¹²»³ö¡¸ÉßĞÎµóÊÖ¡¹¡£\n");
+		return notify_fail("ä½ ç°åœ¨ç²¾åŠ›å¤ªå°‘ï¼Œä½¿ä¸å‡ºã€Œè›‡å½¢åˆæ‰‹ã€ã€‚\n");
 		
 		if( me->is_busy() )
-		return notify_fail(me->name() +"ÄãÕıÃ¦ÄØ£¡\n");
+		return notify_fail(me->name() +"ä½ æ­£å¿™å‘¢ï¼\n");
 
-	message_vision(HIB"\n$N½«ÖÜÉí¹Ø½Ú½Ú½Ú¹áÍ¨£¬ÊÖ±Û´ÓÒ»¸ö²»ÄÜÍäÕÛµÄ½Ç¶È»÷Ïò$n£¡\n"NOR,me,target);
+	message_vision(HIB"\n$Nå°†å‘¨èº«å…³èŠ‚èŠ‚èŠ‚è´¯é€šï¼Œæ‰‹è‡‚ä»ä¸€ä¸ªä¸èƒ½å¼¯æŠ˜çš„è§’åº¦å‡»å‘$nï¼\n"NOR,me,target);
 
 	j = skill/3;
 	if ( skill > 200)
@@ -70,7 +70,7 @@ int perform(object me, object target)
 
 	me->add("neili", -400);
 	me->add("jingli", -150);
-	me->start_perform(4, "ÉßĞÎµóÊÖ");
+	me->start_perform(4, "è›‡å½¢åˆæ‰‹");
 	me->delete_temp("sxds/ds");
 	me->start_busy(random(2));
 	target->start_busy(random(2));
@@ -78,19 +78,19 @@ int perform(object me, object target)
 	return 1;
 }
 
-string perform_name(){ return HIG"ÉßĞÎµóÊÖ"NOR; }
+string perform_name(){ return HIG"è›‡å½¢åˆæ‰‹"NOR; }
 
 int help(object me)
 {
-	write(RED"\nÉßĞÎÉßĞÎµóÊÖÖ®¡¸ÉßĞÎµóÊÖ¡¹£º"NOR"\n");
+	write(RED"\nè›‡å½¢è›‡å½¢åˆæ‰‹ä¹‹ã€Œè›‡å½¢åˆæ‰‹ã€ï¼š"NOR"\n");
 	write(@HELP
 
-	ÒªÇó£ºµ±Ç°ÄÚÁ¦ 2500 ÒÔÉÏ£»
-		×î´óÄÚÁ¦ 2000 ÒÔÉÏ£º
-		µ±Ç°¾«Á¦ 1500ÒÔÉÏ£»
-		ÉßĞÎÉßĞÎµóÊÖµÈ¼¶ 200 ÒÔÉÏ£»
-		¸òó¡¹¦µÈ¼¶ 200 ÒÔÉÏ£»
-		ÄÚ¹¦ÓĞĞ§µÈ¼¶ 200 ÒÔÉÏ£º
+	è¦æ±‚ï¼šå½“å‰å†…åŠ› 2500 ä»¥ä¸Šï¼›
+		æœ€å¤§å†…åŠ› 2000 ä»¥ä¸Šï¼š
+		å½“å‰ç²¾åŠ› 1500ä»¥ä¸Šï¼›
+		è›‡å½¢è›‡å½¢åˆæ‰‹ç­‰çº§ 200 ä»¥ä¸Šï¼›
+		è›¤èŸ†åŠŸç­‰çº§ 200 ä»¥ä¸Šï¼›
+		å†…åŠŸæœ‰æ•ˆç­‰çº§ 200 ä»¥ä¸Šï¼š
 HELP
 	);
 	return 1;

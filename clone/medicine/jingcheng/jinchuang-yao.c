@@ -9,14 +9,14 @@ void init()
 
 void create()
 {
-        set_name("½ğ´´Ò©", ({"jinchuang yao", "jinchuang", "yao"}));
+        set_name("é‡‘åˆ›è¯", ({"jinchuang yao", "jinchuang", "yao"}));
         if (clonep())
                 set_default_object(__FILE__);
         else 
         {
                 set("value", 3000);
-                set("unit", "°ü");
-                set("long", "ÕâÊÇÒ»°üÌØĞ§½ğ´´Ò©£¬¿ÉÒÔ²¹ÂúÆøÑª¡£\n");
+                set("unit", "åŒ…");
+                set("long", "è¿™æ˜¯ä¸€åŒ…ç‰¹æ•ˆé‡‘åˆ›è¯ï¼Œå¯ä»¥è¡¥æ»¡æ°”è¡€ã€‚\n");
         }
 }
 
@@ -24,14 +24,14 @@ int do_eat(string arg)
 {
         object me = this_player();
         if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         if (me->is_busy())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if (me->query("eff_qi") >= me->query("max_qi"))
-                return notify_fail("ÄãÏÖÔÚ²»ĞèÒªÓÃ½ğ´´Ò©¡£\n");
+                return notify_fail("ä½ ç°åœ¨ä¸éœ€è¦ç”¨é‡‘åˆ›è¯ã€‚\n");
         me->receive_curing("qi", me->query("max_qi"));
         me->receive_heal("qi", me->query("max_qi"));
-        message_vision(HIY"$N³ÔÏÂÒ»°ü½ğ´´Ò©£¬ÉíÉÏÍâÉËÒÑÈ»ÎŞ°­¡£\n"NOR, me);
+        message_vision(HIY"$Nåƒä¸‹ä¸€åŒ…é‡‘åˆ›è¯ï¼Œèº«ä¸Šå¤–ä¼¤å·²ç„¶æ— ç¢ã€‚\n"NOR, me);
         me->start_busy(1);
         destruct(this_object());
         return 1;

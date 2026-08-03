@@ -1,17 +1,17 @@
 
 	objectp(3)		MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		objectp() - ÅĞ¶ÏÒ»¸öÖ¸¶¨µÄ±äÊıÊÇ·ñÎªÒ»¸öÎï¼ş (object).
-	Óï·¨:
+	åç§°:
+		objectp() - åˆ¤æ–­ä¸€ä¸ªæŒ‡å®šçš„å˜æ•°æ˜¯å¦ä¸ºä¸€ä¸ªç‰©ä»¶ (object).
+	è¯­æ³•:
 		int objectp( mixed arg );
 
-		ÕûÊı objectp( »ìºÏ arg );
-	ÓÃ·¨:
-		Èç¹û arg ÊÇÒ»¸öÎï¼ş¾Í´«»Ø 1.
-	²Î¿¼:
+		æ•´æ•° objectp( æ··åˆ arg );
+	ç”¨æ³•:
+		å¦‚æœ arg æ˜¯ä¸€ä¸ªç‰©ä»¶å°±ä¼ å› 1.
+	å‚è€ƒ:
 		mapp(3), stringp(3), pointerp(3), intp(3), bufferp(3),
  		floatp(3), functionp(3), nullp(3), undefinedp(3), 
 		errorp(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Apr.24.		(printed 3/16/95)

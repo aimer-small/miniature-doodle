@@ -1,10 +1,10 @@
 inherit ROOM;
 void create()
 {
-        set("short", "�ɼ�¥");
+        set("short", "仙家楼");
         set("long", @LONG
-����һ�������ľ�¥��ƽ��������������������ʱ��ʼ����һ�ۡ�С��
-��¥��¥��æ�Ĳ����ֺ�������̸���໥���ڣ�һ��ʤ������
+这是一家有名的酒楼，平日里高朋满座，如果到节时更始定来一聚。小二
+在楼上楼下忙的不亦乐乎，吹拉谈唱相互交融，一派胜世景象。
 LONG );
         set("exits", ([
                 "east" : __DIR__"stbeijie2",

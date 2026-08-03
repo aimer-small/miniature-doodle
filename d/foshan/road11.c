@@ -3,16 +3,16 @@
 inherit ROOM;
 void create()
 {
-        set("short","ÁÖ¼äµÀ");
+        set("short","æ—é—´é“");
         set("long",@LONG
-ÕâÀïÊÇÒ»ÌõÁÖ¼äĞ¡µÀ£¬ÔÚÊ÷´ÔÖĞòêÑÑ¡£ÁëÄÏÉ½ÁÖÃ¯ÃÜ£¬¶à²ú¶¾³æ£¬¸÷Î»ĞĞ
-Â·ÒªÊ®·ÖĞ¡ĞÄ¡£
+è¿™é‡Œæ˜¯ä¸€æ¡æ—é—´å°é“ï¼Œåœ¨æ ‘ä¸›ä¸­èœ¿èœ’ã€‚å²­å—å±±æ—èŒ‚å¯†ï¼Œå¤šäº§æ¯’è™«ï¼Œå„ä½è¡Œ
+è·¯è¦ååˆ†å°å¿ƒã€‚
 LONG);
         set("objects", ([
 		__DIR__"obj/shikuai": 1,
 		__DIR__"npc/tufei": 1,
         ]));
-        set("outdoors", "·ğÉ½");
+        set("outdoors", "ä½›å±±");
         set("exits",([ /* sizeof() == 1 */
 		"northeast" : "/d/group/entry/fsroad13",
 		"southwest" : __DIR__"road10",

@@ -1,4 +1,4 @@
-// ma.c Âí¶æÖ÷
+// ma.c é©¬èˆµä¸»
 
 #include <ansi.h>
 inherit NPC;
@@ -8,12 +8,12 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("Âí¶æÖ÷", ({"ma duozhu", "ma", "duozhu"}));
-        set("title", YEL"Ø¤°ï´óÓÂ·Ö¶æ¶æÖ÷"NOR);
+        set_name("é©¬èˆµä¸»", ({"ma duozhu", "ma", "duozhu"}));
+        set("title", YEL"ä¸å¸®å¤§å‹‡åˆ†èˆµèˆµä¸»"NOR);
         set("gb/bags",8);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 40);
-        set("long","ËûÊÇ°Ë´ü¶æÖ÷£¬ÕÆ¹Ü´óÓÂ·Ö¶æ¡£\n");
+        set("long","ä»–æ˜¯å…«è¢‹èˆµä¸»ï¼ŒæŒç®¡å¤§å‹‡åˆ†èˆµã€‚\n");
         set("attitude", "peaceful");
         set("unique", 1);
 
@@ -33,11 +33,11 @@ void create()
 
         set("combat_exp", 320000);
 
-        set_skill("force", 90); // »ù±¾ÄÚ¹¦
-        set_skill("huntian-qigong", 90); // »ìÌìÆø¹¦
-        set_skill("dodge", 90); // »ù±¾¶ãÉÁ
-        set_skill("xiaoyaoyou", 100); // Ç§ÀïĞĞÆò
-        set_skill("parry", 100); // »ù±¾ÕĞ¼Ü
+        set_skill("force", 90); // åŸºæœ¬å†…åŠŸ
+        set_skill("huntian-qigong", 90); // æ··å¤©æ°”åŠŸ
+        set_skill("dodge", 90); // åŸºæœ¬èº²é—ª
+        set_skill("xiaoyaoyou", 100); // åƒé‡Œè¡Œä¹
+        set_skill("parry", 100); // åŸºæœ¬æ‹›æ¶
         set_skill("staff", 100);
         set_skill("fengmo-zhang",100);
         set_skill("lianhua-zhang",100);
@@ -51,13 +51,13 @@ void create()
         map_skill("strike", "lianhua-zhang");
         prepare_skill("strike", "lianhua-zhang");
 
-        create_family("Ø¤°ï", 19, "°Ë´üµÜ×Ó");
+        create_family("ä¸å¸®", 19, "å…«è¢‹å¼Ÿå­");
 
         set("inquiry", ([
-                "Ø¤°ï" : "ÎÒÃÇØ¤°ïÊÇÌìÏÂµÚÒ»´ó°ï£¡\n",
-                "Ïô·å" : "Ëû²»¾ÍÊÇÇÇ·å£¬ÎÒÃÇµÄÇ°ÈÎ°ïÖ÷¡£\n",
-                "Ñ§ÕÆ·¨" : "ÄÇ¶¼ÊÇºÜ¶àÄêÇ°µÄÊÂÁË£¬ËûÄÇÊ±³£µ½¸½½üµÄÒ»¸öĞ¡µº\n"
-                           "ÉÏÂñÍ·¿àÁ·¡£\n",
+                "ä¸å¸®" : "æˆ‘ä»¬ä¸å¸®æ˜¯å¤©ä¸‹ç¬¬ä¸€å¤§å¸®ï¼\n",
+                "è§å³°" : "ä»–ä¸å°±æ˜¯ä¹”å³°ï¼Œæˆ‘ä»¬çš„å‰ä»»å¸®ä¸»ã€‚\n",
+                "å­¦æŒæ³•" : "é‚£éƒ½æ˜¯å¾ˆå¤šå¹´å‰çš„äº‹äº†ï¼Œä»–é‚£æ—¶å¸¸åˆ°é™„è¿‘çš„ä¸€ä¸ªå°å²›\n"
+                           "ä¸ŠåŸ‹å¤´è‹¦ç»ƒã€‚\n",
         ]));
         setup();
 
@@ -71,24 +71,24 @@ void attempt_apprentice(object ob)
 {
 
 	if ((int)ob->query_str() <=20	) {
-		command("say ÄãëöÁ¦²»×ã£¬¿ÖÅÂÑ§²»ÁËÎÒµÄ¹¦·ò¡£\n");
+		command("say ä½ è†‚åŠ›ä¸è¶³ï¼Œææ€•å­¦ä¸äº†æˆ‘çš„åŠŸå¤«ã€‚\n");
 		return;
 	}
 
         if ((int)ob->query("gb/bags") >= 2
-        && ob->query("family/family_name") != "Ø¤°ï" ) {
-                command("say Ø¤°ï¿ÉÈİ²»ÏÂÄãÕâÖÖ±³ĞÅÆúÒåµÄĞ¡ÈË£¡");
+        && ob->query("family/family_name") != "ä¸å¸®" ) {
+                command("say ä¸å¸®å¯å®¹ä¸ä¸‹ä½ è¿™ç§èƒŒä¿¡å¼ƒä¹‰çš„å°äººï¼");
                 command("kill "+ob->query("id"));
                 return;
         }
 
-        command("say ºÃ°É£¬Ï£Íû" + RANK_D->query_respect(ob) +
-        "ÄÜºÃºÃÑ§Ï°±¾ÃÅÎä¹¦£¬½«À´ÔÚ½­ºşÖĞ´³³öÒ»·¬×÷Îª¡£");
+        command("say å¥½å§ï¼Œå¸Œæœ›" + RANK_D->query_respect(ob) +
+        "èƒ½å¥½å¥½å­¦ä¹ æœ¬é—¨æ­¦åŠŸï¼Œå°†æ¥åœ¨æ±Ÿæ¹–ä¸­é—¯å‡ºä¸€ç•ªä½œä¸ºã€‚");
 	command("recruit " + ob->query("id"));
 
         if (!ob->query("gb/bags")) ob->set("gb/bags", 1);
-        ob->set("title",sprintf("Ø¤°ï´óÓÂ·Ö¶æ%s´üµÜ×Ó",
+        ob->set("title",sprintf("ä¸å¸®å¤§å‹‡åˆ†èˆµ%sè¢‹å¼Ÿå­",
                 chinese_number(ob->query("gb/bags"))) );
-        ob->set("gb/fenduo","´óÓÂ·Ö¶æ");
+        ob->set("gb/fenduo","å¤§å‹‡åˆ†èˆµ");
         ob->set("class","beggar");
 }

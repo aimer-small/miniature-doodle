@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", BLU"�󱯵�"NOR);
+	set("short", BLU"大悲殿"NOR);
 	set("long", @LONG
-�󱯵�ϵȡ��Ҵ�ȴ�֮�⣬�������ıڻ����˷��ʮ�̵ȴ�ȴ�
-֮�¡�ϵ�ҷ����ڤ����������������ר�����ڣ����ϰ��ż������ţ���
-������������ľ�㡣��λɮ�������Ŀ�Ͼ��������ĵ�����
+大悲殿系取佛家大慈大悲之意，殿堂上四壁绘满了佛家十忍等大慈大悲
+之事。系我佛弟子冥想领悟禅理增进佛法专有所在，地上摆着几个蒲团，几
+本经卷，几个木鱼。几位僧人正在瞑目讼经，看来颇得禅悟。
 LONG
  );
 	set("exits", ([
@@ -41,19 +41,19 @@ int do_mingxiang()
 	me = this_player();
 
 	if ( me->query_temp("mx_times") == 0 ){
-		message_vision(HIR"$N����һ�����������ϵ�����ȥ��\n"NOR, me);
+		message_vision(HIR"$N身子一滑，从蒲团上跌了下去。\n"NOR, me);
 		me->set_temp("mx_times", random(35)+10);
 		me->unconcious();
 		return 1;
         }
 	me->add_temp("mx_times", -1);
-	message_vision("$N�ϵع��������ϱ�Ŀڤ˼��\n", me);
+	message_vision("$N虔诚地跪在蒲团上闭目冥思。\n", me);
 
 	if ( random(30) ==15) {
 		ob=unew(__DIR__"obj/book-xisui");
 		if (ob) {
 			ob->move(this_object());
-			tell_object(me, RED"��ֻ����ͷһ�ȣ���ǰ�Ѷ���һ��Ѫ�ۡ�\n"NOR);
+			tell_object(me, RED"你只觉心头一热，面前已多了一块血袍。\n"NOR);
 		}
 	}
 	return 1;

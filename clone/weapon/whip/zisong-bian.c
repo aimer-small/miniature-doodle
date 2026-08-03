@@ -1,4 +1,4 @@
-// zisong-bian.c ×ÏËÉ±Ş
+// zisong-bian.c ç´«æ¾é­
 // Created by Numa@Sj 1999-11-23
 
 #include <weapon.h>
@@ -9,12 +9,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(MAG"×ÏËÉ±Ş"NOR,({ "zisong bian", "whip","bian" }) );
+        set_name(MAG"ç´«æ¾é­"NOR,({ "zisong bian", "whip","bian" }) );
         set_weight(10000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ìõ");
+                set("unit", "æ¡");
                 set("value", 1);
                 set("unique", 1);
                 set("rigidity", 5);
@@ -24,9 +24,9 @@ void create()
                 set("wield_neili", 700);
                 set("wield_maxneili", 1200);
                 set("wield_str", 23);
-                set("long", "ÕâÊÇÒ»ÌõÓÉáÔÉ½ÌØ²úµÄ×ÏÖñ×ö³ÉµÄ±Ş×Ó£¬ÇáÓ¯Ğ¡ÇÉ£¬ÄÃÔÚÊÖÖĞÓÌÈôÎŞÎï¡£\n");
-                set("unwield_msg", "$NÒ»±³Éí£¬»º»º½«$nÅÌ»ØÑü¼ä¡£\n");
-                set("wield_msg", "$N´ÓÑü¼äĞ¡ĞÄÒíÒíµÄ³é³öÒ»Ìõ$nÎÕÔÚÊÖÖĞ¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æ¡ç”±åµ©å±±ç‰¹äº§çš„ç´«ç«¹åšæˆçš„é­å­ï¼Œè½»ç›ˆå°å·§ï¼Œæ‹¿åœ¨æ‰‹ä¸­çŠ¹è‹¥æ— ç‰©ã€‚\n");
+                set("unwield_msg", "$Nä¸€èƒŒèº«ï¼Œç¼“ç¼“å°†$nç›˜å›è…°é—´ã€‚\n");
+                set("wield_msg", "$Nä»è…°é—´å°å¿ƒç¿¼ç¿¼çš„æŠ½å‡ºä¸€æ¡$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
         }
         init_whip(50);
         setup();

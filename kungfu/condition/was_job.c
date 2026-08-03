@@ -6,7 +6,7 @@ int update_condition(object me, int duration)
         {
                 if (me->query_temp("was_job/asked"))
                 {
-                        tell_object(me, HIR"±¦ËþµÄ»ðÊÆÒÑÈ»±é¼°ÕûËþ£¬Óª¾ÈÐÐ¶¯ÒÑÈ»Ê§°Ü£¬ÄãÖ»ºÃÑ¸ËÙ³·Àë¡£\n"NOR);
+                        tell_object(me, HIR"å®å¡”çš„ç«åŠ¿å·²ç„¶éåŠæ•´å¡”ï¼Œè¥æ•‘è¡ŒåŠ¨å·²ç„¶å¤±è´¥ï¼Œä½ åªå¥½è¿…é€Ÿæ’¤ç¦»ã€‚\n"NOR);
                         me->move("/d/nanyang/kedian1");
                         me->delete_temp("was_job");
                         me->apply_condition("job_busy", 10);
@@ -16,11 +16,11 @@ int update_condition(object me, int duration)
         if (me->query_temp("was_job/asked"))
         {
                 if (duration < 5)
-                        tell_object(me, HIR"±¦ËþµÄ»ðÊÆÒÑ¾­Ð×ÃÍÒì³££¬×¥½ôÊ±¼ä£¡\n"NOR);
+                        tell_object(me, HIR"å®å¡”çš„ç«åŠ¿å·²ç»å‡¶çŒ›å¼‚å¸¸ï¼ŒæŠ“ç´§æ—¶é—´ï¼\n"NOR);
                 else if (duration < 10)
-                        tell_object(me, HIR"±¦ËþµÄ»ðÊÆÒÑ¾­Ñ¸ËÙÀ©´ó£¬×¥½ôÊ±¼ä£¡\n"NOR);
+                        tell_object(me, HIR"å®å¡”çš„ç«åŠ¿å·²ç»è¿…é€Ÿæ‰©å¤§ï¼ŒæŠ“ç´§æ—¶é—´ï¼\n"NOR);
                 else
-                        tell_object(me, HIR"±¦ËþµÄ»ðÊÆÒÑ¾­ÂýÂýÀ©É¢£¬×¥½ôÊ±¼ä£¡\n"NOR);
+                        tell_object(me, HIR"å®å¡”çš„ç«åŠ¿å·²ç»æ…¢æ…¢æ‰©æ•£ï¼ŒæŠ“ç´§æ—¶é—´ï¼\n"NOR);
         }
         me->apply_condition("was_job", duration - 1);
         return 1;

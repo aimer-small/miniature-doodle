@@ -1,37 +1,37 @@
 // diy pfm
 // 2/25/2001  by emnil
 /*
-²ÎÊıÉèÖÃÎª sld_pfm/??? :
-diypfm:         pfmÓ¢ÎÄÃû
-cdiypfm:        pfmÖĞÎÄÃû
-neili_require:  ÄÚÁ¦ĞèÇó
-jingli_require: ¾«Á¦ĞèÇó
-neilicost:      ×îµÍÏûºÄÄÚÁ¦
-jinglicost:     ×îµÍÏûºÄ¾«Á¦
-weapon:         ÊÇ·ñÒªÇóÓĞ±øÆ÷£¬0Îª²»ÄÜÓĞ±øÆ÷£¬1ÎªÎŞËùÎ½
-msg:            ·¢³öpfmÊ±µÄÃèÊö
-failmsg:        Ê§°ÜÃèÊö
-succesmsg:      ³É¹¦ÃèÊö
-succesmsg2:     µÚ¶ş¶Î³É¹¦ÃèÊö£¬·Ç±ØĞë
-endmsg:         pfm½áÊøÊ±µÄÃèÊö
-failbusy:       Ê§°ÜµÄpfm busy£¬·Ç±ØĞë
-succesbusy:     ³É¹¦µÄpfm busy£¬·Ç±ØĞë
-pfmtype:        pfmÀà±ğ
-lvl:            pfmµÈ¼¶
-ÏÂÃæ²ÎÊıÓÃÓÚÅĞ¶Ï³É¹¦Óë·ñ£º
-rate:           ³É¹¦ÂÊ£¬Îª°Ù·Ö±È
-succes:         Îª0ÔòÓÉÒÔÏÂ²ÎÊıÅĞ¶Ï£¬Îª1Ôòpfm¿Ï¶¨³É¹¦
-bjingli:        ÅĞ¶Ï¾«Á¦£¬1ÎªÅĞ¶Ï£¬0Îª²»ÅĞ¶Ï´ËÏî
-bneili:         ÅĞ¶ÏÄÚÁ¦
-bexp:           ÅĞ¶Ï¾­Ñé
-bstr:           ÅĞ¶Ï±ÛÁ¦
-bdex:           ÅĞ¶ÏÉí·¨
-bint:           ÅĞ¶ÏÖÇÁ¦
-bkar:           ÅĞ¶Ï¸£Ôµ
-bskill1:        ÅĞ¶Ï¼¼ÄÜ1
-bskill2:        ÅĞ¶Ï¼¼ÄÜ2
-skill1:         ÅĞ¶ÏµÄ¼¼ÄÜ1
-skill2:         ÅĞ¶ÏµÄ¼¼ÄÜ2
+å‚æ•°è®¾ç½®ä¸º sld_pfm/??? :
+diypfm:         pfmè‹±æ–‡å
+cdiypfm:        pfmä¸­æ–‡å
+neili_require:  å†…åŠ›éœ€æ±‚
+jingli_require: ç²¾åŠ›éœ€æ±‚
+neilicost:      æœ€ä½æ¶ˆè€—å†…åŠ›
+jinglicost:     æœ€ä½æ¶ˆè€—ç²¾åŠ›
+weapon:         æ˜¯å¦è¦æ±‚æœ‰å…µå™¨ï¼Œ0ä¸ºä¸èƒ½æœ‰å…µå™¨ï¼Œ1ä¸ºæ— æ‰€è°“
+msg:            å‘å‡ºpfmæ—¶çš„æè¿°
+failmsg:        å¤±è´¥æè¿°
+succesmsg:      æˆåŠŸæè¿°
+succesmsg2:     ç¬¬äºŒæ®µæˆåŠŸæè¿°ï¼Œéå¿…é¡»
+endmsg:         pfmç»“æŸæ—¶çš„æè¿°
+failbusy:       å¤±è´¥çš„pfm busyï¼Œéå¿…é¡»
+succesbusy:     æˆåŠŸçš„pfm busyï¼Œéå¿…é¡»
+pfmtype:        pfmç±»åˆ«
+lvl:            pfmç­‰çº§
+ä¸‹é¢å‚æ•°ç”¨äºåˆ¤æ–­æˆåŠŸä¸å¦ï¼š
+rate:           æˆåŠŸç‡ï¼Œä¸ºç™¾åˆ†æ¯”
+succes:         ä¸º0åˆ™ç”±ä»¥ä¸‹å‚æ•°åˆ¤æ–­ï¼Œä¸º1åˆ™pfmè‚¯å®šæˆåŠŸ
+bjingli:        åˆ¤æ–­ç²¾åŠ›ï¼Œ1ä¸ºåˆ¤æ–­ï¼Œ0ä¸ºä¸åˆ¤æ–­æ­¤é¡¹
+bneili:         åˆ¤æ–­å†…åŠ›
+bexp:           åˆ¤æ–­ç»éªŒ
+bstr:           åˆ¤æ–­è‡‚åŠ›
+bdex:           åˆ¤æ–­èº«æ³•
+bint:           åˆ¤æ–­æ™ºåŠ›
+bkar:           åˆ¤æ–­ç¦ç¼˜
+bskill1:        åˆ¤æ–­æŠ€èƒ½1
+bskill2:        åˆ¤æ–­æŠ€èƒ½2
+skill1:         åˆ¤æ–­çš„æŠ€èƒ½1
+skill2:         åˆ¤æ–­çš„æŠ€èƒ½2
 */
 
 #include <ansi.h>
@@ -64,24 +64,24 @@ int perform(object me, object target ,string action)
         int succes,monk,rate,i,lvl;
 
         if( (!me->query("sld_pfm/diypfm")) || (me->query("sld_pfm/diypfm")!=action) )
-                return notify_fail("ÄãËùÊ¹ÓÃµÄÍâ¹¦ÖĞÃ»ÓĞÕâÖÖ¹¦ÄÜ¡£\n");
+                return notify_fail("ä½ æ‰€ä½¿ç”¨çš„å¤–åŠŸä¸­æ²¡æœ‰è¿™ç§åŠŸèƒ½ã€‚\n");
 
         if( (int)me->query_skill("dulong-dafa", 1) < 256 )
-                return notify_fail("ÄãµÄĞŞÎªÌ«²îÁË£¬²»ÄÜÊ©ÓÃËùÁìÎòµÄ¾øÑ§¡£\n");
+                return notify_fail("ä½ çš„ä¿®ä¸ºå¤ªå·®äº†ï¼Œä¸èƒ½æ–½ç”¨æ‰€é¢†æ‚Ÿçš„ç»å­¦ã€‚\n");
 
         cpfm = addcolor(me->query("sld_pfm/cdiypfm"));
         //if( !target ) target = offensive_target(me);
         if( !target || !target->is_character()|| !me->is_fighting(target) )
-                return notify_fail("¡¸"+cpfm+"¡¹Ö»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+                return notify_fail("ã€Œ"+cpfm+"ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
         if( me->query("neili") < (me->query("sld_pfm/neili_require")+1) )
-                return notify_fail("ÄãµÄÄÚÁ¦²»×ã£¬ÎŞ·¨Ê¹ÓÃ¡¸"+cpfm+"¡¹¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸è¶³ï¼Œæ— æ³•ä½¿ç”¨ã€Œ"+cpfm+"ã€ã€‚\n");
         if( me->query("jingli") < (me->query("sld_pfm/jingli_require")+1) )
-                return notify_fail("ÄãµÄ¾«Á¦²»×ã£¬ÎŞ·¨Ê¹ÓÃ¡¸"+cpfm+"¡¹¡£\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›ä¸è¶³ï¼Œæ— æ³•ä½¿ç”¨ã€Œ"+cpfm+"ã€ã€‚\n");
 
         weapon = me->query_temp("weapon");
         if ( !me->query("sld_pfm/weapon") && weapon )
-                return notify_fail("ÄãÊÖ³Ö±øÈĞ£¬ÎŞ·¨Ê¹ÓÃ¡¸"+cpfm+"¡¹¡£\n");
+                return notify_fail("ä½ æ‰‹æŒå…µåˆƒï¼Œæ— æ³•ä½¿ç”¨ã€Œ"+cpfm+"ã€ã€‚\n");
 
         me->add("jingli", -me->query("sld_pfm/jinglicost"));
         me->add("neili", -me->query("sld_pfm/neilicost"));      
@@ -122,18 +122,18 @@ int perform(object me, object target ,string action)
                         i = (int)me->query("sld_pfm/succesbusy");
                 else
                         i = 3;
-                me->start_perform(i,"¡¸"+cpfm+"¡¹");
+                me->start_perform(i,"ã€Œ"+cpfm+"ã€");
 
                 lvl = me->query("sld_pfm/lvl"); 
                 switch((int)me->query("sld_pfm/pfmtype")) {
-                        case 1:  // ²ø
+                        case 1:  // ç¼ 
                                 if (lvl>=5) lvl+=2;
                                 i = ((me->query_skill("dulong-dafa",1)+1)/60+1+lvl)*monk/100;
                                 target->start_busy(i);
-                                me->start_perform(i+1,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(i+1,"ã€Œ"+cpfm+"ã€");
                                 call_out("remove_effect",i,0,me,target,i,cpfm);
                                 break;
-                        case 2:  // Á¬»÷
+                        case 2:  // è¿å‡»
                                 i = target->query("qi");
                                 COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 1);
                                 if (present(target,environment(me)) && me->is_fighting(target))
@@ -161,39 +161,39 @@ int perform(object me, object target ,string action)
                                 if ( me && target )
                                         message_vision(addcolor(me->query("sld_pfm/endmsg"))+"\n",me,target);   
                                 break; 
-                        case 3:  // ÏûÈõ·ÀÓù
+                        case 3:  // æ¶ˆå¼±é˜²å¾¡
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*lvl/15*monk/100;
                                 target->add_temp("apply/dodge",-i);
                                 target->add_temp("apply/parry",-i);
-                                me->start_perform(lvl*5,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(lvl*5,"ã€Œ"+cpfm+"ã€");
                                 call_out("remove_effect",lvl*5,1,me,target,i,cpfm);
                                 break;
-                        case 4:  // ÏûÈõ¹¥»÷
+                        case 4:  // æ¶ˆå¼±æ”»å‡»
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_con()*lvl/12*monk/100;
                                 target->add_temp("apply/strength",-i);
                                 target->add_temp("apply/attack",-i*5);
-                                me->start_perform(lvl*5,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(lvl*5,"ã€Œ"+cpfm+"ã€");
                                 call_out("remove_effect",lvl*5,2,me,target,i,cpfm);
                                 break;
-                        case 5:  // ÔöÇ¿·ÀÓù
+                        case 5:  // å¢å¼ºé˜²å¾¡
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*lvl/15*monk/100;
                                 me->add_temp("apply/dodge",i);
                                 me->add_temp("apply/parry",i);
-                                me->start_perform(lvl*5,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(lvl*5,"ã€Œ"+cpfm+"ã€");
                                 call_out("remove_effect",lvl*5,3,me,target,i,cpfm);
                                 break;
-                        case 6:  // ÔöÇ¿¹¥»÷
+                        case 6:  // å¢å¼ºæ”»å‡»
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_con()*lvl/7*monk/100;
                                 me->add_temp("apply/strength",i);
                                 me->add_temp("apply/attack",i*2);
-                                me->start_perform(lvl*5,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(lvl*5,"ã€Œ"+cpfm+"ã€");
                                 call_out("remove_effect",lvl*5,4,me,target,i,cpfm);
                                 break;
-                        case 7:  // »¯Ñ§£¬¼õÆø
+                        case 7:  // åŒ–å­¦ï¼Œå‡æ°”
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*(2+lvl)*monk/100;
                                 if (i>5500) i=5500;
@@ -201,7 +201,7 @@ int perform(object me, object target ,string action)
                                 target->add("qi",-i);
                                 target->add("eff_qi",-i/2);
                                 break;
-                        case 8:  // »¯Ñ§£¬¼õÆøÄÚÁ¦¾«Á¦
+                        case 8:  // åŒ–å­¦ï¼Œå‡æ°”å†…åŠ›ç²¾åŠ›
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*(2+lvl)/2*monk/100;
                                 if (i>3000) i=3000;
@@ -211,7 +211,7 @@ int perform(object me, object target ,string action)
                                 target->add("jingli",-i/3);
                                 target->add("neili",-i/2);
                                 break;
-                        case 9:  // ¶ÔºÄÄÚÁ¦
+                        case 9:  // å¯¹è€—å†…åŠ›
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*(1+lvl)/3*monk/100;
                                 i = i/2+random(i);
@@ -220,7 +220,7 @@ int perform(object me, object target ,string action)
                                 if (me->query("neili")<0) me->set("neili",0);
                                 if (target->query("neili")<0) target->set("neili",0);
                                 break;
-                        case 10: // ¶¾£¬¼õ¾«
+                        case 10: // æ¯’ï¼Œå‡ç²¾
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*(1+lvl)/6*monk/100;
                                 i = i/2+random(i);
@@ -229,7 +229,7 @@ int perform(object me, object target ,string action)
                                 target->set("sld_pfm/pmsg",addcolor(me->query("sld_pfm/succesmsg2")));
                                 target->apply_conditon("sld_poison",me->query_skill("force")/30);
                                 break;
-                        case 11: // ¶¾£¬¼õÆøÄÚÁ¦¾«Á¦
+                        case 11: // æ¯’ï¼Œå‡æ°”å†…åŠ›ç²¾åŠ›
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*(1+lvl)/5*monk/100;
                                 i = i/2+random(i);
@@ -238,7 +238,7 @@ int perform(object me, object target ,string action)
                                 target->set("sld_pfm/pmsg",addcolor(me->query("sld_pfm/succesmsg2")));
                                 target->apply_conditon("sld_poison",me->query_skill("force")/30);
                                 break;
-                        case 12: // ÔöÇ¿¼ÓÁ¬»÷
+                        case 12: // å¢å¼ºåŠ è¿å‡»
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*lvl/20*monk/100;
                                 me->add_temp("apply/dodge",i);
@@ -255,15 +255,15 @@ int perform(object me, object target ,string action)
                                 if ((lvl>4) && present(target,environment(me)) && me->is_fighting(target))
                                         COMBAT_D->do_attack(me, target, me->query_temp("weapon"), 3);
 
-                                me->start_perform(lvl*3,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(lvl*3,"ã€Œ"+cpfm+"ã€");
                                 call_out("remove_effect",lvl*3,5,me,target,i,cpfm);
                                 break;
-                        case 13: // »¯Ñ§¼ÓÔöÇ¿
+                        case 13: // åŒ–å­¦åŠ å¢å¼º
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*lvl/20*monk/100;
                                 me->add_temp("apply/dodge",i);
                                 me->add_temp("apply/attack",i);
-                                me->start_perform(lvl*3,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(lvl*3,"ã€Œ"+cpfm+"ã€");
                                 call_out("remove_effect",lvl*3,5,me,target,i,cpfm);
 
                                 i = me->query_skill("force")*(1+lvl)/2*monk/100;
@@ -272,42 +272,42 @@ int perform(object me, object target ,string action)
                                 target->add("qi",i);
                                 target->add("eff_qi",i/2);
                                 break;
-                        case 14: // ÔöÇ¿¹¥»÷£¬ÏûÈõ·ÀÓù
+                        case 14: // å¢å¼ºæ”»å‡»ï¼Œæ¶ˆå¼±é˜²å¾¡
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*lvl/12*monk/100;
                                 me->add_temp("apply/attack", i);
                                 me->add_temp("apply/strength",i/5);
                                 me->add_temp("apply/dodge",-i/2);
                                 me->add_temp("apply/parry",-i/2);
-                                me->start_perform(lvl*4,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(lvl*4,"ã€Œ"+cpfm+"ã€");
                                 call_out("remove_effect",lvl*4,6,me,target,i,cpfm);
                                 break;
-                        case 15: // ·Å´óÉËº¦£¬³¬Ç¿Á¬»÷
+                        case 15: // æ”¾å¤§ä¼¤å®³ï¼Œè¶…å¼ºè¿å‡»
                                 if (lvl>=5) lvl+=2;
                                 i = me->query_skill("force")*lvl/18*monk/100;
                                 me->set_temp("sld_pfm/nowqi",me->query("qi"));
-                                me->start_perform(6,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(6,"ã€Œ"+cpfm+"ã€");
                                 call_out("super_attack",1,6,me,target,i);
                                 break;
-                        case 16: // ¶Ï±øÆ÷
+                        case 16: // æ–­å…µå™¨
                                 weapon2 = target->query_temp("weapon");
                                 if (!weapon2) 
-                                        return notify_fail("¶Ô·½ÊÖÎŞ±øÈĞ£¬ÄãºÎĞëÊ©ÓÃ¡¸"+cpfm+"¡¹¡£\n");
+                                        return notify_fail("å¯¹æ–¹æ‰‹æ— å…µåˆƒï¼Œä½ ä½•é¡»æ–½ç”¨ã€Œ"+cpfm+"ã€ã€‚\n");
                                 if ( (lvl<5) && (weapon2->query("unique")) )
-                                        return notify_fail("¶Ô·½ÊÖ³ÖÉñ±øÀûÆ÷£¬Äã¹¦Á¦²»×ãÎŞ·¨Ê©ÓÃ¡¸"+cpfm+"¡¹¡£\n");
+                                        return notify_fail("å¯¹æ–¹æ‰‹æŒç¥å…µåˆ©å™¨ï¼Œä½ åŠŸåŠ›ä¸è¶³æ— æ³•æ–½ç”¨ã€Œ"+cpfm+"ã€ã€‚\n");
                                 i = me->query_skill("force")/60*monk/100;
                                 weapon2->add("rigidity",-i);
                                 if (weapon2->query("rigidity")<=0) {
                                         weapon2->unequip();
                                         weapon2->move(environment(target));
-                                        weapon2->set("name", "ËéÁÑµÄ" + weapon2->query("name"));
+                                        weapon2->set("name", "ç¢è£‚çš„" + weapon2->query("name"));
                                         weapon2->set("value", 49);
                                         weapon2->set("weapon_prop", 0);
                                         target->reset_action();
                                         message_vision(addcolor(me->query("sld_pfm/succesmsg2"))+"\n",me,target);
                                 }
                                 else {
-                                        message_vision(HIY"$nÊÖÖĞ±øÆ÷ËäÎªÉñ±øÀûÆ÷£¬µ«Ò²ÒşÒşÂ¶³ö¼¸µÀÁÑºÛ£¡\n"NOR,me,target);
+                                        message_vision(HIY"$næ‰‹ä¸­å…µå™¨è™½ä¸ºç¥å…µåˆ©å™¨ï¼Œä½†ä¹Ÿéšéšéœ²å‡ºå‡ é“è£‚ç—•ï¼\n"NOR,me,target);
                                 }
                                 break;
                 }
@@ -319,7 +319,7 @@ int perform(object me, object target ,string action)
                         i = (int)me->query("sld_pfm/failbusy");
                 else
                         i = 3;
-                me->start_perform(i,"¡¸"+cpfm+"¡¹");
+                me->start_perform(i,"ã€Œ"+cpfm+"ã€");
         }
 
         return 1;
@@ -330,7 +330,7 @@ void remove_effect(int rtype,object me,object target,int arg1,string cpfm)
         switch(rtype) {
                 case 0:
                         if (me)
-                                me->start_perform(1,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(1,"ã€Œ"+cpfm+"ã€");
                         break;
                 case 1:
                         if (target) {
@@ -338,7 +338,7 @@ void remove_effect(int rtype,object me,object target,int arg1,string cpfm)
                                 target->add_temp("apply/parry",arg1);
                         }
                         if (me)
-                                me->start_perform(1,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(1,"ã€Œ"+cpfm+"ã€");
                         break;
                 case 2:
                         if (target) {
@@ -346,27 +346,27 @@ void remove_effect(int rtype,object me,object target,int arg1,string cpfm)
                                 target->add_temp("apply/attack",arg1*5);
                         }
                         if (me)
-                                me->start_perform(1,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(1,"ã€Œ"+cpfm+"ã€");
                         break;
                 case 3:
                         if (me) {
                                 me->add_temp("apply/dodge",-arg1);
                                 me->add_temp("apply/parry",-arg1);
-                                me->start_perform(1,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(1,"ã€Œ"+cpfm+"ã€");
                         }
                         break;
                 case 4:
                         if (me) {
                                 me->add_temp("apply/strength",-arg1);
                                 me->add_temp("apply/attack",-arg1*2);
-                                me->start_perform(1,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(1,"ã€Œ"+cpfm+"ã€");
                         }
                         break;
                 case 5:
                         if (me) {
                                 me->add_temp("apply/dodge",-arg1);
                                 me->add_temp("apply/attack",-arg1);
-                                me->start_perform(1,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(1,"ã€Œ"+cpfm+"ã€");
                         }
                         break;
                 case 6:
@@ -375,7 +375,7 @@ void remove_effect(int rtype,object me,object target,int arg1,string cpfm)
                                 me->add_temp("apply/strength",-arg1/5);
                                 me->add_temp("apply/dodge",arg1/2);
                                 me->add_temp("apply/parry",arg1/2);
-                                me->start_perform(1,"¡¸"+cpfm+"¡¹");
+                                me->start_perform(1,"ã€Œ"+cpfm+"ã€");
                         }
                         break;
         }

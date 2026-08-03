@@ -4,16 +4,16 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Ïã", ({ "xiang" }) );
+	set_name("é¦™", ({ "xiang" }) );
 	set_weight(10);
         if (clonep())
                 set_default_object(__FILE__);
 	else {
 
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("value", 0);
 		set("long", 
-"ÕâÊÇ½øÏã¿ÍÉÏ¶ëÃ¼É½½øÏãÓÃµÄÏã¡£\n");
+"è¿™æ˜¯è¿›é¦™å®¢ä¸Šå³¨çœ‰å±±è¿›é¦™ç”¨çš„é¦™ã€‚\n");
 	}
 	setup();
 }

@@ -8,16 +8,16 @@ int gf=0;
 
 void create()
 {
-        set_name(HIG "Ò©Ãç" NOR, ({"yao miao","miao"}));
+        set_name(HIG "è¯è‹—" NOR, ({"yao miao","miao"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("long",
-                "ÕâÊÇÒ»ÖêĞèÒª³£³£½½Ë®(jiao)µÄÒ©Ãç£¬");
-                set("unit", "Öê");
+                "è¿™æ˜¯ä¸€æ ªéœ€è¦å¸¸å¸¸æµ‡æ°´(jiao)çš„è¯è‹—ï¼Œ");
+                set("unit", "æ ª");
                 set("no_get",1);
-                set("5type","ÍÁ");
-                set("8type","Ç¬");
+                set("5type","åœŸ");
+                set("8type","ä¹¾");
                 set("stime",0);
                 set("location",1);
         }
@@ -40,18 +40,18 @@ int do_jiao(string arg)
                 call_out("grow", 10); 
         }
         if(!arg || !objectp(ob=present(arg, environment(me))))
-                return notify_fail("ÄãÒª½½Ê²Ã´£¿\n");
+                return notify_fail("ä½ è¦æµ‡ä»€ä¹ˆï¼Ÿ\n");
         if((uptime()-ob->query("jtime"))>30)
         {
                 call_out("destructing", 1, ob); 
-                return notify_fail("ÄãÒÑ¾­Ò»Ìì¶àÃ»½½Ë®£¬Ò©Ãç¿İËÀÁË¡£\n");
+                return notify_fail("ä½ å·²ç»ä¸€å¤©å¤šæ²¡æµ‡æ°´ï¼Œè¯è‹—æ¯æ­»äº†ã€‚\n");
         }
         else if((uptime()-ob->query("jtime"))<10)
         {
-                return notify_fail("Äã¸Õ½½¹ıË®ÁË£¬µÈ»á¶ùÔÙ½½°É¡£\n");
+                return notify_fail("ä½ åˆšæµ‡è¿‡æ°´äº†ï¼Œç­‰ä¼šå„¿å†æµ‡å§ã€‚\n");
         }
         ob->set("jtime",uptime());
-        message_vision("$N½½ÁËÒ»Æ°Ë®£¬Ò©ÃçÓÖ³¤¸ßÁËĞ©¡£\n",me);
+        message_vision("$Næµ‡äº†ä¸€ç“¢æ°´ï¼Œè¯è‹—åˆé•¿é«˜äº†äº›ã€‚\n",me);
         return 1;
 }
 
@@ -78,19 +78,19 @@ void grow()
                 {
                         obj->set("5type",query("5type"));
                         obj->set("8type",query("8type"));
-                        obj->set("long",obj->query("long")+query("8type")+query("5type")+"ĞÔ¡£\n");
+                        obj->set("long",obj->query("long")+query("8type")+query("5type")+"æ€§ã€‚\n");
                         obj->move(environment(this_object()));
                         call_out("destructing", 1, ob); 
                 }
         }
         else if(times>=60)
         {
-                set("name","½ğ»ÆµÄÒ©Ãç");
+                set("name","é‡‘é»„çš„è¯è‹—");
                 call_out("grow", 60);   
         }
         else
         {
-                set("name","ÄÛÇàµÄÒ©Ãç");
+                set("name","å«©é’çš„è¯è‹—");
                 call_out("grow", 30);   
         }
 }

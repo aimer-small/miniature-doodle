@@ -1,13 +1,13 @@
-// chen.c ³Â³åÖ®
+// chen.c é™ˆå†²ä¹‹
 // By River 2003.2.26
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("³Â³åÖ®",({"chen chongzhi", "chen", "chongzhi"}));
-	set("title", "³¤ÀÖ°ïÊ¨ÍşÌÃÏãÖ÷");
-	set("long", "Ëû¾ÍÊÇ³¤ÀÖ°ïÊ¨ÍşÌÃÏãÖ÷³Â³åÖ®¡£\n");
+	set_name("é™ˆå†²ä¹‹",({"chen chongzhi", "chen", "chongzhi"}));
+	set("title", "é•¿ä¹å¸®ç‹®å¨å ‚é¦™ä¸»");
+	set("long", "ä»–å°±æ˜¯é•¿ä¹å¸®ç‹®å¨å ‚é¦™ä¸»é™ˆå†²ä¹‹ã€‚\n");
 	set("age", 45);
 	set("attitude", "peaceful");
 	set("shen", -1000);

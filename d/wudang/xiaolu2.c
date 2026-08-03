@@ -1,4 +1,4 @@
-// xiaolu1.c ÁÖ¼äĞ¡¾¶
+// xiaolu1.c æ—é—´å°å¾„
 // by shang 97/6
 
 #include <ansi.h>
@@ -6,13 +6,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", GRN"Ğ¡¾¶"NOR);
+	set("short", GRN"å°å¾„"NOR);
 	set("long", @LONG
-Äã×ßÔÚÒ»ÌõĞ¡¾¶ÉÏ£¬Á½ÅÔÖÖÂúÁËÖñ×Ó£¬ĞŞóòÉ­É­£¬ÂÌÒñÂúµØ£¬³ıÁËÖñÒ¶Éù
-ºÍÄñÃùÉù£¬Ìı²»µ½±ğµÄ¶¯¾²¡£
+ä½ èµ°åœ¨ä¸€æ¡å°å¾„ä¸Šï¼Œä¸¤æ—ç§æ»¡äº†ç«¹å­ï¼Œä¿®ç¯æ£®æ£®ï¼Œç»¿è«æ»¡åœ°ï¼Œé™¤äº†ç«¹å¶å£°
+å’Œé¸Ÿé¸£å£°ï¼Œå¬ä¸åˆ°åˆ«çš„åŠ¨é™ã€‚
 LONG
 	);
-	set("outdoors", "Îäµ±");
+	set("outdoors", "æ­¦å½“");
 
 	set("exits", ([
 		"south" : __DIR__"yuanmen",
@@ -37,15 +37,15 @@ int valid_leave(object me, string dir)
 	if (dir == "south"){
 		if (!userp(me) && me->query("hbtarget"))
 			return notify_fail("\n");
-		write("ÄÏÃæÊÇÒ»ÌõĞ¡¾¶£¬Á½ÅÔÖÖÂúÁËÖñ×Ó£¬ĞŞóòÉ­É­£¬ÂÌÒñÂúµØ¡£\n");
+		write("å—é¢æ˜¯ä¸€æ¡å°å¾„ï¼Œä¸¤æ—ç§æ»¡äº†ç«¹å­ï¼Œä¿®ç¯æ£®æ£®ï¼Œç»¿è«æ»¡åœ°ã€‚\n");
 		ob = filter_array(inv,(:get_object:));        
-		if (me->query_condition("killer") && me->query("family/family_name") != "Îäµ±ÅÉ") ;
-		else if (myfam && myfam["family_name"] =="Îäµ±ÅÉ" && myfam["generation"] == 2 && ! sizeof(ob))
-			write("ÓÉÓÚÄã×ß¹ßÁËÕâÌõĞ¡¾¶£¬ËùÒÔĞÅ²½×ß³öÁËÖñÁÖ¡£\n");
+		if (me->query_condition("killer") && me->query("family/family_name") != "æ­¦å½“æ´¾") ;
+		else if (myfam && myfam["family_name"] =="æ­¦å½“æ´¾" && myfam["generation"] == 2 && ! sizeof(ob))
+			write("ç”±äºä½ èµ°æƒ¯äº†è¿™æ¡å°å¾„ï¼Œæ‰€ä»¥ä¿¡æ­¥èµ°å‡ºäº†ç«¹æ—ã€‚\n");
 		else {
-			tell_room(environment(me), me->name()+"ÍùÄÏÃæµÄ"YEL"Ğ¡¾¶"NOR"¿ì²½Àë¿ª¡£\n"NOR, ({ me }));
+			tell_room(environment(me), me->name()+"å¾€å—é¢çš„"YEL"å°å¾„"NOR"å¿«æ­¥ç¦»å¼€ã€‚\n"NOR, ({ me }));
 			me->move(__DIR__"xiaolu3");
-			tell_room(environment(me), me->name()+"´Ó"YEL"Ğ¡¾¶"NOR"¿ì²½×ßÁË¹ıÀ´¡£\n"NOR, ({ me }));
+			tell_room(environment(me), me->name()+"ä»"YEL"å°å¾„"NOR"å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n"NOR, ({ me }));
 			return notify_fail("");
 		}
 	}

@@ -1,14 +1,14 @@
-// /u/dubei/Ãç½®
+// /u/dubei/è‹—ç–†
 
 #include <ansi.h>
 inherit ROOM;
 
 void create()
 {
-        set("short", "É½Â·");
+        set("short", "å±±è·¯");
         set("long", @LONG
-ÕâÀï¹àÄ¾´ÔÉú£¬Ç°ÃæºÃÏóÒÑ¾­Ã»ÓĞÂ·ÁË¡£ÅÔ±ßÊÇÒ»×ùÉ½ÑÂ£¬ÏÂÃæºÃÏóÓĞÒ»×ù
-É½¶´(shandong)£¬¶´¿Ú´¦ÓĞ¼¸¾ßÒ°ÊŞµÄ¹Çº¡¡£
+è¿™é‡ŒçŒæœ¨ä¸›ç”Ÿï¼Œå‰é¢å¥½è±¡å·²ç»æ²¡æœ‰è·¯äº†ã€‚æ—è¾¹æ˜¯ä¸€åº§å±±å´–ï¼Œä¸‹é¢å¥½è±¡æœ‰ä¸€åº§
+å±±æ´(shandong)ï¼Œæ´å£å¤„æœ‰å‡ å…·é‡å…½çš„éª¨éª¸ã€‚
 LONG
         );
 
@@ -17,10 +17,10 @@ LONG
 		"enter" : __DIR__"shandong",
 	]));
 	set("item_desc", ([
-		"shandong" : HIY "ºÚßÏßÏµÄ£¬Ò²²»ÖªµÀÓĞ¶àÉî¡£\n"NOR,
+		"shandong" : HIY "é»‘å‘¦å‘¦çš„ï¼Œä¹Ÿä¸çŸ¥é“æœ‰å¤šæ·±ã€‚\n"NOR,
 	]));
  
-	set("outdoors", "Ãç½®");
+	set("outdoors", "è‹—ç–†");
 
         setup();
 }
@@ -35,8 +35,8 @@ int do_look(string arg)
 {
 	if( !arg || arg == "" || arg !=  "guanmu") return 0;
 
-	write("Äã×ĞÏ¸²é¿´×Å¹àÄ¾´Ô£¬·¢ÏÖËÆºõ¿ÉÒÔ×ê¹ıÈ¥¡£\n");
-	this_player()->set_temp("marks/¹àÄ¾", 1);
+	write("ä½ ä»”ç»†æŸ¥çœ‹ç€çŒæœ¨ä¸›ï¼Œå‘ç°ä¼¼ä¹å¯ä»¥é’»è¿‡å»ã€‚\n");
+	this_player()->set_temp("marks/çŒæœ¨", 1);
 	return 1;
 }
 
@@ -47,12 +47,12 @@ int do_pa(string arg)
 	if (arg != "guanmu" ) return 0;
 	if ( !arg ) return 0;
 
-	if (!me->query_temp("marks/¹àÄ¾"))
-		return notify_fail("ÄãÒª×öÊ²÷á£¿\n");
+	if (!me->query_temp("marks/çŒæœ¨"))
+		return notify_fail("ä½ è¦åšä»€éº½ï¼Ÿ\n");
  
-	message_vision("$N°Î¿ª¹àÄ¾£¬Ò»ÍäÉí×êÁË½øÈ¥¡£\n", me);
+	message_vision("$Næ‹”å¼€çŒæœ¨ï¼Œä¸€å¼¯èº«é’»äº†è¿›å»ã€‚\n", me);
 	me->move(__DIR__"shangu1");
-	tell_room(environment(me), me->name() + "´Ó¹àÄ¾´ÔÖĞ×êÁË³öÀ´¡£\n", ({ me }));
-	me->delete_temp("marks/¹àÄ¾");
+	tell_room(environment(me), me->name() + "ä»çŒæœ¨ä¸›ä¸­é’»äº†å‡ºæ¥ã€‚\n", ({ me }));
+	me->delete_temp("marks/çŒæœ¨");
 	return 1;
 }

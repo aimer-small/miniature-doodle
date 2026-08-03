@@ -1,7 +1,7 @@
 // NPC: /d/huashan/npc/lingshan.c
 // Date: Look 99/03/25
 // Lklv Modify at 2001.10.18
-// ��ҪNPC.�޷�ɱ�� by spiderii@ty
+// 重要NPC.无法杀死 by spiderii@ty
 #include <ansi.h>
 inherit NPC;
 
@@ -10,13 +10,13 @@ string ask_zixia();
 
 void create()
 {
-	set_name("����ɺ", ({ "yue lingshan", "yue", "lingshan" }));
+	set_name("岳灵珊", ({ "yue lingshan", "yue", "lingshan" }));
 	set("long",
-"��ɽ��������Ⱥ�ͷ���������İ�Ů������������������а����С���ߣ�\n"
-"��ɽ�������˽�������Сʦ�á���\n");
-	set("nickname", "Сʦ��");
-	set("rank_info/respect", "Сʦ��");
-	set("gender", "Ů��");
+"华山掌门岳不群和夫人宁中则的爱女，容颜俏丽，天真无邪，自小娇惯，\n"
+"华山门下人人叫她作“小师妹”。\n");
+	set("nickname", "小师妹");
+	set("rank_info/respect", "小师妹");
+	set("gender", "女性");
 	set("age", 19);
 	set("attitude", "friendly");
 	set_max_encumbrance(1000000);
@@ -57,11 +57,11 @@ void create()
 	map_skill("dodge", "huashen-shenfa");
 
 	prepare_skill("cuff", "poyu-quan");
-	create_family("��ɽ��", 14, "����");
+	create_family("华山派", 14, "弟子");
 	
 	set("inquiry", ([
-		"��������" : (: ask_me :),
-			"��ϼ�ؼ�": (: ask_zixia :),
+		"力不从心" : (: ask_me :),
+			"紫霞秘籍": (: ask_zixia :),
 	]));
 
 	setup();
@@ -88,42 +88,42 @@ int accept_object(object who, object obj)
 	if (! obj->query_temp("mmr") 
 	 && !obj->is_corpse()
 	 && obj->query("id") != "shouji") {
-		command("say �ⶫ����Ҫ��û�á�");
+		command("say 这东西我要来没用。");
 		return 0;
 	}
 	if (!ling )
-		return notify_fail("��������أ�\n");
+		return notify_fail("你的令牌呢？\n");
 	if (!who->query_temp("hs/jobji"))
-		return notify_fail("�㻹û����������ô������̳�ˣ�\n");
+		return notify_fail("你还没有领任务，怎么就来祭坛了？\n");
 	if ((int)ling->query_temp("mmr", 1) != who->query("id"))
-		return notify_fail("���������������ưɣ�\n");
+		return notify_fail("这好象不是你领的令牌吧？\n");
 	if ((int)ling->query_temp("done", 1) > 1 )
-		return notify_fail("�����ô��������ˣ���Ͻ���ȥ�����ɡ�\n");
+		return notify_fail("完成这么多次任务了，你赶紧回去复命吧。\n");
 	if (!who->query_temp("hs/have"))
-		return notify_fail("�㻹û��ȥ�Ҷ�������ô������̳�ˣ�\n");
+		return notify_fail("你还没有去找恶贼，怎么就来祭坛了？\n");
 	if (obj->query_temp("mmr")) {
 		if ( obj->query_temp("mmr", 1) != who->query("id") )
-                	return notify_fail("���˺���δ�ڻ�ɽΪ����������\n");
+                	return notify_fail("这人好象并未在华山为非做歹啊？\n");
 	}
 	if (obj->query_temp("faint_by") != who && obj->query("kill_by") != who )
-		return notify_fail("���˺�������ɱ�İɣ�\n");
+		return notify_fail("这人好象不是你杀的吧？\n");
 
 	if ( obj->query("victim_user") )
-		return notify_fail("��������ɻ���أ�û��ô���ף�\n");
+		return notify_fail("想用玩家蒙混过关？没那么容易！\n");
 
 	times = ling->query_temp("done", 1);
-	write("����ɺ�����������д����һ�� "+CHINESE_D->chinese_number(times+1)+" �֡�\n", who);
+	write("岳灵珊在你的令牌上写下了一个 "+CHINESE_D->chinese_number(times+1)+" 字。\n", who);
 
 	if (!obj->is_corpse() && obj->query("id") != "shouji" ){
-		command("say " + "�ðɣ���Ѷ������ڼ�̨�������ͷ����ģ�����֮ʿ������֮��ᰲϢ�ˡ�\n");
+		command("say " + "好吧，请把恶贼放于祭台，上天会惩罚他的，侠义之士的在天之灵会安息了。\n");
 		who->set_temp("jitan", 1);
 	}
 	else {
-		command("say " + "�һ�ɽ�ɲ�ϲ��ɱ��" + RANK_D->query_respect(who) + "�´β�����˺��¶����ˡ�\n");
+		command("say " + "我华山派不喜滥杀，" + RANK_D->query_respect(who) + "下次不可如此好勇斗狠了。\n");
 		ling->add_temp("done", 1);
 	}
 	if( (int)ling->query_temp("done", 1) == 1 )
-		command("say " + "��һ����ʽ��������Ϳ���ȥʦ�����︴���ˡ�\n");
+		command("say " + "等一会仪式结束，你就可以去师傅那里复命了。\n");
 	me->set_max_encumbrance(10000000);
 	who->start_busy(random(3));
 	who->delete_temp("hs/have");
@@ -146,22 +146,22 @@ string ask_me()
 	ling =present("ling pai", me);
 		
 	if (!ling )
-		return "��������أ�\n";
+		return "你的令牌呢？\n";
 	if (!me->query_temp("hs/jobji"))
-		return "�㻹û����������ô������̳�ˣ�\n";
+		return "你还没有领任务，怎么就来祭坛了？\n";
 	if ((int)ling->query_temp("mmr", 1) != me->query("id"))
-		return "���������������ưɣ�\n";
+		return "这好象不是你领的令牌吧？\n";
 	if ((int)ling->query_temp("done", 1) > 1 )
-		return "�����ô��������ˣ���Ͻ���ȥ�����ɡ�\n";
+		return "完成这么多次任务了，你赶紧回去复命吧。\n";
 	if (!ling->query_temp("done", 1))
-		return "��ʲôҲû�ɰ���\n";
+		return "你什么也没干啊？\n";
 	if (me->query_temp("hs/have"))
-		return "�㻹û��ȥ�Ҷ�������ô������̳�ˣ�\n";
+		return "你还没有去找恶贼，怎么就来祭坛了？\n";
 	if (me->query_temp("hs/robot"))
-		return "�㻹����ȥ������\n";
-	//ɱ��һ��
+		return "你还不回去复命？\n";
+	//杀完一个
 	me->set_temp("hs/robot",1);
-	return "��Ȼ��ˣ�����ͻ�ȥ�����ɣ�";
+	return "既然如此，你这就回去复命吧！";
 }
 
 
@@ -171,10 +171,10 @@ string ask_zixia()
 	
 	me =this_player();
 	if (!me->query_temp("hs/askzixia"))
-		return "��ϼ�ؼ������ǻ�ɽ����ɽ֮����һֱ���ҵ��������ܣ����������ʲô��\n";
+		return "紫霞秘籍是我们华山派镇山之宝，一直在我爹爹处保管，你问这个做什么？\n";
 	
 	me->add_temp("hs/askzixia",1);
-	return "������˭Ҳ����˵�����ʦ���������Ÿ��ֵ��ڹ�������Ա����������ϵ��ڹ��ķ������⣬\n                �Ұ��ؼ����ҵ�����ͷ����͵�����������ʦ���ˣ���ȥ�����ʦ�����ʿ��ɡ�";
+	return "这事你谁也不许说，令狐师兄中了旁门高手的内功，须得以本门至高无上的内功心法来化解，\n                我把秘籍从我爹爹枕头底下偷出来，给令狐师兄了，你去找令狐师兄问问看吧。";
 }
 
 

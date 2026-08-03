@@ -3,16 +3,16 @@
 
 inherit ROOM;
 #include <ansi.h>
-#define QUESTDIR "quest/���Ӣ�۴�/��ѩ����/"
+#define QUESTDIR "quest/射雕英雄传/风雪惊变/"
 
 void create()
 {
-	set("short", GRN "��Ժ" NOR);
+	set("short", GRN "后院" NOR);
 	set("long",@long
-������Ǵ��������ļҵĺ�Ժ��Ժ������ʺ����ӱ�ɵ�դ����
-Ժ������һС������˺ü����߲ˣ��˵��Ա�����Ͽ���һ�ѳ�ͷ��
+这里就是大侠杨铁心家的后院，院子由篱笆和竹子编成的栅栏，
+院子里有一小块地种了好几种蔬菜，菜地旁边篱笆上靠着一把锄头。
 long);
-  set("indoors", "ţ�Ҵ�");
+  set("indoors", "牛家村");
 	set("exits",([
 		"south" : __DIR__"yangjia",
 		"north" : __DIR__"mafang",

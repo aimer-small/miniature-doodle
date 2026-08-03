@@ -31,10 +31,10 @@ int sort_basic(string sk)
 
 void create()
 {
-	set("short",HIW"ÄïçÙÓñ¶´-ÔÓÏî²¿"NOR);
+	set("short",HIW"å¨˜ç¼³çŽ‰æ´ž-æ‚é¡¹éƒ¨"NOR);
 	set ("long",@long
-ÕâÊÇÂüÙ¢ÂÞÉ½×¯´æ·ÅÎä¹¦ÃØ¼®µÄµØ·½£¬Ò»ÅÅÅÅÊé¼ÜÉÏÕûÆëµÄ°Ú·Å×Å¸÷ÖÖÊé
-¼®£¬ËÆºõ¶¼ÓëÈçºÎÑÐÐÞ¸ü¸ßÉîµÄÔÓÏîÎäÑ§ÓÐ¹Ø¡£
+è¿™æ˜¯æ›¼ä½—ç½—å±±åº„å­˜æ”¾æ­¦åŠŸç§˜ç±çš„åœ°æ–¹ï¼Œä¸€æŽ’æŽ’ä¹¦æž¶ä¸Šæ•´é½çš„æ‘†æ”¾ç€å„ç§ä¹¦
+ç±ï¼Œä¼¼ä¹Žéƒ½ä¸Žå¦‚ä½•ç ”ä¿®æ›´é«˜æ·±çš„æ‚é¡¹æ­¦å­¦æœ‰å…³ã€‚
 long);
 	set("exits",([
 		"out" : __DIR__"huandong",
@@ -58,31 +58,31 @@ int do_canwu(string arg)
      object me = this_player();
 
      if(arg != "misc" )
-           return notify_fail("ÕâÀïÖ»ÄÜ²ÎÎòÔÓÑ§(misc)²¿·Ö!\n");
+           return notify_fail("è¿™é‡Œåªèƒ½å‚æ‚Ÿæ‚å­¦(misc)éƒ¨åˆ†!\n");
 
      if (me->is_busy() || me->is_fighting()|| me->query_temp("con_gift") )
-                  return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                  return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 if (me->query_temp("canwu_now") )
-       return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+       return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 if (me->query("relife/gifts/now") )
-       return notify_fail("Äã»¹ÊÇÏÈ°Ñ×Ô¼ºµÄÌì¸³·ÖÅäÍê±ÏÒÔºóÔÙÀ´°É¡£\n");
+       return notify_fail("ä½ è¿˜æ˜¯å…ˆæŠŠè‡ªå·±çš„å¤©èµ‹åˆ†é…å®Œæ¯•ä»¥åŽå†æ¥å§ã€‚\n");
         
         if (query_temp("canwu") )
-        return notify_fail("ÓÐÈËÕýÔÚ²ÎÎòÄØ£¬ÄãµÈÒ»»á°Ñ¡£\n");
+        return notify_fail("æœ‰äººæ­£åœ¨å‚æ‚Ÿå‘¢ï¼Œä½ ç­‰ä¸€ä¼šæŠŠã€‚\n");
 
 
      if( me->query("relife/gifts/total")<20)
-                 return notify_fail("²ØÊéÄÚÈÝÌ«Éî°ÂÁË£¬Äã²ÎÎòÌì¸³²»¹»20µã£¬ÔÝÊ±ÎÞ·¨Àí½â¡£\n");
+                 return notify_fail("è—ä¹¦å†…å®¹å¤ªæ·±å¥¥äº†ï¼Œä½ å‚æ‚Ÿå¤©èµ‹ä¸å¤Ÿ20ç‚¹ï¼Œæš‚æ—¶æ— æ³•ç†è§£ã€‚\n");
 
 
      if( me->query("combat_exp",1)<50000000)
-                 return notify_fail("²ØÊéÄÚÈÝÌ«Éî°ÂÁË£¬ÄãÊµÕ½¾­Ñé²»¹»50M£¬ÔÝÊ±ÎÞ·¨Àí½â¡£\n");
+                 return notify_fail("è—ä¹¦å†…å®¹å¤ªæ·±å¥¥äº†ï¼Œä½ å®žæˆ˜ç»éªŒä¸å¤Ÿ50Mï¼Œæš‚æ—¶æ— æ³•ç†è§£ã€‚\n");
        
                  
-       message_vision( HIW"$N×ÐÏ¸µÄ·­¿´×ÅÊé¼ÜÉÏµÄ²ØÊé£¬¶ÔÀïÃæå«ÈçÑÌº£µÄÔÓÑ§ÄÚÈÝºÜ¸ÐÐËÈ¤¡£\n"NOR,me);
-        message_vision( HIW"$NÒ»Í·Ôú½øÊé¶ÑÀï.²»Í£µÄ·­¿´×Å¡£¡£ \n"NOR, me);
+       message_vision( HIW"$Nä»”ç»†çš„ç¿»çœ‹ç€ä¹¦æž¶ä¸Šçš„è—ä¹¦ï¼Œå¯¹é‡Œé¢ç€šå¦‚çƒŸæµ·çš„æ‚å­¦å†…å®¹å¾ˆæ„Ÿå…´è¶£ã€‚\n"NOR,me);
+        message_vision( HIW"$Nä¸€å¤´æ‰Žè¿›ä¹¦å †é‡Œ.ä¸åœçš„ç¿»çœ‹ç€ã€‚ã€‚ \n"NOR, me);
        me->start_busy(100);               
        me->set_temp("canwu_now",1); 
        set_temp("canwu",1);            
@@ -106,10 +106,10 @@ int thinking(object me)
 	
  if(me->query_temp("con_gift")<(3+random(3)))
        {  me->add_temp("con_gift",1);
-          if(random(2)) tell_object(me,HIG"\nÄã×ÐÏ¸µÄÑÐ¶Á×ÅÊéÀïÃæµÄÄÚÈÝ£¬Ö»¾õµÃ¶úÄ¿Ò»ÐÂ...\n"NOR);
-                   else tell_object(me,HIY"\nÄãÑÐ¶Á×ÅÊéÀïÇ§Ææ°Ù¹ÖµÄÔÓÑ§ÄÚÈÝ£¬ÐÄÀïÓÐËùÁìÎò...\n"NOR);  
+          if(random(2)) tell_object(me,HIG"\nä½ ä»”ç»†çš„ç ”è¯»ç€ä¹¦é‡Œé¢çš„å†…å®¹ï¼Œåªè§‰å¾—è€³ç›®ä¸€æ–°...\n"NOR);
+                   else tell_object(me,HIY"\nä½ ç ”è¯»ç€ä¹¦é‡Œåƒå¥‡ç™¾æ€ªçš„æ‚å­¦å†…å®¹ï¼Œå¿ƒé‡Œæœ‰æ‰€é¢†æ‚Ÿ...\n"NOR);  
 
-	  tell_room(environment(me),HIC""+me->query("name")+"Ã¼Í·½ôÖå£¬ËÆºõÔÚË¼Ë÷×ÅÊ²Ã´...\n"NOR, ({}));
+	  tell_room(environment(me),HIC""+me->query("name")+"çœ‰å¤´ç´§çš±ï¼Œä¼¼ä¹Žåœ¨æ€ç´¢ç€ä»€ä¹ˆ...\n"NOR, ({}));
 
 	  remove_call_out("thinking");
 	  call_out("thinking",3+random(3), me);
@@ -119,13 +119,13 @@ int thinking(object me)
  else { 
          me->delete_temp("con_gift");
          me->start_busy(10);     
-  message_vision(HIC"\n$N¡¸¹þ¹þ¹þ¡¹´óÐ¦¼¸Éù£¬ËµµÀ£º¡°Ô­À´Èç´Ë£¬Ô­À´Èç´Ë¡£¡±\n"NOR,me); 
-  tell_object(me,HIR"\nÄãÍ¨¹ý±¾´ÎÑÐ¶Á£¬¶Ô´³µ´½­ºþµÄ¼ûÊ¶¸ü¼ÓÉîÁËÒ»²½£¡\n"NOR);
-  tell_object(me,HIR"\nÏëÆðÁË×Ô¼ºÒÔÇ°×ß¹ýµÄ²»ÉÙÍäÂ·£¬²»½û´ó¸Ðºó»Ú£¡Äã¾ö¶¨±³ÅÑÊ¦ÃÅ£¬ÖØÈë½­ºþ£¡\n"NOR);
-  tell_object(me,HIW"Äã»ñµÃÁËÒ»´ÎÖØÐÂ°ÝÊ¦µÄ»ú»á£¡\n"NOR);
-  tell_object(me,HIR"\nÄãµÄÌì¸³ÊôÐÔ±»ÖØÖÃÁË£¡Äã¿ÉÒÔÁ¢¼´ÖØÐÂ·ÖÅä×Ô¼ºµÄÌì¸³ÊôÐÔ\n"NOR); 
-  tell_object(me,HIR"\nÄãÖØÐÂÉóÊÓÆð×Ô¼ºÄêÇáÊ±´úÐ¦°Á½­ºþµÄÃÎÏë£¡\n"NOR);    
-  tell_object(me,HIW"Äã½øÈëÁË¿ìËÙ³É³¤µÄ»Æ½ðÊ±´ú£¨24Ð¡Ê±¾«Ó¢£©£¡\n"NOR);    
+  message_vision(HIC"\n$Nã€Œå“ˆå“ˆå“ˆã€å¤§ç¬‘å‡ å£°ï¼Œè¯´é“ï¼šâ€œåŽŸæ¥å¦‚æ­¤ï¼ŒåŽŸæ¥å¦‚æ­¤ã€‚â€\n"NOR,me); 
+  tell_object(me,HIR"\nä½ é€šè¿‡æœ¬æ¬¡ç ”è¯»ï¼Œå¯¹é—¯è¡æ±Ÿæ¹–çš„è§è¯†æ›´åŠ æ·±äº†ä¸€æ­¥ï¼\n"NOR);
+  tell_object(me,HIR"\næƒ³èµ·äº†è‡ªå·±ä»¥å‰èµ°è¿‡çš„ä¸å°‘å¼¯è·¯ï¼Œä¸ç¦å¤§æ„ŸåŽæ‚”ï¼ä½ å†³å®šèƒŒå›å¸ˆé—¨ï¼Œé‡å…¥æ±Ÿæ¹–ï¼\n"NOR);
+  tell_object(me,HIW"ä½ èŽ·å¾—äº†ä¸€æ¬¡é‡æ–°æ‹œå¸ˆçš„æœºä¼šï¼\n"NOR);
+  tell_object(me,HIR"\nä½ çš„å¤©èµ‹å±žæ€§è¢«é‡ç½®äº†ï¼ä½ å¯ä»¥ç«‹å³é‡æ–°åˆ†é…è‡ªå·±çš„å¤©èµ‹å±žæ€§\n"NOR); 
+  tell_object(me,HIR"\nä½ é‡æ–°å®¡è§†èµ·è‡ªå·±å¹´è½»æ—¶ä»£ç¬‘å‚²æ±Ÿæ¹–çš„æ¢¦æƒ³ï¼\n"NOR);    
+  tell_object(me,HIW"ä½ è¿›å…¥äº†å¿«é€Ÿæˆé•¿çš„é»„é‡‘æ—¶ä»£ï¼ˆ24å°æ—¶ç²¾è‹±ï¼‰ï¼\n"NOR);    
 
 if( me->query( "family/family_name") ) 
                me->set("cw_mp/"+me->query("family/family_name"),1);
@@ -150,19 +150,19 @@ if( me->query( "family/family_name") )
 	sname=filter_array( allskills, (: sort_skill :) );
 	allskills-=sname;
 
-//ÕâÀïÊÇ»ù±¾
+//è¿™é‡Œæ˜¯åŸºæœ¬
 
 	sname=filter_array( allskills, (: sort_basic :) );
 	allskills-=sname;
 
-//ÕâÀïÊÇÌØÊâ
+//è¿™é‡Œæ˜¯ç‰¹æ®Š
 	sname=allskills;
 	j = sizeof(sname);
          if(j>0)   for(i=0; i<j; i++) {
 
                  if ( me->query_skill(sname[i],1) >=0 )
                              	
-                         if(sname[i]!="kongming-quan")    //¿ÕÃ÷È­
+                         if(sname[i]!="kongming-quan")    //ç©ºæ˜Žæ‹³
                          if(sname[i]!="jiuyin-zhengong")
                          if(sname[i]!="jiuyin-shenfa")
                          if(sname[i]!="xuanyin-jian")
@@ -170,33 +170,33 @@ if( me->query( "family/family_name") )
                          if(sname[i]!="jiuyin-baiguzhua")
                          if(sname[i]!="yinlong-bian")
                          if(sname[i]!="cuixin-zhang")
-                         if(sname[i]!="dafumo-quan")      //9yinÏµÁÐ
-                         if(sname[i]!="wuhu-duanmendao")  //Îå»¢
+                         if(sname[i]!="dafumo-quan")      //9yinç³»åˆ—
+                         if(sname[i]!="wuhu-duanmendao")  //äº”è™Ž
                          if(sname[i]!="miaojia-jianfa")
                          if(sname[i]!="hujia-daofa")
-                         if(sname[i]!="lengquan-shengong") //ÀäÈªÏµÁÐ
+                         if(sname[i]!="lengquan-shengong") //å†·æ³‰ç³»åˆ—
                          if(sname[i]!="jinshe-jianfa")
                          if(sname[i]!="jinshe-zhangfa")
-                         if(sname[i]!="wudu-yanluobu")     //½ðÉßÏµÁÐ
+                         if(sname[i]!="wudu-yanluobu")     //é‡‘è›‡ç³»åˆ—
                          if(sname[i]!="lingbo-weibu")
-                         if(sname[i]!="beiming-shengong")  //±±Ú¤ÏµÁÐ
+                         if(sname[i]!="beiming-shengong")  //åŒ—å†¥ç³»åˆ—
                          if(sname[i]!="kuihua-shengong")
-                         if(sname[i]!="pixie-jian")        //¿û»¨ÏµÁÐ
+                         if(sname[i]!="pixie-jian")        //è‘µèŠ±ç³»åˆ—
                          if(sname[i]!="hamagong")
                          if(sname[i]!="hamabu")
                          if(sname[i]!="lingshe-zhangfa")
-                         if(sname[i]!="lingshe-quanfa")    //¸òó¡ÏµÁÐ
-                         if(sname[i]!="wuxing-zhen")       //ÎåÐÐÕó
-                         if(sname[i]!="ningxue-shenzhuao") //ÄýÑª
-                         if(sname[i]!="qianzhu-wandushou") //Ç§Öë
-                         if(sname[i]!="yangjia-qiang")     //Ñî¼ÒÇ¹ 
-                         if(sname[i]!="taizhu-quan")       //Ì«×æÈ­ 
-                         if(sname[i]!="wuxingbu")          //ÎåÐÐ²½
+                         if(sname[i]!="lingshe-quanfa")    //è›¤èŸ†ç³»åˆ—
+                         if(sname[i]!="wuxing-zhen")       //äº”è¡Œé˜µ
+                         if(sname[i]!="ningxue-shenzhuao") //å‡è¡€
+                         if(sname[i]!="qianzhu-wandushou") //åƒè››
+                         if(sname[i]!="yangjia-qiang")     //æ¨å®¶æžª 
+                         if(sname[i]!="taizhu-quan")       //å¤ªç¥–æ‹³ 
+                         if(sname[i]!="wuxingbu")          //äº”è¡Œæ­¥
                          if(sname[i]!="shenzhao-jing")
-                         if(sname[i]!="tangshi-jianfa")    //Á¬³Ç¾÷
-                         if(sname[i]!="xixing-dafa")       //ÎüÐÇ´ó·¨
-                         if(sname[i]!="taixuan-jing")      //Ì«Ðþ¾­
-                         if(sname[i]!="jindao-heijian")    //½ðµ¶ºÚ½£
+                         if(sname[i]!="tangshi-jianfa")    //è¿žåŸŽè¯€
+                         if(sname[i]!="xixing-dafa")       //å¸æ˜Ÿå¤§æ³•
+                         if(sname[i]!="taixuan-jing")      //å¤ªçŽ„ç»
+                         if(sname[i]!="jindao-heijian")    //é‡‘åˆ€é»‘å‰‘
                          if(sname[i]!="qixian-wuxingjian")
               //         if(sname[i]!="wuhu-duanmendao")
  
@@ -214,14 +214,14 @@ if( me->query( "family/family_name") )
         me->add_condition("db_exp",8640);
         me->set("age",18);
         me->set("shen",1);
-        me->set("title",HIC"Ò»´ú×ÚÊ¦"NOR);
+        me->set("title",HIC"ä¸€ä»£å®—å¸ˆ"NOR);
        i = me->query("relife/gifts/now",1); 
        j = me->query("relife/gifts/total",1);
        me->set("relife/relifed",1);
-    tell_object(me,HBBLU"\nÄã±¾´Î²ÎÎò¹²ºÄ·ÑÁË" + HIW + chinese_number( exp ) + HIR + "ÊµÕ½¾­Ñé£¬ÄãÏÖÔÚ×Ü¹²ÓÐ" + HIW + chinese_number( i ) + HIR + "µÄ¶îÍâµÄÌì¸³£¡\n"NOR);
-    tell_object(me,HBRED"\nÇëÁ¢¼´Ê¹ÓÃ(addgift)½øÐÐ·ÖÅä£¡\n"NOR);
+    tell_object(me,HBBLU"\nä½ æœ¬æ¬¡å‚æ‚Ÿå…±è€—è´¹äº†" + HIW + chinese_number( exp ) + HIR + "å®žæˆ˜ç»éªŒï¼Œä½ çŽ°åœ¨æ€»å…±æœ‰" + HIW + chinese_number( i ) + HIR + "çš„é¢å¤–çš„å¤©èµ‹ï¼\n"NOR);
+    tell_object(me,HBRED"\nè¯·ç«‹å³ä½¿ç”¨(addgift)è¿›è¡Œåˆ†é…ï¼\n"NOR);
 
-      log_file("canwu/getmisc", sprintf("%s(%s) ºÄ·Ñ%dM¾­Ñé£¬ÖØÖÃÌì¸³µãÊýÎª%d£¬µ±Ç°¾­Ñé£º%d¡£\n", 
+      log_file("canwu/getmisc", sprintf("%s(%s) è€—è´¹%dMç»éªŒï¼Œé‡ç½®å¤©èµ‹ç‚¹æ•°ä¸º%dï¼Œå½“å‰ç»éªŒï¼š%dã€‚\n", 
        me->name(1),
        me->query("id"),
        exp/1000000,

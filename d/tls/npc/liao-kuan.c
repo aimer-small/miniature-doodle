@@ -2,11 +2,11 @@ inherit F_MASTER;
 inherit NPC;
 void create()
 {
-        set_name("ÁË¿íìøÊ¦", ({ "liaokuan chanshi","liaokuan","chanshi"}) );
-        set("nickname", "ÇåÎª×ðÕß");
-        set("long", "ÁË¿íìøÊ¦ÊÇ±¾Òò·½ÕÉµÄµÚÁùÎ»µÜ×Ó£¬ËûÄêÔ¼ËÄÊ®£¬
-·½Ãæ´ó¶ú£¬¿´ÆðÀ´´¾ÆÓº©ºñ¡£\n");
-        set("gender", "ÄÐÐÔ" );
+        set_name("äº†å®½ç¦…å¸ˆ", ({ "liaokuan chanshi","liaokuan","chanshi"}) );
+        set("nickname", "æ¸…ä¸ºå°Šè€…");
+        set("long", "äº†å®½ç¦…å¸ˆæ˜¯æœ¬å› æ–¹ä¸ˆçš„ç¬¬å…­ä½å¼Ÿå­ï¼Œä»–å¹´çº¦å››åï¼Œ
+æ–¹é¢å¤§è€³ï¼Œçœ‹èµ·æ¥æ·³æœ´æ†¨åŽšã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("class", "bonze");
         set("attitude", "friendly");
         set("age", 41);
@@ -15,7 +15,7 @@ void create()
         set("int", 22);
         set("con", 23);
         set("dex", 22);
-        create_family("ÌìÁúËÂ", 14, "µÜ×Ó");
+        create_family("å¤©é¾™å¯º", 14, "å¼Ÿå­");
 
         set("qi", 1000);
         set("max_qi", 1000);
@@ -45,8 +45,8 @@ void create()
         map_skill("strike", "qingyan-zhang");
         prepare_skill("strike","qingyan-zhang");                
         set("inquiry",([
-                "°ÙÕÉÇÅ"  : "°ÙÕÉÇÅ¶àÄêÊ§ÐÞ£¬Ñ°³£ÈËµÈ²»Ð¡ÐÄ¾Í»áË¤ÏÂÇÅÈ¥",
-                "ºóÉ½"  : "¹ýÁË°ÙÕÉÇÅ¾ÍÊÇºóÉ½ÁË£¬ÄÇÊÇÀú´ú¸ßÉ®Ç±ÐÞÖ®µØ£¬Ñ°³£ÈËµÈ²»µÃ½øÈë",
+                "ç™¾ä¸ˆæ¡¥"  : "ç™¾ä¸ˆæ¡¥å¤šå¹´å¤±ä¿®ï¼Œå¯»å¸¸äººç­‰ä¸å°å¿ƒå°±ä¼šæ‘”ä¸‹æ¡¥åŽ»",
+                "åŽå±±"  : "è¿‡äº†ç™¾ä¸ˆæ¡¥å°±æ˜¯åŽå±±äº†ï¼Œé‚£æ˜¯åŽ†ä»£é«˜åƒ§æ½œä¿®ä¹‹åœ°ï¼Œå¯»å¸¸äººç­‰ä¸å¾—è¿›å…¥",
         ]));
         setup();
         carry_object(BINGQI_D("changjian"))->wield(); 

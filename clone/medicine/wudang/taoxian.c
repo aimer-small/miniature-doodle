@@ -1,17 +1,17 @@
-// OBJ : /d/wudang/obj/taoxian.c ÌÒÏÉ
+// OBJ : /d/wudang/obj/taoxian.c æ¡ƒä»™
 
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-        set_name(HIM"ÌÒÏÉ"NOR, ({"yao cai","tao xian","yao"}));
+        set_name(HIM"æ¡ƒä»™"NOR, ({"yao cai","tao xian","yao"}));
         set_weight(500);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-            set("unit", "Öê");
-            set("long", YEL"ÕâÊÇÒ»Öê¸Õ´ÓÉ½ÁÖÖĞ²ÉÕªÏÂÀ´µÄÒ©²Ä£¬»¹´ø×Å´ÔÁÖÄàÍÁµÄÆøÏ¢¡£\n"NOR);
+            set("unit", "æ ª");
+            set("long", YEL"è¿™æ˜¯ä¸€æ ªåˆšä»å±±æ—ä¸­é‡‡æ‘˜ä¸‹æ¥çš„è¯æï¼Œè¿˜å¸¦ç€ä¸›æ—æ³¥åœŸçš„æ°”æ¯ã€‚\n"NOR);
             set("value", 100);
         }
         setup();

@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW"Ò¹Ã÷Öé"NOR,({ "yeming zhu","zhu" }));
+	set_name(HIW"å¤œæ˜ç "NOR,({ "yeming zhu","zhu" }));
 	set_weight(100);
 	if( clonep() )
                 set_default_object(__FILE__);
         else
         {
-        	set("unit","¿Å");
-        	set("long","ÕâÊÇÒ»¸öÉÁÉÁ·¢¹âµÄÒ¹Ã÷Öé£¬Ò»¿´¾ÍÖªµÀÊÇÎŞ¼ÛÖ®±¦¡£");
+        	set("unit","é¢—");
+        	set("long","è¿™æ˜¯ä¸€ä¸ªé—ªé—ªå‘å…‰çš„å¤œæ˜ç ï¼Œä¸€çœ‹å°±çŸ¥é“æ˜¯æ— ä»·ä¹‹å®ã€‚");
         	set("value",0);
         }
 	setup();

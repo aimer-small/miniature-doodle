@@ -5,15 +5,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ºùÂ«",({"hulu"}));
+	set_name("è‘«èŠ¦",({"hulu"}));
 	set_weight(100);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","ÕâÊÇÒ»¸ö×°×Å±ù²ÏµÄºùÂ«¡£ºùÂ«Íâ±ã½áÁËÒ»²ã°×Ëª,µ«ÀäÆø»¹ÊÇ²»¶Ï´ÓºùÂ«ÉÏÃ°³öÀ´¡£
-ÌýËµÀï±ßµÄ²Ï±¦±¦¿ÉÒÔ·Å(putout),Ò²¿ÉÒÔÊÕ(putin)Å¶¡£\n");
+		set("long","è¿™æ˜¯ä¸€ä¸ªè£…ç€å†°èš•çš„è‘«èŠ¦ã€‚è‘«èŠ¦å¤–ä¾¿ç»“äº†ä¸€å±‚ç™½éœœ,ä½†å†·æ°”è¿˜æ˜¯ä¸æ–­ä»Žè‘«èŠ¦ä¸Šå†’å‡ºæ¥ã€‚
+å¬è¯´é‡Œè¾¹çš„èš•å®å®å¯ä»¥æ”¾(putout),ä¹Ÿå¯ä»¥æ”¶(putin)å“¦ã€‚\n");
 		set("value",200000);
-		set("unit","¸ö");
+		set("unit","ä¸ª");
              set("dzd",1);
 	}
 	setup();		
@@ -46,28 +46,28 @@ int do_putout(string arg)
 	object me = this_player();
 	
 	if( environment(me)->query("no_fight"))
-	 	return notify_fail("ÕâÀï²»×¼Õ½¶·¡£\n");
+	 	return notify_fail("è¿™é‡Œä¸å‡†æˆ˜æ–—ã€‚\n");
 	if(me->is_busy())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	
 	//if(!arg || arg!= "bingcan")
-		//return notify_fail("ÄãÏë¸ÉÊ²Ã´£¿\n");
+		//return notify_fail("ä½ æƒ³å¹²ä»€ä¹ˆï¼Ÿ\n");
 	
 	if( !arg ) 
 		target = offensive_target(me);
 	else  target = present(arg, environment(me));
 	
 	if(!target)
-		return notify_fail("ÄãÏë¶ÔË­Ê¹ÓÃ±ù²Ï£¿\n");	
-	if(!target->is_character()) return notify_fail("ÄúÀÏ¸ãÐ¦°¡£¿\n");
+		return notify_fail("ä½ æƒ³å¯¹è°ä½¿ç”¨å†°èš•ï¼Ÿ\n");	
+	if(!target->is_character()) return notify_fail("æ‚¨è€æžç¬‘å•Šï¼Ÿ\n");
 	//if( !target ) target = offensive_target(me);
 	//if(!target || !target->is_character() || !me->is_fighting(target))
-		//return notify_fail("±ù²ÏÖ»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ£¡\n");
+		//return notify_fail("å†°èš•åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ï¼\n");
 	if(!living(target))
-		return notify_fail("ÄÇÊÇ»îÈËÃ´£¿\n");	
+		return notify_fail("é‚£æ˜¯æ´»äººä¹ˆï¼Ÿ\n");	
 	if(me->query_temp("dzd_quest/bingcan_used"))
-		return notify_fail("ÄãÕýÔÚÊ¹ÓÃ±ù²Ï£¡\n");
-	message_vision(HIW"$N´ÓÑü¼ä½âÏÂºùÂ«£¬½«ºùÂ«Ò»¶¶£¬ÒÑ°Ñ±ù²Ï·ÅÁË³öÀ´£¡\n"NOR,me,target);
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨å†°èš•ï¼\n");
+	message_vision(HIW"$Nä»Žè…°é—´è§£ä¸‹è‘«èŠ¦ï¼Œå°†è‘«èŠ¦ä¸€æŠ–ï¼Œå·²æŠŠå†°èš•æ”¾äº†å‡ºæ¥ï¼\n"NOR,me,target);
 	me->set_temp("dzd_quest/bingcan_used",1);
 	ob = new(__DIR__"bingcan");
 	ob->move(environment(me));
@@ -81,14 +81,14 @@ int do_putin(string arg)
 	object me = this_player();
 	object ob;
 	//if(!arg || arg != "bingcan")
-		//return notify_fail("ÄãÏëÊÕÊ²Ã´¶«Î÷£¿\n");
+		//return notify_fail("ä½ æƒ³æ”¶ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 	ob = present("bingcan",environment(me));
 	if(!ob) ob = find_object("bingcan");
 	if(!ob && !me->query_temp("dzd_quest/bingcan_used")) 
-		return notify_fail("Äã·Å¹ý±ù²ÏÃ´£¿\n");
+		return notify_fail("ä½ æ”¾è¿‡å†°èš•ä¹ˆï¼Ÿ\n");
 	else if(!ob) 
-		return notify_fail("ÄãµÄ±ù²ÏÒÑ¾­ËÀÁË£¡\n");	
-	message_vision(HIW"$NÔÚµØÉÏÓÃÒ©Îï»­ÁËÒ»¸ö»ÆÉ«µÄÔ²È¦£¬½«ºùÂ«¿ÚÂýÂýÒÆÏòÔ²È¦¡£ºùÂ«¿ÚÒ»ÉìÈëÈ¦ÄÚ£¬ÄÇ²Ï¶ùàÍµÄÒ»Éù£¬±ã×êÈëºùÂ«¡£\n"NOR,me);
+		return notify_fail("ä½ çš„å†°èš•å·²ç»æ­»äº†ï¼\n");	
+	message_vision(HIW"$Nåœ¨åœ°ä¸Šç”¨è¯ç‰©ç”»äº†ä¸€ä¸ªé»„è‰²çš„åœ†åœˆï¼Œå°†è‘«èŠ¦å£æ…¢æ…¢ç§»å‘åœ†åœˆã€‚è‘«èŠ¦å£ä¸€ä¼¸å…¥åœˆå†…ï¼Œé‚£èš•å„¿å—¤çš„ä¸€å£°ï¼Œä¾¿é’»å…¥è‘«èŠ¦ã€‚\n"NOR,me);
 	me->delete_temp("dzd_quest/bingcan_used");
 	destruct(ob);
 	return 1;

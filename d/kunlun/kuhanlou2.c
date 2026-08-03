@@ -11,12 +11,12 @@ int do_duanmo(string arg);
 
 void create()
 {
-	set("short", "¿àº®Â¥¶ş²ã");
+	set("short", "è‹¦å¯’æ¥¼äºŒå±‚");
 	set("long", @LONG
-Ã¿¸öÂ¥²ãÉÏ¶¼ÆÌÉèÁË½áÊµµÄÄ¾Â¥°å£¬°Ë½ÇĞÎµÄÇ½ÉíÉÏÔò¿ªÁËËÄÉÈ´ó´°¡£ËÄ
-ÖÜÇ½±ÚÌù×ÅÀ¥ÂØÅÉÀú´úÕÆÃÅºÍ¸ßÊÖµÄ»­Ïñ£¬²¢ÓĞ×¨ÃÅµÄÎÄ×Ö¼ÇÔØ×ÅËûÃÇµÄÊÂ¼£¡£
-´ÓÕâÀïÍùÍâÌ÷Íû£¬Ö»ÄÜ¿´µ½Î§ÈÆËşÖÜµÄÃÜÃÜÔÑÔÑµÄÔÆÉ¼ÁÖ£¬ÕıÊÇÍ¨¹ıÕâÖÖÈÌ¼¢
-ÄÍº®£¬ÇåĞÄ¹ÑÓûµÄ°ì·¨ÒÔÇóµÃ¶ÔÎäÑ§×Î×Î²»¾ëµÄ×·Çó¡£
+æ¯ä¸ªæ¥¼å±‚ä¸Šéƒ½é“ºè®¾äº†ç»“å®çš„æœ¨æ¥¼æ¿ï¼Œå…«è§’å½¢çš„å¢™èº«ä¸Šåˆ™å¼€äº†å››æ‰‡å¤§çª—ã€‚å››
+å‘¨å¢™å£è´´ç€æ˜†ä»‘æ´¾å†ä»£æŒé—¨å’Œé«˜æ‰‹çš„ç”»åƒï¼Œå¹¶æœ‰ä¸“é—¨çš„æ–‡å­—è®°è½½ç€ä»–ä»¬çš„äº‹è¿¹ã€‚
+ä»è¿™é‡Œå¾€å¤–çœºæœ›ï¼Œåªèƒ½çœ‹åˆ°å›´ç»•å¡”å‘¨çš„å¯†å¯†åŒåŒçš„äº‘æ‰æ—ï¼Œæ­£æ˜¯é€šè¿‡è¿™ç§å¿é¥¥
+è€å¯’ï¼Œæ¸…å¿ƒå¯¡æ¬²çš„åŠæ³•ä»¥æ±‚å¾—å¯¹æ­¦å­¦å­œå­œä¸å€¦çš„è¿½æ±‚ã€‚
 LONG
 	);
 
@@ -45,10 +45,10 @@ int do_duanmo(string arg)
 		return 0;
 
 	if ( !arg && (arg != "huaxiang") && (arg != "wall") )
-		return notify_fail("ÄãÏëÒª¶ËÄ¦Ê²Ã´¶«Î÷£¿\n");
+		return notify_fail("ä½ æƒ³è¦ç«¯æ‘©ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 	
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	if ( query("item_count") < 1
 	 || me->query_temp("count", 1) <= query("times")){
@@ -56,7 +56,7 @@ int do_duanmo(string arg)
 		me->receive_damage("jing", 10);
 		me->receive_damage("qi", 10);
 		me->add_busy(1);
-		return notify_fail("Äã×ĞÏ¸¶ËÄ¦À¥ÂØÅÉÇ°±²¸ßÈËµÄ»­Ïñ£¬ÏëÏóËûÃÇµ±Äê×İºá½­ºş£¬¿ìÒâ¶÷³ğ£¬²»ÓÉĞÄÖĞÉú³öĞí¶à¸Ğ¿®¡£\n");
+		return notify_fail("ä½ ä»”ç»†ç«¯æ‘©æ˜†ä»‘æ´¾å‰è¾ˆé«˜äººçš„ç”»åƒï¼Œæƒ³è±¡ä»–ä»¬å½“å¹´çºµæ¨ªæ±Ÿæ¹–ï¼Œå¿«æ„æ©ä»‡ï¼Œä¸ç”±å¿ƒä¸­ç”Ÿå‡ºè®¸å¤šæ„Ÿæ…¨ã€‚\n");
 	}
 
 	if ( query("item_count") > 0)
@@ -65,14 +65,14 @@ int do_duanmo(string arg)
 				add("item_count", -1);
 				ob = new("/d/kunlun/obj/weiqi.c");
 				ob->move(me);
-				message_vision("$NµÃµ½Ò»"+ob->query("unit")+"$n¡£\n",me,ob);
+				message_vision("$Nå¾—åˆ°ä¸€"+ob->query("unit")+"$nã€‚\n",me,ob);
 				me->delete_temp("count");
 			break;
 			case 1:
 				add("item_count", -1);
 				ob = new(BINGQI_D("guzheng"));
 				ob->move(me);
-				message_vision("$NµÃµ½Ò»"+ob->query("unit")+"$n¡£\n",me,ob);
+				message_vision("$Nå¾—åˆ°ä¸€"+ob->query("unit")+"$nã€‚\n",me,ob);
 				me->delete_temp("count");
 	}
 	me->add_busy(1);

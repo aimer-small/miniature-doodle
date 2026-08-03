@@ -6,18 +6,18 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIG"´ä¹È"NOR);
+	set("short", HIG"ç¿ è°·"NOR);
 	set("long", @LONG
-µ«¼û´ä¹ÈËÄÖÜ¸ßÉ½»·ÈÆ£¬ËÆºõØ¨¹ÅÒÔÀ´´ÓÎ´ÓĞÈËÖÁ£¬ËÄÃæÑ©·å²åÔÆ£¬ÏÕ¾ş
-¶¸ÇÍ£¬¾ö¼ÆÎŞ·¨ÅÊµÇ¶øÈë£¬±±±ßÒ»×ù¸ß·å×è×¡È¥Â·£¬ÎŞ·¨ÔÙÍùÇ°ĞĞ£¬²İµØÉÏÓĞ
-Æß°ËÍ·Ò°É½ÑòµÍÍ·³Ô²İ£¬¼ûÈËºÁ²»¾ª±Ü£¬Ê÷(tree)ÉÏÊ®ÓàÖ»ºï¶ùÏàæÒ£¬¿´À´»¢
-±ªÖ®Àà¾ŞÊŞÒòÉí×Ó±¿ÖØ£¬²»ÄÜÓâÏÕ·å¶øÖÁ¡£
+ä½†è§ç¿ è°·å››å‘¨é«˜å±±ç¯ç»•ï¼Œä¼¼ä¹äº˜å¤ä»¥æ¥ä»æœªæœ‰äººè‡³ï¼Œå››é¢é›ªå³°æ’äº‘ï¼Œé™©å³»
+é™¡å³­ï¼Œå†³è®¡æ— æ³•æ”€ç™»è€Œå…¥ï¼ŒåŒ—è¾¹ä¸€åº§é«˜å³°é˜»ä½å»è·¯ï¼Œæ— æ³•å†å¾€å‰è¡Œï¼Œè‰åœ°ä¸Šæœ‰
+ä¸ƒå…«å¤´é‡å±±ç¾Šä½å¤´åƒè‰ï¼Œè§äººæ¯«ä¸æƒŠé¿ï¼Œæ ‘(tree)ä¸Šåä½™åªçŒ´å„¿ç›¸å¬‰ï¼Œçœ‹æ¥è™
+è±¹ä¹‹ç±»å·¨å…½å› èº«å­ç¬¨é‡ï¼Œä¸èƒ½é€¾é™©å³°è€Œè‡³ã€‚
 LONG	);
 	set("exits", ([
 		"south" : __DIR__"shanlu6",
 	]));
 	set("item_desc", ([
-                "tree" : "Ò»¿Ã²»Ëã¸ßµÄÊ÷£¬Ê÷Æ¤»¹ºÜÄÛ£¬Ğí¶àĞ¡Ö¦ÉúÔÚÀëµØ²»¸ßµÄÖ÷¸ÉÉÏ¡£\n",
+                "tree" : "ä¸€æ£µä¸ç®—é«˜çš„æ ‘ï¼Œæ ‘çš®è¿˜å¾ˆå«©ï¼Œè®¸å¤šå°æç”Ÿåœ¨ç¦»åœ°ä¸é«˜çš„ä¸»å¹²ä¸Šã€‚\n",
 	]) );
 	set("objects",([
 		__DIR__"npc/shanyang" : 1,
@@ -25,7 +25,7 @@ LONG	);
 		__DIR__"npc/xiaohou" : 1,
 	]));
 
-	set("outdoors", "À¥ÂØ´ä¹È");
+	set("outdoors", "æ˜†ä»‘ç¿ è°·");
 	set("no_clean_up", 0);
 	set("twig_count", 3);
 	set("bark_count", 3);
@@ -55,10 +55,10 @@ int do_break(string arg)
 {
 	object me = this_player();
         if (me->is_busy() || me->is_fighting())
-            return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+            return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (arg == "twig" || arg == "zhi" || arg == "zhi tiao"){
            if (query("twig_count")) {
-		message_vision("$NõÚÆğ½Å¼â£¬ÉìÊÖÀ­×¡ÁËÒ»¸ùĞ¡Ê÷Ö¦£¬ÓÃ¾¢½«ËüÕÛÁËÏÂÀ´¡£\n", me);
+		message_vision("$Nè¸®èµ·è„šå°–ï¼Œä¼¸æ‰‹æ‹‰ä½äº†ä¸€æ ¹å°æ ‘æï¼Œç”¨åŠ²å°†å®ƒæŠ˜äº†ä¸‹æ¥ã€‚\n", me);
 		add("twig_count", -1);
 		new(__DIR__"obj/twig")->move(me);
                 me->start_busy(1);
@@ -70,7 +70,7 @@ int do_break(string arg)
 		set("twig_call_out", 1);
 		call_out("reset_twig", 600);
 	      }
-	      return notify_fail("Ê÷ÉÏÒÑ¾­Ã»ÓĞÊ²Ã´Ğ¡Ê÷Ö¦¿É¹©ÅÊÕÛÁË¡£\n");
+	      return notify_fail("æ ‘ä¸Šå·²ç»æ²¡æœ‰ä»€ä¹ˆå°æ ‘æå¯ä¾›æ”€æŠ˜äº†ã€‚\n");
 	   }
 	}
 	return 0;
@@ -80,10 +80,10 @@ int do_tear(string arg)
 {
 	object me = this_player();
         if (me->is_busy() || me->is_fighting())
-            return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+            return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if (arg == "bark" || arg == "shupi" || arg == "shu pi") {
 	    if (query("bark_count")) {
-		message_vision("$NÓÃÁ¦ËºÏÂÒ»ÌõÊ÷Æ¤À´£¬´éÁË¼¸ÏÂ£¬½«ËüÈà³ÉÒ»ÌõÏ¸Ë¿¡£\n", me);
+		message_vision("$Nç”¨åŠ›æ’•ä¸‹ä¸€æ¡æ ‘çš®æ¥ï¼Œæ’®äº†å‡ ä¸‹ï¼Œå°†å®ƒæ‰æˆä¸€æ¡ç»†ä¸ã€‚\n", me);
 		add("bark_count", -1);
 		new(__DIR__"obj/thread")->move(me);
                 me->start_busy(1);
@@ -95,7 +95,7 @@ int do_tear(string arg)
 		set("bark_call_out", 1);
 		call_out("reset_bark", 600);
 	      }
-	      return notify_fail("Äã´òËã½«Ê÷Æ¤È«°ÇÏÂÀ´Ñ½£¿£¡\n");
+	      return notify_fail("ä½ æ‰“ç®—å°†æ ‘çš®å…¨æ‰’ä¸‹æ¥å‘€ï¼Ÿï¼\n");
 	    }
 	}
 	return 0;

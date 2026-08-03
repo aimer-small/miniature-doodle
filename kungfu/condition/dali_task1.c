@@ -7,7 +7,7 @@
 int update_condition(object me, int duration)
 {
         if (duration < 1) {
-		tell_object(me, HIY "段王爷对你很是失望，已经找人重新送信了，你任务失败。\n" NOR);
+		tell_object(me, HIY "娈电帇鐖峰浣犲緢鏄け鏈涳紝宸茬粡鎵句汉閲嶆柊閫佷俊浜嗭紝浣犱换鍔″け璐ャ�俓n" NOR);
                 me->delete_temp("dali_targets");
                 me->delete_temp("dali_didian");
                 me->delete_temp("dali_time");

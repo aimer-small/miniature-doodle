@@ -1,4 +1,4 @@
-// yaoliu.c ·¬ÇÑÑüÁø
+// yaoliu.c ç•ªèŒ„è…°æŸ³
 
 #include <ansi.h>
 
@@ -7,13 +7,13 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name(HIY "·¬ÇÑÑüÁø" NOR, ({"fanqie yaoliu", "yaoliu"}));
+	set_name(HIY "ç•ªèŒ„è…°æŸ³" NOR, ({"fanqie yaoliu", "yaoliu"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "·¬ÇÑÑüÁøµÄÌØµãÊÇÈâÖÊÈíÄÛ£¬Î¶µÀÌğËá£¬Ö­ÎªºìÉ«¡£\nÒòÖíÀï¼¹ÈâÎ»ÓÚÑü²¿£¬±â¶øÏ¸³¤³ÊÁøÒ¶×´£¬¹ÊË×³ÆÑüÁø¡£\n");
-		set("unit", "Íë");
+		set("long", "ç•ªèŒ„è…°æŸ³çš„ç‰¹ç‚¹æ˜¯è‚‰è´¨è½¯å«©ï¼Œå‘³é“ç”œé…¸ï¼Œæ±ä¸ºçº¢è‰²ã€‚\nå› çŒªé‡Œè„Šè‚‰ä½äºè…°éƒ¨ï¼Œæ‰è€Œç»†é•¿å‘ˆæŸ³å¶çŠ¶ï¼Œæ•…ä¿—ç§°è…°æŸ³ã€‚\n");
+		set("unit", "ç¢—");
 		set("value", 30);
 		set("food_remaining", 3);
 		set("food_supply", 30);

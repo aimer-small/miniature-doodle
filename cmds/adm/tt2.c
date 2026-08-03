@@ -1,5 +1,5 @@
 mapping *wheres=({ 
-    (["chinese":                "¶ëáÒ",
+    (["chinese":                "å³¨åµ‹",
        "weizhi" :              "/d/emei/gudelin3",])
            });
 
@@ -15,8 +15,8 @@ int main(object me, string arg)
         }
 /*
 	tell_room(environment(me),
-		sprintf("Èç¹ûÏµÍ³Ö§³Ö MD5£¬crypt(\"%s\", \"$1$ShuJian\") = %s\n", arg, crypt(arg, "$1$ShuJian")));
-	tell_room(environment(me), sprintf("Èç¹ûÏµÍ³²»Ö§³Ö MD5£¬crypt(\"%s\", \"$1$\") = %s\n", arg, crypt(arg, "$1")));
+		sprintf("å¦‚æœç³»ç»Ÿæ”¯æŒ MD5ï¼Œcrypt(\"%s\", \"$1$ShuJian\") = %s\n", arg, crypt(arg, "$1$ShuJian")));
+	tell_room(environment(me), sprintf("å¦‚æœç³»ç»Ÿä¸æ”¯æŒ MD5ï¼Œcrypt(\"%s\", \"$1$\") = %s\n", arg, crypt(arg, "$1")));
 */
 	write(num[<9..<7]+","+num[<6..<4]+","+num[<3..<1]+"\n");
 	write(sscanf("aa.old", "%s", num)+num+"\n");

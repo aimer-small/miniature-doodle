@@ -12,7 +12,7 @@ int main(object me, string arg)
         int runner;
         
         if (!arg)
-                return notify_fail("Ö¸Áî¸ñÊ½£º zhua <Ä³ÈË>¡£\n");
+                return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼š zhua <æŸäºº>ã€‚\n");
         if( sscanf(arg, "%s with %d", arg, runner) != 2 ) 
               runner = 3;
         	
@@ -27,14 +27,14 @@ int main(object me, string arg)
                 obj = me;
                
         if(!obj)
-                return notify_fail("ÕÒ²»µ½Ö¸¶¨µÄÎï¼ş¡£\n");
+                return notify_fail("æ‰¾ä¸åˆ°æŒ‡å®šçš„ç‰©ä»¶ã€‚\n");
 
         ob = new("/clone/npc/antirobot"+runner);
         ob->test_robot(obj);
-        tell_object(me,HIY + obj->name(1)+HIY"("+capitalize(obj->query("id"))+")ÒÑ¾­ÕÕÄúµÄ·Ô¸ÀËÍÈ¥Éó²éÁË¡£\n");
+        tell_object(me,HIY + obj->name(1)+HIY"("+capitalize(obj->query("id"))+")å·²ç»ç…§æ‚¨çš„å©å’é€å»å®¡æŸ¥äº†ã€‚\n");
         
 	log_file("static/ROBOT",
-		sprintf("%-8s%-8s ±» %-8s(%-8s) Ç¿ĞĞÖ´ĞĞ»úÆ÷ÈË¼ì²é¡£\n",
+		sprintf("%-8s%-8s è¢« %-8s(%-8s) å¼ºè¡Œæ‰§è¡Œæœºå™¨äººæ£€æŸ¥ã€‚\n",
 			obj->query("name"),getuid(obj),me->query("name"),getuid(me)
 		), obj, ({ me })
 	);
@@ -45,10 +45,10 @@ int main(object me, string arg)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : zhua <Ä³ÈË> with <1|2|3>
+æŒ‡ä»¤æ ¼å¼ : zhua <æŸäºº> with <1|2|3>
 
-´ËÖ¸Áî¿ÉÈÃÄãÈÃÄ³¸öÍæ¼Ò½ÓÊÜ»úÆ÷ÈË³é²é¡£
-zhua xxx with 1-3 µÄÊı×Ö±íÊ¾ÓÃÄÄ¸öantirobotÈ¥²âÊÔ¡£
+æ­¤æŒ‡ä»¤å¯è®©ä½ è®©æŸä¸ªç©å®¶æ¥å—æœºå™¨äººæŠ½æŸ¥ã€‚
+zhua xxx with 1-3 çš„æ•°å­—è¡¨ç¤ºç”¨å“ªä¸ªantirobotå»æµ‹è¯•ã€‚
 HELP
     );
     return 1;

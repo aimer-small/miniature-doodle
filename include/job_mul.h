@@ -1,155 +1,155 @@
 /*
-¸ÃÎÄ¼ş¶¨ÒåÁËËùÓĞJOBµÄ½±ÀøÔÚÔ­ÓĞ»ù´¡ÉÏµÄ±¶Êı¿ØÖÆ£¬100±íÊ¾²»±ä
+è¯¥æ–‡ä»¶å®šä¹‰äº†æ‰€æœ‰JOBçš„å¥–åŠ±åœ¨åŸæœ‰åŸºç¡€ä¸Šçš„å€æ•°æ§åˆ¶ï¼Œ100è¡¨ç¤ºä¸å˜
 LinuX@SJ 04/03/01
 */
 
-// Ciwei@SJ Ìá¸ßÉÕ²İÁÏ¡¢ĞÇËŞÇÀ½Ù¡¢´ÌÉ±ÈÎÎñ Èı¸öÈÎÎñµÄ½±Àø
-// ¼´GBLU_JOB_MUL XXQJ_JOB_MUL Êµ¼ÊÓ°Ïìµ½µÄÈÎÎñ Ìá¸ßÉÕ²İÁÏ¡¢ĞÇËŞÇÀ½Ù¡¢´ÌÉ±ÈÎÎñ »¹ÓĞ¸æ¼±
-// ·Ö±ğÌá¸ß50% 7,7,2004-2:30
+// Ciwei@SJ æé«˜çƒ§è‰æ–™ã€æ˜Ÿå®¿æŠ¢åŠ«ã€åˆºæ€ä»»åŠ¡ ä¸‰ä¸ªä»»åŠ¡çš„å¥–åŠ±
+// å³GBLU_JOB_MUL XXQJ_JOB_MUL å®é™…å½±å“åˆ°çš„ä»»åŠ¡ æé«˜çƒ§è‰æ–™ã€æ˜Ÿå®¿æŠ¢åŠ«ã€åˆºæ€ä»»åŠ¡ è¿˜æœ‰å‘Šæ€¥
+// åˆ†åˆ«æé«˜50% 7,7,2004-2:30
 
 /*
-Ò»Ğ©Ğ¡ËµÃ÷£º 
-gifted ÊÇÖ¸¸ÃjobÒÑ¾­¼ÓÉÏÁËGIFTDµÄjob½±Àø¡£
-nogiftdÖ¸Ã»ÓĞ¼ÓÉÏGIFTD½±Àø¡£
-Èç¹ûÊ²Ã´¶¼Ã»ÓĞËµÃ÷Ã»ÓĞ×öÈÎºÎ´¦Àí
-joblistºóµÄÃû×ÖÊÇ¸ÃjobµÄjob_time/xxxxÖĞµÄxxxxÃû×Ö
-ºóÃæµÄÂ·¾¶ÊÇÉæ¼°µ½µÄÎÄ¼şµÄÂ·¾¶¡£
-±ãÓÚ½ñºó¸üĞÂ²éÕÒ
+ä¸€äº›å°è¯´æ˜ï¼š 
+gifted æ˜¯æŒ‡è¯¥jobå·²ç»åŠ ä¸Šäº†GIFTDçš„jobå¥–åŠ±ã€‚
+nogiftdæŒ‡æ²¡æœ‰åŠ ä¸ŠGIFTDå¥–åŠ±ã€‚
+å¦‚æœä»€ä¹ˆéƒ½æ²¡æœ‰è¯´æ˜æ²¡æœ‰åšä»»ä½•å¤„ç†
+jobliståçš„åå­—æ˜¯è¯¥jobçš„job_time/xxxxä¸­çš„xxxxåå­—
+åé¢çš„è·¯å¾„æ˜¯æ¶‰åŠåˆ°çš„æ–‡ä»¶çš„è·¯å¾„ã€‚
+ä¾¿äºä»Šåæ›´æ–°æŸ¥æ‰¾
 */
 #ifndef _JOBMUL_H_
 #define _JOBMUL_H_
 
-#define VIP_MUL		  150	//¹ó±öÍæ¼ÒºÍÆÕÍ¨Íæ¼ÒµÄÔö³¤ËÙ¶È¿ØÖÆ
-#define VIP_LINGWU_MUL	  150   //¹ó±öÍæ¼ÒºÍÆÕÍ¨Íæ¼ÒµÄÁìÎòËÙ¶È¿ØÖÆ
-#define VIP_LEARN_MUL	  150   //¹ó±öÍæ¼ÒºÍÆÕÍ¨Íæ¼ÒµÄÑ§Ï°ËÙ¶È¿ØÖÆ
-#define VIP_STUDY_MUL	  150   //¹ó±öÍæ¼ÒºÍÆÕÍ¨Íæ¼ÒµÄ¶ÁÊéËÙ¶È¿ØÖÆ
-#define ROBOT_MUL	50	 //ROBOTÍæ¼ÒµÄ³É³¤ËÙ¶È
+#define VIP_MUL		  150	//è´µå®¾ç©å®¶å’Œæ™®é€šç©å®¶çš„å¢é•¿é€Ÿåº¦æ§åˆ¶
+#define VIP_LINGWU_MUL	  150   //è´µå®¾ç©å®¶å’Œæ™®é€šç©å®¶çš„é¢†æ‚Ÿé€Ÿåº¦æ§åˆ¶
+#define VIP_LEARN_MUL	  150   //è´µå®¾ç©å®¶å’Œæ™®é€šç©å®¶çš„å­¦ä¹ é€Ÿåº¦æ§åˆ¶
+#define VIP_STUDY_MUL	  150   //è´µå®¾ç©å®¶å’Œæ™®é€šç©å®¶çš„è¯»ä¹¦é€Ÿåº¦æ§åˆ¶
+#define ROBOT_MUL	50	 //ROBOTç©å®¶çš„æˆé•¿é€Ÿåº¦
 
-#define SL_LINGWU_MUL	  100   //ÉÙÁÖÁìÎò
-#define MR_LINGWU_MUL	  100   //Ä½ÈİÁìÎò
-#define LEARN_MUL	  100   //Ñ§Ï°ËÙ¶È
-#define STUDY_MUL	  100   //¶ÁÊéËÙ¶È
+#define SL_LINGWU_MUL	  100   //å°‘æ—é¢†æ‚Ÿ
+#define MR_LINGWU_MUL	  100   //æ…•å®¹é¢†æ‚Ÿ
+#define LEARN_MUL	  100   //å­¦ä¹ é€Ÿåº¦
+#define STUDY_MUL	  100   //è¯»ä¹¦é€Ÿåº¦
 
-/*¹«ÖÚÈÎÎñ(¸öÈË)*/
-#define WG_JOB_MUL        120	//Îä¹ÙÈÎÎñ gifted joblist:Îä¹İ /d/wuguan/npc/dizi1.c
-#define XC_JOB_MUL        120	//Ñ²³ÇÈÎÎñ gifted joblist:´óÀí	Ñ²³Ç			   /d/dali/npc/zhudanchen.c			
-#define SX_JOB_MUL        50	//ËÍĞÅÈÎÎñ gifted joblist:´óÀí  ËÍĞÅ               /d/dali/job/dali_letter.c
-#define GBWU_JOB_MUL      60	//Ø¤°ïÎâ³¤ÀÏÉ±ÈËÈÎÎñ            gifted    joblist:Ø¤°ï                     /adm/daemons/taskd.c
+/*å…¬ä¼—ä»»åŠ¡(ä¸ªäºº)*/
+#define WG_JOB_MUL        120	//æ­¦å®˜ä»»åŠ¡ gifted joblist:æ­¦é¦† /d/wuguan/npc/dizi1.c
+#define XC_JOB_MUL        120	//å·¡åŸä»»åŠ¡ gifted joblist:å¤§ç†	å·¡åŸ			   /d/dali/npc/zhudanchen.c			
+#define SX_JOB_MUL        50	//é€ä¿¡ä»»åŠ¡ gifted joblist:å¤§ç†  é€ä¿¡               /d/dali/job/dali_letter.c
+#define GBWU_JOB_MUL      60	//ä¸å¸®å´é•¿è€æ€äººä»»åŠ¡            gifted    joblist:ä¸å¸®                     /adm/daemons/taskd.c
 																									// /kungfu/gaibang/wu.c
-#define GBLU_JOB_MUL      120	//Ø¤°ïÂ³³¤ÀÏ±¨Ğ§¹ú¼ÒÈÎÎñ           gifted  joblist:¸æ¼±           // ¸æ¼±: /kungfu/class/gaibang/obj/gaoji-wenshu.c
+#define GBLU_JOB_MUL      120	//ä¸å¸®é²é•¿è€æŠ¥æ•ˆå›½å®¶ä»»åŠ¡           gifted  joblist:å‘Šæ€¥           // å‘Šæ€¥: /kungfu/class/gaibang/obj/gaoji-wenshu.c
 							///kungfu/class/gaibang/gb_lujob.h
-																  // gifted		joblist:±¨Ğ§¹ú¼Ò ²İÁÏ³¡			// ²İÁÏ³¡£º/kungfu/class/gaibang/lu.c	
-																  // gifted	joblist:±¨Ğ§¹ú¼Ò ´ÌÉ±		// ´ÌÉ±£º/d/gb/npc/yuanshuai.c
-#define SS_JOB_MUL        60	//áÔÉ½ÈÎÎñ			gifted					/adm/daemons/taskd.c    taskd Í³Ò»¼ÆËã£¬ Êµ¼Ê±ä»¯ÎªGBWU_JOB_MUL
+																  // gifted		joblist:æŠ¥æ•ˆå›½å®¶ è‰æ–™åœº			// è‰æ–™åœºï¼š/kungfu/class/gaibang/lu.c	
+																  // gifted	joblist:æŠ¥æ•ˆå›½å®¶ åˆºæ€		// åˆºæ€ï¼š/d/gb/npc/yuanshuai.c
+#define SS_JOB_MUL        60	//åµ©å±±ä»»åŠ¡			gifted					/adm/daemons/taskd.c    taskd ç»Ÿä¸€è®¡ç®—ï¼Œ å®é™…å˜åŒ–ä¸ºGBWU_JOB_MUL
 																				// /kungfu/class/songshan/zuo.c zuo.h
-#define WD_JOB_MUL        80	//Îäµ±ÈÎÎñ gifted    joblist:Îäµ± Îäµ±¶ñÔô                           /kungfu/class/wudang/song.c
-#define LAOZU_JOB_MUL     80	//Ñ©É½ÈÎÎñ gifted    joblist:Ñ©É½                            
-#define XX_JOB_MUL        80	//ĞÇËŞÈÎÎñ gifted    joblist:ĞÇËŞ               /adm/daemons/taskd.c     taskd Í³Ò»¼ÆËã£¬ Êµ¼Ê±ä»¯ÎªGBWU_JOB_MUL 
+#define WD_JOB_MUL        80	//æ­¦å½“ä»»åŠ¡ gifted    joblist:æ­¦å½“ æ­¦å½“æ¶è´¼                           /kungfu/class/wudang/song.c
+#define LAOZU_JOB_MUL     80	//é›ªå±±ä»»åŠ¡ gifted    joblist:é›ªå±±                            
+#define XX_JOB_MUL        80	//æ˜Ÿå®¿ä»»åŠ¡ gifted    joblist:æ˜Ÿå®¿               /adm/daemons/taskd.c     taskd ç»Ÿä¸€è®¡ç®—ï¼Œ å®é™…å˜åŒ–ä¸ºGBWU_JOB_MUL 
 																							// /d/xingxiu/npc/ding.c
-#define XXQJ_JOB_MUL 	  100	//ĞÇËŞÇÀ½ÙÈÎÎñ           nogifted  joblist:ÇÀ½Ù                              /d/xingxiu/npc/anran.c
-#define HS_JOB_MUL        50   //»ªÉ½ÈÎÎñ               gifted    joblist:»ªÉ½                  /d/huashan/npc/yuebuqun.c
+#define XXQJ_JOB_MUL 	  100	//æ˜Ÿå®¿æŠ¢åŠ«ä»»åŠ¡           nogifted  joblist:æŠ¢åŠ«                              /d/xingxiu/npc/anran.c
+#define HS_JOB_MUL        50   //åå±±ä»»åŠ¡               gifted    joblist:åå±±                  /d/huashan/npc/yuebuqun.c
 
 
-#define TDH_JOB_MUL       55	//ÌìµØ»áÈÎÎñ  /clone/npc/tdh/man1.h
-#define CHANGLE_JOB_MUL	  100	//³¤ÀÖ°ïÈÎÎñ  /d/changle/npc/bei.c
-#define HZ_JOB_MUL        40	//º£Õ½ÈÎÎñ Íæ¼ÒÒÑ¾­ÓĞÈ«×Ô¶¯robot£¬ËÙ¶È¿ÉÒÔ´ïµ½8K/Ğ¡Ê± /d/sld/seawar/seaward.c
-#define SWZB_JOB_MUL      100	//Ê¨ÍõÕù°ÔÈÎÎñ ²âÊÔÆÚ¼ä£¬ÏÈµ÷µÍ¿´¿´
+#define TDH_JOB_MUL       55	//å¤©åœ°ä¼šä»»åŠ¡  /clone/npc/tdh/man1.h
+#define CHANGLE_JOB_MUL	  100	//é•¿ä¹å¸®ä»»åŠ¡  /d/changle/npc/bei.c
+#define HZ_JOB_MUL        40	//æµ·æˆ˜ä»»åŠ¡ ç©å®¶å·²ç»æœ‰å…¨è‡ªåŠ¨robotï¼Œé€Ÿåº¦å¯ä»¥è¾¾åˆ°8K/å°æ—¶ /d/sld/seawar/seaward.c
+#define SWZB_JOB_MUL      100	//ç‹®ç‹äº‰éœ¸ä»»åŠ¡ æµ‹è¯•æœŸé—´ï¼Œå…ˆè°ƒä½çœ‹çœ‹
 
-/*ÌØÊâJOB*/
-#define ZHUANJI_JOB_MUL			100   //´«¼ÇJOB /clone/npc/zha
-#define LOSELETTER_JOB_MUL		100   //¶ªÊ§µÄĞÅJOB /clone/gift/loseletter.c
-/*ÕâÁ½¸öÈÎÎñÊÇ²¹potµÄ*/
-#define ZM_JOB_MUL        100	//ÕÔÃôÈÎÎñ            gifted    joblist:ÕÔÃô                                    /d/city/kedian/zhao.c
-#define H7G_JOB_MUL       70	//ºéÆß¹«ÈÎÎñ          nogifted   joblist:ºéÆß¹«                         /kungfu/class/gaibang/h7g.c
-/*ÕâÁ½¸öjobÔİÊ±²»Àí»á*/
+/*ç‰¹æ®ŠJOB*/
+#define ZHUANJI_JOB_MUL			100   //ä¼ è®°JOB /clone/npc/zha
+#define LOSELETTER_JOB_MUL		100   //ä¸¢å¤±çš„ä¿¡JOB /clone/gift/loseletter.c
+/*è¿™ä¸¤ä¸ªä»»åŠ¡æ˜¯è¡¥potçš„*/
+#define ZM_JOB_MUL        100	//èµµæ•ä»»åŠ¡            gifted    joblist:èµµæ•                                    /d/city/kedian/zhao.c
+#define H7G_JOB_MUL       70	//æ´ªä¸ƒå…¬ä»»åŠ¡          nogifted   joblist:æ´ªä¸ƒå…¬                         /kungfu/class/gaibang/h7g.c
+/*è¿™ä¸¤ä¸ªjobæš‚æ—¶ä¸ç†ä¼š*/
 
-/*¹«ÖÚÈÎÎñ(ÍÅ¶Ó)*/
-#define HUBIAO_JOB_MUL    120   //»¤ïÚÈÎÎñ            gifted   joblist:»¤ïÚ            /d/fuzhou/hubiao/obj/cart.c /d/fuzhou/hubiao/hubiao.h
-#define JIUYUAN_JOB_MUL   100	//ÉÙÁÖ¾ÈÔ®ÈÎÎñ        gifted     joblist:ÉÙÁÖ                                   /kungfu/class/shaolin/fang-zheng.c
-#define SMY_JOB_MUL       100	//Ä¦ËÌÑÂ¿¹µĞÈÎÎñ      gifted   joblist:±¨Ğ§¹ú¼Ò ËÌÄ¦ÑÂ                              /kungfu/condition/smy_job.c
+/*å…¬ä¼—ä»»åŠ¡(å›¢é˜Ÿ)*/
+#define HUBIAO_JOB_MUL    120   //æŠ¤é•–ä»»åŠ¡            gifted   joblist:æŠ¤é•–            /d/fuzhou/hubiao/obj/cart.c /d/fuzhou/hubiao/hubiao.h
+#define JIUYUAN_JOB_MUL   100	//å°‘æ—æ•‘æ´ä»»åŠ¡        gifted     joblist:å°‘æ—                                   /kungfu/class/shaolin/fang-zheng.c
+#define SMY_JOB_MUL       100	//æ‘©é¢‚å´–æŠ—æ•Œä»»åŠ¡      gifted   joblist:æŠ¥æ•ˆå›½å®¶ é¢‚æ‘©å´–                              /kungfu/condition/smy_job.c
 
-/*ÃÅÅÉÈÎÎñ*/
+/*é—¨æ´¾ä»»åŠ¡*/
 
 /*
 sld job
-///d/sld/npc/obj/suomp.c -> /tmp/ciwei/job/suomp.c ³É¹¦¡£
-///d/sld/npc/obj/zhaohp.c -> /tmp/ciwei/job/zhaohp.c ³É¹¦¡£
+///d/sld/npc/obj/suomp.c -> /tmp/ciwei/job/suomp.c æˆåŠŸã€‚
+///d/sld/npc/obj/zhaohp.c -> /tmp/ciwei/job/zhaohp.c æˆåŠŸã€‚
 */
 
-#define SL_AOZHOU_JOB_MUL 	70	//ÉÙÁÖ°¾ÖàÈÎÎñ        nogifted    joblist:ÉÙÁÖ ÉÙÁÖ°¾Öà                               /d/shaolin/xjchu.c
-#define SL_CAIDI_JOB_MUL  	70	//ÉÙÁÖ²ËµØÈÎÎñ        nogifted    joblist:ÉÙÁÖ²ËµØ                               /d/shaolin/obj/tie-tong.c
-#define SL_LUNZHI_JOB_MUL       70	//ÉÙÁÖÂÖÖµÈÎÎñ    nogifted    joblist:ÉÙÁÖ ÉÙÁÖÂÖÖµ                              /kungfu/class/shaolin/hui-xiu.c
-#define SL_MONK_JOB_MUL      	70	//ÉÙÁÖÎäÉ®ÌÃÈÎÎñ  nogifted    joblist:ÉÙÁÖ  ÂŞººÌÃ                             /kungfu/class/shaolin/wuseng.h
-                                                                                                         // job ´ÎÊıÍ³¼ÆÔÚ /kungfu/class/shaolin/xuan-can.h
-#define SL_DUSHI_JOB_MUL      	70	//ÉÙÁÖ¶ÉÊÀ¼ÃÈËÈÎÎñ nogifted   joblist:·ğ·¨½µÄ§                               /kungfu/class/shaolin/xuan-du.h
-/*Õâ¸öjobÔİÊ±²»Àí»á*/
-#define MJ_XUNLUO_JOB_MUL       70	//Ã÷½ÌÑ²ÂßÈÎÎñ     nogifted   joblist:Ã÷½Ì Ã÷½ÌÑ²Âß                               /kungfu/class/mingjiao/wei.c
-#define MJ_SHOUWEI_JOB_MUL      70//Ã÷½ÌÊØÎÀÈÎÎñ     nogifted   joblist:Ã÷½ÌÊØÎÀ                              /kungfu/class/mingjiao/chang.c
-#define THD_SHOUMU_JOB_MUL      70	//ÌÒ»¨µºÊØÄ¹ÈÎÎñ   nogifted   joblist:ÌÒ»¨µº                               /d/thd/npc/thdjob.h
-#define GM_HUMU_JOB_MUL     	70	//¹ÅÄ¹»¤Ä¹ÈÎÎñ     nogifted   joblist:¹ÅÄ¹»¤Ä¹                               /d/gumu/fang.c
-#define GM_FENGCHAO_JOB_MUL     70	//¹ÅÄ¹·ä³²ÈÎÎñ     nogifted   joblist:¹ÅÄ¹·ä³²                               /d/gumu/yaofang.c
-#define TZ_JOB_MUL 	  	70	//ÌúÕÆ°ïÈÎÎñ               nogifted   joblist:ÌúÕÆ                               /d/tiezhang/npc/tz_job1.c
-#define MR_TOUXUE_JOB_MUL       70	//Ä½ÈİÍµÑ§ÈÎÎñ     nogifted   joblist:Ä½Èİ                               /d/mr/npc/murong-fu.c
-#define EM_YUANBING_JOB_MUL 	70	//¶ëáÒÔª±øÈÎÎñ     nogifted   joblist:¶ëáÒÔª±ø                               /kungfu/condition/em_job1.c
-#define WD_SHOUDING_JOB_MUL     70	//Îäµ±ÊØ¶¦ÈÎÎñ     nogifted   joblist:¿´ÊØÍ­¶¦                               /d/wudang/ldfang.c
+#define SL_AOZHOU_JOB_MUL 	70	//å°‘æ—ç†¬ç²¥ä»»åŠ¡        nogifted    joblist:å°‘æ— å°‘æ—ç†¬ç²¥                               /d/shaolin/xjchu.c
+#define SL_CAIDI_JOB_MUL  	70	//å°‘æ—èœåœ°ä»»åŠ¡        nogifted    joblist:å°‘æ—èœåœ°                               /d/shaolin/obj/tie-tong.c
+#define SL_LUNZHI_JOB_MUL       70	//å°‘æ—è½®å€¼ä»»åŠ¡    nogifted    joblist:å°‘æ— å°‘æ—è½®å€¼                              /kungfu/class/shaolin/hui-xiu.c
+#define SL_MONK_JOB_MUL      	70	//å°‘æ—æ­¦åƒ§å ‚ä»»åŠ¡  nogifted    joblist:å°‘æ—  ç½—æ±‰å ‚                             /kungfu/class/shaolin/wuseng.h
+                                                                                                         // job æ¬¡æ•°ç»Ÿè®¡åœ¨ /kungfu/class/shaolin/xuan-can.h
+#define SL_DUSHI_JOB_MUL      	70	//å°‘æ—æ¸¡ä¸–æµäººä»»åŠ¡ nogifted   joblist:ä½›æ³•é™é­”                               /kungfu/class/shaolin/xuan-du.h
+/*è¿™ä¸ªjobæš‚æ—¶ä¸ç†ä¼š*/
+#define MJ_XUNLUO_JOB_MUL       70	//æ˜æ•™å·¡é€»ä»»åŠ¡     nogifted   joblist:æ˜æ•™ æ˜æ•™å·¡é€»                               /kungfu/class/mingjiao/wei.c
+#define MJ_SHOUWEI_JOB_MUL      70//æ˜æ•™å®ˆå«ä»»åŠ¡     nogifted   joblist:æ˜æ•™å®ˆå«                              /kungfu/class/mingjiao/chang.c
+#define THD_SHOUMU_JOB_MUL      70	//æ¡ƒèŠ±å²›å®ˆå¢“ä»»åŠ¡   nogifted   joblist:æ¡ƒèŠ±å²›                               /d/thd/npc/thdjob.h
+#define GM_HUMU_JOB_MUL     	70	//å¤å¢“æŠ¤å¢“ä»»åŠ¡     nogifted   joblist:å¤å¢“æŠ¤å¢“                               /d/gumu/fang.c
+#define GM_FENGCHAO_JOB_MUL     70	//å¤å¢“èœ‚å·¢ä»»åŠ¡     nogifted   joblist:å¤å¢“èœ‚å·¢                               /d/gumu/yaofang.c
+#define TZ_JOB_MUL 	  	70	//é“æŒå¸®ä»»åŠ¡               nogifted   joblist:é“æŒ                               /d/tiezhang/npc/tz_job1.c
+#define MR_TOUXUE_JOB_MUL       70	//æ…•å®¹å·å­¦ä»»åŠ¡     nogifted   joblist:æ…•å®¹                               /d/mr/npc/murong-fu.c
+#define EM_YUANBING_JOB_MUL 	70	//å³¨åµ‹å…ƒå…µä»»åŠ¡     nogifted   joblist:å³¨åµ‹å…ƒå…µ                               /kungfu/condition/em_job1.c
+#define WD_SHOUDING_JOB_MUL     70	//æ­¦å½“å®ˆé¼ä»»åŠ¡     nogifted   joblist:çœ‹å®ˆé“œé¼                               /d/wudang/ldfang.c
 
-/*Ö°ÒµÏµÍ³*/
-#define ZY_CAIKUANG_MUL         70     ///²É¿ó            nogifted   no joblist  /d/zhiye/caikuang-chang.h
-#define ZY_CAIKUANG_JOB_MUL     70     //²É¿ójob          nogigted   no joblist  /d/zhiye/npc/tiejiang.c
-#define ZY_ZHUJIAN_JOB_MUL      70     //ËÍ½£job          nogifted   no joblist  /d/zhiye/npc/zhujian-shi.c
+/*èŒä¸šç³»ç»Ÿ*/
+#define ZY_CAIKUANG_MUL         70     ///é‡‡çŸ¿            nogifted   no joblist  /d/zhiye/caikuang-chang.h
+#define ZY_CAIKUANG_JOB_MUL     70     //é‡‡çŸ¿job          nogigted   no joblist  /d/zhiye/npc/tiejiang.c
+#define ZY_ZHUJIAN_JOB_MUL      70     //é€å‰‘job          nogifted   no joblist  /d/zhiye/npc/zhujian-shi.c
 #define ZY_ZHUJIAN_MUL          70     //                 nogifted   no joblist  /d/zhiye/obj/zhujianlu.c
-#define ZY_NONGSANG_MUL         70     //Å©É£             nogifted   no joblist  /d/zhiye/nongtian.h   sanglin.h
+#define ZY_NONGSANG_MUL         70     //å†œæ¡‘             nogifted   no joblist  /d/zhiye/nongtian.h   sanglin.h
 #define ZY_ZHIZAO_JOB_MUL       70     //zhizaojob        nogited    no joblist  /d/zhiye/npc/caifeng.c
 #define ZY_ZHIZAO_MUL           70     //zhizao           nogifted   no joblist  /d/zhiye/obj/caifengzhuo.c
 
 #define JOB_GIFT_MUL ([ \
-	"ÇÀ½Ù"               :70,/**/\
-	"Ñ©É½"               :100,/**/\
-	"³¤ÀÖ°ï"             :100,/**/\
-	"Îä¹İ"               :120,/**/\
-	"Ñ²³Ç"               :100,/**/\
-	"ËÍĞÅ"               :50,/**/\
-	"áÔÉ½"               :60,/**/\
-	"Ø¤°ï"               :60,/**/\
-	"ĞÇËŞ"               :70,/**/\
-	"¸æ¼±"               :120,/**/\
-	"²İÁÏ³¡"             :100,/**/\
-	"´ÌÉ±"               :100,/**/\
-	"Îäµ±"               :70,/**/\
-	"»ªÉ½"               :50,/**/\
-	"ÌìµØ»á"             :55,/**/\
-	"ÉñÁúµºº£Õ½"         :40,/**/\
-	"´óÇå¹úº£Õ½"         :40,/**/\
-	"´«¼Ç"               :100,/**/\
-	"¶ªÊ§µÄĞÅ"           :100,/**/\
-	"»¤ïÚ"               :130,/**/\
-	"ÉÙÁÖ¾ÈÔ®"           :70,/**/\
-	"ËÌÄ¦ÑÂ"             :100,/**/\
-	"ÉñÁúË÷Ãü"           :70,/**/\
-	"ÉñÁúÕĞ»ê"           :70,/**/\
-	"ÉÙÁÖ°¾Öà"           :70,/**/\
-	"ÉÙÁÖ²ËµØ"           :70,/**/\
-	"ÉÙÁÖÂÖÖµ"           :70,/**/\
-	"ÉÙÁÖ½ÌºÍÉĞ"         :70,/**/\
-	"Ã÷½ÌÑ²Âß"           :70,/**/\
-	"Ã÷½ÌÊØÎÀ"           :70,/**/\
-	"ÌÒ»¨µº"             :70,/**/\
-	"¹ÅÄ¹»¤Ä¹"           :70,/**/\
-	"¹ÅÄ¹·ä³²"           :70,/**/\
-	"ÌúÕÆ"               :70,/**/\
-	"Ä½Èİ"               :70,/**/\
-	"¶ëáÒÔª±ø"           :70,/**/\
-	"¿´ÊØÍ­¶¦"           :70,/**/\
-	"²É¿ó"               :70,/**/\
-	"²É¿óÈÎÎñ"           :70,/**/\
-	"ËÍ½£ÈÎÎñ"           :70,/**/\
-	"Öı½£"               :70,/**/\
-	"Å©É£"               :70,/**/\
-	"Ö¯ÔìÈÎÎñ"           :70,/**/\
-	"Ö¯Ôì"               :70,/**/\
-	"ÆßÇÏÁáçç"           :70,/**/\
-	"»ªÉ½¿³²ñ"           :70,/**/\
-	"áÔÉ½ÆöÊ¯"           :70,/**/\
+	"æŠ¢åŠ«"               :70,/**/\
+	"é›ªå±±"               :100,/**/\
+	"é•¿ä¹å¸®"             :100,/**/\
+	"æ­¦é¦†"               :120,/**/\
+	"å·¡åŸ"               :100,/**/\
+	"é€ä¿¡"               :50,/**/\
+	"åµ©å±±"               :60,/**/\
+	"ä¸å¸®"               :60,/**/\
+	"æ˜Ÿå®¿"               :70,/**/\
+	"å‘Šæ€¥"               :120,/**/\
+	"è‰æ–™åœº"             :100,/**/\
+	"åˆºæ€"               :100,/**/\
+	"æ­¦å½“"               :70,/**/\
+	"åå±±"               :50,/**/\
+	"å¤©åœ°ä¼š"             :55,/**/\
+	"ç¥é¾™å²›æµ·æˆ˜"         :40,/**/\
+	"å¤§æ¸…å›½æµ·æˆ˜"         :40,/**/\
+	"ä¼ è®°"               :100,/**/\
+	"ä¸¢å¤±çš„ä¿¡"           :100,/**/\
+	"æŠ¤é•–"               :130,/**/\
+	"å°‘æ—æ•‘æ´"           :70,/**/\
+	"é¢‚æ‘©å´–"             :100,/**/\
+	"ç¥é¾™ç´¢å‘½"           :70,/**/\
+	"ç¥é¾™æ‹›é­‚"           :70,/**/\
+	"å°‘æ—ç†¬ç²¥"           :70,/**/\
+	"å°‘æ—èœåœ°"           :70,/**/\
+	"å°‘æ—è½®å€¼"           :70,/**/\
+	"å°‘æ—æ•™å’Œå°š"         :70,/**/\
+	"æ˜æ•™å·¡é€»"           :70,/**/\
+	"æ˜æ•™å®ˆå«"           :70,/**/\
+	"æ¡ƒèŠ±å²›"             :70,/**/\
+	"å¤å¢“æŠ¤å¢“"           :70,/**/\
+	"å¤å¢“èœ‚å·¢"           :70,/**/\
+	"é“æŒ"               :70,/**/\
+	"æ…•å®¹"               :70,/**/\
+	"å³¨åµ‹å…ƒå…µ"           :70,/**/\
+	"çœ‹å®ˆé“œé¼"           :70,/**/\
+	"é‡‡çŸ¿"               :70,/**/\
+	"é‡‡çŸ¿ä»»åŠ¡"           :70,/**/\
+	"é€å‰‘ä»»åŠ¡"           :70,/**/\
+	"é“¸å‰‘"               :70,/**/\
+	"å†œæ¡‘"               :70,/**/\
+	"ç»‡é€ ä»»åŠ¡"           :70,/**/\
+	"ç»‡é€ "               :70,/**/\
+	"ä¸ƒçªç²ç‘"           :70,/**/\
+	"åå±±ç æŸ´"           :70,/**/\
+	"åµ©å±±ç ŒçŸ³"           :70,/**/\
 ])
 
 #endif

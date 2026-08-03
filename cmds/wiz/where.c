@@ -9,25 +9,25 @@ int main(object me, string str)
         int i;
 
         if (!str)
-                return notify_fail("Ö¸Áî¸ñÊ½£ºwhere <ÈËÎï»òµµÃû>\n"); 
+                return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šwhere <äººç‰©æˆ–æ¡£å>\n"); 
         ob = find_player(str);
         if( !ob ) ob = find_living(str);
         if( !ob || !me->visible(ob)) {
                 str = resolve_path(me->query("cwd"), str);
                 ob_list = filter_array(children(str), (: clonep :));
-                write("\n×Ü¹²ÕÒµ½ÁË"+chinese_number(sizeof(ob_list))+"¸ö¸´ÖÆ¼ş£º\n");
+                write("\næ€»å…±æ‰¾åˆ°äº†"+chinese_number(sizeof(ob_list))+"ä¸ªå¤åˆ¶ä»¶ï¼š\n");
                 for(i=0; i<sizeof(ob_list); i++) {
                 	where = environment(ob_list[i]);
                 	write(sprintf("  %-50s  in  %s(%s)\n", ob_list[i]->name()+"("+file_name(ob_list[i])+")",
-                        where ? (where->is_character() ? where->name() : where->query("short")) : "²»Ïê",
+                        where ? (where->is_character() ? where->name() : where->query("short")) : "ä¸è¯¦",
                         where ? (where->is_character() ? where->query("id") : base_name(where)) : "none"));
                 }
                 return 1;
         }
-        if (!ob) return notify_fail("ÏÖÔÚÃ»Õâ¸öÈË.\n");
+        if (!ob) return notify_fail("ç°åœ¨æ²¡è¿™ä¸ªäºº.\n");
         where = environment(ob);
-        if (!where) return notify_fail("Õâ¸öÈË²»ÖªµÀÔÚÄÇÀïÒ®...\n");
-        printf("%s(%s)ÏÖÔÚÔÚ%s(%s).\n",
+        if (!where) return notify_fail("è¿™ä¸ªäººä¸çŸ¥é“åœ¨é‚£é‡Œè€¶...\n");
+        printf("%s(%s)ç°åœ¨åœ¨%s(%s).\n",
                 (string)ob->name(),
                 (string)ob->query("id"),
                 (string)where->query("short"),
@@ -38,9 +38,9 @@ int main(object me, string str)
 int help(object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½: where <Íæ¼ÒµÄ ID>
+æŒ‡ä»¤æ ¼å¼: where <ç©å®¶çš„ ID>
 
-Õâ¸öÖ¸ÁîÊÇÓÃÀ´µÃÖªÍæ¼ÒÄ¿Ç°ËùÔÚµÄÎ»ÖÃ.
+è¿™ä¸ªæŒ‡ä»¤æ˜¯ç”¨æ¥å¾—çŸ¥ç©å®¶ç›®å‰æ‰€åœ¨çš„ä½ç½®.
 
 HELP
         );

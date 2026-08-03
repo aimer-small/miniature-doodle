@@ -1,4 +1,4 @@
-// 2004.12.28 lane add dls ¸£Àû
+// 2004.12.28 lane add dls ç¦åˆ©
 
 #include <ansi.h>
 inherit NPC;
@@ -6,13 +6,13 @@ int ask_gold();
 
 void create()
 {
-	set_name("²É»¨×Ó", ({ "caihua zi", "caihua", "zi" }) );
-	set("gender", "ÄĞĞÔ" );
-	set("nickname", "ÈüÀ¥ÂØ");
+	set_name("é‡‡èŠ±å­", ({ "caihua zi", "caihua", "zi" }) );
+	set("gender", "ç”·æ€§" );
+	set("nickname", "èµ›æ˜†ä»‘");
 	set("age", 28);
 	set("long", 
-             "²É»¨×ÓÊÇĞÇËŞÅÉµÄÒ»ÒùÄ§¡£ÉúĞÔÒùĞ°£¬Îä¹¦ºÜ²î¡£"
-             "¾­³£¼éÒùĞÇËŞº£ÖÜÎ§µÄ¸¾Å®, ±ğºÅÈüÀ¥ÂØ¡£\n");
+             "é‡‡èŠ±å­æ˜¯æ˜Ÿå®¿æ´¾çš„ä¸€æ·«é­”ã€‚ç”Ÿæ€§æ·«é‚ªï¼Œæ­¦åŠŸå¾ˆå·®ã€‚"
+             "ç»å¸¸å¥¸æ·«æ˜Ÿå®¿æµ·å‘¨å›´çš„å¦‡å¥³, åˆ«å·èµ›æ˜†ä»‘ã€‚\n");
 	set("env/wimpy", 40);
 	set("str", 25);
 	set("dex", 30);
@@ -32,12 +32,12 @@ void create()
 	set("max_qi", 500);
 	set("max_jing", 500);
 
-	create_family("ĞÇËŞÅÉ", 2, "µÜ×Ó");
+	create_family("æ˜Ÿå®¿æ´¾", 2, "å¼Ÿå­");
 
 	set("attitude", "peaceful");
 	set("inquiry", ([
-		"name" : "´óÒ¯ÎÒÈüÀ¥ÂØ±ãÊÇ¡£",
-		"²É»¨" : (: ask_gold :),
+		"name" : "å¤§çˆ·æˆ‘èµ›æ˜†ä»‘ä¾¿æ˜¯ã€‚",
+		"é‡‡èŠ±" : (: ask_gold :),
 	]));
 
 	setup();
@@ -61,16 +61,16 @@ void greeting(object me)
 
 	if (!me) return;
 	myfam = (mapping)me->query("family");
-	if (myfam && myfam["family_name"] == "ĞÇËŞÅÉ"
-	 && (me->query("gender")=="ÄĞĞÔ"))
-		command("say ÎÒ×òÌì´ÓÉ½ÏÂÓÖ×½ÁË¸öĞ¡æ¤À´¡£ÕÛÌÚÁËÒ»Ò¹£¬´óÒ¯ÎÒË¬¹»ÁË£¬Äã½øÈ¥ÊÔÊÔ°É¡£");
-	me->set_temp("marks/»¨",0);
+	if (myfam && myfam["family_name"] == "æ˜Ÿå®¿æ´¾"
+	 && (me->query("gender")=="ç”·æ€§"))
+		command("say æˆ‘æ˜¨å¤©ä»å±±ä¸‹åˆæ‰äº†ä¸ªå°å¦æ¥ã€‚æŠ˜è…¾äº†ä¸€å¤œï¼Œå¤§çˆ·æˆ‘çˆ½å¤Ÿäº†ï¼Œä½ è¿›å»è¯•è¯•å§ã€‚");
+	me->set_temp("marks/èŠ±",0);
 }
 
 void attempt_apprentice(object ob)
 {
 	command("hehe");
-	command("say ÎÒÕâ²É»¨Éñ¹¦ÊÇÌìÉúµÄ£¬ÄãÄÇÄÜ¶®£¡");
+	command("say æˆ‘è¿™é‡‡èŠ±ç¥åŠŸæ˜¯å¤©ç”Ÿçš„ï¼Œä½ é‚£èƒ½æ‡‚ï¼");
 	return;
 }
 
@@ -79,35 +79,35 @@ int accept_object(object me, object obj)
 	mapping myfam;
 	myfam = (mapping)me->query("family");
 
-	if (!myfam || myfam["family_name"] != "ĞÇËŞÅÉ") {
-		command("say ÉÙ¸úÎÒÌ×½üºõ¡£");
+	if (!myfam || myfam["family_name"] != "æ˜Ÿå®¿æ´¾") {
+		command("say å°‘è·Ÿæˆ‘å¥—è¿‘ä¹ã€‚");
 		return 0;
 	}
 	else {
 		if (userp(obj)) {
 			command("smile " + me->query("id"));
-			me->set_temp("last_damage_from", "¾Ş¶¾·¢×÷¶ø");
+			me->set_temp("last_damage_from", "å·¨æ¯’å‘ä½œè€Œ");
 			me->die();
 			return 0;
 		}
 		if( obj->is_character() 
 		&& ! obj->is_corpse()
 		&& obj->query_temp("last_damage_from") == me 
-		&& obj->query("gender") == "Å®ĞÔ"
+		&& obj->query("gender") == "å¥³æ€§"
 		&& obj->query("combat_exp") > me->query("combat_exp")/2
 		&& me->query("shen") > -80000
 		&& !obj->query("no_quest"))
 			me->add("shen", -(200+random(300)));
-		if (me->query("gender")=="Å®ĞÔ") {
+		if (me->query("gender")=="å¥³æ€§") {
 			command("kiss " + me->query("id"));
-			command("say Ïë²»µ½Ê¦½ãÒ²ÓĞÕâ¸ö°®ºÃ¡£");
+			command("say æƒ³ä¸åˆ°å¸ˆå§ä¹Ÿæœ‰è¿™ä¸ªçˆ±å¥½ã€‚");
 		}
 		else {
 			command("bow " + me->query("id"));
-			command("say ¶àĞ»Ê¦ĞÖ¡£");
+			command("say å¤šè°¢å¸ˆå…„ã€‚");
 		}
-		command("say ¶Ô²»Æğ£¬ÄÇĞ¡æ¤×òÌìÍíÉÏ±»²»ÖªµÀÄÄ¸ö»ìµ°¾È×ßÁË£¬²»¹ıÄã¿ÉÒÔ½ø¶´Ë¯Ò»¾õ¡£");
-		me->set_temp("marks/»¨", 1);
+		command("say å¯¹ä¸èµ·ï¼Œé‚£å°å¦æ˜¨å¤©æ™šä¸Šè¢«ä¸çŸ¥é“å“ªä¸ªæ··è›‹æ•‘èµ°äº†ï¼Œä¸è¿‡ä½ å¯ä»¥è¿›æ´ç¡ä¸€è§‰ã€‚");
+		me->set_temp("marks/èŠ±", 1);
         }
 	if (obj->query("money_id")) return 1;
 	destruct(obj);
@@ -123,21 +123,21 @@ int ask_gold()
 	skill = me->query_skill("huagong-dafa", 1);
 	myfam = (mapping)me->query("family");
 
-	if( !myfam || myfam["family_name"] != "ĞÇËŞÅÉ" ) {
+	if( !myfam || myfam["family_name"] != "æ˜Ÿå®¿æ´¾" ) {
 		command("sneer "+(string)me->query("id"));
-		command("say ºÙºÙ£¬Äï¶ùÃÇÏĞ×Å£¬Æñ²»ÊÇÀË·ÑÁË£¿");
+		command("say å˜¿å˜¿ï¼Œå¨˜å„¿ä»¬é—²ç€ï¼Œå²‚ä¸æ˜¯æµªè´¹äº†ï¼Ÿ");
 		return 1;
 	}
 
 	if( (int)me->query("xx_given") >= (int)me->query("age") ) {
 		command("? "+(string)me->query("id"));
-		command("say ½ñÄê°İÍĞ"+ RANK_D->query_respect(me) +"µÄÊÂ£¬²»ÖªµÀÓĞÃ»ÓĞ½á¹û°¡£¿");
+		command("say ä»Šå¹´æ‹œæ‰˜"+ RANK_D->query_respect(me) +"çš„äº‹ï¼Œä¸çŸ¥é“æœ‰æ²¡æœ‰ç»“æœå•Šï¼Ÿ");
 		return 1;
 	}
 
         if( skill < 216 ) {
 		command("interest");
-		command("say "+ RANK_D->query_respect(me) +"Äê¼Í»¹Çá£¬ÂıÂıÀ´¡£ÎÒÕâ²É»¨Éñ¹¦Ò²ÊÇÁ·³öÀ´µÄ£¡\n");
+		command("say "+ RANK_D->query_respect(me) +"å¹´çºªè¿˜è½»ï¼Œæ…¢æ…¢æ¥ã€‚æˆ‘è¿™é‡‡èŠ±ç¥åŠŸä¹Ÿæ˜¯ç»ƒå‡ºæ¥çš„ï¼\n");
 		return 1;
 	}
 
@@ -145,7 +145,7 @@ int ask_gold()
 	if( 100 >= skill ) gold += gold/2;
 	me->add("balance", gold);
 	me->set("xx_given", (int)me->query("age"));
-	command("say Ê¦ĞÖ¹ıÀ´ÏÂ£¬ÓĞ¼şÊÂÇéÒªÂé·³ÄãÏÂ£¡");
-	command("whisper "+(string)me->query("id")+" ÎÒ½«Õâ" + MONEY_D->money_str(gold) + "´æÈëÄãµÄÇ®×¯£¬Âé·³Ê¦ĞÖÈ¥ºóÉ½°ïÎÒ×¥¸öĞ¡æ¤À´ÏíÓÃ°É£¡");
+	command("say å¸ˆå…„è¿‡æ¥ä¸‹ï¼Œæœ‰ä»¶äº‹æƒ…è¦éº»çƒ¦ä½ ä¸‹ï¼");
+	command("whisper "+(string)me->query("id")+" æˆ‘å°†è¿™" + MONEY_D->money_str(gold) + "å­˜å…¥ä½ çš„é’±åº„ï¼Œéº»çƒ¦å¸ˆå…„å»åå±±å¸®æˆ‘æŠ“ä¸ªå°å¦æ¥äº«ç”¨å§ï¼");
 	return 1;
 }

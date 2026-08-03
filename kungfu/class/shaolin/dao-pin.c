@@ -5,18 +5,18 @@ string ask_me();
 
 void create()
 {
-	set_name("µÀÆ·ìøÊ¦", ({
+	set_name("é“å“ç¦…å¸ˆ", ({
 		"daopin chanshi",
 		"daopin",
 		"chanshi",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Éí²Ä¸ß´óµÄÖĞÄêÉ®ÈË£¬Á½±Û´Ö×³£¬°òÀ«ÑüÔ²¡£ËûÊÖ³Ö±ø\n"
-		"ÈĞ£¬Éí´©Ò»Ï®»Ò²¼Ïâ±ßôÂôÄ£¬ËÆºõÓĞÒ»ÉíÎäÒÕ¡£\n"
+		"ä»–æ˜¯ä¸€ä½èº«æé«˜å¤§çš„ä¸­å¹´åƒ§äººï¼Œä¸¤è‡‚ç²—å£®ï¼Œè†€é˜”è…°åœ†ã€‚ä»–æ‰‹æŒå…µ\n"
+		"åˆƒï¼Œèº«ç©¿ä¸€è¢­ç°å¸ƒé•¶è¾¹è¢ˆè£Ÿï¼Œä¼¼ä¹æœ‰ä¸€èº«æ­¦è‰ºã€‚\n"
 	);
 
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -54,9 +54,9 @@ void create()
 
 	prepare_skill("finger", "mohe-zhi");
 
-	create_family("ÉÙÁÖÅÉ", 39, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 39, "å¼Ÿå­");
         set("inquiry", ([
-            "ÉÙÁÖµ¶·¨" : (: ask_me :),
+            "å°‘æ—åˆ€æ³•" : (: ask_me :),
                	]));
         set("chandao_count",1);
 	setup();
@@ -71,14 +71,14 @@ string ask_me()
 {
  object ob;
  mapping fam;
- if (!(fam = this_player()->query("family")) || fam["family_name"] != "ÉÙÁÖÅÉ")
+ if (!(fam = this_player()->query("family")) || fam["family_name"] != "å°‘æ—æ´¾")
  return RANK_D->query_respect(this_player()) + 
-        	"Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+        	"ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
        if (query("chandao_count") < 1)  
-           return "ÄãÀ´ÍíÁË£¬ÄÇ±¾ÊéÎÒÒÑ¾­¸ø±ğÈËÁË¡£\n";
+           return "ä½ æ¥æ™šäº†ï¼Œé‚£æœ¬ä¹¦æˆ‘å·²ç»ç»™åˆ«äººäº†ã€‚\n";
        ob=new("/d/shaolin/npc/obj/book-chandao");
        ob->move(this_player());
        add("chandao_count", -1);
-       message_vision("µÀÆ·´Ó»³ÖĞÌÍ³öÒ»±¾ìøµ¶¾«Òåµİ¸ø$N¡£\n",this_player());
-       return "´ËÊéÊÇÎÒ·ğÃÅµ¶·¨ÖÁ±¦£¬ÄãÒªºÃºÃÑĞ¾¿¡£";
+       message_vision("é“å“ä»æ€€ä¸­æå‡ºä¸€æœ¬ç¦…åˆ€ç²¾ä¹‰é€’ç»™$Nã€‚\n",this_player());
+       return "æ­¤ä¹¦æ˜¯æˆ‘ä½›é—¨åˆ€æ³•è‡³å®ï¼Œä½ è¦å¥½å¥½ç ”ç©¶ã€‚";
 }        

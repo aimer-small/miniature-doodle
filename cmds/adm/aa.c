@@ -6,6 +6,6 @@ int main(object me)
     all_objs = objects();
     size = sizeof(all_objs);
 
-    tell_object(me,sprintf("ÄÚ´æÖÐÒ»¹²ÓÐ£º%d ¸öÎï¼þ¡£\n",size));
+    tell_object(me,sprintf("å†…å­˜ä¸­ä¸€å…±æœ‰ï¼š%d ä¸ªç‰©ä»¶ã€‚\n",size));
     return 1;
 }  

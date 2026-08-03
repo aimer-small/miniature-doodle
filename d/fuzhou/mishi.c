@@ -8,18 +8,18 @@ int do_press();
 
 void create()
 {
-	set("short","ÃÜÊÒ");
+	set("short","å¯†å®¤");
 	set("long", @LONG
-ÕâÊÇÒ»¼äºÚ÷ñ÷ñµÄÐ¡·¿¼ä£¬Ç½ÉÏµÄ×©Í·(zhuan)ÒÑ¾­ÓÐÐ©µôÔü×ÓÁË£¬·¿Áº
-(liang)Ò²ÒÑ¾­ÐàÀÃ²»¿°¡£Ç½½Å´¦ÓÐÒ»¸öÌúÏä×Ó£¬ÉÏÃæ»ýÂúÁË³¾ÍÁ¡£
+è¿™æ˜¯ä¸€é—´é»‘é»¢é»¢çš„å°æˆ¿é—´ï¼Œå¢™ä¸Šçš„ç –å¤´(zhuan)å·²ç»æœ‰äº›æŽ‰æ¸£å­äº†ï¼Œæˆ¿æ¢
+(liang)ä¹Ÿå·²ç»æœ½çƒ‚ä¸å ªã€‚å¢™è„šå¤„æœ‰ä¸€ä¸ªé“ç®±å­ï¼Œä¸Šé¢ç§¯æ»¡äº†å°˜åœŸã€‚
 LONG
      );
 	set("exits", ([
 		"out" : __DIR__"midao",
 	]));
 	set("item_desc", ([
-		"zhuan" : "×©Í·ÀÃµÃÒ»ËúºýÍ¿¡£\n",
-		"liang" : "·¿ÁºÊÇÉÏºÃµÄéªÄ¾×öµÄ£¬¿ÉÏ§Äê´úÌ«¾Ã£¬ÒÑ¾­¸¯ÀÃµÃ²»³ÉÑù×ÓÁË¡£\n",
+		"zhuan" : "ç –å¤´çƒ‚å¾—ä¸€å¡Œç³Šæ¶‚ã€‚\n",
+		"liang" : "æˆ¿æ¢æ˜¯ä¸Šå¥½çš„æ¥ æœ¨åšçš„ï¼Œå¯æƒœå¹´ä»£å¤ªä¹…ï¼Œå·²ç»è…çƒ‚å¾—ä¸æˆæ ·å­äº†ã€‚\n",
 	]) );
 	set("objects", ([
 		__DIR__"obj/tiexiang" : 1,
@@ -42,14 +42,14 @@ int do_jump(string arg)
 	if( !arg || arg=="" )
 		return 0;
 	if( arg=="liang") {
-		if (me->query_temp("marks/Ìø1") ) {
+		if (me->query_temp("marks/è·³1") ) {
 			if (me->query_dex(1) < 20)
-				write("ÄãÊÔÍ¼ÌøÉÏ·¿Áº£¬ÎÞÄÎÉí·¨²»¹»Ãô½Ý£¬Ö»ºÃ×ö°Õ¡£\n");
+				write("ä½ è¯•å›¾è·³ä¸Šæˆ¿æ¢ï¼Œæ— å¥ˆèº«æ³•ä¸å¤Ÿæ•æ·ï¼Œåªå¥½åšç½¢ã€‚\n");
 			else {
-				write("Äã×ÝÉíÔ¾ÉÏÁË·¿Áº¡£\n");
-				message("vision", me->name() + "Ò»×ÝÉíÔ¾ÉÏÁË·¿Áº¡£\n", environment(me), ({me}) );
+				write("ä½ çºµèº«è·ƒä¸Šäº†æˆ¿æ¢ã€‚\n");
+				message("vision", me->name() + "ä¸€çºµèº«è·ƒä¸Šäº†æˆ¿æ¢ã€‚\n", environment(me), ({me}) );
 				me->move(__DIR__"liang");
-				message("vision", me->name() + "´ÓÏÂÃæÔ¾ÁËÉÏÀ´¡£\n", environment(me), ({me}) );
+				message("vision", me->name() + "ä»Žä¸‹é¢è·ƒäº†ä¸Šæ¥ã€‚\n", environment(me), ({me}) );
 			}
 			return 1;
 		}
@@ -58,6 +58,6 @@ int do_jump(string arg)
 
 int valid_leave(object me, string dir)
 {
-	me->delete_temp("marks/Ìø1");
+	me->delete_temp("marks/è·³1");
 	return ::valid_leave(me, dir);
 }

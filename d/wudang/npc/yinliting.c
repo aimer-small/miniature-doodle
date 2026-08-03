@@ -1,4 +1,4 @@
-// yinliting.cÒóÀæÍ¤
+// yinliting.cæ®·æ¢¨äº­
 // by ydh
 
 inherit NPC;
@@ -7,12 +7,12 @@ int ask_me_1(string);
 
 void create()
 {
-        set_name("ÒóÀæÍ¤", ({ "yin liting", "yin" }));
-        set("nickname", "Îäµ±ÁùÏÀ");
+        set_name("æ®·æ¢¨äº­", ({ "yin liting", "yin" }));
+        set("nickname", "æ­¦å½“å…­ä¾ ");
         set("long", 
-                "Ëû¾ÍÊÇÕÅÈý·áµÄÁùµÜ×ÓÒóÀæÍ¤¡£\n"
-                "³¤µÃÒ»±íÈË²Å£¬ÇÒ¾«ÓÚÎäµ±½£·¨£¬¾ÍÊÇÉúÐÔ½ÏëïÌó¡£\n");
-        set("gender", "ÄÐÐÔ");
+                "ä»–å°±æ˜¯å¼ ä¸‰ä¸°çš„å…­å¼Ÿå­æ®·æ¢¨äº­ã€‚\n"
+                "é•¿å¾—ä¸€è¡¨äººæ‰ï¼Œä¸”ç²¾äºŽæ­¦å½“å‰‘æ³•ï¼Œå°±æ˜¯ç”Ÿæ€§è¾ƒè…¼è…†ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 28);
         set("attitude", "peaceful");
         set("shen_type", 1);
@@ -47,9 +47,9 @@ void create()
         map_skill("parry", "taiji-jian");
         map_skill("sword", "taiji-jian");
         prepare_skill("cuff", "taiji-quan");
-        create_family("Îäµ±ÅÉ", 2, "µÜ×Ó");
+        create_family("æ­¦å½“æ´¾", 2, "å¼Ÿå­");
         set("inquiry", ([
-                "¼ÍÏþÜ½" : (: ask_me_1 :),
+                "çºªæ™“èŠ™" : (: ask_me_1 :),
         ]));
 
         setup();
@@ -60,8 +60,8 @@ int ask_me_1(object who)
 { object me;
   me=this_player();
   command("blush "+(string)me->query("id"));
-  command("say ¼ÈÈ»ÄãÊÇ¼Í¹ÃÄïµÄÅóÓÑ,ÄÇ¾Í¸øÄãÐÐ¸ö·½±ã°É!\n");
-  message_vision("ÒóÀæÍ¤Ò»²àÉí,°Ñ$NÈÃ½øÁËÐ¡Ôº¡£\n",me);
+  command("say æ—¢ç„¶ä½ æ˜¯çºªå§‘å¨˜çš„æœ‹å‹,é‚£å°±ç»™ä½ è¡Œä¸ªæ–¹ä¾¿å§!\n");
+  message_vision("æ®·æ¢¨äº­ä¸€ä¾§èº«,æŠŠ$Nè®©è¿›äº†å°é™¢ã€‚\n",me);
   me->move("/d/wudang/xiaoyuan");
   return 1;
 }

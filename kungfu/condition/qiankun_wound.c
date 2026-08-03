@@ -4,16 +4,16 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
         if (duration < 1) {
-                message_vision(HIY"$N终于打通了胸口穴道，内息回复了正常。\n" NOR, me);
+                message_vision(HIY"$N缁堜簬鎵撻�氫簡鑳稿彛绌撮亾锛屽唴鎭洖澶嶄簡姝ｅ父銆俓n" NOR, me);
                 me->set("max_neili",me->query("qiankun/neili"));
                 return 0;
         }
         if (!duration) return 0;
         if( !living(me)){
-                message_vision(HIR"$N按住胸口，闷哼一声，似乎内息不顺。\n" NOR, me);
+                message_vision(HIR"$N鎸変綇鑳稿彛锛岄椃鍝间竴澹帮紝浼间箮鍐呮伅涓嶉『銆俓n" NOR, me);
         }
         else {
-                message_vision(HIR"$N按住胸口，闷哼一声，似乎内息不顺。\n" NOR, me);
+                message_vision(HIR"$N鎸変綇鑳稿彛锛岄椃鍝间竴澹帮紝浼间箮鍐呮伅涓嶉『銆俓n" NOR, me);
         }
         me->apply_condition("qiankun_wound", duration - 1);
         return CND_CONTINUE;

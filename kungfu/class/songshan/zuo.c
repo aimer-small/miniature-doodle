@@ -1,4 +1,4 @@
-// zuo.c ×óÀäìø
+// zuo.c å·¦å†·ç¦…
 // Update by looklove at 2000/8/25
 // Modify by Looklove for add log_file at 2000/9/1
 // Looklove@SJ 2000/10/22 fixed fangqi's bug
@@ -14,11 +14,11 @@ void create()
 {
 	object ob,ob2,ob3;
 
-	set_name("×óÀäìø", ({ "zuo lengchan", "zuo", "lengchan" }));
-	set("nickname", HIR"ÎåÔÀÃËÖ÷"NOR);
-	set("long", "áÔÉ½ÕÆÃÅ×óÀäìø¸üÊÇµ±½ñÎäÁÖÖĞÁË²»ÆğµÄÈËÎï£¬Îä¹¦¹ÌÈ»³öÉñÈë»¯£¬
-		ÎªÈËÓÈ¸»»úÖÇ£¬»ú±ä°Ù³ö£¬½­ºşÉÏÒ»Ìáµ½¡°×óÃËÖ÷¡±Èı×Ö£¬ÎŞ²»ÌèÈ»¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("å·¦å†·ç¦…", ({ "zuo lengchan", "zuo", "lengchan" }));
+	set("nickname", HIR"äº”å²³ç›Ÿä¸»"NOR);
+	set("long", "åµ©å±±æŒé—¨å·¦å†·ç¦…æ›´æ˜¯å½“ä»Šæ­¦æ—ä¸­äº†ä¸èµ·çš„äººç‰©ï¼Œæ­¦åŠŸå›ºç„¶å‡ºç¥å…¥åŒ–ï¼Œ
+		ä¸ºäººå°¤å¯Œæœºæ™ºï¼Œæœºå˜ç™¾å‡ºï¼Œæ±Ÿæ¹–ä¸Šä¸€æåˆ°â€œå·¦ç›Ÿä¸»â€ä¸‰å­—ï¼Œæ— ä¸æƒ•ç„¶ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 52);
 	set("per", 20);
 	set("attitude", "heroism");
@@ -62,15 +62,15 @@ void create()
 	prepare_skill("strike", "hanbing-shenzhang");
 	set("inquiry", ([
 		"job": (: do_ask() :),
-		"ÈÎÎñ": (: do_ask() :),
+		"ä»»åŠ¡": (: do_ask() :),
 		"cancel": (: do_cancel() :),
-		"·ÅÆú": (: do_cancel() :),
-		"Õâ¸ö": (: do_ask_hb() :),
-		"´ÎÊı": (:do_ask_times :),
-		"¹¦ÀÍ": (:do_ask_times :),
-		"¹ÛÈÕ½£": (:do_ask_grj() :),
+		"æ”¾å¼ƒ": (: do_cancel() :),
+		"è¿™ä¸ª": (: do_ask_hb() :),
+		"æ¬¡æ•°": (:do_ask_times :),
+		"åŠŸåŠ³": (:do_ask_times :),
+		"è§‚æ—¥å‰‘": (:do_ask_grj() :),
 	]));
-	create_family("áÔÉ½ÅÉ", 3, "ÕÆÃÅÈË");
+	create_family("åµ©å±±æ´¾", 3, "æŒé—¨äºº");
 	set("chat_chance_combat", 20);
 	set("chat_msg_combat", ({
 		(: perform_action, "sword.feiwu" :),
@@ -97,22 +97,22 @@ void create()
 void attempt_apprentice(object ob)
 {
 	if(ob->query("shen") > 0){
-		command("say ÎÒ×îÇÆ²»ÆğÔÀ²»ÈºÄÇÑùµÄÎ±¾ı×Ó£¬»¹ÊÇ°ÑÄãÄÇµã¼ÙµÀÑ§ÊÕÁ²Ò»ÏÂ°É¡£");
+		command("say æˆ‘æœ€ç§ä¸èµ·å²³ä¸ç¾¤é‚£æ ·çš„ä¼ªå›å­ï¼Œè¿˜æ˜¯æŠŠä½ é‚£ç‚¹å‡é“å­¦æ”¶æ•›ä¸€ä¸‹å§ã€‚");
 		return;
 	}
 	if(ob->query_skill("hanbing-zhenqi",1) < 150 ){
-		command("say ÄãµÄÎä¹¦»¹²»¹»æµÊì£¬ÔÙ»ØÈ¥Á·Á·°É¡£");
+		command("say ä½ çš„æ­¦åŠŸè¿˜ä¸å¤Ÿå¨´ç†Ÿï¼Œå†å›å»ç»ƒç»ƒå§ã€‚");
 		return;
 	}
 /*
-        if(ob->query("job_time/áÔÉ½") < 300) {
-		command("say Äã×Ô´ÓÈëÎÒÅÉÒÔÀ´£¬ÍµÀÁË£»¬£¬²»ÎñÕıÒµ£¬»¹Ïë°İÎÒÎªÊ¦£¿");
+        if(ob->query("job_time/åµ©å±±") < 300) {
+		command("say ä½ è‡ªä»å…¥æˆ‘æ´¾ä»¥æ¥ï¼Œå·æ‡’è€æ»‘ï¼Œä¸åŠ¡æ­£ä¸šï¼Œè¿˜æƒ³æ‹œæˆ‘ä¸ºå¸ˆï¼Ÿ");
 		return;
 }
 */
-	command("say ºÃ£¬ÎÒÕıÏëÕÒĞ©ÓÅĞãµÜ×ÓÀ´Ç××Ô´«ÊÚÎä¹¦£¬¿´À´Äã»¹²»´íÂï¡£");
+	command("say å¥½ï¼Œæˆ‘æ­£æƒ³æ‰¾äº›ä¼˜ç§€å¼Ÿå­æ¥äº²è‡ªä¼ æˆæ­¦åŠŸï¼Œçœ‹æ¥ä½ è¿˜ä¸é”™å˜›ã€‚");
 	command("recruit " + ob->query("id"));
-	ob->set("title", HIC"ÎåÔÀÃËÖ÷Ç×´«µÜ×Ó"NOR);
+	ob->set("title", HIC"äº”å²³ç›Ÿä¸»äº²ä¼ å¼Ÿå­"NOR);
 }
 
 void init()
@@ -122,8 +122,8 @@ void init()
 
 	::init();
 	if( interactive(ob = this_player()) && !is_fighting() && !is_busy()
-	   && ob->query_temp("quest/family") == "áÔÉ½ÅÉ"
-	   && ob->query_temp("quest/type") == "Çë") {
+	   && ob->query_temp("quest/family") == "åµ©å±±æ´¾"
+	   && ob->query_temp("quest/type") == "è¯·") {
 		remove_call_out("greeting");
 		call_out("greeting", 2, ob);
 	}
@@ -136,7 +136,7 @@ void greeting(object me)
 
 	if( !me || environment(me) != environment() || !living(me)) return;
 
-	if (!mapp(quest = me->query_temp("quest")) || quest["type"] != "Çë"
+	if (!mapp(quest = me->query_temp("quest")) || quest["type"] != "è¯·"
 	|| !stringp(quest["id"])) return;
 
 	command("nod "+me->query("id"));
@@ -150,7 +150,7 @@ void greeting(object me)
 		target->set_leader(0);
 		command("haha");
 		command("touch "+target->query("id"));
-		command("say "+target->name()+"ÄÜÀ´£¬ÎÒáÔÉ½ÅÉÓÖ¶àÁËÒ»·İÁ¦Á¿À²£¡¹ş¹ş£¡");
+		command("say "+target->name()+"èƒ½æ¥ï¼Œæˆ‘åµ©å±±æ´¾åˆå¤šäº†ä¸€ä»½åŠ›é‡å•¦ï¼å“ˆå“ˆï¼");
 		call_out("done", 3, target, me, quest, 1);
 		return;
 	}
@@ -162,28 +162,28 @@ void done(object target, object me, mapping quest, int i)
 
        if(me && i >= 0){
 		if(target){
-			message_vision("\n$NµãÍ·µÀ£º"+me->name()+"ÕâÍŞÍŞ²»Àµ£¬ÈÃÎÒÖ¸µãËû¼¸ÕĞ£¬¾Íµ±ÊÇ³ÙÀ´µÄ¼ûÃæÀñ°É£¡\n", target, me);
-			tell_room( environment(me), target->name() + "ÔÚ" + me->name()+ "¶ú±ßĞ¡ÉùµØËµÁËĞ©»°¡£\n", ({ me, target }) );
+			message_vision("\n$Nç‚¹å¤´é“ï¼š"+me->name()+"è¿™å¨ƒå¨ƒä¸èµ–ï¼Œè®©æˆ‘æŒ‡ç‚¹ä»–å‡ æ‹›ï¼Œå°±å½“æ˜¯è¿Ÿæ¥çš„è§é¢ç¤¼å§ï¼\n", target, me);
+			tell_room( environment(me), target->name() + "åœ¨" + me->name()+ "è€³è¾¹å°å£°åœ°è¯´äº†äº›è¯ã€‚\n", ({ me, target }) );
 			// give rewards.
-			TASK_D->give_reward(me, me->query_temp("quest"), -1, ABS(me->query("job_time/áÔÉ½")/100) , this_object(), "áÔÉ½" );
-			//me->add("job_time/áÔÉ½", 1);
-			//GIFT_D->check_count(me,this_object(),"áÔÉ½");
+			TASK_D->give_reward(me, me->query_temp("quest"), -1, ABS(me->query("job_time/åµ©å±±")/100) , this_object(), "åµ©å±±" );
+			//me->add("job_time/åµ©å±±", 1);
+			//GIFT_D->check_count(me,this_object(),"åµ©å±±");
 			
-			if ( me->query("family/family_name") == "áÔÉ½ÅÉ"
+			if ( me->query("family/family_name") == "åµ©å±±æ´¾"
 			&& me->query_skill("hanbing-zhenqi"))
 				me->improve_skill("hanbing-zhenqi",me->query("int")*2);
 							
-			count = me->query("job_time/áÔÉ½");
+			count = me->query("job_time/åµ©å±±");
 			if (count<1) count=1;
 			pot= me->query_temp("quest/pot_reward");
 			exp= me->query_temp("quest/exp_reward");
-			log_file("job/songshan",sprintf("%8s%-10sµÚ%4d´ÎáÔÉ½ÇëÈËÈÎÎñ»ñµÃ%3dµã¾­Ñé£¬%2dµãÇ±ÄÜ£¬¾­Ñé£º%d\n",
+			log_file("job/songshan",sprintf("%8s%-10sç¬¬%4dæ¬¡åµ©å±±è¯·äººä»»åŠ¡è·å¾—%3dç‚¹ç»éªŒï¼Œ%2dç‚¹æ½œèƒ½ï¼Œç»éªŒï¼š%d\n",
 				me->name(),"("+me->query("id")+")",count,exp,pot,me->query("combat_exp")),me);
 			me->delete_temp("quest");
 			me->delete_temp("songshan_job");
 			me->clear_condition("job_busy");
-			me->set("job_name", "áÔÉ½²¢ÅÉ");
-			tell_room(environment(target), target->query("name")+"´óĞ¦Á½Éù£¬ÔÚÖª¿ÍµÜ×Ó´øÁìÏÂµ½Ïá·¿ĞİÏ¢È¥ÁË¡£\n", ({target}));
+			me->set("job_name", "åµ©å±±å¹¶æ´¾");
+			tell_room(environment(target), target->query("name")+"å¤§ç¬‘ä¸¤å£°ï¼Œåœ¨çŸ¥å®¢å¼Ÿå­å¸¦é¢†ä¸‹åˆ°å¢æˆ¿ä¼‘æ¯å»äº†ã€‚\n", ({target}));
 			if(target->return_home()){
 				target->delete_temp("songshan_job");
 				target->delete_temp("last_lost_to");
@@ -198,7 +198,7 @@ void done(object target, object me, mapping quest, int i)
 		}
 	}
 	else if(target){
-		tell_room(environment(target), target->query("name")+"´óĞ¦Á½Éù£¬ÔÚÖª¿ÍµÜ×Ó´øÁìÏÂµ½Ïá·¿ĞİÏ¢È¥ÁË¡£\n", ({target}));
+		tell_room(environment(target), target->query("name")+"å¤§ç¬‘ä¸¤å£°ï¼Œåœ¨çŸ¥å®¢å¼Ÿå­å¸¦é¢†ä¸‹åˆ°å¢æˆ¿ä¼‘æ¯å»äº†ã€‚\n", ({target}));
 		destruct(target);
 	}
 }

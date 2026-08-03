@@ -3,14 +3,14 @@
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
-#define QUESTDIR5 "quest/Ñ©É½·Éºü/±¦²Ø/"
+#define QUESTDIR5 "quest/é›ªå±±é£žç‹/å®è—/"
 
 void create()
 {
-        set("short",YEL"Ò©¿â"NOR);
+        set("short",YEL"è¯åº“"NOR);
         set("long", @long
-¿ÉÒÔ¿´³öÕâ±¾À´ÊÇÒ»¸öÒ©·¿£¬¾­¹ý¼¸°ÙÄê£¬¼¸ºõËùÓÐµÄÒ©²Ä¶¼ÒÑ¸¯ÀÃ£¬µ«
-ÊÇÕû¸ö·¿¼ä»¹ÒÀÈ»É¢·¢³öÅ¨ÓôµÄ¹ÅÏã¡£ÕâÀï¿´À´»¹ÊÇ±£ÁôÁËÒ»Ð©Ãû¹óÖÐÒ©¡£
+å¯ä»¥çœ‹å‡ºè¿™æœ¬æ¥æ˜¯ä¸€ä¸ªè¯æˆ¿ï¼Œç»è¿‡å‡ ç™¾å¹´ï¼Œå‡ ä¹Žæ‰€æœ‰çš„è¯æéƒ½å·²è…çƒ‚ï¼Œä½†
+æ˜¯æ•´ä¸ªæˆ¿é—´è¿˜ä¾ç„¶æ•£å‘å‡ºæµ“éƒçš„å¤é¦™ã€‚è¿™é‡Œçœ‹æ¥è¿˜æ˜¯ä¿ç•™äº†ä¸€äº›åè´µä¸­è¯ã€‚
 long);
         set("exits", ([
                 "south" : __DIR__"tiantan",
@@ -34,34 +34,34 @@ int do_search(string arg)
         me = this_player();
 
         if( ! arg || (arg != "drug"&&arg != "yao cai"&& arg != "yaocai"&& arg != "zhongyao"&& arg != "zhong yao"&& arg != "medicine"))
-          return notify_fail("ÄãÒªÕÒÊ²÷á£¿\n");
+          return notify_fail("ä½ è¦æ‰¾ä»€éº½ï¼Ÿ\n");
 	      if( me->is_busy() )
-		      return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓÐÍê³É£¡\n");
+		      return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼\n");
 	     if( me->is_fighting() )
-		      return notify_fail("Äã»¹ÊÇ×¨ÐÄ×÷Õ½°É£¡\n");
+		      return notify_fail("ä½ è¿˜æ˜¯ä¸“å¿ƒä½œæˆ˜å§ï¼\n");
         if ((int)me->query("jingli") < 500) 
-           return notify_fail("ÄãµÄ¾«Á¦²»¹»×öÕâ¼þÊÂ£¡\n");  
-      	message_vision(HIC"$N¶×ÔÚµØÉÏ£¬ËÄ´¦Ñ°ÕÒ¡£\n"NOR, me);
+           return notify_fail("ä½ çš„ç²¾åŠ›ä¸å¤Ÿåšè¿™ä»¶äº‹ï¼\n");  
+      	message_vision(HIC"$Nè¹²åœ¨åœ°ä¸Šï¼Œå››å¤„å¯»æ‰¾ã€‚\n"NOR, me);
         if(random(6)!=1||me->query(QUESTDIR5+"yaoku")) 
         {
            me->add("jingli",-200);
            if(!wizardp(me)) me->start_busy(1);
-           tell_room(environment(me), me->name() + "ÕÒÁË°ëÌì£¬Ö»ÅªÁËÒ»ÊÖÄà¡£\n", ({ me }));
-           return notify_fail("ÄãÕÒÁË°ëÌì£¬Ê²Ã´Ò²Ã»ÕÒµ½¡£\n");
+           tell_room(environment(me), me->name() + "æ‰¾äº†åŠå¤©ï¼Œåªå¼„äº†ä¸€æ‰‹æ³¥ã€‚\n", ({ me }));
+           return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œä»€ä¹ˆä¹Ÿæ²¡æ‰¾åˆ°ã€‚\n");
         }
         else
         {
           if(random(2)) obj = new("/clone/medicine/neili/puti-zi.c");
           else obj = new("/clone/medicine/neili/qnshouwu.c");
-          message_vision(HIB"$N·­¿ªÒ»¿éÊ¯°å£¬¾¹È»·¢ÏÖÒ»¿Å"+obj->name()+"¡£\n"NOR,me);
-          //±êÖ¾
+          message_vision(HIB"$Nç¿»å¼€ä¸€å—çŸ³æ¿ï¼Œç«Ÿç„¶å‘çŽ°ä¸€é¢—"+obj->name()+"ã€‚\n"NOR,me);
+          //æ ‡å¿—
           me->set(QUESTDIR5+"yaoku",1);
           obj->set("owner",me->query("id"));
           obj->move(me);
-          log_file("quest/FEIHU", sprintf("%s(%s)»ñµÃ±¦²Ø±¦Îï£º%s¡£¾­Ñé%d¡£\n", me->name(1),me->query("id"),obj->name(1), me->query("combat_exp")) );
+          log_file("quest/FEIHU", sprintf("%s(%s)èŽ·å¾—å®è—å®ç‰©ï¼š%sã€‚ç»éªŒ%dã€‚\n", me->name(1),me->query("id"),obj->name(1), me->query("combat_exp")) );
           j=me->query_skill("force");
           obj=new("/d/sld/npc/dushe");
-          message_vision(HIC"Í»È»£¬²Ý´ÔÖÐ×ê³öÒ»Ö»"+obj->name()+"¡£\n"NOR,me);
+          message_vision(HIC"çªç„¶ï¼Œè‰ä¸›ä¸­é’»å‡ºä¸€åª"+obj->name()+"ã€‚\n"NOR,me);
 		      obj->set("combat_exp", me->query("combat_exp"));
 		      obj->set("max_qi", me->query("max_qi")*3);
 		      obj->set("eff_qi", me->query("max_qi")*3);
@@ -85,7 +85,7 @@ int do_search(string arg)
 		      obj->set_skill("parry",j + random(50));
 		      obj->move(environment(me));
 		      obj->set_leader(me);
-		      message_vision(RED"$N¾ö¶¨ºÍ$nÒ»ÆðÐÐ¶¯¡£\n"NOR,obj,me);
+		      message_vision(RED"$Nå†³å®šå’Œ$nä¸€èµ·è¡ŒåŠ¨ã€‚\n"NOR,obj,me);
 		      obj->kill_ob(me);
           return 1;
        }

@@ -1,4 +1,4 @@
-// egg.c ÖíÄàÊ¥µ°
+// egg.c çŒªæ³¥åœ£è›‹
 // created by campsun 2003/12/17
 #include <ansi.h>
 
@@ -8,13 +8,13 @@ int do_qiao(string);
 string gGetRndColor();
 void create()
 {
-    set_name(CYN "ÖíÄàÊ¥µ°" NOR, ({ "piggy's egg","egg" }));
+    set_name(CYN "çŒªæ³¥åœ£è›‹" NOR, ({ "piggy's egg","egg" }));
 	set_weight(100);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ö");
-		set("long", "ÕâÊÇÒ»¸öÊ¥µ®ÖíÉúµÄµ°£¬ÍâÃæ¿´ÆğÀ´»¨»¨ÂÌÂÌµÄ£¬²»ÖªµÀÀïÃæÊÇÊ²Ã´¶«Î÷¡£»òÕßÄã¿ÉÒÔ"HIW"ÇÃÇÃ(Qiao)"NOR"¿´ÀïÃæ²Ø×ÅÊ²Ã´ºÃ¶«Î÷¡£\n");
+		set("unit", "ä¸ª");
+		set("long", "è¿™æ˜¯ä¸€ä¸ªåœ£è¯çŒªç”Ÿçš„è›‹ï¼Œå¤–é¢çœ‹èµ·æ¥èŠ±èŠ±ç»¿ç»¿çš„ï¼Œä¸çŸ¥é“é‡Œé¢æ˜¯ä»€ä¹ˆä¸œè¥¿ã€‚æˆ–è€…ä½ å¯ä»¥"HIW"æ•²æ•²(Qiao)"NOR"çœ‹é‡Œé¢è—ç€ä»€ä¹ˆå¥½ä¸œè¥¿ã€‚\n");
 		set("treasure",1);
 		set("value", 10);
 		set("no_give",1);
@@ -39,24 +39,24 @@ int do_qiao(string arg)
 
 	if (arg!="egg") 
 	{
-		message_vision(HIR"$NÓÃÁ¦ÔÚ×Ô¼ºµÄÄÔÃÅÉÏºİºİµÄÇÃÁËÒ»ÏÂ£¬ÌÛµÄÑÛÃ°½ğĞÇ¡£\n"NOR,me );	
+		message_vision(HIR"$Nç”¨åŠ›åœ¨è‡ªå·±çš„è„‘é—¨ä¸Šç‹ ç‹ çš„æ•²äº†ä¸€ä¸‹ï¼Œç–¼çš„çœ¼å†’é‡‘æ˜Ÿã€‚\n"NOR,me );	
 		return 1;
 	}
 	if (!ob->query("qiao"))
 	{ 
-		tell_object(me,"ÇëÉÔÎ¢µÈÒ»ÏÂÔÙÇÃ¡£\n");	
+		tell_object(me,"è¯·ç¨å¾®ç­‰ä¸€ä¸‹å†æ•²ã€‚\n");	
 		return 1;
 	}
 
 	switch (ob->query("egg"))
 	{
 		case 1:
-			strString = HIG"$NÇÃ×Å¡¸$n"HIG"¡¹£¬¡¸"+gGetRndColor()+"¶¬"HIG"¡¹¡¢¡¸"+gGetRndColor()+"¶¬"HIG"¡¹¡¢¡¸"+gGetRndColor()+"¶¬"HIG"¡¹¡¢ĞÄÇéÊæ³©£¬Ô½·¢¾õµÃ¿ìÀÖ¿ªĞÄ¡£";
+			strString = HIG"$Næ•²ç€ã€Œ$n"HIG"ã€ï¼Œã€Œ"+gGetRndColor()+"å†¬"HIG"ã€ã€ã€Œ"+gGetRndColor()+"å†¬"HIG"ã€ã€ã€Œ"+gGetRndColor()+"å†¬"HIG"ã€ã€å¿ƒæƒ…èˆ’ç•…ï¼Œè¶Šå‘è§‰å¾—å¿«ä¹å¼€å¿ƒã€‚";
 			ob->set("qiao",0);
 			call_out("up_level2",10);
 		break;
 		case 2:
-			strString = HIG"$NÇÃ×Å¡¸$n"HIG"¡¹£¬¡¸"+gGetRndColor()+"¶¬"HIG"¡¹¡¢¡¸"+gGetRndColor()+"¶¬"HIG"¡¹¡¢¡¸"+gGetRndColor()+"¶¬"HIG"¡¹¡¢ÕâÉùÒôºöÈ»ÈÃÄãÏëÆğ×Ô¼ºÔÚÕâ¸ö½­ºşÖĞµÄµãµãµÎµÎ¡£";
+			strString = HIG"$Næ•²ç€ã€Œ$n"HIG"ã€ï¼Œã€Œ"+gGetRndColor()+"å†¬"HIG"ã€ã€ã€Œ"+gGetRndColor()+"å†¬"HIG"ã€ã€ã€Œ"+gGetRndColor()+"å†¬"HIG"ã€ã€è¿™å£°éŸ³å¿½ç„¶è®©ä½ æƒ³èµ·è‡ªå·±åœ¨è¿™ä¸ªæ±Ÿæ¹–ä¸­çš„ç‚¹ç‚¹æ»´æ»´ã€‚";
 			ob->set("qiao",0);
 			call_out("give_reward",5,me);
 		break;
@@ -77,12 +77,12 @@ void give_reward(object me)
 	object *list;
 	int number;	
 	if(!objectp(me)) return;
-	message_vision(HIG"ÓĞ¿ìÀÖ¡¢±¯ÉË¡¢¸Ğ¶¯¡¢Ê§Âä¡¢¿ªĞÄ¡¢Ô¹ºŞ¡¢ÎŞÄÎ¡¢ĞË·Ü¡¢³É¾Í¡¢ÓÑÒê¡­¡­\n"NOR,me);
-	message_vision(HIY"¡ò¡ò¡ò¡ò¡ò¡ò¡ò"+gGetRndColor()+"¡¡¡¡¡¡¡ö¡¥¡¥¡¡¡ö¡¡¡ö¡¡¡ö¡¥¡ö¡¡¡¥¡ö¡¥¡¡¡ö¡¥¡¥¡¡¡¥¡ö¡¥¡¡¡ö\\¡¡¡¡/¡ö¡¡¡¡ ¡Ä ¡¡¡¡¡ö¡¥¡¥¡¡\n"NOR,me);
-	message_vision(HIY"¡ò"HIW"×£Ê¥µ®¡¡¡¡"HIY"¡ò"+gGetRndColor()+"¡¡¡¡¡¡¡ö¡¡¡¡¡¡¡ö£ß¡ö¡¡¡ö£ß¡ö¡¡¡¡¡ö¡¡¡¡¡ö£ß£ß¡¡¡¡¡ö¡¡¡¡¡ö \\¡¡/ ¡ö¡¡¡¡/¡¡\\¡¡¡¡¡ö£ß£ß¡¡\n"NOR,me);
-	message_vision(HIY"¡ò¡¡¡¡"HIW"Éúµ°Öí"HIY"¡ò"+gGetRndColor()+"¡¡¡¡¡¡¡ö¡¡¡¡¡¡¡ö¡¡¡ö¡¡¡ö¡¡\\ ¡¡  ¡ö¡¡¡¡¡¡¡¡¡ö¡¡¡¡¡ö¡¡¡¡¡ö¡¡\\/¡¡¡ö¡¡ /£ß£ß\\¡¡¡¡¡¡ ¡ö¡¡\n"NOR,me);
-	message_vision(HIY"¡ò¡ò¡ò¡ò¡ò¡ò¡ò"+gGetRndColor()+"¡¡¡¡¡¡¡ö£ß£ß¡¡¡ö¡¡¡ö¡¡¡ö¡¡ \\¡¡£ß¡ö£ß¡¡£ß£ß¡ö¡¡¡¡¡ö¡¡¡¡¡ö¡¡¡¡¡¡¡ö¡¡/¡¡¡¡¡¡\\¡¡£ß£ß¡ö¡¡\n"NOR,me);
-	message_vision(HIG"$N»ñµÃÁË¡¾"HIW"Ò»ÍòÎåÇ§µãÊµÕ½¾­Ñé¡¢¶ş°ÙµãÇ±ÄÜ¡¢Ê®µã×î´óÄÚÁ¦¡¢Ê®µã×î´ó¾«Á¦¡¢Ê®ÕÅÒøÆ±"HIG"¡¿µÄ½±Àø¡£\n"NOR,me);
+	message_vision(HIG"æœ‰å¿«ä¹ã€æ‚²ä¼¤ã€æ„ŸåŠ¨ã€å¤±è½ã€å¼€å¿ƒã€æ€¨æ¨ã€æ— å¥ˆã€å…´å¥‹ã€æˆå°±ã€å‹è°Šâ€¦â€¦\n"NOR,me);
+	message_vision(HIY"â—â—â—â—â—â—â—"+gGetRndColor()+"ã€€ã€€ã€€â– Ë‰Ë‰ã€€â– ã€€â– ã€€â– Ë‰â– ã€€Ë‰â– Ë‰ã€€â– Ë‰Ë‰ã€€Ë‰â– Ë‰ã€€â– \\ã€€ã€€/â– ã€€ã€€ âˆ§ ã€€ã€€â– Ë‰Ë‰ã€€\n"NOR,me);
+	message_vision(HIY"â—"HIW"ç¥åœ£è¯ã€€ã€€"HIY"â—"+gGetRndColor()+"ã€€ã€€ã€€â– ã€€ã€€ã€€â– ï¼¿â– ã€€â– ï¼¿â– ã€€ã€€â– ã€€ã€€â– ï¼¿ï¼¿ã€€ã€€â– ã€€ã€€â–  \\ã€€/ â– ã€€ã€€/ã€€\\ã€€ã€€â– ï¼¿ï¼¿ã€€\n"NOR,me);
+	message_vision(HIY"â—ã€€ã€€"HIW"ç”Ÿè›‹çŒª"HIY"â—"+gGetRndColor()+"ã€€ã€€ã€€â– ã€€ã€€ã€€â– ã€€â– ã€€â– ã€€\\ ã€€  â– ã€€ã€€ã€€ã€€â– ã€€ã€€â– ã€€ã€€â– ã€€\\/ã€€â– ã€€ /ï¼¿ï¼¿\\ã€€ã€€ã€€ â– ã€€\n"NOR,me);
+	message_vision(HIY"â—â—â—â—â—â—â—"+gGetRndColor()+"ã€€ã€€ã€€â– ï¼¿ï¼¿ã€€â– ã€€â– ã€€â– ã€€ \\ã€€ï¼¿â– ï¼¿ã€€ï¼¿ï¼¿â– ã€€ã€€â– ã€€ã€€â– ã€€ã€€ã€€â– ã€€/ã€€ã€€ã€€\\ã€€ï¼¿ï¼¿â– ã€€\n"NOR,me);
+	message_vision(HIG"$Nè·å¾—äº†ã€"HIW"ä¸€ä¸‡äº”åƒç‚¹å®æˆ˜ç»éªŒã€äºŒç™¾ç‚¹æ½œèƒ½ã€åç‚¹æœ€å¤§å†…åŠ›ã€åç‚¹æœ€å¤§ç²¾åŠ›ã€åå¼ é“¶ç¥¨"HIG"ã€‘çš„å¥–åŠ±ã€‚\n"NOR,me);
 	me->add("combat_exp",15000);
 	me->add("potential",200);
 	me->add("max_neili",10);
@@ -90,7 +90,7 @@ void give_reward(object me)
 	cash = new("/clone/money/thousand-cash");
 	cash->set_amount(10);
 	cash->move(me);
-	log_file("quest/sdgift",sprintf("%s %s(%s)ÇÃ¿ªÖíÄàÊ¥µ°µÃµ½½±Àø¡£\n",
+	log_file("quest/sdgift",sprintf("%s %s(%s)æ•²å¼€çŒªæ³¥åœ£è›‹å¾—åˆ°å¥–åŠ±ã€‚\n",
                   ctime(time())[4..19],me->name(1),capitalize(me->query("id"))));
 
 	
@@ -101,14 +101,14 @@ void give_reward(object me)
 		if (list[number]->query_temp("havegong")<=5) continue;
 		if (list[number]->query("id")==me->query("id")) continue;
 		if (list[number]->query("family/family_name")!=me->query("family/family_name")) continue;
-		message_vision(HIG"$NÒòÎª»ı¼«²ÎÓë¹°Öí»ñµÃÁË¡¾"HIW"¶ş°ÙµãÇ±ÄÜ¡¢Îåµã×î´óÄÚÁ¦¡¢Îåµã×î´ó¾«Á¦"HIG"¡¿µÄ½±Àø¡£\n"NOR,list[number]);
+		message_vision(HIG"$Nå› ä¸ºç§¯æå‚ä¸æ‹±çŒªè·å¾—äº†ã€"HIW"äºŒç™¾ç‚¹æ½œèƒ½ã€äº”ç‚¹æœ€å¤§å†…åŠ›ã€äº”ç‚¹æœ€å¤§ç²¾åŠ›"HIG"ã€‘çš„å¥–åŠ±ã€‚\n"NOR,list[number]);
 		list[number]->add("potential",200);
 		list[number]->add("max_neili",10);
 		list[number]->add("max_jingli",10);
 		//cash = new("/clone/money/thousand-cash");
 		//cash->set_amount(5);
 		//cash->move(list[number]);
-		log_file("quest/sdgift",sprintf("%s %s(%s)»ı¼«²ÎÓë¹°ÖíµÃµ½½±Àø¡£\n",
+		log_file("quest/sdgift",sprintf("%s %s(%s)ç§¯æå‚ä¸æ‹±çŒªå¾—åˆ°å¥–åŠ±ã€‚\n",
                   ctime(time())[4..19],me->name(1),capitalize(me->query("id"))));
 		list[number]->delete_temp("havegong");	
 	}

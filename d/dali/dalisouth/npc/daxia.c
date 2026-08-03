@@ -1,11 +1,11 @@
-// NPC daxia.c ÁëÄÏ´óÏÀ
+// NPC daxia.c å²­å—å¤§ä¾ 
 
 inherit NPC;
 void create()
 {
-       set_name("ÁëÄÏ´óÏÀ", ({"lingnan daxia", "daxia", "xia"}));
-       set("long", "ÕâÊÇÒ»¸öÉí²Ä¿ıÎàµÄ´óÏÀ¡£\n");
-       set("gender", "ÄĞĞÔ");
+       set_name("å²­å—å¤§ä¾ ", ({"lingnan daxia", "daxia", "xia"}));
+       set("long", "è¿™æ˜¯ä¸€ä¸ªèº«æé­æ¢§çš„å¤§ä¾ ã€‚\n");
+       set("gender", "ç”·æ€§");
        set("attitude", "heroism");
 
        set("age", 35 + random(10));

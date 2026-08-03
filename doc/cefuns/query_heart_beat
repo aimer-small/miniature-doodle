@@ -1,17 +1,17 @@
 
 	query_heart_beat(3)	MudOS v21c2		(5 Sep 1994)
 
-	Ãû³Æ:
-		query_heart_beat() - Ñ¯ÎÊÒ»¸öÎï¼şµÄĞÄÌø (heart beat) ×´¿ö.
-	Óï·¨:
+	åç§°:
+		query_heart_beat() - è¯¢é—®ä¸€ä¸ªç‰©ä»¶çš„å¿ƒè·³ (heart beat) çŠ¶å†µ.
+	è¯­æ³•:
 		int query_heart_beat( object );
 
-		ÕûÊı query_heart_beat( Îï¼ş );
-	ÓÃ·¨:
-		¶Ôì¶ÒÑ¾­ºô½Ğ¹ı set_heart_beat() º¯Ê½µÄÎï¼ş,
-		query_heart_beat() ´«»ØÆäĞÄÌøÖµ. Èç¹û²»Ö¸¶¨ ob, ÔòÔ¤ÉèÎª
-		Ä¿Ç°µÄÎï¼ş. Ã»ÓĞĞÄÌøµÄÎï¼şÔò´«»Ø 0.
-	²Î¿¼:
+		æ•´æ•° query_heart_beat( ç‰©ä»¶ );
+	ç”¨æ³•:
+		å¯¹æ–¼å·²ç»å‘¼å«è¿‡ set_heart_beat() å‡½å¼çš„ç‰©ä»¶,
+		query_heart_beat() ä¼ å›å…¶å¿ƒè·³å€¼. å¦‚æœä¸æŒ‡å®š ob, åˆ™é¢„è®¾ä¸º
+		ç›®å‰çš„ç‰©ä»¶. æ²¡æœ‰å¿ƒè·³çš„ç‰©ä»¶åˆ™ä¼ å› 0.
+	å‚è€ƒ:
 		heart_beat(4), set_heart_beat(3)
-	·­Òë:
+	ç¿»è¯‘:
 		Spock @ FF	97.Apr.30.		(printed 3/16/95)

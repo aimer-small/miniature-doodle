@@ -5,13 +5,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ð±ÆÂ");
+	set("short", "æ–œå¡");
 	set("long", @LONG
-ÕâÀïÊÇ¸öÐ±ÆÂ,ÄãÐ¡ÐÄÒíÒíµÄ×ß×Å,Ð±ÆÂ²»ËãºÜÉî,¿ÉµôÏÂÈ¥¾ö²»ÊÇÄÖ×ÅÍæµÄ,
-ÕâÀïÔÓ²Ý´ÔÉú,Ê®·Ö»ÄÁ¹,µØÉÏÉ¢×Å¼¸¿é¹Çº¡.
+è¿™é‡Œæ˜¯ä¸ªæ–œå¡,ä½ å°å¿ƒç¿¼ç¿¼çš„èµ°ç€,æ–œå¡ä¸ç®—å¾ˆæ·±,å¯æŽ‰ä¸‹åŽ»å†³ä¸æ˜¯é—¹ç€çŽ©çš„,
+è¿™é‡Œæ‚è‰ä¸›ç”Ÿ,ååˆ†è’å‡‰,åœ°ä¸Šæ•£ç€å‡ å—éª¨éª¸.
 LONG
 	);
-        set("outdoors", "´óÀí");
+        set("outdoors", "å¤§ç†");
 
 	set("exits", ([
            "south" : __DIR__"shanlu10",
@@ -31,15 +31,15 @@ void init()
        object me = this_player();
        if (random(me->query("kar")) <15
         && me->query_skill("dodge", 1)<100){
-         message_vision(HIR"ÕâÀïÊÇ¸öÐ±ÆÂ£¬$N²»Ð¡ÐÄ£¬´ÓÆÂÉÏ»¬ÁËÏÂÀ´¡£\n"NOR, me);
+         message_vision(HIR"è¿™é‡Œæ˜¯ä¸ªæ–œå¡ï¼Œ$Nä¸å°å¿ƒï¼Œä»Žå¡ä¸Šæ»‘äº†ä¸‹æ¥ã€‚\n"NOR, me);
          }
        if((int)me->query_skill("dodge", 1) >= 20){
-         me->set_temp("last_damage_from", "´ÓÐ±ÆÂµôÏÂË¤");
+         me->set_temp("last_damage_from", "ä»Žæ–œå¡æŽ‰ä¸‹æ‘”");
          me->receive_damage("qi", 35);
          me->receive_wound("qi",  35);
          }
          else {
-         me->set_temp("last_damage_from", "´ÓÐ±ÆÂµôÏÂË¤");
+         me->set_temp("last_damage_from", "ä»Žæ–œå¡æŽ‰ä¸‹æ‘”");
          me->die();
          }
 }

@@ -1,16 +1,16 @@
-// NPC : /d/wudang/npc/monkey.c 猴子
+// NPC : /d/wudang/npc/monkey.c 鐚村瓙
 
 inherit NPC;
 
 void create()
 {
-	set_name("猴子", ({ "hou zi", "hou", "monkey" }) );
-	set("race", "野兽");
+	set_name("鐚村瓙", ({ "hou zi", "hou", "monkey" }) );
+	set("race", "閲庡吔");
 	set("age", 5);
-	set("long", "一只可爱又顽皮的小猴子。\n");
+	set("long", "涓�鍙彲鐖卞張椤界毊鐨勫皬鐚村瓙銆俓n");
 	set("attitude", "peaceful");
 	
-	set("limbs", ({ "头部", "身体", "前脚", "后脚", "尾巴" }) );
+	set("limbs", ({ "澶撮儴", "韬綋", "鍓嶈剼", "鍚庤剼", "灏惧反" }) );
 	set("verbs", ({ "bite", "claw" }) );
 
 	set("combat_exp", 500);

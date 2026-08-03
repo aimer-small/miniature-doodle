@@ -1,4 +1,4 @@
-// pantao.c Û¥Ã“
+// pantao.c Ëü†Ê°É
 // By jpei
 
 #include <ansi.h>
@@ -7,12 +7,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Û¥Ã“", ({"pan tao", "peach", "pantao", "tao"}));
+	set_name("Ëü†Ê°É", ({"pan tao", "peach", "pantao", "tao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "√∂");
-		set("long", "’‚ «“ª√∂»≠Õ∑¥Û–°µƒÛ¥Ã“°£\n");
+		set("unit", "Êûö");
+		set("long", "ËøôÊòØ‰∏ÄÊûöÊã≥Â§¥Â§ßÂ∞èÁöÑËü†Ê°É„ÄÇ\n");
 		set("value", 300);
 	}
 	setup();
@@ -27,17 +27,17 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if (!id(arg)) return notify_fail("ƒ„“™≥‘ ≤√¥£ø\n");
+	if (!id(arg)) return notify_fail("‰Ω†Ë¶ÅÂêÉ‰ªÄ‰πàÔºü\n");
 
 	if (me->query_condition("medicine")) {
-		message_vision("$N≥‘œ¬“ª√∂Û¥Ã“£¨À∆∫ı≤ªƒ«√¥º¢∂ˆ¡À°£\n", me);
+		message_vision("$NÂêÉ‰∏ã‰∏ÄÊûöËü†Ê°ÉÔºå‰ºº‰πé‰∏çÈÇ£‰πàÈ••È•ø‰∫Ü„ÄÇ\n", me);
 		if (me->query("food") < me->max_food_capacity())
 			me->add("food", 30);
 	}
 	else
 	{
 		me->add("max_neili", 1);
-		message_vision(HIG "$N≥‘œ¬“ª√∂Û¥Ã“£¨ÃÂƒ⁄µƒ’Ê∆¯À∆∫ı”––©πƒ∂Ø°£\n" NOR, me);
+		message_vision(HIG "$NÂêÉ‰∏ã‰∏ÄÊûöËü†Ê°ÉÔºå‰ΩìÂÜÖÁöÑÁúüÊ∞î‰ºº‰πéÊúâ‰∫õÈºìÂä®„ÄÇ\n" NOR, me);
 		me->apply_condition("medicine", 200);
 	}
 	destruct(this_object());

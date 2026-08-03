@@ -1,4 +1,4 @@
-// sw_jian.c ËÉÎÆ¹Å½£
+// sw_jian.c æ¾çº¹å¤å‰‘
 // by Looklove 2000/8/25 for a quest
 
 #include <armor.h>
@@ -20,47 +20,47 @@ string str;
 
 switch(random(3)){
 
-case(0):         set_name(HIM"×ÏÏ¼ÕıÆøÑ¥"NOR,({ "zhengqi xue", "shoes" }) );
+case(0):         set_name(HIM"ç´«éœæ­£æ°”é´"NOR,({ "zhengqi xue", "shoes" }) );
 set("armor_type","shoes");
-set("unit","Ë«");
+set("unit","åŒ");
 break;
-case(1):         set_name(HIM"×ÏÏ¼ÕıÆø¼×"NOR,({ "zhengqi jia", "armor" }) );
+case(1):         set_name(HIM"ç´«éœæ­£æ°”ç”²"NOR,({ "zhengqi jia", "armor" }) );
 set("armor_type","armor");
-set("unit","¼ş");
+set("unit","ä»¶");
 break;
-case(2):         set_name(HIG"ËÉÎÆ±¦¿ø"NOR,({ "songwen kui", "cap" }) );
+case(2):         set_name(HIG"æ¾çº¹å®ç›”"NOR,({ "songwen kui", "cap" }) );
 set("armor_type","cap");
-set("unit","¶¥");
+set("unit","é¡¶");
 break;
 /*
-case(3):         set_name(HIG"ËÉÎÆ¹Å°ô"NOR,({ "songwen stick", "songwen bang" }) );
+case(3):         set_name(HIG"æ¾çº¹å¤æ£’"NOR,({ "songwen stick", "songwen bang" }) );
 set("skill_type","stick");
 break;
-case(4):         set_name(HIG"ËÉÎÆ¹Å¹÷"NOR,({ "songwen gun", "songwen club" }) );
+case(4):         set_name(HIG"æ¾çº¹å¤æ£"NOR,({ "songwen gun", "songwen club" }) );
 set("skill_type","club");
 break;
-case(5):         set_name(HIG"ËÉÎÆ¹Å´¸"NOR,({ "songwen hammer", "songwen chui" }) );
+case(5):         set_name(HIG"æ¾çº¹å¤é”¤"NOR,({ "songwen hammer", "songwen chui" }) );
 set("skill_type","hammer");
 break;
-case(6):         set_name(HIG"ËÉÎÆ¹ÅÕÈ"NOR,({ "songwen zhang", "songwen staff" }) );
+case(6):         set_name(HIG"æ¾çº¹å¤æ–"NOR,({ "songwen zhang", "songwen staff" }) );
 set("skill_type","staff");
 break;
-case(7):         set_name(HIG"ËÉÎÆ¹Å¹³"NOR,({ "songwen hook", "songwen gou" }) );
+case(7):         set_name(HIG"æ¾çº¹å¤é’©"NOR,({ "songwen hook", "songwen gou" }) );
 set("skill_type","hook");
 break;
-case(8):         set_name(HIG"ËÉÎÆ¹ÅØ°"NOR,({ "songwen dagger", "songwen bishou" }) );
+case(8):         set_name(HIG"æ¾çº¹å¤åŒ•"NOR,({ "songwen dagger", "songwen bishou" }) );
 set("skill_type","dagger");
 break;
-case(9):         set_name(HIG"ËÉÎÆ¹ÅÇ¹"NOR,({ "songwen spear", "songwen qiang" }) );
+case(9):         set_name(HIG"æ¾çº¹å¤æª"NOR,({ "songwen spear", "songwen qiang" }) );
 set("skill_type","spear");
 break;
-case(10):         set_name(HIG"ËÉÎÆ¹Å±Ê"NOR,({ "songwen brush", "songwen bi" }) );
+case(10):         set_name(HIG"æ¾çº¹å¤ç¬”"NOR,({ "songwen brush", "songwen bi" }) );
 set("skill_type","brush");
 break;
-case(11):         set_name(HIG"ËÉÎÆ¹Å²æ"NOR,({ "songwen fork", "songwen cha" }) );
+case(11):         set_name(HIG"æ¾çº¹å¤å‰"NOR,({ "songwen fork", "songwen cha" }) );
 set("skill_type","fork");
 break;
-case(12):         set_name(HIG"ËÉÎÆ¹Å¸«"NOR,({ "songwen axe", "songwen fu" }) );
+case(12):         set_name(HIG"æ¾çº¹å¤æ–§"NOR,({ "songwen axe", "songwen fu" }) );
 set("skill_type","axe");
 break;
 */
@@ -69,18 +69,18 @@ break;
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                // set("unit", "¼ş");
+                // set("unit", "ä»¶");
                 set("material", "cloth");
                 set("rigidity", 1);
-                set("can_inset",1); // ÔÊĞíÏâÇ¶
+                set("can_inset",1); // å…è®¸é•¶åµŒ
                 set("armor_prop/armor", 1);
-                set("canwear","»ªÉ½ÅÉ");
-                set("no_drop","Õâ¶«Î÷£¬²»ÄÜËæ±ã¶ªÆú¡£\n");
+                set("canwear","åå±±æ´¾");
+                set("no_drop","è¿™ä¸œè¥¿ï¼Œä¸èƒ½éšä¾¿ä¸¢å¼ƒã€‚\n");
 set("ke_w/socket",1);
 set("ke_w/special_ke2",1);
-                set("no_give","Õâ¶«Î÷¸ø±ğÈË£¬¿ÖÅÂ²»ºÃ°É£¿\n");
-                set("wear_msg", HIC"$N´©ÉÏÒ»¼ş$n"+HIC+"£¬Ó¢×ËìªË¬¡£\n"NOR);
-               // set("remove_msg", HIC"$NÉñÉ«×ÔÈôµØ½«$n"+HIC+"Ğ±¹ÒÔÚÑü¼ä¡£\n"NOR);
+                set("no_give","è¿™ä¸œè¥¿ç»™åˆ«äººï¼Œææ€•ä¸å¥½å§ï¼Ÿ\n");
+                set("wear_msg", HIC"$Nç©¿ä¸Šä¸€ä»¶$n"+HIC+"ï¼Œè‹±å§¿é£’çˆ½ã€‚\n"NOR);
+               // set("remove_msg", HIC"$Nç¥è‰²è‡ªè‹¥åœ°å°†$n"+HIC+"æ–œæŒ‚åœ¨è…°é—´ã€‚\n"NOR);
 
         }
         
@@ -99,50 +99,50 @@ line = sprintf("%s(%s)\n",
              query("name"),
              query("id") 
                 );
-line += sprintf("ÕâÊÇÒ»"+query("unit")+""+query("name")+"£¬ÉÏ¿ÌÓĞ¼¸¸ö¹ÅÌå×­×Ö£º\n");
-line +=sprintf(BMAG+HIY"Éñ±øÌì³É£¬ÓĞµÂÕß¾İÖ®: "+query("owner")+"\n"NOR);
-line += sprintf("©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n");
-line  +=sprintf("©¦"HIY"ÊÊÓÃÃÅÅÉ: %-24s        "NOR"©¦\n",
+line += sprintf("è¿™æ˜¯ä¸€"+query("unit")+""+query("name")+"ï¼Œä¸Šåˆ»æœ‰å‡ ä¸ªå¤ä½“ç¯†å­—ï¼š\n");
+line +=sprintf(BMAG+HIY"ç¥å…µå¤©æˆï¼Œæœ‰å¾·è€…æ®ä¹‹: "+query("owner")+"\n"NOR);
+line += sprintf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n");
+line  +=sprintf("â”‚"HIY"é€‚ç”¨é—¨æ´¾: %-24s        "NOR"â”‚\n",
               query("canwear"),
               );
 
 if (query("haveinsert")) {
 
 if(query("ke_w/max_armor")) 
-line +=sprintf("©¦"HIR"Ôö¼Ó·ÀÓù: %-18s              "NOR"©¦\n",
-              chinese_number(query("level")*50)+"µã"
+line +=sprintf("â”‚"HIR"å¢åŠ é˜²å¾¡: %-18s              "NOR"â”‚\n",
+              chinese_number(query("level")*50)+"ç‚¹"
 );
 
 if(query("ke_w/max_int")) 
-line +=sprintf("©¦"HIR"Ôö¼ÓÎòĞÔ: %-18s              "NOR"©¦\n",
-              chinese_number(query("level")*2)+"µã"
+line +=sprintf("â”‚"HIR"å¢åŠ æ‚Ÿæ€§: %-18s              "NOR"â”‚\n",
+              chinese_number(query("level")*2)+"ç‚¹"
 );
 
 if(query("ke_w/max_con")) 
-line +=sprintf("©¦"HIR"Ôö¼Ó¸ù¹Ç: %-18s              "NOR"©¦\n",
-              chinese_number(query("level")*2)+"µã"
+line +=sprintf("â”‚"HIR"å¢åŠ æ ¹éª¨: %-18s              "NOR"â”‚\n",
+              chinese_number(query("level")*2)+"ç‚¹"
 );
 
 if(query("ke_w/max_dex"))
-line +=sprintf("©¦"HIR"Ôö¼ÓÉí·¨: %-18s              "NOR"©¦\n",
-              chinese_number(query("level")*2)+"µã"
+line +=sprintf("â”‚"HIR"å¢åŠ èº«æ³•: %-18s              "NOR"â”‚\n",
+              chinese_number(query("level")*2)+"ç‚¹"
 );
 
 if(query("ke_w/max_kar")) 
-line +=sprintf("©¦"HIR"Ôö¼Ó¸£Ôµ: %-18s              "NOR"©¦\n",
-              chinese_number(query("level")*2)+"µã"
+line +=sprintf("â”‚"HIR"å¢åŠ ç¦ç¼˜: %-18s              "NOR"â”‚\n",
+              chinese_number(query("level")*2)+"ç‚¹"
 );
 
 if(query("ke_w/max_attribute"))
-line +=sprintf("©¦"HIR"Ôö¼ÓËùÓĞÊôĞÔ: %-18s          "NOR"©¦\n",
-              chinese_number(query("level"))+"µã"
+line +=sprintf("â”‚"HIR"å¢åŠ æ‰€æœ‰å±æ€§: %-18s          "NOR"â”‚\n",
+              chinese_number(query("level"))+"ç‚¹"
 );
 }
 
 else
 
-line +=sprintf("©¦"YEL"»¹Î´ÏâÇ¶£¬Î´ÓĞÈÎºÎĞ§¹û¡£                  "NOR"©¦\n");    
-line += sprintf("©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n");
+line +=sprintf("â”‚"YEL"è¿˜æœªé•¶åµŒï¼Œæœªæœ‰ä»»ä½•æ•ˆæœã€‚                  "NOR"â”‚\n");    
+line += sprintf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n");
 
     write(line);
 
@@ -152,7 +152,7 @@ int wear()
 {
         object me = environment();
         if (living(me) && me->query("family/family_name") !=query("canwear")){
-tell_object (me,"ÄãºÍÈË¼Ò"+query("canwear")+"ËØÎŞÔ¨Ô´£¬ÔõÃ´Ëæ±ã´©ÈË¼Ò·şÊÎ£¿\n");
+tell_object (me,"ä½ å’Œäººå®¶"+query("canwear")+"ç´ æ— æ¸Šæºï¼Œæ€ä¹ˆéšä¾¿ç©¿äººå®¶æœé¥°ï¼Ÿ\n");
 return 0;
         }           
 return ::wear();

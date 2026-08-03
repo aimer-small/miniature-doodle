@@ -5,13 +5,13 @@ inherit STAFF;
 
 void create()
 {
-	set_name(HIG"ÉßÕÈ" NOR, ({ "she zhang", "shezhang", "zhang"}));
+	set_name(HIG"è›‡æ–" NOR, ({ "she zhang", "shezhang", "zhang"}));
 	set_weight(15000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ù");
-		set("long", "Ò»¸ù¶¥²¿ÓĞÌõ¶¾ÉßµÄÉßÕÈ¡£\n");
+		set("unit", "æ ¹");
+		set("long", "ä¸€æ ¹é¡¶éƒ¨æœ‰æ¡æ¯’è›‡çš„è›‡æ–ã€‚\n");
 		set("value", 5000);
 		set("material", "steel");
 		set("poisoned", "snake_poison");

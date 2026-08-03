@@ -1,11 +1,11 @@
-// yunu-xinjing.c ��Ů�ľ�
+// yunu-xinjing.c 玉女心经
 // Modify By River 10/98
 
 inherit FORCE;
 #include <ansi.h>
 
 int valid_enable(string usage) { 
-	  if (this_player()->query("family/family_name")=="��Ĺ��" || this_player()->query("cw_mp/��Ĺ��") )return usage == "force"; }
+	  if (this_player()->query("family/family_name")=="古墓派" || this_player()->query("cw_mp/古墓派") )return usage == "force"; }
 
 #include "force.h"
 
@@ -15,17 +15,17 @@ int valid_learn(object me)
         int lvl = (int)me->query_skill("yunu-xinjing", 1);
 
 
-	if ((!fam || fam["family_name"] != "��Ĺ��" )&& !me->query("cw_mp/��Ĺ��") )
-			 	return notify_fail("�㲢�ǹ�Ĺ���ӣ����ϰ������Ů�ľ���\n");
-	if ( me->query("gender") == "����") 
-		return notify_fail("���޸����ԣ������������������������Ů�ľ��񹦡�\n");
+	if ((!fam || fam["family_name"] != "古墓派" )&& !me->query("cw_mp/古墓派") )
+			 	return notify_fail("你并非古墓弟子，如何习得了玉女心经。\n");
+	if ( me->query("gender") == "无性") 
+		return notify_fail("你无根无性，阴阳不调，难以领会高深的玉女心经神功。\n");
 
         if ( lvl < 120)
-                return notify_fail("�����ڻ�ֻ��ͨ�����������������Ů�ľ��񹦡�\n");
+                return notify_fail("你现在还只能通过合修来领会高深的玉女心经神功。\n");
 
         if ((int)me->query_skill("yunu-xinjing", 1) > me->query_skill("force", 1) + 10
           && me->query_skill("yunu-xinjing", 1) >= 200 )
-               return notify_fail("��Ļ��������δ���������ȴ�û������ܼ�����ߡ�\n");
+               return notify_fail("你的基本功火候未到，必须先打好基础才能继续提高。\n");
 
         return valid_public(me);
 }
@@ -39,9 +39,9 @@ int practice_skill(object me)
 			me->add("potential", -1*(1+random(3)));
 			return 1;
 		}
-		else return notify_fail("�����ڵ���Ϊ�����������Ů�ľ��ˡ�\n");
+		else return notify_fail("你现在的修为不足以提高玉女心经了。\n");
 	}
-	else return notify_fail("�����ڵ���Ů�ľ���Ϊֻ����ѧ(learn)�������������ȡ�\n");
+	else return notify_fail("你现在的玉女心经修为只能用学(learn)的来增加熟练度。\n");
 
 }
 
@@ -53,12 +53,12 @@ string exert_function_file(string func)
 mapping exercise_msg(object me)
 {
 	return ([
-		"status_msg" : HIB + me->name()+"��̬���ţ���̬����"NOR,
-		"start_my_msg" : "���������һ�����������۾���������Ů�ľ�����Ϣ�������п�ʼ��ת��\n",
-		"start_other_msg" : me->name()+"��̬ͻȻ��ʼ��������ޱȣ����������ֱ�������쳣��\n",
-		"halt_msg" : "$N��Ϣһת��Ѹ��������ֹͣ����Ϣ����ת��\n",
-		"end_my_msg" : "���������������뵤������۾������������һ������\n",
-		"end_other_msg" : "ֻ��"+me->name()+"�����۾���������³���һ��������̬�ָ���Ȼ��\n"
+		"status_msg" : HIB + me->name()+"姿态悠雅，神态清冷"NOR,
+		"start_my_msg" : "你轻轻的吸一口气，闭上眼睛，运起玉女心经，内息在脉络中开始运转。\n",
+		"start_other_msg" : me->name()+"神态突然开始变的清冷无比，可是姿势又变的悠雅异常。\n",
+		"halt_msg" : "$N内息一转，迅速收气，停止了内息的运转。\n",
+		"end_my_msg" : "你慢慢收气，归入丹田，睁开眼睛，轻轻的吐了一口气。\n",
+		"end_other_msg" : "只见"+me->name()+"睁开眼睛，轻轻的吐出了一口气，神态恢复自然。\n"
 	]);
 }
 
@@ -73,41 +73,41 @@ int hit_ob(object me, object ob, int damage)
 	 && me->query_skill("cuff") > 300
 	 && me->query("neili") > 500
 	 && me->query("jingli") > 500
-	 && me->query("family/family_name") == "��Ĺ��"
-	 && me->query("env/��Ů�ľ�") == "�ں�"
+	 && me->query("family/family_name") == "古墓派"
+	 && me->query("env/玉女心经") == "融合"
 	 && !me->query_temp("anran")
 //	 &&!ob->is_busy()
 //	 &&!ob->is_lost()
 	 &&!random(2)
                      ){
 		if (weapon=me->query_temp("weapon"))
-			message_vision(HIC"$N�����е�"+weapon->query("name")+HIC"һ�գ�",me);
+			message_vision(HIC"$N将手中的"+weapon->query("name")+HIC"一收，",me);
 		else
-			message_vision(HIC"$N��ʽһ�䣬",me);
+			message_vision(HIC"$N招式一变，",me);
 
 		if(ob->query("class") != "bonze"
 		 && ob->query("class") != "huanxi" 
 		 && me->query("gender") != ob->query("gender")){
-			message_vision(HIC"ʩչ����Ĺ�ɵմ���Ůȭ����\n", me);
+			message_vision(HIC"施展出古墓派嫡传美女拳法！\n", me);
 			if (random(me->query_per()) > ob->query_per()/2){
-				message_vision(HIR"$n����һ�ң���Щ��$N����Ҫ����һ����æ���ң�\n"NOR, me, ob);
+				message_vision(HIR"$n心神一乱，险些被$N击中要害，一阵手忙脚乱！\n"NOR, me, ob);
 				ob->add_busy(2+random(3));
 				me->add("jingli",-50);
 				me->add("neili",-100);
 			}
 			else
-				message_vision(HIC"$n����һ�ң���æ������������\n"NOR, me, ob);
+				message_vision(HIC"$n心神一乱，连忙自行镇慑心神！\n"NOR, me, ob);
 		}
 		else {
-			message_vision(HIC"ʩչ����Ĺ�ɵմ����޵����ƣ�\n", me);
+			message_vision(HIC"施展出古墓派嫡传天罗地网势！\n", me);
 			if (random(me->query_dex()) > ob->query_dex()/2){
-				message_vision(HIR"$n�����ܴ죬�Թ˲�Ͼ���޷�׼ȷ����$N������\n"NOR, me, ob);
+				message_vision(HIR"$n连连受挫，自顾不暇，无法准确的向$N攻击！\n"NOR, me, ob);
 				ob->start_lost(2+random(3));
 				me->add("neili",-50);
 				me->add("jingli",-100);
 			}
 		else
-			message_vision(HIC"$n�Կ��죬�ƽ���$N����Ϯ��\n"NOR, me, ob);
+			message_vision(HIC"$n以快打快，破解了$N的奇袭！\n"NOR, me, ob);
 		}
 	}
 }
@@ -121,13 +121,13 @@ int ob_hit(object ob, object me, int damage)
 
 	if( (me->query("qi")-damage) >=  me->query("max_qi")*2/3 ) return 0;
 
-	if(random(2) && me->query("env/����")){  message_vision(HIY"$N�������㣬ͻȻʹ����"HIW"�����澭"HIY"�ϵĹ��򣬶������������һ����\n" NOR, me);
+	if(random(2) && me->query("env/九阴")){  message_vision(HIY"$N身如游鱼，突然使出了"HIW"九阴真经"HIY"上的功夫，躲过了这致命的一击！\n" NOR, me);
 	return -damage;}
 
         
-  if(me->query("env/����")){  
-        message_vision(HIW"\n$N����������ݾ��������������ң���Ȼ֮�����Ķ�����û����ɵ�һ���ĳ���\n"+
-                          "�����Ʒ缤�����л��㱣�����ԼԼ��ɲʱ��Ȼ�����������������Ʋ��ɵ���\n"NOR,me);
+  if(me->query("env/九阴")){  
+        message_vision(HIW"\n$N心想今日身陷绝境，不由万念俱灰，凄然之意自心而升，没精打采的一掌拍出，\n"+
+                          "但见掌风激荡，恍恍惚惚，隐隐约约！刹时黯然销魂掌威力顿增，势不可挡。\n"NOR,me);
         
   return -damage;}
 

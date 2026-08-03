@@ -1,11 +1,11 @@
 #define FLOOR 13
-#define SAVE_NPC "空闻大师"
+#define SAVE_NPC "绌洪椈澶у笀"
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short", "宝塔顶层");
-        set("long","这里是万安寺内宝塔的第十三层，戒备森严，一看就知道关押着重要人物。\n");
+        set("short", "瀹濆椤跺眰");
+        set("long","杩欓噷鏄竾瀹夊鍐呭疂濉旂殑绗崄涓夊眰锛屾垝澶囨．涓ワ紝涓�鐪嬪氨鐭ラ亾鍏虫娂鐫�閲嶈浜虹墿銆俓n");
         set("exits", ([
                 "down" : __DIR__"baota-12",
         ]));

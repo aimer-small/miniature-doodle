@@ -4,16 +4,16 @@ inherit NPC;
 #include <ansi.h>
 void create()
 {
-        set_name("Óñ·ä", ({ "yu feng", "bee" }) );
-        set("race", "Ò°ÊŞ");
+        set_name("ç‰èœ‚", ({ "yu feng", "bee" }) );
+        set("race", "é‡å…½");
         set("age", 4);
-        set("long", "ÕâÊÇÒ»Ö»Ğ¡ÁúÅ®ËÇÑøµÄÓñ·ä¡£\n");
+        set("long", "è¿™æ˜¯ä¸€åªå°é¾™å¥³é¥²å…»çš„ç‰èœ‚ã€‚\n");
         set("attitude", "peaceful");         
 
         set("str", 20);
         set("con", 30);
 
-        set("limbs", ({  "ÉíÌå",  "³á°ò" }) );
+        set("limbs", ({  "èº«ä½“",  "ç¿…è†€" }) );
         set("verbs", ({ "bite" }) );
 
         set("combat_exp", 1000);
@@ -32,8 +32,8 @@ void init()
         ::init();
         if (interactive(ob = this_player())
          && (fam = ob->query("family"))
-         && fam["family_name"] != "¹ÅÄ¹ÅÉ"){
-                message_vision(HIR"$NÉÃ×Ô´³Èë¹ÅÄ¹½ûµØ¡£\n"NOR,ob);
+         && fam["family_name"] != "å¤å¢“æ´¾"){
+                message_vision(HIR"$Næ“…è‡ªé—¯å…¥å¤å¢“ç¦åœ°ã€‚\n"NOR,ob);
                 remove_call_out("kill_ob");
                 call_out("kill_ob", 1, ob); 
                 set_leader(ob);
@@ -42,7 +42,7 @@ void init()
 
 void die()
 {
-        message_vision("$N±»ÄãÒ»ÕÆ»ÓÂä£¬»êÏûÑÌÉ¢£¬Ê¬¹ÇÈ«ÎŞ¡£\n", this_object());
+        message_vision("$Nè¢«ä½ ä¸€æŒæŒ¥è½ï¼Œé­‚æ¶ˆçƒŸæ•£ï¼Œå°¸éª¨å…¨æ— ã€‚\n", this_object());
         destruct(this_object());
 }
 

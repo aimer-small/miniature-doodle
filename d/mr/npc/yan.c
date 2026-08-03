@@ -8,10 +8,10 @@ string ask_job();
 
 void create()
 {
-        set_name("ÑÏÂèÂè", ({ "yan mama", "mam", "yan" }));
-        set("gender", "Å®ÐÔ");
+        set_name("ä¸¥å¦ˆå¦ˆ", ({ "yan mama", "mam", "yan" }));
+        set("gender", "å¥³æ€§");
         set("age", 50);
-	set("title", YEL"»¨·Ê·¿¹ÜÊÂ"NOR);
+	set("title", YEL"èŠ±è‚¥æˆ¿ç®¡äº‹"NOR);
 
 	set("str", 25);
         set("int", 26);
@@ -24,7 +24,7 @@ void create()
         set("attitude", "peaceful");
 	set("max_qi",1000);
 	set("max_jing",1000);
-	set("no_get","ÄãÃ»°ì·¨±³ÆðÕâ¸öÈË");
+	set("no_get","ä½ æ²¡åŠžæ³•èƒŒèµ·è¿™ä¸ªäºº");
 	set("neili",1000);
 	set("max_neili",1000);
 	set("jiali",30);
@@ -47,10 +47,10 @@ void create()
 	carry_object(BINGQI_D("blade"))->wield();
 	carry_object(ARMOR_D("cloth"))->wear();
 	set("inquiry", ([
-		"name" : "ÎÒÊÇÂüÙ¢ÂÞÉ½×¯µÄ»¨·¿¹ÜÊÂ¡£\n",
-		"here" : "ÕâÀïÊÇ»¨·Ê·¿£¬×¨ÃÅ°Ñ·òÈËÈÃ´¦ËÀµÄÈË×ö»¨·Ê¡£\n",
-		"rumors" : "×î½üÒ»¸öÐÕ¶ÎµÄÐ¡×Ó´ÓÎÒÊÖÀïÅÜÁË¡£\n",
-		"¹¤¾ß" : (: ask_job :),
+		"name" : "æˆ‘æ˜¯æ›¼ä½—ç½—å±±åº„çš„èŠ±æˆ¿ç®¡äº‹ã€‚\n",
+		"here" : "è¿™é‡Œæ˜¯èŠ±è‚¥æˆ¿ï¼Œä¸“é—¨æŠŠå¤«äººè®©å¤„æ­»çš„äººåšèŠ±è‚¥ã€‚\n",
+		"rumors" : "æœ€è¿‘ä¸€ä¸ªå§“æ®µçš„å°å­ä»Žæˆ‘æ‰‹é‡Œè·‘äº†ã€‚\n",
+		"å·¥å…·" : (: ask_job :),
 	]));
 }
 
@@ -69,9 +69,9 @@ void init()
 /*
 	if (interactive(ob)
 	 && !environment(ob)->query("no_fight")
-	 && ob->query("family/family_name") != "¹ÃËÕÄ½ÈÝ" 
+	 && ob->query("family/family_name") != "å§‘è‹æ…•å®¹" 
 	 && ! me->is_killing(ob->query("id"))) {
-		command("say ½üÀ´»¨·Ê²»Ì«¹»£¬ÈÃÀÏÆÅ×ÓÎÒÄÃÄã×ö»¨·Ê°É£¡£¡£¡\n");
+		command("say è¿‘æ¥èŠ±è‚¥ä¸å¤ªå¤Ÿï¼Œè®©è€å©†å­æˆ‘æ‹¿ä½ åšèŠ±è‚¥å§ï¼ï¼ï¼\n");
 		me->set_leader(ob);
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);
@@ -86,12 +86,12 @@ string ask_job()
 	object tools1;
 	mapping fam;
 
-	if (!(fam = me->query("family")) || fam["family_name"] != "¹ÃËÕÄ½ÈÝ") // ±ØÐëÊÇÄ½ÈÝÅÉµÜ×Ó
+	if (!(fam = me->query("family")) || fam["family_name"] != "å§‘è‹æ…•å®¹") // å¿…é¡»æ˜¯æ…•å®¹æ´¾å¼Ÿå­
                return RANK_D->query_respect(me) +
-               "Óë±¾ÅÉËØÎÞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æð£¿";
+               "ä¸Žæœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»Žä½•è°ˆèµ·ï¼Ÿ";
 
         if ((int)me->query_temp("yanpopo")==2 )
-               return "Äã²»ÊÇÒÑ¾­ÁìÁË¹¤¾ßÃ´£¬»¹²»¿ìÈ¥×ö£¡\n";
+               return "ä½ ä¸æ˜¯å·²ç»é¢†äº†å·¥å…·ä¹ˆï¼Œè¿˜ä¸å¿«åŽ»åšï¼\n";
 
         me->set_temp("yanpopo",2);
 
@@ -99,11 +99,11 @@ string ask_job()
         tools1->move(me);
 
 
-        message_vision("$N½»¸ø$nÒ»¼þ¹¤¾ß¡£\n", ob, me);
+        message_vision("$Näº¤ç»™$nä¸€ä»¶å·¥å…·ã€‚\n", ob, me);
 
-        me->add_temp("mark/´Î",0);
+        me->add_temp("mark/æ¬¡",0);
 
-        return "¿ìÈ¥¸ø×¯ÀïµÄ²è»¨½½½½Ë®£¡\n";
+        return "å¿«åŽ»ç»™åº„é‡Œçš„èŒ¶èŠ±æµ‡æµ‡æ°´ï¼\n";
 }
 
 int accept_object(object me, object obj)
@@ -114,30 +114,30 @@ int accept_object(object me, object obj)
 
       if(!ob->query_temp("mrhua")){
               command("consider " + ob->query("id"));
-              command("say ÄãÃ»ÓÐ½ÓÈÎÎñÑ½£¬ÊÇ²»ÊÇÒªÀûÓÃbug£¿");
+              command("say ä½ æ²¡æœ‰æŽ¥ä»»åŠ¡å‘€ï¼Œæ˜¯ä¸æ˜¯è¦åˆ©ç”¨bugï¼Ÿ");
               return 0;
       }
       if (!(int)ob->query_condition("mrhua_job"))
       {
             command("disapp");
-      	    command("say ÄãÊ±¼äÒÑ¹ý£¬ÈÎÎñÊ§°Ü¡£\n");
+      	    command("say ä½ æ—¶é—´å·²è¿‡ï¼Œä»»åŠ¡å¤±è´¥ã€‚\n");
       	    ob->delete_temp("mrhua");
       	    return 0;
       }
       if(!ob->query_temp("mark/ok"))
       {
-              command("say Äã»¹Ã»Íê³É¹¤×÷£¬ÔõÃ´¾Í»ØÀ´»¹¹¤¾ßÁË£¬ÍµÀÁÂð£¿");
+              command("say ä½ è¿˜æ²¡å®Œæˆå·¥ä½œï¼Œæ€Žä¹ˆå°±å›žæ¥è¿˜å·¥å…·äº†ï¼Œå·æ‡’å—ï¼Ÿ");
 	      return 0;
       }
       if (obj->query("id")!="piao")
       {
-              command("say Äã»¹´í¶«Î÷ÁË°É£¬ÎÒ´ÓÃ»ÓÐ·¢¹ýÕâÑù¹¤¾ß¡£");
+              command("say ä½ è¿˜é”™ä¸œè¥¿äº†å§ï¼Œæˆ‘ä»Žæ²¡æœ‰å‘è¿‡è¿™æ ·å·¥å…·ã€‚");
               return 0;
       }
 
      command("kiss " + ob->query("id"));
-     command("say ²»´í£¬È¥ÕÒÍõ·òÈËÒªÉÍÇ®°É");
-     ob->set_temp("mark/»¹ÁË",1);
+     command("say ä¸é”™ï¼ŒåŽ»æ‰¾çŽ‹å¤«äººè¦èµé’±å§");
+     ob->set_temp("mark/è¿˜äº†",1);
      ob->delete_temp("mark/ok");
      call_out("destroying", 1, me, obj);
      return 1;

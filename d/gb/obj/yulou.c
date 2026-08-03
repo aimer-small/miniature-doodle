@@ -3,16 +3,16 @@
 inherit ITEM;
 void create()
 {
-	set_name("ÓãÂ¨", ({ "yu lou","yulou", "lou" }));
+	set_name("é±¼ç¯“", ({ "yu lou","yulou", "lou" }));
 	set_weight(1000);
 	set_max_encumbrance(8000);
 
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¸ö");
-		set("long","ÕâÊÇÒ»¸öÓÃÉÏµÈÖñ×Ó±àÖÆµÄÓãÂ¨£¬ÓÉÀïÏòÍâÍ¸×ÅÒ»¹Éº®Æø¡£\n"+
-			"ÍùÕâ¸öÓãÂ¨Àï×°(zhuang)µÄÓã¶¼»áºÜĞÂÏÊ¡£\n");
+		set("unit", "ä¸ª");
+		set("long","è¿™æ˜¯ä¸€ä¸ªç”¨ä¸Šç­‰ç«¹å­ç¼–åˆ¶çš„é±¼ç¯“ï¼Œç”±é‡Œå‘å¤–é€ç€ä¸€è‚¡å¯’æ°”ã€‚\n"+
+			"å¾€è¿™ä¸ªé±¼ç¯“é‡Œè£…(zhuang)çš„é±¼éƒ½ä¼šå¾ˆæ–°é²œã€‚\n");
 		set("value", 1);
 	}
 	setup();
@@ -30,22 +30,22 @@ int do_zhuang(string arg)
 	ob=present("yu lou",this_player());
 	obj=present("yu",this_player());
 
-	if(!present("yu lou",this_player())) return notify_fail("ÄãÉíÉÏÃ»ÓĞÓãÂ¨¡£\n"); 
-	if(!objectp(obj=present("yu",this_player()))) return notify_fail("ÄãÉíÉÏÃ»ÓĞÓã¡£\n");
-	if(!arg || arg !="yu" ) return notify_fail("ÕâÊÇÓãÂ¨£¬Ö»ÄÜ×°Óã£¬ÄãÏë×°Ê²Ã´½øÈ¥£¿\n");
+	if(!present("yu lou",this_player())) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰é±¼ç¯“ã€‚\n"); 
+	if(!objectp(obj=present("yu",this_player()))) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰é±¼ã€‚\n");
+	if(!arg || arg !="yu" ) return notify_fail("è¿™æ˜¯é±¼ç¯“ï¼Œåªèƒ½è£…é±¼ï¼Œä½ æƒ³è£…ä»€ä¹ˆè¿›å»ï¼Ÿ\n");
 	if (obj->move(ob)){
-		message_vision("$N½«Ò»Ìõ"+(string)obj->query("name")+"×°Èë$n¡£\n",this_player(),ob);
+		message_vision("$Nå°†ä¸€æ¡"+(string)obj->query("name")+"è£…å…¥$nã€‚\n",this_player(),ob);
 		return 1;
 	}
-	return notify_fail(obj->name()+"¶ÔÓãÂ¨À´ËµÌ«ÖØÁË¡£\n");
+	return notify_fail(obj->name()+"å¯¹é±¼ç¯“æ¥è¯´å¤ªé‡äº†ã€‚\n");
 }
 
 int do_noput(string arg) 
 {
 	string item, target; 
-	if(!arg) return notify_fail("ÄãÒª½«Ê²Ã´¶«Î÷·Å½øÄÄÀï£¿\n");
+	if(!arg) return notify_fail("ä½ è¦å°†ä»€ä¹ˆä¸œè¥¿æ”¾è¿›å“ªé‡Œï¼Ÿ\n");
 	if(sscanf(arg,"%s in %s",item,target)==2 && target == "lou"||target =="yu lou" ||target =="yulou" ) {
-		write("ÄãÖ»¿ÉÒÔ°ÑÓã×°(zhuang)µ½ÓãÂ¨Àï¡£\n");
+		write("ä½ åªå¯ä»¥æŠŠé±¼è£…(zhuang)åˆ°é±¼ç¯“é‡Œã€‚\n");
 		return 1; 
 	}
 }

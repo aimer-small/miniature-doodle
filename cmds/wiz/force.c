@@ -17,10 +17,10 @@ int main(object me, string arg)
 		return 0;
 
 	if (ob == me)
-		return notify_fail("Ö±½Ó´òÃüÁî±È½Ï¿ìĞ©¡£\n");
+		return notify_fail("ç›´æ¥æ‰“å‘½ä»¤æ¯”è¾ƒå¿«äº›ã€‚\n");
 
 	if (geteuid(ob) == "yuj" || wiz_level(me) < wiz_level(ob) - 1)
-		return notify_fail("ÄãÃ»ÓĞÕâÖÖÈ¨Á¦¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰è¿™ç§æƒåŠ›ã€‚\n");
 
 	return ob->force_me(cmds);
 }
@@ -28,7 +28,7 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£º force ÈËÎï<id> do <ÃüÁî>
+æŒ‡ä»¤æ ¼å¼ï¼š force äººç‰©<id> do <å‘½ä»¤>
 HELP );
 	return 1;
 }

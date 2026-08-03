@@ -5,9 +5,9 @@ inherit NPC;
 
 void create()
 {
-	set_name("½­ºşºÀ¿Í", ({ "hao ke", "ke",}));
-	set("long","Ò»¸ö´³µ´½­ºşµÄºº×Ó¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("æ±Ÿæ¹–è±ªå®¢", ({ "hao ke", "ke",}));
+	set("long","ä¸€ä¸ªé—¯è¡æ±Ÿæ¹–çš„æ±‰å­ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 36);
 	set("attitude", "peaceful");
 	set("shen_type", 1);

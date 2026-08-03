@@ -1,12 +1,12 @@
-//jiading.c ¼Ò¶¡
+//jiading.c å®¶ä¸
 
 inherit NPC;
 
 void create()
 {
-	set_name("¼Ò¶¡", ({ "jia ding", "jia" }));
-        set("long", "ËûÇ£×ÅÁ½Ìõ´óÀÇ¹·£¬¿´ÆğÀ´ºÜÉñÆøµÄÑù×Ó¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("å®¶ä¸", ({ "jia ding", "jia" }));
+        set("long", "ä»–ç‰µç€ä¸¤æ¡å¤§ç‹¼ç‹—ï¼Œçœ‹èµ·æ¥å¾ˆç¥æ°”çš„æ ·å­ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set("shen", -5000);
 

@@ -6,11 +6,11 @@ inherit F_CLEAN_UP;
 int update_condition(object me, int duration)
 {
    if( !living(me) ) {
-      message("vision", me->name() + "È«Éí±äºÚ£¬É¢·¢³öÒ»Õó½¹ºýÎ¶¡£\n", environment(me), me);
+      message("vision", me->name() + "å…¨èº«å˜é»‘ï¼Œæ•£å‘å‡ºä¸€é˜µç„¦ç³Šå‘³ã€‚\n", environment(me), me);
    }
    else {
-      tell_object(me, HIR "ºöÈ»Ò»¹É»ðÈÈÖ®ÆøÏ®À´£¬ÌÌµÃÄãÊÖ½Å·¢²ü£¡\n" NOR );
-      tell_room(environment(me), HIR + me->name()+"Í»È»È«ÉíÃ°³öÕóÕóºìÑÌ£¬×ì´½¸ÉÁÑ£¬Ë«ÊÖºúÂÒµØ»ÓÎè×Å¡£\n" NOR,
+      tell_object(me, HIR "å¿½ç„¶ä¸€è‚¡ç«çƒ­ä¹‹æ°”è¢­æ¥ï¼Œçƒ«å¾—ä½ æ‰‹è„šå‘é¢¤ï¼\n" NOR );
+      tell_room(environment(me), HIR + me->name()+"çªç„¶å…¨èº«å†’å‡ºé˜µé˜µçº¢çƒŸï¼Œå˜´å”‡å¹²è£‚ï¼ŒåŒæ‰‹èƒ¡ä¹±åœ°æŒ¥èˆžç€ã€‚\n" NOR,
                 ({ me }));      
    }
       me->receive_damage("qi", 30);

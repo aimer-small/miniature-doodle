@@ -1,4 +1,4 @@
-// shiwei.c ´øµ¶ÊÌÎÀ
+// shiwei.c å¸¦åˆ€ä¾å«
 // Modify by Looklove@SJ fixed bug 2000/9/8
 
 inherit NPC;
@@ -6,12 +6,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("»Ê¹¬ÊÌÎÀ", ({ "huanggong shiwei", "shiwei", "wei" }));
-	set("gender", "ÄÐÐÔ");
+	set_name("çš‡å®«ä¾å«", ({ "huanggong shiwei", "shiwei", "wei" }));
+	set("gender", "ç”·æ€§");
 	set("age", random(20) + 30);
 	set("str", 25);
 	set("dex", 16);
-	set("long", "ËûÊÖÎÕ¸Öµ¶£¬Ä¿ÊÓÇ°·½£¬ÕæÊÇÍþ·çÁÝÁÝ¡£\n");
+	set("long", "ä»–æ‰‹æ¡é’¢åˆ€ï¼Œç›®è§†å‰æ–¹ï¼ŒçœŸæ˜¯å¨é£Žå‡›å‡›ã€‚\n");
 	set("combat_exp", 75000);
 	set("shen_type", 1);
 	set("attitude", "peaceful");
@@ -63,7 +63,7 @@ void kill_ob(object me)
 
 int accept_fight(object me)
 {
-	command("say ¾¹¸ÒºÍ´óÀí»Ê¹¬ÊÌÎÀ¹ý²»È¥£¬½ñÌìËãÄãµ¹Ã¹¡£\n");
+	command("say ç«Ÿæ•¢å’Œå¤§ç†çš‡å®«ä¾å«è¿‡ä¸åŽ»ï¼Œä»Šå¤©ç®—ä½ å€’éœ‰ã€‚\n");
 	if (!is_killing(me->query("id")))
 		me->add_condition("killer", 15);
 	kill_ob(me);

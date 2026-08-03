@@ -1,14 +1,14 @@
 inherit NPC;
 void create()
 {
-        set_name("ÓÎ¿Í", ({ "you ke", "youke", "ke" }) );
-	if(random(10)<6) set("gender","ÄĞĞÔ");
-        else set("gender","Å®ĞÔ");
+        set_name("æ¸¸å®¢", ({ "you ke", "youke", "ke" }) );
+	if(random(10)<6) set("gender","ç”·æ€§");
+        else set("gender","å¥³æ€§");
         set("age", 20+random(40));
         set("str", 16);
         set("per", 13+random(20));
         set("attitude", "peaceful");
-	set("long", "ÕâÊÇÎ»À´´ËÓÎÍæµÄÓÎ¿Í¡£\n");
+	set("long", "è¿™æ˜¯ä½æ¥æ­¤æ¸¸ç©çš„æ¸¸å®¢ã€‚\n");
         set("combat_exp", 3000+random(500));
         set_skill("unarmed", 60);
         set_skill("parry", 60);
@@ -17,9 +17,9 @@ void create()
         set_skill("literate", 60);
         set("chat_chance",5);
         set("chat_msg",({
-                "ÓÎ¿ÍµÀ£º¡°ÕâÀïÒ»Æ¬É½ÇàË®Ğã£¬µ¹ÊÇ¸öºÃµØ·½¡£¡±\n",
+                "æ¸¸å®¢é“ï¼šâ€œè¿™é‡Œä¸€ç‰‡å±±é’æ°´ç§€ï¼Œå€’æ˜¯ä¸ªå¥½åœ°æ–¹ã€‚â€\n",
                 (: random_move :),
-                "ÓÎ¿Í¿´×ÅÄãËµµÀ£º¡°ÄãÒ²ÊÇÀ´ÓÎÉ½ÍæË®µÄ£¿À´£¬À´£¬ÎÒÃÇ½á°é¶øĞĞ°É¡£¡±\n",
+                "æ¸¸å®¢çœ‹ç€ä½ è¯´é“ï¼šâ€œä½ ä¹Ÿæ˜¯æ¥æ¸¸å±±ç©æ°´çš„ï¼Ÿæ¥ï¼Œæ¥ï¼Œæˆ‘ä»¬ç»“ä¼´è€Œè¡Œå§ã€‚â€\n",
                 (: random_move :),
         }) );
         setup();

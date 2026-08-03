@@ -1,14 +1,14 @@
-// shaqiu2.c  Ğ¡É³Çğ
+// shaqiu2.c  å°æ²™ä¸˜
 // Modify By River@SJ 99.06
 #include <ansi.h>
 #include <room.h>
 inherit ROOM;
 void create()
 {
-       set("short",YEL"Ğ¡É³Çğ"NOR);
+       set("short",YEL"å°æ²™ä¸˜"NOR);
        set("long", @LONG
-ÕâÊÇÒ»¸ö¶ÑÂú»ÆÉ³µÄĞ¡É³Çğ¡£ÄãÒ»Ì¤ÉÏÀ´¾ÍÃÔÊ§ÁË·½Ïò¡£¿´À´Òª×ß³öÕâ¿é
-É³Ä®²¢·ÇÒ×ÊÂ¡£
+è¿™æ˜¯ä¸€ä¸ªå †æ»¡é»„æ²™çš„å°æ²™ä¸˜ã€‚ä½ ä¸€è¸ä¸Šæ¥å°±è¿·å¤±äº†æ–¹å‘ã€‚çœ‹æ¥è¦èµ°å‡ºè¿™å—
+æ²™æ¼ å¹¶éæ˜“äº‹ã€‚
 LONG);
 	set("exits", ([
 		"east" : __DIR__"shaqiu1",
@@ -16,7 +16,7 @@ LONG);
 		"south" : __DIR__"shaqiu"+(random(3)+1),
 		"north" : __DIR__"shaqiu"+(random(3)+1),
 	]));
-        set("outdoors", "Ã÷½Ì¹âÃ÷¶¥");
+        set("outdoors", "æ˜æ•™å…‰æ˜é¡¶");
 	set("coor/x",-300);
   set("coor/y",90);
    set("coor/z",0);

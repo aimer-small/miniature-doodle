@@ -3,10 +3,10 @@ int ask_lineup();
 int ask_heal();
 void create()
 {
-        set_name("¶ëáÒµÜ×Ó", ({ "dizi" }));
-        set("long","ÕâÊÇÒ»¸ö¶ëáÒµÜ×Ó¡£\n");
+        set_name("å³¨åµ‹å¼Ÿå­", ({ "dizi" }));
+        set("long","è¿™æ˜¯ä¸€ä¸ªå³¨åµ‹å¼Ÿå­ã€‚\n");
         
-        set("gender", "Å®ĞÔ");
+        set("gender", "å¥³æ€§");
         set("age", random(10)+20);
         set("attitude", "peaceful");
         set("shen_type", 0);
@@ -43,8 +43,8 @@ void create()
         prepare_skill("strike", "sixiang-zhang");
 
         set("inquiry", ([
-                "²¼Õó": (: ask_lineup :),
-                "ÁÆÉË": (: ask_heal:),
+                "å¸ƒé˜µ": (: ask_lineup :),
+                "ç–—ä¼¤": (: ask_heal:),
         ]) );
 
         set("chat_chance_combat", 80);

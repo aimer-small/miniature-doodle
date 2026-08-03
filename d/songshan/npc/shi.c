@@ -4,10 +4,10 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("Ê·µÇ´ï", ({ "shi dengda", "shi", "dengda" }));
-        set("nickname", "Ç§ÕÉËÉ");
-        set("long", "ÕâÊÇ×óÀäìøµÄÍ½µÜ£¬ËûÊÇÎ»Éí²ÄÉõ¸ßµÄ»ÆÉÀºº×Ó¡£\n");
-        set("gender", "ÄÐÐÔ");
+        set_name("å²ç™»è¾¾", ({ "shi dengda", "shi", "dengda" }));
+        set("nickname", "åƒä¸ˆæ¾");
+        set("long", "è¿™æ˜¯å·¦å†·ç¦…çš„å¾’å¼Ÿï¼Œä»–æ˜¯ä½èº«æç”šé«˜çš„é»„è¡«æ±‰å­ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 26);
         set("per", 20);
         set("attitude", "heroism");
@@ -40,7 +40,7 @@ void create()
     map_skill("parry", "songshan-jian");
     map_skill("sword", "songshan-jian");
     prepare_skill("strike", "songyang-zhang");
-    create_family("áÔÉ½ÅÉ", 5, "µÜ×Ó");
+    create_family("åµ©å±±æ´¾", 5, "å¼Ÿå­");
         setup();
         carry_object(ARMOR_D("changpao1"))->wear();  
         carry_object(BINGQI_D("changjian"))->wield();         
@@ -49,9 +49,9 @@ void create()
 void attempt_apprentice(object ob)
 {
      if(ob->query("shen") < 0 && ob->query("combat_exp") < 10000){
-        command("say ÄãÕâÐ°Ä§ÍâµÀ£¬»¹¸ÒÀ´ÎÒáÔÉ½ÅÉ£¿¿ì¹ö£¡");
+        command("say ä½ è¿™é‚ªé­”å¤–é“ï¼Œè¿˜æ•¢æ¥æˆ‘åµ©å±±æ´¾ï¼Ÿå¿«æ»šï¼");
         return;
         }
-     command("say ºÃ°É£¬Ê¦¸µÕýÒªÎÒ¶àÅàÓýÒ»Ð©µÜ×ÓÀ´·¢ÑïáÔÉ½ÅÉÄØ¡£");
+     command("say å¥½å§ï¼Œå¸ˆå‚…æ­£è¦æˆ‘å¤šåŸ¹è‚²ä¸€äº›å¼Ÿå­æ¥å‘æ‰¬åµ©å±±æ´¾å‘¢ã€‚");
      command("recruit " + ob->query("id"));
 }

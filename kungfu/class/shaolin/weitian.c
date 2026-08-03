@@ -3,12 +3,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("ÎÀÌìÍû", ({ "wei tianwang","wei" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("å«å¤©æœ›", ({ "wei tianwang","wei" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 58);
 	set("long", " \n");
 	set("attitude", "peaceful");
-	set("nickname", "Î÷ÓòÉÙÁÖ³¤ÀÏ");
+	set("nickname", "è¥¿åŸŸå°‘æ—é•¿è€");
 	set("unique", 1);
 	set("str", 20);
 	set("con", 35);
@@ -40,7 +40,7 @@ void create()
 	map_skill("parry", "jingang-quan");
 	prepare_skill("cuff", "jingang-quan");
 
-	create_family("Î÷ÓòÉÙÁÖ", 19, "µÜ×Ó");
+	create_family("è¥¿åŸŸå°‘æ—", 19, "å¼Ÿå­");
 	setup();
 	carry_object("/d/shaolin/obj/xuan-cloth")->wear();
 }

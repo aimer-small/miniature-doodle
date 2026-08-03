@@ -1,9 +1,9 @@
-// chongling-jian perform hebi Ë«½£ºÏèµ
-// Modify by Looklove 2001.4.6 fix ÒªÇófanliangyi-daoµÄbug
+// chongling-jian perform hebi åŒå‰‘åˆç’§
+// Modify by Looklove 2001.4.6 fix è¦æ±‚fanliangyi-daoçš„bug
 
 #include <ansi.h>
-#define ME  "ÄãÏÖÔÚ²»ÄÜÊ¹ÓÃË«½£ºÏèµ¡£\n"
-#define TAR  "¶Ô·½ÏÖÔÚ²»ÄÜÊ¹ÓÃË«½£ºÏèµ¡£\n"
+#define ME  "ä½ ç°åœ¨ä¸èƒ½ä½¿ç”¨åŒå‰‘åˆç’§ã€‚\n"
+#define TAR  "å¯¹æ–¹ç°åœ¨ä¸èƒ½ä½¿ç”¨åŒå‰‘åˆç’§ã€‚\n"
 
 int check_fight(object me, object target, int amount);
 private int remove_effect(object me, object target, int amount);
@@ -15,7 +15,7 @@ int perform(object me, object target)
         object wep1, wep2;
         wep1 = me->query_temp("weapon");
 
-        if( !target || target == me) return notify_fail("ÄãÒªºÍË­Ë«½£ºÏèµ£¿\n");
+        if( !target || target == me) return notify_fail("ä½ è¦å’Œè°åŒå‰‘åˆç’§ï¼Ÿ\n");
 
         if (me->query_temp("hebi")) return notify_fail(ME);
         if (target->query_temp("hebi")) return notify_fail(TAR);
@@ -23,13 +23,13 @@ int perform(object me, object target)
         if (target->query("jingli") < 200) return notify_fail(TAR);
         if (me->query("neili") < 1000) return notify_fail(ME);
         if (target->query("neili") < 1000) return notify_fail(TAR);
-        if (!me->is_fighting()) return notify_fail("Ë«½£ºÏèµÖ»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");
-        if (me->is_fighting(target)) return notify_fail("ÄãÕıÔÚºÍ¶Ô·½´ò¼Ü£¬Ê¹ÓÃË«½£ºÏèµ¸ÉÊ²Ã´£¿\n");
-        if (me->query("gender") == target->query("gender")) return notify_fail("ÄãÃÇÊÇÍ¬ĞÔ£¬»¹ºÏ±ÚÊ²Ã´°¡£¿\n");
+        if (!me->is_fighting()) return notify_fail("åŒå‰‘åˆç’§åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
+        if (me->is_fighting(target)) return notify_fail("ä½ æ­£åœ¨å’Œå¯¹æ–¹æ‰“æ¶ï¼Œä½¿ç”¨åŒå‰‘åˆç’§å¹²ä»€ä¹ˆï¼Ÿ\n");
+        if (me->query("gender") == target->query("gender")) return notify_fail("ä½ ä»¬æ˜¯åŒæ€§ï¼Œè¿˜åˆå£ä»€ä¹ˆå•Šï¼Ÿ\n");
         if( (int)me->query_skill("chongling-jian", 1) < 140 ) return notify_fail(ME);
         if( (int)me->query_skill("zixia-gong", 1) < 140 ) return notify_fail(ME);
-        if( me->query_temp("leidong")) return notify_fail("ÄãÕıÔÚÊ¹ÓÃÀ×¶¯¾ÅÌì£¡\n");
-        if( target->query_temp("leidong")) return notify_fail("¶Ô·½ÕıÔÚÊ¹ÓÃÀ×¶¯¾ÅÌì£¡\n");
+        if( me->query_temp("leidong")) return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨é›·åŠ¨ä¹å¤©ï¼\n");
+        if( target->query_temp("leidong")) return notify_fail("å¯¹æ–¹æ­£åœ¨ä½¿ç”¨é›·åŠ¨ä¹å¤©ï¼\n");
         if (!wep1 || wep1->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "chongling-jian")
                 return notify_fail(ME);
@@ -38,7 +38,7 @@ int perform(object me, object target)
         k = sizeof(enemy);
         while (k--)
         if (target->is_fighting(enemy[k])) break;
-        if (k<0) return notify_fail(target->name()+"²¢Ã»ÓĞºÍÄãµÄ¶ÔÊÖÔÚ½»Õ½¡£\n");
+        if (k<0) return notify_fail(target->name()+"å¹¶æ²¡æœ‰å’Œä½ çš„å¯¹æ‰‹åœ¨äº¤æˆ˜ã€‚\n");
 
         if( (int)target->query_skill("chongling-jian", 1) < 140 )
                 return notify_fail(TAR);
@@ -48,9 +48,9 @@ int perform(object me, object target)
         if (target->is_busy() || !wep2 || wep2->query("skill_type") != "sword"
         || target->query_skill_mapped("sword") != "chongling-jian")
                 return notify_fail(TAR);
-        message_vision(HIY "\nÖ»¼ûËû¶şÈËÔÚ°ë¿ÕÖĞÇáÉíÆ®¿ª£¬¾ãÊÇ×ì½Çº¬Ğ¦£¬×ËÌ¬ÉñÇé£¬±ãËÆ¹üÔÚÒ»ÍÅºÍìãµÄ´º\n"+
-                           "\n·çÖ®ÖĞ¡£²»Öª²»¾õÖ®¼ä£¬¶¼»ØÏëµ½´ÓÇ°µÄÇé¾°£¬³ö½£×ªÂı£¬Ã¼ÉÒÑÛ½Ç£¬Ò»ÕĞÒ»Ê½£¬\n"+
-                           "\nÓÅÑÅÈçÏÉ£¬Äã²»ÓÉ¿´µÄ´ôÁË......\n" NOR, me, target);
+        message_vision(HIY "\nåªè§ä»–äºŒäººåœ¨åŠç©ºä¸­è½»èº«é£˜å¼€ï¼Œä¿±æ˜¯å˜´è§’å«ç¬‘ï¼Œå§¿æ€ç¥æƒ…ï¼Œä¾¿ä¼¼è£¹åœ¨ä¸€å›¢å’Œç…¦çš„æ˜¥\n"+
+                           "\né£ä¹‹ä¸­ã€‚ä¸çŸ¥ä¸è§‰ä¹‹é—´ï¼Œéƒ½å›æƒ³åˆ°ä»å‰çš„æƒ…æ™¯ï¼Œå‡ºå‰‘è½¬æ…¢ï¼Œçœ‰æ¢¢çœ¼è§’ï¼Œä¸€æ‹›ä¸€å¼ï¼Œ\n"+
+                           "\nä¼˜é›…å¦‚ä»™ï¼Œä½ ä¸ç”±çœ‹çš„å‘†äº†......\n" NOR, me, target);
         me->set_temp("hebi", 1);
         target->set_temp("hebi", 1);
         me->receive_damage("jingli", 100);
@@ -114,7 +114,7 @@ private int remove_effect(object me, object target, int amount)
          && !me->is_ghost()
          && living(target)
          && !target->is_ghost())
-           message_vision(HIY "\n$NºÍ$nË«½£ºÏèµÓÃÍê£¬ÁéÏ¬»¥Í¨£¬ÏàÊÓÒ»Ğ¦£¬¸÷×ÔÊÕÕĞ¡£\n" NOR, me, target);
+           message_vision(HIY "\n$Nå’Œ$nåŒå‰‘åˆç’§ç”¨å®Œï¼ŒçµçŠ€äº’é€šï¼Œç›¸è§†ä¸€ç¬‘ï¼Œå„è‡ªæ”¶æ‹›ã€‚\n" NOR, me, target);
 
         me->add_temp("apply/dexerity", -amount);
         me->add_temp("apply/strength", -amount);

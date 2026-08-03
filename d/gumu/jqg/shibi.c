@@ -1,15 +1,15 @@
-// shibi.c Ê¯±Ú
+// shibi.c çŸ³å£
 // By River 99.5.25
 inherit ROOM;
 #include <room.h>
 #include <ansi.h>
 void create()
 {
-       set("short","Ê¯±Ú");
+       set("short","çŸ³å£");
        set("long",@LONG
-ÄãÔ¼ÄªÅÀÁËÁùÆßÊ®ÕÉ£¬ÕÌ×ÅÇá¹¦×¿¾ø£¬Ò»Â·»¯ÏÕÎªÒÄ£¬µ«ÅÀµ½Àë¶´Ñ¨Æß°Ë
-ÕÉÊ±£¬Ê¯±Ú²»µ«¹â»¬Òì³££¬ÔÙÎŞ¿ÉÈİÊÖ×ãÖ®´¦£¬¶øÇÒÏòÄÚÇãĞ±£¬³ı·ÇÊÇ±Ú»¢¡¢
-²ÔÓ¬£¬·½ÄÜ¸½±Ú²»Âä¡£
+ä½ çº¦è«çˆ¬äº†å…­ä¸ƒåä¸ˆï¼Œä»—ç€è½»åŠŸå“ç»ï¼Œä¸€è·¯åŒ–é™©ä¸ºå¤·ï¼Œä½†çˆ¬åˆ°ç¦»æ´ç©´ä¸ƒå…«
+ä¸ˆæ—¶ï¼ŒçŸ³å£ä¸ä½†å…‰æ»‘å¼‚å¸¸ï¼Œå†æ— å¯å®¹æ‰‹è¶³ä¹‹å¤„ï¼Œè€Œä¸”å‘å†…å€¾æ–œï¼Œé™¤éæ˜¯å£è™ã€
+è‹è‡ï¼Œæ–¹èƒ½é™„å£ä¸è½ã€‚
 LONG
 );
        set("no_sleep_room", 1);
@@ -29,18 +29,18 @@ int do_shuai(string arg)
        me=this_player();
        if ( !arg || arg !="shugan") return 0;
        if ( me->is_busy() || me->is_fighting())
-            return notify_fail("ÄãÕıÃ¦×ÅÄØ\n");
+            return notify_fail("ä½ æ­£å¿™ç€å‘¢\n");
        if (me->query_temp("jqg/shuai"))
-            return notify_fail("ÄãÒÑ¾­°ÑÊ÷¸ÉË¤³ö¶´Ñ¨ÁË¡£\n");
+            return notify_fail("ä½ å·²ç»æŠŠæ ‘å¹²æ‘”å‡ºæ´ç©´äº†ã€‚\n");
        if (!ob1=(present("zao shugan",me)))
-            return notify_fail("ÄãÓÃÊ²Ã´¶«Î÷Ë¤°¡£¿\n");
+            return notify_fail("ä½ ç”¨ä»€ä¹ˆä¸œè¥¿æ‘”å•Šï¼Ÿ\n");
        if (!me->query_temp("jqg/fu") || !ob1->query("jqg/fu"))
-            return notify_fail("Äã¾ÍÕâÑù°ÑÊ÷¸ÉË¤ÉÏÈ¥ÓĞºÎÓÃ£¿\n");
+            return notify_fail("ä½ å°±è¿™æ ·æŠŠæ ‘å¹²æ‘”ä¸Šå»æœ‰ä½•ç”¨ï¼Ÿ\n");
        me->start_busy(2);
        destruct(ob1);
        me->set_temp("jqg/shuai", 1);
-       message_vision("$NË«×ãÊ¹³öÇ§½ï×¹¹¦·ò£¬ÀÎÀÎÌ¤ÔÚÊ¯±ÚÖ®ÉÏ£¬Ë«±ÛÔË¾¢£¬½«Ê÷¸ÉË¤³ö¶´Ñ¨¡£\n",me);
-       tell_object(me,"ÕâÒ»ÏÂ¾¢Á¦Ê¹µÃÇ¡µ½ºÃ´¦£¬Ê÷¸ÉÂäÏÂÊ±ÕıºÃºá¼ÜÔÚ¶´Ñ¨¿ÚÉÏ¡£\n");
+       message_vision("$NåŒè¶³ä½¿å‡ºåƒæ–¤å åŠŸå¤«ï¼Œç‰¢ç‰¢è¸åœ¨çŸ³å£ä¹‹ä¸Šï¼ŒåŒè‡‚è¿åŠ²ï¼Œå°†æ ‘å¹²æ‘”å‡ºæ´ç©´ã€‚\n",me);
+       tell_object(me,"è¿™ä¸€ä¸‹åŠ²åŠ›ä½¿å¾—æ°åˆ°å¥½å¤„ï¼Œæ ‘å¹²è½ä¸‹æ—¶æ­£å¥½æ¨ªæ¶åœ¨æ´ç©´å£ä¸Šã€‚\n");
        return 1;
 }
 
@@ -51,32 +51,32 @@ int do_pa(string arg)
        me=this_player();
        if ( !arg || (arg != "down" && arg != "up")) return 0;
        if ( me->is_busy() || me->is_fighting())
-             return notify_fail("ÄãÕıÃ¦×ÅÄØ\n");
+             return notify_fail("ä½ æ­£å¿™ç€å‘¢\n");
        if ( arg =="up"){
        if (!me->query_temp("jqg/shuai"))
-             return notify_fail("Ê¯±Ú¹â»¬Òì³££¬ÎŞ¿ÉÈİÊÖ×ãÖ®´¦£¬³ı·ÇÊÇ±Ú»¢¡¢²ÔÓ¬£¬·½ÄÜ¸½±Ú²»Âä¡£\n");
+             return notify_fail("çŸ³å£å…‰æ»‘å¼‚å¸¸ï¼Œæ— å¯å®¹æ‰‹è¶³ä¹‹å¤„ï¼Œé™¤éæ˜¯å£è™ã€è‹è‡ï¼Œæ–¹èƒ½é™„å£ä¸è½ã€‚\n");
        ob = deep_inventory(me);
        i = sizeof(ob);
        while (i--)
        if (ob[i]->is_character())
-             return notify_fail("ÄãÉíÉÏ±³¸ºÒ»¸öÈË£¬ÎŞ·¨ÇáËÉÅÀÉÏÈ¥¡£\n");
-       message_vision("$NË«ÊÖ×¥×ÅÉşË÷£¬½»»¥ÉÏÉı£¬ÉÏÉıµÃ¸ü¿ìÁË£¬²»Ò»»á¶ùÒÑÈ»ÅÀ³ö¶´Ñ¨¡£\n",me);
+             return notify_fail("ä½ èº«ä¸ŠèƒŒè´Ÿä¸€ä¸ªäººï¼Œæ— æ³•è½»æ¾çˆ¬ä¸Šå»ã€‚\n");
+       message_vision("$NåŒæ‰‹æŠ“ç€ç»³ç´¢ï¼Œäº¤äº’ä¸Šå‡ï¼Œä¸Šå‡å¾—æ›´å¿«äº†ï¼Œä¸ä¸€ä¼šå„¿å·²ç„¶çˆ¬å‡ºæ´ç©´ã€‚\n",me);
        me->delete_temp("jqg");
        me->move(__DIR__"shanlu6");
-       tell_room(environment(me), me->name() + "´ÓÏÂÃæµÄ"HIW"Ê¯¿ß"NOR"ÅÊÅÀÉÏÀ´¡£\n",me);
+       tell_room(environment(me), me->name() + "ä»ä¸‹é¢çš„"HIW"çŸ³çªŸ"NOR"æ”€çˆ¬ä¸Šæ¥ã€‚\n",me);
        return 1;
        }
        if ( arg == "down"){
        if (me->query_temp("jqg/shuai"))
-             return notify_fail("ÄãÒÑ¾­°ÑÊ÷¸É¶¼Ë¤³öÈ¥ÁË£¬»¹²»¿ìµãÅÀÉÏÈ¥£¿\n");
+             return notify_fail("ä½ å·²ç»æŠŠæ ‘å¹²éƒ½æ‘”å‡ºå»äº†ï¼Œè¿˜ä¸å¿«ç‚¹çˆ¬ä¸Šå»ï¼Ÿ\n");
        ob = deep_inventory(me);
        i = sizeof(ob);
        while (i--)
        if (ob[i]->is_character())
-             return notify_fail("ÄãÉíÉÏ±³¸ºÒ»¸öÈË£¬ÎŞ·¨ÇáËÉÅÀÏÂÈ¥¡£\n");
-       message_vision("$N²ì¿´ÖÜÔâĞÎÊÆ£¬Í·¶¥¶´Ñ¨¾¶³¤ÕÉĞí£¬×ã¿É³öÈë¶øÓĞÓà£¬ÓÖÅÀ»ØÊ¯¿ßÖ®µ×¡£\n",me);
+             return notify_fail("ä½ èº«ä¸ŠèƒŒè´Ÿä¸€ä¸ªäººï¼Œæ— æ³•è½»æ¾çˆ¬ä¸‹å»ã€‚\n");
+       message_vision("$Nå¯Ÿçœ‹å‘¨é­å½¢åŠ¿ï¼Œå¤´é¡¶æ´ç©´å¾„é•¿ä¸ˆè®¸ï¼Œè¶³å¯å‡ºå…¥è€Œæœ‰ä½™ï¼Œåˆçˆ¬å›çŸ³çªŸä¹‹åº•ã€‚\n",me);
        me->move(__DIR__"shiyao");
-       tell_room(environment(me), me->name() + "´ÓÉÏÃæµÄÊ¯±ÚÅÊÅÀÏÂÀ´¡£\n",me);
+       tell_room(environment(me), me->name() + "ä»ä¸Šé¢çš„çŸ³å£æ”€çˆ¬ä¸‹æ¥ã€‚\n",me);
        return 1;
        }
 }

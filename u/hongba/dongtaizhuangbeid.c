@@ -1,4 +1,4 @@
-// 动态装备aotuload控制文件  by hongba
+// 鍔ㄦ�佽澶嘺otuload鎺у埗鏂囦欢  by hongba
 inherit F_SAVE;
 #include <ansi.h>
 #include <mudlib.h>
@@ -17,7 +17,7 @@ worker_array = values(me->query("ob_equ"));
 for(i=0;i<sizeof(worker_array);i++) {
                 if ( mapp(ob_equ = worker_array[i]) && stringp(ob_equ["save_id"]) )
 
-return ;  // 不知道这里该怎么写，只好写个return.... 期待jpei同志
+return ;  // 涓嶇煡閬撹繖閲岃鎬庝箞鍐欙紝鍙ソ鍐欎釜return.... 鏈熷緟jpei鍚屽織
         }
 
 }

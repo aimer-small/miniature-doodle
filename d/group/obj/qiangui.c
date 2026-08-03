@@ -7,13 +7,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name(YEL"Ç®¹ñ"NOR, ({ "qian gui","cash box" }));
+	set_name(YEL"é’±æŸœ"NOR, ({ "qian gui","cash box" }));
 	set_weight(15000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¾ß");
-		set("long", "ÕâÊÇÒ»¾ß·ÅÇ®µÄÇ®¹ñ¡£Äã¿ÉÒÔÓÃËûÀ´£º\n²éÕÊ£ºcheck\n´æÇ®£ºdeposit\nÈ¡Ç®£ºwithdraw\n");
+		set("unit", "å…·");
+		set("long", "è¿™æ˜¯ä¸€å…·æ”¾é’±çš„é’±æŸœã€‚ä½ å¯ä»¥ç”¨ä»–æ¥ï¼š\næŸ¥å¸ï¼šcheck\nå­˜é’±ï¼šdeposit\nå–é’±ï¼šwithdraw\n");
 		set("value", 15000000);
 		set("no_give", 1);
 		set("no_drop", 1);
@@ -28,10 +28,10 @@ void create()
 
 void init()
 {
-	add_action("do_drop", ({"drop","fangzhi","·ÅÖÃ"}));
-	add_action("do_check", ({"check", "chazhang", "²éÕÊ"}));
-	add_action("do_deposit", ({"deposit", "cun", "´æ"}));
-	add_action("do_withdraw", ({"withdraw", "qu", "È¡"}));
+	add_action("do_drop", ({"drop","fangzhi","æ”¾ç½®"}));
+	add_action("do_check", ({"check", "chazhang", "æŸ¥å¸"}));
+	add_action("do_deposit", ({"deposit", "cun", "å­˜"}));
+	add_action("do_withdraw", ({"withdraw", "qu", "å–"}));
 }
 
 int do_drop(string arg)
@@ -41,11 +41,11 @@ int do_drop(string arg)
 	if( !arg || !id(arg) || env!=me ) return 0;
 	env = environment(me);
 	if( !me->query("group/id") ) {
-		tell_object(me,"Äã²¢Ã»ÓĞ¿ª°ïÁ¢ÅÉ£¬ÒªÇ®¹ñºÎÓÃ£¿\n");
+		tell_object(me,"ä½ å¹¶æ²¡æœ‰å¼€å¸®ç«‹æ´¾ï¼Œè¦é’±æŸœä½•ç”¨ï¼Ÿ\n");
 		return 1;
 	}
 	if( env && stringp(env->query("outdoors")) ) {
-		tell_object(me,"Ç®¹ñ²»ÄÜ·ÅÔÚÊÒÍâ¡£\n");
+		tell_object(me,"é’±æŸœä¸èƒ½æ”¾åœ¨å®¤å¤–ã€‚\n");
 		return 1;
 	}
 	if( !GROUP_D->site_now(me->query("group/id")) ) {
@@ -53,7 +53,7 @@ int do_drop(string arg)
 		return 1;
 	}
 
-	GROUP_D->drop_object(this_object(),me,env,"$N¿ªÊ¼Ğ¡ĞÄµÄ°Ú·ÅÇ®¹ñ¡­¡­\n","ÄãÃ¦ÂµÁË°ëÌì£¬×ÜËã°ÑÇ®¹ñ·ÅÖÃºÃ¡£\n");
+	GROUP_D->drop_object(this_object(),me,env,"$Nå¼€å§‹å°å¿ƒçš„æ‘†æ”¾é’±æŸœâ€¦â€¦\n","ä½ å¿™ç¢Œäº†åŠå¤©ï¼Œæ€»ç®—æŠŠé’±æŸœæ”¾ç½®å¥½ã€‚\n");
 	return 1;
 }
 
@@ -64,21 +64,21 @@ int do_check(string arg)
 
 	if( !env || env==me ) return 0;
 	if( !env->query("group1") ) {
-		tell_object(me,"ÄãÖ»ÄÜÔÚ°ï»áÖ®ÄÚÊ¹ÓÃÕâ¸ö"+this_object()->name()+"¡£\n");
+		tell_object(me,"ä½ åªèƒ½åœ¨å¸®ä¼šä¹‹å†…ä½¿ç”¨è¿™ä¸ª"+this_object()->name()+"ã€‚\n");
 		return 1;
 	}
 	if( me->is_busy() ) {
-		tell_object(me,"ÄãÕıÃ¦×ÅÄØ¡£\n");
+		tell_object(me,"ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 		return 1;
 	}
 
 	money = GROUP_D->query_money( env->query("group1") );
 	if( money < -50000 ) {
-		tell_object(me,"Êı¾İ¿â²éÑ¯´íÎó£¬Çë±¨¸æÎ×Ê¦£¡\n");
+		tell_object(me,"æ•°æ®åº“æŸ¥è¯¢é”™è¯¯ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 		return 1;
 	}
 
-	tell_object(me,"ÏÖÔÚ"+name()+"Ö®ÖĞ£¬×Ü¹²´æÓĞ"HIY"»Æ½ğ"NOR+CHINESE_D->chinese_number(money)+"¶§¡£\n");
+	tell_object(me,"ç°åœ¨"+name()+"ä¹‹ä¸­ï¼Œæ€»å…±å­˜æœ‰"HIY"é»„é‡‘"NOR+CHINESE_D->chinese_number(money)+"é”­ã€‚\n");
 	if(!wizardp(me)) me->start_busy(2);
 	return 1;
 }
@@ -92,19 +92,19 @@ int do_deposit(string arg)
 
 	if( !env || env==me ) return 0;
 	if( !arg || sscanf(arg,"%d %s",money, gold_money) != 2 || gold_money != "gold")
-		return notify_fail("ÄãÒª·ÅÈë(deposit <ÊıÁ¿> gold)¶àÉÙ»Æ½ğ£¿\n");
+		return notify_fail("ä½ è¦æ”¾å…¥(deposit <æ•°é‡> gold)å¤šå°‘é»„é‡‘ï¼Ÿ\n");
 	if( !env->query("group1") )
-		return notify_fail("ÄãÖ»ÄÜÔÚ°ï»áÖ®ÄÚÊ¹ÓÃÕâ¸ö"+this_object()->name()+"¡£\n");
+		return notify_fail("ä½ åªèƒ½åœ¨å¸®ä¼šä¹‹å†…ä½¿ç”¨è¿™ä¸ª"+this_object()->name()+"ã€‚\n");
 	if( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if( !(gold=present("gold_money",me)) || gold->query_amount()<money )
-		return notify_fail("Äã´øµÄÇ®²»¹»¡£\n");
-if(money <= 0)   return notify_fail("ÄãµÄÊäÈëÓĞÎó£¬ÇëÖØÊÔ¡£\n");
+		return notify_fail("ä½ å¸¦çš„é’±ä¸å¤Ÿã€‚\n");
+if(money <= 0)   return notify_fail("ä½ çš„è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡è¯•ã€‚\n");
 	if( GROUP_D->add_money(env->query("group1"),money) < -50000 )
-		return notify_fail("Êı¾İ¿â²Ù×÷Ê§°Ü£¬Çë±¨¸æÎ×Ê¦£¡\n");
+		return notify_fail("æ•°æ®åº“æ“ä½œå¤±è´¥ï¼Œè¯·æŠ¥å‘Šå·«å¸ˆï¼\n");
 	gold->add_amount(-money);
 
-	message_vision("$NÄÃ³ö"+CHINESE_D->chinese_number(money)+"¶§"HIY"»Æ½ğ"NOR"£¬·ÅÈëÇ®¹ñ¡£\n", me);
+	message_vision("$Næ‹¿å‡º"+CHINESE_D->chinese_number(money)+"é”­"HIY"é»„é‡‘"NOR"ï¼Œæ”¾å…¥é’±æŸœã€‚\n", me);
 	if(!wizardp(me)) me->start_busy(2);
 	return 1;
 }
@@ -118,23 +118,23 @@ int do_withdraw(string arg)
 
 	if( !env || env==me ) return 0;
 	if( !arg || sscanf(arg,"%d %s",money, gold_money) != 2 || gold_money != "gold")
-		return notify_fail("ÄãÒªÈ¡³ö(withdraw <ÊıÁ¿> gold)¶àÉÙ»Æ½ğ£¿\n");
+		return notify_fail("ä½ è¦å–å‡º(withdraw <æ•°é‡> gold)å¤šå°‘é»„é‡‘ï¼Ÿ\n");
 	if( !env->query("group1") )
-		return notify_fail("ÄãÖ»ÄÜÔÚ°ï»áÖ®ÄÚÊ¹ÓÃÕâ¸ö"+this_object()->name()+"¡£\n");
+		return notify_fail("ä½ åªèƒ½åœ¨å¸®ä¼šä¹‹å†…ä½¿ç”¨è¿™ä¸ª"+this_object()->name()+"ã€‚\n");
 	if( me->query("group/id")!=env->query("group1") || me->query("group/class")>2 )
-		return notify_fail("ÄãÃ»ÓĞÈ¨Àû´ÓÕâ¸ö"+name()+"ÀïÈ¡Ç®¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰æƒåˆ©ä»è¿™ä¸ª"+name()+"é‡Œå–é’±ã€‚\n");
 	if( me->is_busy() )
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if( (GROUP_D->query_money(env->query("group1"))-LIMIT_GOLD) < money )
-		return notify_fail("È¥³ı"+CHINESE_D->chinese_number(LIMIT_GOLD)+"¶§»Æ½ğµÄ±£Ö¤½ğÖ®ºó£¬"+name()+"ÀïµÄ»Æ½ğ²»¹»ÄãÈ¡µÄ¡£\n");
-if(money <= 0)   return notify_fail("ÄãµÄÊäÈëÓĞÎó£¬ÇëÖØÊÔ¡£\n");
+		return notify_fail("å»é™¤"+CHINESE_D->chinese_number(LIMIT_GOLD)+"é”­é»„é‡‘çš„ä¿è¯é‡‘ä¹‹åï¼Œ"+name()+"é‡Œçš„é»„é‡‘ä¸å¤Ÿä½ å–çš„ã€‚\n");
+if(money <= 0)   return notify_fail("ä½ çš„è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡è¯•ã€‚\n");
 	if( GROUP_D->add_money(env->query("group1"),-money) < -50000 )
-		return notify_fail("Êı¾İ¿â²Ù×÷Ê§°Ü£¬ÇëÍ¨ÖªÎ×Ê¦£¡\n");
+		return notify_fail("æ•°æ®åº“æ“ä½œå¤±è´¥ï¼Œè¯·é€šçŸ¥å·«å¸ˆï¼\n");
 	gold = new("/clone/money/gold");
 	gold->set_amount(money);
 	gold->move(me);
 
-	message_vision("$N´Ó"+name()+"ÀïÄÃ³ö"+CHINESE_D->chinese_number(money)+"¶§"HIY"»Æ½ğ"NOR"¡£\n", me);
+	message_vision("$Nä»"+name()+"é‡Œæ‹¿å‡º"+CHINESE_D->chinese_number(money)+"é”­"HIY"é»„é‡‘"NOR"ã€‚\n", me);
 	if(!wizardp(me)) me->start_busy(2);
 	return 1;
 }
@@ -151,7 +151,7 @@ void broken()
 	if( money > LIMIT_GOLD ) money = LIMIT_GOLD;
 
 	if( GROUP_D->add_money(groupid,-money) < -10000 ) return;
-	tell_room(room,name()+"±»´òÆÆÁË£¬µô³öºÜ¶à½ğÔª±¦¡£\n");
+	tell_room(room,name()+"è¢«æ‰“ç ´äº†ï¼Œæ‰å‡ºå¾ˆå¤šé‡‘å…ƒå®ã€‚\n");
 	gold = new("/clone/money/gold");
 	gold->set_amount(money);
 	gold->move(room);
@@ -164,6 +164,6 @@ varargs int move(mixed dest, int silently)
 	if( !objectp(dest) || clonep(dest) ) return result;
 	if( !dest->query("group2") ) return result;
 
-	set("name",YEL+dest->query("group2")+HIY"µÄÇ®¹ñ"NOR);
+	set("name",YEL+dest->query("group2")+HIY"çš„é’±æŸœ"NOR);
 	return result;
 }

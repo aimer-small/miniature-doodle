@@ -1,15 +1,15 @@
-//brush_book.c ÁÙÄ¡×ÖÌù
+//brush_book.c ä¸´æ‘¹å­—è´´
 inherit ITEM;
 
 void create()
 {
-        set_name("ÁÙÄ¡×ÖÌù", ({ "linmo zitie","zitie","shu","book" }));
+        set_name("ä¸´æ‘¹å­—è´´", ({ "linmo zitie","zitie","shu","book" }));
         set_weight(600);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
-                set("long", "ÕâÊÇÒ»±¾»ã¼¯ÖÚ¶àÃû¼ÒÊé·¨µÄÁÙÄ¡×ÖÌù¡£\n");
+                set("unit", "æœ¬");
+                set("long", "è¿™æ˜¯ä¸€æœ¬æ±‡é›†ä¼—å¤šåå®¶ä¹¦æ³•çš„ä¸´æ‘¹å­—è´´ã€‚\n");
                 set("unique", 1);
                 set("treasure",1);                              
                 set("value", 1000);

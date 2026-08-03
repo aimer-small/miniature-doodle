@@ -9,14 +9,14 @@ void init()
 
 void create()
 {
-        set_name("½â¶¾Íè", ({"jiedu wan", "wan"}));
+        set_name("è§£æ¯’ä¸¸", ({"jiedu wan", "wan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else 
         {
                 set("value", 3000);
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿Å½â¶¾Íè£¬¿ÉÒÔÓĞĞ§µÄ¿ËÖÆ¸÷ÖÖ¶¾ËØ¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—è§£æ¯’ä¸¸ï¼Œå¯ä»¥æœ‰æ•ˆçš„å…‹åˆ¶å„ç§æ¯’ç´ ã€‚\n");
         }
 }
 
@@ -24,11 +24,11 @@ int do_eat(string arg)
 {
         object me = this_player();
         if (!id(arg))
-                return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
         if (me->is_busy())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         me->clear_conditions_by_type("poison");
-        message_vision(HIY"$N³ÔÏÂÒ»¿Å½â¶¾Íè£¬ÌåÄÚËùÖĞÖ®¶¾µÃµ½ÁË»º½â¡£\n"NOR, me);
+        message_vision(HIY"$Nåƒä¸‹ä¸€é¢—è§£æ¯’ä¸¸ï¼Œä½“å†…æ‰€ä¸­ä¹‹æ¯’å¾—åˆ°äº†ç¼“è§£ã€‚\n"NOR, me);
         me->start_busy(1);
         destruct(this_object());
         return 1;

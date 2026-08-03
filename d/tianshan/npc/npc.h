@@ -6,12 +6,12 @@ void attempt_apprentice(object ob)
 {
 
 		        
-        if( (string)ob->query("gender") != "Å®ĞÔ" ) {
-                command ("say ¶Ô²»Æğ£¬ÁéğÕ¹¬Ö»ÊÕÅ®º¢×Ó¡£");
+        if( (string)ob->query("gender") != "å¥³æ€§" ) {
+                command ("say å¯¹ä¸èµ·ï¼Œçµé¹«å®«åªæ”¶å¥³å­©å­ã€‚");
                 return;
         }
 
-        command("say ß×£¬²»´íµÄĞ¡Å®º¢Âï£¬ÎÒ¾ÍÊÕÏÂÄãÁË¡£");
+        command("say å’¦ï¼Œä¸é”™çš„å°å¥³å­©å˜›ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ äº†ã€‚");
         command("recruit " + ob->query("id"));
         
          return;

@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIG"���и�"NOR);
+	set("short", HIG"天中阁"NOR);
 	set("long", @LONG
-�˴�λ����ɽ�ɾ�����Ժ���в����������С��ɴ�����ǰ�У�����
-��ɽ���ĵ��ã�����������������һ����ʯ·ֱͨ���
+此处位于嵩山派峻极禅院的中部，又名天中。由此再往前行，便是
+嵩山最大的殿堂：峻极殿。东西两面各有一条碎石路直通这里。
 LONG);
 	set("exits", ([ 
             "north" : __DIR__"shidao2",
@@ -20,7 +20,7 @@ LONG);
         set("objects", ([ 
             CLASS_D("songshan") + "/tang" : 1,
         ]));
-    set("indoors", "��ɽ");
+    set("indoors", "嵩山");
 	set("coor/x",40);
   set("coor/y",310);
    set("coor/z",110);

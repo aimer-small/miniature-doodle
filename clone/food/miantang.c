@@ -1,17 +1,17 @@
-// miantang.c ÃæÌÀ
+// miantang.c é¢æ±¤
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-        set_name("ÃæÌÀ", ({ "miantang" }));
+        set_name("é¢æ±¤", ({ "miantang" }));
         set_weight(100);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("long", "ÕâÊÇÒ»ÍëÇåµ­µÄÃæÌÀ¡£\n");
-                set("unit", "Íë");
+                set("long", "è¿™æ˜¯ä¸€ç¢—æ¸…æ·¡çš„é¢æ±¤ã€‚\n");
+                set("unit", "ç¢—");
                 set("value", 50);
                 set("food_remaining", 1);
                 set("food_supply", 30);

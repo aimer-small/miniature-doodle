@@ -1,4 +1,4 @@
-// rejoin.c	ÖØ³ö½­ºþ
+// rejoin.c	é‡å‡ºæ±Ÿæ¹–
 // by augx@sj 3/15/2002
 
 #include <ansi.h>
@@ -7,11 +7,11 @@ inherit F_CLEAN_UP;
 void abandon(object me)
 {
 	if( !me->query("prepare_rejoin") ) {
-		tell_object(me,"Äã²¢Ã»ÓÐÖØ³ö½­ºþ°¡¡£\n");
+		tell_object(me,"ä½ å¹¶æ²¡æœ‰é‡å‡ºæ±Ÿæ¹–å•Šã€‚\n");
 		return;
 	}
 	me->delete("prepare_rejoin");
-	tell_object(me,"Äã·ÅÆúÁËÖØ³ö½­ºþ¡£\n");
+	tell_object(me,"ä½ æ”¾å¼ƒäº†é‡å‡ºæ±Ÿæ¹–ã€‚\n");
 }
 /*
 if( me->query("no_pk") > 3000000 )
@@ -31,8 +31,8 @@ private void reward_player(object me)
 	exp = me->query("combat_exp") * cuted / 100;
 	me->add("combat_exp",-exp);
 	
-	log_file("static/RETIRE",sprintf("ÖØ³ö½­ºþ£º%8s(%-8s) £»cut lit£º%d",me->name(1),me->query("id"),cuted),me);
-	log_file("static/RETIRE",sprintf("ÖØ³ö½­ºþ£º%8s(%-8s) £»cut exp£º%d",me->name(1),me->query("id"),exp),me);
+	log_file("static/RETIRE",sprintf("é‡å‡ºæ±Ÿæ¹–ï¼š%8s(%-8s) ï¼›cut litï¼š%d",me->name(1),me->query("id"),cuted),me);
+	log_file("static/RETIRE",sprintf("é‡å‡ºæ±Ÿæ¹–ï¼š%8s(%-8s) ï¼›cut expï¼š%d",me->name(1),me->query("id"),exp),me);
 	
 	if(me->query_skill("literate",1) <= cuted) me->delete_skill("literate");
 	else me->set_skill("literate",me->query_skill("literate",1) - cuted );
@@ -49,15 +49,15 @@ int main(object me, string arg)
 		return 1;
 	}
         if ( me->query("combat_exp") < 5000000 )
-			return notify_fail("°¥ßÏ£¡ÄãÄÇµã¾­Ñé²»¹»¿´µÄ£¬»¹ÊÇÏÈÁ·Á·ÔÙËµ°É¡£\n");
+			return notify_fail("å“Žå‘¦ï¼ä½ é‚£ç‚¹ç»éªŒä¸å¤Ÿçœ‹çš„ï¼Œè¿˜æ˜¯å…ˆç»ƒç»ƒå†è¯´å§ã€‚\n");
 
 	if( !me->query("no_pk") )
-		return notify_fail("Äã²¢Ã»ÓÐ½ðÅèÏ´ÊÖ°¡¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰é‡‘ç›†æ´—æ‰‹å•Šã€‚\n");
 
 	if( me->query("prepare_rejoin") ) {
 		if( (time()-me->query("prepare_rejoin_time")) < 604800 )
-			return notify_fail("ÄãÖØ³ö½­ºþµÄÊ±¼ä»¹Î´µ½¡£\n");
-		CHANNEL_D->do_channel(me,"chat",HIY"¸÷Î»Í¬µÀ£¬ÎÒ½ñÈÕÕýÊ½ÖØ³ö½­ºþ£¬´Ó´Ë×ÝºáÎäÁÖ£¬¿ìÒâ¶÷³ð£¡"NOR);
+			return notify_fail("ä½ é‡å‡ºæ±Ÿæ¹–çš„æ—¶é—´è¿˜æœªåˆ°ã€‚\n");
+		CHANNEL_D->do_channel(me,"chat",HIY"å„ä½åŒé“ï¼Œæˆ‘ä»Šæ—¥æ­£å¼é‡å‡ºæ±Ÿæ¹–ï¼Œä»Žæ­¤çºµæ¨ªæ­¦æž—ï¼Œå¿«æ„æ©ä»‡ï¼"NOR);
 		me->delete("prepare_rejoin");
 		me->delete("prepare_rejoin_time");
 		
@@ -68,12 +68,12 @@ int main(object me, string arg)
 		me->delete("no_pk");		
 		me->setup();
 		me->save();
-		log_file("static/RETIRE",sprintf("ÖØ³ö½­ºþ£º%8s(%-8s) £»exp£º%d(%d)",me->name(1),me->query("id"),me->query("combat_exp"),exp),me);
+		log_file("static/RETIRE",sprintf("é‡å‡ºæ±Ÿæ¹–ï¼š%8s(%-8s) ï¼›expï¼š%d(%d)",me->name(1),me->query("id"),me->query("combat_exp"),exp),me);
 	}
 	else {
 		if( (time()-me->query("prepare_rejoin_time")) < 604800 )
-			return notify_fail("Äã²»ÊÇ¸Õ¸Õ²Å·ÅÆúÖØ³ö½­ºþÂð£¿\n");
-		CHANNEL_D->do_channel(me,"chat",HIY"¸÷Î»Í¬µÀ£¬ÎÒ²»ÔÙ¸ÊÓÚ¼ÅÄ¯£¬¾ö¶¨ÔÚÆßÈÕÖ®ºóÖØ³ö½­ºþ£¬ÔÙ´ÎÏíÊÜ¿ìÒâ¶÷³ðµÄÈÕ×Ó£¡"NOR);
+			return notify_fail("ä½ ä¸æ˜¯åˆšåˆšæ‰æ”¾å¼ƒé‡å‡ºæ±Ÿæ¹–å—ï¼Ÿ\n");
+		CHANNEL_D->do_channel(me,"chat",HIY"å„ä½åŒé“ï¼Œæˆ‘ä¸å†ç”˜äºŽå¯‚å¯žï¼Œå†³å®šåœ¨ä¸ƒæ—¥ä¹‹åŽé‡å‡ºæ±Ÿæ¹–ï¼Œå†æ¬¡äº«å—å¿«æ„æ©ä»‡çš„æ—¥å­ï¼"NOR);
 		me->set("prepare_rejoin",1);
 		me->set("prepare_rejoin_time",time());
 	}
@@ -84,19 +84,19 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : rejoin
+æŒ‡ä»¤æ ¼å¼ : rejoin
 
-ÖØÐÂ³öÉ½£¬²ÎÓë½­ºþÕù¶·¡£
+é‡æ–°å‡ºå±±ï¼Œå‚ä¸Žæ±Ÿæ¹–äº‰æ–—ã€‚
 
-Èç¹ûÄãÒªÖØ³ö½­ºþ£¬ÔÚµÚÒ»´ÎÊäÈë´ËÃüÁîºó£¬½«ÓÐÆßÌìµÄ»º³åÆÚ£¬
-ÔÚÆßÌìÖ®ÄÚÄã¿ÉÒÔÊ¹ÓÃÃüÁî¡°rejoin abandon¡±À´·ÅÆúÖØ³ö½­ºþ¡£
-ÆßÌìÖ®ºó£¬ÇëÔÚ´ËÊäÈë±¾ÃüÁî£¬¼´¿ÉÕýÊ½ÖØ³ö½­ºþ¡£
-×¢Òâ£ºÖØ³ö½­ºþ½«ÓÐÒ»¶¨µÄ¾­ÑéºÍ¶ÁÊéÐ´×ÖµÈ¼¶ ËðÊ§¡£
-      µÚÒ»´ÎÖØ³ö½­ºþËðÊ§10%¾­ÑéºÍ¶ÁÊéÐ´×Ö¡£ÒÔºóÃ¿´ÎµÝÔö20%
+å¦‚æžœä½ è¦é‡å‡ºæ±Ÿæ¹–ï¼Œåœ¨ç¬¬ä¸€æ¬¡è¾“å…¥æ­¤å‘½ä»¤åŽï¼Œå°†æœ‰ä¸ƒå¤©çš„ç¼“å†²æœŸï¼Œ
+åœ¨ä¸ƒå¤©ä¹‹å†…ä½ å¯ä»¥ä½¿ç”¨å‘½ä»¤â€œrejoin abandonâ€æ¥æ”¾å¼ƒé‡å‡ºæ±Ÿæ¹–ã€‚
+ä¸ƒå¤©ä¹‹åŽï¼Œè¯·åœ¨æ­¤è¾“å…¥æœ¬å‘½ä»¤ï¼Œå³å¯æ­£å¼é‡å‡ºæ±Ÿæ¹–ã€‚
+æ³¨æ„ï¼šé‡å‡ºæ±Ÿæ¹–å°†æœ‰ä¸€å®šçš„ç»éªŒå’Œè¯»ä¹¦å†™å­—ç­‰çº§ æŸå¤±ã€‚
+      ç¬¬ä¸€æ¬¡é‡å‡ºæ±Ÿæ¹–æŸå¤±10%ç»éªŒå’Œè¯»ä¹¦å†™å­—ã€‚ä»¥åŽæ¯æ¬¡é€’å¢ž20%
 
-ËðÊ§»áºÍÄãÖØ³ö½­ºþµÄ´ÎÊýÓÐ¹Ø¡£
+æŸå¤±ä¼šå’Œä½ é‡å‡ºæ±Ÿæ¹–çš„æ¬¡æ•°æœ‰å…³ã€‚
 
-ÆäËûÏà¹ØÖ¸Áî: retire(½ðÅèÏ´ÊÖ)
+å…¶ä»–ç›¸å…³æŒ‡ä»¤: retire(é‡‘ç›†æ´—æ‰‹)
 
 HELP);
 	return 1;

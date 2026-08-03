@@ -8,10 +8,10 @@ inherit ITEM;
 void create()
 {
 	seteuid(ROOT_UID);
-	set_name (HIC"Ìì¿ÕÖ®Í«"NOR, ({ "skyeye","eye" }));
-	set("long","ÕâÊÇÒ»¿Å"HIC"Ìì¿ÕÖ®Í«"NOR"£¬Äã¿ÉÒÔÍ¸¹ı²é¿´(chk)ºÍ¿úÊÓ(peek)ÆäËüÍæ¼Ò¡£\n");
+	set_name (HIC"å¤©ç©ºä¹‹ç³"NOR, ({ "skyeye","eye" }));
+	set("long","è¿™æ˜¯ä¸€é¢—"HIC"å¤©ç©ºä¹‹ç³"NOR"ï¼Œä½ å¯ä»¥é€è¿‡æŸ¥çœ‹(chk)å’Œçª¥è§†(peek)å…¶å®ƒç©å®¶ã€‚\n");
 
-	set("unit","¿Å");
+	set("unit","é¢—");
 	set("no_get", 1);
 	set("no_drop", 1);
 	set_weight(-100000);
@@ -28,10 +28,10 @@ void init()
 string *skill_level_desc = ({ LEVEL });
 
 string *knowledge_level_desc = ({
-	BLU "ĞÂÑ§Õ§ÓÃ" NOR,HIB "³õ¿úÃÅ¾¶" NOR,MAG "ÂÔÖªÒ»¶ş" NOR,HIM "°ëÉú²»Êì" NOR,
-	CYN "ÂíÂí»¢»¢" NOR,YEL "ÒÑÓĞĞ¡³É" NOR,YEL "ÈÚ»á¹áÍ¨" NOR,HIY "ĞÄÁìÉñ»á" NOR,
-	HIY "ÁËÈ»ì¶ĞØ" NOR,HIG "ÒÑÓĞ´ó³É" NOR,HIG "·ÇÍ¬·²Ïì" NOR,HIC "¾ÙÊÀÎŞË«" NOR,
-	HIC "Õğ¹Åîå½ñ" NOR,HIW "ÎŞÓëÂ×±È" NOR,HIW "³¬·²ÈëÊ¥" NOR,HIR "¿ÕÇ°¾øºó" NOR
+	BLU "æ–°å­¦ä¹ç”¨" NOR,HIB "åˆçª¥é—¨å¾„" NOR,MAG "ç•¥çŸ¥ä¸€äºŒ" NOR,HIM "åŠç”Ÿä¸ç†Ÿ" NOR,
+	CYN "é©¬é©¬è™è™" NOR,YEL "å·²æœ‰å°æˆ" NOR,YEL "èä¼šè´¯é€š" NOR,HIY "å¿ƒé¢†ç¥ä¼š" NOR,
+	HIY "äº†ç„¶æ–¼èƒ¸" NOR,HIG "å·²æœ‰å¤§æˆ" NOR,HIG "éåŒå‡¡å“" NOR,HIC "ä¸¾ä¸–æ— åŒ" NOR,
+	HIC "éœ‡å¤é“„ä»Š" NOR,HIW "æ— ä¸ä¼¦æ¯”" NOR,HIW "è¶…å‡¡å…¥åœ£" NOR,HIR "ç©ºå‰ç»å" NOR
 });
 
 string *valid_type = ({
@@ -82,10 +82,10 @@ int do_check(string arg)
         me=this_player();
         
         if(!arg)
-                return notify_fail("ÄãÏë²é¿´ÄÄ¸öË­¡£\n");           
+                return notify_fail("ä½ æƒ³æŸ¥çœ‹å“ªä¸ªè°ã€‚\n");           
         else{
           while (last_on--) if (arg[last_on] < 'a' || arg[last_on] > 'z')
-		    {return notify_fail(arg+"ÊÇÊ²Ã´¶«¶«£¿\n");break;}
+		    {return notify_fail(arg+"æ˜¯ä»€ä¹ˆä¸œä¸œï¼Ÿ\n");break;}
         }
 
 	    if(!objectp(ob = LOGIN_D->find_body(arg))) {
@@ -95,27 +95,27 @@ int do_check(string arg)
 	      seteuid(getuid());
 	      ob->set_name("", ({ arg }));
 	      if (!ob->restore())
-            { destruct(ob); return notify_fail("Ã»ÓĞÕâ¸öÈË¡£\n");}
+            { destruct(ob); return notify_fail("æ²¡æœ‰è¿™ä¸ªäººã€‚\n");}
 	    }
 
   	 if (wiz_level(me) < wiz_level(ob))
-		return notify_fail(HIC"Ìì¿ÕÖ®Í«Í»È»·¢³öÒ«ÑÛµÄÀ¶¹âÕÕµÃÄãÁ½ÑÛ¶¼Õö²»¿ª¡£\n"NOR); 	
+		return notify_fail(HIC"å¤©ç©ºä¹‹ç³çªç„¶å‘å‡ºè€€çœ¼çš„è“å…‰ç…§å¾—ä½ ä¸¤çœ¼éƒ½çä¸å¼€ã€‚\n"NOR); 	
 
  	 if (ob == me)
-		  return notify_fail("Äã»¹ÊÇÈ¥ÕÕ¾µ×Ó°É£¡\n");
+		  return notify_fail("ä½ è¿˜æ˜¯å»ç…§é•œå­å§ï¼\n");
         
         skl = ob->query_skills();
         if(!j = sizeof(skl)) {
-                write(HIY"Ú¤Ú¤ÖĞÄã¿´µ½"+ob->name(1)+"Ä¿Ç°Ã»ÓĞÑ§»áÈÎºÎ¼¼ÄÜ¡£\n"NOR);
+                write(HIY"å†¥å†¥ä¸­ä½ çœ‹åˆ°"+ob->name(1)+"ç›®å‰æ²¡æœ‰å­¦ä¼šä»»ä½•æŠ€èƒ½ã€‚\n"NOR);
                 return 1;
         }
         
         allskills  = sort_array( keys(skl), (: strcmp :) );
         
-        str = HIY"Ú¤Ú¤ÖĞÄã¿´µ½";
-        str += ob->name(1)+"×Ü¹²ÓĞ"+chinese_number(j)+"Ïî¼¼ÄÜ";
-        //if(j > 31) str+= "£¬ÒÑ¾­ÑÏÖØÓ°ÏìÁËÒÔºóµÄ½ø²½£¡";
-        str += "\n©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n";
+        str = HIY"å†¥å†¥ä¸­ä½ çœ‹åˆ°";
+        str += ob->name(1)+"æ€»å…±æœ‰"+chinese_number(j)+"é¡¹æŠ€èƒ½";
+        //if(j > 31) str+= "ï¼Œå·²ç»ä¸¥é‡å½±å“äº†ä»¥åçš„è¿›æ­¥ï¼";
+        str += "\nâ”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n";
 	    map = ob->query_skill_map();
         if( mapp(map) ) mapped = values(map);
         if( !mapped ) mapped = ({});
@@ -128,10 +128,10 @@ int do_check(string arg)
         
         j = sizeof(sname);
         if( j > 0){
-        	str += "©¦"HIY"¡ºÔÓÏî "+chinese_number(j)+" ÖÖ¡»"NOR"£º\t\t\t\t\t\t\t\t\t  ";
+        	str += "â”‚"HIY"ã€æ‚é¡¹ "+chinese_number(j)+" ç§ã€"NOR"ï¼š\t\t\t\t\t\t\t\t\t  ";
         	for(i=0; i < j; i++) {
-        		if (i % 2 == 0) str += "©¦\n©¦";
-        		str += sprintf("%s%-8s%-13s"HIC"¡ú"NOR"%s %3d/%6d  ",
+        		if (i % 2 == 0) str += "â”‚\nâ”‚";
+        		str += sprintf("%s%-8s%-13s"HIC"â†’"NOR"%s %3d/%6d  ",
                         	(lrn[sname[i]] >= (skl[sname[i]]+1) * (skl[sname[i]]+1)) ? HIM : "",
                         	to_chinese(sname[i]), "(" + sname[i] + ")",
                         	skill_level(SKILL_D(sname[i])->type(), skl[sname[i]]),
@@ -139,7 +139,7 @@ int do_check(string arg)
                         if ( i > j-2 && i % 2 == 0)
                         	str +="\t\t\t\t\t\t  ";
         	}
-        	str += "©¦\n©À©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©È\n";
+        	str += "â”‚\nâ”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤\n";
         }
         
         sname  = filter_array( allskills, (: sort_basic :) );
@@ -147,10 +147,10 @@ int do_check(string arg)
         
         j = sizeof(sname); 
         if(j > 0){
-        	str += "©¦"HIY"¡º»ù±¾ "+chinese_number(j)+" ÖÖ¡»"NOR"£º\t\t\t\t\t\t\t\t\t  ";
+        	str += "â”‚"HIY"ã€åŸºæœ¬ "+chinese_number(j)+" ç§ã€"NOR"ï¼š\t\t\t\t\t\t\t\t\t  ";
         	for(i=0; i < j; i++) {
-        		if (i % 2 == 0) str += "©¦\n©¦";
-        		str += sprintf("%s%-8s%-13s"HIC"¡ú"NOR"%s %3d/%6d  ",
+        		if (i % 2 == 0) str += "â”‚\nâ”‚";
+        		str += sprintf("%s%-8s%-13s"HIC"â†’"NOR"%s %3d/%6d  ",
                         	(lrn[sname[i]] >= (skl[sname[i]]+1) * (skl[sname[i]]+1)) ? HIM : "",
                         	to_chinese(sname[i]), "(" + sname[i] + ")",
                         	skill_level(SKILL_D(sname[i])->type(), skl[sname[i]]),
@@ -158,23 +158,23 @@ int do_check(string arg)
                         if ( i > j-2 &&i % 2 == 0)
                         	str +="\t\t\t\t\t\t  ";
         	}
-        	str += "©¦\n©À©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©È\n";
+        	str += "â”‚\nâ”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤\n";
         }
         
         sname  = allskills;
         
         j = sizeof(sname);
         if(j > 0){
-        	str += "©¦"HIY"¡ºÎä¹¦ "+chinese_number(j)+" ÖÖ¡»"NOR"£º\t\t\t\t\t\t\t\t\t  ©¦\n";
+        	str += "â”‚"HIY"ã€æ­¦åŠŸ "+chinese_number(j)+" ç§ã€"NOR"ï¼š\t\t\t\t\t\t\t\t\t  â”‚\n";
         	for(i=0; i < j; i++) {
-        		str += sprintf("©¦  %s%s%-12s%-28s" HIC "¡ú "NOR"%s %3d/%7d %22s\n",
+        		str += sprintf("â”‚  %s%s%-12s%-28s" HIC "â†’ "NOR"%s %3d/%7d %22s\n",
                         (lrn[sname[i]] >= (skl[sname[i]]+1) * (skl[sname[i]]+1)) ? HIM : "",
-                        (member_array(sname[i], mapped)==-1? "  ": "¡õ"),
+                        (member_array(sname[i], mapped)==-1? "  ": "â–¡"),
                         to_chinese(sname[i]), " (" + sname[i] + ")",
                         skill_level(SKILL_D(sname[i])->type(), skl[sname[i]]),
-                        skl[sname[i]], (int)lrn[sname[i]],"©¦");
+                        skl[sname[i]], (int)lrn[sname[i]],"â”‚");
         	}
-        	str += "©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n";
+        	str += "â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n";
         }
         
         write(str);
@@ -200,10 +200,10 @@ int do_peek(string arg)
 	
 
        if(!arg)
-                return notify_fail("ÄãÏë¿úÊÓÄÄ¸öÍæ¼Ò¡£\n");           
+                return notify_fail("ä½ æƒ³çª¥è§†å“ªä¸ªç©å®¶ã€‚\n");           
        else{
          while (last_on--) if (arg[last_on] < 'a' || arg[last_on] > 'z')
-		    {return notify_fail(arg+"ÊÇÊ²Ã´¶«¶«£¿\n");break;}
+		    {return notify_fail(arg+"æ˜¯ä»€ä¹ˆä¸œä¸œï¼Ÿ\n");break;}
        }
 
 	if(!objectp(ob = LOGIN_D->find_body(arg))) {
@@ -212,17 +212,17 @@ int do_peek(string arg)
 	  export_uid(ob);
 	  ob->set_name("", ({ arg }));
 	  if (!ob->restore())
-        { destruct(ob); return notify_fail("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");}
+        { destruct(ob); return notify_fail("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");}
 	}
 
    	if (ob == me)
-		return notify_fail("Äã»¹ÊÇÈ¥ÕÕ¾µ×Ó°É£¡\n");
+		return notify_fail("ä½ è¿˜æ˜¯å»ç…§é•œå­å§ï¼\n");
 
 	if (ob->is_corpse() || !ob->is_character())
-		return notify_fail("ÄÇ²»ÊÇ»îÎïÒ®£¡\n");
+		return notify_fail("é‚£ä¸æ˜¯æ´»ç‰©è€¶ï¼\n");
 	
 	if (wiz_level(me) < wiz_level(ob))
-		return notify_fail(HIC"Ìì¿ÕÖ®Í«Í»È»·¢³öÒ«ÑÛµÄÀ¶¹âÕÕµÃÄãÁ½ÑÛ¶¼Õö²»¿ª¡£\n"NOR); 	
+		return notify_fail(HIC"å¤©ç©ºä¹‹ç³çªç„¶å‘å‡ºè€€çœ¼çš„è“å…‰ç…§å¾—ä½ ä¸¤çœ¼éƒ½çä¸å¼€ã€‚\n"NOR); 	
 	
 	my = ob->query_entire_dbase();
 
@@ -234,20 +234,20 @@ int do_peek(string arg)
 
 	if (!my["max_jing"]) my["max_jing"] = 1;
 	if (!my["max_qi"]) my["max_qi"] = 1;
-	write(HIY"Ú¤Ú¤ÖĞÄã¿´µ½ÁË"+ob->name(1)+"µÄ×´Ì¬"NOR); 
-	write(sprintf("\n¡¤¾«Ñª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤¾«Á¦¡¤%s%5d / %5d%s(%d)\n" NOR,
+	write(HIY"å†¥å†¥ä¸­ä½ çœ‹åˆ°äº†"+ob->name(1)+"çš„çŠ¶æ€"NOR); 
+	write(sprintf("\nÂ·ç²¾è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·ç²¾åŠ›Â·%s%5d / %5d%s(%d)\n" NOR,
 		status_color(my["jing"], my["eff_jing"]+ob->query_temp("apply/jing")), my["jing"], my["eff_jing"]+ob->query_temp("apply/jing"),
 		status_color(my["eff_jing"]+ob->query_temp("apply/jing"), my["max_jing"]), ((my["eff_jing"]+ob->query_temp("apply/jing")) * 100 / my["max_jing"]),
 		status_color(my["jingli"], my["eff_jingli"]+ob->query_temp("apply/jingli")), my["jingli"], my["eff_jingli"]+ob->query_temp("apply/jingli"),
 		status_color(my["jingli"], my["eff_jingli"]+ob->query_temp("apply/jingli")), my["eff_jingli"]-my["max_jingli"]+ob->query_skill("force")*8 ));
-	write(sprintf("¡¤ÆøÑª¡¤%s%5d / %5d %s(%3d%%)" NOR "  ¡¤ÄÚÁ¦¡¤%s%5d / %5d(+%d)\n" NOR,
+	write(sprintf("Â·æ°”è¡€Â·%s%5d / %5d %s(%3d%%)" NOR "  Â·å†…åŠ›Â·%s%5d / %5d(+%d)\n" NOR,
 		status_color(my["qi"], my["eff_qi"]+ob->query_temp("apply/qi")), my["qi"], my["eff_qi"]+ob->query_temp("apply/qi"),
 		status_color(my["eff_qi"]+ob->query_temp("apply/qi"), my["max_qi"]), ((my["eff_qi"]+ob->query_temp("apply/qi")) * 100 / my["max_qi"]),
 		status_color(my["neili"], my["max_neili"]+ob->query_temp("apply/neili")), my["neili"], my["max_neili"]+ob->query_temp("apply/neili"),
 		my["jiali"] ));
 
-	write(sprintf("¡¤%sÆø¡¤%s %-13s   " NOR " ¡¤ÄÚÁ¦ÉÏÏŞ¡¤"HIC"%5d / %5d\n" NOR,
-		my["shen"] < 0?"ìå":"Õı",
+	write(sprintf("Â·%sæ°”Â·%s %-13s   " NOR " Â·å†…åŠ›ä¸Šé™Â·"HIC"%5d / %5d\n" NOR,
+		my["shen"] < 0?"æˆ¾":"æ­£",
 		my["shen"] < 0?HIR:HIC,
 		conv((my["shen"] < 0?-1:1) * my["shen"]),
 		(ob->query_skill("force")-ob->query_temp("apply/force"))*8 + my["combat_exp"]/1000 + ob->query_temp("apply/neili"),
@@ -255,12 +255,12 @@ int do_peek(string arg)
 
 	i = ob->max_food_capacity();
 	if (!i) i = 1;
-	write(sprintf("¡¤Ê³Îï¡¤%s%7.2f%%	 " NOR "     ¡¤Ç±ÄÜ¡¤"HIY" %4d / %4d\n" NOR,
+	write(sprintf("Â·é£Ÿç‰©Â·%s%7.2f%%	 " NOR "     Â·æ½œèƒ½Â·"HIY" %4d / %4d\n" NOR,
 		status_color(my["food"], i),
 		my["food"]*100.0/i, my["potential"], my["max_pot"] ));
 	i = ob->max_water_capacity();
 	if (!i) i = 1;
-	write(sprintf("¡¤ÒûË®¡¤%s%7.2f%%	 " NOR "     ¡¤¾­Ñé¡¤"HIM" %s\n"NOR,
+	write(sprintf("Â·é¥®æ°´Â·%s%7.2f%%	 " NOR "     Â·ç»éªŒÂ·"HIM" %s\n"NOR,
 		status_color(my["water"], i),
 		my["water"]*100.0/i,
 		conv(ob->query("id") == "zhong shentong"?my["combat_exp"]/3*2:my["combat_exp"])));

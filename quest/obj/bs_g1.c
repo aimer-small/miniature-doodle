@@ -3,18 +3,18 @@ inherit ITEM;
 
 void create()
 {
-        set_name(BLINK""HIG"ÂÌ±¦Ê¯"NOR, ({"bao shi", "baoshi","shi"}));
+        set_name(BLINK""HIG"ç»¿å®çŸ³"NOR, ({"bao shi", "baoshi","shi"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
                 set("no_sell",1);
-                set("unit","¿Å");
-                set("color","g");  //ÂÌ
+                set("unit","é¢—");
+                set("color","g");  //ç»¿
                 set("no_put",1);
                // set("no_give",1);
                 set("no_sell",1);
-                set("long",HIG"Ò»¿é·¢×ÅÉÁÉÁÂÌ¹âµÄ±¦Ê¯£¬´«ËµÊÇÅ®æ´²¹ÌìÊ¯µÄËé¿é,Ò²²»ÖªµÀÊ²Ã´Ê±ºòÂäÈë·²¼äµÄ¡£Äã¿ÉÒÔ°ÑËüinset ÎäÆ÷ÉÏ\n"NOR);
+                set("long",HIG"ä¸€å—å‘ç€é—ªé—ªç»¿å…‰çš„å®çŸ³ï¼Œä¼ è¯´æ˜¯å¥³å¨²è¡¥å¤©çŸ³çš„ç¢å—,ä¹Ÿä¸çŸ¥é“ä»€ä¹ˆæ—¶å€™è½å…¥å‡¡é—´çš„ã€‚ä½ å¯ä»¥æŠŠå®ƒinset æ­¦å™¨ä¸Š\n"NOR);
         }
         setup();
 }
@@ -36,53 +36,53 @@ int do_enchase(string arg)
    object me = this_player();
    object ob = this_object();
    
-   if(!arg) return notify_fail("ÄãÒª¸ÉÊ²Ã´£¿\n");
-   if(sscanf(arg, "%s", item)!=1) return notify_fail("ÄãÒª°Ñ±¦Ê¯ÏâÇ¶µ½Ê²Ã´ÉÏ£¿\n");
-   if(!objectp(in_obj = present(item, me))) return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+   if(!arg) return notify_fail("ä½ è¦å¹²ä»€ä¹ˆï¼Ÿ\n");
+   if(sscanf(arg, "%s", item)!=1) return notify_fail("ä½ è¦æŠŠå®çŸ³é•¶åµŒåˆ°ä»€ä¹ˆä¸Šï¼Ÿ\n");
+   if(!objectp(in_obj = present(item, me))) return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
    if( in_obj->query("equipped") )
-      return notify_fail("Äã±ØĞë·ÅÏÂÕâÑù¶«Î÷²ÅÄÜÏâÇ¶±¦Ê¯¡£\n");
+      return notify_fail("ä½ å¿…é¡»æ”¾ä¸‹è¿™æ ·ä¸œè¥¿æ‰èƒ½é•¶åµŒå®çŸ³ã€‚\n");
    if( in_obj->query("no_zm")||in_obj->query_unique())
-      return notify_fail("Õâ¼ş×°±¸²»ÄÜÏâÇ¶±¦Ê¯¡£\n");
+      return notify_fail("è¿™ä»¶è£…å¤‡ä¸èƒ½é•¶åµŒå®çŸ³ã€‚\n");
 
 
-   mats = in_obj->query("material");       //×°±¸»òÎäÆ÷
-   inset_num = in_obj->query("inset_num");  // Ç¶ÁË¼¸¸öÁË
+   mats = in_obj->query("material");       //è£…å¤‡æˆ–æ­¦å™¨
+   inset_num = in_obj->query("inset_num");  // åµŒäº†å‡ ä¸ªäº†
    if(!inset_num) inset_num = 1;
    else inset_num = inset_num + 1;
-   if(inset_num > 5) return notify_fail(in_obj->query("name")+"ÉÏÒÑ¾­ÏâÇ¶ÁËÌ«¶àµÄ±¦Ê¯ÁË!\n");
+   if(inset_num > 5) return notify_fail(in_obj->query("name")+"ä¸Šå·²ç»é•¶åµŒäº†å¤ªå¤šçš„å®çŸ³äº†!\n");
    
-   if(!in_obj->query("weapon_prop/damage"))   //·À¾ß
+   if(!in_obj->query("weapon_prop/damage"))   //é˜²å…·
   {
-       message_vision(CYN"$N°Ñ$n"+CYN"ÏâÇ¶µ½"+in_obj->query("name")+CYN"ÉÏ \n"NOR,me,ob);
-       tell_room(environment(me),HIG"Ö»¼û"+ob->name()+HIG"·¢³öÒ»ÍÅÑıÑŞµÄÂÌ¹â,»·ÈÆÔÚ"+in_obj->query("name")+HIG"µÄÖÜÎ§ \n"NOR);
+       message_vision(CYN"$NæŠŠ$n"+CYN"é•¶åµŒåˆ°"+in_obj->query("name")+CYN"ä¸Š \n"NOR,me,ob);
+       tell_room(environment(me),HIG"åªè§"+ob->name()+HIG"å‘å‡ºä¸€å›¢å¦–è‰³çš„ç»¿å…‰,ç¯ç»•åœ¨"+in_obj->query("name")+HIG"çš„å‘¨å›´ \n"NOR);
        in_obj->add("armor_prop/spells",1 + random(10));
-       message_vision(CYN""+in_obj->query("name")+CYN"ËÆºõ±äµÃ¸ü¼Ó³äÂúÁéĞÔÁË£¡\n"NOR,me);
+       message_vision(CYN""+in_obj->query("name")+CYN"ä¼¼ä¹å˜å¾—æ›´åŠ å……æ»¡çµæ€§äº†ï¼\n"NOR,me);
 //       me->add("bellicosity",1000);  
        in_obj->set_weight(in_obj->query_weight()+1000);
        in_obj->set("no_sell",1);       
        in_obj->set("inset_num",inset_num);
-       in_obj->add("inset_g",inset_num);  //×°±¸g
+       in_obj->add("inset_g",inset_num);  //è£…å¤‡g
        in_obj->set("name",HIG+in_obj->query("name")+NOR);
        if(!in_obj->query("old_long")) in_obj->set("old_long",in_obj->query("long"));
-       in_obj->set("long",in_obj->query("old_long")+"ÉÏÃæÇ¶ÉÏÁË"HIW+chinese_number(inset_num)+"¿Å±¦Ê¯\n"NOR);
+       in_obj->set("long",in_obj->query("old_long")+"ä¸Šé¢åµŒä¸Šäº†"HIW+chinese_number(inset_num)+"é¢—å®çŸ³\n"NOR);
        in_obj->save();
        destruct(ob);
        return 1;
-}else{  //ÎäÆ÷
-       message_vision(CYN"$N°Ñ$n"+CYN"ÏâÇ¶µ½"+in_obj->query("name")+CYN"ÉÏ \n"NOR,me,ob);
-       tell_room(environment(me),HIG"Ö»¼û"+ob->name()+HIG"·¢³öÒ»ÍÅÑıÑŞµÄÂÌ¹â,»·ÈÆÔÚ"+in_obj->query("name")+HIG"µÄÖÜÎ§ \n"NOR);
+}else{  //æ­¦å™¨
+       message_vision(CYN"$NæŠŠ$n"+CYN"é•¶åµŒåˆ°"+in_obj->query("name")+CYN"ä¸Š \n"NOR,me,ob);
+       tell_room(environment(me),HIG"åªè§"+ob->name()+HIG"å‘å‡ºä¸€å›¢å¦–è‰³çš„ç»¿å…‰,ç¯ç»•åœ¨"+in_obj->query("name")+HIG"çš„å‘¨å›´ \n"NOR);
        
-       message_vision(CYN""+in_obj->query("name")+CYN"ËÆºõ±äµÃ¸ü¼Ó·æÀûÁË£¡\n"NOR,me);
+       message_vision(CYN""+in_obj->query("name")+CYN"ä¼¼ä¹å˜å¾—æ›´åŠ é”‹åˆ©äº†ï¼\n"NOR,me);
        weapon_type = in_obj->query("skill_type");
        in_obj->add("weapon_prop/damage",1 + random(20));
        in_obj->add("rigidity",1 + random(20));       
        in_obj->set_weight(in_obj->query_weight()+1000);
        in_obj->set("no_sell",1);       
        in_obj->set("inset_num",inset_num);
-       in_obj->add("inset_g",inset_num);  //×°±¸g
+       in_obj->add("inset_g",inset_num);  //è£…å¤‡g
        in_obj->set("name",HIG+in_obj->query("name")+NOR);
        if(!in_obj->query("old_long")) in_obj->set("old_long",in_obj->query("long"));
-       in_obj->set("long",in_obj->query("old_long")+"ÉÏÃæÇ¶ÉÏÁË"HIW+chinese_number(inset_num)+"¿Å±¦Ê¯\n"NOR);
+       in_obj->set("long",in_obj->query("old_long")+"ä¸Šé¢åµŒä¸Šäº†"HIW+chinese_number(inset_num)+"é¢—å®çŸ³\n"NOR);
        in_obj->save();
        destruct(ob);
        return 1;
@@ -90,5 +90,5 @@ int do_enchase(string arg)
 
 
  
-  return notify_fail("ÄãÏâÇ¶±¦Ê¯Ê§°ÜÁË£¿\n");
+  return notify_fail("ä½ é•¶åµŒå®çŸ³å¤±è´¥äº†ï¼Ÿ\n");
 }

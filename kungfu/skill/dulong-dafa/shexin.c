@@ -5,7 +5,7 @@
 
 inherit F_SSERVER;
 
-string exert_name() {return HIR"ÉãÐÄ"NOR;}
+string exert_name() {return HIR"æ‘„å¿ƒ"NOR;}
 
 int exert(object me, object target)
 {
@@ -18,46 +18,46 @@ int exert(object me, object target)
         || !target->is_character()
         || !me->is_fighting(target) 
         || !living(target) )
-        	return notify_fail("¡¸ÉãÐÄ´ó·¨¡¹Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+        	return notify_fail("ã€Œæ‘„å¿ƒå¤§æ³•ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
            
         if( (int)me->query_skill("dulong-dafa", 1) < 150 
         || (int)me->query_skill("shenlong-yaoli", 1) < 150 
         || (int)me->query_str() <=30 )
-                return notify_fail("ÄãÐÞÎª»¹²»¹»£¬»¹Î´ÄÜÔËÓÃ¡¸ÉãÐÄ¡¹£¡\n");
+                return notify_fail("ä½ ä¿®ä¸ºè¿˜ä¸å¤Ÿï¼Œè¿˜æœªèƒ½è¿ç”¨ã€Œæ‘„å¿ƒã€ï¼\n");
 
         if( me->query_skill("force", 1) < 150 )
-                return notify_fail("ÄãµÄÄÚ¹¦ÐÞÎª»ðºòÎ´µ½£¬Ê©Õ¹Ö»»áÉË¼°×ÔÉí£¡\n");
+                return notify_fail("ä½ çš„å†…åŠŸä¿®ä¸ºç«å€™æœªåˆ°ï¼Œæ–½å±•åªä¼šä¼¤åŠè‡ªèº«ï¼\n");
      
         if( me->query("max_neili") < 2000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ÐÞÎª²»×ãÒÔÔËÓÃ¡¸ÉãÐÄ¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸è¶³ä»¥è¿ç”¨ã€Œæ‘„å¿ƒã€ï¼\n");
         if( me->query("eff_jingli") < 1500 )
-                return notify_fail("ÄãµÄ¾«Á¦ÐÞÎª²»×ãÒÔÔËÓÃ¡¸ÉãÐÄ¡¹£¡\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›ä¿®ä¸ºä¸è¶³ä»¥è¿ç”¨ã€Œæ‘„å¿ƒã€ï¼\n");
         if( me->query("neili") < 600 )
-                return notify_fail("ÄãµÄÄÚÁ¦²»¹»£¬¾¢Á¦²»×ãÒÔÔËÓÃ¡¸ÉãÐÄ¡¹£¡\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿï¼ŒåŠ²åŠ›ä¸è¶³ä»¥è¿ç”¨ã€Œæ‘„å¿ƒã€ï¼\n");
 
         if( me->query("jingli") < 500 )
-                return notify_fail("ÄãµÄ¾«Á¦ÓÐÏÞ£¬²»×ãÒÔÔËÓÃ¡¸ÉãÐÄ¡¹£¡\n");
+                return notify_fail("ä½ çš„ç²¾åŠ›æœ‰é™ï¼Œä¸è¶³ä»¥è¿ç”¨ã€Œæ‘„å¿ƒã€ï¼\n");
         if( target->query_temp("shexin"))
-                return notify_fail("¶Ô·½ÒÑ¾­ÉíÖÐÉãÐÄ´ó·¨ÁË");
+                return notify_fail("å¯¹æ–¹å·²ç»èº«ä¸­æ‘„å¿ƒå¤§æ³•äº†");
         
-        message_vision(HIR"$nÌýµ½$PÃ¿ÄîÒ»¾ä£¬ÐÄÖÐ¾ÍÊÇÒ»ÁÝ£¬µ«¾õµÄÕâÈËµÄÐÐÎªÏ£Ææ¹Å¹Ö£¬Ç°ËùÎ´ÓÐ£¡\n\n" NOR, me , target);
+        message_vision(HIR"$nå¬åˆ°$Pæ¯å¿µä¸€å¥ï¼Œå¿ƒä¸­å°±æ˜¯ä¸€å‡›ï¼Œä½†è§‰çš„è¿™äººçš„è¡Œä¸ºå¸Œå¥‡å¤æ€ªï¼Œå‰æ‰€æœªæœ‰ï¼\n\n" NOR, me , target);
         me->add("neili",-300);
         me->add("jingli",-100);
-        me->start_exert(5, "¡¸ÉãÐÄ¡¹");
+        me->start_exert(5, "ã€Œæ‘„å¿ƒã€");
         if( target->query_temp("hmg/nizhuan")){ 
-           	message_vision("½á¹û$PÖ»¾õ$nÕÐÊ½¹ÖÒìÉãÐÄ´ó·¨ÎÞ·¨³É¹¦£¡\n", me, target);
+           	message_vision("ç»“æžœ$Påªè§‰$næ‹›å¼æ€ªå¼‚æ‘„å¿ƒå¤§æ³•æ— æ³•æˆåŠŸï¼\n", me, target);
            	return 1;
         }  
         if( target->query_temp("jiuyin/fast")){
-           	message_vision("½á¹û$PÖ»¾õ$nÉíÐÎÆ®ºö²»¶¨ÄÑÒÔ×½ÃþÉãÐÄ´ó·¨ÎÞ·¨³É¹¦£¡\n", me, target);
+           	message_vision("ç»“æžœ$Påªè§‰$nèº«å½¢é£˜å¿½ä¸å®šéš¾ä»¥æ‰æ‘¸æ‘„å¿ƒå¤§æ³•æ— æ³•æˆåŠŸï¼\n", me, target);
         	return 1;
         }
      	if( target->query_skill("buddhism", 1) > 200 && !target->is_killing(me->query("id")) ){
-     		message_vision("½á¹û$n·ð·¨¸ßÉî£¬ÉãÐÄ´ó·¨¸ù±¾¶Ô$pÃ»ÓÃ£¡\n", me, target);
+     		message_vision("ç»“æžœ$nä½›æ³•é«˜æ·±ï¼Œæ‘„å¿ƒå¤§æ³•æ ¹æœ¬å¯¹$pæ²¡ç”¨ï¼\n", me, target);
         	return 1;
         }
         if( random(me->query_int()) > target->query_int()/2 ){
-        	message_vision("½á¹û$nÊÜµ½$PµÄÉãÐÄ´ó·¨µÄÓ°Ïì£¬Ô­ÏÈµÄ¶·Ö¾¶ÙÈ»ÏûÊ§£¡\n", me , target);
+        	message_vision("ç»“æžœ$nå—åˆ°$Pçš„æ‘„å¿ƒå¤§æ³•çš„å½±å“ï¼ŒåŽŸå…ˆçš„æ–—å¿—é¡¿ç„¶æ¶ˆå¤±ï¼\n", me , target);
        		target->remove_all_killer();
        		target->receive_damage("jing", me->query("int")*8, me);
        		target->receive_wound("jing", me->query("int")*3, me);
@@ -65,7 +65,7 @@ int exert(object me, object target)
         		target->start_busy(3);    
         	hits = random(60)+(me->query("dex")-target->query("dex"))*5+(me->query("jingli")-target->query("jingli"))/20;
        		if (hits > 30) {
-        		message_vision(HIR"$nÊÜµ½$PÉãÐÄ´ó·¨¸ÐÓ¦£¬Ô½¶·Ô½ÊÇº¦ÅÂ£¬Á¦Æø¶ÙÊ±ÎÞ·¨Äý¾Û! \n", me , target);
+        		message_vision(HIR"$nå—åˆ°$Pæ‘„å¿ƒå¤§æ³•æ„Ÿåº”ï¼Œè¶Šæ–—è¶Šæ˜¯å®³æ€•ï¼ŒåŠ›æ°”é¡¿æ—¶æ— æ³•å‡èš! \n", me , target);
          		target->apply_condition("sld_shexin", 3+random(3) );
          		target->apply_condition("no_perform", 3);
          		target->apply_condition("no_enforce", 3);

@@ -2,13 +2,13 @@ inherit NPC;
 
 void create()
 {
-    set_name("ÖñÒ¶Çà", ({ "zhuye qing", "zhuye",  "qing", "snake", "she" }) );
-    set("race", "Ò°ÊÞ");
+    set_name("ç«¹å¶é’", ({ "zhuye qing", "zhuye",  "qing", "snake", "she" }) );
+    set("race", "é‡Žå…½");
     set("age", 20);
-    set("long", "ÕâÊÇÒ»ÌõÓÐ¾ç¶¾µÄÖñÒ¶Çà£¬ËüËÆºõ¶ÔÄã²»Ì«ÓÑºÃ¡£\n");
+    set("long", "è¿™æ˜¯ä¸€æ¡æœ‰å‰§æ¯’çš„ç«¹å¶é’ï¼Œå®ƒä¼¼ä¹Žå¯¹ä½ ä¸å¤ªå‹å¥½ã€‚\n");
     set("attitude", "peaceful");
 	
-	set("limbs", ({ "Í·²¿", "ÉíÌå", "Æß´ç", "Î²°Í" }) );
+	set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "ä¸ƒå¯¸", "å°¾å·´" }) );
 	set("verbs", ({ "twist", "bite" }) );
 
 	set("combat_exp", 80000);
@@ -31,7 +31,7 @@ void init()
       ::init();
       me=this_player();
       myfam = (mapping)me->query("family");
-      if(interactive(me) && (!myfam || myfam["family_name"] != "ÉñÁú½Ì" || me->query("xionghuangjiu")!=1 ))
+      if(interactive(me) && (!myfam || myfam["family_name"] != "ç¥žé¾™æ•™" || me->query("xionghuangjiu")!=1 ))
       {
          //ob=this_object();
          inv = all_inventory(me);

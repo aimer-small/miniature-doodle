@@ -5,9 +5,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "ÁÙÊ±·¿¼ä");
+	set("short", "ä¸´æ—¶æˆ¿é—´");
 	set("long", @LONG
-ÌìÉ½ÇøÓòÁÙÊ±·¿¼ä¡£
+å¤©å±±åŒºåŸŸä¸´æ—¶æˆ¿é—´ã€‚
 LONG);
 	 set("exits", ([
              //   "east" : __DIR__"",
@@ -15,6 +15,6 @@ LONG);
         set("objects", ([
              //   __DIR__"npc/" : 1,
         ]));    
-	set("outdoors", "ÌìÉ½");
+	set("outdoors", "å¤©å±±");
 	setup();
 }

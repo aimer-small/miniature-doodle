@@ -7,16 +7,16 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-        set_name(CYN"ÌúİğŞ¼"NOR, ({ "tie jili","jili"}) );
+        set_name(CYN"é“è’ºè—œ"NOR, ({ "tie jili","jili"}) );
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-               set("long", CYN"ÕâÊÇÒ»¸öºÜÒõ¶¾µÄ°µÆ÷£¬ÉÏÃæ³¤ÂúÁËµ¹´Ì¡£\n"NOR);
-               set("unit", "Ğ©");
+               set("long", CYN"è¿™æ˜¯ä¸€ä¸ªå¾ˆé˜´æ¯’çš„æš—å™¨ï¼Œä¸Šé¢é•¿æ»¡äº†å€’åˆºã€‚\n"NOR);
+               set("unit", "äº›");
                set("damage", 6);
                set("value", 400);
                set("base_value", 400);
-               set("base_unit", "¸ö");
+               set("base_unit", "ä¸ª");
                set("base_weight", 200);
                set("material", "steel");
                set("embed", 1);

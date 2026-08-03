@@ -8,32 +8,32 @@ int main(object me,string arg)
 	mapping myskill;
 	string type;
 
-	if( me->is_busy() ) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if( me->is_busy() ) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 
-	if( me->is_fight()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+	if( me->is_fight()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 
-	if( !arg ) return notify_fail("ÄãÒªĞŞÊ²Ã´£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦ä¿®ä»€ä¹ˆï¼Ÿ\n");
 
 	if( !objectp(obj = present(arg, me)) )
-		return notify_fail("ÄãÉíÉÏÃ»ÓĞÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
 	if( mapp(obj->query("weapon_prop")) && (int)obj->query("imbued") ) {
-// ĞŞÀí±øÆ÷
+// ä¿®ç†å…µå™¨
 		if( !objectp(weapon=me->query_temp("weapon")) || weapon->query("id")!="tiechui" )
-			return notify_fail("Äã±ØĞë×°±¸Ìú´¸²ÅÄÜÀ´Î¬ĞŞ±øÆ÷¡£\n");
+			return notify_fail("ä½ å¿…é¡»è£…å¤‡é“é”¤æ‰èƒ½æ¥ç»´ä¿®å…µå™¨ã€‚\n");
 
 		if( obj->query("weapon_mp/dur") >= obj->query("weapon_mp/max_dur") )
-			return notify_fail("Õâ¼ş±øÆ÷ÍêºÃÎŞËğ£¬ÎŞĞèĞŞÀí¡£\n");
+			return notify_fail("è¿™ä»¶å…µå™¨å®Œå¥½æ— æŸï¼Œæ— éœ€ä¿®ç†ã€‚\n");
 
 		if( obj->query("weapon_mp/dur") <= 0  )
-			return notify_fail("Õâ¼ş±øÆ÷ÒÑ¾­³¹µ×Ëğ»µÁË£¬ÎŞ·¨ĞŞÀí¡£\n");
+			return notify_fail("è¿™ä»¶å…µå™¨å·²ç»å½»åº•æŸåäº†ï¼Œæ— æ³•ä¿®ç†ã€‚\n");
 
 		flag = strsrch(obj->query("save_id"),getuid(me))==0;
 
-		myskill = me->query("forging");//µ±ËüQuestÁË
+		myskill = me->query("forging");//å½“å®ƒQuestäº†
 
 		if( !mapp(myskill) || member_array(obj->query("skill_type"),keys(myskill)) == -1 )
-			return notify_fail("¶ÔÓÚÕâÖÖÎäÆ÷£¬ÄúÁË½â²»¶à£¬ÎŞ·¨ĞŞÀí£¡\n");
+			return notify_fail("å¯¹äºè¿™ç§æ­¦å™¨ï¼Œæ‚¨äº†è§£ä¸å¤šï¼Œæ— æ³•ä¿®ç†ï¼\n");
 	
 		cost_money = obj->query("value")*4/5;
 	
@@ -43,21 +43,21 @@ int main(object me,string arg)
 		cost_jing /= 4;
 		cost_jing = cost_jing*3/4;
 		if( me->query("jingli")<cost_jing || me->query("jing")<cost_jing )
-			return notify_fail("ÄãÏÖÔÚ¾«Éñ×´Ì¬²»¼Ñ£¬»¹ÊÇµÈ»áÔÙĞŞÀí°É¡£\n");
+			return notify_fail("ä½ ç°åœ¨ç²¾ç¥çŠ¶æ€ä¸ä½³ï¼Œè¿˜æ˜¯ç­‰ä¼šå†ä¿®ç†å§ã€‚\n");
 	
 		switch(MONEY_D->player_pay(me,cost_money))
 		{
 			case 1:break;
-			default:return notify_fail("Äã´øµÄÁãÇ®²»¹»ÁË£¡ÄãĞèÒª"+MONEY_D->money_str( cost_money )+"ĞŞÀí·ÑÓÃ¡£\n");
+			default:return notify_fail("ä½ å¸¦çš„é›¶é’±ä¸å¤Ÿäº†ï¼ä½ éœ€è¦"+MONEY_D->money_str( cost_money )+"ä¿®ç†è´¹ç”¨ã€‚\n");
 		}
 	
-		write("Äã±¾´ÎĞŞÀí»¨·Ñ"+MONEY_D->money_str(cost_money)+"¡£\n");
+		write("ä½ æœ¬æ¬¡ä¿®ç†èŠ±è´¹"+MONEY_D->money_str(cost_money)+"ã€‚\n");
 	     
-		me->set_temp("last_damage_from", "ĞŞÀí¸ß¼¶ÎäÆ÷°¾¾¡ĞÄ»úÀÛ");
+		me->set_temp("last_damage_from", "ä¿®ç†é«˜çº§æ­¦å™¨ç†¬å°½å¿ƒæœºç´¯");
 		me->receive_damage("jing", cost_jing );
 		me->receive_damage("jingli", cost_jing );
 
-		message_vision(HIY"$N¿ªÊ¼×ĞÏ¸µÄÎ¬ĞŞ"+obj->query("name")+HIY"£¬²»Ê±ÓÃÌú´¸ÇÃÇÃ´ò´ò......\n\n"NOR, me);
+		message_vision(HIY"$Nå¼€å§‹ä»”ç»†çš„ç»´ä¿®"+obj->query("name")+HIY"ï¼Œä¸æ—¶ç”¨é“é”¤æ•²æ•²æ‰“æ‰“......\n\n"NOR, me);
 		delay = 15 + random(30);
 		if( wizardp(me) && (int)me->query("env/test") ) delay = 3;
 		me->start_busy(delay);
@@ -66,15 +66,15 @@ int main(object me,string arg)
 		return 1;
         
 	} else if( mapp(obj->query("armor_prop")) && (int)obj->query("imbued") ) {
-// ĞŞÀí·À¾ß
+// ä¿®ç†é˜²å…·
 		if( !objectp(weapon=me->query_temp("weapon")) || weapon->query("id")!="jian dao" )
-			return notify_fail("Äã±ØĞë×°±¸¼ôµ¶²ÅÄÜÀ´ĞŞ²¹·À¾ß¡£\n");
+			return notify_fail("ä½ å¿…é¡»è£…å¤‡å‰ªåˆ€æ‰èƒ½æ¥ä¿®è¡¥é˜²å…·ã€‚\n");
 
 		if( obj->query("armor_mp/dur") >= obj->query("armor_mp/max_dur") )
-			return notify_fail("Õâ¼ş·À¾ßÍêºÃÎŞËğ£¬ÎŞĞèĞŞ²¹¡£\n");
+			return notify_fail("è¿™ä»¶é˜²å…·å®Œå¥½æ— æŸï¼Œæ— éœ€ä¿®è¡¥ã€‚\n");
 
 		if( obj->query("armor_mp/dur") <= 0  )
-			return notify_fail("Õâ¼ş·À¾ßÒÑ¾­³¹µ×Ëğ»µÁË£¬ÎŞ·¨ĞŞ²¹¡£\n");
+			return notify_fail("è¿™ä»¶é˜²å…·å·²ç»å½»åº•æŸåäº†ï¼Œæ— æ³•ä¿®è¡¥ã€‚\n");
 
 		flag = strsrch(obj->query("save_id"),getuid(me))==0;
 
@@ -86,13 +86,13 @@ int main(object me,string arg)
 			case "surcoat":type="mantle";break;
 			case "coat":type="coat";break;
 			case "armor":type="armor";break;
-			default:return notify_fail("¶ÔÓÚÕâÖÖ·À¾ß£¬ÄúÁË½â²»¶à£¬ÎŞ·¨ĞŞ²¹£¡\n");               
+			default:return notify_fail("å¯¹äºè¿™ç§é˜²å…·ï¼Œæ‚¨äº†è§£ä¸å¤šï¼Œæ— æ³•ä¿®è¡¥ï¼\n");               
 		}
 
-		myskill = me->query("forging");//µ±ËüQuestÁË
+		myskill = me->query("forging");//å½“å®ƒQuestäº†
 
 		if( !mapp(myskill) || member_array(type,keys(myskill)) == -1 )
-			return notify_fail("¶ÔÓÚÕâÖÖ·À¾ß£¬ÄúÁË½â²»¶à£¬ÎŞ·¨ĞŞ²¹£¡\n");
+			return notify_fail("å¯¹äºè¿™ç§é˜²å…·ï¼Œæ‚¨äº†è§£ä¸å¤šï¼Œæ— æ³•ä¿®è¡¥ï¼\n");
 
 		cost_money = obj->query("value")*4/5;
 	
@@ -102,21 +102,21 @@ int main(object me,string arg)
 		cost_jing /= 4;
 		cost_jing = cost_jing*3/4;
 		if( me->query("jingli")<cost_jing || me->query("jing")<cost_jing )
-			return notify_fail("ÄãÏÖÔÚ¾«Éñ×´Ì¬²»¼Ñ£¬»¹ÊÇµÈ»áÔÙĞŞ²¹°É¡£\n");
+			return notify_fail("ä½ ç°åœ¨ç²¾ç¥çŠ¶æ€ä¸ä½³ï¼Œè¿˜æ˜¯ç­‰ä¼šå†ä¿®è¡¥å§ã€‚\n");
 	
 		switch(MONEY_D->player_pay(me,cost_money))
 		{
 			case 1:break;
-			default:return notify_fail("Äã´øµÄÁãÇ®²»¹»ÁË£¡ÄãĞèÒª"+MONEY_D->money_str( cost_money )+"ĞŞ²¹·ÑÓÃ¡£\n");
+			default:return notify_fail("ä½ å¸¦çš„é›¶é’±ä¸å¤Ÿäº†ï¼ä½ éœ€è¦"+MONEY_D->money_str( cost_money )+"ä¿®è¡¥è´¹ç”¨ã€‚\n");
 		}
 	
-		write("Äã±¾´ÎĞŞ²¹»¨·Ñ"+MONEY_D->money_str(cost_money)+"¡£\n");
+		write("ä½ æœ¬æ¬¡ä¿®è¡¥èŠ±è´¹"+MONEY_D->money_str(cost_money)+"ã€‚\n");
 	     
-		me->set_temp("last_damage_from", "ĞŞ²¹·À¾ß°¾¾¡ĞÄ»úÀÛ");
+		me->set_temp("last_damage_from", "ä¿®è¡¥é˜²å…·ç†¬å°½å¿ƒæœºç´¯");
 		me->receive_damage("jing", cost_jing );
 		me->receive_damage("jingli", cost_jing );
 
-		message_vision(HIY"$N¿ªÊ¼×ĞÏ¸µÄĞŞ²¹"+obj->query("name")+HIY"£¬²»Ê±ÓÃ¼ôµ¶À´»Ø²Ã¼ô·ìÈÒ×Å......\n\n"NOR, me);
+		message_vision(HIY"$Nå¼€å§‹ä»”ç»†çš„ä¿®è¡¥"+obj->query("name")+HIY"ï¼Œä¸æ—¶ç”¨å‰ªåˆ€æ¥å›è£å‰ªç¼çº«ç€......\n\n"NOR, me);
 		delay = 15 + random(30);
 		if( wizardp(me) && (int)me->query("env/test") ) delay = 3;
 		me->start_busy(delay);
@@ -124,7 +124,7 @@ int main(object me,string arg)
 		call_out("xiu_armor_finish",delay*2-1,me,obj);
 		return 1;
 
-	} else return notify_fail("ÄãÖ»ÄÜÎ¬ĞŞÓÉÍæ¼ÒÖÆÔìµÄ×°±¸¡£\n");
+	} else return notify_fail("ä½ åªèƒ½ç»´ä¿®ç”±ç©å®¶åˆ¶é€ çš„è£…å¤‡ã€‚\n");
 
         return 1;
 }
@@ -155,7 +155,7 @@ void xiu_weapon_finish(object me,object obj)
 
         if(!objectp(me) || !userp(me) || !objectp(obj) ) return;
 
-        message_vision(HIY"$N×ĞÏ¸µÄÎ¬ĞŞ"+obj->query("name")+HIY+"£¬×ÜËã´óÖÂ»Ö¸´ÁËËüµÄÔ­Ã²¡£\n"NOR, me);
+        message_vision(HIY"$Nä»”ç»†çš„ç»´ä¿®"+obj->query("name")+HIY+"ï¼Œæ€»ç®—å¤§è‡´æ¢å¤äº†å®ƒçš„åŸè²Œã€‚\n"NOR, me);
         WORKER_D->check_impove(me,"duanzao",me->query_int()/2,2);
 
         //i = decvar(obj,"weapon_mp/max_dur",9,10,100);
@@ -172,7 +172,7 @@ void xiu_armor_finish(object me,object obj)
 
         if(!objectp(me) || !userp(me) || !objectp(obj) ) return;
 
-        message_vision(HIY"$N×ĞÏ¸µÄĞŞ²¹"+obj->query("name")+HIY+"£¬×ÜËã´óÖÂ»Ö¸´ÁËËüµÄÔ­Ã²¡£\n"NOR, me);
+        message_vision(HIY"$Nä»”ç»†çš„ä¿®è¡¥"+obj->query("name")+HIY+"ï¼Œæ€»ç®—å¤§è‡´æ¢å¤äº†å®ƒçš„åŸè²Œã€‚\n"NOR, me);
         WORKER_D->check_impove(me,"zhizao",me->query_int()/2,2);
 
         //i = decvar(obj,"weapon_mp/max_dur",9,10,100);
@@ -186,12 +186,12 @@ void xiu_armor_finish(object me,object obj)
 int help(object me)
 {
 	write(@HELP
-	¸ñÊ½£ºrepair <ÎäÆ÷ or ·À¾ß>
+	æ ¼å¼ï¼šrepair <æ­¦å™¨ or é˜²å…·>
 	
-	ÓÃÓÚÍæ¼Ò×Ô¼ºĞŞ¸´´òÔìµÄ×°±¸£¨Î´³¹µ×Ëğº¦µÄ×°±¸£©£¬
-	ĞŞÀí±øÆ÷ĞèÒª×°±¸Ìú´¸£¬ĞŞÀí·À¾ßÒª×°±¸¼ôµ¶¡£
-	ĞèÒªÒ»¶¨µÄ¼¼ÄÜµÈ¼¶Ö§³Ö£¬
-	ÏûºÄµ±Ç°¾«£¬¾«Á¦ºÍ½ğÇ®¡£
+	ç”¨äºç©å®¶è‡ªå·±ä¿®å¤æ‰“é€ çš„è£…å¤‡ï¼ˆæœªå½»åº•æŸå®³çš„è£…å¤‡ï¼‰ï¼Œ
+	ä¿®ç†å…µå™¨éœ€è¦è£…å¤‡é“é”¤ï¼Œä¿®ç†é˜²å…·è¦è£…å¤‡å‰ªåˆ€ã€‚
+	éœ€è¦ä¸€å®šçš„æŠ€èƒ½ç­‰çº§æ”¯æŒï¼Œ
+	æ¶ˆè€—å½“å‰ç²¾ï¼Œç²¾åŠ›å’Œé‡‘é’±ã€‚
 HELP
 	);
 	return 1;

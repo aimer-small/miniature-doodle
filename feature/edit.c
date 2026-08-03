@@ -3,8 +3,8 @@
 
 int edit(function callback)
 {
-	write("½áÊøÀë¿ªÓÃ "HIY"."NOR" È¡ÏûÊäÈëÓÃ "HIY"q\n"NOR);
-	write(repeat_string("¡ª", 39) + "\n1: ");
+	write("ç»“æŸç¦»å¼€ç”¨ "HIY"."NOR" å–æ¶ˆè¾“å…¥ç”¨ "HIY"q\n"NOR);
+	write(repeat_string("â€”", 39) + "\n1: ");
 	input_to("input_line", "", callback, 1);
 	return 1;
 }
@@ -17,21 +17,21 @@ void input_line(string line, string text, function callback, int ln)
 		return;
 	}
 	if( line=="q" ) {
-		write("ÊäÈëÈ¡Ïû¡£\n");
+		write("è¾“å…¥å–æ¶ˆã€‚\n");
 		return;
 	}
-	if (strlen(line) > 100) write(HIY + "Çë½«Ã¿ĞĞÎÄ×Ö¿ØÖÆÔÚ 100 ¸öÓ¢ÎÄ»ò 50 ¸öºº×ÖÒÔÄÚ¡£\n" NOR);
+	if (strlen(line) > 100) write(HIY + "è¯·å°†æ¯è¡Œæ–‡å­—æ§åˆ¶åœ¨ 100 ä¸ªè‹±æ–‡æˆ– 50 ä¸ªæ±‰å­—ä»¥å†…ã€‚\n" NOR);
 	else {
 		text += line + "\n";
 		ln++;
 	}
 	if (strlen(text) > 15000 || ln > 150) {
-		write(HIY + "ÒÑ¾­Ğ´ÁËºÜ³¤ÁË£¬ÏµÍ³×Ô¶¯ÖÕÖ¹£¬Î´Ğ´ÍêµÄÇëÁíÍâÔÙĞ´¡£\n" NOR);
-		if (this_object()->query_temp("big5")) text = "/adm/daemons/gb_b5d"->b5_gb(text+"(Î´Íê´ıĞø)......\n");
+		write(HIY + "å·²ç»å†™äº†å¾ˆé•¿äº†ï¼Œç³»ç»Ÿè‡ªåŠ¨ç»ˆæ­¢ï¼Œæœªå†™å®Œçš„è¯·å¦å¤–å†å†™ã€‚\n" NOR);
+		if (this_object()->query_temp("big5")) text = "/adm/daemons/gb_b5d"->b5_gb(text+"(æœªå®Œå¾…ç»­)......\n");
 		(*callback)(text);
 		return;
 	}
-	if (strlen(text) > 10000 || ln > 100) write(HIY + "Çë³¤»°¶ÌËµ»òÕßÁíÍâĞøĞ´¡£\n" NOR);
+	if (strlen(text) > 10000 || ln > 100) write(HIY + "è¯·é•¿è¯çŸ­è¯´æˆ–è€…å¦å¤–ç»­å†™ã€‚\n" NOR);
 	write(CSI"5D" + ln + ": ");
 	input_to((: input_line :), text, callback, ln);
 }

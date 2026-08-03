@@ -5,11 +5,11 @@ inherit ROOM;
 
 void create()
 { 
-         set("short",CYN"¶ÏÑÂÆº"NOR);
+         set("short",CYN"æ–­å´–åª"NOR);
        set("long", @LONG
-³öµÃÎÝÀ´£¬¶ÔÃæ±ãÊÇÎ£ÑÂÒ»Æ¬¡£×óÃæÊÇÒ»×ù¹Â·å´ÌÌì£¬ÓÒÃæÊÇ¾øÛÖÎÞµØ¡£
-Ö»ÖÐÑëÒ»Æ¬Æ½µØ¡£¶ÔÑÂ¿´È¥È¥ÏÕ¾þÒÑ¼«£¬ÄÑÒÔÅÊÔ®¡£ÇÒ±Ú¼ä±éÉúÇàÌ¦£¬Æä»¬Èç
-ÓÍ£¬¾¹ËÆÎÞÂ·¿ÉÉÏ¡£
+å‡ºå¾—å±‹æ¥ï¼Œå¯¹é¢ä¾¿æ˜¯å±å´–ä¸€ç‰‡ã€‚å·¦é¢æ˜¯ä¸€åº§å­¤å³°åˆºå¤©ï¼Œå³é¢æ˜¯ç»å£‘æ— åœ°ã€‚
+åªä¸­å¤®ä¸€ç‰‡å¹³åœ°ã€‚å¯¹å´–çœ‹åŽ»åŽ»é™©å³»å·²æžï¼Œéš¾ä»¥æ”€æ´ã€‚ä¸”å£é—´éç”Ÿé’è‹”ï¼Œå…¶æ»‘å¦‚
+æ²¹ï¼Œç«Ÿä¼¼æ— è·¯å¯ä¸Šã€‚
 LONG
      );
         set("exits", ([
@@ -35,8 +35,8 @@ int do_da(string arg)
 	if( !present("nao gou",me) )
 		return 0;
 	if( arg!="naogou" && arg!="gou" && arg!="nao gou" )
-		return notify_fail("ÄãÒª´îÊ²Ã´£¿\n");
-	message_vision("$N°ÑÊÖÖÐµÄÄÓ¹³´î×¡ÁËÒ»¿éÍ»³öµÄÑÒÊ¯¡£\n",me);
+		return notify_fail("ä½ è¦æ­ä»€ä¹ˆï¼Ÿ\n");
+	message_vision("$NæŠŠæ‰‹ä¸­çš„æŒ é’©æ­ä½äº†ä¸€å—çªå‡ºçš„å²©çŸ³ã€‚\n",me);
 	me->set_temp("duanya/gou",1);
 	return 1;
 }
@@ -48,8 +48,8 @@ int do_shuai(string arg)
 	if( !present("tao suo",me) )
 		return 0;
 	if( arg!="taosuo" && arg!="suo" && arg!="tao suo" )
-		return notify_fail("ÄãÒªË¦Ê²Ã´£¿\n");
-	message_vision("$NÓÃÁ¦°ÑÊÖÖÐµÄÉþ×ÓË¦ÉÏÈ¥£¬²ø×¡ÁËÒ»¿ÃÐ¡ËÉÊ÷¡£\n",me);
+		return notify_fail("ä½ è¦ç”©ä»€ä¹ˆï¼Ÿ\n");
+	message_vision("$Nç”¨åŠ›æŠŠæ‰‹ä¸­çš„ç»³å­ç”©ä¸ŠåŽ»ï¼Œç¼ ä½äº†ä¸€æ£µå°æ¾æ ‘ã€‚\n",me);
 	me->set_temp("duanya/suo",1);
 	return 1;
 }
@@ -61,24 +61,24 @@ int do_pa(string arg)
 
        if ( !arg ) return 0;
        if (arg != "ya" && arg!="up") 
-          return notify_fail("ÄãÒªÍùÄÇÀïÅÀ£¿\n");
+          return notify_fail("ä½ è¦å¾€é‚£é‡Œçˆ¬ï¼Ÿ\n");
 	   if(!me->query_temp("duanya/gou"))
-		   return notify_fail("Äã·¢ÏÖÑÒÊ¯¹â»¬£¬¸ù±¾ÅÀ²»ÉÏÈ¥£¬¿´À´Òª½èÖúÄÓ¹³Ö®ÀàµÄ¹¤¾ß²ÅÐÐ¡£\n");
+		   return notify_fail("ä½ å‘çŽ°å²©çŸ³å…‰æ»‘ï¼Œæ ¹æœ¬çˆ¬ä¸ä¸ŠåŽ»ï¼Œçœ‹æ¥è¦å€ŸåŠ©æŒ é’©ä¹‹ç±»çš„å·¥å…·æ‰è¡Œã€‚\n");
 	   if(!me->query_temp("duanya/suo"))
-		   return notify_fail("Äã·¢ÏÖÑÒÊ¯Ì«¸ß£¬¸ù±¾ÅÀ²»ÉÏÈ¥£¬¿´À´Òª½èÖúÌ×Ë÷Ö®ÀàµÄ¹¤¾ß²ÅÐÐ¡£\n");
+		   return notify_fail("ä½ å‘çŽ°å²©çŸ³å¤ªé«˜ï¼Œæ ¹æœ¬çˆ¬ä¸ä¸ŠåŽ»ï¼Œçœ‹æ¥è¦å€ŸåŠ©å¥—ç´¢ä¹‹ç±»çš„å·¥å…·æ‰è¡Œã€‚\n");
 
        if (!living(me)) return 0;
        if ((int)me->query_encumbrance() * 100 / (int)me->query_max_encumbrance() >= 20
 		   || me->query("wxz/quest")<4 
-		   || me->query("family/family_name")!="ÉÙÁÖÅÉ" ) {
-                message_vision("$NÆø´­ÐêÐê£¬¸Ðµ½ÎÞ·¨ÅÀÉÏÈ¥£¬Ë¤ÁËÏÂÀ´£¡\n", me);
+		   || me->query("family/family_name")!="å°‘æž—æ´¾" ) {
+                message_vision("$Næ°”å–˜å˜˜å˜˜ï¼Œæ„Ÿåˆ°æ— æ³•çˆ¬ä¸ŠåŽ»ï¼Œæ‘”äº†ä¸‹æ¥ï¼\n", me);
                 me->unconcious();
                 return 1;
         } 
 
-        message_vision("$N½èÖúÊÖÖÐµÄÄÓ¹³Ì×Ë÷£¬Ê©Õ¹Çá¹¦ÅÀÁËÉÏÈ¥¡£\n", me);
+        message_vision("$Nå€ŸåŠ©æ‰‹ä¸­çš„æŒ é’©å¥—ç´¢ï¼Œæ–½å±•è½»åŠŸçˆ¬äº†ä¸ŠåŽ»ã€‚\n", me);
         me->move(__DIR__"yading");
-        tell_room(environment(me), me->name() + "´ÓÏÂÃæÅÀÁËÉÏÀ´¡£\n", ({ me }));
+        tell_room(environment(me), me->name() + "ä»Žä¸‹é¢çˆ¬äº†ä¸Šæ¥ã€‚\n", ({ me }));
 		me->delete_temp("duanya");
         return 1;
 }

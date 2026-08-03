@@ -1,4 +1,4 @@
-// NPC leng.c ÀäÇ«
+// NPC leng.c å†·è°¦
 // Modify By River@sj 99.06
 #include <ansi.h>
 inherit NPC;
@@ -7,14 +7,14 @@ int checking(object me);
 int do_break(string arg);
 void create()
 {
-        set_name("ÀäÇ«", ({ "leng qian","leng","qian" }) );
-        set("nickname","ÀäÃæÏÈÉú");
-        set("title", "Ã÷½ÌÎåÉ¢ÈË");
-        create_family("Ã÷½Ì",36,"É¢ÈË");
-        set("gender", "ÄÐÐÔ");
+        set_name("å†·è°¦", ({ "leng qian","leng","qian" }) );
+        set("nickname","å†·é¢å…ˆç”Ÿ");
+        set("title", "æ˜Žæ•™äº”æ•£äºº");
+        create_family("æ˜Žæ•™",36,"æ•£äºº");
+        set("gender", "ç”·æ€§");
         set("age",50);
-        set("long", "Ëû¾ÍÊÇÃ÷½ÌÎåÉ¢ÈËÖ®Ò»£¬ÊÇÃ÷½ÌµÄÐÌÌÃÖ´·¨£¬\n"+
-                    "ËûÆ½Ê±¼«ÉÙÑÔÓï£¬µ«Óï³ö¾ªÈË¡£ÌúÃæÎÞÇé¡£\n");
+        set("long", "ä»–å°±æ˜¯æ˜Žæ•™äº”æ•£äººä¹‹ä¸€ï¼Œæ˜¯æ˜Žæ•™çš„åˆ‘å ‚æ‰§æ³•ï¼Œ\n"+
+                    "ä»–å¹³æ—¶æžå°‘è¨€è¯­ï¼Œä½†è¯­å‡ºæƒŠäººã€‚é“é¢æ— æƒ…ã€‚\n");
         set("str", 25);
         set("int", 25);
         set("con", 25);
@@ -67,13 +67,13 @@ void greeting(object ob)
         me=this_object();
         if (is_fighting()) return 0;
         if (wizardp(ob)) return 0;
-        if (ob->query_temp("marks/Óü1")&&!ob->query_temp("marks/Óü2")){
-                command("say Äã£¬»Ø£¬ÏÂ´Î£¬ËÀ£¡");
+        if (ob->query_temp("marks/ç‹±1")&&!ob->query_temp("marks/ç‹±2")){
+                command("say ä½ ï¼Œå›žï¼Œä¸‹æ¬¡ï¼Œæ­»ï¼");
                 ob->set_temp("jianyu_name",ob->query("name"));
                 remove_call_out("hiting_ob");
                 call_out("hiting_ob",1,ob);
         }
-        if (ob->query_temp("marks/Óü2")&&ob->query_temp("marks/Óü1")){
+        if (ob->query_temp("marks/ç‹±2")&&ob->query_temp("marks/ç‹±1")){
                 command("stare "+ob->query("id"));
                 call_out("do_kill",1,ob);
         }
@@ -101,11 +101,11 @@ int moving_ob(object ob)
         me=this_object();
         ob = this_player();
         if (!living(ob)){
-                command("say ºß£¡");
-                command("say ×¥µ½£¬»Ø¡£");
+                command("say å“¼ï¼");
+                command("say æŠ“åˆ°ï¼Œå›žã€‚");
                 ob->move("/d/mingjiao/jianyu");  
                 ob->apply_condition("mj_jail", 120);
-                ob->set_temp("marks/Óü2",1);
+                ob->set_temp("marks/ç‹±2",1);
                 remove_call_out("do_back");
                 call_out("do_back",1,me);
         }
@@ -130,9 +130,9 @@ int do_kill(object ob)
 int do_back(object me)
 {
         me=this_object();
-        message("vision", "ÀäÇ«¼±¼±Ã¦Ã¦µÄÀë¿ªÁË¡£\n", environment(), me );
+        message("vision", "å†·è°¦æ€¥æ€¥å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n", environment(), me );
         me->move("/d/mingjiao/rukou");
-        message("vision", "ÀäÇ«´Ò´ÒÃ¦Ã¦µÄ»ØÀ´ÁË¡£\n",  environment(), me );
+        message("vision", "å†·è°¦åŒ†åŒ†å¿™å¿™çš„å›žæ¥äº†ã€‚\n",  environment(), me );
         me->set_leader(0);
         return 1;
 }
@@ -145,11 +145,11 @@ int do_break(string arg)
         me = this_object();
         if( !arg || arg=="" ) return 0;
         if(arg=="men"){
-               if(!(fam = ob->query("family")) || !(fam["family_name"] == "Ã÷½Ì") ) {
-                       command("say ´óµ¨£¬½ÙÓü£¬ËÀ£¡\n");
+               if(!(fam = ob->query("family")) || !(fam["family_name"] == "æ˜Žæ•™") ) {
+                       command("say å¤§èƒ†ï¼ŒåŠ«ç‹±ï¼Œæ­»ï¼\n");
                        me->kill_ob(ob);
                        return 1;
                        }
-               else return notify_fail("ÄÚ¼é£¿\n");
+               else return notify_fail("å†…å¥¸ï¼Ÿ\n");
        }        
 }      

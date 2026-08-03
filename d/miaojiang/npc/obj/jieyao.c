@@ -6,14 +6,14 @@ void init()
 }
 void create()
 {
-	set_name("½âÒ©", ({"jie yao", "jieyao", }));   
+	set_name("è§£è¯", ({"jie yao", "jieyao", }));   
 	set("no_drop",1);
 	set("no_get",1);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿ÅÒ©Íè¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—è¯ä¸¸ã€‚\n");
 		set("value", 10000);     
                         set("medicine", "drug");
 	}
@@ -25,11 +25,11 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-	return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	me->set("jingli", 0);
 	me->set("jing", 0);
 	me->set("neili", 0);
-	message_vision(HIR "$N³ÔÏÂÒ»¿Å²»ÖªÃû×ÖµÄÒ©Íè£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¡\n" NOR, me);
+	message_vision(HIR "$Nåƒä¸‹ä¸€é¢—ä¸çŸ¥åå­—çš„è¯ä¸¸ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼\n" NOR, me);
 	destruct(this_object());
 	return 1;
 }

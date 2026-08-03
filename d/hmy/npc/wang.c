@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("Íõ³Ç", ({ "wang cheng", "wang",}));
-        set("long", "´ËÈËÉí²Ä°«ÅÖ£¬ÂúÁ³¶ÑĞ¦£¬ÆäÊµÎªÈËÊ®·Öºİ¶¾¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "HIC"·çÀ×ÌÃÆìÖ÷"NOR);        
-        set("gender", "ÄĞĞÔ");
+        set_name("ç‹åŸ", ({ "wang cheng", "wang",}));
+        set("long", "æ­¤äººèº«æçŸ®èƒ–ï¼Œæ»¡è„¸å †ç¬‘ï¼Œå…¶å®ä¸ºäººååˆ†ç‹ æ¯’ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™  "HIC"é£é›·å ‚æ——ä¸»"NOR);        
+        set("gender", "ç”·æ€§");
         set("age", 50);
         set("attitude", "heroism");
         set("vendetta_mark", "authority");        
@@ -36,7 +36,7 @@ void create()
 	map_skill("force", "tianmo-gong");
 	map_skill("parry", "tianmo-jian");
 	map_skill("sword", "tianmo-jian");
-	create_family("ÈÕÔÂÉñ½Ì",9,"µÜ×Ó");
+	create_family("æ—¥æœˆç¥æ•™",9,"å¼Ÿå­");
 
         setup();
 

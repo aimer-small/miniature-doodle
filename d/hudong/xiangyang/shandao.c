@@ -3,10 +3,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "É½µÀ");
+        set("short", "å±±é“");
         set("long",@LONG
-ÕâÀïÒÑ¾­¿´²»µ½ÏåÑôÁË£¬ÂúÑÛÍûÈ¥£¬¾¡ÊÇÇúÇúÕÛÕÛµÄÉ½µÀ£¬´ó¾üĞĞµ½
-´Ë´¦£¬ÈËĞó¶¼¿ªÊ¼ÓĞĞ©³ÔÁ¦ÆğÀ´¡£
+è¿™é‡Œå·²ç»çœ‹ä¸åˆ°è¥„é˜³äº†ï¼Œæ»¡çœ¼æœ›å»ï¼Œå°½æ˜¯æ›²æ›²æŠ˜æŠ˜çš„å±±é“ï¼Œå¤§å†›è¡Œåˆ°
+æ­¤å¤„ï¼Œäººç•œéƒ½å¼€å§‹æœ‰äº›åƒåŠ›èµ·æ¥ã€‚
 LONG
 );
         set("outdoors", "xiangyang");
@@ -39,7 +39,7 @@ object room;
       // me->move("d/hudong/xiangyang/baihumen");
 
          me->delete_temp("yidao");
-         tell_object(me,YEL"Ò»Â··ç³¾ÆÍÆÍÖ®ºó£¬°×»¢ÃÅÒÑ¾­½üÔÚÑÛÇ°ÁË......\n"NOR);
+         tell_object(me,YEL"ä¸€è·¯é£å°˜ä»†ä»†ä¹‹åï¼Œç™½è™é—¨å·²ç»è¿‘åœ¨çœ¼å‰äº†......\n"NOR);
          return;
         } 
 
@@ -56,11 +56,11 @@ if(!( room = find_object(__DIR__"zhangwai")) )
        //  me->move("d/hudong/xiangyang/zhangwai");
 
          me->delete_temp("yidao");
-         tell_object(me,YEL"Ò»Â··ç³¾ÆÍÆÍÖ®ºó£¬ÃÉ¹Å¾üÓªÒÑ¾­½üÔÚÑÛÇ°ÁË......\n"NOR); 
+         tell_object(me,YEL"ä¸€è·¯é£å°˜ä»†ä»†ä¹‹åï¼Œè’™å¤å†›è¥å·²ç»è¿‘åœ¨çœ¼å‰äº†......\n"NOR); 
          return;
         }
 
-        tell_object(me,YEL"ÄãÖ¸»Ó×Å´ó¾ü£¬ĞĞ½øÔÚÇúÕÛµÄÉ½µÀÉÏ......\n"NOR); 
+        tell_object(me,YEL"ä½ æŒ‡æŒ¥ç€å¤§å†›ï¼Œè¡Œè¿›åœ¨æ›²æŠ˜çš„å±±é“ä¸Š......\n"NOR); 
 }
 
 int valid_leave(object me,string dir)

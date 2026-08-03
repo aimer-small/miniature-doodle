@@ -4,9 +4,9 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIB"ÒõÑôºÏ»¶É¢"NOR, ({ "hehuan san","san" }) );
-        set("long",HIB"ÕâÊÇÑªµ¶ÀÏ×æÃØÖÆµÄÒ©·Û£¬Ö»ÐèÒªÈö(sa)Ò»µãµã¾ÍÄÜ·¢»Ó×öÓÃ£¬hehehe\n"NOR);
-        set("unit", "°ü");
+        set_name(HIB"é˜´é˜³åˆæ¬¢æ•£"NOR, ({ "hehuan san","san" }) );
+        set("long",HIB"è¿™æ˜¯è¡€åˆ€è€ç¥–ç§˜åˆ¶çš„è¯ç²‰ï¼Œåªéœ€è¦æ’’(sa)ä¸€ç‚¹ç‚¹å°±èƒ½å‘æŒ¥åšç”¨ï¼Œhehehe\n"NOR);
+        set("unit", "åŒ…");
         set("weight", 90);
         set("no_sell",1);
         set("no_get",1);
@@ -22,29 +22,29 @@ int do_sa(string arg)
 {
         object me=this_player() , ob;
 
-        if(!arg) return notify_fail("ÄãÒªÈöË­£¿\n");
+        if(!arg) return notify_fail("ä½ è¦æ’’è°ï¼Ÿ\n");
 
         ob = present(arg, environment(me));
-        if(!ob) return notify_fail("ÄãÒªÈöË­£¿\n");
+        if(!ob) return notify_fail("ä½ è¦æ’’è°ï¼Ÿ\n");
 
-        if(ob==me) return notify_fail("ÕâÒªÊÇÕæµÄÓÃÁË.....\n");
+        if(ob==me) return notify_fail("è¿™è¦æ˜¯çœŸçš„ç”¨äº†.....\n");
 
         if( !wizardp(me) && userp(ob) )
-                return notify_fail("Õâ¸öºÃÏñ²»ÊÇÄãµÄÄ¿±ê¡£\n");
+                return notify_fail("è¿™ä¸ªå¥½åƒä¸æ˜¯ä½ çš„ç›®æ ‡ã€‚\n");
 
         if(ob->query("id")!="guo fu" && ob->query("id")!="guo xiang" )
-                return notify_fail("Õâ¸öºÃÏñ²»ÊÇÄãµÄÄ¿±ê¡£\n");
+                return notify_fail("è¿™ä¸ªå¥½åƒä¸æ˜¯ä½ çš„ç›®æ ‡ã€‚\n");
 
-        message_vision("$NÇáÇáµÄ½«Ò©·ÛÏò$nÈöÈ¥¡£\n",me, ob);
+        message_vision("$Nè½»è½»çš„å°†è¯ç²‰å‘$næ’’åŽ»ã€‚\n",me, ob);
         if (random(me->query_skill("force",1)) < random(ob->query_con()*4))
         {
-                message_vision(HIR"$NµÄÒ©·ÛÉÐÎ´¼°Éí£¬¾Í±»$nÒÔÄÚÁ¦ÕñÁË¿ªÈ¥£¡\n"NOR,me,ob);
+                message_vision(HIR"$Nçš„è¯ç²‰å°šæœªåŠèº«ï¼Œå°±è¢«$nä»¥å†…åŠ›æŒ¯äº†å¼€åŽ»ï¼\n"NOR,me,ob);
                 me->start_busy(5);
                 ob->kill_ob(me);
                 destruct(this_object());
                 return 1;
         } else {
-       message_vision(HIB"$N"HIB"ºÙºÙÒõÐ¦ÁË¼¸Éù£¬ÓÃÖ¸¼×Ïò$n"HIB"ÇáÇáµ¯ÁËµã·ÛÄ­¡£\n"MAG"²»Ò»»á¶ù£¬$n"MAG"¾ÍÂúÃæÍ¨ºìµÄÔÎÁË¹ýÈ¥£¡\n",me, ob);
+       message_vision(HIB"$N"HIB"å˜¿å˜¿é˜´ç¬‘äº†å‡ å£°ï¼Œç”¨æŒ‡ç”²å‘$n"HIB"è½»è½»å¼¹äº†ç‚¹ç²‰æ²«ã€‚\n"MAG"ä¸ä¸€ä¼šå„¿ï¼Œ$n"MAG"å°±æ»¡é¢é€šçº¢çš„æ™•äº†è¿‡åŽ»ï¼\n",me, ob);
         if (me->query_temp("xy/job")!=0)
                 me->add_temp("xy/job",1);
         ob->unconcious();

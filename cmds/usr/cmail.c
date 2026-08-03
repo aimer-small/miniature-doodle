@@ -62,23 +62,23 @@ int main(object me, string arg)
 	
 	if (arg=="-a") {		
     	if ((int)me->query_temp("cmail/failed")>3) {
-    		write (HIR"\nÄúµÄ³¢ÊÔÒÑÊ§°Ü¶à´Î£¬³öÓÚ°²È«¿¼ÂÇ£¬Äú±»ÔİÊ±½ûÖ¹Ê¹ÓÃ±¾¹¦ÄÜ¡£\n"NOR);
+    		write (HIR"\næ‚¨çš„å°è¯•å·²å¤±è´¥å¤šæ¬¡ï¼Œå‡ºäºå®‰å…¨è€ƒè™‘ï¼Œæ‚¨è¢«æš‚æ—¶ç¦æ­¢ä½¿ç”¨æœ¬åŠŸèƒ½ã€‚\n"NOR);
     		cancel();
     		return 1;
     	}
 		
 					
-		write(HIG+"\n×¢Òâ£º¸ÃÃüÁîÖ÷ÒªÕë¶ÔÄÇĞ©ÒòÎªÖÖÖÖÔ­ÒòÒÅÍüÃÜÂëºÍ×¢²áĞÅÏäµÄÍæ¼Ò,
-Èç¹ûÄãÆóÍ¼Í¨¹ıÕâÖÖ·½Ê½»ñµÃËûÈËÕÊºÅÃÜÂë,ÄÇÃ´ËùµÃµÄ³Í·£½«ÊÇ·Ç³£ÑÏÖØ£¬\n"
-HIR"Çëµ£±£Õß×¢Òâ£¬Ò»µ©²é³öÄãÔÚ×öÎ±Ö¤£¬Äã½«ÊÜµ½ÖÁÉÙ¼õÉÙ40£¥µÄ¾­Ñé³Í·£¡£\n\n"NOR);
+		write(HIG+"\næ³¨æ„ï¼šè¯¥å‘½ä»¤ä¸»è¦é’ˆå¯¹é‚£äº›å› ä¸ºç§ç§åŸå› é—å¿˜å¯†ç å’Œæ³¨å†Œä¿¡ç®±çš„ç©å®¶,
+å¦‚æœä½ ä¼å›¾é€šè¿‡è¿™ç§æ–¹å¼è·å¾—ä»–äººå¸å·å¯†ç ,é‚£ä¹ˆæ‰€å¾—çš„æƒ©ç½šå°†æ˜¯éå¸¸ä¸¥é‡ï¼Œ\n"
+HIR"è¯·æ‹…ä¿è€…æ³¨æ„ï¼Œä¸€æ—¦æŸ¥å‡ºä½ åœ¨åšä¼ªè¯ï¼Œä½ å°†å—åˆ°è‡³å°‘å‡å°‘40ï¼…çš„ç»éªŒæƒ©ç½šã€‚\n\n"NOR);
 		
-		write("»¶Ó­Ê¹ÓÃ±¾Ïòµ¼£¬Çë°´ÄúµÄĞèÒª½øĞĞÑ¡Ôñ£º\n");
-		write("1.ÉêÇë½«ÀÏÕ¾ID×ªÖÁ±¾Õ¾\n");
-		write("2.ÉêÇë¸ü¸Ä×¢²áÓÊÏä\n");
-		write("3.ÎªÆäËûÍæ¼Ò¸ü¸Ä×¢²áÓÊÏä×öµ£±££¨ÄãÖÁÉÙĞèÒª 5M µÄ¾­ÑéÖµ£©\n");
-		write("4.¶ÔÆäËûÍæ¼Ò¸ü¸Ä×¢²áÓÊÏäÌá³öÖÃÒÉ\n");
-		write("0.ÍË³ö\n");
-		write("ÇëÑ¡Ôñ(0¡«4)£º");
+		write("æ¬¢è¿ä½¿ç”¨æœ¬å‘å¯¼ï¼Œè¯·æŒ‰æ‚¨çš„éœ€è¦è¿›è¡Œé€‰æ‹©ï¼š\n");
+		write("1.ç”³è¯·å°†è€ç«™IDè½¬è‡³æœ¬ç«™\n");
+		write("2.ç”³è¯·æ›´æ”¹æ³¨å†Œé‚®ç®±\n");
+		write("3.ä¸ºå…¶ä»–ç©å®¶æ›´æ”¹æ³¨å†Œé‚®ç®±åšæ‹…ä¿ï¼ˆä½ è‡³å°‘éœ€è¦ 5M çš„ç»éªŒå€¼ï¼‰\n");
+		write("4.å¯¹å…¶ä»–ç©å®¶æ›´æ”¹æ³¨å†Œé‚®ç®±æå‡ºç½®ç–‘\n");
+		write("0.é€€å‡º\n");
+		write("è¯·é€‰æ‹©(0ï½4)ï¼š");
 		
 		input_to("input_start",1,me);
 		
@@ -88,18 +88,18 @@ HIR"Çëµ£±£Õß×¢Òâ£¬Ò»µ©²é³öÄãÔÚ×öÎ±Ö¤£¬Äã½«ÊÜµ½ÖÁÉÙ¼õÉÙ40£¥µÄ¾­Ñé³Í·£¡£\n\n"NOR);
 
 	if (sscanf(arg,"-site -d %d",num)==1) {
 		if ( wiz_level(me)<5 )
-			return notify_fail("Ö»ÓĞassist²Å¿ÉÒÔÉ¾³ı×ªÕ¾ÉêÇë¼ÇÂ¼¡£ \n");
+			return notify_fail("åªæœ‰assistæ‰å¯ä»¥åˆ é™¤è½¬ç«™ç”³è¯·è®°å½•ã€‚ \n");
 		if( !arrayp(notes_csite) || num < 1 || num > sizeof(notes_csite) )
-			return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄÄÚÈİ¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„å†…å®¹ã€‚\n");
 		num--;
 		user = notes_csite[num]["id_old"] + "@" + notes_csite[num]["site_old"];		
-		log_file( "static/CMAIL", sprintf("%s %s(%s)°Ñ¹ØÓÚ%sµÄ×ªÕ¾ÉêÇë¼ÇÂ¼É¾³ı¡£\n", 
+		log_file( "static/CMAIL", sprintf("%s %s(%s)æŠŠå…³äº%sçš„è½¬ç«™ç”³è¯·è®°å½•åˆ é™¤ã€‚\n", 
 			ctime(time()), me->query("name"), me->query("id"), user));
 		
-		write("Äú½«ÒªÉ¾³ı"+ (num+1) + "ºÅÄÚÈİ£¬ÄÚÈİÈçÏÂ£º\n");
+		write("æ‚¨å°†è¦åˆ é™¤"+ (num+1) + "å·å†…å®¹ï¼Œå†…å®¹å¦‚ä¸‹ï¼š\n");
 		search_csite(me,num);
 		notes_csite = notes_csite[0..num-1] + notes_csite[num+1..<1];
-		write("È·¶¨ÒªÉ¾³ı£¬ÇëÊäÈë¡°y¡±£º");
+		write("ç¡®å®šè¦åˆ é™¤ï¼Œè¯·è¾“å…¥â€œyâ€ï¼š");
 		input_to("confirm",1);
 		return 1;
 		
@@ -107,26 +107,26 @@ HIR"Çëµ£±£Õß×¢Òâ£¬Ò»µ©²é³öÄãÔÚ×öÎ±Ö¤£¬Äã½«ÊÜµ½ÖÁÉÙ¼õÉÙ40£¥µÄ¾­Ñé³Í·£¡£\n\n"NOR);
 
 	if (sscanf(arg,"-site -r %d %s",num,s)==2) {
 		if ( wiz_level(me)<4 )
-			return notify_fail("Ö»ÓĞarch²Å¿ÉÒÔÌîĞ´´¦Àí½á¹û¡£ \n");
+			return notify_fail("åªæœ‰archæ‰å¯ä»¥å¡«å†™å¤„ç†ç»“æœã€‚ \n");
 		if( !arrayp(notes_csite) || num < 1 || num > sizeof(notes_csite) )
-			return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄÄÚÈİ¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„å†…å®¹ã€‚\n");
 			
 		if (strlen(s)< 4 || strlen(s)>44)
-			return notify_fail("Çë¼òÃ÷¶óÒªµØËµÃ÷´¦Àí½á¹û£¬×ÖÊı±ØĞëÔÚ2-20Ö®¼ä¡£ \n");
+			return notify_fail("è¯·ç®€æ˜æ‰¼è¦åœ°è¯´æ˜å¤„ç†ç»“æœï¼Œå­—æ•°å¿…é¡»åœ¨2-20ä¹‹é—´ã€‚ \n");
 			
 		num--;
 		user = notes_csite[num]["id_old"] + "@" + notes_csite[num]["site_old"];		
 		
-		log_file( "static/CMAIL", sprintf("%s %s(%s)¶Ô¹ØÓÚ%sµÄ×ªÕ¾ÉêÇë×öÁË´ğ¸´£º%s¡£\n", 
+		log_file( "static/CMAIL", sprintf("%s %s(%s)å¯¹å…³äº%sçš„è½¬ç«™ç”³è¯·åšäº†ç­”å¤ï¼š%sã€‚\n", 
 			ctime(time()), me->query("name"), me->query("id"), user,s));
 			
 		notes_csite[num]["result"]=s+"(by "+capitalize(me->query("id"))+")";
 		
-		write("Äú½«Òª´ğ¸´"+ (num+1) + "ºÅÉêÇë£º\n");
+		write("æ‚¨å°†è¦ç­”å¤"+ (num+1) + "å·ç”³è¯·ï¼š\n");
 		search_csite(me,num);
-		write("ÄúµÄ´ğ¸´ÊÇ£º\n");
+		write("æ‚¨çš„ç­”å¤æ˜¯ï¼š\n");
 		write(HIR+s+"\n"NOR);
-		write("È·ÈÏ£¬ÇëÊäÈë¡°y¡±£º");
+		write("ç¡®è®¤ï¼Œè¯·è¾“å…¥â€œyâ€ï¼š");
 		input_to("confirm",1);
 		return 1;
 		
@@ -134,18 +134,18 @@ HIR"Çëµ£±£Õß×¢Òâ£¬Ò»µ©²é³öÄãÔÚ×öÎ±Ö¤£¬Äã½«ÊÜµ½ÖÁÉÙ¼õÉÙ40£¥µÄ¾­Ñé³Í·£¡£\n\n"NOR);
 	
 	if (sscanf(arg,"-mail -d %d",num)==1) {
 		if ( wiz_level(me)<5 )
-			return notify_fail("Ö»ÓĞassist²Å¿ÉÒÔÉ¾³ıÓÊÏä¸ü¸Ä¼ÇÂ¼¡£ \n");
+			return notify_fail("åªæœ‰assistæ‰å¯ä»¥åˆ é™¤é‚®ç®±æ›´æ”¹è®°å½•ã€‚ \n");
 		if( !arrayp(notes_cmail) || num < 1 || num > sizeof(notes_cmail) )
-			return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄÄÚÈİ¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„å†…å®¹ã€‚\n");
 		num--;
 		user = notes_cmail[num]["player"];		
-		log_file( "static/CMAIL", sprintf("%s %s(%s)°Ñ¹ØÓÚ%sµÄÓÊÏä¸ü¸Ä¼ÇÂ¼É¾³ı¡£\n", 
+		log_file( "static/CMAIL", sprintf("%s %s(%s)æŠŠå…³äº%sçš„é‚®ç®±æ›´æ”¹è®°å½•åˆ é™¤ã€‚\n", 
 			ctime(time()), me->query("name"), me->query("id"), user));
 
-		write("Äú½«ÒªÉ¾³ı"+ (num+1) + "ºÅÄÚÈİ£¬ÄÚÈİÈçÏÂ£º\n");
+		write("æ‚¨å°†è¦åˆ é™¤"+ (num+1) + "å·å†…å®¹ï¼Œå†…å®¹å¦‚ä¸‹ï¼š\n");
 		search_cmail(me,num);
 		notes_cmail = notes_cmail[0..num-1] + notes_cmail[num+1..<1];
-		write("È·¶¨ÒªÉ¾³ı£¬ÇëÊäÈë¡°y¡±£º");
+		write("ç¡®å®šè¦åˆ é™¤ï¼Œè¯·è¾“å…¥â€œyâ€ï¼š");
 		input_to("confirm",1);
 		return 1;
 		
@@ -153,26 +153,26 @@ HIR"Çëµ£±£Õß×¢Òâ£¬Ò»µ©²é³öÄãÔÚ×öÎ±Ö¤£¬Äã½«ÊÜµ½ÖÁÉÙ¼õÉÙ40£¥µÄ¾­Ñé³Í·£¡£\n\n"NOR);
 	
 	if (sscanf(arg,"-mail -r %d %s",num,s)==2) {
 		if ( wiz_level(me)<4 )
-			return notify_fail("Ö»ÓĞarch²Å¿ÉÒÔÌîĞ´´¦Àí½á¹û¡£ \n");
+			return notify_fail("åªæœ‰archæ‰å¯ä»¥å¡«å†™å¤„ç†ç»“æœã€‚ \n");
 		if( !arrayp(notes_cmail) || num < 1 || num > sizeof(notes_cmail) )
-			return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄÄÚÈİ¡£\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„å†…å®¹ã€‚\n");
 			
 		if (strlen(s)< 4 || strlen(s)>44)
-			return notify_fail("Çë¼òÃ÷¶óÒªµØËµÃ÷´¦Àí½á¹û£¬×ÖÊı±ØĞëÔÚ2-20Ö®¼ä¡£ \n");
+			return notify_fail("è¯·ç®€æ˜æ‰¼è¦åœ°è¯´æ˜å¤„ç†ç»“æœï¼Œå­—æ•°å¿…é¡»åœ¨2-20ä¹‹é—´ã€‚ \n");
 			
 		num--;
 		user = notes_cmail[num]["player"];		
 		
-		log_file( "static/CMAIL", sprintf("%s %s(%s)¶Ô¹ØÓÚ%sµÄÓÊÏä¸ü¸ÄÉêÇë×öÁË´ğ¸´£º%s¡£\n", 
+		log_file( "static/CMAIL", sprintf("%s %s(%s)å¯¹å…³äº%sçš„é‚®ç®±æ›´æ”¹ç”³è¯·åšäº†ç­”å¤ï¼š%sã€‚\n", 
 			ctime(time()), me->query("name"), me->query("id"), user,s));
 			
 		notes_cmail[num]["result"]= s + "(by " + me->query("id") +")" ;
 		
-		write("Äú½«Òª´ğ¸´"+ (num+1) + "ºÅÉêÇë£º\n");
+		write("æ‚¨å°†è¦ç­”å¤"+ (num+1) + "å·ç”³è¯·ï¼š\n");
 		search_cmail(me,num);
-		write("ÄúµÄ´ğ¸´ÊÇ£º\n");
+		write("æ‚¨çš„ç­”å¤æ˜¯ï¼š\n");
 		write(HIR+s+"\n"NOR);
-		write("È·ÈÏ£¬ÇëÊäÈë¡°y¡±£º");
+		write("ç¡®è®¤ï¼Œè¯·è¾“å…¥â€œyâ€ï¼š");
 		input_to("confirm",1);
 		return 1;
 		
@@ -199,7 +199,7 @@ HIR"Çëµ£±£Õß×¢Òâ£¬Ò»µ©²é³öÄãÔÚ×öÎ±Ö¤£¬Äã½«ÊÜµ½ÖÁÉÙ¼õÉÙ40£¥µÄ¾­Ñé³Í·£¡£\n\n"NOR);
 	}
 	
 	if (sscanf(arg,"-%s",s)>0) 
-		return notify_fail("Ö¸Áî¸ñÊ½´íÎó£¬Çë²Î¿¼help cmail\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼é”™è¯¯ï¼Œè¯·å‚è€ƒhelp cmail\n");
 	
 	
 }
@@ -208,40 +208,40 @@ void input_start(string arg,object me)
 {
 	switch(arg) {
 		case "1":
-			write ("Äú¿ªÊ¼ÌîĞ´×ªÕ¾ÉêÇëµ¥¡£\n");
-			write (HIG"\n´ËÃüÁîÓÃÓÚ½«ºÏÕ¾ºóÉĞÎ´×ªÕ¾µÄID×ªÖÁ±¾Õ¾¡£Äú±ØĞë×¼È·ÌîĞ´IDµÄ×¢²á\n"NOR);
-			write (HIG"ÓÊÏä£¬Î×Ê¦ºËÊµºó½«ÎªÄú×ªÒÆÊı¾İ¡£Èç¹ûÄúÀÏÕ¾IDµÄ×¢²áÓÊÏäÒÑ¾­²»ÄÜ\n"NOR);
-			write (HIG"Ê¹ÓÃ,ÇëÔÚ×ªÕ¾³É¹¦ºóÔÙ´ÎÊ¹ÓÃ±¾Ïòµ¼ÉêÇë¸ü¸Ä×¢²áÓÊÏä¡£\n"NOR);
-			write ("\nÇëÊäÈëÀÏÕ¾Ãû³Æ(sd£¬sy£¬cq£¬hb)£º");
+			write ("æ‚¨å¼€å§‹å¡«å†™è½¬ç«™ç”³è¯·å•ã€‚\n");
+			write (HIG"\næ­¤å‘½ä»¤ç”¨äºå°†åˆç«™åå°šæœªè½¬ç«™çš„IDè½¬è‡³æœ¬ç«™ã€‚æ‚¨å¿…é¡»å‡†ç¡®å¡«å†™IDçš„æ³¨å†Œ\n"NOR);
+			write (HIG"é‚®ç®±ï¼Œå·«å¸ˆæ ¸å®åå°†ä¸ºæ‚¨è½¬ç§»æ•°æ®ã€‚å¦‚æœæ‚¨è€ç«™IDçš„æ³¨å†Œé‚®ç®±å·²ç»ä¸èƒ½\n"NOR);
+			write (HIG"ä½¿ç”¨,è¯·åœ¨è½¬ç«™æˆåŠŸåå†æ¬¡ä½¿ç”¨æœ¬å‘å¯¼ç”³è¯·æ›´æ”¹æ³¨å†Œé‚®ç®±ã€‚\n"NOR);
+			write ("\nè¯·è¾“å…¥è€ç«™åç§°(sdï¼Œsyï¼Œcqï¼Œhb)ï¼š");
 			input_to("input_site",1,me);
 			return;
 		case "2":
-			write ("Äú¿ªÊ¼ÌîĞ´¸ü¸ÄÓÊÏäÉêÇëµ¥¡£\n");
-			write (HIG"\nÉêÇë·¶Î§½öÏŞÓÚÃÜÂëÒÅÊ§µÄID ¡£(×¢Òâ£ºÈç¹ûID±»µÁ£¬ÊôÍæ¼Ò±£¹Ü²»ÉÆ£¬\n"NOR);
-			write (HIG"ÔğÈÎ×Ô¸º¡£)ÔÚÍê³ÉÉêÇëºó£¬ÇëÕÒËÄÎ»IPµØÖ·¸÷²»ÏàÍ¬µÄ5MÒÔÉÏÍæ¼ÒÎªÄú \n"NOR);
-			write (HIG"×öµ£±£¡£Î×Ê¦ºËÊµËùÓĞĞÅÏ¢ÊôÊµºó£¬½«ÎªÄú¸ü¸Ä×¢²áÓÊÏä¡£ÄúËùÌîĞ´µÄÓÊ\n"NOR);
-			write (HIG"Ïä£¬Ö»ÓĞÄú×Ô¼ººÍÎ×Ê¦¿ÉÒÔ¿´µ½¡£\n"NOR);
-			write ("\nÇëÊäÈëĞèÒª¸ü¸ÄÓÊÏäµÄID£º");
+			write ("æ‚¨å¼€å§‹å¡«å†™æ›´æ”¹é‚®ç®±ç”³è¯·å•ã€‚\n");
+			write (HIG"\nç”³è¯·èŒƒå›´ä»…é™äºå¯†ç é—å¤±çš„ID ã€‚(æ³¨æ„ï¼šå¦‚æœIDè¢«ç›—ï¼Œå±ç©å®¶ä¿ç®¡ä¸å–„ï¼Œ\n"NOR);
+			write (HIG"è´£ä»»è‡ªè´Ÿã€‚)åœ¨å®Œæˆç”³è¯·åï¼Œè¯·æ‰¾å››ä½IPåœ°å€å„ä¸ç›¸åŒçš„5Mä»¥ä¸Šç©å®¶ä¸ºæ‚¨ \n"NOR);
+			write (HIG"åšæ‹…ä¿ã€‚å·«å¸ˆæ ¸å®æ‰€æœ‰ä¿¡æ¯å±å®åï¼Œå°†ä¸ºæ‚¨æ›´æ”¹æ³¨å†Œé‚®ç®±ã€‚æ‚¨æ‰€å¡«å†™çš„é‚®\n"NOR);
+			write (HIG"ç®±ï¼Œåªæœ‰æ‚¨è‡ªå·±å’Œå·«å¸ˆå¯ä»¥çœ‹åˆ°ã€‚\n"NOR);
+			write ("\nè¯·è¾“å…¥éœ€è¦æ›´æ”¹é‚®ç®±çš„IDï¼š");
 			input_to("input_user",1,me);
 			return;
 		case "3":
-			write ("Äú¿ªÊ¼ÌîĞ´µ£±£Ö¤Ã÷Êé¡£\n");
-			write (HIR"\nÇëÈ·±£ÄúËùµ£±£µÄ¶ÔÏóµÄ¿É¿¿ĞÔ¡£·ñÔò£¬Äú¿ÉÄÜ»áÒòÎª×öÎ±Ö¤¶øÊÜµ½ÖÁÉÙ¼õÉÙ40%¾­ÑéÖµµÄ³Í·£¡£\n"NOR);
-			write ("\nÇëÊäÈëĞèÒª¸ü¸ÄÓÊÏäµÄID£º");
+			write ("æ‚¨å¼€å§‹å¡«å†™æ‹…ä¿è¯æ˜ä¹¦ã€‚\n");
+			write (HIR"\nè¯·ç¡®ä¿æ‚¨æ‰€æ‹…ä¿çš„å¯¹è±¡çš„å¯é æ€§ã€‚å¦åˆ™ï¼Œæ‚¨å¯èƒ½ä¼šå› ä¸ºåšä¼ªè¯è€Œå—åˆ°è‡³å°‘å‡å°‘40%ç»éªŒå€¼çš„æƒ©ç½šã€‚\n"NOR);
+			write ("\nè¯·è¾“å…¥éœ€è¦æ›´æ”¹é‚®ç®±çš„IDï¼š");
 			input_to("input_prove",1,me);
 			return;
 		case "4":
-			write ("Äú¿ªÊ¼ÌîĞ´ÖÃÒÉËµÃ÷Êé¡£\n");
-			write (HIG"\nÈç¹ûÄúÈÏÎªÄ³Ïî¸ü¸ÄÓÊÏäµÄÉêÇëÓĞÎÊÌâ£¬Çë¾Ù±¨¡£³ıÁËÎ×Ê¦£¬ÈÎºÎÈË¶¼¿´²»µ½\n"NOR);
-			write (HIG"ÄúµÄ¾Ù±¨ÄÚÈİ¡£\n"NOR);
-			write ("\nÇëÊäÈëÄú¾õµÃÓĞÒÉÎÊµÄÉêÇë¶ÔÏóID£º");
+			write ("æ‚¨å¼€å§‹å¡«å†™ç½®ç–‘è¯´æ˜ä¹¦ã€‚\n");
+			write (HIG"\nå¦‚æœæ‚¨è®¤ä¸ºæŸé¡¹æ›´æ”¹é‚®ç®±çš„ç”³è¯·æœ‰é—®é¢˜ï¼Œè¯·ä¸¾æŠ¥ã€‚é™¤äº†å·«å¸ˆï¼Œä»»ä½•äººéƒ½çœ‹ä¸åˆ°\n"NOR);
+			write (HIG"æ‚¨çš„ä¸¾æŠ¥å†…å®¹ã€‚\n"NOR);
+			write ("\nè¯·è¾“å…¥æ‚¨è§‰å¾—æœ‰ç–‘é—®çš„ç”³è¯·å¯¹è±¡IDï¼š");
 			input_to("input_doubt_id",1,me);
 			return;
 		case "0":
 			cancel();
 			return;
 		default:
-			write ("Ã»ÓĞÕâ¸öÑ¡Ïî£¬ÇëÖØĞÂÑ¡Ôñ£º");
+			write ("æ²¡æœ‰è¿™ä¸ªé€‰é¡¹ï¼Œè¯·é‡æ–°é€‰æ‹©ï¼š");
 			input_to("input_start",1,me);
 			return;
 	}
@@ -259,14 +259,14 @@ void input_doubt_id(string arg,object me)
 	}
 
 	if (index_cmail(arg)<0) {
-		write ("Ã»ÓĞÈË¶ÔÕâ¸öIDÌá³ö¸ü¸ÄÓÊÏäµÄÉêÇë¡£\n");
+		write ("æ²¡æœ‰äººå¯¹è¿™ä¸ªIDæå‡ºæ›´æ”¹é‚®ç®±çš„ç”³è¯·ã€‚\n");
 		cancel();
 		return;
 	}
 	
 	note = notes_cmail[index_cmail(arg)];
 	if (note["result"]!="applying" && note["result"]!="waiting") {
-		write("Î×Ê¦ÒÑ¾­¶ÔÕâ¸öÉêÇë×öÁË´ğ¸´£¬ÇëÓÃsosËµÃ÷ÄúµÄÖÃÒÉ¡£\n");
+		write("å·«å¸ˆå·²ç»å¯¹è¿™ä¸ªç”³è¯·åšäº†ç­”å¤ï¼Œè¯·ç”¨sosè¯´æ˜æ‚¨çš„ç½®ç–‘ã€‚\n");
 		cancel();
 		return;
    	}
@@ -282,7 +282,7 @@ void input_doubt_id(string arg,object me)
 	note[doubt]=me->query("id");
 	note[ip]=query_ip_number(me);
 	
-	write ("ÇëÓÃ4¡«40¸ö×Ö¼òÃ÷¶óÒªµØËµÃ÷ÄúµÄ»³ÒÉ£º\n");
+	write ("è¯·ç”¨4ï½40ä¸ªå­—ç®€æ˜æ‰¼è¦åœ°è¯´æ˜æ‚¨çš„æ€€ç–‘ï¼š\n");
 	input_to("input_doubt",1,note,i);
 	return;
 }
@@ -292,16 +292,16 @@ void input_doubt(string arg,mapping note,int i)
 	string content = "content" +i;
 	
 	if (strlen(arg)< 8 || strlen(arg)>44) {
-		write("×ÖÊı±ØĞëÔÚ4-20Ö®¼ä,ÇëÖØĞÂÊäÈë£º \n");
+		write("å­—æ•°å¿…é¡»åœ¨4-20ä¹‹é—´,è¯·é‡æ–°è¾“å…¥ï¼š \n");
 		input_to("input_doubt",1,note,i);
 		return;
 	}
 		
 	note[content] = arg;
 	
-	write ("Äú¶Ô¹ØÓÚ"HIR+capitalize(note["user"])+NOR"µÄÓÊÏä¸ü¸ÄÉêÇëÓĞÏÂÊöÒÉÎÊ£º\n");
+	write ("æ‚¨å¯¹å…³äº"HIR+capitalize(note["user"])+NOR"çš„é‚®ç®±æ›´æ”¹ç”³è¯·æœ‰ä¸‹è¿°ç–‘é—®ï¼š\n");
 	write (HIR+arg+"\n"NOR);
-	write ("\nÈ·ÈÏÉÏÊöĞÅÏ¢ÎŞÎó£¬ÇëÊäÈë¡°y¡±£º");
+	write ("\nç¡®è®¤ä¸Šè¿°ä¿¡æ¯æ— è¯¯ï¼Œè¯·è¾“å…¥â€œyâ€ï¼š");
 	input_to("confirm",1);
 	return;
 }
@@ -316,27 +316,27 @@ void input_prove(string arg,object me)
 		return;
 	}
 	if (me->query("combat_exp") < 5000000) {
-		write ("ÄãµÄ¾­ÑéÖµÉÙÓÚ5000000£¬²»ÄÜ½øĞĞµ£±£¡£\n");
+		write ("ä½ çš„ç»éªŒå€¼å°‘äº5000000ï¼Œä¸èƒ½è¿›è¡Œæ‹…ä¿ã€‚\n");
 		cancel();
 		return;
 	}
 		
 	
 	if (index_cmail(arg)<0) {
-		write ("Ã»ÓĞÈË¶ÔÕâ¸öIDÌá³ö¸ü¸ÄÓÊÏäµÄÉêÇë¡£\n");
+		write ("æ²¡æœ‰äººå¯¹è¿™ä¸ªIDæå‡ºæ›´æ”¹é‚®ç®±çš„ç”³è¯·ã€‚\n");
 		cancel();
 		return;
 	}
 	
 	note = notes_cmail[index_cmail(arg)];
 	if (note["result"]!="applying") {
-		write("Õâ¸öIDµÄµ£±£ÈËÊıÒÑ¾­×ã¹»ÁË¡£\n");
+		write("è¿™ä¸ªIDçš„æ‹…ä¿äººæ•°å·²ç»è¶³å¤Ÿäº†ã€‚\n");
 		cancel();
 		return;
 	}
 	
 	if (wiz_level(me)<6 && note["ip_proposer"]==query_ip_number(me)) {
-		write("Äú¸úÉêÇëÈËÔÚÒ»Æğ£¬²»ÄÜµ£±£¡£\n");
+		write("æ‚¨è·Ÿç”³è¯·äººåœ¨ä¸€èµ·ï¼Œä¸èƒ½æ‹…ä¿ã€‚\n");
 		cancel();
 		return;
 	}		
@@ -349,11 +349,11 @@ void input_prove(string arg,object me)
 			note[ip]=query_ip_number(me);
 			break;
 		} else if (wiz_level(me)<6 && note[prove]==me->query("id")) {
-			write( "ÄúÒÑ¾­ÎªÕâ¸öID×ö¹ıµ£±£ÁË¡£\n");
+			write( "æ‚¨å·²ç»ä¸ºè¿™ä¸ªIDåšè¿‡æ‹…ä¿äº†ã€‚\n");
 			cancel();
 			return;
 		} else if (wiz_level(me)<6 && note[ip]==query_ip_number(me)) {
-			write( "IPµØÖ·ÖØ¸´£¬²»ÄÜ×öµ£±£¡£\n");
+			write( "IPåœ°å€é‡å¤ï¼Œä¸èƒ½åšæ‹…ä¿ã€‚\n");
 			cancel();
 			return;
 		}
@@ -363,9 +363,9 @@ void input_prove(string arg,object me)
 		note["time"]=time();
 	}
 	
-	write ("Äú¾ö¶¨Îª"HIR+capitalize(arg)+NOR"¸ü¸ÄÓÊÏä×öµ£±£¡£\n");
-	write (HIR"×¢Òâ£¬Ò»µ©²é³öÄãÔÚ×öÎ±Ö¤»òÕßÆóÍ¼Ê¹ÓÃµ£±£»ñÈ¡ËûÈËÕÊºÅ£¬Äã½«ÊÜµ½ÖÁÉÙ¼õÉÙ40£¥µÄ¾­Ñé³Í·£¡£\n"NOR);
-	write("È·ÈÏÉÏÊöĞÅÏ¢ÕıÈ·£¬ÇëÊäÈë¡°y¡±£¨°´»Ø³µ·ÅÆúµ£±££©£º");	
+	write ("æ‚¨å†³å®šä¸º"HIR+capitalize(arg)+NOR"æ›´æ”¹é‚®ç®±åšæ‹…ä¿ã€‚\n");
+	write (HIR"æ³¨æ„ï¼Œä¸€æ—¦æŸ¥å‡ºä½ åœ¨åšä¼ªè¯æˆ–è€…ä¼å›¾ä½¿ç”¨æ‹…ä¿è·å–ä»–äººå¸å·ï¼Œä½ å°†å—åˆ°è‡³å°‘å‡å°‘40ï¼…çš„ç»éªŒæƒ©ç½šã€‚\n"NOR);
+	write("ç¡®è®¤ä¸Šè¿°ä¿¡æ¯æ­£ç¡®ï¼Œè¯·è¾“å…¥â€œyâ€ï¼ˆæŒ‰å›è½¦æ”¾å¼ƒæ‹…ä¿ï¼‰ï¼š");	
 	input_to("confirm",1);
 	return;
 }
@@ -378,7 +378,7 @@ void confirm(string arg)
 	}
 
     save();
-    write(HIW"ÄúµÄ²Ù×÷ÒÑ¾­³É¹¦¡£\n"NOR);
+    write(HIW"æ‚¨çš„æ“ä½œå·²ç»æˆåŠŸã€‚\n"NOR);
     return;	
 	
 }
@@ -396,18 +396,18 @@ void input_user(string arg,object me)
 	}
 	
 	if (arg==note["proposer"]) {
-		write("¸ø×Ô¼º¹ÒÊ§£¿±ğÏ¹µ·ÌÚ£¡\n");
+		write("ç»™è‡ªå·±æŒ‚å¤±ï¼Ÿåˆ«çæ£è…¾ï¼\n");
 		cancel();
 		return;
 	}
 	if ("/cmds/usr/blacklist"->is_black(arg))
         {
-                write(arg + " ÊÇºÚÃûµ¥ÖĞµÄÈËÎï£¬²»ÄÜÉêÇë¸ü¸ÄĞÅÏä,ÇëµÈ´ıÎ×Ê¦´¦Àí½á¹û¡£\n");
+                write(arg + " æ˜¯é»‘åå•ä¸­çš„äººç‰©ï¼Œä¸èƒ½ç”³è¯·æ›´æ”¹ä¿¡ç®±,è¯·ç­‰å¾…å·«å¸ˆå¤„ç†ç»“æœã€‚\n");
                 return;
         }
     if (index_cmail(arg)>=0) {
     	if (notes_cmail[index_cmail(arg)]["result"]=="waiting" || notes_cmail[index_cmail(arg)]["result"]=="applying") {
-    		write("\nÒÑ¾­ÓĞÈË¶ÔÕâ¸öIDÌá³öÁË¸ü¸ÄÓÊÏäµÄÉêÇë£¬Î×Ê¦´ğ¸´Ç°²»ÄÜÖØ¸´ÉêÇë¡£\n");
+    		write("\nå·²ç»æœ‰äººå¯¹è¿™ä¸ªIDæå‡ºäº†æ›´æ”¹é‚®ç®±çš„ç”³è¯·ï¼Œå·«å¸ˆç­”å¤å‰ä¸èƒ½é‡å¤ç”³è¯·ã€‚\n");
     		cancel();
     		return;
     	}
@@ -422,14 +422,14 @@ void input_user(string arg,object me)
 			i--;
 	}
 	if (i>=0) {
-		write("Õâ¸öÈËÕıÔÚÏßÉÏÄØ£¬ÄúÃ»Åª´í°É£¿\n");
+		write("è¿™ä¸ªäººæ­£åœ¨çº¿ä¸Šå‘¢ï¼Œæ‚¨æ²¡å¼„é”™å§ï¼Ÿ\n");
 		cancel();
 		return;
 	}
     ob = LOGIN_D->find_body(arg);
     if (!ob) {
 		if( file_size(DATA_DIR + "login/" + arg[0..0] + "/" + arg + SAVE_EXTENSION)<0 ) {
-            write("Ã»ÓĞÕâÎ»Ê¹ÓÃÕß¡£\n");
+            write("æ²¡æœ‰è¿™ä½ä½¿ç”¨è€…ã€‚\n");
             cancel();
             return;
         }
@@ -437,7 +437,7 @@ void input_user(string arg,object me)
 		ob->set("id",arg);
 		if( !ob->restore() ) {
 			destruct(ob);
-			write("Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+			write("æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
 			cancel();
 			return;
 		}
@@ -445,13 +445,13 @@ void input_user(string arg,object me)
 	
     if (time()-ob->query("last_on")<1296000) {
     	destruct(ob);
-    	write("Õâ¸öÈËÔÚÊ®ÎåÌìÖ®ÄÚµÇÂ¼¹ı£¬²»ÄÜÉêÇë¸ü»»ÓÊÏä¡£\n");
+    	write("è¿™ä¸ªäººåœ¨åäº”å¤©ä¹‹å†…ç™»å½•è¿‡ï¼Œä¸èƒ½ç”³è¯·æ›´æ¢é‚®ç®±ã€‚\n");
     	cancel();
     	return;
     }
     if( wiz_level(ob->query("id"))){
          destruct(ob);
-         write("¸ğ¹ş¸ğ¹ş£¬ÄãÏë¸ğ¹ş£¿£¡£¡\n");
+         write("è‘›å“ˆè‘›å“ˆï¼Œä½ æƒ³è‘›å“ˆï¼Ÿï¼ï¼\n");
          cancel();
          return;                       
     }
@@ -460,7 +460,7 @@ void input_user(string arg,object me)
 	note["ip_proposer"] = query_ip_number(me);
 	note["user"] = arg;
 	note["result"] = "applying";
-    write("ÇëÊäÈëĞÂµÄ×¢²áÓÊÏä£º");
+    write("è¯·è¾“å…¥æ–°çš„æ³¨å†Œé‚®ç®±ï¼š");
     input_to("input_mbox_new",1,note);
     return;
 }
@@ -474,14 +474,14 @@ void input_mbox_new(string arg,mapping note)
     }
     	
     if (sscanf(arg,"%s@%s.%s",s,s,s)<3) {
-    	write("\nÓÊÏä¸ñÊ½´íÎó£¬ÖØĞÂÊäÈë»ò°´»Ø³µ¼ü·ÅÆú£º");
+    	write("\né‚®ç®±æ ¼å¼é”™è¯¯ï¼Œé‡æ–°è¾“å…¥æˆ–æŒ‰å›è½¦é”®æ”¾å¼ƒï¼š");
     	input_to("input_mbox_new",1,note);
     	return;
     }
     
     note["mbox"] = arg;
-	write ("Äú¾ö¶¨ÉêÇë½«"HIR+capitalize(note["user"])+NOR"µÄ×¢²áÓÊÏä¸ü¸ÄÎª£º"HIR+arg+NOR"\n");
-	write("È·ÈÏÉÏÊöĞÅÏ¢ÕıÈ·£¬ÇëÊäÈë¡°y¡±£º");	
+	write ("æ‚¨å†³å®šç”³è¯·å°†"HIR+capitalize(note["user"])+NOR"çš„æ³¨å†Œé‚®ç®±æ›´æ”¹ä¸ºï¼š"HIR+arg+NOR"\n");
+	write("ç¡®è®¤ä¸Šè¿°ä¿¡æ¯æ­£ç¡®ï¼Œè¯·è¾“å…¥â€œyâ€ï¼š");	
     input_to("confirm_apply",1,note);
     return;	
 }		
@@ -499,13 +499,13 @@ void confirm_apply(string arg,mapping note)
         notes_cmail += ({ note });
     
     save();
-    write(HIW"ÄúµÄÉêÇëÒÑ¾­·¢³ö¡£\n"NOR);
+    write(HIW"æ‚¨çš„ç”³è¯·å·²ç»å‘å‡ºã€‚\n"NOR);
     return;	
 }
 
 void cancel()
 {
-	write(HIW"Äú½áÊøÁË±¾´Î²Ù×÷¡£\n"NOR);
+	write(HIW"æ‚¨ç»“æŸäº†æœ¬æ¬¡æ“ä½œã€‚\n"NOR);
 	restore();
 	return;
 }
@@ -519,7 +519,7 @@ void input_site(string arg,object me)
 	}
 	
     if ( arg!="hb" && arg!="sd" && arg!="sy" && arg!="cq") {
-            write("Ã»ÓĞÕâ¸öÕ¾µã£¬ÖØĞÂÊäÈë»ò°´»Ø³µ¼ü·ÅÆú£º");
+            write("æ²¡æœ‰è¿™ä¸ªç«™ç‚¹ï¼Œé‡æ–°è¾“å…¥æˆ–æŒ‰å›è½¦é”®æ”¾å¼ƒï¼š");
             input_to("input_site",1,me);
             return;
     }
@@ -528,7 +528,7 @@ void input_site(string arg,object me)
 	note["time"] = time();
 	note["ip_proposer"] = query_ip_number(me);   
     note["site_old"] = arg;
-    write("ÇëÊäÈëÓÃ»§ID£º");
+    write("è¯·è¾“å…¥ç”¨æˆ·IDï¼š");
     input_to("input_oid",1,note,me);
     return;		
 }
@@ -544,14 +544,14 @@ void input_oid(string arg,mapping note,object me)
 	site = note["site_old"];	
 	file  = OLD_DATA + site + "/data/login/"+ arg[0..0] +"/"+ arg + SAVE_EXTENSION;	
     if (file_size(file) <= 0) {
-        write("\n"+capitalize(arg) +"@"+site+"²»´æÔÚ£¬ÖØĞÂÊäÈë»ò°´»Ø³µ¼ü·ÅÆú£º");
+        write("\n"+capitalize(arg) +"@"+site+"ä¸å­˜åœ¨ï¼Œé‡æ–°è¾“å…¥æˆ–æŒ‰å›è½¦é”®æ”¾å¼ƒï¼š");
         input_to("input_oid",1,note);
         return;
     }
     
     if (index_csite(arg)>=0)
     	if (notes_csite[index_csite(arg)]["result"]=="waiting") {
-    		write("\nÒÑ¾­ÓĞÈË¶ÔÕâ¸öIDÌá³öÁË×ªÕ¾ÉêÇë£¬Î×Ê¦´ğ¸´Ç°²»ÄÜÖØ¸´ÉêÇë¡£\n");
+    		write("\nå·²ç»æœ‰äººå¯¹è¿™ä¸ªIDæå‡ºäº†è½¬ç«™ç”³è¯·ï¼Œå·«å¸ˆç­”å¤å‰ä¸èƒ½é‡å¤ç”³è¯·ã€‚\n");
     		restore();
     		return;
     	}
@@ -560,13 +560,13 @@ void input_oid(string arg,mapping note,object me)
     
         
     if (sscanf(str,"%*semail%*s:%s,%*s",str) != 4) {
-    	write ("\nÕâ¸öIDµÄÊı¾İÖĞÃ»ÓĞ×¢²áÓÊÏäĞÅÏ¢£¬ÇëÓÃ"HIY"sos"NOR"ÏòÎ×Ê¦ÇóÖú¡£\n");
+    	write ("\nè¿™ä¸ªIDçš„æ•°æ®ä¸­æ²¡æœ‰æ³¨å†Œé‚®ç®±ä¿¡æ¯ï¼Œè¯·ç”¨"HIY"sos"NOR"å‘å·«å¸ˆæ±‚åŠ©ã€‚\n");
     	cancel();
     	return;
     }   	
     str = replace_string(str,"\"","");
     note["id_old"] = arg;
-    write("\nÇëÊäÈë"+capitalize(arg)+"@"+site+"µÄ×¢²áÓÊÏä£º");
+    write("\nè¯·è¾“å…¥"+capitalize(arg)+"@"+site+"çš„æ³¨å†Œé‚®ç®±ï¼š");
     input_to("input_mbox",1,note,str);
     return;
 }
@@ -581,7 +581,7 @@ void input_mbox(string arg,mapping note,string mbox)
     }
     	
     if (sscanf(arg,"%s@%s.%s",s,s,s)<3) {
-    	write("\nÓÊÏä¸ñÊ½´íÎó£¬ÖØĞÂÊäÈë»ò°´»Ø³µ¼ü·ÅÆú£º");
+    	write("\né‚®ç®±æ ¼å¼é”™è¯¯ï¼Œé‡æ–°è¾“å…¥æˆ–æŒ‰å›è½¦é”®æ”¾å¼ƒï¼š");
     	input_to("input_mbox",1,note);
     	return;
     }
@@ -590,20 +590,20 @@ void input_mbox(string arg,mapping note,string mbox)
    	
    	me->add_temp("cmail/failed",1);
     	if ((int)me->query_temp("cmail/failed")>3) {
-    		write (HIR"\nÄúµÄ³¢ÊÔÒÑÊ§°Ü¶à´Î£¬³öÓÚ°²È«¿¼ÂÇ£¬Äú±»ÔİÊ±½ûÖ¹Ê¹ÓÃ±¾¹¦ÄÜ¡£\n"
-    			"×¢Òâ£¬ÄúµÄĞĞÎªÒÑ¾­±»ÏµÍ³¼ÇÂ¼!\n"NOR);
-			log_file( "static/CMAIL", sprintf("%s %s(%s)¶Ô%sµÄ×¢²áÓÊÏä¶à´Î³¢ÊÔ¾ùÒÑÊ§°Ü¡£\n", 
+    		write (HIR"\næ‚¨çš„å°è¯•å·²å¤±è´¥å¤šæ¬¡ï¼Œå‡ºäºå®‰å…¨è€ƒè™‘ï¼Œæ‚¨è¢«æš‚æ—¶ç¦æ­¢ä½¿ç”¨æœ¬åŠŸèƒ½ã€‚\n"
+    			"æ³¨æ„ï¼Œæ‚¨çš„è¡Œä¸ºå·²ç»è¢«ç³»ç»Ÿè®°å½•!\n"NOR);
+			log_file( "static/CMAIL", sprintf("%s %s(%s)å¯¹%sçš„æ³¨å†Œé‚®ç®±å¤šæ¬¡å°è¯•å‡å·²å¤±è´¥ã€‚\n", 
 				ctime(time()), me->query("name"), me->query("id"),note["id_old"]+"@"+note["site_old"]));
     		cancel();
     		return;
     	}
-    	write ("\nÄúËùÊäÈëµÄÓÊÏä£¬²»ÊÇÕâ¸öIDµÄ×¢²áÓÊÏä¡£\nÇëÖØĞÂÊäÈë£º");
+    	write ("\næ‚¨æ‰€è¾“å…¥çš„é‚®ç®±ï¼Œä¸æ˜¯è¿™ä¸ªIDçš„æ³¨å†Œé‚®ç®±ã€‚\nè¯·é‡æ–°è¾“å…¥ï¼š");
     	input_to("input_mbox",1,note,mbox,me);
     	return;
     }
     
     note["mbox"] = arg;
-    write("\nÇëÊäÈëĞÂID£º");
+    write("\nè¯·è¾“å…¥æ–°IDï¼š");
     input_to("input_nid",1,note);
     return;
 }
@@ -618,18 +618,18 @@ void input_nid(string arg,mapping note)
 		
 	file  = "/data/login/"+ arg[0..0] +"/"+ arg + SAVE_EXTENSION;			
     if (file_size(file) > 0) {
-        write("\nÕâ¸öIDÒÑ¾­±»ÆäËûÍæ¼ÒÊ¹ÓÃÁË£¬ÖØĞÂÊäÈë»ò°´»Ø³µ¼ü·ÅÆú£º");
+        write("\nè¿™ä¸ªIDå·²ç»è¢«å…¶ä»–ç©å®¶ä½¿ç”¨äº†ï¼Œé‡æ–°è¾“å…¥æˆ–æŒ‰å›è½¦é”®æ”¾å¼ƒï¼š");
         input_to("input_nid",1,note);
         return;
     }
     
     note["id_new"] = arg;
     note["result"] = "waiting";
-    write("\nÄúÌîĞ´µÄÉêÇëµ¥ÄÚÈİÈçÏÂ£º\nÀÏÓÃ»§Ãû£º" + note["id_old"]);
-    write("\nÀ´×ÔÕ¾µã£º" + note["site_old"]);
-    write("\n×¢²áÓÊÏä£º" + note["mbox"]);
-    write("\nĞÂÓÃ»§Ãû£º" + note["id_new"]);
-    write("\nÈ·ÈÏÉÏÊöĞÅÏ¢ÎŞÎó£¬ÇëÊäÈë¡°y¡±£º");
+    write("\næ‚¨å¡«å†™çš„ç”³è¯·å•å†…å®¹å¦‚ä¸‹ï¼š\nè€ç”¨æˆ·åï¼š" + note["id_old"]);
+    write("\næ¥è‡ªç«™ç‚¹ï¼š" + note["site_old"]);
+    write("\næ³¨å†Œé‚®ç®±ï¼š" + note["mbox"]);
+    write("\næ–°ç”¨æˆ·åï¼š" + note["id_new"]);
+    write("\nç¡®è®¤ä¸Šè¿°ä¿¡æ¯æ— è¯¯ï¼Œè¯·è¾“å…¥â€œyâ€ï¼š");
     input_to("confirm_csite",1,note);
     return;
 }
@@ -647,7 +647,7 @@ void confirm_csite(string arg,mapping note)
         notes_csite += ({ note });
     
     save();
-    write(HIW"ÄúµÄÉêÇëÒÑ¾­·¢³ö¡£\n"NOR);
+    write(HIW"æ‚¨çš„ç”³è¯·å·²ç»å‘å‡ºã€‚\n"NOR);
     return;
 }
 		
@@ -658,13 +658,13 @@ void list_csite_simple(object me)
 
 	i = sizeof(notes_csite)-1;
 	if( i < 0 ) {
-		write("Ä¿Ç°Ã»ÓĞ×ªÕ¾ÉêÇë¼ÇÂ¼¡£\n");
+		write("ç›®å‰æ²¡æœ‰è½¬ç«™ç”³è¯·è®°å½•ã€‚\n");
 		return;
 	} 
-	str="×ªÕ¾ÉêÇë¼ÇÂ¼£º\n";
-	str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
+	str="è½¬ç«™ç”³è¯·è®°å½•ï¼š\n";
+	str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
 	while (i>=0) {
-		str += sprintf("±àºÅ%3d   Ê±¼ä %s     ID  %-13s   ×´Ì¬  %s\n",
+		str += sprintf("ç¼–å·%3d   æ—¶é—´ %s     ID  %-13s   çŠ¶æ€  %s\n",
 			i+1,
 			ctime(notes_csite[i]["time"])[4..15],
 			capitalize(notes_csite[i]["id_old"]) + "@" + notes_csite[i]["site_old"],			
@@ -674,7 +674,7 @@ void list_csite_simple(object me)
 		i--;
 		
 	}
-	str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
+	str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
 	me->start_more( str );	
 }
 
@@ -685,15 +685,15 @@ void list_csite_simple2(object me)
 
 	i = sizeof(notes_csite)-1;
 	if( i < 0 ) {
-		write("Ä¿Ç°Ã»ÓĞ×ªÕ¾ÉêÇë¼ÇÂ¼¡£\n");
+		write("ç›®å‰æ²¡æœ‰è½¬ç«™ç”³è¯·è®°å½•ã€‚\n");
 		return;
 	} 
-	str="×ªÕ¾ÉêÇë¼´½«Òª´¦Àí¼ÇÂ¼£º\n";
-	str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
+	str="è½¬ç«™ç”³è¯·å³å°†è¦å¤„ç†è®°å½•ï¼š\n";
+	str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
 	while (i>=0) {
 		if(notes_csite[i]["result"]=="waiting")
 		{
-			str += sprintf("±àºÅ%3d   Ê±¼ä %s     ID  %-13s   ×´Ì¬  %s\n",
+			str += sprintf("ç¼–å·%3d   æ—¶é—´ %s     ID  %-13s   çŠ¶æ€  %s\n",
 			i+1,
 			ctime(notes_csite[i]["time"])[4..15],
 			capitalize(notes_csite[i]["id_old"]) + "@" + notes_csite[i]["site_old"],			
@@ -703,7 +703,7 @@ void list_csite_simple2(object me)
 		i--;
 		
 	}
-	str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
+	str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
 	me->start_more( str );	
 }
 
@@ -713,12 +713,12 @@ void list_cmail_simple(object me)
 	string str;
 
 	i = sizeof(notes_cmail)-1;
-	if( i < 0 ) write("Ä¿Ç°Ã»ÓĞÈÎºÎÓÊÏä¸ü¸ÄÉêÇë¼ÇÂ¼¡£\n");
+	if( i < 0 ) write("ç›®å‰æ²¡æœ‰ä»»ä½•é‚®ç®±æ›´æ”¹ç”³è¯·è®°å½•ã€‚\n");
 	else {
-		str="ÓÊÏä¸ü¸ÄÉêÇë¼ÇÂ¼£º\n";
-		str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
+		str="é‚®ç®±æ›´æ”¹ç”³è¯·è®°å½•ï¼š\n";
+		str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
 		while (i>=0) {
-			str += sprintf("  ±àºÅ%3d   Ê±¼ä %s   ¸ü»»ĞÅÏäID %-9s   ×´Ì¬  %s\n",
+			str += sprintf("  ç¼–å·%3d   æ—¶é—´ %s   æ›´æ¢ä¿¡ç®±ID %-9s   çŠ¶æ€  %s\n",
 				i+1,
 				ctime(notes_cmail[i]["time"])[4..15],
 				capitalize(notes_cmail[i]["user"]),			
@@ -726,7 +726,7 @@ void list_cmail_simple(object me)
 				);			
 			i--;
 		}
-		str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
+		str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
 	}
 	me->start_more( str );	
 }
@@ -738,14 +738,14 @@ void list_cmail_simple2(object me)
 	string str2 = "";
 
 	i = sizeof(notes_cmail)-1;
-	if( i < 0 ) write("Ä¿Ç°Ã»ÓĞÍæ¼ÒÉêÇëĞÅÏäĞŞ¸Ä¡£\n");
+	if( i < 0 ) write("ç›®å‰æ²¡æœ‰ç©å®¶ç”³è¯·ä¿¡ç®±ä¿®æ”¹ã€‚\n");
 	else {
-		str="  µ±Ç°ÓĞÏÂÁĞÍæ¼ÒĞÅÏäĞŞ¸ÄÉêÇë£¬Èç¹ûÓĞÒÉÎÊÇëºÍÎ×Ê¦ÁªÏµ»òÕßÖ±½ÓÓÃ(cmail -a)\n  Ö¸ÁîÆô¶¯Ïòµ¼µÄÖÃÒÉÏµÍ³(ÖÊÒÉÄÚÈİÖ»ÓĞÎ×Ê¦¿ÉÒÔ¼û)£º\n";
-		str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
+		str="  å½“å‰æœ‰ä¸‹åˆ—ç©å®¶ä¿¡ç®±ä¿®æ”¹ç”³è¯·ï¼Œå¦‚æœæœ‰ç–‘é—®è¯·å’Œå·«å¸ˆè”ç³»æˆ–è€…ç›´æ¥ç”¨(cmail -a)\n  æŒ‡ä»¤å¯åŠ¨å‘å¯¼çš„ç½®ç–‘ç³»ç»Ÿ(è´¨ç–‘å†…å®¹åªæœ‰å·«å¸ˆå¯ä»¥è§)ï¼š\n";
+		str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
 		while (i>=0) {
 			if(notes_cmail[i]["result"]=="waiting")
 			{
-			str += sprintf("  ±àºÅ%3d   Ê±¼ä %s   ¸ü»»ĞÅÏäID %-9s   ×´Ì¬  %s\n",
+			str += sprintf("  ç¼–å·%3d   æ—¶é—´ %s   æ›´æ¢ä¿¡ç®±ID %-9s   çŠ¶æ€  %s\n",
 				i+1,
 				ctime(notes_cmail[i]["time"])[4..15],
 				capitalize(notes_cmail[i]["user"]),			
@@ -754,7 +754,7 @@ void list_cmail_simple2(object me)
 			}
 			if(notes_cmail[i]["result"]=="applying")
 			{
-			str2 += sprintf("  ±àºÅ%3d   Ê±¼ä %s   ¸ü»»ĞÅÏäID %-9s   ×´Ì¬  %s\n",
+			str2 += sprintf("  ç¼–å·%3d   æ—¶é—´ %s   æ›´æ¢ä¿¡ç®±ID %-9s   çŠ¶æ€  %s\n",
 				i+1,
 				ctime(notes_cmail[i]["time"])[4..15],
 				capitalize(notes_cmail[i]["user"]),			
@@ -765,8 +765,8 @@ void list_cmail_simple2(object me)
 			i--;
 		}
 		str = str + str2;
-		str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
-		str += HIR"  ×¢:Èç¹ûÉêÇë³É¹¦ÈıÌìÄÚ»¹ÎŞÈËÖÊÒÉ£¬ÓÎÏ·¹ÜÀíÔ±»á°´ÕÕÉêÇëÈËÒªÇó½øĞĞ²Ù×÷\n"NOR;
+		str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
+		str += HIR"  æ³¨:å¦‚æœç”³è¯·æˆåŠŸä¸‰å¤©å†…è¿˜æ— äººè´¨ç–‘ï¼Œæ¸¸æˆç®¡ç†å‘˜ä¼šæŒ‰ç…§ç”³è¯·äººè¦æ±‚è¿›è¡Œæ“ä½œ\n"NOR;
 		
 	}
 	write( str );	
@@ -786,7 +786,7 @@ string str_doubt(object me,mapping note)
 	while (note[doubt]) {
 		str += note[doubt];
 		str += "(" + note[ip] + ")";
-		str += "£º" + note[content] + "\n";		
+		str += "ï¼š" + note[content] + "\n";		
 		
 		i++;
 		doubt = "doubt"+i;
@@ -795,20 +795,20 @@ string str_doubt(object me,mapping note)
 	}
 	
 	if (strlen(str)<1) {
-		str = "¡¾Ä¿Ç°Ã»ÓĞÍæ¼Ò¶ÔÕâ¸öÉêÇëÌá³öÖÃÒÉ¡¿\n";
+		str = "ã€ç›®å‰æ²¡æœ‰ç©å®¶å¯¹è¿™ä¸ªç”³è¯·æå‡ºç½®ç–‘ã€‘\n";
 	} else {
-		str = "¡¾ÏÂÁĞÍæ¼Ò¶ÔÕâ¸öÉêÇëÌá³öÖÃÒÉ¡¿\n" + str;
+		str = "ã€ä¸‹åˆ—ç©å®¶å¯¹è¿™ä¸ªç”³è¯·æå‡ºç½®ç–‘ã€‘\n" + str;
 	}
 	return str;
 }
 
 string str_result(mapping note)
 {
-	if (!note["result"]) return "´íÎóµÄÉêÇëĞÅÏ¢";
-	if (note["result"]=="applying") return HBBLU+HIR"µ£±£Íæ¼ÒÎ´´ïÒªÇó"NOR;
-	if (note["result"]=="waiting") return HBRED+HIY"ÕıÔÚµÈ´ıÎ×Ê¦´¦Àí"NOR;
+	if (!note["result"]) return "é”™è¯¯çš„ç”³è¯·ä¿¡æ¯";
+	if (note["result"]=="applying") return HBBLU+HIR"æ‹…ä¿ç©å®¶æœªè¾¾è¦æ±‚"NOR;
+	if (note["result"]=="waiting") return HBRED+HIY"æ­£åœ¨ç­‰å¾…å·«å¸ˆå¤„ç†"NOR;
 	//return note["result"];
-	return HBCYN+HIG"Î×Ê¦ÒÑ¾­´¦ÀíÍê±Ï"NOR;
+	return HBCYN+HIG"å·«å¸ˆå·²ç»å¤„ç†å®Œæ¯•"NOR;
 }
 
 string str_prove(object me,mapping note)
@@ -857,23 +857,23 @@ void search_csite(object me,int i)
 	string str;
 	if( !arrayp(notes_csite) || i < 0 || i > (sizeof(notes_csite) - 1) )
 	{
-		write("Ã»ÓĞ¹ØÓÚÕâÏî×ªÕ¾ÉêÇë¼ÇÂ¼¡£\n");
+		write("æ²¡æœ‰å…³äºè¿™é¡¹è½¬ç«™ç”³è¯·è®°å½•ã€‚\n");
 		return;
 	}
 
-	str="×ªÕ¾ÉêÇë¼ÇÂ¼£º\n";
-	str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
-	str += sprintf("±àºÅ %d Ê±¼ä %s\n¡¾ÀÏID¡¿%s\n¡¾ĞÂID¡¿%s%s \n¡¾ÉêÇëÈË¡¿%s \n¡¾×´  Ì¬¡¿%s\n",
+	str="è½¬ç«™ç”³è¯·è®°å½•ï¼š\n";
+	str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
+	str += sprintf("ç¼–å· %d æ—¶é—´ %s\nã€è€IDã€‘%s\nã€æ–°IDã€‘%s%s \nã€ç”³è¯·äººã€‘%s \nã€çŠ¶  æ€ã€‘%s\n",
 		i+1,
 		ctime(notes_csite[i]["time"])[4..15],
 		capitalize(notes_csite[i]["id_old"])+"@"+notes_csite[i]["site_old"],
 		notes_csite[i]["id_new"],
-		(wizardp(me)||me->query("id")==notes_csite[i]["proposer"])?"\n¡¾×¢²áÓÊÏä¡¿"+notes_csite[i]["mbox"]:"",
+		(wizardp(me)||me->query("id")==notes_csite[i]["proposer"])?"\nã€æ³¨å†Œé‚®ç®±ã€‘"+notes_csite[i]["mbox"]:"",
 		notes_csite[i]["proposer"]+(wizardp(me)?"("+notes_csite[i]["ip_proposer"]+")":""),
 		//str_result(notes_csite[i])
 		notes_csite[i]["result"]
 		);
-	str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;	
+	str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;	
 	
 	me->start_more( str );	
 }
@@ -884,24 +884,24 @@ void search_cmail(object me,int i)
 	string str;
 	if( !arrayp(notes_cmail) || i < 0 || i > (sizeof(notes_cmail)-1) )
 	{
-		write("Ã»ÓĞ¹ØÓÚÕâ¸öÍæ¼ÒµÄÓÊÏä¸ü¸ÄÉêÇë¼ÇÂ¼¡£\n");
+		write("æ²¡æœ‰å…³äºè¿™ä¸ªç©å®¶çš„é‚®ç®±æ›´æ”¹ç”³è¯·è®°å½•ã€‚\n");
 		return;
 	}
 
-	str="ÓÊÏä¸ü¸ÄÉêÇë¼ÇÂ¼£º\n";
-	str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;
-	str += sprintf("±àºÅ %d Ê±¼ä %s\n¡¾Íæ¼ÒID¡¿%s\n%s¡¾ÉêÇëÈË¡¿%s \n¡¾µ£±£ÈË¡¿%s \n¡¾×´  Ì¬¡¿%s\n%s",
+	str="é‚®ç®±æ›´æ”¹ç”³è¯·è®°å½•ï¼š\n";
+	str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;
+	str += sprintf("ç¼–å· %d æ—¶é—´ %s\nã€ç©å®¶IDã€‘%s\n%sã€ç”³è¯·äººã€‘%s \nã€æ‹…ä¿äººã€‘%s \nã€çŠ¶  æ€ã€‘%s\n%s",
 				i+1,
 				ctime(notes_cmail[i]["time"])[4..15],
 				capitalize(notes_cmail[i]["user"]),
-				(wizardp(me)||me->query("id")==notes_cmail[i]["proposer"])?"¡¾ĞÂÓÊÏä¡¿"+notes_cmail[i]["mbox"]+"\n":"",
+				(wizardp(me)||me->query("id")==notes_cmail[i]["proposer"])?"ã€æ–°é‚®ç®±ã€‘"+notes_cmail[i]["mbox"]+"\n":"",
 				notes_cmail[i]["proposer"]+(wizardp(me)?"("+notes_cmail[i]["ip_proposer"]+")":""),
 				str_prove(me,notes_cmail[i]),
 				//str_result(notes_cmail[i]),
 				notes_cmail[i]["result"],
 				str_doubt(me,notes_cmail[i])
 			);
-	str += HIY + "¡Ô¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡Ô\n" + NOR;	
+	str += HIY + "â‰¡â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â‰¡\n" + NOR;	
 	
 	me->start_more( str );	
 }
@@ -915,28 +915,28 @@ int help(object me)
 {
 	if (!wiz_level(me) )
         write(@HELP
-Ö¸Áî¸ñÊ½ :
-cmail -a                        Æô¶¯²Ù×÷Ïòµ¼
-cmail -mail [id|Êı×Ö]           ²é¿´Íæ¼Ò×ªÕ¾µÄÉêÇë¼ÇÂ¼
-cmail -site [id|Êı×Ö]           ²é¿´Íæ¼Ò¸ü¸ÄÓÊÏäµÄÉêÇë¼ÇÂ¼
-cmail -mail2                    ²é¿´Íæ¼ÒÉêÇë³É¹¦µÈ´ıÎ×Ê¦´¦ÀíµÄĞÅÏäÉêÇë¼ÇÂ¼
-cmail -site2                    ²é¿´Íæ¼ÒÉêÇë³É¹¦µÈ´ıÎ×Ê¦´¦ÀíµÄ×ªÕ¾ÉêÇë¼ÇÂ¼
+æŒ‡ä»¤æ ¼å¼ :
+cmail -a                        å¯åŠ¨æ“ä½œå‘å¯¼
+cmail -mail [id|æ•°å­—]           æŸ¥çœ‹ç©å®¶è½¬ç«™çš„ç”³è¯·è®°å½•
+cmail -site [id|æ•°å­—]           æŸ¥çœ‹ç©å®¶æ›´æ”¹é‚®ç®±çš„ç”³è¯·è®°å½•
+cmail -mail2                    æŸ¥çœ‹ç©å®¶ç”³è¯·æˆåŠŸç­‰å¾…å·«å¸ˆå¤„ç†çš„ä¿¡ç®±ç”³è¯·è®°å½•
+cmail -site2                    æŸ¥çœ‹ç©å®¶ç”³è¯·æˆåŠŸç­‰å¾…å·«å¸ˆå¤„ç†çš„è½¬ç«™ç”³è¯·è®°å½•
 
 HELP);
     else 
         write(@HELP
-Ö¸Áî¸ñÊ½ :
-cmail -a                              Æô¶¯²Ù×÷Ïòµ¼
-cmail -mail [id|Êı×Ö]                 ²é¿´Íæ¼Ò×ªÕ¾µÄÉêÇë¼ÇÂ¼
-cmail -mail -d <Êı×Ö>                 É¾³ıÖ¸¶¨±àºÅµÄÓÊÏä¸ü¸ÄÉêÇë (assist¿ÉÓÃ)
-cmail -mail -r <Êı×Ö> <´¦Àí½á¹û>      ÌîĞ´Ö¸¶¨±àºÅÉêÇëµÄ´¦Àí½á¹û (arch¿ÉÓÃ)
-cmail -site [id|Êı×Ö]                 ²é¿´Íæ¼Ò¸ü¸ÄÓÊÏäµÄÉêÇë¼ÇÂ¼
-cmail -site -d <Êı×Ö>                 É¾³ıÖ¸¶¨±àºÅµÄ×ªÕ¾¸ü¸ÄÉêÇë (assist¿ÉÓÃ)
-cmail -site -r <Êı×Ö> <´¦Àí½á¹û>      ÌîĞ´Ö¸¶¨±àºÅÉêÇëµÄ´¦Àí½á¹û (arch¿ÉÓÃ)
-cmail -mail2                          ²é¿´Íæ¼ÒÉêÇë³É¹¦µÈ´ıÎ×Ê¦´¦ÀíµÄĞÅÏäÉêÇë¼ÇÂ¼
-cmail -site2                          ²é¿´Íæ¼ÒÉêÇë³É¹¦µÈ´ıÎ×Ê¦´¦ÀíµÄ×ªÕ¾ÉêÇë¼ÇÂ¼
+æŒ‡ä»¤æ ¼å¼ :
+cmail -a                              å¯åŠ¨æ“ä½œå‘å¯¼
+cmail -mail [id|æ•°å­—]                 æŸ¥çœ‹ç©å®¶è½¬ç«™çš„ç”³è¯·è®°å½•
+cmail -mail -d <æ•°å­—>                 åˆ é™¤æŒ‡å®šç¼–å·çš„é‚®ç®±æ›´æ”¹ç”³è¯· (assistå¯ç”¨)
+cmail -mail -r <æ•°å­—> <å¤„ç†ç»“æœ>      å¡«å†™æŒ‡å®šç¼–å·ç”³è¯·çš„å¤„ç†ç»“æœ (archå¯ç”¨)
+cmail -site [id|æ•°å­—]                 æŸ¥çœ‹ç©å®¶æ›´æ”¹é‚®ç®±çš„ç”³è¯·è®°å½•
+cmail -site -d <æ•°å­—>                 åˆ é™¤æŒ‡å®šç¼–å·çš„è½¬ç«™æ›´æ”¹ç”³è¯· (assistå¯ç”¨)
+cmail -site -r <æ•°å­—> <å¤„ç†ç»“æœ>      å¡«å†™æŒ‡å®šç¼–å·ç”³è¯·çš„å¤„ç†ç»“æœ (archå¯ç”¨)
+cmail -mail2                          æŸ¥çœ‹ç©å®¶ç”³è¯·æˆåŠŸç­‰å¾…å·«å¸ˆå¤„ç†çš„ä¿¡ç®±ç”³è¯·è®°å½•
+cmail -site2                          æŸ¥çœ‹ç©å®¶ç”³è¯·æˆåŠŸç­‰å¾…å·«å¸ˆå¤„ç†çš„è½¬ç«™ç”³è¯·è®°å½•
 
-Î×Ê¦²Ù×÷±»¼ÇÂ¼ÔÚ/log/csiteÖĞ¡£
+å·«å¸ˆæ“ä½œè¢«è®°å½•åœ¨/log/csiteä¸­ã€‚
 
 HELP);
 	return 1;

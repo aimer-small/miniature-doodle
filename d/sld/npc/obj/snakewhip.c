@@ -1,21 +1,21 @@
-// snakewhip.c ½ğÉß±Ş
+// snakewhip.c é‡‘è›‡é­
 
 #include <weapon.h>
 inherit WHIP;
 
 void create()
 {
-        set_name("½ğÉß", ({ "jin she", "snake","she","bian", "whip" }));
+        set_name("é‡‘è›‡", ({ "jin she", "snake","she","bian", "whip" }));
         set_weight(300);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ìõ");
-                set("long", "ÕâÊÇÌõ½ğ¹âÉÁÉÁµÄĞ¡Éß¡£\n");
+                set("unit", "æ¡");
+                set("long", "è¿™æ˜¯æ¡é‡‘å…‰é—ªé—ªçš„å°è›‡ã€‚\n");
                 set("value", 30);
                 set("material", "fur");
-                set("wield_msg", "$N¡¸à§¡¹µÄÒ»ÉùÄÃ³öÒ»Ìõ$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·Å»ØÁËÑü¼ä¡£\n");
+                set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æ‹¿å‡ºä¸€æ¡$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¾å›äº†è…°é—´ã€‚\n");
                 set("no_sell",1);
 	        set("no_get",1);
 	        set("no_steal",1);

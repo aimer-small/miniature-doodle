@@ -1,4 +1,4 @@
-// by lane@¹·ĞÜ
+// by lane@ç‹—ç†Š
 
 #include <ansi.h>
 inherit F_CLEAN_UP;
@@ -37,21 +37,21 @@ int check_music(object me)
 	if( k > 0 ) {
 		for( i=0; i < k; i++ ) {
 			if( file_size("/d/music/book/"+keys(music)[i]+".c") < 0 ) {
-				tell_object(me, HIY"Äã·¢ÏÖ×Ô¼ºÍü¼ÇÁËÒ»Ê×¾­µäµÄÀÖÆ×¡£\n"NOR);
+				tell_object(me, HIY"ä½ å‘ç°è‡ªå·±å¿˜è®°äº†ä¸€é¦–ç»å…¸çš„ä¹è°±ã€‚\n"NOR);
 				me->delete("music/"+keys(music)[i]);
 				return 0;
 			}
 
-			if( wizardp(me) ) tell_object(me, HIY"ÄãµÄ("+keys(music)[i]+")ÊìÁ·¶ÈÎª£º"+me->query("music/"+keys(music)[i] )+"£¬Ñ§Ï°Ê±¼äÎª£º"+me->query("music_time/"+keys(music)[i] )+"£¬ÏÖÔÚÊ±¼äÎª£º"+time()+"¡£\n"NOR);
+			if( wizardp(me) ) tell_object(me, HIY"ä½ çš„("+keys(music)[i]+")ç†Ÿç»ƒåº¦ä¸ºï¼š"+me->query("music/"+keys(music)[i] )+"ï¼Œå­¦ä¹ æ—¶é—´ä¸ºï¼š"+me->query("music_time/"+keys(music)[i] )+"ï¼Œç°åœ¨æ—¶é—´ä¸ºï¼š"+time()+"ã€‚\n"NOR);
 
 			if( !me->query("music_time/"+keys(music)[i] ) )
 				me->set("music_time/"+keys(music)[i], time() );
 
-// ±ÉÊÓ yeju@SJ ÒªÇóÃ¿Ìì¼õÊìÁ·¶È 5 µã buy lane@none
+// é„™è§† yeju@SJ è¦æ±‚æ¯å¤©å‡ç†Ÿç»ƒåº¦ 5 ç‚¹ buy lane@none
 
 			if( ( j = ( time() - me->query("music_time/"+keys(music)[i]) ) / 86400 ) >= 1 ) {
 				me->add("music_time/"+keys(music)[i], j*86400 );
-				if( wizardp(me) ) tell_object(me, HIY"ÄãµÄ("+keys(music)[i]+")ÊìÁ·¶ÈÏÂ½µÁË"+j*5+"µã¡£\n"NOR);
+				if( wizardp(me) ) tell_object(me, HIY"ä½ çš„("+keys(music)[i]+")ç†Ÿç»ƒåº¦ä¸‹é™äº†"+j*5+"ç‚¹ã€‚\n"NOR);
 				me->add("music/"+keys(music)[i], -j*5 );
 				if( me->query("music/"+keys(music)[i]) < 1 )
 					me->set("music/"+keys(music)[i], 0);
@@ -78,8 +78,8 @@ int main(object me,string arg)
 		if( !ob ) ob = find_player(arg);
 		if( !ob ) ob = find_living(arg);
 		if( !ob ) ob = LOGIN_D->find_body(arg);
-		if( !ob || !me->visible(ob) ) return notify_fail("ÄãÒª²ì¿´Ë­µÄ¼¼ÄÜ£¿\n");
-		if( wiz_level(me) < wiz_level(ob) ) return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
+		if( !ob || !me->visible(ob) ) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„æŠ€èƒ½ï¼Ÿ\n");
+		if( wiz_level(me) < wiz_level(ob) ) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
 	}
 
 	skl = ob->query_skills();
@@ -97,14 +97,14 @@ int main(object me,string arg)
 	j = sizeof(sname);
 
 	if( j > 0 ) {
-		str = HIW"¡¾";
-		str += (ob==me?"Äã":ob->name(1))+"µÄÀÖÀí¼¼ÄÜ±í¡¿"NOR"£º\n";	
-		str += "©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n";
-		str += sprintf("%-90s", "©¦×Ü¹²"+chinese_number(j)+"Ïî¼¼ÄÜ");
+		str = HIW"ã€";
+		str += (ob==me?"ä½ ":ob->name(1))+"çš„ä¹ç†æŠ€èƒ½è¡¨ã€‘"NOR"ï¼š\n";	
+		str += "â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n";
+		str += sprintf("%-90s", "â”‚æ€»å…±"+chinese_number(j)+"é¡¹æŠ€èƒ½");
 		for(i=0; i < j; i++) {
-			if( i % 2 == 0 ) str += "©¦\n©¦";
+			if( i % 2 == 0 ) str += "â”‚\nâ”‚";
 			else str += "  ";
-			str += sprintf("%s%-8s%-14s"HIC"¡ú"NOR"%s %3d/%6d",
+			str += sprintf("%s%-8s%-14s"HIC"â†’"NOR"%s %3d/%6d",
 				(lrn[sname[i]] >= (skl[sname[i]]+1) * (skl[sname[i]]+1)) ? HIM : "",
 				to_chinese(sname[i]), "(" + sname[i] + ")",
 				"/cmds/skill/skills.c"->skill_level(SKILL_D(sname[i])->type(), skl[sname[i]]),
@@ -112,13 +112,13 @@ int main(object me,string arg)
 			if( i > j-2 && i % 2 == 0 )
 				str +="                                             ";
 		}
-		str += "©¦\n©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n";
+		str += "â”‚\nâ””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n";
 	}
 	else
-		str += HIW+" "+(ob==me ? "Äã" : ob->name(1)) + "Ä¿Ç°²¢Ã»ÓĞÑ§»áÈÎºÎÀÖÀí¼¼ÄÜ¡£\n"NOR;
+		str += HIW+" "+(ob==me ? "ä½ " : ob->name(1)) + "ç›®å‰å¹¶æ²¡æœ‰å­¦ä¼šä»»ä½•ä¹ç†æŠ€èƒ½ã€‚\n"NOR;
 	write (str);		       
 
-// ÀÖÆ×±ê¼ÇÎª (music/***)
+// ä¹è°±æ ‡è®°ä¸º (music/***)
 	check_music(ob);
 
 	book = ob->query("music");
@@ -126,39 +126,39 @@ int main(object me,string arg)
 	if( !arrayp(keys(book)) ) return 1;
 	k = sizeof(keys(book));
 
-	if( k <= 0 ) str2 = HIW+" "+(ob==me ? "Äã" : ob->name(1))+"Ä¿Ç°ÉĞ²»»áµ¯×àÈÎºÎÀÖÆ×¡£\n"+NOR;
+	if( k <= 0 ) str2 = HIW+" "+(ob==me ? "ä½ " : ob->name(1))+"ç›®å‰å°šä¸ä¼šå¼¹å¥ä»»ä½•ä¹è°±ã€‚\n"+NOR;
 
 	else {
-		str2 = HIW+"¡¾"+(ob==me ? "Äã" : ob->name(1))+"Ä¿Ç°ÊìÁ·µ¯×àµÄÀÖÆ×ÓĞ¡¿"+NOR;
-		str2 += "\n©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n";
+		str2 = HIW+"ã€"+(ob==me ? "ä½ " : ob->name(1))+"ç›®å‰ç†Ÿç»ƒå¼¹å¥çš„ä¹è°±æœ‰ã€‘"+NOR;
+		str2 += "\nâ”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n";
 
 		for( i=0; i < k; i++ ) {
 			if( file_size("/d/music/book/"+keys(book)[i]+".c") < 0 ) {
-				if( wizardp(ob) ) tell_object(ob, HIY"Äã·¢ÏÖ×Ô¼ºÍü¼ÇÁËÒ»Ê×¾­µäµÄÀÖÆ×("+keys(book)[i]+")¡£\n"NOR);
+				if( wizardp(ob) ) tell_object(ob, HIY"ä½ å‘ç°è‡ªå·±å¿˜è®°äº†ä¸€é¦–ç»å…¸çš„ä¹è°±("+keys(book)[i]+")ã€‚\n"NOR);
 				ob->delete("music/"+keys(book)[i]);
 				return 0;
 			}
 			bname = call_other("/d/music/book/" + keys(book)[i], "book_name");
-			if( !bname ) bname = "ÎŞÃûÇú";
-			bname = "¡º"+bname+"¡»("+YEL+keys(book)[i]+NOR+")";
+			if( !bname ) bname = "æ— åæ›²";
+			bname = "ã€"+bname+"ã€("+YEL+keys(book)[i]+NOR+")";
 			str2 += sprintf(" %-58s", bname);
 
-// ÊìÁ·¶È 10µãÎª1¸öµÈ¼¶£¬10¸öµÈ¼¶·â¶¥
-// Èç¹ûÊìÁ·¶È = 0 ÔÚÊ¹ÓÃÊ±ºòÏÔÊ¾ Íü¼Ç
+// ç†Ÿç»ƒåº¦ 10ç‚¹ä¸º1ä¸ªç­‰çº§ï¼Œ10ä¸ªç­‰çº§å°é¡¶
+// å¦‚æœç†Ÿç»ƒåº¦ = 0 åœ¨ä½¿ç”¨æ—¶å€™æ˜¾ç¤º å¿˜è®°
 			n = ( ob->query("music/"+keys(book)[i]) + 9 ) / 10;
-			if( n  < 1 ) str2 += HBRED"³¤ÆÚÈ±·¦Á·Ï°\n"NOR;
-			if( n == 1 ) str2 += HBRED"¡î\n"NOR;
-			if( n == 2 ) str2 += HBRED"¡î¡î\n"NOR;
-			if( n == 3 ) str2 += HBRED"¡î¡î¡î\n"NOR;
-			if( n == 4 ) str2 += HBRED"¡î¡î¡î¡î\n"NOR;
-			if( n == 5 ) str2 += HBRED"¡î¡î¡î¡î¡î\n"NOR;
-			if( n == 6 ) str2 += HBRED"¡ï¡î¡î¡î¡î\n"NOR;
-			if( n == 7 ) str2 += HBRED"¡ï¡ï¡î¡î¡î\n"NOR;
-			if( n == 8 ) str2 += HBRED"¡ï¡ï¡ï¡î¡î\n"NOR;
-			if( n == 9 ) str2 += HBRED"¡ï¡ï¡ï¡ï¡î\n"NOR;
-			if( n >  9 ) str2 += HBRED"¡ï¡ï¡ï¡ï¡ï\n"NOR;
+			if( n  < 1 ) str2 += HBRED"é•¿æœŸç¼ºä¹ç»ƒä¹ \n"NOR;
+			if( n == 1 ) str2 += HBRED"â˜†\n"NOR;
+			if( n == 2 ) str2 += HBRED"â˜†â˜†\n"NOR;
+			if( n == 3 ) str2 += HBRED"â˜†â˜†â˜†\n"NOR;
+			if( n == 4 ) str2 += HBRED"â˜†â˜†â˜†â˜†\n"NOR;
+			if( n == 5 ) str2 += HBRED"â˜†â˜†â˜†â˜†â˜†\n"NOR;
+			if( n == 6 ) str2 += HBRED"â˜…â˜†â˜†â˜†â˜†\n"NOR;
+			if( n == 7 ) str2 += HBRED"â˜…â˜…â˜†â˜†â˜†\n"NOR;
+			if( n == 8 ) str2 += HBRED"â˜…â˜…â˜…â˜†â˜†\n"NOR;
+			if( n == 9 ) str2 += HBRED"â˜…â˜…â˜…â˜…â˜†\n"NOR;
+			if( n >  9 ) str2 += HBRED"â˜…â˜…â˜…â˜…â˜…\n"NOR;
 		}
-		str2 += "©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n";
+		str2 += "â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n";
 	}
 
 	write( str2 );	
@@ -180,22 +180,22 @@ int help(object me)
 
 
 	if( j > 0 ) {
-		str = "\n©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n";
+		str = "\nâ”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n";
 		for( i=0; i < j; i++ ) {
 			bname = call_other("/d/music/book/" + file[i], "book_name");
-			if( bname ) str += " ¡º"+bname+"¡»";
-			else str +=" ¡ºÎŞÃûÇú¡»";
+			if( bname ) str += " ã€"+bname+"ã€";
+			else str +=" ã€æ— åæ›²ã€";
 			str += "("+YEL+replace_string(file[i], ".c", "")+NOR+")\n";
 		}
 	}
 
 write(@HELP
-Ö¸Áî¸ñÊ½ : music
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãÏÔÊ¾Ä¿Ç°µÄÀÖÀí¼¼ÄÜµÈ¼¶ºÍÒÑ¾­Ñ§»áµÄµ¯×àÀÖÆ×¡£
-Ä¿Ç°¿ª·ÅµÄÀÖÆ×ÓĞ£º
+æŒ‡ä»¤æ ¼å¼ : music
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ æ˜¾ç¤ºç›®å‰çš„ä¹ç†æŠ€èƒ½ç­‰çº§å’Œå·²ç»å­¦ä¼šçš„å¼¹å¥ä¹è°±ã€‚
+ç›®å‰å¼€æ”¾çš„ä¹è°±æœ‰ï¼š
 HELP);
 		write(str);
-		write("©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­©­\n");
+		write("â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰â”‰\n");
 
 	return 1;
 }

@@ -10,16 +10,16 @@ int do_open(string arg);
 
 void create() 
 {
-	set("short",BLU"µØµÀ"NOR);
+	set("short",BLU"åœ°é“"NOR);
 	set("long", @long
-ÕâÀïÊÇÄ½ÈİÊÀ¼ÒµÄµØÏÂÍ¨µÀ£¬×ĞÏ¸¿´»¹ÄÜ·¢ÏÖÇ½ÉÏÓĞÒ»µÀ°µÃÅ(door)¡£
+è¿™é‡Œæ˜¯æ…•å®¹ä¸–å®¶çš„åœ°ä¸‹é€šé“ï¼Œä»”ç»†çœ‹è¿˜èƒ½å‘ç°å¢™ä¸Šæœ‰ä¸€é“æš—é—¨(door)ã€‚
 long);
 	set("exits",([
                  "north" : __DIR__"migong1",
 	]));
 
         set("item_desc", ([
-             "door" : "ÕâÊÇÒ»ÉÈ·Ç³£ºñµÄÌúÃÅ£¬ÃÅÉÏÓĞ¸öÔ¿³×¿×¡£\n", 
+             "door" : "è¿™æ˜¯ä¸€æ‰‡éå¸¸åšçš„é“é—¨ï¼Œé—¨ä¸Šæœ‰ä¸ªé’¥åŒ™å­”ã€‚\n", 
 	]));
 
         setup();
@@ -36,18 +36,18 @@ int do_open(string arg)
 	object ob;
 
 	if(!arg) return 
-                notify_fail("ÄãÒª¿ªÊ²Ã´£¿\n");
+                notify_fail("ä½ è¦å¼€ä»€ä¹ˆï¼Ÿ\n");
         
         if(arg != "door")
-                return notify_fail("ÄãÒª¿ªÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦å¼€ä»€ä¹ˆï¼Ÿ\n");
         
         if (query("exits/down"))
-                return notify_fail("ÃÅÒÑ¾­ÊÇ¿ª×ÅÁË¡£\n");
+                return notify_fail("é—¨å·²ç»æ˜¯å¼€ç€äº†ã€‚\n");
                 
         if (!(ob = present("mrkey1", this_player())))
-                return notify_fail("Äã²»»áÊÇÏëÒªÇËËø°É£¿\n");
+                return notify_fail("ä½ ä¸ä¼šæ˜¯æƒ³è¦æ’¬é”å§ï¼Ÿ\n");
                 
-	message_vision("$NÄÃ³öÒ»°Ñ°×Ô¿³×²å½øÌúÃÅµÄÔ¿³×¿×ÖĞ¡£\nÖ»Ìı ¡°à§¡±µÄÒ»ÉùÌúÃÅÏòÉÏ¿ìËÙµÄÉıÆğ¡£\n",this_player());
+	message_vision("$Næ‹¿å‡ºä¸€æŠŠç™½é’¥åŒ™æ’è¿›é“é—¨çš„é’¥åŒ™å­”ä¸­ã€‚\nåªå¬ â€œå”°â€çš„ä¸€å£°é“é—¨å‘ä¸Šå¿«é€Ÿçš„å‡èµ·ã€‚\n",this_player());
         destruct(ob);
 
         if(!( room = find_object(__DIR__"didao1")) )
@@ -55,7 +55,7 @@ int do_open(string arg)
         if(objectp(room)){
                 set("exits/up", __DIR__"didao1"); 
                 room->set("exits/down", __FILE__);
-                message("vision","¡°à§¡±µÄÒ»ÉùÌúÃÅÏòÉÏÉıÆğ£¬ÀïÃæÓĞÈË°ÑÃÅ´ò¿ªÁË¡£\n",room);
+                message("vision","â€œå”°â€çš„ä¸€å£°é“é—¨å‘ä¸Šå‡èµ·ï¼Œé‡Œé¢æœ‰äººæŠŠé—¨æ‰“å¼€äº†ã€‚\n",room);
                 remove_call_out("close_gate");
                 call_out("close_gate", 4);
         }
@@ -70,10 +70,10 @@ void close_gate()
                 room = load_object(__DIR__"didao1");
         if(objectp(room)) {
                 delete("exits/up");
-                message("vision","Ë²¼äÌúÃÅÓÖ¡°Å¾¡±µÄÒ»Éù¿ìËÙµÄÂäÁËÏÂÀ´¡£¡£\n",this_object());
-                message("vision","ÄãÁ½ÑÛ·¢Ö±£¬ÖªµÀ×Ô¼ºÒÑ¾­³ö²»È¥ÁË£¡\n" , this_object());
+                message("vision","ç¬é—´é“é—¨åˆâ€œå•ªâ€çš„ä¸€å£°å¿«é€Ÿçš„è½äº†ä¸‹æ¥ã€‚ã€‚\n",this_object());
+                message("vision","ä½ ä¸¤çœ¼å‘ç›´ï¼ŒçŸ¥é“è‡ªå·±å·²ç»å‡ºä¸å»äº†ï¼\n" , this_object());
                 room->delete("exits/down"); 
-                message("vision","Ë²¼äÌúÃÅÓÖ¡°Å¾¡±µÄÒ»Éù¿ìËÙµÄÂäÁËÏÂÀ´¡£\n",room);
-                message("vision","Äã³¤³¤µÄ´­Ò»¿ÚÆø£¬ÖÕÓÚ³öÀ´ÁË£¡\n",room );
+                message("vision","ç¬é—´é“é—¨åˆâ€œå•ªâ€çš„ä¸€å£°å¿«é€Ÿçš„è½äº†ä¸‹æ¥ã€‚\n",room);
+                message("vision","ä½ é•¿é•¿çš„å–˜ä¸€å£æ°”ï¼Œç»ˆäºå‡ºæ¥äº†ï¼\n",room );
         }
 }

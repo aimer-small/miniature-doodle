@@ -1,13 +1,13 @@
-// ÀÏĞã²Å
+// è€ç§€æ‰
 // Modify By River 98/12
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("ÀÏĞã²Å", ({ "lao xiucai", "xiucai","lao" }));
+	set_name("è€ç§€æ‰", ({ "lao xiucai", "xiucai","lao" }));
 	set("str", 18);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 60);
         set("unique", 1);
 	set("combat_exp", 2500);

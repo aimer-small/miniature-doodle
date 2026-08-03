@@ -8,10 +8,10 @@ inherit HEAD;
 
 void create()
 {	
-	set_name(HIY"»Æ½ğÍ·ÊÎ"NOR, ({ "headgear" }) );
+	set_name(HIY"é»„é‡‘å¤´é¥°"NOR, ({ "headgear" }) );
 	set_weight(100);
-	set("long","ÓÃ"HIY"»Æ½ğ"NOR"ÖÆ³ÉµÄÍ·ÊÎ,¿´ÉÏÈ¥¾«ÇÉÎŞ±È¡£\nÔÚËüµÄÄÚ²à¿Ì×ÅÒ»ĞĞÃúÎÄ:\n");
-	set("unit", "¸ö");
+	set("long","ç”¨"HIY"é»„é‡‘"NOR"åˆ¶æˆçš„å¤´é¥°,çœ‹ä¸Šå»ç²¾å·§æ— æ¯”ã€‚\nåœ¨å®ƒçš„å†…ä¾§åˆ»ç€ä¸€è¡Œé“­æ–‡:\n");
+	set("unit", "ä¸ª");
 	set("value", 3000000);
 	set("no_get",1);
 	set("no_drop",1);

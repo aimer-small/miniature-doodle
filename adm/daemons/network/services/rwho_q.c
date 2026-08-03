@@ -64,14 +64,14 @@ int send_rwho_q(string mud, object them, int verbose, int wiz, string party)
 	mapping info;
 	string askwiz;
 
-	if (htonn(mud) == mud_nname()) return notify_fail(mud + " 不就是你正在玩的站点吗？\n");
+	if (htonn(mud) == mud_nname()) return notify_fail(mud + " 涓嶅氨鏄綘姝ｅ湪鐜╃殑绔欑偣鍚楋紵\n");
 	if(!ACCESS_CHECK(previous_object())
 	&&	base_name(previous_object()) != WHO_CMD) return 0;
 
 	if (!them) them = this_player();
 	askwiz = geteuid(them);
 	info = DNS_MASTER->query_mud_info(mud);
-	if (!info) return notify_fail("没有 " + mud + " 这个站点。\n");
+	if (!info) return notify_fail("娌℃湁 " + mud + " 杩欎釜绔欑偣銆俓n");
 	DNS_MASTER->send_udp(info["HOSTADDRESS"], info["PORTUDP"],
 		"@@@"+DNS_RWHO_Q+
 		"||NAME:"+ Mud_name() +

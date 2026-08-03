@@ -1,4 +1,4 @@
-// shizhe.c ÌìÑÄÒ»ºÅ
+// shizhe.c å¤©æ¶¯ä¸€å·
 
 #include <ansi.h>
 #define Weapon_LEVEL            221
@@ -28,9 +28,9 @@ string ask_tls();
 object ob = this_object();
 void create()
 {
-    set_name(HIW"Êé½£ÀñÎïÊ¹Õß"NOR, ({ "shizhe" }));
-    set("long", HIW"Äã¿ÉÒÔask shizhe about newbie,ÔÚask shizhe about °İÊ¦,Ï²»¶ÄÄ¸öÃÅÅÉ¾Íask shizhe about ***(ÃÅÅÉ),addoil all \n"NOR);
-    set("gender", "ÄĞĞÔ");
+    set_name(HIW"ä¹¦å‰‘ç¤¼ç‰©ä½¿è€…"NOR, ({ "shizhe" }));
+    set("long", HIW"ä½ å¯ä»¥ask shizhe about newbie,åœ¨ask shizhe about æ‹œå¸ˆ,å–œæ¬¢å“ªä¸ªé—¨æ´¾å°±ask shizhe about ***(é—¨æ´¾),addoil all \n"NOR);
+    set("gender", "ç”·æ€§");
     set("age", 70);
     set("per", 24);
     set("str", 40);
@@ -56,23 +56,23 @@ void create()
     setup();
     set("inquiry", ([
 "newbie" : (: ask_newbie :),
-        "°İÊ¦" : "ÄãÒª°İÄÄÀï£¿£¨ask shizhe about ¡´ÃÅÅÉÃû³Æ¡µ£©\nÎäµ±£¿ÉÙÁÖ£¿ĞÇËŞ£¿»ªÉ½£¿Ø¤°ï£¿ÉñÁúµº£¿À¥ÂØ£¿ÌúÕÆ£¿\n¹ÅÄ¹£¿Ä½Èİ£¿ÌÒ»¨µº£¿ÌìÁúËÂ£¿´óÂÖËÂ£¿áÔÉ½£¿Ã÷½Ì£¿¶ëáÒ?\nÈç¹ûÓĞ ask ºóÃ»ÓĞ·´Ó¦µÄ£¬ÄÇÃ´¾ÍÊÇÄÇ¸öÃÅÅÉÒÑ¾­¹Ø±ÕÁË¡£\n",
-"´óÂÖËÂ" : (: ask_xs :),
-"ÌÒ»¨µº" : (: ask_thd :),
-"ĞÇËŞ" : (: ask_xingxiu :),
-"Îäµ±" : (: ask_wudang :),
-"¶ëáÒ" : (: ask_emei :),
-"Ã÷½Ì" : (: ask_mingjiao :),
-"ÉÙÁÖ" : (: ask_shaolin :),
-"Ø¤°ï" : (: ask_gb :),
-"¹ÅÄ¹" : (: ask_tttt :),
-"»ªÉ½" : (: ask_hs :),
-"áÔÉ½" : (: ask_ss :),
-"Ä½Èİ" : (: ask_mur :),
-"ÌìÁúËÂ" : (: ask_tls :),
-"ÌúÕÆ" : (: ask_tz :),
-"ÉñÁúµº" : (: ask_sld :),
-"À¥ÂØ" : (: ask_kl :),
+        "æ‹œå¸ˆ" : "ä½ è¦æ‹œå“ªé‡Œï¼Ÿï¼ˆask shizhe about ã€ˆé—¨æ´¾åç§°ã€‰ï¼‰\næ­¦å½“ï¼Ÿå°‘æ—ï¼Ÿæ˜Ÿå®¿ï¼Ÿåå±±ï¼Ÿä¸å¸®ï¼Ÿç¥é¾™å²›ï¼Ÿæ˜†ä»‘ï¼Ÿé“æŒï¼Ÿ\nå¤å¢“ï¼Ÿæ…•å®¹ï¼Ÿæ¡ƒèŠ±å²›ï¼Ÿå¤©é¾™å¯ºï¼Ÿå¤§è½®å¯ºï¼Ÿåµ©å±±ï¼Ÿæ˜æ•™ï¼Ÿå³¨åµ‹?\nå¦‚æœæœ‰ ask åæ²¡æœ‰ååº”çš„ï¼Œé‚£ä¹ˆå°±æ˜¯é‚£ä¸ªé—¨æ´¾å·²ç»å…³é—­äº†ã€‚\n",
+"å¤§è½®å¯º" : (: ask_xs :),
+"æ¡ƒèŠ±å²›" : (: ask_thd :),
+"æ˜Ÿå®¿" : (: ask_xingxiu :),
+"æ­¦å½“" : (: ask_wudang :),
+"å³¨åµ‹" : (: ask_emei :),
+"æ˜æ•™" : (: ask_mingjiao :),
+"å°‘æ—" : (: ask_shaolin :),
+"ä¸å¸®" : (: ask_gb :),
+"å¤å¢“" : (: ask_tttt :),
+"åå±±" : (: ask_hs :),
+"åµ©å±±" : (: ask_ss :),
+"æ…•å®¹" : (: ask_mur :),
+"å¤©é¾™å¯º" : (: ask_tls :),
+"é“æŒ" : (: ask_tz :),
+"ç¥é¾™å²›" : (: ask_sld :),
+"æ˜†ä»‘" : (: ask_kl :),
       ]) );
 }
 string ask_newbie()
@@ -83,7 +83,7 @@ string ask_newbie()
     object letter;
     object me = this_object();
     object ob = this_player();
-    write ("ÇëÊäÈë ask shizhe about °İÊ¦ À´Òª¼¼ÄÜ¡£\n");
+    write ("è¯·è¾“å…¥ ask shizhe about æ‹œå¸ˆ æ¥è¦æŠ€èƒ½ã€‚\n");
     ob->set_skill("dodge",1);
     skill = ob->query_skills();
     skl = keys(skill);
@@ -92,8 +92,8 @@ string ask_newbie()
     {
 ob->delete_skill(skl[i]);              
     }
-    message_vision(HIC"Êé½£ÀñÎïÊ¹Õß·ÏÈ¥ÁËÄãµÄËùÓĞÎä¹¦£¡\n"NOR,me,ob);
-   message_vision(HIW"ÁíÍâÔùËÍÄãÒ»¸öÔÂµÄ¹ó±ö·şÎñÊ±¼ä£¡\n"NOR,me,ob);    
+    message_vision(HIC"ä¹¦å‰‘ç¤¼ç‰©ä½¿è€…åºŸå»äº†ä½ çš„æ‰€æœ‰æ­¦åŠŸï¼\n"NOR,me,ob);
+   message_vision(HIW"å¦å¤–èµ é€ä½ ä¸€ä¸ªæœˆçš„è´µå®¾æœåŠ¡æ—¶é—´ï¼\n"NOR,me,ob);    
     ob->delete("double_attack");
     this_player()->set_skill("dodge",SKILLS_LEVEL);
     this_player()->set_skill("force",SKILLS_LEVEL);
@@ -120,8 +120,8 @@ ob->delete_skill(skl[i]);
 //    ob->set("per",10+random(20))
   
     ob->set("combat_exp",GIVE_EXP);
-    ob->set("job_time/ËÍĞÅ",1000);
-    ob->set("job_time/Ø¤°ï",400);
+    ob->set("job_time/é€ä¿¡",1000);
+    ob->set("job_time/ä¸å¸®",400);
     ob->set("shizhe_newbie",1);
     ob->set("registered", 3);    
     ob->set("luohan_winner", 1);    
@@ -131,16 +131,16 @@ ob->delete_skill(skl[i]);
     ob->set("vip/vip_start_time",time());    
     ob->set("age",15);
     ob->set("mud_age",100000);
-    ob->set("Àë¹İ",1);
+    ob->set("ç¦»é¦†",1);
     ob->set("enter_wuguan",0);
 if(objectp(letter = new(__DIR__"obj/letter")))
         {        
-        command("say ÎÒÕâÀï»¹ÓĞÒ»·â¶ÍÔìÍÆ¼öĞÅ£¬ÄãÕâ¾ÍÄÃÈ¥°É£¬¹»ÕÕ¹ËÄãµÄÁË°É£¡");
+        command("say æˆ‘è¿™é‡Œè¿˜æœ‰ä¸€å°é”»é€ æ¨èä¿¡ï¼Œä½ è¿™å°±æ‹¿å»å§ï¼Œå¤Ÿç…§é¡¾ä½ çš„äº†å§ï¼");
         letter->move(ob);
-        message_vision(""HIW"Êé½£ÀñÎïÊ¹Õß"NOR"¸øÄãÒ»·â¡¸"+letter->query("name")+"¡¹¡£\n",me,  this_object());   
-        return "Èç¹ûÄã²»½âÒ±ÌúìÑÔìÖ®Êõ£¬¿ÉÒÔÊ¹ÓÃ help dazao »ñµÃÏêÏ¸ĞÅÏ¢¡£"; 
+        message_vision(""HIW"ä¹¦å‰‘ç¤¼ç‰©ä½¿è€…"NOR"ç»™ä½ ä¸€å°ã€Œ"+letter->query("name")+"ã€ã€‚\n",me,  this_object());   
+        return "å¦‚æœä½ ä¸è§£å†¶é“ç……é€ ä¹‹æœ¯ï¼Œå¯ä»¥ä½¿ç”¨ help dazao è·å¾—è¯¦ç»†ä¿¡æ¯ã€‚"; 
         }
-    return "Îª¹ÄÀønewbieÌØ´Ë½±Àø!ÇëÓÃ ask shizhe about °İÊ¦ À´Òª¼¼ÄÜ¡£\n"; 
+    return "ä¸ºé¼“åŠ±newbieç‰¹æ­¤å¥–åŠ±!è¯·ç”¨ ask shizhe about æ‹œå¸ˆ æ¥è¦æŠ€èƒ½ã€‚\n"; 
 }
 string ask_fanhui()
 {
@@ -156,24 +156,24 @@ string ask_fanhui()
     {
 ob->delete_skill(skl[i]);              
     }
-    message_vision(HIC"Êé½£ÀñÎïÊ¹Õß·ÏÈ¥ÁËÄãµÄËùÓĞÎä¹¦£¡\n"NOR,me,ob);
+    message_vision(HIC"ä¹¦å‰‘ç¤¼ç‰©ä½¿è€…åºŸå»äº†ä½ çš„æ‰€æœ‰æ­¦åŠŸï¼\n"NOR,me,ob);
     ob->delete("shizhe_newbie");
-    ob->delete("shizhe_°İÊ¦");
+    ob->delete("shizhe_æ‹œå¸ˆ");
     ob->delete("mishu_newbie");
     ob->delete("mishu_want");
     ob->set("family",0);
-    return "ÇëÖØĞÂask shizhe about newbieÒ»´Î¡£\n";
+    return "è¯·é‡æ–°ask shizhe about newbieä¸€æ¬¡ã€‚\n";
 }
 string ask_xingxiu()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("ĞÇËŞÅÉ", 2, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("æ˜Ÿå®¿æ´¾", 2, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");
      this_player()->move("/d/xingxiu/xxh");
-     this_player()->set("job_time/ĞÇËŞ",500);
+     this_player()->set("job_time/æ˜Ÿå®¿",500);
     this_player()->set_skill("huagong-dafa",SKILLS_LEVEL);
     this_player()->set_skill("chousui-zhang",SKILLS_LEVEL);
     this_player()->set_skill("sanyin-zhua",SKILLS_LEVEL);
@@ -183,16 +183,16 @@ string ask_xingxiu()
     this_player()->set_skill("staff",SKILLS_LEVEL);
     this_player()->set_skill("claw",SKILLS_LEVEL);
     this_player()->set_skill("poison",200);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     this_player()->set("shen",-100000);
     return "hehe";
 }
 string ask_ss()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("áÔÉ½ÅÉ", 4, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("åµ©å±±æ´¾", 4, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");
     this_player()->move("/d/songshan/damen");
@@ -209,17 +209,17 @@ string ask_ss()
     this_player()->set_skill("dodge",SKILLS_LEVEL);
     this_player()->set_skill("parry",SKILLS_LEVEL);
     this_player()->set("shen",-100000);
-    this_player()->set("job_time/áÔÉ½",500);
+    this_player()->set("job_time/åµ©å±±",500);
     this_player()->set("songshan_points",600);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_wudang()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("Îäµ±ÅÉ", 5, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("æ­¦å½“æ´¾", 5, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");
     this_player()->move("/d/wudang/houyuan");
@@ -234,17 +234,17 @@ string ask_wudang()
     this_player()->set_skill("cuff",SKILLS_LEVEL);
     this_player()->set_skill("hand",SKILLS_LEVEL);
     this_player()->set("shen",100000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_emei()
 {
     object ob;
     ob=this_player();
-    if (ob->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("¶ëáÒÅÉ", 5, "µÜ×Ó");
+    if (ob->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("å³¨åµ‹æ´¾", 5, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");
     this_player()->move("/d/emei/houdian");
@@ -264,24 +264,24 @@ string ask_emei()
     this_player()->set_skill("linji-zhuang",SKILLS_LEVEL);
     this_player()->set_skill("strike",SKILLS_LEVEL);
     this_player()->set_skill("sword",SKILLS_LEVEL);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_shaolin()
 {
 object ob;
 ob=this_player();
-if (ob->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!ob->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-if((string)ob->query("gender") == "Å®ĞÔ" )
-return "ÉÙÁÖËÂÎä¹¦ĞèÒª´¿ÑôÖ®Ìå£¬Ğ¡¹ÃÄï¿É²»ÊÕ°¡! ";
-message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-this_object()->create_family("ÉÙÁÖÅÉ", 99, "µÜ×Ó");
+if (ob->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!ob->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+if((string)ob->query("gender") == "å¥³æ€§" )
+return "å°‘æ—å¯ºæ­¦åŠŸéœ€è¦çº¯é˜³ä¹‹ä½“ï¼Œå°å§‘å¨˜å¯ä¸æ”¶å•Š! ";
+message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+this_object()->create_family("å°‘æ—æ´¾", 99, "å¼Ÿå­");
 this_object()->recruit_apprentice(this_player());
 this_object()->delete("title");       
     this_player()->move("/d/shaolin/smdian");
 this_player()->set_skill("buddhism",200);
-this_player()->set_skill("jingang-quan",SKILLS_LEVEL);//6¸ß¼¶
+this_player()->set_skill("jingang-quan",SKILLS_LEVEL);//6é«˜çº§
 this_player()->set_skill("cuff",SKILLS_LEVEL);
 this_player()->set_skill("banruo-zhang",SKILLS_LEVEL);
 this_player()->set_skill("strike",SKILLS_LEVEL);
@@ -295,7 +295,7 @@ this_player()->set_skill("ruying-suixingtui",SKILLS_LEVEL);
 this_player()->set_skill("leg",SKILLS_LEVEL);
 
 
-        //3 weapon µ«ÊÇ²»¸øÈı´óÎäÑ§Ö»¸ø»ù±¾×Ô¼ºÑ¡Ôñ
+        //3 weapon ä½†æ˜¯ä¸ç»™ä¸‰å¤§æ­¦å­¦åªç»™åŸºæœ¬è‡ªå·±é€‰æ‹©
 this_player()->set_skill("blade",SKILLS_LEVEL);
 this_player()->set_skill("club",SKILLS_LEVEL);
 this_player()->set_skill("whip",SKILLS_LEVEL);
@@ -303,15 +303,15 @@ this_player()->set_skill("yijin-jing",SKILLS_LEVEL);
 this_player()->set_skill("shaolin-shenfa",SKILLS_LEVEL);
 
     this_player()->set("shen",100000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_mingjiao()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("Ã÷½Ì", 37, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("æ˜æ•™", 37, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");
      this_player()->move("/d/mingjiao/jyt");
@@ -332,16 +332,16 @@ string ask_mingjiao()
     this_player()->set_skill("shenghuo-shengong",SKILLS_LEVEL);
     this_player()->set_skill("piaoyi-shenfa",SKILLS_LEVEL);
     this_player()->set("shen",100000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 
 string ask_gb()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("Ø¤°ï", 99, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("ä¸å¸®", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");        
     this_player()->move("/d/gb/pomiao");
@@ -367,23 +367,23 @@ string ask_gb()
     this_player()->set_skill("stealing",200);
     this_player()->set_skill("begging",200);
     this_player()->set("shen",600000);
-    this_player()->set("job_time/×¥Éß",1000);
-    this_player()->set("job_time/Ø¤°ï",1000);
-    this_player()->set("job_time/´ÌÉ±",1000);
-    this_player()->set("job_time/ËÌÄ¦ÑÂ",1000);
+    this_player()->set("job_time/æŠ“è›‡",1000);
+    this_player()->set("job_time/ä¸å¸®",1000);
+    this_player()->set("job_time/åˆºæ€",1000);
+    this_player()->set("job_time/é¢‚æ‘©å´–",1000);
     this_player()->set("gb/gift", 1);
-// É¾³ıÌØÊâquest ¼ÇºÅ
+// åˆ é™¤ç‰¹æ®Šquest è®°å·
 //    this_player()->set("dgb/wugou",1);
 //    this_player()->set("xlz/kanglong",1);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_hs()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("»ªÉ½ÅÉ", 99, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("åå±±æ´¾", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");
     this_player()->move("/d/huashan/zhengqi");
@@ -403,23 +403,23 @@ string ask_hs()
     this_player()->set_skill("huashan-qigong",SKILLS_LEVEL);
     this_player()->set_skill("zhengqi-jue",200);
     this_player()->set("shen",100000);
-    this_player()->set("job_time/Ø¤°ï",1000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("job_time/ä¸å¸®",1000);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_tttt()
 {
 //object suo
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
     if (this_player()->query("per") < 25)
-     return "ÄãÌìÉúÈİÃ²Ç·¼Ñ, ¿ÖÅÂ½ñÉúÄÑÔ²Ë«½£ºÏ±ÚÖ®ÃÀÃÎ¡£\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("¹ÅÄ¹ÅÉ", 99, "µÜ×Ó");
+     return "ä½ å¤©ç”Ÿå®¹è²Œæ¬ ä½³, ææ€•ä»Šç”Ÿéš¾åœ†åŒå‰‘åˆå£ä¹‹ç¾æ¢¦ã€‚\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("å¤å¢“æ´¾", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");
      this_player()->move("/d/gumu/jqg/wshi");
-//¼øÓÚGM ¶¼ÊÇË§¸çö¦ÃÃ
+//é‰´äºGM éƒ½æ˜¯å¸…å“¥é“å¦¹
     this_player()->set_skill("strike",SKILLS_LEVEL);    
     this_player()->set_skill("sword",SKILLS_LEVEL);
     this_player()->set_skill("hand",SKILLS_LEVEL);
@@ -433,7 +433,7 @@ string ask_tttt()
     this_player()->set_skill("quanzhen-jianfa",SKILLS_LEVEL);
     this_player()->set_skill("yinsuo-jinling",SKILLS_LEVEL);
 
-    if (this_player()->query("gender")!="Å®ĞÔ") {
+    if (this_player()->query("gender")!="å¥³æ€§") {
 this_player()->set_skill("tianluo-diwang",SKILLS_LEVEL);
 this_player()->set_skill("quanzhen-jianfa",SKILLS_LEVEL);
 this_player()->set_skill("anran-zhang",SKILLS_LEVEL);
@@ -442,15 +442,15 @@ this_player()->set_skill("yunu-jianfa",SKILLS_LEVEL);
 this_player()->set_skill("meinu-quanfa",SKILLS_LEVEL);
     }
     this_player()->set("shen",100000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_mur()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("¹ÃËÕÄ½Èİ", 99, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("å§‘è‹æ…•å®¹", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");        
     this_player()->move("/d/mr/yanziwu/yanziwu");
@@ -465,19 +465,19 @@ string ask_mur()
     this_player()->set_skill("sword",SKILLS_LEVEL);
     this_player()->set_skill("xingyi-zhang",SKILLS_LEVEL);
     this_player()->set_skill("yanling-shenfa",SKILLS_LEVEL);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_thd()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("ÌÒ»¨µº", 99, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("æ¡ƒèŠ±å²›", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");   
     this_player()->move("/d/thd/jicui");
-    this_player()->set("job_time/ÌÒ»¨µº",400);
+    this_player()->set("job_time/æ¡ƒèŠ±å²›",400);
     this_player()->set_skill("bihai-chaosheng", SKILLS_LEVEL);
     this_player()->set_skill("suibo-zhuliu", SKILLS_LEVEL);
     this_player()->set_skill("leg", SKILLS_LEVEL);
@@ -492,15 +492,15 @@ string ask_thd()
     this_player()->set_skill("yuxiao-jian", SKILLS_LEVEL);
     this_player()->set_skill("taoism", 200);
     this_player()->set_skill("qimen-bagua", 200);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_tz()
 {
- if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-  //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("ÌúÕÆ°ï", 99, "µÜ×Ó");
+ if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+  //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("é“æŒå¸®", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_object()->delete("title");   
     this_player()->move("/d/tiezhang/wztang");
@@ -515,17 +515,17 @@ string ask_tz()
     this_player()->set_skill("yingou-bifa", SKILLS_LEVEL);
     this_player()->set_skill("liuye-daofa", SKILLS_LEVEL);
     this_player()->set_skill("tiezhang-zhangfa", SKILLS_LEVEL);
-    this_player()->set("job_time/ÌúÕÆ",400);
+    this_player()->set("job_time/é“æŒ",400);
     this_player()->set("shen",-100000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_sld()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("ÉñÁú½Ì", 99, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("ç¥é¾™æ•™", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_player()->move("/d/sld/dukou");
 
@@ -545,19 +545,19 @@ string ask_sld()
     this_player()->set_skill("shenlong-wudizhen",200);
     this_player()->set_skill("shenlong-yaoli",180);
     this_player()->set("shen",-100000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_tls()
 {
     object ob;
     ob=this_player();
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    if((string)ob->query("gender") == "Å®ĞÔ" )
-return "ÌìÁúËÂÎä¹¦ĞèÒª´¿ÑôÖ®Ìå£¬Ğ¡¹ÃÄï¿É²»ÊÕ°¡! ";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("ÌìÁúËÂ", 99, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    if((string)ob->query("gender") == "å¥³æ€§" )
+return "å¤©é¾™å¯ºæ­¦åŠŸéœ€è¦çº¯é˜³ä¹‹ä½“ï¼Œå°å§‘å¨˜å¯ä¸æ”¶å•Š! ";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("å¤©é¾™å¯º", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_player()->move("/d/dali/shanhou");
     this_player()->set_skill("qingyan-zhang",SKILLS_LEVEL);
@@ -574,15 +574,15 @@ return "ÌìÁúËÂÎä¹¦ĞèÒª´¿ÑôÖ®Ìå£¬Ğ¡¹ÃÄï¿É²»ÊÕ°¡! ";
     this_player()->set_skill("duanjia-jianfa",SKILLS_LEVEL);
     this_player()->set_skill("yiyang-zhi",SKILLS_LEVEL);
     this_player()->set("shen",100000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_xs()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("´óÂÖËÂ", 99, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("å¤§è½®å¯º", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
     this_player()->move("/d/xueshan/guangchang");
     this_player()->set_skill("dodge",SKILLS_LEVEL);
@@ -599,15 +599,15 @@ string ask_xs()
     this_player()->set_skill("xuedao-jing",SKILLS_LEVEL);
     this_player()->set_skill("xiangfu-lun",SKILLS_LEVEL);
     this_player()->set("shen",-100000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
     return "hehe";
 }
 string ask_kl()
 {
-    //if (this_player()->query("shizhe_°İÊ¦")) return "Äã²»ÊÇÒª¹ıÒ»´ÎÃÅÅÉskillsÁËÂï£¡£¿\n";
-   if (!this_player()->query("shizhe_newbie")) return "Äã±ØĞëÒªÏÈask shizhe about newbie£¡£¿\n";
-    message_vision(HIY "Ê¹Õß"+ NOR "Ò»»ÓÊÖ£¬Ò»Õó¿ñ·ç½«$N´µµÃÎŞÓ°ÎŞ×ÙÁË¡£"+ NOR "\n",this_player());
-    this_object()->create_family("À¥ÂØÅÉ", 99, "µÜ×Ó");
+    //if (this_player()->query("shizhe_æ‹œå¸ˆ")) return "ä½ ä¸æ˜¯è¦è¿‡ä¸€æ¬¡é—¨æ´¾skillsäº†å˜›ï¼ï¼Ÿ\n";
+   if (!this_player()->query("shizhe_newbie")) return "ä½ å¿…é¡»è¦å…ˆask shizhe about newbieï¼ï¼Ÿ\n";
+    message_vision(HIY "ä½¿è€…"+ NOR "ä¸€æŒ¥æ‰‹ï¼Œä¸€é˜µç‹‚é£å°†$Nå¹å¾—æ— å½±æ— è¸ªäº†ã€‚"+ NOR "\n",this_player());
+    this_object()->create_family("æ˜†ä»‘æ´¾", 99, "å¼Ÿå­");
     this_object()->recruit_apprentice(this_player());
      this_player()->move("/d/kunlun/guangchang");
     this_player()->set_skill("xuantian-wuji",SKILLS_LEVEL);
@@ -628,7 +628,7 @@ string ask_kl()
     this_player()->set_skill("throwing",SKILLS_LEVEL);
     this_player()->set_skill("art",200);
     this_player()->set("shen",100000);
-    this_player()->set("shizhe_°İÊ¦",1);
+    this_player()->set("shizhe_æ‹œå¸ˆ",1);
 
     return "hehe";
 }

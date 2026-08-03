@@ -1,15 +1,15 @@
-// znqigai.c ÖĞÄêÆòØ¤
+// znqigai.c ä¸­å¹´ä¹ä¸
 
 inherit NPC;
 #include "begger.h";
 
 void create()
 {
-	set_name("ÀÏÆòØ¤", ({ "qi gai", "di zi", "qigai" }));
-	set("title","Ø¤°ï°ïÖÚ");
+	set_name("è€ä¹ä¸", ({ "qi gai", "di zi", "qigai" }));
+	set("title","ä¸å¸®å¸®ä¼—");
 	set("gb/bags", 1);
-	set("long","ÕâÊÇÒ»¸öÀÏÆòØ¤£¬Á³ÉÏÒÑÓĞ²»ÉÙÖåÎÆ¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set("long","è¿™æ˜¯ä¸€ä¸ªè€ä¹ä¸ï¼Œè„¸ä¸Šå·²æœ‰ä¸å°‘çš±çº¹ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 50+random(30));
 	set("attitude", "peaceful");
 	set("shen_type", 0);
@@ -31,7 +31,7 @@ void create()
 	set_skill("parry", 30);
 	set_skill("begging", 30);
 
-	create_family("Ø¤°ï", 20, "µÜ×Ó");
+	create_family("ä¸å¸®", 20, "å¼Ÿå­");
 	setup();
 	carry_object(CLASS_D("gaibang/obj/gb_budai1"))->wear();
 	carry_object(ARMOR_D("bainayi"))->wear();

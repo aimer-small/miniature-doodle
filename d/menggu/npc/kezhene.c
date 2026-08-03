@@ -1,17 +1,17 @@
-// kezhene.c ¿ÂÕò¶ñ
+// kezhene.c æŸ¯é•‡æ¶
 // Created by Zhuifeng@sjfy 08/8/2010
 
 inherit NPC;
 #include <ansi.h>
 void create()
 {
-   set_name("¿ÂÕò¶ñ",({"ke zhene","ke","zhene"}));
-   set("gender","ÄĞĞÔ");
-   set("long","ÃÉ¹ÅÍõ×Ó\n");
+   set_name("æŸ¯é•‡æ¶",({"ke zhene","ke","zhene"}));
+   set("gender","ç”·æ€§");
+   set("long","è’™å¤ç‹å­\n");
    set("shen",90000);
    set("combat_exp",1800000);
-   set("nickname",HIC"·ÉÌìòùòğ"NOR);
-   set("title",WHT"½­ÄÏÆß¹ÖÖ®Ê×"NOR);
+   set("nickname",HIC"é£å¤©è™è "NOR);
+   set("title",WHT"æ±Ÿå—ä¸ƒæ€ªä¹‹é¦–"NOR);
    
    set("age",40);
    set("pur",30);

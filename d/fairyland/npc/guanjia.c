@@ -1,13 +1,13 @@
-// guanjia.c ¹Ü¼Ò
+// guanjia.c ç®¡å®¶
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("ÇÇ¸£", ({"qiao fu", "qiao", "fu"}));
-	set("title", HIY"¹Ü¼Ò"NOR);
-	set("gender", "ÄĞĞÔ");
+	set_name("ä¹”ç¦", ({"qiao fu", "qiao", "fu"}));
+	set("title", HIY"ç®¡å®¶"NOR);
+	set("gender", "ç”·æ€§");
 	set("age", 65);
         set("unique", 1);
 

@@ -5,10 +5,10 @@ inherit ROOM;
 string look_gaoshi();
 void create()
 {
-	set("short", "±±ÃÅ");
+	set("short", "åŒ—é—¨");
 	set("long", @LONG
-ÕâÀïÊÇ¸£½¨Ê×¸®¸£ÖİµÄ±±ÃÅ¡£Èë´ËÃÅÏòÄÏ¿Éµ½¸£Öİ¸®¡¢Íù·ğÉ½Õò£¬³ö´ËÃÅ
-Ïò±±¿ÉµÖ½­ÕãÒ»´ø¡£³ÇÃÅµÄÇ½ÉÏÕÅÌù×ÅÒ»Ö½¸æÊ¾(gaoshi)¡£
+è¿™é‡Œæ˜¯ç¦å»ºé¦–åºœç¦å·çš„åŒ—é—¨ã€‚å…¥æ­¤é—¨å‘å—å¯åˆ°ç¦å·åºœã€å¾€ä½›å±±é•‡ï¼Œå‡ºæ­¤é—¨
+å‘åŒ—å¯æŠµæ±Ÿæµ™ä¸€å¸¦ã€‚åŸé—¨çš„å¢™ä¸Šå¼ è´´ç€ä¸€çº¸å‘Šç¤º(gaoshi)ã€‚
 LONG
 	);
 	set("item_desc", ([
@@ -22,10 +22,10 @@ LONG
                 NPC_D("guanfu/wujiang") : 1,
                 NPC_D("guanfu/bing") : 2,
         ]));
-	set("outdoors", "¸£Öİ");
+	set("outdoors", "ç¦å·");
 	setup();
 }
 string look_gaoshi()
 {
-	return FINGER_D->get_killer() + "\n¸£ÖİÑ²¸®\nÄ³Ä³Ä³\n";
+	return FINGER_D->get_killer() + "\nç¦å·å·¡åºœ\næŸæŸæŸ\n";
 }

@@ -3,13 +3,13 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIC"½µÁúÕÆ¡¤ÅÅÔÆ·ÉÑï²ĞÆª"NOR, ({ "paiyun canpian", "paiyun", "canpian"}));
+        set_name(HIC"é™é¾™æŒÂ·æ’äº‘é£æ‰¬æ®‹ç¯‡"NOR, ({ "paiyun canpian", "paiyun", "canpian"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¾í");
-                set("long","ÕâÊÇÒ»¾íØ¤°ï½µÁúÕÆµÄ¾ø¼¼²ĞÆª£¬Äã¿ÉÒÔ¼¯ÆëÎå¾íÀ´ºÏ²¢(hebing)³ÉÒ»¾íÕûÆª¡£\n"
+                set("unit", "å·");
+                set("long","è¿™æ˜¯ä¸€å·ä¸å¸®é™é¾™æŒçš„ç»æŠ€æ®‹ç¯‡ï¼Œä½ å¯ä»¥é›†é½äº”å·æ¥åˆå¹¶(hebing)æˆä¸€å·æ•´ç¯‡ã€‚\n"
                 );
                 
                                set("value", 0);
@@ -29,13 +29,13 @@ int i,j,k;
 object *inv, me = this_player();
 
 if (!arg || arg == "")
-return notify_fail("ÄãÏëºÏ²¢Ê²Ã´£¿\n");
+return notify_fail("ä½ æƒ³åˆå¹¶ä»€ä¹ˆï¼Ÿ\n");
 
 if (arg != query("id")) 
-return notify_fail("ÄãÏëºÏ²¢Ê²Ã´£¿\n");
+return notify_fail("ä½ æƒ³åˆå¹¶ä»€ä¹ˆï¼Ÿ\n");
 
 if (this_player()->is_busy() || this_player()->is_fighting())
- return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+ return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 inv = all_inventory(me);
 k=1;
@@ -47,16 +47,16 @@ if (inv[j] != this_object() && inv[j]->query("id") == query("id"))
 k++;
 }
  if(k < 5) 
-         return notify_fail("ÄãÒªºÏ²¢µÄ²ĞÆª²»¹»Îå¸ö£¡\n");  
+         return notify_fail("ä½ è¦åˆå¹¶çš„æ®‹ç¯‡ä¸å¤Ÿäº”ä¸ªï¼\n");  
 
  
-message_vision(HIC "$NÆÈ²»¼°´ıµØ½«"HIR""+chinese_number(k)+""HIC""+this_object()->query("unit")+"¡¶"+this_object()->query("name")+""HIC"¡·ºÏ²¢³ÉÁËÒ»ÕûÆª¡£\n" NOR, me);  
+message_vision(HIC "$Nè¿«ä¸åŠå¾…åœ°å°†"HIR""+chinese_number(k)+""HIC""+this_object()->query("unit")+"ã€Š"+this_object()->query("name")+""HIC"ã€‹åˆå¹¶æˆäº†ä¸€æ•´ç¯‡ã€‚\n" NOR, me);  
 
 
 
 
-if ( wizardp(me)) message_vision(HIM "kkkkkkkÓĞ"+k+"¸ö\n" NOR, me);  
-if ( wizardp(me)) message_vision(HIM "jjjjjjjÓĞ"+j+"¸ö\n" NOR, me);  
+if ( wizardp(me)) message_vision(HIM "kkkkkkkæœ‰"+k+"ä¸ª\n" NOR, me);  
+if ( wizardp(me)) message_vision(HIM "jjjjjjjæœ‰"+j+"ä¸ª\n" NOR, me);  
         
 j=sizeof(inv);
 k=0;

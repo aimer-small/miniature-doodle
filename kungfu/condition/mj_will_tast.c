@@ -10,7 +10,7 @@ int update_condition(object me, int duration)
 	monk = present("yin tianzheng", room); 
         if (duration < 1) {
 		monk->add("start_tast",-1);
-		tell_object(me, HIY "你的护教时间到了，看来应该回去复命了。\n" NOR);
+		tell_object(me, HIY "浣犵殑鎶ゆ暀鏃堕棿鍒颁簡锛岀湅鏉ュ簲璇ュ洖鍘诲鍛戒簡銆俓n" NOR);
                 me->delete_temp("protecting");
 		me->delete_temp("protect");
 		me->set_temp("finish_tast",1);

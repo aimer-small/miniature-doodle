@@ -1,16 +1,16 @@
-// li.c ÀîÀÏ°å 
+// li.c æè€æ¿ 
 
 inherit NPC;
 inherit F_DEALER;
 
 void create()
 {
-	set_name("»ÆÀÏ°å", ({ "huang laoban", "huang", "laoban" }));
+	set_name("é»„è€æ¿", ({ "huang laoban", "huang", "laoban" }));
 	set("shen_type", 0);
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
 	set_max_encumbrance(100000000);
 	set("age", 35);
-	set("long", "µ±ÆÌÀÏ°åÕıÔÚ¶¢×ÅÄã¿´À´¿´È¥¡£\n");
+	set("long", "å½“é“ºè€æ¿æ­£åœ¨ç›¯ç€ä½ çœ‹æ¥çœ‹å»ã€‚\n");
 	set("no_get_from", 1);
 
 	set("no_clean_up", 0);

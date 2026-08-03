@@ -6,12 +6,12 @@ inherit SWORD;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(HIM"ÊçÅ®½£"NOR,({ "shunu jian", "shunu", "jian", "sword" }) );
+        set_name(HIM"æ·‘å¥³å‰‘"NOR,({ "shunu jian", "shunu", "jian", "sword" }) );
         set_weight(12000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
+                set("unit", "æŸ„");
                 set("value", 1500);
                 set("rigidity", 3);
                 set("sharpness", 3);
@@ -22,9 +22,9 @@ void create()
                 set("wield_neili", 500);
                 set("wield_maxneili", 900);
                 set("wield_str", 22);
-                set("long","´Ë½£ÎÚºÚµÄ½£Éí£¬Ã»°ëµã¹âÔó£¬¾ÍËÆÒ»¶ÎºÚÄ¾¡£¿Ì×ÅÊçÅ®¶ş×Ö¡£Óë¾ı×Ó½£Ò»°ã³¤¶Ì£¬È«ÎŞ¶şÖÂ¡£\n");
-                set("wield_msg", HIM"$N»º»º³é³öÊçÅ®½££¬Ö»¾õÇáÆ®Æ®ÎŞÉõ·İÁ¿£¬µ½ÊÇÒ»ÕóÁ¹ÒâÁİÈ»±ÆÈË£¬ÁîÈËÄª¿ÉºöÊÓ¡£\n"NOR);
-                set("unwield_msg", HIM"$N»­¸ö½£ÊÆ£¬½«ÊçÅ®½£»º»º²å»Ø½£ÇÊ£¬µ±Õæ·ç×ËæÌÈ»¡£\n" NOR);
+                set("long","æ­¤å‰‘ä¹Œé»‘çš„å‰‘èº«ï¼Œæ²¡åŠç‚¹å…‰æ³½ï¼Œå°±ä¼¼ä¸€æ®µé»‘æœ¨ã€‚åˆ»ç€æ·‘å¥³äºŒå­—ã€‚ä¸å›å­å‰‘ä¸€èˆ¬é•¿çŸ­ï¼Œå…¨æ— äºŒè‡´ã€‚\n");
+                set("wield_msg", HIM"$Nç¼“ç¼“æŠ½å‡ºæ·‘å¥³å‰‘ï¼Œåªè§‰è½»é£˜é£˜æ— ç”šä»½é‡ï¼Œåˆ°æ˜¯ä¸€é˜µå‡‰æ„å‡›ç„¶é€¼äººï¼Œä»¤äººè«å¯å¿½è§†ã€‚\n"NOR);
+                set("unwield_msg", HIM"$Nç”»ä¸ªå‰‘åŠ¿ï¼Œå°†æ·‘å¥³å‰‘ç¼“ç¼“æ’å›å‰‘é˜ï¼Œå½“çœŸé£å§¿å«£ç„¶ã€‚\n" NOR);
         }
         init_sword(55);
         setup();

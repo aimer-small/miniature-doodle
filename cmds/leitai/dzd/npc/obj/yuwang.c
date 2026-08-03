@@ -8,15 +8,15 @@ int do_sa(string arg);
 
 void create()
 {
-	set_name("ÓæÍø",({"yuwang"}));
+	set_name("æ¸”ç½‘",({"yuwang"}));
 	set_weight(50);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long",HIW"ÕâÊÇÒ»ÕÅÒÔ¼«Ï¸Ë¿Ïß½á³ÉµÄÓæ¸Ù¡£Ë¿ÏßÏ¸ÈçÍ··¢£¬ÖÊµØÍ¸Ã÷£¬¼áÈÍÒì³££¬ÓöÎï¼´Ëõ¡£
-²»ÖªµÀÕ½¶·µÄÊ±ºòÄÜ²»ÄÜÈö(sa)±ğÈËÄØ£¿\n"NOR);
+		set("long",HIW"è¿™æ˜¯ä¸€å¼ ä»¥æç»†ä¸çº¿ç»“æˆçš„æ¸”çº²ã€‚ä¸çº¿ç»†å¦‚å¤´å‘ï¼Œè´¨åœ°é€æ˜ï¼ŒåšéŸ§å¼‚å¸¸ï¼Œé‡ç‰©å³ç¼©ã€‚
+ä¸çŸ¥é“æˆ˜æ–—çš„æ—¶å€™èƒ½ä¸èƒ½æ’’(sa)åˆ«äººå‘¢ï¼Ÿ\n"NOR);
 		set("value",200000);
-		set("unit","ÕÅ");
+		set("unit","å¼ ");
 		set("material","silk");
              set("dzd",1);
 
@@ -49,7 +49,7 @@ int do_sa(string arg)
 	object me = this_player();
 	
 	if( environment(me)->query("no_fight"))
-	 	return notify_fail("ÕâÀï²»×¼Õ½¶·¡£\n");
+	 	return notify_fail("è¿™é‡Œä¸å‡†æˆ˜æ–—ã€‚\n");
 	 
 	if( !arg ) 
 		target = offensive_target(me);
@@ -57,34 +57,34 @@ int do_sa(string arg)
 		target = present(arg, environment(me));
 	}
 	if(!target)
-		return notify_fail("ÄãÏë¶ÔË­Ê¹ÓÃÓæÍø£¿\n");
+		return notify_fail("ä½ æƒ³å¯¹è°ä½¿ç”¨æ¸”ç½‘ï¼Ÿ\n");
 		
-	if(!target->is_character()) return notify_fail("ÄúÀÏ¸ãĞ¦°¡£¿\n");
+	if(!target->is_character()) return notify_fail("æ‚¨è€æç¬‘å•Šï¼Ÿ\n");
 	
 	//if(!target || !target->is_character() || !me->is_fighting(target))
-		//return notify_fail("ÓæÍøÖ»ÄÜ¶ÔÕ½¶·ÖĞµÄ¶ÔÊÖÊ¹ÓÃ£¡\n");
+		//return notify_fail("æ¸”ç½‘åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ï¼\n");
 	if(!living(target))
-		return notify_fail("Íø²»ÄÜ¶¯µÄÈË£¿\n");
+		return notify_fail("ç½‘ä¸èƒ½åŠ¨çš„äººï¼Ÿ\n");
 	if(target->is_busy())
-		return notify_fail("¶ÔÊÖÕıÔÚ×Ô¹Ë²»Ï¾£¬Çë·Åµ¨¹¥»÷°É£¡\n");
+		return notify_fail("å¯¹æ‰‹æ­£åœ¨è‡ªé¡¾ä¸æš‡ï¼Œè¯·æ”¾èƒ†æ”»å‡»å§ï¼\n");
 	if(me->query_temp("dzd_quest/yuwang_used"))
-		return notify_fail("ÄãÕıÔÚÊ¹ÓÃÓæÍø£¡\n");
-	message_vision(HIW"$NÊÖÖĞÍ»È»¶àÁË¼şÎïÊÂ£¬ËÆÊÇÒ»¿éÍ¸Ã÷µÄ²¼ñâ£¬ÈôÓĞÈôÎŞ£¬²»ÖªÊÇÊ²Ã´¶«Î÷,Ïò$nµ±Í·ÈöÈ¥£¡\n"NOR,me,target);
+		return notify_fail("ä½ æ­£åœ¨ä½¿ç”¨æ¸”ç½‘ï¼\n");
+	message_vision(HIW"$Næ‰‹ä¸­çªç„¶å¤šäº†ä»¶ç‰©äº‹ï¼Œä¼¼æ˜¯ä¸€å—é€æ˜çš„å¸ƒç–‹ï¼Œè‹¥æœ‰è‹¥æ— ï¼Œä¸çŸ¥æ˜¯ä»€ä¹ˆä¸œè¥¿,å‘$nå½“å¤´æ’’å»ï¼\n"NOR,me,target);
 	me->set_temp("dzd_quest/yuwang_used",1);
 	call_out("yuwang_busy",15,me);
 	if(random(10) >= 4) {
-		message_vision(HIW"$NÍ»È»¼ä½ÅÏÂÒ»»¬£¬ÆËµØµ¹ÁË£¬¸ú×ÅÉí×Ó±ã±ä³ÉÁËÒ»ÍÅ¡£\n"NOR,target);
+		message_vision(HIW"$Nçªç„¶é—´è„šä¸‹ä¸€æ»‘ï¼Œæ‰‘åœ°å€’äº†ï¼Œè·Ÿç€èº«å­ä¾¿å˜æˆäº†ä¸€å›¢ã€‚\n"NOR,target);
 		if(random(3)) {
-			message_vision(HIW"$NÃ¦ÓÚÕõ¿ªÓæÍø£¬Ò»Ê±ÎŞÏ¾³öÕĞ£¡\n"NOR,target);
+			message_vision(HIW"$Nå¿™äºæŒ£å¼€æ¸”ç½‘ï¼Œä¸€æ—¶æ— æš‡å‡ºæ‹›ï¼\n"NOR,target);
 			target->start_busy(9);
 			//remove_call_out("out_yuwang");
 			call_out("out_yuwang",3+random(3),target);
 		} else {
-			message_vision(HIW"$NÉíÈë¸ÙÖĞ£¬Ô½ÊÇÕõÔú£¬Óæ¸Ù²øµÃÔ½½ô£¬Æ¬¿ÌÖ®¼ä£¬¾Í³ÉÎªÒ»Ö»´óôÕ×Ó°ã£¬¸ø²øµÃÄÑÒÔ¶¯µ¯¡£\n"NOR,target);
+			message_vision(HIW"$Nèº«å…¥çº²ä¸­ï¼Œè¶Šæ˜¯æŒ£æ‰ï¼Œæ¸”çº²ç¼ å¾—è¶Šç´§ï¼Œç‰‡åˆ»ä¹‹é—´ï¼Œå°±æˆä¸ºä¸€åªå¤§ç²½å­èˆ¬ï¼Œç»™ç¼ å¾—éš¾ä»¥åŠ¨å¼¹ã€‚\n"NOR,target);
 			target->start_busy(10);
 		}
 	} else {
-		message_vision(HIW"$N²»»Å²»Ã¦£¬ÇáÇáÉÁÁË¿ªÈ¥¡£\n"NOR,target);
+		message_vision(HIW"$Nä¸æ…Œä¸å¿™ï¼Œè½»è½»é—ªäº†å¼€å»ã€‚\n"NOR,target);
 		me->start_busy(1);
 	}
 	return 1;
@@ -93,7 +93,7 @@ int do_sa(string arg)
 void out_yuwang(object target)
 {	
 	if(!target) return;
-	message_vision(HIW"$NÃ¦ÁË°ëÌì£¬ÖÕÓÚ½«ÓæÍø½â¿ª¡£\n"NOR,target);
+	message_vision(HIW"$Nå¿™äº†åŠå¤©ï¼Œç»ˆäºå°†æ¸”ç½‘è§£å¼€ã€‚\n"NOR,target);
 	target->start_busy(-1);
 	target->interrupt_me();
 	return;

@@ -1,10 +1,10 @@
-// huagu.c »¯¹Ç
+// huagu.c åŒ–éª¨
 
 #include <ansi.h>
 
 inherit F_SSERVER;
 
-string perform_name() {return HIY"»¯¹ÇÃàÕÆ"NOR;}
+string perform_name() {return HIY"åŒ–éª¨ç»µæŽŒ"NOR;}
 
 int perform(object me, object target)
 {
@@ -18,49 +18,49 @@ int perform(object me, object target)
         || environment(target)!=environment(me) 
         || target == me
         || !target->is_character())
-        	return notify_fail("ÄãÏë»¯Ë­µÄ¹Ç£¿\n");
+        	return notify_fail("ä½ æƒ³åŒ–è°çš„éª¨ï¼Ÿ\n");
 
         if(target->query("combat_exp") < 80000)
-           	return notify_fail("É±¼¦ÑÉÓÃÅ£µ¶£¿Ã»±ØÒªÊ¹ÓÃ»¯¹Ç°É¡£\n");
+           	return notify_fail("æ€é¸¡ç„‰ç”¨ç‰›åˆ€ï¼Ÿæ²¡å¿…è¦ä½¿ç”¨åŒ–éª¨å§ã€‚\n");
 
         if(me->query("age") < 16) 
-        	return notify_fail("ÄãÏÖÔÚÄêÁäÌ«Ð¡£¬ÉÐ²»ÄÜÊ¹ÓÃ»¯¹Ç¡£\n");
+        	return notify_fail("ä½ çŽ°åœ¨å¹´é¾„å¤ªå°ï¼Œå°šä¸èƒ½ä½¿ç”¨åŒ–éª¨ã€‚\n");
 
         if(userp(me) 
         && userp(target) 
         && target->query("age") < 17)
-                return notify_fail("ÄãµÄÐÄ³¦Ì«ºÚÁË, ¶ÔÊÖÎÞ¸¿¼¦Ö®Á¦µÄÍæ¼ÒÒ²ÏÂµÃÁËÊÖ¡£\n"); 
+                return notify_fail("ä½ çš„å¿ƒè‚ å¤ªé»‘äº†, å¯¹æ‰‹æ— ç¼šé¸¡ä¹‹åŠ›çš„çŽ©å®¶ä¹Ÿä¸‹å¾—äº†æ‰‹ã€‚\n"); 
 
 if(target->query("no_pk"))
-                 return notify_fail("¶Ô·½ÒÑ¾­Ï´ÊÖÁË¡£\n"); 
+                 return notify_fail("å¯¹æ–¹å·²ç»æ´—æ‰‹äº†ã€‚\n"); 
         if(userp(me) 
         && userp(target) 
         && target->query("combat_exp")<me->query("combat_exp")/10)
-                return notify_fail("ÄãµÄÐÄ³¦Ì«ºÚÁË, ¶ÔÊÖÎÞ¸¿¼¦Ö®Á¦µÄÍæ¼ÒÒ²ÏÂµÃÁËÊÖ¡£\n");
+                return notify_fail("ä½ çš„å¿ƒè‚ å¤ªé»‘äº†, å¯¹æ‰‹æ— ç¼šé¸¡ä¹‹åŠ›çš„çŽ©å®¶ä¹Ÿä¸‹å¾—äº†æ‰‹ã€‚\n");
 
 	if( objectp(me->query_temp("weapon")) )
-                return notify_fail("Äã±ØÐë¿ÕÊÖ²ÅÄÜ»¯¹Ç£¡\n");
+                return notify_fail("ä½ å¿…é¡»ç©ºæ‰‹æ‰èƒ½åŒ–éª¨ï¼\n");
 
         if((int)me->query_skill("huagu-mianzhang",1)<120)
-                return notify_fail("ÄãµÄ»¯¹ÇÃàÕÆ»¹²»¹»ÊìÁ·£¬²»ÄÜÊ¹ÓÃ£¡\n");
+                return notify_fail("ä½ çš„åŒ–éª¨ç»µæŽŒè¿˜ä¸å¤Ÿç†Ÿç»ƒï¼Œä¸èƒ½ä½¿ç”¨ï¼\n");
 
         if( (int)me->query("neili") < 2000 )
-                return notify_fail("ÄãÏÖÔÚÄÚÁ¦²»×ã£¬²»ÄÜ»¯¹Ç£¡\n");     
+                return notify_fail("ä½ çŽ°åœ¨å†…åŠ›ä¸è¶³ï¼Œä¸èƒ½åŒ–éª¨ï¼\n");     
 
         if( (int)me->query("jingli") < 500 )
-                return notify_fail("ÄãÏÖÔÚ¾«Á¦²»×ã£¬²»ÄÜ»¯¹Ç£¡\n");     
+                return notify_fail("ä½ çŽ°åœ¨ç²¾åŠ›ä¸è¶³ï¼Œä¸èƒ½åŒ–éª¨ï¼\n");     
 
         if( (int)me->query_skill("dulong-dafa", 1) < 120 )
-                return notify_fail("ÄãµÄ¶¾Áú´ó·¨¹¦Á¦²»×ã£¬²»ÄÜ»¯¹Ç¡£\n");
+                return notify_fail("ä½ çš„æ¯’é¾™å¤§æ³•åŠŸåŠ›ä¸è¶³ï¼Œä¸èƒ½åŒ–éª¨ã€‚\n");
 
         if (me->query_skill_mapped("force") != "dulong-dafa")
-                return notify_fail("Ã»ÓÐ¶¾Áú´ó·¨×÷Îª¸ù»ù£¬ÊÇÎÞ·¨Ê¹³ö¡¸»¯¹Ç¡¹¾ø¼¼µÄ£¡\n"); 
+                return notify_fail("æ²¡æœ‰æ¯’é¾™å¤§æ³•ä½œä¸ºæ ¹åŸºï¼Œæ˜¯æ— æ³•ä½¿å‡ºã€ŒåŒ–éª¨ã€ç»æŠ€çš„ï¼\n"); 
     
     	fzcs = (int)me->query_temp("huagucs",1);
         userp(target)?user = 1:user = 0;
         
-        me->start_perform(5,"»¯¹ÇÃàÕÆ");
-        msg = HIY "\n$NºöÈ»Á³´ø¹îÐ¦£¬Ë«ÕÆ²»´øÒ»µã¾¢ÆøµØÏò$pÇáÇáµØÅÄÁËÒ»ÕÆ£¡\n"NOR;
+        me->start_perform(5,"åŒ–éª¨ç»µæŽŒ");
+        msg = HIY "\n$Nå¿½ç„¶è„¸å¸¦è¯¡ç¬‘ï¼ŒåŒæŽŒä¸å¸¦ä¸€ç‚¹åŠ²æ°”åœ°å‘$pè½»è½»åœ°æ‹äº†ä¸€æŽŒï¼\n"NOR;
     
         exp = me->query("combat_exp");
 	me->receive_damage("neili",200);
@@ -85,7 +85,7 @@ if(target->query("no_pk"))
                       		dif= (cs-fzcs)/2;
                       		cs = fzcs;
                   	}
-                  	msg += "½á¹û$p¶ãÉÁ²»¼°£¬ÉíÖÐ¾ç¶¾\n"NOR;
+                  	msg += "ç»“æžœ$pèº²é—ªä¸åŠï¼Œèº«ä¸­å‰§æ¯’\n"NOR;
        	        	mark = (mneili/1000-tneili/1000+1)*5;
                           target->set("sld/huagu_mark",mark);
                   	if(target->query("huagu") >= 400)
@@ -109,7 +109,7 @@ if(target->query("no_pk"))
                           	dif=(-fzcs-cs)/2;
                           	cs=-fzcs;
                       	}
-                      	msg += "½á¹û±»$p·´Õð»ØÀ´£¬$N·´¶øÉíÖÐ¾ç¶¾\n"NOR;
+                      	msg += "ç»“æžœè¢«$påéœ‡å›žæ¥ï¼Œ$Nåè€Œèº«ä¸­å‰§æ¯’\n"NOR;
                       	if(me->query("huagu") >= 200)
               			me->apply_condition("huagu_poison",me->query_condition("huagu_poison")-cs/2);
                         else{
@@ -126,7 +126,7 @@ if(target->query("no_pk"))
               	}
        	} 
         else {
-                msg += "$pÍùÅÔ±ßÒ»ÉÁÉí£¬¶ã¹ýÁËÕâÕÐ¡£\n"NOR;
+                msg += "$på¾€æ—è¾¹ä¸€é—ªèº«ï¼Œèº²è¿‡äº†è¿™æ‹›ã€‚\n"NOR;
                 me->start_busy(3);
         }
         message_vision(msg, me, target);

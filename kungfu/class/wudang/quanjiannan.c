@@ -1,12 +1,12 @@
-// quanjiannan.c Èª½¨ÄÐ
+// quanjiannan.c æ³‰å»ºç”·
 
 inherit NPC;
 
 void create()
 {
-	set_name("Èª½¨ÄÐ", ({ "quan jiannan","quan","nan" }));
-	set("long", "Ò»¸öÎåÊ®¶àËêµÄÀÏÕß£¬ÃæÄ¿ºÍÖÐÍÁÈËÊ¿ÂÔÓÐ²îÒì¡£\n");
-	set("gender", "ÄÐÐÔ");
+	set_name("æ³‰å»ºç”·", ({ "quan jiannan","quan","nan" }));
+	set("long", "ä¸€ä¸ªäº”åå¤šå²çš„è€è€…ï¼Œé¢ç›®å’Œä¸­åœŸäººå£«ç•¥æœ‰å·®å¼‚ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 55);
 	set("attitude", "peaceful");
 	set("shen", -4800);
@@ -45,7 +45,7 @@ void create()
         map_skill("finger", "canhe-zhi");
         prepare_skill("finger", "canhe-zhi");
 
-        create_family("ÇàÁú°ï", 2, "ÕÆÃÅ");
+        create_family("é’é¾™å¸®", 2, "æŽŒé—¨");
 
 	setup();
 	carry_object(BINGQI_D("changjian"))->wield();

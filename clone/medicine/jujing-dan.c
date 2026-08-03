@@ -1,4 +1,4 @@
-// jujing-dan.c ½áÆøÍè
+// jujing-dan.c ç»“æ°”ä¸¸
 
 #include <ansi.h>
 
@@ -14,14 +14,14 @@ void init()
 
 void create()
 {
-        set_name(HIY"ÑÓÄê¾Û¾«µ¤"NOR, ({"jujing dan","dan"}));
+        set_name(HIY"å»¶å¹´èšç²¾ä¸¹"NOR, ({"jujing dan","dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿ÅÒ©ÏãâùÈËµÄÑÓÄê¾Û¾«µ¤¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—è¯é¦™æ€¡äººçš„å»¶å¹´èšç²¾ä¸¹ã€‚\n");
                 set("value", 10000);
-//                set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+//                set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
         }
 
         set("wudang",1);
@@ -33,13 +33,13 @@ int do_eat(string arg)
         object me = this_player();
 
         if (!id(arg))
-        return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+        return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
         if ( me->query_skill_mapped("force") != "yinyun-ziqi" )
         {
                 me->add("max_jingli", -5);
                 me->add("eff_jingli", -5);
-                message_vision(HIR "$N³ÔÏÂÒ»¿ÅÑÓÄê¾Û¾«µ¤£¬Ö»¾õµÃÍ·ÕÍÓûÁÑ£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËğÕæÔª£¡\n" NOR, me);
+                message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å»¶å¹´èšç²¾ä¸¹ï¼Œåªè§‰å¾—å¤´èƒ€æ¬²è£‚ï¼ŒåŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸçœŸå…ƒï¼\n" NOR, me);
                 me->unconcious();
                 destruct(this_object());
                 return 1;
@@ -49,19 +49,19 @@ int do_eat(string arg)
         {
 me->add("eff_jingli", -1);
 me->add("max_jingli", -1);
-                message_vision(HIR "$N³ÔÏÂÒ»¿ÅÑÓÄê¾Û¾«µ¤£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´¾«Á¦²»¹»£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, me);
+                message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å»¶å¹´èšç²¾ä¸¹ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŸæ¥ç²¾åŠ›ä¸å¤Ÿï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
         }
         else if ( (int)me->query_condition("medicine" ) > 0 )
         {
 me->add("eff_jingli", -1);
 me->add("max_jingli", -1);
-                message_vision(HIR "$N³ÔÏÂÒ»¿ÅÑÓÄê¾Û¾«µ¤£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´·şÊ³Ì«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, me);
+                message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å»¶å¹´èšç²¾ä¸¹ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
         }
         else
         {
 me->add("eff_jingli", 1);
 me->add("max_jingli", 1);
-                message_vision(HIY"$N³ÔÏÂÒ»¿ÅÑÓÄê¾Û¾«µ¤£¬Ö»¾õµÃÉíÌåÆ®Æ®ÓûÏÉ£¬¶Ù¸Ğ¾«Éñ°Ù±¶£¡\n" NOR, me);
+                message_vision(HIY"$Nåƒä¸‹ä¸€é¢—å»¶å¹´èšç²¾ä¸¹ï¼Œåªè§‰å¾—èº«ä½“é£˜é£˜æ¬²ä»™ï¼Œé¡¿æ„Ÿç²¾ç¥ç™¾å€ï¼\n" NOR, me);
         me->apply_condition("medicine", 90);
         }
         

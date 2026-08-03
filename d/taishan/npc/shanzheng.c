@@ -1,17 +1,17 @@
-// shanzheng.c µ¥Õı
+// shanzheng.c å•æ­£
 
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-        set_name("µ¥Õı", ({ "shan zheng", "shan", "zheng" }) );
-	set("gender", "ÄĞĞÔ");
-        set("nickname","ÌúÃæÅĞ¹Ù");
-        set("title","µ¥¼Ò×¯×¯Ö÷");
+        set_name("å•æ­£", ({ "shan zheng", "shan", "zheng" }) );
+	set("gender", "ç”·æ€§");
+        set("nickname","é“é¢åˆ¤å®˜");
+        set("title","å•å®¶åº„åº„ä¸»");
         set("age", 55);
-	set("long","ËûÂúÁ³ºì¹â£¬µ±µÃÆğ¡°Í¯ÑÕº×·¢¡±ËÄ×Ö¡£\n"+
-                   "ÉñÇéÈ´ÉõÇ«ºÍ£¬²»ËÆ½­ºşÉÏ´«ËµµÄ³öÊÖÎŞÇé¡£\n");
+	set("long","ä»–æ»¡è„¸çº¢å…‰ï¼Œå½“å¾—èµ·â€œç«¥é¢œé¹¤å‘â€å››å­—ã€‚\n"+
+                   "ç¥æƒ…å´ç”šè°¦å’Œï¼Œä¸ä¼¼æ±Ÿæ¹–ä¸Šä¼ è¯´çš„å‡ºæ‰‹æ— æƒ…ã€‚\n");
         set("combat_exp", 400000);
         set("shen_type", 1);
 	set("attitude", "firendly");

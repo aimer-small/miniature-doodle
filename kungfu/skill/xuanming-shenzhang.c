@@ -2,29 +2,29 @@ inherit SKILL;
 
 mapping *action = ({
 ([
-	"action" : "$NÉîÎüÒ»¿ÚÆø£¬Ë«ÕÆ»º»ºµÄÍÆÏò$nµÄ$l",
+	"action" : "$Næ·±å¸ä¸€å£æ°”ï¼ŒåŒæŽŒç¼“ç¼“çš„æŽ¨å‘$nçš„$l",
 	"lvl" : 0,
-	"damage_type" : "ÄÚÉË"
+	"damage_type" : "å†…ä¼¤"
 ]),
 ([
-	"action" : "$N×óÕÆÅÄ³ö£¬ÓÒÕÆºó·¢ÏÈÖÁ£¬Ö±±ÆÏò$nµÄ$l",
+	"action" : "$Nå·¦æŽŒæ‹å‡ºï¼Œå³æŽŒåŽå‘å…ˆè‡³ï¼Œç›´é€¼å‘$nçš„$l",
 	"lvl" : 30,
-	"damage_type" : "ðöÉË"
+	"damage_type" : "ç˜€ä¼¤"
 ]),
 ([
-	"action" : "$NÒ»×ªÉí£¬ÓÒÊÖ·´ÕÆ»÷³ö£¬´ý$n³öÊÖÕÐ¼Ü£¬×óÕÆ·É¿ìµÄÅÄÏò$nµÄ$l",
+	"action" : "$Nä¸€è½¬èº«ï¼Œå³æ‰‹åæŽŒå‡»å‡ºï¼Œå¾…$nå‡ºæ‰‹æ‹›æž¶ï¼Œå·¦æŽŒé£žå¿«çš„æ‹å‘$nçš„$l",
 	"lvl" : 60,
-	"damage_type" : "ÄÚÉË"
+	"damage_type" : "å†…ä¼¤"
 ]),
 ([
-	"action" : "$NË«ÕÆÆë³ö£¬Ò»ÕÆÒ»ÕÆ´øÖøÒõº®Ö®Æø²»¶ÏµÄÏò$n¹¥È¥",
+	"action" : "$NåŒæŽŒé½å‡ºï¼Œä¸€æŽŒä¸€æŽŒå¸¦è‘—é˜´å¯’ä¹‹æ°”ä¸æ–­çš„å‘$næ”»åŽ»",
 	"lvl" : 120,
-	"damage_type" : "ðöÉË"
+	"damage_type" : "ç˜€ä¼¤"
 ]),
 ([
-	"action" : "$NÄÚÏ¢ÔË×ª£¬ÖÜÉí·ºÆðÒ»Æ¬ÀäÆø£¬Ò»ÕÆÅÄÏò$nµÄ$l",
+	"action" : "$Nå†…æ¯è¿è½¬ï¼Œå‘¨èº«æ³›èµ·ä¸€ç‰‡å†·æ°”ï¼Œä¸€æŽŒæ‹å‘$nçš„$l",
 	"lvl" : 180,
-	"damage_type" : "ðöÉË"
+	"damage_type" : "ç˜€ä¼¤"
 ]),
 });
 
@@ -39,11 +39,11 @@ int valid_enable(string usage)
 int valid_learn(object me)
 {
 	if (!me->query("menggu") && !me->query("xmsz"))
-		return notify_fail("ÄãÏÖÔÚ²»ÄÜÁ·Ï°ÐþÚ¤ÉñÕÆ¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨ä¸èƒ½ç»ƒä¹ çŽ„å†¥ç¥žæŽŒã€‚\n");
 	if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
-		return notify_fail("Á·ÐþÚ¤ÉñÕÆ±ØÐë¿ÕÊÖ¡£\n");
+		return notify_fail("ç»ƒçŽ„å†¥ç¥žæŽŒå¿…é¡»ç©ºæ‰‹ã€‚\n");
 	if ((int)me->query("max_neili") < 3000)
-		return notify_fail("ÄãµÄÄÚÁ¦Ì«Èõ£¬ÎÞ·¨Á·¹¦¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›å¤ªå¼±ï¼Œæ— æ³•ç»ƒåŠŸã€‚\n");
 	return 1;
 }
 
@@ -77,11 +77,11 @@ mapping query_action(object me, object weapon)
 int practice_skill(object me)
 {
 	if (!me->query("menggu") && !me->query("xmsz"))
-		return notify_fail("ÄãÏÖÔÚ²»ÄÜÁ·Ï°ÐþÚ¤ÉñÕÆ¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨ä¸èƒ½ç»ƒä¹ çŽ„å†¥ç¥žæŽŒã€‚\n");
 	if ((int)me->query("jingli") < 60)
-		return notify_fail("ÄãµÄÌåÁ¦Ì«µÍÁË¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›å¤ªä½Žäº†ã€‚\n");
 	if ((int)me->query("neili") < 30)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»Á·ÐþÚ¤ÉñÕÆ¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿç»ƒçŽ„å†¥ç¥žæŽŒã€‚\n");
 	me->receive_damage("jingli", 50);
 	me->add("neili", -20);
 	return 1;
@@ -95,7 +95,7 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 
 	if ( victim->query("job_npc")) return 0;
 
-	if (me->query("env/ÐþÚ¤ÉñÕÆ") == 1
+	if (me->query("env/çŽ„å†¥ç¥žæŽŒ") == 1
 	&& random(me->query("neili") + victim->query("neili")) > victim->query("neili")) {
 		victim->add_condition("xuanmin_poison", lvl);
 		if ( userp(me) && userp(victim)
@@ -106,7 +106,7 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 		 && !victim->query_condition("killer") )
 			me->add_condition("killer", 5);
 	}
-	if (me->query("env/ÐþÚ¤ÉñÕÆ") == 1
+	if (me->query("env/çŽ„å†¥ç¥žæŽŒ") == 1
 	&& random(me->query("neili") + victim->query("neili")) > me->query("neili")
 	&& userp(victim)
 	&& userp(me))

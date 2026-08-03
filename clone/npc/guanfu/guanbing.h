@@ -1,6 +1,6 @@
 // guanbing.h
-// all include ¹Ù±ø£¬Îä½« by Lklv 2002.1.18
-// update by lsxk@hsbbs Ôö¼Ó×Ô¶¯±¨¾¯£¬grin
+// all include å®˜å…µï¼Œæ­¦å°† by Lklv 2002.1.18
+// update by lsxk@hsbbs å¢åŠ è‡ªåŠ¨æŠ¥è­¦ï¼Œgrin
 
 #include <get_place.h>
 #include <ansi.h>
@@ -25,15 +25,15 @@ int accept_fight(object me)
     p = get_place(file_name(env));
 	if (!me) return 0;
     if(me->query("guanbing_chat_alarm"))
-    message("system",HIY"¡¾"+HIR+"¹Ù¸®¾¯Ñ¶"+HIY+"¡¿"+this_object()->query("name")+"("+this_object()->query("id")+")£º¸÷Î»×¢Òâ£¡"+HIC+p+HIG+env->query("short")+HIY+"ÕıÔâµ½¹¥»÷£¡Çë¸½½üÆ½ÃñÑ¸ËÙ³·ÀëÎ£ÏÕµØÇø£¡\n"NOR,users());
+    message("system",HIY"ã€"+HIR+"å®˜åºœè­¦è®¯"+HIY+"ã€‘"+this_object()->query("name")+"("+this_object()->query("id")+")ï¼šå„ä½æ³¨æ„ï¼"+HIC+p+HIG+env->query("short")+HIY+"æ­£é­åˆ°æ”»å‡»ï¼è¯·é™„è¿‘å¹³æ°‘è¿…é€Ÿæ’¤ç¦»å±é™©åœ°åŒºï¼\n"NOR,users());
 
 	if (query("id")=="wu jiang"){
 		command("pei ");
-		command("say ¸Ò¶Ô³¯Í¢Ãü¹ÙÎŞÀñ£¬½ñÌìÈÃ´óÒ¯ÎÒ½ÌÑµ½ÌÑµÄã£¡\n");
+		command("say æ•¢å¯¹æœå»·å‘½å®˜æ— ç¤¼ï¼Œä»Šå¤©è®©å¤§çˆ·æˆ‘æ•™è®­æ•™è®­ä½ ï¼\n");
 		fight_ob(me);
 		return 1;
 	}
-	command("say ´óÒ¯ÎÒÕıÏëÕÒÈËÉ±ÄÅ£¬½ñÌìËãÄãµ¹Ã¹¡£\n");
+	command("say å¤§çˆ·æˆ‘æ­£æƒ³æ‰¾äººæ€å‘ï¼Œä»Šå¤©ç®—ä½ å€’éœ‰ã€‚\n");
 	if (!is_killing(me->query("id")))
 		me->add_condition("killer", 5);
 	kill_ob(me);
@@ -49,11 +49,11 @@ void kill_ob(object ob)
 	if (!ob) return;
 
     if(ob->query("guanbing_chat_alarm"))
-    message("system",HIY"¡¾"+HIR+"¹Ù¸®¾¯Ñ¶"+HIY+"¡¿"+this_object()->query("name")+"("+this_object()->query("id")+")£º¸÷Î»×¢Òâ£¡"+HIC+p+HIG+env->query("short")+HIY+"ÕıÔâµ½¹¥»÷£¡Çë¸½½üÆ½ÃñÑ¸ËÙ³·ÀëÎ£ÏÕµØÇø£¡\n"NOR,users());
+    message("system",HIY"ã€"+HIR+"å®˜åºœè­¦è®¯"+HIY+"ã€‘"+this_object()->query("name")+"("+this_object()->query("id")+")ï¼šå„ä½æ³¨æ„ï¼"+HIC+p+HIG+env->query("short")+HIY+"æ­£é­åˆ°æ”»å‡»ï¼è¯·é™„è¿‘å¹³æ°‘è¿…é€Ÿæ’¤ç¦»å±é™©åœ°åŒºï¼\n"NOR,users());
 
 	if (query("id") == "wu jiang")
-		command("say Äã£¡Äã£¡Äã£¡À´ÈË°¡£¬¸øÎÒÄÃÏÂÕâ¸ö·´Ôô£¡£¡£¡");
+		command("say ä½ ï¼ä½ ï¼ä½ ï¼æ¥äººå•Šï¼Œç»™æˆ‘æ‹¿ä¸‹è¿™ä¸ªåè´¼ï¼ï¼ï¼");
 	else
-		command("say ·´Ôô£¡ÄÄÀï×ß£¡£¡£¡");
+		command("say åè´¼ï¼å“ªé‡Œèµ°ï¼ï¼ï¼");
 	::kill_ob(ob);
 }

@@ -1,19 +1,19 @@
-// wujiang.c Îä½«
-// ±ê×¼Îä½« by Looklove@SJ for all area
+// wujiang.c æ­¦å°†
+// æ ‡å‡†æ­¦å°† by Looklove@SJ for all area
 
 inherit NPC;
 #include "guanbing.h"
 
 void create()
 {
-        set_name("Îä½«", ({ "wu jiang", "wujiang", "wu", "jiang" }));
-        set("gender", "ÄÐÐÔ");
+        set_name("æ­¦å°†", ({ "wu jiang", "wujiang", "wu", "jiang" }));
+        set("gender", "ç”·æ€§");
         set("shen_type", 1);
         set("no_quest", 1);
         set("no_steal", 1);
         set("no_get", 1);
         set("attitude", "peaceful");
-        set("long", "ËûÕ¾ÔÚÄÇÀï£¬µÄÈ·ÓÐËµ²»³öµÄÍþ·ç¡£\n");
+        set("long", "ä»–ç«™åœ¨é‚£é‡Œï¼Œçš„ç¡®æœ‰è¯´ä¸å‡ºçš„å¨é£Žã€‚\n");
 
         set("age", 25 + random(30));
         set("str", 25 + random(5));
@@ -40,13 +40,13 @@ void create()
 
         set("chat_chance_combat", 2);
         set("chat_msg_combat", ({
-                "Îä½«´óºÈµÀ£º´óµ¨µóÃñ£¬¾¹¸ÒÔì·´²»³É£¿\n",
-                "Îä½«´óºÈµÀ£ºÀ´ÈË£¡¸øÎÒ°ÑÕâ¸ö·´ÔôÄÃÏÂ£¡\n",
+                "æ­¦å°†å¤§å–é“ï¼šå¤§èƒ†åˆæ°‘ï¼Œç«Ÿæ•¢é€ åä¸æˆï¼Ÿ\n",
+                "æ­¦å°†å¤§å–é“ï¼šæ¥äººï¼ç»™æˆ‘æŠŠè¿™ä¸ªåè´¼æ‹¿ä¸‹ï¼\n",
         }));
 	set("inquiry", ([
-		"³¯Í¢":"³¯Í¢µÄÊÂÇéÒ²ÊÇÄã´òÌýµÄÂï£¿\n",
-		"¹Ù¸®":"ºß£¬ÀÏ×Ó¾ÍÊÇ¹Ù¸®£¡\n",
-		"Íõ·¨":"ºß£¬ÀÏ×Ó¾ÍÊÇÍõ·¨£¡\n",
+		"æœå»·":"æœå»·çš„äº‹æƒ…ä¹Ÿæ˜¯ä½ æ‰“å¬çš„å˜›ï¼Ÿ\n",
+		"å®˜åºœ":"å“¼ï¼Œè€å­å°±æ˜¯å®˜åºœï¼\n",
+		"çŽ‹æ³•":"å“¼ï¼Œè€å­å°±æ˜¯çŽ‹æ³•ï¼\n",
 	]));
         setup();
         carry_object(BINGQI_D("sword"))->wield();

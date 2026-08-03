@@ -1,9 +1,9 @@
 string s_power(int i)
 {
-	if( i >= 18 )	return HIW"¼«¸ß"NOR;
-	if( i >= 14 )	return HIG"ºÜ¸ß"NOR;	
-	if( i >= 7 )	return HIY"²»´í"NOR;		
-	return "Ò»°ã";
+	if( i >= 18 )	return HIW"æé«˜"NOR;
+	if( i >= 14 )	return HIG"å¾ˆé«˜"NOR;	
+	if( i >= 7 )	return HIY"ä¸é”™"NOR;		
+	return "ä¸€èˆ¬";
 }
 
 void token_reload()
@@ -15,15 +15,15 @@ void token_reload()
 		if (i=this_player()->query("token/"+query("id")+"/parry")) 
 		{
 			set("armor_prop/parry",i);
-			str="·ÀÓùÁ¦";
+			str="é˜²å¾¡åŠ›";
 		}	
 		if (i=this_player()->query("token/"+query("id")+"/dodge"))
 		{
 			set("armor_prop/dodge",i);
-			str="¶ã±ÜÂÊ";
+			str="èº²é¿ç‡";
 		}
 		set("long",query("long")+" "+this_player()->query("token/"+query("id")+"/desc")+"\n"NOR
-			+"\nÕâ¸ö"+query("name")+"¿´ÆğÀ´ÓĞ×Å"+s_power(i)+"µÄ"+str+"¡£\n");
+			+"\nè¿™ä¸ª"+query("name")+"çœ‹èµ·æ¥æœ‰ç€"+s_power(i)+"çš„"+str+"ã€‚\n");
 		wear();
 	}
 }
@@ -32,9 +32,9 @@ int do_discard(string arg)
 {
 	object me = this_player();
 	if (arg!=query("id"))
-      		return notify_fail("ÄãÒª¶ªÆúÊ²Ã´?\n");
+      		return notify_fail("ä½ è¦ä¸¢å¼ƒä»€ä¹ˆ?\n");
       	
-      	write("ÄãÒª¶ªÆú"+query("name")+",È·¶¨Âğ£¿[Y|N]£º");
+      	write("ä½ è¦ä¸¢å¼ƒ"+query("name")+",ç¡®å®šå—ï¼Ÿ[Y|N]ï¼š");
 	input_to("confirm_discard",me);
       	return 1;
 }
@@ -44,12 +44,12 @@ private void confirm_discard(string arg,object me)
 	if( arg[0]=='y' || arg[0]=='Y' )
 	{
 		me->delete("token/"+query("id"));
-		write("ÄãĞ¶ÏÂ"+query("name")+"ÇáÇáµØ¶ªµ½Ã»ÈË×¢ÒâµÄ½ÅÂä¡£\n");
+		write("ä½ å¸ä¸‹"+query("name")+"è½»è½»åœ°ä¸¢åˆ°æ²¡äººæ³¨æ„çš„è„šè½ã€‚\n");
 		destruct(this_object());
 	}
 	else
 	{
-		write("\nÄã¾ö¶¨±£Áô"+ query("name")+"¡£\n");
+		write("\nä½ å†³å®šä¿ç•™"+ query("name")+"ã€‚\n");
 	}
 }
 
@@ -63,7 +63,7 @@ int unequip()
 	object ob = environment();
 
 	if (ob && userp(ob))
-		return notify_fail("Èç¹û²»Ïë´÷ÁËÄã¾Í°ÑËü¶ªÆú(discard)ÁË°É¡£\n");
+		return notify_fail("å¦‚æœä¸æƒ³æˆ´äº†ä½ å°±æŠŠå®ƒä¸¢å¼ƒ(discard)äº†å§ã€‚\n");
 
 	return ::unequip();
 }

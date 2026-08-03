@@ -5,14 +5,14 @@ inherit NPC;
 
 void create()
 {
-        set_name(WHT"ѩ��"NOR, ({ "xue zhu", "zhu" }) );
-        set("race", "Ұ��");
+        set_name(WHT"雪蛛"NOR, ({ "xue zhu", "zhu" }) );
+        set("race", "野兽");
         set("age", 15);
-        set("long", WHT"һֻͨ��ѩ�׵�С֩�룬������Ϊ���ء�\n"NOR);
+        set("long", WHT"一只通体雪白的小蜘蛛，样子甚为奇特。\n"NOR);
         set("attitude", "peaceful");
         set("str", 10);
         set("cor", 30);
-        set("limbs", ({ "ͷ��", "����","β��" }) );
+        set("limbs", ({ "头部", "身体","尾巴" }) );
         set("verbs", ({ "bite" }) );
         set("combat_exp", 50000);
         set("qi",-1);
@@ -32,15 +32,15 @@ void destroying2(object me)
 		call_out("destroying2", 30, this_object());
 		return;
 	}
-	message_vision("$NͻȻ�ڵ����ϲ����ˡ�\n", me);
+	message_vision("$N突然蹿到地上不见了。\n", me);
 	destruct(me);
 	return;
 }
 
 void destroying(object me)
 {
-	if(!living(me) && environment(me)->query("name") != "��Ͳ"){
-		message_vision("$NͻȻ�ڵ����ϲ����ˡ�\n", me);
+	if(!living(me) && environment(me)->query("name") != "竹筒"){
+		message_vision("$N突然蹿到地上不见了。\n", me);
 		destruct(me);
 		return;
 	}

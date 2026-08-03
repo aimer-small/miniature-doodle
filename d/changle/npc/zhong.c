@@ -11,7 +11,7 @@ void create()
 
 	name = RNAME_D->get_random_name(i);
 	set_name(name["name"], name["id"] + ({ "robber" }));
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 20 + random(40));
 	set("combat_exp", 500000);
 	set("meitude", "peaceful");
@@ -47,7 +47,7 @@ set("no_party_job",1);
 
 	setup();
 	ob = new(ARMOR_D("cloth"));
-	ob->set("name", YEL"»Æ²¼ÒÂ"NOR);
+	ob->set("name", YEL"é»„å¸ƒè¡£"NOR);
 	ob->move(this_object());
 	ob->wear();
 
@@ -77,8 +77,8 @@ void greeting(object ob)
 		ob->add_busy(1);
 		me->set("eff_qi", 10);
 		me->set("qi", 10);
-		message_vision("\n$NÊÖÖĞ½ôÎÕÒ»¿é´Ö²¼ËéÆ¬£¬ÕúÕúµÄ¿´×Å$n£¬ÊÖÖ¸ºúÂÒµØÔÚ¿ÕÖĞÂÒ»®¡£\n", me, ob);
-		command("say É±ÎÒÖ®ÈËÄË¡­¡­");
+		message_vision("\n$Næ‰‹ä¸­ç´§æ¡ä¸€å—ç²—å¸ƒç¢ç‰‡ï¼Œæ€”æ€”çš„çœ‹ç€$nï¼Œæ‰‹æŒ‡èƒ¡ä¹±åœ°åœ¨ç©ºä¸­ä¹±åˆ’ã€‚\n", me, ob);
+		command("say æ€æˆ‘ä¹‹äººä¹ƒâ€¦â€¦");
 		ob->set_temp("changle/meet_die_npc", 1);
 		obj = new("/d/changle/obj/buliao");
 		obj->set_temp("target", getuid(ob));
@@ -89,6 +89,6 @@ void greeting(object ob)
 
 void dest()
 {
-	message_vision("$NºÃÏóÍ»È»ÏëÆğÊ²Ã´ÊÂ£¬¼±¼±Ã¦Ã¦µÄ×ß¿ªÁË¡£\n", this_object());
+	message_vision("$Nå¥½è±¡çªç„¶æƒ³èµ·ä»€ä¹ˆäº‹ï¼Œæ€¥æ€¥å¿™å¿™çš„èµ°å¼€äº†ã€‚\n", this_object());
 	destruct(this_object());
 }

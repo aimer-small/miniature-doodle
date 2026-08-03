@@ -7,17 +7,17 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY"Í­Â¯"NOR, ({ "tong lu" , "lu" }));
+	set_name(HIY"é“œç‚‰"NOR, ({ "tong lu" , "lu" }));
 	set_weight(1000000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "×ù");
+		set("unit", "åº§");
 		set("long",
-HIR"ÕâÊÇÒ»×ùÈÕÒ¹Â¯»ğÍ¨Ã÷µÄÍ­Â¯£¬ÊÇ¸ø´ó·òÃÇÁ¶ÖÆµ¤Ò©ÓÃµÄ¡£\n\n"NOR+
-"Äã¿ÉÒÔÓÃ´ËÂ¯À´Á¶µ¤£º
-Á¶µ¤(liandan)£ºliandan Ò©Îï1 and Ò©Îï2 and Ò©Îï3 ......
-×î¶à¿ÉÒÔÍ¬Ê±·ÅÖÃ¾ÅÖÖÒ©ÎïÀ´Á¶µ¤¡£
+HIR"è¿™æ˜¯ä¸€åº§æ—¥å¤œç‚‰ç«é€šæ˜çš„é“œç‚‰ï¼Œæ˜¯ç»™å¤§å¤«ä»¬ç‚¼åˆ¶ä¸¹è¯ç”¨çš„ã€‚\n\n"NOR+
+"ä½ å¯ä»¥ç”¨æ­¤ç‚‰æ¥ç‚¼ä¸¹ï¼š
+ç‚¼ä¸¹(liandan)ï¼šliandan è¯ç‰©1 and è¯ç‰©2 and è¯ç‰©3 ......
+æœ€å¤šå¯ä»¥åŒæ—¶æ”¾ç½®ä¹ç§è¯ç‰©æ¥ç‚¼ä¸¹ã€‚
 ");
 
 		set("value", 3000);
@@ -78,24 +78,24 @@ int do_liandan(string arg)
 	string * yaocai = ({ "1","2","3","4","5","6","7","8","9" });
 	object * obj = ({ 0,0,0,0,0,0,0,0,0 });
 
-	if (me->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (me->is_fight()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (!arg) return notify_fail("ÄãÒªÁ¶ÖÆÊ²Ã´£¿\n");
+	if (me->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (me->is_fight()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (!arg) return notify_fail("ä½ è¦ç‚¼åˆ¶ä»€ä¹ˆï¼Ÿ\n");
 	arg += " and a";
 	if ( (n=sscanf(arg,"%s and %s and %s and %s and %s and %s and %s and %s and %s and %s",
 		yaocai[0],yaocai[1],yaocai[2],yaocai[3],yaocai[4],yaocai[5],yaocai[6],yaocai[7],yaocai[8],save_id)) < 3 )
-		return notify_fail("ÄãÒªÓÃÊ²Ã´Ò©²ÄÀ´Á¶ÖÆµ¤Ò©°¡£¿\n");
+		return notify_fail("ä½ è¦ç”¨ä»€ä¹ˆè¯ææ¥ç‚¼åˆ¶ä¸¹è¯å•Šï¼Ÿ\n");
 	if ( n > 9 ) n = 9;
 	if ( !objectp(weapon=me->query_temp("weapon")) || weapon->query("id")!="yao chui" )
-		return notify_fail("Äã±ØĞë×°±¸Ò©´¸²ÅÄÜÀ´Á¶µ¤¡£\n");
+		return notify_fail("ä½ å¿…é¡»è£…å¤‡è¯é”¤æ‰èƒ½æ¥ç‚¼ä¸¹ã€‚\n");
 	if ( !weapon->query("worker_tool"))
-		return notify_fail("Äã±ØĞë×°±¸Ò©´¸²ÅÄÜÀ´Á¶µ¤¡£\n");	
+		return notify_fail("ä½ å¿…é¡»è£…å¤‡è¯é”¤æ‰èƒ½æ¥ç‚¼ä¸¹ã€‚\n");	
 	if ( !wizardp(me) && (time()<(int)me->query("worker/liandan")) )
-		return notify_fail("Äã¸Õ¸ÕÁ¶µ¤½áÊø£¬¸Ğ¾õ¹ıÓÚÀÍÀÛ£¡\n");
+		return notify_fail("ä½ åˆšåˆšç‚¼ä¸¹ç»“æŸï¼Œæ„Ÿè§‰è¿‡äºåŠ³ç´¯ï¼\n");
 
 	time = time()- me->query("pk_time");
 	if ( time < 432000)
-		return notify_fail("ÄãÄ¿Ç°µÄ×´Ì¬ÎŞ·¨Á¶µ¤¡£\n");
+		return notify_fail("ä½ ç›®å‰çš„çŠ¶æ€æ— æ³•ç‚¼ä¸¹ã€‚\n");
 
 	yaoname = "";
 	yaocai_lvl = 0;
@@ -103,32 +103,32 @@ int do_liandan(string arg)
 	for(i=0;i<n;i++) {
 		tobj = present(yaocai[i],me);
 		if ( !objectp(tobj) )
-			return notify_fail("ÄãÉíÉÏÃ»ÓĞ"+yaocai[i]+"ÕâÑù¶«Î÷°¡¡£\n");
+			return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰"+yaocai[i]+"è¿™æ ·ä¸œè¥¿å•Šã€‚\n");
 		if( tobj->query("yaocai") != 1 )
-			return notify_fail("ÄãµÄ"+yaocai[i]+"ËÆºõÓĞµãÎÊÌâ£¬²»ÄÜÓÃÀ´Á¶µ¤¡£\n");
+			return notify_fail("ä½ çš„"+yaocai[i]+"ä¼¼ä¹æœ‰ç‚¹é—®é¢˜ï¼Œä¸èƒ½ç”¨æ¥ç‚¼ä¸¹ã€‚\n");
 		for(j=0;j<i;j++) {
 			if( obj[j] == tobj )
-				return notify_fail("Ò»·İÒ©²ÄÓÃÁ½´Î£¿\n");
+				return notify_fail("ä¸€ä»½è¯æç”¨ä¸¤æ¬¡ï¼Ÿ\n");
 		}
 		obj[i] = tobj;
 		yaocai_lvl += tobj->query_level();
 		value += tobj->query("value");
 		yaoname += obj[i]->query("name");
-		if(i<(n-1)) yaoname += "¡¢";
+		if(i<(n-1)) yaoname += "ã€";
 	}
 	yaocai_lvl /= n;
 
 	level = (int)me->query_skill("liandan",1);
 	if ( level<1 )
-		return notify_fail("Äã¸ù±¾¾Í²»»áÁ¶µ¤£¡\n");
+		return notify_fail("ä½ æ ¹æœ¬å°±ä¸ä¼šç‚¼ä¸¹ï¼\n");
 	if(level>390) level = 390 + (level-390)*11;
 
 	yao = drug_combine(obj,n);
 	if( level < need_lvl )
-		return notify_fail("ÄãµÄÁ¶µ¤¼¼ÄÜ²»¹»£¡\n");
+		return notify_fail("ä½ çš„ç‚¼ä¸¹æŠ€èƒ½ä¸å¤Ÿï¼\n");
 
-	tell_object(me,GRN"Äã´ò¿ªÍ­Â¯µÄ¸Ç×Ó£¬ÒÀ´Î·ÅÈëÓÃÒ©´¸µ·ÀÃµÄ"+yaoname+GRN"£¬\n¼ÓÈëÇåË®ÔÙ¸ÇÉÏ¸Ç×Ó£¬µãÈ¼Ä¾Ì¿£¬¿ªÊ¼Á¶µ¤......\n"NOR);
-	tell_room(environment(me),GRN+me->name()+GRN"´ò¿ªÍ­Â¯µÄ¸Ç×Ó£¬ÒÀ´Î·ÅÈëÓÃÒ©´¸µ·ÀÃµÄÒ©²Ä"+GRN"£¬\n¼ÓÈëÇåË®ÔÙ¸ÇÉÏ¸Ç×Ó£¬µãÈ¼Ä¾Ì¿£¬¿ªÊ¼Á¶µ¤......\n"NOR, ({me}));
+	tell_object(me,GRN"ä½ æ‰“å¼€é“œç‚‰çš„ç›–å­ï¼Œä¾æ¬¡æ”¾å…¥ç”¨è¯é”¤æ£çƒ‚çš„"+yaoname+GRN"ï¼Œ\nåŠ å…¥æ¸…æ°´å†ç›–ä¸Šç›–å­ï¼Œç‚¹ç‡ƒæœ¨ç‚­ï¼Œå¼€å§‹ç‚¼ä¸¹......\n"NOR);
+	tell_room(environment(me),GRN+me->name()+GRN"æ‰“å¼€é“œç‚‰çš„ç›–å­ï¼Œä¾æ¬¡æ”¾å…¥ç”¨è¯é”¤æ£çƒ‚çš„è¯æ"+GRN"ï¼Œ\nåŠ å…¥æ¸…æ°´å†ç›–ä¸Šç›–å­ï¼Œç‚¹ç‡ƒæœ¨ç‚­ï¼Œå¼€å§‹ç‚¼ä¸¹......\n"NOR, ({me}));
 
 	if(level>max_lvl) level = max_lvl;
 	if(wizardp(me) && me->query("env/test") && win_lvl>500) win_lvl=500;
@@ -168,7 +168,7 @@ void liandan_finish(object me,string yao,int drug_lvl,int yaocai_lvl,int gain_lv
 	level = (int)me->query_skill("liandan",1);
 	if(level>390) level = 390 + (level-390)*11;
 
-	message_vision(HIG"$NÏ¨Ãğ»ğÑæ£¬´ò¿ª¸Ç×Ó£¬ÍùÍ­Â¯ÀïÍûÈ¥......\n"NOR, me);
+	message_vision(HIG"$Nç†„ç­ç«ç„°ï¼Œæ‰“å¼€ç›–å­ï¼Œå¾€é“œç‚‰é‡Œæœ›å»......\n"NOR, me);
 	if ( objectp(tools) && tools->query("id")=="yao chui" ) tools->use();
 
 	str = WORKER_D->worker_title(me,"liandan");
@@ -193,18 +193,18 @@ void liandan_finish(object me,string yao,int drug_lvl,int yaocai_lvl,int gain_lv
 		ob->set_type(yao,(yaocai_lvl+me->query_skill("liandan",1))/2,value,save_id,me,lower);
 		ob->set("user_make",1);
 		if( !ob->move(me) ) {
-			message_vision(HIC"µ«ÊÇ$NÉíÉÏ·Å²»ÏÂÁË£¡\n",me);
+			message_vision(HIC"ä½†æ˜¯$Nèº«ä¸Šæ”¾ä¸ä¸‹äº†ï¼\n",me);
 			ob->move(environment(me));
 		}
 
-		tell_room(me,HIC"Äã´ÓÍ­Â¯ÀïÄÃ³öÒ»"+ob->query("unit")+ob->name()+"¡£\n"NOR);
-		tell_room(environment(me),HIC+me->name()+HIC"´ÓÍ­Â¯ÀïÄÃ³öÒ»"+ob->query("unit")+"µ¤Ò©¡£\n"NOR,({me}));
+		tell_room(me,HIC"ä½ ä»é“œç‚‰é‡Œæ‹¿å‡ºä¸€"+ob->query("unit")+ob->name()+"ã€‚\n"NOR);
+		tell_room(environment(me),HIC+me->name()+HIC"ä»é“œç‚‰é‡Œæ‹¿å‡ºä¸€"+ob->query("unit")+"ä¸¹è¯ã€‚\n"NOR,({me}));
 		log_file("career/liandan", sprintf("%-19s:%d:%3d:%d:%s\n",
 			ob->query("save_id"),ob->query("imbued"),ob->query("lvl"),ob->query("lower"),ob->short() ), me);
 	}
 	else {
 		if( yao=="null" ) {
-			message_vision(HIC"$NÔÚÍ­Â¯Àï·¢ÏÖÒ»¿ÅÆæĞÎ¹Ö×´µÄµ¤Ò©£¬Ò²²»ÖªÓĞºÎÓÃ¡£\n"NOR, me);
+			message_vision(HIC"$Nåœ¨é“œç‚‰é‡Œå‘ç°ä¸€é¢—å¥‡å½¢æ€ªçŠ¶çš„ä¸¹è¯ï¼Œä¹Ÿä¸çŸ¥æœ‰ä½•ç”¨ã€‚\n"NOR, me);
 			me->improve_skill("liandan", improve);
 			if ( environment(me)->query("no_zhiye")
 			 || me->query_temp("user_type") == "worker") {
@@ -213,7 +213,7 @@ void liandan_finish(object me,string yao,int drug_lvl,int yaocai_lvl,int gain_lv
 			}
 		}
 		else {
-			message_vision(HIC"µ«ÊÇ$NÔÚÍ­Â¯ÀïÖ»·¢ÏÖÒ»¶ÑÀÃÄàÒ»ÑùµÄ¶«Î÷£¡\n"NOR, me);
+			message_vision(HIC"ä½†æ˜¯$Nåœ¨é“œç‚‰é‡Œåªå‘ç°ä¸€å †çƒ‚æ³¥ä¸€æ ·çš„ä¸œè¥¿ï¼\n"NOR, me);
 			me->improve_skill("liandan", improve*3);
 			if ( environment(me)->query("no_zhiye")
 			 || me->query_temp("user_type") == "worker") {

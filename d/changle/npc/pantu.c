@@ -13,7 +13,7 @@ void create()
 
 	name = RNAME_D->get_random_name(i);
 	set_name(name["name"], name["id"] + ({ "dizi" }));
-	set("gender", (i==0?"Å®ĞÔ":"ÄĞĞÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 30 + random(40));
 	set("combat_exp", 8000000);
 	set("meitude", "peaceful");
@@ -38,7 +38,7 @@ void create()
 	setup();
 
 	ob= new(ARMOR_D("cloth"));
-	ob->set("name", "´Ö²¼ÒÂ");
+	ob->set("name", "ç²—å¸ƒè¡£");
 	ob->move(this_object());
 	ob->wear();
 	add_money("silver", random(50)+ 30);
@@ -50,7 +50,7 @@ void create()
 void dest(object ob)
 {
 	if ( ob ){
-		tell_room(environment(ob), "\n"+name()+"´óº°Ò»Éù£º²»ºÃ£¡£¡×ªÉí¼¸¸öÆğÂä¾Í²»¼ûÁË¡£\n");
+		tell_room(environment(ob), "\n"+name()+"å¤§å–Šä¸€å£°ï¼šä¸å¥½ï¼ï¼è½¬èº«å‡ ä¸ªèµ·è½å°±ä¸è§äº†ã€‚\n");
 		destruct(ob);
 	}
 }
@@ -99,7 +99,7 @@ void heart_beat()
 	if (target && !present(target) && (env = environment(target))
 	&& !is_fighting() && !target->is_ghost() && living(this_object())) {
 		move(env);
-		tell_room(environment(ob), ob->name()+ "Âõ×Å´ó²½³åÁË¹ıÀ´¡£\n", ({ ob }) );
+		tell_room(environment(ob), ob->name()+ "è¿ˆç€å¤§æ­¥å†²äº†è¿‡æ¥ã€‚\n", ({ ob }) );
 		if ( !environment(ob)->query("no_fight"))
 			::kill_ob(target);
 	}
@@ -112,7 +112,7 @@ void heart_beat()
 		add("qi", query("max_qi")/5);
 		add("cure", 1);
 		if (! ob->is_busy())
-			tell_room(environment(ob), ob->name()+"ÉîÉîµÄÎüÁË¿ÚÆø£¬Á³É«¶ÙÊ±ºÃÁËĞí¶à¡£\n", ({ ob }) ); 
+			tell_room(environment(ob), ob->name()+"æ·±æ·±çš„å¸äº†å£æ°”ï¼Œè„¸è‰²é¡¿æ—¶å¥½äº†è®¸å¤šã€‚\n", ({ ob }) ); 
 	}
 }
 
@@ -177,7 +177,7 @@ int do_copy(object me, int team, int i)
 		weapon->move(this_object());
 		weapon->wield();
 	}
-	set("title", skills["family"]+"µÜ×Ó");
+	set("title", skills["family"]+"å¼Ÿå­");
 
 	lvl = me->query("max_pot");
 	lvl = lvl - 100;
@@ -232,7 +232,7 @@ void greeting(object ob)
 	remove_call_out("dest");
 	call_out("dest", 300, this_object());
 	set_temp("meet", 1);
-	message_vision(CYN"\n$n¿´¼û$NÊÖÖĞÎÕ×ÅµÄ´Ö²¼ËéÆ¬£¬²»ÓÉÁ³É«´ó±ä£¬´óºÈµÀ£º¼ÈÈ»ÒÑ±»Äã¿´ÆÆ£¬ÄãÒ²¾Í±ğ»îÁË£¡\n"NOR, ob, this_object());
+	message_vision(CYN"\n$nçœ‹è§$Næ‰‹ä¸­æ¡ç€çš„ç²—å¸ƒç¢ç‰‡ï¼Œä¸ç”±è„¸è‰²å¤§å˜ï¼Œå¤§å–é“ï¼šæ—¢ç„¶å·²è¢«ä½ çœ‹ç ´ï¼Œä½ ä¹Ÿå°±åˆ«æ´»äº†ï¼\n"NOR, ob, this_object());
 	::kill_ob(ob);
 }
 

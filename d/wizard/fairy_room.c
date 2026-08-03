@@ -5,8 +5,8 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "¾«ÁéÃÜÊÒ");
-        set("long", "ÕâÀïÊÇÎ×Ê¦µÄÐ¡Ñý¾«ÐÝÏ¢µÄµØ·½£¬Ëý¿ÉÒÔ°ïÖúÎ×Ê¦´¦ÀíºÜ¶àÊÂÇé¡£\n");
+        set("short", "ç²¾çµå¯†å®¤");
+        set("long", "è¿™é‡Œæ˜¯å·«å¸ˆçš„å°å¦–ç²¾ä¼‘æ¯çš„åœ°æ–¹ï¼Œå¥¹å¯ä»¥å¸®åŠ©å·«å¸ˆå¤„ç†å¾ˆå¤šäº‹æƒ…ã€‚\n");
 
         set("exits", ([
                 "out": __DIR__"guest_room",
@@ -40,7 +40,7 @@ void init()
 }
 int action()
 {
-        write("ÄãÎÞ·¨¾²ÏÂÐÄÀ´ÐÞÁ¶¡£\n");
+        write("ä½ æ— æ³•é™ä¸‹å¿ƒæ¥ä¿®ç‚¼ã€‚\n");
         return 1;
 }
 int valid_leave(object me, string dir)
@@ -51,7 +51,7 @@ int valid_leave(object me, string dir)
                 {
                         me->set_temp("confirm", 1);
                         me->start_busy(2);
-                        return notify_fail(HIR"ÄãÈ·¶¨ÒÑ¾­½«ÊôÐÔµ÷ÕûÍê±ÏÂð£¿³öÈ¥ÒÔºó¾Í²»¿ÉÒÔÔÙµ÷ÕûÊôÐÔÁË£¡\n"NOR);
+                        return notify_fail(HIR"ä½ ç¡®å®šå·²ç»å°†å±žæ€§è°ƒæ•´å®Œæ¯•å—ï¼Ÿå‡ºåŽ»ä»¥åŽå°±ä¸å¯ä»¥å†è°ƒæ•´å±žæ€§äº†ï¼\n"NOR);
                 }
                 me->delete_temp("confirm");
                 me->delete_temp("gift_change");

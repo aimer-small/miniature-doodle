@@ -2,7 +2,7 @@ inherit ROOM;
 void create()
 {
     set("short", "*");
-    set("long", "一个存放npc的场所。\n");
+    set("long", "涓�涓瓨鏀緉pc鐨勫満鎵�銆俓n");
     set("no_fight",1);
     set("exits", ([
 

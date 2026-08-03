@@ -6,15 +6,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name("Öì¾¦±ùó¸",({"zhujing bingchan","bingchan"}));
+	set_name("æœ±ç›å†°èŸ¾",({"zhujing bingchan","bingchan"}));
 	set_weight(100);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long","ÕâÊÇ²úÓÚÎ÷ÓòÑ©É½µÄÃû¹óÒ©²Ä£¬Í¨ÌåÑ©°×£¬Á½Ö»ÑÛÖéÈ´ÑªÒ²°ãºì¡£
-²»µ«ÄÜ³Ô£¬»¹ÄÜÎü¶¾(xidu)Å¶¡£\n");
+		set("long","è¿™æ˜¯äº§äºè¥¿åŸŸé›ªå±±çš„åè´µè¯æï¼Œé€šä½“é›ªç™½ï¼Œä¸¤åªçœ¼ç å´è¡€ä¹Ÿèˆ¬çº¢ã€‚
+ä¸ä½†èƒ½åƒï¼Œè¿˜èƒ½å¸æ¯’(xidu)å“¦ã€‚\n");
 		set("value",10000);
-		set("unit","Ö»");
+		set("unit","åª");
 		//set("no_drop",1);
              set("dzd",1);
 
@@ -34,10 +34,10 @@ int do_eat(string arg)
 {
 	object me = this_player();	
 	if(!arg || arg != "bingchan")
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if(me->query("qi")==me->query("max_qi") && me->query("jing")==me->query("max_jing"))
-		return notify_fail("ÄãÃ»ÊÂ³ÔÕâ¸ö×öÊ²Ã´£¿\n");		
-	message_vision("$N³ÔÏÂÒ»Ö»" + name() + ",ÉËÊÆ¶ÙÊ±È«ºÃ£¡\n",me);
+		return notify_fail("ä½ æ²¡äº‹åƒè¿™ä¸ªåšä»€ä¹ˆï¼Ÿ\n");		
+	message_vision("$Nåƒä¸‹ä¸€åª" + name() + ",ä¼¤åŠ¿é¡¿æ—¶å…¨å¥½ï¼\n",me);
 	me->set("eff_qi",me->query("max_qi"));
 	me->set("qi",me->query("max_qi"));
 	me->set("eff_jing",me->query("max_jing"));
@@ -54,19 +54,19 @@ int do_xidu(string arg)
 	else 
 		{
 			if(!objectp(ob = present(arg, environment(me))))
-				return notify_fail("ÄãÒª¸øË­Îü¶¾£¿\n");
+				return notify_fail("ä½ è¦ç»™è°å¸æ¯’ï¼Ÿ\n");
 			if (!ob->is_character() || ob->is_corpse())
-				return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ²¢²»ÊÇ»îÎï¡£\n");
+				return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¹¶ä¸æ˜¯æ´»ç‰©ã€‚\n");
 		}
 	if( ob->is_fighting() )
-		return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞÔË¹¦Îü¶¾¡£\n");
+		return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­è¿åŠŸå¸æ¯’ã€‚\n");
 		
 	if( !mapp(ob->query_conditions_by_type("poison"))  )
-	  return notify_fail(ob->query("name")+"²¢Ã»ÓĞÖĞ¶¾¡£\n");
+	  return notify_fail(ob->query("name")+"å¹¶æ²¡æœ‰ä¸­æ¯’ã€‚\n");
 	if(me==ob)
-		message_vision(HIW"$N½«±ùó¸·ÅÔÚÉË¿ÚÉÏ£¬±ùó¸×ì¶Ô×ÅÉË¿Ú£¬²»Ò»»á£¬Í¨ÌåÑ©°×µÄ±ùó¸½¥½¥±äµÃ»ÒºÚ,$NÌåÄÚµÄ¶¾ÒÑ±»Çå³ı£¡\n"NOR,me);
+		message_vision(HIW"$Nå°†å†°èŸ¾æ”¾åœ¨ä¼¤å£ä¸Šï¼Œå†°èŸ¾å˜´å¯¹ç€ä¼¤å£ï¼Œä¸ä¸€ä¼šï¼Œé€šä½“é›ªç™½çš„å†°èŸ¾æ¸æ¸å˜å¾—ç°é»‘,$Nä½“å†…çš„æ¯’å·²è¢«æ¸…é™¤ï¼\n"NOR,me);
 	else
-		message_vision(HIW"$N½«±ùó¸·ÅÔÚ$nÉË¿ÚÉÏ£¬±ùó¸×ì¶Ô×ÅÉË¿Ú£¬²»Ò»»á£¬Í¨ÌåÑ©°×µÄ±ù²õ½¥½¥±äµÃ»ÒºÚ,$nÌåÄÚµÄ¶¾ÒÑ±»Çå³ı£¡\n"NOR,me,ob);
+		message_vision(HIW"$Nå°†å†°èŸ¾æ”¾åœ¨$nä¼¤å£ä¸Šï¼Œå†°èŸ¾å˜´å¯¹ç€ä¼¤å£ï¼Œä¸ä¸€ä¼šï¼Œé€šä½“é›ªç™½çš„å†°è‰æ¸æ¸å˜å¾—ç°é»‘,$nä½“å†…çš„æ¯’å·²è¢«æ¸…é™¤ï¼\n"NOR,me,ob);
 		ob->clear_conditions_by_type("poison");
 		me->start_busy(1);
 		ob->start_busy(2);

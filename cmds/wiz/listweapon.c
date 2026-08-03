@@ -10,11 +10,11 @@ int main()
         ob=objects();
         ob=filter_array(ob,(: environment($1) && ($1->query("rigidity")>5 || $1->query("sharpness")>5) :));
         
-        msg=HIC"\n¡¾"+MUD_NAME+"ÎäÆ÷ÁĞ±í¡¿\n"NOR;
-        msg+=HIB"¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y\n"NOR;
+        msg=HIC"\nã€"+MUD_NAME+"æ­¦å™¨åˆ—è¡¨ã€‘\n"NOR;
+        msg+=HIB"â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚\n"NOR;
         i=sizeof(ob);
         while(i--) {
-                msg+=sprintf("%-20s %10s Ó²¶È£º%-5d ÈñÀû¶È£º%-5d\n",
+                msg+=sprintf("%-20s %10s ç¡¬åº¦ï¼š%-5d é”åˆ©åº¦ï¼š%-5d\n",
                         ob[i]->query("name")+"("+ob[i]->query("id")+")",
                         environment(ob[i])->short(),
                         ob[i]->query("rigidity"),
@@ -22,7 +22,7 @@ int main()
                         );
                 }
                 
-        msg+=HIB"¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y¨y\n"NOR;
+        msg+=HIB"â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚â–‚\n"NOR;
 
         this_player()->start_more(msg);
         return 1;

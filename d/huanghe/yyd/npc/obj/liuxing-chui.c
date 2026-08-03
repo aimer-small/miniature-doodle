@@ -4,9 +4,9 @@ inherit HAMMER;
 
 void create()
 {
-         set_name("Á÷ĞÇ´¸", ({ "liuxing chui", "chui", "hammer" }) );
+         set_name("æµæ˜Ÿé”¤", ({ "liuxing chui", "chui", "hammer" }) );
          init_hammer(24);
-         set("unit", "°Ñ");
+         set("unit", "æŠŠ");
          set_weight(1200);
          if( clonep() )
          set_default_object(__FILE__);
@@ -14,7 +14,7 @@ void create()
          set("value", 130);
          set("material", "metal");
           }
-         set("wield_msg","$NÄã´ÓµØÉÏÅõÆğÒ»Ğ©É³×Ó£¬°ÑÉ³×Ó¹àÈëÁ÷ĞÇ´¸ÖĞ£¬ÎÕÔÚÊÖÀï¡£\n");
+         set("wield_msg","$Nä½ ä»åœ°ä¸Šæ§èµ·ä¸€äº›æ²™å­ï¼ŒæŠŠæ²™å­çŒå…¥æµæ˜Ÿé”¤ä¸­ï¼Œæ¡åœ¨æ‰‹é‡Œã€‚\n");
          setup();
 }
 

@@ -4,15 +4,15 @@ void zhaoqin(object me,object who)
 	remove_call_out("zhaoqin");
 	if(!me || !me->query_temp("quest/bwzh/over"))
 	{
-		if(!me) log_file("quest/zhaoqin",sprintf("%-8s%-10s ÃÀÅ®ÐÅÏ¢¶ªÊ§zhaoqin",ob->query("name"),ob->query("id")),ob);
-		else log_file("quest/zhaoqin",sprintf("%-8s%-10s ÃÀÅ®±ê¼Ç¶ªÊ§zhaoqin",ob->query("name"),ob->query("id")),ob);
+		if(!me) log_file("quest/zhaoqin",sprintf("%-8s%-10s ç¾Žå¥³ä¿¡æ¯ä¸¢å¤±zhaoqin",ob->query("name"),ob->query("id")),ob);
+		else log_file("quest/zhaoqin",sprintf("%-8s%-10s ç¾Žå¥³æ ‡è®°ä¸¢å¤±zhaoqin",ob->query("name"),ob->query("id")),ob);
 		init_over();
 		return;	
 	}
 	if(!who || !who->query_temp("quest/bwzh/over")) 
 	{
-		if(!who) log_file("quest/zhaoqin",sprintf("%-8s%-10s ÀÞÖ÷ÐÅÏ¢¶ªÊ§zhaoqin",ob->query("name"),ob->query("id")),ob);
-		else log_file("quest/zhaoqin",sprintf("%-8s%-10s ÀÞÖ÷±ê¼Ç¶ªÊ§zhaoqin",ob->query("name"),ob->query("id")),ob);
+		if(!who) log_file("quest/zhaoqin",sprintf("%-8s%-10s æ“‚ä¸»ä¿¡æ¯ä¸¢å¤±zhaoqin",ob->query("name"),ob->query("id")),ob);
+		else log_file("quest/zhaoqin",sprintf("%-8s%-10s æ“‚ä¸»æ ‡è®°ä¸¢å¤±zhaoqin",ob->query("name"),ob->query("id")),ob);
 		init_over();
 		return;	
 	}
@@ -20,35 +20,35 @@ void zhaoqin(object me,object who)
 	if(environment(me)!=environment(ob))
 	{
 		command("chat* angry "+me->query("id"));	
-        command("chat "+HIY+me->query("name")+"¾ÍËãÊÇ²»ÉõÂúÒâ¶Ô·½£¬ÔõÄÜËµ×ß¾Í×ß£¿ÖÕÉí´óÊÂ£¬Èç´ËÇá±¡£¡"NOR);
+        command("chat "+HIY+me->query("name")+"å°±ç®—æ˜¯ä¸ç”šæ»¡æ„å¯¹æ–¹ï¼Œæ€Žèƒ½è¯´èµ°å°±èµ°ï¼Ÿç»ˆèº«å¤§äº‹ï¼Œå¦‚æ­¤è½»è–„ï¼"NOR);
 		if(environment(who)==environment(ob))
 			command("shrug "+getuid(who));	
-		tell_object(who,"ÒòÎª"+me->query("name")+"¹ýÔçÀë¿ª£¬ÕÐÇ×±»ÆÈÖÐÖ¹£¡\n");
-		tell_object(me,"ÄãÒòÎªÔÚ¡¸±ÈÎäÕÐÇ×¡¹ÖÐ³ö¶û·´¶û£¬¶ø±»¿Û³ýÁËÊ®Íòµã¾­Ñé¡£\n");
+		tell_object(who,"å› ä¸º"+me->query("name")+"è¿‡æ—©ç¦»å¼€ï¼Œæ‹›äº²è¢«è¿«ä¸­æ­¢ï¼\n");
+		tell_object(me,"ä½ å› ä¸ºåœ¨ã€Œæ¯”æ­¦æ‹›äº²ã€ä¸­å‡ºå°”åå°”ï¼Œè€Œè¢«æ‰£é™¤äº†åä¸‡ç‚¹ç»éªŒã€‚\n");
 		me->add("combat_exp",-100000);
-		log_file("quest/zhaoqin",sprintf("%-8s%-10s ËðÊ§Ê®Íò¾­Ñézhaoqin",me->query("name"),me->query("id")),me);
+		log_file("quest/zhaoqin",sprintf("%-8s%-10s æŸå¤±åä¸‡ç»éªŒzhaoqin",me->query("name"),me->query("id")),me);
 		init_over();
 		return;
 	}
 	if(environment(who)!=environment(ob))
 	{
-        command("chat "+HIY+who->query("name")+"¼È²»Ô¸È¢Ëý£¬¸ÉÃ´ÏÂ³¡±ÈÎä£¿ÖÕÉí´óÊÂ£¬Èç´ËÇá±¡£¡"NOR);
+        command("chat "+HIY+who->query("name")+"æ—¢ä¸æ„¿å¨¶å¥¹ï¼Œå¹²ä¹ˆä¸‹åœºæ¯”æ­¦ï¼Ÿç»ˆèº«å¤§äº‹ï¼Œå¦‚æ­¤è½»è–„ï¼"NOR);
 		command("chat* heng");
 		command("chat* poor "+me->query("id"));	
-		tell_object(who,"ÒòÎª"+who->query("name")+"¹ýÔçÀë¿ª£¬ÕÐÇ×±»ÆÈÖÐÖ¹£¡\n");
+		tell_object(who,"å› ä¸º"+who->query("name")+"è¿‡æ—©ç¦»å¼€ï¼Œæ‹›äº²è¢«è¿«ä¸­æ­¢ï¼\n");
 
-		tell_object(who,"ÄãÒòÎªÔÚ¡¸±ÈÎäÕÐÇ×¡¹ÖÐ³ö¶û·´¶û£¬¶ø±»¿Û³ýÁËÊ®Íòµã¾­Ñé¡£");
+		tell_object(who,"ä½ å› ä¸ºåœ¨ã€Œæ¯”æ­¦æ‹›äº²ã€ä¸­å‡ºå°”åå°”ï¼Œè€Œè¢«æ‰£é™¤äº†åä¸‡ç‚¹ç»éªŒã€‚");
 		who->add("combat_exp",-100000);
-		log_file("quest/zhaoqin",sprintf("%-8s%-10s ËðÊ§Ê®Íò¾­Ñézhaoqin",who->query("name"),who->query("id")),who);
+		log_file("quest/zhaoqin",sprintf("%-8s%-10s æŸå¤±åä¸‡ç»éªŒzhaoqin",who->query("name"),who->query("id")),who);
 		init_over();
 		return;
 	}
 	command("smile "+getuid(ob));	
 	command("smile "+me->query("id"));
-	command("say ¼ÑÈËÅäÓ¢ÐÛ£¬¶þÎ»ÀÉ²ÅÅ®Ã²£¬Ìì×÷Ö®ºÏ£¬"+me->query("name")+"ÃÃÃÃÄã»¹·¢Ê²Ã´´ô°¡£¬Äã±ÈÎä¶¼ÊäÁË£¬¿ÉÔ¸Òâ¼Þ¸ø"+who->query("name")+"Ã´£¿");
-	tell_object(who,HIY"Äã¿ÉÒÔ»Ø´ð answer y »òÕß answer n ±íÊ¾ÄãÍ¬Òâ»òÕß¾Ü¾øÕâÃÅ»éÊÂ£¡\n"NOR);
+	command("say ä½³äººé…è‹±é›„ï¼ŒäºŒä½éƒŽæ‰å¥³è²Œï¼Œå¤©ä½œä¹‹åˆï¼Œ"+me->query("name")+"å¦¹å¦¹ä½ è¿˜å‘ä»€ä¹ˆå‘†å•Šï¼Œä½ æ¯”æ­¦éƒ½è¾“äº†ï¼Œå¯æ„¿æ„å«ç»™"+who->query("name")+"ä¹ˆï¼Ÿ");
+	tell_object(who,HIY"ä½ å¯ä»¥å›žç­” answer y æˆ–è€… answer n è¡¨ç¤ºä½ åŒæ„æˆ–è€…æ‹’ç»è¿™é—¨å©šäº‹ï¼\n"NOR);
 	who->set_temp("quest/bwzh/marry_object",me);
-	tell_object(me,HIY"Äã¿ÉÒÔ»Ø´ð answer y »òÕß answer n ±íÊ¾ÄãÍ¬Òâ»òÕß¾Ü¾øÕâÃÅ»éÊÂ£¡\n"NOR);
+	tell_object(me,HIY"ä½ å¯ä»¥å›žç­” answer y æˆ–è€… answer n è¡¨ç¤ºä½ åŒæ„æˆ–è€…æ‹’ç»è¿™é—¨å©šäº‹ï¼\n"NOR);
 	me->set_temp("quest/bwzh/marry_object",who);
 	remove_call_out("answer_check");
 	call_out("answer_check",10,me,who,0);
@@ -62,12 +62,12 @@ void answer_check(object me,object who,int i)
 	if(!me || !me->query_temp("quest/bwzh/over") || environment(me)!=environment(ob))
 	{
         command("chat* hmm");
-        command("chat "+HIY+"ÈçºÎ´ó¼Ò¶Ô´ý»éÒöÈç´ËÇá¸¡£¿¾ÍËãÊÇ²»ÉõÂúÒâ¶Ô·½£¬ÔõÄÜËµ×ß¾Í×ß£¿"NOR);
+        command("chat "+HIY+"å¦‚ä½•å¤§å®¶å¯¹å¾…å©šå§»å¦‚æ­¤è½»æµ®ï¼Ÿå°±ç®—æ˜¯ä¸ç”šæ»¡æ„å¯¹æ–¹ï¼Œæ€Žèƒ½è¯´èµ°å°±èµ°ï¼Ÿ"NOR);
 		if(me)
 		{
-			tell_object(me,"ÄãÒòÎªÔÚ¡¸±ÈÎäÕÐÇ×¡¹ÖÐ³ö¶û·´¶û£¬¶ø±»¿Û³ýÁËÊ®Íòµã¾­Ñé¡£\n");
+			tell_object(me,"ä½ å› ä¸ºåœ¨ã€Œæ¯”æ­¦æ‹›äº²ã€ä¸­å‡ºå°”åå°”ï¼Œè€Œè¢«æ‰£é™¤äº†åä¸‡ç‚¹ç»éªŒã€‚\n");
 			me->add("combat_exp",-100000);
-			log_file("quest/zhaoqin",sprintf("%-8s%-10s ËðÊ§Ê®Íò¾­Ñéanswer_check",me->query("name"),me->query("id")),me);
+			log_file("quest/zhaoqin",sprintf("%-8s%-10s æŸå¤±åä¸‡ç»éªŒanswer_check",me->query("name"),me->query("id")),me);
 		}
 		init_over();
 		return;	
@@ -75,12 +75,12 @@ void answer_check(object me,object who,int i)
 	if(!who || !who->query_temp("quest/bwzh/over") || environment(who)!=environment(ob))
 	{
         command("chat* hmm");
-        command("chat "+HIY+"ÈçºÎ´ó¼Ò¶Ô´ý»éÒöÈç´ËÇá¸¡£¿¾ÍËãÊÇ²»ÉõÂúÒâ¶Ô·½£¬ÔõÄÜËµ×ß¾Í×ß£¿"NOR);
+        command("chat "+HIY+"å¦‚ä½•å¤§å®¶å¯¹å¾…å©šå§»å¦‚æ­¤è½»æµ®ï¼Ÿå°±ç®—æ˜¯ä¸ç”šæ»¡æ„å¯¹æ–¹ï¼Œæ€Žèƒ½è¯´èµ°å°±èµ°ï¼Ÿ"NOR);
 		if(who)
 		{
-			tell_object(who,"ÄãÒòÎªÔÚ¡¸±ÈÎäÕÐÇ×¡¹ÖÐ³ö¶û·´¶û£¬¶ø±»¿Û³ýÁËÊ®Íòµã¾­Ñé¡£\n");
+			tell_object(who,"ä½ å› ä¸ºåœ¨ã€Œæ¯”æ­¦æ‹›äº²ã€ä¸­å‡ºå°”åå°”ï¼Œè€Œè¢«æ‰£é™¤äº†åä¸‡ç‚¹ç»éªŒã€‚\n");
 			who->add("combat_exp",-100000);
-			log_file("quest/zhaoqin",sprintf("%-8s%-10s ËðÊ§Ê®Íò¾­Ñéanswer_check",who->query("name"),who->query("id")),who);
+			log_file("quest/zhaoqin",sprintf("%-8s%-10s æŸå¤±åä¸‡ç»éªŒanswer_check",who->query("name"),who->query("id")),who);
 		}
 		init_over();
 		return;	
@@ -89,21 +89,21 @@ void answer_check(object me,object who,int i)
 	{
 		if(!who->query_temp("quest/bwzh/marry_yes"))
 		{
-			tell_object(who,HIY"ÕâÃ´³¤Ê±¼ä»¹Ã»ÓÐ¾ö¶¨¡£°´È¡ÏûËã¡£\n"NOR);
-			tell_object(who,"ÄãÒòÎªÔÚ¡¸±ÈÎäÕÐÇ×¡¹ÖÐ³ö¶û·´¶û£¬¶ø±»¿Û³ýÁËÊ®Íòµã¾­Ñé¡£\n");
+			tell_object(who,HIY"è¿™ä¹ˆé•¿æ—¶é—´è¿˜æ²¡æœ‰å†³å®šã€‚æŒ‰å–æ¶ˆç®—ã€‚\n"NOR);
+			tell_object(who,"ä½ å› ä¸ºåœ¨ã€Œæ¯”æ­¦æ‹›äº²ã€ä¸­å‡ºå°”åå°”ï¼Œè€Œè¢«æ‰£é™¤äº†åä¸‡ç‚¹ç»éªŒã€‚\n");
 			who->add("combat_exp",-100000);
-			log_file("quest/zhaoqin",sprintf("%-8s%-10s ËðÊ§Ê®Íò¾­Ñéanswer_check",who->query("name"),who->query("id")),who);
+			log_file("quest/zhaoqin",sprintf("%-8s%-10s æŸå¤±åä¸‡ç»éªŒanswer_check",who->query("name"),who->query("id")),who);
 		}
 		if(!me->query_temp("quest/bwzh/marry_yes"))
 		{
-			tell_object(me,HIY"ÕâÃ´³¤Ê±¼ä»¹Ã»ÓÐ¾ö¶¨¡£°´È¡ÏûËã¡£\n"NOR);
-			tell_object(me,"ÄãÒòÎªÔÚ¡¸±ÈÎäÕÐÇ×¡¹ÖÐ³ö¶û·´¶û£¬¶ø±»¿Û³ýÁËÊ®Íòµã¾­Ñé¡£\n");
+			tell_object(me,HIY"è¿™ä¹ˆé•¿æ—¶é—´è¿˜æ²¡æœ‰å†³å®šã€‚æŒ‰å–æ¶ˆç®—ã€‚\n"NOR);
+			tell_object(me,"ä½ å› ä¸ºåœ¨ã€Œæ¯”æ­¦æ‹›äº²ã€ä¸­å‡ºå°”åå°”ï¼Œè€Œè¢«æ‰£é™¤äº†åä¸‡ç‚¹ç»éªŒã€‚\n");
 			me->add("combat_exp",-100000);
-			log_file("quest/zhaoqin",sprintf("%-8s%-10s ËðÊ§Ê®Íò¾­Ñéanswer_check",me->query("name"),me->query("id")),me);
+			log_file("quest/zhaoqin",sprintf("%-8s%-10s æŸå¤±åä¸‡ç»éªŒanswer_check",me->query("name"),me->query("id")),me);
 		}
         command("chat* hmm "+who->query("id"));
         command("chat* hmm "+me->query("id"));
-        command("chat "+HIY+"ÈçºÎ´ó¼Ò¶Ô´ý»éÒöÈç´ËÇá¸¡£¿ÕâµÈ´óÊÂ£¬¾¹È»³Ù³Ù²»×ö»ØÓ¦£¡"NOR);
+        command("chat "+HIY+"å¦‚ä½•å¤§å®¶å¯¹å¾…å©šå§»å¦‚æ­¤è½»æµ®ï¼Ÿè¿™ç­‰å¤§äº‹ï¼Œç«Ÿç„¶è¿Ÿè¿Ÿä¸åšå›žåº”ï¼"NOR);
 		init_over();
 		return;	
 	}
@@ -111,8 +111,8 @@ void answer_check(object me,object who,int i)
 	p=100-i*10;
 	command("smile "+getuid(ob));	
 	command("smile "+me->query("id"));
-	tell_object(me,HIC"Äã»¹ÓÐ"+chinese_number(p)+"Ãë¾ö¶¨¡£\n"NOR);
-	tell_object(who,HIC"Äã»¹ÓÐ"+chinese_number(p)+"Ãë¾ö¶¨¡£\n"NOR);
+	tell_object(me,HIC"ä½ è¿˜æœ‰"+chinese_number(p)+"ç§’å†³å®šã€‚\n"NOR);
+	tell_object(who,HIC"ä½ è¿˜æœ‰"+chinese_number(p)+"ç§’å†³å®šã€‚\n"NOR);
 	call_out("answer_check",10,me,who,i);
 	return;
 }

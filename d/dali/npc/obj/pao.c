@@ -1,18 +1,18 @@
-// ÇàÅÛ
+// é’è¢
 
 #include <armor.h>
 inherit CLOTH;
 
 void create()
 {
-        set_name("ÇàÅÛ", ({ "qing pao", "pao" ,"cloth" }) );
+        set_name("é’è¢", ({ "qing pao", "pao" ,"cloth" }) );
         set_weight(1000);
         if( clonep() )
              set_default_object(__FILE__);
         else {
-             set("unit", "¼ş");
+             set("unit", "ä»¶");
              set("material", "steel");
-             set("long","ÕâÊÇÒ»¼şÇàÉ«³¤ÅÛ£¬²»ÖªµÀÊÇÓÃÊ²Ã´ÖÊµØµÄÁÏ×Ó×öµÄ£¬¿´ÆğÀ´ÓĞµãÒì³£¡£\n");
+             set("long","è¿™æ˜¯ä¸€ä»¶é’è‰²é•¿è¢ï¼Œä¸çŸ¥é“æ˜¯ç”¨ä»€ä¹ˆè´¨åœ°çš„æ–™å­åšçš„ï¼Œçœ‹èµ·æ¥æœ‰ç‚¹å¼‚å¸¸ã€‚\n");
              set("value", 0);
              set("armor_prop/armor", 50);
         }

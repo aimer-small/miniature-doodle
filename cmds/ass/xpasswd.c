@@ -38,8 +38,8 @@ string change_passwd(object ob)
 		return 0;
 	}
 
-	write(HIW"\nÍæ¼Ò" + ob->query("name") 
-		+ "(" + ob->query("id") + ")µÄÈ·ÈÏÃÜÂëÒÑ¾­¸ü¸Ä¡£\n"NOR);
+	write(HIW"\nç©å®¶" + ob->query("name") 
+		+ "(" + ob->query("id") + ")çš„ç¡®è®¤å¯†ç å·²ç»æ›´æ”¹ã€‚\n"NOR);
 	
 	return new_pass;
 }
@@ -54,7 +54,7 @@ int main(object me, string arg)
 	if( me != this_player(1) ) return 0;
 	
 	if( wiz_level(me) < 4 )
-		return notify_fail("Ö»ÓĞ admin ºÍ assist ²ÅÄÜÕâÑù×ö¡£\n");
+		return notify_fail("åªæœ‰ admin å’Œ assist æ‰èƒ½è¿™æ ·åšã€‚\n");
 		
 	if(!arg||sscanf(arg,"%s",id,password)!=1)
 		
@@ -65,15 +65,15 @@ int main(object me, string arg)
 	if(!ob){
 		if(!objectp(ob = get_player(id))) 
 		{
-			return notify_fail("Ã»ÓĞÕâ¸öÈË°É?\n");
+			return notify_fail("æ²¡æœ‰è¿™ä¸ªäººå§?\n");
 		} else {				    
 			
 			if (!(new_pass = change_passwd(ob)))
 			{
-				return notify_fail("È¡ÃÜÂë·¢Éú´íÎó£¬ÇëÍ¨Öª¿ª·¢ÈËÔ±£¬ÔİÊ±ÎŞ·¨½øĞĞĞŞ¸Ä¡£\n");
+				return notify_fail("å–å¯†ç å‘ç”Ÿé”™è¯¯ï¼Œè¯·é€šçŸ¥å¼€å‘äººå‘˜ï¼Œæš‚æ—¶æ— æ³•è¿›è¡Œä¿®æ”¹ã€‚\n");
 			}
-			write("Íæ¼Ò" + ob->query("id") + "("+ob->query("name")+ ")µÄÃÜÂëÒÑ¾­¸ü¸ÄÎª£º"+new_pass+"¡£\n");
-			log_file( "changepw.log", sprintf("%s %s(%s)ĞŞ¸ÄÁË%s(%s)µÄÈ·ÈÏÃÜÂë\n", ctime(time()), me->query("name"), me->query("id"),
+			write("ç©å®¶" + ob->query("id") + "("+ob->query("name")+ ")çš„å¯†ç å·²ç»æ›´æ”¹ä¸ºï¼š"+new_pass+"ã€‚\n");
+			log_file( "changepw.log", sprintf("%s %s(%s)ä¿®æ”¹äº†%s(%s)çš„ç¡®è®¤å¯†ç \n", ctime(time()), me->query("name"), me->query("id"),
 				 ob->query("name"), ob->query("id")));
 				 
 			ob->set_temp("db_quit", 1);
@@ -85,10 +85,10 @@ int main(object me, string arg)
 	
 			if (!(new_pass = change_passwd(ob)))
 			{
-				return notify_fail("È¡ÃÜÂë·¢Éú´íÎó£¬ÇëÍ¨Öª¿ª·¢ÈËÔ±£¬ÔİÊ±ÎŞ·¨½øĞĞĞŞ¸Ä¡£\n");
+				return notify_fail("å–å¯†ç å‘ç”Ÿé”™è¯¯ï¼Œè¯·é€šçŸ¥å¼€å‘äººå‘˜ï¼Œæš‚æ—¶æ— æ³•è¿›è¡Œä¿®æ”¹ã€‚\n");
 			}
-			write("Íæ¼Ò" + ob->query("id") + "("+ob->query("name")+ ")µÄÃÜÂëÒÑ¾­¸ü¸ÄÎª£º"+new_pass+"¡£\n");
-			log_file( "changepw.log", sprintf("%s %s(%s)ĞŞ¸ÄÁË%s(%s)µÄÈ·ÈÏÃÜÂë\n", ctime(time()), me->query("name"), me->query("id"),
+			write("ç©å®¶" + ob->query("id") + "("+ob->query("name")+ ")çš„å¯†ç å·²ç»æ›´æ”¹ä¸ºï¼š"+new_pass+"ã€‚\n");
+			log_file( "changepw.log", sprintf("%s %s(%s)ä¿®æ”¹äº†%s(%s)çš„ç¡®è®¤å¯†ç \n", ctime(time()), me->query("name"), me->query("id"),
 				 ob->query("name"), ob->query("id")));
 				 
 		return 1;
@@ -101,7 +101,7 @@ object get_player(string arg)
 	
 	user = new(USER_OB);
 	if (!user) {
-		write("ÏÖÔÚ¿ÉÄÜÓĞÈËÕıÔÚĞŞ¸ÄÊ¹ÓÃÕßÎï¼şµÄ³ÌĞò£¬ÎŞ·¨½øĞĞ¸´ÖÆ¡£\n\n");
+		write("ç°åœ¨å¯èƒ½æœ‰äººæ­£åœ¨ä¿®æ”¹ä½¿ç”¨è€…ç‰©ä»¶çš„ç¨‹åºï¼Œæ— æ³•è¿›è¡Œå¤åˆ¶ã€‚\n\n");
 		return 0;
 	}
 	seteuid(arg);
@@ -117,9 +117,9 @@ object get_player(string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : xpasswd ID
+æŒ‡ä»¤æ ¼å¼ : xpasswd ID
 
-Õâ¸öÖ¸Áî¿ÉÒÔĞŞ¸ÄÍæ¼ÒµÄÈ·ÈÏÃÜÂë£¬Çë½÷É÷Ê¹ÓÃ¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥ä¿®æ”¹ç©å®¶çš„ç¡®è®¤å¯†ç ï¼Œè¯·è°¨æ…ä½¿ç”¨ã€‚
 
 HELP
     );

@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIY+"Ãç½®Ææ¾³"+NOR);
+	set("short",HIY+"è‹—ç–†å¥‡å¢ƒ"+NOR);
 	set("long", @LONG
-ÕâÀïÊÇÉ½¶¥µÄÒ»Æ¬¿ÕµØ£¬ËÄÖÜ¿ªÂú¸÷ÖÖÏÊ»¨£¬Ì§Í·ÍûÈ¥£¬ÄÜ¿´µ½Ò»Æ¬Æ¬Æ®
-ÃìµÄ¸¡ÔÆ¡£²»Ô¶´¦ÓĞ¼¸¿Ã²ÎÌì´óÊ÷£¬ÏÂÃæ³¤Âú¸÷ÖÖÖ²Îï¡£
+è¿™é‡Œæ˜¯å±±é¡¶çš„ä¸€ç‰‡ç©ºåœ°ï¼Œå››å‘¨å¼€æ»¡å„ç§é²œèŠ±ï¼ŒæŠ¬å¤´æœ›å»ï¼Œèƒ½çœ‹åˆ°ä¸€ç‰‡ç‰‡é£˜
+æ¸ºçš„æµ®äº‘ã€‚ä¸è¿œå¤„æœ‰å‡ æ£µå‚å¤©å¤§æ ‘ï¼Œä¸‹é¢é•¿æ»¡å„ç§æ¤ç‰©ã€‚
 LONG                           
         );
 	set("xueteng_count",2);
@@ -18,7 +18,7 @@ LONG
 		"west" : __DIR__"shulin",
 		"northeast" : __DIR__"mjqj1",
         ]));
-	set("outdoors", "Ãç½®");
+	set("outdoors", "è‹—ç–†");
 	setup();
 }
 
@@ -39,27 +39,27 @@ int do_wa(string arg)
         me = this_player();
 
         if (!( present("xiao tiechan", this_player())))
-		return notify_fail("ÄãÔÚµØÉÏÅÙÁËÅÙ £¬¾ªÆğĞí¶àĞ¡¶¯Îï£¡\n");
+		return notify_fail("ä½ åœ¨åœ°ä¸Šåˆ¨äº†åˆ¨ ï¼ŒæƒŠèµ·è®¸å¤šå°åŠ¨ç‰©ï¼\n");
 
 	if ( !arg || arg != "xue teng" )
-		return notify_fail("Äã×öÊ²÷á£¿\n");
+		return notify_fail("ä½ åšä»€éº½ï¼Ÿ\n");
         
 	if ( (int)me->query("jingli") < 200) 
-		return notify_fail("ÄãÌ«ÀÛÁË£¡\n");
+		return notify_fail("ä½ å¤ªç´¯äº†ï¼\n");
 
 	if(random(20)!=3) {
 		me->add("jingli",-120);
-		return notify_fail("ÄãÍÚÁË°ëÌì£¬Ö»¿´µ½Ò»Ğ©Ò°²İ¡£\n"); 
+		return notify_fail("ä½ æŒ–äº†åŠå¤©ï¼Œåªçœ‹åˆ°ä¸€äº›é‡è‰ã€‚\n"); 
 	}
  
 	if (query("xueteng_count") > 0) {
-		message_vision("$NºöÈ»¿´µ½Ò»Öê°×É«µÄĞ¡Ö²Îï£¬¸Ï¿ì¼ñÁËÆğÀ´¡£\n",me);
+		message_vision("$Nå¿½ç„¶çœ‹åˆ°ä¸€æ ªç™½è‰²çš„å°æ¤ç‰©ï¼Œèµ¶å¿«æ¡äº†èµ·æ¥ã€‚\n",me);
 		add("xueteng_count", -1);
 		xueteng=new(MEDICINE_D("xueteng"));
 		xueteng->move(me);
 		me->add("jingli", -200);
 	}
         else
-		message_vision("$NÍÚÁË°ëÌì£¬Ò»ÎŞËù»ñ¡£\n", me);
+		message_vision("$NæŒ–äº†åŠå¤©ï¼Œä¸€æ— æ‰€è·ã€‚\n", me);
 	return 1;
 }

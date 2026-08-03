@@ -4,16 +4,16 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "Ê³Ö¸·å");
+	set("short", "é£ŸæŒ‡å³°");
 	set("long", @LONG
-ÄãÖÕÓÚÅÀÉÏÁË·å¶¥£¬ÒÑ¾­ÀÛµÃÆø´­ÓõÓõÁË¡£ÕâÀïÖ»ÓĞÕÉĞí·½Ô²µÄµØ·½£¬È´
-³¤×ÅĞ©Ã¯Ê¢µÄÊ÷Ä¾(tree)£¬Õ¾ÔÚÑÂ±ß£¬Ò»Õó¿ñ·çºôĞ¥¶ø¹ı£¬´µµÃÄãÒ»¸öôóôò£¬
-²îµãË¤µ¹£¬¿´À´»¹ÊÇ¸Ï¿ìÀë¿ªÕâÀïµÄºÃ¡£
+ä½ ç»ˆäºçˆ¬ä¸Šäº†å³°é¡¶ï¼Œå·²ç»ç´¯å¾—æ°”å–˜ååäº†ã€‚è¿™é‡Œåªæœ‰ä¸ˆè®¸æ–¹åœ†çš„åœ°æ–¹ï¼Œå´
+é•¿ç€äº›èŒ‚ç››çš„æ ‘æœ¨(tree)ï¼Œç«™åœ¨å´–è¾¹ï¼Œä¸€é˜µç‹‚é£å‘¼å•¸è€Œè¿‡ï¼Œå¹å¾—ä½ ä¸€ä¸ªè¶”è¶„ï¼Œ
+å·®ç‚¹æ‘”å€’ï¼Œçœ‹æ¥è¿˜æ˜¯èµ¶å¿«ç¦»å¼€è¿™é‡Œçš„å¥½ã€‚
 LONG
 	);
 
         set("item_desc",([
-"tree": "ÕâÊÇĞ©³¤ÁË¼¸Ê®ÄêµÄ²ÔÌìËÉ°Ø¡£\n"
+"tree": "è¿™æ˜¯äº›é•¿äº†å‡ åå¹´çš„è‹å¤©æ¾æŸã€‚\n"
 ]));
 
 	set("no_clean_up", 0);
@@ -33,11 +33,11 @@ int do_climb(string arg)
         me=this_player();
 
         if (!arg || arg !="down")
-         return notify_fail("ÄãÒªÍùÄÄÀïÅÀ? \n"); 
-            write("ÄãÅÊÔµ×ÅÊ¯±Ú£¬»º»ºÏòÏÂÅÀÈ¥¡£\n");
-            message("vision",me->name() + "ÏòÏÂÅÀÈ¥¡£\n", environment(me), ({me}) );
+         return notify_fail("ä½ è¦å¾€å“ªé‡Œçˆ¬? \n"); 
+            write("ä½ æ”€ç¼˜ç€çŸ³å£ï¼Œç¼“ç¼“å‘ä¸‹çˆ¬å»ã€‚\n");
+            message("vision",me->name() + "å‘ä¸‹çˆ¬å»ã€‚\n", environment(me), ({me}) );
             me->move(__DIR__"juebi-5");
-            message("vision",me->name() + "ÅÀÁËÏÂÀ´¡£\n", environment(me), ({me}) );
+            message("vision",me->name() + "çˆ¬äº†ä¸‹æ¥ã€‚\n", environment(me), ({me}) );
          return 1;
 }
 int do_kan(string arg)
@@ -47,37 +47,37 @@ int do_kan(string arg)
        string weapon_name;
        
        if (me->is_busy() || me->is_fighting())
-             return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+             return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
        if (!arg || arg !="tree")
-             return notify_fail("ÄãÒª¿³Ê²Ã´£¿\n");
+             return notify_fail("ä½ è¦ç ä»€ä¹ˆï¼Ÿ\n");
        if (!me->query_temp("weapon"))
-               return notify_fail("Äã¿ÕÊÖÔõÃ´¿³Ê÷? \n");
+               return notify_fail("ä½ ç©ºæ‰‹æ€ä¹ˆç æ ‘? \n");
        if (!objectp(weapon = me->query_temp("weapon"))
          || (string)weapon->query("skill_type") != "axe") 
-               return notify_fail("ÄãÓÃµÄ±øÆ÷²»¶Ô¡£\n");   
+               return notify_fail("ä½ ç”¨çš„å…µå™¨ä¸å¯¹ã€‚\n");   
        if (!me->query_skill("axe",1))
-               return notify_fail("Äã²»»áÕâÖÖ¼¼ÄÜ¡£\n");
+               return notify_fail("ä½ ä¸ä¼šè¿™ç§æŠ€èƒ½ã€‚\n");
        if (me->query("neili") <100)
-               return notify_fail("ÄãµÄÄÚÁ¦²»¹»ÁË¡£\n");
+               return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿäº†ã€‚\n");
        if (me->query_skill("axe",1) < 30) 
-               return notify_fail("ÄãµÄ»ù±¾¸«·¨Ì«µÍÁË£¬ÎŞ·¨Ê¹ÓÃ¸«×Ó¿³Ê÷¡£\n");
+               return notify_fail("ä½ çš„åŸºæœ¬æ–§æ³•å¤ªä½äº†ï¼Œæ— æ³•ä½¿ç”¨æ–§å­ç æ ‘ã€‚\n");
        weapon_name = weapon->query("name");
        if (me->query_skill("axe",1) > 100)
-               return notify_fail("Äã»ÓÆğÊÖÖĞ"+ weapon_name +",ºÜÇáËÉµØ°ÑÒ»¿Ã´óÊ÷¿³µ¹ÁË¡£\n");
+               return notify_fail("ä½ æŒ¥èµ·æ‰‹ä¸­"+ weapon_name +",å¾ˆè½»æ¾åœ°æŠŠä¸€æ£µå¤§æ ‘ç å€’äº†ã€‚\n");
        if (me->query("jing") < 5 || me->query("neili") < 10 ){
-               message_vision("ÕıºÃÒ»¿Ã´óÊ÷µ¹ÔÚ$NÉíÉÏ£¬$NÒ»ÏÂ×Ó±»ÔÒÔÎÁË¹ıÈ¥¡£\n", me);
+               message_vision("æ­£å¥½ä¸€æ£µå¤§æ ‘å€’åœ¨$Nèº«ä¸Šï¼Œ$Nä¸€ä¸‹å­è¢«ç ¸æ™•äº†è¿‡å»ã€‚\n", me);
                me->unconcious();
                return 1;
         }
-//        message("vision", me->name() + "»ÓÆğÊÖÖĞ"+ weapon_name +"£¬³¯´óÊ÷ÉÏÒ»ÏÂÏÂµØ¿³È¥¡£\n",environment(me), ({me}));¬Ò
-        write("Äã»ÓÆğÊÖÖĞ"+ weapon_name +",³¯´óÊ÷ÉÏÒ»ÏÂÏÂ¿³È¥¡£\n");
+//        message("vision", me->name() + "æŒ¥èµ·æ‰‹ä¸­"+ weapon_name +"ï¼Œæœå¤§æ ‘ä¸Šä¸€ä¸‹ä¸‹åœ°ç å»ã€‚\n",environment(me), ({me}));ï¿½ï¿½
+        write("ä½ æŒ¥èµ·æ‰‹ä¸­"+ weapon_name +",æœå¤§æ ‘ä¸Šä¸€ä¸‹ä¸‹ç å»ã€‚\n");
         me->receive_damage("jing",10);
         me->set("neili",(int)me->query("neili")-5);
 
         if ((int)me->query_skill("axe", 1) >= 30 && (int)me->query_skill("axe", 1) <= 100 )
         {
         me->improve_skill("axe", me->query("int"));
-        tell_object(me, "ÒşÔ¼Ö®ÖĞ£¬ÄãËÆºõ¾õµÃ»ù±¾¸«·¨ÓĞĞ©½ø²½ÁË¡£\n");
+        tell_object(me, "éšçº¦ä¹‹ä¸­ï¼Œä½ ä¼¼ä¹è§‰å¾—åŸºæœ¬æ–§æ³•æœ‰äº›è¿›æ­¥äº†ã€‚\n");
         }
         return 1;
 }

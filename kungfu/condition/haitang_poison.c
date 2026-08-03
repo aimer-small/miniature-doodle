@@ -9,10 +9,10 @@ int update_condition(object me,int duration)
 	me->receive_wound("qi",600);
 	me->receive_wound("jing",400);
 	me->add_busy(2);
-	me->set_temp("last_damage_from","ÆßĞÄº£ÌÄ¶¾·¢×÷");
-	if( !living(me) ) message("vision",HIR+ me->name() + HIR"µÄÉí×ÓÂıÂı±äµÃ½©Ó²¡£\n"NOR, environment(me), me);
+	me->set_temp("last_damage_from","ä¸ƒå¿ƒæµ·æ£ æ¯’å‘ä½œ");
+	if( !living(me) ) message("vision",HIR+ me->name() + HIR"çš„èº«å­æ…¢æ…¢å˜å¾—åƒµç¡¬ã€‚\n"NOR, environment(me), me);
 	else 
-		message_vision(HIR"$NË«Ï¥½¥½¥ÍäÇú£¬Éí×ÓÈíÁËÏÂÀ´£¬Á³ÉÏËÆĞ¦·ÇĞ¦£¬ÉñÇé¼«ÊÇ¹îÒì¡£\n"NOR,me);
+		message_vision(HIR"$NåŒè†æ¸æ¸å¼¯æ›²ï¼Œèº«å­è½¯äº†ä¸‹æ¥ï¼Œè„¸ä¸Šä¼¼ç¬‘éç¬‘ï¼Œç¥æƒ…ææ˜¯è¯¡å¼‚ã€‚\n"NOR,me);
 	if(duration < 1) return 0;
 	me->apply_condition("haitang_poison",duration - 1);
 	return CND_CONTINUE;

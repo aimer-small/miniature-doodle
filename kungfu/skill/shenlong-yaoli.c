@@ -1,4 +1,4 @@
-// dragonmedicine ÉñÁúÒ©ÀíÑ§
+// dragonmedicine ç¥é¾™è¯ç†å­¦
 
 #include <ansi.h>
 
@@ -8,15 +8,15 @@ string type() { return "knowledge"; }
 int valid_learn(object me)
 {
     if ((int)me->query_skill("literate", 1) < 50)
-               return notify_fail("ÄãµÄ¶ÁÊéÊ¶×ÖÄÜÁ¦»¹²»¹»¡£\n");   
+               return notify_fail("ä½ çš„è¯»ä¹¦è¯†å­—èƒ½åŠ›è¿˜ä¸å¤Ÿã€‚\n");   
         if( me->query_skill("shenlong-yaoli", 1 ) >= 200 ) 
-              return notify_fail("Äã²»ÄÜÔÙÌá¸ßÉñÁúÒ©ÀíµÄµÈ¼¶ÁË¡£\n");
+              return notify_fail("ä½ ä¸èƒ½å†æé«˜ç¥é¾™è¯ç†çš„ç­‰çº§äº†ã€‚\n");
     return 1;
 }
 
 int practice_skill(object me)
 {
-	return notify_fail("ÉñÁúÒ©ÀíÑ§Ö»ÄÜÓÃÑ§(learn)·½·¨µÄÀ´Ôö¼ÓÊìÁ·¶È¡£\n");
+	return notify_fail("ç¥é¾™è¯ç†å­¦åªèƒ½ç”¨å­¦(learn)æ–¹æ³•çš„æ¥å¢åŠ ç†Ÿç»ƒåº¦ã€‚\n");
 }
 
 /*string perform_action_file(string action)

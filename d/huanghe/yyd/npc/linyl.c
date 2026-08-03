@@ -3,8 +3,8 @@ inherit NPC;
 #include <ansi.h>;
 void create()
 {
-        set_name("ÁÖÓñÁú", ({ "lin yulong", "lin", "yulong"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("æ—ç‰é¾™", ({ "lin yulong", "lin", "yulong"}));
+        set("gender", "ç”·æ€§");
         set("age", 25);
         set("attitude", "peaceful");
         set("unique", 1);
@@ -21,14 +21,14 @@ void create()
         set("combat_exp", 600000);
         set("shen_type", 1);
 
-        set_skill("force", 140);             // »ù±¾ÄÚ¹¦
-        set_skill("huntian-qigong", 140);    // »ìÌìÆø¹¦
-        set_skill("blade", 140);             // »ù±¾µ¶·¨
+        set_skill("force", 140);             // åŸºæœ¬å†…åŠŸ
+        set_skill("huntian-qigong", 140);    // æ··å¤©æ°”åŠŸ
+        set_skill("blade", 140);             // åŸºæœ¬åˆ€æ³•
         set_skill("wuhu-duanmendao", 140);
-//      set_skill("fuqi-daofa", 180);        // ·òÆŞµ¶·¨
-        set_skill("dodge", 140);             // »ù±¾Çá¹¦
-        set_skill("xiaoyaoyou", 140);        // åĞÒ£ÓÎ
-        set_skill("parry", 140);             // »ù±¾ÕĞ¼Ü
+//      set_skill("fuqi-daofa", 180);        // å¤«å¦»åˆ€æ³•
+        set_skill("dodge", 140);             // åŸºæœ¬è½»åŠŸ
+        set_skill("xiaoyaoyou", 140);        // é€é¥æ¸¸
+        set_skill("parry", 140);             // åŸºæœ¬æ‹›æ¶
         
         map_skill("force", "huntian-qigong");
         map_skill("blade", "wuhu-duanmendao");

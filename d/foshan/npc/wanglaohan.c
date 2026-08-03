@@ -1,4 +1,4 @@
-//wanglaohan  ÍõÀÏºº
+//wanglaohan  ç‹è€æ±‰
 
 #include <ansi.h>
 
@@ -9,9 +9,9 @@ string ask_me(object who);
 
 void create()
 {
-	set_name("ÍõÀÏºº", ({ "wang laohan", "wang"}));
-	set("long", "ËûÊÇÒ»¸öÍ··¢»¨°×µÄÀÏÍ·£¬Ã¦×Å¿¾ÉÕ±ı£¬Í·Ò²²»Ì§¡£\n");
-        set("gender", "ÄĞĞÔ" );
+	set_name("ç‹è€æ±‰", ({ "wang laohan", "wang"}));
+	set("long", "ä»–æ˜¯ä¸€ä¸ªå¤´å‘èŠ±ç™½çš„è€å¤´ï¼Œå¿™ç€çƒ¤çƒ§é¥¼ï¼Œå¤´ä¹Ÿä¸æŠ¬ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("age", 58);
 	set("shen", 1000);
 
@@ -36,7 +36,7 @@ void create()
         set_skill("parry", 30);
 
         set("inquiry", ([
-                  "ÎâµÀÍ¨"   : (: ask_me :),
+                  "å´é“é€š"   : (: ask_me :),
 	]) );
 
         set("vendor_goods", ({
@@ -62,27 +62,27 @@ string ask_me(object who)
         object *ob;
 
         if( query("revealed") ) {
-                if( is_killing(who) ) return "Äã¼ÈÈ»ÖªµÀÀÏ×ÓµÄÃû×Ö£¬¾Í¸Ã¶ÔÎÒ×ğÖØĞ©£¡ÄÉÃüÀ´°É£¡\n";
+                if( is_killing(who) ) return "ä½ æ—¢ç„¶çŸ¥é“è€å­çš„åå­—ï¼Œå°±è¯¥å¯¹æˆ‘å°Šé‡äº›ï¼çº³å‘½æ¥å§ï¼\n";
                 else {
                         kill_ob(who);
                         who->fight_ob(this_object());
-                        return "¼ÈÈ»Èç´Ë£¬ÀÏ×Ó½ñÌì·´Õı»í³öÈ¥£¬¸úÄãÆ´ÁË¡£\n";
+                        return "æ—¢ç„¶å¦‚æ­¤ï¼Œè€å­ä»Šå¤©åæ­£è±å‡ºå»ï¼Œè·Ÿä½ æ‹¼äº†ã€‚\n";
                 }
         }
 
         if( (random(10) < 5) || is_fighting() )
-                return "ÄãÊÇË­£¿£¿£¿\n";
+                return "ä½ æ˜¯è°ï¼Ÿï¼Ÿï¼Ÿ\n";
 
         set_temp("apply/attack",  80);
         set_temp("apply/defense", 60);
         set_temp("apply/damage",  30);
 
         message("vision",
-		HIR "ÎâµÀÍ¨Å­ÉùËµµÀ£¬¶àÉÙÄêÀ´£¬ÎÒÒşĞÕÂñÃû£¬½ñÈÕ¾¹È»±»ÄãÕâØËÈÏ³öÁË¡£\n"
-		"ÎâµÀÍ¨´óºÈÒ»ÉùÂîµÀ£¬Ö»ÒªÓĞÎÒÔÚÌìÏÂµÄÈË£¬¶¼µÃËÀ£¬½ñÌìÏÈËÍÄã¼ûÑÖÍõ¡£\n" 
-		"ÎâµÀÍ¨´Ó±³ºóÈ¡³öÒ»¸±ÅĞ¹Ù±ÊÎÕÔÚÊÖÖĞ¡£\n" NOR,
+		HIR "å´é“é€šæ€’å£°è¯´é“ï¼Œå¤šå°‘å¹´æ¥ï¼Œæˆ‘éšå§“åŸ‹åï¼Œä»Šæ—¥ç«Ÿç„¶è¢«ä½ è¿™å®è®¤å‡ºäº†ã€‚\n"
+		"å´é“é€šå¤§å–ä¸€å£°éª‚é“ï¼Œåªè¦æœ‰æˆ‘åœ¨å¤©ä¸‹çš„äººï¼Œéƒ½å¾—æ­»ï¼Œä»Šå¤©å…ˆé€ä½ è§é˜ç‹ã€‚\n" 
+		"å´é“é€šä»èƒŒåå–å‡ºä¸€å‰¯åˆ¤å®˜ç¬”æ¡åœ¨æ‰‹ä¸­ã€‚\n" NOR,
 		environment(), this_object() );
-	set_name("ÎâµÀÍ¨",({ "wu daotong", "wu", "daotong" }));
+	set_name("å´é“é€š",({ "wu daotong", "wu", "daotong" }));
         set("pursuer", 1);
         set("vendetta/authority", 1);
         set("chat_msg_combat", ({
@@ -126,5 +126,5 @@ string ask_me(object who)
 	}
 	add_money("gold", 1);
 	set("revealed", 1);
-	return "ºß£¡£¬ÓĞÎÒÎâµÀÍ¨ÔÚµÄµØ·½£¬ÈËÈË¶¼µÃËÀ¡£\n";
+	return "å“¼ï¼ï¼Œæœ‰æˆ‘å´é“é€šåœ¨çš„åœ°æ–¹ï¼Œäººäººéƒ½å¾—æ­»ã€‚\n";
 }

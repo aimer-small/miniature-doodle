@@ -7,53 +7,53 @@ int exert(object me, object target)
 	string msg, force;
 
 	if( !target )
-		return notify_fail("ÄãÒªÓÃÕæÆøÎªË­ÁÆÉË£¿\n");
+		return notify_fail("ä½ è¦ç”¨çœŸæ°”ä¸ºè°ç–—ä¼¤ï¼Ÿ\n");
 
 	if( ! present(target,environment(me)))
-		return notify_fail("ÕâÀïÓÐÕâ¸öÈËÂð£¿\n");
+		return notify_fail("è¿™é‡Œæœ‰è¿™ä¸ªäººå—ï¼Ÿ\n");
 
 	if( target == me)
-		return notify_fail("Äã°ï×Ô¼ºÁÆÉË£¬¿ÉÒÔÓÃexert healÖ¸Áî¡£\n");
+		return notify_fail("ä½ å¸®è‡ªå·±ç–—ä¼¤ï¼Œå¯ä»¥ç”¨exert healæŒ‡ä»¤ã€‚\n");
 
 	if( me->is_fighting() || target->is_fighting())
-		return notify_fail("Õ½¶·ÖÐÎÞ·¨ÔË¹¦ÁÆÉË£¡\n");
+		return notify_fail("æˆ˜æ–—ä¸­æ— æ³•è¿åŠŸç–—ä¼¤ï¼\n");
 
 	if( target->is_busy())
-		return notify_fail( target->name()+ "ÕýÃ¦×ÅÄØ£¡\n");
+		return notify_fail( target->name()+ "æ­£å¿™ç€å‘¢ï¼\n");
 
 	if( target->query("env/no_lifeheal"))
-		return notify_fail( target->name()+"¾Ü¾øÄã°ïÆäÁÆÉË¡£\n");
+		return notify_fail( target->name()+"æ‹’ç»ä½ å¸®å…¶ç–—ä¼¤ã€‚\n");
 
 	if( !living(target) || !target->query("can_speak"))
-		return notify_fail("Ëü²»ÊÇ»îÎï£¬¸øËüÁÆÉË¸ÉÊ²Ã´£¿\n");
+		return notify_fail("å®ƒä¸æ˜¯æ´»ç‰©ï¼Œç»™å®ƒç–—ä¼¤å¹²ä»€ä¹ˆï¼Ÿ\n");
 
 	if(!(force = me->query_skill_mapped("force")))
-		return notify_fail("Äã»¹Ã»ÓÐÑ¡ÔñÄãÒªÊ¹ÓÃµÄÄÚ¹¦¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰é€‰æ‹©ä½ è¦ä½¿ç”¨çš„å†…åŠŸã€‚\n");
 
 	if(me->query("max_neili") < 300 )
-		return notify_fail("ÄãµÄÄÚÁ¦ÐÞÎª²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºä¸å¤Ÿã€‚\n");
 
 	if(me->query("neili") < 100 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if( me->query_skill("force") < 150 ) 
-		return notify_fail("ÄãµÄÄÚ¹¦µÈ¼¶»¹Ì«µÍ£¬²»ÄÜÔË¹¦ÁÆÉË¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸç­‰çº§è¿˜å¤ªä½Žï¼Œä¸èƒ½è¿åŠŸç–—ä¼¤ã€‚\n");
 
 	if( me->query_skill("medicine", 1) < 120 )
-		return notify_fail("Äã±¾²ÝÊõÀíµÄµÈ¼¶²»¹»£¬ÎÞ·¨ÎªËûÈËÁÆÉË¡£\n");
+		return notify_fail("ä½ æœ¬è‰æœ¯ç†çš„ç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•ä¸ºä»–äººç–—ä¼¤ã€‚\n");
 
 	if(target->query_temp("reverse_healing"))
-		return notify_fail("ËûÊÜµ½ÁËÄæ×ªÇ¬À¤µÄ¹¥»÷£¬ÄãÒªËûÉËÉÏ¼ÓÉË£¿\n");
+		return notify_fail("ä»–å—åˆ°äº†é€†è½¬ä¹¾å¤çš„æ”»å‡»ï¼Œä½ è¦ä»–ä¼¤ä¸ŠåŠ ä¼¤ï¼Ÿ\n");
 	if( target->query("eff_qi")+target->query_temp("apply/qi")
 	< (target->query("max_qi")+target->query_temp("apply/qi")) / 4 )
-		return notify_fail( target->name()+ "ÒÑ¾­ÊÜÉË¹ýÖØ£¬¾­ÊÜ²»ÆðÄãµÄÕæÆøÕðµ´£¡\n");
+		return notify_fail( target->name()+ "å·²ç»å—ä¼¤è¿‡é‡ï¼Œç»å—ä¸èµ·ä½ çš„çœŸæ°”éœ‡è¡ï¼\n");
 
 	if (target->query("eff_qi") >= target->query("max_qi"))
-		return notify_fail( target->name()+"²¢Ã»ÓÐÊÜÉË£¬²»ÐèÒªÄãµÄÁÆÉË¡£\n");
+		return notify_fail( target->name()+"å¹¶æ²¡æœ‰å—ä¼¤ï¼Œä¸éœ€è¦ä½ çš„ç–—ä¼¤ã€‚\n");
 
-	msg = HIW"$N×øÁËÏÂÀ´ÔËÆð"+to_chinese(force)+"£¬½«ÊÖÕÆÌùÔÚ$n±³ÐÄ£¬»º»ºµØ½«ÕæÆøÊäÈë$nÌåÄÚ¡­¡­\n\n"NOR;
-	msg +=HIW"$nÖ»¾õÒ»¹ÉêÓÑôÑôµÄÕæÆøÔ´Ô´²»¾øµÄÊäÈëÌåÄÚ£¬Ö»¼û$NÍ·¶¥ÉÏË¿Ë¿°×ÆøÃ°³ö¡£\n\n"NOR;
-	msg +=HIW"$nÍÂ³öÒ»¿ÚðöÑª£¬Á³É«¿´ÆðÀ´ºìÈó¶àÁË£¬ÉËÊÆÓÐÁËºÜ´óµÄºÃ×ª£¬È«ÉíÕæÆøÎÞ±È³äÅæ¡£\n\n"NOR;
+	msg = HIW"$Nåäº†ä¸‹æ¥è¿èµ·"+to_chinese(force)+"ï¼Œå°†æ‰‹æŽŒè´´åœ¨$nèƒŒå¿ƒï¼Œç¼“ç¼“åœ°å°†çœŸæ°”è¾“å…¥$nä½“å†…â€¦â€¦\n\n"NOR;
+	msg +=HIW"$nåªè§‰ä¸€è‚¡æš§é˜³é˜³çš„çœŸæ°”æºæºä¸ç»çš„è¾“å…¥ä½“å†…ï¼Œåªè§$Nå¤´é¡¶ä¸Šä¸ä¸ç™½æ°”å†’å‡ºã€‚\n\n"NOR;
+	msg +=HIW"$nåå‡ºä¸€å£ç˜€è¡€ï¼Œè„¸è‰²çœ‹èµ·æ¥çº¢æ¶¦å¤šäº†ï¼Œä¼¤åŠ¿æœ‰äº†å¾ˆå¤§çš„å¥½è½¬ï¼Œå…¨èº«çœŸæ°”æ— æ¯”å……æ²›ã€‚\n\n"NOR;
 
 	message_vision(msg ,me ,target);			     
 

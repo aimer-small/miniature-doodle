@@ -1,15 +1,15 @@
-// zhang.c ÕÅÖ¾¹â
+// zhang.c å¼ å¿—å…‰
 
 inherit NPC;
 
 void create()
 {
-        set_name("ÕÅÖ¾¹â", ({"zhang zhiguang", "zhang"}));
-        set("gender", "ÄÐÐÔ");
+        set_name("å¼ å¿—å…‰", ({"zhang zhiguang", "zhang"}));
+        set("gender", "ç”·æ€§");
         set("age", 24);
         set("class", "taoist");
         set("long",
-                "Ëû¾ÍÊÇÈ«Õæ½ÌµÚÈý´úµÜ×ÓÖÐµÄºÃÊÖ£¬Ì·´¦¶ËµÄµÜ×Ó¡£\n");
+                "ä»–å°±æ˜¯å…¨çœŸæ•™ç¬¬ä¸‰ä»£å¼Ÿå­ä¸­çš„å¥½æ‰‹ï¼Œè°­å¤„ç«¯çš„å¼Ÿå­ã€‚\n");
         set("attitude", "friendly");
         set("shen_type",1);
         set("str", 26);
@@ -46,10 +46,10 @@ void create()
         map_skill("strike", "haotian-zhang");
         prepare_skill("strike", "haotian-zhang");
 
-        create_family("È«Õæ½Ì", 3, "µÜ×Ó");
+        create_family("å…¨çœŸæ•™", 3, "å¼Ÿå­");
 
         set("inquiry", ([
-                "È«Õæ½Ì" :  "ÎÒÈ«Õæ½ÌÊÇÌìÏÂµÀ¼ÒÐþÃÅÕý×Ú¡£\n",
+                "å…¨çœŸæ•™" :  "æˆ‘å…¨çœŸæ•™æ˜¯å¤©ä¸‹é“å®¶çŽ„é—¨æ­£å®—ã€‚\n",
         ]) );
 
         setup();
@@ -61,12 +61,12 @@ void create()
 
 void attempt_apprentice(object ob)
 {   
-        if (ob->query("gender")=="Å®ÐÔ") {
-                command("say ÐþÃÅÄÚµ¤ÐÞÁ¶Ö®Êõ£¬ÄÐÅ®ÓÐ±ð£¬ÎÒ¶ÔÀ¤µ¤ÐÞÐÐÒ»ÎÞËùÖª£¬ÊµÔÚ×ö²»ÁËÄãÊ¦¸¸¡£\n");
+        if (ob->query("gender")=="å¥³æ€§") {
+                command("say çŽ„é—¨å†…ä¸¹ä¿®ç‚¼ä¹‹æœ¯ï¼Œç”·å¥³æœ‰åˆ«ï¼Œæˆ‘å¯¹å¤ä¸¹ä¿®è¡Œä¸€æ— æ‰€çŸ¥ï¼Œå®žåœ¨åšä¸äº†ä½ å¸ˆçˆ¶ã€‚\n");
                 return;
         }
   
-     command("say ºÃ°É£¬ÎÒ¾ÍÊÕÏÂÄãÕâ¸öÍ½µÜÁË¡£");
+     command("say å¥½å§ï¼Œæˆ‘å°±æ”¶ä¸‹ä½ è¿™ä¸ªå¾’å¼Ÿäº†ã€‚");
      command("recruit " + ob->query("id"));
 }
 

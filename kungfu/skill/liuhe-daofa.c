@@ -1,31 +1,31 @@
-//ËÄÏóÁùºÏµ¶·¨
+//å››è±¡å…­åˆåˆ€æ³•
 
 inherit SKILL;
 
 mapping *action = ({
 ([
-	"action" : "$NÒ»Éù³¤Ð¥£¬ÊÖÖÐ$wÒ»Ñï£¬Ò»Ê½Ììñ·Èç¸Ç½«$nÕÖÔÚµ¶¹âÖ®ÏÂ",
+	"action" : "$Nä¸€å£°é•¿å•¸ï¼Œæ‰‹ä¸­$wä¸€æ‰¬ï¼Œä¸€å¼å¤©ç©¹å¦‚ç›–å°†$nç½©åœ¨åˆ€å…‰ä¹‹ä¸‹",
 	"lvl" : 0,
-	"skill_name" : "Ììñ·Èç¸Ç",
-	"damage_type" : "¸îÉË"
+	"skill_name" : "å¤©ç©¹å¦‚ç›–",
+	"damage_type" : "å‰²ä¼¤"
 ]),
 ([
-	"action" : "$NÒ»ÕÐ¡¸Ç¬À¤µ¹×ª¡¹£¬ÊÖÖÐ$wÔÚ¿ÕÖÐÐéÅüÊýÏÂ£¬Í»È»ÏÂ»®¸îÏò$nµÄ$l",
+	"action" : "$Nä¸€æ‹›ã€Œä¹¾å¤å€’è½¬ã€ï¼Œæ‰‹ä¸­$wåœ¨ç©ºä¸­è™šåŠˆæ•°ä¸‹ï¼Œçªç„¶ä¸‹åˆ’å‰²å‘$nçš„$l",
 	"lvl" : 20,
-	"skill_name" : "Ç¬À¤µ¹×ª",
-	"damage_type" : "¸îÉË"
+	"skill_name" : "ä¹¾å¤å€’è½¬",
+	"damage_type" : "å‰²ä¼¤"
 ]),
 ([
-	"action" : "$N½ÅÏÂ¼±Ðý£¬Ì¤±éËÄ·½°ËÃæ£¬ÊÖÖÐ$w»¯×öÒ»µÀº®Ã¢£¬ÉÏÏÂ·ÉÎè¡£ºÃÒ»ÕÐÁ½ÒÇËÄÏó",
+	"action" : "$Nè„šä¸‹æ€¥æ—‹ï¼Œè¸éå››æ–¹å…«é¢ï¼Œæ‰‹ä¸­$wåŒ–åšä¸€é“å¯’èŠ’ï¼Œä¸Šä¸‹é£žèˆžã€‚å¥½ä¸€æ‹›ä¸¤ä»ªå››è±¡",
 	"lvl" : 40,
-	"skill_name" : "Á½ÒÇËÄÏó",
-	"damage_type" : "¸îÉË",
+	"skill_name" : "ä¸¤ä»ªå››è±¡",
+	"damage_type" : "å‰²ä¼¤",
 ]),
 ([
-	"action" : "$NÉñÉ«ËàÉ±£¬Ò»Éù»¢ºð£¬ÕÆÖÐµ¶¹âÉÁË¸²»¶¨£¬Ò»Æ¬´Ì¹ÇµÄµ¶·ç½«$nÍÅÍÅÎ§×¡£¬¡¸ÆøÍÌÁùºÏ¡¹!",
+	"action" : "$Nç¥žè‰²è‚ƒæ€ï¼Œä¸€å£°è™Žå¼ï¼ŒæŽŒä¸­åˆ€å…‰é—ªçƒä¸å®šï¼Œä¸€ç‰‡åˆºéª¨çš„åˆ€é£Žå°†$nå›¢å›¢å›´ä½ï¼Œã€Œæ°”åžå…­åˆã€!",
 	"lvl" : 60,
-	"skill_name" : "ÆøÍÌÁùºÏ",
-	"damage_type" : "¸îÉË"
+	"skill_name" : "æ°”åžå…­åˆ",
+	"damage_type" : "å‰²ä¼¤"
 ]),
 });
 
@@ -36,11 +36,11 @@ int valid_learn(object me)
 	object weapon;
 	if (!objectp(weapon = me->query_temp("weapon"))
 	|| (string)weapon->query("skill_type") != "blade")
-		return notify_fail("ÄãÊ¹ÓÃµÄÎäÆ÷²»¶Ô¡£\n");
+		return notify_fail("ä½ ä½¿ç”¨çš„æ­¦å™¨ä¸å¯¹ã€‚\n");
 	if ( me->query("max_neili") < 50)
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 	if ( me->query_skill("huntian-qigong", 1) < 30)
-		return notify_fail("ÄãµÄ»ìÌìÆø¹¦»ðºòÌ«Ç³¡£\n");
+		return notify_fail("ä½ çš„æ··å¤©æ°”åŠŸç«å€™å¤ªæµ…ã€‚\n");
 	return 1;
 }
 
@@ -80,7 +80,7 @@ int practice_skill(object me)
 	while (i--) if (lvl == action[i]["lvl"]) return 0;
 
 	if ( me->query("jingli") < 30 || me->query("neili") < 10)
-		return notify_fail("ÄãµÄÌåÁ¦²»¹»Á·ËÄÏóÁùºÏµ¶·¨¡£\n");
+		return notify_fail("ä½ çš„ä½“åŠ›ä¸å¤Ÿç»ƒå››è±¡å…­åˆåˆ€æ³•ã€‚\n");
 	me->receive_damage("jingli", 20);
 	me->add("neili", -5);
 	return 1;

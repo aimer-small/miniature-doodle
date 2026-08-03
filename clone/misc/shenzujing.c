@@ -3,14 +3,14 @@ inherit ITEM;
 
 void create()
 {
-        set_name("èóÎÄ¾­Êé", ({ "fanwen book", "jingshu", "fanwen", "book" }));
+        set_name("æ¢µæ–‡ç»ä¹¦", ({ "fanwen book", "jingshu", "fanwen", "book" }));
         set_weight(2000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
+                set("unit", "æœ¬");
                 set("long",
-                        "Ã¿Ò»Ò³ÉÏ¶¼Ğ´ÂúÁËÍäÍäÇúÇúµÄÎÄ×Ö£¬Ã»Ò»×ÖÊ¶µÃ¡£\n");
+                        "æ¯ä¸€é¡µä¸Šéƒ½å†™æ»¡äº†å¼¯å¼¯æ›²æ›²çš„æ–‡å­—ï¼Œæ²¡ä¸€å­—è¯†å¾—ã€‚\n");
                 set("value", 500);
                 set("material", "steel");
                 set("no_give",1);
@@ -32,47 +32,47 @@ int do_du(string arg)
 	object me = this_player();
 
 	if (!id(arg)) 
-		return notify_fail("ÄãÒª¶ÁÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦è¯»ä»€ä¹ˆï¼Ÿ\n");
 
 	if ( me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
 	
 	if ( query("owner") != me->query("id") )
-		return notify_fail("ÄãÊÇÔõÃ´µÃµ½¡¸Éñ×ã¾­¡¹µÄ°¡£¿\n");
+		return notify_fail("ä½ æ˜¯æ€ä¹ˆå¾—åˆ°ã€Œç¥è¶³ç»ã€çš„å•Šï¼Ÿ\n");
 
 	if ( me->query("neili") < 1500 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 	if (environment(me)->query("pigging"))
-		return notify_fail("Äã»¹ÊÇ×¨ĞÄ¹°Öí°É£¡\n");
+		return notify_fail("ä½ è¿˜æ˜¯ä¸“å¿ƒæ‹±çŒªå§ï¼\n");
 
 	if (environment(me)->query("pending"))
-		return notify_fail("´ËµØ²»ÒËÑĞÏ°¡¸Éñ×ã¾­¡¹£¡\n");
+		return notify_fail("æ­¤åœ°ä¸å®œç ”ä¹ ã€Œç¥è¶³ç»ã€ï¼\n");
 
 	if (environment(me)->query("sleep_room"))
-		return notify_fail("ÎÔÊÒ²»ÒËĞŞÁ·£¬»áÓ°Ïì±ğÈËĞİÏ¢¡£\n");
+		return notify_fail("å§å®¤ä¸å®œä¿®ç»ƒï¼Œä¼šå½±å“åˆ«äººä¼‘æ¯ã€‚\n");
  
 	if (environment(me)->query("no_fight"))
-		return notify_fail("´ËµØ²»ÒËÑĞÏ°¡¸Éñ×ã¾­¡¹£¡\n");
+		return notify_fail("æ­¤åœ°ä¸å®œç ”ä¹ ã€Œç¥è¶³ç»ã€ï¼\n");
 
 	if ( me->query("jing") < 40 )
-		return notify_fail("ÄãµÄ¾«Ì«ÉÙÁË£¬²»¹»ÑĞ¶Á¡¸Éñ×ã¾­¡¹¡£\n");
+		return notify_fail("ä½ çš„ç²¾å¤ªå°‘äº†ï¼Œä¸å¤Ÿç ”è¯»ã€Œç¥è¶³ç»ã€ã€‚\n");
 
 if((int)me->query("potential") < 1 )
-return notify_fail("ÄãµÄÇ±ÄÜÒÑ¾­ÓÃÍêÁË£¬ÔÙÔõÃ´¶ÁÒ²Ã»ÓÃ¡£\n");
+return notify_fail("ä½ çš„æ½œèƒ½å·²ç»ç”¨å®Œäº†ï¼Œå†æ€ä¹ˆè¯»ä¹Ÿæ²¡ç”¨ã€‚\n");
 
 
 
 	
 
-	tell_object(me, "Äã×ĞÏ¸ÑĞ¶Á×Å¡¸Éñ×ã¾­¡¹µÄ¾«ÃîÖ®´¦¡£\n");
+	tell_object(me, "ä½ ä»”ç»†ç ”è¯»ç€ã€Œç¥è¶³ç»ã€çš„ç²¾å¦™ä¹‹å¤„ã€‚\n");
 	me->receive_damage("jing", 30 );
 	me->add("neili", - 50);
          me->add("potential", - random(3));
 
 	me->improve_skill("yijin-jing", me->query_int());
 	if (!random(8))
-		message("vision", me->name() + "×ĞÏ¸ÑĞ¶Á×Å¡¸Éñ×ã¾­¡¹µÄ¾«ÃîÖ®´¦¡£\n", environment(me), me); 
+		message("vision", me->name() + "ä»”ç»†ç ”è¯»ç€ã€Œç¥è¶³ç»ã€çš„ç²¾å¦™ä¹‹å¤„ã€‚\n", environment(me), me); 
 	return 1;
 }

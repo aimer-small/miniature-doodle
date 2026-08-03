@@ -7,29 +7,29 @@ int main(object me, string arg)
 {
     object obj, env;
     
-    if (me->is_busy() || me->is_fighting()) return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+    if (me->is_busy() || me->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
-    if(!arg) return notify_fail("ÄãÒªµãÈ¼Ê²Ã´¶«Î÷£¿\n");
+    if(!arg) return notify_fail("ä½ è¦ç‚¹ç‡ƒä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
     	     
     if(!objectp(obj = present(arg, me)) )
              if(!objectp(obj = present(arg, environment(me))))
-    	            return notify_fail("Õâ¡£¡£¡£ÄãºÃÏóÃ»Õâ¶«Î÷°É£¿\n");
+    	            return notify_fail("è¿™ã€‚ã€‚ã€‚ä½ å¥½è±¡æ²¡è¿™ä¸œè¥¿å§ï¼Ÿ\n");
    
     if(!obj->query("light")) 
-                    return notify_fail("µãÈ¼"+obj->name()+"£¿ÄãÊÇ²»ÊÇÑÛ»¨ÁË£¿\n");
+                    return notify_fail("ç‚¹ç‡ƒ"+obj->name()+"ï¼Ÿä½ æ˜¯ä¸æ˜¯çœ¼èŠ±äº†ï¼Ÿ\n");
     if( !obj->query("light/time")) 
-                    return notify_fail(obj->name()+"ÒÑ¾­È¼ÉÕÍê£¬²»ÄÜÔÙÓÃÁË¡£\n");    
+                    return notify_fail(obj->name()+"å·²ç»ç‡ƒçƒ§å®Œï¼Œä¸èƒ½å†ç”¨äº†ã€‚\n");    
                 
     env = environment(me);
-    if( !env ) return notify_fail("ÕâÀïÊÇÊ²Ã´µØ·½£¿\n");
+    if( !env ) return notify_fail("è¿™é‡Œæ˜¯ä»€ä¹ˆåœ°æ–¹ï¼Ÿ\n");
     
     if( !present("fire", me))
-             return notify_fail("ÄãÃ»ÓĞ»ğÖÖ£¬ÔõÃ´µãÈ¼"+obj->name()+"ÄØ£¿\n");
+             return notify_fail("ä½ æ²¡æœ‰ç«ç§ï¼Œæ€ä¹ˆç‚¹ç‡ƒ"+obj->name()+"å‘¢ï¼Ÿ\n");
              
     if(!obj->query("light/on")){
              if((string)obj->query("light/on_msg"))
 	             message_vision(obj->query("light/on_msg"), me, obj);
-             else message_vision("$NÄÃÆğ»ğÕÛ£¬¡°Å¾¡±µÄÒ»ÏÂ´òÈ¼£¬½«$nµã×Å¡£\n", me, obj);
+             else message_vision("$Næ‹¿èµ·ç«æŠ˜ï¼Œâ€œå•ªâ€çš„ä¸€ä¸‹æ‰“ç‡ƒï¼Œå°†$nç‚¹ç€ã€‚\n", me, obj);
 
              obj->set("light/on", 1);   // turn it on now.
              obj->set("no_put", 1);
@@ -46,7 +46,7 @@ int main(object me, string arg)
     else {
     	     if((string)obj->query("light/off_msg"))
 	             message_vision(obj->query("light/off_msg"), me, obj);
-             else message_vision("$N½«$nÒ¡ÁËÒ¡£¬ÓÃ×ì½«Ëü´µÃğÁË¡£\n", me, obj);
+             else message_vision("$Nå°†$næ‘‡äº†æ‘‡ï¼Œç”¨å˜´å°†å®ƒå¹ç­äº†ã€‚\n", me, obj);
 
              obj->delete("light/on");   // turn it off now.
              obj->set("light/time", obj->query("light/time"));
@@ -68,13 +68,13 @@ int main(object me, string arg)
 int help(object me)
 {
     write(@HELP
-Ö¸Áî¸ñÊ½ : light [ÎïÆ·Ãû³Æ]
+æŒ‡ä»¤æ ¼å¼ : light [ç‰©å“åç§°]
  
-Õâ¸öÖ¸Áî¿ÉÒÔÈÃÄãµãÈ¼Ä³¸ö¿ÉÒÔÕÕÃ÷µÄÎïÆ·¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥è®©ä½ ç‚¹ç‡ƒæŸä¸ªå¯ä»¥ç…§æ˜çš„ç‰©å“ã€‚
 
-Àı£º
-    light denglong  µãÈ¼µÆÁı¡£
-    light denglong  ½«ÒÑµãÈ¼µÄµÆÁıÃğµô¡£
+ä¾‹ï¼š
+    light denglong  ç‚¹ç‡ƒç¯ç¬¼ã€‚
+    light denglong  å°†å·²ç‚¹ç‡ƒçš„ç¯ç¬¼ç­æ‰ã€‚
     
 HELP
     );

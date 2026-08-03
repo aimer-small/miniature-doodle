@@ -15,7 +15,7 @@ int start_job()
 	PRODUCE_TEMP+=5;
 	if(!job_data=find_object(JOB_DIR+"job_data"))
 		job_data=new(JOB_DIR+"job_data");
-	if(!objectp(job_data)) return notify_fail ("Êı¾İ¿â³ÌĞò±àÒë³ö´í¡£\n");
+	if(!objectp(job_data)) return notify_fail ("æ•°æ®åº“ç¨‹åºç¼–è¯‘å‡ºé”™ã€‚\n");
 	job_data->restore();
 	if(!job_data->query_job_start())
 		return 0;

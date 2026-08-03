@@ -3,16 +3,16 @@ inherit ITEM;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(HIY"Ç¬À¤Ò»Æø´ü"NOR, ({"yiqi dai", "dai" }) );
+        set_name(HIY"ä¹¾å¤ä¸€æ°”è¢‹"NOR, ({"yiqi dai", "dai" }) );
         set_weight(1000);
         set_max_encumbrance(5000);
         if( clonep() )
                 set_default_object(__FILE__);
         else{
-        set("unit", "¸ö");
+        set("unit", "ä¸ª");
         set("unique", 1);
-        set("long", "ÕâÊÇÒ»¸ö²¼´üÑùµÄ´ü×Ó¡£·Ç³ñ·Ç¸ï£¬¼áÈÍÒì³££¬ÃşÉÏÈ¥\n"
-"²¼ÎÆÍğÈ»£¬ÏÔÊÇ´Ö²¼ËùÖÆ£¬µ«ËºÉÏÈ¥È´¼áÈÍÎŞ±È¡£\n");
+        set("long", "è¿™æ˜¯ä¸€ä¸ªå¸ƒè¢‹æ ·çš„è¢‹å­ã€‚éç»¸éé©ï¼ŒåšéŸ§å¼‚å¸¸ï¼Œæ‘¸ä¸Šå»\n"
+"å¸ƒçº¹å®›ç„¶ï¼Œæ˜¾æ˜¯ç²—å¸ƒæ‰€åˆ¶ï¼Œä½†æ’•ä¸Šå»å´åšéŸ§æ— æ¯”ã€‚\n");
         set("value", 10000);
         set("material","silk");
         set("treasure",1);

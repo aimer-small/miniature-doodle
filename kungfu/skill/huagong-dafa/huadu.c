@@ -1,5 +1,5 @@
-// huadu.c »¯¶¾
-// By Spiderii@ty¸üÐÂÐ§¹û
+// huadu.c åŒ–æ¯’
+// By Spiderii@tyæ›´æ–°æ•ˆæžœ
 #include <ansi.h>
 
 inherit F_CLEAN_UP;
@@ -10,26 +10,26 @@ int exert(object me)
 int skill;
 skill = me->query_skill("huagong-dafa");
 if( !me->is_fighting() && (int)me->query_skill("huagong-dafa",1)<350 )
-return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖÐÊ¹ÓÃ¡¸»¯¶¾¡¹£¡\n");
+return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€ŒåŒ–æ¯’ã€ï¼\n");
 
 if( (int)me->query_skill("huagong-dafa", 1) < 100 )
-return notify_fail("ÄãµÄ»¯¹¦´ó·¨ÐÞÎª»¹²»¹»£¡\n");
+return notify_fail("ä½ çš„åŒ–åŠŸå¤§æ³•ä¿®ä¸ºè¿˜ä¸å¤Ÿï¼\n");
 
 if (me->query_skill_mapped("force") != "huagong-dafa")
-return notify_fail("ÆäËüÄÚ¹¦ÓÐ¡¸»¯¶¾¡¹Âð£¿\n");
+return notify_fail("å…¶å®ƒå†…åŠŸæœ‰ã€ŒåŒ–æ¯’ã€å—ï¼Ÿ\n");
 
 if( (int)me->query_skill("poison", 1) < 100 )
-return notify_fail("ÄãÌåÄÚµÄ¶¾ËØ²»¹»£¬ÎÞ·¨Ê¹ÓÃ¡¸»¯¶¾¡¹£¡\n"); 
+return notify_fail("ä½ ä½“å†…çš„æ¯’ç´ ä¸å¤Ÿï¼Œæ— æ³•ä½¿ç”¨ã€ŒåŒ–æ¯’ã€ï¼\n"); 
 
 if( (int)me->query("max_neili") < 1000 )
-return notify_fail("ÄãµÄÄÚÁ¦ÐÞÎªÕâÃ´²î£¬»¹ÏëÊ¹ÓÃ¡¸»¯¶¾¡¹£¿\n");
+return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºè¿™ä¹ˆå·®ï¼Œè¿˜æƒ³ä½¿ç”¨ã€ŒåŒ–æ¯’ã€ï¼Ÿ\n");
         if( (int)me->query("neili") < 500 )
-                return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
 if( me->query_temp("hgdf_power"))
-                return notify_fail("ÄãÒÑ¾­ÔÚÊ¹ÓÃÁË¡£\n");
+                return notify_fail("ä½ å·²ç»åœ¨ä½¿ç”¨äº†ã€‚\n");
 
-message_vision(BLU"$N±ÕÄ¿ÄýÉñ£¬½«ÌåÄÚÔÌ»ýµÄ¶¾ÖÊÂýÂý»¯ÎªÕæÆø£¬·ÖÉ¢ÔÚËÄÖ«ÄÚ¡£\n" NOR, me);
+message_vision(BLU"$Né—­ç›®å‡ç¥žï¼Œå°†ä½“å†…è•´ç§¯çš„æ¯’è´¨æ…¢æ…¢åŒ–ä¸ºçœŸæ°”ï¼Œåˆ†æ•£åœ¨å››è‚¢å†…ã€‚\n" NOR, me);
 if(me->is_fighting())
         me->start_busy(1);
 me->add_temp("apply/strength", me->query_skill("huagong-dafa", 1)/8);
@@ -38,7 +38,7 @@ me->add_temp("apply/armor_vs_force", me->query_skill("poison", 1)/8);
         me->add("neili", -400);
 me->set_temp("hgdf_power",1);
 call_out("remove_effect", 1, me, skill/3);
-me->start_exert(1, "»¯¶¾");
+me->start_exert(1, "åŒ–æ¯’");
         return 1;
 }
 void remove_effect(object me, int count)
@@ -49,27 +49,27 @@ me->delete_temp("hgdf_power");
 me->add_temp("apply/strength", -me->query_skill("huagong-dafa", 1)/8);
 me->add_temp("apply/attack", -me->query_skill("huagong-dafa", 1)/4);
 me->add_temp("apply/armor_vs_force", -me->query_skill("poison", 1)/8);
-message_vision(BLU"$NÔË¹¦»¯¶¾Íê±Ï£¬½«ÕæÆø»¯»Ø¶¾ÖÊÔÌ»ýÌåÄÚ¡£\n"NOR, me);
+message_vision(BLU"$Nè¿åŠŸåŒ–æ¯’å®Œæ¯•ï¼Œå°†çœŸæ°”åŒ–å›žæ¯’è´¨è•´ç§¯ä½“å†…ã€‚\n"NOR, me);
 
             return;
 
         }
 call_out("remove_effect", 1 , me ,count -1);
 }
-string exert_name(){ return BLU"»¯¶¾"NOR; } 
+string exert_name(){ return BLU"åŒ–æ¯’"NOR; } 
 int help(object me)
 {
-          write(BLU"\n»¯¹¦´ó·¨¡¸»¯¶¾¡¹£º"NOR"\n");
+          write(BLU"\nåŒ–åŠŸå¤§æ³•ã€ŒåŒ–æ¯’ã€ï¼š"NOR"\n");
           write(@HELP
-          ÐÇËÞÅÉµÄ¹¦·òÖ÷ÒªÊÇÔÚ<¶¾>×ÖÉÏÏÂ¹¦·ò£¬ÉîµÄÒõËð¶¾À±ÆäÖÐÈýÎ¶
-          »¯¹¦´ó·¨ÎüÈËÄÚÁ¦£¬Òõ¶¾Òì³££¬½­ºþÉÏÈËÌáÆð£¬ÎÞ²»Ì¸»¢É«±ä¡£
-          Õâ»¯¶¾Ò»Ê½¾ÍÊÇ½«Æ½Ê±»ýÐîÓÚÌåÄÚµÄ¾ç¶¾ÒÔÉîºñÄÚÁ¦´ß»¯ÓÚËÄÖ«
-          ÄËÊÇÎªÁËÔÚÓëµÐÕ½¶·ÖÐ£¬Æðµ½¸¨ÖúÉËµÐµÄ×÷ÓÃ£¡
+          æ˜Ÿå®¿æ´¾çš„åŠŸå¤«ä¸»è¦æ˜¯åœ¨<æ¯’>å­—ä¸Šä¸‹åŠŸå¤«ï¼Œæ·±çš„é˜´æŸæ¯’è¾£å…¶ä¸­ä¸‰å‘³
+          åŒ–åŠŸå¤§æ³•å¸äººå†…åŠ›ï¼Œé˜´æ¯’å¼‚å¸¸ï¼Œæ±Ÿæ¹–ä¸Šäººæèµ·ï¼Œæ— ä¸è°ˆè™Žè‰²å˜ã€‚
+          è¿™åŒ–æ¯’ä¸€å¼å°±æ˜¯å°†å¹³æ—¶ç§¯è“„äºŽä½“å†…çš„å‰§æ¯’ä»¥æ·±åŽšå†…åŠ›å‚¬åŒ–äºŽå››è‚¢
+          ä¹ƒæ˜¯ä¸ºäº†åœ¨ä¸Žæ•Œæˆ˜æ–—ä¸­ï¼Œèµ·åˆ°è¾…åŠ©ä¼¤æ•Œçš„ä½œç”¨ï¼
 
-          ÒªÇó:   »¯¹¦´ó·¨ 100 ¼¶£»
-                  ¶¾¼¼     100 ¼¶£»
-                  µ±Ç°ÄÚÁ¦ 500 µã£»
-                  ×î´óÄÚÁ¦ 1000 µã¡£
+          è¦æ±‚:   åŒ–åŠŸå¤§æ³• 100 çº§ï¼›
+                  æ¯’æŠ€     100 çº§ï¼›
+                  å½“å‰å†…åŠ› 500 ç‚¹ï¼›
+                  æœ€å¤§å†…åŠ› 1000 ç‚¹ã€‚
 HELP
 );
 return 1;

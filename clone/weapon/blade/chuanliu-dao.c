@@ -1,4 +1,4 @@
-// chuanliu-dao.c ·ÉÑã´©Áøµ¶
+// chuanliu-dao.c é£é›ç©¿æŸ³åˆ€
 
 #include <ansi.h>
 #include <weapon.h>
@@ -6,13 +6,13 @@ inherit BLADE;
 
 void create()
 {
-	set_name( HIC"·ÉÑã´©Áøµ¶"NOR , ({ "chuanliu dao", "dao", "blade" }));
+	set_name( HIC"é£é›ç©¿æŸ³åˆ€"NOR , ({ "chuanliu dao", "dao", "blade" }));
 	set_weight(12500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "°Ñ");
-		set("long", HIC"ÕâÊÇÒ»°Ñ±¡±¡µÄÈíµ¶£¬µ¶ÉíÇáÈáÓĞÈÍ£¬É¢·¢³öÕóÕóÑ¤ÀöµÄÀ¶¹â¡£\n"NOR);
+		set("unit", "æŠŠ");
+		set("long", HIC"è¿™æ˜¯ä¸€æŠŠè–„è–„çš„è½¯åˆ€ï¼Œåˆ€èº«è½»æŸ”æœ‰éŸ§ï¼Œæ•£å‘å‡ºé˜µé˜µç»šä¸½çš„è“å…‰ã€‚\n"NOR);
 		set("value", 10000);
 		set("unique", 1);
 		set("rigidity", 3);
@@ -22,8 +22,8 @@ void create()
 		set("wield_str", 20);
 		set("treasure",1);
 		set("material", "steel");
-		set("wield_msg", HIC"$NÊÖÍóÒ»·­Ò»¶¶£¬Ë²¼äÊÖÖĞÒÑ¶àÁËÒ»°ÑÈíµ¶¡£\n"NOR);
-		set("unwield_msg",HIC" $NËæÊÖÒ»¶¶£¬·ÉÑã´©Áøµ¶¶ÙÊ±Ê§È¥ÁË×ÙÓ°¡£\n"NOR);
+		set("wield_msg", HIC"$Næ‰‹è…•ä¸€ç¿»ä¸€æŠ–ï¼Œç¬é—´æ‰‹ä¸­å·²å¤šäº†ä¸€æŠŠè½¯åˆ€ã€‚\n"NOR);
+		set("unwield_msg",HIC" $Néšæ‰‹ä¸€æŠ–ï¼Œé£é›ç©¿æŸ³åˆ€é¡¿æ—¶å¤±å»äº†è¸ªå½±ã€‚\n"NOR);
 	}
 	init_blade(40);
 	setup();

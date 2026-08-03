@@ -1,6 +1,6 @@
-// butou.c ÑïÖİ²¶Í·
-// Modify by looklove 2001,4,19 fix moving_ob bug & add kill_ob killer¡£
-// modified by olives@SJ 4/27/2001  set no_get£¬·ÀÖ¹±³
+// butou.c æ‰¬å·æ•å¤´
+// Modify by looklove 2001,4,19 fix moving_ob bug & add kill_ob killerã€‚
+// modified by olives@SJ 4/27/2001  set no_getï¼Œé˜²æ­¢èƒŒ
 
 #include <ansi.h>
 
@@ -8,14 +8,14 @@ inherit NPC;
 
 void create()
 {
-	set_name("Àî²¶Í·", ({"li butou","bu tou","li","butou"}));
-       	set("long", "Ò»Î»Íş·çÁİÁİµÄ²¶Í·£¬Éí²Ä²»¸ß£¬µ«ÊÇÁ½ÑÛÓĞÉñ¡£\n"
-       	"¾İËµ½­ÄÏÕâ´øµÄ²İ¿Ü¶¼ÅÂËûÈı·Ö¡£\n");
-       	set("title", "³¯Í¢Õı°ËÆ·Ìú²¶");
-	set("gender", "ÄĞĞÔ");
+	set_name("ææ•å¤´", ({"li butou","bu tou","li","butou"}));
+       	set("long", "ä¸€ä½å¨é£å‡›å‡›çš„æ•å¤´ï¼Œèº«æä¸é«˜ï¼Œä½†æ˜¯ä¸¤çœ¼æœ‰ç¥ã€‚\n"
+       	"æ®è¯´æ±Ÿå—è¿™å¸¦çš„è‰å¯‡éƒ½æ€•ä»–ä¸‰åˆ†ã€‚\n");
+       	set("title", "æœå»·æ­£å…«å“é“æ•");
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 
-	set("no_get",1); 	//¾­³£ÓĞÈË±³È¥pk°¡£¬¼ÓÉÏÕâ¸öÀ²
+	set("no_get",1); 	//ç»å¸¸æœ‰äººèƒŒå»pkå•Šï¼ŒåŠ ä¸Šè¿™ä¸ªå•¦
 	set("age", 35);
 	set("shen", 2000);
 	set("str", 30+random(10));
@@ -44,7 +44,7 @@ void create()
 	set_skill("parry", 180);
 	set("chat_chance", 20);
 	set("chat_msg", ({
-	       "Àî²¶Í·Í¦ÁËÍ¦ĞØ¸¬£¬ÀÊÉùĞ¦µÀ£º¡°ÌıËµ±¾¹ÙÀ´ÁË£¬ÄÇĞ©Îª·Ç×ö´õµÄÈËÎŞÒ»²»ÎÅ·ç¶øÌÓ¡£ \n",
+	       "ææ•å¤´æŒºäº†æŒºèƒ¸è„¯ï¼Œæœ—å£°ç¬‘é“ï¼šâ€œå¬è¯´æœ¬å®˜æ¥äº†ï¼Œé‚£äº›ä¸ºéåšæ­¹çš„äººæ— ä¸€ä¸é—»é£è€Œé€ƒã€‚ \n",
 	       (: random_move :)
        }) );
 
@@ -81,7 +81,7 @@ void init()
 	&& !wizardp(me)
 	&& !environment(ob)->query("no_fight")){
 		if (ob->query_condition("killer")) {
-			command("say ±¾¹ÙÕıÔÚÕÒÄã£¬ÄãÈ´×Ô¼ºËÍÉÏÃÅÀ´ÁË£¬¹ş¹ş£¡\n");
+			command("say æœ¬å®˜æ­£åœ¨æ‰¾ä½ ï¼Œä½ å´è‡ªå·±é€ä¸Šé—¨æ¥äº†ï¼Œå“ˆå“ˆï¼\n");
 			command("stare "+ob->query("id"));
 			ob->add_busy(1);
 	 		me->set_leader(ob);
@@ -93,7 +93,7 @@ void init()
                 && time < 86400
 		&& ob->query_temp("user_type") !="worker"
 		&& !ob->query("no_pk") ){
-	 		command("say ÌıËµÄã×î½ü×öÁË²»ÉÙ»µÊÂ£¬½ñÌì¾ÍºÍ±¾¹Ù×ßÒ»ÌË£¡\n");
+	 		command("say å¬è¯´ä½ æœ€è¿‘åšäº†ä¸å°‘åäº‹ï¼Œä»Šå¤©å°±å’Œæœ¬å®˜èµ°ä¸€è¶Ÿï¼\n");
 	 		ob->add_busy(1);
 	 		remove_call_out("hiting_ob");
 	 		call_out("hiting_ob", 1, ob);
@@ -122,10 +122,10 @@ int moving_ob(object ob)
        	if (!living(ob)&&present(ob, environment(this_object()))){
 		switch( random(3) ) {
 		case 0:
-	     		command("say  »¹ÏëÅÜ£¬ÖªµÀ¹Ù¸®µÄÀ÷º¦ÁË°É£¡");
+	     		command("say  è¿˜æƒ³è·‘ï¼ŒçŸ¥é“å®˜åºœçš„å‰å®³äº†å§ï¼");
 			break;
 		case 1:
-			command("say  Äã¸øÎÒÀÏÀÏÊµÊµÈ¥´ô×Å°É¡£");
+			command("say  ä½ ç»™æˆ‘è€è€å®å®å»å‘†ç€å§ã€‚");
 			break;
 		case 2:
 			command("nod");

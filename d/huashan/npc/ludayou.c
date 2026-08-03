@@ -9,12 +9,12 @@ string ask_job();
 
 void create()
 {
-        set_name("½����", ({ "lu dayou", "lu", "dayou" }));
-        set("nickname", "�����");
+        set_name("陆大有", ({ "lu dayou", "lu", "dayou" }));
+        set("nickname", "六猴儿");
         set("long",
-"½�������ĺ��ݣ��ֳ��ļ�������ģ���������ò�������\n"
-"ͬ�������е������ǻ�ɽ������һ���еĺ��֡�\n");
-        set("gender", "����");
+"陆大有身材很瘦，又长的尖嘴猴腮的，但别看他其貌不扬，他在\n"
+"同门中排行第六，是华山派年轻一代中的好手。\n");
+        set("gender", "男性");
         set("age", 26);
         set("attitude", "friendly");
         set("shen_type", 1);
@@ -53,10 +53,10 @@ void create()
 
         prepare_skill("cuff", "poyu-quan");
 
-        create_family("��ɽ��", 14, "����");
+        create_family("华山派", 14, "弟子");
 
         set("inquiry", ([
-              "����" : (: ask_job :),
+              "砍柴" : (: ask_job :),
         ]));
 
         setup();
@@ -69,29 +69,29 @@ string ask_job()
         object ob, me, dao;
         me = this_player();
 
-        if(me->query("family/family_name") != "��ɽ��")
-               return "����һ�ɽ���ӣ���Щ��ǲ��鷳���ˡ�";
+        if(me->query("family/family_name") != "华山派")
+               return "你非我华山弟子，这些活还是不麻烦你了。";
         //if ((int)me->query("combat_exp") >= 30000)
         if ((int)me->query("combat_exp") >= 100000)
-                return "���书�ѳɣ�����ȥ��ʦ����æ�ɡ�\n";
+                return "你武功已成，还是去给师傅帮忙吧。\n";
         if (me->query("shen") < 1000)
-                return "����¶�׹�, ����ǲ�������ʲô���£� ";
+                return "你眼露凶光, 最近是不是做了什么坏事？ ";
         if (me->query_temp("hs/kc_job"))
-                return "��������ȥ����������ô����ȥ��\n";
+                return "不是让你去砍柴了吗？怎么还不去？\n";
         if(me->query_condition("job_busy"))
-               return "�����ں�æ����һ�������ɡ�";
+               return "我现在很忙，你一会再来吧。";
 
         dao = present("chai dao", me);
 
         if (!dao){
 	        ob=new(__DIR__"obj/chaidao");
         	ob->move(me);
-        	tell_object(me, "½���и���һ�Ѳ񵶡�\n");
+        	tell_object(me, "陆大有给你一把柴刀。\n");
         }
         me->set_temp("hs/kc_job",1);
         me->apply_condition("job_busy", 6+random(6));
         command("ok "+me->query("id"));
-        return "�﷿��������˵������������ȱ�����������ȥ�����忳Щ�ɡ�\n";
+        return "伙房的仆人来说，他那里现在缺柴禾做饭，你去朝阳峰砍些吧。\n";
 }
 
 

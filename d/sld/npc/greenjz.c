@@ -1,12 +1,12 @@
-// ÇàÁúÃÅµÜ×Ó
+// é’é¾™é—¨å¼Ÿå­
 
 inherit NPC;
 void create()
 {
-        set_name("ÇàÁúÃÅµÜ×Ó", ({ "green dizi","dizi" }));
-	set("long", "ËûÊÇÒ»¸öÉñÁú½ÌÇàÁúÃÅµÄµÜ×Ó¡£\n");
-        set("gender", "ÄĞĞÔ");
-	set("title", "ÉñÁú½ÌµÚÈı´úµÜ×Ó");	
+        set_name("é’é¾™é—¨å¼Ÿå­", ({ "green dizi","dizi" }));
+	set("long", "ä»–æ˜¯ä¸€ä¸ªç¥é¾™æ•™é’é¾™é—¨çš„å¼Ÿå­ã€‚\n");
+        set("gender", "ç”·æ€§");
+	set("title", "ç¥é¾™æ•™ç¬¬ä¸‰ä»£å¼Ÿå­");	
         set("age", 20);       
 	set("str", 17);
         set("int", 20);
@@ -41,7 +41,7 @@ void create()
       map_skill("parry","huagu-mianzhang");
       prepare_skill("strike","huagu-mianzhang");
       
-      create_family("ÉñÁú½Ì",3, "µÜ×Ó");
+      create_family("ç¥é¾™æ•™",3, "å¼Ÿå­");
       setup();
       carry_object(__DIR__"obj/gcloth")->wear();
 }

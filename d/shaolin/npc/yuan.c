@@ -1,4 +1,4 @@
-// yuan.c Ôª¹ã²¨
+// yuan.c å…ƒå¹¿æ³¢
 
 #include <ansi.h>
 
@@ -13,9 +13,9 @@ string ask_me();
 
 void create()
 {
-       set_name("Ôª¹ã²¨", ({ "yuan guangbo", "yuan" }) );
-       set("title", "º£É°°ï°ïÖ÷");
-       set("gender", "ÄĞĞÔ" );
+       set_name("å…ƒå¹¿æ³¢", ({ "yuan guangbo", "yuan" }) );
+       set("title", "æµ·ç ‚å¸®å¸®ä¸»");
+       set("gender", "ç”·æ€§" );
        set("shen_type", -1);
        set("age", 50);
        set("str", 30);
@@ -23,12 +23,12 @@ void create()
        set("int", 10);
        set("dex", 30);
        set("long",
-               "ÕâÊÇÒÔ¶¾ÑÎºáĞĞ½­ÄÏµÄË½ÑÎ´óµÁ£¬Ò»Á³ÒõºİÖ®É«¡£\n" );
+               "è¿™æ˜¯ä»¥æ¯’ç›æ¨ªè¡Œæ±Ÿå—çš„ç§ç›å¤§ç›—ï¼Œä¸€è„¸é˜´ç‹ ä¹‹è‰²ã€‚\n" );
        set("combat_exp", 600000);
        set("attitude", "peaceful");
        set("chat_chance", 2);
        set("chat_msg", ({
-           "Ôª¹ã²¨ËµµÀ: º£É°°ïÊÇÌìÏÂÓĞÃûµÄ´ó°ï»á£¬ÄãÌıËµ¹ıÂğ?\n",
+           "å…ƒå¹¿æ³¢è¯´é“: æµ·ç ‚å¸®æ˜¯å¤©ä¸‹æœ‰åçš„å¤§å¸®ä¼šï¼Œä½ å¬è¯´è¿‡å—?\n",
          (: random_move :)
          }) );
        set("max_qi", 3000);
@@ -65,14 +65,14 @@ void create()
     me=this_player();
 //    ob=load_object("/u/hunthu/npc/obj/qzling1");
   //        if (objectp(present(ob,this_object()) {
-          if ((string)me->query_temp("promotion_target")=="º£É°°ï°ïÖ÷Ôª¹ã²¨") {
+          if ((string)me->query_temp("promotion_target")=="æµ·ç ‚å¸®å¸®ä¸»å…ƒå¹¿æ³¢") {
              if (query_temp("last_damage_from") == me ){
              add_money("gold", 10);
-            //message_vision("\n$NÕõÔú×ÅÍÂ³ö¼¸¸ö×Ö£ºÊÇ......" + query("hire")[0..1] + "......¡£\n", this_object());
+            //message_vision("\n$NæŒ£æ‰ç€åå‡ºå‡ ä¸ªå­—ï¼šæ˜¯......" + query("hire")[0..1] + "......ã€‚\n", this_object());
             ob=new("/u/hunthu/npc/obj/qzling");
              ob->move(this_object());   
                } else
-            message_vision("\n$NĞ°¶ñµØĞ¦µÀ£º¿ÉÏ§ÄãÓÀÔ¶ÄÃ²»µ½ÇàÖñÁîÁË...\n", this_object());
+            message_vision("\n$Né‚ªæ¶åœ°ç¬‘é“ï¼šå¯æƒœä½ æ°¸è¿œæ‹¿ä¸åˆ°é’ç«¹ä»¤äº†...\n", this_object());
               destruct(ob); 
        }
        ::die();

@@ -1,16 +1,16 @@
-//ºÚ·çÕ¯ÅÌÉ½µÀ
+//é»‘é£å¯¨ç›˜å±±é“
 #include <room.h>
 #include <ansi.h>
 
 inherit ROOM;
 void create()
 {
-      set("short", CYN"ÅÌÉ½µÀ"NOR);
+      set("short", CYN"ç›˜å±±é“"NOR);
       set("long", @LONG
-ÕâÀï¾ÍÊÇ´Ó¹ã³¡Í¨ÍùÇ°Õ¯µÄÅÌÉ½Ê¯Â·£¬ÒÀÉ½Ôä½¨£¬¶ËµÄ
-ÊÇÏÕÒªÎŞ±È¡£Ò»¶Ó¶ÓµÄÑ²É½à¶†ª²àÉí×ß¹ı£¬¾¯ÌèµÄ´òÁ¿×ÅÖÜÎ§¡£
+è¿™é‡Œå°±æ˜¯ä»å¹¿åœºé€šå¾€å‰å¯¨çš„ç›˜å±±çŸ³è·¯ï¼Œä¾å±±å‡¿å»ºï¼Œç«¯çš„
+æ˜¯é™©è¦æ— æ¯”ã€‚ä¸€é˜Ÿé˜Ÿçš„å·¡å±±å–½å•°ä¾§èº«èµ°è¿‡ï¼Œè­¦æƒ•çš„æ‰“é‡ç€å‘¨å›´ã€‚
 LONG);
-      set("outdoors","ºÚ·çÕ¯");
+      set("outdoors","é»‘é£å¯¨");
       set("exits", ([
             "southdown" : "/quest/hfz/guangchang",
             "westup" : "/quest/hfz/panshan2",
@@ -19,5 +19,5 @@ LONG);
       setup();
 //  replace_program(ROOM);
 }
-//ÊÇ¾µÏñ
+//æ˜¯é•œåƒ
 int is_mirror() { return 1; }

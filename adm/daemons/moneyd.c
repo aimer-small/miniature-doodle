@@ -1,5 +1,5 @@
-// moneyd.c г╝╣д╧╕дэ
-// тЖ╪с ╢Ф©Нж╠╫с╣Всц сп╧ь╫Пг╝╣д╤╚нВ╬║а©х╚п╢╣╫уБюОю╢ xixi
+// moneyd.c И▓╠Г └Е┼÷Х┐╫
+// Е╒·Е┼═ Е╜≤Ф╛╬Г⌡╢Ф▌╔Х╟┐Г■╗ Ф°┴Е┘ЁИ┤▒И▓╠Г └Д╦°Х╔©Е╟╫И┤▐Е┘╗Е├≥Е┬╟Х©≥И┤▄Ф²╔ xixi
 #include <ansi.h>
 
 string money_str(int amount)
@@ -8,17 +8,17 @@ string money_str(int amount)
 	string output;
 
 	if (amount / 10000) {
-		output = chinese_number(amount / 10000) + "╤╖"HIY"╩ф╫П"NOR;
+		output = chinese_number(amount / 10000) + "И■╜"HIY"И╩└И┤▒"NOR;
 		amount %= 10000;
 	}
 	else
 		output = "";
 	if (amount / 100) {
-		output = output + chinese_number(amount / 100) + "а╫"HIW"╟врЬ"NOR;
+		output = output + chinese_number(amount / 100) + "Д╦╓"HIW"Г≥╫И⌠╤"NOR;
 		amount %= 100;
 	}
 	if (amount)
-		return output + chinese_number(amount) + "нд"YEL"м╜г╝"NOR;
+		return output + chinese_number(amount) + "Ф√┤"YEL"И⌠°И▓╠"NOR;
 	return output;
 }
 
@@ -31,23 +31,23 @@ string price_str(int amount)
 		amount = 1;
 
 	if (amount / 10000) {
-		output = chinese_number(amount / 10000) + "╤╖"HIY"╩ф╫П"NOR;
+		output = chinese_number(amount / 10000) + "И■╜"HIY"И╩└И┤▒"NOR;
 		amount %= 10000;
 	}
 	else
 		output = "";
 	if (amount / 100) {
 		if (output != "")
-			output += "сж" + chinese_number(amount / 100) + "а╫"HIW"╟врЬ"NOR;
+			output += "Е▐┬" + chinese_number(amount / 100) + "Д╦╓"HIW"Г≥╫И⌠╤"NOR;
 		else
-			output = chinese_number(amount / 100) + "а╫"HIW"╟врЬ"NOR;
+			output = chinese_number(amount / 100) + "Д╦╓"HIW"Г≥╫И⌠╤"NOR;
 		amount %= 100;
 	}
 	if (amount)
 		if (output != "")
-			return output + "сж" + chinese_number(amount) + "нд"YEL"м╜г╝"NOR;
+			return output + "Е▐┬" + chinese_number(amount) + "Ф√┤"YEL"И⌠°И▓╠"NOR;
 		else
-			return chinese_number(amount) + "нд"YEL"м╜г╝"NOR;
+			return chinese_number(amount) + "Ф√┤"YEL"И⌠°И▓╠"NOR;
 	return output;
 }
 
@@ -61,9 +61,9 @@ void pay_player(object who, int amount, int cash,int balance)
 
 	seteuid(getuid());
 	
-	//илр╣ткс╙
+	//Е∙├Д╦ Х©░Х░╔
 	//if(environment(who)) ROOMLEASE_D->add_money(base_name(environment(who)),-amount );
-	//╦╤мФ╪рг╝╣д╣ь╥╫в╒рБйуЁибйаке╤
+	//Д╩≤Г▌╘Е╝╤И▓╠Г └Е°╟Ф√╧ФЁ╗Ф└▐Ф■╤Ф┬░Г▌┤Д╨├Е⌠╕
 	
 	if(balance)
 	{
@@ -131,7 +131,7 @@ varargs int player_pay(object who, int amount, int mode,int balance)
 	else {
 		if(balance && who->query("balance") < amount)
 			return 0;
-		//илр╣ткс╙
+		//Е∙├Д╦ Х©░Х░╔
 		if(environment(who)) ROOMLEASE_D->add_money(base_name(environment(who)),amount );
 		
 		if(balance)

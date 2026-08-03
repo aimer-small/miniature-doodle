@@ -1,35 +1,35 @@
-// focus.c, ¾ÛÁ¦ by darken@SJ
-// By Spiderii@ty¸üĞÂĞ§¹û
+// focus.c, èšåŠ› by darken@SJ
+// By Spiderii@tyæ›´æ–°æ•ˆæœ
 #include <ansi.h>
 
 inherit F_CLEAN_UP;
 void remove_effect(object me,int count);
-string exert_name(){ return HBBLU"¹éÔª¾ÛÁ¦"NOR; }
+string exert_name(){ return HBBLU"å½’å…ƒèšåŠ›"NOR; }
 
 int exert(object me)
 {      
 int skill;
        skill = me->query_skill("guiyuan-tunafa");
 if( !me->is_fighting() && (int)me->query_skill("guiyuan-tunafa",1)<350 )
-                return notify_fail("ÄãÖ»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡¸¹éÔª¾ÛÁ¦¡¹£¡\n");
+                return notify_fail("ä½ åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€Œå½’å…ƒèšåŠ›ã€ï¼\n");
 
         if( (int)me->query_skill("guiyuan-tunafa", 1) < 100 )
-                return notify_fail("ÄãµÄ¹éÔªÍÂÄÉ·¨·¨ĞŞÎª»¹²»¹»£¡\n");
+                return notify_fail("ä½ çš„å½’å…ƒåçº³æ³•æ³•ä¿®ä¸ºè¿˜ä¸å¤Ÿï¼\n");
 
         if( (int)me->query("neili") < 500 )
-                return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+                return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
         if(me->query_temp("tz/focus"))
-                return notify_fail("ÄãÒÑ¾­ÔÚÊ¹ÓÃÁË¡£\n");
+                return notify_fail("ä½ å·²ç»åœ¨ä½¿ç”¨äº†ã€‚\n");
 
-        message_vision(HBBLU"$NÒ»ÄıÉñ£¬ÊÖÉÏµÄÁ¦µÀËÆºõÔöÇ¿ÁË¡£\n" NOR, me);
+        message_vision(HBBLU"$Nä¸€å‡ç¥ï¼Œæ‰‹ä¸Šçš„åŠ›é“ä¼¼ä¹å¢å¼ºäº†ã€‚\n" NOR, me);
         me->start_busy(1);
        me->add_temp("apply/strength", me->query_skill("guiyuan-tunafa", 1)/15);
        me->add_temp("apply/attack", me->query_skill("guiyuan-tunafa", 1)/10);
         me->add("neili", -400);
         me->set_temp("tz/focus",skill /10);
 call_out("remove_effect", 1, me, skill);
-me->start_exert(1, "¡¸¹éÔª¾ÛÁ¦¡¹");
+me->start_exert(1, "ã€Œå½’å…ƒèšåŠ›ã€");
         return 1;
 }
 void remove_effect(object me, int count)
@@ -40,7 +40,7 @@ me->delete_temp("tz/focus");
         
            me->add_temp("apply/strength", -me->query_skill("guiyuan-tunafa", 1)/15);
            me->add_temp("apply/attack", -me->query_skill("guiyuan-tunafa", 1)/10);
-            message_vision(HIW"$NÔË¹¦Íê±Ï£¬ÊÖÉÏÁ¦µÀ½¥½¥»Ö¸´Èç³£¡£\n"NOR, me);
+            message_vision(HIW"$Nè¿åŠŸå®Œæ¯•ï¼Œæ‰‹ä¸ŠåŠ›é“æ¸æ¸æ¢å¤å¦‚å¸¸ã€‚\n"NOR, me);
 
             return;
 

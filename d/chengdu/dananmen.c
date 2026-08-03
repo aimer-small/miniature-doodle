@@ -6,10 +6,10 @@ string look_gaoshi();
 
 void create()
 {
-	set("short", "´óÄÏÃÅ");
+	set("short", "å¤§å—é—¨");
 	set("long", @LONG
-ÕâÊÇ¾ÍÊÇ³É¶¼µÄÄÏ³ÇÃÅÁË¡£³É¶¼µØ´¦´¨ÖĞ£¬Ò»ÏòÉÙÓĞÕ½ÊÂÀ§ÈÅ£¬ËùÒÔºÜÉÙ
-¼ûµ½ÓĞÊ¿±ø¡£³ÇÃÅµÄÇ½ÉÏÕÅÌù×ÅÒ»Ö½¸æÊ¾(gaoshi)¡£
+è¿™æ˜¯å°±æ˜¯æˆéƒ½çš„å—åŸé—¨äº†ã€‚æˆéƒ½åœ°å¤„å·ä¸­ï¼Œä¸€å‘å°‘æœ‰æˆ˜äº‹å›°æ‰°ï¼Œæ‰€ä»¥å¾ˆå°‘
+è§åˆ°æœ‰å£«å…µã€‚åŸé—¨çš„å¢™ä¸Šå¼ è´´ç€ä¸€çº¸å‘Šç¤º(gaoshi)ã€‚
 LONG
 	);
 
@@ -24,13 +24,13 @@ LONG
 		"north" : __DIR__"nandajie2",
 		"south" : __DIR__"sroad1",
 	]));
-        set("outdoors", "³É¶¼");
+        set("outdoors", "æˆéƒ½");
 	set("incity",1);
 	setup();
 }
 
 string look_gaoshi()
 {
- 	return FINGER_D->get_killer() + "\nÒæÖİ´ÌÊ·\nË¾ÂíÔ¶\n";
+ 	return FINGER_D->get_killer() + "\nç›Šå·åˆºå²\nå¸é©¬è¿œ\n";
 }
 

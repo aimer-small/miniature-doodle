@@ -5,13 +5,13 @@ inherit ITEM;
 #include <ansi.h>
 void create()
 {
-       set_name(HIW"Óñçô"NOR, ({ "yu xi", "yuxi", "xi" }) );
+       set_name(HIW"çŽ‰çŽº"NOR, ({ "yu xi", "yuxi", "xi" }) );
        set_weight(100);
        if( clonep() )
                set_default_object(__FILE__);
       else {
-               set("unit", "¿é");
-               set("long", "ÕâÊÇÒ»¿é´óÑà¹úµÄ»Ê¼ÒÓñçô£¬È«ÉíÍ¸×ÅÁÁ°×É«,ÓñçôµÄÒ»±ßºÃÏóÓÐÒ»Ë¿ÁÑºÛ¡£\n");
+               set("unit", "å—");
+               set("long", "è¿™æ˜¯ä¸€å—å¤§ç‡•å›½çš„çš‡å®¶çŽ‰çŽºï¼Œå…¨èº«é€ç€äº®ç™½è‰²,çŽ‰çŽºçš„ä¸€è¾¹å¥½è±¡æœ‰ä¸€ä¸è£‚ç—•ã€‚\n");
                set("value", 100000);
                set("no_give",1);
                set("treasure",1);
@@ -34,17 +34,17 @@ int do_chou()
 	object me = this_player();
 	object ob = this_object();
 	if ( !present("yu xi",me) ) return 0;
-	if ( me->query_temp("Ä½ÈÝ/chou") < 1 ) {
+	if ( me->query_temp("æ…•å®¹/chou") < 1 ) {
 		if ( ob->query("count") > 0 ) {
                           new(__DIR__"paper1")->move(me);
-			message("vision","Äã°ÑÒ»ÕÅÖ½¾í´ÓÓñçôºóµÄÐ¡Ï¸·ìÖÐ³éÁË³öÀ´¡£\n",me);
-                        me->delete_temp("Ä½ÈÝ/chou");
+			message("vision","ä½ æŠŠä¸€å¼ çº¸å·ä»ŽçŽ‰çŽºåŽçš„å°ç»†ç¼ä¸­æŠ½äº†å‡ºæ¥ã€‚\n",me);
+                        me->delete_temp("æ…•å®¹/chou");
                         ob->add("count", -1);
 			return 1;
 		}
 		else {
-			write("Äã×ÐÏ¸µØ¿´ÁËÓñçô°ëÌì£¬µ«È´Ê²Ã´Ò²Ã»ÓÐÄÃµ½¡£\n",me);
-			me->delete_temp("Ä½ÈÝ/chou");
+			write("ä½ ä»”ç»†åœ°çœ‹äº†çŽ‰çŽºåŠå¤©ï¼Œä½†å´ä»€ä¹ˆä¹Ÿæ²¡æœ‰æ‹¿åˆ°ã€‚\n",me);
+			me->delete_temp("æ…•å®¹/chou");
 			return 1;
 		}
 		return 1;

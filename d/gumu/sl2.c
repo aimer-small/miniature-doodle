@@ -5,13 +5,13 @@ inherit ROOM;
 #include <room.h>
 void create()
 { 
-       set("short",HIB"ºÚÁÖ"NOR);
+       set("short",HIB"é»‘æ—"NOR);
        set("long", @LONG
-Ê÷ÁÖÀï²ÎÌì¹ÅÄ¾£¬ÕÚ±ÎÁË´ó²¿·ÖÈÕ¹â£¬µØÉÏ»ıÁËºñºñµÄÂäÒ¶²ĞÄ¾£¬¼ÓÖ®²»
-ÉÙĞ¡¶¯ÎïµÄÊ¬Ìå£¬¿ÕÆøÖĞÍ¸³ö¸¯³ôºÍÒÖÃÆ¡£Äã×ß×Å×ß×Å£¬±ãÃÔÊ§ÁËµÀÂ·¡£
+æ ‘æ—é‡Œå‚å¤©å¤æœ¨ï¼Œé®è”½äº†å¤§éƒ¨åˆ†æ—¥å…‰ï¼Œåœ°ä¸Šç§¯äº†åšåšçš„è½å¶æ®‹æœ¨ï¼ŒåŠ ä¹‹ä¸
+å°‘å°åŠ¨ç‰©çš„å°¸ä½“ï¼Œç©ºæ°”ä¸­é€å‡ºè…è‡­å’ŒæŠ‘é—·ã€‚ä½ èµ°ç€èµ°ç€ï¼Œä¾¿è¿·å¤±äº†é“è·¯ã€‚
 LONG
      );
-        set("outdoors","¹ÅÄ¹");
+        set("outdoors","å¤å¢“");
     
         set("exits", ([
                 "east" : __FILE__,
@@ -39,12 +39,12 @@ int valid_leave(object me, string dir)
         if (me->query_temp("mark/steps") == 6){
             me->move(__DIR__"shulin2");
             me->delete_temp("mark/steps");
-            return notify_fail("Äã¾«Æ£Á¦¾¡£¬ÖÕì¶×ß³öÁËºÚÁÖ¡£\n");
+            return notify_fail("ä½ ç²¾ç–²åŠ›å°½ï¼Œç»ˆæ–¼èµ°å‡ºäº†é»‘æ—ã€‚\n");
         } 
         if (me->query_temp("mark/steps") == -6){  
            me->move(__DIR__"shulin1");
            me->delete_temp("mark/steps");
-           return notify_fail("ÄãÀÛµÃ°ëËÀ£¬È´ÈÔÊÇ»Øµ½Ô­µØ¡£\n");
+           return notify_fail("ä½ ç´¯å¾—åŠæ­»ï¼Œå´ä»æ˜¯å›åˆ°åŸåœ°ã€‚\n");
         }
         return ::valid_leave(me,dir);
 }

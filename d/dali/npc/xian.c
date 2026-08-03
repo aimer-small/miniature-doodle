@@ -1,18 +1,18 @@
-// xian. ÙşÀÏ°å
+// xian. å†¼è€æ¿
 
 inherit NPC;
 inherit F_VENDOR;
 
 void create()
 {
-	set_name("Å·ÑôÀÏ°å", ({ "ouyang laoban", "ouyang" }));
-        set("title", "ÔÆÑ©Â¥¾ÆÂ¥ÀÏ°å");
+	set_name("æ¬§é˜³è€æ¿", ({ "ouyang laoban", "ouyang" }));
+        set("title", "äº‘é›ªæ¥¼é…’æ¥¼è€æ¿");
 	set("shen_type", 1);
 
 	set("str", 20);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
-        set("long", "Å·ÑôÀÏ°å¾­Óª×æ´«ÏÂÀ´µÄÔÆÑ©Â¥¾ÆÂ¥ÒÑÓĞ¶àÄê¡£\n");
+        set("long", "æ¬§é˜³è€æ¿ç»è¥ç¥–ä¼ ä¸‹æ¥çš„äº‘é›ªæ¥¼é…’æ¥¼å·²æœ‰å¤šå¹´ã€‚\n");
         set("combat_exp", 20000);
         set("qi", 300);
         set("max_qi", 300);

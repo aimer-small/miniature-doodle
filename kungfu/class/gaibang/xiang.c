@@ -1,4 +1,4 @@
-// xiang.c Ïî³¤ÀÏ
+// xiang.c é¡¹é•¿è€
 // Modify By Looklove 2000/10/21
 
 #include <ansi.h>
@@ -9,13 +9,13 @@ string ask_mantou();
 
 void create()
 {
-	set_name("Ïî³¤ÀÏ", ({"xiang zhanglao", "xiang" ,"zhanglao"}));
-	set("title", HIW"Ø¤°ï´«¹¦³¤ÀÏ"NOR);
+	set_name("é¡¹é•¿è€", ({"xiang zhanglao", "xiang" ,"zhanglao"}));
+	set("title", HIW"ä¸å¸®ä¼ åŠŸé•¿è€"NOR);
 	set("gb/bags",9);
 	set("mantou_count",30);
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 70);
-	set("long", "Ëû¿´ÆğÀ´²»Å­×ÔÍş¡£\n");
+	set("long", "ä»–çœ‹èµ·æ¥ä¸æ€’è‡ªå¨ã€‚\n");
 	set("attitude", "peaceful");
 	set("shen_type", 1);
 	set("str", 30);
@@ -59,12 +59,12 @@ void create()
         	(: exert_function, "huntian" :),
         }));
 
-	create_family("Ø¤°ï", 18, "´«¹¦³¤ÀÏ");
+	create_family("ä¸å¸®", 18, "ä¼ åŠŸé•¿è€");
 
 	set("inquiry", ([
-		"Ø¤°ï" : "ÎÒÃÇØ¤°ïÊÇÌìÏÂµÚÒ»´ó°ï£¡\n",
-		"ÇÇ·å" : "ÕæÊÇÒ»Î»ÁË²»ÆğµÄ´óÓ¢ĞÛ£¬¿ÉÏ§·ÇÎÒ×åÀà¡£\n",
-		"¸øÎÒÒ»¸öÂøÍ·³Ô" : (: ask_mantou :),
+		"ä¸å¸®" : "æˆ‘ä»¬ä¸å¸®æ˜¯å¤©ä¸‹ç¬¬ä¸€å¤§å¸®ï¼\n",
+		"ä¹”å³°" : "çœŸæ˜¯ä¸€ä½äº†ä¸èµ·çš„å¤§è‹±é›„ï¼Œå¯æƒœéæˆ‘æ—ç±»ã€‚\n",
+		"ç»™æˆ‘ä¸€ä¸ªé¦’å¤´åƒ" : (: ask_mantou :),
 	]));
 	setup();
 
@@ -77,29 +77,29 @@ void create()
 void attempt_apprentice(object ob)
 {
         if (ob->query("family/family_name")
-        && ob->query("family/family_name") != "Ø¤°ï") {
-                command("say Äã»¹ÊÇÈ¥±ğµÄÃÅÅÉ¿´¿´°É¡£");
+        && ob->query("family/family_name") != "ä¸å¸®") {
+                command("say ä½ è¿˜æ˜¯å»åˆ«çš„é—¨æ´¾çœ‹çœ‹å§ã€‚");
                 return;
 	}
         if ((int)ob->query("gb/bags") >= 2
-        && ob->query("family/family_name") != "Ø¤°ï" ) {
-                command("say Ø¤°ï¿ÉÈİ²»ÏÂÄãÕâÖÖ±³ĞÅÆúÒåµÄĞ¡ÈË£¡");
+        && ob->query("family/family_name") != "ä¸å¸®" ) {
+                command("say ä¸å¸®å¯å®¹ä¸ä¸‹ä½ è¿™ç§èƒŒä¿¡å¼ƒä¹‰çš„å°äººï¼");
                 command("kill "+ob->query("id"));
                 return;
         }
 
         if((int)ob->query_skill("huntian-qigong",1) < 100){
-		command("say »ìÌìÆø¹¦ÊÇØ¤°ï×æÉÏÁô´«µÄ¹¦·ò£¬Äã¶Ô´Ë×êÑĞ²»¹»°¡¡£\n");
+		command("say æ··å¤©æ°”åŠŸæ˜¯ä¸å¸®ç¥–ä¸Šç•™ä¼ çš„åŠŸå¤«ï¼Œä½ å¯¹æ­¤é’»ç ”ä¸å¤Ÿå•Šã€‚\n");
 		return;
 	}
-        command("say ºÃ°É£¬Ï£Íû" + RANK_D->query_respect(ob) +
-        "ÄÜºÃºÃÑ§Ï°±¾ÃÅÎä¹¦£¬½«À´ÔÚ½­ºşÖĞ´³³öÒ»·¬×÷Îª¡£");
+        command("say å¥½å§ï¼Œå¸Œæœ›" + RANK_D->query_respect(ob) +
+        "èƒ½å¥½å¥½å­¦ä¹ æœ¬é—¨æ­¦åŠŸï¼Œå°†æ¥åœ¨æ±Ÿæ¹–ä¸­é—¯å‡ºä¸€ç•ªä½œä¸ºã€‚");
 
         command("recruit " + ob->query("id"));
         if (!ob->query("gb/bags")) ob->set("gb/bags", 1);
-        ob->set("title",sprintf("Ø¤°ï×Ü¶æ%s´üµÜ×Ó",
+        ob->set("title",sprintf("ä¸å¸®æ€»èˆµ%sè¢‹å¼Ÿå­",
                 chinese_number(ob->query("gb/bags"))) );
-        ob->set("gb/fenduo","×Ü¶æ");
+        ob->set("gb/fenduo","æ€»èˆµ");
         ob->set("class","beggar");
 }
 
@@ -108,22 +108,22 @@ string ask_mantou()
         object me;
         me = this_player();
 
-        if (me->query("family/family_name") != "Ø¤°ï")
+        if (me->query("family/family_name") != "ä¸å¸®")
                 return RANK_D->query_respect(me) +
-                "·ÇÎÒØ¤°ïºÃºº£¬ËµÕâÖÖ»°²»¾õµÃĞß³ÜÂï£¿";
+                "éæˆ‘ä¸å¸®å¥½æ±‰ï¼Œè¯´è¿™ç§è¯ä¸è§‰å¾—ç¾è€»å˜›ï¼Ÿ";
 
         if (me->query("gb/bags") > 8)
                 return RANK_D->query_respect(me) +
-                "ÕâÖÖÉí·İ£¬ÔõÃ´ÄÜºÍÎÒÒª¶«Î÷³ÔÄØ£¿";
+                "è¿™ç§èº«ä»½ï¼Œæ€ä¹ˆèƒ½å’Œæˆ‘è¦ä¸œè¥¿åƒå‘¢ï¼Ÿ";
 
         if (present("mantou", me))
                 return RANK_D->query_respect(me) +
-                "Äã×Ô¼ºÊÖÀï²»ÊÇÓĞÂğ£¿È¥ËÀ°É£¡£¡£¡·¹Í°£¡";
+                "ä½ è‡ªå·±æ‰‹é‡Œä¸æ˜¯æœ‰å—ï¼Ÿå»æ­»å§ï¼ï¼ï¼é¥­æ¡¶ï¼";
 
-        if (query("mantou_count") < 1) return "ÎÒ½ñÌìÒ²Ã»ÓĞÌÖµ½ÂøÍ·£¬×Ô¼ºÈ¥ÌÖ°É¡£";
+        if (query("mantou_count") < 1) return "æˆ‘ä»Šå¤©ä¹Ÿæ²¡æœ‰è®¨åˆ°é¦’å¤´ï¼Œè‡ªå·±å»è®¨å§ã€‚";
 
         new(FOOD_D("mantou"))->move(me);
 	add("mantou_count", -1);
-        message_vision("$NµÃµ½Ò»¸öÀäÂøÍ·¡£\n",me);
-        return "ÄÃÈ¥³Ô°É£¬±ğÒ­µ½¡£";
+        message_vision("$Nå¾—åˆ°ä¸€ä¸ªå†·é¦’å¤´ã€‚\n",me);
+        return "æ‹¿å»åƒå§ï¼Œåˆ«å™åˆ°ã€‚";
 }	

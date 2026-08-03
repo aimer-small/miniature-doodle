@@ -8,10 +8,10 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : abdicate/chanrang to [Íæ¼Òid]
-°Ñ×Ô¼ºµÄ°ïÖ÷Î»ÖÃìøÈÃ¸ø×Ô¼º°ïÅÉÀïµÄÆäËûÍæ¼Ò¡£
-ìøÈÃµÄ¶ÔÏó±ØĞë·ûºÏ°ïÖ÷µÄ¾­ÑéÒªÇó¡£
-ìøÈÃºó£¬Ô­Ê×ÁìÃ»ÓĞ¾­ÑéËğÊ§¡£
+æŒ‡ä»¤æ ¼å¼ : abdicate/chanrang to [ç©å®¶id]
+æŠŠè‡ªå·±çš„å¸®ä¸»ä½ç½®ç¦…è®©ç»™è‡ªå·±å¸®æ´¾é‡Œçš„å…¶ä»–ç©å®¶ã€‚
+ç¦…è®©çš„å¯¹è±¡å¿…é¡»ç¬¦åˆå¸®ä¸»çš„ç»éªŒè¦æ±‚ã€‚
+ç¦…è®©åï¼ŒåŸé¦–é¢†æ²¡æœ‰ç»éªŒæŸå¤±ã€‚
 HELP
 	);
 	return 1;
@@ -24,18 +24,18 @@ int main(object me, string arg)
 
 	if( !arg || sscanf(arg,"to %s",arg) < 1 ) return help(me);
 	if( !(gid=me->query("group/id")) )
-		return notify_fail("Äã»¹Ã»ÓĞ¼ÓÈë°ïÅÉÄØ¡£\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰åŠ å…¥å¸®æ´¾å‘¢ã€‚\n");
 	str = GROUP_D->get_member_class(gid,1);
 	if( me->query("group/class") != 1 )
-		return notify_fail("ÄãÓÖ²»ÊÇ"+str+"£¬ÈçºÎìøÎ»£¿\n");
+		return notify_fail("ä½ åˆä¸æ˜¯"+str+"ï¼Œå¦‚ä½•ç¦…ä½ï¼Ÿ\n");
 	if( me->query("id") == arg )
-		return notify_fail("×Ô¼ºìøÎ»¸ø×Ô¼º£¿\n");
+		return notify_fail("è‡ªå·±ç¦…ä½ç»™è‡ªå·±ï¼Ÿ\n");
 	if( !arg || !(ob=find_player(arg)) )
-		return notify_fail("ÕÒ²»µ½ÒªìøÈÃµÄÈË°¡¡£\n");
+		return notify_fail("æ‰¾ä¸åˆ°è¦ç¦…è®©çš„äººå•Šã€‚\n");
 	if( ob->query("group/id") != gid )
-		return notify_fail(ob->name()+"²¢²»ÊÇÄãÃÇ"+GROUP_D->query_group_name(gid)+"µÄ³ÉÔ±°¡¡£\n");
+		return notify_fail(ob->name()+"å¹¶ä¸æ˜¯ä½ ä»¬"+GROUP_D->query_group_name(gid)+"çš„æˆå‘˜å•Šã€‚\n");
 	if( ob->query("combat_exp") < EXP_REQUIRE )
-		return notify_fail(ob->name()+"µÄ×ÊÀú²»¹»£¬ìøÎ»ÓÚËû¿ÖÅÂÄÑÒÔ·üÖÚ¡£\n");
+		return notify_fail(ob->name()+"çš„èµ„å†ä¸å¤Ÿï¼Œç¦…ä½äºä»–ææ€•éš¾ä»¥ä¼ä¼—ã€‚\n");
 
 	if( !GROUP_D->set_group_master(gid,arg,0) )
 		return notify_fail( GROUP_D->get_last_error() );
@@ -50,9 +50,9 @@ int main(object me, string arg)
 	GROUP_D->check_user_group(me);
 	GROUP_D->check_user_group(ob);
 
-	tell_object(me,"Äã¾ö¶¨°Ñ"+str+"Ö®Î»ìøÈÃ¸ø"+ob->name()+"¡£\n");
-	tell_object(ob,me->name()+"¾ö¶¨°Ñ"+str+"Ö®Î»ìøÈÃ¸øÄã¡£\n");
-	CHANNEL_D->do_channel(this_object(),"rumor",HIM"¾İËµ"+me->name()+HIM+"ÒÑ¾­°Ñ"+GROUP_D->get_group_name(gid)+HIM"µÄ"+str+HIM"Ö®Î»ìøÈÃ¸ø"+ob->name()+HIM"ÁË¡£"NOR);
+	tell_object(me,"ä½ å†³å®šæŠŠ"+str+"ä¹‹ä½ç¦…è®©ç»™"+ob->name()+"ã€‚\n");
+	tell_object(ob,me->name()+"å†³å®šæŠŠ"+str+"ä¹‹ä½ç¦…è®©ç»™ä½ ã€‚\n");
+	CHANNEL_D->do_channel(this_object(),"rumor",HIM"æ®è¯´"+me->name()+HIM+"å·²ç»æŠŠ"+GROUP_D->get_group_name(gid)+HIM"çš„"+str+HIM"ä¹‹ä½ç¦…è®©ç»™"+ob->name()+HIM"äº†ã€‚"NOR);
 	log_file("group/manage",sprintf("abdicate:%s:%s(%s):%s(%s)",gid,me->name(),me->query("id"),ob->name(),ob->query("id")),me);
 
 	return 1;

@@ -9,17 +9,17 @@ string ask_me();
 
 void create()
 {
-	set_name("µÀ¹ûìøÊ¦", ({
+	set_name("é“æœç¦…å¸ˆ", ({
 		"daoguo chanshi",
 		"daoguo",
 		"chanshi",
 	}));
 	set("long",
-		"ËûÊÇÒ»Î»Éí²Ä¸ß´óµÄÖĞÄêÉ®ÈË£¬Á½±Û´Ö×³£¬°òÀ«ÑüÔ²¡£ËûÊÖ³Ö±ø\n"
-		"ÈĞ£¬Éí´©Ò»Ï®»Ò²¼Ïâ±ßôÂôÄ£¬ËÆºõÓĞÒ»ÉíÎäÒÕ¡£\n"
+		"ä»–æ˜¯ä¸€ä½èº«æé«˜å¤§çš„ä¸­å¹´åƒ§äººï¼Œä¸¤è‡‚ç²—å£®ï¼Œè†€é˜”è…°åœ†ã€‚ä»–æ‰‹æŒå…µ\n"
+		"åˆƒï¼Œèº«ç©¿ä¸€è¢­ç°å¸ƒé•¶è¾¹è¢ˆè£Ÿï¼Œä¼¼ä¹æœ‰ä¸€èº«æ­¦è‰ºã€‚\n"
 	);
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "friendly");
 	set("class", "bonze");
 
@@ -57,11 +57,11 @@ void create()
 
 	prepare_skill("strike", "banruo-zhang");
 
-	create_family("ÉÙÁÖÅÉ", 39, "µÜ×Ó");
+	create_family("å°‘æ—æ´¾", 39, "å¼Ÿå­");
 
 	set("inquiry", ([
 		
-		"ĞŞÀí"	   : (: ask_me :)
+		"ä¿®ç†"	   : (: ask_me :)
 		
 	]));
 
@@ -102,7 +102,7 @@ int repairing_1(object me, object ob)
 {
 	if ( !present(ob, environment()) ) return 1; 
 
-	command("say ÊÇÕâ¸öÄ¾ÈË°É£¿ ßí£¬ÎÒÀ´ÇÆÇÆ£¡ ÄãÔÚ±ßÉÏ´ô×Å£¬¿´ÄÜ°ïÎÒÊ²Ã´Ã¦¡£");
+	command("say æ˜¯è¿™ä¸ªæœ¨äººå§ï¼Ÿ å””ï¼Œæˆ‘æ¥ç§ç§ï¼ ä½ åœ¨è¾¹ä¸Šå‘†ç€ï¼Œçœ‹èƒ½å¸®æˆ‘ä»€ä¹ˆå¿™ã€‚");
 	
 	remove_call_out("repairing_2");
 	call_out("repairing_2", 2+random(3), me, ob);
@@ -116,16 +116,16 @@ int repairing_2(object me, object ob)
 
 	if( ob->query("damaged") )
 	{
-		message_vision(GRN "\nµÀ¹ûìøÊ¦¶Ô×ÅÄ¾ÈËÇÆÁËÒ»»á£¬ÓÖÊÔ×Å°â¶¯Ä¾ÈËµÄËÄÖ«ºÍÄÔ´ü£¬×ìÀïà«à«Äîß¶×ÅÊ²Ã´¡£\n\n" NOR, me);
+		message_vision(GRN "\né“æœç¦…å¸ˆå¯¹ç€æœ¨äººç§äº†ä¸€ä¼šï¼Œåˆè¯•ç€æ‰³åŠ¨æœ¨äººçš„å››è‚¢å’Œè„‘è¢‹ï¼Œå˜´é‡Œå–ƒå–ƒå¿µå¨ç€ä»€ä¹ˆã€‚\n\n" NOR, me);
 		remove_call_out("repairing_3");
 		call_out("repairing_3", 2+random(2), me, ob);
 	}
 	else
 	{
-		command("say ÕâÄ¾ÈËºÃ¶Ë¶ËµØÓÖÃ»»µ£¡ »¹´óÀÏÔ¶µØÍÏ×ÅÎÒ¹ıÀ´£¡");
+		command("say è¿™æœ¨äººå¥½ç«¯ç«¯åœ°åˆæ²¡åï¼ è¿˜å¤§è€è¿œåœ°æ‹–ç€æˆ‘è¿‡æ¥ï¼");
 		command("follow none");
 
-		message_vision(GRN "\nµÀ¹ûìøÊ¦Æø¹Ä¹ÄµØ×ßÁË¡£\n" NOR, me);
+		message_vision(GRN "\né“æœç¦…å¸ˆæ°”é¼“é¼“åœ°èµ°äº†ã€‚\n" NOR, me);
 		me->move("/d/shaolin/twdian");
 
 		remove_call_out("do_back");
@@ -137,8 +137,8 @@ int repairing_2(object me, object ob)
 	
 int repairing_3(object me, object ob)
 {
-	command("say ßí£¬Ô­À´Èç´Ë£¬ÎÒÀ´ĞŞĞŞ¿´°É£¡");
-	message_vision(GRN "\nËû½Ó×Å´Ó»³ÀïÌÍ³öÒ»´ó¶Ñ¹¤¾ßÀ´£¬´ò¿ªÄ¾ÈËµÄÉíÌå£¬°ÚÅªÁË¼¸ÏÂ¡£\n\n" NOR, me);
+	command("say å””ï¼ŒåŸæ¥å¦‚æ­¤ï¼Œæˆ‘æ¥ä¿®ä¿®çœ‹å§ï¼");
+	message_vision(GRN "\nä»–æ¥ç€ä»æ€€é‡Œæå‡ºä¸€å¤§å †å·¥å…·æ¥ï¼Œæ‰“å¼€æœ¨äººçš„èº«ä½“ï¼Œæ‘†å¼„äº†å‡ ä¸‹ã€‚\n\n" NOR, me);
 
 	remove_call_out("repairing_4");
 	call_out("repairing_4", 3+random(3), me, ob);
@@ -150,19 +150,19 @@ int repairing_4(object me, object ob)
 {
 	if( random(2) == 0 ) 
 	{		
-		command("say ºÃ£¬ĞŞºÃÁË£¡");
+		command("say å¥½ï¼Œä¿®å¥½äº†ï¼");
 		ob->delete("damaged");
 		ob->set("fight_times", 0);	
-		message_vision(GRN "\nÄ¾ÈËµÄÉíÌåÖ¨Ö¨µØÅ¤¶¯ÁË¼¸ÏÂ£¬»Ö¸´ÁËÕı³£Õ¾Á¢µÄ×ËÌ¬¡£\n\n" NOR, me);
+		message_vision(GRN "\næœ¨äººçš„èº«ä½“å±å±åœ°æ‰­åŠ¨äº†å‡ ä¸‹ï¼Œæ¢å¤äº†æ­£å¸¸ç«™ç«‹çš„å§¿æ€ã€‚\n\n" NOR, me);
 	}
 	else 
-		message_vision(GRN "\nµÀ¹ûìøÊ¦Ì¾ÁË¿ÚÆø£¬ËµµÀ£º¿´À´²»ĞĞ£¬ÕâÄ¾ÈËËğ»µµÃÌ«À÷º¦ÁË£¬Ã»·¨×ÓĞŞÁË£¡\n" NOR, me);
+		message_vision(GRN "\né“æœç¦…å¸ˆå¹äº†å£æ°”ï¼Œè¯´é“ï¼šçœ‹æ¥ä¸è¡Œï¼Œè¿™æœ¨äººæŸåå¾—å¤ªå‰å®³äº†ï¼Œæ²¡æ³•å­ä¿®äº†ï¼\n" NOR, me);
 
-	command("say ºÃ£¬ÄÇÎÒ×ßÁË£¡");
+	command("say å¥½ï¼Œé‚£æˆ‘èµ°äº†ï¼");
 	command("wave");
 	command("follow none");
 
-	message_vision(GRN "\nµÀ¹ûìøÊ¦×ßÁË³öÈ¥¡£\n" NOR, me);
+	message_vision(GRN "\né“æœç¦…å¸ˆèµ°äº†å‡ºå»ã€‚\n" NOR, me);
 	me->move("/d/shaolin/twdian");
 
 	remove_call_out("do_back");
@@ -175,7 +175,7 @@ int repairing_5(object me, object ob)
 {
 	if ( !present(ob, environment()) ) return 1; 
 
-	command("say ÊÇÕâ¸öÍ­ÈË°É£¿ ßí£¬ÎÒÀ´ÇÆÇÆ£¡ ÄãÔÚ±ßÉÏ´ô×Å£¬¿´ÄÜ°ïÎÒÊ²Ã´Ã¦¡£");
+	command("say æ˜¯è¿™ä¸ªé“œäººå§ï¼Ÿ å””ï¼Œæˆ‘æ¥ç§ç§ï¼ ä½ åœ¨è¾¹ä¸Šå‘†ç€ï¼Œçœ‹èƒ½å¸®æˆ‘ä»€ä¹ˆå¿™ã€‚");
 	
 	remove_call_out("repairing_6");
 	call_out("repairing_6", 2+random(3), me, ob);
@@ -189,16 +189,16 @@ int repairing_6(object me, object ob)
 
 	if( ob->query("damaged") )
 	{
-		message_vision(BLU "\nµÀ¹ûìøÊ¦¶Ô×ÅÍ­ÈËÇÆÁËÒ»»á£¬ÓÖÊÔ×Å°â¶¯Í­ÈËµÄËÄÖ«ºÍÄÔ´ü£¬×ìÀïà«à«Äîß¶×ÅÊ²Ã´¡£\n\n" NOR, me);
+		message_vision(BLU "\né“æœç¦…å¸ˆå¯¹ç€é“œäººç§äº†ä¸€ä¼šï¼Œåˆè¯•ç€æ‰³åŠ¨é“œäººçš„å››è‚¢å’Œè„‘è¢‹ï¼Œå˜´é‡Œå–ƒå–ƒå¿µå¨ç€ä»€ä¹ˆã€‚\n\n" NOR, me);
 		remove_call_out("repairing_7");
 		call_out("repairing_7", 2+random(2), me, ob);
 	}
 	else
 	{
-		command("say ÕâÍ­ÈËºÃ¶Ë¶ËµØÓÖÃ»»µ£¡ »¹´óÀÏÔ¶µØÍÏ×ÅÎÒ¹ıÀ´£¡");
+		command("say è¿™é“œäººå¥½ç«¯ç«¯åœ°åˆæ²¡åï¼ è¿˜å¤§è€è¿œåœ°æ‹–ç€æˆ‘è¿‡æ¥ï¼");
 		command("follow none");
 
-		message_vision(BLU "\nµÀ¹ûìøÊ¦Æø¹Ä¹ÄµØ×ßÁË¡£\n" NOR, me);
+		message_vision(BLU "\né“æœç¦…å¸ˆæ°”é¼“é¼“åœ°èµ°äº†ã€‚\n" NOR, me);
 		me->move("/d/shaolin/twdian");
 
 		remove_call_out("do_back");
@@ -210,8 +210,8 @@ int repairing_6(object me, object ob)
 	
 int repairing_7(object me, object ob)
 {
-	command("say ßí£¬Ô­À´Èç´Ë£¬ÎÒÀ´ĞŞĞŞ¿´°É£¡");
-	message_vision(BLU "\nËû½Ó×Å´Ó»³ÀïÌÍ³öÒ»´ó¶Ñ¹¤¾ßÀ´£¬´ò¿ªÍ­ÈËµÄÉíÌå£¬°ÚÅªÁË¼¸ÏÂ¡£\n\n" NOR, me);
+	command("say å””ï¼ŒåŸæ¥å¦‚æ­¤ï¼Œæˆ‘æ¥ä¿®ä¿®çœ‹å§ï¼");
+	message_vision(BLU "\nä»–æ¥ç€ä»æ€€é‡Œæå‡ºä¸€å¤§å †å·¥å…·æ¥ï¼Œæ‰“å¼€é“œäººçš„èº«ä½“ï¼Œæ‘†å¼„äº†å‡ ä¸‹ã€‚\n\n" NOR, me);
 
 	remove_call_out("repairing_8");
 	call_out("repairing_8", 3+random(3), me, ob);
@@ -223,19 +223,19 @@ int repairing_8(object me, object ob)
 {
 	if( random(2) == 0 ) 
 	{		
-		command("say ºÃ£¬ĞŞºÃÁË£¡");
+		command("say å¥½ï¼Œä¿®å¥½äº†ï¼");
 		ob->delete("damaged");
 		ob->set("fight_times", 0);	
-		message_vision(BLU "\nÍ­ÈËµÄÉíÌåÖ¨Ö¨µØÅ¤¶¯ÁË¼¸ÏÂ£¬»Ö¸´ÁËÕı³£Õ¾Á¢µÄ×ËÌ¬¡£\n\n" NOR, me);
+		message_vision(BLU "\né“œäººçš„èº«ä½“å±å±åœ°æ‰­åŠ¨äº†å‡ ä¸‹ï¼Œæ¢å¤äº†æ­£å¸¸ç«™ç«‹çš„å§¿æ€ã€‚\n\n" NOR, me);
 	}
 	else 
-		message_vision(BLU "\nµÀ¹ûìøÊ¦Ì¾ÁË¿ÚÆø£¬ËµµÀ£º¿´À´²»ĞĞ£¬ÕâÍ­ÈËËğ»µµÃÌ«À÷º¦ÁË£¬Ã»·¨×ÓĞŞÁË£¡\n" NOR, me);
+		message_vision(BLU "\né“æœç¦…å¸ˆå¹äº†å£æ°”ï¼Œè¯´é“ï¼šçœ‹æ¥ä¸è¡Œï¼Œè¿™é“œäººæŸåå¾—å¤ªå‰å®³äº†ï¼Œæ²¡æ³•å­ä¿®äº†ï¼\n" NOR, me);
 
-	command("say ºÃ£¬ÄÇÎÒ×ßÁË£¡");
+	command("say å¥½ï¼Œé‚£æˆ‘èµ°äº†ï¼");
 	command("wave");
 	command("follow none");
 
-	message_vision(BLU "\nµÀ¹ûìøÊ¦×ßÁË³öÈ¥¡£\n" NOR, me);
+	message_vision(BLU "\né“æœç¦…å¸ˆèµ°äº†å‡ºå»ã€‚\n" NOR, me);
 	me->move("/d/shaolin/twdian");
 
 	remove_call_out("do_back");
@@ -248,7 +248,7 @@ int repairing_9(object me, object ob)
 {
 	if ( !present(ob, environment()) ) return 1; 
 
-	command("say ÊÇÕâ¸ö½ğÈË°É£¿ ßí£¬ÎÒÀ´ÇÆÇÆ£¡ ÄãÔÚ±ßÉÏ´ô×Å£¬¿´ÄÜ°ïÎÒÊ²Ã´Ã¦¡£");
+	command("say æ˜¯è¿™ä¸ªé‡‘äººå§ï¼Ÿ å””ï¼Œæˆ‘æ¥ç§ç§ï¼ ä½ åœ¨è¾¹ä¸Šå‘†ç€ï¼Œçœ‹èƒ½å¸®æˆ‘ä»€ä¹ˆå¿™ã€‚");
 	
 	remove_call_out("repairing_10");
 	call_out("repairing_10", 2+random(3), me, ob);
@@ -262,16 +262,16 @@ int repairing_10(object me, object ob)
 
 	if( ob->query("damaged") )
 	{
-		message_vision(HIY "\nµÀ¹ûìøÊ¦¶Ô×Å½ğÈËÇÆÁËÒ»»á£¬ÓÖÊÔ×Å°â¶¯½ğÈËµÄËÄÖ«ºÍÄÔ´ü£¬×ìÀïà«à«Äîß¶×ÅÊ²Ã´¡£\n\n" NOR, me);
+		message_vision(HIY "\né“æœç¦…å¸ˆå¯¹ç€é‡‘äººç§äº†ä¸€ä¼šï¼Œåˆè¯•ç€æ‰³åŠ¨é‡‘äººçš„å››è‚¢å’Œè„‘è¢‹ï¼Œå˜´é‡Œå–ƒå–ƒå¿µå¨ç€ä»€ä¹ˆã€‚\n\n" NOR, me);
 		remove_call_out("repairing_11");
 		call_out("repairing_11", 2+random(2), me, ob);
 	}
 	else
 	{
-		command("say Õâ½ğÈËºÃ¶Ë¶ËµØÓÖÃ»»µ£¡ »¹´óÀÏÔ¶µØÍÏ×ÅÎÒ¹ıÀ´£¡");
+		command("say è¿™é‡‘äººå¥½ç«¯ç«¯åœ°åˆæ²¡åï¼ è¿˜å¤§è€è¿œåœ°æ‹–ç€æˆ‘è¿‡æ¥ï¼");
 		command("follow none");
 
-		message_vision(HIY "\nµÀ¹ûìøÊ¦Æø¹Ä¹ÄµØ×ßÁË¡£\n" NOR, me);
+		message_vision(HIY "\né“æœç¦…å¸ˆæ°”é¼“é¼“åœ°èµ°äº†ã€‚\n" NOR, me);
 		me->move("/d/shaolin/twdian");
 
 		remove_call_out("do_back");
@@ -283,8 +283,8 @@ int repairing_10(object me, object ob)
 	
 int repairing_11(object me, object ob)
 {
-	command("say ßí£¬Ô­À´Èç´Ë£¬ÎÒÀ´ĞŞĞŞ¿´°É£¡");
-	message_vision(HIY "\nËû½Ó×Å´Ó»³ÀïÌÍ³öÒ»´ó¶Ñ¹¤¾ßÀ´£¬´ò¿ª½ğÈËµÄÉíÌå£¬°ÚÅªÁË¼¸ÏÂ¡£\n\n" NOR, me);
+	command("say å””ï¼ŒåŸæ¥å¦‚æ­¤ï¼Œæˆ‘æ¥ä¿®ä¿®çœ‹å§ï¼");
+	message_vision(HIY "\nä»–æ¥ç€ä»æ€€é‡Œæå‡ºä¸€å¤§å †å·¥å…·æ¥ï¼Œæ‰“å¼€é‡‘äººçš„èº«ä½“ï¼Œæ‘†å¼„äº†å‡ ä¸‹ã€‚\n\n" NOR, me);
 
 	remove_call_out("repairing_12");
 	call_out("repairing_12", 3+random(3), me, ob);
@@ -296,19 +296,19 @@ int repairing_12(object me, object ob)
 {
 	if( random(2) == 0 ) 
 	{		
-		command("say ºÃ£¬ĞŞºÃÁË£¡");
+		command("say å¥½ï¼Œä¿®å¥½äº†ï¼");
 		ob->delete("damaged");
 		ob->set("fight_times", 0);	
-		message_vision(HIY "\n½ğÈËµÄÉíÌåÖ¨Ö¨µØÅ¤¶¯ÁË¼¸ÏÂ£¬»Ö¸´ÁËÕı³£Õ¾Á¢µÄ×ËÌ¬¡£\n\n" NOR, me);
+		message_vision(HIY "\né‡‘äººçš„èº«ä½“å±å±åœ°æ‰­åŠ¨äº†å‡ ä¸‹ï¼Œæ¢å¤äº†æ­£å¸¸ç«™ç«‹çš„å§¿æ€ã€‚\n\n" NOR, me);
 	}
 	else 
-		message_vision(HIY "\nµÀ¹ûìøÊ¦Ì¾ÁË¿ÚÆø£¬ËµµÀ£º¿´À´²»ĞĞ£¬Õâ½ğÈËËğ»µµÃÌ«À÷º¦ÁË£¬Ã»·¨×ÓĞŞÁË£¡\n" NOR, me);
+		message_vision(HIY "\né“æœç¦…å¸ˆå¹äº†å£æ°”ï¼Œè¯´é“ï¼šçœ‹æ¥ä¸è¡Œï¼Œè¿™é‡‘äººæŸåå¾—å¤ªå‰å®³äº†ï¼Œæ²¡æ³•å­ä¿®äº†ï¼\n" NOR, me);
 
-	command("say ºÃ£¬ÄÇÎÒ×ßÁË£¡");
+	command("say å¥½ï¼Œé‚£æˆ‘èµ°äº†ï¼");
 	command("wave");
 	command("follow none");
 
-	message_vision(HIY "\nµÀ¹ûìøÊ¦×ßÁË³öÈ¥¡£\n" NOR, me);
+	message_vision(HIY "\né“æœç¦…å¸ˆèµ°äº†å‡ºå»ã€‚\n" NOR, me);
 	me->move("/d/shaolin/twdian");
 
 	remove_call_out("do_back");
@@ -330,12 +330,12 @@ string ask_me()
 
 	ob = this_player();
 	
-	if (!(fam = ob->query("family")) || fam["family_name"] != "ÉÙÁÖÅÉ")
+	if (!(fam = ob->query("family")) || fam["family_name"] != "å°‘æ—æ´¾")
 		return RANK_D->query_respect(ob) + 
-		"Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿";
+		"ä¸æœ¬æ´¾ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»ä½•è°ˆèµ·ï¼Ÿ";
 
-	command("say ´ò»µÁËÊÇ°É£¿ ºÃ°É£¬ÎÒ¸úÄãÈ¥¿´¿´¡£");
+	command("say æ‰“åäº†æ˜¯å§ï¼Ÿ å¥½å§ï¼Œæˆ‘è·Ÿä½ å»çœ‹çœ‹ã€‚");
 	command("follow " + ob->query("id"));
 
-	return "ÎÒÃÇ×ß°Õ£¡";
+	return "æˆ‘ä»¬èµ°ç½¢ï¼";
 }

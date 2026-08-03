@@ -1,5 +1,5 @@
 //qujian.c
-//by spiderii@ty²ÎÕÕSJ±àÐ´
+//by spiderii@tyå‚ç…§SJç¼–å†™
 
 #include <ansi.h>
 
@@ -16,30 +16,30 @@ int perform(object me, object target)
 	 || !target->is_character()
 	 || !me->is_fighting(target)
 	 || !living(target) )
-		return notify_fail("¡¸È¥¼çÊ½¡¹Ö»ÄÜ¶ÔÕ½¶·ÖÐµÄ¶ÔÊÖÊ¹ÓÃ¡£\n");
+		return notify_fail("ã€ŒåŽ»è‚©å¼ã€åªèƒ½å¯¹æˆ˜æ–—ä¸­çš„å¯¹æ‰‹ä½¿ç”¨ã€‚\n");
 
 	
     if( (int)me->query_skill("tangshi-jianfa", 1) < 150 ) 
-                return notify_fail("ÄãµÄÌÉÊ¬½£·¨»¹Î´Á·³É£¬ÎÞ·¨Ê¹ÓÃ¡¸È¥¼ç¡¹×Ö¾÷£¡\n");
+                return notify_fail("ä½ çš„èººå°¸å‰‘æ³•è¿˜æœªç»ƒæˆï¼Œæ— æ³•ä½¿ç”¨ã€ŒåŽ»è‚©ã€å­—è¯€ï¼\n");
 
     if((int)me->query_skill("sword", 1) < 150 )
-                return notify_fail("ÄãµÄ»ù±¾½£·¨²»¹»æµÊì£¬²»ÄÜÊ¹ÓÃ¡¸È¥¼ç¡¹×Ö¾÷£¡\n");
+                return notify_fail("ä½ çš„åŸºæœ¬å‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œä¸èƒ½ä½¿ç”¨ã€ŒåŽ»è‚©ã€å­—è¯€ï¼\n");
 
     if (!objectp(weapon = me->query_temp("weapon")) || weapon->query("skill_type") != "sword"
         || me->query_skill_mapped("sword") != "tangshi-jianfa")
-                return notify_fail("Äã±ØÐëÊ¹ÓÃ½£·¨£¬²ÅÄÜÊ¹³ö¡¸È¥¼ç¡¹×Ö¾÷!\n");
+                return notify_fail("ä½ å¿…é¡»ä½¿ç”¨å‰‘æ³•ï¼Œæ‰èƒ½ä½¿å‡ºã€ŒåŽ»è‚©ã€å­—è¯€!\n");
 
     if(!objectp(weapon2 = target->query_temp("weapon")))
-                return notify_fail("¶Ô·½ÏÖÔÚ²¢Ã»ÓÐÊ¹ÓÃÎäÆ÷!\n");
+                return notify_fail("å¯¹æ–¹çŽ°åœ¨å¹¶æ²¡æœ‰ä½¿ç”¨æ­¦å™¨!\n");
 
    if(me->query_skill_mapped("parry") != "tangshi-jianfa")
-           return notify_fail("¡¸È¥¼ç¡¹×Ö¾÷ÐèÒªÊ¹ÓÃÌÉÊ¬½£·¨ÕÐ¼ÜÒ»ÇÐµÐ·½¹¥»÷¡£\n"); 
+           return notify_fail("ã€ŒåŽ»è‚©ã€å­—è¯€éœ€è¦ä½¿ç”¨èººå°¸å‰‘æ³•æ‹›æž¶ä¸€åˆ‡æ•Œæ–¹æ”»å‡»ã€‚\n"); 
 
    if((int)me->query("max_neili") < 2500 )
-           return notify_fail("ÄãÄÚÁ¦ÐÞÎªÉÐÇ³£¬Ê¹²»³ö¡¸È¥¼ç¡¹×Ö¾÷¡£\n");  
+           return notify_fail("ä½ å†…åŠ›ä¿®ä¸ºå°šæµ…ï¼Œä½¿ä¸å‡ºã€ŒåŽ»è‚©ã€å­—è¯€ã€‚\n");  
 
    if( (int)me->query("neili") < 500 )
-           return notify_fail("ÄãÏÖÔÚÕæÆøÌ«Èõ£¬Ê¹²»³ö¡¸È¥¼ç¡¹×Ö¾÷¡£\n");
+           return notify_fail("ä½ çŽ°åœ¨çœŸæ°”å¤ªå¼±ï¼Œä½¿ä¸å‡ºã€ŒåŽ»è‚©ã€å­—è¯€ã€‚\n");
 
 
 	j = lvl/3;
@@ -60,23 +60,23 @@ int perform(object me, object target)
 	me->start_busy(random(2));
 	me->add("neili", -300);
 	me->add("jingli", -100);
-	me->start_perform(4, "¡¸È¥¼çÊ½¡¹");
+	me->start_perform(4, "ã€ŒåŽ»è‚©å¼ã€");
 	return 1;
 }
 
-string perform_name(){ return HIW"È¥¼çÊ½"NOR; }
+string perform_name(){ return HIW"åŽ»è‚©å¼"NOR; }
 
 int help(object me)
 {
-        write(HIW"\nÌÉÊ¬½£·¨Ö®¡¸È¥¼çÊ½¡¹£º"NOR"\n\n");
+        write(HIW"\nèººå°¸å‰‘æ³•ä¹‹ã€ŒåŽ»è‚©å¼ã€ï¼š"NOR"\n\n");
         write(@HELP
-       ÌÉÊ¬½£·¨¼«Æä¾«ÃîµÄÒ»ÕÐ¡£
+       èººå°¸å‰‘æ³•æžå…¶ç²¾å¦™çš„ä¸€æ‹›ã€‚
 
-¡¡¡¡¡¡¡¡ÒªÇó£º¡¡µ±Ç°ÄÚÁ¦ 2500 ÒÔÉÏ£»
-¡¡¡¡¡¡¡¡¡¡¡¡    ×î´óÄÚÁ¦ 500 ÒÔÉÏ£»
-¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ÌÉÊ¬½£·¨µÈ¼¶ 150 ÒÔÉÏ£»
-¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡»ù±¾½£·¨µÈ¼¶ 150 ÒÔÉÏ£»
-¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¼¤·¢ÕÐ¼ÜÎªÌÉÊ¬½£·¨¡£
+ã€€ã€€ã€€ã€€è¦æ±‚ï¼šã€€å½“å‰å†…åŠ› 2500 ä»¥ä¸Šï¼›
+ã€€ã€€ã€€ã€€ã€€ã€€    æœ€å¤§å†…åŠ› 500 ä»¥ä¸Šï¼›
+ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€èººå°¸å‰‘æ³•ç­‰çº§ 150 ä»¥ä¸Šï¼›
+ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€åŸºæœ¬å‰‘æ³•ç­‰çº§ 150 ä»¥ä¸Šï¼›
+ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€æ¿€å‘æ‹›æž¶ä¸ºèººå°¸å‰‘æ³•ã€‚
 
 HELP
         );

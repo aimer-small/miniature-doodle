@@ -1,15 +1,15 @@
-// /d/gb/xiaodao.c Ğ¡Â· for job
+// /d/gb/xiaodao.c å°è·¯ for job
 
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-	set("short", "Ğ¡Â·");
+	set("short", "å°è·¯");
 	set("long", @LONG
-ÕâÊÇÒ»ÌõÁÖ¼äĞ¡Â·£¬ÈË¼£º±ÖÁ£¬·Ç³£»ÄÁ¹¡£ËÄÏÂÀï²»Ê±´«À´Ò°ÊŞµÄ½ĞÉù¡£
+è¿™æ˜¯ä¸€æ¡æ—é—´å°è·¯ï¼Œäººè¿¹ç½•è‡³ï¼Œéå¸¸è’å‡‰ã€‚å››ä¸‹é‡Œä¸æ—¶ä¼ æ¥é‡å…½çš„å«å£°ã€‚
 LONG
         );
-	set("outdoors", "»ÆºÓ");
+	set("outdoors", "é»„æ²³");
 
 	set("exits", ([
 		"northup" : __DIR__"yading",

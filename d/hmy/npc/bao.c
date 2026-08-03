@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("±«´ó³ş", ({ "bao dachu", "bao", "dachu"}));
-        set("long", "Ò»¸öÉí²ÄÊİÏ÷µÄÀÏÕß£¬ÒÀÏàÃ²¸ù±¾¿´²»³öËûÊÇÉí»³¾øÒÕµÄ¸ßÊÖ¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "RED"ÖìÈ¸ÌÃÌÃÖ÷"NOR);
-        set("gender", "ÄĞĞÔ");
+	set_name("é²å¤§æ¥š", ({ "bao dachu", "bao", "dachu"}));
+        set("long", "ä¸€ä¸ªèº«æç˜¦å‰Šçš„è€è€…ï¼Œä¾ç›¸è²Œæ ¹æœ¬çœ‹ä¸å‡ºä»–æ˜¯èº«æ€€ç»è‰ºçš„é«˜æ‰‹ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™  "RED"æœ±é›€å ‚å ‚ä¸»"NOR);
+        set("gender", "ç”·æ€§");
         
 	set("age", 50);
         set("attitude", "peaceful");
@@ -40,7 +40,7 @@ void create()
 	      map_skill("parry", "tianmo-shou");
 	      map_skill("hand", "tianmo-shou");
 	      prepare_skill("hand", "tianmo-shou");
-	      create_family("ÈÕÔÂÉñ½Ì", 9, "µÜ×Ó");
+	      create_family("æ—¥æœˆç¥æ•™", 9, "å¼Ÿå­");
 
         setup();
 

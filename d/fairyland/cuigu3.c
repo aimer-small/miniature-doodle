@@ -7,11 +7,11 @@ inherit ROOM;
 string look_zi();
 void create()
 {
-        set("short", HIG"´ä¹È"NOR);
+        set("short", HIG"ç¿ è°·"NOR);
         set("long", @LONG
-ÄãÃæÇ°ÊÇ¸ö»¨ÍÅ½õ´ØµÄ´ä¹È£¬ºì»¨ÂÌÊ÷£¬½»ÏàÑÚÓ³¡£½ÅÏÂÌ¤×ÅµÄÊÇÈáÈíÏ¸
-²İ£¬±ÇÖĞÎÅµ½µÄÊÇÇåÓÄ»¨Ïã£¬ÃùÇİ¼ä¹Ø£¬ÏÊ¹ûĞüÖ¦£¬²»ÓÉµÄĞÄ¿õÉñâù¡£×ó±ÚÉ½
-±ÚÉÏ¿Ì×ÅÒ»ĞĞĞ¡×Ö(zi)£¬¾àÀëÌ«Ô¶£¬Äã¿´²»ÕæÇĞ¡£
+ä½ é¢å‰æ˜¯ä¸ªèŠ±å›¢é”¦ç°‡çš„ç¿ è°·ï¼Œçº¢èŠ±ç»¿æ ‘ï¼Œäº¤ç›¸æ©æ˜ ã€‚è„šä¸‹è¸ç€çš„æ˜¯æŸ”è½¯ç»†
+è‰ï¼Œé¼»ä¸­é—»åˆ°çš„æ˜¯æ¸…å¹½èŠ±é¦™ï¼Œé¸£ç¦½é—´å…³ï¼Œé²œæœæ‚¬æï¼Œä¸ç”±çš„å¿ƒæ—·ç¥æ€¡ã€‚å·¦å£å±±
+å£ä¸Šåˆ»ç€ä¸€è¡Œå°å­—(zi)ï¼Œè·ç¦»å¤ªè¿œï¼Œä½ çœ‹ä¸çœŸåˆ‡ã€‚
 LONG    );
 
         set("exits", ([
@@ -21,7 +21,7 @@ LONG    );
            "zi" : (: look_zi :)
         ]));
 
-        set("outdoors", "À¥ÂØ´ä¹È");
+        set("outdoors", "æ˜†ä»‘ç¿ è°·");
         set("no_clean_up", 0);
 
         setup();
@@ -37,9 +37,9 @@ string look_zi()
 {
 	object me=this_player();
 	if (me->query("jiuyang/mai"))
-		return HIW"\t\t"+me->name()+"Âñ¾­´¦\n"NOR;
+		return HIW"\t\t"+me->name()+"åŸ‹ç»å¤„\n"NOR;
 	else
-		return "Ê±¼ä¾ÃÔ¶£¬·çÓê¸¯Ê´£¬ÄãÒÑ¾­¿´²»Çå³şÉÏÃæËùĞ´µÄ×Ö¼£ÁË¡£\n";
+		return "æ—¶é—´ä¹…è¿œï¼Œé£é›¨è…èš€ï¼Œä½ å·²ç»çœ‹ä¸æ¸…æ¥šä¸Šé¢æ‰€å†™çš„å­—è¿¹äº†ã€‚\n";
 }
 
 int do_mai(string arg)
@@ -48,19 +48,19 @@ int do_mai(string arg)
 	object ob;
 	if(!me->query("jiuyang/baiyuan")) return 0;
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if( arg =="book" || arg =="jiuyang zhenjing"){
 		if( !objectp(ob = present("jiuyang zhenjing", me)))
-			return notify_fail("ÄãÉíÉÏºÃÏóÃ»ÓĞ°¡£¬ÔõÃ´Âñ°¡£¿\n");
-		message_vision(HIW"\n$NÔÚÉ½¶´×ó±ÚÍÚÁË¸öÈı³ßÀ´ÉîµÄ¶´¿×£¬½«ËÄ¾í¾ÅÑôÕæ¾­ÂñÔÚ¶´ÄÚ£¬ÌîÉÏÁËÄàÍÁ¡£\n"+
-                          "È»ºóÊ°ÆğÒ»¿é¼âÊ¯£¬ÔÚÉ½±ÚÉÏ»®ÏÂ¼¸¸ö´ó×Ö£º"+me->name()+"Âñ¾­´¦¡£\n\n"NOR,me);
+			return notify_fail("ä½ èº«ä¸Šå¥½è±¡æ²¡æœ‰å•Šï¼Œæ€ä¹ˆåŸ‹å•Šï¼Ÿ\n");
+		message_vision(HIW"\n$Nåœ¨å±±æ´å·¦å£æŒ–äº†ä¸ªä¸‰å°ºæ¥æ·±çš„æ´å­”ï¼Œå°†å››å·ä¹é˜³çœŸç»åŸ‹åœ¨æ´å†…ï¼Œå¡«ä¸Šäº†æ³¥åœŸã€‚\n"+
+                          "ç„¶åæ‹¾èµ·ä¸€å—å°–çŸ³ï¼Œåœ¨å±±å£ä¸Šåˆ’ä¸‹å‡ ä¸ªå¤§å­—ï¼š"+me->name()+"åŸ‹ç»å¤„ã€‚\n\n"NOR,me);
 		if(!me->query("jiuyang/mai"))
 			me->set("jiuyang/mai", 1);
 		me->delete_temp("get_9yjing");
 		destruct(ob);
 		return 1;
         }
-	return notify_fail("ÄãÒªÂñÊ²Ã´¶«Î÷°¡£¿\n");
+	return notify_fail("ä½ è¦åŸ‹ä»€ä¹ˆä¸œè¥¿å•Šï¼Ÿ\n");
 }
 
 int do_wa(string arg)
@@ -69,18 +69,18 @@ int do_wa(string arg)
 	object ob;
 	if(!me->query("jiuyang/mai")) return 0;
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 	if( arg =="book" || arg =="jiuyang zhenjing"){
 		if(me->query_temp("get_9yjing"))
-			return notify_fail("Äã´ó³ÔÒ»¾ª£¬²ØÔÚÉ½±ÚÖĞµÄ¾ÅÑôÕæ¾­ÒÑÈ»²»¼û£¬²»Öª±»Ë­ÄÃ×ßÁË£¡£¡\n");
+			return notify_fail("ä½ å¤§åƒä¸€æƒŠï¼Œè—åœ¨å±±å£ä¸­çš„ä¹é˜³çœŸç»å·²ç„¶ä¸è§ï¼Œä¸çŸ¥è¢«è°æ‹¿èµ°äº†ï¼ï¼\n");
 		ob = unew(BOOK_D("jiuyang"));
 		if ( !clonep(ob))
-			return notify_fail("Äã´ó³ÔÒ»¾ª£¬²ØÔÚÉ½±ÚÖĞµÄ¾ÅÑôÕæ¾­ÒÑÈ»²»¼û£¬²»Öª±»Ë­ÄÃ×ßÁË£¡\n");
-		message_vision(HIY"\n$N½«ÄàÍÁÍÚ¿ª£¬½«²ØÔÚÀïÃæµÄ¾ÅÑôÕæ¾­È¡ÁË³öÀ´¡£\n\n"NOR,me);
+			return notify_fail("ä½ å¤§åƒä¸€æƒŠï¼Œè—åœ¨å±±å£ä¸­çš„ä¹é˜³çœŸç»å·²ç„¶ä¸è§ï¼Œä¸çŸ¥è¢«è°æ‹¿èµ°äº†ï¼\n");
+		message_vision(HIY"\n$Nå°†æ³¥åœŸæŒ–å¼€ï¼Œå°†è—åœ¨é‡Œé¢çš„ä¹é˜³çœŸç»å–äº†å‡ºæ¥ã€‚\n\n"NOR,me);
 		ob->set_temp("jiuyang",me->query("id"));
 		me->set_temp("get_9yjing", 1);
 		ob->move(me);
 		return 1;
         }
-        return notify_fail("ÄãÒªÍÚ¾òÊ²Ã´£¿\n");
+        return notify_fail("ä½ è¦æŒ–æ˜ä»€ä¹ˆï¼Ÿ\n");
 }

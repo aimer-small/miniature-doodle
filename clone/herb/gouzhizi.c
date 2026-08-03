@@ -2,13 +2,13 @@
 
 void create()
 {
-        set_name(HIR"èÛè××Ó"NOR, ({"gouzhi zi","gouzhi","zi"}));
+        set_name(HIR"æ¸æ³å­"NOR, ({"gouzhi zi","gouzhi","zi"}));
         if (clonep())
                 set_default_object(__FILE__);
         else 
         {
-                set("long","èÛè××Ó£¬Î¶¸Ê£¬É«ºì£¬²¹ÑªÁ¼Ò©¡£\n");
-                set("base_unit", "Á£");
+                set("long","æ¸æ³å­ï¼Œå‘³ç”˜ï¼Œè‰²çº¢ï¼Œè¡¥è¡€è‰¯è¯ã€‚\n");
+                set("base_unit", "ç²’");
                 set("base_value", 4000);
                 set("base_weight", 60);
                 set("cure_s",5);

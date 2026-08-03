@@ -2,14 +2,14 @@
 
 void create()
 {
-        set_name(HIY "»ÆÁ¬" NOR, ({"huang lian"}));
+        set_name(HIY "é»„è¿" NOR, ({"huang lian"}));
 
         if (clonep())
                 set_default_object(__FILE__);
         else 
         {
-                set("long","»ÆÁ¬£º²İ±¾Ö²Îï£¬Î¶¿à£¬ÇåÈÈ¶¾¡£\n");
-                set("base_unit", "¸ö");
+                set("long","é»„è¿ï¼šè‰æœ¬æ¤ç‰©ï¼Œå‘³è‹¦ï¼Œæ¸…çƒ­æ¯’ã€‚\n");
+                set("base_unit", "ä¸ª");
                 set("base_value", 4000);
                 set("base_weight", 60);
                 set("cure_s",0);

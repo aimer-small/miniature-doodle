@@ -1,14 +1,14 @@
-// machine-bonze.c »úĞµºÍÉĞ
+// machine-bonze.c æœºæ¢°å’Œå°š
 
 inherit NPC;
 
 void create()
 {
-	set_name("»úĞµºÍÉĞ", ({ "jixie heshang", "jixie", "heshang", "machine bonze", "machine", "bonze" }) );
-	set("gender", "ÄĞĞÔ" );
+	set_name("æœºæ¢°å’Œå°š", ({ "jixie heshang", "jixie", "heshang", "machine bonze", "machine", "bonze" }) );
+	set("gender", "ç”·æ€§" );
 	set("age", 30);
 	set("mute", 1);
-	set("long", "Ò»¸öÁ·¹¦ÓÃµÄ»úĞµºÍÉĞ£¬ÊÇÓÃÒ»Ğ©Ä¾°åºÍÌúÆ¤¶¤ÆğÀ´µÄ£¬ÖÆ×÷ÕßÒ²ĞíÊÇÌÖÑáºÍÉĞ£¬×¨ÃÅÓÃÒ»¿éÖíÆ¤°ü×¡ÁËÍ·£¬ÔÚÉÏÃæĞ´×Å¡°³ôºÍÉĞ¡±Èı¸ö×Ö¡£ÔÚ»úĞµºÍÉĞµÄ±³²¿ÓĞÒ»¸öĞ¡Ğ¡µÄ¿ª¹Ø(trigger)¡£\n");
+	set("long", "ä¸€ä¸ªç»ƒåŠŸç”¨çš„æœºæ¢°å’Œå°šï¼Œæ˜¯ç”¨ä¸€äº›æœ¨æ¿å’Œé“çš®é’‰èµ·æ¥çš„ï¼Œåˆ¶ä½œè€…ä¹Ÿè®¸æ˜¯è®¨åŒå’Œå°šï¼Œä¸“é—¨ç”¨ä¸€å—çŒªçš®åŒ…ä½äº†å¤´ï¼Œåœ¨ä¸Šé¢å†™ç€â€œè‡­å’Œå°šâ€ä¸‰ä¸ªå­—ã€‚åœ¨æœºæ¢°å’Œå°šçš„èƒŒéƒ¨æœ‰ä¸€ä¸ªå°å°çš„å¼€å…³(trigger)ã€‚\n");
 	set("attitude", "friendly");
 
 	set("str", 25);
@@ -47,11 +47,11 @@ void init()
 
 void unconcious()
 {
-	say("»úĞµºÍÉĞºöÈ»·¢³ö¡°»©À²¡±Ò»Éù¾ŞÏì£¬¾Í´ËÌÉµ¹²»¶¯ÁË¡£\n");
+	say("æœºæ¢°å’Œå°šå¿½ç„¶å‘å‡ºâ€œå“—å•¦â€ä¸€å£°å·¨å“ï¼Œå°±æ­¤èººå€’ä¸åŠ¨äº†ã€‚\n");
 	set("damaged", 1);
 	remove_all_enemy();
 	reincarnate();
-	set("disable_type", " <ÒÑËğ»µ>");
+	set("disable_type", " <å·²æŸå>");
 	set("qi", 0);
 	set("jing", 0);
 	set("jingli", 0);
@@ -64,7 +64,7 @@ void die()
 
 int accept_fight(object ob)
 {
-	return notify_fail("¿´Çå³şµã£¬ÄÇÖ»ÊÇ¸ö»úĞµºÍÉĞ¶øÒÑ£¡\n");
+	return notify_fail("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£åªæ˜¯ä¸ªæœºæ¢°å’Œå°šè€Œå·²ï¼\n");
 }
 
 int do_turn(string arg)
@@ -75,19 +75,19 @@ int do_turn(string arg)
 	string *sname, *mname, *pname;
 	int i, temp;
 
-	if (ob->is_busy()) return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
-	if (arg != "trigger" && arg != "kaiguan") return notify_fail("ÄãÒª°â¶¯Ê²Ã´£¿\n");
+	if (ob->is_busy()) return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
+	if (arg != "trigger" && arg != "kaiguan") return notify_fail("ä½ è¦æ‰³åŠ¨ä»€ä¹ˆï¼Ÿ\n");
 
-//	if (ob->is_fighting()) return notify_fail("ÄãÕıÃ¦×Å´ò¼ÜÄØ£¡\n");
-	if (is_fighting()) return notify_fail("»úĞµºÍÉĞÕıÔÚ×Ô¶¯×÷Õ½£¬ÄãÎŞ·¨Åöµ½¿ª¹Ø£¡\n");
+//	if (ob->is_fighting()) return notify_fail("ä½ æ­£å¿™ç€æ‰“æ¶å‘¢ï¼\n");
+	if (is_fighting()) return notify_fail("æœºæ¢°å’Œå°šæ­£åœ¨è‡ªåŠ¨ä½œæˆ˜ï¼Œä½ æ— æ³•ç¢°åˆ°å¼€å…³ï¼\n");
 
 	if (random(query("fight_times")) >= 8) {
 		set("damaged", 1);
-		me->disable_player(" <ÒÑËğ»µ>");
+		me->disable_player(" <å·²æŸå>");
 	}
 
-	message_vision("$NÇáÇáµØ°â¶¯ÁË»úĞµºÍÉĞ±³ºóµÄ¿ª¹Ø¡£\n", ob);	
-	if (query("damaged")) return notify_fail("µ«ÊÇÕâ¸ö»úĞµºÍÉĞÒÑ¾­±»´ò»µÁË£¬ĞèÒªÕÒÈËĞŞÀí¡£\n");
+	message_vision("$Nè½»è½»åœ°æ‰³åŠ¨äº†æœºæ¢°å’Œå°šèƒŒåçš„å¼€å…³ã€‚\n", ob);	
+	if (query("damaged")) return notify_fail("ä½†æ˜¯è¿™ä¸ªæœºæ¢°å’Œå°šå·²ç»è¢«æ‰“åäº†ï¼Œéœ€è¦æ‰¾äººä¿®ç†ã€‚\n");
 
 	add("fight_times", 1);
 
@@ -168,7 +168,7 @@ int do_turn(string arg)
 	set("jiali",     hp_status["jiali"]);
 	set("combat_exp",hp_status["combat_exp"]);
 
-	message_vision("»úĞµºÍÉĞºöÈ»Ò»Ô¾¶øÆğ£¬¶Ô$N·¢¶¯ÁËÃÍÁÒµÄ½ø¹¥£¡\n", ob);	
+	message_vision("æœºæ¢°å’Œå°šå¿½ç„¶ä¸€è·ƒè€Œèµ·ï¼Œå¯¹$Nå‘åŠ¨äº†çŒ›çƒˆçš„è¿›æ”»ï¼\n", ob);	
 	me->fight_ob(ob);
 	ob->fight_ob(me);
 	return 1;
@@ -178,5 +178,5 @@ void kill_ob(object ob)
 {
 	ob->remove_killer(this_object());
 	remove_killer(ob);
-	write("¿´Çå³şµã£¬ÄÇÖ»ÊÇ¸ö»úĞµºÍÉĞ¶øÒÑ£¡\n");
+	write("çœ‹æ¸…æ¥šç‚¹ï¼Œé‚£åªæ˜¯ä¸ªæœºæ¢°å’Œå°šè€Œå·²ï¼\n");
 }

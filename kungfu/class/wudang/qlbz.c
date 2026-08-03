@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÇàÁú°ïµÜ×Ó", ({"qinglong dizi", "qinglong", "dizi"}));
-	set("long", "ËûÊÇÒ»¸öºÜÆÕÍ¨µÄ¸ßÀöÇàÄêÄĞ×Ó£¬Á³É«»Ò°×¡£\n");
+        set_name("é’é¾™å¸®å¼Ÿå­", ({"qinglong dizi", "qinglong", "dizi"}));
+	set("long", "ä»–æ˜¯ä¸€ä¸ªå¾ˆæ™®é€šçš„é«˜ä¸½é’å¹´ç”·å­ï¼Œè„¸è‰²ç°ç™½ã€‚\n");
 
-	set("gender", "ÄĞĞÔ");
+	set("gender", "ç”·æ€§");
 	set("attitude", "peaceful");
 
 	set("age", 30);

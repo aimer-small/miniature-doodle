@@ -4,17 +4,17 @@ inherit BRUSH;
 
 void create()
 {
-	set_name(HIM"ÅĞ¹Ù±Ê"NOR, ({ "Panguan bi", "bi" }));
+	set_name(HIM"åˆ¤å®˜ç¬”"NOR, ({ "Panguan bi", "bi" }));
 	set_weight(6000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Ö»");
-		set("long", "ÕâÊÇÒ»Ö»¾«¹¤ÖÆ³ÉµÄ±Ê£¬ÕâÖÖ±ÊÔÚºÚÄ¾ÑÂ·Ç³£Á÷ĞĞ¡£\n");
+		set("unit", "åª");
+		set("long", "è¿™æ˜¯ä¸€åªç²¾å·¥åˆ¶æˆçš„ç¬”ï¼Œè¿™ç§ç¬”åœ¨é»‘æœ¨å´–éå¸¸æµè¡Œã€‚\n");
 		set("value", 2000);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»Ö»$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»Ø±ÊÇÊ¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€åª$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›ç¬”é˜ã€‚\n");
 	}
 	init_brush(100);
 	setup();

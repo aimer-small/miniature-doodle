@@ -1,4 +1,4 @@
-// tiebagua.c Ìú°ËØÔ
+// tiebagua.c é“å…«å¦
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-        set_name(HIG"Ìú°ËØÔ"NOR, ({ "tie bagua","bagua"}));
+        set_name(HIG"é“å…«å¦"NOR, ({ "tie bagua","bagua"}));
         set_weight(1000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ã¶");
-                set("long","ÕâÊÇÒ»Ã¶ÌÒ»¨µºµÜ×ÓÓÃµÄÌú°ËØÔ¡£\n");
+                set("unit", "æš");
+                set("long","è¿™æ˜¯ä¸€æšæ¡ƒèŠ±å²›å¼Ÿå­ç”¨çš„é“å…«å¦ã€‚\n");
                 set("value", 7000);
                 set("unique", 3);
                 set("material", "iron");
@@ -30,29 +30,29 @@ int do_strike(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒªÅÄÊ²Ã´?\n");
+		return notify_fail("ä½ è¦æ‹ä»€ä¹ˆ?\n");
 
         if( me->query_skill("qimen-bagua",1)<30 )
-                return notify_fail("ÄãµÄÆæÃÅ°ËØÔĞŞÎª²»¹»£¬²»ÄÜÊ¹ÓÃÌú°ËØÔÁ·¹¦¡£\n")
+                return notify_fail("ä½ çš„å¥‡é—¨å…«å¦ä¿®ä¸ºä¸å¤Ÿï¼Œä¸èƒ½ä½¿ç”¨é“å…«å¦ç»ƒåŠŸã€‚\n")
 ;
 
-        if( me->query("family/family_name")!="ÌÒ»¨µº" )
-               return notify_fail("Ö»ÓĞÌÒ»¨µºµÜ×Ó²ÅÄÜÀûÓÃÌú°ËØÔÁ·¹¦¡£\n");
-        if ( me->query("family/family_name") == "ÌÒ»¨µº" )
+        if( me->query("family/family_name")!="æ¡ƒèŠ±å²›" )
+               return notify_fail("åªæœ‰æ¡ƒèŠ±å²›å¼Ÿå­æ‰èƒ½åˆ©ç”¨é“å…«å¦ç»ƒåŠŸã€‚\n");
+        if ( me->query("family/family_name") == "æ¡ƒèŠ±å²›" )
 	{
 		if (me->query_skill("strike", 1) <= 30)
 		{
 			if (me->query("eff_qi")>30)
 				me->add("eff_qi", -30);
-			return notify_fail("ÄãÓÃÁ¦ÅÄÏòÌú°ËØÔ£¬Ö»ÌıµÃ'Å¾'µÄÒ»Éù£¬Äã»¢¿ÚÕğÁÑ£¬Í´µÃÄã¼¸ºõÍäÏÂÑüÈ¥¡£\n");
+			return notify_fail("ä½ ç”¨åŠ›æ‹å‘é“å…«å¦ï¼Œåªå¬å¾—'å•ª'çš„ä¸€å£°ï¼Œä½ è™å£éœ‡è£‚ï¼Œç—›å¾—ä½ å‡ ä¹å¼¯ä¸‹è…°å»ã€‚\n");
 		}
                 if (me->query_skill("strike", 1) >=100)
 		{
-			return notify_fail("ÄãÓÃÁ¦ÅÄÏòÌú°ËØÔ£¬·¢ÏÖËüÒÑ²»ÄÜÖúÄãÁ·¹¦ÁË¡£\n");
+			return notify_fail("ä½ ç”¨åŠ›æ‹å‘é“å…«å¦ï¼Œå‘ç°å®ƒå·²ä¸èƒ½åŠ©ä½ ç»ƒåŠŸäº†ã€‚\n");
 		}
 		if ((me->query("jingli")<=20) || (me->query("qi")<=30))
-			return notify_fail("ÄãÌ«ÀÛÁË£¬ĞİÏ¢Ò»»á°É¡£\n");
-		message_vision("$NÓÃÁ¦»÷ÏòÌú°ËØÔ£¬×Ô¾õÅü¿ÕÕÆÁ¦ÓĞËù½øÒæ¡£\n", me);
+			return notify_fail("ä½ å¤ªç´¯äº†ï¼Œä¼‘æ¯ä¸€ä¼šå§ã€‚\n");
+		message_vision("$Nç”¨åŠ›å‡»å‘é“å…«å¦ï¼Œè‡ªè§‰åŠˆç©ºæŒåŠ›æœ‰æ‰€è¿›ç›Šã€‚\n", me);
 		me->add("jingli", -(10+random(me->query_skill("strike",1))/6));
 		me->improve_skill("strike", random(me->query_int()/2)+me->query_int()/2);
 	} 	

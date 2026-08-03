@@ -5,10 +5,10 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¹éÔÆ×¯Ç°");
+	set("short", "å½’äº‘åº„å‰");
 	set("long",@LONG
-ÕâÊÇÍ¨Ïò¹éÔÆ×¯µÄµÀÂ·£¬Î÷Ãæ¾ÍÊÇ¹éÔÆ×¯¡£ÏòÄÏÊÇÒ»ÌõÐ¡Â·£¬±±ÃæÊÇÒ»Æ¬
-ÂÌÓÍÓÍµÄ²ÝµØ¡£
+è¿™æ˜¯é€šå‘å½’äº‘åº„çš„é“è·¯ï¼Œè¥¿é¢å°±æ˜¯å½’äº‘åº„ã€‚å‘å—æ˜¯ä¸€æ¡å°è·¯ï¼ŒåŒ—é¢æ˜¯ä¸€ç‰‡
+ç»¿æ²¹æ²¹çš„è‰åœ°ã€‚
 LONG
 );
 	set("exits",([
@@ -17,7 +17,7 @@ LONG
 		"north" : __DIR__"caodi1",
 	]) );
 	set("no_clean_up",0);
-	set("outdoors", "¹éÔÆ×¯");
+	set("outdoors", "å½’äº‘åº„");
 	setup();
 }
 
@@ -26,9 +26,9 @@ int valid_leave(object me, string dir)
 	if (dir == "west") {
 		if (is_wanted(me))
 			return 0;
-		write("×¯Ç°ÓÐÒ»¸öÒÀ¾Ý¾Å¹¬ËãÊõ²¼³ÉµÄÌÒ»¨Õó¡£\n");
-        if ((me->query("family/family_name") == "ÌÒ»¨µº" && me->query_skill("qimen-bagua", 1) > 14) || me->query_skill("qimen-bagua", 1) > 39)
-			tell_object(me, "ÓÉÓÚÄãÆ½³£¿´¹ßÁËÕâÐ©¼òÒ×µÄÕó·¨£¬ËùÒÔ²»ÓÃÏ¸Ïë£¬ÐÅ²½¾Í×ß³öÁËÕó£¡\n");
+		write("åº„å‰æœ‰ä¸€ä¸ªä¾æ®ä¹å®«ç®—æœ¯å¸ƒæˆçš„æ¡ƒèŠ±é˜µã€‚\n");
+        if ((me->query("family/family_name") == "æ¡ƒèŠ±å²›" && me->query_skill("qimen-bagua", 1) > 14) || me->query_skill("qimen-bagua", 1) > 39)
+			tell_object(me, "ç”±äºŽä½ å¹³å¸¸çœ‹æƒ¯äº†è¿™äº›ç®€æ˜“çš„é˜µæ³•ï¼Œæ‰€ä»¥ä¸ç”¨ç»†æƒ³ï¼Œä¿¡æ­¥å°±èµ°å‡ºäº†é˜µï¼\n");
 		else {
 			me->set_temp("jiugong_dir", "w");
 			me->move(__DIR__"jiugong" + (random(9) + 1));

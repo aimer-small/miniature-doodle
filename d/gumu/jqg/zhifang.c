@@ -1,15 +1,15 @@
-//zhifang.c Ö¥·¿
+//zhifang.c èŠæˆ¿
 // By River 99/05/20
 inherit ROOM;
 #include <ansi.h>
 void init();
 void create()
 {
-          set("short",HIG"Ö¥·¿"NOR);
+          set("short",HIG"èŠæˆ¿"NOR);
 	  set("long",@LONG
-±ÇÖÐÎÅµ½Ò»¹ÉÅ¨Å¨µÄÄàÍÁÇåÏã£¬Õâ±ãÊÇÖ¥·¿£¬Ö»¼û·¿ÄÚµ½´¦ÖÖÖ²×ÅÆæ»¨Òì
-²Ý£¬·¿¼äÖÐÑëÖÖ×ÅÒ»Ö¦ÁéÖ¥£¬¿´ÉÏÈ¥ÓëÆÕÍ¨µÄÁéÖ¥ÓÐÐ©²»Ò»Ñù£¬Ò»ÃûÂÌÉÀÉÙÅ®
-ÕýÊØ»¤×ÅËü¡£
+é¼»ä¸­é—»åˆ°ä¸€è‚¡æµ“æµ“çš„æ³¥åœŸæ¸…é¦™ï¼Œè¿™ä¾¿æ˜¯èŠæˆ¿ï¼Œåªè§æˆ¿å†…åˆ°å¤„ç§æ¤ç€å¥‡èŠ±å¼‚
+è‰ï¼Œæˆ¿é—´ä¸­å¤®ç§ç€ä¸€æžçµèŠï¼Œçœ‹ä¸ŠåŽ»ä¸Žæ™®é€šçš„çµèŠæœ‰äº›ä¸ä¸€æ ·ï¼Œä¸€åç»¿è¡«å°‘å¥³
+æ­£å®ˆæŠ¤ç€å®ƒã€‚
 LONG
            );
 

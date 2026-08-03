@@ -7,12 +7,12 @@ inherit ROOM;
 
 void create()
 {
-	set("short", HIY"万金赌坊"NOR);
+	set("short", HIY"涓囬噾璧屽潑"NOR);
 	set("long",
-"这是方圆百里远近闻名的一间大赌坊，平日里生意非常红火，经常是座无\n"
-"虚席。最近已经衰落，关门歇业了。\n"
+"杩欐槸鏂瑰渾鐧鹃噷杩滆繎闂诲悕鐨勪竴闂村ぇ璧屽潑锛屽钩鏃ラ噷鐢熸剰闈炲父绾㈢伀锛岀粡甯告槸搴ф棤\n"
+"铏氬腑銆傛渶杩戝凡缁忚“钀斤紝鍏抽棬姝囦笟浜嗐�俓n"
 	);
-	set("indoors", "襄阳");
+	set("indoors", "瑗勯槼");
 	set("no_fight", 1);	
         set("xyjob", 1);
 	set("exits", ([

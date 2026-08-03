@@ -1,12 +1,12 @@
-//kuang.c  Ú÷±¦¹Ù
+//kuang.c  é‚å®å®˜
 
 inherit NPC;
 
 void create()
 {
-        set_name("Ú÷±¦¹Ù", ({ "kuang baoguan", "kuang" }));
-        set("long","Ëû´©×Å·ğÉ½ÕòµÄÃû²ú½º³ñÉÀ¿ã£¬³¨¿ªĞØÌÅ£¬Â¶³öºÚë§ë§µÄÁ½´Ô³¤Ã«¡£\n");
-        set("gender", "ÄĞĞÔ" );
+        set_name("é‚å®å®˜", ({ "kuang baoguan", "kuang" }));
+        set("long","ä»–ç©¿ç€ä½›å±±é•‡çš„åäº§èƒ¶ç»¸è¡«è£¤ï¼Œæ•å¼€èƒ¸è†›ï¼Œéœ²å‡ºé»‘æ¯µæ¯µçš„ä¸¤ä¸›é•¿æ¯›ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("age", 33);
 	set("attitude", "peaceful");
 	set("shen", -1000);

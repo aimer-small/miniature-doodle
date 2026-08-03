@@ -1,21 +1,21 @@
-// ÒøØ°Ê×.c
+// é“¶åŒ•é¦–.c
 #include <ansi.h>
 #include <weapon.h>
 inherit DAGGER;
 
 void create()
 {
-	set_name(WHT"ÒøØ°Ê×"NOR, ({ "yin bishou", "jian", "bishou" }));
+	set_name(WHT"é“¶åŒ•é¦–"NOR, ({ "yin bishou", "jian", "bishou" }));
 	set_weight(6000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±úÉÁ×ÅÁÁÀöÒø¹âµÄØ°Ê×£¬Ê®·Ö·æÀû¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„é—ªç€äº®ä¸½é“¶å…‰çš„åŒ•é¦–ï¼Œååˆ†é”‹åˆ©ã€‚\n");
 		set("value", 5000);
 		set("material", "silver");
-		set("wield_msg", "$NÊÖÖ¸Çá°Ú£¬µ¯³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·Å»ØÒÂĞä¡£\n");
+		set("wield_msg", "$Næ‰‹æŒ‡è½»æ‘†ï¼Œå¼¹å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¾å›è¡£è¢–ã€‚\n");
 	}
 	init_dagger(40);
 	setup();

@@ -7,10 +7,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("ËÕÃÎÇå", ({"su mengqing", "su", "mengqing"}));
-	set("long", "ËıÊÇÃğ¾øÊ¦Ì«µÄ°Ë´óË×¼ÒµÚ×ÓÖ®Ò»£¬ÉÃ³¤»Ø·ç·÷Áø½£¡£\n");
+	set_name("è‹æ¢¦æ¸…", ({"su mengqing", "su", "mengqing"}));
+	set("long", "å¥¹æ˜¯ç­ç»å¸ˆå¤ªçš„å…«å¤§ä¿—å®¶ç¬¬å­ä¹‹ä¸€ï¼Œæ“…é•¿å›é£æ‹‚æŸ³å‰‘ã€‚\n");
 
-	set("gender", "Å®ĞÔ");
+	set("gender", "å¥³æ€§");
 	set("attitude", "friendly");
 	set("unique", 1);
 	set("age", 35);
@@ -43,7 +43,7 @@ void create()
 	map_skill("parry", "huifeng-jian");
 	map_skill("dodge", "anying-fuxiang");
 
-        create_family("¶ëáÒÅÉ", 4, "µÜ×Ó");
+        create_family("å³¨åµ‹æ´¾", 4, "å¼Ÿå­");
 	setup();
 	carry_object("/d/emei/obj/changjian")->wield();
 	carry_object("/d/emei/obj/shoes")->wear();

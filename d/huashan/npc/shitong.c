@@ -7,8 +7,8 @@ string ask_gonglao(object me);
 
 void create()
 {
-	set_name("ÊÌÍ¯", ({ "shi tong" }));
-	set("long", "ËûÊÇÒ»¸ö×¨ÃÅÔÚ¼ÀÌ³ÊÌ·îµÄĞ¡Í¯¡£\n");
+	set_name("ä¾ç«¥", ({ "shi tong" }));
+	set("long", "ä»–æ˜¯ä¸€ä¸ªä¸“é—¨åœ¨ç¥­å›ä¾å¥‰çš„å°ç«¥ã€‚\n");
 	set("age", 17);
 	set("combat_exp", 20000);
 	set("int", 20);
@@ -46,7 +46,7 @@ void create()
 	prepare_skill("strike", "hunyuan-zhang");
 	
         set("inquiry", ([
-              "ÉÆÊÂ" : (: ask_gonglao :),                        
+              "å–„äº‹" : (: ask_gonglao :),                        
         ]));
 
 	setup();
@@ -60,9 +60,9 @@ string ask_gonglao(object who)
 	int i;
         object me=this_player();
         fam = me->query("family");
-	i = me->query("job_time/»ªÉ½");
-        if(!intp(i = me->query("job_time/»ªÉ½"))) return "ÄãÃ»ÎªÎÒ»ªÉ½°ÙĞÕ³ö¹ıÈÎºÎÁ¦£¬ÅÜÀ´ÎÊÊ²Ã´¹¦ÀÍÄØ?"; 
-       	if(random(10) > 3) return RANK_D->query_respect(me)+"Îª»ªÉ½°ÙĞÕ×öĞ©ÉÆÊÂ£¬¾Í²»ÒªÎÊÀ´ÎÊÈ¥µÄÁË¡£\n";
-        message_vision("$NÖ¸×Å¼ÀÌ³¶Ô$nËµµÀ£¬"+RANK_D->query_respect(me)+"ÒÑ¾­Îª»ªÉ½°ÙĞÕ×öÁË" + CHINESE_D->chinese_number(i) + "´ÎÉÆÊÂ¡£\n",who,me);
-        return RANK_D->query_respect(me)+"¼ÓÓÍ¸É°¡£¡";
+	i = me->query("job_time/åå±±");
+        if(!intp(i = me->query("job_time/åå±±"))) return "ä½ æ²¡ä¸ºæˆ‘åå±±ç™¾å§“å‡ºè¿‡ä»»ä½•åŠ›ï¼Œè·‘æ¥é—®ä»€ä¹ˆåŠŸåŠ³å‘¢?"; 
+       	if(random(10) > 3) return RANK_D->query_respect(me)+"ä¸ºåå±±ç™¾å§“åšäº›å–„äº‹ï¼Œå°±ä¸è¦é—®æ¥é—®å»çš„äº†ã€‚\n";
+        message_vision("$NæŒ‡ç€ç¥­å›å¯¹$nè¯´é“ï¼Œ"+RANK_D->query_respect(me)+"å·²ç»ä¸ºåå±±ç™¾å§“åšäº†" + CHINESE_D->chinese_number(i) + "æ¬¡å–„äº‹ã€‚\n",who,me);
+        return RANK_D->query_respect(me)+"åŠ æ²¹å¹²å•Šï¼";
 }

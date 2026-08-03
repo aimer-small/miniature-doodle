@@ -6,10 +6,10 @@ inherit ROOM;
 
 void create()
 {
-        set("short","Ä¹µÀ");
+        set("short","å¢“é“");
         set("long",@LONG
-ÕâÊÇÒ»ÌõÍ¨ÍùÄ¹ÊÒµÄÍ¨µÀ£¬Á½ÅÔ¾¡ÊÇ¹ÅÍæÕä±¦¡£
-Í¨µÀËÄÃæ°Ë·½µÄÉìÕ¹£¬¸ßµÍ²»Æ½£¬Äã¿´µÃÍ·»èÄÔÕÍ¡£
+è¿™æ˜¯ä¸€æ¡é€šå¾€å¢“å®¤çš„é€šé“ï¼Œä¸¤æ—å°½æ˜¯å¤çŽ©çå®ã€‚
+é€šé“å››é¢å…«æ–¹çš„ä¼¸å±•ï¼Œé«˜ä½Žä¸å¹³ï¼Œä½ çœ‹å¾—å¤´æ˜è„‘èƒ€ã€‚
 LONG);
         set("exits",([
                 "up" : __DIR__"mudao1",
@@ -41,7 +41,7 @@ void init()
       if(this_player()->query_temp("thd/step")) {
           this_player()->move("/d/thd/mudao1");
             this_player()->delete_temp("thd/step");
-          message_vision("$N²»ÖªµÀ²»¾õµÄ×ß»Ø³ö¿Ú£¬×¥ÁË×¥Í·¡£\n", this_player()); }
+          message_vision("$Nä¸çŸ¥é“ä¸è§‰çš„èµ°å›žå‡ºå£ï¼ŒæŠ“äº†æŠ“å¤´ã€‚\n", this_player()); }
       else
       this_player()->set_temp("thd/step",1);
       set("exits/northup", __DIR__"mudao2");

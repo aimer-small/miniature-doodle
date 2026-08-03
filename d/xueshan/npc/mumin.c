@@ -1,10 +1,10 @@
 inherit NPC;
 void create()
 {
-        set_name("²Ø×åÄÁÃñ", ({ "zangzu mumin", "mu min"}));
-        set("gender", "ÄĞĞÔ");
+        set_name("è—æ—ç‰§æ°‘", ({ "zangzu mumin", "mu min"}));
+        set("gender", "ç”·æ€§");
         set("age", 26);
-        set("long", "Ò»Î»½¡×³µÄ²Ø×åÄÁÃñ£¬¿´µ½Äã£¬ÏòÄãÓÑºÃµÄÕĞÁËÕĞÊÖ¡£\n");
+        set("long", "ä¸€ä½å¥å£®çš„è—æ—ç‰§æ°‘ï¼Œçœ‹åˆ°ä½ ï¼Œå‘ä½ å‹å¥½çš„æ‹›äº†æ‹›æ‰‹ã€‚\n");
         set("attitude", "friendly");
         set("combat_exp", 4000 + random(500));
         set("str", 32);

@@ -1,27 +1,27 @@
-// By action@sjcb btÎïÆ·
+// By action@sjcb btç‰©å“
 #include <ansi.h>
-#define BOOK    "/clone/gift/book"      //Êé
-#define MIC     "/clone/gift/danwan"    //Ò©
-#define MON     "/clone/gift/money"     //Ç®
-#define JADE    "/d/zhiye/obj/othermaterial" //Óñ
-#define MIJI    "/d/zhiye/obj/othermaterial" //Óñ
+#define BOOK    "/clone/gift/book"      //ä¹¦
+#define MIC     "/clone/gift/danwan"    //è¯
+#define MON     "/clone/gift/money"     //é’±
+#define JADE    "/d/zhiye/obj/othermaterial" //ç‰
+#define MIJI    "/d/zhiye/obj/othermaterial" //ç‰
 inherit SPEC;
 void create()
 {
-        set_name(HIY"ÖĞ"HIC"Çï"HIM"½Ú"HIR"ÔÂ"HIW"±ı"NOR, ({ "yue bing","yuebing" ,"bing"}) );
+        set_name(HIY"ä¸­"HIC"ç§‹"HIM"èŠ‚"HIR"æœˆ"HIW"é¥¼"NOR, ({ "yue bing","yuebing" ,"bing"}) );
         set_weight(10);
-                set("unit", "¸ö");
-                set("long", "Ò»¸öÉñÆæµÄÖĞÇï½ÚÔÂ±ı¡£\nÊÇ´«ËµÖĞÌìÉñ¿¨Ö‡(action)ÂòÀ´µÄ£¬³ÔÁËËüÓĞ¿ÉÄÜ¸øÄã´øÀ´¾Ş´ó¾ªÏ²¡£\nÊÇ²»ÊÇ¾­²»ÆğËüµÄÓÕ»óÄØ£¬ÄÇ¾Í¿ì³¢£¨pinchang£©Ëü°É¡£¡£¡£\n");
+                set("unit", "ä¸ª");
+                set("long", "ä¸€ä¸ªç¥å¥‡çš„ä¸­ç§‹èŠ‚æœˆé¥¼ã€‚\næ˜¯ä¼ è¯´ä¸­å¤©ç¥å¡è¬¬(action)ä¹°æ¥çš„ï¼Œåƒäº†å®ƒæœ‰å¯èƒ½ç»™ä½ å¸¦æ¥å·¨å¤§æƒŠå–œã€‚\næ˜¯ä¸æ˜¯ç»ä¸èµ·å®ƒçš„è¯±æƒ‘å‘¢ï¼Œé‚£å°±å¿«å°ï¼ˆpinchangï¼‰å®ƒå§ã€‚ã€‚ã€‚\n");
                 set("value", 0);
                 set("material", "wood");
-                set("no_drop", "ÕâÑù¹óÖØµÄ¶«Î÷ÔõÃ´ÄÜËæ±ãÂÒ¶ªÄØ¡£\n");
-                set("no_get", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄÇ¶ù¡£\n");
+                set("no_drop", "è¿™æ ·è´µé‡çš„ä¸œè¥¿æ€ä¹ˆèƒ½éšä¾¿ä¹±ä¸¢å‘¢ã€‚\n");
+                set("no_get", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€é‚£å„¿ã€‚\n");
                 set_weight(100);
                 set("value",3000000);
                 set("treasure",1);
                 set("degree",1);
                 set("flag","spec/yuebing");
-                set("desc","¾İËµ³ÔÁËËü¾Í»á³öÏÖÉñÆæµÄÊÂÇé³öÏÖ¡£");
+                set("desc","æ®è¯´åƒäº†å®ƒå°±ä¼šå‡ºç°ç¥å¥‡çš„äº‹æƒ…å‡ºç°ã€‚");
                 set("credit",150);    
 
        setup();
@@ -39,7 +39,7 @@ int do_pinchang(string arg)
        int i = random(2);
 
        if(arg!="bing" && arg!="yuebing")
-                    return notify_fail("ÄãÒª³ÔÊ²Ã´?\n");
+                    return notify_fail("ä½ è¦åƒä»€ä¹ˆ?\n");
 
        switch(i) {
                         case 0:         
@@ -47,34 +47,34 @@ int do_pinchang(string arg)
                                 
                                         obj->set("secret_obj",1);
                                         obj->set_level(5);
-                                        str = "¼«Æ·";
+                                        str = "æå“";
                                 
-                                str += "Óñ";  
+                                str += "ç‰";  
                                 break;    
                          case 1:         
                                 obj = new (JADE);
                                
                                         obj->set("secret_obj",1);
                                         obj->set_level(5);
-                                        str = "¼«Æ·";
+                                        str = "æå“";
                                 
-                                str += "Óñ";  
+                                str += "ç‰";  
                                 break;      
                          case 2:         
                                 obj = new (JADE);
                                 
                                         obj->set("secret_obj",1);
                                         obj->set_level(5);
-                                        str = "¼«Æ·";
+                                        str = "æå“";
                                 
-                                str += "Óñ";  
+                                str += "ç‰";  
                                 break;   
                                 break;                                      
                      
                         default:return 1;
                 }
         obj->move(this_player());
-        message_vision(HIW"$N´ÓÔÂ±ıµÄÏÚÖĞµÃµ½ÁËÒ»"+obj->query("unit")+obj->name()+"¡£\n\n"NOR,me); 
+        message_vision(HIW"$Nä»æœˆé¥¼çš„é¦…ä¸­å¾—åˆ°äº†ä¸€"+obj->query("unit")+obj->name()+"ã€‚\n\n"NOR,me); 
         destruct(this_object());
         return 1;
                 

@@ -8,18 +8,18 @@ int main(object me, string arg)
 {
 	string str;
 	if (!userp(me)) return 0;
-	if (!arg) return notify_fail("ÄãÏëÒª´ó½ĞÊ²Ã´£¿\n");
+	if (!arg) return notify_fail("ä½ æƒ³è¦å¤§å«ä»€ä¹ˆï¼Ÿ\n");
 	if (present(arg, environment(me))) return 0;
 	if (!wizardp(me) && me->query("max_neili") < 4000 ) {
-		write("ÒÔÄãÄ¿Ç°µÄÄÚÁ¦×´¿ö£¬ÎŞ·¨Ê¹ÓÃÇ§Àï´«Òô¡£\n");
+		write("ä»¥ä½ ç›®å‰çš„å†…åŠ›çŠ¶å†µï¼Œæ— æ³•ä½¿ç”¨åƒé‡Œä¼ éŸ³ã€‚\n");
 		return 1;
 	}
 	if (!wizardp(me) && me->query("neili") < 4000) {
-		write("ÒÔÄãÄ¿Ç°µÄÄÚÁ¦×´¿ö£¬ÎŞ·¨Ê¹ÓÃÇ§Àï´«Òô¡£\n");   
+		write("ä»¥ä½ ç›®å‰çš„å†…åŠ›çŠ¶å†µï¼Œæ— æ³•ä½¿ç”¨åƒé‡Œä¼ éŸ³ã€‚\n");   
 		return 1;
 	}
 	if (me->query_condition("shout_condition")) {
-		write("Äã¸Õ¸Õ×İÉù³¤Ğ¥¹ı£¬ÏÈĞİÏ¢Ò»»áÔÙËµ°É¡£\n");
+		write("ä½ åˆšåˆšçºµå£°é•¿å•¸è¿‡ï¼Œå…ˆä¼‘æ¯ä¸€ä¼šå†è¯´å§ã€‚\n");
 		return 1;
 	}
 	if (!wizardp(me)){
@@ -29,18 +29,18 @@ int main(object me, string arg)
 		me->add("neili", -2000);
 		me->apply_condition("shout_condition", 6);
 	} else str = me->name();
-	message("channel", "\r" + HIW + str + "×İÉù³¤Ğ¥£º¡¸" + arg + "¡¹\n" NOR, users(), me);
-	write(HIW "Äã×İÉù³¤Ğ¥£º¡¸" + arg + "¡¹\n" NOR);
+	message("channel", "\r" + HIW + str + "çºµå£°é•¿å•¸ï¼šã€Œ" + arg + "ã€\n" NOR, users(), me);
+	write(HIW "ä½ çºµå£°é•¿å•¸ï¼šã€Œ" + arg + "ã€\n" NOR);
 	return 1;
 }
 
 int help(object me)
 {
   write(@HELP
-Ö¸Áî¸ñÊ½ : shout <Ñ¶Ï¢>
+æŒ‡ä»¤æ ¼å¼ : shout <è®¯æ¯>
  
-Õâ¸öÖ¸ÁîÈÃÄã½« <Ñ¶Ï¢> ´«ËÍ³öÈ¥, ËùÓĞÕıÔÚÓÎÏ·ÖĞµÄÈË¶¼»áÌı¼ûÄãµÄ»°¡£
-×îµÍÒªÇó£º¿ÕÊÖ×î´óÄÚÁ¦ 4000£¬»ù±¾ÄÚÁ¦ 4000
+è¿™ä¸ªæŒ‡ä»¤è®©ä½ å°† <è®¯æ¯> ä¼ é€å‡ºå», æ‰€æœ‰æ­£åœ¨æ¸¸æˆä¸­çš„äººéƒ½ä¼šå¬è§ä½ çš„è¯ã€‚
+æœ€ä½è¦æ±‚ï¼šç©ºæ‰‹æœ€å¤§å†…åŠ› 4000ï¼ŒåŸºæœ¬å†…åŠ› 4000
  
 see also : tune
 HELP

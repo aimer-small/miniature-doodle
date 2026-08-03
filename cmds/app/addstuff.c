@@ -15,7 +15,7 @@ int main(object me, string arg)
 	if (!arg) {
 		obs = TASK_D->query_stuffs();
 		if (sizeof(obs) < 1)
-			return notify_fail("Ã»ÓĞÈÎºÎÎïÆ·¡£\n");
+			return notify_fail("æ²¡æœ‰ä»»ä½•ç‰©å“ã€‚\n");
 		name = keys(obs);
 		foreach (string item in name)
 			write(sprintf("%-40s %4d\n", item+"("+obs[item]["id"]+") ", obs[item]["reward"]));
@@ -26,35 +26,35 @@ int main(object me, string arg)
 
 	if (num <= 0) {
 		if (TASK_D->delete_stuff(arg))
-			return notify_fail("Äã½« "+arg+" ´Ó task_stuffs ÀïÉ¾³ı....Ok¡£\n");
-		return notify_fail("½« "+arg+" ´ÓTASKD.C ÖĞÉ¾³ıÊ§°Ü¡£\n");
+			return notify_fail("ä½ å°† "+arg+" ä» task_stuffs é‡Œåˆ é™¤....Okã€‚\n");
+		return notify_fail("å°† "+arg+" ä»TASKD.C ä¸­åˆ é™¤å¤±è´¥ã€‚\n");
 	}
 
 	if (!objectp(ob = present(arg, environment(me))))
 		if( !objectp(ob = present(arg, me)))
-		       return notify_fail("ÕâÀïÃ»ÓĞÕâ¸öÎïÆ·¡£\n");
+		       return notify_fail("è¿™é‡Œæ²¡æœ‰è¿™ä¸ªç‰©å“ã€‚\n");
 
 	if (ob->is_character())
-		return notify_fail("¿´Çå³şÒ»µã£¬ÄÇ¿ÉÊÇÉúÎïÅ¶¡£\n");
+		return notify_fail("çœ‹æ¸…æ¥šä¸€ç‚¹ï¼Œé‚£å¯æ˜¯ç”Ÿç‰©å“¦ã€‚\n");
 
 	if (file_size(base_name(ob)+".c") <= 0 )
-		return notify_fail("¶Ô²»Æğ£¬´ËÎïÆ·µÄÔ´ÎÄ¼şÒÑ¾­²»´æÔÚÁË¡£\n");
+		return notify_fail("å¯¹ä¸èµ·ï¼Œæ­¤ç‰©å“çš„æºæ–‡ä»¶å·²ç»ä¸å­˜åœ¨äº†ã€‚\n");
 
 	if (TASK_D->set_stuff(ob->query("name"), ([ "id" : ob->query("id"), "reward" : num ]) ))
-		return notify_fail("Äã½«"+ob->name()+"("+ob->query("id")+") £¬EXP = "+num+" ¼ÓÈëµ½ task_stuffs Àï....Ok¡£\n");
+		return notify_fail("ä½ å°†"+ob->name()+"("+ob->query("id")+") ï¼ŒEXP = "+num+" åŠ å…¥åˆ° task_stuffs é‡Œ....Okã€‚\n");
 
-	return notify_fail("TASK_D ÖĞÒÑ¾­ÓĞÁË´Ë¼şÎïÆ·£¬ÈçÒª¸ü¸ÄÇëÏÈÉ¾¡£\n");
+	return notify_fail("TASK_D ä¸­å·²ç»æœ‰äº†æ­¤ä»¶ç‰©å“ï¼Œå¦‚è¦æ›´æ”¹è¯·å…ˆåˆ ã€‚\n");
 }
 
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½£º
+æŒ‡ä»¤æ ¼å¼ï¼š
 
-adstuff <½±Àø> <ÎïÆ·>
+adstuff <å¥–åŠ±> <ç‰©å“>
 
-½±ÀøÎªËùÖµÖ®EXP¡£
-Èç¹û½±ÀøÎªÁã£¬½«É¾³ı´ËÎïÆ·¡£
+å¥–åŠ±ä¸ºæ‰€å€¼ä¹‹EXPã€‚
+å¦‚æœå¥–åŠ±ä¸ºé›¶ï¼Œå°†åˆ é™¤æ­¤ç‰©å“ã€‚
 
 by snowman@SJ 20/05/1999
 

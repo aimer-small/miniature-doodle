@@ -1,13 +1,13 @@
-// yahuan.c Ñ¾÷ß
+// yahuan.c ä¸«é¬Ÿ
 
 inherit NPC;
 
 void create()
 {
-	set_name("Ñ¾÷ß", ({ "ya huan", "ya", "huan" }));
-	set("gender", "Å®ĞÔ");
+	set_name("ä¸«é¬Ÿ", ({ "ya huan", "ya", "huan" }));
+	set("gender", "å¥³æ€§");
 	set("age", 12);
-	set("long", "ËıÊÇÒ»¸öĞ¡Ñ¾÷ß£¬ĞÎÈİÉĞĞ¡£¬ÉíÁ¿Î´×ã¡£\n");
+	set("long", "å¥¹æ˜¯ä¸€ä¸ªå°ä¸«é¬Ÿï¼Œå½¢å®¹å°šå°ï¼Œèº«é‡æœªè¶³ã€‚\n");
 	
 	set("combat_exp", 1500 + random(100));
 	set("shen_type", 0);
@@ -25,7 +25,7 @@ void create()
 	set("jiali", 5);
 
 	set("inquiry",([
-		"name" : "ÎÒ½ĞÑÌ¶ù£¬´ÓĞ¡¾Í±»ÂôÔÚÕâÀï×öÑ¾÷ß¡£",
+		"name" : "æˆ‘å«çƒŸå„¿ï¼Œä»å°å°±è¢«å–åœ¨è¿™é‡Œåšä¸«é¬Ÿã€‚",
 	]));
 	setup();
 	carry_object("/clone/misc/cloth")->wear();

@@ -3,9 +3,9 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIG"ÃÉº¹Ò©"NOR, ({ "menghan yao","yao" }) );
-        set("long",HIG"ÎäÁÖÖÐÎÞ³ÜÖ®Í½Ê¹µÄÃÉº¹Ò©¡£³ÃÈË²»±¸Ê±ÏÂÒ©(xiayao)¡£\n"NOR);
-        set("unit", "Ð¡°ü");
+        set_name(HIG"è’™æ±—è¯"NOR, ({ "menghan yao","yao" }) );
+        set("long",HIG"æ­¦æž—ä¸­æ— è€»ä¹‹å¾’ä½¿çš„è’™æ±—è¯ã€‚è¶äººä¸å¤‡æ—¶ä¸‹è¯(xiayao)ã€‚\n"NOR);
+        set("unit", "å°åŒ…");
         set("weight", 10);
         set("no_sell",1);
         set("no_give",1);
@@ -23,34 +23,34 @@ int poison(string arg)
         object me=this_player();
         object ob;
 
-        if(!arg) return notify_fail("ÄãÒª¶ÔË­ÏÂÒ©£¿\n");
+        if(!arg) return notify_fail("ä½ è¦å¯¹è°ä¸‹è¯ï¼Ÿ\n");
 
         ob = present(arg, environment(me));
 
-        if(!ob) return notify_fail("ÄãÒª¶ÔË­ÏÂÒ©£¿\n");
+        if(!ob) return notify_fail("ä½ è¦å¯¹è°ä¸‹è¯ï¼Ÿ\n");
 
         if((ob->query("id") != "wu dunru")&&
             (ob->query("id") != "wu xiuwen")&&
             (ob->query("id") != "yelv yan")&&
             (ob->query("id") != "wanyan ping"))
-                 return notify_fail("Õâ¸öºÃÏñ²»ÊÇÄãµÄÄ¿±ê¡£\n");
+                 return notify_fail("è¿™ä¸ªå¥½åƒä¸æ˜¯ä½ çš„ç›®æ ‡ã€‚\n");
 
-        if(ob == me) return notify_fail("ËäÈ»¿´ÆðÀ´ºÜºÃ³Ô£¬²»¹ý»¹ÊÇÐ¡ÐÄµã°É¡£\n");
+        if(ob == me) return notify_fail("è™½ç„¶çœ‹èµ·æ¥å¾ˆå¥½åƒï¼Œä¸è¿‡è¿˜æ˜¯å°å¿ƒç‚¹å§ã€‚\n");
 
         if( !wizardp(me) && userp(ob) )
-                return notify_fail("Õâ¸öºÃÏñ²»ÊÇÄãµÄÄ¿±ê¡£\n");
+                return notify_fail("è¿™ä¸ªå¥½åƒä¸æ˜¯ä½ çš„ç›®æ ‡ã€‚\n");
 
-        message_vision("ù£¼ûµ½$N³ÃÖøÃ»ÈË×¢Òâ£¬Í»È»ÊÖÏò×Å$nµÄ±­×Ó¶¶ÁËÒ»ÏÂ¡£\n",me, ob);
+        message_vision("ï¿½ï¼œï¿½åˆ°$Nè¶è‘—æ²¡äººæ³¨æ„ï¼Œçªç„¶æ‰‹å‘ç€$nçš„æ¯å­æŠ–äº†ä¸€ä¸‹ã€‚\n",me, ob);
         if (random(me->query_skill("poison",1)) < random(ob->query_int()*4))
         {
-                message_vision(HIR"$n¶Ô×Å$N´óºÈÒ»Éù£º¡°×öÊ²Ã´£¡£¿¡±\n"NOR,me,ob);
+                message_vision(HIR"$nå¯¹ç€$Nå¤§å–ä¸€å£°ï¼šâ€œåšä»€ä¹ˆï¼ï¼Ÿâ€\n"NOR,me,ob);
                 me->start_busy(5);
                 ob->kill_ob(me);
                 destruct(this_object());
                 return 1;
         } else {
-        message_vision(HIR"$n²»¾­ÒâµÄÄÃÆð±­×ÓºÈÁËÒ»¿Ú£¬ÑÛÇ°¶¸È»Ò»ºÚ¡£\n"NOR,me,ob);
-        message_vision(HIR"$N³Ã»ú°Ñ$nÀ­µ½Ò»±ß¡£$nÉí×ÓÒ»»Î£¬¾Íµ¹ÔÚµØÉÏ¡£\n"NOR,me,ob);
+        message_vision(HIR"$nä¸ç»æ„çš„æ‹¿èµ·æ¯å­å–äº†ä¸€å£ï¼Œçœ¼å‰é™¡ç„¶ä¸€é»‘ã€‚\n"NOR,me,ob);
+        message_vision(HIR"$Nè¶æœºæŠŠ$næ‹‰åˆ°ä¸€è¾¹ã€‚$nèº«å­ä¸€æ™ƒï¼Œå°±å€’åœ¨åœ°ä¸Šã€‚\n"NOR,me,ob);
         if (me->query_temp("xy/job")!=0)
                 me->add_temp("xy/job",1);
         ob->unconcious();

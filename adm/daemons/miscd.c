@@ -48,7 +48,7 @@ void delete_user_item(object me,string id,string str)
 	map_delete(save_list,id);
 	save();
 	load_save_item(me);	
-	call_out("delay_remind",1,me,"你保存的某些物品因为"+str+"而被系统删除了。\n");
+	call_out("delay_remind",1,me,"浣犱繚瀛樼殑鏌愪簺鐗╁搧鍥犱负"+str+"鑰岃绯荤粺鍒犻櫎浜嗐�俓n");
 }
 
 void load_save_item(object me)
@@ -74,15 +74,15 @@ void load_save_item(object me)
 	{
 		ve = keys(show_list[nowid]);
 		if(sizeof(ve)<=0) return;
-		//除错
+		//闄ら敊
 		for(i=0;i<sizeof(ve);i++)
 			if(undefinedp(save_list[show_list[nowid][ve[i]]["save_id"]])){
 				//add log here
-				//write(sprintf("删除....%s.....show_list %d because can not find %s .. done \n",nowid,ve[i],show_list[nowid][ve[i]]["save_id"],));
+				//write(sprintf("鍒犻櫎....%s.....show_list %d because can not find %s .. done \n",nowid,ve[i],show_list[nowid][ve[i]]["save_id"],));
 				map_delete(show_list[nowid],ve[i]);
 				change=1;				
 			}
-		//长时间物品的delete
+		//闀挎椂闂寸墿鍝佺殑delete
 		ve = keys(show_list[nowid]);
 		if(change!=0){
 			if(sizeof(ve)<=0){
@@ -97,7 +97,7 @@ void load_save_item(object me)
 			if(savetime>CAN_SAVE_DAY*24*60*60)
 			{
 				//add log here
-				call_out("delay_remind",1,me,sprintf("你保存的%s因为时间太久被系统删除了。\n",show_list[nowid][ve[i]]["name"]));
+				call_out("delay_remind",1,me,sprintf("浣犱繚瀛樼殑%s鍥犱负鏃堕棿澶箙琚郴缁熷垹闄や簡銆俓n",show_list[nowid][ve[i]]["name"]));
 				map_delete(save_list,show_list[nowid][ve[i]]["save_id"]);
 				map_delete(show_list[nowid],ve[i]);				
 				change=1;

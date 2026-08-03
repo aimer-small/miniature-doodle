@@ -9,15 +9,15 @@ mixed ask_ff();
 
 void create()
 {
-        set_name("ÎŞÏàìøÊ¦", ({"wuxiang chanshi", "wuxiang", "chanshi",
+        set_name("æ— ç›¸ç¦…å¸ˆ", ({"wuxiang chanshi", "wuxiang", "chanshi",
         }));
         set("long",
-                "ËûÊÇÒ»Î»Éí´©ÇàÅÛµÄ¿İÊİÉ®ÈË£¬Éí²Ä¾«Êİ¡£\n"
-                "Ğë·¢ÒÑÈ»È«°×£¬Ò²¿´²»³ö¶àÉÙÄê¼Í¡£\n"
+                "ä»–æ˜¯ä¸€ä½èº«ç©¿é’è¢çš„æ¯ç˜¦åƒ§äººï¼Œèº«æç²¾ç˜¦ã€‚\n"
+                "é¡»å‘å·²ç„¶å…¨ç™½ï¼Œä¹Ÿçœ‹ä¸å‡ºå¤šå°‘å¹´çºªã€‚\n"
         );
 
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
         set("no_bark",1);
@@ -61,11 +61,11 @@ void create()
                 (: perform_action, "finger.qiankun" :),
         }));
 
-        create_family("ÉÙÁÖÅÉ", 34, "µÜ×Ó");
+        create_family("å°‘æ—æ´¾", 34, "å¼Ÿå­");
 	set("inquiry", ([
-		"ÉÙÁÖÎä¼¼": (: ask_wj :),
-		"ÎŞÏà½ÙÖ¸": (: ask_wx :),
-		"·ğ·¨": (: ask_ff :),
+		"å°‘æ—æ­¦æŠ€": (: ask_wj :),
+		"æ— ç›¸åŠ«æŒ‡": (: ask_wx :),
+		"ä½›æ³•": (: ask_ff :),
 	]));
 
         setup();
@@ -79,7 +79,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	command("say ¶Ô²»Æğ£¬ÀÏñÄÏÖÔÚ²»ÊÕÍ½¡£");
+	command("say å¯¹ä¸èµ·ï¼Œè€è¡²ç°åœ¨ä¸æ”¶å¾’ã€‚");
 	return;
 }
 
@@ -90,8 +90,8 @@ string ask_wj()
 	if(me->query("wxz/quest") < 4) return 0;
 	if( me->query("wxz/quest")== 4 )
 		me->set("wxz/quest",5);
-	return RANK_D->query_respect(me)+"ºÎ¿àÌ°ÁµÎäÑ§Ğ¡¼¼£¬ĞëÖª´È±¯Îª»³£¬·½ÄÜĞŞ³ÉÕı¹û¡£\n"
-		+"²»¹ı¼ÈÈ»ÄãÄÜÀ´µ½ÕâÀï£¬Ò²ËãÎÒÁ©ÓĞÔµ£¬ÎÒÕâÌ×ÎŞÏà½ÙÖ¸£¬±ã´«ÁË¸øÄã°É¡£\n";
+	return RANK_D->query_respect(me)+"ä½•è‹¦è´ªæ‹æ­¦å­¦å°æŠ€ï¼Œé¡»çŸ¥æ…ˆæ‚²ä¸ºæ€€ï¼Œæ–¹èƒ½ä¿®æˆæ­£æœã€‚\n"
+		+"ä¸è¿‡æ—¢ç„¶ä½ èƒ½æ¥åˆ°è¿™é‡Œï¼Œä¹Ÿç®—æˆ‘ä¿©æœ‰ç¼˜ï¼Œæˆ‘è¿™å¥—æ— ç›¸åŠ«æŒ‡ï¼Œä¾¿ä¼ äº†ç»™ä½ å§ã€‚\n";
 }
 
 string ask_wx()
@@ -99,24 +99,24 @@ string ask_wx()
 	object me=this_player();
 
 	if(me->query("wxz/done"))
-		return RANK_D->query_respect(me)+"²»ÊÇÒÑ¾­Ñ§µ½ÁËÃ´£¿\n";
+		return RANK_D->query_respect(me)+"ä¸æ˜¯å·²ç»å­¦åˆ°äº†ä¹ˆï¼Ÿ\n";
 
 	if(me->query("wxz/quest")<5)
 		return "";
 	if( me->query("wxz/quest")== 5 )
 		me->set("wxz/done",1);
-	log_file("quest/wuxiang", sprintf("%8s%-10s ÔÚÎŞÏàìøÊ¦´¦Ñ§µ½ÎŞÏà½ÙÖ¸¡£\n",
+	log_file("quest/wuxiang", sprintf("%8s%-10s åœ¨æ— ç›¸ç¦…å¸ˆå¤„å­¦åˆ°æ— ç›¸åŠ«æŒ‡ã€‚\n",
 		me->query("name"), "("+me->query("id")+")" ), me);
-	command("say Äã¿ÉÒÔ³¢ÊÔÒÔÖ¸Á¦¹Ä¾¢£¬²¦¶¯µØÉÏµÄÄ¾Ğ¼£¬»ò¿ÉÓĞËùĞÄµÃ¡£");
-	return "Ö»ÊÇÄ¾Æ¬Ô¾¶¯£¬±ãÊÇÓĞÏà¡£µ±ÕæÒªÃû¸±ÆäÊµ£¬Á·ÖÁÎŞĞÎÎŞÏà£¬×İÇî±ÏÉúÖ®¹¦£¬Ò²²»Ò×ÓĞ³É¡£";
+	command("say ä½ å¯ä»¥å°è¯•ä»¥æŒ‡åŠ›é¼“åŠ²ï¼Œæ‹¨åŠ¨åœ°ä¸Šçš„æœ¨å±‘ï¼Œæˆ–å¯æœ‰æ‰€å¿ƒå¾—ã€‚");
+	return "åªæ˜¯æœ¨ç‰‡è·ƒåŠ¨ï¼Œä¾¿æ˜¯æœ‰ç›¸ã€‚å½“çœŸè¦åå‰¯å…¶å®ï¼Œç»ƒè‡³æ— å½¢æ— ç›¸ï¼Œçºµç©·æ¯•ç”Ÿä¹‹åŠŸï¼Œä¹Ÿä¸æ˜“æœ‰æˆã€‚";
 }
 
 mixed ask_ff()
 {
 	object me=this_player();
 
-	if (!me->query("potential")) return "ÄãµÄÇ±ÄÜ²»¹»ÁË¡£";
-	if (!me->query("wxz/poison")) return RANK_D->query_respect(me)+"·ğ·¨¾«Éî£¬ĞÄ»³´È±¯£¬ÎÒÄ¿Ç°ÊµÔÚÃ»ÓĞÊ²Ã´¿ÉÒÔ½ÌÄãµÄ¡£";
+	if (!me->query("potential")) return "ä½ çš„æ½œèƒ½ä¸å¤Ÿäº†ã€‚";
+	if (!me->query("wxz/poison")) return RANK_D->query_respect(me)+"ä½›æ³•ç²¾æ·±ï¼Œå¿ƒæ€€æ…ˆæ‚²ï¼Œæˆ‘ç›®å‰å®åœ¨æ²¡æœ‰ä»€ä¹ˆå¯ä»¥æ•™ä½ çš„ã€‚";
 
 	do if (me->add("wxz/poison",-2-random(2)) < 0) {
 		me->set("wxz/poison",0);
@@ -124,8 +124,8 @@ mixed ask_ff()
 	}
 	while (me->add("potential",-4-random(2)) > 0);
 	if (me->query("potential") < 0) me->set("potential",0);
-	command("say ¼´ĞÄ¼´·ğ£¬¼´·ğ¼´ĞÄ£¬ĞÄÃ÷Ê¶·ğ£¬Ê¶·ğÃ÷ĞÄ£¬ÀëĞÄ·Ç·ğ£¬Àë·ğ·ÇĞÄ¡­¡­");
+	command("say å³å¿ƒå³ä½›ï¼Œå³ä½›å³å¿ƒï¼Œå¿ƒæ˜è¯†ä½›ï¼Œè¯†ä½›æ˜å¿ƒï¼Œç¦»å¿ƒéä½›ï¼Œç¦»ä½›éå¿ƒâ€¦â€¦");
 	command("buddhi wuxiang chanshi");
-	tell_object(me,"Äã¶Ë×øÁ¼¾Ã£¬ÈôÓĞËùÎò¡£\n");
+	tell_object(me,"ä½ ç«¯åè‰¯ä¹…ï¼Œè‹¥æœ‰æ‰€æ‚Ÿã€‚\n");
 	return 1;
 }

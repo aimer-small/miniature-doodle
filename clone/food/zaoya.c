@@ -1,4 +1,4 @@
-// /u/beyond/mr/obj/meihua-zaoya.c Ã·»¨ÔãÑ¼
+// /u/beyond/mr/obj/meihua-zaoya.c æ¢…èŠ±ç³Ÿé¸­
 // this is made by beyond
 // update 1997.6.20
 #include <ansi.h>
@@ -7,13 +7,13 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name(HIY"Ã·»¨ÔãÑ¼"NOR, ({"meihua zaoya", "ya"}));
+        set_name(HIY"æ¢…èŠ±ç³Ÿé¸­"NOR, ({"meihua zaoya", "ya"}));
         set_weight(200);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("long", "Ò»ÅÌÌğÄÛ¿É¿ÚµÄÃ·»¨ÔãÑ¼¡£\n");
-                set("unit", "ÅÌ");
+                set("long", "ä¸€ç›˜ç”œå«©å¯å£çš„æ¢…èŠ±ç³Ÿé¸­ã€‚\n");
+                set("unit", "ç›˜");
                 set("value", 150);
                 set("food_remaining", 4);
                 set("food_supply", 40);

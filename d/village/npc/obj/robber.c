@@ -1,4 +1,4 @@
-// Created by ChinaNet@SD robber.c ÇÀ½ÙÈË2
+// Created by ChinaNet@SD robber.c æŠ¢åŠ«äºº2
 // 2004/1/29
 
 
@@ -30,8 +30,8 @@ string *dodge_skill = ({
 
 string *weapon_list = ({ "chui","sword","blade","whip","gun","sword","gangzhang","blade" }); 
 
-string *first_title = ({"½ð·çÏ¸ÓêÂ¥","ÌìÏÂ»á","ÌìµØ»á","³¯Í¢","Çà°ï","ÇÀ½Ù»á","·Ë°ï"});
-string *second_title = ({ "¿óÊ¯²É¹ºÌÃÖ÷","¿óÊ¯²É¹ºÔ±","¿óÊ¯ÇÀ½ÙÌÃÖ÷","¿óÊ¯ÇÀ½ÙÔ±"});
+string *first_title = ({"é‡‘é£Žç»†é›¨æ¥¼","å¤©ä¸‹ä¼š","å¤©åœ°ä¼š","æœå»·","é’å¸®","æŠ¢åŠ«ä¼š","åŒªå¸®"});
+string *second_title = ({ "çŸ¿çŸ³é‡‡è´­å ‚ä¸»","çŸ¿çŸ³é‡‡è´­å‘˜","çŸ¿çŸ³æŠ¢åŠ«å ‚ä¸»","çŸ¿çŸ³æŠ¢åŠ«å‘˜"});
 
 void create()
 {
@@ -54,15 +54,15 @@ void create()
 
         set_name(name["name"], name["id"] + ({ "robber" }));
 	set("title", HIW+title+NOR);
-	set("gender", (i==0?"Å®ÐÔ":"ÄÐÐÔ"));
+	set("gender", (i==0?"å¥³æ€§":"ç”·æ€§"));
 	set("age", 20 + random(40));
-	set("long", "´ËÈË·îÃüÔÚ¸÷µØËÑ¼¯¿óÊ¯À´Âú×ã±øÆ÷ÖýÔìËùÐè¡£\nËûÃæÂ¶Ð×¹â£¬ÕýÊÇÒ»¸±»µÈËµÄÄ£Ñù¡£\n");
+	set("long", "æ­¤äººå¥‰å‘½åœ¨å„åœ°æœé›†çŸ¿çŸ³æ¥æ»¡è¶³å…µå™¨é“¸é€ æ‰€éœ€ã€‚\nä»–é¢éœ²å‡¶å…‰ï¼Œæ­£æ˜¯ä¸€å‰¯åäººçš„æ¨¡æ ·ã€‚\n");
 	set("combat_exp", 8000000);
 	set("meitude", "peaceful");
 	set("str", 30);
 	set("dex", 30);
 	set("int", 30);
-	set("no_get","Õâ¸öÈË±³²»ÆðÀ´¡£\n");
+	set("no_get","è¿™ä¸ªäººèƒŒä¸èµ·æ¥ã€‚\n");
 	set("con", 30);
 	set("max_qi", 20000);
 	set("max_jing", 20000);
@@ -151,11 +151,11 @@ int do_kill(object ob)
 	string *sk;
 	object me; 
 	int lv,exp,i,j,b_exp,p;
-//added by ChinaNet 2004/01/31 Ç¿µÁ¼¶±ð
+//added by ChinaNet 2004/01/31 å¼ºç›—çº§åˆ«
 	me = this_object();
 	
 	if (me->query_temp("minejob/level") == "veryhard")
-           { lv = (int)ob->query("max_pot") * 5/4;j = 2; }//¹ýÓÚ±äÌ¬ ¸ÄÒ»ÏÂ
+           { lv = (int)ob->query("max_pot") * 5/4;j = 2; }//è¿‡äºŽå˜æ€ æ”¹ä¸€ä¸‹
 		
 	else if (me->query_temp("minejob/level") == "hard")
 		{ lv = (int)ob->query("max_pot") * 5/4;j = 2; }
@@ -199,8 +199,8 @@ int do_kill(object ob)
 		for (i=0;i<sizeof(sk);i++)
 			skills[sk[i]] = lv;
 	}
-	message_vision(HIW"\n"+ob->name()+"ÐÄÖÐÒ»¼±£¬´óº°£º" + RANK_D->query_rude(me)+ "£¬Ð¡Ñù£¬ÊÇ²»ÊÇÄãÍµÎÒ¶«Î÷ÁË£¿\n\n"NOR,ob);
-	message_vision(HIW""+me->name()+"¹þ¹þ´óÐ¦£¬ËµµÀ£º" + RANK_D->query_rude(ob)+ "£¬ÎÒ¾ÍÊÇÄÃÄã¶«Î÷ÁË£¬ÄãÓÖÄÜÄÍÎÒºÎ£¡ÊÜËÀ°É£¡\n\n"NOR,ob);
+	message_vision(HIW"\n"+ob->name()+"å¿ƒä¸­ä¸€æ€¥ï¼Œå¤§å–Šï¼š" + RANK_D->query_rude(me)+ "ï¼Œå°æ ·ï¼Œæ˜¯ä¸æ˜¯ä½ å·æˆ‘ä¸œè¥¿äº†ï¼Ÿ\n\n"NOR,ob);
+	message_vision(HIW""+me->name()+"å“ˆå“ˆå¤§ç¬‘ï¼Œè¯´é“ï¼š" + RANK_D->query_rude(ob)+ "ï¼Œæˆ‘å°±æ˜¯æ‹¿ä½ ä¸œè¥¿äº†ï¼Œä½ åˆèƒ½è€æˆ‘ä½•ï¼å—æ­»å§ï¼\n\n"NOR,ob);
 	me->kill_ob(ob);
 	remove_call_out("checking");
 	call_out("checking", 1, me, ob);     
@@ -216,7 +216,7 @@ void kill_ob(object ob)
 	if (ob->query("id") != query_temp("target")) {
 		ob->remove_killer(this_object());
 		this_object()->remove_killer(ob);
-		tell_object(ob, this_object()->query("name")+"¶ÔÄãÎ¢Î¢Ò»Ð¦£¬ÁÝÈ»²»¾å¡£Äã²»ÓÉµÃÍ£ÏÂÁËÊÖ¡£\n");
+		tell_object(ob, this_object()->query("name")+"å¯¹ä½ å¾®å¾®ä¸€ç¬‘ï¼Œå‡›ç„¶ä¸æƒ§ã€‚ä½ ä¸ç”±å¾—åœä¸‹äº†æ‰‹ã€‚\n");
 		return;
 	}
 	::kill_ob(ob);
@@ -235,7 +235,7 @@ void die()
 			{
 				mine->move(ob);
 				ob->set_temp("minejob/killed",1);
-				tell_object(ob,"\nÄãÉìÊÖ½«"+mine->query("name")+"¼ðÁËÆðÀ´¡£\n");
+				tell_object(ob,"\nä½ ä¼¸æ‰‹å°†"+mine->query("name")+"æ‹£äº†èµ·æ¥ã€‚\n");
 			}
 	}
 	::die();
@@ -247,7 +247,7 @@ int checking(object me, object ob)
 	if((!me->query("qi") >= me->query("max_qi")/2) && (me->query_temp("cure") < 2)){
 		 me->add("qi",me->query("max_qi")/4);
 		 me->add_temp("cure",1);
-		 tell_room(environment(me), me->query("name")+"ÉîÉîµÄÎüÁË¿ÚÆø£¬Á³É«¶ÙÊ±ºÃÁËÐí¶à¡£\n", ({me})); 
+		 tell_room(environment(me), me->query("name")+"æ·±æ·±çš„å¸äº†å£æ°”ï¼Œè„¸è‰²é¡¿æ—¶å¥½äº†è®¸å¤šã€‚\n", ({me})); 
 	}
 
 	if(ob->is_fighting(me)){

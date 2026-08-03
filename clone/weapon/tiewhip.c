@@ -1,21 +1,21 @@
-// tiewhip Ìú±Ş
+// tiewhip é“é­
 
 #include <weapon.h>
 inherit WHIP;
 
 void create()
 {
-        set_name("Ìú±Ş", ({ "tie bian", "tiebian","bian","whip" }));
+        set_name("é“é­", ({ "tie bian", "tiebian","bian","whip" }));
         set_weight(15000);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "±ú");
-                set("long", "ÕâÊÇÒ»±úÌúÖÆµÄ³¤±Ş£¬Òì³£³ÁÖØ¡£\n");
+                set("unit", "æŸ„");
+                set("long", "è¿™æ˜¯ä¸€æŸ„é“åˆ¶çš„é•¿é­ï¼Œå¼‚å¸¸æ²‰é‡ã€‚\n");
                 set("value", 500);
                 set("material", "steel");
-                set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù¶¶³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n¾í»ØÑü¼ä¡£\n");
+                set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ–å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nå·å›è…°é—´ã€‚\n");
         }
         init_whip(30);
         setup();

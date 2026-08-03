@@ -1,6 +1,6 @@
 // By River@SJ 2002.2.25
 mapping *npc_skills = ({
-([	"family":	"¶ëáÒÅÉ", //1-em1
+([	"family":	"å³¨åµ‹æ´¾", //1-em1
 	"force" :	"linji-zhuang",
 	"dodge" :	"anying-fuxiang",
 	"parry": 	"huifeng-jian",
@@ -9,7 +9,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		0,
 ]),
-([	"family":	"¶ëáÒÅÉ", //2-em2
+([	"family":	"å³¨åµ‹æ´¾", //2-em2
 	"force" :	"linji-zhuang",
 	"dodge" :	"anying-fuxiang",
 	"parry": 	"yanxing-daofa",
@@ -18,7 +18,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		1,
 ]),
-([	"family":	"Ø¤°ï", //3-gb1
+([	"family":	"ä¸å¸®", //3-gb1
 	"force" :	"huntian-qigong",
 	"dodge" :	"xiaoyaoyou",
 	"parry":	"dagou-bang",
@@ -27,7 +27,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		2,
 ]),
-([	"family":	"Ø¤°ï", //4-gb2
+([	"family":	"ä¸å¸®", //4-gb2
 	"force" :	"huntian-qigong",
 	"dodge" :	"xiaoyaoyou",
 	"parry":	"dagou-bang",
@@ -36,7 +36,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		3,
 ]),
-([	"family":	"Ø¤°ï", //5-gb3
+([	"family":	"ä¸å¸®", //5-gb3
 	"force" :	"huntian-qigong",
 	"dodge" :	"xiaoyaoyou",
 	"parry":	"liuhe-daofa",
@@ -45,7 +45,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		4,
 ]),
-([	"family":	"Ø¤°ï", //6-gb4
+([	"family":	"ä¸å¸®", //6-gb4
 	"force" :	"huntian-qigong",
 	"dodge" :	"xiaoyaoyou",
 	"parry":	"fengmo-zhang",
@@ -54,7 +54,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		5,
 ]),
-([	"family":	"Ø¤°ï", //7-gb5
+([	"family":	"ä¸å¸®", //7-gb5
 	"force" :	"huntian-qigong",
 	"dodge" :	"xiaoyaoyou",
 	"parry":	"huifeng-bian",
@@ -63,7 +63,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		6,
 ]),
-([	"family":	"Ø¤°ï", //8-gb6
+([	"family":	"ä¸å¸®", //8-gb6
 	"force" :	"huntian-qigong",
 	"dodge" :	"xiaoyaoyou",
 	"parry":	"fengmo-zhang",
@@ -72,7 +72,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		7,
 ]),
-([	"family":	"¹ÅÄ¹ÅÉ", //9-gm1
+([	"family":	"å¤å¢“æ´¾", //9-gm1
 	"force" :	"yunu-xinjing",
 	"dodge" :	"yunu-shenfa",
 	"parry":	"xuantie-jianfa",
@@ -81,7 +81,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		8,
 ]),
-([	"family":	"¹ÅÄ¹ÅÉ", //10-gm2
+([	"family":	"å¤å¢“æ´¾", //10-gm2
 	"force" :	"yunu-xinjing",
 	"dodge" :	"yunu-shenfa",
 	"parry":	"quanzhen-jianfa",
@@ -90,7 +90,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		9,
 ]),
-([	"family":	"¹ÅÄ¹ÅÉ", //11-gm3
+([	"family":	"å¤å¢“æ´¾", //11-gm3
 	"force" :	"yunu-xinjing",
 	"dodge" :	"yunu-shenfa",
 	"parry":	"yinsuo-jinling",
@@ -99,7 +99,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		10,
 ]),
-([	"family":	"¹ÅÄ¹ÅÉ", //12-gm4
+([	"family":	"å¤å¢“æ´¾", //12-gm4
 	"force" :	"yunu-xinjing",
 	"dodge" :	"yunu-shenfa",
 	"parry":	"yunu-jianfa",
@@ -108,7 +108,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		11,
 ]),
-([	"family":	"»ªÉ½ÅÉ", //13-hs1
+([	"family":	"åå±±æ´¾", //13-hs1
 	"force" :	"zixia-gong",
 	"dodge" :	"huashan-shenfa",
 	"parry":	"huashan-jianfa",
@@ -117,7 +117,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		12,
 ]),
-([	"family":	"»ªÉ½ÅÉ", //14-hs2
+([	"family":	"åå±±æ´¾", //14-hs2
 	"force" :	"zixia-gong",
 	"dodge" :	"huashan-shenfa",
 	"parry":	"chongling-jian",
@@ -126,7 +126,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		13,
 ]),
-([	"family":	"»ªÉ½ÅÉ", //15-hs3
+([	"family":	"åå±±æ´¾", //15-hs3
 	"force" :	"zixia-gong",
 	"dodge" :	"huashan-shenfa",
 	"parry":	"fanliangyi-dao",
@@ -135,7 +135,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		14,
 ]),
-([	"family":	"À¥ÂØÅÉ", //16-kl1
+([	"family":	"æ˜†ä»‘æ´¾", //16-kl1
 	"force" :	"xuantian-wuji",
 	"dodge" :	"taxue-wuhen",
 	"parry":	"liangyi-jian",
@@ -144,7 +144,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		15,
 ]),
-([	"family":	"À¥ÂØÅÉ", //17-kl2
+([	"family":	"æ˜†ä»‘æ´¾", //17-kl2
 	"force" :	"xuantian-wuji",
 	"dodge" :	"taxue-wuhen",
 	"parry":	"xunlei-jian",
@@ -153,7 +153,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		16,
 ]),
-([	"family":	"À¥ÂØÅÉ", //18-kl3
+([	"family":	"æ˜†ä»‘æ´¾", //18-kl3
 	"force" :	"xuantian-wuji",
 	"dodge" :	"taxue-wuhen",
 	"parry":	"xunlei-jian",
@@ -162,7 +162,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		17,
 ]),
-([	"family":	"À¥ÂØÅÉ", //19-kl4
+([	"family":	"æ˜†ä»‘æ´¾", //19-kl4
 	"force" :	"xuantian-wuji",
 	"dodge" :	"taxue-wuhen",
 	"parry":	"mantian-huayu",
@@ -171,7 +171,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		18,
 ]),
-([	"family":	"Ã÷½Ì", //20-mj1
+([	"family":	"æ˜æ•™", //20-mj1
 	"force" :	"shenghuo-shengong",
 	"dodge" :	"piaoyi-shenfa",
 	"parry":	"qiankun-danuoyi",
@@ -180,7 +180,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		19,
 ]),
-([	"family":	"Ã÷½Ì", //21-mj2
+([	"family":	"æ˜æ•™", //21-mj2
 	"force" :	"shenghuo-shengong",
 	"dodge" :	"piaoyi-shenfa",
 	"parry":	"qiankun-danuoyi",
@@ -189,7 +189,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		20,
 ]),
-([	"family":	"Ã÷½Ì", //22-mj3
+([	"family":	"æ˜æ•™", //22-mj3
 	"force" :	"shenghuo-shengong",
 	"dodge" :	"piaoyi-shenfa",
 	"parry":	"lieyan-dao",
@@ -198,7 +198,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		21,
 ]),
-([	"family":	"Ã÷½Ì", //23-mj4
+([	"family":	"æ˜æ•™", //23-mj4
 	"force" :	"shenghuo-shengong",
 	"dodge" :	"piaoyi-shenfa",
 	"parry":	"liehuo-jian",
@@ -207,7 +207,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		22,
 ]),
-([	"family":	"Ã÷½Ì", //24-mj5
+([	"family":	"æ˜æ•™", //24-mj5
 	"force" :	"shenghuo-shengong",
 	"dodge" :	"piaoyi-shenfa",
 	"parry":	"duoming-jinhua",
@@ -216,7 +216,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		23,
 ]),
-([	"family":	"¹ÃËÕÄ½Èİ", //25-mr1
+([	"family":	"å§‘è‹æ…•å®¹", //25-mr1
 	"force" :	"shenyuan-gong",
 	"dodge" :	"yanling-shenfa",
 	"parry":	"douzhuan-xingyi",
@@ -225,7 +225,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		24,
 ]),
-([	"family":	"¹ÃËÕÄ½Èİ", //26-mr2
+([	"family":	"å§‘è‹æ…•å®¹", //26-mr2
 	"force" :	"shenyuan-gong",
 	"dodge" :	"yanling-shenfa",
 	"parry":	"douzhuan-xingyi",
@@ -234,7 +234,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		25,
 ]),
-([	"family":	"ÉÙÁÖÅÉ", //27-sl1
+([	"family":	"å°‘æ—æ´¾", //27-sl1
 	"force" :	"yijin-jing",
 	"dodge" :	"shaolin-shenfa",
 	"parry":	"ranmu-daofa",
@@ -244,7 +244,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		26,
 ]),
-([	"family":	"ÉÙÁÖÅÉ", //28-sl2
+([	"family":	"å°‘æ—æ´¾", //28-sl2
 	"force" :	"yijin-jing",
 	"dodge" :	"shaolin-shenfa",
 	"parry":	"zui-gun",
@@ -254,7 +254,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		27,
 ]),
-([	"family":	"ÉÙÁÖÅÉ", //29-sl3
+([	"family":	"å°‘æ—æ´¾", //29-sl3
 	"force" :	"yijin-jing",
 	"dodge" :	"shaolin-shenfa",
 	"parry":	"riyue-bian",
@@ -264,7 +264,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		28,
 ]),
-([	"family":	"ÉÙÁÖÅÉ", //30-sl4
+([	"family":	"å°‘æ—æ´¾", //30-sl4
 	"force" :	"yijin-jing",
 	"dodge" :	"shaolin-shenfa",
 	"parry":	"xiuluo-dao",
@@ -274,7 +274,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		29,
 ]),
-([	"family":	"ÉÙÁÖÅÉ", //31-sl5
+([	"family":	"å°‘æ—æ´¾", //31-sl5
 	"force" :	"yijin-jing",
 	"dodge" :	"shaolin-shenfa",
 	"parry":	"damo-jian",
@@ -284,7 +284,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		30,
 ]),
-([	"family":	"ÉÙÁÖÅÉ", //32-sl6
+([	"family":	"å°‘æ—æ´¾", //32-sl6
 	"force" :	"yijin-jing",
 	"dodge" :	"shaolin-shenfa",
 	"parry":	"pudu-zhang",
@@ -294,7 +294,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		31,
 ]),
-([	"family":	"ÉÙÁÖÅÉ", //33-sl7
+([	"family":	"å°‘æ—æ´¾", //33-sl7
 	"force" :	"yijin-jing",
 	"dodge" :	"shaolin-shenfa",
 	"parry":	"weituo-chu",
@@ -304,7 +304,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		32,
 ]),
-([	"family":	"ÉÙÁÖÅÉ", //34-sl8
+([	"family":	"å°‘æ—æ´¾", //34-sl8
 	"force" :	"yijin-jing",
 	"dodge" :	"shaolin-shenfa",
 	"parry":	"cibei-dao",
@@ -314,7 +314,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		33,
 ]),
-([	"family":	"ÉÙÁÖÅÉ", //35-sl9
+([	"family":	"å°‘æ—æ´¾", //35-sl9
 	"force" :	"yijin-jing",
 	"dodge" :	"shaolin-shenfa",
 	"parry":	"wuchang-zhang",
@@ -324,7 +324,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		34,
 ]),
-([	"family":	"ÉñÁú½Ì", //36-sld1
+([	"family":	"ç¥é¾™æ•™", //36-sld1
 	"force" :	"dulong-dafa",
 	"dodge" :	"youlong-shenfa",
 	"parry":	"tenglong-bifa",
@@ -333,7 +333,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		35,
 ]),
-([	"family":	"ÉñÁú½Ì", //37-sld2
+([	"family":	"ç¥é¾™æ•™", //37-sld2
 	"force" :	"dulong-dafa",
 	"dodge" :	"youlong-shenfa",
 	"parry":	"canglang-goufa",
@@ -342,7 +342,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		36,
 ]),
-([	"family":	"áÔÉ½ÅÉ", //38-ss1
+([	"family":	"åµ©å±±æ´¾", //38-ss1
 	"force" :	"hanbing-zhenqi",
 	"dodge" :	"zhongyuefeng",
 	"parry":	"songshan-jian",
@@ -351,7 +351,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		37,
 ]),
-([	"family":	"áÔÉ½ÅÉ", //39-ss2
+([	"family":	"åµ©å±±æ´¾", //39-ss2
 	"force" :	"hanbing-zhenqi",
 	"dodge" :	"zhongyuefeng",
 	"parry":	"songshan-jian",
@@ -360,7 +360,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		38,
 ]),
-([	"family":	"áÔÉ½ÅÉ", //40-ss3
+([	"family":	"åµ©å±±æ´¾", //40-ss3
 	"force" :	"hanbing-zhenqi",
 	"dodge" :	"zhongyuefeng",
 	"parry":	"songyang-bian",
@@ -369,7 +369,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		39,
 ]),
-([	"family":	"ÌÒ»¨µº", //41-thd1
+([	"family":	"æ¡ƒèŠ±å²›", //41-thd1
 	"force" :	"bihai-chaosheng",
 	"dodge" :	"suibo-zhuliu",
 	"parry":	"tanzhi-shentong",
@@ -378,7 +378,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		40,
 ]),
-([	"family":	"ÌÒ»¨µº", //42-thd2
+([	"family":	"æ¡ƒèŠ±å²›", //42-thd2
 	"force" :	"bihai-chaosheng",
 	"dodge" :	"suibo-zhuliu",
 	"parry":	"yuxiao-jian",
@@ -387,7 +387,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		41,
 ]),
-([	"family":	"ÌÒ»¨µº", //43-thd3
+([	"family":	"æ¡ƒèŠ±å²›", //43-thd3
 	"force" :	"bihai-chaosheng",
 	"dodge" :	"suibo-zhuliu",
 	"parry":	"yuxiao-jian",
@@ -396,7 +396,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		42,
 ]),
-([	"family":	"ÌÒ»¨µº", //44-thd4
+([	"family":	"æ¡ƒèŠ±å²›", //44-thd4
 	"force" :	"bihai-chaosheng",
 	"dodge" :	"suibo-zhuliu",
 	"parry":	"yuxiao-jian",
@@ -405,7 +405,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		43,
 ]),
-([	"family":	"ÌìÁúËÂ", //45-tls1
+([	"family":	"å¤©é¾™å¯º", //45-tls1
 	"force" :	"kurong-changong",
 	"dodge" :	"tianlong-xiang",
 	"parry":	"kurong-changong",
@@ -414,7 +414,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		44,
 ]),
-([	"family":	"ÌìÁúËÂ", //46-tls2
+([	"family":	"å¤©é¾™å¯º", //46-tls2
 	"force" :	"kurong-changong",
 	"dodge" :	"tianlong-xiang",
 	"parry":	"kurong-changong",
@@ -423,7 +423,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		45,
 ]),
-([	"family":	"ÌìÁúËÂ", //47-tls3
+([	"family":	"å¤©é¾™å¯º", //47-tls3
 	"force" :	"qiantian-yiyang",
 	"dodge" :	"tianlong-xiang",
 	"parry":	"yiyang-zhi",
@@ -432,7 +432,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		46,
 ]),
-([	"family":	"ÌìÁúËÂ", //48-tls4
+([	"family":	"å¤©é¾™å¯º", //48-tls4
 	"force" :	"qiantian-yiyang",
 	"dodge" :	"tianlong-xiang",
 	"parry":	"duanjia-jianfa",
@@ -441,7 +441,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		47,
 ]),
-([	"family":	"ÌìÁúËÂ", //49-tls5
+([	"family":	"å¤©é¾™å¯º", //49-tls5
 	"force" :	"qiantian-yiyang",
 	"dodge" :	"tianlong-xiang",
 	"parry":	"pangen-fu",
@@ -450,7 +450,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		48,
 ]),
-([	"family":	"ÌúÕÆ°ï", //50-tz1
+([	"family":	"é“æŒå¸®", //50-tz1
 	"force" :	"guiyuan-tunafa",
 	"dodge" :	"shuishangpiao",
 	"parry":	"tiezhang-zhangfa",
@@ -459,7 +459,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		49,
 ]),
-([	"family":	"Îäµ±ÅÉ", //51-wd1
+([	"family":	"æ­¦å½“æ´¾", //51-wd1
 	"force" :	"yinyun-ziqi",
 	"dodge" :	"tiyunzong",
 	"parry":	"taiji-jian",
@@ -468,7 +468,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		50,
 ]),
-([	"family":	"Îäµ±ÅÉ", //52-wd2
+([	"family":	"æ­¦å½“æ´¾", //52-wd2
 	"force" :	"yinyun-ziqi",
 	"dodge" :	"tiyunzong",
 	"parry":	"xuanxu-daofa",
@@ -477,7 +477,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		51,
 ]),
-([	"family":	"Îäµ±ÅÉ", //53-wd3
+([	"family":	"æ­¦å½“æ´¾", //53-wd3
 	"force" :	"yinyun-ziqi",
 	"dodge" :	"tiyunzong",
 	"parry":	"taiji-jian",
@@ -486,7 +486,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		52,
 ]),
-([	"family":	"Îäµ±ÅÉ", //54-wd4
+([	"family":	"æ­¦å½“æ´¾", //54-wd4
 	"force" :	"yinyun-ziqi",
 	"dodge" :	"tiyunzong",
 	"parry":	"xuanxu-daofa",
@@ -495,7 +495,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		53,
 ]),
-([	"family":	"ĞÇËŞÅÉ", //55-xx1
+([	"family":	"æ˜Ÿå®¿æ´¾", //55-xx1
 	"force" :	"huagong-dafa",
 	"dodge" :	"zhaixingshu",
 	"parry":	"chousui-zhang",
@@ -504,7 +504,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		54,
 ]),
-([	"family":	"ĞÇËŞÅÉ", //56-xx2
+([	"family":	"æ˜Ÿå®¿æ´¾", //56-xx2
 	"force" :	"huagong-dafa",
 	"dodge" :	"zhaixingshu",
 	"parry":	"tianshan-zhang",
@@ -513,7 +513,7 @@ mapping *npc_skills = ({
 	"difficult":	1,
 	"team":		55,
 ]),
-([	"family":	"ĞÇËŞÅÉ", //57-xx3
+([	"family":	"æ˜Ÿå®¿æ´¾", //57-xx3
 	"force" :	"huagong-dafa",
 	"dodge" :	"pixie-jian",
 	"parry":	"pixie-jian",
@@ -522,7 +522,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		56,
 ]),
-([	"family":	"´óÂÖËÂ", //58-xs1
+([	"family":	"å¤§è½®å¯º", //58-xs1
 	"force" :	"longxiang-boruo",
 	"dodge" :	"yuxue-dunxing",
 	"parry":	"xiangfu-lun",
@@ -531,7 +531,7 @@ mapping *npc_skills = ({
 	"difficult":	3,
 	"team":		57,
 ]),
-([	"family":	"´óÂÖËÂ", //59-xs2
+([	"family":	"å¤§è½®å¯º", //59-xs2
 	"force" :	"longxiang-boruo",
 	"dodge" :	"yuxue-dunxing",
 	"parry":	"xuedao-jing",
@@ -540,7 +540,7 @@ mapping *npc_skills = ({
 	"difficult":	2,
 	"team":		58,
 ]),
-([	"family":	"´óÂÖËÂ", //60-xs3
+([	"family":	"å¤§è½®å¯º", //60-xs3
 	"force" :	"longxiang-boruo",
 	"dodge" :	"yuxue-dunxing",
 	"parry":	"wushang-dali",

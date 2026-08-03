@@ -4,10 +4,10 @@ inherit FIGHTER;
 //#include "/d/city/npc/skills_pfm.h";
 void create()
 {
-	set_name("ÎŞÃûĞ¡×Ó", ({ "wuming xiaozi", "xiaozi" }));
+	set_name("æ— åå°å­", ({ "wuming xiaozi", "xiaozi" }));
 	set("long",
-		"Ëû³¤Á³ÉîÄ¿£¬Êİ¹ÇÀâÀâ£¬Ô¼ÄªÈıÊ®Ëê×óÓÒÄê¼Í¡£\n");
-	set("gender", "ÄĞĞÔ");
+		"ä»–é•¿è„¸æ·±ç›®ï¼Œç˜¦éª¨æ£±æ£±ï¼Œçº¦è«ä¸‰åå²å·¦å³å¹´çºªã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 35);
 	set("attitude", "friendly");
 	set("shen_type", 0);
@@ -69,8 +69,8 @@ void init()
 	ob->set("setok",1);
 	i=400;	
    	ob->set("party",str_menpai[random(sizeof(str_menpai))]);  	  
-	ob->copy_menpai(({ob->query("party")}),random(2),random(2),100);    //¸´ÖÆnpcµÄÃÅÅÉÎä¹¦£¬                                                   
-	ob->copy_state();				//¸ù¾İÃÅÅÉ¸üĞÂnpc µÄÒ»Ğ©×´Ì¬
+	ob->copy_menpai(({ob->query("party")}),random(2),random(2),100);    //å¤åˆ¶npcçš„é—¨æ´¾æ­¦åŠŸï¼Œ                                                   
+	ob->copy_state();				//æ ¹æ®é—¨æ´¾æ›´æ–°npc çš„ä¸€äº›çŠ¶æ€
 	ob->set("max_qi", 25000);
 	ob->set("eff_qi", 25000);
 	ob->set("qi", 25000);

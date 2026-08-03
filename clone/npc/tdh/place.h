@@ -20,7 +20,7 @@ int check(object target)
 	 || target->query("have_master")
 	 || !objectp(room=environment(target))
 	 || room->query("no_fight")
-	 || room->query("outdoors") == "À¥ÂØ´ä¹È"
+	 || room->query("outdoors") == "æ˜†ä»‘ç¿ è°·"
 	 || strsrch(room_name = file_name(room),"/d/") != 0
 	 || strsrch(room_name, "/d/wizard/") == 0
 	 || strsrch(room_name, "/d/group/") == 0

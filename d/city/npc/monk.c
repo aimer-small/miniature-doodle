@@ -5,20 +5,20 @@ string give_money();
 object ob=this_object();
 void create() 
 {
-set_name("ÀÏºÍÉÐ", ({ "old monk", "monk" }) );
+set_name("è€å’Œå°š", ({ "old monk", "monk" }) );
 	set("class", "bonze");
-	set("gender", "ÄÐÐÔ");
+	set("gender", "ç”·æ€§");
           set("age", 77);
-	set("long","Ëû´©×ÅÒ»Éí»ÒÉ«µÄÉ®ÅÛ£¬¿´ÆðÀ´ºÜÀÏÊµµÄÑù×Ó¡£\n");
-	set("title", "³ÇÚòÃíÉ¨µØºÍÉÐ");
+	set("long","ä»–ç©¿ç€ä¸€èº«ç°è‰²çš„åƒ§è¢ï¼Œçœ‹èµ·æ¥å¾ˆè€å®žçš„æ ·å­ã€‚\n");
+	set("title", "åŸŽéšåº™æ‰«åœ°å’Œå°š");
 	set("combat_exp", 3000);
 	set("shen_type", 1);
 	set("attitude", "friendly");
 	set("inquiry",([
-		"ÁìÇ®" : (:give_money:)
+		"é¢†é’±" : (:give_money:)
     	]));
 	set("chat_chance", 5);
-set("chat_msg", ({"ÀÏºÍÉÐ¶ÔÄãËµµ½£ºÕâÎ»Ê©Ö÷£¬ÇëÅÅ¶Ó¡£\n"}));
+set("chat_msg", ({"è€å’Œå°šå¯¹ä½ è¯´åˆ°ï¼šè¿™ä½æ–½ä¸»ï¼Œè¯·æŽ’é˜Ÿã€‚\n"}));
 	set("max_qi", 200);
 	set("max_jing", 200);
 	set("neili", 200);
@@ -64,7 +64,7 @@ string give_money()
   	if((int)me->query("given")==1) {
     		command("kick "+me->query("id"));
     		command("faint "+me->query("id"));
-    		return "ÄãÔõÃ´ÕâÃ´Ì°²Æ£¡£¡£¡";
+    		return "ä½ æ€Žä¹ˆè¿™ä¹ˆè´ªè´¢ï¼ï¼ï¼";
     	}
 	if( (int)me->query("kar") >=20 ) {
 /*
@@ -72,7 +72,7 @@ string give_money()
 		command("give "+me->query("id")+" 50 silver");
 */
 		me->set("given",1);
-            return "Ê©Ö÷ÓëÀÏñÄÄÜÔÚ´ËÏà¼û£¬Ò²ËãÓÐÔµ£¬¿ÉÏ§ÄãÀ´³ÙÁË¡£";
+            return "æ–½ä¸»ä¸Žè€è¡²èƒ½åœ¨æ­¤ç›¸è§ï¼Œä¹Ÿç®—æœ‰ç¼˜ï¼Œå¯æƒœä½ æ¥è¿Ÿäº†ã€‚";
     	}
 	if ((int)me->query("kar")<20){	
 /*
@@ -81,6 +81,6 @@ string give_money()
 		ob->add("silver",30);
 */
 		me->set("given",1);
-            return "Ê©Ö÷ÓëÀÏñÄÄÜÔÚ´ËÏà¼û£¬Ò²ËãÓÐÔµ£¬ÒªÇ®Ã»ÓÐ£¬ÃüÓÐÒ»Ìõ¡£";
+            return "æ–½ä¸»ä¸Žè€è¡²èƒ½åœ¨æ­¤ç›¸è§ï¼Œä¹Ÿç®—æœ‰ç¼˜ï¼Œè¦é’±æ²¡æœ‰ï¼Œå‘½æœ‰ä¸€æ¡ã€‚";
     	}
 }

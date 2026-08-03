@@ -12,19 +12,19 @@ int exert(object me, object target)
         int skill;
 
 	if ( !me->is_fighting())
-		return notify_fail("ÄãÖ»ÓĞÔÚÕ½¶·ÖĞ£¬²ÅÄÜÔËÕæÆøÔö¼Ó¹¥»÷Á¦¡£\n");
+		return notify_fail("ä½ åªæœ‰åœ¨æˆ˜æ–—ä¸­ï¼Œæ‰èƒ½è¿çœŸæ°”å¢åŠ æ”»å‡»åŠ›ã€‚\n");
 
 	if ( me->query_skill("longxiang-boruo", 1) < 140)
-		return notify_fail("Ö»ÓĞĞŞÁ¶µ½ÁúÏó°ãÈô¹¦µÚÆß²ãÖ®ºó£¬²ÅÄÜÔöÇ¿×Ô¼ºµÄ¹¥»÷Á¦¡£\n");
+		return notify_fail("åªæœ‰ä¿®ç‚¼åˆ°é¾™è±¡èˆ¬è‹¥åŠŸç¬¬ä¸ƒå±‚ä¹‹åï¼Œæ‰èƒ½å¢å¼ºè‡ªå·±çš„æ”»å‡»åŠ›ã€‚\n");
 
 	if ( me->query("max_neili") < 2000)
-		return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎªÌ«²î£¬¶à¶à´ò×ø°É¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºå¤ªå·®ï¼Œå¤šå¤šæ‰“åå§ã€‚\n");
 
 	if ( me->query("neili") < 1000 ) 
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n"); 
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n"); 
 
 	if ( me->query_temp("xs/longxiang"))
-		return notify_fail("ÄãÒÑ¾­ÔÚÔËÕæÆøÔö¼Ó¹¥»÷Á¦¡£\n"); 
+		return notify_fail("ä½ å·²ç»åœ¨è¿çœŸæ°”å¢åŠ æ”»å‡»åŠ›ã€‚\n"); 
 
 	skill = me->query_skill("longxiang-boruo",1) /8;
 /*
@@ -33,7 +33,7 @@ int exert(object me, object target)
 */
 	if(wizardp(me)) tell_object(me,sprintf("add attack: %d\n",skill));
 
-	message_vision(MAG"\n$NÇ±ÔËÕæÆø£¬Á³ÉÏÁ¬·º"+CHINESE_D->chinese_number(skill*2/5)+"´Î×ÏÆøºó»Ö¸´Èç³££¬µ«ÉñÉ«¼äÒşÔ¼Í¸³öÒ»ÖÖ×ÔĞÅ£¡\n" NOR, me);
+	message_vision(MAG"\n$Næ½œè¿çœŸæ°”ï¼Œè„¸ä¸Šè¿æ³›"+CHINESE_D->chinese_number(skill*2/5)+"æ¬¡ç´«æ°”åæ¢å¤å¦‚å¸¸ï¼Œä½†ç¥è‰²é—´éšçº¦é€å‡ºä¸€ç§è‡ªä¿¡ï¼\n" NOR, me);
 
 	me->add_temp("apply/attack", skill);
 	me->set_temp("xs/longxiang", skill);
@@ -42,7 +42,7 @@ int exert(object me, object target)
 	call_out("remove_effect", 1, me, skill, skill*7);
 
 //	me->start_busy(random(2));
-	me->start_exert(1, "ÁúÏó");
+	me->start_exert(1, "é¾™è±¡");
 	return 1;
 }
 
@@ -54,21 +54,21 @@ void remove_effect(object me, int amount, int count)
 	if ( count < 1 || !me->is_fighting()) {
 		me->add_temp("apply/attack", -amount);
 		me->delete_temp("xs/longxiang");
-		message_vision(MAG"$NÁ³ÉÏ×ÏÆøÒ»ÉÁ£¬ÓÖ»Ö¸´Èç³£¡£\n" NOR, me);
+		message_vision(MAG"$Nè„¸ä¸Šç´«æ°”ä¸€é—ªï¼Œåˆæ¢å¤å¦‚å¸¸ã€‚\n" NOR, me);
 		return;
 	}
 	call_out("remove_effect", 1, me, amount, count - 1);
 }
 
-string exert_name(){ return MAG"ÁúÏó"NOR; }
+string exert_name(){ return MAG"é¾™è±¡"NOR; }
 
 int help(object me)
 {
-        write(MAG"\nÁúÏó°ãÈô¹¦Ö®¡¸ÁúÏó¡¹£º"NOR"\n\n");
+        write(MAG"\né¾™è±¡èˆ¬è‹¥åŠŸä¹‹ã€Œé¾™è±¡ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1000 ÒÔÉÏ£»
-                ×î´óÄÚÁ¦ 2000 ÒÔÉÏ£»
-                ÁúÏó°ãÈô¹¦µÈ¼¶ 140 ÒÔÉÏ¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1000 ä»¥ä¸Šï¼›
+                æœ€å¤§å†…åŠ› 2000 ä»¥ä¸Šï¼›
+                é¾™è±¡èˆ¬è‹¥åŠŸç­‰çº§ 140 ä»¥ä¸Šã€‚
 
 HELP
         );

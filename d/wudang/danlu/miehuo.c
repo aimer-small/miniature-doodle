@@ -1,4 +1,4 @@
-// miehuo2.h Cht@SJ 2000-3-12 ĞŞ¸Ä
+// miehuo2.h Cht@SJ 2000-3-12 ä¿®æ”¹
 #include <ansi.h>
 int do_miehuo(string arg)
 {
@@ -8,21 +8,21 @@ int do_miehuo(string arg)
         ob = this_player();
         inv = deep_inventory(me);
         if( ob->is_busy())
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if( ob->is_fighting())
-                return notify_fail("ÄãÕıÔÚÕ½¶·¡£\n");
+                return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ã€‚\n");
         if( !sizeof(inv))
-                return notify_fail("Â¯×ÓÀïÃæÃ»ÓĞ¶«Î÷¡£\n");
+                return notify_fail("ç‚‰å­é‡Œé¢æ²¡æœ‰ä¸œè¥¿ã€‚\n");
         if( me->query("marks/open") )
-                return notify_fail("Â¯×ÓÕı¿ª×ÅÄØ£¬Ï¹ÃğÊ²Ã´»ğ£¿\n");
+                return notify_fail("ç‚‰å­æ­£å¼€ç€å‘¢ï¼Œçç­ä»€ä¹ˆç«ï¼Ÿ\n");
         if( !me->query("marks/doing") && !me->query("marks/fired") )
-                return notify_fail("Â¯×Ó»¹Ã»µã»ğ£¡\n");
+                return notify_fail("ç‚‰å­è¿˜æ²¡ç‚¹ç«ï¼\n");
         if( !ob->query_temp("doing", 1) )
-                return notify_fail("ÄãÃ»ÔÚ°¾Ò©¡£\n");
+                return notify_fail("ä½ æ²¡åœ¨ç†¬è¯ã€‚\n");
         if( ob->query_temp("doing", 1) && !ob->query_temp("done", 1) )
-                return notify_fail("Äã»¹Ã»°¾ÍêÒ©ÄØ£¡\n");
+                return notify_fail("ä½ è¿˜æ²¡ç†¬å®Œè¯å‘¢ï¼\n");
 
-        message_vision("\n$N°Ñµ¤Â¯ÄÚµÄ²ñ»ğ½¥½¥µØÏ¨ÃğÁË¡£\n", ob);
+        message_vision("\n$NæŠŠä¸¹ç‚‰å†…çš„æŸ´ç«æ¸æ¸åœ°ç†„ç­äº†ã€‚\n", ob);
         remove_call_out("do_drug");
         remove_call_out("do_check");
         remove_call_out("do_ready");
@@ -55,11 +55,11 @@ void do_drug()
         {
                 for(i=0; i<sizeof(inv); i++)
                 {
-                        if( inv[i]->name() == HIC"´¨±´"NOR)
+                        if( inv[i]->name() == HIC"å·è´"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == HIW"ÉúµØ"NOR)
+                        if( inv[i]->name() == HIW"ç”Ÿåœ°"NOR)
                         {
                                 b = b+1;
                          }
@@ -69,7 +69,7 @@ void do_drug()
                          }
                 }
 
-// ½ğ´´Ò©
+// é‡‘åˆ›è¯
                 if(  sizeof(inv) != 3
                 ||  a != 2
                 ||  b != 1
@@ -108,15 +108,15 @@ void do_drug1()
                 for(i=0; i<sizeof(inv); i++)
                 {
                         
-                        if( inv[i]->name() == HIR"²Øºì»¨"NOR)
+                        if( inv[i]->name() == HIR"è—çº¢èŠ±"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == HIY"öèµ¨"NOR)
+                        if( inv[i]->name() == HIY"é²¨èƒ†"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == HIC"ÌïÆß"NOR)
+                        if( inv[i]->name() == HIC"ç”°ä¸ƒ"NOR)
                         {
                                 c = c+1;
                          }
@@ -126,7 +126,7 @@ void do_drug1()
                          }
                 }
 
-// ÌïÆßöèµ¨É¢
+// ç”°ä¸ƒé²¨èƒ†æ•£
                 if(  sizeof(inv) != 3
                 ||  a != 1
                 ||  b != 1
@@ -166,19 +166,19 @@ void do_drug2()
                 for(i=0; i<sizeof(inv); i++)
                 {
                         
-            if( inv[i]->name() == GRN"ºÎÊ×ÎÚ"NOR)
+            if( inv[i]->name() == GRN"ä½•é¦–ä¹Œ"NOR)
                         {
                                 a = a+1;
                          }
-            if( inv[i]->name() == HIW"¾Õ¹£"NOR)
+            if( inv[i]->name() == HIW"èŠæ¢—"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == HIC"ÌïÆß"NOR)
+                        if( inv[i]->name() == HIC"ç”°ä¸ƒ"NOR)
                         {
                                 c = c+1;
                          }
-            if( inv[i]->name() == YEL"ĞÛ»Æ"NOR)
+            if( inv[i]->name() == YEL"é›„é»„"NOR)
                         {
                                 d = d+1;
                          }
@@ -188,7 +188,7 @@ void do_drug2()
                          }
                 }
 
-// ĞøÃü°Ëµ¤
+// ç»­å‘½å…«ä¸¹
                 if(  sizeof(inv) != 4
                 ||  a != 1
                 ||  b != 1
@@ -228,11 +228,11 @@ void do_drug3()
                 for(i=0; i<sizeof(inv); i++)
                 {
                         
-                        if( inv[i]->name() == HIR"²Øºì»¨"NOR)
+                        if( inv[i]->name() == HIR"è—çº¢èŠ±"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == HIC"·À·ç"NOR)
+                        if( inv[i]->name() == HIC"é˜²é£"NOR)
                         {
                                 b = b+1;
                          }
@@ -242,7 +242,7 @@ void do_drug3()
                          }
                 }
 
-// °Ù²İµ¤
+// ç™¾è‰ä¸¹
                 if(  sizeof(inv) != 3
                 ||  a != 2
                 ||  b != 1
@@ -280,15 +280,15 @@ void do_drug4()
         {
                 for(i=0; i<sizeof(inv); i++)
                 {
-                        if( inv[i]->name() == HIR"²Øºì»¨"NOR)
+                        if( inv[i]->name() == HIR"è—çº¢èŠ±"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == HIG"ºÉÒ¶"NOR)
+                        if( inv[i]->name() == HIG"è·å¶"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == HIW"Ñ©Á«×Ó"NOR)
+                        if( inv[i]->name() == HIW"é›ªè²å­"NOR)
                         {
                                 c = c+1;
                          }
@@ -298,7 +298,7 @@ void do_drug4()
                          }
                 }
 
-// ¾Å»¨ÓñÂ¶Íè
+// ä¹èŠ±ç‰éœ²ä¸¸
                 if(  sizeof(inv) != 5
                 ||  a != 1
                 ||  b != 3
@@ -339,23 +339,23 @@ void do_drug5()
         {
                 for(i=0; i<sizeof(inv); i++)
                 {
-                        if( inv[i]->name() == HIW"»¢¹Ç"NOR)
+                        if( inv[i]->name() == HIW"è™éª¨"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == HIW"Ñ©Á«×Ó"NOR)
+                        if( inv[i]->name() == HIW"é›ªè²å­"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == HIC"ÜòÜß"NOR)
+                        if( inv[i]->name() == HIC"èŒ¯è‹“"NOR)
                         {
                                 c = c+1;
                          }
-                        if( inv[i]->name() == HIW"°×ÜÆ"NOR)
+                        if( inv[i]->name() == HIW"ç™½èŠ·"NOR)
                         {
                                 d = d+1;
                          }
-                        if( inv[i]->name() == HIG"ÈË²Î"NOR)
+                        if( inv[i]->name() == HIG"äººå‚"NOR)
                         {
                                 e = e+1;
                          }
@@ -365,7 +365,7 @@ void do_drug5()
                          }
                 }
 
-// °×»¢¶áÃüµ¤
+// ç™½è™å¤ºå‘½ä¸¹
                 if(  sizeof(inv) != 5
                 ||  a != 1
                 ||  b != 1
@@ -407,19 +407,19 @@ void do_drug6()
         {
                 for(i=0; i<sizeof(inv); i++)
                 {
-                        if( inv[i]->name() == HIG"ºÉÒ¶"NOR)
+                        if( inv[i]->name() == HIG"è·å¶"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == HIB"²õÍÉ"NOR)
+                        if( inv[i]->name() == HIB"è‰èœ•"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == HIG"ÈË²Î"NOR)
+                        if( inv[i]->name() == HIG"äººå‚"NOR)
                         {
                                 c = c+1;
                          }
-                        if( inv[i]->name() == GRN"ºÎÊ×ÎÚ"NOR)
+                        if( inv[i]->name() == GRN"ä½•é¦–ä¹Œ"NOR)
                         {
                                 d = d+1;
                          }
@@ -429,7 +429,7 @@ void do_drug6()
                          }
                 }
 
-// ¾Å×ª½áÆøÍè
+// ä¹è½¬ç»“æ°”ä¸¸
                 if(  sizeof(inv) != 4
                 ||  a != 1
                 ||  b != 1
@@ -470,19 +470,19 @@ void do_drug7()
         {
                 for(i=0; i<sizeof(inv); i++)
                 {
-                        if( inv[i]->name() == HIG"ÄÛÖñÒ¶"NOR)
+                        if( inv[i]->name() == HIG"å«©ç«¹å¶"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == HIW"²ñºú"NOR)
+                        if( inv[i]->name() == HIW"æŸ´èƒ¡"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == YEL"Ä¾¹Ï"NOR)
+                        if( inv[i]->name() == YEL"æœ¨ç“œ"NOR)
                         {
                                 c = c+1;
                          }
-                        if( inv[i]->name() == HIY"»ÆÜÎ"NOR)
+                        if( inv[i]->name() == HIY"é»„èŠª"NOR)
                         {
                                 d = d+1;
                          }
@@ -493,7 +493,7 @@ void do_drug7()
                          }
                 }
 
-// ÑÓÄê¾Û¾«µ¤
+// å»¶å¹´èšç²¾ä¸¹
                 if(  sizeof(inv) != 4
                 ||  a != 1
                 ||  b != 1
@@ -534,19 +534,19 @@ void do_drug8()
         {
                 for(i=0; i<sizeof(inv); i++)
                 {
-                        if( inv[i]->name() == HIG"ºÉÒ¶"NOR)
+                        if( inv[i]->name() == HIG"è·å¶"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == HIW"Ñ©Á«×Ó"NOR)
+                        if( inv[i]->name() == HIW"é›ªè²å­"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == HIC"ÜòÜß"NOR)
+                        if( inv[i]->name() == HIC"èŒ¯è‹“"NOR)
                         {
                                 c = c+1;
                          }
-                        if( inv[i]->name() == HIC"´¨±´"NOR)
+                        if( inv[i]->name() == HIC"å·è´"NOR)
                         {
                                 d = d+1;
                          }
@@ -556,7 +556,7 @@ void do_drug8()
                          }
                 }
 
-// ÓñÂ¶ÇåĞÂÉ¢
+// ç‰éœ²æ¸…æ–°æ•£
                 if(  sizeof(inv) != 4
                 ||  a != 1
                 ||  b != 1
@@ -596,19 +596,19 @@ void do_drug9()
         {
                 for(i=0; i<sizeof(inv); i++)
                 {
-                        if( inv[i]->name() == CYN"µ±¹é"NOR)
+                        if( inv[i]->name() == CYN"å½“å½’"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == HIW"½ğÒø»¨"NOR)
+                        if( inv[i]->name() == HIW"é‡‘é“¶èŠ±"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == HIW"°×Ş±"NOR)
+                        if( inv[i]->name() == HIW"ç™½è–‡"NOR)
                         {
                                 c = c+1;
                          }
-                        if( inv[i]->name() == HIC"·À·ç"NOR)
+                        if( inv[i]->name() == HIC"é˜²é£"NOR)
                         {
                                 d = d+1;
                          }
@@ -618,7 +618,7 @@ void do_drug9()
                          }
                 }
 
-// ¹éÔªµ¤
+// å½’å…ƒä¸¹
                 if(  sizeof(inv) != 4
                 ||  a != 1
                 ||  b != 1
@@ -658,19 +658,19 @@ void do_drug10()
         {
                 for(i=0; i<sizeof(inv); i++)
                 {
-                        if( inv[i]->name() == HIG"ºÉÒ¶"NOR)
+                        if( inv[i]->name() == HIG"è·å¶"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == CYN"µ±¹é"NOR)
+                        if( inv[i]->name() == CYN"å½“å½’"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == HIW"Ìì»¨·Û"NOR)
+                        if( inv[i]->name() == HIW"å¤©èŠ±ç²‰"NOR)
                         {
                                 c = c+1;
                          }
-                        if( inv[i]->name() == HIC"Ş½Ïã"NOR)
+                        if( inv[i]->name() == HIC"è—¿é¦™"NOR)
                         {
                                 d = d+1;
                          }
@@ -680,7 +680,7 @@ void do_drug10()
                          }
                 }
 
-// ´ó»¹µ¤
+// å¤§è¿˜ä¸¹
                 if(  sizeof(inv) != 4
                 ||  a != 1
                 ||  b != 1
@@ -721,19 +721,19 @@ void do_drug11()
         {
                 for(i=0; i<sizeof(inv); i++)
                 {
-                        if( inv[i]->name() == HIW"Ìì»¨·Û"NOR)
+                        if( inv[i]->name() == HIW"å¤©èŠ±ç²‰"NOR)
                         {
                                 a = a+1;
                          }
-                        if( inv[i]->name() == CYN"µ±¹é"NOR)
+                        if( inv[i]->name() == CYN"å½“å½’"NOR)
                         {
                                 b = b+1;
                          }
-                        if( inv[i]->name() == HIC"Ş½Ïã"NOR)
+                        if( inv[i]->name() == HIC"è—¿é¦™"NOR)
                         {
                                 c = c+1;
                          }
-                        if( inv[i]->name() == HIG"É£Ò¶"NOR)
+                        if( inv[i]->name() == HIG"æ¡‘å¶"NOR)
                         {
                                 d = d+1;
                          }
@@ -743,7 +743,7 @@ void do_drug11()
                          }
                 }
 
-// Ğ¡»¹µ¤
+// å°è¿˜ä¸¹
                 if(  sizeof(inv) != 4
                 ||  a != 1
                 ||  b != 1
@@ -782,10 +782,10 @@ void do_drug12()
                 {
                         destruct(inv[i]);
                 }
-                message_vision(HIR"\nÓÉÓÚÒ©·½´íÎó£¬$NÁ¶µ¤Ê§°ÜÁË¡£\n"NOR,ob);
+                message_vision(HIR"\nç”±äºè¯æ–¹é”™è¯¯ï¼Œ$Nç‚¼ä¸¹å¤±è´¥äº†ã€‚\n"NOR,ob);
                 ob->delete_temp("doing");
                 if( userp(ob) ) log_file("LIAN_DAN",
-                sprintf("%s %s(%s) ÒòÎªÒ©·½´íÎóÁ¶µ¤Ê§°Ü ÓÚ %s\n", ob->query("title"), ob->name(1), geteuid(ob), ctime(time())[4..19] ) );
+                sprintf("%s %s(%s) å› ä¸ºè¯æ–¹é”™è¯¯ç‚¼ä¸¹å¤±è´¥ äº %s\n", ob->query("title"), ob->name(1), geteuid(ob), ctime(time())[4..19] ) );
                 me->delete("liquid/remaining");
                 me->delete("liquid/name");
         }
@@ -802,7 +802,7 @@ void do_over(object obj)
         me->delete("liquid/name");   
 
         if( userp(ob) ) log_file("LIAN_DAN",
-        sprintf("%s %s(%s)Á¶ÖÆ%s(%s) ÓÚ %s\n", ob->query("title"), ob->name(1), geteuid(ob), obj->name(1), obj->query("id"), ctime(time())[4..19] ) );
+        sprintf("%s %s(%s)ç‚¼åˆ¶%s(%s) äº %s\n", ob->query("title"), ob->name(1), geteuid(ob), obj->name(1), obj->query("id"), ctime(time())[4..19] ) );
 
         if( ((int)ob->query("potential", 1)+30) < (int)ob->query("max_pot", 1))
         {

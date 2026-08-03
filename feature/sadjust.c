@@ -6,7 +6,7 @@ inherit F_CLEAN_UP;
 
 string query(string name)
 {
-	if (name == "channel_id") return "µ÷Õû¾«Áé";
+	if (name == "channel_id") return "è°ƒæ•´ç²¾çµ";
 	return 0;
 }
 
@@ -21,12 +21,12 @@ void skill_adjust(object ob)
 	int ka=ob->query("kar"), pe=ob->query("per"), pu=ob->query("pur");
 
 	if (ob != this_player()) return;
-	// bbb Õâ¸ö±äÌ¬Ð´µÄ web ×¢²á²úÉúµÄÒ»¸öÀ¬»ø
+	// bbb è¿™ä¸ªå˜æ€å†™çš„ web æ³¨å†Œäº§ç”Ÿçš„ä¸€ä¸ªåžƒåœ¾
 	ob->delete("max_naili");
 	lmt = st+intt+co+de;
 /*            if (!wiz_level(ob) && (lmt>84 || st>31 || intt>31 || co>31 || de>31 || ka>30 || pe>30 || pu>30))
 		CHANNEL_D->do_channel(this_object(), "wiz",
-			sprintf("%s(%s)Ìì¸³ÒìÙ÷£ºëö=%d Îò=%d ¸ù=%d Éí=%d ¸£=%d ÈÝ=%d ´¿=%d Í·ËÄÏîºÍ=%d",
+			sprintf("%s(%s)å¤©èµ‹å¼‚ç¦€ï¼šè†‚=%d æ‚Ÿ=%d æ ¹=%d èº«=%d ç¦=%d å®¹=%d çº¯=%d å¤´å››é¡¹å’Œ=%d",
                                 ob->name(1), capitalize(ob->query("id")), st, intt, co, de, ka, pe, pu, lmt));
 */
 	lmt = (int)ob->query("combat_exp");
@@ -39,28 +39,28 @@ void skill_adjust(object ob)
 	ob->set("max_pot", 100 + lmt);
 	if (ob->query("potential") > ob->query("max_pot")){
 	
-		ob->add("qn_balance",ob->query("potential")-ob->query("max_pot")); //×Ô¶¯´æ´¢µ½ÒøÐÐ
-	tell_object(ob, sprintf("ÄãÐ¯´øµÄÇ±ÄÜ³¬¹ýÉÏÏÞ£¬ÏµÍ³×Ô¶¯°ïÄú´æ´¢µ½Ç±ÄÜÒøÐÐ£¬ÄãµÄÇ±ÄÜÒøÐÐÔö¼ÓÁË%dµã¡£\n",
+		ob->add("qn_balance",ob->query("potential")-ob->query("max_pot")); //è‡ªåŠ¨å­˜å‚¨åˆ°é“¶è¡Œ
+	tell_object(ob, sprintf("ä½ æºå¸¦çš„æ½œèƒ½è¶…è¿‡ä¸Šé™ï¼Œç³»ç»Ÿè‡ªåŠ¨å¸®æ‚¨å­˜å‚¨åˆ°æ½œèƒ½é“¶è¡Œï¼Œä½ çš„æ½œèƒ½é“¶è¡Œå¢žåŠ äº†%dç‚¹ã€‚\n",
 					ob->query("potential")-ob->query("max_pot")));
 			ob->set("potential", ob->query("max_pot"));
 	
 	}
 
-	// skills & exp ¼ì²é	YUJ@SJ 2002-01-18
+	// skills & exp æ£€æŸ¥	YUJ@SJ 2002-01-18
 	skl = ob->query_skills();
 	if (sizeof(skl)) {
 		sname = keys(skl);
 		foreach (string item in sname) {
 			if (!intp(skl[item]) || skl[item] < 0) ob->delete_skill(item);
 			else if (( SKILL_D(item)->type() == "martial" || SKILL_D(item)->type2() == "worker" ) && skl[item]> lmt) {
-				tell_object(ob, sprintf("ÓÉÓÚ¾­ÑéÏÞÖÆ£¬ÄãµÄ¡¸%s¡¹´Ó%s¼¶½µµ½ÁË%s¼¶¡£\n",
+				tell_object(ob, sprintf("ç”±äºŽç»éªŒé™åˆ¶ï¼Œä½ çš„ã€Œ%sã€ä»Ž%sçº§é™åˆ°äº†%sçº§ã€‚\n",
 					to_chinese(item), chinese_number(skl[item]), chinese_number(lmt)));
 				skl[item] = lmt;
 				ob->improve_skill(item, (lmt+1)*(lmt+1), 1);
 			}
 		}
 		switch (ob->query("family/family_name")) {
-			case "À¥ÂØÅÉ":
+			case "æ˜†ä»‘æ´¾":
 				if (skl["xuantian-wuji"] > 400 ) {
 					ob->add("max_jing", (skl["art"]/2-40)*(skl["xuantian-wuji"]/15));
 					ob->add("max_qi", (skl["art"]/2-30)*(skl["xuantian-wuji"]/12));
@@ -71,70 +71,70 @@ void skill_adjust(object ob)
 					ob->add("max_qi", (skl["art"]/2-30)*(skl["xuantian-wuji"]/15));
 				}
 				break;
-			case "ÉÙÁÖÅÉ":
-			case "ÌìÁúËÂ":
+			case "å°‘æž—æ´¾":
+			case "å¤©é¾™å¯º":
 				if (skl["buddhism"] > 61)
 					ob->add("max_jing",(skl["buddhism"]/2-30)*(skl["force"]/10));
 				if (skl["buddhism"] > 101)
 					ob->add("max_qi",(skl["buddhism"]/2-40)*(skl["force"]/20));
 				break;
-			case "ÌúÕÆ°ï":
+			case "é“æŽŒå¸®":
 				if (skl["tiezhang-xinfa"] > 61 ){
 					ob->add("max_qi", (skl["tiezhang-xinfa"]/2-30)*(skl["guiyuan-tunafa"]/20));
 					ob->add("max_jing", (skl["tiezhang-xinfa"]/2-40)*(skl["guiyuan-tunafa"]/20));
 				}
-			case "¶ëáÒÅÉ":
+			case "å³¨åµ‹æ´¾":
 				if (skl["dacheng-fofa"] > 61)
 					ob->add("max_jing",(skl["dacheng-fofa"]/2-30)*(skl["linji-zhuang"]/10));
 				if (skl["dacheng-fofa"] > 101)
 					ob->add("max_qi",(skl["dacheng-fofa"]/2-40)*(skl["linji-zhuang"]/20));
 				break;
-			case "ÌÒ»¨µº":
+			case "æ¡ƒèŠ±å²›":
 				if (skl["qimen-bagua"] > 61){
 					ob->add("max_qi", (skl["qimen-bagua"]/2-30)*(skl["bihai-chaosheng"]/15));
 					ob->add("max_jing", (skl["qimen-bagua"]/2-30)*(skl["bihai-chaosheng"]/15));
 				}
 				break;
-			case "Îäµ±ÅÉ":
+			case "æ­¦å½“æ´¾":
 				if (skl["taoism"] > 61)
                                         ob->add("max_qi",(skl["taoism"]/2-20)*(skl["yinyun-ziqi"]/10));
 				if (skl["taoism"] > 121)
 					ob->add("max_jing",(skl["taoism"]/2-50)*(skl["yinyun-ziqi"]/25));
 				break;
-			case "È«Õæ½Ì":
+			case "å…¨çœŸæ•™":
 				if (skl["taoism"] > 61)
 					ob->add("max_qi",(skl["taoism"]/2-30)*(skl["xiantian-gong"]/10));
 				if (skl["taoism"] > 121)
 					ob->add("max_jing",(skl["taoism"]/2-50)*(skl["xiantian-gong"]/25));
 				break;
 				
-                                         case "åÐÒ£ÅÉ":
+                                         case "é€é¥æ´¾":
 				if (skl["art"] > 61)
 					ob->add("max_qi",(skl["art"]/2-20)*(skl["beiming-shengong"]/10));
 				if (skl["art"] > 121)
 					ob->add("max_jing",(skl["art"]/2-50)*(skl["beiming-shengong"]/20));
 				break;
-                                         case "ÁéðÕ¹¬":
+                                         case "çµé¹«å®«":
 				if (skl["yangyanshu"] > 61)
 					ob->add("max_qi",(skl["yangyanshu"]/2-20)*(skl["bahuang-gong"]/10));
 				if (skl["yangyanshu"] > 121)
 {                                        ob->add("max_jing",(skl["yangyanshu"]/2-50)*(skl["bahuang-gong"]/20));
 }
 				break;
-			case "ÐÇËÞÅÉ":
+			case "æ˜Ÿå®¿æ´¾":
 				if (skl["poison"] > 61)
 					ob->add("max_qi",(skl["poison"]/2-25)*(skl["huagong-dafa"]/10));
 				if (skl["poison"] > 121)
 					ob->add("max_jing",(skl["poison"]/2-50)*(skl["huagong-dafa"]/20));
 				break;
-			case "¹ÃËÕÄ½ÈÝ":
-			case "Ã÷½Ì":
+			case "å§‘è‹æ…•å®¹":
+			case "æ˜Žæ•™":
 				if (skl["force"] > 81)
 					ob->add("max_qi",(skl["force"]/2-40)*15);
 				if (skl["force"] > 151)
 					ob->add("max_jing",(skl["force"]/2-40)*15);
 				break;
-			case "Ø¤°ï":
+			case "ä¸å¸®":
 				death = ob->query("death_times");
                                 if ( death > 400 ) death = 400;
 				if ( death > 1){
@@ -144,31 +144,31 @@ void skill_adjust(object ob)
 				if (skl["begging"] > 61)
 					ob->add("max_qi",(skl["begging"]/2-30)*(skl["huntian-qigong"]/20));
 				break;
-			case "´óÂÖËÂ":
+			case "å¤§è½®å¯º":
 				if (skl["huanxi-chan"] > 61)
 					ob->add("max_jing",(skl["huanxi-chan"]/2-30)*(skl["longxiang-boruo"]/10));
 				if (skl["huanxi-chan"] > 121)
 					ob->add("max_qi",(skl["huanxi-chan"]/2-50)*(skl["longxiang-boruo"]/40));
 				break;
-			case "¹ÅÄ¹ÅÉ":
+			case "å¤å¢“æ´¾":
 				if (skl["yunu-xinjing"] > 81)
 					ob->add("max_qi",(skl["yunu-xinjing"]/2-40)*10);
 				if (skl["yunu-xinjing"] > 81)
 					ob->add("max_jing",(skl["yunu-xinjing"]/2-40)*15);
 				break;
-			case "ÉñÁú½Ì":
+			case "ç¥žé¾™æ•™":
                                                         if (skl["shenlong-yaoli"] > 81 && skl["dulong-dafa"] > 81){
 		   			ob->add("max_qi", (skl["shenlong-yaoli"]/2-35)*(skl["dulong-dafa"]/16));
 					ob->add("max_jing", (skl["shenlong-yaoli"]/2-35)*(skl["dulong-dafa"]/25));
 	   			}
 				break;
-			case "áÔÉ½ÅÉ":
+			case "åµ©å±±æ´¾":
 				if (skl["songshan-jian"] > 51)
 					ob->add("max_qi", skl["songshan-jian"]*3);
 				if (skl["hanbing-zhenqi"] > 81)
 					ob->add("max_jing",(skl["hanbing-zhenqi"]/2-40)*10);
 				break;
-			case "»ªÉ½ÅÉ":
+			case "åŽå±±æ´¾":
 				if (skl["zhengqi-jue"] > 61 ){
                                                                       ob->add("max_qi", (skl["zhengqi-jue"]/2-30)*(skl["force"]/20));
                                                                       ob->add("max_jing", (skl["zhengqi-jue"]/2-30)*(skl["force"]/20));
@@ -192,7 +192,7 @@ void skill_adjust(object ob)
 
 /*
 
-// ¼ÓÁÙÊ±Ð§¹û
+// åŠ ä¸´æ—¶æ•ˆæžœ
 
         
 
@@ -208,7 +208,7 @@ void skill_adjust(object ob)
         ob->add_temp("apply/armor",zs_armor);
  ob->set_temp("gift_add_buff",1);
         tell_object(ob,
-sprintf(BLINK+HBRED"ÄãÔÚÄïçÙÓñ¶´ÁìÎòµ½µÄÌì¸³Ê¹Äã¶îÍâ»ñµÃÁË¡¸%s¡¹µãÃüÖÐÂÊ£¬¡¸%s¡¹µã¹¥»÷Á¦£¬¡¸%s¡¹µã·ÀÓùÁ¦£¡"NOR"\n\n",
+sprintf(BLINK+HBRED"ä½ åœ¨å¨˜ç¼³çŽ‰æ´žé¢†æ‚Ÿåˆ°çš„å¤©èµ‹ä½¿ä½ é¢å¤–èŽ·å¾—äº†ã€Œ%sã€ç‚¹å‘½ä¸­çŽ‡ï¼Œã€Œ%sã€ç‚¹æ”»å‡»åŠ›ï¼Œã€Œ%sã€ç‚¹é˜²å¾¡åŠ›ï¼"NOR"\n\n",
 chinese_number(zs_attack), chinese_number(zs_damage),chinese_number(zs_armor)));
       
         }
@@ -224,14 +224,14 @@ if(ob->query("on_hook"))
 		
   if(ob->query("on_hook/time")-time()>0) {
     
-    tell_object(ob,HIG"\n\nÄãÄ¿Ç°ÕýÔÚ±Õ¹ØÇ±ÐÞÖÐ£¬Ô¤¼Æ»¹½«³ÖÐø"+ CHINESE_D->chinese_time(ob->query("on_hook/time")-time())+ "¡£\n"NOR);
-    tell_object(ob, HIG"Èç¹ûÄãÒª¼ÌÐøÇ±ÐÞ£¬ÇëÖ±½Ó¹Ø±ÕMUD´°¿Ú¡£\n");
-    tell_object(ob, HIG"Èç¹ûÄãÒªÈ¡ÏûÇ±ÐÞ£¬ÇëÊäÈë"HIR"onhook halt"HIG"Ö¸Áî¡£\n\n\n"NOR);
+    tell_object(ob,HIG"\n\nä½ ç›®å‰æ­£åœ¨é—­å…³æ½œä¿®ä¸­ï¼Œé¢„è®¡è¿˜å°†æŒç»­"+ CHINESE_D->chinese_time(ob->query("on_hook/time")-time())+ "ã€‚\n"NOR);
+    tell_object(ob, HIG"å¦‚æžœä½ è¦ç»§ç»­æ½œä¿®ï¼Œè¯·ç›´æŽ¥å…³é—­MUDçª—å£ã€‚\n");
+    tell_object(ob, HIG"å¦‚æžœä½ è¦å–æ¶ˆæ½œä¿®ï¼Œè¯·è¾“å…¥"HIR"onhook halt"HIG"æŒ‡ä»¤ã€‚\n\n\n"NOR);
     ob->apply_contion("onhook",(ob->query("on_hook/time")-time())/10+1);
                                         }
                                          
   if(ob->query("on_hook/time")-time()<=0) {
-    tell_object(ob,HIG"\n\nÄã±Õ¹ØÇ±ÐÞÒÑ¾­ÓÚ"+ CHINESE_D->chinese_time(time()-ob->query("on_hook/time"))+ "Ç°½áÊø¡£\n"NOR);
+    tell_object(ob,HIG"\n\nä½ é—­å…³æ½œä¿®å·²ç»äºŽ"+ CHINESE_D->chinese_time(time()-ob->query("on_hook/time"))+ "å‰ç»“æŸã€‚\n"NOR);
     arg = "over";
       "/cmds/usr/onhook"->main(ob,arg);
              }
@@ -240,10 +240,10 @@ if(ob->query("on_hook"))
 	
 	}
 	
-	// ¼ÓÆø
+	// åŠ æ°”
 	ob->add("max_qi", ob->query("max_neili") * ob->query("con") / 80);
 
-	// enable ¼ì²é	YUJ@SJ 2002-01-18
+	// enable æ£€æŸ¥	YUJ@SJ 2002-01-18
 	if (!mapp(skl)) skl = ([]);
 	maps = ob->query_skill_map();
 	if (sizeof(maps)) {
@@ -254,7 +254,7 @@ if(ob->query("on_hook"))
 				ob->map_skill(item);
 		}
 	}
-//      »éÒö×´Ì¬¼ì²é£¬yuj@sj 1999-09-13
+//      å©šå§»çŠ¶æ€æ£€æŸ¥ï¼Œyuj@sj 1999-09-13
 	if (stringp(ob->query("marry/id")))
 	{
 		object marry_ob = new(LOADUSER_OB, ob->query("marry/id"));

@@ -1,17 +1,17 @@
-//item xionghuang ĞÛ»Æ
+//item xionghuang é›„é»„
 
 inherit FIRE_ITEM;
 #include <ansi.h>
 
 void create()
 {
-        set_name( HIY"ĞÛ»Æ"NOR, ({ "xiong huang" }));
+        set_name( HIY"é›„é»„"NOR, ({ "xiong huang" }));
         set_weight(10);
         if (clonep())
                 set_default_object(__FILE__);
         else {
-        set("long", "ÕâÊÇÒ»¿é²úÓÚ»ÍÉ½Ö®ÑôµÄĞÛ»ÆÊ¯£¬É±ÖîÉßò³¶¾£¬½âŞ¼Â«¶¾¡£\n");
-                set("unit", "¿é");
+        set("long", "è¿™æ˜¯ä¸€å—äº§äºç…Œå±±ä¹‹é˜³çš„é›„é»„çŸ³ï¼Œæ€è¯¸è›‡è™ºæ¯’ï¼Œè§£è—œèŠ¦æ¯’ã€‚\n");
+                set("unit", "å—");
                 set("value", 1000);
         }
         setup();

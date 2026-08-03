@@ -1,4 +1,4 @@
-// /u/beyond/mr/obj/guiyuan.c ¹éÔªµ¤
+// /u/beyond/mr/obj/guiyuan.c å½’å…ƒä¸¹
 // this is made by beyond
 // update 1997.6.23
 #include <ansi.h>
@@ -12,12 +12,12 @@ void init()
 
 void create()
 {
-        set_name("¹éÔªµ¤", ({"guiyuan dan", "dan"}));
+        set_name("å½’å…ƒä¸¹", ({"guiyuan dan", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "¿Å");
-                set("long", "ÕâÊÇÒ»¿ÅÓ¨°×ÁïÔ²µÄ¹éÔªµ¤¡£\n");
+                set("unit", "é¢—");
+                set("long", "è¿™æ˜¯ä¸€é¢—èŽ¹ç™½æºœåœ†çš„å½’å…ƒä¸¹ã€‚\n");
                 set("value", 100);
                 set("murong",1);    
                 }
@@ -29,13 +29,13 @@ int do_eat(string arg)
         object me = this_player();
 
         if (!id(arg))
-        return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+        return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
         if ( me->query_skill_mapped("force") != "shenyuan-gong" )
         {
                 if (me->add("max_neili", -10) < 0)
                         me->set("max_neili", 0);
-                message_vision(HIR "$N³ÔÏÂÒ»¿Å¹éÔªµ¤£¬Ö»¾õµÃ¸Î³¦´ç¶Ï£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËðÕæÔª£¡\n" NOR, me);
+                message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å½’å…ƒä¸¹ï¼Œåªè§‰å¾—è‚è‚ å¯¸æ–­ï¼ŒåŽŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸçœŸå…ƒï¼\n" NOR, me);
                 me->unconcious();
                 destruct(this_object());
                 return 1;
@@ -45,12 +45,12 @@ int do_eat(string arg)
         {
                 if (me->add("max_neili", -1) < 0)
                         me->set("max_neili", 0);
-                message_vision(HIR "$N³ÔÏÂÒ»¿Å¹éÔªµ¤£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´·þÊ³Ì«¼±Ì«¶à£¬Ò©Ð§ÊÊµÃÆä·´£¡\n" NOR, me);
+                message_vision(HIR "$Nåƒä¸‹ä¸€é¢—å½’å…ƒä¸¹ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŽŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
         }
         else
         {
                 me->add("max_neili", 1);
-                message_vision(HIG "$N³ÔÏÂÒ»¿Å¹éÔªµ¤£¬Ö»¾õµÃÌåÄÚÕæÁ¦Ô´Ô´×ÌÉú£¬±é²¼Ææ½î°ËÂö£¬È«Éí¹¦Á¦¶ÙÈ»Ìá¸ß£¡\n" NOR, me);
+                message_vision(HIG "$Nåƒä¸‹ä¸€é¢—å½’å…ƒä¸¹ï¼Œåªè§‰å¾—ä½“å†…çœŸåŠ›æºæºæ»‹ç”Ÿï¼Œéå¸ƒå¥‡ç­‹å…«è„‰ï¼Œå…¨èº«åŠŸåŠ›é¡¿ç„¶æé«˜ï¼\n" NOR, me);
                 me->apply_condition("bonze_drug", 60);
         }
         destruct(this_object());

@@ -5,14 +5,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY"ÆæÃÅ°ËØÔÍ¼Æ×"NOR,({"qimenbagua tupu","tupu"}));
+	set_name(HIY"å¥‡é—¨å…«å¦å›¾è°±"NOR,({"qimenbagua tupu","tupu"}));
 	set_weight(10);
 	if(clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit","±¾");
-		set("long","ÕâÊÇÒ»±¾¼ÇÔØ×Å¾Å¹¬°ËØÔ°ÂÃØµÄÍ¼Æ×£¬¾ÝËµÊÇÄý¾ÛÁË»ÆÀÏÐ°±ÏÉúµÄÐÄÑª¡£
-Ëæ±ãÑ§Ñ§£¬Ó¦¸ÃÄÜ×Ô¼º²¼Õó(buzhen)¡¢³·Õó(chezhen)ÁË°É¡£\n");
+		set("unit","æœ¬");
+		set("long","è¿™æ˜¯ä¸€æœ¬è®°è½½ç€ä¹å®«å…«å¦å¥¥ç§˜çš„å›¾è°±ï¼Œæ®è¯´æ˜¯å‡èšäº†é»„è€é‚ªæ¯•ç”Ÿçš„å¿ƒè¡€ã€‚
+éšä¾¿å­¦å­¦ï¼Œåº”è¯¥èƒ½è‡ªå·±å¸ƒé˜µ(buzhen)ã€æ’¤é˜µ(chezhen)äº†å§ã€‚\n");
 		set("value",100);
 		set("material","paper");
              set("dzd",1);
@@ -33,14 +33,14 @@ int do_buzhen()
 	object me = this_player();
 	
 	if( environment(me)->query("no_fight"))
-	 	return notify_fail("ÕâÀï²»×¼Õ½¶·¡£\n");
+	 	return notify_fail("è¿™é‡Œä¸å‡†æˆ˜æ–—ã€‚\n");
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(me->query_temp("dzd_quest/buzhen"))
-		return notify_fail("ÄãÒÑ¾­²¼ÕóÁË¡£\n");
+		return notify_fail("ä½ å·²ç»å¸ƒé˜µäº†ã€‚\n");
 	if(present("qimenbagua zhenxing",environment(me)))
-		return notify_fail("ÒÑ¾­ÓÐÈËÔÚÕâÀï²¼ÕóÁË¡£\n");
-	message_vision(HIY"$N¶«°áÒ»¿é£¬Î÷ÒÆÒ»¿é£¬²»Ò»»á¾Í°´Í¼Æ×ËùÊ¾°ÚÁËÒ»¸ö¼òÒ×µÄÕóÐÐ£¡\n"NOR,me);
+		return notify_fail("å·²ç»æœ‰äººåœ¨è¿™é‡Œå¸ƒé˜µäº†ã€‚\n");
+	message_vision(HIY"$Nä¸œæ¬ä¸€å—ï¼Œè¥¿ç§»ä¸€å—ï¼Œä¸ä¸€ä¼šå°±æŒ‰å›¾è°±æ‰€ç¤ºæ‘†äº†ä¸€ä¸ªç®€æ˜“çš„é˜µè¡Œï¼\n"NOR,me);
 	me->set_temp("dzd_quest/buzhen",1);
        me->start_busy(1+random(2));
 	ob = new(__DIR__"zhenxing");
@@ -54,14 +54,14 @@ int do_chezhen(string arg)
 	object ob;
 	object me = this_player();
 	if(me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕýÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 	if(!arg) arg = "qimenbagua zhenxing";
 	ob = present(arg,environment(me));
 	if(!ob)
-		return notify_fail("ÄãÃ»ÓÐÔÚÕâÀï²¼Õó£¡\n");
+		return notify_fail("ä½ æ²¡æœ‰åœ¨è¿™é‡Œå¸ƒé˜µï¼\n");
 	if(ob->query_temp("zhen_master") != this_object()  )
-		return notify_fail("Õâ²»ÊÇÄã²¼µÄÕó£¡\n");
-	message_vision(HIY"$NÈýÏÂÎå³ý¶þ¾Í°Ñ¸Õ¸Õ²¼ºÃµÄ¼òÂªÕóÐÎ³·µôÁË£¡\n"NOR,me);
+		return notify_fail("è¿™ä¸æ˜¯ä½ å¸ƒçš„é˜µï¼\n");
+	message_vision(HIY"$Nä¸‰ä¸‹äº”é™¤äºŒå°±æŠŠåˆšåˆšå¸ƒå¥½çš„ç®€é™‹é˜µå½¢æ’¤æŽ‰äº†ï¼\n"NOR,me);
 	me->delete_temp("dzd_quest/buzhen");
 	destruct(ob);
 	return 1;

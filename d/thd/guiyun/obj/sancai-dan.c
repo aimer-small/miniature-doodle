@@ -1,4 +1,4 @@
-// /u/jpei/thd/obj/sancai-dan.c Èı²Å¾Û¾«µ¤ 
+// /u/jpei/thd/obj/sancai-dan.c ä¸‰æ‰èšç²¾ä¸¹ 
 
 #include <ansi.h>
 
@@ -13,12 +13,12 @@ void init()
 
 void create()
 {
-	set_name("Èı²Å¾Û¾«µ¤", ({"sancai dan", "dan"}));
+	set_name("ä¸‰æ‰èšç²¾ä¸¹", ({"sancai dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "Á£");
-		set("long", "ÕâÊÇÒ»Á£±ÌÂÌÉ«µÄµ¤Ò©£¬Í¸³öÒ»¹ÉÅ¨ÖØµÄ»¨Ïã¡£\n");
+		set("unit", "ç²’");
+		set("long", "è¿™æ˜¯ä¸€ç²’ç¢§ç»¿è‰²çš„ä¸¹è¯ï¼Œé€å‡ºä¸€è‚¡æµ“é‡çš„èŠ±é¦™ã€‚\n");
 		set("value", 100);
                 set("no_drop", 1);
                 set("no_get", 1);
@@ -31,23 +31,23 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
-	if ( me->query("family/family_name") != "ÌÒ»¨µº" )
+	if ( me->query("family/family_name") != "æ¡ƒèŠ±å²›" )
 	{
 /*		if (me->add("max_jingli", -10) < 0)
 			me->set("max_jingli", 0);
 		if (me->add("eff_jingli", -10) < 0)
 			me->set("eff_jingli", 0);
-		message_vision(HIR "$N·şÏÂÒ»Á£Èı²Å¾Û¾«µ¤£¬Ö»¾õµÃÍ·Í´ÓûÁÑ£¬Ô­À´¾¹ÊÇÒ»¿Å¼ÙÒ©£¡\n" NOR, me);
+		message_vision(HIR "$Næœä¸‹ä¸€ç²’ä¸‰æ‰èšç²¾ä¸¹ï¼Œåªè§‰å¾—å¤´ç—›æ¬²è£‚ï¼ŒåŸæ¥ç«Ÿæ˜¯ä¸€é¢—å‡è¯ï¼\n" NOR, me);
 		me->unconcious();
 		destruct(this_object());
 */    
-		message_vision(HIR "ËùÁ·ÄÚ¹¦²»·û£¬ÕâÒ©Äã²»ÄÜËæ±ã³Ô£¡\n" NOR, me);
+		message_vision(HIR "æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œè¿™è¯ä½ ä¸èƒ½éšä¾¿åƒï¼\n" NOR, me);
 		return 1;
 	}
 	if ( (int)me->query("max_jingli" ) < 200) {
-		message_vision(HIR "¹¦Á¦²»¹»£¬ÁéÒ©³ÔÁËÓĞº¦ÎŞÒË¡£\n" NOR, me);
+		message_vision(HIR "åŠŸåŠ›ä¸å¤Ÿï¼Œçµè¯åƒäº†æœ‰å®³æ— å®œã€‚\n" NOR, me);
 		return 1;
 	}
 	
@@ -58,13 +58,13 @@ int do_eat(string arg)
 			me->set("max_jingli", 0);
 		if (me->add("eff_jingli", -1) < 0)
 			me->set("eff_jingli", 0);
-		message_vision(HIR "$N·şÏÂÒ»Á£Èı²Å¾Û¾«µ¤£¬Ö»¾õµÃÍ·ÔÎÄ¿Ñ££¬ÒâÂÒÉñÃÔ£¬Ô­À´ÁéÒ©·şÊ³Ì«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Næœä¸‹ä¸€ç²’ä¸‰æ‰èšç²¾ä¸¹ï¼Œåªè§‰å¾—å¤´æ™•ç›®çœ©ï¼Œæ„ä¹±ç¥è¿·ï¼ŒåŸæ¥çµè¯æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
 	else
 	{
 		me->add("max_jingli", 1);
 		me->add("eff_jingli", 1);
-		message_vision(HIG "$N·şÏÂÒ»Á£Èı²Å¾Û¾«µ¤£¬Ö»¾õµÃÌåÄÚ¾«Á¦³äÒç£¬ËÆºõÓĞÊ¹²»ÍêµÄ¾¢£¡\n" NOR, me);
+		message_vision(HIG "$Næœä¸‹ä¸€ç²’ä¸‰æ‰èšç²¾ä¸¹ï¼Œåªè§‰å¾—ä½“å†…ç²¾åŠ›å……æº¢ï¼Œä¼¼ä¹æœ‰ä½¿ä¸å®Œçš„åŠ²ï¼\n" NOR, me);
 		me->apply_condition("jingli_drug", 60);
 	}
 	destruct(this_object());

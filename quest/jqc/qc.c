@@ -3,13 +3,13 @@ inherit ITEM;
 #define TASKREWARD_D "adm/daemons/jobrewardd"
 void create()
 {
-        set_name(HIR"Çô³µ"NOR, ({"qiu che","che"}));
-        set("unit", "Á¾");
-        set("long", "ÕâÊÇÒ»Á¾Ñº½â·¸ÈËµÄÇô³µ£¬ÉÏÃæÇô½û×ÅÒ»Î»·´ÇåÖ¾Ê¿¡£\n");
+        set_name(HIR"å›šè½¦"NOR, ({"qiu che","che"}));
+        set("unit", "è¾†");
+        set("long", "è¿™æ˜¯ä¸€è¾†æŠ¼è§£çŠ¯äººçš„å›šè½¦ï¼Œä¸Šé¢å›šç¦ç€ä¸€ä½åæ¸…å¿—å£«ã€‚\n");
         set("value", 0);
         set("no_get",1);
     set("location",1);
-//ÉÏÃæÓ¦¸ÃÊÇË¢ĞÂÖÜÆÚ°É
+//ä¸Šé¢åº”è¯¥æ˜¯åˆ·æ–°å‘¨æœŸå§
         setup();
 }
 
@@ -24,16 +24,16 @@ int do_jie(string arg)
 {
 	object me=this_player() , ob , bb;
 
-	if (!arg) return notify_fail("ÄãÒª½ÙÊ²Ã´£¿\n");
+	if (!arg) return notify_fail("ä½ è¦åŠ«ä»€ä¹ˆï¼Ÿ\n");
 
 if (!me->query("jn/qiuche"))
-return notify_fail("ÄãÃ»ÊÂ°É£¿Õâ¿ÉÊÇÄ±·´µÄ×ï¹ı°¡£¡\n");	
+return notify_fail("ä½ æ²¡äº‹å§ï¼Ÿè¿™å¯æ˜¯è°‹åçš„ç½ªè¿‡å•Šï¼\n");	
 if (me->query_temp("jn/jie"))
-return notify_fail("Äã½ÙÇô³µ³É¹¦ÁË£¬»¹²»¾ÈÈË£¿\n");
+return notify_fail("ä½ åŠ«å›šè½¦æˆåŠŸäº†ï¼Œè¿˜ä¸æ•‘äººï¼Ÿ\n");
 
-message_vision(HIC"$N"HIC"Ò»Ê±ºÀÆø±Å·¢£¬¾¶Ö±ÉÏÇ°¸ßº°£º¡°³¯Í¢µÄÓ¥×¦ËïÃÇ£¬Ê¶ÏàµÄ¿ì½«³µÉÏÈË·ÅÁË£¡\n"NOR,me, ob);
-message_vision(HIC"\nËÄÏÂ»¤ÎÀÇô³µÖ®ÈËÒ»ã¶£¬¾ùÏë£º´ËÈËÓĞ²¡°É£¿\n"
-"ËäÊÇ×öÈç´ËÖ®Ïë£¬ÊÖÏÂ²¢²»µ¡Âı£¬·×·×ÉÏÇ°£¬½«$NÎ§ÔÚµ±ÏÂ¡£\n",me,ob);
+message_vision(HIC"$N"HIC"ä¸€æ—¶è±ªæ°”è¿¸å‘ï¼Œå¾„ç›´ä¸Šå‰é«˜å–Šï¼šâ€œæœå»·çš„é¹°çˆªå­™ä»¬ï¼Œè¯†ç›¸çš„å¿«å°†è½¦ä¸Šäººæ”¾äº†ï¼\n"NOR,me, ob);
+message_vision(HIC"\nå››ä¸‹æŠ¤å«å›šè½¦ä¹‹äººä¸€æ„£ï¼Œå‡æƒ³ï¼šæ­¤äººæœ‰ç—…å§ï¼Ÿ\n"
+"è™½æ˜¯åšå¦‚æ­¤ä¹‹æƒ³ï¼Œæ‰‹ä¸‹å¹¶ä¸æ€ æ…¢ï¼Œçº·çº·ä¸Šå‰ï¼Œå°†$Nå›´åœ¨å½“ä¸‹ã€‚\n",me,ob);
 me->set_temp("jn/jie",1);
 bb = new("quest/jqc/guard");
 bb->do_copy(me,0);
@@ -56,22 +56,22 @@ return 1;
 int do_save(string arg)
 {
 object me=this_player() , ob,bb;
-if (arg!= "ÈË") 
-return notify_fail("ÄãÒª¾ÈÊ²Ã´£¿\n");
+if (arg!= "äºº") 
+return notify_fail("ä½ è¦æ•‘ä»€ä¹ˆï¼Ÿ\n");
 if (!me->query("jn/qiuche") || !me->query_temp("jn/jie")) 
-return notify_fail("ÄãÃ»ÊÂ°É!!!Õâ¿ÉÊÇÄ±·´µÄ×ï¹ı°¡£¡\n");	
+return notify_fail("ä½ æ²¡äº‹å§!!!è¿™å¯æ˜¯è°‹åçš„ç½ªè¿‡å•Šï¼\n");	
 if(present("gao shou"))
-return notify_fail("ÇåÍ¢Ó¥È®»¹ÔÚ£¬ÄãÔõÃ´¾ÈÈË£¿\n");
-if(me->is_fighting()) return notify_fail("Õ½¶·ÖĞÌÚ²»³ö¿ÕÀ´¾ÈÈË¡£\n");
-TASKREWARD_D->get_reward(me,"½ÙÇô³µ",1,0,0,20,0,0,0,this_object());
-message_vision(HIC"$N"HIC"¿ì²½ÉÏÇ°ÔÒ¿ªÇô³µ£¬½«³µÄÚµÄÈË¾ÈÁË³öÀ´¡£\n"NOR,me, ob);
-message_vision(HIC"\n·´ÇåÖ¾Ê¿¶Ô×Å$N±§È­Ò»Àñ£¬ËµµÀ£º¡°´ıµ½´óÊÂ¸æ³ÉÖ®ºó£¬\n"
-"ÔÙÀ´°Ñ¾ÆÑÔ»¶£¡¡±Ëµ°Õ±ã´Ò´ÒÀëÈ¥¡£\n",me,ob);
+return notify_fail("æ¸…å»·é¹°çŠ¬è¿˜åœ¨ï¼Œä½ æ€ä¹ˆæ•‘äººï¼Ÿ\n");
+if(me->is_fighting()) return notify_fail("æˆ˜æ–—ä¸­è…¾ä¸å‡ºç©ºæ¥æ•‘äººã€‚\n");
+TASKREWARD_D->get_reward(me,"åŠ«å›šè½¦",1,0,0,20,0,0,0,this_object());
+message_vision(HIC"$N"HIC"å¿«æ­¥ä¸Šå‰ç ¸å¼€å›šè½¦ï¼Œå°†è½¦å†…çš„äººæ•‘äº†å‡ºæ¥ã€‚\n"NOR,me, ob);
+message_vision(HIC"\nåæ¸…å¿—å£«å¯¹ç€$NæŠ±æ‹³ä¸€ç¤¼ï¼Œè¯´é“ï¼šâ€œå¾…åˆ°å¤§äº‹å‘Šæˆä¹‹åï¼Œ\n"
+"å†æ¥æŠŠé…’è¨€æ¬¢ï¼â€è¯´ç½¢ä¾¿åŒ†åŒ†ç¦»å»ã€‚\n",me,ob);
 me->delete("jn/qiuche");
 me->delete("jn/time");
 me->delete_temp("jn/bb");
 me->delete_temp("jn/jie");
-me->set("job_name","½ÙÇô³µ");
+me->set("job_name","åŠ«å›šè½¦");
 destruct(this_object());
 me->delete("jn/qiuche_ob");
 me->delete("jn/qiuche_super");
@@ -84,6 +84,6 @@ return 1;
 
 void dest()
 {
-        write(HIW"Çô³µ»º»ºµØÔÚ´óÄÚ¸ßÊÖµÄ»¤ÎÀÏÂÀë¿ªÁË¡£\n"NOR);
+        write(HIW"å›šè½¦ç¼“ç¼“åœ°åœ¨å¤§å†…é«˜æ‰‹çš„æŠ¤å«ä¸‹ç¦»å¼€äº†ã€‚\n"NOR);
 	destruct(this_object());
 }

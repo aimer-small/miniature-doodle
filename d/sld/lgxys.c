@@ -1,13 +1,13 @@
 // lgxys.c
-// Â½¸ßĞù¼ÒÒ©ÊÒ
+// é™†é«˜è½©å®¶è¯å®¤
 inherit ROOM;
 void create()
 {
-	set("short","Ò©ÊÒ");
+	set("short","è¯å®¤");
 	set("long",@long
-Ò»×ß½øÕâ¼äÎİ×Ó£¬¾ÍÎÅµ½ºÜÅ¨µÄ²İÒ©Î¶£¬Ö»¼ûÕâÀï¿¿Ç½ÊÇÒ»¸öÒ©¹ñ£¬´ÓÉÏ
-µ½ÏÂ£¬´Ó×óµ½ÓÒ£¬Ò»¸ñ¸ñµØ·Ö³ÉĞí¶à¸ñ£¬Ç½ÉÏ£¬µØÏÂ£¬Ò²µ½´¦¶¼ÊÇÒ©²İ£¬ÕâÀï
-ÊÇÂ½¸ßĞùÖÆÒ©µÄµØ·½¡£
+ä¸€èµ°è¿›è¿™é—´å±‹å­ï¼Œå°±é—»åˆ°å¾ˆæµ“çš„è‰è¯å‘³ï¼Œåªè§è¿™é‡Œé å¢™æ˜¯ä¸€ä¸ªè¯æŸœï¼Œä»ä¸Š
+åˆ°ä¸‹ï¼Œä»å·¦åˆ°å³ï¼Œä¸€æ ¼æ ¼åœ°åˆ†æˆè®¸å¤šæ ¼ï¼Œå¢™ä¸Šï¼Œåœ°ä¸‹ï¼Œä¹Ÿåˆ°å¤„éƒ½æ˜¯è¯è‰ï¼Œè¿™é‡Œ
+æ˜¯é™†é«˜è½©åˆ¶è¯çš„åœ°æ–¹ã€‚
 long);
 	set("exits",([
 	    "west" : __DIR__"lgxroom",
@@ -50,39 +50,39 @@ int do_search(string arg)
 {
 	object me=this_player();
 	object ym;
-	string* type5=({"ÍÁ","½ğ","Ë®","Ä¾","»ğ"});
+	string* type5=({"åœŸ","é‡‘","æ°´","æœ¨","ç«"});
 
 	if(!me->query_temp("yaozhong",1))
 	{
-		tell_object(me,"Í»È»³å½øÀ´¼¸¸öÉñÁú½ÌµÄ»¤½ÌµÜ×Ó£¬¶ÔÄã´óºÈµ½£ºÄãÔÚ¸ÉÊ²Ã´£¿£¡¾º¸ÒÀ´Íµ¶«Î÷£¡È»ºóÒ»ÕóÂÒ°ô°ÑÄã´ò»è£¡...\n");
+		tell_object(me,"çªç„¶å†²è¿›æ¥å‡ ä¸ªç¥é¾™æ•™çš„æŠ¤æ•™å¼Ÿå­ï¼Œå¯¹ä½ å¤§å–åˆ°ï¼šä½ åœ¨å¹²ä»€ä¹ˆï¼Ÿï¼ç«æ•¢æ¥å·ä¸œè¥¿ï¼ç„¶åä¸€é˜µä¹±æ£’æŠŠä½ æ‰“æ˜ï¼...\n");
 		me->move("/d/sld/kongdi");
 		me->unconcious();
 		return 1; 
 	}
-	if((arg!="½ÇÂä") && (arg!="corner") && (arg!="Ç½½Ç") && (arg!="Îİ½Ç"))
+	if((arg!="è§’è½") && (arg!="corner") && (arg!="å¢™è§’") && (arg!="å±‹è§’"))
 		return 0;
 	if(me->query("jingli")<50)
-		return notify_fail("ÄãÏÖÔÚÌ«ÀÛÁË£¬ÏÈĞİÏ¢Ò»ÏÂ°É¡£\n");
+		return notify_fail("ä½ ç°åœ¨å¤ªç´¯äº†ï¼Œå…ˆä¼‘æ¯ä¸€ä¸‹å§ã€‚\n");
 	else
 		me->add("jingli",-50);
 	/*if(!query("yaozhong"))
-		return notify_fail("ÄãÕÒÁË°ëÌì£¬Ê²Ã´¶«Î÷¶¼Ã»ÓĞÕÒµ½¡£\n");*/
+		return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œä»€ä¹ˆä¸œè¥¿éƒ½æ²¡æœ‰æ‰¾åˆ°ã€‚\n");*/
 	if((time()-me->query("yztime"))>1200)
 	{
 		me->set("yztime",time());
 		me->set("findyz",0);
 	}
 	if(me->query("findyz")>8)
-		return notify_fail("ÄãÕÒÁË°ëÌì£¬Ê²Ã´¶«Î÷¶¼Ã»ÓĞÕÒµ½¡£\n");
+		return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œä»€ä¹ˆä¸œè¥¿éƒ½æ²¡æœ‰æ‰¾åˆ°ã€‚\n");
         if(random(10)>7)
 	{
 		ym=new("/d/sld/npc/obj/yaozhong");
 		if(!ym)
-			return notify_fail("ÄãÕÒÁË°ëÌì£¬Ê²Ã´¶«Î÷¶¼Ã»ÓĞÕÒµ½¡£\n");
+			return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œä»€ä¹ˆä¸œè¥¿éƒ½æ²¡æœ‰æ‰¾åˆ°ã€‚\n");
 		ym->set("5type",type5[random(sizeof(type5))]);
 		if(!ym->move(me))
 			ym->move(this_object());
-		message_vision("$NÕÒÁË°ëÌì£¬ÕÒµ½Ò»Ã¶Ò©ÖÖ¡£\n",me);
+		message_vision("$Næ‰¾äº†åŠå¤©ï¼Œæ‰¾åˆ°ä¸€æšè¯ç§ã€‚\n",me);
 		//add("yaozhong",-1);
 		if(!me->query("findyz"))
 			me->set("findyz",1);
@@ -90,5 +90,5 @@ int do_search(string arg)
 			me->add("findyz",1);
 		return 1;
 	}
-	return notify_fail("ÄãÕÒÁË°ëÌì£¬Ê²Ã´¶«Î÷¶¼Ã»ÓĞÕÒµ½¡£\n");
+	return notify_fail("ä½ æ‰¾äº†åŠå¤©ï¼Œä»€ä¹ˆä¸œè¥¿éƒ½æ²¡æœ‰æ‰¾åˆ°ã€‚\n");
 }

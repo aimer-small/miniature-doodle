@@ -1,4 +1,4 @@
-// lu.c áÔÉ½ÅÉµÚÈý´úµÜ×Ó Â½°Ø
+// lu.c åµ©å±±æ´¾ç¬¬ä¸‰ä»£å¼Ÿå­ é™†æŸ
 // Lklv 2001.10.18 Modified
 
 #include <ansi.h>
@@ -7,10 +7,10 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("Â½°Ø", ({ "lu bo", "lu", "bo" }));
-        set("nickname", HIM"ÏÉº×ÊÖ"NOR);
-        set("long", "ÕâÊÇÒ»ÃûÊÝÏ÷µÄÀÏÕß£¬áÔÉ½ÅÉÖÐ×øµÚÈý°Ñ½»ÒÎ¡£\n");
-        set("gender", "ÄÐÐÔ");
+        set_name("é™†æŸ", ({ "lu bo", "lu", "bo" }));
+        set("nickname", HIM"ä»™é¹¤æ‰‹"NOR);
+        set("long", "è¿™æ˜¯ä¸€åç˜¦å‰Šçš„è€è€…ï¼Œåµ©å±±æ´¾ä¸­åç¬¬ä¸‰æŠŠäº¤æ¤…ã€‚\n");
+        set("gender", "ç”·æ€§");
         set("age", 46);
         set("per", 18);
         set("attitude", "heroism");
@@ -43,16 +43,16 @@ void create()
 	map_skill("parry", "songshan-jian");
 	map_skill("sword", "songshan-jian");
 	prepare_skill("hand", "songyang-shou");
-	create_family("áÔÉ½ÅÉ", 3, "µÜ×Ó");
+	create_family("åµ©å±±æ´¾", 3, "å¼Ÿå­");
 	set("chat_chance_combat", 20);
 	set("chat_msg_combat", ({
                 (: perform_action, "sword.feiwu" :),
                 (: exert_function, "juhan" :),
         }));
 	set("inquiry", ([
-		"áÔÉ½ÅÉ" : "ÎÒÃÇáÔÉ½ÅÉÊÇÎåÔÀ½£ÅÉÖ®Ê×£¡\n",
-		"ÎåÔÀ½£ÅÉ" : "ÎÒÃÇÎåÔÀ½£ÅÉÔÚÎäÁÖÖ®ÖÐÊÆÁ¦¾Þ´ó£¬¿ÉÓëÉÙÁÖ¡¢Îäµ±¿¹ºâ¡£\n",
-		"×óÀäìø" : "Ëû¾ÍÊÇÎÒÃÇµÄÕÆÃÅÈË£¬¹¦·òÉî²»¿É²â¡£\n",
+		"åµ©å±±æ´¾" : "æˆ‘ä»¬åµ©å±±æ´¾æ˜¯äº”å²³å‰‘æ´¾ä¹‹é¦–ï¼\n",
+		"äº”å²³å‰‘æ´¾" : "æˆ‘ä»¬äº”å²³å‰‘æ´¾åœ¨æ­¦æž—ä¹‹ä¸­åŠ¿åŠ›å·¨å¤§ï¼Œå¯ä¸Žå°‘æž—ã€æ­¦å½“æŠ—è¡¡ã€‚\n",
+		"å·¦å†·ç¦…" : "ä»–å°±æ˜¯æˆ‘ä»¬çš„æŽŒé—¨äººï¼ŒåŠŸå¤«æ·±ä¸å¯æµ‹ã€‚\n",
 	]) );
         setup();
         carry_object(ARMOR_D("changpao1"))->wear();

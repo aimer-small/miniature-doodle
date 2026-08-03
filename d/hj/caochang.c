@@ -1,13 +1,13 @@
-// caochang.c ²İ³¡
+// caochang.c è‰åœº
 #include <ansi.h>
 inherit ROOM;
 void create()
 {
-        set("short", "²İ³¡");
+        set("short", "è‰åœº");
         set("long", @LONG
-ÕâÒ»×å¹şÈø¿ËÈË´ó¸ÅÒÑ¾­Ï°¹ßÁË¶¨¾ÓÉú»î£¬ÓÚÊÇ×öÁË¸ö´ó²İ³¡¡£´ºÏÄ°ÑÔ¶
-´¦·ÊÄÛµÄË®²İ¸îÏÂÀ´¶ÑÔÚÕâÀï£¬ÒÔ±¸Çï¶¬¼¾½ÚĞóÉúµÄÊ³ÁÏ¡£ÕâÀï¶ÑÂúÁËÒ»¶Ñ¶Ñ
-ÕÊÅñ´óĞ¡µÄ²İ¶ÑºÍ¸É²İ(gancao)£¬¿´ÆğÀ´²»ÏÂÇ§¶Ñ¡£
+è¿™ä¸€æ—å“ˆè¨å…‹äººå¤§æ¦‚å·²ç»ä¹ æƒ¯äº†å®šå±…ç”Ÿæ´»ï¼Œäºæ˜¯åšäº†ä¸ªå¤§è‰åœºã€‚æ˜¥å¤æŠŠè¿œ
+å¤„è‚¥å«©çš„æ°´è‰å‰²ä¸‹æ¥å †åœ¨è¿™é‡Œï¼Œä»¥å¤‡ç§‹å†¬å­£èŠ‚ç•œç”Ÿçš„é£Ÿæ–™ã€‚è¿™é‡Œå †æ»¡äº†ä¸€å †å †
+å¸ç¯·å¤§å°çš„è‰å †å’Œå¹²è‰(gancao)ï¼Œçœ‹èµ·æ¥ä¸ä¸‹åƒå †ã€‚
 LONG);
         set("exits", ([
             "northdown" : __DIR__"pmchang",
@@ -18,10 +18,10 @@ LONG);
                     __DIR__"npc/hasake" : 1
         ]));
         set("item_desc", ([
-                "gancao" : "ÕâÊÇ¶Ñ»ıÔÚ²İ³¡ÀíµÄ²İ¶Ñ£¬µØÉÏ»¹ÁãÁãÉ¢É¢µØ·ÅÁË\n"+
-                           "ºÃ¶àÒÑ¾­É¹¸ÉµÄË®²İ¡£Äã¿ÉÒÔ°ïÖúÄÁÃñÃÇ°Ñ¸É²İ¶Ñ(dui)³É¶Ñ¡£\n",
+                "gancao" : "è¿™æ˜¯å †ç§¯åœ¨è‰åœºç†çš„è‰å †ï¼Œåœ°ä¸Šè¿˜é›¶é›¶æ•£æ•£åœ°æ”¾äº†\n"+
+                           "å¥½å¤šå·²ç»æ™’å¹²çš„æ°´è‰ã€‚ä½ å¯ä»¥å¸®åŠ©ç‰§æ°‘ä»¬æŠŠå¹²è‰å †(dui)æˆå †ã€‚\n",
         ])); 
-        set("outdoors", "²İÔ­");
+        set("outdoors", "è‰åŸ");
         set("coor/x",-320);
   set("coor/y",90);
    set("coor/z",10);
@@ -40,11 +40,11 @@ int do_dui(string arg)
         string skill;
         me = this_player();
         weapon = me->query_temp("weapon");
-        if(!living(me)) return notify_fail("Äã·¢·èÁË? \n");
-        if(!weapon) return notify_fail("ÄãÓÃÊÖÀ´¶Ñ£¿ÓĞĞÔ¸ñ£¡\n");
-        if( me->is_busy() || me->is_fighting()) return notify_fail("ÄãÏÖÔÚÃ»¿Õ¡£\n");
+        if(!living(me)) return notify_fail("ä½ å‘ç–¯äº†? \n");
+        if(!weapon) return notify_fail("ä½ ç”¨æ‰‹æ¥å †ï¼Ÿæœ‰æ€§æ ¼ï¼\n");
+        if( me->is_busy() || me->is_fighting()) return notify_fail("ä½ ç°åœ¨æ²¡ç©ºã€‚\n");
         if(!arg || arg != "gancao"){    
-              message_vision("$NÄÃÆğ$nÔÚµØÉÏÄ¥ÁËÄ¥¡£\n",me, weapon);
+              message_vision("$Næ‹¿èµ·$nåœ¨åœ°ä¸Šç£¨äº†ç£¨ã€‚\n",me, weapon);
               return 1;
         }        
         costj = 1500 / (int)me->query("con");
@@ -53,18 +53,18 @@ int do_dui(string arg)
         costq = random(costq);
 
         if((int)me->query("jingli") < costj || (int)me->query("qi") < costq){
-               message_vision(HIR "\n °¡£¡¡£¡£¡£\nÓÉÓÚ$NÓÃÁ¦¹ıÃÍ£¬Ò»´ó¶Ñ¸É²İµ¹ÏÂÀ´Ñ¹ÔÚÁË$NÉíÉÏ£¡\n"NOR,me);
+               message_vision(HIR "\n å•Šï¼ã€‚ã€‚ã€‚\nç”±äº$Nç”¨åŠ›è¿‡çŒ›ï¼Œä¸€å¤§å †å¹²è‰å€’ä¸‹æ¥å‹åœ¨äº†$Nèº«ä¸Šï¼\n"NOR,me);
                me->unconcious();
                return 1;
         }        
         me->add("jingli", -costj);
         me->add("qi", -costq);       
-        message_vision("$NÓÃ$nÀ­ÆğÒ»°Ñ¸É²İ¶ÑÔÚ²İ¶ÑÉÏ¡£\n", me, weapon);
+        message_vision("$Nç”¨$næ‹‰èµ·ä¸€æŠŠå¹²è‰å †åœ¨è‰å †ä¸Šã€‚\n", me, weapon);
         skill = weapon->query("skill_type");
         if(me->query_skill(skill, 1) < 101){
-                write(HIY"ÄãÊ¹¾¢µØ²æ×Å¸É²İ£¬Ö»¾õµÃÊÖÖĞÕâ"+weapon->name()+HIY"ÊÇÔ½À´Ô½ºÃÓÃ¡£\n"NOR);
+                write(HIY"ä½ ä½¿åŠ²åœ°å‰ç€å¹²è‰ï¼Œåªè§‰å¾—æ‰‹ä¸­è¿™"+weapon->name()+HIY"æ˜¯è¶Šæ¥è¶Šå¥½ç”¨ã€‚\n"NOR);
                 me->improve_skill(skill, (int)(me->query_int()/3));
                 }
-        else write("ÄãÊ¹¾¢µØ²æ×Å¸É²İ£¬µ«È´·¢ÏÖÃ»ÓĞÊ²Ã´´óµÄÓÃ´¦¡£\n");
+        else write("ä½ ä½¿åŠ²åœ°å‰ç€å¹²è‰ï¼Œä½†å´å‘ç°æ²¡æœ‰ä»€ä¹ˆå¤§çš„ç”¨å¤„ã€‚\n");
         return 1;
 }

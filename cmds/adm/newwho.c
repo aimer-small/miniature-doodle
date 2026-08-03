@@ -2,7 +2,7 @@ string func(object ob)
 {
 	string ret = ob->query("family/family_name");
 
-	if (!ret) ret = "ÆÕÍ¨°ÙÐÕ";
+	if (!ret) ret = "æ™®é€šç™¾å§“";
 	return ret;
 }
 

@@ -3,16 +3,16 @@
 inherit SWORD;
 void create()
 {
-        set_name(HIY"Ø°Ê×"NOR,({"bishou", "dagger"}));
+        set_name(HIY"åŒ•é¦–"NOR,({"bishou", "dagger"}));
         set_weight(500);
         if (clonep())
                 set_default_object(__FILE__);
         else{
-                set("unit", "°Ñ");
+                set("unit", "æŠŠ");
                 set("value", 7000);
                 set("material", "steal");
                 set("unique",1);
-                set("long",HIY"ÕâÊÇÒ»°Ñ¾«¸ÖØ°Ê×£¬°ÑÊÖÉÏ¿Ì×Å¡°¹ù¾¸¡±Á½¸ö×Ö¡£\n"NOR);
+                set("long",HIY"è¿™æ˜¯ä¸€æŠŠç²¾é’¢åŒ•é¦–ï¼ŒæŠŠæ‰‹ä¸Šåˆ»ç€â€œéƒ­é–â€ä¸¤ä¸ªå­—ã€‚\n"NOR);
 	}
 	init_sword(20);
 	setup();

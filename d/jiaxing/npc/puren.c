@@ -1,13 +1,13 @@
-// yayi.c  ¹Ù¸®ÑÃÒÛ
+// yayi.c  å®˜åºœè¡™å½¹
 inherit NPC;
 
 void create()
 {
-        set_name("°¢¸ù", ({ "pu ren", "a gen" }));
-	set("gender", "ÄĞĞÔ");
+        set_name("é˜¿æ ¹", ({ "pu ren", "a gen" }));
+	set("gender", "ç”·æ€§");
 	set("age", 25);
 
-        set("long", "Ò»ÂúÁ³º¹Ë®³¾ÍÁµÄÆÍÈË¡£\n");
+        set("long", "ä¸€æ»¡è„¸æ±—æ°´å°˜åœŸçš„ä»†äººã€‚\n");
         set("combat_exp", 500);
         set("shen_type", 0);
 	setup();

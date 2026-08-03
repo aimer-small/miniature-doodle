@@ -28,22 +28,22 @@ int main(object me,string arg)
 	string str,temp;
 		
 	if(!arg) return help(me);
-	if(file_size(arg)==-1) return notify_fail("Ä¿±ê²»´æÔÚ¡£\n");
-	if(file_size(arg)==-2) return notify_fail("Ä¿±êÊÇ¸öÄ¿Â¼¡£\n");
+	if(file_size(arg)==-1) return notify_fail("ç›®æ ‡ä¸å­˜åœ¨ã€‚\n");
+	if(file_size(arg)==-2) return notify_fail("ç›®æ ‡æ˜¯ä¸ªç›®å½•ã€‚\n");
 	file = arg;
 	all = objects( "check" );
-	if(!sizeof(all)) return notify_fail("Ê²Ã´¶¼Ã»ÓĞ·¢ÏÖ¡£\n");
-	str = "\n\t¹ØÓÚ¼Ì³Ğ"+arg+"µÄÏà¹ØĞÅÏ¢£º\n";
-	str += sprintf("%-70s%-40s\n","Îï¼ş","ÆäËûĞÅÏ¢");
+	if(!sizeof(all)) return notify_fail("ä»€ä¹ˆéƒ½æ²¡æœ‰å‘ç°ã€‚\n");
+	str = "\n\tå…³äºç»§æ‰¿"+arg+"çš„ç›¸å…³ä¿¡æ¯ï¼š\n";
+	str += sprintf("%-70s%-40s\n","ç‰©ä»¶","å…¶ä»–ä¿¡æ¯");
 	str += "\n";
 	for(int i =0;i<sizeof(all);i++){
 		str += colors[inherits(arg,all[i])];
 		if(cloned(all[i])) {
-			temp = "Îª¸´ÖÆÆ·";
-			if(environment(all[i])) temp+= sprintf("£¬Î»ÖÃ£º%O",environment(all[i]));
-			else temp += "¡£";
+			temp = "ä¸ºå¤åˆ¶å“";
+			if(environment(all[i])) temp+= sprintf("ï¼Œä½ç½®ï¼š%O",environment(all[i]));
+			else temp += "ã€‚";
 		}
-		else temp = "·Ç¸´ÖÆÆ·¡£";
+		else temp = "éå¤åˆ¶å“ã€‚";
 		str += sprintf("%-70O%-40s\n",all[i],NOR+temp );
 		str += NOR;
 	}
@@ -54,10 +54,10 @@ int main(object me,string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºinherit [ÎÄµµ]
-	ËÑË÷ËùÓĞ¼Ì³Ğ¸ÃÎÄµµµÄÎï¼ş¡£
+æŒ‡ä»¤æ ¼å¼ï¼šinherit [æ–‡æ¡£]
+	æœç´¢æ‰€æœ‰ç»§æ‰¿è¯¥æ–‡æ¡£çš„ç‰©ä»¶ã€‚
 	
-	ºìÉ«ÏÔÊ¾ÎªĞèÒªUpdateµÄÎï¼ş¡£
+	çº¢è‰²æ˜¾ç¤ºä¸ºéœ€è¦Updateçš„ç‰©ä»¶ã€‚
 HELP
 	);
 	return 1;

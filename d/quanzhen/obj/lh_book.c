@@ -9,16 +9,16 @@ int do_start(object me);
 
 void create()
 {
-        set_name("»ÆÆ¤²á×Ó", ({ "ce zi", "book" }));
+        set_name("é»„çš®å†Œå­", ({ "ce zi", "book" }));
         set_weight(600);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
-                set("long", YEL"ÕâÊÇÒ»±¾»ÆÆ¤²á×Ó£¬²á×ÓÉÏÐ´×Å¡¶ÈýÁ¬»·¡·Èý¸ö×­×Ö£¬×óÏÂ½ÇÊðÃûÐ´×ÅÈ«Õæ³¤´º×Ó¡£\n"NOR);
+                set("unit", "æœ¬");
+                set("long", YEL"è¿™æ˜¯ä¸€æœ¬é»„çš®å†Œå­ï¼Œå†Œå­ä¸Šå†™ç€ã€Šä¸‰è¿žçŽ¯ã€‹ä¸‰ä¸ªç¯†å­—ï¼Œå·¦ä¸‹è§’ç½²åå†™ç€å…¨çœŸé•¿æ˜¥å­ã€‚\n"NOR);
                 set("material", "paper");
-                set("no_drop","ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-                set("no_get","ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+                set("no_drop","è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+                set("no_get","è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
                 set("no_steal", 1);
                 set("unique", 1);
         set("treasure",1);
@@ -37,31 +37,31 @@ int do_lingwu(string arg)
         int cost;
         me=this_player();
          if (me->is_busy())
-            return notify_fail("ÄãÕýÃ¦×ÅÄØ!\n");
+            return notify_fail("ä½ æ­£å¿™ç€å‘¢!\n");
         
-        if(arg!=this_object()->query("id")) return notify_fail("ÄãÒªÁìÎòÊ²Ã´?\n");
+        if(arg!=this_object()->query("id")) return notify_fail("ä½ è¦é¢†æ‚Ÿä»€ä¹ˆ?\n");
         
         if(me->query_skill("quanzhen-jianfa", 1) <100)
-            return notify_fail("ÄãµÄÈ«Õæ½£·¨²»¹»æµÊì£¬ÎÞ·¨ÁìÎòÒª¾öÖÐµÄ°ÂÃî¡£\n");
+            return notify_fail("ä½ çš„å…¨çœŸå‰‘æ³•ä¸å¤Ÿå¨´ç†Ÿï¼Œæ— æ³•é¢†æ‚Ÿè¦å†³ä¸­çš„å¥¥å¦™ã€‚\n");
             
         if(me->query_skill("taoism",1)<100)
-        	return notify_fail("ÄãµÄµÀÑ§ÐÞÎª²»¹»¡£\n");
+        	return notify_fail("ä½ çš„é“å­¦ä¿®ä¸ºä¸å¤Ÿã€‚\n");
         	
         if(me->query_skill("literate",1)<100)
-        	return notify_fail("ÄãÎÄÑ§Ë®Æ½Ì«²î£¬¿´²»¶®´Ë²á¡£\n");
+        	return notify_fail("ä½ æ–‡å­¦æ°´å¹³å¤ªå·®ï¼Œçœ‹ä¸æ‡‚æ­¤å†Œã€‚\n");
         
         if(this_object()->query("player_id")!=me->query("id"))
         {
                 me->add("max_neili",-10);
-                return notify_fail(HIR"ÄãÒ»¶ÁÖ®ÏÂÖ»¾õ»ëÉíÔïÈÈ£¬ÄÚÁ¦²»¾Û£¬Ëµ²»³öµÄÄÑÊÜ¡£\n"NOR);
+                return notify_fail(HIR"ä½ ä¸€è¯»ä¹‹ä¸‹åªè§‰æµ‘èº«ç‡¥çƒ­ï¼Œå†…åŠ›ä¸èšï¼Œè¯´ä¸å‡ºçš„éš¾å—ã€‚\n"NOR);
 
 	}
 
         if(me->query("quest/quanzhen/sword/lianhuan")==1)
-                    return notify_fail("ÄãÒÑ¾­ÁìÎòÈýÁ¬»·¾«Òª¡£\n");
+                    return notify_fail("ä½ å·²ç»é¢†æ‚Ÿä¸‰è¿žçŽ¯ç²¾è¦ã€‚\n");
         
         if(me->query("neili")<1000||me->query("jing")<200)
-                return notify_fail("Äã¾«Éñ²»¼Ñ£¬ÎÞ·¨ÁìÎòÐÄ·¨ÖÐµÄ°ÂÃî¡£\n");
+                return notify_fail("ä½ ç²¾ç¥žä¸ä½³ï¼Œæ— æ³•é¢†æ‚Ÿå¿ƒæ³•ä¸­çš„å¥¥å¦™ã€‚\n");
                 
         cost=me->query("int");
         
@@ -72,7 +72,7 @@ int do_lingwu(string arg)
         
         me->set_temp("lianhuan_cost",cost);
         
-        message_vision(YEL"$N´Ó»³ÖÐÃþ³öÒ»±¾Ð¡²á×Ó,È«Éñ¹à×¢µØÔÄ¶Á×Å£¬²»Ê±×óÊÖÇáÇáµÄ±È»®¡£\n" NOR, me);
+        message_vision(YEL"$Nä»Žæ€€ä¸­æ‘¸å‡ºä¸€æœ¬å°å†Œå­,å…¨ç¥žçŒæ³¨åœ°é˜…è¯»ç€ï¼Œä¸æ—¶å·¦æ‰‹è½»è½»çš„æ¯”åˆ’ã€‚\n" NOR, me);
     	me->start_busy((: do_start:));
         return 1;
 
@@ -86,11 +86,11 @@ int do_start(object me)
                 if(random(me->query("int"))>20 && random(me->query("kar"))>16)     
                 {
                         me->add("lingwu_lianhuan",1);
-                        tell_object(me,HIY"Äã¾²×øÁ¼¾Ã£¬ËÆºõ¶ÔÈýÁ¬»·µÄÔËÓÃÓÐÒ»Ë¿ÁìÎò¡£\n"NOR);
+                        tell_object(me,HIY"ä½ é™åè‰¯ä¹…ï¼Œä¼¼ä¹Žå¯¹ä¸‰è¿žçŽ¯çš„è¿ç”¨æœ‰ä¸€ä¸é¢†æ‚Ÿã€‚\n"NOR);
                         
                         if(me->query("lingwu_lianhuan")>=20)
                         {
-                                tell_object  (me,HIG"¹§Ï²£¬ÄãÖÕÓÚÁìÎò³ö¡¼ÈýÁ¬»·¡½ÃØ¾öµÄ¾«Òª¡£\n"NOR);
+                                tell_object  (me,HIG"æ­å–œï¼Œä½ ç»ˆäºŽé¢†æ‚Ÿå‡ºã€–ä¸‰è¿žçŽ¯ã€—ç§˜å†³çš„ç²¾è¦ã€‚\n"NOR);
                                 me->set("quest/quanzhen/sword/lianhuan",1);
                                 me->delete("lingwu_lianhuan");
                                 
@@ -102,7 +102,7 @@ int do_start(object me)
                 else
                 {
                         
-                        tell_object  (me,HIR"Äã×óË¼ÓÒÏëÊ¼ÖÕ²»ÄÜÁìÎò£¬²»ÓÉµÃÐÄÖÐ´óÔï¡£\n"NOR);
+                        tell_object  (me,HIR"ä½ å·¦æ€å³æƒ³å§‹ç»ˆä¸èƒ½é¢†æ‚Ÿï¼Œä¸ç”±å¾—å¿ƒä¸­å¤§ç‡¥ã€‚\n"NOR);
                         me->add("neili", -me->query("max_neili")/20 );
                         me->receive_damage("jing", me->query("max_jing")/20 );
                     	

@@ -1,17 +1,17 @@
-// /d/meizhuang/obj/lingqi.c ÎåÔÀÁîÆì
+// /d/meizhuang/obj/lingqi.c äº”å²³ä»¤æ——
 
 #include <ansi.h>
 inherit ITEM;
 void create()
 {
-        set_name(HIR"ÎåÔÀÁîÆì"NOR, ({ "wuyue lingqi","wuse lingqi", "lingqi" }));
+        set_name(HIR"äº”å²³ä»¤æ——"NOR, ({ "wuyue lingqi","wuse lingqi", "lingqi" }));
         set_weight(1000);
 
         if (clonep())
                 set_default_object(__FILE__);
         else {
-                set("unit", "Ãæ");
-                set("long","ÕâÊÇÒ»ÃæÉÏµÈ³ñ¶Ğ×ö³ÉµÄÆìÖÄ£¬±¦¹âËÄÒ«£¬ÉÏÃæÏâÂúÁËÕäÖé±¦Ê¯¡£\n");
+                set("unit", "é¢");
+                set("long","è¿™æ˜¯ä¸€é¢ä¸Šç­‰ç»¸ç¼åšæˆçš„æ——å¸œï¼Œå®å…‰å››è€€ï¼Œä¸Šé¢é•¶æ»¡äº†çç å®çŸ³ã€‚\n");
                 set("value", 100000000);
         }
         setup();

@@ -6,16 +6,16 @@ inherit ITEM;
  
 void create()
  {
-         set_name(HIC"Ó¥ÉßÉúËÀ²«ÃØ¼®²Ğ±¾"NOR, ({ "yingshe miji","miji","book" }));
+         set_name(HIC"é¹°è›‡ç”Ÿæ­»æç§˜ç±æ®‹æœ¬"NOR, ({ "yingshe miji","miji","book" }));
          set_weight(200);
          if( clonep() )
                  set_default_object(__FILE__);
          else {
-                 set("unit", "±¾");
-                 set("long","ÕâÊÇÒ»±¾¼ÇÂ¼Ó¥ÉßÉúËÀ²«µÄÃØ¼®£¬µ«ÊÇ²ĞÈ±²»È«£¬Ò»°ãÈËÎŞ·¨ÁìÎò¡£\n");
+                 set("unit", "æœ¬");
+                 set("long","è¿™æ˜¯ä¸€æœ¬è®°å½•é¹°è›‡ç”Ÿæ­»æçš„ç§˜ç±ï¼Œä½†æ˜¯æ®‹ç¼ºä¸å…¨ï¼Œä¸€èˆ¬äººæ— æ³•é¢†æ‚Ÿã€‚\n");
                  set("value", 500000);
-                 set("no_get","ÕâÊÇÄÇÈËµÄ±¦±´£¬ÄãÈçºÎÄÃµÄ×ß£¿\n");
-                 set("no_drop","ÕâÃ´Õä¹óµÄ¶«Î÷£¬Äã¸ÒÂÒ¶ª£¿\n");
+                 set("no_get","è¿™æ˜¯é‚£äººçš„å®è´ï¼Œä½ å¦‚ä½•æ‹¿çš„èµ°ï¼Ÿ\n");
+                 set("no_drop","è¿™ä¹ˆçè´µçš„ä¸œè¥¿ï¼Œä½ æ•¢ä¹±ä¸¢ï¼Ÿ\n");
                  set("treasure",1);
                  set("unique",1);
                  set("material", "paper");
@@ -35,27 +35,27 @@ void create()
          if(!id(arg)) return 0;
  
          if(me->is_fighting())
-                 return notify_fail("ÄãÎŞ·¨ÔÚÕ½¶·ÖĞ×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª£¡\n");
+                 return notify_fail("ä½ æ— æ³•åœ¨æˆ˜æ–—ä¸­ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ï¼\n");
          if(me->is_busy()) 
-                 return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+                 return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
  
-         if(!me->query("quest/»ªÉ½ÅÉ/Ó¥ÉßÉúËÀ²«/pass"))
-                 return notify_fail("Äã´ÓÄÄÀïÍµÀ´µÄÃØ¼®£¿¿É²»ÄÜÍµ¶ÁÅ¶£¡\n");
+         if(!me->query("quest/åå±±æ´¾/é¹°è›‡ç”Ÿæ­»æ/pass"))
+                 return notify_fail("ä½ ä»å“ªé‡Œå·æ¥çš„ç§˜ç±ï¼Ÿå¯ä¸èƒ½å·è¯»å“¦ï¼\n");
          if(this_object()->query("clone_by_wizard") && !wizardp(me)) 
-                 return notify_fail("Äã´ÓÄÄÀïÍµÀ´µÄ£¿¿É²»ÄÜÍµ¶ÁÅ¶£¡\n"); 
+                 return notify_fail("ä½ ä»å“ªé‡Œå·æ¥çš„ï¼Ÿå¯ä¸èƒ½å·è¯»å“¦ï¼\n"); 
          if(!me->query_skill("literate", 1)) 
-                 return notify_fail("ÄãÊÇ¸öÎÄÃ¤£¬ÏÈÑ§µãÎÄ»¯(literate)°É¡£\n");        
+                 return notify_fail("ä½ æ˜¯ä¸ªæ–‡ç›²ï¼Œå…ˆå­¦ç‚¹æ–‡åŒ–(literate)å§ã€‚\n");        
          if(me->query("jing") < 20)
-                 return notify_fail("ÄãÏÖÔÚ¹ıÓÚÆ£¾ë£¬ÎŞ·¨×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª¡£\n");
+                 return notify_fail("ä½ ç°åœ¨è¿‡äºç–²å€¦ï¼Œæ— æ³•ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ã€‚\n");
          lev = me->query_skill("yingshe-shengsibo", 1);
          if (lev >150)
-                 return notify_fail("ÄãÒÑ¾­²»ÄÜ´ÓÕâ±¾ÊéÀïµÃµ½ÈÎºÎÖ¸µãÁË¡£\n");
+                 return notify_fail("ä½ å·²ç»ä¸èƒ½ä»è¿™æœ¬ä¹¦é‡Œå¾—åˆ°ä»»ä½•æŒ‡ç‚¹äº†ã€‚\n");
              neili = 20+random(20);
               if (me->query("neili") < neili) 
-                 return notify_fail("ÄãÄÚÁ¦²»¹»£¬ÎŞ·¨×êÑĞÕâÃ´¸ßÉîµÄÎä¹¦¡£\n");
+                 return notify_fail("ä½ å†…åŠ›ä¸å¤Ÿï¼Œæ— æ³•é’»ç ”è¿™ä¹ˆé«˜æ·±çš„æ­¦åŠŸã€‚\n");
           if (!lev)
-                 write(HIC"\nÄã¿´ÁË¿´ÃØ¼®£¬·âÆ¤ÉÏºÕÈ»Ğ´µÀ£º"HIW"\n\n\t\t\tÓ¥ÉßÉúËÀ²«\n\n"HIY"Äã·­¿ªÃØ¼®£¬·¢ÏÖ²ĞÆÆµÄÊéÒ³ÉÏ¼ÇÔØ×Å²»ÉÙÁ·¹¦²åÍ¼Óë¿Ú¾÷£¬µ«ÊÇºÃÏñÓĞĞ©²ĞÈ±¡£\n"NOR);
-         write("ÄãÑĞ¶Á¡¸Ó¥ÉßÉúËÀ²«¡¹ÃØ¼®²Ğ±¾£¬¶ÔÕÕ×Ô¼ºµÄÁìÎòÒª¾÷£¬ËÆºõÓĞĞ©ĞÄµÃ¡£\n");
+                 write(HIC"\nä½ çœ‹äº†çœ‹ç§˜ç±ï¼Œå°çš®ä¸Šèµ«ç„¶å†™é“ï¼š"HIW"\n\n\t\t\té¹°è›‡ç”Ÿæ­»æ\n\n"HIY"ä½ ç¿»å¼€ç§˜ç±ï¼Œå‘ç°æ®‹ç ´çš„ä¹¦é¡µä¸Šè®°è½½ç€ä¸å°‘ç»ƒåŠŸæ’å›¾ä¸å£è¯€ï¼Œä½†æ˜¯å¥½åƒæœ‰äº›æ®‹ç¼ºã€‚\n"NOR);
+         write("ä½ ç ”è¯»ã€Œé¹°è›‡ç”Ÿæ­»æã€ç§˜ç±æ®‹æœ¬ï¼Œå¯¹ç…§è‡ªå·±çš„é¢†æ‚Ÿè¦è¯€ï¼Œä¼¼ä¹æœ‰äº›å¿ƒå¾—ã€‚\n");
          me->receive_damage("jing", 20);
          me->receive_damage("neili", neili);
          me->improve_skill("yingshe-shengsibo", me->query_skill("literate", 1) );
@@ -63,7 +63,7 @@ void create()
          me->improve_skill("claw", random(me->query_skill("literate", 1)) );
  
          if (!random(5))
-                 message("vision", me->name() + "ÄÃ×ÅÒ»±¾²ĞÈ±µÄÃØ¼®Ò»±ßÑĞ¶ÁÒ»±ßÊÖÖĞ²»¶Ï±È»®×Å¡£\n", environment(me), ({me}));
+                 message("vision", me->name() + "æ‹¿ç€ä¸€æœ¬æ®‹ç¼ºçš„ç§˜ç±ä¸€è¾¹ç ”è¯»ä¸€è¾¹æ‰‹ä¸­ä¸æ–­æ¯”åˆ’ç€ã€‚\n", environment(me), ({me}));
          return 1;
  } 
  

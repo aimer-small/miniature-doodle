@@ -5,20 +5,20 @@ inherit F_CLEAN_UP;
 int main(object me,string str)
 {
 	if(!wizardp(me)) return 0;
-	if(!str) return notify_fail("Äã¸ãÃ«°¡£¿\n");
+	if(!str) return notify_fail("ä½ ææ¯›å•Šï¼Ÿ\n");
 	str = replace_string(str,"\"","");
-	write(sprintf("×Ö·û [%s] ³¤¶È=%d\n",str,strlen(str)));
+	write(sprintf("å­—ç¬¦ [%s] é•¿åº¦=%d\n",str,strlen(str)));
 	return 1;
 }
 int help(object me)
 {
 	if(!wizardp(me)) return 0;
 	write(@HELP
-	¸ñÊ½£ºgetstr ×Ö·û
-	»ñµÃ×Ö·û³¤¶È£¬Î×Ê¦×¨ÓÃ¡£
+	æ ¼å¼ï¼šgetstr å­—ç¬¦
+	è·å¾—å­—ç¬¦é•¿åº¦ï¼Œå·«å¸ˆä¸“ç”¨ã€‚
 	
-	Ò»¸ö½¨Òé£º×îºÃÏÈ¹Ø±ÕzMUDµÄ×Ô¶¯½âÎö¹¦ÄÜÔÙÊ¹ÓÃ¸ÃÖ¸Áî¡£
-		  »òÕßÔÚ×Ö·û±ßÉÏ¼Ó""
+	ä¸€ä¸ªå»ºè®®ï¼šæœ€å¥½å…ˆå…³é—­zMUDçš„è‡ªåŠ¨è§£æåŠŸèƒ½å†ä½¿ç”¨è¯¥æŒ‡ä»¤ã€‚
+		  æˆ–è€…åœ¨å­—ç¬¦è¾¹ä¸ŠåŠ ""
 HELP
 );
 	return 1;

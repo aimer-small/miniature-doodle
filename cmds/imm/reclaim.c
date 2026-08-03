@@ -2,7 +2,7 @@
 
 int main(object me, string arg)
 {
-	write("ÕûÀí½á¹û£¬¹²Çå³ı " + reclaim_objects() + " ¸ö±äÊı¡£\n");
+	write("æ•´ç†ç»“æœï¼Œå…±æ¸…é™¤ " + reclaim_objects() + " ä¸ªå˜æ•°ã€‚\n");
 	if (me->id("yuj") || me->id("linux") ||getuid(me)=="ciwei" ) {
 		object ob, *obs = objects();
 		int mem = sizeof(obs);
@@ -17,7 +17,7 @@ int main(object me, string arg)
 				reset_eval_cost();
 				write(sprintf("%O", ob));
 				destruct(ob);
-				write(" ÒÑ¾­±»Çå³ı¡£\n");
+				write(" å·²ç»è¢«æ¸…é™¤ã€‚\n");
 				obs -= ({ 0 });
 				mem = sizeof(obs);
 			}
@@ -29,9 +29,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ : reclaim
+æŒ‡ä»¤æ ¼å¼ : reclaim
 
-ÓÃ´¦ : ½«ÄÚ´æÖĞµÄÎŞÓÃ±äÁ¿Çå³ıµô, ÒÔ¼õÉÙÄÚ´æµÄÏûºÄ¡£
+ç”¨å¤„ : å°†å†…å­˜ä¸­çš„æ— ç”¨å˜é‡æ¸…é™¤æ‰, ä»¥å‡å°‘å†…å­˜çš„æ¶ˆè€—ã€‚
 HELP
 	);
 	return 1;

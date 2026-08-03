@@ -1,5 +1,5 @@
 // houshansl.c
-// ºóÉ½Ê÷ÁÖ
+// åå±±æ ‘æ—
 inherit ROOM;
 #include <ansi.h>
 
@@ -8,12 +8,12 @@ int do_duoshan();
 
 void create()
 {
-	set("short", HIG "ºóÉ½Ê÷ÁÖ" NOR);
+	set("short", HIG "åå±±æ ‘æ—" NOR);
 	set("long", @long
-ÕâÀïÊÇ¶ëáÒºóÉ½ÉÏµÄÒ»Æ¬³É²ÄµÄÊ÷ÁÖ£¬ÕâÀïµÄÁÖÄ¾Ã¯ÃÜ£¬ÓĞºÜ¶àÊ÷Ä¾¿ÉÒÔ
-ÓÃ×÷Ì¿²Ä¡£Î÷ÃæÊÇÒ»¿é¿ÕµØ£¬±±ÃæÊÇÒ»ÌõÍ¨ÍùÉ½ÏÂµÄÒ»ÌõĞ¡Â·¡£
+è¿™é‡Œæ˜¯å³¨åµ‹åå±±ä¸Šçš„ä¸€ç‰‡æˆæçš„æ ‘æ—ï¼Œè¿™é‡Œçš„æ—æœ¨èŒ‚å¯†ï¼Œæœ‰å¾ˆå¤šæ ‘æœ¨å¯ä»¥
+ç”¨ä½œç‚­æã€‚è¥¿é¢æ˜¯ä¸€å—ç©ºåœ°ï¼ŒåŒ—é¢æ˜¯ä¸€æ¡é€šå¾€å±±ä¸‹çš„ä¸€æ¡å°è·¯ã€‚
 long);
-	set("outdoors", "¶ëÃ¼É½");
+	set("outdoors", "å³¨çœ‰å±±");
 	set("exits",([
              "west":__DIR__"houshan",
              "northdown":__DIR__"houshanxl3",
@@ -32,49 +32,49 @@ int do_famu()
 {
 	int count;
 	object weapon, me=this_player();
-	if( !me->query_temp("emjob2/·¥Ä¾") || me->is_busy() || me->is_fighting() ) 
+	if( !me->query_temp("emjob2/ä¼æœ¨") || me->is_busy() || me->is_fighting() ) 
 		return 0;
 	if (!objectp(weapon = me->query_temp("weapon")) 
 	 || weapon->query("id")!= "axe")
 		return 0;
-	count = (int)me->query_temp("emjob2/·¥Ä¾");
-	if ( count == random(40) && !me->query_temp("emjob2/¶ãÉÁ")){
-		message_vision("$NÕı×¨ĞÄµØ¿³·¥Ê÷Ä¾£¬Í»È»Ò»¿Ã´óÊ÷µ¹ÁË£¬Ïò$NµÄÉíÉÏÔÒÀ´¡£\n", me);
-		me->set_temp("emjob2/¶ãÉÁ", environment(me));
+	count = (int)me->query_temp("emjob2/ä¼æœ¨");
+	if ( count == random(40) && !me->query_temp("emjob2/èº²é—ª")){
+		message_vision("$Næ­£ä¸“å¿ƒåœ°ç ä¼æ ‘æœ¨ï¼Œçªç„¶ä¸€æ£µå¤§æ ‘å€’äº†ï¼Œå‘$Nçš„èº«ä¸Šç ¸æ¥ã€‚\n", me);
+		me->set_temp("emjob2/èº²é—ª", environment(me));
 		remove_call_out("get_beat");
 		call_out("get_beat", 10, me);
 	}
-	message_vision("$N¾ÙÆğÊÖÖĞµÄ¸«Í·£¬ÏòÒ»¿ÃÑ¡ºÃµÄ´óÊ÷¿³È¥¡£\n", me);
+	message_vision("$Nä¸¾èµ·æ‰‹ä¸­çš„æ–§å¤´ï¼Œå‘ä¸€æ£µé€‰å¥½çš„å¤§æ ‘ç å»ã€‚\n", me);
 	me->receive_damage("jingli", 15 + random(20) );
-	me->set_temp("last_damage_from", "·¥Ä¾ÀÛ");
+	me->set_temp("last_damage_from", "ä¼æœ¨ç´¯");
 	if (me->query("potential") && random(10) > 5){
 		me->improve_skill("linji-zhuang", me->query_int());
 		me->add("potential", - random(2));
 	}
 	if ( count == 1 ) {
-		message_vision("$N°Ñ¿³ºÃµÄÌ¿Ä¾À¦ÁËÆğÀ´ÊÕºÃ¡£\n", me);
+		message_vision("$NæŠŠç å¥½çš„ç‚­æœ¨æ†äº†èµ·æ¥æ”¶å¥½ã€‚\n", me);
 		return 1;
 	}
-	me->set_temp("emjob2/·¥Ä¾", count - 1);
+	me->set_temp("emjob2/ä¼æœ¨", count - 1);
 	return 1;
 }
 
 void get_beat(object me)
 {
-	if( me->query_temp("emjob2/¶ãÉÁ") == environment(me) ) {
-		message_vision("$NÒ»¸öÃ»ÁôÉñ£¬±»µ¹ÏÂµÄ´óÊ÷ÔÒµ½ÉíÉÏ¡£\n", me);        
-		me->delete_temp("emjob2/¶ãÉÁ");
+	if( me->query_temp("emjob2/èº²é—ª") == environment(me) ) {
+		message_vision("$Nä¸€ä¸ªæ²¡ç•™ç¥ï¼Œè¢«å€’ä¸‹çš„å¤§æ ‘ç ¸åˆ°èº«ä¸Šã€‚\n", me);        
+		me->delete_temp("emjob2/èº²é—ª");
 		me->unconcious();
 	}
-	else message_vision("Ò»¿Ã´óÊ÷ºäÈ»µ¹µØ¡£\n", me);
+	else message_vision("ä¸€æ£µå¤§æ ‘è½°ç„¶å€’åœ°ã€‚\n", me);
 }
 
 int do_duoshan()
 {
 	object me = this_player();
-	if(!me->query_temp("emjob2/¶ãÉÁ")) return 0;
+	if(!me->query_temp("emjob2/èº²é—ª")) return 0;
 	remove_call_out("get_beat");
-	me->delete_temp("emjob2/¶ãÉÁ");
-	message_vision("$NÒ»×İÉí¶ã¿ªÁËÔÒÏò×Ô¼ºµÄ´óÊ÷¡£\n", me);        
+	me->delete_temp("emjob2/èº²é—ª");
+	message_vision("$Nä¸€çºµèº«èº²å¼€äº†ç ¸å‘è‡ªå·±çš„å¤§æ ‘ã€‚\n", me);        
 	return 1;
 }

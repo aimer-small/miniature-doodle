@@ -1,19 +1,19 @@
-// NPC : /d/wudang/npc/hu.c »¢
+// NPC : /d/wudang/npc/hu.c è™Ž
 
 
 inherit NPC;
 
 void create()
 {
-        set_name("ÀÏ»¢", ({ "lao hu", "hu" }) );
-        set("race", "Ò°ÊÞ");
+        set_name("è€è™Ž", ({ "lao hu", "hu" }) );
+        set("race", "é‡Žå…½");
         set("age", 20);
-        set("long", "Ò»Ö»°ßìµ´ó»¢£¬ÖØ´ïÈý°Ù¶à½ï¡£\n");
+        set("long", "ä¸€åªæ–‘æ–“å¤§è™Žï¼Œé‡è¾¾ä¸‰ç™¾å¤šæ–¤ã€‚\n");
         set("attitude", "peaceful");
         set("str", 26);
         set("cor", 30);
 
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "»¢½Å", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "è™Žè„š", "å°¾å·´" }) );
         set("verbs", ({ "bite" }) );
 
         set("combat_exp", 80000);
@@ -44,7 +44,7 @@ void init()
 void die()
 {
         object ob;
-        message_vision("$NÑöÌìÒ»ÉùÅØºðËÀÁË¡£\n", this_object());
+        message_vision("$Nä»°å¤©ä¸€å£°å’†å¼æ­»äº†ã€‚\n", this_object());
         ob = new(ARMOR_D("hupi"));
         ob->move(environment(this_object()));
         destruct(this_object());

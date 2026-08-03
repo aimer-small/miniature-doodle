@@ -1,13 +1,13 @@
 // YUJ@SJ 2001-11-02
-// Modified by LOOKLOVE@SJ ÒıÈë³ËÃİ¼ÆËã£¬´ó´óÓÅ»¯¡£
+// Modified by LOOKLOVE@SJ å¼•å…¥ä¹˜å¹‚è®¡ç®—ï¼Œå¤§å¤§ä¼˜åŒ–ã€‚
 // 2002/4/29
 
-// ExpÔÚ 100K ÒÔÉÏ¿ÉÒÔĞŞ¸ÄÊôĞÔ¡£
+// Expåœ¨ 100K ä»¥ä¸Šå¯ä»¥ä¿®æ”¹å±æ€§ã€‚
 //#define MAX_EXP 6000000
 #define MIN_EXP 100000
 
-// Ê£ÓàEXP±ÈÂÊµÈÓÚ100%¼õÈ¥Ã¿µã¿Û³ı±ÈÂÊ
-// µ±Ç°ĞŞ¸ÄÃ¿µãÊôĞÔ£¬¿Û³ıexp±ÈÂÊÎª5%
+// å‰©ä½™EXPæ¯”ç‡ç­‰äº100%å‡å»æ¯ç‚¹æ‰£é™¤æ¯”ç‡
+// å½“å‰ä¿®æ”¹æ¯ç‚¹å±æ€§ï¼Œæ‰£é™¤expæ¯”ç‡ä¸º5%
 #define RATE 0.9500
 
 inherit F_CLEAN_UP;
@@ -16,29 +16,29 @@ inherit F_CLEAN_UP;
 int help();
 
 nosave mapping gift_desc = ([
-	"str":"ëöÁ¦",
-	"con":"¸ù¹Ç",
-	"dex":"Éí·¨",
-	"int":"ÎòĞÔ"
+	"str":"è†‚åŠ›",
+	"con":"æ ¹éª¨",
+	"dex":"èº«æ³•",
+	"int":"æ‚Ÿæ€§"
 ]);
 
 nosave string *gift = keys(gift_desc);
 
-// Í³Ò»¹ıÂË by Lklv
+// ç»Ÿä¸€è¿‡æ»¤ by Lklv
 string check(object ob)
 {
 	string msg;
 
 	if (ob->query("registered") < 3)
-		msg = "±§Ç¸£ºÖ»ÓĞÕıÊ½Íæ¼Ò²ÅÓĞÕâ¸ö»ú»á¡£\n";
+		msg = "æŠ±æ­‰ï¼šåªæœ‰æ­£å¼ç©å®¶æ‰æœ‰è¿™ä¸ªæœºä¼šã€‚\n";
 	if ((int)ob->query("combat_exp") < MIN_EXP)
-		msg = "±§Ç¸£º´ËÈË¾­Ñé²»¹» "+MIN_EXP+" £¬ÎŞ·¨ĞŞ¸ÄÊôĞÔ¡£\n";
+		msg = "æŠ±æ­‰ï¼šæ­¤äººç»éªŒä¸å¤Ÿ "+MIN_EXP+" ï¼Œæ— æ³•ä¿®æ”¹å±æ€§ã€‚\n";
 //	if ((int)ob->query("combat_exp") > MAX_EXP)
-//		msg = "±§Ç¸£º´ËÈË¾­Ñé³¬¹ıÁË "+MAX_EXP+" £¬²»ÄÜĞŞ¸ÄÊôĞÔÁË¡£\n";
+//		msg = "æŠ±æ­‰ï¼šæ­¤äººç»éªŒè¶…è¿‡äº† "+MAX_EXP+" ï¼Œä¸èƒ½ä¿®æ”¹å±æ€§äº†ã€‚\n";
 	return msg;
 }
 
-/* lklvËã·¨£ºexp * 95%µÄnum´Î·½, pow() Îª³ËÃİ¼ÆËã¡£
+/* lklvç®—æ³•ï¼šexp * 95%çš„numæ¬¡æ–¹, pow() ä¸ºä¹˜å¹‚è®¡ç®—ã€‚
 int check_exp(int exp, int num)
 {
 	int x;
@@ -51,7 +51,7 @@ int check_exp(int exp, int num)
 
 	return x;
 }*/
-// yuj ĞÂ¹«Ê½£¬ÀûÓÃÑ­»·Ëã·¨¡£
+// yuj æ–°å…¬å¼ï¼Œåˆ©ç”¨å¾ªç¯ç®—æ³•ã€‚
 int check_exp(int exp, int num)
 {
         while (num--) exp -= exp / 20;
@@ -71,79 +71,79 @@ int main(object me, string arg)
 	if (sscanf(arg, "%s %d %s to %s", arg1, num, from, to) == 4){
 		ob = LOGIN_D->find_body(arg1);
 		if (!ob)
-			return notify_fail(HIR"±§Ç¸£ºÃ»ÓĞÕâ¸öÍæ¼Ò£¬¿ÉÄÜÑÛ»¨¡£\n"NOR);
+			return notify_fail(HIR"æŠ±æ­‰ï¼šæ²¡æœ‰è¿™ä¸ªç©å®¶ï¼Œå¯èƒ½çœ¼èŠ±ã€‚\n"NOR);
 		if ( stringp(msg = check(ob)) )
 			return notify_fail(msg);
 
 		exp = ob->query("combat_exp");
 
 		if (member_array(from, gift) < 0)
-			return notify_fail("ÄãÒª¿Û³ıÊ²Ã´Ìì¸³£¿\n");
+			return notify_fail("ä½ è¦æ‰£é™¤ä»€ä¹ˆå¤©èµ‹ï¼Ÿ\n");
 		if (member_array(to, gift) < 0)
-			return notify_fail("ÄãÒªÔö¼ÓÊ²Ã´Ìì¸³£¿\n");
+			return notify_fail("ä½ è¦å¢åŠ ä»€ä¹ˆå¤©èµ‹ï¼Ÿ\n");
 		if (from == to)
-			return notify_fail("È¥ËÀ°É£¡\n");
+			return notify_fail("å»æ­»å§ï¼\n");
 
 		if (ob->query(from) <= 10)
-			return notify_fail(ob->query("name")+"µÄ"+gift_desc[from]+"²»ÄÜÔÙ¼õÉÙÁË¡£\n");
+			return notify_fail(ob->query("name")+"çš„"+gift_desc[from]+"ä¸èƒ½å†å‡å°‘äº†ã€‚\n");
 		if ( ((int)ob->query(from) - num) < 10)
-			return notify_fail(ob->query("name")+"µÄ"+gift_desc[from]+"¼õÉÙ"+num+"µã½«ÉÙÓÚ10µã£¬²»ÄÜĞŞ¸Ä¡£\n");
+			return notify_fail(ob->query("name")+"çš„"+gift_desc[from]+"å‡å°‘"+num+"ç‚¹å°†å°‘äº10ç‚¹ï¼Œä¸èƒ½ä¿®æ”¹ã€‚\n");
 		if (ob->query(to) >= 30 )
-			return notify_fail(ob->query("name")+"µÄ"+gift_desc[to]+"²»ÄÜÔÙÔö¼ÓÁË¡£\n");
+			return notify_fail(ob->query("name")+"çš„"+gift_desc[to]+"ä¸èƒ½å†å¢åŠ äº†ã€‚\n");
 		if ( ((int)ob->query(to) + num) > 30)
-			return notify_fail(ob->query("name")+"µÄ"+gift_desc[to]+"Ôö¼Ó"+num+"µã½«³¬¹ı30µã£¬²»ÄÜĞŞ¸Ä¡£\n");
+			return notify_fail(ob->query("name")+"çš„"+gift_desc[to]+"å¢åŠ "+num+"ç‚¹å°†è¶…è¿‡30ç‚¹ï¼Œä¸èƒ½ä¿®æ”¹ã€‚\n");
 
 		switch (ob->query("family/family_name")) {
-			case "Ã÷½Ì":
+			case "æ˜æ•™":
 				if (from == "int" && ( ob->query("int") <= 20 || ((int)ob->query("int") - num) <=20 ) )
-					return notify_fail("Ã÷½ÌµÜ×ÓÎòĞÔÒªÇóÖÁÉÙ 20¡£\n");
+					return notify_fail("æ˜æ•™å¼Ÿå­æ‚Ÿæ€§è¦æ±‚è‡³å°‘ 20ã€‚\n");
 				break;
-			case "´óÂÖËÂ":
+			case "å¤§è½®å¯º":
 				if (from == "str" && ( ob->query("str") <= 20 || ((int)ob->query("str") - num) <=20) )
-					return notify_fail("´óÂÖËÂµÜ×ÓëöÁ¦ÒªÇóÖÁÉÙ 20¡£\n");
+					return notify_fail("å¤§è½®å¯ºå¼Ÿå­è†‚åŠ›è¦æ±‚è‡³å°‘ 20ã€‚\n");
 				if (from == "con" && ( ob->query("con") <= 20 || ((int)ob->query("con") - num) <=20) )
-					return notify_fail("´óÂÖËÂµÜ×Ó¸ù¹ÇÒªÇóÖÁÉÙ 20¡£\n");
+					return notify_fail("å¤§è½®å¯ºå¼Ÿå­æ ¹éª¨è¦æ±‚è‡³å°‘ 20ã€‚\n");
 				break;
 		}
 
 		ob->add(from, -num);
 		ob->add(to, num);
 
-		// ¼ÆËã¿Û³ıexp
+		// è®¡ç®—æ‰£é™¤exp
 		newexp = check_exp(exp,num);
 		tmpexp = exp - newexp;
 
 		ob->add("combat_exp", -tmpexp);
 
-		// ëöÁ¦ÏŞÖÆ½ğÉßÃØ¼®
+		// è†‚åŠ›é™åˆ¶é‡‘è›‡ç§˜ç±
 		if ( ob->query("str") > 20) {
 			ob->delete_skill("jinshe-zhangfa");
 			ob->delete_skill("jinshe-jianfa");
 		}
 
-		// ÎòĞÔÏŞÖÆ¶ÁÊéĞ´×Ö
+		// æ‚Ÿæ€§é™åˆ¶è¯»ä¹¦å†™å­—
 		if (ob->query_skill("literate", 1) > ob->query("int") * 10)
 			ob->set_skill("literate", ob->query("int") * 10);
 
-		// Ë«ÊÖ»¥²«ÒªÇóÎòĞÔ <= 25
+		// åŒæ‰‹äº’æè¦æ±‚æ‚Ÿæ€§ <= 25
 		if (ob->query("int") > 25){
 			ob->delete("double_attack");
 			ob->delete("zhou");
 		}
 
-		// Áè²¨Î¢²½ÒªÇóÎòĞÔ >= 22
+		// å‡Œæ³¢å¾®æ­¥è¦æ±‚æ‚Ÿæ€§ >= 22
 		if ( ob->query("int") < 22 ){
 			ob->delete("dali");
 			ob->delete_skill("lingbo-weibu", 1);
 		}
 
-		message_vision("$N½«$nµÄ"+num+"µã"+gift_desc[from]+"µ÷Õûµ½"+gift_desc[to]+"ÉÏ¡£\n", me, ob);
+		message_vision("$Nå°†$nçš„"+num+"ç‚¹"+gift_desc[from]+"è°ƒæ•´åˆ°"+gift_desc[to]+"ä¸Šã€‚\n", me, ob);
 		ob->setup();
 		ob->save();
 		log_file("static/ADJUST",
 			me->query("name")+"("+capitalize(geteuid(me))+")"
-			+"µ÷Õû"+ob->query("name")+"("+capitalize(geteuid(ob))+")"+"µÄ"+num+"µã"+gift_desc[from]
-			+"µ½"+gift_desc[to]+"ÉÏ£¬¿Û³ı "+tmpexp+" µã¾­Ñé£¬Ê£Óà¾­Ñé"+newexp+"\n",
+			+"è°ƒæ•´"+ob->query("name")+"("+capitalize(geteuid(ob))+")"+"çš„"+num+"ç‚¹"+gift_desc[from]
+			+"åˆ°"+gift_desc[to]+"ä¸Šï¼Œæ‰£é™¤ "+tmpexp+" ç‚¹ç»éªŒï¼Œå‰©ä½™ç»éªŒ"+newexp+"\n",
 			me,
 			({ ob })
 		);
@@ -153,27 +153,27 @@ int main(object me, string arg)
 	if (sscanf(arg, "%s check %d", arg1, num) == 2){
 		ob = LOGIN_D->find_body(arg1);
 		if (!ob)
-			return notify_fail("±§Ç¸£ºÃ»ÓĞÕâ¸öÍæ¼Ò¡£\n");
+			return notify_fail("æŠ±æ­‰ï¼šæ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n");
 		if ( stringp(msg = check(ob)) )
 			return notify_fail(msg);
 
-		// ¼ÆËã¿Û³ıexp
+		// è®¡ç®—æ‰£é™¤exp
 		exp = ob->query("combat_exp");
 		newexp = check_exp(exp,num);
 		tmpexp = exp - newexp;
 
-		msg = HIG"$nÌáÊ¾$N£ºÈç¹û$NÒªĞŞ¸Ä "+num+" µãÊôĞÔ£¬´óÔ¼Òª¿Û³ı "+tmpexp+" µãEXP£¬»¹Ê£ "+newexp+" µãEXP¡£\n"NOR;
+		msg = HIG"$næç¤º$Nï¼šå¦‚æœ$Nè¦ä¿®æ”¹ "+num+" ç‚¹å±æ€§ï¼Œå¤§çº¦è¦æ‰£é™¤ "+tmpexp+" ç‚¹EXPï¼Œè¿˜å‰© "+newexp+" ç‚¹EXPã€‚\n"NOR;
 
 		if ( newexp < 95000 )
-			msg += "±§Ç¸£º´ËÈËĞŞ¸Ä"+num+"µãÊôĞÔºó¾­Ñé½«²»¹» "+MIN_EXP+" £¬ÎŞ·¨ĞŞ¸ÄÊôĞÔ¡£\n";
+			msg += "æŠ±æ­‰ï¼šæ­¤äººä¿®æ”¹"+num+"ç‚¹å±æ€§åç»éªŒå°†ä¸å¤Ÿ "+MIN_EXP+" ï¼Œæ— æ³•ä¿®æ”¹å±æ€§ã€‚\n";
 		if (ob->query_skill("jinshe-zhangfa",1) || ob->query_skill("jinshe-jianfa",1))
-			msg += HIR"×¢Òâ£ºÈç¹ûĞŞ¸Ä±ÛÁ¦¸ßÓÚ20£¬$NµÄ½ğÉß½£·¨ºÍ½ğÉßÕÆ·¨½«±»É¾³ı¡£\n"NOR;
+			msg += HIR"æ³¨æ„ï¼šå¦‚æœä¿®æ”¹è‡‚åŠ›é«˜äº20ï¼Œ$Nçš„é‡‘è›‡å‰‘æ³•å’Œé‡‘è›‡æŒæ³•å°†è¢«åˆ é™¤ã€‚\n"NOR;
 
 		if (ob->query("double_attack") && ob->query("zhou"))
-			msg += HIR"×¢Òâ£ºÈç¹ûĞŞ¸ÄÎòĞÔ¸ßÓÚ25£¬$NµÄ×óÓÒ»¥²«½«±»É¾³ı¡£\n"NOR;
+			msg += HIR"æ³¨æ„ï¼šå¦‚æœä¿®æ”¹æ‚Ÿæ€§é«˜äº25ï¼Œ$Nçš„å·¦å³äº’æå°†è¢«åˆ é™¤ã€‚\n"NOR;
 
 		if (ob->query("dali") && ob->query_skill("lingbo-weibu", 1))
-			msg += HIR"×¢Òâ£ºÈç¹ûĞŞ¸ÄÎòĞÔµÍÓÚ22£¬$NµÄÁè²¨Î¢²½½«±»É¾³ı¡£\n"NOR;
+			msg += HIR"æ³¨æ„ï¼šå¦‚æœä¿®æ”¹æ‚Ÿæ€§ä½äº22ï¼Œ$Nçš„å‡Œæ³¢å¾®æ­¥å°†è¢«åˆ é™¤ã€‚\n"NOR;
 
 		message_vision(msg, ob, me);
 		return 1;
@@ -183,7 +183,7 @@ int main(object me, string arg)
 
 int help()
 {
-	write("ĞŞ¸ÄÊôĞÔ£ºadjust <id> <µãÊı> <Òª¿Û³ıµÄÌì¸³> to <ÒªÔö¼ÓµÄÌì¸³>\n");
-	write("¼ÆËã¿Û³ıËğÊ§£ºadjust <id> check <ÒªĞŞ¸ÄµÄµãÊı>\n");
+	write("ä¿®æ”¹å±æ€§ï¼šadjust <id> <ç‚¹æ•°> <è¦æ‰£é™¤çš„å¤©èµ‹> to <è¦å¢åŠ çš„å¤©èµ‹>\n");
+	write("è®¡ç®—æ‰£é™¤æŸå¤±ï¼šadjust <id> check <è¦ä¿®æ”¹çš„ç‚¹æ•°>\n");
 	return 1;
 }

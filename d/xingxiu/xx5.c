@@ -4,11 +4,11 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "É½±Ú");
+	set("short", "å±±å£");
 	set("long", @LONG
-Ò»Ìõ²Ý²ÝÔÚÉ½±ÚÉÏÈË¹¤¿ªÔä³öÀ´Æéá«µÄÐ¡Â·£¬¼¸¸öÐÇËÞµÜ×ÓÕýÔÚÂñÍ·¿à¸É¡£
-ÕâÀï£¬º®·çÁÝÙý£¬Î÷ÃæÊÇÍûºÆºÆ°ÙÀï·½Ô²µÄÐÇËÞº£¡£¶«±ßÉ½±ÚÉÏ£¬¾¡ÊÇÐÇËÞµÜ
-×ÓÓÃÁ¦ÔÒ³öµÄ¿Ó°¼(ao)¡£
+ä¸€æ¡è‰è‰åœ¨å±±å£ä¸Šäººå·¥å¼€å‡¿å‡ºæ¥å´Žå²–çš„å°è·¯ï¼Œå‡ ä¸ªæ˜Ÿå®¿å¼Ÿå­æ­£åœ¨åŸ‹å¤´è‹¦å¹²ã€‚
+è¿™é‡Œï¼Œå¯’é£Žå‡›å†½ï¼Œè¥¿é¢æ˜¯æœ›æµ©æµ©ç™¾é‡Œæ–¹åœ†çš„æ˜Ÿå®¿æµ·ã€‚ä¸œè¾¹å±±å£ä¸Šï¼Œå°½æ˜¯æ˜Ÿå®¿å¼Ÿ
+å­ç”¨åŠ›ç ¸å‡ºçš„å‘å‡¹(ao)ã€‚
 LONG
 	);
 	set("exits", ([
@@ -16,7 +16,7 @@ LONG
 	]));
 
 	set ("item_desc", ([
-		"ao" : "¿´ÆðÀ´ÏóÊÇÈËÓÃÕÈ×²»÷(za)É½±Ú(bi)ÁôÏÂµÄºÛ¼£¡£\n"
+		"ao" : "çœ‹èµ·æ¥è±¡æ˜¯äººç”¨æ–æ’žå‡»(za)å±±å£(bi)ç•™ä¸‹çš„ç—•è¿¹ã€‚\n"
 	])) ;
 
 	set("objects", ([
@@ -40,7 +40,7 @@ int do_za(string arg)
 	int ging_cost, qi_cost, jingli_cost;
 
 	if (arg != "bi")
-		return notify_fail("ÄãÒª×²»÷Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦æ’žå‡»ä»€ä¹ˆï¼Ÿ\n");
 
 	me = this_player();
 	weapon = me->query_temp("weapon");
@@ -49,21 +49,21 @@ int do_za(string arg)
 	jingli_cost = 300 / me->query("str");
 
 	if (me->query_skill("staff", 1) >= 120)
-		return notify_fail("ÄãÒÑ¾­²»ÓÃÔÙÔÚÕâÀï·Ñ¹¦·òÁË¡£\n");
+		return notify_fail("ä½ å·²ç»ä¸ç”¨å†åœ¨è¿™é‡Œè´¹åŠŸå¤«äº†ã€‚\n");
 
 	// fixed, YUJ 2001-10-29
 	if (!weapon || weapon->query("skill_type") != "staff")
-		return notify_fail("ÄãÓÃÊ²Ã´ÔÒÉ½±ÚÀ´Á·¹¦£¿\n");
+		return notify_fail("ä½ ç”¨ä»€ä¹ˆç ¸å±±å£æ¥ç»ƒåŠŸï¼Ÿ\n");
 
 	if (me->query("jing") < ging_cost ||
 	me->query("qi") < qi_cost ||
 	me->query("jingli") < jingli_cost) {
-		message_vision("$NÃÍµØÔÒÔÚÉ½±ÚÉÏ£¬½á¹ûÓÃÁ¦¹ý¶È£¡\n", me);
+		message_vision("$NçŒ›åœ°ç ¸åœ¨å±±å£ä¸Šï¼Œç»“æžœç”¨åŠ›è¿‡åº¦ï¼\n", me);
 		me->unconcious();
 		return 1;
 	}
 
-	message_vision("$NÓÃ"+weapon->name()+"Ê¹¾¢×²»÷É½±Ú£¬ÔÚÉ½±ÚÉÏÔÒ³öÒ»¸ö¿Ó°¼¡£\n", me);
+	message_vision("$Nç”¨"+weapon->name()+"ä½¿åŠ²æ’žå‡»å±±å£ï¼Œåœ¨å±±å£ä¸Šç ¸å‡ºä¸€ä¸ªå‘å‡¹ã€‚\n", me);
 	me->improve_skill("staff", me->query_skill("staff", 1));
 	me->receive_damage("jing", ging_cost );
 	me->receive_damage("qi", qi_cost );

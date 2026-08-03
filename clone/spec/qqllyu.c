@@ -1,5 +1,5 @@
-// qqllyu.c ÆßÇÏÁáççÓñ
-// kxkxkx 2004Äê3ÔÂ
+// qqllyu.c ä¸ƒçªç²ç‘ç‰
+// kxkxkx 2004å¹´3æœˆ
 // Modified by Ciwei@SJ
 
 #include <ansi.h>
@@ -12,25 +12,25 @@ private nomask void lingwu_hook_completion(object user,string str);
 
 void create()
 {
-   set_name(HIG"ÆßÇÏÁáççÓñ"NOR, ({"qqllyu","qiqiaolinglong yu", "yu"}));
+   set_name(HIG"ä¸ƒçªç²ç‘ç‰"NOR, ({"qqllyu","qiqiaolinglong yu", "yu"}));
    set_weight(100);
    if(clonep())
       set_default_object(__FILE__);
    else {
-      set("unit", "¿é");
+      set("unit", "å—");
       set("long",
-      	"¡º"HIG"Ò»·½ÃÀÓñ£¬ÒàÊÇÍçÊ¯\n"
-      	"  ÎŞÎªÊÇÉñ£¬×ÔÔÚÊÇÏÉ"NOR"¡»\n"
+      	"ã€"HIG"ä¸€æ–¹ç¾ç‰ï¼Œäº¦æ˜¯é¡½çŸ³\n"
+      	"  æ— ä¸ºæ˜¯ç¥ï¼Œè‡ªåœ¨æ˜¯ä»™"NOR"ã€\n"
       	"\n"
-      	"Ò»·½ÁáççµÄÃÀÓñ£¬°µº¬¹í¸«Éñ¹¤Ôì»¯µñ×ÁÖ®Ãî¡£\n"
-      	"ËÆºõÄÜÁîÈËÓĞËùÁìÎò£¨"HIY"lingwu <¼¼ÄÜ> with yu"NOR"£©¡£\n"
+      	"ä¸€æ–¹ç²ç‘çš„ç¾ç‰ï¼Œæš—å«é¬¼æ–§ç¥å·¥é€ åŒ–é›•ç¢ä¹‹å¦™ã€‚\n"
+      	"ä¼¼ä¹èƒ½ä»¤äººæœ‰æ‰€é¢†æ‚Ÿï¼ˆ"HIY"lingwu <æŠ€èƒ½> with yu"NOR"ï¼‰ã€‚\n"
          );
       set("no_get", 1);
       set("no_steal", 1);
      set("no_give",1);
      set("no_drop",1);   
       set("flag","spec/cantu");
-      set("desc","ÌáÉı¹¤½³¼¼ÄÜÎ²ÊıµãÊı");
+      set("desc","æå‡å·¥åŒ æŠ€èƒ½å°¾æ•°ç‚¹æ•°");
       set("credit",2500);
       set("degree",1);
    }
@@ -44,7 +44,7 @@ void init()
 
 private nomask int lingwu_hook(string arg)
 {
-   string* l_skills = ({ // ¼Ó¸ü¶àµÄ¿ÉÁìÎò¼¼ÄÜ
+   string* l_skills = ({ // åŠ æ›´å¤šçš„å¯é¢†æ‚ŸæŠ€èƒ½
       "duanzao",
       "zhizao",
       "nongsang",
@@ -56,30 +56,30 @@ private nomask int lingwu_hook(string arg)
 
    user = this_user();
 	if(!arg || sscanf(arg, "%s with %s", str,id) != 2 )
-		return notify_fail("¸ñÊ½£º lingwu <¼¼ÄÜ> with qiqiaolinglong yu\n");
-		//Èç¹ûÕâÀïreturn 1 ½«ÎŞ·¨´ø×Åyu È¥±ğµÄµØ·½lingwu so fixed it ciwei@SJ
+		return notify_fail("æ ¼å¼ï¼š lingwu <æŠ€èƒ½> with qiqiaolinglong yu\n");
+		//å¦‚æœè¿™é‡Œreturn 1 å°†æ— æ³•å¸¦ç€yu å»åˆ«çš„åœ°æ–¹lingwu so fixed it ciwei@SJ
 	if(!objectp(present(id, user)) || present(id, user)!=this_object() ) return 0;	
 	if(!str){
-		tell_object(user,"¸ñÊ½£º lingwu <¼¼ÄÜ> with qiqiaolinglong yu\n");
-		tell_object(user,"ÄãÒªÁìÎòÊ²Ã´£¿\n");
+		tell_object(user,"æ ¼å¼ï¼š lingwu <æŠ€èƒ½> with qiqiaolinglong yu\n");
+		tell_object(user,"ä½ è¦é¢†æ‚Ÿä»€ä¹ˆï¼Ÿ\n");
 		return 1;
 	}
 	if(member_array(str, l_skills) == -1){
-		tell_object(user,"ÕâÖÖ¼¼ÄÜÎŞ·¨ÓÃÆßÇÏÁáççÓñÁìÎò¡£\n");
+		tell_object(user,"è¿™ç§æŠ€èƒ½æ— æ³•ç”¨ä¸ƒçªç²ç‘ç‰é¢†æ‚Ÿã€‚\n");
 		return 1;
 		}
 	lvl = user->query_skill(str, 1);
 	if(!lvl){
-		tell_object(user,"Äã²»»áÕâÖÖ¼¼ÄÜ\n");
+		tell_object(user,"ä½ ä¸ä¼šè¿™ç§æŠ€èƒ½\n");
 		return 1;
 	}
 			
    user->start_busy(10);
    room = environment(user);
-   tell_room(room, user->query("name") + "¿´×ÅÃÀÓñ£¬à«à«×ÔÓï£º"
-      "¡¸ÍçÊ¯¾ÍÊÇÃÀÓñ£¬ÃÀÓñ¾ÍÊÇÍçÊ¯¡­¡­¡¹\n", ({user}));
-   tell_object(user, "Äã¿´×ÅÃÀÓñ£¬à«à«×ÔÓï£º"
-      "¡¸ÍçÊ¯¾ÍÊÇÃÀÓñ£¬ÃÀÓñ¾ÍÊÇÍçÊ¯¡­¡­¡¹\n");
+   tell_room(room, user->query("name") + "çœ‹ç€ç¾ç‰ï¼Œå–ƒå–ƒè‡ªè¯­ï¼š"
+      "ã€Œé¡½çŸ³å°±æ˜¯ç¾ç‰ï¼Œç¾ç‰å°±æ˜¯é¡½çŸ³â€¦â€¦ã€\n", ({user}));
+   tell_object(user, "ä½ çœ‹ç€ç¾ç‰ï¼Œå–ƒå–ƒè‡ªè¯­ï¼š"
+      "ã€Œé¡½çŸ³å°±æ˜¯ç¾ç‰ï¼Œç¾ç‰å°±æ˜¯é¡½çŸ³â€¦â€¦ã€\n");
    call_out("lingwu_hook_completion", 4,user, str);
    return 1;
 }
@@ -92,10 +92,10 @@ private nomask void lingwu_hook_completion(object user,string str)
    
    level = user->query_skill(str, 1);
    if(!level || level<150 || level%10!=0 || (user->query_learned()[str])<((level+1)*(level+1)-1) )
-   	tell_object(user,"´ó¸ÅÊÇÒòÎªÄãµÄ"+to_chinese(str)+"ĞŞÎª²»µ½¼Ò£¬ÄãÊ²Ã´Ò²Ã»ÓĞÁìÎòµ½¡£\n");
+   	tell_object(user,"å¤§æ¦‚æ˜¯å› ä¸ºä½ çš„"+to_chinese(str)+"ä¿®ä¸ºä¸åˆ°å®¶ï¼Œä½ ä»€ä¹ˆä¹Ÿæ²¡æœ‰é¢†æ‚Ÿåˆ°ã€‚\n");
    else{
-   	message_vision("$N×ĞÏ¸ÁìÎò$n»ĞÈ»´óÎò£¬Ô­À´ÃÀÓñ¾ÍÊÇÍçÊ¯£¬$NµÄ"+to_chinese(str)+"ĞŞÎª°Ù³ß¸ËÍ·ÓÖ½øÒ»²½¡£\n",user,this_object());   	
-   	user->improve_skill(str, 2);  // ¼Ó1£¬¸ÕºÃÉı¼¶ Ö»¼Ó1ÊÇ½ø²½²»ÁËµÎ
+   	message_vision("$Nä»”ç»†é¢†æ‚Ÿ$næç„¶å¤§æ‚Ÿï¼ŒåŸæ¥ç¾ç‰å°±æ˜¯é¡½çŸ³ï¼Œ$Nçš„"+to_chinese(str)+"ä¿®ä¸ºç™¾å°ºæ†å¤´åˆè¿›ä¸€æ­¥ã€‚\n",user,this_object());   	
+   	user->improve_skill(str, 2);  // åŠ 1ï¼Œåˆšå¥½å‡çº§ åªåŠ 1æ˜¯è¿›æ­¥ä¸äº†æ»´
    }
    user->start_busy(-1);
    user->interrupt_me();

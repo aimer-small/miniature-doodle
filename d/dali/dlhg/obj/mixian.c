@@ -1,17 +1,17 @@
-// mixian.c ¹ýÇÅÃ×Ïß
+// mixian.c è¿‡æ¡¥ç±³çº¿
 #include <ansi.h>
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-	set_name(HIW"¹ýÇÅÃ×Ïß"NOR, ({"guoqiao mixian","mixian"}));
+	set_name(HIW"è¿‡æ¡¥ç±³çº¿"NOR, ({"guoqiao mixian","mixian"}));
 	set_weight(80);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("long", "Ò»ÍëÈÈºõºõµÄ¹ýÇÅÃ×Ïß¡£\n");
-		set("unit", "Íë");
+		set("long", "ä¸€ç¢—çƒ­ä¹Žä¹Žçš„è¿‡æ¡¥ç±³çº¿ã€‚\n");
+		set("unit", "ç¢—");
 		set("value", 500);
 		set("food_remaining", 3);
 		set("food_supply", 80);

@@ -2,13 +2,13 @@
 
 #include <ansi.h>
 inherit FIGHTER;
-#define QUESTDIR "quest/ÉäµñÓ¢ĞÛ´«/·çÑ©¾ª±ä/"
+#define QUESTDIR "quest/å°„é›•è‹±é›„ä¼ /é£é›ªæƒŠå˜/"
 
 void create()
 {
-  set_name("½ğ±ø", ({ "jin bing", "bing" }));
-	set("gender", "ÄĞĞÔ");
-	set("long", "ÕâÈË¾ÍÊÇÍêÑÕºéÁÒµÄ»¤ÎÀ½ğ±ø¡£\n");
+  set_name("é‡‘å…µ", ({ "jin bing", "bing" }));
+	set("gender", "ç”·æ€§");
+	set("long", "è¿™äººå°±æ˜¯å®Œé¢œæ´ªçƒˆçš„æŠ¤å«é‡‘å…µã€‚\n");
 	set("str", 25);
 	set("dex", 25);
 	set("con", 25);
@@ -67,8 +67,8 @@ void init()
     ob->set("setok",1);
 	  if(ob->query("type_speical"))	ob->set("party",ob->query("type_speical"));  
     else 	ob->set("party",str_menpai[random(sizeof(str_menpai))]);  	  
-	  ob->copy_menpai(({ob->query("party")}),1,random(2),20+random(80));	//¸´ÖÆnpcµÄÃÅÅÉÎä¹¦£¬				
-		ob->copy_state();				//¸ù¾İÃÅÅÉ¸üĞÂnpc µÄÒ»Ğ©×´Ì¬
+	  ob->copy_menpai(({ob->query("party")}),1,random(2),20+random(80));	//å¤åˆ¶npcçš„é—¨æ´¾æ­¦åŠŸï¼Œ				
+		ob->copy_state();				//æ ¹æ®é—¨æ´¾æ›´æ–°npc çš„ä¸€äº›çŠ¶æ€
 	  i=me->query("max_pot");
 	  if(i<350) i=350;
 	  i=i-100;	
@@ -120,7 +120,7 @@ int do_kill(object me)
 	::do_kill(me);
 }
 
-//¼ì²é£¬quest¹ı³Ì²»ÔÊĞíËÀÍö
+//æ£€æŸ¥ï¼Œquestè¿‡ç¨‹ä¸å…è®¸æ­»äº¡
 int checking(object me, object ob)
 {
 	int ret =  ::checking(me,ob);
@@ -129,21 +129,21 @@ int checking(object me, object ob)
 	call_out("checking", 1, me, ob);
   if(!living(me) && living(ob) && ob->query("jing")>0 && ob->query("jingli")>0 && ob->query("qi")>0  ){
 		remove_call_out("checking");
-		tell_room(environment(me), HIB"\n"+me->name()+"ÑÛ¿´¾ÍÊÇ²»µĞ£¬Í»È»Ò»¹É¾¢·çÏ®À´£¬½ğ±ø²»ÓÉÊÖÉÏÒ»ËÉ£¬"+me->name()+"Ë³ÊÆ´³³öÑî¼Ò¡£\n"NOR);
+		tell_room(environment(me), HIB"\n"+me->name()+"çœ¼çœ‹å°±æ˜¯ä¸æ•Œï¼Œçªç„¶ä¸€è‚¡åŠ²é£è¢­æ¥ï¼Œé‡‘å…µä¸ç”±æ‰‹ä¸Šä¸€æ¾ï¼Œ"+me->name()+"é¡ºåŠ¿é—¯å‡ºæ¨å®¶ã€‚\n"NOR);
 		me->move("/d/thd/niujia/njroad3");
-		tell_room(environment(me), HIB"\nÒ»¸öÉíÓ°Í»È»·ÉÀ´£¬´ıÄã×ĞÏ¸¿´À´£¬Ô­À´ÊÇ"+me->name()+"£¬Ö»¼û"+me->name()+"Í»È»Ò»¶Ù£¬¾¹È»»èµ¹ÔÚµØ¡£\n"NOR);
+		tell_room(environment(me), HIB"\nä¸€ä¸ªèº«å½±çªç„¶é£æ¥ï¼Œå¾…ä½ ä»”ç»†çœ‹æ¥ï¼ŒåŸæ¥æ˜¯"+me->name()+"ï¼Œåªè§"+me->name()+"çªç„¶ä¸€é¡¿ï¼Œç«Ÿç„¶æ˜å€’åœ¨åœ°ã€‚\n"NOR);
 		me->delete(QUESTDIR+"start");
 		me->delete_temp(QUESTDIR+"kill");
 		me->delete_temp(QUESTDIR+"kill_jinbing");
 		me->delete_temp(QUESTDIR+"have_kill");
-		me->set("qi",100);																			//·ÀÖ¹Íæ¼ÒÒâÍâËÀÍö
-		                                                        //dlsÃ»ÓĞ¶¾µÄ
-	  me->set("quest/ÉäµñÓ¢ĞÛ´«/time",time());
-	  me->set("quest/ÉäµñÓ¢ĞÛ´«/combat_exp",me->query("combat_exp"));
+		me->set("qi",100);																			//é˜²æ­¢ç©å®¶æ„å¤–æ­»äº¡
+		                                                        //dlsæ²¡æœ‰æ¯’çš„
+	  me->set("quest/å°„é›•è‹±é›„ä¼ /time",time());
+	  me->set("quest/å°„é›•è‹±é›„ä¼ /combat_exp",me->query("combat_exp"));
 		me->set("jing",100);
 		me->set("jingli",100);
-        log_file("quest/SheDiao", sprintf("%s¼ÍÂ¼£º%s(%s)ÉäµñÓ¢ĞÛ´«Ö®·çÑ©¾ª±äÊ§°Ü¡£¾­Ñé%d¡£\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
-    tell_room(environment(ob), ob->name()+"ºßÁËÒ»Éù£º¡°Ê²Ã´ÈËÒ²¸Ò¹Ü±¾´óÒ¯µÄÊÂ£¡½«°üÏ§Èõ´ø×ß£¡¡±\n");
+        log_file("quest/SheDiao", sprintf("%sçºªå½•ï¼š%s(%s)å°„é›•è‹±é›„ä¼ ä¹‹é£é›ªæƒŠå˜å¤±è´¥ã€‚ç»éªŒ%dã€‚\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
+    tell_room(environment(ob), ob->name()+"å“¼äº†ä¸€å£°ï¼šâ€œä»€ä¹ˆäººä¹Ÿæ•¢ç®¡æœ¬å¤§çˆ·çš„äº‹ï¼å°†åŒ…æƒœå¼±å¸¦èµ°ï¼â€\n");
 		destruct(ob);
 		return 1;
 	}
@@ -168,18 +168,18 @@ void do_lost()
 		me->delete_temp(QUESTDIR+"kill");
 		me->delete_temp(QUESTDIR+"have_kill");
 		me->delete_temp(QUESTDIR+"kill_jinbing");
-		me->set("quest/ÉäµñÓ¢ĞÛ´«/time",time());
-		me->set("quest/ÉäµñÓ¢ĞÛ´«/combat_exp",me->query("combat_exp"));
-        log_file("quest/SheDiao", sprintf("%s¼ÍÂ¼£º%s(%s)Ñ©É½·Éºü¸´³ğÊ§°Ü¡£¾­Ñé%d¡£\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
+		me->set("quest/å°„é›•è‹±é›„ä¼ /time",time());
+		me->set("quest/å°„é›•è‹±é›„ä¼ /combat_exp",me->query("combat_exp"));
+        log_file("quest/SheDiao", sprintf("%sçºªå½•ï¼š%s(%s)é›ªå±±é£ç‹å¤ä»‡å¤±è´¥ã€‚ç»éªŒ%dã€‚\n", ob->name(1),me->name(1),me->query("id"), me->query("combat_exp")) );
 	}
-  tell_room(environment(ob), ob->name()+"ºßÁËÒ»Éù£º¡°Õâµã±¾ÊÂÒ²¸Ò¹Ü±¾´óÒ¯µÄÊÂ£¡¡±\n");
+  tell_room(environment(ob), ob->name()+"å“¼äº†ä¸€å£°ï¼šâ€œè¿™ç‚¹æœ¬äº‹ä¹Ÿæ•¢ç®¡æœ¬å¤§çˆ·çš„äº‹ï¼â€\n");
 	destruct(ob);
 }
 
 void dest(object ob)
 {
   if(!ob) return;
-  tell_room(environment(ob), HIR+"\n"+ob->name()+"ºßÁËÒ»Éù£¬µã×ÓÀ÷º¦£¬ÎÒÃÇ³·~~~~~~~\n"NOR);
+  tell_room(environment(ob), HIR+"\n"+ob->name()+"å“¼äº†ä¸€å£°ï¼Œç‚¹å­å‰å®³ï¼Œæˆ‘ä»¬æ’¤~~~~~~~\n"NOR);
 	destruct(ob);
 }
 void die()

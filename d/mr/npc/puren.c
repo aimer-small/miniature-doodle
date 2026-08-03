@@ -1,11 +1,11 @@
-// /u/beyond/mr/npc/puren.c ÆÍÈË
+// /u/beyond/mr/npc/puren.c ä»†äºº
 // this is made by beyond
 // update 1997.6.23
 inherit NPC;
 void create()
 {
-        set_name("ÆÍÈË", ({ "pu ren", "ren" }));
-        set("gender", "ÄĞĞÔ");
+        set_name("ä»†äºº", ({ "pu ren", "ren" }));
+        set("gender", "ç”·æ€§");
         set("age", 30);       
 	set("str", 17);
         set("int", 20);

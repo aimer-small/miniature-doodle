@@ -6,7 +6,7 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY"±£ïÚ"NOR, ({ "bao biao","guard" }));
+	set_name(HIY"ä¿é•–"NOR, ({ "bao biao","guard" }));
 	set_weight(15000);
 	if (clonep())
 		set_default_object(__FILE__);

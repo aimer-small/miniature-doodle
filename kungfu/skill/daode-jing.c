@@ -13,16 +13,16 @@ int valid_learn(object me)
         lvl = (int)me->query_skill("daode-jing", 1);
                
         if(!me->query("jiuyin/passed"))
-                return notify_fail("ÄãÎŞ·¨Ìå»áµÀµÂ¾­µÄ¸ßÉî°ÂÃî£¬Ñ§À´Ò²ÎŞÓÃ¡£\n");
+                return notify_fail("ä½ æ— æ³•ä½“ä¼šé“å¾·ç»çš„é«˜æ·±å¥¥å¦™ï¼Œå­¦æ¥ä¹Ÿæ— ç”¨ã€‚\n");
 
-        if(me->query("gender") == "ÎŞĞÔ" && lvl > 39)
-                return notify_fail("Äã¸ÕÌıÒ»»á¶ù£¬±ã¾õĞÄÖÇÃÔºı£¬Ô­À´ÄãÃ»ÓĞÑô¸ÕÖ®Æø£¬ÎŞ·¨Áì»áÀïÃæµÄÒõÑô±ä»¯Ö®µÀ¡£\n");
+        if(me->query("gender") == "æ— æ€§" && lvl > 39)
+                return notify_fail("ä½ åˆšå¬ä¸€ä¼šå„¿ï¼Œä¾¿è§‰å¿ƒæ™ºè¿·ç³Šï¼ŒåŸæ¥ä½ æ²¡æœ‰é˜³åˆšä¹‹æ°”ï¼Œæ— æ³•é¢†ä¼šé‡Œé¢çš„é˜´é˜³å˜åŒ–ä¹‹é“ã€‚\n");
 
         return 1;
 }
 
 int practice_skill(object me)
 {       
-        return notify_fail("µÀµÂ¾­Ö»ÄÜ¿¿Ñ§Ï°À´Ìá¸ß¡£\n");
+        return notify_fail("é“å¾·ç»åªèƒ½é å­¦ä¹ æ¥æé«˜ã€‚\n");
 }
 

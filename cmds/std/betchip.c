@@ -8,7 +8,7 @@
 
 string getchipflag(int valflag,int valodds_id,int valbet_result)
 {
-//	0ÉèÖÃ1¿ªÊ¼Í¶×¢2Í¶×¢½ØÖ¹3½á¹ûÊäÈë4ÅÉ²Ê½áÊø10ÔİÍ£Ê¹ÓÃ
+//	0è®¾ç½®1å¼€å§‹æŠ•æ³¨2æŠ•æ³¨æˆªæ­¢3ç»“æœè¾“å…¥4æ´¾å½©ç»“æŸ10æš‚åœä½¿ç”¨
 	switch(valflag){
 		case 0:
 			return MAG"  ";
@@ -18,24 +18,24 @@ string getchipflag(int valflag,int valodds_id,int valbet_result)
 			
 		case 2:
 //			return HIB"  ";
-			return CYN"¹Ø";
+			return CYN"å…³";
 			
 		case 3:
 			if( valbet_result == 0 )
-				return YEL"ÍË";
+				return YEL"é€€";
 			if( valodds_id == valbet_result )
-				return BWHT""HIC"Ó®"HIR""HIC;
+				return BWHT""HIC"èµ¢"HIR""HIC;
 			else
-				return YEL"Åâ";
+				return YEL"èµ”";
 		case 4:
 			if( valbet_result == 0 )
-				return YEL"ÍË";
+				return YEL"é€€";
 			if( valodds_id == valbet_result )
-				return BWHT""HIR"Ó®"NOR""HIR;
+				return BWHT""HIR"èµ¢"NOR""HIR;
 			else
-				return YEL"Åâ";
+				return YEL"èµ”";
 		case 10:
-			return HIR"Í£";
+			return HIR"åœ";
 		};
 	return HIR"??";
 }
@@ -68,9 +68,9 @@ int main(object me, string arg)
 			else
 				querycode = option[i];
 /*				
-¿¼ÂÇÈÃ´ó¼Ò¶¼¿ÉÒÔ¿´±ğÈËµÄÍ¶×¢
+è€ƒè™‘è®©å¤§å®¶éƒ½å¯ä»¥çœ‹åˆ«äººçš„æŠ•æ³¨
 		if( (opt_all==1) && (!wizardp(me) )
-			return notify_fail("Ö»ÓĞÎ×Ê¦ÄÜ²ì¿´È«²¿ÈËµÄÍ¶×¢Çé¿ö¡£\n");
+			return notify_fail("åªæœ‰å·«å¸ˆèƒ½å¯Ÿçœ‹å…¨éƒ¨äººçš„æŠ•æ³¨æƒ…å†µã€‚\n");
 */				
 		if( opt_all!=1 )
 			sql +=" AND "+DB_CHIP_NAME+".chip_id='"+me->query("id")+"'";
@@ -81,16 +81,16 @@ int main(object me, string arg)
 	sql+=" order by "+DB_DOBET_NAME+".flag,"+DB_CHIP_NAME+".chip_id,"+DB_CHIP_NAME+".odds_id,"+DB_CHIP_NAME+".code ";
 	ret = DOBET_D->leasedb(sql);
 	if(!ret || sizeof(ret)<1) 
-		return notify_fail("Ã»ÕÒµ½ÈÎºÎÏÂ×¢¼ÇÂ¼\n");
+		return notify_fail("æ²¡æ‰¾åˆ°ä»»ä½•ä¸‹æ³¨è®°å½•\n");
 
-	outstr="©³©¥©¥"HIW"¡¾Êé½£¶Ä¾ÖÏÂ×¢¼ÇÂ¼¡¿"NOR"©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·\n";
-	outstr += "©§"HIG"   ¶Ä¾ÖÄÚÈİ                     Í¶×¢Õß   ÏÂ×¢ÄÚÈİ         ÅâÂÊ      ¶Ä×¢   ÏÂ×¢Ê±¼ä   "NOR"©§\n";
-	outstr+="©Ç©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n";
+	outstr="â”â”â”"HIW"ã€ä¹¦å‰‘èµŒå±€ä¸‹æ³¨è®°å½•ã€‘"NOR"â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“\n";
+	outstr += "â”ƒ"HIG"   èµŒå±€å†…å®¹                     æŠ•æ³¨è€…   ä¸‹æ³¨å†…å®¹         èµ”ç‡      èµŒæ³¨   ä¸‹æ³¨æ—¶é—´   "NOR"â”ƒ\n";
+	outstr+="â”£â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n";
 	ipos=0;
 	while(sizeof(ret)>0){
 		for(i=0;i<sizeof(ret);i++)
 		{
-			outstr+= sprintf("©§%2s %-28s %-8s %-16s %3d.%-2d %6d¶§ %s"NOR"©§\n",
+			outstr+= sprintf("â”ƒ%2s %-28s %-8s %-16s %3d.%-2d %6dé”­ %s"NOR"â”ƒ\n",
 				getchipflag(ret[i][8],ret[i][4],ret[i][9]),ret[i][1],ret[i][2],ret[i][3],
 				ret[i][5]/100,ret[i][5]%100,ret[i][6],DOBET_D->shorttime(ret[i][7]));
 		};
@@ -98,7 +98,7 @@ int main(object me, string arg)
 		sql2 = sql+sprintf(" LIMIT %d,%d",ipos,ROW_LIMIT);
 		ret = DOBET_D->leasedb(sql2);
 	};
-	outstr += "©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n";
+	outstr += "â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n";
 
 //	write(outstr);
 	me->start_more(outstr);
@@ -109,15 +109,15 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºbetchip
-	betchip <¶Ä¾Ö´úÂë>
+æŒ‡ä»¤æ ¼å¼ï¼šbetchip
+	betchip <èµŒå±€ä»£ç >
 	betchip -a 
-	betchip <¶Ä¾Ö´úÂë> -a 
+	betchip <èµŒå±€ä»£ç > -a 
 --------------------------------------------------
- betchip ¿´×Ô¼ºÏÂ×¢µÄÇé¿ö
- betchip <¶Ä¾Ö´úÂë> ¿´×Ô¼ºÔÚÄ³¸ö¶Ä¾ÖÖĞµÄÏÂ×¢Çé¿ö
- betchip -a  ¿´È«²¿Íæ¼ÒÏÂ×¢µÄÇé¿ö
- betchip <¶Ä¾Ö´úÂë> -a ¿´È«²¿Íæ¼ÒÔÚÄ³¸ö¶Ä¾ÖÖĞµÄÏÂ×¢Çé¿ö
+ betchip çœ‹è‡ªå·±ä¸‹æ³¨çš„æƒ…å†µ
+ betchip <èµŒå±€ä»£ç > çœ‹è‡ªå·±åœ¨æŸä¸ªèµŒå±€ä¸­çš„ä¸‹æ³¨æƒ…å†µ
+ betchip -a  çœ‹å…¨éƒ¨ç©å®¶ä¸‹æ³¨çš„æƒ…å†µ
+ betchip <èµŒå±€ä»£ç > -a çœ‹å…¨éƒ¨ç©å®¶åœ¨æŸä¸ªèµŒå±€ä¸­çš„ä¸‹æ³¨æƒ…å†µ
 --------------------------------------------------
 
 HELP

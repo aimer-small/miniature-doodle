@@ -1,13 +1,13 @@
-// yaoxiao ´óÀíÑÎèÉ
+// yaoxiao å¤§ç†ç›æ­
 
 inherit NPC;
 
 void create()
 {
-        set_name("´óÀíÑÎèÉ", ({ "dali yanxiao", "yanxiao" }));
-	set("gender", "ÄĞĞÔ");
+        set_name("å¤§ç†ç›æ­", ({ "dali yanxiao", "yanxiao" }));
+	set("gender", "ç”·æ€§");
         set("age", 35);
-        set("long", "¶Ì×°½áÊø£¬°×²¼°üÍ·£¬Çà´ø²øÑüÊÖÖĞÄÃ×ÅÃ÷»Î»ÎµÄ¸Öµ¶¡£\n");
+        set("long", "çŸ­è£…ç»“æŸï¼Œç™½å¸ƒåŒ…å¤´ï¼Œé’å¸¦ç¼ è…°æ‰‹ä¸­æ‹¿ç€æ˜æ™ƒæ™ƒçš„é’¢åˆ€ã€‚\n");
 	
         set("combat_exp", 13000);
 	set("shen_type", -1);

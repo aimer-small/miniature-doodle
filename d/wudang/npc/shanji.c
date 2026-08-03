@@ -1,17 +1,17 @@
-// NPC : /d/wudang/npc/shanji.c É½¼¦
+// NPC : /d/wudang/npc/shanji.c å±±é¸¡
 #include <ansi.h>
 
 inherit NPC;
 
 void create()
 {
-        set_name(YEL"É½¼¦"NOR, ({ "shan ji", "ji"}) );
-        set("race", "Ò°ÊÞ");
+        set_name(YEL"å±±é¸¡"NOR, ({ "shan ji", "ji"}) );
+        set("race", "é‡Žå…½");
         set("age", 5);
-        set("long", "Ò»Ö»ÓðÃ«ÑÞÀöµÄ´óÉ½¼¦¡£\n");
+        set("long", "ä¸€åªç¾½æ¯›è‰³ä¸½çš„å¤§å±±é¸¡ã€‚\n");
         set("attitude", "peaceful");
         
-        set("limbs", ({ "Í·²¿", "ÉíÌå", "Ç°½Å", "ºó½Å", "Î²°Í" }) );
+        set("limbs", ({ "å¤´éƒ¨", "èº«ä½“", "å‰è„š", "åŽè„š", "å°¾å·´" }) );
         set("verbs", ({ "bite", "claw" }) );
 
         set("combat_exp", 500);
@@ -27,7 +27,7 @@ void create()
 void die()
 {
         object ob;
-        message_vision("$NÆà²ÒµØÃù½ÐÁË¼¸Éù£¬Ò»Í·ÔØµ½µØÉÏËÀÁË¡£\n", this_object());
+        message_vision("$Nå‡„æƒ¨åœ°é¸£å«äº†å‡ å£°ï¼Œä¸€å¤´è½½åˆ°åœ°ä¸Šæ­»äº†ã€‚\n", this_object());
         ob = new(FOOD_D("sjitui"));
         ob->move(environment(this_object()));
         destruct(this_object());

@@ -4,16 +4,16 @@ inherit ROOM;
 
 void create()
 {
-        set("short", "Âí¾Ç");
+        set("short", "é©¬åŽ©");
         set("long", @LONG
-ÕâÊÇÒ»¼äÂí¾Ç£¬³£Äê¹©Ó¦ÐÂÏÊ²ÝÁÏ¡£´ËµØÃñ·ç´¾ÆÓ£¬Âí·òÃÇ°ÑÂíÇ£µ½Âí¾Ç
-ºÃÉúÕÕ¿´£¬½«ËüÃÇÎ¹±¥Òû×ã£¬ÔÙÏ´Ë¢µÃ¸ÉÇ¬¾»¾»£¬Ò»Ö±ËÅºòµ½¿ÍÈËÀëµêÉÏÂ·¡£
-Âí¾ÇÖÐ¶Ñ·ÅÖø¼¸¶Ñ²ÝÁÏ£¬ÕýÖÐÓÐÒ»¿Úãï²Û(gancao)¡£
+è¿™æ˜¯ä¸€é—´é©¬åŽ©ï¼Œå¸¸å¹´ä¾›åº”æ–°é²œè‰æ–™ã€‚æ­¤åœ°æ°‘é£Žæ·³æœ´ï¼Œé©¬å¤«ä»¬æŠŠé©¬ç‰µåˆ°é©¬åŽ©
+å¥½ç”Ÿç…§çœ‹ï¼Œå°†å®ƒä»¬å–‚é¥±é¥®è¶³ï¼Œå†æ´—åˆ·å¾—å¹²ä¹¾å‡€å‡€ï¼Œä¸€ç›´ä¼ºå€™åˆ°å®¢äººç¦»åº—ä¸Šè·¯ã€‚
+é©¬åŽ©ä¸­å †æ”¾è‘—å‡ å †è‰æ–™ï¼Œæ­£ä¸­æœ‰ä¸€å£æ³”æ§½(gancao)ã€‚
 LONG
         );
-        set("outdoors", "¶ëÃ¼É½");
+        set("outdoors", "å³¨çœ‰å±±");
         set("item_desc", ([ 
-            "gancao" : "    ÕâÊÇÒ»¿Úãï²Û£¬¿´À´Ê¹µã¾¢¿ÉÒÔ°á(move)¿ª¡£\n",
+            "gancao" : "    è¿™æ˜¯ä¸€å£æ³”æ§½ï¼Œçœ‹æ¥ä½¿ç‚¹åŠ²å¯ä»¥æ¬(move)å¼€ã€‚\n",
 ]));
         set("exits", ([
   "south" : __DIR__"huayanding",
@@ -33,12 +33,12 @@ int do_xian(string arg)
 {
     object me = this_player();
     if (me->query_temp("marks/zuan"))
-	return notify_fail("Äã³Ô±¥ÁË³ÅµÄ£¿ãï²Û²»ÊÇÏÆ¿ªÁËÂð£¿\n");
+	return notify_fail("ä½ åƒé¥±äº†æ’‘çš„ï¼Ÿæ³”æ§½ä¸æ˜¯æŽ€å¼€äº†å—ï¼Ÿ\n");
     if (!arg) return 0;
-    if (arg != "ãï²Û" && arg != "gancao" )
+    if (arg != "æ³”æ§½" && arg != "gancao" )
 	return 0;
-    message_vision("$NÏÆ¿ªÁËãï²Û£¬ÅªµÃ±éµØãïË®¡£\n", me);
-    tell_object(me, "Äã·¢ÏÖãï²ÛÏÂÃæÓÐÒ»¸ö¶´¿Ú¿ÉÒÔ×ê½øÈ¥¡£\n");
+    message_vision("$NæŽ€å¼€äº†æ³”æ§½ï¼Œå¼„å¾—éåœ°æ³”æ°´ã€‚\n", me);
+    tell_object(me, "ä½ å‘çŽ°æ³”æ§½ä¸‹é¢æœ‰ä¸€ä¸ªæ´žå£å¯ä»¥é’»è¿›åŽ»ã€‚\n");
     me->set_temp("marks/zuan", 1);
     return 1;
 }
@@ -47,11 +47,11 @@ int do_zuan(string arg)
 {
     object me = this_player();
     if (!arg) return 0;
-    if ( arg != "hole" && arg != "¶´" && arg != "dong" && arg != "¶´¿Ú" && arg != "dongkou")
+    if ( arg != "hole" && arg != "æ´ž" && arg != "dong" && arg != "æ´žå£" && arg != "dongkou")
 	return 0;
     if (!me->query_temp("marks/zuan"))
 	return 0;
-    message_vision("$NÒ»Í·×ê½øÁËãï²ÛµÄ¶´¿Ú¡£\n", me);
+    message_vision("$Nä¸€å¤´é’»è¿›äº†æ³”æ§½çš„æ´žå£ã€‚\n", me);
     me->delete_temp("marks/zuan");
     me->move(__DIR__"houshanxl");
     return 1;

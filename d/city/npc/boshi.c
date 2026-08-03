@@ -1,4 +1,4 @@
-// boshi.c �販ʿ
+// boshi.c 茶博士
 // by pishou
 
 inherit NPC;
@@ -6,22 +6,22 @@ inherit F_VENDOR;
 
 void create()
 {
-    set_name("�販ʿ", ({ "cha boshi", "boshi" }));
-    set("title", "����ϰ�");
-    set("nickname", "��״Ԫ");
+    set_name("茶博士", ({ "cha boshi", "boshi" }));
+    set("title", "茶馆老板");
+    set("nickname", "茶状元");
         set("shen_type", 1);
 
     set("str", 30);
-    set("gender", "����");
+    set("gender", "男性");
     set("age", 45);
         set("long",
-        "�������ݳ��������Ĳ販ʿ, �ʳƲ�״Ԫ��\n");
+        "他是扬州城里有名的茶博士, 故称茶状元。\n");
         set("combat_exp", 500);
         set("attitude", "friendly");
         set("inquiry", ([
-        "С��" : "��ȥ�����ˡ��ó�ʱ��û�м�������, �������ġ�\n",
-        "ΤС��" : "������𣬾�������ǰ�����Ľ��ҡ�\n",
-        "��" : "���г�״Ԫ������Ҳ�Ǹ�״Ԫ, �������ǹ�������״Ԫ��\n",
+        "小宝" : "他去京城了。好长时间没有见到他了, 怪想他的。\n",
+        "韦小宝" : "他嘴好甜，经常大叔前大叔后的叫我。\n",
+        "茶" : "行行出状元。在下也是个状元, 不过不是顾先生顾状元。\n",
         ]));
         
         set("vendor_goods", ({
@@ -52,12 +52,12 @@ void greeting(object ob)
                 return;
         switch(random(2)) {
         case 0 :
-        say("�販ʿЦ���е�˵������λ" + RANK_D->query_respect(ob) +
-                        "����������ȱ��Ȳ衣\n");
+        say("茶博士笑眯眯地说道：这位" + RANK_D->query_respect(ob) +
+                        "，快请进来喝杯热茶。\n");
                 break;
         case 1 :
-        say("�販ʿ˵����Ӵ����λ" + RANK_D->query_respect(ob) +
-                        "�����˰��������и�ը�õ����㻨�����ۡ�\n");
+        say("茶博士说道：哟！这位" + RANK_D->query_respect(ob) +
+                        "您来了啊！本店有刚炸好的五香花生出售。\n");
                 break;
         }
 }

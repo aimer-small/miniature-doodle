@@ -12,16 +12,16 @@ int main(object me, string arg)
 {
 	string nickname;
 	if( !arg )
-		return notify_fail(me->query("nickname")?"��Ŀǰ�Ĵº��ǣ���"+me->query("nickname")+"��\n":"��Ŀǰû���κδºš�\n");
+		return notify_fail(me->query("nickname")?"你目前的绰号是：「"+me->query("nickname")+"」\n":"你目前没有任何绰号。\n");
 	
 	if (arg == "none") {
       		me->delete("nickname");
-      		write("���Ĵºű�ɾ���ˡ�\n");
+      		write("您的绰号被删除了。\n");
       		if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "UPDATE members SET nickname = 
 		'' WHERE username = '"+
 		me->query("id")+"@"+lower_case(INTERMUD_MUD_NAME)+"'"))
 		
-      		write("������̳�Ĵº��Զ�ɾ����\n");
+      		write("您在论坛的绰号自动删除！\n");
       		return 1;
     	}
     	
@@ -41,13 +41,13 @@ int main(object me, string arg)
 	arg = replace_string(arg, "$HIC$", HIC);
 	arg = replace_string(arg, "$HIW$", HIW);
 	arg = replace_string(arg, "$NOR$", NOR);
-	if (!strlen(strip(arg))) return notify_fail("�㵽���������ʲô���ݰ���\n");
-	if (strlen(strip(arg)) > 24 && !wizardp(me)) return notify_fail("��Ĵº�̫���ˣ���һ����һ��ġ�����һ��ġ�\n");
+	if (!strlen(strip(arg))) return notify_fail("你到底输入的是什么内容啊？\n");
+	if (strlen(strip(arg)) > 24 && !wizardp(me)) return notify_fail("你的绰号太长了，想一个短一点的、响亮一点的。\n");
 
 	me->set("nickname", arg + NOR);
 	nickname = specialchars(strip(me->query("nickname")));
 	nickname = strip(me->query("nickname"));
-	write("��ϲ�������ڵ��´º��ǣ���"+me->query("nickname")+"��\n");
+	write("恭喜！您现在的新绰号是：「"+me->query("nickname")+"」\n");
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "UPDATE members SET nickname = 
 	'"+nickname+"' WHERE username = '"+
 	me->query("id")+"@"+lower_case(INTERMUD_MUD_NAME)+"'"))
@@ -66,29 +66,29 @@ int main(object me, string arg)
 	'nick',
 	'"+ lower_case(INTERMUD_MUD_NAME) + "')");*/
 	
-	write("������̳�Ĵº��Զ����£�\n");
+	write("您在论坛的绰号自动更新！\n");
 	return 1;
 }
 int help(object me)
 {
         write(@HELP
-ָ���ʽ : nick <���>|none
+指令格式 : nick <外号>|none
  
-���ָ���������Ϊ�Լ�ȡһ�����������Ż�ͷ�Σ�nick none Ϊɾ����
-�����ϣ���ڴº���ʹ�� ANSI �Ŀ�����Ԫ�ı���ɫ�����������µĿ����ִ���
+这个指令可以让你为自己取一个响亮的名号或头衔，nick none 为删除。
+你如果希望在绰号中使用 ANSI 的控制字元改变颜色，可以用以下的控制字串：
 
 HELP
-"                        $NOR$ - �ָ�������ɫ\n"
-"$RED$ - "RED"��ɫ"NOR"		$HIR$ - "HIR"����ɫ\n"NOR
-"$GRN$ - "GRN"��ɫ"NOR"		$HIG$ - "HIG"����ɫ\n"NOR
-"$YEL$ - "YEL"����ɫ"NOR"		$HIY$ - "HIY"��ɫ\n"NOR
-"$BLU$ - "BLU"����ɫ"NOR"		$HIB$ - "HIB"��ɫ\n"NOR
-"$MAG$ - "MAG"ǳ��ɫ"NOR"		$HIM$ - "HIM"�ۺ�ɫ\n"NOR
-"$CYN$ - "CYN"����ɫ"NOR"		$HIC$ - "HIC"����ɫ\n"NOR
-"$WHT$ - ǳ��ɫ		$HIW$ - "HIW"��ɫ\n"NOR
+"                        $NOR$ - 恢复正常颜色\n"
+"$RED$ - "RED"红色"NOR"		$HIR$ - "HIR"亮红色\n"NOR
+"$GRN$ - "GRN"绿色"NOR"		$HIG$ - "HIG"亮绿色\n"NOR
+"$YEL$ - "YEL"土黄色"NOR"		$HIY$ - "HIY"黄色\n"NOR
+"$BLU$ - "BLU"深蓝色"NOR"		$HIB$ - "HIB"蓝色\n"NOR
+"$MAG$ - "MAG"浅紫色"NOR"		$HIM$ - "HIM"粉红色\n"NOR
+"$CYN$ - "CYN"蓝绿色"NOR"		$HIC$ - "HIC"天青色\n"NOR
+"$WHT$ - 浅灰色		$HIW$ - "HIW"白色\n"NOR
 @HELP 
 
-����ϵͳ�Զ������ִ�β�˼�һ�� $NOR$��
+其中系统自动会在字串尾端加一个 $NOR$。
 HELP
 );
         return 1;

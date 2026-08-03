@@ -5,20 +5,20 @@ int exert(object me)
 	int i;
 
 	if(me->query_temp("jiuyin/powerup"))
-		return notify_fail("ÄãÕıÔÚÔËÊ¹¾ÅÒõ×Ü¾÷¡£\n");
+		return notify_fail("ä½ æ­£åœ¨è¿ä½¿ä¹é˜´æ€»è¯€ã€‚\n");
 
 	if ((int)me->query_skill("jiuyin-zhengong", 1) < 200)
-		return notify_fail("ÄãµÄ¾ÅÒõÕæ¹¦ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„ä¹é˜´çœŸåŠŸä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if ((int)me->query_skill("daode-jing", 1) < 200)
-		return notify_fail("ÄãµÄµÀµÂ¾­ĞŞÎª»¹²»¹»¡£\n");
+		return notify_fail("ä½ çš„é“å¾·ç»ä¿®ä¸ºè¿˜ä¸å¤Ÿã€‚\n");
 
 	if( (int)me->query("neili") < 1500 )
-		return notify_fail("ÄãµÄÕæÆø²»¹»¡£\n");
+		return notify_fail("ä½ çš„çœŸæ°”ä¸å¤Ÿã€‚\n");
 
         i = me->query_skill("force")/5;
 	me->add("neili", -500);
-	me->start_exert(3, "¾ÅÒõ×Ü¾÷");
+	me->start_exert(3, "ä¹é˜´æ€»è¯€");
 	me->add_temp("apply/dodge", i);
         me->add_temp("apply/parry", i);
 	me->add_temp("apply/force", i);
@@ -28,7 +28,7 @@ int exert(object me)
 	me->add_temp("apply/cuff", i);
 	me->add_temp("apply/claw", i);
 	me->set_temp("jiuyin/powerup", 1);
-	message_vision(HIY"$NÔËÆğ¾ÅÒõ×Ü¾÷£¬¹¦·òÍşÁ¦¶¸È»´óÔö£¡\n"NOR, me);
+	message_vision(HIY"$Nè¿èµ·ä¹é˜´æ€»è¯€ï¼ŒåŠŸå¤«å¨åŠ›é™¡ç„¶å¤§å¢ï¼\n"NOR, me);
 
 	if ( me->is_fighting())
 		me->start_busy(random(2));
@@ -48,18 +48,18 @@ void remove_effect(object me, int i)
 	me->add_temp("apply/strike", - i);
 	me->add_temp("apply/cuff", - i);
 	me->add_temp("apply/claw", - i);
-	message_vision(HIY"$NµÄ¾ÅÒõ×Ü¾÷ÔËÊ¹Íê±Ï£¬ÓõÁËÒ»¿ÚÆø¡£\n"NOR, me);
+	message_vision(HIY"$Nçš„ä¹é˜´æ€»è¯€è¿ä½¿å®Œæ¯•ï¼Œåäº†ä¸€å£æ°”ã€‚\n"NOR, me);
 }
 
-string exert_name(){ return HIY"¾ÅÒõ×Ü¾÷"NOR; }
+string exert_name(){ return HIY"ä¹é˜´æ€»è¯€"NOR; }
 
 int help(object me)
 {
-        write(HIY"\n¾ÅÒõÕæ¹¦Ö®¡¸¾ÅÒõ×Ü¾÷¡¹£º"NOR"\n\n");
+        write(HIY"\nä¹é˜´çœŸåŠŸä¹‹ã€Œä¹é˜´æ€»è¯€ã€ï¼š"NOR"\n\n");
         write(@HELP
-        ÒªÇó£º  µ±Ç°ÄÚÁ¦ 1500 ÒÔÉÏ£»
-        	µÀµÂ¾­µÈ¼¶ 200 ÒÔÉÏ£»
-                ¾ÅÒõÕæ¹¦µÈ¼¶ 200 ÒÔÉÏ¡£
+        è¦æ±‚ï¼š  å½“å‰å†…åŠ› 1500 ä»¥ä¸Šï¼›
+        	é“å¾·ç»ç­‰çº§ 200 ä»¥ä¸Šï¼›
+                ä¹é˜´çœŸåŠŸç­‰çº§ 200 ä»¥ä¸Šã€‚
 
 HELP
         );

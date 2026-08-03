@@ -14,9 +14,9 @@ int main(object me, string arg)
 	
 	wiz_status = SECURITY_D->get_status(me);
 	if( wiz_status != "(admin)" && wiz_status != "(arch)" )
-		return notify_fail("Ö»ÓĞ (arch) ÒÔÉÏµÄÎ×Ê¦²ÅÄÜÖØĞÂÆô¶¯" + MUD_NAME + "\n");
+		return notify_fail("åªæœ‰ (arch) ä»¥ä¸Šçš„å·«å¸ˆæ‰èƒ½é‡æ–°å¯åŠ¨" + MUD_NAME + "\n");
 
-	message( "system", "ÓÎÏ·ÖØĞÂÆô¶¯£¬ÇëÉÔºòÒ»·ÖÖÓÔÙ login ¡£\n", users() );
+	message( "system", "æ¸¸æˆé‡æ–°å¯åŠ¨ï¼Œè¯·ç¨å€™ä¸€åˆ†é’Ÿå† login ã€‚\n", users() );
 
     user = filter_array(objects(), (: userp :));
 	for(i=0; i<sizeof(user); i++) {
@@ -40,9 +40,9 @@ int main(object me, string arg)
 int help (object me)
 {
         write(@HELP
-Ö¸Áî¸ñÊ½: shutdown
+æŒ‡ä»¤æ ¼å¼: shutdown
  
-ÂíÉÏÖØĞÂÆğ¶¯ÓÎÏ·¡£
+é©¬ä¸Šé‡æ–°èµ·åŠ¨æ¸¸æˆã€‚
 HELP
 );
         return 1;

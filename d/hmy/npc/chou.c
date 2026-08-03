@@ -5,11 +5,11 @@ inherit F_MASTER;
 
 void create()
 {
-        set_name("³ğËÉÄê", ({ "chou songnian", "chou",}));
-        set("nickname", "³¤·¢Í·ÍÓ");        
-        set("long", "ÕâÍ·ÍÓ³¤·¢´¹¼ç£¬Í·ÉÏ´÷×ÅÒ»¸öÉÁÉÁ·¢¹âµÄÍ­¹¿£¬Êø×Å³¤·¢¡£\n");
-        set("title",HIY"ÈÕÔÂÉñ½Ì  "RED"ÖìÈ¸ÌÃÆìÖ÷"NOR);
-        set("gender", "ÄĞĞÔ");
+        set_name("ä»‡æ¾å¹´", ({ "chou songnian", "chou",}));
+        set("nickname", "é•¿å‘å¤´é™€");        
+        set("long", "è¿™å¤´é™€é•¿å‘å‚è‚©ï¼Œå¤´ä¸Šæˆ´ç€ä¸€ä¸ªé—ªé—ªå‘å…‰çš„é“œç®ï¼ŒæŸç€é•¿å‘ã€‚\n");
+        set("title",HIY"æ—¥æœˆç¥æ•™  "RED"æœ±é›€å ‚æ——ä¸»"NOR);
+        set("gender", "ç”·æ€§");
         set("age", 40);
         set("attitude", "peaceful");
         set("shen_type", -1);
@@ -40,7 +40,7 @@ void create()
 	      map_skill("parry", "tianmo-zhang");
 	      map_skill("strike", "tianmo-zhang");
 	      prepare_skill("strike", "tianmo-zhang");
-	      create_family("ÈÕÔÂÉñ½Ì", 9, "µÜ×Ó");
+	      create_family("æ—¥æœˆç¥æ•™", 9, "å¼Ÿå­");
 	
         setup();
         

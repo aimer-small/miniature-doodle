@@ -11,11 +11,11 @@ void pfmmsg(object);
 
 void create()
 {
-        set("short", RED"¼ÀÌ³"NOR);
+        set("short", RED"ç¥­å›"NOR);
         set("long", 
-HIW"Õâ¼ä¾²ÊÒÄÚ¹âÏßÊ®·Ö»è°µ£¬Ö»ÓĞÖĞÑëµÄ¼ÀÌ³ÖĞ·¢³öÓÄÓÄµÄºì¹â£¬¶ø
-ËÄÖÜ³Á½şÔÚÒ»Æ¬ºÚ°µÖ®ÖĞ¡£Õâ¼ä·¿¼äµÄ¿Õ¼äËÆºõ¼«´ó£¬Äã¾¹È»²»ÄÜ¿´µ½
-ËÄÖÜµÄ±ß¼Ê£¬¸ü¿´²»µ½Ìì»¨°å¡£ÄãËÆºõÒÑ¾­½øÈëÁËÁíÍâÒ»¸öÊ±¿Õ¡£\n"NOR);
+HIW"è¿™é—´é™å®¤å†…å…‰çº¿ååˆ†æ˜æš—ï¼Œåªæœ‰ä¸­å¤®çš„ç¥­å›ä¸­å‘å‡ºå¹½å¹½çš„çº¢å…‰ï¼Œè€Œ
+å››å‘¨æ²‰æµ¸åœ¨ä¸€ç‰‡é»‘æš—ä¹‹ä¸­ã€‚è¿™é—´æˆ¿é—´çš„ç©ºé—´ä¼¼ä¹æå¤§ï¼Œä½ ç«Ÿç„¶ä¸èƒ½çœ‹åˆ°
+å››å‘¨çš„è¾¹é™…ï¼Œæ›´çœ‹ä¸åˆ°å¤©èŠ±æ¿ã€‚ä½ ä¼¼ä¹å·²ç»è¿›å…¥äº†å¦å¤–ä¸€ä¸ªæ—¶ç©ºã€‚\n"NOR);
 
         set("exits", ([
                 "out" : "/d/sld/pt",
@@ -43,17 +43,17 @@ int do_canwu(string arg)
 
         me = this_player();
         if ( me->is_busy() )
-                return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
         if ( me->query_skill("dulong-dafa",1)<256 )
-                return notify_fail("ÄãµÄĞŞÎªÌ«²îÁË£¬²»ÄÜ²ÎÎò¸ü¸ßÉîµÄÎäÑ§¡£\n");
+                return notify_fail("ä½ çš„ä¿®ä¸ºå¤ªå·®äº†ï¼Œä¸èƒ½å‚æ‚Ÿæ›´é«˜æ·±çš„æ­¦å­¦ã€‚\n");
         if ( me->query("jing")<1000 )
-                return notify_fail("ÄãµÄ¾«Éñ×´Ì¬Ì«²îÁË£¬²»ÄÜ²ÎÎò¸ü¸ßÉîµÄÎäÑ§¡£\n");
+                return notify_fail("ä½ çš„ç²¾ç¥çŠ¶æ€å¤ªå·®äº†ï¼Œä¸èƒ½å‚æ‚Ÿæ›´é«˜æ·±çš„æ­¦å­¦ã€‚\n");
         if ( me->query("max_neili")<3000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎªÌ«²îÁË£¬²»ÄÜ²ÎÎò¸ü¸ßÉîµÄÎäÑ§¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºå¤ªå·®äº†ï¼Œä¸èƒ½å‚æ‚Ÿæ›´é«˜æ·±çš„æ­¦å­¦ã€‚\n");
         if ( me->query("neili")<2000 )
-                return notify_fail("ÄãµÄÄÚÁ¦ĞŞÎªÌ«²îÁË£¬²»ÄÜ²ÎÎò¸ü¸ßÉîµÄÎäÑ§¡£\n");
+                return notify_fail("ä½ çš„å†…åŠ›ä¿®ä¸ºå¤ªå·®äº†ï¼Œä¸èƒ½å‚æ‚Ÿæ›´é«˜æ·±çš„æ­¦å­¦ã€‚\n");
         if ( (int)me->query("sld_pfm/lvl")>=5 )
-                return notify_fail("ÄãµÄĞŞÎªÒÑ¾­´ïµ½×î¸ß¾³½ç£¬ÔÙÒ²²ÎÎò²»³öÊ²Ã´ÁË¡£\n");
+                return notify_fail("ä½ çš„ä¿®ä¸ºå·²ç»è¾¾åˆ°æœ€é«˜å¢ƒç•Œï¼Œå†ä¹Ÿå‚æ‚Ÿä¸å‡ºä»€ä¹ˆäº†ã€‚\n");
         i = time();
         if ( (i-(int)me->query("sld_pfm/ctime"))>3600 ) {
                 me->set("sld_pfm/ctime",i);
@@ -61,12 +61,12 @@ int do_canwu(string arg)
         }
         else {
                 if ( (int)me->query("sld_pfm/ctimes")>60 )
-                        return notify_fail("ÄãÒ»¿ªÊ¼²ÎÎò£¬¾Í¸Ğµ½¾çÁÒµÄÍ·Í´£¬¿ÉÄÜÊÇ×î½üÏûºÄÄÔÁ¦¹ı¶ÈÁË¡£\n");
+                        return notify_fail("ä½ ä¸€å¼€å§‹å‚æ‚Ÿï¼Œå°±æ„Ÿåˆ°å‰§çƒˆçš„å¤´ç—›ï¼Œå¯èƒ½æ˜¯æœ€è¿‘æ¶ˆè€—è„‘åŠ›è¿‡åº¦äº†ã€‚\n");
                 else
                         me->add("sld_pfm/ctimes",1);
         }
 
-        message_vision(HIW"$NÅÌÏ¥¶ø×ø£¬»ºÂıµÄ±ÕÉÏË«ÑÛ£¬ËÆºõÒÑ¾­½øÈëÄÚÓîÖæµÄÎŞÏŞÊ±¿Õ¡£\n"NOR,me);
+        message_vision(HIW"$Nç›˜è†è€Œåï¼Œç¼“æ…¢çš„é—­ä¸ŠåŒçœ¼ï¼Œä¼¼ä¹å·²ç»è¿›å…¥å†…å®‡å®™çš„æ— é™æ—¶ç©ºã€‚\n"NOR,me);
 
         me->add("jing", -200-random(800));
         me->add("neili", -200-random(800));
@@ -97,11 +97,11 @@ void canwu_over(object me)
                 me->set("sld_pfm/ccount",0);
                 switch ((int)me->query("sld_pfm/lvl")) {
                         case 0: 
-                                message_vision(GRN"$N»º»ºµÄÕö¿ªÑÛ¾¦£¬Í·ÄÔÖĞ»íÈ»¿ªÀÊ£¬ËÆºõ²ÎÎòµ½ÁËÊ²Ã´£¡\n"NOR,me);
+                                message_vision(GRN"$Nç¼“ç¼“çš„çå¼€çœ¼ç›ï¼Œå¤´è„‘ä¸­è±ç„¶å¼€æœ—ï¼Œä¼¼ä¹å‚æ‚Ÿåˆ°äº†ä»€ä¹ˆï¼\n"NOR,me);
                                 selectpfm(me);
                                 break;
                         case 1: 
-                                message_vision(YEL"$N»º»ºµÄÕö¿ªÑÛ¾¦£¬Í·ÄÔÖĞ»íÈ»¿ªÀÊ£¬ĞŞÎªÓÖ¾«½øÁËÒ»²ã£¡\n"NOR,me);
+                                message_vision(YEL"$Nç¼“ç¼“çš„çå¼€çœ¼ç›ï¼Œå¤´è„‘ä¸­è±ç„¶å¼€æœ—ï¼Œä¿®ä¸ºåˆç²¾è¿›äº†ä¸€å±‚ï¼\n"NOR,me);
                                 me->set("sld_pfm/lvl",2);
                                 me->add("sld_pfm/rate",10);
                                 me->add("sld_pfm/neili_require",30);
@@ -111,7 +111,7 @@ void canwu_over(object me)
                                 pfmmsg(me);
                                 break;
                         case 2: 
-                                message_vision(BLU"$N»º»ºµÄÕö¿ªÑÛ¾¦£¬Í·ÄÔÖĞ»íÈ»¿ªÀÊ£¬ĞŞÎªÓÖ¾«½øÁËÒ»²ã£¡\n"NOR,me);
+                                message_vision(BLU"$Nç¼“ç¼“çš„çå¼€çœ¼ç›ï¼Œå¤´è„‘ä¸­è±ç„¶å¼€æœ—ï¼Œä¿®ä¸ºåˆç²¾è¿›äº†ä¸€å±‚ï¼\n"NOR,me);
                                 me->set("sld_pfm/lvl",3);
                                 me->add("sld_pfm/rate",15);
                                 me->add("sld_pfm/neili_require",30);
@@ -121,7 +121,7 @@ void canwu_over(object me)
                                 pfmmsg(me);
                                 break;
                         case 3: 
-                                message_vision(MAG"$N»º»ºµÄÕö¿ªÑÛ¾¦£¬Í·ÄÔÖĞ»íÈ»¿ªÀÊ£¬ĞŞÎªÓÖ¾«½øÁËÒ»²ã£¡\n"NOR,me);
+                                message_vision(MAG"$Nç¼“ç¼“çš„çå¼€çœ¼ç›ï¼Œå¤´è„‘ä¸­è±ç„¶å¼€æœ—ï¼Œä¿®ä¸ºåˆç²¾è¿›äº†ä¸€å±‚ï¼\n"NOR,me);
                                 me->set("sld_pfm/lvl",4);
                                 me->add("sld_pfm/rate",15);
                                 me->add("sld_pfm/neili_require",30);
@@ -131,7 +131,7 @@ void canwu_over(object me)
                                 pfmmsg(me);
                                 break;
                         case 4: 
-                                message_vision(RED"$N»º»ºµÄÕö¿ªÑÛ¾¦£¬Í·ÄÔÖĞ»íÈ»¿ªÀÊ£¬ËÆºõ¾ÍÒª½øÈë×î¸ß¾³½ç£¬È´ÓÖÏóÉÙÁËµãÊ²Ã´£¡
+                                message_vision(RED"$Nç¼“ç¼“çš„çå¼€çœ¼ç›ï¼Œå¤´è„‘ä¸­è±ç„¶å¼€æœ—ï¼Œä¼¼ä¹å°±è¦è¿›å…¥æœ€é«˜å¢ƒç•Œï¼Œå´åˆè±¡å°‘äº†ç‚¹ä»€ä¹ˆï¼
 
 \n"NOR,me);
                                 me->set("sld_pfm/clvl5",1);
@@ -139,7 +139,7 @@ void canwu_over(object me)
                 }
         }
         else {
-                message_vision(HIY"$N»º»ºµÄÕö¿ªÑÛ¾¦£¬ËÆºõÓĞËùµÃ£¬ÓÖËÆºõÒ»ÎŞËù»ñ¡£\n"NOR,me);
+                message_vision(HIY"$Nç¼“ç¼“çš„çå¼€çœ¼ç›ï¼Œä¼¼ä¹æœ‰æ‰€å¾—ï¼Œåˆä¼¼ä¹ä¸€æ— æ‰€è·ã€‚\n"NOR,me);
                 me->add("sld_pfm/ccount",1);
         }
 }
@@ -147,11 +147,11 @@ void canwu_over(object me)
 void selectpfm(object me)
 {
         tell_object(me,"
-ÇëÑ¡ÔñÓû²ÎÎòµÄ¾øÕĞÖÖÀà£º
-1.²øÀà          2.Á¬»÷Àà        3.ÏûÈõµĞÈËÀà    4.ÔöÇ¿×ÔÉíÀà
-5.»¯Ñ§¹¥»÷Àà    6.ÏûºÄÄÚÁ¦Àà    7.ÓÃ¶¾Àà        8.¶Ï±øÆ÷Àà
-9.ÏûÈõ·ÀÓùÔöÇ¿¹¥»÷Àà            10.ÌØÊâ¹¥»÷Àà
-ÇëÓÃ pfmtype x ÃüÁî»Ø´ğ£¨ÀıÈç£ºpfmtype 1£©¡£
+è¯·é€‰æ‹©æ¬²å‚æ‚Ÿçš„ç»æ‹›ç§ç±»ï¼š
+1.ç¼ ç±»          2.è¿å‡»ç±»        3.æ¶ˆå¼±æ•Œäººç±»    4.å¢å¼ºè‡ªèº«ç±»
+5.åŒ–å­¦æ”»å‡»ç±»    6.æ¶ˆè€—å†…åŠ›ç±»    7.ç”¨æ¯’ç±»        8.æ–­å…µå™¨ç±»
+9.æ¶ˆå¼±é˜²å¾¡å¢å¼ºæ”»å‡»ç±»            10.ç‰¹æ®Šæ”»å‡»ç±»
+è¯·ç”¨ pfmtype x å‘½ä»¤å›ç­”ï¼ˆä¾‹å¦‚ï¼špfmtype 1ï¼‰ã€‚
 ");
         me->set_temp("sld/pfmtype",1);
 }
@@ -164,11 +164,11 @@ int selectpfm1(string arg)
         if (!me->query_temp("sld/pfmtype")) 
                 return 0;
         if ( (!arg) || (sscanf(arg,"%d",pfmtype)<1) || (pfmtype<1) || (pfmtype>10) )
-                return notify_fail("ÇëÕıÈ·Ñ¡ÔñÖÖÀà£¡\n");
+                return notify_fail("è¯·æ­£ç¡®é€‰æ‹©ç§ç±»ï¼\n");
         me->delete_temp("sld/pfmtype");
 
-        tell_object(me,"ÇëÊäÈëÄãËù²ÎÎòµÄ¾øÕĞµÄÓ¢ÎÄÃû(²»ÄÜÓëÄãÒÑÓĞµÄ¾øÕĞµÄÓ¢ÎÄÃûÏàÍ¬£¬×ÖÊıÔÚ3~15Ö®¼ä)£¬
-ÇëÓÃ pfmname xxx ÃüÁî»Ø´ğ£¨ÀıÈç£ºpfmname yeah£©¡£\n");
+        tell_object(me,"è¯·è¾“å…¥ä½ æ‰€å‚æ‚Ÿçš„ç»æ‹›çš„è‹±æ–‡å(ä¸èƒ½ä¸ä½ å·²æœ‰çš„ç»æ‹›çš„è‹±æ–‡åç›¸åŒï¼Œå­—æ•°åœ¨3~15ä¹‹é—´)ï¼Œ
+è¯·ç”¨ pfmname xxx å‘½ä»¤å›ç­”ï¼ˆä¾‹å¦‚ï¼špfmname yeahï¼‰ã€‚\n");
 
         me->set_temp("sld/pfmname",1);
         me->set_temp("sld/pfmt",pfmtype);
@@ -184,7 +184,7 @@ int selectpfm2(string arg)
                 return 0;
         i = strlen(arg);
         if ( (i<3) || (i>15) )
-                return notify_fail("Çë¿ØÖÆ¾øÕĞÓ¢ÎÄÃûµÄ³¤¶È£¡\n");
+                return notify_fail("è¯·æ§åˆ¶ç»æ‹›è‹±æ–‡åçš„é•¿åº¦ï¼\n");
         me->delete_temp("sld/pfmname");
         pfmtype = (int)me->query_temp("sld/pfmt");
         me->delete_temp("sld/pfmt");
@@ -235,14 +235,14 @@ int selectpfm2(string arg)
         me->set("sld_pfm/lvl",1);
         me->add("max_neili",-10);
 
-        me->set("sld_pfm/cdiypfm","Î´ÃüÃû");
-        me->set("sld_pfm/msg","Î´ÃüÃû");
-        me->set("sld_pfm/failmsg","Î´ÃüÃû");
-        me->set("sld_pfm/succesmsg","Î´ÃüÃû");
-        me->set("sld_pfm/succesmsg2","Î´ÃüÃû");
-        me->set("sld_pfm/endmsg","Î´ÃüÃû");
+        me->set("sld_pfm/cdiypfm","æœªå‘½å");
+        me->set("sld_pfm/msg","æœªå‘½å");
+        me->set("sld_pfm/failmsg","æœªå‘½å");
+        me->set("sld_pfm/succesmsg","æœªå‘½å");
+        me->set("sld_pfm/succesmsg2","æœªå‘½å");
+        me->set("sld_pfm/endmsg","æœªå‘½å");
 
-        tell_object(me, "Äã²ÎÎòÁË "+arg+" : "+dopfm(me,pfmtype)+"¡£\n");
+        tell_object(me, "ä½ å‚æ‚Ÿäº† "+arg+" : "+dopfm(me,pfmtype)+"ã€‚\n");
         pfmmsg(me);
         return 1;
 }
@@ -253,88 +253,88 @@ string dopfm(object me,int pfmtype)
                 case 1:
                         me->set("sld_pfm/failbusy",3);
                         me->set("sld_pfm/bexp",1);
-                        return "²ø";
+                        return "ç¼ ";
                 case 2:
                         me->set("sld_pfm/succes",1);
                         me->set("sld_pfm/succesbusy",4);
-                        return "Á¬Ğø¹¥»÷";
+                        return "è¿ç»­æ”»å‡»";
                 case 3:
                         me->set("sld_pfm/succes",1);
-                        return "ÏûÈõ¶Ô·½·ÀÓù";
+                        return "æ¶ˆå¼±å¯¹æ–¹é˜²å¾¡";
                 case 4:
                         me->set("sld_pfm/succes",1);
-                        return "ÏûÈõ¶Ô·½¹¥»÷";
+                        return "æ¶ˆå¼±å¯¹æ–¹æ”»å‡»";
                 case 5:
                         me->set("sld_pfm/succes",1);
-                        return "ÔöÇ¿×ÔÉí·ÀÓù";
+                        return "å¢å¼ºè‡ªèº«é˜²å¾¡";
                 case 6:
                         me->set("sld_pfm/succes",1);
-                        return "ÔöÇ¿×ÔÉí¹¥»÷";
+                        return "å¢å¼ºè‡ªèº«æ”»å‡»";
                 case 7:
                         me->set("sld_pfm/bskill1",1);
                         me->set("sld_pfm/skill1","force");
                         me->set("sld_pfm/neili_require",350);
-                        return "»¯Ñ§¹¥»÷£¬¼õ¶Ô·½µÄÆø";
+                        return "åŒ–å­¦æ”»å‡»ï¼Œå‡å¯¹æ–¹çš„æ°”";
                 case 8:
                         me->set("sld_pfm/bskill1",1);
                         me->set("sld_pfm/skill1","force");
                         me->set("sld_pfm/neili_require",350);
-                        return "»¯Ñ§¹¥»÷£¬¼õ¶Ô·½µÄÆøÄÚÁ¦¾«Á¦";
+                        return "åŒ–å­¦æ”»å‡»ï¼Œå‡å¯¹æ–¹çš„æ°”å†…åŠ›ç²¾åŠ›";
                 case 9:
                         me->set("sld_pfm/bskill1",1);
                         me->set("sld_pfm/skill1","force");
                         me->set("sld_pfm/neili_require",120);
                         me->set("sld_pfm/rate",55);
-                        return "¶ÔºÄÄÚÁ¦";
+                        return "å¯¹è€—å†…åŠ›";
                 case 10:
                         me->set("sld_pfm/bskill1",1);
                         me->set("sld_pfm/skill1","force");
-                        return "ÓÃ¶¾£¬¼õ¶Ô·½µÄ¾«";
+                        return "ç”¨æ¯’ï¼Œå‡å¯¹æ–¹çš„ç²¾";
                 case 11:
                         me->set("sld_pfm/bskill1",1);
                         me->set("sld_pfm/skill1","force");
-                        return "ÓÃ¶¾£¬¼õ¶Ô·½µÄÆøÄÚÁ¦¾«Á¦";
+                        return "ç”¨æ¯’ï¼Œå‡å¯¹æ–¹çš„æ°”å†…åŠ›ç²¾åŠ›";
                 case 12:
                         me->set("sld_pfm/succes",1);
                         me->set("sld_pfm/neili_require",300);
-                        return "ÔöÇ¿×ÔÉíºóÁ¬Ğø¹¥»÷";
+                        return "å¢å¼ºè‡ªèº«åè¿ç»­æ”»å‡»";
                 case 13:
                         me->set("sld_pfm/bskill1",1);
                         me->set("sld_pfm/skill1","force");
                         me->set("sld_pfm/rate",150);
-                        return "ÔöÇ¿×ÔÉíºó»¯Ñ§¹¥»÷";
+                        return "å¢å¼ºè‡ªèº«ååŒ–å­¦æ”»å‡»";
                 case 14:
                         me->set("sld_pfm/succes",1);
-                        return "ÔöÇ¿×ÔÉí¹¥»÷£¬ÏûÈõ×ÔÉí·ÀÓù";
+                        return "å¢å¼ºè‡ªèº«æ”»å‡»ï¼Œæ¶ˆå¼±è‡ªèº«é˜²å¾¡";
                 case 15:
                         me->set("sld_pfm/succes",1);
                         me->set("sld_pfm/neili_require",300);
-                        return "³¬Ç¿ÈıÁ¬»÷£¬µ«ÔÚ·¢³ö¹¥»÷Ç°µÄÒ»¶ÎÊ±¼äÄÚËùÊÜµÄÉËº¦¼Ó±¶";
+                        return "è¶…å¼ºä¸‰è¿å‡»ï¼Œä½†åœ¨å‘å‡ºæ”»å‡»å‰çš„ä¸€æ®µæ—¶é—´å†…æ‰€å—çš„ä¼¤å®³åŠ å€";
                 case 16:
                         me->set("sld_pfm/bskill1",1);
                         me->set("sld_pfm/skill1","force");
-                        return "¶Ï¶Ô·½±øÆ÷";
+                        return "æ–­å¯¹æ–¹å…µå™¨";
         }
-        return "´íÎóµÄpfmÀà±ğ";
+        return "é”™è¯¯çš„pfmç±»åˆ«";
 }
 
 void pfmmsg(object me)
 {
         tell_object(me,"
-ÄãĞèÒªÉèÖÃÒÔÏÂ²ÎÊı£º
-cpfm:           ¾øÕĞµÄÖĞÎÄÃû
-msg:            ·¢³ö¾øÕĞÊ±µÄÃèÊö
-fmsg:           ¾øÕĞÊ§°ÜÊ±µÄÃèÊö
-smsg:           ¾øÕĞ³É¹¦Ê±ÃèÊö
-smsg2:          µÚ¶ş¶Î³É¹¦ÃèÊö
-endmsg:         ¾øÕĞ½áÊøÊ±µÄÃèÊö
+ä½ éœ€è¦è®¾ç½®ä»¥ä¸‹å‚æ•°ï¼š
+cpfm:           ç»æ‹›çš„ä¸­æ–‡å
+msg:            å‘å‡ºç»æ‹›æ—¶çš„æè¿°
+fmsg:           ç»æ‹›å¤±è´¥æ—¶çš„æè¿°
+smsg:           ç»æ‹›æˆåŠŸæ—¶æè¿°
+smsg2:          ç¬¬äºŒæ®µæˆåŠŸæè¿°
+endmsg:         ç»æ‹›ç»“æŸæ—¶çš„æè¿°
 
-ÉèÖÃ·½·¨£ºpfmmsg ²ÎÊıÃû ÄÚÈİ
-ÀıÈç£ºpfmmsg cpfm ÌìÍâ·ÉÏÉ
+è®¾ç½®æ–¹æ³•ï¼špfmmsg å‚æ•°å å†…å®¹
+ä¾‹å¦‚ï¼špfmmsg cpfm å¤©å¤–é£ä»™
 
-ÃèÊö¿ÉÒÔ¼ÓÑÕÉ«£¬·½·¨ºÍnickÏàÍ¬£»
-ÃèÊöÖĞ¿ÉÒÔÓÃ$N´ú±í×Ô¼º£¬$n´ú±íµĞÈË£»
-ÃèÊö¿ÉÒÔÓÃ\n´ú±í»»ĞĞ¡£
+æè¿°å¯ä»¥åŠ é¢œè‰²ï¼Œæ–¹æ³•å’Œnickç›¸åŒï¼›
+æè¿°ä¸­å¯ä»¥ç”¨$Nä»£è¡¨è‡ªå·±ï¼Œ$nä»£è¡¨æ•Œäººï¼›
+æè¿°å¯ä»¥ç”¨\nä»£è¡¨æ¢è¡Œã€‚
 ");
 }
 
@@ -344,7 +344,7 @@ int do_pfmmsg(string arg)
         object me = this_player();
 
         if ((!stringp(arg)) || (sscanf(arg,"%s %s",str1,str2)<2))
-                return notify_fail("ÃüÁî¸ñÊ½£ºpfmmsg ²ÎÊıÃû ÄÚÈİ\n");
+                return notify_fail("å‘½ä»¤æ ¼å¼ï¼špfmmsg å‚æ•°å å†…å®¹\n");
 
         switch (str1) {
                 case "cpfm":
@@ -367,7 +367,7 @@ int do_pfmmsg(string arg)
                         break;
         }
         
-        tell_object(me,"²ÎÊıÉèÖÃ³É¹¦¡£\n");
+        tell_object(me,"å‚æ•°è®¾ç½®æˆåŠŸã€‚\n");
         return 1;
 }
 
@@ -377,19 +377,19 @@ int do_wangque(string arg)
         object me = this_player();
 
         if ( (int)me->query("sld_pfm/lvl")<=0 )
-                return notify_fail("Äã²¢Ã»ÓĞ²ÎÎòµ½Ê²Ã´£¬ÓÖÈçºÎÍüÈ´ÄØ£¿\n");
+                return notify_fail("ä½ å¹¶æ²¡æœ‰å‚æ‚Ÿåˆ°ä»€ä¹ˆï¼Œåˆå¦‚ä½•å¿˜å´å‘¢ï¼Ÿ\n");
 
         if ( !(int)me->query_temp("sld/wangque") ) {
-                tell_object(me,"Ò»µ©Ñ¡ÔñÍüÈ´£¬ÄãÒÔÇ°µÄĞÁ¿àÀÍ¶¯¿É¶¼°×·ÑÁË£¬Çë¿¼ÂÇÇå³ş¡£\n"+
-                               "Èç¹ûÄãÈ·¶¨ÒªÍüÈ´Ëù²ÎÎòµ½µÄ¾øÑ§£¬ÇëÔÙÊäÈëÒ»´ÎÕâÌõÃüÁî¡£\n" );
+                tell_object(me,"ä¸€æ—¦é€‰æ‹©å¿˜å´ï¼Œä½ ä»¥å‰çš„è¾›è‹¦åŠ³åŠ¨å¯éƒ½ç™½è´¹äº†ï¼Œè¯·è€ƒè™‘æ¸…æ¥šã€‚\n"+
+                               "å¦‚æœä½ ç¡®å®šè¦å¿˜å´æ‰€å‚æ‚Ÿåˆ°çš„ç»å­¦ï¼Œè¯·å†è¾“å…¥ä¸€æ¬¡è¿™æ¡å‘½ä»¤ã€‚\n" );
                 me->set_temp("sld/wangque",1);
         }
         else {
                 me->delete_temp("sld/wangque");
                 me->add("max_neili",-1);
-                message_vision(HIR"$N»º»º±ÕÉÏË«ÑÛ£¬ÏİÈëÚ¤Ë¼¡£²»¾Ã£¬Í»È»´ó½ĞÒ»Éù£¬¶¸È»Õö¿ªÑÛ¾¦£¬\nË«ÑÛµÎÑª£¬Á³ÉÏÍ¸³öÎŞ±ÈÍ´¿àµÄ
+                message_vision(HIR"$Nç¼“ç¼“é—­ä¸ŠåŒçœ¼ï¼Œé™·å…¥å†¥æ€ã€‚ä¸ä¹…ï¼Œçªç„¶å¤§å«ä¸€å£°ï¼Œé™¡ç„¶çå¼€çœ¼ç›ï¼Œ\nåŒçœ¼æ»´è¡€ï¼Œè„¸ä¸Šé€å‡ºæ— æ¯”ç—›è‹¦çš„
 
-ÉñÇé¡££¡£¡£¡\n"NOR,me);         
+ç¥æƒ…ã€‚ï¼ï¼ï¼\n"NOR,me);         
 
                 me->delete("sld_pfm/diypfm");
                 me->delete("sld_pfm/cdiypfm");
@@ -442,19 +442,19 @@ int do_jidian(string arg)
                 ob = present(arg, me);
 
         if ( !ob )
-                return notify_fail("ÄãÒªÓÃË­À´¼Àµì×Ô¼ºµÄÁé»ê£¿\n");
+                return notify_fail("ä½ è¦ç”¨è°æ¥ç¥­å¥ è‡ªå·±çš„çµé­‚ï¼Ÿ\n");
         if ( !(int)me->query("sld_pfm/clvl5") )
-                return notify_fail("Äã»¹Ã»ÓĞ´ïµ½ĞèÒª¼ÀµìµÄ¾³½ç¡£\n");
+                return notify_fail("ä½ è¿˜æ²¡æœ‰è¾¾åˆ°éœ€è¦ç¥­å¥ çš„å¢ƒç•Œã€‚\n");
         if ( !userp(ob) )
-                return notify_fail("Äã±ØĞëÓÃÍæ¼ÒÀ´¼Àµì×Ô¼ºµÄÁé»ê£¡\n");
+                return notify_fail("ä½ å¿…é¡»ç”¨ç©å®¶æ¥ç¥­å¥ è‡ªå·±çš„çµé­‚ï¼\n");
         if ( ob->query("combat_exp")<100000 )
-                return notify_fail("ÄãÓÃÀ´¼ÀµìµÄÈËµÄ¾«ÉñÁ¦Á¿Ì«ÈõÁË£¬ÎŞ·¨È¡µÃÈÎºÎÊÕ»ñ£¡\n");
+                return notify_fail("ä½ ç”¨æ¥ç¥­å¥ çš„äººçš„ç²¾ç¥åŠ›é‡å¤ªå¼±äº†ï¼Œæ— æ³•å–å¾—ä»»ä½•æ”¶è·ï¼\n");
 
         if ( ob==me )
-                message_vision(RED"$N×İÉíÌøÈë¼ÀÌ³£¬¼ÀÌ³±¾À´»è°µµÄ»ğÑæ¶¸È»¼ä·ÅÉä³öÑıÒìµÄ¹âÃ¢£¬°Ñ$NÍÌÃ»£¡\n"NOR,me);
+                message_vision(RED"$Nçºµèº«è·³å…¥ç¥­å›ï¼Œç¥­å›æœ¬æ¥æ˜æš—çš„ç«ç„°é™¡ç„¶é—´æ”¾å°„å‡ºå¦–å¼‚çš„å…‰èŠ’ï¼ŒæŠŠ$Nåæ²¡ï¼\n"NOR,me);
         else
-                message_vision(RED"$N°Ñ$nÍ¶Èë¼ÀÌ³£¬¼ÀÌ³±¾À´»è°µµÄ»ğÑæ¶¸È»¼ä·ÅÉä³öÑıÒìµÄ¹âÃ¢£¬°Ñ$nÍÌÃ»£¡\n"NOR,me,ob);
-        tell_object(me,RED"ÄãµÄÄÔÖĞÍ»È»ÉÁ¹ıÒ»µÀÁé¹â£¬°ÑÒÔÇ°Ëù²ÎÎòµÄÒ»ÇĞÈÚ»á¹áÍ¨ÆğÀ´£¬Äã²ÎÎòÁËÎäÑ§µÄ×î¸ß¾³½ç£¡\n"NOR);
+                message_vision(RED"$NæŠŠ$næŠ•å…¥ç¥­å›ï¼Œç¥­å›æœ¬æ¥æ˜æš—çš„ç«ç„°é™¡ç„¶é—´æ”¾å°„å‡ºå¦–å¼‚çš„å…‰èŠ’ï¼ŒæŠŠ$nåæ²¡ï¼\n"NOR,me,ob);
+        tell_object(me,RED"ä½ çš„è„‘ä¸­çªç„¶é—ªè¿‡ä¸€é“çµå…‰ï¼ŒæŠŠä»¥å‰æ‰€å‚æ‚Ÿçš„ä¸€åˆ‡èä¼šè´¯é€šèµ·æ¥ï¼Œä½ å‚æ‚Ÿäº†æ­¦å­¦çš„æœ€é«˜å¢ƒç•Œï¼\n"NOR);
 
         me->set("sld_pfm/lvl",5);
         me->delete("sld_pfm/clvl5");
@@ -466,7 +466,7 @@ int do_jidian(string arg)
         pfmmsg(me);
 
         env = environment(me);
-        ob->set_temp("last_damage_from", "±»»ğÑæÉÕ");
+        ob->set_temp("last_damage_from", "è¢«ç«ç„°çƒ§");
         ob->die();
 
         ob=present("corpse", env);

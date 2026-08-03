@@ -1,4 +1,4 @@
-// bing.c Ê¿±ø
+// bing.c å£«å…µ
 
 #include <ansi.h>
 inherit NPC;
@@ -27,10 +27,10 @@ switch (random(3)){
 	} 
 	set_name(name, ({ "shi bing", "bing" }));
 	set("age", random(10)+20);
-	set("gender", "ÄÐÐÔ");
-	set("long", "¶¼ÊÇÍÁÉúÍÁ³¤µÄ±¾µØÈË£¬ÊÇÍÂÞ¬¹úµÄ×ÓµÜ±ø£¬×¨Ö°»Ê³ÇÄÚÍâµÄÖÎ°²¡£\n");
+	set("gender", "ç”·æ€§");
+	set("long", "éƒ½æ˜¯åœŸç”ŸåœŸé•¿çš„æœ¬åœ°äººï¼Œæ˜¯åè•ƒå›½çš„å­å¼Ÿå…µï¼Œä¸“èŒçš‡åŸŽå†…å¤–çš„æ²»å®‰ã€‚\n");
 	set("attitude", "peaceful");
-        set("title",HIY"ÍÂÞ¬ÃÍ»¢ÓªÊ¿±ø"NOR);
+        set("title",HIY"åè•ƒçŒ›è™Žè¥å£«å…µ"NOR);
 
 	set("str", 25);
 	set("dex", 20);
@@ -50,8 +50,8 @@ switch (random(3)){
 
         set("chat_chance_combat", 5);
 	set("chat_msg_combat", ({
-		name+"ºÈµÀ£ºÄÇÀ´µÄÐ¡Ôô£¬»îµÃ²»ÄÍ·³ÁË£¿¾¹ÔÚÕâÀïÄÖÊÂ£¡\n",
-		name+"½ÐµÀ£º¿ìÎ§×¡ÁËËû£¡±ðÈÃËûÅÜÁË£¡\n",
+		name+"å–é“ï¼šé‚£æ¥çš„å°è´¼ï¼Œæ´»å¾—ä¸è€çƒ¦äº†ï¼Ÿç«Ÿåœ¨è¿™é‡Œé—¹äº‹ï¼\n",
+		name+"å«é“ï¼šå¿«å›´ä½äº†ä»–ï¼åˆ«è®©ä»–è·‘äº†ï¼\n",
 	}));
 	setup();
 	carry_object(BINGQI_D("juchidao"))->wield();
@@ -73,7 +73,7 @@ void init()
 
 int accept_fight(object me)
 {
-	command("say ´óÒ¯ÎÒÕýÏëÕÒÈËÉ±ÄÅ£¬½ñÌìËãÄãµ¹Ã¹¡£\n");
+	command("say å¤§çˆ·æˆ‘æ­£æƒ³æ‰¾äººæ€å‘ï¼Œä»Šå¤©ç®—ä½ å€’éœ‰ã€‚\n");
 	if (!is_killing(me->query("id")))
 		me->add_condition("killer", 15);
 	kill_ob(me);

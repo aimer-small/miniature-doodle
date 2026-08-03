@@ -7,11 +7,11 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½£ºdeclare war to [°ïÅÉid]
-ÏòÄ³¸ö°ïÅÉÐûÕ½¡£°ïÖ÷»ò¸±°ïÖ÷¿ÉÒÔ¶ÀÁ¢ÐûÕ½£¬ÌÃÖ÷ÐèÒªÁ½ÈË»òÒÔÉÏ²ÅÄÜÐûÕ½¡£
-Èç¹û¶Ô·½°ïÅÉµÄÊ×ÁìÓÐÎåÈË£¬Ôò¶Ô·½°ïÅÉ±ØÐëÓÐÁ½Ãû»òÒÔÉÏÊ×ÁìÔÚÏß£¬²ÅÄÜ¶ÔÖ®
-ÐûÕ½£»Èç¹û¶Ô·½°ïÅÉÊ×ÁìÉÙÓÚÎåÈË£¬ÔòÖ»Òª¶Ô·½°ïÅÉÓÐÒ»ÃûÊ×ÁìÔÚÏß£¬¾Í¿É¶ÔÖ®
-ÐûÕ½£¬ÐûÕ½·½±ØÐë½¨ÓÐ×ÜÌ³ÇÒ´æ¿î´óÓÚÒ»Ç§¶§»Æ½ð£¬°ïÅÉ×ÜÈËÊý²»ÉÙÓÚ15ÈË¡£
+æŒ‡ä»¤æ ¼å¼ï¼šdeclare war to [å¸®æ´¾id]
+å‘æŸä¸ªå¸®æ´¾å®£æˆ˜ã€‚å¸®ä¸»æˆ–å‰¯å¸®ä¸»å¯ä»¥ç‹¬ç«‹å®£æˆ˜ï¼Œå ‚ä¸»éœ€è¦ä¸¤äººæˆ–ä»¥ä¸Šæ‰èƒ½å®£æˆ˜ã€‚
+å¦‚æžœå¯¹æ–¹å¸®æ´¾çš„é¦–é¢†æœ‰äº”äººï¼Œåˆ™å¯¹æ–¹å¸®æ´¾å¿…é¡»æœ‰ä¸¤åæˆ–ä»¥ä¸Šé¦–é¢†åœ¨çº¿ï¼Œæ‰èƒ½å¯¹ä¹‹
+å®£æˆ˜ï¼›å¦‚æžœå¯¹æ–¹å¸®æ´¾é¦–é¢†å°‘äºŽäº”äººï¼Œåˆ™åªè¦å¯¹æ–¹å¸®æ´¾æœ‰ä¸€åé¦–é¢†åœ¨çº¿ï¼Œå°±å¯å¯¹ä¹‹
+å®£æˆ˜ï¼Œå®£æˆ˜æ–¹å¿…é¡»å»ºæœ‰æ€»å›ä¸”å­˜æ¬¾å¤§äºŽä¸€åƒé”­é»„é‡‘ï¼Œå¸®æ´¾æ€»äººæ•°ä¸å°‘äºŽ15äººã€‚
 HELP );
 	return 1;
 }
@@ -25,27 +25,27 @@ int main(object me, string arg)
 	if( !arg || sscanf(arg,"%s to %s",arg,gid)<2 ) return help(me);
 	if( arg != "war" ) return help(me);
 	if( !me->query("group/id") )
-		return notify_fail("Äã»¹Ã»ÓÐ¼ÓÈë°ïÅÉ£¬Ï¹º°Ê²Ã´°¡£¿\n");
+		return notify_fail("ä½ è¿˜æ²¡æœ‰åŠ å…¥å¸®æ´¾ï¼ŒçžŽå–Šä»€ä¹ˆå•Šï¼Ÿ\n");
 	if( me->query("group/class") > 3 )
-		return notify_fail("Äã»¹²»¹»×Ê¸ñÐûÕ½¡£\n");
+		return notify_fail("ä½ è¿˜ä¸å¤Ÿèµ„æ ¼å®£æˆ˜ã€‚\n");
 	if( me->query("group/id") == gid )
-		return notify_fail("Ïò×Ô¼ºµÄ°ïÅÉÐûÕ½£¿\n");
+		return notify_fail("å‘è‡ªå·±çš„å¸®æ´¾å®£æˆ˜ï¼Ÿ\n");
 	if( !GROUP_D->site_now(me->query("group/id")) )
 		return notify_fail( GROUP_D->get_last_error() );
 	if( !GROUP_D->site_now(gid) )
 		return notify_fail( GROUP_D->get_last_error() );
 
 	if ( GROUP_D->get_group(me->query("group/id"), 0)["money"] < 1000)
-		return notify_fail("ÄãÃ»ÓÐÉèÁ¢×ÜÌ³£¬ÎÞ·¨ÐûÕ½¡£\n");
+		return notify_fail("ä½ æ²¡æœ‰è®¾ç«‹æ€»å›ï¼Œæ— æ³•å®£æˆ˜ã€‚\n");
 
 	if ( GROUP_D->get_group_members(me->query("group/id")) < 15 )
-		return notify_fail("Äã°ïÅÉÀïÃæµÄÈËÊý²»¹»£¬ÎÞ·¨ÐûÕ½¡£\n");
+		return notify_fail("ä½ å¸®æ´¾é‡Œé¢çš„äººæ•°ä¸å¤Ÿï¼Œæ— æ³•å®£æˆ˜ã€‚\n");
 
 	if( GROUP_D->get_group(gid,1)["target"] != me->query("group/id") ) {
 		i = GROUP_D->query_master_count(gid);
 		j = GROUP_D->query_master_count(gid,1);
 		if ((i>=5 && j<2) || j<1)
-			return notify_fail("¶Ô·½µÄÁìµ¼ÈË¶¼²»ÔÚ£¬ÄãÐûÕ½Ò²Ã»ÓÐÓÃ°¡¡£\n");
+			return notify_fail("å¯¹æ–¹çš„é¢†å¯¼äººéƒ½ä¸åœ¨ï¼Œä½ å®£æˆ˜ä¹Ÿæ²¡æœ‰ç”¨å•Šã€‚\n");
 	}
 
 	if( stringp(res=GROUP_D->declare_war(me,gid)) )

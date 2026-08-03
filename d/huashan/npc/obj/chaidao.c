@@ -6,17 +6,17 @@ inherit BLADE;
 
 void create()
 {
-        set_name("²ñµ¶", ({ "chai dao", "chaidao", "dao" }));
+        set_name("æŸ´åˆ€", ({ "chai dao", "chaidao", "dao" }));
         set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "±ú");
-                  set("long", "ÕâÊÇÒ»°Ñ²ñµ¶£¬¿³²ñ±Ø±¸¡£\n");
+		set("unit", "æŸ„");
+                  set("long", "è¿™æ˜¯ä¸€æŠŠæŸ´åˆ€ï¼Œç æŸ´å¿…å¤‡ã€‚\n");
                 set("value", 300);
 		set("material", "steel");
-                  set("wield_msg", "$N¡¸à§¡¹µØ³é³öÒ»°Ñ$nÎÕÔÚÊÖÖĞ¡£\n");
-                  set("unwield_msg", "$N½«ÊÖÖĞµÄ$n±ğÔÚÑü¼ä¡£\n");
+                  set("wield_msg", "$Nã€Œå”°ã€åœ°æŠ½å‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                  set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nåˆ«åœ¨è…°é—´ã€‚\n");
 	}
         init_blade(4);
 	setup();

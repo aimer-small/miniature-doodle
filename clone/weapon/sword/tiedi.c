@@ -1,4 +1,4 @@
-// tiedi.c ÌúµÑ
+// tiedi.c é“ç¬›
 
 #include <weapon.h>
 
@@ -6,23 +6,23 @@ inherit SWORD;
 
 void create()
 {
-        set_name("ÌúµÑ",({"tie di","di"}));
+        set_name("é“ç¬›",({"tie di","di"}));
  set_weight(1500);
         if (clonep())
                 set_default_object(__FILE__);
         else{
-                set("unit", "Ö§");
+                set("unit", "æ”¯");
                 set("value", 600);
                 set("material", "steel");
-                set("long","ÕâÊÇÒ»Ö§µÑ×Ó£¬×ö¹¤Ê®·Ö¾«Ï¸£¬µÑÉíÒşÒş·¢×Åºì¹â£¬ËÆºõÊÇ¾«Ìú²ôÔÓĞşÌúËùÖı¡£\n");
-                set("wield_msg","$NÉìÊÖÇáÇáÒ»ÕĞ£¬Ò»Ö§$nÒÑ³öÏÖÔÚ$NÊÖÖĞ¡£\n");
+                set("long","è¿™æ˜¯ä¸€æ”¯ç¬›å­ï¼Œåšå·¥ååˆ†ç²¾ç»†ï¼Œç¬›èº«éšéšå‘ç€çº¢å…‰ï¼Œä¼¼ä¹æ˜¯ç²¾é“æºæ‚ç„é“æ‰€é“¸ã€‚\n");
+                set("wield_msg","$Nä¼¸æ‰‹è½»è½»ä¸€æ‹›ï¼Œä¸€æ”¯$nå·²å‡ºç°åœ¨$Næ‰‹ä¸­ã€‚\n");
                 set("rigidity", 3);
                 set("wield_neili", 500);
                 set("wield_maxneili", 900);
                 set("wield_str", 22);   
                 set("weapon_prop/parry", 2);
                 set("unique", 1);
-                set("unwield_msg","$NÒ»ÉùÇåĞ¥£¬½«$n²å»ØÑü¼ä¡£\n");
+                set("unwield_msg","$Nä¸€å£°æ¸…å•¸ï¼Œå°†$næ’å›è…°é—´ã€‚\n");
         }
         init_sword(48);
         setup();

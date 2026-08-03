@@ -1,13 +1,13 @@
-// shentong.c ÉñÍ¨
+// shentong.c ç¥žé€š
 // Creat by Looklove 2001.10.11
-// Ð´ÍêÒÔºó²ÅÌýËµ¸úhs yun zixiaºÜÏó£¬²»¹ýÎÒÔ­À´ÊÇ²»ÖªµÀzixiaµÄ¡£
-// ¶øÇÒÕâ¸öÔ­À´ÓÐdouble_atteck ±»river È¥µôÁË£¬ÎÒ¿ÉÃ»ÕÕ³­zixia¡£ºÙºÙ¡£
-// ´Ë×¢ÊÍÇëÎðÈ¥µô¡£Ð»Ð»£¡
+// å†™å®Œä»¥åŽæ‰å¬è¯´è·Ÿhs yun zixiaå¾ˆè±¡ï¼Œä¸è¿‡æˆ‘åŽŸæ¥æ˜¯ä¸çŸ¥é“zixiaçš„ã€‚
+// è€Œä¸”è¿™ä¸ªåŽŸæ¥æœ‰double_atteck è¢«river åŽ»æŽ‰äº†ï¼Œæˆ‘å¯æ²¡ç…§æŠ„zixiaã€‚å˜¿å˜¿ã€‚
+// æ­¤æ³¨é‡Šè¯·å‹¿åŽ»æŽ‰ã€‚è°¢è°¢ï¼
 
 #include <ansi.h>
 inherit F_CLEAN_UP;
 
-string exert_name(){ return HIW"ÉñÍ¨"NOR; }
+string exert_name(){ return HIW"ç¥žé€š"NOR; }
 
 int exert(object me, object target)
 {
@@ -18,24 +18,24 @@ int exert(object me, object target)
 	max = me->query("max_qi");
 
 	if( me->query_skill("medicine", 1) < 100 )
-		return notify_fail("ÄãµÄ±¾²ÝÊõÀí¼¶±ð²»¹»¡£\n");
+		return notify_fail("ä½ çš„æœ¬è‰æœ¯ç†çº§åˆ«ä¸å¤Ÿã€‚\n");
 
 	if( skill < 150 )
-		return notify_fail("ÄãµÄ»ìÌìÆø¹¦¼¶±ð²»¹»¡£\n");
+		return notify_fail("ä½ çš„æ··å¤©æ°”åŠŸçº§åˆ«ä¸å¤Ÿã€‚\n");
 
 	if( me->query("neili") < 500 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»¹»¡£\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸å¤Ÿã€‚\n");
 
 	if( me->query_skill_mapped("force") != "huntian-qigong" )
-		return notify_fail("ÄãµÄÄÚ¹¦²»¶Ô¡£\n");
+		return notify_fail("ä½ çš„å†…åŠŸä¸å¯¹ã€‚\n");
 
 	if( !me->is_fighting() )
-		return notify_fail("ÉñÍ¨Ö»ÄÜÔÚÕ½¶·ÖÐÊ¹ÓÃ¡£\n");
+		return notify_fail("ç¥žé€šåªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
 
 	if( me->query_temp("htqg/shentong") )
-		return notify_fail("ÄãÒÑ¾­ÔÚÔËÉñÍ¨ÖÐÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åœ¨è¿ç¥žé€šä¸­äº†ã€‚\n");
 
-	message_vision(HIW"\n$NÉñÉ«±¯âë£¬×ÝÉùÏòÌì³¤Ð¥£¬¶ÙÊ±È«ÉíÕæÆø¹Äµ´£¬ÒÂÅÛ·ÉÎè¡£\n" NOR, me);
+	message_vision(HIW"\n$Nç¥žè‰²æ‚²æ€†ï¼Œçºµå£°å‘å¤©é•¿å•¸ï¼Œé¡¿æ—¶å…¨èº«çœŸæ°”é¼“è¡ï¼Œè¡£è¢é£žèˆžã€‚\n" NOR, me);
 
 	if( max > eff ) {
 		me->receive_curing("qi", max/10);
@@ -50,7 +50,7 @@ int exert(object me, object target)
 	me->set_temp("htqg/shentong", 1);
 	call_out("remove_effect", 1, me, skill);
 	me->start_busy(random(2));
-	me->start_exert(1, "ÉñÍ¨");
+	me->start_exert(1, "ç¥žé€š");
 	return 1;
 }
 
@@ -65,22 +65,22 @@ void remove_effect(object me, int skill)
 		if( me->query("neili") > me->query("max_neili") * 2 )
 			me->set("neili", me->query("max_neili")*2-1);
 		me->delete_temp("htqg/shentong");
-		message_vision(HIW"$N»ìÌìÆø¹¦ÔËÐÐÍê±Ï£¬¹Äµ´ÔÚÒÂÅÛÏÂµÄÕæÆøÏûÊ§ÁË¡£\n"NOR, me);
+		message_vision(HIW"$Næ··å¤©æ°”åŠŸè¿è¡Œå®Œæ¯•ï¼Œé¼“è¡åœ¨è¡£è¢ä¸‹çš„çœŸæ°”æ¶ˆå¤±äº†ã€‚\n"NOR, me);
 	}
 }
 
 int help(object me)
 {
-        write(HIW"\n»ìÌìÆø¹¦Ö®¡¸ÉñÍ¨¡¹£º"NOR"\n");
+        write(HIW"\næ··å¤©æ°”åŠŸä¹‹ã€Œç¥žé€šã€ï¼š"NOR"\n");
         write(@HELP
-        ÉñÍ¨Îª»ìÌìÆø¹¦ÖØÒª¼¼ÄÜÖ®Ò»¡£Õ½¶·ÖÐÍ¨¹ýÔËÉñÍ¨¿ÉÒÔ´ó·ù¶ÈÌáÉýµ±Ç°ÄÚÁ¦¡£
-        ²¢ÇÒÓÐÒ»¶¨µÄÁÆÉË¹¦Ð§£¬¿ÉÒÔ¶ÌÊ±¼äÄÚ»Ö¸´ÉËÊÆ20£¥¡£
-        ×¢Òâ£ºÔË¹¦½áÊø»á½µµÍ1µã×î´óÄÚÁ¦¡£
-        ÒªÇó£º
-                µ±Ç°ÄÚÁ¦  500 ÒÔÉÏ£»
-                »ìÌìÆø¹¦µÈ¼¶ 150 ¼¶ÒÔÉÏ£»
-                ±¾²ÝÊõÀíµÈ¼¶ 100 ¼¶ÒÔÉÏ£»
-                Õ½¶·ÖÐÊ¹ÓÃ¡£
+        ç¥žé€šä¸ºæ··å¤©æ°”åŠŸé‡è¦æŠ€èƒ½ä¹‹ä¸€ã€‚æˆ˜æ–—ä¸­é€šè¿‡è¿ç¥žé€šå¯ä»¥å¤§å¹…åº¦æå‡å½“å‰å†…åŠ›ã€‚
+        å¹¶ä¸”æœ‰ä¸€å®šçš„ç–—ä¼¤åŠŸæ•ˆï¼Œå¯ä»¥çŸ­æ—¶é—´å†…æ¢å¤ä¼¤åŠ¿20ï¼…ã€‚
+        æ³¨æ„ï¼šè¿åŠŸç»“æŸä¼šé™ä½Ž1ç‚¹æœ€å¤§å†…åŠ›ã€‚
+        è¦æ±‚ï¼š
+                å½“å‰å†…åŠ›  500 ä»¥ä¸Šï¼›
+                æ··å¤©æ°”åŠŸç­‰çº§ 150 çº§ä»¥ä¸Šï¼›
+                æœ¬è‰æœ¯ç†ç­‰çº§ 100 çº§ä»¥ä¸Šï¼›
+                æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚
 HELP
         );
         return 1;

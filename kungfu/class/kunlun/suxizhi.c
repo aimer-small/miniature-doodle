@@ -1,13 +1,13 @@
 // gaozecheng.c (kunlun)
-// By Spiderii ÔİÊ±¹Ø±Õ£¬²»ÊÕÍ½
+// By Spiderii æš‚æ—¶å…³é—­ï¼Œä¸æ”¶å¾’
 inherit NPC;
 // inherit F_MASTER;
 
 void create()
 {
-	set_name("ËÕÏ°Ö®", ({ "su xizhi", "su" }));
-	set("long", "ËûÈıÊ®¶àËêÄê¼Í¡£\n");
-	set("gender", "ÄĞĞÔ");
+	set_name("è‹ä¹ ä¹‹", ({ "su xizhi", "su" }));
+	set("long", "ä»–ä¸‰åå¤šå²å¹´çºªã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 32);
 	set("attitude", "heroism");
 	set("shen_type", 1);
@@ -41,7 +41,7 @@ void create()
 	map_skill("cuff", "zhentian-quan");
 	prepare_skill("cuff", "zhentian-quan");
 
-	create_family("À¥ÂØÅÉ", 4, "µÜ×Ó");
+	create_family("æ˜†ä»‘æ´¾", 4, "å¼Ÿå­");
 	setup();
         carry_object(BINGQI_D("changjian"))->wield();
         carry_object("/d/kunlun/obj/pao3")->wear();

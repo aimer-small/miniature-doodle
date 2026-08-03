@@ -4,17 +4,17 @@ inherit ROOM;
 #include <ansi.h>
 void create()
 {
-     set("short", HIC"¹Èµ×Ë®Ì¶"NOR);
+     set("short", HIC"è°·åº•æ°´æ½­"NOR);
      set("long", @LONG
-ÄãÀú¾¡¼áĞÁ£¬ÖÕÓÚµ½´ïÁËË®Ì¶µ×²¿£¬Ë®Ì¶ËÄÖÜ²ã²ãµşµşµÄ¶¼ÊÇÍòÄêĞş±ù¡£
-ÄãÍ·¶¥×óÉÏ·½(zuoshang)ÒşÔ¼Í¸×Å¹âÁÁ¡£Ë®ÖĞº®Æø±ÆÈË£¬ÕóÕó´Ì¹Ç±ùÆøÊ¹Äã¸Ğ
-¾õ¾ÍÏóµ¶¹ÎÒ»ÑùµÄÌÛÍ´£¬´Ë´¦¿´À´²»¿É¶à´ô£¬»¹ÊÇ¸Ï¿ìÀë¿ª°É¡£
+ä½ å†å°½åšè¾›ï¼Œç»ˆäºåˆ°è¾¾äº†æ°´æ½­åº•éƒ¨ï¼Œæ°´æ½­å››å‘¨å±‚å±‚å å çš„éƒ½æ˜¯ä¸‡å¹´ç„å†°ã€‚
+ä½ å¤´é¡¶å·¦ä¸Šæ–¹(zuoshang)éšçº¦é€ç€å…‰äº®ã€‚æ°´ä¸­å¯’æ°”é€¼äººï¼Œé˜µé˜µåˆºéª¨å†°æ°”ä½¿ä½ æ„Ÿ
+è§‰å°±è±¡åˆ€åˆ®ä¸€æ ·çš„ç–¼ç—›ï¼Œæ­¤å¤„çœ‹æ¥ä¸å¯å¤šå‘†ï¼Œè¿˜æ˜¯èµ¶å¿«ç¦»å¼€å§ã€‚
 LONG
         );
      set("item_desc", ([
-        "zuoshang": HIC"Äã¶¨¾¦¹ÛÇÆ£¬¹âÁÁ´¦ËÆºõÊÇÒ»ÌõĞ±ÉÏµÄË®µÀ¡£\n"NOR,
+        "zuoshang": HIC"ä½ å®šç›è§‚ç§ï¼Œå…‰äº®å¤„ä¼¼ä¹æ˜¯ä¸€æ¡æ–œä¸Šçš„æ°´é“ã€‚\n"NOR,
      ]));
-     set("outdoors", "¾øÇé¹È");    
+     set("outdoors", "ç»æƒ…è°·");    
      setup();
  
 }
@@ -25,7 +25,7 @@ void init()
        me=this_player();
        add_action("do_qian","qian");
        if ((int)me->query("jingli", 1) < 0||(int)me->query("qi", 1) < 0){
-         me->set_temp("last_damage_from","ÔÚË®Ì¶ÖĞ±»ÑÍ");
+         me->set_temp("last_damage_from","åœ¨æ°´æ½­ä¸­è¢«æ·¹");
          me->unconcious();
          me->die();
          return;
@@ -37,31 +37,31 @@ int do_qian(string arg)
 	object me;
        	me=this_player();
        	if (me->is_busy() || me->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄÄ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å“ªï¼\n");
        	if ( !arg || (arg != "zuoshang" && arg != "up") )
-       		return notify_fail("ÄãÒªÍùÄÄÀïÇ±£¿\n");
+       		return notify_fail("ä½ è¦å¾€å“ªé‡Œæ½œï¼Ÿ\n");
        	if (arg =="zuoshang"){
            if ((int)me->query_encumbrance() * 100 / (int)me->query_max_encumbrance() >= 40) 
-		return notify_fail("ÄãÉí×Ó³ÁÖØ£¬ÓÃ¾¡È«Á¦Ò²ÎŞ·¨ÏòÉÏÃæÓÎÈ¥£¡\n");
-          message_vision(YEL"$NÁ½ÍÈÓÃÁ¦Ò»µÅ£¬Ïò×óÉÏ·½¸¡È¥¡£\n"NOR, me);
+		return notify_fail("ä½ èº«å­æ²‰é‡ï¼Œç”¨å°½å…¨åŠ›ä¹Ÿæ— æ³•å‘ä¸Šé¢æ¸¸å»ï¼\n");
+          message_vision(YEL"$Nä¸¤è…¿ç”¨åŠ›ä¸€è¹¬ï¼Œå‘å·¦ä¸Šæ–¹æµ®å»ã€‚\n"NOR, me);
           me->receive_damage("jingli", 200);
 	  me->receive_damage("qi", 200);
        	  me->move(__DIR__"tongdao");
           me->start_busy(1);
-       	  tell_room(environment(me), me->name() + "´ÓĞ±ÏÂ·½ÏòÇ±ÁËÉÏÀ´¡£\n", ({ me }));
-          message_vision (HIB"$NÖ»¾õµÃÍ·ÔÎÔÎµÄ£¬ÉíÌå½şÔÚ±ùÀäµÄË®ÖĞ£¬²»×¡µÄ²ü¶¶¡£\n"NOR,me);
+       	  tell_room(environment(me), me->name() + "ä»æ–œä¸‹æ–¹å‘æ½œäº†ä¸Šæ¥ã€‚\n", ({ me }));
+          message_vision (HIB"$Nåªè§‰å¾—å¤´æ™•æ™•çš„ï¼Œèº«ä½“æµ¸åœ¨å†°å†·çš„æ°´ä¸­ï¼Œä¸ä½çš„é¢¤æŠ–ã€‚\n"NOR,me);
           return 1;
        	  }
        	else {
           if ((int)me->query_encumbrance() * 100 / (int)me->query_max_encumbrance() >= 40) 
-	    return notify_fail("ÄãÉí×Ó³ÁÖØ£¬ÓÃ¾¡È«Á¦Ò²ÎŞ·¨Ç±»ØÉÏÃæ!\n");
-          message_vision(YEL"$NÁ½ÍÈÓÃÁ¦Ò»µÅ£¬ÏòÉÏÃæ¸¡È¥¡£\n"NOR, me);
+	    return notify_fail("ä½ èº«å­æ²‰é‡ï¼Œç”¨å°½å…¨åŠ›ä¹Ÿæ— æ³•æ½œå›ä¸Šé¢!\n");
+          message_vision(YEL"$Nä¸¤è…¿ç”¨åŠ›ä¸€è¹¬ï¼Œå‘ä¸Šé¢æµ®å»ã€‚\n"NOR, me);
           me->receive_damage("jingli", 200);
           me->receive_damage("qi", 200);
           me->move(__DIR__"guditan3");
           me->start_busy(1);
-          tell_room(environment(me), me->name() + "´ÓÏÂÃæÇ±ÁËÉÏÀ´¡£\n", ({ me }));
-          message_vision (HIB"$NÖ»¾õµÃÍ·ÔÎÔÎµÄ£¬ÉíÌå½şÔÚ±ùÀäµÄË®ÖĞ£¬²»×¡µÄ²ü¶¶¡£\n"NOR,me);
+          tell_room(environment(me), me->name() + "ä»ä¸‹é¢æ½œäº†ä¸Šæ¥ã€‚\n", ({ me }));
+          message_vision (HIB"$Nåªè§‰å¾—å¤´æ™•æ™•çš„ï¼Œèº«ä½“æµ¸åœ¨å†°å†·çš„æ°´ä¸­ï¼Œä¸ä½çš„é¢¤æŠ–ã€‚\n"NOR,me);
           return 1;
 	  } 
      return 1;

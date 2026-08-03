@@ -7,21 +7,21 @@ int do_aoyao(string arg)
     ob = this_player();
 
     if( ob->is_busy() ) 
-            return notify_fail("ÄãÕıÃ¦×ÅÄØ¡£\n");
+            return notify_fail("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
 
     if( ob->is_fighting() )
-            return notify_fail("ÄãÕıÔÚÕ½¶·ÖĞ¡£\n");
+            return notify_fail("ä½ æ­£åœ¨æˆ˜æ–—ä¸­ã€‚\n");
 
     if( !ob->query_temp("doing", 1) )
-            return notify_fail("ÄãÃ»ÔÚ°¾Ò©¡£\n");
+            return notify_fail("ä½ æ²¡åœ¨ç†¬è¯ã€‚\n");
 
     if( me->query("marks/open")) 
-            return notify_fail("µ¤Â¯µÄ¸Ç×ÓÃ»ÓĞ¸ÇºÃ¡£\n");
+            return notify_fail("ä¸¹ç‚‰çš„ç›–å­æ²¡æœ‰ç›–å¥½ã€‚\n");
 
     if( !me->query("marks/burned", 1) ) 
-            return notify_fail("»ğÊÆ»¹²»ÍúÊ¢¡£\n");               
+            return notify_fail("ç«åŠ¿è¿˜ä¸æ—ºç››ã€‚\n");               
 
-    message_vision(HIY"\n$NÊ¹¾¢È«ÉíµÄÁ¦Æø£¬²»¶ÏµÄ½Á°èµ¤Â¯ÄÚµÄÒ©ÌÀ£¬ÀÛµÄÂúÉíÊÇº¹¡£\n"NOR, ob);
+    message_vision(HIY"\n$Nä½¿åŠ²å…¨èº«çš„åŠ›æ°”ï¼Œä¸æ–­çš„æ…æ‹Œä¸¹ç‚‰å†…çš„è¯æ±¤ï¼Œç´¯çš„æ»¡èº«æ˜¯æ±—ã€‚\n"NOR, ob);
     me->set("marks/aoyao", 1);
     ob->start_busy(10);
     return 1;

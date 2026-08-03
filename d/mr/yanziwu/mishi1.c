@@ -4,9 +4,9 @@ inherit ROOM;
 
 void create()
 {
-	set("short",HIG"密室"NOR);
+	set("short",HIG"瀵嗗"NOR);
 	set("long",
-"这里是一个密室。\n"
+"杩欓噷鏄竴涓瘑瀹ゃ�俓n"
 );
 	set("exits",([
 		"up" : __DIR__"mishi",

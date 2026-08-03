@@ -8,8 +8,8 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÎåÂÖ´ó×ªÖ®Perform NPC", ({ "wulun npc", "npc"}));
-        set("gender", "ÄÐÐÔ");
+        set_name("äº”è½®å¤§è½¬ä¹‹Perform NPC", ({ "wulun npc", "npc"}));
+        set("gender", "ç”·æ€§");
         set("age", 20);
         set("attitude", "peaceful");
         set("str", 40);
@@ -57,25 +57,25 @@ void die()
         || !living(me) 
    || environment(me) != environment(this_object()) ) ){
 		if( objectp(weapon) && environment(weapon) == this_object() ){
-			message_vision(HIW"\n$N"HIW"ÔÚ¿ÕÖÐÐý×ª·ÉÐÐÖ®ÊÆÒÑÈõ£¬µ±µ±µ±¼¸Éù£¬¶¼Âäµ½ÁËµØÉÏ¡£\n"NOR, weapon);	
+			message_vision(HIW"\n$N"HIW"åœ¨ç©ºä¸­æ—‹è½¬é£žè¡Œä¹‹åŠ¿å·²å¼±ï¼Œå½“å½“å½“å‡ å£°ï¼Œéƒ½è½åˆ°äº†åœ°ä¸Šã€‚\n"NOR, weapon);	
    			weapon->move(environment(this_object()));
    		}
    	}
    	
            else if( objectp(weapon) && environment(weapon) == this_object() && weapon->query("id")!="fenghuo lun" ){
         	if( query("dazhuan_finish") ){
-        		message_vision(HIW"\n$N"HIW"ÔÚ¿ÕÖÐÐý×ª·ÉÐÐÖ®ÊÆÒÑÈõ£¬µ±µ±µ±¼¸Éù£¬¶¼Âäµ½ÁËµØÉÏ¡£\n"NOR, weapon);	
+        		message_vision(HIW"\n$N"HIW"åœ¨ç©ºä¸­æ—‹è½¬é£žè¡Œä¹‹åŠ¿å·²å¼±ï¼Œå½“å½“å½“å‡ å£°ï¼Œéƒ½è½åˆ°äº†åœ°ä¸Šã€‚\n"NOR, weapon);	
    			weapon->move(environment(this_object()));
    		}
    		else {
-   			message_vision(HIY "\n$n"HIY"ÔÚ$NÉíÅÔÈÆÁË¸öÈ¦×Ó£¬$PÉìÊÖÒ»ÕÐ£¬ÄÇ·ÉÐÐÖÐµÄ$n"HIY"±ãÖØÐÂ·É»Ø$PµÄÊÖÖÐ£¡\n\n"NOR, me, weapon);
+   			message_vision(HIY "\n$n"HIY"åœ¨$Nèº«æ—ç»•äº†ä¸ªåœˆå­ï¼Œ$Pä¼¸æ‰‹ä¸€æ‹›ï¼Œé‚£é£žè¡Œä¸­çš„$n"HIY"ä¾¿é‡æ–°é£žå›ž$Pçš„æ‰‹ä¸­ï¼\n\n"NOR, me, weapon);
    			weapon->move(me);
    			if( !me->query_temp("weapon") )
    				weapon->wield();
    		}
         }
            else if( weapon->query("id")=="fenghuo lun" )
-                           message_vision(HIY "\n$n"HIY"ÔÚ$NÉíÅÔÈÆÁË¸öÈ¦×Ó£¬$PÉìÊÖÒ»ÕÐ£¬ÄÇ·ÉÐÐÖÐµÄ$n"HIY"±ãÖØÐÂ·É»Ø$PµÄÊÖÖÐ£¡\n\n"NOR, me, weapon);
+                           message_vision(HIY "\n$n"HIY"åœ¨$Nèº«æ—ç»•äº†ä¸ªåœˆå­ï¼Œ$Pä¼¸æ‰‹ä¸€æ‹›ï¼Œé‚£é£žè¡Œä¸­çš„$n"HIY"ä¾¿é‡æ–°é£žå›ž$Pçš„æ‰‹ä¸­ï¼\n\n"NOR, me, weapon);
         destruct(this_object());
 }
 
@@ -126,17 +126,17 @@ void heart_beat()
 		return;
 	}
 	if( me->query_skill_mapped("hammer") != "xiangfu-lun" ){
-            	message_vision(HIY"$N±ä»»ÁËÂÖ·¨ÕÐÊý£¬·ÉÐÐÖÐµÄ$n"HIY"¶ÙÊ±ÎÞ·¨¿ØÖÆÁË£¡\n"NOR,me, weapon);
+            	message_vision(HIY"$Nå˜æ¢äº†è½®æ³•æ‹›æ•°ï¼Œé£žè¡Œä¸­çš„$n"HIY"é¡¿æ—¶æ— æ³•æŽ§åˆ¶äº†ï¼\n"NOR,me, weapon);
             	die();
             	return;
         }
   	else if( me->query_skill_mapped("force") != "longxiang-boruo"){
-            	message_vision(HIY"$N±ä»»ÁËÄÚ¹¦ÕÐÊý£¬·ÉÐÐÖÐµÄ$n"HIY"¶ÙÊ±ÎÞ·¨¿ØÖÆÁË£¡\n"NOR,me, weapon);
+            	message_vision(HIY"$Nå˜æ¢äº†å†…åŠŸæ‹›æ•°ï¼Œé£žè¡Œä¸­çš„$n"HIY"é¡¿æ—¶æ— æ³•æŽ§åˆ¶äº†ï¼\n"NOR,me, weapon);
             	die();
             	return;
         }
     	else if( me->query("neili") < 300 ){
-            	message_vision(HIY"$NÄÚÁ¦ÏûºÄÉõ¾Þ£¬ÔÙÒ²¿ØÖÆ²»ÁË·ÉÐÐÖÐµÄ$n"HIY"ÁË£¡\n"NOR,me, weapon);
+            	message_vision(HIY"$Nå†…åŠ›æ¶ˆè€—ç”šå·¨ï¼Œå†ä¹ŸæŽ§åˆ¶ä¸äº†é£žè¡Œä¸­çš„$n"HIY"äº†ï¼\n"NOR,me, weapon);
             	die();
             	return;
         }

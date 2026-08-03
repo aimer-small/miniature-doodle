@@ -4,21 +4,21 @@ inherit STICK;
 
 void create()
 {
- set_name(HIR"É±Íş°ô"NOR, ({ "shawei bang","bang" }));
+ set_name(HIR"æ€å¨æ£’"NOR, ({ "shawei bang","bang" }));
        set_weight(8000);
        if (clonep())
                set_default_object(__FILE__);
        else {
-               set("unit", "¸ù");
-               set("long", "Ò»ÌõÓÖ´ÖÓÖ³¤µÄÄ¾ÖÆÉ±Íş°ô£¬Á½Í·ºìÉ«¡£\n");
+               set("unit", "æ ¹");
+               set("long", "ä¸€æ¡åˆç²—åˆé•¿çš„æœ¨åˆ¶æ€å¨æ£’ï¼Œä¸¤å¤´çº¢è‰²ã€‚\n");
                set("value", 10000000);
 		set("unique", 1);
                set("sharpness",1);
 		set("wield_str",26);
 		set("rigidity",3);
                set("material", "wood");
-               set("wield_msg", "$NÄÃ³öÒ»¸ùÁ½Í·ºìÉ«µÄ$nÎÕÔÚÊÖÖĞ¡£\n");
-               set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·ÅÏÂ¡£\n");
+               set("wield_msg", "$Næ‹¿å‡ºä¸€æ ¹ä¸¤å¤´çº¢è‰²çš„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+               set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¾ä¸‹ã€‚\n");
        }
  	init_stick(60);
        setup();

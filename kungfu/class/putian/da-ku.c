@@ -7,19 +7,19 @@ inherit F_MASTER;
 void create()
 {
         object ob;
-        set_name("´ó¿à´óÊ¦", ({
+        set_name("å¤§è‹¦å¤§å¸ˆ", ({
                 "daku dashi",
                 "daku",
                 "dashi",
         }));
         set("long",
-                "ËûÃæÉ«ºìÈó£¬Áô×ÅÒ»ÂÆ»¨°×µÄºúĞë£¬ÏÔµÃÉñ²ÉìÚìÚ¡£\n"
+                "ä»–é¢è‰²çº¢æ¶¦ï¼Œç•™ç€ä¸€ç¼•èŠ±ç™½çš„èƒ¡é¡»ï¼Œæ˜¾å¾—ç¥é‡‡ç† ç† ã€‚\n"
         );
 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("attitude", "friendly");
         set("class", "bonze");
-	set("title", "ÆÎÌïÉÙÁÖËÂ¼àËÂ");
+	set("title", "è†ç”°å°‘æ—å¯ºç›‘å¯º");
 
         set("age", 54);
         set("shen_type", 1);
@@ -64,7 +64,7 @@ void create()
 		(: perform_action, "club.zuijiu" :),
 	}));
 
-        create_family("ÄÏÉÙÁÖ", 22, "µÜ×Ó");
+        create_family("å—å°‘æ—", 22, "å¼Ÿå­");
 
         setup();
 

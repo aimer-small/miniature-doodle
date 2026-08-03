@@ -1,13 +1,13 @@
-// zhan.c 展飞
+// zhan.c 灞曢
 // By River 2003.2.26
 #include <ansi.h>
 inherit NPC;
 
 void create()
 {
-	set_name("展飞",({"zhan fei", "zhan", "fei"}));
-	set("title", "长乐帮豹捷堂香主");
-	set("long", "他就是长乐帮豹捷堂香主展飞。\n");
+	set_name("灞曢",({"zhan fei", "zhan", "fei"}));
+	set("title", "闀夸箰甯惫鎹峰爞棣欎富");
+	set("long", "浠栧氨鏄暱涔愬府璞规嵎鍫傞涓诲睍椋炪�俓n");
 	set("age", 35);
 	set("attitude", "peaceful");
 	set("shen", 1000);

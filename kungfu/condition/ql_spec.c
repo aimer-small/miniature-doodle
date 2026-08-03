@@ -9,7 +9,7 @@ int update_condition(object me, int duration)
        if (duration < 1){
            me->delete("ql_spec_attack");
            me->set("quest/bwdh/ql_cooldown",time());
-           message_vision(HIC"¹ýÁËÁ¼¾Ã£¬$NµÄÉíÐÎÖÕÓÚÂýÂý±ä»ØÕý³££¡\n"NOR,me);
+           message_vision(HIC"è¿‡äº†è‰¯ä¹…ï¼Œ$Nçš„èº«å½¢ç»ˆäºŽæ…¢æ…¢å˜å›žæ­£å¸¸ï¼\n"NOR,me);
            return 0;
        }
        me->apply_condition("ql_spec", duration - 1);

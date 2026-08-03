@@ -2,11 +2,11 @@
 //
 //      dellease.c
 //      Created by mychat 31/04/2004
-//      ±£ÁôÎÒµÄÇ©ÃûÇé¿öÏÂ free of use.
-//      µ±È»¸ü»¶Ó­ĞŞ¸Ä¡¢ÓÅ»¯µÈ¡£
+//      ä¿ç•™æˆ‘çš„ç­¾åæƒ…å†µä¸‹ free of use.
+//      å½“ç„¶æ›´æ¬¢è¿ä¿®æ”¹ã€ä¼˜åŒ–ç­‰ã€‚
 //
 //      Email & MSN: codemake@163.com
-//      ÎÄ¼şÎ»ÓÚ/cmds/admÏÂ
+//      æ–‡ä»¶ä½äº/cmds/admä¸‹
 // 		
 ***********************************************************************************/
 
@@ -21,13 +21,13 @@ int main(object me, string arg)
 	
 	if( !arg || sscanf(arg, "%s", roomid)!=1 )
 	{
-		write("²ÎÊı²»Æë!!\n");
-		if(leasemap) write(sprintf("Ä¿Ç°¿ÉÓÃ£º%s\n",implode(leasemap,",")));
+		write("å‚æ•°ä¸é½!!\n");
+		if(leasemap) write(sprintf("ç›®å‰å¯ç”¨ï¼š%s\n",implode(leasemap,",")));
 		return 1;		
 	}
 
 	if( !ROOMLEASE_D->query_ifhavebidname(roomid) )	
-		return notify_fail(HIY"Ã»ÓĞÕâ¸öµêÆÌÒªÍ¶±ê\n"NOR );
+		return notify_fail(HIY"æ²¡æœ‰è¿™ä¸ªåº—é“ºè¦æŠ•æ ‡\n"NOR );
 	return ROOMLEASE_D->delete_room(roomid);
 }
 
@@ -35,11 +35,11 @@ int help(object me)
 {
   write(@HELP
 --------------------------------------------------
-Ö¸Áî¸ñÊ½£ºdellease 	roomid
+æŒ‡ä»¤æ ¼å¼ï¼šdellease 	roomid
 
 --------------------------------------------------
-¸Ã·¿¼äÈç¹ûÕıÔÚÍ¶±ê»ò³ö×â¾Í²»ÄÜÉ¾³ı£¬±ØĞëÓÃaddlease½«·¿¼äµÄÊôĞÔĞŞ¸ÄÎª0£¬
-½ûÖ¹Í¶±ê£¬È»ºóÎŞÈËÍ¶±êºÍ×âÓÃÔÙÉ¾³ı¡£
+è¯¥æˆ¿é—´å¦‚æœæ­£åœ¨æŠ•æ ‡æˆ–å‡ºç§Ÿå°±ä¸èƒ½åˆ é™¤ï¼Œå¿…é¡»ç”¨addleaseå°†æˆ¿é—´çš„å±æ€§ä¿®æ”¹ä¸º0ï¼Œ
+ç¦æ­¢æŠ•æ ‡ï¼Œç„¶åæ— äººæŠ•æ ‡å’Œç§Ÿç”¨å†åˆ é™¤ã€‚
 
 write by mychat@ln(codemake@163.com)
 --------------------------------------------------

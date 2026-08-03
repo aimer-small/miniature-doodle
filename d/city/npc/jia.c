@@ -1,14 +1,14 @@
-// jia.c ¼ÖÀÏÁù
+// jia.c è´¾è€å…­
 // by pishou
 
 inherit NPC;
 
 void create()
 {
-    set_name("¼ÖÀÏÁù", ({ "jia laolu", "jia" }));
-	set("gender", "ÄĞĞÔ");
+    set_name("è´¾è€å…­", ({ "jia laolu", "jia" }));
+	set("gender", "ç”·æ€§");
     set("age", 35);
-    set("long", "ËûÊÇÌìµØ»áµÄ¼ÖÀÏÁù¡£\n");
+    set("long", "ä»–æ˜¯å¤©åœ°ä¼šçš„è´¾è€å…­ã€‚\n");
 	
     set("combat_exp", 10000);
     set("shen_type", 1);

@@ -12,15 +12,15 @@ void init()
 
 void create()
 {
-        set_name("ÌìÐÄ½â¶¾µ¤", ({"jiedu dan","dan"}));
+        set_name("å¤©å¿ƒè§£æ¯’ä¸¹", ({"jiedu dan","dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else {
                 set("long",
-                "Îäµ±ÅÉµ¤Ò©£¬½â¶¾ÓÃ¡£\n");
+                "æ­¦å½“æ´¾ä¸¹è¯ï¼Œè§£æ¯’ç”¨ã€‚\n");
                 set_weight(25);
                 set("value", 10);
-                set("unit", "¿Å");
+                set("unit", "é¢—");
                 set("no_get", 1);
                 set("no_drop", 1);
                 set("no_give", 1);
@@ -45,27 +45,27 @@ int do_eat(string arg)
                         }
         if (!id(arg)) return 0;
         if( (int)me->query_condition("medicine") > 0 )
-                return notify_fail("ÄãÉÏ´ÎµÄÒ©¾¢¶ù»¹Ã»¹ýÄØ£¬µÈ»áÔÙ³Ô°É¡£\n");
+                return notify_fail("ä½ ä¸Šæ¬¡çš„è¯åŠ²å„¿è¿˜æ²¡è¿‡å‘¢ï¼Œç­‰ä¼šå†åƒå§ã€‚\n");
 
         plvl= me->query_condition(poison , 1);
 
-        if (!(fam = this_player()->query("family")) || fam["family_name"] !="Îäµ±ÅÉ")
+        if (!(fam = this_player()->query("family")) || fam["family_name"] !="æ­¦å½“æ´¾")
                {
-                tell_object(me, "£ï£ï£ð£ó£¡ÄãÍ»È»·¢ÏÖÉíÉÏÉÙÁËÒ»¿ÅÌìÐÄ½â¶¾µ¤¡£¡£¡£\n");
+                tell_object(me, "ï½ï½ï½ï½“ï¼ä½ çªç„¶å‘çŽ°èº«ä¸Šå°‘äº†ä¸€é¢—å¤©å¿ƒè§£æ¯’ä¸¹ã€‚ã€‚ã€‚\n");
                 destruct(this_object());
                 return 1;
                }
 
         if( plvl == 0 )
-                return notify_fail("Äã²¢Ã»ÖÐ¶¾£¬Ð¡ÐÄ³Ô´íÁËÒ©£¡\n");
+                return notify_fail("ä½ å¹¶æ²¡ä¸­æ¯’ï¼Œå°å¿ƒåƒé”™äº†è¯ï¼\n");
         if((int)me->query("combat_exp") < 100000 )
-                return notify_fail("ÄãµÄÊµÕ½¾­ÑéÌ«µÍ¡£\n");
+                return notify_fail("ä½ çš„å®žæˆ˜ç»éªŒå¤ªä½Žã€‚\n");
         if((int)me->query_skill("yinyun-ziqi", 1) < 80 )
-                return notify_fail("ÄãµÄë³ëµ×ÏÆø¹¦Á¦²»¹»Éîºñ¡£\n");
+                return notify_fail("ä½ çš„æ°¤æ°²ç´«æ°”åŠŸåŠ›ä¸å¤Ÿæ·±åŽšã€‚\n");
         if((int)me->query_skill("medicine", 1) < 60 )
-                return notify_fail("ÄãµÄÒ©ÀíÖªÊ¶»¹²»×ã¡£\n");
+                return notify_fail("ä½ çš„è¯ç†çŸ¥è¯†è¿˜ä¸è¶³ã€‚\n");
 
-        message_vision(MAG"\n$N·þÏÂÒ»¿ÅÌìÐÄ½â¶¾µ¤£¬¸Ðµ½ÌåÄÚËùÖÐµÄ¶¾ÓÐËù¼õÇá£¡\n\n"NOR , me);
+        message_vision(MAG"\n$Næœä¸‹ä¸€é¢—å¤©å¿ƒè§£æ¯’ä¸¹ï¼Œæ„Ÿåˆ°ä½“å†…æ‰€ä¸­çš„æ¯’æœ‰æ‰€å‡è½»ï¼\n\n"NOR , me);
         me->apply_condition("medicine", 3);
         if (plvl < cure) 
             me->apply_condition(poison, 0);

@@ -3,10 +3,10 @@ inherit NPC;
 int ask_job();
 void create()
 {
-        set_name("Ò®ÂÉÆë", ({"yelv qi", "yelv", "qi"}));
-        set("gender", "ÄÐÐÔ");
+        set_name("è€¶å¾‹é½", ({"yelv qi", "yelv", "qi"}));
+        set("gender", "ç”·æ€§");
         set("age", 30);
-        set("long", "ËûÊÇØ¤°ïµÄµÚ¶þÊ®´ú°ïÖ÷£¬¹ù´óÏÀµÄÅ®Ðö¡£\n");
+        set("long", "ä»–æ˜¯ä¸å¸®çš„ç¬¬äºŒåä»£å¸®ä¸»ï¼Œéƒ­å¤§ä¾ çš„å¥³å©¿ã€‚\n");
         set("attitude", "peaceful");
         set("str", 35);
         set("int", 25);
@@ -36,7 +36,7 @@ void create()
         prepare_skill("strike", "xianglong-zhang");
 
         set("inquiry", ([
-                "ÊØ³Ç": (: ask_job :),
+                "å®ˆåŸŽ": (: ask_job :),
         ]) );
 
         set("chat_chance_combat", 100);
@@ -46,7 +46,7 @@ void create()
                 (: perform_action, "strike.paiyun" :),
                 (: perform_action, "strike.kanglong" :),
         }));
-        create_family("Ø¤°ï", 20, "°ïÖ÷");
+        create_family("ä¸å¸®", 20, "å¸®ä¸»");
         setup();
         
         if (clonep()) {
@@ -59,19 +59,19 @@ int ask_job()
        object me = this_player();
        if (!me->query_temp("xy/job"))
        {
-               command("say ÇëÏÈÏòÎÒÔÀ¸¸ÇëÊ¾¡£");
+               command("say è¯·å…ˆå‘æˆ‘å²³çˆ¶è¯·ç¤ºã€‚");
                return 1;
        }
-      if ((me->query("family/family_name") == "¶ëáÒÅÉ")||
-         (me->query("family/family_name") == "¹ÅÄ¹ÅÉ")||
-         (me->query("family/family_name") == "ÌÒ»¨µº")||
-         (me->query("family/family_name") == "Ø¤°ï"))
+      if ((me->query("family/family_name") == "å³¨åµ‹æ´¾")||
+         (me->query("family/family_name") == "å¤å¢“æ´¾")||
+         (me->query("family/family_name") == "æ¡ƒèŠ±å²›")||
+         (me->query("family/family_name") == "ä¸å¸®"))
       {
-               command("say Äã¿ìÈ¥Ö¸¶¨µÄµØµã°É£¬¿´À´ÃÉ¹Å±ø¾ÍÒª¹¥³ÇÁË£¡");
+               command("say ä½ å¿«åŽ»æŒ‡å®šçš„åœ°ç‚¹å§ï¼Œçœ‹æ¥è’™å¤å…µå°±è¦æ”»åŸŽäº†ï¼");
                return 1;
       }
       command("smile");
-      command("say ÕâøÎËäÈ»Ã»Ê²Ã´µÐ¾ü£¬»¹ÊÇÒªÐ¡ÐÄÓÐµÐÈËÍµÏ®¡£");
+      command("say è¿™ï¿½å—¡æ·™å¹»çš‡è£å¹èŠ¯ï¿½ï¼Œè¿˜æ˜¯è¦å°å¿ƒæœ‰æ•Œäººå·è¢­ã€‚");
       me->set_temp("xy/job",2);
       return 1;
 }

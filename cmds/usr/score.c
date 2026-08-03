@@ -25,9 +25,9 @@ int main(object me, string arg)
 		if (wizardp(me)) {
 			if (!ob) ob = LOGIN_D->find_body(arg);
 			if (!ob) ob = find_living(arg);
-			if (!ob || !me->visible(ob)) return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
+			if (!ob || !me->visible(ob)) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
 		}
-		else return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
+		else return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
 	}
 
 	if( ob!=me && !wizardp(me) ) {
@@ -35,14 +35,14 @@ int main(object me, string arg)
 		  || !me->query("group/id")
 		  || me->query("group/id") != ob->query("group/id")
 		  || me->query("group/class") >= ob->query("group/class") )
-			return notify_fail("ÄãÖ»ÄÜ²é¿´Í¬°ïÅÉ£¬ÇÒµÈ¼¶±ÈÄãµÍµÄNPCµÄ×´Ì¬¡£\n");
+			return notify_fail("ä½ åªèƒ½æŸ¥çœ‹åŒå¸®æ´¾ï¼Œä¸”ç­‰çº§æ¯”ä½ ä½çš„NPCçš„çŠ¶æ€ã€‚\n");
 	}
 
 	my = ob->query_entire_dbase();
 // add for temp title display
-	my["title"] ? title = my["title"]: title = "ÎŞ";
+	my["title"] ? title = my["title"]: title = "æ— ";
 	
-// ÏÔÊ¾ÎäÆ÷Î´´òÔìµÄ»ú»á´ÎÊı
+// æ˜¾ç¤ºæ­¦å™¨æœªæ‰“é€ çš„æœºä¼šæ¬¡æ•°
         if (my["combat_exp"] < 500000) user_weapon = 0;
         else if (my["combat_exp"]  < 1000000 && !my["user_weapon_imbued"]) user_weapon = 1;
         else if ((my["combat_exp"]/1000000 - (int)my["user_weapon_imbued"])<0) user_weapon = 0;
@@ -54,31 +54,31 @@ int main(object me, string arg)
 	if (stringp(ob->query_temp("title")))
 		title = ob->query_temp("title");
 
-        line = "\n ¨q©¥©¥"HIW"¡¾Êé½£¸öÈË×ÊÁÏ¿¨¡¿"NOR
-                +(ob->query_temp("big5")?"·±":"¼ò")+"ÌåÖĞÎÄ©¥©¥©×©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥¨r\n";
+        line = "\n â•­â”â”"HIW"ã€ä¹¦å‰‘ä¸ªäººèµ„æ–™å¡ã€‘"NOR
+                +(ob->query_temp("big5")?"ç¹":"ç®€")+"ä½“ä¸­æ–‡â”â”â”³â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â•®\n";
 
-	line += sprintf("©§³Æ    Î½£º%-24s©§Ìå  ÖØ£º¡¸%-28s©§\n",
+	line += sprintf("â”ƒç§°    è°“ï¼š%-24sâ”ƒä½“  é‡ï¼šã€Œ%-28sâ”ƒ\n",
 		RANK_D->query_rank(ob),
-		chinese_number(ob->query_weight()/500)+"½ï¡¹"
+		chinese_number(ob->query_weight()/500)+"æ–¤ã€"
 	);
 
-	line += sprintf("©§Í·    ÏÎ£º%-24s©§%-19s%-19s©§\n", title,
-		"ëö  Á¦£º¡¸"+display_attr(my["str"], ob->query_str())+"¡¹",
-		"¸ù  ¹Ç£º¡¸"+display_attr(my["con"], ob->query_con())+"¡¹"
+	line += sprintf("â”ƒå¤´    è¡”ï¼š%-24sâ”ƒ%-19s%-19sâ”ƒ\n", title,
+		"è†‚  åŠ›ï¼šã€Œ"+display_attr(my["str"], ob->query_str())+"ã€",
+		"æ ¹  éª¨ï¼šã€Œ"+display_attr(my["con"], ob->query_con())+"ã€"
 	);
 
-	line += sprintf("©§ĞÕ    Ãû£º%-24s©§%-19s%-19s©§\n",
+	line += sprintf("â”ƒå§“    åï¼š%-24sâ”ƒ%-19s%-19sâ”ƒ\n",
 		(my["color"]?my["color"]:"")+my["name"]+NOR"("+capitalize(my["id"])+")",
-		"Éí  ·¨£º¡¸"+display_attr(my["dex"], ob->query_dex())+"¡¹",
-		"Îò  ĞÔ£º¡¸"+display_attr(my["int"], ob->query_int())+"¡¹"
+		"èº«  æ³•ï¼šã€Œ"+display_attr(my["dex"], ob->query_dex())+"ã€",
+		"æ‚Ÿ  æ€§ï¼šã€Œ"+display_attr(my["int"], ob->query_int())+"ã€"
 	);
 
-	line += sprintf("©§Íâ    ºÅ£º%-24s©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©Ï\n",
-		my["nickname"]?my["nickname"]+NOR:"ÎŞ"
+	line += sprintf("â”ƒå¤–    å·ï¼š%-24sâ”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”«\n",
+		my["nickname"]?my["nickname"]+NOR:"æ— "
 	);
 
-	line += sprintf("©§Äê    Áä£º%-26sÉú    ³½£º%-28s©§\n",
-		age_color[my["day"]/5]+chinese_number(my["age"])+"Ëê"+(my["month"]?"ÓÖ"+chinese_number(my["month"])+"¸öÔÂ":"")+NOR,
+	line += sprintf("â”ƒå¹´    é¾„ï¼š%-26sç”Ÿ    è¾°ï¼š%-28sâ”ƒ\n",
+		age_color[my["day"]/5]+chinese_number(my["age"])+"å²"+(my["month"]?"åˆ"+chinese_number(my["month"])+"ä¸ªæœˆ":"")+NOR,
 		CHINESE_D->chinese_date((my["birthday"] - 14*365*24*60) * 60)
 	);
 
@@ -92,22 +92,22 @@ int main(object me, string arg)
 	attack_points = COMBAT_D->skill_power(ob, skill_type, SKILL_USAGE_ATTACK);
 	parry_points = COMBAT_D->skill_power(ob, "parry", SKILL_USAGE_DEFENSE);
 	dodge_points = COMBAT_D->skill_power(ob, "dodge", SKILL_USAGE_DEFENSE);
-	line += sprintf("©§ĞÔ    ±ğ£º%-26s¹¥£º%-9s¶ã£º%-9s¼Ü£º%8s©§\n",
-		my["gender"]+(ob->is_robot()?HIG"¡ú»úÆ÷ÈË"NOR:""),
+	line += sprintf("â”ƒæ€§    åˆ«ï¼š%-26sæ”»ï¼š%-9sèº²ï¼š%-9sæ¶ï¼š%8sâ”ƒ\n",
+		my["gender"]+(ob->is_robot()?HIG"â†’æœºå™¨äºº"NOR:""),
 		"/cmds/std/look"->tough_level(attack_points, 0, 1),
 		"/cmds/std/look"->tough_level(dodge_points, 0, 1),
 		"/cmds/std/look"->tough_level(parry_points, 0, 1)
 	);
 
-	temp = ob->query("family/family_name")?"¡¾"+my["family"]["family_name"]+"¡¿":"¡¾ÆÕÍ¨°ÙĞÕ¡¿";
-	temp += ob->query("family/master_name")?"¡¾"+my["family"]["master_name"]+"¡¿":"";
-	line += sprintf("©§Ç®×¯´æ¿î£º%-26sÊ¦    ³Ğ£º%-28s©§\n",
-		my["balance"]/10000?HIY BRED+chinese_number(my["balance"]/10000)+"¶§»Æ½ğ"NOR:"ºÜÉÙ",
+	temp = ob->query("family/family_name")?"ã€"+my["family"]["family_name"]+"ã€‘":"ã€æ™®é€šç™¾å§“ã€‘";
+	temp += ob->query("family/master_name")?"ã€"+my["family"]["master_name"]+"ã€‘":"";
+	line += sprintf("â”ƒé’±åº„å­˜æ¬¾ï¼š%-26så¸ˆ    æ‰¿ï¼š%-28sâ”ƒ\n",
+		my["balance"]/10000?HIY BRED+chinese_number(my["balance"]/10000)+"é”­é»„é‡‘"NOR:"å¾ˆå°‘",
 		HIW+temp+NOR
 	);
 		
-	line += sprintf("©§Êé½£Í¨±¦£º%-64s©§\n",
-		my["SJ_Credit"]?HIG BGRN+chinese_number(my["SJ_Credit"])+"¸ö"NOR:"ÎŞ""",
+	line += sprintf("â”ƒä¹¦å‰‘é€šå®ï¼š%-64sâ”ƒ\n",
+		my["SJ_Credit"]?HIG BGRN+chinese_number(my["SJ_Credit"])+"ä¸ª"NOR:"æ— """,
 	);
 
 
@@ -115,40 +115,40 @@ int main(object me, string arg)
        total_gifts  = ob->query("relife/gifts/total",1);
        remain_gifts = ob->query("relife/gifts/now",1);
 
-       line += sprintf("©§¾­Ñé¶îÍâ»ñÈ¡£º%-18s²ÎÎòÌì¸³£º%-12sÎ´·ÖÅäÌì¸³£º%-8s©§\n",
-	( ob->query("relife/exp_ext"))?HBMAG"¡¼°Ù·ÖÖ®"+chinese_number(canwu_exp *5 )+"¡½"NOR:"ÎŞ""",
-	( ob->query("relife/gifts/total"))?HBRED+chinese_number(total_gifts )+"µã"NOR:"ÎŞ""",
-        ( ob->query("relife/gifts/now")  )?HBRED+ remain_gifts +"µã"NOR:"ÎŞ"""
+       line += sprintf("â”ƒç»éªŒé¢å¤–è·å–ï¼š%-18så‚æ‚Ÿå¤©èµ‹ï¼š%-12sæœªåˆ†é…å¤©èµ‹ï¼š%-8sâ”ƒ\n",
+	( ob->query("relife/exp_ext"))?HBMAG"ã€–ç™¾åˆ†ä¹‹"+chinese_number(canwu_exp *5 )+"ã€—"NOR:"æ— """,
+	( ob->query("relife/gifts/total"))?HBRED+chinese_number(total_gifts )+"ç‚¹"NOR:"æ— """,
+        ( ob->query("relife/gifts/now")  )?HBRED+ remain_gifts +"ç‚¹"NOR:"æ— """
 
 	);
 
 
-	line += "©Ä©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ì\n";
+	line += "â” â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¨\n";
 
-	if (my["divorce"]) temp = "»éÒö£ºÀëÒì"+chinese_number(my["divorce"])+"´Î";
-	else temp = "»éÒö£ºÎ´»é";
+	if (my["divorce"]) temp = "å©šå§»ï¼šç¦»å¼‚"+chinese_number(my["divorce"])+"æ¬¡";
+	else temp = "å©šå§»ï¼šæœªå©š";
 	if (mapp(my["marry"])) {
 		if (ob->query("marry/name"))
-			temp = (my["gender"]=="Å®ĞÔ"?"·ò¾ı£º"HIR:"½¿ÆŞ£º"HIG)
+			temp = (my["gender"]=="å¥³æ€§"?"å¤«å›ï¼š"HIR:"å¨‡å¦»ï¼š"HIG)
 				+my["marry"]["name"]+"("+capitalize(my["marry"]["id"])+")" NOR;
 	};
-	line += sprintf("©§%-32s%-6s%-16d"NOR"×ÛºÏÆÀ¼Û£º%-10d©§\n",
+	line += sprintf("â”ƒ%-32s%-6s%-16d"NOR"ç»¼åˆè¯„ä»·ï¼š%-10dâ”ƒ\n",
 		temp,
-		my["shen"] < 0?"ìåÆø£º"HIR:"ÕıÆø£º"HIC,
+		my["shen"] < 0?"æˆ¾æ°”ï¼š"HIR:"æ­£æ°”ï¼š"HIC,
 		(my["shen"] < 0?-1:1)*my["shen"],
 		my["score"]
 	);
-                        if(ob->query("registered")<3) temp =HBCYN+HIY"Ãâ·ÑÍæ¼Ò"NOR;
-                              if(ob->query("registered")==3) temp =HBCYN+HIY"ÔÂ¿¨¹ó±ö"NOR;
-                        if(ob->query("y-card-vip")) temp =HBMAG+HIY"Äê¿¨¹ó±ö"NOR;
-                        if(ob->query("buyvip")) temp =HBRED+HIW "ÈÙÓşÖÕÉí¹ó±ö"NOR;
+                        if(ob->query("registered")<3) temp =HBCYN+HIY"å…è´¹ç©å®¶"NOR;
+                              if(ob->query("registered")==3) temp =HBCYN+HIY"æœˆå¡è´µå®¾"NOR;
+                        if(ob->query("y-card-vip")) temp =HBMAG+HIY"å¹´å¡è´µå®¾"NOR;
+                        if(ob->query("buyvip")) temp =HBRED+HIW "è£èª‰ç»ˆèº«è´µå®¾"NOR;
 	if (base_name(ob) == "/clone/user/user") {
-                line += sprintf("©§×¢²á£º%-16s%-10sÅÑÊ¦£º%-16sÉù    Íû£º%-10s©§\n",
+                line += sprintf("â”ƒæ³¨å†Œï¼š%-16s%-10så›å¸ˆï¼š%-16så£°    æœ›ï¼š%-10sâ”ƒ\n",
                         temp,
 
-                        my["no_pk"]?HIY BRED"¡úÒÑÏ´ÊÖ"NOR:""NOR,
-                        my["betrayer"]?HIY+chinese_number(my["betrayer"])+"´Î"NOR:"ÎŞ",
-                        my["mana"]?HIR+ my["mana"] +"µã"NOR:"ÎŞ",
+                        my["no_pk"]?HIY BRED"â†’å·²æ´—æ‰‹"NOR:""NOR,
+                        my["betrayer"]?HIY+chinese_number(my["betrayer"])+"æ¬¡"NOR:"æ— ",
+                        my["mana"]?HIR+ my["mana"] +"ç‚¹"NOR:"æ— ",
                 );
 
 /*
@@ -157,24 +157,24 @@ int main(object me, string arg)
        yx     = ob->query("skill_ext/now",1);
        gongxian  = ob->query("party_cont",1);
 
-	line += sprintf("©§ÆæÓö£º%-26s¾«ÑĞ£º%-16sÊ¦ÃÅ¹±Ï×£º%-10s©§\n",
-	( ob->query("skill_ext/total"))?HIY BRED"¡¼"+chinese_number(jihui)+"´Î¡½"NOR:"ÎŞ""",
-	( ob->query("skill_ext/now"))?HIY BRED+chinese_number(yx)+"µã"NOR:"ÎŞ""",
-        ( ob->query("party_cont")  )?HIY BRED+ gongxian +"µã"NOR:"ÎŞ"""
+	line += sprintf("â”ƒå¥‡é‡ï¼š%-26sç²¾ç ”ï¼š%-16så¸ˆé—¨è´¡çŒ®ï¼š%-10sâ”ƒ\n",
+	( ob->query("skill_ext/total"))?HIY BRED"ã€–"+chinese_number(jihui)+"æ¬¡ã€—"NOR:"æ— """,
+	( ob->query("skill_ext/now"))?HIY BRED+chinese_number(yx)+"ç‚¹"NOR:"æ— """,
+        ( ob->query("party_cont")  )?HIY BRED+ gongxian +"ç‚¹"NOR:"æ— """
 	);
 
 */
-		line += sprintf("©§É±ÈË£º%-26sÍæ¼Ò£º%-16sÕıµ±·ÀÎÀ£º%-10s©§\n",
-			my["MKS"]+my["PKS"]+my["FKS"]?HIY BBLU+chinese_number(my["MKS"] + my["PKS"] + my["FKS"])+"Î»"NOR:"ÎŞ",
-			my["PKS"]+my["FKS"]?HIY BBLU+chinese_number(my["PKS"] + my["FKS"])+"Î»"NOR:"ÎŞ",
-			my["FKS"]?HIY BRED+chinese_number(my["FKS"])+"Î»"NOR:"ÎŞ"
+		line += sprintf("â”ƒæ€äººï¼š%-26sç©å®¶ï¼š%-16sæ­£å½“é˜²å«ï¼š%-10sâ”ƒ\n",
+			my["MKS"]+my["PKS"]+my["FKS"]?HIY BBLU+chinese_number(my["MKS"] + my["PKS"] + my["FKS"])+"ä½"NOR:"æ— ",
+			my["PKS"]+my["FKS"]?HIY BBLU+chinese_number(my["PKS"] + my["FKS"])+"ä½"NOR:"æ— ",
+			my["FKS"]?HIY BRED+chinese_number(my["FKS"])+"ä½"NOR:"æ— "
 		);
 
-		//ÒòÎª¿Õ×Å£¬ËùÒÔ¼ÓÉÏ´òÔì±øÆ÷.:)
-                line += sprintf("©§ËÀÍö£º%-26sÓĞĞ§£º%-16s´òÔì»ú»á£º%-10s©§\n",
-                        my["death_count"]?HIM+chinese_number(my["death_count"])+"´Î"NOR:"ÎŞ",
-                        my["death_times"]?HIM+chinese_number(my["death_times"])+"´Î"NOR:"ÎŞ",
-                        user_weapon?HIM+ user_weapon +"´Î"NOR:"ÎŞ",
+		//å› ä¸ºç©ºç€ï¼Œæ‰€ä»¥åŠ ä¸Šæ‰“é€ å…µå™¨.:)
+                line += sprintf("â”ƒæ­»äº¡ï¼š%-26sæœ‰æ•ˆï¼š%-16sæ‰“é€ æœºä¼šï¼š%-10sâ”ƒ\n",
+                        my["death_count"]?HIM+chinese_number(my["death_count"])+"æ¬¡"NOR:"æ— ",
+                        my["death_times"]?HIM+chinese_number(my["death_times"])+"æ¬¡"NOR:"æ— ",
+                        user_weapon?HIM+ user_weapon +"æ¬¡"NOR:"æ— ",
                         //HIM + user_weapon + NOR
                 );
 
@@ -182,9 +182,9 @@ int main(object me, string arg)
 
 
 
-		line += sprintf("©§ÉÏ´ÎÓöº¦£º%-64s©§\n",
-			(ob->query("last_death")?ob->query("last_death"):"»¹Î´Óöº¦")
-			+(ob->query("last_killer")?"¡¸"+ob->query("last_killer")+"¡¹":"")
+		line += sprintf("â”ƒä¸Šæ¬¡é‡å®³ï¼š%-64sâ”ƒ\n",
+			(ob->query("last_death")?ob->query("last_death"):"è¿˜æœªé‡å®³")
+			+(ob->query("last_killer")?"ã€Œ"+ob->query("last_killer")+"ã€":"")
 		);
 
 
@@ -194,41 +194,41 @@ int main(object me, string arg)
 	}
 
 
-	line += "¨t©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥¨s\n";
+	line += "â•°â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â•¯\n";
 
         if (wiz_level(me)>3) {
-		line += sprintf(" ÈİÃ²[%s] ¸£Ôµ[%s] ´¿ÆÓ[%s]",
+		line += sprintf(" å®¹è²Œ[%s] ç¦ç¼˜[%s] çº¯æœ´[%s]",
 			display_attr(my["per"], ob->query_per()),
 			display_attr(my["kar"], ob->query_kar()),
 			display_attr(my["pur"], my["pur"]));
-		line += sprintf(" ¹¥»÷%d(+%d) ¶ãÉÁ%d ·ÀÓù%d(+%d)\n",
+		line += sprintf(" æ”»å‡»%d(+%d) èº²é—ª%d é˜²å¾¡%d(+%d)\n",
 			attack_points/100, ob->query_temp("apply/damage"),
 			dodge_points/100,
 			parry_points/100, ob->query_temp("apply/armor"));
 		if( base_name(ob) == "/clone/user/user" ){
 			job = my["job_time"];
 			if ( ! job) job = my;
-			temp  = " ¹Ù¸®("+(job["¹Ù¸®"]?job["¹Ù¸®"]:"ÎŞ")+")";
-			temp += " ´óÀí("+(job["´óÀí"]?job["´óÀí"]:"ÎŞ")+")";
-			temp += " Ø¤°ï("+(job["Ø¤°ï"]?job["Ø¤°ï"]:"ÎŞ")+")";
-			temp += " »ªÉ½("+(job["»ªÉ½"]?job["»ªÉ½"]:"ÎŞ")+")";
-			temp += " Îäµ±("+(job["Îäµ±"]?job["Îäµ±"]:"ÎŞ")+")";
-			temp += " ÌìµØ»á("+(job["ÌìµØ»á"]?job["ÌìµØ»á"]:"ÎŞ")+")\n";
-			temp += " ±¨Ğ§¹ú¼Ò("+(job["±¨Ğ§¹ú¼Ò"]?job["±¨Ğ§¹ú¼Ò"]:"ÎŞ")+")";
-			temp += " ĞÇËŞ("+(job["ĞÇËŞ"]?job["ĞÇËŞ"]:"ÎŞ")+")";
-			temp += " ĞÇËŞÅÑÍ½("+(job["ĞÇËŞÅÑÍ½"]?job["ĞÇËŞÅÑÍ½"]:"ÎŞ")+")";
-			temp += " ĞÇËŞ°¾¸à("+(job["ĞÇËŞ°¾¸à"]?job["ĞÇËŞ°¾¸à"]:"ÎŞ")+")";
-			temp += " áÔÉ½("+(job["áÔÉ½"]?job["áÔÉ½"]:"ÎŞ")+")";
-			temp += " Ñ©É½("+(job["Ñ©É½"]?job["Ñ©É½"]:"ÎŞ")+")";
-			temp += " ÉÙÁÖ("+(job["ÉÙÁÖ"]?job["ÉÙÁÖ"]:"ÎŞ")+")\n";
-			temp += " Ã÷½Ì("+(job["Ã÷½Ì"]?job["Ã÷½Ì"]:"ÎŞ")+")";
-			temp += " Ä½Èİ("+(job["Ä½Èİ"]?job["Ä½Èİ"]:"ÎŞ")+")";
-			temp += " ÌÒ»¨µº("+(job["ÌÒ»¨µº"]?job["ÌÒ»¨µº"]:"ÎŞ")+")";
-			temp += " ×¥Éß("+(job["×¥Éß"]?job["×¥Éß"]:"ÎŞ")+")";
-			temp += " ÕÔÃô("+(job["ÕÔÃô"]?job["ÕÔÃô"]:"ÎŞ")+")";
-			line += sprintf(" ÈÎÎñ(ÊıÁ¿)£º"+temp+"\n");
+			temp  = " å®˜åºœ("+(job["å®˜åºœ"]?job["å®˜åºœ"]:"æ— ")+")";
+			temp += " å¤§ç†("+(job["å¤§ç†"]?job["å¤§ç†"]:"æ— ")+")";
+			temp += " ä¸å¸®("+(job["ä¸å¸®"]?job["ä¸å¸®"]:"æ— ")+")";
+			temp += " åå±±("+(job["åå±±"]?job["åå±±"]:"æ— ")+")";
+			temp += " æ­¦å½“("+(job["æ­¦å½“"]?job["æ­¦å½“"]:"æ— ")+")";
+			temp += " å¤©åœ°ä¼š("+(job["å¤©åœ°ä¼š"]?job["å¤©åœ°ä¼š"]:"æ— ")+")\n";
+			temp += " æŠ¥æ•ˆå›½å®¶("+(job["æŠ¥æ•ˆå›½å®¶"]?job["æŠ¥æ•ˆå›½å®¶"]:"æ— ")+")";
+			temp += " æ˜Ÿå®¿("+(job["æ˜Ÿå®¿"]?job["æ˜Ÿå®¿"]:"æ— ")+")";
+			temp += " æ˜Ÿå®¿å›å¾’("+(job["æ˜Ÿå®¿å›å¾’"]?job["æ˜Ÿå®¿å›å¾’"]:"æ— ")+")";
+			temp += " æ˜Ÿå®¿ç†¬è†("+(job["æ˜Ÿå®¿ç†¬è†"]?job["æ˜Ÿå®¿ç†¬è†"]:"æ— ")+")";
+			temp += " åµ©å±±("+(job["åµ©å±±"]?job["åµ©å±±"]:"æ— ")+")";
+			temp += " é›ªå±±("+(job["é›ªå±±"]?job["é›ªå±±"]:"æ— ")+")";
+			temp += " å°‘æ—("+(job["å°‘æ—"]?job["å°‘æ—"]:"æ— ")+")\n";
+			temp += " æ˜æ•™("+(job["æ˜æ•™"]?job["æ˜æ•™"]:"æ— ")+")";
+			temp += " æ…•å®¹("+(job["æ…•å®¹"]?job["æ…•å®¹"]:"æ— ")+")";
+			temp += " æ¡ƒèŠ±å²›("+(job["æ¡ƒèŠ±å²›"]?job["æ¡ƒèŠ±å²›"]:"æ— ")+")";
+			temp += " æŠ“è›‡("+(job["æŠ“è›‡"]?job["æŠ“è›‡"]:"æ— ")+")";
+			temp += " èµµæ•("+(job["èµµæ•"]?job["èµµæ•"]:"æ— ")+")";
+			line += sprintf(" ä»»åŠ¡(æ•°é‡)ï¼š"+temp+"\n");
 			if (my["mud_time"] >= 600) {
-				line += sprintf(" ¾­Ñé£º%d Ã¿Ê®·ÖÖÓ£º%.1f ÔÚÏßÊ±¼ä£º%s\n",
+				line += sprintf(" ç»éªŒï¼š%d æ¯ååˆ†é’Ÿï¼š%.1f åœ¨çº¿æ—¶é—´ï¼š%s\n",
 					my["combat_exp"], my["combat_exp"]/(my["mud_time"]/600.0),
 					CHINESE_D->chinese_time(my["mud_time"]/600*600)
 				);
@@ -236,7 +236,7 @@ int main(object me, string arg)
 		}
 	}
 	if (my["mud_time"] >= 86400)
-		line += sprintf(" Æ½¾ùÃ¿ÌìÔÚÏß£º%s\n",
+		line += sprintf(" å¹³å‡æ¯å¤©åœ¨çº¿ï¼š%s\n",
 			CHINESE_D->chinese_time(to_int(my["mud_time"]*400.0/(time()-my["birthday"])*216)>86400?86400:to_int(my["mud_time"]*400.0/(time()-my["birthday"])*216) )
 		);
 	write(line);
@@ -254,10 +254,10 @@ string display_attr(int gift, int value)
 int help(object me)
 {
 write(@HELP
-Ö¸Áî¸ñÊ½ : score
-	   score <¶ÔÏóÃû³Æ>            (Î×Ê¦×¨ÓÃ)
+æŒ‡ä»¤æ ¼å¼ : score
+	   score <å¯¹è±¡åç§°>            (å·«å¸ˆä¸“ç”¨)
 
-Õâ¸öÖ¸Áî¿ÉÒÔÏÔÊ¾Äã»òÖ¸¶¨¶ÔÏó(º¬NPC)µÄ»ù±¾×ÊÁÏ¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥æ˜¾ç¤ºä½ æˆ–æŒ‡å®šå¯¹è±¡(å«NPC)çš„åŸºæœ¬èµ„æ–™ã€‚
 
 see also : hp
 HELP

@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-        set_name("大轮寺辩经板", ({ "board" }) );
+        set_name("澶ц疆瀵鸿京缁忔澘", ({ "board" }) );
         set("location", "/d/xueshan/guangchang");
         set("board_id", "xueshan_b");
-        set("long", "这是供大轮寺弟子谈经论佛，引理证道的留言板。\n" );
+        set("long", "杩欐槸渚涘ぇ杞寮熷瓙璋堢粡璁轰經锛屽紩鐞嗚瘉閬撶殑鐣欒█鏉裤�俓n" );
         setup();
         set("capacity", 60);
 }

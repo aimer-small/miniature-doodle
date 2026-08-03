@@ -1,4 +1,4 @@
-// user_armor.c ×ÔÖÆ·À¾ß
+// user_armor.c è‡ªåˆ¶é˜²å…·
 // create by snowman@sj
 // modify by augx@sj   10/11/2001
 // Modified by Ciwei@SJ
@@ -12,12 +12,12 @@ void delete_armor(object me);
 
 void create()
 {
-	set_name("ÆÕÍ¨·À¾ß", ({ "user armor" }));
+	set_name("æ™®é€šé˜²å…·", ({ "user armor" }));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else {
-		set("unit", "¼ş");
+		set("unit", "ä»¶");
 		set("value", 0);
 		set("material", "cloth");
 		set("wield_maxneili", 100000);
@@ -80,9 +80,9 @@ void cant_keep(object me)
 {
 	if( !me || !userp(me) || environment()!=me || !environment(me) ) return;
 
-	message_vision("µ«ÊÇ$N¸ù±¾ÄÃ²»×¡£¬" + name() + "µôÁËÏÂÀ´£¡\n", me);
+	message_vision("ä½†æ˜¯$Næ ¹æœ¬æ‹¿ä¸ä½ï¼Œ" + name() + "æ‰äº†ä¸‹æ¥ï¼\n", me);
         if(!(this_object()->move(environment(me))) ) {
-		message_vision("Ò»ÏÂ×Ó¾ÍÊ§È¥ÁË×ÙÓ°£¡\n",me);
+		message_vision("ä¸€ä¸‹å­å°±å¤±å»äº†è¸ªå½±ï¼\n",me);
 		destruct(this_object());
 	}
 }
@@ -114,7 +114,7 @@ void delete_weapon2(object me)
 {
 	me->delete( "worker/" + query("armor_mp/save_id") );
 	if(stringp(query("owner")) && query("owner")!="" && query("owner")!="0" && query("owner")!=getuid(me))
-		WORKER_D->deleteweapon(query("owner"),"ÄãµÄ"+name()+"ÒòÎª±»"+me->name()+"Ëğ»µ¶ø±»×Ô¶¯É¾³ı£¬ÒÑ¾­²»ÔÙÊÇÄãµÄË½ÓĞÎäÆ÷¡£\n",query("armor_mp/save_id") );
+		WORKER_D->deleteweapon(query("owner"),"ä½ çš„"+name()+"å› ä¸ºè¢«"+me->name()+"æŸåè€Œè¢«è‡ªåŠ¨åˆ é™¤ï¼Œå·²ç»ä¸å†æ˜¯ä½ çš„ç§æœ‰æ­¦å™¨ã€‚\n",query("armor_mp/save_id") );
 }
 
 void remove(string euid)
@@ -162,7 +162,7 @@ void showneili()
 	string xuli;
 
 	if( query("neili") )
-		xuli = "ÆäÖĞÒÑ¾­»ıĞîÁË" + CHINESE_D->chinese_number( (query("neili")+999)/1000 ) + "µÀÄÚÁ¦£¡\n";
+		xuli = "å…¶ä¸­å·²ç»ç§¯è“„äº†" + CHINESE_D->chinese_number( (query("neili")+999)/1000 ) + "é“å†…åŠ›ï¼\n";
 	else
 		xuli = "";
 	if( stringp(query("xuli")) && strlen(query("xuli"))>3 )  {
@@ -181,15 +181,15 @@ int do_xuli(string arg)
 	if( (int)query("storeneili") <= 0 ) return 0;
 
 	if( me->query_skill("force") < 100 )
-		return notify_fail("ÄãµÄÄÚ¹¦µÈ¼¶²»¹»£¬ÎŞ·¨ĞîÁ¦£¡\n");
+		return notify_fail("ä½ çš„å†…åŠŸç­‰çº§ä¸å¤Ÿï¼Œæ— æ³•è“„åŠ›ï¼\n");
 	if( (int)query("neili") >= query("storeneili") )
-		return notify_fail(name()+"ÖĞÒÑ¾­³äÂúÁËÄÚÁ¦£¬ÄãÔÙÒ²ÎŞ·¨×¢ÈëÁË£¡\n");
+		return notify_fail(name()+"ä¸­å·²ç»å……æ»¡äº†å†…åŠ›ï¼Œä½ å†ä¹Ÿæ— æ³•æ³¨å…¥äº†ï¼\n");
 	if( me->query("neili") < 1000 )
-		return notify_fail("ÄãµÄÄÚÁ¦²»×ã£¬ÎŞ·¨×¢Èë×ã¹»µÄÄÚÁ¦£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸è¶³ï¼Œæ— æ³•æ³¨å…¥è¶³å¤Ÿçš„å†…åŠ›ï¼\n");
 
 	if (query("last_xuli") && query("last_xuli")!=me->query("id")) {
 		set("neili" , query("neili")/2);
-		message_vision(MAG"$N·¢ÏÖ×Ô¼ºµÄÄÚÁ¦Óë"+name()+MAG"ÖĞÔ­ÓĞµÄÄÚÁ¦Ïà³åÍ»£¬ËäÈ»×îÖÕ»¹ÊÇ×¢ÈëÁË$NµÄÄÚÁ¦£¬µ«ÒÑ¾­ËğÊ§ÁË²»ÉÙ¡£\n",me);
+		message_vision(MAG"$Nå‘ç°è‡ªå·±çš„å†…åŠ›ä¸"+name()+MAG"ä¸­åŸæœ‰çš„å†…åŠ›ç›¸å†²çªï¼Œè™½ç„¶æœ€ç»ˆè¿˜æ˜¯æ³¨å…¥äº†$Nçš„å†…åŠ›ï¼Œä½†å·²ç»æŸå¤±äº†ä¸å°‘ã€‚\n",me);
 	}
 	set("last_xuli", me->query("id"));
 
@@ -198,7 +198,7 @@ int do_xuli(string arg)
 	me->add("neili", -1000);
 
 	showneili();
-	message_vision(MAG"$NÇ±ÔËÄÚÁ¦£¬Ë«ÊÖĞé°´"+name()+MAG"£¬°ÑÄÚÁ¦×¢Èë"+name()+MAG"Ö®ÖĞ¡£\n"NOR,me);
+	message_vision(MAG"$Næ½œè¿å†…åŠ›ï¼ŒåŒæ‰‹è™šæŒ‰"+name()+MAG"ï¼ŒæŠŠå†…åŠ›æ³¨å…¥"+name()+MAG"ä¹‹ä¸­ã€‚\n"NOR,me);
 	return 1;
 }
 
@@ -220,7 +220,7 @@ mixed ob_hit()
 		}
 		add("neili" , -cost);
 		if(wizardp(me) && me->query("env/test")) tell_object(me,sprintf("q:%d , n:%d  ",qi,cost));
-		message_vision(MAG+name()+MAG"·¢³öÒ»µÀÒìÑùµÄ¹âÃ¢£¬µÖµ²ÁË$NµÄ²¿·Ö¹¥ÊÆ£¡\n"NOR,target);
+		message_vision(MAG+name()+MAG"å‘å‡ºä¸€é“å¼‚æ ·çš„å…‰èŠ’ï¼ŒæŠµæŒ¡äº†$Nçš„éƒ¨åˆ†æ”»åŠ¿ï¼\n"NOR,target);
 		showneili();
 		return -qi;
 	}
@@ -229,13 +229,13 @@ mixed ob_hit()
 		qi = damage * random(query("decdamage")) / 100;
 		if(qi<10) qi=10;
 		if(wizardp(me) && me->query("env/test")) tell_object(me,sprintf("d:%d , q:%d  ",damage,qi));
-		message_vision(HIY"$NµÄÕĞÊ½´òµ½$nµÄ"+name()+HIY"ÉÏ£¬ËÆºõ´òÔÚÃŞ»¨Àï£¬Ê¹²»×ãÁ¦µÀ£¡\n"NOR,target,me);
+		message_vision(HIY"$Nçš„æ‹›å¼æ‰“åˆ°$nçš„"+name()+HIY"ä¸Šï¼Œä¼¼ä¹æ‰“åœ¨æ£‰èŠ±é‡Œï¼Œä½¿ä¸è¶³åŠ›é“ï¼\n"NOR,target,me);
 		return -qi;
 	}
 
 	return 0;
 }
-/*ÔÚÒ»¶ÎÊ±¼äÄÚ£¬±ğÈË²»ÄÜget Kill NPCºóµôÔÚµØÉÏµÄ±øÆ÷¡£*/
+/*åœ¨ä¸€æ®µæ—¶é—´å†…ï¼Œåˆ«äººä¸èƒ½get Kill NPCåæ‰åœ¨åœ°ä¸Šçš„å…µå™¨ã€‚*/
 void delete_owner()
 {
    if (query("tmp_owner"))

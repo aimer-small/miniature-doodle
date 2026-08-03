@@ -1,4 +1,4 @@
-// qingshan.c ÇàÉÀ
+// qingshan.c é’è¡«
 
 #include <armor.h>
 #include <ansi.h>
@@ -6,12 +6,12 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(HIC"ÇàÉÀ"NOR, ({ "qing shan", "shan" ,"cloth" }) );
+        set_name(HIC"é’è¡«"NOR, ({ "qing shan", "shan" ,"cloth" }) );
         set_weight(3000);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "¼ş");
+                set("unit", "ä»¶");
                 set("material", "cloth");
                 set("value", 100);
                 set("armor_prop/armor", 5);

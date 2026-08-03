@@ -5,9 +5,9 @@
 inherit ROOM;
 void create()
 { 
-       set("short","�ص�");
+       set("short","秘道");
        set("long", @LONG
-����һ�����ߺ��ͣ���᫲�ƽ���������µ��ص���
+这是一条忽高忽低，崎岖不平，螺旋而下的秘道。
 LONG
      );
     

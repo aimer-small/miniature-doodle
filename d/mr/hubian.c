@@ -6,12 +6,12 @@
 inherit ROOM;
 void create()
 {
-	set("short",GRN"����"NOR);
+	set("short",GRN"湖边"NOR);
 	set("long",@long
-�׻�˵ : ��������, �����պ����������Ǵ��������̫���� �����̲���
-Ư��һҶҶ��С��, һ�����ö���С�������ź��ϵ���粻ʱƯ����Ķ��С�
+俗话说 : 上有天堂, 下有苏杭。这里正是大大有名的太湖。 湖面绿波上
+漂着一叶叶的小舟, 一阵阵悦耳的小曲儿随着湖上的轻风不时漂入你的耳中。
 long);
-	set("outdoors","Ľ��");      
+	set("outdoors","慕容");      
 	set("exits", ([
 		"east" : __DIR__"hubian1",
 		"west" : "/d/suzhou/qingshidadao",

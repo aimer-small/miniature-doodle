@@ -7,8 +7,8 @@ string ask_gonglao();
 
 void create()
 {
-        set_name("Óü×ä", ({ "yu zu", "yuzu" }));
-        set("long", "ËûÊÇ¹Ù¸®¼àÓüµÄÓü×ä£¬Ò»Á³ÍþÑÏµÄ±íÇé¡£\n");
+        set_name("ç‹±å’", ({ "yu zu", "yuzu" }));
+        set("long", "ä»–æ˜¯å®˜åºœç›‘ç‹±çš„ç‹±å’ï¼Œä¸€è„¸å¨ä¸¥çš„è¡¨æƒ…ã€‚\n");
         set("age", 47);
         set("combat_exp", 20000);
         set("int", 10);
@@ -29,7 +29,7 @@ void create()
         set("neili", 300);
         
         set("inquiry", ([
-              "ÊÍ·Å" : (: ask_gonglao :),                        
+              "é‡Šæ”¾" : (: ask_gonglao :),                        
         ]));
 
         setup();
@@ -39,7 +39,7 @@ void create()
 string ask_gonglao()
 {
         object me=this_player();
-        return "ÏëÀë¿ªÕâÀï£¿£¬"+RANK_D->query_respect(me)+"»¨¶þÁ½Òø×ÓÎÊÎÒÂòÒ»¼þÒÂ·þ¾Í¿ÉÒÔÁË£¡";
+        return "æƒ³ç¦»å¼€è¿™é‡Œï¼Ÿï¼Œ"+RANK_D->query_respect(me)+"èŠ±äºŒä¸¤é“¶å­é—®æˆ‘ä¹°ä¸€ä»¶è¡£æœå°±å¯ä»¥äº†ï¼";
 }
 
 int accept_object(object who, object ob)
@@ -49,7 +49,7 @@ int accept_object(object who, object ob)
 	if (ob->query("money_id") && ob->value() >= 200) 
 	{
 		command("nod");
-		command("say ¼ÈÈ»ÄãÓÐ»Ú¹ýÖ®ÐÄ£¬ÄÇÎÒ¾Í¸øÄãÒ»¼þÒÂ·þ£¬Äã´©ºÃ¸Ï½ô¾Í×ß°É¡£");
+		command("say æ—¢ç„¶ä½ æœ‰æ‚”è¿‡ä¹‹å¿ƒï¼Œé‚£æˆ‘å°±ç»™ä½ ä¸€ä»¶è¡£æœï¼Œä½ ç©¿å¥½èµ¶ç´§å°±èµ°å§ã€‚");
 		cloth = new("/clone/armor/cloth");
 		cloth->move(who);
                 who->move("/d/city/dilao");

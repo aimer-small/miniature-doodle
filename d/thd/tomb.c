@@ -5,27 +5,27 @@
 inherit ROOM;
 
 string* msg = ({
-        "¶«",
-        "Î÷",
-        "ÄÏ",
-        "±±",
+        "ä¸œ",
+        "è¥¿",
+        "å—",
+        "åŒ—",
 });
 
 string* msg1 = ({
-        "´ÒÃ¦",
-        "¼±Ã¦",
-        "¸ÏÃ¦",
-        "¼±¼±Ã¦Ã¦",
-        "´Ò´ÒÃ¦Ã¦",
+        "åŒ†å¿™",
+        "æ€¥å¿™",
+        "èµ¶å¿™",
+        "æ€¥æ€¥å¿™å¿™",
+        "åŒ†åŒ†å¿™å¿™",
 });
 
 void create()
 {
-        set("short", "Ê¯·Ø");
+        set("short", "çŸ³åŸ");
         set("long", @LONG
-´ÓÓÄ°µµÄ¸ßÌ¨ÃÔÕóÖÐ×ß³öÀ´£¬Ö»¼ûÂÌ²ÝÈçÒñ£¬ÖÐ¼äÊÇÒ»Æ¬°×É«»¨´Ô,
-ÖØÖØµþµþ£¬ÍðÈçÒ»×ù°×»¨¶Ñ³ÉµÄÐ¡ºþ¡£°×»¨Ö®ÖÐÓÐÒ»¿é¶«Î÷¸ß¸ßÂ¡
-Æð£¬×ß½üÁË²Å·¢ÏÖÊÇÒ»×ùÊ¯·Ø£¬·ØÇ°ÓÐÒ»¿éÄ¹±®(mubei)¡£
+ä»Žå¹½æš—çš„é«˜å°è¿·é˜µä¸­èµ°å‡ºæ¥ï¼Œåªè§ç»¿è‰å¦‚è«ï¼Œä¸­é—´æ˜¯ä¸€ç‰‡ç™½è‰²èŠ±ä¸›,
+é‡é‡å å ï¼Œå®›å¦‚ä¸€åº§ç™½èŠ±å †æˆçš„å°æ¹–ã€‚ç™½èŠ±ä¹‹ä¸­æœ‰ä¸€å—ä¸œè¥¿é«˜é«˜éš†
+èµ·ï¼Œèµ°è¿‘äº†æ‰å‘çŽ°æ˜¯ä¸€åº§çŸ³åŸï¼ŒåŸå‰æœ‰ä¸€å—å¢“ç¢‘(mubei)ã€‚
 LONG
         );
         set("exits", ([ 
@@ -37,23 +37,23 @@ LONG
         set("item_desc",([
                 "mubei" : RED"
                         
-                       ©°©¤©´
-                       ©¦ÌÒ©¦
-                       ©¦»¨©¦
-                       ©¦µº©¦
-                       ©¦Å®©¦
-                       ©¦Ö÷©¦
-                       ©¦·ë©¦
-                       ©¦ÊÏ©¦
-                       ©¦Âñ©¦
-                       ©¦Ïã©¦
-                       ©¦Ö®©¦
-                       ©¦Ú£©¦
-                       ©¸©¤©¼\n
+                       â”Œâ”€â”
+                       â”‚æ¡ƒâ”‚
+                       â”‚èŠ±â”‚
+                       â”‚å²›â”‚
+                       â”‚å¥³â”‚
+                       â”‚ä¸»â”‚
+                       â”‚å†¯â”‚
+                       â”‚æ°â”‚
+                       â”‚åŸ‹â”‚
+                       â”‚é¦™â”‚
+                       â”‚ä¹‹â”‚
+                       â”‚å†¢â”‚
+                       â””â”€â”˜\n
 "NOR
         ]) );
         set("no_clean_up", 0);
-        set("outdoors","ÌÒ»¨µº");
+        set("outdoors","æ¡ƒèŠ±å²›");
 
         setup();
 }
@@ -78,9 +78,9 @@ int do_bai(string arg)
         object me = this_player();
 
         if (arg != "mubei")
-                return notify_fail("ÄãÒª°ÝÊ²Ã´£¿\n");
+                return notify_fail("ä½ è¦æ‹œä»€ä¹ˆï¼Ÿ\n");
         
-        message_vision("$NÔÚ·ØÇ°¹òµ¹£¬¹§¹§¾´¾´µØ°ÝÁËËÄ°Ý¡£\n", me);
+        message_vision("$Nåœ¨åŸå‰è·ªå€’ï¼Œæ­æ­æ•¬æ•¬åœ°æ‹œäº†å››æ‹œã€‚\n", me);
         me->set_temp("tomb/kneel", 1);
         return 1;
 }
@@ -91,15 +91,15 @@ int do_push(string arg)
         object me = this_player();
         
         if (me->is_busy() || me->is_fighting())
-                return notify_fail("ÄãÕýÃ¦×ÅÄØ£¡\n");
+                return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 
         if (!me->query_temp("tomb/kneel"))
-                return notify_fail("Í»È»,´ÓÄ¹ÖÐ³å³öÒ»¸öÊØÄ¹µÜ×Ó,¶ñºÝºÝµÄµÉÁËÄãÒ»ÑÛ.\n");
+                return notify_fail("çªç„¶,ä»Žå¢“ä¸­å†²å‡ºä¸€ä¸ªå®ˆå¢“å¼Ÿå­,æ¶ç‹ ç‹ çš„çžªäº†ä½ ä¸€çœ¼.\n");
         if (!arg || arg=="")
-                return notify_fail("Ê²Ã´?\n");
+                return notify_fail("ä»€ä¹ˆ?\n");
         if( arg=="mubei")
         {
-                write("ÄãÒªÍÆÏòÄÄ¸ö·½Ïò£¿\n");
+                write("ä½ è¦æŽ¨å‘å“ªä¸ªæ–¹å‘ï¼Ÿ\n");
                 return 1;
         }
         
@@ -108,29 +108,29 @@ int do_push(string arg)
                 if (dir=="left" || dir=="zuo")
                 {
                         me->add_temp("tomb/p_left",1);
-                        write("Äã°ÑÄ¹±®»º»ºÍù×ó±ßÍÆÈ¥£¬·¢³öÁË¡¸¿©Ö¨¡¹µÄÉùÒô¡£\n");
+                        write("ä½ æŠŠå¢“ç¢‘ç¼“ç¼“å¾€å·¦è¾¹æŽ¨åŽ»ï¼Œå‘å‡ºäº†ã€Œå’¯å±ã€çš„å£°éŸ³ã€‚\n");
                         return 1;
                 }
         
                 else if (dir=="right" || dir=="you")
                 {
                         me->add_temp("tomb/p_right",1);
-                        write("Äã°ÑÄ¹±®»º»ºÍùÓÒ±ßÍÆÈ¥£¬·¢³öÁË¡¸¿©Ö¨¡¹µÄÉùÒô¡£\n");
+                        write("ä½ æŠŠå¢“ç¢‘ç¼“ç¼“å¾€å³è¾¹æŽ¨åŽ»ï¼Œå‘å‡ºäº†ã€Œå’¯å±ã€çš„å£°éŸ³ã€‚\n");
                         if ((int)me->query_temp("tomb/p_left")==3
                         &&  (int)me->query_temp("tomb/p_right")==3)
                         {
-                                write("Ä¹±®»º»ºÒÆ¿ª£¬Â¶³öÒ»ÌõÊ¯ÆöµÄµØµÀ¡£Äã¸ÏÃ¦×ßÁË½øÈ¥¡£\n");
-                                message("vision", "Ä¹±®ÏòÁ½±ß»º»ºÒÆ¿ª£¬" + me->name() + "¿ì²½×ßÁË½øÈ¥£¬Ä¹±®ÓÖºÏÂ£¹ØÉÏÁË¡£\n", this_object(), me);
+                                write("å¢“ç¢‘ç¼“ç¼“ç§»å¼€ï¼Œéœ²å‡ºä¸€æ¡çŸ³ç Œçš„åœ°é“ã€‚ä½ èµ¶å¿™èµ°äº†è¿›åŽ»ã€‚\n");
+                                message("vision", "å¢“ç¢‘å‘ä¸¤è¾¹ç¼“ç¼“ç§»å¼€ï¼Œ" + me->name() + "å¿«æ­¥èµ°äº†è¿›åŽ»ï¼Œå¢“ç¢‘åˆåˆæ‹¢å…³ä¸Šäº†ã€‚\n", this_object(), me);
                                 me->delete_temp("tomb/p_left");
                                 me->delete_temp("tomb/p_right");
                                 me->move(__DIR__"mudao1");
-                                message("vision", me->name() + "´ò¿ª°µÃÅ£¬×ßÁË½øÀ´¡£\n", environment(me), me);
+                                message("vision", me->name() + "æ‰“å¼€æš—é—¨ï¼Œèµ°äº†è¿›æ¥ã€‚\n", environment(me), me);
                         }
                         return 1;
                 }
-                else {write("ÄãÒªÍÆÏòÄÄ¸ö·½Ïò?\n");return 1;}
+                else {write("ä½ è¦æŽ¨å‘å“ªä¸ªæ–¹å‘?\n");return 1;}
         }
-        else {write("ÄãÒª¸ÉÊ²Ã´?\n");return 1;}
+        else {write("ä½ è¦å¹²ä»€ä¹ˆ?\n");return 1;}
 }
 
 
@@ -146,8 +146,8 @@ void do_job(object me)
 {
         object ob;
         string p_id;
-        tell_object(me,"»ÆÈØËµÍê£¬¾Í" + msg1[random(sizeof(msg1))] +"µÄÀë¿ªÁË¡£\n");
-        tell_object(me,HIR"Í»È»£¬´Ó" + msg[random(sizeof(msg))] + "±ßµÄÌÒ»¨ÕóÖÐ´³³öÒ»¸öµÁÄ¹Ôô£¬×ê½øÊ¯·Ø¾Í²»¼ûÁË¡£\n"NOR);
+        tell_object(me,"é»„è“‰è¯´å®Œï¼Œå°±" + msg1[random(sizeof(msg1))] +"çš„ç¦»å¼€äº†ã€‚\n");
+        tell_object(me,HIR"çªç„¶ï¼Œä»Ž" + msg[random(sizeof(msg))] + "è¾¹çš„æ¡ƒèŠ±é˜µä¸­é—¯å‡ºä¸€ä¸ªç›—å¢“è´¼ï¼Œé’»è¿›çŸ³åŸå°±ä¸è§äº†ã€‚\n"NOR);
         me->delete_temp("thd/job");
         me->set_temp("thd/dojob",1);
         p_id = me->query("id");

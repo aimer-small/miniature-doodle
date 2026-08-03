@@ -3,12 +3,12 @@ inherit NPC;
 string ask_job();
 void create()
 {
-        set_name("Æ®È»×Ó", ({ "piaoran zi", "piaoran", "zi" }) );
-        set("gender", "ÄĞĞÔ" );
-        set("nickname", "ĞÇËŞÅÉÎåÊ¦ĞÖ");
+        set_name("é£˜ç„¶å­", ({ "piaoran zi", "piaoran", "zi" }) );
+        set("gender", "ç”·æ€§" );
+        set("nickname", "æ˜Ÿå®¿æ´¾äº”å¸ˆå…„");
         set("age", 28);
-        set("long", "Æ®È»×ÓÊÇ²É»¨×ÓµÄÊ¦¸µ¡£ÉúĞÔÒùĞ°£¬Îä¹¦¸ßÇ¿£¬¾­³£¼éÒùÁ¼¼Ò¸¾Å®¡£
-ºó±»ÕıÅÉÈËÊ¿½ØÉ±£¬¶ÏÁËÁ½ÌõÍÈÌÓ»ØÁËĞÇËŞºó£¬¾ÍÔÙÃ»²½³ö¹ıÕâ¸öÉ½¶´¡£\n");
+        set("long", "é£˜ç„¶å­æ˜¯é‡‡èŠ±å­çš„å¸ˆå‚…ã€‚ç”Ÿæ€§æ·«é‚ªï¼Œæ­¦åŠŸé«˜å¼ºï¼Œç»å¸¸å¥¸æ·«è‰¯å®¶å¦‡å¥³ã€‚
+åè¢«æ­£æ´¾äººå£«æˆªæ€ï¼Œæ–­äº†ä¸¤æ¡è…¿é€ƒå›äº†æ˜Ÿå®¿åï¼Œå°±å†æ²¡æ­¥å‡ºè¿‡è¿™ä¸ªå±±æ´ã€‚\n");
         set("env/wimpy", 40);
         set("str", 28);
         set("dex", 10);
@@ -41,13 +41,13 @@ void create()
                 (: exert_function, "huagong" :),
         }));
 
-        create_family("ĞÇËŞÅÉ", 2, "µÜ×Ó");
+        create_family("æ˜Ÿå®¿æ´¾", 2, "å¼Ÿå­");
 
         set("inquiry", ([
-                "ĞÇËŞÅÉ" : "ÄãÏë¼ÓÈë£¬¾Í°İÎÒÎªÊ¦¡£",
-                "ĞÇËŞº£" : "È¥ĞÇËŞº£¸ÉÊ²Ã´£¿°İÎÒÎªÊ¦¾Í¹»ÄãÑ§µÄÁË¡£",
-                "¶¡´ºÇï" : "¶¡´ºÇïÊÇÄã½ĞµÄÂğ£¿Ã»´óÃ»Ğ¡µÄ¡£ÒÔºó½ĞÀÏÏÉ£¡",
-                "Á¶¶¾" : (: ask_job :),
+                "æ˜Ÿå®¿æ´¾" : "ä½ æƒ³åŠ å…¥ï¼Œå°±æ‹œæˆ‘ä¸ºå¸ˆã€‚",
+                "æ˜Ÿå®¿æµ·" : "å»æ˜Ÿå®¿æµ·å¹²ä»€ä¹ˆï¼Ÿæ‹œæˆ‘ä¸ºå¸ˆå°±å¤Ÿä½ å­¦çš„äº†ã€‚",
+                "ä¸æ˜¥ç§‹" : "ä¸æ˜¥ç§‹æ˜¯ä½ å«çš„å—ï¼Ÿæ²¡å¤§æ²¡å°çš„ã€‚ä»¥åå«è€ä»™ï¼",
+                "ç‚¼æ¯’" : (: ask_job :),
         ]));
         setup();
 
@@ -64,23 +64,23 @@ string ask_job()
   	fam = (mapping)me->query("family");
   	poison = me->query_skill("poison", 1);
 
-    	if(!fam) return "¸øÀÏ×Ó¹öÒ»±ßÈ¥£¡";
-    	if(fam["family_name"] != "ĞÇËŞÅÉ" && !me->query_temp("ding_flatter"))
-       		return "¸øÀÏ×Ó¹öÒ»±ßÈ¥£¡";
+    	if(!fam) return "ç»™è€å­æ»šä¸€è¾¹å»ï¼";
+    	if(fam["family_name"] != "æ˜Ÿå®¿æ´¾" && !me->query_temp("ding_flatter"))
+       		return "ç»™è€å­æ»šä¸€è¾¹å»ï¼";
     	if(poison < 120)
-    		return "¹ş¹ş¹ş£¬ÄãÏÈÑ§¹»ÁË»ù±¾µÄ¶¾¼¼ÔÙÀ´°É¡£";
+    		return "å“ˆå“ˆå“ˆï¼Œä½ å…ˆå­¦å¤Ÿäº†åŸºæœ¬çš„æ¯’æŠ€å†æ¥å§ã€‚";
         if(poison >= 220)
-    		return "Õâ¸ö¡£¡£¡£ÕâÖÖ¸¯Ê¬¶¾¶ÔÄãºÃÏóÃ»Ê²Ã´ÓÃÁË°É£¿";
+    		return "è¿™ä¸ªã€‚ã€‚ã€‚è¿™ç§è…å°¸æ¯’å¯¹ä½ å¥½è±¡æ²¡ä»€ä¹ˆç”¨äº†å§ï¼Ÿ";
     	if(me->query_skill("huagong-dafa", 1) < 100 )
-	        return "ÄãµÄ»¯¹¦´ó·¨»¹²»´¿Êì£¬Á¶¶¾»áºÜÎ£ÏÕµÄ£¡";
+	        return "ä½ çš„åŒ–åŠŸå¤§æ³•è¿˜ä¸çº¯ç†Ÿï¼Œç‚¼æ¯’ä¼šå¾ˆå±é™©çš„ï¼";
     	if(me->query_condition("wait_xx_task"))
-    		return "ÄãºÃÏó°ÑÊ¦ĞÖµÄÊÂÇé¸ãÔÒÁË°É£¿Õâ´ÎÄã¾ÍºÃºÃµÈ×Å¡£";
+    		return "ä½ å¥½è±¡æŠŠå¸ˆå…„çš„äº‹æƒ…æç ¸äº†å§ï¼Ÿè¿™æ¬¡ä½ å°±å¥½å¥½ç­‰ç€ã€‚";
     	if(me->query_condition("job_busy") || me->query_condition("xx_task2"))
-           	return "Äã»¹ÔÚÎªÆäËûÊ¦ĞÖµÜÃÇ×öÊÂÄØ£¬µÈÍê³ÉÁËÔÙÀ´ÎÒÕâÀï°É¡£";
+           	return "ä½ è¿˜åœ¨ä¸ºå…¶ä»–å¸ˆå…„å¼Ÿä»¬åšäº‹å‘¢ï¼Œç­‰å®Œæˆäº†å†æ¥æˆ‘è¿™é‡Œå§ã€‚";
 
     	me->set_temp("promotion_target",1 );
-    	message_vision("\n$N¶Ô×Å$nºÙºÙÒ»Ğ¦£º¡°ÏëÁ·¶¾ÊÇ°É£¿ÏÈÈ¥¸øÄã×Ô¼ºÕÒ¾ßÓĞÓÃµÄÊ¬ÌåÀ´¡£¡±\n", this_object(), me);
-    	return "¼Ç×¡£¬¿É²»ÊÇÉ±¸öĞ¡à¶ÂŞÄÇÑù¶ªÈËÏÔÑÛ£¡\n";
+    	message_vision("\n$Nå¯¹ç€$nå˜¿å˜¿ä¸€ç¬‘ï¼šâ€œæƒ³ç»ƒæ¯’æ˜¯å§ï¼Ÿå…ˆå»ç»™ä½ è‡ªå·±æ‰¾å…·æœ‰ç”¨çš„å°¸ä½“æ¥ã€‚â€\n", this_object(), me);
+    	return "è®°ä½ï¼Œå¯ä¸æ˜¯æ€ä¸ªå°å–½ç½—é‚£æ ·ä¸¢äººæ˜¾çœ¼ï¼\n";
 }
 
 
@@ -100,8 +100,8 @@ void greeting(object me)
         mapping fam;
         fam = (mapping)me->query("family");
 
-        if (!fam || fam["family_name"] != "ĞÇËŞÅÉ"){
-        	command("say ÄÄÀïÅÜÀ´µÄ"+RANK_D->query_rude(me)+"£¡¾¹¸ÒÉÃ´³ĞÇËŞ½ûµØ£¡");
+        if (!fam || fam["family_name"] != "æ˜Ÿå®¿æ´¾"){
+        	command("say å“ªé‡Œè·‘æ¥çš„"+RANK_D->query_rude(me)+"ï¼ç«Ÿæ•¢æ“…é—¯æ˜Ÿå®¿ç¦åœ°ï¼");
         	kill_ob(me);
         }
 }
@@ -110,7 +110,7 @@ void kicking(object who)
     	if(!who || environment(who) != environment()
     	|| base_name(environment()) != this_object()->query("startroom"))  return;
     	who->move("/d/xingxiu/cave");
-    	message("vision","Ö»Ìı¡°ºô¡±µØÒ»Éù£¬½ô½Ó×Å"+who->query("name")+"´ÓºÚ°µÖĞÖ±·É³öÀ´£¬Ë¤ÁË¸öËÄ½Å³¯Ìì£¡\n", environment(who), who);
+    	message("vision","åªå¬â€œå‘¼â€åœ°ä¸€å£°ï¼Œç´§æ¥ç€"+who->query("name")+"ä»é»‘æš—ä¸­ç›´é£å‡ºæ¥ï¼Œæ‘”äº†ä¸ªå››è„šæœå¤©ï¼\n", environment(who), who);
     	who->receive_wound("jing", 200, this_object());
     	who->receive_wound("qi", 250, this_object());
     	who->add("neili", -600);
@@ -124,37 +124,37 @@ int accept_object(object who, object ob,object me)
      if(!objectp(obj = present("shi guan", environment()))) return 0;
 
      if(obj->query_temp("liandu")) {
-                command("say Ê¯¹×ÕıÔÚÓÃÄØ£¬ÄãµÈµÈ°É¡£");
+                command("say çŸ³æ£ºæ­£åœ¨ç”¨å‘¢ï¼Œä½ ç­‰ç­‰å§ã€‚");
                 return 0;
                 }
         if(ob->query("id") != "corpse"){
-                command("say ÕâÊÇÊ²Ã´¶«Î÷£¿£¿");
+                command("say è¿™æ˜¯ä»€ä¹ˆä¸œè¥¿ï¼Ÿï¼Ÿ");
                 return 0;
                 }
         if(userp(ob)){
                 command("stare " + who->query("id"));
-                command("say ¾¹¸ÒÀ´ÕâÀïÆÛÆ­ÎÒ£¬¸øÎÒ¹ö³öÈ¥£¡");
-                message_vision("\nËµÍê$NË«ÕÆÇ°ÍÆ£¬Ò»¹ÉÄÚ¾¢·÷³ö£¬¾Í½«$nÕğ³ö¶´Íâ£¡\n\n", this_object(), who);
+                command("say ç«Ÿæ•¢æ¥è¿™é‡Œæ¬ºéª—æˆ‘ï¼Œç»™æˆ‘æ»šå‡ºå»ï¼");
+                message_vision("\nè¯´å®Œ$NåŒæŒå‰æ¨ï¼Œä¸€è‚¡å†…åŠ²æ‹‚å‡ºï¼Œå°±å°†$néœ‡å‡ºæ´å¤–ï¼\n\n", this_object(), who);
                 kicking(who);
                 return 0;
          }
         if(!who->query_temp("promotion_target")) {
-                command("say ÄãÕâÑùÄÃ¾ßÊ¬Ìå¸øÎÒ¸ÉÊ²Ã´£¿");
+                command("say ä½ è¿™æ ·æ‹¿å…·å°¸ä½“ç»™æˆ‘å¹²ä»€ä¹ˆï¼Ÿ");
                 return 0;
                 }
         if ( ob->query("kill_by") != who) {
-                command("say ºÙºÙ£¬Á·¸¯Ê¬¶¾µÄÊ¬ÌåÊÇĞèÒª×Ô¼ºÇ××ÔÉ±µÄ£¬ÄãÁíÕÒÒ»¾ß°É¡£");
+                command("say å˜¿å˜¿ï¼Œç»ƒè…å°¸æ¯’çš„å°¸ä½“æ˜¯éœ€è¦è‡ªå·±äº²è‡ªæ€çš„ï¼Œä½ å¦æ‰¾ä¸€å…·å§ã€‚");
                 return 0;
                 }
         if ( (ob->query("victim_user") && ob->query("victim_exp") < who->query("combat_exp")/4) ||
              (!ob->query("victim_user") && ob->query("victim_exp") < who->query("combat_exp")/2)) {
-                command("say ºÙºÙ£¬ÎÒÔç¾ÍËµ¹ıÌ«ÈõµÄÊ¬ÌåÃ»ÓÃ£¬ÄãÁíÕÒÒ»¾ß°É¡£");
+                command("say å˜¿å˜¿ï¼Œæˆ‘æ—©å°±è¯´è¿‡å¤ªå¼±çš„å°¸ä½“æ²¡ç”¨ï¼Œä½ å¦æ‰¾ä¸€å…·å§ã€‚");
                 return 0;
                 }
         if (interactive(who) && (who->query_condition("job_busy") ||
             who->query_condition("xx_task2"))){
             command("pat "+ who->query("id"));
-            command("say Äã»¹ÔÚÎªÆäËûÊ¦ĞÖµÜÃÇ×öÊÂÄØ£¬µÈÍê³ÉÁËÔÙÀ´ÎÒÕâÀï°É¡£");
+            command("say ä½ è¿˜åœ¨ä¸ºå…¶ä»–å¸ˆå…„å¼Ÿä»¬åšäº‹å‘¢ï¼Œç­‰å®Œæˆäº†å†æ¥æˆ‘è¿™é‡Œå§ã€‚");
             return 0;
             }
         call_out("put_in", 4, ob, this_object(), who, obj);
@@ -169,18 +169,18 @@ int put_in(object corpse, object ob, object me, object obj)
    	if(!ob || !living(ob)) return 0;
 
    	if(!objectp(present(corpse, ob))){
-             	command("say ß×£¿ÕâÊ¬ÌåÔõÃ´²»¼ûÁË£¿");
+             	command("say å’¦ï¼Ÿè¿™å°¸ä½“æ€ä¹ˆä¸è§äº†ï¼Ÿ");
              	command("benger");
              	return 1;
    	}
 
    	if(!objectp(present(obj, environment(ob)))){
-             	command("say ß×£¿Ê¯¹×ÔõÃ´²»¼ûÁË£¿");
+             	command("say å’¦ï¼ŸçŸ³æ£ºæ€ä¹ˆä¸è§äº†ï¼Ÿ");
              	command("drop corpse");
              	return 1;
         }
    	if(!objectp(present(me, environment(ob)))){
-             	command("say Ò®£¿ÄÇ¼Ò»ïÔõÃ´²»¼ûÁË£¿");
+             	command("say è€¶ï¼Ÿé‚£å®¶ä¼™æ€ä¹ˆä¸è§äº†ï¼Ÿ");
              	command("drop corpse");
              	return 1;
         }
@@ -188,17 +188,17 @@ int put_in(object corpse, object ob, object me, object obj)
     	inv = all_inventory(corpse);
     	i = sizeof(inv);
     	while(i--) destruct(inv[i]);
-    	message_vision("\n$NÒ»°ÑÏÆ¿ªÊ¯¹×£¬½«"+corpse->name()+"°şÁË¸ö¾«¹â·Å½øÈ¥¡£\n\n", this_object(), me);
+    	message_vision("\n$Nä¸€æŠŠæ€å¼€çŸ³æ£ºï¼Œå°†"+corpse->name()+"å‰¥äº†ä¸ªç²¾å…‰æ”¾è¿›å»ã€‚\n\n", this_object(), me);
     	corpse->move(obj);
     	if(corpse->query("victim_user")) obj->set_temp("liandu", 2);
     	else obj->set_temp("liandu", corpse);
     	obj->set_temp("liandu_target", me->query("id"));
     	obj->set("arg", ob->query_temp("dest"));
-    	if( corpse->query("gender") == "ÄĞĞÔ" )
-    		obj->set_temp("poison_type", "Ñô");
-    	if( corpse->query("gender") == "Å®ĞÔ" )
-    		obj->set_temp("poison_type", "Òõ");
+    	if( corpse->query("gender") == "ç”·æ€§" )
+    		obj->set_temp("poison_type", "é˜³");
+    	if( corpse->query("gender") == "å¥³æ€§" )
+    		obj->set_temp("poison_type", "é˜´");
     	command("nod "+me->query("id"));
-    	command("say ºÃ°É£¬ÄãÀ´ÊÔ×ÅÁ·Ï°"HIR"(liandu)"CYN"Ò»ÏÂ¶¾¼¼°É¡£");
+    	command("say å¥½å§ï¼Œä½ æ¥è¯•ç€ç»ƒä¹ "HIR"(liandu)"CYN"ä¸€ä¸‹æ¯’æŠ€å§ã€‚");
     	return 1;
 }

@@ -3,14 +3,14 @@ inherit ITEM;
 inherit F_UNIQUE;
 void create()
 {
-        set_name(HIY"ÁúÊ÷ÂÛ"NOR, ({ "longshu lun", "medicine book"}));
+        set_name(HIY"é¾™æ ‘è®º"NOR, ({ "longshu lun", "medicine book"}));
         set_weight(500);
         if( clonep() )
                 set_default_object(__FILE__);
         else {
-                set("unit", "±¾");
+                set("unit", "æœ¬");
                 set("unique", 1);
-                set("long", "ÕâÊÇÒ»±¾¹Å´úÒ½Ñ§±¦µä£¬×÷Õß²»Ïê¡£\n");
+                set("long", "è¿™æ˜¯ä¸€æœ¬å¤ä»£åŒ»å­¦å®å…¸ï¼Œä½œè€…ä¸è¯¦ã€‚\n");
                 set("value", 1000000);
                 set("treasure",1);
                 set("material", "paper");

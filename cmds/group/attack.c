@@ -7,14 +7,14 @@ inherit F_CLEAN_UP;
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½ :
+æŒ‡ä»¤æ ¼å¼ :
 attack here
-¹¥»÷ËùÔÚµÄ·¿¼ä¡£
+æ”»å‡»æ‰€åœ¨çš„æˆ¿é—´ã€‚
 
-attack [ÎïÆ·id]
-¹¥»÷·¿¼äÀïµÄÎïÆ·¡£
+attack [ç‰©å“id]
+æ”»å‡»æˆ¿é—´é‡Œçš„ç‰©å“ã€‚
 
-¹¥»÷Õß±ØÐëÊÖ³Ö´¸Àà±øÆ÷¡£
+æ”»å‡»è€…å¿…é¡»æ‰‹æŒé”¤ç±»å…µå™¨ã€‚
 
 HELP
 	);
@@ -28,21 +28,21 @@ int main(object me, string arg)
 
 	if( !arg ) return help(me);
 	if( arg == "here" ) obj = env; else obj = present(arg,env);
-	if( !obj ) return notify_fail("ÄãÒª¹¥»÷Ê²Ã´£¿\n");
-	if( living(obj) ) return notify_fail("ÓÃkillÖ¸Áî¿ÉÄÜ±È½Ï¿ì¡£\n");
-	if( obj->query("hp") <= 0 ) return notify_fail("Äã²»ÄÜ´Ý»ÙÕâÑù¶«Î÷¡£\n");
-	if( env->query("attack") ) return notify_fail("ÒÑ¾­ÓÐÈËÔÚÕâÀï´Ý»ÙµÐÈËµÄ×°±¸ÁË¡£\n");
-	if( !me->query("group/id") ) return notify_fail("Äã»¹Ã»ÓÐ¼ÓÈë°ïÅÉ£¬µ½ÕâÀïµ·Ê²Ã´ÂÒ°¡¡£\n");
+	if( !obj ) return notify_fail("ä½ è¦æ”»å‡»ä»€ä¹ˆï¼Ÿ\n");
+	if( living(obj) ) return notify_fail("ç”¨killæŒ‡ä»¤å¯èƒ½æ¯”è¾ƒå¿«ã€‚\n");
+	if( obj->query("hp") <= 0 ) return notify_fail("ä½ ä¸èƒ½æ‘§æ¯è¿™æ ·ä¸œè¥¿ã€‚\n");
+	if( env->query("attack") ) return notify_fail("å·²ç»æœ‰äººåœ¨è¿™é‡Œæ‘§æ¯æ•Œäººçš„è£…å¤‡äº†ã€‚\n");
+	if( !me->query("group/id") ) return notify_fail("ä½ è¿˜æ²¡æœ‰åŠ å…¥å¸®æ´¾ï¼Œåˆ°è¿™é‡Œæ£ä»€ä¹ˆä¹±å•Šã€‚\n");
 	if( !(weapon=me->query_temp("weapon")) || weapon->query("skill_type")!="hammer" )
-		return notify_fail("ÄãÃ»ÓÐ´¸×Ó£¬ÈçºÎ´Ý»Ù·¿¼äºÍÎïÆ·°¡£¿\n");
+		return notify_fail("ä½ æ²¡æœ‰é”¤å­ï¼Œå¦‚ä½•æ‘§æ¯æˆ¿é—´å’Œç‰©å“å•Šï¼Ÿ\n");
 	if( !GROUP_D->site_now(me->query("group/id")) )
 		return notify_fail( GROUP_D->get_last_error() );
 	if( GROUP_D->is_group_fight(me) != 1 )
-		return notify_fail("Äã²¢Ã»ÓÐ´¦ÓÚÕ½¶·×´¿öÑ½¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰å¤„äºŽæˆ˜æ–—çŠ¶å†µå‘€ã€‚\n");
 	if( GROUP_D->query_league(me->query("group/id")) == env->query("group1") )
-		return notify_fail("´Ý»Ù×Ô¼ºÈËµÄ×°±¸£¿\n");
+		return notify_fail("æ‘§æ¯è‡ªå·±äººçš„è£…å¤‡ï¼Ÿ\n");
 
-	message_vision("$NÂÕÆð"+weapon->name()+"ÔÒÏò"+(clonep(obj)?obj->name():obj->query("short"))+"......\n",me);
+	message_vision("$NæŠ¡èµ·"+weapon->name()+"ç ¸å‘"+(clonep(obj)?obj->name():obj->query("short"))+"......\n",me);
 	t = 15 + random(30);
 	me->start_busy(t/2+1);
 	env->set("attack",time()+t);
@@ -70,8 +70,8 @@ void attack_finish(object obj,object env,object me)
 	env->set("attack_type","");
 
 	if( !me ) return;
-	tell_room(env,me->name()+"µÄ¹¥»÷½áÊøÁË£¬",({me}));
-	tell_object(me,"Äã¹¥»÷½áÊøÁË£¬");
+	tell_room(env,me->name()+"çš„æ”»å‡»ç»“æŸäº†ï¼Œ",({me}));
+	tell_object(me,"ä½ æ”»å‡»ç»“æŸäº†ï¼Œ");
 
 	if( environment(me) != env ) return;
 	GROUP_D->attack_room(obj,me);

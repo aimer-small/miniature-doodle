@@ -2,45 +2,45 @@
 // Creator : Numa@Sj 2000.4.29
 
 mapping *spy = ({
-	(["family":	"»ªÉ½ÅÉ",				  // Which Party
-	"item":		HIM"×ÏÏ¼ÃØ¼®"NOR,			  // What Treasure
-	"item_desc":	"ÕâÊÇ»ªÉ½ÅÉ×ÏÏ¼¹¦µÄĞŞÁ¶ÃØ¼®£¬ÊéÒ³·º»Æ¡£\n", // Treasure's Description
+	(["family":	"åå±±æ´¾",				  // Which Party
+	"item":		HIM"ç´«éœç§˜ç±"NOR,			  // What Treasure
+	"item_desc":	"è¿™æ˜¯åå±±æ´¾ç´«éœåŠŸçš„ä¿®ç‚¼ç§˜ç±ï¼Œä¹¦é¡µæ³›é»„ã€‚\n", // Treasure's Description
 	"generation":	"12",					  // Top Master Generation
 	"canask":	"linghu chong,yue buqun,ning zhongze",]),					  // Whom Can Ask
 
-	(["family":	"ÉÙÁÖÅÉ",
-	"item":		HIR"Ò×½î¾­ÃØ¼®"NOR,
-	"item_desc":	"ÕâÊÇÉÙÁÖËÂÎäÑ§¾«»ªÒ×½î¾­µÄĞŞÁ¶×Ü·¨¡£\n",	
+	(["family":	"å°‘æ—æ´¾",
+	"item":		HIR"æ˜“ç­‹ç»ç§˜ç±"NOR,
+	"item_desc":	"è¿™æ˜¯å°‘æ—å¯ºæ­¦å­¦ç²¾åæ˜“ç­‹ç»çš„ä¿®ç‚¼æ€»æ³•ã€‚\n",	
 	"generation":	"34",
 	"canask":	"xuanci dashi,xuannan dashi,xuanbei dashi,xuanji dashi,huizhen zunzhe,huixiu zunzhe,du nan,du jie",]),
 
-	(["family":	"Ã÷½Ì",
-	"item":		HIB"Ç¬À¤´óÅ²ÒÆÃØ¼®"NOR,
-	"item_desc":	"ÕâÊÇÃ÷½Ì½ÌÖ÷ÕÅÎŞ¼É×ÔĞĞ³­Â¼µÄÒ»²¾Ç¬À¤´óÅ²ÒÆĞÄ·¨ÃØ¼®¡£\n",
+	(["family":	"æ˜æ•™",
+	"item":		HIB"ä¹¾å¤å¤§æŒªç§»ç§˜ç±"NOR,
+	"item_desc":	"è¿™æ˜¯æ˜æ•™æ•™ä¸»å¼ æ— å¿Œè‡ªè¡ŒæŠ„å½•çš„ä¸€ç°¿ä¹¾å¤å¤§æŒªç§»å¿ƒæ³•ç§˜ç±ã€‚\n",
 	"generation":	"34",
 	"canask":	"zhang wuji,yin tianzheng,fan yao,yang xiao,leng qian",]),
 
-	(["family":	"´óÂÖËÂ",
-	"item":		HIC"Ñªµ¶ÃØ¼®"NOR,
-	"item_desc":	"ÕâÊÇÑ©É½ÅÉÑªµ¶ÀÏ×æµÄÒ»±¾Á·¹¦ÃØ¼®£¬ÊéÒ³·º»Æ¡£\n",	
+	(["family":	"å¤§è½®å¯º",
+	"item":		HIC"è¡€åˆ€ç§˜ç±"NOR,
+	"item_desc":	"è¿™æ˜¯é›ªå±±æ´¾è¡€åˆ€è€ç¥–çš„ä¸€æœ¬ç»ƒåŠŸç§˜ç±ï¼Œä¹¦é¡µæ³›é»„ã€‚\n",	
 	"generation":	"10",
 	"canask":	"jiumo zhi,xuedao laozu,lingzhi shangren,sang jie,wenwo er,mohe basi,hu bayin,",]),
 
-	(["family":	"Ø¤°ï",
-	"item":		HIW"´ò¹·°ôÃØ¼®"NOR,
-	"item_desc":	"ÕâÊÇØ¤°ï³¤ÀÏºéÆß¹«ËùĞ´µÄ´ò¹·°ôĞÄ·¨¼°°ô¾÷¡£\n",
+	(["family":	"ä¸å¸®",
+	"item":		HIW"æ‰“ç‹—æ£’ç§˜ç±"NOR,
+	"item_desc":	"è¿™æ˜¯ä¸å¸®é•¿è€æ´ªä¸ƒå…¬æ‰€å†™çš„æ‰“ç‹—æ£’å¿ƒæ³•åŠæ£’è¯€ã€‚\n",
 	"generation":	"17",
 	"canask":	"hong qigong,lu youjiao,song zhanglao,jiang zhanglao,xi zhanglao,quan guanqing,chen zhanglao",]),
 
-	(["family":	"ÌìÁúËÂ",
-	"item":		HIG"ÁùÂöÉñ½£½£Æ×"NOR,
-	"item_desc":	"ÕâÊÇ´óÀí¶ÎÊÏ½»ÓÉÌìÁúËÂÊØ»¤µÄÁùÂöÉñ½£½£Æ×¡£\n",
+	(["family":	"å¤©é¾™å¯º",
+	"item":		HIG"å…­è„‰ç¥å‰‘å‰‘è°±"NOR,
+	"item_desc":	"è¿™æ˜¯å¤§ç†æ®µæ°äº¤ç”±å¤©é¾™å¯ºå®ˆæŠ¤çš„å…­è„‰ç¥å‰‘å‰‘è°±ã€‚\n",
 	"generation":	"12",
 	"canask":	"kurong zhanglao,benyin dashi,benxiang dashi,benguan dashi,duan zhengming,duan zhengchun,",]),
 
-	(["family":	"ĞÇËŞÅÉ",
-	"item":		HIM"ÉñÄ¾Íõ¶¦"NOR,
-	"item_desc":	"Ò»Ö»µñ×Á¶ø³ÉµÄ°µ»ÆÉ«Ğ¡Ä¾¶¦, Ä¾ÀíÖ®¼äÒşÒş·º³öºìË¿¡£¶¦²àÓĞÎå¸öÍ­Ç®´óµÄÔ²¿×£¬Ä¾¶¦Æë¾±³öÓĞÒ»µÀÏ¸·ì£¬ËÆºõÉÏÏÂ·ÖÎªÁ½½Ø¡£",
+	(["family":	"æ˜Ÿå®¿æ´¾",
+	"item":		HIM"ç¥æœ¨ç‹é¼"NOR,
+	"item_desc":	"ä¸€åªé›•ç¢è€Œæˆçš„æš—é»„è‰²å°æœ¨é¼, æœ¨ç†ä¹‹é—´éšéšæ³›å‡ºçº¢ä¸ã€‚é¼ä¾§æœ‰äº”ä¸ªé“œé’±å¤§çš„åœ†å­”ï¼Œæœ¨é¼é½é¢ˆå‡ºæœ‰ä¸€é“ç»†ç¼ï¼Œä¼¼ä¹ä¸Šä¸‹åˆ†ä¸ºä¸¤æˆªã€‚",
 	"generation":	"1",
 	"canask":	"ding chunqiu,zhaixing zi,anran zi,tianlang zi,shihou zi,azi,",]),
 /*
@@ -53,31 +53,31 @@ mapping *spy = ({
 });
 
 mapping place = ([
-	"»ªÉ½ÅÉ":	({"/d/huashan/qinshi",
+	"åå±±æ´¾":	({"/d/huashan/qinshi",
 			"/d/huashan/xiaoxi",
 			"/d/huashan/siguoya",
 			"/d/huashan/wuqiku",
 			"/d/huashan/yaofang",}),
-	"ÉÙÁÖÅÉ":	({"/d/shaolin/yaowang",
+	"å°‘æ—æ´¾":	({"/d/shaolin/yaowang",
 			"/d/shaolin/luohan9",
 			"/d/shaolin/banruo1",
 			"/d/shaolin/zdyuan",}),
-	"Ã÷½Ì":		({"/d/mingjiao/jyt",
+	"æ˜æ•™":		({"/d/mingjiao/jyt",
 			"/d/mingjiao/bishui",
 			"/d/mingjiao/shiwang",
 			"/d/mingjiao/xting",}),
-	"´óÂÖËÂ":	({"/d/xueshan/dadian",
+	"å¤§è½®å¯º":	({"/d/xueshan/dadian",
 			"/d/xueshan/zhudubadian",
 			"/d/xueshan/yushengdian",
 			"/d/xueshan/boluomiyuan",}),
-	"Ø¤°ï":		({"/d/gb/fenduo2",
+	"ä¸å¸®":		({"/d/gb/fenduo2",
 			"/d/gb/pomiao",
 			"/d/gb/xinglin9",}),
-	"ÌìÁúËÂ":	({"/d/tls/baodian",
+	"å¤©é¾™å¯º":	({"/d/tls/baodian",
 			"/d/tls/gfd",
 			"/d/tls/ta3",
 			"/d/tls/ta2",}),
-	"ĞÇËŞÅÉ":	({"/d/xingxiu/ryd1",
+	"æ˜Ÿå®¿æ´¾":	({"/d/xingxiu/ryd1",
 			"/d/xingxiu/ryd",
 			"/d/xingxiu/shanshi",
 			"/d/xingxiu/house",}),

@@ -1,12 +1,12 @@
 // app4.h
-// ss 4 ´ú master
+// ss 4 ä»£ master
 
 void attempt_apprentice(object ob)
 {
 	if(ob->query("shen") < 0 && ob->query("combat_exp") < 10000){
-		command("say ÄãÕâÐ°Ä§ÍâµÀ£¬»¹¸ÒÀ´ÎÒáÔÉ½ÅÉ£¿¿ì¹ö£¡");
+		command("say ä½ è¿™é‚ªé­”å¤–é“ï¼Œè¿˜æ•¢æ¥æˆ‘åµ©å±±æ´¾ï¼Ÿå¿«æ»šï¼");
 		return;
 	}
-	command("say ºÃ°É£¬Ê¦¸µÕýÒªÎÒ¶àÅàÓýÒ»Ð©µÜ×ÓÀ´·¢ÑïáÔÉ½ÅÉÄØ¡£");
+	command("say å¥½å§ï¼Œå¸ˆå‚…æ­£è¦æˆ‘å¤šåŸ¹è‚²ä¸€äº›å¼Ÿå­æ¥å‘æ‰¬åµ©å±±æ´¾å‘¢ã€‚");
 	command("recruit " + ob->query("id"));
 }

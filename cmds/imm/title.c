@@ -12,7 +12,7 @@ int main(object me, string arg)
 	}
 	if( arg == "none") {
 		me->delete("title");
-		write("ÄúµÄtitleÒÑ¾­±»É¾³ıÁË¡£\n");
+		write("æ‚¨çš„titleå·²ç»è¢«åˆ é™¤äº†ã€‚\n");
 		write(sprintf(BOLD "%s" NOR "%s\n", RANK_D->query_rank(me), me->short(1)));
 		return 1;
 	}
@@ -33,7 +33,7 @@ int main(object me, string arg)
 	arg = replace_string(arg, "$HIW$", HIW);
 	arg = replace_string(arg, "$NOR$", NOR);
 	if( strlen(strip(arg)) > 40 )
-		return notify_fail("ÄãµÄtitleÌ«³¤ÁË£¬ÏëÒ»¸ö¶ÌÒ»µãµÄ¡¢ÏìÁÁÒ»µãµÄ¡£\n");
+		return notify_fail("ä½ çš„titleå¤ªé•¿äº†ï¼Œæƒ³ä¸€ä¸ªçŸ­ä¸€ç‚¹çš„ã€å“äº®ä¸€ç‚¹çš„ã€‚\n");
 	me->set("title", arg + NOR);
 	write(sprintf(BOLD "%s" NOR "%s\n", RANK_D->query_rank(me), me->short(1)));
 	return 1;
@@ -42,9 +42,9 @@ int main(object me, string arg)
 int help(object me)
 {
 	write(@HELP
-Ö¸Áî¸ñÊ½: title
+æŒ‡ä»¤æ ¼å¼: title
  
-ÏÔÊ¾ÄãÄ¿Ç°µÄ½×¼¶ºÍÍ·ÏÎ¡£
+æ˜¾ç¤ºä½ ç›®å‰çš„é˜¶çº§å’Œå¤´è¡”ã€‚
 
 HELP );
 	return 1;

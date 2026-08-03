@@ -15,24 +15,24 @@ void set_amount(int count)
 
 void create()
 {
-        set_name("·¨ÂÖ",({ "fa lun" ,"lun" ,"falun" }));
+        set_name("æ³•è½®",({ "fa lun" ,"lun" ,"falun" }));
         if (clonep())
                 set_default_object(__FILE__);
         else {
              set("value", 500);
              set("rigidity", 1);
              set("base_weight", 10000);
-             set("base_unit", "Ö»");
-             set("unit", "Ğ©");
-             set("long","ÕâÊÇÖ±¾¶³ß°ëµÄÒ»¸öÇ¦»·£¬ÉÏÃæ¿ÌÂúÁËÃÜ×Ú·üÄ§ÕæÑÔ£¬»·ÄÚÖĞ¿Õ¡£\n");
+             set("base_unit", "åª");
+             set("unit", "äº›");
+             set("long","è¿™æ˜¯ç›´å¾„å°ºåŠçš„ä¸€ä¸ªé“…ç¯ï¼Œä¸Šé¢åˆ»æ»¡äº†å¯†å®—ä¼é­”çœŸè¨€ï¼Œç¯å†…ä¸­ç©ºã€‚\n");
              set("material", "gold");
              set("weapon_prop/dodge", -5);
              set("weapon_prop/parry", 1);
              set("wield_neili", 50);
              set("wield_maxneili", 500);
              set("wield_str", 21); 
-             set("wield_msg", "$N´Ó»³ÖĞÈ¡³ö$n¡£ËæÊÖÒ»¶¶£¬ÏìÉùÁ¼¾Ã²»¾ø¡£\n"NOR);
-             set("unwield_msg","$N½«$nËæÊÖÒ»¶¶£¬¹ÒÔÚÊÖ±ÛÉÏ¡£\n");
+             set("wield_msg", "$Nä»æ€€ä¸­å–å‡º$nã€‚éšæ‰‹ä¸€æŠ–ï¼Œå“å£°è‰¯ä¹…ä¸ç»ã€‚\n"NOR);
+             set("unwield_msg","$Nå°†$néšæ‰‹ä¸€æŠ–ï¼ŒæŒ‚åœ¨æ‰‹è‡‚ä¸Šã€‚\n");
         }
         set_amount(1);
         init_hammer(15);

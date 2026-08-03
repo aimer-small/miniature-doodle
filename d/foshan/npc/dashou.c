@@ -1,12 +1,12 @@
-//dashou.c  ´òÊÖ
+//dashou.c  æ‰“æ‰‹
 
 inherit NPC;
 
 void create()
 {
-        set_name("´òÊÖ", ({ "da shou", "da" }));
-        set("long", "ËûÉí´©ºÚÉ«¾¢·ş£¬±ÊÖ±µÄÕ¾Á¢×Å£¬Ä¿¹âĞ×ºİ¡£\n");
-        set("gender", "ÄĞĞÔ" );
+        set_name("æ‰“æ‰‹", ({ "da shou", "da" }));
+        set("long", "ä»–èº«ç©¿é»‘è‰²åŠ²æœï¼Œç¬”ç›´çš„ç«™ç«‹ç€ï¼Œç›®å…‰å‡¶ç‹ ã€‚\n");
+        set("gender", "ç”·æ€§" );
         set("age", random(20) + 30);
         set("combat_exp", 50000);
         set("attitude", "peaceful");

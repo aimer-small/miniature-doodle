@@ -3,10 +3,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-        set_name("Ø¤°ï-ÑïÖİ´óÓÂ·Ö¶æÁôÑÔ°å", ({ "board" }) );
+        set_name("ä¸å¸®-æ‰¬å·å¤§å‹‡åˆ†èˆµç•™è¨€æ¿", ({ "board" }) );
         set("location", "/d/city/fenduo2.c");
         set("board_id", "gb_board2");
-        set("long", "ÕâÊÇÒ»¸ö¹©Ø¤°ïµÜ×ÓÊ¹ÓÃµÄÁôÑÔ°å¡£\n" );
+        set("long", "è¿™æ˜¯ä¸€ä¸ªä¾›ä¸å¸®å¼Ÿå­ä½¿ç”¨çš„ç•™è¨€æ¿ã€‚\n" );
         setup();
         set("capacity", 60);
 }

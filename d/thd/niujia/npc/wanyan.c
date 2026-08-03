@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-        set_name("ÍêÑÕºéÁÒ", ({"wanyan honglie", "honglie", "wanyan"}));
-        set("gender", "ÄĞĞÔ");
-        set("title", HIY"´ó½ğ¹úÕÔÍõÒ¯"NOR);
+        set_name("å®Œé¢œæ´ªçƒˆ", ({"wanyan honglie", "honglie", "wanyan"}));
+        set("gender", "ç”·æ€§");
+        set("title", HIY"å¤§é‡‘å›½èµµç‹çˆ·"NOR);
         set("age", 31);
         set("class", "officer");
-	      set("long","[1;31mËû¿´ÆğÀ´ÊÜÁËºÜÖØµÄÉË£¬¿´ÉÏÈ¥¿ìÒª²»ĞĞÁË¡£[0m\n");
+	      set("long","[1;31mä»–çœ‹èµ·æ¥å—äº†å¾ˆé‡çš„ä¼¤ï¼Œçœ‹ä¸Šå»å¿«è¦ä¸è¡Œäº†ã€‚[0m\n");
         set("attitude", "friendly");
         set("shen_type", -1);
         set("str", 26);

@@ -6,10 +6,10 @@ inherit SPEC;
 
 void create()
 {
-	set_name (HIM"прткуДжИ"NOR, ({ "pearl"}));
-	set("long","уБйгр╩©е╡ивт╤╚╨ёж╝╠У╣д"HIM"прткуДжИ"NOR"ё╛╬щк╣╤твекЭфМ╣╩("HIY"pray pearl"NOR")╩А╦Ьхк╢Ью╢╨цтк║ё\n");
+	set_name (HIM"Е╧╦Х©░Г▐█Г▐═"NOR, ({ "pearl"}));
+	set("long","Х©≥Ф≤╞Д╦─И╒≈И┤┤Х┤╙Д╦°Ф╣╥Д╧▀Ф╩╗Г └"HIM"Е╧╦Х©░Г▐█Г▐═"NOR"О╪▄Ф█╝Х╞╢Е╞╧Г²─Е╝┐Г╔┬Г╔╥("HIY"pray pearl"NOR")Д╪ Г╩≥Д╨╨Е╦╕Ф²╔Е╔╫Х©░Ц─┌\n");
 
-	set("unit","©е");
+	set("unit","И╒≈");
 	set_weight(100);
 	set("value",3000000);
         set("no_give",1);
@@ -18,7 +18,7 @@ void create()
 	set("degree",1);
 	set("flag","spec/pearl");
         set("rest",100);
-	set("desc","©ирт╢Ью╢╨цтк║ё");
+	set("desc","Е▐╞Д╩╔Е╦╕Ф²╔Е╔╫Х©░Ц─┌");
         set("credit",10);       
 	setup();
 }
@@ -34,21 +34,21 @@ int do_pray(string arg)
 	object me=this_player();
 	    
 	if (!arg)
-      		return notify_fail("дЦр╙фМ╣╩й╡ц╢?\n");
+      		return notify_fail("Д╫═Х╕│Г╔┬Г╔╥Д╩─Д╧┬?\n");
       		
 	if (arg!="pearl")
-      		return notify_fail("дЦр╙фМ╣╩й╡ц╢?\n");
+      		return notify_fail("Д╫═Х╕│Г╔┬Г╔╥Д╩─Д╧┬?\n");
       	
       	if (me->query("kar")>29)
-      		return notify_fail("дЦткфЬря╬╜╨э╨цак!\n");
+      		return notify_fail("Д╫═Х©░Ф╟■Е╥╡Г╩▐Е╬┬Е╔╫Д╨├!\n");
       		
-      	if (!restrict()) {return notify_fail("╠╬жэдЦря╬╜╡╩дэй╧сц"+this_object()->query("name")+"ак║ё\n");}   
+      	if (!restrict()) {return notify_fail("Ф°╛Е▒╗Д╫═Е╥╡Г╩▐Д╦█Х┐╫Д╫©Г■╗"+this_object()->query("name")+"Д╨├Ц─┌\n");}   
 
 
 	me->set("kar",30);
 	
-	write(HIY"дЦ╟я"HIM"прткуДжИ"HIY"гАгА╣длЫтзпьг╟ё╛д╛д╛╣доРио╡тфМ╦ё......\n"NOR);
-	write(HIW"дЦ╬У╣цвт╪╨╣дткфЬ╨цоС╠Д╨цак║ё\n"NOR);
+	write(HIY"Д╫═Ф┼┼"HIM"Е╧╦Х©░Г▐█Г▐═"HIY"Х╫╩Х╫╩Г └Х╢╢Е°╗Х┐╦Е┴█О╪▄И╩≤И╩≤Г └Е░▒Д╦┼Х▀█Г╔┬Г╕▐......\n"NOR);
+	write(HIW"Д╫═Х╖┴Е╬≈Х┤╙Е╥╠Г └Х©░Ф╟■Е╔╫Х╠║Е▐≤Е╔╫Д╨├Ц─┌\n"NOR);
 	degree();
 	return 1;
 }	 

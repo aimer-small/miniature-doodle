@@ -11,7 +11,7 @@ int update_condition(object me, int duration)
                 me->delete_temp("hostage");
                 me->set_temp("hostage/failed_3");
                 me->clear_condition("hostage2");
-                tell_object(me,"你的营救人质任务失败了。\n");
+                tell_object(me,"浣犵殑钀ユ晳浜鸿川浠诲姟澶辫触浜嗐�俓n");
                 return 0;
         }
         

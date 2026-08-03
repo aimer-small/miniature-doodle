@@ -6,17 +6,17 @@ string ask_for(string verb);
 
 void create()
 {
-        set_name("³É¸ßµÀ³¤", ({ "chenggao daozhang", "chenggao" }));
+        set_name("æˆé«˜é“é•¿", ({ "chenggao daozhang", "chenggao" }));
         set("long", 
-                "Ëû¾ÍÊÇÎäµ±ÅÔÖ§µÄµÜ×Ó£¬²»¾«ÎäÑ§£¬Æ«ºÃ»úÇÉ¡£\n"
-                "Éí´©Ò»¼şĞâÁËÒ»¸ö°ËØÔÁáçç½áµÄµÄ°×É«µÀÅÛ¡£\n"
-                "½­ºş´«ÎÅ£º³É¸ßµÀÈËÎä¹¦Æ½Æ½£¬È´¾«ÓÚ»úÇÉÖ®Êõ¡£\n");
+                "ä»–å°±æ˜¯æ­¦å½“æ—æ”¯çš„å¼Ÿå­ï¼Œä¸ç²¾æ­¦å­¦ï¼Œåå¥½æœºå·§ã€‚\n"
+                "èº«ç©¿ä¸€ä»¶é”ˆäº†ä¸€ä¸ªå…«å¦ç²ç‘ç»“çš„çš„ç™½è‰²é“è¢ã€‚\n"
+                "æ±Ÿæ¹–ä¼ é—»ï¼šæˆé«˜é“äººæ­¦åŠŸå¹³å¹³ï¼Œå´ç²¾äºæœºå·§ä¹‹æœ¯ã€‚\n");
 
         set("no_ansuan",1);
         
-        set("nickname",RED"Ç§ "HIG"ÇÉ "HIM"µÀ "HIY"ÈË"NOR);
+        set("nickname",RED"åƒ "HIG"å·§ "HIM"é“ "HIY"äºº"NOR);
                 
-        set("gender", "ÄĞĞÔ");
+        set("gender", "ç”·æ€§");
         set("age", 40+random(10));
         set("attitude", "peaceful");
         set("shen_type", 1);
@@ -58,28 +58,28 @@ void create()
         map_skill("blade", "xuanxu-daofa");
         prepare_skill("cuff", "wudang-quan");
         
-        create_family("Îäµ±ÅÉ", 4, "µÜ×Ó");
+        create_family("æ­¦å½“æ´¾", 4, "å¼Ÿå­");
         set("class", "taoist");
   /*      
         set("chat_chance", 10);
 	set("chat_msg", ({		
-		CYN"³É¸ßµÀÈËÌ¾Ï¢Ò»Éù£º¡¸µ±ÄêÔøÓöµ½Ò»Î»ÊÀÍâ¸ßÈË´¾ÓÚÀ¶ÀÏÏÈÉú£¬Ò²²»Öª´ËÉú»¹ÓĞÎŞ»úÔµÔÙ´ÎÓëËûÇĞ´è¼¼ÒÕ¡­¡­¡¹\n"NOR,
-		CYN"³É¸ßµÀÈËËµµÀ£º¡¸Î¤À¼ÄÇÀÏ¶ùµÄ¶ÍÔìÖ®ÊõÒÑÕé»¯¾³£¬¿ÉÏ§Äê¼Í´ó¿©£¬ºÙºÙ¡­¡­¡¹\n"NOR,
+		CYN"æˆé«˜é“äººå¹æ¯ä¸€å£°ï¼šã€Œå½“å¹´æ›¾é‡åˆ°ä¸€ä½ä¸–å¤–é«˜äººæ·³äºè“è€å…ˆç”Ÿï¼Œä¹Ÿä¸çŸ¥æ­¤ç”Ÿè¿˜æœ‰æ— æœºç¼˜å†æ¬¡ä¸ä»–åˆ‡ç£‹æŠ€è‰ºâ€¦â€¦ã€\n"NOR,
+		CYN"æˆé«˜é“äººè¯´é“ï¼šã€ŒéŸ¦å…°é‚£è€å„¿çš„é”»é€ ä¹‹æœ¯å·²è‡»åŒ–å¢ƒï¼Œå¯æƒœå¹´çºªå¤§å’¯ï¼Œå˜¿å˜¿â€¦â€¦ã€\n"NOR,
 //		(: random_move :),
-		CYN"³É¸ßµÀÈËËµµÀ£º¡¸ĞşÌú£¬Ìì²ÏË¿£¬·çÀ×Óñ£¿ÕâµÈÀÍÊ°×ÓÒ²ÄÜËã¼«Æ·£¿µ±Äê¡­¡­¡¹\n"NOR,
+		CYN"æˆé«˜é“äººè¯´é“ï¼šã€Œç„é“ï¼Œå¤©èš•ä¸ï¼Œé£é›·ç‰ï¼Ÿè¿™ç­‰åŠ³æ‹¾å­ä¹Ÿèƒ½ç®—æå“ï¼Ÿå½“å¹´â€¦â€¦ã€\n"NOR,
 
 	}) );
 */	        
         set("inquiry", 
                 ([
                 	"nongsang" : (: ask_for, "nongsang" :),
-                	"Å©É£" : (: ask_for, "nongsang" :),
+                	"å†œæ¡‘" : (: ask_for, "nongsang" :),
                 	"zhizao" : (: ask_for, "zhizao" :),
-                	"Ö¯Ôì" : (: ask_for, "zhizao" :),
+                	"ç»‡é€ " : (: ask_for, "zhizao" :),
                 	"duanzao" : (: ask_for, "duanzao" :),
-                	"¶ÍÔì" : (: ask_for, "duanzao" :),
+                	"é”»é€ " : (: ask_for, "duanzao" :),
                 	"caikuang" : (: ask_for, "caikuang" :),
-                	"²É¿ó" : (: ask_for, "caikuang" :),                        
+                	"é‡‡çŸ¿" : (: ask_for, "caikuang" :),                        
                 ]));
         setup();        
         carry_object("/d/wudang/obj/white-robe")->wear();
@@ -89,7 +89,7 @@ void unconcious()
 {
 	reincarnate();
 	clear_condition(0);
-	message_vision("$NÉîÉîµÄÎüÁË¿ÚÆøÁ³É«¿´ÆğÀ´ºÃ¶àÁË¡£\n",this_object());
+	message_vision("$Næ·±æ·±çš„å¸äº†å£æ°”è„¸è‰²çœ‹èµ·æ¥å¥½å¤šäº†ã€‚\n",this_object());
 }
 
 void die()
@@ -134,16 +134,16 @@ string ask_for(string verb)
 	if (me->query("registered") ==3 && me->query_temp("ggs/started") && me->query("ggs/started") )
 	{
 		improve = improve*2;
-		if(!random(4)) message_vision("$N²ÎÕÕ×Ô¼ºÔÚ"HIG"¹í¹ÈËãÊõ"NOR"ÉÏµÄĞŞÎª£¬ÔËÉñÍ¨Êı£¬¾õµÃ×Ô¼ºÑ§Ï°ÆğÀ´ÊÂ°ë¹¦±¶¡£\n",me);
+		if(!random(4)) message_vision("$Nå‚ç…§è‡ªå·±åœ¨"HIG"é¬¼è°·ç®—æœ¯"NOR"ä¸Šçš„ä¿®ä¸ºï¼Œè¿ç¥é€šæ•°ï¼Œè§‰å¾—è‡ªå·±å­¦ä¹ èµ·æ¥äº‹åŠåŠŸå€ã€‚\n",me);
 	}
 							
 	me->add("potential",-5);	
-	message_vision(CYN"$NĞË·ÜµÄ´ê×ÅË«ÊÖËµµÀ£º¡¸Æ¶µÀÕıÓĞĞËÈ¤ÓëÈËÌ½ÌÖÌ½ÌÖÕâ¸öÎÊÌâÄØ¡­¡­¡¹\n"NOR,this_object());
-	tell_object(me,CYN"ÄãºÍ³É¸ßµÀ³¤Ò»Æğ½»Á÷×Å¡¸"HIY + to_chinese(verb) + CYN"¡¹µÄĞÄµÃ¡£\n"NOR);
+	message_vision(CYN"$Nå…´å¥‹çš„æ“ç€åŒæ‰‹è¯´é“ï¼šã€Œè´«é“æ­£æœ‰å…´è¶£ä¸äººæ¢è®¨æ¢è®¨è¿™ä¸ªé—®é¢˜å‘¢â€¦â€¦ã€\n"NOR,this_object());
+	tell_object(me,CYN"ä½ å’Œæˆé«˜é“é•¿ä¸€èµ·äº¤æµç€ã€Œ"HIY + to_chinese(verb) + CYN"ã€çš„å¿ƒå¾—ã€‚\n"NOR);
 	if(WORKER_D->check_impove(me,verb,improve,3) <= 0 )
 	{
-		message_vision(CYN"$NÍ»È»Ì¾Ï¢µÀ£º¡¸ÄãÕæÊÇÒ»·½ÍçÊ¯£¬ÍçÊ¯²»¿É»¯Ò²¡£ÎÒ¿´ÄãÊÇºÜÄÑ¿ªÇÏÁË¡­¡­¡¹\n"NOR,this_object() );
+		message_vision(CYN"$Nçªç„¶å¹æ¯é“ï¼šã€Œä½ çœŸæ˜¯ä¸€æ–¹é¡½çŸ³ï¼Œé¡½çŸ³ä¸å¯åŒ–ä¹Ÿã€‚æˆ‘çœ‹ä½ æ˜¯å¾ˆéš¾å¼€çªäº†â€¦â€¦ã€\n"NOR,this_object() );
 	}
 me->start_busy(1+random(1));
-return "Õâ¸öÊÇÕâÑùµÄ£¬ÄÇ¸öÊÇÄÇÑùµÄ£¬ÄãµÄËµ·¨Ò²ÊÇºÜÓĞµÀÀíµÄ.....%^%$^%&^^";
+return "è¿™ä¸ªæ˜¯è¿™æ ·çš„ï¼Œé‚£ä¸ªæ˜¯é‚£æ ·çš„ï¼Œä½ çš„è¯´æ³•ä¹Ÿæ˜¯å¾ˆæœ‰é“ç†çš„.....%^%$^%&^^";
 }

@@ -2,8 +2,8 @@
 int update_condition(object me, int duration)
 {                                        
         if (duration < 1) {
-            tell_object(me, HIR"你突然发现襄阳主营放出信号火焰！\n"NOR);
-            tell_object(me, HIR"看来似乎是要求援助的信号。\n"NOR);
+            tell_object(me, HIR"浣犵獊鐒跺彂鐜拌闃充富钀ユ斁鍑轰俊鍙风伀鐒帮紒\n"NOR);
+            tell_object(me, HIR"鐪嬫潵浼间箮鏄姹傛彺鍔╃殑淇″彿銆俓n"NOR);
             me->delete_temp("xy");
             return 0;        
         }
