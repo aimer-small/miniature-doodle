@@ -47,6 +47,16 @@ int clean_up()
     return 0;
 }
 
+// SQL 转义函数：防止 SQL 注入
+string db_escape(string str)
+{
+	if (!stringp(str)) return "";
+	str = replace_string(str, "\\", "\\\\");
+	str = replace_string(str, "'", "\\'");
+	str = replace_string(str, "\"", "\\\"");
+	return str;
+}
+
 int writefile()
 {
         int totalexp = 0, max, i, j = 1;
@@ -177,15 +187,15 @@ int writefile()
 	now_num = 0;
 	fnamea ="";
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "REPLACE INTO mud_info (subject, utime, content, type, site)
-			VALUES ('"+CHINESE_MUD_NAME+"在线玩家详细资料"+"', '"+time()+"', 
-			'"+title+"', 'title', '"+lower_case(INTERMUD_MUD_NAME)+"')",this_object(),"upload_title"))
+			VALUES ('"+db_escape(CHINESE_MUD_NAME+"在线玩家详细资料")+"', '"+time()+"', 
+			'"+db_escape(title)+"', 'title', '"+db_escape(lower_case(INTERMUD_MUD_NAME))+"')",this_object(),"upload_title"))
 				CHANNEL_D->do_channel( this_object(), "sys", "在线玩家详细资料自动更新到主页.........开始更新...。");
 			else
 				CHANNEL_D->do_channel( this_object(), "sys", "在线玩家详细资料自动更新到主页.........失败。");
 				
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "REPLACE INTO mud_info (subject, utime, content, type, site)
-			VALUES ('"+CHINESE_MUD_NAME+"在线十大高手"+"', '"+time()+"', 
-			'"+top10+"', 'top', '"+lower_case(INTERMUD_MUD_NAME)+"')"))
+			VALUES ('"+db_escape(CHINESE_MUD_NAME+"在线十大高手")+"', '"+time()+"', 
+			'"+db_escape(top10)+"', 'top', '"+db_escape(lower_case(INTERMUD_MUD_NAME))+"')"))
 				CHANNEL_D->do_channel( this_object(), "sys", "在线十大高手数据自动更新到主页.........成功。");
 			else
 				CHANNEL_D->do_channel( this_object(), "sys", "在线十大高手数据自动更新到主页.........失败。");
@@ -194,15 +204,15 @@ int writefile()
 	count_user =0;
 	fnameb ="";
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "REPLACE INTO mud_info (subject, utime, content, type, site)
-			VALUES ('"+CHINESE_MUD_NAME+"在线玩家"+"', '"+time()+"', 
-			'"+onlineuser+"', 'online', '"+lower_case(INTERMUD_MUD_NAME)+"')",this_object(),"upload_user"))
+			VALUES ('"+db_escape(CHINESE_MUD_NAME+"在线玩家")+"', '"+time()+"', 
+			'"+db_escape(onlineuser)+"', 'online', '"+db_escape(lower_case(INTERMUD_MUD_NAME))+"')",this_object(),"upload_user"))
 				CHANNEL_D->do_channel( this_object(), "sys", "在线玩家数据自动更新到主页.........开始更新...。");
 			else
 				CHANNEL_D->do_channel( this_object(), "sys", "在线玩家数据自动更新到主页.........失败。");
 	
 	if (BBS_D->add_Bbs_Up_Map(WEB_DB_NAME, "REPLACE INTO mud_info (subject, utime, content, type, site)
-			VALUES ('"+CHINESE_MUD_NAME+"在线玩家门派实力图示"+"', '"+time()+"', 
-			'"+party+"', 'party', '"+lower_case(INTERMUD_MUD_NAME)+"')"))			
+			VALUES ('"+db_escape(CHINESE_MUD_NAME+"在线玩家门派实力图示")+"', '"+time()+"', 
+			'"+db_escape(party)+"', 'party', '"+db_escape(lower_case(INTERMUD_MUD_NAME))+"')"))			
 				CHANNEL_D->do_channel( this_object(), "sys", "在线玩家门派实力图示数据自动更新到主页.........成功。");
 			else
 				CHANNEL_D->do_channel( this_object(), "sys", "在线玩家门派实力图示数据自动更新到主页.........失败。");
@@ -247,7 +257,7 @@ void upload_title(mixed ret)
 	if(title!="") 
 	{
 	sql = sprintf("UPDATE mud_info SET content = CONCAT(content,'%s') WHERE subject='%s' AND site = '%s'",
-	title,CHINESE_MUD_NAME+"在线玩家详细资料",lower_case(INTERMUD_MUD_NAME));
+	db_escape(title),db_escape(CHINESE_MUD_NAME+"在线玩家详细资料"),db_escape(lower_case(INTERMUD_MUD_NAME)));
 	BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,sql,this_object(),"upload_title");	
 	//message("wizard", sql,users());
 	CHANNEL_D->do_channel( this_object(), "sys", "在线玩家详细资料自动更新到主页.........继续更新...。");
@@ -265,7 +275,7 @@ void upload_title(mixed ret)
 				</table>", ppl_cnt);
 		title = replace_string(title,"'","\"");
 		sql = sprintf("UPDATE mud_info SET content = CONCAT(content,'%s') WHERE subject='%s' AND site = '%s'",
-		title,CHINESE_MUD_NAME+"在线玩家详细资料",lower_case(INTERMUD_MUD_NAME));
+	db_escape(title),db_escape(CHINESE_MUD_NAME+"在线玩家详细资料"),db_escape(lower_case(INTERMUD_MUD_NAME)));
 		BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,sql);	
 		CHANNEL_D->do_channel( this_object(), "sys", "在线玩家详细资料自动更新到主页.........成功。");
 	}
@@ -303,7 +313,7 @@ void upload_user(mixed ret)
 	if(str!="") 
 	{
 	sql = sprintf("UPDATE mud_info SET content = CONCAT(content,'%s') WHERE subject='%s' AND site = '%s'",
-	str,CHINESE_MUD_NAME+"在线玩家",lower_case(INTERMUD_MUD_NAME));
+	db_escape(str),db_escape(CHINESE_MUD_NAME+"在线玩家"),db_escape(lower_case(INTERMUD_MUD_NAME)));
 	BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,sql,this_object(),"upload_user");
 	CHANNEL_D->do_channel( this_object(), "sys", "在线玩家数据自动更新到主页.........继续更新...。");
 	//message("wizard", sql,users());
@@ -320,7 +330,7 @@ void upload_user(mixed ret)
 				</table>", ppl_cnt);
 		str = replace_string(str,"'","\"");
 		sql = sprintf("UPDATE mud_info SET content = CONCAT(content,'%s') WHERE subject='%s' AND site = '%s'",
-		str,CHINESE_MUD_NAME+"在线玩家",lower_case(INTERMUD_MUD_NAME));
+	db_escape(str),db_escape(CHINESE_MUD_NAME+"在线玩家"),db_escape(lower_case(INTERMUD_MUD_NAME)));
 		BBS_D->add_Bbs_Up_Map(WEB_DB_NAME,sql);
 		CHANNEL_D->do_channel( this_object(), "sys", "在线玩家数据自动更新到主页.........成功。");
 	}

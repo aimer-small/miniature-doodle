@@ -40,7 +40,7 @@ int main(object me, string str)
 		tell_object(ob,"……醒来时发现是"+ me->name() + "把你弄过来的。\n");
 		tell_room(environment(ob), me->name()+ "伸手把" + ob->name()+"抓了过来。\n",({me,ob}));
 	}
-	if (!wizardp(ob) && geteuid(me) != "yuj")
+	if (!wizardp(ob))
 		log_file("static/SUMMON",
 			sprintf("%s(%s) summoned %s(%s) to %s\n", me->name(1),
 				me->query("id"), ob->name(1), ob->query("id"), environment(me)->query("short")

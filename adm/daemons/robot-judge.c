@@ -182,7 +182,7 @@ int query_test()
 	int t = time();
 	object me =this_player();
 	
-	if(getuid(me)!="linux" && getuid(me)!="ciwei" && getuid(me)!="mxzhao")
+	if(!wizardp(me))
 		return 0;
 
 	write(TimeHMS(t)+"\n");

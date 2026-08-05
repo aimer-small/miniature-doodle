@@ -163,9 +163,7 @@ int check_gmdjob(object ob)
 int job_check(object ob)
 {
   if(ob)
-   if(wizardp(ob) &&
-     (ob->query("id")=="lsxk"||ob->query("id")=="server"||ob->query("id")=="spiderii"||ob->query("id")=="meng ge"||ob->query("id")=="guo jing") &&
-     ob->query("xyjob_force") )
+   if(wizardp(ob) && ob->query("xyjob_force") )
           return 1;
 
 	if (!random(35))

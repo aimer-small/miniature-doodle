@@ -95,8 +95,7 @@ int do_ti(string arg)
                                    && me->query("int")>35
                                    &&random(me->query("kar"))>=28
                                    &&random(15-i)==10
-                                   &&!me->query("quest/pass/dugu-jiujian/wuzhao")
-                       || me->query("id")=="master"){
+                                   &&!me->query("quest/pass/dugu-jiujian/wuzhao")){
                 tell_object(me,HBMAG"你对着石刻下的字沉默良久，心中若有所悟。\n"+
                                   MAG"独孤九剑有招如无招，存招式之意，而无招式之形。“独孤九剑”精微奥妙，达于\n"+
                                    "极点，但毕竟一招一式，尚有迹可寻，待得再将“以无招胜有招”的剑理加入运\n"+

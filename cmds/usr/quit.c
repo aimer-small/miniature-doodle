@@ -98,11 +98,6 @@ int main(object me, string arg)
 		write("因为你当前的经验值小于 100000，所以下次连线会在扬州宝昌客栈。\n");
 		me->set("startroom", "/d/city/kedian");	
 	}
-	if ( getuid(me) == "mastera")
-	{
-		me->set("startroom", "/d/wizard/master_room");
-	}
-
 	me->set_temp("quit", uptime() + 203);
 
 	CHANNEL_D->do_channel(this_object(), 

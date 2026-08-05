@@ -19,7 +19,7 @@ int main(object me, string arg)
 	int i;
 	
 	if(!arg) return help(me);
-	if (wiz_level(me) < 3 && getuid(me)!="ciwei" )
+	if (wiz_level(me) < 3)
 		return notify_fail("只有 wizard 等级以上巫师才可以使用此指令。\n");
 	if(!objectp(tong = get_tong())) return notify_fail("万事通尚未复制。无法通讯。\n");
 	ask = tong->query_ask();

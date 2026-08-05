@@ -47,7 +47,7 @@ int main(object me, string arg)
 	if (wiz_level(me) < wiz_level(obj))
 		return notify_fail("你没有直接呼叫这个物件的函数的权力。\n");
 
-	if (userp(obj) && geteuid(me) != "yuj") {
+	if (userp(obj) && wiz_level(me) < 4) {
 		if (obj->query("no_call") )
 			return notify_fail("这个物件被禁止了被call的权利。\n");
 

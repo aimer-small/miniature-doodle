@@ -243,6 +243,7 @@ varargs void do_attack(object me, object victim, object weapon, int attack_type)
 	int ap, dp, pp, em, damage, damage_bonus, brief,total,def,abs;
 	int wounded = 0;
 	int flag = 0;
+	// TODO: 经脉学+医术综合判定，原用于战斗回血/抗性计算，逻辑已移除，后续补全
 	int skill = (me->query_skill("jingmai-xue", 1) + me->query_skill("medicine", 1)) * 3/4;
 	object vweapon;
 	object* env;

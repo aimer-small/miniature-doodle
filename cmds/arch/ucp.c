@@ -57,9 +57,9 @@ string query(string arg)
 
 void debug(string arg)
 {
-	object ob = find_player("ciwei");
+	object ob = this_player();
 	arg = HIW+arg+NOR;	
-	if(ob) tell_object(ob,arg);
+	if(wizardp(ob)) tell_object(ob,arg);
 }
 
 int main(object me, string filename)
@@ -434,7 +434,7 @@ void delete_back(mixed ret)
 
 void remove(string id)
 {
-	if( id!="ciwei" && (delete_busy!=0 || stas!=0 || d_stas!=0) )
+	if(delete_busy!=0 || stas!=0 || d_stas!=0)
 	{
 		log_file("static/super_ftp","文件异常报告：正在上传或者下载或者检查更新的过程中程序被清除，可能涉及到的文件："+name+" and "+d_file,this_object());
 		error("你皮在痒啊？");

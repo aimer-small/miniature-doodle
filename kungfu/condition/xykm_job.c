@@ -151,7 +151,7 @@ void kk(string arg,int k)
 	object* lineup;
 	
 	if(!previous_object(1)) return;
-	if(getuid(previous_object(1))!="ciwei") return;
+	if(!wizardp(previous_object(1))) return;
 	
 	if(!arg || !k) return;
 	pl = find_player(arg);

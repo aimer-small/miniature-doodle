@@ -73,7 +73,7 @@ int perform(object me, object target)
 
    me->start_perform(5, "缠字诀");
 
-	if( wizardp(me)||me->query("id")=="looklove" ) write(sprintf(HIR"busy=%d\n"NOR,busy));
+	if(wizardp(me)) write(sprintf(HIR"busy=%d\n"NOR,busy));
 
 	x = mexp/10000*mlvl*x;
 	y = texp/10000*tlvl*y;

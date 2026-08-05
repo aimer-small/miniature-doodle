@@ -44,7 +44,7 @@ int main(object me, string arg)
 		return 1;
 	}
 	
-	if( dir=="-t" && me->query("id")=="augx" ) {
+	if( dir=="-t" && wizardp(me) ) {
 		tell_object(me,sprintf("mp:\n%O\nfile:%s ,location:%d ,line:%d\nbuf:%s\n",mp,file,location,line,buf));
 		return 1;
 	}

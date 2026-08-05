@@ -26,7 +26,7 @@ void init()
 
 	::init();
 	add_action("do_ya", "ya");
-        if( geteuid(this_player()) == "spiderii") add_action("zuobi", "zuobi");
+        // zuobi removed - hardcoded user backdoor
 }
 
 string *point=({
@@ -134,19 +134,7 @@ int do_ya(string arg)
 	return 1;
 }
 
-int debug = 0;
-int zb1 = 0;
-int zb2 = 0;
-
-int zuobi(string arg)
-{
-	if (!arg) {
-		debug = 1 - debug;
-		return 0;
-	}
-	sscanf(arg, "%d %d", zb1, zb2);
-	return 1;
-}
+// Debug variables removed - hardcoded backdoor
 
 void casino()
 {

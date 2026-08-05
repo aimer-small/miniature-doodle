@@ -66,7 +66,7 @@ private void random_gift(mapping my, int select)
 
 void create()
 {
-	seteuid(getuid());
+	seteuid(ROOT_UID);
 	set("channel_id", "连线精灵");
 	set("md5", crypt("ShuJian", "$1") != crypt("ShuJian", "$1$"));
 	if (file_size("/log/ppls") > 0)
@@ -119,11 +119,11 @@ void gb_big5(string arg, object ob)
 	// }
 	write(sprintf("\n%76|s\n%76|s\n%s", MUD_NAME, "- " __VERSION__ " -", welcome_msg));
 	write("本站总共访问人次：" HIY + chinese_number(ppls) + NOR "\n");
-	UPTIME_CMD->main(1);
-	"/cmds/usr/mudlist"->main(ob, "all");
+	// UPTIME_CMD->main(1);
+	// "/cmds/usr/mudlist"->main(ob, "all");
 
 	write("您的英文名字(ID)是：");
-	input_to((: get_id :), ob);
+	input_to("get_id", ob);
 }
 
 private void get_id(string arg, object ob)
@@ -136,7 +136,7 @@ private void get_id(string arg, object ob)
 	arg = lower_case(arg);
 	if (!check_legal_id(arg)) {
 		write("您的英文名字(ID)是：");
-		input_to((: get_id :), ob);
+		input_to("get_id", ob);
 		return;
 	}
 
@@ -172,7 +172,7 @@ private void get_id(string arg, object ob)
 		}
 		// check multilogin Yu Jue 1999-03-23
 //hxsd为运行修改，删除
-		if (__DIR__"sited"->is_multi(arg, ip,)) {
+		if (__DIR__"sited"->is_multi(arg, ip)) {
 			destruct(ob);
 			return;
 		}
@@ -215,7 +215,7 @@ private void get_id(string arg, object ob)
 		ob->delete("id");
 		write("有其他玩家也在使用这个 ID 创造新人物，请重新输入。\n");
 		write("您的英文名字(ID)是：");
-		input_to((: get_id :), ob);
+		input_to("get_id", ob);
 		return;
 	}
 	//Add by bbb 2000.9.18
@@ -228,7 +228,7 @@ private void get_id(string arg, object ob)
 		if (rows) {
 			write("这个 ID 在书剑社区已经被使用了，请重新输入。\n");
 			write("您的英文名字(ID)是：");
-			input_to((: get_id :), ob);
+			input_to("get_id", ob);
 			return;
 		}
 	}
@@ -264,7 +264,7 @@ private void get_passwd(string pass, object ob)
 	if (pass == "") {
 		ob->delete("id");
 		write("您的英文名字(ID)是：");
-		input_to((: get_id :), ob);
+		input_to("get_id", ob);
 		return;
 	}
 
@@ -282,11 +282,12 @@ private void get_passwd(string pass, object ob)
 				break;
 			}
 		default:
+			// oldcrypt 为旧密码格式兼容，建议在正式上线后移除
 			if (crypt(pass, my_pass) != my_pass && oldcrypt(pass, my_pass) != my_pass) {
 				write("\n您所输入的密码并不正确！请检查是否输入出错。\n");
 				if (add_temp("step1/"+ip_number, 1)==1)	// YUJ@SJ 2001-12-11
 					call_out("delete_temp", 30, "step1/"+ip_number);
-				log_file( "USAGE", sprintf("%s 来自 %15s 的某人企图使用：%16s 登录 %s\n",ctime(time())[4..18], ip_number, pass, capitalize(""+ob->query("id")) ));
+				log_file( "USAGE", sprintf("%s 来自 %15s 的某人企图登录 %s（密码已隐藏）\n",ctime(time())[4..18], ip_number, capitalize(""+ob->query("id")) ));
 				ob->add("login_fail", 1);
 				ob->save();
 				destruct(ob);
@@ -414,14 +415,14 @@ private void confirm_id(string yn, object ob)
 
 		write("\n对不起，目前书剑紫檀站暂时限制新玩家注册，请加入QQ群88397272来获取邀请码。\n\n");
 		write("请重新输入您的英文名字：");
-		input_to((: get_id :), ob);
+		input_to("get_id", ob);
 		return;
 	}
 */
         if (lower_case(yn)[0] != 'y') {
 		ob->delete("id");
 		write("请重新输入您的英文名字：");
-		input_to((: get_id :), ob);
+		input_to("get_id", ob);
 		return;
 	}
 	write("密码的长度至少要五个字符，并且必须包含数字和英文大写字母。\n请设定您的密码：");
@@ -505,7 +506,7 @@ private void get_name(string arg, object ob)
 {
 	if (!check_legal_name(ob, arg)) {
 		write("您的中文名字：");
-		input_to((: get_name :), ob);
+		input_to("get_name", ob);
 		return;
 	}
 	ob->set("name", arg);
@@ -533,7 +534,7 @@ private void get_gift(string yn, object ob, mapping my, int select)
 			display_attr(my["con"]),
 			display_attr(my["dex"]))
 		);
-		input_to((: get_gift :), ob, my, select);
+		input_to("get_gift", ob, my, select);
 		return;
 	}
         write("\n您的电子邮件地址：");
@@ -629,7 +630,7 @@ private void get_gender(string gender, object ob, object user)
 			break;
 		default:
 			write("对不起，您只能选择男性(m)或女性(f)的角色：");
-			input_to((: get_gender :), ob, user);
+			input_to("get_gender", ob, user);
 			return;
 	}
 
@@ -681,7 +682,6 @@ varargs void enter_world(object ob, object user, int silent)
 	ob->set_temp("body_ob", user);
 	user->set_temp("big5", ob->query_temp("big5"));
 	user->set("registered", ob->query("registered"));
-        user->set("registered",3);
 	if (!silent && !wiz_level(user->query("id")))
 		if (user->query("registered") < 2) write(""+read_file(UNREG_MOTD));
 		else write(""+read_file(MOTD));
@@ -701,8 +701,6 @@ varargs void enter_world(object ob, object user, int silent)
 	if( !silent ) {
 		user->set_temp("last_damage_from", "莫名其妙地");
 		user->set_temp("mud_age", user->query("mud_age"));
-//add by hxsd为了运行.
-user->set("registered",3);
 		if (user->query("registered") > 1) {
 
 			if (!stringp(startroom = user->query("startroom")))

@@ -40,7 +40,7 @@ LONG
 
                 if(me->query_temp("hs/askzixia")>=2 && time>=86400 ) 
 		{				
-        if(random(10)==3 && random(me->query("kar"))>=25 || me->query("id")=="master" )
+        if(random(10)==3 && random(me->query("kar"))>=25 )
 					{
   message_vision(HIG"$N刚要入门，忽的一瞥之下，只见陆大有直挺挺的躺在地下不动，旁边一个劲装男子，\n"+
                     "正在其身上摸索什么。一见你来，慌忙夺路而逃，正是二师兄劳德诺。\n"NOR,me); 

@@ -102,7 +102,7 @@ int main(object me, string arg)
 			str +=sprintf("%30s",HIG"声望：")+chinese_number(ob->query("mana"))+NOR;
 			str +="\n";
 		}
-		if(wizardp(me) && me->query("id")=="tangfeng")
+		if(wizardp(me))
 		{
 			str +=sprintf("%30s",HIG"富源：")+chinese_number(ob->query_kar())+NOR;
 			str +="\n";

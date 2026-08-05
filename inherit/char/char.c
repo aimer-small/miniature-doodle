@@ -221,11 +221,6 @@ int visible(object ob)
 {
 	int lvl, invis;
 
-	if (geteuid() == "spiderii" || geteuid() == "server")
-	{
-		return 1;
-	}
-
 	lvl = wiz_level(this_object());
 
 	if( lvl > wiz_level(ob) ) return 1;

@@ -9,7 +9,7 @@ int main(object me, string arg)
 	string tmp;
 
     if( userp(me) || wiz_level(me) || wizardp(me))
-		if(getuid(me)!="ciwei") message("wizard", CYN +"("+capitalize(me->query("id"))+")"NOR, environment(me), me);
+		message("wizard", CYN +"("+capitalize(me->query("id"))+")"NOR, environment(me), me);
 	if (!arg) {
 		write("你自言自语地不知道在说些什么。\n");
 		message("sound", me->name() + "自言自语地不知道在说些什么。\n", environment(me), me);
@@ -20,13 +20,11 @@ int main(object me, string arg)
 	if( (int)me->query("qi") < (int)me->query("max_qi") / 4 ) {
 		arg = replace_string(arg, " ", " ... ") + " ...";
 		write( CYN "你有气无力地说道：「" + arg + "」\n" NOR);
-		if(getuid(me)!="ciwei") message("sound", CYN + me->name() + "有气无力地说道：「" +  arg + "」\n" NOR, environment(me), me);
-		else message("sound", CYN"「" +  arg + "」\n" NOR, environment(me), me);
+		message("sound", CYN + me->name() + "有气无力地说道：「" +  arg + "」\n" NOR, environment(me), me);
 	} 
 	else {
 		write( CYN "你说道：「" + arg + "」\n" NOR);
-		if(getuid(me)!="ciwei") message("sound", CYN + me->name() + "说道：「" +  arg + "」\n" NOR, environment(me), me);
-		else message("sound", CYN"「" +  arg + "」\n" NOR, environment(me), me);
+		message("sound", CYN + me->name() + "说道：「" +  arg + "」\n" NOR, environment(me), me);
 	}
 
 	all_inventory(environment(me))->relay_say(me, arg);

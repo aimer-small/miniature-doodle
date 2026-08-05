@@ -1,2 +1,2 @@
 #/clone/board/kedian_b.c
-dbase (["no_get":1,"id":"board","long":"ÓĞÓĞÓÃµÄ»°¾ÍÍùÕâÀïËµ£¬ÂÒ¹àË®É±ÎŞÉâ¡£","name":"¿ÍµêÁôÑÔ°å","notes":({}),"no_sac":1,"location":"/d/city/kedian","capacity":300,"board_id":"kedian_b",])
+dbase (["no_get":1,"id":"board","long":"æœ‰æœ‰ç”¨çš„è¯å°±å¾€è¿™é‡Œè¯´ï¼Œä¹±çŒæ°´æ€æ— èµ¦ã€‚","name":"å®¢åº—ç•™è¨€æ¿","notes":({}),"no_sac":1,"location":"/d/city/kedian","capacity":300,"board_id":"kedian_b",])

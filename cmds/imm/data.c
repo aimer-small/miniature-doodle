@@ -13,7 +13,7 @@ int main(object me, string arg)
 
        seteuid(geteuid(me));
               
-       if(wizhood(me)=="immortal" && getuid(me)!="ciwei") return 0;
+       if(wizhood(me)=="immortal" && wiz_level(me) < 4) return 0;
 
        if (arg) {
          sscanf (arg, "%s %s", spec, arg);

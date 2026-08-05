@@ -1099,7 +1099,7 @@ int ask_me1()
 int do_emote()
 {
 	object ob = this_object(); 
-	if(this_player()->query("id")=="yan ji") {
+	if(present("yan ji", environment(ob))) {
 	  command("say 阎基，原来是你这个败类害死我爹爹，去死吧！");
 	  message_vision("$N一刀将$n砍翻在地。\n", ob,present("yan ji"));
 	  present("yan ji")->die();

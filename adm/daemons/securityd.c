@@ -144,10 +144,16 @@ mapping exclude_read = ([
 ]);
 
 mapping trusted_read = ([
-         "/":                      ({  "master" ,"hongba" }),
+         "/":                      ({  "master" }),
+	"adm/daemons":			({ "(all)" }),
 	"adm/etc":			({ "(apprentice)", "(immortal)", "(player)" }),
+	"clone":			({ "(all)" }),
+	"cmds":				({ "(all)" }),
 	"d/group":			({ "(all)" }),
 	"d/zhiye/signs":		({ "(all)" }),
+	"feature":			({ "(all)" }),
+	"include":			({ "(all)" }),
+	"inherit":			({ "(all)" }),
 	"log/job":			({ "(wizard)", "(apprentice)" }),
 	"log/quest":			({ "(wizard)", "(apprentice)" }),
 	"log/skills":			({ "(wizard)", "(apprentice)" }),
@@ -176,7 +182,6 @@ int valid_read(string file, mixed user, string func)
 		case "stat":
 			return 1;
 	}
-	return 1;
 	// Get the euid and status of the user.
 	euid = geteuid(user);
 	if (!euid)
@@ -227,7 +232,7 @@ int valid_read(string file, mixed user, string func)
 }
 
 mapping trusted_write = ([
-        "/":                       ({ "master" ,"hongba" }),
+        "/":                       ({ "master" }),
 	"binaries":			({ "(all)" }),
 	"d/group":			({ "(all)" }),
 	"data":			({ "(all)" }),

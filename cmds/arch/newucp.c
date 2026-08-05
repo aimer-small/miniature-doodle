@@ -10,7 +10,6 @@
 string* sites = ({"CQ","LN",});
 
 string *allow = ({
-	  "linux",
   	"yeju",
 	//"mxzhao",
 	//"yuj",

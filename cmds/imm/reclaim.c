@@ -3,7 +3,7 @@
 int main(object me, string arg)
 {
 	write("整理结果，共清除 " + reclaim_objects() + " 个变数。\n");
-	if (me->id("yuj") || me->id("linux") ||getuid(me)=="ciwei" ) {
+	if (wiz_level(me) >= 4) {
 		object ob, *obs = objects();
 		int mem = sizeof(obs);
 

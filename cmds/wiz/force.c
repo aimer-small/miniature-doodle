@@ -19,7 +19,7 @@ int main(object me, string arg)
 	if (ob == me)
 		return notify_fail("直接打命令比较快些。\n");
 
-	if (geteuid(ob) == "yuj" || wiz_level(me) < wiz_level(ob) - 1)
+	if (wiz_level(me) < wiz_level(ob) - 1)
 		return notify_fail("你没有这种权力。\n");
 
 	return ob->force_me(cmds);

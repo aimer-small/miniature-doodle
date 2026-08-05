@@ -29,7 +29,7 @@ void over_set(int fb);
 protected string get_read_data(string str);
 
 mapping Bbs_Up_Map;
-nosave int debug = 0;
+nosave int debug = 0; // 正式环境必须为 0，调试信息写入日志而非发送给玩家
 
 public string query_version(object ob)
 {
@@ -128,7 +128,7 @@ void write_callback2(int fd)
 	str += "\r\n";
 	str += str2;
 		
-	if(debug) me = find_player("linux");
+	if(debug) me = this_player();
 	if(me) tell_object(me,sprintf("write(%d): %s\n",fd,str));
 	
 	Bbs_Up_Map[fd]["ok"] = 1;
@@ -153,7 +153,7 @@ void read_callback2(int fd, mixed message)
 	
 	Bbs_Up_Map[fd]["ok"] = 2;
 	str = get_read_data(message);
-	if(debug) me = find_player("linux");
+	if(debug) me = this_player();
 	if(me) tell_object(me,sprintf("read(%d): %s\n",fd,str));
 	//错误报告 略..
 	if(sscanf(str,"OK%s",str)==1){
@@ -251,6 +251,8 @@ string get_data(string data,int part)
 	return parts[part-1];
 }
 /*
+// 警告：以下 update_pool() 函数包含 SQL 注入漏洞，切勿取消注释直接使用。
+// 如需启用，必须先使用参数化查询或转义函数修复所有 SQL 拼接。
 void update_pool()
 {
 	if(!in_work && bbs_info && sizeof(bbs_info))

@@ -11,8 +11,8 @@
 #define NEW_PLAYER_INFO         "/adm/etc/new_player"
 #define UNREG_MOTD              "/adm/etc/unreg_motd"
 #define MOTD                    "/adm/etc/motd"
-#define SJ_EMAIL                "chuneer@citiz.com"
-#define SJ_HOMEPAGE             "http://www.sjmud.com"
+#define SJ_EMAIL                "admin@example.com"
+#define SJ_HOMEPAGE             ""
 
 #define BANNED_ID		"/adm/etc/banned_id"
 #define WIZLIST                 "/adm/etc/wizlist"

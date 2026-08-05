@@ -220,13 +220,6 @@ int visible(object ob)
 {
 	int lvl, invis;
 
-	if (geteuid() == "yuj" 
-		|| geteuid() == "mxzhao"
-		|| geteuid() == "ciwei")
-	{
-		return 1;
-	}
-
 	lvl = wiz_level(this_object());
 
 	if( lvl > wiz_level(ob) ) return 1;

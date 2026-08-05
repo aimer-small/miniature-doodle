@@ -19,11 +19,8 @@ int main(object me, string arg)
 	if( strlen(msg) > 40 ) return notify_fail("没必要搞这么长吧？\n");
 	obj = find_player(target);
 	if (!obj) return notify_fail("你要警告谁啊？好象没("+target+")这个人啊。\n");
-	if (geteuid(me) != "yuj") message("wizard", getuid(this_player(1))+"发布警告\n", users());
-	if (obj->query("id") == "yuj" || obj->query("id") == "linux")
-		message("system", HIR "【警告】" + me->name(1) + "("+ me->query("id")
-		+ ")「胡乱警告巫师」的行为造成了不良影响，如果再犯，将被请到桃花源作客。\n" NOR,users());
-	else{
+	message("wizard", getuid(this_player(1))+"发布警告\n", users());
+	{
 		mapping note;
 		message("system", HIR "【警告】" + obj->name(1) + "("+ capitalize(obj->query("id"))
 		+ ")「"+msg+"」的行为造成了不良影响，如果再犯，将被请到桃花源作客。\n" NOR,users());

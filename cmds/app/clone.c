@@ -48,7 +48,6 @@ int main(object me, string file)
 		write(obj->query("name") + "复制成功，放在你的物品栏。\n");
 		message_vision(msg + "\n", me, obj);
 		// log it
-		if (geteuid(me) != "yuj")
 		log_file("static/CLONE_OBJ",
 			sprintf("%s(%s) clone %s(%s)\n",
 				me->name(1), geteuid(me),
@@ -65,7 +64,6 @@ int main(object me, string file)
 		write(obj->query("name") + "复制成功，放在这个房间。\n");
 		message_vision(msg + "\n", me, obj);
 		// log for clones
-		if (geteuid(me) != "yuj")
 		log_file("static/CLONE_OBJ",
 			sprintf("%s(%s) clone %s(%s)(%s)\n",
 				me->name(1), geteuid(me),

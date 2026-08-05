@@ -5,7 +5,6 @@ inherit F_DBASE;
 nosave mapping valid_login = ([
 	// 总站巫师
            "master":    ({ "222", "124.", "58.","116" }),                 
-           "hongba":    ({ "222", "124.", "218.","116" }),                 
  
        	]);
 
@@ -63,7 +62,13 @@ int is_multi(string id, string ip, string port)
 	object *usr;
 	string *site = keys(valid_multi);
 	int i, login_cnt = 0;
+	int ip1;
 	string ipname = IP_D->ip2name(ip);
+
+	// 本地回环地址不受多IP限制（用于Web代理穿透）
+	if (sscanf(ip, "%d.%*d.%*d.%*d", ip1) == 4) {
+		if (ip1 == 127) return 0;
+	}
 
 	if (query(ip) && query(ip) != port) {
 		write("您的地址刚有人登录，请等会再试。\n");

@@ -37,17 +37,7 @@ nosave mapping resolve_pending;
 nosave string *months;
 
 mapping files;
-/*
-([
-		"/u/ciwei/man.c":([
-				"wizard":"ciwei",
-				"code":  "喜欢",
-				"flag":([
-					"NIT":0,
-				])
-			])
-		]);
-*/
+
 void set_persistent(int which);
 void log_info(string msg);
 protected void setup();

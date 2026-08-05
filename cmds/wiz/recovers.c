@@ -61,8 +61,8 @@ int main(object me,string arg)
 		SMTP_D->send_mail(me,arg,"通知邮件",msg);
 	} else {
 		if (nod != "-p") return help(me);
- if (geteuid(me) != "hongba" && geteuid(me) != "master")
-return notify_fail("请通知8总或菜总。\n");
+ if (wiz_level(me) < 4)
+return notify_fail("你的权限不够。\n");
 		if (file_size("/data/login/" + arg[0..0] + "/" + arg + ".ppp") < 0)
 			return notify_fail(arg + " 的登录档案备份不存在，无法恢复！\n");
 		if (file_size("/data/user/"+ arg[0..0] + "/" + arg + ".ppp")<0)

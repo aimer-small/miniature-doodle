@@ -32,32 +32,6 @@ LONG
         set("incity",1);
 	setup();
 }
-/*
-void init()
-{
-    object me = this_player();
-        if(wizardp(me) && ( me->query("id")=="lsxk" ||  me->query("id")=="server" || me->query("id")=="spiderii")) {
-            if(me->query("xyjob_force")){
-                remove_call_out("reset_job");
-                call_out("reset_job",300);
-                set("pending",1);
-                job_check(me);
-                me->delete("xyjob_force");
-                return;
-            }
-    }
-        if (!query("pending"))
-        {
-                set("pending",1);
-                job_check(me);
-                return;
-        }
-}
-
-void reset_job()
-{
-        delete("pending");
-}
 
 void job_check(object ob) //判断任务随机生成
 {

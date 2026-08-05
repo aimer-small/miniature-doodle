@@ -8,3 +8,4 @@ log/wiz/
 *.utf8
 driver
 *.log
+.env

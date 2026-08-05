@@ -136,7 +136,7 @@ string ask_job()
 	
 	if(!XKD_D->query_mode() && me->query_condition("killer")) return XKD_D->query_name()+"可不想跟官府扯上什么关系。\n";
 	if(!XKD_D->query_mode() && me->query("combat_exp") <20000) return "您的武功未成，不去也罢。\n";
-   if(!XKD_D->query_mode() && wizardp(me) && getuid(me)!="lsxk") return "您老就别来捣乱了。\n";
+   if(!XKD_D->query_mode() && wizardp(me)) return "您老就别来捣乱了。\n";
 	switch(time = XKD_D->add_player(me,1))
 	{
 		case -3:command("wawa");

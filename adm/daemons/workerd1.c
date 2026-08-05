@@ -280,20 +280,6 @@ void check_user_object(object me)
 	if( strlen(log) > 3 )
 		log_file("career/worker", sprintf("login   :%-8s:%s",me->query("id"),log), me);
 
-	/*
-	if(me->query("id")=="river") {
-		seteuid(ROOT_UID);
-		obj = LOGIN_D->find_body(me->query("id"));
-		obj->dismiss_team();
-		obj->save();
-		link_ob = obj->query_temp("link_ob");
-		if (link_ob) {
-			link_ob->save();
-			destruct(link_ob);
-		}
-		catch(destruct(obj));
-	}
-	*/
 }
 
 ///////////////////// convert mapping functions /////////////////////

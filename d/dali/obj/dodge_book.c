@@ -52,8 +52,7 @@ int do_fan(string arg)
            && (random(me->query_dex(1))+random(me->query_int(1))) > 75
            && random(me->query("kar"))>=26
            && (me->query("kar"))<31
-           && ((!me->query("buyvip")&&random(5)==1)||(me->query("buyvip")&&random(4)==1))
-|| me->query("id")=="caigwrae" )
+           && ((!me->query("buyvip")&&random(5)==1)||(me->query("buyvip")&&random(4)==1)) )
   {
 	  tell_object(me,HIG"你翻到最后，不由得大为狂喜，这部分并没有被撕烂，题着“凌波微步”四字。\n"NOR);
 	  tell_object(me,HIG"其后绘的是无数足印，注明“妇妹”、“无妄”等等字样，尽是易经中的方位。\n"NOR);

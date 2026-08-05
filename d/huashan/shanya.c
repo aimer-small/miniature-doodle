@@ -34,10 +34,7 @@ int do_kao(string arg)
          if (me->is_busy() || me->is_fighting())
                  return notify_fail("你正忙着呢。\n");
 
-           if( me->query("id") !="jpei" )
-                 return notify_fail("你想要干什么？\n");
-
-         if ( (int)me->query("jingli")<400)
+           if ( (int)me->query("jingli")<400)
              {
                      write("你现在太累了，休息一下吧！\n");
              return 1;
@@ -66,9 +63,6 @@ int do_cai(string arg)
                 return notify_fail("你要采什么？\n");
         if (me->is_busy() || me->is_fighting())
                 return notify_fail("你正忙着呢。\n");
-
-          if( me->query("id") !="jpei" )
-                return notify_fail("一个声音自空中响起，“这里是天神闪电培育奇花异草之苗圃，你一介凡人是如何进来的？！”\n");
 
         if ( (int)me->query("jingli")<400)
         	{

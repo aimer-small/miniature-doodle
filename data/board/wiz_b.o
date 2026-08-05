@@ -1,2 +1,2 @@
 #/clone/board/wiz_b.c
-dbase (["board_id":"wiz_b","no_get":1,"location":"/d/wizard/wizard_room","id":"board","capacity":999,"notes":({}),"name":"Î×Ê¦ÁôÑÔ²¾","long":"ÕâÊÇÒ»¸ö×¨¹©Î×Ê¦Ê¹ÓÃµÄÁôÑÔ°å¡£","no_sac":1,])
+dbase (["board_id":"wiz_b","no_get":1,"location":"/d/wizard/wizard_room","id":"board","capacity":999,"notes":({}),"name":"å·«å¸ˆç•™è¨€ç°¿","long":"è¿™æ˜¯ä¸€ä¸ªä¸“ä¾›å·«å¸ˆä½¿ç”¨çš„ç•™è¨€æ¿ã€‚","no_sac":1,])

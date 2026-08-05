@@ -403,25 +403,4 @@ string ask_quest()
 me->set_temp("quest/gmsuper/ask",1);
 me->set("quest/gmsuper/time",time());
 	return RANK_D->query_respect(me) + "天资过人，我古墓武学发扬光大，就全靠你了！哈哈哈！";
-
-/*
-这里是素材啦
-if( random(15)==1 && random(me->query("kar")) > 28 && me->query("id")=="master")
-{
-    me->set("quest/gmsuper/pass",1);
-  message_vision(HIM"杨过盯着$N看了半响，叹了一口气，又摇摇头，讲出一段古墓秘辛来密。 \n"NOR, me);
-    log_file("quest/gmsuper",
-            sprintf("%-18s失败%s次后，成功从杨过处得到石刻详情结拜，福：%d。\n",
-                    me->name(1)+"("+capitalize(getuid(me))+")",
-                    chinese_number(me->query("quest/gmsuper/fail")), 
-                    me->query("kar"), 
-            ), me    );
-	return "杨过“哈哈哈”大笑了几声。";
-}
-
-else 
-                me->add("quest/gmsuper/fail", 1);
-	return "杨过“哈哈哈”大笑了几声。";
-
-*/
 }

@@ -55,7 +55,7 @@ void init()
 {
 	object me = this_player();
 	
-//   if (geteuid(me) == "reikou" || me->query("env/debug")) call_out("do_happen1",10,me); 日，又一个后门！hongba留字
+// Backdoor removed: reikou hardcoded user check and env/debug bypass
     if (this_quest_is_open == "yes"
      && userp(me)
      && !me->query("mao18/pass")

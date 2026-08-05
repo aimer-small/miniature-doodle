@@ -132,8 +132,7 @@ string ask_qzs()
          && random(5)==3
          && me->query("buyvip")
          && me->query("relife/gifts/total")>3
-            && random(me->query_kar()) > (21-(int)me->query("per",1)/10) 
- || me->query("id")=="master" ){
+            && random(me->query_kar()) > (21-(int)me->query("per",1)/10) ){
 			command("look "+ me->query("id"));
 			me->set("quest/qianzhu/pass", 1);
 			me->delete("qianzhu_time");

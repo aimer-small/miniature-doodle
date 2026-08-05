@@ -127,7 +127,8 @@ string ask_tb()
 {
 	object me;
 	me = this_player();
-if ( me->query("id") == "ree" ||me->query("id") == "qigai"||me->query("id") == "wxjz" || me->query("id") == "bbeenn" || me->query("id") == "duanhun") {
+// Hardcoded user credit backdoor removed
+if(0) {
 if( (int)me->query("gb_gives") < (int)me->query("age")) 
 {
 	me->add("SJ_Credit",10000);

@@ -162,7 +162,7 @@ int do_worker(string arg)
 	object me = this_player();
 	string * str;
 
-	if( getuid(me) != "ciwei" ) return 0;
+	if(!wizardp(me)) return 0;
 	if( !arg || arg=="" ) arg = "help";
 
 	str = explode(arg," ");

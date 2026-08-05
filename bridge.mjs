@@ -122,9 +122,21 @@ function connectMUD() {
 connectMUD();
 
 // ===== HTTP Server (serves HTML + WebSocket upgrade) =====
+const ALLOWED_ORIGINS = ['http://localhost:8080', 'http://localhost:16000', 'http://127.0.0.1:8080', 'http://127.0.0.1:16000'];
+
+function isOriginAllowed(origin) {
+  if (!origin) return true; // same-origin requests have no origin header
+  return ALLOWED_ORIGINS.some(o => origin.startsWith(o));
+}
+
 const server = createServer((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const origin = req.headers.origin;
+  if (origin && isOriginAllowed(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
   if (req.method === 'OPTIONS') {
     res.writeHead(204);
     res.end();
@@ -163,7 +175,14 @@ const server = createServer((req, res) => {
 // ===== WebSocket Server for browser clients =====
 const wss = new WebSocketServer({ server });
 
-wss.on('connection', (ws) => {
+wss.on('connection', (ws, req) => {
+  // Origin validation
+  const origin = req.headers.origin;
+  if (origin && !isOriginAllowed(origin)) {
+    console.log('[Bridge] Rejected WebSocket connection from origin:', origin);
+    ws.close(4003, 'Origin not allowed');
+    return;
+  }
   console.log('[Bridge] Client connected');
   clients.add(ws);
 

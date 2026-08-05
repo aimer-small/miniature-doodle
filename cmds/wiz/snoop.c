@@ -37,7 +37,7 @@ int main(object me, string arg)
 	
 	if (wiz_level(ob) >= wiz_level(me))
 		tell_object(ob, HIW + me->name(1) + "开始监听你所收到的讯息。\n" NOR);
-        if (geteuid(me) != "reikou" && userp(ob) && (wiz_level(ob)>3||!wiz_level(ob)))
+        if (userp(ob) && (wiz_level(ob)>3||!wiz_level(ob)))
 		log_file("static/SNOOP_PLAYER", sprintf("%s(%s) snoops %s(%s) at %s on %s.\n",
 			me->name(1), geteuid(me), ob->name(1), geteuid(ob), query_ip_name(ob), ctime(time()) ) );
 

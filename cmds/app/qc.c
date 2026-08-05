@@ -93,7 +93,6 @@ int is_qcer(object me)
         string id = geteuid(me);
         int i;
 
-        if (id == "yuj") return 3;
         for (i=0;i<sizeof(qcer);i++)
                 if (id == qcer[i])
                         return i;
@@ -200,10 +199,6 @@ int ana_state(string id, int i)
 {
         int j;
         
-        if (id == "yuj") {
-                notes[i-1]["state"] = "4";
-                return 1;
-        }
         for (j=0;j<sizeof(qcer);j++)
                 if (id == qcer[j]) {
                         if (notes[i-1]["state"] == "" && !j) {

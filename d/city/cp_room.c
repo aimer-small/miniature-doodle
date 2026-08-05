@@ -93,10 +93,6 @@ void init()
     add_action("do_chakan", "chakan");
     add_action("buy_caipiao","buy");
     add_action("do_duijiang","duijiang");
-/*
-    if(wizardp(this_player()) && this_player()->query("id")=="lsxk")
-        add_action("do_zuobi","zuobi");
-*/
 
 }
 

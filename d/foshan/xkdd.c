@@ -107,7 +107,7 @@ void init_start()
 	start_time = time()+IN_TIME;
 	total_exp = 0;
 	one_live = 0;
-	author = find_player("ciwei");
+	author = 0;
 	remove_call_out("check");
 	call_out("check",2);
 }

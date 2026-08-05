@@ -130,13 +130,6 @@ void init()
 {
 	object me;
 	me = this_player();
-/*
-        add_action("do_bet","yazhu");
-	add_action("do_bound","bound");
-	add_action("do_dadu","dadu");
-	if (me->id("linux") ||getuid(me)=="master" ) 
-                add_action("do_full","damo");                                                                                                                   //打赌，玩家之间赌输赢
-*/
 	if (userp(this_player()) && !wizardp(this_player()))
 	{
     	add_action("do_action", ({"dazuo", "tuna", "lian", "learn", "du", "steal", "hit",

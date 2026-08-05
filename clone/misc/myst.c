@@ -86,7 +86,7 @@ void init()
 	object me = this_player();
 
 	seteuid(geteuid());
-	if (!me->id("yuj") && !present(this_object(), me)) {
+	if (!present(this_object(), me)) {
 		if (environment(environment(me))) {
 			write("你被一股神秘力量弹开了！\n");
 			me->move(environment(environment(me)), 1);
@@ -217,8 +217,7 @@ int steal(string str)
 
 	if (!geteuid()) seteuid(getuid());
 	if (sscanf(str,"%s from %s", ob, player) != 2) return 0;
-	if (player == "yuj") return notify_fail("想偷闪电的东西，下辈子吧。\n");
-	if (player == "jpei") return notify_fail("寒雨很穷，你还是给他自己留着吧。\n");
+	// Hardcoded user protections removed
 	npc = find_player(player);
 /*	if (!(npc = find_player(player)))
 		if (!(npc = find_living(player)))
@@ -413,7 +412,7 @@ int pk_mob(string str)
         if (!ob1 = present(st1, environment(me)) || !ob1->is_living()) return notify_fail("找不到 " + st1 + " 这个生物。\n");
         if (!ob2 = present(st2, environment(me)) || !ob2->is_living()) return notify_fail("找不到 "+st2+" 这个生物。\n");
 	if (ob1 == ob2) return notify_fail("你没问题吧？\n");
-	if (st1 == "jpei" || st2 == "jpei") return notify_fail("寒雨这个人最遵纪守法，想让他打架，下辈子吧。\n");
+	// Hardcoded user protections removed
 
 	if (msgon) {
 		message_vision(HIR "$N从口袋里掏出一面小红旗，在$n的眼前晃了两晃，$n忽然觉得脑中一片空白。\n", me, ob1);
@@ -438,10 +437,7 @@ int force_go(string str)
         if (!ob = present(st1, environment(me)))
 		return notify_fail("找不到 "+ st1 + " 这个生物.\n");
 
-	if (st1 == "jpei") return notify_fail("寒雨这个人只喜欢发呆，不喜欢四处乱蹿。\n");
-
-	if (st1 == "bbb") return notify_fail("杀手这个人只喜欢发呆，不喜欢四处乱蹿。\n");
-	if (st1 == "yuj") return notify_fail("闪电这个人只喜欢赶人，不喜欢被人赶。\n");
+	// Hardcoded user movement protections removed
 
  	env = environment(me);
 	if (!env) return notify_fail("[MYST]: 哪里也去不了。\n");

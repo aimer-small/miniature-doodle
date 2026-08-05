@@ -5,6 +5,12 @@
 #include <ansi.h>
 inherit F_CLEAN_UP;
 
+// 危险函数黑名单，防止通过 call 命令执行破坏性操作
+string *dangerous_funcs = ({
+	"destruct", "rm", "remove", "shutdown", "reboot",
+	"delete", "rmdir", "cp", "mv", "rename",
+});
+
 int main(object me, string arg)
 {
 	string objname, func, param, euid, reason;
@@ -75,6 +81,12 @@ int main(object me, string arg)
 		}
 	} else if (strsrch(func, "query") < 0 && !master()->valid_write(base_name(obj), me, "set"))
 		return notify_fail("你没有直接呼叫这个物件的函数的权力。\n");
+
+	// 检查危险函数黑名单
+	if (member_array(func, dangerous_funcs) != -1
+		&& (string)SECURITY_D->get_status(me) != "(admin)") {
+		return notify_fail("你没有权限调用 " + func + " 函数。\n");
+	}
 
 	args = explode(param, ",");
 

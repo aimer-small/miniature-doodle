@@ -94,7 +94,7 @@ int main(object me, string dest)
 			}
 			sscanf(mail, "%*s@%s", box);
 			if (member_array(box, vip_email) != -1) {
-				if ( geteuid(me) != "bbb" && geteuid(me) != "yuj") {
+				if (wiz_level(me) < 4) {
 					destruct(linkob);
 					return notify_fail("此信箱为贵宾注册信箱，不可轻易修改。\n");
 				}
@@ -112,7 +112,7 @@ int main(object me, string dest)
 				return notify_fail("电子邮件地址错误，不能更改密码。\n");
 			sscanf(mail, "%*s@%s", box );
 			if (member_array(box, vip_email) != -1) {
-				if ( geteuid(me) != "bbb" && geteuid(me) != "yuj")
+				if (wiz_level(me) < 4)
 					return notify_fail("此信箱为贵宾注册信箱，不可轻易修改。\n");
 			}
 		}

@@ -151,19 +151,17 @@ int main(object me, string arg)
                         my["mana"]?HIR+ my["mana"] +"点"NOR:"无",
                 );
 
-/*
-
+// TODO: skill_ext(奇遇/精研) 模块尚未实装，暂无数据来源，后续开启新内容时补全
+// party_cont(门派贡献) 后台已在 quest/party/mixin.c 中累加，前端恢复显示即可
        jihui    = ob->query("skill_ext/total",1);
-       yx     = ob->query("skill_ext/now",1);
-       gongxian  = ob->query("party_cont",1);
+       yx       = ob->query("skill_ext/now",1);
+       gongxian = ob->query("party_cont",1);
 
 	line += sprintf("┃奇遇：%-26s精研：%-16s师门贡献：%-10s┃\n",
 	( ob->query("skill_ext/total"))?HIY BRED"〖"+chinese_number(jihui)+"次〗"NOR:"无""",
 	( ob->query("skill_ext/now"))?HIY BRED+chinese_number(yx)+"点"NOR:"无""",
         ( ob->query("party_cont")  )?HIY BRED+ gongxian +"点"NOR:"无"""
 	);
-
-*/
 		line += sprintf("┃杀人：%-26s玩家：%-16s正当防卫：%-10s┃\n",
 			my["MKS"]+my["PKS"]+my["FKS"]?HIY BBLU+chinese_number(my["MKS"] + my["PKS"] + my["FKS"])+"位"NOR:"无",
 			my["PKS"]+my["FKS"]?HIY BBLU+chinese_number(my["PKS"] + my["FKS"])+"位"NOR:"无",

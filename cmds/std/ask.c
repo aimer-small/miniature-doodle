@@ -153,12 +153,7 @@ int main(object me, string arg)
                                 //message_vision( CYN "$N对你点了点头说道：我最近听说有一件大事情哦，让我悄悄告诉你吧。\n" NOR, ob);
                                 ob->force_me("whisper " + me->query("id") +" "+msg);
                                 break;
-                        case "bbb":
-                        case "yuj":
-                        case "linux":
-                        	EMOTE_D->do_emote(ob, "fear");
-                        	message_vision(CYN "$N对$n说道：「别在我面前提这么可怕的名字好不好。」\n" NOR, ob,me);
-				break;
+                        /* Hardcoded user easter eggs removed */
 			/*case "任督二脉":
 				if ((int)ob->query_skill("force",1) < 60 ) 
 					message_vision(msg_dunno[random(sizeof(msg_dunno))], me, ob);
