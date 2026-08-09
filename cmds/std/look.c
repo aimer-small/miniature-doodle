@@ -101,9 +101,17 @@ void realtime_map(object me,object env)
                 {
                         if(!room_obj=find_object(exits[dirs[i]]))
                                 room_obj=load_object(exits[dirs[i]]);
-                        if(room_obj){                                
-                                if (room_obj->query("short"))
-                                alldirs[dirs[i]]=room_obj->query("short");                              ;
+                        if(room_obj){
+                                if (room_obj->query("short")) {
+                                	string room_short = room_obj->query("short");
+                                	// Translate room name for English users
+                                	if (me && userp(me) && me->query("env/language") == "en") {
+                                		string en_short = room_obj->query("short_en");
+                                		if (!en_short) en_short = TRANSLATE_D->translate(room_short);
+                                		room_short = en_short;
+                                	}
+                                	alldirs[dirs[i]]=room_short;
+                                }
                                 }
         
                 }
@@ -277,11 +285,33 @@ int look_room(object me, object env, int night)
 			"一切都被夜色所笼罩，连脚下的道路都模糊不清了... \n";
 	}
 
-	str = sprintf( "%s - %s\n    %s%s",
-		env->query("short"),
-		wizardp(me)? file_name(env): "",
-		str?str:env->query("long"),
-		env->query("outdoors")? NATURE_D->outdoor_room_description() : "" );
+	// Bilingual support: if user prefers English, translate room descriptions
+	if (me && userp(me) && me->query("env/language") == "en") {
+		string short_en = env->query("short_en");
+		string long_en = env->query("long_en");
+		
+		if (!short_en) {
+			string short_cn = env->query("short");
+			if (short_cn) short_en = TRANSLATE_D->translate(short_cn);
+			else short_en = short_cn;
+		}
+		if (!long_en) {
+			string long_cn = env->query("long");
+			if (long_cn) long_en = TRANSLATE_D->translate(long_cn);
+			else long_en = long_cn;
+		}
+		
+		str = sprintf( "%s - %s\n    %s%s",
+			short_en,
+			wizardp(me)? file_name(env): "",
+			str?str:long_en,
+			env->query("outdoors")? NATURE_D->outdoor_room_description() : "" );
+	} else
+		str = sprintf( "%s - %s\n    %s%s",
+			env->query("short"),
+			wizardp(me)? file_name(env): "",
+			str?str:env->query("long"),
+			env->query("outdoors")? NATURE_D->outdoor_room_description() : "" );
 
 	// Client Send
 	if( me && userp(me) && CLIENT_D->IsClient(me) ) {

@@ -103,7 +103,15 @@ int main(object me, string arg)
 	if (userp(me) && !wizardp(me) && me->query("jingli") < cost)
 		return notify_fail("你太累了，休息一下再走吧。\n");
 
-	dir = obj->query("short");
+	// Bilingual support for room name display
+	if (me && userp(me) && me->query("env/language") == "en") {
+		dir = obj->query("short_en");
+		if (!dir) {
+			string cn_short = obj->query("short");
+			dir = TRANSLATE_D->translate(cn_short);
+		}
+	} else
+		dir = obj->query("short");
 	
 	if (obj->query("daytime_only") && NATURE_D->is_night()){
 		if(stringp(min = obj->query("daytime_only"))) return notify_fail(min);
@@ -113,19 +121,27 @@ int main(object me, string arg)
 	if (!undefinedp(default_dirs[arg]))
 		dir = default_dirs[arg] + "的" + dir;
 
+	// Bilingual support for from-room name
+	string from_room_name = env->query("short");
+	if (me && userp(me) && me->query("env/language") == "en") {
+		string en_from = env->query("short_en");
+		if (!en_from) en_from = TRANSLATE_D->translate(from_room_name);
+		if (en_from) from_room_name = en_from;
+	}
+
 	if (me->is_fighting() && !me->clean_up_enemy() && me->is_fighting()) {
 		mout = "往" + dir + "落荒而逃了。\n";
-		min = "从" + env->query("short") + "跌跌撞撞地跑了过来，模样有些狼狈。\n";
+		min = "从" + from_room_name + "跌跌撞撞地跑了过来，模样有些狼狈。\n";
 	} else {
 		min = mout = me->query_condition("killer")?
 			"神色慌张地":"";
 		mout += "往" + dir + "离开。\n";
 		switch(me->query("race")) {
 			case "人类":
-				min += "从" + env->query("short") + "走了过来。\n";
+				min += "从" + from_room_name + "走了过来。\n";
 				break;
 			default:
-				min = "从" + env->query("short") + "蹿了过来。\n";
+				min = "从" + from_room_name + "蹿了过来。\n";
 		}
 	}
 

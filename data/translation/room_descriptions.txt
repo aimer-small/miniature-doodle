@@ -1,0 +1,353 @@
+# Room Description Translations - 房间描述中英对照表
+# Format: Chinese = English
+# This file is loaded by TRANSLATE_D on startup
+
+# ============ Central Plaza / 中央广场 ============
+中央广场 = Central Plaza
+这里是城市的正中心，一个很宽阔的广场，铺着青石地面。一些游手好闲的人在这里溜溜达达，经常有艺人在这里表演。你可以看到东边和南边是几家大的店铺，来自全国各地的行人来来往往，西面是扬州戌守兵营，而北边则是扬州巡抚衙门的所在。广场中央有一棵老桃树(tree)，显得十分的粗壮，树上的树叶(leaf)非常茂密，有几只不知名的小鸟在其中窜来窜去。大树旁边有一块新立的牌子(sign)。 = This is the center of Yangzhou city, a wide plaza paved with bluestone. Idlers wander about and performers often entertain here. Large shops line the east and south sides. Travelers from all over the country come and go. To the west is the garrison barracks, and to the north is the governor's office. In the center stands an old peach tree (tree) with dense foliage (leaf) where little birds dart about. A newly erected sign (sign) stands beside the tree.
+
+# ============ North Street / 北大街 ============
+北大街 - 扬州 = North Street - Yangzhou
+北大街 = North Street
+这是一条宽阔的青石街道，南边是热闹的广场。 = This is a wide bluestone street. To the south is the bustling plaza.
+
+# ============ South Street / 南大街 ============
+南大街 - 扬州 = South Street - Yangzhou
+南大街 = South Street
+这是一条宽阔的青石街道，北边是热闹的广场，南边是扬州南门。 = This is a wide bluestone street. To the north is the plaza, to the south is the South Gate.
+
+# ============ East Street / 东大街 ============
+东大街 - 扬州 = East Street - Yangzhou
+东大街 = East Street
+这是一条宽阔的青石街道，西边是热闹的广场，东边是扬州东门。 = This is a wide bluestone street. To the west is the plaza, to the east is the East Gate.
+
+# ============ West Street / 西大街 ============
+西大街 - 扬州 = West Street - Yangzhou
+西大街 = West Street
+这是一条宽阔的青石街道，东边是热闹的广场，西边是扬州西门。 = This is a wide bluestone street. To the east is the plaza, to the west is the West Gate.
+
+# ============ North Gate / 北门 ============
+北门 - 扬州 = North Gate - Yangzhou
+北门 = North Gate
+这是扬州城的北门。 = This is the North Gate of Yangzhou.
+
+# ============ South Gate / 南门 ============
+南门 - 扬州 = South Gate - Yangzhou
+南门 = South Gate
+这是扬州城的南门。 = This is the South Gate of Yangzhou.
+
+# ============ East Gate / 东门 ============
+东门 - 扬州 = East Gate - Yangzhou
+东门 = East Gate
+这是扬州城的东门。 = This is the East Gate of Yangzhou.
+
+# ============ West Gate / 西门 ============
+西门 - 扬州 = West Gate - Yangzhou
+西门 = West Gate
+这是扬州城的西门。 = This is the West Gate of Yangzhou.
+
+# ============ Drunken Immortal Tower / 醉仙楼 ============
+醉仙楼 - 扬州 = Drunken Immortal Tower - Yangzhou
+醉仙楼二楼 = Drunken Immortal Tower - Second Floor
+醉仙楼 = Drunken Immortal Tower
+这里是醉仙楼，扬州最有名的酒楼。 = This is the Drunken Immortal Tower, the most famous restaurant in Yangzhou.
+店里弥漫着酒菜的香气。 = The aroma of food and wine fills the air.
+二楼是雅座，可以俯瞰整个街景。 = The second floor has private booths overlooking the street.
+
+# ============ Teahouse / 茶馆 ============
+茶馆 - 扬州 = Teahouse - Yangzhou
+茶馆 = Teahouse
+这里是扬州最有名的茶馆。 = This is the most famous teahouse in Yangzhou.
+店里弥漫着淡淡的茶香。 = The subtle fragrance of tea fills the air.
+
+# ============ Weapons Shop / 兵器铺 ============
+兵器铺 - 扬州 = Weapon Shop - Yangzhou
+兵器铺 = Weapon Shop
+这里摆放着各式各样的兵器。 = All kinds of weapons are displayed here.
+
+# ============ General Store / 杂货铺 ============
+杂货铺 - 扬州 = General Store - Yangzhou
+杂货铺 = General Store
+这里出售各种日常用品。 = Various daily necessities are sold here.
+
+# ============ Bank / 钱庄 ============
+钱庄 - 扬州 = Bank - Yangzhou
+钱庄 = Bank
+这里是扬州最大的钱庄。 = This is the largest bank in Yangzhou.
+
+# ============ Pawnshop / 当铺 ============
+当铺 - 扬州 = Pawnshop - Yangzhou
+当铺 = Pawnshop
+这里可以典当物品换取银两。 = You can pawn items here for silver.
+
+# ============ Pharmacy / 药铺 ============
+药铺 - 扬州 = Pharmacy - Yangzhou
+药铺 = Pharmacy
+这里出售各种草药和丹药。 = Various herbs and pills are sold here.
+
+# ============ Government Office / 衙门 ============
+衙门 - 扬州 = Government Office - Yangzhou
+衙门 = Government Office
+这里是扬州巡抚衙门。 = This is the Yangzhou governor's office.
+
+# ============ Blacksmith / 铁匠铺 ============
+铁匠铺 - 扬州 = Blacksmith - Yangzhou
+铁匠铺 = Blacksmith
+叮叮当当的打铁声不绝于耳。 = The clanging of blacksmithing rings in your ears.
+
+# ============ Jail / 大牢 ============
+大牢 - 扬州 = Jail - Yangzhou
+大牢 = Jail
+这里是扬州大牢。 = This is the Yangzhou city jail.
+
+# ============ Temple / 庙 ============
+城隍庙 - 扬州 = City God Temple - Yangzhou
+城隍庙 = City God Temple
+一座古老的庙宇。 = An ancient temple.
+
+# ============ Academy / 书院 ============
+书院 - 扬州 = Academy - Yangzhou
+书院 = Academy
+这里是扬州书院。 = This is the Yangzhou Academy.
+
+# ============ Martial Arts School / 武馆 ============
+武馆 - 扬州 = Martial Arts School - Yangzhou
+武馆 = Martial Arts School
+这里是扬州武馆。 = This is the Yangzhou Martial Arts School.
+
+# ============ Docks / 码头 ============
+码头 - 扬州 = Dock - Yangzhou
+码头 = Dock
+这里是扬州码头。 = This is the Yangzhou dock.
+
+# ============ Hotel / 客栈 ============
+客栈 - 扬州 = Inn - Yangzhou
+客栈 = Inn
+客栈后院 = Inn Backyard
+客栈二楼 = Inn Upper Floor
+一家干净的客栈。 = A clean and tidy inn.
+客栈里人来人往，十分热闹。 = The inn is bustling with activity.
+
+# ============ Brothel / 妓院 ============
+丽春院 - 扬州 = Spring Garden - Yangzhou
+丽春院 = Spring Garden
+
+# ============ Casino / 赌场 ============
+赌场 - 扬州 = Casino - Yangzhou
+赌场 = Casino
+
+# ============ Park / 公园 ============
+瘦西湖 - 扬州 = Slender West Lake - Yangzhou
+瘦西湖 = Slender West Lake
+荷花池 - 扬州 = Lotus Pond - Yangzhou
+荷花池 = Lotus Pond
+小亭子 = Small Pavilion
+花园 = Garden
+
+# ============ Field / 野外 ============
+青石大道 = Bluestone Road
+山路 = Mountain Path
+林间小道 = Forest Path
+小河边 = Small Riverside
+土路 = Dirt Road
+官道 = Official Road
+驿道 = Post Road
+小径 = Path
+
+# ============ Yangzhou surroundings / 扬州郊外 ============
+扬州郊外 = Yangzhou Outskirts
+这里是扬州郊外。 = This is the outskirts of Yangzhou.
+一片绿油油的田野。 = A field of lush green crops.
+远处可以看到扬州城的轮廓。 = The outline of Yangzhou city can be seen in the distance.
+
+# ============ Chang'an / 长安 ============
+长安城 = Chang'an City
+长安 = Chang'an
+朱雀大街 = Zhuque Avenue
+玄武门 = Xuanwu Gate
+青龙门 = Qinglong Gate
+白虎门 = Baihu Gate
+大明宫 = Daming Palace
+大雁塔 = Giant Wild Goose Pagoda
+小雁塔 = Small Wild Goose Pagoda
+碑林 = Forest of Steles
+钟楼 = Bell Tower
+鼓楼 = Drum Tower
+兵马俑 = Terracotta Warriors
+华清池 = Huaqing Pool
+骊山 = Li Mountain
+兵马俑博物馆 = Terracotta Warriors Museum
+
+# ============ Chengdu / 成都 ============
+成都城 = Chengdu City
+成都 = Chengdu
+望江楼 = River Viewing Tower
+武侯祠 = Marquis Wu Shrine
+杜甫草堂 = Du Fu's Thatched Cottage
+青羊宫 = Green Goat Temple
+锦里 = Jinli Ancient Street
+宽窄巷子 = Wide and Narrow Alley
+都江堰 = Dujiangyan Irrigation System
+# ============ Dali / 大理 ============
+大理城 = Dali City
+大理 = Dali
+天龙寺 = Tianlong Temple
+洱海 = Erhai Lake
+苍山 = Cangshan Mountain
+蝴蝶泉 = Butterfly Spring
+三塔 = Three Pagodas
+大理古城 = Dali Ancient City
+# ============ Suzhou / 苏州 ============
+苏州城 = Suzhou City
+苏州 = Suzhou
+拙政园 = Humble Administrator's Garden
+留园 = Lingering Garden
+狮子林 = Lion Grove Garden
+寒山寺 = Hanshan Temple
+虎丘 = Tiger Hill
+枫桥 = Maple Bridge
+山塘街 = Shantang Street
+# ============ Emei / 峨眉山 ============
+峨眉山 = Mount Emei
+峨眉 = Mount Emei
+报国寺 = Baoguo Temple
+万年寺 = Wannian Temple
+金顶 = Golden Summit
+清音阁 = Pure Sound Pavilion
+一线天 = A Thread of Sky
+猴区 = Monkey Zone
+# ============ Quanzhen / 全真教 ============
+全真教 = Quanzhen Sect
+终南山 = Zhongnan Mountain
+活死人墓 = Living Dead Tomb
+重阳宫 = Chongyang Palace
+# ============ Gumu / 古墓 ============
+古墓 = Ancient Tomb
+古墓派 = Ancient Tomb Sect
+古墓派 = Ancient Tomb Sect
+# ============ Kunlun / 昆仑山 ============
+昆仑山 = Kunlun Mountain
+昆仑 = Kunlun
+昆仑三圣 = Kunlun Three Saints
+# ============ Songshan / 嵩山 ============
+嵩山 = Mount Song
+少林寺 = Shaolin Temple
+少林 = Shaolin
+# ============ Fairyland / 桃源 ============
+世外桃源 = Paradise
+桃源 = Paradise
+# ============ Mingjiao / 明教 ============
+明教 = Ming Cult
+光明顶 = Bright Light Peak
+圣火令 = Sacred Fire Token
+# ============ Mongolia / 蒙古 ============
+蒙古 = Mongolia
+大草原 = Prairie
+蒙古包 = Yurt
+# ============ Quest / 任务 ============
+任务 = Quest
+任务已经完成 = Quest completed
+任务失败 = Quest failed
+任务奖励 = Quest reward
+
+# ============ Common system messages / 常见系统消息 ============
+你要往哪个方向走？ = Which direction do you want to go?
+这个方向没有出路。 = There is no exit in that direction.
+你哪里也去不了。 = You cannot go anywhere.
+你正忙着哪！ = You are busy!
+你的动作还没有完成，不能移动。 = You haven't finished your action yet, you can't move.
+你的负荷过重，动弹不得。 = You are overloaded and can't move.
+你太累了，休息一下再走吧。 = You are too tired, rest a while before moving.
+你太累了，先歇歇吧！ = You are too tired, take a rest!
+你正在摆摊，起身不得。 = You are running a stall, you can't get up.
+你又不在战斗中跑什么跑？ = You're not in combat, why are you running?
+你要看什么？ = What do you want to look at?
+你要爬什么？ = What do you want to climb?
+你要摇什么？ = What do you want to shake?
+你要拍什么？ = What do you want to hit?
+你要射什么？ = What do you want to shoot?
+你要摘什么？ = What do you want to pick?
+你要做什么？ = What do you want to do?
+你要去哪里？ = Where do you want to go?
+你要干什么？ = What do you want to do?
+你往 = You go
+落荒而逃了 = and flee in panic
+离开了 = leaves
+走了过来 = arrives
+从 = from
+离开 = leaves
+蹿了过来 = scurries over
+# ============ Common NPC messages / 常见NPC消息 ============
+$N被一阵风卷走了。 = $N is swept away by the wind.
+$N掏出一 = $N takes out
+$N对着 = $N says to
+$N喝道 = $N shouts
+$N苦着脸道 = $N says with a bitter face
+$N大怒 = $N is furious
+$N伸手 = $N reaches out
+$N往手心里啐了两口唾沫 = $N spits into their palms
+# ============ Common Combat / 常见战斗 ============
+你还在战斗中！ = You are still in combat!
+你已经死了。 = You are already dead.
+你死了。 = You have died.
+你想要杀谁？ = Who do you want to kill?
+你想要攻击谁？ = Who do you want to attack?
+你想要跟着谁？ = Who do you want to follow?
+你开始跟随 = You start following
+你停止跟随 = You stop following
+你对着 = You say to
+你说道 = You say
+你说 = You say
+你大声说道 = You exclaim
+你悄悄说道 = You whisper
+# ============ Common Directions / 常见方向 ============
+ east = east
+ west = west
+ south = south
+ north = north
+ up = up
+ down = down
+ enter = enter
+ out = out
+ northeast = northeast
+ northwest = northwest
+ southeast = southeast
+ southwest = southwest
+ eastup = east-up
+ eastdown = east-down
+ westup = west-up
+ westdown = west-down
+ northup = north-up
+ northdown = north-down
+ southup = south-up
+ southdown = south-down
+# ============ Common Room Descriptions / 常见房间描述补充 ============
+这里是一家客栈，供南来北往的旅客歇脚住宿。 = This is an inn for travelers from all directions to rest and stay.
+这里是一家茶馆，供路人歇脚喝茶。 = This is a teahouse where passersby can rest and have tea.
+这里是一家酒楼，酒香四溢。 = This is a restaurant filled with the aroma of wine.
+这里是一家店铺，出售各种货物。 = This is a shop selling various goods.
+这里是一家当铺，可以典当物品。 = This is a pawnshop where you can pawn items.
+这里是一家钱庄，可以存取银两。 = This is a bank where you can deposit and withdraw silver.
+这里是一家药铺，出售各种药材。 = This is a pharmacy selling various medicinal herbs.
+这里是一家铁匠铺，叮叮当当的打铁声不绝于耳。 = This is a blacksmith's shop, the clanging of hammer on iron fills the air.
+这里是一家杂货铺，出售各种日常用品。 = This is a general store selling various daily necessities.
+这里是一家武馆，可以学习武功。 = This is a martial arts school where you can learn martial arts.
+这里是一家书店，出售各种书籍。 = This is a bookstore selling various books.
+这里是一家首饰店，出售各种金银首饰。 = This is a jewelry shop selling various gold and silver ornaments.
+这里是一家服装店，出售各种衣物。 = This is a tailor shop selling various clothes.
+这里是一家兵器铺，出售各种兵器。 = This is a weapon shop selling various weapons.
+这里是一家赌场，人声嘈杂。 = This is a casino, noisy with the sounds of gambling.
+这里是一座庙宇，香火鼎盛。 = This is a temple with flourishing incense offerings.
+这里是一座书院，传出朗朗读书声。 = This is an academy, the sound of reading can be heard.
+这里是一座衙门，庄严肃穆。 = This is a government office, solemn and dignified.
+这里是一座花园，鸟语花香。 = This is a garden filled with birdsong and flowers.
+这里是一座小桥，流水潺潺。 = This is a small bridge over a babbling stream.
+这里是一片树林，树木茂密。 = This is a forest with dense trees.
+这里是一片竹林，清幽雅致。 = This is a bamboo grove, peaceful and elegant.
+这里是一片田野，一望无际。 = This is a vast field stretching to the horizon.
+这里是一条小河，河水清澈见底。 = This is a small river with crystal clear water.
+这里是一个码头，停泊着几艘小船。 = This is a dock with several small boats moored here.
+这里是一个广场，人来人往。 = This is a plaza bustling with people.
+这里是一条小巷，十分幽静。 = This is a small alley, very quiet.
+这里是一条大街，人来人往。 = This is a main street, bustling with people.
+这里是一条青石路，通向远方。 = This is a bluestone road leading into the distance.

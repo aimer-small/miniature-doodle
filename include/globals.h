@@ -26,6 +26,7 @@
 #define SAVE_EXTENSION	".o"
 
 // Daemons
+#define TRANSLATE_D		"/adm/daemons/translated"
 #define PERFORM_D		"/adm/daemons/performd"
 #define ALIAS_D		"/adm/daemons/aliasd"
 #define BAOSHI_D	"/adm/daemons/baoshid"
@@ -114,6 +115,7 @@
 
 //
 // Inheritable Standard Objects
+#define BILINGUAL_ROOM	"/inherit/room/bilingual_room"
 #define BANK		"/inherit/room/bank"
 #define BULLETIN_BOARD	"/inherit/misc/bboard"
 #define CHARACTER	"/inherit/char/char"
