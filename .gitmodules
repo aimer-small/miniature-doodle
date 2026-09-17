@@ -1,0 +1,4 @@
+[submodule "gomud"]
+	path = gomud
+	url = https://github.com/aimer-small/gomud-wuxia.git
+	branch = feature/wuxia-server
